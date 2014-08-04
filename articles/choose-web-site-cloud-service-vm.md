@@ -1,279 +1,463 @@
-<properties linkid="manage-scenarios-choose-web-app-service" urlDisplayName="Web Options for Azure" pageTitle="Azure Web Sites, Cloud Services and Virtual Machines comparison" metaKeywords="Cloud Services, Virtual Machines, Web Sites" description="Learn when to use Azure Web Sites, Cloud Services, and Virtual Machines for hosting web applications. Review a feature comparison." metaCanonical="" services="web-sites,virtual-machines,cloud-services" documentationCenter="" title=" Cloud Services" authors="jroth" solutions="" manager="paulettm" editor="mollybos" />
+<properties  linkid="manage-scenarios-choose-web-app-service" urlDisplayName="Web Options for Azure" pageTitle="Azure Web Sites, Cloud Services and Virtual Machines comparison" metaKeywords="Cloud Services, Virtual Machines, Web Sites" description="Learn when to use Azure Web Sites, Cloud Services, and Virtual Machines for hosting web applications. Review a feature comparison." metaCanonical="" services="web-sites,virtual-machines,cloud-services" documentationCenter="" title=" Cloud Services" authors="jroth" solutions="" manager="paulettm" editor="mollybos" />
 
+# Azure Web Siteleri, Bulut Hizmetleri ve Sanal Makineleri'nin karşılaştırması
 
+Azure, web uygulamalarınızı barındırmanız için [Azure Web Siteleri][1], [Bulut Hizmetleri][2] ve [Sanal Makineler][3] gibi farklı yöntemler sunar. Bu farklı seçeneklere göz attıktan sonra hangisinin ihtiyaçlarınızı karşılayacağından emin olamayabilirsiniz veya IaaS ve PaaS kavramları yeterli bilginiz olmayabilir. Bu makale, sunulan seçenekleri anlamanıza ve web senaryonuz için doğru seçimi yapmanıza yardımcı olur. Üç seçenek de Azure'da yüksek düzeyde ölçeklendirilebilir web uygulamaları çalıştırmanızı sağlamasına rağmen karar vermenize yardımcı olacak farklara sahiptirler.
 
+Birçok durumda Azure Web Siteleri sen iyi seçenektir. Dağıtım ve yönetim için basit ve esnek seçenekler sunar, yüksek hacimli web siteleri barındırabilir. Web Uygulama Galerisi'nden seçebileceğiniz WordPress gibi popüler bir yazılımla hızlı bir şekilde web sitesi oluşturabilir veya varolan bir web sitesini Azure Web Siteleri'ne taşıyabilirsiniz. Şu anda önizlemede olan [Azure WebJobs SDK][4]'sini kullanarak arka plan iş işlemleri ekleyebilirsiniz.
 
+Aynı zamanda Azure Bulut Hizmetleri veya Azure Sanal Makineleri'nde web uygulamaları barındırabilirsiniz. Web katmanınız, ek denetim seviyesi ve özelleştirme gerektiriyorsa iyi birer seçenektir ancak yüksek düzeyde denetim nedeniyle uygulama oluşturma, yönetim ve dağıtım işlemleri de karmaşıklaşır. Aşağıdaki diyagramda bu üç seçenek arasındaki farklar gösterilmektedir.
 
-# Azure Web Sites, Cloud Services and Virtual Machines comparison
+![ChoicesDiagram](./media/choose-web-site-cloud-service-vm/Websites_CloudServices_VMs_2.png)
 
-Azure offers several ways to host your web applications, such as [Azure Web Sites][], [Cloud Services][], and [Virtual Machines][]. After looking at these various options, you might be unsure which one best fits your needs, or you might be unclear about concepts such as IaaS vs PaaS. This article helps you understand your options and helps you make the right choice for your web scenario. Although all three options allow you to run highly scalable web applications in Azure, there are differences which can help guide your decision.
+Web Siteleri'nin kurulumu, yönetimi ve izlenmesi daha kolaydır ancak sahip olduğunuz yapılandırma seçenekleri daha azdır. Web ön ucunu Bulut Hizmetleri'nde veya Sanal Makineler'de oluşturmanız gerekmiyorsa Azure Web Siteleri'ni kullanın. Bu belgenin geri kalanında doğru bir karar vermenize yardımcı olacak bilgilere yer verilmektedir. Bunlar:
 
-In many situations, Azure Web Sites is the best option. It provides simple and flexible options for deployment and management, and it is capable of hosting high-volume web sites. You can quickly create a new web site with popular software, such as WordPress, from the Web Application Gallery, or you can move an existing web site to Azure Web Sites. Using the [Azure WebJobs SDK][] (currently in preview) you can also add background job processing. 
+* [Senaryolar](#scenarios)
+* [Hizmet Özetleri](#services)
+* [Özelliklerin Karşılaştırması](#features)
 
-You also have the option to host web applications on Azure Cloud Services or Azure Virtual Machines. These options are good choices when your web tier requires the additional level of control and customization that they provide; however, this increased control comes at a cost of increased complexity in application creation, management, and deployment. The following diagram illustrates the trade-offs among the three options.
+## <a name="scenarios"></a>Senaryolar
 
-![ChoicesDiagram][ChoicesDiagram]
+### Küçük işletme sahibiyim, sitemi barındırmak için düşük maliyetli bir yönteme ihtiyacım ancak gelecekte işletmeyi büyütmeyi planlıyorum.
 
-Web Sites are easier to set up, manage, and monitor, but you have fewer configuration options. The key point is that when you do not have a compelling reason to place your web front-end on Cloud Services or Virtual Machines, use Azure Web Sites. The remainder of this document provides the information needed to make an informed decision. This includes:
+Azure Web Siteleri (WAWS) bu senaryo için harika bir çözümdür; ücretsiz olarak kullanmaya başlayabilir ve ardından ihtiyaç duyduğunuzda daha fazla özellik ekleyebilirsiniz. Örneğin, ücretsiz web sitelerinin tümü Azure tarafından sağlanan bir etki alanıyla gelir (*your_company*.azurewebsites.net). Kendi etki alanınızı kullanmak isterseniz bu özelliği aylık 9,80 ABD doları gibi düşük bir ücret karşılığında ekleyebilirsiniz (Ocak 2014 tarihinden itibaren geçerlidir). Kullanıcı talebi arttıkça sitenizin gelişmesini sağlayacak çok sayıda başka hizmet ve ölçeklendirme seçeneği bulunur. **Azure Web Siteleri** ile şunları yapabilirsiniz:
 
-- [Scenarios](#scenarios)
-- [Service Summaries](#services)
-- [Feature Comparison](#features)
+* Ücretsiz olarak kullanmaya başladıktan sonra ölçeği ihtiyaç duyduğunuz
+  kadar büyütebilirsiniz.
+* WordPress gibi popüler web uygulamalarını kolay bir şekilde kurmak
+  için Uygulama Galerisini kullanabilirsiniz.
+* Uygulamanıza gerektiğinde ek Azure hizmetleri ve özellikleri
+  ekleyebilirsiniz.
+* *your_company*.azurewebsites.net etki alanı için sağlanmış sertifikayı
+  kullanarak HTTPS ile web sitenizin güvenliğini sağlayabilirsiniz.
 
-##<a name="scenarios"></a>Scenarios
+### Web tasarımcısı veya grafik tasarımcısıyım, müşterilerim için web sitesi tasarlamak ve oluşturmak istiyorum
 
-### I'm a small business owner, and I need an inexpensive way to host my site but with future growth in mind.
+Azure Web Siteleri, web geliştiricilerinin karmaşık web uygulamaları oluşturmak için ihtiyaç duydukları araçları ve özellikleri sağlar. Web Siteleri, Visual Studio ve SQL veritabanı gibi araçlarla yüksek düzeyde bütünleştirme sağlar. **Web Siteleri** ile geliştiriciler şunları yapabilir:
 
-Azure Web Sites (WAWS) is a great solution for this scenario, because you can start using it for free and then add more capabilities when you need them. For example, each free web site comes with a domain provided by Azure (*your_company*.azurewebsites.net). When you’re ready to start using your own domain, you can add this for as low as $9.80 a month (as of 1/2014). There are many other services and scaling options that allow the site to evolve with increased user demand. With **Azure Web Sites**, you can:
+* [Otomatik görevler][5] için komut satırı araçlarını kullanabilirler.
+* [.Net][6], [PHP][7], [Node.js][8] ve [Python][9].gibi popüler
+  programlama dilleriyle çalışabilirler.
+* Yüksek kapasitelere çıkmak için üç farklı ölçeklendirme seçeneğinden
+  yararlanabilirler.
+* [SQL Veritabanı][10], [Hizmet Veri Yolu][11] ve [Depolama][12] gibi
+  Azure hizmetleriyle veya iş ortaklarının [Azure Mağazası][13]
+  aracılığıyla sunduğu MySQL, MongoDB vb. veritabanlarıyla tümleştirme
+  sağlayabilirler.
+* Visual Studio, Git, WebMatrix, WebDeploy, TFS ve FTP gibi araçlarla
+  tümleştirme sağlayabilirler.
 
-- Begin with the free tier and then scale up as needed.
-- Use the Application Gallery to quickly setup popular web applications, such as WordPress.
-- Add additional Azure services and features to your application as needed.
-- Secure your web site with HTTPS using the certificate provided with your *your_company*.azurewebsites.net domain name.
+### Web ön ucuna sahip çok katmanlı uygulamamı Buluta taşıyorum
 
-### I'm a web or graphic designer, and I want to design and build web sites for my customers
+Web sitesinin verilerini depolamak ve almak için veritabanı sunucusuyla iletişim kuran web sunucusu gibi çok katmanlı bir uygulama çalıştırıyorsanız Azure'da birkaç seçenek bulabilirsiniz. Bu mimari seçeneklere Web Siteleri, Bulut Hizmetleri ve Sanal Makineler dahildir. **Web Siteleri**, çözümünüzün web katmanına yönelik iyi bir seçimdir, iki katmanlı bir mimari oluşturmak için Azure SQL Veritabanı ile kullanılabilir. Web Siteleri ayrıca Azure WebJobs SDK önizlemesini kullanarak arka planda veya uzun süreli çalışan süreçleri çalıştırmanıza izin verir. Daha karmaşık mimariye veya daha esnek ölçeklendirme seçeneklerine ihtiyaç duyuyorsanız Bulut Hizmetleri veya Sanal Makineler bunlar için daha uygundur.
 
-For web developers, Azure Web Sites gives you what you need to create sophisticated web applications. Web Sites offers tight integration with tools such as Visual Studio and SQL database. With **Web Sites**, developers can:
+**Bulut Hizmetleri** ile şunları yapabilirsiniz:
 
-- Use command-line tools for [automated tasks][scripting].
-- Work with popular languages such as [.Net][dotnet], [PHP][], [Node.js][nodejs], and [Python][].
-- Select three different scaling levels for scaling up to very high capacities.
-- Integrate with other Azure services, such as [SQL Database][sqldatabase], [Service Bus][servicebus] and [Storage][], or partner offerings from the [Azure Store][azurestore], such as MySQL and MongoDB.
-- Integrate with tools, such as Visual Studio, Git, WebMatrix, WebDeploy, TFS, and FTP.
+* Web, orta katman ve arka uç hizmetlerini ölçeklendirilebilen web ve
+  çalışan rollerinde barındırabilirsiniz.
+* Çalışan rollerinde yalnızca orta katman ve arka uç hizmetlerini
+  barındırabilir, ön ucu Azure Web Siteleri'nde bırakabilirsiniz.
+* Ön uç ve arka uç hizmetlerini birbirlerinden bağımsız olarak
+  ölçeklendirebilirsiniz.
 
-### I'm migrating my multi-tier application with a web front-end to the Cloud
+**Sanal Makineler** ile şunları yapabilirsiniz:
 
-If you’re running a multi-tier application, such as a web server that talks to a database server to store and retrieve website data, you have several options for in Azure. These architectural options include Web Sites, Cloud Services, and Virtual Machines. First, **Web Sites** is a good option for the web tier of your solution and can be used with Azure SQL Database to create a two-tier architecture. Web Sites also allows you to run background or long running processes using the Azure WebJobs SDK preview. If you need more complex architecture or more flexible scaling options, Cloud Services or Virtual Machines are a better choice. 
+* Yüksek düzeyde özelleştirilmiş ortamları sanal makine görüntüsü olarak
+  kolay bir şekilde taşıyabilirsiniz.
+* Web Siteleri veya Bulut Hizmetleri üzerinde yapılandırılamayan
+  yazılımları veya hizmetleri çalıştırabilirsiniz.
 
-**Cloud Services** enables you to:
+### Uygulamam yüksek düzeyde özelleştirilmiş Windows veya Linux ortamına bağlı
 
-- Host web, middle-tier, and backend services on scalable web and worker roles. 
-- Host only the middle-tier and backend services on worker roles, keeping the front-end on Azure Web Sites. 
-- Scale frontend and backend services independently.
+Uygulamanız karmaşık yazılım ve işletim sistemi yükleme veya yapılandırma işlemleri gerektiriyorsa Sanal Makineler büyük olasılıkla en iyi çözümdür. **Sanal Makineler** ile şunları yapabilirsiniz:
 
-**Virtual Machines** enables you to: 
+* Sanal Makine galerisini kullanarak Windows veya Linux gibi bir işletim
+  sistemi başlatabilir ve ardından ortamı uygulamanızın gereksinimlerine
+  uygun şekilde özelleştirebilirsiniz.
+* Azure'daki sanal makinede çalıştırılmak üzere varolan bir şirket içi
+  sunucunun özel görüntüsünü oluşturabilir ve karşıya yükleyebilirsiniz.
 
-- More easily migrate highly customized environments as a virtual machine image.
-- Run software or services that cannot be configured on Web Sites or Cloud Services.
+### Sitem açık kaynaklı yazılım kullanıyor ve siteyi Azure'da barındırmak istiyorum
 
-### My application depends on highly customized Windows or Linux environments
+Üç seçenekte de açık kaynaklı dilleri ve çerçeveleri barındırabilirsiniz. **Bulut Hizmetleri**'nde, Windows'da çalışan gerekli açık kaynaklı yazılımları yüklemek ve yapılandırmak için başlangıç görevlerini kullanmanız gerekir. **Virtual Makineler**'de yazılımı Windows veya Linux tabanlı makine görüntüsüne yüklersiniz ve burada yapılandırırsınız. Açık kaynaklı çerçeveniz Web Siteleri tarafından destekleniyorsa, Web Siteleri uygulamanız için gerekli diller ve çerçevelerle otomatik olarak yapılandırıldığından bu tür uygulamalar daha kolay bir şekilde barındırılır. **Web Siteleri** ile şunları yapabilirsiniz:
 
-If your application requires complex installation or configuration of software and the operating system, Virtual Machines is probably the best solution. With **Virtual Machines**, you can:
+* [.Net][6], [PHP][7], [Node.js][8] ve [Python][9].gibi popüler açık
+  kaynaklı dilleri kullanabilirsiniz.
+* WordPress, Drupal, Umbraco, DNN ve daha birçok üçüncü taraf web
+  uygulamasını kurabilirsiniz.
+* Varolan bir uygulamayı taşıyabilir veya Uygulama Galerisi ile yeni bir
+  uygulama oluşturabilirsiniz.
 
-- Use the Virtual Machine gallery to start with an operating system, such as Windows or Linux, and then customize it for your application requirements. 
-- Create and upload a custom image of an existing on-premises server to run on a virtual machine in Azure. 
+### Şirket ağına bağlanması gereken bir iş kolu uygulamasına sahibim
 
-### My site uses open source software, and I want to host it in Azure
+İş kolu uygulaması oluşturmak istiyorsanız, web sitenizin şirket ağında
+bulunan hizmetlere veya verilere doğrudan erişmesi gerekebilir. Bu,
+**Web Siteleri**, **Bulut Hizmetleri** ve **Sanal Makinler** ile
+yapılabilir. Seçtiğiniz yaklaşıma göre şu farklar görülebilir:
 
-All three options allow you to host open source languages and frameworks. **Cloud Services** requires you to use startup tasks to install and configure any required open source software that runs on Windows. With **Virtual Machines**, you install and configure the software on the machine image, which can be Windows or Linux-based. If your open source framework is support on Web Sites, this provides a simpler way to host these types of applications as Web Sites can be automatically configured with the languages and frameworks needed by your application. **Web Sites** enables you to:
+* Web Siteleri şirket içi kaynaklara Hizmet Veri Yolu Geçişi'ni
+  kullanarak güvenli bir şekilde bağlanabilir. Böylece her şeyi Bulut'a
+  taşımadan veya sanal ağ kurmadan şirket ağındaki hizmetler web hizmeti
+  yerine görevleri gerçekleştirilebilir.
+* Bulut Hizmetleri ve Sanal Makineler, Sanal Ağ'dan yararlanabilir.
+  Sanal Ağ, Azure'da çalışan makinelerin şirket içi ağa bağlanmasını
+  sağlar. Böylece Azure, şirket veri merkezinizin bir uzantısı haline
+  gelir.
 
-- Use many popular open source languages, such as [.NET][dotnet], [PHP][], [Node.js][nodejs], and [Python][]. 
-- Setup WordPress, Drupal, Umbraco, DNN, and many other third-party web applications. 
-- Migrate an existing application or create a new one from the Application Gallery. 
+### Mobil istemcilere yönelik REST API veya web hizmeti barındırmak istiyorum
 
-### I have a line-of-business application that needs to connect to the corporate network
+HTTP tabanlı web hizmetleri, mobil müşteriler dahil olmak üzere birçok farklı müşteriye yönelik destek sunmanızı sağlar. REST hizmetlerini daha kolay oluşturmak ve kullanmak için ASP.NET Web API gibi çerçeveler Visual Studio ile tümleştirilir. Bu hizmetler bir web ön ucunda açık bir şekilde yer aldığından bu senaryoyu desteklemek için Azure üzerinde herhangi bir web barındırma yöntemi kullanılabilir. Bununla birlikte
+**Web Siteleri**, REST API'lerini barındırmak için harika bir seçimdir. Web Siteleri ile şunları yapabilirisiniz:
 
-If you want to create a line-of-business application, your web site might require direct access to services or data on the corporate network. This is possible on **Web Sites**, **Cloud Services**, and **Virtual Machines**. There are differences in the approach you take, which include the following:
+* HTTP web hizmetini Azure'un küresel olarak dağıtılmış veri
+  merkezlerinde barındırılacak bir Web Sitesini kolayca
+  oluşturabilirsiniz.
+* Visual Studio içindeki ASP.NET Web API'dan yararlanarak varolan
+  hizmetleri taşıyabilir veya yeni hizmetler oluşturabilirsiniz.
+* Tek bir örnekte kullanılabilirlik SLA'sı elde edebilir veya birden
+  fazla adanmış makineye ölçeklendirebilirsiniz.
+* Mobil istemciler dahil olmak üzere tüm HTTP istemcileri için REST
+  API'lar sağlamak üzere yayımlanmış siteyi kullanabilirsiniz.
 
-- Web Sites can securely connect to on-premises resources through the use of Service Bus Relay. This allows services on the corporate network to perform tasks on behalf of the web application without moving everything to the Cloud or setting up a virtual network. 
-- Cloud Services and Virtual Machines can take advantage of Virtual Network. In effect, Virtual Network allows machines running in Azure to connect to an on-premises network. Azure then becomes an extension of your corporate datacenter.
+## <a name="services"></a>Hizmet Özetleri
 
-### I want to host a REST API or web service for mobile clients
+[Azure Web Siteleri][1], Azure'da kolay bir şekilde yüksek düzeyde ölçeklendirilebilir web siteleri oluşturmanızı sağlar. .NET, PHP, Node.js ve Python gibi popüler programlama dilleri ile bir web sitesi kurmak için Azure Portalı'nı veya komut satırı araçlarını kullanabilirsiniz. Desteklenen çerçeveler zaten dağıtılmıştır ve başka bir yükleme adımı gerektirmez. Azure Web Siteleri galerisi, Drupal ve WordPress gibi üçüncü taraf uygulamaların yanı sıra Django ve CakePHP gibi geliştirme çatılarını da içerir. Site oluşturduktan sonra varolan bir web sitesini taşıyabilir veya tamamen yeni bir web sitesi oluşturabilirisiniz. Web Siteleri, fiziksel donanım yönetimi gerekliliğini ortadan kaldırır ve birçok ölçeklendirme seçeneği sunar. Paylaşılan çok kiracılı modelden gelen trafiği adanmış makinelerin yönettiği standart moda geçebilirsiniz. Web Siteleri aynı zamanda SQL Veritabanı, Hizmet Veri Yolu ve Depolama gibi diğer Azure hizmetleriyle tümleştirme imkanı tanır. [Azure WebJobs SDK][4] önizlemesini kullanarak arka plan işlemi ekleyebilirisiniz. Kısaca Azure Web Siteleri, çeşitli dilleri, açık kaynaklı uygulamaları ve dağıtım metodolojilerini (FTP, Git, Web Deploy veya TFS) destekleyerek uygulama geliştirmeye odaklanmayı kolaylaştırır. Bulut Hizmetleri veya Sanal Makineleri gerektiren özel nedenler yoksa Azure Web Siteleri büyük olasılıkla sizin için en iyi seçimdir.
 
-HTTP-based web services allows you to support a wide variety of clients, including mobile clients. Frameworks like the ASP.NET Web API integrate with Visual Studio to make it easier to create and consume REST services.  These services are exposed from a web endpoint, so it is possible to use any web hosting technique on Azure to support this scenario. However, **Web Sites** is a great choice for hosting REST APIs. With Web Sites, you can:
+[Bulut Hizmetleri][2] zengin Hizmet olarak Platform (PaaS) ortamında yüksek düzeyde kullanılabilirliğe sahip, ölçeklendirilebilen web uygulamaları oluşturmanızı sağlar. Web Siteleri'nin aksine bulut hizmeti Azure'da dağıtılmadan önce Visual Studio gibi bir dağıtım ortamında oluşturulur. PHP vb. çerçeveler, çerçeveyi başlangıç rolüne yükleyen özel dağıtım adımları veya görevleri gerektirirler. Bulut Hizmetleri'nin en önemli avantajı daha karmaşık çok katmanlı mimarileri destekleme özelliğine sahip olmasıdır. Bulut hizmeti bir ön web rolü ve bir veya daha fazla çalışan rollerinden oluşabilir. Her katman birbirinden bağımsız olarak ölçeklendirilebilir. Web uygulamanızın altyapısına yönelik yüksek düzeyde denetim sağlar. Örneğin, rol örneklerini çalıştıran makinelerde uzaktan masaüstünü kullanabilirsiniz. Ayrıca yönetici denetimi gerektiren görevler dahil olmak üzere rol başlangıcında çalıştırılan daha gelişmiş IIS ve makine yapılandırma değişikleri komut dosyası oluşturabilirsiniz.
 
-- Quickly create a Web Site to host the HTTP web service in one of Azure’s globally distributed datacenters.
-- Migrate existing services or create new ones, potentially taking advantage of the ASP.NET Web API in Visual Studio.
-- Achieve SLA for availability with a single instance, or scale out to multiple dedicated machines. 
-- Use the published site to provide REST APIs to any HTTP clients, including mobile clients.
+[Sanal Makineler][3], Azure'daki sanal makinelerde web uygulamaları çalıştırmanızı sağlar. Bu özellik, Hizmet olarak Altyapı (IaaS) olarak da bilinir. Portal üzerinde Windows Server veya Linux makineleri oluşturabilir veya varolan bir sanal makine görüntüsünü karşıya yükleyebilirsiniz. Sanal Makineler; işletim sistemi, yapılandırma, yüklü yazılımlar ve hizmetler üzerinde en yüksek seviyede denetim imkanı tanır. Makineler bütün olarak taşınabildiğinden karmaşık şirket içi web uygulamalarını kolay bir şekilde buluta taşımak için en uygun seçenektir. Ayrıca Sanal Ağlar ile bu sanal makineleri şirket içi ağlara bağlayabilirsiniz. Bulut Hizmetlerinde olduğu gibi bu makinelere uzaktan erişebilir ve yönetici düzeyinde yapılandırma değişiklikleri gerçekleştirebilirsiniz. Bununla birlikte Web Siteleri ve Bulut Hizmetleri'nin aksine sanal makinelerinizin görüntülerini ve uygulama mimarisini tamamen altyapı düzeyinde yönetmeniz gerekir. Örneğin, işletim sisteminizin düzeltme eklerini kendiniz uygulamanız gerekir.
 
-##<a name="services"></a>Service Summaries
+## <a name="features"></a>Özelliklerin Karşılaştırması
 
-[Azure Web Sites][] enables you to build highly scalable web sites quickly on Azure. You can use the Azure Portal or the command-line tools to set up a web site with popular languages such as .NET, PHP, Node.js, and Python. Supported frameworks are already deployed and do not require more installation steps. The Azure Web Sites gallery contains many third-party applications, such as Drupal and WordPress as well as development frameworks such as Django and CakePHP. After creating a site, you can either migrate an existing web site or build a completely new web site. Web Sites eliminates the need to manage the physical hardware, and it also provides several scaling options. You can move from a shared multi-tenant model to a standard mode where dedicated machines service incoming traffic. Web Sites also enable you to integrate with other Azure services, such as SQL Database, Service Bus, and Storage. Using the [Azure WebJobs SDK][] preview, you can add background processing. In summary, Azure Web Sites make it easier to focus on application development by supporting a wide range of languages, open source applications, and deployment methodologies (FTP, Git, Web Deploy, or TFS). If you don’t have specialized requirements that require Cloud Services or Virtual Machines, an Azure Web Site is most likely the best choice.
+Aşağıdaki tabloda, en doğru kararı vermenize yardımcı olmak için Web Siteleri, Bulut Hizmetleri ve Sanal Makineler karşılaştırılmıştır. Notlarda yıldız işaretine sahip kutularla ilgili daha fazla açıklama yer almaktadır.
 
-[Cloud Services][] enable you to create highly-available, scalable web applications in a rich Platform as a Service (PaaS) environment. Unlike Web Sites, a cloud service is created first in a development environment, such as Visual Studio, before being deployed to Azure. Frameworks, such as PHP, require custom deployment steps or tasks that install the framework on role startup. The main advantage of Cloud Services is the ability to support more complex multitier architectures. A single cloud service could consist of a frontend web role and one or more worker roles. Each tier can be scaled independently. There is also an increased level of control over your web application infrastructure. For example, you can remote desktop onto the machines that are running the role instances. You can also script more advanced IIS and machine configuration changes that run at role startup, including tasks that require administrator control.
-
-[Virtual Machines][] enable you to run web applications on virtual machines in Azure. This capability is also known as Infrastructure as a Service (IaaS). Create new Windows Server or Linux machines through the portal, or upload an existing virtual machine image. Virtual Machines give you the most control over the operating system, configuration, and installed software and services. This is a good option for quickly migrating complex on-premises web applications to the cloud, because the machines can be moved as a whole. With Virtual Networks, you can also connect these virtual machines to on-premises corporate networks. As with Cloud Services, you have remote access to these machines and the ability to perform configuration changes at the administrative level. However, unlike Web Sites and Cloud Services, you must manage your virtual machine images and application architecture completely at the infrastructure level. One basic example is that you have to apply your own patches to the operating system.
-
-##<a name="features"></a>Feature Comparison
-
-The following table compares the capabilities of Web Sites, Cloud Services, and Virtual Machines to help you make the best choice. Boxes with an asterisk are explained more in the notes following the table.
-
-<table cellspacing="0" border="1">
+<table  cellspacing="0" border="1">
 <tr>
-   <th align="left" valign="middle">Feature</th>
-   <th align="left" valign="middle">Web Sites</th>
-   <th align="left" valign="middle">Cloud Services (web roles)</th>
-   <th align="left" valign="middle">Virtual Machines</th>
+   <th  align="left" valign="middle">Özellik</th>
+
+   <th  align="left" valign="middle">Web Siteleri</th>
+
+   <th  align="left" valign="middle">Bulut Hizmetleri (web rolleri)</th>
+
+   <th  align="left" valign="middle">Sanal Makineler</th>
+
 </tr>
+
 <tr>
-   <td valign="middle"><p>Access to services like Service Bus, Storage, SQL Database</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
+   <td  valign="middle"><p>Hizmet Veri Yolu, Depolama, SQL Veritabanı gibi hizmetlere erişim</p>
+</td>
+
+   <td  valign="middle">X</td>
+
+   <td  valign="middle">X</td>
+
+   <td  valign="middle">X</td>
+
 </tr>
+
 <tr>
-   <td valign="middle"><p>Host web or web services tier of a multi-tier architecture</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
+   <td  valign="middle"><p>Çok katmanlı mimaride web veya web hizmeti katmanını barındırma</p>
+</td>
+
+   <td  valign="middle">X</td>
+
+   <td  valign="middle">X</td>
+
+   <td  valign="middle">X</td>
+
 </tr>
+
 <tr>
-   <td valign="middle"><p>Host middle tier of a multi-tier architecture</p></td>
-   <td valign="middle"></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
+   <td  valign="middle"><p>Çok katmanlı mimaride orta katmanı barındırma</p>
+</td>
+
+   <td  valign="middle" />
+
+   <td  valign="middle">X</td>
+
+   <td  valign="middle">X</td>
+
 </tr>
+
 <tr>
-   <td valign="middle"><p>Integrated MySQL-as-a-service support</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X <sup>1</sup></td>
-   <td valign="middle">X</td>
+   <td  valign="middle"><p>Tümleştirilmiş hizmet olarak MySQL desteği</p>
+</td>
+
+   <td  valign="middle">X</td>
+
+   <td  valign="middle">X <sup>1</sup>
+</td>
+
+   <td  valign="middle">X</td>
+
 </tr>
+
 <tr>
-   <td valign="middle"><p>Support for ASP.NET, classic ASP, Node.js, PHP, Python</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
+   <td  valign="middle"><p>ASP.NET, klasik ASP, Node.js, PHP, Python desteği</p>
+</td>
+
+   <td  valign="middle">X</td>
+
+   <td  valign="middle">X</td>
+
+   <td  valign="middle">X</td>
+
 </tr>
+
 <tr>
-   <td valign="middle"><p>Scale out to multiple instances without redeploy</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X <sup>2</sup></td>
+   <td  valign="middle"><p>Yeniden dağıtım olmaksızın birden çok örneğe ölçeklendirme</p>
+</td>
+
+   <td  valign="middle">X</td>
+
+   <td  valign="middle">X</td>
+
+   <td  valign="middle">X <sup>2</sup>
+</td>
+
 </tr>
+
 <tr>
-   <td valign="middle"><p>Support for SSL</p></td>
-   <td valign="middle">X <sup>3</sup></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
+   <td  valign="middle"><p>SSL desteği</p>
+</td>
+
+   <td  valign="middle">X <sup>3</sup>
+</td>
+
+   <td  valign="middle">X</td>
+
+   <td  valign="middle">X</td>
+
 </tr>
+
 <tr>
-   <td valign="middle"><p>Visual Studio integration</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
+   <td  valign="middle"><p>Visual Studio tümleştirmesi</p>
+</td>
+
+   <td  valign="middle">X</td>
+
+   <td  valign="middle">X</td>
+
+   <td  valign="middle">X</td>
+
 </tr>
+
 <tr>
-   <td valign="middle"><p>Remote Debugging</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
+   <td  valign="middle"><p>Uzaktan Hata Ayıklama</p>
+</td>
+
+   <td  valign="middle">X</td>
+
+   <td  valign="middle">X</td>
+
+   <td  valign="middle">X</td>
+
 </tr>
+
 <tr>
-   <td valign="middle"><p>Deploy code with TFS</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
+   <td  valign="middle"><p>TFS ile dağıtım kodu</p>
+</td>
+
+   <td  valign="middle">X</td>
+
+   <td  valign="middle">X</td>
+
+   <td  valign="middle">X</td>
+
 </tr>
+
 <tr>
-   <td valign="middle"><p>Deploy code with GIT, FTP</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-   <td valign="middle">X</td>
+   <td  valign="middle"><p>GIT, FTP ile dağıtım kodu</p>
+</td>
+
+   <td  valign="middle">X</td>
+
+   <td  valign="middle" />
+
+   <td  valign="middle">X</td>
+
 </tr>
+
 <tr>
-   <td valign="middle"><p>Deploy code with Web Deploy</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle"><sup>4</sup></td>
-   <td valign="middle">X</td>
+   <td  valign="middle"><p>Web Deploy ile dağıtım kodu</p>
+</td>
+
+   <td  valign="middle">X</td>
+
+   <td  valign="middle"><sup>4</sup>
+</td>
+
+   <td  valign="middle">X</td>
+
 </tr>
+
 <tr>
-   <td valign="middle"><p>WebMatrix support</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-   <td valign="middle">X</td>
+   <td  valign="middle"><p>WebMatrix desteği</p>
+</td>
+
+   <td  valign="middle">X</td>
+
+   <td  valign="middle" />
+
+   <td  valign="middle">X</td>
+
 </tr>
+
 <tr>
-   <td valign="middle"><p>Near-instant deployment</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-   <td valign="middle"></td>
+   <td  valign="middle"><p>Anında dağıtım</p>
+</td>
+
+   <td  valign="middle">X</td>
+
+   <td  valign="middle" />
+
+   <td  valign="middle" />
+
 </tr>
+
 <tr>
-   <td valign="middle"><p>Instances share content and configuration</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-   <td valign="middle"></td>
+   <td  valign="middle"><p>Örneklerde içerik ve yapılandırma paylaşımı</p>
+</td>
+
+   <td  valign="middle">X</td>
+
+   <td  valign="middle" />
+
+   <td  valign="middle" />
+
 </tr>
+
 <tr>
-   <td valign="middle"><p>Scale up to larger machines without redeploy</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-   <td valign="middle"></td>
+   <td  valign="middle"><p>Yeniden dağıtım olmaksızın daha büyük makinelere ölçeklendirme</p>
+</td>
+
+   <td  valign="middle">X</td>
+
+   <td  valign="middle" />
+
+   <td  valign="middle" />
+
 </tr>
+
 <tr>
-   <td valign="middle"><p>Multiple deployment environments (production and staging)</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
+   <td  valign="middle"><p>Birden fazla dağıtım ortamı (üretim ve hazırlık)</p>
+</td>
+
+   <td  valign="middle">X</td>
+
+   <td  valign="middle">X</td>
+
+   <td  valign="middle" />
+
 </tr>
+
 <tr>
-   <td valign="middle"><p>Network isolation with Azure Virtual Network</p></td>
-   <td valign="middle"></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
+   <td  valign="middle"><p>Azure Sanal Ağı ile ağ yalıtımı</p>
+</td>
+
+   <td  valign="middle" />
+
+   <td  valign="middle">X</td>
+
+   <td  valign="middle">X</td>
+
 </tr>
+
 <tr>
-   <td valign="middle"><p>Support for Azure Traffic Manager</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
+   <td  valign="middle"><p>Azure Trafik Yöneticisi desteği</p>
+</td>
+
+   <td  valign="middle">X</td>
+
+   <td  valign="middle">X</td>
+
+   <td  valign="middle">X</td>
+
 </tr>
+
 <tr>
-   <td valign="middle"><p>Remote desktop access to servers</p></td>
-   <td valign="middle"></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
+   <td  valign="middle"><p>Sunuculara uzaktan masaüstü ile erişim</p>
+</td>
+
+   <td  valign="middle" />
+
+   <td  valign="middle">X</td>
+
+   <td  valign="middle">X</td>
+
 </tr>
+
 <tr>
-   <td valign="middle"><p>Ability to define/execute start-up tasks</p></td>
-   <td valign="middle"></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
+   <td  valign="middle"><p>Başlangıç görevleri tanıtma/yürüme özelliği</p>
+</td>
+
+   <td  valign="middle" />
+
+   <td  valign="middle">X</td>
+
+   <td  valign="middle">X</td>
+
 </tr>
+
 <tr>
-   <td valign="middle"><p>Automatic OS update management</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
+   <td  valign="middle"><p>Otomatik işletim sistemi güncelleştirme yönetimi</p>
+</td>
+
+   <td  valign="middle">X</td>
+
+   <td  valign="middle">X</td>
+
+   <td  valign="middle" />
+
 </tr>
+
 <tr>
-   <td valign="middle"><p>Integrated Endpoint Monitoring</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
+   <td  valign="middle"><p>Tümleştirilmiş Uç Nokta İzleme</p>
+</td>
+
+   <td  valign="middle">X</td>
+
+   <td  valign="middle">X</td>
+
+   <td  valign="middle">X</td>
+
 </tr>
+
 <tr>
-   <td valign="middle"><p>Seamless platform switching (32bit/64bit)</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
+   <td  valign="middle"><p>Sorunsuz platform değiştirme (32 bit / 64 bit)</p>
+</td>
+
+   <td  valign="middle">X</td>
+
+   <td  valign="middle">X</td>
+
+   <td  valign="middle" />
+
 </tr>
+
 </table>
 
-<sup>1</sup> Web or worker roles can integrate MySQL-as-a-service through ClearDB's offerings, but not as part of the Management Portal workflow.
+<sup>1</sup> Web veya çalışan rolleri hizmet olarak MySQL ile ClearDB sunumları aracılığıyla tümleştirilir ancak Yönetim Portalı iş akışı buna dahil değildir.
 
-<sup>2</sup> Although Virtual Machines can scale out to multiple instances, the services running on these machines must be written to handle this scale-out. An additional load balancer must be configured to route requests across the machines. Finally, an Affinity Group should be created for all machines participating in the same role to protect them from simultaneous restarts from maintenance or hardware failures.
+<sup>2</sup> Sanal Makineler'in birden çok örneğe ölçeklendirilebilmesine rağmen bu makinelerde çalıştırılan hizmetler bu ölçeklendirmeyi işlemek için yazılmalıdır. İstekleri makinelere yönlendirmek için bir ek yük dengeleyicisi yapılandırılmalıdır. Son olarak, bakım ve donanım hataları nedeniyle eş zamanlı yeniden başlatmaları engellemek için aynı roldeki tüm makineler için bir Benzeşim Grubu oluşturulmalıdır.
 
-<sup>3</sup> For Web Sites, SSL for custom domain names is only supported for standard mode. For more information on using SSL with Web Sites, see [Configuring an SSL certificate for an Azure Web Site][].
+<sup>3</sup> Web Siteleri'ne yönelik özel etki alanı adları için SSL yalnızca standart modda desteklenir. SSL'i Web Siteleri ile kullanma hakkında daha fazla bilgi için bkz. [Azure Web Sitesi için SSL sertifikası yapılandırma][14].
 
-<sup>4</sup> Web Deploy is supported for cloud services when deploying to single-instance roles. However, production roles require multiple instances to meet the Azure SLA. Therefore, Web Deploy is not a suitable deployment mechanism for cloud services in production.
+<sup>4</sup> Web Deploy, tek örnekli rollere dağıtımda bulut hizmetleri için desteklenir. Bununla birlikte üretim rolleri, Azure SLA'sını karşılamak için birden fazla örnek gerektirir. Bu nedenle Web Deploy, üretimdeki bulut hizmetleri için uygun bir dağıtım mekanizması değildir.
 
 
-  [ChoicesDiagram]: ./media/choose-web-site-cloud-service-vm/Websites_CloudServices_VMs_2.png
-  [Azure Web Sites]: http://go.microsoft.com/fwlink/?LinkId=306051
-  [Cloud Services]: http://go.microsoft.com/fwlink/?LinkId=306052
-  [Virtual Machines]: http://go.microsoft.com/fwlink/?LinkID=306053
-  [ClearDB]: http://www.cleardb.com/
-  [Azure WebJobs SDK]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/getting-started-with-windows-azure-webjobs
-  [Configuring an SSL certificate for an Azure Web Site]: http://www.windowsazure.com/en-us/develop/net/common-tasks/enable-ssl-web-site/
-  [azurestore]: http://www.windowsazure.com/en-us/gallery/store/
-  [scripting]: http://www.windowsazure.com/en-us/documentation/scripts/?services=web-sites
-  [dotnet]: http://www.windowsazure.com/en-us/develop/net/
-  [nodejs]: http://www.windowsazure.com/en-us/develop/nodejs/
-  [PHP]: http://www.windowsazure.com/en-us/develop/php/
-  [Python]: http://www.windowsazure.com/en-us/develop/python/
-  [servicebus]: http://www.windowsazure.com/en-us/documentation/services/service-bus/
-  [sqldatabase]: http://www.windowsazure.com/en-us/documentation/services/sql-database/
-  [Storage]: http://www.windowsazure.com/en-us/documentation/services/storage/
+
+[1]: http://go.microsoft.com/fwlink/?LinkId=306051
+[2]: http://go.microsoft.com/fwlink/?LinkId=306052
+[3]: http://go.microsoft.com/fwlink/?LinkID=306053
+[4]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/getting-started-with-windows-azure-webjobs
+[5]: http://www.windowsazure.com/en-us/documentation/scripts/?services=web-sites
+[6]: http://www.windowsazure.com/en-us/develop/net/
+[7]: http://www.windowsazure.com/en-us/develop/php/
+[8]: http://www.windowsazure.com/en-us/develop/nodejs/
+[9]: http://www.windowsazure.com/en-us/develop/python/
+[10]: http://www.windowsazure.com/en-us/documentation/services/sql-database/
+[11]: http://www.windowsazure.com/en-us/documentation/services/service-bus/
+[12]: http://www.windowsazure.com/en-us/documentation/services/storage/
+[13]: http://www.windowsazure.com/en-us/gallery/store/
+[14]: http://www.windowsazure.com/en-us/develop/net/common-tasks/enable-ssl-web-site/
