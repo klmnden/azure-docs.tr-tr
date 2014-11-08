@@ -49,13 +49,13 @@ Bu eğitim ve Azure Medya Hizmetleri SDK'sına dayalı geliştirme işleri için
 	> Visual Studio 2012'de, App.config dosyası varsayılan seçenek olarak eklenir. Visual Studio 2010'da, Uygulama Yapılandırma dosyasını elle eklemeniz gerekir.
 
 	<pre><code>
-	<configuration>
+	&lt;configuration&gt;
   	. . . 
-  	<appSettings>
-    	<add key="accountName" value="Add-Media-Services-Account-Name" />
-    	<add key="accountKey" value="Add-Media-Services-Account-Key" />
-  	</appSettings>
-	</configuration>
+  	&lt;appSettings&gt;
+    	&lt;add key="accountName" value="Add-Media-Services-Account-Name" /&gt;
+    	&lt;add key="accountKey" value="Add-Media-Services-Account-Key" /&gt;
+  	&lt;/appSettings&gt;
+	&lt;/configuration&gt;
 	</code></pre>
 
 5. Yerel makinenizde yeni bir klasör oluşturup supportFiles adını verin (bu örnekte supportFiles dosyası MediaServicesGettingStarted proje dizini altında bulunur.) Bu eğitime eşlik eden <a href="http://go.microsoft.com/fwlink/?linkid=253275">Proje</a> supportFiles dizinini içermektedir. Bu dizinin içeriğini supportFiles klasörünüze kopyalayabilirsiniz.
