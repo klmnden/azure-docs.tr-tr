@@ -60,7 +60,7 @@ On the command bar, click **New**.
 
 14.  Under **VM Agent**, decide whether to install the VM Agent. This agent provides the environment for you to install extensions that can help you interact with the virtual machine. For details, see [Manage Extensions](http://go.microsoft.com/FWLink/p/?LinkID=390493). 
 
-15. Under **Endpoints**, review the endpoint that's automatically created to allow Secure Shell (SSH) connections to the virtual machine. (Endpoints allow resources on the Internet or other virtual networks to communicate with a virtual machine.) You can add more endpoints now, or create them later. For instructions on creating them later, see [How to Set Up Endpoints to a Virtual Machine](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-set-up-endpoints/).
+15. Under **Endpoints**, review the endpoint that's automatically created to allow Secure Shell (SSH) connections to the virtual machine. (Endpoints allow resources on the Internet or other virtual networks to communicate with a virtual machine.) You can add more endpoints now, or create them later. For instructions on creating them later, see [How to Set Up Endpoints to a Virtual Machine](http://azure.microsoft.com/tr-tr/documentation/articles/virtual-machines-set-up-endpoints/).
   
 After the virtual machine and cloud service are created, the Management Portal lists the new virtual machine under **Virtual Machines** and lists the cloud service under **Cloud Services**. Both the virtual machine and the cloud service are started automatically.
 
@@ -229,9 +229,9 @@ The data disk that you just attached to the virtual machine is offline and not i
 
 To learn more about Linux on Azure, see the following articles:
 
-- [Introduction to Linux on Azure](http://www.windowsazure.com/en-us/documentation/articles/introduction-linux/)
+- [Introduction to Linux on Azure](http://www.windowsazure.com/tr-tr/documentation/articles/introduction-linux/)
 
-- [How to use the Azure Command-Line Tools for Mac and Linux](http://www.windowsazure.com/en-us/documentation/articles/xplat-cli/)
+- [How to use the Azure Command-Line Tools for Mac and Linux](http://www.windowsazure.com/tr-tr/documentation/articles/xplat-cli/)
 
 
 [Next Steps]: #next

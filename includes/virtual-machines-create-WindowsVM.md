@@ -23,13 +23,13 @@
 6. The third screen lets you configure resources such as the cloud service and the storage account. When this screen is complete, click the arrow to continue. Here are some details to help you fill this out: 
 	
 
-	- The **Cloud Service DNS Name** is the global DNS name that becomes part of the URI that's used to contact the virtual machine. You'll need to come up with your own cloud service name because it must be unique in Azure. Cloud services are important for scenarios using [multiple virtual machines](http://www.windowsazure.com/en-us/documentation/articles/cloud-services-connect-virtual-machine/).
+	- The **Cloud Service DNS Name** is the global DNS name that becomes part of the URI that's used to contact the virtual machine. You'll need to come up with your own cloud service name because it must be unique in Azure. Cloud services are important for scenarios using [multiple virtual machines](http://www.windowsazure.com/tr-tr/documentation/articles/cloud-services-connect-virtual-machine/).
  
 	- For **Region/Affinity Group/Virtual Network**, use a region that is appropriate to your location. You can also choose to specify a virtual network instead.
  
 	>[WACOM.NOTE] If you want a virtual machine to use a virtual network, you **must** specify the virtual network when you create the virtual machine. You can't join the virtual machine to a virtual network after you create the VM. For more information, see [Azure Virtual Network Overview](http://go.microsoft.com/fwlink/p/?LinkID=294063).
 
-	- For details about configuring endpoints, see [How to Set Up Endpoints to a Virtual Machine](http://www.windowsazure.com/en-us/documentation/articles/virtual-machines-set-up-endpoints/).
+	- For details about configuring endpoints, see [How to Set Up Endpoints to a Virtual Machine](http://www.windowsazure.com/tr-tr/documentation/articles/virtual-machines-set-up-endpoints/).
 
 	![Configure the connected resources of the virtual machine](./media/virtual-machines-create-WindowsVM/resourceconfiguration.png)
 

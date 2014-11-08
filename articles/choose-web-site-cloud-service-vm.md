@@ -451,13 +451,13 @@ Aşağıdaki tabloda, en doğru kararı vermenize yardımcı olmak için Web Sit
 [2]: http://go.microsoft.com/fwlink/?LinkId=306052
 [3]: http://go.microsoft.com/fwlink/?LinkID=306053
 [4]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/getting-started-with-windows-azure-webjobs
-[5]: http://www.windowsazure.com/en-us/documentation/scripts/?services=web-sites
+[5]: http://www.windowsazure.com/tr-tr/documentation/scripts/?services=web-sites
 [6]: http://www.windowsazure.com/en-us/develop/net/
 [7]: http://www.windowsazure.com/en-us/develop/php/
 [8]: http://www.windowsazure.com/en-us/develop/nodejs/
 [9]: http://www.windowsazure.com/en-us/develop/python/
-[10]: http://www.windowsazure.com/en-us/documentation/services/sql-database/
-[11]: http://www.windowsazure.com/en-us/documentation/services/service-bus/
-[12]: http://www.windowsazure.com/en-us/documentation/services/storage/
+[10]: http://www.windowsazure.com/tr-tr/documentation/services/sql-database/
+[11]: http://www.windowsazure.com/tr-tr/documentation/services/service-bus/
+[12]: http://www.windowsazure.com/tr-tr/documentation/services/storage/
 [13]: http://www.windowsazure.com/en-us/gallery/store/
 [14]: http://www.windowsazure.com/en-us/develop/net/common-tasks/enable-ssl-web-site/
