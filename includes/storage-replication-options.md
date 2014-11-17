@@ -1,21 +1,21 @@
-Data in your storage account is replicated to ensure durability that is also highly available, meeting the [Azure Storage SLA ](/en-us/support/legal/sla/) even in the face of transient hardware failures. Azure Storage is deployed in 15 regions around the world and also includes support for replicating data between regions. You have several options for replicating the data in your storage account:
+﻿Depolama hesabınızdaki veriler aynı zamanda kullanılabilirliği yüksek olan dayanıklılığı sağlayacak şekilde çoğaltılarak, geçici donanım arızaları karşısında bile [Azure Depolama SLA'sını ](/tr-tr/support/legal/sla/) karşılar. Azure Depolama dünya çapında 15 bölgede dağıtılır ve ayrıca bölgeler arasında verileri çoğaltma desteğini de içerir. Depolama hesabınızdaki verileri çoğaltmak için çeşitli seçenekleriniz vardır:
 
-- *Locally redundant storage (LRS)* maintains three copies of your data. LRS is replicated three times within a single facility in a single region. LRS protects your data from normal hardware failures, but not from the failure of a single facility.
+- *Yerel Olarak Yedekli Depolama (LRS)* verilerinizin üç kopyasını tutar. LRS, tek bir bölgedeki tek bir tesis içinde üç kez çoğaltılır. LRS verilerinizi normal donanım arızalarından korur, ancak tek bir tesisteki arızadan korumaz.
 
-	LRS is offered at a discount. For maximum durability, we recommend that you use geo-redundant storage, described below.
+	LRS indirimli fiyatla sunulur. En üst düzeyde dayanıklılık için, aşağıda açıklanan coğrafi olarak yedekli depolamayı kullanmanızı öneriyoruz.
 
-- *Zone-redundant storage (ZRS)* maintains three copies of your data. ZRS is replicated three times across two to three facilities, either within a single region or across two regions, providing higher durability than LRS. ZRS ensures that your data is durable within a single region.
+- *Sıfır Yedekli Depolama (ZRS)* verilerinizin üç kopyasını tutar. ZRS, gerek tek bir bölge içinde gerekse iki bölge genelinde iki ila üç tesise üç kez çoğaltılarak LRS'ye göre daha yüksek dayanıklılık sağlar. ZRS, verilerinizin tek bir bölge içinde dayanıklı olmasını sağlar.
  
-	ZRS provides a higher level of durability than LRS; however, for maximum durability, we recommend that you use geo-redundant storage, described below.
+	ZRS, LRS'ye göre üst düzeyde dayanıklılık sağlar; bununla birlikte, En üst düzeyde dayanıklılık için aşağıda açıklanan coğrafi olarak yedekli depolamayı kullanmanızı öneriyoruz.
 
-	> [WACOM.NOTE] ZRS is currently available only for block blobs. Note that once you have created your storage account and selected zone-redundant replication, you cannot convert it to use to any other type of replication, or vice versa.
+	> [WACOM.NOTE] ZRS şu an yalnızca blok blob'lar için kullanılabilir. Depolama hesabınızı oluşturduktan ve sıfır yedekli çoğaltmayı seçtikten sonra başka bir çoğaltma türünü kullanmak üzere dönüştüremeyeceğinizi veya bunun tersini yapamayacağınızı unutmayın.
 
-- *Geo-redundant storage (GRS)* is enabled for your storage account by default when you create it. GRS maintains six copies of your data. With GRS, your data is replicated three times within the primary region, and is also replicated three times in a secondary region hundreds of miles away from the primary region, providing the highest level of durability. In the event of a failure at the primary region, Azure Storage will failover to the secondary region. GRS ensures that your data is durable in two separate regions. 
+- *Coğrafi olarak yedekli depolama (GRS)*, depolama hesabınızı oluşturduğunuzda bu hesap için varsayılan olarak etkindir. GRS verilerinizin altı kopyasını tutar. GRS ile verileriniz birincil bölge içinde üç kez çoğaltılır ve ayrıca, birincil bölgeden yüzlerce kilometre uzaktaki ikincil bir bölgede de üç kez çoğaltılarak en üst düzeyde dayanıklılığı sağlar. Birincil bölgede bir arıza olması durumunda Azure Depolama ikincil bölgeye yük devri yapar. GRS, verilerinizin iki ayrı bölgede dayanıklı olmasını sağlar. 
 
-	> [WACOM.NOTE] GRS is recommended over ZRS or LRS for maximum durability.
+	> [WACOM.NOTE] En üst düzeyde dayanıklılık için ZRS veya LRS'ye kıyasla GRS önerilir.
 
-- *Read-access geo-redundant storage (RA-GRS)* provides all of the benefits of geo-redundant storage noted above, and also allows read access to data at the secondary region in the event that the primary region becomes unavailable. Read-access geo-redundant storage is recommended for maximum availability in addition to durability.  
+- *Okuma erişimli coğrafi olarak yedekli depolama (RA-GRS)*, coğrafi olarak yedekli depolamanın yukarıda belirtilen tüm avantajlarını sağlar ve ayrıca, birincil bölgenin kullanılamaz olması durumunda ikincil bölgedeki verilere okuma erişimi sağlar. Dayanıklılığa ek olarak en üst düzeyde kullanılabilirlik için okuma erişimli coğrafi olarak yedekli depolama önerilir.  
 
-For more details about replication options, see the [Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/) and [Azure Storage Redundancy Options](http://msdn.microsoft.com/en-us/library/azure/dn727290.aspx).
+Çoğaltma seçenekleri hakkında daha ayrıntılı bilgi için [Azure Depolama Ekip Blogu](http://blogs.msdn.com/b/windowsazurestorage/)'na ve [Azure Depolama Artıklık Seçenekleri](http://msdn.microsoft.com/tr-tr/library/azure/dn727290.aspx)'ne bakın.
 	
-The pricing differences between the various replication options can be found on the [Storage Pricing Details](/en-us/pricing/details/storage/) page.
+Çeşitli çoğaltma seçenekleri arasında fiyatlandırma farkları [Depolama Fiyatlandırması Ayrıntıları](/tr-tr/pricing/details/storage/) sayfasında bulunabilir.

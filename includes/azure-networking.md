@@ -1,61 +1,61 @@
-#Azure Networking
+﻿#Azure Ağı
 
-The easiest way to connect to Azure applications and data is through an ordinary Internet connection. But this simple solution isn't always the best approach. Azure also provides technologies for connecting users to Azure datacenters.  This article takes a look at these technologies. 
+Azure uygulamalarına ve verilerine bağlanmanın en kolay yolu sıradan bir İnternet bağlantısıdır. Ancak bu basit çözüm her zaman en iyi yaklaşım değildir. Azure, kullanıcıları Azure veri merkezlerine bağlamaya yönelik teknolojiler de sağlar.  Bu makalede bu teknolojiler gözden geçirilmektedir. 
 
-##Table of Contents      
-- [Azure Virtual Network](#Vnet)
-- [Azure Traffic Manager](#TrafficMngr)
+##İçindekiler Tablosu      
+- [Azure Sanal Ağ](#Vnet)
+- [Azure Trafik Yöneticisi](#TrafficMngr)
 
 <a name="Vnet"></a>
-##Azure Virtual Network
+##Azure Sanal Ağ
 
-Azure lets you create virtual machines (VMs) that run in Microsoft datacenters. Suppose your organization wants to use those VMs to run enterprise applications or other software that will be used by the employees in your firm. Maybe you want to create a SharePoint farm in the cloud, for example, or run an inventory management application. To make life as easy as possible for your users, you would like these applications to be accessible just as if they were running in your own datacenter.
+Azure, Microsoft veri merkezlerinde çalışan sanal makineler (VM) oluşturmanızı sağlar. Kuruluşunuzun, firmanızdaki çalışanlar tarafından kullanılacak kurumsal uygulamaları veya diğer yazılımları çalıştırmak için bu sanal makineleri kullanmak istediğini varsayalım. Örneğin, bulutta bir SharePoint grubu oluşturmak veya bir stok yönetimi uygulaması çalıştırmak istiyor olabilirsiniz. Kullanıcılarınız açısından hayatı mümkün olduğunca kolaylaştırmak için bu uygulamalara sanki kendi veri merkezinizde çalışıyormuş gibi erişim sağlanabilmesini isteyeceksiniz.
 
-There is a standard solution to this kind of problem: create a virtual private network (VPN). Organizations of all sizes do this today to link, say, branch office computers to the main company datacenter. This same approach can work with Azure VMs, as Figure 1 shows.
+Bu tür sorunun standart bir çözümü vardır: Sanal özel ağ (VPN) oluşturun. Günümüzde her ölçekten kuruluş, örneğin şubelerindeki bilgisayarları ana şirketteki veri merkezine bağlamak için bunu yapmaktadır. Bu aynı yaklaşım, Şekil 1'de gösterildiği gibi Azure sanal makineleriyle de işe yarayabilir.
 
 <a name="Fig1"></a>
   
 ![01_Networking][01_Networking]
 
-**Figure 1: Azure Virtual Network allows creating a virtual network in the cloud that is connected to your on-premises datacenter.**
+**Şekil 1: Azure Sanal Ağ, bulut ortamında şirket içi veri merkezinize bağlı bir sanal ağ oluşturmanıza olanak sağlar.**
 
-As the figure shows, Azure Virtual Network lets you create a logical boundary around a group of VMs, called a *virtual network or VNET*, in an Azure datacenter. It then lets you establish an IPsec connection between this VNET and your local network.  The VMs in a VNET can be created using Azure Virtual Machines, Azure Cloud Services, or both. In other words, they can be VMs created using either the Azure Infrastructure as a Service (IaaS) technology or its Platform as a Service (PaaS) technology.
-Whatever choice you make, creating the IPsec connection requires a VPN gateway device, specialized hardware that is attached to your local network, and it also requires the services of your network administrator. Once this connection is in place, the Azure VMs running in your VNET look like just another part of the network in your organization.
+Şekilde gösterildiği gibi, Azure Sanal Ağ bir grup sanal makine etrafında *sanal ağ veya VNET* adı verilen mantıksal bir sınırı Azure veri merkezi içinde oluşturmanıza izin verir. Sonra bu VNET ile yerel ağınız arasında bir IPsec bağlantısı kurmanızı sağlar.  VNET'teki sanal makineleri oluşturmak için Azure Sanal Makineleri, Azure Bulut Hizmetleri veya ikisi birden kullanılabilir. Diğer bir deyişle, Azure'un Hizmet Olarak Altyapı (IaaS) teknolojisi veya Hizmet Olarak Platform (PaaS) teknolojisi kullanılarak oluşturulabilirler.
+Hangi tercihte bulunursanız bulunun IPsec bağlantısını oluşturmak için bir VPN ağ geçidi cihazı, yerel ağınıza takılan özelleştirilmiş donanım ve ayrıca ağ yöneticinizin hizmetleri gerekir. Bu bağlantı hazır olduğunda VNET'inizde çalışan Azure sanal makineleri kuruluşunuzdaki ağın diğer herhangi bir parçası gibi görünür.
 
-As [Figure 1](#Fig1) suggests, you allocate IP addresses for the Azure VMs from the same IP address space used in your own network. In the scenario shown here, which uses private IP addresses, the VMs in the cloud are just another IP subnet. Software running on your local network will see these VMs as if they were local, just as they do with traditional VPNs. And it is important to note that because this connection happens at the IP level, the virtual and physical machines on both sides can be running any operating system. Azure VMs running Windows Server or Linux can interact with on-premises machines running Windows, Linux, or other systems. It is also possible to use mainstream management tools, including System Center and others, to manage the cloud VMs and the applications they contain.
+[Şekil 1](#Fig1)'de gösterildiği gibi, Azure sanal makineleri için IP adreslerini kendi ağınızda kullanılan aynı IP adresi alanından atarsınız. Burada gösterilen, özel IP adreslerinin kullanıldığı senaryoda buluttaki sanal makineler sadece bir başka IP alt ağıdır. Yerel ağınızda çalışan yazılımlar bu sanal makineleri, aynı geleneksel VPN'lerde olduğu gibi yerel olarak görür. Ayrıca, bu bağlantı IP düzeyinde gerçekleştiğinden her iki taraftaki sanal ve fiziksel makinelerin herhangi bir işletim sistemiyle çalışabildiğine dikkat edilmesi önem taşır. Windows Server veya Linux çalıştıran Azure sanal makineleri Windows, Linux veya diğer sistemleri çalıştıran şirket içi makinelerle etkileşimde bulunabilir. Ayrıca, bulut sanal makinelerini ve içerdikleri uygulamaları yönetmek için, System Center ve diğerlerini de kapsayan ana akım yönetim araçlarını kullanmak da mümkündür.
 
-Using Azure Virtual Network makes sense in many situations. As already mentioned, this approach lets enterprise users more easily access cloud applications. An important aspect of this ease of use is the ability to make the Azure VMs part of an existing on-premises Active Directory domain to give users single sign-on to the applications they run. You can also create an Active Directory domain in the cloud if you prefer, then connect this domain to your on-premises network.
+Azure Sanal Ağ kullanımı birçok durumda mantığa uygundur. Daha önce belirtildiği gibi bu yaklaşım, kurumsal kullanıcıların bulut uygulamalarına daha kolay erişebilmesini sağlar. Bu kullanım kolaylığının önemli bir yönü, çalıştırdıkları uygulamalarda çoklu oturum açma olanağını kullanıcılara sağlamak amacıyla Azure sanal makinelerini var olan şirket içi Active Directory etki alanının bir parçası haline getirme kabiliyetidir. Tercih etmeniz halinde, bulutta da bir Active Directory etki alanı oluşturabilir ve sonra bu etki alanını şirket içi ağınıza bağlayabilirsiniz.
 
-Creating a VNET in an Azure datacenter effectively gives you access to a large pool of on-demand resources. You can create VMs on demand, pay for them while they are running, then remove them (and stop paying) when you no longer need them. This can be useful for scenarios that need fast access to a preconfigured machine, such as development teams building new software. Rather than wait for a local administrator to set up the resources they need, they can create these resources themselves in the public cloud. 
+Azure veri merkezinde VNET oluşturulması istendiğinde ulaşılabilen geniş bir kaynak havuzuna etkinlikle erişiminizi sağlar. Sanal makineleri istendiğinde oluşturabilir, çalıştıkları sürece ödeme yapabilir ve artık ihtiyacınız kalmadığında bunları kaldırabilirsiniz (ve ödeme yapmayı bırakabilirsiniz). Geliştirme ekiplerinin yeni yazılım oluşturması gibi, önceden yapılandırılmış makineye hızlı erişime gerek duyulan senaryolar için bunun yararı olabilir. Gerek duydukları kaynakları yerel bir yöneticinin ayarlamasını beklemek yerine bu kaynakları genel bulut ortamında kendileri oluşturabilirler. 
 
-And just as Virtual Network makes Azure VMs appear local to on-premises resources, the reverse is also true: Software running in your local network now appears to be local to applications running in your Azure VNET. Suppose you would like to move an existing on-premises application to Azure, for example, because you have determined that it will be less expensive to operate in the cloud. But what if the data that application uses is required by law to be stored on premises? In a situation like this, using Virtual Network lets the cloud application see an on-premises database system as if it were local, and accessing it becomes straightforward. Whatever scenario you choose, the result is the same: Azure becomes an extension of your own datacenter.
+Üstelik Sanal Ağ, Azure sanal makinelerinin şirket içi kaynaklarda nasıl yerel gibi görünmesini sağlıyorsa, bunun tersi de geçerlidir: Azure VNET'inizde çalışan uygulamalar artık, yerel ağınızda çalışan yazılımları yerel gibi görür. Örneğin, bulutta çalıştırılmasının daha düşük maliyetli olacağına karar verdiğinizden, var olan bir şirket içi uygulamayı Azure'a taşımak istediğinizi varsayalım. Ancak, bu uygulamanın kullandığı verilerin kanunen şirket içinde depolanması gerekiyorsa ne olacak? Böyle bir durumda Sanal Ağı kullanılması bulut uygulamasının şirket içi bir veri tabanı sistemini yerel gibi görmesini sağlar ve bu sisteme erişim dolaysız olur. Tercihiniz hangi senaryo olursa olsun sonuç aynıdır: Azure kendi veri merkezinizin bir uzantısı olur.
 
 <a name="TrafficMngr"></a>
-##Azure Traffic Manager
+##Azure Trafik Yöneticisi
 
-Imagine that you have built a successful Azure application. Your application is used by many people in many countries around the world. This is a great thing, but as is so often the case, success brings new problems. For instance, your application most likely runs in multiple Azure datacenters in different parts of the world. How can you intelligently direct user request traffic across these datacenters so that your users always get the best experience?
+Başarılı bir Azure uygulaması oluşturduğunuzu düşünelim. Bu uygulamanız dünya çapında birçok ülkede çok sayıda kişi tarafından kullanılıyor. Bu harika bir sonuç, ancak çoğu zaman olduğu gibi başarı yeni sorunları beraberinde getirir. Örneğin, uygulamanız büyük bir olasılıkla dünyanın farklı kesimlerinde çok sayıda Azure veri merkezinde çalışıyor. Kullanıcılarınızın her zaman en iyi deneyimi yaşamasını sağlamak için kullanıcı isteği trafiğini bu veri merkezleri geneline akıllı bir şekilde nasıl yönlendirirsiniz?
 
-Azure Traffic Manager is designed to solve this problem. Figure 2 shows how.
+Azure Trafik Yöneticisi bu sorunu çözmek üzere tasarlanmıştır. Şekil 2'de bunun nasıl yapıldığı gösterilmektedir.
 
 <a name="Fig3"></a>
    
 ![03_TrafficManager][03_TrafficManager]
    
-**Figure 2: Azure Traffic Manager intelligently directs requests from users across instances of an application running in different Azure datacenters.**
+**Şekil 2: Azure Trafik Yöneticisi, kullanıcılardan gelen istekleri bir uygulamanın farklı Azure veri merkezlerinde çalışan örneklerine akıllı bir biçimde yönlendirir.**
 
-In this example, your application is running in VMs spread across four datacenters: two in the US, one in Europe, and one in Asia. Suppose a user in Berlin wishes to access the application. If you are using Traffic Manager, here is what happens.
+Bu örnekte uygulamanız ikisi ABD'de, biri Avrupa'da ve biri de Asya'da olmak üzere dört veri merkezine yayılmış sanal makinelerde çalışmaktadır. Berlin'deki bir kullanıcının uygulamaya erişmek istediğini varsayalım. Trafik Yöneticisi kullanıyorsanız olacaklar aşağıdaki gibidir.
 
-As usual, the user system looks up the DNS name of the application (Step 1). This query is directed to the Azure DNS system (Step 2), which then looks up the Traffic Manager policy for the application. Each policy is created by the owner of a particular Azure application, either through a graphical interface or a REST API. However it is created, the policy specifies one of three load balancing options:
+Her zaman olduğu gibi, kullanıcı sistemi uygulamanın DNS adını arar (1. Adım). Bu sorgu Azure DNS sistemi yönlendirilir (2. Adım) ve sonra da sistem uygulama için Trafik Yöneticisi ilkesini arar. Her bir ilke, gerek bir grafik arabirimi gerekse REST API'si aracılığıyla belirli bir Azure uygulamasının sahibi tarafından oluşturulur. İlke nasıl oluşturulursa oluşturulsun, üç yük dengeleme seçeneğinden birini belirtir:
 
-- **Performance:** All requests are sent to the datacenter with the lowest latency from the user system. 
-- **Failover:** All requests are sent to the datacenter specified by the creator of this policy, unless that datacenter is unavailable. In this case, requests are directed to other datacenters in the priority order defined by the creator of the policy.
-- **Round Robin:** All requests are spread equally across all datacenters in which the application is running.
+- **Performans:** Tüm istekler, kullanıcı sisteminden en düşük gecikmeyle veri merkezine gönderilir. 
+- **Yük Devretme:** Veri merkezi kullanılabilir durumda olduğu sürece, tüm istekler bu ilkeyi oluşturanın belirttiği veri merkezine gönderilir. Bu örnekte istekler, ilkeyi oluşturanın tanımladığı öncelik sırasına göre diğer veri merkezlerine yönlendirilmektedir.
+- **Hepsini Bir Kez Deneme:** Tüm istekler uygulamanın çalıştığı tüm veri merkezlerine eşit olarak yayılır.
 
-Once it has the right policy, Traffic Manager figures out which datacenter this request should go to based on which of the three options is specified (Step 3). It then returns the location of the chosen datacenter to the user (Step 4), who accesses that instance of the application (Step 5).
+Doğru ilkeye sahip olduğunda, Trafik Yöneticisi üç seçenekten hangisinin belirtildiğine bağlı olarak bu isteğin gitmesi gereken veri merkezini hesaplar (3. Adım). Daha sonra seçilen veri merkezinin konumunu kullanıcıya döndürür (4. Adım) ve kullanıcı da uygulamanın bu örneğine erişim sağlar (5. Adım).
 
-For this to work, Traffic Manager must have a current picture of which instances of the application are up and running in each datacenter. To make this possible, Traffic Manager periodically pings each copy of the application via an HTTP GET, then records whether it receives a response. If an application instance stops responding, Traffic Manager will stop directing users to that instance until it resumes responding to pings. 
+Bunun işe yaraması için Trafik Yöneticisi, her bir veri merkezinde uygulamanın hangi örneklerinin hazır ve çalışır durumda olduğunun mevcut tablosuna sahip olmalıdır. Trafik Yöneticisi bunu mümkün kılmak için uygulamanın her bir kopyasına düzenli aralıklarla HTTP GET ile ping uygular ve sonra da yanıt alıp alamadığını kaydeder. Bir uygulama örneği yanıt vermeyi bırakırsa, ping'lere yanıt vermeye devam edinceye kadar Trafik Yöneticisi kullanıcıları bu uygulama örneğine yönlendirmeyi durdurur. 
 
-Not every application is big enough or global enough to need Traffic Manager. For those that do, however, this can be a very useful service.
+Her uygulama Trafik Yöneticisi'ne gerek duyulacak kadar büyük veya global değildir. Uygun olan uygulamalar içinse bu hizmet çok yararlı olabilir.
 
 [01_Networking]: ./media/azure-networking/Networking_01Networking.png
 [03_TrafficManager]: ./media/azure-networking/Networking_03TrafficManager.png
