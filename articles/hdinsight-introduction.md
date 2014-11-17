@@ -1,21 +1,23 @@
 ﻿<properties urlDisplayName="HDInsight Introduction" pageTitle="HDInsight içerisindeki Hadoop'a Giriş | Azure" metaKeywords="" description="Learn how Azure HDInsight uses Apache Hadoop clusters in the cloud, to provide a software framework to manage, analyze, and report on big data." metaCanonical="" services="hdinsight" documentationCenter="" title="Introduction to Hadoop in HDInsight" authors="bradsev" solutions="" manager="paulettm" editor="cgronlun" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev" />
-
-
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev"></tags>
 
 # HDInsight içerisindeki Hadoop'a Giriş
 
 ## Genel Bakış
+
 Azure HDInsight, bulutta Apache&#x99; Hadoop(r) kümelerini dağıtan ve sağlayan, büyük verileri yönetmek, çözümlemek ve raporlamak üzere tasarlanmış bir yazılım çerçevesi sağlayan bir hizmettir.
 
 ### Büyük veriler
+
+
 Veriler sürekli artan hacimlerde, artan yüksek hızlarda ve artan çeşitlilikteki yapılandırılmamış biçimlerde ve değişken semantik bağlamlarda toplandığını belirtmek üzere "büyük veri" olarak tarif edilir. Büyük verilerin toplanması tek başına bir kuruluş için değer sağlamaz. Büyük verilerin işlem yapılabilir bilgiler veya anlayış halinde değer sağlaması için doğru soruların sorulması ve sorunlarla ilgili verilerin toplanması yeterli değildir; veriler erişilebilir olmalı, temizlenmeli, çözümlenmeli ve çoğu zaman şu anda karma olarak bilinen bir bakış açısı ve bağlam oluşturan diğer çeşitli kaynaklardan verilerle birlikte faydalı bir şekilde sunulmalıdır.
 
 ### Apache Hadoop
 Apache Hadoop, büyük veri yönetimini ve çözümlemesini kolaylaştıran bir yazılım çerçevesidir. Apache Hadoop çekirdeği, Hadoop Dağıtılmış Dosya Sistemi (HDFS) ile güvenilir veri depolaması ve buna paralel olarak bu dağıtılmış sistemde depolanmış verileri işleyip çözümlemeye yönelik basit bir MapReduce programlama modeli sağlar. HDFS, böyle yüksek oranda dağıtılmış sistemleri dağıtırken ortaya çıkan donanım hatası sorunlarını çözmek üzere veri çoğaltmayı kullanır.
 
 ### MapReduce ve YARN
+
 Yapılandırılmamış verilerin çeşitli kaynaklardan çözümlenmesiyle ilgili karmaşıklığı azaltmak amacıyla MapReduce programlama modeli, eşleme ve indirgeme işlemleri için kapanışı sağlama alan bir çekirdek özeti sağlar. MapReduce programlama modeli, tüm işlerini anahtar-değer çiftlerinden oluşan veri kümeleri üzerinden hesaplamalar olarak görüntüler. Bu nedenle hem giriş hem de çıkış dosyaları, yalnızca anahtar-değer çiftlerinden oluşan veri kümelerini içermelidir. Bu kısıtlamanın birincil çözümü, MapReduce işlerinin sonuç olarak birleştirilebilir olmasıdır.
 
 Hadoop ile ilgili Pig ve Hive gibi diğer projeler, HDFS ve MapReduce çerçevesi üzerinde oluşturulur. Bunlar gibi projeler, bir kümeyi yönetmek için doğrudan MapReduce programlarıyla çalışmaktan daha basit bir yol sağlamak için kullanılır. Örneğin Pig, kümedeki MapReduce programlarına derlenen Pig Latin adlı bir yordam dilini kullanarak program yazmanızı sağlar. Ayrıca veri akışını yönetmek için akıcı denetimler sağlar. Hive, daha sonra HiveQL adlı bildirimsel bir dilde SQL benzeri deyimler kullanarak sorgulanabilecek bir kümede depolanmış dosyalardaki veriler için bir tablo özeti sağlayan veri ambarı altyapısıdır.
