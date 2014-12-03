@@ -1,45 +1,45 @@
-1. Sign in to the Windows Azure [Management Portal](http://manage.windowsazure.com). Check out the [Free Trial](http://www.windowsazure.com/en-us/pricing/free-trial/) offer if you do not have a subscription yet.
+﻿1. Azure [Yönetim Portalı](http://manage.windowsazure.com)'nda oturum açın. Henüz aboneliğiniz yoksa [Ücretsiz Deneme](http://www.windowsazure.com/tr-+tr/pricing/free-trial/) teklifine bakın.
 
-2. On the command bar at the bottom of the window, click **New**.
+2. Pencerenin alt kısmındaki komut çubuğunda **Yeni** seçeneğini tıklayın.
 
-3. Under **Compute**, click **Virtual Machine**, and then click **From Gallery**.
+3. **İşlem** bölümünde, **Sanal Makine** öğesini ve ardından **Galeri'den** seçeneğini tıklayın.
 
 	![Navigate to From Gallery in the Command Bar](./media/virtual-machines-create-WindowsVM/fromgallery.png)
 	
-4. The first screen lets you **Choose an Image** for your virtual machine from one of the lists in the Image Gallery. (The available images may differ depending on the subscription you're using.) Click the arrow to continue.
+4. Birinci ekran, Görüntü Galerisi'ndeki listelerden birini kullanarak sanal makineniz için **Bir Görüntü Seçme** olanağı sunar. (Kullanılabilir görüntüler, kullanmakta olduğunuz aboneliğe göre değişebilir.) Devam etmek için oku tıklayın.
 
 	![Choose an image](./media/virtual-machines-create-WindowsVM/chooseimage.png)
 
-5. The second screen lets you pick a computer name, size, and administrative user name and password. For this tutorial, fill in the fields as shown in the image below. Then, click the arrow to continue. Here are some details to help you fill this out: 
+5. İkinci ekran, bilgisayar adını, boyutu, yönetici kullanıcı adını ve parolasını seçmenize olanak tanır. Azure Sanal Makineler'i yalnızca denemek istiyorsanız, alanları aşağıdaki resimde gösterildiği gibi doldurun. Aksi halde, uygulamanızı veya iş yükünüzü çalıştırmak için gerekli olan katmanı ve boyutu seçin. Bu alanı doldurmanıza yardımcı olacak bazı ayrıntılar şunlardır: 
 	
-	- **New User Name** refers to the administrative account that you use to manage the server. Create a unique password for this account and make sure to remember it. **You'll need the user name and password to log on to the virtual machine**. 
+	- **Yeni Kullanıcı Adı**, sunucuyu yönetmek için kullandığınız yönetici hesabına karşılık gelir. Bu hesap için benzersiz bir parola oluşturun ve bu parolayı unutmayın. **Kullanıcı adı ve parola, sanal makinede oturum açarken kullanılacaktır.**. 
 
-	- A virtual machine's size affects the cost of using it, as well as configuration options such as the number of data disks you can attach. For details, see [Virtual Machine and Cloud Service Sizes for Azure](http://go.microsoft.com/fwlink/p/?LinkId=466520).
+	- Bir sanal makinenin boyutu, ekleyebileceğiniz veri diski sayısı gibi yapılandırma seçeneklerinin yanı sıra kullanım maliyetlerine de etki eder. Ayrıntılar için bkz: [Azure için Sanal Makine ve Bulut Hizmeti Boyutları](http://go.microsoft.com/fwlink/p/?LinkId=466520).
 
 	![Configure the properties of the virtual machine](./media/virtual-machines-create-WindowsVM/vmconfiguration.png)
 
 
 
-6. The third screen lets you configure resources such as the cloud service and the storage account. When this screen is complete, click the arrow to continue. Here are some details to help you fill this out: 
+6. Üçüncü ekran, ağ, depolama ve kullanılabilirlik kaynaklarını yapılandırmanıza olanak tanır. Bu alanı doldurmanıza yardımcı olacak bazı ayrıntılar şunlardır: 
 	
 
-	- The **Cloud Service DNS Name** is the global DNS name that becomes part of the URI that's used to contact the virtual machine. You'll need to come up with your own cloud service name because it must be unique in Azure. Cloud services are important for scenarios using [multiple virtual machines](http://www.windowsazure.com/tr-tr/documentation/articles/cloud-services-connect-virtual-machine/).
+	- **Bulut Hizmeti DNS Adı**, sanal makineyle iletişim kurmak için kullanılan URI'nin bir parçası haline gelen küresel DNS adıdır. Azure'da kullanacağınız benzersiz bir bulut hizmeti adı belirlemeniz gerekir. Bulut hizmetleri, [birden çok sanal makine](http://www.windowsazure.com/tr-+tr/documentation/articles/cloud-services-connect-virtual-machine/) kullanan senaryolar için önemlidir.
  
-	- For **Region/Affinity Group/Virtual Network**, use a region that is appropriate to your location. You can also choose to specify a virtual network instead.
+	- **Bölge/Benzeşim Grubu/Sanal Ağ** için, konumunuza uygun bir bölge kullanın. Bunun yerine bir sanal ağ da belirtebilirsiniz.
  
-	>[WACOM.NOTE] If you want a virtual machine to use a virtual network, you **must** specify the virtual network when you create the virtual machine. You can't join the virtual machine to a virtual network after you create the VM. For more information, see [Azure Virtual Network Overview](http://go.microsoft.com/fwlink/p/?LinkID=294063).
+	>[WACOM.NOTE] Sanal makinenin bir sanal ağı kullanmasını istiyorsanız, sanal makineyi oluştururken sanal ağı da belirtmeniz **gerekir**. VM'i oluşturduktan sonra, sanal makineyi bir sanal ağa dahil edemezsiniz. Daha fazla bilgi için [Azure Sanal Ağ'a Genel Bakış](http://go.microsoft.com/fwlink/p/?LinkID=294063) bölümüne bakın.
 
-	- For details about configuring endpoints, see [How to Set Up Endpoints to a Virtual Machine](http://www.windowsazure.com/tr-tr/documentation/articles/virtual-machines-set-up-endpoints/).
+	- Uç noktaları yapılandırmayla ilgili ayrıntılar için, [Bir Sanal Makinede Uç Noktaları Ayarlama](http://www.windowsazure.com/tr-+tr/documentation/articles/virtual-machines-set-up-endpoints/) bölümüne bakın.
 
 	![Configure the connected resources of the virtual machine](./media/virtual-machines-create-WindowsVM/resourceconfiguration.png)
 
-7. The fourth configuration screen lets you configure the VM Agent and some of the available extensions. Click the check mark to create the virtual machine.
+7. Dördüncü yapılandırma ekranı, VM Aracısı'nı ve kullanılabilir uzantılardan bazılarını yapılandırmanıza olanak tanır. Sanal makineyi oluşturmak için onay işaretine tıklayın.
 
 
 	![Configure VM Agent and extensions for the virtual machine](./media/virtual-machines-create-WindowsVM/agent-and-extensions.png)
 
-	>[WACOM.NOTE] The VM agent provides the environment for you to install extensions that can help you interact with or manage the virtual machine. For details, see [Using Extensions](http://go.microsoft.com/FWLink/p/?LinkID=390493).  
+	>[WACOM.NOTE] VM aracısı, sanal makineyi yönetmenize veya sanal makine ile etkileşim kurmanıza yardımcı olabilecek uzantıları yüklemeniz için gerekli ortamı sağlar. Ayrıntılar için, [Uzantıları Kullanma](http://go.microsoft.com/FWLink/p/?LinkID=390493) bölümüne bakın.  
     
-8. After the virtual machine is created, the Management Portal lists the new virtual machine under **Virtual Machines**. The corresponding cloud service and storage account are also created under their respective sections. Both the virtual machine and cloud service are started automatically and the Management Portal shows their status as **Running**. 
+8. Sanal makine oluşturulduktan sonra, Yönetim Portalı yeni sanal makineyi **Sanal Makineler** bölümünde listeler. Ayrıca, ilgili bulut hizmeti ve depolama hesabı da oluşturulur ve bu bölümlerde listelenir. Sanal makineler de, bulut hizmetleri de otomatik olarak başlatılır ve Yönetim Portalı'nda durumları **Çalışıyor** olarak görünür. 
 
 	![Configure VM Agent and the endpoints of the virtual machine](./media/virtual-machines-create-WindowsVM/vmcreated.png)

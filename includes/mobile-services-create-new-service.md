@@ -1,41 +1,41 @@
+﻿
 
+Yeni bir mobil hizmet oluşturmak için bu adımları izleyin.
 
-Follow these steps to create a new mobile service.
+1.	[Yönetim Portalı]'nda oturum açın. 
 
-1.	Log into the [Management Portal]. 
-
-2.	At the bottom of the navigation pane, click **+NEW**.
+2.	Gezinti bölmesinin alt kısmında **+YENİ** öğesini tıklayın.
 
 	![](./media/mobile-services-create-new-service/plus-new.png)
 
-3.	Expand **Compute** and **Mobile Service**, then click **Create**.
+3.	**İşlem** ve **Mobil Hizmet** seçeneklerini genişletin ve ardından **Oluştur** seçeneğini tıklayın.
 
 	![](./media/mobile-services-create-new-service/mobile-create.png)
 
-	This displays the **New Mobile Service** dialog.
+	Bu, **Yeni Mobil Hizmet** iletişim kutusunu görüntüler.
 
-4.	In the **Create a mobile service** page, select **Create a free 20 MB SQL Database**, select **Node.js** runtime, then type a subdomain name for the new mobile service in the **URL** textbox and wait for name verification. Once name verification completes, click the right arrow button to go to the next page.	
+4.	**Mobil hizmet oluştur** sayfasında, **Ücretsiz 20 MB SQL Veritabanı oluştur** seçeneğini belirleyin, **Node.js** çalışma zamanını seçin, ardından **URL** metin kutusuna bir alt etki alanı adı yazın ve ad doğrulama işlemini bekleyin. Ad doğrulama işlemi tamamlandıktan sonra, bir sonraki sayfaya gitmek için sağa ok düğmesini tıklayın.	
 
 	![](./media/mobile-services-create-new-service/mobile-create-page1.png)
 
-   	This displays the **Specify database settings** page.
+   	Bu, **Veritabanı ayarlarını belirleme** sayfasını görüntüler.
 
 	<div class="dev-callout"> 
-	<b>Note</b> 
-	<p>As part of this tutorial, you create a new SQL Database instance and server. You can reuse this new database and administer it as you would any other SQL Database instance. If you already have a database in the same region as the new mobile service, you can instead choose <strong>Use existing Database</strong> and then select that database. The use of a database in a different region is not recommended because of additional bandwidth costs and higher latencies.</p></div>	
+	<b>Not</b> 
+	<p>Bu eğitimin bir parçası olarak, yeni bir SQL Veritabanı örneği ve sunucusu oluşturacaksınız. Bu yeni veritabanını yeniden kullanabilir ve diğer SQL Veritabanı örneklerini yönettiğiniz şekilde yönetebilirsiniz. Yeni mobil hizmetle aynı bölgede bir veritabanınız zaten varsa, <strong>Varolan veritabanını kullan</strong> seçeneğini belirleyerek bu veritabanını seçebilirsiniz. Farklı bölgedeki bir veritabanının kullanımı, ek bant genişliği maliyetleri getirmesi ve gecikme süresini artırması nedeniyle önerilmez.</p></div>	
 
-6.	In **Name**, type the name of the new database, then type **Login name**, which is the administrator login name for the new SQL Database server, type and confirm the password, and click the check button to complete the process.
+6.	**Ad** alanına yeni veritabanının adını yazın. Ardından, yeni SQL Veritabanı sunucusunun yönetici oturum açma adı olan **Oturum açma adı**'nı yazın ve parolayı yazıp onayladıktan sonra onay düğmesini tıklayarak işlemi tamamlayın.
 
 	![](./media/mobile-services-create-new-service/mobile-create-page2.png)
 
 	<div class="dev-callout"> 
-	<b>Note</b> 
-	<p>When the password that you supply does not meet the minimum requirements or when there is a mismatch, a warning is displayed. <br/>We recommend that you make a note of the administrator login name and password that you specify; you will need this information to reuse the SQL Database instance or the server in the future.</p> 
+	<b>Not</b> 
+	<p>Girdiğiniz parola en düşük gereksinimleri karşılamaz veya parola uyuşmazlığı olursa, bir uyarı görüntülenir. <br/>Belirlediğiniz yönetici oturum açma adını ve parolasını not etmenizi öneririz. Bu bilgiler, SQL Veritabanı örneğini veya sunucusunu daha sonra yeniden kullandığınızda gerekli olacaktır.</p> 
 	</div>
 
-You have now created a new mobile service that can be used by your mobile apps.
+Mobil uygulamalarınız tarafından kullanılabilecek yeni bir mobil hizmet oluşturdunuz.
 
 
 
 <!-- URLs. -->
-[Management Portal]: https://manage.windowsazure.com/
+[Yönetim Portalı]: https://manage.windowsazure.com/
