@@ -86,7 +86,7 @@ _Komut açıklaması_
 
 `ssh-keygen` = anahtarları oluşturmak için kullanılan program
 
-`-t rsa` = [RSA biçimi]olan, oluşturulacak anahtar türü (https://en.wikipedia.org/wiki/RSA_(cryptosystem)
+`-t rsa` = [RSA biçimi](https://en.wikipedia.org/wiki/RSA_cryptosystem) olan, oluşturulacak anahtar türü 
 
 `-b 2048` = anahtar bitleri
 
@@ -237,6 +237,6 @@ Sonraki adım, yeni SSH ortak anahtarını kullanarak Azure Linux VM’ler oluş
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 
