@@ -94,7 +94,7 @@ Uygulamayı çalıştırmadan önce kaynak kodunu incelemek isteyebilirsiniz. Ko
 
 Ardından Azure Storage Öykünücüsünde örnek uygulamayı çalıştırın:
 
-1.  **Başlat** düğmesine veya Windows tuşuna basın ve *Microsoft Azure Storage öykünücüsü*nü arayın ve uygulamayı başlatın. Öykünücü başlatıldığında Windows Görev Görünüm alanında bir simge ve bir bildirim göreceksiniz.
+1.  **Başlat** düğmesine veya Windows tuşuna basın ve *Microsoft Azure Storage öykünücüsü* nü arayın ve uygulamayı başlatın. Öykünücü başlatıldığında Windows Görev Görünüm alanında bir simge ve bir bildirim göreceksiniz.
 2.  Visual Studio’da **Yapı** menüsünde **Yapı Çözümü**’ne tıklayın. 
 3.  **Hata Ayıklama** menüsünde **F11**’e basarak adım adım çözümü çalıştırın veya **F5**’e basarak çözümü başından sonuna kadar çalıştırın.
 
@@ -117,6 +117,6 @@ Azure Storage ile ilgili daha fazla bilgi edinmek için şu kaynaklara bakın:
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 
