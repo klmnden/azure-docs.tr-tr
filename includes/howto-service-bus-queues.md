@@ -1,63 +1,69 @@
-## What are Service Bus queues?
+## Service Bus kuyrukları nelerdir?
 
-Service Bus queues support a **brokered messaging** communication model. When using queues, components of a distributed application do not communicate directly with each other; instead they exchange messages via a queue, which acts as an intermediary (broker). A message producer (sender) hands off a message to the queue and then continues its processing. Asynchronously, a message consumer (receiver) pulls the message from the queue and processes it. The producer does not have to wait for a reply from the consumer in order to continue to process and send further messages. Queues offer **First In, First Out (FIFO)** message delivery to one or more competing consumers. That is, messages are typically received and processed by the receivers in the order in which they were added to the queue, and each message is received and processed by only one message consumer.
+Service Bus kuyrukları **aracılı mesajlaşma** iletişim modelini destekler. Kuyruklar kullanıldığında, dağıtılmış uygulamanın bileşenleri birbirleriyle doğrudan iletişim kurmazlar; bunun yerine bir aracı gibi davranan bir kuyruk aracılığıyla iletileri değiş tokuş eder (aracı). İleti üreticisi (gönderen) iletiyi kuyruğa aktarır ve ardından işleme devam eder. Zaman uyumsuz olarak, ileti tüketicisi (alıcı) iletiyi kuyruktan alır ve bunu işler. Üreticinin işleme devam etmesi ve daha fazla ileti göndermesi için tüketiciden yanıt beklemesi gerekmez. Kuyruklar, bir veya birden çok rakip tüketiciye **İlk Giren İlk Çıkar (FIFO)** yöntemine göre ileti teslimi sunar. Bu da, genellikle iletilerin kuyruğa eklendiği bir düzende alıcılar tarafından alınıp işleneceği ve her iletinin tek bir ileti tüketicisi tarafından alınıp işleneceği anlamına gelir.
 
 ![QueueConcepts](./media/howto-service-bus-queues/sb-queues-08.png)
 
-Service Bus queues are a general-purpose technology that can be used for a wide variety of scenarios:
+Service Bus kuyrukları çok sayıda çeşitli senaryolar için kullanılabilen genel amaçlı bir teknolojidir:
 
--   Communication between web and worker roles in a multi-tier Azure application.
--   Communication between on-premises apps and Azure-hosted apps in a hybrid solution.
--   Communication between components of a distributed application running on-premises in different organizations or departments of an organization.
+-   Çok katmanlı bir Azure uygulamasında web ve çalışan rolleri arasındaki iletişim.
+-   Karma bir çözümde şirket içi uygulamalar ve Azure barındırmalı uygulamalar arasındaki iletişim.
+-   Farklı kuruluşlarda veya bir kuruluşun farklı departmanlarında şirket içi çalışan dağıtılmış bir uygulamanın bileşenleri arasındaki iletişim.
 
-Using queues enables you to scale your applications more easily, and enable more resiliency to your architecture.
+Kuyrukların kullanılması uygulamalarınızı daha kolay ölçeklendirmenizi ve mimarinizi daha dayanıklı hale getirmenizi sağlar.
 
-## Create a service namespace
+## Hizmet ad alanı oluşturma
 
-To begin using Service Bus queues in Azure, you must first create a service namespace. A namespace provides a scoping container for addressing Service Bus resources within your application.
+Azure'da Service Bus kuyruklarını kullanmaya başlamak için öncelikle bir hizmet ad alanı oluşturmanız gerekir. Ad alanı, uygulamanızda bulunan Service Bus kaynaklarını adreslemek için içeriğin kapsamını belirleyen bir kapsayıcı sunar.
 
-To create a namespace:
+Ad alanı oluşturmak için:
 
-1.  Log on to the [Azure classic portal][].
+1.  [Klasik Azure portalı][]’nda oturum açın.
 
-2.  In the left navigation pane of the portal, click **Service Bus**.
+2.  Portalın sol gezinti bölmesinde **Service Bus** hizmetine tıklayın.
 
-3.  In the lower pane of the portal, click **Create**.
-	![](./media/howto-service-bus-queues/sb-queues-03.png)
+3.  Portalın alt bölmesinde **Oluştur**'a tıklayın.
+    ![](./media/howto-service-bus-queues/sb-queues-03.png)
 
-4.  In the **Add a new namespace** dialog, enter a namespace name. The system immediately checks to see if the name is available.   
-	![](./media/howto-service-bus-queues/sb-queues-04.png)
+4.  **Yeni bir ad alanı ekle** iletişim kutusunda ad alanı adını girin. Adın kullanılabilirliği sistem tarafından hemen denetlenir.   
+    ![](./media/howto-service-bus-queues/sb-queues-04.png)
 
-5.  After making sure the namespace name is available, choose the country or region in which your namespace should be hosted (make sure you use the same country/region in which you are deploying your compute resources).
+5.  Ad alanındaki adın kullanılabilirliğinden emin olduktan sonra, ad alanınızın barındırılması gereken ülkeyi veya bölgeyi seçin (işlem kaynaklarınızın dağıtıldığı aynı ülkeyi/bölgeyi kullandığınızdan emin olun).
 
-	 > [AZURE.IMPORTANT] Pick the **same region** that you intend to choose for deploying your application. This will give you the best performance.
+     > [AZURE.IMPORTANT] Uygulamanızı dağıtmak için seçmeyi planladığınız **aynı bölgeyi** seçin. Bu en iyi performansı verir.
 
-6. 	Leave the other fields in the dialog with their default values (**Messaging** and **Standard Tier**), then click the OK check mark. The system now creates your namespace and enables it. You might have to wait several minutes as the system provisions resources for your account.
+6.  İletişim kutusundaki diğer alanları varsayılan değerleriyle bırakın (**Mesajlaşma** ve **Standart Katman**), ardından Tamam onay işaretine tıklayın. Artık sistem ad alanınızı oluşturur ve kullanıma açar. Sistem, hesabınıza yönelik kaynakları sağlarken birkaç dakika bekleyebilirsiniz.
 
-	![](./media/howto-service-bus-queues/getting-started-multi-tier-27.png)
+    ![](./media/howto-service-bus-queues/getting-started-multi-tier-27.png)
 
-The namespace you created takes a moment to activate, and will then appear in the portal. Wait until the namespace status is **Active** before continuing.
+Oluşturduğunuz ad alanı bir dakika içinde etkinleşir ve portalda görüntülenir. Devam etmeden önce ad alanı durumunun **Etkin** olmasını bekleyin.
 
-## Obtain the default management credentials for the namespace
+## Ad alanı için varsayılan yönetim kimlik bilgilerini alma
 
-In order to perform management operations, such as creating a queue on the new namespace, you must obtain the management credentials for the namespace. You can obtain these credentials from the [Azure classic portal][].
+Yeni ad alanında kuyruk oluşturma gibi yönetim işlemlerini gerçekleştirmek için ad alanına yönelik yönetici kimlik bilgilerini edinmeniz gerekir. Bu kimlik bilgilerini [Klasik Azure portalı][]’ndan elde edebilirsiniz.
 
-###To obtain management credentials from the portal
+###Yönetim kimlik bilgilerini portaldan almak için
 
-1.  In the left navigation pane, click the **Service Bus** node, to display the list of available namespaces:   
-	![](./media/howto-service-bus-queues/sb-queues-13.png)
+1.  Kullanılabilir ad alanlarının listesini görüntülemek için sol gezinti bölmesinde **Service Bus** düğümüne tıklayın:   
+    ![](./media/howto-service-bus-queues/sb-queues-13.png)
 
-2.  Select the namespace you just created from the list shown:   
-	![](./media/howto-service-bus-queues/sb-queues-09.png)
+2.  Görüntülenen listede az önce oluşturduğunuz ad alanını seçin:   
+    ![](./media/howto-service-bus-queues/sb-queues-09.png)
 
-3.  Click **Connection Information**.   
-	![](./media/howto-service-bus-queues/sb-queues-06.png)
+3.  **Bağlantı Bilgileri**'ne tıklayın.   
+    ![](./media/howto-service-bus-queues/sb-queues-06.png)
 
-4.  In the **Access connection information** pane, find the connection string that contains the SAS key and key name.   
+4.  **Erişim bağlantısı bilgileri** bölmesinde, SAS anahtarını ve anahtar adını içeren bağlantı dizesini bulun.   
 
-	![](./media/howto-service-bus-queues/multi-web-45.png)
+    ![](./media/howto-service-bus-queues/multi-web-45.png)
     
-5.  Make a note of the key, or copy it to the clipboard.
+5.  Anahtarı not edin veya panoya kopyalayın.
 
-  [Azure classic portal]: http://manage.windowsazure.com
+  [Klasik Azure portalı]: http://manage.windowsazure.com
+
+
+
+
+<!--HONumber=Jun16_HO2-->
+
 

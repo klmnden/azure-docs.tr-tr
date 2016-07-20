@@ -1,23 +1,29 @@
 
 
-1. Log on to the [Azure Portal](https://portal.azure.com), and then click **+NEW** at the top left of the screen.
+1. [Azure Portal](https://portal.azure.com)’da oturum açın ve sonra ekranın sol tarafında, en üstteki **+YENİ**’ye tıklayın.
 
-2. Click on **New**, then **Web + Mobile**. Scroll down if necessary and click **Notification Hub**.
+2. **Yeni**’ye, ardından da **Web + Mobil**’e tıklayın. Gerekiyorsa kayarak ilerleyin ve **Notification Hub**’a tıklayın.
 
-   	![Azure Portal - Create Notification Hubs](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-create.png)
+    ![Azure Portal - Notification Hubs oluşturma](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-create.png)
 
-3. Make sure you specify a unique name in the **Notification Hub** field. Select your desired **Region**, **Subscription** and **Resource Group** (if you have one already). 
+3. **Bildirim Hub'ı** alanında benzersiz bir ad belirttiğinizden emin olun. **Bölge**, **Abonelik** ve **Kaynak Grubu** (zaten varsa) öğeleri için istediğiniz değerleri seçin. 
  
-	If you already have a service bus namespace that you want to create the hub in, select it through the **Select Existing** option in the **Namespace** field.  Otherwise, you can use the default name which will be created based on the hub name as long as the namespace name is available. 
+    Hub'ı oluşturmak istediğiniz bir hizmet veri yolu ad alanınız zaten varsa, **Ad Alanı** alanında **Var Olanı Seç** seçeneğiyle bunu seçin.  Aksi takdirde, ad alanı adı kullanılabilir olduğu sürece hub adına göre oluşturulan varsayılan adı kullanabilirsiniz. 
 
-	Once ready, click **Create**.
+    Hazır olduktan sonra **Oluştur**’a tıklayın.
 
-   	![Azure Portal - Set notification hub properties](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-settings.png)
+    ![Azure Portal - Bildirim hub'ı özelliklerini ayarlama](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-settings.png)
 
-4. Once the namespace and notification hub are created, you will be taken to the respective portal page. 
+4. Ad alanı ve bildirim hub'ı oluşturulduktan sonra ilgili portal sayfasına yönlendirilirsiniz. 
 
-   	![Azure Portal - Notification hub portal page](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-page.png)
+    ![Azure Portal - Bildirim hub'ı portal sayfası](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-page.png)
        
-5. Click on **Settings** and then **Access Policies** - take note of the two connection strings that are made available to you, as you will need them to handle push notifications later.
+5. **Ayarlar**’a, sonra da **Erişim İlkeleri**’ne tıklayın; daha sonra anında iletme bildirimlerini işlemeniz için kullanmanız gerektiğinden, sizin için oluşturulan iki bağlantı dizesini not alın.
 
-   	![Azure Portal - Notification hub connection strings](./media/notification-hubs-portal-create-new-hub/notification-hubs-connection-strings-portal.png)
+    ![Azure Portal - Bildirim hub'ı bağlantı dizeleri](./media/notification-hubs-portal-create-new-hub/notification-hubs-connection-strings-portal.png)
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

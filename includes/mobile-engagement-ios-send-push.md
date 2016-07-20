@@ -1,57 +1,62 @@
-###Grant access to your Push Certificate to Mobile Engagement
+###Anında İletme Sertifikanıza Mobile Engagement için erişim izni verme
 
-To allow Mobile Engagement to send Push Notifications on your behalf, you need to grant it access to your certificate. This is done by configuring and entering your certificate into the Mobile Engagement portal. Make sure you obtain your .p12 certificate as explained in [Apple's documentation](https://developer.apple.com/library/prerelease/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html#//apple_ref/doc/uid/TP40012582-CH26-SW6)
+Mobile Engagement’ın sizin adınıza Anında İletme Bildirimleri göndermesine izin vermek için sertifikanıza erişim izni vermeniz gerekir. Bu da, sertifikanız yapılandırıp Mobile Engagement portalına girilerek gerçekleştirilir. [Apple belgeleri](https://developer.apple.com/library/prerelease/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html#//apple_ref/doc/uid/TP40012582-CH26-SW6)’nde açıklandığı gibi p12 sertifikanız olduğundan emin olun
 
-1. Navigate to your Mobile Engagement portal. Ensure you're in the correct and then click on the **Engage** button at the bottom:
+1. Mobile Engagement portalınıza gidin. Doğru yerde olduğunuzdan emin olun ve alttaki **Katıl** düğmesine tıklayın:
 
-	![](./media/mobile-engagement-ios-send-push/engage-button.png)
+    ![](./media/mobile-engagement-ios-send-push/engage-button.png)
 
-2. Click on the **Settings** page in your Engagement Portal. From there click on the **Native Push** section to upload your p12 certificate:
+2. Engagement Portal’ınızdaki **Ayarlar** sayfasına tıklayın. Buradan, p12 sertifikanızı yüklemek için **Yerel Gönderim** bölümüne tıklayın:
 
-	![](./media/mobile-engagement-ios-send-push/engagement-portal.png)
+    ![](./media/mobile-engagement-ios-send-push/engagement-portal.png)
 
-3. Select your p12, upload it and type your password:
+3. p12 sertifikanızı seçin, bunu yükleyip parolanızı yazın:
 
-	![](./media/mobile-engagement-ios-send-push/native-push-settings.png)
+    ![](./media/mobile-engagement-ios-send-push/native-push-settings.png)
 
-##<a id="send"></a>Send a notification to your app
+##<a id="send"></a>Uygulamanıza bildirim gönderme
 
-We will now create a simple Push Notification campaign that will send a push to our app:
+Şimdi de, uygulamamıza Anında İletme Bildirimi gönderecek basit bir bildirim kampanyası oluşturacağız:
 
-1. Navigate to the **Reach** tab in your Mobile Engagement portal.
+1. Mobile Engagement portalınızın **erişim** sekmesine gidin.
 
-2. Click **New Announcement** to create your push campaign
+2. Bildirim kampanyanızı oluşturmak için **Yeni Duyuru**’ya tıklayın
 
-	![](./media/mobile-engagement-ios-send-push/new-announcement.png)
+    ![](./media/mobile-engagement-ios-send-push/new-announcement.png)
 
-3. Setup the first fields of your campaign:
+3. Kampanyanızın ilk alanlarını ayarlayın:
 
-	![](./media/mobile-engagement-ios-send-push/campaign-first-params.png)
+    ![](./media/mobile-engagement-ios-send-push/campaign-first-params.png)
 
-	- 	Provide a **Name** for your campaign 
-	- 	Select the **Delivery time** as **Out of app only**: this is the simple Apple push notification type that features some text.
-	- 	In the notification text, type first the **Title** which will be the first line in the push.
-	- 	Then type your **Message** which will be the second line
+    -   Kampanyanıza bir **Ad** verin 
+    -   **Teslim zamanını**, **Yalnızca uygulama dışında** olarak seçin: Bu, bazı metinleri oluşturan basit Apple anında iletilen bildirim türüdür.
+    -   Bildirim metninde önce ilk satır olacak **Başlık** metnini yazın.
+    -   Sonra da ikinci satır olacak **İleti**’yi yazın
 
-4. Scroll down, and in the content section select **Notification only**
+4. Kaydırarak aşağı gidin ve içerik bölümünde **Yalnızca bildirim**’i seçin
 
-	![](./media/mobile-engagement-ios-send-push/campaign-content.png)
+    ![](./media/mobile-engagement-ios-send-push/campaign-content.png)
 
-5. You're done setting the most basic campaign. Now scroll down and click on **Create** button to save your push notification campaign. 
+5. En temel kampanya ayarını bitirdiniz. Şimdi aşağıya kayın ve anında iletme bildirimi kampanyanızı kaydetmek için **Oluştur** düğmesine tıklayın. 
 
-6. Finally - click on **Activate** to send push notification. 
+6. Son olarak, anında iletme bildirimini göndermek için **Etkinleştir**’e tıklayın. 
 
-	![](./media/mobile-engagement-ios-send-push/campaign-activate.png)
+    ![](./media/mobile-engagement-ios-send-push/campaign-activate.png)
 
-7. You will be able receive the notification on your iOS device in the notification center like the following:
+7. Bildirim merkezinde, iOS cihazınızdaki bildirimi aşağıdaki gibi alabilirsiniz:
 
-	![](./media/mobile-engagement-ios-send-push/iphone-notification.png)
+    ![](./media/mobile-engagement-ios-send-push/iphone-notification.png)
 
-8. If you have an Apple Watch paired with this iOS device then you will see the notification on your Apple Watch:
+8. Bu iOS cihazıyla eşleştirilmiş bir Apple Watch’unuz varsa, Apple Watch’unuzda bildirimi görürsünüz:
 
-	![](./media/mobile-engagement-ios-send-push/apple-watch.png)
+    ![](./media/mobile-engagement-ios-send-push/apple-watch.png)
 
+
+ 
 
  
 
- 
+
+<!--HONumber=Jun16_HO2-->
+
+

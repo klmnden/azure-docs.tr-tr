@@ -1,21 +1,26 @@
-#### To create public endpoints on the virtual device
+#### Sanal cihazda genel uç noktalar oluşturmak için
 
-1. Sign in to the Azure classic portal.
+1. Klasik Azure portalına giriş yapın.
 
-- Click **Virtual Machines**, and then select the virtual machine that is being used as your virtual device.
+- **Virtual Machines**’e tıklayın ve sanal cihazınız olarak kullanılacak sanal makineyi seçin.
 
-- Click **Endpoints**. The **Endpoints** page lists all endpoints for the virtual machine.
+- **Uç Noktalar**’a tıklayın. **Uç Noktalar** sayfası sanal makineyle ilgili tüm uç noktaları listeler.
 
-- Click **Add**. The **Add Endpoint** dialog box appears. Click the arrow to continue.
+- **Ekle**'ye tıklayın. **Uç Nokta Ekle** iletişim kutusu görünür. Devam etmek için oka tıklayın.
 
-- For the **Name**, type the following name for the endpoint: **WinRMHttps**.
+- **Ad** için şu uç nokta adını yazın: **WinRMHttps**.
 
-- For the **Protocol**, specify **TCP**.
+- **Protokol** için **TCP**’yi belirtin.
 
-- For the **Public Port**, type the port numbers that you want to use for the connection.
+- **Genel Bağlantı Noktası** için bağlantıda kullanmak istediğiniz bağlantı noktası numaralarını yazın.
 
-- For the **Private Port**, type **5986**.
+- **Özel Bağlantı Noktası** için **5986** yazın.
 
-- Click the check mark to create the endpoint.
+- Uç noktası oluşturmak için onay işaretine tıklayın.
 
-After the endpoint is created, you can view its details to determine the Public Virtual IP (VIP) address. Record this address.
+Uç nokta oluşturulduktan sonra, Genel Sanal IP (VIP) adresini saptamak için ayrıntılarını görüntüleyebilirsiniz. Bu adresini kaydedin.
+
+
+<!--HONumber=Jun16_HO2-->
+
+

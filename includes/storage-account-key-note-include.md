@@ -1,1 +1,7 @@
->[AZURE.IMPORTANT] Your storage account key is similar to the root password for your storage account. Always be careful to protect your account key. Avoid distributing it to other users, hard-coding it, or saving it in a plain-text file that is accessible to others. Regenerate your account key using the Azure Portal if you believe it may have been compromised. To learn how to regenerate your account key, see [How to create, manage, or delete a storage account in the Azure Portal](../articles/storage/storage-create-storage-account.md#manage-your-storage-account).
+>[AZURE.IMPORTANT] Depolama hesabı anahtarınız depolama hesabınızın kök parolasına benzer. Hesap anahtarınızı korumak için her zaman özen gösterin. Diğer kullanıcılara dağıtmaktan, sabit kodlamaktan ve başkalarının erişebileceği düz metin dosyasına kaydetmekten kaçının. Hesap anahtarınızın tehlikede olduğunu düşünüyorsanız, Azure Portal'ı kullanarak hesap anahtarınızı yeniden oluşturun. Hesap anahtarınızın yeniden nasıl oluşturulacağını öğrenmek için bkz. [Azure Portal’da depolama hesabı oluşturma, yönetme veya silme](../articles/storage/storage-create-storage-account.md#manage-your-storage-account).
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

@@ -1,21 +1,27 @@
-#### To stop and start a virtual device
-To stop a virtual device, click its name, and then click **Shutdown**. While the virtual device is shutting down, its status is **Stopping**. After the virtual device is stopped, its status is **Stopped**.
+#### Banal cihazı durdurmak ve başlatmak için
+Sanal cihazı durdurmak için adına tıklayın ve ardından **Kapat**’a tıklayın. Sanal cihaz kapatıldığı sırada **Durduruluyor** durumundadır. Sanal cihaz kapatıldıktan sonra **Durduruldu** durumundadır.
 
-Use the following cmdlets to stop and start a virtual device.
+Sanal cihazı durdurmak ve başlatmak için aşağıdaki cmdlet'leri kullanın.
 
 `Stop-AzureVM -ServiceName "MyStorSimpleservice1" -Name "MyStorSimpleDevice"`
 
 
 `Start-AzureVM -ServiceName "MyStorSimpleservice1" -Name "MyStorSimpleDevice"`
     
-#### To restart a virtual device
+#### Sanal cihazı yeniden başlatmak için
 
-When a virtual device is running and you want to restart it, click its name, and then click **Restart**. While the virtual device is restarting, its status is **Restarting**. When the virtual device is ready for you to use, its status is **Running**.
+Sanal cihaz çalışırken yeniden başlatmak istediğinizde cihazın adına tıklayın ve ardından **Yeniden Başlat**’a tıklayın. Sanal cihaz yeniden başlatıldığı sırada **Yeniden başlatılıyor** durumundadır. Sanal cihaz kullanımınıza hazır olduğunda **Çalışıyor** durumundadır.
 
-Use the following cmdlet to restart a virtual device.
+Sanal cihazı yeniden başlatmak için aşağıdaki cmdlet'i kullanın.
 
 `Restart-AzureVM -ServiceName "MyStorSimpleservice1" -Name "MyStorSimpleDevice"`
 
 
+
+
+
+
+
+<!--HONumber=Jun16_HO2-->
 
 

@@ -1,31 +1,36 @@
-We will now create a simple push notification campaign that sends a push notification to our app.
+Şimdi de, uygulamamıza anında iletme bildirimi gönderen basit bir anında iletme bildirimi kampanyası oluşturacağız.
 
-1. Navigate to the **REACH** tab in your Mobile Engagement portal.
+1. Mobile Engagement portalınızın **REACH** sekmesine gidin.
 
-2. Click **New announcement** to create your push notification campaign.
+2. Anında iletme bildirimi kampanyanızı oluşturmak için **Yeni duyuru**’ya tıklayın.
 
-	![](./media/mobile-engagement-windows-push-campaign/new-announcement.png)
+    ![](./media/mobile-engagement-windows-push-campaign/new-announcement.png)
 
-3. Set up the first field of your campaign through the following steps:
+3. Kampanyanızın ilk alanını şu adımlarla ayarlayın:
 
-	![](./media/mobile-engagement-windows-push-campaign/campaign-first-params.png)
+    ![](./media/mobile-engagement-windows-push-campaign/campaign-first-params.png)
 
-	a. Provide a **Name** for your campaign.
+    a. Kampanyanıza bir **Ad** verin.
 
-	b. Select **Delivery time** as *Any time*.
+    b. **Teslimat zamanı**’nı *Her zaman* olarak ayarlayın.
 
-	d. In the notification text - type the **Title** which will be in bold in the push.
+    d. Bildirim metnine gönderimde koyu olacak **Başlık** metnini yazın.
 
-	e. Then type your **Message**
+    e. Ardından, **İleti**’yi yazın.
 
-4. Scroll down, and in the **Content** section, select **Notification only**.
+4. Kaydırarak aşağı gidin ve **İçerik** bölümünde **Yalnızca bildirim**’i seçin.
 
-	![](./media/mobile-engagement-windows-push-campaign/campaign-content.png)
+    ![](./media/mobile-engagement-windows-push-campaign/campaign-content.png)
 
-5. You're done setting the most basic campaign possible. Now scroll down again and click the **Create** button to save your campaign.
+5. Olabilecek en temel kampanya ayarını bitirdiniz. Şimdi kaydırarak yeniden aşağı gidin ve kampanyanızı kaydetmek için **Oluştur** düğmesine tıklayın.
 
-6. Last step: Click **Activate** to activate your campaign and to send push notifications.
+6. Son adım: Kampanyanızı etkinleştirmek ve anında iletme bildirimlerini göndermek için **Etkinleştir**’e tıklayın.
 
-	![](./media/mobile-engagement-windows-push-campaign/campaign-activate.png)
+    ![](./media/mobile-engagement-windows-push-campaign/campaign-activate.png)
 
  
+
+
+<!--HONumber=Jun16_HO2-->
+
+

@@ -1,31 +1,36 @@
-To create a VNet by using the Azure portal, follow the steps below. Note that the screenshots are provided as examples. Be sure to replace the values with your own. For more information about working with virtual networks, see the [Virtual Network Overview](../articles/virtual-network/virtual-networks-overview.md).
+Azure portalını kullanarak VNet oluşturmak için aşağıdaki adımları uygulayın. Ekran görüntülerinin örnek olarak verildiğini unutmayın. Değerlerin kendinizinkilerle değiştirildiğinden emin olun. Sanal ağlarla çalışma hakkında daha fazla bilgi için bkz. [Virtual Network’e Genel Bakış](../articles/virtual-network/virtual-networks-overview.md).
 
-1. From a browser, navigate to the [Azure portal](http://portal.azure.com) and, if necessary, sign in with your Azure account.
+1. Tarayıcıdan [Azure portalına](http://portal.azure.com) gidin ve gerekiyorsa Azure hesabınızla giriş yapın.
 
-2. Click **New** **>** **Networking** **>** **Virtual Network**.
+2. **Yeni** **>** **Ağ** **>** **Sanal Ağ**’a tıklayın.
 
-	![VNetBlade](./media/vpn-gateway-basic-vnet-rm-portal-include/newvnetportal650.png)
+    ![VNetBlade](./media/vpn-gateway-basic-vnet-rm-portal-include/newvnetportal650.png)
 
-3. Near the bottom of the Virtual Network blade, from the **Select a deployment model** list, select **Resource Manager**, and then click **Create**.
-
-
-	![Select Resource Manager](./media/vpn-gateway-basic-vnet-rm-portal-include/resourcemanager250.png)
-
-4. On the **Create virtual network** blade, configure the VNet settings. In this blade, you'll add your first address space and a single subnet address range. After you finish creating the VNet, you can go back and add additional subnets and address spaces. This is a current limitation of the portal. You can always come back to update these values by editing the VNet properties in the portal, or by using PowerShell. The values that you use will depend on the configuration you want to create. Be sure to refer to your planned configuration values. 
-
-	![Create virtual network blade](./media/vpn-gateway-basic-vnet-rm-portal-include/createavnet250.png)
-
-5. Verify that the **Subscription** is the correct one. You can change subscriptions by using the dropdown.
-
-6. Click **Resource group** and either select an existing resource group, or create a new one by typing a name for your new resource group. If you are creating a new group, name the resource group according to your planned configuration values. For more information about resource groups, visit [Azure Resource Manager Overview](resource-group-overview.md#resource-groups).
-
-7. Next, select the **Location** settings for your VNet. Note that the location will determine where the resources that you deploy to this VNet will reside. You can't change this later without redeploying your resources.
-
-8. Select **Pin to dashboard** if you want to be able to find your VNet easily on the dashboard, and then click **Create**.
-	
-	![Pin to dashboard](./media/vpn-gateway-basic-vnet-rm-portal-include/pintodashboard150.png)
+3. Virtual Network dikey penceresinin altı yakınlarında, **Bir dağıtım modeli seçin** listesinden **Resource Manager**’ı seçip **Oluştur**’a tıklayın.
 
 
-9. After clicking Create, you will see a tile on your dashboard that will reflect the progress of your VNet. The tile will change as the VNet is being created.
+    ![Resource Manager’ı seçin](./media/vpn-gateway-basic-vnet-rm-portal-include/resourcemanager250.png)
 
-	![Creating virtual network tile](./media/vpn-gateway-basic-vnet-rm-portal-include/deploying150.png)
+4. **Sanal ağ oluştur** dikey penceresinde VNet ayarlarını yapılandırın. Bu dikey pencerede, ilk adres alanınızı ve tek alt ağ adres aralığınızı eklersiniz. VNet oluşturma işlemini tamamladıktan sonra geri dönüp ek alt ağları ve adres alanlarını ekleyin. Bu, portalın geçerli sınırlamasıdır. Portalda VNet özelliklerini düzenleyerek veya PowerShell kullanarak her zaman bu değerleri güncelleştirmek için geri dönebilirsiniz. Kullandığınız değerler oluşturmak istediğiniz yapılandırmaya bağlıdır. Planlanmış yapılandırma değerlerinize başvurulduğundan emin olun. 
+
+    ![Sanal ağ oluştur dikey penceresi](./media/vpn-gateway-basic-vnet-rm-portal-include/createavnet250.png)
+
+5. **Abonelik** alanında doğru bir giriş olduğunu doğrulayın. Açılan listeyi kullanarak abonelikleri değiştirebilirsiniz.
+
+6. **Kaynak grubu**’na tıklayın, ya varolan bir kaynak grubunu seçin ya da yeni kaynak grubunuz için bir ad yazarak yeni bir tane oluşturun. Yeni bir grup oluşturuyorsanız, planlanan yapılandırma değerlerinize göre kaynak grubunu adlandırın. Kaynak grupları hakkında daha fazla bilgi için [Azure Resource Manager’a Genel Bakış](resource-group-overview.md#resource-groups)’ı ziyaret edin.
+
+7. Ardından, VNet’iniz için **Konum** ayarlarını seçin. Bu VNet'e dağıttığınız kaynakların nerede olacağını konumun saptayacağını unutmayın. Bunu daha sonra, kaynaklarınızı yeniden dağıtmadan değiştiremezsiniz.
+
+8. VNet’inizi panoda kolay bulmak istiyorsanız **Panoya sabitle**’yi seçin ve ardından **Oluştur**’a tıklayın.
+    
+    ![Panoya sabitle](./media/vpn-gateway-basic-vnet-rm-portal-include/pintodashboard150.png)
+
+
+9. Oluştur’a tıkladıktan sonra, panonuzda VNet’inizin ilerleme durumunu yansıtacak bir kutucuk göreceksiniz. VNet oluşturulduğu sürece kutucuk da değişecektir.
+
+    ![Sanal ağ kutucuğu oluşturma](./media/vpn-gateway-basic-vnet-rm-portal-include/deploying150.png)
+
+
+<!--HONumber=Jun16_HO2-->
+
+

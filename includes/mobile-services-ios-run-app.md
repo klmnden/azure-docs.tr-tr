@@ -1,16 +1,22 @@
 
 
 
-The final stage of this tutorial is to build and run your new app.
+Bu öğreticinin son aşaması yeni uygulamanızı oluşturmak ve çalıştırmaktır.
 
-1. Browse to the location where you saved the compressed project files, expand the files on your computer, and open the project file using Xcode.
+1. Sıkıştırılmış proje dosyalarını kaydettiğiniz konuma göz atın, bilgisayarınızdaki dosyaları genişletin ve proje dosyasını Xcode kullanarak açın.
 
-2. Press the **Run** button to build the project and start the app in the iPhone emulator.
+2. **Çalıştır** düğmesine basarak projeyi oluşturun ve uygulamayı iPhone öykünücüsünde başlatın.
 
-3. In the app, type meaningful text, such as _Complete the tutorial_ and then click the plus (**+**) icon.
+3. Uygulamada, _Öğreticiyi tamamla_ gibi anlamlı bir metin yazın ve ardından artı (**+**) simgesine basın.
 
-   	![](./media/mobile-services-ios-run-app/mobile-quickstart-startup-ios.png)
+    ![](./media/mobile-services-ios-run-app/mobile-quickstart-startup-ios.png)
 
-   	This sends a POST request to the new mobile service hosted in Azure. Data from the request is inserted into the TodoItem table. Items stored in the table are returned by the mobile service, and the data is displayed in the list.
+    Bu, Azure üzerinde barındırılan yeni mobil hizmete bir POST isteği gönderir. İstekten alınan veriler TodoItem tablosuna eklenir. Tabloda depolanan öğeler mobil hizmet tarafından döndürülür ve veriler listede görüntülenir.
 
- 	</div>
+    </div>
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

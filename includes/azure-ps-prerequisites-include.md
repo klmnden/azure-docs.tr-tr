@@ -1,4 +1,9 @@
-## Prerequisite: Install the Azure PowerShell Module
-To perform the steps in this article, you'll need to [to install and configure Azure PowerShell](../articles/powershell-install-configure.md) and follow the instructions all the way to the end to sign into Azure and select your subscription.
+## Önkoşul: Azure PowerShell Modülü’nü yükleyin
+Bu makaledeki adımları gerçekleştirmek için [Azure PowerShell’i yüklemeniz ve yapılandırmanız](../articles/powershell-install-configure.md), Azure'da oturum açıp aboneliğinizi seçene kadar da tüm bu süreç boyunca tüm talimatları uygulamanız gerekir.
 
-> [AZURE.NOTE] If you don't have an Azure account, you'll need one. Go sign up for a [free trial here](../articles/active-directory/sign-up-organization.md). 
+> [AZURE.NOTE] Azure hesabınız yoksa bir tane gerekecektir. [Buradaki ücretsiz deneme sürümüyle](../articles/active-directory/sign-up-organization.md) kaydolun. 
+
+
+<!--HONumber=Jun16_HO2-->
+
+

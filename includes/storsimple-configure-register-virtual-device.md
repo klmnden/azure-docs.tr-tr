@@ -1,21 +1,26 @@
 <!---author: alkohli, last updated: 11/05/2015 --->
 
-#### To configure and register the virtual device
+#### Sanal cihaz yapılandırmak ve kaydetmek için
 
-1. Select the StorSimple virtual device you just created in the **Devices** page. 
+1. **Cihazlar** sayfasında yeni oluşturduğunuz StorSimple sanal cihazını seçin. 
 
-2. Click **complete device setup**. This starts the Configure device wizard.
+2. **Cihaz kurulumu tamamlamaya** tıklayın. Cihaz yapılandırma sihirbazı başlatılır.
 
-    ![StorSimple complete device setup in Devices page](./media/storsimple-configure-register-virtual-device/StorSimple_CompleteDeviceSetupSVA1M.png)
+    ![Cihazlar sayfasında StorSimple tam cihaz kurulumu](./media/storsimple-configure-register-virtual-device/StorSimple_CompleteDeviceSetupSVA1M.png)
 
-3. Enter the **Service Data Encryption Key** in the space provided.
+3. Verilen alana **Hizmet Verileri Şifreleme Anahtarı**’nı girin.
 
-4. Enter the Snapshot Manager and Device Administrator passwords of the length and settings specified.
+4. Uygun uzunlukta ve belirtilen ayarlarda Snapshot Manager ve Cihaz Yöneticisi parolalarını girin.
 
-5. Click the check mark to finish the initial configuration and registration of the virtual device. 
+5. İlk yapılandırmayı ve sanal cihaz kaydını tamamlamak için onay işaretine tıklayın. 
 
-    ![StorSimple virtual device settings](./media/storsimple-configure-register-virtual-device/StorSimple_VirtualDeviceSettings1.png)
+    ![StorSimple sanal cihaz ayarları](./media/storsimple-configure-register-virtual-device/StorSimple_VirtualDeviceSettings1.png)
 
-After the configuration and registration is complete, the device will come online. (It may take several minutes for the device to come online.)
+Yapılandırma ve kayıt tamamlandıktan sonra cihaz çevrimiçi duruma gelir. (Cihazın çevrimiçi duruma olması birkaç dakika sürebilir.)
 
-![StorSimple virtual device online stage](./media/storsimple-configure-register-virtual-device/StorSimple_VirtualDeviceOnline1M.png)
+![StorSimple sanal cihaz çevrimiçi aşaması](./media/storsimple-configure-register-virtual-device/StorSimple_VirtualDeviceOnline1M.png)
+
+
+<!--HONumber=Jun16_HO2-->
+
+

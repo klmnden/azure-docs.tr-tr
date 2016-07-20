@@ -1,36 +1,42 @@
 
-###Create a Google Cloud Messaging project with API key
+###API anahtarıyla Google Cloud Messaging projesi oluşturma
 
->[AZURE.NOTE] To complete this procedure, you must have a Google account that has a verified email address. To create a new Google account, go to <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>.
+>[AZURE.NOTE] Bu yordamı tamamlamak için doğrulanmış e-posta adresine sahip bir Google hesabınız olmalıdır. Yeni bir Google hesabı oluşturmak için <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a> adresine gidin.
 
-1. Navigate to the [Google Cloud Console](https://console.developers.google.com/project) and sign-in with your Google account credentials.
+1. [Google Cloud Console](https://console.developers.google.com/project)’a gidin ve Google hesabı kimlik bilgilerinizle giriş yapın.
 
-2. Click **Go to project**, and then click **Create Project**.
+2. **Proje git**’e ve ardından **Proje Oluştur**’a tıklayın.
 <!--
-   	![](./media/mobile-engagement-enable-google-cloud-messaging/new-project.png)
+    ![](./media/mobile-engagement-enable-google-cloud-messaging/new-project.png)
 
-   	![](./media/mobile-engagement-enable-google-cloud-messaging/new-project-2.png)   
+    ![](./media/mobile-engagement-enable-google-cloud-messaging/new-project-2.png)   
 -->
-3. Enter a project name.
+3. Proje adı girin.
 
-4. Make a note of the project number which appears under the **Project name** text box. You will need it later in the tutorial to populate in the Android Manifest file.
-   	![](./media/mobile-engagement-enable-google-cloud-messaging/project-number.png)   
-5. Click **Create**.
+4. **Proje adı** metin kutusu altında görüntülenen proje numarasını not edin. Android Derleme Bildirimi dosyasında doldurmak için daha sonra öğreticide gerekecektir.
+    ![](./media/mobile-engagement-enable-google-cloud-messaging/project-number.png)   
+5. **Oluştur**’a tıklayın.
 
-6. In the left column, make sure **Overview** is selected, and under Mobile APIs click **Google Cloud Messaging**. Then on the next page click **Enable**.
+6. Sol sütunda, **Genel Bakış**’ın seçili olduğundan emin olun ve Mobil API'leri altında **Google Cloud Messaging**’e tıklayın. Sonraki sayfada da **Etkinleştir**’e tıklayın.
 
-	![](./media/mobile-engagement-enable-google-cloud-messaging/enable-GCM.png)
+    ![](./media/mobile-engagement-enable-google-cloud-messaging/enable-GCM.png)
 <!--
-	![](./media/mobile-engagement-enable-google-cloud-messaging/enable-gcm-2.png)
+    ![](./media/mobile-engagement-enable-google-cloud-messaging/enable-gcm-2.png)
 -->
-7. On the next page, click **Go to Credentials**, and on the following page, select **Google Cloud Messaging** from the first dropdown box and **Web server** from the second one, and then click **What credentials do I need?**
+7. Sonraki sayfada, **Kimlik Bilgilerine Git**’e tıklayın, sonraki sayfada da, ilk açılan kutuda **Google Cloud Messaging**’i, ikinci açılanda da **Web sunucusu**’nu seçin ve ardından **Bana hangi kimlik bilgileri gerekiyor?** öğesine tıklayın.
 
-   	![](./media/mobile-engagement-enable-google-cloud-messaging/create-server-key.png)
+    ![](./media/mobile-engagement-enable-google-cloud-messaging/create-server-key.png)
 
-8. In **Add credentials to your project** page, click **Create API key**.
+8. **Projenize kimlik bilgileri ekleyin** sayfasında **API anahtarı oluştur**’a tıklayın.
 
-   	![](./media/mobile-engagement-enable-google-cloud-messaging/create-server-key5.png)
+    ![](./media/mobile-engagement-enable-google-cloud-messaging/create-server-key5.png)
 <!--
-   	![](./media/mobile-engagement-enable-google-cloud-messaging/create-server-key6.png)
+    ![](./media/mobile-engagement-enable-google-cloud-messaging/create-server-key6.png)
 -->
-9. Make a note of the **API KEY** value. You will use this API key value later to configure in the "Native Push" section. Now click **Done**.
+9. **API ANAHTARI** değerini not edin. Bu API anahtarı değerini daha sonra "Yerel Görderim" bölümünde yapılandırmak amacıyla kullanacaksınız. Şimdi **Bitti**’ye tıklayın.
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

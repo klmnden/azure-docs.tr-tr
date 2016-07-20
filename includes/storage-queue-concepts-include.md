@@ -1,28 +1,34 @@
-## What is Queue Storage?
+## Kuyruk Depolama nedir?
 
-Azure Queue storage is a service for storing large numbers of messages that can be accessed from anywhere in the world via authenticated calls using HTTP or HTTPS. A single queue message can be up to 64 KB in size, and a queue can contain millions of messages, up to the total capacity limit of a storage account.
+Azure Kuyruk depolama, HTTP veya HTTPS kullanan kimlik doğrulaması yapılmış çağrılar aracılığıyla dünyanın her yerinden erişilebilen çok sayıda iletinin depolanması için bir hizmettir. Tek bir kuyruk iletisinin boyutu 64 KB’ye kadar olabilir ve bir kuyrukta, depolama hesabının toplam kapasite sınırına kadar milyonlarca ileti bulunabilir.
 
-Common uses of Queue storage include:
+Kuyruk depolamanın yaygın kullanımları şunlardır:
 
--   Creating a backlog of work to process asynchronously
--   Passing messages from an Azure web role to an Azure worker role
+-   Zaman uyumsuz olarak işlemek için kapsamı oluşturma
+-   İletileri Azure web rolünden Azure çalışan rolüne geçirme
 
-## Queue Service Concepts
+## Kuyruk Hizmeti Kavramları
 
-The Queue service contains the following components:
+Kuyruk hizmetinde şu bileşenler bulunur:
 
-![Queue1](./media/storage-queue-concepts-include/queue1.png)
+![Kuyruk1](./media/storage-queue-concepts-include/queue1.png)
 
 
-- **URL format:** Queues are addressable using the following URL format:   
-	http://`<storage account>`.queue.core.windows.net/`<queue>` 
+- **URL biçimi:** Kuyruklar şu URL biçimi kullanılarak adreslenebilir:   
+    http://`<storage account>`.queue.core.windows.net/`<queue>` 
       
-	The following URL addresses a queue in the diagram:  
-		
-		http://myaccount.queue.core.windows.net/images-to-download
+    Aşağıdaki URL diyagramdaki bir kuyruğun adresini belirtir:  
+        
+        http://myaccount.queue.core.windows.net/images-to-download
 
-- **Storage Account:** All access to Azure Storage is done through a storage account. See [Azure Storage Scalability and Performance Targets](../articles/storage/storage-scalability-targets.md) for details about storage account capacity.
+- **Depolama Hesabı:** Tüm Azure Storage erişimi bir depolama hesabıyla yapılır. Depolama hesabı kapasitesi hakkında ayrıntılı bilgi için bkz. [Azure Storage Ölçeklenebilirlik ve Performans Hedefleri](../articles/storage/storage-scalability-targets.md).
 
-- **Queue:** A queue contains a set of messages. All messages must be in a queue. Note that the queue name must be all lowercase. For information on naming queues, see [Naming Queues and Metadata](https://msdn.microsoft.com/library/azure/dd179349.aspx).
+- **Kuyruk:** Kuyrukta bir dizi ileti vardır. Tüm iletiler bir kuyrukta olmalıdır. Kuyruk adının tamamen küçük harfli olması gerektiğini unutmayın. Kuyrukların adlandırılması hakkında daha fazla bilgi için bkz. [Kuyrukları ve Meta Verileri Adlandırma](https://msdn.microsoft.com/library/azure/dd179349.aspx).
 
-- **Message:** A message, in any format, of up to 64 KB. The maximum time that a message can remain in the queue is 7 days.
+- **İleti:** İleti, biçimi ne olursa olsun en çok 64 KB büyüklüktedir. Bir iletinin kuyrukta kalabileceği en uzun süre 7 gündür.
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

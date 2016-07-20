@@ -1,3 +1,9 @@
- >[AZURE.WARNING] Associating a Network Security Group (NSG) to the *GatewaySubnet* will cause your VPN gateway to stop functioning as expected. DO NOT associate NSGs to Gateway subnets.
+ >[AZURE.WARNING] Ağ Güvenlik Grubu’nun (NSG) *GatewaySubnet* ile ilişkilendirilmesi, VPN Gateway’inizin biklendiği gibi çalışmayı durdurmasına neden olacaktır. NSG’leri Ağ Geçidi alt ağlarıyla İLİŞKİLENDİRMEYİN.
+
+
+
+
+
+<!--HONumber=Jun16_HO2-->
 
 

@@ -1,14 +1,19 @@
 
-####To configure remote management on the device
+####Cihazda uzaktan yönetimi yapılandırmak için
 
-1. On your virtual device, go to **Devices > Configure**.
+1. Sanal cihazınızda **Cihazlar > Yapılandır**’a gidin.
 
-2. Scroll down to the **Remote Management** section.
+2. Ekranı kaydırarak **Uzaktan Yönetim** bölümüne gidin.
 
-3. Set **Enable Remote Management** to **Yes**.
+3. **Uzaktan yönetimi Etkinleştir**’i **Evet** olarak ayarlayın.
 
-4. You can now choose to connect using HTTP. The default is to connect over HTTPS. Connecting over HTTP is acceptable only on trusted networks.
+4. Artık HTTP kullanarak bağlanmayı seçebilirsiniz. Varsayılan olan HTTPS üzerinden bağlanmaktır. HTTP üzerinden bağlanma yalnızca güvenilen ağlarda kabul edilebilir.
 
-5. Click **Download Remote Management Certificate** to download a remote management certificate. You will specify a location in which to save this file. This certificate then needs to be installed on the client or host machine that you will use to connect to the virtual device.
+5. Uzak yönetim sertifikası indirmek için **Uzaktan Yönetim Sertifikası İndir**’e tıklayın. Bu dosyanın kaydedileceği bir konum belirtirsiniz. Bu sertifika, daha sonra sanal cihaza bağlanmak için kullanacağınız istemci veya konak makineye yüklenmiş olmalıdır.
 
-6. Click **Save** at the bottom of the page.
+6. Sayfanın alt kısmındaki **Kaydet**’e tıklayın.
+
+
+<!--HONumber=Jun16_HO2-->
+
+

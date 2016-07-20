@@ -1,53 +1,58 @@
-###Grant Mobile Engagement access to your GCM API Key
+###GCM API Anahtarınıza Mobile Engagement erişimi verin
 
-To allow Mobile Engagement to send push notifications on your behalf, you need to grant it access to your API Key. This is done by configuring and entering your key into the Mobile Engagement portal.
+Mobile Engagement’ın sizin adınıza anında iletme bildirimleri göndermesine izin vermek için API Anahtarınıza erişim izni vermeniz gerekir. Bu da, anahtarınızın yapılandırıp Mobile Engagement portalına girilerek gerçekleştirilir.
 
-1. From your Azure Classic Portal, ensure you're in the app we're using for this project, and then click the **Engage** button at the bottom:
+1. Klasik Azure Portalı’nızdan bu proje için kullanmakta olduğunuz uygulamadan emin olun ve alttaki **Katıl** düğmesine tıklayın:
 
-	![](./media/mobile-engagement-android-send-push/engage-button.png)
+    ![](./media/mobile-engagement-android-send-push/engage-button.png)
 
-2. Then click the **Settings** -> **Native Push** section to enter your GCM Key:
+2. Sonra da, GCM Anahtarınızı girmek için **Ayarlar** -> **Yerel Gönderim**’e tıklayın:
 
-	![](./media/mobile-engagement-android-send-push/engagement-portal.png)
+    ![](./media/mobile-engagement-android-send-push/engagement-portal.png)
 
-3. Click the **Edit** icon in front of **API Key** in the **GCM Settings** section as shown below:
+3. **GCM Ayarları** bölümünde, **API Anahtarı**’nın ön tarafındaki **Düzenle** simgesine aşağıda gösterildiği gibi tıklayın:
 
-	![](./media/mobile-engagement-android-send-push/native-push-settings.png)
+    ![](./media/mobile-engagement-android-send-push/native-push-settings.png)
 
-4. In the pop-up, paste the GCM Server Key you obtained before and then click **Ok**.
+4. Açılan pencerede, daha önce aldığınız GCM Sunucu Anahtarını yapıştırın **Tamam**’a tıklayın.
 
-	![](./media/mobile-engagement-android-send-push/api-key.png)
+    ![](./media/mobile-engagement-android-send-push/api-key.png)
 
-##<a id="send"></a>Send a notification to your app
+##<a id="send"></a>Uygulamanıza bildirim gönderme
 
-We will now create a simple push notification campaign that sends a push notification to our app.
+Şimdi de, uygulamamıza anında iletme bildirimi gönderen basit bir anında iletme bildirimi kampanyası oluşturacağız.
 
-1. Navigate to the **REACH** tab in your Mobile Engagement portal.
+1. Mobile Engagement portalınızın **REACH** sekmesine gidin.
 
-2. Click **New announcement** to create your push notification campaign.
+2. Anında iletme bildirimi kampanyanızı oluşturmak için **Yeni duyuru**’ya tıklayın.
 
-	![](./media/mobile-engagement-android-send-push/new-announcement.png)
+    ![](./media/mobile-engagement-android-send-push/new-announcement.png)
 
-3. Set up the first field of your campaign through the following steps:
+3. Kampanyanızın ilk alanını şu adımlarla ayarlayın:
 
-	![](./media/mobile-engagement-android-send-push/campaign-first-params.png)
+    ![](./media/mobile-engagement-android-send-push/campaign-first-params.png)
 
-	a. Name your campaign.
+    a. Kampanyanızı adlandırın.
 
-	b. Select the **Delivery type** as *System notification -> Simple*: This is the simple Android push notification type that features a title and a small line of text.
+    b. **Teslimat türü**’nü *Sistem bildirimi -> Basit* olarak seçin: Bir başlık ve küçük bir metin satırından oluşan basit Android anında iletme bildirimi türüdür.
 
-	c. Select **Delivery time** as *Any time* to allow the app to receive a notification whether the app is started or not.
+    c. Uygulama başlatılsın ya da başlatılmasın uygulamanın bildirim almasını sağlamak için **Teslimat zamanı**’nı *Her zaman* olarak seçin.
 
-	d. In the notification text type the **Title** which will be in bold in the push.
+    d. Bildirim metnine gönderimde koyu olacak **Başlık** metnini yazın.
 
-	e. Then type your **Message**
+    e. Ardından, **İleti**’yi yazın.
 
-4. Scroll down, and in the **Content** section, select **Notification only**.
+4. Kaydırarak aşağı gidin ve **İçerik** bölümünde **Yalnızca bildirim**’i seçin.
 
-	![](./media/mobile-engagement-android-send-push/campaign-content.png)
+    ![](./media/mobile-engagement-android-send-push/campaign-content.png)
 
-5. You're done setting the most basic campaign possible. Now scroll down again and click the **Create** button to save your campaign.
+5. Olabilecek en temel kampanya ayarını bitirdiniz. Şimdi kaydırarak yeniden aşağı gidin ve kampanyanızı kaydetmek için **Oluştur** düğmesine tıklayın.
 
-6. Last step: click **Activate** to activate your campaign to send push notifications.
+6. Son adım: anında iletme bildirimlerini gönderecek kampanyanızı etkinleştirmek için **Etkinleştir**’e tıklayın.
 
-	![](./media/mobile-engagement-android-send-push/campaign-activate.png)
+    ![](./media/mobile-engagement-android-send-push/campaign-activate.png)
+
+
+<!--HONumber=Jun16_HO2-->
+
+

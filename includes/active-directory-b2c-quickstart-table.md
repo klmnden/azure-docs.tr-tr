@@ -1,8 +1,14 @@
-| Mobile & Native Apps | Web Apps & Web APIs | Integrate Directly with Protocols |
+| Mobil ve Yerel Uygulamalar | Web Apps ve Web API'leri | Protokollerle Doğrudan Tümleştirme |
 | ----------------------- | ------------------------------- | --------------------- |
-| [Add Sign Up & Sign In to an iOS App](active-directory-b2c-devquickstarts-ios.md) | Add Sign Up & Sign In to an AngularJS SPA (Coming Soon) | [Register an Application](active-directory-b2c-app-registration.md) |
-| [Add Sign Up & Sign In to an Android App](active-directory-b2c-devquickstarts-android.md) | [Add Sign Up & Sign In to a .NET MVC App](active-directory-b2c-devquickstarts-web-dotnet.md)  | [Mobile Apps with OAuth 2.0](active-directory-b2c-reference-oauth-code.md) |
-| Add Sign Up & Sign In to a Windows Universal App (Coming Soon) | [Add Sign Up & Sign In to a Node JS Web App](active-directory-b2c-devquickstarts-web-node.md) | [Web Apps with OpenID Connect](active-directory-b2c-reference-oidc.md) |
-| Add Sign Up & Sign In to a Windows Desktop App (Coming Soon) | [Secure a .NET Web API](active-directory-b2c-devquickstarts-api-dotnet.md) | Single Page Apps with OpenID Connect (Coming Soon)
-|  | [Secure a NodeJS Web API](active-directory-b2c-devquickstarts-api-node.md) | Server Side Daemons (Coming Soon) |
-|  | [Call a Web API from a .NET Web App](active-directory-b2c-devquickstarts-web-api-dotnet.md) | Server Side Daemons (Coming Soon) |
+| [iOS Uygulamasına Kaydolma ve Oturum Açma Ekleme](active-directory-b2c-devquickstarts-ios.md) | AngularJS SPA’ya Oturum Açma ve Kaydolma Ekleme (Yakında) | [Uygulamayı Kaydetme](active-directory-b2c-app-registration.md) |
+| [Android Uygulamasına Kaydolma ve Oturum Açma Ekleme](active-directory-b2c-devquickstarts-android.md) | [.NET MVC Uygulamasına Kaydolma ve Oturum Açma Ekleme](active-directory-b2c-devquickstarts-web-dotnet.md)  | [OAuth 2.0 ile Mobile Apps](active-directory-b2c-reference-oauth-code.md) |
+| Windows Evrensel Uygulamasına Oturum Açma ve Kaydolma Ekleme (Yakında) | [Node JS Web Uygulamasına Kaydolma ve Oturum Açma Ekleme](active-directory-b2c-devquickstarts-web-node.md) | [OpenID Connect ile Web Apps](active-directory-b2c-reference-oidc.md) |
+| Windows Masaüstü Uygulamasına Oturum Açma ve Kaydolma Ekleme (Yakında) | [.NET Web API Güvenliğini Sağlama](active-directory-b2c-devquickstarts-api-dotnet.md) | OpenID Connect ile Tek Sayfa Uygulamaları (Yakında)
+|  | [NodeJS Web API Güvenliğini Sağlama](active-directory-b2c-devquickstarts-api-node.md) | Sunucu Tarafı Deamon’lar (Yakında) |
+|  | [.NET Web Uygulamasından Web API Çağırma](active-directory-b2c-devquickstarts-web-api-dotnet.md) | Sunucu Tarafı Deamon’lar (Yakında) |
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

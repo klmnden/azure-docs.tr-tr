@@ -1,1 +1,7 @@
-It's important to know that Azure currently works with two deployment models: Resource Manager and classic. Before you begin your configuration, make sure that you understand the deployment models and tools. You'll need to know which model that you want to work in. Not all networking features are supported yet for both models. For information about the deployment models, see [Understanding Resource Manager deployment and classic deployment](../articles/resource-manager-deployment-model.md).
+Azure’un şu anda iki dağıtım modeliyle çalıştığını bilmeniz önemlidir: Resource Manager ve klasik. Yapılandırmaya başlamadan önce dağıtım modellerini ve araçlarını anladığınızdan emin olun. Hangi modelle çalışmak istediğinizi bilmeniz gerekir. Tüm ağ özellikleri henüz her iki modelde de desteklenmemektedir. Dağıtım modelleri hakkında bilgi için bkz. [Resource Manager dağıtımını ve klasik dağıtımı anlama](../articles/resource-manager-deployment-model.md).
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

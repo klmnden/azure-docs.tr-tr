@@ -1,94 +1,100 @@
 
 
 
-## Advantages of integrating Compute, Network, and Storage under the Azure Resource Manager deployment model
+## İşlemin, ağın ve depolamanın Azure Resource Manager dağıtım modeli altında tümleştirilmesinin avantajları
 
-The Azure Resource Manager deployment model offers the ability to easily leverage pre-built application templates or construct an application template to deploy and manage compute, network, and storage resources on Azure. In this section, we’ll walk through the advantages of deploying resources through the Azure Resource Manager deployment model.
+Azure Resource Manager dağıtım modeli, önceden derlenmiş uygulama şablonlarını kolay bir şekilde geliştirme veya Azure’da işlem, ağ ve depolama kaynaklarını dağıtacak ve yönetecek uygulama şablonu oluşturma becerisini sunar. Bu bölümde, Azure Resource Manager dağıtım modelinde kaynakların dağıtılmasının getirdiği avantajlarda bir gezinti yapacağız.
 
--	Complexity made simple -- Build, integrate, and collaborate on complicated applications that can include the entire gamut of Azure resources (such as Websites, SQL Databases, Virtual Machines, or Virtual Networks) from a shareable template file
--	Flexibility to have repeatable deployments for development, devOps, and system administrators when you use the same template file
--	Deep integration of VM Extensions (Custom Scripts, DSC, Chef, Puppet, etc.) with the Azure Resource Manager in a template file allows easy orchestration of in-VM setup configuration
--	Defining tags and the billing propagation of those tags for Compute, Network & Storage resources
--	Simple and precise organizational resource access management using Azure Role-Based Access Control (RBAC)
--	Simplified Upgrade/Update story by modifying the original template and then redeploying it
+-   Karmaşıklık basitleştirildi -- Paylaşılabilir bir şablon dosyasına ait Azure kaynaklarının (Web siteleri, SQL Veritabanları, Sanal Makineler veya Sanal Ağlar gibi) tam skalasını barındırabilen karmaşık uygulamalarda derleme, tümleştirme ve işbirliği yapma
+-   Aynı şablon dosyasını kullandığınızda geliştirme, devOps ve sistem yöneticileri için yinelenebilir dağıtımlara sahip olacak esneklik
+-   VM Uzantılarının (Özel Betikler, DSC, Chef, Puppet vb.) Azure Resource Manager ile bir şablon dosyasındaki kapsamlı tümleşmesi VM içi kurulum yapılandırmasına ait kolay düzenlemeyi sağlar
+-   Etiketleri ve işlem, ağ ve depolama kaynakları için bu etiketlerin fatura yayılmasını tanımlama
+-   Azure Rol Tabanlı Erişim Denetimi (RBAC) kullanarak basit ve hassas kurumsal kaynağa erişim yönetimi
+-   Asıl şablonu değiştirip yeniden dağıtarak basitleştirilmiş Yükseltme/Güncelleştirme hikayesi
 
 
-## Advancements of the Compute, Network, and Storage APIs under Azure Resource Manager
+## Azure Resource Manager Altında İşlem, Ağ ve Depolama API'leri geliştirmeleri
 
-In addition to the advantages mentioned above, there are some significant performance advancements in the APIs released:
+Yukarıda söz edilen avantajlara ek olarak, yayımlanan API'lerde bazı önemli performans geliştirmeleri vardır:
 
--	Enabling massive and parallel deployment of Virtual Machines
--	Support for 3 Fault Domains in Availability Sets
--	Improved Custom Script extension that allows specification of scripts from any publicly accessible custom URL
-- Integration of Virtual Machines with the Azure Key Vault for highly secure storage and private deployment of secrets from [FIPS-validated](http://wikipedia.org/wiki/FIPS_140-2) [Hardware Security Modules](http://wikipedia.org/wiki/Hardware_security_module)
--	Provides the basic building blocks of networking through APIs to enable customers to construct complicated applications that include Network Interfaces, Load Balancers, and Virtual Networks
--	Network Interfaces as a new object allows complicated network configuration to be sustained and reused for Virtual Machines
--	Load Balancers as a first-class resource enables IP Address assignments
--	Granular Virtual Network APIs allow you to simplify the management of individual Virtual Networks
+-   Virtual Machines’in toplu ve paralel dağıtımını etkinleştirme
+-   Kullanılabilirlik Kümelerinde 3 Hata Etki Alanı için destek
+-   Herhangi bir genel erişimli özel URL’ye ait betiklerin belirtimine izin veren Geliştirilmiş Özel Betik uzantısı
+- [FIPS doğrulamalı](http://wikipedia.org/wiki/FIPS_140-2) [Donanım Güvenlik Modülleri](http://wikipedia.org/wiki/Hardware_security_module)’ne ait çok gizli depolama ve gizli dizilerin özel dağıtımı için Azure Anahtar Kasasıyla Virtual Machines’in tümleşmesi
+-   Ağ Arabirimleri, Yük Dengeleyicileri ve Sanal Ağları da kapsayan karmaşık uygulamaları müşterilerin oluşturmasını sağlamak için API’ler aracılığıyla ağın temel yapı taşlarını sağlar
+-   Yeni nesne olarak Ağ Arabirimleri, Virtual Machines için dayanacak ve yeniden kullanılacak karmaşık ağ yapılandırmasını sağlar
+-   Birinci sınıf kaynak olarak Yük Dengeleyiciler IP Adresi atamalarını sağlar
+-   Ayrıntılı Sanal Ağ API'leri, tek tek Sanal Ağların yönetimini basitleştirmenize izin verir
 
-## Conceptual differences with the introduction of new APIs
+## Yeni API’lerin girişiyle kavramsal farklar
 
-In this section, we will walk through some of the most important conceptual differences between the XML based APIs available today and JSON based APIs available through the Azure Resource Manager for Compute, Network & Storage.
+Bu bölümde, bugün kullanımda olana XML tabanlı API’ler ve İşlem, Ağ ve Depolama için Azure Resource Manager’da kullanılabilen JSON tabanlı API’ler arasındaki en önemli kavramsal farklılıklardan bazılarında gezineceğiz.
 
- Item | Azure Service Management (XML-based)	| Compute, Network & Storage Providers (JSON-based)
+ Öğe | Azure Hizmet Yönetimi (XML tabanlı)    | İşlem, Ağ ve Depolama Sağlayıcıları (JSON tabanlı)
  ---|---|---
-| Cloud Service for Virtual Machines |	Cloud Service was a container for holding the virtual machines that required Availability from the platform and Load Balancing.	| Cloud Service is no longer an object required for creating a Virtual Machine using the new model. |
-| Availability Sets	| Availability to the platform was indicated by configuring the same “AvailabilitySetName” on the Virtual Machines. The maximum count of fault domains was 2. | Availability Set is a resource exposed by Microsoft.Compute Provider. Virtual Machines that require high availability must be included in the Availability Set. The maximum count of fault domains is now 3. |
-| Affinity Groups |	Affinity Groups were required for creating Virtual Networks. However, with the introduction of Regional Virtual Networks, that was not required anymore. |To simplify, the Affinity Groups concept doesn’t exist in the APIs exposed through Azure Resource Manager. |
-| Load Balancing	| Creation of a Cloud Service provides an implicit load balancer for the Virtual Machines deployed. | The Load Balancer is a resource exposed by the Microsoft.Network provider. The primary network interface of the Virtual Machines that needs to be load balanced should be referencing the load balancer. Load Balancers can be internal or external. [Read more.](../articles/resource-groups-networking.md) |
-|Virtual IP Address	| Cloud Services will get a default VIP (Virtual IP Address) when a VM is added to a cloud service. The Virtual IP Address is the address associated with the implicit load balancer.	| Public IP address is a resource exposed by the Microsoft.Network provider. Public IP Address can be Static (Reserved) or Dynamic. Dynamic Public IPs can be assigned to a Load Balancer. Public IPs can be secured using Security Groups. |
-|Reserved IP Address|	You can reserve an IP Address in Azure and associate it with a Cloud Service to ensure that the IP Address is sticky.	| Public IP Address can be created in “Static” mode and it offers the same capability as a “Reserved IP Address”. Static Public IPs can only be assigned to a Load balancer right now. |
-|Public IP Address (PIP) per VM	| Public IP Addresses can also associated to a VM directly. | Public IP address is a resource exposed by the Microsoft.Network provider. Public IP Address can be Static (Reserved) or Dynamic. However, only dynamic Public IPs can be assigned to a Network Interface to get a Public IP per VM right now. |
-|Endpoints| Input Endpoints needed to be configured on a Virtual Machine to be open up connectivity for certain ports. One of the common modes of connecting to virtual machines done by setting up input endpoints. | Inbound NAT Rules can be configured on Load Balancers to achieve the same capability of enabling endpoints on specific ports for connecting to the VMs. |
-|DNS Name| A cloud service would get an implicit globally unique DNS Name. For example: `mycoffeeshop.cloudapp.net`. | DNS Names are optional parameters that can be specified on a Public IP Address resource. The FQDN will be in the following format - `<domainlabel>.<region>.cloudapp.azure.com`. |
-|Network Interfaces	| Primary and Secondary Network Interface and its properties were defined as network configuration of a Virtual machine. | Network Interface is a resource exposed by Microsoft.Network Provider. The lifecycle of the Network Interface is not tied to a Virtual Machine. |
+| Virtual Machines için Bulut Hizmeti |  Bulut Hizmeti, platformdan ve Yük Dengeleme’den Uygunluk gereken sanal makineleri barındırmak için bir kapsayıcıydı. | Bulut Hizmeti artık yeni modeli kullanarak bir Sanal Makine oluşturmak için gereken nesne değildir. |
+| Kullanılabilirlik Kümeleri | Platformun uygunluğu Sanal Makinelerde "AvailabilitySetName" yapılandırılarak belirtilirdi. Hata etki alanlarının en yüksek sayısı 2’ydi. | Kullanılabilirlik kümesi, Microsoft.Compute Sağlayıcısı tarafından sağlanan bir kaynaktır. Yüksek kullanılabilirliğin gerektiği Sanal Makineler Kullanılabilirlik Kümesi içinde bulunmalıdır. Hata etki alanlarının en yüksek sayısı artık 3’tür. |
+| Benzeşim Grupları | Benzeşim Grupları Sanal Ağlar oluşturmak için gerekliydi. Ancak, Bölgesel Sanal Aağlar girişiyle artık gerekmiyordu. |Basitleştirmek için, Benzeşim Grupları kavramı Azure Resource Manager aracılığıyla sunulan API'lerde yok. |
+| Yük Dengeleme    | Bulut Hizmeti oluşturulması dağıtılan Virtual Machines için örtük yük dengeleyici sağlar. | Load Balancer, Microsoft.Network sağlayıcısı tarafından sunulan bir kaynaktır. Yük dengeli olması gereken Virtual Machines’in birincil ağ arabirimi yük dengeleyiciye baş vurmalıdır. Yük Dengeleyiciler dahili ve harici olabilir. [Daha fazla bilgi edinin.](../articles/resource-groups-networking.md) |
+|Sanal IP Adresi | bulut hizmetine Bir VM eklendiğinde, Cloud Services varsayılan VIP’i (Sanal IP Adresi) alır. Sanal IP Adresi örtük yük dengeleyiciyle ilişkili adrestir.   | Genel IP Adresi, Microsoft.Network sağlayıcısı tarafından sunulan bir kaynaktır. Genel IP Adresi Statik (Ayrılmış) veya Dinamik olabilir. Dinamik Genel IP’ler bir Load Balancer atanabilir. Genel IP’ler Güvenlik Grupları kullanılarak güvenli hale getirilebilir. |
+|Ayrılmış IP Adresi|   Azure’da bir IP adresini ayırabilir ve IP Adresinin yapışkan olmasını sağlamak için bunu Bulut Hizmetiyle ilişkilendirebilirsiniz.   | Genel IP Adresi "Statik" modunda oluşturulabilir ve bir "Ayrılmış IP Adresi" ile aynı özelliği sunar. Statik Genel IP’ler yalnızca bir Yük dengeleyiciye hemen şimdi atanabilir. |
+|Genel IP Adresi (PIP) / VM | Genel IP Adresleri ayrıca VM ile doğrudan ilişkilendirilebilir. | Genel IP Adresi, Microsoft.Network sağlayıcısı tarafından sunulan bir kaynaktır. Genel IP Adresi Statik (Ayrılmış) veya Dinamik olabilir. Ancak, yalnızca dinamik Genel IP’ler, her VM için hemen şimdi bir Genel IP almak amacıyla bir Ağ Arabirimine atanabilir. |
+|Uç Noktalar| Giriş Uç Noktaları, belirli bağlantı noktaları bağlantısının açık olması için bir Sanal Makinede yapılandırılmalıdır. Sanal makinelere bağlanmanın yaygın modlarında biri de giriş uç noktaları ayarlanarak yapılır. | Gelen NAT kuralları, VM’lere bağlanması için belirli bağlantı noktalarındaki uç noktaların etkinleştirilmesiyle aynı beceriyi gerçekleştirmek için Yük Dengeleyicilerde yapılandırılabilir. |
+|DNS Adı| Bulut hizmeti örtük bir genel benzersiz DNS Adı almalıdır. Örneğin: `mycoffeeshop.cloudapp.net`. | DNS Adları, Genel IP Adresi kaynağında belirtilebilen isteğe bağlı parametrelerdir. FQDN şu biçimde olacaktır - `<domainlabel>.<region>.cloudapp.azure.com`. |
+|Ağ Arabirimleri | Birincil ve İkincil Ağ Arabirimi ve özellikleri Sanal makinenin ağ yapılandırması olarak tanımlanmıştı. | Ağ Arabirimi, Microsoft.Network Sağlayıcısı tarafından sunulan bir kaynaktır. Ağ Arabiriminin yaşam döngüsü bir Sanal Makineye bağlı değildir. |
 
-## Getting Started with Azure Templates for Virtual Machines
+## Sanal Makineler için Azure Şablonlarına Başlama
 
-You can get started with the Azure Templates by leveraging the various tools that we have for developing and deploying to the platform.
+Platformda geliştirme ve dağıtma için sahip olduğumuz çeşitli araçları geliştirerek Azure Şablonlarına başlayabiliriz.
 
-### Azure portal
+### Azure Portal
 
-The Azure portal will continue to have the option to deploy Virtual Machines with the classic deployment model and Virtual Machines with the Resource Manager deployment model simultaneously. The Azure portal will also allow custom template deployments.
+Azure portalı, klasik dağıtım modeline sahip Sanal Makineleri ve Resource Manager dağıtım modeline sahip Sanal Makineleri aynı anda dağıtma seçeneğiyle devam edecektir. Azure portalı özel şablon dağıtımlarına da izin verecektir.
 
 ### Azure PowerShell
 
-Azure PowerShell will have two modes of deployment – **AzureServiceManagement** mode and **AzureResourceManager** mode.  AzureResourceManager mode will now also contain the cmdlets to manage Virtual Machines, Virtual Networks, and Storage Accounts. You can read more about it [here](../articles/powershell-azure-resource-manager.md).
+Azure PowerShell iki dağıtım moduna sahip olacaktır – **AzureServiceManagement** modu ve **AzureResourceManager** modu.  AzureResourceManager modunda artık Sanal Makineleri, Sanal Ağları ve Depolama Hesaplarını yönetecek cmdlet’ler bulunmaktadır. Bunun hakkında daha fazla bilgiyi [buradan](../articles/powershell-azure-resource-manager.md) edinebilirsiniz.
 
 ### Azure CLI
 
-The Azure Command-line Interface (Azure CLI) will have two modes of deployment – **AzureServiceManagement** mode and **AzureResourceManager** mode. The AzureResourceManager mode will now also contain commands to manage Virtual Machines, Virtual Networks, and Storage Accounts. You can read more about it [here](../articles/xplat-cli-azure-resource-manager.md).
+Azure Komut Satırı Arabirimi (Azure CLI) iki dağıtım moduna sahip olacaktır – **AzureServiceManagement** modu ve **AzureResourceManager** modu. AzureResourceManager modunda artık Sanal Makineleri, Sanal Ağları ve Depolama Hesaplarını yönetecek komutlar bulunmaktadır. Bunun hakkında daha fazla bilgiyi [buradan](../articles/xplat-cli-azure-resource-manager.md) edinebilirsiniz.
 
 ### Visual Studio
 
-With the latest Azure SDK release for Visual Studio, you can author and deploy Virtual Machines and complex applications right from Visual Studio. Visual Studio offers the ability to deploy from a pre-built list of templates or start from an empty template.
+Visual Studio için en son Azure SDK sürümüyle Sanal Makineleri ve karmaşık uygulamaları hemen Visual Studio'dan yazabilir ve dağıtabilirsiniz. Visual Studio, şablonların önceden derlenmiş listesinden dağıtma veya boş bir şablondan başlama becerisini sunar.
 
-### REST APIs
+### REST API'leri
 
-You can find the detailed REST API documentation for the Compute, Network & Storage Resource Providers [here](https://msdn.microsoft.com/library/azure/dn790568.aspx).
+İşlem, Ağ ve Depolama Kaynak Sağlayıcıları için ayrıntılı REST API belgelerini [burada](https://msdn.microsoft.com/library/azure/dn790568.aspx) bulabilirsiniz.
 
-## Frequently Asked Questions
+## Sık Sorulan Sorular
 
-**Can I create a Virtual Machine using the new Azure Resource Manager to deploy in a Virtual Network or Storage Account created using the Azure Service Management APIs?**
+**Azure Hizmet Yönetim API'leri kullanılarak oluşturulan Sanal Ağ veya Depolama Hesabında dağıtmak üzere yeni Azure Resource Manager’ı kullanarak Sanal Makine oluşturabilir miyim?**
 
-This is not supported at the moment. You cannot deploy using the new Azure Resource Manager APIs to deploy a Virtual Machine into a Virtual Network that was created using the Service Management APIs.
+Bu, şu anda desteklenmiyor. Hizmet Yönetim API'leri kullanılarak oluşturulmuş Sanal Ağda bir Sanal Makine dağıtmak için yeni Azure Resource Manager API’lerini kullanarak dağıtamazsınız.
 
-**Can I create a Virtual Machine using the new Azure Resource Manager APIs from a user image that was created using the Azure Service Management APIs?**
+**Azure Hizmet Yönetim API'leri kullanılarak oluşturulmuş kullanıcı görüntüsünden yeni Azure Resource Manager’ı kullanarak Sanal Makine oluşturabilir miyim?**
 
-This is not supported at the moment. However, you can copy the VHD files from a Storage Account that was created using the Service Management APIs and copy it to a new account created using the using the new Azure Resource Manager APIs.
+Bu, şu anda desteklenmiyor. Ancak, Hizmet Yönetim API'leri kullanılarak oluşturulmuş Depolama Hesabına ait VHD dosyalarını kopyalayabilir ve bunu yeni Azure Resource Manager API’leri kullanılarak oluşturulan yeni hesaba kopyalayabilirsiniz.
 
-**What is the impact on the quota for my subscription?**
+**Aboneliğimle ilgili kotaya etkisi nedir?**
 
-The quotas for the Virtual Machines, Virtual Networks, and Storage Accounts created through the new Azure Resource Manager APIs  are separate from the quotas that you currently have. Each subscription gets new quotas to create the resources using the new APIs. You can read more about the additional quotas [here](../articles/azure-subscription-service-limits.md).
+Yeni Azure Resource Manager API’leri üzerinden oluşturulan Sanal Makineler, Sanal Ağlar ve Depolama Hesapları kotaları şu anda sahip olduğunuz kotalardan ayrıdır. Her abonelik, yeni API'leri kullanarak kaynak oluşturmak için yeni kotalar alır. Ek kotalar hakkında daha fazla bilgiyi [burada](../articles/azure-subscription-service-limits.md) okuyabilirsiniz.
 
-**Can I continue to use my automated scripts for provisioning Virtual Machines, Virtual Networks, Storage Accounts etc. through the new Azure Resource Manager APIs?**
+**Yeni Azure Resource Manager API’leri aracılığıyla Sanal Makineleri, Sanal Ağları, Depolama Hesaplarını vb. sağlamak için otomatik betiklerimi kullanmaya devam edebilir miyim?**
 
-All the automation and scripts that you’ve built will continue to work for the existing Virtual Machines, Virtual Networks created under the Azure Service Management mode. However, the scripts have to be updated to use the new schema for creating the same resources through the new Azure Resource Manager mode.
+Derlediğiniz tüm otomasyon ve betikler, Azure Hizmet Yönetimi modu altında oluşturulan varolan Sanal Makineler, Sanal Ağlar için çalışmaya devam edecektir. Ancak, yeni Azure Resource Manager aracılığıyla aynı kaynakların oluşturulmasında yeni şemayı kullanmak için betikler güncelleştirilmelidir.
 
-**Can the Virtual Networks created using the new Azure Resource Manager APIs be connected to my Express Route circuit?**
+**Yeni Azure Resource Manager API'leri kullanılarak oluşturulan Sanal Ağlar Hızlı Rota devreme bağlanabilir mi?**
 
-This is not supported at the moment. You cannot connect the Virtual Networks created using the new Azure Resource Manager APIs with an Express Route Circuit. This will be supported in the future.
+Bu, şu anda desteklenmiyor. Yeni Azure Resource Manager API'leri kullanılarak oluşturulan Sanal Ağları bir Hızlı Rota Devresine bağlayamazsınız. Bu, daha ileride desteklenecektir.
 
-**Where can I find examples of Azure Resource Manager templates?**
+**Azure Resource Manager Şablonları örneklerini nerede bulabilirim?**
 
-A comprehensive set of starter templates can be found on [Azure Resource Manager QuickStart Templates](https://azure.microsoft.com/documentation/templates/).
+Yeni başlayanlar için kapsamlı bir dizi şablon [Azure Resource Manager Hızlı Başlangıç Şablonlarında](https://azure.microsoft.com/documentation/templates/) bulunabilir.
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

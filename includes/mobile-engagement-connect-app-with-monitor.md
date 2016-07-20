@@ -1,14 +1,20 @@
-This section shows you how to connect your app to the Mobile Engagement backend by using the Mobile Engagement's real-time monitoring feature. 
+Bu bölümde, uygulamanızın Mobile Engagement'ın gerçek zamanlı izleme özelliğini kullanılarak Mobile Engagement arka ucuna nasıl bağlanacağı gösterilmektedir. 
 
-1. In your **Azure Mobile Engagement** account, make sure you select the app you wish to monitor and manage in the **Mobile Engagement** portal. Navigate to your Mobile Engagement portal by clicking the **Engage** button at the bottom. 
+1. **Azure Mobile Engagement** hesabınızda, **Mobile Engagement** portalında izlemek ve yönetmek istediğiniz uygulamayı seçtiğinizden emin olun. Alt kısımdaki **Katıl** düğmesine tıklayarak Mobile Engagement portalınıza gidin. 
 
-	 ![](./media/mobile-engagement-connect-app-with-monitor/engage-button.png)
+     ![](./media/mobile-engagement-connect-app-with-monitor/engage-button.png)
 
-2. You will land in the Mobile Engagement portal. If the Monitor tab is not selected, click on the **Monitor**.
+2. Mobile Engagement portalına ulaşırsınız. İzleyici sekmesi seçili değilse **İzleyici**’ye tıklayın.
 
-3. The monitor is ready to show you any device in real time, which will start your app.
-	 
-4. Start your app either in the emulator/simulator or on a connected device. You should see one session in the monitor if your integration is correct which means that your app is now connected to the Mobile Engagement backend and is sending data to it.  
-	
-	 ![](./media/mobile-engagement-connect-app-with-monitor/monitor.png)
+3. İzleyici, uygulamanızı başlatacak cihazları gerçek zamanlı olarak göstermeye hazırdır.
+     
+4. Uygulamanızı öykünücüde/benzeticide veya bağlı bir cihazda başlatın. Tümleştirmeniz doğruysa izleyicide tek oturum görmeniz gerekir; başka bir deyişle uygulamanızın artık Mobile Engagement arka ucuna bağlı olduğunu ve buna veri gönderdiğini görürsünüz.  
+    
+     ![](./media/mobile-engagement-connect-app-with-monitor/monitor.png)
+
+
+
+
+<!--HONumber=Jun16_HO2-->
+
 

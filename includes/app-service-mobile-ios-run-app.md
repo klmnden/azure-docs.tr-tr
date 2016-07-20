@@ -1,10 +1,16 @@
 
-1. On your Mac, visit the [Azure Portal]. Click **Browse All** > **Mobile Apps** > the backend that you just created. In the mobile app settings, click **Quickstart** > **iOS (Objective-C)**. If you prefer Swift, click **Quickstart** > **iOS (Swift)** instead. Under **Download and run your iOS project**, click **Download**. This downloads a complete Xcode project for an app pre-configured to connect to your backend. Open the project using Xcode.
+1. Mac’inizde [Azure Portalı]’nı ziyaret edin. **Tümüne Gözat** > **Mobile Apps** > henüz oluşturmuş olduğunuz arka uca tıklayın. Mobil uygulama ayarlarında, **Hızlı Başlangıç** > **iOS (Objective-C)** öğesine tıklayın. Swift tercih ederseniz, bunun yerine **Hızlı Başlangıç** > **iOS (Swift)** öğesine tıklayın. **iOS projenizi indirme ve çalıştırma** altında **İndir**’e tıklayın. Arka ucunuza bağlanacak önceden yapılandırılmış bir uygulama için tam bir Xcode projesini indirir. Projeyi Xcode kullanarak açın.
 
-2. Press the **Run** button to build the project and start the app in the iOS simulator.
+2. Projeyi oluşturmak için **Çalıştır** düğmesine basın ve uygulamayı iOS benzeticisinde başlatın.
 
-3. In the app, type meaningful text, such as _Complete the tutorial_ and then click the plus (**+**) icon. This sends a POST request to the Azure backend you deployed earlier. The backend inserts data from the request is into the TodoItem SQL table, and returns information about the newly stored items back to the mobile app. The mobile app displays this data in the list. 
+3. Uygulamada, _Öğreticiyi tamamla_ gibi anlamlı bir metin yazın ve ardından artı (**+**) simgesine basın. Böylece, daha önce dağıttığınız Azure arka ucuna bir POST isteği gönderilir. Arka uç, verileri istekten TodoItem SQL tablosuna ekler ve yeni depolanan öğeler hakkındaki bilgileri mobil uygulamaya döndürür. Mobil uygulama bu verileri listede görüntüler. 
 
-   	![](./media/mobile-services-ios-run-app/mobile-quickstart-startup-ios.png)
+    ![](./media/mobile-services-ios-run-app/mobile-quickstart-startup-ios.png)
 
-[Azure Portal]: https://portal.azure.com/
+[Azure Portalı]: https://portal.azure.com/
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

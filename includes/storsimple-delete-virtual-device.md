@@ -1,7 +1,12 @@
-#### To delete a virtual device
+#### Sanal cihazı silmek için
 
-1. Sign in to the Azure classic portal.
+1. Klasik Azure portalına giriş yapın.
 
-- Click **Virtual Machines**, and then select the virtual device.
+- **Virtual Machines**’e tıklayın ve sanal cihazı seçin.
 
-- Click **Delete** and choose to delete all the virtual machine disks.
+- **Sil**’e tıklayın ve silinecek tüm sanal makine disklerini seçin.
+
+
+<!--HONumber=Jun16_HO2-->
+
+

@@ -1,2 +1,7 @@
 > [AZURE.IMPORTANT]
-You cannot use applications registered in the **Applications** tab on the classic [Azure Management Portal](https://manage.windowsazure.com/) for this.
+Bunun için, klasik [Azure Yönetim Portalı](https://manage.windowsazure.com/)’nın **Uygulamalar** sekmesinde kaydedilmiş uygulamaları kullanamazsınız.
+
+
+<!--HONumber=Jun16_HO2-->
+
+

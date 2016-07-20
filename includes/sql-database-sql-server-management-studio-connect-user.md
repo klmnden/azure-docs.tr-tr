@@ -1,40 +1,46 @@
-## Connect to Azure SQL Database as a user
+## Azure SQL Database’e kullanıcı olarak bağlanma
 
-Use the following steps to connect to Azure SQL Database with SSMS as a user.
+SSMS barındıran Azure SQL Database’e kullanıcı olarak bağlanmak için aşağıdaki adımları kullanın.
 
-1. Type "Microsoft SQL Server Management Studio" in the Windows search box, and then click the desktop app to start SSMS.
+1. Windows Arama kutusuna "Microsoft SQL Server Management Studio" yazın ve SSMS’yi başlatmak için masaüstü uygulamasına tıklayın.
 
-2. In the Connect to Server window, enter the following information:
+2. Sunucuya Bağlan penceresine şu bilgileri girin:
 
-- **Server type**: The default is database engine; do not change this value.
- - **Server name**: Enter the name of the server that hosts your SQL database in the followinbg format: *&lt;servername>*.**database.windows.net**
- - **Authentication type**: If you are just getting started, select SQL Authentication. If you have enabled Active Directory for your SQL Database logical server, you can select either Active Directory Password Authentication or Active Directory Integrated Authentication.
- - **User name**: If you selected either SQL Authentication or Active Directory Password Authentication, enter the name of a user with access to a database on the server.
- - **Password**: If you selected either SQL Authentication or Active Directory Password Authentication, enter the password for the specified user.
+- **Sunucu türü**: Varsayılan veritabanı altyapısıdır; bu değeri değiştirmeyin.
+ - **Sunucu adı**: SQL Database’i barındıran sunucunun adını şu biçimde girin: *&lt;sunucuadı >*.**database.windows.net**
+ - **Kimlik doğrulaması türü**: Yeni başlıyorsanız SQL Kimlik Doğrulaması’nı seçin. SQL Database mantıksal sunucusu için Active Directory’yi etkinleştirdiyseniz, Active Directory Parola Kimlik Doğrulaması’nı veya Active Directory Tümleşik Kimlik Doğrulaması’nı seçebilirsiniz.
+ - **Kullanıcı adı**: SQL Kimlik Doğrulaması’nı veya Active Directory Parola Kimlik Doğrulaması’nı seçtiyseniz, sunucudaki veritabanına erişimi olan bir kullanıcı adı girin.
+ - **Parola**: SQL Kimlik Doğrulaması’nı veya Active Directory Parola Kimlik Doğrulaması’nı seçtiyseniz belirtilen kullanıcı için parola girin.
    
        ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-sql-server-management-studio-connect-user/connect-user-1.png)
 
-3. Click **Options** to specify the database to which you want to connect.
+3. Bağlanmak istediğiniz veritabanını belirtmek için **Seçenekler**’e tıklayın.
 
-      ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-sql-server-management-studio-connect-user/connect-user-2.png)
+      ![SQL Server Management Studio: SQL Database sunucusuna bağlanma](./media/sql-database-sql-server-management-studio-connect-user/connect-user-2.png)
  
-4. In the **Connect to Database**, select the database to which you wish to connect.
+4. **Veritabanına Bağlan**’da bağlanmak istediğiniz veritabanını seçin.
 
-     ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-sql-server-management-studio-connect-user/connect-user-3.png)
+     ![SQL Server Management Studio: SQL Database sunucusuna bağlanma](./media/sql-database-sql-server-management-studio-connect-user/connect-user-3.png)
 
-5. Click **Connect**.
+5. **Bağlan**'a tıklayın.
  
-6. If your client's IP address does not have access to the SQL Database logical server, you will be prompted to sign in to an Azure account and create a server-level firewall rule. If you are an Azure subscription administrator, Click **Sign in** to create a server-level firewall rule. If not, have an administrator create either a server-level firewall rule or a database-level firewall rule in the database to which you are trying to connect.
+6. İstemcinin IP adresinin SQL Database mantıksal sunucusuna erişimi yoksa, bir Azure hesabına giriş yapıp sunucu düzeyinde güvenlik duvarı kuralı oluşturmanız istenir. Azure aboneliği yöneticisiyseniz, sunucu düzeyinde güvenlik duvarı kuralı oluşturmak için **Giriş yap**’a tıklayın. Bunun dışındaki durumlarda, bir yöneticiden sunucu düzeyinde güvenlik duvarı kuralı veya bağlanmaya çalıştığınız veritabanında veritabanı düzeyinde güvenlik duvarı kuralı oluşturmasını isteyin.
  
-      ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-sql-server-management-studio-connect-user/connect-user-4.png)
+      ![SQL Server Management Studio: SQL Database sunucusuna bağlanma](./media/sql-database-sql-server-management-studio-connect-user/connect-user-4.png)
  
-7. If your credentials grant you access to the specified database, Object Explorer opens and you can now perform administrative tasks or query data, depending upon the user permissions.
+7. Kimlik bilgileriniz belirtilen veritabanına erişmenizi sağlıyorsa, Nesne Gezgini açılır; siz de artık kullanıcı izinlerinize bağlı olarak yönetici görevler gerçekleştirebilir ya da verileri sorgulayabilirsiniz.
   
-      ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-sql-server-management-studio-connect-user/connect-user-5.png)
+      ![SQL Server Management Studio: SQL Database sunucusuna bağlanma](./media/sql-database-sql-server-management-studio-connect-user/connect-user-5.png)
       
  
- ## Troubleshoot connection failures
+ ## Bağlantı hatalarını giderme
 
-The most common reason for connection failures are mistakes in the server name (remember, <*servername*> is the name of the logical server, not the database), the user name, or the password, as well as the server not allowing connections for security reasons. 
+Bağlantı hatasının en yaygın nedeni sunucu adındaki ( <*sunucuadı*> mantıksal sunucunun adıdır, veritabanının değil), kullanıcı adındaki veya paroladaki hatalardır; bunun yanı sıra sunucuya güvenlik nedenleriyle bağlantılara izin verilmiyordur. 
+
+
+
+
+
+<!--HONumber=Jun16_HO2-->
 
 

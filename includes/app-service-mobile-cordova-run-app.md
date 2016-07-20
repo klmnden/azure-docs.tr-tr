@@ -1,23 +1,24 @@
 
-1. Visit the [Azure Portal]. Click **Browse All** > **Mobile Apps** > the backend that you just created. In the mobile
-app settings, click **Quickstart** > **Cordova**. Under **Configure your client application**, select **Create a New App**,
-then click **Download**. This downloads a complete Cordova project for an app pre-configured to connect to your backend.
+1. [Azure Portal]’ı ziyaret edin. **Tümüne Gözat** > **Mobile Apps** > henüz oluşturmuş olduğunuz arka uca tıklayın. Mobil uygulama ayarlarında, **Hızlı Başlangıç** > **Cordova** öğesine tıklayın. **İstemci uygulamanızı yapılandırın** altında **Yeni Uygulama Oluştur**’u seçin ve **İndir**’e tıklayın. Arka ucunuza bağlanacak önceden yapılandırılmış bir uygulama için tam bir Cordova projesini indirir.
 
-2. Unpack the downloaded ZIP file to a directory on your hard drive.
+2. İndirilen ZIP dosyası paketini sabit diskinizdeki bir dizine açın.
 
-3. Open the project using **Visual Studio**.  Click on **Open** > **Project/Solution...**.
+3. Projeyi **Visual Studio** kullanarak açın.  **Aç** > **Proje/Çözüm...** seçeneğine tıklayın.
 
-4. Find the _sitename_.sln file and click **Open**.
+4. _siteadı_.sln dosyasını bulun ve **Aç**’a tıklayın.
 
-5. The default emulator is **Ripple - Nexus (Galaxy)**.  Click the drop-down arrow next to the emulator and select **Google Android Emulator**.
+5. Varsayılan öykünücü olarak **Ripple - Nexus (Galaxy)** kullanılır.  Öykünücünün yanındaki açılan oka tıklayın ve **Google Android Öykünücüsü**’nü seçin.
 
-6. Click on **Google Android Emulator**.  The project will be built and then run.  You may see a network security warning from the
-Google Android Emulator requesting access to the network.  Eventually, the Google Android Emulator will be shown and your application will run.
+6. **Google Android Öykünücüsü**’ne tıklayın.  Proje oluşturulup çalıştırılacaktır.  Google Android Öykünücüsü’nden gelen, ağa erişim isteyen bir ağ güvenlik uyarısı görebilirsiniz.  Sonuç olarak, Google Android Öykünücüsü gösterilecek, uygulamanız da çalıştırılacaktır.
 
-7. In the app, type meaningful text, such as _Complete the tutorial_ and then click the 'Add' button. This sends a POST request to the
-Azure backend you deployed earlier. The backend inserts data from the request is into the TodoItem SQL table, and returns information
-about the newly stored items back to the mobile app. The mobile app displays this data in the list.
+7. Uygulamada, _Öğreticiyi tamamla_ gibi anlamlı bir metin yazın ve ardından ‘Ekle’ düğmesine basın. Böylece, daha önce dağıttığınız Azure arka ucuna bir POST isteği gönderilir. Arka uç, verileri istekten TodoItem SQL tablosuna ekler ve yeni depolanan öğeler hakkındaki bilgileri mobil uygulamaya döndürür. Mobil uygulama bu verileri listede görüntüler.
 
     ![](./media/app-service-mobile-cordova-quickstart/quickstart-startup.png)
 
 [Azure Portal]: https://portal.azure.com/
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

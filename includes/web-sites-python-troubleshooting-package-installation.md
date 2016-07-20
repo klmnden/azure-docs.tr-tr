@@ -1,69 +1,75 @@
-Some packages may not install using pip when run on Azure.  It may simply be that the package is not available on the Python Package Index.  It could be that a compiler is required (a compiler is not available on the machine running the web app in Azure App Service).
+Bazı paketler, Azure üzerinde çalıştığında pip kullanılarak yüklenemez.  En basit haliyle, paket Python Paket Dizini’nde bulunmayabilir.  Derleyici gerekiyor olabilir (Azure App Service’te web uygulaması çalıştıran makinede derleyici olmayabilir).
 
-In this section, we'll look at ways to deal with this issue.
+Bu bölümde, bu sorunu düzeltmenin yollarını inceleyeceğiz.
 
-### Request wheels
+### Tekerlek isteği
 
-If the package installation requires a compiler, you should try contacting the package owner to request that wheels be made available for the package.
+Paket yüklemesine bir derleyici gerekiyorsa, paket sahibinden pakete tekerleri de katmasını istemek için görüşmeye çalışmalısınız.
 
-With the recent availability of [Microsoft Visual C++ Compiler for Python 2.7][], it is now easier to build packages that have native code for Python 2.7.
+[Python 2.7 için Microsoft Visual C++ Derleyicisi][] uygulamasının yakın zamanda piyasaya çıkmasıyla, Python 2.7 için yerel koda sahip paketleri oluşturmak artık daha kolay.
 
-### Build wheels (requires Windows)
+### Tekerlek derleme (Windows gerekir)
 
-Note: When using this option, make sure to compile the package using a Python environment that matches the platform/architecture/version that is used on the web app in Azure App Service (Windows/32-bit/2.7 or 3.4).
+Not: Bu seçenek kullanıldığında, Azure App Service’in web uygulamasında kullanılan platform/mimari/sürümle eşleşen Python ortamı kullanılarak paketin derlendiğinden emin olun (Windows/32-bit/2.7 veya 3.4).
 
-If the package doesn't install because it requires a compiler, you can install the compiler on your local machine and build a wheel for the package, which you will then include in your repository.
+Tekerlek gerektiğinden paket yüklenmediyse, derleyiciyi yerel makinenize yükleyip paket için bir tekerlek derleyebilirsiniz; bundan sonra depoda yerini alacaktır.
 
-Mac/Linux Users: If you don't have access to a Windows machine, see [Create a Virtual Machine Running Windows][] for how to create a VM on Azure.  You can use it to build the wheels, add them to the repository, and discard the VM if you like. 
+Mac/Linux Kullanıcıları: Windows makinesine erişiminiz yoksa Azure’da VM oluşturmak için bkz. [Windows çalıştıran bir sanal makine oluşturma][].  Tekerlekleri derlemek için bunu kullanabilir, bunları depoya ekleyebilir ve isterseniz VM’yi atabilirsiniz. 
 
-For Python 2.7, you can install [Microsoft Visual C++ Compiler for Python 2.7][].
+Python 2.7 için [Python 2.7 için Microsoft Visual C++ Derleyicisi][] uygulamasını yükleyebilirsiniz.
 
-For Python 3.4, you can install [Microsoft Visual C++ 2010 Express][].
+Python 3.4 için [Microsoft Visual C++ 2010 Express][] uygulamasını yükleyebilirsiniz.
 
-To build wheels, you'll need the wheel package:
+Tekerlekleri derlemek için tekerlek paketi gerekir:
 
     env\scripts\pip install wheel
 
-You'll use `pip wheel` to compile a dependency:
+Bağımlılığı derlemek için `pip wheel` öğesini kullanacaksınız:
 
     env\scripts\pip wheel azure==0.8.4
 
-This creates a .whl file in the \wheelhouse folder.  Add the \wheelhouse folder and wheel files to your repository.
+Bu \wheelhouse klasöründe bir .whl dosyası oluşturur.  \Wheelhouse klasörünü ve tekerlek dosyalarını deponuza ekleyin.
 
-Edit your requirements.txt to add the `--find-links` option at the top. This tells pip to look for an exact match in the local folder before going to the python package index.
+`--find-links` seçeneğini en üstüne eklemek amacıyla requirements.txt dosyanızı düzenleyin. Bu, pip’ye python paket dizinine gitmeden önce yerel klasörde tam bir eşleşme aramasını bildirir.
 
     --find-links wheelhouse
     azure==0.8.4
 
-If you want to include all your dependencies in the \wheelhouse folder and not use the python package index at all, you can force pip to ignore the package index by adding `--no-index` to the top of your requirements.txt.
+Tüm bağımlılıklarınızı \Wheelhouse klasörüne eklemek ve python paket dizinini hiçbir şekilde kullanmamak isterseniz, requirements.txt dosyanızın en üstüne `--no-index` ekleyerek pip’yi paket dizinini yok sayması için zorlayabilirsiniz.
 
     --no-index
 
-### Customize installation
+### Yüklemeyi özelleştirme
 
-You can customize the deployment script to install a package in the virtual environment using an alternate installer, such as easy\_install.  See deploy.cmd for an example that is commented out.  Make sure that such packages aren't listed in requirements.txt, to prevent pip from installing them.
+easy\_install gibi alternatif bir yükleyici kullanarak sanal ortama paket yüklemek için dağıtım betiğini özelleştirebilirsiniz.  Açıklama satırı yapılan bir örnek için deploy.cmd dosyasına bakın.  pip’in bunları yüklenmesini önlemek için requirements.txt dosyasında bu gibi paketlerin listelenmediğinden emin olun.
 
-Add this to the deployment script:
+Bunu dağıtım betiğine ekleyin:
 
     env\scripts\easy_install somepackage
 
-You may also be able to use easy\_install to install from an exe installer (some are zip compatible, so easy\_install supports them).  Add the installer to your repository, and invoke easy\_install by passing the path to the executable.
+Bir exe yükleyiciden yükleme yapacak easy\_install öğesini de kullanabilirsiniz (bunlardan bazıları zip uyumludur; bu nedenle easy\_install bunları destekler).  Yükleyiciyi depoya ekleyin ve yolu yürütülebilir dosyaya geçirerek easy\_install öğesini çalıştırın.
 
-Add this to the deployment script:
+Bunu dağıtım betiğine ekleyin:
 
     env\scripts\easy_install "%DEPLOYMENT_SOURCE%\installers\somepackage.exe"
 
-### Include the virtual environment in the repository (requires Windows)
+### Sanal ortamı depoya ekleme (Windows gerekir)
 
-Note: When using this option, make sure to use a virtual environment that matches the platform/architecture/version that is used on the web app in Azure App Service (Windows/32-bit/2.7 or 3.4).
+Not: Bu seçenek kullanıldığında, Azure App Service’in web uygulamasında kullanılan platform/mimari/sürümle eşleşen sanal ortam kullanıldığından emin olun (Windows/32-bit/2.7 veya 3.4).
 
-If you include the virtual environment in the repository, you can prevent the deployment script from doing virtual environment management on Azure by creating an empty file:
+Sanal ortamı depoya eklerseniz, dağıtım betiğinin boş bir dosya oluşturarak Azure’da sanal ortamı yönetimi gerçekleştirmesine engel olabilirsiniz:
 
     .skipPythonDeployment
 
-We recommend that you delete the existing virtual environment on the app, to prevent leftover files from when the virtual environment was managed automatically.
+Sanal ortam otomatik olarak yönetildiği sırada kalan dosyaları engellemek için uygulamada var olan sanal ortamı silmenizi öneririz.
 
 
-[Create a Virtual Machine Running Windows]: http://azure.microsoft.com/documentation/articles/virtual-machines-windows-hero-tutorial/
-[Microsoft Visual C++ Compiler for Python 2.7]: http://aka.ms/vcpython27
+[Windows çalıştıran bir sanal makine oluşturma]: http://azure.microsoft.com/documentation/articles/virtual-machines-windows-hero-tutorial/
+[Python 2.7 için Microsoft Visual C++ Derleyicisi]: http://aka.ms/vcpython27
 [Microsoft Visual C++ 2010 Express]: http://go.microsoft.com/?linkid=9709949
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

@@ -1,1 +1,7 @@
-> [AZURE.NOTE] Although this article refers to web apps, it also applies to API apps and mobile apps.
+> [AZURE.NOTE] Bu makale web uygulamalarıyla ilgili olsa da, API uygulamaları ve mobil uygulamalara da uygulanır.
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

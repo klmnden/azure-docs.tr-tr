@@ -1,29 +1,34 @@
 <!--author=alkohli last changed:01/14/2016-->
 
 
-#### To create a new service
+#### Yeni hizmet oluşturmak için
 
-1. Using your Microsoft account credentials, log on to the Azure classic portal at this URL: [https://manage.windowsazure.com/](https://manage.windowsazure.com/).
+1. Microsoft hesabı kimlik bilgilerini kullanarak Klasik Azure portalında şu URL ile oturum açın: [https://manage.windowsazure.com/](https://manage.windowsazure.com/).
 
-2. In the Azure classic portal , click **New** > **Data Services** > **StorSimple Manager** > **Quick Create**.
+2. Klasik Azure portalında **Yeni** > **Veri Hizmetleri** > **StorSimple Yöneticisi** > **Hızlı Oluştur**’a tıklayın.
 
-3. In the form that is displayed, do the following:
-  1. Supply a unique **Name** for your service. This is a friendly name that can be used to identify the service. The name can have between 2 and 50 characters that can be letters, numbers, and hyphens. The name must start and end with a letter or a number.
-  2. Supply a **Location** for your service. In general, choose a Location closest to the geographical region where you want to deploy your device. You may also want to factor in the following: 
-	 
-		- If you have existing workloads in Azure that you also intend to deploy with your StorSimple device, you should use that datacenter.
-		- Your StorSimple Manager service and Azure storage can be in two separate locations. In such a case, you are required to create the StorSimple Manager and Azure storage account separately. To create an Azure storage account, go to the Azure Storage service in the Azure classic portal and follow the steps in [Create an Azure Storage account](storage-create-storage-account.md#create-a-storage-account). After you create this account, add it to the StorSimple Manager service by following the steps in [Configure a new storage account for the service](storsimple-deployment-walkthrough.md#configure-a-new-storage-account-for-the-service).
-		 
-  3. Choose a **Subscription** from the drop-down list. The subscription is linked to your billing account. This field is not present if you have only one subscription.
-  4. Select **Create a new storage account** to automatically create a storage account with the service. This storage account will have a special name such as "storsimplebwv8c6dcnf." If you need your data in a different location, uncheck this box. 
-  5. Click **Create StorSimple Manager** to create the service.
+3. Görüntülenen formda şunları yapın:
+  1. Hizmetinize benzersiz bir **Ad** verin. Hizmetinizi tanımlayabilmek için kullanılan kolay bir addır. Ad harf, rakam ve tirelerden oluşan 2-50 karakter arası uzunlukta olabilir. Ad bir harf veya sayıyla başlamalı ve bitmelidir.
+  2. Hizmetiniz için bir **Konum** sağlayın. Genel olarak, cihazınızı dağıtmak istediğiniz coğrafi bölgeye yakın bir konum seçmek istersiniz. Aşağıdakilerin de etkili olmasını isteyebilirsiniz: 
+     
+        - Azure’da, StorSimple cihazınızla dağıtmak istediğiniz var olan iş yükleriniz varsa o veri merkezini kullanmanız gerekir.
+        - StorSimple Yöneticisi hizmeti ve Azure Storage ayrı iki konumda olabilir. Böyle bir durumda, StorSimple Yöneticisi ve Azure Storage hesabını ayrı ayrı oluşturmanız gerekir. Azure Storage hesabı oluşturmak için Klasik Azure portalındaki Azure Storage hizmetine gidin ve [Azure Storage hesabı oluşturma](storage-create-storage-account.md#create-a-storage-account)’daki adımları uygulayın. Bu hesabı oluşturduktan sonra [Hizmet için yeni bir depolama hesabı yapılandırma](storsimple-deployment-walkthrough.md#configure-a-new-storage-account-for-the-service)’daki adımları uygulayarak bunu StorSimple Yöneticisi hizmetine ekleyin.
+         
+  3. Açılan listeden bir **Abonelik** seçin. Abonelik fatura hesabınıza bağlıdır. Bu alan bir aboneliğiniz olmadığı sürece yoktur.
+  4. Otomatik olarak hizmeti olan bir depolama hesabı oluşturmak için **Yeni depolama hesabı oluştur**’u seçin. Bu depolama hesabının "storsimplebwv8c6dcnf" gibi özel bir adı olacaktır. Verilerinizin farklı bir konumda olması gerekiyorsa bu kutunun işaretini kaldırın. 
+  5. Hizmeti oluşturmak için **StorSimple Yöneticisi Oluştur**’a tıklayın.
 
-   ![Create StorSimple Manager](./media/storsimple-create-new-service/HCS_CreateAService-include.png)
+   ![StorSimple Yöneticisi oluşturma](./media/storsimple-create-new-service/HCS_CreateAService-include.png)
 
-  You will be directed to the **Service** landing page. The service creation will take a few minutes. After the service is successfully created, you will be notified appropriately and the status of the service will change to **Active**.
+  **Hizmet** giriş sayfasına yönlendirileceksiniz. Hizmeti oluşturulması birkaç dakika alabilir. Hizmet sorunsuz oluşturulduktan sonra, uygun şekilde size bildirilir ve hizmetin durumu **Etkin** olarak değişir.
  
-   ![Service creation](./media/storsimple-create-new-service/HCS_StorSimpleManagerServicePage-include.png)
+   ![Hizmet oluşturma](./media/storsimple-create-new-service/HCS_StorSimpleManagerServicePage-include.png)
 
-![Video available](./media/storsimple-create-new-service/Video_icon.png) **Video available**
+![Kullanılabilir video](./media/storsimple-create-new-service/Video_icon.png) **Kullanılabilir video**
 
-To watch a video that demonstrates how to create a new StorSimple Manager service, click [here](https://azure.microsoft.com/documentation/videos/create-a-storsimple-manager-service/).
+Yeni bir StorSimple Yöneticisi hizmetinin nasıl oluşturulduğunu gösteren bir video izlemek için [buraya](https://azure.microsoft.com/documentation/videos/create-a-storsimple-manager-service/) tıklayın.
+
+
+<!--HONumber=Jun16_HO2-->
+
+

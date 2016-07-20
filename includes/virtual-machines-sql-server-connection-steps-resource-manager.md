@@ -1,33 +1,39 @@
-### Configure a DNS Label for the public IP address
+### Genel IP adresi için DNS etiketi yapılandırma
 
-To connect to the SQL Server Database Engine from the Internet, first configure a DNS Label for your public IP address.
+SQL Server Veritabanı Altyapısına İnternet'ten bağlanmak için önce genel IP adresi için bir DNS etiketi yapılandırın.
 
-> [AZURE.NOTE] DNS Labels are not required if you plan to only connect to the SQL Server instance within the same Virtual Network or only locally.
+> [AZURE.NOTE] SQL Server örneğine yalnızca aynı Sanal Ağ içinden veya yerel olarak bağlanmayı planlıyorsanız, DNS Etiketleri gerekli değildir.
 
-To create a DNS Label, first select **Virtual machines** in the portal. Select your SQL Server VM to bring up its properties.
+DNS etiketi oluşturmak için önce portalda **Virtual Machines**’i seçin. Özelliklerini görüntülemek için SQL Server VM’yi seçin.
 
-1. In the virtual machine blade, select your **Public IP address.**
+1. Sanal makine dikey penceresinde **Genel IP adresi**’ni seçin.
 
-	![public ip address](./media/virtual-machines-sql-server-connection-steps/rm-public-ip-address.png)
+    ![genel ip adresi](./media/virtual-machines-sql-server-connection-steps/rm-public-ip-address.png)
 
-2. In the properties for your Public IP address, expand **Configuration**.
+2. Genel IP adresinizin özelliklerinde**Yapılandırma**’yı genişletin.
 
-3. Enter a DNS Label name. This name is an A Record that can be used to connect to your SQL Server VM by name instead of by IP Address directly.
+3. DNS etiket adı girin. Bu ad, SQL Server VM'nize bağlanmak için IP adresi yerine doğrudan kullanılabilen bir Kayıttır.
 
-	![dns label](./media/virtual-machines-sql-server-connection-steps/rm-dns-label.png)
+    ![dns etiketi](./media/virtual-machines-sql-server-connection-steps/rm-dns-label.png)
 
-### Connect to the Database Engine from another computer
+### Başka bir bilgisayardan Veritabanı Altyapısına bağlanma
 
-1. On a computer connected to the internet, open SQL Server Management Studio (SSMS).
+1. İnternet'e bağlı bir bilgisayarda SQL Server Management Studio’yu (SSMS) açın.
 
-2. In the **Connect to Server** or **Connect to Database Engine** dialog box, edit the **Server name** value. Enter the full DNS name of the virtual machine (determined in the previous task).
+2. **Sunucuya Bağlan** veya **Veritabanı Altyapısına Bağlan** iletişim kutusunda **Sunucu adı** değerini düzenleyin. Sanal makinenin tam DNS adını girin (önceki görevde saptanmıştır).
 
-3. In the **Authentication** box, select **SQL Server Authentication**.
+3. **Kimlik Doğrulaması** kutusunda **SQL Server Kimlik Doğrulaması**’nı seçin.
 
-5. In the **Login** box, type the name of a valid SQL login.
+5. **Oturum Aç** kutusuna geçerli bir SQL oturum açma adı yazın.
 
-6. In the **Password** box, type the password of the login.
+6. **Parola** kutusuna oturum açma parolasını yazın.
 
-7. Click **Connect**.
+7. **Bağlan**'a tıklayın.
 
-	![ssms connect](./media/virtual-machines-sql-server-connection-steps/rm-ssms-connect.png)
+    ![ssms bağlanma](./media/virtual-machines-sql-server-connection-steps/rm-ssms-connect.png)
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

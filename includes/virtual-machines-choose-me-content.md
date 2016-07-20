@@ -1,41 +1,47 @@
 <a name="tellmevm"></a>
-## Tell me about virtual machines
+## Bana sanal makineleri anlat
 
-Azure Virtual Machines lets you create and use virtual machines in the cloud. Providing what's known as *Infrastructure as a Service (IaaS)*, virtual machine technology can be used in variety of ways. Some examples are:
+Azure Virtual Machines, bulutta sanal makineler oluşturmanızı ve kullanmanızı sağlar. *Hizmet olarak altyapı (IaaS)* olarak bilineni sağlayarak, sanal makine teknolojisi çeşitli şekillerde kullanılabilir. Bazı örnekler şunlardır:
 
-- **Virtual machines (VMs) for development and test.** Development groups commonly use VMs because they offer a quick, easy way to create a computer with specific configurations required to code and test an application. Azure Virtual Machines provides a straightforward and economical way to create these VMs, use them, then delete them when they're no longer needed.
-- **Running applications in the cloud.** It makes economic sense to run some applications in the public cloud. One example is an application that has large spikes in demand. Although you could equip your own data center with enough hardware to handle peak demand, that hardware might be underutilized much of the time. Running this application on Azure lets you pay for extra VMs only when you need them and shut them down when you don't. Or, suppose you're a start-up that needs on-demand computing resources quickly and with no commitment. Once again, Azure can be the right choice.
-- **Extending your own datacenter into the public cloud.** When you use Azure Virtual Network, your organization can create a virtual network (VNET) that's an extension of your own on-premises network and add VMs to that VNET. This allows running applications such as [SharePoint](../articles/virtual-machines/virtual-machines-windows-sharepoint-farm.md), [SQL Server](../articles/virtual-machines/virtual-machines-windows-sql-server-iaas-overview.md) and others on an Azure VM. This approach might be easier to deploy or less expensive than running them in VMs your own datacenter.   
-- **Disaster recovery.** Rather than paying continuously for a backup datacenter that's rarely used, IaaS-based disaster recovery lets you pay for the computing resources you need only when you really need them.  For example, if your primary datacenter goes down, you can create VMs running on Azure to run essential applications, then shut them down when they're no longer needed.
+- **Geliştirme ve test için sanal makineler (VM).** Bir uygulamayı kodlamak ve test etmek için gereken belirli yapılandırmalarla bir bilgisayarı oluşturmanın hızlı, kolay yolunu sunduklarından, geliştirme grupları yaygın olarak VM’leri kullanır. Azure Virtual Machines, bu VM’leri oluşturmanın, bunları kullanmanın ve artık gerekmediğinde de silmenin basit ve ekonomik bir yolunu sağlıyor.
+- **Uygulamaların bulutta çalıştırılması.** Bazı uygulamaları genel bulut ortamında çalıştırmanın ekonomik mantığı vardır. Bir örnek, isteğe bağlı büyük depoları olan bir uygulamadır. Zamanın çoğunda donanım verimli kullanılamadığından en yüksek talebi işlemek için kendi veri merkezinizi yeterli donanımla donatmış olabilirsiniz. Bu uygulamanın Azure’da çalıştırılması, yalnızca gerektiğinde VM’ler için fazladan ödeme yapmanızı, gerekmediğinde de bunları kapatmanızı sağlar. Bunun yerine, hızlı ve hiçbir taahhüdü olmadan isteği bağlı bilgi işlem kaynaklarına ihtiyaç duyan başlangıç düzeyinde biri olduğunuzu varsayalım. Bir kez daha, Azure doğru seçim olabilir.
+- **Kendi veri merkezinizin genel buluta genişletilmesi.** Azure Virtual Network kullandığınızda, kuruluşunuz kendi şirket içi ağınıza uzantısı olan sanal ağ (VNET) oluşturabilir ve VM’leri bu VNET'e ekleyebilir. Böylece, Azure VM’de [SharePoint](../articles/virtual-machines/virtual-machines-windows-sharepoint-farm.md), [SQL Server](../articles/virtual-machines/virtual-machines-windows-sql-server-iaas-overview.md) ve diğerlerinin çalıştırılması sağlanır. Bu yaklaşım dağıtmak için daha kolay veya bunları kendi veri merkezinizdeki VM’lerde çalıştırmasından daha ucuz olabilir.   
+- **Olağanüstü durum kurtarma.** Nadiren kullanılan yedek veri merkezi için sürekli ödeme yapmak yerine, IaaS temelli olağanüstü durum kurtarması, gereken bilgi işlem kaynakları için yalnızca gerçekten gerek duyduğunuzda ödeme yapmanızı sağlar.  Örneğin, birincil veri merkezinizde arıza olursa, temel uygulamaları çalıştırmak için Azure üzerinde çalışan VM’leri oluşturabilir, artık gerekmediklerinde de .unları kapatabilirsiniz.
 
-Like other virtual machines, a VM in Azure has an operating system, storage and networking capabilities and can run a wide variety of applications. You can use an image provided by Azure or one of it's partners, or use your own. Examples include various versions, editions and configurations of:
+Diğer sanal makineler gibi Azure’daki VM’de de bir işletim sistemi, depolama ve ağ özellikleri vardır, çok çeşitli uygulamaları çalıştırabilir. Azure veya ortaklarından biri tarafından sağlanan bir görüntüyü kullanabilir; isterseniz de kendinize ait olanlardan birini kullanın. Çeşitli sürümlerin, basımların ve yapılandırmaların bulunduğu örnekler:
  
-- Linux servers such as Suse, Ubuntu and CentOS
+- Suse, Ubuntu ve CentOS gibi Linux sunucuları
 - Windows Server 
 - SQL Server
 - BizTalk Server 
 - SharePoint Server
 
-Virtual machines use virtual hard disks (VHDs) to store their operating system (OS) and data. VHDs are also used for the images you can choose from to install an OS. The following figure shows this, as well as two of the tools for creating and managing your VMs.
+Sanal makineler, kendi işletim sistemlerini (OS) ve verilerini depolamak için sanal sabit diskleri (VHD) kullanır. VHD bir işletim sistemi yüklemek için seçebileceğiniz görüntüler için de kullanılır. Aşağıdaki şekilde, VM’lerin oluşturulması ve yönetilmesi için araçlardan ikisinin yanı sıra bu da gösterilmektedir.
 
 <a name="fig_createvms"></a>
 ![vm_diagram](./media/virtual-machines-choose-me-content/diagram.png)
 
-**Figure: Azure Virtual Machines provides Infrastructure as a Service.**
+**Şekil: Azure Virtual Machines, Hizmet olarak altyapı sağlar.**
 
-VMs can be managed using a browser-based portal, command-line tools with support for scripting, or directly through the REST API. Microsoft partners such as RightScale and ScaleXtreme also provide management services that rely on the REST API. 
+VM’ler tarayıcı tabanlı bir portal, betik oluşturma desteğine sahip komut satırı araçları kullanılarak veya doğrudan REST API aracılığıyla yönetilebilir. RightScale ve ScaleXtreme gibi Microsoft ortakları da REST API ile ilgili yönetim hizmetleri sağlar. 
 
-Along with the OS, other configuration choices you have with VMs include:
+İşletim sisteminin yanı sıra, VM’lerde bulunan diğer yapılandırma seçenekleri:
 
-- The size, which determines factors such as how many disks you can attach and the processing power. Azure offers a wide variety of sizes to support many types of uses. For details, see [Sizes for Virtual Machines](../articles/virtual-machines/virtual-machines-linux-sizes.md).  
-- The Azure region where your new VM will be hosted, such as in the US, Europe, or Asia. 
-- VM extensions, which give your virtual machine additional capabilities, such as running anti-virus or using the Desired State Configuration feature of Windows PowerShell.
+- Ekleyebileceğiniz disk sayısı veya işlem gücü gibi etkenleri saptayan boyut. Azure çok sayıda kullanım türünü desteklemek için büyük çeşitlilikteki boyutları sunar. Ayrıntılar için bkz. [Virtual Machines boyutları](../articles/virtual-machines/virtual-machines-linux-sizes.md).  
+- Yeni VM’nin barındırıldığı Azure bölgesi; ABD, Avrupa veya Asya gibi. 
+- VM uzantıları, virüsten koruma çalıştırma ya da Windows PowerShell İstenen Durum Yapılandırması özelliğini kullanma gibi sanal makine ek özellikleri sağlar.
 
-Other benefits to consider for VMs include:
+VM’ler için dikkate alınması gereken diğer avantajlar şunlardır:
 
-**Pay-as-you-go** -- Azure charges an hourly price based on the VM’s size and operating system. For partial hours, Azure charges only for the minutes of use. Storage is priced and charged separately. For details, see [Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/).
+**Kullandıkça öde** --Azure’un ücretlendirdiği, VM’nin boyutu ve işletim sistemi temelinde saatlik fiyat. Kısmi saatler için, Azure yalnızca kullanılan dakika sayısını ücretlendirir. Depolama ayrı olarak fiyatlandırılır ve ücretlendirilir. Ayrıntılar için bkz. [Virtual Machines Fiyatlandırması](https://azure.microsoft.com/pricing/details/virtual-machines/).
 
-**Resiliency** -- Azure monitors the physical hardware that hosts each running VM. If a physical server running a VM fails, Azure notices this, moves the VM to new hardware and restarts the VM. This process is sometimes called service healing. Azure also protects a virtual machine's data, by keeping redundant copies of the VHDs in blob storage. 
+**Dayanıklılık** --Çalışan her sanal makineyi barındıran fiziksel donanımı Azure izler. VM çalıştıran fiziksel sunucu arızalınırsa, Azure bunu fark eder, VM’yi yeni donanıma taşır ve VM’yi yeniden başlatır. Bu işleme bazen hizmet onarma denir. Azure, Blob Storage’da VHD'lerin yedek kopyasını tutarak sanal makinenin verilerini de korur. 
 
+
+
+
+
+
+<!--HONumber=Jun16_HO2-->
 
 

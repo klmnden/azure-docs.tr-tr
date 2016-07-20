@@ -1,20 +1,25 @@
 
-The final stage of this tutorial is to build and run your new app.
+Bu öğreticinin son aşaması yeni uygulamanızı oluşturmak ve çalıştırmaktır.
 
-1. Browse to the location where you saved the compressed project files, expand the files on your computer, and open the solution file in Visual Studio.
+1. Sıkıştırılmış proje dosyalarını kaydettiğiniz konuma göz atın, bilgisayarınızdaki dosyaları genişletin ve Visual Studio’da çözüm dosyasını açın.
 
-2. Press the **F5** key to rebuild the project and start the app.
+2. Projeyi oluşturmak ve uygulamayı başlatmak için **F5** tuşuna basın.
 
-3. In the app, type meaningful text, such as *Complete the tutorial*, in **Insert a TodoItem**, and then click **Save**.
+3. Uygulamada **TodoItem Ekle** bölümüne *Öğreticiyi tamamla* gibi anlamlı bir metin yazın ve ardından**Kaydet**’e tıklayın.
 
-   	This sends a POST request to the new mobile service hosted in Azure. Data from the request is inserted into the TodoItem table. Items stored in the table are returned by the mobile service, and the data is displayed in the second column in the app.
+    Bu, Azure üzerinde barındırılan yeni mobil hizmete bir POST isteği gönderir. İstekten alınan veriler TodoItem tablosuna eklenir. Tabloda depolanan öğeler mobil hizmet tarafından döndürülür ve veriler uygulamada ikinci sütunda görüntülenir.
 
-4. (Optional) In a universal Windows solution, change the default start up project to the other app and run the app again.
+4. (İsteğe bağlı) Evrensel Windows çözümde, varsayılan başlangıç projesini başka uygulama olarak değiştirin ve uygulamayı yeniden çalıştırın.
 
-	Notice that data saved from the previous step is loaded from the mobile service after the app starts.
+    Önceki adımda kaydedilen verilerin uygulama başladıktan sonra mobil hizmetinden yüklenip yüklenmediğine dikkat edin.
  
-4. Back in the [Azure classic portal](https://manage.windowsazure.com/), click the **Data** tab and then click the **TodoItems** table.
+4. [Klasik Azure Portalı](https://manage.windowsazure.com/)’na geri dönün, **Veri** sekmesine ve sonra **TodoItems** tablosuna tıklayın.
 
-   	This lets you browse the data inserted by the app into the table.
+    Bu, uygulama tarafından tabloya eklenen verilere göz atmanızı sağlar.
 
-   	![](./media/mobile-services-javascript-backend-run-app/mobile-data-browse.png)
+    ![](./media/mobile-services-javascript-backend-run-app/mobile-data-browse.png)
+
+
+<!--HONumber=Jun16_HO2-->
+
+

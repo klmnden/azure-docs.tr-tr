@@ -1,31 +1,36 @@
 <!--author=SharS last changed: 9/17/15-->
 
-#### To connect through the serial console
+#### Seri konsol üzerinden bağlanmak için
 
-1. Connect your serial cable to the device (directly or through a USB-serial adapter).
+1. Seri kabloyu cihaza bağlayın (doğrudan veya bir USB seri bağdaştırıcısı aracılığıyla).
 
-2. Open the **Control Panel**, and then open the **Device Manager**.
+2. **Denetim Masası**’nı açın; sonra da **Cihaz Yöneticisi**'ni açın.
 
-3. Identify the COM port as shown in the following illustration.
+3. COM bağlantı noktasını aşağıdaki çizimde gösterildiği gibi belirleyin.
 
-     ![Connecting through serial console](./media/storsimple-use-putty/HCS_ConnectingDeviceS-include.png)
+     ![Seri konsol üzerinden bağlanma](./media/storsimple-use-putty/HCS_ConnectingDeviceS-include.png)
 
-4. Start PuTTY. 
+4. PuTTY’yi başlatın. 
 
-5. In the right pane, change the **Connection type** to **Serial**.
+5. Sağ bölmede, **Bağlantı türü**’nü **Seri** olarak değiştirin.
 
-6. In the right pane, type the appropriate COM port. Make sure that the serial configuration parameters are set as follows:
-  - Speed: 115,200
-  - Data bits: 8
-  - Stop bits: 1
-  - Parity: None
-  - Flow control: None
+6. Sağ bölmede, uygun COM bağlantı noktasını yazın. Seri yapılandırma parametrelerinin buradaki gibi ayarlandığından emin olun:
+  - Hız: 115.200
+  - Veri bitleri: 8
+  - Dur bitleri: 1
+  - Eşlik: Yok
+  - Akış denetimi: Yok
 
-    These settings are shown in the following illustration.
+    Bu ayarlar aşağıdaki çizimde gösterilmiştir.
 
-     ![PuTTY settings](./media/storsimple-use-putty/HCS_PuttyConfig-include.png) 
+     ![PuTTY ayarları](./media/storsimple-use-putty/HCS_PuttyConfig-include.png) 
 
-    > [AZURE.NOTE] If the default flow control setting does not work, try setting the flow control to XON/XOFF.
+    > [AZURE.NOTE] Var sayılan akış denetimi ayarı işlemezse akış denetimini XON/XOFF olarak ayarlamayı deneyin.
 
-7. Click **Open** to start a serial session.
+7. Seri oturum başlatmak için **Aç**’a tıklayın.
  
+
+
+<!--HONumber=Jun16_HO2-->
+
+

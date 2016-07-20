@@ -1,12 +1,17 @@
-The table below lists the requirements for policy-based and route-based VPN gateways. This table applies to both the Resource Manager and classic deployment models. For the classic model, Policy-based VPN gateways are the same as Static gateways, and Route-based gateways are the same as Dynamic gateways.
+Aşağıdaki tabloda, ilke temelli ve rota temelli VPN Gateway’lerinin gereksinimleri listelenmektedir. Bu tablo hem Resource Manager, hem de klasik dağıtım modellerine uygulanır. Klasik model için, İlke temelli VPN ağ geçitleri Statik ağ geçitleriyle aynıdır; Rota temelli ağ geçitleri de Dinamik ağ geçitleriyle aynıdır.
 
 
-|   | **Policy-based Basic VPN Gateway** | **Route-based Basic VPN Gateway** | **Route-based Standard VPN Gateway**   | **Route-based High Performance VPN Gateway** |
+|   | **İlke Temelli Temel VPN Gateway** | **Rota Temelli Temel VPN Gateway** | **Rota Temelli Standart VPN Gateway**   | **Rota Temelli Yüksek Performanslı VPN Gateway** |
 |---|---------------------------------------|---------------------------------------|----------------------------|----------------------------------|
-|    **Site-to-Site connectivity   (S2S)**  | Policy-based VPN configuration        | Route-based VPN configuration  | Route-based VPN configuration     | Route-based VPN configuration    |
-| **Point-to-Site connectivity (P2S**)      | Not supported   | Supported (Can coexist with S2S)  | Supported (Can coexist with S2S)  | Supported (Can coexist with S2S) |
-| **Authentication method**                 |    Pre-shared key  | Pre-shared key for S2S connectivity, Certificates for P2S connectivity | Pre-shared key for S2S connectivity, Certificates for P2S connectivity | Pre-shared key for S2S connectivity, Certificates for P2S connectivity |
-| **Maximum number of S2S connections**       | 1                              | 10                                                                    | 10                                | 30                               |
-| **Maximum number of P2S connections**       | Not supported                  | 128                                                                   | 128                               | 128                              |
-|**Active routing support (BGP)**           | Not supported                  | Not supported                                                         | Not supported                     | Not supported                    |
+|    **Siteden Siteye bağlantı   (S2S)**  | İlke temelli VPN yapılandırması        | Rota temelli VPN yapılandırması  | Rota temelli VPN yapılandırması     | Rota temelli VPN yapılandırması    |
+| **Noktadan Siteye bağlantı (P2S**)      | Desteklenmiyor   | Destekleniyor (S2S ile birlikte var olabilir)  | Destekleniyor (S2S ile birlikte var olabilir)  | Destekleniyor (S2S ile birlikte var olabilir) |
+| **Kimlik doğrulama Yöntemi**                 |    Önceden paylaşılan anahtar  | S2S bağlantısı için önceden paylaşılan anahtar, P2S bağlantısı için sertifikalar | S2S bağlantısı için önceden paylaşılan anahtar, P2S bağlantısı için sertifikalar | S2S bağlantısı için önceden paylaşılan anahtar, P2S bağlantısı için sertifikalar |
+| **S2S bağlantılarının en yüksek sayısı**       | 1                              | 10                                                                    | 10                                | 30                               |
+| **P2S bağlantılarının en yüksek sayısı**       | Desteklenmiyor                  | 128                                                                   | 128                               | 128                              |
+|**Etkin yönlendirme desteği (BGP)**           | Desteklenmiyor                  | Desteklenmiyor                                                         | Desteklenmiyor                     | Desteklenmiyor                    |
  
+
+
+<!--HONumber=Jun16_HO2-->
+
+

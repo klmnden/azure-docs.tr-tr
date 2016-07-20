@@ -8,38 +8,43 @@ As of circa 2016-04-11, the following topics might include this include:
 articles/sql-database/sql-database-get-started-tutorial.md
 
 -->
-## Create an Azure SQL Database logical server
+## Azure SQL Database mantıksal sunucusu oluşturma
 
-Use the following steps in the Azure portal to create an Azure SQL Database logical server.
+Azure SQL Database mantıksal sunucu oluşturmak için Azure Portal'da aşağıdaki adımları kullanın.
 
-1. If not currently connected, connect to the [Azure portal](http://portal.azure.com).
-2. Click **New** , type **SQL Database** and then click **SQL Database (new logical server)**
+1. O anda bağlı değilse [Azure portal](http://portal.azure.com)’a bağlanın.
+2. **Yeni**’ye tıklayın, **SQL Database** yazın ve ** SQL Database (yeni mantıksal sunucu)** seçeneğini belirleyin.
 
-      ![new logocal server](./media/sql-database-create-new-server-portal/sql-database-create-new-server-portal-1.png)
+      ![yeni mantıksal sunucu](./media/sql-database-create-new-server-portal/sql-database-create-new-server-portal-1.png)
 
-3. Click SQL Database (new logical server).
+3. SQL Database’e tıklayın (yeni mantıksal sunucu).
 
-      ![new logccal server](./media/sql-database-create-new-server-portal/sql-database-create-new-server-portal-2.png)
+      ![yeni mantıksal sunucu](./media/sql-database-create-new-server-portal/sql-database-create-new-server-portal-2.png)
    
-4. Click **Create** to open a template to create an empty logical server that can host single databases and elastic database pools.
+4. Tek veritabanlarını ve esnek veritabanı havuzlarını barındırabilen boş mantıksal sunucu oluşturacak bir şablon açmak için **Oluştur**’a tıklayın.
 
-      ![new logical server](./media/sql-database-create-new-server-portal/sql-database-create-new-server-portal-3.png)
+      ![yeni mantıksal sunucu](./media/sql-database-create-new-server-portal/sql-database-create-new-server-portal-3.png)
 
-5. Provide the values for the following server properties:
+5. Şu sunucu özellikleri için değerleri girin:
 
- - Server name
- - Server admin login
- - Password
- - Subscription (only if have multiple subscriptions)
- - Resource group (new or existing)
- - Location
+ - Sunucu adı
+ - Sunucu yöneticisi oturum açma
+ - Parola
+ - Abonelik (yalnızca birden fazla abonelik söz konusuysa)
+ - Kaynak grubu (yeni veya varolan)
+ - Konum
 
         ![new logical server](./media/sql-database-create-new-server-portal/sql-database-create-new-server-portal-4.png)
 
-6.  Click **Create** and in the notification area, you can see that deployment has started.
+6.  **Oluştur**’a tıklayın; bildirim alanında dağıtımın başlatıldığını görebilirsiniz.
 
-       ![new logical server](./media/sql-database-create-new-server-portal/sql-database-create-new-server-portal-5.png)
+       ![yeni mantıksal sunucu](./media/sql-database-create-new-server-portal/sql-database-create-new-server-portal-5.png)
 
-7. Wait for deployment to finish before continuing to the next step.
+7. Sonraki adıma geçmeden önce dağıtımın tamamlanmasını bekleyin.
 
        ![new logical server](./media/sql-database-create-new-server-portal/sql-database-create-new-server-portal-6.png)
+
+
+<!--HONumber=Jun16_HO2-->
+
+

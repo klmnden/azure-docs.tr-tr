@@ -1,14 +1,19 @@
 
-1. Press the F5 key to rebuild the project and start the Windows Store app.
+1. Projeyi oluşturmak ve Windows Mağazası uygulamasını başlatmak için F5 tuşuna basın.
 
-2. In the app, type meaningful text, such as *Complete the tutorial*, in **Insert a TodoItem**, and then click **Save**.
+2. Uygulamada **TodoItem Ekle** bölümüne *Öğreticiyi tamamla* gibi anlamlı bir metin yazın ve ardından**Kaydet**’e tıklayın.
 
-	![](./media/mobile-services-windows-universal-test-app/mobile-quickstart-startup.png)
+    ![](./media/mobile-services-windows-universal-test-app/mobile-quickstart-startup.png)
 
-	This sends a POST request to the new mobile service hosted in Azure.
+    Bu, Azure üzerinde barındırılan yeni mobil hizmete bir POST isteği gönderir.
 
-3. Stop debugging and change the default start up project in the universal Windows solution to the Windows Phone Store app and press F5 again.
+3. Hata ayıklamayı durdurun ve evrensel Windows çözümündeki varsayılan başlangıç projesini Windows Phone Mağazası uygulaması olarak değiştirip bir kez daha F5 tuşuna basın.
 
-	![](./media/mobile-services-windows-universal-test-app/mobile-quickstart-completed-wp8.png)
-	
-	Notice that data saved from the previous step is loaded from the mobile service after the app starts.
+    ![](./media/mobile-services-windows-universal-test-app/mobile-quickstart-completed-wp8.png)
+    
+    Önceki adımda kaydedilen verilerin uygulama başladıktan sonra mobil hizmetinden yüklenip yüklenmediğine dikkat edin.
+
+
+<!--HONumber=Jun16_HO2-->
+
+

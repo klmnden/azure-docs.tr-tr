@@ -1,22 +1,28 @@
-The deployment script will skip creation of the virtual environment on Azure if it detects that a compatible virtual environment already exists.  This can speed up deployment considerably.  Packages that are already installed will be skipped by pip.
+Uyumlu sanal ortamın zaten olduğunu algılarsa, dağıtım betiği Azure’da sanal ortamın oluşturulmasını atlar.  Böylece dağıtım önemli ölçüde hızlandırılabilir.  Zaten yüklü olan paketler pip tarafından atlanır.
 
-In certain situations, you may want to force delete that virtual environment.  You'll want to do this if you decide to include a virtual environment as part of your repository.  You may also want to do this if you need to get rid of certain packages, or test changes to requirements.txt.
+Belirli durumlarda, sanal ortamın silinmesini zorlayabilirsiniz.  Sanal ortamı deponuzun bir parçası olarak eklemeye karar verirseniz bunu yapmak istersiniz.  Bu işlemi, bazı paketlerden uzak kalmanız veya requirements.txt dosyasındaki değişiklikleri sınamanız gerektiğinde de yapmak isteyebilirsiniz.
 
-There are a few options to manage the existing virtual environment on Azure:
+Azure’da var olan sanal ortamı yönetmek için birkaç seçenek vardır:
 
-### Option 1: Use FTP
+### Seçenek 1: FTP Kullanma
 
-With an FTP client, connect to the server and you'll be able to delete the env folder.  Note that some FTP clients (such as web browsers) may be read-only and won't allow you to delete folders, so you'll want to make sure to use an FTP client with that capability.  The FTP host name and user are displayed in your web app's blade on the [Azure Portal](https://portal.azure.com).
+FTP istemcisiyle sunucuya bağlanın; env klasörünü artık silebileceksiniz.  Bazı FTP istemcilerinin (örneğin, web tarayıcıları) salt okunur olabileceğini ve bu klasörleri silmenize izin verilmeyeceğini unutmayın; bu beceriye sahip FTP istemcisi kullandığınızdan emin olmak istersiniz.  FTP konak adı ve kullanıcısı [Azure portalında](https://portal.azure.com), web uygulamanızın dikey penceresinde görüntülenir.
 
-### Option 2: Toggle runtime
+### Seçenek 2: Çalışma zamanını değiştirme
 
-Here's an alternative that takes advantage of the fact that the deployment script will delete the env folder when it doesn't match the desired version of Python.  This will effectively delete the existing environment, and create a new one.
+Burada, Python’un istenen sürümüyle eşleşmediğinde dağıtım betiğinin env klasörünü sileceği olgusunun avantajlarını kazanan bir alternatif bulunmaktadır.  Böylece var olan ortam etkin olarak silinir ve yeni bir tane oluşturulur.
 
-1. Switch to a different version of Python (via runtime.txt or the **Application Settings** blade in the Azure Portal)
-1. git push some changes (ignore any pip install errors if any)
-1. Switch back to initial version of Python
-1. git push some changes again
+1. Python’un farklı bir sürümüne geçin (runtime.txt veya Azure Portal’da **Uygulama Ayarları** dikey penceresi aracılığıyla)
+1. git bazı değişiklikleri gönderir (varsa, pip yükleme hatalarını yoksayın)
+1. Python’un ilk sürümüne geri dönün
+1. Git bazı değişiklikleri yeniden gönderir
 
-### Option 3: Customize deployment script
+### Seçenek 3: Dağıtım betiğini özelleştirme
 
-If you've customized the deployment script, you can change the code in deploy.cmd to force it to delete the env folder.
+Dağıtım betiğini özelleştirdiyseniz, env klasörünü silmesi amacıyla zorlamak için deploy.cmd dosyasında kodu değiştirebilirsiniz.
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

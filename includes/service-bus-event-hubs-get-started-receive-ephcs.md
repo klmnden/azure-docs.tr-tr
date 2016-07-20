@@ -1,100 +1,100 @@
-## Receive messages with EventProcessorHost
+## EventProcessorHost bulunan iletiler alma
 
-[EventProcessorHost][] is a .NET class that simplifies receiving events from Event Hubs by managing persistent checkpoints and parallel receives from those Event Hubs. Using [EventProcessorHost][], you can split events across multiple receivers, even when hosted in different nodes. This example shows how to use [EventProcessorHost][] for a single receiver. The [Scaled out event processing][] sample shows how to use [EventProcessorHost][] with multiple receivers.
+[EventProcessorHost][], Event Hubs’a ait kalıcı denetim noktalarını ve paralel alımları yöneterek bu Event Hubs’a ait alma olaylarını basitleştiren bir .NET sınıfıdır. [EventProcessorHost][]’u kullanarak, farklı düğümlerde barındırıldığında bile birden çok alıcı arasında olayları bölebilirsiniz. Bu örnek, tek alıcı için [EventProcessorHost][]’un nasıl kullanıldığını göstermektedir. [Ölçeği genişletilmiş olay işleme][] örneği birden çok alıcıyla [EventProcessorHost][]’un nasıl kullanılacağını göstermektedir.
 
-In order to use [EventProcessorHost][], you must have an [Azure Storage account][]:
+[EventProcessorHost][]’u kullanmak için[Azure Storage hesabınız][] olmalıdır:
 
-1. Log on to the [Azure classic portal][], and click **NEW** at the bottom of the screen.
+1. [Klasik Azure portalı][]’nda oturum açın ve ekranın altındaki **YENİ**’ye tıklayın.
 
-2. Click **Data Services**, then **Storage**, then **Quick Create**, and then type a name for your storage account. Select your desired region, and then click **Create Storage Account**.
+2. **Veri Hizmetleri**’ne, **Depolama**’ya ve **Hızlı Oluştur**’a sırasıyla tıklayıp depolama hesabınız için bir ad yazın. İstediğiniz bölgeyi seçin ve **Depolama Hesabı Oluştur**’a tıklayın.
 
     ![][11]
 
-3. Click the newly created storage account, and then click **Manage Access Keys**:
+3. Yeni oluşturulan depolama hesabına ve **Erişim Tuşlarını Yönet**’e tıklayın:
 
     ![][12]
 
-    Copy the primary access key to use later in this tutorial.
+    Birincil erişim tuşunu daha sonra bu öğreticide kullanmak üzere kopyalayın.
 
-4. In Visual Studio, create a new Visual C# Desktop App project using the **Console  Application** project template. Name the project **Receiver**.
+4. Visual Studio'da, **Konsol Uygulaması** proje şablonunu kullanarak yeni Visual C# Masaüstü Uygulaması projesi oluşturun. Proje **Alıcı** için bir ad verin.
 
     ![][14]
 
-5. In Solution Explorer, right-click the solution, and then click **Manage NuGet Packages for Solution**.
+5. Çözüm Gezgini'nde çözüme sağ tıklayın ve ardından **Çözüm için NuGet Paketlerini Yönet**'e tıklayın.
 
-6. Click the **Browse** tab, then search for `Microsoft Azure Service Bus Event Hub - EventProcessorHost`. Ensure that the project name (**Receiver**) is specified in the **Version(s)** box. Click **Install**, and accept the terms of use.
+6. **Gözat** sekmesine tıklayıp `Microsoft Azure Service Bus Event Hub - EventProcessorHost` aramasını gerçekleştirin. Proje adının (**Alıcı**), **Sürüm(ler)** kutusunda belirtildiğinden emin olun. **Yükle**'ye tıklayın ve kullanım koşullarını kabul edin.
 
     ![][13]
 
-	This downloads, installs, and adds a reference to the [Azure Service Bus Event Hub - EventProcessorHost NuGet package](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost), with all its dependencies.
+    Bu işlem, tüm bağımlılıklarıyla birlikte [Azure Service Bus Event Hub - EventProcessorHost NuGet paketi](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost)’ni indirir, yükler ve buna başvuru ekler.
 
-7. Right-click the **Receiver** project, click **Add**, and then click **Class**. Name the new class **SimpleEventProcessor**, and then click **Add** to create the class.
+7. **Alıcı** projesine sağ tıklayın, **Ekle** ve **Sınıf**’a tıklayın. Yeni sınıf **SimpleEventProcessor**’ı adlandırın ve ardından sınıfı oluşturmak için **Ekle**’ye tıklayın.
 
-	![][15]
+    ![][15]
 
-8. Add the following statements at the top of the SimpleEventProcessor.cs file:
+8. Aşağıdaki deyimleri SimpleEventProcessor.cs dosyasının en üstüne ekleyin:
 
-	```
-	using Microsoft.ServiceBus.Messaging;
-	using System.Diagnostics;
-	```
+    ```
+    using Microsoft.ServiceBus.Messaging;
+    using System.Diagnostics;
+    ```
 
-	Then, substitute the following code for the body of the class:
+    Sonra da, aşağıdaki kodu sınıfın gövdesi yerine geçirin:
 
-	```
+    ```
     class SimpleEventProcessor : IEventProcessor
-	{
-	    Stopwatch checkpointStopWatch;
+    {
+        Stopwatch checkpointStopWatch;
 
-	    async Task IEventProcessor.CloseAsync(PartitionContext context, CloseReason reason)
-	    {
-	        Console.WriteLine("Processor Shutting Down. Partition '{0}', Reason: '{1}'.", context.Lease.PartitionId, reason);
-	        if (reason == CloseReason.Shutdown)
-	        {
-	            await context.CheckpointAsync();
-	        }
-	    }
+        async Task IEventProcessor.CloseAsync(PartitionContext context, CloseReason reason)
+        {
+            Console.WriteLine("Processor Shutting Down. Partition '{0}', Reason: '{1}'.", context.Lease.PartitionId, reason);
+            if (reason == CloseReason.Shutdown)
+            {
+                await context.CheckpointAsync();
+            }
+        }
 
-	    Task IEventProcessor.OpenAsync(PartitionContext context)
-	    {
-	        Console.WriteLine("SimpleEventProcessor initialized.  Partition: '{0}', Offset: '{1}'", context.Lease.PartitionId, context.Lease.Offset);
-	        this.checkpointStopWatch = new Stopwatch();
-	        this.checkpointStopWatch.Start();
-	        return Task.FromResult<object>(null);
-	    }
+        Task IEventProcessor.OpenAsync(PartitionContext context)
+        {
+            Console.WriteLine("SimpleEventProcessor initialized.  Partition: '{0}', Offset: '{1}'", context.Lease.PartitionId, context.Lease.Offset);
+            this.checkpointStopWatch = new Stopwatch();
+            this.checkpointStopWatch.Start();
+            return Task.FromResult<object>(null);
+        }
 
-	    async Task IEventProcessor.ProcessEventsAsync(PartitionContext context, IEnumerable<EventData> messages)
-	    {
-	        foreach (EventData eventData in messages)
-	        {
-	            string data = Encoding.UTF8.GetString(eventData.GetBytes());
+        async Task IEventProcessor.ProcessEventsAsync(PartitionContext context, IEnumerable<EventData> messages)
+        {
+            foreach (EventData eventData in messages)
+            {
+                string data = Encoding.UTF8.GetString(eventData.GetBytes());
 
-	            Console.WriteLine(string.Format("Message received.  Partition: '{0}', Data: '{1}'",
-	                context.Lease.PartitionId, data));
-	        }
+                Console.WriteLine(string.Format("Message received.  Partition: '{0}', Data: '{1}'",
+                    context.Lease.PartitionId, data));
+            }
 
-	        //Call checkpoint every 5 minutes, so that worker can resume processing from 5 minutes back if it restarts.
-	        if (this.checkpointStopWatch.Elapsed > TimeSpan.FromMinutes(5))
+            //Call checkpoint every 5 minutes, so that worker can resume processing from 5 minutes back if it restarts.
+            if (this.checkpointStopWatch.Elapsed > TimeSpan.FromMinutes(5))
             {
                 await context.CheckpointAsync();
                 this.checkpointStopWatch.Restart();
             }
-	    }
-	}
+        }
+    }
     ```
 
-	This class will be called by the **EventProcessorHost** to process events received from the Event Hub. Note that the `SimpleEventProcessor` class uses a stopwatch to periodically call the checkpoint method on the **EventProcessorHost** context. This ensures that, if the receiver is restarted, it will lose no more than five minutes of processing work.
+    Olay Hub’ından alınan olayları işlemek için bu sınıf **EventProcessorHost** tarafından çağrılır. `SimpleEventProcessor` sınıfının, **EventProcessorHost** bağlamında düzenli olarak denetim noktası yöntemini çağırmak için bir kronometre kullandığını unutmayın. Alıcı yeniden başlatılırsa, çalışmayı sürdürmek için beş dakikadan fazla kaybedilmemesi sağlanır.
 
-9. In the **Program** class, add the following `using` statement at the top of the file:
-
-	```
-	using Microsoft.ServiceBus.Messaging;
-	```
-
-	Then, replace the `Main` method in the `Program` class with the following code, substituting the Event Hub name and the namespace-level connection string that you saved previously, and the storage account and key that you copied in the previous sections. 
+9. **Program** sınıfında aşağıdaki `using` deyimini dosyanın üst kısmına ekleyin:
 
     ```
-	static void Main(string[] args)
+    using Microsoft.ServiceBus.Messaging;
+    ```
+
+    Ardından, `Program` sınıfındaki `Main` yöntemini aşağıdaki kodla değiştirin; bu kodda Olay Hub'ı adı ve daha önce kaydettiğiniz ad alanı düzeyinde bağlantı dizesi ve önceki bölümlerde kopyaladığınız depolama hesabı ve anahtarı değişecektir. 
+
+    ```
+    static void Main(string[] args)
     {
       string eventHubConnectionString = "{Event Hub connection string}";
       string eventHubName = "{Event Hub name}";
@@ -113,17 +113,17 @@ In order to use [EventProcessorHost][], you must have an [Azure Storage account]
       Console.ReadLine();
       eventProcessorHost.UnregisterEventProcessorAsync().Wait();
     }
-	```
+    ```
 
-> [AZURE.NOTE] This tutorial uses a single instance of [EventProcessorHost][]. To increase throughput, it is recommended that you run multiple instances of [EventProcessorHost][], as shown in the [Scaled out event processing][] sample. In those cases, the various instances automatically coordinate with each other in order to load balance the received events. If you want multiple receivers to each process *all* the events, you must use the **ConsumerGroup** concept. When receiving events from different machines, it might be useful to specify names for [EventProcessorHost][] instances based on the machines (or roles) in which they are deployed. For more information about these topics, see the [Event Hubs Overview][] and [Event Hubs Programming Guide][] topics.
+> [AZURE.NOTE] Bu öğretici, [EventProcessorHost][]’un tek bir örneğini kullanır. Verimliliği artırmak için, birden çok [EventProcessorHost][] örneğinin [Ölçeği genişletilmiş olay işleme][] örneğinde gösterildiği gibi çalıştırmanız önerilir. Böyle durumlarda, alınan olayların yük dengesi için çeşitli örnekler otomatik olarak birbirleriyle koordine olurlar. Birden çok alıcının her birinin *tüm* olayları işlemesini istiyorsanız **ConsumerGroup** kavramını kullanmalısınız. Olaylar farklı makinelerden alındığında, dağıtıldıkları makineleri (veya rolleri) temel alan [EventProcessorHost][] örnekleri için ad belirtmek yararlı olabilir. Bu konular hakkında daha fazla bilgi için bkz. [Event Hubs’a Genel Bakış][] ve [Event Hubs Programlama Kılavuzu][] konuları.
 
 <!-- Links -->
-[Event Hubs Overview]: event-hubs-overview.md
-[Event Hubs Programming Guide]: event-hubs-programming-guide.md
-[Scaled out event processing]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
-[Azure Storage account]: ../storage/storage-create-storage-account.md
+[Event Hubs’a Genel Bakış]: event-hubs-overview.md
+[Event Hubs Programlama Kılavuzu]: event-hubs-programming-guide.md
+[Ölçeği genişletilmiş olay işleme]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
+[Azure Storage hesabı]: ../storage/storage-create-storage-account.md
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
-[Azure classic portal]: http://manage.windowsazure.com
+[Klasik Azure portalı]: http://manage.windowsazure.com
 
 <!-- Images -->
 
@@ -132,4 +132,10 @@ In order to use [EventProcessorHost][], you must have an [Azure Storage account]
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
 [14]: ./media/service-bus-event-hubs-getstarted/create-receiver-csharp1.png
 [15]: ./media/service-bus-event-hubs-getstarted/create-receiver-csharp2.png
+
+
+
+
+<!--HONumber=Jun16_HO2-->
+
 

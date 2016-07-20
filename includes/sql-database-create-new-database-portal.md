@@ -8,41 +8,46 @@ As of circa 2016-04-11, the following topics might include this include:
 articles/sql-database/sql-database-get-started-tutorial.md
 
 -->
-## Create a new Azure SQL database
+## Yeni bir Azure SQL Database oluşturma
 
-Use the following steps in the Azure portal to create a new Azure SQL database on a new or existing Azure SQL Database logical server.
+Yeni Azure SQL Database’i yeni veya var olan Azure SQL Database mantıksal sunucusunda oluşturmak için Azure Portal'da aşağıdaki adımları kullanın.
 
-1. If not currently connected, connect to the [Azure portal](http://portal.azure.com).
-2. Click **New** , type **SQL Database** and then click **SQL Database (new database)**
+1. O anda bağlı değilse [Azure portal](http://portal.azure.com)’a bağlanın.
+2. **Yeni**’ye tıklayın, **SQL Database** yazın ve ** SQL Database (yeni veritabanı)** seçeneğini belirleyin.
 
-     ![new database](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-1.png)
+     ![yeni veritabanı](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-1.png)
 
-3. Click SQL Database (new database).
+3. SQL Database’e tıklayın (yeni veritabanı).
 
-     ![new database](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-2.png)
+     ![yeni veritabanı](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-2.png)
    
-4. Click **Create** to create a new database in the SQL Database service.
+4. SQL Database hizmetinde yeni veritabanı oluşturmak için **Oluştur**’a tıklayın.
 
-     ![new database](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-3.png)
+     ![yeni veritabanı](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-3.png)
 
-5. Provide the values for the following server properties:
+5. Şu sunucu özellikleri için değerleri girin:
 
- - Database name
- - Subscription (only if you have multiple subscriptions)
- - Resource group (if just getting started, use the resource group of the logical server)
- - Select source (you can choose a blank database, sample data or a database backup)
- - Server (a new or existing logical server)
- - Server admin password
- - Password
- - Pricing tier (if just getting started, use the default value S0)
- - Collation (only if blank database chosen)
+ - Veritabanı adı
+ - Abonelik (yalnızca birden fazla aboneliğiniz varsa)
+ - Kaynak grubu (yalnızca başlamak içinse mantıksal sunucunun kaynak grubunu kullanın)
+ - Kaynak seç (boş veritabanı, örnek verileri veya veritabanı yedeği seçebilirsiniz)
+ - Sunucu (yeni veya var olan mantıksal sunucu)
+ - Sunucu yönetici parolası
+ - Parola
+ - Fiyatlandırma katmanı (yalnızca başlamak içinse varsayılan S0 değerini kullanın)
+ - Harmanlama (yalnızca boş veritabanı seçilmişse)
 
         ![new database](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-4.png)
 
-6.  Click **Create** and in the notification area, you can see that deployment has started.
+6.  **Oluştur**’a tıklayın; bildirim alanında dağıtımın başlatıldığını görebilirsiniz.
 
-     ![new database](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-5.png)
+     ![yeni veritabanı](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-5.png)
 
-7. Wait for deployment to finish before continuing to the next step.
+7. Sonraki adıma geçmeden önce dağıtımın tamamlanmasını bekleyin.
 
-     ![new database](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-6.png)
+     ![yeni veritabanı](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-6.png)
+
+
+<!--HONumber=Jun16_HO2-->
+
+

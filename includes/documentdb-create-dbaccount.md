@@ -1,36 +1,42 @@
-1.	Sign in to the online [Microsoft Azure portal](https://portal.azure.com/).
-2.	In the Jumpbar, click **New**, then click **Data + Storage**, and then click **Azure DocumentDB**.
+1.  Çevrimiçi [Microsoft Azure portalı](https://portal.azure.com/)’nda oturum açın.
+2.  Atlama çubuğunda **Yeni**'ye, ardından **Veri + Depolama**'ya ve sonra da **Azure DocumentDB**’ye tıklayın.
 
-	![Screen shot of the Azure portal  to create a database, highlighting the New button, Data + storage in the Create blade, and Azure DocumentDB in the Data + Storage blade](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-1.png)  
+    ![Veritabanı oluşturacak Azure portalı; Yeni düğmesi, Oluştur dikey penceresinde Veri + depolama, Veri + Depolama dikey penceresinde de Azure DocumentDB vurgulanıyor](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-1.png)  
 
-3. In the **New DocumentDB account** blade, specify the desired configuration for the DocumentDB account.
+3. **Yeni DocumentDB hesabı** dikey penceresinde DocumentDB hesabı için istenen yapılandırmayı belirtin.
 
-	![Screen shot of the New DocumentDB blade](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-2.png)
+    ![Yeni DocumentDB dikey penceresi ekran görüntüsü](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-2.png)
 
 
-	- In the **ID** box, enter a name to identify the DocumentDB account.  When the **ID** is validated, a green check mark appears in the **ID** box. The **ID** value becomes the host name within the URI. The **ID** may contain only lowercase letters, numbers, and the '-' character, and must be between 3 and 50 characters. Note that *documents.azure.com* is appended to the endpoint name you choose, the result of which will become your DocumentDB account endpoint.
+    - **Kimlik** kutusuna, DocumentDB hesabını tanımlayacak adı girin.  **Kimlik** doğrulandığında, **Kimlik** kutusunda yeşil bir onay işareti belirir. **Kimlik** değeri URI içindeki konak adına dönüşür. **Kimlik**’te yalnızca küçük harfler, rakamlar ve '-' karakteri bulunabilir; 3 - 50 arası karakter uzunluğunda olmalıdır. *documents.azure.com* öğesinin seçtiğiniz uç nokta adına eklendiğini unutmayın; bunun sonucunu DocumentDB hesabınızın uç noktasına dönüşecektir.
 
-	- For **Subscription**, select the Azure subscription that you want to use for the DocumentDB account. If your account has only one subscription, that account is selected by default.
+    - **Abonelik** için DocumentDB hesabına yönelik kullanmak istediğiniz Azure aboneliğini girin. Hesabınızda yalnızca bir abonelik varsa bu hesap varsayılan olarak seçilidir.
 
-	- In **Resource Group**, select or create a resource group for your DocumentDB account.  By default, an existing Resource group under the Azure subscription will be chosen.  You may, however, choose to select to create a new resource group to which you would like to add your DocumentDB account. For more information, see [Using the Azure portal to manage your Azure resources](resource-group-portal.md).
+    - **Kaynak Grubu**’nda DocumentDB hesabınız için bir kaynak grubu seçin veya oluşturun.  Varsayılan olarak, Azure aboneliği altında bir Kaynak grubu seçilir.  Ancak, DocumentDB hesabınızı eklemek istediğiniz yeni bir kaynak grubu oluşturmayı seçmiş olabilirsiniz. Daha fazla bilgi için bkz. [Azure kaynaklarınızı yönetmek için Azure portalını kullanma](resource-group-portal.md).
 
-	- Use **Location** to specify the geographic location in which to host your DocumentDB account.   
+    - DocumentDB hesabınızın barındırılacağı coğrafi konumu belirtmek için **Konum**’u kullanın.   
 
-4.	Once the new DocumentDB account options are configured, click **Create**.  It can take a few minutes to create the DocumentDB account.  To check the status, you can monitor the progress on the Startboard.  
-	![Screen shot of the Creating tile on the Startboard - Online database creator](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-3.png)  
+4.  Yeni DocumentDB hesabı seçenekleri yapılandırıldıktan sonra **Oluştur**’a tıklayın.  DocumentDB hesabının oluşturulması birkaç dakika sürebilir.  Durumu denetlemek için Başlangıç Panosunda ilerlemeyi izleyebilirsiniz.  
+    ![Çevrimiçi veritabanı oluşturucusu; Başlangıç panosunda Oluşturuluyor kutucuğunun ekran görüntüsü](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-3.png)  
 
-	Or, you can monitor your progress from the Notifications hub.  
+    Bildirimler hub'ından da ilerleme durumunu izleyebilirsiniz.  
 
-	![Create databases quickly - Screen shot of the Notifications hub, showing that the DocumentDB account is being created](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-4.png)  
+    ![Veritabanlarını hızlı oluşturma - DocumentDB hesabının oluşturulduğunu gösteren Bildirimler hub'ının ekran görüntüsü](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-4.png)  
 
-	![Screen shot of the Notifications hub, showing that the DocumentDB account was created successfully and deployed to a resource group - Online database creator notification](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-5.png)
+    ![DocumentDB hesabının sorunsuz oluşturulduğunu ve bir kaynak grubuna dağıtıldığını gösteren Bildirimler hub’ının ekran görüntüsü- Çevrimiçi veritabanı oluşturucu bildirimi](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-5.png)
 
-5.	After the DocumentDB account is created, it is ready for use with the default settings in the online portal. Note that the default consistency of the DocumentDB account is set to **Session**.  You can adjust the default consistency setting by clicking the **Settings** icon on the top command bar, then clicking the **Default Consistency** entry under **Feature** on the **All Settings** blade.
+5.  DocumentDB hesabı oluşturulduktan sonra çevrimiçi portalda varsayılan ayarlarla birlikte kullanıma hazırdır. DocumentDB hesabının varsayılan tutarlılığının **Oturum** olarak ayarlandığını unutmayın.  Üstteki komut çubuğunda **Ayarlar** simgesini, ardından da **Tüm Ayarlar** dikey penceresinde **Özellik** altında **Varsayılan Tutarlılık**’a tıklayarak varsayılan tutarlılık ayarlarını gerçekleştirebilirsiniz.
 
-    ![Screen shot of the Resource Group blade - begin application development](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-6.png)  
+    ![Kaynak Grubu dikey penceresi ekran görüntüsü - uygulama geliştirmesini başlatma](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-6.png)  
 
-    ![Screen shot of the Consistency Level blade - Session Consistency](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-7.png)  
+    ![Tutarlılık düzeyi dikey penceresi ekran görüntüsü - Oturum Tutarlılığı](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-7.png)  
 
-[How to: Create a DocumentDB account]: #Howto
-[Next steps]: #NextSteps
+[Nasıl yapılır: DocumentDB hesabı oluşturma]: #Howto
+[Sonraki adımlar]: #NextSteps
 [documentdb-manage]:../articles/documentdb/documentdb-manage.md
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+
