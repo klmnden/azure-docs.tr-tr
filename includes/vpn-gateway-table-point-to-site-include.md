@@ -1,7 +1,13 @@
-|  | **Classic Deployment**  |  **Resource Manager Deployment**  |
+|  | **Klasik Dağıtım**  |  **Resource Manager Dağıtımı**  |
 |----------------------------------------|--------------|------------------------|
-| **Classic Portal** | [Article](../articles/vpn-gateway/vpn-gateway-point-to-site-create.md) | Not Supported |
-| **Azure Portal** |  Not Supported  |  Not Supported  |
-| **PowerShell** | Supported | [Article](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)|
+| **Klasik Portal** | [Makale](../articles/vpn-gateway/vpn-gateway-point-to-site-create.md) | Desteklenmiyor |
+| **Azure Portal** |  Desteklenmiyor  |  Desteklenmiyor  |
+| **PowerShell** | Destekleniyor | [Makale](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)|
+
+
+
+
+
+<!--HONumber=Jun16_HO2-->
 
 

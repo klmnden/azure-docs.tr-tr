@@ -1,69 +1,75 @@
 <!--author=alkohli last changed: 02/22/2016-->
 
 
-### To configure and register the device
+### Cihazı yapılandırmak ve kaydetmek için
 
-1. Access the Windows PowerShell interface on your StorSimple device serial console. See [Use PuTTY to connect to the device serial console](#use-putty-to-connect-to-the-device-serial-console) for instructions. **Be sure to follow the procedure exactly or you will not be able to access the console.**
+1. StorSimple cihazı seri konsolunuzdaki Windows PowerShell arabirimine erişin. Talimatlar için bkz. [Cihaz seri konsoluna bağlanmak için PuTTY kullanma](#use-putty-to-connect-to-the-device-serial-console). **Yordamı hatasız takip ettiğinizden emin olun; aksi taktirde konsola erişemezsiniz.**
 
-2. In the session that opens up, press Enter one time to get a command prompt. 
+2. Açılan oturumda komut istemi almak için bir kez Enter tuşuna basın. 
 
-3. You will be prompted to choose the language that you would like to set for your device. Specify the language, and then press Enter. 
+3. Cihazınızda ayarlamak istediğiniz dili seçmeniz istenecektir. Dili belirtip Enter tuşuna basın. 
 
-    ![StorSimple configure and register device 1](./media/storsimple-configure-and-register-device-u1/HCS_RegisterYourDevice1-U1-include.png)
+    ![StorSimple cihazı yapılandırma ve kaydetme 1](./media/storsimple-configure-and-register-device-u1/HCS_RegisterYourDevice1-U1-include.png)
 
-4. In the serial console menu that is presented, choose option 1 to log on with full access. 
+4. Verilen seri konsol menüsünde tam erişimle oturum açmak için 1 seçeneğini belirleyin. 
 
-    ![StorSimple register device 2](./media/storsimple-configure-and-register-device-u1/HCS_RegisterYourDevice2_U1-include.png)
+    ![StorSimple kayıt cihazı 2](./media/storsimple-configure-and-register-device-u1/HCS_RegisterYourDevice2_U1-include.png)
   
-     Complete steps 5-12 to configure the minimum required network settings for your device. **These configuration steps need to be performed on the active controller of the device.** The serial console menu indicates the controller state in the banner message. If you are not connected to the active controller, disconnect and then connect to the active controller.
+     Cihazınız için en düşük gerekli ağ ayarlarını yapılandırmak için 5-12 arası adımları tamamlayın. **Bu yapılandırma adımları, cihazın etkin denetleyicisinde gerçekleştirilmelidir.** Seri konsol menüsü, bant iletisindeki denetleyici durumunu belirtir. Etkin denetleyiciye bağlı değilseniz, bağlantıyı kesip etkin denetleyiciye bağlayın.
 
-5. At the command prompt, type your password. The default device password is **Password1**.
+5. Komut istemine parolanızı yazın. Varsayılan cihaz parolası **Password1**’dir.
 
-6. Type the following command: `Invoke-HcsSetupWizard`. 
+6. Şu komutu yazın: `Invoke-HcsSetupWizard`. 
 
-7. A setup wizard will appear to help you configure the network settings for the device. Supply the the following information: 
-   - IP address for the DATA 0 network interface
-   - Subnet mask
-   - Gateway
-   - IP address for Primary DNS server
+7. Cihazın ağ ayarlarını yapılandırmanıza yardımcı olacak bir kurulum sihirbazı görüntülenir. Aşağıdaki bilgileri verin: 
+   - DATA 0 ağ arabirimi için IP adresi
+   - Alt ağ maskesi
+   - Ağ geçidi
+   - Birincil DNS sunucusu için IP adresi
     
-		Note that the system is validating network settings after each step in the process.
+        İşlemin her adımından sonra, sistemin ağ ayarlarını doğruladığını unutmayın.
    
-      > [AZURE.NOTE] You may have to wait for a few minutes for the subnet mask and the DNS settings to be applied. If you get a "Check the network connectivity to Data 0" error message, check the physical network connection on the DATA 0 network interface of your active controller.
+      > [AZURE.NOTE] Uygulanacak alt ağ maskesi ve DNS ayarları için dakika beklemeniz gerekebilir. “Data 0 ağ bağlantısını denetleyin” hata iletisi alırsanız, etkin denetleyicinizin DATA 0 ağ arabirimindeki fiziksel ağ bağlantısını işaretleyin.
 
-8. (Optional) configure your web proxy server. Although web proxy configuration is optional, **be aware that if you use a web proxy, you can only configure it here**. For more information, go to [Configure web proxy for your device](../articles/storsimple/storsimple-configure-web-proxy.md).
+8. (İsteğe bağlı), web ara sunucusunu yapılandırın. Web ara sunucusunun yapılandırması isteğe bağlı olsa **bir web ara sunucu kullanıyorsanız, burada yalnızca bunu yapılandırabileceğinizi unutmayın**. Daha fazla bilgi için [Cihazınız için web ara sunucusunu yapılandırma](../articles/storsimple/storsimple-configure-web-proxy.md)’ya gidin.
 
-9. Configure a Primary NTP server for your device. NTP servers are required, as your device must synchronize time so that it can authenticate with your cloud service providers. Ensure that your network allows NTP traffic to pass from your datacenter to the Internet. If this is not possible, specify an internal NTP server. 
+9. Cihazınız için Birincil NTP sunucusunu yapılandırın. Bulut hizmeti sağlayıcılarıyla doğrulanabileceği şekilde cihazınızı saati eşitlemesi gerektiğinden NTP sunucuları gereklidir. Ağınızın, NTP trafiğini veri merkezinizden İnternete geçirilmesine izin vermesini sağlayın. Bu yapılamıyorsa dahili bir NTP sunucusu belirtin. 
  
-10. For security reasons, the device administrator password expires after the first session, and you will need to change it now. When prompted, provide a device administrator password. A valid device administrator password must be between 8 and 15 characters. The password must contain three of the following: lowercase, uppercase, numeric, and special characters.
+10. Güvenlik nedenleriyle, cihaz yönetici parolasının süresi ilk oturumun ardından dolar; artık bunu değiştirmeniz gerekir. İstendiğinde cihaz yöneticisi parolasını verin. Geçerli bir cihaz yöneticisi parolası 8-15 karakter arasında olmalıdır. Parolada aşağıdakilerden üçü olmalıdır: küçük harf, büyük harf, rakam ve özel karakter.
 
-	<br/>![StorSimple register device 5](./media/storsimple-configure-and-register-device-u1/HCS_RegisterYourDevice5_U1-include.png)
+    <br/>![StorSimple kayıt cihazı 5](./media/storsimple-configure-and-register-device-u1/HCS_RegisterYourDevice5_U1-include.png)
 
-11. The final step in the setup wizard registers your device with the StorSimple Manager service. For this, you will need the service registration key that you obtained in step 2. After you supply the registration key, you may need to wait for 2-3 minutes before the device is registered.
+11. Kurulum sihirbazının son adımı cihazınızı StorSimple Yöneticisi hizmetine kaydeder. Bunun için, 2. adımda aldığınız hizmet kayıt anahtarı gerekir. Kayıt anahtarını verdikten sonra cihazın kaydolması için 2-3 dakika beklemeniz gerekebilir.
 
-      > [AZURE.NOTE] You can press Ctrl + C at any time to exit the setup wizard. If you have entered all the network settings (IP address for Data 0, Subnet mask, and Gateway), your entries will be retained.
+      > [AZURE.NOTE] Kurulum sihirbazından çıkmak için istediğiniz zaman Ctrl + C tuşlarına basabilirsiniz. Tüm ağ ayarlarını (Data 0 için IP adresi, alt ağ maskesi ve ağ geçidi) girdiyseniz girişleriniz korunur.
 
-	![StorSimple register device 6](./media/storsimple-configure-and-register-device-u1/HCS_RegisterYourDevice6_U1-include.png)
+    ![StorSimple kayıt cihazı 6](./media/storsimple-configure-and-register-device-u1/HCS_RegisterYourDevice6_U1-include.png)
 
-12. After the device is registered, a Service Data Encryption key will appear. Copy this key and save it in a safe location. **This key will be required with the service registration key to register additional devices with the StorSimple Manager service.** Refer to [StorSimple security](../articles/storsimple/storsimple-security.md) for more information about this key.
-	
-	![StorSimple register device 7](./media/storsimple-configure-and-register-device-u1/HCS_RegisterYourDevice7_U1-include.png)    
+12. Cihaz kaydedildikten sonra Hizmet Verileri Şifreleme anahtarı görüntülenir. Bu anahtarı kopyalayın ve güvenli bir konuma kaydedin. **StorSimple Yöneticisi hizmetiyle ek cihazlar kaydetmek için hizmet kayıt anahtarıyla birlikte bu anahtar da gerekecektir.** Bu anahtar hakkında daha fazla bilgi için bkz. [StorSimple güvenliği](../articles/storsimple/storsimple-security.md).
+    
+    ![StorSimple kayıt cihazı 7](./media/storsimple-configure-and-register-device-u1/HCS_RegisterYourDevice7_U1-include.png)    
 
-      > [AZURE.NOTE] To copy the text from the serial console window, simply select the text. You should then be able to paste it in the clipboard or any text editor. DO NOT use Ctrl + C to copy the service data encryption key. Using Ctrl + C will cause you to exit the setup wizard. As a result, the device administrator password will not be changed and the device will revert to the default password.
+      > [AZURE.NOTE] Seri konsol penceresinden metin kopyalamak için metni seçmeniz yeterlidir. Artık bunu panoya veya metin düzenleyicilere yapıştırabilirsiniz. Hizmet verileri şifreleme anahtarını kopyalamak için CTRL + C tuşlarını kullanmayın. Ctrl + C tuşlarının kullanılması kurulum sihirbazından çıkmanıza neden olur. Sonuç olarak, cihaz yöneticisi parolası değiştirilmez ve cihaz varsayılan parolasına döner.
 
-13. Exit the serial console.
+13. Seri konsoldan çıkın.
 
-14. Return to the Azure classic portal, and complete the following steps:
-  1. Double-click your StorSimple Manager service to access the **Quick Start** page.
-  2. Click **View connected devices**.
-  3. On the **Devices** page, verify that the device has successfully connected to the service by looking up the status. The device status should be **Online**.
+14. Klasik Azure portalına dönün ve aşağıdaki adımları tamamlayın:
+  1. **Hızlı Başlangıç** sayfasına erişmek için StorSimple Yöneticisi hizmetinize çift tıklayın.
+  2. **Bağlı cihazları görüntüle**’ye tıklayın.
+  3. **Cihazlar** sayfasında, durumu arayarak cihazın hizmete sorunsuz bağlandığını doğrulayın. Cihazın durumu **Çevrimiçi** olmalıdır.
    
-    	![StorSimple Devices page](./media/storsimple-configure-and-register-device-u1/HCS_DevicesPageM_U1-include.png) 
+        ![StorSimple Cihazları sayfası](./media/storsimple-configure-and-register-device-u1/HCS_DevicesPageM_U1-include.png) 
   
-        If the device status is **Offline**, wait for a couple of minutes for the device to come online. 
+        Cihazın durumu **Çevrimdışı** olduğu durumda, birkaç dakikada cihazın çevrimiçi olması bekleyin. 
 
-        If the device is still offline after a few minutes, then you need to make sure that your firewall network was configured as described in [networking requirements for your StorSimple device](../articles/storsimple/storsimple-system-requirements.md). 
+        Birkaç dakika sonra cihaz yine de çevrimdışıysa, güvenlik duvarı ağınızın [StorSimple cihazınız için ağ gereksinimlerinde](../articles/storsimple/storsimple-system-requirements.md) açıklandığı şekilde yapılandırıldığından emin olun. 
 
-		Verify that port 9354 is open for outbound communication as this is used by the service bus for StorSimple Manager Service-to-device communication.
+        Bu hizmet veri yolu tarafından StorSimple Yöneticisi Hizmet - Cihaz iletişimi için hizmet veri yolu tarafından kullanıldığından, 9354 bağlantı noktasının giden iletişim için açık olduğunu doğrulayın.
      
        
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

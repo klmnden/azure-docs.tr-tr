@@ -1,30 +1,36 @@
-## About records
+## Kayıtları hakkında
 
-Each DNS record has a name and a type. Records are organized into various types according to the data they contain. The most common type is an "A" record, which maps a name to an IPv4 address. Another type is an "MX" record, which maps a name to a mail server.
+Her DNS kaydında bir ad ve bir tür vardır. Kayıtlar, içerdikleri verilere göre çeşitli türlerde düzenlenmiştir. En yaygın tür olan "A" kaydı bir adı bir IPv4 adresiyle eşleştirir. Başka bir tür olan "MX" kaydıysa bir adı bir posta sunucusuyla eşleştirir.
 
-Azure DNS supports all common DNS record types, including A, AAAA, CNAME, MX, NS, SOA, SRV, and TXT. SOA record sets  are created automatically with each zone. They cannot be created separately. Note that SPF records should be created by using the TXT record type. For more information, see [this page](http://tools.ietf.org/html/rfc7208#section-3.1).
+Azure DNS, A, AAAA, CNAME, MX, NS, SOA, SRV ve TXT gibi tüm yaygın DNS kayıt türlerini destekler. SOA kaydı kümeleri her bölgeyle birlikte otomatik olarak oluşturulur. Bunlar ayrı ayrı oluşturulamaz. SPF kayıtlarının TXT kayıt türü kullanılarak oluşturulması gerektiğini unutmayın. Daha fazla bilgi için [bu sayfaya](http://tools.ietf.org/html/rfc7208#section-3.1) bakın.
 
-In Azure DNS, records are specified by using relative names. A "fully qualified" domain name (FQDN) includes the zone name, whereas a "relative" name does not. For example, the relative record name "www" in the zone "contoso.com" gives the fully qualified record name www.contoso.com.
+Azure DNS’de, kayıtlar göreli adlar kullanılarak belirtilir. "Tam" etki alanı adında (FQDN) bölge adı varken "göreli" adda bu yoktur. Örneğin, "contoso.com" bölgesindeki "www" göreli kayıt adı www.contoso.com tam kayıt adını verir.
 
-## About record sets
+## Kayıt kümeleri hakkında
 
-Sometimes you need to create more than one DNS record with a given name and type. For example, suppose the "www.contoso.com" web site is hosted on two different IP addresses. The website requires two different A records, one for each IP address. This is an example of a record set:
+Bazen, verilen ada ve türe sahip birden fazla DNS kaydı oluşturmanız gerekebilir. Örneğin, "www.contoso.com" web sitesinin iki farklı IP adresinde barındırıldığını var sayalım. Web sitesine, her IP adresi için bir tane olmak üzere iki farklı A kaydı gerekir. Bu bir kayıt kümesi örneğidir:
 
-	www.contoso.com.		3600	IN	A	134.170.185.46
-	www.contoso.com.		3600	IN	A	134.170.188.221
+    www.contoso.com.        3600    IN  A   134.170.185.46
+    www.contoso.com.        3600    IN  A   134.170.188.221
 
-Azure DNS manages DNS records by using record sets. A record set is the collection of DNS records in a zone that have the same name and are the same type. Most record sets contain a single record, but examples like this one, in which a record set contains more than one record, are not uncommon.
+Azure DNS kayıt kümelerini kullanarak DNS kayıtlarını yönetir. Kayıt kümesi, bir bölgede yer alan aynı ada sahip ve aynı türde olan DNS kayıtlarının koleksiyonudur. Çoğu kayıt kümesinde tek bir kayıt olsa da, bunun gibi örneklerdeki bir kayıt kümesinde bir kayıttan fazlası vardır; ancak bunlar pek yaygın değildir.
 
-SOA and CNAME record sets are exceptions. The DNS standards don't permit multiple records with the same name for these types.
+SOA ve CNAME kaydı kümelerinin durumu özeldir. DNS standartları bu türlerde aynı ada sahip birden çok kayda izin vermez.
 
-The time to live, or TTL, specifies how long each record is cached by clients before being re-queried. In this example, the TTL is 3600 seconds or 1 hour. The TTL is specified for the record set, not for each record, so the same value is used for all records within that record set.
+Yaşam süresi veya TTL, yeniden sorgulanmadan önce istemci tarafından ne süreyle önbelleğe alınacağını belirtir. Bu örnekte, TTL 3600 saniye veya 1 saattir. TTL her kayıt için değil, kayıt kümesi için belirtilir; bu nedenle, bu kayıt kümesindeki tüm kayıtlar için aynı değer kullanılır.
 
-#### Wildcard record sets
+#### Joker karakter kaydı kümeleri
 
-Azure DNS supports [wildcard records](https://en.wikipedia.org/wiki/Wildcard_DNS_record). These are returned for any query with a matching name (unless there is a closer match from a non-wildcard record set). Wildcard record sets are supported for all record types except NS and SOA.  
+Azure DNS [joker kayıtlarını](https://en.wikipedia.org/wiki/Wildcard_DNS_record) destekler. Sorgulara yanıt olarak eşleşen bir adla döndürülürler (joker karakter olmayan bir kayıt kümesine ait daha yakın bir eşleşme olmadıkça). Joker karakter kaydı kümeleri NS ve SOA dışında tüm kayıt türleri tarafından desteklenir.  
 
-To create a wildcard record set, use the record set name "\*". Or, use a name with the label "\*", for example, "\*.foo".
+Joker karakter kaydı kümesi oluşturmak için "\*" kayıt kümesi adını kullanın. Bunun yerine, "\*" etiketine sahip bir ad da kullanabilirsiniz; örneğin,"\*.foo".
 
-#### CNAME record sets
+#### CNAME kayıt kümeleri
 
-CNAME record sets cannot coexist with other record sets with the same name. For example, you cannot create a CNAME record set with the relative name "www" and an A record with the relative name "www" at the same time. Because the zone apex (name = ‘@’) always contains the NS and SOA record sets that were created when the zone was created, you can't create a CNAME record set at the zone apex. These constraints arise from the DNS standards and aren't limitations of Azure DNS.
+CNAME kaydı kümeleri aynı ada sahip diğer kayıt kümeleriyle birlikte olamaz. Örneğin, "www" göreli adına sahip bir CNAME kaydı kümesini ve "www" göreli adına sahip bir A kaydını aynı anda oluşturamazsınız. Bölge tepesinde (ad = ' @') her zaman, bölge oluşturulduğunda oluşturulan NS ve SOA kaydı kümeleri bulunduğundan bölge tepesinde CNAME kaydı kümesi oluşturamazsınız. Bu kısıtlamalar DNS standartları kaynaklıdır, Azure DNS sınırlamaları değildir.
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

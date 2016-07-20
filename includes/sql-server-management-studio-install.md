@@ -1,3 +1,8 @@
-##Install the newest version of SQL Server Management Studio
+##SQL Server Management Studio’nun en yeni sürümünü yükleyin
 
-  When working with SQL Database, you should use the most recent version of SQL Server Management Studio (SSMS) to manage SQL Database and SQL Server. The newest version of SSMS is optimized for both SQL Database and SQL Server 2016, and is also designed for use with older versions of SQL Server. To download and install the most recent version of SSMS, see [Download SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx). Once you have a recent version, SSMS will prompt you whenever there is a new SSMS version available to download. You can also check for updates on the **Tools** menu.
+  SQL Database ile çalışırken, SQL Database’i ve SQL Server'ı yönetmek için SQL Server Management Studio’nun (SSMS) en son sürümünü kullanmanız gerekir. SSMS’nin en yeni sürümü hem SQL Database, hem de SQL Server 2016 için iyileştirilmiştir ve SQL Server'ın eski sürümleriyle birlikte kullanılmak üzere de tasarlanmıştır. SSMS’nin en son sürümünü indirip yüklemek için bkz. [SQL Server Management Studio’yu indirme](https://msdn.microsoft.com/library/mt238290.aspx). Yeni bir sürüme bir kez sahip olduğunuzda, artık SSMS, yeni bir SSMS sürümü indirilmek üzere uygun olduğunda ne zaman olursa olsun size bilgi verecektir. Güncelleştirmeleri **Araçlar** menüsünde de denetleyebilirsiniz.
+
+
+<!--HONumber=Jun16_HO2-->
+
+

@@ -1,10 +1,15 @@
 
-The following are screen captures from the completed app:
+Aşağıdaki ekran görüntüleri tamamlanan şu uygulamalara aittir:
 
 ![](./media/mobile-services-windows-universal-get-started/mobile-quickstart-completed.png)
-<br/>Windows Store app
+<br/>Windows Mağazası uygulaması
 
 ![](./media/mobile-services-windows-universal-get-started/mobile-quickstart-completed-wp8.png)
-<br/>Windows Phone Store app
+<br/>Windows Phone Mağazası uygulaması
 
-Completing this tutorial is a prerequisite for all other Mobile Services tutorials for Windows Store and Windows Phone Store apps. 
+Bu öğreticinin tamamlanması Windows Mağazası ve Windows Phone Mağazası uygulamalarına ilişkin tüm Mobile Services öğreticileri için ön koşuldur. 
+
+
+<!--HONumber=Jun16_HO2-->
+
+

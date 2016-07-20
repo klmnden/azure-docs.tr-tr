@@ -1,63 +1,68 @@
-## What are Service Bus topics and subscriptions?
+## Service Bus konuları ve abonelikleri nelerdir?
 
-Service Bus topics and subscriptions support a *publish/subscribe* messaging communication model. When using topics and subscriptions, components of a distributed application do not communicate directly with each other; instead they exchange messages via a topic, which acts as an intermediary.
+Service Bus konuları ve abonelikleri *publish/subscribe* mesajlaşma iletişim modelini destekler. Konular ve abonelikler kullanıldığında, dağıtılmış uygulamanın bileşenleri birbirleriyle doğrudan iletişim kurmazlar; bunun yerine bir aracı gibi davranan bir konu aracılığıyla iletileri değiş tokuş eder.
 
 ![TopicConcepts](./media/howto-service-bus-topics/sb-topics-01.png)
 
-In contrast with Service Bus queues, in which each message is processed by a single consumer, topics and subscriptions provide a "one-to-many" form of communication, using a publish/subscribe pattern. It is possible to
-register multiple subscriptions to a topic. When a message is sent to a topic, it is then made available to each subscription to handle/process independently.
+Service Bus kuyruklarının tersine, burada her ileti bir tüketici tarafından işlenir; konular ve abonelikler, publish/subscribe modelini kullanarak iletişimin "bir-çok" biçimini sağlar. Bir konuya birden fazla abonelik kaydedilebilir. Bir konuya ileti gönderildiğinde, bundan sonra, bağımsız olarak ele almak/işlemek amacıyla her abonelik için kullanılabilir hale getirilir.
 
-A subscription to a topic resembles a virtual queue that receives copies of the messages that were sent to the topic. You can optionally register filter rules for a topic on a per-subscription basis, which enables you to filter or restrict which messages to a topic are received by which topic subscriptions.
+Bir konuya abone olunması, konuya gönderilmiş olan iletilerin kopyaların alan sanal kuyruğa benzer. İsterseniz konuyla ilgili filtre kurallarını, hangi konu abonelikleriyle, konunun hangi iletileri alacağını filtrelemenizi veya kısıtlamanızı etkinleştiren abonelik başına temelinde kaydedebilirsiniz.
 
-Service Bus topics and subscriptions enable you to scale and process a very large number of messages across many users and applications.
+Service Bus konuları ve abonelikleri, çok sayıda kullanıcıdan ve uygulamadan gelen çok yüksek sayıda iletiyi ölçeklendirmenizi ve işlemenizi sağlar.
 
-## Create a namespace
+## Ad alanı oluşturma
 
-To begin using Service Bus topics and subscriptions in Azure, you must first create a *service namespace*. A namespace provides a scoping container for addressing Service Bus resources within your application.
+Azure'da Service Bus konularını ve aboneliklerini kullanmaya başlamak için öncelikle bir *hizmet ad alanı* oluşturmanız gerekir. Ad alanı, uygulamanızda bulunan Service Bus kaynaklarını adreslemek için içeriğin kapsamını belirleyen bir kapsayıcı sunar.
 
-To create a namespace:
+Ad alanı oluşturmak için:
 
-1.  Log on to the [Azure classic portal][].
+1.  [Klasik Azure portalı][]’nda oturum açın.
 
-2.  In the left navigation pane of the portal, click **Service Bus**.
+2.  Portalın sol gezinti bölmesinde **Service Bus** hizmetine tıklayın.
 
-3.  In the lower pane of the portal, click **Create**.   
+3.  Portalın alt bölmesinde **Oluştur**'a tıklayın.   
     ![][0]
 
-4.  In the **Add a new namespace** dialog, enter a namespace name. The system immediately checks to see if the name is available.   
+4.  **Yeni bir ad alanı ekle** iletişim kutusunda ad alanı adını girin. Adın kullanılabilirliği sistem tarafından hemen denetlenir.   
     ![][2]
 
-5.  After making sure the namespace name is available, choose the country or region in which your namespace should be hosted (make sure you use the same country/region in which you are deploying your compute resources).
+5.  Ad alanındaki adın kullanılabilirliğinden emin olduktan sonra, ad alanınızın barındırılması gereken ülkeyi veya bölgeyi seçin (işlem kaynaklarınızın dağıtıldığı aynı ülkeyi/bölgeyi kullandığınızdan emin olun).
 
-	> [AZURE.IMPORTANT] Pick the **same region** that you intend to choose for deploying your application. This will give you the best performance.
+    > [AZURE.IMPORTANT] Uygulamanızı dağıtmak için seçmeyi planladığınız **aynı bölgeyi** seçin. Bu en iyi performansı verir.
 
-6. 	Leave the other fields in the dialog with their default values (**Messaging** and **Standard Tier**), then click the OK check mark. The system now creates your namespace and enables it. You might have to wait several minutes as the system provisions resources for your account.
+6.  İletişim kutusundaki diğer alanları varsayılan değerleriyle bırakın (**Mesajlaşma** ve **Standart Katman**), ardından Tamam onay işaretine tıklayın. Artık sistem ad alanınızı oluşturur ve kullanıma açar. Sistem, hesabınıza yönelik kaynakları sağlarken birkaç dakika bekleyebilirsiniz.
 
-	![][6]
+    ![][6]
 
-## Obtain the default management credentials for the namespace
+## Ad alanı için varsayılan yönetim kimlik bilgilerini alma
 
-In order to perform management operations, such as creating a topic or subscription on the new namespace, you must obtain the management credentials for the namespace. You can obtain these credentials from the portal.
+Yeni ad alanında konu veya abonelik oluşturma gibi yönetim işlemlerini gerçekleştirmek için ad alanına yönelik yönetici kimlik bilgilerini edinmeniz gerekir. Bu kimlik bilgilerini portaldan elde edebilirsiniz.
 
-### Obtain management credentials from the portal
+### Yönetim kimlik bilgilerini portaldan alın
 
-1.  In the left navigation pane, click the **Service Bus** node to display the list of available namespaces:   
+1.  Kullanılabilir ad alanlarının listesini görüntülemek için sol gezinti bölmesinde **Service Bus** düğümüne tıklayın:   
     ![][0]
 
-2.  Select the namespace you just created from the list shown:   
+2.  Görüntülenen listede az önce oluşturduğunuz ad alanını seçin:   
     ![][3]
 
-3.  Click **Connection Information**.   
+3.  **Bağlantı Bilgileri**'ne tıklayın.   
     ![][4]
 
-4.  In the **Access connection information** dialog, find the connection string that contains the SAS key and key name. Make a note of these values, as you will use this information later to perform operations with the namespace. 
+4.  **Erişim bağlantısı bilgileri** iletişim kutusunda, SAS anahtarını ve anahtar adını içeren bağlantı dizesini bulun. Ad alanıyla işlemleri daha sonra gerçekleştirmek için bu bilgileri kullanacağınızdan bu değerleri not edin. 
 
 
-  [Azure classic portal]: http://manage.windowsazure.com
+  [Klasik Azure portalı]: http://manage.windowsazure.com
   [0]: ./media/howto-service-bus-topics/sb-queues-13.png
   [2]: ./media/howto-service-bus-topics/sb-queues-04.png
   [3]: ./media/howto-service-bus-topics/sb-queues-09.png
   [4]: ./media/howto-service-bus-topics/sb-queues-06.png
   
   [6]: ./media/howto-service-bus-topics/getting-started-multi-tier-27.png
+
+
+
+
+<!--HONumber=Jun16_HO2-->
+
 

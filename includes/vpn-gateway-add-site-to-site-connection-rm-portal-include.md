@@ -1,24 +1,30 @@
-1. Locate your virtual network gateway and click **All settings** to open the **Settings** blade.
+1. Sanal ağ geçidinizi bulun ve **Ayarlar** dikey penceresini açmak için **Tüm ayarlar**’a tıklayın.
 
-2. On the **Settings** blade, click **Connections**, and then click **Add** at the top of the blade to open the **Add connection** blade.
+2. **Ayarlar** dikey penceresinde **Bağlantılar**’a, sonra da **Bağlantı ekle** dikey penceresini açmak için dikey pencerenin en üstünde yer alan **Ekle**’ye tıklayın.
 
-	![Create Site-to-Site connection](./media/vpn-gateway-add-site-to-site-connection-rm-portal-include/addconnection250.png)
+    ![Siteden Siteye bağlantısı oluşturma](./media/vpn-gateway-add-site-to-site-connection-rm-portal-include/addconnection250.png)
 
-3. On the **Add connection** blade, **Name** your connection. 
+3. **Bağlantı ekle** dikey penceresinde bağlantınıza **Ad** verin. 
 
-4. For **Connection type**, select **Site-to-site(IPSec)**.
+4. **Bağlantı türü** için **Siteden siteye (IPSec)** öğesini seçin.
 
-5. For **Virtual network gateway**, the value is fixed because you are connecting from this gateway.
+5. **Sanal ağ geçidi** için, bu ağ geçidinden bağlandığınızdan bu değer sabittir.
 
-6. For **Local network gateway**, click **Choose a local network gateway** and select the local network gateway that you want to use. 
+6. **Yerel ağ geçidi** için **Bir yerel ağ geçidi seçin**’e tıklayıp kullanmak istediğiniz yerel ağ geçidini seçin. 
 
-7. For **Shared Key**, the value here must match the value that you are using for your local VPN device. If your VPN device on your local network doesn't provide a shared key, you can make one up and input it here and on your local device. The important thing is that they both match.
+7. **Paylaşılan Anahtar** için buradaki değer yerel VPN cihazınızda kullanmakta olduğunuz değerle eşleşmelidir. Yerel ağınızdaki VPN cihazınız paylaşılan anahtar sağlamıyorsa bir tane oluşturup buraya ve yerel cihazınıza bunu girin. Önemli olan her ikisinin de eşleşiyor olmasıdır.
 
-8. The remaining values for **Subscription**, **Resource Group**, and **Location** are fixed.
+8. **Abonelik**, **Kaynak Grubu** ve **Konum** için kalan değerler sabittir.
 
-9. Click **OK** to create your connection. You'll see *Creating Connection* flash on the screen.
+9. Bağlantınızı oluşturmak için **Tamam**’a tıklayın. Ekranda yanıp sönen *Bağlantısı Oluşturuluyor* yazısını göreceksiniz.
 
-10. When the connection is complete, you'll see it appear in the **Connections** blade for your Gateway.
+10. Bağlantı tamamlandığında, Ağ geçidiniz için **Bağlantılar** dikey penceresinde bunun görüntülendiğini göreceksiniz.
 
-	![Create Site-to-Site connection](./media/vpn-gateway-add-site-to-site-connection-rm-portal-include/connectionstatus450.png)
+    ![Siteden Siteye bağlantısı oluşturma](./media/vpn-gateway-add-site-to-site-connection-rm-portal-include/connectionstatus450.png)
+
+
+
+
+<!--HONumber=Jun16_HO2-->
+
 

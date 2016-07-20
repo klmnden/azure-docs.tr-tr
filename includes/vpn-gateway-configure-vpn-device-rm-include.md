@@ -1,8 +1,13 @@
 
-To configure your VPN device, you'll need the public IP address of the virtual network gateway for configuring your on-premises VPN device. Work with your device manufacturer for specific configuration information and configure your device. Refer to the [VPN Devices](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md) for more information about VPN devices that work well with Azure.
+VPN cihazınızı yapılandırmak için, şirket içi VPN cihazınızın yapılandırılması için size sanal ağ geçidinin genel IP adresi gerekecektir. Belirli yapılandırma bilgileri için cihaz üreticinizle birlikte çalışın ve cihazınızı yapılandırın. Azure ile verimli çalışan VPN cihazları hakkında daha fazla bilgi için [VPN Cihazları](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md)’na başvurun.
 
-To find the public IP address of your virtual network gateway using PowerShell, use the following sample:
+PowerShell kullanarak sanal ağ geçidinizin ortak IP adresini bulmak için şu örneği kullanın:
 
-	Get-AzureRmPublicIpAddress -Name GW1PublicIP -ResourceGroupName TestRG
+    Get-AzureRmPublicIpAddress -Name GW1PublicIP -ResourceGroupName TestRG
 
-You can also view the public IP address for your virtual network gateway by using the Azure portal. Navigate to **Virtual network gateways**, then click the name of your gateway.
+Azure portalı kullanarak da sanal ağ geçidiniz için genel IP adresini görüntüleyebilirsiniz. **Sanal Ağ Geçitleri**’ne gidin ve ağ geçidinizin adına tıklayın.
+
+
+<!--HONumber=Jun16_HO2-->
+
+

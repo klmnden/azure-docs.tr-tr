@@ -1,16 +1,22 @@
-1. Start **Xcode** and in the pop-up, select **Create a new Xcode project**.
+1. **Xcode**’u başlatın ve açılır pencerede **Yeni bir Xcode projesi oluştur**’u seçin.
 
-	![](./media/mobile-engagement-create-new-ios-app/xcode-new-project.png)
+    ![](./media/mobile-engagement-create-new-ios-app/xcode-new-project.png)
 
-2. Select **Single View Application**, and then click **Next**.
+2. **Tek Görünümlü Uygulama**’yı seçin ve **İleri**’ye tıklayın.
 
-	![](./media/mobile-engagement-create-new-ios-app/xcode-simple-view.png)
+    ![](./media/mobile-engagement-create-new-ios-app/xcode-simple-view.png)
 
-3. Fill in the **Product Name**, **Organization Name**, and **Organization Identifier**. Select **Objective-C** or **Swift** in the **Language** selection based on your app.
+3. **Ürün Adı**, **Kuruluş Adı** ve **Kuruluş Tanımlayıcısı** alanlarını doldurun. Uygulamanıza dayanan **Dil** seçiminde **Objective-C** veya **Swift** seçeneğini belirleyin.
 
-	![](./media/mobile-engagement-create-new-ios-app/xcode-project-props.png)
+    ![](./media/mobile-engagement-create-new-ios-app/xcode-project-props.png)
 
-> [AZURE.IMPORTANT] Make sure that the Bundle Identifier matches with what you have defined in the Apple Developer console for AppId and that you have a corresponding certificate for it. 
+> [AZURE.IMPORTANT] Grup Tanımlayıcısının AppId için Apple Developer konsolunda tanımladığınızla eşleştiğinden ve bunu karşılayan sertifikanız olduğundan emin olun. 
 
-Xcode will create the demo app into which we integrate Mobile Engagement.
+Xcode, Mobile Engagement ile tümleşmemizi sağlayan tanıtım uygulamasını oluşturur.
+
+
+
+
+<!--HONumber=Jun16_HO2-->
+
 

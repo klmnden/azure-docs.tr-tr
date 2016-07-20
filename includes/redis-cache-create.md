@@ -1,29 +1,35 @@
-To create a cache, first sign in to the [Azure Portal](https://portal.azure.com), and click **New**, **Data + Storage**, **Redis Cache**.
+Önbellek oluşturmak için [Azure Portal](https://portal.azure.com)’a giriş yapın, **Yeni**’ye, **Veri + Depolama**’ya, **Redis Önbelleği**’ne tıklayın.
 
->[AZURE.NOTE] If you don't have an Azure account, you can [Open an Azure account for free](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero) in just a couple of minutes.
+>[AZURE.NOTE] Azure hesabınız yoksa, yalnızca birkaç dakika içinde [Ücretsiz bir Azure hesabı açabilirsiniz](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero).
 
-![New cache](media/redis-cache-create/redis-cache-new-cache-menu.png)
+![Yeni önbellek](media/redis-cache-create/redis-cache-new-cache-menu.png)
 
->[AZURE.NOTE] In addition to creating caches in the Azure Portal, you can also create them using ARM templates, PowerShell, or Azure CLI.
+>[AZURE.NOTE] Azure Portal’da önbellek oluşturmaya ek olarak, Ayrıca bunları ARM şablonları, PowerShell veya Azure CLI kullanarak da oluşturabilirsiniz.
 >
->-	To create a cache using ARM templates, see [Create a Redis cache using a template](../articles/redis-cache/cache-redis-cache-arm-provision.md).
->-	To create a cache using Azure PowerShell, see [Manage Azure Redis Cache with Azure PowerShell](../articles/redis-cache/cache-howto-manage-redis-cache-powershell.md).
->-	To create a cache using Azure CLI, see [How to create and manage Azure Redis Cache using the Azure Command-Line Interface (Azure CLI)](../articles/redis-cache/cache-manage-cli.md).
+>-  ARM şablonları kullanarak önbellek oluşturmak için bkz. [Şablon kullanarak Redis önbelleği oluşturma](../articles/redis-cache/cache-redis-cache-arm-provision.md).
+>-  Azure PowerShell kullanarak önbellek oluşturmak için bkz. [Azure PowerShell ile Azure Redis Önbelleğini Yönetme](../articles/redis-cache/cache-howto-manage-redis-cache-powershell.md).
+>-  Azure CLI kullanarak önbellek oluşturmak için bkz. [Azure Komut Satırı Arabirimi (CLI Azure) kullanarak Azure Redis Önbelleği oluşturma ve yönetme](../articles/redis-cache/cache-manage-cli.md).
 
-In the **New Redis Cache** blade, specify the desired configuration for the cache.
+**Yeni Redis Önbelleği** dikey penceresinde istediğiniz yapılandırma önbelleğini belirtin.
 
-![Create cache](media/redis-cache-create/redis-cache-cache-create.png) 
+![Önbellek oluşturma](media/redis-cache-create/redis-cache-cache-create.png) 
 
--	In **Dns name**, enter a cache name to use for the cache endpoint. The cache name must be a string between 1 and 63 characters and contain only numbers, letters, and the `-` character. The cache name cannot start or end with the `-` character, and consecutive `-` characters are not valid.
--	For **Subscription**, select the Azure subscription that you want to use for the cache. If your account has only one subscription, it will be automatically selected and the **Subscription** drop-down will not be displayed.
--	In **Resource group**, select or create a resource group for your cache. For more information, see [Using Resource groups to manage your Azure resources](../articles/resource-group-overview.md). 
--	Use **Location** to specify the geographic location in which your cache is hosted. For the best performance, Microsoft strongly recommends that you create the cache in the same region as the cache client application.
--	Use **Pricing Tier** to select the desired cache size and features.
--	**Redis cluster** allows you to create caches larger than 53 GB and to shard data across multiple Redis nodes. For more information, see [How to configure clustering for a Premium Azure Redis Cache](../articles/redis-cache/cache-how-to-premium-clustering.md).
--	**Redis persistence** offers the ability to persist your cache to an Azure Storage account. For instructions on configuring persistence, see [How to configure persistence for a Premium Azure Redis Cache](../articles/redis-cache/cache-how-to-premium-persistence.md).
--	**Virtual Network** provides enhanced security and isolation by restricting access to your cache to only those clients within the specified Azure Virtual Network. You can use all the features of VNet such as subnets, access control policies, and other features to further restrict access to Redis. For more information, see [How to configure Virtual Network support for a Premium Azure Redis Cache](../articles/redis-cache/cache-how-to-premium-vnet.md).
+-   **Dns adı**’na önbellek uç noktası için kullanılacak önbellek adını girin. Önbellek adı 1 - 63 karakter arasında bir dize olması ve yalnızca rakam, harf ve `-` karakterini içermelidir. Önbellek adı `-` karakteriyle başlayamaz veya bitemez ve ardışık `-` karakterler geçerli olmazlar.
+-   **Abonelik** için önbelleğe yönelik kullanmak istediğiniz Azure aboneliğini girin. Hesabınızda yalnızca bir abonelik varsa bu otomatik olarak seçilir ve **Abonelik** açılan penceresi görüntülenmez.
+-   **Kaynak grubu**’nda önbellek hesabınız için bir kaynak grubu seçin veya oluşturun. Daha fazla bilgi için bkz. [Azure kaynaklarınızı yönetmek için Kaynak gruplarını kullanma](../articles/resource-group-overview.md). 
+-   Önbelleğin barındırılacağı coğrafi konumu belirtmek için **Konum**’u kullanın. En iyi performans için, Microsoft, önbelleği önbellek istemci uygulamasının olduğu konumda oluşturmanızı kesinlikle önerir.
+-   İstediğiniz önbellek boyutunu ve özelliklerini seçmek için **Fiyatlandırma Katmanı**’nı kullanın.
+-   **Redis kümesi**, 53 GB'den daha büyük önbellekler oluşturmanızı ve verileri birden çok Redis düğümünde paylaşmanızı sağlar. Daha fazla bilgi için bkz. [Premium Azure Redis Önbelleği için kümeleri yapılandırma](../articles/redis-cache/cache-how-to-premium-clustering.md).
+-   **Redis kalıcılığı**, önbelleğiniz bir Azure Storage hesabında kalması özelliğini sunar. Kalıcılığın yapılandırılması hakkında yönergeler için bkz. [Premium Azure Redis Önbelleği için kalıcılığı yapılandırma](../articles/redis-cache/cache-how-to-premium-persistence.md).
+-   **Sanal ağ** önbelleğe erişimi yalnızca belirtilen Azure Virtual Network içindeki istemcilerle sınırlayarak gelişmiş güvenlik ve yalıtım sağlar. Redis’e erişimi daha da fazla kısıtlamak için alt ağlar, erişim denetimi, ilkeler gibi VNet’in tüm özelliklerini ve diğer özellikleri kullanabilirsiniz. Daha fazla bilgi için bkz. [Premium Azure Redis Önbelleği için Sanal Ağ desteğini yapılandırma](../articles/redis-cache/cache-how-to-premium-vnet.md).
 
-Once the new cache options are configured, click **Create**. It can take a few minutes for the cache to be created. To check the status, you can monitor the progress on the startboard. After the cache has been created, your new cache has a **Running** status and is ready for use with default settings.
+Yeni önbellek seçenekleri yapılandırıldıktan sonra **Oluştur**’a tıklayın. Önbelleğin oluşturulması birkaç dakika sürebilir. Durumu denetlemek için başlangıç panosunda ilerlemeyi izleyebilirsiniz. Önbellek oluşturulduktan sonra yeni önbelleğiniz **Çalışıyor** durumundadır ve varsayılan ayarlarla kullanıma hazırdır.
 
-![Cache created](media/redis-cache-create/redis-cache-cache-created.png)
+![Önbellek oluşturuldu](media/redis-cache-create/redis-cache-cache-created.png)
+
+
+
+
+<!--HONumber=Jun16_HO2-->
+
 

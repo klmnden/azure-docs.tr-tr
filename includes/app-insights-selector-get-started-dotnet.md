@@ -1,16 +1,22 @@
 
-*Application Insights is in preview.*
+*Application Insights önizlemededir.*
 
 <a name="selector1"></a>
 
-[Visual Studio Application Insights](../articles/application-insights/app-insights-overview.md) monitors your live application to help you [detect and diagnose performance issues and exceptions](../articles/application-insights/app-insights-detect-triage-diagnose.md), and [discover how your app is used](../articles/application-insights/app-insights-overview-usage.md). 
+[Visual Studio Application Insights](../articles/application-insights/app-insights-overview.md), [performans sorunlarını ve özel durumlarını saptayıp tanılamanıza](../articles/application-insights/app-insights-detect-triage-diagnose.md) ve [uygulamanızın nasıl kullanıldığını keşfetmenize](../articles/application-insights/app-insights-overview-usage.md) yardımcı olmak amacıyla canlı uygulamanızı izler. 
 
-Install the SDK and then add monitoring for other data:
+Başka veriler için SDK yükleyin ve ardından izleme ekleyin:
 
 > [AZURE.SELECTOR]
-- [Install the SDK](../articles/application-insights/app-insights-asp-net.md#selector1)
-- [User & page data](../articles/application-insights/app-insights-javascript.md#selector1)
-- [Exceptions](../articles/application-insights/app-insights-asp-net-exceptions.md#selector1)
-- [Dependencies](../articles/application-insights/app-insights-asp-net-dependencies.md#selector1)
-- [Availability](../articles/application-insights/app-insights-monitor-web-app-availability.md#selector1)
+- [SDK yükle](../articles/application-insights/app-insights-asp-net.md#selector1)
+- [Kullanıcı ve sayfa verileri](../articles/application-insights/app-insights-javascript.md#selector1)
+- [Özel durumlar](../articles/application-insights/app-insights-asp-net-exceptions.md#selector1)
+- [Bağımlılıklar](../articles/application-insights/app-insights-asp-net-dependencies.md#selector1)
+- [Kullanılabilirlik](../articles/application-insights/app-insights-monitor-web-app-availability.md#selector1)
+
+
+
+
+<!--HONumber=Jun16_HO2-->
+
 

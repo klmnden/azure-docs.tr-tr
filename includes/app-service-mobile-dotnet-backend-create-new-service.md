@@ -1,27 +1,33 @@
-1. Log in at the [Azure Portal].
+1. [Azure Portal]’da oturum açın.
 
-2. Click **+NEW** > **Web + Mobile** > **Mobile App**, then provide a name for your Mobile App backend.
+2. **+YENİ** > **Web + Mobil** > **Mobil Uygulama**’ya tıklayıp Mobile Uygulama arka ucu için bir ad verin.
 
-3. For the **Resource Group**, select an existing resource group, or create a new one (using the same name as your app.) 
+3. **Kaynak Grubu** için yeni bir kaynak grubu seçin ya da yeni bir tane oluşturun (uygulamanızla aynı adı kullanarak). 
  
 
- You can either select another App Service plan or create a new one. For more about App Services plans and how to create a new plan in a different pricing tier and in your desired location, see [Azure App Service plans in-depth overview](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
+ Başka bir App Service planı seçin veya yeni bir tane oluşturun. Uygulama Hizmetleri planları, farklı fiyatlandırma katmanında ve tercih ettiğiniz konumda yeni plan oluşturma hakkında daha fazla bilgi için bkz. [Azure App Service planlarına ayrıntılı genel bakış](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
 
-4. For the **App Service plan**, the default plan (in the [Standard tier](https://azure.microsoft.com/pricing/details/app-service/)) is selected. You can also  select a different plan, or [create a new one](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md#create-an-app-service-plan). The App Service plan's settings determine the [location, features, cost and compute resources](https://azure.microsoft.com/pricing/details/app-service/) associated with your app. 
+4. **App Service planı** için, varsayılan plan ([Standart katman](https://azure.microsoft.com/pricing/details/app-service/)’da) seçilidir. Aynı zamanda başka bir plan da seçebilir veya [yeni bir tane oluşturabilirsiniz](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md#create-an-app-service-plan). App Service planının ayarları, uygulamanızla ilişkili [konumu, özellikleri, maliyeti ve işlem kaynaklarını](https://azure.microsoft.com/pricing/details/app-service/) saptar. 
 
-	After you decide on the plan, click **Create**. This creates the Mobile App backend. 
-	
-6. In the **Settings** blade for the new Mobile App backend, click **Quick start** > your client app platform > **Connect a database**. 
+    Planla ilgili kararı verdikten sonra **Oluştur**’a tıklayın. Böylece Mobil Uygulama arka uç oluşturulur. 
+    
+6. Yeni Mobil Uygulama arka ucunun **Ayarlar** dikey penceresinde **Hızlı başlangıç** > istemci uygulaması platformunuz > **Veritabanına bağlan**’a tıklayın. 
 
-	![](./media/app-service-mobile-dotnet-backend-create-new-service/dotnet-backend-create-data-connection.png)
+    ![](./media/app-service-mobile-dotnet-backend-create-new-service/dotnet-backend-create-data-connection.png)
 
-7. In the **Add data connection** blade, click **SQL Database** > **Create a new database**, type the database **Name**, choose a pricing tier, then click **Server**.  You can reuse this new database. If you already have a database in the same location, you can instead choose **Use an existing database**. The use of a database in a different location isn't recommended due to bandwidth costs and higher latency.
+7. **Veri bağlantısı ekle** dikey penceresinde **SQL Database** > **Yeni veritabanı oluşturun**’a tıklayın, veritabanı için **Ad** yazın, fiyatlandırma katmanını seçin ve ardından **Sunucu**’ya tıklayın.  Bu yeni veritabanını yeniden kullanabilirsiniz. Aynı konumda zaten bir veritabanınız varsa, bunun yerine **Mevcut veritabanlarından birini kullanın**’ı seçebilirsiniz. Farklı bir konumdaki veritabanının kullanımı, bant genişliği maliyetleri ve daha yüksek gecikme nedeniyle önerilmez.
  
     ![](./media/app-service-mobile-dotnet-backend-create-new-service/dotnet-backend-create-db.png)
 
-8. In the **New server** blade, type a unique server name in the **Server name** field, provide a login and password, check **Allow azure services to access server**, and click **OK**. This creates the new database.
+8. **Yeni Sunucu** dikey penceresinin **sunucu adı** alanına benzersiz bir sunucu adın yazın, oturum açma ve parola verin, **Azure hizmetlerinin sunucuya erişmesine izin ver**’i denetleyin ve **Tamam**’a tıklayın. Böylece yeni bir veritabanı oluşturulur.
 
-9. Back in the **Add data connection** blade, click **Connection string**, type the login and password values for your database, and click **OK**. Wait a few minutes for the database to be deployed successfully before proceeding.
+9. **Veri bağlantısı ekle** dikey penceresine dönün, **Bağlantı dizesi**’ne tıklayın, oturum açma ve parola değerlerini yazın ve **Tamam**’a tıklayın. Devam etmeden önce veritabanın sorunsuz dağıtılması için birkaç dakika bekleyin.
 
 <!-- URLs. -->
 [Azure Portal]: https://portal.azure.com/
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

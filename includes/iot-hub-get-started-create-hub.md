@@ -1,33 +1,33 @@
-## Create an IoT hub
+## IoT hub oluşturma
 
-Create an IoT hub for your simulated device to connect to. The following steps show you how to complete this task by using the Azure portal.
+Bağlanılacak benzetimli cihazınız için IoT Hub oluşturun. Aşağıdaki adımlar, Azure portalını kullanarak bu görevi nasıl tamamlayacağınızı gösterir.
 
-1. Sign in to the [Azure portal][lnk-portal].
+1. [Azure portalı][lnk-portal]’nda oturum açın.
 
-2. In the Jumpbar, click **New** > **Internet of Things** > **Azure IoT Hub**.
+2. Atlama çubuğunda **Yeni** > **Nesnelerin İnterneti** > **Azure IoT Hub**’a tıklayın.
 
-    ![Azure portal Jumpbar][1]
+    ![Azure portalı Atlama Çubuğu][1]
 
-3. In the **IoT hub** blade, choose the configuration for your IoT hub.
+3. **IoT hub'ı** dikey penceresinde IoT hub'ınız için yapılandırmayı seçin.
 
-    ![IoT hub blade][2]
+    ![IOT hub'ı dikey penceresi][2]
 
-    * In the **Name** box, enter a name for your IoT hub. If the **Name** is valid and available, a green check mark appears in the **Name** box.
-    * Select a [pricing and scale tier][lnk-pricing]. This tutorial does not require a specific tier. For this tutorial, use the free F1 tier.
-    * In **Resource group**, create a new resource group, or select an existing one. For more information, see [Using resource groups to manage your Azure resources][lnk-resource-groups].
-    * In **Location**, select the location to host your IoT hub. For this tutorial, choose your nearest location.
+    * **Ad** kutusunda IoT hub'ınız için bir ad girin. **Ad** geçerli ve kullanılabilirse **Ad** kutusunun yanında yeşil bir onay işareti görünür.
+    * Bir [Fiyatlandırma ve ölçek katmanı][lnk-pricing] seçin. Bu öğretici için belirli bir katman gerekmez. Bu öğretici için ücretsiz F1 katmanını kullanın.
+    * **Kaynak grubunda** yeni bir kaynak grubu oluşturun veya var olan bir kaynak grubunu seçin. Daha fazla bilgi için bkz. [Azure kaynaklarınızı yönetmek için kaynak gruplarını kullanma][lnk-resource-groups].
+    * **Konum**'da IoT hub'ınızı barındıracak konumu seçin. Bu öğretici için en yakın konumunuzu seçin.
 
-4. When you have chosen your IoT hub configuration options, click **Create**.  It can take a few minutes for Azure to create your IoT hub. To check the status, you can monitor the progress on the Startboard or in the Notifications panel.
+4. IoT hub'ı yapılandırma seçeneklerinizi seçtiğinizde **Oluştur**'a tıklayın.  Azure'un IoT hub'ınızı oluşturması birkaç dakika sürebilir. Durumu denetlemek için Başlangıç Panosu veya Bildirimler panelinde ilerlemeyi izleyebilirsiniz.
 
-    ![New IoT hub status][3]
+    ![Yeni IOT hub'ı durumu][3]
 
-5. When the IoT hub has been created successfully, click the new tile for your IoT hub in the portal to open the blade for the new IoT hub. Make a note of the **Hostname**, and then click the **Keys** icon.
+5. IOT hub'ı sorunsuz oluşturulduğunda, yeni IOT hub'ı dikey penceresini açmak için portalınızdaki IOT hub'ına yönelik yeni kutucuğa tıklayın. **Konak adı**’nı not edin ve **Anahtarlar** simgesine tıklayın.
 
-    ![New IoT hub blade][4]
+    ![Yeni IOT hub'ı dikey penceresi][4]
 
-6. In the **Shared access policies** blade, click the **iothubowner** policy, and then copy and make note of the connection string in the **iothubowner** blade. For more information, see [Access control][lnk-access-control] in the "Azure IoT Hub developer guide."
+6. **Paylaşılan erişim ilkeleri** dikey penceresinde **iothubowner** ilkesine tıklayın, ardından **iothubowner** dikey penceresindeki bağlantı dizesini kopyalayın ve not edin. Daha fazla bilgi için, “Azure IoT Hub Geliştirici Kılavuzu”nda bkz. [Erişim denetimi][lnk-access-control].
 
-    ![Shared access policies blade][5]
+    ![Paylaşılan erişim ilkeleri dikey penceresi][5]
 
 
 <!-- Images. -->
@@ -42,3 +42,9 @@ Create an IoT hub for your simulated device to connect to. The following steps s
 [lnk-portal]: https://portal.azure.com/
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub/
 [lnk-access-control]: ../articles/iot-hub/iot-hub-devguide.md#accesscontrol
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

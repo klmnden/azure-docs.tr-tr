@@ -1,8 +1,13 @@
-|    | **VPN Gateway throughput (1)** | **VPN Gateway max IPsec tunnels (2)** | **ExpressRoute Gateway throughput** | **VPN Gateway and ExpressRoute coexist**|
+|    | **VPN Gateway işlemesi (1)** | **VPN Gateway maks. IPSec tünelleri (2)** | **ExpressRoute Ağ Geçidi işlemesi** | **VPN Gateway ve ExpressRoute bir arada**|
 |--- |----------------------------|-----------------------------------|-------------------------------------|-----------------------------------------|
-| **Basic SKU**              |  100 Mbps | 10                         |  500 Mbps                           | No   |
-| **Standard SKU**           |  100 Mbps | 10                         | 1000 Mbps                           | Yes  |
-| **High Performance SKU**   | 200 Mbps  | 30                         | 2000 Mbps                           | Yes  |
+| **Temel SKU**              |  100 Mb/sn | 10                         |  500 Mb/sn                           | Hayır   |
+| **Standart SKU**           |  100 Mb/sn | 10                         | 1000 Mb/sn                           | Yes  |
+| **Yüksek Performanslı SKU**   | 200 Mb/sn  | 30                         | 2000 Mb/sn                           | Yes  |
 
-- (1) The VPN throughput is a rough estimate based on the measurements between VNets in the same Azure region. It is not a guarantee of what you can get for cross-premises connections across the Internet, but should be used as a maximum possible measure.
-- (2) The number of tunnels refer to route-based VPN below. A policy-based VPN can only support one Site-to-Site VPN tunnel
+- (1) VPN işlemesi aynı Azure bölgesinde yer alan Vnet'ler arasındaki ölçümleri temel alan kaba bir tahmindir. İnternet’te şirket içi ve dışı karışık bağlantılar için alabileceklerinizin bir garantisi olmasa da en fazla olası bir ölçü olarak kullanılmalıdır.
+- (2) Aşağıdaki yol tabanlı VPN’ye başvuran tünel sayısı. İlke tabanlı bir VPN yalnızca tek bir Siteden Siteye VPN tünelini destekleyebilir
+
+
+<!--HONumber=Jun16_HO2-->
+
+

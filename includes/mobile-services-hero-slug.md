@@ -1,2 +1,7 @@
 
->[AZURE.TIP] This topic shows you how to get started with Mobile Services as quickly as possible. It is designed for customers new to this Azure feature. If you are already familiar with Mobile Services or are looking for more in-depth information, please select a topic from the left-navigation or see the relevant links in [Next steps](#next-steps).
+>[AZURE.TIP] Bu konu başlığında, Mobile Services’a olabilecek en hızlı şekilde nasıl başlanacağı gösterilmektedir. Azure’un bu yeni özelliğiyle yeni tanışan müşteriler için tasarlanmıştır. Mobile Services’a zaten aşinasınız veya daha ayrıntılı bilgi arıyorsanız lütfen sol gezinti bölmesinden bir konu seçin veya [Sonraki adımlar](#next-steps) bölmesinden ilgili bağlantılara bakın.
+
+
+<!--HONumber=Jun16_HO2-->
+
+

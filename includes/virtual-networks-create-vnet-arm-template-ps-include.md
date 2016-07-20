@@ -1,93 +1,98 @@
-## Deploy the ARM template by using PowerShell
+## PowerShell kullanarak ARM şablonu dağıtma
 
-To deploy the ARM template you downloaded by using PowerShell, follow the steps below.
+PowerShell kullanarak yüklediğiniz ARM şablonunu dağıtmak için aşağıdaki adımları izleyin.
 
-1. If you have never used Azure PowerShell, see [How to Install and Configure Azure PowerShell](../articles/powershell-install-configure.md) and follow the instructions all the way to the end to sign into Azure and select your subscription.
+1. Azure PowerShell’i hiç kullanmadıysanız bkz. [Azure PowerShell’i yükleme ve yapılandırma](../articles/powershell-install-configure.md) ve Azure'a giriş yapıp aboneliğinizi seçene kadar da tüm bu süreç boyunca tüm talimatları uygulayın.
 
-3. If necessary, run the **`New-AzureRmResourceGroup`** cmdlet to create a new resource group. The command below creates a resource group named *TestRG* in the *Central US* azure region. For more information about resource groups, visit [Azure Resource Manager Overview](../articles/resource-group-overview.md).
+3. Gerekirse, yeni bir kaynak grubu oluşturmak için **`New-AzureRmResourceGroup`** cmdlet’ini çalıştırın. Aşağıdaki komut, *TestRG* adıyla, *Orta ABD* Azure bölgesinde bir kaynak grubu oluşturur. Kaynak grupları hakkında daha fazla bilgi için [Azure Resource Manager’a Genel Bakış](../articles/resource-group-overview.md)’ı ziyaret edin.
 
-		New-AzureRmResourceGroup -Name TestRG -Location centralus
-		
-	Here is the expected output for the command above:
+        New-AzureRmResourceGroup -Name TestRG -Location centralus
+        
+    Yukarıdaki komut için beklenen çıkış buradaki gibidir:
 
-		ResourceGroupName : TestRG
-		Location          : centralus
-		ProvisioningState : Succeeded
-		Tags              :
-		Permissions       :
-		                    Actions  NotActions
-		                    =======  ==========
-		                    *
-		ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG
+        ResourceGroupName : TestRG
+        Location          : centralus
+        ProvisioningState : Succeeded
+        Tags              :
+        Permissions       :
+                            Actions  NotActions
+                            =======  ==========
+                            *
+        ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG
 
-4. Run the **`New-AzureRmResourceGroupDeployment`** cmdlet to deploy the new VNet by using the template and parameter files you downloaded and modified above.
+4. Yukarıda indirdiğiniz ve değiştirdiğiniz şablonu ve parametre dosyalarını kullanarak yeni VNet’i dağıtmak için **`New-AzureRmResourceGroupDeployment`** cmdlet’ini çalıştırın.
 
-		New-AzureRmResourceGroupDeployment -Name TestVNetDeployment -ResourceGroupName TestRG `
-			-TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
-			
-	Here is the expected output for the command above:
-		
-		DeploymentName    : TestVNetDeployment
-		ResourceGroupName : TestRG
-		ProvisioningState : Succeeded
-		Timestamp         : 8/14/2015 9:40:00 PM
-		Mode              : Incremental
-		TemplateLink      :
-		Parameters        :
-		                    Name             Type                       Value
-		                    ===============  =========================  ==========
-		                    location         String                     Central US
-		                    vnetName         String                     TestVNet
-		                    addressPrefix    String                     192.168.0.0/16
-		                    subnet1Prefix    String                     192.168.1.0/24
-		                    subnet1Name      String                     FrontEnd
-		                    subnet2Prefix    String                     192.168.2.0/24
-		                    subnet2Name      String                     BackEnd
-		
-		Outputs           :
+        New-AzureRmResourceGroupDeployment -Name TestVNetDeployment -ResourceGroupName TestRG `
+            -TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
+            
+    Yukarıdaki komut için beklenen çıkış buradaki gibidir:
+        
+        DeploymentName    : TestVNetDeployment
+        ResourceGroupName : TestRG
+        ProvisioningState : Succeeded
+        Timestamp         : 8/14/2015 9:40:00 PM
+        Mode              : Incremental
+        TemplateLink      :
+        Parameters        :
+                            Name             Type                       Value
+                            ===============  =========================  ==========
+                            location         String                     Central US
+                            vnetName         String                     TestVNet
+                            addressPrefix    String                     192.168.0.0/16
+                            subnet1Prefix    String                     192.168.1.0/24
+                            subnet1Name      String                     FrontEnd
+                            subnet2Prefix    String                     192.168.2.0/24
+                            subnet2Name      String                     BackEnd
+        
+        Outputs           :
 
-5. Run the **`Get-AzureRmVirtualNetwork`** cmdlet to view the properties of the new VNet, as shown below.
+5. Aşağıda gösterildiği gibi, yeni VNet’in özelliklerini görüntülemek için **`Get-AzureRmVirtualNetwork`** cmdlet'ini çalıştırın.
 
 
-		Get-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
-		
-	Here is the expected output for the command above:
-		
-		Name              : TestVNet
-		ResourceGroupName : TestRG
-		Location          : centralus
-		Id                : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet
-		Etag              : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-		ProvisioningState : Succeeded
-		Tags              :
-		AddressSpace      : {
-		                      "AddressPrefixes": [
-		                        "192.168.0.0/16"
-		                      ]
-		                    }
-		DhcpOptions       : {
-		                      "DnsServers": null
-		                    }
-		NetworkInterfaces : null
-		Subnets           : [
-		                      {
-		                        "Name": "FrontEnd",
-		                        "Etag": "W/\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\"",
-		                        "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd",
-		                        "AddressPrefix": "192.168.1.0/24",
-		                        "IpConfigurations": [],
-		                        "NetworkSecurityGroup": null,
-		                        "RouteTable": null,
-		                        "ProvisioningState": "Succeeded"
-		                      },
-		                      {
-		                        "Name": "BackEnd",
-		                        "Etag": "W/\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\"",
-		                        "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/BackEnd",
-		                        "AddressPrefix": "192.168.2.0/24",
-		                        "IpConfigurations": [],
-		                        "NetworkSecurityGroup": null,
-		                        "RouteTable": null,
-		                        "ProvisioningState": "Succeeded"
-		                      }
-		                    ]
+        Get-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
+        
+    Yukarıdaki komut için beklenen çıkış buradaki gibidir:
+        
+        Name              : TestVNet
+        ResourceGroupName : TestRG
+        Location          : centralus
+        Id                : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet
+        Etag              : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+        ProvisioningState : Succeeded
+        Tags              :
+        AddressSpace      : {
+                              "AddressPrefixes": [
+                                "192.168.0.0/16"
+                              ]
+                            }
+        DhcpOptions       : {
+                              "DnsServers": null
+                            }
+        NetworkInterfaces : null
+        Subnets           : [
+                              {
+                                "Name": "FrontEnd",
+                                "Etag": "W/\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\"",
+                                "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd",
+                                "AddressPrefix": "192.168.1.0/24",
+                                "IpConfigurations": [],
+                                "NetworkSecurityGroup": null,
+                                "RouteTable": null,
+                                "ProvisioningState": "Succeeded"
+                              },
+                              {
+                                "Name": "BackEnd",
+                                "Etag": "W/\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\"",
+                                "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/BackEnd",
+                                "AddressPrefix": "192.168.2.0/24",
+                                "IpConfigurations": [],
+                                "NetworkSecurityGroup": null,
+                                "RouteTable": null,
+                                "ProvisioningState": "Succeeded"
+                              }
+                            ]
+
+
+<!--HONumber=Jun16_HO2-->
+
+

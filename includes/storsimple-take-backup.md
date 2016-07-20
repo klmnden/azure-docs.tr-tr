@@ -1,30 +1,35 @@
 <!--author=alkohli last changed: 9/17/15-->
 
-### To take a backup
+### Yedek almak için
 
-1. On the device **Quick Start** page, click **Add a backup policy**. This will start the Add Backup Policy wizard. 
+1. Cihazın **Hızlı Başlangıç** sayfasında, **Yedekleme ilkesi ekle**’ye tıklayın. Bu, Yedekleme İlkesi Ekleme sihirbazını başlatır. 
 
-2. On the **Define your backup policy** page:
-  1. Supply a name that contains between 3 and 150 characters for your backup policy.
-  2. Select the volumes to be backed up. If you select more than one volume, these volumes will be grouped together to create a crash-consistent backup.
-  3. Click the arrow icon ![arrow-icon](./media/storsimple-take-backup/HCS_ArrowIcon-include.png). 
+2. **Yedekleme ilkenizi tanımlayın** sayfasında:
+  1. Yedekleme ilkenize 3 - 150 arası karakterden oluşan bir ad verin.
+  2. Yedeği alınacak birimleri seçin. Birden fazla birim seçerseniz, kilitlenmeyle tutarlı yedek oluşturmak için bu birimler birlikte gruplandırılır.
+  3. Ok simgesine tıklayın ![ok simgesi](./media/storsimple-take-backup/HCS_ArrowIcon-include.png). 
   
     ![Add-backup-policy](./media/storsimple-take-backup/HCS_AddBackupPolicyWizard1M-include.png)
 
-3. On the **Define a schedule** page:
-  1. Select the type of backup from the drop-down list. For faster restores, select **Local Snapshot**. For data resiliency, select **Cloud Snapshot**.
-  2. Specify the backup frequency in minutes, hours, days, or weeks.
-  3. Select a retention time. The retention choices depend on the backup frequency. For example, for a daily policy, the retention can be specified in weeks, whereas retention for a monthly policy is in months.
-  4. Select the starting time and date for the backup policy.
-  5. Select the **Enable** check box to enable the backup policy. 
-  6. Click the check icon ![check-icon](./media/storsimple-take-backup/HCS_CheckIcon-include.png) to save the policy.
+3. **Zamanlama tanımlayın** sayfasında:
+  1. Açılan listeden yedekleme türünü seçin. Daha hızlı geri yüklemeler için **Yerel Anlık Görüntü**’yü seçin. Veri dayanıklılığı için **Bulut Anlık Görüntüsü**’nü seçin.
+  2. Yedekleme sıklığını dakika, saat, gün veya hafta cinsinden belirtin.
+  3. Elde tutma süresini seçin. Elde tutma seçimleri yedekleme sıklığına bağlıdır. Örneğin, günlük ilkesi için elde tutma İlkesi hafta cinsinden belirtilebilirken, aylık ilkesi için elde tutma ay cinsindendir.
+  4. Yedekleme ilkesinin başlangıç saatini ve tarihini seçin.
+  5. Yedekleme ilkesini etkinleştirmek için **Etkinleştir** onay kutusunu seçin. 
+  6. Onay simgesine ![onay simgesi](./media/storsimple-take-backup/HCS_CheckIcon-include.png) tıklayarak ilkeyi kaydedin.
 
     ![Add-backup-policy](./media/storsimple-take-backup/HCS_AddBackupPolicyWizard2M-include.png)
  
-     You now have a backup policy that will create scheduled backups of your volume data.
+     Artık, birim verilerinizin zamanlanmış yedeklerini oluşturacak bir yedekleme ilkesine sahipsiniz.
 
-You have completed the device configuration. 
+Cihaz yapılandırmasını tamamladınız. 
 
-![Video available](./media/storsimple-take-backup/Video_icon.png) **Video available**
+![Kullanılabilir video](./media/storsimple-take-backup/Video_icon.png) **Kullanılabilir video**
 
-To watch a video that demonstrates how to take a StorSimple backup, click [here](https://azure.microsoft.com/documentation/videos/take-a-storsimple-backup/).
+Bir StorSimple yedeğinin nasıl alınacağını gösteren bir video izlemek için [buraya](https://azure.microsoft.com/documentation/videos/take-a-storsimple-backup/) tıklayın.
+
+
+<!--HONumber=Jun16_HO2-->
+
+

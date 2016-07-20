@@ -1,15 +1,20 @@
-To connect to the cache, your cache clients need the host name, ports, and keys. Some clients may refer to these items by slightly different names. To retrieve these items, [browse](../articles/redis-cache/cache-configure.md#configure-redis-cache-settings) to your cache in the [Azure portal](https://portal.azure.com) and click **Settings** or **All settings**.
+Önbelleğe bağlanmak için önbellek istemcilerinize konak adı, bağlantı noktaları ve anahtarlar gerekir. Bazı istemciler bu öğelere biraz daha farklı adlarla başvurabilir. Bu öğeleri almak için [Azure portalında](https://portal.azure.com) önbelleğinize [göz atın](../articles/redis-cache/cache-configure.md#configure-redis-cache-settings) ve **Ayarlar** veya **Tüm Ayarlar**’a tıklayın.
 
-![Redis cache settings](media/redis-cache-access-keys/redis-cache-settings.png)
+![Redis önbelleği ayarları](media/redis-cache-access-keys/redis-cache-settings.png)
 
-### Host name and ports
+### Konak adı ve bağlantı noktaları
 
-To access the host name and ports click **Properties**.
+Konak adı ve bağlantı noktalarına erişmek için **Özellikler**’e tıklayın.
 
-![Redis cache properties](media/redis-cache-access-keys/redis-cache-properties.png)
+![Redis önbelleği özellikleri](media/redis-cache-access-keys/redis-cache-properties.png)
 
-### Access keys
+### Erişim tuşları
 
-To retrieve the access keys, click **Access keys**.
+Erişim tuşlarını almak için **Erişim anahtarları**’na tıklayın.
 
-![Redis cache access keys](media/redis-cache-access-keys/redis-cache-access-keys.png)
+![Redis önbelleği erişim tuşları](media/redis-cache-access-keys/redis-cache-access-keys.png)
+
+
+<!--HONumber=Jun16_HO2-->
+
+

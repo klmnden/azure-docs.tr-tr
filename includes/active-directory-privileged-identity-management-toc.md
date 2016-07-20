@@ -1,11 +1,17 @@
-- [Get started with Azure Privileged Identity Management](../articles/active-directory/active-directory-privileged-identity-management-getting-started.md)
-- [Roles in Azure PIM](../articles/active-directory/active-directory-privileged-identity-management-roles.md)
-- [The security wizard](../articles/active-directory/active-directory-privileged-identity-management-security-wizard.md)
-- [How to add or remove a user role](../articles/active-directory/active-directory-privileged-identity-management-how-to-add-role-to-user.md)
-- [How to activate or deactivate a role](../articles/active-directory/active-directory-privileged-identity-management-how-to-activate-role.md)
-- [How to change or view the default activation settings for a role](../articles/active-directory/active-directory-privileged-identity-management-how-to-change-default-settings.md)
-- [How to configure security alerts](../articles/active-directory/active-directory-privileged-identity-management-how-to-configure-security-alerts.md)
-- [How to start a security review](../articles/active-directory/active-directory-privileged-identity-management-how-to-start-security-review.md)
-- [How to perform a security review](../articles/active-directory/active-directory-privileged-identity-management-how-to-perform-security-review.md)
-- [How to require MFA](../articles/active-directory/active-directory-privileged-identity-management-how-to-require-mfa.md)
-- [How to use the audit log](../articles/active-directory/active-directory-privileged-identity-management-how-to-use-audit-log.md)
+- [Azure Privileged Identity Management'ı kullanmaya başlama](../articles/active-directory/active-directory-privileged-identity-management-getting-started.md)
+- [Azure PIM rolleri](../articles/active-directory/active-directory-privileged-identity-management-roles.md)
+- [Güvenlik sihirbazı](../articles/active-directory/active-directory-privileged-identity-management-security-wizard.md)
+- [Kullanıcı rolü nasıl eklenir veya kaldırılır](../articles/active-directory/active-directory-privileged-identity-management-how-to-add-role-to-user.md)
+- [Rol nasıl etkinleştirilir veya devre dışı bırakılır](../articles/active-directory/active-directory-privileged-identity-management-how-to-activate-role.md)
+- [Rolün varsayılan etkinleştirme ayarları nasıl değiştirilir veya görüntülenir](../articles/active-directory/active-directory-privileged-identity-management-how-to-change-default-settings.md)
+- [Güvenlik uyarıları nasıl yapılandırılır](../articles/active-directory/active-directory-privileged-identity-management-how-to-configure-security-alerts.md)
+- [Güvenlik incelemesi nasıl başlatılır](../articles/active-directory/active-directory-privileged-identity-management-how-to-start-security-review.md)
+- [Güvenlik incelemesi nasıl gerçekleştirilir](../articles/active-directory/active-directory-privileged-identity-management-how-to-perform-security-review.md)
+- [MFA nasıl gerektirilir](../articles/active-directory/active-directory-privileged-identity-management-how-to-require-mfa.md)
+- [Denetim günlüğü nasıl kullanılır](../articles/active-directory/active-directory-privileged-identity-management-how-to-use-audit-log.md)
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

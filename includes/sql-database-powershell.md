@@ -1,17 +1,23 @@
 
-## Start your PowerShell session
+## PowerShell oturumunuzu başlatma
 
-First you need to have [Azure PowerShell](https://msdn.microsoft.com/library/mt619274.aspx) (1.0 or later) installed and running. For detailed information, see [How to install and configure Azure PowerShell](../articles/powershell-install-configure.md).
-
-
->[AZURE.NOTE] Many new features of SQL Database are only supported using the [Azure Resource Manager deployment model](../articles/resource-group-overview.md), so examples use the [Azure SQL Database PowerShell cmdlets](https://msdn.microsoft.com/library/azure/mt574084.aspx) for Resource Manager. The existing classic deployment model [Azure SQL Database (classic) cmdlets](https://msdn.microsoft.com/library/azure/dn546723.aspx) are supported for backward compatibility, but we recommend you use the Resource Manager cmdlets. 
+Öncelikle, yüklü ve çalışan [Azure PowerShell](https://msdn.microsoft.com/library/mt619274.aspx)’iniz (1.0 veya üstü) olmalıdır. Ayrıntılı bilgi için bkz. [Azure PowerShell'i yükleme ve yapılandırma](../articles/powershell-install-configure.md).
 
 
-Run the [**Add-AzureRmAccount**](https://msdn.microsoft.com/library/mt619267.aspx) cmdlet and you will be presented with a sign in screen to enter your credentials. Use the same credentials that you use to sign in to the Azure portal.
+>[AZURE.NOTE] SQL Database’in pek çok yeni özelliği yalnızca [Azure Resource Manager dağıtım modeli](../articles/resource-group-overview.md) kullanıldığında desteklenir; bu nedenle örneklerde Resource Manager’la ilgili [Azure SQL Database PowerShell cmdlet’leri](https://msdn.microsoft.com/library/azure/mt574084.aspx) kullanılır. Varolan klasik dağıtım modeli [Azure SQL Database (klasik) cmdlet'leri](https://msdn.microsoft.com/library/azure/dn546723.aspx) geriye dönük uyumluluk için desteklenir; biz yine de Resource Manager cmdlet'lerini kullanmanızı öneririz. 
 
-	Add-AzureRmAccount
 
-If you have multiple subscriptions use the [**Set-AzureRmContext**](https://msdn.microsoft.com/library/mt619263.aspx) cmdlet to select which subscription your PowerShell session should use. To see what subscription the current PowerShell session is using, run [**Get-AzureRmContext**](https://msdn.microsoft.com/library/mt619265.aspx). To see all your subscriptions, run [**Get-AzureRmSubscription**](https://msdn.microsoft.com/library/mt619284.aspx).
+[**Add-AzureRmAccount**](https://msdn.microsoft.com/library/mt619267.aspx) cmdlet’ini çalıştırın; kimlik bilgilerinizi gireceğiniz bir giriş yapma ekranıyla tanınacaksınız. Azure portala giriş yapmak için kullandığınız kimlik bilgilerinin aynısını kullanın.
 
-	Set-AzureRmContext -SubscriptionId '4cac86b0-1e56-bbbb-aaaa-000000000000'
+    Add-AzureRmAccount
+
+Birden fazla aboneliğiniz varsa, PowerShell oturumunuzun hangi aboneliği kullanacağını seçmek için [**Set-AzureRmContext**](https://msdn.microsoft.com/library/mt619263.aspx) cmdlet’ini kullanın. Geçerli PowerShell oturumunda hangi aboneliğin kullanıldığını görmek için [**Get-AzureRmContext**](https://msdn.microsoft.com/library/mt619265.aspx) cmdlet’ini kullanın. Tüm aboneliklerinizi görmek için [**Get-AzureRmSubscription**](https://msdn.microsoft.com/library/mt619284.aspx) cmdlet’ini çalıştırın.
+
+    Set-AzureRmContext -SubscriptionId '4cac86b0-1e56-bbbb-aaaa-000000000000'
+
+
+
+
+<!--HONumber=Jun16_HO2-->
+
 

@@ -1,23 +1,29 @@
-1. In the Azure Portal, navigate to **New** **>** **Networking** **>** **Local network gateway**.
+1. Azure Portal'da **Yeni** **>** **Ağ** **>** **Yerel ağ geçidi**’ne gidin.
 
-	![create local network gateway](./media/vpn-gateway-add-lng-rm-portal-include/addlng250.png)
+    ![yerel ağ geçidi oluşturma](./media/vpn-gateway-add-lng-rm-portal-include/addlng250.png)
 
-2. On the **Create local network gateway blade**, specify a **Name** for your local network gateway object.
+2. **Yerel ağ geçidi oluştur** dikey penceresinde yerel ağ geçidi nesnesi için bir **Ad** belirtin.
  
-3. Specify an **IP address** for your gateway. This is the IP address of the external VPN device that you want to connect to. It cannot be behind NAT and has to be reachable by Azure.
+3. Ağ geçidiniz için bir **IP adresi** belirtin. Bu, bağlanmak istediğiniz dış VPN cihazının IP adresidir. NAT’nin ardında olamaz ve Azure tarafından erişilebilir olması gerekir.
 
-4. **Address Space** refers to the address ranges on your local (typically on-premises) network. You can add multiple address space ranges. The ranges that you enter here cannot overlap any of the address space ranges that you are using for any of the virtual networks that will communicate through the gateway.  You will need to coordinate with your on-premises configuration as well as with your Azure virtual network address spaces.
+4. **Adres Alanı** yerel (genellikle şirket içi) ağınızdaki adres aralığına başvurur. Birden fazla adres alanı aralığı ekleyebilirsiniz. Buraya girdiğiniz aralıklar, ağ geçidiyle iletişim kuracak sanal ağlar için kullandığınız adres alanı aralıklarıyla çakışamaz.  Azure Virtual Network adres alanları kadar şirket içi yapılandırmanızla da koordine olmanız gerekecek.
  
-5. For **Subscription**, verify that the correct subscription is showing.
+5. **Abonelik** için doğru aboneliğin gösterildiğini doğrulayın.
 
-6. For **Resource Group**, select the resource group that you want to use. You can either create a new resource group, or select one that you have already created. To create a new resource group, type the name in the box. To select a resource group that you've already created, click **Resource Group** to open the **Resource group** blade, and then select the resource group that you want to use.
+6. **Kaynak Grubu** için kullanmak istediğiniz kaynak grubunu seçin. Yeni bir kaynak grubu oluşturabilir veya önceden oluşturduğunuz birini seçebilirsiniz. Yeni bir kaynak grubu oluşturmak için kutuya adı yazın. Önceden oluşturduğunuz bir kaynak grubunu seçmek için **Kaynak grubu** dikey penceresini açacak **Kaynak Grubu**’na tıklayın ve kullanmak istediğiniz kaynak grubunu seçin.
 
-7. For **Location**, if you are creating a new local network gateway, you can use the same location as the virtual network gateway. But, this is not required. The local network gateway can be in a different location. 
+7. **Konum** için, yeni bir yerel ağ geçidi oluşturuyorsanız sanal ağ geçidiyle aynı konumu kullanabilirsiniz. Ancak bu zorunlu değildir. Yerel ağ geçidi farklı bir konumda olabilir. 
 
-8. Leave "Pin to dashboard" selected if you want to find this local network gateway easily from the dashboard.
+8. Bu yerel ağ geçidini panodan kolayca bulmak istiyorsanız “Panoya sabitle” seçimini seçili bırakın.
 
-9. Click **Create** to create the local network gateway. You'll see "Deploying Local network gateway" on your dashboard.
+9. Yerel ağ geçidi oluşturmak için **Oluştur**’a tıklayın. Panonuzda "Yerel ağ geçidi dağıtılıyor" öğesini görürsünüz.
 
-10. When the local network gateway has been created, it will open in the portal for you to view.
+10. Yerel ağ geçidi oluşturulduğunda görmeniz için portalda açılır.
 
-	
+    
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

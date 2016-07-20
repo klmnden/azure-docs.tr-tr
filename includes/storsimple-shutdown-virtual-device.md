@@ -1,7 +1,13 @@
-#### To shut down a virtual device
+#### Sanal cihazı kapatmak için
 
-1. Sign in to the Management Portal.
+1. Yönetim Portalı’na giriş yapın.
 
-2. Click **Virtual Machines**, and then select the virtual device.
+2. **Virtual Machines**’e tıklayın ve sanal cihazı seçin.
 
-3. Click **Shutdown**.
+3. **Kapat**’a tıklayın.
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

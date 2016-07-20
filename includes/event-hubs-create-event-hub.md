@@ -1,26 +1,31 @@
-## Create an Event Hub
+## Olay Hub'ı oluşturma
 
-1. Log on to the [Azure classic portal][], and click **NEW** at the bottom of the screen.
+1. [Klasik Azure portalı] [] oturumu açın ve ekranın altındaki **YENİ**’ye tıklayın.
 
-2. Click on **App Services**, then **Service Bus**, then **Event Hub**, then **Quick Create**.
+2. **Uygulama Hizmetleri**’ne, **Service Bus**’a, **Olay Hub'ı**’na ve son olarak da **Hızlı Oluştur**’a tıklayın.
 
-	![][1]
+    ![][1]
 
-3. Type a name for your Event Hub, select your desired region, and then click **Create a new Event Hub**.
+3. Olay Hub'ınız için bir ad yazın, istediğiniz bölgeyi seçin ve ardından **Yeni Olay Hub'ı Oluştur**’a tıklayın.
 
-	![][2]
+    ![][2]
 
-4. If you didn't explicitly select an existing namespace in a given region, the portal creates a namespace for you (usually ***event hub name*-ns**). Click that namespace (in this example, **eventhub-ns**).
+4. Verilen bölgede var olan bir adı açık bir şekilde seçmediyseniz, portal sizin için bir ad alanı oluşturur (çoğunlukla ***olay hub’ı adı*-ns**). Ad alanına tıklayın (bu örnekte, **eventhub-ns**).
 
-	![][3]
+    ![][3]
 
-5. At the bottom of the page, click **Connection Information**. Click the copy button (shown in the following figure) to copy the **RootManageSharedAccessKey** connection string to the clipboard. Save this connection string to use later in the tutorial.
+5. Sayfanın alt tarafında bulunan **Bağlantı Bilgileri**’ne tıklayın. **RootManageSharedAccessKey** bağlantı dizesini panoya kopyalamak için kopyala düğmesine (aşağıdaki şekilde gösterilmektedir) tıklayın. Daha sonra öğreticide kullanmak üzere bu bağlantı dizesini kaydedin.
 
-	![][4]
+    ![][4]
 
-Your Event Hub is now created, and you have the connection strings you need to send and receive events.
+Olay Hub'ınız artık oluşturuldu; şimdi olayları alıp göndermek için gereken bağlantı dizelerine sahipsiniz.
 
 [1]: ./media/event-hubs-create-event-hub/create-event-hub1.png
 [2]: ./media/event-hubs-create-event-hub/create-event-hub2.png
 [3]: ./media/event-hubs-create-event-hub/create-event-hub3.png
 [4]: ./media/event-hubs-create-event-hub/create-conn-str1.png
+
+
+<!--HONumber=Jun16_HO2-->
+
+

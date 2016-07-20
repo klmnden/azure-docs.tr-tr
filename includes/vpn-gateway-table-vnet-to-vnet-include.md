@@ -1,9 +1,15 @@
-|  | **Classic Deployment** | **Resource Manager Deployment** | **Classic to Resource Manager Deployments** |
+|  | **Klasik Dağıtım** | **Resource Manager Dağıtımı** | **Klasik - Resource Manager Dağıtımları** |
 |----------------------------------------|-------------|----------------------|---------------------------------|
-| **Classic Portal** | [Article](../articles/vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)  |  Not Supported |  Not Supported |
-| **Azure Portal** |  Not Supported | Supported+ |  Not Supported |
-| **PowerShell** | Supported | [Article](../articles/vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md) | [Article](../articles/virtual-network/virtual-networks-arm-asm-s2s.md)
+| **Klasik Portal** | [Makale](../articles/vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)  |  Desteklenmiyor |  Desteklenmiyor |
+| **Azure Portal** |  Desteklenmiyor | Destekleniyor+ |  Desteklenmiyor |
+| **PowerShell** | Destekleniyor | [Makale](../articles/vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md) | [Makale](../articles/virtual-network/virtual-networks-arm-asm-s2s.md)
 
-(+) denotes this deployment method is available only for VNets in the same subscription.
+(+), bu dağıtım yönteminin yalnızca aynı abonelikteki VNet'ler için kullanılabildiğini gösterir.
+
+
+
+
+
+<!--HONumber=Jun16_HO2-->
 
 

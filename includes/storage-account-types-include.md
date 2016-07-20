@@ -1,27 +1,33 @@
-There are two types of storage accounts:
+İki tür depolama hesabı vardır:
 
-### General-purpose Storage Accounts
+### Genel Amaçlı Depolama Hesapları
 
-A general-purpose storage account gives you access to Azure Storage services such as Tables, Queues, Files, Blobs and Azure virtual machine disks under a single account. This type of storage account has two performance tiers:
+Genel amaçlı depolama hesabı, tek bir hesap altında Tablolar, Kuyruklar, Dosyalar, Bloblar ve Azure sanal makinesi diskleri gibi Azure Storage hizmetlerine erişim sağlar. Bu tür depolama hesabında iki performans katmanı bulunur:
 
-- A standard storage performance tier which allows you to store Tables, Queues, Files, Blobs and Azure virtual machine disks.
-- A premium storage performance tier which currently only supports Azure virtual machine disks. See [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../articles/storage/storage-premium-storage.md) for an in-depth overview of Premium storage.
+- Tabloları, Kuyrukları, Dosyaları, Blobları ve Azure sanal makinesi disklerini depolamanızı sağlayan standart depolama performans katmanı.
+- Şu anda yalnızca Azure Sanal Makinesi disklerini destekleyen Premium Storage performans katmanı. Premium Storage’a yönelik ayrıntılı genel bakış için bkz. [Premium Storage: Azure Virtual Machine İş Yükleri için Yüksek Performanslı Depolama](../articles/storage/storage-premium-storage.md).
 
-### Blob Storage Accounts
+### Blob Storage Hesapları
 
-A Blob storage account is a specialized storage account for storing your unstructured data as blobs (objects) in Azure Storage. Blob storage accounts are similar to your existing general-purpose storage accounts and share all the great durability, availability, scalability, and performance features that you use today including 100% API consistency for block blobs and append blobs. For applications requiring only block or append blob storage, we recommend using Blob storage accounts.
+Blob Storage hesabı, yapılandırılmamış verilerinizi bloblar (nesneler) olarak Azure Storage’da depolamanıza yönelik özel depolama hesabıdır. Blob Storage hesapları, varolan genel amaçlı depolama hesaplarınıza benzer ve blok blobları ve ilave blobları için %100 API tutarlığı dahil günümüzde kullandığınız tüm harika dayanıklılık, kullanılabilirlik, ölçeklenebilirlik ve performans özelliklerini paylaşır. Yalnızca blok veya engelleme blobunun gerektiği uygulamalar için Blob Storage hesaplarının kullanılmasını öneririz.
 
-> [AZURE.NOTE] Blob storage accounts support only block and append blobs, and not page blobs.
+> [AZURE.NOTE] Blob Storage hesapları yalnızca blok ve ilave bloblarını destekler, sayfa bloblarını desteklemez.
 
-Blob storage accounts expose the **Access Tier** attribute which can be specified during account creation and modified later as needed. There are two types of access tiers that can be specified based on your data access pattern:
+Blob Storage hesapları, hesap oluşturma sırasında belirtilebilen, gerektiğinde de sonra değiştirilebilen **Erişim Katmanı** özniteliğini gösterir. Erişim deseniniz temelinde belirtilebilecek iki tür erişim katmanı vardır:
 
-- A **Hot** access tier which indicates that the objects in the storage account will be more frequently accessed. This allows you to store data at a lower access cost.
-- A **Cool** access tier which indicates that the objects in the storage account will be less frequently accessed. This allows you to store data at a lower data storage cost.
+- **Sık Erişimli** erişim katmanı; depolama hesabındaki nesnelere erişimin daha sık olduğunu belirtir. Bu, verileri daha düşük bir erişim maliyetiyle depolamanızı sağlar.
+- **Seyrek Erişimli** erişim katmanı; depolama hesabındaki nesnelere erişimin daha seyrek olduğunu belirtir. Bu, verileri daha düşük bir veri depolama maliyetiyle depolamanızı sağlar.
 
-If there is a change in the usage pattern of your data, you can also switch between these access tiers at any time. Changing the access tier may result in additional charges. Please see [Pricing and billing for Blob storage accounts](../articles/storage/storage-blob-storage-tiers.md#pricing-and-billing) for more details.
+Verilerinizin kullanım düzeninde bir değişiklik olursa,herhangi bir zamanda bu erişim katmanları arasında geçiş yapabilirsiniz. Erişim katmanının değiştirilmesi ek ücretlere neden olabilir. Daha fazla ayrıntı için lütfen bkz. [Blob Storage hesapları için fiyatlandırma ve faturalama](../articles/storage/storage-blob-storage-tiers.md#pricing-and-billing).
 
-For more details on Blob storage accounts, see [Azure Blob Storage: Cool and Hot tiers](../articles/storage/storage-blob-storage-tiers.md).
+Blob Storage hesapları hakkında daha fazla ayrıntı için bkz. [Azure Blob Storage: Seyrek Erişimli ve Sık Erişimli katmanlar](../articles/storage/storage-blob-storage-tiers.md).
 
-Before you can create a storage account, you must have an Azure subscription, which is a plan that gives you access to a variety of Azure services. You can get started with Azure with a [free account](https://azure.microsoft.com/pricing/free-trial/). Once you decide to purchase a subscription plan, you can choose from a variety of [purchase options](https://azure.microsoft.com/pricing/purchase-options/). If you’re an [MSDN subscriber](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), you get free monthly credits that you can use with Azure services, including Azure Storage. See [Azure Storage Pricing ](https://azure.microsoft.com/pricing/details/storage/) for information on volume pricing.
+Depolama hesabı oluşturabilmeniz için, öncelikle çeşitli Azure hizmetlerine erişim sağlayan bir plan olan Azure aboneliğiniz olması gerekir. [Ücretsiz hesapla](https://azure.microsoft.com/pricing/free-trial/) Azure’a başlayabilirsiniz. Bir abonelik planı satın almaya karar verdiğinizde bir dizi [satın alma seçeneği](https://azure.microsoft.com/pricing/purchase-options/) arasından seçim yapabilirsiniz. [MSDN abonesiyseniz](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), Azure Storage da dahil, Azure hizmetlerinde kullanabileceğiniz aylık ücretsiz krediler alırsınız. Birim fiyatlandırma hakkında bilgi için bkz. [Azure Storage Fiyatlandırması](https://azure.microsoft.com/pricing/details/storage/).
 
-To learn how to create a storage account, see [Create a storage account](../articles/storage/storage-create-storage-account.md#create-a-storage-account) for more details. You can create up to 100 uniquely named storage accounts with a single subscription. See [Azure Storage Scalability and Performance Targets](../articles/storage/storage-scalability-targets.md) for details about storage account limits.
+Depolama hesabı oluşturmayı öğrenmek amacıyla daha fazla bilgi için bkz. [Depolama hesabı oluşturma](../articles/storage/storage-create-storage-account.md#create-a-storage-account). Tek bir abonelikte benzersiz olarak adlandırılmış 100 depolama hesabına kadar oluşturabilirsiniz. Depolama hesabı limitleri hakkında ayrıntılı bilgi için bkz. [Azure Storage Ölçeklenebilirlik ve Performans Hedefleri](../articles/storage/storage-scalability-targets.md).
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

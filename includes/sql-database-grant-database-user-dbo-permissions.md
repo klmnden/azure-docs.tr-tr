@@ -1,23 +1,29 @@
 
 
-## Grant new database user db_owner permissions
+## Yeni veritabanı kullanıcı db_owner izinlerini verin
 
-Use the following steps to grant an existing database user db_owner permissions
+Varolan bir veritabanı kullanıcı db_owner izinleri vermek için aşağıdaki adımları kullanın
 
-Theses steps assume that you are connected to SQL Database in Object Explorer in SSMS and are connected to your SQL Database logical server as a server-level principal administrator or with a user account with permissions to grant user permissions. 
+Bu adımlar SSMS’deki Nesne Gezgini'nde SQL Database’e bağlı olduğunuzu varsayar ve SQL Database mantıksal sunucunuza ya sunucu düzeyinde sorumlu yönetici olarak ya da kullanıcı izinleri verecek izinlere sahip kullanıcı hesabıyla bağlanırlar. 
 
-1. In Object Explorer, expand the Databases node and select the database with the user to which you wish to grant dbo permissions.
+1. Nesne Gezgini'nde Veritabanları düğümünü genişletin ve dbo izinleri vermek istediğiniz kullanıcının bulunduğu veritabanını seçin.
 
-     ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-create-new-database-user/sql-database-create-new-database-user-1.png)
+     ![SQL Server Management Studio: SQL Database sunucusuna bağlanma](./media/sql-database-create-new-database-user/sql-database-create-new-database-user-1.png)
 
-2. Right-click the selected database and then click **Query**.
+2. Seçilen veritabanına sağ tıklayın ve **Sorgu**’ya tıklayın.
 
-     ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-create-new-database-user/sql-database-create-new-database-user-2.png)
+     ![SQL Server Management Studio: SQL Database sunucusuna bağlanma](./media/sql-database-create-new-database-user/sql-database-create-new-database-user-2.png)
 
-3. In the query window, edit and use the following Transact-SQL statement to grant dbo permissions to a specified user. 
+3. Sorgu penceresinde, belirtilen kullanıcıya dbo izinlerini vermek için aşağıdaki Transact-SQL deyimini düzenleyin ve kullanın. 
 
     '''ALTER ROLE db_owner ADD MEMBER user1;
 
-     ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-grant-database-user-dbo-permissions/sql-database-grant-database-user-dbo-permissions-1.png)
+     ![SQL Server Management Studio: SQL Database sunucusuna bağlanma](./media/sql-database-grant-database-user-dbo-permissions/sql-database-grant-database-user-dbo-permissions-1.png)
+
+
+
+
+
+<!--HONumber=Jun16_HO2-->
 
 

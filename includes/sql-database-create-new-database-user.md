@@ -1,24 +1,30 @@
 
 
-## Create new database user using SSMS
+## SSMS kullanarak yeni veritabanı kullanıcısı oluşturma
 
-Use the following steps to create a new database user in an existing database using SSMS. 
+SSMS kullanarak var olan bir veritabanında yeni veritabanı kullanıcısı oluşturmak için aşağıdaki adımları kullanın. 
 
-These steps assume that you are connected to SQL Database in Object Explorer using SSMS and are connected to your SQL Database logical server as a server-level principal administrator or with a user account with permissions to create a new user. 
+Bu adımlar SSMS kullanan Nesne Gezgini'nde SQL Database’e bağlı olduğunuzu varsayar ve SQL Database mantıksal sunucunuza ya sunucu düzeyinde sorumlu yönetici olarak ya da yeni kullanıcı oluşturacak izinlere sahip kullanıcı hesabıyla bağlanırlar. 
 
-1. In Object Explorer, expand the Databases node and select the database in which you wish to create a new user account.
+1. Nesne Gezgini'nde Veritabanları düğümünü genişletin ve yeni kullanıcı hesabını oluşturmak istediğiniz veritabanını seçin.
 
-     ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-create-new-database-user/sql-database-create-new-database-user-1.png)
+     ![SQL Server Management Studio: SQL Database sunucusuna bağlanma](./media/sql-database-create-new-database-user/sql-database-create-new-database-user-1.png)
 
-2. Right-click the selected database and then click **Query**.
+2. Seçilen veritabanına sağ tıklayın ve **Sorgu**’ya tıklayın.
 
-     ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-create-new-database-user/sql-database-create-new-database-user-2.png)
+     ![SQL Server Management Studio: SQL Database sunucusuna bağlanma](./media/sql-database-create-new-database-user/sql-database-create-new-database-user-2.png)
 
-3. In the query window, edit and use the following Transact-SQL statement to create a contained user in your user database. 
+3. Sorgu penceresinde, kullanıcı veritabanınızda içerilen kullanıcı oluşturmak için aşağıdaki Transact-SQL deyimini düzenleyin ve kullanın. 
 
     ```CREATE USER user1 WITH PASSWORD ='p@ssw0rd1';
 
-     ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-create-new-database-user/sql-database-create-new-database-user-3.png)
+     ![SQL Server Management Studio: SQL Database sunucusuna bağlanma](./media/sql-database-create-new-database-user/sql-database-create-new-database-user-3.png)
 
+
+
+
+
+
+<!--HONumber=Jun16_HO2-->
 
 

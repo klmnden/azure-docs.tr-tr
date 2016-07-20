@@ -1,90 +1,96 @@
-## Deploy the ARM template by using the Azure CLI
+## Azure CLI kullanarak ARM şablonu dağıtma
 
-To deploy the ARM template you downloaded by using Azure CLI, follow the steps below.
+Azure CLI kullanarak yüklediğiniz ARM şablonunu dağıtmak için aşağıdaki adımları izleyin.
 
-1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](../articles/xplat-cli-install.md) and follow the instructions up to the point where you select your Azure account and subscription.
-2. Run the **`azure config mode`** command to switch to Resource Manager mode, as shown below.
+1. Hiç Azure CLI kullanmadıysanız bkz. [Azure CLI’yi Yükleme ve Yapılandırma](../articles/xplat-cli-install.md); sonra da, Azure hesabınızı ve aboneliğinizi seçtiğiniz noktaya kadar yönergeleri uygulayın.
+2. Resource Manager moduna geçmek için **`azure config mode`** komutunu aşağıda gösterildiği gibi çalıştırın.
 
-		azure config mode arm
+        azure config mode arm
 
-	Here is the expected output for the command above:
+    Yukarıdaki komut için beklenen çıkış buradaki gibidir:
 
-		info:    New mode is arm
+        info:    New mode is arm
 
-3. If necessary, run the **`azure group create`** to create a new resource group, as shown below. Notice the output of the command. The list shown after the output explains the parameters used. For more information about resource groups, visit [Azure Resource Manager Overview](../articles/resource-group-overview.md).
+3. Gerekirse, yeni bir kaynak grubu oluşturmak için **`azure group create`** komutunu aşağıda gösterildiği gibi çalıştırın. Komutun çıktısına dikkat edin. Çıktıdan sonra gösterilen listede kullanılan parametreler açıklanmaktadır. Kaynak grupları hakkında daha fazla bilgi için [Azure Resource Manager’a Genel Bakış](../articles/resource-group-overview.md)’ı ziyaret edin.
 
-		azure group create -n TestRG -l centralus
+        azure group create -n TestRG -l centralus
 
-	Here is the expected output for the command above:
+    Yukarıdaki komut için beklenen çıkış buradaki gibidir:
 
-		info:    Executing command group create
-		+ Getting resource group TestRG
-		+ Creating resource group TestRG
-		info:    Created resource group TestRG
-		data:    Id:                  /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG
-		data:    Name:                TestRG
-		data:    Location:            centralus
-		data:    Provisioning State:  Succeeded
-		data:    Tags: null
-		data:
-		info:    group create command OK
+        info:    Executing command group create
+        + Getting resource group TestRG
+        + Creating resource group TestRG
+        info:    Created resource group TestRG
+        data:    Id:                  /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG
+        data:    Name:                TestRG
+        data:    Location:            centralus
+        data:    Provisioning State:  Succeeded
+        data:    Tags: null
+        data:
+        info:    group create command OK
 
-	- **-n (or --name)**. Name for the new resource group. For our scenario, *TestRG*.
-	- **-l (or --location)**. Azure region where the new resource group will be created. For our scenario, *centralus*.
+    - **-n (veya--ad)**. Yeni kaynak grubunun adı. Bizim senaryomuz için bu *TestRG*’dir.
+    - **-l (veya --konum)**. Yeni kaynak grubunun oluşturulacağı Azure bölgesi. Bizim senaryomuz için bu *centralus*’tur.
 
-4. Run the **`azure group deployment create`** cmdlet to deploy the new VNet by using the template and parameter files you downloaded and modified above. The list shown after the output explains the parameters used.
+4. Yukarıda indirdiğiniz ve değiştirdiğiniz şablonu ve parametre dosyalarını kullanarak yeni VNet’i dağıtmak için **`azure group deployment create`** cmdlet’ini çalıştırın. Çıktıdan sonra gösterilen listede kullanılan parametreler açıklanmaktadır.
 
-		azure group deployment create -g TestRG -n TestVNetDeployment -f C:\ARM\azuredeploy.json -e C:\ARM\azuredeploy-parameters.json
+        azure group deployment create -g TestRG -n TestVNetDeployment -f C:\ARM\azuredeploy.json -e C:\ARM\azuredeploy-parameters.json
 
-	Here is the expected output for the command above:
+    Yukarıdaki komut için beklenen çıkış buradaki gibidir:
 
-		info:    Executing command group deployment create
-		+ Initializing template configurations and parameters
-		+ Creating a deployment
-		info:    Created template deployment "TestVNetDeployment"
-		+ Registering providers
-		info:    Registering provider microsoft.network
-		+ Waiting for deployment to complete
-		data:    DeploymentName     : TestVNetDeployment
-		data:    ResourceGroupName  : TestRG
-		data:    ProvisioningState  : Succeeded
-		data:    Timestamp          : 2015-08-14T21:56:11.152759Z
-		data:    Mode               : Incremental
-		data:    Name           Type    Value
-		data:    -------------  ------  --------------
-		data:    location       String  Central US
-		data:    vnetName       String  TestVNet
-		data:    addressPrefix  String  192.168.0.0/16
-		data:    subnet1Prefix  String  192.168.1.0/24
-		data:    subnet1Name    String  FrontEnd
-		data:    subnet2Prefix  String  192.168.2.0/24
-		data:    subnet2Name    String  BackEnd
-		info:    group deployment create command OK
+        info:    Executing command group deployment create
+        + Initializing template configurations and parameters
+        + Creating a deployment
+        info:    Created template deployment "TestVNetDeployment"
+        + Registering providers
+        info:    Registering provider microsoft.network
+        + Waiting for deployment to complete
+        data:    DeploymentName     : TestVNetDeployment
+        data:    ResourceGroupName  : TestRG
+        data:    ProvisioningState  : Succeeded
+        data:    Timestamp          : 2015-08-14T21:56:11.152759Z
+        data:    Mode               : Incremental
+        data:    Name           Type    Value
+        data:    -------------  ------  --------------
+        data:    location       String  Central US
+        data:    vnetName       String  TestVNet
+        data:    addressPrefix  String  192.168.0.0/16
+        data:    subnet1Prefix  String  192.168.1.0/24
+        data:    subnet1Name    String  FrontEnd
+        data:    subnet2Prefix  String  192.168.2.0/24
+        data:    subnet2Name    String  BackEnd
+        info:    group deployment create command OK
 
-	- **-g (or --resource-group)**. Name of the resource group the new VNet will be created in.
-	- **-f (or --template-file)**. Path to your ARM template file.
-	- **-e (or --parameters-file)**. Path to your ARM parameters file.
+    - **-g (veya--kaynak-grubu)**. Yeni VNet kaynak grubunun oluşturulduğu kaynak grubunun adı.
+    - **-f (veya --şablon-dosyası)**. ARM şablon dosyanızın yolu.
+    - **-e (veya--parametreler-dosyası)**. ARM parametreleri dosyanızın yolu.
 
-5. Run the **`azure network vnet show`** command to view the properties of the new vnet, as shown below.
+5. Aşağıda gösterildiği gibi, yeni vnet’in özelliklerini görüntülemek için **`azure network vnet show`** komutunu çalıştırın.
 
-		azure network vnet show -g TestRG -n TestVNet
+        azure network vnet show -g TestRG -n TestVNet
 
-	Here is the expected output for the command above:
+    Yukarıdaki komut için beklenen çıkış buradaki gibidir:
 
-		info:    Executing command network vnet show
-		+ Looking up virtual network "TestVNet"
-		data:    Id                              : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet
-		data:    Name                            : TestVNet
-		data:    Type                            : Microsoft.Network/virtualNetworks
-		data:    Location                        : centralus
-		data:    ProvisioningState               : Succeeded
-		data:    Address prefixes:
-		data:      192.168.0.0/16
-		data:    Subnets:
-		data:      Name                          : FrontEnd
-		data:      Address prefix                : 192.168.1.0/24
-		data:
-		data:      Name                          : BackEnd
-		data:      Address prefix                : 192.168.2.0/24
-		data:
-		info:    network vnet show command OK
+        info:    Executing command network vnet show
+        + Looking up virtual network "TestVNet"
+        data:    Id                              : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet
+        data:    Name                            : TestVNet
+        data:    Type                            : Microsoft.Network/virtualNetworks
+        data:    Location                        : centralus
+        data:    ProvisioningState               : Succeeded
+        data:    Address prefixes:
+        data:      192.168.0.0/16
+        data:    Subnets:
+        data:      Name                          : FrontEnd
+        data:      Address prefix                : 192.168.1.0/24
+        data:
+        data:      Name                          : BackEnd
+        data:      Address prefix                : 192.168.2.0/24
+        data:
+        info:    network vnet show command OK
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

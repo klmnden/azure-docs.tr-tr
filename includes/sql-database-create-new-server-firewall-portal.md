@@ -9,41 +9,46 @@ articles/sql-database/sql-database-get-started-tutorial.md
 articles/sql-database/sql-database-configure-firewall-settings
 
 -->
-## Create a new Azure SQL server-level firewall
+## Yeni bir Azure SQL sunucu düzeyinde güvenlik duvarı oluşturma
 
-Use the following steps in the Azure portal to create a server-level firewall rule that allows connections from an individual IP address (your client computer) or an entire IP address range to a SQL logical server. 
+Tek bir IP adresinden (istemci bilgisayarınız) veya bir IP adresi aralığının tamamından SQL mantıksal sunucusuna bağlantılara izin veren sunucu düzeyinde güvenlik duvarı kuralı oluşturmak için Azure portalında aşağıdaki adımları kullanın. 
 
-1. If not currently connected, connect to the [Azure portal](http://portal.azure.com).
-2. In the default blade, click **SQL Server**.
+1. O anda bağlı değilse [Azure portal](http://portal.azure.com)’a bağlanın.
+2. Varsayılan dikey pencerede **SQL Server**’a tıklayın.
 
-  	![new server firewall](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-1.png)
+    ![yeni sunucu güvenlik duvarı](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-1.png)
 
-2. In the SQL Server blade, click the SQL server on which to create the firewall rule. 
+2. SQL Server dikey penceresinde güvenlik duvarı kuralı oluşturulacak SQL sunucusuna tıklayın. 
 
- 	![new server firewall](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-2.png)
+    ![yeni sunucu güvenlik duvarı](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-2.png)
            
-3. Review the properties of your server.
+3. Sunucunuz özelliklerini gözden geçirin.
 
- 	![new server firewall](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-3.png)
+    ![yeni sunucu güvenlik duvarı](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-3.png)
       
-4. In the Settings blade, click **Firewall**.
+4. Ayarlar dikey penceresinde **Güvenlik Duvarı**’na tıklayın.
 
- 	![new server firewall](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-4.png)
+    ![yeni sunucu güvenlik duvarı](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-4.png)
     
 
- 	> [AZURE.IMPORTANT] If you do not see the option for **Firewall** on the blade you are looking at, go back and make sure that you are looking at the blade for the SQL Database logical server and not the blade for a SQL database.
+    > [AZURE.IMPORTANT] Baktığınız dikey pencerede **Güvenlik Duvarı** seçeneğini görmüyorsanız, geri dönün ve SQL Database dikey penceresine değil de, SQL Database mantıksal sunucusu dikey penceresine baktığınızdan emin olun.
 
-5. Click **Add Client IP** to have Azure create a rule for your client's IP address.
+5. Azure’un, istemcinizin IP adresi için bir kural oluşturmasını sağlamak için **İstemci IP’si Ekle**’ye tıklayın.
 
-      ![new server firewall]
-	  (./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-5.png)
+      ![yeni sunucu güvenlik duvarı]    (./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-5.png)
 
-6. Optionally, click the IP address that was added to edit the firewall address to allow access to a range of IP addresses.
+6. İsteğe bağlı olarak, bir IP adresi aralığının erişmesine izin verecek güvenlik duvarı adresini düzenlemek için eklenen IP adresine tıklayın.
 
-      ![new server firewall](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-6.png)
+      ![yeni sunucu güvenlik duvarı](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-6.png)
     
-7. Click **Save** to create the server-level firewall rule.
+7. Sunucu düzeyinde güvenlik duvarı kuralı oluşturmak için **Kaydet**’e tıklayın.
 
-     ![new server firewall](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-7.png)
+     ![yeni sunucu güvenlik duvarı](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-7.png)
 
-	>[AZURE.IMPORTANT] Your Client IP address may change from time to time, and you may not be able to access your server until you create a new firewall rule. You can check your IP address using [Bing](http://www.bing.com/search?q=my%20ip%20address), and then add a single IP address or a range of IP addresses. See [Manage firewall settings](sql-database-configure-firewall-settings.md#manage-existing-server-level-firewall-rules-through-the-azure-portal) for details.
+    >[AZURE.IMPORTANT] İstemci IP adresiniz zaman zaman değişebilir; siz de yeni bir güvenlik duvarı kuralı oluşturana kadar sunucunuza erişemeyebilirsiniz. [Bing](http://www.bing.com/search?q=my%20ip%20address)’i kullanarak IP adresinizi denetleyebilir, sonra da tek bir IP adresi veya IP adresleri aralığı ekleyebilirsiniz. Ayrıntılar için bkz. [Güvenlik duvarı ayarlarını yönetme](sql-database-configure-firewall-settings.md#manage-existing-server-level-firewall-rules-through-the-azure-portal).
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

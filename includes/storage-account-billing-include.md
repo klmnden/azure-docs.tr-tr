@@ -1,10 +1,16 @@
-You are billed for Azure Storage usage based on your storage account. Storage costs are based on the following factors: region/location, account type, storage capacity, replication scheme, storage transactions, and data egress.
+Depolama hesabınıza bağlı olarak Azure Storage kullanımınıza göre faturalandırılırsınız. Depolama maliyetleri şu etkenlere bağlıdır: bölge/konum, hesap türü, depolama kapasitesi, çoğaltma düzeni, depolama işlemleri ve veri çıkışı.
 
-- Region refers to the geographical region in which your account is based.
-- Account type refers to whether you are using a general-purpose storage account or a Blob storage account. With a Blob storage account, the access tier also determines the billing model for the account.
-- Storage capacity refers to how much of your storage account allotment you are using to store data.
-- Replication determines how many copies of your data are maintained at one time, and in what locations.
-- Transactions refer to all read and write operations to Azure Storage.
-- Data egress refers to data transferred out of an Azure region. When the data in your storage account is accessed by an application that is not running in the same region, you are charged for data egress. (For Azure services, you can take steps to group your data and services in the same data centers to reduce or eliminate data egress charges.)
+- Bölge, hesabınızın temel alındığı coğrafi bölgeye başvurur.
+- Hesap türü, genel amaçlı bir depolama hesabı mı, yoksa Blob Storage hesabı mı kullanmanızla ilgilidir. Blob Storage hesabıyla, erişim katmanı hesabın fatura modelini de saptar.
+- Depolama kapasitesi, veri depolamak için kullandığınız depolama hesabı payınızın kullandığınız kısmını belirtir.
+- Çoğaltma, verilerinizin her seferinde tutulan kopya sayısını ve tutulduğu konumu belirtir.
+- İşlemler, Azure Storage’a yapılan tüm okuma ve yazma işlemlerini ifade eder.
+- Veri çıkışı bir Azure bölgesinin dışına aktarılan verileri ifade eder. Depolama hesabınızdaki verilere aynı bölgede çalıştırılmayan bir uygulama eriştiğinde veri çıkışı için ücretlendirilirsiniz. (Azure hizmetleri için, veri çıkış ücretlerini azaltmak veya ortadan kaldırmak için veri ve hizmetlerinizi aynı veri merkezlerinde gruplamak üzere adım atabilirsiniz.)
 
-The [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/) page provides detailed pricing information based on account type, storage capacity, replication, and transactions. The [Data Transfers Pricing Details](https://azure.microsoft.com/pricing/details/data-transfers/) provides detailed pricing information for data egress. You can use the [Azure Storage Pricing Calculator](https://azure.microsoft.com/pricing/calculator/?scenario=data-management) to help estimate your costs.
+[Azure Storage Fiyatlandırması](https://azure.microsoft.com/pricing/details/storage/) sayfası hesap türüne, depolama kapasitesine, çoğaltmaya ve işlemlere bağlı olarak ayrıntılı fiyatladırma bilgileri sağlar. [Veri Aktarımları Fiyatlandırma Ayrıntıları](https://azure.microsoft.com/pricing/details/data-transfers/), veri çıkışı için ayrıntılı fiyatlandırma bilgileri sağlar. Maliyetlerinizi tahmin etmeye yardımcı olması için [Azure Storage Fiyatlandırması Hesaplayıcısı](https://azure.microsoft.com/pricing/calculator/?scenario=data-management)’nı kullanabilirsiniz.
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

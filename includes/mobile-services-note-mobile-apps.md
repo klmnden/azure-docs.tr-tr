@@ -1,5 +1,11 @@
->[AZURE.WARNING] This is an **Azure Mobile Services** topic.  This service has been superseded by Azure App Service Mobile Apps and is scheduled for removal from Azure.  We recommend using Azure Mobile Apps for all new mobile backend deployments.  Read [this announcement](https://azure.microsoft.com/blog/transition-of-azure-mobile-services/) to learn more about the pending deprecation of this service.  
+>[AZURE.WARNING] Bu bir **Azure Mobile Services** konusudur.  Bu hizmetin yerini Azure App Service Mobile Apps almıştır ve hizmet, Azure’dan kaldırılmak üzere zamanlanmıştır.  Tüm yeni mobil arka uç dağıtımları için Azure Mobile Apps’i kullanmanızı öneririz.  Bu hizmetin bekletilen kullanım dışı bırakılması hakkında daha fazla bilgi için [bu duyuru](https://azure.microsoft.com/blog/transition-of-azure-mobile-services/) okuyun.  
 > 
-> Learn about [migrating your site to Azure App Service](../articles/app-service-mobile/app-service-mobile-migrating-from-mobile-services.md).
+> [Sitenizin Azure App Service’e geçirilmesi](../articles/app-service-mobile/app-service-mobile-migrating-from-mobile-services.md) hakkında bilgi edinin.
 >
-> Get started with Azure Mobile Apps, see the [Azure Mobile Apps documentation center](https://azure.microsoft.com/documentation/learning-paths/appservice-mobileapps/).
+> Azure Mobile Apps’le başlayın; bkz. [Azure Mobile Apps belge merkezi](https://azure.microsoft.com/documentation/learning-paths/appservice-mobileapps/).
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

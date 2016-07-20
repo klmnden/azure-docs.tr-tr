@@ -1,48 +1,54 @@
 <!--author=alkohli last changed: 9/17/15-->
 
-#### To add a storage account in StorSimple 8000 Series Update 1.0
+#### StorSimple 8000 Series Update 1.0 sürümünde depolama hesabı eklemek için
 
-1. On the StorSimple Manager service landing page, select your service and double-click it. This will take you to the **Quick Start** page. Select the **Configure** page.
+1. StorSimple Yöneticisi hizmet giriş sayfasında hizmetinizi seçip çift tıklayın. Böylece **Hızlı Başlangıç** sayfasına gideceksiniz. **Yapılandır** sayfasını seçin.
 
-2. Click **Add/edit storage account**.
+2. **Depolama hesabı ekleyin/düzenleyin**’e tıklayın.
 
-3. In the **Add/Edit Storage Account** dialog box, click **Add new**.
+3. **Depolama Hesabı Ekle/Düzenle** iletişim kutusunda **Yeni ekle**’ye tıklayın.
 
-4. In the **Provider** field, select the appropriate cloud service provider. The supported providers are Azure, Amazon S3, Amazon S3 with RRS, HP and OpenStack. Specify the credentials and the location associated with the storage account of your cloud service providers. The fields presented for credentials will be different depending upon the cloud service provider you have specified. 
-  - If you have selected Azure as your cloud service provider, supply the **Name** and the primary **Access Key** for your Microsoft Azure storage account. For an Azure account, the location will be automatically populated.
+4. **Sağlayıcı** alanında, uygun bulut hizmeti sağlayıcısını seçin. Desteklenen sağlayıcılar Azure, Amazon S3, Amazon S3 - RRS, HP ve OpenStack’tir. Bulut hizmeti sağlayıcılarınızın depolama hesabıyla ilişkili konumu ve kimlik bilgilerini belirtin. Kimlik bilgileri için sunulan alanlar, belirttiğiniz bulut hizmeti sağlayıcısına bağlı olarak farklı olacaktır. 
+  - Bulut hizmeti sağlayıcısı olarak Azure’u seçtiyseniz, Microsoft Azure Storage hesabınız için **Ad** ve birincil **Erişim Tuşu**’nu verin. Azure hesabı için konum otomatik olarak doldurulur.
 
         ![Add Azure storage account](./media/storsimple-configure-new-storage-account-u1/AddAzureStorageaccount-include.png)
 
- - If you have selected Amazon S3 or Amazon S3 with RRS, provide a friendly **Storage Account name**, **Access Key**, and **Secret Key**. For Amazon S3 and Amazon S3 with RRS, the following locations are supported:
+ - Amazon S3 veya Amazon S3-RRS seçtiyseniz, kullanımı kolay bir **Depolama Hesabı adı**, **Erişim Tuşu** ve **Gizli Anahtar** verin. Amazon S3 ve Amazon S3-RRS için şu konumlar desteklenir:
 
-		- US Standard
-		- US West (Oregon)
-		- US West (Northern California)
-		- EU (Ireland)
-		- Asia Pacific (Singapore)
-		- Asia Pacific (Sydney)
-		- Asia Pacific (Tokyo)
-		- South America (Sao Paulo)
+        - US Standard
+        - US West (Oregon)
+        - US West (Northern California)
+        - EU (Ireland)
+        - Asia Pacific (Singapore)
+        - Asia Pacific (Sydney)
+        - Asia Pacific (Tokyo)
+        - South America (Sao Paulo)
 
         ![Add Amazon storage account](./media/storsimple-configure-new-storage-account-u1/AddAmazonStorageaccount-include.png)
-	  		
- - If you have selected HP as your cloud service provider, supply a friendly **Storage Account Name**, **Tenant ID**, **Username**, and **Password**. For HP, the following locations are supported:
+            
+ - Bulut hizmeti sağlayıcısı olarak HP seçtiyseniz, kullanımı kolay bir **Depolama Hesabı adı**, **Kiracı Kimliği**, **Kullanıcı Adı** ve **Parola** verin. HP için aşağıdaki konumlar desteklenir:
 
-		- US East
-		- US West
-	  
+        - US East
+        - US West
+      
         ![Add HP storage account](./media/storsimple-configure-new-storage-account-u1/AddHPStorageaccount-include.png)
-	  		
- - If you have selected **Openstack** as your cloud service provider, provide a **Hostname**, **Access Key**, and **Secret Key**.
+            
+ - Bulut hizmet sağlayıcısı olarak **Openstack** seçtiyseniz bir **Konak Adı**, **Erişim Tuşu** ve **Gizli Anahtar** verin.
 
-        > [AZURE.NOTE] For all the cloud service providers, excluding Azure, a friendly name is allowed. You can use different friendly names and create more than one storage account with the same set of credentials.
+        > [AZURE.NOTE] Azure dışında tüm bulut hizmeti sağlayıcıları için kullanımı kolay bir ada izin verilir. Kullanımı kolay farklı adlar kullanabilir ve aynı kimlik bilgisi kümesiyle birden fazla depolama hesabı oluşturabilirsiniz.
 
         ![Add Openstack storage account](./media/storsimple-configure-new-storage-account-u1/AddOpenstackStorageaccount-include.png)
 
-5. Select **Enable SSL Mode** to create a secure channel for network communication between your device and the cloud. Clear the **Enable SSL Mode** check box only if you are operating within a private cloud.
+5. Cihazınız ve bulut arasındaki ağ iletişimi için güvenli bir kanal oluşturmak için **SSL Modunu Etkinleştir**’i seçin. Yalnızca özel bir bulutta işlem yapıyorsanız**SSL Modunu Etkinleştir** onay kutusunu temizleyin.
 
-      > [AZURE.NOTE] If you are using HP as your provider, SSL will always be enabled.
-  		
-6. Click the check icon ![check icon](./media/storsimple-configure-new-storage-account/HCS_CheckIcon-include.png). You will be notified after the storage account is successfully created.
+      > [AZURE.NOTE] Sağlayıcınız olarak HP kullanıyorsanız SSL her zaman etkin olacaktır.
+        
+6. Onay simgesine tıklayın ![onay simgesi](./media/storsimple-configure-new-storage-account/HCS_CheckIcon-include.png). Depolama hesabı sorunsuz oluşturulduktan sonra size bildirilecek.
 
-7. The newly created storage account will be displayed on the **Configure** page under **Storage accounts**. Click **Save** to save the new storage account. Click **OK** when prompted for confirmation.
+7. Yeni oluşturulan depolama hesabı **Depolama hesapları** altında, **Yapılandır** sayfasında görüntülenir. Yeni depolama hesabını kaydetmek için **Kaydet**’e tıklayın. Onayınız istendiğinde **Tamam**’a tıklayın.
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

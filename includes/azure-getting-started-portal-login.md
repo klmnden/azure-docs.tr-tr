@@ -8,26 +8,32 @@ As of circa 2016-04-11, the following topics might include this include:
 articles/sql-database/sql-database-get-started-tutorial.md
 
 -->
-## Connecting to the Microsoft Azure portal with a subscription
+## Microsoft Azure portala abonelikle bağlanma
 
-To connect to the Microsoft Azure portal, you must have a subscription. 
+Microsoft Azure portala abonelikle bağlanmak için aboneliğinizin olması gerekir. 
 
-### Get a new account
+### Yeni bir hesap alın
 
-If you do not have an existing Microsoft Azure account, follow one of the links below to obtain an account:
+Var olan bir Microsoft Azure hesabınız yoksa, bir hesap almak için aşağıdaki bağlantılardan birini izleyin:
 
-- Get a [free account](https://azure.microsoft.com/get-started/)
-- Use an [MSDN subscription](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/)
+- [Ücretsiz hesap](https://azure.microsoft.com/get-started/) alın
+- [MSDN aboneliği](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/) kullanın
 
-###Sign in using your existing account
+###Var olan hesabınızı kullanarak oturum açın
 
-Using your [existing subscription]( https://account.windowsazure.com/Home/Index), follow the steps below to connect to the Azure portal. 
+[Var olan aboneliğinizi]( https://account.windowsazure.com/Home/Index) kullanarak Azure portala bağlanmak için aşağıdaki adımları uygulayın. 
 
-1. Open your browser of choice and connect to the [Azure portal](https://portal.azure.com/).
+1. Tercih ettiğiniz tarayıcınızı açın ve [Azure portal](https://portal.azure.com/)’a bağlanın.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. [Azure portal](https://portal.azure.com/)’da oturum açın.
 
-1. When the sign in page appears, provide the credentials for your subscription
+1. Oturum açma sayfası görüntülendiğinde aboneliğinize ait kimlik bilgilerini sağlayın
 
-   ![sign in](./media/azure-getting-started-portal-login/login.png)
+   ![oturum aç](./media/azure-getting-started-portal-login/login.png)
    
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

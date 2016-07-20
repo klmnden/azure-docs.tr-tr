@@ -1,33 +1,38 @@
 <!--author=alkohli last changed: 9/17/15-->
 
-#### To complete the minimum StorSimple device setup
+#### En düşük StorSimple cihaz kurulumunu tamamlamak için
 
-1. Select the device and click **Quick Start**. Click **Complete device setup** to start the Configure device wizard.
+1. Cihazı seçin ve **Hızlı Başlangıç**’a tıklayın. Cihaz yapılandırma sihirbazını başlatmak için **Cihaz kurulumunu tamamla**’ya tıklayın.
 
-2. In the Configure device wizard **Basic Settings** dialog box, do the following:
-  1. Supply a **friendly name** for your device. The default device name reflects information such as the device model and serial number. You can assign a friendly name of up to 64 characters to manage your device.
-  2. Set the **time zone** based on the geographic location in which the device is being deployed. Your device will use this time zone for all scheduled operations.
-  3. Under **DNS Settings**, provide an address for your **Secondary DNS Server**. If you are using IPv6, the field will be populated based on the IPv6 prefix provided in the Windows PowerShell interface. 
-  If the secondary DNS server is not configured, you will not be allowed to save your device configuration.
-  4. Under iSCSI enabled interfaces, enable at least one network for iSCSI. At least one network interface needs to be cloud-enabled and one interface needs to be iSCSI-enabled. DATA 0 is automatically cloud-enabled.
+2. Cihaz yapılandırma sihirbazının **Temel Ayarlar** iletişim kutusunda şunları yapın:
+  1. Cihazınızın **kolay adını** sağlayın. Varsayılan cihaz adı, cihaz modeli ve seri numarası gibi bilgileri yansıtır. Cihazı yönetmek için En fazla 64 karakterlik bir kolay ad atayabilirsiniz.
+  2. Cihazın dağıtıldığı coğrafi konum temelinde **saat dilimini** ayarlayın. Cihazınız zamanlanan tüm işlemler için bu saat dilimini kullanır.
+  3. **DNS Ayarları** altında **ikincil DNS Sunucusu** için bir adres girin. IPv6 kullanıyorsanız, bu alan Windows PowerShell arabiriminde sağlanan IPv6 önekini temel alarak doldurulacaktır. 
+  İkincil DNS sunucusu yapılandırılmadıysa, cihaz yapılandırmanızı kaydetmenize izin verilmez.
+  4. iSCSI etkin arabirimlerin altında iSCSI için en az bir ağ etkinleştirin. En az bir ağ arabiriminin bulut etkin olması ve bir arabirimin de iSCSI etkin olması gerekir. DATA 0 otomatik olarak bulut etkindir.
  
-      ![StorSimple minimum device setup basic settings](./media/storsimple-complete-minimum-device-setup-u1/HCS_MinDeviceSetupBasicSettings1-include.png)
+      ![StorSimple en düşük cihaz kurulumu temel ayarları](./media/storsimple-complete-minimum-device-setup-u1/HCS_MinDeviceSetupBasicSettings1-include.png)
 
-3. Click the arrow icon. ![StorSimple arrow icon](./media/storsimple-complete-minimum-device-setup/HCS_ArrowIcon-include.png)
+3. Ok simgesine tıklayın. ![StorSimple ok simgesi](./media/storsimple-complete-minimum-device-setup/HCS_ArrowIcon-include.png)
 
-4. In the **Network Interfaces** dialog box, provide the fixed IP addresses for Controller 0 and Controller 1. **The controller fixed IP addresses need to be free IPs within the subnet accessible by the device IP address.** If the DATA 0 interface was configured for IPv4, the fixed IP addresses need to be provided in the IPv4 format. If you provided a prefix for IPv6 configuration, the fixed IP addresses will be populated automatically in these fields.
+4. **Ağ Arabirimleri** iletişim kutusunda, Denetleyici 0 ve Denetleyici 1 için sabit IP adreslerini verin. **Denetleyici sabit IP adreslerinin, cihaz IP adresinin erişebildiği alt ağda boş IP’ler olması gerekir.** DATA 0 arabirimi IPv4 için yapılandırılmışsa sabit IP adreslerinin IPv4 biçiminde verilmesi gerekir. IPv6 yapılandırması için bir önek sağladıysanız bu alanlar otomatik olarak sabit IP adresleriyle doldurulur.
 
 
-    ![StorSimple minimum device setup network interfaces](./media/storsimple-complete-minimum-device-setup-u1/HCS_MinDeviceSetupNetworkInterfaces2-include.png)
+    ![StorSimple en düşük cihaz kurulumu ağ arabirimleri](./media/storsimple-complete-minimum-device-setup-u1/HCS_MinDeviceSetupNetworkInterfaces2-include.png)
 
-    The fixed IP addresses for the controller are used for servicing the updates to the device, and therefore the fixed IPs must be routable and able to connect to the Internet. You can check that your fixed controller IPs are routable by using the [Test-HcsmConnection][Test] cmdlet. The following example shows fixed controller IPs are routed to the Internet and can access the Microsoft Update servers. 
+    Denetleyicinin sabit IP adresleri cihaz güncelleştirmelerine hizmet etmesi için kullanılır; bu nedenle de sabit IP'ler yönlendirilebilir ve İnternet'e bağlanabilir olmalıdırlar. Sabit denetleyici IP'lerinizin yönlendirilebilir olduğunu [Test HcsmConnection][Test] cmdlet'ini kullanarak denetleyebilirsiniz. Aşağıdaki örnekte sabit denetleyici IP'lerin İnternet'e yönlendirildiği ve Microsoft Update sunucularına erişebildiği gösterilmektedir. 
 
-     ![Test-HcsmConnection showing routable IPs](./media/storsimple-complete-minimum-device-setup-u1/Test-HcsmConnectionOutputRegisteredDevice.png)
+     ![Yönlendirilebilir IP’leri gösteren Test HcsmConnection](./media/storsimple-complete-minimum-device-setup-u1/Test-HcsmConnectionOutputRegisteredDevice.png)
 
-5. Click the check icon ![StorSimple check icon](./media/storsimple-complete-minimum-device-setup/HCS_CheckIcon-include.png).
-  You will return to the device **Quick Start** page.
+5. Onay simgesine ![StorSimple onay simgesi](./media/storsimple-complete-minimum-device-setup/HCS_CheckIcon-include.png) tıklayın.
+  Cihazın **Hızlı Başlangıç** sayfasına döneceksiniz.
 
- > [AZURE.NOTE] You can modify all the other device settings at any time by accessing the **Configure** page.
+ > [AZURE.NOTE] **Yapılandır** sayfasına erişerek herhangi bir zaman diğer tüm cihaz ayarlarını değiştirebilirsiniz.
 
 <!--Link reference-->
 [Test]: https://technet.microsoft.com/library/dn715782(v=wps.630).aspx
+
+
+<!--HONumber=Jun16_HO2-->
+
+

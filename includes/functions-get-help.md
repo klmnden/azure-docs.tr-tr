@@ -1,5 +1,10 @@
-### Need some help?
+### Yardım gerekiyor mu?
 
-Post questions in the Azure forums. - [Visit MSDN](http://go.microsoft.com/fwlink/?LinkId=780719)
+Sorularınızı Azure forumlarına gönderin. - [MSDN sitesini ziyaret edin](http://go.microsoft.com/fwlink/?LinkId=780719)
 
-Tag questions with the keyword `azure-functions`. - [Visit Stack Overflow](http://stackoverflow.com/questions/tagged/azure-functions)
+Sorularınızı `azure-functions` anahtar sözcüğüyle etiketleyin. - [Stack Overflow sitesini ziyaret edin](http://stackoverflow.com/questions/tagged/azure-functions)
+
+
+<!--HONumber=Jun16_HO2-->
+
+

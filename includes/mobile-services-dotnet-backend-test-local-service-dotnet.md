@@ -1,20 +1,25 @@
 
-The mobile service project that you download lets you to run your new mobile service right on your local computer or virtual machine. This makes it easy to debug your service code before you even publish it to Azure.
+İndirdiğiniz mobil hizmet projesi yeni mobil hizmetinizi hemen kendi yerel bilgisayarınızda veya sanal makinenizde çalıştırmanızı sağlar. Böylece, Azure’da yayımlamadan önce bile hizmet kodunuzun hatalarını ayıklamak kolaylaşır.
 
-In this section, you will test your new app against the mobile service running locally.
+Bu bölümde, yeni uygulamanızı yerel olarak çalışan mobil hizmete karşı sınayacaksınız.
 
-1. Browse to the location where you saved the compressed project files, expand the files on your computer, and open the solution file in Visual Studio.
+1. Sıkıştırılmış proje dosyalarını kaydettiğiniz konuma göz atın, bilgisayarınızdaki dosyaları genişletin ve Visual Studio’da çözüm dosyasını açın.
 
-2. In the Solution Explorer in Visual Studio, right-click your service project, click **Set as StartUp Project**, and then press the **F5** key to build the project and start the mobile service locally.
+2. Proje oluşturup mobil hizmeti yerel olarak başlatmak için Visual Studio'daki Çözüm Gezgini'nde hizmet projenize sağ tıklayın, **Başlangıç Projesi Olarak Ayarla**’ya tıklayın, ardından **F5** tuşuna basın.
 
-	![](./media/mobile-services-dotnet-backend-test-local-service-dotnet/mobile-service-startup.png)
+    ![](./media/mobile-services-dotnet-backend-test-local-service-dotnet/mobile-service-startup.png)
 
-	A web page is displayed after the mobile service starts successfully.
+    Mobil hizmet sorunsuz başlatıldıktan sonra bir web sayfası görüntülenir.
 
-3. To test the store app, right-click your client app project, click **Set as StartUp Project**, and then press the **F5** key to rebuild the project and start the app.
+3. Mağaza uygulamasını sınamak amacıyla, projeyi yeniden oluşturup uygulamayı başlatmak için istemci uygulaması projenize sağ tıklayın, **Başlangıç Projesi Olarak Ayarla**’ya tıklayın ve **F5** tuşuna basın.
 
-	This starts the app, which connects to the local mobile service instance.	
+    Bu işlem, yerel mobil hizmet örneğine bağlanan uygulamayı başlatır.   
 
-4. In the app, type meaningful text, such as _Complete the tutorial_, in **Insert a TodoItem**, and then click **Save**.
+4. Uygulamada **TodoItem Ekle** bölümüne _Öğreticiyi tamamla_ gibi anlamlı bir metin yazın ve ardından**Kaydet**’e tıklayın.
 
-	This sends a POST request to the local mobile service. Data from the request is inserted into the TodoItem table. Items stored in the table are returned by the mobile service, and the data is displayed in the second column in the app.
+    Bu, yerel mobil hizmete bir POST isteği gönderir. İstekten alınan veriler TodoItem tablosuna eklenir. Tabloda depolanan öğeler mobil hizmet tarafından döndürülür ve veriler uygulamada ikinci sütunda görüntülenir.
+
+
+<!--HONumber=Jun16_HO2-->
+
+

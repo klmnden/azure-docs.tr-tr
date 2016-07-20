@@ -1,13 +1,19 @@
-The [Microsoft Azure Configuration Manager Library for .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/) provides a class for parsing a connection string from a configuration file. The [CloudConfigurationManager class](https://msdn.microsoft.com/library/azure/mt634650.aspx) parses configuration settings regardless of whether the client application is running on the desktop, on a mobile device, in an Azure virtual machine, or in an Azure cloud service.
+[.NET için Microsoft Azure Yapılandırma Yöneticisi Kitaplığı](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/), yapılandırma dosyasından bağlantı dizesini ayrıştırmak için bir sınıf sağlar. [CloudConfigurationManager sınıfı](https://msdn.microsoft.com/library/azure/mt634650.aspx), Azure sanal cihazdaki veya Azure bulut hizmetindeki bir masaüstünde, bir mobil cihazda istemci uygulamasının çalışıp çalışmadığını göz ardı ederek yapılandırma ayarlarını ayrıştırır.
 
-To reference the CloudConfigurationManager package, add the following `using` statement to your class:
+CloudConfigurationManager paketine başvurmak için şu `using` deyimini sınıfınıza ekleyin:
 
-	using Microsoft.Azure;	//Namespace for CloudConfigurationManager
+    using Microsoft.Azure;  //Namespace for CloudConfigurationManager
 
-Here's an example that shows how to use retrieve a connection string from a configuration file:
+Burada, yapılandırma dosyasından bir bağlantı dizesi almanın nasıl kullanıldığını gösteren bir örnek bulunmaktadır:
 
     // Parse the connection string and return a reference to the storage account.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-		CloudConfigurationManager.GetSetting("StorageConnectionString"));
+        CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-Using Azure Configuration Manager is optional. You can also use an API such as the .NET Framework's [ConfigurationManager class](https://msdn.microsoft.com/library/system.configuration.configurationmanager.aspx).
+Azure Yapılandırma Yöneticisi'ni kullanmak isteğe bağlıdır. .NET Framework'ün [ConfigurationManager sınıfı](https://msdn.microsoft.com/library/system.configuration.configurationmanager.aspx) gibi bir API de kullanabilirsiniz.
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+

@@ -1,6 +1,12 @@
 
-The goal of this topic is to help you get started using Notification Hubs quickly as possible. This topic presents a very simple broadcast scenario example in order to concentrate on the basic concepts for Notification Hubs.
+Bu konu başlığının hedefi Notification Hubs’ı olabildiğince hızlı kullanmaya başlamanıza yardımcı olmaktır. Bu konu başlığında, Notification Hubs’la ilgili temel kavramlara yoğunlaşmak için basit bir yayın senaryosu örneği bulunmaktadır.
 
-If you are already familiar with Notification Hubs, you may want to select another topic from the left-navigation or see the relevant links in [Next steps](#next-steps).
+Notification Hubs’a zaten aşinaysanız, sol gezinti bölmesinden başka bir konu seçmek veya [Sonraki adımlar](#next-steps) bölmesindeki ilgili bağlantıları görmek isteyebilirsiniz.
 
-We do take your feedback seriously. If you have any difficulties completing this topic, or recommendations for improving this content, we would appreciate your feedback at the bottom of the page.
+Geri bildiriminizi ciddiye alacağız. Bu konu başlığını tamamlamakta veya bu içeriğin geliştirilmesi için önerilerde bir güçlükle karşılaşırsanız, sayfanın sonundaki geri bildiriminize değer vermekteyiz.
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+
