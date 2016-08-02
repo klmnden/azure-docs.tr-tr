@@ -105,6 +105,6 @@ Azure App Service platformu hakkında daha fazla bilgi için bkz. [Azure App Ser
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

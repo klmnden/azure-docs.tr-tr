@@ -76,6 +76,6 @@ Artık IoT Paketi’nin yapabileceklerine ve temel bileşenlerine ilişkin genel
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

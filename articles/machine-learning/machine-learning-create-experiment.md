@@ -237,6 +237,6 @@ Modeli oluşturma, eğitme, puanlama ve dağıtma için tahmine dayalı modellem
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

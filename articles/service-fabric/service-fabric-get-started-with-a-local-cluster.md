@@ -192,6 +192,6 @@ Uygulamanın yeni sürümü artık yalnızca sesli bir harfle başlayan sözcük
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

@@ -207,6 +207,6 @@ Daha fazla bilgi için bkz. [Azure Active Directory ile SaaS Uygulamalarına Kul
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

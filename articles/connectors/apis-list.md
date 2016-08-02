@@ -130,6 +130,6 @@ Bağlayıcılar uygulamalarınız içinde eylemler olarak da kullanılabilir. Ey
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

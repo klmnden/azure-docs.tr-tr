@@ -340,6 +340,6 @@ Azure’da Java kullanma hakkında daha fazla bilgi için bkz. [Java Geliştiric
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

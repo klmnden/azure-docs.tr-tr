@@ -120,6 +120,6 @@ Tahmine dayalı analizin ve makine öğreniminin temellerini, [adım adım öğr
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

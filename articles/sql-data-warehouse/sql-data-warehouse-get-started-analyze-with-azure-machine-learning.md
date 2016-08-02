@@ -150,6 +150,6 @@ Tahmine dayalı makine öğrenimi modellerinin oluşturulmasına ilişkin daha f
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

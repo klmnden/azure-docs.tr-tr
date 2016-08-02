@@ -55,6 +55,6 @@ dcos config set marathon.url http://<hostname>/service/marathon-alice/
 `dcos config show` komutuyla CLI’nizin hangi Marathon örneğine göre çalıştığını doğrulayabilir ve `dcos config unset marathon.url` komutuyla ana Marathon hizmetinizi kullanmak üzere geri çevirebilirsiniz.
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

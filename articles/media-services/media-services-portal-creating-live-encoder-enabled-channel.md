@@ -277,6 +277,6 @@ Olayların akışla aktarılmasını tamamlayıp önceden sağlanan kaynakları 
 [standard5]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard_encode.png 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

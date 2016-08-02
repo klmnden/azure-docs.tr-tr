@@ -212,6 +212,6 @@ Data Lake Analytics işleri, U-SQL dilinde yazılır. U-SQL hakkında daha fazla
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

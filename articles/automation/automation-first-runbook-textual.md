@@ -168,6 +168,6 @@ Runbook uygulamamız şu anda, runbook’a kod olarak eklediğimiz sanal makiney
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

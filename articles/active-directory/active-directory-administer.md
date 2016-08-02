@@ -150,6 +150,6 @@ Azure AD, bir dizinin silinmesi için belirli koşulların sağlanmasını gerek
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

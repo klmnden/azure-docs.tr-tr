@@ -186,6 +186,6 @@ SDK tümleştirmesi hakkında ayrıntılı bilgiler edinmek için [Android SDK](
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

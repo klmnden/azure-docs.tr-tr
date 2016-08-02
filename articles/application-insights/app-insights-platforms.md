@@ -88,6 +88,6 @@ Diliniz veya platformunuz için henüz bir SDK yoksa, belki de bir tane derlemen
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

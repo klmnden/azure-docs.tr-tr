@@ -43,6 +43,6 @@ Bu kılavuz, [Cortana Intelligence Galerisi](http://gallery.cortanaintelligence.
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

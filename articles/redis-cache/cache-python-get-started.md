@@ -70,6 +70,6 @@ Bazı Redis istemcileri SSL’yi desteklemez ve varsayılan olarak [SSL olmayan 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

@@ -106,6 +106,6 @@ Batch hesabı dikey penceresi hesapla ilgili çeşitli özellikleri görüntüle
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

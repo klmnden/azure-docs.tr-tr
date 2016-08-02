@@ -124,6 +124,6 @@ Mantıksal sunucunuza bağlandıktan sonra bir veritabanına bağlanabilir ve bi
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

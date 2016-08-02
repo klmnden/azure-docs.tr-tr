@@ -165,6 +165,6 @@ Aşağıdaki komutlar, işleri listelemek, iş ayrıntılarını almak ve işler
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

@@ -51,6 +51,6 @@ Windows Kimlik Doğrulaması bölümü yöneticinin bir ya da daha fazla uygulam
 11. Tamam düğmesine tıklayın.
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

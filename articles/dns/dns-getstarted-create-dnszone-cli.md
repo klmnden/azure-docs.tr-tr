@@ -189,6 +189,6 @@ Bir DNS bölgesi oluşturduktan sonra, İnternet etki alanınız için ad çöz�
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

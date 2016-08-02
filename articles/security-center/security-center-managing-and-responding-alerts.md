@@ -92,6 +92,6 @@ Bu belgede, Güvenlik Merkezi'nde güvenlik ilkelerinin nasıl yapılandırılac
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

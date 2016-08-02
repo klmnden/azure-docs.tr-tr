@@ -61,6 +61,6 @@ SQL Database'e giriş niteliğindeki makaleyi okuduğunuza ve "SQL Database Nedi
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

@@ -78,6 +78,6 @@ Azure portal dışındaki araçlarda Azure RBAC komutları ile roller atayabilir
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

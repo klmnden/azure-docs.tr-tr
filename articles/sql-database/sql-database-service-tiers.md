@@ -66,6 +66,6 @@ Bir havuz içindeki her bir veritabanı, aynı zamanda ilgili katmanın tek veri
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

@@ -98,6 +98,6 @@ Mobil Uygulama arka ucunuzu yapılandırdıktan sonra, Azure’a bağlanmak içi
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

@@ -190,6 +190,6 @@ Kullanıcı self servis kayıt işlemi artık tamamlanmış ve kullanıcı Kulla
  
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

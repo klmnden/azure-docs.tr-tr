@@ -205,6 +205,6 @@ Yerel ağ geçidinizin ön eklerini değiştirmeniz gerekirse aşağıdaki yöne
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

@@ -51,6 +51,6 @@ Azure Multi-Factor Auth Sağlayıcısı oluşturmak için aşağıdaki adımlar�
 ![MFA Sağlayıcısı oluşturma](./media/multi-factor-authentication-get-started-auth-provider/authprovider6.png)    
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

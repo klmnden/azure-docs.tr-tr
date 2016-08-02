@@ -60,6 +60,6 @@ Azure Search'te arama sonuçlarının arama sorgusuyla tam olarak eşleşen kıs
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

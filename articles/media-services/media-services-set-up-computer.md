@@ -56,6 +56,6 @@ Azure Media Services’e program aracılığıyla bağlanmak için .NET veya RES
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

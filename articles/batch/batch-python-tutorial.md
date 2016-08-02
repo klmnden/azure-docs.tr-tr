@@ -684,6 +684,6 @@ Batch çözümünün temel iş akışı hakkında artık bilginiz olduğuna gör
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

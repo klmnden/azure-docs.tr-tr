@@ -38,6 +38,6 @@ Azure IoT Hub, uygulamanızın arka ucu ile milyonlarca cihaz arasında düzgün
 [lnk-device-management]: iot-hub-device-management-overview.md
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

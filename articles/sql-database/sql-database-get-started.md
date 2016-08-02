@@ -62,6 +62,6 @@ Bu SQL Database öğreticisini tamamladığınıza ve bazı örnek verilerle bir
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

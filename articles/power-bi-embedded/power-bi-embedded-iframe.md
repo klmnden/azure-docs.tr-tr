@@ -230,6 +230,6 @@ Bu makalede, uygulamanız eklemek için bir **Power BI**raporu tümleştirmeyi �
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

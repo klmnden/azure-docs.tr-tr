@@ -121,6 +121,6 @@ Bu öğretici temel olarak farklı SAQL sorguları yazmanız ve verilerle ilgili
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

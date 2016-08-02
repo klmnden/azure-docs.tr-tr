@@ -191,6 +191,6 @@ Bir Data Lake Store hesabını silmek için aşağıdaki komutu kullanın.
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

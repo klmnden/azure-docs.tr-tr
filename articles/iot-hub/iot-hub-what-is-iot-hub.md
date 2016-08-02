@@ -123,6 +123,6 @@ Azure IoT Hub hakkında daha fazla bilgi için şu bağlantılara bakın:
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

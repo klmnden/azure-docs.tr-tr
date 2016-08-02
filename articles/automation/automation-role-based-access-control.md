@@ -148,6 +148,6 @@ Yukarıdaki cmdlet'lerde, oturum açma adını, abonelik kimliğini, kaynak grub
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

@@ -72,6 +72,6 @@ Gelecekte Azure tarafından desteklenen Azure Data Factory’nin her coğrafi b�
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

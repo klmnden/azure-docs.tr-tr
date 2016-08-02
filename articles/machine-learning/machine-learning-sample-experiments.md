@@ -58,6 +58,6 @@ Ayrıca, bir Galeri örneğini bir şablon olarak kullanıp Machine Learning Stu
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

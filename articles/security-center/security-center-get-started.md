@@ -121,6 +121,6 @@ Bu belgede, Güvenlik Merkezi'nde güvenlik izleme ve ilke yönetimi bileşenler
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

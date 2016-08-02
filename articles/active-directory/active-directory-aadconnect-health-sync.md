@@ -70,6 +70,6 @@ Bu özellik, değerlendirilen ve Azure AD'ye aktarılan değişiklik sayısını
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

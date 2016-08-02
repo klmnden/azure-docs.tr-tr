@@ -76,6 +76,6 @@ Veri Kataloğu'nun özellikleri hakkında daha fazla bilgi edinmek için bkz.
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

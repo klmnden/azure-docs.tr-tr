@@ -70,6 +70,6 @@ PhoneFactor Agent v5.x ya da eski bir sürümünden Azure Multi-Factor Authentic
  
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

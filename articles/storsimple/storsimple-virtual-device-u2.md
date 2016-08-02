@@ -283,6 +283,6 @@ Sanal cihazı siler veya kapatırsanız, StorSimple Yönetici hizmetinin Cihazla
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

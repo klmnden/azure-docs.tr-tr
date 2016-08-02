@@ -112,6 +112,6 @@ Size örnek verilerle alıştırma yapmanız için biraz zaman tanıdığımıza
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

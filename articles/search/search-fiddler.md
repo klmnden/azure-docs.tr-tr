@@ -241,6 +241,6 @@ Azure Search hizmetini kod içermeyen bir yaklaşımla yönetmek ve kullanmak i�
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

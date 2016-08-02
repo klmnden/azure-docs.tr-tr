@@ -30,6 +30,6 @@
 [AZURE.INCLUDE [virtual-networks-create-vnet-arm-cli-include](../../includes/virtual-networks-create-vnet-arm-cli-include.md)]
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

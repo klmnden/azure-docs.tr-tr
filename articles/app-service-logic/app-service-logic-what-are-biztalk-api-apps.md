@@ -55,6 +55,6 @@ Standart Bağlayıcılar, BizTalk EAI, Premium Bağlayıcılar gibi her bir kate
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 
