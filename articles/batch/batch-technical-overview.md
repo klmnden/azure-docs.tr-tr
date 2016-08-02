@@ -1,0 +1,163 @@
+<properties
+    pageTitle="Azure Batch hizmeti temel bilgileri | Microsoft Azure"
+    description="Büyük ölçekli paralel ve HPC iş yükleri için Azure Batch hizmetini kullanma hakkında bilgi edinin"
+    services="batch"
+    documentationCenter=""
+    authors="mmacy"
+    manager="timlt"
+    editor=""/>
+
+<tags
+    ms.service="batch"
+    ms.workload="big-compute"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="06/02/2016"
+    ms.author="marsma"/>
+
+# Azure Batch temel bilgileri
+
+Azure Batch, büyük ölçekli paralel ve yüksek performanslı bilgi işlem (HPC) uygulamalarını bulutta verimli bir şekilde çalıştırmanızı sağlar. Yönetilen sanal makineler koleksiyonunda çalıştırılacak işlem yoğunluklu işi zamanlayan ve işinizin gereksinimlerini karşılayacak işlem kaynakların otomatik olarak ölçekleyebilen bir platform hizmetidir.
+
+Batch hizmetiyle, uygulamalarınızı paralel olarak ve ölçekte yürütmek için Azure işlem kaynaklarını tanımlayın. İsteğe bağlı veya zamanlanmış işlerinizi çalıştırabilirsiniz; HPC kümesi, tek tek sanal makineler, sanal ağlar veya karmaşık iş ve görev zamanlama altyapısını el ile oluşturmanız, yapılandırmanız ve yönetmeniz gerekmez.
+
+## Batch için örnek kullanma
+
+Batch, *toplu işleme* veya *toplu bilgi işlem* için kullanılan bir Azure hizmetidir; bazı istenen sonuçları almak için büyük miktarlarda benzer görev çalıştırır. Toplu bilgi işlem, düzenli olarak büyük miktarlarda veriyi işleyen, dönüştüren ve analiz eden kuruluşlar tarafından yaygın olarak kullanılır.
+
+Toplu işlem, doğası gereği paralel ("utandırıcı derecede paralel" olarak da bilinir) uygulamalar ve iş yükleriyle düzgün çalışır. Doğası gereği paralel iş yükleri, çalışmayı aynı anda birden çok bilgisayarda gerçekleştiren birden çok göreve kolayca ayrılır.
+
+![Paralel görevler][1]<br/>
+
+Bu teknik kullanılarak yaygın olarak işlenen iş yüklerinin bazı örnekleri şunlardır:
+
+* Finansal risk modelleme
+* İklim ve hidroloji veri analizi
+* Görüntü işleme ve analizi
+* Medya kodlama ve kodlama dönüştürme
+* Genetik dizi analizi
+* Mühendislik gerilimi analizi
+* Yazılım testi
+
+Batch, sonraki azalan adımla paralel hesaplar gerçekleştirmesinin yanı sıra, [ileti Geçirme Arabirimi (MPI)](batch-mpi.md) uygulamaları gibi daha karmaşık HPC iş yüklerini de yürütür.
+
+Azure’deki Batch ve diğer HPC çözüm seçenekleri arasında bir karşılaştırma için bkz. [ Batch ve HPC çözümleri](batch-hpc-solutions.md).
+
+## Batch ile geliştirme
+
+Paralel iş yükü işleme için Azure Batch kullanan çözümleri derlediğinizde, Batch API'lerini kullanarak bunu programlı yaparsınız. Batch API'leriyle, işlem düğümleri havuzlarının (sanal makineler) yanı sıra bu düğümlerde çalışacak zamanlama işlerini ve görevleri oluşturup yönetirsiniz. Geliştirdiğiniz istemci uygulaması veya hizmeti, Batch hizmetiyle iletişim kurmak için Batch API'lerini kullanır. Kuruluşunuz için büyük ölçekli iş yüklerini verimli bir şekilde işleyebilir ya da tek, yüzlerce veya binlerce düğümde istek üzerine veya planlı olarak müşterilerinizin işleri ve görevleri çalıştıracağı şekilde onlara bir hizmet ön ucu sağlayabilirsiniz. [Azure Data Factory][data_factory] gibi araçlarla yönetilen Batch’i daha büyük bir iş akışının parçası olarak da kullanabilirsiniz.
+
+> [AZURE.TIP] Sağladığı özellikleri daha derinlemesine anlamak amacıyla Batch API'sinin ayrıntılarına gitmeye hazır olduğunuzda, [Azure Batch özelliğine genel bakış](batch-api-basics.md) konusunu inceleyin.
+
+### Gereken Azure hesapları
+
+Batch çözümleri geliştirdiğinizde, Microsoft Azure'de aşağıdaki hesapları kullanacaksınız.
+
+- **Azure hesabı ve aboneliği** -Henüz Azure aboneliğiniz yoksa [MSDN abone avantajlarınızı][msdn_benefits] etkinleştirebilir veya [ücretsiz Azure hesabı][free_account] için kaydolabilirsiniz. Hesap oluşturduğunuzda, sizin için varsayılan bir abonelik oluşturulur.
+
+- **Batch hesabı** - Uygulamalarınız Batch hizmetiyle etkileşime geçtiğinde hesap adı, hesap URL'si ve bir erişim anahtarı kimlik bilgileri olarak kullanılır. Havuzlar, işlem düğümleri, işler ve görevler gibi tüm Batch kaynaklarınız Batch hesabıyla ilişkilidir. Azure portalında [Batch hesabı oluşturabilir ve yönetebilirsiniz](batch-account-create-portal.md).
+
+- **Storage hesabı** - Batch’te [Azure Storage][azure_storage] dosyalarıyla çalışmak için yerleşik destek bulunur. Neredeyse tüm Batch senaryoları, görevlerinizin çalıştığı programların, işledikleri verilerin hazırlanması ve oluşturdukları çıktı verilerinin de depolanması için Azure Storage kullanır. Storage hesabı oluşturmak için bkz. [Azure depolama hesapları hakkında](./../storage/storage-create-storage-account.md).
+
+### Batch geliştirme API'leri
+
+Uygulamalarınız ve hizmetleriniz doğrudan REST API çağrıları yayımlayabilir, aşağıdaki istemci kitaplıklarından birini veya daha fazlasını kullanabilir veya Batch hizmetini kullanarak işlem kaynaklarını yönetmek, paralel iş yüklerini de ölçekli çalıştırmak için bu ikisinin bir birleşimini kullanabilir.
+
+| API    | API başvurusu | İndir | Kod örnekleri |
+| ----------------- | ------------- | -------- | ------------ |
+| **Batch REST** | [MSDN][batch_rest] | Yok | [MSDN][batch_rest] |
+| **Batch .NET**    | [MSDN][api_net] | [NuGet ][api_net_nuget] | [GitHub][api_sample_net] |
+| **Batch Python**  | [readthedocs.io][api_python] | [PyPI][api_python_pypi] |[GitHub][api_sample_python] |
+| **Batch Node.js** | [github.io][api_nodejs] | [npm][api_nodejs_npm] | - |
+| **Batch Java** (önizleme) | [github.io][api_java] | [Maven anlık görüntü deposu][api_java_jar] | - |
+
+### Batch kaynak yönetimi
+
+İstemci API’lerine ek olarak, Batch hesabında kaynakları yönetmek için aşağıdakini kullanabilirsiniz.
+
+- [ Batch PowerShell cmdlet’leri][batch_ps]: [Azure PowerShell](../powershell-install-configure.md) modülündeki Azure Batch cmdlet’leri PowerShell ile Batch kaynaklarını yönetmenizi sağlar.
+
+- [Azure CLI](../xplat-cli-install.md): Azure Komut Satırı Arabirimi (Azure CLI), Batch de içinde olmak üzere çok sayıda Azure hizmetiyle etkileşim için kabuk komutları sağlayan platformlar arası bir araç takımıdır.
+
+- [Batch Yönetimi .NET](batch-management-dotnet.md) istemci kitaplığı: [NuGet][api_net_mgmt_nuget] aracılığıyla da ulaşılabilir; Batch hesaplarını, kotalarını ve uygulama paketlerini programlı yönetmek için Batch Yönetimi .NET istemci kitaplığını kullanabilirsiniz. Yönetim kitaplığıyla ilgili başvurulara [MSDN][api_net_mgmt]’den ulaşabilirsiniz.
+
+### Batch araçları
+
+Batch kullanarak çözüm derlemek gerekmediğinde, Batch uygulamaları ve hizmetlerinizi derlerken veya hatalarını ayıklarken bu araçlar önemli kabul edilebilir.
+
+- [Azure Batch Gezgini][batch_explorer]: Batch Gezgini, [GitHub][github_samples] aracılığıyla ulaşılabilen Batch .NET örnek uygulamalarından biridir. Visual Studio 2013 veya 2015 ile bu Windows Presentation Foundation (WPF) uygulamasını derleyin, Batch çözümlerinizi geliştirdiğiniz ve hatalarını ayıkladığınız sırada da Batch hesabınızdaki kaynaklara göz atıp yönetmek için bunu kullanın. İşi, havuzu ve görev ayrıntılarını görüntüleyin, işlem düğümlerinde dosyaları indirin; hatta, Batch Gezgini arabiriminde birkaç tıklamayla elde edebileceğiniz Uzak Masaüstü (RDP) dosyalarını kullanarak da düğümlere bağlanabilirsiniz.
+
+- [Microsoft Azure Storage Gezgini][storage_explorer]: Azure Batch aracı kesinlikle olmadığında, Batch çözümlerinizi geliştirdiğiniz ve hatalarını ayıkladığınız sırada Storage Gezgini sahip olunması gereken başka bir değerli araçtır.
+
+## Senaryo: Paralel iş yükünü ölçeklendirme
+
+Batch hizmetiyle etkileşim kurmak için Batch API'lerini kullanan ortak çözüm, işlem düğümlerinin havuzunda 3B görüntülerin işlenmesi gibi paralel işi aslında ölçeklendirmeyi kapsar. Örneğin, bu işlem düğümleri havuzu, işleme işinize onlarca, yüzlerce, hatta binlerce çekirdek sağlayan size ait bir "işleme çiftliği" olabilir.
+
+Aşağıdaki diyagramda, istemci uygulamasının yanı sıra paralel iş yükünü çalıştıracak Batch’i kullanan barındırma hizmetiyle birlikte ortak bir Batch iş akışı gösterilmektedir.
+
+![Batch çözümü iş akışı][2]
+
+Bu ortak senaryoda, uygulamanız veya hizmetiniz aşağıdaki adımları gerçekleştirerek Azure Batch’te bir hesaplama iş yükünü işlemektedir:
+
+1. Azure Storage hesabınıza bu dosyaları işleyecek **girdi dosyalarını** ve **uygulamayı** indirin. Girdi dosyaları uygulamanızın işleyeceği herhangi bir veri olabilir; örneğin, finansal modelleme verileri veya dönüştürülecek video dosyaları. Uygulama dosyaları, 3B işleme uygulaması veya medya dönüştürücü gibi verilerin işlenmesinde kullanılan herhangi bir uygulama olabilir.
+
+2. Batch hesabınızda işlem düğümlerine ait bir Batch **havuzu** oluşturun; bunlar, görevlerinizi yürütecek sanal makinelerdir. Düğümler havuza katıldığında (1. adımda yüklediğiniz uygulama) [düğüm boyutu](./../cloud-services/cloud-services-sizes-specs.md), işletim sistemi Azure Storage’da uygulamanın yükleneceği konum gibi özellikleri belirtirsiniz. Havuzu, görevlerinizin oluşturduğu iş yüküne karşılık olarak [otomatik olarak ölçeklendirilecek](batch-automatic-scaling.md) şekilde de yapılandırabilirsiniz; bu işlem havuzdaki işlem düğümü sayısını dinamik olarak ayarlar.
+
+3. İşlem düğümleri havuzunda iş yükünü çalıştırmak için bir Batch **işi** oluşturun. Proje oluşturduğunuzda, bunu Batch havuzuyla ilişkilendirirsiniz.
+
+4. İşe **görevler** ekleyin. Bir işe görev eklediğinizde, Batch hizmeti havuzundaki işlem düğümlerinde yürütülmesi için görevleri otomatik olarak zamanlar. Her görev, girdi dosyalarını işlemek için yüklediğiniz uygulamayı kullanır.
+
+    - 4a. Görev yürütülmeden önce, atandığı işlem düğümünde işlenmesi için verileri (girdi dosyaları) indirebilir. Uygulama zaten düğümde yüklü değilse (bkz. 2. adım), bunun yerine burada da indirilebilir. İndirme işlemi tamamlandığında görevler atanmış düğümlerinde yürütülür.
+
+5. Görevler çalışırken, işin ve ona ait görevlerin ilerleyişini izlemek için Batch’i sorgulayabilirsiniz. İstemci uygulamanız veya hizmetiniz HTTPS üzerinden Batch hizmetiyle iletişim kurar; binlerce işlem düğümünde çalışan binlerce görevi izliyor olabileceğinizden, [Batch hizmetinin verimli bir şekilde sorgulandığından](batch-efficient-list-queries.md) emin olun.
+
+6. Görevler tamamlanınca sonuç verilerini Azure Storage’a yükleyebilirler. Dosyaları doğrudan işlem düğümlerinden de alabilirsiniz.
+
+7. İzleme işleminiz işinizdeki görevlerin tamamlandığını algıladığında, istemci uygulamanız veya hizmetiniz daha fazla işleme ya da değerlendirme için çıktı verilerini indirebilir.
+
+Batch’i kullanmanın tek yolunun bu olduğunu ve bu senaryonun özelliklerden yalnızca birkaçını açıkladığını unutmayın. Örneğin, her işlem düğümünde [birden çok görevi paralel olarak](batch-parallel-node-tasks.md) yürütebilir, işlerle ilgili düğümleri hazırlamak için de [iş hazırlama ve tamamlama görevlerini](batch-job-prep-release.md) kullanabilir, en sonunda da bunları temizleyebilirsiniz.
+
+## Sonraki adımlar
+
+Örnek bir Batch senaryosu gördüğünüze göre, şimdi de sıra, işlem yoğunluklu paralel iş yüklerinizi işlemek amacıyla bunu nasıl kullanabileceğinizi öğrenmek için hizmetin derinliklerine dalmaya geldi.
+
+- [.NET için Azure Batch kitaplığını kullanmaya başlayarak](batch-dotnet-get-started.md) yukarıda açıklanan teknikleri gerçekleştirmek için C# ve Batch .NET kitaplığını kullanmayı öğrenin. Batch hizmetini kullanmayı öğrenirken ilk duraklarınızdan biri bu olmalıdır.
+
+- İşlem yoğunluklu iş yüklerinizin işlenmesi için Batch’in sağladığı API özellikleri hakkında ayrıntılı bilgi edinmek için [Batch özelliğine genel bakış](batch-api-basics.md) konusunu inceleyin.
+
+- Batch Gezgini’ne ek olarak, [GitHub'daki kod örnekleri][github_samples] de, Batch .NET kitaplığı kullanılarak birçok Batch özelliğini kullanmayı göstermektedir.
+
+- Batch’le çalışmayı öğrenirken size uygun kaynaklar hakkında bir fikir edinmek için [Batch Öğrenme Yolu][learning_path] konusunu inceleyin.
+
+[azure_storage]: https://azure.microsoft.com/services/storage/
+[api_java]: http://azure.github.io/azure-sdk-for-java/
+[api_java_jar]: http://adxsnapshots.azurewebsites.net/?dir=com%5cmicrosoft%5cazure%5cazure-batch
+[api_net]: https://msdn.microsoft.com/library/azure/mt348682.aspx
+[api_net_nuget]: https://www.nuget.org/packages/Azure.Batch/
+[api_net_mgmt]: https://msdn.microsoft.com/library/azure/mt463120.aspx
+[api_net_mgmt_nuget]: https://www.nuget.org/packages/Microsoft.Azure.Management.Batch/
+[api_nodejs]: http://azure.github.io/azure-sdk-for-node/azure-batch/latest/
+[api_nodejs_npm]: https://www.npmjs.com/package/azure-batch
+[api_python]: http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch.html
+[api_python_pypi]: https://pypi.python.org/pypi/azure-batch
+[api_sample_net]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp
+[api_sample_python]: https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch
+[batch_explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
+[batch_ps]: https://msdn.microsoft.com/library/azure/mt125957.aspx
+[batch_rest]: https://msdn.microsoft.com/library/azure/Dn820158.aspx
+[data_factory]: https://azure.microsoft.com/documentation/services/data-factory/
+[free_account]: https://azure.microsoft.com/free/
+[github_samples]: https://github.com/Azure/azure-batch-samples
+[learning_path]: https://azure.microsoft.com/documentation/learning-paths/batch/
+[msdn_benefits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
+[storage_explorer]: http://storageexplorer.com/
+
+[1]: ./media/batch-technical-overview/tech_overview_01.png
+[2]: ./media/batch-technical-overview/tech_overview_02.png
+
+
+
+<!--HONumber=Jun16_HO2-->
+
+
