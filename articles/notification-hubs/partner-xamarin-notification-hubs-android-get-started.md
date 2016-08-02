@@ -51,7 +51,7 @@ Bu öğreticiyi tamamlamak Xamarin.Android uygulamalarına ilişkin diğer tüm 
 
 ##Google Cloud Messaging'i etkinleştirme
 
-[AZURE.INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-google-cloud-messaging.md)]
+[AZURE.INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-Google-cloud-messaging.md)]
 
 ##Bildirim hub'ınızı yapılandırma
 
