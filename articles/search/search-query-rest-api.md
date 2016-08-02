@@ -161,6 +161,6 @@ Daha fazla bilgi edinmek için lütfen [Search Belgeleri](https://msdn.microsoft
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

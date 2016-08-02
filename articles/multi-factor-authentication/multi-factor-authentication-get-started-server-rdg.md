@@ -61,6 +61,6 @@ Azure Multi-Factor Authentication Sunucusu, RD Ağ Geçidi ile NPS arasında bir
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

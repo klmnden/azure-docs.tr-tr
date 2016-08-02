@@ -47,6 +47,6 @@ Azure’de IoT hakkında daha fazla bilgi için aşağıdaki kaynaklara gidin:
 [lnk-predictive-maintenance]: iot-suite-predictive-overview.md
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

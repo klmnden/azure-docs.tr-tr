@@ -158,6 +158,6 @@ Batch’i kullanmanın tek yolunun bu olduğunu ve bu senaryonun özelliklerden 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

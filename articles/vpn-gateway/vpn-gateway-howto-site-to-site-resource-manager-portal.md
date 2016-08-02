@@ -160,6 +160,6 @@ VPN bağlantınızı portaldan veya PowerShell kullanarak doğrulayabilirsiniz.
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

@@ -86,6 +86,6 @@ Klasik Azure portalındaki Yönetim Hizmetleri'nde, Traffic Manager profilinizin
 [Traffic Manager düşürülmüş durumu için sorun giderme](traffic-manager-troubleshooting-degraded.md)
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

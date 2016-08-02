@@ -97,6 +97,6 @@ Programlama yoluyla SQL Data Warehouse'u yönetme hakkında daha fazla bilgi edi
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

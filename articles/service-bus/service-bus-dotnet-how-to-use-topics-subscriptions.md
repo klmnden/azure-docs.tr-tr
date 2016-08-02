@@ -329,6 +329,6 @@ Artık Service Bus konu başlıklarına ve aboneliklerine ilişkin temel bilgile
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

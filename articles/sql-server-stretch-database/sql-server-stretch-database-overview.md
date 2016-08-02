@@ -127,6 +127,6 @@ Esnetme Veritabanı var olan bir veritabanının izinler modelini değiştirmez.
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

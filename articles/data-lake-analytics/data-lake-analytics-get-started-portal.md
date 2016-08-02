@@ -158,6 +158,6 @@ Veri kaynağını hazırladıktan sonra, U-SQL betiği geliştirmeye başlayabil
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

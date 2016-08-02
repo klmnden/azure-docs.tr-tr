@@ -628,6 +628,6 @@ Aşağıdaki örnek, .Net için Azure Media Services SDK’sı Sürüm 3.5.2’d
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

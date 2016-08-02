@@ -58,6 +58,6 @@ SSDT'nin en son sürümüne sahip olduğunuza göre SQL Data Warehouse'unuza [ba
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

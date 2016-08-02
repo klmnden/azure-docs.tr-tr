@@ -505,6 +505,6 @@ Bir test bildirimi göndermek için, Klasik Azure Portalı'nın hata ayıklama s
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

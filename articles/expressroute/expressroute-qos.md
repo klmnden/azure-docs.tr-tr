@@ -52,6 +52,6 @@ Aşağıdaki tabloda Skype Kurumsal tarafından kullanılan DSCP işaretlerinin 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

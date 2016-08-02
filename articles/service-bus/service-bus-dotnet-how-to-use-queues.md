@@ -254,6 +254,6 @@ Artık Service Bus kuyruklarına ilişkin temel bilgileri öğrendiğinize göre
   [Complete]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

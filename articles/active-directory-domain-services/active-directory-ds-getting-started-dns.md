@@ -53,6 +53,6 @@ Bir sonraki yapılandırma görevi, [Azure AD Etki Alanı Hizmetleri için parol
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

@@ -86,6 +86,6 @@ Bağlayıcılar Mantıksal Uygulama içinde eylem olarak da kullanılabilir. Eyl
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

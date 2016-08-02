@@ -69,6 +69,6 @@ Azure Anahtar Kasası ile anahtarları ve gizli anahtarları kullanma hakkında 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

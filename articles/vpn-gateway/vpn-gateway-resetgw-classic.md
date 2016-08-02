@@ -66,6 +66,6 @@ Aşağıdaki örnekte "ContosoVNet" adlı sanal ağ için Azure VPN ağ geçidi 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

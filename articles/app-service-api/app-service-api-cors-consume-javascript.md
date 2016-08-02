@@ -287,6 +287,6 @@ Bu makalede, istemci JavaScript kodunun farklı bir etki alanındaki bir API’y
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

@@ -71,6 +71,6 @@ Var olan bir veritabanını SQL Data Warehouse'a geçirmeye çalışıyorsanız 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

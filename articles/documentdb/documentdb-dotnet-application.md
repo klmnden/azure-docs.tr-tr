@@ -594,6 +594,6 @@ Uygulamanıza ilave işlevler eklemek için [DocumentDB .NET Kitaplığı](https
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

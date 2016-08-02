@@ -165,6 +165,6 @@ Yanıttaki **sampleheader** değerinin artık **value2** olduğuna dikkat edin. 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

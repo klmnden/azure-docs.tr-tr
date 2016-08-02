@@ -159,6 +159,6 @@ Big Compute çözümünüze, şirket içi veya başka ortamlardaki kaynaklara ba
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

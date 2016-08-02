@@ -70,6 +70,6 @@ Azure İşlevleri; dağıtımlar, ortam değişkenleri ve tanılama gibi temel i
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

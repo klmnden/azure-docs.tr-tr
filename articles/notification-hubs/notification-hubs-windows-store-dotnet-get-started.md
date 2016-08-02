@@ -287,6 +287,6 @@ Notification Hubs hakkında daha fazla genel bilgi için bkz. [Notification Hubs
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

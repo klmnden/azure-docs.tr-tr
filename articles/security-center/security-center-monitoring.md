@@ -197,6 +197,6 @@ Bu belgede, Azure Güvenlik Merkezi'nde izleme işlevlerini nasıl kullanacağı
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

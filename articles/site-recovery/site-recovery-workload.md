@@ -152,6 +152,6 @@ Site Recovery dağıtımına [hazırlanma](site-recovery-best-practices.md)
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

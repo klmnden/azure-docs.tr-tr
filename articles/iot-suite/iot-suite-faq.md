@@ -69,6 +69,6 @@ Bkz. Eric Golpe'un blog yazısı [Bir Azure AD Kiracısını Silme Kılavuzu][ln
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

@@ -64,6 +64,6 @@ Bu [öğreticiyi](app-service-mobile-migrating-from-mobile-services.md) izleyere
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

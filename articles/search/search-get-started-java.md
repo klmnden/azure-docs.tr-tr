@@ -205,6 +205,6 @@ Azure Search'ü ilk kez mi kullanıyorsunuz? Neler yapabileceğinizi anlamak iç
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

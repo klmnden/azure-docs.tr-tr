@@ -42,6 +42,6 @@ App Service özelliklerini bir araya getirmek geliştiricilerin kendi kodlarına
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

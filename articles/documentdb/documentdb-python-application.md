@@ -436,6 +436,6 @@ Ek Python Flask öğreticileri için bkz. [Büyük Flask Öğreticisi, 1. Bölü
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

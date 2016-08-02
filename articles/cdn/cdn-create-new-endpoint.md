@@ -99,6 +99,6 @@ CDN profili, CDN uç noktaları koleksiyonudur.  Her bir profil, bir veya daha f
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

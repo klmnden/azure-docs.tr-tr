@@ -266,6 +266,6 @@ Bu öğreticide, kurumsal veri kaynaklarını kaydetme, bulma, yönetme ve bunla
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

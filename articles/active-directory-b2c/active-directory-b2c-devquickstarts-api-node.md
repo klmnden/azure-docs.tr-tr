@@ -884,6 +884,6 @@ Artık şunlar gibi daha ileri seviyeli konulara geçebilirsiniz:
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

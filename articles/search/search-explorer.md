@@ -49,6 +49,6 @@ Bu kılavuzda başlamadan önce, [Azure Search dizini oluşturmuş](search-what-
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

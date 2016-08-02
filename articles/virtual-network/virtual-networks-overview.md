@@ -97,6 +97,6 @@ Azure'da Virtual Network'ü kullanmanın ek bir maliyeti yoktur. Sanal ağ için
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

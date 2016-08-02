@@ -91,6 +91,6 @@ Artık bulutta multi-factor authentication mı yoksa şirket içi MFA Sunucusu m
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

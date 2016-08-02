@@ -610,6 +610,6 @@ Artık Service Bus geçiş hizmetini kullanan bir uygulama derlediğinize göre 
 [klasik Azure portalını]: http://manage.windowsazure.com
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

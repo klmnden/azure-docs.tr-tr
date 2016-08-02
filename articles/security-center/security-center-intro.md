@@ -162,6 +162,6 @@ Bu belgede Güvenlik Merkezi, temel işlevleri ve nasıl kullanmaya başlayacağ
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

@@ -252,6 +252,6 @@ Bir konsol uygulaması oluşturun ve Program.cs içeriğini aşağıdakiyle değ
 - [Azure Resource Management API'leri](https://msdn.microsoft.com/library/azure/dn948464.aspx)
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

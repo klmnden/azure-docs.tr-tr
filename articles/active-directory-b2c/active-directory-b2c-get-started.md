@@ -73,6 +73,6 @@ Yeni bir Azure AD B2C kiracısı oluşturmak için aşağıdaki adımları kulla
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

@@ -46,6 +46,6 @@ Event Hubs hakkında ayrıntılı bilgi için aşağıdaki konulara bakın.
 [Event Hubs kullanan bir örnek uygulamanın]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

@@ -232,6 +232,6 @@ Register-MultiFactorAuthenticationAdfsAdapter.ps1 dizesini Register-AdfsAuthenti
  
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 

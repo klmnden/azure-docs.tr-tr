@@ -364,6 +364,6 @@ Aşağıdaki PowerShell betiği, sizin için bir Azure Data Lake Analytics hesab
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!---HONumber=Jun16_HO2-->
 
 
