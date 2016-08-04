@@ -141,6 +141,6 @@ Her iki dizini de klasik Azure portalında yönetmek için bu adımları tamamla
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

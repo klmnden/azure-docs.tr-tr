@@ -49,6 +49,6 @@ Artık SQL Database öğreticisini tamamladığınıza, bir kullanıcı hesabı 
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

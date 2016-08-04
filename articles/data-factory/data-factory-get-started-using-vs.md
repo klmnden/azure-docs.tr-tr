@@ -273,6 +273,6 @@ Bu öğreticide oluşturduğunuz işlem hattını ve veri kümelerini izlemek ü
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

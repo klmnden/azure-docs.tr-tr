@@ -170,6 +170,6 @@ Azure Search dizininizi doldurduktan sonra, belgeleri aramak için sorgu gönder
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

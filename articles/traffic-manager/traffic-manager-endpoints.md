@@ -77,6 +77,6 @@ Aynı zamanda bir Traffic Manager profilinin parçası olan tekil uç noktaları
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

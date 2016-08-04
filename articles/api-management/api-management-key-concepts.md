@@ -124,6 +124,6 @@ API Management hakkında daha fazla bilgi için Microsoft Ignite 2015 konferans�
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

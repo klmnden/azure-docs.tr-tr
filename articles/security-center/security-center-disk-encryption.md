@@ -176,6 +176,6 @@ Bu belgede bir Azure Sanal Makine'nin nasıl şifreleneceğini öğrendiniz. Azu
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

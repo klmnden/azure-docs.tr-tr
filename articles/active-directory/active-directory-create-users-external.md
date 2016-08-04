@@ -85,6 +85,6 @@ Bir kullanıcı kendi giriş dizininde silinirse veya Microsoft hesabını iptal
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

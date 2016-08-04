@@ -55,6 +55,6 @@ DocumentDB hakkında daha fazla bilgi edinmek için şu kaynakları araştırın
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

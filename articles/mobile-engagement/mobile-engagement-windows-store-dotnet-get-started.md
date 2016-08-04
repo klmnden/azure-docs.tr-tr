@@ -213,6 +213,6 @@ Uygulama çalışıyorsa bir uygulama içi bildirim görürsünüz, aksi takdird
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

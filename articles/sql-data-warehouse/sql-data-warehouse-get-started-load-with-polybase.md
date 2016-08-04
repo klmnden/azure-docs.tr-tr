@@ -289,6 +289,6 @@ PolyBase kullanan bir çözüm geliştirirken bilmeniz gereken daha fazla bilgi 
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

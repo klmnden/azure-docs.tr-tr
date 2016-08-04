@@ -61,6 +61,6 @@ Laboratuvarınızı oluşturduktan sonra dikkate alınması gereken sonraki adı
 - [Yapı içeren bir VM'yi laboratuvara ekleme](devtest-lab-add-vm-with-artifacts.md).
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

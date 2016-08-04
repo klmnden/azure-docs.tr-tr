@@ -115,6 +115,6 @@ Azure Portal'ı kullanarak Data Lake Store sağlamaya yönelik bilgiler için bk
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

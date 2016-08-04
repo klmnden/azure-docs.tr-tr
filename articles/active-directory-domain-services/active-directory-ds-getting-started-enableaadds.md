@@ -96,6 +96,6 @@ Sonraki yapılandırma görevi [Azure sanal ağı için DNS ayarlarını güncel
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

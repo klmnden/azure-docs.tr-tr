@@ -90,6 +90,6 @@ Azure AD Cihaz Kaydı ile Windows 7 ve Windows 8.1 Etki Alanına Katılmış cih
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

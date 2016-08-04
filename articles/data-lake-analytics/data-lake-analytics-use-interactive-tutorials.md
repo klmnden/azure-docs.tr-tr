@@ -91,6 +91,6 @@ Her Data Lake Analytics hesabı, bir [Azure Data Lake Store](../data-lake-store/
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

@@ -296,6 +296,6 @@ StorSimple cihazınızda tek bir birim için bir isteğe bağlı el ile yedeklem
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

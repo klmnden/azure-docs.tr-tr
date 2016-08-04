@@ -249,6 +249,6 @@ Azure ve ilgili Microsoft hizmetlerinin yanı sıra bu belgede başvurulan belir
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

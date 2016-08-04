@@ -284,6 +284,6 @@ Yukarıdaki NSG'lerden bazılarının tekil NIC'lerle ilişkilendirilmesi gerekt
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

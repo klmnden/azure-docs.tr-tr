@@ -93,6 +93,6 @@ Dinamik hizmet planı dahil olmak üzere Azure İşlevlerinde kullanılabilen hi
 Azure İşlevleri; dağıtımlar, ortam değişkenleri ve tanılama gibi temel işlevler için Azure App Service platformunu kullanır. 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

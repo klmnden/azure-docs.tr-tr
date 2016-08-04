@@ -661,6 +661,6 @@ Bu öğreticiyle birlikte Service Bus aracılı mesajlaşma işlevlerini kullana
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

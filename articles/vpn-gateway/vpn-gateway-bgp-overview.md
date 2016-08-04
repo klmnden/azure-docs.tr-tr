@@ -68,6 +68,6 @@ BGP’yi şirketler arası ve VNet’ten VNet’te bağlantılar için yapıland
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

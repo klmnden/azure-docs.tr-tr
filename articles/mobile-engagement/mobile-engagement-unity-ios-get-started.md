@@ -134,6 +134,6 @@ Bildirimleri almak için uygulamanızda herhangi bir ek yapılandırma yapmanız
 [75]: ./media/mobile-engagement-unity-ios-get-started/75.png
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

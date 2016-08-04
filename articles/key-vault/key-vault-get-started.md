@@ -247,6 +247,6 @@ Programlama başvuruları için bkz. [Azure Anahtar Kasası geliştirici kılavu
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

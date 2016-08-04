@@ -187,6 +187,6 @@ Event Hubs senaryoları hakkında daha fazla bilgi almak için aşağıdaki bağ
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

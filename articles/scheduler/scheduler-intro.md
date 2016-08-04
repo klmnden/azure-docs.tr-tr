@@ -52,6 +52,6 @@ Scheduler, programlı olarak, betikleri kullanarak ve portalda işler ve [iş ko
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

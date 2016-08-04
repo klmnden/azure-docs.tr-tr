@@ -38,6 +38,6 @@ AWS güvenlik anahtarlarınızı oluşturup kopyaladıktan sonra, bunları güve
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

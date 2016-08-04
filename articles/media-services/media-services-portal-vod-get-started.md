@@ -233,6 +233,6 @@ Bazı dikkate alınması gereken noktalar vardır:
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

@@ -30,6 +30,6 @@ Bu kısa videoda bir veritabanı tablosundaki satırları temizlemek için bir o
 [AZURE.INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

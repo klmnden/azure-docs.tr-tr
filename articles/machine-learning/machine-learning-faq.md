@@ -337,6 +337,6 @@ Azure Machine Learning'in, Azure Machine Learning ile ilgili sorular sorabileceÄ
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

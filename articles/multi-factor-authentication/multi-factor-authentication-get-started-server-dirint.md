@@ -138,6 +138,6 @@ Yedek RADIUS proxy, LDAP proxy olarak hizmet etmesi ya da IIS Kimlik Doğrulamas
 ![Multi-Factor Auth Sunucuları](./media/multi-factor-authentication-get-started-server-dirint/dirint6.png)
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

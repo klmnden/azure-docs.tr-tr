@@ -111,6 +111,6 @@ Bu belgede, Azure Güvenlik Merkezi'nde Power BI hizmetini nasıl kullanacağın
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

@@ -82,6 +82,6 @@ Ya da bir [ücretsiz Azure hesabı](https://azure.microsoft.com/pricing/free-tri
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

@@ -37,6 +37,6 @@ Lütfen bir bulut koleksiyonunda CAL veya Toplu Lisans sözleşmesi kullanamayac
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

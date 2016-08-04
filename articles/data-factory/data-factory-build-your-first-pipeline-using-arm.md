@@ -313,6 +313,6 @@ Bu şablon GatewayUsingArmDF adlı bir veri fabrikasını GatewayUsingARM adlı 
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

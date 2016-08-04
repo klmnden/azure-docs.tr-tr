@@ -68,6 +68,6 @@ Azure DNS hakkında daha fazla bilgi için bkz. [Azure DNS'ye Genel Bakış](dns
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

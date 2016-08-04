@@ -226,6 +226,6 @@ Bu iş akışı, Hyper-V sanal makineleri üzerinde gerçekleşen koruma, çoğa
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

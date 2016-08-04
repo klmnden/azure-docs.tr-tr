@@ -49,6 +49,6 @@ Esnek veritabanı havuzları için bu bölümde açıklanan olan tekniklerle hav
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

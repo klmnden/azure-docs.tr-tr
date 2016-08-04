@@ -620,6 +620,6 @@ Başvuruları Visual Studio'daki DocumentDB .NET SDK'sına geri yüklemek için,
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

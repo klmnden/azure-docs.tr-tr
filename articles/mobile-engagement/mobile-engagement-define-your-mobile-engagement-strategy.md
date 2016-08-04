@@ -138,6 +138,6 @@ Bu tür verilerin tümü parametrelerle genişletilerek (Mobile Engagement’ta 
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

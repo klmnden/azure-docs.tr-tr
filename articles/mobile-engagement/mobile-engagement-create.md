@@ -49,6 +49,6 @@ Mobile Engagement portalında iken, kesimleri çözümleyebilir, oluşturabilir 
 [Azure Mobile Engagement kullanmaya başlama](mobile-engagement-windows-store-dotnet-get-started.md) (sayfanın üstünde diğer mobil platformları seçebilirsiniz).
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

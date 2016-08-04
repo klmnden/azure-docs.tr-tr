@@ -139,6 +139,6 @@ Bir Azure Data Lake Store hesabını silmek için, Data Lake Store dikey pencere
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

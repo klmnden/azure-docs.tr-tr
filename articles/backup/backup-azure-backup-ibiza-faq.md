@@ -49,6 +49,6 @@ Y1. ARM için PowerShell cmdlet'leri şu anda kullanılamamaktadır. Bir kaynak 
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

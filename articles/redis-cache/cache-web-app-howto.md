@@ -849,6 +849,6 @@ Kullanılacak önbelleği seçtikten veya oluşturduktan sonra, Azure portalınd
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

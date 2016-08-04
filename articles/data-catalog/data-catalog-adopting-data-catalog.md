@@ -175,6 +175,6 @@ Bu makalede, kuruluşunuzda **Azure Veri Kataloğu** ile çalışmaya başlama k
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

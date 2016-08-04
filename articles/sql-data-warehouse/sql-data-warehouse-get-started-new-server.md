@@ -49,6 +49,6 @@ SQL Database ve SQL Data Warehouse'da her veritabanı bir sunucuya, her sunucu d
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

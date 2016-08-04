@@ -39,6 +39,6 @@ Uygulamanız sunucu tarafındaysa, [ASP.NET](app-insights-asp-net.md) veya [J2EE
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

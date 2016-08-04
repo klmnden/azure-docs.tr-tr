@@ -69,6 +69,6 @@ Bu uygulamalardan herhangi birine tıkladığınızda, uygulama Azure sanal maki
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

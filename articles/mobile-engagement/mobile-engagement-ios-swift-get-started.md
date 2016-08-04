@@ -207,6 +207,6 @@ Aşağıdaki bölümler, uygulamanızı bu bildirim ve mesajları alacak şekild
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

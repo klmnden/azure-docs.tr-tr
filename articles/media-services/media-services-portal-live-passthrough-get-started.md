@@ -177,6 +177,6 @@ Varlıklarınızı yönetmek için, **Ayar**’ı seçin ve **Varlıklar**’a t
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

@@ -38,6 +38,6 @@ Azure MFA, Azure AD Premium veya Enterprise Mobility Suite lisansları satın al
 ![Lisans Atama](./media/multi-factor-authentication-get-started-assign-licenses/assign5.png)
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

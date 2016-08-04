@@ -312,6 +312,6 @@ Bu öğreticinin çalışması için, uygulamaya Azure'da kaynak oluşturmak üz
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

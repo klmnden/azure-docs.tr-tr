@@ -204,6 +204,6 @@ SQL Data Warehouse'da tablo oluşturma hakkında daha fazla bilgi için bkz. [Ta
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

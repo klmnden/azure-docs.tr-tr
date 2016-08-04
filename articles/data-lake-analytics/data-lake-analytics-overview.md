@@ -81,6 +81,6 @@ Azure Data Lake Analytics, büyük veri analizini kolaylaştırmak için oluştu
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

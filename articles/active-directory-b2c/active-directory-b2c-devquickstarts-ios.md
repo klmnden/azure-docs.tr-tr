@@ -636,6 +636,6 @@ Artık daha ileri seviyeli B2C konu başlıklarına geçebilirsiniz: Deneyebilec
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

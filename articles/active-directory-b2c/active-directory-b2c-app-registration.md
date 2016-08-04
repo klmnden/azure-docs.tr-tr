@@ -70,6 +70,6 @@ Azure AD B2C'ye kayıtlı bir uygulamaya sahip olduğunuza göre başlamak ve ç
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

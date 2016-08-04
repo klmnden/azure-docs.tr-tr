@@ -67,6 +67,6 @@ Azure'a kaydolma işleminin bir parçası olarak, kredi kartı bilgileri sağlam
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

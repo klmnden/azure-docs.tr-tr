@@ -48,6 +48,6 @@ AWS Kimlik Bilgileri | Amazon Web Hizmetleri | [Amazon Web Hizmetleri (AWS) ile 
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

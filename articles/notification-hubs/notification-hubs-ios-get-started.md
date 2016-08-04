@@ -506,6 +506,6 @@ Notification Hubs hakkında genel bilgi için bkz. [Notification Hubs Kılavuzu]
 [Azure Portal]: https://portal.azure.com
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

@@ -82,6 +82,6 @@ SQL Data Warehouse'unuz hazırlandıktan sonra [örnek veri yükleyebilir][] vey
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

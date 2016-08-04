@@ -92,6 +92,6 @@ Ayrıca, [Stack Overflow][] veya [Azure SQL Data Warehouse MSDN forumu][] üzeri
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

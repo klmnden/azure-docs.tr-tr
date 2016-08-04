@@ -576,6 +576,6 @@ Service Bus hakkında daha fazla bilgi edinmek için şu kaynaklara bakın:
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

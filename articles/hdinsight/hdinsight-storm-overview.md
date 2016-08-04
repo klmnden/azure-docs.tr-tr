@@ -221,6 +221,6 @@ HDInsight’ta Apache Storm ile gerçek zamanlı analiz çözümleri hakkında d
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

@@ -72,6 +72,6 @@ Sonraki yapılandırma görevi, [Azure AD Etki Alanı Hizmetleri'ni etkinleştir
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

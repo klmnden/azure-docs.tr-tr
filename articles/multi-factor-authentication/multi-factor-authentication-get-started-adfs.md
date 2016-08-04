@@ -55,6 +55,6 @@ Azure Multi-Factor Authentication ya da AD FS ile Azure Multi-Factor Authenticat
  
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

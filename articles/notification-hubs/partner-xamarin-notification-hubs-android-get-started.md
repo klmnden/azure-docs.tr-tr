@@ -522,6 +522,6 @@ Bu basit örnekte, tüm Android cihazlarınıza bildirimler yayımladınız. Bel
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 
