@@ -134,6 +134,6 @@ Aşağıdaki bölümler, uygulamanızı bu bildirim ve mesajları alacak şekild
 [6]: ./media/mobile-engagement-xamarin-android-get-started/6.png
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

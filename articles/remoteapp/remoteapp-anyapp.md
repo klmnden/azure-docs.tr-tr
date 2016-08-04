@@ -120,6 +120,6 @@ Artık koleksiyon oluşturmayı öğrendiğinize göre [Office 365 kullanan bir 
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

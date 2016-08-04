@@ -302,6 +302,6 @@ Artık temel bilgileri öğrendiğinize göre, Azure Redis Önbelleği hakkında
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

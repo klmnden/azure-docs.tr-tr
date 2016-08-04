@@ -73,6 +73,6 @@ Bu belgeyle,Güvenlik Merkezi'ndeki **İş Ortağı Çözümleri** kutucuğuna g
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

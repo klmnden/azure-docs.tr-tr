@@ -121,6 +121,6 @@ Evet, DocumentDB bir RESTful hizmeti olduğu için kaynak bağlantıları sabitt
  
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

@@ -117,6 +117,6 @@ Bu makaleyi derecelendirmenin ve aşağıda yorum yapmamanın yanı sıra makale
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

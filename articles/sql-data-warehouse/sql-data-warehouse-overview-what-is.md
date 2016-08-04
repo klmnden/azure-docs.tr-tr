@@ -178,6 +178,6 @@ SQL Data Warehouse hakkında artık kısmen bilgi sahibi olduğunuza göre, [ver
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

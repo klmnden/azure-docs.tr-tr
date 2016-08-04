@@ -277,6 +277,6 @@ Artık Service Bus geçişi hizmetine ilişkin temel bilgileri öğrendiniz, dah
   [Service Bus örneklerine genel bakış]: service-bus-samples.md
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

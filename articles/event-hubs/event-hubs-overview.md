@@ -170,6 +170,6 @@ Event Hubs kavramlarını öğrendiğinize göre aşağıdaki senaryolara geçeb
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

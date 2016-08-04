@@ -66,6 +66,6 @@ Bir üst düzeyde, yönergeler şöyledir:
     ![Eşlenen ağ sürücüsü olarak OneDrive İş](./media/remoteapp-onedrive/ra-mappeddrive.png)
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

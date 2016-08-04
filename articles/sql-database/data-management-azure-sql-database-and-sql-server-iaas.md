@@ -206,6 +206,6 @@ Bu makalede, SQL Database ve Azure Virtual Machines'de (VM'ler) SQL Server işle
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

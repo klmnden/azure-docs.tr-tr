@@ -68,6 +68,6 @@ Veritabanı kullanıcıları ve veritabanı kullanıcı yöneticileri oluşturma
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

@@ -384,6 +384,6 @@ Notification Hubs özellikleri hakkında daha ayrıntılı bilgi için [belge po
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

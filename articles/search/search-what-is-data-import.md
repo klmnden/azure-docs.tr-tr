@@ -47,6 +47,6 @@ Dizin oluşturucu işlevi, [Azure Portal](search-import-data-portal.md)'ın yan�
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

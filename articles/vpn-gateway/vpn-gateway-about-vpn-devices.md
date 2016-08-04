@@ -159,6 +159,6 @@ Aşağıdaki tabloda, IPsec SA Şifreleme ve Kimlik Doğrulama Teklifleri listel
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

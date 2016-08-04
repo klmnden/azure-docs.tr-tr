@@ -53,6 +53,6 @@ Azure’da ya da şirket içinde barındırılan bir SQL veritabanına bağlanan
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

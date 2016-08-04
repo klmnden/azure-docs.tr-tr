@@ -292,6 +292,6 @@ Bir Linux konağına bağlı bir StorSimple cihazına yönelik MPIO yükleme yö
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

@@ -493,6 +493,6 @@ Sıfırdan yeni API uygulaması projeleri oluşturmak istiyorsanız, **Azure API
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

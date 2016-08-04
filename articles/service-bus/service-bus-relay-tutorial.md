@@ -788,6 +788,6 @@ Service Bus hakkında daha fazla bilgi edinmek için aşağıdaki konu başlıkl
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

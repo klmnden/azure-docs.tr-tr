@@ -56,6 +56,6 @@ Nesnelerin İnterneti'nden gelen verilerdeki akış analizlerine yönelik bir y�
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

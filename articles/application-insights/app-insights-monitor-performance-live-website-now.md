@@ -303,6 +303,6 @@ web uygulaması Azure’deyse ve Azure Resource Manager şablonu kullanarak kayn
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

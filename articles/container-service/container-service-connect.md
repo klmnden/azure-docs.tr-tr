@@ -126,6 +126,6 @@ DC/OS ya da Swarm ile kapsayıcıları dağıtın ve yönetin.
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

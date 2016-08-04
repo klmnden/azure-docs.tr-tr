@@ -132,6 +132,6 @@ Bu zincirli web API'si senaryosu, temsili akış olarak da bilinen OAuth 2.0 JWT
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

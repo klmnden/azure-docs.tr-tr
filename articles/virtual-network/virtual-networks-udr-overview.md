@@ -89,6 +89,6 @@ Bu sanal gereç VM'si, kendisine yönelik olmayan gelen trafiği alabilmelidir. 
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

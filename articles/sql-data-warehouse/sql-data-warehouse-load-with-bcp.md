@@ -193,6 +193,6 @@ Geliştirme ile ilgili daha fazla ipucu için bkz. [SQL Data Warehouse geliştir
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

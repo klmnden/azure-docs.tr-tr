@@ -98,6 +98,6 @@ Minimal öznitelik kümesinin eşitlenmesine izin ver (MinSync) | ● | ● |  |
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

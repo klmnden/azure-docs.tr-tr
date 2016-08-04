@@ -141,6 +141,6 @@ Azure Active Directory kullanılarak uygulamaların geliştirilmesini açıklaya
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

@@ -279,6 +279,6 @@ Artık bir BizTalk Hizmeti oluşturuldu, şimdi de kendinizi farklı [BizTalk Se
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

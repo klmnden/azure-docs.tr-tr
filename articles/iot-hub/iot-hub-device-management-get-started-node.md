@@ -155,6 +155,6 @@ Azure IoT Hub cihaz yönetimi özellikleri hakkında daha fazla bilgi edinmek i�
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

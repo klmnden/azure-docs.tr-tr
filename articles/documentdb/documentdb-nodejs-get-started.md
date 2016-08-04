@@ -623,6 +623,6 @@ Ardından, ```config.js``` dosyasında config.endpoint ve config.authKey değerl
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

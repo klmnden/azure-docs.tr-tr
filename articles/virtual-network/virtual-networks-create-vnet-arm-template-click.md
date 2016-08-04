@@ -40,6 +40,6 @@ ARM şablonunu hiçbir değişiklik yapmadan doğrudan GitHub'dan dağıtıyorsa
 [AZURE.INCLUDE [virtual-networks-create-vnet-arm-template-click-include](../../includes/virtual-networks-create-vnet-arm-template-click-include.md)]
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

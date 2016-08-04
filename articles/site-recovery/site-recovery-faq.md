@@ -221,6 +221,6 @@ Evet, Hyper-V sanal makinelerini Azure'da veya hizmet sağlayıcı siteleri aras
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

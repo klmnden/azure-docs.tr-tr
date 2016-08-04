@@ -241,6 +241,6 @@ Bu konu başlıklarında Azure Data Factory hakkında ayrıntılı bilgi sağlan
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

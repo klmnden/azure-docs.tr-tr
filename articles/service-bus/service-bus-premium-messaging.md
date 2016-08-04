@@ -60,6 +60,6 @@ Service Bus mesajlaşma hizmeti hakkında daha fazla bilgi edinmek için aşağ�
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

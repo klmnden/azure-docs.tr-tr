@@ -61,6 +61,6 @@ Service Bus hizmetinin nasıl çalıştığına ilişkin genel bakışı okuduğ
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

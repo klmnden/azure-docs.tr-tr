@@ -136,6 +136,6 @@ Size en uygun faturalama modelini seçin. Aşağıda listelenen faturalama model
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

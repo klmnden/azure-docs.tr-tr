@@ -117,6 +117,6 @@ Tahmine dayalı analiz modeliniz hazır olduktan sonra, bunu doğrudan Machine L
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

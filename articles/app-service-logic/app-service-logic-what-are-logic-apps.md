@@ -83,6 +83,6 @@ Logic Apps deneyimini oluşturan bazı temel parçalar aşağıda verilmiştir.
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

@@ -83,6 +83,6 @@ Azure CDN'de görmek istediğiniz bir özellik mi var?  [Bize geri bildirim sağ
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

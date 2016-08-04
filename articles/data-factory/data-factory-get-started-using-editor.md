@@ -465,6 +465,6 @@ Bu öğreticide Azure blob’undan Azure SQL veritabanına veri kopyalamak üzer
  
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

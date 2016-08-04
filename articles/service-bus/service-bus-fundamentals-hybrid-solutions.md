@@ -127,6 +127,6 @@ Artık Azure Service Bus hizmeti ile ilgili temel bilgileri edindiğinize göre,
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

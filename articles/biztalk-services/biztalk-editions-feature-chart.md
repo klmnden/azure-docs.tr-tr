@@ -261,6 +261,6 @@ Azure portalında Azure BizTalk hizmetleri oluşturmak için [BizTalk Services: 
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

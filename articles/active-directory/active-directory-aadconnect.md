@@ -164,6 +164,6 @@ Sık Sorulan Sorular | [Azure AD Connect ile ilgili SSS](active-directory-aadcon
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

@@ -72,6 +72,6 @@ Veri depolama gereksinimleri zamanla değişiyorsa bölüm ekleyerek veya kaldı
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

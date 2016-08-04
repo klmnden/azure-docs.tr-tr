@@ -406,6 +406,6 @@ Sonraki adım, [ExpressRoute bağlantı hattına bir VNet bağlama](expressroute
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

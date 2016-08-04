@@ -122,6 +122,6 @@ Yeni bir SQL veritabanı oluşturduktan ve temel veritabanı kurulumu görevleri
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

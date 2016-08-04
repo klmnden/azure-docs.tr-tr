@@ -83,6 +83,6 @@ Bu betik, yeni bir Azure kaynak grubu ve yeni bir sunucu oluşturur. İstendiği
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

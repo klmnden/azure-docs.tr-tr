@@ -727,6 +727,6 @@ Notification Hubs hakkında daha fazla genel bilgi edinmek için bkz. [Notificat
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

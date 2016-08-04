@@ -98,6 +98,6 @@ Azure AD B2B işbirliği ile ilgili diğer makalelerimize göz atın:
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

@@ -51,6 +51,6 @@ Mevcut mantıksal uygulamalarınızı yeni şemaya taşımak için aşağıdakil
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

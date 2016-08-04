@@ -293,6 +293,6 @@ Bu öğreticide, portalda yeni bir IoT hub'ı yapılandırdınız ve ardından h
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

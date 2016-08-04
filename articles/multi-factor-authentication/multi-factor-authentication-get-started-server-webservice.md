@@ -91,6 +91,6 @@ Artık mobil uygulama web hizmeti yüklendiğine göre, portal ile çalışmak i
  
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 

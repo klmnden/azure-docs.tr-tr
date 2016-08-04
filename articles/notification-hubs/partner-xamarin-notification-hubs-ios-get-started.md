@@ -331,6 +331,6 @@ Bu basit örnekte, tüm iOS cihazlarınıza anında iletme bildirimleri yayımla
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!----HONumber=Jun16_HO2-->
 
 
