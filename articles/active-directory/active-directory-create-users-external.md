@@ -4,7 +4,7 @@
     services="active-directory"
     documentationCenter=""
     authors="curtand"
-    manager="stevenpo"
+    manager="femila"
     editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="03/31/2016"
+    ms.date="06/21/2016"
     ms.author="curtand;viviali"/>
 
 # Azure Active Directory'de diğer dizinlerden veya iş ortağı şirketlerden kullanıcılar ekleme
@@ -26,16 +26,16 @@ Dizininizi doldurmak için kullanıcılar ekleyin. Bu makalede Azure Active Dire
 
 2. **Active Directory**'yi seçin ve ardından dizininizi açın.
 
-3. **Kullanıcılar** sekmesini seçin ve ardından komut çubuğunda **Kullanıcı Ekle**'yi seçin.
+3. **Users (Kullanıcılar)** sekmesini seçin ve ardından komut çubuğunda **Add User (Kullanıcı Ekle)** seçeneğini belirleyin.
 
-4. **Bu kullanıcı hakkındaki görüşlerinizi bize bildirin** sayfasında, **Kullanıcı türü** kısmında aşağıdaki seçeneklerden birini belirleyin:
+4. **Tell us about this user (Bu kullanıcı hakkındaki görüşlerinizi bize bildirin)** sayfasında, **Type of user (Kullanıcı türü)** kısmında aşağıdaki seçeneklerden birini belirleyin:
 
-    - **Başka bir Azure AD dizinindeki kullanıcı** - kaynağı başka bir Azure AD dizini olan bir kullanıcı hesabını dizininize ekler. Başka bir dizindeki bir kullanıcıyı yalnızca bu dizinin de bir kullanıcısı olduğunuzda ekleyebilirsiniz.
-    - **İş ortağı şirketlerindeki kullanıcılar** - iş ortağı şirketi kullanıcılarını dizininize davet etmek ve yetkilendirmek için kullanılır (bkz. [Azure Active Directory B2B işbirliği](active-directory-b2b-what-is-azure-ad-b2b.md)). [E-posta adreslerini belirterek bir CSV dosyasını karşıya yüklemeniz](active-directory-b2b-references-csv-file-format.md) gerekir.
+    - **User in another Azure AD directory (Başka bir Azure AD dizinindeki kullanıcı)** - kaynağı başka bir Azure AD dizini olan bir kullanıcı hesabını dizininize ekler. Başka bir dizindeki bir kullanıcıyı yalnızca bu dizinin de bir kullanıcısı olduğunuzda ekleyebilirsiniz.
+    - **Users in partner companies (İş ortağı şirketlerindeki kullanıcılar)** - iş ortağı şirketi kullanıcılarını dizininize davet etmek ve yetkilendirmek için kullanılır (bkz. [Azure Active Directory B2B işbirliği](active-directory-b2b-what-is-azure-ad-b2b.md)). [E-posta adreslerini belirterek bir CSV dosyasını karşıya yüklemeniz](active-directory-b2b-references-csv-file-format.md) gerekir.
 
-6. **Profil** sayfasında bir ad ve soyad, kolay ad ve **Roller** listesinden bir kullanıcı rolü sağlayın. Kullanıcı ve yönetici rolleri hakkında daha fazla bilgi için bkz. [Azure AD'de yönetici rolü atama](active-directory-assign-admin-roles.md). Kullanıcı için **Multi-Factor Authentication'ın Etkinleştirilip Etkinleştirilmeyeceğini** belirtin.
+6. **Profile (Profil)** sayfasında bir ad ve soyad, kolay ad ve **Roles (Roller)** listesinden bir kullanıcı rolü sağlayın. Kullanıcı ve yönetici rolleri hakkında daha fazla bilgi için bkz. [Azure AD'de yönetici rolü atama](active-directory-assign-admin-roles.md). Kullanıcı için **Enable Multi-Factor Authentication (Multi-Factor Authentication'ı Etkinleştir)** seçeneğinin belirlenip belirlenmeyeceğini belirtin.
 
-7. **Geçici parola al** sayfasında, **Oluştur**'u seçin.
+7. **Get temporary password (Geçici parola alma)** sayfasında, **Create (Oluştur)** seçeneğini belirleyin.
 
 > [AZURE.IMPORTANT] Kuruluşunuz birden fazla etki alanı kullanıyorsa bir kullanıcı hesabını eklerken aşağıdakileri bilmeniz gerekir:
 >
@@ -46,7 +46,7 @@ Bilgilerini değiştirdiğiniz bir kullanıcının kimliği şirket içi Active 
 
 ## Dış kullanıcılar ekleme
 
-Aynı zamanda ait olduğunuz başka bir Azure AD dizininden veya bir CSV dosyasını karşıya yükleyerek iş ortağı şirketlerden kullanıcılar ekleyebilirsiniz. **Kullanıcı Türü** için bir dış kullanıcı eklerken **Başka bir Microsoft Azure AD dizinindeki kullanıcı** veya **İş ortağı şirketlerindeki kullanıcılar** seçeneğini belirtin.
+Aynı zamanda ait olduğunuz başka bir Azure AD dizininden veya bir CSV dosyasını karşıya yükleyerek iş ortağı şirketlerden kullanıcılar ekleyebilirsiniz. **Type of User (Kullanıcı Türü)** için bir dış kullanıcı eklerken **User in another Microsoft Azure AD directory (Başka bir Microsoft Azure AD dizinindeki kullanıcı)** veya **Users in partner companies (İş ortağı şirketlerindeki kullanıcılar)** seçeneğini belirtin.
 
 Her iki türdeki kullanıcıların da kaynağı başka bir dizindir ve **dış kullanıcılar** olarak eklenirler. Dış kullanıcılar, yeni hesaplar ve kimlik bilgileri ekleme gereksinimleri olmadan bir dizindeki diğer kullanıcılarla işbirliği yapabilir. Dış kullanıcılar oturum açarken giriş dizinleriyle kimlik doğrulaması yapar ve bu kimlik doğrulaması eklenmiş oldukları diğer tüm dizinlerde de geçerli olur.
 
@@ -56,7 +56,8 @@ Başka bir dizinden kendi dizininize kullanıcı eklediğinizde bu kullanıcı s
 
 İki hesap arasındaki tek bağlantı, kullanıcının her zaman kendi giriş dizininde veya Microsoft hesabında kimlik doğrulaması yapmasıdır. Bir dış kullanıcı için parolayı sıfırlama veya çok faktörlü kimlik doğrulaması seçeneğini görmemenizin nedeni budur. Şu anda kullanıcı oturum açtığı zaman değerlendirilen tek ilke, giriş dizininin veya Microsoft hesabının kimlik doğrulama ilkesidir.
 
-> [AZURE.NOTE] Dış kullanıcıyı dizinde yine de devre dışı bırakabilirsiniz, bu durumda dizininize erişim engellenir.
+> [AZURE.NOTE]
+> Dış kullanıcıyı dizinde yine de devre dışı bırakabilirsiniz, bu durumda dizininize erişim engellenir.
 
 Bir kullanıcı kendi giriş dizininde silinirse veya Microsoft hesabını iptal ederse sizin dizininizde dış kullanıcı var olmaya devam eder. Ancak dizininizdeki kullanıcı bir giriş dizininde veya Microsoft hesabında kimlik doğrulaması yapamadığı için kaynaklara erişemez.
 
@@ -85,6 +86,6 @@ Bir kullanıcı kendi giriş dizininde silinirse veya Microsoft hesabını iptal
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

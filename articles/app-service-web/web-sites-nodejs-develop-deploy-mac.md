@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="nodejs"
     ms.topic="hero-article"
-    ms.date="04/08/2016"
+    ms.date="06/24/2016"
     ms.author="robmcm"/>
 
 # Azure App Service’te bir Node.js web uygulaması oluşturma
@@ -66,7 +66,7 @@ Azure App Service’te bir web uygulaması oluşturmak ve Git yayımlamayı etki
 
 6. Bir **Kaynak Grubu** seçin veya yeni bir tane oluşturun.
 
-    Kaynak grupları hakkında daha fazla bilgi için bkz. [Azure kaynaklarınızı yönetmek için Azure Portal’ı kullanma](../resource-group-portal.md).
+    Kaynak grupları hakkında daha fazla bilgi için bkz. [Azure Resource Manager’a genel bakış](../resource-group-overview.md).
 
 7. Bir **App Service planı/Konum** seçin veya yeni bir tane oluşturun.
 
@@ -227,6 +227,6 @@ Azure’da Node.js uygulamaları geliştirme hakkında daha fazla bilgi için bk
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

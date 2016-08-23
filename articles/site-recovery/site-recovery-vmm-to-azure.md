@@ -151,7 +151,7 @@ Site Recovery dağıtımı sırasında ağ eşlemesini ayarlamanız gerekir. Ağ
     ![Yeni kasa](./media/site-recovery-vmm-to-azure/new-vault3.png)
 
 3. **Ad** alanında, kasayı tanımlamak için bir kolay ad belirleyin. Birden fazla aboneliğiniz varsa bunlardan birini seçin.
-4. [Yeni bir kaynak grubu oluşturun](../resource-group-portal.md#create-resource-group) veya var olan bir grubu seçin. Bir Azure bölgesi belirtin. Makineler bu bölgeye çoğaltılır. Desteklenen bölgeleri kontrol etmek için [Azure Site Recovery Fiyatlandırma Ayrıntıları](https://azure.microsoft.com/pricing/details/site-recovery/) bölümündeki Coğrafi Kullanılabilirlik kısmına bakın.
+4. [Yeni bir kaynak grubu oluşturun](../resource-group-template-deploy-portal.md) veya var olan bir grubu seçin. Bir Azure bölgesi belirtin. Makineler bu bölgeye çoğaltılır. Desteklenen bölgeleri kontrol etmek için [Azure Site Recovery Fiyatlandırma Ayrıntıları](https://azure.microsoft.com/pricing/details/site-recovery/) bölümündeki Coğrafi Kullanılabilirlik kısmına bakın.
 4. Pano'dan kasaya hızlıca erişmek isterseniz önce **Panoya sabitle** seçeneğine, ardından **Kasa oluştur** seçeneğine tıklayın.
 
     ![Yeni kasa](./media/site-recovery-vmm-to-azure/new-vault-settings.png)
@@ -213,31 +213,29 @@ Azure Site Recovery Sağlayıcısı'nı VMM sunucusuna yükleyin ve sunucuyu kas
     ![Yükleme konumu](./media/site-recovery-vmm-to-azure/provider2.png)
 
 4. Yükleme tamamlandığında VMM sunucusunu kasaya kaydetmek için **Kaydet**'e tıklayın.
-5. **İnternet Bağlantısı** kısmında VMM sunucusunda çalışan Sağlayıcı'nın Site Recovery'ye internet üzerinden nasıl bağlanacağını belirleyin.
+5. **Kasa Ayarları** sayfasında, kasa anahtarı dosyasını seçmek için **Gözat**'a tıklayın. Azure Site Recovery aboneliğini ve kasa adını belirtin.
 
-    - Sağlayıcı'nın doğrudan bağlanmasını istiyorsanız **Ara sunucu olmadan doğrudan bağlan** seçeneğini belirleyin.
-    - O anda sunucu üzerinde ayarlanmış olan bir ara sunucu ile bağlanmak isterseniz **Var olan ara sunucu ayarlarıyla bağlan** seçeneğini belirleyin.
-    - Var olan ara sunucunuz kimlik doğrulaması gerektiriyorsa veya özel bir ara sunucu kullanmak isterseniz **Özel ara sunucu ayarlarıyla bağlan** seçeneğini belirleyin.
+    ![Sunucu kaydı](./media/site-recovery-vmm-to-azure/provider10.PNG)
+
+6. **İnternet Bağlantısı** kısmında VMM sunucusunda çalışan Sağlayıcı'nın Site Recovery'ye internet üzerinden nasıl bağlanacağını belirleyin.
+
+    - Sağlayıcı'nın doğrudan bağlanmasını istiyorsanız **Proxy olmadan doğrudan Azure Site Recovery hizmetine bağlan** seçeneğini belirleyin.
+    - Var olan proxy’niz kimlik doğrulaması gerektiriyorsa veya özel bir proxy kullanmak isterseniz **Proxy sunucusu kullanarak Azure Site Recovery hizmetine bağlan** seçeneğini belirleyin.
     - Özel bir ara sunucu kullanırsanız adresi, bağlantı noktasını ve kimlik bilgilerini belirtmeniz gerekir
     - Bir ara sunucu kullanıyorsanız [önkoşullar](#on-premises-prerequisites) bölümünde açıklanan URL'lere izin vermiş olmanız gerekir.
     - Özel bir ara sunucu kullanırsanız otomatik olarak belirtilen ara sunucu kimlik bilgilerini kullanan VMM RunAs hesabı (DRAProxyAccount) oluşturulacaktır. Bu hesabın kimlik doğrulamasını başarıyla gerçekleştirebilmesi için ara sunucuyu yapılandırın. VMM RunAs hesabı ayarları VMM konsolundan değiştirilebilir. **Ayarlar** kısmında, **Güvenlik** > **Run As Hesapları** seçeneklerini genişletin ve ardından DRAProxyAccount parolasını değiştirin. Bu ayarın etkili olabilmesi için VMM hizmetinin yeniden başlatılması gerekir.
 
-    ![internet](./media/site-recovery-vmm-to-azure/provider3.png)
-
-6. **Kasa Ayarları** sayfasında, kasa anahtarı dosyasını seçmek için **Gözat**'a tıklayın. Azure Site Recovery aboneliğini ve kasa adını belirtin.
-
-    ![Sunucu kaydı](./media/site-recovery-vmm-to-azure/provider4.png)
+    ![internet](./media/site-recovery-vmm-to-azure/provider13.PNG)
 
 7. Veri şifreleme için otomatik olarak oluşturulan SSL sertifikasının konumunu kabul edin veya değiştirin. Bu sertifika, Azure Site Recovery portalında Azure tarafından korunan bir bulut için veri şifrelemeyi etkinleştirdiğinizde kullanılır. Bu sertifikayı güvenli bir yerde saklayın. Azure'a yük devretme işlemi çalıştırdığınızda, veri şifrelemesi etkin durumdaysa şifrenin çözülmesi gerekir.
 
-    ![Sunucu kaydı](./media/site-recovery-vmm-to-azure/provider5.png)
 
 8. **Sunucu adı** alanında, kasadaki VMM sunucusunu tanımlamak için bir kolay ad belirtin. Küme yapılandırmasında VMM kümesi rolü adını belirtin.
-13. VMM sunucusundaki tüm bulutlara yönelik meta verileri kasayla eşitlemek isterseniz **Bulut meta verilerini eşitle** seçeneğini etkinleştirin. Bu eylemin her sunucuda yalnızca bir kez gerçekleştirilmesi gerekir. Tüm bulutları eşitlemek istemezseniz bu ayarı işaretlemeden bırakıp her bulutu VMM konsolundaki bulut özelliklerinde bağımsız olarak eşitleyebilirsiniz. İşlemi tamamlamak için **Kaydet**'e tıklayın.
+9. VMM sunucusundaki tüm bulutlara yönelik meta verileri kasayla eşitlemek isterseniz **Bulut meta verilerini eşitle** seçeneğini etkinleştirin. Bu eylemin her sunucuda yalnızca bir kez gerçekleştirilmesi gerekir. Tüm bulutları eşitlemek istemezseniz bu ayarı işaretlemeden bırakıp her bulutu VMM konsolundaki bulut özelliklerinde bağımsız olarak eşitleyebilirsiniz. İşlemi tamamlamak için **Kaydet**'e tıklayın.
 
-    ![Sunucu kaydı](./media/site-recovery-vmm-to-azure/provider6.png)
+    ![Sunucu kaydı](./media/site-recovery-vmm-to-azure/provider16.PNG)
 
-9. Kayıt başlar. Kayıt tamamlandıktan sonra, sunucu kasadaki **Ayarlar** > **Sunucular** dikey penceresinde görüntülenir.
+10. Kayıt başlar. Kayıt tamamlandıktan sonra, sunucu kasadaki **Ayarlar** > **Sunucular** dikey penceresinde görüntülenir.
 
 
 #### Azure Site Recovery Sağlayıcısı'na yönelik komut satırı yüklemesi
@@ -279,7 +277,7 @@ Konumlar:
 
     ![Kurtarma Hizmetleri Aracısı Önkoşulları](./media/site-recovery-vmm-to-azure/hyperv-agent2.png)
 
-3. **Yükleme Ayarları** sayfasında, yükleme ve önbellek konumunu kabul edin veya değiştirin. Önbelleği, en az 5 GB kullanılabilir depolama alanı bulunan bir sürücüde yapılandırabilirsiniz ancak 600 GB veya daha fazla boş alana sahip bir önbellek sürücüsü kullanmanızı öneririz. Ardından **Yükle**'ye tıklayın.
+3. **Yükleme Ayarları** sayfasında, yükleme ve önbellek konumunu kabul edin veya değiştirin. Önbelleği, en az 5 GB kullanılabilir depolama alanı bulunan bir sürücüde yapılandırabilirsiniz, ancak 600 GB veya daha fazla boş alana sahip bir önbellek sürücüsü kullanmanızı öneririz. Ardından **Yükle**'ye tıklayın.
 4. Yükleme tamamlandıktan sonra işlemi bitirmek için **Kapat** düğmesine tıklayın.
     
     ![MARS Aracısı'nı Kaydetme](./media/site-recovery-vmm-to-azure/hyperv-agent3.png)
@@ -371,7 +369,7 @@ Ağ eşlemesi başladığında gerçekleşecekler şunlardır:
 
     ![Çoğaltma ilkesi](./media/site-recovery-vmm-to-azure/gs-replication2.png)
 
-6. Yeni bir ilke oluşturduğunuzda, bu ilke otomatik olarak VMM bulutuyla ilişkilendirilir. **Tamam**'a tıklayın. **Ayarlar** > **Çoğaltma** > ilke adı > **VMM Bulutu ile İlişkilendir** üzerinden ilave VM Bulutlarını (ve bu bulutların içindeki VM'leri) bu çoğaltma ilkesi ile ilişkilendirebilirsiniz. 
+6. Yeni bir ilke oluşturduğunuzda, bu ilke otomatik olarak VMM bulutuyla ilişkilendirilir. **Tamam** düğmesine tıklayın. **Ayarlar** > **Çoğaltma** > ilke adı > **VMM Bulutu ile İlişkilendir** üzerinden ilave VM Bulutlarını (ve bu bulutların içindeki VM'leri) bu çoğaltma ilkesi ile ilişkilendirebilirsiniz. 
 
     ![Çoğaltma ilkesi](./media/site-recovery-vmm-to-azure/policy-associate.png)
 
@@ -573,6 +571,6 @@ Dağıtımınız ayarlandıktan ve çalışmaya başladıktan sonra farklı tür
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

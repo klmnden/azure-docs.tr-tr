@@ -18,12 +18,12 @@
 
 # <a name="getting-started"> </a>Mobile Apps nedir?
 
-Azure App Service, profesyonel geliştiricilere yönelik, web, mobil ve tümleştirme senaryolarına ilişin zengin özellik grupları sağlayan tam yönetilen bir Hizmet olarak Platform’dur (PaaS). *Azure App Service*’de *Mobile Apps*, Kurumsal Geliştiriciler ve Sistem Tümleştiricileri için mobil geliştiricilere zengin bir özellik kümesi sağlayan yüksek düzeyde ölçeklenebilir, genel olarak kullanılabilir bir mobil uygulama geliştirme platformu sunar.
+Azure Uygulama Hizmeti, profesyonel geliştiricilere yönelik, web, mobil ve tümleştirme senaryolarına ilişin zengin özellik grupları sağlayan tam yönetilen bir [Hizmet olarak Platform](https://azure.microsoft.com/overview/what-is-paas/)’dur (PaaS). *Azure App Service* ’de *Mobile Apps*, Kurumsal Geliştiriciler ve Sistem Tümleştiricileri için mobil geliştiricilere zengin bir özellik kümesi sağlayan yüksek düzeyde ölçeklenebilir, genel olarak kullanılabilir bir mobil uygulama geliştirme platformu sunar.
 
 ![Mobile Apps](./media/app-service-mobile-value-prop/overview.png)
 
 ##Neden Mobile Apps?
-*Azure App Service*’de *Mobile Apps*, Kurumsal Geliştiriciler ve Sistem Tümleştiricileri için mobil geliştiricilere zengin bir özellik kümesi sağlayan yüksek düzeyde ölçeklenebilir, genel olarak kullanılabilir bir mobil uygulama geliştirme platformu sunar. Mobile Apps ile şunları yapabilirsiniz:
+*Azure App Service* ’de *Mobile Apps*, Kurumsal Geliştiriciler ve Sistem Tümleştiricileri için mobil geliştiricilere zengin bir özellik kümesi sağlayan yüksek düzeyde ölçeklenebilir, genel olarak kullanılabilir bir mobil uygulama geliştirme platformu sunar. Mobile Apps ile şunları yapabilirsiniz:
 
 - **Yerel ve platformlar arası uygulamaları oluşturma** - Hem yerel iOS, Android ve Windows uygulamaları hem de platformlar arası Xamarin veya Cordova (Phonegap) uygulamaları oluştururken yerel SDK'ları kullanarak App Service’in avantajlarından faydalanabilirsiniz.
 - **Kuruluş sistemlerinizi bağlama** - Mobile Apps ile dakikalar için kurumsal oturum ekleyebilir ve kuruluşunuzu şirket içi ya da bulut kaynaklarına bağlayabilirsiniz.
@@ -105,6 +105,6 @@ Azure App Service platformu hakkında daha fazla bilgi için bkz. [Azure App Ser
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

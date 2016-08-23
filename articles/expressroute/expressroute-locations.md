@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/05/2016"
+   ms.date="07/28/2016"
    ms.author="cherylmc" />
 
 # ExpressRoute ortakları ve eşleme konumları
@@ -31,7 +31,7 @@ Coğrafi bölge içindeki en az bir ExpressRoute konumuna bağlanırsanız coğr
 |---|---|---|
 |**Kuzey Amerika**|Doğu ABD, Batı ABD, Doğu ABD 2, Orta ABD, Güney Orta ABD, Kuzey Orta ABD, Orta Kanada, Doğu Kanada|Atlanta, Chicago, Dallas, Las Vegas+, Los Angeles, New York, Seattle, Silikon Vadisi, Washington DC, Montreal+, Quebec City+, Toronto|
 |**Güney Amerika**|Güney Brezilya|Sao Paulo|
-|**Avrupa**|Kuzey Avrupa, Batı Avrupa|Amsterdam, Dublin, Londra, Newport(Galler)+, Paris+|
+|**Avrupa**|Kuzey Avrupa, Batı Avrupa|Amsterdam, Dublin, Londra, Newport(Galler)+, Paris|
 |**Asya**|Doğu Asya, Güneydoğu Asya|Hong Kong, Singapur|
 |**Japonya**|Batı Japonya, Doğu Japonya|Osaka, Tokyo|
 |**Avustralya**|Güneydoğu Avustralya, Doğu Avustralya|Melbourne, Sidney|
@@ -53,6 +53,10 @@ Coğrafi bölgeler arasındaki bağlantı standart ExpressRoute SKU’da destekl
 
 ## Bağlantı sağlayıcı konumları
 
+> [AZURE.SELECTOR]
+[Sağlayıcıya Göre Konumlar](expressroute-locations.md#connectivity-provider-locations)
+[Konuma Göre Sağlayıcılar](expressroute-locations-providers.md#connectivity-provider-locations)
+
 ### Üretim Azure
 
 | **Hizmet sağlayıcı**  |**Microsoft Azure** | **Office 365 ve CRM Online** | **Konumlar** |
@@ -62,18 +66,20 @@ Coğrafi bölgeler arasındaki bağlantı standart ExpressRoute SKU’da destekl
 | **[British Telecom]( http://www.globalservices.bt.com/uk/en/news/bt_to_provide_connectivity_to_microsoft_azure)** | Destekleniyor | Destekleniyor | Amsterdam, Hong Kong, Londra, Silikon Vadisi, Singapur, Sidney, Tokyo, Washington DC |
 |**CenturyLink** | Çok yakında | Çok yakında| Silikon Vadisi |
 |**China Telecom Global** | Destekleniyor | Desteklenmiyor | Hong Kong |
-|**Cologix** | Destekleniyor | Çok yakında | Montreal+, Toronto |
+|**[Cologix](http://www.cologix.com/solutions/cloud-connect/public-clouds/microsoft-cloud/)** | Destekleniyor | Çok yakında | Montreal+, Toronto |
 | **[Colt]( http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)**  |  Destekleniyor | Destekleniyor | Amsterdam, Dublin, Londra, Tokyo |
 | **Comcast** | Destekleniyor | Destekleniyor | Chicago, Silikon Vadisi, Washington DC |
 | **[CoreSite](http://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** | Destekleniyor | Destekleniyor | Los Angeles | 
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Destekleniyor | Destekleniyor | Amsterdam, Atlanta, Chicago, Dallas, Hong Kong, Londra, Los Angeles, Melbourne, New York, Osaka, Sao Paulo, Seattle, Silikon Vadisi, Singapur, Sidney, Tokyo, Toronto, Washington DC |
 | **euNetworks** |  Destekleniyor | Destekleniyor | Amsterdam |
+| **GÉANT** | Çok yakında | Çok yakında | Amsterdam+ |
 | **[İnternet Initiative Japan Inc. - IIJ](http://www.iij.ad.jp/en/news/pressrelease/2015/1216-2.html)** |  Destekleniyor | Destekleniyor | Osaka, Tokyo |
 | **[InterCloud]( https://www.intercloud.com/)** | Destekleniyor | Destekleniyor | Amsterdam, Londra, Singapur, Washington DC |
 | **İnternet Solutions - Cloud Connect** | Destekleniyor | Destekleniyor | Amsterdam, Londra |
-| **Interxion** | Destekleniyor | Destekleniyor | Amsterdam, Londra |
+| **Interxion** | Destekleniyor | Destekleniyor | Amsterdam, Londra, Paris |
+| **Jisc** | Çok yakında | Çok yakında | Londra+ | 
 | **[Level 3 Communications]( http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Destekleniyor | Destekleniyor | Amsterdam, Chicago, Dallas, Las Vegas+, Londra, Seattle, Silikon Vadisi, Washington DC |
-| **Megaport** | Destekleniyor | Destekleniyor | Dallas, Las Vegas+, Los Angeles, Melbourne, New York, Seattle, Singapur, Sidney, Washington DC |
+| **Megaport** | Destekleniyor | Destekleniyor | Dallas, Hong Kong, Las Vegas+, Los Angeles, Melbourne, New York, Seattle, Singapur, Sidney, Washington DC |
 | **MTN** | Destekleniyor | Destekleniyor | Londra |
 | **NEXTDC** | Destekleniyor | Destekleniyor | Melbourne, Sidney |
 | **NTT Communications** | Destekleniyor | Destekleniyor | Londra, Osaka, Tokyo |
@@ -85,7 +91,7 @@ Coğrafi bölgeler arasındaki bağlantı standart ExpressRoute SKU’da destekl
 | **[TeleCity Group]( http://www.telecitygroup.com/investor-centre/news_details.htm?locid=03100500400b00d&xml)** | Destekleniyor | Destekleniyor | Amsterdam, Londra |
 | **Telefonica** | Çok yakında | Çok yakında | Sao Paulo+ |
 | **Telenor** | Destekleniyor | Destekleniyor | Amsterdam, Londra |
-| **[Telstra Corporation]( http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** | Destekleniyor | Desteklenmiyor | Melbourne, Sidney |
+| **[Telstra Corporation]( http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** | Destekleniyor | Çok Yakında | Melbourne, Sidney |
 | **[Verizon](http://www.verizonenterprise.com/products/networking/secure-cloud-interconnect/)** | Destekleniyor | Destekleniyor | Amsterdam, Hong Kong, Londra, Silikon Vadisi, Singapur, Sidney, Tokyo, Washington DC |
 | **Vodafone** | Destekleniyor | Desteklenmiyor | Londra | 
 | **[Zayo Group]( http://www.zayo.com/solutions/industries/connect-to-cloud-data-centers/cloud-connectivity/microsoft-expressroute/)** | Destekleniyor | Destekleniyor | Chicago, Los Angeles, New York, Silikon Vadisi, Toronto, Washington DC |
@@ -99,9 +105,9 @@ Coğrafi bölgeler arasındaki bağlantı standart ExpressRoute SKU’da destekl
 | **Hizmet sağlayıcı**  |**Microsoft Azure** | **Office 365** | **Konumlar** |
 |-----------------------|--------------------|----------------|---------------|
 | **[AT&T NetBond]( https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | Destekleniyor | Destekleniyor | Chicago, Washington DC |
-| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Destekleniyor | Destekleniyor | Chicago, New York, Washington DC |
-| **[Level 3 Communications - IPVPN]( http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Destekleniyor | Çok yakında | Chicago, New York+, Washington DC |
-| **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | Destekleniyor | Destekleniyor | Chicago, New York, Washington DC |
+| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Destekleniyor | Destekleniyor | Chicago, Dallas+, New York, Washington DC |
+| **[Level 3 Communications]( http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Destekleniyor | Çok yakında | Chicago, New York+, Washington DC |
+| **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | Destekleniyor | Destekleniyor | Chicago, Dallas+, New York, Washington DC |
 
 #### Çin
 
@@ -130,6 +136,7 @@ Bağlantı sağlayıcınız önceki bölümlerde listelenmemişse hala bağlant�
     - [InterXion](http://www.interxion.com/)
     - [NextDC](http://www.nextdc.com/)
     - [CoreSite](http://www.coresite.com/)
+    - [Cologix](http://www.cologix.com/)
 - Bağlantı sağlayıcınızı, ağınızı seçtiğiniz eşleme konumuna genişletmesini sağlayın.
     - Bağlantı sağlayıcınızın bağlantınızı yüksek oranda kullanılabilir şekilde genişlettiğinden emin olun, böylece hiç tek nokta arızası olmaz.
 - Microsoft’a bağlanmak için bağlantı sağlayınız olarak değişime sahip bir ExpressRoute bağlantı hattı sipariş edin.
@@ -137,8 +144,11 @@ Bağlantı sağlayıcınız önceki bölümlerde listelenmemişse hala bağlant�
 
 |**Bağlantı sağlayıcı**|**Exchange**|**Konumlar**|
 |---|---|---|
+|**[1CLOUDSTAR](http://www.1cloudstar.com/service/cloudconnect-azure-expressroute/)**|Equinix|Singapur|
 |**Alaska Communications**|Equinix|Seattle|
+|**[Lightower](http://www.lightower.com/network-solutions/cloud-connect/#microsoft-azure )**|Equinix|New York, Washington DC|
 |**[XO Communications](http://www.xo.com/)**|Equinix|Silikon Vadisi|
+
 
 ## ExpressRoute sistem tümleştiricileri
 
@@ -148,7 +158,7 @@ Bağlantı sağlayıcınız önceki bölümlerde listelenmemişse hala bağlant�
 |---|---|
 |**[Avanade Inc.](http://www.avanade.com/)**| Asya, Avrupa, ABD |
 |**[Dotnet Solutions](http://www.dotnetsolutions.co.uk/)**| Avrupa |
-|**[Nimbo](http://www.nimbo.com/)**|ABD||
+|**[Equinix Professional Services](http://www.equinix.com/services/consulting/)**|ABD|
 |**[OneAs1a](http://www.oneas1a.com/express-connect-any-cloud-ecac)** | Asya |
 |**[Perficient](http://www.perficient.com/Partners/Microsoft/Cloud/Azure-ExpressRoute)** | ABD |
 |**[Project Leadership](http://www.projectleadership.net/azure)** | ABD |
@@ -163,6 +173,6 @@ Bağlantı sağlayıcınız önceki bölümlerde listelenmemişse hala bağlant�
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

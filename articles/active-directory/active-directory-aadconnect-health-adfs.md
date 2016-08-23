@@ -14,11 +14,11 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="03/21/2016"
+    ms.date="07/14/2016"
     ms.author="vakarand"/>
 
 # Azure AD Connect Health'i AD FS ile Kullanma
-Aşağıdaki belgeler, AD FS altyapınızın Azure AD Connect Health ile izlenmesine ilişkin belgelerdir.
+Aşağıdaki belgeler, AD FS altyapınızın Azure AD Connect Health ile izlenmesine ilişkin belgelerdir. Azure AD Connect’i (Eşitleme) Azure AD Connect Health ile izleme hakkında bilgi için bkz. [Eşitleme için Azure AD Connect Health Kullanma](active-directory-aadconnect-health-sync.md). Ek olarak, Active Directory Etki Alanı Hizmetleri’ni Azure AD Connect Health ile izleme hakkında bilgi için bkz. [AD DS ile Azure AD Connect Health Kullanma](active-directory-aadconnect-health-adds.md). 
 
 ## AD FS uyarıları
 Azure AD Connect Health Uyarıları bölümünde etkin uyarıların listesi mevcuttur. Her uyarı için ilgili bilgiler, çözüm adımları ve ilgili belgelere yönelik bağlantılar verilmiştir. Etkin veya çözümlenmiş bir uyarıyı seçtiğinizde, alarmı çözümlemek için uygulayabileceğiniz adımların ve ek belgelere yönelik bağlantıların yanı sıra ek bilgiler içeren yeni bir dikey pencere görürsünüz. Ayrıca, geçmişte çözümlenen uyarılara ilişkin geçmiş verileri de görüntüleyebilirsiniz.
@@ -61,7 +61,7 @@ Azure AD Connect Health Performans İzleme, ölçümlere ilişkin izleme bilgile
 ![Azure AD Connect Health Portalı](./media/active-directory-aadconnect-health/perf1.png)
 
 
-Dikey pencerenin üst kısmındaki Filtre seçeneğini işaretlediğinizde her bir sunucunun ölçümlerini görmek için sunucuya göre filtreleme yapabilirsiniz. Ölçümleri değiştirmek için, yalnızca izleme dikey penceresinin altındaki izleme grafiğine tıklamanız ve Grafiği Düzenle öğesini seçmeniz yeterlidir. Ardından, açılan yeni dikey pencerede bulunan açılır menüden başka ölçümler seçebilir ve performans verilerini görüntülemek istediğiniz zaman aralığını belirtebilirsiniz.
+Dikey pencerenin üst kısmındaki Filtre seçeneğini işaretlediğinizde her bir sunucunun ölçümlerini görmek için sunucuya göre filtreleme yapabilirsiniz. Ölçümleri değiştirmek için, yalnızca izleme dikey penceresinin altındaki izleme grafiğine tıklamanız ve Grafiği Düzenle öğesini seçmeniz yeterlidir. Ardından, açılan yeni dikey pencerede bulunan açılan menüden başka ölçümler seçebilir ve performans verilerini görüntülemek istediğiniz zaman aralığını belirtebilirsiniz.
 
 ## AD FS raporları
 Azure AD Connect Health, AD FS'nin etkinlik ve performansı hakkında raporlar sağlar. Bu raporlar, yöneticilerin AD FS sunucularındaki etkinlikler hakkında öngörü edinmelerine yardımcı olur.
@@ -110,11 +110,12 @@ Raporda şunlar yer alır:
 * [Azure AD Connect Health Aracısı Yüklemesi](active-directory-aadconnect-health-agent-install.md)
 * [Azure AD Connect Health İşlemleri](active-directory-aadconnect-health-operations.md)
 * [Eşitleme için Azure AD Connect Health'i kullanma](active-directory-aadconnect-health-sync.md)
+* [Azure AD Connect Health'i AD DS ile Kullanma](active-directory-aadconnect-health-adds.md)
 * [Azure AD Connect Health ile ilgili SSS](active-directory-aadconnect-health-faq.md)
 * [Azure AD Connect Health Sürüm Geçmişi](active-directory-aadconnect-health-version-history.md)
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

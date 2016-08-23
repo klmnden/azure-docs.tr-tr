@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/26/2016"
+   ms.date="05/16/2016"
    ms.author="edmaca"/>
 
 # Microsoft Azure Data Lake Analytics'e genel bakış
@@ -81,6 +81,6 @@ Azure Data Lake Analytics, büyük veri analizini kolaylaştırmak için oluştu
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

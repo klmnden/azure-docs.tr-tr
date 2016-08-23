@@ -14,7 +14,7 @@
     ms.devlang="na"
     ms.topic="get-started-article"
     ms.date="04/12/2016"
-    ms.author="sethm;nberdy"/>
+    ms.author="sethm"/>
 
 # Azure Event Hubs nedir?
 
@@ -46,6 +46,7 @@ Event Hubs hakkında ayrıntılı bilgi için aşağıdaki konulara bakın.
 [Event Hubs kullanan bir örnek uygulamanın]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 
 
-<!----HONumber=Jun16_HO2-->
+
+<!--HONumber=Aug16_HO1-->
 
 

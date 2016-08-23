@@ -1,7 +1,7 @@
 <properties
     pageTitle="HBase öğreticisi: Hadoop’ta Linux tabanlı HBase kümelerini kullanmaya başlayın | Microsoft Azure"
     description="HDInsight’ta Hadoop ile Apache HBase kullanmaya başlamak için bu HBase öğreticisini izleyin. HBase kabuğundan tablolar oluşturun ve Hive kullanarak bunları sorgulayın."
-    keywords="apache hbase,hbase,hbase shell,hbase tutorial"
+    keywords="apache hbase,hbase,hbase kabuğu,hbase öğreticisi"
     services="hdinsight"
     documentationCenter=""
     authors="mumian"
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/04/2016"
+    ms.date="07/25/2016"
     ms.author="jgao"/>
 
 
@@ -61,7 +61,7 @@ Aşağıdaki yordam bir HBase kümesi oluşturmak için Azure ARM şablonu kulla
 6. **Oluştur**’a tıklayın. Bir küme oluşturmak yaklaşık 20 dakika sürer.
 
 
->[AZURE.NOTE] Bir HBase kümesi silindikten sonra aynı varsayılan blob kapsayıcısını kullanarak başka bir HBase kümesi oluşturabilirsiniz. Yeni küme özgün kümede oluşturduğunuz HBase tablolarını seçer.
+>[AZURE.NOTE] Bir HBase kümesi silindikten sonra aynı varsayılan blob kapsayıcısını kullanarak başka bir HBase kümesi oluşturabilirsiniz. Yeni küme özgün kümede oluşturduğunuz HBase tablolarını seçer. Tutarsızlıkları önlemek için kümeyi silmeden önce HBase tablolarını devre dışı bırakmanız önerilir.
 
 ## Tablo oluşturma ve veri ekleme
 
@@ -111,12 +111,14 @@ Bir sonraki yordamı tamamladıktan sonra bunlar daha anlamlı olacaktır.
 
         exit
 
+
+
 **Verileri kişi HBase tablosuna toplu olarak yüklemek için**
 
 HBase’de verileri tablolara yüklemek için bazı yöntemler vardır.  Daha fazla bilgi için bkz. [Toplu yükleme](http://hbase.apache.org/book.html#arch.bulk.load).
 
 
-*wasb://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt* konumundaki ortak blob kapsayıcısına örnek bir veri dosyası yüklenmiştir.  Veri dosyasının içeriği şudur:
+*wasbs://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt* konumundaki ortak blob kapsayıcısına örnek bir veri dosyası yüklenmiştir.  Veri dosyasının içeriği şudur:
 
     8396    Calvin Raji     230-555-0191    230-555-0191    5415 San Gabriel Dr.
     16600   Karen Wu        646-555-0113    230-555-0192    9265 La Paz
@@ -135,7 +137,7 @@ Bir metin dosyası oluşturabilir ve isterseniz dosyayı kendi depolama hesabın
 
 1. SSH’de, veri dosyalarını StoreFiles’a dönüştürmek ve Dimporttsv.bulk.output tarafından belirtilen göreli bir yola depolamak için aşağıdaki komutu çalıştırın:  HBase Kabuğu'ndan çıkış yapmak için çıkış komutunu kullanın.
 
-        hbase org.apache.hadoop.hbase.mapreduce.ImportTsv -Dimporttsv.columns="HBASE_ROW_KEY,Personal:Name, Personal:Phone, Office:Phone, Office:Address" -Dimporttsv.bulk.output="/example/data/storeDataFileOutput" Contacts wasb://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt
+        hbase org.apache.hadoop.hbase.mapreduce.ImportTsv -Dimporttsv.columns="HBASE_ROW_KEY,Personal:Name, Personal:Phone, Office:Phone, Office:Address" -Dimporttsv.bulk.output="/example/data/storeDataFileOutput" Contacts wasbs://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt
 
 4. Verileri /example/data/storeDataFileOutput konumundan HBase tablosuna yüklemek için aşağıdaki komutu çalıştırın:
 
@@ -174,34 +176,59 @@ Hive kullanarak HBase tablolarındaki verileri sorgulayabilirsiniz. Bu bölüm H
 
 1. HDInsight kümenize bağlanabildiğinizi doğrulamak için bir komut satırında aşağıdaki komutu kullanın:
 
-        curl -u <UserName>:<Password> -G https://<ClusterName>.azurehdinsight.net/templeton/v1/status
+        curl -u <UserName>:<Password> \
+        -G https://<ClusterName>.azurehdinsight.net/templeton/v1/status
 
     Aşağıdakine benzer bir yanıt almanız gerekir:
 
-    {"status":"ok","version":"v1"}
+        {"status":"ok","version":"v1"}
 
-  Bu komutta kullanılan parametreler aşağıdaki gibidir:
+    Bu komutta kullanılan parametreler aşağıdaki gibidir:
 
     * **-u** - İstek kimliğini doğrulamak için kullanılan kullanıcı adı ve parola.
     * **-G** - Bunun bir GET isteği olduğunu belirtir.
 
 2. Var olan HBase tablolarını listelemek için aşağıdaki komutu kullanın:
 
-        curl -u <UserName>:<Password> -G https://<ClusterName>.azurehdinsight.net/hbaserest/
+        curl -u <UserName>:<Password> \
+        -G https://<ClusterName>.azurehdinsight.net/hbaserest/
 
 3. İki sütun ailesi ile yeni bir HBase tablosu oluşturmak için aşağıdaki komutu kullanın:
 
-        curl -u <UserName>:<Password> -v -X PUT "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/schema" -H "Accept: application/json" -H "Content-Type: application/json" -d "{\"@name\":\"test\",\"ColumnSchema\":[{\"name\":\"Personal\"},{\"name\":\"Office\"}]}"
+        curl -u <UserName>:<Password> \
+        -X PUT "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/schema" \
+        -H "Accept: application/json" \
+        -H "Content-Type: application/json" \
+        -d "{\"@name\":\"Contact1\",\"ColumnSchema\":[{\"name\":\"Personal\"},{\"name\":\"Office\"}]}" \
+        -v
 
     Şema JSon biçiminde sağlanır.
 
 4. Bazı verileri eklemek için aşağıdaki komutu kullanın:
 
-        curl -u <UserName>:<Password> -v -X PUT "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/schema" -H "Accept: application/json" -H "Content-Type: application/json" -d "{\"Row\":{\"key\":\"1000\",\"Cell\":{\"column\":\"Personal:Name\", \"$\":\"John Dole\"}}}"
+        curl -u <UserName>:<Password> \
+        -X PUT "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/false-row-key" \
+        -H "Accept: application/json" \
+        -H "Content-Type: application/json" \
+        -d "{\"Row\":{\"key\":\"MTAwMA==\",\"Cell\":{\"column\":\"UGVyc29uYWw6TmFtZQ==\", \"$\":\"Sm9obiBEb2xl\"}}}" \
+        -v
+
+    -d anahtarında belirtilen değerleri base64 ile kodlamanız gerekir.  Örnekte:
+
+    - MTAwMA==: 1000
+    - UGVyc29uYWw6TmFtZQ==: Personal:Name
+    - Sm9obiBEb2xl: John Dole
+
+    [false-row-key](https://hbase.apache.org/apidocs/org/apache/hadoop/hbase/rest/package-summary.html#operation_cell_store_single) birden fazla (toplu) değer eklemenizi sağlar.
 
 5. Bir satır almak için aşağıdaki komutu kullanın:
 
-        curl -u <UserName>:<Password> -v -X GET "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/1000" -H "Accept: application/json"
+        curl -u <UserName>:<Password> \
+        -X GET "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/1000" \
+        -H "Accept: application/json" \
+        -v
+
+HBase Rest hakkında daha fazla bilgi için bkz. [Apache HBase Başvuru Kılavuzu](https://hbase.apache.org/book.html#_rest).
 
 ## Küme durumunu denetleme
 
@@ -252,15 +279,18 @@ SSH web istekleri gibi yerel istekler için HDInsight kümesine tünel oluşturm
     - **SOCKS v5**: (seçili)
     - **Uzak DNS**: (seçili)
 7. Değişiklikleri kaydetmek için **Tamam**’a tıklayın.
-8. http://<TheFQDN of a ZooKeeper>:60010/master-status adresine göz atın.
+8. http://&lt;The FQDN of a ZooKeeper>:60010/master-status adresine göz atın.
 
 Yüksek kullanılabilirlik kümesinde Web Kullanıcı Arabirimini barındıran ve o anda etkin olan HBase ana düğümünün bağlantısını bulabilirsiniz.
 
 ##Küme silme
 
+Tutarsızlıkları önlemek için kümeyi silmeden önce HBase tablolarını devre dışı bırakmanız önerilir.
+
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-## Sonraki adımlar?
+## Sonraki adımlar
+
 HDInsight’a yönelik bir HBase öğreticisinde bir HBase kümesi oluşturmayı ve tablo oluşturup bu tablolardaki verileri HBase kabuğundan görüntülemeyi öğrendiniz. Ayrıca HBase tablolarındaki veriler üzerinde bir Hive sorgusu kullanmayı, HBase C# REST API’lerini kullanarak bir HBase tablosu oluşturmayı ve tablodan veri almayı öğrendiniz.
 
 Daha fazla bilgi için bkz:
@@ -297,6 +327,6 @@ Daha fazla bilgi için bkz:
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

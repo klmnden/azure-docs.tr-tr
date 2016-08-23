@@ -5,7 +5,7 @@
     documentationCenter=".net" 
     authors="Rick-Anderson" 
     manager="wpickett" 
-    editor="jimbe"/>
+    editor="none"/>
 
 <tags 
     ms.service="app-service-web" 
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="dotnet" 
     ms.topic="get-started-article" 
-    ms.date="02/27/2016" 
+    ms.date="06/27/2016" 
     ms.author="riande"/>
 
 
@@ -111,6 +111,6 @@ ASP.NET oturum durumu kullanma hakkında daha fazla ayrıntı için bkz. [ASP.NE
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="05/11/2016"
+   ms.date="08/02/2016"
    ms.author="nitinme"/>
 
 # Azure Portal'ı kullanarak Azure Data Lake Store ile çalışmaya başlama
@@ -63,14 +63,14 @@ Data Lake Store ile çalışmaya başlamak için aşağıdaki videoları izleyin
     ![Yeni bir Azure Data Lake Store hesabı oluşturma](./media/data-lake-store-get-started-portal/ADL.Create.New.Account.png "Create a new Azure Data Lake account")
 
     - **Abonelik**. Altında yeni bir Data Lake Store hesabı oluşturmak istediğiniz aboneliği seçin.
-    - **Kaynak Grubu**. Var olan bir kaynak grubunu seçin veya bir tane oluşturmak için **Kaynak grubu oluştur**'a tıklayın. Kaynak grubu, bir uygulama için ilgili kaynakları bir arada tutan bir kapsayıcıdır. Daha fazla bilgi için bkz.z [Azure'da Kaynak Grupları](resource-group-overview.md#resource-groups).
+    - **Kaynak Grubu**. Var olan bir kaynak grubunu seçin veya bir tane oluşturmak için **Kaynak grubu oluştur**'a tıklayın. Kaynak grubu, bir uygulama için ilgili kaynakları bir arada tutan bir kapsayıcıdır. Daha fazla bilgi için bkz. [Azure'da Kaynak Grupları](resource-group-overview.md#resource-groups).
     - **Konum**: Data Lake Store hesabını oluşturmak istediğiniz konumu seçin.
 
 4. Data Lake Store hesabına Başlangıç Panosu'ndan erişilebilmesini istiyorsanız **Başlangıç Panosuna Sabitlemek** öğesini seçin.
 
 5. **Oluştur**'a tıklayın. Hesabı başlangıç panosuna sabitlemeyi tercih ediyorsanız tekrar başlangıç panosuna yönlendirilir ve Data Lake Store hesap hazırlama işleminizin ilerleme durumunu görebilirsiniz. Data Lake Store hesabı sağlandıktan sonra, hesap dikey penceresi görünür.
 
-6. Data Lake Store hesabınız hakkında, parçası olduğu kaynak grubu, konum vb. bilgileri görmek için **Temel Bileşenler** açılır menüsünü genişletin. Data Lake Store ile ilgili diğer kaynakların bağlantılarını görmek için **Hızlı Başlangıç** seçeneğine tıklayın.
+6. Data Lake Store hesabınız hakkında, parçası olduğu kaynak grubu, konum vb. bilgileri görmek için **Temel Bileşenler** açılan menüsünü genişletin. Data Lake Store ile ilgili diğer kaynakların bağlantılarını görmek için **Hızlı Başlangıç** seçeneğine tıklayın.
 
     ![Azure Data Lake Store hesabınız](./media/data-lake-store-get-started-portal/ADL.Account.QuickStart.png "Your Azure Data Lake account")
 
@@ -136,9 +136,10 @@ Bir Azure Data Lake Store hesabını silmek için, Data Lake Store dikey pencere
 - [Data Lake Store'da verilerin güvenliğini sağlama](data-lake-store-secure-data.md)
 - [Azure Data Lake Analytics'i Data Lake Store ile kullanma](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Azure HDInsight'ı Data Lake Store ile kullanma](data-lake-store-hdinsight-hadoop-use-portal.md)
+- [Data Lake Store tanılama günlüklerine erişme](data-lake-store-diagnostic-logs.md)
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

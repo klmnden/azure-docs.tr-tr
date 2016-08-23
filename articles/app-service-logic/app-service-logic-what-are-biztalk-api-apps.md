@@ -1,19 +1,19 @@
 <properties 
     pageTitle="Bağlayıcılar ve BizTalk API Apps nedir?" 
     description="API Apps, Bağlayıcılar ve BizTalk API Uygulamaları hakkında bilgi edinin" 
-    services="app-service\logic" 
+    services="logic-apps" 
     documentationCenter="" 
     authors="MandiOhlinger" 
     manager="erikre" 
     editor=""/>
 
 <tags 
-    ms.service="app-service-logic" 
+    ms.service="logic-apps" 
     ms.workload="integration" 
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="04/20/2016" 
+    ms.date="07/28/2016" 
     ms.author="mandia"/>
 
 # Bağlayıcılar ve BizTalk API Apps nedir?
@@ -21,21 +21,21 @@
 [AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
 
 
-Azure App Services genişletilebilirlik ve API Apps aracılığıyla ortak bağlantı ilkesi üzerine kurulmuştur. *Bağlayıcı*, bağlantı üzerine odaklanan bir API uygulaması türüdür. Bağlayıcılar da diğer tüm API uygulamaları gibi Web Apps, Mobile Apps ve Logic Apps hizmetlerinde kullanılır. Bağlayıcılar mevcut hizmetlere bağlanmayı kolaylaştırır ve kimlik doğrulamayı yönetmeye yardımcı olur, izleme, analiz ve daha fazlasını sağlar.
+*Bağlayıcı*, bağlantı üzerine odaklanan bir API uygulaması türüdür. Bağlayıcılar da diğer tüm API uygulamaları gibi Web Apps, Mobile Apps ve Logic Apps hizmetlerinde kullanılır. Bağlayıcılar mevcut hizmetlere bağlanmayı kolaylaştırır ve kimlik doğrulamayı yönetmeye yardımcı olur, izleme, analiz ve daha fazlasını sağlar.
 
 Herhangi bir geliştirici, kendi API uygulamalarını oluşturabilir ve özel olarak dağıtabilir. Gelecekte, geliştiriciler özel olarak oluşturdukları API Uygulamalarını market üzerinden paylaşıp para kazanabilecektir. 
 
 ![API Uygulamaları Marketi](./media/app-service-logic-what-are-biztalk-api-apps/Marketplace.png)
 
-Geliştiricilerin Azure App Service ile çözümler oluşturmasını hızlandırmak amacıyla Azure ekibi, markete çok sayıda yaygın senaryoyu karşılayan birkaç bağlayıcı eklemiştir. Ayrıca, App Service’in karmaşık ve gelişmiş tümleştirme senaryolarına ulaşımını artırmak için birkaç Premium ve BizTalk özelliği de mevcuttur.
+Geliştiricilerin çözümler oluşturmasını hızlandırmak amacıyla Azure ekibi, markete çok sayıda yaygın senaryoyu karşılayan birkaç bağlayıcı eklemiştir. Ayrıca, karmaşık ve gelişmiş tümleştirme senaryolarına ulaşımı artırmak için birkaç Premium ve BizTalk özelliği de mevcuttur.
 
-Azure App Service içinde farklı Hizmet "Katmanları" vardır. Tüm Katmanlar tam işlevleriyle birlikte bütün bağlayıcıları ve API uygulamalarını içerir.  
+Farklı Hizmet "Katmanları" vardır. Tüm Katmanlar tam işlevleriyle birlikte bütün bağlayıcıları ve API uygulamalarını içerir.  
 
 [App Service Fiyatlandırması](https://azure.microsoft.com/pricing/details/app-service/) bu Hizmet Katmanlarını açıklar ve ayrıca bu katmanların içindekileri listeler. Aşağıdaki bölümlerde BizTalk API Uygulamaları ve Bağlayıcıların çeşitli kategorileri açıklanmaktadır.
 
 
 ## Karma Bağlayıcılar 
-Karma bağlayıcılar [SAP](app-service-logic-connector-sap.md), [Oracle](app-service-logic-connector-oracle.md), [DB2](app-service-logic-connector-db2.md), [Informix](app-service-logic-connector-informix.md) ve WebSphere MQ bağlantısı ile kuruluş içinde App Service kapsamını artırır. 
+Karma bağlayıcılar [SAP](app-service-logic-connector-sap.md), [Oracle](app-service-logic-connector-oracle.md), [DB2](app-service-logic-connector-db2.md), [Informix](app-service-logic-connector-informix.md) ve WebSphere MQ bağlantısı ile kuruluş içinde kapsamı artırır. 
 
 ## EAI ve EDI Hizmetleri
 Kritik iş uygulamalarının oluşturulması bağlantıdan fazlasını gerektirir. Microsoft'un sektör lideri tümleştirme platformu BizTalk Server’ın altyapısını temel alan BizTalk API Uygulamaları; Web, Mobil ve Logic Uygulamalarına kolayca eklenebilen gelişmiş tümleştirme özellikleri sağlar. Bu tümleştirme özelliklerinden bazıları [Doğrulama](app-service-logic-xml-validator.md), [Ayıklama](app-service-logic-xpath-extract.md), [Dönüşüm](app-service-logic-transform-xml-documents.md), [Kodlayıcılar](app-service-logic-connector-jsonencoder.md), [Ticari Ortak Yönetimi](app-service-logic-connector-tpm.md) ve [X12](app-service-logic-connector-x12.md), [EDIFACT](app-service-logic-connector-edifact.md) ile [AS2](app-service-logic-connector-as2.md) gibi EDI biçimleridir.
@@ -47,7 +47,7 @@ Ek kaynaklar: [İşletmeler arası bağlayıcılar ve API uygulamaları](app-ser
 
 
 ## Kurallar
-İş kuralları, iş süreçlerini denetleyen ilk ve kararları kapsar. Genellikle, kurallar dinamiktir ve iş planları, düzenlemeler ve diğer birçok nedenden dolayı zaman içinde değişir. [App Service içindeki BizTalk Kuralları](app-service-logic-use-biztalk-rules.md) bu ilkeleri uygulama kodunuzdan ayırmanıza ve değişiklik işlemini daha kolay ve hızlı hale getirmenize imkan tanır.
+İş kuralları, iş süreçlerini denetleyen ilk ve kararları kapsar. Genellikle, kurallar dinamiktir ve iş planları, düzenlemeler ve diğer birçok nedenden dolayı zaman içinde değişir. [BizTalk Kuralları](app-service-logic-use-biztalk-rules.md) bu ilkeleri uygulama kodunuzdan ayırmanıza ve değişiklik işlemini daha kolay ve hızlı hale getirmenize imkan tanır.
 
 ## Bağlayıcı ve API uygulamaları listesi
 Standart Bağlayıcılar, BizTalk EAI, Premium Bağlayıcılar gibi her bir kategoride yer alan bağlayıcılar ve API Uygulamalarının tam listesi için bkz. [Bağlayıcılar ve API Uygulamaları Listesi](app-service-logic-connectors-list.md).
@@ -55,6 +55,6 @@ Standart Bağlayıcılar, BizTalk EAI, Premium Bağlayıcılar gibi her bir kate
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

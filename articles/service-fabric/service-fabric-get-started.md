@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/18/2016"
+   ms.date="06/15/2016"
    ms.author="ryanwi"/>
 
 # Geliştirme ortamınızı hazırlama
@@ -34,7 +34,7 @@ Geliştirme için şu işletim sistemi sürümleri desteklenir:
 
 Web Platformu Yükleyicisi, Service Fabric geliştirmesi için üç yapılandırma seçeneği sunar:
 
-- [Visual Studio 2015 için Service Fabric çalışma zamanını, SDK'yı ve araçları yükleyin][full-bundle-vs2015]
+- [Visual Studio 2015 Güncelleştirme 2 için Service Fabric çalışma zamanı, SDK ve araçları yükleme][full-bundle-vs2015]
 - [Visual Studio "15" için Service Fabric çalışma zamanını, SDK'yı ve araçları yükleyin][full-bundle-dev15]
 - [Yalnızca Service Fabric çalışma zamanını ve SDK'yı yükleyin (Visual Studio araçları olmadan) ][core-sdk]
 
@@ -59,13 +59,13 @@ Artık geliştirme ortamınız ayarlandığına göre uygulama derlemeye ve çal
 
 [1]: http://azure.microsoft.com/en-us/campaigns/service-fabric/ "Service Fabric kampanya sayfası"
 [2]: http://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"
-[full-bundle-vs2015]:http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015 "VS 2015 WebPI bağlantısı"
-[full-bundle-dev15]:http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-Dev15 "Dev15 WebPI bağlantısı"
-[core-sdk]:http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=ServiceFabricSDK "Core SDK WebPI bağlantısı"
+[full-bundle-vs2015]:http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015-2_1 "VS 2015 WebPI bağlantısı"
+[full-bundle-dev15]:http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-Dev15-2_1 "Dev15 WebPI bağlantısı"
+[core-sdk]:http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=ServiceFabricSDK_2_1 "Core SDK WebPI bağlantısı"
 [powershell5-download]:https://www.microsoft.com/en-us/download/details.aspx?id=50395
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

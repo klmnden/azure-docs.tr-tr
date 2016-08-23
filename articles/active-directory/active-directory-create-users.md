@@ -4,7 +4,7 @@
     services="active-directory"
     documentationCenter=""
     authors="curtand"
-    manager="stevenpo"
+    manager="femila"
     editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="03/31/2016"
+    ms.date="06/21/2016"
     ms.author="curtand;viviali"/>
 
 # Azure Active Directory'ye yeni kullanıcı veya Microsoft hesabı olan bir kullanıcı ekleme
@@ -24,15 +24,15 @@ Dizininizi doldurmak için kullanıcılar ekleyin. Bu makalede kuruluşunuzdaki 
 
 1. Dizin için genel yönetici olan bir hesapla [klasik Azure portalında](https://manage.windowsazure.com) oturum açın.
 2. **Active Directory**'yi seçin ve ardından kuruluş dizininizin adını seçin.
-3. **Kullanıcılar** sekmesini seçin ve ardından komut çubuğunda **Kullanıcı Ekle**'yi seçin.
-4. **Bu kullanıcı hakkındaki görüşlerinizi bize bildirin** sayfasında, **Kullanıcı türü** kısmında aşağıdaki seçeneklerden birini belirleyin:
+3. **Users (Kullanıcılar)** sekmesini seçin ve ardından komut çubuğunda **Add User (Kullanıcı Ekle)** seçeneğini belirleyin.
+4. **Tell us about this user (Bu kullanıcı hakkındaki görüşlerinizi bize bildirin)** sayfasında, **Type of user (Kullanıcı türü)** kısmında aşağıdaki seçeneklerden birini belirleyin:
 
-    - **Kuruluşunuzdaki yeni kullanıcı** – dizininize yeni bir kullanıcı hesabı ekler.
-    - **Var olan bir Microsoft hesabı olan kullanıcı** - Var olan bir Microsoft tüketici hesabını dizininize ekler (örneğin, bir Outlook hesabı)
+    - **New user in your organization (Kuruluşunuzdaki yeni kullanıcı)** - dizininize yeni bir kullanıcı hesabı ekler.
+    - **User with an existing Microsoft account (Var olan bir Microsoft hesabı olan kullanıcı)** - Var olan bir Microsoft tüketici hesabını dizininize ekler (örneğin, bir Outlook hesabı)
 
-5. **Kullanıcı türüne** bağlı olarak, bir kullanıcı adı (yeni kullanıcı için) veya bir e-posta adresi (Microsoft hesabı olan bir kullanıcı için) girin.
-6. **Profil** sayfasında bir ad ve soyad, kolay ad ve **Roller** listesinden bir kullanıcı rolü sağlayın. Kullanıcı ve yönetici rolleri hakkında daha fazla bilgi için bkz. [Azure AD'de yönetici rolü atama](active-directory-assign-admin-roles.md). Kullanıcı için **Multi-Factor Authentication'ın Etkinleştirilip Etkinleştirilmeyeceğini** belirtin.
-7. **Geçici parola al** sayfasında, **Oluştur**'u seçin.
+5. **Type of User (Kullanıcı Türü)** seçeneğine bağlı olarak, bir kullanıcı adı (yeni kullanıcı için) veya bir e-posta adresi (Microsoft hesabı olan bir kullanıcı için) girin.
+6. **Profile (Profil)** sayfasında bir ad ve soyad, kolay ad ve **Roles (Roller)** listesinden bir kullanıcı rolü sağlayın. Kullanıcı ve yönetici rolleri hakkında daha fazla bilgi için bkz. [Azure AD'de yönetici rolü atama](active-directory-assign-admin-roles.md). Kullanıcı için **Enable Multi-Factor Authentication (Multi-Factor Authentication'ı Etkinleştir)** seçeneğinin belirlenip belirlenmeyeceğini belirtin.
+7. **Get temporary password (Geçici parola alma)** sayfasında, **Create (Oluştur)** seçeneğini belirleyin.
 
 > [AZURE.IMPORTANT] Kuruluşunuz birden fazla etki alanı kullanıyorsa bir kullanıcı hesabını eklerken aşağıdakileri bilmeniz gerekir:
 >
@@ -44,8 +44,8 @@ Dizininizi doldurmak için kullanıcılar ekleyin. Bu makalede kuruluşunuzdaki 
 Nesne kimliği dışındaki tüm kullanıcı özniteliklerini değiştirebilirsiniz.
 
 1. Dizininizi açın.
-2. **Kullanıcılar** sekmesini ve ardından değiştirmek istediğiniz kullanıcının görünen adını seçin.
-3. Değişikliklerinizi tamamlayın ve ardından **Kaydet**'e tıklayın.
+2. **Users (Kullanıcılar)** sekmesini ve ardından değiştirmek istediğiniz kullanıcının görünen adını seçin.
+3. Değişikliklerinizi tamamlayın ve ardından **Save (Kaydet)** düğmesine tıklayın.
 
 Değiştirdiğiniz kullanıcı şirket içi Active Directory hizmetinizle eşitlenmişse bu yordamı kullanarak kullanıcı bilgilerini değiştiremezsiniz. Kullanıcıyı değiştirmek için şirket içi Active Directory yönetim araçlarınızı kullanın.
 
@@ -64,11 +64,11 @@ Konuklar, dizinde sınırlı bir haklar kümesine sahiptir. Bu haklar, Konuklar�
 
 ## Konuk kullanıcı erişim ilkeleri ayarlama
 
-Bir dizinin **Yapılandır** sekmesinde, konuk kullanıcıların erişimini denetlemeyi sağlayan seçenekler bulunur. Bu seçenekler yalnızca klasik Azure portalında bir dizin genel yöneticisi tarafından değiştirilebilir. Şu anda bir PowerShell veya API yöntemi bulunmamaktadır.
+Bir dizinin **Configure (Yapılandır)** sekmesinde, konuk kullanıcıların erişimini denetlemeyi sağlayan seçenekler bulunur. Bu seçenekler yalnızca klasik Azure portalında bir dizin genel yöneticisi tarafından değiştirilebilir. Şu anda bir PowerShell veya API yöntemi bulunmamaktadır.
 
-Klasik Azure portalında **Yapılandır** sekmesini açmak için **Active Directory**'yi seçin ve ardından dizinin adını seçin.
+Klasik Azure portalında **Configure (Yapılandır)** sekmesini açmak için **Active Directory**'yi seçin ve ardından dizinin adını seçin.
 
-![Azure Active Directory'deki Yapılandır sekmesi][1]
+![Azure Active Directory'deki Configure (Yapılandır) sekmesi][1]
 
 Ardından konuk kullanıcıların erişimini denetleme seçeneklerini düzenleyebilirsiniz.
 
@@ -88,6 +88,6 @@ Ardından konuk kullanıcıların erişimini denetleme seçeneklerini düzenleye
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

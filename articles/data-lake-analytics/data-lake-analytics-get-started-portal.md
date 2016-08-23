@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/26/2016"
+   ms.date="05/16/2016"
    ms.author="edmaca"/>
 
 # Öğretici: Azure Portal'ı kullanarak Azure Data Lake Analytics ile çalışmaya başlama
@@ -41,7 +41,7 @@ Her Data Lake Analytics hesabı, bir [Azure Data Lake Store]() hesabı bağıml�
 **Data Lake Analytics hesabı oluşturmak için**
 
 1. Yeni [Klasik Azure Portalı](https://portal.azure.com)'nda oturum açın.
-2. **Yeni**'ye, **Veri + Analiz**'e ve ardından **Data Lake Analytics**'e tıklayın.
+2. **Yeni** öğesine, **Veri + Analiz** öğesine ve ardından **Data Lake Analytics**'e tıklayın.
 6. Aşağıdakileri yazın veya seçin:
 
     ![Azure Data Lake Analytics portalı dikey penceresi](./media/data-lake-analytics-get-started-portal/data-lake-analytics-portal-create-adla.png)
@@ -158,6 +158,6 @@ Veri kaynağını hazırladıktan sonra, U-SQL betiği geliştirmeye başlayabil
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

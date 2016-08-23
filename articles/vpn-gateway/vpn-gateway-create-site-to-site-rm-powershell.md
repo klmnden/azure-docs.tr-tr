@@ -14,14 +14,14 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/13/2016"
+   ms.date="08/02/2016"
    ms.author="cherylmc"/>
 
 # PowerShell ve Azure Resource Manager kullanarak Siteden Siteye VPN bağlantısı olan bir sanal ağ oluşturma
 
 > [AZURE.SELECTOR]
 - [Azure Portalı](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-- [Klasik Azure Portalı](vpn-gateway-site-to-site-create.md)
+- [Azure Klasik Portalı](vpn-gateway-site-to-site-create.md)
 - [PowerShell - Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
 
 Bu makalede, Azure Resource Manager dağıtım modelini kullanarak sanal bir ağ ve şirket içi ağınıza bir Siteden Siteye VPN bağlantısı oluşturmak adım adım açıklanmaktadır. Siteden Siteye bağlantılar, şirket içi ve dışı karışık yapılandırmalar ve karma yapılandırmalar için kullanılabilir. 
@@ -39,7 +39,7 @@ Bu makalede, Azure Resource Manager dağıtım modelini kullanarak sanal bir ağ
 
 [AZURE.INCLUDE [vpn-gateway-table-site-to-site](../../includes/vpn-gateway-table-site-to-site-include.md)]
 
-Sanal ağları birbirine bağlamak istiyor ancak şirket içi bir konuma bağlantı oluşturmuyorsanız, bkz. [Configure a VNet-to-VNet connection](vpn-gateway-vnet-vnet-rm-ps.md) (Sanal ağdan sanal ağa bağlantıyı yapılandırma). Farklı türde bir bağlantı yapılandırması istiyorsanız [VPN Gateway bağlantı topolojileri](vpn-gateway-topology.md) makalesine bakın.
+Sanal ağları birbirine bağlamak istiyor ancak şirket içi bir konuma bağlantı oluşturmuyorsanız, bkz. [VNet’ten VNet’e bağlantıyı yapılandırma](vpn-gateway-vnet-vnet-rm-ps.md). Farklı türde bir bağlantı yapılandırması istiyorsanız [VPN Gateway bağlantı topolojileri](vpn-gateway-topology.md) makalesine bakın.
 
 
 ## Başlamadan önce
@@ -198,13 +198,13 @@ Yerel ağ geçidinizin ön eklerini değiştirmeniz gerekirse aşağıdaki yöne
 
 ## Sonraki adımlar
 
-- Bağlantınız tamamlandıktan sonra sanal ağlarınıza sanal makineler ekleyebilirsiniz. Adımlar için bkz. [Sanal Makine Oluşturma](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
+- Sanal ağlarınıza sanal makineler ekleyebilirsiniz. Adımlar için bkz. [Sanal Makine Oluşturma](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
 
 - BGP hakkında bilgi edinmek için [BGP’ye Genel Bakış](vpn-gateway-bgp-overview.md) ve [BGP’yi yapılandırma](vpn-gateway-bgp-resource-manager-ps.md) makalelerine bakın.
 
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

@@ -1,4 +1,4 @@
-### Henüz bir VPN Gateway bağlantısı oluşturmadıysanız önekleri ekleme veya kaldırma
+### <a name="noconnection"></a>VPN ağ geçidi bağlantısı olmadan ön ek ekleme veya kaldırma
 
 - **Ekleme**; ek adres öneklerini, oluşturduğunuz ancak henüz bir VPN Gateway bağlantısı olmayan yerel ağ geçidine eklemek için aşağıdaki örneği kullanın.
 
@@ -11,30 +11,35 @@
         $local = Get-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
         Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local -AddressPrefix @('10.0.0.0/24','30.0.0.0/24')
 
-### Zaten bir VPN Gateway bağlantısı oluşturduysanız önekleri ekleme veya kaldırma
+### <a name="withconnection"></a>VPN ağ geçidi bağlantısı ile ön ek ekleme veya kaldırma
 
-VPN bağlantınızı oluşturduysanız ve yerel ağ geçidinizinde bulunan IP adresi öneklerini ekleme veya kaldırmak istiyorsanız.aşağıdaki adımları sırayla uygulamanız gerekir. Bunun sonucunda, VPN bağlantınızda bazı kesintiler oluşacaktır.
+VPN bağlantınızı oluşturduysanız ve yerel ağ geçidinizinde bulunan IP adresi öneklerini ekleme veya kaldırmak istiyorsanız.aşağıdaki adımları sırayla uygulamanız gerekir. Bunun sonucunda, VPN bağlantınızda bazı kesintiler oluşacaktır. Ön ekleri güncelleştirirken ilk olarak bağlantıyı kaldırmanız, önekleri değiştirmeniz ve sonra yeni bir bağlantı oluşturmanız gerekir. 
 
 >[AZURE.IMPORTANT] VPN ağ geçidini silmeyin. böyle bir durumda, bunu yeniden oluşturmak için adımlarda geri gitmenizin yanı sıra şirket içi yönlendiriciyi de yeni ayarlarla yeniden yapılandırmanız gerekecektir.
  
-1. IPSec bağlantısını kaldırın. 
-2. Yerel ağ geçidinizin öneklerini değiştirin. 
-3. Yeni bir IPSec bağlantısı oluşturun. 
+1. Değişkenleri belirtin.
 
-Aşağıdaki örneği kılavuz olarak kullanabilirsiniz.
+        $gateway1 = Get-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
+        $local = Get-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
 
-    $gateway1 = Get-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
-    $local = Get-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
+2. Bağlantıyı kaldırın.
 
-    Remove-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg
+        Remove-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg
 
-    $local = Get-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
-    Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local -AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
+3. Ön ekleri değiştirin.
+
+        $local = Get-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
+        Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local `
+        -AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
+
+4. Bağlantıyı oluşturun. Bu örnekte bir IPsec bağlantı türü yapılandırılmaktadır. Ek bağlantı türleri için [PowerShell cmdlet](https://msdn.microsoft.com/library/mt603611.aspx) sayfasına bakın.
     
-    New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg -Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
+        New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg `
+        -Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local -ConnectionType IPsec `
+        -RoutingWeight 10 -SharedKey 'abc123'
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

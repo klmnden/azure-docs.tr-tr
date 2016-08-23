@@ -1,0 +1,93 @@
+<properties
+   pageTitle="Azure Güvenlik Merkezi’nde algılama özellikleri | Microsoft Azure"
+   description="Bu belge Azure Güvenlik Merkezi algılama özelliklerinin nasıl çalıştığını anlamanıza yardımcı olur."
+   services="security-center"
+   documentationCenter="na"
+   authors="YuriDio"
+   manager="swadhwa"
+   editor=""/>
+
+<tags
+   ms.service="security-center"
+   ms.topic="hero-article"
+   ms.devlang="na"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="07/21/2016"
+   ms.author="yurid"/>
+
+# Azure Güvenlik Merkezi algılama özellikleri
+Bu belge, Microsoft Azure kaynaklarınızı hedefleyen etkin tehditleri belirlemenize yardımcı olan ve hızlı yanıt vermek için gereken bilgileri sağlayan Azure Güvenlik Merkezi’nin gelişmiş algılama özelliklerini ele almaktadır.
+
+## Günümüzün tehditlerine yanıt verme
+Son 20 yılda tehdit kapsamında önemli değişiklikler olmuştur. Geçmişte şirketlerin yalnızca çoğunlukla “yapabileceklerini” görmeyle ilgilenen bireysel saldırganların web sitesi tahrifatından endişe duyması gerekiyordu. Bugün ise saldırganlar çok daha karmaşık ve organize hareket etmektedir. Saldırganlar genellikle belirli finansal ve stratejik hedeflere sahiptir. Ayrıca, ulus devletler veya organize suç örgütleri tarafından finanse edilebildiklerinden ellerinde daha fazla kaynak bulunmaktadır.
+
+Bu durum, saldırganlar tarafında eşi görülmemiş bir profesyonellik düzeyine yol açmıştır. Saldırganlar artık web tahrifatı ile ilgilenmemektedir. Artık bilgileri, mali hesapları ve gizli verileri çalmayla ilgilenmektedir ve tüm bunlar açık piyasada nakit oluşturmak ya da belirli bir ticari, siyasi veya askeri konumdan yararlanmak için kullanılabilir. Mali hedefleri olan saldırganlardan çok daha fazla endişe verici olan ise altyapıya ve insanlara zarar vermek için ağları ihlal edenlerdir.
+
+Buna yanıt olarak, kuruluşlar çoğunlukla bilinen saldırı imzalarını arayarak kurumsal çevrelerini veya uç noktalarını savunmaya odaklanan birkaç nokta çözüm dağıtmaktadır. Bu çözümler, güvenlik analizi uzmanının belirlemesini ve araştırmasını gerektiren yüksek miktarda düşük güvenilirlik uyarıları oluşturma eğilimindedir. Çoğu kurum bu uyarılara yanıt verecek zaman ve uzmanlığa sahip olmadığından birçoğu çözüme kavuşmamaktadır.  Bu sırada, saldırganlar çok sayıda imza tabanlı savunmayı bozmaya ve [bulut ortamlarına uyarlamaya](https://azure.microsoft.com/blog/detecting-threats-with-azure-security-center/) yönelik yöntemlerini geliştirmiştir. Ortaya çıkan tehditleri daha hızlı belirlemek ve algılama ile yanıtı hızlandırmak için yeni yaklaşımlar gereklidir. 
+
+## Azure Güvenlik Merkezi’nin tehditleri algılaması ve yanıt vermesi
+
+Microsoft güvenlik araştırmacıları sürekli olarak tehditleri araştırmaktadır. Bunlar Microsoft’un bulut ve şirket içindeki genel varlığından edinilen kapsamlı bir telemetri kümesine erişebilmektedir. Geniş kapsamlı ve çeşitlilik barındıran bu veri kümeleri Microsoft’un yeni saldırı modellerini ve şirket içi müşteri ve kuruluş ürünlerinin yanı sıra çevrimiçi hizmetleri üzerindeki eğilimleri keşfetmesini sağlamaktadır. Sonuç olarak, saldırganlar yeni ve giderek karmaşık hale gelen sömürülerini ortaya çıkardıkça Güvenlik Merkezi algılama algoritmalarını hızlı bir şekilde güncelleştirebilmektedir. Bunun yapılması hızlı hareket eden bir ortama ayak uydurmanıza yardımcı olmaktadır. 
+
+Güvenlik Merkezi tehdit algılaması Azure kaynaklarınızdan, ağınızdan ve bağlı iş ortağı çözümlerinden güvenlik verilerini otomatik olarak toplayarak çalışır. Tehditleri belirlemek amacıyla bu bilgileri genellikle birden fazla kaynaktan bilgileri ilişkilendirerek analiz eder. Güvenlik uyarıları, Güvenlik Merkezi’nde tehdidin nasıl düzeltileceğine ilişkin önerilerle birlikte öncelik sırasına koyulur.
+
+![Güvenlik Merkezi Veri toplama ve sunumu](./media/security-center-detection-capabilities/security-center-detection-capabilities-fig1.png)
+
+Güvenlik Merkezi, imza tabanlı yaklaşımların ötesine geçen gelişmiş güvenlik analizleri kullanır. Büyük veri ve [machine learning](https://azure.microsoft.com/blog/machine-learning-in-azure-security-center/) teknolojilerindeki sıçramalar, tüm bulut yapısındaki olayları değerlendirmek için kullanılır: elle yaklaşımlar kullanılarak ve saldırıların gelişimi tahmin edilerek belirlenmesi imkansız olan tehditler algılanır. Bu güvenlik analizleri şunlardır: 
+
+- **Tümleşik tehdit bilgileri**: Microsoft ürün ve hizmetleri, Microsoft Dijital Suçlar Birimi (DCU), Microsoft Güvenlik Yanıt Merkezi (MSRC) ve dış akışların küresel tehdit bilgilerinden yararlanarak bilinen kötü aktörleri arar.
+- **Davranış analizi**: kötü amaçlı davranışları bulmak için bilinen modelleri uygular. 
+- **Anormallik algılama**: geçmiş taban çizgisi oluşturmak için istatistiksel profil oluşturmayı kullanır. Olası bir saldırı vektörüne uygun olan yerleşik taban çizgilerinden sapmalar konusunda uyarır.
+
+> [AZURE.NOTE] Gelişmiş algılamalar Azure Güvenlik Merkezi'nin Standart Katmanında mevcuttur. 90 günlük ücretsiz deneme sürümü kullanılabilir. [Güvenlik İlkesi](security-center-policies.md) bölümündeki Fiyatlandırma Katmanı’ndan yükseltme yapabilirsiniz. Fiyatlandırma hakkında daha fazla bilgi almak için [Güvenlik Merkezi sayfasını](https://azure.microsoft.com/pricing/details/security-center/) ziyaret edin. 
+
+### Tehdit bilgileri
+Microsoft yoğun miktarda genel tehdit bilgisine sahiptir. Azure, Office 365, Microsoft CRM online, Microsoft Dynamics AX, outlook.com, MSN.com, Microsoft Dijital Suçlar Birimi (DCU) ve Microsoft Güvenlik Yanıt Merkezi (MSRC) gibi birden fazla kaynaktan telemetri akışı sağlanır. Araştırmacılar ayrıca büyük bulut hizmeti sağlayıcıları ve üçüncü tarafların bilgi akışlarına abone olan kişiler arasında paylaşılan tehdit bilgilerini alır. Azure Güvenlik Merkezi bilinen kötü aktörlerden gelen tehditler konusunda sizi uyarmak için bu bilgileri kullanabilir. Bazı örnekler:
+
+- **Kötü amaçlı bir IP adresine giden iletişim**: bilinen bir botnet veya darknet ile giden trafik, kaynağınızın tehlikeye girdiğini ve bir saldırganın ilgili sistem üzerinde komut yürütmeye ya da verileri çalmaya çalıştığını gösterir. Azure Güvenlik Merkezi, ağ trafiğini Microsoft'un genel tehdit veritabanıyla karşılaştırır ve kötü amaçlı bir IP adresi iletişimi algılarsa sizi uyarır.
+
+## Davranış analizi
+
+Davranış analizi, verileri analiz eden ve bilinen modeller koleksiyonuyla karşılaştıran bir tekniktir. Ancak, bu modeller basit imzalar değildir. Bunlar büyük veri kümelerine uygulanan karmaşık machine learning algoritmaları aracılığıyla belirlenir. Azure Güvenlik Merkezi; sanal makine günlükleri, sanal ağ cihaz günlükleri, yapı günlükleri ve diğer kaynakların analizine göre tehlike giren kaynaklarını belirlemek amacıyla davranış analizini kullanabilir. 
+
+Ayrıca, yaygın bir kampanyanın kanıtını desteklemek üzere denetlenmesi gereken diğer sinyallerle bir bağlantı vardır. Bu durum yerleşik tehlike göstergeleriyle tutarlı olayları tanımlamaya yardımcı olur. Bazı örnekler:
+
+- **Şüpheli işlem yürütme**: Saldırganlar tespit edilmeden kötü amaçlı yazılım yürütmeye yönelik birkaç teknik kullanmaktadır. Örneğin, bir saldırgan kötü amaçlı yazılıma yasal sistem dosyalarıyla aynı adı verip, bu dosyaları alternatif konumlara yerleştirebilir, iyi amaçlı bir dosyaya çok benzer bir ad kullanabilir ya da dosyanın gerçek uzantısını maskeleyebilir. Güvenlik Merkezi modelleri, davranışları işler ve işlem yürütmeleri izleyerek bunlar gibi aykırı değerleri algılar.  
+- **Gizli kötü amaçlı yazılım ve açıktan faydalanmanın başarısız olması**: Karmaşık kötü amaçlı yazılımlar diske hiçbir zaman yazmayarak veya diske depolanmış yazılım bileşenlerini şifreleyerek geleneksel kötü amaçlı yazılımdan koruma ürünlerinden kurtulabilmektedir.  Ancak, bu tür kötü amaçlı yazılımlar çalışmak için bellekte iz bırakmak zorunda olduğundan bellek analizi kullanılarak algılanabilir. Yazılım kilitlendiğinde bir kilitlenme dökümü kilitlenme sırasında belleğin bir kısmını yakalar.  Kilitlenme dökümündeki belleği analiz eden Azure Güvenlik Merkezi, yazılımdaki açıklardan yararlanmak, gizli verilere erişmek ve makinenizin performansını etkilemeden tehlikeye giren bir makineye gizlice sızmak için kullanılan teknikleri algılayabilir.
+- **Yana hareket ve iç keşif**: Tehlikeye giren bir ağda kalıcı olmak ve değerli verileri bulmak/toplamak için saldırganlar genellikle riskli makineden aynı ağdaki diğer makinelere yana doğru hareket etmeye çalışır. Güvenlik Merkezi bir saldırganın ağda kapladığı yeri genişletme denemelerini bulmak için uzaktan komut yürütme, ağ araştırma ve hesap numaralandırma gibi işlem ve oturum açma etkinliklerini izler.
+- **Kötü Amaçlı PowerShell Komut Dosyaları**: PowerShell çeşitli amaçlarla hedef sanal makinelerde kötü amaçlı kod yürütmek üzere saldırganlar tarafından kullanılmaktadır. Güvenlik Merkezi şüpheli etkinliklerin kanıtı için PowerShell etkinliğini inceler. 
+- **Giden saldırılar**: Saldırganlar genellikle bulut kaynaklarını ek saldırılar yerleştirmek üzere kullanma amacıyla bulut kaynaklarını hedefler. Örneğin, diğer sanal makinelere karşı deneme yanılma saldırıları başlatmak, istenmeyen posta göndermek veya açık bağlantı noktalarını ya da internet üzerindeki diğer cihazları taramak için riskli sanal makineler kullanılabilir. Ağ trafiğine machine learning uygulayan Güvenlik Merkezi giden ağ iletişimlerinin normu aştığını algılayabilir. İstenmeyen posta durumunda Güvenlik Merkezi, Office 365’ten alınan bilgilerle olağandışı e-posta trafiğini ilişkilendirerek, postanın kötü amaçlı ya da yasal bir e-posta kampanyasının sonucu olup olmadığını belirler.  
+
+### Anormallik algılama
+
+Azure Güvenlik Merkezi, tehditleri tanımlamak için anormallik algılamayı da kullanır. Davranış analizinden (büyük veri kümelerinden türetilmiş bilinen modellere bağlıdır) farklı olarak anormallik algılama daha fazla “kişiselleştirilmiştir” ve dağıtımlarınıza özel taban çizgilerine odaklanır. Dağıtımlarınızın normal etkinliğini belirlemek için machine learning uygulanır ve sonra bir güvenlik olayını gösterebilecek aykırı değer koşullarını tanımlamak üzere kurallar oluşturulur. Bir örneği aşağıda verilmiştir:
+
+- **Gelen RDP/SSH deneme yanılma saldırıları**: Dağıtımlarınız her gün çok sayıda oturumun açıldığı yoğun sanal makineler ve çok az oturumun açıldığı ya da hiç oturum açılmayan sanal makineler içerebilir. Azure Güvenlik Merkezi bu sanal makineler için taban çizgisi oturum açma etkinliğini belirler ve machine learning kullanarak normal oturum açma etkinliğinin dışındaki olayları belirler. Oturum açma sayısı, oturum açma saati, oturum açmanın istendiği konum veya oturum açmayla ilgili diğer özellikler taban çizgisine göre oldukça farklı ise bir uyarı oluşturulabilir. Yine machine learning neyin önemli olduğunu belirler.
+
+## Sürekli tehdit bilgisi izleme
+
+Azure Güvenlik Merkezi, tehdit kapsamındaki değişiklikleri sürekli olarak izleyen güvenlik araştırması ve veri bilimi ekipleri çalıştırır. Buna aşağıdaki girişimler dahildir:
+
+- **Tehdit bilgisi izleme**: Tedit bilgileri, var olan veya yeni ortaya çıkan tehditlere ilişkin mekanizma, gösterge, etkiler ve uygulanabilir öneriler içerir. Bu bilgileri güvenlik topluluğu içinde paylaşılır ve Microsoft, iç ve dış kaynaklardan gelen tehdit bilgisi akışlarını sürekli olarak izler.
+- **Sinyal paylaşımı**: Microsoft'un bulut ve şirket içi hizmetler, sunucular ve istemci uç noktası cihazları içeren geniş portföyünde güvenlik ekiplerinden alınan bilgiler paylaşılır ve analiz edilir. 
+- **Microsoft güvenlik uzmanları**: Microsoft’ta hukuk ve web saldırıcı algılama gibi uzman güvenlik alanlarında çalışan ekiplerle sürekli iletişim.
+- **Algılama ayarı**: Gerçek müşteri veri kümelerine göre algoritmalar çalıştırılır ve güvenlik araştırmacıları, sonuçları doğrulamak üzere müşterilerle işbirliği yapar. Doğru ve yanlış pozitifler kullanılarak machine learning algoritmaları iyileştirilir.
+
+Bu birleşik çabalar yeni ve geliştirilmiş algılamalarla sonuçlanır ve sizin hiçbir şey yapmanıza gerek kalmaz.
+
+## Sonraki adımlar
+Bu belgede, Azure Güvenlik Merkezi algılama özelliklerinin nasıl çalıştığı hakkında bilgi edindiniz. Güvenlik Merkezi hakkında daha fazla bilgi edinmek için şunlara bakın:
+
+- [Azure Güvenlik Merkezi Planlama ve İşlemler Kılavuzu](security-center-planning-and-operations-guide.md)
+- [Azure Güvenlik Merkezi'nde güvenlik uyarılarını yönetme ve yanıtlama](security-center-managing-and-responding-alerts.md)
+- [Azure Güvenlik Merkezi'nde güvenlik durumunu izleme](security-center-monitoring.md) - Azure kaynaklarınızın sistem durumunu nasıl izleyeceğiniz hakkında bilgi edinin.
+- [Azure Güvenlik Merkezi ile iş ortağı çözümlerini izleme](security-center-partner-solutions.md) - İş ortağı çözümlerinizin sistem durumunu nasıl izleyeceğiniz hakkında bilgi edinin.
+- [Azure Güvenlik Merkezi ile ilgili SSS](security-center-faq.md) - Hizmeti kullanımı ile ilgili sık sorulan soruları bulabilirsiniz.
+- [Azure Güvenlik blogu](http://blogs.msdn.com/b/azuresecurity/) - Azure güvenliği ve uyumluluğu ile ilgili blog yazılarını bulabilirsiniz.
+
+
+
+<!--HONumber=Aug16_HO1-->
+
+

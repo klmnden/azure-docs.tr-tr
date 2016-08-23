@@ -53,13 +53,20 @@ Tahmine dayalı önceden yapılandırılmış çözümün bir [adım adım kıla
 [lnk-predictive-walkthrough]: iot-suite-predictive-walkthrough.md
 [lnk_preconfigured_solutions]: iot-suite-what-are-preconfigured-solutions.md
 [lnk_iot_suite]: iot-suite-overview.md
-[lnk_machine_learning]: https://azure.microsoft.com/en-us/services/machine-learning/
+[lnk_machine_learning]: https://azure.microsoft.com/services/machine-learning/
 [lnk_infographic]: https://www.microsoft.com/server-cloud/predictivemaintenance/Index.html
 [lnk_regression_model]: http://gallery.cortanaanalytics.com/Collection/Predictive-Maintenance-Template-3
 [lnk_capture_value]: http://download.microsoft.com/download/0/7/D/07D394CE-185D-4B96-AC3C-9B61179F7080/Capture_value_from_the_Internet%20of%20Things_with_Predictive_Maintenance.PDF
 
+Önceden yapılandırılmış IoT Suite çözümlerinin diğer özelliklerinden bazılarını da keşfedebilirsiniz:
+
+- [IoT Paketi hakkında sık sorulan sorular][lnk-faq]
+- [Her yönüyle IoT güvenliği][lnk-security-groundup]
+
+[lnk-faq]: iot-suite-faq.md
+[lnk-security-groundup]: securing-iot-ground-up.md
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

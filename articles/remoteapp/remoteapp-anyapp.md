@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="05/02/2016"
+   ms.date="07/02/2016"
    ms.author="elizapo"/>
 
 # Azure RemoteApp ile herhangi bir cihazda tüm Windows uygulamalarını çalıştırma
@@ -28,7 +28,9 @@ Bu makalede, Access’i tüm kullanıcılarımızla paylaşacağız. Ancak, HERH
 
 Access’in bir veritabanı olduğunu ve bu veritabanının kullanışlı olmasını istediğimizi lütfen unutmayın. Bu nedenle, kullanıcıların Access veri paylaşımına erişimini sağlamak üzere birkaç ek adım gerçekleştireceğiz. Uygulamanız bir veritabanı değilse ya da kullanıcılarınızın bir dosya paylaşımına erişebilmesine ihtiyacınız yoksa, bu öğreticide buna yönelik adımları atlayabilirsiniz.
 
-[AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
+> [AZURE.NOTE] <a name="note"></a>Bu öğreticiyi tamamlamak için bir Azure hesabınızın olması gerekir:
+> - [Ücretsiz bir Azure hesabı açabilirsiniz](https://azure.microsoft.com/free/?WT.mc_id=A261C142F): Ücretli Azure hizmetlerini denemek için kullanabileceğiniz krediler alabilir ve hatta kullanıldıktan sonra bile hesabı tutabilir ve Web siteleri gibi ücretsiz Azure hizmetlerini kullanabilirsiniz. Açıkça ayarlarınızı değiştirip ücretlendirme istemediğiniz sürece kredi kartınız asla ücretlendirilmeyecektir.
+> - [MSDN abone avantajlarını etkinleştirebilirsiniz](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): MSDN aboneliğiniz, ücretli Azure hizmetlerinizi kullanabildiğiniz her ay size kredi verir.
 
 
 ## RemoteApp’te koleksiyon oluşturma
@@ -120,6 +122,6 @@ Artık koleksiyon oluşturmayı öğrendiğinize göre [Office 365 kullanan bir 
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

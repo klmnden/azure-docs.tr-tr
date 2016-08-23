@@ -7,7 +7,7 @@
    manager="timlt"
    editor=""
    tags="acs, azure-container-service"
-   keywords="Docker, Containers, Micro-services, Mesos, Azure"/>
+   keywords="Docker, Kapsayıcılar, Mikro hizmetler, Mesos, Azure"/>
 
 <tags
    ms.service="container-service"
@@ -30,7 +30,7 @@ Bu belgedeki alıştırmalar için ön koşullar:
 
 ## Yeni bir kapsayıcı dağıtma
 
-Docker Swarm’da yeni bir kapsayıcı oluşturmak için `docker run` komutunu kullanın. Bu örnek `yeasy/simple-web` görüntüsünden bir kapsayıcı oluşturur:
+Docker Swarm’da yeni bir kapsayıcı oluşturmak için `docker run` komutunu kullanın (yukarıdaki önkoşullara uygun olarak SSH tünelini ana sunuculara açtığınızdan emin olun). Bu örnek `yeasy/simple-web` görüntüsünden bir kapsayıcı oluşturur:
 
 
 ```bash
@@ -54,9 +54,11 @@ Artık Swarm aracı yük dengeleyicinin genel DNS adı aracılığıyla bu kapsa
 
 ![Gerçek ziyaret sonuçları](media/real-visit.jpg)  
 
+Varsayılan olarak Yük Dengeleyicinin 80, 8080 ve 443 bağlantı noktaları açıktır. Başka bir bağlantı noktasında bağlanmak istiyorsanız Aracı Havuzu için Azure Load Balancer üzerinde ilgili bağlantı noktasını açmanız gerekir.
+
 ## Birden çok kapsayıcı dağıtma
 
-Docker Swarm kümesinde birden çok kapsayıcı başlatıldığında, kapsayıcıların hangi ana bilgisayarlar üzerinde çalıştığını görmek için `docker ps` komutunu kullanabilirsiniz. Bu örnekte, üç kapsayıcı üç Swarm aracısında eşit olarak yayılır:  
+Birden çok kapsayıcı başlatıldığında ‘docker çalışmasını’ birden çok kez yürüterek kapsayıcıların hangi ana bilgisayarlar üzerinde çalıştığını görmek için `docker ps` komutunu kullanabilirsiniz. Aşağıdaki örnekte üç kapsayıcı üç Swarm aracısında eşit olarak yayılır:  
 
 
 ```bash
@@ -70,7 +72,7 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 
 ## Docker Compose kullanarak kapsayıcıları dağıtma
 
-Birden çok kapsayıcının dağıtımını ve yapılandırmasını otomatik hale getirmek için Docker Compose’u kullanabilirsiniz. Bunu yapmak için, bir Secure Shell (SSH) tüneli oluşturulduğundan ve DOCKER_HOST değişkeninin ayarlandığından emin olun.
+Birden çok kapsayıcının dağıtımını ve yapılandırmasını otomatik hale getirmek için Docker Compose’u kullanabilirsiniz. Bunu yapmak için, bir Secure Shell (SSH) tüneli oluşturulduğundan ve DOCKER_HOST değişkeninin ayarlandığından emin olun (yukarıdaki önkoşullara bakın).
 
 Yerel sisteminizde docker-compose.yml dosyası oluşturun. Bunu yapmak için, bu [örneği](https://raw.githubusercontent.com/rgardler/AzureDevTestDeploy/master/docker-compose.yml) kullanın.
 
@@ -115,12 +117,14 @@ caf185d221b7        adtd/web:0.1        "apache2-foreground"   2 minutes ago    
 040efc0ea937        adtd/rest:0.1       "catalina.sh run"      3 minutes ago       Up 2 minutes        10.0.0.4:8080->8080/tcp   swarm-agent-3B7093B8-0/compose_rest_1
 ```
 
+Doğal olarak, yalnızca `compose.yml` dosyanızda tanımlanan kapsayıcıları incelemek için `docker-compose ps` kullanabilirsiniz.
+
 ## Sonraki adımlar
 
 [Docker Swarm hakkında daha fazla bilgi edinme](https://docs.docker.com/swarm/)
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

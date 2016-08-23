@@ -13,11 +13,11 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="powershell"
    ms.workload="big-compute"
-   ms.date="04/21/2016"
+   ms.date="07/28/2016"
    ms.author="danlep"/>
 
 # Azure Batch PowerShell cmdlet’leri kullanmaya başlama
-Bu bilgiler, Batch hesabınızı yönetmek, havuzlar, işler ve görevler gibi Batch kaynaklarınızla da çalışmak için kullanabildiğiniz Azure PowerShell cmdlet’lerine hızlı bir giriş yapmanızı sağlar. Batch API'leri, Azure portalı ve Azure Komut Satırı Arabirimi (CLI) ile gerçekleştirdiğiniz Batch cmdlet'leriyle aynı görevlerin çoğunu gerçekleştirebilirsiniz. Bu makale Azure PowerShell sürüm 1.3.2 veya sonraki sürümlere dayandırılmaktadır.
+Azure Batch PowerShell cmdlet’leri ile Batch API'leri, Azure portalı ve Azure Komut Satırı Arabirimi (CLI) ile gerçekleştirdiğiniz Batch aynı görevlerin çoğunu gerçekleştirebilir ve betik oluşturabilirsiniz. Bu bilgiler, Batch hesabınızı yönetmek, havuzlar, işler ve görevler gibi Batch kaynaklarınızla da çalışmak için kullanabildiğiniz cmdlet’lere hızlı bir giriş yapmanızı sağlar. Bu makale Azure PowerShell 1.6.0 sürümündeki cmdlet’leri temel almaktadır.
 
 Tam Batch cmdlet’leri listesi ve ayrıntılı cmdlet sözdizimi için bkz. [Azure Batch cmdlet başvurusu](https://msdn.microsoft.com/library/azure/mt125957.aspx). 
 
@@ -45,7 +45,7 @@ Tam Batch cmdlet’leri listesi ve ayrıntılı cmdlet sözdizimi için bkz. [Az
     New-AzureRmResourceGroup –Name MyBatchResourceGroup –location "Central US"
 
 
-Bundan sonra, kaynak grubunda <*account_name*> için bir hesap adı ve Batch hizmetinizin ulaşılır olduğu konumu da belirterek yeni bir Batch hesabı oluşturun. Hesap oluşturmanın tamamlanması birkaç dakika sürebilir. Örneğin:
+Ardından, <*account_name*> içinde bir hesap adı ve kaynak grubunuzun konum ve adını belirterek kaynak grubunda yeni bir Batch hesabı oluşturun. Batch hesabının oluşturulması biraz zaman alabilir. Örneğin:
 
 
     New-AzureRmBatchAccount –AccountName <account_name> –Location "Central US" –ResourceGroupName MyBatchResourceGroup
@@ -94,16 +94,22 @@ BatchAccountContext nesnesini **BatchContext** parametresini kullanan cmdlet’l
 ## Batch kaynaklarını oluşturma ve değiştirme
 Batch hesabı altında kaynak oluşturmak için **New-AzureBatchPool**, **New-AzureBatchJob** ve **New-AzureBatchTask** gibi cmdlet’leri kullanın. Batch hesabı altında var olan kaynakların özelliklerini güncelleştirmek için **Get-** ve **Set-** cmdlet’leri, kaldırmak için de **Remove-** cmdlet’leri vardır. 
 
+Bu cmdlet’lerinin birçoğunu kullanırken bir BatchContext nesnesi geçirmeye ek olarak aşağıdaki örnekte gösterildiği gibi ayrıntılı kaynak ayarlarını içeren nesneleri oluşturmanız ya da geçirmeniz gerekir. Diğer örnekler için her bir cmdlet’e ilişkin ayrıntılı yardıma bakın.
+
 ### Batch havuzu oluşturma
 
-Örneğin, aşağıdaki cmdlet, en son işletim sisteminin aile 3 sürümüyle (Windows Server 2012), otomatik ölçeklendirmeyle tanımlanan işlem düğümlerinin hedef sayısıyla görüntülenen Küçük boyutlu sanal makineleri kullanmak üzere yapılandırılmış yeni bir Batch havuzu oluşturur. Bu durumda, havuzdaki işlem düğümü sayısının en çok 3 olduğunu belirten basit bir **$TargetDedicated=3** formülüdür. **BatchContext** parametresi önceden tanımlanmış *$context* değişkenini BatchAccountContext nesnesi olarak belirtir.
+Bir Batch havuzu oluştururken ya da güncelleştirirken, işlem düğümlerindeki işletim sistemine yönelik bir bulut hizmeti yapılandırması veya sanal makine yapılandırması seçin (bkz. [Batch özelliğine genel bakış](batch-api-basics.md#pool)). Tercihiniz işlem düğümlerinizin [Azure Konuk işletim sistemi sürümlerinden](../cloud-services/cloud-services-guestos-update-matrix.md#releases) biriyle ya da Azure Marketi’nde desteklenen Linux ya da Windows sanal makine görüntülerinden biriyle görüntü haline getirildiğini belirler. 
+
+**New-AzureBatchPool** komutunu çalıştırdığınızda işletim sistemi ayarlarını bir PSCloudServiceConfiguration veya PSVirtualMachineConfiguration nesnesi içinde geçirin. Örneğin, aşağıdaki cmdlet, bulut hizmeti yapılandırmasında aile 3’ün en son işletim sistemi sürümü (Windows Server 2012) ile görüntü haline getirilen Küçük boyutlu işlem düğümleri ile yeni bir Batch havuzu oluşturur. Burada **CloudServiceConfiguration** parametresi *$configuration* değişkenini PSCloudServiceConfiguration nesnesi olarak belirtir. **BatchContext** parametresi önceden tanımlanmış *$context* değişkenini BatchAccountContext nesnesi olarak belirtir.
 
 
-    New-AzureBatchPool -Id "MyAutoScalePool" -VirtualMachineSize "Small" -OSFamily "3" -TargetOSVersion "*" -AutoScaleFormula '$TargetDedicated=3;' -BatchContext $Context
+    $configuration = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSCloudServiceConfiguration" -ArgumentList @(3,"*")
+    
+    New-AzureBatchPool -Id "AutoScalePool" -VirtualMachineSize "Small" -CloudServiceConfiguration $configuration -AutoScaleFormula '$TargetDedicated=4;' -BatchContext $context
 
->[AZURE.NOTE]Şu anda, Batch PowerShell cmdlet'leri yalnızca işlem düğümleriyle ilgili bulut hizmetleri yapılandırmasını destekler. İşlem düğümlerinde çalışacak Windows Server işletim sisteminin Azure Konuk İşletim Sistemi sürümlerinden birini seçmenizi sağlar. Batch havuzlarının diğer işlem düğümü yapılandırma seçenekleri için Batch SDK'larını veya Azure CLI kullanın.
+Yeni havuzdaki hedef işlem düğümü sayısı bir otomatik ölçeklendirme formülü ile belirlenir. Bu durumda, havuzdaki işlem düğümü sayısının en çok 4 olduğunu belirten basit bir **$TargetDedicated=4** formülüdür. 
 
-## Havuz, işler, görevler ve diğer ayrıntılar için sorgulama
+## Havuzlar, işler, görevler ve diğer ayrıntılar için sorgulama
 
 Batch hesabı altında oluşturulan varlıkların sorgulanması için **Get-AzureBatchPool**, **Get-AzureBatchJob** ve **Get-AzureBatchTask** gibi cmdlet’leri kullanın.
 
@@ -163,6 +169,6 @@ Batch cmdlet'leri, verileri cmdlet'ler arasında göndermek için PowerShell iş
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

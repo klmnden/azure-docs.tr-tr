@@ -85,16 +85,12 @@ Yeni Azure Resource Manager API’leri üzerinden oluşturulan Sanal Makineler, 
 
 Derlediğiniz tüm otomasyon ve betikler, Azure Hizmet Yönetimi modu altında oluşturulan varolan Sanal Makineler, Sanal Ağlar için çalışmaya devam edecektir. Ancak, yeni Azure Resource Manager aracılığıyla aynı kaynakların oluşturulmasında yeni şemayı kullanmak için betikler güncelleştirilmelidir.
 
-**Yeni Azure Resource Manager API'leri kullanılarak oluşturulan Sanal Ağlar Hızlı Rota devreme bağlanabilir mi?**
-
-Bu, şu anda desteklenmiyor. Yeni Azure Resource Manager API'leri kullanılarak oluşturulan Sanal Ağları bir Hızlı Rota Devresine bağlayamazsınız. Bu, daha ileride desteklenecektir.
-
 **Azure Resource Manager Şablonları örneklerini nerede bulabilirim?**
 
 Yeni başlayanlar için kapsamlı bir dizi şablon [Azure Resource Manager Hızlı Başlangıç Şablonlarında](https://azure.microsoft.com/documentation/templates/) bulunabilir.
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

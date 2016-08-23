@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="get-started-article"
-   ms.date="05/24/2016"
+   ms.date="07/14/2016"
    ms.author="magoedte" />
 
 # Azure Automation Tümleştirme Modülleri
@@ -26,7 +26,9 @@ PowerShell modülü, PowerShell konsolundan kullanılabilen **Get-Date** veya **
 
 ## Azure Automation Tümleştirme Modülü nedir?
 
-Tümleştirme Modülü, PowerShell modülünden çok farklı değildir. Bu, isteğe bağlı olarak ek bir dosyanın bulunduğu bir PowerShell modülüdür. Bu dosya, runbook'larda modülün cmdlet'leriyle kullanılacak Azure Automation bağlantı türünü belirten bir meta veri dosyasıdır. İsteğe bağlı dosya olsun veya olmasın bu PowerShell modülleri, içerdikleri cmdlet’ler runbook’larda, DSC kaynakları da DSC yapılandırmalarında kullanılacak şekilde Azure Automation’a aktarılabilirler. Arka planda, Azure Automation bu modülleri depolar, runbook işi ve DSC derleme işi yürütme süresinde de bunları Azure Automation korumalı alanlarına yükler; bu korumalı alanlarda runbook’ların yürütüldüğü, DSC yapılandırmalarının derlenir.  Modüllerdeki DSC kaynakları otomatik olarak Automation DSC çekme sunucusuna da yerleştirilir; böylece, DSC yapılandırmalarını uygulamaya çalışan makineler bunları çekebilir.  Azure yönetimine hemen başlayabilmeniz için Azure Automation ile birlikte birkaç Azure PowerShell modülü sunuyoruz; ancak tümleştirmek istediğiniz sistem, hizmet veya araca göre diğer PowerShell modüllerini de kolayca içeri aktarabilirsiniz. 
+Tümleştirme Modülü, PowerShell modülünden çok farklı değildir. Bu, isteğe bağlı olarak ek bir dosyanın bulunduğu bir PowerShell modülüdür. Bu dosya, runbook'larda modülün cmdlet'leriyle kullanılacak Azure Otomasyonu bağlantı türünü belirten bir meta veri dosyasıdır. İsteğe bağlı dosya olsun veya olmasın bu PowerShell modülleri, içerdikleri cmdlet’ler runbook’larda, DSC kaynakları da DSC yapılandırmalarında kullanılacak şekilde Azure Automation’a aktarılabilirler. Arka planda, Azure Otomasyonu bu modülleri depolar, runbook işi ve DSC derleme işi yürütme süresinde de bunları Azure Otomasyonu korumalı alanlarına yükler; bu korumalı alanlarda runbook’ların yürütüldüğü, DSC yapılandırmalarının derlenir.  Modüllerdeki DSC kaynakları otomatik olarak Automation DSC çekme sunucusuna da yerleştirilir; böylece, DSC yapılandırmalarını uygulamaya çalışan makineler bunları çekebilir.  Azure yönetimine hemen başlayabilmeniz için Azure Automation ile birlikte birkaç Azure PowerShell modülü sunuyoruz; ancak tümleştirmek istediğiniz sistem, hizmet veya araca göre diğer PowerShell modüllerini de kolayca içeri aktarabilirsiniz. 
+
+>[AZURE.NOTE] Bazı modüller Otomasyon hizmetinde “genel modüller” olarak gönderilir. Bu genel modüller bir otomasyon hesabı oluşturduğunuzda hemen kullanılmaya hazırdır ve bazen güncellenmesi sizi otomatik olarak otomasyon hesabınıza gönderir. Bunların otomatik olarak güncelleştirilmesini istemiyorsanız aynı modülü her zaman kendiniz içeri aktarabilirsiniz; bunun yapılması, hizmette gönderilen modülün genel modül sürümünden önceliklidir. 
 
 Tümleştirme Modülü paketini içeri aktardığınız biçim modülle aynı adda, .zip uzantılı sıkıştırılmış bir dosyadır. Windows PowerShell modülünü ve modülde varsa bir bildirim dosyası da (.psd1) dahil olmak üzere destek dosyalarını içerir.
 
@@ -200,13 +202,12 @@ Tümleştirme Modülleri temelde PowerShell modülleri olsa da, modülü yazarke
 <br>
 6. Modülün tamamı Xcopy’ye uygun bir pakette yer almalıdır. Runbook’ların yürütülmesi gerektiğinde Azure Automation modülleri Automation korumalı alanlarına dağıtıldığından, çalıştırıldıkları konaktan bağımsız çalışmaları gerekir. Bu durumda modül paketini sıkıştırabilir, aynı veya daha yeni bir PowerShell sürümünü kullanan başka konaklara taşıyabilir, bu konakta PowerShell ortamına içe aktarıldığında da normal çalışmasını sağlayabilirsiniz. Bunun gerçekleşmesi için, modülün modül klasörü dışında herhangi bir dosyaya (Azure Automation’a içeri aktarırken sıkıştırılan klasör) ya da konaktaki benzersiz kayıt defteri ayarlarına (ürün yüklemelerinde ayarlananlar gibi) bağlı olmaması gerekir. Bu en iyi yönteme uyulmazsa modül Azure Automation’da kullanılamaz.  
 
-## Sonraki Adımlar
+## Sonraki adımlar
 
 - PowerShell iş akışı runbook'larını kullanmaya başlamak için bkz. [İlk PowerShell iş akışı runbook uygulamam](automation-first-runbook-textual.md)
-- PowerShell Modülleri oluşturma hakkında daha fazla bilgi için bkz. [Windows PowerShell Modülü Yazma](https://msdn.microsoft.com/library/dd878310(v=vs.85).aspx)
+- PowerShell Modülleri oluşturma hakkında daha fazla bilgi için bkz. [Windows PowerShell Modülü Yazma](https://msdn.microsoft.com/library/dd878310%28v=vs.85%29.aspx)
 
 
-
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

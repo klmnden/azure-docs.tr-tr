@@ -13,7 +13,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
     ms.workload="storage-backup-recovery" 
-    ms.date="03/27/2016" 
+    ms.date="07/06/2016" 
     ms.author="raynew"/>
 
 # Azure Site Recovery ile hangi iş yüklerini koruyabilirsiniz?
@@ -152,6 +152,6 @@ Site Recovery dağıtımına [hazırlanma](site-recovery-best-practices.md)
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

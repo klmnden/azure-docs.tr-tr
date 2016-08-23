@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="04/25/2016"
+    ms.date="07/06/2016"
     ms.author="maheshu"/>
 
 # Azure AD Etki Alanı Hizmetleri *(Önizleme)* - Azure AD Etki Alanı Hizmetleri için parola eşitlemeyi etkinleştirme
@@ -40,7 +40,7 @@ Azure AD Connect'in en son önerilen sürümünü etki alanına katılan bir bil
 
 **[Azure AD Connect'i indirme](http://www.microsoft.com/download/details.aspx?id=47594)**
 
-Önerilen sürüm: **1.1.130.0** - 12 Nisan, 2016'da yayımlanmıştır.
+Önerilen sürüm: **1.1.189.0** - 3 Haziran 2016'da yayımlanmıştır.
 
   > [AZURE.WARNING] Eski parola kimlik bilgilerini (NTLM ve Kerberos kimlik doğrulaması için gereklidir) Azure AD kiracınıza eşitlemek için Azure AD Connect'in en son önerilen sürümünü yüklemeniz GEREKİR. Bu işlev, Azure AD Connect'in önceki sürümlerinde veya eski DirSync aracında kullanılamaz.
 
@@ -82,6 +82,6 @@ Dizininizin boyutuna bağlı olarak (kullanıcıların, grupların vb. sayısı)
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

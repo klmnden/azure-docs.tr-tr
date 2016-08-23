@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/20/2016"
+    ms.date="06/21/2016"
     ms.author="awills"/>
 
 # Web sitelerinin kullanılabilirlik ve yanıt hızını izleme
@@ -69,7 +69,7 @@ Application Insights kaynağınızda Kullanılabilirlik kutucuğunu arayın. Uyg
 
 - **Uyarılar**, varsayılan olarak, beş dakikayı geçen bir sürede üç konumda hata varsa size gönderilir. Tek konumdaki hata daha çok bir ağ sorunudur, sitenizle ilgili değildir. Ancak, eşiği daha fazla veya daha az hassas olarak değiştirebilirsiniz; size kimlerin e-posta göndermesi gerektiğini de değiştirebilirsiniz.
 
-    Bir uyarı ortaya çıktığında çağrılan bir [web kancası](../azure-portal/insights-webhooks-alerts.md) ayarlayabilirsiniz.
+    Bir uyarı ortaya çıktığında çağrılan bir [web kancası](../azure-portal/insights-webhooks-alerts.md) ayarlayabilirsiniz. (Ancak şu anda sorgu parametreleri Özellikler aracılığıyla geçirilmez.)
 
 #### Daha fazla URL test etme
 
@@ -239,6 +239,15 @@ Düzenlemek veya devre dışı bırakmak için bir test açın.
 
 Hizmetinizde bakımı gerçekleştirirken web testlerini devre dışı bırakmak isteyebilirsiniz.
 
+## Performans testleri
+
+Web sitenizde bir yük testi çalıştırabilirsiniz. Kullanılabilirlik testinde olduğu gibi dünyanın dört bir yanındaki noktalarımızdan basit istekler ya da çok adımlı istekler gönderebilirsiniz. Kullanılabilirlik testinden farklı olarak eşzamanlı birden fazla kullanıcıyı benzeten çok sayıda istek gönderilir.
+
+Genel Bakış dikey penceresinde **Ayarlar**, **Performans Testleri**’ni açın. Bir test oluşturduğunuzda Visual Studio Team Services hesabı oluşturmaya davet edilirsiniz. 
+
+Test tamamlandığında yanıt süreleri ve başarı oranları gösterilir.
+
+
 ## Automation
 
 * Otomatik olarak [web testini ayarlamak için PowerShell betiklerini kullanın](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/). 
@@ -260,7 +269,7 @@ Hizmetinizde bakımı gerçekleştirirken web testlerini devre dışı bırakmak
 
 * *Kullanılabilirlik testlerini, güvenlik duvarının arkasında çalışan kendi dahili sunucumuzda kullanmayı tercih ediyorum.*
 
-    Bu makalenin sonundaki listede yer alan IP adreslerinden isteklere izin vermesi için güvenlik duvarınızı yapılandırın.
+    Güvenlik duvarınızı, [Web testi aracılarının IP adreslerinden](app-insights-ip-addresses.md#availability) gelen isteklere izin verecek şekilde yapılandırın.
 
 * *Çok adımlı web testi yüklenemiyor*
 
@@ -294,125 +303,7 @@ Hizmetinizde bakımı gerçekleştirirken web testlerini devre dışı bırakmak
 
 [Sorun giderme][qna]
 
-
-## web testlerinin IP adresleri
-
-Web testlerine izin vermek için güvenlik duvarını açmanız gerekirse, geçerli IP adreslerinin listesi burada verilmiştir. Zaman zaman değiştirilebilir.
-
-80 (http) ve 443 (https) bağlantı noktalarını açın.
-
-```
-
-213.199.178.54
-213.199.178.55
-213.199.178.56
-213.199.178.61
-213.199.178.57
-213.199.178.58
-213.199.178.59
-213.199.178.60
-213.199.178.63
-213.199.178.64
-207.46.98.158
-207.46.98.159
-207.46.98.160
-207.46.98.157
-207.46.98.152
-207.46.98.153
-207.46.98.156
-207.46.98.162
-207.46.98.171
-207.46.98.172
-65.55.244.40
-65.55.244.17
-65.55.244.42
-65.55.244.37
-65.55.244.15
-65.55.244.16
-65.55.244.44
-65.55.244.18
-65.55.244.46
-65.55.244.47
-207.46.14.60
-207.46.14.61
-207.46.14.62
-207.46.14.55
-207.46.14.63
-207.46.14.64
-207.46.14.51
-207.46.14.52
-207.46.14.56
-207.46.14.65
-157.55.14.60
-157.55.14.61
-157.55.14.62
-157.55.14.47
-157.55.14.64
-157.55.14.65
-157.55.14.43
-157.55.14.44
-157.55.14.49
-157.55.14.50
-65.54.66.56
-65.54.66.57
-65.54.66.58
-65.54.66.61
-207.46.71.54
-207.46.71.52
-207.46.71.55
-207.46.71.38
-207.46.71.51
-207.46.71.57
-207.46.71.58
-207.46.71.37
-202.89.228.67
-202.89.228.68
-202.89.228.69
-202.89.228.57
-65.54.78.49
-65.54.78.50
-65.54.78.51
-65.54.78.54
-94.245.82.32
-94.245.82.33
-94.245.82.37
-94.245.82.38
-94.245.72.44
-94.245.72.45
-94.245.72.46
-94.245.72.49
-207.46.56.57
-207.46.56.58
-207.46.56.59
-207.46.56.67
-207.46.56.61
-207.46.56.62
-207.46.56.63
-207.46.56.64
-65.55.82.84
-65.55.82.85
-65.55.82.86
-65.55.82.81
-65.55.82.87
-65.55.82.88
-65.55.82.89
-65.55.82.90
-65.55.82.91
-65.55.82.92
-94.245.78.40
-94.245.78.41
-94.245.78.42
-94.245.78.45
-70.37.147.43
-70.37.147.44
-70.37.147.45
-70.37.147.48
-94.245.66.43
-94.245.66.44
-94.245.66.45
-94.245.66.48
-
-```
+[Web testi aracılarının IP adresleri](app-insights-ip-addresses.md)
 
 
 <!--Link references-->
@@ -424,6 +315,6 @@ Web testlerine izin vermek için güvenlik duvarını açmanız gerekirse, geçe
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

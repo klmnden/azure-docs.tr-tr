@@ -53,14 +53,7 @@ IoT paketi, Azure IoT Paketi’nin mümkün kıldığı *Uzaktan izleme* ve *Tah
 
 ## Sonraki adımlar
 
-Artık IoT Paketi’nin yapabileceklerine ve temel bileşenlerine ilişkin genel bir bakış sahibi olduğunuza göre şunları yapabilirsiniz:
-
-- IoT Paketi’ndeki önceden yapılandırılmış çözümler hakkında daha fazla bilgi almak için bkz. [Azure IoT önceden yapılandırılmış çözümleri nelerdir?][lnk-what-are-preconfig]
-
-- Önceden yapılandırılmış çözümlerden birini kullanmaya başlamak için bkz. [IoT önceden yapılandırılmış çözümlerini kullanmaya başlama][lnk-preconfig-start].
-
-- Azure IoT Hub hizmeti hakkında daha fazla bilgi almak için bkz. [IoT Hub belgeleri][lnk-iot-hub].
-
+IoT Paketi’nin yapabileceklerini ve ana bileşenlerini genel hatlarıyla gördüğünüze göre IoT Paketi’ndeki önceden yapılandırılmış çözümler hakkında daha fazla bilgi alabilirsiniz, bkz. [Önceden yapılandırılmış Azure IoT çözümleri nelerdir?][lnk-what-are-preconfig]
 
 [lnk-sdks]: https://azure.microsoft.com/documentation/articles/iot-hub-sdks-summary/
 [lnk-iot-hub]: https://azure.microsoft.com/documentation/services/iot-hub/
@@ -71,11 +64,9 @@ Artık IoT Paketi’nin yapabileceklerine ve temel bileşenlerine ilişkin genel
 [lnk-web-apps]: https://azure.microsoft.com/documentation/services/app-service/web/
 [iot-suite-what-is-azure-iot]: iot-suite-what-is-azure-iot.md
 [lnk-what-are-preconfig]: iot-suite-what-are-preconfigured-solutions.md
-[lnk-preconfig-start]: iot-suite-getstarted-preconfigured-solutions.md
-[lnk-iot-hub]: https://azure.microsoft.com/documentation/services/iot-hub/
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

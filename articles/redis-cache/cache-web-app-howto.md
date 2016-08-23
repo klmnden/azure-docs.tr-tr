@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="cache-redis" 
     ms.devlang="na" 
     ms.topic="hero-article" 
-    ms.date="05/18/2016" 
+    ms.date="07/22/2016" 
     ms.author="sdanie"/>
 
 # Redis Önbelleği ile Web Uygulaması oluşturma
@@ -802,6 +802,8 @@ Kullanılacak önbelleği seçtikten veya oluşturduktan sonra, Azure portalınd
 ## Sonraki adımlar
 
 -   [ASP.NET](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started) sitesinde [ASP.NET MVC 5 ile Çalışmaya Başlama](http://asp.net/) hakkında daha fazla bilgi edinin.
+-   App Service’te ASP.NET Web Uygulaması oluşturmaya yönelik daha fazla örnek için [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) 2015 Connect [tanıtımı](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/) içindeki [Azure Uygulama Hizmeti’nde ASP.NET web uygulaması oluşturma ve dağıtma](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-an-ASP.NET-web-app-in-Azure-App-Service) bölümüne bakın.
+    -   HealthClinic.biz tanıtımından daha fazla hızlı başlangıç ipuçları için bkz. [Azure Geliştirici Araçları Hızlı Başlangıç İpuçları](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts).
 -   Bu öğreticide kullanılan Entity Framework için [Yeni bir veritabanına ilk kod](https://msdn.microsoft.com/data/jj193542) yaklaşımı hakkında daha fazla bilgi edinin.
 -   [Azure App Service’deki web uygulamaları](../app-service-web/app-service-web-overview.md) hakkında daha fazla bilgi edinin.
 -   Azure portalındaki önbelleğinizi nasıl [izleyeceğinizi](cache-how-to-monitor.md) öğrenin.
@@ -811,6 +813,7 @@ Kullanılacak önbelleği seçtikten veya oluşturduktan sonra, Azure portalınd
     -   [Premium Azure Redis Önbelleği için kümeleri yapılandırma](cache-how-to-premium-clustering.md)
     -   [Premium Azure Redis Önbelleği için Virtual Network desteğini yapılandırma](cache-how-to-premium-vnet.md)
     -   Boyut, işleme ve premium önbelleklere sahip bant genişliği hakkında daha fazla bilgi için, bkz. [Azure Redis Önbelleği SSS](cache-faq.md#what-redis-cache-offering-and-size-should-i-use).
+
 
 
 <!-- IMAGES -->
@@ -849,6 +852,6 @@ Kullanılacak önbelleği seçtikten veya oluşturduktan sonra, Azure portalınd
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

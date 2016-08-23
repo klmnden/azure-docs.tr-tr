@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/27/2016"
+   ms.date="06/09/2016"
    ms.author="ryanwi"/>
 
 # Visual Studio'da ilk Azure Service Fabric uygulamanızı oluşturma
@@ -46,7 +46,7 @@ Service Fabric uygulaması bir veya birden çok hizmet içerebilir. Bu hizmetler
 
     ![Visual Studio'da yeni hizmet iletişim kutusu][2]
 
-    >[AZURE.NOTE] Seçenekler hakkında daha fazla bilgi için bkz. [Altyapı seçme](service-fabric-choose-framework.md).
+    >[AZURE.NOTE] Seçenekler hakkında daha fazla bilgi için bkz. [Service Fabric programlama modeline genel bakış](service-fabric-choose-framework.md).
 
     Visual Studio uygulama projesini ve durum bilgisi olan hizmet projesini oluşturup bu projeleri Çözüm Gezgini'nde görüntüler.
 
@@ -110,31 +110,19 @@ Artık bir uygulamanız olduğuna göre uygulamayı çalıştırmayı deneyebili
 
     ![Yük devretme sonrası tanılama olayları görüntüleyicisi][diagnostic-events-viewer-detail-post-failover]
 
-### Temizleme
+## Temizleme
 
-  Sonlandırmadan önce, yerel kümenin büyük ölçüde kaynak kullanımı gerektirdiğini unutmayın. Hata ayıklayıcıyı durdurduktan ve Visual Studio'yu kapattıktan sonra bile uygulamalarınız arka planda çalışmaya devam eder. Uygulamalarınızın yapısına bağlı olarak bu arka plan etkinliği makinenizde önemli miktarda kaynağı kullanabilir. Bu durumu yönetmek için birçok seçenek sunulur:
+  Sonlandırmadan önce, yerel kümenin büyük ölçüde kaynak kullanımı gerektirdiğini unutmayın. Hata ayıklayıcının durdurulması uygulama örneğinizi ve uygulama türünün kaydını kaldırır.  Ancak küme arka planda çalışmaya devam eder. Bu durumu yönetmek için birçok seçenek sunulur:
 
-  1. Tek bir uygulamayı ve tüm verilerini kaldırmak için **EYLEMLER** menüsü veya sol bölmedeki uygulama listesi görünümündeki bağlam menüsü ile birlikte Service Fabric Explorer hizmetinde bulunan **Uygulamayı sil** eylemini kullanın.
+  1. Kümeyi kapatıp uygulama verilerini ve izlemelerini tutmak için sistem tepsisi uygulamasında **Yerel Kümeyi Durdur**'a tıklayın.
 
-    ![Service Fabric Explorer'da uygulama silme][sfe-delete-application]
-
-  2. Uygulamayı kümeden sildikten sonra kod, yapılandırma ve kümenin görüntü deposu dahil olmak üzere uygulamanın paketini kaldıran uygulama için **Sağlamayı Kaldırma Türü** seçeneğini belirleyebilirsiniz.
-  3. Kümeyi kapatıp uygulama verilerini ve izlemelerini tutmak için sistem tepsisi uygulamasında **Yerel Kümeyi Durdur**'a tıklayın.
-
-  4. Kümeyi tamamen silmek için sistem tepsisi uygulamasında **Yerel Kümeyi Kaldır**'a tıklayın. Visual Studio'da F5'e bir sonraki basışınızda bu seçeneğin başka bir yavaş dağıtımla sonuçlanacağını unutmayın. Bu seçeneği yalnızca yerel kümeyi bir süre kullanmayı planlamıyorsanız veya kaynaklarınızı geri kazanmanız gerekiyorsa kullanın.
-
-
+  2. Kümeyi tamamen silmek için sistem tepsisi uygulamasında **Yerel Kümeyi Kaldır**'a tıklayın. Visual Studio'da F5'e bir sonraki basışınızda bu seçeneğin başka bir yavaş dağıtımla sonuçlanacağını unutmayın. Bu seçeneği yalnızca yerel kümeyi bir süre kullanmayı planlamıyorsanız veya kaynaklarınızı geri kazanmanız gerekiyorsa kullanın.
 
 ## Sonraki adımlar
 
-<!--
-Temporarily removing this link because we have removed the ASP.NET template.
-
- - [See how you can expose your services to the Internet with a web service front end](service-fabric-add-a-web-frontend.md)
--->
-- [Azure'da küme oluşturmayı öğrenin](service-fabric-cluster-creation-via-portal.md)
-- [Reliable Services hakkında daha fazla bilgi edinin](service-fabric-reliable-services-quick-start.md)
-- [Reliable Actors programlama modelini kullanan bir hizmet oluşturmayı deneyin](service-fabric-reliable-actors-get-started.md)
+- [Azure’da küme](service-fabric-cluster-creation-via-portal.md) veya [Windows’ta tek başına küme](service-fabric-cluster-creation-for-windows-server.md) oluşturma hakkında bilgi edinin.
+- [Reliable Services](service-fabric-reliable-services-quick-start.md) veya [Reliable Actors](service-fabric-reliable-actors-get-started.md) programlama modelini kullanan bir hizmet oluşturmayı deneyin.
+- Hizmetlerinizi bir [web hizmeti ön ucu](service-fabric-add-a-web-frontend.md) ile İnternet’te nasıl gösterebileceğinizi öğrenin.
 
 <!-- Image References -->
 
@@ -152,6 +140,6 @@ Temporarily removing this link because we have removed the ASP.NET template.
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

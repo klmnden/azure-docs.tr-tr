@@ -6,7 +6,7 @@
    authors="markgalioto"
    manager="jwhit"
    editor=""
-   keywords="backup and disaster recovery; backup service"/>
+   keywords="yedekleme ve olağanüstü durum kurtarma; backup hizmeti"/>
 
 <tags
    ms.service="backup"
@@ -14,7 +14,7 @@
      ms.tgt_pltfrm="na"
      ms.devlang="na"
      ms.topic="get-started-article"
-     ms.date="04/04/2016"
+     ms.date="07/01/2016"
      ms.author="trinadhk; giridham; arunak; markgal; jimpark;"/>
 
 # Azure Backup hizmeti - SSS
@@ -116,7 +116,7 @@ Y17: Evet. Aracı hizmeti, yedekleme işlemini hazırlarken yinelenenleri kaldı
 Y18: Hayır. Yedekleme kasası, iptal noktasına kadar aktarılmış olan yedeklenmiş verileri depolar. Azure Backup, yedekleme işlemi sırasında yedekleme verilerine zaman zaman denetim noktaları eklemek üzere bir denetim noktası mekanizması kullanır. Yedekleme verilerinde denetim noktaları bulunduğundan, sonraki yedekleme işlemi dosyaların bütünlüğünü doğrulayabilir. Tetiklenen sonraki yedekleme, daha önce yedeklenmiş olan veriler üzerinde artımlı olarak gerçekleşecektir. Artımlı yedekleme, bant genişliğinin daha iyi kullanılmasını sağlar; böylece aynı verileri tekrar tekrar aktarmanız gerekmez.
 
 **S19. Daha önce düzenli yedeklemeler zamanlamış olmama karşın neden "Azure Yedeklemeleri bu sunucu için yapılandırılmamış" uyarısını görüyorum?** <br/>
-Y19: Bu uyarı, yerel sunucuda depolanan yedekleme zamanlaması ayarları, yedekleme kasasında depolanan ayarlarla aynı olmadığında oluşur. Sunucu ya da ayarlar bilinen bir iyi duruma getirilerek kurtarıldığında, yedekleme zamanlamaları eşitlemesini kaybedebilir. Bu uyarıyı alırsanız [yedekleme ilkesini yeniden yapılandırın](backup-azure-manage-windows-server.md) ve ardından yerel sunucuyu Azure ile yeniden eşitlemek için **Yedeklemeyi Şimdi Çalıştır** işlemini uygulayın.
+Y19: Bu uyarı, yerel sunucuda depolanan yedekleme zamanlaması ayarları, yedekleme kasasında depolanan ayarlarla aynı olmadığında oluşur. Sunucu ya da ayarlar bilinen bir iyi duruma getirilerek kurtarıldığında, yedekleme zamanlamaları eşitlemesini kaybedebilir. Bu uyarıyı alırsanız [yedekleme ilkesini yeniden yapılandırın](backup-azure-manage-windows-server.md) ve ardından yerel sunucuyu Azure ile yeniden eşitlemek için **Run Back Up Now (Yedeklemeyi Şimdi Çalıştır)** işlemini uygulayın.
 
 **S20. Azure Backup için hangi güvenlik duvarı kuralları yapılandırılmalıdır?** <br/>
 Y20. Verilerin şirket içinden Azure'a ve iş yükünden Azure'a sorunsuz şekilde korunması için güvenlik duvarınızın aşağıdaki URL'ler ile iletişim kurmasına izin vermeniz önerilir:
@@ -275,6 +275,6 @@ Azure Backup aracısının beklenen işlevi için önbellek klasörünün veya m
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

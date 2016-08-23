@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/30/2016"
+   ms.date="07/18/2016"
    ms.author="cherylmc"/>
 
 # Klasik portalı kullanarak bir Sanal Ağa Noktadan Siteye bir VPN bağlantısı yapılandırma
@@ -212,6 +212,6 @@ Sanal Ağlar hakkında daha fazla bilgi edinmek için [Sanal Ağ Belgeleri](http
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

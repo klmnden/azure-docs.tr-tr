@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/02/2016"
+    ms.date="06/07/2016"
     ms.author="davidmu"/>
 
 # Resource Manager ve PowerShell kullanarak Windows VM oluşturma
@@ -33,34 +33,36 @@ Azure PowerShell’in en son sürümünü yükleme, kullanmak istediğiniz abone
 
 1. Kaynakların oluşturulabileceği kullanılabilir konumların bir listesini alın.
 
-        Get-AzureLocation | sort Name | Select Name
+        Get-AzureRmLocation | sort Location | Select Location
         
     Şuna benzer bir şey görmeniz gerekir:
     
-        Name
-        ----
-        Australia East
-        Australia Southeast
-        Brazil South
-        Central India
-        Central US
-        East Asia
-        East US
-        East US 2
-        Japan East
-        Japan West
-        North Central US
-        North Europe
-        South Central US
-        South India
-        Southeast Asia
-        West Europe
-        West India
-        West US
+        Location
+        --------
+        australiaeast
+        australiasoutheast
+        brazilsouth
+        canadacentral
+        canadaeast
+        centralindia
+        centralus
+        eastasia
+        eastus
+        eastus2
+        japaneast
+        japanwest
+        northcentralus
+        northeurope
+        southcentralus
+        southeastasia
+        southindia
+        westeurope
+        westindia
+        westus
 
 2. **$locName** değerini listeden bir konumla değiştirin. Değişkeni oluşturun.
 
-        $locName = "Central US"
+        $locName = "centralus"
         
 3.  **$rgName** değerini yeni kaynak grubu adıyla değiştirin. Değişkeni ve kaynak grubunu oluşturun.
 
@@ -74,13 +76,13 @@ Azure PowerShell’in en son sürümünü yükleme, kullanmak istediğiniz abone
 1. **$stName** değerini depolama hesabı adıyla değiştirin. Adın benzersizliğini test edin.
 
         $stName = "mystorage1"
-        Test-AzureName -Storage $stName
+        Get-AzureRmStorageAccountNameAvailability $stName
 
-    Bu komut **False** döndürürse, önerilen adınız Azure içinde benzersizdir. Depolama hesabı adları 3 ile 24 karakter arasında olmalı ve yalnızca sayıyla küçük harf içermelidir.
+    Bu komut **True** döndürürse, önerilen adınız Azure içinde benzersizdir. Depolama hesabı adları 3 ile 24 karakter arasında olmalı ve yalnızca sayıyla küçük harf içermelidir.
     
 2. Şimdi depolama hesabını oluşturmak üzere komutu çalıştırın.
     
-        $storageAcc = New-AzureRmStorageAccount -ResourceGroupName $rgName -Name $stName -Type "Standard_LRS" -Location $locName
+        $storageAcc = New-AzureRmStorageAccount -ResourceGroupName $rgName -Name $stName -SkuName "Standard_LRS" -Kind "Storage" -Location $locName
         
 ## 4. adım: Sanal ağ oluşturma
 
@@ -120,7 +122,7 @@ Tüm parçaları yerinde olduğuna göre, şimdi sanal makine oluşturma vakti.
 
         $cred = Get-Credential -Message "Type the name and password of the local administrator account."
         
-    Parola 8-123 karakter uzunluğunda olmalıdır ve şunlardan en az 3’ünü içermelidir: bir küçük harf karakter, bir büyük harf karakter, bir sayı ve bir özel karakter. 
+    Parola 12-123 karakter uzunluğunda olmalıdır ve en az şunları içermelidir: bir küçük harf karakter, bir büyük harf karakter, bir sayı ve bir özel karakter. 
         
 2. **$vmName** değerini sanal makine adıyla değiştirin. Değişkeni ve sanal makine yapılandırmasını oluşturun.
 
@@ -172,6 +174,6 @@ Tüm parçaları yerinde olduğuna göre, şimdi sanal makine oluşturma vakti.
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

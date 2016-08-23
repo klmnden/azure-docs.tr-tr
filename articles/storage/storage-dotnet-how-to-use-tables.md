@@ -13,13 +13,15 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="04/29/2016"
+    ms.date="07/23/2016"
     ms.author="tamram"/>
 
 
 # .NET kullanarak Azure Table Storage’ı kullanmaya başlayın
 
 [AZURE.INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
+<br/>
+[AZURE.INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
 
 ## Genel Bakış
 
@@ -41,6 +43,11 @@ Bu öğretici, bir tablo oluşturma ve silme ile tablo verilerinin yerleştirilm
 - Bir [Azure Storage hesabı](storage-create-storage-account.md#create-a-storage-account)
 
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
+
+### Daha fazla örnek
+
+Tablo depolama kullanan diğer örnekler için [.NET’te Azure Table Storage Kullanmaya Başlama](https://azure.microsoft.com/documentation/samples/storage-table-dotnet-getting-started/). Örnek uygulamayı indirip çalıştırabilir veya GitHub’daki örneğe göz atabilirsiniz. 
+
 
 [AZURE.INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
@@ -442,6 +449,7 @@ Son olarak aşağıdaki kod örneği bir depolama hesabından bir tablo siler. S
 
 Table Storage’ın temellerini öğrendiğinize göre, daha karmaşık depolama görevleri hakkında daha fazla bilgi edinmek için bu bağlantıları takip edin:
 
+- [.NET’te Azure Table Storage Kullanmaya Başlama](https://azure.microsoft.com/documentation/samples/storage-table-dotnet-getting-started/) bölümünde daha fazla Tablo depolama örneği bulabilirsiniz
 - Kullanılabilir API’ler ile ilgili eksiksiz bilgiler için Tablo hizmeti başvuru belgelerini görüntüleyin:
     - [.NET başvurusu için Depolama İstemci Kitaplığı](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
     - [REST API başvurusu](http://msdn.microsoft.com/library/azure/dd179355)
@@ -470,6 +478,6 @@ Table Storage’ın temellerini öğrendiğinize göre, daha karmaşık depolama
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

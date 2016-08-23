@@ -13,7 +13,7 @@
     ms.topic="hero-article"
     ms.tgt_pltfrm="na"
     ms.workload="big-compute"
-    ms.date="05/27/2016"
+    ms.date="06/16/2016"
     ms.author="marsma"/>
 
 # .NET için Azure Batch itaplığını kullanmaya başlama
@@ -40,7 +40,7 @@ Bu makalede, C# ve Visual Studio deneyimine sahip olduğunuz varsayılmaktadır.
 
 ### Visual Studio
 
-Örnek proje oluşturmak için **Visual Studio 2013** veya **Visual Studio 2015** sürümünüz olmalıdır. Visual Studio'nun ücretsiz ve deneme sürümlerini [Visual Studio 2015 Ürünlerine Genel Bakış][visual_studio] sayfasında bulabilirsiniz.
+Örnek proje oluşturmak için **Visual Studio 2015** sürümünüz olmalıdır. Visual Studio'nun ücretsiz ve deneme sürümlerini [Visual Studio 2015 Ürünlerine Genel Bakış][visual_studio] sayfasında bulabilirsiniz.
 
 ### *DotNetTutorial* kodu örneği
 
@@ -48,13 +48,9 @@ Bu makalede, C# ve Visual Studio deneyimine sahip olduğunuz varsayılmaktadır.
 
 `\azure-batch-samples\CSharp\ArticleProjects\DotNetTutorial`
 
-### Azure Batch Gezgini (isteğe bağlı)
-
-[Azure Batch Gezgini][github_batchexplorer], GitHub’daki [azure-batch-samples][github_samples] deposunda yer alan ücretsiz bir yardımcı programdır. Bu öğreticiyi tamamlamak için gerekli olmasa da, Batch çözümlerinizi geliştirirken ve hatalarını ayıklarken yararlı olabilir.
-
 ## DotNetTutorial örnek projesine genel bakış
 
-*DotNetTutorial* kod örneği buradaki iki projeden oluşan bir Visual Studio 2013 çözümüdür: **DotNetTutorial** ve **TaskApplication**.
+*DotNetTutorial* kod örneği buradaki iki projeden oluşan bir Visual Studio 2015 çözümüdür: **DotNetTutorial** ve **TaskApplication**.
 
 - **DotNetTutorial**, işlem düğümlerinde paralel iş yükünü yürütmek için Batch ve Storage hizmetleriyle etkileşime giren istemci uygulamasıdır (sanal makineler). DotNetTutorial yerel iş istasyonunuzda çalışır.
 
@@ -274,7 +270,7 @@ Paylaşılan erişim imzalar, URL parçası olarak eklendiğinde Azure Storage'd
 
 - **Kapsayıcı paylaşılan erişim imzaları**: Hesaplama düğümünde her görev işini bitirdiğinde, kendi çıktı dosyasını Azure Storage’daki *çıktı* kapsayıcısına yükler. Bunu yapmak için, TaskApplication dosyayı karşıya yüklediğinde yolun parçası olarak kapsayıcıya yazma izni sağlayan kapsayıcı paylaşılan erişim imzasını kullanır. Kapsayıcı paylaşılan erişim imzası blob paylaşılan erişim imzası alındığında yapılan işleme benzer. DotNetTutorial’de, bunu yapmak için `GetContainerSasUrl` yardımcı yönteminin [CloudBlobContainer.GetSharedAccessSignature][net_sas_container] çağırdığını görürsünüz. TaskApplication’ın kapsayıcı paylaşılan erişim imzasını kullanması hakkında daha fazla bilgi için "6. Adım: İzleme Görevleri" başlığı altındakileri okuyacaksınız.
 
-> [AZURE.TIP] Storage hesabınızdaki verilere güvenli erişim sağlama hakkında daha fazla bilgi için paylaşılan erişim imzalarındaki iki parçalı seriyi kullanıma alın, [1. Parça: Paylaşılan erişim imzası (SAS) modelini anlama](../storage/storage-dotnet-shared-access-signature-part-1.md) ve [2. Parça: Blob hizmetiyle paylaşılan erişim imzasını (SAS) oluşturma ve kullanma](../storage/storage-dotnet-shared-access-signature-part-2.md).
+> [AZURE.TIP] Storage hesabınızdaki verilere güvenli erişim sağlama hakkında daha fazla bilgi için paylaşılan erişim imzalarındaki iki parçalı seriyi kullanıma alın, [1. Bölüm: Paylaşılan erişim imzası (SAS) modelini anlama](../storage/storage-dotnet-shared-access-signature-part-1.md) ve [2. Bölüm: Blob depolama ile paylaşılan erişim imzasını (SAS) oluşturma ve kullanma](../storage/storage-dotnet-shared-access-signature-part-2.md).
 
 ## 3. Adım: Batch havuzu oluşturma
 
@@ -337,7 +333,7 @@ private static async Task CreatePoolAsync(
 }
 ```
 
-[CreatePool][net_pool_create] ile havuz oluşturduğunuzda, işlem düğümleri sayısı, [düğümlerin boyutu](../cloud-services/cloud-services-sizes-specs.md) ve düğümlerin işletim sistemi gibi parametreleri belirtirsiniz. *DotNetTutorial*’da, [Cloud Services](../cloud-services/cloud-services-guestos-update-matrix.md)’dan Windows Server 2012 R2'yi belirtmek için [CloudServiceConfiguration][net_cloudserviceconfiguration] kullanırız. Ancak bunun yerine [VirtualMachineConfiguration][net_virtualmachineconfiguration] belirterek, hem Windows hem de Linux görsellerinin yer aldığı Market görsellerinden havuz oluşturabilirsiniz; daha fazla bilgi için bkz. [Azure Batch havuzlarında Linux işlem düğümlerini hazırlama](batch-linux-nodes.md) daha fazla bilgi için.
+[CreatePool][net_pool_create] ile havuz oluşturduğunuzda, işlem düğümleri sayısı, [düğümlerin boyutu](../cloud-services/cloud-services-sizes-specs.md) ve düğümlerin işletim sistemi gibi parametreleri belirtirsiniz. *DotNetTutorial* ’da, [Cloud Services](../cloud-services/cloud-services-guestos-update-matrix.md)’dan Windows Server 2012 R2'yi belirtmek için [CloudServiceConfiguration][net_cloudserviceconfiguration] kullanırız. Ancak bunun yerine [VirtualMachineConfiguration][net_virtualmachineconfiguration] belirterek, hem Windows hem de Linux görsellerinin yer aldığı Market görsellerinden havuz oluşturabilirsiniz; daha fazla bilgi için bkz. [Azure Batch havuzlarında Linux işlem düğümlerini hazırlama](batch-linux-nodes.md).
 
 > [AZURE.IMPORTANT] Batch’teki işlem kaynakları ücretlidir. Maliyetleri en aza indirmek için, örneği çalıştırmadan önce `targetDedicated` değerini 1 olarak düşürün.
 
@@ -349,15 +345,15 @@ Bu örnek uygulamasında, Storage’dan indirilen dosyaları (hangi belirtilen k
 
 Yukarıdaki kod parçacığında dikkat çeken bir şey de, StartTask’ın *CommandLine* özelliğinde iki ortam değişkenin kullanılmasıdır: `%AZ_BATCH_TASK_WORKING_DIR%` ve `%AZ_BATCH_NODE_SHARED_DIR%`. Batch havuzundaki her işlem düğümü, Batch’e özel bir dizi ortam değişkeniyle yapılandırılmıştır. Görev tarafından yürütülen işlemlerin bu ortam değişkenlerine erişimi vardır.
 
-> [AZURE.TIP] Görev çalışma dizinleri hakkında bilgilerin yanı sıra, Batch havuzundaki işlem düğümlerinde bulunan ortam değişkenleri hakkında da daha fazla bilgi bulmak için bkz.[Azure Batch özelliklerine genel bakış](batch-api-basics.md)’ın "Görevler için ortam ayarları" ve "Dosyalar ve dizinler" bölümleri.
+> [AZURE.TIP] Görev çalışma dizinleri hakkında bilgilerin yanı sıra Batch havuzundaki işlem düğümlerinde bulunan ortam değişkenleri hakkında daha fazla bilgi almak için [Geliştiriciler için Batch özelliğine genel bakış](batch-api-basics.md) içindeki [Görevler için ortam değişkenleri](batch-api-basics.md#environment-settings-for-tasks) ve [Dosya ve dizinler](batch-api-basics.md#files-and-directories) bölümlerine bakın.
 
-## 4. Adım: Toplu İşlem işi oluşturma
+## 4. Adım: Batch işi oluşturma
 
 ![Toplu İşlem işi oluşturma][4]<br/>
 
 Batch işi aslında, işlem düğümlerinin bir havuzuyla ilişkili görevler koleksiyonudur. Bunu yalnızca ilgili iş yüklerinde görevlerin düzenlenmesi ve izlenmesi için değil, aynı zamanda işin (ve buna bağlı olarak görevlerin) en uzun çalışma süresinin yanı sıra Batch hesabındaki diğer işlerle bağlantılı olarak iş önceliği gibi bazı kısıtlamalar getirmek için de kullanabilirsiniz. Ancak bu örnekte, iş yalnızca 3. adımda oluşturulan havuzla ilişkilendirilmektedir. Yapılandırılmış başka ek özellik yoktur.
 
-Tüm Batch işleri belirli bir havuzla ilişkilidir. Bu ilişkilendirme, iş görevlerinin hangi düğümleri yürüteceğini belirtir.  Bunu, aşağıdaki kod parçacığında gösterildiği gibi [CloudJob.PoolInformation][net_job_poolinfo] özelliğini kullanarak belirtirsiniz.
+Tüm Batch işleri belirli bir havuzla ilişkilidir. Bu ilişkilendirme, iş görevlerinin hangi düğümleri yürüteceğini belirtir. Bunu, aşağıdaki kod parçacığında gösterildiği gibi [CloudJob.PoolInformation][net_job_poolinfo] özelliğini kullanarak belirtirsiniz.
 
 ```
 private static async Task CreateJobAsync(
@@ -671,7 +667,7 @@ if (response != "n" && response != "no")
 
 ## *DotNetTutorial* örneğini çalıştırma
 
-Örnek uygulamayı çalıştırdığınızda, konsol çıktısı aşağıdakine benzer. Yürütme sırasında, havuzun işlem düğümleri başlatıldığı sırada `Awaiting task completion, timeout in 00:30:00...` öğesiyle karşılaşacaksınız. Havuzunuzu, işlem düğümlerinizi, işinizi ve görevlerinizi yürütme sırasında ve sonrasında izlemek için [Batch Gezgini][github_batchexplorer] kullanın. Uygulamanın oluşturduğu Storage kaynaklarını (kapsayıcılar ve bloblar) görüntülemek için [Azure portalı][azure_portal] veya [Azure Storage gezginlerinden][storage_explorers] birini kullanın.
+Örnek uygulamayı çalıştırdığınızda, konsol çıktısı aşağıdakine benzer. Yürütme sırasında, havuzun işlem düğümleri başlatıldığı sırada `Awaiting task completion, timeout in 00:30:00...` öğesiyle karşılaşacaksınız. Havuzunuzu, işlem düğümlerinizi, işinizi ve görevlerinizi yürütme sırasında ve sonrasında izlemek için [Azure portalı][azure_portal] kullanın. Uygulamanın oluşturduğu Storage kaynaklarını (kapsayıcılar ve bloblar) görüntülemek için [Azure portalı][azure_portal] veya [Azure Storage Gezgini][storage_explorers] birini kullanın.
 
 Varsayılan yapılandırmasında uygulama çalıştırıldığında tipik yürütme süresi **yaklaşık 5 dakikadır**.
 
@@ -708,21 +704,18 @@ Sample complete, hit ENTER to exit...
 
 ## Sonraki adımlar
 
-Farklı işlem senaryolarıyla denemeler yapmak için *DotNetTutorial* ve *TaskApplication* öğelerinde değişiklik yapmaktan çekinmeyin. Örneğin, uzun soluklu görevlerin benzetimini gerçekleştirmek ve bunları Batch Gezgini’nin *Isı Haritası* özelliğiyle izlemek için [Thread.Sleep][net_thread_sleep] ile olduğu gibi *TaskApplication*’a bir yürütme gecikmesi eklemeye çalışın. Daha fazla görev eklemeye veya işlem düğüm sayısını ayarlamaya çalışın. Yürütme süresini hızlandırmak için mevcut havuzun kullanımını denetleyip izin vermek için mantık ekleyin (*ipucu*: [azure-batch-samples][github_samples] içindeki [Microsoft.Azure.Batch.Samples.Common][github_samples_common] projesinde `ArticleHelpers.cs` öğesini kullanıma alın).
+Farklı işlem senaryolarıyla denemeler yapmak için *DotNetTutorial* ve *TaskApplication* öğelerinde değişiklik yapmaktan çekinmeyin. Örneğin, uzun soluklu görevlerin benzetimini gerçekleştirmek ve bunları portalda izlemek için [Thread.Sleep][net_thread_sleep] ile olduğu gibi *TaskApplication*’a bir yürütme gecikmesi eklemeye çalışın. Daha fazla görev eklemeye veya işlem düğüm sayısını ayarlamaya çalışın. Yürütme süresini hızlandırmak için mevcut havuzun kullanımını denetleyip izin vermek için mantık ekleyin (*ipucu*: [azure-batch-samples][github_samples] içindeki [Microsoft.Azure.Batch.Samples.Common][github_samples_common] projesinde `ArticleHelpers.cs` öğesini kullanıma alın).
 
 Batch çözümünün temel iş akışı hakkında artık bilginiz olduğuna göre, Batch hizmetinin ek özelliklerinin derinliklerine dalma zamanı gelmiştir.
 
-- Hizmetle yeni tanışıyorsanız önerdiğimiz [Azure Batch özelliklerine genel bakış](batch-api-basics.md) makalesini gözden geçirin.
+- Tüm yeni Batch kullanıcıları için önerilen [Geliştiriciler için Batch özelliğine genel bakış](batch-api-basics.md) konusunu okuyun.
 - [Batch öğrenme yolu][batch_learning_path]’ndaki **Ayrıntılı geliştirme** altında diğer Batch geliştirmesi makalelerine başlayın.
 - [TopNWords][github_topnwords] örneğinde Batch tarafından kullanılan "ilk N sözcük" iş yükünü işlemenin farklı uygulamalarını kullanıma alın.
 
 [azure_batch]: https://azure.microsoft.com/services/batch/
 [azure_free_account]: https://azure.microsoft.com/free/
 [azure_portal]: https://portal.azure.com
-[batch_explorer_blog]: http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx
 [batch_learning_path]: https://azure.microsoft.com/documentation/learning-paths/batch/
-[blog_linux]: http://blogs.technet.com/b/windowshpc/archive/2016/03/30/introducing-linux-support-on-azure-batch.aspx
-[github_batchexplorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [github_dotnettutorial]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/DotNetTutorial
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [github_samples_common]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/Common
@@ -760,9 +753,9 @@ Batch çözümünün temel iş akışı hakkında artık bilginiz olduğuna gör
 [net_taskstatemonitor]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.taskstatemonitor.aspx
 [net_thread_sleep]: https://msdn.microsoft.com/library/274eh01d(v=vs.110).aspx
 [net_virtualmachineconfiguration]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.virtualmachineconfiguration.aspx
-[nuget_packagemgr]: https://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c
+[nuget_packagemgr]: https://docs.nuget.org/consume/installing-nuget
 [nuget_restore]: https://docs.nuget.org/consume/package-restore/msbuild-integrated#enabling-package-restore-during-build
-[storage_explorers]: http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx
+[storage_explorers]: http://storageexplorer.com/
 [visual_studio]: https://www.visualstudio.com/products/vs-2015-product-editions
 
 [1]: ./media/batch-dotnet-get-started/batch_workflow_01_sm.png "Azure Storage’da kapsayıcı oluşturma"
@@ -779,6 +772,6 @@ Batch çözümünün temel iş akışı hakkında artık bilginiz olduğuna gör
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

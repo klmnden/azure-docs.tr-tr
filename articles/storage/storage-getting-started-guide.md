@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="dotnet" 
     ms.topic="get-started-article" 
-    ms.date="05/23/2016"
+    ms.date="07/21/2016"
     ms.author="tamram"/>
 
 # Beş dakikada Azure Storage’a başlayın 
@@ -103,6 +103,7 @@ Ardından Azure Storage Öykünücüsünde örnek uygulamayı çalıştırın:
 Azure Storage ile ilgili daha fazla bilgi edinmek için şu kaynaklara bakın:
 
 * [Microsoft Azure Storage’a Giriş](storage-introduction.md)
+* [Azure Storage Explorer kullanmaya başlama](../vs-azure-tools-storage-manage-with-storage-explorer.md)
 * [.NET kullanarak Azure Blob Storage’ı kullanmaya başlayın](storage-dotnet-how-to-use-blobs.md)
 * [.NET kullanarak Azure Table Storage’ı kullanmaya başlayın](storage-dotnet-how-to-use-tables.md)
 * [.NET kullanarak Azure Kuyruk Depolamaya başlayın](storage-dotnet-how-to-use-queues.md)
@@ -117,6 +118,6 @@ Azure Storage ile ilgili daha fazla bilgi edinmek için şu kaynaklara bakın:
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

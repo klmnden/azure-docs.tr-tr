@@ -13,16 +13,80 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/16/2016"
+   ms.date="07/20/2016"
    ms.author="cherylmc" />
 
 # VPN Gateway hakkında
 
-VPN Gateway sanal ağlar ve şirket içi konumlara arasında ağ trafiği göndermek için kullanılır. Ayrıca, Azure’da (VNet - VNet) birden çok sanal ağ arasında trafik göndermek için de kullanılır. Aşağıdaki bölümler VPN Gateway ile ilgili öğeleri ele alır.
+VPN Gateway sanal ağlar ve şirket içi konumlara arasında ağ trafiği göndermek için kullanılan bir ayar koleksiyonudur. Bu makaledeki bölümler VPN Gateway ile ilgili ayarları ele almaktadır. VPN Gateway Siteden Siteye, Noktadan Siteye ve ExpressRoute bağlantıları için kullanılır. VPN Gateway ayrıca Azure’da (VNet-VNet) birden çok sanal ağ arasında trafik göndermek için de kullanılır. 
 
-VPN ağ geçidinizi oluşturmak için kullandığınız yönergeler sanal ağınızı oluşturmak için kullandığınız dağıtım modeline bağlı olacaktır. Örneğin, klasik dağıtım modeli kullanarak VNet oluşturduysanız, VPN ağ geçidinizi oluşturmak ve yapılandırmak için klasik dağıtım modeli için olan kılavuzları ve yönergeleri kullanırsınız. Klasik dağıtım modeli sanal ağı için Resource Manager VPN ağ geçidi oluşturamazsınız. 
+VPN Gateway bağlantı oluşturmak üzere bir sanal ağa eklenebilir. Her sanal ağda yalnızca bir VPN Gateway olabilir ve her bağlantı için özel yapılandırma adımları vardır. Bağlantı diyagramları için bkz. [VPN Gateway bağlantı topolojileri](vpn-gateway-topology.md). 
 
-Dağıtım modelleri hakkında daha fazla bilgi için, bkz. [Resource Manager’ı ve klasik dağıtım modellerini anlama](../resource-manager-deployment-model.md).
+## <a name="gwsku"></a>Ağ geçidi SKU'ları
+
+VPN ağ geçidi oluşturduğunuzda, kullanmak istediğiniz ağ geçidi SKU’sunu belirtmeniz gerekir. Gateway SKU’ları hem ExpressRoute hem de Vpn gateway türleri için geçerlidir. Ağ geçidi SKU'ları arasında fiyatlandırma farklılık gösterir. Fiyatlandırma hakkında daha fazla bilgi için, bkz. [VPN Gateway fiyatlandırması](https://azure.microsoft.com/pricing/details/vpn-gateway/). ExpressRoute hakkında daha fazla bilgi için bkz. [ExpressRoute’a Teknik Genel Bakış](../expressroute/expressroute-introduction.md).
+
+3 VPN Gateway SKU'su vardır:
+
+- Temel
+- Standart
+- HighPerformance
+
+Aşağıdaki örnek `-GatewaySku` öğesini *Standart* olarak belirtir.
+
+    New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg -Location 'West US' -IpConfigurations $gwipconfig -GatewaySku Standard -GatewayType Vpn -VpnType RouteBased
+
+###  <a name="aggthroughput"></a>SKU ve ağ geçidi türüne göre tahmini toplam verimlilik.
+
+
+Aşağıdaki tabloda ağ geçidi türleri ve tahmini toplam verimlilik gösterilmiştir. Bu tablo hem Resource Manager hem de klasik dağıtım modellerine uygulanır.
+
+[AZURE.INCLUDE [vpn-gateway-table-gwtype-aggthroughput](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)] 
+
+## <a name="gwtype"></a>Ağ geçidi türleri
+
+Ağ geçidi türü, ağ geçidinin nasıl bağlandığını belirtir ve Resource Manager dağıtım modeli için gereken yapılandırma ayarıdır. Ağ geçidi türünü, VPN’iniz için rota türünü belirten VPN türü ile karıştırmayın. `-GatewayType` için kullanılabilir değerler şunlardır: 
+
+- VPN
+- ExpressRoute
+
+
+Resource Manager dağıtım modeli için bu örnek -GatewayType öğesini *Vpn* olarak belirtir. Bir ağ geçidi oluştururken, ağ geçidi öğesinin yapılandırmanız için doğru olduğundan emin olmanız gerekir. 
+
+    New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn -VpnType RouteBased
+
+## <a name="connectiontype"></a>Bağlantı türleri
+
+Her bağlantı belirli bir bağlantı türü gerektirir. `-ConnectionType` için kullanılabilir Resource Manager PowerShell değerleri şunlardır:
+
+- IPsec
+- Vnet2Vnet
+- ExpressRoute
+- VPNClient
+
+Aşağıdaki örnekte, "IPsec" bağlantı türü gerektiren bir Siteden Siteye bağlantı oluşturuyoruz.
+
+    New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg -Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
+
+## <a name="vpntype"></a>VPN türleri
+
+Her yapılandırma çalışmak için belirli bir VPN türü gerektirir. Aynı VNet’e Siteden Siteye bağlantı ve Noktadan Siteye bağlantı oluşturma gibi iki yapılandırmayı birleştiriyorsanız, her iki bağlantı gereksinimini de karşılayan bir VPN türü kullanmalısınız. 
+
+Noktadan Siteye ve Siteden Siteye birlikte bağlantı bulunması durumunda, Azure Resource Manager dağıtım modeliyle çalışırken rota tabanlı VPN türü ya da klasik dağıtım modeliyle çalışıyorsanız dinamik ağ geçidi kullanmalısınız.
+
+Yapılandırmanızı oluşturduğunuzda, bağlantınız için gerekli olan VPN türünü seçersiniz. 
+
+İki VPN türü vardır:
+
+[AZURE.INCLUDE [vpn-gateway-vpntype](../../includes/vpn-gateway-vpntype-include.md)]
+
+Resource Manager dağıtım modeli için bu örnek `-VpnType` öğesini *RouteBased* olarak belirtir. Bir ağ geçidi oluştururken, -VpnType öğesinin yapılandırmanız için doğru olduğundan emin olmanız gerekir. 
+
+    New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn -VpnType RouteBased
+
+##  <a name="requirements"></a>Ağ geçidi gereksinimleri
+
+[AZURE.INCLUDE [vpn-gateway-table-requirements](../../includes/vpn-gateway-table-requirements-include.md)] 
 
 
 ## <a name="gwsub"></a>Ağ geçidi alt ağı
@@ -41,71 +105,11 @@ Aşağıdaki örnek GatewaySubnet adlı bir ağ geçidi alt ağını gösterir. 
 
 >[AZURE.IMPORTANT] Bu, bağlantıların başarısız olmasına neden olabileceğinden, GatewaySubnet’in bir Ağ Güvenlik Grubu’na (NSG) sahip olmadığından emin olun.
 
-## <a name="gwtype"></a>Ağ geçidi türleri
-
-Ağ geçidi türü, ağ geçidinin nasıl bağlandığını belirtir ve Resource Manager dağıtım modeli için gereken yapılandırma ayarıdır. Ağ geçidi türünü, VPN’iniz için rota türünü belirten VPN türü ile karıştırmayın. `-GatewayType` için kullanılabilir değerler şunlardır: 
-
-- VPN
-- ExpressRoute
-
-
-Resource Manager dağıtım modeli için bu örnek -GatewayType öğesini *Vpn* olarak belirtir. Bir ağ geçidi oluştururken, ağ geçidi öğesinin yapılandırmanız için doğru olduğundan emin olmanız gerekir. 
-
-    New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn -VpnType RouteBased
-
-## <a name="gwsku"></a>Ağ geçidi SKU'ları
-
-VPN ağ geçidi oluşturduğunuzda, kullanmak istediğiniz ağ geçidi SKU’sunu belirtmeniz gerekir. 3 VPN Gateway SKU'su vardır:
-
-- Temel
-- Standart
-- HighPerformance
-
-Aşağıdaki örnek `-GatewaySku` öğesini *Standart* olarak belirtir.
-
-    New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg -Location 'West US' -IpConfigurations $gwipconfig -GatewaySku Standard -GatewayType Vpn -VpnType RouteBased
-
-###  <a name="aggthroughput"></a>SKU ve ağ geçidi türüne göre tahmini toplam verimlilik.
-
-
-Aşağıdaki tabloda ağ geçidi türleri ve tahmini toplam verimlilik gösterilmiştir. Ağ geçidi SKU'ları arasında fiyatlandırma farklılık gösterir. Fiyatlandırma hakkında daha fazla bilgi için, bkz. [VPN Gateway fiyatlandırması](https://azure.microsoft.com/pricing/details/vpn-gateway/). Bu tablo hem Resource Manager hem de klasik dağıtım modellerine uygulanır.
-
-[AZURE.INCLUDE [vpn-gateway-table-gwtype-aggthroughput](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)] 
-
-## <a name="vpntype"></a>VPN türleri
-
-Her yapılandırma çalışmak için belirli bir VPN türü gerektirir. Aynı VNet’e Siteden Siteye bağlantı ve Noktadan Siteye bağlantı oluşturma gibi iki yapılandırmayı birleştiriyorsanız, her iki bağlantı gereksinimini de karşılayan bir VPN türü kullanmalısınız. 
-
-Noktadan Siteye ve Siteden Siteye birlikte bağlantı bulunması durumunda, Azure Resource Manager dağıtım modeliyle çalışırken rota tabanlı VPN türü ya da klasik dağıtım modeliyle çalışıyorsanız dinamik ağ geçidi kullanmalısınız.
-
-Yapılandırmanızı oluşturduğunuzda, bağlantınız için gerekli olan VPN türünü seçersiniz. 
-
-İki VPN türü vardır:
-
-[AZURE.INCLUDE [vpn-gateway-vpntype](../../includes/vpn-gateway-vpntype-include.md)]
-
-Resource Manager dağıtım modeli için bu örnek `-VpnType` öğesini *RouteBased* olarak belirtir. Bir ağ geçidi oluştururken, -VpnType öğesinin yapılandırmanız için doğru olduğundan emin olmanız gerekir. 
-
-    New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn -VpnType RouteBased
-
-## <a name="connectiontype"></a>Bağlantı türleri
-
-Her bağlantı belirli bir bağlantı türü gerektirir. `-ConnectionType` için kullanılabilir Resource Manager PowerShell değerleri şunlardır:
-
-- IPsec
-- Vnet2Vnet
-- ExpressRoute
-- VPNClient
-
-Aşağıdaki örnekte, "IPsec" bağlantı türü gerektiren bir Siteden Siteye bağlantı oluşturuyoruz.
-
-    New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg -Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
 
 
 ## <a name="lng"></a>Yerel ağ geçidi geçitleri
 
 Yerel ağ geçidi genellikle şirket içi konumunuz anlamına gelir. Klasik dağıtım modelinde, yerel ağ geçidi için Yerel Site olara ifade edilir. Yerel ağ geçidine bir ad, şirket içi VPN cihazının genel IP adresini verir ve şirket içi konumunda yer alan adres öneklerini belirtirsiniz. Azure ağ trafiği için hedef adres öneklerine bakar ve sırasıyla yerel ağ geçidiniz için belirttiğiniz yapılandırmaya ve rota paketlerine danışır. Bu adres öneklerini gerektiği gibi değiştirebilirsiniz.
-
 
 
 ### Adres öneklerini değiştirme - Resource Manager
@@ -121,15 +125,6 @@ Aşağıdaki örnekte, MyOnPremiseWest adlı bir yerel ağ geçidi belirtildiği
 Klasik dağıtım modeli kullanılırken yerel sitelerinizi değiştirmeniz gerekiyorsa, klasik portaldaki Yerel Ağlar yapılandırma sayfasını kullanabilir veya NETCFG.XML Ağ Yapılandırma dosyasını doğrudan değiştirebilirsiniz.
 
 
-##  <a name="devices"></a> VPN cihazları
-
-Kullanmayı planladığınız VPN cihazının yapılandırmanız için gereken VPN türünü desteklediğinden emin olmalısınız. Uyumlu VPN cihazları hakkında daha fazla bilgi için bkz.[VPN cihazları hakkında](vpn-gateway-about-vpn-devices.md) 
-
-##  <a name="requirements"></a>Ağ geçidi gereksinimleri
-
-
-[AZURE.INCLUDE [vpn-gateway-table-requirements](../../includes/vpn-gateway-table-requirements-include.md)] 
-
 
 ## Sonraki adımlar
 
@@ -143,6 +138,6 @@ Yapılandırmanızı planlama ve tasarlamaya geçmeden önce daha fazla bilgi i�
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

@@ -14,14 +14,14 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="03/10/2016"
+    ms.date="06/08/2016"
     ms.author="heidist"/>
 
 # Portalı kullanarak Azure Search'e veri aktarma
 
-Azure Portal, Azure Search'te veri alımında size rehberlik eden Azure Search panosunda bir **Veri İçeri Aktar** komutunu içerir. Komut, veri kaynağında bulunan satır kümesini temel alan belgeler oluşturarak ve bunları karşıya yükleyerek var olan bir veri kaynağında gezinen yerleşik dizin oluşturucuları özelliğini kullanır.
+Azure Portal, Azure Search panosunda verileri bir dizine yüklemeye yönelik **Verileri İçeri Aktar** komutunu içerir. Komut, veri kaynağından çekilen satır kümesini temel alan belgeler oluşturarak ve bunları karşıya yükleyerek var olan bir veri kaynağında gezinen yerleşik dizin oluşturucu özelliklerini kullanır.
 
-Sihirbazı kullanarak veri içeri aktarma işlemi 3 parçalı bir yapıdır:
+Sihirbazda verilerin içeri aktarılması 3 parçalı bir yapıdır:
 
 - bir veri kaynağı bağlantısı
 - verilerin karşıya yüklendiği bir hedef dizin (sihirbaz bunu genellikle sizin için oluşturur)
@@ -68,10 +68,16 @@ Yalnızca tek bir tablo, görünüm veya eşdeğeri veri yapısından aktarabili
 
 ##Var olan bir dizin oluşturucuyu düzenleme
 
-Hizmet panosunda, aboneliğiniz için oluşturulan tüm dizin oluşturucuların listesini kaydırarak açmak için Dizin Oluşturucu kutucuğuna çift tıklayın. Bir dizin oluşturucuyu çalıştırmak, düzenlemek veya silmek için bunlardan birine çift tıklayın.
+Hizmet panosunda, aboneliğiniz için oluşturulan tüm dizin oluşturucuların listesini kaydırarak açmak için Dizin Oluşturucu kutucuğuna çift tıklayın. Bir dizin oluşturucuyu çalıştırmak, düzenlemek veya silmek için bunlardan birine çift tıklayın. Dizini var olan başka bir dizinle değiştirebilir, veri kaynağını değiştirebilir ve dizin oluşturma sırasında hata eşikleri için seçenekleri ayarlayabilirsiniz.
+
+##Var olan bir dizini düzenleme
+
+Azure Search hizmetinde bir dizinde yapısal güncelleştirmeler yapılması bu dizinin yeniden derlenmesini gerektirir; bu işlem dizinin silinmesini, yeniden oluşturulmasını ve verilerin yeniden yüklenmesini içerir. Yapısal güncelleştirmeler bir veri türünün değiştirilmesini ve bir alanın yeniden adlandırılmasını ya da silinmesini içerir.
+
+Yeni bir alan ekleme, puanlama profillerini değiştirme, öneri araçlarını değiştirme veya dil çözümleyicileri değiştirme gibi işlemler yeniden derleme gerektirmeyen düzenlemelerdir. Daha fazla bilgi için bkz. [Dizin Güncelleştirme](https://msdn.microsoft.com/library/azure/dn800964.aspx).
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

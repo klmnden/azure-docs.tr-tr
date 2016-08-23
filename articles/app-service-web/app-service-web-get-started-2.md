@@ -72,7 +72,7 @@ App Service, kimlik doğrulama mantığını sizin sağlamanıza gerek kalmamas�
 
 ## Uygulamanızı talep doğrultusunda otomatik olarak ölçeklendirme
 
-Şimdi, kapasitesini kullanıcı talebine yanıt verecek şekilde otomatik olarak ayarlaması için uygulamanızı otomatik olarak ölçeklendirelim (daha fazla bilgi için [Azure App Service’te ölçeklendirme fiyatlandırma katmanı](app-service-scale) ve [Örnek sayısını elle veya otomatik olarak ölçeklendirme](../azure-portal/insights-how-to-scale.md)). 
+Şimdi, kapasitesini kullanıcı talebine yanıt verecek şekilde otomatik olarak ayarlaması için uygulamanızı otomatik olarak ölçeklendirelim (daha fazla bilgi için [Azure’da uygulamanızı ölçeklendirme](web-sites-scale.md) ve [Örnek sayısını elle veya otomatik olarak ölçeklendirme](../azure-portal/insights-how-to-scale.md)). 
 
 Kısaca, web uygulamanızı iki şekilde ölçeklendirebilirsiniz:
 
@@ -112,7 +112,7 @@ Tebrikler, uygulamanız otomatik ölçeklendirme yapıyor.
 - Bir takvime göre otomatik ölçeklendirme
 - Gelecekteki bir etkinlik için otomatik ölçeklendirme davranışını ayarlama
 
-Uygulamanızın ölçeğini genişletme ile ilgili daha fazla bilgi için bkz. [Azure App Service’te ölçeklendirme fiyatlandırma katmanı](../app-service/app-service-scale.md). Ölçeği artırma ile ilgili daha fazla bilgi için bkz. [Örnek sayacını elle veya otomatik olarak ölçeklendirme](../azure-portal/insights-how-to-scale.md).
+Uygulamanızın ölçeğini genişletme ile ilgili daha fazla bilgi için bkz. [Azure’da uygulamanızı ölçeklendirme](../app-service-web/web-sites-scale.md). Ölçeği artırma ile ilgili daha fazla bilgi için bkz. [Örnek sayacını elle veya otomatik olarak ölçeklendirme](../azure-portal/insights-how-to-scale.md).
 
 ## Uygulamanız için uyarılar alma
 
@@ -147,7 +147,7 @@ Dağıttığınız uygulama ile daha fazlasını nasıl başarabileceğinizi ö�
 
 - [Özel bir etki alanı adı satın alma ve yapılandırma](custom-dns-web-site-buydomains-web-app.md) - web uygulamanız için *.azurewebsites.net etki alanı yerine çekici bir etki alanı satın alın. Veya sahip olduğunuz bir etki alanını kullanın.
 - [Hazırlık ortamları ayarlama](web-sites-staged-publishing.md) - Uygulamanızı üretime geçirmeden önce bir hazırlık URL’sine dağıtın. Canlı web uygulamanızı güvenle güncelleştirin. Birden çok dağıtım yuvası ile kapsamlı bir DevOps çözümü ayarlayın. 
-- [Sürekli geliştirme ayarlama](web-sites-publish-source-control.md) - Uygulama geliştirmenizi kaynak denetim sisteminizle tümleştirin. Her işleme ile Azure’a dağıtma
+- [Sürekli dağıtım ayarlama](app-service-continuous-deployment.md) - Uygulama dağıtımınızı kaynak denetim sisteminizle tümleştirin. Her işleme ile Azure’a dağıtma
 - [Şirket içi kaynaklara erişim](web-sites-hybrid-connection-get-started.md) - Mevcut şirket içi veritabanına veya CRM sistemine erişin.
 - [Uygulamanızı yedekleme](web-sites-backup.md) - Web uygulamanız için yedekleme ve geri yükleme ayarlayın. Beklenmedik arızalara hazırlıklı olun ve arızalardan kurtulun.
 - [Tanılama günlüklerini etkinleştirme](web-sites-enable-diagnostic-log.md) - Azure veya uygulama izlemelerinden IIS günlüklerini okuyun. Bir akış içinde okuyun, indirin veya anahtar teslim analizler için [Application Insights](../application-insights/app-insights-overview.md)’a aktarın.
@@ -157,6 +157,6 @@ Dağıttığınız uygulama ile daha fazlasını nasıl başarabileceğinizi ö�
 - [App Service’in nasıl çalıştığını öğrenin](../app-service/app-service-how-works-readme.md) 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-windows-store"
     ms.devlang="javascript"
     ms.topic="get-started-article"
-    ms.date="03/06/2016"
+    ms.date="07/21/2016"
     ms.author="glenga"/>
 
 # Mobile Services’ı kullanmaya başlama
@@ -29,7 +29,7 @@ Bu öğreticide bir Windows Mağazası JavaScript uygulamasına Azure Mobile Ser
 
 Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
-* Etkin bir Azure hesabı. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılar için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fdocumentation%2Farticles%2Fmobile-services-javascript-backend-windows-store-javascript-get-started%2F).
+* Etkin bir Azure hesabı. Hesabınız yoksa yalnızca birkaç dakika içinde ücretsiz bir deneme sürümü hesabı oluşturabilirsiniz. Ayrıntılar için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fdocumentation%2Farticles%2Fmobile-services-javascript-backend-windows-store-javascript-get-started%2F).
 * [Windows için Visual Studio 2013 Express]
 
 ## Yeni bir mobil hizmet oluşturma
@@ -93,6 +93,6 @@ Hızlı başlangıcı tamamladığınıza göre [HTML/JavaScript için Mobile Se
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

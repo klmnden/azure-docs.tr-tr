@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="03/21/2016"
+    ms.date="07/14/2016"
     ms.author="vakarand"/>
 
 # Buluttaki şirket içi kimlik altyapınızı ve eşitleme hizmetlerini izleyin
@@ -47,6 +47,7 @@ Aşağıdaki videoda, AD FS için Azure AD Connect Health'e ilişkin genel bakı
 >[AZURE.VIDEO azure-ad-connect-health--monitor-you-identity-bridge]
 
 ## [Eşitleme için Azure AD Connect Health](active-directory-aadconnect-health-sync.md)
+
 Eşitleme için Azure AD Connect Health, şirket içi Active Directory'niz ve Azure Active Directory'niz arasında oluşan eşitlemeleri izler ve haklarında bilgi verir. Eşitlemeye ilişkin Azure AD Connect Health aşağıdaki temel işlevler kümesini sağlar:
 
 - Azure AD Connect sunucularının (diğer adıyla Eşitleme Altyapısının) sağlıklı olup olmadığını öğrenmek için uyarılarla izleme
@@ -56,13 +57,25 @@ Eşitleme için Azure AD Connect Health, şirket içi Active Directory'niz ve Az
 
 Aşağıdaki videoda, eşitleme için Azure AD Connect Health'e genel bakış sağlanmıştır
 
-[Azure Active Directory Connect Health: Eşitleme altyapısı izleme](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Azure-Active-Directory-Connect-Health-Monitoring-the-sync-engine)
+>[AZURE.VIDEO azure-active-directory-connect-health-monitoring-the-sync-engine]
 
+## [AD DS için Azure AD Connect Health (önizleme)](active-directory-aadconnect-health-adds.md)
+
+AD DS için Azure AD Connect Health; Windows Server 2008 R2, Windows Server 2012 ve Windows Server 2012 R2’ye yüklü Etki Alanı Denetleyicileri için izleme sağlar. Kolay ve düşük maliyetli olan bu sistem durumu aracısı yüklemesi, şirketinizin içindeki AD DS ortamını buluttan izlemenize imkan tanır. AD DS için Azure AD Connect Health aşağıdaki temel işlevler kümesini sağlar:
+
+- Etki alanı denetleyicilerinin iyi durum olmadığı zamanları algılayan, kritik uyarılara ilişkin e-posta bildirimleri ile birlikte izleme uyarıları.
+- Etki alanı denetleyicilerinizin sistem ve çalışma durumunu hızlıca görüntülemenizi sağlayan Etki Alanı Denetleyicileri panosu.
+- Hatalar algılandığında sorun giderme kılavuzlarının bağlantılarıyla birlikte en son çoğaltma bilgilerini içeren Çoğaltma Durumu panosu.
+- Sorun giderme ve izleme için gereken popüler performans sayaçlarının performans veri grafiklerine her yerden hızlı erişim.
+
+Aşağıdaki videoda, AD DS için Azure AD Connect Health'e ilişkin genel bakış sağlanmıştır
+
+>[AZURE.VIDEO azure-ad-connect-health-monitors-on-premises-ad-domain-services]
 
 ## Azure AD Connect Health ile çalışmaya başlama
 Azure AD Connect Health ile çalışmaya başlamak çok kolaydır. Aşağıdaki adımları izleyin:
 
-1. [Azure AD Premium alın](active-directory-get-started-premium) veya [deneme sürümünü başlatın](https://azure.microsoft.com/trial/get-started-active-directory/)
+1. [Azure AD Premium alın](active-directory-get-started-premium.md) veya [deneme sürümünü başlatın](https://azure.microsoft.com/trial/get-started-active-directory/)
 
 2. Kimlik sunucularınıza [Azure AD Connect Health aracılarını İndirme ve Yükleme](#download-and-install-azure-ad-connect-health-agent) 
 
@@ -79,17 +92,21 @@ Azure AD Connect Health ile çalışmaya başlamak çok kolaydır. Aşağıdaki 
 
 - Eşitleme için Azure AD Connect Health ile çalışmaya başlamak için [Azure AD Connect'in en son sürümünü](http://go.microsoft.com/fwlink/?linkid=615771) indirin ve yükleyin.  Durum aracısı, Azure AD Connect yüklemesinin bir parçası olarak yüklenir (sürüm 1.0.9125.0 veya daha yeni bir sürüm).  Azure AD Connect, önceki sürümlerinden yerinde yükseltmeyi destekler.
 
+- AD DS için Azure AD Connect Health ile çalışmaya başlamak için aracının en son sürümünü buradan indirebilirsiniz: [AD DS için Azure AD Connect Health Aracısı İndirme.](http://go.microsoft.com/fwlink/?LinkID=820540)
+[](active-directory-aadconnect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs)
 
 ## Azure AD Connect Health Portalı
-Azure AD Connect Health portalı; uyarıları, performans izlemeyi ve kullanım analizini görüntülemenizi sağlar. https://aka.ms/aadconnecthealth adresi sizi Azure AD Connect Health'in ana dikey penceresine götürür.  Dikey pencereyi bir pencere olarak düşünebilirsiniz. Ana dikey penceresinde Hızlı Başlangıç'ı, Azure AD Connect Health'teki Hizmetleri ve ek yapılandırma seçeneklerini görebilirsiniz. Ekran görüntüsünün altında bunların kısa açıklamaları vardır.  Aracılar dağıtıldıktan sonra, Azure AD Connect Health hizmetleri için hizmet tanımlayıcıları izlenir.
+Azure AD Connect Health portalı; uyarıları, performans izlemeyi ve kullanım analizini görüntülemenizi sağlar. https://aka.ms/aadconnecthealth adresi sizi Azure AD Connect Health'in ana dikey penceresine götürür.  Dikey pencereyi bir pencere olarak düşünebilirsiniz. Ana dikey penceresinde Hızlı Başlangıç'ı, Azure AD Connect Health'teki Hizmetleri ve ek yapılandırma seçeneklerini görebilirsiniz. Ekran görüntüsünün altında bunların kısa açıklamaları vardır.  Aracıları dağıttıktan sonra sistem durumu hizmeti Azure AD Connect Health tarafından hizmetleri otomatik olarak tanımlar.
 
-![Azure AD Connect Health Portalı](./media/active-directory-aadconnect-health/portal2.png)
+![Azure AD Connect Health Portalı](./media/active-directory-aadconnect-health/portal4.png)
 
 - **Hızlı Başlangıç** - Bunu seçerek Hızlı Başlangıç dikey penceresini açarsınız. Burada, Araçları Alma'yı seçerek Azure AD Connect Health Aracısı'nı indirebilir, belgelere erişebilir ve geri bildirim edinebilirsiniz.
 
 - **Active Directory Federasyon Hizmetleri** - Azure AD Connect Health'in şu anda izlediği tüm AD FS hizmetlerini temsil eder. Örneklerden birini seçerseniz o hizmet örneği hakkında bilgi içeren dikey pencere açılır.  Bu bilgiler; genel bakışı, özellikleri, uyarıları, izlemeyi ve kullanım analizlerini içerir. İşlevler hakkında daha fazla bilgiyi [buradan](active-directory-aadconnect-health-adfs.md) edinebilirsiniz.
 
 - **Azure Active Directory Connect (Eşitleme)** - Azure AD Connect Health'in şu anda izlediği Azure AD Connect sunucularınızı temsil eder. Girişi seçerseniz Azure AD Connect sunucularınız hakkında bilgi içeren dikey pencere açılır. İşlevler hakkında daha fazla bilgiyi [buradan](active-directory-aadconnect-health-sync.md) edinebilirsiniz.
+ 
+- **Active Directory Etki Alanı Hizmetleri** - Azure AD Connect Health'in o anda izlediği tüm AD DS ormanlarını temsil eder. Ormanlardan birini seçerseniz o orman hakkında bilgi içeren bir dikey pencere açılır.  Bu bilgiler; temel bilgiler, Etki Alanı Denetleyicileri panosu, Çoğaltma Durumu panosu, uyarılar ve izlemeye genel bakış içerir. İşlevler hakkında daha fazla bilgiyi [buradan](active-directory-aadconnect-health-adds.md) edinebilirsiniz.
 
 - **Yapılandırma** - şunları açmanıza veya kapatmanıza olanak tanır:
 
@@ -104,11 +121,12 @@ Azure AD Connect Health portalı; uyarıları, performans izlemeyi ve kullanım 
 * [Azure AD Connect Health İşlemleri](active-directory-aadconnect-health-operations.md)
 * [Azure AD Connect Health'i AD FS ile Kullanma](active-directory-aadconnect-health-adfs.md)
 * [Eşitleme için Azure AD Connect Health'i kullanma](active-directory-aadconnect-health-sync.md)
+* [Azure AD Connect Health'i AD DS ile Kullanma](active-directory-aadconnect-health-adds.md)
 * [Azure AD Connect Health ile ilgili SSS](active-directory-aadconnect-health-faq.md)
 * [Azure AD Connect Health Sürüm Geçmişi](active-directory-aadconnect-health-version-history.md)
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

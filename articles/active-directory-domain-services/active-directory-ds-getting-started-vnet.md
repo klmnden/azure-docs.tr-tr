@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="04/25/2016"
+    ms.date="07/06/2016"
     ms.author="maheshu"/>
 
 # Azure AD Etki Alanı Hizmetleri *(Önizleme)* - Sanal ağ oluşturma veya seçme
@@ -59,7 +59,7 @@ Sonraki bir yapılandırma adımında Azure AD Etki Alanı Hizmetleri etkinleşt
 
 6. Sanal ağınız için bir **Ad** belirtin. Ayrıca bu ağ için **Adres alanını** veya **Maksimum VM sayısını** yapılandırmayı tercih edebilirsiniz. Şu an için DNS sunucusu ayarını "Yok" olarak ayarlanmış şekilde bırakabilirsiniz. Bu ayar, Azure AD Etki Alanı Hizmetleri'ni etkinleştirmenizin ardından güncelleştirilir.
 
-7. **Konum** açılır menüsünde desteklenen bir Azure bölgesini seçtiğinizden emin olun. Azure AD Etki Alanı Hizmetleri'nin kullanılabildiği Azure bölgelerini öğrenmek için [bölgeye göre Azure hizmetleri](https://azure.microsoft.com/regions/#services/) sayfasına göz atın. Bu önemli bir adımdır. Azure AD Etki Alanı Hizmetleri tarafından desteklenmeyen bir Azure bölgesindeki bir sanal ağı seçerseniz hizmeti bu sanal ağ üzerinde etkinleştiremezsiniz.
+7. **Konum** açılan menüsünde desteklenen bir Azure bölgesini seçtiğinizden emin olun. Azure AD Etki Alanı Hizmetleri'nin kullanılabildiği Azure bölgelerini öğrenmek için [bölgeye göre Azure hizmetleri](https://azure.microsoft.com/regions/#services/) sayfasına göz atın. Bu önemli bir adımdır. Azure AD Etki Alanı Hizmetleri tarafından desteklenmeyen bir Azure bölgesindeki bir sanal ağı seçerseniz hizmeti bu sanal ağ üzerinde etkinleştiremezsiniz.
 
 8. Sanal ağınızı oluşturmak için **Sanal Ağ Oluştur** düğmesine tıklayın.
 
@@ -72,6 +72,6 @@ Sonraki yapılandırma görevi, [Azure AD Etki Alanı Hizmetleri'ni etkinleştir
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

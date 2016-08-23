@@ -40,7 +40,7 @@ Bu makale, uygulama ağ geçidi oluşturma, yapılandırma, başlatma ve silme a
 ## Başlamadan önce
 
 1. Web Platformu Yükleyicisi’ni kullanarak Azure PowerShell cmdlet’lerin en son sürümünü yükleyin. **İndirmeler sayfası**’ndaki [Windows PowerShell](https://azure.microsoft.com/downloads/) bölümünden en son sürümü indirip yükleyebilirsiniz.
-2. Application Gateway için bir sanal ağ ve alt ağ oluşturabileceksiniz. Hiçbir sanal makinenin veya bulut dağıtımlarının alt ağı kullanmadığından emin olun. Uygulama ağ geçidi tek başına bir sanal ağ alt ağında olmalıdır.
+2. Mevcut bir sanal ağınız varsa var olan boş bir alt ağı seçin ya da var olan sanal ağınızda yalnızca uygulama ağ geçidinin kullanımına yönelik yeni bir alt ağ oluşturun. Uygulama ağ geçidini, uygulama ağ geçidinin arkasına dağıtmak istediğiniz kaynaklardan farklı bir sanal ağa dağıtamazsınız. 
 3. Uygulama ağ geçidi kullanırken yapılandıracağınız sunucular mevcut olmalıdır veya uç noktaları sanal ağda veya atanan genel bir IP/VIP’de oluşturulmuş olmalıdır.
 
 ## Bir uygulama ağ geçidi oluşturmak için ne gereklidir?
@@ -197,6 +197,30 @@ Yukarıdaki adımlarda geçen tüm yapılandırma öğeleri ile bir uygulama ağ
 
     $appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku
 
+### 9. Adım
+Uygulama ağ geçidine eklenen ortak IP kaynağından uygulama ağ geçidinin DNS ve VIP bilgilerini alın.
+
+    Get-AzureRmPublicIpAddress -Name publicIP01 -ResourceGroupName appgw-rg  
+
+    Name                     : publicIP01
+    ResourceGroupName        : appgwtest 
+    Location                 : westus
+    Id                       : /subscriptions/<sub_id>/resourceGroups/appgw-rg/providers/Microsoft.Network/publicIPAddresses/publicIP01
+    Etag                     : W/"12302060-78d6-4a33-942b-a494d6323767"
+    ResourceGuid             : ee9gd76a-3gf6-4236-aca4-gc1f4gf14171
+    ProvisioningState        : Succeeded
+    Tags                     : 
+    PublicIpAllocationMethod : Dynamic
+    IpAddress                : 137.116.26.16
+    IdleTimeoutInMinutes     : 4
+    IpConfiguration          : {
+                                 "Id": "/subscriptions/<sub_id>/resourceGroups/appgw-rg/providers/Microsoft.Network/applicationGateways/appgwtest/frontendIPConfigurations/fipconfig01"
+                               }
+    DnsSettings              : {
+                                 "Fqdn": "ee7aca47-4344-4810-a999-2c631b73e3cd.cloudapp.net"
+                               } 
+
+
 
 ## Uygulama ağ geçidini silme
 
@@ -248,6 +272,6 @@ Yük dengeleme seçenekleri hakkında daha fazla genel bilgi edinmek istiyorsan�
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/31/2016"
+   ms.date="07/25/2016"
    ms.author="barbkess;mausher;jrj;sonyama"/>
 
 
@@ -38,7 +38,7 @@ Veri yükleme, veri ambarı iş yükünün büyük bir parçasıdır. İşletmel
 
 - Geleneksel olarak, bu işleme Ayıklama, Dönüştürme ve Yükleme yani ETL adı verilir. Verilerin veri ambarındaki diğer verilerle uyumlu olması için genellikle dönüştürülmeleri gerekir. İşletmeler eskiden işlemleri gerçekleştirmek için adanmış ETL sunucuları kullanırdı. Artık son derece hızlı olan yüksek düzeyde paralel işleme sayesinde, önce verileri SQL Data Warehouse'a yükleyebilir ve ardından dönüştürmeleri gerçekleştirebilirsiniz. Bu işlem Ayıklama, Yükleme ve Dönüştürme (ELT) olarak adlandırılır ve veri ambarı iş yükleri için yeni bir standart haline gelmektedir.
 
-> [AZURE.NOTE] SQL Server CTP2 ile artık bir OLTP tablosunda analizleri gerçek zamanlı olarak gerçekleştirebilirsiniz. Bu olanak verilerin depolanması ve analiz edilmesi için bir veri ambarı ihtiyacını ortadan kaldırmaz ancak gerçek zamanlı olarak analiz gerçekleştirilmesi için bir yol sağlar.
+> [AZURE.NOTE] SQL Server 2016 ile artık bir OLTP tablosunda analizleri gerçek zamanlı olarak gerçekleştirebilirsiniz. Bu olanak verilerin depolanması ve analiz edilmesi için bir veri ambarı ihtiyacını ortadan kaldırmaz ancak gerçek zamanlı olarak analiz gerçekleştirilmesi için bir yol sağlar.
 
 ### Raporlama ve analiz sorguları
 Raporlama ve analiz sorguları genellikle bir dizi ölçüte göre küçük, orta ve büyük olarak sınıflandırılır ancak sınıflandırma çoğunlukla süreye göre yapılır. Çoğu veri ambarında, hızlı çalışan ve uzun süre çalışan sorgulardan oluşan karma bir iş yükü bulunur. Her durumda, bu karışımın ve sıklığının belirlenmesi önemlidir (saatlik, günlük, ay sonu, üç aylık dönem bitişi vb.). Eşzamanlılık ile bağlı olan karma sorgu iş yükünün bir veri ambarı için doğru kapasite planlaması sağlayacağının anlaşılması önemlidir.
@@ -59,15 +59,13 @@ Verileri raporlar ve analiz için kullanılabilir duruma getirmenin bir yolu, ve
 - Analiz için veri ambarında bir çözümleme küpü oluşturup veri ambarında analiz çalıştırabilir veya verileri önceden işleyip ek analizler yapmak için analiz sunucusuna dışarı aktarabilirsiniz.
 
 ## Sonraki adımlar
-Veri ambarınızı geliştirmeye başlamak için bkz. [geliştirmeye genel bakış][].
-
-## Kitaplar
-Karthik Ramachandran, Istvan Szededi ve Richard L. Saltzer tarafından hazırlanan [Big Data Warehousing](https://www.manning.com/books/big-data-warehousing) (Manning Publications) (İngilizce). [Bölüm 1](https://manning-content.s3.amazonaws.com/download/e/3d94acd-9512-46c8-b0b0-8c9c3c6a303b/BDW_MEAP_ch1.pdf)
+SQL Veri Ambarı hakkında biraz bilgi sahibi olduğunuza göre hızlıca [SQL Veri Ambarı oluşturma][] ve [örnek verileri yükleme][] hakkında bilgi edinin.
 
 <!--Image references-->
 
 <!--Article references-->
-[geliştirmeye genel bakış]: sql-data-warehouse-overview-develop.md
+[örnek verileri yükleme]: ./sql-data-warehouse-load-sample-databases.md
+[SQL Veri Ambarı oluşturma]: ./sql-data-warehouse-get-started-provision.md
 
 <!--MSDN references-->
 
@@ -75,6 +73,6 @@ Karthik Ramachandran, Istvan Szededi ve Richard L. Saltzer tarafından hazırlan
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

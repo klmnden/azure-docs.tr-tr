@@ -1,7 +1,7 @@
 <properties
   pageTitle="DocumentDB için NoSQL Node.js öğreticisi | Microsoft Azure"
   description="DocumentDB Node.js SDK'sını kullanarak düğüm veritabanı ve konsol uygulaması oluşturan bir NoSQL Node.js öğreticisi. DocumentDB, JSON için bir NoSQL veritabanıdır."
-    keywords="node.js tutorial, node database"
+    keywords="node.js öğreticisi, düğüm veritabanı"
   services="documentdb"
   documentationCenter="node.js"
   authors="AndrewHoh"
@@ -23,7 +23,7 @@
 - [.NET](documentdb-get-started.md)
 - [Node.js](documentdb-nodejs-get-started.md)
 
-DocumentDB Node.js SDK'sı için Node.js öğreticisine hoş geldiniz. Bu öğreticiden yararlandıktan sonra, bir Node veritabanı dahil olmak üzere DocumentDB kaynaklarını oluşturan ve sorgulayan bir konsol uygulamasına sahip olacaksınız.
+Azure DocumentDB Node.js SDK'sı için Node.js öğreticisine hoş geldiniz! Bu öğreticiden yararlandıktan sonra, bir Node veritabanı dahil olmak üzere DocumentDB kaynaklarını oluşturan ve sorgulayan bir konsol uygulamasına sahip olacaksınız.
 
 Şu konulara değineceğiz:
 
@@ -623,6 +623,6 @@ Ardından, ```config.js``` dosyasında config.endpoint ve config.authKey değerl
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="hero-article"
- ms.date="03/09/2016"
+ ms.date="06/30/2016"
  ms.author="krisragh"/>
 
 # Azure portalda Azure Scheduler kullanmaya başlama
@@ -184,6 +184,6 @@ Azure Rol Tabanlı Erişim Denetimi (RBAC), Azure Scheduler için ayrıntılı e
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

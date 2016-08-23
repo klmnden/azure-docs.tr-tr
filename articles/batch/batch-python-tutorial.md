@@ -13,7 +13,7 @@
     ms.topic="hero-article"
     ms.tgt_pltfrm="na"
     ms.workload="big-compute"
-    ms.date="06/03/2016"
+    ms.date="06/17/2016"
     ms.author="marsma"/>
 
 # Azure Batch Python istemcisini kullanmaya başlama
@@ -60,10 +60,6 @@ Batch ve Storage paketlerini yüklemek için aşağıdaki **pip** komutunu yayı
 Bunu yerine [azure-batch][pypi_batch] ve [azure-storage][pypi_storage] Python paketlerini el ile de yükleyebilirsiniz.
 
 > [AZURE.TIP] Ayrıcalığı olmayan bir hesap kullanıyorsanız (önerilen), komutlarınıza `sudo` öneki eklemeniz gerekebilir; örneğin `sudo pip install -r requirements.txt`. Python paketlerini yükleme hakkında daha fazla bilgi için bkz. [Paketleri Yükleme][pypi_install] (readthedocs.io).
-
-### Azure Batch Gezgini (isteğe bağlı)
-
-[Azure Batch Gezgini][github_batchexplorer], GitHub’daki [azure-batch-samples][github_samples] deposunda yer alan ücretsiz bir yardımcı programdır. Bu eğitmeni tamamlamak için gerekli olmasa da, Batch çözümlerinizi geliştirirken ve hatalarını ayıklarken yararlı olabilir.
 
 ## Batch Python eğitmen kodu örneği
 
@@ -265,9 +261,8 @@ Görev betiğini ve veri dosyalarını Storage hesabına yükledikten sonra, *py
                                               _BATCH_ACCOUNT_KEY)
 
  batch_client = batch.BatchServiceClient(
-     batch.BatchServiceClientConfiguration(
-         credentials,
-         base_url=_BATCH_ACCOUNT_URL))
+     credentials,
+     base_url=_BATCH_ACCOUNT_URL)
 ```
 
 Ardından, `create_pool` çağrısıyla Batch hesabında işlem düğümü havuzu oluşturacak.
@@ -339,7 +334,7 @@ Havuz oluşturduğunuzda, havuz için bazı özellikler belirten [PoolAddParamet
 
 - **İşlem düğümleri sayısı** (*target_dedicated* - gerekli)<p/>Havuzda kaç VM dağıtılması gerektiğini belirtir. Tüm Batch hesaplarının, bir Batch hesabında bir dizi **çekirdekle** (bu nedenle de işlem düğümleriyle) sınırlanan varsayılan bir **kotasının** olduğunu unutmamak önemlidir. [Kota artırma](batch-quota-limit.md#increase-a-quota) (Batch hesabınızdaki en yüksek çekirdek sayısı gibi) hakkında varsayılan kotalar ve yönergeleri [Azure Batch hizmeti için Kotalar ve Sınırlar](batch-quota-limit.md)’da bulacaksınız. Kendinizi "Neden havuzum X düğümden fazlasına ulaşamıyor?" sorusunu sorarken bulursanız nedeni çekirdek kotası olabilir.
 
-- Düğümler için **işletim sistemi ** (*virtual_machine_configuration* **veya** *cloud_service_configuration* - gerekli)<p/>*python_tutorial_client.py* öğesinde, `get_vm_config_for_distro` yardımcı işlevimizle alınan [VirtualMachineConfiguration][py_vm_config] kullanarak Linux için havuz oluşturuyoruz. Bu yardımcı işlevi, uyumlu [Azure Virtual Machines Marketi][vm_marketplace] görüntüleri listesinden görüntü alma ve seçmek için [list_node_agent_skus][py_list_skus] kullanır. Bunun yerine bir [CloudServiceConfiguration][py_cs_config] belirtme ve Cloud Services’dan Windows düğümlerinin havuzunu oluşturma seçeneğiniz de vardır. İki yapılandırma hakkında daha fazla bilgi için bkz. [Azure Batch havuzlarında Linux işlem düğümlerini hazırlama](batch-linux-nodes.md).
+- Düğümler için **işletim sistemi** (*virtual_machine_configuration* **veya** *cloud_service_configuration* - gerekli)<p/>*python_tutorial_client.py* öğesinde, `get_vm_config_for_distro` yardımcı işlevimizle alınan [VirtualMachineConfiguration][py_vm_config] kullanarak Linux için havuz oluşturuyoruz. Bu yardımcı işlevi, uyumlu [Azure Virtual Machines Marketi][vm_marketplace] görüntüleri listesinden görüntü alma ve seçmek için [list_node_agent_skus][py_list_skus] kullanır. Bunun yerine bir [CloudServiceConfiguration][py_cs_config] belirtme ve Cloud Services’dan Windows düğümlerinin havuzunu oluşturma seçeneğiniz de vardır. İki yapılandırma hakkında daha fazla bilgi için bkz. [Azure Batch havuzlarında Linux işlem düğümlerini hazırlama](batch-linux-nodes.md).
 
 - **İşlem düğümlerinin boyutu** (*vm_size* - gerekli)<p/>[VirtualMachineConfiguration][py_vm_config] için Linux düğümleri belirlediğimizden, bir VM boyutunu (bu örnekte `STANDARD_A1`) [Azure’de sanal makine boyutları](../virtual-machines/virtual-machines-linux-sizes.md)’nda belirttik. Bir kez daha, daha fazla bilgi için bkz. [Azure Batch havuzlarında Linux işlem düğümlerini hazırlama](batch-linux-nodes.md).
 
@@ -437,7 +432,7 @@ def add_tasks(batch_service_client, job_id, input_files,
     batch_service_client.task.add_collection(job_id, tasks)
 ```
 
-> [AZURE.IMPORTANT] `$AZ_BATCH_NODE_SHARED_DIR` gibi ortam değişkenlerine eriştiklerinde veya düğüme ait `PATH` öğesinde bulunmayan bir uygulama yürüttüklerinde görev komut satırları `/bin/bash` (Linux) veya `cmd /c` (Windows) önekini almalıdır. Bunu kesinlikle komut kabuğu yürütecek ve komutunuzu uyguladıktan sonra sonlandırması talimatını verecektir. Görevleriniz düğümün `PATH` seçeneğinde görevleriniz bir uygulama yürütüyorsa gereksinim gereksiz olur (yukarıdaki kod parçacığındaki *python* gibi).
+> [AZURE.IMPORTANT] `$AZ_BATCH_NODE_SHARED_DIR` gibi ortam değişkenlerine eriştiklerinde veya düğüme ait `PATH` öğesinde bulunmayan bir uygulama yürüttüklerinde görev komut satırları `/bin/sh -c MyTaskApplication $MY_ENV_VAR` ile olduğu gibi kabuğu açıkça çağırmalıdır. Görevleriniz düğümün `PATH` seçeneğinde bir uygulama yürütüyorsa ve herhangi bir ortam değişkenine başvurmuyorsa bu gereksinim gerekli değildir.
 
 Yukarıdaki kod parçacığında, `for` döngüsü içinde görevle ilgili komut satırının, beş komut satırı bağımsız değişkeniyle *python_tutorial_task.py* dosyasına geçirilecek şekilde oluşturulduğunu görürsünüz:
 
@@ -468,7 +463,7 @@ blob_client = azureblob.BlockBlobService(account_name=args.storageaccount,
 
 Görevler bir projeye eklendiğinde, otomatik olarak kuyruğa alınır ve işle ilişkili havuzun içindeki işlem düğümlerinde zamanlanırlar. Belirttiğiniz ayarlar temelinde, Batch tüm kuyruğa alınan, zamanlanan, yeniden denenen ve sizle ilgili diğer görev yönetimi görevlerini işler.
 
-Görevin yürütülüşünün izlenmesi için birçok yaklaşım vardır. *python_tutorial_client.py*’deki `wait_for_tasks_to_complete` işlevi bazı durumlarda görevleri izlemenin basit bir örneğini sağlar; burada [tamamlandı][py_taskstate] durumu.
+Görevin yürütülüşünün izlenmesi için birçok yaklaşım vardır. *python_tutorial_client.py* ’deki `wait_for_tasks_to_complete` işlevi bazı durumlarda görevleri izlemenin basit bir örneğini sağlar; burada [tamamlandı][py_taskstate] durumu.
 
 ```python
 def wait_for_tasks_to_complete(batch_service_client, job_id, timeout):
@@ -543,11 +538,11 @@ def download_blobs_from_container(block_blob_client,
     print('  Download complete!')
 ```
 
-> [AZURE.NOTE] *python_tutorial_client.py*’deki `download_blobs_from_container` çağrısı, dosyaların kullanıcınızın giriş dizinine indirilmesi gerektiğini belirtir. Bu çıktı konumunu değiştirmekten çekinmeyin.
+> [AZURE.NOTE] *python_tutorial_client.py* ’deki `download_blobs_from_container` çağrısı, dosyaların kullanıcınızın giriş dizinine indirilmesi gerektiğini belirtir. Bu çıktı konumunu değiştirmekten çekinmeyin.
 
 ## 8. Adım: Sil kapsayıcıları
 
-Azure Storage’da yer alan veriler için ücretlendirildiğinizden, Batch işleriniz için artık gerekmeyen blobları kaldırmak iyi bir fikirdir. *python_tutorial_client.py*’de üç[BlockBlobService.delete_container][py_delete_container] çağrısıyla yapılır:
+Azure Storage’da yer alan veriler için ücretlendirildiğinizden, Batch işleriniz için artık gerekmeyen blobları kaldırmak iyi bir fikirdir. *python_tutorial_client.py* ’de üç[BlockBlobService.delete_container][py_delete_container] çağrısıyla yapılır:
 
 ```
 # Clean up storage resources
@@ -576,7 +571,7 @@ if query_yes_no('Delete pool?') == 'yes':
 
 ## Örnek betiği çalıştırma
 
-*python_tutorial_client.py* betiğini çalıştırdığınızda, konsol çıktısı aşağıdakine benzer. Havuzun işlem düğümleri oluşturulurken, başlatılırken ve havuzun görev başlatma komutları yürütülürken `Monitoring all tasks for 'Completed' state, timeout in 0:20:00...` konumunda bir duraklama göreceksiniz. Havuzunuzu, işlem düğümlerinizi, işinizi ve görevlerinizi yürütme sırasında ve sonrasında izlemek için [Azure portalı][azure_portal] veya [Batch Gezgini][github_batchexplorer] kullanın. Uygulamanın oluşturduğu Storage kaynaklarını (kapsayıcılar ve bloblar) görüntülemek için [Azure portalı][azure_portal] veya [Microsoft Azure Storage Gezgini][storage_explorer] birini kullanın.
+*python_tutorial_client.py* betiğini çalıştırdığınızda, konsol çıktısı aşağıdakine benzer. Havuzun işlem düğümleri oluşturulurken, başlatılırken ve havuzun görev başlatma komutları yürütülürken `Monitoring all tasks for 'Completed' state, timeout in 0:20:00...` konumunda bir duraklama göreceksiniz. Havuzunuzu, işlem düğümlerinizi, işinizi ve görevlerinizi yürütme sırasında ve sonrasında izlemek için [Azure portalı][azure_portal] kullanın. Uygulamanın oluşturduğu Storage kaynaklarını (kapsayıcılar ve bloblar) görüntülemek için [Azure portalı][azure_portal] veya [Microsoft Azure Storage Gezgini][storage_explorer] birini kullanın.
 
 Varsayılan yapılandırmasında uygulama çalıştırıldığında tipik yürütme süresi **yaklaşık 5-7 dakika arasıdır**.
 
@@ -610,7 +605,7 @@ Press ENTER to exit...
 
 ## Sonraki adımlar
 
-Farklı işlem senaryolarıyla deneyim kazanmak için *python_tutorial_client.py* ve *python_tutorial_task.py* öğelerinde değişiklik yaparken kendinizi rahat hissedin. Örneğin, uzun soluklu görevlerin benzetimini gerçekleştirmek ve bunları Batch Gezgini’nin *Isı Haritası* özelliğiyle izlemek için *python_tutorial_task.py* öğesine bir yürütme gecikmesi eklemeye çalışın. Daha fazla görev eklemeye veya işlem düğüm sayısını ayarlamaya çalışın. Yürütme süresini hızlandırmak için var olan havuzun kullanımını denetlemek ve izin vermek için mantık ekleyin.
+Farklı işlem senaryolarıyla deneyim kazanmak için *python_tutorial_client.py* ve *python_tutorial_task.py* öğelerinde değişiklik yaparken kendinizi rahat hissedin. Örneğin, uzun soluklu görevlerin benzetimini gerçekleştirmek ve bunları portalda izlemek için *python_tutorial_task.py* öğesine bir yürütme gecikmesi eklemeye çalışın. Daha fazla görev eklemeye veya işlem düğüm sayısını ayarlamaya çalışın. Yürütme süresini hızlandırmak için var olan havuzun kullanımını denetlemek ve izin vermek için mantık ekleyin.
 
 Batch çözümünün temel iş akışı hakkında artık bilginiz olduğuna göre, Batch hizmetinin ek özelliklerinin derinliklerine dalma zamanı gelmiştir.
 
@@ -621,10 +616,8 @@ Batch çözümünün temel iş akışı hakkında artık bilginiz olduğuna gör
 [azure_batch]: https://azure.microsoft.com/services/batch/
 [azure_free_account]: https://azure.microsoft.com/free/
 [azure_portal]: https://portal.azure.com
-[batch_explorer_blog]: http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx
 [batch_learning_path]: https://azure.microsoft.com/documentation/learning-paths/batch/
 [blog_linux]: http://blogs.technet.com/b/windowshpc/archive/2016/03/30/introducing-linux-support-on-azure-batch.aspx
-[github_batchexplorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [github_samples_common]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/Common
 [github_samples_zip]: https://github.com/Azure/azure-batch-samples/archive/master.zip
@@ -684,6 +677,6 @@ Batch çözümünün temel iş akışı hakkında artık bilginiz olduğuna gör
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

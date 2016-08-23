@@ -1,10 +1,10 @@
 <properties
     pageTitle="Azure SQL Database'de veritabanı performansını izleme | Microsoft Azure"
     description="Azure araçlarını ve dinamik yönetim görünümlerini kullanarak veritabanınızı izleme seçenekleri hakkında bilgi edinin."
-    keywords="database monitoring, cloud database performance"
+    keywords="veritabanı izleme, bulut veritabanı performansı"
     services="sql-database"
     documentationCenter=""
-    authors="carlrabeler"
+    authors="CarlRabeler"
     manager="jhubbard"
     editor=""/>
 
@@ -14,7 +14,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
     ms.workload="data-management"
-    ms.date="03/25/2016"
+    ms.date="07/06/2016"
     ms.author="carlrab"/>
 
 # Azure SQL Database'de veritabanı performansını izleme
@@ -24,10 +24,10 @@ Azure SQL veritabanı performansını izlemeye, seçtiğiniz veritabanı perform
 
 [Azure portalında](https://portal.azure.com/), tek veritabanlarının kullanımını veritabanınızı seçip **İzleme** grafiğine tıklayarak izleyebilirsiniz. Bu işlem sonrasında bir **Ölçüm** penceresi görüntülenir. **Grafiği düzenle** düğmesine tıklayarak değişiklik yapabilirsiniz. Şu ölçümleri ekleyin:
 
-- CPU Yüzdesi
-- DTU Yüzdesi
-- Veri G/Ç Yüzdesi
-- Depolama Yüzdesi
+- CPU yüzdesi
+- DTU yüzdesi
+- Veri G/Ç yüzdesi
+- Veri boyutu yüzdesi
 
 Bu ölçümleri ekledikten sonra **İzleme** grafiğinde bulunan **Ölçüm** penceresinde bu ölçümleri daha ayrıntılı şekilde görüntülemeye devam edebilirsiniz. Dört ölçümün tümü de veritabanınızın ortalama **DTU** kullanım yüzdesini gösterir. DTU'lar ile ilgili ayrıntılı bilgi için bkz. [hizmet katmanları](sql-database-service-tiers.md).
 
@@ -49,6 +49,6 @@ Esnek veritabanı havuzları için bu bölümde açıklanan olan tekniklerle hav
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

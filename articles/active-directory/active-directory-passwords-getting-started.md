@@ -2,11 +2,11 @@
     pageTitle="Başlarken: Azure AD Parola Yönetimi | Microsoft Azure"
     description="Kullanıcıların kendi parolalarını sıfırlamasına, parola sıfırlama önkoşullarını öğrenmesine ve Active Directory'deki şirket içi parolaları yönetmek için Parola Geri Yazma özelliğini etkinleştirmesine olanak tanıyın."
     services="active-directory"
-    keywords="Active directory password management, password management, reset Azure AD password"
+    keywords="Active directory parola yönetimi, parola yönetimi, Azure AD parolasını sıfırlama"
     documentationCenter=""
     authors="asteen"
-    manager="kbrint"
-    editor="billmath"/>
+    manager="femila"
+    editor="curtand"/>
 
 <tags
     ms.service="active-directory"
@@ -14,10 +14,13 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="02/16/2016" 
+    ms.date="07/12/2016"
     ms.author="asteen"/>
 
 # Parola Yönetimine Başlarken
+
+> [AZURE.IMPORTANT] **Oturum açmada sorun yaşadığınız için mi buradasınız?** Sorun yaşıyorsanız bkz. [kendi parolanızı değiştirme ve sıfırlama](active-directory-passwords-update-your-own-password.md).
+
 Kullanıcıların kendi bulut Azure Active Directory veya şirket içi Active Directory parolalarını yönetmesine olanak tanımak için birkaç basit adımı tamamlamak yeterlidir. Birkaç basit önkoşulu yerine getirdiğinizi doğrulamanızın ardından, kuruluşunuzun tamamı için parola değiştirme ve sıfırlama işlemleri çok kısa süre içinde etkinleştirilir. Bu makalede aşağıdaki kavramlarla ilgili olarak size yol gösterilecektir:
 
 * [**Kullanıcılara bulut Azure Active Directory parolalarını sıfırlama olanağı tanıma**](#enable-users-to-reset-their-azure-ad-passwords)
@@ -28,7 +31,7 @@ Kullanıcıların kendi bulut Azure Active Directory veya şirket içi Active Di
 * [**Kullanıcılara şirket içi Azure Active Directory parolalarını sıfırlama veya değiştirme olanağı tanıma**](#enable-users-to-reset-or-change-their-ad-passwords)
  - [Parola Geri Yazma önkoşulları](#writeback-prerequisites)
  - [1. Adım: Azure AD Connect'in en son sürümünü indirme](#step-1-download-the-latest-version-of-azure-ad-connect)
- - [2. Adım: Kullanıcı arabirimi veya powershell ile Azure AD Connect'te Parola Geri Yazma'yı etkinleştirme ve doğrulama](#step-2-enable-password-writeback-in-azure-ad-connect)
+ - [2. Adım: Kullanıcı arabirimi veya PowerShell ile Azure AD Connect'te Parola Geri Yazma'yı etkinleştirme ve doğrulama](#step-2-enable-password-writeback-in-azure-ad-connect)
  - [3. Adım: Güvenlik duvarınızı yapılandırma](#step-3-configure-your-firewall)
  - [4. Adım: İlgili izinleri ayarlama](#step-4-set-up-the-appropriate-active-directory-permissions)
  - [5. Adım: Kullanıcı olarak AD parolanızı sıfırlama ve doğrulama](#step-5-reset-your-ad-password-as-a-user)
@@ -63,15 +66,15 @@ Kullanıcı parolası sıfırlama ilkesini yapılandırmak için aşağıdaki ad
 
     ![Azure AD'de Parola Yönetimi][001]
 
-3. **Dizin** sekmesinde, içinde kullanıcı parolası sıfırlama ilkesini yapılandırmak istediğiniz dizine (ör. Wingtip Toys) tıklayın.
+3. **Directory (Dizin)** sekmesinde, içinde kullanıcı parolası sıfırlama ilkesini yapılandırmak istediğiniz dizine (ör. Wingtip Toys) tıklayın.
 
     ![][002]
 
-4.  **Yapılandır** sekmesine tıklayın.
+4.  **Configure (Yapılandır)** sekmesine tıklayın.
 
     ![][003]
 
-5.  **Yapılandır** sekmesinde, aşağı kaydırarak **kullanıcı parolası sıfırlama ilkesi** bölümüne gidin.  Burada, belirli bir dizin için kullanıcı parolası sıfırlama ilkesinin tüm özelliklerini yapılandırabilirsiniz.  
+5.  **Configure (Yapılandır)** sekmesinde, aşağı kaydırarak **user password reset policy (kullanıcı parolası sıfırlama ilkesi)** bölümüne gidin.  Burada, belirli bir dizin için kullanıcı parolası sıfırlama ilkesinin tüm özelliklerini yapılandırabilirsiniz.  
 
     >[AZURE.NOTE] Bu **ilke yöneticiler için değil, yalnızca kuruluşunuzdaki son kullanıcılar için geçerlidir**. Güvenlikle ilgili nedenlerle, yöneticilere yönelik parola sıfırlama ilkesini Microsoft denetler. Bu bölümü görmüyorsanız Azure Active Directory Premium veya Basic sürümüne kaydolduğunuzdan ve bu özelliği yapılandıran yönetici hesabına **lisans atadığınızdan** emin olun.
 
@@ -81,7 +84,7 @@ Kullanıcı parolası sıfırlama ilkesini yapılandırmak için aşağıdaki ad
 
     ![][005]
 
-7.  Kiracınız için kullanıcı parolası sıfırlama ilkesini istediğiniz gibi yapılandırdıktan sonra, ekranın alt kısmındaki **Kaydet** düğmesine tıklayın.
+7.  Kiracınız için kullanıcı parolası sıfırlama ilkesini istediğiniz gibi yapılandırdıktan sonra, ekranın alt kısmındaki **Save (Kaydet)** düğmesine tıklayın.
 
   >[AZURE.NOTE] İşlevin en karmaşık durumda nasıl çalıştığını görebilmeniz için iki aşamalı kullanıcı parolası sıfırlama ilkesi önerilir.
 
@@ -94,7 +97,7 @@ Kuruluşunuzdaki kullanıcılar için parola sıfırlamaya yönelik olarak kulla
 -   Şirket içi Active Directory etki alanındaki kullanıcı özelliklerini Azure AD ile eşitlemek için AAD Connect'i kullanma
 -   Kullanıcı özelliklerini düzenlemek için Windows PowerShell'i kullanma
 -   Kullanıcıları [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup) adresindeki kayıt portalına yönlendirerek kullanıcıların kendi verilerini kaydetmelerine olanak tanıma
--   **Kullanıcıların erişim panelinde oturum açarken kaydolmasını gerekli kıl** SSPR yapılandırma seçeneğini **Evet** olarak ayarlayarak, kullanıcıların [http://myapps.microsoft.com](http://myapps.microsoft.com) adresinden Erişim Paneli'nde oturum açtığında parola sıfırlama özelliğine kaydolmasını gerekli kılma.
+-   **Require users to register when signing in to the access panel (Kullanıcıların erişim panelinde oturum açarken kaydolmasını gerekli kıl)** SSPR yapılandırma seçeneğini **Yes (Evet)** olarak ayarlayarak, kullanıcıların [http://myapps.microsoft.com](http://myapps.microsoft.com) adresinden Erişim Paneli'nde oturum açtığında parola sıfırlama özelliğine kaydolmasını gerekli kılma.
 
 Parola sıfırlama için hangi verilerin kullanıldığı ve bu verilere yönelik biçimlendirme gereksinimleri ile ilgili daha fazla bilgi edinmek istiyorsanız lütfen bkz. [Parola sıfırlama hangi verileri kullanır?](active-directory-passwords-learn-more.md#what-data-is-used-by-password-reset).
 
@@ -195,7 +198,7 @@ Parola Geri Yazma özelliğini etkinleştirebilmek ve kullanabilmek için ilk ol
 
 
 ### 1. Adım: Azure AD Connect'in en son sürümünü indirme
-Parola Geri Yazma özelliği Azure AD Connect'in sürümlerinde veya sürüm numarası **1.0.0419.0911** veya üzeri olan Azure AD Eşitleme aracında kullanılabilir.  Otomatik hesap kilidi açma özelliğine sahip Parola Geri Yazma, Azure AD Connect'in sürümlerinde veya sürüm numarası **1.0.0485.0222** ya da üzeri olan Azure AD Eşitleme aracında kullanılabilir. Eski bir sürümü çalıştırıyorsanız lütfen devam etmeden önce en azından bu sürüme yükseltme yapın. [Azure AD Connect'in en son sürümünü indirmek için buraya tıklayın](active-directory-aadconnect.md#download-azure-ad-connect).
+Parola Geri Yazma özelliği Azure AD Connect'in sürümlerinde veya sürüm numarası **1.0.0419.0911** veya üzeri olan Azure AD Eşitleme aracında kullanılabilir.  Otomatik hesap kilidi açma özelliğine sahip Parola Geri Yazma, Azure AD Connect'in sürümlerinde veya sürüm numarası **1.0.0485.0222** ya da üzeri olan Azure AD Eşitleme aracında kullanılabilir. Eski bir sürümü çalıştırıyorsanız lütfen devam etmeden önce en azından bu sürüme yükseltme yapın. [Azure AD Connect'in en son sürümünü indirmek için buraya tıklayın](active-directory-aadconnect.md#install-azure-ad-connect).
 
 #### Azure AD Eşitleme'nin sürümünü denetleme
 1.  **%ProgramFiles%\Azure Active Directory Sync\** konumuna gidin.
@@ -223,7 +226,7 @@ Azure AD Connect aracını indirdiğinize göre, artık Parola Geri Yazma özell
 
 4.  Sihirbazı tamamlayın; son sayfada değişiklikler özetlenir ve Parola Geri Yazma yapılandırma değişikliği bulunur.
 
-> [AZURE.NOTE] Bu sihirbazı yeniden çalıştırıp özelliğin seçimini kaldırarak veya [Azure Yönetim Portalı](https://manage.windowsazure.com)'nda dizininizin **Yapılandır** sekmesinin **Kullanıcı Parolası Sıfırlama İlkesi** bölümünde **Şirket İçi Dizine Parolaları Geri Yaz** ayarını **Hayır** şeklinde belirleyerek Parola Geri Yazma özelliğini dilediğiniz zaman devre dışı bırakabilirsiniz.  Parola sıfırlama deneyiminizi özelleştirme hakkında daha fazla bilgi için bkz. [Özelleştirin: Azure AD Parola Yönetimi](active-directory-passwords-customize.md).
+> [AZURE.NOTE] Bu sihirbazı yeniden çalıştırıp özelliğin seçimini kaldırarak veya [Azure Yönetim Portalı](https://manage.windowsazure.com)'nda dizininizin **Configure (Yapılandır)** sekmesinin **User Password Reset Policy (Kullanıcı Parolası Sıfırlama İlkesi)** bölümünde **Write Passwords Back to On-Premises Directory (Şirket İçi Dizine Parolaları Geri Yaz)** ayarını **No (Hayır)** olarak belirleyerek Parola Geri Yazma özelliğini dilediğiniz zaman devre dışı bırakabilirsiniz.  Parola sıfırlama deneyiminizi özelleştirme hakkında daha fazla bilgi için bkz. [Özelleştirin: Azure AD Parola Yönetimi](active-directory-passwords-customize.md).
 
 #### Parola Geri Yazma özelliğini Windows PowerShell kullanarak etkinleştirmek için
 1.  **Dizin Eşitlemesi bilgisayarınızda** yeni bir **yükseltilmiş Windows PowerShell penceresi** açın.
@@ -233,7 +236,7 @@ Azure AD Connect aracını indirdiğinize göre, artık Parola Geri Yazma özell
 5.  Parola Geri Yazma'yı cmdlet'i çalıştırarak etkinleştirme: `Set-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName –Enable $true`
 
 > [AZURE.NOTE] Kimlik bilgilerinin istenmesi halinde, AzureADCredential için belirttiğiniz kullandığınız yönetici hesabının bir **bulut yönetici hesabı (Azure AD'de oluşturulmuş)** olduğundan ve birleştirilmiş bir hesap (şirket içi AD'de oluşturulmuş ve Azure AD ile eşitlenmiş) olmadığından emin olun.
-> [AZURE.NOTE] Adım içinde `$false` kısmını geçecek şekilde yukarıdaki yönergeleri tekrarlayarak veya [Azure Yönetim Portalı](https://manage.windowsazure.com)'nda dizininizin **Yapılandır** sekmesinin **Kullanıcı Parolası Sıfırlama İlkesi** bölümünde **Şirket İçi Dizine Parolaları Geri Yaz** ayarını **Hayır** şeklinde belirleyerek PowerShell ile Parola Geri Yazma özelliğini devre dışı bırakabilirsiniz.
+> [AZURE.NOTE] Adım içinde `$false` kısmını geçecek şekilde yukarıdaki yönergeleri tekrarlayarak veya [Azure Yönetim Portalı](https://manage.windowsazure.com)'nda dizininizin **Configure (Yapılandır)** sekmesinin **User Password Reset Policy (Kullanıcı Parolası Sıfırlama İlkesi)** bölümünde **Write Passwords Back to On-Premises Directory (Şirket İçi Dizine Parolaları Geri Yaz)** ayarını **No (Hayır)** olarak belirleyerek PowerShell ile Parola Geri Yazma özelliğini devre dışı bırakabilirsiniz.
 
 #### Yapılandırmanın başarılı olduğunu doğrulama
 Yapılandırma başarılı olduğunda, Windows PowerShell penceresinde Parola sıfırlama geri yazma işlemi etkinleştirildi iletisini görür veya yapılandırma kullanıcı arabiriminde bir başarı iletisi görürsünüz.
@@ -253,7 +256,7 @@ Azure AD Connect aracında Parola Geri Yazma'yı etkinleştirdikten sonra, hizme
 ### 4. Adım: İlgili Active Directory izinlerini ayarlama
 Parolaları sıfırlanacak olan kullanıcıları içeren her bir orman için, yapılandırma sihirbazında söz konusu orman için belirtilen hesap X ise X hesabına `lockoutTime` üzerinde **Parola Sıfırlama**, **Parola Değiştirme**, **Yazma İzinleri**, `pwdLastSet` üzerinde **Yazma İzinleri** ve bu ormandaki her bir etki alanının kök nesnesi üzerinde genişletilmiş haklar verilmelidir. Hak, tüm kullanıcı nesneleri tarafından devralınmış olarak işaretlenmelidir.  
 
-Yukarıdakilerin hangi hesaba başvuruda bulunduğundan emin değilseniz Azure Active Directory Connect yapılandırma kullanıcı arabirimini açın ve **gözden Çözümünüzü İnceleme** seçeneğine tıklayın.  Aşağıdaki ekran görüntüsünde, izin eklemeniz gereken hesabın kırmızıyla altı çizilmiştir.
+Yukarıdakilerin hangi hesaba başvuruda bulunduğundan emin değilseniz Azure Active Directory Connect yapılandırma kullanıcı arabirimini açın ve **Çözümünüzü İnceleme** seçeneğine tıklayın.  Aşağıdaki ekran görüntüsünde, izin eklemeniz gereken hesabın kırmızıyla altı çizilmiştir.
 
 **<font color="red">Aksi halde parola geri yazma düzgün şekilde çalışmayacağından, sisteminizdeki her ormanda her etki alanı için bu izni ayarladığınızdan emin olun.</font>**
 
@@ -278,7 +281,7 @@ Yukarıdakilerin hangi hesaba başvuruda bulunduğundan emin değilseniz Azure A
     ![][025]
 
 7.  İzin vermek istediğiniz hesabı seçin (bu, orman için eşitleme ayarlanırken belirtilen hesapla aynıdır).
-8.  Üstteki açılır menüde **Alt Kullanıcı nesneleri** seçeneğini belirleyin.
+8.  Üstteki açılan menüde **Descendent User objects (Alt Kullanıcı nesneleri)** seçeneğini belirleyin.
 9.  Görünen **İzin Girdisi** iletişim kutusunda `lockoutTime` üzerinde **Parola Sıfırlama**, **Parola Değiştirme**, **Yazma İzinleri** ve `pwdLastSet` üzerinde **Yazma İzinleri** kutusunu işaretleyin.
 
     ![][026]
@@ -312,7 +315,7 @@ Parola Geri Yazma etkinleştirildikten sonra, hesabı bulut kiracınızın hesab
 ## Parola sıfırlama belgelerinin bağlantıları
 Aşağıda, tüm Azure AD Parola Sıfırlama belge sayfalarının bağlantıları verilmiştir:
 
-* [**Kendi parolanızı sıfırlayın**](active-directory-passwords-update-your-own-password.md) - Sistemin bir kullanıcısı olarak kendi parolanızı sıfırlama veya değiştirme konusunda bilgi edinin
+* **Oturum açmada sorun yaşadığınız için mi buradasınız?** Sorun yaşıyorsanız bkz. [kendi parolanızı değiştirme ve sıfırlama](active-directory-passwords-update-your-own-password.md).
 * [**Nasıl çalışır?**](active-directory-passwords-how-it-works.md) - Hizmetin altı farklı bileşeni ve işlevleri hakkında bilgi edinin
 * [**Özelleştirin**](active-directory-passwords-customize.md) - Hizmetin genel görünümünü ve hareketlerini kuruluşunuzun ihtiyaçlarına göre nasıl özelleştireceğinizi öğrenin
 * [**En iyi uygulamalar**](active-directory-passwords-best-practices.md) - Kuruluşunuzdaki parolaları nasıl hızlı bir şekilde dağıtacağınızı ve etkili bir şekilde yöneteceğinizi öğrenin
@@ -358,6 +361,6 @@ Aşağıda, tüm Azure AD Parola Sıfırlama belge sayfalarının bağlantılar�
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

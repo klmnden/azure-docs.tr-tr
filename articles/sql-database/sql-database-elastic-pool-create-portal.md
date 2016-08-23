@@ -1,7 +1,7 @@
 <properties
     pageTitle="Azure portalıyla yeni bir esnek havuz oluşturma | Microsoft Azure"
     description="Birçok veritabanı arasında daha kolay yönetim ve kaynak paylaşımı sağlamak amacıyla SQL veritabanı yapılandırmanıza ölçeklenebilir bir esnek veritabanı havuzu ekleme."
-    keywords="scalable database,database configuration"
+    keywords="ölçeklenebilir veritabanı,veritabanı yapılandırması"
     services="sql-database"
     documentationCenter=""
     authors="ninarn"
@@ -11,7 +11,7 @@
 <tags
     ms.service="sql-database"
     ms.devlang="NA"
-    ms.date="05/06/2016"
+    ms.date="07/20/2016"
     ms.author="ninarn"
     ms.workload="data-management"
     ms.topic="get-started-article"
@@ -33,9 +33,11 @@ Bir sunucuya birden fazla havuz ekleyebilirsiniz ancak aynı havuza farklı sunu
 
 ## 1. Adım: Yeni bir havuz oluşturma
 
-Sunucuya yeni bir havuz ekleyerek bir esnek veritabanı havuzu oluşturun. Bir sunucuya birden fazla havuz ekleyebilirsiniz ancak aynı havuza farklı sunuculara ait veritabanlarını ekleyemezsiniz.
+Bu makalede, var olan veritabanlarını bir havuza taşımanın en kolay yolu olarak portaldaki mevcut **sunucu** dikey penceresinden yeni bir havuz oluşturma işlemi gösterilmektedir. 
 
-1. [Azure portalında](http://portal.azure.com/) **SQL sunucuları** seçeneğine tıklayın ve ardından havuza eklemek istediğiniz veritabanlarının bulunduğu sunucuya tıklayın.
+> [AZURE.NOTE] Zaten bir sunucunuzun olup olmamasına bakılmaksızın **SQL esnek havuzları** dikey penceresinden de yeni bir havuz oluşturabilirsiniz (portalın sol tarafındaki listenin altında **Gözat** **>** **SQL esnek havuzları**’na tıklayın). **SQL esnek havuzları** dikey penceresinde **+Ekle**’ye tıklanması havuz hazırlama iş akışı sırasında yeni bir sunucu oluşturma adımlarını sağlar.
+
+1. [Azure portalında](http://portal.azure.com/) sol taraftaki listenin altındaki **Gözat** **>** **SQL sunucuları** seçeneğine tıklayın ve ardından havuza eklemek istediğiniz veritabanlarının bulunduğu sunucuya tıklayın.
 2. **Yeni havuz** düğmesine tıklayın.
 
     ![Sunucuya havuz ekleme](./media/sql-database-elastic-pool-create-portal/new-pool.png)
@@ -115,6 +117,6 @@ Havuza veritabanı eklendikten sonra öneriler, seçtiğiniz veritabanlarının 
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

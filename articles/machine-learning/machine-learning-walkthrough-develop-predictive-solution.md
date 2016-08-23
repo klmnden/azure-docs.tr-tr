@@ -1,7 +1,7 @@
 <properties
     pageTitle="Machine Learning ile kredi riski için tahmine dayalı bir çözüm| Microsoft Azure"
     description="Azure Machine Learning Studio'da kredi riski değerlendirmesi için tahmine dayalı bir analiz çözümün nasıl oluşturulacağını gösteren ayrıntılı bir kılavuz."
-    keywords="credit risk, predictive analytics solution,risk assessment"
+    keywords="kredi riski, tahmine dayalı analiz çözümü, risk değerlendirmesi"
     services="machine-learning"
     documentationCenter=""
     authors="garyericson"
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="03/09/2016"
+    ms.date="06/10/2016"
     ms.author="garye"/>
 
 
@@ -27,6 +27,8 @@ Kredi riski değerlendirmesi kuşkusuz karmaşık bir sorundur ancak sorunun par
 Bu ayrıntılı kılavuzda Machine Learning Studio'da tahmine dayalı bir analiz modeli geliştirme ve ardından bunu bir Azure Machine Learning web hizmeti olarak dağıtma sürecini izleyeceğiz. Genel kullanıma açık kredi riski verileriyle başlayacağız, bu verilere göre tahmine dayalı bir model eğitip geliştireceğiz ve ardından başkaları tarafından kredi riski değerlendirmesi için kullanılabilecek bir web hizmeti olarak modeli dağıtacağız.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+
+<!-- -->
 
 >[AZURE.TIP] Machine Learning Studio'nun işlevlerine genel bir bakış sağlayan bir diyagram indirmek ve yazdırmak için bkz. [Azure Machine Learning Studio'nun işlevlerine genel bakış diyagramı](machine-learning-studio-overview-diagram.md).
 
@@ -43,6 +45,6 @@ Bu kılavuz, [Cortana Intelligence Galerisi](http://gallery.cortanaintelligence.
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

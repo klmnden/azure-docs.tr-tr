@@ -7,7 +7,7 @@
    manager="timlt"
    editor=""
    tags="acs, azure-container-service"
-   keywords="Docker, Containers, Micro-services, DC/OS, Azure"/>
+   keywords="Docker, Kapsayıcılar, Mikro hizmetler, DC/OS, Azure"/>
 
 <tags
    ms.service="container-service"
@@ -21,7 +21,7 @@
 
 # Azure Kapsayıcı Hizmeti kümesine bağlanma
 
-Azure Kapsayıcı Hizmeti tarafından dağıtılan DC/OS ve Swarm kümeleri REST uç noktalarını kullanıma sunar. Ancak, bu uç noktalar dış dünyaya açık değildir. Bu uç noktaları yönetmek için bir Secure Shell (SSH) tüneli oluşturmanız gerekir. SSH tüneli oluşturulduktan sonra, küme uç noktalarına karşı komutları çalıştırabilir ve kendi sisteminizdeki bir tarayıcı aracılığıyla küme kullanıcı arabirimini görüntüleyebilirsiniz. Bu belgede size Linux, OS X ve Windows’da bir SSH tüneli oluşturma konusunu adım adım anlatılmaktadır.
+Azure Container Service tarafından dağıtılan DC/OS ve Docker Swarm kümeleri REST uç noktalarını kullanıma sunar. Ancak, bu uç noktalar dış dünyaya açık değildir. Bu uç noktaları yönetmek için bir Secure Shell (SSH) tüneli oluşturmanız gerekir. SSH tüneli oluşturulduktan sonra küme uç noktalarına karşı komutları çalıştırabilir ve kendi sisteminizdeki bir tarayıcı aracılığıyla küme kullanıcı arabirimini görüntüleyebilirsiniz. Bu belgede size Linux, OS X ve Windows’da bir SSH tüneli oluşturma konusunu adım adım anlatılmaktadır.
 
 >[AZURE.NOTE] Bir küme yönetimi sistemi ile SSH oturumu oluşturabilirsiniz. Ancak bu önerilmemektedir. Doğrudan bir yönetim sistemi üzerinde çalışmak yanlışlıkla yapılandırma değişiklikleri yapma riski doğurur.   
 
@@ -38,14 +38,14 @@ Linux veya OS X’de bir SSH tüneli oluşturduğunuzda yapacağınız ilk şey 
 **USERNAME** Kümeyi dağıttığınızda sağlanan kullanıcı adıdır.  
 **DNSPREFIX** Kümeyi dağıttığınızda sağladığınız DNS önekidir.  
 **REGION** kaynak grubunuzun bulunduğu bölgedir.  
-**PATH_TO_PRIVATE_KEY** [OPTIONAL] kapsayıcı hizmeti kümesini oluştururken sağladığınız ortak anahtara karşılık gelen özel anahtar yoludur. Bu seçeneği i flag ile birlikte kullanın.
+**PATH_TO_PRIVATE_KEY** [OPTIONAL] Kapsayıcı Hizmeti kümesini oluştururken sağladığınız ortak anahtara karşılık gelen özel anahtar yoludur. Bu seçeneği i flag ile birlikte kullanın.
 
 ```bash
 # ssh sample
 
 ssh -L PORT:localhost:PORT -f -N [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com -p 2200
 ```
-> SSH bağlantı noktası 2200’dür ve standart 22 değildir.
+> SSH bağlantı noktası 2200’dür; standart bağlantı noktası 22 değildir.
 
 ## DC/OS tüneli
 
@@ -75,7 +75,7 @@ Swarm uç noktalarına bir tünel açmak için, aşağıdakine benzeyen bir komu
 ssh -L 2375:localhost:2375 -f -N azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com -p 2200
 ```
 
-Şimdi, DOCKER_HOST ortam değişkeninizi aşağıdaki gibi ayarlayabilir ve Docker komut satırı arabiriminizi (CLI) normal şekilde kullanmaya devam edebilirsiniz.
+Şimdi DOCKER_HOST ortam değişkeninizi aşağıdaki gibi ayarlayabilirsiniz. Docker komut satırı arabiriminizi (CLI) normal şekilde kullanmaya devam edebilirsiniz.
 
 ```bash
 export DOCKER_HOST=:2375
@@ -91,11 +91,11 @@ Kümedeki ilk ana sunucunun küme yöneticisi kullanıcı adı ve genel DNS adı
 
 ![PuTTY yapılandırması 1](media/putty1.png)
 
-`SSH` ve `Authentication` öğelerini seçin. Kimlik doğrulaması için özel anahtar dosyanızı ekleyin.
+**SSH** ve **Kimlik Doğrulaması**’nı seçin. Kimlik doğrulaması için özel anahtar dosyanızı ekleyin.
 
 ![PuTTY yapılandırması 2](media/putty2.png)
 
-`Tunnels` öğesini seçin ve aşağıdaki iletilen bağlantı noktalarını yapılandırın:
+**Tüneller** öğesini seçin ve aşağıdaki iletilen bağlantı noktalarını yapılandırın:
 - **Kaynak Bağlantı Noktası:** Tercihiniz--DC/OS için 80 veya Swarm için 2375 kullanın.
 - **Hedef:** DC/OS için localhost:80 veya Swarm için 2375 kullanın.
 
@@ -109,23 +109,23 @@ Aşağıdaki örnek DC/OS için yapılandırılmıştır, ancak Docker Swarm iç
 
 ![PuTTY olay günlüğü](media/putty4.png)
 
-DC/OS için tüneli yapılandırdığınızda, aşağıdakiler üzerinde ilgili uç noktaya erişebilirsiniz:
+DC/OS için tüneli yapılandırdığınızda aşağıdakiler üzerinde ilgili uç noktaya erişebilirsiniz:
 
 - DC/OS: `http://localhost/`
 - Marathon: `http://localhost/marathon`
 - Mesos: `http://localhost/mesos`
 
-Docker Swarm için tüneli yapılandırdığınızda, Docker CLI aracılığıyla Swarm kümesine erişebilirsiniz. Önce ` :2375` değeriyle `DOCKER_HOST` adlı bir Windows ortamı değişkeni yapılandırmanız gerekir.
+Docker Swarm için tüneli yapılandırdığınızda Docker CLI aracılığıyla Swarm kümesine erişebilirsiniz. Önce ` :2375` değeriyle `DOCKER_HOST` adlı bir Windows ortamı değişkeni yapılandırmanız gerekir.
 
 ## Sonraki adımlar
 
-DC/OS ya da Swarm ile kapsayıcıları dağıtın ve yönetin.
+DC/OS ya da Swarm ile kapsayıcıları dağıtın ve yönetin:
 
-[Azure Kapsayıcı Hizmeti ve DC/OS ile çalışma](container-service-mesos-marathon-rest.md)
-[Azure Kapsayıcı Hizmeti ve Docker Swarm ile çalışma](container-service-docker-swarm.md)
+- [Azure Container Service ve DC/OS ile çalışma](container-service-mesos-marathon-rest.md)
+- [Azure Container Service ve Docker Swarm ile çalışma](container-service-docker-swarm.md)
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

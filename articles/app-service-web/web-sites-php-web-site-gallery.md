@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="PHP"
     ms.topic="hero-article"
-    ms.date="04/08/2016"
+    ms.date="06/24/2016"
     ms.author="robmcm"/>
 
 # Azure App Service’te bir WordPress web uygulaması oluşturma
@@ -65,7 +65,7 @@ Bu öğreticide dağıttığınız WordPress sitesi veritabanı için MySQL kull
 
 5. Bir **Kaynak Grubu** seçin veya yeni bir tane oluşturun.
 
-    Kaynak grupları hakkında daha fazla bilgi için bkz. [Azure kaynaklarınızı yönetmek için Azure Portal’ı kullanma](../resource-group-portal.md).
+    Kaynak grupları hakkında daha fazla bilgi için bkz. [Azure Resource Manager’a genel bakış](../resource-group-overview.md).
 
 5. Bir **App Service planı/Konum** seçin veya yeni bir tane oluşturun.
 
@@ -130,6 +130,6 @@ App Service Web Apps ile çalışma hakkında daha fazla bilgi için sayfanın s
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

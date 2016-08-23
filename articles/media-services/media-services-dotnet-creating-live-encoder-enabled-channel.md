@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article"
-    ms.date="05/05/2016"
+    ms.date="06/22/2016"
     ms.author="juliako"/>
 
 
@@ -532,6 +532,6 @@ Beklediklerinizi bu konuda bulamadıysanız, eksik bir şeyler varsa veya herhan
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

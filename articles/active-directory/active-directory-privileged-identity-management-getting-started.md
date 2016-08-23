@@ -4,7 +4,7 @@
    services="active-directory"
    documentationCenter=""
    authors="kgremban"
-   manager="stevenpo"
+   manager="femila"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/19/2016"
+   ms.date="06/29/2016"
    ms.author="kgremban"/>
 
 # Azure AD Privileged Identity Management ile çalışmaya başlama
@@ -29,15 +29,16 @@ Azure AD Privileged Identity Management'ı kullanmadan önce uygulamayı Azure p
 
 1. [Azure portalında](https://portal.azure.com/) dizininizin genel yöneticisi olarak oturum açın.
 2. Kuruluşunuz birden fazla dizine sahipse Azure portalının sağ üst köşesinde kullanıcı adınıza tıklayın ve PIM'yi kullanacağı dizini seçin.
-3. Sol gezinti bölmesinde **Yeni**'yi seçin.
-4. **Güvenlik + Kimlik** seçeneğini belirleyin.
-5. **Azure AD Privileged Identity Management**'ı seçin.
-6. **Panoya sabitle**'yi işaretleyin ve ardından **Oluştur** düğmesine tıklayın. Privileged Identity Management uygulaması açılır.
+3. **Yeni** > **Güvenlik + Kimlik** > **Azure AD Privileged Identity Management**’ı seçin.
+
+    ![Portalda PIM’i etkinleştirin][1]
+
+4. **Panoya sabitle**'yi işaretleyin ve ardından **Oluştur**’a tıklayın. Privileged Identity Management uygulaması açılır.
 
 
-Dizininizde Azure AD Privileged Identity Management'ı kullanan ilk kişiyseniz [güvenlik sihirbazı](active-directory-privileged-identity-management-security-wizard.md) ilk atama deneyimi boyunca size yol gösterir. Bunun ardından, otomatik olarak dizinin ilk **güvenlik yöneticisi** ve **ayrıcalıklı rol yöneticisi** haline gelirsiniz. Yalnızca bir ayrıcalıklı rol yöneticisi diğer yöneticiler için erişimi yönetmek üzere bu uygulamaya erişebilir.  
+Dizininizde Azure AD Privileged Identity Management'ı kullanan ilk kişiyseniz [güvenlik sihirbazı](active-directory-privileged-identity-management-security-wizard.md) ilk atama deneyimi boyunca size yol gösterir. Bunun ardından, otomatik olarak dizinin ilk **Güvenlik yöneticisi** ve **Ayrıcalıklı rol yöneticisi** olursunuz. Yalnızca bir ayrıcalıklı rol yöneticisi diğer yöneticiler için erişimi yönetmek üzere bu uygulamaya erişebilir.  
 
-Bunun aksine başka bir ayrıcalıklı yol yöneticisi tarafından bir veya daha fazla role atandıysanız hangi rolü etkinleştireceğinizi seçebilirsiniz. Ayrıcalıklı rol yöneticisi rolünde olmanız durumunda **Kimlikleri Yönet** seçeneğini de görürsünüz.  
+Bir veya daha fazla role atandıysanız **Rollerimi etkinleştir** seçeneğine sahip olursunuz. Ayrıcalıklı rol yöneticisiyseniz **Ayrıcalıklı rollerimi yönet** seçeneğini de görürsünüz.  
 
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
@@ -47,8 +48,12 @@ Bunun aksine başka bir ayrıcalıklı yol yöneticisi tarafından bir veya daha
 
 [AZURE.INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
+<!--Image references-->
+
+[1]: ./media/active-directory-privileged-identity-management-configure/PIM_EnablePim.png
 
 
-<!----HONumber=Jun16_HO2-->
+
+<!--HONumber=Aug16_HO1-->
 
 

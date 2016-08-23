@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="05/16/2016"
+    ms.date="08/01/2016"
     ms.author="spelluru"/>
 
 # Öğretici: Azure Resource Manager şablonu kullanarak ilk Azure veri fabrikanızı derleme
@@ -36,7 +36,8 @@ Bu makalede Azure Resource Manager (ARM) şablonu kullanarak ilk Azure veri fabr
 - Bu makale, Azure Data Factory hizmetine kavramsal bir genel bakış sağlamaz. Hizmet hakkında ayrıntılı bir genel bakış için [Azure Data Factory'ye giriş](data-factory-introduction.md) makalesini okuyun. 
 - Azure Resource Manager (ARM) şablonları hakkında bilgi almak için bkz. [Azure Resource Manager Şablonları Yazma](../resource-group-authoring-templates.md). 
 
-> [AZURE.IMPORTANT] Bu makaledeki kılavuzu uygulamak için [Öğreticiye Genel Bakış](data-factory-build-your-first-pipeline.md) bölümündeki önkoşul adımlarını tamamlamanız gerekir. 
+> [AZURE.IMPORTANT]
+> Bu makaledeki kılavuzu uygulamak için [Öğreticiye Genel Bakış](data-factory-build-your-first-pipeline.md) bölümündeki önkoşul adımlarını tamamlamanız gerekir. 
 
 ## ARM şablonu oluşturma
 
@@ -313,6 +314,6 @@ Bu şablon GatewayUsingArmDF adlı bir veri fabrikasını GatewayUsingARM adlı 
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

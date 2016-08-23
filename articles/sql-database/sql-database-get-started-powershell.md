@@ -1,11 +1,11 @@
-<properties 
-    pageTitle="PowerShell ile yeni SQL Database kurulumu | Microsoft Azure" 
-    description="PowerShell ile nasıl yeni bir SQL veritabanı oluşturacağınızı öğrenin. Genel veritabanı kurulum görevleri PowerShell cmdlet'leri ile yönetilebilir." 
-    keywords="create new sql database,database setup"
-    services="sql-database" 
-    documentationCenter="" 
-    authors="stevestein" 
-    manager="jhubbard" 
+<properties
+    pageTitle="PowerShell ile yeni SQL Database kurulumu | Microsoft Azure"
+    description="PowerShell ile nasıl yeni bir SQL veritabanı oluşturacağınızı öğrenin. Genel veritabanı kurulum görevleri PowerShell cmdlet'leri ile yönetilebilir."
+    keywords="yeni sql veritabanı oluşturma,veritabanı kurulumu"
+    services="sql-database"
+    documentationCenter=""
+    authors="stevestein"
+    manager="jhubbard"
     editor="cgronlun"/>
 
 <tags
@@ -13,11 +13,11 @@
     ms.devlang="NA"
     ms.topic="hero-article"
     ms.tgt_pltfrm="powershell"
-    ms.workload="data-management" 
+    ms.workload="data-management"
     ms.date="05/09/2016"
     ms.author="sstein"/>
 
-# Yeni bir SQL veritabanı oluşturma ve PowerShell cmdlet'leri ile genel veritabanı kurulum görevlerini gerçekleştirme 
+# Yeni bir SQL veritabanı oluşturma ve PowerShell cmdlet'leri ile genel veritabanı kurulum görevlerini gerçekleştirme
 
 
 > [AZURE.SELECTOR]
@@ -34,22 +34,22 @@ PowerShell cmdlet'lerini kullanarak SQL veritabanı oluşturmayı öğrenin. (Es
 
 ## Veritabanı kurulumu: Kaynak grubu, sunucu ve güvenlik duvarı kuralı oluşturma
 
-Artık seçili Azure aboneliğiniz için cmdlet çalıştırma erişiminiz olduğuna göre bir sonraki adımda veritabanının oluşturulacağı sunucuyu içeren kaynak grubunu oluşturabilirsiniz. Bir sonraki komutu istediğiniz herhangi bir geçerli konumu kullanacak şekilde düzenleyebilirsiniz. Geçerli konumların bir listesini almak için **(Get-AzureRmLocation | Where-Object { $_.Providers -eq "Microsoft.Sql" }).Location** komutunu çalıştırın.
+Seçili Azure aboneliğiniz için cmdlet çalıştırma erişimi elde ettikten sonra bir sonraki adımda veritabanının oluşturulacağı sunucuyu içeren kaynak grubunu oluşturabilirsiniz. Bir sonraki komutu istediğiniz herhangi bir geçerli konumu kullanacak şekilde düzenleyebilirsiniz. Geçerli konumların bir listesini almak için **(Get-AzureRmLocation | Where-Object { $_.Providers -eq "Microsoft.Sql" }).Location** komutunu çalıştırın.
 
 Yeni bir kaynak grubu oluşturmak için şu komutu çalıştırın:
 
     New-AzureRmResourceGroup -Name "resourcegroupsqlgsps" -Location "West US"
 
-Yeni kaynak grubunu başarılı bir şekilde oluşturduktan sonra, ekranda **ProvisioningState : Succeeded** öğesini de içeren bilgileri görürsünüz.
+Yeni kaynak grubunu başarılı bir şekilde oluşturduktan sonra şu iletiyi görürsünüz: **ProvisioningState : Succeeded**.
 
 
-### Sunucu oluşturma 
+### Sunucu oluşturma
 
-SQL Database'ler, Azure SQL Database sunucularında oluşturulur. Yeni bir sunucu oluşturmak için **New-AzureRmSqlServer** komutunu çalıştırın. ServerName değerini sunucunuzun adıyla değiştirin. Sunucu adının tüm Azure SQL sunucuları arasında genel olarak benzersiz olması gerekir, bu nedenle sunucu adı daha önce alınmışsa burada bir hata ile karşılaşırsınız. Bu komutun tamamlanmasının birkaç dakika sürebileceğini unutmayın. Komutu, seçtiğiniz herhangi bir geçerli konumu kullanmak üzere düzenleyebilirsiniz ancak bir önceki adımda oluşturduğunuz kaynak grubunda kullandığınız konumun aynısını kullanmanız gerekir.
+SQL veritabanları Azure SQL Database sunucularında oluşturulur. Yeni bir sunucu oluşturmak için **New-AzureRmSqlServer** komutunu çalıştırın. *ServerName* değerini sunucunuzun adıyla değiştirin. Bu ad tüm Azure SQL Database sunucuları için benzersiz olmalıdır. Sunucu adı zaten alınmışsa bir hata alırsınız. Bu komutun tamamlanmasının birkaç dakika sürebileceğini unutmayın. Komutu, seçtiğiniz herhangi bir geçerli konumu kullanmak üzere düzenleyebilirsiniz ancak bir önceki adımda oluşturduğunuz kaynak grubunda kullandığınız konumun aynısını kullanmanız gerekir.
 
     New-AzureRmSqlServer -ResourceGroupName "resourcegroupsqlgsps" -ServerName "server1" -Location "West US" -ServerVersion "12.0"
 
-Bu komutu çalıştırdığınızda **Kullanıcı adı** ve **Parola** girmenizi isteyen bir pencere açılır. Bunlar Azure kimlik bilgileriniz değildir, yeni sunucu için oluşturmak istediğiniz yönetici kimlik bilgileriniz olacak olan kullanıcı adını ve parolayı girin.
+Bu komutu çalıştırdığınızda sizden kullanıcı adı ve parola istenir. Azure kimlik bilgilerinizi girmeyin. Bunun yerine, yeni sunucu için oluşturmak istediğiniz yönetici kimlik bilgileriniz olacak olan kullanıcı adını ve parolayı girin.
 
 Sunucu başarılı bir şekilde oluşturulduktan sonra sunucu bilgileri görüntülenir.
 
@@ -70,7 +70,7 @@ Daha fazla bilgi için bkz. [Azure SQL Database Güvenlik Duvarı](sql-database-
 
 Artık yapılandırılmış bir kaynak grubunuz, sunucunuz ve güvenlik duvarı kuralınız olduğunuza göre sunucuya erişebilirsiniz.
 
-Şu komut ile S1 performans düzeyine sahip Standart hizmet katmanında yeni (boş) bir SQL veritabanı oluşturulur:
+Şu komut S1 performans düzeyine sahip Standart hizmet katmanında yeni (boş) bir SQL veritabanı oluşturur:
 
 
     New-AzureRmSqlDatabase -ResourceGroupName "resourcegroupsqlgsps" -ServerName "server1" -DatabaseName "database1" -Edition "Standard" -RequestedServiceObjectiveName "S1"
@@ -80,40 +80,42 @@ Veritabanı başarılı bir şekilde oluşturulduktan sonra veritabanı bilgiler
 
 ## Yeni bir SQL veritabanı PowerShell betiği oluşturma
 
+Yeni bir SQL veritabanı PowerShell betiği aşağıda verilmiştir:
+
     $SubscriptionId = "4cac86b0-1e56-bbbb-aaaa-000000000000"
     $ResourceGroupName = "resourcegroupname"
     $Location = "Japan West"
-    
+
     $ServerName = "uniqueservername"
-    
+
     $FirewallRuleName = "rule1"
     $FirewallStartIP = "192.168.0.0"
     $FirewallEndIp = "192.168.0.0"
-    
+
     $DatabaseName = "database1"
     $DatabaseEdition = "Standard"
     $DatabasePerfomanceLevel = "S1"
-    
-    
+
+
     Add-AzureRmAccount
     Select-AzureRmSubscription -SubscriptionId $SubscriptionId
-    
+
     $ResourceGroup = New-AzureRmResourceGroup -Name $ResourceGroupName -Location $Location
-    
+
     $Server = New-AzureRmSqlServer -ResourceGroupName $ResourceGroupName -ServerName $ServerName -Location $Location -ServerVersion "12.0"
-    
+
     $FirewallRule = New-AzureRmSqlServerFirewallRule -ResourceGroupName $ResourceGroupName -ServerName $ServerName -FirewallRuleName $FirewallRuleName -StartIpAddress $FirewallStartIP -EndIpAddress $FirewallEndIp
-    
+
     $SqlDatabase = New-AzureRmSqlDatabase -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName -Edition $DatabaseEdition -RequestedServiceObjectiveName $DatabasePerfomanceLevel
-    
+
     $SqlDatabase
-    
+
 
 
 ## Sonraki adımlar
 Yeni bir SQL veritabanı oluşturduktan ve temel veritabanı kurulumu görevlerini gerçekleştirdikten sonra şu işlem için hazır duruma gelirsiniz:
 
-- [SQL Server Management Studio ile SQL Database'e bağlanma ve bir örnek T-SQL sorgusu gerçekleştirme](sql-database-connect-query-ssms.md)
+- [SQL Server Management Studio ile SQL Database'e bağlanma ve bir örnek T-SQL sorgusu gerçekleştirme](sql-database-connect-query-ssms.md).
 
 
 ## Ek Kaynaklar
@@ -122,6 +124,6 @@ Yeni bir SQL veritabanı oluşturduktan ve temel veritabanı kurulumu görevleri
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

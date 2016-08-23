@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="get-started-article"
-    ms.date="04/22/2016"
-    ms.author="tdykstra"/>
+    ms.date="07/22/2016"
+    ms.author="rachelap"/>
 
 # ASP.NET web uygulamasını Visual Studio’yu kullanarak Azure App Service’e dağıtma
 
@@ -239,9 +239,12 @@ Bu öğreticide, basit bir web uygulaması oluşturmayı ve bunu Azure web uygul
 
 * İşiniz bittiğinde, web uygulamanızı ve ilgili Azure kaynaklarını içeren kaynak grubunu silin.
 
-    Azure portalındaki kaynak gruplarıyla çalışma hakkında bilgi edinmek için bkz. [Azure Portal’ıkullanarak Azure kaynaklarınızı dağıtma ve yönetme](../resource-group-portal.md).   
+    Azure portalında kaynak gruplarıyla çalışma hakkında bilgi edinmek için bkz. [Resource Manager şablonları ve Azure portalı ile kaynakları dağıtma ve yönetme](../resource-group-template-deploy-portal.md).   
+
+*   App Service’te ASP.NET Web Uygulaması oluşturmaya yönelik daha fazla örnek için [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) 2015 Connect [tanıtımı](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/) içindeki [Azure Uygulama Hizmeti’nde ASP.NET web uygulaması oluşturma ve dağıtma](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-an-ASP.NET-web-app-in-Azure-App-Service) ile [Azure Uygulama Hizmeti’nde mobil uygulama oluşturma ve dağıtma](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-a-mobile-app-in-Azure-App-Service) bölümlerine bakın. HealthClinic.biz tanıtımından daha fazla hızlı başlangıç ipuçları için bkz. [Azure Geliştirici Araçları Hızlı Başlangıç İpuçları](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts).
 
 
-<!--HONumber=Jun16_HO2-->
+
+<!--HONumber=Aug16_HO1-->
 
 

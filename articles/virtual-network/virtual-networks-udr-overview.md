@@ -36,16 +36,23 @@ Aşağıdaki şekilde, bir alt ağdan başka bir alt ağa gönderilen paketleri 
 
 ![Azure'daki sistem yolları](./media/virtual-networks-udr-overview/Figure2.png)
 
->[AZURE.IMPORTANT] Kullanıcı tanımlı yollar yalnızca bir alt ağdan çıkan trafiğe uygulanır. Örneğin, trafiğin İnternet'ten bir alt ağa nasıl geleceğini belirten yollar oluşturamazsınız. Ayrıca trafiği yönlendirdiğiniz gerecin bulunduğu alt ağ ile trafiğin kaynaklandığı alt ağ aynı olamaz. Gereçleriniz için her zaman ayrı bir alt ağ oluşturun. 
+>[AZURE.IMPORTANT] Kullanıcı tanımlı yollar yalnızca bir alt ağdan çıkan trafiğe uygulanır. Örneğin, İnternet’ten alt ağa trafiğin nasıl geldiğini belirtmek için rotalar oluşturamazsınız. Ayrıca, trafiği ilettiğiniz gereç trafiğin kaynaklandığı alt ağ ile aynı alt ağda olamaz. Gereçleriniz için her zaman ayrı bir alt ağ oluşturun. 
 
 ## Yol kaynağı
 Paketler, fiziksel ağdaki her düğümde tanımlanan bir yol tablosu temel alınarak bir TCP/IP ağı üzerinden yönlendirilir. Yol tablosu, hedef IP adresine göre paketlerin nereye iletileceğine karar veren bir tekil yollar koleksiyonudur. Bir yol aşağıdakilerden oluşur:
 
 |Özellik|Açıklama|Kısıtlamalar|Dikkat edilmesi gerekenler|
 |---|---|---|---|
-| Adres Ön Eki | Yolun uygulandığı hedef CIDR'si, ör. 10.1.0.0/16.|Genel İnternet, Azure sanal ağı veya şirket içi veri merkezi üzerindeki adresleri temsil eden geçerli bir CIDR aralığı olmalıdır.|**Adres ön ekinin** **Nexthop değeri** adresini içermediğinden emin olun, aksi halde kaynaktan bir sonraki atlamaya giden paketleriniz hedefe hiç varmadan bir döngüye girer. |
-| Sonraki atlama türü | Paketin gönderilmesi gereken Azure atlama türü. | Aşağıdaki değerlerden biri olmalıdır: <br/> **Yerel**. Yerel sanal ağı temsil eder. Örneğin, aynı sanal ağ içinde 10.1.0.0/16 ve 10.2.0.0/16 şeklinde iki alt ağınız varsa yol tablosundaki her alt ağ yolunun bir sonraki atlama değeri *Yerel* olur. <br/> **VPN Gateway**. Azure S2S VPN Gateway'i temsil eder. <br/> **İnternet**. Azure Altyapısı tarafından sağlanan varsayılan İnternet ağ geçidini temsil eder. <br/> **Sanal Gereç**. Azure sanal ağınıza eklediğiniz sanal gereci temsil eder. <br/> **NULL**. Bir kara deliği temsil eder. Bir kara deliğe iletilen paketler aktarılmaz.| Paketlerin belirli bir hedefe akmasını durdurmak için bir **NULL** türünü kullanmayı değerlendirin. | 
-| Nexthop Değeri | Sonraki atlama değeri, paketlerin iletilmesi gereken IP adresini içerir. Yalnızca sonraki atlama türünün *Sanal Gereç* olduğu yollarda sonraki atlama değerlerine izin verilir.| Erişilebilir bir IP adresi olmalıdır. | IP adresi bir VM'yi temsil ediyorsa Azure'da VM için [IP iletimini](#IP-forwarding) etkinleştirdiğinizden emin olun. |
+| Adres Ön Eki | Yolun uygulandığı hedef CIDR'si, ör. 10.1.0.0/16.|Genel İnternet, Azure sanal ağı veya şirket içi veri merkezi üzerindeki adresleri temsil eden geçerli bir CIDR aralığı olmalıdır.|**Adres ön ekinin** **Nexthop adresini** içermediğinden emin olun, aksi halde kaynaktan bir sonraki atlamaya giden paketleriniz hedefe hiç varmadan bir döngüye girer. |
+| Sonraki atlama türü | Paketin gönderilmesi gereken Azure atlama türü. | Aşağıdaki değerlerden biri olmalıdır: <br/> **Sanal Ağ**. Yerel sanal ağı temsil eder. Örneğin, aynı sanal ağ içinde 10.1.0.0/16 ve 10.2.0.0/16 şeklinde iki alt ağınız varsa yol tablosundaki her alt ağ yolunun bir sonraki atlama değeri *Sanal Ağ* olur. <br/> **Sanal Ağ Geçidi**. Azure S2S VPN Gateway'i temsil eder. <br/> **İnternet**. Azure Altyapısı tarafından sağlanan varsayılan İnternet ağ geçidini temsil eder. <br/> **Sanal Gereç**. Azure sanal ağınıza eklediğiniz sanal gereci temsil eder. <br/> **None**. Bir kara deliği temsil eder. Bir kara deliğe iletilen paketler aktarılmaz.| Paketlerin belirli bir hedefe akmasını durdurmak için bir **None** türünü kullanmayı değerlendirin. | 
+| Sonraki atlama adresi | Sonraki atlama adresi, paketlerin iletilmesi gereken IP adresini içerir. Yalnızca sonraki atlama türünün *Sanal Gereç* olduğu yollarda sonraki atlama değerlerine izin verilir.| Erişilebilir bir IP adresi olmalıdır. | IP adresi bir VM'yi temsil ediyorsa Azure'da VM için [IP iletimini](#IP-forwarding) etkinleştirdiğinizden emin olun. |
+
+Azure PowerShell’de "NextHopType" değerlerinin bazıları farklı adlara sahiptir:
+- Sanal Ağ VnetLocal şeklindedir
+- Sanal Ağ Geçidi VirtualNetworkGateway şeklindedir
+- Sanal Gereç VirtualAppliance şeklindedir
+- İnternet, İnternet’tir
+- None, None şeklindedir
 
 ### Sistem Yolları
 Bir sanal ağda oluşturulan her alt ağ, aşağıdaki sistem yolu kurallarını içeren bir yol tablosu ile otomatik olarak ilişkilendirilir:
@@ -68,7 +75,7 @@ Yol tablosu bir alt ağ ile ilişkilendirilene kadar alt ağlar sistem yolların
 1. BGP yolu (ExpressRoute kullanıldığında)
 1. Sistem yolu
 
-Kullanıcı tanımlı yolların nasıl oluşturulacağını öğrenmek için bkz. [Azure'da Yollar Oluşturma ve IP İletimini Etkinleştirme](virtual-networks-udr-how-to.md#How-to-manage-routes).
+Kullanıcı tanımlı yolların nasıl oluşturulacağını öğrenmek için bkz. [Azure'da Yollar Oluşturma ve IP İletimini Etkinleştirme](virtual-network-create-udr-arm-template.md).
 
 >[AZURE.IMPORTANT] Kullanıcı tanımlı yollar yalnızca Azure VM'leri ve bulut hizmetleri için uygulanır. Örneğin, şirket içi ağınız ve Azure arasında bir güvenlik duvarı sanal gereci eklemek isterseniz Azure yol tablolarınız için şirket içi adres alanına giden tüm trafiği sanal gerece ileten bir yol oluşturmanız gerekir. Ancak şirket içi adres alanından gelen trafik sanal gereci atlar ve VPN ağ geçidinden veya ExpressRoute devresinden geçerek doğrudan Azure ortamına ulaşır.
 
@@ -89,6 +96,6 @@ Bu sanal gereç VM'si, kendisine yönelik olmayan gelen trafiği alabilmelidir. 
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

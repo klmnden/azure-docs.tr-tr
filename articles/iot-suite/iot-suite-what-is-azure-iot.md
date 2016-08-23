@@ -29,15 +29,14 @@ The Microsoft Azure IoT Paketi, [uzaktan izleme][lnk-preconfigured-solutions] an
 
 ## Sonraki adımlar
 
-Azure’de IoT hakkında daha fazla bilgi için aşağıdaki kaynaklara gidin:
+IoT Paketi ve önceden yapılandırılmış çözümler hakkında bilgi almaya devam etmek için aşağıdaki kaynakları keşfedin:
 
-- [Azure IoT Paketi’ne Genel Bakış][lnk-suite-overview].
-- [Önceden yapılandırılmış çözümlere giriş][lnk-preconfigured-solutions].
-- [Cihazınızı IoT Paketi uzaktan izleme çözümüne bağlama][lnk-connecting].
-- [Azure IoT Hub’ı]
+- [Azure IoT Paketi nedir?][lnk-whatissuite]
+- [Azure IoT Paketi önceden yapılandırılmış çözümleri nelerdir?][lnk-whatarepreconfigured]
 
-[lnk-suite-overview]: iot-suite-overview.md
-[lnk-connecting]: iot-suite-connecting-devices.md
+[lnk-whatissuite]: iot-suite-overview.md
+[lnk-whatarepreconfigured]: iot-suite-what-are-preconfigured-solutions.md
+
 [lnk-preconfigured-solutions]: iot-suite-getstarted-preconfigured-solutions.md
 [Azure IoT Hub’ı]: https://azure.microsoft.com/documentation/services/iot-hub/
 [Azure Event Hubs]: https://azure.microsoft.com/documentation/services/event-hubs/
@@ -47,6 +46,6 @@ Azure’de IoT hakkında daha fazla bilgi için aşağıdaki kaynaklara gidin:
 [lnk-predictive-maintenance]: iot-suite-predictive-overview.md
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

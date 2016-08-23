@@ -88,13 +88,17 @@ Endüstri standardı IPsec uygulamalarıyla uyumlu olana kadar diğer yazılım 
 
 Aşağıdaki işletim sistemleri desteklenmektedir:
 
-- Windows 7 (yalnızca 64 bit sürümü)
+- Windows 7 (32 bit ve 64 bit)
 
-- Windows Server 2008 R2
+- Windows Server 2008 R2 (yalnızca 64 bit)
 
-- Windows 8 (yalnızca 64 bit sürümü)
+- Windows 8 (32 bit ve 64 bit)
 
-- Windows Server 2012
+- Windows 8.1 (32 bit ve 64 bit)
+
+- Windows Server 2012 (yalnızca 64 bit)
+
+- Windows Server 2012 R2 (yalnızca 64 bit)
 
 - Windows 10
 
@@ -281,6 +285,6 @@ VPN Ağ Geçitleri hakkında daha fazla bilgiyi [VPN Ağ Geçidi belgeleri sayfa
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

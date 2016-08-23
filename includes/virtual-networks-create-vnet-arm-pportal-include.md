@@ -11,7 +11,7 @@ Azure Preview portalını kullanarak yukarıdaki senaryoya dayanan bir VNet olu�
 
     ![Sanal ağ oluştur dikey penceresi](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure2.png)
 
-4. **Kaynak grubu**’na tıklayıp VNet'e eklenecek kaynak grubunu seçin veya VNet’i yeni bir kaynak grubuna eklemek için **Yeni oluştur**’a tıklayın. Aşağıdaki şekil, **TestRG** adlı yeni bir kaynak grubunun kaynak grubu ayarlarını göstermektedir. Kaynak grupları hakkında daha fazla bilgi için [Azure Resource Manager’a Genel Bakış](../articles/resource-group-overview.md/#resource-groups)’ı ziyaret edin.
+4. **Kaynak grubu**’na tıklayıp VNet'e eklenecek kaynak grubunu seçin veya VNet’i yeni bir kaynak grubuna eklemek için **Yeni oluştur**’a tıklayın. Aşağıdaki şekil, **TestRG** adlı yeni bir kaynak grubunun kaynak grubu ayarlarını göstermektedir. Kaynak grupları hakkında daha fazla bilgi için [Azure Resource Manager’a Genel Bakış](../articles/resource-group-overview.md#resource-groups) sayfasını ziyaret edin.
 
     ![Kaynak grubu](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure3.png)
 
@@ -36,6 +36,7 @@ Azure Preview portalını kullanarak yukarıdaki senaryoya dayanan bir VNet olu�
     ![VNet’te alt ağlar listesi](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure7.png)
 
 
-<!--HONumber=Jun16_HO2-->
+
+<!--HONumber=Aug16_HO1-->
 
 

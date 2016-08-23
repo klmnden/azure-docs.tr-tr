@@ -2,10 +2,10 @@
 |-----------------------------|-------------|---------------------|
 | **Klasik Portal**          | Desteklenmiyor          | Desteklenmiyor                  |
 | **Azure Portal**            | Desteklenmiyor         | Desteklenmiyor                  |
-| **PowerShell** | [Makale](../articles/expressroute/expressroute-howto-coexist-classic.md) | Desteklenmiyor |
+| **PowerShell** | [Makale](../articles/expressroute/expressroute-howto-coexist-classic.md) | [Makale](../articles/expressroute/expressroute-howto-coexist-resource-manager.md) |
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

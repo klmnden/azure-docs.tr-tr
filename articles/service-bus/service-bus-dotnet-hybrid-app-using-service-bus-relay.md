@@ -294,7 +294,7 @@ Bu bölümde, ürün hizmetinizden alınan verileri görüntüleyen basit bir AS
 
     ![][19]
 
-7. **Tamam**'a tıklayın. 
+7. **Tamam** düğmesine tıklayın. 
 
 8. Şimdi yeni bir web uygulaması için Azure kaynaklarını yapılandırmanız gerekir. [Yeni bir web uygulaması için Azure kaynaklarını yapılandırma](../app-service-web/web-sites-dotnet-get-started.md#configure-azure-resources-for-a-new-web-app) bölümündeki tüm adımları gerçekleştirin. Daha sonra, bu öğreticiye geri dönün ve sonraki adıma geçin.
 
@@ -571,11 +571,11 @@ Service Bus hakkında daha fazla bilgi edinmek için şu kaynaklara bakın:
   [46]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/service-bus-policies.png
 
   [sbwacom]: /documentation/services/service-bus/  
-  [sbwacomqhowto]: service-bus-dotnet-how-to-use-queues.md
+  [sbwacomqhowto]: service-bus-dotnet-get-started-with-queues.md
 
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="hero-article" 
-    ms.date="05/03/2016" 
+    ms.date="06/22/2016"
     ms.author="juliako;anilmur"/>
 
 #Azure Media Services’e Genel Bakış ve Yaygın Senaryolar
@@ -49,7 +49,7 @@ AMS öğrenme yollarını burada görebilirsiniz:
 
 Azure Media Services’i kullanmaya başlamak için aşağıdakilerin bulunması gerekir:
  
-3. Bir Azure hesabı. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılar için bkz. [Azure Ücretsiz Deneme](azure.microsoft.com).
+3. Bir Azure hesabı. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılar için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com).
 2. Bir Azure Media Services hesabı. Azure Media Services hesabını oluşturmak için Klasik Azure Portalı, .NET veya REST API’yi kullanın. Daha fazla bilgi için bkz. [Hesap Oluşturma](media-services-create-account.md).
 3. (İsteğe bağlı) Geliştirme ortamı ayarlayın. Geliştirme ortamınız için .NET veya REST API’yi seçin. Daha fazla bilgi için bkz. [Ortam Ayarlama](media-services-dotnet-how-to-use.md). 
 
@@ -222,6 +222,6 @@ Daha fazla bilgi için bkz. [Microsoft Azure SLA](https://azure.microsoft.com/su
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

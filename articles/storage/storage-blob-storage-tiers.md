@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Bloblar için Azure Seyrek Erişimli Depolama | Microsoft Azure"
-    description="Blob Storage için depolama katmanları, nesne verileri için erişim düzenlerini esas alarak uygun maliyetli depolama sunar. Azure seyrek erişimli depolama, daha az sıklıkta erişilen veriler için optimize edilmiştir."
+    pageTitle="Blob’lar için Azure seyrek erişimli depolama | Microsoft Azure"
+    description="Azure Blob Depolama için depolama katmanları, nesne verileri için erişim düzenlerini esas alarak uygun maliyetli depolama sunar. Seyrek erişimli depolama katmanı, daha az sıklıkta erişilen veriler için optimize edilmiştir."
     services="storage"
     documentationCenter=""
     authors="sribhat-msft"
@@ -13,11 +13,11 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/09/2016"
+    ms.date="07/05/2016"
     ms.author="sribhat"/>
 
 
-# Azure Blob Storage: Sık Erişimli ve Seyrek Erişimli Depolama Katmanları
+# Azure Blob Depolama: Sık erişimli ve seyrek erişimli depolama katmanları
 
 ## Genel Bakış
 
@@ -25,24 +25,24 @@ Nasıl kullandığınıza bağlı olarak verilerinizi en uygun maliyetli şekild
 
 Bugün, bulutta depolanan veriler büyük bir hızla artmaktadır. Artan depolama ihtiyaçlarınızın maliyetlerini yönetmek için, erişim sıklığı ve planlanan elde tutma dönemi gibi özniteliklere bağlı olarak verilerinizi düzenlemek yararlıdır. Bulutta depolanan veriler, nasıl oluşturulduğu, işlendiği ve yaşam süresi boyunca nasıl erişildiği açısından oldukça farklı olabilir. Bazı veriler ve yaşam süresi boyunca aktif şekilde erişilebilir ve değiştirilebilir. Bazı verilere, veriler eskidikçe önemli ölçüde azalan erişimle, yaşam sürelerinin başlarında çok sık erişilebilir. Bazı veriler bulutta boşta kalır ve depolandıktan sonra, olursa, nadiren erişilir.
 
-Yukarıda açıklanan bu veri senaryolarının her biri, belirli erişim düzeni için optimize edilmiş olan farklı hale getirilmiş bir depolama katmanından faydalanır. Sık erişimli ve seyrek erişimli depolama erişim katmanlarının kullanılmaya başlanmasıyla, Azure Blob Storage şimdi farklı fiyatlandırma modelleriyle bu ayrılmış depolama katmanları ihtiyacına hitap ediyor.
+Yukarıda açıklanan bu veri senaryolarının her biri, belirli erişim düzeni için optimize edilmiş olan farklı hale getirilmiş bir depolama katmanından faydalanır. Sık erişimli ve seyrek erişimli depolama katmanlarının kullanılmaya başlanmasıyla, Azure Blob Depolama şimdi farklı fiyatlandırma modelleriyle bu ayrılmış depolama katmanları ihtiyacına hitap ediyor.
 
 ## Blob Storage hesapları
 
-**Blob Storage hesapları**, yapılandırılmamış verilerinizi bloblar (nesneler) olarak Azure Storage’da depolamanıza yönelik özel depolama hesaplarıdır. Blob Storage hesaplarıyla, artık daha az sıklıkta erişilen seyrek erişimli verilerinizi daha düşük depolama maliyetiyle depolamak ve daha sık erişilen sık erişimli verilerinizi daha düşük erişim maliyetiyle depolamak amacıyla sık erişimli ve seyrek erişimli erişim katmanları arasında seçim yapabileceksiniz. Blob Storage hesapları, varolan genel amaçlı depolama hesaplarınıza benzer ve blok blobları ve ilave blobları için %100 API tutarlığı dahil günümüzde kullandığınız tüm harika dayanıklılık, kullanılabilirlik, ölçeklenebilirlik ve performans özelliklerini paylaşır.
+**Blob Storage hesapları**, yapılandırılmamış verilerinizi bloblar (nesneler) olarak Azure Storage’da depolamanıza yönelik özel depolama hesaplarıdır. Blob depolama hesaplarıyla, artık daha az sıklıkta erişilen seyrek erişimli verilerinizi daha düşük depolama maliyetiyle depolamak ve daha sık erişilen sık erişimli verilerinizi daha düşük erişim maliyetiyle depolamak amacıyla sık erişimli ve seyrek erişimli katmanlar arasında seçim yapabileceksiniz. Blob Storage hesapları, varolan genel amaçlı depolama hesaplarınıza benzer ve blok blobları ve ilave blobları için %100 API tutarlığı dahil günümüzde kullandığınız tüm harika dayanıklılık, kullanılabilirlik, ölçeklenebilirlik ve performans özelliklerini paylaşır.
 
 > [AZURE.NOTE] Blob Storage hesapları yalnızca blok ve ilave bloblarını destekler, sayfa bloblarını desteklemez.
 
-Blob Storage hesapları, hesapta depolanan verilere bağlı olarak depolama katmanını **Sık Erişimli** veya **Seyrek Erişimli** olarak belirlemenize olanak tanıyan **Erişim Katmanı** özniteliğini verir. Verilerinizin kullanım düzeninde bir değişiklik olursa,herhangi bir zamanda bu erişim katmanları arasında geçiş yapabilirsiniz.
+Blob Storage hesapları, hesapta depolanan verilere bağlı olarak depolama katmanını **Sık Erişimli** veya **Seyrek Erişimli** olarak belirlemenize olanak tanıyan **Erişim Katmanı** özniteliğini verir. Verilerinizin kullanım düzeninde bir değişiklik olursa herhangi bir zamanda bu depolama katmanları arasında geçiş yapabilirsiniz.
 
-> [AZURE.NOTE] Erişim katmanının değiştirilmesi ek ücretlere neden olabilir. Lütfen daha fazla bilgi için [Fiyatlandırma ve Faturalama](storage-blob-storage-tiers.md#pricing-and-billing) bölümüne bakın.
+> [AZURE.NOTE] Depolama katmanının değiştirilmesi ek ücretlere neden olabilir. Lütfen daha fazla bilgi için [Fiyatlandırma ve Faturalama](storage-blob-storage-tiers.md#pricing-and-billing) bölümüne bakın.
 
-Sık erişimli depolama erişim katmanı için örnek kullanım senaryoları şunları içerir:
+Sık erişimli depolama katmanı için örnek kullanım senaryoları şunları içerir:
 
 - Etkin kullanımda olan veya sık erişilmesi beklenen (okunma ve üzerine yazılma) veriler.
 - Seyrek erişimli depolama katmanına işlemeye ya da sonuçta geçişe hazırlanan veriler.
 
-Seyrek erişimli depolama erişim katmanı için örnek kullanım senaryoları şunları içerir:
+Seyrek erişimli depolama katmanı için örnek kullanım senaryoları şunları içerir:
 
 - Yedekleme, arşivleme ve olağanüstü durum kurtarma veri kümeleri.
 - Artık sık görüntülenmeyen ancak erişildiğinde hemen kullanılabilir olması beklenen eski medya içeriği.
@@ -61,9 +61,9 @@ Yalnızca blok veya ilave blobu depolaması gerektiren uygulamalar için, katman
 
 > [AZURE.NOTE] Blob Storage hesapları şu anda çoğu Azure bölgesinde desteklenmektedir; bölge sayısı artacaktır. Kullanılabilir bölgelerin güncelleştirilmiş listesini [Bölgeye göre Azure Hizmetleri ](https://azure.microsoft.com/regions/#services) sayfasında bulabilirsiniz.
 
-## Erişim katmanları karşılaştırması
+## Depolama katmanları karşılaştırması
 
-Aşağıdaki tabloda iki erişim katmanı arasındaki karşılaştırma vurgulanmıştır:
+Aşağıdaki tabloda iki depolama katmanı arasındaki karşılaştırma vurgulanmıştır:
 
 <table border="1" cellspacing="0" cellpadding="0" style="border: 1px solid #000000;">
 <col width="250">
@@ -72,8 +72,8 @@ Aşağıdaki tabloda iki erişim katmanı arasındaki karşılaştırma vurgulan
 <tbody>
 <tr>
     <td><strong><center></center></strong></td>
-    <td><strong><center>Sık erişimli depolama erişim katmanı</center></strong></td>
-    <td><strong><center>Seyrek erişimli depolama erişim katmanı</center></strong></td
+    <td><strong><center>Sık erişimli depolama katmanı</center></strong></td>
+    <td><strong><center>Seyrek erişimli depolama katmanı</center></strong></td
 </tr>
 <tr>
     <td><strong><center>Kullanılabilirlik</center></strong></td>
@@ -113,75 +113,158 @@ Aşağıdaki tabloda iki erişim katmanı arasındaki karşılaştırma vurgulan
 
 ## Fiyatlandırma ve Faturalama
 
-Blob Storage hesapları, erişim katmanını temel alan yeni bir fiyatlandırma modelini kullanır. Bir Blob Storage hesabı kullanırken, aşağıdaki fatura değerlendirmeleri geçerlidir:
+Blob depolama hesapları, depolama katmanını temel alan yeni bir fiyatlandırma modelini kullanır. Bir Blob Storage hesabı kullanırken, aşağıdaki fatura değerlendirmeleri geçerlidir:
 
-- **Depolama maliyetleri**: Depolanan veri miktarına ek olarak, veri depolamanın maliyeti erişim katmanına bağlı olarak değişir. Gigabayt başına maliyet, seyrek erişimli depolama erişim katmanı için sık erişimli depolama erişim katmanına göre olandan düşüktür.
-- **Veri erişim maliyetleri**: Seyrek erişimli depolama erişim katmanındaki veriler için, okuma ve yazma işlemleri için erişilen gigabayt veri başına ücretlendirilirsiniz.
-- **İşlem maliyetleri**: Her iki katma için işlem başına ücret alınır. Ancak, işlem başına maliyet, seyrek erişimli depolama erişim katmanı için sık erişimli depolama erişim katmanına göre olandan yüksektir.
+- **Depolama maliyetleri**: Depolanan veri miktarına ek olarak, veri depolamanın maliyeti depolama katmanına bağlı olarak değişir. Gigabayt başına maliyet, seyrek erişimli depolama katmanı için sık erişimli depolama katmanına göre olandan düşüktür.
+- **Veri erişim maliyetleri**: Seyrek erişimli depolama katmanındaki veriler için, okuma ve yazma işlemleri için erişilen gigabayt veri başına ücretlendirilirsiniz.
+- **İşlem maliyetleri**: Her iki katma için işlem başına ücret alınır. Ancak, işlem başına maliyet, seyrek erişimli depolama katmanı için sık erişimli depolama katmanına göre olandan yüksektir.
 - **Coğrafi Çoğaltma veri aktarımı maliyetleri**: Bu, yalnızca GRS ve RA-GRS dahil, coğrafi çoğaltma yapılandırılmış hesaplara uygulanır. Coğrafi çoğaltma veri aktarımı gigabayt başına ücret doğurur.
 - **Giden veri aktarımı maliyetleri**: Giden veri aktarımları (bir Azure bölgesinin dışına aktarılan veriler), genel amaçlı depolama hesapları ile tutarlı şekilde gigabayt başına esaslı olarak bant genişliği kullanımı için fatura doğurur.
-- **Erişim katmanını değiştirme**: Erişim katmanını seyrek erişimliden sık erişimliye değiştirmek, her geçiş için depolama hesabında varolan tüm verilerin okunmasına eşit bir ücret doğurur. Öte yandan, erişim katmanını sık erişimliden seyrek erişimliye değiştirmek ücretsizdir.
+- **Depolama katmanını değiştirme**: Depolama katmanını seyrek erişimliden sık erişimliye değiştirmek, her geçiş için depolama hesabında varolan tüm verilerin okunmasına eşit bir ücret doğurur. Öte yandan, depolama katmanını sık erişimliden seyrek erişimliye değiştirmek ücretsizdir.
 
-> [AZURE.NOTE] Kullanıcıların yeni depolama katmanlarını denemesine ve kullanıma başlama öncesi işlevselliği doğrulamasına izin vermek üzere, 30 Haziran 2016 tarihine kadar, erişim katmanını seyrek erişimliden sık erişimliye değiştirmek ücretsizdir. 1 Temmuz 2016’dan başlayarak, seyrek erişimliden sık erişimliye tüm geçiş işlemleri için ücret uygulanacaktır. Blob Storage hesaplarına ilişkin fiyatlandırma modeli hakkında daha fazla bilgi için bkz. [Azure Storage Fiyatlandırması](https://azure.microsoft.com/pricing/details/storage/) sayfası. Giden veri aktarımı ücretlerine ilişkin daha fazla bilgi için bkz. [Veri Aktarımları Fiyatlandırma Bilgileri](https://azure.microsoft.com/pricing/details/data-transfers/) sayfası.
+> [AZURE.NOTE] Kullanıcıların yeni depolama katmanlarını denemesine ve kullanıma başlama öncesi işlevselliği doğrulamasına izin vermek üzere, 30 Haziran 2016 tarihine kadar, depolama katmanını seyrek erişimliden sık erişimliye değiştirmek ücretsizdir. 1 Temmuz 2016’dan başlayarak, seyrek erişimliden sık erişimliye tüm geçiş işlemleri için ücret uygulanacaktır. Blob Storage hesaplarına ilişkin fiyatlandırma modeli hakkında daha fazla bilgi için bkz. [Azure Storage Fiyatlandırması](https://azure.microsoft.com/pricing/details/storage/) sayfası. Giden veri aktarımı ücretlerine ilişkin daha fazla bilgi için bkz. [Veri Aktarımları Fiyatlandırma Bilgileri](https://azure.microsoft.com/pricing/details/data-transfers/) sayfası.
 
 ## Hızlı Başlangıç
 
-Bu bölümde Azure Portal kullanarak aşağıdaki senaryolar gösterilmektedir:
+Bu bölümde Azure portalı kullanarak aşağıdaki senaryolar gösterilmektedir:
 
 - Blob Storage hesabı oluşturma.
 - Blob Storage hesabı yönetme.
 
-### Azure Portal’ı kullanma
+### Azure portalını kullanma
 
-#### Azure Portal'ı kullanarak Blob Storage hesabı oluşturma
+#### Azure portalı kullanarak Blob depolama hesabı oluşturma
 
-1. [Azure Portal](https://portal.azure.com)’da oturum açın.
+1. [Azure portalında](https://portal.azure.com) oturum açın.
 
-2. Hub menüsünde, **Yeni** -> **Veri + Depolama** -> **Depolama hesabı**’nı seçin.
+2. Hub menüsünde, **Yeni** > **Veri + Depolama** > **Depolama hesabı**’nı seçin.
 
 3. Depolama hesabınız için bir ad girin.
 
+    Bu ad genel olarak benzersiz olmalıdır; depolama hesabındaki nesnelere erişmek için kullanılan URL’nin bir parçası olarak kullanılır.  
+
 4. Dağıtım modeli olarak **Kaynak Yöneticisi**’ni seçin.
 
-5. Depolama hesabı türü olarak **Blob Storage**’ı seçin.
+    Katmanlı depolama yalnızca Resource Manager depolama hesaplarıyla birlikte kullanılabilir; yeni kaynaklar için önerilen dağıtım modeli budur. Daha fazla bilgi için bkz. [Azure Resource Manager'a genel bakış](../resource-group-overview.md).  
 
-6. Erişim katmanını seçin: **Sık Erişimli** veya **Seyrek Erişimli**. Varsayılan seçenek **Sık Erişimli**’dir.
+5. Hesap Türü açılır listesinden **Blob Depolama** seçeneğini belirleyin.
 
-7. Depolama hesabı için çoğaltma seçeneğini seçin: **LRS**, **GRS** veya **RA-GRS**. Varsayılan seçenek **RA-GRS**’dir. Azure Storage çoğaltma seçenekleri ile ilgili ayrıntılar için bkz. [Azure Storage çoğaltma](storage-redundancy.md).
+    Depolama hesabının türünü buradan seçebilirsiniz. Katmanlı depolama genel amaçlı depolamada kullanılamaz; yalnızca Blob depolama türündeki hesapta kullanılabilir.    
+
+    Bunu seçtiğinizde performans katmanı Standart olarak ayarlanır. Katmanlı depolama, Premium performans katmanı ile kullanılamaz.
+
+6. Depolama hesabı için çoğaltma seçeneğini seçin: **LRS**, **GRS** veya **RA-GRS**. Varsayılan seçenek **RA-GRS**’dir.
+
+    LRS = yerel olarak yedekli depolama; GRS = coğrafi olarak yedekli depolama (2 bölge); RA-GRS okuma erişimli, coğrafi olarak yedekli depolama (ikincisine okuma erişiminin bulunduğu 2 bölge).
+
+    Azure Depolama çoğaltma seçenekleri ile ilgili ayrıntılar için bkz. [Azure Depolama çoğaltma](storage-redundancy.md).
+
+7. Gereksinimlerinize uygun depolama katmanını seçin: **Erişim katmanı** ayarını **Seyrek Erişimli** veya **Sık Erişimli** olarak belirleyin. Varsayılan seçenek **Sık Erişimli**’dir.
 
 8. Yeni depolama hesabını oluşturmak istediğiniz aboneliği seçin.
 
-9. Yeni bir kaynak grubu belirtin veya varolan bir kaynak grubunu seçin. Kaynak grupları hakkında daha fazla bilgi için bkz. [Azure kaynaklarınızı yönetmek için Azure Portal’ı kullanma](../azure-portal/resource-group-portal.md)
+9. Yeni bir kaynak grubu belirtin veya varolan bir kaynak grubunu seçin. Kaynak grupları hakkında daha fazla bilgi için bkz. [Azure Resource Manager’a genel bakış](../resource-group-overview.md).
 
-10. Depolama hesabınız için coğrafi konumu seçin.
+10. Depolama hesabınız için bölge seçin.
 
 11. Depolama hesabını oluşturmak için **Oluştur**’a tıklayın.
 
-#### Azure Portal'ı kullanarak Blob Storage hesabındaki erişim katmanını değiştirme
+#### Azure portalı kullanarak Blob depolama hesabındaki depolama katmanını değiştirme
 
-1. [Azure Portal](https://portal.azure.com)’da oturum açın ve depolama hesabınıza gidin.
+1. [Azure portalında](https://portal.azure.com) oturum açın.
 
-2. **Tüm ayarlar**’a tıklayın ve ardından hesap yapılandırmasını görüntülemek ve/veya yapılandırmak için **Yapılandırma**’ya tıklayın.
+2. Depolama hesabınıza gitmek için Tüm Kaynaklar’ı ve ardından depolama hesabınızı seçin.
 
-3. İstenen erişim katmanını belirtin: **Sık Erişimli** veya **Seyrek Erişimli**.
+3. Ayarlar dikey penceresinde **Yapılandırma**’ya tıklayarak hesap yapılandırmasını görüntüleyin ve/veya değiştirin.
 
-    > [AZURE.NOTE] Erişim katmanının değiştirilmesi ek ücretlere neden olabilir. Lütfen daha fazla bilgi için [Fiyatlandırma ve Faturalama](storage-blob-storage-tiers.md#pricing-and-billing) bölümüne bakın.
+4. Gereksinimlerinize uygun depolama katmanını seçin: **Erişim katmanı** ayarını **Seyrek Erişimli** veya **Sık Erişimli** olarak belirleyin.
 
-## Blob Storage hesaplarına geçme
+5. Dikey pencerenin en üstündeki Kaydet seçeneğine tıklayın.
 
-Bu bölümün amacı kullanıcıların Blob Storage hesaplarına sorunsuz bir geçiş yapmasına yardımcı olmaktır. Bir Blob Storage hesabı yalnızca blok ve ilave bloblarının depolanmasına yöneliktir. Blobların yanı sıra tablo, kuyruk, dosya ve diskleri de depolamanızı sağlayan mevcut genel amaçlı depolama hesapları Blob Storage hesaplarına dönüştürülemez. Depolama katmanlarını kullanmak için, yeni Blob Storage hesapları oluşturmanız ve varolan verilerinizi yeni oluşturulan hesaplara taşımanız gerekir.
+> [AZURE.NOTE] Depolama katmanının değiştirilmesi ek ücretlere neden olabilir. Lütfen daha fazla bilgi için [Fiyatlandırma ve Faturalama](storage-blob-storage-tiers.md#pricing-and-billing) bölümüne bakın.
 
-### Mevcut verilerin geçişini planlama
+## Blob depolama hesaplarını değerlendirme ve geçiş yapma
 
-Verilerinizi bir Blob Storage hesabına taşıyorsanız, büyük olasılıkla daha az sık kullanılan veri depolama maliyetlerinden tasarruf için sık erişimli depolama erişim katmanı avantajından yararlanmak istersiniz. Soğuk erişimli erişim katmanındaki bir Blob Storage hesabında bulunan veri geçişini planlamanın ilk adımı, bir Blob Storage hesabına geçişten faydalanıp faydalanamayacağınızı belirlemek üzere mevcut kullanım düzeninizi değerlendirmektir. Genel olarak, şunları bilmek isteyeceksiniz:
+Bu bölümün amacı kullanıcıların Blob depolama hesapları kullanmaya sorunsuz bir geçiş yapmasına yardımcı olmaktır. İki kullanıcı senaryosu vardır:
 
-- Depolama tüketim düzeniniz – Ne kadar veri depolanıyor ve bu aylık olarak nasıl değişiyor?
-- Depolama erişim düzenleriniz – Hesaptan ne kadar veri okunuyor ve hesaba ne kadar veri yazılıyor (yeni veriler dahil)? Veri erişimi için kaç tane ve hangi işlemler kullanılıyor?
+- Genel amaçlı bir depolama hesabınız var ve doğru depolama katmanı ile bir Blob depolama hesabına geçişi değerlendirmek istiyorsunuz.
+- Bir Blob depolama hesabı kullanmaya karar verdiğiniz veya zaten bir tane var ve sık erişimli ya da seyrek erişimli depolama katmanı kullanıp kullanmayacağınızı değerlendirmek istiyorsunuz.
 
-Varolan depolama hesaplarınızı izlemek ve bu verileri toplamak için, lütfen [Azure Storage ölçümlerini etkinleştirme ve ölçüm verilerini görüntüleme](storage-enable-and-view-metrics.md). Şimdi bu verileri kullanarak maliyetlerinizi tahmin etmeye yardımcı olması için [Azure Storage Fiyatlandırma Hesaplayıcı](https://azure.microsoft.com/pricing/calculator/?scenario=data-management)’yı kullanabilirsiniz.
+Her iki durumda da ilk iş sırası bir Blob depolama hesabında depolanan verileriniz depolama ve erişim maliyetinin tahmin edilmesi ve bu maliyetin mevcut maliyetlerinizle karşılaştırılmasıdır.
+
+### Blob depolama hesabı katmanlarını değerlendirme
+
+Bir Blob depolama hesabına depolanan verilerinizin depolama ve erişim maliyetini tahmin etmek için var olan kullanım modelinizi ve beklediğiniz kullanım modelini yaklaşık olarak değerlendirmeniz gerekir. Genel olarak, şunları bilmek isteyeceksiniz:
+
+- Depolama tüketiminiz – Ne kadar veri depolanıyor ve bu aylık olarak nasıl değişiyor?
+- Depolama erişim modelleriniz - Hesaptan ne kadar veri okunuyor ve hesaba ne kadar veri yazılıyor (yeni veriler dahil)? Veri erişimi için kaç tane işlem kullanılıyor ve bunlar ne tür işlemler?
+
+#### Var olan depolama hesaplarını izleme
+
+Var olan depolama hesaplarınızı izlemek ve bu verileri toplamak için, bir depolama hesabına yönelik günlüğe kaydetme işlemlerini gerçekleştiren ve ölçümler sağlayan Azure Depolama Analitiği hizmetinden yararlanabilirsiniz.
+Storage Analytics hem genel amaçlı depolama hesapları hem de Blob depolama hesapları için toplu işlem istatistiklerini içerebilen ölçümleri ve Blob depolama hizmetine yapılan isteklere ilişkin kapasite verilerini depolayabilir.
+Bu veriler aynı depolama hesabındaki iyi bilinen tablolara depolanır.
+
+Daha fazla bilgi için lütfen bkz. [Storage Analytics Ölçümleri hakkında](https://msdn.microsoft.com/library/azure/hh343258.aspx) ve [Storage Analytics Ölçüm Tablosu Şeması](https://msdn.microsoft.com/library/azure/hh343264.aspx)
+
+> [AZURE.NOTE] Blob depolama hesapları, tablo hizmeti uç noktasını yalnızca ilgili hesabın ölçüm verilerini depolamak ve bunlara erişmek için ortaya çıkarır.
+
+Blob depolama hizmetinin depolama tüketimini izlemek için kapasite ölçümlerini etkinleştirmeniz gerekir.
+Bu özellik etkinleştirildiğinde bir depolama hesabının Blob hizmeti için kapasite verileri günlük olarak kaydedilir ve aynı depolama hesabı içindeki *$MetricsCapacityBlob* tablosuna yazılan bir tablo girişi olarak kaydedilir.
+
+Blob depolama hizmetinin veri erişim modelini izlemek için saatlik işlem ölçümlerini bir API düzeyinde etkinleştirmeniz gerekir.
+Bu özellik etkinleştirildiğinde API başına işlemler saatte bir toplanır ve aynı depolama hesabındaki *$MetricsHourPrimaryTransactionsBlob* tablosuna yazılan bir tablo girişi olarak kaydedilir. *$MetricsHourSecondaryTransactionsBlob* tablosu, RA-GRS depolama hesapları için işlemleri ikincil uç noktaya kaydeder.
+
+> [AZURE.NOTE] Blok genelindeki sayfa blob’larını ve sanal makine disklerini engelleme ve ekleme blob verileriyle birlikte depoladığınız genel amaçlı bir depolama hesabınız varsa bu tahmin işlemi geçerli değildir. Bunun nedeni, yalnızca bir Blob depolama hesabına geçirilebilecek engelleme ve ekleme blob’ları için blob türüne göre kapasite ve işlem ölçümlerini ayırt etmenin bir yolunun olmamasıdır.
+
+Veri tüketim ve erişim modelinizi yaklaşık olarak tahmin etmek için, ölçümler için düzenli kullanımınızı temsil eden bir elde tutma süresi seçmeniz ve tahmin etmeniz önerilir.
+Seçeneklerden biri son 7 güne ait ölçüm verilerinin tutulması ve verilerin ay sonunda analiz için haftada bir toplanmasıdır.
+Diğer bir seçenek ise son 30 güne ait ölçüm verilerinin tutulması ve verilerin 30 günlük süre sonunda toplanıp çözümlenmesidir.
+
+Ölçüm verilerini etkinleştirme, toplama ve görüntüleme hakkında bilgi için bkz. [Azure Depolama ölçümlerini etkinleştirme ve ölçüm verilerini görüntüleme](storage-enable-and-view-metrics.md).
+
+> [AZURE.NOTE] Analiz verilerinin depolanması, erişimi ve indirilmesi de normal kullanıcı verileri gibi ücretlendirilir.
+
+#### Kullanım ölçümlerinden yararlanarak maliyetleri tahmin etme
+
+##### Depolama maliyetleri
+
+*$MetricsCapacityBlob* kapasite ölçüm tablosunda *'data'* satır anahtarını içeren en son giriş, kullanıcı verilerinin harcadığı kapasiteyi gösterir.
+*$MetricsCapacityBlob* kapasite ölçüm tablosunda *'analytics'* satır anahtarını içeren en son giriş, analiz günlüklerinin harcadığı kapasiteyi gösterir.
+
+Hem kullanıcı verileri hem de analiz günlükleri (etkinse) tarafından kullanılan bu toplam kapasite, verileri depolama hesabına depolama maliyetini tahmin etmek için kullanılabilir.
+Aynı yöntem ayrıca engelleme ve ekleme blob’larının genel amaçları depolama hesaplarına depolanma maliyetlerini tahmin etmek için kullanılabilir.
+
+##### İşlem maliyetleri
+
+İşlem ölçüm tablosundaki bir API’nin tüm girişleri için *'TotalBillableRequests'* toplamı, ilgili API’nin toplam işlem sayısını belirtir. *Örneğin*, belirli bir süre içindeki *'GetBlob'* işlemlerinin toplam sayısı *'user;GetBlob'* satır anahtarını içeren tüm girişlere yönelik toplam faturalandırılabilir isteklerin toplamına göre hesaplanabilir.
+
+Blob depolama hesaplarına ilişkin işlem maliyetlerini tahmin etmek için, farklı şekilde fiyatlandırıldıkları için işlemleri üç gruba ayırmanız gerekir.
+
+- *'PutBlob'*, *'PutBlock'*, *'PutBlockList'*, *'AppendBlock'*, *'ListBlobs'*, *'ListContainers'*, *'CreateContainer'*, *'SnapshotBlob'* ve *'CopyBlob'* gibi yazma işlemleri.
+- *'DeleteBlob'* ve *'DeleteContainer'* gibi silme işlemleri.
+- Diğer tüm işlemler.
+
+Genel amaçlı depolama hesaplarının işlem maliyetlerini tahmin etmek için işlemden/API’den bağımsız olarak tüm işlemleri toplamanız gerekir.
+
+##### Veri erişimi ve coğrafi çoğaltma veri aktarımı maliyetleri
+
+Storage Analytics bir depolama hesabından okunan ve depolama hesabına yazılan veri miktarını belirtmese de, işlem ölçümleri tablosuna bakılarak bu değer kabaca tahmin edilebilir.
+İşlem ölçüm tablosundaki bir API’nin tüm girişleri için *'TotalIngress'* toplamı, ilgili API’nin toplam giriş verileri miktarını bayt cinsinden belirtir.
+Benzer şekilde, *'TotalEgress'* toplamı toplam çıkış verileri miktarını bayt cinsinden belirtir.
+
+Blob depolama hesaplarına ilişkin veri erişimi maliyetlerini hesaplamak için işlemleri iki gruba ayırmanız gerekir.
+
+- Depolama hesabından alınan veri miktarı birincil olarak *'GetBlob'* ve *'CopyBlob'* işlemleri için *'TotalEgress'* toplamına bakılarak tahmin edilebilir.
+- Depolama hesabına yazılan veri miktarı birincil olarak *'PutBlob'*, *'PutBlock'*, *'CopyBlob'* ve *'AppendBlock'* işlemleri için *'TotalIngress'* toplamına bakılarak tahmin edilebilir.
+
+Blob depolama hesaplarında coğrafi çoğaltma veri aktarımı maliyeti de bir GRS veya RA-GRS depolama hesabı söz konusu olduğunda yazılan veri miktarı tahmini kullanılarak hesaplanabilir.
+
+> [AZURE.NOTE] Seyrek veya sık erişimli bir depolama katmanını kullanma maliyetlerini hesaplama hakkında daha ayrıntılı bir örnek için lütfen *'Sık ve Seyrek Erişimli erişim katmanları nelerdir ve hangisinin kullanılacağını nasıl belirlemeliyim?'* başlıklı SSS bölümüne bakın bkz. [Azure Depolama Fiyatlandırma Sayfası](https://azure.microsoft.com/pricing/details/storage/).
 
 ### Mevcut verileri geçirme
 
+Bir Blob Storage hesabı yalnızca blok ve ilave bloblarının depolanmasına yöneliktir. Blobların yanı sıra tablo, kuyruk, dosya ve diskleri de depolamanızı sağlayan mevcut genel amaçlı depolama hesapları Blob depolama hesaplarına dönüştürülemez. Depolama katmanlarını kullanmak için, yeni Blob Storage hesapları oluşturmanız ve varolan verilerinizi yeni oluşturulan hesaplara taşımanız gerekir.
 Mevcut verileri şirket içi depolama aygıtlarından, üçüncü taraf bulut depolama sağlayıcılardan ya da Azure’daki mevcut genel amaçlı depolama hesaplarınızdan Blob Storage hesaplarına geçirmek için aşağıdaki yöntemleri kullanabilirsiniz:
 
 #### AzCopy
@@ -208,7 +291,7 @@ Daha fazla bilgi için,bkz. [Azure Blob Storage’ı kullanmaya başlayın](stor
 
 1. **Varolan depolama hesapları hala kullanılabilir mi?**
 
-    Evet, var olan depolama hesapları hala kullanılabilir ve fiyatlandırma veya işlev açısından bir farklılık göstermez.  Bunlar erişim katmanı seçme olanağına sahip değildir ve gelecekte katmanlama özelliğine sahip olmayacaktır.
+    Evet, var olan depolama hesapları hala kullanılabilir ve fiyatlandırma veya işlev açısından bir farklılık göstermez.  Bunlar depolama katmanı seçme olanağına sahip değildir ve gelecekte katmanlama özelliğine sahip olmayacaktır.
 
 2. **Neden ve ne zaman Blob Storage hesapları kullanmaya başlamalıyım?**
 
@@ -218,23 +301,23 @@ Daha fazla bilgi için,bkz. [Azure Blob Storage’ı kullanmaya başlayın](stor
 
     Hayır. Blob Storage hesabı farklı türde bir depolama hesabıdır ve yeni bir tane oluşturmanız ve yukarıda açıklandığı şekilde verilerinizi taşımanız gereklidir.
 
-4. **Nesneleri aynı hesaptaki iki erişim katmanında depolayabilir miyim? **
+4. **Nesneleri aynı hesaptaki iki depolama katmanında depolayabilir miyim?**
 
-    Erişim katmanı özniteliği hesap düzeyinde ayarlanır ve bu hesaptaki tüm nesnelere uygulanır. Nesne düzeyinde erişim katmanı ayarlayamazsınız.
+    Depolama katmanını belirten *‘Erişim Katmanı’* özniteliği hesap düzeyinde ayarlanır ve bu hesaptaki tüm nesnelere uygulanır. Erişim katmanı özniteliğini nesne düzeyinde ayarlayamazsınız.
 
-5. **Blob Storage hesabımdaki erişim katmanını değiştirebilir miyim?**
+5. **Blob depolama hesabımdaki depolama katmanını değiştirebilir miyim?**
 
-    Evet. Depolama hesabındaki erişim katmanını değiştirebilirsiniz. Hesap düzeyinde bir erişim katmanını değiştirmek hesapta depolanan tüm nesnelere uygulanır. Erişim katmanını sık erişimliden seyrek erişimliye değiştirmek bir ücret doğurmazken, seyrek erişimliden sık erişimliye değiştirmek hesaptaki tüm verilerin okunması için GB başına maliyet doğurur.
+    Evet. Depolama hesabındaki *'Erişim Katmanı'* özniteliğini ayarlayarak depolama katmanını değiştirebilirsiniz. Depolama katmanının değiştirilmesi hesaba depolanmış tüm nesneler için geçerli olur. Depolama katmanını sık erişimliden seyrek erişimliye değiştirmek bir ücret doğurmazken, seyrek erişimliden sık erişimliye değiştirmek hesaptaki tüm verilerin okunması için GB başına maliyet doğurur.
 
-6. **Blob Storage hesabımdaki erişim katmanını hangi sıklıkta değiştirebilirim?**
+6. **Blob depolama hesabımdaki depolama katmanını hangi sıklıkta değiştirebilirim?**
 
-    Erişim katmanını değiştirme sıklığına ilişkin bir sınırlama koymuyoruz ancak erişim katmanını seyrek erişimliden sık erişimliye değiştirmenin büyük maliyetler doğurduğuna dikkat edin. Erişim katmanını sık değiştirmenizi önermiyoruz.
+    Depolama katmanını değiştirme sıklığına ilişkin bir sınırlama koymuyoruz, ancak depolama katmanını seyrek erişimliden sık erişimliye değiştirmenin büyük maliyetler doğurduğuna dikkat edin. Depolama katmanını sık değiştirmenizi önermiyoruz.
 
-7. **Seyrek erişimli depolama erişim katmanındaki bloblar, sık erişimli depolama erişim katmanındakilerden farklı mı davranacak?**
+7. **Seyrek erişimli depolama katmanındaki bloblar, sık erişimli depolama katmanındakilerden farklı mı davranacak?**
 
-    Sık erişimli depolama erişim katmanındaki bloblar genel amaçlı depolama hesaplarındaki bloblarla aynı gecikme süresine sahiptir. Seyrek erişimli depolama erişim katmanındaki bloblar genel amaçlı depolama hesaplarındaki bloblarla benzer gecikme süresine (milisaniye olarak) sahiptir.
+    Sık erişimli depolama katmanındaki bloblar genel amaçlı depolama hesaplarındaki bloblarla aynı gecikme süresine sahiptir. Seyrek erişimli depolama katmanındaki bloblar genel amaçlı depolama hesaplarındaki bloblarla benzer gecikme süresine (milisaniye olarak) sahiptir.
 
-    Seyrek erişimli depolama erişim katmanındaki bloblar, sık erişimli depolama erişim katmanında depolanan bloblara göre daha düşük kullanılabilirlik hizmet düzeyine (SLA) sahiptir. Daha fazla bilgi için bkz. [Depolama için SLA](https://azure.microsoft.com/support/legal/sla/storage).
+    Seyrek erişimli depolama katmanındaki bloblar, sık erişimli depolama katmanında depolanan bloblara göre daha düşük kullanılabilirlik hizmet düzeyine (SLA) sahiptir. Daha fazla bilgi için bkz. [Depolama için SLA](https://azure.microsoft.com/support/legal/sla/storage).
 
 8. **Sayfa bloblarını ve sanal makine disklerini Blob Storage hesaplarında depolayabilir miyim?**
 
@@ -246,7 +329,7 @@ Daha fazla bilgi için,bkz. [Azure Blob Storage’ı kullanmaya başlayın](stor
 
 10. **Kullanıcı deneyiminde bir değişiklik olacak mı?**
 
-    Blob Storage hesapları blok ve ilave bloblarını depolamak için genel amaçlı depolama hesaplarına çok benzer ve yüksek dayanıklılık ve kullanılabilirlik, ölçeklenebilirlik, performans ve güvenlik dahil olmak üzere Azure Storage’ın tüm anahtar özelliklerini destekler. Blob Storage hesaplarına özgü özellikler ve kısıtlamalar ve yukarıda bahsedilen erişim katmanları dışındaki her şey aynı kalır.
+    Blob Storage hesapları blok ve ilave bloblarını depolamak için genel amaçlı depolama hesaplarına çok benzer ve yüksek dayanıklılık ve kullanılabilirlik, ölçeklenebilirlik, performans ve güvenlik dahil olmak üzere Azure Storage’ın tüm anahtar özelliklerini destekler. Blob depolama hesaplarına özgü özellikler ve kısıtlamalar ve yukarıda bahsedilen depolama katmanları dışındaki her şey aynı kalır.
 
 ## Sonraki adımlar
 
@@ -268,8 +351,10 @@ Daha fazla bilgi için,bkz. [Azure Blob Storage’ı kullanmaya başlayın](stor
 
 [AzCopy Komut Satırı Yardımcı Programı ile veri aktarımı](storage-use-azcopy.md)
 
+[Depolama hesaplarınıza göz atın ve keşfedin](http://storageexplorer.com/)
 
 
-<!--HONumber=Jun16_HO2-->
+
+<!--HONumber=Aug16_HO1-->
 
 

@@ -2,7 +2,7 @@
     pageTitle="Excel'i SQL Database'e bağlama | Microsoft Azure"
     description="Microsoft Excel'i bulut üzerinde Azure SQL veritabanına nasıl bağlayacağınızı öğrenin. Raporlama ve veri araştırması için Excel'e veri aktarın."
     services="sql-database"
-    keywords="connect excel to sql, import data to excel"
+    keywords="excel’i sql’e bağlama, verileri excel’e aktarma"
     documentationCenter=""
     authors="joseidz"
     manager="jhubbard"
@@ -15,7 +15,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="03/25/2016"
+    ms.date="07/05/2016"
     ms.author="joseidz"/>
 
 
@@ -86,6 +86,6 @@ Artık bağlantıyı kurup verileri ve bağlantı bilgilerini kullanarak dosyay�
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

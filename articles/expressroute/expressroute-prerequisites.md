@@ -12,13 +12,15 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/19/2016"
+   ms.date="06/13/2016"
    ms.author="cherylmc"/>
 
 
 # ExpressRoute önkoşulları ve denetim listesi  
 
 ExpressRoute kullanarak microsoft bulut hizmetlerine bağlanmak için, aşağıdaki bölümlerde listelenen gereksinimlerin karşılanmış olduğunu doğrulamanız gerekir.
+
+[AZURE.INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
 ## Azure hesabı
 
@@ -66,6 +68,6 @@ ExpressRoute ile CRM Online’ı etkinleştirmeyi planlıyorsanız, lütfen CRM 
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

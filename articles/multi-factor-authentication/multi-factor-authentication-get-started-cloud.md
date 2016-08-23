@@ -63,7 +63,7 @@ Kullanıcılarınız için MFA'yı etkinleştirmek üzere aşağıdaki yordamı 
 
 ## PowerShell kullanarak multi-factor authentication’ı açmayı otomatik hale getirme
 
-[Azure AD PowerShell](powershell-install-configuremd) kullanarak [durumu](multi-factor-authentication-whats-next.md) değiştirmek için, aşağıdakileri kullanabilirsiniz.  Aşağıdaki durumlardan birine eşit olacak şekilde `$st.State` öğesini değiştirebilirsiniz:
+[Azure AD PowerShell](../powershell-install-configure.md) kullanarak [durumu](multi-factor-authentication-whats-next.md) değiştirmek için aşağıdakileri kullanabilirsiniz.  Aşağıdaki durumlardan birine eşit olacak şekilde `$st.State` öğesini değiştirebilirsiniz:
 
 
 - Etkin
@@ -98,6 +98,6 @@ Bulutta multi-factor authentication özelliğini ayarladığınıza göre, şimd
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

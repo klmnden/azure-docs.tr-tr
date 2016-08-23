@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/05/2016"
+    ms.date="06/22/2016"
     ms.author="juliako"/>
 
 
@@ -40,7 +40,7 @@ Bu öğretici aşağıdaki görevleri içerir:
 Bu bölümdeki adımlar yeni bir AMS hesabının nasıl oluşturulacağını gösterir.
 
 1. [Azure Portal](https://portal.azure.com/)’da oturum açın.
-2. **+Yeni** > **Medya Hizmeti + CDN** > **Media Services**’e tıklayın.
+2. **+Yeni** > **Medya + CDN** > **Media Services**’e tıklayın.
 
     ![Media Services Oluşturma](./media/media-services-portal-vod-get-started/media-services-new1.png)
 
@@ -233,6 +233,6 @@ Bazı dikkate alınması gereken noktalar vardır:
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

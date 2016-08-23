@@ -1,9 +1,9 @@
 <properties
-   pageTitle="Microsoft Power BI Embedded Önizleme kullanmaya başlama "
+   pageTitle="Microsoft Power BI Embedded kullanmaya başlama"
    description="Power BI Embedded, iş zekası uygulamanıza etkileşimli Power BI raporları ekler"
    services="power-bi-embedded"
    documentationCenter=""
-   authors="dvana"
+   authors="minewiskan"
    manager="NA"
    editor=""
    tags=""/>
@@ -13,16 +13,14 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="04/24/2016"
-   ms.author="derrickv"/>
+   ms.date="07/05/2016"
+   ms.author="owend"/>
 
-# Microsoft Power BI Embedded Önizleme kullanmaya başlama 
+# Microsoft Power BI Embedded kullanmaya başlama
 
-**Microsoft Power BI Embedded**, uygulama geliştiricilerin kendi uygulamalarına etkileşimli Power BI raporları eklemelerini sağlayan bir Azure hizmetidir. **Power BI Embedded**, bu uygulamaların yeniden tasarlanmasına ya da kullanıcılarının oturum açma yöntemini değiştirmesine gerek kalmadan mevcut uygulamalarla birlikte çalışır.
+**Power BI Embedded**, uygulama geliştiricilerin kendi uygulamalarına etkileşimli Power BI raporları eklemelerini sağlayan bir Azure hizmetidir. **Power BI Embedded** kullanıcıların oturum açma yöntemini yeniden tasarlamaya veya değiştirmeye gerek kalmadan var olan uygulamalarla birlikte çalışır.
 
-Power BI Embedded hakkında daha fazla bilgi için bkz. [Power BI Embedded nedir?](power-bi-embedded-what-is-power-bi-embedded.md).
-
-[Power BI Embedded nedir?](power-bi-embedded-what-is-power-bi-embedded.md) bölümünden açıklandığı gibi, **Microsoft Power BI Embedded** kaynakları [Azure ARM API’leri](https://msdn.microsoft.com/library/mt712306.aspx) aracılığıyla sağlanır. Bu örnekte, sağladığınız kaynak **Power BI Çalışma Alanı Koleksiyonu**’dur. Sonraki bölümde, bir çalışma alanı koleksiyonu oluşturma gösterilir.
+**Microsoft Power BI Embedded** kaynakları [Azure ARM API’leri](https://msdn.microsoft.com/library/mt712306.aspx) aracılığıyla sağlanır. Bu örnekte, sağladığınız kaynak **Power BI Çalışma Alanı Koleksiyonu**’dur.
 
 ![](media\power-bi-embedded-get-started\introduction.png)
 
@@ -47,18 +45,16 @@ Power BI Embedded hakkında daha fazla bilgi için bkz. [Power BI Embedded nedir
 
    5. **Oluştur**’a tıklayın.
 
-**Çalışma Alanı Koleksiyonu**’nun sağlanması birkaç dakika sürer. Tamamlandığında, **Çalışma Alanı Koleksiyonu Dikey Penceresi**’ne götürülürsünüz.
+**Çalışma Alanı Koleksiyonu**’nun sağlanması birkaç dakika sürer. Tamamlandığında **Çalışma Alanı Koleksiyonu Dikey Penceresi**’ne götürülürsünüz.
 
    ![](media\power-bi-embedded-get-started\create-workspace-3.png)
 
-Bu **Oluşturma Dikey Penceresi** çalışma alanlarını oluşturan ve bunlara içerik dağıtan API’leri çağırmak için size gereken bilgileri içerir.
-
-Sonraki bölümde, **Erişim Anahtarları**’nın API isteklerinizin kimlik doğrulaması için kullanılan **uygulama belirteçlerini** oluşturmak için nasıl kullanıldığı açıklanır.
+**Oluşturma Dikey Penceresi** çalışma alanlarını oluşturan ve bunlara içerik dağıtan API’leri çağırmak için size gereken bilgileri içerir.
 
 <a name="view-access-keys"/>
 ## Power BI API’si Erişim Anahtarlarınız
 
-Power BI API’lerini çağırmanın en önemli parçalarından biri **Erişim Anahtarları**’dır. Bunlar API isteklerinizin kimlik doğrulaması için kullanılan **uygulama belirteçlerini** oluşturmak için kullanılır. **Erişim Anahtarları**’nızı görüntülemek için **Ayarlar Dikey Penceresi**’nde **Erişim Anahtarları**’na tıklayın. **Uygulama belirteçleri** hakkında daha fazla bilgi için bkz. [Uygulama belirteci akışı nasıl çalışır?](power-bi-embedded-app-token-flow.md)
+Power BI API’lerini çağırmanın en önemli parçalarından biri **Erişim Anahtarları**’dır. Bunlar API isteklerinizin kimlik doğrulaması için kullanılan **uygulama belirteçlerini** oluşturmak için kullanılır. **Erişim Anahtarları**’nızı görüntülemek için **Ayarlar Dikey Penceresi**’nde **Erişim Anahtarları**’na tıklayın. **Uygulama belirteçleri** hakkında daha fazla bilgi için bkz. [Power BI Embedded ile kimlik doğrulama ve yetkilendirme](power-bi-embedded-app-token-flow.md).
 
    ![](media\power-bi-embedded-get-started\access-keys.png)
 
@@ -68,7 +64,7 @@ Power BI API’lerini çağırmanın en önemli parçalarından biri **Erişim A
 
 Bu anahtarları kopyalayın ve uygulamanızda güvenli bir şekilde depolayın. **Çalışma Alanı Koleksiyonu**’nuzdaki tüm içeriği erişim imkanı sağlayacağından bu anahtarları bir parolaymış gibi ele almanız çok önemlidir.
 
-İki anahtar listelenmekle birlikte, bir seferde yalnızca bir anahtar gerekir. İkinci anahtar, hizmete erişimi kesintiye uğratmadan anahtarları dönemsel olarak yeniden oluşturabilmeniz için verilir.
+İki anahtar listelenmekle birlikte, belirli bir seferde yalnızca bir anahtar gerekir. İkinci anahtar, hizmete erişimi kesintiye uğratmadan anahtarları dönemsel olarak yeniden oluşturabilmeniz için verilir.
 
 Artık uygulamanız için bir Power BI örneğine ve **Erişim Anahtarları**’na sahip olduğunuza göre, kendi uygulamanıza bir rapor aktarabilirsiniz. Bir raporu içeri aktarmayı öğrenmeden önce, sonraki bölümde bir uygulamaya eklemek için Power BI veri kümeleri ve raporları oluşturma açıklanır.
 
@@ -102,13 +98,11 @@ Veri kaynağına bağlanma hakkında daha fazla bilgi için bkz. [Veri kaynağı
 
 ## Ayrıca Bkz.
 - [Örnek kullanmaya başlama](power-bi-embedded-get-started-sample.md)
-- [Power BI Embedded nedir?](power-bi-embedded-what-is-power-bi-embedded.md)
-- [Power BI Desktop kullanmaya başlama](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started)
+- [Power BI Embedded ile kimlik doğrulama ve yetkilendirme](power-bi-embedded-app-token-flow.md)
 - [Power BI desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
-- [Power BI Embedded fiyatlandırması](http://go.microsoft.com/fwlink/?LinkID=760527)
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

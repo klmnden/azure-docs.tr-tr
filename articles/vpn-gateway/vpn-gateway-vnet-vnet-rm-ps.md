@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/02/2016"
+   ms.date="07/29/2016"
    ms.author="cherylmc"/>
 
 # Azure Resource Manager ve PowerShell kullanarak bir Sanal Ağdan Sanal Ağa bağlantısı yapılandırma
@@ -24,6 +24,8 @@
 - [PowerShell - Azure Resource Manager](vpn-gateway-vnet-vnet-rm-ps.md)
 
 Bu makalede Resource Manager dağıtım modeli ve PowerShell kullanarak sanal ağlar arasında bağlantı kurma konusu adım adım incelenecektir. Sanal ağlar aynı ya da farklı bölgelerde, aynı ya da farklı aboneliklerde bulunuyor olabilirler.
+
+[AZURE.INCLUDE [vpn-gateway-peering](../../includes/vpn-gateway-vnetpeeringlink-include.md)]
 
 
 **Azure dağıtım modelleri hakkında**
@@ -58,27 +60,7 @@ Sanal ağları aşağıdaki sebeplerden dolayı bağlamak isteyebilirsiniz:
 
 ### Sanal Ağdan Sanal Ağa - SSS
 
-- Sanal ağlar aynı ya da farklı Azure bölgelerinde (konumlarında) bulunabilir.
-
-- Bir bulut hizmeti ya da yük dengeleme uç noktası, birbirlerine bağlı olsa da sanal ağlara YAYILAMAZ.
-
-- İşletmeler arası bağlantı gerekmediği sürece birden fazla Azure sanal ağını birleştirmek için şirket içi VPN ağ geçitlerine gerek yoktur. 
-
-- Sanal Ağdan Sanal Ağa, sanal ağları bağlamayı destekler. Bir sanal ağ içinde OLMAYAN sanal makineleri veya bulut hizmetlerini bağlamayı desteklemez.
-
-- Sanal Ağdan Sanal Ağa, Azure VPN ağ geçitlerinin, önceki adı Dinamik Yönlendirme olan RouteBased VPN türleri ile bağlantılarını VPN geçidi ile bağlamalarını gerektirir. 
-
-- Sanal ağ bağlantıları aynı anda çoklu site VPNleri ile kullanılabilir. Diğer sanal ağlara ya da şirket içi sitelere bağlanan sanal ağ VPN ağ geçidinin VPN tünelleri en fazla 10 (Varsayılan/Standart Ağ Geçitleri) veya 30 (Yüksek Performanslı Ağ Geçitleri) adet olabilir.
-
-- Sanal ağlar ve şirket içi yerel ağ sitelerinin adres alanları çakışmamalıdır. Adres alanlarının çakışması, Sanal Ağdan Sanal Ağa bağlantılarının başarısız olmasına sebep olabilir.
-
-- Bir çift sanal ağ arasındaki yedekli tüneller desteklenmez.
-
-- Sanal ağ üzerindeki tüm VPN tünelleri, Azure VPN ağ geçidi ve aynı ağ geçidi çalışma süresi SLA’sı üzerinde aynı kullanılabilir bant genişliğini paylaşır.
-
-- Sanal Ağdan Sanal Ağa trafiği akışı, İnternet üzerinden değil Microsoft Network üzerinden sağlanır.
-
-- Aynı bölge içerisinde Sanal Ağdan Sanal Ağa trafiği her iki yön için de ücretsizdir, çapraz bölge Sanal Ağdan Sanal Ağa çıkış trafiği ise kaynak bölgelerine bağlı giden Sanal Ağlar arası veri aktarım hızına bağlı olarak ücretlendirilir.  Ayrıntılar için lütfen [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/vpn-gateway/)nı inceleyin.
+[AZURE.INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)] 
 
 
 ## Hangi adımları tamamlamalıyım? 
@@ -140,7 +122,7 @@ Bu alıştırmada sanal ağlar için aşağıdaki değerleri kullanın:
 - TestVNet2: 10.41.0.0/16 & 10.42.0.0/16
 - FrontEnd: 10.41.0.0/24
 - BackEnd: 10.42.0.0/24
-- GatewaySubnet: 10.42.255.0.0/27
+- GatewaySubnet: 10.42.255.0/27
 - Resource Group: TestRG4
 - Location: West US
 - DNS Server: 8.8.8.8
@@ -323,7 +305,7 @@ Azure Portal’da bir VPN bağlantısını şu yolu izleyerek doğrulayabilirsin
 
 ### Bağlantınızı PowerShell kullanarak doğrulamak için
 
-Bağlantınızın başarılı olduğunu *Get-AzureRmVirtualNetworkGatewayConnection –Debug*komutunu çalıştırarak doğrulayabilirsiniz. Aşağıdaki örnekleri değerleri kendi değerlerinizle eşleşmek üzere değiştirerek kullanabilirsiniz. İstendiğinde, tümünü çalıştırmak için 'A' seçeneğini belirleyin.
+Bağlantınızın başarılı olduğunu *Get-AzureRmVirtualNetworkGatewayConnection –Debug* komutunu çalıştırarak doğrulayabilirsiniz. Aşağıdaki örnekleri değerleri kendi değerlerinizle eşleşmek üzere değiştirerek kullanabilirsiniz. İstendiğinde, tümünü çalıştırmak için 'A' seçeneğini belirleyin.
 
     Get-AzureRmVirtualNetworkGatewayConnection -Name $Connection1 -ResourceGroupName $RG1 -Debug
 
@@ -534,6 +516,6 @@ Bu örnekte ağ geçitleri farklı aboneliklerde olduğundan bu adımı [1. Abon
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

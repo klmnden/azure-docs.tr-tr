@@ -4,7 +4,7 @@
     services="remoteapp" 
     documentationCenter="" 
     authors="lizap" 
-    manager="mbaldwin" 
+    manager="swadhwa" 
     editor=""/>
 
 <tags 
@@ -13,11 +13,14 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="04/08/2016" 
+    ms.date="07/25/2016" 
     ms.author="elizapo"/>
 
 # Azure RemoteApp hakkında SSS
 Azure RemoteApp hakkında aşağıdaki soruları duymuştuk. Başka var mı? [RemoteApp forumlarını](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureRemoteApp) ziyaret edin ve bilmeniz gerekenleri öğrenin veya aşağıya bir yorum bırakın.
+
+## Aradığınızı bulamadınız mı? Yanıt alamadığınız bir sorunuz mu var?
+Gerekli bilgileri bulamıyorsanız veya burada ele alınmayan başka bir sorunuz varsa lütfen [Azure RemoteApp forumuna](http://aka.ms/araforum) gidin ve sorunuzu orada sorun. Buraya her zaman daha fazla yanıt ekleyebiliriz.
 
 ## Azure RemoteApp nedir? ##
 
@@ -33,7 +36,7 @@ Azure RemoteApp hakkında aşağıdaki soruları duymuştuk. Başka var mı? [Re
 - **Hizmet sınırları nelerdir?** Azure RemoteApp varsayılan ayarları ve hizmet sınırları hakkında bilgileri, [Azure Aboneliği ve Hizmet Sınırları, Kotaları ve Kısıtlamaları](../azure-subscription-service-limits.md) makalesinden edinebilirsiniz. Daha fazla sorunuz olup olmadığını biz de bilelim.
 - **Kaç kullanıcım olmalıdır?** En az 20 kullanıcı vardır. Çok daha belirgin olması için bir kez daha - EN AZ 20. Size 20 kullanıcı için fatura edilecek. 
 - **RemoteApp maliyeti ne kadar?** [Azure RemoteApp Fiyatlandırma Ayrıntıları](https://azure.microsoft.com/pricing/details/remoteapp/) makalesini inceleyin.
-- **Bir tür koleksiyonun maliyeti bir başkasına göre daha mı yüksek?** Evet, koleksiyon gereksinimlerinize bağlı olarak daha yüksek olabilir. Karma koleksiyon için Azure RemoteApp’ten şirket içi ağınıza bağlantı gerekir. Mevcut bir VNET/Hızlı Rota kullanıyorsanız ek bir maliyet yoktur. Ancak, yeni Azure VNET ve bir ağ geçidi veya Hızlı Rota kullanıyorsanız, [VPN ağ geçidi](https://azure.microsoft.com/pricing/details/vpn-gateway) veya [Hızlı Rota](../../../pricing/details/expressroute/) ücretlendirilir. Bu maliyet (bağlantılarda ayrıntılı), aylık Azure RemoteApp maliyetinin en üstündedir.
+- **Bir tür koleksiyonun maliyeti bir başkasına göre daha mı yüksek?** Evet, koleksiyon gereksinimlerinize bağlı olarak daha yüksek olabilir. Karma koleksiyon için Azure RemoteApp’ten şirket içi ağınıza bağlantı gerekir. Mevcut bir VNET/Hızlı Rota kullanıyorsanız ek bir maliyet yoktur. Ancak, yeni Azure VNET ve bir ağ geçidi veya ExpressRoute kullanıyorsanız, [VPN ağ geçidi](https://azure.microsoft.com/pricing/details/vpn-gateway) veya [ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute/) ücretlendirilir. Bu maliyet (bağlantılarda ayrıntılı), aylık Azure RemoteApp maliyetinin en üstündedir.
 
 ## Koleksiyonlar - ne desteklenir, hangisini kullanmalısınız ve diğerleri
 - **Özel iş kolu (LOB) uygulamaları destekleniyor mu?** Evet. Azure RemoteApp’te özel bir uygulama kullanmak için [özel şablon görüntüsü](remoteapp-create-custom-image.md) oluşturun ve bunu RemoteApp koleksiyonuna yükleyin.
@@ -117,6 +120,6 @@ Bu makaleyi derecelendirmenin ve aşağıda yorum yapmamanın yanı sıra makale
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

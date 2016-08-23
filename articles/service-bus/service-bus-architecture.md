@@ -1,23 +1,23 @@
 <properties 
     pageTitle="Service Bus mimarisi | Microsoft Azure"
-    description="Azure Service Bus hizmetinin ileti işleme mimarisini açıklar."
+    description="Azure Service Bus hizmetinin ileti ve geçiş işleme mimarisini açıklar."
     services="service-bus"
     documentationCenter="na"
     authors="sethmanheim"
     manager="timlt"
-    editor="tysonn" />
+    editor="" />
 <tags 
     ms.service="service-bus"
     ms.devlang="na"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="04/19/2016"
+    ms.date="07/11/2016"
     ms.author="sethm" />
 
 # Service Bus mimarisi
 
-Bu makale, Azure Service Bus hizmetinin ileti işleme mimarisini açıklar.
+Bu makale Azure Service Bus hizmetinin ileti ve geçiş işleme mimarisini açıklar.
 
 ## Service Bus ölçek birimleri
 
@@ -53,7 +53,7 @@ Geçiş bağlantısı kurulduğunda istemciler, randevu için kullanılan ağ ge
 
 ## Sonraki adımlar
 
-Service Bus hizmetinin nasıl çalıştığına ilişkin genel bakışı okuduğunuza göre, aşağıdaki bağlantıları ziyaret edebilirsiniz:
+Service Bus mimarisine ilişkin genel bir bakış edindiğinize göre, aşağıdaki bağlantıları ziyaret edebilirsiniz:
 
 - [Service Bus mesajlaşma hizmetine genel bakış](service-bus-messaging-overview.md)
 - [Service Bus ile ilgili temel bilgiler](service-bus-fundamentals-hybrid-solutions.md)
@@ -61,6 +61,6 @@ Service Bus hizmetinin nasıl çalıştığına ilişkin genel bakışı okuduğ
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

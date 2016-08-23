@@ -14,7 +14,7 @@
     ms.topic="hero-article"
     ms.tgt_pltfrm="na"
     ms.workload="big-data"
-    ms.date="06/01/2016"
+    ms.date="06/29/2016"
     ms.author="jgao"/>
 
 # HDInsight uygulamalarını Azure Marketi’nde yayımlama
@@ -25,6 +25,7 @@ HDInsight uygulamaları, uygulama sağlayıcısının son kullanıcılara uygula
 
 HDInsight uygulamasıyla ilgili diğer makale:
 
+- [HDInsight uygulamaları yükleme](hdinsight-apps-install-applications.md): HDInsight uygulamalarını kümelerinize yükleme hakkında bilgi alın.
 - [Özel HDInsight uygulamaları yükleme](hdinsight-apps-install-custom-applications.md): Özel HDInsight uygulamalarını yükleyip test etme hakkında bilgi alın.
 
  
@@ -64,7 +65,7 @@ HDInsight uygulamalarınızı yüklemek için tüm gerekli dosyaları içeren bi
 - [createUiDefinition.json](#define-application).
 - mainTemplate.json. [Özel HDInsight uygulamaları yükleme](hdinsight-apps-install-custom-applications.md) konusunda örneğe bakın.
 
-    >[AZURE.IMPORTANT] Uygulama yükleme betik adları belirli bir küme için aşağıdaki biçimde benzersiz olmalıdır. 
+    >[AZURE.IMPORTANT] Uygulama yükleme betik adları belirli bir küme için aşağıdaki biçimde benzersiz olmalıdır. Ayrıca yükleme ve kaldırma betik eylemleri bir kez etkili olmalı, diğer bir deyişle betikler tekrarlayarak çağrıldığında aynı sonucu vermelidir.
     
     >   name": "[concat('hue-install-v0','-' ,uniquestring(‘applicationName’)]"
         
@@ -94,11 +95,12 @@ Bir HDInsight uygulamasını yayımlamak için aşağıdaki adımları izleyin:
 
 ## Sonraki adımlar
 
+- [HDInsight uygulamaları yükleme](hdinsight-apps-install-applications.md): HDInsight uygulamalarını kümelerinize yükleme hakkında bilgi alın.
 - [Özel HDInsight uygulamaları yükleme](hdinsight-apps-install-custom-applications.md): yayımlanmamış bir HDInsight uygulamasının HDInsight’a nasıl yükleneceğini öğrenin.
 - [Betik Eylemi kullanarak Linux tabanlı HDInsight kümelerini özelleştirme](hdinsight-hadoop-customize-cluster-linux.md): ek uygulamalar yüklemek için Betik Eyleminin nasıl kullanılacağını öğrenin.
-- [ARM şablonları kullanarak HDInsight’ta Linux tabanlı Hadoop kümeleri oluşturma](hdinsight-hadoop-create-linux-clusters-arm-templates.md): HDInsight kümeleri oluşturmak için ARM şablonlarının nasıl çağrılacağını öğrenin.
+- [Azure Resource Manager şablonları kullanarak HDInsight’ta Linux tabanlı Hadoop kümeleri oluşturma](hdinsight-hadoop-create-linux-clusters-arm-templates.md): HDInsight kümeleri oluşturmak için Resource Manager şablonlarının nasıl çağrılacağını öğrenin.
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

@@ -1,10 +1,10 @@
 <properties
-    pageTitle="Azure Backup ile Azure'da VM'leri koruma | Microsoft Azure"
-    description="Azure Backup hizmeti ile Azure VM'lerini koruyun. Öğretici, Azure'da kasa oluşturma, VM'leri kaydetme, ilke oluşturma ve VM'leri koruma işlemlerini açıklar."
+    pageTitle="İlk Bakış: Azure sanal makinelerini bir yedekleme kasasıyla koruma | Microsoft Azure"
+    description="Azure sanal makinelerini Yedekleme kasasıyla koruyun. Öğretici, Azure'da kasa oluşturma, VM'leri kaydetme, ilke oluşturma ve VM'leri koruma işlemlerini açıklar."
     services="backup"
     documentationCenter=""
     authors="markgalioto"
-    manager="jwhit"
+    manager="cfreeman"
     editor=""/>
 
 <tags
@@ -13,17 +13,17 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="04/22/2016"
+    ms.date="07/29/2016"
     ms.author="markgal; jimpark"/>
 
 
 # İlk bakış: Azure sanal makinelerini yedekleme
 
 > [AZURE.SELECTOR]
-- [ARM VM'leri yedekleme](backup-azure-vms-first-look-arm.md)
-- [Klasik mod VM'lerini yedekleme](backup-azure-vms-first-look.md)
+- [İlk bakış: Sanal makineleri bir kurtarma hizmetleri kasasıyla koruma](backup-azure-vms-first-look-arm.md)
+- [İlk Bakış: Azure sanal makinelerini bir yedekleme kasasıyla koruma](backup-azure-vms-first-look.md)
 
-Bu öğretici bir Azure sanal makinesini (VM) Azure'a yedeklemeye yönelik adımlar boyunca size yol gösterir. Bu öğreticiyi başarıyla tamamlamak için şu önkoşulların mevcut olması gerekir:
+Bu öğretici bir Azure sanal makinesini (VM) Azure'daki bir yedekleme kasasına yedeklemeye yönelik adımlar boyunca size yol gösterir. Bu makalede sanal makineleri yedeklemeye yönelik Klasik modeli veya Service Manager dağıtım modeli açıklanmaktadır. Bir sanal makineyi bir Kaynak Grubuna ait Kurtarma Hizmetleri kasasına yedeklemek istiyorsanız bkz. [İlk bakış: Sanal makineleri bir kurtarma hizmetleri kasasıyla koruma](backup-azure-vms-first-look-arm.md). Bu öğreticiyi başarıyla tamamlamak için şu önkoşulların mevcut olması gerekir:
 
 - Azure aboneliğinizde bir VM oluşturmuş olmanız gerekir.
 - VM'nin Azure genel IP adreslerine bağlantısı olmalıdır. Ek bilgi için bkz. [Ağ bağlantısı](./backup-azure-vms-prepare.md#network-connectivity).
@@ -38,7 +38,7 @@ Bir VM'yi yedeklemek için beş ana adım gerçekleştirilir:
 
 ![VM yedekleme işleminin üst düzey görünümü](./media/backup-azure-vms-first-look/backupazurevm-classic.png)
 
->[AZURE.NOTE] Azure'da kaynak oluşturmaya ve kaynaklarla çalışmaya yönelik iki dağıtım modeli mevcuttur: [Resource Manager ve Klasik](../resource-manager-deployment-model.md). Bu öğretici, Klasik Azure portalında oluşturulabilen VM'lerle kullanıma yöneliktir. Azure Backup hizmeti, IaaS V2 VM'ler olarak da bilinen Azure Resource Manager (ARM) tabanlı VM'leri destekler. ARM VM'leri yedekleme konusunda ayrıntılı bilgi için bkz. [İlk Bakış: ARM VM'leri Kurtarma Hizmetleri kasasına yedekleme](backup-azure-vms-first-look-arm.md).
+>[AZURE.NOTE] Azure'da kaynak oluşturmaya ve kaynaklarla çalışmaya yönelik iki dağıtım modeli mevcuttur: [Resource Manager ve Klasik](../resource-manager-deployment-model.md). Bu öğretici, Klasik Azure portalında oluşturulabilen VM'lerle kullanıma yöneliktir. Azure Backup hizmeti Resource Manager temelli sanal makineleri destekler. Sanal makineleri bir kurtarma hizmetleri kasasına yedekleme hakkında bilgi için bkz. [İlk bakış: Sanal makineleri bir kurtarma hizmetleri kasasıyla koruma](backup-azure-vms-first-look-arm.md).
 
 
 
@@ -107,7 +107,7 @@ VM'yi bir kasaya kaydetmeden önce yeni VM'leri tanımlamak için bulma işlemin
 
     ![İş yükünü seçme](./media/backup-azure-vms-first-look/configure-registered-items.png)
 
-5. **Tür** menüsünden **Azure Sanal Makine**'yi seçin.
+5. **Tür** menüsünden **Azure Sanal Makinesi**'ni seçin.
 
     ![İş yükünü seçme](./media/backup-azure-vms/discovery-select-workload.png)
 
@@ -154,7 +154,7 @@ VM'nizin bir şirket içi veri merkezinden geçişi sağlandıysa VM için VM Ar
 İlk yedekleme işini tetiklemeden önce, yedekleme anlık görüntülerinin alınma zamanlamasını ayarlayın. Yedekleme anlık görüntülerinin alınma zamanlaması ve bu anlık görüntülerin tutulma süresinin uzunluğu, yedekleme ilkesini oluşturur. Bekletme bilgileri, Üst öğe-orta öğe-alt öğe rotasyon düzenini temel alır.
 
 1. Klasik Azure portalında **Kurtarma Hizmetleri**'nin altındaki yedekleme kasasına gidin ve **Kayıtlı Öğeler**'e tıklayın.
-2. Açılır menüden **Azure Sanal Makine**'yi seçin.
+2. Açılan menüden **Azure Sanal Makine**'yi seçin.
 
     ![Portalda iş yükünü seçme](./media/backup-azure-vms/select-workload.png)
 
@@ -225,6 +225,6 @@ Sorularınız varsa veya dahil edilmesini istediğiniz herhangi bir özellik var
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

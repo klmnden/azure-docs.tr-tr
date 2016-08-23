@@ -2,7 +2,7 @@
     pageTitle="C# sorgusu ile SQL Database'e Bağlanma | Microsoft Azure"
     description="Sorgu çalıştırmak ve SQL veritabanına bağlanmak için C# dilinde bir program yazın. IP adresleri, bağlantı dizeleri, güvenli oturum açma ve ücretsiz Visual Studio hakkında bilgiler."
     services="sql-database"
-    keywords="c# database query, c# query, connect to database, SQL C#"
+    keywords="c# veritabanı sorgusu, c# sorgusu, veritabanına bağlanma, SQL C#"
     documentationCenter=""
     authors="MightyPen"
     manager="jhubbard"
@@ -112,7 +112,7 @@ Mantıksal sunucunuza bağlandıktan sonra bir veritabanına bağlanabilir ve bi
 
     ![Başarılı. SQL Database sunucusuna bağlanma: SVisual Studio](./media/sql-database-connect-query-ssms/5-success.png)
 
-## Sonraki Adımlar
+## Sonraki adımlar
 
 [.NET (C#) kullanarak SQL Database'e bağlanma](sql-database-develop-dotnet-simple.md) 
 
@@ -124,6 +124,6 @@ Mantıksal sunucunuza bağlandıktan sonra bir veritabanına bağlanabilir ve bi
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

@@ -5,38 +5,34 @@
 
 1. [Google Cloud Console](https://console.developers.google.com/project)’a gidin ve Google hesabı kimlik bilgilerinizle giriş yapın.
 
-2. **Proje git**’e ve ardından **Proje Oluştur**’a tıklayın.
-<!--
-    ![](./media/mobile-engagement-enable-google-cloud-messaging/new-project.png)
+2. **Tüm Projeler**’e gidin ve ardından **Proje Oluştur**’a tıklayın.
 
-    ![](./media/mobile-engagement-enable-google-cloud-messaging/new-project-2.png)   
--->
-3. Proje adı girin.
+3. Bir **Proje adı** girin ve **Oluştur**’a tıklayın
 
-4. **Proje adı** metin kutusu altında görüntülenen proje numarasını not edin. Android Derleme Bildirimi dosyasında doldurmak için daha sonra öğreticide gerekecektir.
-    ![](./media/mobile-engagement-enable-google-cloud-messaging/project-number.png)   
-5. **Oluştur**’a tıklayın.
+4. Proje oluşturulduktan sonra uzun bir sayısal değer olan **Proje numarasını** not aldığınızdan emin olun. Bunu Projenizin **Ayarlar** menüsündeki **IAM ve Yönetici bölümü** altında bulabilirsiniz; daha sonra bu bilgiye ihtiyacınız olacaktır. 
+ 
+    ![](./media/mobile-engagement-enable-google-cloud-messaging/project-number.png)
 
-6. Sol sütunda, **Genel Bakış**’ın seçili olduğundan emin olun ve Mobil API'leri altında **Google Cloud Messaging**’e tıklayın. Sonraki sayfada da **Etkinleştir**’e tıklayın.
+5. Bundan sonra platformumuz tarafından Android cihazlara bildirim göndermek üzere kullanılacak Google Cloud messaging platformu için bir anahtar oluşturulacaktır. **API Yöneticisi** bölümüne gidin ve **Mobil API’leri** altındaki **Google Cloud Messaging** öğesine tıklayın. 
+
+    ![](./media/mobile-engagement-enable-google-cloud-messaging/gcm.png)
+
+6. Sonraki sayfada **Etkinleştir** düğmesine tıklayın. Pano, kimlik bilgilerini oluşturmanızı ister. Bu nedenle **Kimlik Bilgilerine Git** düğmesine tıklayın. 
 
     ![](./media/mobile-engagement-enable-google-cloud-messaging/enable-GCM.png)
-<!--
-    ![](./media/mobile-engagement-enable-google-cloud-messaging/enable-gcm-2.png)
--->
-7. Sonraki sayfada, **Kimlik Bilgilerine Git**’e tıklayın, sonraki sayfada da, ilk açılan kutuda **Google Cloud Messaging**’i, ikinci açılanda da **Web sunucusu**’nu seçin ve ardından **Bana hangi kimlik bilgileri gerekiyor?** öğesine tıklayın.
+
+6. İlk açılan kutuda **Google Cloud Messaging**, ikinci açılan kutuda **Web sunucusu**’nu seçin ve ardından **Bana hangi kimlik bilgileri gerekiyor?** öğesine tıklayın
 
     ![](./media/mobile-engagement-enable-google-cloud-messaging/create-server-key.png)
 
-8. **Projenize kimlik bilgileri ekleyin** sayfasında **API anahtarı oluştur**’a tıklayın.
+7. **Projenize kimlik bilgileri ekleyin** sayfasında **API anahtarı oluştur**’a tıklayın.
 
     ![](./media/mobile-engagement-enable-google-cloud-messaging/create-server-key5.png)
-<!--
-    ![](./media/mobile-engagement-enable-google-cloud-messaging/create-server-key6.png)
--->
-9. **API ANAHTARI** değerini not edin. Bu API anahtarı değerini daha sonra "Yerel Görderim" bölümünde yapılandırmak amacıyla kullanacaksınız. Şimdi **Bitti**’ye tıklayın.
+
+8. **API ANAHTARI** değerini not edin. Bu API anahtarı değerini daha sonra "Yerel Görderim" bölümünde yapılandırmak amacıyla kullanacaksınız. Şimdi **Bitti**’ye tıklayın.
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

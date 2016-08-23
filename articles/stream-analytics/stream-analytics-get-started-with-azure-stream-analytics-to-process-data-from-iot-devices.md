@@ -14,7 +14,7 @@
     ms.topic="hero-article" 
     ms.tgt_pltfrm="na" 
     ms.workload="data-services" 
-    ms.date="05/03/2016"
+    ms.date="07/27/2016"
     ms.author="jeffstok"
 />
 
@@ -121,6 +121,6 @@ Bu öğretici temel olarak farklı SAQL sorguları yazmanız ve verilerle ilgili
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

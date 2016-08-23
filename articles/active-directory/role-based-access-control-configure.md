@@ -1,10 +1,10 @@
 <properties
     pageTitle="Azure portalında Rol Tabanlı Erişim denetimini kullanma | Microsoft Azure"
-    description="Azure Portal'da Rol Tabanlı Erişim Denetimi ile erişim yönetimine başlayın. Dizininizde izinler atamak için rol atamalarını kullanın."
+    description="Azure Portal'da Rol Tabanlı Erişim Denetimi ile erişim yönetimine başlayın. Kaynaklarınıza izinler atamak için rol atamalarını kullanın."
     services="active-directory"
     documentationCenter=""
     authors="kgremban"
-    manager="stevenpo"
+    manager="femila"
     editor=""/>
 
 <tags
@@ -13,10 +13,10 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="05/03/2016"
+    ms.date="07/21/2016"
     ms.author="kgremban"/>
 
-# Azure Active Directory kaynaklarınıza erişimi yönetmek için rol atamalarını kullanma
+# Azure abonelik kaynaklarınıza erişimi yönetmek için rol atamalarını kullanın
 
 Azure Rol Tabanlı Erişim Denetimi (RBAC), Azure için ayrıntılı erişim yönetimi sağlar. RBAC kullanarak, yalnızca kullanıcıların işlerini yapmak için gereksinim duyduğu erişim miktarını verebilirsiniz. Bu makale, Azure portalında RBAC ile çalışmaya başlamanıza yardımcı olur. RBAC'nin erişimi yönetmenize nasıl yardımcı olduğu konusunda daha fazla bilgi isterseniz bkz. [Rol Tabanlı Erişim Denetimi Nedir?](role-based-access-control-what-is.md).
 
@@ -47,7 +47,7 @@ Rol atamasının kapsamı olan kaynak, kaynak grubu veya abonelik içinden eriş
 
     ![Kullanıcı ekle dikey penceresi - arama ekran görüntüsü](./media/role-based-access-control-configure/grant-access2.png)
 
-4. Atamayı oluşturmak için **Tamam**'ı seçin. **Kullanıcı ekleniyor** açılır penceresi ilerleme durumunu izler.  
+4. Atamayı oluşturmak için **Tamam**'ı seçin. **Kullanıcı ekleme** açılır penceresi ilerleme durumunu izler.  
     ![Kullanıcı ekleniyor ilerleme çubuğu - ekran görüntüsü](./media/role-based-access-control-configure/addinguser_popup.png)
 
 Bir rol ataması başarıyla eklendikten sonra **Kullanıcılar** dikey penceresinde görüntülenir.
@@ -57,7 +57,7 @@ Bir rol ataması başarıyla eklendikten sonra **Kullanıcılar** dikey penceres
 1. **Kullanıcılar** dikey penceresinde rol atamasını seçin.
 2. Atama ayrıntıları dikey penceresinde **Kaldır**'ı seçin.  
     ![Kaldır - simge](./media/role-based-access-control-configure/remove_icon.png)
-3. Kaldırmayı onaylamak için **evet**'i seçin.  
+3. Kaldırmayı onaylamak için **Evet**'i seçin.  
     ![Kullanıcılar dikey penceresi - rolden kaldır ekran görüntüsü](./media/role-based-access-control-configure/remove-access1.png)
 
 Devralınmış atamalar kaldırılamaz. Aşağıdaki görüntüde kaldır düğmesinin gri olduğuna dikkat edin. Bunun yerine, **Atama Konumu** ayrıntısına bakın. Rol atamasını kaldırmak için orada listelenen kaynağa gidin.
@@ -78,6 +78,6 @@ Azure portal dışındaki araçlarda Azure RBAC komutları ile roller atayabilir
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

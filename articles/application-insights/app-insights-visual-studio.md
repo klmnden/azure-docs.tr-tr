@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="ibiza" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="05/25/2016" 
+    ms.date="06/21/2016" 
     ms.author="awills"/>
 
 
@@ -65,7 +65,11 @@ Tanılama Hub’ı (Visual Studio 2015 veya sonraki sürümlerde), Application I
 Yığın izlemesi almak için bir özel duruma tıklayın. Visual Studio’da uygulamanın kodu açıksa yığın izlemesinden tıklayarak ilgili kod satırına gidebilirsiniz.
 
 
-![](./media/app-insights-visual-studio/17.png)
+![Özel durum yığın izlemesi](./media/app-insights-visual-studio/17.png)
+
+Ayrıca, her bir yöntemin üzerindeki Kod Odağında Application Insights tarafından son 24 saatte günlüğe kaydedilen özel durumların sayısını görürsünüz.
+
+![Özel durum yığın izlemesi](./media/app-insights-visual-studio/21.png)
 
 
 ## Yerel izleme
@@ -84,16 +88,15 @@ Telemetriyi portala göndermeden önce hatalarını ayıklamak istediğiniz [öz
  * Arama penceresinin Ayarlar bölümünde, uygulamanız portala telemetri gönderiyor olsa bile yerel tanılamalarda arama seçeneği vardır.
  * Portala telemetri gönderimini durdurmak için Applicationınsights.config’de `<instrumentationkey>...` satırını açıklama satırına dönüştürün. Telemetriyi yeniden portala göndermeye hazır olduğunuzda açıklamayı kaldırın.
 
+## Eğilimler
 
+Eğilimler, uygulamanızın zaman içinde nasıl davrandığını görselleştirmeye yönelik bir araçtır. 
 
+Application Insights araç çubuğu düğmesinden veya Application Insights Arama penceresinden **Telemetri Eğilimlerini Keşfet**’i seçin. Başlamak için beş genel sorgudan birini seçin. Telemetri türleri, zaman aralıkları ve diğer özelliklere göre farklı veri kümelerini çözümleyebilirsiniz. 
 
+Verilerinizdeki anormallikleri bulmak için "Görünüm Türü" açılır listesi altındaki anormallik seçeneklerinden birini belirleyin. Pencerenin altındaki filtreleme seçenekleri, telemetrinizdeki belirli alt kümelere odaklanmayı kolaylaştırır.
 
-## Gelecekteki SDK sürümlerine yükseltmek için
-
-[SDK'nın yeni sürümüne](app-insights-release-notes-dotnet.md) yükseltme yapmak için NuGet paket yöneticisini yeniden açın ve yüklü paketleri filtreleyin. Microsoft.ApplicationInsights.Web’i ve Yükselt’i seçin.
-
-ApplicationInsights.config dosyasında herhangi bir özelleştirme yaptıysanız yükseltmeden önce bir kopyasını kaydedin ve daha sonra değişikliklerinizi yeni sürümle birleştirin.
-
+![Eğilimler](./media/app-insights-visual-studio/51.png)
 
 
 ## Sırada ne var?
@@ -108,6 +111,6 @@ ApplicationInsights.config dosyasında herhangi bir özelleştirme yaptıysanız
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

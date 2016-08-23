@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/02/2016"
+    ms.date="07/06/2016"
     ms.author="marsma"/>
 
 # Azure Batch temel bilgileri
@@ -46,9 +46,11 @@ Azure’deki Batch ve diğer HPC çözüm seçenekleri arasında bir karşılaş
 
 ## Batch ile geliştirme
 
-Paralel iş yükü işleme için Azure Batch kullanan çözümleri derlediğinizde, Batch API'lerini kullanarak bunu programlı yaparsınız. Batch API'leriyle, işlem düğümleri havuzlarının (sanal makineler) yanı sıra bu düğümlerde çalışacak zamanlama işlerini ve görevleri oluşturup yönetirsiniz. Geliştirdiğiniz istemci uygulaması veya hizmeti, Batch hizmetiyle iletişim kurmak için Batch API'lerini kullanır. Kuruluşunuz için büyük ölçekli iş yüklerini verimli bir şekilde işleyebilir ya da tek, yüzlerce veya binlerce düğümde istek üzerine veya planlı olarak müşterilerinizin işleri ve görevleri çalıştıracağı şekilde onlara bir hizmet ön ucu sağlayabilirsiniz. [Azure Data Factory][data_factory] gibi araçlarla yönetilen Batch’i daha büyük bir iş akışının parçası olarak da kullanabilirsiniz.
+Batch ile paralel iş yükleri genellikle [Batch API’lerinden](#batch-development-apis) biri kullanılarak programlı bir şekilde işlenir. Batch API'leriyle, işlem düğümleri havuzlarının (sanal makineler) yanı sıra bu düğümlerde çalışacak zamanlama işlerini ve görevleri oluşturup yönetirsiniz. Geliştirdiğiniz istemci uygulaması veya hizmeti, Batch hizmetiyle iletişim kurmak için Batch API'lerini kullanır.
 
-> [AZURE.TIP] Sağladığı özellikleri daha derinlemesine anlamak amacıyla Batch API'sinin ayrıntılarına gitmeye hazır olduğunuzda, [Azure Batch özelliğine genel bakış](batch-api-basics.md) konusunu inceleyin.
+Kuruluşunuz için büyük ölçekli iş yüklerini verimli bir şekilde işleyebilir ya da tek, yüzlerce veya hatta binlerce düğümde istek üzerine veya planlı olarak müşterilerinizin işleri ve görevleri çalıştıracağı şekilde onlara bir hizmet ön ucu sağlayabilirsiniz. [Azure Data Factory](../data-factory/data-factory-data-processing-using-batch.md) gibi araçlarla yönetilen Batch’i daha büyük bir iş akışının parçası olarak da kullanabilirsiniz.
+
+> [AZURE.TIP] Sağladığı özellikleri daha derinlemesine anlamak amacıyla Batch API'sinin ayrıntılarına gitmeye hazır olduğunuzda, [Geliştiriciler için Batch özelliklerine genel bakış](batch-api-basics.md) konusunu inceleyin.
 
 ### Gereken Azure hesapları
 
@@ -70,7 +72,7 @@ Uygulamalarınız ve hizmetleriniz doğrudan REST API çağrıları yayımlayabi
 | **Batch .NET**    | [MSDN][api_net] | [NuGet ][api_net_nuget] | [GitHub][api_sample_net] |
 | **Batch Python**  | [readthedocs.io][api_python] | [PyPI][api_python_pypi] |[GitHub][api_sample_python] |
 | **Batch Node.js** | [github.io][api_nodejs] | [npm][api_nodejs_npm] | - |
-| **Batch Java** (önizleme) | [github.io][api_java] | [Maven anlık görüntü deposu][api_java_jar] | - |
+| **Batch Java** (önizleme) | [github.io][api_java] | [Maven anlık görüntü deposu][api_java_jar] | [GitHub][api_sample_java] |
 
 ### Batch kaynak yönetimi
 
@@ -81,14 +83,6 @@ Uygulamalarınız ve hizmetleriniz doğrudan REST API çağrıları yayımlayabi
 - [Azure CLI](../xplat-cli-install.md): Azure Komut Satırı Arabirimi (Azure CLI), Batch de içinde olmak üzere çok sayıda Azure hizmetiyle etkileşim için kabuk komutları sağlayan platformlar arası bir araç takımıdır.
 
 - [Batch Yönetimi .NET](batch-management-dotnet.md) istemci kitaplığı: [NuGet][api_net_mgmt_nuget] aracılığıyla da ulaşılabilir; Batch hesaplarını, kotalarını ve uygulama paketlerini programlı yönetmek için Batch Yönetimi .NET istemci kitaplığını kullanabilirsiniz. Yönetim kitaplığıyla ilgili başvurulara [MSDN][api_net_mgmt]’den ulaşabilirsiniz.
-
-### Batch araçları
-
-Batch kullanarak çözüm derlemek gerekmediğinde, Batch uygulamaları ve hizmetlerinizi derlerken veya hatalarını ayıklarken bu araçlar önemli kabul edilebilir.
-
-- [Azure Batch Gezgini][batch_explorer]: Batch Gezgini, [GitHub][github_samples] aracılığıyla ulaşılabilen Batch .NET örnek uygulamalarından biridir. Visual Studio 2013 veya 2015 ile bu Windows Presentation Foundation (WPF) uygulamasını derleyin, Batch çözümlerinizi geliştirdiğiniz ve hatalarını ayıkladığınız sırada da Batch hesabınızdaki kaynaklara göz atıp yönetmek için bunu kullanın. İşi, havuzu ve görev ayrıntılarını görüntüleyin, işlem düğümlerinde dosyaları indirin; hatta, Batch Gezgini arabiriminde birkaç tıklamayla elde edebileceğiniz Uzak Masaüstü (RDP) dosyalarını kullanarak da düğümlere bağlanabilirsiniz.
-
-- [Microsoft Azure Storage Gezgini][storage_explorer]: Azure Batch aracı kesinlikle olmadığında, Batch çözümlerinizi geliştirdiğiniz ve hatalarını ayıkladığınız sırada Storage Gezgini sahip olunması gereken başka bir değerli araçtır.
 
 ## Senaryo: Paralel iş yükünü ölçeklendirme
 
@@ -120,13 +114,13 @@ Batch’i kullanmanın tek yolunun bu olduğunu ve bu senaryonun özelliklerden 
 
 ## Sonraki adımlar
 
-Örnek bir Batch senaryosu gördüğünüze göre, şimdi de sıra, işlem yoğunluklu paralel iş yüklerinizi işlemek amacıyla bunu nasıl kullanabileceğinizi öğrenmek için hizmetin derinliklerine dalmaya geldi.
+Batch hizmetine yüksek düzeyli bir genel bakışı gördüğünüze göre işlem yoğunluklu iş yüklerinizi işlemek için nasıl kullanacağınızı öğrenmek üzere daha derine inebiliriz.
 
-- [.NET için Azure Batch kitaplığını kullanmaya başlayarak](batch-dotnet-get-started.md) yukarıda açıklanan teknikleri gerçekleştirmek için C# ve Batch .NET kitaplığını kullanmayı öğrenin. Batch hizmetini kullanmayı öğrenirken ilk duraklarınızdan biri bu olmalıdır.
+- Batch’in iş yüklerinizi işlemek üzere sağladığı API özelliklerine ilişkin daha ayrıntılı bilgi almak için [Geliştiriciler için Batch özelliklerine genel bakış](batch-api-basics.md) konusunu okuyun. Bu okuma Batch kullanmaya hazırlanan herkes için gereklidir.
 
-- İşlem yoğunluklu iş yüklerinizin işlenmesi için Batch’in sağladığı API özellikleri hakkında ayrıntılı bilgi edinmek için [Batch özelliğine genel bakış](batch-api-basics.md) konusunu inceleyin.
+- Genel bir Batch iş akışını kullanarak basit bir iş yükü yürütmek üzere C# ve Batch .NET kitaplığını kullanma hakkında bilgi için bkz. [.NET için Azure Batch kitaplığını kullanmaya başlama](batch-dotnet-get-started.md). Batch hizmetini kullanmayı öğrenirken ilk duraklarınızdan biri bu olmalıdır. Öğreticinin bir [Python sürümü](batch-python-tutorial.md) de mevcuttur.
 
-- Batch Gezgini’ne ek olarak, [GitHub'daki kod örnekleri][github_samples] de, Batch .NET kitaplığı kullanılarak birçok Batch özelliğini kullanmayı göstermektedir.
+- Hem C# hem de Python’un örnek iş yüklerini zamanlamak ve işlemek üzere Batch ile arabirim oluşturmasını görmek için [GitHub’daki kod örneklerini][github_samples] indirin.
 
 - Batch’le çalışmayı öğrenirken size uygun kaynaklar hakkında bir fikir edinmek için [Batch Öğrenme Yolu][learning_path] konusunu inceleyin.
 
@@ -143,21 +137,19 @@ Batch’i kullanmanın tek yolunun bu olduğunu ve bu senaryonun özelliklerden 
 [api_python_pypi]: https://pypi.python.org/pypi/azure-batch
 [api_sample_net]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp
 [api_sample_python]: https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch
-[batch_explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
+[api_sample_java]: https://github.com/Azure/azure-batch-samples/tree/master/Java/
 [batch_ps]: https://msdn.microsoft.com/library/azure/mt125957.aspx
 [batch_rest]: https://msdn.microsoft.com/library/azure/Dn820158.aspx
-[data_factory]: https://azure.microsoft.com/documentation/services/data-factory/
 [free_account]: https://azure.microsoft.com/free/
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [learning_path]: https://azure.microsoft.com/documentation/learning-paths/batch/
 [msdn_benefits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
-[storage_explorer]: http://storageexplorer.com/
 
 [1]: ./media/batch-technical-overview/tech_overview_01.png
 [2]: ./media/batch-technical-overview/tech_overview_02.png
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

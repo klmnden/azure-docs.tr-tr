@@ -43,13 +43,9 @@ iOS uygulamasına anında iletme bildirimleri gönderebilmek için uygulamanız�
 
     ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-new-appid-info.png)
 
-    Böylece, uygulama kimliğiniz oluşturulur ve bilgiyi onaylamanız istenir. **Gönder**’e tıklayın
+    Böylece, Uygulama Kimliğiniz oluşturulur ve bilgiyi onaylamanız istenir. Yeni Uygulama Kimliğini onaylamak için **Kaydet**’e tıklayın.
 
-
-    ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-confirm-new-appid.png)
-
-
-    **Gönder**’e tıkladıktan sonra **Kayıt tamamlandı** ekranını aşağıda gösterildiği gibi göreceksiniz. **Bitti**’ye tıklayın.
+    **Kaydet**’e tıkladıktan sonra **Kayıt tamamlandı** ekranını aşağıda gösterildiği gibi göreceksiniz. **Bitti**’ye tıklayın.
 
 
     ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-appid-registration-complete.png)
@@ -139,6 +135,6 @@ iOS uygulamasına anında iletme bildirimleri gönderebilmek için uygulamanız�
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

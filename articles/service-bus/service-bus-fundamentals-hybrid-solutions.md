@@ -1,6 +1,6 @@
 <properties 
     pageTitle="Azure Service Bus | Microsoft Azure" 
-    description="Azure uygulamalarını başka bir yazılıma bağlamak için Service Bus kullanımına ilişkin farklı yöntemlere giriş." 
+    description="Azure uygulamalarını başka bir yazılıma bağlamak için Service Bus kullanımına giriş." 
     services="service-bus" 
     documentationCenter=".net" 
     authors="sethmanheim" 
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="03/09/2016" 
+    ms.date="06/20/2016" 
     ms.author="sethm"/>
 
 # Azure Service Bus
@@ -39,7 +39,7 @@ Ad alanı içinde, dört farklı iletişim mekanizmasının bir veya birden fazl
 
 Bir kuyruk, konu başlığı, geçiş veya Event Hub oluşturduğunuzda, aynı zamanda bunları adlandırırsınız. Ad alanınız ne olursa olsun, bu ad nesne için benzersiz bir tanıtıcı oluşturur. Uygulamalar bu adı Service Bus'a verir ve ardından birbirleriyle iletişim kurmak için bu kuyruğu, konu başlığını, geçişi veya Event Hub hizmetini kullanır. 
 
-Bu nesnelerden herhangi birini kullanmak için Windows uygulaması Windows Communication Foundation'ı (WCF) kullanabilir. Ayrıca, Windows uygulamaları kuyruklar, konu başlıkları ve Event Hubs için Service Bus tanımlı mesajlaşma API'lerini de kullanabilir. Bu nesnelerin Windows uygulaması olmayan uygulamalar tarafından kullanımını kolaylaştırmak için Microsoft Java, Node.js ve diğer dillere yönelik SDK sunar. Ayrıca kuyruklara, konu başlıklarına ve Event Hubs hizmetine HTTP üzerinden REST API'lerini kullanarak da erişebilirsiniz. 
+Geçiş senaryosundaki bu nesnelerden herhangi birini kullanmak için Windows uygulamaları Windows Communication Foundation'ı (WCF) kullanabilir. Windows uygulamaları; kuyruklar, konu başlıkları ve Event Hubs için Service Bus tanımlı mesajlaşma API'lerini kullanabilir. Bu nesnelerin Windows uygulaması olmayan uygulamalar tarafından kullanımını kolaylaştırmak için Microsoft Java, Node.js ve diğer dillere yönelik SDK sunar. Ayrıca kuyruklara, konu başlıklarına ve Event Hubs hizmetine HTTP üzerinden REST API'lerini kullanarak da erişebilirsiniz. 
 
 Service Bus hizmeti bulutta (Microsoft'un Azure veri merkezlerinde) çalışıyor olsa da Service Bus hizmetini kullanan uygulamaların herhangi bir yerde çalışabileceğini kavramak önemlidir. Service Bus hizmetini Azure'da çalışan uygulamaları (örneğin, kendi veri merkezinizde çalışan uygulamalar) bağlamak için kullanabilirsiniz . Ayrıca, bu hizmeti Azure veya başka bulut platformunda çalışan bir uygulama ile şirket içi bir uygulamayı veya tablet ve telefonları bağlamak için de kullanabilirsiniz. Ev aletlerini, sensörleri ve diğer cihazları merkezi bir uygulamaya veya başka bir uygulamaya bağlamak bile mümkündür. Service Bus, neredeyse her yerden erişilebilen bulut tabanlı genel bir iletişim mekanizmasıdır. Service Bus hizmetini kullanım şekliniz uygulamanızın gereksinimlerine göre değişir.
 
@@ -63,9 +63,9 @@ Bir alıcı iki farklı şekilde Service Bus kuyruğundaki iletileri okuyabilir.
 - Alıcı, iletiyi başarıyla işleyemediğine karar verirse **Abandon** çağrısını yapar. Daha sonra kuyruk iletinin kilidini açar ve iletiyi diğer alıcılar için kullanılabilir hale getirir.
 - Ayarlanabilir bir süre içinde alıcı bu yöntemlerin hiçbirini çağırmazsa (varsayılan 60 saniyedir) kuyruk alıcının başarısız olduğunu varsayar. Bu durumda, alıcının **Abandon** çağrısı yaptığını varsayarak hareket eder ve iletiyi diğer alıcılar için kullanılabilir hale getirir.
 
-Burada gerçekleşebilecek şu duruma dikkat edin: Aynı ileti iki kez hatta iki farklı alıcıya teslim edilebilir. Service Bus kuyruklarını kullanan uygulamalar bu duruma karşı hazırlıklı olmalıdır. Yinelenen öğe algılamasını daha kolay hale getirmek için her iletinin benzersiz **MessageID** özelliği vardır. Bu özellik, iletinin kuyruktan kaç kez okunduğuna bakılmaksızın varsayılan olarak sürekli aynıdır. 
+Burada gerçekleşebilecek şu duruma dikkat edin: Aynı ileti iki kez (belki de iki farklı alıcıya) teslim edilebilir. Service Bus kuyruklarını kullanan uygulamalar bu duruma karşı hazırlıklı olmalıdır. Yinelenen öğe algılamasını daha kolay hale getirmek için her iletinin benzersiz **MessageID** özelliği vardır. Bu özellik, iletinin kuyruktan kaç kez okunduğuna bakılmaksızın varsayılan olarak sürekli aynıdır. 
 
-Kuyruklar birçok durumda oldukça faydalıdır. Kuyruklar sayesinde aynı anda çalışmayan uygulamaların bile iletişim kurmasına olanak sağlanır. Özellikle toplu işlem ve mobil uygulamalarda olmak üzere bu özellik oldukça kullanışlıdır. Ayrıca, birden çok alıcısı bulunan bir kuyruk otomatik olarak yük dengelemesi sunar. Bu durum, gönderilen iletilerin tüm alıcılara dağıtılmasından kaynaklanır.
+Kuyruklar birçok durumda oldukça faydalıdır. Kuyruklar sayesinde aynı anda çalışmayan uygulamaların bile iletişim kurmasına olanak sağlanır; özellikle toplu işlem ve mobil uygulamalarda olmak üzere bu özellik oldukça kullanışlıdır. Ayrıca, birden çok alıcısı bulunan bir kuyruk otomatik olarak yük dengelemesi sunar. Bu durum, gönderilen iletilerin tüm alıcılara dağıtılmasından kaynaklanır.
 
 ## Konu başlıkları
 
@@ -75,17 +75,17 @@ Ne kadar faydalı olsalar da kuyruklar her zaman doğru çözüm değildir. Baz�
  
 **Şekil 3: Abone uygulamanın belirlediği bir filtreye bağlı olarak uygulama, Service Bus konu başlığına gönderilen tüm iletileri veya bazılarını alabilir.**
 
-Konu başlığı, birçok açıdan kuyruğa benzer. Göndericiler, iletileri kuyruğa gönderdikleri gibi aynı şekilde konu başlığına gönderir ve bu iletiler kuyrukta göründükleri gibi görünür. Aradaki büyük fark ise konu başlıklarının alıcı uygulamaların her birinin bir *filtre* belirleyerek kendi aboneliklerini oluşturmalarına olanak sağlamasıdır. Böylece abone yalnızca filtreyle eşleşen iletileri görebilir. Örneğin, Şekil 3'te, bir gönderici ile üç abonesi bulunan bir konu başlığı ve abonelerin her birinin kendi filtrelerine sahip olduğu bir durum gösterilir:
+*Konu başlığı* birçok açıdan kuyruğa benzer. Göndericiler, iletileri kuyruğa gönderdikleri gibi aynı şekilde konu başlığına gönderir ve bu iletiler kuyrukta göründükleri gibi görünür. Aradaki büyük fark ise konu başlıklarının, alıcı uygulamaların her birinin bir *filtre* belirleyerek kendi *aboneliklerini* oluşturmalarına olanak sağlamasıdır. Böylece abone yalnızca filtreyle eşleşen iletileri görebilir. Örneğin, Şekil 3'te, bir gönderici ile üç abonesi bulunan bir konu başlığı ve abonelerin her birinin kendi filtrelerine sahip olduğu bir durum gösterilir:
 
 - Abone 1 yalnızca *Seller="Ava"* özelliğini içeren iletileri alır.
 - Abone 2 ise *Seller="Ruby"* ve/veya değeri 100.000'den fazla olan *Amount* özelliklerini içeren iletileri alır. Ruby'nin bir satış müdürü olduğunu varsayarsak Ruby kendi satışları haricindeki tüm büyük satışları kimin yaptığına bakmaksızın görmek isteyebilir.
 - Abone 3, filtresini *True* olarak ayarlar ve tüm iletileri alır. Örneğin, bu uygulama bir denetim kaydı tutmakla görevlendirilmiştir ve tüm iletileri görmesi gerekir.
 
-Kuyruklarda olduğu gibi, bir konu başlığının aboneleri de iletileri **ReceiveAndDelete** veya **PeekLock** kullanarak okuyabilir. Ancak kuyrukların aksine, konu başlığına gönderilen tek bir ileti birden çok abone tarafından alınabilir. Yaygın şekilde *yayımla ve abone ol* olarak adlandırılan bu yaklaşım, aynı iletilerin birden çok uygulamanın ilgi alanına girmesi durumunda faydalıdır. Her abone, doğru filtreyi tanımlayarak ileti akışının yalnızca görmesi gereken kısmını seçebilir.
+Kuyruklarda olduğu gibi, bir konu başlığının aboneleri de iletileri **ReceiveAndDelete** veya **PeekLock** kullanarak okuyabilir. Ancak kuyrukların aksine, konu başlığına gönderilen tek bir ileti birden çok abonelik tarafından alınabilir. Yaygın şekilde *yayımla ve abone ol* (veya *pub/sub*) olarak adlandırılan bu yaklaşım, aynı iletilerin birden çok uygulamanın ilgi alanına girmesi durumunda faydalıdır. Her abone, doğru filtreyi tanımlayarak ileti akışının yalnızca görmesi gereken kısmını seçebilir.
 
 ## Geçişler
 
-Hem kuyruklar hem de konu başlıkları, bir aracı yoluyla tek yönlü zaman uyumsuz iletişim sağlar. Trafik akışları sadece tek yöndedir ve göndericiler ile alıcılar arasında doğrudan bağlantı yoktur. Peki bunu istemezseniz çözüm nedir? Uygulamalarınızın iletileri hem göndermesi hem de alması gerektiğini ya da gönderici ile alıcılar arasında doğrudan bağlantı istediğinizi ve iletileri depolamak için aracıya ihtiyacınız olmadığını düşünelim. Bunun gibi bir senaryoya uyum sağlamak için Service Bus, Şekil 4'te gösterildiği gibi geçişleri kullanır.
+Hem kuyruklar hem de konu başlıkları, bir aracı yoluyla tek yönlü zaman uyumsuz iletişim sağlar. Trafik akışları sadece tek yöndedir ve göndericiler ile alıcılar arasında doğrudan bağlantı yoktur. Peki bunu istemezseniz çözüm nedir? Uygulamalarınızın iletileri hem göndermesi hem de alması gerektiğini ya da gönderici ile alıcılar arasında doğrudan bağlantı istediğinizi ve iletileri depolamak için aracıya ihtiyacınız olmadığını düşünelim. Bunun gibi bir senaryoya uyum sağlamak için Service Bus, Şekil 4'te gösterildiği gibi *geçişleri* kullanır.
 
 ![][4]
  
@@ -95,7 +95,7 @@ Geçiş kullanımı hakkında akla gelen ilk soru ise şudur: Neden geçiş kull
 
 Her ikisi de kurumsal veri merkezlerinde çalışan iki şirket içi uygulama arasında bağlantı kurmak istediğinizi düşünelim. Bu uygulamaların her biri güvenlik duvarının arkasında bulunur ve her veri merkezi de ağ adresi çevirisi (NAT) kullanır. Güvenlik duvarı, birkaçı dışındaki tüm bağlantı noktalarından gelen verileri engeller ve NAT ise uygulamaların çalıştığı makinelerin veri merkezi dışından doğrudan erişebileceğiniz sabit bir IP adresi olmadığını ifade eder. İlave yardım almadan genel İnternet üzerinden bu uygulamaları bağlamak sorun yaratır.
 
-Service Bus geçişi, ihtiyacınız olan yardımı sunar. Bir geçiş aracılığıyla çift yönlü iletişim sağlamak için her uygulama Service Bus içeren bir giden TCP bağlantısı kurar ve bu bağlantıyı açık tutar. İki uygulama arasındaki tüm iletişim bu bağlantılar üzerinden kurulur. Tüm bağlantılar veri merkezi içinden kurulduğundan, güvenlik duvarı her uygulama için gelen trafiğe yeni bağlantı noktaları açmadan izin verir. Ayrıca, her uygulama iletişim boyunca bulutta sabit bir uç noktaya sahip olduğundan, bu çözüm NAT sorununu da ortadan kaldırır.  Uygulamalar, geçiş aracılığıyla veri değişimi yaparak gerçekleşmeleri durumunda iletişimi zorlaştıracak sorunlardan kaçınabilir. 
+Bir Service Bus geçişi yararlı olabilir. Bir geçiş aracılığıyla çift yönlü iletişim sağlamak için her uygulama Service Bus içeren bir giden TCP bağlantısı kurar ve bu bağlantıyı açık tutar. İki uygulama arasındaki tüm iletişim bu bağlantılar üzerinden kurulur. Tüm bağlantılar veri merkezi içinden kurulduğundan, güvenlik duvarı her uygulama için gelen trafiğe yeni bağlantı noktaları açmadan izin verir. Ayrıca, her uygulama iletişim boyunca bulutta sabit bir uç noktaya sahip olduğundan, bu çözüm NAT sorununu da ortadan kaldırır.  Uygulamalar, geçiş aracılığıyla veri değişimi yaparak gerçekleşmeleri durumunda iletişimi zorlaştıracak sorunlardan kaçınabilir. 
 
 Service Bus geçişlerini kullanmak için uygulamalar, Windows Communication Foundation'a (WCF) güvenir. Service Bus, Windows uygulamaları için geçişler aracılığıyla etkileşim sağlamayı doğrudan olacak şekilde ayarlayan WCF bağlamalarını sunar. WCF'yi zaten kullanmakta olan uygulamaların genel olarak bu bağlamaların bir tanesini belirtmesi yeterlidir, ardından bir geçiş aracılığıyla birbirleriyle iletişim kurarlar. Öte yandan kuyrukların ve konu başlıklarının aksine, olası durumlarda Windows uygulaması olmayan uygulamalarda geçişlerin kullanılması standart kitaplıklar sağlanmadığından programlama açısından biraz daha fazla çaba sarf edilmesini gerektirir.
 
@@ -105,7 +105,7 @@ Uygulamalar arasında doğrudan iletişim kurulması gerekiyorsa geçişler doğ
 
 ## Event Hubs
 
-Event Hubs, saniye başına milyonlarca olayı işleyen ileri düzeyde ölçeklenebilir bir alım sistemidir. Bu sistem, uygulamanızın bağlı cihazlarınız ve uygulamalarınız tarafından üretilen oldukça büyük miktardaki veriyi işlemesine ve analiz etmesine olanak sağlar. Örneğin, bir araba filosundan canlı motor performansı verilerini toplamak için Event Hub hizmetini kullanabilirsiniz. Veriler Event Hubs hizmetinde toplandığında, herhangi bir gerçek zamanlı analitik sağlayıcısı veya depolama kümesi kullanarak bu verileri dönüştürebilir veya depolayabilirsiniz. Event Hubs hakkında daha fazla bilgi için bkz. [Event Hubs hizmetine genel bakış](../event-hubs/event-hubs-overview.md)
+[Event Hubs](https://azure.microsoft.com/services/event-hubs/), saniye başına milyonlarca olayı işleyen ileri düzeyde ölçeklenebilir bir alım sistemidir. Bu sistem, uygulamanızın bağlı cihazlarınız ve uygulamalarınız tarafından üretilen oldukça büyük miktardaki veriyi işlemesine ve analiz etmesine olanak sağlar. Örneğin, bir araba filosundan canlı motor performansı verilerini toplamak için Event Hub hizmetini kullanabilirsiniz. Veriler Event Hubs hizmetinde toplandığında, herhangi bir gerçek zamanlı analitik sağlayıcısı veya depolama kümesi kullanarak bu verileri dönüştürebilir veya depolayabilirsiniz. Event Hubs hakkında daha fazla bilgi için bkz. [Event Hubs hizmetine genel bakış](../event-hubs/event-hubs-overview.md)
 
 ## Özet
 
@@ -115,7 +115,7 @@ Uygulamalar arasında bağlantı kurma her zaman eksiksiz çözüm derlemelerini
 
 Artık Azure Service Bus hizmeti ile ilgili temel bilgileri edindiğinize göre, daha fazla bilgi edinmek için aşağıdaki bağlantıları izleyin.
 
-- [Service Bus kuyruklarını](service-bus-dotnet-how-to-use-queues.md) kullanma
+- [Service Bus kuyruklarını](service-bus-dotnet-get-started-with-queues.md) kullanma
 - [Service Bus konu başlıklarını](service-bus-dotnet-how-to-use-topics-subscriptions.md) kullanma
 - [Service Bus geçişini](service-bus-dotnet-how-to-use-relay.md) kullanma
 - [Service Bus örnekleri](service-bus-samples.md)
@@ -127,6 +127,6 @@ Artık Azure Service Bus hizmeti ile ilgili temel bilgileri edindiğinize göre,
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

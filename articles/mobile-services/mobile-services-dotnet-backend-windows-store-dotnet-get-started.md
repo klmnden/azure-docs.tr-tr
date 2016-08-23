@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-windows"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="05/11/2016"
+    ms.date="07/21/2016"
     ms.author="glenga"/>
 
 
@@ -84,7 +84,7 @@ Bu bölümde, mobil hizmetinize bağlanan yeni bir evrensel Windows uygulaması 
             "https://todolist.azure-mobile.net/",
             "XXXX-APPLICATION-KEY-XXXXX");</code></pre>
 
-    <p>The client will now access the mobile service published to Azure.</p></li>
+    <p>İstemci bundan böyle Azure’da yayımlanan mobil hizmete erişebilir.</p></li>
 </ol>
 
 ## Uygulamayı Azure’da barındırılan yerel mobil hizmete karşı test etme
@@ -136,6 +136,6 @@ Evrensel Windows uygulamaları hakkında daha fazla bilgi için bkz. [tek bir mo
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

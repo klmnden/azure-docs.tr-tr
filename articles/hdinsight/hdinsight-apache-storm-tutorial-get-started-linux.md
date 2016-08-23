@@ -1,7 +1,7 @@
 <properties
     pageTitle="Apache Storm öğreticisi: HDInsight’ta Linux tabanlı Storm kullanmaya başlama | Microsoft Azure"
     description="Linux tabanlı HDInsight’ta Apache Storm ve Storm Starter örneklerini kullanarak büyük veri analizini kullanmaya başlayın. Verileri gerçek zamanlı olarak işlemek için Storm’u nasıl kullanacağınızı öğrenin."
-    keywords="apache storm,apache storm tutorial,big data analytics,storm starter"
+    keywords="apache storm,apache storm öğreticisi,büyük veri analizi,storm başlatıcısı"
     services="hdinsight"
     documentationCenter=""
     authors="Blackmist"
@@ -44,7 +44,7 @@ Bu bölümde Azure ARM şablonunu kullanarak bir HDInsight sürüm 3.2 kümesi (
 
 1. Azure Portal'da bir ARM şablonu açmak için aşağıdaki görüntüye tıklayın.         
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fusesqoop%2Fcreate-linux-based-storm-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-storm-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
     
     ARM şablonu bir ortak blob kapsayıcısında, *https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-storm-cluster-in-hdinsight.json* bulunur. 
    
@@ -193,6 +193,6 @@ Java tabanlı topolojiler geliştirme hakkında zaten bilgi sahibiyseniz ve mevc
 [preview-portal]: https://portal.azure.com/
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

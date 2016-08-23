@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="nodejs"
     ms.topic="hero-article"
-    ms.date="05/03/2016" 
+    ms.date="06/24/2016" 
     ms.author="robmcm"/>
 
 # Bir Node.js uygulaması derleme ve Azure Cloud Service’e dağıtma
@@ -127,7 +127,8 @@ Yayımlama başarılı olduktan sonra aşağıdakine benzer bir yanıt görürs�
 
 ![Publish-AzureService komutunun çıktısı][The output of the Publish-AzureService command]
 
-> [AZURE.NOTE] Uygulamanın dağıtılması ve ilk kez yayımlandığında kullanılabilir olması birkaç dakika sürebilir.
+> [AZURE.NOTE]
+> Uygulamanın dağıtılması ve ilk kez yayımlandığında kullanılabilir olması birkaç dakika sürebilir.
 
 Dağıtım tamamlandıktan sonra bir tarayıcı penceresi açın ve bulut hizmetine gidin.
 
@@ -199,6 +200,6 @@ Daha fazla bilgi için bkz. [Node.js Geliştirici Merkezi].
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

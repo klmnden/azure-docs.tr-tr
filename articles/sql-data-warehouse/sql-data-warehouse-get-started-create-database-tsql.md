@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/04/2016"
+   ms.date="07/20/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Transact-SQL (TSQL) kullanarak SQL Data Warehouse oluşturma
@@ -24,15 +24,16 @@
 - [TSQL](sql-data-warehouse-get-started-create-database-tsql.md)
 - [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
 
-Bu makalede Transact SQL (T-SQL) ile nasıl SQL Data Warehouse veritabanı oluşturacağınız gösterilmiştir.
+Bu makalede T-SQL ile SQL Data Warehouse oluşturma işlemi gösterilmektedir.
 
-## Önkoşullar
-Başlamadan önce şu önkoşullara sahip olduğunuzdan emin olun:
+## Ön koşullar
 
-- **Azure Hesabı**: Hesap oluşturmak için bkz. [Azure Ücretsiz Deneme Sürümü][] veya [MSDN Azure Kredileri][].
-- **V12 Azure SQL Server**: Bkz. [Azure Portal ile Azure SQL Database mantıksal sunucusu oluşturma][] veya [PowerShell ile Azure SQL Database mantıksal sunucusu oluşturma][].
-- **Kaynak grubu adı**: V12 Azure SQL Server'ınızdaki Kaynak Grubunu kullanın veya yeni bir kaynak grubu oluşturmak için [kaynak grupları][] bölümüne göz atın.
-- **SQL Server Veri Araçları ile Visual Studio**: Yükleme yönergeleri için bkz. [Visual Studio ve SSDT yükleme][].
+Başlamak için şunlar gereklidir: 
+
+- **Azure hesabı**: Hesap oluşturmak için [Azure Ücretsiz Deneme Sürümü][] veya [MSDN Azure Kredileri][] sayfasını ziyaret edin.
+- **Azure SQL server**: Daha fazla bilgi için bkz. [Azure Portal ile Azure SQL Database mantıksal sunucusu oluşturma][] veya [PowerShell ile Azure SQL Database mantıksal sunucusu oluşturma][].
+- **Kaynak grubu**: Azure SQL sunucunuz ile aynı kaynak grubunu kullanın veya [kaynak grubu oluşturma][] işlemine bakın.
+- **T-SQL yürütme ortamı**: T-SQL yürütmek için [Visual Studio][Visual Studio ve SSDT Yükleme], [sqlcmd][] veya [SSMS][] işlemlerini kullanabilirsiniz.
 
 > [AZURE.NOTE] Yeni bir SQL Data Warehouse'un oluşturulması ek hizmet ücretlerin alınmasına neden olabilir.  Fiyatlandırmayla ilgili ayrıntılı bilgi için bkz. [SQL Data Warehouse fiyatlandırması][].
 
@@ -52,28 +53,30 @@ Ayrıca komut isteminde aşağıdakini çalıştırarak da sqlcmd üzerinde ayn�
 sqlcmd -S <Server Name>.database.windows.net -I -U <User> -P <Password> -Q "CREATE DATABASE MySqlDwDb (EDITION='datawarehouse', SERVICE_OBJECTIVE = 'DW400', MAXSIZE= 10240 GB)"
 ```
 
-**MAXSIZE** ve **SERVICE_OBJECTIVE** parametreleri, veritabanının disk üzerinde kullanabileceği maksimum alanı ve Data Warehouse örneğiniz için ayrılan işlem kaynaklarını belirtir.  Hizmet Hedefi, DWU boyutuyla doğrusal olarak ölçeklenen bir CPU ve bellek ayırma işlemidir.  
-
-MAXSIZE 250 GB ile 240 TB arasında olabilir.  Hizmet Hedefi DW100 ve DW2000 arasında olabilir.  MAXSIZE ve SERVICE_OBJECTIVE için geçerli tüm değerlerin tam bir listesi için [CREATE DATABASE][] ile ilgili MSDN belgelerine göz atın.  MAXSIZE ve SERVICE_OBJECTIVE bir [ALTER DATABASE][] T-SQL komutuyla da değiştirilebilir.  Hizmetlerin yeniden başlatılmasına ve bunun sonucunda, gönderilen sorguların tümünün iptal edilmesine neden olacağı için SERVICE_OBJECTIVE değiştirilirken dikkatli olunması gerekir.  MAXSIZE parametresinin değiştirilmesi basit bir meta veri işlemi olduğundan hizmetler yeniden başlatılmaz.
+`MAXSIZE` boyutu 250 GB ile 240 TB arasında olabilir.  `SERVICE_OBJECTIVE` değeri DW100 ve DW2000 [DWU][] arasında olabilir.  Tüm geçerli değerlerin listesi için [VERİTABANI OLUŞTURMA][] MSDN belgelerine bakın.  MAXSIZE ve SERVICE_OBJECTIVE bir [ALTER DATABASE][] T-SQL komutuyla da değiştirilebilir.  Hizmetlerin yeniden başlatılmasına ve bunun sonucunda, gönderilen sorguların tümünün iptal edilmesine neden olacağı için SERVICE_OBJECTIVE değiştirilirken dikkatli olunması gerekir.  MAXSIZE parametresinin değiştirilmesi basit bir meta veri işlemi olduğundan hizmetler yeniden başlatılmaz.
 
 ## Sonraki adımlar
+
 SQL Data Warehouse'unuz hazırlandıktan sonra [örnek veri yükleyebilir][] veya [geliştirme][], [yükleme][] veya [geçirme][] işlemlerini nasıl gerçekleştirebileceğinizi inceleyebilirsiniz.
 
 <!--Article references-->
+[DWU]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
 [Azure portalından SQL Data Warehouse oluşturma]: ./sql-data-warehouse-get-started-provision.md
 [Visual Studio ile SQL Data Warehouse'a bağlanma]: ./sql-data-warehouse-get-started-connect.md
 [geçirme]: ./sql-data-warehouse-overview-migrate.md
 [geliştirme]: ./sql-data-warehouse-overview-develop.md
 [yükleme]: ./sql-data-warehouse-overview-load.md
-[örnek veri yükleyebilir]: ./sql-data-warehouse-get-started-manually-load-samples.md
+[örnek veri yükleyebilir]: ./sql-data-warehouse-get-started-load-sample-databases.md
 [Azure Portal ile Azure SQL Database mantıksal sunucusu oluşturma]: ../sql-database/sql-database-get-started.md#create-an-azure-sql-database-logical-server
 [PowerShell ile Azure SQL Database mantıksal sunucusu oluşturma]: ../sql-database/sql-database-get-started-powershell.md#database-setup-create-a-resource-group-server-and-firewall-rule
-[kaynak grupları]: ../azure-portal/resource-group-portal.md
-[Visual Studio ve SSDT yükleme]: ./sql-data-warehouse-install-visual-studio.md
+[kaynak grubu oluşturma]: ../resource-group-template-deploy-portal.md#create-resource-group
+[Visual Studio ve SSDT Yükleme]: ./sql-data-warehouse-install-visual-studio.md
+[sqlcmd]: ./sql-data-warehouse-get-started-connect-sqlcmd.md
 
 <!--MSDN references--> 
-[CREATE DATABASE]: https://msdn.microsoft.com/library/mt204021.aspx
+[VERİTABANI OLUŞTURMA]: https://msdn.microsoft.com/library/mt204021.aspx
 [ALTER DATABASE]: https://msdn.microsoft.com/library/mt204042.aspx
+[SSMS]: https://msdn.microsoft.com/library/mt238290.aspx
 
 <!--Other Web references-->
 [SQL Data Warehouse fiyatlandırması]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
@@ -82,6 +85,6 @@ SQL Data Warehouse'unuz hazırlandıktan sonra [örnek veri yükleyebilir][] vey
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

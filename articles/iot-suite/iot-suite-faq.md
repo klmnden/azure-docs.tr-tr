@@ -14,7 +14,7 @@
   ms.topic="get-started-article"
   ms.tgt_pltfrm="na"
   ms.workload="na"
-  ms.date="05/09/2016"
+  ms.date="06/27/2016"
   ms.author="araguila"/>
    
 # IoT Paketi için sık sorulan sorular
@@ -25,13 +25,17 @@
 
 - [Azure portalında][lnk-azure-portal] önceden yapılandırılmış kaynak grubunu silerseniz yalnızca bu kaynak grubundaki kaynakları silersiniz; [klasik Azure portalında][lnk-classic-portal] önceden yapılandırılmış çözümle ilişkili Azure Active Directory uygulamasını da silmeniz gerekir.
 
+### Bir abonelikte kaç IoT Hub örneği sağlayabilirim? 
+
+On. Bu limiti yükseltmek için bir [Azure destek bileti][link-azuresupportticket] oluşturabilirsiniz, ancak [Azure abonelik sınırları][link-azuresublimits] bölümünde anlatıldığı gibi varsayılan olarak bir abonelik için on IoT Hub hazırlayabilirsiniz. Sonuç olarak, önceden yapılandırılmış her çözüm yeni bir IoT Hub hazırladığından belirli bir abonelikte önceden yapılandırılmış en fazla on çözüm hazırlayabilirsiniz. 
+
 ### Bir abonelikte kaç tane DocumentDB örneği sağlayabilirim?
 
-Beş. Bu limiti yükseltmek için bir [Azure destek bileti][link-azuresupportticket] oluşturabilirsiniz ancak varsayılan olarak abonelik başına yalnızca beş DocumentDB örneği sağlayabilirsiniz. Sonuç olarak, belirli bir abonelikte en fazla beş tane önceden yapılandırılmış uzaktan izleme çözümü sağlayabilirsiniz.
+Elli. Bu limiti yükseltmek için bir [Azure destek bileti][link-azuresupportticket] oluşturabilirsiniz ancak varsayılan olarak abonelik başına yalnızca elli DocumentDB örneği hazırlayabilirsiniz. 
 
 ### Bir abonelikte kaç tane Ücretsiz Bing Haritaları API'si sağlayabilirim?
 
-İki. Bir abonelikte yalnızca iki tane Ücretsiz Bing Haritaları API'si oluşturabilirsiniz. Uzaktan izleme çözümü, varsayılan olarak bir Ücretsiz Bing Haritalar API'siyle sağlanır. Sonuç olarak, herhangi bir değişiklik yapılmadıysa bir abonelikte yalnızca en fazla iki tane uzaktan izleme çözümü sağlayabilirsiniz.
+İki. Bir Azure aboneliğinde Enterprise planları için yalnızca iki adet İç İşlemler Düzey 1 Bing Haritası oluşturabilirsiniz. Uzaktan izleme çözümü, varsayılan olarak bir İç İşlemler Düzey 1 planı ile hazırlanır. Sonuç olarak, herhangi bir değişiklik yapılmadıysa bir abonelikte yalnızca en fazla iki tane uzaktan izleme çözümü sağlayabilirsiniz.
 
 ### Statik haritaya sahip bir uzaktan izleme çözümü dağıtımım var; etkileşimli bir Bing haritasını nasıl eklerim? 
 1. [Azure portalından][lnk-azure-portal] Kurumsal QueryKey için Bing Haritaları API'nizi edinin: 
@@ -58,7 +62,18 @@ Beş. Bu limiti yükseltmek için bir [Azure destek bileti][link-azuresupporttic
 
 Bkz. Eric Golpe'un blog yazısı [Bir Azure AD Kiracısını Silme Kılavuzu][lnk-delete-aad-tennant].
 
+## Sonraki adımlar
+
+Önceden yapılandırılmış IoT Suite çözümlerinin diğer özelliklerinden bazılarını da keşfedebilirsiniz:
+
+- [Önceden yapılandırılmış çözümde tahmine dayalı bakıma genel bakış][lnk-predictive-overview]
+- [Her yönüyle IoT güvenliği][lnk-security-groundup]
+
+[lnk-predictive-overview]: iot-suite-predictive-overview.md
+[lnk-security-groundup]: securing-iot-ground-up.md
+
 [link-azuresupportticket]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade 
+[link-azuresublimits]: https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/#iot-hub-limits
 [lnk-azure-portal]: https://portal.azure.com
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
 [lnk-classic-portal]: https://manage.windowsazure.com
@@ -69,6 +84,6 @@ Bkz. Eric Golpe'un blog yazısı [Bir Azure AD Kiracısını Silme Kılavuzu][ln
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

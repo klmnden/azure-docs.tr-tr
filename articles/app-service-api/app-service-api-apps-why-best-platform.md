@@ -14,7 +14,7 @@
     ms.devlang="na" 
     ms.topic="get-started-article" 
     ms.date="05/03/2016" 
-    ms.author="tdykstra"/>
+    ms.author="rachelap"/>
 
 # API Apps’e genel bakış
 
@@ -65,6 +65,6 @@ API uygulamaları hakkında soru sormak için [API Apps forumunda](https://socia
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

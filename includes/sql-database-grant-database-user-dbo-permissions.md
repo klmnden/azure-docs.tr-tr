@@ -16,14 +16,15 @@ Bu adımlar SSMS’deki Nesne Gezgini'nde SQL Database’e bağlı olduğunuzu v
 
 3. Sorgu penceresinde, belirtilen kullanıcıya dbo izinlerini vermek için aşağıdaki Transact-SQL deyimini düzenleyin ve kullanın. 
 
-    '''ALTER ROLE db_owner ADD MEMBER user1;
+    ```ALTER ROLE db_owner ADD MEMBER user1;
+    ```
 
-     ![SQL Server Management Studio: SQL Database sunucusuna bağlanma](./media/sql-database-grant-database-user-dbo-permissions/sql-database-grant-database-user-dbo-permissions-1.png)
-
-
-
+     ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-grant-database-user-dbo-permissions/sql-database-grant-database-user-dbo-permissions-1.png)
 
 
-<!--HONumber=Jun16_HO2-->
+
+
+
+<!--HONumber=Aug16_HO1-->
 
 

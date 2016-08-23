@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/26/2016"
+   ms.date="05/16/2016"
    ms.author="edmaca"/>
 
 # Öğretici: Visual Studio için Data Lake Araçları'nı kullanarak U-SQL betikleri geliştirme
@@ -86,7 +86,7 @@ Data Lake Analytics işleri, U-SQL dilinde yazılır. U-SQL hakkında daha fazla
 
     ![yeni U-SQL Visual Studio projesi](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-new-project.png)
 
-3. **Tamam**'a tıklayın. Visual Studio bir **Script.usql** dosyası ile çözüm oluşturur.
+3. **OK (Tamam)** düğmesine tıklayın. Visual Studio bir **Script.usql** dosyası ile çözüm oluşturur.
 4. Aşağıdaki betiği **Script.usql** dosyasına girin:
 
         @searchlog =
@@ -155,7 +155,7 @@ Data Lake Analytics işleri, U-SQL dilinde yazılır. U-SQL hakkında daha fazla
 
     - **Azure Yolu Ekle**
 
-        Visual Studio için Data Lake Araçları, Azure dosya yolunu hatırlayıp betik yazarken el ile yazma seçeneğinin yerine kolay bir yol sunar: Düzenleyicinin içine sağ tıklayıp Azure Yolu Ekle'ye tıklayın. Azure Blob Tarayıcısı iletişim kutusundaki dosyaya gidin. **Tamam**'a tıklayın. dosya yolu, kodunuza eklenir.
+        Visual Studio için Data Lake Araçları, Azure dosya yolunu hatırlayıp betik yazarken el ile yazma seçeneğinin yerine kolay bir yol sunar: Düzenleyicinin içine sağ tıklayıp Azure Yolu Ekle'ye tıklayın. Azure Blob Tarayıcısı iletişim kutusundaki dosyaya gidin. **Tamam** düğmesine tıklayın. dosya yolu, kodunuza eklenir.
 
 5. Data Lake Analytics hesabını, Veritabanı'nı ve Şema'yı belirtin. Test amacıyla betiği yerel olarak çalıştırmak için **(yerel)** öğesini seçebilirsiniz. Daha fazla bilgi için bkz. [U-SQL'yi yerel olarak çalıştırma](#run-u-sql-locally).
 
@@ -236,7 +236,7 @@ Aşağıdaki videoda U-SQL yerel çalıştırma özelliği gösterilmektedir:
 
     - Betik girişinde (EXTRACT * FROM "/yol/abc"): hem DataRoot yolu hem de betik yolu aranır.
     - Betik çıkışında (OUTPUT TO "yol/abc"): DataRoot yolu, çıkış klasörü olarak kullanılır.
-    - Derleme kaydında (CRREATE ASSEMBLY xyz FROM “/path/abc”): betik yolu aranır ancak DataRoot aranmaz.
+    - Derleme kaydında (CREATE ASSEMBLY xyz FROM “/path/abc”): betik yolu aranır, ancak DataRoot aranmaz.
     - Kayıtlı TVF/Görünüm veya diğer meta veri varlıklarında: DataRoot Yolu aranır ancak betik yolu aranmaz.
 
     Data Lake hizmeti üzerinde çalıştırılan betikler için, varsayılan depolama hesabı, kök klasör olarak kullanılır ve uygun şekilde aranır.
@@ -364,6 +364,6 @@ Aşağıdaki PowerShell betiği, sizin için bir Azure Data Lake Analytics hesab
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

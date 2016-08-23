@@ -1,7 +1,7 @@
 <properties
     pageTitle="HDFS uyumlu Blob Storage’da veri sorgulama | Microsoft Azure"
     description="HDInsight HDFS için büyük veri deposu olarak Azure Blob Storage’ı kullanır. Blob Storage’da verileri sorgulamayı ve çözümleme sonuçlarınızı depolamayı öğrenin."
-    keywords="blob storage,hdfs,structured data,unstructured data"
+    keywords="blob depolama,hdfs,yapılandırılmış veriler,yapılandırılmamış veriler"
     services="hdinsight,storage"
     documentationCenter=""
     tags="azure-portal"
@@ -27,11 +27,7 @@ Azure Blob Storage HDInsight ile sorunsuz bir şekilde tümleşen, güçlü, gen
 
 Verileri Blob Storage’da depolamak, işlem için kullanılan HDInsight kümelerini kullanıcı verilerini kaybetmeden güvenle silmenizi sağlar.
 
-> [AZURE.NOTE]  *asv://* söz dizimi HDInsight sürüm 3.0 kümelerinde desteklenmez. Bu, açıkça *asv://* söz dizimini kullanan, bir HDInsight sürüm 3.0 kümesine gönderilen bir işin başarısız olacağı anlamına gelir. *wasb://* söz dizimi yerine kullanılmalıdır. Ayrıca, asv:// söz dizimi kullanan kaynaklara açık başvuruların olan mevcut bir meta depo ile oluşturulan, HDInsight sürüm 3.0 kümesine gönderilen işler başarısız olur. Bu meta depolar, kaynakları adreslemek üzere wasb:// söz dizimi kullanarak yeniden oluşturulmalıdır.
-
-> HDInsight şu an yalnızca blok blob'larını destekler.
-
-> Çoğu HDFS komutu (örneğin, <b>ls</b>, <b>copyFromLocal</b> ve <b>mkdir</b>) hala beklendiği gibi çalışmaktadır. Yalnızca, <b>fschk</b> ve <b>dfsadmin</b> gibi yerel HDFS uygulamasına özgü komutlar (DFS olarak adlandırılır), Azure Blob Storage’da farklı bir davranış gösterir.
+> [AZURE.IMPORTANT] HDInsight yalnızca blok blob'larını destekler. Blob sayfalamayı veya eklemeyi desteklemez.
 
 HDInsight kümesi oluşturma hakkında daha fazla bilgi için bkz. [HDInsight kullanmaya başlama][hdinsight-get-started] veya [HDInsight kümeleri oluşturma][hdinsight-creation].
 
@@ -49,6 +45,7 @@ Ayrıca, HDInsight Azure Blob Storage’da depolanan verilere erişebilmeyi sağ
 
     wasb[s]://<containername>@<accountname>.blob.core.windows.net/<path>
 
+> [AZURE.NOTE] HDInsight’ın 3.0’dan önceki sürümlerinde `wasb://` yerine `asv://` kullanılmıştır. `asv://` bir hatayla sonuçlanacağı için HDInsight 3.0 veya üzeri kümelerle birlikte kullanılmamalıdır.
 
 Hadoop varsayılan dosya sistemi kavramını destekler. Varsayılan dosya sistemi varsayılan şema ve yetkilisi anlamına gelir. Bu göreceli yolları çözümlemek için de kullanılabilir. HDInsight oluşturma işlemi sırasında, bir Azure Storage hesabı ve bu hesaptan belirli bir Azure Blob Storage kapsayıcısı varsayılan dosya sistemi olarak atanır.
 
@@ -83,7 +80,7 @@ Verileri HDFS yerine Azure Blob Storage’da depolamanın çeşitli avantajları
 
 Bazı MapReduce işleri ve paketleri gerçekte Azure Blob Storage’da depolamak istemediğiniz ara sonuçlar oluşturabilir. Bu durumda, verileri yerel HDFS’de depolamak üzere seçebilirsiniz. Aslında, HDInsight Hive işleri ve diğer işlemlerdeki bu ara sonuçların bazıları için DFS kullanır.
 
-
+> [AZURE.NOTE] Çoğu HDFS komutu (örneğin, <b>ls</b>, <b>copyFromLocal</b> ve <b>mkdir</b>) hala beklendiği gibi çalışmaktadır. Yalnızca, <b>fschk</b> ve <b>dfsadmin</b> gibi yerel HDFS uygulamasına özgü komutlar (DFS olarak adlandırılır), Azure Blob Storage’da farklı bir davranış gösterir.
 
 ## Blob kapsayıcıları oluşturma
 
@@ -155,10 +152,6 @@ HDInsight’ta Blob Storage’daki dosyalara erişmek için URI şeması aşağ�
     wasb[s]://<BlobStorageContainerName>@<StorageAccountName>.blob.core.windows.net/<path>
 
 
-> [AZURE.NOTE] Depolama öykünücüsünde (HDInsight öykünücüsünde çalışır) dosyaları adresleme söz dizimi <i>wasb://&lt;ContainerName&gt;@storageemulator</i> şeklindedir.
-
-
-
 URI şeması şifrelenmemiş erişim (ile *wasb:* öneki ile) ve SSL şifreli erişim (*wasbs* ile) şifrelenmemiş erişim sağlar. Azure’da aynı bölgede bulunan verilere erişirken dahi mümkün olduğunda *wasbs* kullanmanızı öneririz.
 
 &lt;BlobStorageContainerName&gt; Azure Blob Storage’da kapsayıcının adını tanımlar.
@@ -166,8 +159,8 @@ URI şeması şifrelenmemiş erişim (ile *wasb:* öneki ile) ve SSL şifreli er
 
 &lt;BlobStorageContainerName&gt; ya da &lt;StorageAccountName&gt; belirtilmediyse, varsayılan dosya sistemi kullanılır. Varsayılan dosya sistemindeki dosyalar için göreli bir yol veya mutlak bir yol kullanabilirsiniz. Örneğin, HDInsight kümeleriyle gelen *hadoop mapreduce examples.jar* dosyasına aşağıdakilerden birini kullanarak başvurulabilir:
 
-    wasb://mycontainer@myaccount.blob.core.windows.net/example/jars/hadoop-mapreduce-examples.jar
-    wasb:///example/jars/hadoop-mapreduce-examples.jar
+    wasbs://mycontainer@myaccount.blob.core.windows.net/example/jars/hadoop-mapreduce-examples.jar
+    wasbs:///example/jars/hadoop-mapreduce-examples.jar
     /example/jars/hadoop-mapreduce-examples.jar
 
 > [AZURE.NOTE] HDInsight sürüm 2.1 ve 1.6 kümelerinde dosya adı <i>hadoop examples.jar</i> şeklindedir.
@@ -277,7 +270,7 @@ $clusterName = "<HDInsightClusterName>"
     $defines = @{}
     $defines.Add("fs.azure.account.key.$undefinedStorageAccount.blob.core.windows.net", $undefinedStorageKey)
 
-    Invoke-AzureRmHDInsightHiveJob -Defines $defines -Query "dfs -ls wasb://$undefinedContainer@$undefinedStorageAccount.blob.core.windows.net/;"
+    Invoke-AzureRmHDInsightHiveJob -Defines $defines -Query "dfs -ls wasbs://$undefinedContainer@$undefinedStorageAccount.blob.core.windows.net/;"
 
 ## Sonraki adımlar
 
@@ -308,6 +301,6 @@ Daha fazla bilgi için bkz.
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

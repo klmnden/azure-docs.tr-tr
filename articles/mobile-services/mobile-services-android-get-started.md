@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-android"
     ms.devlang="java"
     ms.topic="hero-article"
-    ms.date="04/08/2016"
+    ms.date="07/21/2016"
     ms.author="ricksal"/>
 
 # Android için Mobile Services’ı kullanmaya başlama (JavaScript arka ucu)
@@ -100,6 +100,6 @@ Hızlı başlangıcı tamamladığınıza göre, Mobile Services’daki diğer �
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

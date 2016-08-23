@@ -6,14 +6,14 @@
     authors="mgoedtel"
     manager="jwhit"
     editor=""
-    keywords="powershell workflow, powershell workflow examples, workflow powershell"/>
+    keywords="powershell iş akışı, powershell iş akışı örnekleri, iş akışı powershell"/>
 <tags
     ms.service="automation"
     ms.workload="tbd"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/02/2016"
+    ms.date="07/19/2016"
     ms.author="magoedte;bwren"/>
 
 # İlk PowerShell İş Akışı runbook uygulamam
@@ -110,23 +110,22 @@ Runbook uygulamamızı test ettik ve yayımladık, ancak şu ana kadar faydalı 
     ```
 
 5.  Runbook’u test edebilmemiz için **Test bölmesine** tıklayın.
-6.  Testi başlatmak için **Başlat**’a tıklayın. Tamamlandığında, hesabınızdaki temel bilgileri görüntüleyen bir çıktı almalısınız. Böylece kimlik bilgisinin geçerli olduğunu doğrulanmış olur. <br> ![Kimlik doğrulaması](media/automation-first-runbook-textual/runbook-auth-results.png)
+6.  Testi başlatmak için **Başlat**’a tıklayın. Tamamlandığında, hesabınızdaki temel bilgileri görüntüleyen bir aşağıdakine benzer bir çıktı almalısınız. Böylece kimlik bilgisinin geçerli olduğunu doğrulanmış olur.<br> ![Kimlik doğrulaması](media/automation-first-runbook-textual/runbook-auth-output.png)
 
 ## 6. Adım - Sanal makineyi başlatmak için kod ekleme
 
 Runbook uygulamamız Azure aboneliğimiz için kimlik doğrulaması yaptığına göre, kaynakları yönetebiliriz. Sanal makineyi başlatmak için bir komut ekleyeceğiz. Azure aboneliğinizdeki herhangi bir sanal makineyi seçebilirsiniz, şimdilik bu adı cmdlet’e kod olarak ekleyeceğiz.
 
-1.  *Add-AzureRmAccount*’un ardından, başlatılacak sanal makinenin adını ve Kaynak Grubu adını girip *Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'NameofResourceGroup'* yazın.  
+1.  *Add-AzureRmAccount*’ un ardından, başlatılacak sanal makinenin adını ve Kaynak Grubu adını girip *Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'NameofResourceGroup'* yazın.  
 
     ```
     workflow MyFirstRunbook-Workflow
     {
-     $Conn = Get-AutomationConnection -Name AzureRunAsConnection 
-     Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
-     -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
-     Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'ResourceGroupName'
+      $Conn = Get-AutomationConnection -Name AzureRunAsConnection
+      Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+      Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'ResourceGroupName'
     }
-    ```
+    ``` 
 
 2.  Runbook'u kaydedin ve ardından **Test bölmesi**’ne tıklayın böylece test edebiliriz.
 3.  Testi başlatmak için **Başlat**’a tıklayın. Tamamlandığında, sanal makinenin başlatıldığını kontrol edin.
@@ -145,8 +144,7 @@ Runbook uygulamamız şu anda, runbook’a kod olarak eklediğimiz sanal makiney
         [string]$ResourceGroupName
        )  
      $Conn = Get-AutomationConnection -Name AzureRunAsConnection 
-     Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
-     -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+     Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
      Start-AzureRmVM -Name $VMName -ResourceGroupName $ResourceGroupName
     }
     ```
@@ -159,15 +157,14 @@ Runbook uygulamamız şu anda, runbook’a kod olarak eklediğimiz sanal makiney
 
 7.  Runbook tamamlandığında, sanal makinenin başladığından emin olun.
 
-## Sonraki Adımlar
+## Sonraki adımlar
 
 -  Grafik runbook'ları kullanmaya başlamak için bkz. [İlk grafik runbook uygulamam](automation-first-runbook-graphical.md)
--   PowerShell runbook'ları kullanmaya başlamak için bkz. [İlk PowerShell runbook uygulamam](automation-first-runbook-textual-powershell.md)
+-  PowerShell runbook'ları kullanmaya başlamak için bkz. [İlk PowerShell runbook uygulamam](automation-first-runbook-textual-powershell.md)
 -  Runbook türleri, avantajları ve sınırlamaları hakkında daha fazla bilgi için, bkz. [Azure Automation runbook türleri](automation-runbook-types.md)
--   PowerShell betik desteği özelliği hakkında daha fazla bilgi için bkz. [Azure Automation’da Yerel PowerShell betik desteği](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)
+-  PowerShell betik desteği özelliği hakkında daha fazla bilgi için bkz. [Azure Automation’da Yerel PowerShell betik desteği](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)
 
 
-
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

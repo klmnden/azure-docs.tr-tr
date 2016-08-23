@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-sencha"
     ms.devlang="multiple"
     ms.topic="get-started-article"
-    ms.date="02/10/2016"
+    ms.date="07/21/2016"
     ms.author="glenga"/>
 
 # <a name="getting-started"> </a>Mobile Services ve Sencha Touch kullanmaya başlama
@@ -726,6 +726,6 @@ Sencha Touch kullanmaya başlama hakkında daha fazla bilgi için lütfen tüm [
 [Klasik Azure Portalı]: https://manage.windowsazure.com/
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

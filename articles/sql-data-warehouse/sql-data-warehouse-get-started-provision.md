@@ -14,8 +14,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/05/2016"
-   ms.author="lodipalm;barbkess;sonyama"/>
+   ms.date="07/23/2016"
+   ms.author="barbkess;lodipalm;sonyama"/>
 
 # Azure SQL Data Warehouse oluşturma
 
@@ -27,8 +27,16 @@
 Bu öğreticide Azure Portal'ı kullanarak AdventureWorksDW örnek veritabanı içeren bir SQL Data Warehouse oluşturacaksınız.
 
 
-[AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
+## Ön koşullar
 
+Başlamak için şunlar gereklidir:
+
+- **Azure hesabı**: Hesap oluşturmak için [Azure Ücretsiz Deneme Sürümü][] veya [MSDN Azure Kredileri][] sayfasını ziyaret edin.
+- **Azure SQL server**:  Daha fazla bilgi için bkz. [Azure Portal ile Azure SQL Database mantıksal sunucusu oluşturma][].
+
+> [AZURE.NOTE] Yeni bir SQL Data Warehouse'un oluşturulması ek hizmet ücretlerin alınmasına neden olabilir.  Fiyatlandırmayla ilgili ayrıntılı bilgi için bkz. [SQL Data Warehouse fiyatlandırması][].
+
+## SQL Data Warehouse oluşturma
 
 1. [Azure Portal](https://portal.azure.com)'da oturum açın.
 
@@ -44,11 +52,11 @@ Bu öğreticide Azure Portal'ı kullanarak AdventureWorksDW örnek veritabanı i
 
     - **Veritabanı adı**: SQL Data Warehouse'a başvurmak için kullanılacak olan ad.  Sunucu için benzersiz olmalıdır.
     
-    - **Performans**: 400 DWU ile başlamanızı öneririz. Veri ambarınızın performansını ayarlamak için kaydırıcıyı sağa veya sola hareket ettirebilir ya da oluşturma işlemi tamamlandıktan sonra ölçeği artırıp azaltabilirsiniz.  DWU'lar hakkında daha fazla bilgi edinmek için [ölçeklendirme](./sql-data-warehouse-manage-compute-overview.md) ile ilgili belgelerimizi veya [fiyatlandırma](https://azure.microsoft.com/en-us/pricing/details/sql-data-warehouse/) sayfamızı inceleyebilirsiniz. 
+    - **Performans**: 400 [DWU][DWU] ile başlamanız önerilir. Veri ambarınızın performansını ayarlamak için kaydırıcıyı sağa veya sola hareket ettirebilir ya da oluşturma işlemi tamamlandıktan sonra ölçeği artırıp azaltabilirsiniz.  DWU'lar hakkında daha fazla bilgi edinmek için [ölçeklendirme](./sql-data-warehouse-manage-compute-overview.md) ile ilgili belgelerimizi veya [fiyatlandırma][SQL Data Warehouse fiyatlandırması] sayfamızı inceleyebilirsiniz. 
 
-    - **Abonelik**: Bu SQL Data Warehouse'un faturalanacağı aboneliği seçin.
+    - **Abonelik**: Bu SQL Data Warehouse'un faturalanacağı [aboneliği] seçin.
 
-    - **Kaynak grubu**: Kaynak grupları, Azure kaynak koleksiyonunu yönetmenize yardımcı olmak üzere tasarlanmış kapsayıcılardır. [Kaynak grupları](../azure-portal/resource-group-portal.md) hakkında daha fazla bilgi edinin.
+    - **Kaynak grubu**: [Kaynak grupları][Kaynak grubu], Azure kaynak koleksiyonunu yönetmenize yardımcı olmak üzere tasarlanmış kapsayıcılardır. [Kaynak grupları](../resource-group-overview.md) hakkında daha fazla bilgi edinin.
 
     - **Kaynak seçme**: **Kaynak seç** > **Örnek** seçeneğine tıklayın. Şu anda yalnızca bir örnek veritabanı olduğundan, Örnek seçeneğini belirlediğinizde **Örnek seç** seçeneği Azure tarafından otomatik olarak AdventureWorksDW olarak doldurulur.
 
@@ -62,15 +70,37 @@ Bu öğreticide Azure Portal'ı kullanarak AdventureWorksDW örnek veritabanı i
 
 ## Sonraki adımlar
 
-Bir SQL Data Warehouse oluşturduğunuza göre [Bağlanın](./sql-data-warehouse-get-started-connect.md) ve sorgulamaya başlayın.
+Bir SQL Data Warehouse oluşturduğunuza göre [Bağlanın](./sql-data-warehouse-connect-overview.md) ve sorgulamaya başlayın.
 
 SQL Data Warehouse'a veri yüklemek için bkz. [yüklemeye genel bakış](./sql-data-warehouse-overview-load.md).
 
 Var olan bir veritabanını SQL Data Warehouse'a geçirmeye çalışıyorsanız [Geçirmeye genel bakış](./sql-data-warehouse-overview-migrate.md) konu başlığına göz atın veya [Geçiş Yardımcı Programı](./sql-data-warehouse-migrate-migration-utility.md)'nı kullanın.
 
+Güvenlik duvarı kuralları, Transact-SQL kullanarak de yapılandırılabilir. Daha fazla bilgi için bkz. [sp_set_firewall_rule][] ve [sp_set_database_firewall_rule][].
+
+[En iyi uygulamalar][] bölümüne bakmak da harika bir fikirdir.
+
+<!--Article references-->
+[Azure Portal ile Azure SQL Database mantıksal sunucusu oluşturma]: ../sql-database/sql-database-get-started.md#create-an-azure-sql-database-logical-server
+[PowerShell ile Azure SQL Database mantıksal sunucusu oluşturma]: ../sql-database/sql-database-get-started-powershell.md#database-setup-create-a-resource-group-server-and-firewall-rule
+[kaynak grupları]: ../resource-group-template-deploy-portal.md
+[En iyi uygulamalar]: ./sql-data-warehouse-best-practices.md
+[DWU]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
+[aboneliği]: ../azure-glossary-cloud-terminology.md#subscription
+[kaynak grubu]: ../azure-glossary-cloud-terminology.md#resource-group
+
+<!--MSDN references-->
+[sp_set_firewall_rule]: https://msdn.microsoft.com/library/dn270017.aspx
+[sp_set_database_firewall_rule]: https://msdn.microsoft.com/library/dn270010.aspx
+
+<!--Other Web references-->
+[SQL Data Warehouse fiyatlandırması]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
+[Azure Ücretsiz Deneme Sürümü]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
+[MSDN Azure Kredileri]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
 
 
 
-<!----HONumber=Jun16_HO2-->
+
+<!--HONumber=Aug16_HO1-->
 
 

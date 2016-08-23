@@ -1,7 +1,7 @@
 <properties
     pageTitle="SQL Database'i deneme: C# kullanarak SQL veritabanı oluşturma | Microsoft Azure"
     description="SQL ve C# uygulamalarını geliştirmek için SQL Database kullanmayı deneyin ve .NET için SQL Database Kitaplığı'nı kullanarak C# ile bir Azure SQL Database oluşturun."
-    keywords="try sql, sql c#"   
+    keywords="sql deneme, sql c#"   
     services="sql-database"
     documentationCenter=""
     authors="stevestein"
@@ -46,7 +46,7 @@ Bu makaledeki adımları tamamlayabilmeniz için şunlar gereklidir:
 C# ile bir SQL veritabanını ayarlamak için Visual Studio'da bulunan [paket yöneticisi konsolunu](http://docs.nuget.org/Consume/Package-Manager-Console) (**Araçlar** > **NuGet Paket Yöneticisi** > **Paket Yöneticisi Konsolu**) kullanıp şu paketleri yükleyerek gerekli yönetim kitaplıklarını edinin:
 
     Install-Package Microsoft.Azure.Management.Sql –Pre
-    Install-Package Microsoft.Azure.Management.ResourceManager –Pre
+    Install-Package Microsoft.Azure.Management.ResourceManager –Pre -Version 1.1.1-preview
     Install-Package Microsoft.Azure.Common.Authentication –Pre
 
 
@@ -432,7 +432,7 @@ Aşağıdaki örnekte bir kaynak grubu, sunucu güvenlik duvarı kuralı ve bir 
 
 
 
-## Sonraki Adımlar
+## Sonraki adımlar
 SQL Database'i ve C# ile bir veritabanını ayarlamayı denediğinize göre şu makaleler için hazırsınız:
 
 - [SQL Server Management Studio ile SQL Database'e bağlanma ve bir örnek T-SQL sorgusu gerçekleştirme](sql-database-connect-query-ssms.md)
@@ -458,6 +458,6 @@ SQL Database'i ve C# ile bir veritabanını ayarlamayı denediğinize göre şu 
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

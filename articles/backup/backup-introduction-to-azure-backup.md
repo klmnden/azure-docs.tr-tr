@@ -6,7 +6,7 @@
     authors="Jim-Parker"
     manager="jwhit"
     editor="tysonn"
-    keywords="backup and restore; recovery services; backup solutions"/>
+    keywords="yedekleme ve geri yükleme; kurtarma hizmetleri; yedekleme çözümleri"/>
 
 <tags
     ms.service="backup"
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/10/2016"
+    ms.date="07/21/2016"
     ms.author="jimpark; trinadhk"/>
 
 # Azure Backup nedir?
@@ -80,7 +80,7 @@ Backup bir karma yedekleme çözümü olduğundan, uçtan uca yedeklemeyi ve ger
 | Azure Backup (MARS) aracısı | Evet | Hayır (Yalnızca Windows tabanlı aracı) |
 | System Center Data Protection Manager | Evet (Konuktaki aracı) | Yalnızca Hyper-V (Azure VM değil) Yalnızca dosyayla tutarlı yedekleme mümkündür |
 | Azure Backup Sunucusu (MABS) | Evet (Konuktaki aracı) | Yalnızca Hyper-V (Azure VM değil) Yalnızca dosyayla tutarlı yedekleme mümkündür (DPM ile aynı) |
-| Azure IaaS VM Backup | Genel Önizlemede | Genel Önizlemede - Resource Manager dağıtım modelindeki Linux VM'ler <br>(Dosya sistemi düzeyinde tutarlılık)<br><br>Klasik dağıtım modelindeki Linux VM'ler için evet |
+| Azure IaaS VM Backup | Evet | Evet |
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
@@ -99,7 +99,7 @@ Yedekleme işi tamamlandıktan sonra, hazırlama konumu silinir. Hazırlama konu
 
 ### Premium Storage VM'lerini geri yükleme
 
-Premium Storage VM'si kurtarma noktasının Premium Storage'a geri yüklenmesi genel bir geri yükleme işlemidir. Ancak Premium Storage VM'si kurtarma noktasının standart depolamaya geri yüklenmesi uygun maliyetli olabilir. Bu tür bir geri yükleme işlemi, VM'den bir dosya alt kümesine ihtiyaç duymanız halinde kullanılabilir.
+Premium Depolama sanal makinesi Premium Depolama veya normal depolama birimine geri yüklenebilir. Premium Storage VM'si kurtarma noktasının Premium Storage'a geri yüklenmesi genel bir geri yükleme işlemidir. Ancak Premium Storage VM'si kurtarma noktasının standart depolamaya geri yüklenmesi uygun maliyetli olabilir. Bu tür bir geri yükleme işlemi, VM'den bir dosya alt kümesine ihtiyaç duymanız halinde kullanılabilir.
 
 ## İşlev
 Bu beş tablo, yedekleme işlevinin her bir bileşende nasıl ele alındığını özetler.
@@ -231,6 +231,6 @@ Bu öğreticiler hızlı bir şekilde yedekleme yapmanıza yardımcı olmayı am
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

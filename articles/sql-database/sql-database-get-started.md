@@ -1,10 +1,10 @@
 <properties
     pageTitle="SQL Database öğreticisi: SQL veritabanı oluşturma | Microsoft Azure"
     description="SQL Database mantıksal sunucusu, sunucu güvenlik duvarı kuralı, SQL veritabanı ve örnek veri ayarlamanın ve istemci araçlarına bağlanmanın yanı sıra kullanıcıları, veritabanını ve güvenlik duvarı kuralını yapılandırmayı öğrenin."
-    keywords="sql database tutorial, create a sql database"
+    keywords="sql veritabanı öğreticisi, sql veritabanı oluşturma"
     services="sql-database"
     documentationCenter=""
-    authors="carlrabeler"
+    authors="CarlRabeler"
     manager="jhubbard"
     editor=""/>
 
@@ -15,7 +15,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="04/14/2016"
+    ms.date="07/05/2016"
     ms.author="carlrab"/>
 
 # SQL Database öğreticisi: Azure portalını kullanarak dakikalar içinde bir SQL veritabanı oluşturma
@@ -54,14 +54,16 @@ Bu SQL Database öğreticisini tamamladığınıza ve bazı örnek verilerle bir
 
 - Şirket içi SQL Server veritabanlarınızı Azure'a taşımak istiyorsanız daha fazla bilgi edinmek için bkz. [Bir veritabanını Azure SQL Database'e aktarma](sql-database-cloud-migrate.md).
 
+- BCP kullanarak yeni bir tabloya bir CSV dosyasından bazı veriler yüklemek istiyorsanız bkz. [BCP kullanarak bir CSV dosyasından SQL Veritabanına veri yükleme](sql-database-load-from-csv-with-bcp.md).
 
-## Daha Fazla Bilgi Edinin
+
+## Ek kaynaklar
 
 [SQL Database nedir?](sql-database-technical-overview.md)
 
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

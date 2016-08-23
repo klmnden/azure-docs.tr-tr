@@ -6,7 +6,7 @@
    authors="Jim-Parker"
    manager="jwhit"
    editor=""
-   keywords="how to backup; how to back up"/>
+   keywords="yedekleme nasıl yapılır; yedekleme işlemi"/>
 
 <tags
    ms.service="backup"
@@ -14,10 +14,10 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="hero-article"
-   ms.date="05/10/2016"
+   ms.date="06/27/2016"
    ms.author="jimpark;"/>
 
-# İlk bakış: Resource Manager dağıtım modelini kullanarak Azure Backup ile dosya ve klasörleri Windows Server'dan veya istemcisinden Azure'a yedekleme
+# İlk bakış: Resource Manager dağıtım modelini kullanarak Azure Backup ile dosya ve klasörleri yedekleme
 
 Bu makalede, Resource Manager'ı kullanarak Azure Backup ile Windows Server (veya Windows istemcisi) dosya ve klasörlerinizi Azure'a nasıl yedekleyeceğiniz açıklanmaktadır. Bu, size temel işlemler boyunca yol göstermeye yönelik bir öğreticidir. Azure Backup ile çalışmaya başlamak istiyorsanız doğru yerdesiniz.
 
@@ -45,7 +45,7 @@ Dosya ve klasörlerinizi yedeklemek için, verileri depolamak istediğiniz bölg
 
 1. Önceden yapmadıysanız Azure aboneliğinizi kullanarak [Azure Portal](https://portal.azure.com/)'da oturum açın.
 
-2. Hub menüsünde **Gözat**'a tıklayın ve kaynak listesinde **Kurtarma Hizmetleri** yazıp **Kurtarma Hizmetleri kasalarına** tıklayın.
+2. Hub menüsünde **Gözat**'a tıklayın ve kaynak listesinde **Kurtarma Hizmetleri** yazıp **Kurtarma Hizmetleri kasaları** seçeneğine tıklayın.
 
     ![Kurtarma Hizmetleri Kasası oluşturma 1. adım](./media/backup-try-azure-backup-in-10-mins/browse-to-rs-vaults.png) <br/>
 
@@ -53,7 +53,7 @@ Dosya ve klasörlerinizi yedeklemek için, verileri depolamak istediğiniz bölg
 
     ![Kurtarma Hizmetleri Kasası oluşturma 2. adım](./media/backup-try-azure-backup-in-10-mins/rs-vault-menu.png)
 
-    Kurtarma Hizmetleri kasası dikey penceresi açılır ve sizden bir **Ad**, **Abonelik**, **Kaynak grubu** ve **Konum** sağlamanızı ister.
+    Kurtarma Hizmetleri kasası dikey penceresi açılır ve sizden bir **Ad**, **Abonelik**, **Kaynak Grubu** ve **Konum** sağlamanızı ister.
 
     ![Kurtarma Hizmetleri kasası oluşturma 5. adım](./media/backup-try-azure-backup-in-10-mins/rs-vault-attributes.png)
 
@@ -102,9 +102,9 @@ Kasa oluşturduğunuza göre, artık Microsoft Azure Kurtarma Hizmetleri aracıs
 
     ![Yedekleme hedefi dikey penceresini açma](./media/backup-try-azure-backup-in-10-mins/backup-goal.png)
 
-4. İş yükünüz nerede çalıştırılıyor? menüsünden **Şirket içi**'ni seçin.
+4. İş yükünüz nerede çalışıyor? menüsünden **Şirket içi**'ni seçin.
 
-5. Neyi yedeklemek istiyorsunuz? menüsünden **Dosyalar ve klasörler**'i seçin ve **Tamam**'a tıklayın.
+5. Neleri yedeklemek istiyorsunuz? menüsünden **Dosyalar ve klasörler**'i seçin ve **Tamam**'a tıklayın.
 
 ### Kurtarma Hizmetleri aracısını indirme
 
@@ -112,7 +112,7 @@ Kasa oluşturduğunuza göre, artık Microsoft Azure Kurtarma Hizmetleri aracıs
 
     ![altyapıyı hazırlama](./media/backup-try-azure-backup-in-10-mins/prepare-infrastructure-short.png)
 
-2. İndirme açılır menüsünde **Kaydet**'e tıklayın. Varsayılan olarak, **MARSagentinstaller.exe** dosyası İndirilenler klasörünüze kaydedilir.
+2. İndirme açılır penceresinde **Kaydet**'e tıklayın. Varsayılan olarak, **MARSagentinstaller.exe** dosyası İndirilenler klasörünüze kaydedilir.
 
 ### Kasa kimlik bilgilerini indirme
 
@@ -209,6 +209,6 @@ Sorularınız varsa veya dahil edilmesini istediğiniz herhangi bir özellik var
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

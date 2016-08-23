@@ -1,14 +1,14 @@
 <properties 
    pageTitle="Azure App Service’de Ticari Ortak Sözleşmesi Oluşturma | Microsoft Azure" 
    description="Ticari Ortak Sözleşmeleri Oluşturma" 
-   services="app-service\logic" 
+   services="logic-apps" 
    documentationCenter=".net,nodejs,java" 
    authors="rajram" 
    manager="erikre" 
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
     ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
@@ -81,6 +81,6 @@ Ticari ortak sözleşmeleri oluşturmak için:
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

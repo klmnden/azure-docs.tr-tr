@@ -3,7 +3,7 @@
     description="Şirket içi veya Azure’de barındırılan ASP.NET web siteniz için performans, kullanılabilirlik ve kullanım analizi yapılandırın." 
     services="application-insights" 
     documentationCenter=".net"
-    authors="alancameronwills" 
+    authors="NumberByColors" 
     manager="douge"/>
 
 <tags 
@@ -12,8 +12,8 @@
     ms.tgt_pltfrm="ibiza" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="05/25/2016" 
-    ms.author="awills"/>
+    ms.date="06/21/2016" 
+    ms.author="daviste"/>
 
 
 # ASP.NET için Application Insights’ı ayarlama
@@ -31,7 +31,6 @@ Gerekenler:
 İlgileniyorsanız bakmak için alternatif makaleler de vardır:
 
 * [Çalışma zamanında web uygulamasını düzenleme](app-insights-monitor-performance-live-website-now.md)
-* [ASP.NET Çekirdeği](app-insights-asp-net-core.md)
 * [Azure Bulut Hizmetleri](app-insights-cloudservices.md)
 
 ## <a name="ide"></a> 1. Application Insights SDK’si ekleme
@@ -51,6 +50,7 @@ Visual Studio'da yeni bir proje oluşturduğunuzda, Application Insights’ın s
 
 ![Application Insights Ekle’yi seçme](./media/app-insights-asp-net/appinsights-03-addExisting.png)
 
+* ASP.NET Core projesi? - [Birkaç kod satırını düzeltmek için bu yönergeleri izleyin](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Getting-Started#add-application-insights-instrumentation-code-to-startupcs). 
 
 
 
@@ -77,7 +77,7 @@ Bu görünümde, uygulamanızın sunucu tarafında oluşturulan telemetri göste
 <a name="monitor"></a> 
 ### ... portalda
 
-*Yalnızca SDK Yükle*’yu seçtiğiniz sürece Application Insights web portalındaki telemetriyi de görebilirsiniz. 
+*Yalnızca SDK Yükle* ’yu seçtiğiniz sürece Application Insights web portalındaki telemetriyi de görebilirsiniz. 
 
 Portalda Visual Studio’ya göre daha fazla grafik, analiz aracı ve pano bulunur. 
 
@@ -89,7 +89,7 @@ Application Insights kaynağınızı [Azure portalında](https://portal.azure.co
 Portal uygulamanızdan telemetrinin bir görünümünü açar:
 ![](./media/app-insights-asp-net/66.png)
 
-* **Ara**’da (1) tek tek etkinlikler görünür. Veriler önce burada (ve Canlı Akış’ta) görünür. Özelliklerini görmek için herhangi bir etkinliğe tıklayın. 
+* **Ara**’da (1) tek tek etkinlikler görünür. Veriler önce burada (ve [Canlı Ölçümler Akışında](app-insights-metrics-explorer.md#live-metrics-stream)) görünür. Özelliklerini görmek için herhangi bir etkinliğe tıklayın. 
 * Toplanan ölçümler grafiklerde (2) görünür. Verilerin burada görünmesi bir veya iki dakika sürebilir. Daha ayrıntılı bilginin bulunduğu dikey pencereyi açmak için herhangi bir grafiğe tıklayın.
 
 [Azure portalında Application Insights kullanma hakkında daha fazla bilgi edinin](app-insights-dashboards.md).
@@ -106,7 +106,14 @@ Sonuçta komut şu üçünü yapar:
 2. Application Insights kaynağını [Azure portalında](https://portal.azure.com/) oluşturun. Verilerinizi göreceğiniz yer burasıdır. Kaynağı belirten *izleme anahtarını* alır.
 3. İzleme anahtarını `ApplicationInsights.config` öğesine ekler, böylece SDK portala telemetri gönderebilir.
 
-İsterseniz, [bu adımları el ile uygulayabilirsiniz](app-insights-asp-net-manual.md).
+İsterseniz bu adımları [ASP.NET 4](app-insights-asp-net-manual.md) veya [ASP.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Getting-Started) için el ile uygulayabilirsiniz.
+
+## Gelecekteki SDK sürümlerine yükseltmek için
+
+[SDK'nın yeni sürümüne](app-insights-release-notes-dotnet.md) yükseltme yapmak için NuGet paket yöneticisini yeniden açın ve yüklü paketleri filtreleyin. Microsoft.ApplicationInsights.Web’i ve Yükselt’i seçin.
+
+ApplicationInsights.config dosyasında herhangi bir özelleştirme yaptıysanız yükseltmeden önce bir kopyasını kaydedin ve daha sonra değişikliklerinizi yeni sürümle birleştirin.
+
 
 
 ## Sırada ne var?
@@ -125,6 +132,6 @@ Sonuçta komut şu üçünü yapar:
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

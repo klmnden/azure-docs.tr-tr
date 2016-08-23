@@ -13,18 +13,16 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/18/2016"
+   ms.date="07/19/2016"
    ms.author="cherylmc" />
 
-# Azure VPN Gateway bağlantı topolojileri
+# Azure VPN Gateway bağlantıları
 
 Bu makalede temel VPN ağ geçidi bağlantı topolojileri gösterilmektedir. Gereksinimlerinize uygun yapılandırma topolojisini seçmenize yardımcı olmak üzere grafikleri ve açıklamaları kullanabilirsiniz. Bu makale başlıca temel topolojileri içerse de diyagramları kılavuz olarak kullanarak daha karmaşık topolojiler oluşturmak mümkündür.
 
 Her topoloji, topolojinin kullanılabilir olduğu dağıtım modelini, her bir topolojiyi yapılandırmak için kullanabileceğiniz dağıtım araçlarını içerir ve bir makale varsa doğrudan makaleye bağlanır. Tablolar yeni makaleler ve dağıtım araçları kullanımınıza sunuldukça sık sık güncelleştirilmektedir.
 
-VPN ağ geçitleri hakkında daha fazla bilgi istiyorsanız bkz. [VPN Gateways Hakkında](vpn-gateway-about-vpngateways.md).
-
-
+Oluşturmak istediğiniz bağlantıya karar verdikten sonra VPN ağ geçidinizi oluşturmak için kullandığınız yönergeler sanal ağınızı oluşturmak için kullandığınız dağıtım modeline bağlı olacaktır. Örneğin, klasik dağıtım modeli kullanarak VNet oluşturduysanız, VPN ağ geçidinizi oluşturmak ve yapılandırmak için klasik dağıtım modeli için olan kılavuzları ve yönergeleri kullanırsınız. Klasik dağıtım modeli sanal ağı için Resource Manager VPN ağ geçidi oluşturamazsınız. Dağıtım modelleri hakkında daha fazla bilgi için, bkz. [Resource Manager’ı ve klasik dağıtım modellerini anlama](../resource-manager-deployment-model.md).
 
 ## Siteden Siteye ve Çok Siteli
 
@@ -64,6 +62,28 @@ Azure şu anda iki dağıtım modeline sahiptir: Azure Service Management (klasi
 [AZURE.INCLUDE [vpn-gateway-table-vnet-to-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)] 
 
 
+## Noktadan Siteye
+
+Noktadan Siteye yapılandırma, bir istemci bilgisayardan sanal ağınıza tek başına güvenli bir bağlantı oluşturmanıza olanak sağlar. VPN bağlantısı, bağlantının istemci bilgisayardan başlatılmasıyla oluşturulur. Sanal ağınıza uzak bir konumdan (örneğin, evden veya bir konferanstan) bağlanmak istediğinizde ya da sanal bir ağa bağlanması gereken yalnızca birkaç istemciniz bulunduğunda bu ideal bir çözümdür. 
+
+Noktadan Siteye bağlantı SSTP (Güvenli Yuva Tünel Protokolü) üzerinden yapılan bir VPN bağlantısıdır. Noktadan Siteye bağlantıların çalışması için bir VPN cihazına veya genel kullanıma yönelik bir IP adresine gerek yoktur. 
+
+**P2S diyagramı**
+
+![Noktadan siteye bağlantılar](./media/vpn-gateway-topology/point2site.png "point-to-site")
+
+**Kullanılabilir dağıtım modelleri ve yöntemleri**
+
+[AZURE.INCLUDE [vpn-gateway-table-point-to-site](../../includes/vpn-gateway-table-point-to-site-include.md)] 
+
+
+##ExpressRoute
+
+[AZURE.INCLUDE [expressroute-intro](../../includes/expressroute-intro-include.md)]
+
+ExpressRoute hakkında daha fazla bilgi için bkz: [ExpressRoute’a Teknik Genel Bakış](../expressroute/expressroute-introduction.md).
+
+
 
 ## Siteden Siteye ve ExpressRoute eşzamanlı bağlantıları
 
@@ -80,23 +100,11 @@ ExpressRoute genel İnternet üzerinden değil WAN bağlantınızdan Azure dahil
 [AZURE.INCLUDE [vpn-gateway-table-coexist](../../includes/vpn-gateway-table-coexist-include.md)] 
 
 
-## Noktadan Siteye
 
-Noktadan Siteye yapılandırma, bir istemci bilgisayardan sanal ağınıza tek başına güvenli bir bağlantı oluşturmanıza olanak sağlar. VPN bağlantısı, bağlantının istemci bilgisayardan başlatılmasıyla oluşturulur. Sanal ağınıza uzak bir konumdan (örneğin, evden veya bir konferanstan) bağlanmak istediğinizde ya da sanal bir ağa bağlanması gereken yalnızca birkaç istemciniz bulunduğunda bu ideal bir çözümdür. 
-
-Noktadan Siteye bağlantı SSTP (Güvenli Yuva Tünel Protokolü) üzerinden yapılan bir VPN bağlantısıdır. Noktadan Siteye bağlantıların çalışması için bir VPN cihazına veya genel kullanıma yönelik bir IP adresine gerek yoktur. 
-
-**P2S diyagramı**
-
-![Noktadan siteye bağlantılar](./media/vpn-gateway-topology/point2site.png "point-to-site")
-
-**Kullanılabilir dağıtım modelleri ve yöntemleri**
-
-[AZURE.INCLUDE [vpn-gateway-table-point-to-site](../../includes/vpn-gateway-table-point-to-site-include.md)] 
 
 ## Sonraki adımlar
 
-Bağlantınızı planlamaya ve tasarlamaya geçmeden önce VPN ağ geçitlerini daha iyi anlamak için [VPN Gateways Hakkında](vpn-gateway-about-vpngateways.md) ve [VPN Gateway SSS](vpn-gateway-vpn-faq.md) makalelerindeki maddeleri daha iyi öğrenmeniz gerekir.
+VPN Gateway ayarlarını daha iyi anlamak için [VPN Gateways Hakkında](vpn-gateway-about-vpngateways.md) ve [VPN Gateway SSS](vpn-gateway-vpn-faq.md) makalelerindeki maddeleri daha iyi öğrenmeniz gerekir.
 
 
 
@@ -106,6 +114,6 @@ Bağlantınızı planlamaya ve tasarlamaya geçmeden önce VPN ağ geçitlerini 
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

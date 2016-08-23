@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/03/2016"
+   ms.date="07/19/2016"
    ms.author="yurid"/>
 
 # Power BI ile Azure Güvenlik Merkezi verilerinden öngörü edinme
@@ -27,11 +27,11 @@ Ayrıca, Power BI raporlarına erişmek için Azure Güvenlik Merkezi panosunu d
 
 1. **Azure Güvenlik Merkezi** panosunda **Power BI'da Araştırma** düğmesine basın.
 
-    ![Power BI'ı kullanarak Azure Güvenlik Merkezi'ne bağlanma](./media/security-center-powerbi/security-center-powerbi-fig9-new.png) 
+    ![Power BI'ı kullanarak Azure Güvenlik Merkezi'ne bağlanma](./media/security-center-powerbi/security-center-powerbi-fig1-new1.png) 
 
 2. Aşağıda gösterildiği gibi sağ tarafta **Power BI'da Araştırma** dikey penceresi açılır:
 
-    ![Power BI'ı kullanarak Azure Güvenlik Merkezi'ne bağlanma](./media/security-center-powerbi/security-center-powerbi-fig2-new.png)
+    ![Power BI'ı kullanarak Azure Güvenlik Merkezi'ne bağlanma](./media/security-center-powerbi/security-center-powerbi-fig1-new2.png)
 
 3. Power BI panosunu ilk kez oluşturuyorsanız Power BI'da Araştırma dikey penceresindeki aşağıdaki seçeneklerden birini belirleyebilirsiniz: 
 
@@ -39,14 +39,18 @@ Ayrıca, Power BI raporlarına erişmek için Azure Güvenlik Merkezi panosunu d
     - **İlke yönetimi panosu**: Yönetim ve zorlama ilkesini araştırmak istiyorsanız bu seçeneği belirleyin.  Bu, daha çok idare üzerine odaklanan Merkezi BT için yaygın kullanılan bir seçenektir. Bu panoyu, kuruluşlarındaki güvenlik ilkesi uygunluğuna ilişkin görünürlük ve öngörü kazanmak için kullanabilirler.
     - Zaten Power BI panonuz varsa **Geçerli Power BI panosuna git**'e tıklayın.
 
-4. Bu örneğin amacı doğrultusunda **Güvenlik öngörüleri panosu**'na tıkladığınızda şu pencere görünür:
+4. Bu örneğin amacı doğrultusunda **Güvenlik öngörüleri panosu** seçeneğine tıklayın. Güvenlik Merkezi için ilk kez bir Power BI panosu oluşturuyorsanız içerik paketini yüklemeniz istenir. Aşağıda gösterildiği gibi **Power BI içerik paketleri** penceresindeki **Al** düğmesine tıklayın:
 
-    ![Azure Güvenlik Merkezi Güvenlik Öngörüleri panosu](./media/security-center-powerbi/security-center-powerbi-fig3-new.png)
+    ![Azure Güvenlik Merkezi Güvenlik Öngörüleri panosu](./media/security-center-powerbi/security-center-powerbi-fig1-new3.png)
 
-5. **Kimlik Doğrulama Yöntemi** seçeneğinin **oAuth2** olduğuna emin olun ve **Oturum Aç**'a tıklayın.
-6. **Power BI** penceresi açılır ve aşağıda gösterilenle benzer yapıya sahip bir rapor görüntülenir:
+5. **Azure Güvenlik Merkezi Güvenlik Öngörüleri** penceresi görüntülenir. **Kimlik Doğrulama** yönteminin aşağıda gösterildiği gibi **oAuth2** olduğundan emin olun ve **Oturum Aç** düğmesine tıklayın.
     
-    ![Güvenlik Öngörüleri panosu](./media/security-center-powerbi/security-center-powerbi-fig5.png)
+    ![Kimlik Doğrulaması](./media/security-center-powerbi/security-center-powerbi-fig1-new4.png)
+
+6. Azure kimlik bilgilerinizle yeniden kimlik doğrulaması yapmanız istenebilir. Kimlik doğrulamasından sonra panonuz oluşturulur. Pano oluşturulduktan sonra aşağıdakine benzer yapıya sahip bir rapor görürsünüz:
+
+    ![Power BI Panosu](./media/security-center-powerbi/security-center-powerbi-fig1-new5.png)
+
 
 > [AZURE.NOTE] Raporun yenilenmesi günlük olarak gerçekleşecek şekilde zamanlanır. Bu yenilemede bir arızayla karşılaşırsanız sorun giderme hakkında daha fazla bilgi almak için bkz. [Azure Güvenlik Merkezi Power BI ile Olası Yenileme Sorunları](https://blogs.msdn.microsoft.com/azuresecurity/2016/04/07/azure-security-center-power-bi-refresh-fails/).
 
@@ -55,15 +59,15 @@ Burada, güvenlik uyarısı ve öneri sayısının yanı sıra Azure Güvenlik M
 Azure Güvenlik Merkezi'ne bağlantı, sizi Azure portalına yönlendirir. Grafikler; güvenlik önerileri ve uyarılar hakkındaki bilgileri görselleştirmeyi şunlar dahil olmak üzere kolaylaştırır:
 
 - Kaynak Güvenlik Durumu
-- Bekleyen Genel Öneriler
+- Bekleyen Öneriler
 - VM Önerileri
 - Süreçteki Uyarılar
 - Saldırıya Uğrayan Kaynaklar
 - Saldırıya Uğrayan IP'ler
 
-Her grafiğin arkasında ek öngörüler vardır. Daha fazla bilgi için bir kutucuk seçin. Örneğin, Kaynak Güvenlik Durumu kutucuğu, aşağıda gösterildiği gibi kaynaklara göre bekleyen öneriler hakkında ek ayrıntılar gösterir:
+Her grafiğin arkasında ek öngörüler vardır. Daha fazla bilgi için bir kutucuk seçin. Örneğin, **Kaynak Güvenlik Durumu** kutucuğu, aşağıda gösterildiği gibi kaynaklara göre bekleyen öneriler hakkında ek ayrıntılar gösterir:
 
-![Öneriler](./media/security-center-powerbi/security-center-powerbi-fig6.png)
+![Öneriler](./media/security-center-powerbi/security-center-powerbi-fig1-new6.png)
 
 Bu grafikteki bir satıra tıklarsanız diğer satırlar gri renge dönüşür ve yalnızca seçtiğiniz satıra odaklanırsınız. Panoya dönmek için bu sayfanın sol bölmesindeki **Panolar** seçeneğinin altındaki **Azure Güvenlik Merkezi**'ne tıklayın.
 
@@ -71,7 +75,7 @@ Bu grafikteki bir satıra tıklarsanız diğer satırlar gri renge dönüşür v
 
 **Süreçteki Uyarı, Saldırıya Uğrayan Kaynaklar** ve **Saldırgan IP'ler** kutucuklarının her biri, üzerine tıkladığınızda benzer bir çıktıya sahiptir. Rapor, bu üç değişkenin hepsiyle ilgili bilgi topladığı için bu durum oluşur ve aşağıda gösterildiği gibi **Saldırıya Uğrayan Kaynaklar** olarak adlandırır:
 
-![Saldırıya uğrayan kaynaklar](./media/security-center-powerbi/security-center-powerbi-fig7.png)
+![Saldırıya uğrayan kaynaklar](./media/security-center-powerbi/security-center-powerbi-fig1-new7.png)
 
 Bu noktada, bu raporun bir kopyasını kaydedebilirsiniz, yazdırabilirsiniz veya **Dosya** menüsünde kullanılabilir seçenekleri belirterek web'de yayımlayabilirsiniz.
 
@@ -85,11 +89,13 @@ Power BI'daki [Power BI İçerik Paketi Hizmetleri](https://msit.powerbi.com/gro
 
     ![Power BI için içerik paketi](./media/security-center-powerbi/security-center-powerbi-fig1-new.png)
 
+    >[AZURE.NOTE] Bu makalenin ilk bölümünü zaten uyguladıysanız yalnızca Azure Güvenlik Merkezi İlke Yönetimi seçeneğini görürsünüz.
+
 2. Bu örneğin amacı doğrultusunda **Azure Güvenlik Merkezi İlke Yönetimi** kutucuğundaki **Al** seçeneğine tıklayın.
 
 3. **Azure Güvenlik Merkezi İlke Yönetimi'ne Bağlanma** penceresinde, aşağıda gösterildiği gibi **Kimlik Doğrulama Yöntemi** açılan menüsünün altında **oAuth2** seçeneğini belirttiğinizden emin olun ve **Oturum Aç** düğmesine tıklayın.
 
-    ![İlke Yönetimi penceresi](./media/security-center-powerbi/security-center-powerbi-fig4-new.png)
+    ![İlke Yönetimi penceresi](./media/security-center-powerbi/security-center-powerbi-fig1-new8.png)
 
 4. Azure Güvenlik Merkezi'ne bağlanmak için kullandığınız kimlik bilgilerini yazmanız gereken kimlik doğrulama sayfasına yönlendirileceksiniz. Kimlik doğrulama işlemi tamamlandıktan sonra Power BI, raporlarınızı oluşturmak için verileri içeri aktarmaya başlar. Bu süre boyunca tarayıcınızın sağ üst köşesinde şu iletiyi görebilirsiniz:
 
@@ -97,20 +103,21 @@ Power BI'daki [Power BI İçerik Paketi Hizmetleri](https://msit.powerbi.com/gro
 
     >[AZURE.NOTE] Özellikle birden fazla aboneliğine sahip olduğunuz senaryolar için panoyu ilk kez oluşturmak normalden daha uzun sürebilir. 
 
-5. İşlem tamamlandıktan sonra Azure Güvenlik Merkezi Power BI panonuz, **İlke Yönetimi** raporuyla birlikte yüklenir.
+5. İşlem tamamlandıktan sonra Azure Güvenlik Merkezi Power BI panonuz aşağıdakine benzer **İlke Yönetimi** raporuyla birlikte yüklenir:
 
+    ![İlke Yönetimi panosu](./media/security-center-powerbi/security-center-powerbi-fig1-new9.png)
 
-## Sonraki adımlar
+## Ayrıca bkz.
 Bu belgede, Azure Güvenlik Merkezi'nde Power BI hizmetini nasıl kullanacağınız hakkında bilgi edindiniz. Azure Güvenlik Merkezi hakkında daha fazla bilgi edinmek için şunlara bakın:
 
 - [Azure Güvenlik Merkezi Planlama ve İşlemler Kılavuzu](security-center-planning-and-operations-guide.md) - Azure Güvenlik Merkezi'ni benimsemeyi planlama hakkında bilgi edinin.
 - [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-policies.md) - Azure Güvenlik Merkezi'nde güvenlik ayarlarını yapılandırma hakkında bilgi edinin
-- [Azure Güvenlik Merkezi'nde güvenlik uyarılarını yönetme ve yanıtlama](security-center-managing-and-responding-alerts.md) - Güvenlik uyarılarını yönetme ve yanıtlama hakkında bilgi edinin.
-- [Azure Güvenlik Merkezi ile ilgili SSS](security-center-faq.md) - Hizmeti kullanma hakkında sık sorulan soruları bulun
-- [Azure Güvenlik Blogu](http://blogs.msdn.com/b/azuresecurity/) - Azure güvenliği ve uyumluluğu ile ilgili blog yazılarını bulun
+- [Azure Güvenlik Merkezi'nde güvenlik uyarılarını yönetme ve yanıtlama](security-center-managing-and-responding-alerts.md) - Güvenlik uyarılarını yönetme ve yanıtlama hakkında bilgi edinin
+- [Azure Güvenlik Merkezi ile ilgili SSS](security-center-faq.md) - Hizmet kullanımı ile ilgili sık sorulan soruları burada bulabilirsiniz
+- [Azure Güvenlik Blogu](http://blogs.msdn.com/b/azuresecurity/) - Azure güvenliği ve uyumluluğu ile ilgili blog yazılarını bulabilirsiniz
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

@@ -14,7 +14,7 @@
     ms.topic="hero-article"
     ms.tgt_pltfrm="na"
     ms.workload="big-data"
-    ms.date="03/16/2016"
+    ms.date="06/13/2016"
     ms.author="jgao"/>
 
 # Hadoop öğreticisi: HDInsight’ta Linux tabanlı Hadoop kullanmaya başlama
@@ -23,7 +23,7 @@
 - [Linux tabanlı](hdinsight-hadoop-linux-tutorial-get-started.md)
 - [Windows tabanlı](hdinsight-hadoop-tutorial-get-started-windows.md)
 
-HDInsight’ta Linux tabanlı [Hadoop](http://hadoop.apache.org/) kümeleri oluşturmayı ve HDInsight’ta Hive işleri çalıştırmayı öğrenin. [Apache Hive](https://hive.apache.org/) Hadoop ekosistemindeki en popüler bileşendir. HDInsight şu anda 4 farklı küme türü ile gelir: [Hadoop](hdinsight-hadoop-introduction), [Spark](hdinsight-apache-spark-overview.md), [HBase](hdinsight-hbase-overview.md) ve [Storm](hdinsight-storm-overview.md).  Her küme türü farklı bir bileşen kümesini destekler. 4 küme türü de Hive’ı destekler. HDInsight’ta desteklenen bileşenlerin listesi için bkz. [HDInsight tarafından sağlanan Hadoop küme sürümlerindeki yenilikler nelerdir?](hdinsight-component-versioning.md)  
+HDInsight’ta Linux tabanlı [Hadoop](http://hadoop.apache.org/) kümeleri oluşturmayı ve HDInsight’ta Hive işleri çalıştırmayı öğrenin. [Apache Hive](https://hive.apache.org/) Hadoop ekosistemindeki en popüler bileşendir. HDInsight şu anda 4 farklı küme türü ile gelir: [Hadoop](hdinsight-hadoop-introduction.md), [Spark](hdinsight-apache-spark-overview.md), [HBase](hdinsight-hbase-overview.md) ve [Storm](hdinsight-storm-overview.md).  Her küme türü farklı bir bileşen kümesini destekler. 4 küme türü de Hive’ı destekler. HDInsight’ta desteklenen bileşenlerin listesi için bkz. [HDInsight tarafından sağlanan Hadoop küme sürümlerindeki yenilikler nelerdir?](hdinsight-component-versioning.md)  
 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -163,6 +163,6 @@ HDInsight kümesi oluşturma ve yönetme hakkında daha fazla bilgi edinmek isti
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

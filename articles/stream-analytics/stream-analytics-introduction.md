@@ -1,7 +1,7 @@
 <properties 
     pageTitle="Stream Analytics'e Giriş | Microsoft Azure" 
     description="Nesnelerin İnterneti'nden (IoT) sağlanan akış verilerini gerçek zamanlı olarak analiz etmenize yardım eden bir yönetilen hizmet olan Stream Analytics hakkında bilgi edinin." 
-    keywords="analytics as a service, managed services, stream processing, streaming analytics, what is stream analytics"
+    keywords="hizmet olarak analytics, yönetilen hizmetler, akış işleme, streaming analytics, stream analytics nedir"
     services="stream-analytics" 
     documentationCenter="" 
     authors="jeffstokes72" 
@@ -14,7 +14,7 @@
     ms.topic="get-started-article" 
     ms.tgt_pltfrm="na" 
     ms.workload="data-services" 
-    ms.date="05/03/2016" 
+    ms.date="07/27/2016" 
     ms.author="jeffstok"/>
 
 
@@ -56,6 +56,6 @@ Nesnelerin İnterneti'nden gelen verilerdeki akış analizlerine yönelik bir y�
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/07/2016"
+   ms.date="07/07/2016"
    ms.author="nitinme"/>
 
 # Azure PowerShell'i kullanarak Azure Data Lake Store ile çalışmaya başlama
@@ -43,7 +43,7 @@ Bu öğreticiye başlamadan önce aşağıdakilere sahip olmanız gerekir:
 
 ## Azure Data Lake Store hesabı oluşturma
 
-1. Masaüstünüzde yeni bir Azure PowerShell penceresi açın ve Azure hesabınızda oturum açmak, aboneliği ayarlamak ve Data Lake Store sağlayıcısını kaydetmek için aşağıdaki kod parçacığını girin. Oturum açmanız istendiğinde, bir abonelik yöneticisi/sahibi olarak oturum açtığınızdan emin olun.
+1. Masaüstünüzde yeni bir Windows PowerShell penceresi açın ve Azure hesabınızda oturum açmak, aboneliği ayarlamak ve Data Lake Store sağlayıcısını kaydetmek için aşağıdaki kod parçacığını girin. Oturum açmanız istendiğinde, bir abonelik yöneticisi/sahibi olarak oturum açtığınızdan emin olun.
 
         # Log in to your Azure account
         Login-AzureRmAccount
@@ -143,6 +143,6 @@ Data Lake Store hesabınızı silmek için aşağıdaki komutu kullanın.
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

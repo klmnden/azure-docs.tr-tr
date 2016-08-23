@@ -1,7 +1,7 @@
 <properties
     pageTitle="Azure AD Connect: Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme. | Microsoft Azure"
     description="Azure AD Connect, şirket içi dizinlerinizi Azure Active Directory ile tümleştirir. Bu sayede Azure AD ile tümleşik Office 365, Azure ve SaaS uygulamaları için ortak bir kimlik oluşturabilirsiniz."
-    keywords="introduction to Azure AD Connect, Azure AD Connect overview, what is Azure AD Connect, install active directory"
+    keywords="Azure AD Connect’e giriş, Azure AD Connect’e genel bakış, Azure AD Connect nedir, active directory yükleme"
     services="active-directory"
     documentationCenter=""
     authors="andkjell"
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/19/2016"
+    ms.date="07/14/2016"
     ms.author="andkjell;billmath"/>
 
 # Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme
@@ -137,8 +137,9 @@ ADFS sunucunuz sertifikaları Azure AD'den otomatik olarak güncelleştirecek ş
 
 ### Federasyon özelliklerini yapılandırmak için sonraki adımlar
 
-Konu başlığı |  
+Konu |  
 --------- | ---------
+Tüm AD FS makaleleri | [Azure AD Connect ve federasyon](active-directory-aadconnectfed-whatis.md)
 Alt etki alanları bulunan ADFS'yi yapılandırma | [Azure AD ile Federasyon için Çoklu Etki Alanı Desteği](active-directory-aadconnect-multiple-domains.md)
 AD FS grubunu yönetme | [Azure AD Connect ile AD FS yönetimi ve özelleştirmesi](active-directory-aadconnect-federation-management.md)
 Federasyon sertifikalarını el ile güncelleştirme | [Office 365 ve Azure AD için Federasyon Sertifikalarını Yenileme](active-directory-aadconnect-o365-certs.md)
@@ -164,6 +165,6 @@ Sık Sorulan Sorular | [Azure AD Connect ile ilgili SSS](active-directory-aadcon
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

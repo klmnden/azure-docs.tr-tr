@@ -102,7 +102,8 @@ Uygulamada, _Xamarin öğren_ gibi anlamlı bir metin yazın ve ardından **+** 
 
 Bu, Azure üzerinde barındırılan yeni mobil uygulama arka ucuna bir POST isteği gönderir. İstekten alınan veriler TodoItem tablosuna eklenir. Tabloda depolanan öğeler mobil uygulama arka ucu tarafından döndürülür ve veriler listede görüntülenir.
 
->[AZURE.NOTE] Çözümünüzün taşınabilir sınık kitaplık projesinin .TodoItemManager.cs C# dosyasında mobil uygulamanızın arka ucuna erişen kodu bulacaksınız.
+>[AZURE.NOTE]
+> Çözümünüzün taşınabilir sınık kitaplık projesinin .TodoItemManager.cs C# dosyasında mobil uygulamanızın arka ucuna erişen kodu bulacaksınız.
 
 ##(İsteğe bağlı) Android projesi çalıştırma
 
@@ -128,7 +129,8 @@ Uygulamada, _Xamarin öğren_ gibi anlamlı bir metin yazın ve ardından **+** 
 
 Bu, Azure üzerinde barındırılan yeni mobil uygulama arka ucuna bir POST isteği gönderir. İstekten alınan veriler TodoItem tablosuna eklenir. Tabloda depolanan öğeler mobil uygulama arka ucu tarafından döndürülür ve veriler listede görüntülenir.
 
-> [AZURE.NOTE] Çözümünüzün taşınabilir sınık kitaplık projesinin .TodoItemManager.cs C# dosyasında mobil uygulamanızın arka ucuna erişen kodu bulacaksınız.
+> [AZURE.NOTE]
+> Çözümünüzün taşınabilir sınık kitaplık projesinin .TodoItemManager.cs C# dosyasında mobil uygulamanızın arka ucuna erişen kodu bulacaksınız.
 
 
 ##(İsteğe bağlı) Windows projesi çalıştırma
@@ -152,14 +154,20 @@ Bu, Azure üzerinde barındırılan yeni mobil uygulama arka ucuna bir POST iste
 
 ![][12]
 
-> [AZURE.NOTE] Çözümünüzün taşınabilir sınık kitaplık projesinin .TodoItemManager.cs C# dosyasında mobil uygulamanızın arka ucuna erişen kodu bulacaksınız.
+> [AZURE.NOTE]
+> Çözümünüzün taşınabilir sınık kitaplık projesinin .TodoItemManager.cs C# dosyasında mobil uygulamanızın arka ucuna erişen kodu bulacaksınız.
 
 ##Sonraki adımlar
 
-* [Uygulamanıza kimlik doğrulaması ekleme ](app-service-mobile-xamarin-forms-get-started-users.md)  
+* [Uygulamanıza kimlik doğrulaması ekleme](app-service-mobile-xamarin-forms-get-started-users.md)  
 Uygulamanızdaki kullanıcıların kimliklerini bir kimlik sağlayıcısı ile nasıl doğrulayacağınızı öğrenin.
-* [Xamarin.Android uygulamanıza anında iletme bildirimleri ekleme](app-service-mobile-xamarin-forms-get-started-push.md)  
-Uygulamanıza anında iletme bildirimleri eklemeyi öğrenin.
+
+* [Uygulamanıza anında iletme bildirimleri ekleme](app-service-mobile-xamarin-forms-get-started-push.md)  
+Uygulamanıza anında iletme bildirimleri desteği eklemeyi ve anında iletme bildirimleri göndermek için Azure Notification Hubs’ı kullanmak üzere Mobile App arka ucunuzu yapılandırmayı öğrenin.
+
+* [Uygulamanız için çevrimdışı eşitlemeyi etkinleştirme](app-service-mobile-xamarin-forms-get-started-offline-data.md)  
+  Mobil Uygulama arka ucu kullanarak uygulamanıza çevrimdışı destek eklemeyi öğrenin. Çevrimdışı eşitleme son kullanıcıların, ağ bağlantısı yokken dahi, mobil uygulama ile etkileşim kurmalarına &mdash;veri görüntüleme, ekleme ya da değiştirme&mdash; olanak tanır.
+
 * [Azure Mobile Apps için yönetilen istemci kullanma](app-service-mobile-dotnet-how-to-use-client-library.md)  
 Xamarin uygulamanızda yönetilen istemci SDK’sıyla çalışmayı öğrenin. 
 
@@ -187,6 +195,6 @@ Xamarin uygulamanızda yönetilen istemci SDK’sıyla çalışmayı öğrenin.
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

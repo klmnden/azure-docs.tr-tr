@@ -13,7 +13,7 @@
     ms.topic="hero-article"
     ms.tgt_pltfrm="NA"
     ms.workload="data-catalog"
-    ms.date="05/09/2016"
+    ms.date="07/25/2016"
     ms.author="spelluru"/>
 
 # Azure Veri Kataloğu'nu benimseme
@@ -175,6 +175,6 @@ Bu makalede, kuruluşunuzda **Azure Veri Kataloğu** ile çalışmaya başlama k
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

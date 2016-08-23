@@ -63,13 +63,13 @@ Azure Resource Manager cmdlet’lerini kullanmak için PowerShell modunu açtı�
 
 ### 1. Adım
 
-        PS C:\> Login-AzureRmAccount
+        Login-AzureRmAccount
 
 ### 2. Adım
 
 Hesapla ilişkili abonelikleri kontrol edin.
 
-        PS C:\> get-AzureRmSubscription
+        get-AzureRmSubscription
 
 Kimlik bilgilerinizle kimliğinizi doğrulamanız istenir.<BR>
 
@@ -78,7 +78,7 @@ Kimlik bilgilerinizle kimliğinizi doğrulamanız istenir.<BR>
 Hangi Azure aboneliğinizin kullanılacağını seçin. <BR>
 
 
-        PS C:\> Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+        Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 
 
 ### 4. Adım
@@ -240,6 +240,6 @@ Yük dengeleme seçenekleri hakkında daha fazla genel bilgi edinmek istiyorsan�
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

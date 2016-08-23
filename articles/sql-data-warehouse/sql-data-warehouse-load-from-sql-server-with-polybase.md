@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/10/2016"
+   ms.date="06/30/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 
@@ -109,7 +109,7 @@ Verilerinizi Azure blob depolama alanına kopyalamak için şunları yapın:
     .\AzCopy.exe /Source:C:\Temp\ /Dest:<blob service endpoint URL> /datacontainer/datedimension/ /DestKey:<azure_storage_account_key> /Pattern:DimDate2.txt
     ```
 
-Ayrıca bkz. [AzCopy Komut Satırı Yardımcı Programı ile Çalışmaya Başlama][].
+Ayrıca bkz. [AzCopy Komut Satırı Yardımcı Programı ile Çalışmaya Başlama][en güncel AzCopy sürümünü].
 
 ### E. Blob depolama kapsayıcınızı araştırma
 
@@ -256,13 +256,10 @@ PolyBase kullanan bir çözüm geliştirirken bilmeniz gereken daha fazla bilgi 
 
 
 <!--Article references-->
-[SQL Data Warehouse'da PolyBase Öğreticisi]: sql-data-warehouse-get-started-load-with-polybase.md
-[bcp ile veri yükleme]: sql-data-warehouse-load-with-bcp.md
-[çözüm ortakları]: sql-data-warehouse-solution-partners.md
-[geliştirmeye genel bakış]: sql-data-warehouse-overview-develop.md
-[İstatistikler]: sql-data-warehouse-develop-statistics.md
-[PolyBase kılavuzu]: sql-data-warehouse-load-polybase-guide.md
-[AzCopy Komut Satırı Yardımcı Programı ile Çalışmaya Başlama]: ../storage/storage-use-azcopy.md
+[SQL Data Warehouse'da PolyBase Öğreticisi]: ./sql-data-warehouse-get-started-load-with-polybase.md
+[bcp ile veri yükleme]: ./sql-data-warehouse-load-with-bcp.md
+[İstatistikler]: ./sql-data-warehouse-tables-statistics.md
+[PolyBase kılavuzu]: ./sql-data-warehouse-load-polybase-guide.md
 [en güncel AzCopy sürümünü]: ../storage/storage-use-azcopy.md
 
 <!--External references-->
@@ -289,6 +286,6 @@ PolyBase kullanan bir çözüm geliştirirken bilmeniz gereken daha fazla bilgi 
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

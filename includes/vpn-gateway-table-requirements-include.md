@@ -8,10 +8,11 @@ Aşağıdaki tabloda, ilke temelli ve rota temelli VPN Gateway’lerinin gereksi
 | **Kimlik doğrulama Yöntemi**                 |    Önceden paylaşılan anahtar  | S2S bağlantısı için önceden paylaşılan anahtar, P2S bağlantısı için sertifikalar | S2S bağlantısı için önceden paylaşılan anahtar, P2S bağlantısı için sertifikalar | S2S bağlantısı için önceden paylaşılan anahtar, P2S bağlantısı için sertifikalar |
 | **S2S bağlantılarının en yüksek sayısı**       | 1                              | 10                                                                    | 10                                | 30                               |
 | **P2S bağlantılarının en yüksek sayısı**       | Desteklenmiyor                  | 128                                                                   | 128                               | 128                              |
-|**Etkin yönlendirme desteği (BGP)**           | Desteklenmiyor                  | Desteklenmiyor                                                         | Desteklenmiyor                     | Desteklenmiyor                    |
+|**Etkin yönlendirme desteği (BGP)**           | Desteklenmiyor                  | Desteklenmiyor                                                         | Destekleniyor                     | Destekleniyor                   |
  
 
 
-<!--HONumber=Jun16_HO2-->
+
+<!--HONumber=Aug16_HO1-->
 
 

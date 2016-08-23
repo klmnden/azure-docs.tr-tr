@@ -13,13 +13,15 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="04/25/2016"
+    ms.date="07/22/2016"
     ms.author="tamram"/>
 
 
 # .NET kullanarak Azure Blob Storage’ı kullanmaya başlayın
 
 [AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
+<br/>
+[AZURE.INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
 ## Genel Bakış
 
@@ -40,6 +42,11 @@ Bu öğreti, Azure Blob Storage kullanarak bazı genel senaryolar için .NET kod
 
 
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
+
+### Daha fazla örnek
+
+Blob depolama kullanan diğer örnekler için [.NET’te Azure Blob Depolama Kullanmaya Başlama](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/). Örnek uygulamayı indirip çalıştırabilir veya GitHub’daki örneğe göz atabilirsiniz. 
+
 
 [AZURE.INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
 
@@ -373,6 +380,13 @@ Azure Storage hem istemci hem de sunucuda blob verisi şifreleme özelliği dest
 
 Blob Storage’ın temellerini öğrendiğinize göre, daha fazla bilgi edinmek için bu bağlantıları izleyin.
 
+### Microsoft Azure Depolama Gezgini
+- [Microsoft Azure Depolama Gezgini (MASE)](../vs-azure-tools-storage-manage-with-storage-explorer.md), Microsoft’un Windows, OS X ve Linux üzerinde Azure Storage verileriyle görsel olarak çalışmanızı sağlayan ücretsiz ve tek başına uygulamasıdır.
+
+### Blob depolama örnekleri
+
+- [.NET’te Azure Blob Depolama Kullanmaya Başlama](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/)
+
 ### Blob Storage başvurusu
 
 - [.NET başvurusu için Depolama İstemci Kitaplığı](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
@@ -397,6 +411,6 @@ Blob Storage’ın temellerini öğrendiğinize göre, daha fazla bilgi edinmek 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

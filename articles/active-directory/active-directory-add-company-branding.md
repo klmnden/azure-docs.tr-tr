@@ -4,7 +4,7 @@
     services="active-directory"
     documentationCenter=""
     authors="markusvi"
-    manager="stevenpo"
+    manager="femila"
     editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="04/16/2016" 
+    ms.date="07/13/2016"
     ms.author="MarkVi"/>
 
 # Oturum açma ve Erişim Paneli sayfalarınıza şirket markası ekleme
@@ -46,9 +46,7 @@ Hizmeti https://mail.office365.com gibi kiracıya özgü olmayan bir URL ile ziy
 
 > [AZURE.NOTE]
 >
-
-- Etki alanı adınız, markayı yapılandırdığınız klasik Azure portalının **Active Directory** > **Dizin** > **Etki Alanları** bölümünde "Etkin" olarak görünmelidir.
-
+- Etki alanı adınız, markayı yapılandırdığınız klasik Azure portalının **Active Directory** > **Directory (Dizin)** > **Domains (Etki Alanları)** bölümünde "Enabled" ("Etkin") olarak görünmelidir.
 - Oturum açma sayfasında bulunan marka, Microsoft'un tüketici oturum açma sayfasına aktarılmaz. Kişisel bir Microsoft hesabıyla oturum açarsanız Azure AD tarafından işlenen kullanıcı kutucuklarının markalı bir listesini görebilirsiniz ancak kuruluşunuzun markası, Microsoft hesabı oturum açma sayfasına uygulanmaz.
 
 
@@ -107,7 +105,7 @@ Ayrıca bu sayfadaki tüm öğeleri yerelleştirebilirsiniz. Özelleştirme öğ
 
 ## Erişim paneli sayfa özelleştirmesi
 
-Erişim Paneli sayfası, yöneticiniz tarafından erişim hakkı verilen bulut uygulamalarına hızlı erişim için kullanabileceğiniz bir portal sayfasıdır. Uygulamalarınız, bu sayfada tıklanabilir uygulama kutucukları olarak görünür. 
+Erişim Paneli sayfası, yöneticiniz tarafından erişim hakkı verilen bulut uygulamalarına hızlı erişim için kullanabileceğiniz bir portal sayfasıdır. Uygulamalarınız, bu sayfada tıklanabilir uygulama kutucukları olarak görünür.
 
 
 Aşağıdaki anlık görüntüde, özelleştirme işlemi uygulanan bir erişim paneli sayfası gösterilmektedir.
@@ -118,14 +116,14 @@ Aşağıdaki anlık görüntüde, özelleştirme işlemi uygulanan bir erişim p
 
 Klasik Azure portalında her dizin için özelleştirilebilir öğelere ilişkin bir varsayılan küme yapılandırabilirsiniz. Yönetici, varsayılanlar kaydedildikten sonra farklı diller/yerel ayarlar için her öğenin yerelleştirilmiş sürümlerini ekleyebilir. Tüm özelleştirilebilir öğeler isteğe bağlıdır.
 
-Örneğin, Büyük Çizim yerine varsayılan Başlık Logosunu yapılandırırsanız logonuz oturum açma sayfasının sağ üst köşesinde görüntülenir. Ancak sitenin varsayılan çizimi görüntülenir. 
+Örneğin, Büyük Çizim yerine varsayılan Başlık Logosunu yapılandırırsanız logonuz oturum açma sayfasının sağ üst köşesinde görüntülenir. Ancak sitenin varsayılan çizimi görüntülenir.
 
 Şunun gibi bir yapılandırma olduğunu düşünün:
 
-- İngilizce dilinde varsayılan bir Başlık Logosu ve Oturum Açma Sayfası Metni 
-- Almanca için dile özgü Oturum Açma Sayfası Metni  
+- İngilizce dilinde varsayılan bir Başlık Logosu ve Oturum Açma Sayfası Metni
+- Almanca için dile özgü Oturum Açma Sayfası Metni 
 
-Dil tercihiniz Almanca ise varsayılan Başlık Logosunu ve Almanca metni alırsınız. 
+Dil tercihiniz Almanca ise varsayılan Başlık Logosunu ve Almanca metni alırsınız.
 
 Teknik olarak, Azure AD tarafından desteklenen her dil için farklı bir küme yapılandırabilirsiniz ancak bakım ve performans nedeniyle varyasyon sayısını düşük tutmanızı öneririz.
 
@@ -157,12 +155,12 @@ Oturum açma sayfası markasında yaptığınız yeni değişikliğin görünmes
 2. Özelleştirmek istediğiniz dizini seçin.
 3. Üstteki araç çubuğunda **Configure (Yapılandır)** düğmesine tıklayın.
 4. **Customize Branding (Markayı Özelleştir)**düğmesine tıklayın.
-5. Marka Özelleştirme sayfasında **Var Olan Marka Ayarlarını Düzenle**'yi seçip sonraki sayfaya gidin.
+5. Marka Özelleştirme sayfasında **Edit Existing Branding Settings (Var Olan Marka Ayarlarını Düzenle)** seçeneğini belirleyip sonraki sayfaya gidin.
 3. Kaldırmak istediğiniz öğelere bağlı olarak, şunlardan birini veya birkaçını yapın:
 
-    a. **Başlık Logosu** altında **Karşıya yüklenen logoyu kaldır**'ı seçin .
+    a. **Banner Logo (Başlık Logosu)** altında **Remove uploaded logo (Karşıya yüklenen logoyu kaldır)** seçeneğini belirleyin.
 
-    b. **Kutucuk Logosu** altında **Karşıya yüklenen logoyu kaldır**'ı seçin .
+    b. **Tile Logo (Kutucuk Logosu)** altında **Remove uploaded logo (Karşıya yüklenen logoyu kaldır)** seçeneğini belirleyin.
 
     c. Tüm metin kutularındaki metinleri kaldırın.
 
@@ -180,8 +178,8 @@ Oturum açma sayfası markasında yaptığınız yeni değişikliğin görünmes
 
 **Markanızın uygulanıp uygulanmadığını doğrulamak için:**
 
-1. InPrivate veya Incognito tarayıcı oturumu açın. 
-2. contoso.com adresini özelleştirdiğiniz etki alanıyla değiştirerek https://outlook.com/contoso.com adresini ziyaret edin. 
+1. InPrivate veya Incognito tarayıcı oturumu açın.
+2. contoso.com adresini özelleştirdiğiniz etki alanıyla değiştirerek https://outlook.com/contoso.com adresini ziyaret edin.
 
 Bu, contoso.onmicrosoft.com gibi görünen etki alanları için de geçerlidir.
 
@@ -224,6 +222,6 @@ Oturum Açma Sayfası Arka Plan Rengi | Oturum açma sayfası arka plan rengi, o
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

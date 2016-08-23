@@ -64,7 +64,7 @@ Bu öğreticinin çalışması için, uygulamaya Azure'da kaynak oluşturmak üz
 
 1. IntelliJ hizmetini açın ve **Komut Satırı Uygulaması** şablonunu kullanarak yeni bir Java projesi oluşturun. Projeyi oluşturmak için sihirbazı tamamlayın.
 
-2. Ekranınızın sol tarafında projeye sağ tıklayın ve **Framework Desteği Ekle** seçeneğine tıklayın. **Maven**'ı seçip **Tamam**'a tıklayın.
+2. Ekranınızın sol tarafında projeye sağ tıklayın ve **Add Framework Support (Framework Desteği Ekle)** seçeneğine tıklayın. **Maven**'ı seçip **OK (Tamam)** seçeneğine tıklayın.
 
 3. Yeni oluşturulan **"pom.xml"** dosyasını açın ve **\</version>** etiketi ile **\</project>** etiketi arasına şu metin parçacığını ekleyin:
 
@@ -95,7 +95,17 @@ Bu öğreticinin çalışması için, uygulamaya Azure'da kaynak oluşturmak üz
             <dependency>
                 <groupId>com.microsoft.azure</groupId>
                 <artifactId>azure-client-authentication</artifactId>
-                <version>1.0.0-SNAPSHOT</version>
+                <version>1.0.0-20160513.000802-24</version>
+            </dependency>
+            <dependency>
+                <groupId>com.microsoft.azure</groupId>
+                <artifactId>azure-client-runtime</artifactId>
+                <version>1.0.0-20160513.000812-28</version>
+            </dependency>
+            <dependency>
+                <groupId>com.microsoft.rest</groupId>
+                <artifactId>client-runtime</artifactId>
+                <version>1.0.0-20160513.000825-29</version>
             </dependency>
             <dependency>
                 <groupId>com.microsoft.azure</groupId>
@@ -105,9 +115,9 @@ Bu öğreticinin çalışması için, uygulamaya Azure'da kaynak oluşturmak üz
         </dependencies>
 
 
-4. **Dosya**'ya, **Ayarlar**'a ve ardından **Derleme, Yürütme ve Dağıtım**'a gidin. **Derleme Araçları**'nı, **Maven**'ı ve ardından **İçeri Aktarma**'yı genişletin. **Maven projelerini otomatik olarak içeri aktar** onay kutusunu işaretleyin. **Uygula**'ya ve ardından **Tamam**'a tıklayın.
+4. **File (Dosya)** öğesine, **Settings (Ayarlar)** öğesine be ardından **Build, Execution, and Deployment (Derleme, Yürütme ve Dağıtım)** öğesine gidin. **Build Tools (Derleme Araçları)** öğesini, **Maven**'ı ve ardından **Importing (İçeri Aktarma)** öğesini genişletin. **Import Maven projects automatically (Maven projelerini otomatik olarak içeri aktar)** onay kutusunu işaretleyin. **Apple (Uygula)** seçeneğine ve ardından **Ok (Tamam)** seçeneğine tıklayın.
 
-5. Sol bölmeden, **src**, **ana**, **java**, **\<paket adı>** konumuna gidin ve ardından **Main.java** dosyasını açıp var olan kod bloğunu aşağıdaki kodla değiştirin. Ayrıca, **localFolderPath**, **_adlsAccountName**, **_resourceGroupName** gibi, kod parçacığında çağrılan parametrelerin değerlerini sağlayın ve **CLIENT-ID**, **CLIENT-SECRET**, **TENANT-ID** ve **SUBSCRIPTION-ID** yer tutucularını değiştirin.
+5. Sol bölmeden, **src**, **main (ana)**, **java**, **\<(package name) paket adı>** konumuna gidin ve ardından **Main.java** dosyasını açıp var olan kod bloğunu aşağıdaki kodla değiştirin. Ayrıca, **localFolderPath**, **_adlsAccountName**, **_resourceGroupName** gibi, kod parçacığında çağrılan parametrelerin değerlerini sağlayın ve **CLIENT-ID**, **CLIENT-SECRET**, **TENANT-ID** ve **SUBSCRIPTION-ID** yer tutucularını değiştirin.
 
     Bu kod, Data Lake Store hesabı oluşturma, depoda dosya oluşturma, dosyaları birleştirme, dosya indirme ve son olarak hesabı silme işlemini içerir.
 
@@ -312,6 +322,6 @@ Bu öğreticinin çalışması için, uygulamaya Azure'da kaynak oluşturmak üz
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

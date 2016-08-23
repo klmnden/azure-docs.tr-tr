@@ -13,26 +13,12 @@
      ms.topic="hero-article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="03/22/2016"
+     ms.date="06/16/2016"
      ms.author="dobett"/>
 
 # .NET için Azure IoT Hub ile çalışmaya başlama
 
 [AZURE.INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
-
-## Giriş
-
-Azure IoT Hub, milyonlarca Nesnelerin İnterneti (IoT) cihazı ile bir çözüm arka ucu arasında güvenilir ve güvenli çift yönlü iletişimler sağlayan tam olarak yönetilen bir hizmettir. IoT projelerinin karşılaştığı en büyük zorluklardan biri, cihazların güvenilir ve güvenli bir şekilde çözüm arka ucuna bağlanmasıdır. Bu zorluğu ele almak için IoT Hub:
-
-- Cihazdan buluta ve buluttan cihaza hiper ölçekli güvenilir mesajlaşma olanağı sunar.
-- Cihaz başına güvenlik kimlik bilgisi ve erişim denetimi kullanarak güvenli iletişimlere olanak sağlar.
-- En popüler diller ve platformlar için cihaz kitaplıklarını içerir.
-
-Bu öğretici şunların nasıl yapıldığını gösterir:
-
-- IoT hub'ı oluşturmak için Azure portalını kullanma.
-- IoT hub'ınızda bir cihaz kimliği oluşturma.
-- Bulut arka ucunuza telemetri gönderen ve bulut arka ucunuzdan komutları alan sanal bir cihaz oluşturma.
 
 Bu öğreticinin sonunda üç Windows konsol uygulamanız olacak:
 
@@ -243,11 +229,11 @@ Bu öğretici, IoT Hub cihaz istemcisi oluşturma adımlarında size rehberlik e
 
 Şimdi uygulamaları çalıştırmaya hazırsınız.
 
-1.  Visual Studio'daki Çözüm Gezgini'nde çözümünüze sağ tıklayın ve ardından **Başlangıç projelerini ayarla**'ya tıklayın. **Birden fazla başlangıç projesi**'ni seçin ve ardından hem **ProcessDeviceToCloudMessages** hem de **SimulatedDevice** projeleri için eylem olarak **Başla**'yı seçin.
+1.  Visual Studio'daki Çözüm Gezgini'nde çözümünüze sağ tıklayın ve ardından **Başlangıç projelerini ayarla**'ya tıklayın. **Birden fazla başlangıç projesi**'ni seçin ve ardından hem **ReadDeviceToCloudMessages** hem de **SimulatedDevice** projeleri için eylem olarak **Başla**'yı seçin.
 
     ![Başlangıç projesinin özellikleri][41]
 
-2.  Her iki uygulamanın da çalışmasını başlatmak için **F5**'e basın. **SimulatedDevice** uygulamasından konsol çıktısı, sanal cihazınızın IoT hub'ınıza gönderdiği iletileri gösterir. **ProcessDeviceToCloudMessages** uygulamasından konsol çıktısı, IoT hub'ınızın aldığı iletileri gösterir.
+2.  Her iki uygulamanın da çalışmasını başlatmak için **F5**'e basın. **SimulatedDevice** uygulamasından konsol çıktısı, sanal cihazınızın IoT hub'ınıza gönderdiği iletileri gösterir. **ReadDeviceToCloudMessages** uygulamasından konsol çıktısı, IoT hub'ınızın aldığı iletileri gösterir.
 
     ![Uygulamalardan konsol çıktısı][42]
 
@@ -258,11 +244,15 @@ Bu öğretici, IoT Hub cihaz istemcisi oluşturma adımlarında size rehberlik e
 
 ## Sonraki adımlar
 
-Bu öğreticide, portalda yeni bir IoT hub'ı yapılandırdınız ve ardından hub'ın kimlik kayıt defterinde bir cihaz kimliği oluşturdunuz. Bu cihaz kimliğini, sanal cihaz uygulamasının hub'a cihaz-bulut iletileri göndermesini sağlamak için kullandınız. Hub tarafından alınan iletileri görüntüleyen bir uygulama da oluşturdunuz. Aşağıdaki öğreticilerde IoT hub'ının özelliklerini ve diğer IoT senaryolarını keşfetmeye devam edebilirsiniz:
+Bu öğreticide, portalda yeni bir IoT hub'ı yapılandırdınız ve ardından hub'ın kimlik kayıt defterinde bir cihaz kimliği oluşturdunuz. Bu cihaz kimliğini, sanal cihaz uygulamasının hub'a cihaz-bulut iletileri göndermesini sağlamak için kullandınız. Hub tarafından alınan iletileri görüntüleyen bir uygulama da oluşturdunuz. 
 
-- [IoT Hub ile Buluttan Cihaza iletileri gönderme][lnk-c2d-tutorial] cihazlara iletilerin nasıl gönderildiğini ve IoT Hub tarafından üretilen teslim geri bildiriminin nasıl işlendiğini gösterir.
-- [Cihazdan buluta iletileri işleme][lnk-process-d2c-tutorial], cihazlardan gelen telemetrinin ve etkileşimli iletilerin güvenilir şekilde nasıl işlendiğini gösterir.
-- [Cihazlardan karşıya dosya yükleme][lnk-upload-tutorial], cihazlardan karşıya dosya yüklemelerini gerçekleştirmek için buluttan cihaza iletilerden yararlanan bir deseni açıklar.
+IoT Hub’ı kullanmaya başlamak ve diğer IoT senaryolarını keşfetmek için bkz:
+
+- [Cihazınızı bağlama][lnk-connect-device]
+- [Cihaz yönetimi ile çalışmaya başlama][lnk-device-management]
+- [Ağ Geçidi SDK’sı ile çalışmaya başlama][lnk-gateway-SDK]
+
+IoT çözümünüzün nasıl genişletileceğini ve cihazdan buluta iletilerin ölçekli olarak nasıl işleneceğini öğrenmek için [Cihazdan buluta iletileri işleme][lnk-process-d2c-tutorial] öğreticisine bakın.
 
 <!-- Images. -->
 [41]: ./media/iot-hub-csharp-csharp-getstarted/run-apps1.png
@@ -273,9 +263,7 @@ Bu öğreticide, portalda yeni bir IoT hub'ı yapılandırdınız ve ardından h
 [12]: ./media/iot-hub-csharp-csharp-getstarted/create-identity-csharp3.png
 
 <!-- Links -->
-[lnk-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md
 [lnk-process-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
-[lnk-upload-tutorial]: iot-hub-csharp-csharp-file-upload.md
 
 [lnk-hub-sdks]: iot-hub-sdks-summary.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
@@ -290,9 +278,11 @@ Bu öğreticide, portalda yeni bir IoT hub'ı yapılandırdınız ve ardından h
 [lnk-device-nuget]: https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [lnk-connected-service]: https://visualstudiogallery.msdn.microsoft.com/e254a3a5-d72e-488e-9bd3-8fee8e0cd1d6
+[lnk-device-management]: iot-hub-device-management-get-started.md
+[lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
+[lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 
 
-
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

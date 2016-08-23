@@ -30,7 +30,7 @@ Yeni Azure SQL Database’i yeni veya var olan Azure SQL Database mantıksal sun
  - Veritabanı adı
  - Abonelik (yalnızca birden fazla aboneliğiniz varsa)
  - Kaynak grubu (yalnızca başlamak içinse mantıksal sunucunun kaynak grubunu kullanın)
- - Kaynak seç (boş veritabanı, örnek verileri veya veritabanı yedeği seçebilirsiniz)
+ - Kaynak seçin (boş bir veritabanı, örnek veriler veya bir Azure veritabanı yedeği seçebilirsiniz; şirket içi SQL Server veritabanını geçirmek veya BCP kullanarak veri yüklemek için bu makalenin sonundaki bağlantılara bakın)
  - Sunucu (yeni veya var olan mantıksal sunucu)
  - Sunucu yönetici parolası
  - Parola
@@ -48,6 +48,7 @@ Yeni Azure SQL Database’i yeni veya var olan Azure SQL Database mantıksal sun
      ![yeni veritabanı](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-6.png)
 
 
-<!--HONumber=Jun16_HO2-->
+
+<!--HONumber=Aug16_HO1-->
 
 

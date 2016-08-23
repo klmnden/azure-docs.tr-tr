@@ -6,7 +6,7 @@
    authors="markgalioto"
    manager="jwhit"
    editor=""
-   keywords="backup solution; backup service"/>
+   keywords="yedekleme çözümü; backup hizmeti"/>
 
 <tags
    ms.service="backup"
@@ -14,7 +14,7 @@
      ms.tgt_pltfrm="na"
      ms.devlang="na"
      ms.topic="get-started-article"
-     ms.date="03/30/2016"
+     ms.date="07/01/2016"
      ms.author="trinadhk; markgal; jimpark;"/>
 
 # Azure Backup hizmetinin Genel Önizleme sürümü ile ilgili SSS
@@ -49,6 +49,6 @@ Y1. ARM için PowerShell cmdlet'leri şu anda kullanılamamaktadır. Bir kaynak 
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

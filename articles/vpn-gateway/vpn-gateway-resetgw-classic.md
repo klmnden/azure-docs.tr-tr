@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/26/2016"
+   ms.date="07/13/2016"
    ms.author="cherylmc"/>
 
 # PowerShell kullanarak bir Azure VPN Gateway sıfırlama
@@ -36,7 +36,7 @@ Ağ geçidinizi sıfırlamadan önce aşağıdaki öğeleri doğrulayın.
 
 ## PowerShell kullanarak VPN Gateway sıfırlama
 
-Azure VPN ağ geçidini sıfırlamaya yönelik PowerShell cmdlet’i *Reset-AzureVNetGateway*’dir. Her bir Azure VPN ağ geçidi etkin bekleme yapılandırmasında çalışan iki VM örneğinden oluşur. Komut yayınlandıktan sonra Azure VPN ağ geçidinin o anda etkin olan örneği hemen yeniden başlatılır. Etkin örnekten (yeniden başlatılan) bekleme örneğine yük devretme sırasında kısa bir boşluk oluşur. Boşluk bir dakikadan az olmalıdır. 
+Azure VPN ağ geçidini sıfırlamaya yönelik PowerShell cmdlet’i *Reset-AzureVNetGateway* ’dir. Her bir Azure VPN ağ geçidi etkin bekleme yapılandırmasında çalışan iki VM örneğinden oluşur. Komut yayınlandıktan sonra Azure VPN ağ geçidinin o anda etkin olan örneği hemen yeniden başlatılır. Etkin örnekten (yeniden başlatılan) bekleme örneğine yük devretme sırasında kısa bir boşluk oluşur. Boşluk bir dakikadan az olmalıdır. 
 
 Aşağıdaki örnekte "ContosoVNet" adlı sanal ağ için Azure VPN ağ geçidi sıfırlanmaktadır.
  
@@ -66,6 +66,6 @@ Aşağıdaki örnekte "ContosoVNet" adlı sanal ağ için Azure VPN ağ geçidi 
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

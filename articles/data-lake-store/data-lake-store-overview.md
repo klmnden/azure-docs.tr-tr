@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/11/2016"
+   ms.date="08/02/2016"
    ms.author="nitinme"/>
 
 # Azure Data Lake Store'a genel bakış
@@ -65,7 +65,7 @@ Azure Data Lake Store, verilerinize erişimi yönetmek üzere kimlik doğrulamas
 | Özellik                                 | Açıklama                              |
 |-----------------------------------------|------------------------------------------|
 | Kimlik Doğrulaması | Azure Data Lake Store, Azure Data Lake Store içinde depolanan tüm verilere yönelik kimlik ve erişim yönetimi için Azure Active Directory (AAD) olanağıyla tümleştirilir. Tümleştirme sonucunda Azure Data Lake, çok faktörlü kimlik doğrulaması, koşullu erişim, rol tabanlı erişim denetimi, uygulama kullanımını izleme, güvenlik izlemesi ve uyarısı vb. özellikler de dahil olmak üzere tüm AAD özelliklerinden faydalanır. Azure Data Lake Store, REST arabirimi içinde kimlik doğrulaması için OAuth 2.0 protokolünü destekler. |
-| Erişim denetimi                          | Azure Data Lake Store, WebHDFS protokolünün kullanıma sunduğu POSIX tipi izinleri destekleyerek erişim denetimi sağlar. Geçerli sürümde, izinler veri gölü düzeyinde belirtilebilir ve veri gölü içindeki tüm dosyalar ve klasörler üzerinde geçerli olur. Gelecekteki güncelleştirmeler, ayrı dosya ve klasörler üzerinde izinlerin belirtilmesine izin vererek ayrıntılı erişim denetimine olanak tanıyacaktır.|
+| Erişim denetimi                          | Azure Data Lake Store, WebHDFS protokolünün kullanıma sunduğu POSIX tipi izinleri destekleyerek erişim denetimi sağlar. Geçerli sürümde ACL’ler kök klasörde, alt klasörlerde ve tek dosyalarda etkinleştirilebilir. Kök klasöre uyguladığınız ACL’ler alt klasörler/dosyalar için de geçerli olacaktır.|
 
 Data Lake Store'da verilerin güvenliği sağlama konusunda daha fazla bilgi edinmek mi istiyorsunuz? Aşağıdaki bağlantıları izleyin.
 
@@ -115,6 +115,6 @@ Azure Portal'ı kullanarak Data Lake Store sağlamaya yönelik bilgiler için bk
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

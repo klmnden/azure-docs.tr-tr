@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/08/2016"
+   ms.date="06/30/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 
@@ -56,7 +56,7 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 "
 ```
 
->[AZURE.NOTE] SQL Data Warehouse'da tablo oluşturma ve WITH yan tümcesinde bulunan seçenekler hakkında daha fazla bilgi için bkz. [Tablo Tasarımı][] veya [CREATE TABLE söz dizimi][].
+>[AZURE.NOTE] SQL Data Warehouse'da tablo oluşturma ve WITH yan tümcesinde bulunan seçenekler hakkında daha fazla bilgi için bkz. [Tabloya Genel Bakış][] veya [CREATE TABLE söz dizimi][].
 
 ### 2. Adım: Kaynak veri dosyası oluşturma
 
@@ -160,10 +160,10 @@ Geliştirme ile ilgili daha fazla ipucu için bkz. [SQL Data Warehouse geliştir
 
 <!--Article references-->
 
-[SQL Data Warehouse'a veri yükleme]: sql-data-warehouse-overview-load.md
-[SQL Data Warehouse geliştirmeye genel bakış]: sql-data-warehouse-overview-develop.md
-[Tablo Tasarımı]: sql-data-warehouse-develop-table-design.md
-[İstatistikler]: sql-data-warehouse-develop-statistics.md
+[SQL Data Warehouse'a veri yükleme]: ./sql-data-warehouse-overview-load.md
+[SQL Data Warehouse geliştirmeye genel bakış]: ./sql-data-warehouse-overview-develop.md
+[Tabloya Genel Bakış]: ./sql-data-warehouse-tables-overview.md
+[İstatistikler]: ./sql-data-warehouse-tables-statistics.md
 
 <!--MSDN references-->
 [bcp]: https://msdn.microsoft.com/library/ms162802.aspx
@@ -174,6 +174,6 @@ Geliştirme ile ilgili daha fazla ipucu için bkz. [SQL Data Warehouse geliştir
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

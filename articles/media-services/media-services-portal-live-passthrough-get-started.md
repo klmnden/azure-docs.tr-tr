@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article"
-    ms.date="06/05/2016" 
+    ms.date="06/22/2016" 
     ms.author="juliako"/>
 
 
@@ -177,6 +177,6 @@ Varlıklarınızı yönetmek için, **Ayar**’ı seçin ve **Varlıklar**’a t
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

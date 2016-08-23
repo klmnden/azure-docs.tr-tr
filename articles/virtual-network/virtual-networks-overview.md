@@ -23,7 +23,7 @@ Sanal ağları daha iyi anlayabilmek için basitleştirilmiş bir şirket içi a
 
 ![Şirket içi ağı](./media/virtual-networks-overview/figure01.png)
 
-Yukarıdaki şekilde, bir yönlendirici yoluyla genel İnternet'e bağlanan bir şirket içi ağı gösterilmektedir. Bir DNS sunucusunu ve bir web sunucusu grubunu barındıran bir DMZ ile yönlendirici arasında güvenlik duvarı bulunduğunu da görebilirsiniz. Web sunucusu grubunda İnternet'te kullanıma sunulan bir donanım yük dengeleyicisi kullanılarak yük dengelemesi yapılmıştır ve iç alt ağdan kaynak kullanmaktadır. İç alt ağ DMZ'den başka bir güvenlik duvarı ile ayrılmıştır ve Active Directory Etki Alanı Denetleyicileri'ni, veritabanı sunucularını ve uygulama sunucularını barındırır.
+Yukarıdaki şekilde, bir yönlendirici yoluyla genel İnternet'e bağlanan bir şirket içi ağı gösterilmektedir. Bir DNS sunucusunu ve bir web sunucusu grubunu barındıran bir çevre ağı ile yönlendirici arasında güvenlik duvarı bulunduğunu da görebilirsiniz. Web sunucusu grubunda İnternet'te kullanıma sunulan bir donanım yük dengeleyicisi kullanılarak yük dengelemesi yapılmıştır ve iç alt ağdan kaynak kullanmaktadır. İç alt ağ çevre ağından başka bir güvenlik duvarı ile ayrılmıştır ve Active Directory Etki Alanı Denetleyicileri’ni, veritabanı sunucularını ve uygulama sunucularını barındırır.
 
 Aynı ağ aşağıdaki şekilde gösterilen biçimde Azure'da barındırılabilir.
 
@@ -97,6 +97,6 @@ Azure'da Virtual Network'ü kullanmanın ek bir maliyeti yoktur. Sanal ağ için
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/06/2016"
+    ms.date="07/25/2016"
     ms.author="nitinme"/>
 
 
@@ -37,6 +37,8 @@ HDInsight’ta bir Apache Spark kümesi oluşturmayı ve ardından [Jupyter](htt
     -  Bir Linux bilgisayardan - [SSH’yi Linux, Unix veya OS X işletim sistemlerinde Linux tabanlı HDInsight (Hadoop) ile birlikte kullanma](hdinsight-hadoop-linux-use-ssh-unix.md).
     
     -  Bir Windows bilgisayardan - [SSH’yi Windows işletim sisteminde Linux tabanlı HDInsight (Hadoop) ile birlikte kullanma](hdinsight-hadoop-linux-use-ssh-windows.md).
+
+>[AZURE.NOTE] Bu makalede [küme depolama birimi olarak Azure Depolama Blobları](hdinsight-hadoop-use-blob-storage.md) kullanan bir Spark kümesi oluşturmak üzere ARM şablonu kullanılmaktadır. Ayrıca, varsayılan depolama birimi olan Azure Depolama Bloblarına ek olarak [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md) kullanan bir Spark kümesi oluşturabilirsiniz. Yönergeler için bkz. [Data Lake Store ile HDInsight kümesi oluşturma](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 
 
 ## Spark kümesi oluşturma
@@ -121,7 +123,7 @@ Bu makalede PySpark çekirdeği kullanılacaktır. [Spark HDInsight kümeleri il
     Boş bir hücreye aşağıdaki kod örneğini yapıştırın ve **SHIFT + ENTER** tuşlarına basın. Bu kod örneği, verileri **hvac** adlı geçici bir tabloya kaydeder.
 
         # Load the data
-        hvacText = sc.textFile("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+        hvacText = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
         
         # Create the schema
         hvacSchema = StructType([StructField("date", StringType(), False),StructField("time", StringType(), False),StructField("targettemp", IntegerType(), False),StructField("actualtemp", IntegerType(), False),StructField("buildingID", StringType(), False)])
@@ -212,6 +214,6 @@ Bu makalede PySpark çekirdeği kullanılacaktır. [Spark HDInsight kümeleri il
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

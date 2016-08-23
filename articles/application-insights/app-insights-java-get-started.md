@@ -162,6 +162,20 @@ Azure portalından aldığınız izleme anahtarını bununla değiştirin.
 * İzleme anahtarı telemetrinin her öğesiyle birlikte gönderilir ve Application Insights’ın bunu kaynağınızda görüntülemesini isteyin.
 * HTTP isteği bileşeni isteğe bağlıdır. İstek ve yanıt süreleri hakkında telemetriyi otomatik olarak portala gönderir.
 * Olay bağıntısı HTTP isteği bileşenine bir ektir. Sunucu tarafından alınan her istek için bir tanımlayıcı atar ve bunu bir özellik olarak telemetrinin her öğesine 'Operation.Id' özelliği olarak ekler. [Tanı aramaya][diagnostic] bir filtre ayarlayarak her istekle ilişkili telemetrinin bağıntısını kurmanızı sağlar.
+* Application Insight anahtarı Azure portalından bir sistem özelliği olarak dinamik şekilde geçirilebilir (-DAPPLICATION_INSIGHTS_IKEY=your_ikey). Tanımlı bir özellik yoksa Azure Uygulama Ayarında ortam değişkenini (APPLICATION_INSIGHTS_IKEY) denetler. Her iki özellik de tanımlanmamışsa ApplicationInsights.xml dosyasındaki varsayılan InstrumentationKey kullanılır. Bunun yapılması farklı ortamlar için InstrumentationKey anahtarının dinamik olarak yönetilmesine yardımcı olur.
+
+### İzleme anahtarını ayarlamak için alternatif yollar
+
+Application Insights SDK’sı anahtarı şu sırayla arar:
+
+1. Sistem özelliği: -DAPPLICATION_INSIGHTS_IKEY=your_ikey
+2. Ortam değişkeni: APPLICATION_INSIGHTS_IKEY
+3. Yapılandırma dosyası: ApplicationInsights.xml
+
+Ayrıca [kod içinde ayarlayabilirsiniz](app-insights-api-custom-events-metrics.md#ikey):
+
+    telemetryClient.InstrumentationKey = "...";
+
 
 ## 4. HTTP filtresi ekleme
 
@@ -248,16 +262,14 @@ Daha fazla veri birleştirdiğinizde hem veri toplama, hem de tek tek örnekleri
 ![Analizi örneği](./media/app-insights-java-get-started/025.png)
 
 
-## 5. Uygulamanızı sunucuya yükleme
+## 7. Uygulamanızı sunucuya yükleme
 
 Artık uygulamanızı sunucuya yayımlayın, herkesin kullanmasını sağlayın ve portalda gösterilen telemetriye bakın.
 
 * Güvenlik duvarınızın, uygulamanıza şu bağlantı noktalarına telemetri göndermesine izin verdiğinden emin olun:
 
  * dc.services.visualstudio.com:443
- * dc.services.visualstudio.com:80
  * f5.services.visualstudio.com:443
- * f5.services.visualstudio.com:80
 
 
 * Windows sunucularda yüklenecekler:
@@ -403,6 +415,6 @@ Daha fazla bilgi için bkz. [Java Geliştirici Merkezi](/develop/java/).
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

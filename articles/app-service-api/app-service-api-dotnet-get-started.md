@@ -14,7 +14,7 @@
     ms.devlang="na"
     ms.topic="hero-article"
     ms.date="05/27/2016"
-    ms.author="tdykstra"/>
+    ms.author="rachelap"/>
 
 # Azure App Service’de API Apps, ASP.NET ve Swagger kullanmaya başlama
 
@@ -76,7 +76,7 @@ Serideki sonraki öğretici SPA ön ucunu buluta dağıtır.
 
 2. NuGet paketlerini geri yüklemek için çözümü oluşturun.
 
-    Dağıtmadan önce uygulamanın çalışmasını görmek istiyorsanız, yerel olarak çalıştırabilirsiniz. Üç projenin de başlangıç projeleri olduğundan emin olmanız yeterlidir. Bu tarayıcılar `http://localhost` URL’lerine çıkış noktaları arası JavaScript çağrılarına izin verdiğinden, Internet Explorer ya da Edge kullanmalısınız. 
+    Dağıtmadan önce uygulamanın çalışmasını görmek istiyorsanız, yerel olarak çalıştırabilirsiniz. Üç projenin de başlangıç projeleri olduğundan emin olmanız yeterlidir. Bu tarayıcılar `http://localhost` URL’lerine çıkış noktaları arası JavaScript çağrılarına izin verdiğinden, Internet Explorer ya da Microsoft Edge kullanmalısınız. 
 
 ## Swagger API meta verileri ve kullanıcı arabirimi kullanma
 
@@ -100,7 +100,7 @@ Bir ASP.NET Web API projesi [Swashbuckle](https://www.nuget.org/packages/Swashbu
 
     ![IE’de JSON meta veriler indirme](./media/app-service-api-dotnet-get-started/iev1json.png)
 
-    Chrome, Firefox veya Edge kullanıyorsanız, tarayıcıyı JSON dosyasını tarayıcı penceresinde görüntüler. Farklı tarayıcılar JSON dosyasını farklı şekilde işler ve tarayıcı pencereniz tam olarak örnekteki gibi görünmeyebilir.
+    Chrome, Firefox veya Microsoft Edge kullanıyorsanız, tarayıcıyı JSON dosyasını tarayıcı penceresinde görüntüler. Farklı tarayıcılar JSON dosyasını farklı şekilde işler ve tarayıcı pencereniz tam olarak örnekteki gibi görünmeyebilir.
 
     ![Chrome’da JSON meta verileri](./media/app-service-api-dotnet-get-started/chromev1json.png)
 
@@ -233,13 +233,13 @@ Bu bölümde, Azure’da yeni bir API uygulaması oluşturmak için Visual Studi
 
     Başka birinin önceden kullandığı bir adı girerseniz, sağda kırmızı bir ünlem işareti görürsünüz.
 
-    API uygulamasının URL’si `{APi app name}.azurewebsites.net` olacaktır.
+    API uygulamasının URL’si `{API app name}.azurewebsites.net` olacaktır.
 
 6. **Kaynak Grubu** açılır menüsünde, **Yeni**’ye tıklayın ve ardından isterseniz "ToDoListGroup" ya da başka bir ad girin. 
 
     Kaynak grubu API uygulamaları, veritabanları, sanal makineler ve benzerleri gibi Azure kaynakları koleksiyonudur. Bu öğreticide, en iyi uygulama yeni bir kaynak grubu oluşturulmasıdır; böylece, öğretici için oluşturduğunuz Azure kaynaklarını tek bir adımda kolayca silebilirsiniz.
 
-    Bu kutu mevcut [kaynak grubunu](../azure-portal/resource-group-portal.md) seçmenize ya da aboneliklerinizdeki kaynak grubunda olanlardan farklı bir ad yazarak yeni bir tane oluşturmanıza olanak tanır.
+    Bu kutu mevcut [kaynak grubunu](../resource-group-overview.md) seçmenize ya da aboneliklerinizdeki kaynak grubunda olanlardan farklı bir ad yazarak yeni bir tane oluşturmanıza olanak tanır.
 
 4. **App Service Planı** açılır menüsünün yanındaki **Yeni** düğmesine tıklayın.
 
@@ -391,7 +391,7 @@ ToDoListAPI projesinin oluşturulan istemci kodu zaten vardır, ancak aşağıda
 
     Oluşturucu parametresi uç nokta URL’sini `toDoListDataAPIURL` uygulama ayarından alır. Uygulamayı yerel olarak çalıştırabilmeniz için, Web.config dosyasında, değer API projesinin yerel IIS Express URL’sine ayarlanır. Oluşturucu parametresini atlarsanız, varsayılan uç nokta koddan oluşturulan URL'dir.
 
-6. İstemci sınıfınız, API uygulaması adınıza göre farklı bir adla oluşturulacaktır; projenizde oluşturulanla tür adının eşleşmesi için, *Controllers\ToDoListController.cs*’deki kodda değişiklik yapın. Örneğin, API Uygulamanıza ToDoListDataAPI0121 adını verdiyseniz, kodu değiştirin:
+6. İstemci sınıfınız, API uygulaması adınıza göre farklı bir adla oluşturulacaktır; projenizde oluşturulanla tür adının eşleşmesi için, *Controllers\ToDoListController.cs*’deki kodda değişiklik yapın. Örneğin, API Uygulamanıza ToDoListDataAPI071316 adını verdiyseniz kodu değiştirin:
 
         private static ToDoListDataAPI NewDataAPIClient()
         {
@@ -399,9 +399,9 @@ ToDoListAPI projesinin oluşturulan istemci kodu zaten vardır, ancak aşağıda
 
 şu şekilde:
 
-        private static ToDoListDataAPI0121 NewDataAPIClient()
+        private static ToDoListDataAPI071316 NewDataAPIClient()
         {
-            var client = new ToDoListDataAPI0121(new Uri(ConfigurationManager.AppSettings["toDoListDataAPIURL"]));
+            var client = new ToDoListDataAPI071316(new Uri(ConfigurationManager.AppSettings["toDoListDataAPIURL"]));
 
 
 ## Orta katmanı barındırmak için API uygulaması oluşturma
@@ -445,9 +445,9 @@ Orta katman API uygulamasını çağırdıysanız, hala Web.config dosyasında b
   	| **Anahtar** | toDoListDataAPIURL |
   	|---|---|
   	| **Değer** | https://{your data tier API app name}.azurewebsites.net |
-  	| **Örnek** | https://todolistdataapi0121.azurewebsites.net |
+  	| **Örnek** | https://todolistdataapi.azurewebsites.net |
 
-4. **Kaydet**’e tıklayın.
+4. **Kaydet** düğmesine tıklayın.
 
     ![Uygulama Ayarları için Kaydet’e tıklama](./media/app-service-api-dotnet-get-started/asinportal.png)
 
@@ -493,6 +493,6 @@ Sıfırdan yeni API uygulaması projeleri oluşturmak istiyorsanız, **Azure API
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

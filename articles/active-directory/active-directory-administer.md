@@ -5,7 +5,7 @@
     documentationCenter=""
     authors="markusvi"
     writer="markvi"
-    manager="stevenpo"
+    manager="femila"
     editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="04/07/2016"
+    ms.date="07/13/2016"
     ms.author="markvi"/>
 
 # Azure AD dizinini yönetme
@@ -40,7 +40,8 @@ Azure AD, aşağıdakiler dahil olmak üzere çoğu Microsoft bulut hizmetinin d
 
 Bu Microsoft bulut hizmetlerinden herhangi birine kaydolduğunuzda, bir Azure AD dizinine sahip olursunuz. Gerektikçe ek dizinler oluşturabilirsiniz. Örneğin, ilk dizininizi üretim dizini olarak tutup test veya hazırlama işlemleri için başka bir dizin oluşturabilirsiniz.
 
-> [AZURE.NOTE] İlk hizmetiniz için kaydolduktan sonra, diğer Microsoft bulut hizmetleri için oturum açarken kuruluşunuz ile ilişkilendirilen aynı yönetici hesabını kullanmanızı öneririz.
+> [AZURE.NOTE]
+> İlk hizmetiniz için kaydolduktan sonra, diğer Microsoft bulut hizmetleri için oturum açarken kuruluşunuz ile ilişkilendirilen aynı yönetici hesabını kullanmanızı öneririz.
 
 İlk kez bir Microsoft bulut hizmeti için kaydolduğunuzda, kuruluşunuz ve kuruluşunuzun İnternet etki alanı adı kaydıyla ilgili bilgi sağlamanız istenir. Bu bilgiler daha sonra kuruluşunuz için yeni bir Azure AD dizini örneğinin oluşturulması için kullanılır. Birden fazla Microsoft bulut hizmetine abone olduğunuzda, oturum açma denemeleri sırasında kimlik doğrulaması yapmak için de aynı dizin kullanılır.
 
@@ -101,8 +102,8 @@ Her dizini tamamen bağımsız bir kaynak olarak yönetebilirsiniz: Her dizin e�
 
 - **Kaynak bağımsızlığı**. Aşağıda açıklandığı gibi, bir dizinde kaynak oluşturur veya silerseniz dış kullanıcılar hariç olmak üzere bu durumun başka bir dizindeki kaynaklar üzerinde herhangi bir etkisi yoktur. Bir dizinde "contoso.com" özel etki alanını kullanırsanız başka bir dizinde kullanamazsınız.
 - **Yönetim bağımsızlığı**.  "Contoso" dizininin yönetici olmayan bir kullanıcısı "Test" adlı bir test dizini oluşturursa:
-    - ◦Dizin eşitleme aracı (verileri tek bir AD ormanıyla eşitlemek için)
-    - ◦"Test" yöneticisi özel olarak yetki vermediği sürece, "Contoso" dizininin yöneticilerinin "Test" dizini için doğrudan yönetim ayrıcalıkları yoktur. "Contoso" yöneticileri, "Test" dizinini oluşturan kullanıcı hesabını denetleyebildiği için "Test" dizinine erişimi denetleyebilir.
+    - Verileri tek bir AD ormanıyla eşitlemek için dizin eşitleme aracı.
+    - ‘Test’ yöneticisi özel olarak yetki vermediği sürece, ‘Contoso’ dizininin yöneticilerinin ‘Test’ dizini için doğrudan yönetim ayrıcalıkları yoktur. "Contoso" yöneticileri, "Test" dizinini oluşturan kullanıcı hesabını denetleyebildiği için "Test" dizinine erişimi denetleyebilir.
 
     Ayrıca dizinde bir kullanıcının yönetici rolünü değiştirirseniz (ekler veya kaldırırsanız) bu değişiklik, kullanıcının başka bir dizinde sahip olduğu herhangi bir yönetici rolünü etkilemez.
 
@@ -129,8 +130,8 @@ Azure AD, bir dizinin silinmesi için belirli koşulların sağlanmasını gerek
 - Dizinde uygulama bulunamaz. Dizin silinmeden önce tüm uygulamaların silinmesi gerekir.
 - Microsoft Çevrimiçi Hizmetlerine (dizinle ilişkili Azure AD Premium, Microsoft Azure veya Office 365 gibi) ilişkin hiçbir aboneliğin bulunmaması gerekir. Örneğin, sizin için Azure'da varsayılan bir dizin oluşturulduysa ve Azure aboneliğinizin kimlik doğrulaması için hâlâ bu dizini kullanıyor olması halinde bu dizini silemezsiniz. Benzer şekilde, başka bir kullanıcı dizinle bir aboneliği ilişkilendirdiyse o dizini silemezsiniz. Aboneliğinizi farklı bir dizin ile ilişkilendirmek için Azure Yönetim Portalı'nda oturum açın ve sol gezinti bölmesindeki **Ayarlar** seçeneğine tıklayın. Ardından **Abonelikler** sayfasının altındaki **Dizinleri Düzenle** seçeneğine tıklayın. Azure abonelikleri hakkında daha fazla bilgi için bkz.[Azure aboneliklerinin Azure AD ile ilişkisi](active-directory-how-subscriptions-associated-directory.md).
 
-    > [AZURE.NOTE]
-    > Kullanıcı, bir iş veya okul hesabıyla oturum açtıysa kendi giriş dizinini silmeye çalışmamalıdır. Örneğin, kullanıcı joe@contoso.onmicrosoft.com olarak oturum açtıysa varsayılan etki alanı contoso.onmicrosoft.com olan dizini silemez.
+> [AZURE.NOTE]
+> Kullanıcı, bir iş veya okul hesabıyla oturum açtıysa kendi giriş dizinini silmeye çalışmamalıdır. Örneğin, kullanıcı joe@contoso.onmicrosoft.com olarak oturum açtıysa varsayılan etki alanı contoso.onmicrosoft.com olan dizini silemez.
 
 - Dizine herhangi bir Multi-Factor Authentication sağlayıcısı bağlanamaz.
 
@@ -150,6 +151,6 @@ Azure AD, bir dizinin silinmesi için belirli koşulların sağlanmasını gerek
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

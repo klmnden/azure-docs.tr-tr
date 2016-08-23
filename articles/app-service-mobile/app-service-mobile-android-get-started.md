@@ -3,7 +3,7 @@
     description="Android geliştirme için Azure mobil uygulaması arka uçlarını kullanmaya başlamak için bu öğreticiden yararlanın."
     services="app-service\mobile"
     documentationCenter="android"
-    authors="ysxu"
+    authors="RickSaling"
     manager="erikre"
     editor=""/>
 
@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="mobile-android"
     ms.devlang="java"
     ms.topic="hero-article"
-    ms.date="05/03/2016"
-    ms.author="yuaxu;ricksal"/>
+    ms.date="07/21/2016"
+    ms.author="ricksal"/>
 
 #Android uygulaması oluşturma
 
@@ -56,6 +56,6 @@ Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

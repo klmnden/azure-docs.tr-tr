@@ -12,43 +12,45 @@
     ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="03/09/2016"
+    ms.date="07/28/2016"
     ms.author="awills"/>
 
 
-# Web sitesi performansını izlemek için Application Insights Durum İzleyicisi’ni yükleme
+# Application Insights ile çalışma zamanında web uygulamalarını izleme
 
 *Application Insights önizlemededir.*
 
-Visual Studio Application Insights’ın Durum İzleyicisi, ASP.NET uygulamalarında özel durumları ve performans sorunlarını tanılamanızı sağlar. 
+Kodunuzu değiştirmeye veya yeniden dağıtmaya gerek olmadan canlı bir web uygulamasını Visual Studio Application Insights ile izleyebilirsiniz. Uygulamalarınız şirket içi bir IIS sunucusunda barındırılıyorsa Durum İzleyicisi’ni indirin veya Azure web uygulamaları ise ya da bir Azure sanal makinesinde çalışıyorsa Application Insights uzantısını yükleyebilirsiniz. ([Canlı J2EE web uygulamaları](app-insights-java-live.md) ve [Azure Cloud Services](app-insights-cloudservices.md) izleme hakkında ayrı makaleler de vardır.)
 
 ![örnek grafikler](./media/app-insights-monitor-performance-live-website-now/10-intro.png)
 
-> [AZURE.TIP] [Canlı J2EE web uygulamaları](app-insights-java-live.md) ve [Azure Cloud Services](app-insights-cloudservices.md) izleme hakkında ayrı makaleler vardır.
+.NET web uygulamalarınıza Application Insights uygulamak için üç yolunuz vardır:
+
+* **Derleme süresi:** Web uygulaması kodunuza [Application Insights SDK'sini ekleyin][greenbrown]. 
+* **Çalışma zamanı:** Kodu yeniden derlemeden ve yeniden dağıtmadan web uygulamanızı sunucu üzerinde izleyin.
+* **Her ikisi:** SDK’yı web uygulama kodunuzda derleyin ve ayrıca çalışma zamanı uzantılarını uygulayın. Her iki seçeneğin en iyisini edinin. 
+
+Her iki yöntemle de kazanacaklarınızın bir özeti aşağıda verilmiştir:
+
+||Derleme zamanı|Çalışma zamanı|
+|---|---|---|
+|İstekler ve özel durumlar|Evet|Evet|
+|[Daha ayrıntılı özel durumlar](app-insights-asp-net-exceptions.md)||Evet|
+|[Bağımlılık tanılama](app-insights-asp-net-dependencies.md)|.NET 4.6+ üzerinde|Evet|
+|[Sistem performans sayaçları](app-insights-web-monitor-performance.md#system-performance-counters)||IIS veya Azure bulut hizmeti, Azure web uygulaması değil|
+|[Özel telemetri için API][api]|Evet||
+|[İzleme günlüğü tümleştirme](app-insights-asp-net-trace-logs.md)|Evet||
+|[Sayfa görünümü ve kullanıcı verileri](app-insights-javascript.md)|Evet||
+|Kodu yeniden derlemeniz gerekmez|Hayır||
 
 
-IIS web uygulamalarınıza Application Insights uygulamak için üç yolunuz vardır:
-
-* **Derleme süresi:** Web uygulaması kodunuza [Application Insights SDK'sini ekleyin][greenbrown]. Şunları alırsınız:
- * Bir dizi standart tanılama ve kullanım telemetrisi.
- * [Application Insights API’si][api] ayrıntılı kullanımı izlemek veya sorunları tanılamak için kendi telemetrinizi yazmanızı sağlar.
-* **Çalışma zamanı:** Sunucuda web uygulamanızı izlemek isterseniz Durum İzleyicisi’ni kullanın.
- * Zaten çalışan web uygulamalarını izleme: bunları yeniden oluşturmanız veya yeniden yayımlamanız gerekmez.
- * Bir dizi standart tanılama ve kullanım telemetrisi.
- * Bağımlılık tanılama &#151; uygulamanızın veritabanları, REST API'leri veya diğer hizmetler gibi başka bileşenleri kullandığı yerde hataları veya yetersiz performansı bulun.
- * Telemetriyle ilgili sorunları giderin.
-* **Her ikisi:** SDK’yi web uygulama kodunuzda derleyip Durum izleyicisi’ni web sunucunuzda çalıştırın.  Her iki dünyanın da en iyisi:
- * Standart tanılama ve kullanım telemetrisi.
- * Bağımlılık tanılama.
- * API özel telemetri yazmanızı sağlar.
- * SDK ve telemetriyle ilgili sorunları giderin.
 
 
-## Application Insights Durum İzleyicisi yükleme
+## Çalışma zamanında web uygulamanızı izleme
 
 [Microsoft Azure](http://azure.com) aboneliğiniz olması gerekir.
 
-### Uygulamanız IIS sunucunuzda çalışıyorsa
+### Uygulamanız IIS sunucunuzda barındırılıyorsa
 
 1. IIS web sunucunuzda yönetici kimlik bilgileriyle oturum açın.
 2. [Durum İzleyicisi yükleyici](http://go.microsoft.com/fwlink/?LinkId=506648)’yi indirip çalıştırın.
@@ -87,9 +89,15 @@ Sihirbazı tamamladıktan sonra istediğiniz zaman aracıyı yeniden yapılandı
 
 ### Uygulamanız Azure Web Uygulaması çalıştırıyorsa
 
-Azure Web Uygulamanızın denetim masasında Application Insights uzantısını ekleyin.
+1. [Azure portalında](https://portal.azure.com) ASP.NET türü ile bir Application Insights kaynağı oluşturun. Burası uygulama telemetrinizin depolanacağı, analiz edileceği ve gösterileceği yerdir.
 
-![Web uygulamanızda Ayarlar, Uzantılar, Ekle, Application Insights](./media/app-insights-monitor-performance-live-website-now/05-extend.png)
+    ![Application Insights ekleyin. ASP.NET türünü seçin.](./media/app-insights-monitor-performance-live-website-now/01-new.png)
+     
+2. Azure Web Uygulamanızın denetim dikey penceresini açın, **Araçlar > Performans İzleme**’yi açın ve Application Insights uzantısını ekleyin.
+
+    ![Web uygulamanızda Araçlar, Uzantılar, Ekle, Application Insights](./media/app-insights-monitor-performance-live-website-now/05-extend.png)
+
+    Yeni oluşturduğunuz Application Insights kaynağını seçin.
 
 
 ### Bir Azure cloud services projesiyse
@@ -107,26 +115,28 @@ Azure Web Uygulamanızın denetim masasında Application Insights uzantısını 
 
 ![Performans](./media/app-insights-monitor-performance-live-website-now/21-perf.png)
 
-Görüntülenenlerin ayrıntılarını ayarlamak için tıklayın veya yeni bir grafik ekleyin.
+Daha ayrıntılı bir görünüm açmak için herhangi bir grafiğe tıklayın.
 
-
-![](./media/app-insights-monitor-performance-live-website-now/appinsights-038-dependencies.png)
+Grafikleri [düzenleyebilir, yeniden ayarlayabilir, kaydedebilir](app-insights-metrics-explorer.md) ve grafikleri ya da tüm dikey pencereyi bir [panoya](app-insights-dashboards.md) sabitleyebilirsiniz.
 
 ## Bağımlılıklar
 
 Bağımlılık Süresi grafiği uygulamanızdan veritabanları, REST API’leri veya Azure blob depolamaya yapılan çağrıların ne kadar süre aldığını gösterir.
 
-Grafiği farklı bağımlılıklara çağrıya göre bölümlere ayırmak için grafiği seçin, Gruplandırma’yı açın, sonra da Bağımlılık, Bağımlılık Türü veya Bağımlılık Performansı’nı seçin.
+Grafiği farklı bağımlılıklara çağrıya göre bölümlere ayırmak için: Grafiği düzenleyin, Gruplandırma’yı açın, sonra Bağımlılık, Bağımlılık Türü veya Bağımlılık Performansına göre gruplandırın.
 
-Belirli bir bağımlılığa, türe veya performans demetine bakmak için de grafiğe filtre uygulayabilirsiniz. Filtreler'e tıklayın.
+![Bağımlılık](./media/app-insights-monitor-performance-live-website-now/23-dep.png)
 
-## Performans sayaçları
+## Performans sayaçları 
 
 (Azure web uygulamaları için değil.) CPU doluluğu ve bellek kullanımı gibi sunucu performans sayacı grafiklerini görmek için genel bakış dikey penceresinde Sunucular’a tıklayın.
 
-Yeni bir grafik ekleyin veya gösterdiklerini değiştirmek için herhangi bir grafiğe tıklayın. 
+Birden çok sunucu örneğiniz varsa Rol örneğine göre gruplandırmak üzere grafikleri düzenlemek isteyebilirsiniz.
+
+![Sunucular](./media/app-insights-monitor-performance-live-website-now/22-servers.png)
 
 Ayrıca, [SDK tarafından bildirilen performans sayaçları kümesini değiştirebilirsiniz](app-insights-configuration-with-applicationinsights-config.md#nuget-package-3). 
+
 
 ## Özel durumlar
 
@@ -143,24 +153,7 @@ Uygulamanız çok miktarda veri gönderiyorsa ve ASP.NET sürüm 2.0.0-beta3 vey
 
 ### Bağlantı hataları
 
-Durum İzleyicisi’ne izin vermek için sunucunuzun güvenlik duvarında bazı giden bağlantı noktalarını açmanız gerekir:
-
-+ Telemetri - bunlar her zaman gereklidir:
- +  `dc.services.visualstudio.com:80`
- +  `dc.services.visualstudio.com:443`
- +  `dc.applicationinsights.microsoft.com`
-+ Yapılandırma - yalnızca değişiklik yaparken gerekir:
- -  `management.core.windows.net:443`
- -  `management.azure.com:443`
- -  `login.windows.net:443`
- -  `login.microsoftonline.com:443`
- -  `secure.aadcdn.microsoftonline-p.com:443`
- -  `auth.gfx.ms:443`
- -  `login.live.com:443`
-+ Yükleme:
- +  `packages.nuget.org:443`
-
-Bu liste zaman zaman değiştirilebilir.
+Durum İzleyicisi’ne izin vermek için sunucunuzun güvenlik duvarında [bazı giden bağlantı noktalarını](app-insights-ip-addresses.md#outgoing-ports) açmanız gerekir.
 
 ### Telemetri yok mu?
 
@@ -196,6 +189,12 @@ IIS desteği: IIS 7, 7.5, 8, 8.5 (IIS gereklidir)
 ## PowerShell ile Automation
 
 PowerShell kullanarak izlemeyi başlatabilir ve durdurabilirsiniz.
+
+İlk olarak Application Insights modülünü içeri aktarın:
+
+`Import-Module 'C:\Program Files\Microsoft Application Insights\Status Monitor\PowerShell\Microsoft.Diagnostics.Agent.StatusMonitor.PowerShell.dll'`
+
+Hangi uygulamaların izlenmekte olduğunu öğrenin:
 
 `Get-ApplicationInsightsMonitoringStatus [-Name appName]`
 
@@ -303,6 +302,6 @@ web uygulaması Azure’deyse ve Azure Resource Manager şablonu kullanarak kayn
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

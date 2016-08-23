@@ -14,7 +14,7 @@
     ms.devlang="na"
     ms.topic="get-started-article"
     ms.date="05/25/2016"
-    ms.author="tdykstra"/>
+    ms.author="rachelap"/>
 
 # Web Apps’e Genel Bakış
 
@@ -40,9 +40,9 @@ App Service’in Web Apps için geçerli olan temel özelliklerinden bazıları 
 
 - **Birden çok dil ve çerçeve** - App Service ASP.NET, Node.js, Java, PHP ve Python için birinci sınıf destek sunar. Ayrıca, App Service sanal makineleri üzerinde [PowerShell ve diğer betikleri veya yürütülebilirleri](../app-service-web/web-sites-create-web-jobs.md) çalıştırabilirsiniz.
 
-- **DevOps iyileştirmesi** - Visual Studio Team Services, GitHub veya BitBucket ile [sürekli tümleştirme ve dağıtım](../app-service-web/app-service-continous-deployment.md) ayarlayın. [Test ve hazırlık ortamları](../app-service-web/web-sites-staged-publishing.md) aracılığıyla güncelleştirmeleri yükseltin. [A/B testi](../app-service-web/app-service-web-test-in-production-get-start.md) gerçekleştirin. [Azure PowerShell](../powershell-install-configure.md) veya [platformlar arası komut satırı arabirimi (CLI)](../xplat-cli-install.md) kullanarak uygulamalarınızı App Service’te yönetin.
+- **DevOps iyileştirmesi** - Visual Studio Team Services, GitHub veya BitBucket ile [sürekli tümleştirme ve dağıtım](../app-service-web/app-service-continuous-deployment.md) ayarlayın. [Test ve hazırlık ortamları](../app-service-web/web-sites-staged-publishing.md) aracılığıyla güncelleştirmeleri yükseltin. [A/B testi](../app-service-web/app-service-web-test-in-production-get-start.md) gerçekleştirin. [Azure PowerShell](../powershell-install-configure.md) veya [platformlar arası komut satırı arabirimi (CLI)](../xplat-cli-install.md) kullanarak uygulamalarınızı App Service’de yönetin.
  
-- **Yüksek kullanılabilirlik ile küresel ölçeklendirme** - El ile veya otomatik olarak ölçek [artırabilir](../app-service/app-service-scale.md) veya [genişletebilirsiniz](../azure-portal/insights-how-to-scale.md). Uygulamalarınızı Microsoft'un küresel veri merkezi altyapılarının herhangi bir yerinde barındırın. App Service [SLA](https://azure.microsoft.com/support/legal/sla/app-service/)’sı yüksek kullanılabilirlik taahhüt eder.
+- **Yüksek kullanılabilirlik ile küresel ölçeklendirme** - El ile veya otomatik olarak ölçek [artırabilir](../app-service-web/web-sites-scale.md) veya [genişletebilirsiniz](../azure-portal/insights-how-to-scale.md). Uygulamalarınızı Microsoft'un küresel veri merkezi altyapılarının herhangi bir yerinde barındırın. App Service [SLA](https://azure.microsoft.com/support/legal/sla/app-service/)’sı yüksek kullanılabilirlik taahhüt eder.
 
 - **SaaS platformları ve şirket için veri bağlantıları** - Kurumsal sistemler (SAP, Siebel ve Oracle gibi), SaaS hizmetleri (Salesforce ve Office 365 gibi) ve İnternet hizmetleri (Facebook ve Twitter gibi) için 50’den fazla [bağlayıcı](../connectors/apis-list.md) arasından seçim yapın. [Karma Bağlantılar](../biztalk-services/integration-hybrid-connection-overview.md)’ı ve [Azure Sanal Ağlar](../app-service-web/web-sites-integrate-with-vnet.md)’ı kullanarak şirket içi verilere erişin.
 
@@ -64,6 +64,6 @@ Azure hesabı için kaydolmadan önce Azure App Service’i kullanmaya başlamak
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

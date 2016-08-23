@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/07/2016"
+   ms.date="07/07/2016"
    ms.author="nitinme"/>
 
 # Azure Komut Satırı'nı kullanarak Azure Data Lake Store ile çalışmaya başlama
@@ -191,6 +191,6 @@ Bir Data Lake Store hesabını silmek için aşağıdaki komutu kullanın.
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 
