@@ -1,5 +1,4 @@
-<özellikler
-
+<properties
     pageTitle="Managing groups in Azure Active Directory | Microsoft Azure"
     description="How to create and manage groups to manage Azure users using Azure Active Directory."
     services="active-directory"
@@ -116,6 +115,6 @@ Bu makalelerde Azure Active Directory ile ilgili ek bilgi sağlanmıştır.
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!-----HONumber=Aug16_HO1-->
 
 
