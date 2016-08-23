@@ -76,7 +76,7 @@ Bildirim hub'ınız şimdi GCM ile birlikte çalışmak üzere yapılandırıld�
 
 Aşağıdaki örnek, [Chrome Uygulaması GCM Örneği]'ni temel alır ve Chrome Uygulaması oluşturmak için önerilen yöntemi kullanır. Özellikle Azure Notification Hubs ile ilgili olan adımları vurgulayacağız. 
 
->[AZURE.NOTE] [Chrome Uygulaması Bildirim Hub'ı Örneği]'nden bu Chrome Uygulamasının kaynağını indirmenizi öneririz.
+>[AZURE.NOTE] Bu Chrome Uygulamasının kaynağını [Chrome Uygulaması Bildirim Hub’ı Örneği]’nden indirmenizi öneririz.
 
 Chrome Uygulaması JavaScript aracılığıyla oluşturulur ve bunu oluşturmak için tercih ettiğiniz herhangi bir sözcük düzenleyicisini kullanabilirsiniz. Aşağıda, bu Chrome Uygulamasının nasıl görüneceği gösterilmektedir.
 
@@ -464,7 +464,7 @@ Kullanıcılarınızı ilgi alanı gruplarına göre segmentlere ayırmak istiyo
 [21]: ./media/notification-hubs-chrome-get-started/FinalFolderView.png
 
 <!-- URLs. -->
-[Chrome Uygulaması Bildirim Hub'ı Örneği]: http://google.com
+[Chrome Uygulaması Bildirim Hub’ı Örneği]: http://google.com
 [Google Cloud Console]: http://cloud.google.com/console
 [Klasik Azure Portalı]: https://manage.windowsazure.com/
 [Notification Hubs'a Genel Bakış]: http://msdn.microsoft.com/library/jj927170.aspx
