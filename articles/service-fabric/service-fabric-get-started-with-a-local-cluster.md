@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/12/2016"
+   ms.date="06/09/2016"
    ms.author="ryanwi"/>
 
 # Yerel kümenizdeki uygulamaları dağıtma ve yükseltme işlemlerine giriş
@@ -66,7 +66,7 @@ Bu öğreticide, var olan örnek bir uygulama kullanacağımızdan (WordCount ol
     cd c:\ServiceFabric\
     ```
 
-4. Oluşturduğunuz konuma [WordCount uygulamasını indirin](http://aka.ms/servicefabric-wordcountapp).
+4. Oluşturduğunuz konuma [WordCount uygulamasını indirin](http://aka.ms/servicefabric-wordcountapp).  Not: Microsoft Edge tarayıcısı dosyayı bir *.zip* uzantısı ile kaydeder.  Dosya uzantısını *.sfpkg* olarak değiştirmeniz gerekir.
 
 5. Yerel kümeye bağlanın:
 
@@ -88,7 +88,7 @@ Bu öğreticide, var olan örnek bir uygulama kullanacağımızdan (WordCount ol
 
     ![Dağıtılan uygulama kullanıcı arabirimi][deployed-app-ui]
 
-    WordCount uygulaması oldukça basit bir şekilde işler. Daha sonra ASP.NET Web API'si aracılığıyla uygulamaya geçirilecek olan beş karakterli rastgele "sözcükler" oluşturmak için istemci tarafı JavaScript kodu içerir. Durum bilgisi olan bir hizmet, sayılan sözcüklerin sayısını takip eder. Sözcükler, ilk karakterlerine göre bölümlenir.
+    WordCount uygulaması oldukça basit bir şekilde işler. Daha sonra ASP.NET Web API'si aracılığıyla uygulamaya geçirilecek olan beş karakterli rastgele "sözcükler" oluşturmak için istemci tarafı JavaScript kodu içerir. Durum bilgisi olan bir hizmet, sayılan sözcüklerin sayısını takip eder. Sözcükler, ilk karakterlerine göre bölümlenir. WordCount uygulamasının kaynak kodunu [başlangıç örneklerinde](https://azure.microsoft.com/documentation/samples/service-fabric-dotnet-getting-started/) bulabilirsiniz.
 
     Dağıttığımız uygulama ise dört bölümden oluşur. İlk karakteri A ile G arasında olan kelimeler ilk bölümdür. İlk karakteri H ile N arasında yer alan kelimeler de ikinci bölümü oluşturur ve bölümleme bu şekilde devam eder.
 
@@ -168,6 +168,33 @@ Uygulamanın yeni sürümü artık yalnızca sesli bir harfle başlayan sözcük
 
     ![Uygulamanın yeni sürümünü tarayıcıda görüntüleme][deployed-app-ui-v2]
 
+## Temizleme
+
+Sonlandırmadan önce, yerel kümenin büyük ölçüde kaynak kullanımı gerektirdiğini unutmayın. Uygulamalar kaldırılıncaya kadar arka planda çalışmaya devam eder.  Uygulamalarınızın niteliğine bağlı olarak, çalışan bir uygulama makinenizde önemli miktarda kaynağı kullanabilir. Bu durumu yönetmek için birçok seçenek sunulur:
+
+1. Tek bir uygulamayı ve tüm ilişkili verileri kaldırmak için aşağıdakileri çalıştırın:
+
+    ```powershell
+    Unpublish-ServiceFabricApplication -ApplicationName "fabric:/WordCount"
+    ```
+
+    Veya **EYLEMLER** menüsü ya da sol bölmedeki uygulama listesi görünümündeki bağlam menüsü ile birlikte Service Fabric Explorer hizmetinde bulunan **Uygulamayı sil** eylemini kullanın.
+
+    ![Service Fabric Explorer'da uygulama silme][sfe-delete-application]
+
+2. Uygulamayı kümeden sildikten sonra WordCount uygulama türünün 1.0.0 ve 2.0.0 sürümlerinin kaydını kaldırabilirsiniz. Bunun yapılması kod ve yapılandırma ile birlikte uygulama paketlerini kümenin görüntü deposundan kaldırır.
+
+    ```powershell
+    Remove-ServiceFabricApplicationType -ApplicationTypeName WordCount -ApplicationTypeVersion 2.0.0
+    Remove-ServiceFabricApplicationType -ApplicationTypeName WordCount -ApplicationTypeVersion 1.0.0
+    ```
+
+    Veya Service Fabric Explorer’da uygulamanın **Sağlamayı Kaldırma Türü**’nü seçin.
+
+3. Kümeyi kapatıp uygulama verilerini ve izlemelerini tutmak için sistem tepsisi uygulamasında **Yerel Kümeyi Durdur**'a tıklayın.
+
+4. Kümeyi tamamen silmek için sistem tepsisi uygulamasında **Yerel Kümeyi Kaldır**'a tıklayın. Visual Studio'da F5'e bir sonraki basışınızda bu seçeneğin başka bir yavaş dağıtımla sonuçlanacağını unutmayın. Bu seçeneği yalnızca yerel kümeyi bir süre kullanmayı planlamıyorsanız veya kaynaklarınızı geri kazanmanız gerekiyorsa kullanın.
+
 ## Sonraki adımlar
 - Önceden derlenen bazı uygulamaları dağıtıp geliştirdiğinize göre [Visual Studio'da kendi uygulamanızı derlemeyi deneyebilirsiniz](service-fabric-create-your-first-application-in-visual-studio.md).
 - Bu makalede yer alan yerel kümede gerçekleştirilen eylemlerin tümü [Azure kümesinde](service-fabric-cluster-creation-via-portal.md) de gerçekleştirilebilir.
@@ -189,9 +216,10 @@ Uygulamanın yeni sürümü artık yalnızca sesli bir harfle başlayan sözcük
 [ps-getsfsvc-postupgrade]: ./media/service-fabric-get-started-with-a-local-cluster/PS-GetSFSvc-PostUpgrade.png
 [sfx-upgradeprogress]: ./media/service-fabric-get-started-with-a-local-cluster/SfxUpgradeOverview.png
 [sfx-service-overview]: ./media/service-fabric-get-started-with-a-local-cluster/sfx-service-overview.png
+[sfe-delete-application]: ./media/service-fabric-get-started-with-a-local-cluster/sfe-delete-application.png
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

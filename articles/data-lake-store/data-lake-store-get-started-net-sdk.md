@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/27/2016"
+   ms.date="07/18/2016"
    ms.author="nitinme"/>
 
 # .NET SDK'yı kullanarak Azure Data Lake Store ile çalışmaya başlama
@@ -528,6 +528,6 @@ Son olarak, burada sağladığınız yerel yolun ve dosya adının bilgisayar ü
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

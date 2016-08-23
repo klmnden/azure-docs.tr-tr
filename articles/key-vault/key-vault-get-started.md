@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="05/06/2016"
+    ms.date="07/15/2016"
     ms.author="cabailey"/>
 
 # Azure Anahtar Kasası kullanmaya başlama  #
@@ -160,8 +160,8 @@ Bir uygulamayı Azure Active Directory'ye kaydetmek için:
 1. Klasik Azure portalında oturum açın.
 2. Solda **Active Directory**'ye tıklayın ve ardından uygulamanızı içine kaydedeceğiniz dizini seçin. <br> <br> **Not:** Anahtar kasanızı oluşturduğunuz Azure aboneliğini içeren aynı dizini seçmeniz gerekir. Bu dizinin hangisi olduğunu bilmiyorsanız **Ayarlar**'a tıklayın, anahtar kasanızı oluşturduğunuz aboneliği tanımlayın ve son sütunda görüntülenen dizinin adını not edin.
 
-3. **UYGULAMALAR**'a tıklayın. Dizininize hiçbir uygulama eklenmemişse bu sayfa yalnızca **Bir uygulama ekle** bağlantısını gösterir. Bağlantıya tıklayın veya alternatif olarak komut çubuğunda **EKLE**'ye tıklayabilirsiniz.
-4.  **UYGULAMA EKLEME** sihirbazında **Ne yapmak istiyorsunuz?** sayfasında **Kuruluşumun geliştirdiği bir uygulama ekle**'ye tıklayın.
+3. **UYGULAMALAR**'a tıklayın. Dizininize hiçbir uygulama eklenmemişse bu sayfa yalnızca **Uygulama Ekle** bağlantısını gösterir. Bağlantıya tıklayın veya alternatif olarak komut çubuğunda **EKLE**'ye tıklayabilirsiniz.
+4.  **UYGULAMA EKLEME** sihirbazında **Ne yapmak istiyorsunuz?** sayfasında **Add an application my organization is developing (Kuruluşumun geliştirdiği bir uygulama ekle)** seçeneğine tıklayın.
 5.  **Bize uygulamanızı anlatın** sayfasında uygulamanız için bir ad belirtin ve ardından **WEB UYGULAMASI VE/VEYA WEB API'Sİ**'ni (varsayılan) seçin. **İleri** simgesine tıklayın.
 6.  **Uygulama özellikleri** sayfasında web uygulamanız için **OTURUM AÇMA URL'Sİ** ve **UYGULAMA KİMLİĞİ URI'Sİ** belirtin. Uygulamanız bu değerlere sahip değilse değerleri bu adım için kendiniz belirleyebilirsiniz. (örneğin, her iki kutu için http://test1.contoso.com belirtebilirsiniz). Bu sitelerin var olup olmaması önemli değildir; önemli olan her bir uygulama için uygulama kimliği URI'sinin dizininizdeki tüm uygulamalar için farklı olmasıdır. Dizin uygulamanızı tanımlamak için bu dizeyi kullanır.
 7.  Sihirbazda yaptığınız değişiklikleri kaydetmek için **Tamamlandı** simgesine tıklayın.
@@ -247,6 +247,6 @@ Programlama başvuruları için bkz. [Azure Anahtar Kasası geliştirici kılavu
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

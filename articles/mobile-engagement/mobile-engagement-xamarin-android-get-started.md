@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-xamarin-android"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="03/25/2016"
+    ms.date="06/16/2016"
     ms.author="piyushjo" />
 
 # Xamarin.Android Uygulamaları için Azure Mobile Engagement kullanmaya başlama
@@ -28,7 +28,7 @@ Bu öğretici için aşağıdakiler gereklidir:
 + [Xamarin Studio](http://xamarin.com/studio). Xamarin ile Visual Studio’yu da kullanabilirsiniz, ancak bu öğretici Xamarin Studio'yu kullanır. Yükleme yönergeleri için bkz. [Visual Studio ve Xamarin için Kurulum ve Yükleme](https://msdn.microsoft.com/library/mt613162.aspx).
 + [Mobile Engagement Xamarin SDK](https://www.nuget.org/packages/Microsoft.Azure.Engagement.Xamarin/)
 
-> [AZURE.NOTE] Bu öğreticiyi tamamlamak için etkin bir Azure hesabınızın olması gerekir. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılar için bkz. [Azure Ücretsiz Deneme](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-xamarin-android-get-started).
+> [AZURE.NOTE] Bu öğreticiyi tamamlamak için etkin bir Azure hesabınızın olması gerekir. Hesabınız yoksa yalnızca birkaç dakika içinde ücretsiz bir deneme sürümü hesabı oluşturabilirsiniz. Ayrıntılar için bkz. [Azure Ücretsiz Deneme](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-xamarin-android-get-started).
 
 ##<a id="setup-azme"></a>Android uygulamanız için Mobile Engagement kurma
 
@@ -109,6 +109,20 @@ Xamarin Studio, Mobile Engagement’ı tümleştireceğimiz uygulamayı oluştur
 Verileri göndermeye başlamak ve kullanıcıların etkin olduğundan emin olmak için, Mobile Engagement arka ucuna en az bir ekran göndermelisiniz. Bunu yapmak için, `MainActivity` öğesinin `Activity` yerine `EngagementActivity` öğesinden devraldığından emin olun.
 
     public class MainActivity : EngagementActivity
+    
+Alternatif olarak, `EngagementActivity` konumundan devralamıyorsanız `.StartActivity` ve `.EndActivity` yöntemlerini sırasıyla `OnResume` ve `OnPause` içine eklemeniz gerekir.  
+
+        protected override void OnResume()
+            {
+                EngagementAgent.StartActivity(EngagementAgentUtils.BuildEngagementActivityName(Java.Lang.Class.FromType(this.GetType())), null);
+                base.OnResume();             
+            }
+    
+            protected override void OnPause()
+            {
+                EngagementAgent.EndActivity();
+                base.OnPause();            
+            }
 
 ##<a id="monitor"></a>Uygulamayı gerçek zamanlı izlemeyle bağlama
 
@@ -134,6 +148,7 @@ Aşağıdaki bölümler, uygulamanızı bu bildirim ve mesajları alacak şekild
 [6]: ./media/mobile-engagement-xamarin-android-get-started/6.png
 
 
-<!----HONumber=Jun16_HO2-->
+
+<!--HONumber=Aug16_HO1-->
 
 

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="04/18/2016"
+    ms.date="06/22/2016"
     ms.author="juliako"/>
 
 
@@ -55,13 +55,13 @@ Media Services’e erişim iki ilişkili hesap gerektirir:
 
 ![Media Services Hızlı Oluştur](./media/media-services-create-account/wams-QuickCreate.png)
 
-2. **AD** alanına yeni hesabın adını girin. Media Services hesabı adı, boşluk olmadan tamamen küçük harf ve sayılardan oluşmalı ve 3-24 karakter uzunluğunda olmalıdır.
+2. **AD** alanına yeni hesabın adını girin. Media Services hesabı adı, boşluk olmadan, tümü küçük harf ve sayılardan oluşmalı ve 3-24 karakter uzunluğunda olmalıdır.
 
 3. **BÖLGE** alanında Media Services hesabınıza ait meta veri kayıtlarını depolamak üzere kullanılacak coğrafi bölgeyi seçin. Açılan listede yalnızca kullanılabilir Media Services bölgeleri görüntülenir.
 
-4. **DEPOLAMA HESABI** alanında, Media Services hesabınızdan gelen medya içeriğine blob depolama sağlamak üzere bir depolama hesabı seçin. Media Services hesabınızla aynı coğrafi bölgede bulunan mevcut bir depolama hesabını seçebilir ya da yeni bir depolama hesabı oluşturabilirsiniz. Yeni depolama hesabı aynı coğrafi bölgede oluşturulur.
+4. **DEPOLAMA HESABI** alanında, Media Services hesabınızdan gelen medya içeriğine blob depolama sağlamak üzere bir depolama hesabı seçin. Media Services hesabınızla aynı coğrafi bölgede bulunan mevcut bir depolama hesabını seçebilir ya da yeni bir depolama hesabı oluşturabilirsiniz. Aynı bölgede yeni bir depolama hesabı oluşturulur.
 
-5. Yeni bir depolama hesabı oluşturduysanız **YENİ DEPOLAMA HESABI ADI** alanına depolama hesabı için bir ad girin. Depolama hesabı adlarına ilişkin kurallar Media Services hesapları ile aynıdır.
+5. Yeni bir depolama hesabı oluşturduysanız **YENİ DEPOLAMA HESABI ADI** alanına depolama hesabı için bir ad girin. Depolama hesabı adları için kurallar Media Services hesapları ile aynıdır.
 
 6. Formun altındaki **Hızlı Oluştur**’a tıklayın.
 
@@ -108,6 +108,6 @@ Ayrıca, videoları karşıya yükleme, kodlama ve yayımlama görevlerini gerç
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

@@ -1,7 +1,7 @@
 <properties 
     pageTitle="DocumentDB için ASP.NET MVC öğreticisi: Web Uygulaması Geliştirme | Microsoft Azure" 
     description="DocumentDB'yi kullanarak bir MVC web uygulaması oluşturmak için hazırlanan ASP.NET MVC öğreticisi. Azure Web Siteleri'nde barındırılan bir yapılacaklar uygulamasında JSON ve erişim verilerini depolayacaksınız - adım adım ASP.NET MVC öğreticisi." 
-    keywords="asp.net mvc tutorial, web application development, mvc web application, asp net mvc tutorial step by step"
+    keywords="asp.net mvc öğreticisi, web uygulaması dağıtımı, mvc web uygulaması, asp net mvc adım adım öğreticisi"
     services="documentdb" 
     documentationCenter=".net" 
     authors="aliuy" 
@@ -15,7 +15,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="dotnet" 
     ms.topic="hero-article" 
-    ms.date="05/18/2016" 
+    ms.date="08/01/2016" 
     ms.author="andrl"/>
 
 #<a name="_Toc395809351"></a>ASP.NET MVC Öğreticisi: DocumentDB ile web uygulaması geliştirme
@@ -38,8 +38,8 @@ Bu adım adım kılavuz, Azure tarafından sağlanan DocumentDB hizmetinin, Azur
 
 Bu makaledeki yönergeleri uygulamadan önce aşağıdakilere sahip olduğunuzdan emin olmanız gerekir:
 
-- Etkin bir Azure hesabı. Hesabınız yoksa yalnızca birkaç dakika içinde ücretsiz bir deneme sürümü hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/).
-- [Visual Studio 2013](http://www.visualstudio.com/) Güncelleştirme 4 veya üstü.
+- Etkin bir Azure hesabı. Hesabınız yoksa yalnızca birkaç dakika içinde ücretsiz bir deneme sürümü hesabı oluşturabilirsiniz. Ayrıntılar için bkz. [Azure Ücretsiz Deneme](https://azure.microsoft.com/pricing/free-trial/).
+- [Visual Studio 2015](http://www.visualstudio.com/) veya Visual Studio 2013 Güncelleştirme 4 ya da üzeri. Visual Studio 2013 kullanıyorsanız C# 6.0 desteği eklemek için [Microsoft.Net.Compilers nuget paketi](https://www.nuget.org/packages/Microsoft.Net.Compilers/) yüklemeniz gerekir. 
 - [Microsoft Web Platformu Yükleyicisi][] aracılığıyla kullanılabilen .NET için Azure SDK'sı 2.5.1 veya sonraki bir sürümü.
 
 Bu makaledeki tüm ekran görüntüleri, Güncelleştirme 4 uygulanmış Visual Studio 2013 ve .NET için Azure SDK'sı 2.5.1 sürümü kullanılarak alınmıştır. Sisteminiz farklı sürümlerle yapılandırılmışsa ekranlarınızın ve seçeneklerinizin tamamen eşleşmeme olasılığı bulunur ancak yukarıdaki önkoşulları karşılarsanız bu çözümün çalışması gerekir.
@@ -546,7 +546,7 @@ Yerel makinenizde uygulamayı test etmek için aşağıdakileri yapın:
 
     ![Bu veritabanı öğreticisi tarafından oluşturulan yapılacaklar listesi web uygulamasının ekran görüntüsü](./media/documentdb-dotnet-application/image24.png)
 
-    Bu noktada hatalarla karşılaşırsanız kodunuzu [GitHub][]'daki örnek projeyle karşılaştırabilirsiniz
+    Visual Studio 2013 kullanıyorsanız ve "Catch yan tümcesinin gövdesinde bekleyemiyor" hatasını alıyorsanız [Microsoft.Net.Compilers nuget paketi](https://www.nuget.org/packages/Microsoft.Net.Compilers/) yüklemeniz gerekir. Ayrıca kodunuzu [GitHub][] üzerindeki kodunuzla karşılaştırabilirsiniz. 
 
 2. **Yeni Oluştur** bağlantısına tıklayın ve **Ad** ve **Açıklama** alanlarına değerler ekleyin. **Tamamlandı** onay kutusunu seçmeden bırakın, aksi halde yeni **Öğe** tamamlanmış durumda eklenir ve ilk listede görünmez.
 
@@ -564,7 +564,7 @@ Yerel makinenizde uygulamayı test etmek için aşağıdakileri yapın:
 
 4. Uygulamayı test ettikten sonra, uygulamanın hata ayıklamasını durdurmak için Ctrl+F5'e basın. Dağıtıma hazırsınız!
 
-##<a name="_Toc395637774"></a>7. Adım: Uygulamayı Azure Web Siteleri'ne dağıtma
+## <a name="_Toc395637774"></a>7. Adım: Uygulamayı Azure Web Siteleri'ne dağıtma
 
 Artık uygulamanın tamamı DocumentDB ile doğru şekilde çalıştığına göre, bu web uygulamasını Azure Web Siteleri'ne dağıtacağız. Boş ASP.NET MVC projesini oluştururken **Bulutta barındır**'ı seçtiyseniz Visual Studio bu işlemi gerçekten kolaylaştırır ve işlerin çoğunu sizin için yapar. 
 
@@ -578,7 +578,7 @@ Artık uygulamanın tamamı DocumentDB ile doğru şekilde çalıştığına gö
 
 Visual Studio birkaç saniye içinde web uygulamanızı yayımlamayı bitirecek ve eserinizi Azure'da çalışırken görebileceğiniz bir tarayıcıyı başlatacak!
 
-##<a name="_Toc395637775"></a>Sonraki adımlar
+## <a name="_Toc395637775"></a>Sonraki adımlar
 
 Tebrikler! Azure DocumentDB kullanarak ilk ASP.NET MVC web uygulamanızı oluşturdunuz ve bunu Azure Web Siteleri'ne yayımladınız. Bu öğreticide bulunmayan ayrıntı ve silme işlevleri dahil olmak üzere, tüm uygulamanın kaynak kodu [GitHub][]'dan indirilebilir veya kopyalanabilir. Uygulamanıza bunları eklemek isterseniz kodu alın ve bu uygulamaya ekleyin.
 
@@ -594,6 +594,6 @@ Uygulamanıza ilave işlevler eklemek için [DocumentDB .NET Kitaplığı](https
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

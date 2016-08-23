@@ -1,6 +1,6 @@
 <properties
     pageTitle=".NET kullanarak Azure Kuyruk depolamaya başlama | Microsoft Azure"
-    description="Azure Kuyruk depolama kullanarak uygulama bileşenleri arasında zaman uyumsuz ileti gönderin ve alın. Kuyruk oluşturma ve silme ile kuyruk iletileri ekleme, okuma ve silme dahil olmak üzere basit Kuyruk depolama işlemlerine başlayın."
+    description="Azure Queues, uygulama bileşenleri arasında güvenilir ve zaman uyumsuz mesajlaşma sağlar. Bulut mesajlaşma özelliği uygulama bileşenlerinizin bağımsız olarak ölçeklendirilmesini sağlar."
     services="storage"
     documentationCenter=".net"
     authors="robinsh"
@@ -13,16 +13,18 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="04/07/2016"
+    ms.date="07/26/2016"
     ms.author="gusapost"/>
 
 # .NET kullanarak Azure Kuyruk Depolamaya başlayın
 
 [AZURE.INCLUDE [storage-selector-queue-include](../../includes/storage-selector-queue-include.md)]
+<br/>
+[AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
 ## Genel Bakış
 
-Azure Kuyruk depolama bulutta mesajlaşma kuyruklarını sağlayan bir hizmettir  Ölçeklendirmek üzere uygulama tasarlarken, uygulama bileşenleri birbirinden bağımsız şekilde ölçeklenebilmek için genellikle birbirinden ayrılır.  Kuyruk depolama bulutta, masaüstünde, şirket içi sunucuda veya mobil bir cihazda çalışan uygulama bileşenleri arasındaki zaman uyumsuz iletişim için güvenilir bir mesajlaşma çözümü sunar. Kuyruk depolama ayrıca zaman uyumsuz görevlerin yönetilmesini ve süreç iş akışlarının oluşturulmasını destekler.
+Azure Queue depolama birimi, uygulama bileşenleri arasında bulut mesajlaşma özelliği sağlar. Ölçeklendirmek üzere uygulama tasarlarken, uygulama bileşenleri birbirinden bağımsız şekilde ölçeklenebilmek için genellikle birbirinden ayrılır. Kuyruk depolama bulutta, masaüstünde, şirket içi sunucuda veya mobil bir cihazda çalışan uygulama bileşenleri arasındaki iletişim için zaman uyumsuz mesajlaşma sunar. Kuyruk depolama ayrıca zaman uyumsuz görevlerin yönetilmesini ve süreç iş akışlarının oluşturulmasını destekler.
 
 ### Bu öğretici hakkında
 
@@ -278,6 +280,6 @@ Kuyruk depolamanın temellerini öğrendiğinize göre, daha karmaşık depolama
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

@@ -33,7 +33,7 @@ SSMS barındıran Azure SQL Database’e kullanıcı olarak bağlanmak için aş
       ![SQL Server Management Studio: SQL Database sunucusuna bağlanma](./media/sql-database-sql-server-management-studio-connect-user/connect-user-5.png)
       
  
- ## Bağlantı hatalarını giderme
+## Bağlantı hatalarını giderme
 
 Bağlantı hatasının en yaygın nedeni sunucu adındaki ( <*sunucuadı*> mantıksal sunucunun adıdır, veritabanının değil), kullanıcı adındaki veya paroladaki hatalardır; bunun yanı sıra sunucuya güvenlik nedenleriyle bağlantılara izin verilmiyordur. 
 
@@ -41,6 +41,6 @@ Bağlantı hatasının en yaygın nedeni sunucu adındaki ( <*sunucuadı*> mant�
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

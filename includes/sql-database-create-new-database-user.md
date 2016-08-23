@@ -17,14 +17,15 @@ Bu adımlar SSMS kullanan Nesne Gezgini'nde SQL Database’e bağlı olduğunuzu
 3. Sorgu penceresinde, kullanıcı veritabanınızda içerilen kullanıcı oluşturmak için aşağıdaki Transact-SQL deyimini düzenleyin ve kullanın. 
 
     ```CREATE USER user1 WITH PASSWORD ='p@ssw0rd1';
+    ```
 
-     ![SQL Server Management Studio: SQL Database sunucusuna bağlanma](./media/sql-database-create-new-database-user/sql-database-create-new-database-user-3.png)
-
-
-
+     ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-create-new-database-user/sql-database-create-new-database-user-3.png)
 
 
 
-<!--HONumber=Jun16_HO2-->
+
+
+
+<!--HONumber=Aug16_HO1-->
 
 

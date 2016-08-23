@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="cache-redis" 
     ms.devlang="dotnet" 
     ms.topic="hero-article" 
-    ms.date="05/31/2016" 
+    ms.date="06/09/2016" 
     ms.author="sdanie"/>
 
 # Azure Redis Önbelleğini kullanma
@@ -59,21 +59,7 @@ Azure Redis Önbelleğini kullanmaya başlamak kolaydır. Başlamak için, bir �
 <a name="NuGet"></a>
 ## Önbellek istemcilerini yapılandırma
 
-Azure Redis Önbelleği kullanılarak oluşturulan bir önbelleğe her Azure uygulamasından erişilebilir. Visual Studio’da geliştirilen .NET uygulamaları, önbellek istemcisi uygulamalarının yapılandırmasını basitleştiren bir NuGet paketi kullanarak yapılandırılabilecek **StackExchange.Redis** önbellek istemcisi kullanabilir. 
-
->[AZURE.NOTE] Daha fazla bilgi için, bkz. [StackExchange.Redis][] github sayfası ve [StackExchange.Redis önbelleği istemcisi belgeleri][].
-
-Visual Studio’da StackExchange.Redis NuGet paketi kullanarak bir istemci uygulamasını yapılandırmak için, **Çözüm Gezgini**’nde sağ tıklayın ve **NuGet Paketlerini Yönet**’i seçin. 
-
-![NuGet paketlerini yönetme][NuGetMenu]
-
-Arama metin kutusuna **StackExchange.Redis** ya da **StackExchange.Redis.StrongName** yazın, sonuçlardan istediğiniz sürümü seçin ve **Yükle**’ye tıklayın.
-
->[AZURE.NOTE] **StackExchange.Redis** istemci kitaplığının kesin adlandırılmış bir sürümünü kullanmak isterseniz, **StackExchange.Redis.StrongName** seçeneğin seçin; istemezseniz **StackExchange.Redis** seçeneğin seçin.
-
-![StackExchange.Redis NuGet paketi][StackExchangeNuget]
-
-NuGet paketi, StackExchange.Redis önbellek istemcisiyle Azure Redis Önbelleğine erişmek üzere istemci uygulamanız için gerekli derleme başvurularını ekler.
+[AZURE.INCLUDE [redis-cache-configure](../../includes/redis-cache-configure-stackexchange-redis-nuget.md)]
 
 İstemci projeniz önbelleğe almak üzere yapılandırıldığında, önbelleğinizle çalışmak için aşağıdaki bölümlerde açıklanan teknikleri kullanabilirsiniz.
 
@@ -207,7 +193,9 @@ Artık temel bilgileri öğrendiğinize göre, Azure Redis Önbelleği hakkında
 -   Önbelleğinizin sistem durumunu [izleyebilmeniz](cache-how-to-monitor.md) için [önbellek tanılamayı etkinleştirin](cache-how-to-monitor.md#enable-cache-diagnostics). Azure Portal’da ölçümleri görüntüleyebilir ve ayrıca istediğiniz araçları kullanarak bunları [indirebilir ve gözden geçirebilirsiniz](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring).
 -   [StackExchange.Redis önbellek istemcisi belgeleri][]ne bakın.
     -   Azure Redis Önbelleği birçok Redis istemcisinden ve geliştirme dilinden erişilebilir. Daha fazla bilgi için bkz. [http://redis.io/clients][].
-    -   Azure Redis Önbelleği Redsmin gibi hizmetlerle de kullanılabilir. Daha fazla bilgi için, bkz. [Azure Redis bağlantı dizesi alma ve Redsmin ile birlikte kullanma][].
+-   Azure Redis Önbelleği ayrıca Redsmin ve Redis Desktop Manager gibi üçüncü taraf hizmetler ve araçlarla birlikte kullanılabilir.
+    -   Redsmin hakkında daha fazla bilgi için bkz. [Azure Redis bağlantı dizesi alma ve Redsmin ile birlikte kullanma][].
+    -   Azure Redis Önbelleği’ndeki verilerinize erişin ve bunları [RedisDesktopManager](https://github.com/uglide/RedisDesktopManager) kullanan bir GUI ile inceleyin.
 -   [Redis][] belgelerine bakın ve [redis veri türleri][] hakkında bilgi edinin ve [Redis veri türlerine on beş dakikalık bir giriş][]e göz atın.
 
 
@@ -302,6 +290,6 @@ Artık temel bilgileri öğrendiğinize göre, Azure Redis Önbelleği hakkında
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="mobile-android"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="03/17/2016"
+    ms.date="06/20/2016"
     ms.author="awills"/>
 
 # Android uygulamaları için analiz
@@ -30,12 +30,12 @@ Microsoft, devOps cihazı için iki çözüm sağlar: [HockeyApp](http://hockeya
 
 Uygulamanız sunucu tarafındaysa, [ASP.NET](app-insights-asp-net.md) veya [J2EE](app-insights-java-get-started.md) üzerindeki uygulamanızın web sunucusu tarafını izlemek için [Application Insights](app-insights-overview.md)’ı kullanın. 
 
-> [AZURE.NOTE] 15 Haziran 2016’da, iOS, Android, Windows mağazası ve Windows Phone uygulamaları için verilerin Application Insights'ta gösterilmesini durdurduk.
+> [AZURE.NOTE] [Application Insights Analytics](app-insights-analytics.md) ve [Sürekli Dışarı Aktarma](app-insights-export-telemetry.md) özelliklerini yakında HockeyApp SDK’sından gönderilen telemetri verileriyle kullanabileceksiniz. 
 >
-> [Bu değişiklik hakkında daha fazla bilgi.](https://azure.microsoft.com/blog/transitioning-mobile-apps-from-application-insights-to-hockeyapp/)
+> [Bu değişiklik hakkında daha fazla bilgi.](https://azure.microsoft.com/blog/update-on-transitioning-mobile-apps-from-application-insights-to-hockeyapp/)
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

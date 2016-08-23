@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="04/25/2016"
+    ms.date="07/06/2016"
     ms.author="maheshu"/>
 
 # Azure AD Etki Alanı Hizmetleri *(Önizleme)* - Azure sanal ağı için DNS ayarlarını güncelleştirme
@@ -53,6 +53,6 @@ Bir sonraki yapılandırma görevi, [Azure AD Etki Alanı Hizmetleri için parol
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

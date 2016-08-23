@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="get-started-article"
-   ms.date="05/31/2016"
+   ms.date="06/27/2016"
    ms.author="andkjell;shoatman;billmath"/>
 
 # Azure AD Connect: DirSync'ten yükseltme
@@ -88,7 +88,7 @@ Ek adımların gerekli olduğu durumlar:
     - DirSync için tam SQL Server kullanıyorsanız o ekran yerine şu sayfayı görürsünüz: ![Analiz tamamlandı, DirSync'ten yükseltme yapmaya hazırsınız](./media/active-directory-aadconnect-dirsync-upgrade-get-started/AnalysisReadyFullSQL.png)  
 DirSync tarafından kullanılan mevcut SQL Server veritabanı sunucusuyla ilgili bilgiler görüntülenir. Gerekirse uygun ayarlamaları yapın. Yüklemeye devam etmek için **İleri**'ye tıklayın.
     - 50.000'den fazla nesneniz varsa şu ekranı görürsünüz: ![Analiz tamamlandı, DirSync'ten yükseltme yapmaya hazırsınız](./media/active-directory-aadconnect-dirsync-upgrade-get-started/AnalysisRecommendParallel.png)  
-Yerinde yükseltme işlemiyle devam etmek için şu iletinin yanındaki onay kutusuna tıklayın: **Bu bilgisayarda DirSync'i yükseltmeye devam et.**
+Yerinde yükseltme işlemiyle devam etmek için şu iletinin yanındaki onay kutusuna tıklayın: **Bu bilgisayarda DirSync'i yükseltmeye devam edin.**
 Bunun yerine [paralel dağıtım](#parallel-deployment) yapmak için, DirSync yapılandırma ayarlarını dışarı aktarın ve yeni sunucuya taşıyın.
 5. Şu anda Azure AD'ye bağlanmak için kullandığınız hesabın parolasını belirtin. Bu hesabın, şu anda DirSync tarafından kullanılan hesap olması gerekir.
 ![Azure AD kimlik bilgilerinizi girin](./media/active-directory-aadconnect-dirsync-upgrade-get-started/ConnectToAzureAD.png)  
@@ -146,7 +146,7 @@ Azure AD Connect'i yeni bir sunucuya yüklediğinizde, Azure AD Connect temiz bi
     - SQL Server'a bağlanmak için kullanılan hizmet hesabı. (SQL Server veritabanınız uzak ise bu hesabın etki alanı hizmet hesabı olması gerekir.)
 Bu ekranda şu seçenekleri görebilirsiniz: ![Azure AD kimlik bilgilerinizi girin](./media/active-directory-aadconnect-dirsync-upgrade-get-started/advancedsettings.png)
 7. **İleri**'ye tıklayın.
-8. **Yapılandırma için hazır** sayfasında, **Yapılandırma tamamlanınca eşitlemeyi başlat** seçeneğini işaretli olarak bırakın. Sunucu, [hazırlama modunda](active-directory-aadconnectsync-operations.md#staging-mode) olacağından değişiklikler bu sırada Azure AD'ye aktarılmaz.
+8. **Yapılandırma için hazır** sayfasında, **Start the synchronization process as soon as configuration completes (Yapılandırma tamamlanınca eşitlemeyi başlat)** seçeneğini işaretli olarak bırakın. Sunucu, [hazırlama modunda](active-directory-aadconnectsync-operations.md#staging-mode) olacağından değişiklikler bu sırada Azure AD'ye aktarılmaz.
 9. **Yükle**'ye tıklayın.
 10. Yükleme tamamlandıktan sonra Synchronization Service Manager'ı ve Synchronization Rule Editor'ı kullanmadan veya başka bir yapılandırma değişikliği yapmadan önce Windows oturumunuzu kapatıp tekrar açın.
 
@@ -187,7 +187,7 @@ Yükleme sonrasında, Azure AD Connect'i yeniden açtığınızda başka yapıla
 ![Ek görevler](./media/active-directory-aadconnect-dirsync-upgrade-get-started/AdditionalTasks.png)
 
 - **Hazırlama modunu yapılandır** seçeneğini belirleyin.
-- **Hazırlama modu etkin** onay kutusunun işaretini kaldırarak hazırlamayı devre dışı bırakın.
+- **Hazırlama modunu etkinleştir** onay kutusunun işaretini kaldırarak hazırlamayı devre dışı bırakın.
 
 ![Azure AD kimlik bilgilerinizi girin](./media/active-directory-aadconnect-dirsync-upgrade-get-started/configurestaging.png)
 
@@ -217,6 +217,6 @@ Yükleme için kullanılan hesaplar | [Azure AD Connect hesapları ve izinleri h
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

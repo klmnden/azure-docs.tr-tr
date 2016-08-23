@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/04/2016"
+   ms.date="07/19/2016"
    ms.author="charleywen"/>
 
 # Resource Manager dağıtım modeli için aynı anda var olabilen ExpressRoute ve Siteden Siteye bağlantılarını yapılandırma
@@ -196,6 +196,6 @@ ExpressRoute hakkında daha fazla bilgi için, bkz. [ExpressRoute SSS](expressro
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

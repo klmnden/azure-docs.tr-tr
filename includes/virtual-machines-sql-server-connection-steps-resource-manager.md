@@ -14,6 +14,8 @@ DNS etiketi oluşturmak için önce portalda **Virtual Machines**’i seçin. Ö
 
 3. DNS etiket adı girin. Bu ad, SQL Server VM'nize bağlanmak için IP adresi yerine doğrudan kullanılabilen bir Kayıttır.
 
+4. **Kaydet** düğmesine tıklayın.
+
     ![dns etiketi](./media/virtual-machines-sql-server-connection-steps/rm-dns-label.png)
 
 ### Başka bir bilgisayardan Veritabanı Altyapısına bağlanma
@@ -34,6 +36,6 @@ DNS etiketi oluşturmak için önce portalda **Virtual Machines**’i seçin. Ö
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

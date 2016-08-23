@@ -14,9 +14,9 @@
 
 4. Proje panosunun **Mobil API'ler** altında **Google Cloud Messaging**’e tıklayın, sonraki sayfada **API etkinleştir**’e tıklayıp hizmet koşullarını kabul edin. 
 
-    ![](./media/mobile-services-enable-google-cloud-messaging/enable-GCM.png)
+    ![GCM etkinleştirme](./media/mobile-services-enable-google-cloud-messaging/enable-GCM.png)
 
-    ![](./media/mobile-services-enable-google-cloud-messaging/enable-gcm-2.png) 
+    ![GCM etkinleştirme](./media/mobile-services-enable-google-cloud-messaging/enable-gcm-2.png) 
 
 5. Proje panosunda, **Kimlik Bilgileri** > **Kimlik Bilgisi Oluştur** > **API Anahtarı**’na tıklayın. 
 
@@ -31,6 +31,6 @@
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

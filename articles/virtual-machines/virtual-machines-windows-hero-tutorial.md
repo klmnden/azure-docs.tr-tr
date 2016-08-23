@@ -1,7 +1,7 @@
 <properties
     pageTitle="İlk Windows VM’nizi oluşturma | Microsoft Azure"
     description="Azure portalı kullanarak ilk Windows sanal makinenizi oluşturmayı öğrenin."
-    keywords="Windows virtual machine,create a virtual machine,virtual computer,setting up a virtual machine"
+    keywords="Windows sanal makine,sanal makine oluşturma,sanal bilgisayar,sanal makine ayarlama"
     services="virtual-machines-windows"
     documentationCenter=""
     authors="cynthn"
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="vm-windows"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="05/05/2016"
+    ms.date="06/07/2016"
     ms.author="cynthn"/>
 
 # Azure portalı kullanarak ilk Windows sanal makinenizi oluşturma
@@ -49,7 +49,7 @@ Görüntüyü seçtikten sonra, yapılandırmaların çoğu için Azure’un var
 
 2. VM’de yerel hesap oluşturmak için kullanılacak bir **Kullanıcı adı** ve güçlü bir **Parola** girin. Yerel hesap VM’de oturum açmak ve yönetmek için kullanılır. 
 
-    Parola en az 8-123 karakter uzunluğunda olmalıdır ve şunlardan en az 3’ünü içermelidir: bir küçük harf karakter, bir büyük harf karakter, bir sayı ve bir özel karakter. 
+    Parola 12-123 karakter uzunluğunda olmalıdır ve en az şunları içermelidir: bir küçük harf karakter, bir büyük harf karakter, bir sayı ve bir özel karakter. 
 
 
 3. Varolan [Kaynak grubunu](../resource-group-overview.md#resource-groups) seçin veya yenisi için adı yazın. **Batı ABD** gibi, bir Azure veri merkezi **Konumu** yazın. 
@@ -118,6 +118,6 @@ Tekrar kullanmaya hazır olduğunuzda, VM’yi yeniden başlatmak için **Başla
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

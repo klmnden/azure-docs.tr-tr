@@ -2,10 +2,10 @@
     pageTitle="Azure Active Directory Cihaz Kaydına genel bakış | Microsoft Azure"
     description="cihaz temelli koşullu erişim senaryoları için altyapıdır. Bir cihaz kaydedildiğinde; Azure Active Directory Cihaz Kaydı, bir kullanıcı oturum açtığında kimlik doğrulama için kullanılan kimliğe sahip cihazı sağlar."
     services="active-directory"
-    keywords="device registration, enable device registration, device registration and MDM"
+    keywords="cihaz kaydı, cihaz kaydını etkinleştirme, cihaz kaydı ve MDM"
     documentationCenter=""
     authors="femila"
-    manager="stevenpo"
+    manager="swadhwa"
     editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="03/29/2016"
+    ms.date="06/23/2016"
     ms.author="femila"/>
 
 # Azure Active Directory Cihaz Kaydına Başlarken
@@ -42,10 +42,10 @@ Azure Active Directory'de Yönetici Portalı'nı kullanarak kayıtlı cihazları
 
 1. Microsoft Azure portalında Yönetici olarak oturum açın.
 2. Sol bölmede **Active Directory**'yi seçin.
-3. **Dizin** sekmesinde dizininizi seçin.
-4. **Yapılandır** sekmesini seçin.
-5. **Cihazlar** adlı bölüme kaydırın.
-6. **KULLANICILAR ÇALIŞMA ALANINA CİHAZ KATABİLİR** için **TÜMÜ** seçeneğini belirleyin.
+3. **Directory (Dizin)** sekmesinde dizininizi seçin.
+4. **Configure (Yapılandır)** sekmesini seçin.
+5. **Devices (Cihazlar)** adlı bölüme kaydırın.
+6. **USERS MAY WORKPLACE JOIN DEVICES (KULLANICILAR ÇALIŞMA ALANINA CİHAZ KATABİLİR)** için **ALL (TÜMÜ)** seçeneğini belirleyin.
 7. Kullanıcı başına yetkilendirmek istediğiniz maksimum cihaz sayısını seçin.
 
 >[AZURE.NOTE]
@@ -74,9 +74,9 @@ Azure Active Directory Cihaz Kaydı hizmetiniz ile ilişkili A kaydına işaret 
 2. Microsoft Azure Portal'da Yönetici olarak oturum açın.
 3. Sol bölmede **Active Directory**'yi seçin.
 4. Dizininizi seçin.
-5. **Kullanıcılar** sekmesini seçin. Ardından cihazlarını görüntülemek için bir kullanıcı seçin.
-6. **Cihazlar** sekmesini seçin.
-7. Açılan menüden **Kayıtlı Cihazlar**'ı seçin.
+5. **Users (Kullanıcılar)** sekmesini seçin. Ardından cihazlarını görüntülemek için bir kullanıcı seçin.
+6. **Devices (Cihazlar)** sekmesini seçin.
+7. Açılan menüden **Registered Devices (Kayıtlı Cihazlar)** seçeneğini belirleyin.
 8. Burada kullanıcının kayıtlı cihazlarını görüntüleyebilir, engelleyebilir veya engellerini kaldırabilirsiniz.
 
 ## Ek konu başlıkları
@@ -90,6 +90,6 @@ Azure AD Cihaz Kaydı ile Windows 7 ve Windows 8.1 Etki Alanına Katılmış cih
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

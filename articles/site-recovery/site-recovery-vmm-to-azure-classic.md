@@ -134,9 +134,13 @@ Kasada bir kayıt anahtarı oluşturun. Azure Site Recovery Sağlayıcısı'nı 
 
     ![InstallComplete](./media/site-recovery-vmm-to-azure-classic/install-complete.png)
 
-7. **İnternet Bağlantısı** kısmında VMM sunucusunda çalışan Sağlayıcı'nın İnternet'e nasıl bağlanacağını belirleyin. Sunucuda yapılandırılan varsayılan İnternet bağlantısı ayarlarını kullanmak için **Varsayılan sistem ara sunucu ayarlarını kullan**'a tıklayın.
+9. **Kasa adı** alanında, sunucunun kayıtlı olduğu kasanın adını doğrulayın. *İleri*’ye tıklayın.
 
-    ![İnternet Ayarları](./media/site-recovery-vmm-to-azure-classic/proxy.png)
+    ![Sunucu kaydı](./media/site-recovery-vmm-to-azure-classic/vaultcred.PNG)
+
+7. **İnternet Bağlantısı** kısmında VMM sunucusunda çalışan Sağlayıcı'nın İnternet'e nasıl bağlanacağını belirleyin. Sunucuda yapılandırılan varsayılan İnternet bağlantısı ayarlarını kullanmak için **Var olan proxy ayarları ile bağlan**'a tıklayın.
+
+    ![İnternet Ayarları](./media/site-recovery-vmm-to-azure-classic/proxydetails.PNG)
 
     - Özel bir ara sunucu kullanmak isterseniz bu ara sunucuyu Sağlayıcı'yı yüklemeden önce ayarlamanız gerekir. Özel ara sunucu ayarlarını yapılandırırken ara sunucu bağlantısını denetlemek için bir test çalıştırılır.
     - Özel bir ara sunucu kullanırsanız veya varsayılan ara sunucunuz kimlik doğrulama gerektirirse ara sunucu adresi ve bağlantı noktası dahil olmak üzere ara sunucu bilgilerini girmeniz gerekir.
@@ -146,26 +150,23 @@ Kasada bir kayıt anahtarı oluşturun. Azure Site Recovery Sağlayıcısı'nı 
         - *.backup.windowsazure.com
         - *.blob.core.windows.net
         - *.store.core.windows.net
-    - [Azure Veri Merkezi IP Aralıkları](https://www.microsoft.com/download/details.aspx?id=41653)'nda tanımlanan IP adresine ve HTTPS (443) protokolüne izin verin. Ayrıca, Batı ABD ve kullanmayı düşündüğünüz Azure bölgesinin IP aralıklarını güvenilir listeye almanız gerekir.
+    - [Azure Veri Merkezi IP Aralıkları](https://www.microsoft.com/download/confirmation.aspx?id=41653)'nda tanımlanan IP adreslerine ve HTTPS (443) protokolüne izin verin. Batı ABD ve kullanmayı düşündüğünüz Azure bölgesinin IP aralıklarını güvenilir listeye almanız gerekir.
+    - Özel bir ara sunucu kullanırsanız otomatik olarak belirtilen ara sunucu kimlik bilgilerini kullanan VMM RunAs hesabı (DRAProxyAccount) oluşturulacaktır. Bu hesabın kimlik doğrulamasını başarıyla gerçekleştirebilmesi için ara sunucuyu yapılandırın. VMM RunAs hesabı ayarları VMM konsolundan değiştirilebilir. Bu işlemi gerçekleştirmek için **Ayarlar** çalışma alanını açın, **Güvenlik** bölümünü genişletin, **Farklı Çalıştır Hesapları**’na tıklayın ve ardından DRAProxyAccount parolasını değiştirin. Bu ayarın etkili olabilmesi için VMM hizmetinin yeniden başlatılması gerekir.
 
-    - Özel bir ara sunucu kullanırsanız otomatik olarak belirtilen ara sunucu kimlik bilgilerini kullanan VMM RunAs hesabı (DRAProxyAccount) oluşturulacaktır. Bu hesabın kimlik doğrulamasını başarıyla gerçekleştirebilmesi için ara sunucuyu yapılandırın. VMM RunAs hesabı ayarları VMM konsolundan değiştirilebilir. Bu işlemi gerçekleştirmek için Ayarlar çalışma alanını açın, Güvenlik bölümünü genişletin, Run As Hesapları'na tıklayon ve ardından DRAProxyAccount parolasını değiştirin. Bu ayarın etkili olabilmesi için VMM hizmetinin yeniden başlatılması gerekir.
 
 8. **Kayıt Anahtarı** kısmında, Azure Site Recovery'den indirdiğiniz anahtarı seçin ve VMM sunucusuna kopyalayın.
-9. **Kasa adı** alanında, sunucunun kayıtlı olduğu kasanın adını doğrulayın.
 
-    ![Sunucu kaydı](./media/site-recovery-vmm-to-azure-classic/credentials.png)
 
-10. Veri şifreleme için otomatik olarak oluşturulan SSL sertifikasını kaydetmek için konum belirtebilirsiniz. Bu sertifika, Site Recovery dağıtımı sırasında bir VMM bulutu için veri şifrelemeyi etkinleştirirseniz kullanılır. Bu sertifikayı güvenli bir yerde saklayın. Azure'a yük devretme çalıştırdığınızda bu sertifikayı şifrelenen verilerin şifresini çözmek için kullanırsınız.
+10.  Şifreleme ayarı yalnızca Hyper-V sanal makinelerini Azure'daki VMM bulutlarına çoğaltırken kullanılır. İkincil bir siteye çoğaltma yapıyorsanız kullanılmaz.
 
-    ![Sunucu kaydı](./media/site-recovery-vmm-to-azure-classic/encryption.png)
+11.  **Sunucu adı** alanında, kasadaki VMM sunucusunu tanımlamak için bir kolay ad belirtin. Küme yapılandırmasında VMM kümesi rolü adını belirtin.
+12.  **Bulut meta verilerini eşitle** bölümünde VMM sunucusundaki tüm bulutlar için meta verileri kasa ile eşitlemek isteyip istemediğinizi seçin. Bu eylemin her sunucuda yalnızca bir kez gerçekleştirilmesi gerekir. Tüm bulutları eşitlemek istemezseniz bu ayarı işaretlemeden bırakıp her bulutu VMM konsolundaki bulut özelliklerinde bağımsız olarak eşitleyebilirsiniz.
 
-11. **Sunucu adı** alanında, kasadaki VMM sunucusunu tanımlamak için bir kolay ad belirtin. Küme yapılandırmasında VMM kümesi rolü adını belirtin.
+13.  İşlemi tamamlamak için **İleri**'ye tıklayın. Kayıttan sonra Azure Site Recovery tarafından VMM sunucusundan meta veriler alınır. Sunucu, kasadaki **Sunucular** sayfasında **VMM Sunucuları** sekmesinde görünür.
+    
+    ![Lastpage](./media/site-recovery-vmm-to-azure-classic/provider13.PNG)
 
-12. **İlk bulut meta verileri** eşitlemesinde VMM sunucusundaki tüm bulutlar için meta verileri kasa ile eşitlemek isteyip istemediğiniz seçin. Bu eylemin her sunucuda yalnızca bir kez gerçekleştirilmesi gerekir. Tüm bulutları eşitlemek istemezseniz bu ayarı işaretlemeden bırakıp her bulutu VMM konsolundaki bulut özelliklerinde bağımsız olarak eşitleyebilirsiniz.
-
-    ![Sunucu kaydı](./media/site-recovery-vmm-to-azure-classic/friendly.png)
-
-13. İşlemi tamamlamak için **İleri**'ye tıklayın. Kayıttan sonra Azure Site Recovery tarafından VMM sunucusundan meta veriler alınır. Sunucu, kasadaki **Sunucular** sayfasında **VMM Sunucuları** sekmesinde görüntülenir.
+Kayıttan sonra Azure Site Recovery tarafından VMM sunucusundan meta veriler alınır. Sunucu, kasadaki **Sunucular** sayfasında **VMM Sunucuları** sekmesinde görüntülenir.
 
 ### Komut satırı yüklemesi
 
@@ -331,7 +332,10 @@ Yük devretme testi, yük devretme işleminizi ve kurtarma mekanizmanızı yalı
 
     ![Kurtarma planı oluşturma](./media/site-recovery-vmm-to-azure-classic/recovery-plan1.png)
 
-2. **Sanal Makine Seç** sayfasında kurtarma planına eklenecek sanal makineleri seçin. Bu sanal makineler, kurtarma planının varsayılan grubu olan Grup 1'e eklenir. Tek bir kurtarma planında en fazla 100 sanal makine test edilebilir.
+2. **Sanal Makine Seç** sayfasında kurtarma planına eklenecek sanal makineleri seçin. Bu sanal makineler kurtarma planının varsayılan grubuna eklenir—Grup 
+3. 
+4. 
+5. 1. Tek bir kurtarma planında en fazla 100 sanal makine test edilebilir.
 
     - Plana eklemeden önce sanal makine özelliklerini doğrulamak isterseniz sanal makinenin bulunduğu bulutun özellikler sayfasında sanal makineye tıklayın. Ayrıca, VMM konsolunda da sanal makine özelliklerini yapılandırabilirsiniz.
     - Gösterilen sanal makinelerin tümü için koruma etkinleştirilmiştir. Listede koruma özelliği etkinleştirilen ve ilk çoğaltması tamamlanan sanal makinelerin yanı sıra koruma özelliği etkinleştirilmiş ancak ilk çoğaltması bekleme durumunda olan sanal makineler bulunur. Yalnızca ilk çoğaltması tamamlanan sanal makineler kurtarma planının bir parçası olarak yük devredebilir.
@@ -381,6 +385,6 @@ Yük devretme testi çalıştırmak için şunları yapın:
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

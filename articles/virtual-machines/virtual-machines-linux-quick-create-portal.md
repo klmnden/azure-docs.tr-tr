@@ -23,6 +23,8 @@
 
 Bu makalede hızlı şekilde Linux Sanal Makine oluşturmak için [Azure Portal](https://portal.azure.com/)’ın nasıl kullanılacağı gösterilir. [Bir Azure hesabı](https://azure.microsoft.com/pricing/free-trial/) ve [SSH ortak ve özel anahtar dosyaları](virtual-machines-linux-mac-create-ssh-keys.md) tek gerekenlerdir.
 
+> [AZURE.NOTE] Sanal makinenizin güvenliğini sağlamak üzere bir parola kullanmayı seçerseniz parola 12 karakterden uzun olmalı ve en az bir büyük harf, en az bir küçük harf, en az bir özel karakter ile en az bir sayı içermelidir. 
+
 
 1. Azure hesabı kimlik bilgilerinizle Azure Portal’da oturum açın, sol üst köşede **+ Yeni**’ye tıklayın.
 
@@ -81,6 +83,6 @@ Bu makaleler, Azure altyapısının yanı sıra herhangi bir sayıda mülkiyete 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

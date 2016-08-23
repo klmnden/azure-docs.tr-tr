@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/08/2016"
+   ms.date="06/30/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 
@@ -184,16 +184,16 @@ Tüm tabloyu dışarı aktarmak yerine, bcp yardımcı programının **queryout*
 ## Sonraki adımlar
 Yüklemeye genel bakış için bkz. [SQL Data Warehouse'a veri yükleme][].
 Geliştirme ile ilgili daha fazla ipucu için bkz. [SQL Data Warehouse geliştirmeye genel bakış][].
-SQL Data Warehouse'da tablo oluşturma hakkında daha fazla bilgi için bkz. [Tablo Tasarımı][] veya [CREATE TABLE söz dizimi][] 
+SQL Data Warehouse'da tablo oluşturma hakkında daha fazla bilgi için bkz. [Tabloya Genel Bakış][] veya [CREATE TABLE söz dizimi][].
 
 <!--Image references-->
 
 <!--Article references-->
 
-[SQL Data Warehouse'a veri yükleme]: sql-data-warehouse-overview-load.md
-[SQL Data Warehouse geliştirmeye genel bakış]: sql-data-warehouse-overview-develop.md
-[Tablo Tasarımı]: sql-data-warehouse-develop-table-design.md
-[İstatistikler]: sql-data-warehouse-develop-statistics.md
+[SQL Data Warehouse'a veri yükleme]: ./sql-data-warehouse-overview-load.md
+[SQL Data Warehouse geliştirmeye genel bakış]: ./sql-data-warehouse-overview-develop.md
+[Tabloya Genel Bakış]: ./sql-data-warehouse-tables-overview.md
+[İstatistikler]: ./sql-data-warehouse-tables-statistics.md
 
 <!--MSDN references-->
 [bcp]: https://msdn.microsoft.com/library/ms162802.aspx
@@ -204,6 +204,6 @@ SQL Data Warehouse'da tablo oluşturma hakkında daha fazla bilgi için bkz. [Ta
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

@@ -3,7 +3,7 @@
     description="Kaynakları birçok veritabanı arasında paylaşabilmek üzere Azure SQL Database'de ölçeklendirilebilir bir esnek veritabanı havuzu oluşturmak için C# veritabanı geliştirme tekniklerini kullanın."
     services="sql-database"
     documentationCenter=""
-    authors="srinia"
+    authors="stevestein"
     manager="jhubbard"
     editor=""/>
 
@@ -13,8 +13,8 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="csharp"
     ms.workload="data-management"
-    ms.date="05/27/2016"
-    ms.author="srinia"/>
+    ms.date="07/22/2016"
+    ms.author="sstein"/>
 
 # C &#x23; ile yeni bir esnek veritabanı havuzu oluşturma
 
@@ -24,15 +24,13 @@
 - [C#](sql-database-elastic-pool-create-csharp.md)
 
 
-C&#x23; kullanarak [esnek veritabanı havuzu](sql-database-elastic-pool.md) oluşturmayı öğrenin. 
+C# kullanarak [esnek veritabanı havuzu](sql-database-elastic-pool.md) oluşturmayı öğrenin. 
 
 Genel hata kodları için bkz. [SQL Database istemci uygulamaları için SQL hata kodları: Veritabanı bağlantı hatası ve diğer sorunlar](sql-database-develop-error-messages.md).
 
-Esnek veritabanı havuzları şu anda önizlemede olup yalnızca SQL Database V12 sunucuları ile kullanılabilir. SQL Database V11 sunucunuz varsa [PowerShell'i kullanarak tek bir adımda V12 sürümüne yükseltebilir ve bir havuz oluşturabilirsiniz](sql-database-upgrade-server-portal.md).
+Aşağıdaki örneklerde [.NET için SQL Veritabanı Kitaplığı](https://msdn.microsoft.com/library/azure/mt349017.aspx) kullanılmaktadır; bu nedenle henüz yüklenmemişse devam etmeden önce bu kitaplığı yüklemeniz gerekir. Visual Studio'da bulunan [paket yöneticisi konsolunda](http://docs.nuget.org/Consume/Package-Manager-Console) (**Araçlar** > **NuGet Paket Yöneticisi** > **Paket Yöneticisi Konsolu**) aşağıdaki komutu çalıştırarak bu kitaplığı yükleyebilirsiniz:
 
-Örneklerde [.NET için SQL Database Kitaplığı](https://msdn.microsoft.com/library/azure/mt349017.aspx) kullanılmaktadır, bu nedenle kitaplığı yüklemeniz gerekir. Visual Studio'da bulunan [paket yöneticisi konsolunda](http://docs.nuget.org/Consume/Package-Manager-Console) (**Araçlar** > **NuGet Paket Yöneticisi** > **Paket Yöneticisi Konsolu**) şu komutu çalıştırarak yükleyebilirsiniz: 
-
-    PM> Install-Package Microsoft.Azure.Management.Sql –Pre
+    Install-Package Microsoft.Azure.Management.Sql –Pre
 
 ## Yeni bir havuz oluşturma
 
@@ -76,7 +74,7 @@ Bir [DataBaseCreateorUpdateProperties](https://msdn.microsoft.com/library/micros
 
 Var olan bir veritabanını bir havuza taşımak için bkz. [Veritabanını bir esnek havuza taşıma](sql-database-elastic-pool-manage-csharp.md#Move-a-database-into-an-elastic-pool).
 
-## Örnek: C&#x23 kullanarak havuz oluşturma
+## Örnek: C&#x23; kullanarak havuz oluşturma
 
 Bu örnekte yeni bir Azure kaynak grubu, yeni bir Azure SQL Server örneği ve yeni bir esnek havuz oluşturulacak. 
  
@@ -84,7 +82,7 @@ Bu örnekte yeni bir Azure kaynak grubu, yeni bir Azure SQL Server örneği ve y
 Bu örneğin çalıştırılabilmesi için aşağıdaki kitaplıklar gereklidir. Visual Studio'da bulunan [paket yöneticisi konsolunda](http://docs.nuget.org/Consume/Package-Manager-Console) (**Araçlar** > **NuGet Paket Yöneticisi** > **Paket Yöneticisi Konsolu**) aşağıdaki komutları çalıştırarak yükleyebilirsiniz:
 
     Install-Package Microsoft.Azure.Management.Sql –Pre
-    Install-Package Microsoft.Azure.Management.Resources –Pre
+    Install-Package Microsoft.Azure.Management.ResourceManager –Pre -Version 1.1.1-preview
     Install-Package Microsoft.Azure.Common.Authentication –Pre
 
 Bir konsol uygulaması oluşturun ve Program.cs içeriğini aşağıdakiyle değiştirin. Gerekli istemci kimliğini ve ilgili değerleri almak için bkz. [Uygulamanızı SQL Database'e bağlamak için kaydetme ve gerekli istemci değerlerini alma](sql-database-client-id-keys.md). SubscriptionId değerini almak için [Get-AzureRmSubscription](https://msdn.microsoft.com/library/mt619284.aspx) cmdlet'ini kullanın.
@@ -252,6 +250,7 @@ Bir konsol uygulaması oluşturun ve Program.cs içeriğini aşağıdakiyle değ
 - [Azure Resource Management API'leri](https://msdn.microsoft.com/library/azure/dn948464.aspx)
 
 
-<!----HONumber=Jun16_HO2-->
+
+<!--HONumber=Aug16_HO1-->
 
 

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="nodejs"
     ms.topic="get-started-article"
-    ms.date="06/01/2016"
+    ms.date="07/01/2016"
     ms.author="cephalin"/>
 
 # Azure App Service’te Node.js web uygulamalarını kullanmaya başlama
@@ -70,7 +70,7 @@ Bu öğreticide [Azure App Service]’te cmd.exe veya bash gibi bir komut satır
 
     Dağıtım yapılacak Azure bölgesini seçmek için istemi izleyin. Azure aboneliğiniz için daha önce Git/FTP dağıtımı kimlik bilgileri oluşturmadıysanız, bunların oluşturmanız da istenir.
 
-3. Uygulamanızın kökünde./config/config.js dosyasını açın ve üretim bağlantı noktasını `process.env.port` değiştirin; üretim JSON nesneniz aşağıdaki örnekteki gibi görünmelidir. Bu klasör/dosya yolu uygulamanızın kök dizininde mevcut değilse, uygulamanızın kök dizininde **config** adında bir klasör oluşturun ve aşağıdaki JSON kodunu buna kopyalayın.
+3. Uygulamanızın kökünde./config/config.js dosyasını açın ve üretim bağlantı noktasını `process.env.port` olarak değiştirin; `config` nesnesi içindeki `production` özelliği aşağıdaki örnekteki gibi görünmelidir.
 
         production: {
             root: rootPath,
@@ -208,6 +208,7 @@ Node-Inspector’ı etkinleştirmek için aşağıdaki adımları izleyin:
 ## Diğer kaynaklar
 
 - [Bir Azure uygulamasında Node.js sürümünü belirtme](../nodejs-specify-node-version-azure-apps.md)
+- [Azure'da Node.js uygulamaları için en iyi yöntemler ve sorun giderme kılavuzu](app-service-web-nodejs-best-practices-and-troubleshoot-guide.md)
 - [Azure App Service’teki bir Node.js web uygulamasına hata ayıklama](web-sites-nodejs-debug.md)
 - [Azure uygulamalarıyla Node.js Modüllerini kullanma](../nodejs-use-node-modules-azure-apps.md)
 - [Azure App Service Web Apps: Node.js](http://blogs.msdn.com/b/silverlining/archive/2012/06/14/windows-azure-websites-node-js.aspx)
@@ -219,7 +220,7 @@ Node-Inspector’ı etkinleştirmek için aşağıdaki adımları izleyin:
 
 [Azure CLI]: ../xplat-cli-install.md
 [Azure App Service]: ../app-service/app-service-value-prop-what-is.md
-[Visual Studio abone Avantajlarınızı etkinleştirme]: http://go.microsoft.com/fwlink/?LinkId=623901
+[Visual Studio abone avantajlarınızı etkinleştirebilirsiniz.]: http://go.microsoft.com/fwlink/?LinkId=623901
 [BOWER]: http://bower.io/
 [Azure App Service’te Socket.IO ile bir Node.js sohbet uygulaması oluşturma]: ./web-sites-nodejs-chat-app-socketio.md
 [Azure App Service’e Sails.js web uygulaması dağıtma]: ./app-service-web-nodejs-sails.md
@@ -244,6 +245,6 @@ Node-Inspector’ı etkinleştirmek için aşağıdaki adımları izleyin:
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

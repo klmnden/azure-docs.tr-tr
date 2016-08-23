@@ -1,30 +1,30 @@
 <properties
     pageTitle="Kullanılabilir Bağlayıcılar ve API Apps listesi | Microsoft Azure App Service"
     description="Azure App Service’deki Bağlayıcılar ve API Apps hakkında bilgi alın"
-    services="app-service\logic"
+    services="logic-apps"
     documentationCenter=""
     authors="MandiOhlinger"
     manager="erikre"
     editor="cgronlun"/>
 
 <tags
-    ms.service="app-service-logic"
+    ms.service="logic-apps"
     ms.workload="integration"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="04/11/2016"
+    ms.date="07/28/2016"
     ms.author="mandia"/>
 
 
 # Logic Apps içinde kullanılacak Bağlayıcılar ve API Apps listesi
->[AZURE.NOTE] Makalenin bu sürümü Logic Apps 2014-12-01-önizleme şema sürümü için geçerlidir. 2015-08-01-preview şema sürümü için [Yeni Bağlayıcılar Listesi](../connectors/apis-list.md)’ne tıklayın.
+>[AZURE.NOTE] Makalenin bu sürümü Logic Apps 2014-12-01-önizleme şema sürümü için geçerlidir. Logic Apps Genel Kullanılabilirlik (GA) sürümü için bkz. [Yeni Bağlayıcılar Listesi](../connectors/apis-list.md).
 
 Logic Apps’inizde kullanılmak üzere Microsoft tarafından oluşturulan tüm kullanılabilir bağlayıcılar ve API Apps hakkında bilgi edinin.
 
 Fiyatlandırma bilgileri ve her bir Hizmet Katmanına dahil olanların listesi için bkz. [Azure App Service Fiyatlandırması](https://azure.microsoft.com/pricing/details/app-service/).
 
-> [AZURE.NOTE] Bir Azure hesabı için kaydolmadan önce Azure Logic Apps’i kullanmaya başlamak istiyorsanız [Logic Apps’i Deneyin](https://tryappservice.azure.com/?appservice=logic)’e gidin. App Service’de başlangıç düzeyinde kısa süreli mantıksal uygulamayı hemen oluşturabilirsiniz. Kredi kartı ve taahhüt gerekmez.
+> [AZURE.NOTE] Bir Azure hesabı için kaydolmadan önce Logic Apps’i kullanmak üzere [Logic Apps’i Deneyin](https://tryappservice.azure.com/?appservice=logic)’e gidin. App Service’de başlangıç düzeyinde kısa süreli mantıksal uygulamayı hemen oluşturabilirsiniz. Kredi kartı ve taahhüt gerekmez.
 
 ## Çekirdek Bağlayıcılar
 Aşağıdaki tabloda Microsoft tarafından oluşturulan ve Çekirdek Bağlayıcılar olarak kullanılabilen tüm mevcut bağlayıcılar ve API Apps listelenmiştir:
@@ -86,6 +86,6 @@ Bağlayıcılar Mantıksal Uygulama içinde eylem olarak da kullanılabilir. Eyl
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

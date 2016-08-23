@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="05/12/2016" 
+    ms.date="06/29/2016" 
     ms.author="billmath"/>
 
 
@@ -22,6 +22,10 @@
 Çok faktörlü kimlik doğrulaması Azure Active Directory ve Office 365 kullanıcılarına sahip genel yöneticiler için varsayılan olarak kullanılabilir durumdadır. Ancak, [gelişmiş özelliklerden](multi-factor-authentication-whats-next.md) yararlanmak isterseniz Azure MFA’nın tam sürümünü satın almanız gerekir. 
 
 > [AZURE.NOTE]  Azure Multi-Factor Auth Sağlayıcısı Azure MFA tam sürümünün sağladığı özelliklerden yararlanmak için kullanılır. **Azure MFA, Azure AD Premium veya EMS lisansı olmayan** kullanıcılara yöneliktir.  Azure MFA, Azure AD Premium ve EMS varsayılan olarak Azure MFA’nın tam sürümünü içerir.  Lisanslarınız varsa bir Azure Multi-Factor Auth Sağlayıcısı gerekli değildir. 
+
+SDK’yı indirmek isterseniz Azure Multi-Factor Auth sağlayıcısı gereklidir.
+
+> [AZURE.IMPORTANT]  SDK’yı indirmek isterseniz Azure MFA, AAD Premium veya EMS lisanslarınız olsa bile bir Azure Multi-Factor Auth Sağlayıcısı oluşturmanız gerekir.  Bu amaç için bir Azure Multi-Factor Auth Sağlayıcısı oluşturursanız ve zaten lisanslarınız varsa, Sağlayıcıyı **Etkin Kullanıcı Başına** modeliyle oluşturmanız ve Azure MFA, Azure AD Premium veya EMS lisanslarını içeren dizine Sağlayıcıyı bağlamanız gerekir.  Bunun yapılması, sahip olduğunuz lisans sayısından fazla sayıda kullanıcı SDK’yı kullanmadıkça sizden ücret alınmamasını sağlar.
  
 Azure Multi-Factor Auth Sağlayıcısı oluşturmak için aşağıdaki adımları kullanın.
 
@@ -46,11 +50,12 @@ Azure Multi-Factor Auth Sağlayıcısı oluşturmak için aşağıdaki adımlar�
     2. **Dizin** – Multi-Factor Authentication Sağlayıcısının ilişkili olduğu Azure Active Directory kiracısı. Lütfen aşağıdakilere dikkat edin:
         - Bir Multi-Factor Auth Sağlayıcısı oluşturmak için Azure AD dizini gerekli değildir.  Yalnızca Azure Multi-Factor Authentication Sunucusunu veya SDK’sını kullanmayı planlıyorsanız kutuyu boş bırakmanız yeterlidir.
         - Gelişmiş özelliklerden yararlanmak için Multi-Factor Auth Sağlayıcısının bir Azure AD dizini ile ilişkili olması gerekir.
-        - Azure AD Connect, AAD Sync veya DirSync yalnızca şirket içi Active Directory ortamınızı bir Azure AD diziniyle eşitliyorsanız gereklidir.  Yalnızca eşitlenmemiş bir Azure AD dizini kullanıyorsanız bkz. ![MFA Sağlayıcısı Oluşturma](./media/multi-factor-authentication-get-started-auth-provider/authprovider5.png)    
+        - Azure AD Connect, AAD Sync veya DirSync yalnızca şirket içi Active Directory ortamınızı bir Azure AD diziniyle eşitliyorsanız gereklidir.  Yalnızca eşitlenmemiş bir Azure AD dizini kullanıyorsanız bunun yapılması gerekli değildir. 
+![MFA Sağlayıcısı oluşturma](./media/multi-factor-authentication-get-started-auth-provider/authprovider5.png)    
 5. Oluştur’a tıkladıktan sonra Multi-Factor Authentication Sağlayıcısı oluşturulur ve şu iletiyi görmeniz gerekir: **Multi-Factor Authentication Sağlayıcısı başarıyla oluşturuldu**. **Tamam**’a tıklayın.
 ![MFA Sağlayıcısı oluşturma](./media/multi-factor-authentication-get-started-auth-provider/authprovider6.png)    
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

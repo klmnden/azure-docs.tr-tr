@@ -13,7 +13,7 @@
     ms.workload="search"
     ms.topic="hero-article"
     ms.tgt_pltfrm="na"
-    ms.date="03/08/2016"
+    ms.date="07/14/2016"
     ms.author="evboyle"/>
 
 # Java'da Azure Search kullanmaya başlama
@@ -69,7 +69,7 @@ Azure Search'e yönelik tüm REST API çağrıları, hizmet URL'si ve api anahta
 
 ## Örnek dosyalarını indirme
 
-1. GitHub'da [AzureSearchJavaDemo](http://go.microsoft.com/fwlink/p/?LinkId=530197)'ya gidin.
+1. GitHub'da [AzureSearchJavaDemo](https://github.com/AzureSearch/AzureSearchJavaIndexerDemo)'ya gidin.
 
 2. **ZIP'i İndir**'e tıklayın, .zip dosyasını diske kaydedin ve ardından içerdiği tüm dosyaları ayıklayın. Daha sonra projeyi bulmayı kolaylaştırmak için, dosyaları Java çalışma alanınıza ayıklamayı göz önünde bulundurun.
 
@@ -79,15 +79,15 @@ Sonraki tüm dosya değişiklikleri ve çalıştırma deyimleri bu klasördeki d
 
 ## Projeyi içeri aktarma
 
-1. Eclipse'te, **Dosya** > **İçeri Aktar** > **Genel** > **Var olan Projeleri Çalışma Alanına**'yı seçin.
+1. Eclipse'te, **File (Dosya)** > **Import (İçeri Aktar)** > **General (Genel)** > **Existing Projects into Workspace (Var olan Projeleri Çalışma Alanına)** seçeneğini belirleyin.
 
     ![][4]
 
-2. **Kök dizini seç**'te, örnek dosyalarını içeren klasöre gidin. Proje klasörünü içeren klasörü seçin. Proje, **Projeler** listesinde seçili öğe olarak görünmelidir.
+2. **Select root directory (Kök dizini seç)** bölümünde örnek dosyaları içeren klasöre gidin. Proje klasörünü içeren klasörü seçin. Proje, **Projects (Projeler)** listesinde seçili öğe olarak görünmelidir.
 
     ![][12]
 
-3. **Son**'a tıklayın.
+3. **Finish (Son)** düğmesine tıklayın.
 
 4. Dosyaları görüntülemek ve düzenlemek için **Proje Gezgini**'ni kullanın. Zaten açık değilse **Pencere** > **Görünümü Göster** > **Proje Gezgini**'ne tıklayın veya açmak için kısayolu kullanın.
 
@@ -103,15 +103,15 @@ Sonraki tüm dosya değişiklikleri ve çalıştırma deyimleri bu klasördeki d
 
 ## Proje, derleme ve çalışma zamanı ortamlarını yapılandırma
 
-1. Eclipse'te, Proje Gezgini'nde, proje > **Özellikler** > **Proje Modelleri**'ne sağ tıklayın.
+1. Eclipse'te, Proje Gezgini'nde, proje > **Properties (Özellikler)** > **Project Facets (Proje Modelleri)** öğesine sağ tıklayın.
 
-2. **Dinamik Web Modülü**'nü, **Java**'yı ve **JavaScript**'i seçin.
+2. **Dynamic Web Module (Dinamik Web Modülü)** öğesini, **Java**'yı ve **JavaScript**'i seçin.
 
     ![][6]
 
-3. **Uygula**'ya tıklayın.
+3. **Apply (Uygula)** düğmesine tıklayın.
 
-4. **Pencere** > **Tercihler** > **Sunucu** > **Çalışma Zamanı Ortamları** > **Ekle..**'yi seçin.
+4. **Window (Pencere)** > **Preferences (Tercihler)** > **Server (Sunucu)** > **Runtime Environments (Çalışma Zamanı Ortamları)** > **Add... (Ekle...)** öğesini seçin.
 
 5. Apache'yi genişletin ve önceden yüklediğiniz Apache Tomcat sunucusu sürümünü seçin. Sistemimizde sürüm 8 yüklüdür.
 
@@ -119,23 +119,23 @@ Sonraki tüm dosya değişiklikleri ve çalıştırma deyimleri bu klasördeki d
 
 6. Sonraki sayfada Tomcat yükleme dizinini belirtin. Windows bilgisayarda, bu büyük olasılıkla C:\Program Files\Apache Software Foundation\Tomcat *sürüm* olacaktır.
 
-6. **Son**'a tıklayın.
+6. **Finish (Son)** düğmesine tıklayın.
 
-7. **Pencere** > **Tercihler** > **Java** > **Yüklü JRE'ler** > **Ekle**'yi seçin.
+7. **Window (Pencere)** > **Preferences (Tercihler)** > **Java** > **Installed JREs (Yüklü JRE'ler)** > **Add (Ekle)** seçeneğini belirleyin.
 
-8. **JRE Ekle**'de **Standart VM**'i seçin.
+8. **Add JRE (JRE Ekle)** bölümünde **Standard VM (Standart VM)** öğesini seçin.
 
 10. **Next (İleri)** düğmesine tıklayın.
 
-11. JRE Tanımı'nda, JRE giriş alanında **Dizin**'e tıklayın.
+11. JRE Tanımı'nda, JRE giriş alanında **Directory (Dizin)** seçeneğine tıklayın.
 
-12. **Program Dosyaları** > **Java**'ya gidin ve daha önce yüklediğiniz JDK'yı seçin. JDK'yı JRE olarak seçmek önemlidir.
+12. **Program Files (Program Dosyaları)** > **Java**'ya gidin ve daha önce yüklediğiniz JDK'yı seçin. JDK'yı JRE olarak seçmek önemlidir.
 
 13. Yüklü JRE'ler içinde **JDK**'yı seçin. Ayarlarınız aşağıdaki ekran görüntüsüne benzer görünmelidir.
 
     ![][9]
 
-14. İsteğe bağlı olarak, uygulamayı bir dış tarayıcı penceresinde açmak için **Pencere** > **Web Tarayıcısı** > **Internet Explorer**'ı seçin. Dış tarayıcı kullanmanız daha iyi bir Web uygulaması deneyimi sağlar.
+14. İsteğe bağlı olarak, uygulamayı bir dış tarayıcı penceresinde açmak için **Window (Pencere)** > **Web Browser (Web Tarayıcısı)** > **Internet Explorer**'ı seçin. Dış tarayıcı kullanmanız daha iyi bir Web uygulaması deneyimi sağlar.
 
     ![][8]
 
@@ -143,11 +143,11 @@ Yapılandırma görevlerini tamamladınız. Ardından, projeyi derleyip çalış
 
 ## Projeyi derleme
 
-1. Proje Gezgini'nde proje adına sağ tıklayın ve projeyi yapılandırmak için **Farklı Çalıştır** > **Maven derlemesi...** seçeneğini belirleyin.
+1. Proje Gezgini'nde proje adına sağ tıklayın ve projeyi yapılandırmak için **Run As (Farklı Çalıştır)** > **Maven build... (Maven derlemesi...)** seçeneğini belirleyin.
 
     ![][10]
 
-8. Yapılandırmayı Düzenle'de Hedefler'e "temiz yükleme" yazın ve ardından **Çalıştır**'a tıklayın.
+8. Edit Configuration (Yapılandırmayı Düzenle) alanında Targets (Hedefler) için "clean install" ("temiz yükleme") yazın ve ardından **Run (Çalıştır)** düğmesine tıklayın.
 
 Konsol penceresinde durum iletilerinin çıkışı alınır. Projenin hatasız olarak derlendiğini belirten DERLEME BAŞARILI iletisini görmeniz gerekir.
 
@@ -159,17 +159,17 @@ Eclipse'te henüz bir sunucu çalışma zamanı ortamı belirtmediyseniz önceli
 
 1. Proje Gezgini'nde **WebContent**'i genişletin.
 
-5. **Search.jsp** > **Farklı Çalıştır** > **Sunucuda Çalıştır**'a sağ tıklayın. Apache Tomcat sunucusunu seçin ve ardından **Çalıştır**'a tıklayın.
+5. **Search.jsp** > **Run As (Farklı Çalıştır)** > **Run on Server (Sunucuda Çalıştır)** öğesine sağ tıklayın. Apache Tomcat sunucusunu seçin ve ardından **Run (Çalıştır)** öğesine tıklayın.
 
-> [AZURE.TIP] Projenizi depolamak için varsayılan olmayan bir çalışma alanı kullandıysanız sunucu başlangıç hatasını önlemek için, **Yapılandırmayı Çalıştır**'ı proje konumunu işaret edecek şekilde değiştirmeniz gerekir. Proje Gezgini'nde **Search.jsp** > **Farklı Çalıştır** > **Yapılandırmaları Çalıştır**' a sağ tıklayın. Apache Tomcat sunucusunu seçin. **Bağımsız Değişkenler**'e tıklayın. Projeyi içeren klasörü ayarlamak için **Çalışma Alanı**'na veya** Dosya Sistemi**'ne tıklayın.
+> [AZURE.TIP] Projenizi depolamak için varsayılan olmayan bir çalışma alanı kullandıysanız sunucu başlangıç hatasını önlemek için, **Run Configuration (Yapılandırmayı Çalıştır)** öğesini proje konumunu işaret edecek şekilde değiştirmeniz gerekir. Proje Gezgini'nde **Search.jsp** > **Run As (Farklı Çalıştır)** > **Run Configurations (Yapılandırmaları Çalıştır)** öğesine sağ tıklayın. Apache Tomcat sunucusunu seçin. **Arguments (Bağımsız Değişkenler)** seçeneğine tıklayın. Projeyi içeren klasörü ayarlamak için **Workspace (Çalışma Alanı)** veya **File System (Dosya Sistemi)** seçeneğine tıklayın.
 
 Uygulamayı çalıştırdığınızda, koşulları girmeniz için arama kutusu sağlayan bir tarayıcı penceresi görmeniz gerekir.
 
-Dizini oluşturması ve yüklemesi için hizmete zaman tanımak amacıyla **Ara**'ya tıklamadan önce yaklaşık bir dakika bekleyin. HTTP 404 hatası alırsanız yeniden denemeden önce biraz daha uzun süre beklemeniz gerekir.
+Dizini oluşturması ve yüklemesi için hizmete zaman tanımak amacıyla **Search (Ara)** seçeneğine tıklamadan önce yaklaşık bir dakika bekleyin. HTTP 404 hatası alırsanız yeniden denemeden önce biraz daha uzun süre beklemeniz gerekir.
 
 ## USGS verilerinde arama
 
-USGS veri kümesi, Rhode Island eyaleti ile ilgili kayıtları içerir. Boş bir arama kutusunda **Ara**'ya tıklarsanız varsayılan seçenek olan ilk 50 girişi alırsınız.
+USGS veri kümesi, Rhode Island eyaleti ile ilgili kayıtları içerir. Boş bir arama kutusunda **Search (Ara)** düğmesine tıklarsanız varsayılan seçenek olan ilk 50 girişi alırsınız.
 
 Bir arama terimi girmeniz arama alt yapısına gitmesi gereken bir hedef verir. Bölgesel bir ad girmeyi deneyin. "Roger Williams", Rhode Island'ın ilk valisiydi. Çok sayıda parka, binaya ve okula onun adı verildi.
 
@@ -205,6 +205,6 @@ Azure Search'ü ilk kez mi kullanıyorsunuz? Neler yapabileceğinizi anlamak iç
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

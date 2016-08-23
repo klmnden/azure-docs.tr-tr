@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="05/02/2016"
+   ms.date="06/27/2016"
    ms.author="elizapo"/>
 
 # Azure RemoteApp ile SQL Azure
@@ -53,6 +53,6 @@ Azure’da ya da şirket içinde barındırılan bir SQL veritabanına bağlanan
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

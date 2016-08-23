@@ -13,20 +13,20 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="05/16/2016" 
+    ms.date="08/01/2016" 
     ms.author="spelluru"/>
 
 # Öğretici: Data Factory Kopyalama Sihirbazı kullanarak Kopyalama Etkinliği ile işlem hattı oluşturma
 > [AZURE.SELECTOR]
-- [Öğreticiye Genel Bakış](data-factory-get-started.md)
-- [Data Factory Düzenleyici’yi kullanma](data-factory-get-started-using-editor.md)
-- [PowerShell’i kullanma](data-factory-monitor-manage-using-powershell.md)
-- [Visual Studio’yu kullanma](data-factory-get-started-using-vs.md)
+- [Öğreticiye Genel Bakış](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+- [Data Factory Düzenleyici’yi kullanma](data-factory-copy-activity-tutorial-using-azure-portal.md)
+- [PowerShell’i kullanma](data-factory-copy-activity-tutorial-using-powershell.md)
+- [Visual Studio’yu kullanma](data-factory-copy-activity-tutorial-using-visual-studio.md)
 - [Kopyalama Sihirbazı'nı kullanma](data-factory-copy-data-wizard-tutorial.md)
 
 Bu öğreticide Data Factory Kopyalama Sihirbazı’nı kullanarak bir veri fabrikasındaki Kopyalama Etkinliği ile işlem hattı oluşturacaksınız. İlk olarak, Azure Portal’ı kullanarak bir veri fabrikası oluşturun ve ardından Kopyalama Sihirbazı’nı kullanarak Data Factory bağlı hizmetleri, veri kümeleri ve bir Azure blob depolama alanından Azure SQL veritabanına verileri kopyalayan bir Kopyalama Etkinliği ile işlem hattı oluşturun.
 
-> [AZURE.IMPORTANT] Lütfen [Öğreticiye Genel Bakış](data-factory-get-started.md) makalesini inceleyin ve bu öğreticiyi uygulamadan önce önkoşul adımlarını tamamlayın.
+> [AZURE.IMPORTANT] Lütfen [Öğreticiye Genel Bakış](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) makalesini inceleyin ve bu öğreticiyi uygulamadan önce önkoşul adımlarını tamamlayın.
 
 ## Veri fabrikası oluşturma
 Bu adımda **ADFTutorialDataFactory** adlı bir Azure data factory oluşturmak için Azure Portal’ı kullanırsınız.
@@ -120,6 +120,6 @@ Bu adımda **ADFTutorialDataFactory** adlı bir Azure data factory oluşturmak i
 | [İzleme Uygulaması kullanılarak işlem hatlarını izleme ve yönetme](data-factory-monitor-manage-app.md) | Bu makalede İzleme ve Yönetim Uygulaması kullanılarak işlem hatlarını izleme, yönetme ve hatalarını ayıklama işlemleri açıklanmaktadır. 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

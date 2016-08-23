@@ -7,7 +7,7 @@
    manager="timlt"
    editor=""
    tags="acs, azure-container-service"
-   keywords="Docker, Containers, Micro-services, Mesos, Azure"/>
+   keywords="Docker, Kapsayıcılar, Mikro hizmetler, Mesos, Azure"/>
 
 <tags
    ms.service="container-service"
@@ -26,57 +26,57 @@ Bu belge size [Azure portal](#creating-a-service-using-the-azure-portal), [Azure
 
 ## Azure portalı kullanarak bir hizmet oluşturma
 
-Azure portalda oturum açın, yeniyi seçin ve Azure markette **Azure Kapsayıcı Hizmeti**’ni arayın.
+Azure portalda oturum açın, **Yeni**’yi seçin ve Azure Market’te **Azure Container Service**’i arayın.
 
-![Dağıtım oluşturma](media/acs-portal1.png)  <br /> 
+![Dağıtım oluşturma 1](media/acs-portal1.png)  <br />
 
-**Azure Kapsayıcı Hizmeti**’ni seçin ve **Oluştur**’a tıklayın.
+**Azure Container Service**’i seçin ve **Oluştur**’a tıklayın.
 
-![Dağıtım oluşturma](media/acs-portal2.png)  <br /> 
+![Dağıtım oluşturma 2](media/acs-portal2.png)  <br />
 
 Aşağıdaki bilgileri girin:
 
-- Kullanıcı adı – Bu, Azure Kapsayıcı Hizmeti kümesindeki her sanal makine ve sanal makine ölçek grubunda bir hesap için kullanılacak kullanıcı adıdır.
-- Abonelik – Azure aboneliğini seçin.
-- Kaynak Grubu – Yeni bir kaynak grubu seçin ya da yeni bir tane oluşturun.
-- Konum – Azure Kapsayıcı Hizmeti dağıtımı için Azure bölgesini seçin.
-- SSH ortak anahtarı – Azure Kapsayıcı Hizmeti Sanal Makinelerine karşı kimlik doğrulaması için kullanılacak ortak anahtarı ekleyin. Bu anahtarın satır sonu içermemesi ve “ssh-rsa” öneki ve “username@domain” soneki içermesi çok önemlidir. Aşağıdaki gibi görünmelidir"**ssh-rsa AAAAB3Nz...SNIPPEDCONTENT...UcyupgH azureuser@linuxvm**"SSH anahtarları oluşturma konusunda yönergeler için bkz. [Linux]( https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-linux/) ve [Windows]( https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-windows/) makaleleri.
+- **Kullanıcı adı**: Bu, Azure Container Service kümesindeki her sanal makine ve sanal makine ölçek grubunda bir hesap için kullanılacak kullanıcı adıdır.
+- **Abonelik**: Bir Azure aboneliği seçin.
+- **Kaynak grubu**: Yeni bir kaynak grubu seçin ya da yeni bir tane oluşturun.
+- **Konum**: Azure Container Service dağıtımı için Azure bölgesini seçin.
+- **SSH ortak anahtarı** – Azure Container Service sanal makinelerine karşı kimlik doğrulaması için kullanılacak ortak anahtarı ekleyin. Bu anahtarın satır sonu içermemesi ve “ssh-rsa” öneki ve “username@domain” soneki içermesi çok önemlidir. Şunun gibi görünmelidir: **ssh-rsa AAAAB3Nz...<...>...UcyupgH azureuser@linuxvm**. Güvenli Kabuk (SSH) anahtarları oluşturma yönergeleri için bkz. [Linux]( https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-linux/) ve [Windows]( https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-windows/) makaleleri.
 
 Devam etmeye hazır olduğunuzda **Tamam**’a tıklayın.
 
-![Dağıtım oluşturma](media/acs-portal3.png)  <br /> 
+![Dağıtım oluşturma 3](media/acs-portal3.png)  <br />
 
 Orchestration türünü seçin. Seçenekler şunlardır:
 
-- DC/OS – DC/OS kümesi dağıtır.
-- Swarm – Docker Swarm kümesi dağıtır.
+- **DC/OS**: DC/OS kümesi dağıtır.
+- **Swarm** Docker Swarm kümesi dağıtır.
 
 Devam etmeye hazır olduğunuzda **Tamam**’a tıklayın.
 
-![Dağıtım oluşturma](media/acs-portal4.png)  <br /> 
+![Dağıtım oluşturma 4](media/acs-portal4.png)  <br />
 
 Aşağıdaki bilgileri girin:
 
-- Ana sunucu sayısı – kümedeki ana sunucu sayısı.
-- Aracı sayısı – Docker Swarm için bu, aracı ölçek grubundaki başlangıç aracıları sayısıdır. DC/OS için bu, özel ölçek grubundaki başlangıç aracıları sayısıdır. Ayrıca, önceden belirlenen sayıda aracı içeren bir ortak ölçek grubu oluşturulur. Bu ortak ölçek grubundaki aracıların sayısı, kümede kaç ana sunucu oluşturulduğunun belirleyicisidir, 1 ana sunucu için 1 ortak aracı ve 3 ya da 5 ana sunucu için 2 ortak sunucu.
-- Aracı sanal makine boyutu – Aracı sanal makinelerinin boyutudur.
-- DNS öneki – Hizmet için tam uygun etki alanı adlarının temel parçalarına önek olarak eklemek için kullanılacak world benzersiz adıdır. 
+- **Ana sunucu sayısı**: Kümedeki ana sunucu sayısı.
+- **Aracı sayısı**: Docker Swarm için bu, aracı ölçek grubundaki başlangıç aracıları sayısıdır. DC/OS için bu, özel ölçek grubundaki başlangıç aracıları sayısıdır. Ayrıca, önceden belirlenen sayıda aracı içeren bir ortak ölçek kümesi oluşturulur. Bu ortak ölçek kümesindeki aracıların sayısı, kümede kaç tane ana sunucu oluşturulduğuna göre belirlenir; bir ana sunucu için bir ortak aracı ve üç ya da beş ana sunucu için iki ortak sunucu.
+- **Aracı sanal makine boyutu**: Aracı sanal makinelerinin boyutudur.
+- **DNS öneki**: Hizmet için tam uygun etki alanı adlarının temel parçalarına önek olarak eklemek için kullanılacak world benzersiz adıdır.
 
 Devam etmeye hazır olduğunuzda **Tamam**’a tıklayın.
 
-![Dağıtım oluşturma](media/acs-portal5.png)  <br /> 
+![Dağıtım oluşturma 5](media/acs-portal5.png)  <br />
 
 Hizmet doğrulama tamamlandıktan sonra **Tamam**’a tıklayın.
 
-![Dağıtım oluşturma](media/acs-portal6.png)  <br /> 
+![Dağıtım oluşturma 6](media/acs-portal6.png)  <br />
 
 Dağıtım işlemini başlatmak için **Oluştur**’a tıklayın.
 
-![Dağıtım oluşturma](media/acs-portal7.png)  <br /> 
+![Dağıtım oluşturma 7](media/acs-portal7.png)  <br />
 
-Azure portalda dağıtımı sabitlemeyi seçtiyseniz, dağıtım durumu görülebilir.
+Azure portalda dağıtımı sabitlemeyi seçtiyseniz dağıtım durumunu görebilirsiniz.
 
-![Dağıtım oluşturma](media/acs-portal8.png)  <br /> 
+![Dağıtım oluşturma 8](media/acs-portal8.png)  <br />
 
 Dağıtım tamamlandığında, Azure Kapsayıcı Hizmeti kümesi kullanım için hazırdır.
 
@@ -106,14 +106,14 @@ Ardından, Azure Resource Manager'ı kullanacak şekilde Azure CLI araçlarını
 azure config mode arm
 ```
 
-Aşağıdaki komutla bir Azure Kaynak Grubu ve Kapsayıcı Hizmeti Kümesi oluşturun, buradaki ifadelerin anlamları şu şekildedir:
+Aşağıdaki komutla bir Azure kaynak grubu ve Kapsayıcı Hizmeti Kümesi oluşturun, buradaki ifadelerin anlamları şu şekildedir:
 
-- **RESOURCE_GROUP** Bu hizmet için kullanmak istediğiniz kaynak grubunun adıdır.
-- **LOCATION** Kaynak Grubu ve Azure Kapsayıcı Hizmeti’nin oluşturulacağı Azure bölgesidir.
-- **TEMPLATE_URI** dağıtım dosyasının konumudur. **Not** - bu, GitHub kullanıcı arabirimi işaretçisi değil RAW dosyasıdır. Bu URL’yi bulmak için GitHub’da azuredeploy.json dosyasını seçin ve RAW düğmesine tıklayın:
+- **RESOURCE_GROUP** bu hizmet için kullanmak istediğiniz kaynak grubunun adıdır.
+- **LOCATION** kaynak grubu ve Azure Container Service dağıtımının oluşturulacağı Azure bölgesidir.
+- **TEMPLATE_URI** dağıtım dosyasının konumudur. Bu, GitHub kullanıcı arabirimi işaretçisi değil Raw dosyası olmalıdır. Bu URL’yi bulmak için GitHub’da azuredeploy.json dosyasını seçin ve **Raw** düğmesine tıklayın.
 
-> Not - bu komutu çalıştırdığınızda, kabuk sizden dağıtım parametre değerlerini ister.
- 
+> [AZURE.NOTE] Bu komutu çalıştırdığınızda, kabuk sizden dağıtım parametre değerlerini ister.
+
 ```bash
 # sample deployment
 
@@ -161,7 +161,7 @@ Azure’da oturum açmanız gerekiyorsa `Login-AzureRMAccount` komutunu kullanı
 Login-AzureRmAccount
 ```
 
-Yeni bir kaynak grubuna dağıtıyorsanız, önce kaynak grubunu oluşturmalısınız. Yeni bir kaynak grubu oluşturmak için, kaynak grubu adını ve hedef bölgesini belirterek `New-AzureRmResourceGroup` komutunu kullanın:
+Yeni bir kaynak grubuna dağıtıyorsanız, önce kaynak grubunu oluşturmalısınız. Yeni bir kaynak grubu oluşturmak için `New-AzureRmResourceGroup` komutunu kullanın ve kaynak grubu adı ile hedef bölgesini belirtin:
 
 ```powershell
 New-AzureRmResourceGroup -Name GROUP_NAME -Location REGION
@@ -188,15 +188,15 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName RESOURCE_GROUP_NAME-Templa
 ```
 
 ## Sonraki adımlar
- 
-Artık çalışan bir kümeniz olduğuna göre, bağlantı ve yönetim ayrıntıları için bu belgeleri ziyaret edin.
- 
-[Azure Kapsayıcı Hizmeti kümesine bağlanma](container-service-connect.md)
-[Azure Kapsayıcı Hizmeti ve DC/OS ile çalışma](container-service-mesos-marathon-rest.md)
-[Azure Kapsayıcı Hizmeti ve Docker Swarm ile çalışma](container-service-docker-swarm.md)
+
+Artık çalışan bir kümeniz olduğuna göre, bağlantı ve yönetim ayrıntıları için aşağıdaki belgelere bakın:
+
+- [Azure Kapsayıcı Hizmeti kümesine bağlanma](container-service-connect.md)
+- [Azure Container Service ve DC/OS ile çalışma](container-service-mesos-marathon-rest.md)
+- [Azure Container Service ve Docker Swarm ile çalışma](container-service-docker-swarm.md)
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

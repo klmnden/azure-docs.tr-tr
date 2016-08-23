@@ -7,7 +7,7 @@
    manager="timlt"
    editor=""
    tags="acs, azure-container-service"
-   keywords="Containers, Marathon, Micro-services, DC/OS, Azure"/>
+   keywords="Kapsayıcılar, Marathon, Mikro hizmetler, DC/OS, Azure"/>
 
 <tags
    ms.service="container-service"
@@ -18,17 +18,21 @@
    ms.date="04/12/2016"
    ms.author="rogardle"/>
 
-# Bir uygulama veya kullanıcıya özel marathon hizmeti oluşturma
+# Bir uygulama veya kullanıcıya özel Marathon hizmeti oluşturma
 
-Azure Kapsayıcı Hizmeti, Apache Mesos ve Marathon’u önceden üzerinde yapılandırdığımız bir grup ana sunucu sağlar. Bunlar, uygulamalarınızı kümede düzenlemek için kullanılabilir, ancak en iyisi Ana sunucuları bu amaç için kullanmamaktır. Örneğin, Marathon yapılandırmasına ince ayar yapma ana sunucuların kendilerinde oturum açmayı ve değişiklikler yapmayı gerektirir; bu, standart olandan biraz daha farklı olan benzersiz ana sunucuları teşvik eder ve bağımsız olarak ilgilenilmeli ve yönetilmelidir. Ayrıca, bir takım tarafından istenen yapılandırma başka bir takım için en uygun yapılandırma olmayabilir. Bu makalede size bir kullanıcı veya uygulamaya özel Marathon hizmeti ekleme açıklanmaktadır.
+Azure Kapsayıcı Hizmeti, Apache Mesos ve Marathon’u önceden üzerinde yapılandırdığımız bir grup ana sunucu sağlar. Bunlar, uygulamalarınızı kümede düzenlemek için kullanılabilir, ancak en iyisi ana sunucuları bu amaç için kullanmamaktır. Örneğin, Marathon yapılandırmasına ince ayar yapma ana sunucuların kendilerinde oturum açmayı ve değişiklikler yapmayı gerektirir; bu, standart olandan biraz daha farklı olan benzersiz ana sunucuları teşvik eder ve bağımsız olarak ilgilenilmeli ve yönetilmelidir. Ayrıca, bir takım tarafından istenen yapılandırma başka bir takım için en uygun yapılandırma olmayabilir.
 
-Bu hizmet bir tek bir kullanıcı veya ekibe ait olduğundan, bunlar istenen herhangi bir şekilde yapılandırılabilir. Ayrıca, Azure Kapsayıcı Hizmeti hizmetin sürekli çalışmasını sağlar; hizmet başarısız olursa, Azure Kapsayıcı Hizmeti onu sizin için yeniden başlatır. Çoğu zaman kesinti yaşandığının farkına varmazsınız bile.
+Bu makalede size bir uygulamaya veya kullanıcıya özel Marathon hizmeti ekleme açıklanmaktadır.
+
+Bu hizmet bir tek bir kullanıcı veya ekibe ait olduğundan bunlar istenen herhangi bir şekilde yapılandırılabilir. Ayrıca, Azure Container Service hizmetin çalışmaya devam etmesini sağlar. Hizmet başarısız olursa Azure Container Service sizin için yeniden başlatır. Çoğu zaman kesinti yaşandığının farkına varmazsınız bile.
 
 ## Ön koşullar
 
-[DCOS orchestrator türüyle Azure Kapsayıcı Hizmeti örneğini dağıtın](container-service-deployment.md), [istemcinizin kümenize](container-service-connect.md) bağlanabildiğinden ve [AZURE.INCLUDE [install the DC/OS CLI](../../includes/container-service-install-dcos-cli-include.md)] emin olun.
+[DC/OS orchestrator türüyle Azure Container Service örneğini dağıtın](container-service-deployment.md) ve [istemcinizin kümenize bağlanabildiğinden emin olun](container-service-connect.md). Ayrıca aşağıdaki adımları uygulayın.
 
-## Bir uygulama veya kullanıcıya özel Marathon hizmeti oluşturma.
+[AZURE.INCLUDE [install the DC/OS CLI](../../includes/container-service-install-dcos-cli-include.md)]
+
+## Bir uygulama veya kullanıcıya özel Marathon hizmeti oluşturma
 
 Oluşturmak istediğiniz uygulama hizmeti adını tanımlayan bir JSON yapılandırma dosyası oluşturarak başlayın. Burada çerçeve adı olarak `marathon-alice` kullanıyoruz. Dosyayı `marathon-alice.json` benzeri şekilde kaydedin:
 
@@ -36,13 +40,13 @@ Oluşturmak istediğiniz uygulama hizmeti adını tanımlayan bir JSON yapıland
 {"marathon": {"framework-name": "marathon-alice" }}
 ```
 
-Ardından, Marathon örneğini yapılandırma dosyanızda ayarlanan seçenek grubuyla yüklemek için DC/OS CLI’yı kullanın.
+Ardından, Marathon örneğini yapılandırma dosyanızda ayarlanan seçenek grubuyla yüklemek için DC/OS CLI’yı kullanın:
 
 ```bash
 dcos package install --options=marathon-alice.json marathon
 ```
 
-Şimdi, DC/OS kullanıcı arabiriminizin hizmetler sekmesinde `marathon-alice` hizmetinizin çalıştığını görmelisiniz. Doğrudan erişmek isterseniz kullanıcı arabirimi `http://<hostname>/service/marathon-alice/` olur.
+Şimdi, DC/OS kullanıcı arabiriminizin Hizmetler sekmesinde `marathon-alice` hizmetinizin çalıştığını görmelisiniz. Doğrudan erişmek isterseniz kullanıcı arabirimi `http://<hostname>/service/marathon-alice/` olur.
 
 ## Hizmete erişmek için DC/OS CLI’yı ayarlama
 
@@ -52,9 +56,10 @@ dcos package install --options=marathon-alice.json marathon
 dcos config set marathon.url http://<hostname>/service/marathon-alice/
 ```
 
-`dcos config show` komutuyla CLI’nizin hangi Marathon örneğine göre çalıştığını doğrulayabilir ve `dcos config unset marathon.url` komutuyla ana Marathon hizmetinizi kullanmak üzere geri çevirebilirsiniz.
+CLI’nizin hangi Marathon örneğine karşı çalıştığını `dcos config show` komutuyla doğrulayabilirsiniz. `dcos config unset marathon.url` komutuyla ana Marathon hizmetinizi kullanmaya geri dönebilirsiniz.
 
 
-<!----HONumber=Jun16_HO2-->
+
+<!--HONumber=Aug16_HO1-->
 
 

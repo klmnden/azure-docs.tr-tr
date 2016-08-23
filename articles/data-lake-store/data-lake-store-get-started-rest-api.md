@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/29/2016"
+   ms.date="08/02/2016"
    ms.author="nitinme"/>
 
 # REST API'lerini kullanarak Azure Data Lake Store ile çalışmaya başlama
@@ -278,6 +278,6 @@ Aşağıdaki gibi bir çıktı görmeniz gerekir:
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

@@ -13,13 +13,11 @@
 
 4. *Bağımlılıklar*’ın altına bu satırı ekleyin: 
 
-        compile 'com.google.android.gms:play-services-gcm:8.4.0'
+        compile 'com.google.android.gms:play-services-gcm:9.2.0'
 
-5. *defaultConfig* altında *minSdkVersion* satırını 9 olarak değiştirin.
- 
-6. Araç çubuğundaki **Projeyi Gradle Dosyalarıyla Eşitle** simgesine tıklayın.
+5. Araç çubuğundaki **Projeyi Gradle Dosyalarıyla Eşitle** simgesine tıklayın.
 
-7. **AndroidManifest.xml** dosyasını açın ve bu etiketi *uygulama* etiketine ekleyin.
+6. **AndroidManifest.xml** dosyasını açın ve bu etiketi *uygulama* etiketine ekleyin.
 
         <meta-data android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
@@ -31,6 +29,6 @@
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

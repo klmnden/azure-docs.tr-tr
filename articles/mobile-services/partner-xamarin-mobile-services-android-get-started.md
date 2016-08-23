@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="mobile-xamarin-android"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="02/10/2016"
+    ms.date="07/21/2016"
     ms.author="donnam"/>
 
 # <a name="getting-started"></a>Mobile Services’ı kullanmaya başlama
@@ -87,7 +87,8 @@ Bu öğreticinin son aşaması yeni uygulamanızı oluşturmak ve çalıştırma
 
     Bu, Azure üzerinde barındırılan yeni mobil hizmete bir POST isteği gönderir. İstekten alınan veriler TodoItem tablosuna eklenir. Tabloda depolanan öğeler mobil hizmet tarafından döndürülür ve veriler listede görüntülenir.
 
-    > [AZURE.NOTE] Sorgulamak ve ToDoActivity.cs C# dosyasında bulunan verileri eklemek için, mobil hizmetinize erişen kodu gözden geçirebilirsiniz.
+    > [AZURE.NOTE]
+    > Sorgulamak ve ToDoActivity.cs C# dosyasında bulunan verileri eklemek için, mobil hizmetinize erişen kodu gözden geçirebilirsiniz.
 
 6. [Klasik Azure Portalı] geri dönün, **Veri** sekmesine ve sonra **TodoItems** tablosuna tıklayın.
 
@@ -144,6 +145,6 @@ Hızlı başlangıcı tamamladığınıza göre, Mobile Services’taki diğer �
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

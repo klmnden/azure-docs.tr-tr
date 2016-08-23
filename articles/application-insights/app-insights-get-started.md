@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="03/31/2016"
+    ms.date="06/06/2016"
     ms.author="awills"/>
 
 # Visual Studio Application Insights’a başlarken
@@ -52,8 +52,6 @@ Ne istiyorsunuz | Ne yapılmalı | Ne alacaksınız
  * [Sorun giderme][qna]
  * [MSDN Forumu](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)
  * [StackOverflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
-* Hatalar:
- * [Bağlan](https://connect.microsoft.com/VisualStudio/Feedback/LoadSubmitFeedbackForm?FormID=6076)
 * Öneriler:
  * [UserVoice](https://visualstudio.uservoice.com/forums/357324)
 * Kod örnekleri
@@ -61,8 +59,9 @@ Ne istiyorsunuz | Ne yapılmalı | Ne alacaksınız
 
 
 
-## <a name="video"></a>Videolar
+## <a name="video"></a>Video
 
+[![Ahareketli giriş](./media/app-insights-get-started/video-front-1.png)](https://www.youtube.com/watch?v=fX2NtGrh-Y0)
 
 > [AZURE.VIDEO 218]
 
@@ -78,6 +77,6 @@ Ne istiyorsunuz | Ne yapılmalı | Ne alacaksınız
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

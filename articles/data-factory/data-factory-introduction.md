@@ -1,6 +1,7 @@
 <properties 
-    pageTitle="Azure Data Factory'ye giriş" 
-    description="Güvenli bilgiler oluşturan işlem hatlarını oluşturmak için veri işleme, veri depolama ve veri taşıma hizmetlerini birleştirecek Azure Data Factory hizmeti hakkında bilgi edinin." 
+    pageTitle="Data Factory nedir? Veri tümleştirme hizmeti | Microsoft Azure" 
+    description="Azure Data Factory’nin ne olduğunu öğrenin: verilerin taşınmasını ve dönüştürülmesini düzenleyen ve otomatikleştiren bir bulut veri tümleştirme hizmetidir." 
+    keywords="veri tümleştirme, bulut veri tümleştirme, azure data factory nedir"
     services="data-factory" 
     documentationCenter="" 
     authors="spelluru" 
@@ -13,17 +14,17 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="04/26/2016" 
+    ms.date="07/12/2016" 
     ms.author="spelluru"/>
 
-# Azure Data Factory Hizmeti’ne giriş
+# Buluttaki bir veri tümleştirme hizmeti olan Azure Data Factory Hizmetine giriş
 
-## Genel Bakış
+## Azure Data Factory nedir? 
 Data Factory, verilerin taşınmasını ve dönüştürülmesini düzenleyen ve otomatikleştiren bulut tabanlı bir veri tümleştirme hizmetidir. Tam da, ham maddeleri alıp, bunları tamamlanmış ürünlere dönüştürmek için donanım çalıştıran üretim fabrikası gibi Data Factory de ham verileri toplayan var olan hizmetleri düzenler ve bunları kullanıma hazır bilgilere dönüştürür. 
 
 Data Factory, verilerinizi almak, hazırlamak, dönüştürmek, analiz etmek ve yayımlamak için şirket içinde, bulut veri kaynaklarında ve SaaS’de çalışır.  Data Factory’yi, gereksinimleri hesaplayan büyük verilerinize yönelik, [Azure HDInsight (Hadoop)](http://azure.microsoft.com/documentation/services/hdinsight/) ve [Azure Batch](https://azure.microsoft.com/documentation/services/batch/) gibi hizmetleri kullanarak verilerinizi dönüştürecek yönetilen veri akışı işlem hatlarında birleştirmek için kullanın; [Azure Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/) ile de analiz çözümleriniz çalıştırılır.  Tablo izleme görünümünün ötesine geçin, veri işlem hatlarınız arasında çizgi ve bağımlılığı hemen görüntülemek için Data Factory’nin zengin görselleştirmelerini kullanın. Sorunları kolayca saptamak ve izleme uyarılarını ayarlamak için tek benzersiz bir görünümden veri akışı işlem hatlarınızın tümünü izleyin.
 
-![Genel Bakış](./media/data-factory-introduction/data-factory-overview.png)
+![Diyagram: Bir veri tümleştirme hizmeti olan Data Factory’ye Genel Bakış](./media/data-factory-introduction/what-is-azure-data-factory.png)
 
 **Şekil1.** Verileri şirket içi pek çok kaynaktan toplayın, bunları alın ve hazırlayın, bir dizi işlemle bunları düzenleyin ve analiz edin, son olarak da kullanıma hazır verileri tüketim için yayımlayın.
 
@@ -35,7 +36,7 @@ Farklı şekillerdeki ve boyutlardaki verileri toplamanız, bunları dönüştü
 
 Azure Data Factory’de girdi ve çıktı verilerini, olayları işlemeyi, istenen veri akışını yürütecek gerekli zamanlamayı ve kaynakları tanımlamak için birkaç önemli varlık vardır.
 
-![Önemli Kavramlar](./media/data-factory-introduction/key-concepts.png)
+![Diyagram: Bir bulut veri tümleştirme hizmeti olan Data Factory - Temel Kavramlar](./media/data-factory-introduction/data-integration-service-key-concepts.png)
 
 **Şekil 2.** Veri kümesi, Etkinlik, İşlem Hattı ve Bağlı hizmet arasındaki ilişkiler
 
@@ -68,10 +69,16 @@ Azure Data Factory yalnızca **Batı ABD**, **Kuzey Avrupa** ve **Kuzey Avrupa**
 
 Gelecekte Azure tarafından desteklenen Azure Data Factory’nin her coğrafi bölge için kullanılır olmasını planlamaktayız.
   
+## Sonraki adımlar
+Veri işlem hatları ile veri fabrikaları oluşturmayı öğrenmek için aşağıdaki öğreticilerde yer alan adım adım yönergeleri izleyin. 
+
+Öğretici | Açıklama
+-------- | -----------
+[Hadoop kümesi kullanarak veri işleyen bir veri işlem hattı oluşturma](data-factory-build-your-first-pipeline.md) | Bu öğreticide bir Azure HDInsight (Hadoop) kümesinde Hive betiği çalıştırarak **veri işleyen** bir veri işlem hattı ile ilk Azure veri fabrikanızı oluşturacaksınız. |
+[Verileri iki bulut veri deposu arasında taşımak için veri işlem hattı oluşturma](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) | Bu öğreticide Blob depolama biriminden SQL veritabanına **veri taşıyan** bir işlem hattı ile veri fabrikası oluşturacaksınız.
+[Veri Yönetimi Ağ Geçidi kullanarak verileri şirket içi veri deposu ile bulut veri deposu arasında taşımak üzere veri işlem hattı oluşturma](data-factory-move-data-between-onprem-and-cloud.md) |  Bu öğreticide **şirket içi** SQL Server veritabanından Azure blob’a **veri taşıyan** bir işlem hattı ile veri fabrikası oluşturacaksınız. Çözümün bir parçası olarak makinenize Veri Yönetimi Ağ Geçidi yükleyip yapılandıracaksınız. 
 
 
-
-
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

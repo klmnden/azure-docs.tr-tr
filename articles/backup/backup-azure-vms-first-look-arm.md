@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Resource Manager tarafından dağıtılan VM'leri Azure Backup ile koruma | Microsoft Azure"
-    description="Resource Manager tarafından dağıtılan VM'leri Azure Backup hizmeti ile koruyun. Verilerinizi korumak için, Resource Manager tarafından dağıtılan VM'lerin ve Premium Storage VM'lerinin yedeklemelerini kullanın. Bir Kurtarma Hizmetleri kasası oluşturun ve kaydedin. Azure'da VM'leri kaydedin, ilke oluşturun ve VM'leri koruyun."
+    pageTitle="İlk Bakış: Azure sanal makinelerini kurtarma hizmetleri kasasıyla koruma | Microsoft Azure"
+    description="Sanal makineleri bir kurtarma hizmetleri kasasıyla koruyun. Verilerinizi korumak için, Resource Manager tarafından dağıtılan, Klasik modunda dağıtılan VM'lerin ve Premium Storage VM'lerinin yedeklemelerini kullanın. Bir kurtarma hizmetleri kasası oluşturun ve kaydedin. Azure'da VM'leri kaydedin, ilke oluşturun ve VM'leri koruyun."
     services="backup"
     documentationCenter=""
     authors="markgalioto"
@@ -18,13 +18,13 @@
     ms.author="markgal; jimpark"/>
 
 
-# İlk bakış: Resource Manager tarafından dağıtılan VM'leri bir Kurtarma Hizmetleri kasasına yedekleme
+# İlk bakış: Azure sanal makinelerini bir kurtarma hizmetleri kasasıyla koruma
 
 > [AZURE.SELECTOR]
-- [Resource Manager tarafından dağıtılan VM'leri yedekleme](backup-azure-vms-first-look-arm.md)
-- [Klasik mod VM'lerini yedekleme](backup-azure-vms-first-look.md)
+- [İlk bakış: Sanal makineleri bir kurtarma hizmetleri kasasıyla koruma](backup-azure-vms-first-look-arm.md)
+- [İlk Bakış: Azure sanal makinelerini bir yedekleme kasasıyla koruma](backup-azure-vms-first-look.md)
 
-Bu öğretici, bir Kurtarma Hizmetleri kasası oluşturmaya ve bir Azure sanal makinesini (VM) yedeklemeye yönelik adımlar boyunca size yol gösterir. Kurtarma Hizmetleri kasaları şunları korur:
+Bu öğretici, bir kurtarma hizmetleri kasası oluşturmaya ve bir Azure sanal makinesini (VM) yedeklemeye yönelik adımlar boyunca size yol gösterir. Kurtarma hizmetleri kasaları şunları korur:
 
 - Azure Resource Manager tarafından dağıtılan VM'ler
 - Klasik VM'ler
@@ -37,20 +37,20 @@ Premium depolama VM'lerini koruma ile ilgili ek bilgi için bkz. [Premium Storag
 
 Yüksek bir düzeyde tamamlayacağınız adımlar aşağıda verilmiştir.  
 
-1. Bir VM için Kurtarma Hizmetleri kasası oluşturun.
+1. Bir VM için kurtarma hizmetleri kasası oluşturun.
 2. Bir senaryo seçmek, İlke ayarlamak ve korunacak öğeleri tanımlamak için Azure portalı kullanın.
 3. İlk yedeklemeyi çalıştırın.
 
 
 
-## 1. Adım - Bir VM için Kurtarma Hizmetleri kasası oluşturma
+## 1. Adım - Bir VM için kurtarma hizmetleri kasası oluşturma
 
-Kurtarma Hizmetleri kasası, zaman içinde oluşturulan tüm yedeklemeleri ve kurtarma noktalarını depolayan bir varlıktır. Kurtarma Hizmetleri kasası ayrıca, korumalı VM'lere uygulanan yedekleme ilkesini de içerir.
+Kurtarma hizmetleri kasası, zaman içinde oluşturulan tüm yedeklemeleri ve kurtarma noktalarını depolayan bir varlıktır. Kurtarma hizmetleri kasası ayrıca, korumalı VM'lere uygulanan yedekleme ilkesini de içerir.
 
->[AZURE.NOTE] VM'leri yedekleme işlemi, yerel bir işlemdir. Bir konumdaki VM'leri, başka bir konumda bulunan bir Kurtarma Hizmetleri kasasına yedekleyemezsiniz. Bu nedenle, yedeklenecek VM'ler içeren her Azure konumu için en az bir kurtarma Hizmetleri kasası ilgili konumda mevcut olmalıdır.
+>[AZURE.NOTE] VM'leri yedekleme işlemi, yerel bir işlemdir. Bir konumdaki VM'leri, başka bir konumda bulunan bir kurtarma hizmetleri kasasına yedekleyemezsiniz. Bu nedenle, yedeklenecek VM'ler içeren her Azure konumu için en az bir kurtarma hizmetleri kasası ilgili konumda mevcut olmalıdır.
 
 
-Kurtarma Hizmetleri kasası oluşturmak için:
+Kurtarma hizmetleri kasası oluşturmak için:
 
 1. [Azure portalında](https://portal.azure.com/) oturum açın.
 
@@ -58,7 +58,7 @@ Kurtarma Hizmetleri kasası oluşturmak için:
 
     ![Kurtarma Hizmetleri Kasası oluşturma 1. adım](./media/backup-azure-vms-first-look-arm/browse-to-rs-vaults.png) <br/>
 
-    Kurtarma Hizmetleri kasalarının listesi görüntülenir.
+    Kurtarma hizmetleri kasalarının listesi görüntülenir.
 
 3. **Kurtarma Hizmetleri kasaları** menüsünde **Ekle**'ye tıklayın.
 
@@ -72,13 +72,13 @@ Kurtarma Hizmetleri kasası oluşturmak için:
 
 5. Kullanılabilir abonelik listesini görmek için **Abonelik** seçeneğine tıklayın. Hangi aboneliğin kullanılacağından emin değilseniz varsayılan (veya önerilen) aboneliği kullanın. Ancak kuruluş hesabınızın birden çok Azure aboneliği ile ilişkili olması durumunda birden çok seçenek olacaktır.
 
-6. Kullanılabilir Kaynak grubu listesini görmek için **Kaynak grubu** seçeneğine, yeni bir Kaynak grubu oluşturmak için de **Yeni** seçeneğine tıklayın. Kaynak grupları hakkında tüm bilgiler için bkz. [Azure kaynaklarınızı dağıtmak ve yönetmek için Azure Portal'ı kullanma](../azure-portal/resource-group-portal.md)
+6. Kullanılabilir Kaynak grubu listesini görmek için **Kaynak grubu** seçeneğine, yeni bir Kaynak grubu oluşturmak için de **Yeni** seçeneğine tıklayın. Kaynak grupları hakkında eksiksiz bilgiler için bkz. [Azure Resource Manager’a genel bakış](../resource-group-overview.md)
 
 7. Kasa için coğrafi bölgeyi seçmek üzere **Konum**'a tıklayın. Kasa korumak istediğiniz sanal makinelerle aynı bölgede **olmalıdır**.
 
-    >[AZURE.IMPORTANT] VM'nizin hangi konumda bulunduğundan emin değilseniz kasa oluşturma iletişim kutusunu kapatın ve portaldaki Virtual Machines listesine gidin. Birden çok bölgede sanal makineniz varsa her bölgede bir Kurtarma Hizmetleri kasası oluşturmanız gerekir. Sonraki konuma geçmeden önce, kasayı ilk konumda oluşturun. Yedekleme verilerini depolamak için depolama hesaplarının belirtilmesi gerekmez; Kurtarma Hizmetleri kasası ve Azure Backup hizmeti bunu otomatik olarak gerçekleştirir.
+    >[AZURE.IMPORTANT] VM'nizin hangi konumda bulunduğundan emin değilseniz kasa oluşturma iletişim kutusunu kapatın ve portaldaki Virtual Machines listesine gidin. Birden çok bölgede sanal makineniz varsa her bölgede bir kurtarma hizmetleri kasası oluşturmanız gerekir. Sonraki konuma geçmeden önce, kasayı ilk konumda oluşturun. Yedekleme verilerini depolamak için depolama hesaplarının belirtilmesi gerekmez; kurtarma hizmetleri kasası ve Azure Backup hizmeti bunu otomatik olarak gerçekleştirir.
 
-8. **Oluştur**'a tıklayın. Kurtarma Hizmetleri kasasının oluşturulması biraz zaman alabilir. Portalda sağ üst alandaki durum bildirimlerini izleyin. Kasanız oluşturulduktan sonra Kurtarma Hizmetleri kasaları listesinde görünür.
+8. **Oluştur**'a tıklayın. Kurtarma hizmetleri kasasının oluşturulması biraz zaman alabilir. Portalda sağ üst alandaki durum bildirimlerini izleyin. Kasanız oluşturulduktan sonra kurtarma hizmetleri kasaları listesinde görünür.
 
     ![Yedekleme kasalarının listesi](./media/backup-azure-vms-first-look-arm/rs-list-of-vaults.png)
 
@@ -102,15 +102,15 @@ Depolama çoğaltma ayarını düzenlemek için:
 
 VM'yi bir kasaya kaydetmeden önce, aboneliğe eklenmiş olan yeni sanal makinelerin tanımlandığından emin olmak için bulma işlemini çalıştırın. Bu işlem, bulut hizmeti adı ve bölge gibi ek bilgilerle birlikte abonelikteki sanal makinelerin listesi için Azure'ı sorgular. Azure portalda, senaryo, kurtarma hizmetleri kasasına yerleştireceğiniz içeriğe başvuruda bulunur. İlke, kurtarma noktalarının ne sıklıkta ve ne zaman alınacağına yönelik zamanlamadır. İlke aynı zamanda kurtarma noktaları için bekletme aralığını içerir.
 
-1. Açık bir Kurtarma Hizmetleri kasanız zaten varsa 2. adıma geçin. Açık Kurtarma Hizmetleri kasanız yoksa ancak Azure portaldaysanız Hub menüsünde **Gözat**'a tıklayın.
+1. Açık bir kurtarma hizmetleri kasanız zaten varsa 2. adıma geçin. Açık kurtarma hizmetleri kasanız yoksa ancak Azure portaldaysanız Hub menüsünde **Gözat**'a tıklayın.
 
   - Kaynak listesinde **Kurtarma Hizmetleri** yazın.
   - Yazmaya başladığınızda liste, girişinize göre filtrelenir. **Kurtarma Hizmetleri kasaları** seçeneğini gördüğünüzde buna tıklayın.
 
     ![Kurtarma Hizmetleri Kasası oluşturma 1. adım](./media/backup-azure-vms-first-look-arm/browse-to-rs-vaults.png) <br/>
 
-    Kurtarma Hizmetleri kasalarının listesi görünür.
-  - Kurtarma Hizmetleri kasalarının listesinden bir kasa seçin.
+    Kurtarma hizmetleri kasalarının listesi görünür.
+  - Kurtarma hizmetleri kasalarının listesinden bir kasa seçin.
 
     Seçilen kasa panosu açılır.
 
@@ -128,7 +128,7 @@ VM'yi bir kasaya kaydetmeden önce, aboneliğe eklenmiş olan yeni sanal makinel
 
     ![Senaryo dikey penceresini açma](./media/backup-azure-vms-first-look-arm/select-backup-goal-one.png)
 
-4. Yedekleme Hedefi dikey penceresinde **İş yükünüz nerede çalıştırılıyor?** seçeneğini Azure olarak, **Neyi yedeklemek istiyorsunuz?** seçeneğini ise Sanal makine olarak ayarlayın ve ardından **Tamam**'a tıklayın.
+4. Yedekleme Hedefi dikey penceresinde **İş yükünüz nerede çalışıyor?** seçeneğini Azure olarak, **Neleri yedeklemek istiyorsunuz?** seçeneğini ise Sanal makine olarak ayarlayın ve ardından **Tamam**'a tıklayın.
 
     Yedekleme Hedefi dikey penceresi kapanır ve Yedekleme ilkesi dikey penceresi açılır.
 
@@ -138,7 +138,7 @@ VM'yi bir kasaya kaydetmeden önce, aboneliğe eklenmiş olan yeni sanal makinel
 
     ![Yedekleme ilkesini seçme](./media/backup-azure-vms-first-look-arm/setting-rs-backup-policy-new.png)
 
-    Varsayılan ilkenin ayrıntıları, ayrıntılar altında listelenir. Yeni bir ilke oluşturmak istiyorsanız açılır menüden **Yeni Oluştur**'u seçin. Açılır menü ayrıca, anlık görüntünün alınma zamanını 19:00'a değiştirme seçeneğini de sağlar. Bir yedekleme ilkesi tanımlamaya yönelik yönergeler için bkz. [Yedekleme ilkesi tanımlama](backup-azure-vms-first-look-arm.md#defining-a-backup-policy). **Tamam**'a tıklamanızın ardından, yedekleme ilkesi kasayla ilişkilendirilir.
+    Varsayılan ilkenin ayrıntıları, ayrıntılar altında listelenir. Yeni bir ilke oluşturmak istiyorsanız açılan menüden **Yeni Oluştur**'u seçin. Açılan menü ayrıca, anlık görüntünün alınma zamanını 19:00'a değiştirme seçeneğini de sağlar. Bir yedekleme ilkesi tanımlamaya yönelik yönergeler için bkz. [Yedekleme ilkesi tanımlama](backup-azure-vms-first-look-arm.md#defining-a-backup-policy). **Tamam**'a tıklamanızın ardından, yedekleme ilkesi kasayla ilişkilendirilir.
 
     Daha sonra, kasa ile ilişkilendirilecek VM'leri seçin.
 
@@ -222,6 +222,6 @@ Sorularınız varsa veya dahil edilmesini istediğiniz herhangi bir özellik var
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

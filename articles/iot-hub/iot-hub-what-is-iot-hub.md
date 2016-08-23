@@ -96,13 +96,14 @@ Mobil sektörü, [Windows Anında İletilen Bildirim Servisi][lnk-wns], [Google 
 
 ## Sonraki adımlar
 
-Azure IoT Hub hakkında daha fazla bilgi için şu bağlantılara bakın:
+Cihazlarınızı uzaktan yönetmeniz, yapılandırmanız ve güncelleştirmeniz için Azure IoT Hub’ın standartlara dayalı IoT cihaz yönetimini nasıl etkinleştirdiği hakkında bilgi almak için bkz. [Azure IoT Hub cihaz yönetimine genel bakış][lnk-device-management].
 
-* [IoT Hub ile çalışmaya başlama][lnk-get-started]
-* [Cihazınızı bağlama][lnk-connect-device]
-* [Cihazdan buluta iletileri işleme][lnk-d2c]
+Çok çeşitli cihaz donanım platformları ve işletim sistemlerinde istemci uygulamalarını uygulamak için IoT cihaz SDK'larını kullanabilirsiniz. IoT cihaz SDK'ları, bir IoT hub'ına telemetri göndermeyi ve bulut-cihaz komutlarını almayı gerçekleştiren kitaplıkları içerir. SDK'ları kullandığınızda IoT Hub ile iletişim kurmak için birçok ağ protokolünden seçim yapabilirsiniz. Daha fazla bilgi için bkz. [Cihaz SDK'ları hakkında bilgi][lnk-device-sdks].
+
+Bazı kodları yazmaya ve bazı örnekleri çalıştırmaya başlamak için [IoT Hub ile çalışmaya başlama][lnk-get-started] öğreticisine bakın.
 
 [img-architecture]: media/iot-hub-what-is-iot-hub/hubarchitecture.png
+
 
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
@@ -120,9 +121,10 @@ Azure IoT Hub hakkında daha fazla bilgi için şu bağlantılara bakın:
 [lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks
 [lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
+[lnk-device-management]: iot-hub-device-management-overview.md
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

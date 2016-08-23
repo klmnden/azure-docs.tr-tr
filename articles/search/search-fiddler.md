@@ -13,7 +13,7 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="02/18/2016"
+    ms.date="06/08/2016"
     ms.author="heidist"/>
 
 # Azure Search REST API'lerini değerlendirmek ve test etmek için Fiddler'ı kullanma
@@ -47,33 +47,33 @@ Bu adımları tamamlamak için Azure Search hizmeti ve `api-key` gerekir. Kullan
 
     Tam URL aşağıdaki örneğe benzemelidir.
 
-         https://my-app.search.windows.net/indexes/hotels?api-version=2015-02-28
+            https://my-app.search.windows.net/indexes/hotels?api-version=2015-02-28
 
 4.  Ana bilgisayarı ve api anahtarını hizmetiniz için geçerli olan değerlerle değiştirerek istek üst bilgisini belirtin.
 
-        User-Agent: Fiddler
-        host: my-app.search.windows.net
-        content-type: application/json
-        api-key: 1111222233334444
+            User-Agent: Fiddler
+            host: my-app.search.windows.net
+            content-type: application/json
+            api-key: 1111222233334444
 
 5.  İstek Gövdesine dizin tanımını oluşturan alanları yapıştırın.
-
-         {
-        "name": "hotels",  
-        "fields": [
-          {"name": "hotelId", "type": "Edm.String", "key":true, "searchable": false},
-          {"name": "baseRate", "type": "Edm.Double"},
-          {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false},
-          {"name": "hotelName", "type": "Edm.String"},
-          {"name": "category", "type": "Edm.String"},
-          {"name": "tags", "type": "Collection(Edm.String)"},
-          {"name": "parkingIncluded", "type": "Edm.Boolean"},
-          {"name": "smokingAllowed", "type": "Edm.Boolean"},
-          {"name": "lastRenovationDate", "type": "Edm.DateTimeOffset"},
-          {"name": "rating", "type": "Edm.Int32"},
-          {"name": "location", "type": "Edm.GeographyPoint"}
-         ]
-        }
+            
+             {
+            "name": "hotels",  
+            "fields": [
+              {"name": "hotelId", "type": "Edm.String", "key":true, "searchable": false},
+              {"name": "baseRate", "type": "Edm.Double"},
+              {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false},
+              {"name": "hotelName", "type": "Edm.String"},
+              {"name": "category", "type": "Edm.String"},
+              {"name": "tags", "type": "Collection(Edm.String)"},
+              {"name": "parkingIncluded", "type": "Edm.Boolean"},
+              {"name": "smokingAllowed", "type": "Edm.Boolean"},
+              {"name": "lastRenovationDate", "type": "Edm.DateTimeOffset"},
+              {"name": "rating", "type": "Edm.Int32"},
+              {"name": "location", "type": "Edm.GeographyPoint"}
+             ]
+            }
 
 6.  **Yürüt**'e tıklayın.
 
@@ -91,77 +91,77 @@ HTTP 504 yanıtı alırsanız HTTPS'yi belirten URL'yi doğrulayın. HTTP 400 ve
 
 2.  HTTPS ile başlayan, sırasıyla hizmet URL'niz ve "/indexes/<'indexname'>/docs/index?api-version=2015-02-28" ile devam eden bir URL girin. Tam URL aşağıdaki örneğe benzemelidir.
 
-        https://my-app.search.windows.net/indexes/hotels/docs/index?api-version=2015-02-28
+            https://my-app.search.windows.net/indexes/hotels/docs/index?api-version=2015-02-28
 
 3.  İstek Üst Bilgisi önceki ile aynı olmalıdır. Ana bilgisayarı ve api anahtarını hizmetiniz için geçerli olan değerlerle değiştirdiğinizi unutmayın.
 
-        User-Agent: Fiddler
-        host: my-app.search.windows.net
-        content-type: application/json
-        api-key: 1111222233334444
+            User-Agent: Fiddler
+            host: my-app.search.windows.net
+            content-type: application/json
+            api-key: 1111222233334444
 
 4.  İstek Gövdesi, oteller dizinine eklenecek dört belge içerir.
 
-        {
-        "value": [
-        {
-            "@search.action": "upload",
-            "hotelId": "1",
-            "baseRate": 199.0,
-            "description": "Best hotel in town",
-            "hotelName": "Fancy Stay",
-            "category": "Luxury",
-            "tags": ["pool", "view", "wifi", "concierge"],
-            "parkingIncluded": false,
-            "smokingAllowed": false,
-            "lastRenovationDate": "2010-06-27T00:00:00Z",
-            "rating": 5,
-            "location": { "type": "Point", "coordinates": [-122.131577, 47.678581] }
-          },
-          {
-            "@search.action": "upload",
-            "hotelId": "2",
-            "baseRate": 79.99,
-            "description": "Cheapest hotel in town",
-            "hotelName": "Roach Motel",
-            "category": "Budget",
-            "tags": ["motel", "budget"],
-            "parkingIncluded": true,
-            "smokingAllowed": true,
-            "lastRenovationDate": "1982-04-28T00:00:00Z",
-            "rating": 1,
-            "location": { "type": "Point", "coordinates": [-122.131577, 49.678581] }
-          },
-          {
-            "@search.action": "upload",
-            "hotelId": "3",
-            "baseRate": 279.99,
-            "description": "Surprisingly expensive",
-            "hotelName": "Dew Drop Inn",
-            "category": "Bed and Breakfast",
-            "tags": ["charming", "quaint"],
-            "parkingIncluded": true,
-            "smokingAllowed": false,
-            "lastRenovationDate": null,
-            "rating": 4,
-            "location": { "type": "Point", "coordinates": [-122.33207, 47.60621] }
-          },
-          {
-            "@search.action": "upload",
-            "hotelId": "4",
-            "baseRate": 220.00,
-            "description": "This could be the one",
-            "hotelName": "A Hotel for Everyone",
-            "category": "Basic hotel",
-            "tags": ["pool", "wifi"],
-            "parkingIncluded": true,
-            "smokingAllowed": false,
-            "lastRenovationDate": null,
-            "rating": 4,
-            "location": { "type": "Point", "coordinates": [-122.12151, 47.67399] }
-          }
-         ]
-        }
+            {
+            "value": [
+            {
+                "@search.action": "upload",
+                "hotelId": "1",
+                "baseRate": 199.0,
+                "description": "Best hotel in town",
+                "hotelName": "Fancy Stay",
+                "category": "Luxury",
+                "tags": ["pool", "view", "wifi", "concierge"],
+                "parkingIncluded": false,
+                "smokingAllowed": false,
+                "lastRenovationDate": "2010-06-27T00:00:00Z",
+                "rating": 5,
+                "location": { "type": "Point", "coordinates": [-122.131577, 47.678581] }
+              },
+              {
+                "@search.action": "upload",
+                "hotelId": "2",
+                "baseRate": 79.99,
+                "description": "Cheapest hotel in town",
+                "hotelName": "Roach Motel",
+                "category": "Budget",
+                "tags": ["motel", "budget"],
+                "parkingIncluded": true,
+                "smokingAllowed": true,
+                "lastRenovationDate": "1982-04-28T00:00:00Z",
+                "rating": 1,
+                "location": { "type": "Point", "coordinates": [-122.131577, 49.678581] }
+              },
+              {
+                "@search.action": "upload",
+                "hotelId": "3",
+                "baseRate": 279.99,
+                "description": "Surprisingly expensive",
+                "hotelName": "Dew Drop Inn",
+                "category": "Bed and Breakfast",
+                "tags": ["charming", "quaint"],
+                "parkingIncluded": true,
+                "smokingAllowed": false,
+                "lastRenovationDate": null,
+                "rating": 4,
+                "location": { "type": "Point", "coordinates": [-122.33207, 47.60621] }
+              },
+              {
+                "@search.action": "upload",
+                "hotelId": "4",
+                "baseRate": 220.00,
+                "description": "This could be the one",
+                "hotelName": "A Hotel for Everyone",
+                "category": "Basic hotel",
+                "tags": ["pool", "wifi"],
+                "parkingIncluded": true,
+                "smokingAllowed": false,
+                "lastRenovationDate": null,
+                "rating": 4,
+                "location": { "type": "Point", "coordinates": [-122.12151, 47.67399] }
+              }
+             ]
+            }
 
 8.  **Yürüt**'e tıklayın.
 
@@ -176,17 +176,17 @@ Birkaç saniye içinde, oturum listesinde bir HTTP 200 yanıtı görmeniz gereki
 1.  **GET**'i seçin.
 
 2.  HTTPS ile başlayan, sırasıyla hizmet URL'niz, "/indexes/<'indexname'>/docs?" ve sorgu parametreleri ile devam eden bir URL girin. Örnek olarak, örnek ana bilgisayar adını hizmetiniz için geçerli olan bir tane ile değiştirerek aşağıdaki URL'yi kullanın.
-
-        https://my-app.search.windows.net/indexes/hotels/docs?search=motel&facet=category&facet=rating,values:1|2|3|4|5&api-version=2015-02-28
+    
+            https://my-app.search.windows.net/indexes/hotels/docs?search=motel&facet=category&facet=rating,values:1|2|3|4|5&api-version=2015-02-28
 
     Bu sorgu "motel" terimini arar ve derecelendirmeler için model kategorileri alır.
 
 3.  İstek Üst Bilgisi önceki ile aynı olmalıdır. Ana bilgisayarı ve api anahtarını hizmetiniz için geçerli olan değerlerle değiştirdiğinizi unutmayın.
 
-        User-Agent: Fiddler
-        host: my-app.search.windows.net
-        content-type: application/json
-        api-key: 1111222233334444
+            User-Agent: Fiddler
+            host: my-app.search.windows.net
+            content-type: application/json
+            api-key: 1111222233334444
 
 Yanıt kodu 200 olmalıdır ve yanıt çıkışı aşağıdaki ekran görüntüsüne benzer görünmelidir.
 
@@ -212,14 +212,14 @@ Ayrıca, belge sayısını ve depolama tüketimini almak için sistemi sorgulaya
 
 2.  Hizmet URL'nizi içeren ve ardından "/indexes/hotels/stats?api-version=2015-02-28" ile devam eden bir URL girin:
 
-        https://my-app.search.windows.net/indexes/hotels/stats?api-version=2015-02-28
+            https://my-app.search.windows.net/indexes/hotels/stats?api-version=2015-02-28
 
 3.  Ana bilgisayarı ve api anahtarını hizmetiniz için geçerli olan değerlerle değiştirerek istek üst bilgisini belirtin.
 
-        User-Agent: Fiddler
-        host: my-app.search.windows.net
-        content-type: application/json
-        api-key: 1111222233334444
+            User-Agent: Fiddler
+            host: my-app.search.windows.net
+            content-type: application/json
+            api-key: 1111222233334444
 
 4.  İstek gövdesini boş bırakın.
 
@@ -241,6 +241,6 @@ Azure Search hizmetini kod içermeyen bir yaklaşımla yönetmek ve kullanmak i�
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

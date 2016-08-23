@@ -13,13 +13,13 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/05/2016"
+   ms.date="06/07/2016"
    ms.author="joaoma"/>
 
 
 # Azure Resource Manager şablonunu kullanarak uygulama ağ geçidi oluşturma
 
-Azure Application Gateway, bir katman 7 yük dengeleyicidir. Bulutta veya şirket içinde olmalarından bağımsız olarak, farklı sunucular arasında yük devretme ile HTTP istekleri için performans amaçlı yönlendirme sağlar. Application Gateway şu uygulama teslim özelliklerine sahiptir: HTTP yük dengeleme, tanımlama bilgisi tabanlı oturum benzeşimi ve Güvenli Yuva Katmanı (SSL) yük boşaltımı.
+Azure Application Gateway, bir katman 7 yük dengeleyicidir. Bulutta veya şirket içinde olmalarından bağımsız olarak, farklı sunucular arasında yük devretme ile HTTP istekleri için performans amaçlı yönlendirme sağlar. Application Gateway şu uygulama teslim özelliklerine sahiptir: HTTP yük dengeleme, tanımlama bilgisi tabanlı oturum benzeşimi ve Güvenli Yuva Katmanı (SSL) yük boşaltma.
 
 > [AZURE.SELECTOR]
 - [Azure Klasik PowerShell](application-gateway-create-gateway.md)
@@ -81,7 +81,7 @@ GitHub’dan sanal ağ ve iki adet alt ağ oluşturmak için, mevcut Azure Resou
     - **name**. Kaynağın adı. **[parameters('applicationGatewayName')]** kullanıldığına dikkat edin. Bu, adın kullanıcı tarafından girilerek veya dağıtım sırasında bir parametre dosyasıyla belirtileceği anlamına gelir.
     - **properties**. Kaynak özelliklerinin listesi. Bu şablon, uygulama ağ geçidi oluştururken sanal ağı ve genel IP adresini kullanır.
 
-7. https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-create/ bağlantısına geri gidin.
+7. [https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-create/](https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-create) bağlantısına geri gidin.
 8. Önce **azuredeploy-paremeters.json**, sonra da**RAW**’a tıklayın.
 9. Dosyayı bilgisayarınızdaki yerel bir klasöre kaydedin.
 10. Kaydettiğiniz dosyayı açın ve parametre değerlerini düzenleyin. Senaryomuzda açıklanan uygulama ağ geçidini dağıtmak için aşağıdaki değerleri kullanın.
@@ -275,9 +275,9 @@ Portalda, dağıtım şablonu parametrelerini doldurun ve **Tamam**’a tıklay�
 
 ## Sonraki adımlar
 
-SSL yük boşaltımı yapılandırmak istiyorsanız, bkz. [SSL yük boşaltımı için uygulama ağ geçidi yapılandırma ](application-gateway-ssl.md).
+SSL yük boşaltmayı yapılandırmak istiyorsanız, bkz. [SSL yük boşaltımı için uygulama ağ geçidi yapılandırma](application-gateway-ssl.md).
 
-İç yük dengeleyiciyle kullanacağınız bir uygulama ağ geçidi yapılandırmak istiyorsanız, bkz. [İç yük dengeleyici (ILB) ile uygulama ağ geçidi oluşturma](application-gateway-ilb.md).
+İç yük dengeleyiciyle kullanacağınız uygulama ağ geçidi yapılandırmak istiyorsanız, bkz. [İç yük dengeleyici (ILB) ile uygulama ağ geçidi oluşturma](application-gateway-ilb.md).
 
 Yük dengeleme seçenekleri hakkında daha fazla genel bilgi edinmek istiyorsanız, bkz.
 
@@ -286,6 +286,6 @@ Yük dengeleme seçenekleri hakkında daha fazla genel bilgi edinmek istiyorsan�
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

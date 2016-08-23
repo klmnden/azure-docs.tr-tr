@@ -1,7 +1,7 @@
 <properties 
     pageTitle="Bir JSON veritabanı olan DocumentDB'ye giriş | Microsoft Azure" 
     description="Bir NoSQL JSON veritabanı olan Azure DocumentDB hakkında bilgi edinin. Bu belge veritabanı büyük veri, esnek ölçeklenebilirlik ve yüksek kullanılabilirlik için oluşturulmuştur." 
-    keywords="json database, document database"
+    keywords="json veritabanı, belge veritabanı"
     services="documentdb" 
     authors="mimig1" 
     manager="jhubbard" 
@@ -14,12 +14,12 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="03/30/2016" 
+    ms.date="07/01/2016" 
     ms.author="mimig"/>
 
 # DocumentDB'ye giriş: Bir NoSQL JSON Veritabanı
 
-Azure DocumentDB hızlı ve tahmin edilebilir performans, yüksek kullanılabilirlik, otomatik ölçeklendirme ve geliştirme kolaylığı için oluşturulmuş tam olarak yönetilen bir NoSQL veritabanı hizmetidir. Esnek veri modeli, tutarlı düşük gecikme süreleri ve zengin sorgu özellikleri sayesinde web, mobil, oyun, IoT ve sorunsuz ölçeklendirme gerektiren diğer birçok uygulama için harika bir seçenektir.
+Azure DocumentDB hızlı ve tahmin edilebilir performans, yüksek kullanılabilirlik, otomatik ölçeklendirme, genel dağıtım ve geliştirme kolaylığı için oluşturulmuş tam olarak yönetilen bir NoSQL veritabanı hizmetidir. Esnek veri modeli, tutarlı düşük gecikme süreleri ve zengin sorgu özellikleri sayesinde web, mobil, oyun, IoT ve sorunsuz ölçeklendirme gerektiren diğer birçok uygulama için harika bir seçenektir.
 
 Bu JSON veritabanı hakkında bilgi edinmenin ve bunu çalışırken görmenin hızlı bir yolu şu üç adımı takip etmektir: 
 
@@ -38,13 +38,15 @@ Bunun sonrasında, daha derinlere ineceğimiz bu makaleye dönün ve aşağıdak
 
 Modern uygulamalar çok büyük hacimdeki verileri hızlı bir şekilde üretir, tüketir ve bunlara yanıt verir. Bu uygulamalar ve de temel alınan veri şeması çok hızlı bir şekilde gelişir. Geliştiriciler buna yanıt olarak, uygulama veri modellerini ve yapılandırılmamış veri akışlarını hızla yineleme özelliğini koruyarak verileri depolamak ve işlemek için basit, hızlı ve ölçeklenebilir çözümler olan şemasız NoSQL belge veritabanlarını giderek daha fazla tercih etmektedir. Ancak birçok şemasız veritabanı karmaşık sorgulara ve işlem tabanlı işlemeye izin vermez, bu da veri yönetimini zorlaştırır. İşte bu noktada DocumentDB devreye girer. Microsoft, günümüzün uygulamalarına göre verileri yönetirken bu gereksinimleri karşılamak üzere DocumentDB'yi geliştirmiştir.
 
-DocumentDB modern mobil, web, oyun ve IoT uygulamaları için tasarlanmış gerçek bir şemasız NoSQL veritabanı hizmetidir. DocumentDB tutarlı bir şekilde hızlı okuma ve yazma, şema esnekliği ve bir veritabanının ölçeğini isteğe bağlı olarak kolayca artırma ve azaltma olanağı sunar. Dizin oluşturduğu JSON belgeleri için herhangi bir şema varsaymaz veya gerektirmez. Varsayılan olarak, veritabanındaki tüm belgelerin otomatik olarak dizinini oluşturur ve herhangi bir şemayı ya da ikincil dizinlerin oluşturulmasını beklemez veya gerektirmez. DocumentDB SQL dilini kullanarak karmaşık geçici sorguları mümkün kılar, iyi tanımlanmış tutarlılık düzeylerini destekler ve saklı yordamlar, tetikleyiciler ve UDF'lerin tanıdık programlama modelini kullanarak JavaScript diliyle tümleşik, çok belgeli işlem gerçekleştirme sağlar. 
+DocumentDB modern mobil, web, oyun ve IoT uygulamaları için tasarlanmış gerçek bir şemasız NoSQL veritabanı hizmetidir. DocumentDB, okumalarınızın %99’unun 10 milisaniye ve yazmalarınızın %99’unun 15 milisaniye altında sunulmasını sağlar. Ayrıca şema esnekliği ve bir veritabanının ölçeğini isteğe bağlı olarak kolayca artırma ve azaltma olanağı sunar. Dizin oluşturduğu JSON belgeleri için herhangi bir şema varsaymaz veya gerektirmez. Varsayılan olarak, veritabanındaki tüm belgelerin otomatik olarak dizinini oluşturur ve herhangi bir şemayı ya da ikincil dizinlerin oluşturulmasını beklemez veya gerektirmez. DocumentDB SQL dilini kullanarak karmaşık geçici sorguları mümkün kılar, iyi tanımlanmış tutarlılık düzeylerini destekler ve saklı yordamlar, tetikleyiciler ve UDF'lerin tanıdık programlama modelini kullanarak JavaScript diliyle tümleşik, çok belgeli işlem gerçekleştirme sağlar. 
 
 DocumentDB bir JSON veritabanı olarak, JSON belgelerini yerel bir şekilde destekleyip uygulama şemasının kolayca yinelenmesini sağlar ve anahtar değer, belge veya tablo veri modelleri gereksinimi olan uygulamaları destekler. DocumentDB JSON ve JavaScript'in yaygınlığını benimseyip uygulama tanımlı nesneler ve veritabanı şeması arasındaki uyumsuzluğu ortadan kaldırır. JavaScript derin tümleştirmesi, geliştiricilerin uygulama mantığını bir veritabanı işlemindeki veritabanı altyapısı içinde verimli şekilde ve doğrudan yürütmesini de sağlar. 
 
 Azure DocumentDB aşağıdaki temel işlevleri ve avantajları sunar:
 
 -   **Esnek bir şekilde ölçeklenebilir işleme ve depolama:** Uygulama gereksinimlerinizi karşılamak için DocumentDB JSON veritabanınızın ölçeğini kolayca artırın veya azaltın. Verileriniz düşük tahmin edilebilirliğe sahip gecikme süreleri sağlamak için katı hal disklerinde (SSD) depolanır. DocumentDB, JSON verilerini depolamak için koleksiyon adı verilen kapsayıcıları destekler; bu kapsayıcılar neredeyse sınırsız depolama boyutlarına ve sağlanan işlemeye ölçeklenebilir. Uygulamanız büyüdükçe, DocumentDB'yi tahmin edilebilir performansla sorunsuz ve esnek bir şekilde ölçeklendirebilirsiniz. 
+
+-   **Çok bölgeli çoğaltma:** DocumentDB, verilerinizi DocumentDB hesabınızla ilişkilendirdiğiniz tüm bölgelere şeffaf biçimde çoğaltır ve tutarlılık, kullanılabilirlik ve performansın hepsi için garantili bir denge sağlarken verilere genel erişim gerektiren uygulamalar geliştirmenize imkan tanır. DocumentDB çok girişli API’ler ile şeffaf bölgesel yük devretme ve verimlilik ile depolamayı dünya çapında elastik bir şekilde ölçeklendirme imkanı sağlar. [DocumentDB ile verileri küresel ölçekte dağıtma](documentdb-distribute-data-globally.md) bölümünde daha fazla bilgi edinin.
 
 -   **Tanıdık SQL söz dizimi ile geçici sorgular:** DocumentDB içinde heterojen JSON belgelerini depolayın ve tanıdık bir SQL söz dizimi aracılığıyla bu belgeleri sorgulayın. DocumentDB, tüm belge içeriğinin otomatik olarak dizinini oluşturmak için yüksek derecede eşzamanlı, kilitsiz, günlük yapılı bir dizin oluşturma teknolojisi kullanır. Böylece şema ipuçları, ikincil dizinler veya görünümler belirtmek gerekmeden gerçek zamanlı zengin sorgulara olanak sağlanır. Daha fazla bilgi için bkz. [DocumentDB'yi sorgulama](documentdb-sql-query.md). 
 
@@ -102,7 +104,7 @@ Bir Azure hesabınız zaten varsa [bir DocumentDB veritabanı hesabı oluşturar
 
 Bir Azure hesabınız yoksa şunları yapabilirsiniz:
 
-- Tüm Azure hizmetlerini denemek için size 30 gün ve 200 ABD doları sağlayan bir [Azure ücretsiz deneme sürümüne](https://azure.microsoft.com/pricing/free-trial/) kaydolun. 
+- Tüm Azure hizmetlerini denemek için size 30 gün ve 200 ABD doları sağlayan bir [Azure ücretsiz deneme sürümüne](https://azure.microsoft.com/free/) kaydolun. 
 - Bir MSDN aboneliğiniz varsa herhangi bir Azure hizmetinde kullanmak üzere [aylık 150 ABD dolarını içeren ücretsiz Azure kredisi](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) hakkınız bulunur. 
 
 Daha fazla bilgi edinmeye hazır olduğunuzda sizin için kullanılabilir olan tüm öğrenme kaynaklarına gitmek için [öğrenme yolumuzu](https://azure.microsoft.com/documentation/learning-paths/documentdb/) ziyaret edin. 
@@ -113,6 +115,6 @@ Daha fazla bilgi edinmeye hazır olduğunuzda sizin için kullanılabilir olan t
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

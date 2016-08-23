@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/18/2016"
+   ms.date="07/27/2016"
    ms.author="larryfr"/>
 
 #HDInsight üzerinde Apache Storm’a giriş: Hadoop için gerçek zamanlı analiz
@@ -109,7 +109,7 @@ HDInsight üzerinde Storm 7 gün 24 saat kurumsal düzeyde tam destek ile birlik
 
 ##Gerçek zamanlı analiz için ortak kullanım durumları
 
-HDInsight üzerinde Apache storm kullanabileceğiniz bazı yaygın senaryolar aşağıda verilmiştir. Gerçek senaryolar hakkında daha fazla bilgi için [Şirketler Storm’u nasıl kullanır](https://storm.incubator.apache.org/documentation/Powered-By.html) bölümünü okuyun.
+HDInsight üzerinde Apache storm kullanabileceğiniz bazı yaygın senaryolar aşağıda verilmiştir. Gerçek senaryolar hakkında daha fazla bilgi için [Şirketler Storm’u nasıl kullanıyor?](https://storm.apache.org/documentation/Powered-By.html) sayfasını okuyun.
 
 * Nesnelerin İnterneti (IoT)
 * Sahtekarlık algılama
@@ -162,7 +162,7 @@ Daha fazla bilgi için bkz. [Visual Studio kullanarak HDInsight üzerinde Apache
 
 Karşılaştığınız çoğu Java örneği düz Java veya Trident olacaktır. Trident; birleştirme, toplama, gruplandırma ve filtreleme gibi işleri kolaylaştıran üst düzey bir soyutlamadır. Ancak, Trident toplu tanımlama grupları üzerinde hareket ederken, ham Java çözümü bir akışı her seferinde bir tanımlama grubu ile işler.
 
-Trident hakkında daha fazla bilgi için apache.org sayfasındaki [Trident öğreticisi](https://storm.incubator.apache.org/documentation/Trident-tutorial.html) bölümüne bakın.
+Trident hakkında daha fazla bilgi için apache.org sayfasındaki [Trident öğreticisi](https://storm.apache.org/documentation/Trident-tutorial.html) bölümüne bakın.
 
 Java ve Trident topolojilerinin örnekleri için [örnek Storm topolojileri listesine](hdinsight-storm-example-topology.md) veya HDInsight kümenizdeki storm başlangıç örneklerine bakın.
 
@@ -206,6 +206,12 @@ Topolojiniz Twitter’daki ilk 5 trend gibi "ilk N" değeri hesaplamaya bağlıy
 
 Bunun bir örneği için [RollingTopWords](https://github.com/nathanmarz/storm-starter/blob/master/src/jvm/storm/starter/RollingTopWords.java) örneği.
 
+##Storm ne tür bir günlük kullanır?
+
+Storm bilgileri günlüğe kaydetmek için Apache Log4j kullanır. Varsayılan olarak, büyük miktarlarda veriler günlüğe kaydedilir ve bilgilerin sıralanması zor olabilir. Günlüğe kaydetme davranışını denetlemek üzere Storm topolojinizin bir parçası olarak günlük yapılandırma dosyası ekleyebilirsiniz.
+
+Günlüğün nasıl yapılandırılacağını gösteren örnek bir topoloji için HDInsight üzerinde Storm için [Java tabanlı WordCount](hdinsight-storm-develop-java-topology.md) örneğine bakın.
+
 ##Sonraki adımlar
 
 HDInsight’ta Apache Storm ile gerçek zamanlı analiz çözümleri hakkında daha fazla bilgi edinin:
@@ -214,13 +220,13 @@ HDInsight’ta Apache Storm ile gerçek zamanlı analiz çözümleri hakkında d
 
 * [HDInsight üzerinde Storm için örnek topolojiler](hdinsight-storm-example-topology.md)
 
-[stormtrident]: https://storm.incubator.apache.org/documentation/Trident-API-Overview.html
+[stormtrident]: https://storm.apache.org/documentation/Trident-API-Overview.html
 [samoa]: http://yahooeng.tumblr.com/post/65453012905/introducing-samoa-an-open-source-platform-for-mining
-[apachetutorial]: https://storm.incubator.apache.org/documentation/Tutorial.html
+[apachetutorial]: https://storm.apache.org/documentation/Tutorial.html
 [gettingstarted]: hdinsight-apache-storm-tutorial-get-started-linux.md
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

@@ -14,7 +14,7 @@
     ms.devlang="node"
     ms.topic="get-started-article"
     ms.date="05/26/2016"
-    ms.author="bradygaster"/>
+    ms.author="rachelap"/>
 
 # Node.js RESTful API’si derleme ve Azure’daki bir API uygulamasına dağıtma
 
@@ -54,7 +54,7 @@ App Service kodunuzun bir API uygulamasına dağıtılması için birçok yolu d
         npm install -g yo
         npm install -g generator-swaggerize
 
-    Swaggerize, Swagger meta veri dosyası tarafından tanımlanan bir API için sunucu kodu oluşturan bir araçtır. Kullanacağınız Swagger dosyasının adı *api.json*’dur ve kopyaladığınız deponun *start* klasöründe bulunur.
+    Swaggerize, Swagger meta veri dosyası tarafından tanımlanan bir API için sunucu kodu oluşturan bir araçtır. Kullanacağınız Swagger dosyasının adı *api.json* ’dur ve kopyaladığınız deponun *start* klasöründe bulunur.
 
 2. *start* klasörüne gidin ve ardından `yo swaggerize` komutunu yürütün. Swaggerize bir dizi soru sorar.  **Bu projenin adı** alanına "contactlist" yazın, **swagger belgesinin yolu** alanına "api.json" yazın ve **Express, Hapi veya Restify** alanına "express" seçeneğini girin.
 
@@ -66,7 +66,7 @@ App Service kodunuzun bir API uygulamasına dağıtılması için birçok yolu d
 
     Swaggerize bir uygulama klasörü oluşturur, işleyicilerin ve yapılandırma dosyalarının iskelesini kurar ve bir **package.json** dosyası oluşturur. Swagger yardım sayfasını oluşturmak için hızlı görünüm altyapısı kullanılır.  
 
-3. `swaggerize` komutu "beklenmeyen belirteç" veya "geçersiz kaçış dizisi" hatası ile başarısız olursa oluşturulan *package.json* dosyasını düzenleyerek hatanın nedenini düzeltin. `scripts` altındaki `regenerate` satırında satırın aşağıdaki örnekteki gibi görünmesi için *api.json*’dan önceki ters eğik çizgiyi eğik çizgi olarak değiştirin:
+3. `swaggerize` komutu "beklenmeyen belirteç" veya "geçersiz kaçış dizisi" hatası ile başarısız olursa oluşturulan *package.json* dosyasını düzenleyerek hatanın nedenini düzeltin. `scripts` altındaki `regenerate` satırında satırın aşağıdaki örnekteki gibi görünmesi için *api.json* ’dan önceki ters eğik çizgiyi eğik çizgi olarak değiştirin:
 
         "regenerate": "yo swaggerize --only=handlers,models,tests --framework express --apiPath config/api.json"
 
@@ -193,7 +193,7 @@ Bu bölümde Azure portalı kullanarak Azure içinde yeni bir API uygulaması ol
 
 6. **Kaynak Grubu** açılır menüsünde **Yeni**’ye tıklayın ve ardından **Yeni kaynak grubu adı** içinde "NodejsAPIAppGroup" ya da tercih ederseniz başka bir ad girin. 
 
-    [Kaynak grubu](../azure-portal/resource-group-portal.md) API uygulamaları, veritabanları ve sanal makineler gibi Azure kaynakları koleksiyonudur. Bu öğreticide, en iyi uygulama yeni bir kaynak grubu oluşturulmasıdır; böylece, öğretici için oluşturduğunuz Azure kaynaklarını tek bir adımda kolayca silebilirsiniz.
+    [Kaynak grubu](../resource-group-overview.md) API uygulamaları, veritabanları ve sanal makineler gibi Azure kaynakları koleksiyonudur. Bu öğreticide, en iyi uygulama yeni bir kaynak grubu oluşturulmasıdır; böylece, öğretici için oluşturduğunuz Azure kaynaklarını tek bir adımda kolayca silebilirsiniz.
 
 4. **App Service Planı/Konumu** ve ardından **Yeni Oluştur** öğesine tıklayın.
 
@@ -314,6 +314,6 @@ Bu noktada bir API uygulamasını başarıyla oluşturdunuz ve Node.js API kodun
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

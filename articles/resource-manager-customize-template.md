@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/10/2016"
+    ms.date="08/01/2016"
     ms.author="tomfitz"/>
 
 # Dışarı aktarılan bir Azure Resource Manager şablonunu özelleştirme 
@@ -236,6 +236,6 @@ Bu makalede her iki seçenek de gösterilmektedir.
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

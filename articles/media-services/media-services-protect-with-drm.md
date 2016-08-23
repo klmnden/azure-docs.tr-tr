@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article" 
-    ms.date="05/03/2016" 
+    ms.date="06/22/2016"
     ms.author="juliako"/>
 
 
@@ -628,6 +628,6 @@ Aşağıdaki örnek, .Net için Azure Media Services SDK’sı Sürüm 3.5.2’d
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

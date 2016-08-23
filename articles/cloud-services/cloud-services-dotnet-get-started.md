@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="03/21/2016"
+    ms.date="06/10/2016"
     ms.author="adegeo"/>
 
 # Azure Cloud Services ve ASP.NET kullanmaya başlama
@@ -60,7 +60,7 @@ Uygulamayı bir Azure aboneliği olmadan yerel olarak çalıştırabilirsiniz, a
 * Visual Studio 2013
 * Visual Studio 2015
 
-Bunlardan birine sahip değilseniz Azure SDK'yı yüklediğinizde Visual Studio 2015 otomatik olarak yüklenir. 
+Bunlardan birine sahip değilseniz Azure SDK'yı yüklediğinizde Visual Studio 2015 otomatik olarak yüklenir.
 
 ## Uygulama mimarisi
 
@@ -229,7 +229,7 @@ Web rolü için bir [Web.config dönüşümü](http://www.asp.net/mvc/tutorials/
         providerName="System.Data.SqlClient" xdt:Transform="SetAttributes" xdt:Locator="Match(name)"/>
     </connectionStrings>
     ```
-    
+
     Dosyayı düzenlemek için açık bırakın.
 
 2. [Klasik Azure portalı](http://manage.windowsazure.com)’nda sol bölmedeki **SQL Veritabanları**’na, bu öğretici için oluşturduğunuz veritabanına, **Pano** sekmesine ve ardından **Bağlantı dizelerini göster** öğesine tıklayın.
@@ -314,10 +314,10 @@ Visual Studio kullanıcı arabirimini kullanılarak yapılandırdığınız rol 
         <Setting name="StorageConnectionString" value="{yourconnectionstring}" />
         <Setting name="ContosoAdsDbConnectionString" value="{yourconnectionstring}" />
         <!-- other settings not shown -->
-    
+
     </ConfigurationSettings>
     <!-- other settings not shown -->
-    
+
 </Role>
 ```
 
@@ -442,7 +442,7 @@ Bu bölümde yerel olarak test etmek amacıyla Azure Storage ve SQL bağlantı d
         <add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;" providerName="System.Data.SqlClient" />
     </connectionStrings>
     ```
-    
+
     Visual Studio 2015 kullanıyorsanız "v11.0" ifadesini "MSSQLLocalDB" ile değiştirin.
 
 2. Yaptığınız değişiklikleri kaydedin.
@@ -868,9 +868,10 @@ Daha fazla bilgi için aşağıdaki kaynaklara bakın:
 * [Azure Cloud Services Bölüm 1: Giriş](http://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
 * [ Cloud Services nasıl yönetilir](cloud-services-how-to-manage.md)
 * [Azure Storage](/documentation/services/storage/)
+* [Bulut hizmeti sağlayıcısı seçme](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

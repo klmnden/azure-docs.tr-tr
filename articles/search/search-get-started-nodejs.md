@@ -13,7 +13,7 @@
     ms.workload="search"
     ms.topic="hero-article"
     ms.tgt_pltfrm="na"
-    ms.date="03/08/2016"
+    ms.date="07/14/2016"
     ms.author="evboyle"/>
 
 # NodeJS'de Azure Search kullanmaya başlama
@@ -54,14 +54,13 @@ Hizmeti oluşturduktan sonra, URL'yi veya `api-key`'i almak için portala dönü
 
 Örneği indirmek için aşağıdaki yaklaşımlardan birini kullanın.
 
-1. [AzureSearchNodeJSIndexerDemo](http://go.microsoft.com/fwlink/p/?LinkId=530198)'ya gidin.
+1. [AzureSearchNodeJSIndexerDemo](https://github.com/AzureSearch/AzureSearchNodeJSIndexerDemo)'ya gidin.
 2. **ZIP'i İndir**'e tıklayın, .zip dosyasını kaydedin ve ardından içerdiği tüm dosyaları ayıklayın.
 
 Sonraki tüm dosya değişiklikleri ve çalıştırma deyimleri bu klasördeki dosyalara uygulanır.
 
-Alternatif olarak, yol deyiminizde GIT varsa PowerShell penceresi açabilir ve yazabilirsiniz `git clone https://github.com/EvanBoyle/AzureSearchNodeJSIndexerDemo.git`
 
-## Search hizmetinizin URL'si ve api anahtarı ile config.js'yi dosyanızı güncelleştirme
+## Config.js dosyasını Search hizmetinizin URL'si ve api anahtarı ile güncelleştirme
 
 Önceden kopyaladığınız URL'yi ve api anahtarını kullanarak yapılandırma dosyasında URL'yi, yönetici anahtarını ve sorgu anahtarını belirtin.
 
@@ -93,7 +92,7 @@ Aşağıdaki komutlar için PowerShell penceresi kullanın.
 
 ## USGS verilerinde arama
 
-USGS veri kümesi, Rhode Island eyaleti ile ilgili kayıtları içerir. Boş bir arama kutusunda **Ara**'ya tıklarsanız varsayılan seçenek olan ilk 50 girişi alırsınız.
+USGS veri kümesi, Rhode Island eyaleti ile ilgili kayıtları içerir. Boş bir arama kutusunda **Search (Ara)** düğmesine tıklarsanız varsayılan seçenek olan ilk 50 girişi alırsınız.
 
 Bir arama terimi girmeniz arama alt yapısına gitmesi gereken bir hedef verir. Bölgesel bir ad girmeyi deneyin. "Roger Williams", Rhode Island'ın ilk valisiydi. Çok sayıda parka, binaya ve okula onun adı verildi.
 
@@ -123,6 +122,6 @@ Azure Search'ü ilk kez mi kullanıyorsunuz? Neler yapabileceğinizi anlamak iç
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

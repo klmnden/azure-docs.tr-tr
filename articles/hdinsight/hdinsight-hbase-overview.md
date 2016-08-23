@@ -1,7 +1,7 @@
 <properties
     pageTitle="HDInsight’ta HBase nedir? | Microsoft Azure"
     description="Hadoop’ta oluşturulan bir NoSQL veritabanı olan HDInsight’ta Apache HBase’e giriş. Kullanım örnekleri hakkında bilgi edinin ve HBase’i diğer Hadoop kümeleriyle karşılaştırın."
-    keywords="bigtable,nosql,what is hbase"
+    keywords="bigtable,nosql,hbase nedir"
     services="hdinsight"
     documentationCenter=""
     tags="azure-portal"
@@ -15,7 +15,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="04/05/2016"
+    ms.date="06/28/2016"
     ms.author="jgao"/>
 
 
@@ -96,6 +96,6 @@ BigTable’ın (ve uzantılarının, HBase) oluşturulma nedeni olan kurallı ku
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

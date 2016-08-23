@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/03/2016"
+   ms.date="06/07/2016"
    ms.author="charwen"/>
 
 # ExpressRoute Yönlendirmeyi En iyi Duruma Getirme
@@ -44,6 +44,6 @@ Bu sorunun iki çözümü vardır. Birinci yol Los Angeles ofisiniz için ABD Ba
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

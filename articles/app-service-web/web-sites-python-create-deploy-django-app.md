@@ -60,7 +60,7 @@ Uygulamanızı oluşturmanın ilk adımı, [Azure Portal](https://portal.azure.c
 3. Arama kutusuna, "python" yazın.
 4. Arama sonuçlarında, **Django**’yu seçin ve ardından **Oluştur**’a tıklayın.
 5. Yeni bir App Service planı ve bunun için yeni bir kaynak grubu oluşturma şeklinde, yeni Django uygulamasını yapılandırın. Sonra, **Oluştur**’a tıklayın.
-6. Yeni oluşturulan web uygulamanız için, [Azure App Service'te GIT kullanarak sürekli dağıtım](web-sites-publish-source-control.md) başlığındaki yönergeleri izleyerek Git yayımlamayı yapılandırın.
+6. Yeni oluşturulan web uygulamanız için, [Azure Uygulama Hizmeti’nde Yerel Git Dağıtımı](app-service-deploy-local-git.md) başlığındaki yönergeleri izleyerek Git yayımlamayı yapılandırın.
 
 ## Uygulamaya Genel Bakış
 
@@ -146,7 +146,7 @@ Sonraki 3 bölümde farklı 3 ortamda web uygulaması geliştirmeye devam etme a
 
 ### Depoyu kopyalama
 
-İlk olarak, Azure Portal'da sağlanan URL'yi kullanarak depoyu kopyalayın. Daha fazla bilgi için bkz. [Azure App Service'te GIT kullanarak sürekli dağıtım](web-sites-publish-source-control.md).
+İlk olarak, Azure Portal'da sağlanan URL'yi kullanarak depoyu kopyalayın. Daha fazla bilgi için bkz. [Azure Uygulama Hizmeti’nde Yerel Git Dağıtımı](app-service-deploy-local-git.md).
 
 Depo kök dizininde bulunan çözüm dosyasını (.sln) açın.
 
@@ -223,7 +223,7 @@ Yaptığınız değişiklikleri görmek için Azure URL'sine gidin.
 
 ### Depoyu kopyalama
 
-İlk olarak, Azure Portal'da sağlanan URL'yi kullanarak depoyu kopyalayın ve uzak olarak Azure deposunu ekleyin. Daha fazla bilgi için bkz. [Azure App Service'te GIT kullanarak sürekli dağıtım](web-sites-publish-source-control.md).
+İlk olarak, Azure Portal'da sağlanan URL'yi kullanarak depoyu kopyalayın ve uzak olarak Azure deposunu ekleyin. Daha fazla bilgi için bkz. [Azure Uygulama Hizmeti’nde Yerel Git Dağıtımı](app-service-deploy-local-git.md).
 
     git clone <repo-url>
     cd <repo-folder>
@@ -312,7 +312,7 @@ Yaptığınız değişiklikleri görmek için Azure URL'sine gidin.
 
 ### Depoyu kopyalama
 
-İlk olarak, Azure Portal'da sağlanan URL'yi kullanarak depoyu kopyalayın ve uzak olarak Azure deposunu ekleyin. Daha fazla bilgi için bkz. [Azure App Service'te GIT kullanarak sürekli dağıtım](web-sites-publish-source-control.md).
+İlk olarak, Azure Portal'da sağlanan URL'yi kullanarak depoyu kopyalayın ve uzak olarak Azure deposunu ekleyin. Daha fazla bilgi için bkz. [Azure Uygulama Hizmeti’nde Yerel Git Dağıtımı](app-service-deploy-local-git.md).
 
     git clone <repo-url>
     cd <repo-folder>
@@ -518,6 +518,6 @@ Daha fazla bilgi için bkz. [Python Geliştirici Merkezi](/develop/python/).
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

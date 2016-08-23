@@ -2,7 +2,7 @@
     pageTitle="Azure AD Connect: Özel yükleme | Microsoft Azure"
     description="Bu belgede Azure AD Connect için özel yükleme seçenekleri ayrıntılı olarak açıklanmaktadır. Active Directory'yi Azure AD Connect aracılığı ile yüklemek için bu yönergeleri kullanın."
     services="active-directory"
-    keywords="what is Azure AD Connect, install Active Directory, required components for Azure AD"
+    keywords="Azure AD Connect nedir, Active Directory yükleme, Azure AD için gerekli bileşenler"
     documentationCenter=""
     authors="andkjell"
     manager="stevenpo"
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/31/2016"
+    ms.date="06/27/2016"
     ms.author="billmath;andkjell"/>
 
 # Azure AD Connect özel yüklemesi
@@ -178,7 +178,7 @@ Bu yapılandırmayı geçekleştirmeden önce tüm sunucularınızın bir AD etk
 ![AD FS Sunucuları](./media/active-directory-aadconnect-get-started-custom/adfs2.png)
 
 ### Web Uygulaması Ara Sunucularını belirtme
-Web Uygulaması ara sunucusu olarak kullanmak istediğiniz sunucuları girin. Web uygulaması ara sunucusu, DMZ'nizde (extranete yönelik) dağıtılır ve extranetten gelen kimlik doğrulama isteklerini destekler. Kapasite planlama gereksinimlerinize göre bir veya daha fazla sunucu ekleyebilirsiniz. Microsoft, test ve pilot dağıtımlar için tek bir Web uygulaması ara sunucusunun yüklenmesini önerir. Ardından, ölçeklendirme gereksinimlerinizi karşılamak için ilk yapılandırmadan sonra Azure AD Connect'i tekrar çalıştırarak daha fazla sunucu ekleyebilir ve dağıtabilirsiniz. İntranetten gelen kimlik doğrulamalarını gerçekleştirebilmek için, aynı sayıda ara sunucuya sahip olmanızı öneririz.
+Web Uygulaması ara sunucusu olarak kullanmak istediğiniz sunucuları girin. Web uygulaması ara sunucusu, çevre ağınızda (extranete yönelik) dağıtılır ve extranetten gelen kimlik doğrulama isteklerini destekler. Kapasite planlama gereksinimlerinize göre bir veya daha fazla sunucu ekleyebilirsiniz. Microsoft, test ve pilot dağıtımlar için tek bir Web uygulaması ara sunucusunun yüklenmesini önerir. Ardından, ölçeklendirme gereksinimlerinizi karşılamak için ilk yapılandırmadan sonra Azure AD Connect'i tekrar çalıştırarak daha fazla sunucu ekleyebilir ve dağıtabilirsiniz. İntranetten gelen kimlik doğrulamalarını gerçekleştirebilmek için, aynı sayıda ara sunucuya sahip olmanızı öneririz.
 
 >[AZURE.NOTE]
 <li> Kullandığınız hesap AD FS sunucularında yerel yönetici değilse yönetici kimlik bilgileri girmeniz istenir.</li>
@@ -266,6 +266,6 @@ Yükleme için kullanılan hesaplar | [Azure AD Connect hesapları ve izinleri h
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

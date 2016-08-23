@@ -13,7 +13,7 @@
     ms.topic="hero-article"
     ms.tgt_pltfrm="vm-windows-sql-server"
     ms.workload="infrastructure-services"
-    ms.date="05/24/2016"
+    ms.date="06/21/2016"
     ms.author="jroth" />
 
 # Azure Portal’da bir SQL Server sanal makine sağlama
@@ -53,7 +53,9 @@ Bu öğreticide şunları yapacaksınız:
 
 1. Her şablon bir SQL Server sürümü ve işletim sistemi tanımlar. Listede bu görüntülerden birini seçin. Ardından sanal makine görüntüsünün bir açıklaması veren ayrıntılar dikey penceresini gözden geçirin.
 
-1. **Dağıtım modeli seçin** altında, **Resource Manager**’ın seçili olduğunu doğrulayın ve **Oluştur**’a tıklayın.
+    >[AZURE.NOTE] SQL sanal makine görüntüleri, oluşturduğunuz sanal makinenin dakika başına fiyatına SQL Server lisans maliyetlerini ekler. Diğer seçenek ise kendi lisansınızı getirmeniz (KLG) ve böylece yalnızca sanal makine için ödeme yapmanızdır. Bu görüntü adlarının başına {BYOL} ön eki getirilir. Bu seçenek hakkında daha fazla bilgi için bkz. [Azure Virtual Machines'de SQL Server kullanmaya başlama](virtual-machines-windows-sql-server-iaas-overview.md).
+
+1. **Dağıtım modeli seçin** altında, **Resource Manager**’ın seçili olduğunu doğrulayın. Yeni sanal makineler için önerilen dağıtım modeli Resource Manager’dır. **Oluştur**’a tıklayın.
 
     ![Resource Manager ile SQL VM oluşturma](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-sql-deployment-model.png)
 
@@ -251,8 +253,10 @@ Azure’da SQL Server'ı kullanma hakkında diğer bilgiler için bkz. [Azure Vi
 
 Azure Virtual Machines’de SQL Server’a videolu genel bakış için [Azure VM, SQL Server 2016 için en iyi platformdur](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/Azure-VM-is-the-best-platform-for-SQL-Server-2016) videosunu izleyin.
 
+Azure Virtual Machines’de SQL Server için.[Öğrenme Yolunu keşfedin](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/).
 
 
-<!--HONumber=Jun16_HO2-->
+
+<!--HONumber=Aug16_HO1-->
 
 

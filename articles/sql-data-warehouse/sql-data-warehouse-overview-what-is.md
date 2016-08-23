@@ -13,140 +13,142 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/01/2016"
+   ms.date="07/23/2016"
    ms.author="lodipalm;barbkess;mausher;jrj;sonyama;kevin"/>
 
 
 # Azure SQL Data Warehouse Nedir?
 
-Azure SQL Data Warehouse, hem ilişkisel hem de ilişkisel olmayan çok geniş hacimlerdeki verileri işleyebilen, bulut tabanlı bir genişletme veritabanıdır. Yüksek düzeyde paralel işleme (MPP) mimarimizin üzerine kurulu olan SQL Data Warehouse, kuruluşunuzun iş yükünü işleyebilir. 
+Azure SQL Veri Ambarı, hem ilişkisel hem de ilişkisel olmayan çok geniş hacimlerdeki verileri işleyebilen, bulut tabanlı bir genişletme veritabanıdır. Yüksek düzeyde paralel işleme (MPP) mimarimizin üzerine kurulu olan SQL Data Warehouse, kuruluşunuzun iş yükünü işleyebilir.
 
 SQL Data Warehouse:
 
-- Kanıtlanmış SQL Server ilişkisel veritabanımızla Azure bulut ölçeğini genişletme işlevlerimizi birleştirir. İşlemleri saniyeler içinde yükseltebilir, azaltabilir, duraklatabilir veya sürdürebilirsiniz.  Bu sayede ihtiyacınız olduğunda CPU'nun ölçeğini genişleterek ve yoğun olmayan zamanlarda kullanımı azaltarak maliyet tasarrufu yapabilirsiniz.
-- Azure platformumuzdan yararlanır. Dağıtılması kolaydır ve bakımı sorunsuz şekilde yapılır. Aynı zamanda otomatik yedeklemeler sayesinde hatalara tamamen dayanıklıdır. 
-- SQL Server ekosistemini tamamlar.  Alışık olduğunuz SQL Server T-SQL ve araçlarla geliştirme yapabilirsiniz.
+- SQL Server ilişkisel veritabanıyla Azure bulut ölçeğini genişletme işlevlerini birleştirir. İşlemleri saniyeler içinde yükseltebilir, azaltabilir, duraklatabilir veya sürdürebilirsiniz. İhtiyacınız olduğunda CPU'nun ölçeğini genişleterek ve yoğun olmayan zamanlarda kullanımı azaltarak maliyet tasarrufu yapabilirsiniz.
+- Azure platformundan yararlanır. Dağıtılması kolaydır, bakımı sorunsuzdur ve otomatik yedeklemeler sayesinde hataya tamamen dayanıklıdır.
+- SQL Server ekosistemini tamamlar. Alışık olduğunuz SQL Server Transact-SQL (T-SQL) ve araçlarla geliştirme yapabilirsiniz.
 
-SQL Data Warehouse'un temel özellikleri hakkında daha fazla bilgi almak için okumaya devam edin.
+Bu makalede SQL Veri Ambarı’nın temel özellikleri açıklanmaktadır.
 
-## İyileştirilmiş
+## Yüksek düzeyde paralel işleme mimarisi
 
-### Yüksek Düzeyde Paralel İşleme (MPP) mimarisi
+SQL Veri Ambarı, yüksek düzeyde paralel işleme (MPP) ile dağıtılmış bir veritabanı sistemidir. Birden fazla düğümde verileri ve işleme özelliğini bölerek, SQL Veri Ambarı tek bir sistemin sağlayabileceğinden çok büyük ölçeklenebilirlik sunabilir.  Arka planda, SQL Veri Ambarı verilerinizi hiçbir şey paylaşılmayan çok sayıda depolama ve işleme birimleri arasında yayar. Veriler Premium yerel olarak yedekli depolama alanına depolanır ve sorgu yürütmesi için işlem düğümlerine bağlanır. Bu mimari ile SQL Veri Ambarı, çalışan yükler ve karmaşık sorgular karşısında bir "böl ve yönet" yaklaşımını benimser. İstekler Denetim düğümü tarafından alınır, iyileştirilir ve ardından çalışmalarını paralel olarak yürütmeleri için İşlem düğümlerine geçirilir.
 
-SQL Data Warehouse, dünyanın en büyük şirket için veri ambarlarından bazılarını çalıştırmak için tasarlanmış olan Microsoft'un yüksek düzeyde paralel işleme (MPP) mimarisini kullanır.
-
-Şu anda, MPP mimarimiz verilerinizi 60 adet hiçbir şey paylaşılmayan depolama ve işleme birimine yaymaktadır. Veriler Premium Storage içinde Azure Storage Bloblarında depolanır ve sorgu yürütmesi için İşlem düğümlerine bağlanır. Bu mimariyle birlikte, karmaşık T-SQL sorgularını çalıştırmak için böl ve yönet yaklaşımını uygulayabiliriz. İşleme sırasında, Kontrol düğümü sorguyu ayrıştırır ve ardından her İşlem düğümü kendine ait paralel veri bölümünü "yönetir". 
-
-MPP mimarimizi ve Azure depolama işlevlerimizi birleştiren SQL Data Warehouse şunları yapabilir:
+MPP mimarisi ile Azure depolama işlevlerini birleştiren SQL Veri Ambarı şunları yapabilir:
 
 - İşlemden bağımsız olarak depolamayı büyütür veya küçültür.
-- Verileri taşımadan işlemi büyütür veya küçültür. 
+- Verileri taşımadan işlemi büyütür veya küçültür.
 - İşlem kapasitesini duraklatırken verilerin bozulmadan kalmasını sağlar.
 - İşlem kapasitesini anında sürdürür.
 
-Mimari aşağıda ayrıntılı olarak açıklanmıştır. 
+Aşağıdaki diyagramda mimari daha ayrıntılı olarak gösterilmiştir.
 
 ![SQL Data Warehouse Mimarisi][1]
 
 
-- **Denetim düğümü:** Denetim düğümü sistemi "denetler". Tüm uygulamalarla ve bağlantılarla etkileşim kuran ön uçtur. SQL Data Warehouse'da Kontrol düğümü SQL Database ile güçlendirilmiştir ve buna yapılan bağlantının görünümü ve hissi aynıdır. Geri planda ise Kontrol düğümü dağıtılmış verilerinizde paralel sorgular çalıştırmak için gerekli olan tüm veri hareketlerini ve hesaplamaları koordine eder. SQL Data Warehouse'a bir TSQL sorgusu gönderdiğiniz zaman, Kontrol düğümü bu sorguyu her paralel İşlem düğümünde çalışacak ayrı sorgulara dönüştürür.
+**Denetim düğümü:** Denetim düğümü sorguları yönetir ve en iyi duruma getirir. Tüm uygulamalarla ve bağlantılarla etkileşim kuran ön uçtur. SQL Data Warehouse'da Kontrol düğümü SQL Database ile güçlendirilmiştir ve buna yapılan bağlantının görünümü ve hissi aynıdır. Geri planda ise Kontrol düğümü dağıtılmış verilerinizde paralel sorgular çalıştırmak için gerekli olan tüm veri hareketlerini ve hesaplamaları koordine eder. SQL Veri Ambarı’na bir T-SQL sorgusu gönderdiğiniz zaman, Kontrol düğümü bu sorguyu her paralel İşlem düğümünde çalışacak ayrı sorgulara dönüştürür.
 
-- **İşlem Düğümleri:** İşlem düğümleri, SQL Data Warehouse'un arkasındaki güç olarak hizmet verir. Bunlar, sorgu adımlarınızı işleyen ve verilerinizi yöneten SQL Database'lerdir. Veri eklediğiniz zaman, SQL Data Warehouse İşlem düğümlerinizi kullanarak satırları dağıtır. İşlem düğümleri aynı zamanda verilerinizde paralel sorguları çalıştıran çalışanlardır. İşlemeden sonra, sonuçları yeniden Kontrol düğümüne geçirirler. Kontrol düğümü sorguyu tamamlamak için sonuçları toplar ve son sonucu döndürür.
+**İşlem düğümleri:** İşlem düğümleri, SQL Veri Ambarı’nın arkasındaki güç olarak hizmet verir. Bunlar verilerinizi depolayan ve sorgunuzu işleyen SQL Veritabanlarıdır. Veri eklediğiniz zaman SQL Veri Ambarı satırları İşlem düğümlerinize dağıtır. İşlem düğümleri verilerinizde paralel sorguları çalıştıran çalışanlardır. İşlemeden sonra, sonuçları yeniden Kontrol düğümüne geçirirler. Kontrol düğümü sorguyu tamamlamak için sonuçları toplar ve son sonucu döndürür.
 
+**Depolama:** Verileriniz Azure Blob depolama alanına depolanır. İşlem düğümleri verilerinizle etkileşim kurduklarında, doğrudan blob depolamaya ve blob depolamadan yazma ve okuma işlemlerini gerçekleştirirler. Azure depolama saydam ve sınırsız şekilde genişlediğinden, SQL Data Warehouse da aynısını yapabilir. İşlem ve depolama bağımsız olduğundan, SQL Data Warehouse işlemi ölçeklendirmeden ayrı olarak depolamayı otomatik şekilde ölçeklendirebilir ve tam tersini yapabilir. Azure Blob depolama aynı zamanda hatalara tamamen dayanıklıdır ve yedekleme ve geri yükleme işlemini kolaylaştırır.
 
-- **Storage:** Verileriniz Azure Storage Bloblarında depolanır. İşlem düğümleri verilerinizle etkileşim kurduklarında, doğrudan blob depolamaya ve blob depolamadan yazma ve okuma işlemlerini gerçekleştirirler. Azure depolama saydam ve sınırsız şekilde genişlediğinden, SQL Data Warehouse da aynısını yapabilir. İşlem ve depolama bağımsız olduğundan, SQL Data Warehouse işlemi ölçeklendirmeden ayrı olarak depolamayı otomatik şekilde ölçeklendirebilir ve tam tersini yapabilir.  Azure Storage aynı zamanda hatalara tamamen dayanıklıdır ve yedekleme ve geri yükleme işlemini kolaylaştırır.
-   
-
-- **Veri Taşıma Hizmeti:** Veri Taşıma Hizmeti (DMS), düğümler arasında verileri taşımak için kullandığımız teknolojimizdir. DMS, İşlem düğümlerinin birleşimler ve toplamalar için ihtiyaç duydukları verilere erişmelerini sağlar. DMS bir Azure hizmeti değildir. Tüm düğümlerde SQL Database'in yanında çalışan bir Windows hizmetidir. DMS arka planda çalıştığı için doğrudan DMS ile etkileşim kurmazsınız. Bununla birlikte sorgu planlarına baktığınız zaman planların bazı DMS işlemlerini içerdiğini fark edersiniz, bunun nedeni her paralel sorguda veri taşımanın bir biçimde veya formda çalışmasının gerekmesidir.
+**Veri Taşıma Hizmeti:** Veri Taşıma Hizmeti (DMS), düğümler arasında verileri taşır. DMS, İşlem düğümlerinin birleşimler ve toplamalar için ihtiyaç duydukları verilere erişmelerini sağlar. DMS bir Azure hizmeti değildir. Tüm düğümlerde SQL Database'in yanında çalışan bir Windows hizmetidir. DMS arka planda çalıştığı için doğrudan DMS ile etkileşim kurmazsınız. Bununla birlikte sorgu planlarına baktığınız zaman planların bazı DMS işlemlerini içerdiğini fark edersiniz, bunun nedeni her sorguyu paralel olarak çalıştırmak için veri taşımanın gerekli olmasıdır.
 
 
-### İyileştirilmiş sorgu performansı
+## Data warehouse iş yükleri için en iyi duruma getirilmiştir
 
-Böl ve yönet stratejisinin yanı sıra, MPP yaklaşımı veri ambarına özgü çeşitli performans iyileştirmeleriyle desteklenir; bu iyileştirmeler arasında aşağıdakiler bulunur:
+MPP yaklaşımı veri ambarına özgü çeşitli performans iyileştirmeleriyle desteklenir; bu iyileştirmeler arasında aşağıdakiler bulunur:
 
 - Tüm verileri kapsayan karmaşık istatistikler kümesi ve bir dağıtılmış sorgu iyileştiricisi. Veri boyutu ve dağıtımı bilgilerini kullanan hizmet, belirli dağıtılmış sorgu işlemlerinin maliyetini değerlendirerek sorguları iyileştirebilir.
 
 - Sorguyu gerçekleştirmek için gerekli olan bilgi işlem kaynakları arasında verilerin etkin şekilde taşınmasını sağlayan, veri taşıma işlemine tümleştirilmiş gelişmiş algoritmalar ve teknikler. Bu veri taşıma işlemleri yerleşiktir ve Veri Taşıma Hizmeti'nde yapılan tüm iyileştirmeler otomatik olarak gerçekleşir.
 
-- Varsayılan olarak kümelenmiş columnstore dizinleri. SQL Data Warehouse, sütun tabanlı depolamayı kullanarak geleneksel satır yönelimli depolamaya göre 5 kata kadar sıkıştırma kazancı ve 10 kata kadar sorgu performansı kazancı sağlar. Çok sayıda satırı taraması gereken analitik sorguları, columnstore dizinlerinde çok iyi sonuçlar verir. 
+- Varsayılan olarak kümelenmiş **columnstore** dizinleri. SQL Veri Ambarı, sütun tabanlı depolamayı kullanarak geleneksel satır yönelimli depolamaya göre ortalama 5 kat sıkıştırma kazancı ve 10 kat veya daha fazla sorgu performansı kazancı sağlar. Çok sayıda satırı taraması gereken analitik sorguları, columnstore dizinlerinde çok iyi sonuçlar verir.
 
-## Ölçeklenebilir
 
-SQL Data Warehouse mimarisinin sunduğu ayrılmış depolama ve işlem, depolamanın ve işlemin bağımsız olarak ölçeklendirilmesini sağlar. SQL Database'in hızlı ve basit dağıtım yapısı, ek işlemlerin anında kullanılabilir olmasını sağlar. Azure Storage Blobları bunun tamamlanmasını sağlar. Blobları kullanmak bize kararlı ve çoğaltılmış depolama sağlamanın yanı sıra, düşük maliyetle zahmetsiz genişlemenin altyapısını da sunar.  Bu bulut ölçekli depolama ve Azure işlem birleşimini kullanan SQL Data Warehouse, ihtiyacınız olduğu kadar ve ihtiyacınız olduğu zaman sorgu performansı depolama alanı için ödeme yapmanıza olanak tanır. İşlem miktarını değiştirmek Azure portalında bir kaydırıcıyı sola veya sağa hareket ettirmek kadar basittir, aynı zamanda T-SQL ve PowerShell kullanılarak zamanlanabilir.
+## Tahmin edilebilir ve ölçeklenebilir performans
 
-Depolamadan bağımsız olarak işlem miktarını tamamen kontrol etme becerisinin yanı sıra, SQL Data Warehouse veri ambarınızı tamamen duraklatmanıza da olanak tanır. Depolamanız yerinde tutulurken, tüm işlemler Azure'ın ana havuzuna serbest bırakılarak anında paradan tasarruf etmeniz sağlanır. Gerekli olduğu zaman, işlemi sürdürmeniz ve verilerinizi ve işleminizi iş yükü için kullanılabilir duruma getirmeniz yeterlidir.
+SQL Veri Ambarı, depolama ve işlemi birbirinden ayırarak her birini bağımsız olarak ölçeklendirmeye imkan tanır. SQL Veri Ambarı çok kısa sürede başka işlem kaynakları eklemek üzere hızlı ve kolay bir biçimde ölçeklendirilebilir. Azure Blob depolamanın kullanılması bunun tamamlanmasını sağlar. Blob’lar kararlı ve çoğaltılmış depolama sağlamanın yanı sıra, düşük maliyetle zahmetsiz genişlemenin altyapısını da sunar. Bu bulut ölçekli depolama ve Azure işlem birleşimini kullanan SQL Veri Ambarı, sorgu performansı ve depolama alanı için ödeme yapmanıza olanak tanır. İşlem miktarını değiştirmek Azure portalında bir kaydırıcıyı sola veya sağa hareket ettirmek kadar basittir ya da aynı zamanda T-SQL ve PowerShell kullanılarak zamanlanabilir.
 
-SQL Data Warehouse'daki işlem kullanımı, SQL Data Warehouse Birimleri (DWU'lar) ile ölçülür. DWU'lar veri ambarınızın sahip olduğu temel alınan gücü ölçer ve herhangi bir zamanda ambarınızla ilgili olarak standart bir performans miktarına sahip olduğunuzdan emin olmanızı sağlar.  Özel olarak, DWU'ları şunları sağlamak için kullanırız:
+Depolamadan bağımsız olarak işlem miktarını tamamen kontrol etme becerisinin yanı sıra, SQL Veri Ambarı veri ambarınızı tamamen duraklatmanıza da olanak tanır, yanı gerekli olmadığında işlem ücreti ödemeniz gerekmez. Depolamanız yerinde tutulurken, tüm işlemler Azure'un ana havuzuna bırakılarak paradan tasarruf etmeniz sağlanır. Gerekli olduğu zaman, işlemi sürdürmeniz ve verilerinizi ve işleminizi iş yükü için kullanılabilir duruma getirmeniz yeterlidir.
 
-- Temel alınan donanım veya yazılım hakkında endişelenmeden, veri ambarınızı etkili şekilde ölçeklendirebilirsiniz.
+## Data Warehouse Birimleri
 
-- Veri ambarınızın boyutunu değiştirmeden önce bir DWU düzeyinde gördüğünüz performansı anlayabilirsiniz.
+Kaynakların SQL Veri Ambarı’na ayrılması Data Warehouse Birimlerinde (DWU) ölçülür. DWU’lar CPU, bellek, IOPS gibi SQL Veri Ambarı’na ayrılmış temel alınan kaynakların bir ölçümüdür. DWU sayısı artırıldığında kaynaklar ve performans da artar. DWU’lar özellikle aşağıdakilere yardımcı olur:
 
-- Sizin örneğinizdeki temel alınan donanım veya yazılım, iş yükü performansınızı etkilemeden değişebilir veya taşınabilir
+- Temel alınan donanım veya yazılım hakkında endişelenmeden, veri ambarınızı kolayca ölçeklendirebilirsiniz.
 
-- Hizmetin temel alınan mimarisinde, iş yükünüzün performansını etkilemeden ayarlamalar yapabiliriz.
+- Veri ambarınızın boyutunu değiştirmeden önce bir DWU düzeyindeki performans artışını tahmin edebilirsiniz.
 
-- SQL Data Warehouse'da performansı hızla geliştirirken, bunu sistemi eşit şekilde etkileyecek ve ölçeklenebilir bir şekilde yaptığımızdan emin olabiliriz.
+- Örneğinizdeki temel alınan donanım veya yazılım, iş yükü performansınızı etkilemeden değişebilir veya taşınabilir.
 
-### Data Warehouse Birimleri
+- Microsoft, hizmetin temel alınan mimarisinde iş yükünüzün performansını etkilemeden ayarlamalar yapabilir.
 
-Özel olarak Data Warehouse Birimleri'ni, veri ambarı iş yükü performansı ile son derece bağıntılı bulduğumuz üç hassas ölçüm olarak ele alıyoruz. Genel uygunluk durumumuz için bu temel iş yükü ölçümlerinin veri ambarınıza yönelik seçtiğiniz DWU'larla doğrusal olarak ölçeklendirilmesini hedefliyoruz.
+- Microsoft, sistemi eşit şekilde etkileyecek ve ölçeklenebilir bir şekilde SQL Veri Ambarı’nda performansı hızla geliştirebilir.
 
-**Tarama/Toplama:** Bu iş yükü ölçümü, çok sayıda satırı tarayan ve ardından karmaşık bir toplama işlemi gerçekleştiren standart bir veri ambarı sorgusu alır. Bu, GÇ ve CPU yoğunluklu bir işlemdir.
+Data Warehouse Birimleri, veri ambarı iş yükü performansı ile son derece bağıntılı olan üç hassas ölçüm sağlar. Aşağıdaki temel iş yükü ölçümlerinin veri ambarınıza yönelik seçtiğiniz DWU'larla doğrusal olarak ölçeklendirilmesi hedeflenmektedir.
 
-**Yük:** Bu ölçüm, hizmete veri alma becerisini ölçer. Yükler, PolyBase'in bir Azure Storage Blobundan temsili bir veri kümesi yüklemesiyle tamamlanır. Bu ölçüm, hizmetin Ağ ve CPU yönlerine stres testi uygulamak için tasarlanmıştır.
+**Tarama/Toplama:** Bu iş yükü ölçümü, çok sayıda satırı tarayan ve ardından karmaşık bir toplama işlemi gerçekleştiren standart bir veri ambarı sorgusu alır. Bu, G/Ç ve CPU yoğunluklu bir işlemdir.
 
-**CREATE TABLE AS SELECT (CTAS):** CTAS, bir tablonun kopyasını oluşturma becerisini ölçer. Bu da verilerin depolama alanından okunmasını, gerecin tüm düğümlerine dağıtılmasını ve yeniden depolama alanına yazılmasını içerir. CPU ve Ağ yoğunluklu bir işlemdir.
+**Yük:** Bu ölçüm, hizmete veri alma becerisini ölçer. Yükler, PolyBase'in Azure Blob depolama alanındaki temsili bir veri kümesi yüklemesiyle tamamlanır. Bu ölçüm, hizmetin Ağ ve CPU yönlerine stres testi uygulamak için tasarlanmıştır.
 
-### Ne zaman ölçeklendirme yapılmalıdır?
+**Create Table As Select (CTAS):** CTAS bir tabloyu kopyalama becerisini ölçer. Bu da verilerin depolama alanından okunmasını, gerecin tüm düğümlerine dağıtılmasını ve yeniden depolama alanına yazılmasını içerir. CPU, G/Ç ve ağ yoğunluklu bir işlemdir.
 
-Genel olarak, DWU'ların basit olmasını istiyoruz. Daha hızlı sonuçlar almanız gerektiğinde, daha yüksek performans elde etmek için DWU'larınızı artırın.  Daha düşük bir işlem gücüne gereksinim duyduğunuzda, DWU'larınızı azaltarak yalnızca ihtiyacınız olduğu ölçüde ödeme yapın. Şu durumlarda DWU'larınızın sayısını artırmayı düşünebilirsiniz:
+## İsteğe bağlı duraklatma ve ölçeklendirme
 
-- Akşamları ve hafta sonları gibi sorgu çalıştırmanızın gerekli olmadığı zamanlarda işlem kaynaklarını duraklatarak, çalışan tüm sorguları iptal edin ve veri ambarınız için ayrılmış olan tüm DWU'ları kaldırın.
+Daha hızlı sonuçlar almanız gerektiğinde, daha yüksek performans elde etmek için DWU'larınızı artırın. Daha düşük bir işlem gücüne gereksinim duyduğunuzda, DWU'larınızı azaltarak yalnızca ihtiyacınız olduğu ölçüde ödeme yapın. Aşağıdaki senaryolarda DWU’ları değiştirmeyi düşünebilirsiniz:
+
+- Sorgu çalıştırmanız gerekli olmadığında, belki de akşamları veya hafta sonları, sorgularınızı susturun. Ardından gerekli olmadığında DWU için ödeme yapmaktan kaçınmak üzere işlem kaynaklarınızı duraklatın.
+
+- Sisteminiz düşük talebe sahip olduğunda DWU’yu küçük bir boyuta indirmeyi deneyin. Verilere erişmeye devam edebilirsiniz, ancak önemli bir maliyet tasarrufu elde edersiniz.
 
 - Çok miktarda verinin yüklendiği veya dönüştürüldüğü bir işlemi gerçekleştirirken, verilerinizin daha hızlı kullanılabilir olmasını sağlamak için ölçeklemeyi artırmak isteyebilirsiniz.
 
-- İdeal DWU değerinizin ne olduğunu anlamak için verilerinizi yükledikten sonra ölçeği artırmayı veya azaltmayı ve birkaç sorgu çalıştırmayı deneyin. Ölçeklendirme hızla gerçekleştiği için bir saatten daha fazla yürütme yapmadan çeşitli performans düzeylerini deneyebilirsiniz.
+İdeal DWU değerinizin ne olduğunu anlamak için verilerinizi yükledikten sonra ölçeği artırmayı veya azaltmayı ve birkaç sorgu çalıştırmayı deneyin. Ölçeklendirme hızla gerçekleştiği için bir saat veya daha kısa bir sürede çeşitli performans düzeylerini deneyebilirsiniz.  SQL Veri Ambarı büyük miktarlarda verileri işlemek için tasarlanmıştır ve özellikle sunduğumuz büyük ölçeklerde ölçeklendirmeye yönelik gerçek kapasitesini görmek için yaklaşık 1 TB veya daha fazla bir büyük veri kümesi kullanmak istersiniz.
 
-> [AZURE.NOTE] SQL Data Warehouse'un mimarisi nedeniyle, daha düşük veri hacimlerinde beklenen performans özelliklerini görmeyebilirsiniz.  Performans avantajlarının ne düzeyde olduğunu doğru şekilde ölçebilmek için 1 TB'lik veya 1 TB'nin üzerindeki veri hacimleriyle başlamanızı öneririz.
 
-## Tümleşik
+## Yerleşik SQL Server
 
-SQL Data Warehouse, SQL Server'ın kanıtlanmış ilişkisel veritabanı altyapısını temel alır ve bir kurumsal veri ambarından beklediğiniz birçok özelliği kapsar. Transact-SQL'i tanıyorsanız bildiklerinizi SQL Data Warehouse'a aktarmanız son derece kolaydır. İleri düzeyde veya kullanmaya yeni başlıyor olabilirsiniz, belgelerin genelinde sağlanan örnekler başlangıçta size yardımcı olur. Genel olarak, SQL Data Warehouse'un dil öğelerini şu şekilde oluşturduğumuzu kabul edebilirsiniz:
+SQL Veri Ambarı, SQL Server ilişkisel veritabanı altyapısını temel alır ve bir kurumsal veri ambarından beklediğiniz birçok özelliği kapsar. T-SQL'i tanıyorsanız bildiklerinizi SQL Veri Ambarı’na aktarmanız son derece kolaydır. İleri düzeyde veya kullanmaya yeni başlıyor olabilirsiniz, belgelerin genelinde sağlanan örnekler başlangıçta size yardımcı olur. Genel olarak, SQL Data Warehouse'un dil öğelerini şu şekilde oluşturduğumuzu kabul edebilirsiniz:
 
-- SQL Data Warehouse, birçok işlem için SQL Server'ın Transact-SQL (TSQL) söz dizimini kullanır ve depolanan yordamlar, kullanıcı tanımlı işlevler, tablo bölümleme, dizinler ve harmanlamalar gibi çok sayıda geleneksel SQL yapısını destekler.
+- SQL Veri Ambarı birçok işlem için T-SQL söz dizimini kullanır. Ayrıca depolanan yordamlar, kullanıcı tanımlı işlevler, tablo bölümleme, dizinler ve harmanlamalar gibi çok sayıda geleneksel SQL yapısını destekler.
 
-- SQL Data Warehouse kümelenmiş columnstore dizinleri, PolyBase tümleştirme ve Veri Denetimi (Tehdit Değerlendirmesi ile tamamlanan) dahil olmak üzere, en son teknoloji ürünü çeşitli SQL Server özelliklerini de içerir.
+- SQL Veri Ambarı kümelenmiş **columnstore** dizinleri, PolyBase tümleştirme ve veri denetimi (tehdit değerlendirmesi ile tamamlanan) dahil olmak üzere daha yeni SQL Server özelliklerini de içerir.
 
-- SQL Data Warehouse halen geliştirilme aşamasındadır, bu nedenle veri ambarı iş yüklerinde daha nadir kullanılan veya SQL Server için daha yeni olan bazı TSQL dil öğeleri şu anda kullanılamayabilir. Bu konuyla ilgili daha fazla bilgi için Geçiş belgelerimize bakın.
+- Veri ambarı iş yükleri için daha az yaygın olan ya da SQL Server için yeni olan bazı T-SQL dil öğeleri şu anda kullanılamayabilir. Daha fazla bilgi için bkz. [Geçiş belgeleri][].
 
 SQL Server, SQL Data Warehouse, SQL Database ve Analiz Platformu Sistemi arasındaki ortak özellikler ve Transact-SQL sayesinde, veri ihtiyaçlarınıza uygun olan bir çözümü geliştirebilirsiniz. Performans, güvenlik ve ölçeklendirme gereksinimlerine göre verilerinizi saklamayı ve ardından verileri gereken şekilde farklı sistemler arasında aktarmayı seçebilirsiniz.
 
-SQL Server'ın TSQL yüzey alanını benimsemenin yanı sıra, SQL Data Warehouse aynı zamanda SQL Server kullanıcılarının alışık olabilecekleri birçok araçla da tümleşir. Özel olarak SQL Data Warehouse ile tümleştirmek üzere aşağıdakileri de içeren birkaç araç kategorisine odaklandık:
+## Veri koruma
 
-**Geleneksel SQL Server Araçları:** SQL Data Warehouse'da SQL Server Analysis Services, Integration Services ve Reporting Services ile tam tümleştirme yapılabilir.
+SQL Veri Ambarı tüm verileri Azure Premium yerel olarak yedekli depolama alanında depolar. Yerelleştirilmiş hata olasılıklarına karşın saydam veri koruma olanağı sağlamak amacıyla yerel veri merkezinde verilerin birden çok zaman uyumlu kopyası saklanır. Ayrıca, SQL Veri Ambarı Azure Depolama Anlık Görüntüleri kullanarak etkin (duraklatılmamış) veritabanlarınızı otomatik olarak yedekler. Yedekleme ve geri yükleme işleminin nasıl çalıştığı hakkında daha fazla bilgi edinmek için bkz. [Yedekleme ve geri yüklemeye genel bakış][].
 
-**Bulut Tabanlı Araçlar:** SQL Data Warehouse; Azure'daki bir dizi yeni araçla birlikte kullanılabilir ve Azure Data Factory, Stream Analytics, Machine Learning ve Power BI ile kapsamlı şekilde tümleştirilebilir.
+## Microsoft araçları ile tümleşiktir
 
-**Üçüncü Taraf Araçları:** Çok sayıda üçüncü taraf aracı sağlayıcısına ait araç, SQL Data Warehouse ile sertifikalı tümleştirmeye sahiptir. Tam listeye bakın.
+SQL Veri Ambarı ayrıca SQL Server kullanıcıların tanıyor olabileceği çok sayıda araçla tümleştirilir. Bunlar:
 
-## Karma
+**Geleneksel SQL Server araçları:** SQL Veri Ambarı SQL Server Analysis Services, Integration Services ve Reporting Services ile tam olarak tümleşiktir.
 
-Kullanıcılar, SQL Data Warehouse'u PolyBase ile birlikte kullanarak verileri ekosistemleri içinde taşıma konusunda benzersiz bir beceriye sahip olur ve ilişkisel olmayan ve şirket içi veri kaynakları ile gelişmiş karma senaryolar kurma becerisini ortaya çıkarırlar.
+**Bulut tabanlı araçlar:** SQL Veri Ambarı; Data Factory, Akış Analizi , Machine Learning ve Power BI dahil olmak üzere Azure'daki bir dizi yeni araçla birlikte kullanılabilir. Daha kapsamlı bir liste için bkz. [Tümleşik araçlara genel bakış][].
 
-Polybase'in kullanımı kolaydır ve farklı kaynaklardaki verilerinizi alışık olduğunuz T-SQL komutlarıyla kullanmanızı sağlar. Polybase, Azure blob depolamada tutulan ilişkisel olmayan verileri olağan bir tablo gibi sorgulamanıza olanak tanır. Polybase'i kullanarak ilişkisel olmayan verileri sorgulayabilir veya ilişkisel olmayan verileri SQL Data Warehouse'a içeri aktarabilirsiniz.
+**Üçüncü taraf araçları:** Çok sayıda üçüncü taraf aracı sağlayıcısına ait araç, SQL Veri Ambarı ile sertifikalı tümleştirmeye sahiptir. Tam bir liste için bkz. [SQL Veri Ambarı çözüm ortakları][].
 
-- PolyBase ilişkisel olmayan verilere erişmek için dış tabloları kullanır. Tablo tanımları SQL Data Warehouse'da depolanır ve normal ilişkisel verilere erişirken kullandığınız araçlarla ve SQL yoluyla tablo tanımlarına erişilebilir.
+## Karma veri kaynakları senaryoları
+
+Kullanıcılar, SQL Veri Ambarı’nı PolyBase ile birlikte kullanarak verileri ekosistemleri içinde taşıma konusunda benzersiz bir beceriye sahip olur ve ilişkisel olmayan ve şirket içi veri kaynakları ile gelişmiş karma senaryolar kurma becerisini ortaya çıkarırlar.
+
+Polybase farklı kaynaklardaki verilerinizi alışık olduğunuz T-SQL komutlarıyla kullanmanızı sağlar. Polybase, Azure Blob depolamada tutulan ilişkisel olmayan verileri olağan bir tablo gibi sorgulamanıza olanak tanır. Polybase'i kullanarak ilişkisel olmayan verileri sorgulayabilir veya ilişkisel olmayan verileri SQL Veri Ambarı’na içeri aktarabilirsiniz.
+
+- PolyBase ilişkisel olmayan verilere erişmek için dış tabloları kullanır. Tablo tanımları SQL Veri Ambarı’nda depolanır ve normal ilişkisel verilere erişirken kullandığınız araçlarla ve SQL yoluyla tablo tanımlarına erişebilirsiniz.
 
 - Polybase, tümleştirme sırasında bağımsız şekilde hareket eder. Desteklediği tüm kaynaklar için aynı özellikleri ve işlevleri kullanıma sunar. Polybase tarafından okunan veriler, sınırlandırılmış dosyalar veya ORC dosyaları dahil olmak üzere çeşitli biçimlerde olabilir.
 
-- PolyBase bir HD Insight kümesinin depolama alanı olarak da kullanılan blob depolamaya erişmek için kullanılabilir, bu sayede ilişkisel ve ilişkisel olmayan araçları kullanarak söz konusu verilere gelişmiş bir erişim sağlamış olursunuz.
+- PolyBase aynı zamanda bir HD Insight kümesi için depolama alanı olarak kullanılan blob depolama alanına erişmek için kullanılabilir. Bu özellik, ilişkisel ve ilişkisel olmayan araçlarla aynı verilere erişmenizi sağlar.
 
 ## Sonraki adımlar
 
-SQL Data Warehouse hakkında artık kısmen bilgi sahibi olduğunuza göre, [veri ambarı iş yükü], bir SQL Data Warehouse [sağlama] ve [örnek veriler yükleme] hakkında bilgi alın.  Alternatif olarak, aşağıdaki diğer SQL Data Warehouse Kaynakları'na göz atın.  
+SQL Veri Ambarı hakkında biraz bilgi sahibi olduğunuza göre hızlıca [SQL Veri Ambarı oluşturma][] ve [örnek verileri yükleme][] hakkında bilgi edinin. Azure’da yeniyseniz yeni terimlerle karşılaşabileceğinizi için [Azure sözlüğünü][] yararlı bulabilirsiniz. Alternatif olarak, aşağıdaki diğer SQL Data Warehouse Kaynakları'na göz atın.  
 
-- [Bloglar] 
+- [Bloglar]
 - [Özellik İstekleri]
 - [Videolar]
 - [CAT Ekibi Blogları]
@@ -160,10 +162,14 @@ SQL Data Warehouse hakkında artık kısmen bilgi sahibi olduğunuza göre, [ver
 [1]: ./media/sql-data-warehouse-overview-what-is/dwarchitecture.png
 
 <!--Article references-->
-[Destek Bileti Oluşturun]: ./sql-data-warehouse-get-started-create-support-ticket.md
-[veri ambarı iş yükü]: ./sql-data-warehouse-overview-workload.md
-[örnek veriler yükleme]: ./sql-data-warehouse-get-started-manually-load-samples.md
-[sağlama]: ./sql-data-warehouse-get-started-provision.md
+[Destek Bileti Oluşturun]: sql-data-warehouse-get-started-create-support-ticket.md
+[örnek verileri yükleme]: sql-data-warehouse-load-sample-databases.md
+[SQL Veri Ambarı oluşturma]: sql-data-warehouse-get-started-provision.md
+[Geçiş belgeleri]: sql-data-warehouse-overview-migrate.md
+[SQL Veri Ambarı çözüm ortakları]: sql-data-warehouse-partner-business-intelligence.md
+[Tümleşik araçlara genel bakış]: sql-data-warehouse-overview-integrate.md
+[Yedekleme ve geri yüklemeye genel bakış]: sql-data-warehouse-restore-database-overview.md
+[Azure sözlüğünü]: ../azure-glossary-cloud-terminology.md
 
 <!--MSDN references-->
 
@@ -171,13 +177,13 @@ SQL Data Warehouse hakkında artık kısmen bilgi sahibi olduğunuza göre, [ver
 [Bloglar]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
 [CAT Ekibi Blogları]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
 [Özellik İstekleri]: https://feedback.azure.com/forums/307516-sql-data-warehouse
-[MSDN Forumu]: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSQLDataWarehouse
+[MSDN Forumu]: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=AzureSQLDataWarehouse
 [Stack Overflow Forumu]: http://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Videolar]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

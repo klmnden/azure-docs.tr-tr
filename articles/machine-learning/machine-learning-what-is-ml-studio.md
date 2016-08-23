@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="03/09/2016"
+    ms.date="06/10/2016"
     ms.author="garye"/>
 
 # Azure Machine Learning Studio nedir?
@@ -47,6 +47,7 @@ Programlama gerekmez; tahmine dayalı analiz modelinizi oluşturmak için veri k
 
 **Studio** sekmesine tıkladığınızda Microsoft hesabınızı veya iş ya da okul hesabınızı kullanarak oturum açmanız istenir. Oturum açtıktan sonra, solda şu sekmeleri görürsünüz:
 
+- **PROJELER** - Tek bir projeyi temsil eden denemeler, veri kümeleri, not defterleri ve diğer kaynakların koleksiyonu
 - **DENEMELER** - Taslak olarak oluşturulan, çalıştırılan ve kaydedilen denemeler
 - **WEB HİZMETLERİ** - Denemelerinizden dağıttığınız web hizmetleri
 - **NOT DEFTERLERİ** - Oluşturduğunuz Jupyter not defterleri
@@ -94,8 +95,8 @@ Bir modül, verilerinizde gerçekleştirebileceğiniz bir algoritmadır. Machine
 
 - [ARFF'ye Dönüştürme][convert-to-arff] - Seri hale getirilmiş .NET veri kümesini Öznitelik-İlişki Dosyası Biçimi'ne (ARFF) dönüştürür.
 - [Basit İstatistikleri Hesaplama][elementary-statistics] - Ortalama, standart sapma vb. basit istatistikleri hesaplar.
-- [Doğrusal Regresyon][linear-regression] - Çevrimiçi bir gradyan düşüşü tabanlı doğrusal regresyon modeli oluşturur.
-- [Modeli Puanlama][score-model] - Eğitilmiş bir sınıflandırma veya regresyon modelini puanlar.
+- [Linear Regression (Doğrusal Regresyon)][linear-regression] - Çevrimiçi bir gradyan düşüşü tabanlı doğrusal regresyon modeli oluşturur.
+- [Score Model (Model Puanlama)][score-model] - Eğitilmiş bir sınıflandırma veya regresyon modelini puanlar.
 
 Bir deneme oluştururken, tuvalin solundaki kullanılabilir modül listesinden seçebilirsiniz.  
 
@@ -117,6 +118,6 @@ Tahmine dayalı analiz modeliniz hazır olduktan sonra, bunu doğrudan Machine L
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

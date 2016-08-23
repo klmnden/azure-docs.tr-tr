@@ -20,13 +20,20 @@
 
 Azure Site Recovery'ye hoş geldiniz! Site Recovery hizmetine ilişkin hızlı bir genel bakış edinmek ve iş sürekliliği ve olağanüstü durum kurtarma (BCDR) stratejinize nasıl katkı sağlayacağına yönelik bilgi edinmek için bu makale ile başlayın.
 
-Azure, kaynak oluşturmak ve bu kaynaklarla çalışmak için iki dağıtım modeli kullanır: [Resource Manager ve klasik](../resource-manager-deployment-model.md). Bu makale, her iki model için de geçerlidir. Microsoft, yeni dağıtımların çoğunun Resource Manager modelini kullanmasını önerir.
-
 ## Genel Bakış
 
-Kuruluşunuzun BCDR stratejisinin önemli bir bölümü, planlı veya planlanmamış kesintiler meydana geldiğinde kurumsal iş yüklerini ve uygulamaları açık ve çalışır durumda tutma yöntemlerini ele alır.
+Kuruluşlar, planlı ve planlanmayan kesinti süreleri boyunca uygulamaların, iş yüklerinin ve verilerin çalışır durumda, kullanılabilir olmasına yönelik izlenecek yolu belirleyen ve mümkün olan en kısa sürede normal çalışma koşullarına dönmeyi sağlayan BCDR stratejisine gereksinim duyar. BCDR stratejinizin işletme verilerini güvende tutması, kurtarılabilir şekilde saklaması ve bir olağanüstü durum sırasında iş yüklerinin sürekli olarak kullanılabilir kalmasını sağlaması gerekir. 
 
-Site Recovery, iş yükleri ve uygulamaların kurtarılmasını, yük devretmeyi ve çoğaltmayı düzenleyerek bu işlemi gerçekleştirmenize yardım eder. Böylece, birincil konumunuzun çökmesi durumunda ikincil konum kullanılabilir hale gelir. 
+Site Recovery, şirket içi fiziksel sunucuların ve sanal makinelerin buluta (Azure) veya ikincil bir veri merkezine çoğaltılmasını düzenleyerek BCDR stratejinize katkı sağlayan bir Azure hizmetidir. Kesinti birincil konumunuzda meydana gelirse uygulamaları ve iş yüklerini kullanılabilir durumda tutmak için ikincil konuma yük devredersiniz. Normal çalışma koşullarına dönüldüğünde de yükü birincil konuma geri alabilirsiniz. [Site Recovery nedir?](site-recovery-overview.md) bölümünden daha fazla bilgi edinebilirsiniz.
+
+## Azure portalında Site Recovery
+
+Azure, kaynak oluşturmak ve bu kaynaklarla çalışmak için iki [dağıtım modeli](../resource-manager-deployment-model.md) kullanır: Azure Resource Manager modeli ve klasik hizmet yönetimi modeli. Ayrıca Azure iki portala sahiptir: Klasik dağıtım modelini destekleyen [klasik Azure portalı](https://manage.windowsazure.com/) ve her iki dağıtım modeline de destek sağlayan [Azure portalı](https://portal.azure.com).
+
+Site Recovery hem klasik portalda hem de Azure portalında kullanılabilir. Klasik Azure portalında Site Recovery hizmetini klasik hizmet yönetimi modeliyle destekleyebilirsiniz. Azure portalında klasik modeli veya Resource Manager dağıtımlarını destekleyebilirsiniz. Azure portalı ile dağıtma hakkında [daha fazla bilgi edinin](site-recovery-overview.md#site-recovery-in-the-azure-portal).
+
+Bu makaledeki bilgiler hem klasik hem de Azure portalı dağıtımları için geçerlidir. Geçerli olduğu yerlerde farklılıklar belirtilmiştir.
+
 
 ## Neden Site Recovery kullanmalısınız? 
 
@@ -40,20 +47,20 @@ Site Recovery'nin sağladığı avantajlar şunlardır:
 
 ## Neleri çoğaltabilirim?
 
-Site Recovery'nin çoğaltabileceği öğelerin özeti:
+Site Recovery kullanarak çoğaltabileceğiniz öğelerin özeti aşağıda verilmiştir.
 
 ![Şirket içinden şirket içine](./media/site-recovery-overview/asr-overview-graphic.png)
 
-**ÇOĞALTILAN** | **ÇOĞALTMA KAYNAĞI** | **ÇOĞALTMA HEDEFİ** | **MAKALE**
+**ÇOĞALTILAN** | **ÇOĞALTMA KAYNAĞI (ŞİRKET İÇİ)** | **ÇOĞALTMA HEDEFİ** | **MAKALE**
 ---|---|---|---
-VMware VM'lerinde çalışan iş yükleri | Şirket içi VMware sunucusu | Azure depolama alanı | [Dağıtma](site-recovery-vmware-to-azure-classic.md)
-VMware VM'lerinde çalışan iş yükleri | Şirket içi VMware sunucusu | İkincil VMware sitesi | [Dağıtma](site-recovery-vmware-to-vmware.md) 
-Hyper-V VM'lerinde çalışan iş yükleri | VMM bulutundaki şirket içi Hyper-V ana bilgisayar sunucusu | Azure depolama alanı | [Dağıtma](site-recovery-vmm-to-azure.md)
-Hyper-V VM'lerinde çalışan iş yükleri | VMM bulutundaki şirket içi Hyper-V ana bilgisayar sunucusu | İkincil VMM sitesi | [Dağıtma](site-recovery-vmm-to-vmm.md)
-Hyper-V VM'lerinde çalışan iş yükleri | SAN depolama alanı içeren VMM bulutundaki şirket içi Hyper-V ana bilgisayar sunucusu| SAN depolama alanı içeren ikincil VMM sitesi | [Dağıtma](site-recovery-vmm-san.md)
-Hyper-V VM'lerinde çalışan iş yükleri | Şirket içi Hyper-V sitesi (VMM yok) | Azure depolama alanı | [Dağıtma](site-recovery-hyper-v-site-to-azure.md)
-Fiziksel Windows/Linux sunucuları üzerinde çalışan iş yükleri | Şirket içi fiziksel sunucu | Azure depolama alanı | [Dağıtma](site-recovery-vmware-to-azure-classic.md)
-Fiziksel Windows/Linux sunucuları üzerinde çalışan iş yükleri | Şirket içi fiziksel sunucu | İkincil veri merkezi | [Dağıtma](site-recovery-vmware-to-vmware.md) 
+VMware Sanal Makineleri | VMware sunucusu | Azure | [Daha fazla bilgi edinin](site-recovery-vmware-to-azure-classic.md)
+VMware Sanal Makineleri | VMware sunucusu | İkincil VMware sitesi | [Daha fazla bilgi edinin](site-recovery-vmware-to-vmware.md) 
+Hyper-V Sanal Makineleri | VMM bulutundaki Hyper-V ana bilgisayarı | Azure | [Daha fazla bilgi edinin](site-recovery-vmm-to-azure.md) 
+Hyper-V Sanal Makineleri | VMM bulutundaki Hyper-V ana bilgisayarı | İkincil VMM sitesi | [Daha fazla bilgi edinin](site-recovery-vmm-to-vmm.md)
+Hyper-V Sanal Makineleri | SAN depolama alanı içeren VMM bulutundaki Hyper-V ana bilgisayarı| SAN depolama alanı içeren ikincil VMM sitesi | [Daha fazla bilgi edinin](site-recovery-vmm-san.md)
+Hyper-V Sanal Makineleri | Hyper-V ana bilgisayarı (VMM yok) | Azure | [Daha fazla bilgi edinin](site-recovery-hyper-v-site-to-azure.md)
+Fiziksel Windows/Linux sunucuları | Fiziksel sunucu | Azure | [Daha fazla bilgi edinin](site-recovery-vmware-to-azure-classic.md)
+Fiziksel Windows/Linux sunucuları üzerinde çalışan iş yükleri | Fiziksel sunucu | İkincil veri merkezi | [Daha fazla bilgi edinin](site-recovery-vmware-to-vmware.md) 
 
 
 ## Hangi iş yüklerini koruyabilirim?
@@ -61,11 +68,11 @@ Fiziksel Windows/Linux sunucuları üzerinde çalışan iş yükleri | Şirket i
 Site Recovery uygulamayla tutarlı BCDR sağladığından iş yükleri ve uygulamalar kesinti olduğunda tutarlı bir şekilde çalışmaya devam eder. Site Recovery şunları sağlar: 
 
 - **Uygulamayla tutarlı anlık görüntüler** - Tek veya N-katmanlı uygulamalara yönelik uygulamayla tutarlı anlık görüntüleri kullanan çoğaltma.
-**Yakın zaman uyumlu çoğaltma** - Hyper-V için düşük çoğaltma sıklığı (30 saniye) ve VMware için sürekli çoğaltma.
-**SQL Server AlwaysOn ile tümleştirme** - Site Recovery kurtarma planlarında kullanılabilir grupların yük devretme işlemlerini yönetebilirsiniz. 
-- **Esnek kurtarma planları** - Tek bir tıklama ile tüm uygulama yığınını kurtarmanıza olanak sağlayan Azure Automation Runbook'ları, elle yapılan işlemler ve dış betikler içeren kurtarma planları oluşturabilir ve bunları özelleştirebilirsiniz.
-- **Automation kitaplığı** - Zengin Azure Automation kitaplığı, indirilebilen ve Site Recovery ile tümleştirilebilen üretime hazır ve uygulamaya özgü betikler sağlar. 
--**Basit ağ yönetimi** - Site Recovery'deki gelişmiş ağ yönetimi ve Azure; IP adresini koruma, yük dengeleyicileri yapılandırma ve etkili ağ değişimleri için Azure Traffic Manager ile tümleştirme de dahil olmak üzere uygulama ağ gereksinimlerini basitleştirir.
+- **Yakın zaman uyumlu çoğaltma** - Hyper-V için düşük çoğaltma sıklığı (30 saniye) ve VMware için sürekli çoğaltma.
+- **SQL Server AlwaysOn ile tümleştirme** - Site Recovery kurtarma planlarında kullanılabilir grupların yük devretme işlemlerini yönetebilirsiniz. 
+- **Esnek kurtarma planları** - Tek bir tıklama ile tüm uygulama yığınını kurtarmanıza olanak sağlayan Azure Otomasyonu runbook'ları, elle yapılan işlemler ve dış betikler içeren kurtarma planları oluşturabilir ve bunları özelleştirebilirsiniz.
+- **Automation kitaplığı** - Zengin Azure Automation kitaplığı, indirilebilen ve Site Recovery ile tümleştirilebilen üretime hazır ve uygulamaya özgü betikler sağlar.
+- **Basit ağ yönetimi** - Site Recovery'deki gelişmiş ağ yönetimi ve Azure; IP adresini koruma, yük dengeleyicileri yapılandırma ve etkili ağ değişimleri için Azure Traffic Manager ile tümleştirme dahil olmak üzere uygulama ağ gereksinimlerini basitleştirir.
 
 
 ## Sonraki adımlar
@@ -76,6 +83,6 @@ Site Recovery uygulamayla tutarlı BCDR sağladığından iş yükleri ve uygula
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

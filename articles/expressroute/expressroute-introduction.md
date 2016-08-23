@@ -12,7 +12,7 @@
    ms.topic="get-started-article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="05/02/2016"
+   ms.date="06/13/2016"
    ms.author="cherylmc"/>
 
 # ExpressRoute teknik genel bakış
@@ -68,6 +68,8 @@ Microsoft, şirket içi ağınız ile Azure ve Microsoft ortak adreslerinde bulu
 Her ExpressRoute bağlantı hattı, bağlantı sağlayıcısından veya ağınızın kenarından Microsoft Kurumsal kenar yönlendiricilerine (MSEEs) yapılan iki bağlantıdan oluşur. Microsoft, her bir MSEE için bir adet olmak üzere bağlantı sağlayıcısından veya sizin tarafınızdan ikili BGP bağlantısı gerektirecektir. Kendi tarafınızdaki yedekli cihazlara veya Ethernet bağlantı hattına dağıtmamayı seçebilirsiniz. Ancak, bağlantı sağlayıcılar bağlantılarınızın yedekli olarak Microsoft’a devredildiğinden emin olmak için yedekli cihazlar kullanır. Yedekli Layer 3 bağlantı yapılandırması [SLA](https://azure.microsoft.com/support/legal/sla/)’mızın geçerli olması için bir gereksinimdir. 
 
 ### Microsoft bulut hizmetlerine bağlantı
+
+[AZURE.INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
 ExpressRoute bağlantıları aşağıdaki hizmetlere erişim sağlar:
 
@@ -136,6 +138,6 @@ Size en uygun faturalama modelini seçin. Aşağıda listelenen faturalama model
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

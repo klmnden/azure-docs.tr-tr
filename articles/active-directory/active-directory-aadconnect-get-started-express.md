@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/26/2016"
+    ms.date="06/27/2016"
     ms.author="billmath;andkjell"/>
 
 # Hızlı ayarları kullanarak Azure AD Connect ile çalışmaya başlama
@@ -39,7 +39,7 @@ Bu adımların nasıl gerçekleştirildiğini [videolar](#videos) bölümünden 
 ![Doğrulanmamış etki alanları](./media/active-directory-aadconnect-get-started-express/unverifieddomain.png)  
 Bu sayfayı görüyorsanız **Eklenmedi** ve **Doğrulanmadı** olarak işaretlenen tüm etki alanlarını gözden geçirin. Kullandıklarınızın Azure AD'de doğrulanmış olduğundan emin olun. Etki alanlarınızı doğruladıktan sonra Yenile simgesine tıklayın.
 8. Yapılandırma için hazır ekranında **Yükle**'ye tıklayın.
-    - İsteğe bağlı olarak, Yapılandırma için hazır sayfasında **Yapılandırma tamamlanınca eşitlemeyi başlat** onay kutusunun işaretini kaldırabilirsiniz. Başka yapılandırmalar (örneğin, [filtreleme](active-directory-aadconnectsync-configure-filtering.md)) gerçekleştirmek istiyorsanız bu onay kutusunun işaretini kaldırmanız gerekir. Bu seçeneğin işaretini kaldırırsanız sihirbaz eşitlemeyi yapılandırır ancak zamanlayıcıyı devre dışı bırakır. [Yükleme sihirbazını yeniden çalıştırarak](active-directory-aadconnectsync-installation-wizard.md) elle etkinleştirmediğiniz sürece çalışmaz.
+    - İsteğe bağlı olarak, Yapılandırma için hazır sayfasında **Start the synchronization process as soon as configuration completes (Yapılandırma tamamlanınca eşitlemeyi başlat)** onay kutusunun işaretini kaldırabilirsiniz. Başka yapılandırmalar (örneğin, [filtreleme](active-directory-aadconnectsync-configure-filtering.md)) gerçekleştirmek istiyorsanız bu onay kutusunun işaretini kaldırmanız gerekir. Bu seçeneğin işaretini kaldırırsanız sihirbaz eşitlemeyi yapılandırır ancak zamanlayıcıyı devre dışı bırakır. [Yükleme sihirbazını yeniden çalıştırarak](active-directory-aadconnectsync-installation-wizard.md) elle etkinleştirmediğiniz sürece çalışmaz.
     - Şirket içi Active Directory'nizde Exchange varsa [**Exchange Karma dağıtımını**](https://technet.microsoft.com/library/jj200581.aspx) da etkinleştirebilirsiniz. Aynı anda hem bulutta ve hem de şirket içinde Exchange posta kutunuzun olmasını istiyorsanız bu seçeneği etkinleştirin.
 ![Azure AD Connect yapılandırma için hazır](./media/active-directory-aadconnect-get-started-express/readytoconfigure.png)
 9. Yükleme tamamlandığında **Çıkış**'a tıklayın.
@@ -71,6 +71,6 @@ Yükleme için kullanılan hesaplar | [Azure AD Connect hesapları ve izinleri h
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

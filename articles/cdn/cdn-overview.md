@@ -1,8 +1,8 @@
 <properties
-    pageTitle="Azure CDN'ye Genel Bakış"
+    pageTitle="Azure CDN’ye Genel Bakış | Microsoft Azure"
     description="Azure İçerik Teslim Ağı'nın (CDN) ne olduğunu, blobları ve statik içeriği önbelleğe alarak yüksek bant genişliği içeriği teslimi gerçekleştirmek üzere nasıl kullanılacağını öğrenin."
     services="cdn"
-    documentationCenter=".NET"
+    documentationCenter=""
     authors="camsoper"
     manager="erikre"
     editor=""/>
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="06/06/2016"
+    ms.date="07/28/2016"
     ms.author="casoper"/>
 
 # Azure İçerik Teslim Ağı'na (CDN) genel bakış
@@ -68,6 +68,7 @@ Web sitesi varlıklarını önbelleğe almak için CDN kullanmanın avantajları
 | [Gelişmiş HTTP raporları](cdn-advanced-http-reports.md) | | | **&#x2713;** |
 | [Gerçek zamanlı istatistikler](cdn-real-time-stats.md) | | | **&#x2713;** |
 
+>[AZURE.TIP] Azure CDN'de görmek istediğiniz bir özellik mi var?  [Bize geri bildirim sağlayın](https://feedback.azure.com/forums/169397-cdn)! 
 
 ## Sonraki adımlar
 
@@ -77,12 +78,12 @@ Var olan bir CDN müşterisiyseniz artık CDN uç noktalarınızı [Microsoft Az
 
 CDN'yi uygulamalı olarak görmek için [Build 2016 oturumu videomuza](https://azure.microsoft.com/documentation/videos/build-2016-leveraging-the-new-azure-cdn-apis-to-build-wicked-fast-applications/) bakın.
 
+Azure CDN’yi [.NET](./cdn-app-dev-net.md) veya [Node.js](./cdn-app-dev-node.md) ile nasıl otomatik hale getireceğinizi öğrenin.
+
 Fiyatlandırma bilgileri için bkz. [CDN Fiyatlandırması](https://azure.microsoft.com/pricing/details/cdn/).
 
-Azure CDN'de görmek istediğiniz bir özellik mi var?  [Bize geri bildirim sağlayın](https://feedback.azure.com/forums/169397-cdn)! 
 
 
-
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

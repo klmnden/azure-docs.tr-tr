@@ -3,39 +3,43 @@
     description="Cihaz yönetimi için C# ile Azure IoT Hub ile çalışmaya başlama öğreticisi. Cihaz yönetimi uygulamak için Microsoft Azure IoT SDK'ları ile Azure IoT Hub ve C# kullanın."
     services="iot-hub"
     documentationCenter=".net"
-    authors="ellenfosborne"
+    authors="juanjperez"
     manager="timlt"
     editor=""/>
 
 <tags
  ms.service="iot-hub"
  ms.devlang="dotnet"
- ms.topic="hero-article"
+ ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
  ms.date="04/29/2016"
- ms.author="elfarber"/>
+ ms.author="juanpere"/>
 
 # Node.js kullanarak Azure IoT Hub cihaz yönetimini kullanmaya başlama (önizleme)
 
 [AZURE.INCLUDE [iot-hub-device-management-get-started-selector](../../includes/iot-hub-device-management-get-started-selector.md)]
 
 ## Giriş
-Azure IoT Hub cihaz yönetimini kullanmaya başlamak için Azure IoT Hub oluşturmanız, IoT Hub'da cihaz sağlamanız ve birden çok sanal cihaz başlatmanız gerekir. Bu öğretici, bu adımlarda size yol gösterir.
+Azure IoT Hub cihaz yönetimini kullanmaya başlamak için Azure IoT Hub oluşturmanız, IoT Hub'da cihaz hazırlamanız, birden fazla sanal cihazı başlatmanız ve bu cihazları cihaz yönetimi örnek kullanıcı arabiriminde görüntülemeniz gerekir. Bu öğretici, bu adımlarda size yol gösterir.
 
 > [AZURE.NOTE]  Var olan IoT Hub'larında henüz cihaz yönetimi işlevleri olmadığından, var olan bir IoT Hub'ınız olsa bile cihaz yönetimi işlevlerini etkinleştirmek için yeni bir IoT Hub oluşturmanız gerekir. Cihaz yönetimi genel olarak kullanılabilir olduğunda, var olan tüm IoT Hub'ları cihaz yönetimi işlevlerini edinecek şekilde yükseltilir.
 
-## Önkoşullar
+## Ön koşullar
 
-Adımları tamamlamak için aşağıdakilerin yüklü olması gerekir:
+Bu öğretici bir Ubuntu Linux geliştirme makinesi kullandığınızı varsayar.
+
+Adımları tamamlamak için aşağıdaki yazılımların yüklü olması gerekir:
 
 - Git
-- node
-- npm
-- CMake (2.8 veya sonraki bir sürümü). <https://cmake.org/download/> adresinden CMake'i yükleyin. Geçerli kullanıcı PATH değişkenine CMake'i eklemek için kutunun işaretlenmiş olduğundan emin olun.
-- Etkin bir Azure aboneliği.
 
-    Hesabınız yoksa yalnızca birkaç dakika içinde ücretsiz bir deneme sürümü hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü][lnk-free-trial].
+- gcc (sürüm 4.9 veya üstü). `gcc --version` komutunu kullanarak ortamınıza yüklenmiş geçerli sürümü doğrulayabilirsiniz. Ubuntu 14.04’te gcc sürümünüzü yükseltme hakkında bilgi için bkz. <http://askubuntu.com/questions/466651/how-do-i-use-the-latest-gcc-4-9-on-ubuntu-14-04>.
+
+- [CMake](https://cmake.org/download/) (2.8 veya sonraki bir sürümü). `cmake --version` komutunu kullanarak ortamınıza yüklenmiş geçerli sürümü doğrulayabilirsiniz.
+
+- Node.js 6.1.0 veya üstü.  Platformunuza yönelik Node.js dosyasını <https://nodejs.org/> adresinden yükleyin.
+
+- Etkin bir Azure aboneliği. Hesabınız yoksa yalnızca birkaç dakika içinde ücretsiz bir deneme sürümü hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü][lnk-free-trial].
 
 ## Cihaz yönetimi etkinleştirilmiş bir IoT Hub oluşturma
 
@@ -80,7 +84,7 @@ Bu bölümde sanal cihazı ve örnekleri oluşturan ve IoT Hub'ınızın cihaz k
 
 IoT Hub'ınızda örnekleri oluşturmak ve cihazları sağlamak için, aşağıdaki adımları izleyin:
 
-1.  Terminali açın.
+1.  Bir kabuk açın.
 
 2.  GitHub deposunu kopyalayın. **Hiçbir boşluk olmayan bir dizine kopyaladığınızdan emin olun.**
 
@@ -88,10 +92,17 @@ IoT Hub'ınızda örnekleri oluşturmak ve cihazları sağlamak için, aşağıd
       git clone --recursive --branch dmpreview https://github.com/Azure/azure-iot-sdks.git
       ```
 
-3.  **azure-iot-sdks** deposunu kopyaladığınız kök klasörden **azure-iot-sdks/node/service/samples** dizinine gidin ve yer tutucu değerini önceki bölümdeki bağlantı dizenizle değiştirerek çalıştırın:
+3.  **azure-iot-sdks** deposunu kopyaladığınız kök klasörden **azure-iot-sdks/c/build_all/linux** dizinine gidin ve aşağıdaki komutu yürüterek önkoşul paketlerini ve bağımlı kitaplıkları yükleyin:
 
       ```
-      setup.bat <IoT Hub Connection String>
+      ./setup.sh
+      ```
+
+
+4.  **azure-iot-sdks** deposunu kopyaladığınız kök klasörden **azure-iot-sdks/node/service/samples** dizinine gidin ve yer tutucu değerini önceki bölümdeki bağlantı dizenizle değiştirerek aşağıdaki komutu yürütün:
+
+      ```
+      ./setup.sh <IoT Hub Connection String>
       ```
 
 Bu betik şunları yapar:
@@ -100,18 +111,18 @@ Bu betik şunları yapar:
 
 2.  Sanal cihaz yürütülebilir dosyası **iotdm\_simple\_sample**'ı oluşturur.
 
-3.  Gerekli paketleri yüklemek için ``` npm install ``` çalıştırır.
+3.  Gerekli paketleri yüklemek için `npm install` çalıştırır.
 
-4.  IoT Hub'ınızda cihaz kimliklerini sağlamak için ```node generate_devices.js``` çalıştırır. Cihazlar **sampledevices.json**'da açıklanır. Cihazlar sağlandıktan sonra, kimlik bilgileri **devicecreds.txt** dosyasında (**azure-iot-sdks/node/service/samples** dizininde bulunur) depolanır.
+4.  IoT Hub'ınızda cihaz kimliklerini sağlamak için `node generate_devices.js` çalıştırır. Cihazlar **sampledevices.json**'da açıklanır. Cihazlar sağlandıktan sonra, kimlik bilgileri **devicecreds.txt** dosyasında (**azure-iot-sdks/node/service/samples** dizininde bulunur) depolanır.
 
 ## Sanal cihazlarınızı başlatma
 
 Artık cihazlar cihaz kayıt defterine eklendiğine göre, sanal yönetilen cihazları başlatabilirsiniz. Azure IoT Hub'da sağlanan her bir cihaz kimliği için bir sanal cihazın başlatılması gerekir.
 
-Terminali kullanarak **azure-iot-sdks/node/service/samples** dizininde şunu çalıştırın:
+Bir kabuk kullanarak **azure-iot-sdks/node/service/samples** dizinine gidin ve şunu çalıştırın:
 
   ```
-  simulate.sh
+  ./simulate.sh
   ```
 
 Bu betik, **devicecreds.txt** dosyasında listelenen her bir cihaza yönelik **iotdm\_simple\_sample**'ı başlatmak üzere çalışmanız için gereken komutları çıkarır. Lütfen her bir sanal cihaz için ayrı bir terminal penceresinden komutları tek tek çalıştırın. Sanal cihaz, siz komut penceresini kapatana kadar çalışmaya devam eder.
@@ -126,35 +137,74 @@ Aşağıda **iotdm\_simple\_sample** örnek uygulamasının çıktısı bulunur.
 
 ![][img-output]
 
-"Sonraki adımlar"daki öğreticileri tamamlarken tüm sanal cihazların çalışıyor olduğundan emin olun.
+Sonraki bölümlerde yer alan öğreticileri tamamlarken tüm sanal cihazların çalışıyor olduğundan emin olun.
+
+## Cihaz yönetimi örnek kullanıcı arabirimini çalıştırma
+
+IoT Hub hazırladığınıza ve hem çalışan hem de yönetim için hazırlanmış birkaç sanal cihaza sahip olduğunuza göre cihaz yönetimi örnek kullanıcı arabirimini dağıtabilirsiniz. Cihaz yönetimi örnek kullanıcı arabirimi etkileşimli bir kullanıcı arabirimi deneyimi oluşturmak üzere cihaz yönetim API’lerinin nasıl kullanılacağına ilişkin çalışan bir örnek sağlar.  Cihaz yönetimi örnek kullanıcı arabirimi hakkında [bilinen sorunlar](https://github.com/Azure/azure-iot-device-management#knownissues) ile birlikte daha fazla bilgi için [Azure IoT cihaz yönetimi kullanıcı arabirimi][lnk-dm-github] GitHub deposuna bakın.
+
+Cihaz yönetimi örnek kullanıcı arabirimini almak, derlemek ve çalıştırmak için aşağıdaki adımları izleyin:
+
+1. Bir kabuk açın.
+
+2. `node --version` yazarak önkoşullar bölümüne uygun şekilde Node.js 6.1.0 veya üstünü yüklediğinizi onaylayın.
+
+3. Kabukta aşağıdaki komutu çalıştırarak Azure IoT cihaz yönetimi kullanıcı arabirimi GitHub deposunu kopyalayın:
+
+    ```
+    git clone https://github.com/Azure/azure-iot-device-management.git
+    ```
+    
+4. Kopyaladığınız Azure IoT cihaz yönetimi kullanıcı arabirimi deposu örneğinin kök klasöründe bağımlı paketler almak için aşağıdaki komutu çalıştırın:
+
+    ```
+    npm install
+    ```
+
+5. npm yükleme komutu tamamlandığında kabukta aşağıdaki komutu çalıştırarak kodu derleyin:
+
+    ```
+    npm run build
+    ```
+
+6. Kopyalanan klasörün kökünde config.json dosyasını açmak için bir metin düzenleyicisi kullanın. "&lt;BAĞLANTI DİZENİZ BURAYA&gt;" metnini önceki bölümde verilen IoT Hub bağlantı dizenizle değiştirin ve dosyayı kaydedin.
+
+7. Cihaz yönetimi UX uygulamasını başlatmak için kabukta aşağıdaki komutu çalıştırın:
+
+    ```
+    npm run start
+    ```
+
+8. Komut istemi "Hizmetler başlatıldı" durumunu bildirdiğinde bir web tarayıcısı açın ve sanal cihazlarınızı görüntülemek için <http://127.0.0.1:3003> URL’sinde bulunan cihaz yönetimi uygulamasına gidin.
+
+    ![][img-dm-ui]
+
+Sonraki cihaz yönetimi öğreticisine geçerken sanal cihazları ve cihaz yönetimi uygulamasını çalışır durumda bırakın.
+
 
 ## Sonraki adımlar
 
-Azure IoT Hub cihaz yönetimi özellikleri hakkında daha fazla bilgi edinmek için şu öğreticileri inceleyebilirsiniz:
+IoT Hub kullanmaya başlamaya devam etmek için bkz. [Ağ Geçidi SDK’sı ile çalışmaya başlama][lnk-gateway-SDK].
 
-- [Cihaz çifti kullanımı][lnk-tutorial-twin]
-
-- [Sorguları kullanarak cihaz çiftlerini bulma][lnk-tutorial-queries]
-
-- [Cihaz üretici yazılımını güncelleştirmek için cihaz işlerini kullanma][lnk-tutorial-jobs]
+Azure IoT Hub cihaz yönetimi özellikleri hakkında daha fazla bilgi almak için [Örnek kullanıcı arabirimi kullanarak Azure IoT Hub cihaz yönetimini keşfetme][lnk-sample-ui] öğreticisine bakın.
 
 <!-- images and links -->
-[img-new-hub]: media/iot-hub-device-management-get-started/image1.png
-[img-configure-hub]: media/iot-hub-device-management-get-started/image2.png
-[img-monitor]: media/iot-hub-device-management-get-started/image3.png
-[img-keys]: media/iot-hub-device-management-get-started/image4.png
-[img-connection]: media/iot-hub-device-management-get-started/image5.png
-[img-output]: media/iot-hub-device-management-get-started/image6.png
+[img-new-hub]: media/iot-hub-device-management-get-started-node/image1.png
+[img-configure-hub]: media/iot-hub-device-management-get-started-node/image2.png
+[img-monitor]: media/iot-hub-device-management-get-started-node/image3.png
+[img-keys]: media/iot-hub-device-management-get-started-node/image4.png
+[img-connection]: media/iot-hub-device-management-get-started-node/image5.png
+[img-output]: media/iot-hub-device-management-get-started-node/image6.png
+[img-dm-ui]: media/iot-hub-device-management-get-started-node/dmui.png
 
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [Azure portalında]: https://portal.azure.com/
 [Azure kaynaklarınızı yönetmek için kaynak gruplarını kullanma]: ../azure-portal/resource-group-portal.md
-[lnk-tutorial-twin]: iot-hub-device-management-device-twin.md
-[lnk-tutorial-queries]: iot-hub-device-management-device-query.md
-[lnk-tutorial-jobs]: iot-hub-device-management-device-jobs.md
+[lnk-dm-github]: https://github.com/Azure/azure-iot-device-management
+[lnk-sample-ui]: iot-hub-device-management-ui-sample.md
+[lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
 
 
-
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

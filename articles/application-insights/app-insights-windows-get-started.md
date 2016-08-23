@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="03/17/2016"
+    ms.date="06/20/2016"
     ms.author="awills"/>
 
 # Windows Phone ve Mağazası uygulamaları analizi
@@ -33,13 +33,13 @@ Uygulamanız sunucu tarafındaysa, [ASP.NET](app-insights-asp-net.md) veya [J2EE
 
 [Windows Masaüstü uygulamaları için Application Insights](app-insights-windows-desktop.md)’ı da kullanabilirsiniz.
 
-> [AZURE.NOTE] 15 Haziran 2016’da, iOS, Android, Windows mağazası ve Windows Phone uygulamaları için verilerin Application Insights'ta gösterilmesini durdurduk.
-> 
-> [Bu değişiklik hakkında daha fazla bilgi](https://azure.microsoft.com/blog/transitioning-mobile-apps-from-application-insights-to-hockeyapp/).
+> [AZURE.NOTE] [Application Insights Analytics](app-insights-analytics.md) ve [Sürekli Dışarı Aktarma](app-insights-export-telemetry.md) özelliklerini yakında HockeyApp SDK’sından gönderilen telemetri verileriyle kullanabileceksiniz. 
+>
+> [Bu değişiklik hakkında daha fazla bilgi.](https://azure.microsoft.com/blog/update-on-transitioning-mobile-apps-from-application-insights-to-hockeyapp/)
 
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

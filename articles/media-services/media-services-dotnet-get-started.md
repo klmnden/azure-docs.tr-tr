@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="04/18/2016"
+    ms.date="07/18/2016"
     ms.author="juliako"/>
 
 
@@ -457,6 +457,6 @@ Beklediklerinizi bu konuda bulamadıysanız, eksik bir şeyler varsa veya herhan
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

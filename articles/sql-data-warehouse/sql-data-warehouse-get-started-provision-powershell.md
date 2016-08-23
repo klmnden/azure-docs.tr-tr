@@ -13,27 +13,31 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/04/2016"
+   ms.date="07/20/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # PowerShell kullanarak SQL Data Warehouse oluşturma
 
 > [AZURE.SELECTOR]
-- [Azure Portal](sql-data-warehouse-get-started-provision.md)
+- [Azure Portalı](sql-data-warehouse-get-started-provision.md)
 - [TSQL](sql-data-warehouse-get-started-create-database-tsql.md)
 - [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
 
-## Önkoşullar
-Başlamadan önce şu önkoşullara sahip olduğunuzdan emin olun:
+Bu makalede PowerShell ile SQL Data Warehouse oluşturma işlemi gösterilmektedir.
 
-- **Azure Hesabı**: Hesap oluşturmak için bkz. [Azure Ücretsiz Deneme Sürümü][] veya [MSDN Azure Kredileri][].
-- **V12 Azure SQL Server**: Bkz. [Azure Portal ile Azure SQL Database mantıksal sunucusu oluşturma][] veya [PowerShell ile Azure SQL Database mantıksal sunucusu oluşturma][].
-- **Kaynak grubu adı**: V12 Azure SQL Server'ınızdaki Kaynak Grubunu kullanın veya yeni bir kaynak grubu oluşturmak için [kaynak grupları][] bölümüne göz atın.
+## Ön koşullar
+
+Başlamak için şunlar gereklidir:
+
+- **Azure hesabı**: Hesap oluşturmak için [Azure Ücretsiz Deneme Sürümü][] veya [MSDN Azure Kredileri][] sayfasını ziyaret edin.
+- **Azure SQL server**: Daha fazla bilgi için bkz. [Azure Portal ile Azure SQL Database mantıksal sunucusu oluşturma][] veya [PowerShell ile Azure SQL Database mantıksal sunucusu oluşturma][].
+- **Kaynak grubu**: Azure SQL sunucunuz ile aynı kaynak grubunu kullanın veya [kaynak grubu oluşturma][] işlemine bakın.
 - **PowerShell 1.0.3 sürümü veya sonraki bir sürümü**: **Get-Module -ListAvailable -Name Azure** komutunu çalıştırarak sürümünüzü kontrol edebilirsiniz.  [Microsoft Web Platformu Yükleyicisi][]'nden en son sürümü yükleyebilirsiniz.  En son sürümü yükleme hakkında daha fazla bilgi için bkz. [Azure PowerShell'i yükleme ve yapılandırma][].
 
 > [AZURE.NOTE] Yeni bir SQL Data Warehouse'un oluşturulması ek hizmet ücretlerin alınmasına neden olabilir.  Fiyatlandırmayla ilgili ayrıntılı bilgi için bkz. [SQL Data Warehouse fiyatlandırması][].
 
-## SQL Data Warehouse veritabanı oluşturma
+## SQL Data Warehouse oluşturma
+
 1. Windows PowerShell'i açın.
 2. Azure Resource Manager'da oturum açmak için bu cmdlet'i çalıştırın
 
@@ -55,7 +59,7 @@ Başlamadan önce şu önkoşullara sahip olduğunuzdan emin olun:
 
 Bu cmdlet için gerekli parametreler şunlardır:
 
-- **RequestedServiceObjectiveName**: İstediğiniz DWU sayısı ("DWXXX" biçiminde). DWU, bir CPU ve bellek ayırma işlemini temsil eder.  Her DWU değeri bu kaynaklardaki doğrusal bir artışı temsil eder.  Şu anda desteklenen değerler: 100, 200, 300, 400, 500, 600, 1000, 1200, 1500, 2000.
+- **RequestedServiceObjectiveName**: İstediğiniz [DWU][] sayısı.  Desteklenen değerler: DW100, DW200, DW300, DW400, DW500, DW600, DW1000, DW1200, DW1500, DW2000, DW3000 ve DW6000.
 - **DatabaseName**: Oluşturduğunuz SQL Data Warehouse'un adı.
 - **ServerName**: Oluşturma işlemi için kullandığınız sunucunun adı (V12 olmalıdır).
 - **ResourceGroupName**: Kullandığınız kaynak grubu.  Aboneliğinizdeki kullanılabilir kaynak gruplarını bulmak için Get-AzureResource komutunu kullanın.
@@ -65,27 +69,30 @@ Parametre seçenekleri hakkında daha ayrıntılı bilgi için bkz. [Veritabanı
 Komut başvurusu için bkz. [New-AzureRmSqlDatabase][].
 
 ## Sonraki adımlar
+
 SQL Data Warehouse'unuzun hazırlanması tamamlandıktan sonra [örnek veri yükleme][] işlemini gerçekleştirmeyi veya [geliştirme][], [yükleme][] veya [geçirme][] işlemlerinin nasıl gerçekleştirileceğini incelemeyi tercih edebilirsiniz.
 
-Programlama yoluyla SQL Data Warehouse'u yönetme hakkında daha fazla bilgi edinmek istiyorsanız [PowerShell cmdlet'leri ve REST API'lerinin][] kullanımına ilişkin makalemize göz atın.
+Programlama yoluyla SQL Data Warehouse'u yönetme hakkında daha fazla bilgi edinmek istiyorsanız [PowerShell cmdlet’leri ve REST API’lerinin][] kullanımına ilişkin makalemize göz atın.
 
 <!--Image references-->
 
 <!--Article references-->
+[DWU]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
 [geçirme]: ./sql-data-warehouse-overview-migrate.md
 [geliştirme]: ./sql-data-warehouse-overview-develop.md
 [yükleme]: ./sql-data-warehouse-load-with-bcp.md
-[örnek veri yükleme]: ./sql-data-warehouse-get-started-manually-load-samples.md
+[örnek veri yükleme]: ./sql-data-warehouse-get-started-load-sample-databases.md
 [PowerShell cmdlet’leri ve REST API’lerinin]: ./sql-data-warehouse-reference-powershell-cmdlets.md
-[güvenlik duvarı kuralları]: ./sql-database-configure-firewall-settings.md
+[güvenlik duvarı kuralları]: ../sql-database-configure-firewall-settings.md
+
 [Azure PowerShell'i yükleme ve yapılandırma]: ../powershell/powershell-install-configure.md
 [Azure Portal'dan SQL Data Warehouse oluşturma]: ./sql-data-warehouse-get-started-provision.md
 [Azure Portal ile Azure SQL Database mantıksal sunucusu oluşturma]: ../sql-database/sql-database-get-started.md#create-an-azure-sql-database-logical-server
 [PowerShell ile Azure SQL Database mantıksal sunucusu oluşturma]: ../sql-database/sql-database-get-started-powershell.md#database-setup-create-a-resource-group-server-and-firewall-rule
-[kaynak grupları]: ../azure-portal/resource-group-portal.md
+[kaynak grubu oluşturma]: ../resource-group-template-deploy-portal.md#create-resource-group
 
 <!--MSDN references--> 
-[MSDN]:https://msdn.microsoft.com/library/azure/dn546722.aspx
+[MSDN]: https://msdn.microsoft.com/library/azure/dn546722.aspx
 [New-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619339.aspx
 [Veritabanı (Azure SQL Data Warehouse) Oluşturma]: https://msdn.microsoft.com/library/mt204021.aspx
 
@@ -97,6 +104,6 @@ Programlama yoluyla SQL Data Warehouse'u yönetme hakkında daha fazla bilgi edi
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

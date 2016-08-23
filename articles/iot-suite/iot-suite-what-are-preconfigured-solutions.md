@@ -28,13 +28,13 @@ Azure IoT Paketi önceden yapılandırılmış çözümleri, aboneliği kullanar
 
 Azure’de çözümleri dağıtmanın ve çalıştırmanın yanı sıra, tam kaynak kodunu indirebilir, sonra da size özel IoT gereksinimlerini karşılaması için bunu özelleştirebilir ve uzatabilirsiniz.
 
-> [AZURE.NOTE] Önceden yapılandırılmış çözümlerden birini dağıtmak için [Microsoft Azure IOT Paketi][lnk-azureiotsuite] sayfasını ziyaret edin. [IoT önceden yapılandırılmış çözümlerine giriş][lnk-preconf-get-started] makalesi çözümlerden birinin dağıtılması ve çalıştırılması hakkında daha fazla bilgi sağlamaktadır.
+> [AZURE.NOTE] Önceden yapılandırılmış çözümlerden birini dağıtmak için [Microsoft Azure IOT Paketi][lnk-azureiotsuite] sayfasını ziyaret edin. [Önceden yapılandırılmış IoT çözümlerine giriş][Ink-get-started-preconfigured] makalesi çözümlerden birinin dağıtılması ve çalıştırılması hakkında daha fazla bilgi sağlamaktadır.
 
 Aşağıdaki tabloda, çözümlerin belirli IoT özelliklerini nasıl karşıladığı gösterilmektedir:
 
 | Çözüm | Veri Alımı | Cihaz Kimliği | Komut ve Denetim | Kurallar ve Eylemler | Tahmine Dayalı Analiz |
 |------------------------|-----|-----|-----|-----|-----|
-| [Uzaktan izleme][lnk-preconf-get-started] | Evet | Evet | Evet | Evet | -   |
+| [Uzaktan izleme][Ink-get-started-preconfigured] | Evet | Evet | Evet | Evet | -   |
 | [Tahmine dayalı bakım][lnk-predictive-maintenance] | Evet | Evet | Evet | Evet | Evet |
 
 - *Veri alımı*: Bulut ölçeğinde veri girişi.
@@ -68,7 +68,7 @@ Aynı telemetriyi yayan ve aynı komutu yanıtlayan çözüme daha fazla sanal c
 
 ## IoT Hub’ı
 
-Önceden yapılandırılmış bu çözümde, IoT Hub’ı örneği tipik bir [IoT çözüm mimarisinde][lnk-what-is-azure-iot] *Bulut Ağ Geçidi*’ne karşılık gelir.
+Önceden yapılandırılmış bu çözümde, IoT Hub’ı örneği tipik bir [IoT çözüm mimarisinde][lnk-what-is-azure-iot] *Bulut Ağ Geçidi* ’ne karşılık gelir.
 
 IoT hub’ı telemetriyi tek uç noktada yer alan cihazlardan alır. IoT hub'ı, her cihazın kendisine gönderilen komutları alabildiği cihaza özel uç noktaları da korur.
 
@@ -117,10 +117,7 @@ Bu çözüm, durumları, destekledikleri komutlar ve diğer meta veriler gibi ci
 
 IoT çözümü mimarileri hakkında daha fazla bilgi için bkz. [Microsoft Azure IoT hizmetleri: Başvuru Mimarisi][lnk-refarch].
 
-IoT önceden yapılandırılmış çözümleri hakkında daha fazla bilgi edinmek için şu kaynaklara gidin:
-
-- [IoT önceden yapılandırılmış çözümlerine giriş][lnk-preconf-get-started].
-- [Önceden yapılandırılmış tahmine dayalı bakım çözümüne genel bakış][lnk-predictive-maintenance]
+Önceden yapılandırılmış bir çözümün ne olduğunu öğrendiğinize göre önceden yapılandırılmış *uzaktan izleme* çözümünü dağıtarak başlayabilirsiniz: [Önceden yapılandırılmış çözümleri kullanmaya başlama][Ink-get-started-preconfigured].
 
 [img-remote-monitoring-arch]: ./media/iot-suite-what-are-preconfigured-solutions/remote-monitoring-arch1.png
 [img-dashboard]: ./media/iot-suite-what-are-preconfigured-solutions/dashboard.png
@@ -128,15 +125,13 @@ IoT önceden yapılandırılmış çözümleri hakkında daha fazla bilgi edinme
 [lnk-asa]: https://azure.microsoft.com/documentation/services/stream-analytics/
 [llnk-event-processor]: ../event-hubs/event-hubs-programming-guide.md#event-processor-host
 [lnk-web-job]: ../app-service-web/web-sites-create-web-jobs.md
-[lnk-document-db]: https://azure.microsoft.com/documentation/services/documentdb/
 [lnk-identity-registry]: ../iot-hub/iot-hub-devguide.md#device-identity-registry
-[lnk-suite-overview]: iot-suite-overview.md
-[lnk-preconf-get-started]: iot-suite-getstarted-preconfigured-solutions.md
 [lnk-predictive-maintenance]: iot-suite-predictive-overview.md
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
 [lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
+[Ink-get-started-preconfigured]: iot-suite-getstarted-preconfigured-solutions.md
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

@@ -13,20 +13,20 @@
  ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="04/29/2016"
+ ms.date="07/19/2016"
  ms.author="dobett"/>
 
 [AZURE.INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
 
 ## Sonraki adımlar
 
-Azure IoT Hub, uygulamanızın arka ucu ile milyonlarca cihaz arasında düzgün ve güvenli çift yönlü iletişimler sağlayan bir Azure hizmetidir. Uygulama arka ucunun cihazlarınızdan ölçekli bir şekilde telemetri almasını, bu veriyi bir akış etkinliği işlemcisine yönlendirmesini ve de belirli cihazlara buluttan cihaza komutlar göndermesini sağlar. Kendi çözüm arka ucunuzu uygulamak için IoT Hub'ınızı kullanabilirsiniz. Buna ek olarak IoT Hub cihazları, güvenlik kimlik bilgilerini ve hub'a bağlanma haklarını sağlamak için kullanılan bir cihaz kimlik kayıt defterini içerir. Daha fazla bilgi için bkz:
+Azure IoT Hub, uygulamanızın arka ucu ile milyonlarca cihaz arasında düzgün ve güvenli çift yönlü iletişimler sağlayan bir Azure hizmetidir. Uygulama arka ucunun cihazlarınızdan ölçekli bir şekilde telemetri almasını, bu veriyi bir akış etkinliği işlemcisine yönlendirmesini, cihazlardan dosya yüklemeleri almasını ve de belirli cihazlara buluttan cihaza komutlar göndermesini sağlar. Kendi çözüm arka ucunuzu uygulamak için IoT Hub'ınızı kullanabilirsiniz. Buna ek olarak IoT Hub cihazları, güvenlik kimlik bilgilerini ve hub'a bağlanma haklarını sağlamak için kullanılan bir cihaz kimlik kayıt defterini içerir. IoT Hub hakkında daha fazla bilgi almak için bkz. [IoT Hub nedir?][lnk-iot-hub].
 
-- [IoT Hub nedir?][lnk-iot-hub]
-- [IoT Hub ile çalışmaya başlama][lnk-getstarted]
-- [Azure IoT Hub cihaz yönetimine genel bakış][lnk-device-management]
+Cihazlarınızı uzaktan yönetmeniz, yapılandırmanız ve güncelleştirmeniz için Azure IoT Hub’ın standartlara dayalı IoT cihaz yönetimini nasıl etkinleştirdiği hakkında bilgi almak için bkz. [Azure IoT Hub cihaz yönetimine genel bakış][lnk-device-management].
 
 Çok çeşitli cihaz donanım platformları ve işletim sistemlerinde istemci uygulamalarını uygulamak için IoT cihaz SDK'larını kullanabilirsiniz. IoT cihaz SDK'ları, bir IoT hub'ına telemetri göndermeyi ve bulut-cihaz komutlarını almayı gerçekleştiren kitaplıkları içerir. SDK'ları kullandığınızda IoT Hub ile iletişim kurmak için birçok ağ protokolünden seçim yapabilirsiniz. Daha fazla bilgi için bkz. [Cihaz SDK'ları hakkında bilgi][lnk-device-sdks].
+
+Bazı kodları yazmaya ve bazı örnekleri çalıştırmaya başlamak için [IoT Hub ile çalışmaya başlama][lnk-getstarted] öğreticisine bakın.
 
 Önceden yapılandırılmış çözümler koleksiyonu olan [Azure IoT Paketi][lnk-iot-suite] de ilginizi çekebilir. IoT Paketi, hızlı bir şekilde kullanmaya başlamanızı ve uzaktan izleme, varlık yönetimi ve tahmine dayalı bakım gibi ortak IoT senaryolarını ele almak üzere IoT projelerini ölçeklendirmenizi sağlar.
 
@@ -38,6 +38,6 @@ Azure IoT Hub, uygulamanızın arka ucu ile milyonlarca cihaz arasında düzgün
 [lnk-device-management]: iot-hub-device-management-overview.md
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

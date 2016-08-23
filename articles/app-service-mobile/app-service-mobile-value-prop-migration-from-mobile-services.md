@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-multiple"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/03/2016"
+    ms.date="06/30/2016"
     ms.author="krisragh"/>
 
 # <a name="getting-started"> </a>Mobile Services kullanıyorum, App Service bana nasıl yardımcı olur?
@@ -64,6 +64,6 @@ Bu [öğreticiyi](app-service-mobile-migrating-from-mobile-services.md) izleyere
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

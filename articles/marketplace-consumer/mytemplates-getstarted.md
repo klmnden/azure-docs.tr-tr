@@ -33,7 +33,7 @@ Aşağıdaki öneriler çözümleriniz üzerinde çalışırken **Şablonlar**'d
 - Bir **Şablon**, Resource Manager şablonu ve ek meta verileri içeren kapsayıcı bir kaynaktır. Market'te bulunan bir öğeye çok benzer şekilde davranır. En önemli fark, genel Market öğelerinin aksine özel bir öğe olmasıdır.
 - **Şablonlar** kitaplığı, dağıtımlarını özelleştirme ihtiyacı duyan kullanıcılar için iyi çalışır.
 - **Şablonlar**, Azure içinde basit bir depoya ihtiyaç duyan kullanıcılar için iyi çalışır.
-- Var olan bir Resource Manager şablonu ile başlayın. [GitHub](https://github.com/Azure/azure-quickstart-templates)'da şablon bulun veya var olan bir kaynak grubundan [Şablonu dışarı aktarın](https://azure.microsoft.com/blog/export-template/).
+- Var olan bir Resource Manager şablonu ile başlayın. [GitHub](https://github.com/Azure/azure-quickstart-templates)'da şablon bulun veya var olan bir kaynak grubundan [Şablonu dışarı aktarın](../resource-manager-export-template.md).
 - **Şablonlar**, kendilerini yayımlayan kullanıcıya bağlıdır. Yayımcı adı, okuma erişimi olan herkes tarafından görülebilir.
 - **Şablonlar**, Resource Manager kaynaklarıdır ve yayımlandıktan sonra yeniden adlandırılamaz.
 
@@ -44,7 +44,7 @@ Azure portalında bir **Şablon** kaynağı oluşturmanın iki yolu vardır.
 ### 1. Yöntem: Çalışan bir kaynak grubundan yeni bir Şablon kaynağı oluşturma
 
 1. Azure Portal'da var olan bir kaynak grubuna gidin. **Ayarlar**'da **Şablonu dışarı aktarma** öğesini seçin.
-2. Resource Manager şablonu dışarı aktarıldıktan sonra, şablonu **Şablonlar** deposuna kaydetmek için **Şablonu Kaydetme** düğmesini kullanın. Şablonu dışarı aktarmayla ilgili tüm ayrıntıları [burada](https://azure.microsoft.com/blog/export-template/) bulabilirsiniz.
+2. Resource Manager şablonu dışarı aktarıldıktan sonra, şablonu **Şablonlar** deposuna kaydetmek için **Şablonu Kaydetme** düğmesini kullanın. Şablonu dışarı aktarmayla ilgili tüm ayrıntıları [burada](../resource-manager-export-template.md) bulabilirsiniz.
 <br /><br />
 ![Kaynak grubunu dışarı aktarma](media/rg-export-portal1.PNG)  <br />
 
@@ -116,7 +116,7 @@ Sağ tıklayarak veya belirli bir öğenin görüntüleme dikey penceresindeki g
 
 ![Şablonu paylaşma](media/share-template-portal1a.png)  <br />
 
- Artık belirli bir **Şablon**'a erişim sağlamak için bir rol ve kullanıcı veya grup seçebilirsiniz. Kullanılabilir roller Sahip, Okuyucu ve Katılımcıdır. Aşağıdaki [erişim denetimi](#access-control-for-a-tenant-resource-provider) bölümünde daha çok ayrıntı bulunmaktadır.
+ Artık belirli bir **Şablon**'a erişim sağlamak için bir rol ve kullanıcı veya grup seçebilirsiniz. Kullanılabilir roller Sahip, Okuyucu ve Katılımcıdır. Yukarıdaki [erişim denetimi](#access-control-for-a-tenant-resource-provider) bölümünde daha çok ayrıntı bulunmaktadır.
 
 ![Şablonu paylaşma](media/share-template-portal2b.png)  <br />
 
@@ -136,6 +136,6 @@ Sağ tıklayarak veya belirli bir öğenin görüntüleme dikey penceresindeki g
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

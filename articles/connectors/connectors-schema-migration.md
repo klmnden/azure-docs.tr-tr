@@ -1,7 +1,7 @@
 <properties
     pageTitle="Mantıksal uygulamaları 2015-08-01-önizleme şema sürümüne geçirme | Microsoft Azure App Service"
     description="Mantıksal uygulamalarınızı en son şema sürümüne kolayca geçirebilirsiniz. Şu adımları izlemeniz yeterlidir."
-    services="app-service\logic"
+    services="logic-apps"
     documentationCenter=""
     authors="MSFTMAN"
     manager="erikre"
@@ -9,7 +9,7 @@
     tags="connectors"/>
 
 <tags
-    ms.service="app-service-logic"
+    ms.service="logic-apps"
     ms.workload="integration"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
@@ -51,6 +51,6 @@ Mevcut mantıksal uygulamalarınızı yeni şemaya taşımak için aşağıdakil
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

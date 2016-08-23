@@ -1,0 +1,70 @@
+<properties
+   pageTitle="Azure Güvenlik Merkezi'nde Güvenlik Olayını İşleme | Microsoft Azure"
+   description="Bu belge, güvenlik olaylarını işlemek için Azure Güvenlik Merkezi özelliklerini kullanmanıza yardımcı olur."
+   services="security-center"
+   documentationCenter="na"
+   authors="YuriDio"
+   manager="swadhwa"
+   editor=""/>
+
+<tags
+   ms.service="security-center"
+   ms.topic="hero-article"
+   ms.devlang="na"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="07/20/2016"
+   ms.author="yurid"/>
+
+# Azure Güvenlik Merkezi'nde Güvenlik Olayını İşleme 
+Güvenlik uyarılarının önceliklendirilmesi ve araştırılması en nitelikli güvenlik analiz uzmanları için bile vakit harcayıcı olabilir ve birçoğu için nereden başlanacağını bilmek bile zordur. Farklı [güvenlik uyarıları](security-center-managing-and-responding-alerts.md) arasındaki bilgileri bağlamak için [Analiz](security-center-detection-capabilities.md) özelliğini kullanan Güvenlik Merkezi, bir saldırı kampanyasını ve tüm ilgili uyarıları tek bir yerde görmenizi sağlayabilir; saldırganın hangi işlemleri yaptığını ve hangi kaynakların etkilendiğini hızlıca görebilirsiniz.
+
+Bu belge Güvenlik Merkezi’ndeki güvenlik uyarısı özelliğinin güvenlik olaylarını işlemenize nasıl yardımcı olduğunu ele almaktadır.
+
+
+## Güvenlik olayı nedir?
+
+Güvenlik Merkezi'nde bir güvenlik olayı [sonlandırma zinciri](https://blogs.technet.microsoft.com/office365security/addressing-your-cxos-top-five-cloud-security-concerns/) desenleri ile hizalanan bir kaynağın tüm uyarılarının toplamıdır. Olaylar [Güvenlik Uyarıları](security-center-managing-and-responding-alerts.md) kutucuğunda ve dikey penceresinde görüntülenir. Bir Olay, her olay hakkında daha fazla bilgi almanızı sağlayan ilgili uyarıların listesini ortaya çıkarır.
+
+## Güvenlik olaylarını yönetme
+
+Geçerli güvenlik olaylarınızı Güvenlik uyarıları kutucuğuna bakarak gözden geçirebilirsiniz. Azure Portal’a erişin ve aşağıdaki adımları izleyerek her bir güvenlik olayına ilişkin daha fazla ayrıntı görüntüleyin:
+
+1. Güvenlik Merkezi panosunda **Güvenlik uyarıları** kutucuğunu görürsünüz.
+
+    ![Güvenlik Merkezi'nde güvenlik uyarıları kutucuğu](./media/security-center-incident/security-center-incident-fig1.png)
+
+2.  Bu kutucuğa tıklayarak genişletin; bir güvenlik olayı algılanırsa bu görüntüde gösterildiği gibi güvenlik uyarıları grafiğinin altında görünür.
+
+    ![Güvenlik olayı](./media/security-center-incident/security-center-incident-fig2.png)
+
+3.  Güvenlik olayı açıklamasının diğer uyarılardan farklı bir simgeye sahip olduğuna dikkat edin. Bu olay hakkında daha fazla ayrıntı görüntülemek için üzerine tıklayın.
+
+    ![Güvenlik olayı](./media/security-center-incident/security-center-incident-fig3.png)
+
+4.  **Güvenlik olayı algılandı** dikey penceresinde bu güvenlik olayının tam açıklaması, önem düzeyi (bu durumda yüksektir), olayın geçerli durumu (bu durumda hala *etkindir*), saldırılan kaynak (bu durumda *VM1*), ve düzeltme adımlarıyla birlikte daha fazla ayrıntıyı ve alt kısmında bu olaya dahil edilen uyarıları görürsünüz. Her uyarı hakkında daha fazla bilgi almak istiyorsanız üzerine tıkladığınızda aşağıda gösterildiği gibi başka bir dikey pencere açılır.
+
+    ![Güvenlik olayı](./media/security-center-incident/security-center-incident-fig4.png)
+
+Bu dikey penceredeki bilgiler uyarıya göre farklılık gösterir. Bu uyarıların nasıl yönetileceği hakkında daha fazla bilgi için [Azure Güvenlik Merkezi’nde güvenlik uyarılarını yönetme ve yanıtlama](security-center-managing-and-responding-alerts.md) konusunu okuyun. Bu özellik ile ilgili bazı önemli noktalar:
+
+- Yeni bir filtre, görünümünüzü Yalnızca olay, Yalnızca uyarılar veya her ikisi için özelleştirmenizi sağlar. 
+- Aynı uyarı bir Olayın (varsa) parçası olabilir ve aynı zamanda tek başına uyarı olarak görünebilir. 
+- Bir olayın kapatılması ilgili uyarıları kapatmaz.
+
+## Ayrıca bkz.
+
+Bu belgede, Güvenlik Merkezi'nde güvenlik olayı özelliğini nasıl kullanacağınız hakkında bilgi edindiniz. Güvenlik Merkezi hakkında daha fazla bilgi edinmek için şunlara bakın:
+
+- [Azure Güvenlik Merkezi Planlama ve İşlemler Kılavuzu](security-center-planning-and-operations-guide.md)
+- [Azure Güvenlik Merkezi'nde güvenlik uyarılarını yönetme ve yanıtlama](security-center-managing-and-responding-alerts.md)
+- [Azure Güvenlik Merkezi'nde güvenlik durumunu izleme](security-center-monitoring.md) - Azure kaynaklarınızın sistem durumunu nasıl izleyeceğiniz hakkında bilgi edinin.
+- [Azure Güvenlik Merkezi ile iş ortağı çözümlerini izleme](security-center-partner-solutions.md) - İş ortağı çözümlerinizin sistem durumunu nasıl izleyeceğiniz hakkında bilgi edinin.
+- [Azure Güvenlik Merkezi ile ilgili SSS](security-center-faq.md) - Hizmeti kullanımı ile ilgili sık sorulan soruları bulabilirsiniz.
+- [Azure Güvenlik blogu](http://blogs.msdn.com/b/azuresecurity/) - Azure güvenliği ve uyumluluğu ile ilgili blog yazılarını bulabilirsiniz
+
+
+
+<!--HONumber=Aug16_HO1-->
+
+

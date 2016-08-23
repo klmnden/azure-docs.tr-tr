@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="vm-windows"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/05/2016"
+    ms.date="07/28/2016"
     ms.author="cynthn"/>
 
 # Windows çalıştıran bir Azure Virtual Machine’e bağlanma ve oturum açma 
@@ -34,7 +34,7 @@ Uzak Masaüstü (RDP) oturumu başlatmak için Azure portalda **Bağlan**düğme
 
     ![VM'nize nasıl bağlanacağınızı gösteren Azure portal ekran görüntüsü.](./media/virtual-machines-windows-connect-logon/connect.png)
     
- > [AZURE.TIP] Portal'daki “Bağlan” düğmesi gri ise ve Azure’a bir [Express Rota](../expressroute/expressroute-introduction.md) veya [Siteden Siteye VPN](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) aracılığıyla bağlı değilseniz, RDP kullanmadan önce IP adresi oluşturmalı ve VM’nize atamalısınız. [Azure’da genel IP adresleri](../virtual-network/virtual-network-ip-addresses-overview-arm.md) hakkında daha fazlasını okuyabilirsiniz.
+ > [AZURE.TIP] Portal'daki **Bağlan** düğmesi gri ise ve Azure’a bir [Express Route](../expressroute/expressroute-introduction.md) veya [Siteden Siteye VPN](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) aracılığıyla bağlı değilseniz RDP kullanmadan önce IP adresi oluşturmalı ve VM’nize atamalısınız. [Azure’da genel IP adresleri](../virtual-network/virtual-network-ip-addresses-overview-arm.md) hakkında daha fazlasını okuyabilirsiniz.
 
 ## Sanal makinede oturum açma
 
@@ -43,10 +43,10 @@ Uzak Masaüstü (RDP) oturumu başlatmak için Azure portalda **Bağlan**düğme
 
 ## Sonraki adımlar
 
-Bağlanmayı denediğinizde sorun yaşıyorsanız, bkz. [Windows tabanlı Azure Virtual Machine’e Uzak Masaüstü Bağlantı Sorunlarını Giderme](virtual-machines-windows-troubleshoot-rdp-connection.md). Bu makale ortak sorunları tanılama ve çözme boyunca size yol gösterecektir.
+Bağlanmayı denediğinizde sorun yaşıyorsanız, bkz. [Uzak Masaüstü bağlantı sorunlarını giderme](virtual-machines-windows-troubleshoot-rdp-connection.md). Bu makale ortak sorunları tanılama ve çözme boyunca size yol gösterecektir.
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

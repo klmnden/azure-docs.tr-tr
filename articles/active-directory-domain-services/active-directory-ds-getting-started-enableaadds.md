@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="04/25/2016"
+    ms.date="07/06/2016"
     ms.author="maheshu"/>
 
 # Azure AD Etki Alanı Hizmetleri *(Önizleme)* - Azure AD Etki Alanı Hizmetleri'ni Etkinleştirme
@@ -37,7 +37,7 @@ Bu görevde dizininiz için Azure AD Etki Alanı Hizmetleri'ni etkinleştireceks
 
     ![Etki Alanı Hizmetleri yapılandırma bölümü](./media/active-directory-domain-services-getting-started/domain-services-configuration.png)
 
-6. **Bu dizin için etki alanı hizmetlerini etkinleştir** başlıklı seçeneği **EVET** olarak değiştirin. Sayfada Azure AD Etki Alanı hizmetleri için birkaç yapılandırma seçeneğinin daha görüntülendiğini fark edeceksiniz.
+6. **Enable domain services for this directory (Bu dizin için etki alanı hizmetlerini etkinleştir)** seçeneğini **EVET** olarak değiştirin. Sayfada Azure AD Etki Alanı hizmetleri için birkaç yapılandırma seçeneğinin daha görüntülendiğini fark edeceksiniz.
 
     ![Etki Alanı Hizmetlerini Etkinleştirme](./media/active-directory-domain-services-getting-started/enable-domain-services.png)
 
@@ -53,7 +53,7 @@ Bu görevde dizininiz için Azure AD Etki Alanı Hizmetleri'ni etkinleştireceks
 
      > [AZURE.WARNING] Belirttiğiniz etki alanı adındaki etki alanı ön ekinin (ör. "contoso100.com" etki alanı adındaki "contoso100") 15 karakterden kısa olduğundan emin olun. Etki alanı ön eki 15 karakterden daha uzun olan bir Azure AD Etki Alanı Hizmetleri etki alanını oluşturamazsınız.
 
-8. Bir sonraki adım, Azure AD Etki Alanı Hizmetleri'nin kullanılabilir olmasını istediğiniz bir sanal ağ seçmektir. **Etki alanı hizmetlerini bu sanal ağa bağlayın** açılan menüsünde yeni oluşturduğunuz sanal ağı seçin.
+8. Bir sonraki adım, Azure AD Etki Alanı Hizmetleri'nin kullanılabilir olmasını istediğiniz bir sanal ağ seçmektir. **Connect domain services to this virtual network (Etki alanı hizmetlerini bu sanal ağa bağlayın)** açılan menüsünde yeni oluşturduğunuz sanal ağı seçin.
 
    - Belirttiğiniz sanal ağın Azure AD Etki Alanı Hizmetleri tarafından desteklenen bir Azure bölgesine ait olduğundan emin olun.
 
@@ -96,6 +96,6 @@ Sonraki yapılandırma görevi [Azure sanal ağı için DNS ayarlarını güncel
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

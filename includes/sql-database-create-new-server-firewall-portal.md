@@ -2,7 +2,7 @@
 <!--
 includes/sql-database-create-new-server-firewall-portal.md
 
-Latest Freshness check:  2016-04-11 , carlrab.
+Latest Freshness check:  2016-08-01 , rickbyh.
 
 As of circa 2016-04-11, the following topics might include this include:
 articles/sql-database/sql-database-get-started-tutorial.md
@@ -31,11 +31,11 @@ Tek bir IP adresinden (istemci bilgisayarınız) veya bir IP adresi aralığın�
     ![yeni sunucu güvenlik duvarı](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-4.png)
     
 
-    > [AZURE.IMPORTANT] Baktığınız dikey pencerede **Güvenlik Duvarı** seçeneğini görmüyorsanız, geri dönün ve SQL Database dikey penceresine değil de, SQL Database mantıksal sunucusu dikey penceresine baktığınızdan emin olun.
+    > [AZURE.NOTE] Sunucu düzeyi **Güvenlik duvarı ayarları** dikey penceresine Veritabanı dikey penceresi araç çubuğundan da erişebilirsiniz.
 
 5. Azure’un, istemcinizin IP adresi için bir kural oluşturmasını sağlamak için **İstemci IP’si Ekle**’ye tıklayın.
 
-      ![yeni sunucu güvenlik duvarı]    (./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-5.png)
+      ![yeni sunucu güvenlik duvarı](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-5.png)
 
 6. İsteğe bağlı olarak, bir IP adresi aralığının erişmesine izin verecek güvenlik duvarı adresini düzenlemek için eklenen IP adresine tıklayın.
 
@@ -49,6 +49,6 @@ Tek bir IP adresinden (istemci bilgisayarınız) veya bir IP adresi aralığın�
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

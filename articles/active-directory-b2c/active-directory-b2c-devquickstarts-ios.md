@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Azure Active Directory B2C Önizlemesi: Bir iOS uygulamasından web API'si çağırma | Microsoft Azure"
-    description="Bu makale size OAuth 2.0 taşıyıcı belirteçlerini kullanarak Node.js web API'si çağıran iOS 'yapılacaklar listesi' uygulamasının nasıl oluşturulacağını gösterir. iOS uygulaması ve web API'si, kullanıcı kimliklerini yönetmek ve kullanıcıların kimliğini doğrulamak için Azure Active Directory B2C kullanır."
+    pageTitle="Azure Active Directory B2C: Üçüncü taraf kitaplıklar kullanılarak bir iOS uygulamasından web API'si çağırma | Microsoft Azure"
+    description="Bu makale size OAuth 2.0 taşıyıcı belirteçlerini kullanarak Node.js web API'si çağıran iOS 'yapılacaklar listesi' uygulamasının bir üçüncü taraf kitaplık kullanılarak nasıl oluşturulacağını gösterir"
     services="active-directory-b2c"
     documentationCenter="ios"
     authors="brandwe"
@@ -9,23 +9,23 @@
 
 <tags ms.service="active-directory-b2c" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="objectivec" ms.topic="hero-article"
 
-    ms.date="05/31/2016"
+    ms.date="07/26/2016"
     ms.author="brandwe"/>
 
-# Azure AD B2C önizlemesi: iOS uygulamasından web API'si çağrıma
+# Azure AD B2C: Üçüncü taraf kitaplık kullanılarak bir iOS uygulamasından web API’si çağırma
 
 <!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->
 
-Azure Active Directory (Azure AD) B2C kullanarak iOS uygulamalarınıza ve web API'lerinize birkaç adımda güçlü self servis kimlik yönetimi özellikleri ekleyebilirsiniz. Bu makale size OAuth 2.0 taşıyıcı belirteçlerini kullanarak Node.js web API'si çağıran iOS "yapılacaklar listesi" uygulamasının nasıl oluşturulacağını gösterir. iOS uygulaması ve web API'si, kullanıcı kimliklerini yönetmek ve kullanıcıların kimliğini doğrulamak için Azure AD B2C kullanır.
+Microsoft kimlik platformu OAuth2 ve OpenID Connect gibi açık standartlar kullanır. Bunun yapılması geliştiricilerin hizmetlerimizle tümleştirmek istediği herhangi bir kitaplıktan yararlanmasını sağlar. Geliştiricilerin platformumuzu diğer kitaplıklarla birlikte kullanmasına yardımcı olmak amacıyla, üçüncü taraf kitaplıkların Microsoft identity platformuna bağlanmak üzere nasıl yapılandırılacağını gösteren bunun gibi birkaç izlenecek yol oluşturduk. [RFC6749 OAuth2 belirtimi](https://tools.ietf.org/html/rfc6749) uygulayan çoğu kitaplık Microsoft Identity platformuna bağlanabilecektir.
 
-[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
-> [AZURE.NOTE]
-    Bu Hızlı Başlangıç'ın tam olarak çalışması için Azure AD B2C tarafından korunan web API'sine sahip olması gerekir. Hem .NET hem de Node.js için kullanabileceğiniz bir API oluşturduk. Bu kılavuz Node.js web API'si örneğinin yapılandırılmış olduğunu varsayar. Daha fazla bilgi için bkz. [Node.js için Azure Active Directory web API'si](active-directory-b2c-devquickstarts-api-node.md)
-).
+OAuth2 veya OpenID Connect kullanmaya yeni başladıysanız bu örnek yapılandırmanın büyük bölümü sizin için çok anlamlı olmayabilir. [burada belgelediğimiz protokolün genel bakışına](active-directory-b2c-reference-protocols.md) kısaca bakmanız önerilir.
 
 > [AZURE.NOTE]
-    Bu makale, Azure AD B2C kullanarak oturum açma, kaydolma ve profil yönetimi uygulama konularını kapsamaz. Kullanıcının kimliği doğrulandıktan sonra web API'leri çağırmaya odaklanır. Henüz başlamadıysanız Azure AD B2C ile ilgili temel bilgileri öğrenmek için [.NET web uygulaması ile çalışmaya başlama öğreticisi](active-directory-b2c-devquickstarts-web-dotnet.md) ile başlamanız gerekir.
+    Platformumuzun Koşullu Erişim ve Intune ilke yönetimi gibi bu standartlarda bir ifadeye sahip olmayan bazı özellikleri, açık kaynak Microsoft Azure Kimlik Kitaplıkları kullanmanızı gerektirir. 
+   
+B2C platformu tüm Azure Active Directory senaryolarını ve özelliklerini desteklemez.  B2C platformunu kullanmanızın gerekli olup olmadığını belirlemek için [B2C sınırlamaları](active-directory-b2c-limitations.md) hakkında bilgi edinin.
+
 
 ## Azure AD B2C dizini alma
 
@@ -35,585 +35,600 @@ Azure AD B2C'yi kullanabilmek için önce dizin veya kiracı oluşturmanız gere
 
 Ardından B2C dizininizde uygulama oluşturmanız gerekir. Bu, uygulamanız ile güvenli bir şekilde iletişim kurması için gereken bilgileri Azure AD'ye verir. Bu durumda, tek bir mantıksal uygulama içerdikleri için hem uygulama hem de web API'si tek bir **Uygulama Kimliği** ile temsil edilir. Bir uygulama oluşturmak için [bu talimatları](active-directory-b2c-app-registration.md) izleyin. Şunları yaptığınızdan emin olun:
 
-- Uygulamaya bir **web uygulaması/web API'si** ekleyin.
-- **Yanıt URL'si** olarak `http://localhost:3000/auth/openid/return` adresini girin. Bu URL, bu kod örneği için varsayılan URL'dir.
-- Uygulamanız için bir **Uygulama gizli anahtarı** oluşturun ve bunu kopyalayın. Buna daha sonra ihtiyacınız olacak.
+- Uygulamaya bir **mobil cihaz** ekleyin.
 - Uygulamanıza atanan **Uygulama Kimliği**'ni kopyalayın. Buna da daha sonra ihtiyacınız olacak.
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## İlkelerinizi oluşturma
 
-Azure AD B2C'de her kullanıcı deneyimi, bir [ilke](active-directory-b2c-reference-policies.md) ile tanımlanır. Bu uygulama üç kimlik deneyimi içerir: Kaydolma, oturum açma ve Facebook ile oturum açma. Her tür için [ilke başvurusu makalesinde](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy) tanımlanan şekilde bir ilke oluşturmanız gerekir. Üç ilkeyi oluştururken şunları yaptığınızdan emin olun:
+Azure AD B2C'de her kullanıcı deneyimi, bir [ilke](active-directory-b2c-reference-policies.md) ile tanımlanır. Bu uygulama bir kimlik deneyimi içerir: oturum açma ve kaydolma birleşimi. Her tür için [ilke başvurusu makalesinde](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy) tanımlanan şekilde bu ilkeyi oluşturmanız gerekir. İlkeyi oluştururken şunları yaptığınızdan emin olun:
 
-- Kaydolma ilkenizde **Görünen adı** ve kaydolma özniteliklerini seçin.
+- İlkenizde **Görünen ad** ve kaydolma özniteliklerini seçin.
 - Her ilkede uygulamanın talep ettiği **Görünen ad** ve **Nesne Kimliği** öğelerini seçin. Diğer talepleri de seçebilirsiniz.
-- Oluşturduktan sonra her ilkenin **Adını** kaydedin. `b2c_1_` önekine sahip olmalıdır.  Bu ilke adlarına daha sonra ihtiyacınız olacak.
+- Oluşturduktan sonra her ilkenin **Adını** kaydedin. `b2c_1_` önekine sahip olmalıdır.  Bu ilke adına daha sonra ihtiyacınız olacaktır.
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
-Üç ilkenizi oluşturduktan sonra uygulamanızı oluşturmaya hazırsınız.
+İlkelerinizi oluşturduktan sonra uygulamanızı oluşturmaya hazırsınız.
 
-Bu makalenin, oluşturduğunuz ilkeleri nasıl kullanacağınıza yönelik bilgileri kapsamadığını unutmayın. İlkelerin Azure AD B2C'de nasıl çalıştığını öğrenmeye [.NET web uygulaması ile çalışmaya başlama öğreticisi](active-directory-b2c-devquickstarts-web-dotnet.md) ile başlayın.
 
 ## Kodu indirme
 
-Bu öğretici için kod [GitHub'da korunur](https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS). İşlemlere devam ederken örneği oluşturmak için [çatı projesini .zip dosyası olarak indirebilirsiniz](https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS/archive/skeleton.zip). Ayrıca çatıyı kopyalayabilirsiniz:
+Bu öğretici için kod [GitHub'da](https://github.com/Azure-Samples/active-directory-ios-native-nxoauth2-b2c) korunur.  Takip etmek için [uygulamayı .zip](https://github.com/Azure-Samples/active-directory-ios-native-nxoauth2-b2c)/arşiv/master.zip olarak indirin) veya kopyalayın:
 
 ```
-git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS.git
+git clone git@github.com:Azure-Samples/active-directory-ios-native-nxoauth2-b2c.git
 ```
 
-> [AZURE.NOTE] **Bu öğreticiyi tamamlamak için çatıyı indirmeniz gerekir.** iOS'a tam olarak çalışan bir uygulamayı uygulamanın karmaşıklığı nedeniyle **çatıda**, öğreticiyi tamamladıktan sonra çalıştıracağınız kullanıcı deneyimi kod bulunur. Bu, geliştirici için zaman kazandıran bir ölçüttür. Kullanıcı deneyimi kodu, bir iOS uygulamasına B2C ekleme konu başlığıyla ilgili değildir.
+Veya yalnızca tamamlanan kodu indirin ve hemen başlayın: 
 
-Tamamlanan uygulama aynı zamanda [.zip dosyası olarak](https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS/archive/complete.zip) veya `complete` aynı deponun dalı üzerinde de kullanılabilir.
+```
+git clone --branch complete git@github.com:Azure-Samples/active-directory-ios-native-nxoauth2-b2c.git
+```
 
-Ardından CocoaPods kullanarak `podfile` yükleyin. Bu, yükleyeceğiniz yeni bir Xcode çalışma alanı oluşturur. CocoaPods'unuz yoksa [kurmak için web sitesini ziyaret edin](https://cocoapods.org).
+## nxoauth2 üçüncü taraf kitaplığını indirin ve bir çalışma alanı başlatın
+
+Bu kılavuzda GitHub’da, Mac OS X ve iOS (Cocoa ve Cocoa touch) için bir OAuth2 kitaplığı olan OAuth2Client’ı kullanacağız. Bu kitaplık OAuth2 belirtimi taslak 10’u temel alır. Yerel uygulama profilini uygular ve son kullanıcı yetkilendirme uç noktasını destekler. Microsoft identity platformu ile tümleştirme için başka bir şey gerekli değildir.
+
+### Kitaplığınızı CocoaPods kullanarak projenize ekleme
+
+CocoaPods, Xcode projeleri için bir bağımlılık yöneticisidir. Yukarıdaki yükleme adımlarını otomatik olarak yönetir.
+
+```
+$ vi Podfile
+```
+Aşağıdakileri bu podfile dosyaya ekleyin:
+
+```
+ platform :ios, '8.0'
+ 
+ target 'SampleforB2C' do
+ 
+ pod 'NXOAuth2Client'
+ 
+ end
+```
+
+Şimdi cocoapods kullanarak podfile dosyasını yükleyin. Bunun yapılması yükleyeceğiniz yeni bir XCode Çalışma Alanı oluşturur.
 
 ```
 $ pod install
 ...
-$ open Microsoft Tasks for Consumers.xcworkspace
-```
-
-## iOS görev uygulamasını yapılandırma
-
-Azure AD B2C ile iletişim kurma amacıyla iOS görev uygulamasını almak için bazı ortak parametreler sağlamanız gerekir. `Microsoft Tasks` klasörü içinde proje kökündeki `settings.plist` dosyasını açın ve `<dict>` bölümündeki değerleri değiştirin. Uygulama boyunca bu değerler kullanılacak.
+$ open SampleforB2C.xcworkspace
 
 ```
+
+## Projenin yapısı
+
+Projemizin iskeletinde aşağıdaki yapı ayarlanmıştır:
+
+* **Ana Görünüm** ve bir görev bölmesi
+* Seçili görevin verileri için **Görev Ekleme Görünümü**
+* Kullanıcının uygulamada oturum açmasına imkan tanıyan **Oturum Açma Görünümü**.
+
+Kimlik doğrulaması eklemek için projedeki çeşitli dosyalara atlanacaktır. Kodun görsel kod gibi diğer kısımları kimlikle ilgili değildir ve sizin için belirtilir.
+
+## Uygulamanız için `settings.plist` dosyasını oluşturma
+
+Yapılandırma değerlerinin yerleştirileceği merkezi bir konum mevcutsa uygulamanın yapılandırılması daha kolaydır. Ayrıca her bir ayarın uygulamanızda neler yaptığını anlamanıza yardımcı olur. Bu değerleri uygulamaya sağlamanın bir yolu olarak *Özellik Listesi*’nden yararlanılacaktır.
+
+* Uygulama çalışma alanınızdaki `Supporting Files` altında `settings.plist` dosyası oluşturun/açın
+
+* Aşağıdaki değerleri girin (bunları daha sonra ayrıntılı olarak ele alınacaktır)
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
 <dict>
-    <key>authority</key>
-    <string>https://login.microsoftonline.com/<your tenant name>.onmicrosoft.com/</string>
-    <key>clientId</key>
-    <string><Enter the Application Id assigned to your app by the Azure portal, e.g.580e250c-8f26-49d0-bee8-1c078add1609></string>
-    <key>scopes</key>
-    <array>
-        <string><Enter the Application Id assigned to your app by the Azure portal, e.g.580e250c-8f26-49d0-bee8-1c078add1609></string>
-    </array>
-    <key>additionalScopes</key>
-    <array>
-    </array>
-    <key>redirectUri</key>
+    <key>accountIdentifier</key>
+    <string>B2C_Acccount</string>
+    <key>clientID</key>
+    <string><client ID></string>
+    <key>clientSecret</key>
+    <string></string>
+    <key>authURL</key>
+    <string>https://login.microsoftonline.com/<tenant name>/oauth2/v2.0/authorize?p=<policy name></string>
+    <key>loginURL</key>
+    <string>https://login.microsoftonline.com/<tenant name>/login</string>
+    <key>bhh</key>
     <string>urn:ietf:wg:oauth:2.0:oob</string>
-    <key>taskWebAPI</key>
-    <string>http://localhost/tasks:3000</string>
-    <key>emailSignUpPolicyId</key>
-    <string><Enter your sign up policy name, e.g.g b2c_1_sign_up></string>
-    <key>faceBookSignInPolicyId</key>
-    <string><your sign in policy for FB></string>
-    <key>emailSignInPolicyId</key>
-    <string><Enter your sign in policy name, e.g. b2c_1_sign_in></string>
-    <key>fullScreen</key>
-    <false/>
-    <key>showClaims</key>
-    <true/>
+    <key>tokenURL</key>
+    <string>https://login.microsoftonline.com/<tenant name>/oauth2/v2.0/token?p=<policy name></string>
+    <key>keychain</key>
+    <string>com.microsoft.azureactivedirectory.samples.graph.QuickStart</string>
+    <key>contentType</key>
+    <string>application/x-www-form-urlencoded</string>
+    <key>taskAPI</key>
+    <string>https://aadb2cplayground.azurewebsites.net</string>
 </dict>
 </plist>
 ```
 
-[AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
+Şimdi bunlara ayrıntılı olarak bakalım.
 
-## Erişim belirteci alma ve görev API'si çağırma
 
-Bu bölümde, Microsoft'un kitaplıklarını ve çerçevelerini kullanarak bir web uygulamasında OAuth 2.0 belirteç değişimini nasıl tamamlayabileceğiniz anlatılmaktadır. Yetkilendirme kodları ve erişim belirteçleri ile ilgili bilginiz yoksa [OAuth 2.0 protokolü başvurusu](active-directory-b2c-reference-protocols.md) kapsamında daha fazla bilgi edinebilirsiniz.
+`authURL`, `loginURL`, `bhh`, `tokenURL` için kiracı adınızı doldurmanız gerektiğini fark edeceksiniz. Bu kiracı adı, size atanan B2C kiracınızın adıdır. Örneğin, `kidventusb2c.onmicrosoft.com`. Açık kaynak Microsoft Azure Kimlik Kitaplıklarını kullanırsanız meta veri uç noktası kullanılarak bu veriler sizin için çekilir. Bu değerleri sizin yerinize ayıklamak için çok çalıştık.
 
-### Yöntemleri kullanarak üst bilgi dosyaları oluşturma
+B2C kiracı adları hakkında daha fazla bilgi için şuraya göz atın: [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)
 
-Seçilen ilkeniz ile belirteç almanız ve ardından görev sunucunuzu çağırmanız için yöntemlere ihtiyaç duyacaksınız. Bu yöntemleri şimdi ayarlayın.
+`keychain` değeri, NXOAuth2Client kitaplığının belirteçlerinizi depolamak üzere bir anahtarlık oluştururken kullanacağı kapsayıcıdır. Çok sayıda uygulamada SSO edinmek istiyorsanız uygulamalarınızın her birinde aynı anahtarlığı belirtebilir ve bu anahtarlığın XCode yetkilendirmelerinizde kullanılmasını isteyebilirsiniz. Bu konu Apple belgelerinde ele alınmıştır.
 
-Xcode projenizde `/Microsoft Tasks` kısmında `samplesWebAPIConnector.h` adlı bir dosya oluşturun.
+Her URL’nin sonundaki `<policy name>`, yukarıda oluşturduğunuz ilkeyi koyduğunuz yerlerdir. Uygulama, akışa bağlı olarak bu ilkeleri çağıracaktır.
 
-Yapmanız gerekeni tanımlamak için aşağıdaki kodu ekleyin:
+`taskAPI`, görev eklemek ya da var olan görevleri sorgulamak üzere B2C belirtecinizle birlikte çağrılacak REST Uç Noktasıdır. Bu ayar bu örnek için özel olarak oluşturulmuştur. Örneğin çalışması için değiştirmeniz gerekmez.
 
-```
+Bu değerlerin geri kalanı kitaplığı kullanmak için gereklidir ve değerleri bağlama taşımak üzere sizin için yerler oluşturur.
+
+`settings.plist` dosyası oluşturulmuştur, okunması için kod gereklidir.
+
+## Ayarları okumak için bir AppData sınıfı oluşturun
+
+Yukarıda oluşturulan `settngs.plist` dosyasını ayrıştıran basit bir dosya oluşturalım ve bu ayarları gelecekte herhangi bir sınıfta kullanılabilir hale getirelim. Bir sınıf tarafından her istendiğinde verilerin yeni bir kopyasını oluşturmak istemediğimizden bir Singleton deseni kullanılacak ve ayarlar için istek yapılan her durumda yalnızca oluşturulan aynı örnek döndürülecektir
+
+* Bir `AppData.h` dosyası oluşturun:
+
+```objc
 #import <Foundation/Foundation.h>
-#import "samplesTaskItem.h"
-#import "samplesPolicyData.h"
-#import "ADALiOS/ADAuthenticationContext.h"
 
-@interface samplesWebAPIConnector : NSObject<NSURLConnectionDataDelegate>
+@interface AppData : NSObject
 
-+(void) getTaskList:(void (^) (NSArray*, NSError* error))completionBlock
-             parent:(UIViewController*) parent;
+@property(strong) NSString *accountIdentifier;
+@property(strong) NSString *taskApiString;
+@property(strong) NSString *authURL;
+@property(strong) NSString *clientID;
+@property(strong) NSString *loginURL;
+@property(strong) NSString *bhh;
+@property(strong) NSString *keychain;
+@property(strong) NSString *tokenURL;
+@property(strong) NSString *clientSecret;
+@property(strong) NSString *contentType;
 
-+(void) addTask:(samplesTaskItem*)task
-         parent:(UIViewController*) parent
-completionBlock:(void (^) (bool, NSError* error)) completionBlock;
-
-+(void) deleteTask:(samplesTaskItem*)task
-            parent:(UIViewController*) parent
-   completionBlock:(void (^) (bool, NSError* error)) completionBlock;
-
-+(void) doPolicy:(samplesPolicyData*)policy
-         parent:(UIViewController*) parent
-completionBlock:(void (^) (ADProfileInfo* userInfo, NSError* error)) completionBlock;
-
-+(void) signOut;
++ (id)getInstance;
 
 @end
 ```
 
-Bunlar `doPolicy` yöntemidir ve API'nizdeki basit oluştur, oku,güncelleştir ve sil (CRUD) işlemleridir. Bu yöntemi kullanarak istediğiniz ilkeyi içeren bir belirteç elde edebilirsiniz.
+* Bir `AppData.m` dosyası oluşturun:
 
-İki üst bilgi dosyasının daha tanımlanması gerektiğini unutmayın. Bunlar, görev öğesini ve ilke verilerini tutacaktır. Bunları şimdi oluşturun:
+```objc
+#import "AppData.h"
 
-Aşağıdaki kod ile `samplesTaskItem.h` dosyasını oluşturun:
+@implementation AppData
+
++ (id)getInstance {
+  static AppData *instance = nil;
+  static dispatch_once_t onceToken;
+
+  dispatch_once(&onceToken, ^{
+    instance = [[self alloc] init];
+
+    NSDictionary *dictionary = [NSDictionary
+        dictionaryWithContentsOfFile:[[NSBundle mainBundle]
+                                         pathForResource:@"settings"
+                                                  ofType:@"plist"]];
+    instance.accountIdentifier = [dictionary objectForKey:@"accountIdentifier"];
+    instance.clientID = [dictionary objectForKey:@"clientID"];
+    instance.clientSecret = [dictionary objectForKey:@"clientSecret"];
+    instance.authURL = [dictionary objectForKey:@"authURL"];
+    instance.loginURL = [dictionary objectForKey:@"loginURL"];
+    instance.bhh = [dictionary objectForKey:@"bhh"];
+    instance.tokenURL = [dictionary objectForKey:@"tokenURL"];
+    instance.keychain = [dictionary objectForKey:@"keychain"];
+    instance.contentType = [dictionary objectForKey:@"contentType"];
+    instance.taskApiString = [dictionary objectForKey:@"taskAPI"];
+
+  });
+
+  return instance;
+}
+@end
+```
+
+Bundan böyle aşağıda göreceğiniz sınıfların herhangi birinde yalnızca `  AppData *data = [AppData getInstance];` çağrısı yaparak verilere ulaşılabilir.
+
+
+
+## AppDelegate içinde NXOAuth2Client kitaplığınızı ayarlayın
+
+NXOAuthClient kitaplığı bazı değerlerin ayarlanmasını gerektirir. Bu işlem tamamlandıktan sonra REST API’sini çağırmak için elde edilen belirteci kullanabilirsiniz. `AppDelegate` öğesinin uygulamayı yüklediğimiz herhangi bir zaman çağrılacağı bilindiğinden yapılandırma değerlerinin bu dosyaya yerleştirilmesi mantıklıdır.
+* `AppDelegate.m` dosyasını açın
+
+* Daha sonra kullanacağımız bazı başlık dosyalarını içeri aktarın.
+
+```objc
+#import "NXOAuth2.h" // the Identity library we are using
+#import "AppData.h" // the class we just created we will use to load the settings of our application
+```
+
+* AppDelegate’e `setupOAuth2AccountStore` yöntemini ekleyin
+
+Bir AccountStore oluşturulması ve ardından `settings.plist` dosyasından okunan verilerle beslenmesi gerekir.
+
+Bu noktada B2C hizmetiyle ilgili olarak bu kodu daha anlaşılır hale getirecek bazı bilgileri öğrenmeniz gerekmektedir:
+
+
+1. Azure AD B2C, isteğinize hizmet vermek üzere sorgu parametreleri tarafından sağlanan *ilkeyi* kullanır. Bunun yapılması Azure Active Directory’nin yalnızca uygulamanız için bağımsız bir hizmet olarak görev yapmasını sağlar. Bu ek sorgu parametrelerini sağlamak için özel ilke parametrelerimizle birlikte `kNXOAuth2AccountStoreConfigurationAdditionalAuthenticationParameters:` yöntemini sağlamamız gerekir. 
+
+2. Azure AD B2C, diğer OAuth2 sunucularıyla çok benzer şekilde kapsamları kullanır. Ancak, B2C kaynaklara erişim kadar kullanıcı kimliğini doğrulamayla da ilgili olduğundan, akışın doğru çalışması için bazı kapsamlar kesinlikle gereklidir. Bu, `openid` kapsamıdır. Microsoft identity SDK’ları `openid` kapsamını size otomatik olarak sağlar, bu nedenle SDK yapılandırmasında görmezsiniz. Ancak, bir üçüncü taraf kitaplığı kullandığımız için bu kapsamı belirtmemiz gerekir.
+
+```objc
+- (void)setupOAuth2AccountStore {
+  AppData *data = [AppData getInstance]; // The singleton we use to get the settings
+
+  NSDictionary *customHeaders =
+      [NSDictionary dictionaryWithObject:@"application/x-www-form-urlencoded"
+                                  forKey:@"Content-Type"];
+
+  // Azure B2C needs
+  // kNXOAuth2AccountStoreConfigurationAdditionalAuthenticationParameters for
+  // sending policy to the server,
+  // therefore we use -setConfiguration:forAccountType:
+  NSDictionary *B2cConfigDict = @{
+    kNXOAuth2AccountStoreConfigurationClientID : data.clientID,
+    kNXOAuth2AccountStoreConfigurationSecret : data.clientSecret,
+    kNXOAuth2AccountStoreConfigurationScope :
+        [NSSet setWithObjects:@"openid", data.clientID, nil],
+    kNXOAuth2AccountStoreConfigurationAuthorizeURL :
+        [NSURL URLWithString:data.authURL],
+    kNXOAuth2AccountStoreConfigurationTokenURL :
+        [NSURL URLWithString:data.tokenURL],
+    kNXOAuth2AccountStoreConfigurationRedirectURL :
+        [NSURL URLWithString:data.bhh],
+    kNXOAuth2AccountStoreConfigurationCustomHeaderFields : customHeaders,
+    //      kNXOAuth2AccountStoreConfigurationAdditionalAuthenticationParameters:customAuthenticationParameters
+  };
+
+  [[NXOAuth2AccountStore sharedStore] setConfiguration:B2cConfigDict
+                                        forAccountType:data.accountIdentifier];
+}
+```
+Ardından, bu çağrıyı `didFinishLaunchingWithOptions:` yöntemi altındaki AppDelegate içinde yaptığınızdan emin olun. 
 
 ```
-#import <Foundation/Foundation.h>
+[self setupOAuth2AccountStore];
+```
 
-@interface samplesTaskItem : NSObject
 
-@property NSString *itemName;
-@property NSString *ownerName;
-@property BOOL completed;
-@property (readonly) NSDate *creationDate;
+## Kimlik doğrulama isteklerini işlemek için kullanılacak bir `LoginViewController` sınıfı oluşturun
+
+Hesapta oturum açmak için bir web görünümü kullanılır. Bunun yapılması kullanıcıdan SMS metin iletisi (yapılandırılmışsa) gibi ek faktörler istememize veya kullanıcıya hata iletileri göndermemize imkan tanır. Burada web görünümü ayarlanacak ve ardından Microsoft Identity Service içindeki WebView’de gerçekleşecek geri çağırmaları işlemek üzere kod yazılacaktır.
+
+* Bir `LoginViewController.h` sınıfı oluşturun
+
+```objc
+@interface LoginViewController : UIViewController <UIWebViewDelegate>
+@property(weak, nonatomic) IBOutlet UIWebView *loginView; // Our webview that we will use to do authentication
+
+- (void)handleOAuth2AccessResult:(NSURL *)accessResult; // Allows us to get a token after we've received an Access code.
+- (void)setupOAuth2AccountStore; // We will need to add to our OAuth2AccountStore we setup in our AppDelegate
+- (void)requestOAuth2Access; // This is where we invoke our webview.
+```
+
+Bu yöntemlerin her biri aşağıda oluşturulacaktır.
+
+> [AZURE.NOTE] 
+    `loginView` öğesini film şeridinizin içindeki gerçek web görünümüne bağladığınızdan emin olun. Aksi takdirde kimlik doğrulaması gerektiğinde açılan bir web görünümünüz olmaz.
+
+* Bir `LoginViewController.m` sınıfı oluşturun
+
+* Kimlik doğrulaması yapılırken taşıma durumuna bazı değişkenler ekleyin
+
+```objc
+NSURL *myRequestedUrl; \\ The URL request to Azure Active Directory 
+NSURL *myLoadedUrl; \\ The URL loaded for Azure Active Directory
+bool loginFlow = FALSE; 
+bool isRequestBusy; \\ A way to give status to the thread that the request is still happening
+NSURL *authcode; \\ A placeholder for our auth code.
+```
+
+* Kimlik doğrulamasını işlemek için WebView yöntemlerini geçersiz kılın
+
+Bir kullanıcının yukarıda açıklanan şekilde oturum açması gerektiğinde istenen davranışın web görünümüne anlatılması gerekir. Aşağıdaki kodu kesip yapıştırmanız yeterlidir.
+
+```objc
+- (void)resolveUsingUIWebView:(NSURL *)URL {
+  // We get the auth token from a redirect so we need to handle that in the
+  // webview.
+
+  if (![NSThread isMainThread]) {
+    [self performSelectorOnMainThread:@selector(resolveUsingUIWebView:)
+                           withObject:URL
+                        waitUntilDone:YES];
+    return;
+  }
+
+  NSURLRequest *hostnameURLRequest =
+      [NSURLRequest requestWithURL:URL
+                       cachePolicy:NSURLRequestUseProtocolCachePolicy
+                   timeoutInterval:10.0f];
+  isRequestBusy = YES;
+  [self.loginView loadRequest:hostnameURLRequest];
+
+  NSLog(@"resolveUsingUIWebView ready (status: UNKNOWN, URL: %@)",
+        self.loginView.request.URL);
+}
+
+- (BOOL)webView:(UIWebView *)webView
+    shouldStartLoadWithRequest:(NSURLRequest *)request
+                navigationType:(UIWebViewNavigationType)navigationType {
+  AppData *data = [AppData getInstance];
+
+  NSLog(@"webView:shouldStartLoadWithRequest: %@ (%li)", request.URL,
+        (long)navigationType);
+
+  // The webview is where all the communication happens. Slightly complicated.
+
+  myLoadedUrl = [webView.request mainDocumentURL];
+  NSLog(@"***Loaded url: %@", myLoadedUrl);
+
+  // if the UIWebView is showing our authorization URL or consent URL, show the
+  // UIWebView control
+  if ([request.URL.absoluteString rangeOfString:data.authURL
+                                        options:NSCaseInsensitiveSearch]
+          .location != NSNotFound) {
+    self.loginView.hidden = NO;
+  } else if ([request.URL.absoluteString rangeOfString:data.loginURL
+                                               options:NSCaseInsensitiveSearch]
+                 .location != NSNotFound) {
+    // otherwise hide the UIWebView, we've left the authorization flow
+    self.loginView.hidden = NO;
+  } else if ([request.URL.absoluteString rangeOfString:data.bhh
+                                               options:NSCaseInsensitiveSearch]
+                 .location != NSNotFound) {
+    // otherwise hide the UIWebView, we've left the authorization flow
+    self.loginView.hidden = YES;
+    [[NXOAuth2AccountStore sharedStore] handleRedirectURL:request.URL];
+  } else {
+    self.loginView.hidden = NO;
+    // read the Location from the UIWebView, this is how Microsoft APIs is
+    // returning the
+    // authentication code and relation information. This is controlled by the
+    // redirect URL we chose to use from Microsoft APIs
+    // continue the OAuth2 flow
+    // [[NXOAuth2AccountStore sharedStore] handleRedirectURL:request.URL];
+  }
+
+  return YES;
+}
+
+```
+
+* OAuth2 isteğinin sonucunu işlemek için kod yazın
+
+WebView’dan geri gelen redirectURL’yi işleyecek kod gereklidir. Başarısız olmadıysa yeniden denenecektir. Bu sırada kitaplık, konsolda görebileceğiniz veya zaman uyumsuz olarak işleyebileceğiniz hatayı sağlar. 
+
+```objc
+- (void)handleOAuth2AccessResult:(NSURL *)accessResult {
+  // parse the response for success or failure
+  if (accessResult)
+  // if success, complete the OAuth2 flow by handling the redirect URL and
+  // obtaining a token
+  {
+    [[NXOAuth2AccountStore sharedStore] handleRedirectURL:accessResult];
+  } else {
+    // start over
+    [self requestOAuth2Access];
+  }
+}
+```
+
+* Bildirim oluşturucuları ayarlayın.
+
+Yukarıdaki `AppDelegate` adımında oluşturulan yöntemin aynısı oluşturulur, ancak bu kez hizmetimizde neler olduğunu söylemesi için bazı `NSNotification` öğeleri eklenecektir. Belirteçle birlikte herhangi bir şey değiştiğinde bize bildiren bir gözlemci ayarlanır. Belirteci aldıktan sonra kullanıcı `masterView` hedefine geri gönderilir.
+
+
+
+```objc
+- (void)setupOAuth2AccountStore {
+  [[NSNotificationCenter defaultCenter]
+      addObserverForName:NXOAuth2AccountStoreAccountsDidChangeNotification
+                  object:[NXOAuth2AccountStore sharedStore]
+                   queue:nil
+              usingBlock:^(NSNotification *aNotification) {
+                if (aNotification.userInfo) {
+                  // account added, we have access
+                  // we can now request protected data
+                  NSLog(@"Success!! We have an access token.");
+                  dispatch_async(dispatch_get_main_queue(), ^{
+
+                    MasterViewController *masterViewController =
+                        [self.storyboard
+                            instantiateViewControllerWithIdentifier:@"master"];
+                    [self.navigationController
+                        pushViewController:masterViewController
+                                  animated:YES];
+                  });
+                } else {
+                  // account removed, we lost access
+                }
+              }];
+
+  [[NSNotificationCenter defaultCenter]
+      addObserverForName:NXOAuth2AccountStoreDidFailToRequestAccessNotification
+                  object:[NXOAuth2AccountStore sharedStore]
+                   queue:nil
+              usingBlock:^(NSNotification *aNotification) {
+                NSError *error = [aNotification.userInfo
+                    objectForKey:NXOAuth2AccountStoreErrorKey];
+                NSLog(@"Error!! %@", error.localizedDescription);
+              }];
+}
+
+```
+* sign-native için bir istek başlatılan her durumda kullanıcıyı işleyen kodu ekleyin
+
+Kimlik doğrulama isteği aldığımız her durumda çağrılacak bir yöntem oluşturalım. Bu yöntem gerçek anlamda bir web görünümü oluşturacaktır
+
+```objc
+- (void)requestOAuth2Access {
+  AppData *data = [AppData getInstance];
+
+  // in order to login to Mircosoft APIs using OAuth2 we must show an embedded
+  // browser (UIWebView)
+  [[NXOAuth2AccountStore sharedStore]
+           requestAccessToAccountWithType:data.accountIdentifier
+      withPreparedAuthorizationURLHandler:^(NSURL *preparedURL) {
+        // navigate to the URL returned by NXOAuth2Client
+
+        NSURLRequest *r = [NSURLRequest requestWithURL:preparedURL];
+        [self.loginView loadRequest:r];
+      }];
+}
+```
+
+* Son olarak, yukarıda yazılan tüm bu yöntemleri `LoginViewController` her yüklendiğinde çağıralım. Yöntemleri Apple’ın sağladığı `viewDidLoad` yöntemine ekleyerek bunu yaparız
+
+```objc
+  [super viewDidLoad];
+  // Do any additional setup after loading the view.
+
+  // OAuth2 Code
+
+  self.loginView.delegate = self;
+  [self requestOAuth2Access];
+  [self setupOAuth2AccountStore];
+  NSURLCache *URLCache =
+      [[NSURLCache alloc] initWithMemoryCapacity:4 * 1024 * 1024
+                                    diskCapacity:20 * 1024 * 1024
+                                        diskPath:nil];
+  [NSURLCache setSharedURLCache:URLCache];
+```
+
+Oturum açma için uygulamamızla etkileşim kurmanın temel yolunu oluşturdunuz. Oturum açtıktan sonra, aldığımız belirteçleri kullanmanız gerekir. Bunun için bu kitaplığı kullanarak REST API'lerini çağıracak bazı yardımcı kodlar oluşturulacaktır.
+
+
+## Bir REST API’sine gönderdiğimiz istekleri işleyen bir `GraphAPICaller` sınıfı oluşturun
+
+Uygulamamızı her yüklediğimizde yüklenen bir yapılandırmamız var. Artık bir belirtecimiz olduğuna göre bununla bir şeyler yapmamız gerekiyor. 
+
+* Bir `GraphAPICaller.h` dosyası oluşturun
+
+```objc
+@interface GraphAPICaller : NSObject <NSURLConnectionDataDelegate>
+
++ (void)addTask:(Task *)task
+completionBlock:(void (^)(bool, NSError *error))completionBlock;
+
++ (void)getTaskList:(void (^)(NSMutableArray *, NSError *error))completionBlock;
 
 @end
 ```
 
-Ayrıca ilke verilerinizi tutmak için `samplesPolicyData.h` dosyasını oluşturun:
+Bu koddan iki yöntem oluşturulacağını görebilirsiniz: bir API’den görevleri almak için bir tane ve API’ye görev eklemek için bir tane.
 
-```
-#import <Foundation/Foundation.h>
+Arabirimimizi ayarladığımıza göre gerçek uygulamayı ekleyelim:
 
-@interface samplesPolicyData : NSObject
+* Oluşturun: `GraphAPICaller.m file`
 
-@property (strong) NSString* policyName;
-@property (strong) NSString* policyID;
+```objc
+@implementation GraphAPICaller
 
-+(id) getInstance;
+// 
+// Gets the tasks from our REST endpoint we specified in settings
+//
+
++ (void)getTaskList:(void (^)(NSMutableArray *, NSError *))completionBlock
+
+{
+  AppData *data = [AppData getInstance];
+
+  NSString *taskURL =
+      [NSString stringWithFormat:@"%@%@", data.taskApiString, @"/api/tasks"];
+
+  NXOAuth2AccountStore *store = [NXOAuth2AccountStore sharedStore];
+  NSMutableArray *Tasks = [[NSMutableArray alloc] init];
+
+  NSArray *accounts = [store accountsWithAccountType:data.accountIdentifier];
+  [NXOAuth2Request performMethod:@"GET"
+      onResource:[NSURL URLWithString:taskURL]
+      usingParameters:nil
+      withAccount:accounts[0]
+      sendProgressHandler:^(unsigned long long bytesSend,
+                            unsigned long long bytesTotal) {
+        // e.g., update a progress indicator
+      }
+      responseHandler:^(NSURLResponse *response, NSData *responseData,
+                        NSError *error) {
+        // Process the response
+        if (!error) {
+          NSDictionary *dataReturned =
+              [NSJSONSerialization JSONObjectWithData:responseData
+                                              options:0
+                                                error:nil];
+          NSLog(@"Graph Response was: %@", dataReturned);
+
+          if ([dataReturned count] != 0) {
+
+            for (NSMutableDictionary *theTask in dataReturned) {
+
+              Task *t = [[Task alloc] init];
+              t.name = [theTask valueForKey:@"Text"];
+
+              [Tasks addObject:t];
+            }
+          }
+
+          completionBlock(Tasks, nil);
+        } else {
+          completionBlock(nil, error);
+        }
+
+      }];
+}
+
+// 
+// Adds a task from our REST endpoint we specified in settings
+//
+
++ (void)addTask:(Task *)task
+completionBlock:(void (^)(bool, NSError *error))completionBlock {
+
+  AppData *data = [AppData getInstance];
+
+  NSString *taskURL =
+      [NSString stringWithFormat:@"%@%@", data.taskApiString, @"/api/tasks"];
+
+  NXOAuth2AccountStore *store = [NXOAuth2AccountStore sharedStore];
+  NSDictionary *params = [self convertParamsToDictionary:task.name];
+
+  NSArray *accounts = [store accountsWithAccountType:data.accountIdentifier];
+  [NXOAuth2Request performMethod:@"POST"
+      onResource:[NSURL URLWithString:taskURL]
+      usingParameters:params
+      withAccount:accounts[0]
+      sendProgressHandler:^(unsigned long long bytesSend,
+                            unsigned long long bytesTotal) {
+        // e.g., update a progress indicator
+      }
+      responseHandler:^(NSURLResponse *response, NSData *responseData,
+                        NSError *error) {
+        // Process the response
+        if (responseData) {
+          NSDictionary *dataReturned =
+              [NSJSONSerialization JSONObjectWithData:responseData
+                                              options:0
+                                                error:nil];
+          NSLog(@"Graph Response was: %@", dataReturned);
+
+          completionBlock(TRUE, nil);
+        } else {
+          completionBlock(FALSE, error);
+        }
+
+      }];
+}
+
++ (NSDictionary *)convertParamsToDictionary:(NSString *)task {
+  NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] init];
+
+  [dictionary setValue:task forKey:@"Text"];
+
+  return dictionary;
+}
 
 @end
-```
-### Görev ve ilke öğeleriniz için uygulama ekleme
-
-Artık üst bilgi dosyalarınız olduğuna göre, örneğiniz için kullanacağınız verileri depolamak üzere kod yazabilirsiniz.
-
-Aşağıdaki kod ile `samplesPolicyData.m` dosyasını oluşturun:
-
-```
-#import <Foundation/Foundation.h>
-#import "samplesPolicyData.h"
-
-@implementation samplesPolicyData
-
-+(id) getInstance
-{
-    static samplesPolicyData *instance = nil;
-    static dispatch_once_t onceToken;
-
-    dispatch_once(&onceToken, ^{
-        instance = [[self alloc] init];
-        NSDictionary *dictionary = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"settings" ofType:@"plist"]];
-        instance.policyName = [dictionary objectForKey:@"policyName"];
-        instance.policyID = [dictionary objectForKey:@"policyID"];
-
-
-    });
-
-    return instance;
-}
-
-
-@end
-```
-
-### iOS için ADAL'a ilişkin çağrınıza yönelik kurulum kodu yazma
-
-Kullanıcı arabirimine ilişkin nesnelerinizi saklamak için hızlı kod artık tamamlandı. Ardından `settings.plist` içine girdiğiniz parametreleri kullanarak iOS'a ilişkin Active Directory Kimlik Doğrulaması Kitaplığı'na (ADAL) erişmek için kod yazmanız gerekir. Bu işlem görev sunucunuza erişim sağlamak için bir erişim belirteci alır.
-
-Tüm çalışmalarınız `samplesWebAPIConnector.m` içinde gerçekleştirilir.
-
-Öncelikle `samplesWebAPIConnector.h` üst bilgi dosyanızda yazdığınız `doPolicy()` uygulamasını oluşturun:
-
-```
-+(void) doPolicy:(samplesPolicyData *)policy
-         parent:(UIViewController*) parent
-completionBlock:(void (^) (ADProfileInfo* userInfo, NSError* error)) completionBlock
-{
-    if (!loadedApplicationSettings)
-    {
-        [self readApplicationSettings];
-    }
-
-    [self getClaimsWithPolicyClearingCache:NO policy:policy params:nil parent:parent completionHandler:^(ADProfileInfo* userInfo, NSError* error) {
-
-        if (userInfo == nil)
-        {
-            completionBlock(nil, error);
-        }
-
-        else {
-
-            completionBlock(userInfo, nil);
-        }
-    }];
-
-}
-
-
-```
-
-Bu yöntem basittir. Oluşturduğunuz `samplesPolicyData` nesnesini, `ViewController` üst nesnesini ve bir geri aramayı giriş olarak alır. Geri arama özel bir konudur ve bunu ayrıntılı olarak işleyeceğiz.
-
-- `completionBlock` yönteminin tür olarak `userInfo` nesnesini kullanarak döndürülen `ADProfileInfo` nesnesine sahip olduğuna dikkat edin. `ADProfileInfo` nesnesi, talepler dahil sunucu kaynaklı tüm yanıtları tutan türdür.
-- `readApplicationSettings` yöntemine de dikkat edin. Bu, `settings.plist` içinde sağlanan verileri okur.
-- Sonunda geniş bir `getClaimsWithPolicyClearingCache` yöntemine sahipsiniz. Bu, iOS için ADAL'a ilişkin yazmanız gereken gerçek çağrıdır. Buna daha sonra döneceğiz.
-
-Ardından geniş `getClaimsWithPolicyClearingCache` yönteminizi yazın. Bu, kendi bölümüne yetecek kadar geniştir.
-
-### iOS için ADAL çağrınızı oluşturma
-
-Çatıyı GitHub'dan indirdiğinizde örnek uygulama ile ilgili yardım sunmak için bu çağrılardan bir çoğuna sahip olduğumuzu görebilirsiniz. Bunların tümü `get(Claims|Token)With<verb>ClearningCache` desenini izler. Objective C kurallarını kullanarak daha çok İngilizce gibi okurlar. Örneğin, "Sağladığım ek parametreleri içeren belirteci al ve önbelleği temizle", `getTokenWithExtraParamsClearingCache()` kalıbıdır.
-
-"Sağladığım ilkeyi içeren talepleri al ve önbelleği temizleme" veya `getClaimsWithPolicyClearingCache` yazacaksınız. Belirteci her zaman ADAL'dan geri alırsınız, yani yöntemde "talepler ve belirteç" belirtmek gerekli değildir. Ancak bazen istekleri ayrıştırma ek yükü olmadan belirteci istersiniz, size çatıda istekleri içermeyen `getTokenWithPolicyClearingCache` adlı bir yöntem sunarız.
-
-Şimdi bu kodu yazın:
-
-```
-+(void) getClaimsWithPolicyClearingCache  : (BOOL) clearCache
-                           policy:(samplesPolicyData *)policy
-                           params:(NSDictionary*) params
-                           parent:(UIViewController*) parent
-                completionHandler:(void (^) (ADProfileInfo*, NSError*))completionBlock;
-{
-    SamplesApplicationData* data = [SamplesApplicationData getInstance];
-
-
-    ADAuthenticationError *error;
-    authContext = [ADAuthenticationContext authenticationContextWithAuthority:data.authority error:&error];
-    authContext.parentController = parent;
-    NSURL *redirectUri = [[NSURL alloc]initWithString:data.redirectUriString];
-
-    if(!data.correlationId ||
-       [[data.correlationId stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length] == 0)
-    {
-        authContext.correlationId = [[NSUUID alloc] initWithUUIDString:data.correlationId];
-    }
-
-    [ADAuthenticationSettings sharedInstance].enableFullScreen = data.fullScreen;
-    [authContext acquireTokenWithScopes:data.scopes
-                      additionalScopes: data.additionalScopes
-                              clientId:data.clientId
-                           redirectUri:redirectUri
-                            identifier:[ADUserIdentifier identifierWithId:data.userItem.profileInfo.username type:RequiredDisplayableId]
-                            promptBehavior:AD_PROMPT_ALWAYS
-                  extraQueryParameters: params.urlEncodedString
-                                policy: policy.policyID
-                       completionBlock:^(ADAuthenticationResult *result) {
-
-                           if (result.status != AD_SUCCEEDED)
-                           {
-                               completionBlock(nil, result.error);
-                           }                              else
-                              {
-                                  data.userItem = result.tokenCacheStoreItem;
-                                  completionBlock(result.tokenCacheStoreItem.profileInfo, nil);
-                              }
-                          }];
-}
-
-
-```
-
-İlk kısmı tanıdık gelecektir.
-
-- `settings.plist` içinde sağlanan ayarları yükleyin ve `data` öğesine atayın.
-- iOS'tan gelen tüm hataları alan `ADAuthenticationError` öğesini ayarlayın.
-- ADAL çağrınızı ayarlayan `authContext` öğesini oluşturun. İşlemleri başlatmak için yetkinizi ona geçirin.
-- Geri dönebilmek için `authContext` nesnesine üst denetleyici için referans verin.
-- `settings.plist` içinde dize olan `redirectURI` öğesini ADAL'ın beklediği NSURL'ye dönüştürün.
-- `correlationId` öğesini ayarlayın. Bu, çağrıyı istemci boyunca sunucuya kadar ve geriye doğru izleyebilen bir UUID'dir. Hata ayıklama için faydalıdır.
-
-Ardından ADAL gerçek çağrısını alırsınız. Burada, çağrı iOS için ADAL'ın önceki kullanımlarında görmeyi beklediğinizden farklı hale gelir:
-
-```
-[authContext acquireTokenWithScopes:data.scopes
-                      additionalScopes: data.additionalScopes
-                              clientId:data.clientId
-                           redirectUri:redirectUri
-                            identifier:[ADUserIdentifier identifierWithId:data.userItem.profileInfo.username type:RequiredDisplayableId]
-                            promptBehavior:AD_PROMPT_ALWAYS
-                  extraQueryParameters: params.urlEncodedString
-                                policy: policy.policyID
-                       completionBlock:^(ADAuthenticationResult *result) {
-
-```
-
-Çağrının oldukça basit olduğunu görebilirsiniz.
-
-`scopes`: Oturum açan bir kullanıcı için sunucudan talep etmek istediğiniz sunucuya geçirdiğiniz kapsamlar. B2C önizlemesi için `client_id` öğesini geçirin. Yine de gelecekte kapsamları okumada değişiklik bekleniyor. Bu belgeyi daha sonra güncelleştirmeyi planlıyoruz.
-`additionalScopes`: Bunlar, uygulamanız için kullanmak isteyebileceğiniz ek kapsamlardır. Gelecekte kullanılmaları bekleniyor.
-`clientId`: Portaldan aldığınız Uygulama Kimliği.
-`redirectURI`: Belirtecin geri gönderilmesini beklediğiniz konuma yeniden yönlendirme.
-`identifier`: Önbellekte kullanılabilir belirteç olup olmadığını görebilmeniz için kullanıcı tanımlamaya yönelik yol. Bu, sunucudan her zaman başka belirteç istenmesini önler. Bu işlem `ADUserIdentifier` adlı tür tarafından gerçekleştirilir ve kimlik olarak kullanmak istediğiniz öğeyi belirtebilirsiniz. `username` kullanmanız gerekir.
-`promptBehavior`: Bu kullanım dışıdır. `AD_PROMPT_ALWAYS` olmalıdır.
-`extraQueryParameters`: Sunucuya geçirmek istediğiniz URL kodlanmış biçimindeki her ek öğe.
-`policy`: Çağırdığınız ilke. Söz konusu ilke, bu kılavuzun en önemli kısmıdır.
-
-`ADAuthenticationResult` öğesini geçirdiğiniz `completionBlock` bölümünde görebilirsiniz. (Çağrı başarılı ise) belirtece ve profil bilgilerinize sahip olur.
-
-Yukarıdaki kodu kullanarak, sağladığınız ilke için bir belirteç elde edebilirsiniz. Böylece API'yi çağırmak için bu belirteci kullanabilirsiniz.
-
-### Sunucuya yönelik görev çağrılarınızı oluşturma
-
-Artık bir belirtece sahip olduğunuza göre bu belirteci yetkilendirme için API'nize sağlamanız gerekir.
-
-Uygulanması gereken üç yöntem vardır:
-
-```
-+(void) getTaskList:(void (^) (NSArray*, NSError* error))completionBlock
-             parent:(UIViewController*) parent;
-
-+(void) addTask:(samplesTaskItem*)task
-         parent:(UIViewController*) parent
-completionBlock:(void (^) (bool, NSError* error)) completionBlock;
-
-+(void) deleteTask:(samplesTaskItem*)task
-            parent:(UIViewController*) parent
-   completionBlock:(void (^) (bool, NSError* error)) completionBlock;
-```
-
-`getTasksList` sunucunuzdaki görevleri temsil eden bir dizi sağlar. `addTask` ve `deleteTask` sonraki eylemleri gerçekleştirir ve başarılı olurlarsa `true` veya `false` döndürülür.
-
-Öncelikle `getTaskList` yazın:
-
-```
-
-+(void) getTaskList:(void (^) (NSArray*, NSError*))completionBlock
-             parent:(UIViewController*) parent;
-{
-    if (!loadedApplicationSettings)
-    {
-        [self readApplicationSettings];
-    }
-
-    SamplesApplicationData* data = [SamplesApplicationData getInstance];
-
-    [self craftRequest:[self.class trimString:data.taskWebApiUrlString]
-                parent:parent
-     completionHandler:^(NSMutableURLRequest *request, NSError *error) {
-
-        if (error != nil)
-        {
-            completionBlock(nil, error);
-        }
-        else
-        {
-
-            NSOperationQueue *queue = [[NSOperationQueue alloc]init];
-
-            [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
-
-                if (error == nil && data != nil){
-
-                    NSArray *tasks = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-
-                    //each object is a key value pair
-                    NSDictionary *keyValuePairs;
-                    NSMutableArray* sampleTaskItems = [[NSMutableArray alloc]init];
-
-                    for(int i =0; i < tasks.count; i++)
-                    {
-                        keyValuePairs = [tasks objectAtIndex:i];
-
-                        samplesTaskItem *s = [[samplesTaskItem alloc]init];
-                        s.itemName = [keyValuePairs valueForKey:@"task"];
-
-                        [sampleTaskItems addObject:s];
-                    }
-
-                    completionBlock(sampleTaskItems, nil);
-                }
-                else
-                {
-                    completionBlock(nil, error);
-                }
-
-            }];
-        }
-    }];
-
-}
-
-```
-
-Görev kodu tartışması bu gözden geçirme kapsamının ötesindedir. Ancak ilgi çekici bir şey fark etmiş olabilirsiniz: Görev URL'nizi alan bir `craftRequest` yöntemi. Bu yöntem, aldığınız erişim belirtecini kullanarak sunucu için istek oluşturmaya yönelik kullandığınız yöntemdir. Şimdi onu yazın.
-
-`samplesWebAPIConnector.m` dosyasına aşağıdaki kodu ekleyin:
-
-```
-+(void) craftRequest : (NSString*)webApiUrlString
-               parent:(UIViewController*) parent
-    completionHandler:(void (^)(NSMutableURLRequest*, NSError* error))completionBlock
-{
-    [self getClaimsWithPolicyClearingCache:NO parent:parent completionHandler:^(NSString* accessToken, NSError* error){
-
-        if (accessToken == nil)
-        {
-            completionBlock(nil,error);
-        }
-        else
-        {
-            NSURL *webApiURL = [[NSURL alloc]initWithString:webApiUrlString];
-
-            NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:webApiURL];
-
-            NSString *authHeader = [NSString stringWithFormat:@"Bearer %@", accessToken];
-
-            [request addValue:authHeader forHTTPHeaderField:@"Authorization"];
-
-            completionBlock(request, nil);
-        }
-    }];
-}
-```
-
-Bu kod, web tekdüzen kaynak tanımlayıcısı (URI) alır; HTTP'deki `Bearer` üst bilgisini kullanarak belirteci ona ekler ve size geri döndürür. `getTokenClearingCache` API'sini çağırırsınız. Bu tuhaf görünebilir ancak bu çağrıyı sadece önbellekten belirteç almak ve hala geçerli olduğunu doğrulamak için kullanırsınız. (`getToken` çağrıları ADAL isteyerek bunu sizin için yapar.) Bu kodu her çağrıda kullanırsınız. Ardından ek görev yöntemlerinizi gerçekleştirin.
-
-`addTask` yazın:
-
-```
-+(void) addTask:(samplesTaskItem*)task
-         parent:(UIViewController*) parent
-completionBlock:(void (^) (bool, NSError* error)) completionBlock
-{
-    if (!loadedApplicationSettings)
-    {
-        [self readApplicationSettings];
-    }
-
-    SamplesApplicationData* data = [SamplesApplicationData getInstance];
-    [self craftRequest:data.taskWebApiUrlString parent:parent completionHandler:^(NSMutableURLRequest* request, NSError* error){
-
-        if (error != nil)
-        {
-            completionBlock(NO, error);
-        }
-        else
-        {
-            NSDictionary* taskInDictionaryFormat = [self convertTaskToDictionary:task];
-
-            NSData* requestBody = [NSJSONSerialization dataWithJSONObject:taskInDictionaryFormat options:0 error:nil];
-
-            [request setHTTPMethod:@"POST"];
-            [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-            [request setHTTPBody:requestBody];
-
-            NSString *myString = [[NSString alloc] initWithData:requestBody encoding:NSUTF8StringEncoding];
-
-            NSLog(@"Request was: %@", request);
-            NSLog(@"Request body was: %@", myString);
-
-            NSOperationQueue *queue = [[NSOperationQueue alloc]init];
-
-            [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
-
-                NSString* content = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-                NSLog(@"%@", content);
-
-                if (error == nil){
-
-                    completionBlock(true, nil);
-                }
-                else
-                {
-                    completionBlock(false, error);
-                }
-            }];
-        }
-    }];
-}
-```
-
-Bu işlem aynı deseni takip eder ancak aynı zamanda uygulamanız gereken son yöntemi de sunar: `convertTaskToDictionary`. Bu komut, dizinizi alır ve onu bir sözlük nesnesi haline getirir. Bu nesne sunucuya geçirmeniz gereken sorgu parametrelerine daha kolay şekilde dönüşür. Kod basittir:
-
-```
-// Here we have some conversation helpers that allow us to parse passed items into dictionaries for URLEncoding later.
-
-+(NSDictionary*) convertTaskToDictionary:(samplesTaskItem*)task
-{
-    NSMutableDictionary* dictionary = [[NSMutableDictionary alloc]init];
-
-    if (task.itemName){
-        [dictionary setValue:task.itemName forKey:@"task"];
-    }
-
-    return dictionary;
-}
-
-```
-
-Ardından `deleteTask` yazın:
-
-```
-+(void) deleteTask:(samplesTaskItem*)task
-            parent:(UIViewController*) parent
-   completionBlock:(void (^) (bool, NSError* error)) completionBlock
-{
-    if (!loadedApplicationSettings)
-    {
-        [self readApplicationSettings];
-    }
-
-    SamplesApplicationData* data = [SamplesApplicationData getInstance];
-    [self craftRequest:data.taskWebApiUrlString parent:parent completionHandler:^(NSMutableURLRequest* request, NSError* error){
-
-        if (error != nil)
-        {
-            completionBlock(NO, error);
-        }
-        else
-        {
-            NSDictionary* taskInDictionaryFormat = [self convertTaskToDictionary:task];
-
-            NSData* requestBody = [NSJSONSerialization dataWithJSONObject:taskInDictionaryFormat options:0 error:nil];
-
-            [request setHTTPMethod:@"DELETE"];
-            [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-            [request setHTTPBody:requestBody];
-
-            NSLog(@"%@", request);
-
-            NSOperationQueue *queue = [[NSOperationQueue alloc]init];
-
-            [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
-
-                NSString* content = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-                NSLog(@"%@", content);
-
-                if (error == nil){
-
-                    completionBlock(true, nil);
-                }
-                else
-                {
-                    completionBlock(false, error);
-                }
-            }];
-        }
-    }];
-}
-```
-
-### Uygulamanıza oturum kapatma ekleme
-
-Gerçekleştirilecek son adım uygulamanız için oturum kapatmayı uygulamaktır. Bu basit bir işlemdir. `sampleWebApiConnector.m` dosyasının içine:
-
-```
-+(void) signOut
-{
-    [authContext.tokenCacheStore removeAll:nil];
-
-    NSHTTPCookie *cookie;
-
-    NSHTTPCookieStorage *storage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
-    for (cookie in [storage cookies])
-    {
-        [storage deleteCookie:cookie];
-    }
-}
 ```
 
 ## Örnek uygulamayı çalıştırma
@@ -622,9 +637,6 @@ Son olarak Xcode'da uygulamayı oluşturun ve çalıştırın. Uygulamaya kaydol
 
 API, aldığı erişim belirtecinden kullanıcının kimliğini ayıkladığı için görevlerin API üzerinde kullanıcı başına depolanmasına dikkat edin.
 
-Başvuru için tam örnek [.zip dosyası olarak sağlanır](https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS/archive/complete.zip). Aynı zamanda GitHub'dan kopyalayabilirsiniz:
-
-```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS```
 
 ## Sonraki adımlar
 
@@ -636,6 +648,6 @@ Artık daha ileri seviyeli B2C konu başlıklarına geçebilirsiniz: Deneyebilec
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="05/06/2016"
+    ms.date="07/15/2016"
     ms.author="cabailey"/>
 
 # Azure Anahtar Kasası Günlüğü #
@@ -33,6 +33,8 @@ Azure Anahtar Kasası günlüğü ile çalışmaya başlamada yardım almak, dep
 >[AZURE.NOTE]  Bu öğretici anahtar kasalarının, anahtarların veya gizli anahtarların nasıl oluşturulacağı hakkında yönergeler içermez. Bu bilgi için bkz. [Azure Anahtar Kasası ile çalışmaya başlama](key-vault-get-started.md). Alternatif olarak, Platformlar Arası Komut Satırı Arabirimi yönergeleri için [bu eşdeğer öğreticiye](key-vault-manage-with-cli.md) bakın.
 >
 >Şu anda Azure portalında Azure Anahtar Kasası'nı yapılandıramazsınız. Bunun yerine, bu Azure PowerShell yönergelerini kullanın.
+
+Toplayabileceğiniz günlükler Operations Management Suite’te Log Analytics kullanılarak görselleştirilebilir. Daha fazla bilgi için bkz. [Log Analytics’te Azure Anahtar Kasası (Önizleme) çözümü](../log-analytics/log-analytics-azure-key-vault.md).
 
 Azure Anahtar Kasası genel bakış bilgileri için bkz. [Azure Anahtar Kasası nedir?](key-vault-whatis.md)
 
@@ -269,12 +271,10 @@ Azure Anahtar Kasası'nın bir web uygulamasında kullanıldığı bir öğretic
 Programlama başvuruları için bkz. [Azure Anahtar Kasası geliştirici kılavuzu](key-vault-developers-guide.md).
 
 Azure Anahtar Kasası'na yönelik Azure PowerShell 1.0 cmdlet'leri listesi için bkz. [Azure Anahtar Kasası Cmdlet'leri](https://msdn.microsoft.com/library/azure/dn868052.aspx). 
- 
+
+Azure Anahtar Kasası ile anahtar döndürme ve günlük denetimine ilişkin bir öğretici için bkz. [Uçtan uca anahtar döndürme ve denetim ile Anahtar Kasası ayarlama](key-vault-key-rotation-log-monitoring.md).
 
 
-
-
-
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

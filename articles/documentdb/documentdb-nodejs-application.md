@@ -1,7 +1,7 @@
 <properties 
     pageTitle="Node.js öğrenin - DocumentDB Node.js Öğreticisi | Microsoft Azure" 
     description="Node.js öğrenin! Öğretici, Azure Web Siteleri'nde barındırılan bir Node.js Express web uygulamasında verileri depolamak ve bunlara erişmek için Microsoft Azure DocumentDB'nin nasıl kullanılacağını açıklar." 
-    keywords="Application development, database tutorial, learn node.js, node.js tutorial, documentdb, azure, Microsoft azure"
+    keywords="Uygulama geliştirme, veritabanı öğreticisi, node.js öğrenme, node.js öğreticisi, documentdb, azure, Microsoft azure"
     services="documentdb" 
     documentationCenter="nodejs" 
     authors="aliuy" 
@@ -549,7 +549,7 @@ Artık bir kullanıcının uygulamamızla gerçekte etkileşim kurabilmesi için
 
 ## <a name="_Toc395783182"></a>7. Adım: Uygulama geliştirme projenizi Azure Web Siteleri'ne dağıtma
 
-1. Daha önce yapmadıysanız Azure Web Siteniz için bir git deposunu etkinleştirin. Bunun nasıl yapılacağı hakkındaki yönergeleri [Azure App Service'te GIT kullanarak sürekli dağıtım](../app-service-web/web-sites-publish-source-control.md) konu başlığında bulabilirsiniz.
+1. Daha önce yapmadıysanız Azure Web Siteniz için bir git deposunu etkinleştirin. Bunun nasıl yapılacağı hakkındaki yönergeleri [Azure Uygulama Hizmeti’nde Yere l Git Dağıtımı](../app-service-web/app-service-deploy-local-git.md) konu başlığında bulabilirsiniz.
 
 2. Azure Web Sitenizi bir git uzak öğesi olarak ekleyin.
 
@@ -576,6 +576,6 @@ Daha fazla bilgi için bkz. [Node.js Geliştirici Merkezi](https://azure.microso
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

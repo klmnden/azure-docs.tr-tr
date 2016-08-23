@@ -226,7 +226,7 @@ Bu konu başlıklarında Azure Data Factory hakkında ayrıntılı bilgi sağlan
 [Data Factory]: sql-data-warehouse-get-started-load-with-azure-data-factory.md
 [Azure Data Factory (Data Factory Editor) ile çalışmaya başlama]: ../data-factory/data-factory-build-your-first-pipeline-using-editor.md
 [Azure Data Factory'ye giriş]: ../data-factory/data-factory-introduction.md
-[SQL Data Warehouse'a örnek veri yükleme]: sql-data-warehouse-get-started-manually-load-samples.md
+[SQL Data Warehouse'a örnek veri yükleme]: sql-data-warehouse-load-sample-databases.md
 [Azure Data Factory kullanarak Azure'a/Azure'dan veri taşıma]: ../data-factory/data-factory-azure-sql-data-warehouse-connector.md
 [PolyBase]: sql-data-warehouse-get-started-load-with-polybase.md
 [Gerçek dünya senaryoları öğreticisi]: ../data-factory/data-factory-tutorial.md
@@ -242,6 +242,6 @@ Bu konu başlıklarında Azure Data Factory hakkında ayrıntılı bilgi sağlan
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

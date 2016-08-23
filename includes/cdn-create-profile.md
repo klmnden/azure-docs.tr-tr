@@ -4,7 +4,7 @@
 
     Yeni CDN profili dikey penceresi görüntülenir.
 
-    ![Yeni CDN profili](./media/cdn-create-profile/new-cdn-profile.png)
+    ![Yeni CDN profili](./media/cdn-create-profile/new-cdn-profile-include.png)
 
 2. CDN profiliniz için bir ad girin.
 
@@ -14,13 +14,13 @@
 
 5. Bir **Fiyatlandırma katmanı** seçin.  Fiyatlandırma katmanlarını karşılaştırmak için bkz. [CDN’ye Genel Bakış](cdn-overview.md#azure-cdn-features).
     
-    ![CDN fiyatlandırma katmanı seçimi](./media/cdn-create-profile/cdn-choose-sku.png)
+    ![CDN fiyatlandırma katmanı seçimi](./media/cdn-create-profile/cdn-choose-sku-include.png)
 
 6. Bu CDN profiliyle ilgili **Abonelik** seçeneğini belirleyin.
 
 7. Yeni profili oluşturmak için **Oluştur**’a tıklayın. 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

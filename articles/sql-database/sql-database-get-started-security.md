@@ -4,7 +4,7 @@
     keywords=""
     services="sql-database"
     documentationCenter=""
-    authors="carlrabeler"
+    authors="CarlRabeler"
     manager="jhubbard"
     editor=""/>
 
@@ -15,10 +15,15 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="05/03/2016"
+    ms.date="07/19/2016"
     ms.author="carlrab"/>
 
 # SQL Database öğreticisi: Azure portalını kullanarak bir veritabanına erişmek ve veritabanını yönetmek üzere SQL veritabanı kullanıcı hesabı oluşturma
+
+
+> [AZURE.SELECTOR]
+- [Başlangıç öğreticisi](sql-database-get-started-security.md)
+- [Erişim verme](sql-database-manage-logins.md)
 
 Bu öğreticide, şu işlemleri gerçekleştirmek üzere Azure portalını nasıl kullanacağınızı öğreneceksiniz:
 
@@ -49,6 +54,6 @@ Artık SQL Database öğreticisini tamamladığınıza, bir kullanıcı hesabı 
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

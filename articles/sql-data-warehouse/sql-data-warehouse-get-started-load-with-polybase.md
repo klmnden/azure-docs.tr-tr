@@ -3,7 +3,7 @@
    description="PolyBase'in ne olduğunu ve veri depolama senaryolarında nasıl kullanılacağını öğrenin."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="sahaj08"
+   authors="happynicolle"
    manager="barbkess"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/18/2016"
-   ms.author="sahajs;barbkess;jrj;sonyama"/>
+   ms.date="06/30/2016"
+   ms.author="nicw;barbkess;jrj;sonyama"/>
 
 
 # SQL Data Warehouse'da PolyBase ile veri yükleme
@@ -256,12 +256,10 @@ PolyBase kullanan bir çözüm geliştirirken bilmeniz gereken daha fazla bilgi 
 
 
 <!--Article references-->
-[SQL Data Warehouse'da PolyBase Öğreticisi]: sql-data-warehouse-get-started-load-with-polybase.md
-[bcp ile veri yükleme]: sql-data-warehouse-load-with-bcp.md
-[çözüm ortakları]: sql-data-warehouse-solution-partners.md
-[geliştirmeye genel bakış]: sql-data-warehouse-overview-develop.md
-[İstatistikler]: sql-data-warehouse-develop-statistics.md
-[PolyBase kılavuzu]: sql-data-warehouse-load-polybase-guide.md
+[SQL Data Warehouse'da PolyBase Öğreticisi]: ./sql-data-warehouse-get-started-load-with-polybase.md
+[bcp ile veri yükleme]: ./sql-data-warehouse-load-with-bcp.md
+[İstatistikler]: ./sql-data-warehouse-tables-statistics.md
+[PolyBase kılavuzu]: ./sql-data-warehouse-load-polybase-guide.md
 [AzCopy Komut Satırı Yardımcı Programı ile Çalışmaya Başlama]: ../storage/storage-use-azcopy.md
 [en güncel AzCopy sürümünü]: ../storage/storage-use-azcopy.md
 
@@ -289,6 +287,6 @@ PolyBase kullanan bir çözüm geliştirirken bilmeniz gereken daha fazla bilgi 
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

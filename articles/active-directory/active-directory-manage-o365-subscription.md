@@ -13,20 +13,12 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/26/2016"
+   ms.date="06/03/2016"
    ms.author="curtand"/>
 
 # Azure'da Office 365 aboneliğinize yönelik dizini yönetme
 
-Bu makalede bir Office 365 aboneliği için oluşturulmuş bir dizinin nasıl yönetileceği açıklanmaktadır ancak biz klasik Azure portalını kullanacağız. Klasik Azure portalında oturum açmak için Hizmet Yöneticisi veya bir Azure aboneliğinin ortak yöneticisi olmanız gerekir. Henüz bir Azure aboneliğiniz yoksa
-
-1. Office 365'te oturum açmak için kullandığınız iş veya okul hesabını kullanarak kaydolabilirsiniz.
-
-![E-posta adresi giriş kutusu](./media/active-directory-manage-o365-subscription/AAD_O365_01.png)
-
-Azure'a karşılık gelen bir abonelik bulunamayacaktır ancak **Azure'a kaydol** seçeneğine tıklayarak Office 365 hesabına ait ilgili bilgilerin kayıt formu üzerinde önceden doldurulmasını sağlayabilirsiniz. Aynı hesap varsayılan olarak Hizmet Yöneticisi rolüne atanacaktır.
-
-![Azure aboneliği kaydına yönelik bağlantı](./media/active-directory-manage-o365-subscription/AAD_O365_02.png)
+Bu makalede klasik Azure portalı kullanılarak bir Office 365 aboneliği için oluşturulmuş bir dizinin nasıl yönetileceği açıklanmaktadır. Klasik Azure portalında oturum açmak için Hizmet Yöneticisi veya bir Azure aboneliğinin ortak yöneticisi olmanız gerekir. Henüz bir Azure aboneliğiniz yoksa hemen [30 günlük ücretsiz deneme sürümüne](https://azure.microsoft.com/trial/get-started-active-directory/) kaydolabilir ve bu bağlantıyı kullanarak ilk bulut çözümünüzü 5 dakikadan kısa bir sürede dağıtabilirsiniz. Office 365'te oturum açmak için kullandığınız iş veya okul hesabını kullandığınızdan emin olun.
 
 Azure aboneliğini tamamladığınızda, klasik Azure portalında oturum açabilir ve Azure hizmetlerine erişebilirsiniz. Office 365 kullanıcılarınızın kimliğini doğrulayan dizini yönetmek için Active Directory uzantısına tıklayın.
 
@@ -47,7 +39,7 @@ Bu durumda, iki dizin birbirinden bağımsızdır.
 Michael Smith'in Azure'da msmith@hotmail.com olarak oturum açmış durumdayken her iki dizini de yönetebilmek için aşağıdaki adımları tamamlaması gerekir:
 
 > [AZURE.NOTE]
-> Bu adımlar, yalnızca kullanıcı bir Microsoft hesabıyla oturum açmış durumdayken tamamlanabilir. Kullanıcı bir iş veya okul hesabıyla oturum açmışsa bir iş veya okul hesabının kimlik doğrulaması yalnızca kendi ana dizini (iş veya okul hesabının depolandığı ve işin veya okulun sahibi olduğu dizin) tarafından gerçekleştirilebildiği için **Var olan dizini kullan** seçeneği kullanılamaz.
+> Bu adımlar, yalnızca kullanıcı bir Microsoft hesabıyla oturum açmış durumdayken tamamlanabilir. Kullanıcı bir iş veya okul hesabıyla kaydolursa **Var olan dizini kullan** seçeneği mevcut olmaz. Bir iş veya okul hesabının kimlik doğrulaması yalnızca kendi giriş dizini (diğer bir deyişle, iş veya okul hesabının depolandığı ve işletme ya da okulun sahip olduğu dizin) ile yapılabilir.
 
 1.  [Klasik Azure portalı](https://manage.windowsazure.com) üzerinde msmith@hotmail.com olarak oturum açın.
 2.  **New (Yeni)** > **App services (Uygulama hizmetleri)** > **Active Directory** > **Directory (Dizin)** > **Custom Create (Özel Oluştur)** düğmesine tıklayın.
@@ -60,17 +52,17 @@ Michael Smith'in Azure'da msmith@hotmail.com olarak oturum açmış durumdayken 
 Bu adımları tamamladıktan sonra msmith@hotmail.com Contoso dizininde genel yönetici olacaktır.
 
 ## Kaynakları genel yönetici olarak yönetmek için
-Şimdi Jane Doe'nun klasik Azure portalında oturum açması ve msmith@hotmail.com için Azure aboneliği ile ilişkili olan web sitelerini ve veritabanı kaynaklarını yönetmesi gerektiğini varsayalım. Bunu yapabilmesi için ilk olarak Michael Smith'in şu ek adımları tamamlaması gerekir:
+Şimdi Jane Doe'nun msmith@hotmail.com için Azure aboneliği ile ilişkili olan web sitelerini ve veritabanı kaynaklarını yönetmesi gerektiğini varsayalım. Bunu yapabilmesi için ilk olarak Michael Smith'in şu ek adımları tamamlaması gerekir:
 
 1.  [Klasik Azure portalı](https://manage.windowsazure.com) üzerinde Azure aboneliğine yönelik Hizmet Yöneticisi hesabını (bu örnekte msmith@hotmail.com) kullanarak oturum açın.
-2.  Aboneliği Contoso dizinine aktarma: **Ayarlar** > **Abonelikler**'e tıklayın > aboneliği seçin > **Dizini Düzenle**'yi seçin > **Contoso'yu (Contoso.com) seçin**. Aktarma işleminin bir parçası olarak, aboneliğin ortak yöneticisi olan tüm iş veya okul hesapları kaldırılacaktır.
-3.  Jane Doe'yu aboneliğin ortak yöneticisi olarak ekleme: **Ayarlar** > **Yöneticiler**'e tıklayın > aboneliği seçin > **Ekle**'yi seçin > **JohnDoe@Contoso.com** yazın.
+2.  Aboneliği Contoso dizinine aktarma: **Settings (Ayarlar)** > **Subscriptions (Abonelikler)** düğmesine tıklayın > aboneliği seçin > **Edit Directory (Dizini Düzenle)** seçeneğini belirleyin > **Contoso'yu (Contoso.com) seçin**. Aktarma işleminin bir parçası olarak, aboneliğin ortak yöneticisi olan tüm iş veya okul hesapları kaldırılır.
+3.  Jane Doe'yu aboneliğin ortak yöneticisi olarak ekleme: **Settings (Ayarlar)** > **Administrators (Yöneticiler)** seçeneğine tıklayın > aboneliği seçin > **Add (Ekle)** seçeneğini belirleyin > **JohnDoe@Contoso.com** yazın.
 
-##Sonraki adımlar
+## Sonraki adımlar
 Abonelikler ve dizinler arasındaki ilişki hakkında daha fazla bilgi için bkz. [Bir aboneliğin bir dizinle olan ilişkisi nedir?](active-directory-how-subscriptions-associated-directory.md).
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

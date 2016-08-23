@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/01/2016"
+   ms.date="06/20/2016"
    ms.author="ganesr"/>
 
 # ExpressRoute bağlantı hatlarını klasikten Resource Manager dağıtım modeline taşıma
@@ -112,6 +112,6 @@ Bu bölümde ExpressRoute bağlantı hatları için desteklenmeyen durumlar aç�
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

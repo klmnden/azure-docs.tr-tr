@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Başlarken: Azure SQL Data Warehouse'a Bağlanma | Microsoft Azure"
-   description="SQL Data Warehouse'a bağlanıp birkaç sorgu çalıştırarak başlayın."
+   pageTitle="Azure SQL Data Warehouse sorgulama (sqlcmd)| Microsoft Azure"
+   description="Azure SQL Data Warehouse’u sqlcmd Komut Satırı Yardımcı Programı ile sorgulama."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="sonyam"
@@ -13,41 +13,28 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/16/2016"
+   ms.date="07/22/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
-# SQLCMD ile bağlanma ve sorgulama
+# Azure SQL Data Warehouse sorgulama (sqlcmd)
 
 > [AZURE.SELECTOR]
-- [Visual Studio](sql-data-warehouse-get-started-connect.md)
-- [SQLCMD](sql-data-warehouse-get-started-connect-sqlcmd.md)
-- [AAD](sql-data-warehouse-get-started-connect-aad-authentication.md)
+- [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
+- [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
+- [Visual Studio](sql-data-warehouse-query-visual-studio.md)
+- [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
 
+Bu izlenecek yolda Azure SQL Data Warehouse’u sorgulamak için sqlcmd Komut Satırı Yardımcı Programı kullanılır.  
 
-Adım adım ilerleyeceğimiz bu bölümde sqlcmd.exe yardımcı programını kullanarak yalnızca birkaç dakika içinde bir Azure SQL Data Warehouse veritabanına nasıl bağlanacağınız ve veritabanını nasıl sorgulayacağınız gösterilmiştir. Bu bölümde şunları yapacaksınız:
+## Ön koşullar
 
-+ Önkoşul yazılımını yükleme
-+ AdventureWorksDW örnek veritabanını içeren bir veritabanına bağlanma
-+ Örnek veritabanında bir sorgu yürütme  
+Bu öğreticide ilerleyebilmeniz için şunlar gereklidir:
 
-## Önkoşullar
+-  [sqlcmd.exe][]. İndirmek için [SQL Server Windows için Microsoft ODBC Sürücüsü 11][]’i de gerektirebilecek [SQL Server için Microsoft Komut Satırı Yardımcı Programları 11][]’e bakın.
 
-+ [sqlcmd.exe][]'yi indirmek için lütfen bkz. [SQL Server için Microsoft Komut Satırı Yardımcı Programları 11][].
+## 1. Bağlan
 
-## Tam Azure SQL sunucu adınızı alma
-
-Veritabanınıza bağlanmak için, bağlanmak istediğiniz veritabanının bulunduğu sunucunun tam adı (***sunucuadı**.database.windows.net*) gerekir.
-
-1. [Azure portalına][] gidin.
-2. Bağlanmak istediğiniz veritabanına gözatın.
-3. Tam sunucu adını bulun (Bunu aşağıdaki adımlarda kullanacağız):
-
-![][1]
-
-
-## sqlcmd ile SQL Data Warehouse'a bağlanma
-
-sqlcmd kullanarak SQL Data Warehouse'un belirli bir örneğine bağlanmak için komut istemini açıp **sqlcmd** komutunu ve ardından SQL Data Warehouse veritabanınızın bağlantı dizesini girin. Bağlantı dizesi için şu parametreler gereklidir:
+Sqlcmd kullanmaya başlamadan önce komut istemini açın ve **sqlcmd** öğesinden sonra SQL Data Warehouse veritabanınızın bağlantı dizesini girin. Bağlantı dizesi için şu parametreler gereklidir:
 
 + **Server (-S):** `<`Sunucu Adı`>`.database.windows.net biçiminde belirtilmiş sunucu
 + **Database (-d):** Veritabanı adı.
@@ -55,48 +42,53 @@ sqlcmd kullanarak SQL Data Warehouse'un belirli bir örneğine bağlanmak için 
 + **Password (-P):** Kullanıcıyla ilişkili parola.
 + **Enable Quoted Identifiers (-I):** Bir SQL Data Warehouse örneğine bağlanmak için tırnak işaretli tanımlayıcıların etkinleştirilmesi gerekir.
 
-Bu nedenle bir SQL Data Warehouse örneğine bağlanmak için şunları girmeniz gerekir:
+Örneğin, bağlantı dizeniz aşağıdaki gibi görünebilir:
 
 ```sql
-C:\>sqlcmd -S <Server Name>.database.windows.net -d <Database> -U <User> -P <Password> -I
+C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I
 ```
 
-## Örnek sorgu çalıştırma
+> [AZURE.NOTE] Tırnak içindeki tanımlayıcıları etkinleştiren -I seçeneği şu anda SQL Data Warehouse’a bağlanmak için gereklidir.
 
-Bağlantının ardından desteklenen herhangi bir Transact-SQL deyimini örnekte yayımlayabilirsiniz.
+## 2. Sorgu
+
+Bağlantının ardından desteklenen herhangi bir Transact-SQL deyimini örnekte yayımlayabilirsiniz.  Bu örnekte sorgular etkileşimli modda gönderilir.
 
 ```sql
-C:\>sqlcmd -S <Server Name>.database.windows.net -d <Database> -U <User> -P <Password> -I
+C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I
 1> SELECT name FROM sys.tables;
 2> GO
 3> QUIT
 ```
 
-sqlcmd hakkında ek bilgi için bkz. [sqlcmd belgeleri][sqlcmd.exe].
+Bu sonraki örnekler -Q seçeneği kullanarak veya SQL’i sqlcmd öğesine ekleyerek sorgularınızı toplu iş modunda nasıl çalıştırabileceğinizi gösterir.
 
+```sql
+sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I -Q "SELECT name FROM sys.tables;"
+```
+
+```sql
+"SELECT name FROM sys.tables;" | sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I > .\tables.out
+```
 
 ## Sonraki adımlar
 
-Artık bağlanıp sorgulama yapabildiğinize göre [PowerBI ile bağlantı kurmayı][] deneyin.
+Sqlcmd’de kullanılabilen seçenekler hakkında daha fazla bilgi için bkz. [sqlcmd belgeleri][sqlcmd.exe].
 
-Ortamınızı Windows kimlik doğrulaması için yapılandırmak üzere bkz. [Azure Active Directory Kimlik Doğrulamasını Kullanarak SQL Database'e veya SQL Data Warehouse'a Bağlanma][].
+<!--Image references-->
 
-<!--Articles-->
-[Azure Active Directory Kimlik Doğrulamasını Kullanarak SQL Database'e veya SQL Data Warehouse'a Bağlanma]: ../sql-data-warehouse/sql-data-warehouse-get-started-connect-aad-authentication.md
-[PowerBI ile bağlantı kurmayı]: ./sql-data-warehouse-integrate-power-bi.md
-[Visual Studio]: ./sql-data-warehouse-get-started-connect.md
-[SQLCMD]: ./sql-data-warehouse-get-started-connect-sqlcmd.md
+<!--Article references-->
 
-<!--Other-->
-[sqlcmd.exe]: https://msdn.microsoft.com/en-us/library/ms162773.aspx
+<!--MSDN references--> 
+[sqlcmd.exe]: https://msdn.microsoft.com/library/ms162773.aspx
+[SQL Server Windows için Microsoft ODBC Sürücüsü 11]: https://www.microsoft.com/download/details.aspx?id=36434
 [SQL Server için Microsoft Komut Satırı Yardımcı Programları 11]: http://go.microsoft.com/fwlink/?LinkId=321501
 [Azure portalına]: https://portal.azure.com
 
-<!--Image references-->
-[1]: ./media/sql-data-warehouse-get-started-connect/get-server-name.png
+<!--Other Web references-->
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

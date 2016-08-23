@@ -1,6 +1,6 @@
 <properties
     pageTitle="Service Bus mesajlaşma hizmetine genel bakış | Microsoft Azure"
-    description="Service Bus Mesajlaşma Hizmeti: Bulutta Esnek Veri Teslimatı"
+    description="Service Bus Mesajlaşma hizmeti: bulutta esnek veri teslimatı"
     services="service-bus"
     documentationCenter=".net"
     authors="sethmanheim"
@@ -13,13 +13,13 @@
     ms.tgt_pltfrm="na"
     ms.devlang="multiple"
     ms.topic="get-started-article"
-    ms.date="03/09/2016"
+    ms.date="06/20/2016"
     ms.author="sethm"/>
 
 
 # Service Bus mesajlaşma hizmeti: bulutta esnek veri teslimatı
 
-Azure Service Bus mesajlaşma hizmeti, güvenilir bir bilgi teslimatı hizmetidir. Bu hizmetin amacı, iletişimi daha kolay hale getirmektir. İki veya daha fazla taraf bilgi değişimi gerçekleştirmek istediğinde bir iletişim mekanizmasına ihtiyaç duyarlar. Service Bus mesajlaşma hizmeti ise aracılı ya da üçüncü taraf iletişim mekanizmasıdır. Fiziksel dünyadaki posta hizmetine benzer şekilde işler. Posta hizmetleri, farklı türdeki mektupların ve paketlerin dünyanın her yanına çeşitli teslimat garantileriyle gönderilmesini oldukça kolaylaştırır.
+Microsoft Azure Service Bus mesajlaşma hizmeti, güvenilir bir bilgi teslimatı hizmetidir. Bu hizmetin amacı, iletişimi daha kolay hale getirmektir. İki veya daha fazla taraf bilgi değişimi gerçekleştirmek istediğinde bir iletişim mekanizmasına ihtiyaç duyarlar. Service Bus mesajlaşma hizmeti ise aracılı ya da üçüncü taraf iletişim mekanizmasıdır. Fiziksel dünyadaki posta hizmetine benzer şekilde işler. Posta hizmetleri, farklı türdeki mektupların ve paketlerin dünyanın her yanına çeşitli teslimat garantileriyle gönderilmesini oldukça kolaylaştırır.
 
 Posta hizmetlerinin mektup teslimatlarına benzer şekilde, Service Bus mesajlaşma hizmeti de hem alıcı hem de göndericilerden gelen esnek bilgi teslimatıdır. Mesajlaşma hizmeti, iki taraf aynı anda çevrimiçi veya tam olarak aynı anda kullanılabilir olmasalar da bilgilerin teslim edilmesini sağlar. Bu şekilde, mesajlaşma bir mektup göndermeye benzer; aracısız iletişim ise bir telefon araması gerçekleştirmeye (veya daha çok aracılı mesajlaşmaya benzeyen, çağrı bekletme ve arayan kimliğinden önceki telefon aramalarına) benzetilebilir.
 
@@ -39,7 +39,7 @@ Geçişli mesajlaşma birçok avantaj sunar ancak iletileri almak ve göndermek 
 
 ## Aracılı mesajlaşma
 
-Geçişli mesajlaşma şemasının aksine, [aracılı mesajlaşma](service-bus-fundamentals-hybrid-solutions.md) zaman uyumsuz veya "zamana bağlı olarak ayrılmış" olarak düşünülebilir. Üreticiler (göndericiler) ve tüketicilerin (alıcılar) aynı anda çevrimiçi olması gerekmez. Mesajlaşma altyapısı, kullanıcı tarafı almaya hazır olana kadar iletileri bir "aracıda" (kuyruk gibi) güvenli şekilde depolar. Bu özellik, dağıtılan uygulamanın bileşenlerinin isteğe bağlı olarak (örneğin, bakım için) veya bir bileşen çökmesinden dolayı sistemin tamamını etkilemeden bağlantısının kesilmesine olanak sağlar. Ayrıca, alıcı uygulamanın yalnızca günün belirli zamanlarında çevrimiçi olması gerekebilir. Örneğin, bir stok yönetim sisteminin sadece iş günü sonunda çalıştırılması gerekir.
+Geçişli mesajlaşma şemasının aksine, [aracılı mesajlaşma](service-bus-queues-topics-subscriptions.md) zaman uyumsuz veya "zamana bağlı olarak ayrılmış" olarak düşünülebilir. Üreticiler (göndericiler) ve tüketicilerin (alıcılar) aynı anda çevrimiçi olması gerekmez. Mesajlaşma altyapısı, kullanıcı tarafı almaya hazır olana kadar iletileri bir "aracıda" (kuyruk gibi) güvenli şekilde depolar. Bu özellik, dağıtılan uygulamanın bileşenlerinin isteğe bağlı olarak (örneğin, bakım için) veya bir bileşen çökmesinden dolayı sistemin tamamını etkilemeden bağlantısının kesilmesine olanak sağlar. Ayrıca, alıcı uygulamanın yalnızca günün belirli zamanlarında çevrimiçi olması gerekebilir. Örneğin, bir stok yönetim sisteminin sadece iş günü sonunda çalıştırılması gerekir.
 
 Service Bus aracılı mesajlaşma altyapısının temel bileşenleri kuyruklar, konu başlıkları ve aboneliklerdir.  Bu bileşenler arasındaki temel fark ise konu başlıklarının, birden çok alıcıya gönderim yapma dahil olmak üzere gelişmiş içerik tabanlı yönlendirme ve teslimat mantığı için kullanılabilen yayımla/abone ol işlevlerini desteklemesidir. Bu bileşenler zamana bağlı ayırma, yayımla/abone ol ve yük dengelemesi gibi yeni, zaman uyumsuz mesajlaşma senaryolarına olanak sağlar. Bu mesajlaşma varlıkları hakkında daha fazla bilgi edinmek için bkz. [Service Bus kuyrukları, konu başlıkları ve abonelikleri](service-bus-queues-topics-subscriptions.md).
 
@@ -49,15 +49,15 @@ Geçişli mesajlaşma altyapısı sayesinde, aracılı mesajlaşma işlevi WCF v
 
 Service Bus mesajlaşma hizmeti hakkında daha fazla bilgi edinmek için aşağıdaki konu başlıklarına bakın.
 
-- [Service Bus kuyrukları, konu başlıkları ve abonelikleri](service-bus-queues-topics-subscriptions.md)
 - [Service Bus ile ilgili temel bilgiler](service-bus-fundamentals-hybrid-solutions.md)
+- [Service Bus kuyrukları, konu başlıkları ve abonelikleri](service-bus-queues-topics-subscriptions.md)
 - [Service Bus mimarisi](service-bus-architecture.md)
-- [Service Bus Kuyruklarını Kullanma](service-bus-dotnet-how-to-use-queues.md)
-- [Service Bus Konu Başlıklarını Kullanma](service-bus-dotnet-how-to-use-topics-subscriptions.md)
+- [Service Bus kuyruklarını kullanma](service-bus-dotnet-get-started-with-queues.md)
+- [Service Bus konu başlıklarını ve aboneliklerini kullanma](service-bus-dotnet-how-to-use-topics-subscriptions.md)
  
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

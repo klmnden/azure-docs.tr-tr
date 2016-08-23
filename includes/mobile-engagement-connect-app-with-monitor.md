@@ -8,13 +8,13 @@ Bu bölümde, uygulamanızın Mobile Engagement'ın gerçek zamanlı izleme öze
 
 3. İzleyici, uygulamanızı başlatacak cihazları gerçek zamanlı olarak göstermeye hazırdır.
      
-4. Uygulamanızı öykünücüde/benzeticide veya bağlı bir cihazda başlatın. Tümleştirmeniz doğruysa izleyicide tek oturum görmeniz gerekir; başka bir deyişle uygulamanızın artık Mobile Engagement arka ucuna bağlı olduğunu ve buna veri gönderdiğini görürsünüz.  
+4. Uygulamanızı şimdi başlatın. Tümleştirmeniz doğruysa izleyicide tek oturum görmeniz gerekir; başka bir deyişle uygulamanızın artık Mobile Engagement arka ucuna bağlı olduğunu ve buna veri gönderdiğini görürsünüz.  
     
      ![](./media/mobile-engagement-connect-app-with-monitor/monitor.png)
 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

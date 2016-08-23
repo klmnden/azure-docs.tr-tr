@@ -4,7 +4,7 @@
     services="active-directory"
     documentationCenter=""
     authors="kgremban"
-    manager="stevenpo"
+    manager="femila"
     editor=""/>
 
 <tags
@@ -13,18 +13,13 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/01/2016"
+    ms.date="07/19/2016"
     ms.author="kgremban"/>
 
 
 # Azure AD Uygulama Ara Sunucusu ile uygulama yayımlama
 
-
-Microsoft Azure Active Directory (AD) Uygulama Ara Sunucusunu etkinleştirdikten sonra, uzak kullanıcıların özel ağ dışından erişebilmeleri için şirket içi uygulamaları yayımlayabilirsiniz.
-
-Bu makalede, yerel ağınızda çalışan uygulamaları yayımlamaya ve ağınızın dışından güvenli uzaktan erişim sağlamaya ilişkin adımlar bulunur. Uygulama Ara Sunucusunu ayarlamadıysanız veya herhangi bir Bağlayıcıyı yüklemediyseniz devam etmeden önce [Azure portalında Uygulama Ara Sunucusunu Etkinleştirme](active-directory-application-proxy-enable.md) makalesinde belirtilen adımları uygulayın.
-
-Azure AD Uygulama Ara Sunucusunu ilk defa kullanıyorsanız uygulamaları yayımlamadan önce, özel ağınızdan bir web sitesi yayımlayarak Bağlayıcıyı test etmenizi öneririz.
+Azure AD Uygulama Proxy’si internet üzerinden erişilecek şirket içi uygulamalar yayımlayarak uzak çalışanları desteklemenize yardımcı olur. Bu noktaya kadar [Klasik Azure portalında Uygulama Proxy'si etkinleştirmiş olmanız](active-directory-application-proxy-enable.md) gerekir. Bu makalede, yerel ağınızda çalışan uygulamaları yayımlamaya ve ağınızın dışından güvenli uzaktan erişim sağlamaya ilişkin adımlar bulunur. Bu makaleyi tamamladıktan sonra uygulamayı kişiselleştirilmiş bilgiler veya güvenlik gereksinimleri ile yapılandırmaya hazır olursunuz.
 
 > [AZURE.NOTE] Uygulama Ara Sunucusu özelliğini, yalnızca Azure Active Directory'nin Premium veya Basic sürümüne yükseltmeniz halinde kullanabilirsiniz. Daha fazla bilgi için bkz. [Azure Active Directory sürümleri](active-directory-editions.md).
 
@@ -35,21 +30,24 @@ Azure AD Uygulama Ara Sunucusunu ilk defa kullanıyorsanız uygulamaları yayım
 
     ![Active Directory - simge](./media/active-directory-application-proxy-publish/ad_icon.png)
 
-3. **Uygulamalar** sekmesine tıklayın ve ardından ekranın altındaki **Ekle** düğmesine tıklayın.
+3. **Applications (Uygulamalar)** sekmesine tıklayın ve ardından ekranın altındaki **Add (Ekle)** düğmesine tıklayın.
 
     ![Uygulama ekleme](./media/active-directory-application-proxy-publish/aad_appproxy_selectdirectory.png)
 
-4. **Ağınızın dışından erişilebilecek olan bir uygulamayı yayımlama** seçeneğini belirleyin.
+4. **Publish an application that will be accessible from outside your network (Ağınızın dışından erişilebilecek olan bir uygulamayı yayımlama)** seçeneğini belirleyin.
 
     ![Ağınızın dışından erişilebilecek olan bir uygulamayı yayımlama](./media/active-directory-application-proxy-publish/aad_appproxy_addapp.png)
 
 5. Uygulamanız ile ilgili şu bilgileri sağlayın:
 
-    - **Ad**: Uygulamanız için kolay ad. Bu ad, dizininizde benzersiz olmalıdır.
-    - **İç URL**: Uygulama Ara Sunucusu Bağlayıcısının özel ağınızdan uygulamaya erişmek için kullandığı adres. Arka uç sunucusundaki belirli bir yolun yayımlanmasını sağlayabilirsiniz. Sunucunun geri kalanı yayımlanmaz. Bu şekilde aynı sunucuda farklı siteleri yayımlayabilir; her biri için farklı bir ad ve erişim kuralları belirleyebilirsiniz.
-    - **Ön Kimlik Doğrulama Yöntemi**: Uygulama Ara Sunucusunun, uygulamanıza erişim izni vermeden önce kullanıcıları doğrulama yöntemi. Açılır menüdeki seçeneklerden birini belirleyin.
+    - **Name (Ad)**: Uygulamanız için kolay ad. Bu ad, dizininizde benzersiz olmalıdır.
+    - **Internal URL (İç URL)**: Uygulama Ara Sunucusu Bağlayıcısının özel ağınızdan uygulamaya erişmek için kullandığı adres. Arka uç sunucusundaki belirli bir yolun yayımlanmasını sağlayabilirsiniz. Sunucunun geri kalanı yayımlanmaz. Bu şekilde aynı sunucuda farklı siteleri yayımlayabilir; her biri için farklı bir ad ve erişim kuralları belirleyebilirsiniz.
 
-        - Azure Active Directory: Uygulama Ara Sunucusu, kullanıcıları Azure AD'de oturum açmaya yönlendirir. Burada, kullanıcıların dizin ve uygulama izinlerine yönelik kimlik doğrulaması gerçekleştirilir.
+        > [AZURE.TIP] Bir yol yayımlarsanız uygulamanıza ilişkin tüm gerekli görüntüleri, betikleri ve stil sayfalarını içerdiğinden emin olun. Örneğin, uygulamanız https://yourapp/app üzerindeyse ve https://yourapp/media üzerindeki görüntüleri kullanıyorsa yolu https://yourapp/ olarak yayımlamanız gerekir.
+
+    - **Ön Kimlik Doğrulama Yöntemi**: Uygulama Proxy’nizin uygulamanıza erişim izni vermeden önce kullanıcıları doğrulama yöntemi. Açılan menüdeki seçeneklerden birini belirleyin.
+
+        - Azure Active Directory: Uygulama Proxy’si, kullanıcıları Azure AD'de oturum açmaya yönlendirir. Burada, kullanıcıların dizin ve uygulama izinlerine yönelik kimlik doğrulaması gerçekleştirilir.
         - Geçiş: Kullanıcıların uygulamaya erişmek için kimliklerini doğrulaması gerekmez.
 
     ![Uygulama özellikleri](./media/active-directory-application-proxy-publish/aad_appproxy_appproperties.png)  
@@ -59,7 +57,9 @@ Azure AD Uygulama Ara Sunucusunu ilk defa kullanıyorsanız uygulamaları yayım
 
 ## Uygulamaya kullanıcı ve grup atama
 
-Kullanıcılarınızın yayımlanan uygulamanıza erişmeleri için onları ayrı ayrı veya gruplar halinde atamanız gerekir. Bu, ön kimlik doğrulaması gerektiren uygulamalar için uygulamayı kullanma izni verir. Ön kimlik doğrulaması gerektirmeyen uygulamalar için kullanıcıların izne ihtiyacı yoktur ancak yine de uygulamanın kendi uygulama listelerinde görünmesi için uygulamaya atanmaları gerekir.
+Kullanıcılarınızın yayımlanan uygulamanıza erişmeleri için onları ayrı ayrı veya gruplar halinde atamanız gerekir. (Kendinize de erişim atamayı unutmayın.) Bunun için her kullanıcının Azure Temel veya daha yüksek bir lisansının olması gerekir. Lisansları ayrı ayrı veya gruplara atayabilirsiniz. Daha fazla ayrıntı için bkz. [Uygulamaya kullanıcı atama](active-directory-applications-guiding-developers-assigning-users.md). 
+
+Bu, ön kimlik doğrulaması gerektiren uygulamalar için uygulamayı kullanma izni verir. Ön kimlik doğrulaması gerektirmeyen uygulamalar için kullanıcılar MyApps gibi uygulama listelerinde görünmesi için uygulamaya yine de atanabilir.
 
 1. Uygulama Ekleme sihirbazını tamamladıktan sonra uygulamanıza ilişkin Hızlı Başlangıç sayfasını görürsünüz. Uygulamaya kimlerin erişebildiğini yönetmek için **Kullanıcılar ve gruplar**'ı seçin.
 
@@ -73,8 +73,11 @@ Kullanıcılarınızın yayımlanan uygulamanıza erişmeleri için onları ayr�
 
 > [AZURE.NOTE] Tümleşik Windows Kimlik Doğrulaması Uygulamaları için yalnızca şirket içi Active Directory'nizden eşitlenen kullanıcıları ve grupları atayabilirsiniz. Microsoft hesabı ile oturum açan kullanıcılar ve konuklar, Azure Active Directory Uygulama Ara Sunucusu ile yayımlanan uygulamalar için atanamaz. Kullanıcılarınızın yayımladığınız uygulama ile aynı etki alanının parçası olan kimlik bilgileriyle oturum açtıklarından emin olun.
 
+## Yayımlanan uygulamanızı test etme
 
-## Gelişmiş yapılandırma
+Uygulamanızı yayımladıktan sonra, yayımladığınız URL'ye giderek uygulamayı sınayabilirsiniz. Uygulamaya erişebildiğinizden, doğru şekilde işlediğinden ve her şeyin beklendiği gibi çalıştığından emin olun. Sorun varsa veya bir hata iletisi alırsanız [sorun giderme kılavuzunu](active-directory-application-proxy-troubleshoot.md) deneyin.
+
+## Uygulamanızı yapılandırma
 
 Yapılandırma sayfasında, yayımlanan uygulamaları değiştirebilir veya gelişmiş seçenekler belirleyebilirsiniz. Bu sayfada, ad değiştirerek veya bir logoyu karşıya yükleyerek uygulamanızı özelleştirebilirsiniz. Ayrıca, ön kimlik doğrulama yöntemi veya çok faktörlü kimlik doğrulaması gibi erişim kurallarını yönetebilirsiniz.
 
@@ -83,7 +86,7 @@ Yapılandırma sayfasında, yayımlanan uygulamaları değiştirebilir veya geli
 
 Uygulamalar, Azure Active Directory Uygulama Ara Sunucusu kullanılarak yayımladıktan sonra Azure AD'de Uygulamalar listesinde görünür ve onları burada yönetebilirsiniz.
 
-Uygulamaları yayımladıktan sonra Uygulama Ara Sunucusu hizmetlerini devre dışı bırakırsanız uygulamalar silinmez ancak onlara özel ağınızın dışından erişemezsiniz.
+Uygulamaları yayımladıktan sonra Uygulama Proxy hizmetlerini devre dışı bırakırsanız uygulamalara özel ağınızın dışından erişemezsiniz. Bunun yapılması uygulamaları silmez.
 
 Bir uygulamayı görüntülemek ve erişilebilir durumda olduğundan emin olmak için uygulamanın adına çift tıklayın. Uygulama Ara Sunucusu hizmeti devre dışı bırakılır ve uygulama kullanılamazsa ekranın üstünde bir uyarı iletisi görünür.
 
@@ -100,6 +103,6 @@ En yeni haberler ve güncelleştirmeler için [Uygulama Ara Sunucusu bloguna](ht
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

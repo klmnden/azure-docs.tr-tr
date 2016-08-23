@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="04/05/2016"
+   ms.date="06/27/2016"
    ms.author="guscatal;elizapo"/>
 
 
@@ -69,6 +69,6 @@ Bu uygulamalardan herhangi birine tıkladığınızda, uygulama Azure sanal maki
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 

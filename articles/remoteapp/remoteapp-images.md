@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="04/05/2016"
+    ms.date="08/02/2016"
     ms.author="elizapo" />
 
 # Azure RemoteApp şablon görüntülerinde neler var?
@@ -61,7 +61,7 @@ Bu görüntü, temel alınan görüntünün bir uzantısıdır ve Windows Server
 - Excel
 - Lync
 - OneNote
-- OneDrive İş
+- OneDrive İş (eşitleme aracısının Azure RemoteApp ile kullanılması desteklenmez)
 - Outlook
 - PowerPoint
 - Word
@@ -94,7 +94,7 @@ Bu görüntü, temel alınan görüntünün bir uzantısıdır ve Windows Server
 - Excel
 - Lync
 - OneNote
-- OneDrive İş
+- OneDrive İş (eşitleme aracısının Azure RemoteApp ile kullanılması desteklenmez)
 - Outlook
 - PowerPoint
 - Project
@@ -106,6 +106,6 @@ Bu görüntü, temel alınan görüntünün bir uzantısıdır ve Windows Server
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 
