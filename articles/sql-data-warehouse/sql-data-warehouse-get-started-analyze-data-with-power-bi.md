@@ -101,7 +101,7 @@ Size örnek verilerle alıştırma yapmanız için biraz zaman tanıdığımıza
 [12]:./media/sql-data-warehouse-get-started-analyze-data-with-power-bi/pbi-save.png
 
 <!--Article references-->
-[geçirme]: ./sql-data-warehouse-overview-migrate.md
+[aktarma]: ./sql-data-warehouse-overview-migrate.md
 [geliştirme]: ./sql-data-warehouse-overview-develop.md
 [yükleme]: ./sql-data-warehouse-overview-load.md
 [örnek verileri el ile yükleyebilirsiniz]: ./sql-data-warehouse-get-started-manually-load-samples.md
