@@ -40,7 +40,7 @@ Bu öğreticiyi tamamlamak Android uygulamalarına ilişkin diğer tüm Notifica
 
 ##Google Cloud Messaging'i destekleyen bir proje oluşturma
 
-[AZURE.INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-google-cloud-messaging.md)]
+[AZURE.INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-Google-cloud-messaging.md)]
 
 
 ##Yeni bir bildirim hub'ı yapılandırma
@@ -727,6 +727,6 @@ Notification Hubs hakkında daha fazla genel bilgi edinmek için bkz. [Notificat
 
 
 
-<!-----HONumber=Jun16_HO2-->
+<!------HONumber=Jun16_HO2-->
 
 
