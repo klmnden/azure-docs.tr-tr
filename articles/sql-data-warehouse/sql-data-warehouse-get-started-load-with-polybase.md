@@ -135,7 +135,7 @@ Bu adımdaki örnekte, bir dış tablo oluşturmak için aşağıdaki Transact-S
 - [Create Master Key (Transact-SQL)][]: Veritabanı kapsamlı kimlik bilgileri anahtarınızı şifrelemek için kullanılır.
 - [Create Database Scoped Credential (Transact-SQL)][]: Azure depolama hesabınız için kimlik doğrulama bilgilerinin belirtilmesi için kullanılır.
 - [Create External Data Source (Transact-SQL)][]: Azure blob depolama alanınızın konumunu belirtmek için kullanılır.
-- [Create External File Format (Transact-SQL) ][]: Verilerinizin biçimini belirtmek için kullanılır.
+- [Create External File Format (Transact-SQL)][]: Verilerinizin biçimini belirtmek için kullanılır.
 - [Create External Table (Transact-SQL)][]: Tablo tanımını ve verilerin konumunu belirtmek için kullanılır.
 
 Bu sorguyu SQL Data Warehouse veritabanınızda çalıştırın. Bu sorgu, Azure blob depolama alanındaki DimDate2.txt örnek verilerini gösteren dbo şemasında DimDate2External adlı bir dış tablo oluşturacak.
@@ -287,6 +287,6 @@ PolyBase kullanan bir çözüm geliştirirken bilmeniz gereken daha fazla bilgi 
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!---HONumber=Aug16_HO1-->
 
 
