@@ -51,7 +51,7 @@ Bu öğretici, anında iletme bildirimlerini etkinleştirmek için şu temel ad�
 
     ![Google Cloud Console - Sunucu Anahtarı][3]
 
-4. Sol bölmede **Credentials** (Kimlik Bilgileri) > **Create New Key** (Yeni Anahtar Oluştur) > **Server Key** (Sunucu Anahtarı) > **Create** (Oluştur) seçeneklerine tıklayın.
+4. Sol bölmede **Credentials (Kimlik Bilgileri)**  > **Create New Key (Yeni Anahtar Oluştur)**  > **Server Key (Sunucu Anahtarı)**  > **Create (Oluştur)** seçeneklerine tıklayın.
 
     ![Google Cloud Console - Kimlik Bilgileri][4]
 
@@ -76,7 +76,7 @@ Bildirim hub'ınız şimdi GCM ile birlikte çalışmak üzere yapılandırıld�
 
 Aşağıdaki örnek, [Chrome Uygulaması GCM Örneği]'ni temel alır ve Chrome Uygulaması oluşturmak için önerilen yöntemi kullanır. Özellikle Azure Notification Hubs ile ilgili olan adımları vurgulayacağız. 
 
->[AZURE.NOTE] Bu Chrome Uygulamasının kaynağını [Chrome Uygulaması Bildirim Hub’ı Örneği]’nden indirmenizi öneririz.
+>[AZURE.NOTE] \[Chrome Uygulaması Bildirim Hub'ı Örneği]'nden bu Chrome Uygulamasının kaynağını indirmenizi öneririz.
 
 Chrome Uygulaması JavaScript aracılığıyla oluşturulur ve bunu oluşturmak için tercih ettiğiniz herhangi bir sözcük düzenleyicisini kullanabilirsiniz. Aşağıda, bu Chrome Uygulamasının nasıl görüneceği gösterilmektedir.
 
@@ -353,7 +353,7 @@ Chrome Uygulaması JavaScript aracılığıyla oluşturulur ve bunu oluşturmak 
     - **registerWithNH**, Notification Hubs'a kaydedilen ikinci düğme tıklama işleyicisidir. `hubName` ve `connectionString` öğelerini (kullanıcı tarafından belirtilen) alır ve Notification Hubs Kayıt REST API'si çağrısını işler.
     - **splitConnectionString** ve **generateSaSToken**, tüm REST API çağrılarında kullanılması gereken SaS belirteci oluşturma işleminin JavaScript uygulamasını temsil eden yardımcılardır. Daha fazla bilgi için bkz. [Ortak Kavramlar](http://msdn.microsoft.com/library/dn495627.aspx).
     - **sendNHRegistrationRequest**, Azure Notification Hubs'a HTTP REST çağrısı yapan işlevdir.
-    - **registrationPayload** kayıt XML yükünü tanımlar. Daha fazla bilgi için bkz. [Kayıt NH REST API'si oluşturma]. Burada, GCM'den aldıklarımız ile kayıt kimliğini güncelleştiririz.
+    - **registrationPayload** kayıt XML yükünü tanımlar. Daha fazla bilgi için bkz. [Kayıt NH REST API’si oluşturma]. Burada, GCM'den aldıklarımız ile kayıt kimliğini güncelleştiririz.
     - **client**, HTTP POST isteği yapmak için kullandığımız bir **XMLHttpRequest** örneğidir. `Authorization` üst bilgisini `sasToken` ile güncelleştirdiğimizi unutmayın. Bu çağrının başarıyla tamamlanması, bu Chrome Uygulaması örneğinin Azure Notification Hubs'a kaydedilmesini sağlar.
 
 
@@ -374,11 +374,11 @@ Bu proje için genel klasör yapısı şuna benzemelidir:
 
     ![Google Chrome - Chrome Uygulaması Ekranı][18]
 
-4. Daha önce **Google Cloud Console**'dan aldığınız **Project Number**'ı (Proje Numarası) Gönderen Kimliği olarak girin ve **Register with GCM** (GCM'ye Kaydet) seçeneğine tıklayın. **Registration with GCM succeeded** (GCM kaydı başarılı) iletisini görmeniz gerekir.
+4. Daha önce **Google Cloud Console**'dan aldığınız **Project Number (Proje Numarası) ** değerini Gönderen Kimliği olarak girin ve **Register with GCM (GCM'ye Kaydet)** seçeneğine tıklayın. **Registration with GCM succeeded (GCM kaydı başarılı)** iletisini görmeniz gerekir.
 
     ![Google Chrome - Chrome Uygulamasını Özelleştirme][19]
 
-5. **Notification Hub Name**'i (Bildirim Hub'ı Adı) ve daha önce portaldan edindiğiniz **DefaultListenSharedAccessSignature** dizesini girin, ardından **Register with Azure Notification Hub**'a (Azure Notification Hub'ına kaydet) tıklayın. **Notification Hub Registration successful!** (Notification Hub'ı Kaydı başarılı!) iletisini ve Azure Notification Hubs kayıt kimliğini içeren kayıt yanıtının ayrıntılarını görmeniz gerekir.
+5. **Notification Hub Name (Bildirim Hub'ı Adı)** değerini ve daha önce portaldan edindiğiniz **DefaultListenSharedAccessSignature** dizesini girin, ardından **Register with Azure Notification Hub (Azure Notification Hub'ına kaydet)** seçeneğine tıklayın. **Notification Hub Registration successful! (Notification Hub'ı Kaydı başarılı!) ** iletisini ve Azure Notification Hubs kayıt kimliğini içeren kayıt yanıtının ayrıntılarını görmeniz gerekir.
 
     ![Google Chrome - Notification Hub'ı Ayrıntılarını Belirtme][20]  
 
@@ -464,7 +464,7 @@ Kullanıcılarınızı ilgi alanı gruplarına göre segmentlere ayırmak istiyo
 [21]: ./media/notification-hubs-chrome-get-started/FinalFolderView.png
 
 <!-- URLs. -->
-[Chrome Uygulaması Bildirim Hub’ı Örneği]: http://google.com
+[Chrome Uygulaması Bildirim Hub'ı Örneği]: http://google.com
 [Google Cloud Console]: http://cloud.google.com/console
 [Klasik Azure Portalı]: https://manage.windowsazure.com/
 [Notification Hubs'a Genel Bakış]: http://msdn.microsoft.com/library/jj927170.aspx

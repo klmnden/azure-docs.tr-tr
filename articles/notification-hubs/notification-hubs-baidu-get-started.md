@@ -71,7 +71,7 @@ Baidu hesabınızı etkinleştirdikten sonra, [Baidu portalında] oturum açın.
 
     ![][7]
 
-4. Sonraki sayfada sağ üst köşedeki menüden **注册开b发者** (**Kayıtlı Geliştiriciler**) öğesine tıklayın.
+4. Sonraki sayfada sağ üst köşedeki menüden **注册开发者** (**Kayıtlı Geliştiriciler**) öğesine tıklayın.
 
     ![][8]
 
@@ -157,11 +157,11 @@ Bir Baidu bulut anında iletme projesi oluşturduğunuzda, uygulama kimliğinizi
 
     ![][19]
 
-6. **Baidu bildirim ayarları** bölümüne doğru aşağı kaydırın ve Baidu bulut anında iletme projeniz için önceden Baidu konsolundan elde ettiğiniz API anahtarını ve gizli anahtarı girin. **Save (Kaydet)** düğmesine tıklayın.
+6. **Baidu bildirim ayarları** bölümüne doğru aşağı kaydırın ve Baidu bulut anında iletme projeniz için önceden Baidu konsolundan elde ettiğiniz API anahtarını ve gizli anahtarı girin. **Kaydet** düğmesine tıklayın.
 
     ![][20]
 
-7. Bildirim hub'ı için en üstteki **Pano** sekmesine tıklayın ve ardından **Bağlantı Dizesini Görüntüleme**'ye tıklayın.
+7. Bildirim hub'ı için en üstteki **Pano** sekmesine tıklayın ve ardından **Bağlantı Dizesini Görüntüle**'ye tıklayın.
 
     ![][21]
 
@@ -189,7 +189,7 @@ Bir Baidu bulut anında iletme projesi oluşturduğunuzda, uygulama kimliğinizi
 
 5. [Bintray'deki Notification-Hubs-Android-SDK'sının](https://bintray.com/microsoftazuremobile/SDK/Notification-Hubs-Android-SDK/0.4) **Dosyalar** sekmesinden notification-hubs-0.4.jar dosyasını indirin. Dosyaları Eclipse projenizin **libs** klasörüne ekleyin ve *libs* klasörünü yenileyin.
 
-6. [Baidu Anında İletme Android SDK'sını] indirip sıkıştırmasını açın, **libs** klasörünü açın ve ardından Android uygulamanızdaki **libs** klasörüne **pushservice-x.y.z** jar dosyasını ve **armeabi** & **mips** klasörlerini kopyalayın.
+6. [Baidu Anında İletme Android SDK’sını] indirip sıkıştırmasını açın, **libs** klasörünü açın ve ardından Android uygulamanızdaki **libs** klasörüne **pushservice-x.y.z** jar dosyasını ve **armeabi** & **mips** klasörlerini kopyalayın.
 
 7. Android projenizin **AndroidManifest.xml** dosyasını açın ve Baidu SDK'sı için gereken izinleri ekleyin.
 

@@ -271,7 +271,7 @@ ADM'yi desteklemesi için uygulama bildiriminizi düzenleyin:
 
 <!-- URLs. -->
 [Amazon geliştirici portalı]: https://developer.amazon.com/home.html
-[SDK’yı indirin]: https://developer.amazon.com/public/resources/development-tools/sdk
+[SDK'yı indirin]: https://developer.amazon.com/public/resources/development-tools/sdk
 
 [0]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-portal1.png
 [1]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-portal2.png
