@@ -13,7 +13,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="dotnet"
     ms.workload="na"
-    ms.date="06/07/2016"
+    ms.date="08/23/2016"
     ms.author="jotaub;sethm"/>
 
 # Service Bus Kuyruklarını kullanmaya başlama
@@ -54,7 +54,7 @@ Daha önce oluşturduğunuz bir Service Bus kuyruğu varsa [Kuyruğa ileti gönd
 
 ## 3. Kuyruğa ileti gönderme
 
-Kuyruğa ileti göndermek için, Visual Studio kullanarak bir C# konsolu uygulaması yazacağız.
+Kuyruğa ileti göndermek için, Visual Studio’yu kullanarak bir C# konsolu uygulaması yazacağız.
 
 ### Konsol uygulaması oluşturma
 
@@ -111,13 +111,13 @@ Kuyruğa ileti göndermek için, Visual Studio kullanarak bir C# konsolu uygulam
     }
     ```
   
-3. Programı çalıştırın ve Klasik Azure portalını denetleyin. **Kuyruk Uzunluğu** değeri artık 1 olmalıdır.
+3. Programı çalıştırın ve Azure portalı denetleyin. Ad alanı **Genel Bakış** dikey penceresinde kuyruğunuzun adına tıklayın. **Etkin ileti sayısı**’nın şimdi 1 olması gerektiğini fark edebilirsiniz.
     
-      ![Kuyruk uzunluğu][queue-length-send]
+      ![İleti sayısı][queue-message]
     
 ## 4. Kuyruktan ileti alma
 
-1. Yeni bir konsol uygulaması oluşturun ve Service Bus NuGet paketine, yukarıdaki uygulama göndermeye benzer bir başvuru ekleyin.
+1. Yeni bir konsol uygulaması oluşturun ve Service Bus NuGet paketine, daha önceki gönderme uygulamasına benzer bir başvuru ekleyin.
 
 2. Aşağıdaki `using` deyimini Program.cs dosyasının üst kısmına ekleyin.
   
@@ -173,7 +173,7 @@ Kuyruğa ileti göndermek için, Visual Studio kullanarak bir C# konsolu uygulam
   
 4. Programı çalıştırın ve portalı denetleyin. **Kuyruk Uzunluğu** değeri şu anda 0 olmalıdır.
 
-    ![Kuyruk uzunluğu][queue-length-receive]
+    ![Kuyruk uzunluğu][queue-message-receive]
   
 Tebrikler! Bir kuyruk oluşturdunuz, ileti gönderdiniz ve ileti aldınız.
 
@@ -184,8 +184,8 @@ Azure Service Bus mesajlaşmasının daha gelişmiş özelliklerinden bazıları
 <!--Image references-->
 
 [nuget-pkg]: ./media/service-bus-dotnet-get-started-with-queues/nuget-package.png
-[queue-length-send]: ./media/service-bus-dotnet-get-started-with-queues/queue-length-send.png
-[queue-length-receive]: ./media/service-bus-dotnet-get-started-with-queues/queue-length-receive.png
+[queue-message]: ./media/service-bus-dotnet-get-started-with-queues/queue-message.png
+[queue-message-receive]: ./media/service-bus-dotnet-get-started-with-queues/queue-message-receive.png
 
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
@@ -193,6 +193,6 @@ Azure Service Bus mesajlaşmasının daha gelişmiş özelliklerinden bazıları
 [github-samples]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

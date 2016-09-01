@@ -14,7 +14,7 @@
  ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="05/25/2016"
+ ms.date="08/09/2016"
  ms.author="dobett"/>
 
 # Azure IoT Paketi önceden yapılandırılmış çözümleri nelerdir?
@@ -24,7 +24,7 @@ Azure IoT Paketi önceden yapılandırılmış çözümleri, aboneliği kullanar
 - Kendi IoT çözümleriniz için bir başlangıç noktası olarak.
 - IoT çözüm tasarımı ve geliştirmesinde ortak yaklaşımlar hakkında bilgi edinmek için.
 
-Önceden yapılandırılmış her çözüm tam, uçtan uca, telemetri oluşturmak için sanal cihazları kullanan bir uygulamadır.
+Önceden yapılandırılmış her çözüm, telemetri oluşturmak için tam, uçtan uca sanal cihazları kullanan bir uygulamadır.
 
 Azure’de çözümleri dağıtmanın ve çalıştırmanın yanı sıra, tam kaynak kodunu indirebilir, sonra da size özel IoT gereksinimlerini karşılaması için bunu özelleştirebilir ve uzatabilirsiniz.
 
@@ -132,6 +132,6 @@ IoT çözümü mimarileri hakkında daha fazla bilgi için bkz. [Microsoft Azure
 [Ink-get-started-preconfigured]: iot-suite-getstarted-preconfigured-solutions.md
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

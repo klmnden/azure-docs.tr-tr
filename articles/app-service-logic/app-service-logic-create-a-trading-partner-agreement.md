@@ -13,7 +13,7 @@
     ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="04/20/2016"
+   ms.date="08/23/2016"
    ms.author="rajram"/>
 
 # Ticari Ortak Sözleşmesi Oluşturma   
@@ -81,6 +81,6 @@ Ticari ortak sözleşmeleri oluşturmak için:
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

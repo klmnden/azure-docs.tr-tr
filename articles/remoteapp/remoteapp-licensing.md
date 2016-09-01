@@ -12,12 +12,14 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/18/2016"
+    ms.date="08/15/2016"
     ms.author="elizapo" />
 
 
 # Azure RemoteApp’te lisanslama nasıl çalışır?
 
+> [AZURE.IMPORTANT]
+> Azure RemoteApp kullanımdan kaldırılıyor. Ayrıntılı bilgi için [duyuruyu](https://go.microsoft.com/fwlink/?linkid=821148) okuyun.
 
 Azure RemoteApp hizmetinizi ayarladınız, şablonlarınızı oluşturdunuz ve kullanıcılarınıza uygulama yayımlamaya hazırsınız. Ancak hala çözülmesi gereken son bir konu var: lisanslama. RemoteApp ve RemoteApp aracılığıyla paylaştığınız uygulamalar için lisanslama nasıl çalışır?
 
@@ -37,6 +39,6 @@ Lütfen bir bulut koleksiyonunda CAL veya Toplu Lisans sözleşmesi kullanamayac
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

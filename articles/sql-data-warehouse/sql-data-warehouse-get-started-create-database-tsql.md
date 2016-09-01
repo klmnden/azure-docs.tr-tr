@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/20/2016"
+   ms.date="08/16/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Transact-SQL (TSQL) kullanarak SQL Data Warehouse oluşturma
@@ -39,7 +39,7 @@ Başlamak için şunlar gereklidir:
 
 ## Visual Studio ile veritabanı oluşturma
 
-Visual Studio'yu ilk kez kullanıyorsanız bkz. [Visual Studio ile SQL Data Warehouse'a bağlanma][].  Başlamak için Visual Studio'da bulunan SQL Server Nesne Gezgini'ni açıp SQL Data Warehouse veritabanınızı barındıracak olan sunucuya bağlanın.  Bağlandıktan sonra **ana** veritabanında aşağıdaki SQL komutunu çalıştırarak bir SQL Data Warehouse oluşturabilirsiniz.  Bu komut, Hizmet Hedefi DW400 olan bir MySqlDwDb veritabanı oluşturur ve veritabanının, maksimum boyutu 10 TB olacak şekilde büyümesine olanak sağlar.
+Visual Studio'yu kullanmaya yeni başladıysanız [Azure SQL Veri Ambarı’nı (Visual Studio) Sorgulama][] başlıklı makaleye göz atın.  Başlamak için Visual Studio'da bulunan SQL Server Nesne Gezgini'ni açıp SQL Data Warehouse veritabanınızı barındıracak olan sunucuya bağlanın.  Bağlandıktan sonra **ana** veritabanında aşağıdaki SQL komutunu çalıştırarak bir SQL Data Warehouse oluşturabilirsiniz.  Bu komut, Hizmet Hedefi DW400 olan bir MySqlDwDb veritabanı oluşturur ve veritabanının, maksimum boyutu 10 TB olacak şekilde büyümesine olanak sağlar.
 
 ```sql
 CREATE DATABASE MySqlDwDb (EDITION='datawarehouse', SERVICE_OBJECTIVE = 'DW400', MAXSIZE= 10240 GB);
@@ -61,17 +61,17 @@ SQL Data Warehouse'unuz hazırlandıktan sonra [örnek veri yükleyebilir][] vey
 
 <!--Article references-->
 [DWU]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
-[Azure portalından SQL Data Warehouse oluşturma]: ./sql-data-warehouse-get-started-provision.md
-[Visual Studio ile SQL Data Warehouse'a bağlanma]: ./sql-data-warehouse-get-started-connect.md
-[geçirme]: ./sql-data-warehouse-overview-migrate.md
-[geliştirme]: ./sql-data-warehouse-overview-develop.md
-[yükleme]: ./sql-data-warehouse-overview-load.md
-[örnek veri yükleyebilir]: ./sql-data-warehouse-get-started-load-sample-databases.md
+[Azure portalından SQL Data Warehouse oluşturma]: sql-data-warehouse-get-started-provision.md
+[Azure SQL Veri Ambarı’nı (Visual Studio) Sorgulama]: sql-data-warehouse-query-visual-studio.md
+[geçirme]: sql-data-warehouse-overview-migrate.md
+[geliştirme]: sql-data-warehouse-overview-develop.md
+[yükleme]: sql-data-warehouse-overview-load.md
+[örnek veri yükleyebilir]: sql-data-warehouse-load-sample-databases.md
 [Azure Portal ile Azure SQL Database mantıksal sunucusu oluşturma]: ../sql-database/sql-database-get-started.md#create-an-azure-sql-database-logical-server
 [PowerShell ile Azure SQL Database mantıksal sunucusu oluşturma]: ../sql-database/sql-database-get-started-powershell.md#database-setup-create-a-resource-group-server-and-firewall-rule
 [kaynak grubu oluşturma]: ../resource-group-template-deploy-portal.md#create-resource-group
-[Visual Studio ve SSDT Yükleme]: ./sql-data-warehouse-install-visual-studio.md
-[sqlcmd]: ./sql-data-warehouse-get-started-connect-sqlcmd.md
+[Visual Studio ve SSDT Yükleme]: sql-data-warehouse-install-visual-studio.md
+[sqlcmd]: sql-data-warehouse-get-started-connect-sqlcmd.md
 
 <!--MSDN references--> 
 [VERİTABANI OLUŞTURMA]: https://msdn.microsoft.com/library/mt204021.aspx
@@ -85,6 +85,6 @@ SQL Data Warehouse'unuz hazırlandıktan sonra [örnek veri yükleyebilir][] vey
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

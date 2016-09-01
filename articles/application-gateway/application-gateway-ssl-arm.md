@@ -3,7 +3,7 @@
    description="Bu sayfada Azure Resource Manager kullanarak SSL yük boşaltımıyla uygulama ağ geçidi oluşturmak için yönergeler bulunmaktadır."
    documentationCenter="na"
    services="application-gateway"
-   authors="joaoma"
+   authors="georgewallace"
    manager="carmonm"
    editor="tysonn"/>
 <tags
@@ -12,23 +12,24 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/03/2016"
-   ms.author="joaoma"/>
+   ms.date="08/09/2016"
+   ms.author="gwallace"/>
 
 # Azure Resource Manager kullanarak SSL yük boşaltımı için bir uygulama ağ geçidi oluşturma
 
 > [AZURE.SELECTOR]
--[Azure Klasik PowerShell](application-gateway-ssl.md)
+-[Azure Portal](application-gateway-ssl-portal.md)
 -[Azure Resource Manager PowerShell](application-gateway-ssl-arm.md)
+-[Azure Klasik PowerShell](application-gateway-ssl.md)
 
  Azure Application Gateway, web grubunda maliyetli SSL şifre çözme görevlerinin oluşmasından kaçınmak için Güvenli Yuva Katmanı (SSL) oturumunu sonlandırmak amacıyla yapılandırılabilir. SSL yük boşaltımı ön uç sunucusunun kurulumunu ve web uygulamasının yönetimini de basitleştirir.
 
 
 ## Başlamadan önce
 
-1. Web Platformu Yükleyicisi’ni kullanarak Azure PowerShell cmdlets’in en son sürümünü yükleyin. **İndirmeler sayfası**’ndaki [Windows PowerShell](https://azure.microsoft.com/downloads/) bölümünden en son sürümü indirip yükleyebilirsiniz.
-2. Sanal ağ ve uygulama ağ geçidi için bir alt ağ oluşturabileceksiniz. Ağ geçidi hiçbir sanal makinenin veya bulut dağıtımının kullanmadığından emin olun. Application Gateway tek başına bir sanal ağ alt ağında olmalıdır.
-3. Uygulama ağ geçidi kullanırken yapılandıracağınız sunucular mevcut olmalıdır veya uç noktaları sanal ağda veya atanan genel bir IP/VIP’de oluşturulmuş olmalıdır.
+1. Web Platformu Yükleyicisi’ni kullanarak Azure PowerShell cmdlet’lerin en son sürümünü yükleyin. **İndirmeler sayfası**’ndaki [Windows PowerShell](https://azure.microsoft.com/downloads/) bölümünden en son sürümü indirip yükleyebilirsiniz.
+2. Uygulama ağ geçidi için bir sanal ağ ve bir alt ağ oluşturacaksınız. Hiçbir sanal makinenin veya bulut dağıtımlarının alt ağı kullanmadığından emin olun. Application Gateway tek başına bir sanal ağ alt ağında olmalıdır.
+3. Uygulama ağ geçidi kullanırken yapılandırdığınız sunucular mevcut olmalıdır veya uç noktaları sanal ağda veya atanan genel bir IP/VIP’de oluşturulmuş olmalıdır.
 
 ## Bir uygulama ağ geçidi oluşturmak için ne gereklidir?
 
@@ -36,38 +37,38 @@
 - **Arka uç sunucusu havuzu:** Arka uç sunucularının IP adreslerinin listesi. Listede bulunan IP adresleri sanal ağ alt ağına veya genel IP/VIP’ye ait olmalıdır.
 - **Arka uç sunucu havuzu ayarları**: Her havuzun bağlantı noktası, protokol ve tanımlama bilgisi temelli benzeşim gibi ayarları vardır. Bu ayarlar bir havuza bağlıdır ve havuzdaki tüm sunuculara uygulanır.
 - **Ön uç bağlantı noktası:** Bu bağlantı noktası uygulama ağ geçidinde açılan genel bağlantı noktasıdır. Bu bağlantı noktasında trafik olursa arka uç sunuculardan birine yönlendirilir.
-- **Dinleyici:** Dinleyicide bir ön uç bağlantı noktası, bir protokol (büyük/küçük harfe duyarlı Http veya Https) ve SSL sertifika adı (SSL yük boşaltımı yapılandırılıyorsa) vardır.
-- **Kural:** Kural dinleyiciyi ve arka uç sunucusu havuzunu bağlar ve belli bir dinleyicide trafik olduğunda trafiğin hangi arka uç sunucu havuzuna yönlendirileceğini belirler. Şu anda yalnızca *temel* kural desteklenmektedir. *Temel* kural hepsini bir kez deneme yöntemiyle yük dağıtımıdır.
+- **Dinleyici:** Dinleyicide bir ön uç bağlantı noktası, bir protokol (Http veya Https, bu ayarlar büyük/küçük harfe duyarlıdır) ve SSL sertifika adı (SSL yük boşaltımı yapılandırılıyorsa) vardır.
+- **Kural:** Kural, dinleyiciyi ve arka uç sunucusu havuzunu bağlar ve belli bir dinleyicide trafik olduğunda trafiğin hangi arka uç sunucu havuzuna yönlendirileceğini belirler. Şu anda yalnızca *temel* kural desteklenmektedir. *Temel* kural hepsini bir kez deneme yöntemiyle yük dağıtımıdır.
 
 **Ek yapılandırma notları**
 
-SSL sertifikaları yapılandırmada **HttpListener**’daki protokol *Https* (küçük/büyük harf duyarlı) ile değiştirilmelidir. **SslCertificate** öğesi SSL sertifikası için yapılandırılmış değişken değerle **HttpListener**’a eklenmelidir. Ön uç bağlantı noktası 443’e yükseltilmelidir.
+SSL sertifikaları yapılandırmada **HttpListener**’daki protokol *Https* (küçük/büyük harf duyarlı) ile değiştirilmelidir. **SslCertificate** öğesi SSL sertifikası için yapılandırılmış değişken değerle **HttpListener**’a eklenir. Ön uç bağlantı noktası 443’e yükseltilmelidir.
 
 **Tanımlama bilgisi temelli benzeşimi etkinleştirme:** Bir uygulama ağ geçidi, bir istemci oturumundan gelen isteğin web grubunda hep aynı VM’e yönlendirildiğinden emin olmak için yapılandırılabilir. Bu, ağ geçidinin trafiği uygun bir şekilde yönlendirmesini sağlayacak oturum tanımlama bilgisinin eklenmesiyle gerçekleştirilir. Tanımlama bilgisi temelli benzeşimi etkinleştirmek için, **CookieBasedAffinity**’yi *BackendHttpSetting* öğesindeki **Enabled**’a ayarlayın.
 
 
-## Yeni bir uygulama ağ geçidi oluşturun
+## Uygulama ağ geçidi oluşturma
 
-Azure Klasik dağıtım modeli ve Azure Resource Manager arasındaki fark uygulama ağ geçidi oluştururken takip ettiğiniz sıra ve yapılandırılması gereken öğelerdir.
+Azure Klasik dağıtım modeli ve Azure Resource Manager arasındaki fark, uygulama ağ geçidi oluştururken takip ettiğiniz sıra ve yapılandırılması gereken öğelerdir.
 
-Resource Manager’da bir uygulama ağ geçidini oluşturan öğeler teker teker yapılandırılır ve sonra uygulama ağ geçidi kaynağı oluşturmak için bir araya getirilir.
+Resource Manager’da uygulama ağ geçidini oluşturan öğeler ayrı ayrı yapılandırılır ve sonra uygulama ağ geçidi kaynağı oluşturmak için bir araya getirilir.
 
 
 Bir uygulama ağ geçidi oluşturmak için takip etmeniz gereken adımlar şunlardır:
 
 1. Resource Manager için kaynak grubu oluşturun
 2. Uygulama ağ geçidi için sanal ağ, alt ağ ve genel IP oluşturun
-3. Bir uygulama ağ geçidi yapılandırma nesnesi oluşturun
-4. Bir uygulama ağ geçidi kaynağı oluşturun
+3. Uygulama ağ geçidi yapılandırma nesnesi oluşturun
+4. Bir uygulama ağ geçidi kaynağı oluşturma
 
 
 ## Resource Manager için kaynak grubu oluşturun
 
-Azure Resource Manager cmdlets’i kullanmak için PowerShell modunu açtığınızdan emin olun. Daha fazla bilgi için bkz.[Resource Manager ile Windows Powershell Kullanma](../powershell-azure-resource-manager.md)
+Azure Resource Manager cmdlet’lerini kullanmak için PowerShell modunu açtığınızdan emin olun. Daha fazla bilgi için bkz.[Resource Manager ile Windows PowerShell Kullanma](../powershell-azure-resource-manager.md)
 
 ### 1. Adım
 
-        PS C:\> Login-AzureRmAccount
+    Login-AzureRmAccount
 
 
 
@@ -75,7 +76,7 @@ Azure Resource Manager cmdlets’i kullanmak için PowerShell modunu açtığın
 
 Hesapla ilişkili abonelikleri kontrol edin.
 
-        PS C:\> get-AzureRmSubscription
+    Get-AzureRmSubscription
 
 Kimlik bilgilerinizle kimliğinizi doğrulamanız istenir.<BR>
 
@@ -84,16 +85,16 @@ Kimlik bilgilerinizle kimliğinizi doğrulamanız istenir.<BR>
 Hangi Azure aboneliğinizin kullanılacağını seçin. <BR>
 
 
-        PS C:\> Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+    Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 
 
 ### 4. Adım
 
-Yeni bir kaynak grubu oluştur (mevcut bir kaynak grubu kullanıyorsanız bu adımı atlayın).
+Bir kaynak grubu oluşturun (mevcut bir kaynak grubu kullanıyorsanız bu adımı atlayın).
 
-    New-AzureRmResourceGroup -Name appgw-rg -location "West US"
+    New-AzureRmResourceGroup -Name appgw-rg -Location "West US"
 
-Azure Resource Manager, tüm kaynak gruplarının bir konum belirtmesini gerektirir. Bu, kaynak grubundaki kaynaklar için varsayılan konum olarak kullanılır. Bir uygulama ağ geçidi oluşturmak için verilecek komutların aynı kaynak grubunu kullandığından emin olun.
+Azure Resource Manager, tüm kaynak gruplarının bir konum belirtmesini gerektirir. Bu ayar, kaynak grubundaki kaynaklar için varsayılan konum olarak kullanılır. Uygulama ağ geçidi oluşturmak için verilen komutların aynı kaynak grubunu kullandığından emin olun.
 
 Yukarıdaki örnekte, "appgw-RG" adlı "Batı ABD" konumlu bir kaynak grubu oluşturduk.
 
@@ -114,7 +115,7 @@ Bu, Batı ABD bölgesi için 10.0.0.0/24 alt ağıyla 10.0.0.0/16 ön ekini kull
 
 ### 3. Adım
 
-    $subnet=$vnet.Subnets[0]
+    $subnet = $vnet.Subnets[0]
 
 Bu, sonraki adımlarda alt ağ nesnesini bir değişken alt ağına atar.
 
@@ -125,19 +126,19 @@ Bu, sonraki adımlarda alt ağ nesnesini bir değişken alt ağına atar.
 Bu, Batı ABD bölgesi için "appgw-rg" kaynak grubunda "publicIP01" genel IP kaynağı oluşturur.
 
 
-## Bir uygulama ağ geçidi yapılandırma nesnesi oluşturun
+## Uygulama ağ geçidi yapılandırma nesnesi oluşturun
 
 ### 1. Adım
 
     $gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
 
-Bu, "gatewayIP01" adlı uygulama ağ geçidi IP yapılandırması oluşturur. Application Gateway başladığında, yapılandırılan alt ağdan bir IP adresi alır ve ağ trafiğini arka uç IP havuzundaki IP adreslerine yönlendirir. Her örneğin bir IP adresi alacağını göz önünde bulundurun.
+Bu, "gatewayIP01" adlı uygulama ağ geçidi IP yapılandırması oluşturur. Application Gateway başladığında, yapılandırılan alt ağdan bir IP adresi alır ve ağ trafiğini arka uç IP havuzundaki IP adreslerine yönlendirir. Her örneğin bir IP adresi aldığını göz önünde bulundurun.
 
 ### 2. Adım
 
     $pool = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 134.170.185.46, 134.170.188.221,134.170.185.50
 
-Bu, "pool01" adlı arka uç IP adresi havuzunu "134.170.185.46, 134.170.188.221,134.170.185.50." IP adresleriyle yapılandırır. Bu adresler ön uç IP uç noktasından gelen ağ trafiğinin yönlendirildiği IP adresleridir. Yukarıdaki örnekte yazılan IP adreslerini kendi web uygulama uç noktalarıyla değiştirin.
+Bu, "pool01" adlı arka uç IP adresi havuzunu "134.170.185.46, 134.170.188.221,134.170.185.50." IP adresleriyle yapılandırır. Bu adresler, ön uç IP uç noktasından gelen ağ trafiğinin yönlendirildiği IP adresleridir. Yukarıdaki örnekte yazılan IP adreslerini kendi web uygulama uç noktalarıyla değiştirin.
 
 ### 3. Adım
 
@@ -182,7 +183,7 @@ Bu, yük dengeleyici davranışını yapılandıran "rule01" adlı yük dengeley
 
 Bu, uygulama ağ geçidinin örnek boyutunu yapılandırır.
 
->[AZURE.NOTE]  *InstanceCount* için varsayılan değer 2 ile 10 arasıdır. *GatewaySize* için varsayılan değer Ortadır. Aynı zamanda Standard_Small, Standard_Medium ve Standard_Large seçenekleri de bulunmaktadır.
+>[AZURE.NOTE]  *InstanceCount* için varsayılan değer 2 ile 10 arasıdır. *GatewaySize* için varsayılan değer Medium’dur. Aynı zamanda Standard_Small, Standard_Medium ve Standard_Large seçenekleri de bulunmaktadır.
 
 ## New-AzureApplicationGateway kullanarak bir uygulama ağ geçidi oluşturma
 
@@ -201,6 +202,6 @@ Yük dengeleme seçenekleri hakkında daha fazla genel bilgi edinmek istiyorsan�
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

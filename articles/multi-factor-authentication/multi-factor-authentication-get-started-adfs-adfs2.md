@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="05/12/2016" 
+    ms.date="08/04/2016" 
     ms.author="billmath"/>
 # AD FS 2.0 ile Azure Multi-Factor Authentication Sunucusu kullanarak bulut ve şirket içi kaynakları güvenli hale getirin.
 
@@ -96,6 +96,7 @@ Güvenilen IP'ler kullanıcıların belirli IP adresleri veya alt ağlardan kayn
  
 
 
-<!----HONumber=Jun16_HO2-->
+
+<!--HONumber=Aug16_HO4-->
 
 

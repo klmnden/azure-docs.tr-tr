@@ -3,7 +3,7 @@
    description="Bu sayfa, Azure Resource Manager için iç yük dengeleyiciye (ILB) sahip bir Azure uygulama ağ geçidi oluşturma, yapılandırma, başlatma ve silme yönergelerini sağlar"
    documentationCenter="na"
    services="application-gateway"
-   authors="joaoma"
+   authors="georgewallace"
    manager="carmonm"
    editor="tysonn"/>
 <tags
@@ -12,8 +12,8 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/05/2016"
-   ms.author="joaoma"/>
+   ms.date="08/19/2016"
+   ms.author="gwallace"/>
 
 
 # Azure Resource Manager kullanarak iç yük dengeleyiciye (ILB) sahip bir uygulama ağ geçidi oluşturma
@@ -29,8 +29,8 @@ Bu makale, ILB ile uygulama ağ geçidi yapılandırma adımlarında size yol g�
 ## Başlamadan önce
 
 1. Web Platformu Yükleyicisi’ni kullanarak Azure PowerShell cmdlet’lerin en son sürümünü yükleyin. **İndirmeler sayfası**’ndaki [Windows PowerShell](https://azure.microsoft.com/downloads/) bölümünden en son sürümü indirip yükleyebilirsiniz.
-2. Application Gateway için bir sanal ağ ve bir alt ağ oluşturabileceksiniz. Hiçbir sanal makinenin veya bulut dağıtımlarının alt ağı kullanmadığından emin olun. Application Gateway tek başına bir sanal ağ alt ağında olmalıdır.
-3. Uygulama ağ geçidi kullanırken yapılandıracağınız sunucular mevcut olmalıdır veya uç noktaları sanal ağda veya atanan genel bir IP/VIP’de oluşturulmuş olmalıdır.
+2. Application Gateway için bir sanal ağ ve bir alt ağ oluşturacaksınız. Hiçbir sanal makinenin veya bulut dağıtımlarının alt ağı kullanmadığından emin olun. Application Gateway tek başına bir sanal ağ alt ağında olmalıdır.
+3. Uygulama ağ geçidi kullanırken yapılandırdığınız sunucular mevcut olmalıdır veya uç noktaları sanal ağda veya atanan genel bir IP/VIP’de oluşturulmuş olmalıdır.
 
 ## Bir uygulama ağ geçidi oluşturmak için ne gereklidir?
 
@@ -43,9 +43,9 @@ Bu makale, ILB ile uygulama ağ geçidi yapılandırma adımlarında size yol g�
 
 
 
-## Yeni bir uygulama ağ geçidi oluşturun
+## Uygulama ağ geçidi oluşturma
 
-Azure Klasik ve Azure Resource Manager’ın kullanımı arasındaki fark uygulama ağ geçidi oluştururken takip ettiğiniz sıra ve yapılandırılması gereken öğelerdir.
+Azure Klasik ve Azure Resource Manager’ın kullanımı arasındaki fark, uygulama ağ geçidi oluştururken takip ettiğiniz sıra ve yapılandırılması gereken öğelerdir.
 Resource Manager’da uygulama ağ geçidini oluşturan öğeler ayrı ayrı yapılandırılır ve sonra uygulama ağ geçidi kaynağı oluşturmak için bir araya getirilir.
 
 
@@ -63,13 +63,13 @@ Azure Resource Manager cmdlet’lerini kullanmak için PowerShell modunu açtı�
 
 ### 1. Adım
 
-        Login-AzureRmAccount
+    Login-AzureRmAccount
 
 ### 2. Adım
 
 Hesapla ilişkili abonelikleri kontrol edin.
 
-        get-AzureRmSubscription
+    Get-AzureRmSubscription
 
 Kimlik bilgilerinizle kimliğinizi doğrulamanız istenir.<BR>
 
@@ -78,7 +78,7 @@ Kimlik bilgilerinizle kimliğinizi doğrulamanız istenir.<BR>
 Hangi Azure aboneliğinizin kullanılacağını seçin. <BR>
 
 
-        Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+    Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 
 
 ### 4. Adım
@@ -87,7 +87,7 @@ Yeni bir kaynak grubu oluşturun (mevcut bir kaynak grubu kullanıyorsanız bu a
 
     New-AzureRmResourceGroup -Name appgw-rg -location "West US"
 
-Azure Resource Manager, tüm kaynak gruplarının bir konum belirtmesini gerektirir. Bu, kaynak grubundaki kaynaklar için varsayılan konum olarak kullanılır. Uygulama ağ geçidi oluşturmak için verilecek komutların aynı kaynak grubunu kullandığından emin olun.
+Azure Resource Manager, tüm kaynak gruplarının bir konum belirtmesini gerektirir. Bu, kaynak grubundaki kaynaklar için varsayılan konum olarak kullanılır. Uygulama ağ geçidi oluşturmak için verilen komutların aynı kaynak grubunu kullandığından emin olun.
 
 Yukarıdaki örnekte, "appgw-RG" adlı "Batı ABD" konumlu bir kaynak grubu oluşturduk.
 
@@ -109,7 +109,7 @@ Bu, Batı ABD bölgesi için 10.0.0.0/24 alt ağıyla 10.0.0.0/16 ön ekini kull
 
 ### 3. Adım
 
-    $subnet=$vnet.subnets[0]
+    $subnet = $vnet.subnets[0]
 
 Bu, sonraki adımlarda alt ağ nesnesini bir $subnet değişkenine atar.
 
@@ -119,14 +119,14 @@ Bu, sonraki adımlarda alt ağ nesnesini bir $subnet değişkenine atar.
 
     $gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
 
-Bu, "gatewayIP01" adlı uygulama ağ geçidi IP yapılandırması oluşturur. Application Gateway başladığında, yapılandırılan alt ağdan bir IP adresi alır ve ağ trafiğini arka uç IP havuzundaki IP adreslerine yönlendirir. Her örneğin bir IP adresi alacağını göz önünde bulundurun.
+Bu, "gatewayIP01" adlı uygulama ağ geçidi IP yapılandırması oluşturur. Application Gateway başladığında, yapılandırılan alt ağdan bir IP adresi alır ve ağ trafiğini arka uç IP havuzundaki IP adreslerine yönlendirir. Her örneğin bir IP adresi aldığını göz önünde bulundurun.
 
 
 ### 2. Adım
 
     $pool = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 134.170.185.46, 134.170.188.221,134.170.185.50
 
-Bu, "pool01" adlı arka uç IP adresi havuzunu "134.170.185.46, 134.170.188.221,134.170.185.50." IP adresleriyle yapılandırır. Bu adresler ön uç IP uç noktasından gelen ağ trafiğinin yönlendirildiği IP adresleridir. Kendi uygulamanızın IP adresi uç noktalarını eklemek için Yukarıdaki IP adreslerini değiştireceksiniz.
+Bu, "pool01" adlı arka uç IP adresi havuzunu "134.170.185.46, 134.170.188.221,134.170.185.50." IP adresleriyle yapılandırır. Bu adresler, ön uç IP uç noktasından gelen ağ trafiğinin yönlendirildiği IP adresleridir. Kendi uygulamanızın IP adresi uç noktalarını eklemek için yukarıdaki IP adreslerini değiştirin.
 
 ### 3. Adım
 
@@ -240,6 +240,6 @@ Yük dengeleme seçenekleri hakkında daha fazla genel bilgi edinmek istiyorsan�
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

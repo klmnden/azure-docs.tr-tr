@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-unity-ios"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="03/25/2016"
+    ms.date="08/19/2016"
     ms.author="piyushjo" />
 
 # Unity iOS dağıtımı için Azure Mobile Engagement kullanmaya başlama
@@ -29,7 +29,7 @@ Bu öğretici için aşağıdakiler gereklidir:
 + [Mobile Engagement Unity SDK](https://aka.ms/azmeunitysdk)
 + XCode Düzenleyicisi
 
-> [AZURE.NOTE] Bu öğreticiyi tamamlamak için etkin bir Azure hesabınızın olması gerekir. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılar için bkz. [Azure Ücretsiz Deneme](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-unity-ios-get-started).
+> [AZURE.NOTE] Bu öğreticiyi tamamlamak için etkin bir Azure hesabınızın olması gerekir. Hesabınız yoksa yalnızca birkaç dakika içinde ücretsiz bir deneme sürümü hesabı oluşturabilirsiniz. Ayrıntılar için bkz. [Azure Ücretsiz Deneme](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-unity-ios-get-started).
 
 ##<a id="setup-azme"></a>iOS uygulamanız için Mobile Engagement kurma
 
@@ -114,7 +114,7 @@ Bu öğretici için aşağıdakiler gereklidir:
 
 ##<a id="integrate-push"></a>Anında iletme bildirimlerini ve uygulama içi mesajlaşmayı etkinleştirme
 
-Mobile Engagement, kampanyalar bağlamında anında iletme bildirimleri ve uygulama içi mesajlaşma ile kullanıcılarınız ve REACH ile etkileşim kurmanızı sağlar. Mobile Engagement portalında bu modüle REACH adı verilir.
+Mobile Engagement, kullanıcılarınız ile etkileşim kurmanızı ve onlara kampanyalar bağlamında anında iletme bildirimleri ve uygulama içi mesajlaşma aracılığıyla erişmenizi sağlar. Mobile Engagement portalında bu modüle REACH adı verilir.
 Bildirimleri almak için uygulamanızda herhangi bir ek yapılandırma yapmanız gerekmez ve zaten ayarlıdır.
 
 [AZURE.INCLUDE [mobile-engagement-ios-send-push-push](../../includes/mobile-engagement-ios-send-push.md)]
@@ -134,6 +134,7 @@ Bildirimleri almak için uygulamanızda herhangi bir ek yapılandırma yapmanız
 [75]: ./media/mobile-engagement-unity-ios-get-started/75.png
 
 
-<!----HONumber=Jun16_HO2-->
+
+<!--HONumber=Aug16_HO4-->
 
 

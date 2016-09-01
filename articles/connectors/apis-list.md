@@ -14,12 +14,12 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="07/15/2016"
+    ms.date="08/23/2016"
     ms.author="deonhe"/>
 
 # Bağlayıcıların listesi
 
-Bu hizmetleri çağıran iş akışlarını oluşturmak üzere bu bağlayıcıları hızlı şekilde kullanmayı öğrenmek için simgeyi seçin.
+Nasıl hızlı bir şekilde iş akışı oluşturacağınızı öğrenmek için bir bağlayıcı seçin.
 
 ## Standart bağlayıcılar
 
@@ -46,8 +46,9 @@ EAI ve EDI içeren B2B senaryolarına yönelik Mantıksal uygulamalar oluşturma
  
 |EIP bağlayıcıları ||||
 |-----------|-----------|-----------|-----------|
-|[![API Icon][as2icon]<br/>**AS2</br>encode/decode**][as2doc]|[![API Icon][x12icon]<br/>**X12</br>encode/decode**][x12Doc]|[![API Icon][xmlvalidateicon]<br/>**XML <br/>validation**][xmlvalidatedoc]|[![API Icon][xmltransformicon]<br/>**XML<br/> transform**][xmltransformdoc]|
-|[![API Icon][flatfileicon]<br/>**Flat file</br>encode**][flatfiledoc]|[![API Icon][flatfiledecodeicon]<br/>**Flat file</br>decode**][flatfiledecodedoc]|||
+|[![API Icon][xmlvalidateicon]<br/>**XML <br/>validation**][xmlvalidatedoc]|[![API Icon][xmltransformicon]<br/>**XML<br/> transform**][xmltransformdoc]|[![API Icon][flatfileicon]<br/>**Flat file</br>encode**][flatfiledoc]|[![API Icon][flatfiledecodeicon]<br/>**Flat file</br>decode**][flatfiledecodedoc]|
+|[![API Icon][as2icon]<br/>**AS2</br>kod çözme**][as2decode]|[![API Icon][as2icon]<br/>**AS2</br>kodlama**][as2encode]|[![API Icon][x12icon]<br/>**X12</br>kod çözme**][x12decode]|[![API Icon][x12icon]<br/>**X12</br>kodlama**][x12encode]|
+|[![API Icon][x12icon]<br/>**EDIFACT</br>kod çözme**][EDIFACTdecode]|[![API Icon][x12icon]<br/>**EDIFACT</br>kodlama**][EDIFACTencode]||||
 
 <!-- TODO: Add Functions, App Service, and Nested Workflow Icons -->
 ### Bağlayıcılar tetikleyiciler olabilir
@@ -55,8 +56,8 @@ Bazı bağlayıcılar, belirli olaylar meydana geldiğinde, uygulamanızı bilgi
 
 İki tür tetikleyici sunucusu bulunur:  
 
-* Yoklama Tetikleyicileri: Bu tetikleyiciler yeni verileri denetlemek için hizmetinizi belirtilen aralıkta yoklar. Yeni veriler kullanılabilir olduğunda, uygulamanızın yeni bir örneği girdi olan verilerle çalışır. Aynı verinin birden çok kez kullanılmasını önlemek için, tetikleyici okunan ve uygulamanıza iletilen verileri temizleyebilir.
-* Anında İletme Tetikleyicileri: Bu tetikleyiciler uç noktada bir olayın meydana gelmesine ilişkin verileri dinler. Ardından, uygulamanızın yeni bir örneğini tetikler. Twitter bağlayıcısı böyle bir örnektir.
+* Yoklama Tetikleyicileri: Bu tetikleyiciler yeni verileri denetlemek için hizmetinizi belirtilen aralıkta yoklar. Yeni veriler kullanılabilir olduğunda, uygulamanızın yeni bir örneği girdi olan verilerle çalışır. Tetikleyici, aynı verinin birden çok kez kullanılmasını önlemek için okunan ve uygulamanıza iletilen verileri temizleyebilir.
+* Anında İletme Tetikleyicileri: Bu tetikleyiciler, uç noktada bir olayın meydana gelmesine ilişkin verileri dinler ve ardından uygulamanızın yeni bir örneğini tetikler. Twitter bağlayıcısı böyle bir örnektir.
 
 ### Bağlayıcılar eylemler olabilir
 Bağlayıcılar uygulamalarınız içinde eylemler olarak da kullanılabilir. Eylemler, daha sonra uygulamanızın yürütülmesinde kullanılabilecek verilere bakılmasında faydalıdır. Örneğin, sipariş işleme sırasında bir SQL veritabanında müşteri verilerini aramanız gerekebilir. Veya, hedef tablodaki verileri yazmanız, güncelleştirmeniz ya da silmeniz gerekebilir. Bağlayıcılar tarafından sağlanan eylemleri kullanarak bunu yapabilirsiniz. Eylemler Swagger meta verilerde tanımlanan işlemlere eşlenir.
@@ -102,9 +103,15 @@ Bağlayıcılar uygulamalarınız içinde eylemler olarak da kullanılabilir. Ey
 [as2doc]: ../app-service-logic/app-service-logic-enterprise-integration-as2.md "Enterprise integration AS2 hakkında bilgi edinin."
 [x12doc]: ../app-service-logic/app-service-logic-enterprise-integration-x12.md "Enterprise integration X12 hakkında bilgi edinin"
 [flatfiledoc]: ../app-service-logic/app-service-logic-enterprise-integration-flatfile.md "Enterprise integration düz dosyası hakkında bilgi edinin."
-[flatfiledecodedoc]: ../app-service-logic/app-service-logic-enterprise-integration-flatfile.md/#how-to-create-the-flat-file-decoding-connector "Enterprise integration düz dosyası hakkında bilgi edinin."
-[xmlvalidatedoc]: ../app-service-logic/app-service-logic-enterprise-integration-xml.md "Enterprise integration XML doğrulaması hakkında bilgi edinin."
+[flatfiledecodedoc]: ../app-service-logic/app-service-logic-enterprise-integration-flatfile.md "Enterprise integration düz dosyası hakkında bilgi edinin."
+[xmlvalidatedoc]: ../app-service-logic/app-service-logic-enterprise-integration-xml-validation.md "Enterprise integration XML doğrulaması hakkında bilgi edinin."
 [xmltransformdoc]: ../app-service-logic/app-service-logic-enterprise-integration-transform.md "Enterprise integration dönüşümleri hakkında bilgi edinin."
+[as2decode]: ..//app-service-logic/app-service-logic-enterprise-integration-as2-decode.md "Enterprise integration AS2 kod çözme hakkında bilgi edinin"
+[as2encode]: ..//app-service-logic/app-service-logic-enterprise-integration-as2-encode.md "Enterprise integration AS2 kodlama hakkında bilgi edinin"
+[X12decode]: ..//app-service-logic/app-service-logic-enterprise-integration-X12-decode.md "Enterprise integration X12 kod çözme hakkında bilgi edinin"
+[X12encode]: ..//app-service-logic/app-service-logic-enterprise-integration-X12-encode.md "Enterprise integration X12 kodlama hakkında bilgi edinin"
+[EDIFACTdecode]: ..//app-service-logic/app-service-logic-enterprise-integration-EDIFACT-decode.md "Enterprise integration EDIFACT kod çözme hakkında bilgi edinin"
+[EDIFACTencode]: ..//app-service-logic/app-service-logic-enterprise-integration-EDIFACT-encode.md "Enterprise integration EDIFACT kodlama hakkında bilgi edinin"
 [httpdoc]: ./connectors-native-http.md "HTTP aramaları yapmak için HTTP bağlayıcısı."
 [http~requestdoc]: ./connectors-native-reqres.md "İstek ve Yanıt eylemleri."
 [http~responsedoc]: ./connectors-native-reqres.md "İstek ve Yanıt eylemleri."
@@ -184,6 +191,7 @@ Bağlayıcılar uygulamalarınız içinde eylemler olarak da kullanılabilir. Ey
 [xmltransformicon]: ./media/apis-list/xsltransform.png
 
 
-<!--HONumber=Aug16_HO1-->
+
+<!--HONumber=Aug16_HO4-->
 
 

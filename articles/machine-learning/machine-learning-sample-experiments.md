@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Yeni denemeler oluşturmak için örnek denemeleri kullanma | Microsoft Azure"
-    description="Örnek denemelerden ve topluluk tarafından paylaşılan denemelerden yeni Azure Machine Learning denemeleri oluşturun."
+    pageTitle="Örnek makine öğrenimi denemelerini kopyalama | Microsoft Azure"
+    description="Cortana Intelligence Gallery ve Microsoft Azure Machine Learning ile yeni denemeler oluşturmak için örnek makine öğrenimi denemelerini nasıl kullanacağınızı öğrenin."
     services="machine-learning"
     documentationCenter=""
     authors="cjgronlund"
@@ -13,41 +13,53 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="04/28/2016"
-    ms.author="chhavib;olgali"/>
+    ms.date="08/17/2016"
+    ms.author="cgronlun;chhavib;olgali"/>
 
-# Yeni denemeler oluşturmak için örnek denemeleri kullanma
-Bir deneme oluşturmak istediğinizde örnekler için [Cortana Intelligence Galerisi](http://gallery.cortanaintelligence.com/)'ne bakın. Machine Learning ekibi tarafından paylaşılan örnek denemelerin yanı sıra, daha geniş Machine Learning topluluğu tarafından paylaşılan örnekleri de bulabilirsiniz. Ayrıca, denemeler hakkında soru sorabilir veya yorum yazabilirsiniz.
+# Örnek denemeleri kopyalayarak yeni makine öğrenimi denemeleri oluşturma
+Sıfırdan makine öğrenimi denemeleri oluşturmayı öğrenmek yerine [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/)’deki örnek denemelerle nasıl çalışmaya başlayacağınızı öğrenin. Örnekleri kullanarak kendi makine öğrenimi çözümünüzü oluşturabilirsiniz.
+
+Galeride Microsoft Azure Machine Learning ekibi tarafından sağlanan örnek denemelerin yanı sıra Machine Learning topluluğu tarafından paylaşılan örnek denemeler yer almaktadır. Ayrıca, denemeler hakkında soru sorabilir veya yorum yazabilirsiniz.
+
+Galeriyi nasıl kullanacağınızı görmek için [Yeni Başlayanlar için Veri Bilimi](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md) serisinden [Veri bilimi yapmak için başka insanların çalışmalarını kopyalama](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) başlıklı 3 dakikalık videoyu izleyin.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-## Cortana Intelligence Galerisi'ne gözatma
-Galeri'de hangi denemelerin kullanılabileceğini görmek için [Galeri](http://gallery.cortanaintelligence.com/)'ye gidin ve sayfanın en üst kısmında **Denemeler**'e tıklayın.
-Bu sayfada **Yakın zamanda eklenen** denemeleri görüntüleyebilir, **Popüler olanlar**'a bakabilir veya en son **Popüler Microsoft denemelerini** görebilirsiniz.
+## Cortana Intelligence Gallery’de kopyalanacak bir deneme bulma
+
+Hangi denemelerin kullanılabildiğini görmek için [Galeri](http://gallery.cortanaintelligence.com/)'ye gidin ve sayfanın en üst kısmında **Denemeler**'e tıklayın.
+
+### En yeni ve en popüler denemeleri bulma
+
+Bu sayfada **Son eklenen** denemeleri görüntüleyebilir, aşağı kaydırarak **Popüler olanlar**'a bakabilir veya en son **Popüler Microsoft denemeleri**’ni görebilirsiniz.
+
+### Belirli gereksinimleri karşılayan bir deneme arama
 
 Tüm denemelere gözatmak için:
 
 1. Sayfanın üstündeki **Tümüne gözat**'a tıklayın.
-2. Galeri'deki tüm denemeleri görmek için **Şuna göre ayrıntılandır** seçeneğinin altındaki **Denemeler**'i seçin.
-3. Soldaki filtreleri seçerek listeyi daha da ayrıntılandırabilirsiniz. Örneğin, PCA tabanlı bir anomali algılama algoritması kullanan denemelere göz atmak için, **Kategoriler**'in altında **Denemler**'i ve **Kullanılan Algoritmalar**'ın altında **PCA Tabanlı Anomali Algılama**'yı seçin (bu algoritmayı görmüyorsanız listenin en altında **Tümünü göster**'e tıklayın).<br></br>
-![](./media/machine-learning-sample-experiments/refine-the-view.png) 
-4. Seçimlerinizi daha da daraltmak için arama kutusunu kullanabilirsiniz. Örneğin, Microsoft tarafından paylaşılan iki sınıflı destekli vektör makinesi algoritması kullanan rakam tanıma ile ilgili denemeleri bulmak için, arama kutusuna "rakam tanıma" girin ve **Deneme**, **Yalnızca Microsoft içeriği** ve **İki Sınıflı Destekli Vektör Makinesi**'ni seçin:
-![](./media/machine-learning-sample-experiments/search-for-experiments.png) 
-5. Hakkında daha fazla bilgi almak için bir denemeye tıklayın. Denemeyi çalıştırmak ve/veya değiştirmek için, deneme sayfasında **Studio'da aç** seçeneğine tıklayın.
+2. Galeri'deki tüm denemeleri görmek için **Daraltma ölçütü** seçeneğinin altından **Denemeler**'i seçin.
+3. Gereksinimlerinize uyan denemeleri birkaç farklı yolla bulabilirsiniz:
+    * **Soldaki filtreleri seçin.** Örneğin, PCA tabanlı bir anomali algılama algoritması kullanan denemelere göz atmak için, **Kategoriler**'in altında **Denemler**'i ve **Kullanılan Algoritmalar**'ın altında **PCA Tabanlı Anomali Algılama**'yı seçin. (Bu algoritmayı görmüyorsanız listenin en altında **Tümünü göster**'e tıklayın.)<br></br>
+      ![](./media/machine-learning-sample-experiments/refine-the-view.png)
+    *  **Arama kutusunu kullanın.** Örneğin, Microsoft tarafından paylaşılan iki sınıflı destekli vektör makinesi algoritması kullanan rakam tanıma ile ilgili denemeleri bulmak için arama kutusuna "rakam tanıma" yazın. Daha sonra, **Deneme**, **Yalnızca Microsoft içeriği** ve **İki Sınıflı Destekli Vektör Makinesi**'ni seçin:
+      ![](./media/machine-learning-sample-experiments/search-for-experiments.png) 
+4. Hakkında daha fazla bilgi almak için bir denemeye tıklayın.
+5. Denemeyi çalıştırmak ve/veya değiştirmek için, deneme sayfasında **Studio'da aç** seçeneğine tıklayın.
 
-> [AZURE.NOTE] Bir denemeyi Machine Learning Studio'da açmak için, Microsoft hesabı kimlik bilgilerinizle oturum açmanız gerekir. Machine Learning çalışma alanınız henüz yoksa ücretsiz bir deneme sürümü çalışma alanı oluşturulur. [Machine Learning ücretsiz deneme sürümüne nelerin dahil olduğunu öğrenin](https://azure.microsoft.com/pricing/details/machine-learning/)
+    > [AZURE.NOTE] Bir denemeyi Machine Learning Studio'da açmak için Microsoft hesabı kimlik bilgilerinizle oturum açmanız gerekir. Machine Learning çalışma alanınız henüz yoksa ücretsiz bir deneme sürümü çalışma alanı oluşturulur. [Machine Learning ücretsiz deneme sürümüne nelerin dahil olduğunu öğrenin](https://azure.microsoft.com/pricing/details/machine-learning/)
 
-![](./media/machine-learning-sample-experiments/example-experiment.png) 
+    ![](./media/machine-learning-sample-experiments/example-experiment.png) 
 
 
 ## Machine Learning Studio'da bir şablon kullanma
 
 Ayrıca, bir Galeri örneğini bir şablon olarak kullanıp Machine Learning Studio'da yeni bir deneme oluşturabilirsiniz.
 
-1. Microsoft hesabı kimlik bilgilerinizle [Studio](https://studio.azureml.net)'da oturum açın ve ardından yeni bir deneme oluşturmak için **Yeni*** seçeneğine tıklayın.
+1. Microsoft hesabı kimlik bilgilerinizle [Studio](https://studio.azureml.net)'da oturum açın ve ardından yeni bir deneme oluşturmak için **Yeni** seçeneğine tıklayın.
 2. Örnek içeriğine gözatın ve birine tıklayın.
 
-Örnek deneme bir şablon olarak kullanılarak çalışma alanınızda yeni bir deneme oluşturulur. 
+Örnek deneme bir şablon olarak kullanılarak çalışma alanınızda yeni bir deneme oluşturulur.
 
 ## Sonraki adımlar
 - [Verilerinizi hazırlama](machine-learning-data-science-import-data.md)
@@ -58,6 +70,6 @@ Ayrıca, bir Galeri örneğini bir şablon olarak kullanıp Machine Learning Stu
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

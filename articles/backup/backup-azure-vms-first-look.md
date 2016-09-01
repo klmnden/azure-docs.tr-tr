@@ -145,7 +145,7 @@ VM'yi bir kasaya kaydetmeden önce yeni VM'leri tanımlamak için bulma işlemin
 
 ## 3. Adım - VM Aracısı'nı sanal makineye yükleme
 
-Backup uzantısının çalışması için Azure VM Aracısı'nın Azure sanal makinesine yüklenmesi gerekir. VM'niz Azure galerisinden oluşturulmuşsa VM Aracısı VM üzerinde zaten mevcuttur. [VM'lerinizi koruma](backup-azure-vms-first-look.md#step-4---protect-azure-virtual-machines) adımına atlayabilirsiniz.
+Backup uzantısının çalışması için Azure VM Aracısı'nın Azure sanal makinesine yüklenmesi gerekir. VM'niz Azure galerisinden oluşturulmuşsa VM Aracısı VM üzerinde zaten mevcuttur. [VM'lerinizi koruma](backup-azure-vms-first-look.md#step-4-protect-azure-virtual-machines) adımına atlayabilirsiniz.
 
 VM'nizin bir şirket içi veri merkezinden geçişi sağlandıysa VM için VM Aracısı büyük olasılıkla yüklü değildir. VM'yi koruma aşamasına geçmeden önce sanal makine üzerinde VM Aracısı'nı yüklemeniz gerekir. VM Aracısı'nı yükleme konusunda ayrıntılı adımlar için bkz. [VM'leri Yedekleme makalesinin VM Aracısı bölümü](backup-azure-vms-prepare.md#vm-agent).
 
@@ -225,6 +225,6 @@ Sorularınız varsa veya dahil edilmesini istediğiniz herhangi bir özellik var
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

@@ -1,7 +1,7 @@
 <properties
     pageTitle="DocumentDB hesabı oluşturma| Microsoft Azure"
     description="Azure DocumentDB ile bir NoSQL veritabanı oluşturun. Bir DocumentDB hesabı oluşturmak ve üstün hızlı, küresel ölçekli NoSQL veritabanınızı oluşturmaya başlamak için bu yönergeleri izleyin." 
-    keywords="build a database"
+    keywords="bir veritabanı derleme"
     services="documentdb"
     documentationCenter=""
     authors="mimig1"
@@ -14,13 +14,13 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/16/2016"
+    ms.date="08/11/2016"
     ms.author="mimig"/>
 
 # Azure portalını kullanarak DocumentDB hesabı oluşturma
 
 > [AZURE.SELECTOR]
-- [Azure Portal](documentdb-create-account.md)
+- [Azure Portalı](documentdb-create-account.md)
 - [Azure CLI ve ARM](documentdb-automation-resource-manager-cli.md)
 
 Microsoft Azure DocumentDB ile bir veritabanı oluşturmak için şunları yapmanız gerekir:
@@ -55,6 +55,6 @@ DocumentDB hakkında daha fazla bilgi edinmek için şu kaynakları araştırın
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

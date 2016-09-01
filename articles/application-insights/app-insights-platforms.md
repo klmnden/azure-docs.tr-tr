@@ -12,12 +12,12 @@
     ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="03/02/2016"
+    ms.date="08/15/2016"
     ms.author="awills"/>
 
-# Application Insights: diller, platformlar ve tümleştirmeler
+# Geliştirici analizleri: diller, platformlar ve tümleştirmeler
 
-Bunlar, hakkında duyduklarımız olan bazı üçüncü tarafların dahil olduğu uygulamalardır.
+Bu öğeler, bildiğimiz [Application Insights](app-insights-overview.md) uygulamalardır. Bunlardan bazıları üçüncü taraflar aracılığıyla sunulur.
 
 ## Diller
 
@@ -38,23 +38,22 @@ Bunlar, hakkında duyduklarımız olan bazı üçüncü tarafların dahil olduğ
 + [ASP.NET](app-insights-asp-net.md)
 + [ASP.NET - zaten canlı olan uygulamalar için](app-insights-monitor-performance-live-website-now.md)
 + [ASP.NET 5](app-insights-asp-net-five.md)
-+ [Android](https://github.com/Microsoft/ApplicationInsights-Android)
++ [Android](https://github.com/Microsoft/ApplicationInsights-Android) (HockeyApp)
 + [Azure web uygulamaları ve VM’ler](../azure-portal/insights-perf-analytics.md)
 + [Azure Bulut Hizmetleri](app-insights-cloudservices.md); hem web hem de çalışan rolleri dahil
 + [Microsoft Dynamics için CRM Online](app-insights-sample-mscrm.md)
 + [Docker](app-insights-docker.md)
 + [Glimpse](https://azure.microsoft.com/blog/glimpse-application-insights/)
-+ [iOS](https://github.com/Microsoft/ApplicationInsights-iOS)
++ [iOS](https://github.com/Microsoft/ApplicationInsights-iOS) (HockeyApp)
 + [J2EE](app-insights-java-get-started.md)
 + [J2EE - zaten canlı olan uygulamalar için](app-insights-java-live.md)
 + [Node.JS](https://www.npmjs.com/package/applicationinsights)
 + [OSX](https://github.com/Microsoft/ApplicationInsights-OSX)
 + [Spring](http://joe.blog.freemansoft.com/2015/12/enabling-microsoft-application-insight.html)
 + [WCF](https://github.com/Microsoft/ApplicationInsights-SDK-Labs/blob/master/WCF/readme.md)
-+ [Windows Mağazası C#|VB](app-insights-windows-get-started.md)
-+ [Windows Mağazası C++](app-insights-windows-cpp.md)
++ [Windows Mağazası C#|VB](app-insights-windows-get-started.md) (HockeyApp)
++ [Windows Mağazası C++](app-insights-windows-cpp.md) (HockeyApp)
 + [Windows masaüstü uygulamaları, hizmetleri ve çalışan rolleri](app-insights-windows-desktop.md)
-+ [Xamarin](https://github.com/Microsoft/ApplicationInsights-Xamarin)
 + [Diğer](#projects)
 
 
@@ -88,6 +87,6 @@ Diliniz veya platformunuz için henüz bir SDK yoksa, belki de bir tane derlemen
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

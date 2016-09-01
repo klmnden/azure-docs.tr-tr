@@ -2,7 +2,7 @@
 
 [EventProcessorHost][], Event Hubs’a ait kalıcı denetim noktalarını ve paralel alımları yöneterek bu Event Hubs’a ait alma olaylarını basitleştiren bir .NET sınıfıdır. [EventProcessorHost][]’u kullanarak, farklı düğümlerde barındırıldığında bile birden çok alıcı arasında olayları bölebilirsiniz. Bu örnek, tek alıcı için [EventProcessorHost][]’un nasıl kullanıldığını göstermektedir. [Ölçeği genişletilmiş olay işleme][] örneği birden çok alıcıyla [EventProcessorHost][]’un nasıl kullanılacağını göstermektedir.
 
-[EventProcessorHost][]’u kullanmak için[Azure Storage hesabınız][] olmalıdır:
+[EventProcessorHost][]'u kullanabilmeniz için bir [Azure Depolama hesabınızın][] olması gerekir:
 
 1. [Klasik Azure portalı][]’nda oturum açın ve ekranın altındaki **YENİ**’ye tıklayın.
 
@@ -26,7 +26,7 @@
 
     ![][13]
 
-    Bu işlem, tüm bağımlılıklarıyla birlikte [Azure Service Bus Event Hub - EventProcessorHost NuGet paketi](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost)’ni indirir, yükler ve buna başvuru ekler.
+    Visual Studio, tüm bağımlılıklarıyla birlikte [Azure Service Bus Olay Hub'ı - EventProcessorHost NuGet paketini](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost) indirir, yükler ve ona başvuru ekler.
 
 7. **Alıcı** projesine sağ tıklayın, **Ekle** ve **Sınıf**’a tıklayın. Yeni sınıf **SimpleEventProcessor**’ı adlandırın ve ardından sınıfı oluşturmak için **Ekle**’ye tıklayın.
 
@@ -115,13 +115,13 @@
     }
     ```
 
-> [AZURE.NOTE] Bu öğretici, [EventProcessorHost][]’un tek bir örneğini kullanır. Verimliliği artırmak için, birden çok [EventProcessorHost][] örneğinin [Ölçeği genişletilmiş olay işleme][] örneğinde gösterildiği gibi çalıştırmanız önerilir. Böyle durumlarda, alınan olayların yük dengesi için çeşitli örnekler otomatik olarak birbirleriyle koordine olurlar. Birden çok alıcının her birinin *tüm* olayları işlemesini istiyorsanız **ConsumerGroup** kavramını kullanmalısınız. Olaylar farklı makinelerden alındığında, dağıtıldıkları makineleri (veya rolleri) temel alan [EventProcessorHost][] örnekleri için ad belirtmek yararlı olabilir. Bu konular hakkında daha fazla bilgi için bkz. [Event Hubs’a Genel Bakış][] ve [Event Hubs Programlama Kılavuzu][] konuları.
+> [AZURE.NOTE] Bu öğretici, [EventProcessorHost][]’un tek bir örneğini kullanır. Verimliliği artırmak için, birden çok [EventProcessorHost][] örneğinin [Ölçeği genişletilmiş olay işleme][] örneğinde gösterildiği gibi çalıştırmanız önerilir. Bu gibi durumlarda, alınan olayların yükünü dengelemek üzere çeşitli örnekler otomatik olarak birbiriyle koordine olur. Birden çok alıcının her birinin *tüm* olayları işlemesini istiyorsanız **ConsumerGroup** kavramını kullanmalısınız. Olaylar farklı makinelerden alındığında, dağıtıldıkları makineleri (veya rolleri) temel alan [EventProcessorHost][] örnekleri için ad belirtmek yararlı olabilir. Bu konular hakkında daha fazla bilgi için bkz. [Event Hubs’a Genel Bakış][] ve [Event Hubs Programlama Kılavuzu][] konuları.
 
 <!-- Links -->
 [Event Hubs’a Genel Bakış]: event-hubs-overview.md
 [Event Hubs Programlama Kılavuzu]: event-hubs-programming-guide.md
 [Ölçeği genişletilmiş olay işleme]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
-[Azure Storage hesabı]: ../storage/storage-create-storage-account.md
+[Azure Depolama hesabınızın]: ../storage/storage-create-storage-account-classic-portal.md
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
 [Klasik Azure portalı]: http://manage.windowsazure.com
 
@@ -136,6 +136,6 @@
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

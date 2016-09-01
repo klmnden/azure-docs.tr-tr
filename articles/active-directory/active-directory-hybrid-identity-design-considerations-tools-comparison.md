@@ -1,6 +1,6 @@
 <properties
     pageTitle="Karma Kimlik: Dizin tümleştirme araçları karşılaştırması | Microsoft Azure"
-    description="Bu sayfada size, dizin tümleştirmesi için kullanılabilen çeşitli dizin tümleştirme araçlarını karşılaştıran kapsamlı bir tablo sunulmaktadır."
+    description="Bu sayfada, dizin tümleştirme için kullanılabilen çeşitli dizin tümleştirme araçlarını karşılaştıran kapsamlı bir tablo sunulmaktadır."
     services="active-directory"
     documentationCenter=""
     authors="billmath"
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/12/2016"
+    ms.date="08/08/2016"
     ms.author="billmath"/>
 
 # Karma Kimlik dizin tümleştirme araçları karşılaştırması
@@ -24,7 +24,7 @@ Yıllar içinde dizin tümleştirme araçları büyüme ve gelişim göstermişt
 
 >[AZURE.NOTE] Azure AD Connect, daha önce Dirsync ve AAD Eşitleme olarak yayınlanan bileşenleri ve işlevleri bir araya getirir. Bu araçlar artık tek tek yayınlanmamaktadır ve ilerideki tüm geliştirmeler Azure AD Connect güncelleştirmelerine dahil edilecektir, böylece her zaman en güncel işlevlere nereden ulaşabileceğinizi bileceksiniz.
 >
->DirSync ve Azure AD Eşitleme kullanım dışı bırakılmıştır. Daha fazla bilgiye [Microsoft Azure Active Directory Eşitleme ("DirSync") ve Azure Active Directory Eşitleme'yi ("Azure AD Eşitleme") yükseltme](https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-dirsync-deprecated/?WT.mc_id=DirSyncDepACOM) konusundan ulaşılabilir.
+>DirSync ve Azure AD Eşitleme kullanım dışı bırakılmıştır. [Buradan](active-directory-aadconnect-dirsync-deprecated.md) daha fazla bilgi edinebilirsiniz.
 
 
 Tabloların her biri için aşağıdaki anahtarı kullanın.
@@ -98,6 +98,6 @@ Minimal öznitelik kümesinin eşitlenmesine izin ver (MinSync) | ● | ● |  |
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

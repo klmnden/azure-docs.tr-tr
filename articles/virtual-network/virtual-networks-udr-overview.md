@@ -3,7 +3,7 @@
    description="Azure'da trafiği ağ sanal gereçlerine iletmek için Kullanıcı Tanımlı Yolları (UDR) ve IP İletimini nasıl kullanacağınızı öğrenin."
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn" />
 <tags 
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/15/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # Kullanıcı Tanımlı Yollar ve IP İletimi nedir?
 Azure'da bir sanal ağa (VNet) sanal makineler (VM'ler) eklediğiniz zaman, VM'lerin birbirleri ile ağ üzerinde otomatik olarak iletişim kurabildiklerini fark edersiniz. VM'ler farklı alt ağlarda bulunsa bile bir ağ geçidini belirtmenize gerek yoktur. Aynı şey VM'lerden genel İnternet'e giden iletişimlerde ve hatta Azure'dan kendi veri merkezinize karma bir bağlantı bulunduğunda şirket içi ağınıza giden iletişimlerde de geçerlidir.
@@ -77,7 +77,7 @@ Yol tablosu bir alt ağ ile ilişkilendirilene kadar alt ağlar sistem yolların
 
 Kullanıcı tanımlı yolların nasıl oluşturulacağını öğrenmek için bkz. [Azure'da Yollar Oluşturma ve IP İletimini Etkinleştirme](virtual-network-create-udr-arm-template.md).
 
->[AZURE.IMPORTANT] Kullanıcı tanımlı yollar yalnızca Azure VM'leri ve bulut hizmetleri için uygulanır. Örneğin, şirket içi ağınız ve Azure arasında bir güvenlik duvarı sanal gereci eklemek isterseniz Azure yol tablolarınız için şirket içi adres alanına giden tüm trafiği sanal gerece ileten bir yol oluşturmanız gerekir. Ancak şirket içi adres alanından gelen trafik sanal gereci atlar ve VPN ağ geçidinden veya ExpressRoute devresinden geçerek doğrudan Azure ortamına ulaşır.
+>[AZURE.IMPORTANT] Kullanıcı tanımlı yollar yalnızca Azure VM'leri ve bulut hizmetleri için uygulanır. Örneğin, şirket içi ağınız ve Azure arasında bir güvenlik duvarı sanal gereci eklemek isterseniz Azure yol tablolarınız için şirket içi adres alanına giden tüm trafiği sanal gerece ileten bir yol oluşturmanız gerekir. Şirket içinden gelen tüm trafiği sanal gereç aracılığıyla Azure'a iletmek için GatewaySubnet'e kullanıcı tanımlı bir yol da (UDR) ekleyebilirsiniz. Bu, kısa süre önce yapılan bir eklemedir.
 
 ### BGP Yolları
 Şirket içi ağınız ve Azure arasında bir ExpressRoute bağlantınız varsa BGP'yi etkinleştirerek şirket içi ağınızdan Azure'a giden yollar yayabilirsiniz. Bu BGP yolları, her Azure alt ağında yer alan sistem yollarıyla ve kullanıcı tanımlı yollarla aynı şekilde kullanılır. Daha fazla bilgi için bkz. [ExpressRoute'a Giriş](../expressroute/expressroute-introduction.md).
@@ -96,6 +96,6 @@ Bu sanal gereç VM'si, kendisine yönelik olmayan gelen trafiği alabilmelidir. 
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

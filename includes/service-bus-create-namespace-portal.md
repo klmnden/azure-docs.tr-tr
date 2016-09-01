@@ -1,55 +1,45 @@
-1. Klasik Azure portalında oturum açın.
+1. [Azure Portal][] oturum açın.
 
-2. Portalın sol gezinti bölmesinde **Service Bus** hizmetine tıklayın.
+2. Portalın sol gezinti bölmesinde **Yeni**'ye tıklayın, ardından **Enterprise Integration**'a ve **Service Bus**'a tıklayın.
 
-3. Portalın alt bölmesinde **Oluştur**'a tıklayın.
+4. **Ad alanı oluştur** iletişim kutusunda bir ad alanı adı girin. Adın kullanılabilirliği sistem tarafından hemen denetlenir.
 
-    ![Oluştur’u seçin][select-create]
-   
-4. **Yeni bir ad alanı ekle** iletişim kutusunda ad alanı adını girin. Adın kullanılabilirliği sistem tarafından hemen denetlenir.
+5. Ad alanı adının kullanılabilir durumda olduğundan emin olduktan sonra fiyatlandırma katmanını (Temel, Standart veya Premium) seçin.
 
-    ![Ad alanı adı][namespace-name]
-  
-5. Ad alanı adının kullanılabilir olduğundan emin olduktan sonra ad alanınızın barındırılması gereken ülke veya bölgeyi seçin.
+7. **Abonelik** alanında, ad alanı oluşturmak için kullanmak istediğiniz bir Azure aboneliği seçin.
 
-6. İletişim kutusundaki diğer alanları varsayılan değerleriyle bırakın (**Mesajlaşma** ve **Standart Katman**), ardından Tamam onay işaretine tıklayın. Artık sistem ad alanınızı oluşturur ve kullanıma açar. Sistem, hesabınıza yönelik kaynakları sağlarken birkaç dakika beklemeniz gerekebilir.
+9. **Kaynak grubu** alanında, ad alanını barındırmak üzere var olan bir kaynak grubunu seçin veya yeni bir kaynak grubu oluşturun.      
+
+8. **Konum** alanında, ad alanınızın barındırılması gereken ülkeyi veya bölgeyi seçin.
+
+    ![Ad alanı oluşturma][create-namespace]
+
+6. **Oluştur** düğmesine tıklayın. Artık sistem ad alanınızı oluşturur ve kullanıma açar. Sistem, hesabınıza yönelik kaynakları sağlarken birkaç dakika beklemeniz gerekebilir.
  
-    ![Başarıyla oluşturuldu][created-successfully]
+### Yönetim kimlik bilgilerini alma
 
-###Kimlik bilgilerini alın
-1. Kullanılabilir ad alanlarının listesini görüntülemek için sol gezinti bölmesinde **Service Bus** düğümüne tıklayın:
+1. Ad alanları listesinde, yeni oluşturulan ad alanı adına tıklayın.
  
-    ![Hizmet veri yolu seçin][select-service-bus]
-  
-2. Görüntülenen listede az önce oluşturduğunuz ad alanını seçin:
- 
-    ![Ad alanı seçin][select-namespace]
- 
-3. **Bağlantı Bilgileri**'ne tıklayın.
+3. **Service Bus ad alanı** dikey penceresinde, **Paylaşılan erişim ilkeleri**'ne tıklayın.
 
-    ![Bağlantı bilgileri][connection-information]
-  
-4. **Erişim bağlantısı bilgileri** bölmesinde, SAS anahtarını ve anahtar adını içeren bağlantı dizesini bulun.
+4. **Paylaşılan erişim ilkeleri** dikey penceresinde, **RootManageSharedAccessKey** öğesine tıklayın.
 
-    ![Bağlantı bilgilerine erişin][access-connection-information]
-  
-5. Anahtarı not edin veya panoya kopyalayın.
+    ![bağlantı bilgisi][connection-info]
+
+5. **İlke: RootManageSharedAccessKey** dikey penceresinde **Bağlantı dizesi–birincil anahtar** seçeneğinin yanındaki Kopyala düğmesine tıklayın ve bağlantı dizesini, daha sonra kullanmak üzere panonuza kopyalayın.
+
+    ![bağlantı dizesi][connection-string]
 
 <!--Image references-->
 
-[select-create]: ./media/service-bus-create-namespace-portal/select-create.png
-[namespace-name]: ./media/service-bus-create-namespace-portal/namespace-name.png
-[created-successfully]: ./media/service-bus-create-namespace-portal/created-successfully.png
-[select-service-bus]: ./media/service-bus-create-namespace-portal/select-service-bus.png
-[select-namespace]: ./media/service-bus-create-namespace-portal/select-namespace.png
-[connection-information]: ./media/service-bus-create-namespace-portal/connection-information.png
-[access-connection-information]: ./media/service-bus-create-namespace-portal/access-connection-information.png
-
+[ad alanı oluşturma]: ./media/service-bus-create-namespace-portal/create-namespace.png
+[bağlantı bilgisi]: ./media/service-bus-create-namespace-portal/connection-info.png
+[bağlantı dizesi]: ./media/service-bus-create-namespace-portal/connection-string.png
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
-[classic-portal]: https://manage.windowsazure.com
+[Azure Portal]: https://portal.azure.com
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

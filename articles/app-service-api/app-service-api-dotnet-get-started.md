@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="dotnet"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="05/27/2016"
+    ms.date="08/19/2016"
     ms.author="rachelap"/>
 
 # Azure App Service’de API Apps, ASP.NET ve Swagger kullanmaya başlama
@@ -493,6 +493,6 @@ Sıfırdan yeni API uygulaması projeleri oluşturmak istiyorsanız, **Azure API
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

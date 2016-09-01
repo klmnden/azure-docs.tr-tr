@@ -175,6 +175,8 @@ Bu makalede PySpark çekirdeği kullanılacaktır. [Spark HDInsight kümeleri il
 
 * [HDInsight’ta Spark kullanarak Web sitesi günlüğü çözümlemesi](hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
+* [HDInsight’ta Spark’ı kullanarak Application Insight telemetri verilerinin analizi](hdinsight-spark-analyze-application-insight-logs.md)
+
 ### Uygulamaları oluşturma ve çalıştırma
 
 * [Scala kullanarak bağımsız uygulama oluşturma](hdinsight-apache-spark-create-standalone-application.md)
@@ -214,6 +216,6 @@ Bu makalede PySpark çekirdeği kullanılacaktır. [Spark HDInsight kümeleri il
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

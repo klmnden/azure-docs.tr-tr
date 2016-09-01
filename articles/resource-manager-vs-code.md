@@ -76,7 +76,7 @@ Bir şablonla çalışmaya başlamanın en kolay yolu [Github](https://github.co
 
     ![değişken ekleme](./media/resource-manager-vs-code/add-variables.png)
 
-5. IntelliSense de kullanılabilir değerler veya işlevler önerebilir. Bir parametre değerine özellik ayarlamak için **"[]"** ve **Ctrl+Ara çubuğu** ile bir ifade oluşturun. Bir işlevin adını yazarak başlayabilirsiniz. İstediğiniz işlevi bulduğunuzda **Tab** tuşunu seçin.
+5. IntelliSense, kullanılabilir değerler veya işlevler de önerebilir. Bir parametre değerine özellik ayarlamak için **"[]"** ve **Ctrl+Ara çubuğu** ile bir ifade oluşturun. Bir işlevin adını yazarak başlayabilirsiniz. İstediğiniz işlevi bulduğunuzda **Tab** tuşunu seçin.
 
     ![parametre ekleme](./media/resource-manager-vs-code/select-parameters.png)
 
@@ -138,6 +138,6 @@ Bir şablonla çalışmaya başlamanın en kolay yolu [Github](https://github.co
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

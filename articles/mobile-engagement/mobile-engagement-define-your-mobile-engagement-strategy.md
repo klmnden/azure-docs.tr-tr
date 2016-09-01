@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="03/01/2016"
+    ms.date="08/19/2016"
     ms.author="piyushjo" />
 
 # Mobile Engagement stratejinizi tanımlama
@@ -138,6 +138,6 @@ Bu tür verilerin tümü parametrelerle genişletilerek (Mobile Engagement’ta 
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

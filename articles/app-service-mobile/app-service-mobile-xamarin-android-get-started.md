@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-xamarin-android"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="05/03/2016"
+    ms.date="08/11/2016"
     ms.author="glenga" />
 
 #Xamarin.Android Uygulaması oluşturma
@@ -86,11 +86,11 @@ Xamarin uygulamanızda yönetilen istemci SDK’sıyla çalışmayı öğrenin.
 [10]: ./media/app-service-mobile-xamarin-android-get-started/mobile-quickstart-startup-android.png
 
 <!-- URLs. -->
-[Azure Portal]: https://azure.portal.com/
+[Azure Portalı]: https://azure.portal.com/
 [Visual Studio]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

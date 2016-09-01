@@ -54,7 +54,7 @@ Kaynağı tanımlayan bu anahtarı kısa bir süre sonra verileri kaynağa yönl
 ## <a name="sdk"></a> Uygulamanıza SDK yükleme
 
 ```
-npm install applicationinsights
+npm install applicationinsights --save
 ```
 
 ## Kullanım
@@ -63,7 +63,7 @@ Bu işlem istek izleme, işlenmemiş özel durum izleme ve sistem performansı i
 
 ```javascript
 
-import appInsights = require("applicationinsights");
+var appInsights = require("applicationinsights");
 appInsights.setup("<instrumentation_key>").start();
 ```
 
@@ -226,6 +226,6 @@ server.on("listening", () => {
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

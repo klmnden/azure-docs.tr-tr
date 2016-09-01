@@ -32,7 +32,7 @@ Aşağıdaki tabloda Microsoft tarafından oluşturulan ve Çekirdek Bağlayıc�
 Ad | Açıklama
 --- | ---
 [Azure Service Bus](app-service-logic-connector-azureservicebus.md) | Service Bus Kuyrukları ve Konularından iletiler gönderebilir ve Service Bus Kuyrukları ve Aboneliklerinden iletiler alabilir.
-[Bing Çevirmen](https://azure.microsoft.com/marketplace/partners/microsoft_com/bingtranslator) | Metni başka bir dile çevirmek için Bing kullanın.
+[Bing Çevirmen](https://azure.microsoft.com/marketplace/partners/bing/microsofttranslator/) | Metni başka bir dile çevirmek için Bing kullanın.
 [HTTP](app-service-logic-connector-http.md) | HTTP Dinleyicisi, HTTP sunucusu gibi davranan ve gelen HTTP ya da HTTPS isteklerini dinleyen bir uç nokta açar. HTTP eylemi bir API Uygulaması gerektirmez ve Logic Apps içinde yerel olarak desteklenir.
 [Microsoft Office 365](app-service-logic-connector-office365.md) | Office 365 Bağlayıcısı, Office 365 hesabınızı kullanarak e-posta gönderebilir ve alabilir, takviminizi yönetebilir ve kişilerinizi yönetebilir.
 [QuickBooks](app-service-logic-connector-quickbooks.md) | Intuit QuickBooks’ta müşteriler, öğeler, faturalar gibi farklı varlıkları oluşturma, güncelleştirme ve sorgulama dahil olmak üzere farklı görevler tamamlayabilirsiniz.
@@ -86,6 +86,6 @@ Bağlayıcılar Mantıksal Uygulama içinde eylem olarak da kullanılabilir. Eyl
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

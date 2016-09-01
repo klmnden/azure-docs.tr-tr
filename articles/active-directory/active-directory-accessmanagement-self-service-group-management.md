@@ -4,7 +4,7 @@
     services="active-directory"
     documentationCenter=""
   authors="curtand"
-    manager="stevenpo"
+    manager="femila"
     editor=""
     />
 
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/14/2016"
+    ms.date="08/10/2016"
     ms.author="curtand"/>
 
 # Self servis grup yönetimi için Azure Active Directory'yi ayarlama
@@ -59,6 +59,6 @@ Bu makalelerde Azure Active Directory ile ilgili ek bilgi sağlanmıştır.
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

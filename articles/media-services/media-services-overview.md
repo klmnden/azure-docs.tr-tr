@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="hero-article" 
-    ms.date="06/22/2016"
+    ms.date="08/07/2016"
     ms.author="juliako;anilmur"/>
 
 #Azure Media Services’e Genel Bakış ve Yaygın Senaryolar
@@ -60,7 +60,7 @@ Azure Media Services’i kullanmaya başlamak için aşağıdakilerin bulunması
 
 Azure Media Services kavramları hakkında bilgi edinmek için bkz. [Kavramlar](media-services-concepts.md).
 
-Azure Media Services ana bileşenlerinin tümünü tanıtan bir dizi nasıl yapılır makalesi için bkz. [Azure Media Services Adım Adım öğreticileri](https://docs.com/fukushima-shigeyuki/3439/english-azure-media-services-step-by-step-series). Bu makale dizisi, kavramlara çok iyi bir genel bakış sunar ve AMSE aracını kullanarak AME görevlerini gösterir. AMSE aracının bir Windows aracı olduğunu unutmayın. Bu araç, [.NET için AMS SDK](https://github.com/Azure/azure-sdk-for-media-services), [Java için Azure SDK](https://github.com/Azure/azure-sdk-for-java) veya [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php) ile programlama aracılığıyla elde edebileceğiniz görevlerin çoğunu destekler.
+Azure Media Services ana bileşenlerinin tümünü tanıtan bir dizi nasıl yapılır makalesi için bkz. [Azure Media Services Adım Adım öğreticileri](https://docs.com/fukushima-shigeyuki/3439/english-azure-media-services-step-by-step-series). Bu makale dizisi, kavramlara çok iyi bir genel bakış sunar ve AMSE aracını kullanarak AMS görevlerini gösterir. AMSE aracının bir Windows aracı olduğunu unutmayın. Bu araç, [.NET için AMS SDK](https://github.com/Azure/azure-sdk-for-media-services), [Java için Azure SDK](https://github.com/Azure/azure-sdk-for-java) veya [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php) ile programlama aracılığıyla elde edebileceğiniz görevlerin çoğunu destekler.
 
 ##<a id="vod_scenarios"></a>Azure Media Services ile İsteğe Bağlı Medya Teslimi: yaygın senaryolar ve görevler
 
@@ -77,7 +77,7 @@ Bu bölümde, yaygın senaryolar açıklanmakta ve ilgili konulara bağlantılar
  
 1. Uyarlamalı bit hızlı bir MP4 dosyaları grubuna kodlayın. 
 
-    İçeriğinizi beklerken korumak için çıkış varlığına depolama şifrelemesi seçeneğini uygulamanız önerilir.
+    İçeriğinizi beklerken korumak için çıktı varlığına depolama şifrelemesi seçeneğini uygulamanız önerilir.
     
 1. Varlık teslim ilkesini (dinamik paketleme tarafından kullanılır) yapılandırın. 
     
@@ -94,7 +94,7 @@ Bu bölümde, yaygın senaryolar açıklanmakta ve ilgili konulara bağlantılar
 Dinamik şifreleme kullanabilmek için, ilk olarak kendisinden şifrelenmiş içerik akışı gerçekleştirmek istediğiniz akış uç noktasında akışa ayrılan en az bir birim almanız gerekir.
 
 1. Yüksek kaliteli bir ara dosyayı bir varlığa yükleyin. Varlığa depolama şifrelemesi seçeneğini uygulayın.
-1. Uyarlamalı bit hızlı bir MP4 dosyaları grubuna kodlayın. Çıkış varlığına depolama şifrelemesi seçeneğini uygulayın.
+1. Uyarlamalı bit hızlı bir MP4 dosyaları grubuna kodlayın. Çıktı varlığına depolama şifrelemesi seçeneğini uygulayın.
 1. Kayıttan yürütme sırasında dinamik olarak şifrelenmesini istediğiniz varlık için şifreleme içerik anahtarı oluşturun.
 2. İçerik anahtarı yetkilendirme ilkesini yapılandırın.
 1. Varlık teslim ilkesini (dinamik paketleme ve dinamik şifreleme tarafından kullanılır) yapılandırın.
@@ -151,9 +151,9 @@ Canlı Akış ile çalışırken aşağıdaki bileşenler yaygın olarak kullan�
 
 Azure Media Services’de **Kanallar**, **Programlar** ve **Akış Uç Noktaları**; alma biçimlendirme, DVR, güvenlik, ölçeklenebilirlik ve yedeklilik dahil olmak üzere tüm canlı akış işlevlerini idare eder.
 
-**Kanal**, canlı akış içeriğinin işleneceği bir işlem hattını temsil eder. Kanal aşağıdaki yollarla bir canlı giriş akışı alabilir:
+**Kanal**, canlı akış içeriğinin işleneceği bir işlem hattını temsil eder. Kanal aşağıdaki yollarla bir canlı girdi akışı alabilir:
 
-- Şirket içi bir gerçek zamanlı kodlayıcı, çoklu bit hızına sahip **RTMP** veya **Kesintisiz Akışı** (parçalanmış MP4) **doğrudan geçiş** teslimi için yapılandırılmış Kanala gönderir. **Doğrudan geçiş** teslimi, alınan akışların herhangi başka bir işlemeye uğramadan **Kanallardan** geçmesidir. Çoklu bit hızlı Kesintisiz Akış çıkışı sağlayan şu gerçek zamanlı kodlayıcıları kullanabilirsiniz: Elemental, Envivio, Cisco.  Şu gerçek zamanlı kodlayıcılar RTMP çıkışı sağlar: Adobe Flash Live, Telestream Wirecast ve Tricaster kod dönüştürücüleri.  Gerçek zamanlı bir kodlayıcı, gerçek zamanlı kodlama için etkinleştirilmemiş bir kanala tek bit hızlı bir akış da gönderebilir, ancak bu işlem önerilmez. İstendiğinde, Media Services akışı müşterilere teslim eder.
+- Şirket içi bir gerçek zamanlı kodlayıcı, çoklu bit hızına sahip **RTMP** veya **Kesintisiz Akışı** (parçalanmış MP4) **doğrudan geçiş** teslimi için yapılandırılmış Kanala gönderir. **Doğrudan geçiş** teslimi, alınan akışların herhangi başka bir işlemeye uğramadan **Kanallardan** geçmesidir. Çoklu bit hızlı Kesintisiz Akış çıktısı sağlayan şu gerçek zamanlı kodlayıcıları kullanabilirsiniz: Elemental, Envivio, Cisco.  Şu gerçek zamanlı kodlayıcılar RTMP çıktısı sağlar: Adobe Flash Live, Telestream Wirecast ve Tricaster kod dönüştürücüleri.  Gerçek zamanlı bir kodlayıcı, gerçek zamanlı kodlama için etkinleştirilmemiş bir kanala tek bit hızlı bir akış da gönderebilir, ancak bu işlem önerilmez. İstendiğinde, Media Services akışı müşterilere teslim eder.
 
     >[AZURE.NOTE] Uzun bir dönem içerisinde birden çok etkinlik gerçekleştirecekseniz ve zaten şirket içi kodlayıcılara yatırım yaptıysanız, doğrudan geçiş yöntemini kullanmak canlı akış yapmanın en ekonomik yoludur. [Fiyatlandırma](/pricing/details/media-services/) detaylarına bakın.
     
@@ -222,6 +222,6 @@ Daha fazla bilgi için bkz. [Microsoft Azure SLA](https://azure.microsoft.com/su
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

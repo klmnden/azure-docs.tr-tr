@@ -13,12 +13,15 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="05/31/2016"
+    ms.date="08/15/2016"
     ms.author="mbaldwin" />
 
 
 
 # Azure RemoteApp’i 3 dakika veya daha kısa bir süre içinde cihazınızda deneme
+
+> [AZURE.IMPORTANT]
+> Azure RemoteApp kullanımdan kaldırılıyor. Ayrıntılı bilgi için [duyuruyu](https://go.microsoft.com/fwlink/?linkid=821148) okuyun.
 
 Azure RemoteApp’i cihazınızda görmek mi istiyorsunuz? Bir Microsoft hesabına sahip olduğunuz sürece, 10 dakika boyunca demo dağıtımımıza erişebilirsiniz. Office ve diğer bazı uygulamalar kullanılabilmektedir. Bu, Azure RemoteApp kullanıcı deneyimini 3 dakikadan daha kısa bir süre içinde test etmenin harika bir yoludur.
 
@@ -37,6 +40,6 @@ Görüşleriniz önemlidir. Her oturum sonunda, geri bildirim için bir iletişi
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

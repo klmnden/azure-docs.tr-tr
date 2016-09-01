@@ -149,7 +149,7 @@ Aşağıdaki cmdlet'i kullanarak yapılandırma ayrıntılarını alabilirsiniz
 
 Aşağıdaki cmdlet'i kullanarak yapılandırmanın herhangi bir bölümünü güncelleştirebilirsiniz. Aşağıdaki örnekte, bağlantı hattının VLAN kimliği 100'den 500’e güncelleştiriliyor.
 
-    Set-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -Circuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "10.0.0.0/30" -SecondaryPeerAddressPrefix "10.0.0.4/30" -VlanId 200
+    Set-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "10.0.0.0/30" -SecondaryPeerAddressPrefix "10.0.0.4/30" -VlanId 200
 
     Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
@@ -406,6 +406,6 @@ Sonraki adım, [ExpressRoute bağlantı hattına bir VNet bağlama](expressroute
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

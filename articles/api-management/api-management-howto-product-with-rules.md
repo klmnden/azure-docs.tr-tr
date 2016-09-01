@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/25/2016"
+    ms.date="08/09/2016"
     ms.author="sdanie"/>
 
 # API’nizi, Azure API Management kullanarak hız sınırlarıyla koruma | Microsoft Azure
@@ -70,7 +70,7 @@ Varsayılan olarak, yeni ürünleri **Yöneticiler** grubundaki kullanıcılar g
 
 Öğreticinin bu adımında yeni Ücretsiz Deneme ürününe Echo API’sini ekleyeceğiz.
 
->Her API Management hizmeti örneği, API Management’i denemek ve hakkında bilgi almak için kullanılabilecek bir Echo API’si ile önceden yapılandırılmış olarak gelir. Daha fazla bilgi için bkz. [İlk API’nizi Azure API Management’te Yönetme][].
+>Her API Management hizmeti örneği, API Management’i denemek ve hakkında bilgi almak için kullanılabilecek bir Echo API’si ile önceden yapılandırılmış olarak gelir. Daha fazla bilgi için bkz. [Azure API Management’te ilk API’nizi yönetme][].
 
 Soldaki **API Management** menüsünde **Ürünler**’e tıklayın ve ardından ürünü yapılandırmak için **Ücretsiz Deneme**’ye tıklayın.
 
@@ -276,7 +276,7 @@ Dakikada 10 çağrılık hız sınırı ilkesi etkinken, hız sınırı aşılma
 [İzleme ve analiz]: ../api-management-monitoring.md
 [Bir ürüne API ekleme]: api-management-howto-add-products.md#add-apis
 [Bir ürün yayımlama]: api-management-howto-add-products.md#publish-product
-[İlk API’nizi Azure API Management’te Yönetme]: api-management-get-started.md
+[Azure API Management’te ilk API’nizi yönetme]: api-management-get-started.md
 [Azure API Management’te grupları oluşturma ve kullanma]: api-management-howto-create-groups.md
 [Bir ürüne abone olanları görüntüleme]: api-management-howto-add-products.md#view-subscribers
 [Azure API Management’i kullanmaya başlama]: api-management-get-started.md
@@ -296,6 +296,6 @@ Dakikada 10 çağrılık hız sınırı ilkesi etkinken, hız sınırı aşılma
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

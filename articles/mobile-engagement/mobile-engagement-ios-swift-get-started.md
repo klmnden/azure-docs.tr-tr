@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-ios"
     ms.devlang="swift"
     ms.topic="hero-article"
-    ms.date="05/03/2016"
+    ms.date="08/19/2016"
     ms.author="piyushjo" />
 
 # Swift’te iOS Uygulamaları için Azure Mobile Engagement Kullanmaya Başlama
@@ -207,6 +207,6 @@ Aşağıdaki bölümler, uygulamanızı bu bildirim ve mesajları alacak şekild
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

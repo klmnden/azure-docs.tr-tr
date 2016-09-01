@@ -14,14 +14,14 @@
      ms.tgt_pltfrm="na"
      ms.devlang="na"
      ms.topic="get-started-article"
-     ms.date="07/01/2016"
+     ms.date="08/21/2016"
      ms.author="trinadhk; giridham; arunak; markgal; jimpark;"/>
 
 # Azure Backup hizmeti - SSS
 
 > [AZURE.SELECTOR]
 - [Klasik mod için Backup ile ilgili SSS](backup-azure-backup-faq.md)
-- [ARM modu için Backup ile ilgili SSS](backup-azure-backup-ibiza-faq.md)
+- [Resource Manager modu için Backup ile ilgili SSS](backup-azure-backup-ibiza-faq.md)
 
 Bu makale, Azure Backup hizmeti ile ilgili sık sorulan soruların (ve yanıtlarının) listesinden oluşmaktadır. Topluluğumuz, soruları hızlı bir şekilde yanıtlar ve bir sorunun sıklıkla sorulması durumunda söz konusu soruyu bu makaleye ekleriz. Soruların yanıtları genellikle başvuru veya destek bilgileri sağlar. Azure Backup ile ilgili sorularınızı, bu makalenin veya ilgili bir makalenin Disqus bölümünde sorabilirsiniz. Ayrıca Azure Backup hizmeti ile ilgili sorularınızı [tartışma forumunda](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) paylaşabilirsiniz.
 
@@ -231,6 +231,9 @@ Y3. Şifreleme anahtarı en az 16 karakterden oluşmalıdır.
 
 **S4. Şifreleme anahtarını kaybedersem ne olur? Verileri kurtarabilir miyim?/Microsoft, verileri kurtarabilir mi?** <br/>
 Y4. Yedekleme verilerini şifrelemek için kullanılan anahtar yalnızca müşterinin şirketinde bulunur. Microsoft, Azure üzerinde anahtarın bir kopyasını tutmaz ve anahtara erişim sahibi değildir. Müşteri, anahtarı kaybederse Microsoft, yedekleme verilerini kurtaramaz.
+
+**S5. Azure VM’ler için yedekleme verileri şifrelenir mi?** <br/>
+Y5. Azure Backup, yedekleme şifrelemesi için Azure VM’nin şifreleme ayarlarını kullanır. VM’niz Azure Disk Şifrelemesi kullanılarak şifrelendiyse, Azure Backup verilerinizi korumak için bu şifrelemeyi kullanır. 
  
 
 ## Yedekleme önbelleği
@@ -275,6 +278,6 @@ Azure Backup aracısının beklenen işlevi için önbellek klasörünün veya m
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

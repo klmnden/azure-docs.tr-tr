@@ -1,7 +1,7 @@
 <properties
     pageTitle="SQL Database nedir? SQL Database'e Giriş | Microsoft Azure"
     description="SQL Database ile tanışın: Microsoft'un bulut üzerindeki ilişkisel veritabanı yönetim sistemine (RDBMS) ilişkin teknik ayrıntılar ve özellikler."
-    keywords="introduction to sql,intro to sql,what is sql database"
+    keywords="sql'e giriş,sql veritabanı nedir"
     services="sql-database"
     documentationCenter=""
     authors="shontnew"
@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="05/23/2016"
+   ms.date="08/16/2016"
    ms.author="shkurhek"/>
 
 # SQL Database nedir? SQL Database'e Giriş
@@ -61,6 +61,6 @@ SQL Database'e giriş niteliğindeki makaleyi okuduğunuza ve "SQL Database Nedi
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

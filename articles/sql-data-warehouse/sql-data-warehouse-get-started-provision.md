@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure Portal'da SQL Data Warehouse Oluşturma | Microsoft Azure"
-   description="Azure Portal'da Azure SQL Data Warehouse oluşturmayı öğrenin"
+   pageTitle="Azure portalında SQL Veri Ambarı Oluşturma | Microsoft Azure"
+   description="Azure portalında Azure SQL Veri Ambarı oluşturmayı öğrenin"
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="barbkess"
@@ -24,21 +24,21 @@
 - [TSQL](sql-data-warehouse-get-started-create-database-tsql.md)
 - [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
 
-Bu öğreticide Azure Portal'ı kullanarak AdventureWorksDW örnek veritabanı içeren bir SQL Data Warehouse oluşturacaksınız.
+Bu öğreticide, AdventureWorksDW örnek veritabanı içeren bir SQL Veri Ambarı'nın oluşturulması için Azure portalı kullanılmaktadır.
 
 
 ## Ön koşullar
 
-Başlamak için şunlar gereklidir:
+Başlamak için gerekli olanlar:
 
 - **Azure hesabı**: Hesap oluşturmak için [Azure Ücretsiz Deneme Sürümü][] veya [MSDN Azure Kredileri][] sayfasını ziyaret edin.
-- **Azure SQL server**:  Daha fazla bilgi için bkz. [Azure Portal ile Azure SQL Database mantıksal sunucusu oluşturma][].
+- **Azure SQL sunucusu**: Daha ayrıntılı bilgi için bkz. [Azure portalı ile Azure SQL Veritabanı mantıksal sunucusu oluşturma][].
 
-> [AZURE.NOTE] Yeni bir SQL Data Warehouse'un oluşturulması ek hizmet ücretlerin alınmasına neden olabilir.  Fiyatlandırmayla ilgili ayrıntılı bilgi için bkz. [SQL Data Warehouse fiyatlandırması][].
+> [AZURE.NOTE] SQL Veri Ambarı'nın oluşturulması ek hizmet ücretlerinin alınmasına neden olabilir.  Ayrıntılı bilgi için bkz. [SQL Data Warehouse fiyatlandırması][].
 
 ## SQL Data Warehouse oluşturma
 
-1. [Azure Portal](https://portal.azure.com)'da oturum açın.
+1. [Azure Portal](https://portal.azure.com) oturum açın.
 
 2. **+ Yeni** > **Veri + Depolama** > **SQL Data Warehouse** seçeneğine tıklayın.
 
@@ -48,9 +48,9 @@ Başlamak için şunlar gereklidir:
 
     ![Veritabanı oluşturma](./media/sql-data-warehouse-get-started-provision/create-database.png)
 
-    - **Sunucu**: İlk önce sunucunuzu seçmenizi öneririz.  Var olan bir sunucuyu seçebilir veya [yeni bir sunucu oluşturabilirsiniz](./sql-data-warehouse-get-started-new-server.md). 
+    - **Sunucu**: İlk önce sunucunuzu seçmenizi öneririz.  
 
-    - **Veritabanı adı**: SQL Data Warehouse'a başvurmak için kullanılacak olan ad.  Sunucu için benzersiz olmalıdır.
+    - **Veritabanı adı**: SQL Veri Ambarı'na başvurmak için kullanılan ad.  Sunucu için benzersiz olmalıdır.
     
     - **Performans**: 400 [DWU][DWU] ile başlamanız önerilir. Veri ambarınızın performansını ayarlamak için kaydırıcıyı sağa veya sola hareket ettirebilir ya da oluşturma işlemi tamamlandıktan sonra ölçeği artırıp azaltabilirsiniz.  DWU'lar hakkında daha fazla bilgi edinmek için [ölçeklendirme](./sql-data-warehouse-manage-compute-overview.md) ile ilgili belgelerimizi veya [fiyatlandırma][SQL Data Warehouse fiyatlandırması] sayfamızı inceleyebilirsiniz. 
 
@@ -58,15 +58,15 @@ Başlamak için şunlar gereklidir:
 
     - **Kaynak grubu**: [Kaynak grupları][Kaynak grubu], Azure kaynak koleksiyonunu yönetmenize yardımcı olmak üzere tasarlanmış kapsayıcılardır. [Kaynak grupları](../resource-group-overview.md) hakkında daha fazla bilgi edinin.
 
-    - **Kaynak seçme**: **Kaynak seç** > **Örnek** seçeneğine tıklayın. Şu anda yalnızca bir örnek veritabanı olduğundan, Örnek seçeneğini belirlediğinizde **Örnek seç** seçeneği Azure tarafından otomatik olarak AdventureWorksDW olarak doldurulur.
+    - **Kaynak seçme**: **Kaynak seç** > **Örnek** seçeneğine tıklayın. Azure, **Örnek seçin** alanını AdventureWorksDW olarak otomatik doldurur.
 
 4. SQL Data Warehouse'unuzu oluşturmak için **Oluştur** düğmesine tıklayın.
 
-5. SQL Data Warehouse'unuz birkaç dakika içinde hazır olur. İşlem tamamlandığında [Azure portalına](https://portal.azure.com) dönersiniz. SQL Data Warehouse'unuzu SQL Database'ler altında listelenmiş bir şekilde panonuzda veya SQL Data Warehouse'unuzu oluşturmak için kullandığınız kaynak grubunda bulabilirsiniz. 
+5. Birkaç dakika bekleyin. Veri ambarınız hazır olduğunda [Azure Portal](https://portal.azure.com) yeniden yönlendirileceksiniz. SQL Data Warehouse'unuzu SQL Database'ler altında listelenmiş bir şekilde panonuzda veya SQL Data Warehouse'unuzu oluşturmak için kullandığınız kaynak grubunda bulabilirsiniz. 
 
-    ![Portal görünümü](./media/sql-data-warehouse-get-started-provision/database-portal-view.png)
+    ![portal görünümü](./media/sql-data-warehouse-get-started-provision/database-portal-view.png)
 
-[AZURE.INCLUDE [SQL DataBase create server](../../includes/sql-database-create-new-server-firewall-portal.md)] 
+[AZURE.INCLUDE [SQL Database create server](../../includes/sql-database-create-new-server-firewall-portal.md)] 
 
 ## Sonraki adımlar
 
@@ -78,14 +78,14 @@ Var olan bir veritabanını SQL Data Warehouse'a geçirmeye çalışıyorsanız 
 
 Güvenlik duvarı kuralları, Transact-SQL kullanarak de yapılandırılabilir. Daha fazla bilgi için bkz. [sp_set_firewall_rule][] ve [sp_set_database_firewall_rule][].
 
-[En iyi uygulamalar][] bölümüne bakmak da harika bir fikirdir.
+[En iyi uygulamalar][] bölümüne bakmak da iyi bir fikir olabilir.
 
 <!--Article references-->
-[Azure Portal ile Azure SQL Database mantıksal sunucusu oluşturma]: ../sql-database/sql-database-get-started.md#create-an-azure-sql-database-logical-server
+[Azure portalı ile Azure SQL Veritabanı mantıksal sunucusu oluşturma]: ../sql-database/sql-database-get-started.md#create-an-azure-sql-database-logical-server
 [PowerShell ile Azure SQL Database mantıksal sunucusu oluşturma]: ../sql-database/sql-database-get-started-powershell.md#database-setup-create-a-resource-group-server-and-firewall-rule
 [kaynak grupları]: ../resource-group-template-deploy-portal.md
-[En iyi uygulamalar]: ./sql-data-warehouse-best-practices.md
-[DWU]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
+[En iyi uygulamalar]: sql-data-warehouse-best-practices.md
+[DWU]: sql-data-warehouse-overview-what-is.md#data-warehouse-units
 [aboneliği]: ../azure-glossary-cloud-terminology.md#subscription
 [kaynak grubu]: ../azure-glossary-cloud-terminology.md#resource-group
 
@@ -101,6 +101,6 @@ Güvenlik duvarı kuralları, Transact-SQL kullanarak de yapılandırılabilir. 
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

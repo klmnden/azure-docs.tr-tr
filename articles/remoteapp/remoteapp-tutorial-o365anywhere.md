@@ -13,11 +13,14 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="06/27/2016"
+   ms.date="08/15/2016"
    ms.author="guscatal;elizapo"/>
 
 
 # Azure RemoteApp ile herhangi bir cihazda aynı Office 365 deneyimini elde edin
+
+> [AZURE.IMPORTANT]
+> Azure RemoteApp kullanımdan kaldırılıyor. Ayrıntılı bilgi için [duyuruyu](https://go.microsoft.com/fwlink/?linkid=821148) okuyun.
 
 Bu makalede, Office 365’i şirket içinde herhangi bir cihazda nasıl dağıtacağınız açıklanmaktadır. Kullanıcılarınız Android, Apple ve Windows’da aynı özellikler ve kullanıcı arabirimi deneyimine sahip olur.
 
@@ -69,6 +72,6 @@ Bu uygulamalardan herhangi birine tıkladığınızda, uygulama Azure sanal maki
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="hero-article"
- ms.date="06/30/2016"
+ ms.date="08/18/2016"
  ms.author="krisragh"/>
 
 # Azure Scheduler nedir?
@@ -52,6 +52,6 @@ Scheduler, programlı olarak, betikleri kullanarak ve portalda işler ve [iş ko
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

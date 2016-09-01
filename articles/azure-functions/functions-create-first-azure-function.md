@@ -7,7 +7,7 @@
    manager="erikre"
    editor=""
    tags=""
-   />
+/>
 
 <tags
    ms.service="functions"
@@ -15,10 +15,10 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="05/05/2016"
+   ms.date="08/22/2016"
    ms.author="glenga"/>
 
-# İlk Azure İşlevinizi oluşturma
+#İlk Azure İşlevinizi oluşturma
 
 ##Genel Bakış
 Azure İşlevleri, diğer Azure hizmetlerinde, SaaS ürünlerinde ve şirket içi sistemlerde gerçekleşen olaylar tarafından tetiklenen kodları uygulama işlevine sahip var olan Azure uygulaması platformunu genişleten olay denetimli bir istendiğinde işlem deneyimidir. Azure İşlevleriyle uygulamalarınız isteğe göre ölçeklenir ve yalnızca tükettiğiniz kaynaklar için ödeme yaparsınız. Azure İşlevleri, çeşitli programlama dillerinde uygulanan zamanlanan veya tetiklenen kod birimleri oluşturmanızı sağlar. Azure İşlevleri hakkında daha fazla bilgi edinmek için bkz. [Azure İşlevlerine Genel Bakış](functions-overview.md).
@@ -37,9 +37,9 @@ Azure'da işlevlerinizin yürütülmesini bir işlev uygulaması barındırır. 
 
 1. [Azure İşlevleri portalına](https://functions.azure.com/signin) gidin ve Azure hesabınız ile oturum açın.
 
-2. Yeni işlev uygulamanız için benzersiz bir **Ad** yazın veya oluşturulan adı kabul edin, tercih ettiğiniz **Bölge**'yi seçin, ardından **Oluştur + başla**'ya tıklayın. 
+2. Yeni işlev uygulamanız için benzersiz bir **Ad** yazın veya oluşturulan adı kabul edin, tercih ettiğiniz **Region (Bölge)** seçeneğini belirleyin ve ardından **Create + get started (Oluştur + başla)** düğmesine tıklayın. 
 
-3. **Hızlı Başlangıç** sekmesinde **Web Kancası + API** > **Bir işlev oluştur**'a tıklayın. Yeni bir önceden tanımlanmış Node.js işlevi oluşturulur. 
+3. **Qucikstart (Hızlı Başlangıç)** sekmesinde **WebHook + API (Web Kancası + API)** > **Create a function (İşlev oluştur)** düğmesine tıklayın. Yeni bir önceden tanımlanmış Node.js işlevi oluşturulur. 
 
 4. (İsteğe bağlı) Hızlı başlangıcın bu noktasında portaldaki Azure İşlevleri özelliklerinin hızlı turuna bakmayı seçebilirsiniz.   Turu tamamladıktan veya atladıktan sonra, HTTP tetikleyicisini kullanarak yeni işlevinizi test edebilirsiniz.
 
@@ -47,11 +47,11 @@ Azure'da işlevlerinizin yürütülmesini bir işlev uygulaması barındırır. 
 
 Azure İşlevleri hızlı başlangıçlarında işlevsel kod olduğundan, yeni işlevinizi hemen test edebilirsiniz.
 
-1. **Geliştir** sekmesinde **Kod** penceresini inceleyin ve bu Node.js kodunun, ileti gövdesinde veya bir sorgu dizesinde geçirilen bir *ad* değerine sahip bir HTTP isteğini beklediğine dikkat edin. İşlev çalıştığında bu değer yanıt iletisinde döndürülür.
+1. **Develop (Geliştir)** sekmesinde **Code (Kod)** penceresini inceleyin ve bu Node.js kodunun, ileti gövdesinde veya bir sorgu dizesinde geçirilen bir *ad* değerine sahip bir HTTP isteğini beklediğine dikkat edin. İşlev çalıştığında bu değer yanıt iletisinde döndürülür.
 
-2. **İstek gövdesi** metin kutusuna doğru aşağı kaydırın, *ad* özelliğinin değerini adınızla değiştirin ve **Çalıştır**'a tıklayın. Yürütmenin bir test HTTP isteği tarafından tetiklendiğini, akış günlüklerine bilginin yazıldığını ve **Çıktı**'da "merhaba" yanıtının görüntülendiğini göreceksiniz. 
+2. **Request body (İstek gövdesi)** metin kutusuna doğru aşağı kaydırın, *ad* özelliğinin değerini adınızla değiştirin ve **Run (Çalıştır)** düğmesine tıklayın. Yürütmenin bir test HTTP isteği tarafından tetiklendiğini, akış günlüklerine bilginin yazıldığını ve **Output (Çıktı)** içinde "hello" yanıtının görüntülendiğini göreceksiniz. 
 
-3. Aynı işlevin başka bir tarayıcı penceresi veya sekmesinden yürütülmesini tetiklemek için, **Geliştir** sekmesindeki **İşlev URL'sini** kopyalayın ve bir tarayıcının adres çubuğuna yapıştırın, ardından `&name=yourname` sorgu dizesi değerini ekleyin ve Enter'a basın. Aynı bilgiler günlüklere yazılır ve tarayıcı önceki "merhaba" yanıtını görüntüler.
+3. Aynı işlevin başka bir tarayıcı penceresi veya sekmesinden yürütülmesini tetiklemek için, **Develop (Geliştir)** sekmesindeki **Function URL (İşlev URL'si)** değerini kopyalayın ve bir tarayıcının adres çubuğuna yapıştırın, ardından `&name=yourname` sorgu dizesi değerini ekleyin ve Enter'a basın. Aynı bilgiler günlüklere yazılır ve tarayıcı önceki "hello" yanıtını görüntüler.
 
 ##Sonraki adımlar
 
@@ -70,6 +70,6 @@ Azure İşlevleri; dağıtımlar, ortam değişkenleri ve tanılama gibi temel i
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

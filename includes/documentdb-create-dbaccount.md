@@ -12,11 +12,13 @@
 
     - **Abonelik** için DocumentDB hesabına yönelik kullanmak istediğiniz Azure aboneliğini girin. Hesabınızda yalnızca bir abonelik varsa bu hesap varsayılan olarak seçilidir.
 
-    - **Kaynak Grubu**’nda DocumentDB hesabınız için bir kaynak grubu seçin veya oluşturun.  Varsayılan olarak, Azure aboneliği altında bir Kaynak grubu seçilir.  Ancak, DocumentDB hesabınızı eklemek istediğiniz yeni bir kaynak grubu oluşturmayı seçmiş olabilirsiniz. Daha fazla bilgi için bkz. [Azure kaynaklarınızı yönetmek için Azure portalını kullanma](resource-group-portal.md).
+    - **Kaynak Grubu**’nda DocumentDB hesabınız için bir kaynak grubu seçin veya oluşturun.  Varsayılan olarak yeni bir kaynak grubu oluşturulur. Daha fazla bilgi edinmek için bkz. [Azure kaynaklarınızı yönetmek için Azure portalını kullanma](../articles/azure-portal/resource-group-portal.md).
 
-    - DocumentDB hesabınızın barındırılacağı coğrafi konumu belirtmek için **Konum**’u kullanın.   
+    - DocumentDB hesabınızın barındırılacağı coğrafi konumu belirtmek için **Konum**’u kullanın. 
+    
+    - Daha sonra oluşturacağınız kaynaklarınıza ve hesabınıza kolay erişim sağlamak için **Panoya sabitle** seçeneğini işaretleyin.  
 
-4.  Yeni DocumentDB hesabı seçenekleri yapılandırıldıktan sonra **Oluştur**’a tıklayın.  DocumentDB hesabının oluşturulması birkaç dakika sürebilir.  Durumu denetlemek için Başlangıç Panosunda ilerlemeyi izleyebilirsiniz.  
+4.  Yeni DocumentDB hesabı seçenekleri yapılandırıldıktan sonra **Oluştur**’a tıklayın. Dağıtım durumunu kontrol etmek için ilerlemeyi Başlangıç panosunda izleyebilirsiniz.  
     ![Çevrimiçi veritabanı oluşturucusu; Başlangıç panosunda Oluşturuluyor kutucuğunun ekran görüntüsü](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-3.png)  
 
     Bildirimler hub'ından da ilerleme durumunu izleyebilirsiniz.  
@@ -25,7 +27,7 @@
 
     ![DocumentDB hesabının sorunsuz oluşturulduğunu ve bir kaynak grubuna dağıtıldığını gösteren Bildirimler hub’ının ekran görüntüsü- Çevrimiçi veritabanı oluşturucu bildirimi](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-5.png)
 
-5.  DocumentDB hesabı oluşturulduktan sonra çevrimiçi portalda varsayılan ayarlarla birlikte kullanıma hazırdır. DocumentDB hesabının varsayılan tutarlılığının **Oturum** olarak ayarlandığını unutmayın.  Üstteki komut çubuğunda **Ayarlar** simgesini, ardından da **Tüm Ayarlar** dikey penceresinde **Özellik** altında **Varsayılan Tutarlılık**’a tıklayarak varsayılan tutarlılık ayarlarını gerçekleştirebilirsiniz.
+5.  DocumentDB hesabı oluşturulduktan sonra çevrimiçi portalda varsayılan ayarlarla birlikte kullanıma hazırdır. DocumentDB hesabının varsayılan tutarlılığının **Oturum** olarak ayarlandığını unutmayın.  Menüde **Varsayılan Tutarlılık** seçeneğine tıklayarak varsayılan tutarlılık ayarını belirleyebilirsiniz. DocumentDB tarafından sunulan tutarlılık düzeyleri hakkında daha fazla bilgi edinmek için bkz. [DocumentDB'deki tutarlılık düzeyleri](../articles/azure-portal/resource-group-portal.md)
 
     ![Kaynak Grubu dikey penceresi ekran görüntüsü - uygulama geliştirmesini başlatma](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-6.png)  
 
@@ -37,6 +39,6 @@
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

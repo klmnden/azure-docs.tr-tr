@@ -13,11 +13,11 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/15/2016"
+   ms.date="06/16/2016"
    ms.author="ryanwi"/>
 
 # Geliştirme ortamınızı hazırlama
- Geliştirme makinenizde [Azure Service Fabric uygulamaları][1] derlemek ve çalıştırmak için çalışma süresini, SDK'yı ve araçları yüklemeniz gerekir. Ayrıca, SDK'da bulunan Windows PowerShell betiklerinin çalıştırılmasını da etkinleştirmeniz gerekir.
+ Geliştirme makinenizde [Azure Service Fabric uygulamaları][1] derlemek ve çalıştırmak için çalışma zamanını, SDK'yı ve araçları yükleyin. Ayrıca, SDK'da bulunan Windows PowerShell betiklerinin çalıştırılmasını da etkinleştirmeniz gerekir.
 
 ## Önkoşullar
 ### Desteklenen işletim sistemi sürümleri
@@ -28,16 +28,15 @@ Geliştirme için şu işletim sistemi sürümleri desteklenir:
 - Windows Server 2012 R2
 - Windows 10
 
->[AZURE.NOTE] Windows 7 varsayılan olarak yalnızca Windows PowerShell 2.0 içerir. Service Fabric PowerShell cmdlet'lerini kullanmak için PowerShell 3.0 sürümünü veya sonraki bir sürümü yüklemeniz gerekir. Microsoft Yükleme Merkezi'nden [Windows PowerShell 5.0'ı indirebilirsiniz][powershell5-download].
+>[AZURE.NOTE] Windows 7 varsayılan olarak yalnızca Windows PowerShell 2.0 içerir. Service Fabric PowerShell cmdlet’leri PowerShell 3.0 veya üzerini gerektirir. Microsoft Yükleme Merkezi'nden [Windows PowerShell 5.0'ı indirebilirsiniz][powershell5-download].
 
 ## Çalışma zamanını, SDK'yı ve araçları yükleme
 
 Web Platformu Yükleyicisi, Service Fabric geliştirmesi için üç yapılandırma seçeneği sunar:
 
-- [Visual Studio 2015 Güncelleştirme 2 için Service Fabric çalışma zamanı, SDK ve araçları yükleme][full-bundle-vs2015]
+- [Visual Studio 2015 Güncelleştirme 2 veya üzeri için Service Fabric çalışma zamanı, SDK ve araçları yükleyme][full-bundle-vs2015]
 - [Visual Studio "15" için Service Fabric çalışma zamanını, SDK'yı ve araçları yükleyin][full-bundle-dev15]
 - [Yalnızca Service Fabric çalışma zamanını ve SDK'yı yükleyin (Visual Studio araçları olmadan) ][core-sdk]
-
 
 ## PowerShell betik yürütmesini etkinleştirme
 
@@ -48,7 +47,7 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 ```
 
 ## Sonraki adımlar
-Artık geliştirme ortamınız ayarlandığına göre uygulama derlemeye ve çalıştırmaya başlayabilirsiniz.
+Artık geliştirme ortamınızı ayarlamayı tamamladığınıza göre, uygulama derlemeye ve çalıştırmaya başlayın.
 
 - [Visual Studio'da ilk Service Fabric uygulamanızı oluşturma](service-fabric-create-your-first-application-in-visual-studio.md)
 - [Yerel kümenizde uygulamaları dağıtmayı ve yönetmeyi öğrenin](service-fabric-get-started-with-a-local-cluster.md)
@@ -66,6 +65,6 @@ Artık geliştirme ortamınız ayarlandığına göre uygulama derlemeye ve çal
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

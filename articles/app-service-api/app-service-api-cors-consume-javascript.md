@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="dotnet"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/27/2016"
+    ms.date="08/27/2016"
     ms.author="rachelap"/>
 
 # CORS kullanarak JavaScript’ten bir API uygulaması kullanma
@@ -133,7 +133,7 @@ Yeni bir App Service web uygulaması oluşturma ve buna bir proje dağıtma yord
   	|---|---|---|
   	|toDoListAPIURL|https://{orta katman API uygulamanızın adı}.azurewebsites.net|https://todolistapi0121.azurewebsites.net|
 
-4. **Kaydet**’e tıklayın.
+4. **Kaydet** düğmesine tıklayın.
 
     Kod Azure içinde çalıştığında, bu değer *Web.config* dosyasındaki localhost URL’sini geçersiz kılar. 
 
@@ -286,6 +286,6 @@ Bu makalede, istemci JavaScript kodunun farklı bir etki alanındaki bir API’y
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

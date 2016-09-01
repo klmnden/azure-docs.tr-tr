@@ -3,9 +3,9 @@
    description="Azure Resource Manager dağıtım modelinde Windows uygulamaları için İşlem, Ağ ve Depolama Kaynağı Sağlayıcılarına (CRP, NRP ve SRP) kavramsal genel bakış."
    services="virtual-machines-windows"
    documentationCenter=""
-   authors="mahthi"
+   authors="tfitzmac"
    manager="timlt"
-   editor=""
+   editor="tysonn"
    tags="azure-resource-manager,azure-service-management"/>
 
 <tags
@@ -14,8 +14,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
-   ms.date="04/29/2015"
-   ms.author="mahthi"/>
+   ms.date="08/19/2015"
+   ms.author="tomfitz"/>
 
 # Azure Resource Manager dağıtım modeli altında, Windows uygulamaları için Azure İşlem, Ağ ve Depolama Sağlayıcıları
 
@@ -25,6 +25,6 @@ Azure Resource Manager dağıtım modeline işlem, ağ ve depolama özellikleri 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

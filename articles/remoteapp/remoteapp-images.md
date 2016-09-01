@@ -12,10 +12,13 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="08/02/2016"
+    ms.date="08/15/2016"
     ms.author="elizapo" />
 
 # Azure RemoteApp şablon görüntülerinde neler var?
+
+> [AZURE.IMPORTANT]
+> Azure RemoteApp kullanımdan kaldırılıyor. Ayrıntılı bilgi için [duyuruyu](https://go.microsoft.com/fwlink/?linkid=821148) okuyun.
 
 Azure RemoteApp aboneliğiniz üç şablon görüntüsü içerir:
 
@@ -106,6 +109,6 @@ Bu görüntü, temel alınan görüntünün bir uzantısıdır ve Windows Server
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

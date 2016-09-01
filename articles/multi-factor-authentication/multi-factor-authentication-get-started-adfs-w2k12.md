@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/12/2016"
+    ms.date="08/04/2016"
     ms.author="billmath"/>
 
 
@@ -88,6 +88,6 @@ Bağdaştırıcıyı kaydetmek için PowerShell’de \Program Files\Multi-Factor
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

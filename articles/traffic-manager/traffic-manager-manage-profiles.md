@@ -3,7 +3,7 @@
    description="Bu makale bir Azure Traffic Manager profilini oluşturma, devre dışı bırakma, etkinleştirme, silme ve geçmişini görüntüleme konularında size yardımcı olacaktır."
    services="traffic-manager"
    documentationCenter=""
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/17/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Bir Azure Traffic Manager profilini yönetme
 
@@ -86,6 +86,6 @@ Klasik Azure portalındaki Yönetim Hizmetleri'nde, Traffic Manager profilinizin
 [Traffic Manager düşürülmüş durumu için sorun giderme](traffic-manager-troubleshooting-degraded.md)
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

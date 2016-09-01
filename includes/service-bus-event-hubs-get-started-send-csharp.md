@@ -12,9 +12,9 @@ Bu bölümde, Olay Hub'ınıza olayları gönderen Windows konsol uygulamasını
 
     ![][8]
 
-    Böylece, <a href="https://www.nuget.org/packages/WindowsAzure.ServiceBus/">Azure Service Bus kitaplığı NuGet paketi</a> indirilir, yüklenir ve kendisine bir başvuru eklenir.
+    Visual Studio, [Azure Service Bus kitaplığı NuGet paketini](https://www.nuget.org/packages/WindowsAzure.ServiceBus) indirir, yükler ve ona bir başvuru ekler.
 
-4. Aşağıdaki `using` deyimlerini **Program.cs** dosyasının en üst kısmına ekleyin:
+4. Aşağıdaki `using` deyimlerini **Program.cs** dosyasının üst kısmına ekleyin:
 
     ```
     using System.Threading;
@@ -54,9 +54,9 @@ Bu bölümde, Olay Hub'ınıza olayları gönderen Windows konsol uygulamasını
     }
     ```
 
-    Bu yöntem, olayları 200 ms gecikmeyle sürekli olarak Olay Hub'ınıza gönderir.
+    Bu yöntem, olayları 200 ms'lik bir gecikmeyle sürekli olarak Olay Hub'ınıza gönderir.
 
-7. Son olarak, aşağıdaki satırları **Ana** yöntemine ekleyin:
+7. Son olarak, **Main** yöntemine aşağıdaki satırları ekleyin:
 
     ```
     Console.WriteLine("Press Ctrl-C to stop the sender process");
@@ -71,6 +71,6 @@ Bu bölümde, Olay Hub'ınıza olayları gönderen Windows konsol uygulamasını
 [8]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp2.png
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

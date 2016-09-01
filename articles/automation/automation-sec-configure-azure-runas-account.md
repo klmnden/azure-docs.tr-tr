@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="07/29/2016"
+    ms.date="08/17/2016"
     ms.author="magoedte"/>
 
 # Azure Farklı Çalıştır hesabıyla Kimlik Doğrulaması Runbook’ları
@@ -30,7 +30,7 @@ Azure portalında yeni bir Otomasyon hesabı oluşturduğunuzda otomatik olarak 
 Farklı Çalıştır ve Klasik Farklı Çalıştır hesabını kullanarak şunları yapabilirsiniz:
 
 - Azure portalındaki runbook’lardan Azure Resource Manager veya Azure Service Management kaynakları yönetilirken Azure ile kimlik doğrulaması için standartlaştırılmış bir yol sağlama.  
-- Azure Uyarıları’nda yapılandırılmış genel runbook'ların kullanımını otomatikleştirme
+- Azure Uyarıları’nda yapılandırılmış genel runbook'ların kullanımını otomatikleştirin.
 
 
 >[AZURE.NOTE] Otomasyon Genel Runbook’larına sahip Azure [Uyarı tümleştirme özelliği](../azure-portal/insights-receive-alert-notifications.md) için Farklı Çalıştır ve Klasik Farklı Çalıştır hesabıyla yapılandırılmış bir Otomasyon hesabı gerekir. Farklı Çalıştır ve Klasik Farklı Çalıştır hesabı zaten tanımlanmış bir Otomasyon hesabı seçebilir ya da yeni bir tane de oluşturabilirsiniz.
@@ -53,7 +53,7 @@ Bu bölümde, yeni bir Azure Otomasyonu hesabını Azure portalından oluşturma
 
 1. Azure portalında Abonelik Yöneticileri rolünün üyesi ve aboneliğin ortak yöneticisi olan bir hesapla oturum açın.
 2. **Automation Hesapları**’nı seçin.
-3. Automation Hesapları dikey penceresinde **Ekle**’ye tıklayın.<br>![Automation Hesabı ekleme](media/automation-sec-configure-azure-runas-account/create-automation-account-properties.png)
+3. Automation Hesapları dikey penceresinde **Ekle**’ye tıklayın.<br>![Automation Hesabı ekleme](media/automation-sec-configure-azure-runas-account/create-automation-account-properties-b.png)
 
     >[AZURE.NOTE] **Otomasyon Hesabı Ekle** dikey penceresinde aşağıdaki uyarıyı görürseniz, bunun nedeni hesabınızın Abonelik Yöneticileri rolünün üyesi ya da aboneliğin ortak yöneticisi olmamasıdır.<br>![Automation Hesabı Uyarısı ekleme](media/automation-sec-configure-azure-runas-account/create-account-without-perms.png)
 
@@ -74,7 +74,7 @@ Bu bölümde, yeni bir Azure Otomasyonu hesabını Azure portalından oluşturma
 Otomasyon hesabı başarıyla oluşturulduğunda bazı kaynaklar sizin için otomatik olarak oluşturulur.  Aşağıdaki tabloda Farklı Çalıştır hesabının kaynakları özetlenmektedir.<br>
 
 Kaynak|Açıklama 
-----|----
+--------|-----------
 AzureAutomationTutorial Runbook|Farklı Çalıştır hesabını kullanarak kimlik doğrulaması yapmayı gösteren ve tüm Resource Manager kaynaklarını alan örnek bir PowerShell runbook.
 AzureAutomationTutorialScript Runbook|Farklı Çalıştır hesabını kullanarak kimlik doğrulaması yapmayı gösteren ve tüm Resource Manager kaynaklarını alan örnek bir PowerShell runbook. 
 AzureRunAsCertificate|Otomasyon hesabı oluşturulurken otomatik olarak oluşturulan ya da var olan bir hesap için aşağıdaki PowerShell komut dosyası kullanılarak oluşturulan sertifika varlığı.  Azure Resource Manager kaynaklarını runbook’lardan yönetebilmeniz için Azure kimlik doğrulaması yapmanıza imkan tanır.  Bu sertifikanın bir yıllık kullanım ömrü vardır. 
@@ -83,7 +83,7 @@ AzureRunAsConnection|Otomasyon hesabı oluşturulurken otomatik olarak oluşturu
 Aşağıdaki tabloda Klasik Farklı Çalıştır hesabının kaynakları özetlenmektedir.<br>
 
 Kaynak|Açıklama 
-----|----
+--------|-----------
 AzureClassicAutomationTutorial Runbook|Bir abonelikteki tüm Klasik Sanal Makineleri, Klasik Farklı Çalıştır Hesabı (sertifika) kullanarak alan ve sonra sanal makine adını ve durumunu çıkaran örnek runbook.
 AzureClassicAutomationTutorial Script Runbook|Bir abonelikteki tüm Klasik Sanal Makineleri, Klasik Farklı Çalıştır Hesabı (sertifika) kullanarak alan ve sonra sanal makine adını ve durumunu çıkaran örnek runbook.
 AzureClassicRunAsCertificate|Otomatik olarak oluşturulan ve Azure klasik kaynaklarını runbook’lardan yönetebilmeniz için Azure kimlik doğrulaması yapmak üzere kullanılan sertifika varlığı.  Bu sertifikanın bir yıllık kullanım ömrü vardır. 
@@ -388,6 +388,6 @@ Runbook’larınızla klasik kaynakları yönetecek Klasik Farklı Çalıştır 
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

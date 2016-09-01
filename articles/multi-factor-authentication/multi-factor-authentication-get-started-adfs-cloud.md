@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="05/12/2016" 
+    ms.date="08/04/2016" 
     ms.author="billmath"/>
 
 # Azure Multi-Factor Authentication ve AD FS ile bulut kaynaklarını güvenli hale getirme
@@ -75,7 +75,7 @@ Yapmamız gereken ilk şey, AD FS taleplerini yapılandırmaktır. Bir Kurumsal 
         c:[Type == "http://schemas.microsoft.com/2014/03/psso"]
             => issue(claim = c);
 ![Bulut](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip5.png)
-13. **Son**'a tıklayın.
+13. **Finish (Son)** düğmesine tıklayın.
 14. **Uygula**'ya tıklayın.
 15. **Tamam**’a tıklayın.
 16. AD FS Yönetimi'ni kapatın.
@@ -106,6 +106,6 @@ Bu kadar! Bu noktada, birleştirilmiş Office 365 kullanıcıları yalnızca tal
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

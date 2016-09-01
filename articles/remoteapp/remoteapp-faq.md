@@ -13,10 +13,14 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="07/25/2016" 
+    ms.date="08/15/2016" 
     ms.author="elizapo"/>
 
 # Azure RemoteApp hakkında SSS
+
+> [AZURE.IMPORTANT]
+> Azure RemoteApp kullanımdan kaldırılıyor. Ayrıntılı bilgi için [duyuruyu](https://go.microsoft.com/fwlink/?linkid=821148) okuyun.
+
 Azure RemoteApp hakkında aşağıdaki soruları duymuştuk. Başka var mı? [RemoteApp forumlarını](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureRemoteApp) ziyaret edin ve bilmeniz gerekenleri öğrenin veya aşağıya bir yorum bırakın.
 
 ## Aradığınızı bulamadınız mı? Yanıt alamadığınız bir sorunuz mu var?
@@ -89,7 +93,7 @@ Gerekli bilgileri bulamıyorsanız veya burada ele alınmayan başka bir sorunuz
 
 - **Uzak Masaüstü Oturumu Ana Bilgisayarı (RDSH) için Windows Server'ın hangi sürümü destekleniyor?** Windows Server 2012 R2.
 
-##Destek ve geri bildirim
+## Destek ve geri bildirim
 
 
 - **RemoteApp için destek planı nedir?** Faturalama ve abonelik yönetimi desteği ücretsiz olarak sağlanır. Teknik desteğe [Azure hizmet planlarından](https://azure.microsoft.com/support/plans/) ulaşabilirsiniz. [Azure tartışma forumumuzdan](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=AzureRemoteApp) da ücretsiz topluluk desteği alabilirsiniz. 
@@ -120,6 +124,6 @@ Bu makaleyi derecelendirmenin ve aşağıda yorum yapmamanın yanı sıra makale
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

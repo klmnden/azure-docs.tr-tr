@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="hero-article"
- ms.date="06/30/2016"
+ ms.date="08/10/2016"
  ms.author="krisragh"/>
 
 # Azure portalda Azure Scheduler kullanmaya başlama
@@ -25,7 +25,7 @@ Azure Scheduler’da zamanlanmış işler oluşturmak kolaydır. Bu öğreticide
 
 2.  **+ Yeni**’ye tıklayın arama kutusuna > _Scheduler_ yazın > sonuçlarda **Scheduler**’ı seçin > **Oluştur**’a tıklayın.
 
-   ![][marketplace-create]
+     ![][marketplace-create]
 
 3.  Şimdi bir GET isteğiyle http://www.microsoft.com/ adresine işaret eden bir iş oluşturalım. **Scheduler İşi** ekranına, aşağıdaki bilgileri girin:
 
@@ -43,7 +43,7 @@ Azure Scheduler’da zamanlanmış işler oluşturmak kolaydır. Bu öğreticide
 
     3.  **URL:** ` http://www.microsoft.com`  
 
-   ![][action-settings]
+      ![][action-settings]
 
 5.  Son olarak, şimdi bir zamanlama tanımlayalım. İş bir kerelik iş olarak tanımlanabilir, ancak bir yineleme zamanlaması seçelim.
 
@@ -55,7 +55,7 @@ Azure Scheduler’da zamanlanmış işler oluşturmak kolaydır. Bu öğreticide
 
     4. **Bitiş tarihi**: Bugünden itibaren iki gün  
 
-   ![][recurrence-schedule]
+      ![][recurrence-schedule]
 
 6.  **Oluştur**'a tıklayın
 
@@ -73,7 +73,7 @@ Bir işi oluşturulduktan sonra, ana Azure panosunda görünür. İşe tıkladı
 
 5.  Kullanıcılar
 
-   ![][job-overview]
+    ![][job-overview]
 
 ### Özellikler
 
@@ -100,7 +100,7 @@ Hizmet veri yolu eylemi türleri için, ad alanı, konu/kuyruk yolu, kimlik doğ
 
 Bu, hızlı oluşturma sihirbazında oluşturduğunuz zamanlamayı değiştirmek istediğinizde, zamanlamayı yeniden yapılandırmanızı sağlar.
 
-Bu, [işinizde karmaşık zamanlamalar ve gelişmiş yineleme](scheduler-advanced-complexity.md) oluşturma fırsatıdır.
+Bu, [işinizde karmaşık zamanlamalar ve gelişmiş yineleme](scheduler-advanced-complexity.md) oluşturmak için bir fırsattır
 
 Başlangıç tarihini ve saatini, yineleme zamanlamasını ve bitiş tarihini ve saatini değiştirebilirsiniz (iş yineleniyorsa).
 
@@ -184,6 +184,6 @@ Azure Rol Tabanlı Erişim Denetimi (RBAC), Azure Scheduler için ayrıntılı e
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

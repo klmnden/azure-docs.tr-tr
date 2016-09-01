@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Klasik Azure Portalı’nı kullanarak siteden siteye VPN Gateway bağlantısı olan bir sanal ağ oluşturma | Microsoft Azure"
+   pageTitle="Klasik Azure portalını kullanarak siteden siteye VPN Gateway bağlantısı ile sanal ağ oluşturma | Microsoft Azure"
    description="Klasik dağıtım modelini kullanarak, şirket içi ve şirket dışı karışık yapılandırmalar ile karma yapılandırmalar için S2S VPN Gateway bağlantısı olan bir VNet oluşturun."
    services="vpn-gateway"
    documentationCenter=""
@@ -14,42 +14,37 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/13/2016"
+   ms.date="08/23/2016"
    ms.author="cherylmc"/>
 
 # Klasik Azure portalını kullanarak Siteden Siteye VPN bağlantısı olan bir sanal ağ oluşturma
 
 > [AZURE.SELECTOR]
 - [Azure Portalı](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-- [Klasik Azure Portalı](vpn-gateway-site-to-site-create.md)
+- [Azure Klasik Portalı](vpn-gateway-site-to-site-create.md)
 - [PowerShell - Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
 
 
-Bu makale, şirket içi ağınızda sanal ağ ve siteden siteye VPN bağlantısı oluşturmada size yol gösterir. Siteden siteye bağlantılar, şirket içi ve şirket dışı karışık yapılandırmalar ile karma yapılandırmalar için kullanılabilir. Bu makale, klasik dağıtım modeli için geçerlidir ve klasik Azure portalını kullanır. 
+Bu makalede, şirket içi ağınıza yönelik bir sanal ağ ve siteden siteye VPN bağlantısı oluşturma işlemi adım adım açıklanmaktadır. Siteden Siteye bağlantılar, şirket içi ve dışı karışık yapılandırmalar ve karma yapılandırmalar için kullanılabilir. Bu makale, klasik dağıtım modeli için geçerlidir ve klasik Azure portalını kullanır. Şu anda Azure portalını kullanarak klasik dağıtım modeli için uçtan uca bir Siteden Siteye yapılandırması oluşturamazsınız.
+
+![Siteden Siteye diyagram](./media/vpn-gateway-site-to-site-create/site2site.png "site-to-site")
 
 
-**Azure dağıtım modelleri hakkında**
+### Siteden Siteye bağlantılar için dağıtım modelleri ve araçları
 
 [AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
 
-## Bağlantı diyagramı
- 
-![Siteden Siteye diyagram](./media/vpn-gateway-site-to-site-create/site2site.png "site-to-site")
-
-**Siteden Siteye bağlantılar için dağıtım modelleri ve araçları**
-
 [AZURE.INCLUDE [vpn-gateway-table-site-to-site](../../includes/vpn-gateway-table-site-to-site-include.md)]
 
-VNet’leri birbirine bağlamak istiyor ancak bir şirket içi konumla bağlantı oluşturmuyorsanız, bkz. [Klasik dağıtım modeli için VNet - VNet bağlantı yapılandırma](virtual-networks-configure-vnet-to-vnet-connection.md). Farklı türde bir bağlantı yapılandırması istiyorsanız [VPN Gateway bağlantı topolojileri](vpn-gateway-topology.md) makalesine bakın.
-
+VNet'leri birbirine bağlamak istiyorsanız bkz. [Klasik dağıtım modeli için bir VNet - VNet bağlantısını yapılandırma](virtual-networks-configure-vnet-to-vnet-connection.md). 
  
 ## Başlamadan önce
 
 Yapılandırmaya başlamadan önce aşağıdaki öğelerin bulunduğunu doğrulayın.
 
-- Uyumlu bir VPN cihazı ve bu cihazı yapılandırabilecek biri. Bkz. [VPN Cihazları Hakkında](vpn-gateway-about-vpn-devices.md). VPN cihazınızı yapılandırmak konusunda veya şirket içi ağ yapılandırmanızdaki IP adresi aralıklarıyla ilgili bilginiz yoksa, bu detayları sağlayabilecek biriyle koordine olmanız gerekir.
+- Uyumlu bir VPN cihazı ve bu cihazı yapılandırabilecek biri. Bkz. [VPN Cihazları Hakkında](vpn-gateway-about-vpn-devices.md). VPN cihazınızı yapılandırma konusuyla veya şirket içi ağ yapılandırmanızdaki IP adresi aralıklarıyla ilgili fazla bilginiz yoksa size bu ayrıntıları sağlayabilecek biriyle çalışmanız gerekir.
 
--  VPN cihazınız için dışarıya yönelik genel bir IP adresi. Bu IP adresi bir NAT’nin arkasında olamaz.
+- VPN cihazınız için dışarıya yönelik genel bir IP adresi. Bu IP adresi bir NAT’nin arkasında olamaz.
 
 - Azure aboneliği. Henüz Azure aboneliğiniz yoksa [MSDN abonelik avantajlarınızı](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) etkinleştirebilir veya [ücretsiz bir hesap](https://azure.microsoft.com/pricing/free-trial/) için kaydolabilirsiniz.
 
@@ -60,7 +55,7 @@ Yapılandırmaya başlamadan önce aşağıdaki öğelerin bulunduğunu doğrula
 
 2. Ekranın sol alt köşesinde **Yeni**’ye tıklayın. Gezinme bölmesinde **Ağ Hizmetleri**’ne, sonra da **Virtual Network**’a tıklayın. Yapılandırma sihirbazını başlatmak için **Özel Oluştur**’a tıklayın.
 
-3. VNet’inizi oluşturmak için aşağıdaki sayfalardaki bilgileri doldurun.
+3. VNet'inizi oluşturmak için ilerleyen sayfalardaki bilgileri doldurun.
 
 ## Sanal ağ detayları sayfası
 
@@ -73,9 +68,9 @@ Aşağıdaki bilgileri girin.
 
 Aşağıdaki bilgileri girin ve sağ alt köşedeki ileri okuna tıklayın.
 
-- **DNS Sunucuları**: DNS sunucusunun adını ve IP adresini girin veya kısayol menüsünden, önceden kaydedilmiş bir DNS sunucusu seçin. Bu ayar, DNS sunucusu oluşturmaz; bu sanal ağ için ad çözümlemede kullanmak istediğiniz DNS sunucularını belirtmenizi sağlar.
+- **DNS Sunucuları**: DNS sunucusunun adını ve IP adresini girin veya kısayol menüsünden, önceden kaydedilmiş bir DNS sunucusu seçin. Bu ayarla bir DNS sunucusu oluşturulmaz. Söz konusu ayar, bu sanal ağa ilişkin ad çözümlemesi için kullanmak istediğiniz DNS sunucularını belirtmenize olanak sağlar.
 - **Siteden Siteye VPN’i Yapılandırma**: **Siteden siteye VPN’i yapılandırma** onay kutusunu seçin.
-- **Yerel Ağ**: Yerel ağ, fiziksel şirket içi konumunuzu temsil eder. Daha önce oluşturduğunuz bir yerel ağı seçebilir veya yeni bir yerel ağ oluşturabilirsiniz. Ancak, önceden oluşturduğunuz bir ağı kullanmak isterseniz, **Yerel Ağlar** yapılandırma sayfasına gidip, bu bağlantı için kullandığınız VPN cihazının IP adresinin (genel kullanıma yönelik IPv4 adresi) doğruluğundan emin olmak isteyebilirsiniz.
+- **Yerel Ağ**: Yerel ağ, fiziksel şirket içi konumunuzu temsil eder. Daha önce oluşturduğunuz bir yerel ağı seçebilir veya yeni bir yerel ağ oluşturabilirsiniz. Ancak daha önce oluşturduğunuz yerel bir ağı kullanmayı seçerseniz **Yerel Ağlar** yapılandırma sayfasına gidin ve VPN cihazına ilişkin VPN Cihazı IP adresinin (genel kullanıma yönelik IPv4 adresi) doğru olduğundan emin olun.
 
 ## Siteden Siteye bağlantı sayfası
 
@@ -84,15 +79,15 @@ Yeni bir yerel ağ oluşturuyorsanız **Siteden Siteye Bağlantı** sayfasını 
 Aşağıdaki bilgileri girin ve ileri okuna tıklayın.
 
 -   **Adı**: Yerel (şirket içi) ağ sitenize vermek istediğiniz ad.
--   **VPN Cihazı IP Adresi**: Bu, Azure’a bağlanmak için kullanacağınız şirket içi VPN cihazınızın genel kullanıma yönelik IPv4 adresidir. VPN cihazı bir NAT’nin arkasına yerleştirilemez.
--   **Adres Alanı**: Başlangıç IP’si ve CIDR’si (Adres Sayısı) ekleyin. Sanal ağ geçidinden, yerel şirket içi konumunuza gönderilmesini istediğiniz adres aralığı (veya aralıklarını) burada belirtin. Hedef bir IP adresi burada belirttiğiniz aralıklardaysa, sanal ağ geçidinden yönlendirilir.
--   **Adres alanı ekle**: Sanal ağ geçidinden gönderilmesini istediğiniz birden fazla adres aralığınız varsa, ekleyeceğiniz tüm adres aralıklarını burada belirtin. Daha sonra **Yerel Ağ** sayfasından aralık ekleyebilir veya kaldırabilirsiniz.
+-   **VPN Cihazı IP Adresi**: Azure'a bağlanmak için kullandığınız şirket içi VPN cihazınızın genel kullanıma yönelik IPv4 adresi. VPN cihazı bir NAT’nin arkasına yerleştirilemez.
+-   **Adres Alanı**: Başlangıç IP’si ve CIDR’si (Adres Sayısı) ekleyin. Sanal ağ geçidinden, yerel şirket içi konumunuza gönderilmesini istediğiniz adres aralığını (veya aralıklarını) burada belirtin. Hedef IP adresi, burada belirttiğiniz aralıkta yer alıyorsa sanal ağ geçidinden yönlendirilir.
+-   **Adres alanı ekle**: Sanal ağ geçidinden gönderilmesini istediğiniz birden fazla adres aralığınız varsa ekleyeceğiniz tüm adres aralıklarını burada belirtin. Daha sonra **Yerel Ağ** sayfasından aralık ekleyebilir veya kaldırabilirsiniz.
 
 ## Sanal ağ adres alanları sayfası
 
 Sanal ağınız için kullanmak istediğiniz adres aralığını belirtin. Belirlediğiniz adresler, bu sanal ağa dağıtacağınız VM’ler ve diğer rol örneklerine atanacak olan dinamik IP adresleridir (DIPS).
 
-Şirket içi ağınız için kullanılan aralıklardan herhangi biriyle çakışmayan bir aralık seçmeniz çok önemlidir. Ağ yöneticinizle koordine olmanız gerekir. Ağ yöneticinizin şirket içi ağ adresi alanınızdan, sanal ağınızda kullanabilmeniz için IP adresi aralığı ayırması gerekebilir.
+Şirket içi ağınız için kullanılan aralıklardan herhangi biriyle çakışmayan bir aralık seçmeniz çok önemlidir. Ağ yöneticinizle birlikte çalışmanız gerekir. Ağ yöneticinizin şirket içi ağ adresi alanınızdan, sanal ağınızda kullanabilmeniz için IP adresi aralığı ayırması gerekebilir.
 
 Aşağıdaki bilgileri girin ve ağınızı yapılandırmak için sağ alt köşedeki onay işaretine tıklayın.
 
@@ -106,7 +101,7 @@ Sayfanın altındaki onay işaretine tıkladığınızda sanal ağınız oluştu
 
 ## Sanal ağ geçidinizi yapılandırma
 
-Ardından, güvenli bir siteden siteye bağlantı oluşturmak için, sanal ağ geçidini yapılandıracaksınız. Bkz. [Klasik Azure portalında sanal ağ geçidi yapılandırma](vpn-gateway-configure-vpn-gateway-mp.md).
+Güvenli bir siteden siteye bağlantı oluşturmak için sanal ağ geçidini yapılandırın. Bkz. [Klasik Azure portalında sanal ağ geçidi yapılandırma](vpn-gateway-configure-vpn-gateway-mp.md).
 
 ## Sonraki adımlar
 
@@ -114,6 +109,6 @@ Bağlantınız tamamlandıktan sonra sanal ağlarınıza sanal makineler ekleyeb
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

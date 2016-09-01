@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="05/25/2016"
+    ms.date="08/09/2016"
     ms.author="sdanie"/>
 
 # İlk API’nizi Azure API Management’te Yönetme
@@ -247,6 +247,6 @@ Ayrıntılı ölçümler ve raporlar için soldaki **API Management** menüsünd
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

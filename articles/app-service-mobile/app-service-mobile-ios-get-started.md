@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-ios"
     ms.devlang="objective-c"
     ms.topic="hero-article"
-    ms.date="06/30/2016"
+    ms.date="08/17/2016"
     ms.author="krisragh"/>
 
 #iOS uygulaması oluşturma
@@ -24,13 +24,8 @@
 
 Bu öğreticide, bir iOS uygulamasına bulut tabanlı arka uç hizmeti olan [Azure Mobile Apps](app-service-mobile-value-prop.md)’i nasıl ekleyeceğiniz gösterilmiştir. Önce yeni bir mobil arka uç oluşturacağız. Ardından, Azure’da verileri depolamak için basit bir _Yapılacaklar listesi_ iOS uygulaması kullanacağız.
 
-## Ön koşullar
+Bu öğreticiyi tamamlamak için bir [Mac bilgisayar](https://azure.microsoft.com/pricing/free-trial/) ve Azure hesabınızın olması gerekir
 
-Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
-
-* [Etkin bir Azure hesabı](https://azure.microsoft.com/pricing/free-trial/)
-* [Visual Studio Community 2013] ya da daha yeni sürümünü içeren bir bilgisayar. 
-* Xcode 7.3 ya da daha yeni sürümünü içeren bir Mac
 
 ## Adım I: Yeni bir Azure mobil uygulama arka ucu oluşturma
 
@@ -48,12 +43,12 @@ Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 <!-- Images. -->
 
 <!-- URLs -->
-[Azure portal]: https://portal.azure.com/
+[Azure portalına]: https://portal.azure.com/
 [Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

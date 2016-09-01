@@ -13,12 +13,12 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/21/2016"
-    ms.author="curtand;viviali"/>
+    ms.date="08/02/2016"
+    ms.author="curtand"/>
 
 # Azure Active Directory'de diğer dizinlerden veya iş ortağı şirketlerden kullanıcılar ekleme
 
-Dizininizi doldurmak için kullanıcılar ekleyin. Bu makalede Azure Active Directory'de diğer dizinlerden kullanıcıların eklenmesi veya iş ortağı şirketlerden kullanıcıların eklenmesi açıklanmaktadır. Kuruluşunuzdaki yeni kullanıcıların ve Microsoft hesabına sahip kullanıcıların eklenmesi hakkında daha fazla bilgi için bkz. [Azure Active Directory'ye yeni kullanıcı ekleme](active-directory-create-users.md). Eklenen kullanıcılar varsayılan olarak yönetici izinlerine sahip olmaz ancak bu kullanıcılara herhangi bir zamanda roller atayabilirsiniz.
+Bu makalede Azure Active Directory'de diğer dizinlerden kullanıcıların eklenmesi veya iş ortağı şirketlerden kullanıcıların eklenmesi açıklanmaktadır. Kuruluşunuzdaki yeni kullanıcıların ve Microsoft hesabına sahip kullanıcıların eklenmesi hakkında daha fazla bilgi için bkz. [Azure Active Directory'ye yeni kullanıcı ekleme](active-directory-create-users.md). Eklenen kullanıcılar varsayılan olarak yönetici izinlerine sahip olmaz ancak bu kullanıcılara herhangi bir zamanda roller atayabilirsiniz.
 
 ## Kullanıcı ekleme
 
@@ -86,6 +86,6 @@ Bir kullanıcı kendi giriş dizininde silinirse veya Microsoft hesabını iptal
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

@@ -1,5 +1,5 @@
 <properties
-    pageTitle=".NET SDK kullanarak isteğe bağlı içerik göndermeye başlama"
+    pageTitle=".NET kullanarak isteğe bağlı içerik göndermeye başlama | Azure"
     description="Bu öğreticide, .NET’i kullanarak Azure Media Services ile isteğe bağlı bir içerik teslim uygulaması gerçekleştirilmesinin adımları açıklanmaktadır."
     services="media-services"
     documentationCenter=""
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="07/18/2016"
+    ms.date="08/17/2016"
     ms.author="juliako"/>
 
 
@@ -24,7 +24,7 @@
 
 
 >[AZURE.NOTE]
-> Bu öğreticiyi tamamlamak için bir Azure hesabınızın olması gerekir. Ayrıntılar için bkz. [Azure Ücretsiz Deneme](/pricing/free-trial/?WT.mc_id=A261C142F). 
+> Bu öğreticiyi tamamlamak için bir Azure hesabınızın olması gerekir. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](/pricing/free-trial/?WT.mc_id=A261C142F). 
  
 ##Genel Bakış 
 
@@ -52,7 +52,7 @@ Bu öğreticide, .NET için Azure Media Services (AMS) SDK’sını kullanarak b
 
 - Bu öğreticiyi tamamlamak için bir Azure hesabınızın olması gerekir. 
     
-    Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılar için bkz. [Azure Ücretsiz Deneme](/pricing/free-trial/?WT.mc_id=A261C142F). Ücretli Azure hizmetlerini denemek için kullanabileceğiniz krediler alırsınız. Krediler bitmiş olsa bile hesabı sürdürebilir ve Azure App Service’deki Web Apps özelliği gibi ücretsiz Azure hizmetlerinden faydalanabilirsiniz.
+    Hesabınız yoksa yalnızca birkaç dakika içinde ücretsiz bir deneme sürümü hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](/pricing/free-trial/?WT.mc_id=A261C142F). Ücretli Azure hizmetlerini denemek için kullanabileceğiniz krediler alırsınız. Krediler bitmiş olsa bile hesabı sürdürebilir ve Azure App Service’deki Web Apps özelliği gibi ücretsiz Azure hizmetlerinden faydalanabilirsiniz.
 - İşletim sistemleri: Windows 8 veya sonraki sürümü, Windows 2008 R2, Windows 7.
 - .NET framework 4.0 veya sonraki sürümü
 - Visual Studio 2010 SP1 (Professional, Premium, Ultimate veya Express) veya sonraki sürümleri.
@@ -220,7 +220,7 @@ Aşağıda tanımlanan **UploadFile** yöntemi, **CreateFromFile** yöntemini (.
 
 - **Hiçbiri**: Şifreleme kullanılmaz. Varsayılan değer budur. Bu seçeneği kullandığınızda, içeriğinizin aktarım sırasında ve depolama alanında beklerken korunmadığını unutmayın.
 Aşamalı indirme kullanarak bir MP4 iletmeyi planlıyorsanız bu seçeneği kullanın.
-- **StorageEncrypted**: Temiz içeriğinizi yerel olarak Gelişmiş Şifreleme Standardı (AES) 256 bit şifreleme kullanarak şifrelemek için bu seçeneği kullanın. Şifrelenen içerik ardından Azure Storage’a yüklenerek bekleme durumunda depolanır. Depolama Şifrelemesi ile korunan varlıklar, kodlamadan önce otomatik olarak şifrelenerek şifrelenmiş bir dosya sistemine yerleştirilir ve yeni bir çıkış varlığı şeklinde geri yüklenmeden önce isteğe bağlı olarak yeniden şifrelenir. Depolama Şifrelemesinin birincil kullanım nedeni, yüksek kaliteli giriş medya dosyalarınızın güvenliğini güçlü şifrelemeyle diskte bekleyen konumda sağlamak istediğiniz durumdur.
+- **StorageEncrypted**: Temiz içeriğinizi yerel olarak Gelişmiş Şifreleme Standardı (AES) 256 bit şifreleme kullanarak şifrelemek için bu seçeneği kullanın. Şifrelenen içerik ardından Azure Storage’a yüklenerek bekleme durumunda depolanır. Depolama Şifrelemesi ile korunan varlıklar, kodlamadan önce otomatik olarak şifrelenerek şifrelenmiş bir dosya sistemine yerleştirilir ve yeni bir çıktı varlığı şeklinde geri yüklenmeden önce isteğe bağlı olarak yeniden şifrelenir. Depolama Şifrelemesinin birincil kullanım nedeni, yüksek kaliteli girdi medya dosyalarınızın güvenliğini güçlü şifrelemeyle diskte bekleyen konumda sağlamak istediğiniz durumdur.
 - **CommonEncryptionProtected**: Zaten Ortak Şifreleme veya PlayReady DRM ile şifrelenip korunan bir içerik (örneğin, PlayReady DRM ile korunan Kesintisiz Akış) yüklüyorsanız bu seçeneği kullanın.
 - **EnvelopeEncryptionProtected**: AES ile şifrelenmiş HLS yüklüyorsanız bu seçeneği kullanın. Dosyaların Transform Manager tarafından kodlanmış ve şifrelenmiş olması gerektiğini unutmayın.
 
@@ -457,6 +457,6 @@ Beklediklerinizi bu konuda bulamadıysanız, eksik bir şeyler varsa veya herhan
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

@@ -15,18 +15,18 @@
     ms.tgt_pltfrm="vm-linux"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="04/29/2016"
+    ms.date="08/18/2016"
     ms.author="v-livech"
 />
 
 # Portal kullanarak Azure’da bir Linux VM oluşturma.
 
-Bu makalede hızlı şekilde Linux Sanal Makine oluşturmak için [Azure Portal](https://portal.azure.com/)’ın nasıl kullanılacağı gösterilir. [Bir Azure hesabı](https://azure.microsoft.com/pricing/free-trial/) ve [SSH ortak ve özel anahtar dosyaları](virtual-machines-linux-mac-create-ssh-keys.md) tek gerekenlerdir.
+> [AZURE.NOTE] Birkaç dakikanız varsa deneyimlerinize ilişkin bu [kısa ankete](https://aka.ms/linuxdocsurvey) katılarak Azure Linux VM belgelerini iyileştirmemize yardımcı olun. Bize vereceğiniz her yanıt, işlerinizi tamamlamanız konusunda size yardımcı olmamıza katkıda bulunur.
 
-> [AZURE.NOTE] Sanal makinenizin güvenliğini sağlamak üzere bir parola kullanmayı seçerseniz parola 12 karakterden uzun olmalı ve en az bir büyük harf, en az bir küçük harf, en az bir özel karakter ile en az bir sayı içermelidir. 
+Bu makalede hızlı şekilde Linux Sanal Makinesi oluşturmak için [Azure portalını](https://portal.azure.com/) nasıl kullanacağınız gösterilmektedir. [Bir Azure hesabı](https://azure.microsoft.com/pricing/free-trial/) ve [SSH ortak ve özel anahtar dosyaları](virtual-machines-linux-mac-create-ssh-keys.md) tek gerekenlerdir.
 
 
-1. Azure hesabı kimlik bilgilerinizle Azure Portal’da oturum açın, sol üst köşede **+ Yeni**’ye tıklayın.
+1. Azure hesabı kimliğinizle Azure portalında oturum açın, sol üst köşedeki **+ Yeni** seçeneğine tıklayın:
 
     ![screen1](../media/virtual-machines-linux-quick-create-portal/screen1.png)
 
@@ -38,8 +38,8 @@ Bu makalede hızlı şekilde Linux Sanal Makine oluşturmak için [Azure Portal]
     - VM için bir ad
     - Yönetici Kullanıcı için bir kullanıcı adı
     - **SSH ortak anahtarı** olarak ayarlanan Kimlik Doğrulama Türü
-    - dize olarak SSH ortak anahtarınız (varsayılan olarak, `~/.ssh/` dizinizden gelen)
-    - bir kaynak grubu adı (yeni bir dağıtım grubu oluşturmak için) veya varolan bir grubu seçin
+    - dize olarak SSH ortak Anahtarınız (`~/.ssh/` dizininizden)
+    - bir kaynak grubu adı (veya var olan bir grubu seçin)
 
     **Tamam**’a tıklayarak devam edin VM boyutunu seçin; aşağıdaki gibi görünmelidir:
 
@@ -73,16 +73,14 @@ ssh -i ~/.ssh/azure_id_rsa ubuntu@13.91.99.206
 
 ## Sonraki Adımlar
 
-Şimdi sınama ya da gösterim amaçları için hızlı bir şekilde kullanmak üzere bir Linux VM oluşturdunuz. Altyapınız için özelleştirilmiş bir Linux VM oluşturmak için aşağıdaki makalelerden birini izleyebilirsiniz.
+Şimdi sınama ya da gösterim amaçları için hızlı bir şekilde kullanmak üzere bir Linux VM oluşturdunuz. Altyapınız için özelleştirilmiş bir Linux VM oluşturmak için şu makalelerden herhangi birine göz atabilirsiniz:
 
 - [Şablonlar kullanarak Azure’da bir Linux VM oluşturma.](virtual-machines-linux-cli-deploy-templates.md)
-- [Şablonları kullanarak Azure’da SSH Korumalı Linux VM oluşturma](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
+- [Şablonları kullanarak Azure'da SSH Korumalı Linux VM oluşturma](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
 - [Azure CLI kullanarak bir Linux VM oluşturma](virtual-machines-linux-create-cli-complete.md)
 
-Bu makaleler, Azure altyapısının yanı sıra herhangi bir sayıda mülkiyete ait ve açık kaynak altyapı dağıtımı, yapılandırma ve düzenleme araçları oluşturmaya başlamanızı sağlar.
 
 
-
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

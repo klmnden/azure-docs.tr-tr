@@ -3,7 +3,7 @@
    description="Bu sayfa bir Azure uygulama ağ geçidi oluşturma, yapılandırma, başlatma ve silme yönergelerini sağlar"
    documentationCenter="na"
    services="application-gateway"
-   authors="joaoma"
+   authors="georgewallace"
    manager="jdial"
    editor="tysonn"/>
 <tags
@@ -12,16 +12,17 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/05/2016"
-   ms.author="joaoma"/>
+   ms.date="08/09/2016"
+   ms.author="gwallace"/>
 
 # Bir uygulama ağ geçidi oluşturun, başlayın veya silin
 
 Azure Application Gateway, bir katman 7 yük dengeleyicidir. Bulutta veya şirket içinde olmalarından bağımsız olarak, farklı sunucular arasında yük devretme ile HTTP istekleri için performans amaçlı yönlendirme sağlar. Application Gateway şu uygulama teslim özelliklerine sahiptir: HTTP yük dengeleme, tanımlama bilgisi tabanlı oturum benzeşimi ve Güvenli Yuva Katmanı (SSL) yük boşaltma.
 
 > [AZURE.SELECTOR]
-- [Azure Klasik PowerShell](application-gateway-create-gateway.md)
+- [Azure Portalı](application-gateway-create-gateway-portal.md)
 - [Azure Resource Manager PowerShell](application-gateway-create-gateway-arm.md)
+- [Azure Klasik PowerShell](application-gateway-create-gateway.md)
 - [Azure Resource Manager şablonu](application-gateway-create-gateway-arm-template.md)
 
 
@@ -416,6 +417,6 @@ Yük dengeleme seçenekleri hakkında daha fazla genel bilgi edinmek istiyorsan�
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

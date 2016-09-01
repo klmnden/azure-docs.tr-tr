@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/09/2016"
+   ms.date="06/10/2016"
    ms.author="ryanwi"/>
 
 # Visual Studio'da ilk Azure Service Fabric uygulamanızı oluşturma
@@ -42,7 +42,7 @@ Service Fabric uygulaması bir veya birden çok hizmet içerebilir. Bu hizmetler
 
     ![Visual Studio'da yeni proje iletişim kutusu][1]
 
-4. Bir sonraki sayfada uygulamanıza dahil edeceğiniz ilk hizmet türü seçiminiz sorulur. Bu öğreticinin amaçları doğrultusunda **Durum Bilgisi Olan** seçeneğini belirledik. Adlandırın ve **Tamam**'a tıklayın.
+4. Bir sonraki sayfada, uygulamanıza dahil edilecek ilk hizmet türü olarak **Durum bilgisi olan**’ı seçin. Adlandırın ve **Tamam**'a tıklayın.
 
     ![Visual Studio'da yeni hizmet iletişim kutusu][2]
 
@@ -56,43 +56,43 @@ Service Fabric uygulaması bir veya birden çok hizmet içerebilir. Bu hizmetler
 
     - **Yayımlama profilleri**: Farklı ortamlar için araç kullanımı tercihlerini yönetmek için kullanılır.
 
-    - **Betikler**: Uygulamanızı dağıtmak/yükseltmek için bir PowerShell betiği içerir. Bu betik, Visual Studio tarafından arka planda kullanılır ve doğrudan komut satırından çağırılabilir.
+    - **Betikler**: Uygulamanızı dağıtmak/yükseltmek için bir PowerShell betiği içerir. Visual Studio, Visual Studio tarafından sunulan sahne arkası betiği kullanır. Bu betik komut satırından doğrudan da çağrılabilir.
 
-    - **Uygulama tanımı**: *ApplicationPackageRoot* kısmında uygulama bildirimi içerir. Ayrıca, uygulamayı tanımlayan ve uygulamanızı belirli bir ortam için özel olarak yapılandırmanıza olanak sağlayan *ApplicationParameters* kısmında da ilişkili uygulama parametreleri dosyalarını barındırır.
+    - **Uygulama tanımı**: *ApplicationPackageRoot* altındaki uygulama bildirimini içerir. İlişkili uygulama parametre dosyaları, uygulamayı tanımlayan ve belirli bir ortam için özel olarak yapılandırmanıza imkan tanıyan *ApplicationParameters* altında bulunur.
 
     Hizmet projesinin içeriklerine genel bakış için bkz. [Reliable Services ile çalışmaya başlama](service-fabric-reliable-services-quick-start.md).
 
 ## Uygulamayı dağıtma ve uygulamada hata ayıklama
 
-Artık bir uygulamanız olduğuna göre uygulamayı çalıştırmayı deneyebilirsiniz.
+Artık bir uygulamanız olduğuna göre uygulamayı çalıştırmayı deneyin.
 
 1. Hata ayıklama için uygulamayı dağıtmak üzere Visual Studio'da F5'e basın.
 
-    >[AZURE.NOTE] Visual Studio geliştirme için yerel bir küme oluşturduğundan ilk uygulamada bu işlem biraz zaman alabilir. Yerel küme, çoklu makine kümesinde derleyeceğiniz platform kodunu yalnızca tek bir makinede çalıştırır. Küme oluşturma durumunu Visual Studio çıktı penceresinde görürsünüz.
+    >[AZURE.NOTE] Visual Studio geliştirme için yerel bir küme oluşturduğundan, ilk seferde dağıtım biraz zaman alır. Yerel küme, çoklu makine kümesinde derleyeceğiniz platform kodunu yalnızca tek bir makinede çalıştırır. Visual Studio çıktı penceresinde küme oluşturma durumu görüntülenir.
 
-    Küme hazır olduğunda SDK'da bulunan yerel küme sistemi tepsisi yöneticisi uygulamasından bir bildirim alırsınız.
+    Küme hazır olduğunda SDK'da bulunan yerel küme sistem tepsisi yöneticisi uygulamasından bir bildirim alırsınız.
 
     ![Yerel küme sistemi tepsisi bildirimi][4]
 
-2. Uygulama başladığında Visual Studio, otomatik olarak Tanılama Olay Görüntüleyicisi'ni getirir. Bu görüntüleyicide hizmetin izleme çıktısını görürsünüz.
+2. Uygulama başladığında, Visual Studio otomatik olarak Tanılama Olay Görüntüleyicisi'ni getirir. Bu görüntüleyicide hizmetin izleme çıktısını görürsünüz.
 
     ![Tanılama olayları görüntüleyicisi][5]
 
-    Durum bilgisi olan hizmet şablonu durumunda, iletiler yalnızca MyStatefulService.cs. öğesinin `RunAsync` yönteminde artan sayaç değerini gösterir.
+    Durum bilgisi olan hizmet şablonu söz konusu olduğunda, iletiler yalnızca MyStatefulService.cs. öğesinin `RunAsync` yönteminde artan sayaç değerini gösterir.
 
 3. Kodun çalıştığı düğüm dahil olmak üzere daha fazla ayrıntı görmek için olaylardan birini genişletin. Bu durumda, düğüm _Node_2 şeklindedir ancak makinenize göre değişiklik gösterebilir.
 
     ![Tanılama olayları görüntüleyicisi ayrıntıları][6]
 
-    Yerel küme, tek bir makinede barındırılan beş düğüm içerir. Düğümlerin farklı makinelerde bulunduğu, beş düğümlü kümeyi taklit eder. Makine kaybı benzetimi gerçekleştirmek ve aynı zamanda Visual Studio hata ayıklayıcısını denemek için yerel kümedeki düğümlerden birini ele alalım.
+    Yerel küme, tek bir makinede barındırılan beş düğüm içerir. Düğümlerin farklı makinelerde bulunduğu, beş düğümlü kümeyi taklit eder. Makine kaybı benzetimi gerçekleştirirken aynı zamanda Visual Studio hata ayıklayıcısını denemek için yerel kümedeki düğümlerden birini ele alalım.
 
-    >[AZURE.NOTE] Proje şablonu tarafından gösterilen uygulama tanılama olayları dahili `ServiceEventSource` sınıfını kullanır. Daha fazla bilgi için bkz. [Hizmetleri yerel olarak izleme ve tanılama](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md).
+    >[AZURE.NOTE] Proje şablonu tarafından gösterilen uygulama tanılama olayları pakete eklenen `ServiceEventSource` sınıfını kullanır. Daha fazla bilgi için bkz. [Hizmetleri yerel olarak izleme ve tanılama](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md).
 
 4. StatefulService'ten (örneğin, MyStatefulService'ten) türetilen hizmet projenizdeki sınıfı bulun ve `RunAsync` yönteminin ilk satırında bir kesme noktası ayarlayın.
 
     ![Durum bilgisi olan hizmetin RunAsync yönteminde kesme noktası ayarlama][7]
 
-5. Yerel Küme Yöneticisi sistem tepsisine sağ tıklayın ve Service Fabric Explorer'ı başlatmak için **Yerel Kümeyi Yönet** seçeneğini belirleyin.
+5. Yerel Küme Yöneticisi sistem tepsisine sağ tıklayın ve Service Fabric Explorer'ı başlatmak için **Yerel Kümeyi Yönet**’i seçin.
 
     ![Yerel Küme Yöneticisi'nden Service Fabric Explorer'ı başlatma][systray-launch-sfx]
 
@@ -100,7 +100,7 @@ Artık bir uygulamanız olduğuna göre uygulamayı çalıştırmayı deneyebili
 
 6. Sol bölmede **Küme > Düğümler** kısmını genişletin ve kodunuzun çalıştığı düğümü bulun.
 
-7. Makinenin yeniden çalıştırılmasının benzetimini gerçekleştirmek için **Eylemler > Devre Dışı Bırak (Yeniden Çalıştır)** seçeneklerine tıklayın. (Ayrıca, sol bölmedeki düğüm listesi görünümünde bulunan bağlam menüsünden üç nokta seçerek de bu işlemi gerçekleştirebileceğinizi unutmayın).
+7. Makinenin yeniden çalıştırılmasının benzetimini gerçekleştirmek için **Eylemler > Devre Dışı Bırak (Yeniden Çalıştır)** seçeneklerine tıklayın. (Sol bölmedeki düğüm listesi görünümünde bulunan bağlam menüsünden de devre dışı bırakabileceğinizi unutmayın.)
 
     ![Service Fabric Explorer'da bir düğümü durdurma][sfx-stop-node]
 
@@ -112,11 +112,11 @@ Artık bir uygulamanız olduğuna göre uygulamayı çalıştırmayı deneyebili
 
 ## Temizleme
 
-  Sonlandırmadan önce, yerel kümenin büyük ölçüde kaynak kullanımı gerektirdiğini unutmayın. Hata ayıklayıcının durdurulması uygulama örneğinizi ve uygulama türünün kaydını kaldırır.  Ancak küme arka planda çalışmaya devam eder. Bu durumu yönetmek için birçok seçenek sunulur:
+  Sonlandırmadan önce, yerel kümenin büyük ölçüde kaynak kullanımı gerektirdiğini unutmayın. Hata ayıklayıcının durdurulması uygulama örneğinizi ve uygulama türünün kaydını kaldırır. Ancak, küme arka planda çalışmaya devam eder. Kümeyi yönetmek için birkaç seçeneğiniz vardır:
 
   1. Kümeyi kapatıp uygulama verilerini ve izlemelerini tutmak için sistem tepsisi uygulamasında **Yerel Kümeyi Durdur**'a tıklayın.
 
-  2. Kümeyi tamamen silmek için sistem tepsisi uygulamasında **Yerel Kümeyi Kaldır**'a tıklayın. Visual Studio'da F5'e bir sonraki basışınızda bu seçeneğin başka bir yavaş dağıtımla sonuçlanacağını unutmayın. Bu seçeneği yalnızca yerel kümeyi bir süre kullanmayı planlamıyorsanız veya kaynaklarınızı geri kazanmanız gerekiyorsa kullanın.
+  2. Kümeyi tamamen silmek için sistem tepsisi uygulamasında **Yerel Kümeyi Kaldır**'a tıklayın. Visual Studio'da F5'e bir sonraki basışınızda bu seçeneğin başka bir yavaş dağıtımla sonuçlanacağını unutmayın. Kümeyi yalnızca bir süre kullanmayı planlamıyorsanız veya kaynaklarınızı geri kazanmanız gerekiyorsa silin.
 
 ## Sonraki adımlar
 
@@ -140,6 +140,6 @@ Artık bir uygulamanız olduğuna göre uygulamayı çalıştırmayı deneyebili
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

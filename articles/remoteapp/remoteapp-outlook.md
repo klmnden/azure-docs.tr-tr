@@ -12,10 +12,13 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="07/20/2016"
+    ms.date="08/15/2016"
     ms.author="elizapo" />
 
 # Azure RemoteApp’te Microsoft Outlook kullanma
+
+> [AZURE.IMPORTANT]
+> Azure RemoteApp kullanımdan kaldırılıyor. Ayrıntılı bilgi için [duyuruyu](https://go.microsoft.com/fwlink/?linkid=821148) okuyun.
 
 Azure RemoteApp Microsoft Outlook O365’i destekler. [Azure RemoteApp’te Office’in çalışması](remoteapp-officesubscription.md) hakkında daha fazla bilgi edinin. Azure RemoteApp’te kullanılırken Outlook için bazı önerilen ayarlar vardır.
 
@@ -33,6 +36,6 @@ Outlook 2016’nın, Exchange 2016’da barındırılan (veya Office 365’te ba
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

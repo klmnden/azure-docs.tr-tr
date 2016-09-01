@@ -7,7 +7,7 @@
    manager="timlt"
    editor=""
    tags="acs, azure-container-service"
-   keywords="Docker, Containers, Micro-services, Mesos, Azure"/>
+   keywords="Docker, Kapsayıcılar, Mikro hizmetler, Mesos, Azure"/>
 
 <tags
    ms.service="container-service"
@@ -97,8 +97,12 @@ Bir kapsayıcı örnek sayısını ölçeklendirmek için Marathon kullanıcı a
 
 - [DC/OS ve Marathon API’si ile çalışma](container-service-mesos-marathon-rest.md)
 
+Mesos ile Azure Container Service’e ilişkin ayrıntılar
+
+> [AZURE.VIDEO] azurecon-2015-deep-dive-on-the-azure-container-service-with-mesos]
 
 
-<!----HONumber=Jun16_HO2-->
+
+<!--HONumber=Aug16_HO4-->
 
 

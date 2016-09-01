@@ -14,12 +14,12 @@
     ms.tgt_pltfrm="vm-linux"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/16/2016"
+    ms.date="08/08/2016"
     ms.author="v-livech"/>
 
 # Linux ve Mac’de Linux VM’ler için Azure’da SSH anahtarları oluşturma
 
-Parola korumalı bir SSH ortak ve özel anahtar oluşturmak için iş istasyonunuzda bir terminal açmanız gerekir.  SSH anahtarlarınız olduğunda, varsayılan olan yeni VM’ler oluşturabilir ya da Azure CLI ve Azure şablonlarını kullanarak mevcut VM’lere ortak anahtar ekleyebilirsiniz.  Bu, parolalara göre çok daha güvenli kimlik doğrulama yöntemi kullanarak SSH üzerinde parolasız oturum açmaya olanak tanır.
+SSH anahtar çiftiyle Azure'da Sanal Makineler oluşturabilirsiniz. Bu sayede kimlik doğrulaması için SSH anahtarlarının kullanımını varsayılan hale getirerek oturum açmak için parolalara duyulan gereksinimi ortadan kaldırırsınız.  Parolalar, tahmin edilebilir olup sanal makinelerinizi parolanızı tahmin etmeye yönelik sayısız girişime maruz bırakır. Azure Şablonları veya `azure-cli` ile oluşturulan sanal makineler, dağıtımın bir parçası olarak SSH ortak anahtarınızı içerebilir; böylece dağıtım sonrası yapılandırma gereksinimini ortadan kaldırır.  Linux VM'ye Windows üzerinden bağlanıyorsanız [bu belgeye](virtual-machines-linux-ssh-from-windows.md) göz atın.
 
 ## Hızlı Komut Listesi
 
@@ -29,7 +29,7 @@ Aşağıdaki komut örneklerinde, &lt; ile &gt; arasındaki değerleri kendi ort
 ssh-keygen -t rsa -b 2048 -C "<your_user@yourdomain.com>"
 ```
 
-`~/.ssh/` dizinine kaydedilecek dosyanın adını girin:
+`~/.ssh/` dizinine kaydedilen dosyanın adını girin:
 
 ```bash
 <azure_fedora_id_rsa>
@@ -64,19 +64,20 @@ $
 
 ## Giriş
 
-SSH ortak ve özel anahtarları kullanmak Linux sunucularınızda oturum açmanın en kolay yoludur ancak [ortak anahtar şifreleme](https://en.wikipedia.org/wiki/Public-key_cryptography)ye ek olarak, kolayca deneme yanılmayla zorlanabilecek parolalara göre Azure’da Linux’da ya da BSD VM’de oturum açmak için daha güvenli bir yol da sağlar. Ortak anahtarınız herkesle paylaşılabilir; ancak, özel anahtarınıza yalnızca siz (veya yerel güvenlik altyapınız) sahip olursunuz.  Oluşturulan SSH özel anahtarı bunu korumak için [güvenli parola](https://www.xkcd.com/936/)ya sahip olur ve bu parola yalnızca özel SSH anahtarına erişim içindir ve kullanıcı hesabı parolası **değildir**.  SSH anahtarınıza bir parola eklediğinizde, bu özel anahtarı şifreler, böylece özel anahtar kilidini açmak için parola olmadan kullanılamaz.  Bir saldırgan özel anahtarınızı çalmayı başarabilirse ve bir parolaya sahip değilse, bu özel anahtarı ilgili ortak anahtarınız kurulu olan sunucularınızda oturum açmak için kullanabilir.  Özel anahtar parola korumalı ise, Azure’daki altyapınız için ek bir güvenlik katmanı sağlayarak, bu saldırgan tarafından kullanılamaz.
+SSH ortak ve özel anahtarlarını kullanmak, Linux sunucularınızda oturum açmanın en kolay yoludur. [Ortak anahtar şifrelemesi](https://en.wikipedia.org/wiki/Public-key_cryptography), Azure'daki Linux veya BSD VM'nizde oturum açmak için parolalara kıyasla çok daha güvenli bir yol sunar. Parolalar, saldırılara çok daha kolay şekilde maruz kalır. Ortak anahtarınız herkesle paylaşılabilir; ancak, özel anahtarınıza yalnızca siz (veya yerel güvenlik altyapınız) sahip olursunuz.  SSH özel anahtarının koruma amaçlı olarak bir [parolası](https://www.xkcd.com/936/) olabilir.  Bu parola yalnızca özel SSH anahtarına erişim için kullanılır ve kullanıcı hesabı parolası **değildir**.  SSH anahtarınıza parola eklediğinizde bu parola özel anahtarı şifreler; böylece özel anahtar, kilidinin açılması için parola olmadan da kullanılabilir.  Bir saldırganın özel anahtarınızı çalması ve özel anahtarınızın bir parolasının olmaması halinde saldırgan, bu özel anahtarı ilgili ortak anahtara sahip sunucularınızda oturum açmak için kullanabilir.  Özel anahtar parola korumalı ise, Azure’daki altyapınız için ek bir güvenlik katmanı sağlayarak, bu saldırgan tarafından kullanılamaz.
 
 
-Bu makale, Resource Manager’daki dağıtımlar için önerilen ve hem klasik hem de Resource Manager dağıtımları için [portal](https://portal.azure.com)da gereken, *ssh-rsa* biçimli anahtar dosyalarını oluşturur.
+Bu makalede, Resource Manager üzerindeki dağıtımlar için önerilen *ssh-rsa* biçimli anahtar dosyaları oluşturulmaktadır.  Hem Klasik hem de Resource Manager dağıtımları için [portalda](https://portal.azure.com) *ssh-rsa* anahtarları gereklidir.
 
 
 ## SSH Anahtarları oluşturma
 
-Azure en az 2048 bit, ssh-rsa biçimli ortak ve özel anahtarlar gerektirir. Çifti oluşturmak için, bir seri soru soran ve sonra özel anahtar ve eşleşen ortak anahtarı yazan `ssh-keygen` komutunu kullanacağız. Azure VM’nizi oluşturduğunuzda, Linux VM’ye kopyalanan ve yerel ve güvenli şekilde depolanan özel anahtarınız ile oturum açtığınızda kimlik doğrulaması yapmak için kullanılan ortak anahtar içeriğini geçirirsiniz.
+Azure en az 2048 bit, ssh-rsa biçimli ortak ve özel anahtarlar gerektirir. Anahtarları oluşturmak için `ssh-keygen` kullanın. Bu, bir dizi soru sorduktan sonra özel bir anahtar ve eşleşen bir ortak anahtar yazar. Azure VM oluşturulduğunda ortak anahtar şuraya kopyalanır: `~/.ssh/authorized_keys`.  `~/.ssh/authorized_keys` içindeki SSH anahtarları, bir istemcinin SSH oturum açma bağlantısındaki ilgili özel anahtarla eşleşip eşleşmediğini sınar.
+
 
 ## SSH-keygen’i kullanma
 
-Bu komut, 2048 bir RSA kullanarak parola korumalı (şifrelenmiş) bir SSH Anahtarlığı oluşturur ve kolayca tanımlamak için açıklanır.
+Bu komut, 2048 bit RSA kullanarak parola korumalı (şifrelenmiş) bir SSH Anahtar Çifti oluşturur; kolayca anlaşılabilmesi için komuta açıklama eklenir.
 
 ```bash
 ssh-keygen -t rsa -b 2048 -C "ahmet@fedoraVMAzure"
@@ -86,11 +87,21 @@ _Komut açıklaması_
 
 `ssh-keygen` = anahtarları oluşturmak için kullanılan program
 
-`-t rsa` = [RSA biçimi](https://en.wikipedia.org/wiki/RSA_cryptosystem) olan, oluşturulacak anahtar türü 
+`-t rsa` = olan, oluşturulacak anahtar türü [RSA biçimi](https://en.wikipedia.org/wiki/RSA_(cryptosystem)
 
 `-b 2048` = anahtar bitleri
 
-`-C "ahmet@fedoraVMAzure"` = kolayca tanımlamak için ortak anahtar dosyasının sonuna eklenen bir açıklama.  Normalde açıklama olarak bir e-posta kullanılır ancak altyapınızda en iyi şekilde çalışan her şeyi kullanabilirsiniz.
+`-C "ahmet@fedoraVMAzure"` = kolayca tanımlamak için ortak anahtar dosyasının sonuna eklenen bir açıklama.  Normalde açıklama olarak bir e-posta kullanılır ancak altyapınız için en uygun seçenek hangisiyse onu kullanabilirsiniz.
+
+### PEM anahtarlarını kullanma
+
+Klasik dağıtım modelini kullanıyorsanız (Klasik Azure Portalı veya Azure Hizmet yönetimi CLI'si `asm`) Linux VM'lerinize erişmek için PEM biçimli SSH anahtarları kullanmanız gerekebilir.  Var olan bir SSH Ortak anahtarından ve x509 sertifikasından nasıl PEM anahtarı oluşturacağınızı burada öğrenebilirsiniz.
+
+Var olan bir SSH ortak anahtarından PEM biçimli bir anahtar oluşturmak için:
+
+```bash
+ssh-keygen -f id_rsa.pub -m 'PEM' -e > id_rsa.pem
+```
 
 ## Ssh-keygen kılavuzu
 
@@ -124,24 +135,24 @@ Kaydedilen anahtar dosyaları:
 
 `Enter file in which to save the key (/home/ahmet/.ssh/id_rsa): azure_fedora_id_rsa`
 
-Bu makale için anahtar çifti adı.  Anahtar çiftine **id_rsa** adı verilmesi varsayılandır ve bazı araçlar **id_rsa** özel anahtar adı bekleyebilir, bu nedenle bir tane olması iyi bir fikirdir. (`~/.ssh/` tüm, SSH anahtar çiftleriniz ve SSH yapılandırma dosyanız için tipik varsayılan konumdur.)
+Bu makale için anahtar çifti adı.  Anahtar çiftine **id_rsa** adı verilmesi varsayılandır ve bazı araçlar **id_rsa** özel anahtar adı bekleyebilir, bu nedenle bir tane olması iyi bir fikirdir. `~/.ssh/` dizini, SSH anahtar çiftleri ve SSH yapılandırma dosyası için varsayılan konumdur.
 
 ```bash
 ahmet@fedora$ ls -al ~/.ssh
 -rw------- 1 ahmet staff  1675 Aug 25 18:04 azure_fedora_id_rsa
 -rw-r--r-- 1 ahmet staff   410 Aug 25 18:04 azure_fedora_id_rsa.pub
 ```
-Bu, yeni anahtar çiftlerinizi ve bunların izinlerini gösterir. `ssh-keygen` , yoksa, `~/.ssh` dizinin oluşturur ve ayrıca doğru sahipliği ve dosya modlarını ayarlar.
+`~/.ssh` dizininin listesi. `ssh-keygen` , yoksa, `~/.ssh` dizinin oluşturur ve ayrıca doğru sahipliği ve dosya modlarını ayarlar.
 
 Anahtar Parolası:
 
 `Enter passphrase (empty for no passphrase):`
 
-Anahtar çiftlerinize bir parola eklenmesi önemle önerilir (`ssh-keygen`, bunu "parola" olarak çağırır). Anahtar çiftini koruyan bir parola olmadan, özel anahtar dosyasının bir kopyasına sahip olan herkes, bunu ilgili ortak anahtara sahip olan sunucuda (sunucunuzda) oturum açmak için kullanabilir. Bu nedenle bir parola eklemek, birinin özel anahtar dosyanıza erişim sağlama ihtimaline karşı, kimliğinizi doğrulamak için kullanılan anahtarları değiştirmek üzere size zaman vermesiyle daha fazla koruma sağlar.
+`ssh-keygen` "metin biçiminde" bir parola anlamına gelir.  Anahtar çiftlerinize bir parola eklemeniz *önemle* önerilir. Anahtar çiftini koruyan bir parola olmadığında, özel anahtar dosyasına sahip herkes bunu ilgili ortak anahtara sahip herhangi bir sunucuda oturum açmak için kullanabilir. Bir parola eklemek, birinin özel anahtar dosyanıza erişim sağlama ihtimaline karşı, kimliğinizi doğrulamak için kullanılan anahtarları değiştirmeniz için size zaman tanıyarak daha fazla koruma sağlar.
 
 ## Özel anahtar parolanızı depolamak için ssh-agent kullanma
 
-Her SSH oturum açışınızda özel anahtar dosya parolanızı yazmanızı önlemek için, Linux VM’nizde hızlı ve güvenli oturum açmanıza olanak tanır şekilde, `ssh-agent` kullanarak özel anahtar dosya parolanızı önbelleğe kaydedebilirsiniz.  OSX kullanıyorsanız, `ssh-agent` çağırdığınızda, Anahtarlık özel anahtar parolalarınızı güvenli bir şekilde depolar.
+Her SSH oturum açma işleminde özel anahtar dosya parolanızı yazmamak için `ssh-agent` kullanarak özel anahtar dosya parolanızı önbelleğe alabilirsiniz. Mac kullanıyorsanız `ssh-agent` öğesini çağırdığınızda OSX Anahtar Zinciri, özel anahtar parolalarını güvenli bir şekilde depolar.
 
 Önce `ssh-agent`’in çalıştığını doğrulayın
 
@@ -149,17 +160,17 @@ Her SSH oturum açışınızda özel anahtar dosya parolanızı yazmanızı önl
 eval "$(ssh-agent -s)"
 ```
 
-Şimdi, `ssh-add` komutunu kullanarak özel anahtarı `ssh-agent`’e ekleyin, bu kimlik bilgilerini depolayan Anahtarlığı OSX üzerinde yeniden başlatacaktır.
+Şimdi `ssh-add` komutunu kullanarak özel anahtarı `ssh-agent` öğesine ekleyin.
 
 ```bash
 ssh-add ~/.ssh/azure_fedora_id_rsa
 ```
 
-Özel anahtar parolası şimdi depolanır, böylece her SSH oturumu açışınızda anahtar parolasını yazmak zorunda kalmazsınız.
+Özel anahtar parolası artık `ssh-agent` içinde depolanmış olur.
 
 ## SSH yapılandırma dosyası oluşturma ve yapılandırma
 
-Bir Linux VM oluşturup çalıştırmak kesinlikle gerekli olmamakla birlikte, VM’lerinizle oturum açmak için yanlışlıkla parolaları kullanmanızı önlemek, farklı Azure VM’leri için farklı anahtar çiftlerini kullanmayı otomatik hale getirmek ve birden fazla sunucuyu hedeflemek için **git** gibi diğer programları yapılandırmak amacıyla bir `~/.ssh/config` dosyası oluşturmanız ve yapılandırmanız en iyi uygulamadır.
+Oturum açma işlemlerini hızlandırmak ve SSH istemci davranışınızı iyileştirmek için en iyi uygulama olarak bir `~/.ssh/config` dosyası oluşturmanız ve yapılandırmanız önerilir.
 
 Aşağıdaki örnek, standart bir yapılandırmayı gösterir.
 
@@ -182,42 +193,38 @@ vim ~/.ssh/config
 Host fedora22
   Hostname 102.160.203.241
   User ahmet
-  PubkeyAuthentication yes
-  IdentityFile /home/ahmet/.ssh/azure_fedora_id_rsa
 # ./Azure Keys
 # Default Settings
 Host *
-  PubkeyAuthentication=no
+  PubkeyAuthentication=yes
   IdentitiesOnly=yes
   ServerAliveInterval=60
   ServerAliveCountMax=30
   ControlMaster auto
-  ControlPath /home/ahmet/.ssh/Connections/ssh-%r@%h:%p
+  ControlPath ~/.ssh/SSHConnections/ssh-%r@%h:%p
   ControlPersist 4h
-  StrictHostKeyChecking=no
-  IdentityFile /home/ahmet/.ssh/id_rsa
-  UseRoaming=no
+  IdentityFile ~/.ssh/id_rsa
 ```
 
-Bu SSH yapılandırması, her hizmetin kendi özel anahtar çiftini etkinleştirmesini sağlamak için size bölümler sağlar. Varsayılan ayarlar, oturum açtığınız, yukarıdaki gruplardan biriyle eşleşmeyen ana bilgisayarlar içindir.
+Bu SSH yapılandırması, size her sunucu için bölümler sunarak her birinin kendi özel anahtar çiftinin olmasını sağlar. Varsayılan ayarlar (`Host *`), üst düzey yapılandırma dosyasındaki belirli ana bilgisayarların hiçbiriyle eşleşmeyen tüm ana bilgisayarlar içindir.
 
 
 ### Yapılandırma dosyası açıklaması
 
 `Host` = terminal üzerinde çağrılan ana bilgisayar adı.  `ssh fedora22` , `SSH`’ye `Host fedora22` blok etiketli ayarlardaki değerleri kullanmasını söyler. NOT: Bu kullanımınız için mantıklı olan ve bir sunucunun gerçek ana bilgisayar adını temsil etmeyen her etiket olabilir.
 
-`Hostname 102.160.203.241` =oturum açılan sunucunun IP adresi ya da DNS adı. Bu, sunucuyu yönlendirmek için kullanılır ve dahili IP’ye eşleşen bir harici IP olabilir.
+`Hostname 102.160.203.241` = erişim sağlanan sunucuya ilişkin IP adresi veya DNS adı.
 
-`User git` = Azure VM’de oturum açarken kullanılacak uzak kullanıcı hesabı.
+`User git` = kullanılacak uzak kullanıcı hesabı.
 
-`PubKeyAuthentication yes` = bu, SSH’ye oturum açma bilgisi olarak bir SSH kullanmak istediğinizi söyler.
+`PubKeyAuthentication yes` = SSH'ye oturum açmak için bir SSH anahtarı kullanmak istediğinizi iletir.
 
-`IdentityFile /home/ahmet/.ssh/azure_fedora_id_rsa` = bu SSH’ye oturum açma kimliğini doğrulamak için sunucuya hangi anahtar çiftini göstereceğini söyler.
+`IdentityFile /home/ahmet/.ssh/id_id_rsa` = kimlik doğrulaması için kullanılacak SSH özel anahtarı ve ilgili ortak anahtar.
 
 
 ## Parolasız Linux içine SSH
 
-Artık bir SSH anahtar çiftiniz ve yapılandırılmış bir yapılandırma dosyasına sahip olduğunuza göre Linux VM’nizde hızlı ve güvenli şekilde oturum açabilirsiniz. SSH kullanarak bir sunucuda ilk oturum açışınızda, komut sizden bu anahtar dosyası için parolayı ister.
+Artık bir SSH anahtar çiftiniz ve yapılandırılmış bir SSH yapılandırma dosyasına sahip olduğunuza göre Linux VM'nizde hızlı ve güvenli şekilde oturum açabilirsiniz. SSH anahtarı kullanarak bir sunucuda ilk oturum açışınızda, komut sizden bu anahtar dosyasına ilişkin parolayı ister.
 
 ```bash
 ssh fedora22
@@ -229,14 +236,14 @@ ssh fedora22
 
 ## Sonraki Adımlar
 
-Sonraki adım, yeni SSH ortak anahtarını kullanarak Azure Linux VM’ler oluşturmaktır.  Oturum açma bilgisi olarak SSH ortak anahtarıyla oluşturulan Azure VM’ler, varsayılan oturum açma yöntemi parolalarıyla oluşturulanlara göre daha güvenlidir.  Oturum açma bilgisi olarak SSH anahtarları kullanılarak oluşturulan Azure VM’ler, varsayılan olarak deneme yanılma yoluyla yapılan zorla girme denemelerini önleyerek parolalı oturum açma bilgilerini devre dışı bırakmak üzere yapılandırılmıştır.
+Sonraki adım, yeni SSH ortak anahtarını kullanarak Azure Linux VM’ler oluşturmaktır.  Oturum açma işlemi için SSH ortak anahtarıyla oluşturulan Azure VM'ler, varsayılan oturum açma yöntemiyle (parolalar) oluşturulan VM'lere göre daha güvenlidir.  SSH anahtarları kullanılarak oluşturulan Azure VM'ler, varsayılan olarak parola kullanımı devre dışı bırakılmış şekilde yapılandırılır; böylece parola tahminiyle gerçekleştirilen saldırı girişimleri önlenir.
 
-- [Azure şablonu kullanarak Güvenli bir Linux VM oluşturma](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
-- [Azure Portal kullanarak güvenli bir Linux VM oluşturma](virtual-machines-linux-quick-create-portal.md)
+- [Azure şablonu kullanarak güvenli bir Linux VM oluşturma](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
+- [Azure portalını kullanarak güvenli bir Linux VM oluşturma](virtual-machines-linux-quick-create-portal.md)
 - [Azure CLI kullanarak güvenli bir Linux VM oluşturma](virtual-machines-linux-quick-create-cli.md)
 
 
 
-<!---HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

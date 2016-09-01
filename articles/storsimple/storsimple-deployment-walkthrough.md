@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/26/2016"
+   ms.date="08/17/2016"
    ms.author="alkohli" />
 
 # Şirket içi StorSimple cihazınızı dağıtma
@@ -296,6 +296,6 @@ StorSimple cihazınızda tek bir birim için bir isteğe bağlı el ile yedeklem
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

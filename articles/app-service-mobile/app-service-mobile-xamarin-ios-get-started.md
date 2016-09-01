@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-xamarin-ios"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="06/28/2016"
+    ms.date="08/04/2016"
     ms.author="normesta"/>
 
 
@@ -31,13 +31,13 @@ Bu öğreticiyi tamamlamak, Azure App Service’de Mobile Apps özelliğini kull
 
 Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
-* Etkin bir Azure hesabı. Bir hesabınız yoksa, Azure deneme sürümünü kaydolabilir ve deneme süresi bittikten sonra dahi kullanmaya devam edebileceğiniz 10 ücretsiz mobil uygulama edinebilirsiniz. Ayrıntılar için bkz. [Azure Ücretsiz Deneme](https://azure.microsoft.com/pricing/free-trial/).
+* Etkin bir Azure hesabı. Bir hesabınız yoksa, Azure deneme sürümünü kaydolabilir ve deneme süresi bittikten sonra dahi kullanmaya devam edebileceğiniz 10 ücretsiz mobil uygulama edinebilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/).
 
 * Xamarin ile Visual Studio. Yönergeler için bkz. [Visual Studio ve Xamarin için Kurulum ve Yükleme](https://msdn.microsoft.com/library/mt613162.aspx).
 
 * Xcode v7.0 veya daha sonraki sürümü ve Xamarin Studio Community yüklü bir Mac. Bkz. [Visual Studio ve Xamarin için kurulum ve yükleme](https://msdn.microsoft.com/library/mt613162.aspx) ve [Mac kullanıcıları için kurulum, yükleme ve doğrulamalar](https://msdn.microsoft.com/library/mt488770.aspx) (MSDN).
 
->[AZURE.NOTE] Azure hesabı için kaydolmadan önce Azure App Service’i kullanmaya başlamak istiyorsanız [App Service’i Deneyin](https://tryappservice.azure.com/?appServiceName=mobile)’e gidin. Burada, App Services’de hemen bir kısa süreli başlangıç mobil uygulaması oluşturabilirsiniz; kredi kartı gerekmez ve hiçbir taahhüt yoktur.
+>[AZURE.NOTE] Bir Azure hesabı için kaydolmadan önce Azure App Service’i kullanmaya başlamak istiyorsanız [App Service’i Deneyin](https://tryappservice.azure.com/?appServiceName=mobile)’e gidin. Burada, App Services’de hemen bir kısa süreli başlangıç mobil uygulaması oluşturabilirsiniz; kredi kartı gerekmez ve hiçbir taahhüt yoktur.
 
 ## Yeni bir Azure Mobil Uygulama arka ucu oluşturma
 
@@ -53,18 +53,9 @@ Node.js veya .NET arka ucu kullanmak için sunucu projesi yapılandırmak üzere
 
 [AZURE.INCLUDE [app-service-mobile-configure-new-backend](../../includes/app-service-mobile-configure-new-backend.md)]
 
-
-## (İsteğe bağlı) Arka uç projeniz yerel olarak test etme
-
-Yukarıda .NET arka ucu yapılandırmasını seçtiyseniz, arka ucu isteğe bağlı olarak yerel şekilde test edebilirsiniz.
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-test-local-service](../../includes/app-service-mobile-dotnet-backend-test-local-service.md)]
-
-
-
 ## Xamarin iOS uygulamasını indirme ve çalıştırma
 
-1. Bir tarayıcı penceresine [Azure portal]’ı açın.
+1. Bir tarayıcı penceresine [Azure Portal]’ı açın.
 
 2. Mobil Uygulamanızın dikey penceresinde, **Kullanmaya Başlama** > **Xamarin.iOS**.’a tıklayın. 3. Adım altında, henüz seçili değilse, **Yeni uygulama oluştur**’u seçin.  Sonra **İndir** düğmesine tıklayın.
 
@@ -108,10 +99,10 @@ Yukarıda .NET arka ucu yapılandırmasını seçtiyseniz, arka ucu isteğe bağ
 [10]: ./media/app-service-mobile-xamarin-ios-get-started/mobile-quickstart-startup-ios.png
 
 <!-- URLs. -->
-[Azure portal]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

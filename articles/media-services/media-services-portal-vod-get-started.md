@@ -1,6 +1,6 @@
 <properties
-    pageTitle=" Azure Portal kullanarak isteğe bağlı içerik göndermeye başlama | Microsoft Azure"
-    description="Bu öğretici, Azure Portal’ı kullanarak Azure Media Services (AMS) uygulaması ile temel bir İsteğe Bağlı Video (VoD) içerik teslim hizmeti uygulamanın adımlarını açıklar."
+    pageTitle=" Azure portal kullanarak isteğe bağlı içerik göndermeye başlama | Microsoft Azure"
+    description="Bu öğretici, Azure portalı kullanarak Azure Media Services (AMS) uygulaması ile temel bir İsteğe Bağlı Video (VoD) içerik teslim hizmeti uygulamanın adımlarını açıklar."
     services="media-services"
     documentationCenter=""
     authors="Juliako"
@@ -13,13 +13,15 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/22/2016"
+    ms.date="08/18/2016"
     ms.author="juliako"/>
 
 
-# Azure Portal kullanarak isteğe bağlı içerik göndermeye başlama
+# Azure portal kullanarak isteğe bağlı içerik göndermeye başlama
 
-Bu öğretici, Azure Portal’ı kullanarak Azure Media Services (AMS) uygulaması ile temel bir İsteğe Bağlı Video (VoD) içerik teslim hizmeti uygulamanın adımlarını açıklar.
+[AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
+
+Bu öğretici, Azure portalı kullanarak Azure Media Services (AMS) uygulaması ile temel bir İsteğe Bağlı Video (VoD) içerik teslim hizmeti uygulamanın adımlarını açıklar.
 
 Azure portalda Azure Media Services şu anda önizlemededir. 
 
@@ -37,9 +39,9 @@ Bu öğretici aşağıdaki görevleri içerir:
 
 ## Azure Media Services hesabı oluşturma
 
-Bu bölümdeki adımlar yeni bir AMS hesabının nasıl oluşturulacağını gösterir.
+Bu bölümdeki adımlar bir AMS hesabının nasıl oluşturulacağını gösterir.
 
-1. [Azure Portal](https://portal.azure.com/)’da oturum açın.
+1. [Azure portal](https://portal.azure.com/)’da oturum açın.
 2. **+Yeni** > **Medya + CDN** > **Media Services**’e tıklayın.
 
     ![Media Services Oluşturma](./media/media-services-portal-vod-get-started/media-services-new1.png)
@@ -52,7 +54,7 @@ Bu bölümdeki adımlar yeni bir AMS hesabının nasıl oluşturulacağını gö
     2. Abonelik’te, erişiminiz bulunan farklı Azure abonelikleri arasından seçim yapın.
     
     2. **Kaynak Grubu**’nda yeni veya mevcut bir kaynağı seçin.  Bir kaynak grubu, aynı yaşam döngüsü, izinleri ve ilkeleri paylaşan kaynakların bir koleksiyonudur. [Burada](resource-group-overview.md#resource-groups) daha fazla bilgi edinin.
-    3. **Konum**’da, Media Services hesabınız için medya ve meta veri kayıtlarını depolamak üzere kullanılacak coğrafi bölgeyi seçin. Bu bölge medyanızı işlemek ve akışını sağlamak için kullanılır. Yalnızca Media Services kullanılabilen bölgeler açılır listede görüntülenir. 
+    3. **Konum**’da, Media Services hesabınız için medya ve meta veri kayıtlarını depolamak için kullanılan coğrafi bölgeyi seçin. Bu bölge medyanızı işlemek ve akışını sağlamak için kullanılır. Yalnızca Media Services kullanılabilen bölgeler açılır listede görüntülenir. 
     
     3. **Depolama Hesabı** alanında, Media Services hesabınızdan gelen medya içeriğine blob depolama sağlamak üzere bir depolama hesabı seçin. Media Services hesabınızla aynı coğrafi bölgede bulunan mevcut bir depolama hesabını seçebilir ya da yeni bir depolama hesabı oluşturabilirsiniz. Aynı bölgede yeni bir depolama hesabı oluşturulur. Depolama hesabı adları için kurallar Media Services hesapları ile aynıdır.
 
@@ -72,7 +74,7 @@ Bu bölümdeki adımlar yeni bir AMS hesabının nasıl oluşturulacağını gö
 
 Media Services hesabına program aracılığıyla erişmek için hesap adına ve birincil anahtara bilgilerine ihtiyacınız vardır.
 
-1. Azure Portal'da hesabınızı seçin. 
+1. Azure portalda hesabınızı seçin. 
 
     Sağda **Ayarlar** penceresi görüntülenir. 
 
@@ -87,7 +89,7 @@ Media Services hesabına program aracılığıyla erişmek için hesap adına ve
 
 Azure Media Services ile çalışırken en sık karşılaşılan senaryolardan biri, istemcilerinize bit hızı uyarlamalı akış iletmektir. Bit hızı uyarlamalı akış ile video geçerli ağ bant genişliği, CPU kullanımı ve diğer etkenlere bağlı olarak görüntülendiğinden istemci, daha yüksek veya daha düşük bit hızlı bir akışa geçebilir. Media Services şu bit hızı uyarlamalı akış teknolojilerini destekler: HTTP Canlı Akışı (HLS), Kesintisiz Akış, MPEG DASH ve HDS (yalnızca Adobe PrimeTime/Erişim lisans sahipleri için).
 
-Media Services, tam vaktinde, bu akış biçimlerinin her birinin önceden paketlenmiş sürümlerini depolamanıza gerek kalmadan, uyarlamalı bit hızı MP4 kodlanmış içeriğinizi Media Services tarafından desteklenen akış biçimlerinde (MPEG DASH, HLS, Kesintisiz Akış, HDS) göndermenize olanak tanır.
+Media Services, bu akış biçimlerinin her birinin önceden paketlenmiş sürümlerini depolamanıza gerek kalmadan, uyarlamalı bit hızı MP4 ile kodlanmış içeriğinizi Media Services tarafından desteklenen akış biçimlerinde (MPEG DASH, HLS, Kesintisiz Akış, HDS) tam vaktinde göndermenize olanak tanıyan dinamik paketleme özelliğine sahiptir.
 
 Dinamik paketlemeden yararlanmak için aşağıdakileri yapmanız gerekir:
 
@@ -115,7 +117,7 @@ Akışa ayrılan birim sayısını oluşturmak ve değiştirmek için, aşağıd
 
 ## Dosyaları karşıya yükleme
 
-Azure Media Services kullanarak videoların akışını sağlamak için, kaynak videoları karşıya yüklemeniz, bunları çoklu bit hızına kodlamanız ve sonucu yayımlamanız gerekir. İlk adım, bu bölümde ele alınmıştır. 
+Azure Media Services kullanarak video akışı sağlamak için kaynak videoları karşıya yüklemeniz, bunları çoklu bit hızlarında kodlamanız ve sonucu yayımlamanız gerekir. İlk adım, bu bölümde ele alınmıştır. 
 
 1. **Ayar** penceresinde **Varlıklar**’a tıklayın.
 
@@ -133,12 +135,11 @@ Azure Media Services kullanarak videoların akışını sağlamak için, kaynak 
 
 Karşıya yükleme işlemi tamamlandıktan sonra, yeni varlık **Varlıklar** penceresinde listelenir. 
 
-
 ## Varlıkları kodlama
 
 Azure Media Services ile çalışırken en sık karşılaşılan senaryolardan biri, istemcilerinize bit hızı uyarlamalı akış iletmektir. Media Services şu bit hızı uyarlamalı akış teknolojilerini destekler: HTTP Canlı Akışı (HLS), Kesintisiz Akış, MPEG DASH ve HDS (yalnızca Adobe PrimeTime/Erişim lisans sahipleri için). Videolarınızı uyarlamalı bit hızı akışına hazırlamak için, kaynak videonuzu çoklu bit hızı dosyalarına kodlamanız gerekir. Videolarınızı kodlamak için **Medya Kodlayıcısı Standart** kodlayıcıyı kullanmalısınız.  
 
-Media Services, bu akış biçimlerine yeniden paketlemenize gerek kalmadan, çoklu bit hızlı MP4’leri göndermenizi sağlayan dinamik paketleme olanağı sağlar: MPEG DASH veya HLS, Kesintisiz Akış HDS. Dinamik paketleme ile dosyaları yalnızca tek bir depolama biçiminde depolamanız ve buna göre ödeme yapmanız gerekir. Media Services, istemciden gelen isteklere göre uygun yanıtı derler ve sunar.
+Media Services, çoklu bit hızlı MP4’leri şu akış biçimlerinde yeniden paketlemenize gerek kalmadan göndermenizi sağlayan dinamik paketleme olanağı da sağlar: MPEG DASH, HLS, Kesintisiz Akış veya HDS. Dinamik paketleme ile dosyaları yalnızca tek bir depolama biçiminde depolamanız ve buna göre ödeme yapmanız gerekir. Media Services, istemciden gelen isteklere göre uygun yanıtı derler ve sunar.
 
 Dinamik paketlemeden yararlanmak için aşağıdakileri yapmanız gerekir:
 
@@ -152,9 +153,9 @@ Bu bölüm, içeriğinizi Medya Kodlayıcısı Standart ile kodlamak için atabi
 1.  **Ayarlar** penceresinde **Varlıklar**’ı seçin.  
 2.  **Varlıklar** penceresinde kodlamak istediğiniz varlığı seçin.
 3.  **Kodla** düğmesine basın.
-4.  **Bir varlık kodla** penceresinde, seçin "Medya Kodlayıcısı Standart" işlemcisini ve bir ön ayarı seçin. Örneğin, giriş videonuzun 1920 x 1080 piksel çözünürlüğü olduğunu biliyorsanız, "H264 Çoklu Bit hızı 1080p" ön ayarını kullanabilirsiniz. Ön ayarlar hakkında daha fazla bilgi için [bu](https://msdn.microsoft.com/library/azure/mt269960.aspx) makaleye bakın. Giriş videonuzla en fazla ilgili olan ön ayarı seçmeniz önemlidir. Düşük çözünürlüklü (640 x 360) bir videonuz olması durumunda, varsayılan "H264 Çoklu Bit hızı 1080p" ön ayarını kullanmamalısınız.
+4.  **Bir varlık kodla** penceresinde, seçin "Medya Kodlayıcısı Standart" işlemcisini ve bir ön ayarı seçin. Örneğin, girdi videonuzun 1920 x 1080 piksel çözünürlüğü olduğunu biliyorsanız, "H264 Çoklu Bit hızı 1080p" ön ayarını kullanabilirsiniz. Ön ayarlar hakkında daha fazla bilgi için [bu](https://msdn.microsoft.com/library/azure/mt269960.aspx) makaleye bakın. Girdi videonuzla en fazla ilgili olan ön ayarı seçmeniz önemlidir. Düşük çözünürlüklü (640 x 360) bir videonuz olması durumunda, varsayılan "H264 Çoklu Bit hızı 1080p" ön ayarını kullanmamalısınız.
     
-    Daha kolay yönetim için, çıkış varlık adını ve işin adını düzenleme seçeneğine sahipsiniz.
+    Daha kolay yönetim için, çıktı varlık adını ve işin adını düzenleme seçeneğine sahipsiniz.
         
     ![Varlıkları kodlama](./media/media-services-portal-vod-get-started/media-services-encode1.png)
 5. **Oluştur**’a basın.
@@ -190,9 +191,9 @@ SAS URL'leri aşağıdaki biçimdedir.
 
     {blob container name}/{asset name}/{file name}/{SAS signature}
 
->[AZURE.NOTE] Mart 2015 öncesinde portalı kullanarak bulucu oluşturduysanız kullandıysanız, sona erme tarihleri iki yıl sonrası olan bulucular oluşturulmuştur.  
+>[AZURE.NOTE] Mart 2015 öncesinde portalı kullanarak bulucu oluşturduysanız, iki yıllık bir sona erme tarihi olan bulucular oluşturulmuştur.  
 
-Bir bulucunun sona erme tarihini güncelleştirmek için [REST](http://msdn.microsoft.com/library/azure/hh974308.aspx#update_a_locator ) ya da [.NET](http://go.microsoft.com/fwlink/?LinkID=533259) API’lerini kullanın. SAS bulucunun sona erme tarihini güncelleştirdiğinizde URL’nin değiştiğini unutmayın.
+Bir bulucunun sona erme tarihini güncelleştirmek için [REST](http://msdn.microsoft.com/library/azure/hh974308.aspx#update_a_locator ) ya da [.NET](http://go.microsoft.com/fwlink/?LinkID=533259) API’lerini kullanın. SAS bulucunun sona erme tarihini güncelleştirdiğinizde URL değişir.
 
 ### Bir varlık yayımlamak için portal kullanmak üzere
 
@@ -210,7 +211,7 @@ URL **Yayımlanan URL’ler** listesine eklenir.
 
 ## Portaldan içerik oynatma
 
-Azure Portal videonuzu test etmek için kullanabileceğiniz bir içerik oynatıcı sağlar.
+Azure portal, videonuzu test etmek için kullanabileceğiniz bir içerik oynatıcı sağlar.
 
 İstediğiniz videoya tıklayın ve ardından **Oynat** düğmesine tıklayın.
 
@@ -219,7 +220,7 @@ Azure Portal videonuzu test etmek için kullanabileceğiniz bir içerik oynatıc
 Bazı dikkate alınması gereken noktalar vardır:
 
 - Videonun yayımlandığından emin olun.
-- *Medya oynatıcı** varsayılan akış uç noktasından oynatır. Varsayılan olmayan bir akış uç noktasından oynatmak istiyorsanız, URL'yi kopyalamak için tıklayın ve başka bir oynatıcı kullanın. Örneğin, [Azure Media Services Oynatıcı](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
+- **Medya oynatıcı** varsayılan akış uç noktasından oynatılır. Varsayılan olmayan bir akış uç noktasından oynatmak istiyorsanız, URL'yi kopyalamak için tıklayın ve başka bir oynatıcı kullanın. Örneğin, [Azure Media Services Oynatıcı](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
 
 ##Sonraki Adımlar: Media Services’i öğrenme yolları
 
@@ -233,6 +234,6 @@ Bazı dikkate alınması gereken noktalar vardır:
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

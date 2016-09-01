@@ -13,10 +13,13 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="05/31/2016"
+   ms.date="08/15/2016"
    ms.author="piotrci"/>
 
 # Azure RemoteApp koleksiyonunda (Önizleme) bireysel kullanıcılara uygulama yayımlama
+
+> [AZURE.IMPORTANT]
+> Azure RemoteApp kullanımdan kaldırılıyor. Ayrıntılı bilgi için [duyuruyu](https://go.microsoft.com/fwlink/?linkid=821148) okuyun.
 
 Bu makale Azure RemoteApp koleksiyonunda (Önizleme) bireysel kullanıcılara uygulama yayımlama | Microsoft Azure Bu, Azure RemoteApp’in yeni bir işlevidir; şu anda “özel önizleme”dedir ve yalnızca değerlendirme amacıyla önceden seçilen kullanıcılar tarafından kullanılabilir.
 
@@ -104,6 +107,6 @@ Henüz önizlemeye katılmadıysanız, lütfen erişim isteğinden bulunmak içi
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

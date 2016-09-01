@@ -1,22 +1,20 @@
-1. Portalda, ağ geçidini bağlamak istediğiniz sanal ağa gidin. Ayar dikey penceresini genişletmek için sanal ağınızla ilgili dikey pencerede, pencerenin en üstündeki **Ayarlar** simgesine tıklayın. 
+1. Portalda, ağ geçidini bağlamak istediğiniz sanal ağa gidin.
 
-2. **Ayarlar** dikey penceresinde, Alt Ağlar dikey penceresini genişletmek için **Alt Ağlar**’a tıklayın.
+2. VNet dikey pencerenizin **Ayarlar** bölümünde, Alt Ağlar dikey penceresini genişletmek için **Alt Ağlar**'a tıklayın.
 
-3. **Alt Ağlar** dikey penceresinde, **Alt ağ ekle** dikey penceresini genişletmek için **Ekle**’ye tıklayın.
+3. **Alt Ağlar** dikey penceresinde üstte yer alan **+Ağ geçidi alt ağı**'na tıklayın. Ardından **Alt ağ ekle** dikey penceresi açılır. Alt ağınız için **Ad** alanı otomatik olarak "GatewaySubnet" değeriyle doldurulur. Alt ağın Azure tarafından ağ geçidi alt ağı olarak tanınması için bu değer gereklidir.
 
     ![Ağ geçidi alt ağı ekleme](./media/vpn-gateway-add-gwsubnet-rm-portal-include/addgwsubnet250.png)
 
-4. **Alt ağ ekle** dikey penceresinde, alt ağınıza **GatewaySubnet** adını verin. Başka bir ad vermemelisiniz, aksi taktirde ağ geçidi çalışmaz.
+4. Gerekirse adres aralığı CIDR bloğunu değiştirebilirsiniz. Önerilen CIDR bloğunu onaylamak üzere, yapılandırmanız için belirli gereksinimleri kontrol edin.
 
-5. Ağ geçidiniz için IP **adres aralığını** ekleyin.
-
-6. Alt ağ oluşturmak için dikey pencerenin altındaki **Tamam**’a tıklayın.
+5. Alt ağ oluşturmak için dikey pencerenin altındaki **Tamam**’a tıklayın.
 
 
 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

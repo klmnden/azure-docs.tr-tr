@@ -79,10 +79,10 @@ Coğrafi bölgeler arasındaki bağlantı standart ExpressRoute SKU’da destekl
 | **Interxion** | Destekleniyor | Destekleniyor | Amsterdam, Londra, Paris |
 | **Jisc** | Çok yakında | Çok yakında | Londra+ | 
 | **[Level 3 Communications]( http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Destekleniyor | Destekleniyor | Amsterdam, Chicago, Dallas, Las Vegas+, Londra, Seattle, Silikon Vadisi, Washington DC |
-| **Megaport** | Destekleniyor | Destekleniyor | Dallas, Hong Kong, Las Vegas+, Los Angeles, Melbourne, New York, Seattle, Singapur, Sidney, Washington DC |
+| **Megaport** | Destekleniyor | Destekleniyor | Dallas, Hong Kong, Las Vegas, Los Angeles, Melbourne, New York, Seattle, Singapur, Sidney, Washington DC |
 | **MTN** | Destekleniyor | Destekleniyor | Londra |
 | **NEXTDC** | Destekleniyor | Destekleniyor | Melbourne, Sidney |
-| **NTT Communications** | Destekleniyor | Destekleniyor | Londra, Osaka, Tokyo |
+| **NTT Communications** | Destekleniyor | Destekleniyor | Londra, Los Angeles, Osaka, Tokyo |
 | **[Orange]( http://www.orange-business.com/en/products/business-vpn-galerie)** | Destekleniyor | Destekleniyor | Amsterdam, Hong Kong, Londra, Silikon Vadisi, Singapur, Washington DC |
 | **PCCW Global Limited** | Destekleniyor | Destekleniyor | Hong Kong |
 | **[SingTel]( http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** |  Destekleniyor | Destekleniyor | Singapur |
@@ -106,7 +106,7 @@ Coğrafi bölgeler arasındaki bağlantı standart ExpressRoute SKU’da destekl
 |-----------------------|--------------------|----------------|---------------|
 | **[AT&T NetBond]( https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | Destekleniyor | Destekleniyor | Chicago, Washington DC |
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Destekleniyor | Destekleniyor | Chicago, Dallas+, New York, Washington DC |
-| **[Level 3 Communications]( http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Destekleniyor | Çok yakında | Chicago, New York+, Washington DC |
+| **[Level 3 Communications]( http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Destekleniyor | Destekleniyor | Chicago, New York+, Washington DC |
 | **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | Destekleniyor | Destekleniyor | Chicago, Dallas+, New York, Washington DC |
 
 #### Çin
@@ -173,6 +173,6 @@ Bağlantı sağlayıcınız önceki bölümlerde listelenmemişse hala bağlant�
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

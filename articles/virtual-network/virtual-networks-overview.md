@@ -3,7 +3,7 @@
    description="Azure'daki sanal ağlar (VNet'ler) hakkında bilgi edinin."
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn" />
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/15/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # Virtual Network'e Genel Bakış
 
@@ -97,6 +97,6 @@ Azure'da Virtual Network'ü kullanmanın ek bir maliyeti yoktur. Sanal ağ için
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

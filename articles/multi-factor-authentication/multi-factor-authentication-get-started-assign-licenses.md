@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="05/12/2016" 
+    ms.date="08/04/2016" 
     ms.author="billmath"/>
 
 # Kullanıcılara Azure MFA, Azure AD Premium veya Enterprise Mobility lisansı atama
@@ -38,6 +38,7 @@ Azure MFA, Azure AD Premium veya Enterprise Mobility Suite lisansları satın al
 ![Lisans Atama](./media/multi-factor-authentication-get-started-assign-licenses/assign5.png)
 
 
-<!----HONumber=Jun16_HO2-->
+
+<!--HONumber=Aug16_HO4-->
 
 

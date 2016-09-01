@@ -42,17 +42,15 @@ Aşağıdaki şirket içi ve dışı bağlantılar desteklenmektedir:
 
 - [ExpressRoute](../expressroute/expressroute-introduction.md) – ExpressRoute genel İnternet üzerinden değil WAN bağlantınızdan Azure’e doğrudan yapılan bir bağlantıdır. Daha fazla bilgi için bkz. [ExpressRoute’a Teknik Genel Bakış](../expressroute/expressroute-introduction.md) ve [.ExpressRoute SSS](../expressroute/expressroute-faqs.md).
 
-Şirket içi ve dışı bağlantılar hakkında daha fazla bilgi için bkz. [Güvenli şirket içi ve dışı bağlantılar hakkında](vpn-gateway-cross-premises-options.md).
+Bağlantılar hakkında daha fazla bilgi edinmek için bkz. [VPN Gateway bağlantı diyagramları](vpn-gateway-topology.md).
 
 ### Siteden Siteye bağlantı ve Noktadan Siteye bağlantı arasındaki fark nelerdir?
 
-**Siteden Siteye** bağlantılar, şirket içinde yer alan bilgisayarlarla sanal makineler arasında bağ kurmanızı sağlayan bağlantılardır ya da rota yapılandırmayı nasıl seçtiğinize bağlı olarak sanal ağınızdaki rol örneğidir. Her zaman kullanıma uygun şirket içi ve dışı bağlantı için müthiş bir seçenek; karma yapılandırmalar için de çok uygundur. Bu tür bir bağlantı; ağınıza ucuna dağıtılmış olması gereken IPsec VPN uygulamasına bağlıdır (donanım veya yazılım aracı). Bu türden bağlantı oluşturmak için gerekli VPN donanımınızın ve dışarıya dönük IPv4 adresinizin olması gerekir.
+**Siteden Siteye** bağlantılar, şirket içinde yer alan bilgisayarlarla sanal makineler arasında bağ kurmanızı sağlayan bağlantılardır ya da rota yapılandırmayı nasıl seçtiğinize bağlı olarak sanal ağınızdaki rol örneğidir. Her zaman kullanıma uygun şirket içi ve dışı bağlantı için müthiş bir seçenek; karma yapılandırmalar için de çok uygundur. Bu tür bir bağlantı; ağınıza ucuna dağıtılmış olması gereken IPsec VPN uygulamasına bağlıdır (donanım veya yazılım aracı). Bu tür bir bağlantı oluşturmak için gerekli VPN donanımına ve dışarıya yönelik bir IPv4 adresine sahip olmanız gerekir.
 
 **Noktadan Siteye** bağlantılar, sanal ağınızda bulunan her yerden her şeye tek bir bilgisayardan bağlanmanızı sağlar. Windows yerleşik VPN istemcisi kullanır. Noktadan Siteye yapılandırmasının bir parçası olarak, bir sertifika ve bir VPN istemci yapılandırma paketi yüklerseniz; bu pakette, bilgisayarınızın sanal ağda herhangi bir sanal makineye veya rol örneğine bağlanmasını sağlayan ayarlar bulunur. Şirket içi olmayan sanal ağa bağlanmak istediğinizde çok yararlıdır. Her ikisi de Siteden Siteye bağlantısına gereken VPN donanımına veya dışarıya dönük IPv4 adresine erişiminiz yoksa bu da iyi bir seçenektir. 
 
 Siteden Siteye bağlantınızı ağ geçidinizi için rota tabanlı VPN türü kullanarak oluşturmanız kaydıyla, sanal ağınızı aynı anda hem Siteden Siteye, hem de Noktadan Siteye bağlanacak şekilde yapılandırabilirsiniz. Rota tabanlı VPN türlerine klasik dağıtım modelinde dinamik ağ geçitleri adı verilir.
-
-Daha fazla bilgi için bkz. [Sanal ağlar için güvenli şirket içi bağlantılar hakkında](vpn-gateway-cross-premises-options.md).
 
 ### ExpressRoute nedir?
 
@@ -184,7 +182,7 @@ Azure Klasik Portalı kullanıyorsanız, Ağlar sayfasında Yerel Ağlar altınd
 
 Evet. Bkz. [Zorlamalı tüneli yapılandırma](vpn-gateway-about-forced-tunneling.md).
 
-### Azure’de kendi VPN sunucumu kurabilir miyim ve bunu şirket içi ağıma bağlayabilir miyim?
+### Azure'da kendi VPN sunucumu kurup bu sunucuyu şirket içi ağıma bağlanmak üzere kullanabilir miyim?
 
 Evet, Azure’de kendi VPN ağ geçitlerinizi veya sunucularınızı ister Azure Market’ten, ister kendi VPN yönlendiricilerinizi oluşturarak dağıtabilirsiniz. Şirket içi ağlarınız ve sanal ağ alt ağları arasında trafiğin düzgün yönlendirilmesini sağlamak amacıyla sanal ağınızda Kullanıcı Tanımlı Rotaları yapılandırmanız gerekir.
 
@@ -227,7 +225,7 @@ Evet, Noktadan Siteye (P2S) VPN’ler şirket içi sitelere ve başka sanal ağl
 
 ### Çok siteli VPN kullanarak sanal ağlarım ve şirket içi sitem arasında birden fazla tünel yapılandırabilir miyim?
 
-Hayır, Azure sanal ağı ve bir şirket içi sitesi arasındaki yedek tüneller desteklenmez.
+Hayır, Azure sanal ağı ve şirket içi bir site arasında yedek tüneller desteklenmez.
 
 ### Bağlı sanal ağlar ve şirket içi yerel siteleri arasında çakışan adres alanları olabilir mi?
 
@@ -285,6 +283,6 @@ VPN Ağ Geçitleri hakkında daha fazla bilgiyi [VPN Ağ Geçidi belgeleri sayfa
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

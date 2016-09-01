@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/12/2016"
+    ms.date="08/17/2016"
     ms.author="awills"/>
 
 # Java web projesinde Application Insights ile başlarken
@@ -25,7 +25,7 @@
 
 ![örnek veri](./media/app-insights-java-get-started/5-results.png)
 
-Application Insights Linux, Unix veya Windows üzerinde çalışan Java uygulamalarını destekler.
+Application Insights; Linux, Unix veya Windows üzerinde çalışan Java uygulamalarını destekler.
 
 Gerekenler:
 
@@ -37,14 +37,11 @@ Gerekenler:
 
 ## 1. Application Insights izleme anahtarı edinme
 
-1. [Microsoft Azure Portal](https://portal.azure.com)’da oturum açın.
-2. Yeni Application Insights kaynağı oluşturma
-
-    ![Tıklama + ve Application Insights seçme](./media/app-insights-java-get-started/01-create.png)
-3. Uygulama türünü Java web uygulaması olarak ayarlayın.
+1. [Microsoft Azure portalında](https://portal.azure.com) oturum açın.
+2. Bir Application Insights kaynağı oluşturun. Uygulama türünü Java web uygulaması olarak ayarlayın.
 
     ![Ad girme, Java web uygulaması seçme ve Oluştur’a tıklama](./media/app-insights-java-get-started/02-create.png)
-4. Yeni kaynağın izleme anahtarını bulun. Bunu hemen kod projenize yapıştırmalısınız.
+4. Yeni kaynağın izleme anahtarını bulun. Bu anahtarı hemen kod projenize yapıştırmalısınız.
 
     ![Yeni kaynağa genel bakışta, Özellikler'e tıklayıp izleme anahtarını kopyalama](./media/app-insights-java-get-started/03-key.png)
 
@@ -106,18 +103,18 @@ Daha sonra, proje bağımlılıklarını ikili dosyaları indirmek için yeniley
 
 SDK'yi el ile ekleyin:
 
-1. [Java için Application Insights SDK’sı](https://azuredownloads.blob.core.windows.net/applicationinsights/sdk.html) indirin.
+1. [Java için Application Insights SDK’sı](https://aka.ms/aijavasdk) indirin.
 2. İkili dosyaları zip dosyasından ayıklayıp projenize ekleyin.
 
 ### Sorular...
 
 * *Zip’teki `-core` ve `-web` bileşenleri arasındaki ilişki nedir?*
 
- * `applicationinsights-core` size tam API sağlar. Bu her zaman gerekecektir.
- * `applicationinsights-web` , HTTP istek sayısını ve yanıt sürelerini izleyen ölçümleri sağlar. Bu telemetrinin otomatik olarak toplanmasını istemiyorsanız bunu atlayabilirsiniz. Örneğin, kendiniz yazmak istiyorsanız.
+ * `applicationinsights-core` size tam API sağlar. Bu bileşen her zaman gerekecektir.
+ * `applicationinsights-web` , HTTP istek sayısını ve yanıt sürelerini izleyen ölçümleri sağlar. Bu telemetrinin otomatik olarak toplanmasını istemiyorsanız, bu bileşeni atlayabilirsiniz. Örneğin, kendiniz yazmak istiyorsanız.
 
 * *Değişiklikleri yayımladığınızda SDK’yi güncelleştirmek için*
- * En son [Java için Application Insights SDK’si](https://azuredownloads.blob.core.windows.net/applicationinsights/sdk.zip)’ni indirin ve eskilerle değiştirin.
+ * En son [Java için Application Insights SDK’si](https://aka.ms/qqkaq6)’ni indirin ve eskilerle değiştirin.
  * Değişiklikler [SDK sürüm notlarında](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) açıklanmıştır.
 
 
@@ -161,8 +158,8 @@ Azure portalından aldığınız izleme anahtarını bununla değiştirin.
 
 * İzleme anahtarı telemetrinin her öğesiyle birlikte gönderilir ve Application Insights’ın bunu kaynağınızda görüntülemesini isteyin.
 * HTTP isteği bileşeni isteğe bağlıdır. İstek ve yanıt süreleri hakkında telemetriyi otomatik olarak portala gönderir.
-* Olay bağıntısı HTTP isteği bileşenine bir ektir. Sunucu tarafından alınan her istek için bir tanımlayıcı atar ve bunu bir özellik olarak telemetrinin her öğesine 'Operation.Id' özelliği olarak ekler. [Tanı aramaya][diagnostic] bir filtre ayarlayarak her istekle ilişkili telemetrinin bağıntısını kurmanızı sağlar.
-* Application Insight anahtarı Azure portalından bir sistem özelliği olarak dinamik şekilde geçirilebilir (-DAPPLICATION_INSIGHTS_IKEY=your_ikey). Tanımlı bir özellik yoksa Azure Uygulama Ayarında ortam değişkenini (APPLICATION_INSIGHTS_IKEY) denetler. Her iki özellik de tanımlanmamışsa ApplicationInsights.xml dosyasındaki varsayılan InstrumentationKey kullanılır. Bunun yapılması farklı ortamlar için InstrumentationKey anahtarının dinamik olarak yönetilmesine yardımcı olur.
+* Olay bağıntısı HTTP isteği bileşenine bir ektir. Sunucu tarafından alınan her istek için bir tanımlayıcı atar ve bu tanımlayıcıyı bir özellik olarak, telemetrinin her öğesine 'Operation.Id' özelliği olarak ekler. [Tanı aramaya][diagnostic] bir filtre ayarlayarak her istekle ilişkili telemetrinin bağıntısını kurmanızı sağlar.
+* Application Insights anahtarı, Azure portalından bir sistem özelliği olarak dinamik şekilde geçirilebilir (-DAPPLICATION_INSIGHTS_IKEY=your_ikey). Tanımlı bir özellik yoksa, Azure Uygulama Ayarlarında ortam değişkeni (APPLICATION_INSIGHTS_IKEY) denetlenir. Her iki özellik de tanımlanmamışsa ApplicationInsights.xml dosyasındaki varsayılan InstrumentationKey kullanılır. Bu sıra farklı ortamlar için farklı InstrumentationKeys’i dinamik olarak yönetmenize yardımcı olur.
 
 ### İzleme anahtarını ayarlamak için alternatif yollar
 
@@ -196,7 +193,7 @@ En doğru sonuçlar almak için önce filtrenin tüm diğer filtrelerle eşlenme
        <url-pattern>/*</url-pattern>
     </filter-mapping>
 
-#### MVC 3.1 veya sonraki sürümleri kullanıyorsanız
+#### Spring Web MVC 3.1 veya sonraki sürümleri kullanıyorsanız
 
 Bu öğeleri Application Insights paketini içerecek şekilde düzenleyin:
 
@@ -229,9 +226,9 @@ Geliştirme makinenizde hata ayıklama modunda çalıştırın ya da sunucunuza 
 ## 6. Application Insights'da telemetrinizi görüntüleme
 
 
-[Microsoft Azure Portal](https://portal.azure.com)’da Application Insights kaynağınıza göz atın.
+[Microsoft Azure portalında](https://portal.azure.com), Application Insights kaynağınıza dönün.
 
-HTTP verilerin genel bakış dikey penceresinde görüntülenmesini ister. (Orada değilse, birkaç saniye bekleyip Yenile’ye tıklayın.)
+HTTP isteklerine ilişkin veriler genel bakış dikey penceresinde görüntülenir. (Orada değilse, birkaç saniye bekleyip Yenile’ye tıklayın.)
 
 ![örnek veri](./media/app-insights-java-get-started/5-results.png)
 
@@ -241,7 +238,7 @@ Daha ayrıntılı derlenmiş ölçümler görmek için herhangi bir grafiğe tı
 
 ![](./media/app-insights-java-get-started/6-barchart.png)
 
-> Application Insights, MVC uygulamaları için HTTP isteklerinin biçiminin şu olduğunu varsayar: `VERB controller/action`. Örneğin, `GET Home/Product/f9anuh81`, `GET Home/Product/2dffwrf5` ve `GET Home/Product/sdf96vws` `GET Home/Product` içinde gruplandırılır. İstek sayısı veya isteklerin yürütülme süresi gibi anlamlı istek toplamaları etkinleştirir.
+> Application Insights, MVC uygulamaları için HTTP isteklerinin biçiminin şu olduğunu varsayar: `VERB controller/action`. Örneğin, `GET Home/Product/f9anuh81`, `GET Home/Product/2dffwrf5` ve `GET Home/Product/sdf96vws`; `GET Home/Product` içinde gruplandırılır. Bu gruplandırma, istek sayısı veya isteklerin yürütülme süresi gibi anlamlı istek toplamalarını etkinleştirir.
 
 
 ### Örnek veriler 
@@ -276,13 +273,13 @@ Artık uygulamanızı sunucuya yayımlayın, herkesin kullanmasını sağlayın 
 
  * [Microsoft Visual C++ Yeniden Dağıtılabilir](http://www.microsoft.com/download/details.aspx?id=40784)
 
-    (Performans sayaçlarını etkinleştirir.)
+    (Bu bileşen, performans sayaçlarını etkinleştirir.)
 
 ## Özel durumlar ve istek hataları
 
 İşlenmeyen özel durumlar otomatik olarak toplanır:
 
-![Aşağı kaydırıp Hatalar kutucuğuna tıklama](./media/app-insights-java-get-started/21-exceptions.png)
+![Ayarlar, Hatalar’ı açın](./media/app-insights-java-get-started/21-exceptions.png)
 
 Diğer özel durumlar hakkında veri toplamak için iki seçeneğiniz vardır:
 
@@ -297,7 +294,7 @@ Zamanlama verileriyle JDBC üzerinden yapılan belirli dahili yöntemleri ve ça
 
 ## Performans sayaçları
 
-**Sunucular** kutucuğuna tıklayın; bir dizi performans sayacı göreceksiniz.
+Çeşitli performans sayaçlarını görmek için **Ayarlar**, **Sunucular**’ı açın.
 
 
 ![](./media/app-insights-java-get-started/11-perf-counters.png)
@@ -367,7 +364,7 @@ Tamam, web sunucunuzdan telemetri gönderiyorsunuz. Uygulamanızın 360 dereceli
 
 ## Günlük izlemelerini yakalama
 
-Log4J, Logback veya başka günlük altyapılarına ait günlüklere ayrıntılı incelemek için Application Insights’ı kullanabilirsiniz. Günlükleri HTTP istekleri ve başka telemetriyle ilişkilendirebilirsiniz. [Nasıl yapılacağını öğrenin][javalogs].
+Log4J, Logback veya diğer günlük altyapılarına ait günlükleri ayrıntılı incelemek için Application Insights’ı kullanabilirsiniz. Günlükleri HTTP istekleri ve başka telemetriyle ilişkilendirebilirsiniz. [Nasıl yapılacağını öğrenin][javalogs].
 
 ## Kendi telemetrinizi gönderme
 
@@ -379,17 +376,15 @@ Artık SDK'yı da yüklediğinize göre, kendi telemetrinizi göndermek için AP
 
 ## Kullanılabilirlik web testleri
 
-Kullanıma hazır ve düzgün yanıt verdiğini denetlemek için Application Insights belirli aralıklarla web sitenizi test edebilir. [Ayarlamak için][availability], kayarak Kullanılabilirlik’e gidip tıklayın.
+Kullanıma hazır ve düzgün yanıt verdiğini denetlemek için Application Insights belirli aralıklarla web sitenizi test edebilir. [ayarlamak için][availability], Web testleri’ne tıklayın.
 
-![Aşağı kaydırıp, Kullanılabilirlik’e ve Web testi ekle’ye tıklama](./media/app-insights-java-get-started/31-config-web-test.png)
+![Web testleri’ne ve ardından Web testi ekle’ye tıklayın](./media/app-insights-java-get-started/31-config-web-test.png)
 
 Yanıt süreleri grafiklerine ek olarak, siteniz devre dışı kalırsa e-posta bildirimleri de alacaksınız.
 
 ![Web testi örneği](./media/app-insights-java-get-started/appinsights-10webtestresult.png)
 
 [Kullanılabilirlik web testleri hakkında daha fazla bilgi edinin.][availability] 
-
-
 
 
 
@@ -415,6 +410,6 @@ Daha fazla bilgi için bkz. [Java Geliştirici Merkezi](/develop/java/).
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Java ile Azure Media Services’i kullanma" 
+    pageTitle="Java kullanarak isteğe bağlı içerik göndermeye başlama | Microsoft Azure" 
     description="Kodlama, şifreleme ve kaynakları akışla aktarma gibi genel görevleri gerçekleştirmek üzere Azure Media Services’in nasıl kullanılacağını açıklar." 
     services="media-services" 
     documentationCenter="java" 
@@ -13,10 +13,10 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article"
-    ms.date="06/22/2016"   
+    ms.date="08/17/2016"   
     ms.author="robmcm"/>
 
-#Java ile Media Services’i kullanma
+# Java kullanarak isteğe bağlı içerik göndermeye başlama
 
 [AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
@@ -37,9 +37,9 @@ Bu bölüm, Java için Media Services SDK'sını kullanarak Media Services geli�
 
 Aşağıdaki kod bir varlık oluşturma, varlığa bir medya dosyası yükleme, varlığı dönüştürecek bir göreve sahip olan bir işi çalıştırma ve videonuzu akışla aktarmak için bir bulucu oluşturma işlemlerinin nasıl gerçekleştirileceğini gösterir.
 
-Bu kodu kullanmadan önce bir medya hizmetleri hesabı ayarlamanız gerekir. Hesap ayarlama hakkında daha fazla bilgi için bkz. [Media Services Hesabı Oluşturma](media-services-create-account.md).
+Bu kodu kullanmadan önce bir Media Services hesabı ayarlamanız gerekir. Hesap ayarlama hakkında daha fazla bilgi için bkz. [Media Services Hesabı Oluşturma](media-services-create-account.md).
 
-`clientId` ve `clientSecret` değişkenlerinin yerine kendi değerlerinizi koyun. Kod ayrıca, yerel olarak saklanan bir dosyaya da dayanır. Kullanılmak üzere kendi dosyanızı sağlamanız gerekir.
+'clientId' ve 'clientSecret' değişkenlerini kendi değerlerinizle değiştirin. Kod ayrıca, yerel olarak saklanan bir dosyaya da dayanır. Kullanılmak üzere kendi dosyanızı sağlamanız gerekir.
     
     import java.io.*;
     import java.security.NoSuchAlgorithmException;
@@ -278,6 +278,6 @@ Media Services Javadoc belgeleri için bkz. [Java için Azure Kitaplıkları bel
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

@@ -102,7 +102,7 @@ UWP uygulamalarına anında iletme bildirimleri göndermek için uygulamanızı 
 
 [AZURE.INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
-<ol start="7">
+<ol start="6">
 <li><p><b>Bildirim Hizmetleri</b> seçeneğini <b>Windows (WNS)</b> seçeneğini belirleyin. Ardından <b>Güvenlik Anahtarı</b> alanına <b>Uygulama gizli anahtarı</b> parolasını girin. Önceki bölümde WNS’den edindiğiniz <b>Paket SID’si</b> değerini girin ve ardından <b>Kaydet</b>’e tıklayın.</p>
 </li>
 </ol>
@@ -276,6 +276,6 @@ Notification Hubs hakkında daha fazla genel bilgi için bkz. [Notification Hubs
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

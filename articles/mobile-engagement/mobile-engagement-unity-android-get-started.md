@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-unity-android"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="03/25/2016"
+    ms.date="08/19/2016"
     ms.author="piyushjo" />
 
 # Unity Android dağıtımı için Azure Mobile Engagement kullanmaya başlama
@@ -29,7 +29,7 @@ Bu öğretici için aşağıdakiler gereklidir:
 + [Mobile Engagement Unity SDK](https://aka.ms/azmeunitysdk)
 + Google Android SDK
 
-> [AZURE.NOTE] Bu öğreticiyi tamamlamak için etkin bir Azure hesabınızın olması gerekir. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılar için bkz. [Azure Ücretsiz Deneme](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-unity-android-get-started).
+> [AZURE.NOTE] Bu öğreticiyi tamamlamak için etkin bir Azure hesabınızın olması gerekir. Hesabınız yoksa yalnızca birkaç dakika içinde ücretsiz bir deneme sürümü hesabı oluşturabilirsiniz. Ayrıntılar için bkz. [Azure Ücretsiz Deneme](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-unity-android-get-started).
 
 ##<a id="setup-azme"></a>Android uygulamanız için Mobile Engagement kurma
 
@@ -153,6 +153,7 @@ Bu Unity uygulamasını cihazınıza dağıtmaya çalışmadan önce makinenizde
 [54]: ./media/mobile-engagement-unity-android-get-started/54.png
 
 
-<!----HONumber=Jun16_HO2-->
+
+<!--HONumber=Aug16_HO4-->
 
 

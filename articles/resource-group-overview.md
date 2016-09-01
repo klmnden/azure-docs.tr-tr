@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/19/2016"
+   ms.date="08/18/2016"
    ms.author="tomfitz"/>
 
 # Azure Resource Manager genel bakış
@@ -133,7 +133,7 @@ Portal kullanımı hakkında bilgi için bkz. [Kaynakları Resource Manager şab
 
 Azure Resource Manager çıkış noktaları arası kaynak paylaşımını (CORS) destekler. CORS ile bir web uygulamasından farklı bir etki alanında bulunan Resource Manager REST API’si veya bir Azure hizmeti REST API'si çağırabilirsiniz. CORS desteği olmadan web tarayıcısı bir etki alanındaki uygulamanın başka bir etki alanındaki kaynaklara erişmesini engeller. Resource Manager, geçerli kimlik doğrulama kimlik bilgilerine sahip tüm istekler için CORS’u etkinleştirir.
 
-## SDK'lar ve örnekler
+## SDK’lar
 
 Azure SDK'ları birden çok dil ve platform için kullanılabilir.
 Bu dil uygulamalarının her biri ekosistem paket yöneticisi ve GitHub üzerinden kullanılabilir.
@@ -144,25 +144,44 @@ SDK kodu, AutoRest adlı açık kaynaklı bir proje aracılığıyla oluşturulu
 AutoRest bu RESTful API belirtimlerini birden fazla dilde istemci kitaplıklarına dönüştürür.
 SDK’larda oluşturulan kodu herhangi bir açıdan geliştirmek isterseniz SDK’ları oluşturmaya yönelik tüm araçlar açıktır, ücretsiz olarak kullanılabilir ve geniş ölçekte benimsenen bir API belirtim biçimini temel alır.
 
-**Örnekler**: Tercih ettiğiniz dilde hızlı bir şekilde kullanmaya başlayın.
+Açık Kaynak SDK depolarımız aşağıda verilmiştir. Geri bildirimler, sorunlar ve çekme isteklerini memnuniyetle karşılıyoruz.
 
-- [.NET](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=dotnet)
-- [Java](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=java)
-- [Node.js](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=nodejs)
-- [Python](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=python)
-- [PHP](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=php) *yakında*
-- [Ruby](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=ruby)
-
-**Açık Kaynak SDK depoları**: geri bildirimler, sorunlar ve çekme istekleri memnuniyetle karşılanır.
-
-- [.NET](https://github.com/Azure/azure-sdk-for-net)
-- [Java](https://github.com/Azure/azure-sdk-for-java)
-- [Node.js](https://github.com/Azure/azure-sdk-for-node)
-- [PHP](https://github.com/Azure/azure-sdk-for-php)
-- [Python](https://github.com/Azure/azure-sdk-for-python)
-- [Ruby](https://github.com/Azure/azure-sdk-ruby)
+[.NET](https://github.com/Azure/azure-sdk-for-net) | [Java](https://github.com/Azure/azure-sdk-for-java) | [Node.js](https://github.com/Azure/azure-sdk-for-node) | [PHP](https://github.com/Azure/azure-sdk-for-php) | [Python](https://github.com/Azure/azure-sdk-for-python) | [Ruby](https://github.com/Azure/azure-sdk-ruby)
 
 > [AZURE.NOTE] SDK gerekli işlevleri sağlamıyorsa doğrudan [Azure REST API'sine](https://msdn.microsoft.com/library/azure/dn790568.aspx) de çağrı yapabilirsiniz.
+
+## Örnekler
+
+### .NET
+
+- [Azure kaynaklarını ve kaynak gruplarını yönetme](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-resources-and-groups/)
+- [Bir şablonla SSH özellikli bir VM dağıtma](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-template-deployment/)
+
+### Java
+
+- [Azure kaynaklarını yönetme](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource/)
+- [Azure kaynak gruplarını yönetme](https://azure.microsoft.com/documentation/samples/resources-java-manage-resource-group/)
+- [Bir şablonla SSH özellikli bir VM dağıtma](https://azure.microsoft.com/documentation/samples/resources-java-deploy-using-arm-template/)
+
+### Node.js
+
+- [Azure kaynaklarını ve kaynak gruplarını yönetme](https://azure.microsoft.com/documentation/samples/resource-manager-node-resources-and-groups/)
+- [Bir şablonla SSH özellikli bir VM dağıtma](https://azure.microsoft.com/documentation/samples/resource-manager-node-template-deployment/)
+
+### Python
+
+- [Azure kaynaklarını ve kaynak gruplarını yönetme](https://azure.microsoft.com/documentation/samples/resource-manager-python-resources-and-groups/)
+- [Bir şablonla SSH özellikli bir VM dağıtma](https://azure.microsoft.com/documentation/samples/resource-manager-python-template-deployment/)
+
+### Ruby
+
+- [Azure kaynaklarını ve kaynak gruplarını yönetme](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
+- [Bir şablonla SSH özellikli bir VM dağıtma](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-template-deployment/)
+
+
+Bu örneklere ek olarak galeri örnekleri arasında arama yapabilirsiniz.
+
+[.NET](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=dotnet) | [Java](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=java) | [Node.js](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=nodejs) | [Python](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=python) | [Ruby](https://azure.microsoft.com/documentation/samples/?service=azure-resource-manager&platform=ruby)
 
 ## Sonraki adımlar
 
@@ -178,6 +197,6 @@ Bu genel bakışın sunulduğu videoya şuradan ulaşabilirsiniz:
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

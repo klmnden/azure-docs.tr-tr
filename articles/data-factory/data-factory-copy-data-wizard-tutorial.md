@@ -1,6 +1,6 @@
 <properties 
     pageTitle="Öğretici: Kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma" 
-    description="Bu öğreticide Data Factory ile desteklenen Kopyalama Sihirbazı’nı kullanarak Kopyalama Etkinliği ile bir Azure Data Factory işlem hattı oluşturacaksınız." 
+    description="Bu öğreticide, Data Factory ile desteklenen Kopyalama Sihirbazı’nı kullanarak Kopyalama Etkinlikli bir Azure Data Factory işlem hattı oluşturursunuz" 
     services="data-factory" 
     documentationCenter="" 
     authors="spelluru" 
@@ -22,16 +22,17 @@
 - [Data Factory Düzenleyici’yi kullanma](data-factory-copy-activity-tutorial-using-azure-portal.md)
 - [PowerShell’i kullanma](data-factory-copy-activity-tutorial-using-powershell.md)
 - [Visual Studio’yu kullanma](data-factory-copy-activity-tutorial-using-visual-studio.md)
+- [REST API kullanma](data-factory-copy-activity-tutorial-using-rest-api.md) 
 - [Kopyalama Sihirbazı'nı kullanma](data-factory-copy-data-wizard-tutorial.md)
 
-Bu öğreticide Data Factory Kopyalama Sihirbazı’nı kullanarak bir veri fabrikasındaki Kopyalama Etkinliği ile işlem hattı oluşturacaksınız. İlk olarak, Azure Portal’ı kullanarak bir veri fabrikası oluşturun ve ardından Kopyalama Sihirbazı’nı kullanarak Data Factory bağlı hizmetleri, veri kümeleri ve bir Azure blob depolama alanından Azure SQL veritabanına verileri kopyalayan bir Kopyalama Etkinliği ile işlem hattı oluşturun.
+Bu öğreticide, Data Factory Kopyalama Sihirbazı’nı kullanarak bir veri fabrikasında Kopyalama Etkinlikli işlem hattı oluşturacaksınız. İlk olarak, Azure portalı kullanarak bir veri fabrikası oluşturun ve ardından Kopyalama Sihirbazı’nı kullanarak Data Factory bağlı hizmetleri, veri kümeleri ve bir Azure blob depolama alanından Azure SQL veritabanına veri kopyalayan bir Kopyalama Etkinlikli işlem hattı oluşturun.
 
 > [AZURE.IMPORTANT] Lütfen [Öğreticiye Genel Bakış](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) makalesini inceleyin ve bu öğreticiyi uygulamadan önce önkoşul adımlarını tamamlayın.
 
 ## Veri fabrikası oluşturma
-Bu adımda **ADFTutorialDataFactory** adlı bir Azure data factory oluşturmak için Azure Portal’ı kullanırsınız.
+Bu adımda, Azure portalı kullanarak **ADFTutorialDataFactory** adlı bir Azure veri fabrikası oluşturursunuz.
 
-1.  [Azure Portal](https://portal.azure.com)’da oturum açtıktan sonra sol üst köşedeki **+ YENİ** öğesine tıklayın, **Oluştur** dikey penceresinde **Veri analizi**’ni seçin ve **Veri analizi** dikey penceresinde **Data Factory** öğesini seçin. 
+1.  [Azure portal](https://portal.azure.com)da oturum açtıktan sonra sol üst köşedeki **+ YENİ** öğesine tıklayın, **Oluştur** dikey penceresinde **Veri analizi**’ni seçin ve **Veri analizi** dikey penceresinde **Data Factory** öğesini seçin. 
 
     ![Yeni->DataFactory](./media/data-factory-copy-data-wizard-tutorial/new-data-factory-menu.png)
 
@@ -56,7 +57,7 @@ Bu adımda **ADFTutorialDataFactory** adlı bir Azure data factory oluşturmak i
     > [AZURE.NOTE] Data factory adı gelecekte bir DNS adı olarak kaydedilmiş olabilir; bu nedenle herkese görünür hale gelmiştir.  
 
 9. Soldaki **BİLDİRİMLER** hub’ına tıklayın ve oluşturma işlemine ait bildirimleri arayın. Açıksa, **BİLDİRİMLER** dikey penceresini kapatmak için **X** işaretine tıklayın. 
-10. Oluşturma işlemi tamamlandıktan sonra, **DATA FACTORY** dikey penceresini aşağıda gösterildiği gibi görürsünüz.
+10. Oluşturma işlemi tamamlandıktan sonra, aşağıda gösterildiği gibi **DATA FACTORY** dikey penceresini görürsünüz.
 
     ![Data factory giriş sayfası](./media/data-factory-copy-data-wizard-tutorial/getstarted-data-factory-home-page.png)
 
@@ -101,7 +102,7 @@ Bu adımda **ADFTutorialDataFactory** adlı bir Azure data factory oluşturmak i
 
     ![Kopyalama Aracı - Tablo eşleme](./media/data-factory-copy-data-wizard-tutorial/copy-tool-table-mapping-page.png) 
 10. **Şema eşleme** sayfasında **İleri**’ye tıklayın.
-11. **Özet** sayfasındaki bilgileri gözden geçirin ve **Son**’a tıklayın. Bu işlem veri fabrikasında (Kopyalama Sihirbazı’nı başlattığınız yerden itibaren) iki bağlı hizmet, iki veri kümesi (girdi ve çıktı) ve bir işlem hattı oluşturur. 
+11. **Özet** sayfasındaki bilgileri gözden geçirin ve **Son**’a tıklayın. Bu işlem, veri fabrikasında (Kopyalama Sihirbazı’nı başlattığınız yer) iki bağlı hizmet, iki veri kümesi (girdi ve çıktı) ve bir işlem hattı oluşturur. 
 12. **Dağıtım başarılı** sayfasında **Kopyalama işlem hattını izlemek için buraya tıklayın** öğesine tıklayın.
 
     ![Kopyalama Aracı - Dağıtım başarılı](./media/data-factory-copy-data-wizard-tutorial/copy-tool-deployment-succeeded.png)  
@@ -115,11 +116,11 @@ Bu adımda **ADFTutorialDataFactory** adlı bir Azure data factory oluşturmak i
 | :---- | :---- |
 | [Veri Taşıma Etkinlikleri](data-factory-data-movement-activities.md) | Bu makalede, öğreticide kullandığınız Kopyalama Etkinliği hakkında ayrıntılı bilgi sağlanmaktadır. |
 | [Zamanlama ve yürütme](data-factory-scheduling-and-execution.md) | Bu makalede Azure Data Factory uygulama modelinin zamanlama ve yürütme yönleri açıklanmaktadır. |
-| [İşlem hatları](data-factory-create-pipelines.md) | Bu makalede Azure Data Factory’de işlem hatlarının ve etkinliklerin yanı sıra senaryonuz ya da işiniz için uçtan uca veri odaklı iş akışlarının nasıl desteklendiğini anlamanıza yardımcı olunmaktadır. |
-| [Veri kümeleri](data-factory-create-datasets.md) | Bu makale Azure Data Factory’deki veri kümelerini anlamanıza yardımcı olacaktır.
+| [İşlem hatları](data-factory-create-pipelines.md) | Bu makale, Azure Data Factory’de işlem hatlarının ve etkinliklerin yanı sıra senaryonuz ya da işiniz için uçtan uca veri odaklı iş akışlarının nasıl desteklendiğini anlamanıza yardımcı olur. |
+| [Veri kümeleri](data-factory-create-datasets.md) | Bu makale, Azure Data Factory’deki veri kümelerini anlamanıza yardımcı olur.
 | [İzleme Uygulaması kullanılarak işlem hatlarını izleme ve yönetme](data-factory-monitor-manage-app.md) | Bu makalede İzleme ve Yönetim Uygulaması kullanılarak işlem hatlarını izleme, yönetme ve hatalarını ayıklama işlemleri açıklanmaktadır. 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

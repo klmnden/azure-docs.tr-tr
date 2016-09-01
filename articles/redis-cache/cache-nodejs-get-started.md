@@ -13,7 +13,7 @@
     ms.topic="hero-article"
     ms.tgt_pltfrm="cache-redis"
     ms.workload="tbd"
-    ms.date="05/31/2016"
+    ms.date="08/16/2016"
     ms.author="sdanie"/>
 
 # Node.js ile Azure Redis Önbelleği kullanma
@@ -36,7 +36,7 @@ Bu konu Node.js kullanarak Azure Redis Önbelleği kullanmayı gösterir. Node.j
 
     npm install redis
 
-Bu öğreticide [node_redis](https://github.com/mranney/node_redis) kullanılmıştır, ancak [http://redis.io/clients](http://redis.io/clients) adresinde listelenmiş herhangi bir Node.js istemcisini kullanabilirsiniz.
+Bu öğreticide, [node_redis](https://github.com/mranney/node_redis) kullanılmaktadır. Diğer Node.js istemcilerini kullanmaya ilişkin örnekler için [Node.js Redis istemcileri](http://redis.io/clients#nodejs) listesindeki Node.js istemcilerinin kendi belgelerine bakın.
 
 ## Azure’da Redis önbelleği oluşturma
 
@@ -46,17 +46,21 @@ Bu öğreticide [node_redis](https://github.com/mranney/node_redis) kullanılmı
 
 [AZURE.INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
 
+## SSL kullanarak güvenli bir şekilde önbelleğe bağlanma
 
-## SSL olmayan uç noktayı etkinleştirme
+[node_redis](https://github.com/mranney/node_redis)’in en son derlemeleri, Azure Redis Önbelleği’ne SSL kullanarak bağlanma konusunda destek sağlar. Aşağıdaki örnekte, 6380 SSL bitiş noktasını kullanarak Azure Redis Önbelleği’ne nasıl bağlanılacağı gösterilmektedir. Önceki [Ana bilgisayar adını ve erişim anahtarlarını alma](#retrieve-the-host-name-and-access-keys) bölümünde açıklanan şekilde `<name>` öğesini önbelleğinizin adı ile, `<key>` öğesini ise birincil veya ikincil anahtarınızla değiştirin.
 
-Bazı Redis istemcileri SSL’yi desteklemez ve varsayılan olarak [SSL olmayan bağlantı noktası yeni Azure Redis Önbelleği örnekleri için devre dışıdır](cache-configure.md#access-ports). Bu yazma sırasında, [node_redis](https://github.com/mranney/node_redis) istemcisi SSL’yi desteklemez. 
-
-[AZURE.INCLUDE [redis-cache-create](../../includes/redis-cache-non-ssl-port.md)]
+     var redis = require("redis");
+    
+      // Add your cache name and access key.
+    var client = redis.createClient(6380,'<name>.redis.cache.windows.net', {auth_pass: '<key>', tls: {servername: '<name>.redis.cache.windows.net'}});
 
 
 ## Önbelleğe bir şey ekleme ve bunu alma
 
-      var redis = require("redis");
+Aşağıdaki örnekte, size bir Azure Redis Önbelleği örneğine bağlanma, önbellekte öğe depolama ve önbellekten öğe alma işlemlerinin nasıl yapılacağı gösterilmektedir. Redis’i [node_redis](https://github.com/mranney/node_redis) istemcisiyle kullanmaya ilişkin daha fazla örnek için bkz. [http://redis.js.org/](http://redis.js.org/).
+
+     var redis = require("redis");
     
       // Add your cache name and access key.
     var client = redis.createClient(6380,'<name>.redis.cache.windows.net', {auth_pass: '<key>', tls: {servername: '<name>.redis.cache.windows.net'}});
@@ -85,6 +89,6 @@ Bazı Redis istemcileri SSL’yi desteklemez ve varsayılan olarak [SSL olmayan 
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

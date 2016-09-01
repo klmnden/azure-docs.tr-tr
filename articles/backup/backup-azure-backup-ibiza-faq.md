@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure Backup'ın genel önizleme sürümü ile ilgili SSS | Microsoft Azure"
+   pageTitle="Kurtarma Hizmetleri kasası hakkında SSS | Microsoft Azure"
    description="SSS'nin bu sürümü, Azure Backup hizmetinin Genel Önizleme sürümünü destekler. Backup aracısı, yedekleme ve bekletme, kurtarma, güvenlik ve Azure Backup çözümü ile ilgili diğer sık sorulan soruların yanıtları."
    services="backup"
    documentationCenter=""
@@ -14,41 +14,37 @@
      ms.tgt_pltfrm="na"
      ms.devlang="na"
      ms.topic="get-started-article"
-     ms.date="07/01/2016"
+     ms.date="08/21/2016"
      ms.author="trinadhk; markgal; jimpark;"/>
 
-# Azure Backup hizmetinin Genel Önizleme sürümü ile ilgili SSS
+# Kurtarma Hizmetleri kasası - SSS
 
 > [AZURE.SELECTOR]
 - [Klasik mod için Backup ile ilgili SSS](backup-azure-backup-faq.md)
-- [ARM modu için Backup ile ilgili SSS](backup-azure-backup-ibiza-faq.md)
+- [Resource Manager modu için Backup ile ilgili SSS](backup-azure-backup-ibiza-faq.md)
 
-Bu makalede, Azure Backup hizmetinin Genel Önizleme sürümüne özgü bilgiler sağlanmaktadır. Bu makale, yeni sık sorulan sorular alındığında güncelleştirilir ve [Azure Backup ile ilgili SSS](backup-azure-backup-faq) bölümünü tamamlayıcı niteliktedir. Azure Backup ile ilgili SSS, Azure Backup hizmeti hakkında tam kapsamlı sorular ve yanıtlar sağlamaktadır.  
+Bu makalede, Kurtarma Hizmetleri kasasına özgü bilgiler sağlanmaktadır ve makale, [Azure Backup hakkında SSS](backup-azure-backup-faq) makalesi için tamamlayıcı niteliktedir. Azure Backup ile ilgili SSS, Azure Backup hizmeti hakkında tam kapsamlı sorular ve yanıtlar sağlamaktadır.  
 
 Azure Backup ile ilgili sorularınızı, bu makalenin veya ilgili bir makalenin Disqus bölümünde sorabilirsiniz. Ayrıca Azure Backup hizmeti ile ilgili sorularınızı [tartışma forumunda](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) paylaşabilirsiniz.
 
-## Genel Önizleme sürümü neler içerir?
-Genel Önizleme sürümü, Azure VM'leri koruma sırasında Kurtarma Hizmetleri kasasını ve ARM desteğini sunar. Kurtarma Hizmetleri kasası, kasaların yeni neslini teşkil eder. Bu, Azure Backup ve Azure Site Recovery (ASR) hizmetleri tarafından kullanılan kasadır. Bunu v.2 kasası olarak düşünebilirsiniz.
+## Kurtarma Hizmetleri kasaları Resource Manager tabanlıdır. Backup kasaları (klasik mod) hala destekleniyor mu? <br/>
+Evet, Yedekleme kasaları hâlâ destekleniyor. [Klasik portalda](https://manage.windowsazure.com) Backup kasaları oluşturun. [Azure portalında](https://portal.azure.com) Kurtarma Hizmetleri kasaları oluşturun. Ancak gelecekteki tüm geliştirmeler yalnızca Kurtarma Hizmetleri kasasında kullanılabileceği için, kurtarma hizmetleri kasası oluşturmanızı öneririz. 
 
-## Kurtarma Hizmetleri ve Yedekleme kasaları
+## Bir Backup kasasının Kurtarma Hizmetleri kasasına geçişini sağlayabilir miyim? <br/>
+Ne yazık ki hayır, şu an için bir Backup kasasının içeriğinin Kurtarma Hizmetleri kasasına geçişini sağlayamazsınız. Bu işlevi eklemeye yönelik çalışmalarımız devam ediyor ancak işlev Genel Önizleme kapsamında sunulmuyor.
 
-**S1. Kurtarma Hizmetleri kasaları v.2 olduğuna göre, Yedekleme kasaları (v.1) hâlâ destekleniyor mu?** <br/>
-Y1. Evet, Yedekleme kasaları hâlâ destekleniyor. Klasik portalda Yedekleme kasaları oluşturun. Kurtarma Hizmetleri kasalarını Azure portalda oluşturun.
+## Kurtarma Hizmetleri kasaları, klasik VM’leri mi Resource Manager tabanlı VM’leri mi destekler? <br/>
+Kurtarma Hizmetleri kasaları iki modeli de destekler.  Klasik portalda oluşturulan bir VM’yi (klasik mod VM’leri) veya Azure portalında oluşturulan bir VM’yi (Resource Manager tabanlı), Kurtarma Hizmetleri kasasına yedekleyebilirsiniz.
 
-**S2. Bir Backup kasasının Kurtarma Hizmetleri kasasına geçişini sağlayabilir miyim?** <br/>
-Y2. Ne yazık ki hayır, şu an için bir Backup kasasının içeriğinin Kurtarma Hizmetleri kasasına geçişini sağlayamazsınız. Bu işlevi eklemeye yönelik çalışmalarımız devam ediyor ancak işlev Genel Önizleme kapsamında sunulmuyor.
+## Klasik VM’lerimi yedekleme kasasında yedekledim. Şimdi, VM’lerimi klasik moddan Resource Manager moduna geçirmek istiyorum.  Bunları nasıl kurtarma hizmetleri kasasında yedekleyebilirim?
+Yedekleme kasasındaki klasik VM yedekleri, VM’leri klasik moddan Resource Manager moduna geçirdiğinizde kurtarma hizmetleri kasasında otomatik olarak yedeklenmez. VM yedeklerinin geçirilmesi için lütfen bu adımları izleyin:
 
-**S3. Kurtarma Hizmetleri kasaları v.1 veya v.2 VM'leri destekliyor mu?** <br/>
- Y3. Kurtarma Hizmetleri kasaları v.1 ve v.2 VM'leri destekler. Klasik portalda oluşturulan bir VM'yi (V.1) veya Azure portalda oluşturulan bir VM'yi (V.2) bir Kurtarma Hizmetleri kasasına yedekleyebilirsiniz.
-
-
-## Azure VM'ler için ARM desteği
-
-**S1. Azure VM'ler için ARM desteği ile ilgili herhangi bir sınır var mıdır?** <br/>
-Y1. ARM için PowerShell cmdlet'leri şu anda kullanılamamaktadır. Bir kaynak grubuna kaynak eklemek için Azure portalı kullanıcı arabirimini kullanmanız gerekir.
+1. Yedekleme kasasıda, **Korunan Öğeler** sekmesine gidin ve VM’yi seçin. [Korumayı Durdur](backup-azure-manage-vms-classic.md#stop-protecting-virtual-machines)’a tıklayın. *İlişkili yedekleme verilerini sil* seçeneğini **işaretlenmemiş** olarak bırakın. 
+2. Sanal makineyi, klasik moddan Resource Manager moduna geçirin. Sanal makine için karşılık gelen depolama ve ağın da Resource Manager moduna geçirildiğinden emin olun. 
+3. Bir kurtarma hizmetleri kasası oluşturun ve kasa panosunun üstündeki **Backup** işlemini kullanarak, geçirilen sanal makinede yedeklemeyi yapılandırın. [Kurtarma hizmetleri kasasında yedeklemeyi etkinleştirme](backup-azure-vms-first-look-arm.md) hakkında daha fazla bilgi edinin
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

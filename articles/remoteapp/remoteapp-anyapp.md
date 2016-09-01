@@ -13,10 +13,13 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="07/02/2016"
+   ms.date="08/15/2016"
    ms.author="elizapo"/>
 
 # Azure RemoteApp ile herhangi bir cihazda tüm Windows uygulamalarını çalıştırma
+
+> [AZURE.IMPORTANT]
+> Azure RemoteApp kullanımdan kaldırılıyor. Ayrıntılı bilgi için [duyuruyu](https://go.microsoft.com/fwlink/?linkid=821148) okuyun.
 
 Yalnızca Azure RemoteApp kullanarak şu anda bir Windows uygulamasını gerçekten de her yerde her cihazda çalıştırabilirsiniz. İster 10 yıl önce yazılmış özel bir uygulama ister bir Office uygulaması olsun, kullanıcılarınız artık birkaç uygulama için belirli bir işletim sistemini (Windows XP gibi) kullanmak zorunda değil.
 
@@ -122,6 +125,6 @@ Artık koleksiyon oluşturmayı öğrendiğinize göre [Office 365 kullanan bir 
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

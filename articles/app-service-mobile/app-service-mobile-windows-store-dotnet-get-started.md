@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Azure App Service Mobile Apps’de Evrensel Windows Platformu (UWP) oluşturma | Microsoft Azure"
+    pageTitle="Mobile Apps’te Evrensel Windows Platformu (UWP) oluşturma | Microsoft Azure"
     description="C#, Visual Basic ya da JavaScript’te Evrensel Windows Platformu (UWP) uygulaması geliştirme için Azure mobil uygulama arka uçlarını kullanmaya başlamak üzere bu öğreticiyi izleyin."
     services="app-service\mobile"
     documentationCenter="windows"
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-windows"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="05/03/2016"
+    ms.date="08/11/2016"
     ms.author="glenga"/>
 
 #Windows uygulaması oluşturma
@@ -98,6 +98,6 @@ Mobil Uygulama arka ucunuzu yapılandırdıktan sonra, Azure’a bağlanmak içi
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

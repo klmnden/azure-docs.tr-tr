@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Resource Manager Şablonları Kullanarak VNet Eşlemesi Oluşturma | Microsoft Azure"
+   pageTitle="Resource Manager şablonları kullanarak VNet Eşlemesi oluşturma | Microsoft Azure"
    description="Resource Manager’da şablonları kullanarak bir sanal ağ eşlemesi oluşturmayı öğrenin."
    services="virtual-network"
    documentationCenter=""
@@ -14,10 +14,10 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/15/2016"
-   ms.author="telmos"/>
+   ms.date="08/02/2016"
+   ms.author="narayanannamalai"/>
 
-# Resource Manager Şablonları Kullanarak VNet Eşlemesi Oluşturma
+# Resource Manager şablonları kullanarak VNet Eşlemesi oluşturma
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-selectors-arm-include](../../includes/virtual-networks-create-vnetpeering-selectors-arm-include.md)]
 
@@ -25,13 +25,13 @@
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-scenario-basic-include](../../includes/virtual-networks-create-vnetpeering-scenario-basic-include.md)]
 
-Resource Manager Şablonlarını kullanarak VNet eşlemesi oluşturmak için lütfen aşağıdaki adımları uygulayın:
+Resource Manager şablonlarını kullanarak VNet eşlemesi oluşturmak için lütfen aşağıdaki adımları uygulayın:
 
 1. Daha önce Azure PowerShell kullanmadıysanız, [Azure PowerShell’i Yükleme ve Yapılandırma](../powershell-install-configure.md) sayfasına gidin ve Azure’da oturum açıp aboneliğinizi seçmek için talimatları sonuna kadar uygulayın.
 
-Note: VNet eşlemesini yönetmeye yönelik PowerShell cmdlet’i [Azure PowerShell 1.6](http://www.powershellgallery.com/packages/Azure/1.6.0) ile birlikte gönderilir.
+    Not: VNet eşlemesini yönetmeye yönelik PowerShell cmdlet'i, [Azure PowerShell 1.6](http://www.powershellgallery.com/packages/Azure/1.6.0) ile birlikte gönderilir.
 
-2. Aşağıdaki bölümde yukarıdaki senaryo temel alınarak VNet1’den VNet2’ye VNet eşleme bağlantısının tanımı gösterilmektedir. Buradaki içeriği bir dosyaya kopyalayın ve VNetPeeringVNet1.json dosyasına kaydedin
+2. Aşağıdaki metinde, yukarıdaki senaryo temel alınarak VNet1'den VNet2'ye yönelik VNet eşleme bağlantısının tanımı gösterilmektedir. Aşağıdaki içeriği kopyalayın ve VNetPeeringVNet1.json adlı bir dosyaya kaydedin.
 
         {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -59,8 +59,7 @@ Note: VNet eşlemesini yönetmeye yönelik PowerShell cmdlet’i [Azure PowerShe
         ]
         }
     
-
-3. Aşağıdaki bölümde yukarıdaki senaryo temel alınarak VNet2’den VNet1’e VNet eşleme bağlantısının tanımı gösterilmektedir.  Buradaki içeriği bir dosyaya kopyalayın ve VNetPeeringVNet2.json dosyasına kaydedin
+3. Aşağıdaki bölümde, yukarıdaki senaryo temel alınarak VNet2'den VNet1'e yönelik VNet eşleme bağlantısının tanımı gösterilmektedir.  Aşağıdaki içeriği kopyalayın ve VNetPeeringVNet2.json adlı bir dosyaya kaydedin.
 
         {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -88,29 +87,29 @@ Note: VNet eşlemesini yönetmeye yönelik PowerShell cmdlet’i [Azure PowerShe
         ]
         }
 
-Yukarıdaki şablonda görüldüğü gibi VNet eşlemesi için birkaç yapılandırılabilir özellik vardır:
+    Yukarıdaki şablonda görüldüğü gibi, VNet eşlemesi için birkaç yapılandırılabilir özellik vardır:
 
-|Seçenek|Açıklama|Varsayılan|
-|:-----|:----------|:------|
-|AllowVirtualNetworkAccess|Eş VNet’in adres alanının Virtual_network Etiketine eklenip eklenmeyeceği|Evet|
-|AllowForwardedTraffic|Eşlenen VNet’ten kaynaklanmayan trafiğin kabul edilmesine veya bırakılmasına izin verir|Hayır|
-|AllowGatewayTransit|Eş VNet’in VNet ağ geçidinizi kullanmasına izin verir|Hayır|
-|UseRemoteGateways|Eşinizin VNet ağ geçidini kullanır. Eş VNet için yapılandırılmış bir ağ geçidi olmalı ve AllowGatewayTransit seçilmelidir. Yapılandırılmış bir ağ geçidiniz varsa bu seçeneği kullanamazsınız|Hayır|
+  	|Seçenek|Açıklama|Varsayılan|
+  	|:-----|:----------|:------|
+  	|AllowVirtualNetworkAccess|Eş VNet'in adres alanının virtual_network etiketinin bir parçası olarak eklenip eklenmeyeceği.|Evet|
+  	|AllowForwardedTraffic|Eşlenen bir VNet'ten gelmeyen trafiğin kabul edilip edilmeyeceği.|Hayır|
+  	|AllowGatewayTransit|Eş VNet'in VNet ağ geçidinizi kullanmasına izin verir.|Hayır|
+  	|UseRemoteGateways|Eşinizin VNet ağ geçidini kullanır. Eş VNet'in yapılandırılmış bir ağ geçidi olmalı ve AllowGatewayTransit seçili olmalıdır. Yapılandırılmış bir ağ geçidiniz varsa bu seçeneği kullanamazsınız.|Hayır|
 
-VNet eşlemesindeki her bağlantı yukarıdaki özellikleri içerir. Örneğin, AllowVirtualNetworkAccess seçeneğini VNet1’den VNet2’ye VNet eşlemesi için True olarak ve diğer yöndeki VNet eşleme bağlantısı için False olarak ayarlayabilirsiniz. 
+    VNet eşlemesindeki her bağlantı yukarıdaki özellikleri içerir. Örneğin, AllowVirtualNetworkAccess seçeneğini VNet1'den VNet2'ye yönelik bir VNet eşlemesi için True olarak ve diğer yöndeki VNet eşleme bağlantısı için False olarak ayarlayabilirsiniz. 
 
 
-4. Şablon dosyasını dağıtmak için New-AzureRmResourceGroupDeployment cmdlet’ini çalıştırarak dağıtımı oluşturabilir veya güncelleştirebilirsiniz. Resource Manager şablonu kullanma hakkında daha fazla bilgi için lütfen bu [makaleye](../resource-group-template-deploy.md) bakın
+4. Şablon dosyasını dağıtmak için, dağıtımı oluşturmak veya güncelleştirmek üzere New-AzureRmResourceGroupDeployment cmdlet'ini çalıştırabilirsiniz. Resource Manager şablonlarının kullanımı hakkında daha fazla bilgi edinmek için lütfen bu [makaleye](../resource-group-template-deploy.md) bakın.
 
         New-AzureRmResourceGroupDeployment -ResourceGroupName <resource group name> -TemplateFile <template file path> -DeploymentDebugLogLevel all
 
-> [AZURE.NOTE] lütfen kaynak grubu adını ve şablon dosyasını uygun şekilde değiştirin. 
+    > [AZURE.NOTE] Lütfen kaynak grubu adını ve şablon dosyasını uygun şekilde değiştirin. 
 
-Yukarıdaki senaryoyu temel alan bir örnek aşağıda verilmiştir:
+    Yukarıdaki senaryoyu temel alan bir örnek aşağıda verilmiştir:
 
         New-AzureRmResourceGroupDeployment -ResourceGroupName VNet101 -TemplateFile .\VNetPeeringVNet1.json -DeploymentDebugLogLevel all
 
-Çıktı şunu gösterir:
+    Çıktı şunu gösterir:
 
         DeploymentName      : VNetPeeringVNet1
         ResourceGroupName   : VNet101
@@ -124,7 +123,7 @@ Yukarıdaki senaryoyu temel alan bir örnek aşağıda verilmiştir:
 
         New-AzureRmResourceGroupDeployment -ResourceGroupName VNet101 -TemplateFile .\VNetPeeringVNet2.json -DeploymentDebugLogLevel all
 
-Çıktı şunu gösterir:
+    Çıktı şunu gösterir:
 
         DeploymentName      : VNetPeeringVNet2
         ResourceGroupName   : VNet101
@@ -136,7 +135,7 @@ Yukarıdaki senaryoyu temel alan bir örnek aşağıda verilmiştir:
         Outputs         :
         DeploymentDebugLogLevel : RequestContent, ResponseContent
 
-5. Dağıtım tamamlandıktan sonra eşleme durumunu görüntülemek için aşağıdaki cmdlet'i çalıştırabilirsiniz:
+5. Dağıtım tamamlandıktan sonra, eşleme durumunu görüntülemek için aşağıdaki cmdlet'i çalıştırabilirsiniz:
 
         Get-AzureRmVirtualNetworkPeering -VirtualNetworkName VNet1 -ResourceGroupName VNet101 -Name linktoVNet2
 
@@ -158,23 +157,23 @@ Yukarıdaki senaryoyu temel alan bir örnek aşağıda verilmiştir:
         RemoteGateways                   : null
         RemoteVirtualNetworkAddressSpace : null
 
-Bu senaryoda eşleme oluşturulduktan sonra her iki VNet’in herhangi bir sanal makinesinden herhangi bir sanal makinesine bağlantılar başlatabilmeniz gerekir. Varsayılan olarak, AllowVirtualNetworkAccess değeri True şeklindedir ve VNet Eşlemesi VNet'ler arasındaki iletişime izin vermek için uygun ACL'leri sağlar. Ancak, örneğin belirli alt ağlar veya sanal makineler arasında iki sanal ağ arasındaki erişimi ayrıntılı olarak denetlemek amacıyla bağlantıyı engellemeye yönelik NSG kuralları uygulayabilirsiniz.  NSG kuralları oluşturma daha fazla bilgi için lütfen bu [makaleye](virtual-networks-create-nsg-arm-ps.md) bakın.
+    Bu senaryoda eşleme oluşturulduktan sonra, her iki VNet'in herhangi bir sanal makinesinden bir diğerine yönelik bağlantılar başlatabilirsiniz. Varsayılan olarak, AllowVirtualNetworkAccess değeri True'dur ve VNet eşlemesi, VNet'ler arasındaki iletişime izin vermek için uygun ACL'leri sağlar. Ancak yine de iki sanal ağ arasındaki erişimi ayrıntılı olarak denetlemek üzere belirli alt ağlar ve sanal makineler arasındaki bağlantıyı engellemek için ağ güvenlik grubu (NSG) kuralları uygulayabilirsiniz.  NSG kuralları oluşturma daha fazla bilgi için lütfen bu [makaleye](virtual-networks-create-nsg-arm-ps.md) bakın.
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-scenario-crosssub-include](../../includes/virtual-networks-create-vnetpeering-scenario-crosssub-include.md)]
 
-Abonelikler arasında VNet eşlemesi oluşturmak için lütfen aşağıdaki adımları izleyin:
+Abonelikler arasında bir VNet eşlemesi oluşturmak için lütfen aşağıdaki adımları uygulayın:
 
-1. Abonelik A için Kullanıcı A ayrıcalığıyla oturum açın ve şu cmdlet'i çalıştırın:
+1. A Aboneliği için, ayrıcalıklı A kullanıcısının hesabıyla Azure'da oturum açın ve şu cmdlet'i çalıştırın:
 
         New-AzureRmRoleAssignment -SignInName <UserB ID> -RoleDefinitionName "Network Contributor" -Scope /subscriptions/<Subscription-A-ID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Network/VirtualNetwork/VNet5
 
-Bu bir gereklilik değildir; istekler eşleştiği sürece kullanıcılar ilgili sanal ağları için eşleme isteklerini ayrı ayrı gönderse bile eşleme kurulabilir. Diğer VNet’in ayrıcalıklı kullanıcısının yerel VNet’e kullanıcı olarak eklenmesi kurulum yapmayı kolaylaştırır. 
+    Bu zorunlu değildir; istekler eşleştiği sürece kullanıcılar ilgili sanal ağları için eşleme isteklerini ayrı ayrı gönderse bile eşleme oluşturulabilir. Diğer VNet'in ayrıcalıklı kullanıcısının yerel VNet'e kullanıcı olarak eklenmesi kurulumu kolaylaştırır. 
 
-2. Abonelik B için Kullanıcı B ayrıcalığıyla oturum açın ve şu cmdlet'i çalıştırın:
+2. B Aboneliği için ayrıcalıklı B kullanıcısının hesabıyla Azure'da oturum açın ve şu cmdlet'i çalıştırın:
 
         New-AzureRmRoleAssignment -SignInName <UserA ID> -RoleDefinitionName "Network Contributor" -Scope /subscriptions/<Subscription-B-ID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Network/VirtualNetwork/VNet3
 
-3. Ardından Kullanıcı A’nın oturumunda aşağıdaki cmdlet’i çalıştırın
+3. A Kullanıcısının oturumunda şu cmdlet'i çalıştırın:
 
         New-AzureRmResourceGroupDeployment -ResourceGroupName VNet101 -TemplateFile .\VNetPeeringVNet3.json -DeploymentDebugLogLevel all
 
@@ -206,11 +205,11 @@ Bu bir gereklilik değildir; istekler eşleştiği sürece kullanıcılar ilgili
         ]
         }
    
-4. Ardından Kullanıcı B’nin oturumunda aşağıdaki cmdlet’i çalıştırın
+4. B Kullanıcısının oturumunda şu cmdlet'i çalıştırın:
 
         New-AzureRmResourceGroupDeployment -ResourceGroupName VNet101 -TemplateFile .\VNetPeeringVNet5.json -DeploymentDebugLogLevel all
    
-   JSON dosyası bu şekilde tanımlanır:
+    JSON dosyası bu şekilde tanımlanır:
 
         {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -238,11 +237,13 @@ Bu bir gereklilik değildir; istekler eşleştiği sürece kullanıcılar ilgili
         ]
         }
  
- Bu senaryoda eşleme oluşturulduktan sonra farklı aboneliklerde her iki VNet’in herhangi bir sanal makinesinden herhangi bir sanal makinesine bağlantılar başlatabilmeniz gerekir. 
+    Bu senaryoda eşleme oluşturulduktan sonra farklı aboneliklerde her iki VNet’in herhangi bir sanal makinesinden herhangi bir sanal makinesine bağlantılar başlatabilmeniz gerekir. 
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-scenario-transit-include](../../includes/virtual-networks-create-vnetpeering-scenario-transit-include.md)]
 
-1. Bu senaryoda VNet eşlemesi oluşturmak için aşağıdaki örnek şablonu kullanabilirsiniz ve özellikle eşlenen VNet’teki Ağ Sanal gerecinin trafik gönderip almasına izin vermek üzere AllowForwardedTraffic özelliğini True olarak ayarlamanız gerekir. HubVNet’ten VNet1’e VNet eşlemesi oluşturmaya yönelik şablon aşağıda verilmiştir. AllowForwardedTraffic özelliği false olarak ayarlanır
+1. Bu senaryoda VNet eşlemesini oluşturmak için aşağıdaki örnek şablonu dağıtabilirsiniz.  AllowForwardedTraffic özelliğini True olarak ayarlamanız gerekir. Bu, eşlenen VNet'teki ağ sanal gerecinin trafik gönderip alabilmesine izin verir.
+
+    HubVNet'ten VNet1'e yönelik VNet eşlemesi oluşturmaya ilişkin şablonu aşağıda görebilirsiniz. Lütfen AllowForwardedTraffic özelliğinin false olarak ayarlandığını unutmayın.
 
         {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -271,7 +272,7 @@ Bu bir gereklilik değildir; istekler eşleştiği sürece kullanıcılar ilgili
         ]
         }
 
-2. VNet1’den HubVnet’e VNet eşlemesi oluşturmaya yönelik şablon aşağıda verilmiştir. AllowForwardedTraffic özelliği true olarak ayarlanır. 
+2. VNet1'den HubVNet'e yönelik VNet eşlemesi oluşturmaya ilişkin şablonu aşağıda görebilirsiniz. AllowForwardedTraffic özelliği true olarak ayarlanır. 
 
         {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -300,9 +301,9 @@ Bu bir gereklilik değildir; istekler eşleştiği sürece kullanıcılar ilgili
         }
 
 
-3. Eşleme kurulduktan sonra bu [makaleye](virtual-network-create-udr-arm-ps.md) bakabilir ve Kullanıcı Tanımlı Yönlendirme’yi (UDR) tanımlayarak, özelliklerini kullanmak üzere bir sanal gereç aracılığıyla VNet1 trafiğini yeniden yönlendirebilirsiniz. Yolda Sonraki Atlama adresini belirttiğinizde eş VNet HubVNet içindeki sanal gerecin IP adresine ayarlayabilirsiniz
+3. Eşleme gerçekleştikten sonra bu [makaleye](virtual-network-create-udr-arm-ps.md) bakabilir ve kullanıcı tanımlı yol (UDR) tanımlayarak, özelliklerini kullanmak üzere bir sanal gereç aracılığıyla VNet1 trafiğini yeniden yönlendirebilirsiniz. Yolda bir sonraki atlama adresini belirttiğinizde, bu adresi VNet - HubVNet eşlemesindeki sanal gerecin IP adresi olarak ayarlayabilirsiniz.
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

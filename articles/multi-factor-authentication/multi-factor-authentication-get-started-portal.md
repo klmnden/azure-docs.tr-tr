@@ -4,7 +4,7 @@
     services="multi-factor-authentication" 
     documentationCenter="" 
     authors="billmath" 
-    manager="stevenpo" 
+    manager="femila" 
     editor="curtand"/>
 
 <tags 
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="05/16/2016" 
+    ms.date="08/15/2016" 
     ms.author="billmath"/>
 
 # Azure Multi-Factor Authentication Sunucusu için kullanıcı portalını dağıtma
@@ -190,6 +190,7 @@ Kullanıcı self servis kayıt işlemi artık tamamlanmış ve kullanıcı Kulla
  
 
 
-<!----HONumber=Jun16_HO2-->
+
+<!--HONumber=Aug16_HO4-->
 
 

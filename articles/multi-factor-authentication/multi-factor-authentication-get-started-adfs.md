@@ -12,7 +12,7 @@
     ms.workload="identity" 
     ms.tgt_pltfrm="na" 
     ms.devlang="na" ms.topic="get-started-article" 
-    ms.date="05/12/2016" 
+    ms.date="08/04/2016" 
     ms.author="billmath"/>
 
 # Azure Multi-Factor Authentication ve Active Directory Federasyon Hizmetlerini kullanmaya başlama
@@ -55,6 +55,7 @@ Azure Multi-Factor Authentication ya da AD FS ile Azure Multi-Factor Authenticat
  
 
 
-<!----HONumber=Jun16_HO2-->
+
+<!--HONumber=Aug16_HO4-->
 
 

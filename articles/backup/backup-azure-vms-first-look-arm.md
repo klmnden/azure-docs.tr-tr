@@ -30,6 +30,7 @@ Bu öğretici, bir kurtarma hizmetleri kasası oluşturmaya ve bir Azure sanal m
 - Klasik VM'ler
 - Standart depolama VM'leri
 - Premium depolama VM'leri
+- Azure Disk Şifrelemesi kullanılarak BEK ve KEK ile şifrelenmiş VM’ler (PowerShell kullanılmasını gerektirir)
 
 Premium depolama VM'lerini koruma ile ilgili ek bilgi için bkz. [Premium Storage VM'lerini Yedekleme ve Geri Yükleme](backup-introduction-to-azure-backup.md#back-up-and-restore-premium-storage-vms)
 
@@ -54,7 +55,7 @@ Kurtarma hizmetleri kasası oluşturmak için:
 
 1. [Azure portalında](https://portal.azure.com/) oturum açın.
 
-2. Hub menüsünde **Gözat**'a tıklayın ve kaynak listesinde **Kurtarma Hizmetleri** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. **Kurtarma Hizmetleri kasası** seçeneğine tıklayın.
+2. Hub menüsünde **Gözat**'a tıklayın ve kaynak listesinde **Kurtarma Hizmetleri** yazın. Yazmaya başladığınızda liste, girdinize göre filtrelenir. **Kurtarma Hizmetleri kasası** seçeneğine tıklayın.
 
     ![Kurtarma Hizmetleri Kasası oluşturma 1. adım](./media/backup-azure-vms-first-look-arm/browse-to-rs-vaults.png) <br/>
 
@@ -105,7 +106,7 @@ VM'yi bir kasaya kaydetmeden önce, aboneliğe eklenmiş olan yeni sanal makinel
 1. Açık bir kurtarma hizmetleri kasanız zaten varsa 2. adıma geçin. Açık kurtarma hizmetleri kasanız yoksa ancak Azure portaldaysanız Hub menüsünde **Gözat**'a tıklayın.
 
   - Kaynak listesinde **Kurtarma Hizmetleri** yazın.
-  - Yazmaya başladığınızda liste, girişinize göre filtrelenir. **Kurtarma Hizmetleri kasaları** seçeneğini gördüğünüzde buna tıklayın.
+  - Yazmaya başladığınızda liste, girdinize göre filtrelenir. **Kurtarma Hizmetleri kasaları** seçeneğini gördüğünüzde buna tıklayın.
 
     ![Kurtarma Hizmetleri Kasası oluşturma 1. adım](./media/backup-azure-vms-first-look-arm/browse-to-rs-vaults.png) <br/>
 
@@ -222,6 +223,6 @@ Sorularınız varsa veya dahil edilmesini istediğiniz herhangi bir özellik var
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

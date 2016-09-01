@@ -4,7 +4,7 @@
     keywords="Uygulama geliştirme, veritabanı öğreticisi, node.js öğrenme, node.js öğreticisi, documentdb, azure, Microsoft azure"
     services="documentdb" 
     documentationCenter="nodejs" 
-    authors="aliuy" 
+    authors="AndrewHoh" 
     manager="jhubbard" 
     editor="cgronlun"/>
 
@@ -14,8 +14,8 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="nodejs" 
     ms.topic="hero-article" 
-    ms.date="04/18/2016" 
-    ms.author="andrl"/>
+    ms.date="08/15/2016" 
+    ms.author="anhoh"/>
 
 # <a name="_Toc395783175"></a>DocumentDB kullanarak bir Node.js web uygulaması oluşturma
 
@@ -165,11 +165,7 @@ Böylece tüm ilk kurulum ve yapılandırma işlemleri sona erdi, şimdi burada 
                                 id: collectionId
                             };
                             
-                            var requestOptions = {
-                                offerType: 'S1'
-                            };
-                            
-                            client.createCollection(databaseLink, collectionSpec, requestOptions, function (err, created) {
+                            client.createCollection(databaseLink, collectionSpec, function (err, created) {
                                 callback(null, created);
                             });
         
@@ -183,8 +179,9 @@ Böylece tüm ilk kurulum ve yapılandırma işlemleri sona erdi, şimdi burada 
                 
         module.exports = DocDBUtils;
 
-> [AZURE.TIP] createCollection, Koleksiyon için Teklif Türü'nü belirtmek üzere kullanılabilecek bir isteğe bağlı requestOptions parametresi alır. Hiçbir requestOptions.offerType değeri sağlanmazsa Koleksiyon varsayılan Teklif Türü kullanılarak oluşturulur.
-> DocumentDB Teklif Türleri hakkında daha fazla bilgi için lütfen [DocumentDB'de performans düzeyleri](documentdb-performance-levels.md)'ne başvurun. 
+    > [AZURE.TIP] createCollection, Koleksiyon için Teklif Türü'nü belirtmek üzere kullanılabilecek bir isteğe bağlı requestOptions parametresi alır. Hiçbir requestOptions.offerType değeri sağlanmazsa Koleksiyon varsayılan Teklif Türü kullanılarak oluşturulur.
+    >
+    > DocumentDB Teklif Türleri hakkında daha fazla bilgi için lütfen [DocumentDB'de performans düzeyleri](documentdb-performance-levels.md)'ne başvurun. 
         
 3. **docdbUtils.js** dosyasını kaydedin ve kapatın.
 
@@ -576,6 +573,6 @@ Daha fazla bilgi için bkz. [Node.js Geliştirici Merkezi](https://azure.microso
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

@@ -13,14 +13,14 @@
     ms.tgt_pltfrm="na"
     ms.devlang="Java"
     ms.topic="get-started-article"
-    ms.date="06/01/2016"
+    ms.date="08/11/2016"
     ms.author="robmcm"/>
 
 # Azure App Service’te bir Java web uygulaması oluşturma
 
 [AZURE.INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
 
-Bu öğreticide [Azure Portal]’ı ile [Azure App Service'te Java web uygulaması] oluşturma adımları gösterilmiştir. Azure Portal, Azure kaynaklarınızı yönetmek için kullanabileceğiniz bir web arabirimidir.
+Bu öğreticide [Azure Portal]’ı ile [Azure App Service’te Java web uygulaması] oluşturma adımları gösterilmiştir. Azure Portal, Azure kaynaklarınızı yönetmek için kullanabileceğiniz bir web arabirimidir.
 
 > [AZURE.NOTE] Bu öğreticiyi tamamlamak için Microsoft Azure hesabınızın olması gerekir. Bir hesabınız yoksa, [Visual Studio abone avantajlarınızı etkinleştirebilir ] veya [ücretsiz deneme için kaydolabilirsiniz.]
 >
@@ -91,7 +91,7 @@ Bu bölümde bir web uygulaması oluşturma ve portalın **Uygulama ayarları** 
 
     ![Web Kapsayıcısı Sürümleri][versions]
 
-13. **Kaydet**’e tıklayın.
+13. **Kaydet** düğmesine tıklayın.
 
     Birkaç dakika içinde, web uygulamanız Java tabanlı hale gelir ve seçtiğiniz web kapsayıcısını kullanacak şekilde yapılandırılmış olur.
 
@@ -171,7 +171,7 @@ Azure'da Java uygulamaları geliştirme hakkında daha fazla bilgi için bkz. [J
 [Azure App Service planlarına genel bakış]: ../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md
 [Azure Portal]: https://portal.azure.com/
 [Visual Studio abone avantajlarınızı etkinleştirebilir ]: http://go.microsoft.com/fwlink/?LinkId=623901
-[ücretsiz deneme için kaydolabilir]: http://go.microsoft.com/fwlink/?LinkId=623901
+[ücretsiz deneme için kaydolabilirsiniz.]: http://go.microsoft.com/fwlink/?LinkId=623901
 [App Service’i Deneyin]: http://go.microsoft.com/fwlink/?LinkId=523751
 [Azure App Service’te Java web uygulaması]: http://go.microsoft.com/fwlink/?LinkId=529714
 [Java Geliştirici Merkezi]: /develop/java/
@@ -194,6 +194,6 @@ Azure'da Java uygulamaları geliştirme hakkında daha fazla bilgi için bkz. [J
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

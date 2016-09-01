@@ -67,45 +67,7 @@ Azure uygulamalarını geliştirmeye başlamadan önce, araçları edinip geliş
 
 Azure'da Service Bus özelliklerini kullanmaya başlamak için öncelikle bir hizmet ad alanı oluşturmanız gerekir. Ad alanı, uygulamanızda bulunan Service Bus kaynaklarını adreslemek için içeriğin kapsamını belirleyen bir kapsayıcı sunar.
 
-1.  [Klasik Azure portalında][] oturum açın.
-
-2.  Portalın sol gezinti bölmesinde **Service Bus** hizmetine tıklayın.
-
-3.  Portalın alt bölmesinde **Oluştur**'a tıklayın.
-
-    ![][5]
-
-4.  **Yeni bir ad alanı ekle** iletişim kutusunda, ad alanına ad girin.
-    Adın kullanılabilirliği sistem tarafından hemen kontrol edilir.
-    ![][6]
-
-5.  Ad alanındaki adın kullanılabilirliğinden emin olduktan sonra, ad alanınızın barındırılması gereken ülkeyi veya bölgeyi seçin (işlem kaynaklarınızın dağıtıldığı ülkeyle aynı ülkeyi/bölgeyi kullandığınızdan emin olun).
-
-    > [AZURE.IMPORTANT] Uygulamanızın dağıtılması için seçmeyi planladığınız *aynı bölgeyi* seçin. Bunu uygulayarak en iyi performansı alırsınız.
-
-6.  İletişim kutusundaki diğer alanları varsayılan değerlerinde bırakın ve Tamam onay işaretine tıklayın. Sistem ad alanınızı oluşturur ve kullanıma açar. Sistem, hesabınıza yönelik kaynakları sağlarken birkaç dakika beklemeniz gerekebilir.
-
-Oluşturduğunuz ad alanı portalda görünür ancak etkinleştirme biraz zaman alabilir. Devam etmeden önce durumun **Etkin** olmasını bekleyin.
-
-## Ad alanı için varsayılan yönetim kimlik bilgilerini elde etme
-
-Yeni ad alanında mesajlaşma varlıkları oluşturma gibi yönetim işlemlerini gerçekleştirmek için ad alanına yönelik kimlik bilgilerini edinmeniz gerekir.
-
-1.  Ana pencerede, önceki adımda oluşturduğunuz ad alanına tıklayın.
-
-2.  Sayfanın alt tarafında bulunan **Bağlantı Bilgileri** seçeneğine tıklayın.
-
-3.  **Erişim bağlantısı bilgileri** bölmesinde, SAS anahtarını ve anahtar adını içeren bağlantı dizesini bulun.
-
-    ![][45]
-
-4.  Bağlantı dizesini kopyalayın ve daha sonra bu öğreticide kullanmak üzere bir yere yapıştırın.
-
-5. Aynı portal sayfasında, sayfanın üst kısmındaki **Yapılandır** sekmesine tıklayın.
-
-6. **RootManageSharedAccessKey** ilkesinin birincil anahtarını panoya kopyalayın veya Not Defteri'ne yapıştırın. Bu değeri daha sonra bu öğreticide kullanacaksınız.
-
-    ![][46]
+[AZURE.INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 ## Şirket içi sunucu oluşturma
 
@@ -298,7 +260,7 @@ Bu bölümde, ürün hizmetinizden alınan verileri görüntüleyen basit bir AS
 
 8. Şimdi yeni bir web uygulaması için Azure kaynaklarını yapılandırmanız gerekir. [Yeni bir web uygulaması için Azure kaynaklarını yapılandırma](../app-service-web/web-sites-dotnet-get-started.md#configure-azure-resources-for-a-new-web-app) bölümündeki tüm adımları gerçekleştirin. Daha sonra, bu öğreticiye geri dönün ve sonraki adıma geçin.
 
-5.  Çözüm Gezgini'nde, **Modeller**'e sağ tıklayın ve ardından **Ekle** ile **Sınıf** seçeneklerine tıklayın. **Ad** kutusuna **Product.cs** yazın. Daha sonra **Ekle**'ye tıklayın.
+5.  Çözüm Gezgini'nde **Modeller**'e sağ tıklayıp **Ekle**’ye ve ardından **Sınıf**’a tıklayın. **Ad** kutusuna **Product.cs** yazın. Daha sonra **Ekle**'ye tıklayın.
 
     ![][17]
 
@@ -417,7 +379,7 @@ Sonraki adım, şirket içi ürünlerin sunucusu ile ASP.NET uygulamasını birl
 
     ![][24]
 
-6.  Şimdi Visual Studio düzenleyicisinde **HomeController.cs** dosyasını açın ve ad alanı tanımını aşağıdaki kodla değiştirin. *yourServiceNamespace* alanını hizmet ad alanınızla ve *yourKey* alanını da SAS anahtarınızla değiştirdiğinizden emin olun. Bu işlem, çağrı sonucunu döndürerek istemcinin şirket içi hizmete çağrı yapmasına olanak sağlar.
+6.  Şimdi, Visual Studio düzenleyicisinde **HomeController.cs** dosyasını açın ve ad alanı tanımını aşağıdaki kodla değiştirin. *yourServiceNamespace* alanını hizmet ad alanınızla ve *yourKey* alanını da SAS anahtarınızla değiştirdiğinizden emin olun. Bu işlem, çağrı sonucunu döndürerek istemcinin şirket içi hizmete çağrı yapmasına olanak sağlar.
 
     ```
     namespace ProductsWeb.Controllers
@@ -541,11 +503,6 @@ Service Bus hakkında daha fazla bilgi edinmek için şu kaynaklara bakın:
   [Araç ve SDK edinme]: http://go.microsoft.com/fwlink/?LinkId=271920
   [NuGet]: http://nuget.org
   
-  [Klasik Azure portalında]: http://manage.windowsazure.com
-  [5]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/sb-queues-03.png
-  [6]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/sb-queues-04.png
-
-
   [11]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-con-1.png
   [13]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-multi-tier-13.png
   [15]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-2.png
@@ -567,8 +524,7 @@ Service Bus hakkında daha fazla bilgi edinmek için şu kaynaklara bakın:
   [38]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-service2.png
   [41]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-multi-tier-40.png
   [43]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-43.png
-  [45]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-45.png
-  [46]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/service-bus-policies.png
+
 
   [sbwacom]: /documentation/services/service-bus/  
   [sbwacomqhowto]: service-bus-dotnet-get-started-with-queues.md
@@ -576,6 +532,6 @@ Service Bus hakkında daha fazla bilgi edinmek için şu kaynaklara bakın:
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

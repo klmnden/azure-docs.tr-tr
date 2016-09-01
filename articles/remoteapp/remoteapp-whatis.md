@@ -13,10 +13,13 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="06/18/2016" 
+    ms.date="08/15/2016" 
     ms.author="elizapo"/>
 
 # Azure RemoteApp nedir?
+
+> [AZURE.IMPORTANT]
+> Azure RemoteApp kullanımdan kaldırılıyor. Ayrıntılı bilgi için [duyuruyu](https://go.microsoft.com/fwlink/?linkid=821148) okuyun.
 
 Azure RemoteApp, Uzak Masaüstü Hizmetleri altyapısının kullanıldığı şirket içi Microsoft RemoteApp işlevlerini Azure’a getirir. Azure RemoteApp birçok farklı kullanıcı cihazından uygulamalara güvenli uzaktan erişim sağlamanıza yardımcı olur. Azure RemoteApp, bulutta kalıcı olmayan Terminal Sunucusu oturumları barındırır ve bunları kullanabilir ve kullanıcılarınızla paylaşabilirsiniz.
 
@@ -81,6 +84,6 @@ Başlayın! Deneyin! Bu makaleler Azure RemoteApp kullanmaya başlamanıza yard�
 Bu makaleyi derecelendirmenin ve aşağıda yorum yapmamanın yanı sıra makalede değişiklik de yapabileceğinizi biliyor muydunuz? Eksik bir şeyler mi var? Yanlış bir şeyler mi var? Kafa karıştırıcı bir şeyler mi yazdım? Değişiklik yapmak için yukarı doğru ilerleyin ve **GitHub üzerinde düzenle** veya **Düzenle**’ye tıklayın. Bu değişiklikler incelenmek üzere bize gönderilir ve kabul edildikten sonra değişiklikleriniz ve iyileştirmeleriniz burada görünür.
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

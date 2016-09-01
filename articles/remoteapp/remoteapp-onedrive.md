@@ -13,16 +13,19 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="08/02/2016"
+   ms.date="08/15/2016"
    ms.author="elizapo"/>
 
 # OneDrive İş ve Azure RemoteApp
+
+> [AZURE.IMPORTANT]
+> Azure RemoteApp kullanımdan kaldırılıyor. Ayrıntılı bilgi için [duyuruyu](https://go.microsoft.com/fwlink/?linkid=821148) okuyun.
 
 OneDrive İş eşitleme aracı, Azure RemoteApp ile desteklenmez.
 
 OneDrive İş’i Office 365 ile kullanmak üzere bir koleksiyon içine dahil edebilirsiniz. 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

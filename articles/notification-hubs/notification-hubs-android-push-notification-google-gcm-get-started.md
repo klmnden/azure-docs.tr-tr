@@ -233,7 +233,7 @@ Bildirim hub'ınız şimdi GCM ile birlikte çalışmak üzere yapılandırıld�
 
                         // If you want to use tags...
                         // Refer to : https://azure.microsoft.com/en-us/documentation/articles/notification-hubs-routing-tag-expressions/
-                        // regID = hub.register(token, "tag1,tag2").getRegistrationId();
+                        // regID = hub.register(token, "tag1", "tag2").getRegistrationId();
 
                         resultString = "Registered Successfully - RegId : " + regID;
                         Log.i(TAG, resultString);       
@@ -729,6 +729,6 @@ Notification Hubs hakkında daha fazla genel bilgi edinmek için bkz. [Notificat
 
 
 
-<!----HONumber=Aug16_HO1-->
+<!---HONumber=Aug16_HO4-->
 
 

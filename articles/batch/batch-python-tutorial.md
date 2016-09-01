@@ -13,7 +13,7 @@
     ms.topic="hero-article"
     ms.tgt_pltfrm="na"
     ms.workload="big-compute"
-    ms.date="06/17/2016"
+    ms.date="08/17/2016"
     ms.author="marsma"/>
 
 # Azure Batch Python istemcisini kullanmaya başlama
@@ -22,7 +22,7 @@
 - [.NET](batch-dotnet-get-started.md)
 - [Python](batch-python-tutorial.md)
 
-Python’da yazılmış küçük bir Batch uygulamasından söz ettiğimizden, [Azure Batch][azure_batch] ve [Batch Python][py_azure_sdk] istemcisi hakkında temel bilgileri alın. Dosya hazırlığı ve alımı için [Azure Storage](./../storage/storage-introduction.md) ile nasıl etkileşime girdiğinin yanı sıra, iki örnek betiğin buluttaki Linux sanal makinelerde paralel bir iş yükünü işlemek için Batch hizmetini nasıl geliştirdiklerini de göreceğiz. Ortak Batch uygulama iş akışını öğrenmenin yanı sıra işler, görevler, havuzlar ve işlem düğümü gibi başlıca Batch bileşenleri hakkında da temel bir anlayış kazanacaksınız.
+Python’da yazılmış küçük bir Batch uygulamasından söz ettiğimizden, [Azure Batch][azure_batch] ve [Batch Python][py_azure_sdk] istemcisi hakkında temel bilgileri alın. İki örnek betiğin buluttaki Linux sanal makinelerde paralel bir iş yükünü işlemek için Batch hizmetini nasıl kullandıklarına; dosya hazırlığı ve alımı için [Azure Depolama](./../storage/storage-introduction.md) ile nasıl etkileşime girdiklerine bakacağız. Ortak Batch uygulama iş akışını öğrenmenin yanı sıra işler, görevler, havuzlar ve işlem düğümü gibi başlıca Batch bileşenleri hakkında da temel bir anlayış kazanacaksınız.
 
 > [AZURE.NOTE] Batch’te Linux desteği şu anda önizlemede değil. Burada tartışılan özelliklerin bazı yönleri genel kullanıma açılmadan önce değişebilir. [Uygulama paketleri](batch-application-packages.md), Linux işlem düğümlerinde **şu anda desteklenmemektedir**.
 
@@ -40,16 +40,16 @@ Bu makalede, Python ve Linux alışkanlığına sahip olduğunuz varsayılmaktad
 
 ### Kod örneği
 
-Python eğitmen kodu örneği GitHub’daki [azure-batch-samples][github_samples] deposunda bulunan çok sayıda Batch kodu örneğinden biridir. Örneklerin tümünü, depo giriş sayfasındaki **Kopyala veya İndir > ZIP’i İndir**’e veya [azure-batch-samples-master.zip][github_samples_zip] doğrudan indirme bağlantısına tıklayarak indirebilirsiniz. ZIP dosyasının içeriğini ayıkladıktan sonra Bu eğitmene yönelik iki betik `article_samples` dizininde yer alır:
+Python eğitmen [kod örneği][github_article_samples], GitHub’daki [azure-batch-samples][github_samples] deposunda bulunan çok sayıda Batch kodu örneğinden biridir. Örneklerin tümünü, depo giriş sayfasındaki **Kopyala veya indir > ZIP’i İndir**’e veya [azure-batch-samples-master.zip][github_samples_zip] doğrudan indirme bağlantısına tıklayarak indirebilirsiniz. ZIP dosyasının içeriğini ayıkladıktan sonra Bu eğitmene yönelik iki betik `article_samples` dizininde yer alır:
 
 `/azure-batch-samples/Python/Batch/article_samples/python_tutorial_client.py`<br/>
 `/azure-batch-samples/Python/Batch/article_samples/python_tutorial_task.py`
 
 ### Python ortamı
 
-*python_tutorial_client.py* örnek betiğini yerel iş istasyonunuzda çalıştırmak için size bir **2.7** veya **3.3-3.5** sürümüyle uyumlu **Python yorumlayıcı** gerekir. Betik Linux ve Windows'da test edilmiştir.
+*python_tutorial_client.py* örnek betiğini yerel iş istasyonunuzda çalıştırmak için, bir **2.7** veya **3.3-3.5** sürümüyle uyumlu **Python yorumlayıcı** gerekir. Betik Linux ve Windows'da test edilmiştir.
 
-Bunun yanı sıra **Azure Batch** ve **Azure Storage** Python paketlerini de yüklemelisiniz. Burada bulunan *requirements.txt* dosyası kullanılarak bu yapılabilir:
+Bunun yanı sıra, **Azure Batch** ve **Azure Depolama** Python paketlerini de yüklemelisiniz. Bunu, **pip** ve aşağıda bulabileceğiniz *requirements.txt* ile yapabilirsiniz:
 
 `/azure-batch-samples/Python/Batch/requirements.txt`
 
@@ -57,9 +57,12 @@ Batch ve Storage paketlerini yüklemek için aşağıdaki **pip** komutunu yayı
 
 `pip install -r requirements.txt`
 
-Bunu yerine [azure-batch][pypi_batch] ve [azure-storage][pypi_storage] Python paketlerini el ile de yükleyebilirsiniz.
+Ayrıca, [azure-batch][pypi_batch] ve [azure-storage][pypi_storage] Python paketlerini el ile de yükleyebilirsiniz:
 
-> [AZURE.TIP] Ayrıcalığı olmayan bir hesap kullanıyorsanız (önerilen), komutlarınıza `sudo` öneki eklemeniz gerekebilir; örneğin `sudo pip install -r requirements.txt`. Python paketlerini yükleme hakkında daha fazla bilgi için bkz. [Paketleri Yükleme][pypi_install] (readthedocs.io).
+`pip install azure-batch==0.30.0rc4`<br/>
+`pip install azure-storage==0.30.0`
+
+> [AZURE.TIP] Ayrıcalığı olmayan bir hesap kullanıyorsanız, komutlarınıza `sudo` önekini eklemeniz gerekebilir. Örneğin, `sudo pip install -r requirements.txt`. Python paketlerini yükleme hakkında daha fazla bilgi için bkz. [Paketleri Yükleme][pypi_install] (readthedocs.io).
 
 ## Batch Python eğitmen kodu örneği
 
@@ -71,7 +74,7 @@ Batch Python eğitmen kodu örneği, iki Python betiği ve birkaç veri dosyası
 
 - **./data/taskdata\*.txt**: Bu üç metin dosyası işlem düğümlerinde çalışan görevler için girdi dosyaları sağlar.
 
-Aşağıdaki diyagram, istemci ve görev betikleri tarafından gerçekleştirilen birincil işlemleri gösterir. Bu temel iş akışı, Batch’le oluşturulan çok sayıda işlem çözümünün tipik halidir. Batch hizmetindeki her özelliğe uygun olmadığı belirtilirken, neredeyse her Batch senaryosu iş akışının bölümlerini içermektedir.
+Aşağıdaki diyagram, istemci ve görev betikleri tarafından gerçekleştirilen birincil işlemleri gösterir. Bu temel iş akışı, Batch’le oluşturulan çok sayıda işlem çözümünün tipik halidir. Batch hizmetinde erişilebilir olan özelliklerin hepsini göstermese de, neredeyse tüm Batch senaryoları bu iş akışının bölümlerini içerir.
 
 ![Batch örnek iş akışı][8]<br/>
 
@@ -82,12 +85,12 @@ Aşağıdaki diyagram, istemci ve görev betikleri tarafından gerçekleştirile
 [**4. Adım.**](#step-4-create-batch-job) Batch **işi** oluşturun.<br/>
 [**5. Adım.**](#step-5-add-tasks-to-job) İşe **görevler** ekleyin.<br/>
   &nbsp;&nbsp;&nbsp;&nbsp;**5a.** Görevler, düğümlerde yürütmek üzere zamanlanır.<br/>
-    &nbsp;&nbsp;&nbsp;&nbsp;**5b.** Her görev kendi giriş verilerini Azure Storage’dan indirip yürütmeye başlar.<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;**5b.** Her görev kendi girdi verilerini Azure Storage’dan indirip yürütmeye başlar.<br/>
 [**6. Adım.**](#step-6-monitor-tasks) Görevleri izleyin.<br/>
   &nbsp;&nbsp;&nbsp;&nbsp;**6a.** Görevlerin tamamlanmasıyla, kendi çıktı verilerini Azure Storage’a yükler.<br/>
 [**7. Adım.**](#step-7-download-task-output) Storage’dan görev çıktısını indirin.
 
-Yukarıda belirtildiği gibi, her Batch çözümü tam olarak bu adımları gerçekleştirmese ve çok daha fazlasını içerebilse de, bu örnek Batch çözümde bulunan ortak işlemleri göstermektedir.
+Yukarıda belirtildiği gibi, her Batch çözümü tam olarak bu adımları gerçekleştirmese ve çok daha fazlasını içerebilse de; bu örnek, Batch çözümünde bulunan ortak işlemleri göstermektedir.
 
 ## İstemci komut dosyasını hazırlama
 
@@ -226,7 +229,7 @@ def upload_file_to_container(block_blob_client, container_name, file_path):
 
 ### ResourceFiles
 
-[ResourceFile][py_resource_file], görev çalıştırılmadan önce işlem düğümüne yüklenecek Azure Storage’da yer alan bir dosyaya bağlantısı olan URL’ye sahip Batch’teki görevleri sağlar. [ResourceFile][py_resource_file].**blob_source** özelliği, Azure Storage’da olduğu gibi dosyanın tam URL'sini belirtir. URL’de, dosyaya güvenli erişim sağlayan bir paylaşılan erişim imzası da (SAS) bulunabilir. Batch’teki çoğu görev türünde *ResourceFiles* özelliği vardır; bu özellikte şunlar bulunur:
+[ResourceFile][py_resource_file], görev çalıştırılmadan önce işlem düğümüne yüklenecek, Azure Depolama’da yer alan bir dosyaya bağlantısı olan URL’ye sahip Batch’teki görevleri sağlar. [ResourceFile][py_resource_file].**blob_source** özelliği, Azure Storage’da olduğu gibi dosyanın tam URL'sini belirtir. URL’de, dosyaya güvenli erişim sağlayan bir paylaşılan erişim imzası da (SAS) bulunabilir. Batch’teki çoğu görev türünde *ResourceFiles* özelliği vardır; bu özellikte şunlar bulunur:
 
 - [CloudTask][py_task]
 - [StartTask][py_starttask]
@@ -328,17 +331,17 @@ def create_pool(batch_service_client, pool_id,
 }
 ```
 
-Havuz oluşturduğunuzda, havuz için bazı özellikler belirten [PoolAddParameter][py_pooladdparam] tanımlarsınız:
+Havuz oluşturduğunuzda, havuz için bazı özellikler belirten bir [PoolAddParameter][py_pooladdparam] tanımlarsınız:
 
-- Havuza ait **Kimlik** (*kimlik* - gerekli)<p/>Batch’deki çoğu varlık gibi, yeni havuzunuzda da, Batch hesabınızın içinde benzersiz bir kimlik olmalıdır. Kodunuz kendi kimliğini kullanarak bu havuza başvurur, Azure [portalında][azure_portal] havuzu nasıl tanımladıysanız öyledir.
+- Havuza ait **Kimlik** (*kimlik* - gerekli)<p/>Batch’deki çoğu varlık gibi, yeni havuzunuzda da, Batch hesabınızın içinde benzersiz bir kimlik olmalıdır. Kodunuz kendi kimliğini kullanarak bu havuza başvurur ve Azure [portalında][azure_portal] havuzu nasıl tanımladıysanız öyledir.
 
-- **İşlem düğümleri sayısı** (*target_dedicated* - gerekli)<p/>Havuzda kaç VM dağıtılması gerektiğini belirtir. Tüm Batch hesaplarının, bir Batch hesabında bir dizi **çekirdekle** (bu nedenle de işlem düğümleriyle) sınırlanan varsayılan bir **kotasının** olduğunu unutmamak önemlidir. [Kota artırma](batch-quota-limit.md#increase-a-quota) (Batch hesabınızdaki en yüksek çekirdek sayısı gibi) hakkında varsayılan kotalar ve yönergeleri [Azure Batch hizmeti için Kotalar ve Sınırlar](batch-quota-limit.md)’da bulacaksınız. Kendinizi "Neden havuzum X düğümden fazlasına ulaşamıyor?" sorusunu sorarken bulursanız nedeni çekirdek kotası olabilir.
+- **İşlem düğümleri sayısı** (*target_dedicated* - gerekli)<p/>Bu özellik, havuzda kaç VM dağıtılması gerektiğini belirtir. Tüm Batch hesaplarının, bir Batch hesabında bir dizi **çekirdekle** (bu nedenle de işlem düğümleriyle) sınırlanan varsayılan bir **kotasının** olduğunu unutmamak önemlidir. [Kota artırma](batch-quota-limit.md#increase-a-quota) (Batch hesabınızdaki en yüksek çekirdek sayısı gibi) hakkında varsayılan kotalar ve yönergeleri [Azure Batch hizmeti için kotalar ve sınırlar](batch-quota-limit.md)’da bulabilirsiniz. Kendinizi "Neden havuzum X düğümden fazlasına ulaşamıyor?" sorusunu sorarken bulursanız nedeni çekirdek kotası olabilir.
 
-- Düğümler için **işletim sistemi** (*virtual_machine_configuration* **veya** *cloud_service_configuration* - gerekli)<p/>*python_tutorial_client.py* öğesinde, `get_vm_config_for_distro` yardımcı işlevimizle alınan [VirtualMachineConfiguration][py_vm_config] kullanarak Linux için havuz oluşturuyoruz. Bu yardımcı işlevi, uyumlu [Azure Virtual Machines Marketi][vm_marketplace] görüntüleri listesinden görüntü alma ve seçmek için [list_node_agent_skus][py_list_skus] kullanır. Bunun yerine bir [CloudServiceConfiguration][py_cs_config] belirtme ve Cloud Services’dan Windows düğümlerinin havuzunu oluşturma seçeneğiniz de vardır. İki yapılandırma hakkında daha fazla bilgi için bkz. [Azure Batch havuzlarında Linux işlem düğümlerini hazırlama](batch-linux-nodes.md).
+- Düğümler için **işletim sistemi** (*virtual_machine_configuration* **veya** *cloud_service_configuration* - gerekli)<p/>*python_tutorial_client.py* öğesinde, `get_vm_config_for_distro` yardımcı işlevimizle alınan [VirtualMachineConfiguration][py_vm_config] kullanarak Linux için havuz oluşturuyoruz. Bu yardımcı işlevi, uyumlu [Azure Virtual Machines Marketi][vm_marketplace] görüntüleri listesinden görüntü alma ve seçmek için [list_node_agent_skus][py_list_skus] kullanır. Bunun yerine bir [CloudServiceConfiguration][py_cs_config] belirtebilir ve Cloud Services’dan bir Windows düğümleri havuzu oluşturabilirsiniz. İki yapılandırma hakkında daha fazla bilgi için bkz. [Azure Batch havuzlarında Linux işlem düğümlerini hazırlama](batch-linux-nodes.md).
 
 - **İşlem düğümlerinin boyutu** (*vm_size* - gerekli)<p/>[VirtualMachineConfiguration][py_vm_config] için Linux düğümleri belirlediğimizden, bir VM boyutunu (bu örnekte `STANDARD_A1`) [Azure’de sanal makine boyutları](../virtual-machines/virtual-machines-linux-sizes.md)’nda belirttik. Bir kez daha, daha fazla bilgi için bkz. [Azure Batch havuzlarında Linux işlem düğümlerini hazırlama](batch-linux-nodes.md).
 
-- **Görev Başlat** (*start_task* - gerekli değil)<p/>Yukarıdaki fiziksel düğüm özellikleriyle birlikte, havuz için ayrıca bir [StartTask][py_starttask] belirtebilirsiniz (gerekli değildir). StartTask, düğümün her yeniden başlatıldığında yürütülmesinin yanı sarı, düğüm havuza katılmış olduğundan her düğümü de yürütecektir. StartTask, görevlerinizin çalıştıracağı uygulamaları yükleme gibi görevlerini yürütülmesi için özellikle işlem düğümlerinin hazırlanmasında yararlıdır.<p/>Bu örnek uygulamasında StartTask, Storage’dan indirilen dosyaları (StartTask’ın **resource_files** özelliği kullanılarak belirtilir), StartTask *çalışma dizininden*, erişilebilir düğümdeki tüm görevlerin çalıştığı *paylaşılan* dizine kopyalar. Aslında, `python_tutorial_task.py` uygulamasını, düğüm havuza katılmış olduğundan her düğüme kopyalar; bu nedenle düğümde çalışan görevler buna erişebilir.
+- **Görev Başlat** (*start_task* - gerekli değil)<p/>Yukarıdaki fiziksel düğüm özellikleriyle birlikte, havuz için ayrıca bir [StartTask][py_starttask] belirtebilirsiniz (gerekli değildir). StartTask, her düğümü havuza katıldığında ve her yeniden başlatıldığında yürütecektir. StartTask, özellikle görevlerinizin çalıştırdığı uygulamaları yükleme gibi işlerin yürütülmesi için, işlem düğümlerinin hazırlanmasında yararlıdır.<p/>Bu örnek uygulamasında StartTask, Storage’dan indirilen dosyaları (StartTask’ın **resource_files** özelliği kullanılarak belirtilir), StartTask *çalışma dizininden*, erişilebilir düğümdeki tüm görevlerin çalıştığı *paylaşılan* dizine kopyalar. Aslında, `python_tutorial_task.py` uygulamasını, düğüm havuza katılmış olduğundan her düğüme kopyalar; bu nedenle düğümde çalışan görevler buna erişebilir.
 
 `wrap_commands_in_shell` yardımcı işlevi çağrısını fark edebilirsiniz. Bu işlev ayrı komutların koleksiyonunu alır ve görevin komut satırı özelliğine uygun tek bir komut satırı oluşturur.
 
@@ -354,7 +357,7 @@ Batch **işi**, görevler koleksiyonudur ve işlem düğümlerinin bir havuzuyla
 
 İşi yalnızca ilgili iş yüklerinde görevlerin düzenlenmesi ve izlenmesi için değil, aynı zamanda işin (ve buna bağlı olarak görevlerin) en uzun çalışma süresinin yanı sıra Batch hesabındaki diğer işlerle bağlantılı olarak iş önceliği gibi bazı kısıtlamalar getirmek için de kullanabilirsiniz. Ancak bu örnekte, iş yalnızca 3. adımda oluşturulan havuzla ilişkilendirilmektedir. Yapılandırılmış başka ek özellik yoktur.
 
-Tüm Batch işleri belirli bir havuzla ilişkilidir. Bu ilişkilendirme, iş görevlerinin hangi düğümleri yürüteceğini belirtir. Bunu, aşağıdaki kod parçacığında gösterildiği gibi [PoolInformation][py_poolinfo] özelliğini kullanarak belirtirsiniz.
+Tüm Batch işleri belirli bir havuzla ilişkilidir. Bu ilişkilendirme, iş görevlerinin hangi düğümleri yürüttüğünü belirtir. Havuzu, aşağıdaki kod parçacığında gösterildiği gibi [PoolInformation][py_poolinfo] özelliğini kullanarak belirtirsiniz.
 
 ```python
 def create_job(batch_service_client, job_id, pool_id):
@@ -538,7 +541,7 @@ def download_blobs_from_container(block_blob_client,
     print('  Download complete!')
 ```
 
-> [AZURE.NOTE] *python_tutorial_client.py* ’deki `download_blobs_from_container` çağrısı, dosyaların kullanıcınızın giriş dizinine indirilmesi gerektiğini belirtir. Bu çıktı konumunu değiştirmekten çekinmeyin.
+> [AZURE.NOTE] *python_tutorial_client.py* ’deki `download_blobs_from_container` çağrısı, dosyaların giriş dizininize indirilmesi gerektiğini belirtir. Bu çıktı konumunu değiştirmekten çekinmeyin.
 
 ## 8. Adım: Sil kapsayıcıları
 
@@ -554,9 +557,9 @@ blob_client.delete_container(output_container_name)
 
 ## 9. Adım: İşi ve havuzu silme
 
-Bu son adımda kullanıcıdan *python_tutorial_client.py* betiği tarafından oluşturulan işi ve havuzu silmesi istenir. İşlerin ve görevlerin kendileri için sizden ücret istenmese de, işlem düğümleri için *ücret* istenecektir. Bu nedenle, düğümleri yalnızca gerektiğinde ayırmanız önerilir. Kullanılmayan havuzların silinmesi bakım işleminizin bir parçası olabilir.
+Son adımda, *python_tutorial_client.py* betiği tarafından oluşturulan işi ve havuzu silmeniz istenir. İşlerin ve görevlerin kendileri için sizden ücret istenmese de, işlem düğümleri için *ücret* istenecektir. Bu nedenle, düğümleri yalnızca gerektiğinde ayırmanız önerilir. Kullanılmayan havuzların silinmesi bakım işleminizin bir parçası olabilir.
 
-BatchServiceClient'ın [JobOperations][py_job] ve [PoolOperations][py_pool] öğelerinin her ikisinde de, kullanıcı silmeye karar verirse ilgili silme yöntemleri vardır:
+BatchServiceClient'ın [JobOperations][py_job] ve [PoolOperations][py_pool] öğelerinin her ikisine de, silmeyi onaylamanız durumunda karşılık gelecek silme yöntemleri vardır:
 
 ```python
 # Clean up Batch resources (if the user so chooses).
@@ -571,7 +574,7 @@ if query_yes_no('Delete pool?') == 'yes':
 
 ## Örnek betiği çalıştırma
 
-*python_tutorial_client.py* betiğini çalıştırdığınızda, konsol çıktısı aşağıdakine benzer. Havuzun işlem düğümleri oluşturulurken, başlatılırken ve havuzun görev başlatma komutları yürütülürken `Monitoring all tasks for 'Completed' state, timeout in 0:20:00...` konumunda bir duraklama göreceksiniz. Havuzunuzu, işlem düğümlerinizi, işinizi ve görevlerinizi yürütme sırasında ve sonrasında izlemek için [Azure portalı][azure_portal] kullanın. Uygulamanın oluşturduğu Storage kaynaklarını (kapsayıcılar ve bloblar) görüntülemek için [Azure portalı][azure_portal] veya [Microsoft Azure Storage Gezgini][storage_explorer] birini kullanın.
+Eğitmen [kod örneği][github_article_samples] içindeki *python_tutorial_client.py* betiğini çalıştırdığınızda, konsol çıktısı aşağıdakine benzer. Havuzun işlem düğümleri oluşturulurken, başlatılırken ve havuzun görev başlatma komutları yürütülürken `Monitoring all tasks for 'Completed' state, timeout in 0:20:00...` konumunda duraklama olur. Havuzunuzu, işlem düğümlerinizi, işinizi ve görevlerinizi yürütme sırasında ve sonrasında izlemek için [Azure portalı][azure_portal] kullanın. Uygulamanın oluşturduğu Storage kaynaklarını (kapsayıcılar ve bloblar) görüntülemek için [Azure portalı][azure_portal] veya [Microsoft Azure Storage Gezgini][storage_explorer] birini kullanın.
 
 Varsayılan yapılandırmasında uygulama çalıştırıldığında tipik yürütme süresi **yaklaşık 5-7 dakika arasıdır**.
 
@@ -619,9 +622,9 @@ Batch çözümünün temel iş akışı hakkında artık bilginiz olduğuna gör
 [batch_learning_path]: https://azure.microsoft.com/documentation/learning-paths/batch/
 [blog_linux]: http://blogs.technet.com/b/windowshpc/archive/2016/03/30/introducing-linux-support-on-azure-batch.aspx
 [github_samples]: https://github.com/Azure/azure-batch-samples
-[github_samples_common]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/Common
 [github_samples_zip]: https://github.com/Azure/azure-batch-samples/archive/master.zip
 [github_topnwords]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/TopNWords
+[github_article_samples]: https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch/article_samples
 
 [nuget_packagemgr]: https://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c
 [nuget_restore]: https://docs.nuget.org/consume/package-restore/msbuild-integrated#enabling-package-restore-during-build
@@ -663,20 +666,20 @@ Batch çözümünün temel iş akışı hakkında artık bilginiz olduğuna gör
 [visual_studio]: https://www.visualstudio.com/products/vs-2015-product-editions
 [vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/
 
-[1]: ./media/batch-dotnet-get-started/batch_workflow_01_sm.png "Azure Storage’da kapsayıcı oluşturma"
-[2]: ./media/batch-dotnet-get-started/batch_workflow_02_sm.png "Görev uygulamasını ve girdi dosyalarını (veriler) kapsayıcılara yükleme"
-[3]: ./media/batch-dotnet-get-started/batch_workflow_03_sm.png "Batch havuzu oluşturma"
-[4]: ./media/batch-dotnet-get-started/batch_workflow_04_sm.png "Batch işi oluşturma"
-[5]: ./media/batch-dotnet-get-started/batch_workflow_05_sm.png "İşe görev ekleme"
-[6]: ./media/batch-dotnet-get-started/batch_workflow_06_sm.png "Görevleri izleme"
-[7]: ./media/batch-dotnet-get-started/batch_workflow_07_sm.png "Storage’dan görev çıktısını indirme"
-[8]: ./media/batch-dotnet-get-started/batch_workflow_sm.png "Batch çözümü iş akışı (tam diyagram)"
-[9]: ./media/batch-dotnet-get-started/credentials_batch_sm.png "Portalda Batch kimlik bilgileri"
-[10]: ./media/batch-dotnet-get-started/credentials_storage_sm.png "Portalda Storage kimlik bilgileri"
-[11]: ./media/batch-dotnet-get-started/batch_workflow_minimal_sm.png "Batch çözümü iş akışı (minimal diyagram)"
+[1]: ./media/batch-python-tutorial/batch_workflow_01_sm.png "Azure Storage’da kapsayıcı oluşturma"
+[2]: ./media/batch-python-tutorial/batch_workflow_02_sm.png "Görev uygulamasını ve girdi dosyalarını (veriler) kapsayıcılara yükleme"
+[3]: ./media/batch-python-tutorial/batch_workflow_03_sm.png "Batch havuzu oluşturma"
+[4]: ./media/batch-python-tutorial/batch_workflow_04_sm.png "Batch işi oluşturma"
+[5]: ./media/batch-python-tutorial/batch_workflow_05_sm.png "İşe görev ekleme"
+[6]: ./media/batch-python-tutorial/batch_workflow_06_sm.png "Görevleri izleme"
+[7]: ./media/batch-python-tutorial/batch_workflow_07_sm.png "Storage’dan görev çıktısını indirme"
+[8]: ./media/batch-python-tutorial/batch_workflow_sm.png "Batch çözümü iş akışı (tam diyagram)"
+[9]: ./media/batch-python-tutorial/credentials_batch_sm.png "Portalda Batch kimlik bilgileri"
+[10]: ./media/batch-python-tutorial/credentials_storage_sm.png "Portalda Storage kimlik bilgileri"
+[11]: ./media/batch-python-tutorial/batch_workflow_minimal_sm.png "Batch çözümü iş akışı (minimal diyagram)"
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 
