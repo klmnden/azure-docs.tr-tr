@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-android"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="02/26/2016"
+    ms.date="08/19/2016"
     ms.author="piyushjo" />
 
 # Azure Mobile Engagement kavramları
@@ -87,6 +87,6 @@ Anahtar/değer çiftlerinden oluşan ağacın tamamı bir JSON nesnesi olarak de
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

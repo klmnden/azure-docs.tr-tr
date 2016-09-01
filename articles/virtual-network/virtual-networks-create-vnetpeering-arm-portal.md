@@ -3,7 +3,7 @@
    description="Resource Manager’da Azure portalını kullanarak bir sanal ağ oluşturmayı öğrenin."
    services="virtual-network"
    documentationCenter=""
-   authors="narayanannamalai"
+   authors="NarayanAnnamalai"
    manager="jefco"
    editor=""
    tags="azure-resource-manager"/>
@@ -14,8 +14,8 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/15/2016"
-   ms.author="telmos"/>
+   ms.date="08/02/2016"
+   ms.author="narayanannamalai"/>
 
 # Azure portalını kullanarak bir sanal ağ eşlemesi oluşturma
 
@@ -62,7 +62,7 @@ Azure portalını kullanarak yukarıdaki senaryoya dayanan bir VNet eşlemesi ol
 
 10. Not: VNET eşlemesi yalnızca her iki bağlantı da kurulduğunda oluşturulur. 
 
-Her bağlantı için birkaç yapılandırılabilir özellik vardır:
+Her bağlantı için birkaç özellik yapılandırılabilir:
 
 |Seçenek|Açıklama|Varsayılan|
 |:-----|:----------|:------|
@@ -77,33 +77,33 @@ VNet eşlemesindeki her bağlantı yukarıdaki özellikleri içerir. Portaldan V
 
 1. Tarayıcıdan http://portal.azure.com adresine gidin ve gerekiyorsa Azure hesabınıza giriş yapın.
 2. Bu örnekte A ve B adlı iki abonelik ile aboneliklerdeki ilgili ayrıcalıklara sahip UserA ve UserB adlı iki kullanıcı kullanılacaktır
-2. Portal'da Gözat’a tıklayın ve Sanal Ağlar’ı seçin. VNET’e ve Ekle'ye tıklayın.
+3. Portal'da Gözat’a tıklayın ve Sanal Ağlar’ı seçin. VNET’e ve Ekle'ye tıklayın.
 
     ![Senaryo 2 Gözat](./media/virtual-networks-create-vnetpeering-arm-portal/figure09.png)
 
-3. Erişim ekle dikey penceresinde Rol seçin’e tıklayın ve Ağ Katılımcısı’nı seçin, Kullanıcı Ekle’ye tıklayın, UserB oturum açma adını yazın ve Tamam’a tıklayın.
+4. Erişim ekle dikey penceresinde Rol seçin’e tıklayın ve Ağ Katılımcısı’nı seçin, Kullanıcı Ekle’ye tıklayın, UserB oturum açma adını yazın ve Tamam’a tıklayın.
 
     ![RBAC](./media/virtual-networks-create-vnetpeering-arm-portal/figure10.png)
 
-   Bu bir gereklilik değildir; istekler eşleştiği sürece kullanıcılar ilgili sanal ağları için eşleme isteklerini ayrı ayrı gönderse bile eşleme kurulabilir. Diğer VNet’in ayrıcalıklı kullanıcısının yerel VNet’e kullanıcı olarak eklenmesi portalda kurulum yapmayı kolaylaştırır. 
+    Bu bir gereklilik değildir; istekler eşleştiği sürece kullanıcılar ilgili sanal ağları için eşleme isteklerini ayrı ayrı gönderse bile eşleme kurulabilir. Diğer VNet’in ayrıcalıklı kullanıcısının yerel VNet’e kullanıcı olarak eklenmesi portalda kurulum yapmayı kolaylaştırır. 
 
-4. Ardından Azure portalında SubscriptionB’nin ayrıcalıklı kullanıcısı olan UserB ile oturum açın. UserA’yı Ağ Katılımcısı olarak eklemek için yukarıdaki adımları izleyin.
+5. Ardından Azure portalında SubscriptionB’nin ayrıcalıklı kullanıcısı olan UserB ile oturum açın. UserA’yı Ağ Katılımcısı olarak eklemek için yukarıdaki adımları izleyin.
 
     ![RBAC2](./media/virtual-networks-create-vnetpeering-arm-portal/figure11.png)
 
-    NOT:  Yetkilendirmenin başarıyla etkinleştirildiğinden emin olmak için tarayıcıda her iki kullanıcı oturumunu açıp kapatabilirsiniz.
+    NOT: Yetkilendirmenin başarıyla etkinleştirildiğinden emin olmak için tarayıcıda her iki kullanıcı oturumunu açıp kapatabilirsiniz.
 
-5. Portalda UserA olarak oturum açın, VNET3 dikey penceresine gidin, Eşleme’ye tıklayın, ‘Kaynak kimliğimi biliyorum” onay kutusunu işaretleyin ve VNET5 kaynak kimliğini aşağıdaki biçimde yazın.
+6. Portalda UserA olarak oturum açın, VNET3 dikey penceresine gidin, Eşleme’ye tıklayın, ‘Kaynak kimliğimi biliyorum” onay kutusunu işaretleyin ve VNET5 kaynak kimliğini aşağıdaki biçimde yazın.
 
     /subscriptions/<Subscription- ID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Network/VirtualNetwork/<VNET name>
 
     ![Kaynak kimliği](./media/virtual-networks-create-vnetpeering-arm-portal/figure12.png)
 
-6. Portalda UserB olarak oturum açın ve VNet5 ile VNet3 arasında bir eşleme bağlantısı oluşturmak için yukarıdaki adımı izleyin. 
+7. Portalda UserB olarak oturum açın ve VNet5 ile VNet3 arasında bir eşleme bağlantısı oluşturmak için yukarıdaki adımı izleyin. 
 
     ![Kaynak kimliği 2](./media/virtual-networks-create-vnetpeering-arm-portal/figure13.png)
 
-7. Eşleme kurulur ve VNet3’teki tüm sanal makineler VNet5’teki tüm sanal makinelerle iletişim kurabilir
+8. Eşleme kurulur ve VNet3’teki tüm sanal makineler VNet5’teki tüm sanal makinelerle iletişim kurabilir
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-scenario-transit-include](../../includes/virtual-networks-create-vnetpeering-scenario-transit-include.md)]
 
@@ -132,6 +132,6 @@ VNet eşlemesindeki her bağlantı yukarıdaki özellikleri içerir. Portaldan V
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

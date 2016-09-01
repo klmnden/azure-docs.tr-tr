@@ -1,7 +1,7 @@
 <properties
     pageTitle="Depolama Gezgini ile çalışmaya başlama (Önizleme) | Microsoft Azure"
     description="Depolama Gezgini (Önizleme) ile Azure Storage kaynaklarını yönetme"
-    services="visual-studio-online"
+    services="storage"
     documentationCenter="na"
     authors="TomArcher"
     manager="douge"
@@ -13,14 +13,14 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="07/30/2016"
+    ms.date="08/17/2016"
     ms.author="tarcher" />
 
 # Depolama Gezgini ile çalışmaya başlama (Önizleme)
 
 ## Genel Bakış 
 
-Microsoft Azure Storage Gezgini (Önizleme) Windows, OSX ve Linux üzerinden Azure Storage ile kolayca çalışmanızı sağlayan bir tek başına programdır. Bu makalede Azure Storage hesaplarınızı bağlama ve yönetme ile ilgili çeşitli yöntemler öğreneceksiniz.
+Microsoft Azure Depolama Gezgini (Önizleme) Windows, OS X ve Linux’ta Azure Depolama ile kolayca çalışmanızı sağlayan bir tek başına uygulamadır. Bu makalede Azure Storage hesaplarınızı bağlama ve yönetme ile ilgili çeşitli yöntemler öğreneceksiniz.
 
 ![Microsoft Azure Depolama Gezgini (Önizleme)][15]
 
@@ -231,6 +231,6 @@ Aramayı temizlemek için arama kutusundaki **x** düğmesini seçin.
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

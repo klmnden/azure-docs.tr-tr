@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/23/2016"
+   ms.date="08/16/2016"
    ms.author="sonyama;barbkess"/>
 
 # SQL Data Warehouse için Visual Studio 2015'i ve SSDT'yi Yükleme
@@ -49,7 +49,7 @@ SSDT'nin en son sürümüne sahip olduğunuza göre SQL Data Warehouse'unuza [ba
 <!--Image references-->
 
 <!--Articles-->
-[bağlanmaya]: ./sql-data-warehouse-get-started-connect.md
+[bağlanmaya]: ./sql-data-warehouse-query-visual-studio.md
 
 <!--Other-->
 [Visual Studio 2015’i İndirme]: https://www.visualstudio.com/downloads/
@@ -58,6 +58,6 @@ SSDT'nin en son sürümüne sahip olduğunuza göre SQL Data Warehouse'unuza [ba
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

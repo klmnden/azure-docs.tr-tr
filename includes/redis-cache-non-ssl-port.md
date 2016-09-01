@@ -1,10 +1,10 @@
-SSL olmayan bağlantı noktasını etkinleştirmek için [Azure portalında](https://portal.azure.com) bulunan önbelleğinize [göz atın](../articles/redis-cache/cache-configure.md#configure-redis-cache-settings) ve **Ayarlar > Erişim Bağlantı Noktaları**’na tıklayın. SSL olmayan bağlantı noktasını etkinleştirmek için **Hayır**’a, sonra da **Kaydet**’e tıklayın.
+SSL olmayan bağlantı noktasını etkinleştirmek için [Azure portalında](https://portal.azure.com) bulunan önbelleğinize [göz atın](../articles/redis-cache/cache-configure.md#configure-redis-cache-settings) ve **Ayarlar > Gelişmiş ayarlar**'a tıklayın. **Gelişmiş ayarlar dikey penceresinde** **Yalnızca SSL aracılığıyla erişime izin ver** seçeneği için **Hayır**'a ve ardından **Kaydet**'e tıklayın.
 
 ![Redis önbelleği ayarları](media/redis-cache-non-ssl-port/redis-cache-non-ssl-port.png)
 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

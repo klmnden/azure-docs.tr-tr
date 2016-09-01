@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="06/29/2016" 
+    ms.date="08/04/2016" 
     ms.author="billmath"/>
 
 
@@ -56,6 +56,7 @@ Azure Multi-Factor Auth Sağlayıcısı oluşturmak için aşağıdaki adımlar�
 ![MFA Sağlayıcısı oluşturma](./media/multi-factor-authentication-get-started-auth-provider/authprovider6.png)    
 
 
-<!--HONumber=Aug16_HO1-->
+
+<!--HONumber=Aug16_HO4-->
 
 

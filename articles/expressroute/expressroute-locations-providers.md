@@ -29,7 +29,7 @@ Coğrafi bölge içindeki en az bir ExpressRoute konumuna bağlanırsanız coğr
 
 |**Coğrafi bölge**|**Azure bölgeleri**|**ExpressRoute konumları**|
 |---|---|---|
-|**Kuzey Amerika**|Doğu ABD, Batı ABD, Doğu ABD 2, Orta ABD, Güney Orta ABD, Kuzey Orta ABD, Orta Kanada, Doğu Kanada|Atlanta, Chicago, Dallas, Las Vegas+, Los Angeles, New York, Seattle, Silikon Vadisi, Washington DC, Montreal+, Quebec City+, Toronto|
+|**Kuzey Amerika**|Doğu ABD, Batı ABD, Doğu ABD 2, Orta ABD, Güney Orta ABD, Kuzey Orta ABD, Orta Kanada, Doğu Kanada|Atlanta, Chicago, Dallas, Las Vegas, Los Angeles, New York, Seattle, Silikon Vadisi, Washington DC, Montreal+, Quebec City+, Toronto|
 |**Güney Amerika**|Güney Brezilya|Sao Paulo|
 |**Avrupa**|Kuzey Avrupa, Batı Avrupa|Amsterdam, Dublin, Londra, Newport(Galler)+, Paris|
 |**Asya**|Doğu Asya, Güneydoğu Asya|Hong Kong, Singapur|
@@ -68,8 +68,8 @@ Coğrafi bölgeler arasındaki bağlantı standart ExpressRoute SKU’da destekl
 | **Dublin** | Colt |
 | **Hong Kong** | British Telecom, China Telecom Global, Equinix, Megaport, Orange, PCCW Global Limited, Tata Communications, Verizon |
 | **Londra** | AT&T NetBond, British Telecom, Colt, Equinix, InterCloud, Internet Solutions - Cloud Connect, Interxion, Jisc+, Level 3 Communications, MTN, NTT Communications, Orange, Tata Communications, Telecity Group, Telenor, Verizon, Vodafone |
-| **Las Vegas** | Level 3 Communications+, Megaport+
-| **Los Angeles** | CoreSite, Equinix, Megaport, Zayo Group |
+| **Las Vegas** | Level 3 Communications+, Megaport
+| **Los Angeles** | CoreSite, Equinix, Megaport, NTT, Zayo Group |
 | **Melbourne** | Equinix, Megaport, NEXTDC, Telstra Corporation |
 | **New York** | Equinix, Megaport, Zayo Group |
 | **Montreal** | Cologix+ |
@@ -158,6 +158,6 @@ Bağlantı sağlayıcınız önceki bölümlerde listelenmemişse hala bağlant�
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

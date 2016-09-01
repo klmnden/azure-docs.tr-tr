@@ -58,7 +58,7 @@ Uygulamanızı oluşturmanın ilk adımı, [Azure Portal](https://portal.azure.c
 
 1. Azure Portal’da oturum açın ve sol alt köşede **NEW** düğmesine tıklayın.
 3. Arama kutusuna, "python" yazın.
-4. Arama sonuçlarında, **Django**’yu seçin ve ardından **Oluştur**’a tıklayın.
+4. Arama sonuçlarında **Django**’yu (PTVS tarafından yayımlanır) seçin ve ardından **Oluştur**’a tıklayın.
 5. Yeni bir App Service planı ve bunun için yeni bir kaynak grubu oluşturma şeklinde, yeni Django uygulamasını yapılandırın. Sonra, **Oluştur**’a tıklayın.
 6. Yeni oluşturulan web uygulamanız için, [Azure Uygulama Hizmeti’nde Yerel Git Dağıtımı](app-service-deploy-local-git.md) başlığındaki yönergeleri izleyerek Git yayımlamayı yapılandırın.
 
@@ -518,6 +518,6 @@ Daha fazla bilgi için bkz. [Python Geliştirici Merkezi](/develop/python/).
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

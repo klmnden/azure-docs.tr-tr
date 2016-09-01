@@ -1,6 +1,6 @@
-## Olay Hub'ı oluşturma
+## Event Hub'ı oluşturma
 
-1. [Klasik Azure portalı] [] oturumu açın ve ekranın altındaki **YENİ**’ye tıklayın.
+1. [Klasik Azure portalı][]’nda oturum açın ve ekranın altındaki **YENİ**’ye tıklayın.
 
 2. **Uygulama Hizmetleri**’ne, **Service Bus**’a, **Olay Hub'ı**’na ve son olarak da **Hızlı Oluştur**’a tıklayın.
 
@@ -25,7 +25,9 @@ Olay Hub'ınız artık oluşturuldu; şimdi olayları alıp göndermek için ger
 [3]: ./media/event-hubs-create-event-hub/create-event-hub3.png
 [4]: ./media/event-hubs-create-event-hub/create-conn-str1.png
 
+[Klasik Azure portalı]: https://manage.windowsazure.com/
 
-<!--HONumber=Jun16_HO2-->
+
+<!--HONumber=Aug16_HO4-->
 
 

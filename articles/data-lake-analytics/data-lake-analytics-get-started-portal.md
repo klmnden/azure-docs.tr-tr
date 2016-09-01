@@ -26,7 +26,7 @@ Bu öğreticide, bir sekmeyle ayrılmış değerler (TSV) dosyasını okuyan ve 
 
 [AZURE.INCLUDE [basic-process-include](../../includes/data-lake-analytics-basic-process.md)]
 
-##Önkoşullar
+##Ön koşullar
 
 Bu öğreticiye başlamadan önce aşağıdakilere sahip olmanız gerekir:
 
@@ -52,7 +52,7 @@ Her Data Lake Analytics hesabı, bir [Azure Data Lake Store]() hesabı bağıml�
     - **Kaynak Grubu**. Var olan bir Azure Kaynak Grubu'nu seçin veya yeni bir grup oluşturun. Azure Resource Manager (ARM), uygulamanızdaki kaynaklarla bir grup olarak çalışmanıza olanak sağlar. Daha fazla bilgi için bkz. [Azure Resource Manager'a Genel Bakış](resource-group-overview.md). 
     - **Konum**. Data Lake Analytics hesabı için bir Azure veri merkezi seçin. 
 7. **Başlangıç Panosuna Sabitle** seçeneğini belirleyin. Bu işlem, bu öğreticinin uygulanması için gereklidir.
-8. **Oluştur**'a tıklayın. Bu işlem sizi Başlangıç Panosu'na götürür. Başlangıç Panosu'na, "Azure Data Lake Analytics'i dağıtma" etiketine sahip yeni bir kutucuk eklenir. Data Lake Analytics hesabının oluşturulması çok kısa süren bir işlemdir. Hesap oluşturulduğunda portal, hesabı portal üzerinde yeni bir dikey pencerede açar.
+8. **Oluştur**’a tıklayın. Bu işlem sizi Başlangıç Panosu'na götürür. Başlangıç Panosu'na, "Azure Data Lake Analytics'i dağıtma" etiketine sahip yeni bir kutucuk eklenir. Data Lake Analytics hesabının oluşturulması çok kısa süren bir işlemdir. Hesap oluşturulduğunda portal, hesabı portal üzerinde yeni bir dikey pencerede açar.
 
     ![Azure Data Lake Analytics portalı dikey penceresi](./media/data-lake-analytics-get-started-portal/data-lake-analytics-portal-blade.png)
 
@@ -122,7 +122,7 @@ Veri kaynağını hazırladıktan sonra, U-SQL betiği geliştirmeye başlayabil
 
     Bu U-SQL betiği, **Extractors.Tsv()** öğesini kullanarak kaynak veri dosyasını okur ve ardından **Outputters.Csv()** öğesini kullanarak bir csv dosyası oluşturur. 
     
-    Kaynak dosyayı farklı bir konuma kopyalamadıkça bu iki yolu değiştirmeyin.  Data Lake Analytics, mevcut olmaması halinde çıkış klasörünü oluşturur.  Bu durumda biz basit, göreli yolları kullanıyoruz.  
+    Kaynak dosyayı farklı bir konuma kopyalamadıkça bu iki yolu değiştirmeyin.  Data Lake Analytics, mevcut olmaması halinde çıktı klasörünü oluşturur.  Bu durumda biz basit, göreli yolları kullanıyoruz.  
     
     Varsayılan Data Lake hesaplarında depolanan dosyalar için göreli yolların kullanılması daha basittir. Mutlak yol da kullanabilirsiniz.  Örneğin: 
     
@@ -140,12 +140,12 @@ Veri kaynağını hazırladıktan sonra, U-SQL betiği geliştirmeye başlayabil
     
     İş başarısız olduysa bkz. [Data Lake Analytics işlerini izleme ve sorun giderme](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorials.md).
 
-7. **İş Ayrıntısı** dikey penceresinin alt kısmında, **SearchLog-from-Data-Lake.csv** içindeki iş adına tıklayın. Çıkış dosyasını indirebilir, yeniden adlandırabilir ve silebilirsiniz.
+7. **İş Ayrıntısı** dikey penceresinin alt kısmında, **SearchLog-from-Data-Lake.csv** içindeki iş adına tıklayın. Çıktı dosyasını indirebilir, yeniden adlandırabilir ve silebilirsiniz.
 
-    ![Azure Data Lake Analytics işi çıkış dosyası özellikleri](./media/data-lake-analytics-get-started-portal/data-lake-analytics-output-file-properties.png)
-8. Çıkış dosyasını görmek için **Önizleme**'ye tıklayın.
+    ![Azure Data Lake Analytics işi çıktı dosyası özellikleri](./media/data-lake-analytics-get-started-portal/data-lake-analytics-output-file-properties.png)
+8. Çıktı dosyasını görmek için **Önizleme**'ye tıklayın.
 
-    ![Azure Data Lake Analytics işi çıkış dosyası önizlemesi](./media/data-lake-analytics-get-started-portal/data-lake-analytics-job-output-preview.png)
+    ![Azure Data Lake Analytics işi çıktı dosyası önizlemesi](./media/data-lake-analytics-get-started-portal/data-lake-analytics-job-output-preview.png)
 
 ##Ayrıca bkz.
 
@@ -155,9 +155,9 @@ Veri kaynağını hazırladıktan sonra, U-SQL betiği geliştirmeye başlayabil
 - Yönetim görevleri için bkz. [Azure Portal'ı kullanarak Azure Data Lake Analytics'i yönetme](data-lake-analytics-manage-use-portal.md).
 - Data Lake Analytics'e yönelik bir genel bakış için bkz. [Azure Data Lake Analytics'e genel bakış](data-lake-analytics-overview.md).
 - Aynı öğreticiyi diğer araçları kullanarak görmek için sayfanın üst kısmındaki sekme seçicilerine tıklayın.
+- Tanılama bilgilerini günlüğe kaydetmek için bkz. [Azure Data Lake Analytics için tanılama günlüklerine erişme](data-lake-analytics-diagnostic-logs.md)
 
 
-
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

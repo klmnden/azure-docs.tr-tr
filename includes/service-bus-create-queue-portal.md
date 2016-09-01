@@ -1,36 +1,31 @@
 Lütfen daha önce [burada][namespace-how-to] gösterildiği gibi bir Service Bus ad alanı oluşturduğunuzdan emin olun.
 
-1. [Klasik Azure portalında][classic-portal] oturum açın.
+1. [Azure portalında][azure-portal] oturum açın.
 
 2. Portalın sol gezinti bölmesinde **Service Bus** hizmetine tıklayın.
 
-3. Kuyrukta oluşturmak istediğiniz ad alanını seçin. Bu durumda "mytestns1" seçeneğidir.
+3. Kuyrukta oluşturmak istediğiniz ad alanını seçin. Bu durumda **nstest1** değerini kullanacaksınız.
 
-    ![Ad alanı seçme][select-namespace]
+    ![Kuyruk oluşturma][createqueue1]
 
-4. **Kuyruklar**’ı seçin.
+4. **Service Bus ad alanı** dikey penceresinde **Kuyruklar** seçeneğini belirleyin ve **Kuyruk ekle** düğmesine tıklayın.
 
-    ![Kuyruk Seçme][select-queue]
+    ![Kuyruk Seçme][createqueue2]
 
-5. Sol alt köşedeki **Yeni**’yi ve ardından **Hızlı Oluştur**’u seçin.
+5. **Kuyruk Adını** girin ve diğer değerleri varsayılan olarak bırakın.
 
-    ![Yeni Seçme][select-new]
+    ![Yeni Seçme][createqueue3]
 
-6. **Kuyruk Adı** girin ve uygun ad alanının seçildiğinden emin olun.
+7. Dikey pencerenin altında yer alan **Oluştur** düğmesine tıklayın.
 
-7. **Yeni kuyruk oluştur**’u seçin.
-
-    ![Kuyruk oluşturma][create-queue]
-
-[select-namespace]: ./media/service-bus-create-queue-portal/select-namespace.png
-[select-queue]: ./media/service-bus-create-queue-portal/select-queue.png
-[select-new]: ./media/service-bus-create-queue-portal/select-new.png
-[create-queue]: ./media/service-bus-create-queue-portal/create-queue.png
+[createqueue1]: ./media/service-bus-create-queue-portal/create-queue1.png
+[createqueue2]: ./media/service-bus-create-queue-portal/create-queue2.png
+[createqueue3]: ./media/service-bus-create-queue-portal/create-queue3.png
 
 [namespace-how-to]: ../articles/service-bus/service-bus-create-namespace-portal.md
-[classic-portal]: https://manage.windowsazure.com
+[azure-portal]: https://portal.azure.com
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

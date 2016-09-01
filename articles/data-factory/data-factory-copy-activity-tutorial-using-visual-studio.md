@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Öğretici: Visual Studio kullanarak Kopyalama Etkinliği ile işlem hattı oluşturma" 
-    description="Bu öğreticide, Visual Studio kullanarak Kopyalama Etkinliği ile bir Azure Data Factory işlem hattı oluşturacaksınız." 
+    pageTitle="Öğretici: Visual Studio kullanarak Kopyalama Etkinliği ile işlem hattı oluşturma | Microsoft Azure" 
+    description="Bu öğreticide, Visual Studio kullanarak Kopyalama Etkinliği ile bir Azure Data Factory işlem hattı oluşturursunuz." 
     services="data-factory" 
     documentationCenter="" 
     authors="spelluru" 
@@ -22,19 +22,23 @@
 - [Data Factory Düzenleyici’yi kullanma](data-factory-copy-activity-tutorial-using-azure-portal.md)
 - [PowerShell’i kullanma](data-factory-copy-activity-tutorial-using-powershell.md)
 - [Visual Studio’yu kullanma](data-factory-copy-activity-tutorial-using-visual-studio.md)
+- [REST API kullanma](data-factory-copy-activity-tutorial-using-rest-api.md)
+- [.NET API kullanma](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 - [Kopyalama Sihirbazı'nı kullanma](data-factory-copy-data-wizard-tutorial.md)
 
-Bu öğreticide Visual Studio 2013 kullanarak yapacaklarınız:
+Bu öğreticide Visual Studio 2013 kullanarak aşağıdakileri yaparsınız:
 
 1. İki bağlı hizmet oluşturun: **AzureStorageLinkedService1** ve **AzureSqlinkedService1**. AzureStorageLinkedService1 bağlı hizmeti Azure depolamayı, AzureSqlLinkedService1 de Azure SQL veritabanını data factory: **ADFTutorialDataFactoryVS** konumuna bağlar. İşlem hattıyla ilgili girdi verileri Azure blob depolamadaki bir blob kapsayıcısında yer alırken çıktı verileri de Azure SQL veritabanındaki bir tabloda depolanır. Bu nedenle, bu iki veri deposunu bağlı hizmet olarak data factory’ye ekliyorsunuz.
-2. **EmpTableFromBlob** ve **EmpSQLTable** adlı, veri depolarında depolanan girdi/çıktı verilerini temsil eden iki data factory tablosu oluşturun. EmpTableFromBlob için, kaynak verilere sahip bir blob’un bulunduğu blob kapsayıcısını, EmpSQLTable için de, çıktı verilerini depolayacak SQL tablosunu belirtirsiniz. Verilerin yapısı, verilerin kullanılabilirliği vb. diğer özellikleri de belirtirsiniz.
-3. ADFTutorialDataFactoryVS’de **ADFTutorialPipeline** adlı işlem hattını oluşturun. İşlem hattında, girdi verilerini Azure blob’tan çıktı Azure SQL tablosuna kopyalayan **Kopyalama Etkinliği** vardır. Kopya Etkinliği Azure Data Factory’de veri taşımayı gerçekleştirir; etkinlikse, verileri çeşitli veri depolamaları arasında güvenli, güvenilir ve ölçeklendirilmiş bir yolla kopyalayabilen küresel olarak kullanılabilir bir hizmet tarafından desteklenir. Kopyalama etkinliği hakkında ayrıntılı bilgi için [Veri Taşıma Etkinlikleri](data-factory-data-movement-activities.md) makalesine bakın. 
+2. **EmpTableFromBlob** ve **EmpSQLTable** adlı, veri depolarında depolanan girdi/çıktı verilerini temsil eden iki data factory tablosu oluşturun. EmpTableFromBlob için, kaynak verilerin bulunduğu blob’u içeren blob kapsayıcısını belirtirsiniz. EmpSQLTable için çıktı verilerini depolayan SQL tablosunu belirtirsiniz. Yapı, kullanılabilirlik vb. gibi diğer özellikleri de belirtirsiniz.
+3. ADFTutorialDataFactoryVS’de **ADFTutorialPipeline** adlı işlem hattını oluşturun. İşlem hattında, girdi verilerini Azure blob’tan çıktı Azure SQL tablosuna kopyalayan **Kopyalama Etkinliği** vardır. Kopyalama Etkinliği, Azure Data Factory’de veri hareketini gerçekleştirir. Etkinlik, çeşitli veri depolama alanları arasında güvenli, güvenilir ve ölçeklenebilir bir yolla veri kopyalayabilen genel olarak kullanılabilir bir hizmet tarafından desteklenir. Kopyalama etkinliği hakkında ayrıntılı bilgi için [Veri Taşıma Etkinlikleri](data-factory-data-movement-activities.md) makalesine bakın. 
 4. Data factory oluşturup bağlı hizmetleri, tabloları ve işlem hattını dağıtın.    
 
 ## Ön koşullar
 
-1. Başka bir işlem yapmadan önce [Öğreticiye Genel Bakış](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) makalesinin tamamını okumanız ve önkoşul adımlarını tamamlamanız **gerekir**.
-2. Azure Data Factory’ye Data Factory varlıkları yayımlayabilmek için bir **Azure aboneliğinin yöneticisi** olmanız gerekir. Bu durum şu anda bir sınırlamadır. Bu gereksinim değiştirildiğinde size bildirilecektir. 
+1. [Öğreticiye Genel Bakış](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) makalesini okuyun.
+    
+    > [AZURE.IMPORTANT] Devam etmeden önce gereksinimleri tamamlayın. 
+2. Azure Data Factory’ye Data Factory varlıkları yayımlayabilmek için bir **Azure aboneliğinin yöneticisi** olmanız gerekir.  
 3. Bilgisayarınızda şunların yüklü olması gerekir: 
     - Visual Studio 2013 veya Visual Studio 2015
     - Visual Studio 2013 veya Visual Studio 2015 için Azure SDK’sını indirin. [Azure İndirme Sayfası](https://azure.microsoft.com/downloads/)’na gidin ve **.NET** bölümündeki **VS 2013** veya **VS 2015**’e tıklayın.
@@ -53,9 +57,9 @@ Bu öğreticide Visual Studio 2013 kullanarak yapacaklarınız:
     ![Çözüm Gezgini](./media/data-factory-copy-activity-tutorial-using-visual-studio/solution-explorer.png) 
 
 ## Bağlı hizmetler oluşturma
-Bağlı hizmetler veri depolarını veya işlem hizmetlerini Azure data factory’ye bağlar. Data store bir Azure Storage, Azure SQL Database veya şirket içi SQL Server veritabanı olabilir.
+Bağlı hizmetler veri depolarını veya işlem hizmetlerini Azure data factory’ye bağlar. Data store bir Azure Depolama, Azure SQL Veritabanı veya şirket içi SQL Server veritabanı olabilir.
 
-Bu adımda, iki bağlı hizmet oluşturacaksınız: **AzureStorageLinkedService1** ve **AzureSqlLinkedService1**. AzureStorageLinkedService1 bağlı hizmeti Azure Storage Hesabını, AzureSqlLinkedService de Azure SQL veritabanını data factory: **ADFTutorialDataFactory** konumuna bağlar. 
+Bu adımda, iki bağlı hizmet oluşturursunuz: **AzureStorageLinkedService1** ve **AzureSqlLinkedService1**. AzureStorageLinkedService1 bağlı hizmeti Azure Storage Hesabını, AzureSqlLinkedService de Azure SQL veritabanını data factory: **ADFTutorialDataFactory** konumuna bağlar. 
 
 ### Azure Storage bağlı hizmeti oluşturma
 
@@ -79,7 +83,7 @@ Bu adımda, iki bağlı hizmet oluşturacaksınız: **AzureStorageLinkedService1
 
 
 ## Veri kümeleri oluşturma
-Önceki adımda, Azure Storage hesabını ve Azure SQL veritabanını data factory’ye bağlamak için **AzureStorageLinkedService1** ve **AzureSqlLinkedService1** bağlı hizmetlerini oluşturdunuz; burada söz edilen data factory adı: **ADFTutorialDataFactory**. Bu adımda, **EmpTableFromBlob** ve **EmpSQLTable** adlı, sırasıyla AzureStorageLinkedService1 ve AzureSqlLinkedService1’in başvurduğu veri depolarında depolanan girdi/çıktı verilerini temsil eden iki data factory tablosunu tanımlayacaksınız. EmpTableFromBlob için, kaynak verilere sahip bir blob’un bulunduğu blob kapsayıcısını, EmpSQLTable için de, çıktı verilerini depolayacak SQL tablosunu belirtirsiniz.
+Önceki adımda, Azure Storage hesabını ve Azure SQL veritabanını data factory’ye bağlamak için **AzureStorageLinkedService1** ve **AzureSqlLinkedService1** bağlı hizmetlerini oluşturdunuz; burada söz edilen data factory adı: **ADFTutorialDataFactory**. Bu adımda, **EmpTableFromBlob** ve **EmpSQLTable** adlı, sırasıyla AzureStorageLinkedService1 ve AzureSqlLinkedService1’in başvurduğu veri depolarında depolanan girdi/çıktı verilerini temsil eden iki data factory tablosunu tanımlarsınız. EmpTableFromBlob için, kaynak verilerin bulunduğu blob’u içeren blob kapsayıcısını belirtirsiniz. EmpSQLTable için çıktı verilerini depolayan SQL tablosunu belirtirsiniz.
 
 ### Girdi veri kümesi oluşturma
 
@@ -149,12 +153,12 @@ Bu adımda, iki bağlı hizmet oluşturacaksınız: **AzureStorageLinkedService1
         }
 
 ## İşlem hattı oluşturma 
-Şu ana kadar girdi/çıktı bağlı hizmetleri ve tablolarını oluşturdunuz. Şimdi de, verileri Azure blob’tan Azure SQL veritabanına kopyalamak için **Kopyalama Etkinliği**’ne sahip bir işlem hattı oluşturacaksınız. 
+Şu ana kadar girdi/çıktı bağlı hizmetleri ve tablolarını oluşturdunuz. Şimdi de, verileri Azure blob’tan Azure SQL veritabanına kopyalamak için **Kopyalama Etkinliği**’ne sahip bir işlem hattı oluşturursunuz. 
 
 
 1. **Çözüm Gezgini**’nde **İşlem Hatları**’na sağ tıklayın, **Ekle**’nin üzerine gelip **Yeni Öğe**’ye tıklayın.  
 15. **Yeni Öğe Ekle** iletişim kutusunda **Veri İşlem Hattı Kopyala**’yı seçip **Ekle**’ye tıklayın. 
-16. JSON’yi aşağıdaki JSON ile değiştirin ve **CopyActivity1.json** dosyasını kaydedin.
+16. JSON’u aşağıdaki JSON ile değiştirin ve **CopyActivity1.json** dosyasını kaydedin.
             
         {
           "name": "ADFTutorialPipeline",
@@ -223,7 +227,7 @@ Bu adımda, iki bağlı hizmet oluşturacaksınız: **AzureStorageLinkedService1
 24. Özeti gözden geçirin, dağıtım işlemini başlatmak ve **Dağıtım Durumu**’nu görüntülemek için **İleri**’ye tıklayın.
 25. **Dağıtım Durumu** sayfasında dağıtım sürecinin durumunu görmelisiniz. Dağıtımını gerçekleştirdikten sonra Son'a tıklayın. 
 
-Lütfen şunlara dikkat edin: 
+Şunlara dikkat edin: 
 
 - Şu hatayı alırsanız: "**Abonelik, Microsoft.DataFactory ad alanını kullanacak şekilde kaydedilmemiş**", aşağıdakilerden birini yapın ve yeniden yayımlamayı deneyin: 
 
@@ -234,7 +238,7 @@ Lütfen şunlara dikkat edin:
         Data Factory sağlayıcısının kayıtlı olduğunu onaylamak için aşağıdaki komutu çalıştırabilirsiniz. 
     
             Get-AzureRmResourceProvider
-    - Azure aboneliğini kullanarak [Azure portalında](https://portal.azure.com) oturum açın ve Data Factory dikey penceresine gidin (ya da) Azure portalında bir data factory oluşturun. Bu otomatik olarak sağlayıcıyı sizin için kaydeder.
+    - Azure aboneliğini kullanarak [Azure portalında](https://portal.azure.com) oturum açın ve Data Factory dikey penceresine gidin (ya da) Azure portalında bir data factory oluşturun. Bu eylem sağlayıcıyı sizin için otomatik olarak kaydeder.
 -   Data factory adı gelecekte bir DNS adı olarak kaydedilmiş olabilir; bu nedenle herkese görünür hale gelmiştir.
 -   Data Factory örnekleri oluşturmak için, Azure aboneliğinde katılımcı/yönetici rolünüz olmalıdır
 
@@ -252,7 +256,7 @@ Bu öğreticide Azure blob’undan Azure SQL veritabanına veri kopyalamak üzer
 ## Data factory’leri görüntülemek için Sunucu Gezgini’ni kullanın
 
 1. **Visual Studio**’nun menüsünde **Görünüm**’e ve **Sunucu Gezgini**’ne tıklayın.
-2. Sunucu Gezgini penceresinde, **Azure**’ü ve **Data Factory**’yi genişletin. **Visual Studio'da oturum açın**’ı görürseniz Azure aboneliğiyle ilişkili **hesabı** girin ve **Devam**’a tıklayın. **parola** girip **Oturum aç**’a tıklayın. Visual Studio, aboneliğinizdeki tüm Azure data factory’leri hakkında bilgi almaya çalışır. Bu işlemin durumunu **Data Factoy Görev Listesi** penceresinde görürsünüz.
+2. Sunucu Gezgini penceresinde, **Azure**’ü ve **Data Factory**’yi genişletin. **Visual Studio'da oturum açın**’ı görürseniz Azure aboneliğiyle ilişkili **hesabı** girin ve **Devam**’a tıklayın. **parola** girip **Oturum aç**’a tıklayın. Visual Studio, aboneliğinizdeki tüm Azure data factory’leri hakkında bilgi almaya çalışır. Bu işlemin durumunu **Data Factory Görev Listesi** penceresinde görürsünüz.
     ![Sunucu Gezgini](./media/data-factory-copy-activity-tutorial-using-visual-studio/server-explorer.png)
 3. İstediğiniz data factory’ye sağ tıklayıp, mevcut bir data factory’ye dayandırılan Visual Studio projesi oluşturmak için Data Factory’yi Yeni Projeye Aktar’ı seçin.
     ![Data factory’yi VS projesine aktarma](./media/data-factory-copy-activity-tutorial-using-visual-studio/export-data-factory-menu.png)  
@@ -271,12 +275,12 @@ Bu öğreticide oluşturduğunuz işlem hattını ve veri kümelerini izlemek ü
 | :---- | :---- |
 | [Veri Taşıma Etkinlikleri](data-factory-data-movement-activities.md) | Bu makalede, öğreticide kullandığınız Kopyalama Etkinliği hakkında ayrıntılı bilgi sağlanmaktadır. |
 | [Zamanlama ve yürütme](data-factory-scheduling-and-execution.md) | Bu makalede Azure Data Factory uygulama modelinin zamanlama ve yürütme yönleri açıklanmaktadır. |
-| [İşlem hatları](data-factory-create-pipelines.md) | Bu makalede Azure Data Factory’de işlem hatlarının ve etkinliklerin yanı sıra senaryonuz ya da işiniz için uçtan uca veri odaklı iş akışlarının nasıl desteklendiğini anlamanıza yardımcı olunmaktadır. |
-| [Veri kümeleri](data-factory-create-datasets.md) | Bu makale Azure Data Factory’deki veri kümelerini anlamanıza yardımcı olacaktır.
+| [İşlem hatları](data-factory-create-pipelines.md) | Bu makale, Azure Data Factory’deki işlem hatlarını ve veri kümelerini anlamanıza yardımcı olur. |
+| [Veri kümeleri](data-factory-create-datasets.md) | Bu makale, Azure Data Factory’deki veri kümelerini anlamanıza yardımcı olur.
 | [İzleme Uygulaması kullanılarak işlem hatlarını izleme ve yönetme](data-factory-monitor-manage-app.md) | Bu makalede İzleme ve Yönetim Uygulaması kullanılarak işlem hatlarını izleme, yönetme ve hatalarını ayıklama işlemleri açıklanmaktadır. 
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

@@ -13,10 +13,10 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/29/2016"
+   ms.date="08/16/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
-# Azure Data Factory ile veri yükleme
+# Azure Data Factory ile veri yükleme 
 
 > [AZURE.SELECTOR]
 - [Data Factory][]
@@ -213,7 +213,6 @@ Bu konu başlıklarında Azure Data Factory hakkında ayrıntılı bilgi sağlan
 
 - [Öğretici: Azure Data Factory ile çalışmaya başlama][] Bu, Azure Data Factory ile veri işlemeye yönelik temel öğreticidir. Bu öğreticide web günlüklerini aylık olarak dönüştürmek ve çözümlemek üzere HDInsight'ı kullanan ilk işlem hattınızı oluşturacaksınız. Not: Bu öğreticide herhangi bir kopyalama etkinliği yoktur.
 - [Öğretici: Azure Storage Blobundan Azure SQL Database'e veri kopyalama][]. Bu öğreticide Azure Storage Blobundan Azure SQL Database'e veri kopyalamak üzere Azure Data Factory'de bir işlem hattı oluşturacaksınız.
-- [Gerçek dünya senaryoları öğreticisi][]. Bu, Azure Data Factory kullanımına yönelik kapsamlı bir öğreticidir.
 
 <!--Image references-->
 
@@ -229,8 +228,7 @@ Bu konu başlıklarında Azure Data Factory hakkında ayrıntılı bilgi sağlan
 [SQL Data Warehouse'a örnek veri yükleme]: sql-data-warehouse-load-sample-databases.md
 [Azure Data Factory kullanarak Azure'a/Azure'dan veri taşıma]: ../data-factory/data-factory-azure-sql-data-warehouse-connector.md
 [PolyBase]: sql-data-warehouse-get-started-load-with-polybase.md
-[Gerçek dünya senaryoları öğreticisi]: ../data-factory/data-factory-tutorial.md
-[Öğretici: Azure Storage Blobundan Azure SQL Database'e veri kopyalama]: ../data-factory/data-factory-get-started
+[Öğretici: Azure Storage Blobundan Azure SQL Database'e veri kopyalama]: ../data-factory/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
 [Öğretici: Azure Data Factory ile çalışmaya başlama]: ../data-factory/data-factory-build-your-first-pipeline.md
 
 <!--MSDN references-->
@@ -242,6 +240,6 @@ Bu konu başlıklarında Azure Data Factory hakkında ayrıntılı bilgi sağlan
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

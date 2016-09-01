@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/29/2016"
+   ms.date="08/17/2016"
    ms.author="alkohli" />
 
 # Azure’da StorSimple sanal cihazını dağıtma ve yönetme
@@ -80,7 +80,7 @@ StorSimple sanal cihazı, Microsoft Azure Sanal Makinesi’nde tek düğümde ç
 
 #### Fiziksel cihazdan farklar
 
-Aşağıdaki tabloda StorSimple sanal cihazı ile StorSimple fiziksel cihazı arasındaki bazı temel farklar gösterilmektedir.
+Aşağıdaki tabloda StorSimple sanal cihazı ve StorSimple fiziksel cihazı arasındaki bazı temel farklar gösterilmektedir.
 
 |                             | Fiziksel cihaz                                          | Sanal cihaz                                                                            |
 |-----------------------------|----------------------------------------------------------|-------------------------------------------------------------------------------------------|
@@ -283,6 +283,6 @@ Sanal cihazı siler veya kapatırsanız, StorSimple Yönetici hizmetinin Cihazla
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

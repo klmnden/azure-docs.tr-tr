@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="hero-article" 
-    ms.date="05/24/2016" 
+    ms.date="08/09/2016" 
     ms.author="sdanie"/>
 
 #API Management nedir?
@@ -124,6 +124,6 @@ API Management hakkında daha fazla bilgi için Microsoft Ignite 2015 konferans�
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

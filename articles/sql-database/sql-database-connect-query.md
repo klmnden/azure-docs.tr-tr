@@ -4,7 +4,7 @@
     services="sql-database"
     keywords="c# veritabanı sorgusu, c# sorgusu, veritabanına bağlanma, SQL C#"
     documentationCenter=""
-    authors="MightyPen"
+    authors="stevestein"
     manager="jhubbard"
     editor=""/>
 
@@ -14,8 +14,9 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="get-started-article"
-    ms.date="04/25/2016"
-    ms.author="annemill"/>
+    ms.date="08/17/2016"
+    ms.author="stevestein"/>
+
 
 
 # Visual Studio ile SQL Database'e bağlanma
@@ -25,78 +26,62 @@
 - [SSMS](sql-database-connect-query-ssms.md)
 - [Excel](sql-database-connect-excel.md)
 
-Visual Studio'da Azure SQL Database'e nasıl bağlanılacağını öğrenin. 
+Visual Studio'da bir Azure SQL veritabanına nasıl bağlanacağınızı öğrenin. 
 
-## Önkoşullar
-
-
-Visual Studio'yu kullanarak SQL Database'e bağlanmak için şunlara sahip olmanız gerekir: 
+## Ön koşullar
 
 
-- Bir Azure hesabı ve aboneliği [Ücretsiz deneme sürümü](https://azure.microsoft.com/pricing/free-trial/) için kaydolabilirsiniz.
+Visual Studio'yu kullanarak bir SQL veritabanına bağlanmak için şunlara sahip olmanız gerekir: 
 
 
-- Azure SQL Database hizmetinde bulunan bir **AdventureWorksLT** demo veritabanı.
- - Dakikalar içinde [demo veritabanı oluşturun](sql-database-get-started.md).
+- Bağlanmak için bir SQL veritabanı. Bu makalede **AdventureWorks** örnek veritabanı kullanılmıştır. AdventureWorks örnek veritabanını almak için bkz. [Demo veritabanı oluşturma](sql-database-get-started.md).
 
 
 - Visual Studio 2013 güncelleştirme 4 (veya sonraki bir sürümü). Microsoft, Visual Studio Community'yi artık *ücretsiz* olarak sunuyor.
  - [Visual Studio Community, indir](http://www.visualstudio.com/products/visual-studio-community-vs)
  - [Ücretsiz Visual Studio için daha fazla seçenek](http://www.visualstudio.com/products/free-developer-offers-vs.aspx)
- - Veya bu konu başlığının sonraki bölümlerinde bulunan bir [adımda](#InstallVSForFree) [Azure Portal](https://portal.azure.com/)'ın sizi Visual Studio yüklemesi hakkında nasıl yönlendireceğini öğrenebilirsiniz.
 
 
-<a name="InstallVSForFree" id="InstallVSForFree"></a>
-
-&nbsp;
-
-## 1. Adım: Visual Studio Community'yi ücretsiz olarak yükleme
 
 
-Visual Studio'yu yüklemeniz gerekiyorsa şunları yapabilirsiniz:
-
-- Tarayıcınızdan ücretsiz indirme seçenekleri ve başka seçenekler sunan Visual Studio ürün web sayfalarına giderek Visual Studio Community'yi ücretsiz olarak yükleyebilir veya
-- sonraki bölümde açıklandığı üzere [Azure Portal](https://portal.azure.com/)'ın sizi indirme web sayfasına yönlendirmesine izin verebilirsiniz.
+## Azure portalından Visual Studio'yu açma
 
 
-### Azure Portal aracılığıyla Visual Studio
+1. [Azure Portal](https://portal.azure.com/)’da oturum açın.
+
+2. **Diğer Hizmetler** > **SQL veritabanları** seçeneğine tıklayın
+3. *AdventureWorks* veritabanını bulup tıklayarak **AdventureWorks** veritabanı dikey penceresini açın.
+
+6. Veritabanı dikey penceresinin üst tarafındaki **Araçlar** düğmesine tıklayın:
+
+    ![Yeni sorgu. SQL Database sunucusuna bağlanma: SQL Server Management Studio](./media/sql-database-connect-query/tools.png)
+
+7. **Visual Studio'da aç** seçeneğine (Visual Studio'ya ihtiyaç duyuyorsanız indirme bağlantısına) tıklayın:
+
+    ![Yeni sorgu. SQL Database sunucusuna bağlanma: SQL Server Management Studio](./media/sql-database-connect-query/open-in-vs.png)
 
 
-1. http://portal.azure.com/ adresine giderek [Azure Portal](https://portal.azure.com/) aracılığıyla oturum açın.
-
-2. **TÜMÜNE* GÖZAT** > **SQL veritabanları** düğmesine tıklayın. Veritabanlarını arayabileceğiniz bir dikey pencere açılır.
-
-3. Üst kısmın yanında bulunan filtre metni kutusuna **AdventureWorksLT** veritabanınızın adını yazmaya başlayın.
-
-4. Sunucunuzdaki veritabanınızın bulunduğu satırı gördüğünüzde satıra tıklayın. Veritabanınız için bir dikey pencere açılır.
-
-5. Kolaylık olması açısından, önceki tüm dikey pencereleri simge durumuna küçültün.
-
-6. Veritabanı dikey pencerenizin üst kısmınının yanında bulunan **Visual Studio'da aç** düğmesine tıklayın. Visual Studio için yükleme konumlarına yönelik bağlantıların bulunduğu yeni bir dikey pencere açılır.
-
-    ![Visual Studio'da aç düğmesi][20-OpenInVisualStudioButton]
-
-7. **Community (ücretsiz)** bağlantısına veya benzer bir bağlantıya tıklayın. Yeni bir web sayfası eklenir.
-
-8. Visual Studio'yu yüklemek için yeni web sayfasındaki bağlantıları kullanın.
-
-9. Visual Studio yüklendikten sonra **Visual Studio'da Aç** dikey penceresinde **Visual Studio'da Aç** düğmesine tıklayın. Visual Studio açılır.
-
-10. Visual Studio, **SQL Server Nesne Gezgini** bölmesi için bir iletişim kutusundaki bağlantı dizesi alanlarını doldurmanızı ister.
- - **Windows Kimlik Doğrulaması**'nı değil **SQL Server Kimlik Doğrulaması**'nı seçin.
- - **AdventureWorksLT** veritabanınızı belirtmeyi (iletişim kutusunda bulunan **Seçenekler** > **Bağlantı Özellikleri** aracılığıyla) unutmayın.
-
-11. **SQL Server Nesne Gezgini**'nde, veritabanınız için düğümü genişletin.
+8. Visual Studio, zaten sunucuya ve portalda seçtiğiniz veritabanına bağlanacak şekilde ayarlanmış olan **Sunucuya Bağlan** penceresiyle açılır.  (Doğru veritabanıyla bağlantı kurulduğunu doğrulamak için **Seçenekler**'e tıklayın.) Sunucu yönetici parolanızı yazın ve **Bağlan**'a tıklayın.
 
 
-## 2. Adım: Örnek sorgu çalıştırma
+    ![Yeni sorgu. SQL Database sunucusuna bağlanma: SQL Server Management Studio](./media/sql-database-connect-query/connect.png)
 
-Mantıksal sunucunuza bağlandıktan sonra bir veritabanına bağlanabilir ve bir örnek sorgu çalıştırabilirsiniz. 
 
-1. **Nesne Gezgini**'nde, sunucuda bulunan ve **AdventureWorks** örnek veritabanı gibi erişim izniniz olan bir veritabanına gidin.
+8. Bilgisayarınızın IP adresi için ayarlanmış bir güvenlik duvarı kuralınız yoksa bu aşamada *Bağlanılamıyor* iletisi alırsınız. Güvenlik duvarı kuralı oluşturmak için bkz. [Azure SQL Veritabanı sunucusu düzeyinde güvenlik kuralı yapılandırma](sql-database-configure-firewall-settings.md).
+
+
+9. Bağlantı başarıyla kurulduktan sonra, veritabanınıza yönelik bağlantıyla birlikte **SQL Server Nesne Gezgini** penceresi açılır.
+
+    ![Yeni sorgu. SQL Database sunucusuna bağlanma: SQL Server Management Studio](./media/sql-database-connect-query/sql-server-object-explorer.png)
+
+
+## Örnek sorgu çalıştırma
+
+Artık veritabanına bağlı olduğumuza göre, basit bir sorgunun nasıl çalıştırılacağına ilişkin aşağıdaki adımlara göz atabiliriz:
+
 2. Veritabanına sağ tıklayın ve **Yeni Sorgu**'yu seçin.
 
-    ![Yeni sorgu. SQL Database sunucusuna bağlanma: SQL Server Management Studio](./media/sql-database-connect-query-ssms/4-run-query.png)
+    ![Yeni sorgu. SQL Database sunucusuna bağlanma: SQL Server Management Studio](./media/sql-database-connect-query/new-query.png)
 
 3. Aşağıdaki kodu kopyalayıp sorgu penceresine yapıştırın.
 
@@ -108,22 +93,20 @@ Mantıksal sunucunuza bağlandıktan sonra bir veritabanına bağlanabilir ve bi
         ,CompanyName
         FROM SalesLT.Customer;
 
-4. **Yürüt** düğmesine tıklayın.  Aşağıdaki ekran görüntüsü, sorgunun başarılı olduğunu gösterir.
+4. Sorguyu çalıştırmak için **Yürüt** düğmesine tıklayın:
 
-    ![Başarılı. SQL Database sunucusuna bağlanma: SVisual Studio](./media/sql-database-connect-query-ssms/5-success.png)
+    ![Başarılı. SQL Database sunucusuna bağlanma: SVisual Studio](./media/sql-database-connect-query/run-query.png)
 
 ## Sonraki adımlar
 
-[.NET (C#) kullanarak SQL Database'e bağlanma](sql-database-develop-dotnet-simple.md) 
-
-
-<!-- Image references. -->
-
-[20-OpenInVisualStudioButton]: ./media/sql-database-connect-query/connqry-free-vs-e.png
+- Visual Studio'da SQL veritabanlarının açılması için SQL Server Veri Araçları kullanılır. Daha ayrıntılı bilgi için bkz. [SQL Server Veri Araçları](https://msdn.microsoft.com/library/hh272686.aspx).
+- Bir SQL veritabanına kod kullanarak bağlanmak için bkz. [.NET (C#) kullanarak SQL Veritabanı'na bağlanma](sql-database-develop-dotnet-simple.md).
 
 
 
 
-<!--HONumber=Aug16_HO1-->
+
+
+<!--HONumber=Aug16_HO4-->
 
 

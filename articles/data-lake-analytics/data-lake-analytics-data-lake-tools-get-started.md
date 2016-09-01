@@ -110,7 +110,7 @@ Data Lake Analytics işleri, U-SQL dilinde yazılır. U-SQL hakkında daha fazla
 
     Bu U-SQL betiği, **Extractors.Tsv()** öğesini kullanarak kaynak veri dosyasını okur ve ardından **Outputters.Csv()** öğesini kullanarak bir csv dosyası oluşturur.
 
-    Kaynak dosyayı farklı bir konuma kopyalamadıysanız bu iki yolu değiştirmeyin.  Data Lake Analytics, mevcut olmaması halinde çıkış klasörünü oluşturur.
+    Kaynak dosyayı farklı bir konuma kopyalamadıysanız bu iki yolu değiştirmeyin.  Data Lake Analytics, mevcut olmaması halinde çıktı klasörünü oluşturur.
 
     Varsayılan Data Lake hesaplarında depolanan dosyalar için göreli yolların kullanılması daha basittir. Mutlak yol da kullanabilirsiniz.  Örneğin:
 
@@ -139,7 +139,7 @@ Data Lake Analytics işleri, U-SQL dilinde yazılır. U-SQL hakkında daha fazla
 
     - **Otomatik Biçimlendirme**
 
-        Kullanıcılar, Düzenle->Gelişmiş altındaki kod yapısına bağlı olarak Kapsam betiğinin girintisini değiştirebilir:
+        Kullanıcılar, Düzenle->Gelişmiş altındaki kod yapısına bağlı olarak U-SQL betiğinin girintisini değiştirebilir:
 
         - Belgeyi Biçimlendir (Ctrl+E, D): Tüm belgeyi biçimlendirir   
         - Seçimi Biçimlendir (Ctrl+K, Ctrl+F): Seçimi biçimlendirir. Seçim yapılmazsa bu kısayol, imlecin bulunduğu satırı biçimlendirir.  
@@ -163,7 +163,7 @@ Data Lake Analytics işleri, U-SQL dilinde yazılır. U-SQL hakkında daha fazla
 
     Daha fazla bilgi için bkz. [U-SQL kataloğunu kullanma](data-lake-analytics-use-u-sql-catalog.md).
 
-5. **Çözüm Gezgini**'nden, **Script.usql** öğesine sağ tıklayın ve ardından **Betik Oluştur**'a tıklayın. Çıkış bölmesinde sonucu doğrulayın.
+5. **Çözüm Gezgini**'nden, **Script.usql** öğesine sağ tıklayın ve ardından **Betik Oluştur**'a tıklayın. Çıktı bölmesinde sonucu doğrulayın.
 6. **Çözüm Gezgini**'nden, **Script.usql** öğesine sağ tıklayın ve ardından **Betiği Gönder**'e tıklayın. İsteğe bağlı olarak, Script.usql bölmesinden **Gönder**'e de tıklayabilirsiniz.  Önceki ekran görüntüsüne bakın.  Gelişmiş seçenekleri kullanarak göndermek için Gönder düğmesinin yanındaki aşağı oka tıklayın:
 7. **İş Adı**'nı belirtin, **Analytics Hesabı**'nı doğrulayın ve ardından **Gönder**'e tıklayın. Gönderim tamamlandığında, gönderme işleminin sonuçları ve iş bağlantısı Visual Studio için Data Lake Araçları içinde sunulur.
 
@@ -175,7 +175,7 @@ Data Lake Analytics işleri, U-SQL dilinde yazılır. U-SQL hakkında daha fazla
 
     * İş Özeti. Geçerli işe yönelik özet bilgilerini gösterir. Örneğin: Durum, İlerleme Durumu, Yürütme Zamanı, Çalışma Zamanı Adı, Gönderen vb.   
     * İş Ayrıntıları. Betik, kaynak, Köşe Yürütme Görünümü de dahil olmak üzere, bu işe yönelik ayrıntılı bilgiler sağlanır.
-    * İş Grafiği. İşe yönelik bilgileri görselleştirmek için dört grafik sağlanır: İlerleme Durumu, Okunan Veriler, Yazılan Veriler, Yürütme Zamanı, Düğüm Başına Ortalama Yürütme Zamanı, Giriş İşleme Birimi, Çıkış İşleme Birimi.
+    * İş Grafiği. İşe yönelik bilgileri görselleştirmek için dört grafik sağlanır: İlerleme Durumu, Okunan Veriler, Yazılan Veriler, Yürütme Zamanı, Düğüm Başına Ortalama Yürütme Zamanı, Girdi İşleme Birimi, Çıktı İşleme Birimi.
     * Meta Veri İşlemleri. Bu, tüm meta veri işlemlerini gösterir.
     * Durum Geçmişi.
     * Tanılama. Visual Studio için Data Lake Araçları, iş yürütmeyi otomatik olarak tanılar. İşlerinde birtakım hatalar veya performans sorunları olduğunda uyarı alırsınız. Daha fazla bilgi için İş Tanılama (bağlantı henüz belirlenmedi) bölümüne bakın.
@@ -186,10 +186,10 @@ Data Lake Analytics işleri, U-SQL dilinde yazılır. U-SQL hakkında daha fazla
 2. İşleri listelemek için **İşler** seçeneğine çift tıklayın.
 2. Durumu görmek için işe tıklayın.
 
-**İş çıkışını görmek için**
+**İş çıktısını görmek için**
 
 1. **Sunucu Gezgini**'nden, **Azure** seçeneğini, **Data Lake Analytics** seçeneğini, Data Lake Analytics hesabınızı ve **Depolama Hesapları** seçeneğini genişletin, varsayılan Data Lake Store hesabına sağ tıklayın ve ardından **Explorer**'a tıklayın.
-2.  Klasörü açmak için **çıkış** seçeneğine çift tıklayın
+2.  Klasörü açmak için **çıktı** seçeneğine çift tıklayın.
 3.  **SearchLog-From-adltools.csv** dosyasına çift tıklayın.
 
 
@@ -219,7 +219,7 @@ Visual Studio'da U-SQL yerel çalıştırma deneyimini kullanarak şunları yapa
 Visual Studio'da bir *Yerel* hesap görürsünüz ve yükleyici, *C:\LocalRunRoot* konumunda bir *DataRoot* klasörü oluşturur. DataRoot klasörü şu amaçlarla kullanılır:
 
 - Tablo, veritabanı ve TVF gibi öğeler de dahil olmak üzere, meta verileri depolama.
-- Belirli bir betik için: Giriş/çıkış yollarında göreli bir yola başvurulmuşsa DataRoot aranır (giriş olması durumunda betiğin yolu için de geçerlidir)
+- Belirli bir betik için: Girdi/çıktı yollarında göreli bir yola başvurulmuşsa DataRoot aranır (girdi olması durumunda betiğin yolu için de geçerlidir)
 - Bir derlemeyi kaydetmeye çalışıyor olmanız ve göreli yol kullanmanız halinde DataRoot klasörüne başvurulmaz (daha ayrıntılı bilgi için "Yerel çalıştırma gerçekleştirirken derlemeleri kullanma" kısmına bakın)
 
 Aşağıdaki videoda U-SQL yerel çalıştırma özelliği gösterilmektedir:
@@ -234,8 +234,8 @@ Aşağıdaki videoda U-SQL yerel çalıştırma özelliği gösterilmektedir:
 - Yerel hesap için Sunucu Gezgini'nde tablo/veritabanı vb. oluşturulamıyor.
 - Göreli yola başvurulduğunda:
 
-    - Betik girişinde (EXTRACT * FROM "/yol/abc"): hem DataRoot yolu hem de betik yolu aranır.
-    - Betik çıkışında (OUTPUT TO "yol/abc"): DataRoot yolu, çıkış klasörü olarak kullanılır.
+    - Betik girdisinde (EXTRACT * FROM "/yol/abc"): hem DataRoot yolu hem de betik yolu aranır.
+    - Betik çıktısında (OUTPUT TO "yol/abc"): DataRoot yolu, çıktı klasörü olarak kullanılır.
     - Derleme kaydında (CREATE ASSEMBLY xyz FROM “/path/abc”): betik yolu aranır, ancak DataRoot aranmaz.
     - Kayıtlı TVF/Görünüm veya diğer meta veri varlıklarında: DataRoot Yolu aranır ancak betik yolu aranmaz.
 
@@ -253,7 +253,7 @@ Ayrıca, bir betiğe sağ tıklayıp ardından bağlam menüsünde **Yerel Plan�
 Özelleştirilmiş C# dosyalarını çalıştırmak için iki yol mevcuttur:
 
 - Derlemeler dosyanın arkasındaki kodda yazın; böylece derlemeler, betiğin tamamlanmasının ardından otomatik olarak kaydedilir ve bırakılır.
-- Bir C# derleme projesi oluşturun ve çıkış dll'sini aşağıdaki gibi bir betik ile yerel hesaba kaydedin. Lütfen yolun DataRoot klasörüne değil, betiğe göreli olduğunu unutmayın.
+- Bir C# derleme projesi oluşturun ve çıktı dll'sini aşağıdaki gibi bir betik ile yerel hesaba kaydedin. Lütfen yolun DataRoot klasörüne değil, betiğe göreli olduğunu unutmayın.
 
 ![U-SQL çalıştırmasında derlemeleri kullanma](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-local-run-assembly.png)
 
@@ -268,7 +268,7 @@ C# derlemeleri üzerinde hata ayıklama işlemini, Azure Data Lake Analytics Hiz
 Aşağıdaki yordam yalnızca Visual Studio 2015'te çalışır. Daha eski Visual Studio sürümlerinde, pdb dosyalarını kendiniz eklemeniz gerekebilir.
 
 **Başvuruda bulunulan bir C# projesinde yerel kod hatalarını ayıklamak için**
-1.  Bir C# Derleme projesi oluşturun ve projeyi çıkış dll'sini üretmek üzere oluşturun.
+1.  Bir C# Derleme projesi oluşturun ve projeyi çıktı dll'sini üretmek üzere oluşturun.
 2.  U-SQL deyimi kullanarak dll'yi kaydetme:
 
         CREATE ASSEMBLY assemblyname FROM @"..\..\path\to\output\.dll";
@@ -364,6 +364,6 @@ Aşağıdaki PowerShell betiği, sizin için bir Azure Data Lake Analytics hesab
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="07/14/2016"
+    ms.date="08/05/2016"
     ms.author="vakarand"/>
 
 
@@ -168,12 +168,11 @@ Bu işlem sonrasında bir komut istemi başlatılır ve ardından bazı PowerShe
 
 ![Azure AD Connect Health'i doğrulama](./media/active-directory-aadconnect-health/aadconnect-health-adds-agent-install3.png)
 
-
 Oturum açtıktan sonra PowerShell işleme devam eder. İşlem tamamlandıktan sonra PowerShell'i kapatabilirsiniz ve yapılandırma tamamlanmış olur.
 
 Bu noktada, hizmetler otomatik olarak başlatılır ve veriler aracı tarafından izlenip toplanabilir. Çıktının bir örneğini aşağıdaki ekran görüntüsünde görebilirsiniz. Önceki bölümlerde belirtilen önkoşulların tümünü yerine getirmediyseniz PowerShell penceresinde bazı uyarılar görürsünüz. Aracıyı yüklemeden önce [buradaki](active-directory-aadconnect-health-agent-install.md#requirements) gereksinimleri karşıladığınızdan emin olun. 
 
-![Azure AD Connect Health'i doğrulama](./media/active-directory-aadconnect-health/aadconnect-health-adds-agent-install4.png)
+![AD DS için Azure AD Connect Health'i doğrulama](./media/active-directory-aadconnect-health/aadconnect-health-adds-agent-install4.png)
 
 Aracının yüklü olduğunu doğrulamak için hizmetleri açın ve aşağıdakileri kontrol edin:
 
@@ -183,6 +182,11 @@ Aracının yüklü olduğunu doğrulamak için hizmetleri açın ve aşağıdaki
 Bu iki hizmet yapılandırma tamamlanıncaya kadar çalışmaz.
 
 ![Azure AD Connect Health'i doğrulama](./media/active-directory-aadconnect-health/aadconnect-health-adds-agent-install5.png)
+
+## Sunucu Çekirdeğinde AD DS için Azure AD Connect Health Aracısı’nı yükleme. 
+Kayıt işlemini, .exe dosyasını yükledikten sonra aşağıdaki PowerShell komutlarını kullanarak tamamlayabilirsiniz:
+
+`Register-AzureADConnectHealthADDSAgent -Credentials $cred
 
 ## Azure AD Connect Health Aracılarını HTTP Ara Sunucusunu kullanacak şekilde yapılandırma
 Azure AD Connect Health Aracılarını bir HTTP Ara Sunucusunu kullanacak şekilde yapılandırabilirsiniz.
@@ -265,6 +269,6 @@ Ayrıntılı günlükleri görüntülemek için komut içinde -ShowResults bayra
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

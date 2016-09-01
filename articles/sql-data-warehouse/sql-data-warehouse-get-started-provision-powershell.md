@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/20/2016"
+   ms.date="08/16/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # PowerShell kullanarak SQL Data Warehouse oluşturma
@@ -81,7 +81,7 @@ Programlama yoluyla SQL Data Warehouse'u yönetme hakkında daha fazla bilgi edi
 [geçirme]: ./sql-data-warehouse-overview-migrate.md
 [geliştirme]: ./sql-data-warehouse-overview-develop.md
 [yükleme]: ./sql-data-warehouse-load-with-bcp.md
-[örnek veri yükleme]: ./sql-data-warehouse-get-started-load-sample-databases.md
+[örnek veri yükleme]: ./sql-data-warehouse-load-sample-databases.md
 [PowerShell cmdlet’leri ve REST API’lerinin]: ./sql-data-warehouse-reference-powershell-cmdlets.md
 [güvenlik duvarı kuralları]: ../sql-database-configure-firewall-settings.md
 
@@ -104,6 +104,6 @@ Programlama yoluyla SQL Data Warehouse'u yönetme hakkında daha fazla bilgi edi
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

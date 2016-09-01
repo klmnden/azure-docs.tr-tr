@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="07/28/2016"
+    ms.date="08/24/2016"
     ms.author="awills"/>
 
 
@@ -302,6 +302,6 @@ web uygulaması Azure’deyse ve Azure Resource Manager şablonu kullanarak kayn
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

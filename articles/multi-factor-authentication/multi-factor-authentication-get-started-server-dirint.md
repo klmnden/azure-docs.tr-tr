@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="05/12/2016" 
+    ms.date="08/04/2016" 
     ms.author="billmath"/>
 
 # Azure MFA Sunucusu ile Active Directory arasında dizin tümleştirme
@@ -138,6 +138,7 @@ Yedek RADIUS proxy, LDAP proxy olarak hizmet etmesi ya da IIS Kimlik Doğrulamas
 ![Multi-Factor Auth Sunucuları](./media/multi-factor-authentication-get-started-server-dirint/dirint6.png)
 
 
-<!----HONumber=Jun16_HO2-->
+
+<!--HONumber=Aug16_HO4-->
 
 

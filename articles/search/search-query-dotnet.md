@@ -12,7 +12,7 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="05/23/2016"
+    ms.date="08/15/2016"
     ms.author="brjohnst"/>
 
 # .NET SDK kullanarak Azure Search dizininizi sorgulama
@@ -164,6 +164,6 @@ Yukarıdaki örnek kod, arama sonuçlarını çıkarmak için konsolu kullanır.
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

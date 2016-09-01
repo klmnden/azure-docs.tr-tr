@@ -13,14 +13,14 @@
    ms.devlang="na"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/21/2016"
+   ms.date="08/11/2016"
    ms.author="yurid"/>
 
 # Azure Güvenlik Merkezi planlama ve işlemler kılavuzu
-Bu kılavuz, kuruluşlarının Azure Güvenlik Merkezi'ni kullanmayı planladığı bilgi teknolojisi (BT) uzmanları, BT mimarları, bilgi güvenlik çözümleyicileri ve bulut yöneticileri içindir.
+Bu kılavuz, kurumları Azure Güvenlik Merkezi'ni kullanmayı planlayan bilgi teknolojisi (BT) uzmanları, BT mimarları, bilgi güvenlik çözümleyicileri ve bulut yöneticilerine yöneliktir.
 
 ## Planlama Kılavuzu
-Bu kılavuzda, kuruluşunuzun güvenlik gereksinimlerine ve bulut yönetimi modeline dayanarak Güvenlik Merkezi kullanımınızı iyileştirmek için izleyeceğiniz adımlar ve görevlerin kümesi sağlanmıştır. Güvenlik Merkezi'nden tam olarak yararlanabilmek için kuruluşunuzdaki farklı kişilerin veya ekiplerin güvenli geliştirmenin yanı sıra işlem, izleme, yönetim ve olay yanıtı gereksinimlerini karşılamak amacıyla hizmeti nasıl kullanacaklarını anlamak oldukça önemlidir. Güvenlik Merkezi'ni kullanmayı planlarken dikkate alınması gereken temel alanlar şunlardır:
+Bu kılavuzda, kuruluşunuzun güvenlik gereksinimlerine ve bulut yönetimi modeline dayanarak Güvenlik Merkezi kullanımınızı iyileştirmek için izleyeceğiniz adımlar ve görevlerin kümesi sağlanmıştır. Güvenlik Merkezi'nin tüm avantajlarından yararlanabilmek için kurumunuzdaki farklı kişilerin veya ekiplerin güvenli geliştirmenin yanı sıra işlem, izleme, yönetim ve olay yanıtı gereksinimlerini karşılamak amacıyla hizmeti nasıl kullandığının anlaşılması oldukça önemlidir. Güvenlik Merkezi'ni kullanmayı planlarken dikkate alınması gereken temel alanlar şunlardır:
 
 - Güvenlik Rolleri ve Erişim Denetimleri
 - Güvenlik İlkeleri ve Öneriler
@@ -28,45 +28,47 @@ Bu kılavuzda, kuruluşunuzun güvenlik gereksinimlerine ve bulut yönetimi mode
 - Devam Eden Güvenlik İzleme
 - Olay Yanıtı
 
-Sonraki bölümde, bu alanların her birini planlamayı ve bu önerileri gereksinimlerinize göre uygulamayı öğreneceksiniz.
+Sonraki bölümde, gereksinimlerinize bağlı olarak bu alanların her birini nasıl planlayacağınızı ve bu önerileri nasıl uygulayacağınızı öğreneceksiniz.
 
 > [AZURE.NOTE] Tasarlama ve planlama aşamasında da faydalı olabilecek sık sorulan soruların bir listesi için bkz. [Azure Güvenlik Merkezi ile ilgili sık sorulan sorular (SSS)](security-center-faq.md).
 
 
 ## Güvenlik rolleri ve erişim denetimleri
-Kuruluşunuzun büyüklüğüne ve yapısına bağlı olarak birçok kişi ve ekip, güvenlikle ilgili farklı görevleri gerçekleştirmek için Güvenlik Merkezi'ni kullanabilir. Aşağıda, hayali kişilerin, bu kişilerle ilgili rollerin ve güvenlik sorumluluklarının bir örneğini bulabilirsiniz:
+Kuruluşunuzun büyüklüğüne ve yapısına bağlı olarak birçok kişi ve ekip, güvenlikle ilgili farklı görevleri gerçekleştirmek için Güvenlik Merkezi'ni kullanabilir. Aşağıdaki diyagramda, hayali kişiler ile bunların rollerinin ve güvenlik sorumluluklarının bir örneğini bulabilirsiniz:
 
-![Roller](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig01.png)
+![Roller](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig01-ga.png)
 
 Güvenlik Merkezi, bu çok çeşitli sorumlulukları karşılamak için kişileri etkinleştirir. Örneğin:
 
 **Jeff (Bulut İş Yükü Sahibi)**
 
-- Azure Portal'da Güvenlik Merkezi Önerilerini Görüntüler ve Tamamlar
-- Değişiklikleri İzlemek için Çağrı Oluşturma Sistemini de Kullanabilir ([API](https://msdn.microsoft.com/library/mt704034.aspx)'yi kullanarak önerileri doldurur)
+- Bir bulut iş yükünü ve onunla ilgili kaynakları yönetme
+- Korumaları şirket güvenlik ilkesiyle uyumlu bir şekilde uygulamak ve sürdürmekle sorumlu
 
-**REX (CISO/CIO)**
+**Emel (CISO/CIO)**
 
-- Power BI veya Excel'den Güvenlik Merkezi Raporlarını Görüntüler
+- Şirket güvenliğinin tüm boyutlarından sorumlu
+- Bulut iş yüklerinin tamamında şirketin güvenlik duruşunu anlamak istiyor
+- Önemli saldırı ve risklerden haberdar olması gerekiyor
 
 **David (BT Güvenliği)**
 
-- Güvenlik İlkesini Ayarlar ve Azure Portal'da Güvenlik Durumunu Görüntüler
-- Power BI'da Verileri Çözümler ve Raporlar Oluşturur
+- Uygun korumaların uygulanmakta olduğundan emin olmak için şirketin güvenlik ilkelerini ayarlar
+- İlkelerle uyumluluğu izler
+- Yöneticiler veya denetçiler için raporlar oluşturur
 
-**Sam (Güvenlik İşlemleri)**
+**Zehra (Güvenlik İşlemleri)**
 
-- Azure Portal'da Güvenlik Merkezi Uyarılarını Görüntüler ve Önceliklendirir
-- Var Olan Bir Panoyu Kullanabilir ([API](https://msdn.microsoft.com/library/mt704034.aspx)'yi kullanarak uyarıları doldurur)
+- Güvenlik uyarılarını 7/24 izler ve bunlara yanıt verir
+- Bulut İş Yükü Sahibi veya BT Güvenlik Analistine İletir
 
-**Sherlock (Güvenlik Çözümleyicisi)**
+**Salih (Güvenlik Analisti)**
 
-- Azure Portal'da Güvenlik Merkezi Uyarılarını Görüntüler
-- Var Olan Bir Panoyu Kullanabilir ([API](https://msdn.microsoft.com/library/mt704034.aspx)'yi kullanarak uyarıları doldurur)
-- Power BI'da Uyarı Eğilimlerini Çözümler
-- Storage İçindeki Olay Günlükleri'ni Gözden Geçirir
+- Atakları araştırır
+- Uyarıları düzeltir veya Bulut İş Yükü Sahibi ile birlikte çalışarak düzeltme uygular 
 
-Güvenlik Merkezi, Azure'daki kullanıcılara, gruplara ve hizmetlere atanabilen [yerleşik roller](../active-directory/role-based-access-built-in-roles.md) sağlayan [Rol Tabanlı Erişim Denetimi'ni (RBAC)](../active-directory/role-based-access-control-configure.md) kullanır. Bir kullanıcı Güvenlik Merkezi'ni açtığında yalnızca erişiminin olduğu kaynaklarla ilgili bilgileri görür. Bu da bir kaynak barındıran abonelik veya kaynak grubu için kullanıcının Sahip, Katkı Sağlayan veya Okuyucu rollerine atanması anlamına gelir. Yukarıdaki kişiler kullanıldığında şu RBAC gerekir:
+
+Güvenlik Merkezi, Azure'daki kullanıcılara, gruplara ve hizmetlere atanabilen [yerleşik roller](../active-directory/role-based-access-built-in-roles.md) sağlayan [Rol Tabanlı Erişim Denetimi'ni (RBAC)](../active-directory/role-based-access-control-configure.md) kullanır. Bir kullanıcı Güvenlik Merkezi’ni açtığında, yalnızca erişmi olan kaynaklarla ilişkili bilgileri görüntüleyebilir. Bu da bir kaynağın ait olduğu abonelik veya kaynak grubu için kullanıcıya Sahip, Katkıda Bulunan veya Okuyucu rolünün atandığı anlamına gelir. Önceki diyagramda açıklanan kişiler kullanıldığında aşağıdaki RBAC gerekli olur:
 
 **Jeff (Bulut İş Yükü Sahibi)**
 
@@ -76,12 +78,12 @@ Güvenlik Merkezi, Azure'daki kullanıcılara, gruplara ve hizmetlere atanabilen
 
 - Abonelik Sahibi/Ortak Çalışanı
 
-**Sam (Güvenlik İşlemleri)**
+**Zehra (Güvenlik İşlemleri)**
 
 - Uyarıları Görüntülemek için Abonelik Okuyucusu
 - Uyarıları Kapatmak İçin Gerekli Olan Abonelik Sahibi/Ortak Çalışanı
 
-**Sherlock (Güvenlik Çözümleyicisi)**
+**Salih (Güvenlik Analisti)**
 
 - Uyarıları Görüntülemek için Abonelik Okuyucusu
 - Uyarıları Kapatmak veya Düzeltmek İçin Gerekli Olan Abonelik Sahibi/Ortak Çalışanı
@@ -92,18 +94,18 @@ Dikkate alınması gereken bazı diğer önemli bilgiler:
 - Yalnızca abonelik Sahipleri ve Katkıda Bulunanları güvenlik ilkesini düzenleyebilir
 - Yalnızca abonelik ve kaynak grubu Sahipleri ve Katkıda bulunanları bir kaynak için güvenlik önerilerini uygulayabilir.
 
-Güvenlik Merkezi için RBAC kullanarak erişim denetimini planlarken kuruluşunuzda kimlerin Güvenlik Merkezi'ni kullanacağını ve hangi tür görevleri gerçekleştireceklerini anladığınızdan emin olun. Ardından RBAC'yi uygun şekilde yapılandırın.
+Güvenlik Merkezi için RBAC kullanarak erişim denetimini planlarken Güvenlik Merkezi'ni kuruluşunuzdaki hangi kişilerin kullanacağını anladığınızdan emin olun. Ayrıca, bunların hangi türde görevler gerçekleştireceğini anlayın ve daha sonra RBAC’yi buna göre yapılandırın.
 
 > [AZURE.NOTE] Kullanıcılara, görevlerini tamamlamak için gereken rolleri en alt seviyede esneklik sunacak şekilde atamanızı öneririz. Örneğin, yalnızca kaynakların güvenlik durumu hakkındaki bilgileri görüntülemesi gereken ancak eyleme geçmeyecek olan kullanıcıların (örneğin, önerileri uygulamak veya ilkeleri düzeltmek), Okuyucu rolüne atanmaları gerekir.
 
 ## Güvenlik ilkeleri ve öneriler
-Güvenlik ilkesi, belirtilen abonelik veya kaynak grubundaki kaynaklar için önerilen denetimler kümesini tanımlar. Güvenlik Merkezi'nde, şirketinizin güvenlik gereksinimleri ve uygulamaların türü veya verilerin duyarlılığına göre ilkeleri tanımlarsınız.
+Güvenlik ilkeleri, belirtilen abonelik veya kaynak grubundaki kaynaklar için önerilen denetim kümesini tanımlar. Güvenlik Merkezi'nde, şirketinizin güvenlik gereksinimleri ve uygulamaların türü veya verilerin duyarlılığına göre ilkeleri tanımlarsınız.
 
-Abonelik düzeyinde etkinleştirilen ilkeler, aşağıdaki diyagramda gösterildiği gibi abonelik içindeki tüm kaynak gruplarına otomatik olarak yayılır:
+Abonelik düzeyinde etkinleştirilen ilkeler, aşağıdaki diyagramda gösterildiği gibi abonelikteki tüm kaynak gruplarına otomatik olarak yayılır:
 
 ![Güvenlik İlkeleri](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig2-ga.png)
 
-Yukarıdaki şekilde gösterildiği gibi kaynak grupları için güvenlik ilkeleri abonelik düzeyinden devralınabilir.
+Önceki şekilde gösterildiği gibi, kaynak gruplarına yönelik güvenlik ilkeleri abonelik düzeyinden devralınabilir.
 
 Farklı ilke kümesi gerektiren kaynak grubunda kaynaklarınızın olduğu bazı senaryolarda, devralmayı devre dışı bırakabilir ve belirli bir Kaynak Grubuna özel ilkeler uygulayabilirsiniz.
 
@@ -115,15 +117,15 @@ Farklı kaynak grupları için özel ilkeler oluşturmaya başladığınızda il
 
 ### Güvenlik önerileri
 
-Güvenlik İlkeleri'ni yapılandırmadan önce her bir [güvenlik önerisini](security-center-recommendations.md) gözden geçirip bunların çeşitli abonelikleriniz ve kaynak gruplarınız için uygun olup olmadığını belirlemeniz gerekir. Ayrıca, Güvenlik Önerilerine değinmek için hangi eylemin gerçekleştirileceğini anlamak önemlidir.
+Güvenlik ilkelerini yapılandırmadan önce her bir [güvenlik önerisini](security-center-recommendations.md) gözden geçirip bu ilkelerin sahip olduğunuz çeşitli abonelikler ve kaynak grupları için uygun olup olmadığını belirleyin. Güvenlik Önerilerinin uygulanması için hangi eylemin gerçekleştirildiğini anlamanız da önemlidir.
 
-**Uç Nokta Koruması**: Sanal makine, etkin bir uç nokta koruma çözümüne sahip değilse Güvenlik Merkezi bir tane yüklemenizi önerir. Şirket içinde zaten benimsediğiniz bir uç nokta koruma çözümünüz varsa aynı kötü amaçlı yazılımdan koruma yazılımını Azure VM'leriniz için kullanıp kullanmayacağınıza karar vermeniz gerekir. Azure Güvenlik Merkezi, çeşitli uç nokta koruma seçeneklerini size sunar.  Ücretsiz Microsoft Kötü Amaçlı Yazılımdan Koruma Yazılımı'nı kullanabilir veya tümleşik iş ortaklarının uç nokta koruma çözümleri listesinden seçebilirsiniz. Güvenlik Merkezi'ni kullanarak kötü amaçlı yazılımdan koruma yazılımını dağıtma hakkında daha fazla bilgi için bkz. [Azure Güvenlik Merkezi'nde Uç Nokta Korumasını Yükleme](security-center-install-endpoint-protection.md).
+**Uç Nokta Koruması**: Bir sanal makinenin etkinleştirilmiş bir uç nokta koruma çözümü yoksa Güvenlik Merkezi bir çözüm yüklemenizi önerir. Şirket içinde zaten benimsediğiniz bir uç nokta koruma çözümü varsa, aynı kötü amaçlı yazılımdan koruma yazılımını Azure VM'leriniz için kullanıp kullanmayacağınıza karar vermeniz gerekir. Güvenlik Merkezi, size çeşitli uç nokta koruma seçenekleri sunar.  Ücretsiz Microsoft Kötü Amaçlı Yazılımdan Koruma Yazılımı'nı kullanabilir veya tümleşik iş ortaklarının uç nokta koruma çözümleri listesinden seçebilirsiniz. Güvenlik Merkezi'ni kullanarak kötü amaçlı yazılımdan koruma yazılımı dağıtma hakkında daha fazla bilgi için bkz. [Azure Güvenlik Merkezi'nde Uç Nokta Koruması Yükleme](security-center-install-endpoint-protection.md).
 
-**Sistem Güncelleştirmeleri**: Azure Güvenlik Merkezi, güvenliği veya IaaS ve Cloud Services (PaaS) için kritik işletim sistemi güncelleştirmeleri eksik olan sanal makineleri tanımlar. Kimin güncelleştirmeleri uygulamak için sorumlu olacağını, ne zaman gereksinim duyacağınızı ve bunların nasıl uygulanacağını dikkate alın. Birçok kuruluş WSUS, Windows Update veya başka bir araç kullanır.
+**Sistem Güncelleştirmeleri**: Güvenlik Merkezi, IaaS ve Cloud Services (PaaS) için güvenlik veya kritik işletim sistemi güncelleştirmeleri eksik olan sanal makineleri tanımlar. Gerektiğinde güncelleştirmeleri uygulamaktan kimin sorumlu olduğunu ve bunların nasıl uygulanacağını dikkate alın. Birçok kuruluş WSUS, Windows Update veya başka bir araç kullanır.
 
-**Temel Yapılandırmalar**: Sanal makine işletim sistemi yapılandırmaları, önerilen temel yapılandırmalarla eşleşmiyorsa bir öneri kullanıma sunulur. Temel yapılandırmalar kümesini [buradan](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) gözden geçirmeniz ve işletim sistemi yapılandırmalarının nasıl uygulanacağını göz önünde bulundurmanız gerekir.
+**Temel Yapılandırmalar**: Sanal makine işletim sistemi yapılandırmaları önerilen temel yapılandırmalarla eşleşmiyorsa bir öneri kullanıma sunulur. [Buradan](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) temel yapılandırmalar kümesini gözden geçirin ve işletim sistemi yapılandırmalarının nasıl uygulanacağını göz önünde bulundurun.
 
-**Disk Şifrelemesi**: Şifrelenmeyen sanal makine diskiniz varsa Azure Güvenlik Merkezi, işletim sistemi ve veri diskleri için birim şifrelemesi sağlamak amacıyla Windows için BitLocker ve Linux için DM-Crypt kullanan Azure Disk Şifrelemesi'ni uygulamanızı önerir. Bu öneri sizi, bu şifrelemeyi nasıl gerçekleştireceğiniz hakkında talimatlar içeren [adım adım kılavuzu](security-center-disk-encryption.md) bölümüne yönlendirir.
+**Disk Şifrelemesi**: Şifrelenmemiş sanal makine diskleriniz varsa, Güvenlik Merkezi tarafından Azure Disk Şifrelemesi uygulamanız önerilir. Bu özellik, işletim sistemi ve veri diskleri için toplu şifreleme sağlamak amacıyla Windows için BitLocker ve Linux için DM-Crypt’ten yararlanır. Bu öneri tarafından bu şifrelemeyi nasıl gerçekleştireceğiniz hakkında yönergeler içeren [adım adım kılavuz](security-center-disk-encryption.md) bölümüne yönlendirilirsiniz.
 
 Değinmeniz gereken birçok şifreleme senaryosu olduğunu unutmayın. Bu senaryoların her biri için benzersiz gereksinimleri planlamanız gerekir:
 
@@ -133,11 +135,11 @@ Değinmeniz gereken birçok şifreleme senaryosu olduğunu unutmayın. Bu senary
 
 Gereksinimleri planlama, bu senaryoların her biri için farklı olacaktır. Bu senaryoların her birine ilişkin ayrıntılar için bkz. [Azure Disk Şifrelemesi teknik incelemesi](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0).
 
-**Web Uygulaması Güvenlik Duvarı**: Azure Güvenlik Merkezi, web uygulamaları çalıştıran sanal makineleri tanımlar ve bir Web Uygulaması Güvenlik Duvarı (WAF) yüklemenizi önerir. Kuruluşunuz için en uygun olan kullanılabilir iş ortağı çözümlerini değerlendirin ve çözümün nasıl lisanslanacağını belirleyin (iş ortakları Kendi Lisansını Getir ve/veya Kullandıkça Öde modellerini destekleyebilir). Azure Güvenlik Merkezi'ni kullanarak Azure VM'lerinizde web uygulaması güvenlik duvarının nasıl dağıtılacağı hakkında daha fazla bilgi için bkz. [Azure Güvenlik Merkezi'nde bir web uygulaması güvenlik duvarı ekleme](security-center-add-web-application-firewall.md).
+**Web Uygulaması Güvenlik Duvarı**: Güvenlik Merkezi, web uygulamaları çalıştıran sanal makineleri tanımlar ve bir Web Uygulaması Güvenlik Duvarı (WAF) yüklemenizi önerir. Kuruluşunuz için en uygun olan kullanılabilir iş ortağı çözümlerini değerlendirin ve çözümün nasıl lisanslanacağını belirleyin (iş ortakları Kendi Lisansını Getir ve/veya Kullandıkça Öde modellerini destekleyebilir). Azure Güvenlik Merkezi'ni kullanarak Azure VM'lerinizde web uygulaması güvenlik duvarı dağıtma hakkında daha fazla bilgi için bkz. [Güvenlik Merkezi'nde bir web uygulaması güvenlik duvarı ekleme](security-center-add-web-application-firewall.md).
 
-**Yeni Nesil Güvenlik Duvarı**: Check Point ve kısa süre sonra Cisco ile Fortinet gibi önde gelen satıcıların sanal makinelerini hazırlamanızı sağlar. Bu, ağ korumalarını Azure içinde yerleşik olan Ağ Güvenlik Grupları'na genişletir. Güvenlik Merkezi, Yeni Nesil Güvenlik Duvarı'nın önerildiği dağıtımları bulur ve sanal gereç sağlamanızı imkan tanır.
+**Yeni Nesil Güvenlik Duvarı**: Check Point ve kısa süre sonra Cisco ile Fortinet gibi önde gelen satıcıların sanal makinelerini hazırlamanızı sağlar. Bu da ağ korumalarını Azure’da yerleşik olan Ağ Güvenlik Grupları'nın ötesine genişletir. Güvenlik Merkezi, Yeni Nesil Güvenlik Duvarı'nın önerildiği dağıtımları bulur ve sanal gereç sağlamanızı imkan tanır.
 
-**Sanal Ağ**: Azure Güvenlik Merkezi, [Ağ Güvenlik Grubu](../virtual-network/virtual-networks-nsg.md)'nun uygulandığını ve gelen trafik kurallarıyla düzgün şekilde yapılandırıldığını denetlemek için [Azure Virtual Network](https://azure.microsoft.com/documentation/services/virtual-network/) altyapınızı ve yapılandırmanızı değerlendirir. Hangi trafik kurallarının tanımlanacağını dikkate almanız ve ilgili güvenlik önerilerini uygulayacak kişilerle bu konu hakkında iletişim kurmanız gerekir.
+**Sanal Ağ**: Güvenlik Merkezi, [Ağ Güvenlik Grupları](../virtual-network/virtual-networks-nsg.md)'nın uygulanıp uygulanmadığını ve gelen trafik kurallarıyla düzgün şekilde yapılandırılıp yapılandırılmadığını denetlemek için [Azure Sanal Ağ](https://azure.microsoft.com/documentation/services/virtual-network/) altyapınızı ve yapılandırmanızı değerlendirir. Hangi trafik kurallarının tanımlanacağını dikkate almanız ve ilgili güvenlik önerilerini uygulayacak kişilerle bu konu hakkında iletişim kurmanız gerekir.
 
 Güvenlik Merkezi, Azure aboneliğiniz için güvenlik kişi ayrıntılarını sağlamanızı önerir. Bu bilgiler, Microsoft Güvenlik Yanıt Merkezi (MSRC) müşteri verilerinize yasadışı veya yetkisiz bir tarafın eriştiğini belirlerse Microsoft tarafından sizinle iletişim kurmak için kullanılır. Bu öneriyi etkinleştirme hakkında daha fazla bilgi için [Azure Güvenlik Merkezi’nde güvenlik kişi ayrıntılarını sağlama](security-center-provide-security-contact-details.md) konusunu okuyun.
 
@@ -159,7 +161,7 @@ Sanal makinelerinizin çalıştığı her bir bölge için bu sanal makinelerden
 
 Farklı Azure kaynakları arasında paylaşılan bir depolama hesabı kullanıyorsanız boyut sınırlamaları ve kısıtlamalar hakkında daha fazla bilgi için [Azure Storage Hizmeti Ölçeklenebilirliği ve Performans Hedefleri](../storage/storage-scalability-targets.md) makalesini okuyun. Ayrıca sizin aboneliğinizin de depolama hesabı sınırlamaları vardır, bu sınırlamaları daha iyi anlamak için bkz.[Azure aboneliğinin ve hizmetlerinin sınırlamaları, kotaları ve kısıtlamaları](../azure-subscription-service-limits.md).
 
-> [AZURE.NOTE] Bu depolama ile ilişkili maliyetler Azure Güvenlik Merkezi hizmeti fiyatına dahil değildir ve ayrı olarak normal [Azure depolama fiyatlarına](https://azure.microsoft.com/pricing/details/storage/) göre ücretlendirilir.
+> [AZURE.NOTE] Bu depolama ile ilişkili maliyetler Güvenlik Merkezi hizmeti fiyatına dahil değildir ve normal [Azure depolama fiyatları](https://azure.microsoft.com/pricing/details/storage/) üzerinden ayrı olarak ücretlendirilir.
 
 Ayrıca, performans ve ölçeklenebilirlik ile ilgili dikkat edilmesi noktaların da Azure ortamı boyutunuza ve depolama hesabınızı kullanan kaynaklara göre planlanması gerekir. Daha fazla bilgi için [Microsoft Azure Storage Performansı ve Ölçeklenebilirlik Yapılacaklar Listesi](../storage/storage-performance-checklist.md) bölümünü gözden geçirin.
 
@@ -167,26 +169,26 @@ Ayrıca, performans ve ölçeklenebilirlik ile ilgili dikkat edilmesi noktaları
 
 Güvenlik Merkezi önerilerinin ilk yapılandırması ve uygulamasından sonraki adım, Güvenlik Merkezi işlem süreçlerini dikkate almaktır.
 
-Güvenlik Merkezi'ne Azure Portal'dan erişmek için **Gözat**'a tıklayıp **Filtre** alanına **Güvenlik Merkezi** yazabilirsiniz. Kullanıcıların aldıkları görünümler, bu uygulanan filtrelere göre yapılır.
+Azure portaldan Güvenlik Merkezi'ne erişmek için **Gözat**'a tıklayıp **Filtre** alanına **Güvenlik Merkezi** yazabilirsiniz. Kullanıcıların aldıkları görünümler, bu uygulanan filtrelere göre yapılır.
 
-Azure Güvenlik Merkezi, normal işlem yordamlarınıza müdahale etmez, pasif olarak dağıtımlarınızı izler ve etkinleştirdiğiniz güvenlik ilkelerine bağlı olarak öneriler sağlar.
+Güvenlik Merkezi normal işlem yordamlarınıza müdahale etmez, dağıtımlarınızı pasif olarak izler ve etkinleştirdiğiniz güvenlik ilkelerine bağlı olarak öneriler sağlar.
 
-Azure Güvenlik Merkezi panosu iki ana iki bölüme ayrılır:
+Güvenlik Merkezi panosu iki ana iki bölüme ayrılır:
 
 - Önleme
 - Algılama
 
-Geçerli Azure ortamınız için Azure Güvenlik Merkezi'nde veri koleksiyonunu ilk defa etkinleştirdiğinizde **Öneriler** dikey penceresinde yer alan veya her bir kaynak için (**Sanal Makine**, **Ağ**, **SQL** ve **Uygulama**) sunulan tüm önerileri gözden geçirdiğinize emin olun.
+Geçerli Azure ortamınıza yönelik Güvenlik Merkezi'nde veri toplamayı ilk defa etkinleştirdiğinizde, **Öneriler** dikey penceresinde yer alan veya her bir kaynak (**Sanal Makine**, **Ağ**, **SQL** ve **Uygulama**) için sunulan tüm önerileri gözden geçirdiğinizden emin olun.
 
 Tüm önerilere değindikten sonra değinilen tüm kaynaklar için **Önleme** bölümünün yeşil olması gerekir. Yalnızca kaynak güvenlik durumu ve öneriler kutucuklarındaki değişikliklere göre eyleme geçeceğiniz için devam eden izleme bu noktada daha kolay olur.
 
-**Algılama** bölümü daha reaktiftir; bunlar, ya şu anda var olan veya geçmişte oluşan ya da Azure Güvenlik Merkezi denetimleri ile 3. taraf sistemleri tarafından algılanan sorunlarla ilgili uyarılardır. Güvenlik Uyarıları kutucuğu, her gün bulunan tehlike algılama uyarıları sayısını ve bunların farklı önem derecesi kategorilerine (düşük, orta, yüksek) dağılımlarını temsil eden çubuk grafiklerini gösterir. Güvenlik Uyarıları hakkında daha fazla bilgi için bkz. [Azure Güvenlik Merkezi'nde güvenlik uyarılarını yönetme ve uyarılara yanıt verme](security-center-managing-and-responding-alerts.md)
+**Algılama** bölümü daha reaktiftir; bunlar, ya şu anda var olan veya geçmişte oluşan ya da Güvenlik Merkezi denetimleri ile 3. taraf sistemleri tarafından algılanan sorunlarla ilgili uyarılardır. Güvenlik Uyarıları kutucuğu, her gün bulunan tehlike algılama uyarıları sayısını ve bunların farklı önem derecesi kategorilerine (düşük, orta, yüksek) dağılımlarını temsil eden çubuk grafiklerini gösterir. Güvenlik Uyarıları hakkında daha fazla bilgi için bkz. [Azure Güvenlik Merkezi'nde güvenlik uyarılarını yönetme ve uyarılara yanıt verme](security-center-managing-and-responding-alerts.md)
 
-> [AZURE.NOTE] Ayrıca, Azure Güvenlik Merkezi verilerinizi görselleştirmek için Microsoft Power BI'dan da yararlanabilirsiniz. Bkz. [Power BI ile Azure Güvenlik Merkezi verilerinden öngörü alma](security-center-powerbi.md).
+> [AZURE.NOTE] Güvenlik Merkezi verilerinizi görselleştirmek için Microsoft Power BI'dan da yararlanabilirsiniz. Bkz. [Power BI ile Azure Güvenlik Merkezi verilerinden öngörü alma](security-center-powerbi.md).
 
 ### Yeni veya değiştirilmiş kaynakları izleme
 
-Çoğu Azure ortamı, düzenli olarak çalışmaya başlatılan ve yavaşlatılan yeni kaynaklarla dinamiktir (örneğin, yapılandırmalar veya değişiklikler vb.) Azure Güvenlik Merkezi, bu yeni kaynakların güvenlik durumuyla ilgili görünürlüğe sahip olduğunuzdan emin olmanıza yardımcı olur.
+Çoğu Azure ortamı, düzenli olarak çalışmaya başlatılan ve yavaşlatılan yeni kaynaklarla dinamiktir (örneğin, yapılandırmalar veya değişiklikler vb.) Güvenlik Merkezi, bu yeni kaynakların güvenlik durumuyla ilgili görünürlüğe sahip olduğunuzdan emin olmanıza yardımcı olur.
 
 Azure ortamınıza yeni kaynaklar (VM'ler, SQL DB'leri) eklediğinizde Güvenlik Merkezi otomatik olarak bu kaynakları keşfeder ve güvenliklerini izlemeye başlar. Buna PaaS web rolleri ve çalışan rolleri de dahildir. Veri Koleksiyonu [Güvenlik İlkesi](security-center-policies.md)'nde etkinleştirilirse sanal makineleriniz için ek izleme işlevleri otomatik olarak etkinleştirilir.
 
@@ -223,12 +225,13 @@ Güvenlik Merkezi Uyarılarını aşağıdaki aşamalar sırasında kullanabilir
 
 Her Güvenlik Uyarısı, saldırının yapısını daha iyi anlamanız ve olası risk azaltmalarını önermek için kullanılabilecek bilgiler sağlar. Ayrıca bazı uyarılar, daha fazla bilgi veya Azure'daki diğer bilgi kaynakları için bağlantılar sağlar. Daha fazla araştırma ve gidermeyi başlatma hakkında verilen bilgileri kullanabilirsiniz.
 
-Aşağıdaki örnek, şüpheli bir RDP etkinliğinin gerçekleşmesini gösterir:
+Aşağıdaki örnek, gerçekleşmekte olan şüpheli bir RDP etkinliğini gösterir:
 
 ![Şüpheli etkinlik](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig5-ga.png)
 
 Gördüğünüz gibi bu dikey pencere, saldırının gerçekleştiği zaman, kaynak ana bilgisayar adı, hedef VM ile ilgili ayrıntıları gösterir ve ayrıca öneri adımları sunar. Bazı durumlarda, saldırının kaynak bilgileri boş olabilir. Bu türden bir davranış hakkında daha fazla bilgi için bkz. [Azure Güvenlik Merkezi Uyarıları'nda Eksik Kaynak Bilgileri](https://blogs.msdn.microsoft.com/azuresecurity/2016/03/25/missing-source-information-in-azure-security-center-alerts/).
 
+> [AZURE.NOTE] [Bir Olay Yanıtı için Azure Güvenlik Merkezi ve Microsoft Operations Management Suite’ten Yararlanma](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703) videosunda, bu aşamaların her birinde Güvenlik Merkezi’nin nasıl kullanılabileceğini anlamanıza yardımcı olabilecek bazı tanıtımlar görebilirsiniz.
 
 ## Ayrıca bkz.
 Bu belgede, Güvenlik Merkezi benimsemeyi nasıl planlayacağınızı öğrendiniz. Güvenlik Merkezi hakkında daha fazla bilgi edinmek için şunlara bakın:
@@ -241,6 +244,6 @@ Bu belgede, Güvenlik Merkezi benimsemeyi nasıl planlayacağınızı öğrendin
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

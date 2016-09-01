@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/28/2016"
+    ms.date="08/03/2016"
     ms.author="tomfitz"/>
 
 # Mevcut kaynaklardan Azure Resource Manager şablonunu dışarı aktarma
@@ -22,12 +22,12 @@ Resource Manager, aboneliğinizde var olan kaynaklardan bir Resource Manager şa
 
 Bir şablonu dışarı aktarmak için iki farklı yol vardır:
 
-- Dağıtım için kullanılan gerçek şablonu dışarı aktarabilirsiniz. Dışarı aktarılan şablon özgün şablonda tanımlananlarla tam olarak aynı parametre ve değişkenlerin tümünü içerir. Bu yaklaşım özellikle kaynakları portal üzerinden dağıttığınızda ve şimdi bu kaynakları oluşturmak için şablonun nasıl oluşturulacağını görmek istediğinizde yararlıdır.
-- Kaynak grubunun geçerli durumunu temsil eden bir şablonu dışarı aktarabilirsiniz. Dışarı aktarılan şablon, dağıtım için kullanılan herhangi bir şablonu temel almaz. Bunun yerine, kaynak grubunun anlık görüntüsü olan bir şablon oluşturur. Dışarı aktarılan şablon birçok sabit kodlu değer içerir ve büyük olasılıkla normalde tanımlayacağınız kadar fazla parametre içermez. Bu yaklaşım, kaynak grubunu portal ya da komut dosyaları aracılığıyla değiştirdiğinizde ve artık kaynak grubunu şablon olarak yakalamanız gerektiğinde yararlı olur.
+- Dağıtım için kullandığınız gerçek şablonu dışarı aktarabilirsiniz. Dışarı aktarılan şablonda, tüm parametreler ve değişkenler özgün şablondaki gibidir. Bu yaklaşım, kaynaklarınızı portal üzerinden dağıttığınızda yararlıdır. Şimdi, bu kaynakları oluşturmak için şablon yapısını nasıl düzenleyeceğinizden bahsedelim.
+- Kaynak grubunun geçerli durumunu temsil eden bir şablonu dışarı aktarabilirsiniz. Dışarı aktarılan şablon, dağıtım için kullandığınız herhangi bir şablonu temel almaz. Bunun yerine, kaynak grubunun anlık görüntüsü olan bir şablon oluşturur. Dışarı aktarılan şablon birçok sabit kodlu değer ve büyük olasılıkla normalde tanımlayacağınızdan daha az sayıda parametre içerir. Bu yaklaşım, kaynak grubunu portal ya da betikler aracılığıyla değiştirdiğinizde yararlı olur. Şimdi kaynak grubunu bir şablon olarak yakalamalısınız.
 
-Her iki yaklaşım da bu konuda gösterilmiştir. [Dışarı aktarılan bir Azure Resource Manager şablonunu özelleştirme](resource-manager-customize-template.md) makalesinde kaynak grubunun geçerli durumundan oluşturulmuş bir şablonu alıp, çözümünüzü yeniden dağıtmak için daha yararlı hale getirme işlemini göreceksiniz.
+Bu konuda, iki yaklaşım ortaya koyulmaktadır. [Dışarı aktarılan bir Azure Resource Manager şablonunu özelleştirme](resource-manager-customize-template.md) makalesinde kaynak grubunun geçerli durumundan oluşturulmuş bir şablonu alıp, çözümünüzü yeniden dağıtmak için daha yararlı hale getirme konusuna değinilmektedir.
 
-Bu öğreticide, Azure portalında oturum açacak, bir depolama hesabı oluşturacak ve bu depolama hesabı için şablonu dışarı aktaracaksınız. Kaynak grubunu değiştirmek için sanal ağ ekleyeceksiniz. Son olarak, geçerli durumunu temsil eden yeni bir şablonu dışarı aktaracaksınız. Bu makale basitleştirilmiş bir altyapıya odaklanıyor olsa da, daha karmaşık bir çözüm için şablonu dışarı aktarmak üzere bu aynı adımları kullanabilirsiniz.
+Bu öğreticide, Azure Portal’da oturum açar, bir depolama hesabı oluşturur ve bu depolama hesabı için şablonu dışarı aktarırsınız. Kaynak grubunu değiştirmek için sanal ağ eklersiniz. Son olarak, geçerli durumunu temsil eden yeni bir şablonu dışarı aktarırsınız. Bu makale basitleştirilmiş bir altyapıya odaklanıyor olsa da, daha karmaşık bir çözüm için şablonu dışarı aktarmak üzere bu aynı adımları kullanabilirsiniz.
 
 ## Depolama hesabı oluşturma
 
@@ -43,27 +43,28 @@ Dağıtım tamamlandıktan sonra, aboneliğiniz depolama hesabını içerir.
 
 ## Şablonu dağıtım geçmişinden dışarı aktarma
 
-1. Yeni kaynak grubunuz için kaynak grubu dikey penceresine gidin. Son dağıtım sonucunun listelendiğini göreceksiniz. Bu bağlantıyı seçin.
+1. Yeni kaynak grubunuz için kaynak grubu dikey penceresine gidin. Son dağıtım sonucunun listelendiğini görürsünüz. Bu bağlantıyı seçin.
 
       ![kaynak grubu dikey penceresi](./media/resource-manager-export-template/resource-group-blade.png)
 
-2. Grup için dağıtım geçmişini görürsünüz. Sizin durumunuzda, büyük olasılıkla yalnızca bir dağıtım listeleniyordur. Bu dağıtımı seçin.
+2. Grup için dağıtım geçmişini görürsünüz. Sizin durumunuzda, dikey pencerede büyük olasılıkla yalnızca bir dağıtım listelenir. Bu dağıtımı seçin.
 
      ![son dağıtım](./media/resource-manager-export-template/last-deployment.png)
 
-3. Dağıtımın bir özeti gösterilir. Özet, dağıtımın ve işlemlerinin durumunu ve sağladığınız parametreler için değerleri içerir. Dağıtım için kullanılan şablonu görmek isterseniz **Şablonu görüntüle**’yi seçin.
+3. Dikey pencerede, dağıtımın bir özeti görüntülenir. Özet, dağıtımın ve işlemlerinin durumunu ve sağladığınız parametreler için değerleri içerir. Dağıtım için kullandığınız şablonu görmek için **Şablonu görüntüle**’yi seçin.
 
      ![dağıtım özetini görüntüleme](./media/resource-manager-export-template/deployment-summary.png)
 
-4. Resource Manager sizin için aşağıdaki beş dosyayı alır:
+4. Resource Manager sizin için aşağıdaki altı dosyayı alır:
 
    1. **Şablon** - Çözümünüze ait altyapıyı tanımlayan şablon. Portal üzerinden depolama hesabı oluşturduğunuzda, Resource Manager bunu dağıtmak için bir şablon kullandı ve bu şablonu gelecekte başvurmak üzere kaydetti.
    2. **Parametreler**: Dağıtım sırasında değerleri geçirmek için kullanabileceğiniz bir parametre dosyası. Bu dosya, ilk dağıtım sırasında sağladığınız değerleri içerir, ancak şablonu yeniden dağıtırken bu değerleri değiştirebilirsiniz.
    3. **CLI**: Şablonu dağıtmak için kullanabileceğiniz bir Azure komut satırı arabirimi (CLI) betik dosyası.
    4. **PowerShell**: Şablonu dağıtmak için kullanabileceğiniz bir Azure PowerShell betiği.
    5. **.NET**: Şablonu dağıtmak için kullanabileceğiniz bir .NET sınıfı.
+   6. **Ruby** - Şablonu dağıtmak için kullanabileceğiniz bir Ruby sınıfı.
 
-     Dosyalara dikey pencerelerdeki bağlantılar aracılığıyla ulaşılabilir. Varsayılan olarak şablon seçilidir.
+     Dosyalara dikey pencerelerdeki bağlantılar aracılığıyla ulaşılabilir. Varsayılan olarak şablon, dikey pencerede görüntülenir.
 
        ![şablonu görüntüleme](./media/resource-manager-export-template/view-template.png)
 
@@ -76,7 +77,7 @@ Depolama hesabınızı oluşturmak için kullanılan gerçek şablon budur. Fark
 
 ## Sanal ağ ekleme
 
-Önceki bölümde indirdiğiniz şablon bu özgün dağıtım için altyapıyı temsil etti, ancak bu dağıtım sonrasında yaptığınız değişiklikleri hesaba katmayacak.
+Önceki bölümde indirdiğiniz şablon, bu özgün dağıtımın altyapısını temsil ediyordu. Ancak bu şablon, dağıtımdan sonra yaptığınız değişiklikleri içermez.
 Bu sorunu anlamak için portal aracılığıyla bir sanal ağ ekleyerek kaynak grubunu değiştirelim.
 
 1. Kaynak grubu dikey penceresinde **Ekle**’yi seçin.
@@ -91,28 +92,28 @@ Bu sorunu anlamak için portal aracılığıyla bir sanal ağ ekleyerek kaynak g
 
       ![uyarı ayarlama](./media/resource-manager-export-template/create-vnet.png)
 
-3. Sanal ağ kaynak grubunuza başarıyla dağıtıldıktan sonra dağıtım geçmişinize tekrar bakın. Şimdi iki dağıtım göreceksiniz. İkinci dağıtımı görmüyorsanız kaynak grubu dikey pencerenizi kapatıp yeniden açmanız gerekebilir. Daha yeni olan dağıtımı seçin.
+3. Sanal ağ kaynak grubunuza başarıyla dağıtıldıktan sonra dağıtım geçmişinize tekrar bakın. İki dağıtım göreceksiniz. İkinci dağıtımı görmüyorsanız kaynak grubu dikey pencerenizi kapatıp yeniden açmanız gerekebilir. Daha yeni olan dağıtımı seçin.
 
       ![dağıtım geçmişi](./media/resource-manager-export-template/deployment-history.png)
 
 4. Bu dağıtım için şablona bakın. Bunun, yalnızca sanal ağı eklemek için yaptığınız değişiklikleri tanımladığına dikkat edin.
 
-Dağıtılacak birçok farklı şablonu hatırlamak yerine, çözümünüz için tüm altyapıyı tek bir işleme dağıtan şablonla çalışmak genellikle en iyi uygulamadır.
+En iyi yöntem genellikle, çözümünüz için tüm altyapıyı tek bir işlemde dağıtan şablonla çalışmaktır. Bu yaklaşım, dağıtılacak birçok farklı şablonu anımsamaya çalışmaktan daha güvenlidir.
 
 
 ## Şablonu kaynak grubundan dışarı aktarma
 
 Her bir dağıtım yalnızca kaynak grubunuzda yapmış olduğunuz değişiklikleri gösterir, ancak herhangi bir zamanda, tüm kaynak grubunuzun özniteliklerini göstermek için bir şablonu dışarı aktarabilirsiniz.  
 
-1. Bir kaynak grubu için şablonu görüntülemek üzere **Şablonu dışarı aktar**’ı seçin.
+1. Bir kaynak grubu için şablonu görüntülemek üzere **Otomasyon betiği**’ni seçin.
 
       ![kaynak grubunu dışarı aktarma](./media/resource-manager-export-template/export-resource-group.png)
 
-     Şablonu dışarı aktarma işlevini tüm kaynak türleri desteklemez. Kaynak grubunuz yalnızca bu makalede gösterilen depolama hesabı ve sanal ağı içeriyorsa bir hata görmezsiniz. Ancak, diğer kaynak türlerini oluşturduysanız dışarı aktarma ile ilgili bir sorun olduğunu bildiren bir hata görebilirsiniz. Bu sorunların nasıl ele alınacağını [Dışarı aktarma sorunlarını düzeltme](#fix-export-issues) bölümünde öğreneceksiniz.
+     Şablonu dışarı aktarma işlevini tüm kaynak türleri desteklemez. Kaynak grubunuz yalnızca bu makalede gösterilen depolama hesabı ve sanal ağı içeriyorsa bir hata görmezsiniz. Ancak, diğer kaynak türlerini oluşturduysanız dışarı aktarma ile ilgili bir sorun olduğunu bildiren bir hata görebilirsiniz. Bu sorunların nasıl ele alınacağını [Dışarı aktarma sorunlarını düzeltme](#fix-export-issues) bölümünden öğrenebilirsiniz.
 
       
 
-2. Çözümü yeniden dağıtmak için kullanabileceğiniz beş dosyayı görmeye devam edeceksiniz, ancak bu kez şablon biraz farklıdır. Bu şablon yalnızca iki parametreye sahiptir: depolama hesabı adı için bir tane ve sanal ağ adı için bir tane.
+2. Çözümü yeniden dağıtmak için kullanabileceğiniz altı dosyayı yeniden görürsünüz, ancak bu kez şablon biraz farklıdır. Bu şablon yalnızca iki parametreye sahiptir: depolama hesabı adı için bir tane ve sanal ağ adı için bir tane.
 
         "parameters": {
           "virtualNetworks_VNET_name": {
@@ -125,7 +126,7 @@ Her bir dağıtım yalnızca kaynak grubunuzda yapmış olduğunuz değişiklikl
           }
         },
 
-     Resource Manager, dağıtım sırasında kullanılan şablonları almadı. Bunun yerine, kaynakların geçerli yapılandırmasını temel alan yeni bir şablon oluşturdu. Örneğin, depolama hesabı konumu ve çoğaltma değeri aşağıdaki şekilde ayarlanır:
+     Resource Manager, dağıtım sırasında kullandığınız şablonları almadı. Bunun yerine, kaynakların geçerli yapılandırmasını temel alan yeni bir şablon oluşturdu. Örneğin şablon, depolama hesabı konumu ve çoğaltma değerini aşağıdaki şekilde ayarlar:
 
         "location": "northeurope",
         "tags": {},
@@ -141,19 +142,19 @@ Her bir dağıtım yalnızca kaynak grubunuzda yapmış olduğunuz değişiklikl
 
 ## Dışarı aktarma sorunlarını düzeltme
 
-Şablonu dışarı aktarma işlevini tüm kaynak türleri desteklemez. Bazı kaynak türleri hassas verilerin gösterilmesini önlemek için özellikle dışarı aktarılmaz. Örneğin, site yapılandırmanızda bir bağlantı dizesi varsa dışarı aktarılmış bir şablonda açıkça gösterilmesini büyük olasılıkla istemezsiniz. Eksik kaynakları şablonunuza el ile ekleyerek bu sorunu çözebilirsiniz.
+Şablonu dışarı aktarma işlevini tüm kaynak türleri desteklemez. Resource Manager, hassas verilerin açığa çıkarılmasını önlemek için bazı kaynak türlerini özellikle dışarı aktarmaz. Örneğin, site yapılandırmanızda bir bağlantı dizesi varsa dışarı aktarılmış bir şablonda açıkça gösterilmesini büyük olasılıkla istemezsiniz. Eksik kaynakları şablonunuza el ile ekleyerek bu sorunu çözebilirsiniz.
 
-> [AZURE.NOTE] Yalnızca dağıtım geçmişiniz yerine bir kaynak grubundan dışarı aktarım yaparken dışarı aktarım sorunlarıyla karşılaşırsınız. Son dağıtımınız kaynak grubunun geçerli durumunu doğru şekilde temsil ediyorsa, şablonu kaynak grubu yerine dağıtım geçmişinden dışarı aktarmanız gerekir. Yalnızca tek bir şablonda tanımlanmamış kaynak grubunda değişiklikler yaptığınızda kaynak grubundan dışarı aktarma yapın.
+> [AZURE.NOTE] Yalnızca, dağıtım geçmişiniz yerine bir kaynak grubundan dışarı aktarma yaparken dışarı aktarma sorunlarıyla karşılaşırsınız. Son dağıtımınız kaynak grubunun geçerli durumunu doğru şekilde temsil ediyorsa, şablonu kaynak grubu yerine dağıtım geçmişinden dışarı aktarmanız gerekir. Yalnızca tek bir şablonda tanımlanmamış kaynak grubunda değişiklikler yaptığınızda kaynak grubundan dışarı aktarma yapın.
 
 Örneğin, şablonu bir web uygulaması, SQL Veritabanı ve site yapılandırmasında bir bağlantı dizesi içeren bir kaynak grubundan dışarı aktarırsanız aşağıdaki iletiyi görürsünüz.
 
 ![hatayı göster](./media/resource-manager-export-template/show-error.png)
 
-İleti seçildiğinde tam olarak hangi kaynak türlerinin dışarı aktarılmadığı gösterilir. 
+İleti seçildiğinde, tam olarak hangi kaynak türlerinin dışarı aktarılmadığı gösterilir. 
      
 ![hatayı göster](./media/resource-manager-export-template/show-error-details.png)
 
-Bazı yaygın düzeltmeler aşağıda gösterilmektedir. Bu kaynakları uygulamak için parametreleri şablona eklemeniz gerekir. Daha fazla bilgi için bkz. [Dışarı aktarılan bir şablonu özelleştirme ve yeniden dağıtma](resource-manager-customize-template.md).
+Bu konuda, aşağıdaki yaygın düzeltmelere yer verilmiştir. Bu kaynakları uygulamak için parametreleri şablona eklemeniz gerekir. Daha fazla bilgi için bkz. [Dışarı aktarılan bir şablonu özelleştirme ve yeniden dağıtma](resource-manager-customize-template.md).
 
 ### Bağlantı dizesi
 
@@ -299,12 +300,12 @@ Bir bağlantı kaynak türü ekleyin.
 
 Tebrikler! Portalda oluşturduğunuz kaynaklardan bir şablonu dışarı aktarmayı öğrendiniz.
 
-- Bu öğreticinin ikinci bölümünde, daha fazla parametre ekleyerek indirdiğiniz yeni şablonu özelleştirecek ve bir betik ile yeniden dağıtacaksınız. Bkz. [Dışarı aktarılan bir şablonu özelleştirme ve yeniden dağıtma](resource-manager-customize-template.md).
+- Bu öğreticinin ikinci bölümünde, daha fazla parametre ekleyerek, indirdiğiniz şablonu özelleştirir ve bir betik ile yeniden dağıtırsınız. Bkz. [Dışarı aktarılan bir şablonu özelleştirme ve yeniden dağıtma](resource-manager-customize-template.md).
 - Bir şablonu PowerShell aracılığıyla nasıl dışarı aktaracağınızı görmek için bkz. [Azure Resource Manager ile Azure PowerShell’i Kullanma](powershell-azure-resource-manager.md).
 - Bir şablonu Azure CLI aracılığıyla nasıl dışarı aktaracağınızı görmek için bkz. [Azure Resource Manager ile Mac, Linux ve Windows için Azure CLI’yi Kullanma](xplat-cli-azure-resource-manager.md).
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

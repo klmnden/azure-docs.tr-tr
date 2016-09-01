@@ -3,8 +3,8 @@
     description="Azure Backup ve Kurtarma Hizmetleri'ni kullanarak, yedekleme ve veri ve uygulamaları Windows Sunucuları, Windows istemci makineleri, System Center DPM sunucuları ve Azure sanal makinelerden veri ve uygulamaları yedekleyip geri yükleyebilirsiniz."
     services="backup"
     documentationCenter=""
-    authors="Jim-Parker"
-    manager="jwhit"
+    authors="markgalioto"
+    manager="cfreeman"
     editor="tysonn"
     keywords="yedekleme ve geri yükleme; kurtarma hizmetleri; yedekleme çözümleri"/>
 
@@ -231,6 +231,6 @@ Bu öğreticiler hızlı bir şekilde yedekleme yapmanıza yardımcı olmayı am
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

@@ -1,10 +1,10 @@
 <properties
     pageTitle="DocumentDB ile Python Flask Web Uygulaması Geliştirme | Microsoft Azure"
     description="Azure'da barındırılan bir Python Flask web uygulamasından veri depolamak ve verilere erişmek için DocumentDB kullanma konulu veritabanı öğreticisini inceleyin. Uygulama geliştirme çözümleri bulun." 
-    keywords="Application development, database tutorial, python flask, python web application, python web development, documentdb, azure, Microsoft azure"
+    keywords="Uygulama geliştirme, veritabanı öğreticisi, python flask, python web uygulaması, python web geliştirme, documentdb, Azure, Microsoft Azure"
     services="documentdb"
     documentationCenter="python"
-    authors="aliuy"
+    authors="AndrewHoh"
     manager="jhubbard"
     editor="cgronlun"/>
 
@@ -14,8 +14,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="python"
     ms.topic="hero-article"
-    ms.date="04/18/2016"
-    ms.author="andrl"/>
+    ms.date="08/18/2016"
+    ms.author="anhoh"/>
 
 # DocumentDB ile Python Flask Web Uygulaması Geliştirme
 
@@ -182,7 +182,7 @@ def create():
     db = client.CreateDatabase({ 'id': config.DOCUMENTDB_DATABASE })
 
     # Create collection
-    collection = client.CreateCollection(db['_self'],{ 'id': config.DOCUMENTDB_COLLECTION }, { 'offerType': 'S1' })
+    collection = client.CreateCollection(db['_self'],{ 'id': config.DOCUMENTDB_COLLECTION })
 
     # Create document
     document = client.CreateDocument(collection['_self'],
@@ -390,9 +390,9 @@ Artık uygulamanın tamamı doğrudan DocumentDB'de çalıştığına göre, bun
 
     ![Yayımla seçeneği vurgulanmış şekilde Çözüm Gezgini'nde öğreticinin seçili olduğu ekran görüntüsü](./media/documentdb-python-application/image20.png)
 
-2. **Web'de Yayımla** penceresinde **Microsoft Azure Web Apps**'i seçin ve ardından **İleri**'ye tıklayın.
+2. **Web'i Yayımla** penceresinde **Microsoft Azure Web Apps**'i seçin ve **İleri**'ye tıklayın.
 
-    ![Microsoft Azure Web Apps vurgulanmış Web'de Yayımla penceresinin ekran görüntüsü](./media/documentdb-python-application/image21.png)
+    ![Microsoft Azure Web Apps vurgulanmış Web'i Yayımla penceresinin ekran görüntüsü](./media/documentdb-python-application/image21.png)
 
 3. **Microsoft Azure Web Apps Penceresi** penceresinde **Yeni**'ye tıklayın.
 
@@ -432,10 +432,10 @@ Ek Python Flask öğreticileri için bkz. [Büyük Flask Öğreticisi, 1. Bölü
   [2]: https://www.python.org/downloads/windows/
   [3]: https://www.microsoft.com/download/details.aspx?id=44266
   [Microsoft Web Platformu Yükleyicisi]: http://www.microsoft.com/web/downloads/platform.aspx
-  [Azure portalı]: http://portal.azure.com
+  [Azure portalına]: http://portal.azure.com
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

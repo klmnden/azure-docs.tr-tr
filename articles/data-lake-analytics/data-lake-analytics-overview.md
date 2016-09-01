@@ -67,6 +67,7 @@ Azure Data Lake Analytics, büyük veri analizini kolaylaştırmak için oluştu
     - [Azure Data Lake Analytics'i Azure Portal'ı kullanarak yönetme](data-lake-analytics-manage-use-portal.md)
     - [Azure Data Lake Analytics'i Azure PowerShell'i kullanarak yönetme](data-lake-analytics-manage-use-powershell.md)
     - [Azure Portal'ı kullanarak Azure Data Lake Analytics işlerini izleme ve sorun giderme](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+    - [Azure Data Lake Analytics için Tanılama günlüklerine erişme](data-lake-analytics-diagnostic-logs.md)
 
 - Kapsamlı öğretici
     - [Azure Data Lake Analytics etkileşimli öğreticilerini kullanma](data-lake-analytics-use-interactive-tutorials.md)
@@ -81,6 +82,6 @@ Azure Data Lake Analytics, büyük veri analizini kolaylaştırmak için oluştu
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

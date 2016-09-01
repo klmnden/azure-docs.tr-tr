@@ -13,10 +13,13 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="06/27/2016"
+   ms.date="08/15/2016"
    ms.author="elizapo"/>
 
 # Azure RemoteApp ile SQL Azure
+
+> [AZURE.IMPORTANT]
+> Azure RemoteApp kullanımdan kaldırılıyor. Ayrıntılı bilgi için [duyuruyu](https://go.microsoft.com/fwlink/?linkid=821148) okuyun.
 
 Genellikle, müşteriler kendi Windows uygulamalarını Azure RemoteApp ile bulutta barındırma istediklerinde, tam bir bulut dağıtımı için SQL sunucuları gibi verilerini de buluta geçirmek isterler. Bu, Azure RemoteApp kullanarak her zaman herhangi bir cihazdan erişilebilir tümü bulutta barındırılan çözüme olanak sağlar. Aşağıda, bu işlemde size yardımcı olacak adımlarla birlikte bağlantı ve kılavuzlar verilmiştir.  
 
@@ -53,6 +56,6 @@ Azure’da ya da şirket içinde barındırılan bir SQL veritabanına bağlanan
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

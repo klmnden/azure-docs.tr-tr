@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/25/2016"
+    ms.date="08/16/2016"
     ms.author="markvi"/>
 
 # Azure Active Directory Premium ile çalışmaya başlama
@@ -23,7 +23,7 @@ Active Directory Premium'a kaydolmanız için birkaç seçenek sunulmaktadır:
 
 **Azure veya Office 365** Azure veya Office 365 abonesi olarak, Active Directory Premium'u çevrimiçi satın alabilirsiniz. Ayrıntılı adımlar için bkz. [Azure Active Directory Premium'u satın alma - Mevcut Müşteriler](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-Existing-Customer) veya [Azure Active Directory Premium'u satın alma - Yeni Müşteriler](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-New-Customers).  
 
-**Enterprise Mobility Suite** - Enterprise Mobility Suite, kuruluşların şu hizmetleri tek lisans planı kapsamında birlikte kullanmasını sağlayan uygun maliyetli bir yöntemdir: Active Directory Premium, Azure Rights Management, Microsoft Intune. Daha fazla bilgi için [Enterprise Mobility Suite](https://www.microsoft.com/en-us/server-cloud/enterprise-mobility/overview.aspx) web sitesine göz atın. Ücretsiz 30 günlük deneme sürümünü edinmek için [buraya](https://portal.office.com/Signup/Signup.aspx?OfferId=2E63A04D-BE0B-4A0F-A8CF-407C1C299221&dl=EMS&ali=1#0) tıklayın.
+**Enterprise Mobility + Security** - Enterprise Mobility + Security, (eski adıyla Enterprise Mobility Suite), kuruluşların şu hizmetleri tek lisans planı kapsamında birlikte kullanmasını sağlayan uygun maliyetli bir yöntemdir: Active Directory Premium, Azure Rights Management, Microsoft Intune. Daha fazla bilgi için [Enterprise Mobility + Security](https://www.microsoft.com/en-us/server-cloud/enterprise-mobility/overview.aspx) web sitesine göz atın. Ücretsiz 30 günlük deneme sürümünü edinmek için [buraya](https://portal.office.com/Signup/Signup.aspx?OfferId=2E63A04D-BE0B-4A0F-A8CF-407C1C299221&dl=EMS&ali=1#0) tıklayın.
 
 
 **Microsoft Toplu Lisanslama** - Azure Active Directory Premium bir [Microsoft Enterprise Sözleşmesi](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx) (250 veya daha fazla lisans) veya [Açık Toplu Lisans](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx) (5 - 250 lisans) programı ile sunulmaktadır.
@@ -66,7 +66,7 @@ Bu dizine yönelik sonraki tüm satın alma işlemlerinde, lisanslar otomatik ol
 
     - Lisans planınızla kullanmak üzere yeni bir Azure Active Directory kiracısı oluşturmak istiyorsanız **Hesap Profili Oluştur** iletişim kutusunu açmak için **Kaydol** seçeneğine tıklayın.
 
-        ![Hesap profili oluştur][2]
+        ![Hesap profili oluşturma][2]
 
 İşleminiz tamamlandığında, kiracınız için lisans planının etkinleştirilmesinin onayı olarak aşağıdaki iletişim kutusu görünür.
 
@@ -164,6 +164,6 @@ Bir Microsoft bulut hizmeti için hizmetlerin ve özelliklerin kullanılabilirli
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

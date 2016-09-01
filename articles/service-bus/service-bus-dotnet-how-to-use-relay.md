@@ -39,42 +39,7 @@ Azure'da Service Bus geçişini kullanmaya başlamak için öncelikle bir ad ala
 
 Hizmet ad alanı oluşturmak için:
 
-1.  [Klasik Azure portalında][] oturum açın.
-
-2.  Portalın sol gezinti bölmesinde **Service Bus** hizmetine tıklayın.
-
-3.  Portalın alt bölmesinde **Oluştur**'a tıklayın.
-
-    ![](./media/service-bus-dotnet-how-to-use-relay/sb-queues-13.png)
-
-4.  **Yeni bir ad alanı ekle** iletişim kutusunda, ad alanına ad girin.
-    Adın kullanılabilirliği sistem tarafından hemen kontrol edilir.
-
-    ![](./media/service-bus-dotnet-how-to-use-relay/sb-queues-04.png)
-
-5.  Ad alanındaki adın kullanılabilirliğinden emin olduktan sonra, ad alanınızın barındırılması gereken ülkeyi veya bölgeyi seçin (işlem kaynaklarınızın dağıtıldığı ülkeyle aynı ülkeyi/bölgeyi kullandığınızdan emin olun).
-
-    > [AZURE.IMPORTANT] Uygulamanızın dağıtılması için seçmeyi planladığınız *aynı bölgeyi* seçin. Bunu uygulayarak en iyi performansı alırsınız.
-
-6.  İletişim kutusundaki diğer alanları varsayılan değerlerinde bırakın (**Mesajlaşma** ve **Standart** katman), ardından onay işaretine tıklayın. Ardından sistem, ad alanınızı oluşturur ve kullanıma açar. Sistem, hesabınıza yönelik kaynakları sağlarken birkaç dakika beklemeniz gerekebilir.
-
-    ![](./media/service-bus-dotnet-how-to-use-relay/getting-started-multi-tier-27.png)
-
-    Ardından oluşturduğunuz ad alanı portalda görünür ve bir dakika içinde etkinleştirilir. Devam etmek için durumun **Etkin** olmasını bekleyin.
-
-## Ad alanı için varsayılan yönetim kimlik bilgilerini elde etme
-
-Yeni ad alanında geçiş bağlantısı oluşturmak gibi yönetim işlemlerini gerçekleştirmek için ad alanına yönelik Paylaşılan Erişim İmzası (SAS) kimlik doğrulama kuralını yapılandırmanız gerekir. SAS hakkında daha fazla bilgi için bkz. [Service Bus ile Paylaşılan Erişim İmzası Kimlik Doğrulaması][].
-
-1.  Kullanılabilir ad alanlarının listesini görüntülemek için sol gezinti bölmesinde **Service Bus** düğümüne tıklayın.
-    ![](./media/service-bus-dotnet-how-to-use-relay/sb-queues-13.png)
-
-2.  Görüntülenen listede az önce oluşturduğunuz ad alanı adına çift tıklayın.
-    ![](./media/service-bus-dotnet-how-to-use-relay/sb-queues-09.png)
-
-3.  Sayfanın üst tarafındaki **Yapılandır** sekmesine tıklayın.
-
-4.  Service Bus ad alanı sağlandığında, **RootManageSharedAccessKey** olarak ayarlanan **KeyName** içeren bir **SharedAccessAuthorizationRule** varsayılan olarak oluşturulur. Bu sayfada, oluşturulan anahtarın yanı sıra varsayılan kurala yönelik birincil ve ikincil anahtarlar da görüntülenir.
+[AZURE.INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 ## Service Bus NuGet paketi alma
 
@@ -271,12 +236,11 @@ Artık Service Bus geçişi hizmetine ilişkin temel bilgileri öğrendiniz, dah
 - [Azure Service Bus mimarisine genel bakış](service-bus-fundamentals-hybrid-solutions.md)
 - [Azure örneklerinden][] Service Bus örneklerini indirin veya [Service Bus örneklerine genel bakış][] bölümüne bakın.
 
-  [Klasik Azure portalında]: http://manage.windowsazure.com
   [Service Bus ile Paylaşılan Erişim İmzası Kimlik Doğrulaması]: service-bus-shared-access-signature-authentication.md
   [Azure örneklerinden]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
   [Service Bus örneklerine genel bakış]: service-bus-samples.md
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

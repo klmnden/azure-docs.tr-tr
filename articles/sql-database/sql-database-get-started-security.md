@@ -15,22 +15,22 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="07/19/2016"
+    ms.date="08/17/2016"
     ms.author="carlrab"/>
 
-# SQL Database öğreticisi: Azure portalını kullanarak bir veritabanına erişmek ve veritabanını yönetmek üzere SQL veritabanı kullanıcı hesabı oluşturma
+# SQL Veritabanı öğreticisi: Bir veritabanına erişmek ve onu yönetmek için SQL veritabanı kullanıcı hesabı oluşturma
 
 
 > [AZURE.SELECTOR]
 - [Başlangıç öğreticisi](sql-database-get-started-security.md)
 - [Erişim verme](sql-database-manage-logins.md)
 
-Bu öğreticide, şu işlemleri gerçekleştirmek üzere Azure portalını nasıl kullanacağınızı öğreneceksiniz:
+Bu öğreticide, SQL Server Management Studio'yu (SSMS) kullanarak şu işlemleri gerçekleştirmeyi öğreneceksiniz:
 
-- Sunucu düzeyinde asıl oturum açma işlemini kullanarak SQL Database'de oturum açma
-- SQL Database kullanıcı hesabı oluşturma
-- Kullanıcı veritabanında bir SQL Database kullanıcı hesabına dbo izinleri atama
-- Sunucu düzeyinde sorumlu olmayan bir kullanıcı hesabıyla SQL veritabanına bağlanma 
+- Sunucu düzeyinde asıl oturum açma işlemini kullanarak SQL Veritabanı'nda oturum açma.
+- SQL Veritabanı kullanıcı hesabı oluşturma.
+- Bir SQL Veritabanı kullanıcısına [db_owner izinleri](https://msdn.microsoft.com/library/ms189121.aspx#Anchor_0) verme.
+- Sunucu düzeyinde asıl hesap olmayan bir kullanıcı hesabıyla SQL veritabanına bağlanma.
 
 [AZURE.INCLUDE [Login](../../includes/azure-getting-started-portal-login.md)]
 
@@ -54,6 +54,6 @@ Artık SQL Database öğreticisini tamamladığınıza, bir kullanıcı hesabı 
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

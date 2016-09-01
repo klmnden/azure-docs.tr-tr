@@ -143,11 +143,11 @@ Tahmine dayalı makine öğrenimi modellerinin oluşturulmasına ilişkin daha f
 <!--Article references-->
 [Azure Machine Learning Studio]:https://studio.azureml.net/
 [Azure'da Machine Learning'e giriş]:https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/
-[örnek verileri elle yükleyebilirsiniz]: sql-data-warehouse-get-started-load-sample-databases.md
+[örnek verileri elle yükleyebilirsiniz]: sql-data-warehouse-load-sample-databases.md
 [SQL Data Warehouse Oluşturma]: sql-data-warehouse-get-started-provision.md
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

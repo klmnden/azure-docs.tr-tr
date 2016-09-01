@@ -3,8 +3,8 @@
    description="Bu sayfada, ExpressRoute devreleri için yönlendirmeyi yapılandırma ve yönetmeye yönelik ayrıntılı gereksinimler verilmektedir."
    documentationCenter="na"
    services="expressroute"
-   authors="cherylmc"
-   manager="carmonm"
+   authors="ganesr"
+   manager="rossort"
    editor=""/>
 <tags
    ms.service="expressroute"
@@ -12,15 +12,15 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/01/2016"
-   ms.author="cherylmc"/>
+   ms.date="08/10/2016"
+   ms.author="ganesr"/>
 
 
 # ExpressRoute yönlendirme gereksinimleri  
 
-ExpressRoute kullanarak Microsoft bulut hizmetlerine bağlanmak için yönlendirmeyi ayarlamanız ve yönetmeniz gerekir. Bazı bağlantı sağlayıcıları yönlendirme ayarlama ve yönetimini yönetilen bir hizmet olarak sunar. Bu hizmetin sunulup sunulmadığını öğrenmek için bağlantı sağlayıcınıza başvurun. Bu hizmet sağlanmıyorsa aşağıda açıklanan gereksinimlere uymalısınız. 
+Microsoft bulut hizmetlerine ExpressRoute kullanarak bağlanmak için yönlendirmeyi ayarlamanız ve yönetmeniz gerekir. Bazı bağlantı sağlayıcıları yönlendirme ayarlama ve yönetimini yönetilen bir hizmet olarak sunar. Bu hizmetin sunulup sunulmadığını öğrenmek için bağlantı sağlayıcınıza başvurun. Bu hizmet sağlanmıyorsa aşağıda açıklanan gereksinimlere uymalısınız. 
 
-Bağlantıyı kolaylaştırmak için ayarlanması gereken yönlendirme oturumlarının açıklaması için [Devreler ve yönlendirme etki alanları](expressroute-circuit-peerings.md) makalesine bakın.
+Bağlantıyı kolaylaştırmak için ayarlanması gereken yönlendirme oturumlarının bir açıklaması için [Devreler ve yönlendirme etki alanları](expressroute-circuit-peerings.md) makalesine bakın.
 
 **Not:** Microsoft, yüksek kullanılabilirlik yapılandırmaları için yönlendirici artıklık protokollerini (örn. HSRP, VRRP) desteklemez. Yüksek kullanılabilirlik için eşlik başına yedek bir BGP oturumları çifti kullanılır.
 
@@ -37,7 +37,7 @@ Eşlikleri yapılandırmak için özel IP adresleri veya ortak IP adresleri kull
  - Alt ağlar Microsoft bulutunda kullanılmak üzere müşteri tarafından ayrılan aralıkla çakışmamalıdır.
  - Bir /29 alt ağı kullanıldığında iki /30 alt ağına bölünür. 
      - Birinci /30 alt ağı birincil bağlantı ve ikinci /30 alt ağı ikincil bağlantı için kullanılır.
-     - /30 alt ağın her biri için yönlendiriciniz üzerindeki /30 al ağının birinci IP adresini kullanmanız gerekir. Microsoft bir BGP oturumu oluşturmak için /30 alt ağının ikinci IP adresini kullanır.
+     - /30 alt ağın her biri için yönlendiriciniz üzerindeki /30 al ağının birinci IP adresini kullanmanız gerekir. Microsoft bir BGP oturumu ayarlamak için /30 alt ağının ikinci IP adresini kullanır.
      - [Kullanılabilirlik SLA](https://azure.microsoft.com/support/legal/sla/)’sının geçerli olması için her iki BGP oturumunu da ayarlamanız gerekir.  
 
 #### Özel eşleme örneği
@@ -58,7 +58,7 @@ BGP oturumlarını ayarlamak için sahip olduğunuz ortak IP adreslerini kullanm
 - Bir ExpressRoute devresindeki her eşleme (birden fazla varsa) için BGP eşliği oluşturmak üzere benzersiz bir /29 alt ağı veya iki /30 alt ağı kullanmanız gerekir. 
 - Bir /29 alt ağı kullanıldığında iki /30 alt ağına bölünür. 
     - Birinci /30 alt ağı birincil bağlantı ve ikinci /30 alt ağı ikincil bağlantı için kullanılır.
-    - /30 alt ağın her biri için yönlendiriciniz üzerindeki /30 al ağının birinci IP adresini kullanmanız gerekir. Microsoft bir BGP oturumu oluşturmak için /30 alt ağının ikinci IP adresini kullanır.
+    - /30 alt ağın her biri için yönlendiriciniz üzerindeki /30 al ağının birinci IP adresini kullanmanız gerekir. Microsoft bir BGP oturumu ayarlamak için /30 alt ağının ikinci IP adresini kullanır.
     - [Kullanılabilirlik SLA](https://azure.microsoft.com/support/legal/sla/)’sının geçerli olması için her iki BGP oturumunu da ayarlamanız gerekir.
 
 IP adresi ve AS numarasının aşağıda listelenen kayıt defterlerinden birinde size kayıtlı olduğundan emin olun.
@@ -99,7 +99,7 @@ Varsayılan yollar yalnızca Azure özel eşleme oturumlarında kullanılabilir.
  Diğer Azure hizmetleri ve altyapı hizmetleri ile bağlantıyı etkinleştirmek üzere aşağıdaki öğelerden birinin yerinde olduğundan emin olmanız gerekir:
 
  - Trafiği ortak uç noktalara yönlendirmek için Azure ortak eşleme etkindir
- - İnternet bağlantısı gerektiren her alt ağ için internet bağlantısına izin vermek üzere kullanıcı tanımlı yönlendirmeyi kullanıyorsunuz.
+ - İnternet bağlantısı gerektiren her alt ağ için İnternet bağlantısına izin vermek üzere kullanıcı tanımlı yönlendirmeyi kullanırsınız.
 
 **Not:** Varsayılan yolların tanıtılması Windows ve diğer sanal makine lisans etkinleştirmelerini bozar. Bu sorunu çözmek için [buradaki](http://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx) yönergeleri izleyin.
 
@@ -124,6 +124,8 @@ Microsoft ortak eşleme ve Microsoft eşlemesi aracılığıyla tanıtılan ön 
 |    | Doğu ABD | 12076:51004 |
 |    | Doğu ABD 2 | 12076:51005 |
 |    | Batı ABD | 12076:51006 |
+|    | Batı ABD 2 | 12076:51026 |
+|    | Batı Orta ABD | 12076:51027 |
 |    | Orta Kuzey ABD | 12076:51007 |
 |    | Orta Güney ABD | 12076:51008 |
 |    | Orta ABD | 12076:51009 |
@@ -177,6 +179,6 @@ Yukarıdakilerin yanı sıra Microsoft, ön ekleri ait oldukları hizmet göre e
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

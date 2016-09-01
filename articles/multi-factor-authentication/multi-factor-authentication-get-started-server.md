@@ -2,10 +2,10 @@
     pageTitle="Azure Multi-Factor Authentication Sunucusu’nu kullanmaya başlama" 
     description="Bu, nasıl Azure MFA Sunucusu kullanmaya başlayacağınızı açıklayan Azure Multi-Factor Authentication sayfasıdır." 
     services="multi-factor-authentication"
-    keywords="authentication server, azure multi factor authentication app activation page, authentication server download" 
+    keywords="kimlik doğrulama sunucusu, azure multi factor authentication uygulaması etkinleştirme sayfası, kimlik doğrulama sunucusu indirme" 
     documentationCenter="" 
     authors="billmath" 
-    manager="stevenpo" 
+    manager="femila" 
     editor="curtand"/>
 
 <tags 
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="05/12/2016" 
+    ms.date="08/15/2016" 
     ms.author="billmath"/>
 
 # Azure Multi-Factor Authentication Sunucusu’nu kullanmaya başlama
@@ -192,6 +192,6 @@ Yöntem|Açıklama
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

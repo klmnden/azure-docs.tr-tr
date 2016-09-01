@@ -98,6 +98,7 @@ Verilerinizdeki anormallikleri bulmak için "Görünüm Türü" açılır listes
 
 ![Eğilimler](./media/app-insights-visual-studio/51.png)
 
+[Eğilimler hakkında daha fazla bilgi](app-insights-visual-studio-trends.md).
 
 ## Sırada ne var?
 
@@ -111,6 +112,6 @@ Verilerinizdeki anormallikleri bulmak için "Görünüm Türü" açılır listes
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

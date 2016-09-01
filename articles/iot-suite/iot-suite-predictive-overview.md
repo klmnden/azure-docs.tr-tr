@@ -14,8 +14,8 @@
  ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="05/24/2016"
- ms.author="stevehob"/>
+ ms.date="08/17/2016"
+ ms.author="araguila"/>
 
 # Önceden yapılandırılmış tahmine dayalı bakım çözümüne genel bakış
 
@@ -67,6 +67,7 @@ Tahmine dayalı önceden yapılandırılmış çözümün bir [adım adım kıla
 [lnk-security-groundup]: securing-iot-ground-up.md
 
 
-<!--HONumber=Aug16_HO1-->
+
+<!--HONumber=Aug16_HO4-->
 
 

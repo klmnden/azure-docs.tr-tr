@@ -3,7 +3,7 @@
    description="Ağ Güvenlik Gruplarını (NSG'ler) kullanarak Azure'daki dağıtılmış güvenlik duvarı hakkında, ayrıca sanal ağlarınızdaki (VNet'ler) trafiği yalıtmak ve denetlemek için NSG'lerin nasıl kullanılacağı konusunda bilgi edinin."
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn" />
 <tags 
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/11/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # Ağ Güvenlik Grubu (NSG) nedir?
 
@@ -72,7 +72,7 @@ Aşağıdaki varsayılan kurallarda da gösterildiği üzere, kaynağı bir sana
 
 **Gelen varsayılan kuralları**
 
-| Ad                              | Öncelik | Kaynak IP          | Kaynak Bağlantı Noktası | Hedef IP  | Hedef Bağlantı Noktası | Protokol | Erişim |
+| Ad                              | Öncelik | Kaynak IP          | Kaynak Bağlantı Noktası | Hedef IP  | Hedef Bağlantı Noktası | Protokol | Access |
 |-----------------------------------|----------|--------------------|-------------|-----------------|------------------|----------|--------|
 | SANAL AĞA GELENE İZİN VER                | 65000    | VIRTUAL_NETWORK    | *           | VIRTUAL_NETWORK | *                | *        | İZİN VER  |
 | AZURE YÜK DENGELEYİCİYE GELENE İZİN VER | 65001    | AZURE_LOADBALANCER | *           | *               | *                | *        | İZİN VER  |
@@ -80,7 +80,7 @@ Aşağıdaki varsayılan kurallarda da gösterildiği üzere, kaynağı bir sana
 
 **Giden varsayılan kuralları**
 
-| Ad                    | Öncelik | Kaynak IP       | Kaynak Bağlantı Noktası | Hedef IP  | Hedef Bağlantı Noktası | Protokol | Erişim |
+| Ad                    | Öncelik | Kaynak IP       | Kaynak Bağlantı Noktası | Hedef IP  | Hedef Bağlantı Noktası | Protokol | Access |
 |-------------------------|----------|-----------------|-------------|-----------------|------------------|----------|--------|
 | SANAL AĞDAN GİDENE İZİN VER     | 65000    | VIRTUAL_NETWORK | *           | VIRTUAL_NETWORK | *                | *        | İZİN VER  |
 | İNTERNETTEN GİDENE İZİN VER | 65001    | *               | *           | INTERNET        | *                | *        | İZİN VER  |
@@ -115,7 +115,7 @@ Farklı NSG'leri bir VM ile (veya dağıtım modeline bağlı olarak NIC ile) ve
        
            If subnet NSG has a matching rule to deny traffic, packet will be dropped here, although VM\NIC NSG has a matching rule to allow traffic.
 
-![NSG ACL'leri](./media/virtual-network-nsg-overview/figure2.png)
+    ![NSG ACL'leri](./media/virtual-network-nsg-overview/figure2.png)
 
 >[AZURE.NOTE] Tek bir NSG'yi yalnızca bir alt ağ, VM veya NIC ile ilişkilendirebilseniz de aynı NSG'yi istediğiniz kadar fazla kaynak ile ilişkilendirebilirsiniz.
 
@@ -125,10 +125,10 @@ Aşağıda listelenen farklı araçları kullanarak klasik veya Resource Manager
 |Dağıtım aracı|Klasik|Resource Manager|
 |---|---|---|
 |Klasik portal|![Hayır][red]|![Hayır][red]|
-|Azure portalı|![Evet][green]|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-pportal">![Evet][green]</a>|
-|PowerShell|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-classic-ps">![Evet][green]</a>|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-ps">![Evet][green]</a>|
-|Azure CLI|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-classic-cli">![Evet][green]</a>|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-cli">![Evet][green]</a>|
-|ARM şablonu|![Hayır][red]|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-template">![Evet][green]</a>|
+|Azure portalına|![Evet][green]|[](virtual-networks-create-nsg-arm-pportal.md)![Evet][green]|
+|PowerShell|[](virtual-networks-create-nsg-classic-ps.md)![Evet][green]|[](virtual-networks-create-nsg-arm-ps.md)![Evet][green]|
+|Azure CLI|[](virtual-networks-create-nsg-classic-cli.md)![Evet][green]|[](virtual-networks-create-nsg-arm-cli.md)![Evet][green]|
+|ARM şablonu|![Hayır][red]|[](virtual-networks-create-nsg-arm-template.md)![Evet][green]|
 
 |**Anahtar**|![Evet][green] Destekleniyor. Makale için tıklayın.|![Hayır][red] Desteklenmiyor.|
 |---|---|---|
@@ -218,7 +218,7 @@ Yukarıdaki 1-6 gereksinimlerinin tamamı (3 dışında) alt ağ alanlarına sı
 
 **Gelen kuralları**
 
-|Kural|Erişim|Öncelik|Kaynak adres aralığı|Kaynak bağlantı noktası|Hedef adres aralığı|Hedef bağlantı noktası|Protokol|
+|Kural|Access|Öncelik|Kaynak adres aralığı|Kaynak bağlantı noktası|Hedef adres aralığı|Hedef bağlantı noktası|Protokol|
 |---|---|---|---|---|---|---|---|
 |HTTP'ye izin ver|İzin Ver|100|INTERNET|\*|\*|80|TCP|
 |FrontEnd'den gelen RDP'ye izin ver|İzin Ver|200|192.168.1.0/24|\*|\*|3389|TCP|
@@ -226,7 +226,7 @@ Yukarıdaki 1-6 gereksinimlerinin tamamı (3 dışında) alt ağ alanlarına sı
 
 **Giden kuralları**
 
-|Kural|Erişim|Öncelik|Kaynak adres aralığı|Kaynak bağlantı noktası|Hedef adres aralığı|Hedef bağlantı noktası|Protokol|
+|Kural|Access|Öncelik|Kaynak adres aralığı|Kaynak bağlantı noktası|Hedef adres aralığı|Hedef bağlantı noktası|Protokol|
 |---|---|---|---|---|---|---|---|
 |İnternet'i reddet|Reddet|100|\*|\*|INTERNET|\*|\*|
 
@@ -234,13 +234,13 @@ Yukarıdaki 1-6 gereksinimlerinin tamamı (3 dışında) alt ağ alanlarına sı
 
 **Gelen kuralları**
 
-|Kural|Erişim|Öncelik|Kaynak adres aralığı|Kaynak bağlantı noktası|Hedef adres aralığı|Hedef bağlantı noktası|Protokol|
+|Kural|Access|Öncelik|Kaynak adres aralığı|Kaynak bağlantı noktası|Hedef adres aralığı|Hedef bağlantı noktası|Protokol|
 |---|---|---|---|---|---|---|---|
 |İnternet'i reddet|Reddet|100|INTERNET|\*|\*|\*|\*|
 
 **Giden kuralları**
 
-|Kural|Erişim|Öncelik|Kaynak adres aralığı|Kaynak bağlantı noktası|Hedef adres aralığı|Hedef bağlantı noktası|Protokol|
+|Kural|Access|Öncelik|Kaynak adres aralığı|Kaynak bağlantı noktası|Hedef adres aralığı|Hedef bağlantı noktası|Protokol|
 |---|---|---|---|---|---|---|---|
 |İnternet'i reddet|Reddet|100|\*|\*|INTERNET|\*|\*|
 
@@ -248,7 +248,7 @@ Yukarıdaki 1-6 gereksinimlerinin tamamı (3 dışında) alt ağ alanlarına sı
 
 **Gelen kuralları**
 
-|Kural|Erişim|Öncelik|Kaynak adres aralığı|Kaynak bağlantı noktası|Hedef adres aralığı|Hedef bağlantı noktası|Protokol|
+|Kural|Access|Öncelik|Kaynak adres aralığı|Kaynak bağlantı noktası|Hedef adres aralığı|Hedef bağlantı noktası|Protokol|
 |---|---|---|---|---|---|---|---|
 |İnternet'ten gelen RDP'ye izin ver|İzin Ver|100|INTERNET|*|\*|3389|TCP|
 
@@ -258,7 +258,7 @@ Yukarıdaki 1-6 gereksinimlerinin tamamı (3 dışında) alt ağ alanlarına sı
 
 **Gelen kuralları**
 
-|Kural|Erişim|Öncelik|Kaynak adres aralığı|Kaynak bağlantı noktası|Hedef adres aralığı|Hedef bağlantı noktası|Protokol|
+|Kural|Access|Öncelik|Kaynak adres aralığı|Kaynak bağlantı noktası|Hedef adres aralığı|Hedef bağlantı noktası|Protokol|
 |---|---|---|---|---|---|---|---|
 |ön uçtan gelen RDP'ye izin ver|İzin Ver|100|192.168.1.0/24|*|\*|3389|TCP|
 
@@ -266,7 +266,7 @@ Yukarıdaki 1-6 gereksinimlerinin tamamı (3 dışında) alt ağ alanlarına sı
 
 **Gelen kuralları**
 
-|Kural|Erişim|Öncelik|Kaynak adres aralığı|Kaynak bağlantı noktası|Hedef adres aralığı|Hedef bağlantı noktası|Protokol|
+|Kural|Access|Öncelik|Kaynak adres aralığı|Kaynak bağlantı noktası|Hedef adres aralığı|Hedef bağlantı noktası|Protokol|
 |---|---|---|---|---|---|---|---|
 |ön uçtan gelen SQL'ye izin ver|İzin Ver|100|192.168.1.0/24|*|\*|1433|TCP|
 
@@ -284,6 +284,6 @@ Yukarıdaki NSG'lerden bazılarının tekil NIC'lerle ilişkilendirilmesi gerekt
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

@@ -7,7 +7,7 @@
     manager="erikre"
     editor=""
     tags=""
-    keywords="cordova,javascript,mobile,client" />
+    keywords="cordova,javascript,mobil,istemci" />
 
 <tags
     ms.service="app-service-mobile"
@@ -15,7 +15,7 @@
     ms.tgt_pltfrm="mobile-html"
     ms.devlang="javascript"
     ms.topic="hero-article"
-    ms.date="05/02/2016"
+    ms.date="08/11/2016"
     ms.author="glenga"/>
 
 #Apache Cordova uygulaması oluşturma
@@ -41,6 +41,8 @@ Ayrıca Visual Studio’yu atlayabilir ve doğrudan Apache Cordova komut satır�
 ## Yeni bir Azure mobil uygulama arka ucu oluşturma
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
+
+[Benzer adımları gösteren bir video izleyin](https://channel9.msdn.com/series/Azure-connected-services-with-Cordova/Azure-connected-services-task-1-Create-an-Azure-Mobile-App)
 
 ## Sunucu projesi yapılandırma
 
@@ -71,7 +73,7 @@ SDK'ları kullanmayı öğrenin.
 <!-- Images. -->
 
 <!-- URLs -->
-[Azure portal]: https://portal.azure.com/
+[Azure portalına]: https://portal.azure.com/
 [Visual Studio Community 2015]: http://www.visualstudio.com/
 [Apache Cordova için Visual Studio Araçları]: https://www.visualstudio.com/en-us/features/cordova-vs.aspx
 [Kimlik Doğrulaması Ekleme]: app-service-mobile-cordova-get-started-users.md
@@ -84,7 +86,6 @@ SDK'ları kullanmayı öğrenin.
 
 
 
-
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

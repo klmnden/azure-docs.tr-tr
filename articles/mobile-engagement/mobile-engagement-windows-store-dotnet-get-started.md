@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Windows Evrensel Uygulamaları için Azure Mobile Engagement kullanmaya başlama"
+    pageTitle="Windows Evrensel Uygulamaları Azure Mobile Engagement kullanmaya başlayın"
     description="Windows Evrensel Uygulamaları için analizler ve anında iletme bildirimleri ile Azure Mobile Engagement kullanmayı öğrenin."
     services="mobile-engagement"
     documentationCenter="windows"
@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="mobile-windows-store"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="05/03/2016"
-    ms.author="piyushjo" />
+    ms.date="08/12/2016"
+    ms.author="piyushjo;ricksal" />
 
 # Windows Evrensel Uygulamaları için Azure Mobile Engagement kullanmaya başlama
 
@@ -23,14 +23,12 @@
 Bu konuda, uygulama kullanımınızı anlamak ve bir Windows Evrensel uygulamasının segmentli kullanıcılarına anında iletme bildirimleri göndermek için nasıl Azure Mobile Engagement kullanılacağı gösterilmektedir.
 Bu öğretici, Mobile Engagement kullanarak basit bir yayın senaryosunu gösterir. Temel uygulama kullanımı verilerini toplayan ve Windows Bildirim Hizmeti’ni (WNS) kullanarak anında iletme bildirimleri alan boş bir Windows Evrensel Uygulaması oluşturursunuz.
 
-Bu öğretici için aşağıdakiler gereklidir:
+## Ön koşullar
 
-+ Visual Studio 2013
-+ [MicrosoftAzure.MobileEngagement] Nuget paketi
+[AZURE.INCLUDE [Prereqs](../../includes/mobile-engagement-windows-store-prereqs.md)]
 
-> [AZURE.NOTE] Bu öğreticiyi tamamlamak için etkin bir Azure hesabınızın olması gerekir. Hesabınız yoksa yalnızca birkaç dakika içinde ücretsiz bir deneme sürümü hesabı oluşturabilirsiniz. Ayrıntılar için bkz. [Azure Ücretsiz Deneme](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-windows-store-dotnet-get-started).
 
-##<a id="setup-azme"></a>Windows Evrensel uygulamanız için Mobile Engagement kurma
+## Windows Evrensel uygulamanız için Mobile Engagement kurma
 
 [AZURE.INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal.md)]
 
@@ -38,23 +36,23 @@ Bu öğretici için aşağıdakiler gereklidir:
 
 Bu öğreticide, veri toplamak ve anında iletme bildirimi göndermek için gerekli en küçük grup olan bir "temel tümleştirme" gösterilmektedir. Tümleştirme belgelerinin tamamı [Mobile Engagement Windows Evrensel SDK tümleştirmesi](mobile-engagement-windows-store-sdk-overview.md) makalesinde bulunabilir.
 
-Tümleştirmeyi göstermek için Visual Studio ile temel bir uygulama oluşturacağız.
+Tümleştirmeyi göstermek için Visual Studio ile temel bir uygulama oluşturursunuz.
 
-###Yeni bir Windows Evrensel Uygulama projesi oluşturma
+###Bir Windows Evrensel Uygulaması projesi oluşturma
 
-Aşağıdaki adımlarda Visual Studio 2015 kullanıldığı varsayılmaktadır ancak Visual Studio'nun önceki sürümleri için de benzer adımlar izlenir. 
+Aşağıdaki adımlarda Visual Studio 2015 kullanıldığı varsayılmaktadır ancak Visual Studio'nun önceki sürümleri için de benzer adımlar izlenir.
 
 1. Visual Studio'yu başlatın ve **Giriş** ekranında **Yeni Proje**’yi seçin.
 
-2. Açılır pencerede **Windows 8** -> **Evrensel** -> **Boş Uygulama (Evrensel Windows 8.1)**’yı seçin. **Ad** ve **Çözüm adı** alanlarını doldurup **Tamam**’a tıklayın.
+2. Açılır pencerede**Windows** -> **Evrensel** -> **Boş Uygulama (Evensel Windows)** seçeneğini belirleyin. **Ad** ve **Çözüm adı** alanlarını doldurup **Tamam**’a tıklayın.
 
     ![][1]
 
-Azure Mobile Engagement SDK’sını tümleştireceğimiz yeni bir Windows Evrensel Uygulama projesi oluşturmuş oldunuz.
+Bir sonraki adımda Azure Mobile Engagement SDK’sını tümleştireceğiniz bir Windows Evrensel Uygulama projesi oluşturmuş oldunuz.
 
 ###Uygulamanızı Mobile Engagement arka ucuna bağlama
 
-1. [MicrosoftAzure.MobileEngagement] nuget paketini projenize yükleyin. Windows ve Windows Phone platformlarının ikisini de hedefliyorsanız, bu işlemi her iki proje için de gerçekleştirmeniz gerekir. Windows 8.x ve Windows Phone 8.1 ile çalışırken aynı Nuget paketi, projelerin her birine platforma özel doğru ikili dosyaları yerleştirir.
+1. [MicrosoftAzure.MobileEngagement] Nuget paketini projenize yükleyin. Windows ve Windows Phone platformlarının ikisini de hedefliyorsanız, bu işlemi her iki proje için de gerçekleştirmeniz gerekir. Windows 8.x ve Windows Phone 8.1 ile çalışırken aynı Nuget paketi tarafından projelerin her birine platforma özel doğru ikili dosyalar yerleştirilir.
 
 2. **Package.appxmanifest** öğesini açın ve aşağıdaki özelliğin eklenmiş olduğundan emin olun.
 
@@ -66,7 +64,7 @@ Azure Mobile Engagement SDK’sını tümleştireceğimiz yeni bir Windows Evren
 
     ![][3]
 
-    >[AZURE.TIP] Uygulamanız, Windows ve Windows Phone platformlarının ikisini de hedefleyecekse, desteklenen her platform için birer tane olmak üzere iki adet Mobile Engagement Uygulaması oluşturmanız gerekir. Böylece, hedef kitlenizin segmentlere doğru olarak ayrılmasını sağlayabilir ve her platforma uygun şekilde hedefe yönelik bildirimler gönderebilirsiniz.
+    >[AZURE.TIP] Uygulamanız, Windows ve Windows Phone platformlarının ikisini de hedefliyorsa, desteklenen her platform için birer adet olmak üzere iki adet Mobile Engagement Uygulaması oluşturmanız gerekir. İki uygulamanızın olması, hedef kitlenizi doğru bir şekilde bölümlendirebildiğinizden ve her platform için uygun şekilde hedefe yönelik bildirimler gönderebildiğinizden emin olmanızı sağlar.
 
 4. `App.xaml.cs` dosyasında:
 
@@ -74,7 +72,7 @@ Azure Mobile Engagement SDK’sını tümleştireceğimiz yeni bir Windows Evren
 
             using Microsoft.Azure.Engagement;
 
-    b. Engagement’ın başlatılmasına ve ayarlanmasına adanmış bir yöntem ekleyin:
+    b. Engagement’ı başlatan bir yöntem ekleyin:
 
            private void InitEngagement(IActivatedEventArgs e)
            {
@@ -109,7 +107,7 @@ Veri göndermeye başlamak ve kullanıcıların etkin olduğundan emin olmak iç
 
         using Microsoft.Azure.Engagement.Overlay;
 
-2. **MainPage** temel sınıfını **Page** yerine **EngagementPageOverlay** olarak değiştirin:
+2. **MainPage** öğesinin **Page** temel sınıfını **EngagementPageOverlay** olarak değiştirin:
 
         class MainPage : EngagementPageOverlay
 
@@ -120,8 +118,8 @@ Veri göndermeye başlamak ve kullanıcıların etkin olduğundan emin olmak iç
         xmlns:engagement="using:Microsoft.Azure.Engagement.Overlay"
 
     b. XML etiket adındaki **Page** yerine **engagement:EngagementPageOverlay** koyun
-    
-> [AZURE.IMPORTANT] Sayfanız `OnNavigatedTo` yöntemini geçersiz kılıyorsa `base.OnNavigatedTo(e)` öğesinin çağrıldığından emin olun. Aksi takdirde etkinlik bildirilmez (`EngagementPage`, `OnNavigatedTo` yönteminin içinde `StartActivity` öğesini çağırır). Bu uyarı, varsayılan şablonda bir `OnNavigatedTo` yöntemi bulunan Windows Phone projeleri için özellikle önemlidir. 
+
+> [AZURE.IMPORTANT] Sayfanız `OnNavigatedTo` yöntemini geçersiz kılıyorsa `base.OnNavigatedTo(e)` öğesini çağırdığınızdan emin olun. Aksi takdirde, etkinlik bildirilmez (`EngagementPage`, `OnNavigatedTo` yönteminin içinde `StartActivity` öğesini çağırır). Bu uyarı, varsayılan şablonda bir `OnNavigatedTo` yöntemi bulunan Windows Phone projeleri için özellikle önemlidir.
 
 ##<a id="monitor"></a>Uygulamayı gerçek zamanlı izlemeyle bağlama
 
@@ -148,16 +146,16 @@ Aşağıdaki bölümler bunları almak için uygulamanızı ayarlar.
            EngagementReach.Instance.Init(e);
         }
 
-Artık bildirim göndermeye hazırsınız. Şimdi bu temel tümleştirmeyi doğru bir şekilde gerçekleştirdiğinizi onaylayacağız.
+Bir bildirim göndermeye hazırsınız. Şimdi bu temel tümleştirmeyi doğru bir şekilde gerçekleştirdiğinizi doğrulayacağız.
 
 ###Bildirim göndermesi için Mobile Engagement’a erişim izni verme
 
-1. Web tarayıcınızda [Windows Mağazası Geliştirme Merkezi]’ni açın, gerekiyorsa oturum açıp bir hesap oluşturun.
-2. Sağ üst köşede **Pano**’ya ve ardından sol panel menüsünde **Yeni bir uygulama oluştur**’a tıklayın. 
+1. Web tarayıcınızda [Windows Mağazası Geliştirme Merkezi]’ni açın, oturum açın ve gerekiyorsa bir hesap oluşturun.
+2. Sağ üst köşede **Pano**’ya ve ardından sol panel menüsünde **Yeni bir uygulama oluştur**’a tıklayın.
 
     ![][9]
 
-2. Adını ayırarak uygulamanızı oluşturun. 
+2. Adını ayırarak uygulamanızı oluşturun.
 
     ![][10]
 
@@ -165,27 +163,27 @@ Artık bildirim göndermeye hazırsınız. Şimdi bu temel tümleştirmeyi doğr
 
     ![][11]
 
-4. Anında iletme bildirimleri bölümünde **Live Services sitesi** bağlantısına tıklayın. 
+4. Anında iletme bildirimleri bölümünde **Live Services sitesi** bağlantısına tıklayın.
 
     ![][12]
 
-5. Gönderim kimlik bilgileri bölümüne yönlendirileceksiniz. **Uygulama Ayarları** bölümünde olduğunuzdan emin olun, **Paket SID'si** ve **Client secret** (Gizli Anahtar) değerlerinizi kopyalayın.
+5. Gönderim kimlik bilgileri bölümüne gidin. **Uygulama Ayarları** bölümünde olduğunuzdan emin olun, **Paket SID'si** ve **Client secret** (Gizli Anahtar) değerlerinizi kopyalayın.
 
     ![][13]
 
-6. Mobile Engagement portalınızda **Ayarlar**’a gidip sol tarafta **Yerel Gönderim** bölümüne tıklayın. Ardından, **Düzenle** düğmesine tıklayarak aşağıda gösterildiği şekilde **Paket güvenlik tanımlayıcısı (SID)** ve **Gizli Anahtar** değerlerinizi girin:
+6. Mobile Engagement portalınızda **Ayarlar**’a gidip sol tarafta **Yerel Gönderim** bölümüne tıklayın. Ardından, **Düzenle** düğmesine tıklayarak burada gösterildiği şekilde **Paket güvenlik tanımlayıcısı (SID)** ve **Gizli Anahtar** değerlerinizi girin:
 
     ![][6]
 
-8. Son olarak, Uygulama mağazasında Visual Studio uygulamanızı oluşturulan bu uygulama ile ilişkilendirdiğinizden emin olun. Bunu yapmak için Visual Studio’da **Associate App with Store** (Uygulamayı Mağaza ile İlişkilendir) seçeneğine tıklamanız gerekir.
-
+8. Son olarak, Uygulama mağazasında Visual Studio uygulamanızı oluşturulan bu uygulama ile ilişkilendirdiğinizden emin olun. Visual Studio’da **Uygulamayı Mağaza ile İlişkilendir**’e tıklayın.
     ![][7]
 
 ##<a id="send"></a>Uygulamanıza bildirim gönderme
 
 [AZURE.INCLUDE [Create Windows Push campaign](../../includes/mobile-engagement-windows-push-campaign.md)]
 
-Uygulama çalışıyorsa bir uygulama içi bildirim görürsünüz, aksi takdirde uygulama kapalıysa bir bildirim görürsünüz. Uygulama içi bildirim görüyor ancak bildirim görmüyorsanız ve uygulamayı Visual Studio'da hata ayıklama modunda çalıştırıyorsanız, uygulamanın gerçekten askıya alındığından emin olmak için araç çubuğunda **Yaşam döngüsü olayları -> Askıya al** seçeneğini deneyin. Visual Studio'da uygulamanın hatalarını ayıklarken yalnızca Giriş düğmesine tıkladıysanız, uygulama her zaman askıya alınmaz ve bildirim, uygulama içi bildirim olarak görünür, ancak bildirim olarak gösterilmez.  
+Uygulama çalışıyorsa uygulama içi bir bildirim görürsünüz. Uygulama kapalıysa bir bildirim görürsünüz.
+Uygulama içi bildirim görür ancak bildirim görmezseniz ve uygulamayı Visual Studio'da hata ayıklama modunda çalıştırıyorsanız, uygulamanın askıya alındığından emin olmak için araç çubuğunda **Yaşam döngüsü olayları -> Askıya al** seçeneğini deneyin. Visual Studio'da uygulamanın hatalarını ayıklarken Giriş düğmesine tıkladıysanız, uygulama her zaman askıya alınmaz ve bildirimi uygulama içi bildirim olarak görmenize rağmen bildirim olarak göremezsiniz.  
 
 ![][8]
 
@@ -211,8 +209,6 @@ Uygulama çalışıyorsa bir uygulama içi bildirim görürsünüz, aksi takdird
 
 
 
-
-
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

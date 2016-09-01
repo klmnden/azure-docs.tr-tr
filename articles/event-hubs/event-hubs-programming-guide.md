@@ -12,7 +12,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
     ms.workload="tbd"
-    ms.date="04/15/2016"
+    ms.date="08/16/2016"
     ms.author="sethm" />
 
 # Event Hubs programlama kılavuzu
@@ -23,7 +23,7 @@ Bu konu Azure .NET SDK’sı kullanılarak Azure Event Hubs ile programlamayı a
 
 Bir Event Hub'ına olayların gönderilmesi HTTP POST kullanılarak veya bir AMQP 1.0 bağlantısı üzerinden gerçekleştirilir. Hangisinin kullanılacağına ilişkin seçim, ele alınan belirli senaryoya bağlıdır. AMQP 1.0 bağlantıları Service Bus içinde aracılı bağlantılar olarak ölçülür ve sıklıkla daha yüksek ileti hacimlerine ve düşük gecikme gereksinimlerine sahip senaryolar kalıcı bir mesajlaşma kanalı sağladığından bu senaryolarda daha uygundur.
 
-Event Hubs [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) sınıfı kullanılarak oluşturulur ve yönetilir. .NET ile yönetilen API’ler kullanılırken Event Hubs’a veri yayımlamaya yönelik birincil yapılar [EventHubClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx) ve [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) sınıflarıdır. [EventHubClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx), olayların Event Hub'ına gönderildiği AMQP iletişim kanalını sağlar. [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) sınıfı bir olayı temsil eder ve bir Event Hub'ına iletileri yayımlamak için kullanılır. Bu sınıf, olayla ilgili gövde bilgileri, bazı meta verileri ve üst bilgileri içerir. Diğer özellikler bir Event Hub'ından geçtikçe [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) nesnesine eklenir.
+Event Hubs’ı [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) sınıfını kullanılarak oluşturabilir ve yönetebilirsiniz. .NET ile yönetilen API’ler kullanılırken Event Hubs’a veri yayımlamaya yönelik birincil yapılar [EventHubClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx) ve [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) sınıflarıdır. [EventHubClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx), olayların Event Hub'ına gönderildiği AMQP iletişim kanalını sağlar. [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) sınıfı bir olayı temsil eder ve bir Olay Hub'ına ileti yayımlamak için kullanılır. Bu sınıf, olayla ilgili gövde bilgileri, bazı meta verileri ve üst bilgileri içerir. Diğer özellikler bir Event Hub'ından geçtikçe [EventData](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.aspx) nesnesine eklenir.
 
 ## Başlarken
 
@@ -172,7 +172,7 @@ Zaman içerisinde bir denge sağlanır. Bu dinamik özellik hem ölçek artırma
 
 ## Yayımcı iptali
 
-[EventProcessorHost](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost.aspx)’un gelişmiş çalışma zamanı özelliklerine ek olarak Event Hubs, belirli yayımcıların bir Event Hub'ına olay göndermesini engellemek üzere yayımcı iptalini sağlar. Bu özellikleri özellikle bir yayımcı belirteci tehlike girdiğinde veya bir yazılım güncelleştirmesi yayımcının uygunsuz şekilde davranmasına yol açtığında yararlıdır. Bu durumlarda SAS belirtecinin bir parçası olan yayımcı kimliğinin olayları yayımlaması engellenebilir.
+[EventProcessorHost](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost.aspx)’un gelişmiş çalışma zamanı özelliklerine ek olarak Event Hubs, belirli yayımcıların bir Olay Hub'ına olay göndermesini engellemek üzere yayımcıların iptal edilmesini sağlar. Bu özellikleri özellikle bir yayımcı belirteci tehlike girdiğinde veya bir yazılım güncelleştirmesi yayımcının uygunsuz şekilde davranmasına yol açtığında yararlıdır. Bu durumlarda SAS belirtecinin bir parçası olan yayımcı kimliğinin olayları yayımlaması engellenebilir.
 
 Yayımcı iptali ve yayımcı olarak Event Hubs’a gönderme hakkında daha fazla bilgi için [Service Bus Event Hubs Büyük Ölçekli Güvenli Yayımlama](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-99ce67ab) örneğine bakın.
 
@@ -187,6 +187,6 @@ Event Hubs senaryoları hakkında daha fazla bilgi almak için aşağıdaki bağ
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

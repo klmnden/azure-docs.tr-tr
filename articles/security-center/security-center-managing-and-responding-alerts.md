@@ -13,23 +13,17 @@
    ms.devlang="na"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/21/2016"
+   ms.date="08/07/2016"
    ms.author="yurid"/>
 
 # Azure Güvenlik Merkezi'nde güvenlik uyarılarını yönetme ve yanıtlama
 Bu belge, güvenlik uyarılarını yönetmeniz ve yanıtlamanız için Azure Güvenlik Merkezi’ni kullanmanıza yardımcı olur.
 
 ## Güvenlik uyarıları nedir?
-Güvenlik Merkezi, gerçek tehditleri algılamak ve hatalı pozitif sonuçları azaltmak için Azure kaynaklarınızdan, ağınızdan ve güvenlik duvarı ve uç nokta koruma çözümleri gibi bağlı iş ortağı çözümlerinden günlük verilerini otomatik olarak toplar, çözümler ve tümleştirir. Öncelikli güvenlik uyarıları listesi, sorunu hızlıca araştırmanız gereken bilgiler ve saldırıyı düzeltme hakkındaki önerilerle birlikte Güvenlik Merkezi'nde gösterilir.
+Güvenlik Merkezi, gerçek tehditleri algılamak ve hatalı pozitif sonuçları azaltmak için Azure kaynaklarınızdan, ağınızdan ve güvenlik duvarı ve uç nokta koruma çözümleri gibi bağlı iş ortağı çözümlerinden günlük verilerini otomatik olarak toplar, çözümler ve tümleştirir. Öncelikli güvenlik uyarıları listesi, sorunu hızlıca araştırmanız gereken bilgiler ve saldırıyı düzeltme hakkındaki önerilerle birlikte Güvenlik Merkezi'nde gösterilir. Azure Güvenlik Merkezi, sonlandırma zinciri desenleri ile hizalanan uyarıları da [Olaylar](security-center-incident.md) altında toplar. 
 
 > [AZURE.NOTE] Güvenlik Merkezi algılama özelliklerinin nasıl çalıştığı hakkında daha fazla bilgi için [Azure Güvenlik Merkezi Algılama Özellikleri](security-center-detection-capabilities.md) konusunu okuyun.
 
-Microsoft güvenlik araştırmacıları, dünya genelinde sürekli ortaya çıkan tehditleri çözümler (tüketiciler, kurumsal ürünler ve çevrimiçi hizmetlerinde görülen yeni saldırı desenleri ve eğilimleri dahil). Sonuç olarak Güvenlik Merkezi, yeni güvenlik açıkları ve açıklardan yararlanma keşfedildiğinde kendi algılama algoritmalarını güncelleştirebilir. Böylece müşterilerin gelişen tehditlere ayak uydurmalarına yardımcı olur. Güvenlik Merkezi'nin algılayabileceği bazı tehdit türlerine şunlar örnektir:
-
-- **Ağ verileri üzerinden deneme yanılmayı algılama**: Uygulamalarınıza ilişkin genel ağ trafiği desenlerini anlayan Machine Learning modellerini kullanır, geçerli kullanıcılar yerine hatalı aktörlerin yürüttüğü erişim girişimlerini daha verimli bir şekilde algılamayı etkinleştirir.
-- **Uç nokta verileri üzerinden deneme yanılmayı algılama**: Makine günlüklerinin çözümlemesini temel alarak başarılı ve başarısız denemeler arasında ayrım sağlar.
-- **Kötü amaçlı IP'lerle iletişim kuran VM'ler**: Ağ trafiğini Microsoft küresel tehdit zekasıyla karşılaştırır, Komuta ve Kontrol (C & C) sunucularıyla iletişim kuran, gizliliği tehlikeye giren makineleri bulur (veya tam tersi yönde işlem yapar).
-- **Gizliliği tehlikeye giren VM'ler**: Makine günlükleri ve diğer sinyaller arasındaki bağıntının davranışsal analizine dayanarak, büyük olasılıkla makinenin gizliliğinin tehlikeye girmesi ve istismarı sonucu gerçekleşmiş anormal olayları tanımlar.
 
 ## Güvenlik ilkelerini yönetme
 
@@ -109,20 +103,113 @@ Bu uyarı bu saldırıyı başlatmak için kullanılan kaynağı, saldırıya u�
 
 > [AZURE.NOTE] Dinamik IP adresleri gizlilik amacıyla bu ekran görüntüsünden kaldırılmıştır.
 
+### Kabuk Kodu Bulundu 
+
+Kabuk Kodu, kötü amaçlı yazılım bir yazılım güvenlik açığından yararlandıktan sonra çalıştırılan yüktür.  Bu uyarı, kilitlenme dökümü analizinin kötü amaçlı yükler tarafından yaygın olarak gerçekleştirilen davranışları sergileyen yürütülebilir kodlar algıladığını belirtir.  Bu davranış kötü amaçlı olmayan yazılımlar tarafından gerçekleştiriliyor olabilir, ancak normal yazılım geliştirme uygulamaları için alışıldık bir davranış değildir. 
+
+Aşağıdaki alanlar tüm kilitlenme dökümü uyarılarında ortaktır:
+
+- DUMPFILE: Kilitlenme döküm dosyasının adı 
+- PROCESSNAME: Kilitlenen işlemin adı 
+- PROCESSVERSION: Kilitlenen işlemin sürümü 
+
+Bu uyarı tarafından aşağıdaki ek alan sağlanır:
+
+- ADDRESS: Kabuk kodunun bellekteki konumu
+
+İşte bu tür bir uyarı örneği:
+
+![Kabuk kodu uyarısı](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig10-ga.png)
+
+### Kod Ekleme Bulundu
+
+Kod ekleme, çalışmakta olan işlemlere veya iş parçacıklarına yürütülebilir modüllerin eklenmesidir.  Bu teknik, kötü amaçlı yazılımlar tarafından verilere erişmek, yazılımı gizlemek ya da kaldırılmasını önlemek (örn. kalıcılık) için kullanılır.  Bu uyarı, kilitlenme dökümü analizinin kilitlenme dökümüyle birlikte eklenen bir modül algıladığını gösterir.
+ 
+Yasal yazılım geliştiricileri, var olan bir uygulama ya da işletim sistemi bileşenini değiştirme ya da genişletme gibi nadir durumlarda kötü amaçlı olmayan amaçlar için kod ekleme gerçekleştirir.  Azure Güvenlik Merkezi, kötü amaçlı olan ve olmayan eklenen modülleri birbirinden ayırt etmenize yardımcı olmak için eklenen modülün bir şüpheli davranış profiline uygun olup olmadığını denetler. Bu denetimin sonucu, uyarının “SIGNATURE” alanı tarafından gösterilir ve uyarının önem derecesi, uyarı açıklaması ve uyarı düzeltme adımlarında yansıtılır.  
+
+Bu uyarı, yukarıdaki “Kabuk Kodu Bulundu” bölümünde açıklanan ortak alanlara ek olarak aşağıdaki ek alanları sağlar:
+
+- ADDRESS: Eklenen modülün bellekteki konumu
+- IMAGENAME: Eklenen modülün adı. Görüntüde görüntü adı sağlanmadıysa bu alanın boş olabileceğini unutmayın.
+- SIGNATURE: Eklenen modülün bir şüpheli davranış profiline uyup uymadığını gösterir. Aşağıdaki tabloda örnek sonuçlar ve açıklamaları gösterilmektedir:
+
+| **İmza değeri**                  | **Açıklama**                                                                                                   |
+|--------------------------------------|-------------------------------------------------------------------------------------------------------------------|
+| Şüpheli yansıtıcı yükleyici açığından yararlanma | Bu şüpheli davranış çoğunlukla eklenen kodun işletim sistemi yükleyicisinden bağımsız olarak yüklenmesiyle bağıntılıdır |
+| Şüpheli eklenen kod açığından yararlanma          | Genellikle belleğe kod eklenmesiyle bağıntılı olan kötü amaçlılığı gösterir                                       |
+| Şüpheli ekleme açığından yararlanma         | Genellikle belleğe eklenen kodun kullanımıyla bağıntılı olan kötü amaçlılığı gösterir                                   |
+| Şüpheli eklenen hata ayıklayıcı açığından yararlanma | Genellikle bir hata ayıklayıcının algılanmasıyla veya aşılmasıyla bağıntılı olan kötü amaçlılığı gösterir                         |
+| Şüpheli eklenen kodun uzaktan yürütülmesi açığından yararlanma   | Genellikle komut ve denetim (C2) senaryolarıyla bağıntılı olan kötü amaçlılığı gösterir                                 |
+
+İşte bu tür bir uyarı örneği:
+
+![Kod Ekleme Bulundu](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig11-ga.png)
+
+### Modül Ele Geçirme Bulundu
+
+Windows, yazılımların ortak Windows sistem işlevselliğinden yararlanmasına izin vermek için Dinamik Bağlantı Kitaplıkları’nı (DLL’ler) kullanır.  DLL Ele Geçirme, kötü amaçlı iş yüklerinin rastgele kodların yürütülebileceği belleğe yüklenmesi için kötü amaçlı yazılım tarafından DLL yükleme sırası değiştirildiğinde gerçekleşir. Bu uyarı, kilitlenme dökümü analizinin iki farklı yoldan yüklenmiş benzer adlı bir modül algıladığını ve yüklenen yollardan birinin ortak bir Windows sistemi ikili konumundan geldiğini gösterir.
+
+Yasal yazılım geliştiricileri, Windows işletim sistemini veya Windows uygulamalarını izleme, genişletme gibi kötü amaçlı olmayan gerekçelerden dolayı nadiren DLL yükleme sırasını değiştirir.  Azure Güvenlik Merkezi, DLL yükleme sırasında yapılan kötü amaçlı değişikliklerle zararsız olabilecek değişikliklerin birbirinden ayırt edilmesine yardımcı olmak için yüklenen bir modülün şüpheli bir profile uygun olup olmadığını denetler.   Bu denetimin sonucu, uyarının “SIGNATURE” alanı tarafından gösterilir ve uyarının önem derecesi, uyarı açıklaması ve uyarı düzeltme adımlarında yansıtılır.  Ele geçiren modülün diskteki kopyasının incelenmesi (örneğin, dosyaların dijital imzası doğrulanarak veya bir virüsten koruma taraması gerçekleştirilerek), ele geçiren modülünün yasal mı yoksa kötü amaçlı mı olduğuna ilişkin daha fazla bilgi sağlayabilir.
+
+Bu uyarı, yukarıdaki “Kabuk Kodu Bulundu” bölümünde açıklanan ortak alanlara ek olarak aşağıdaki alanları sağlar:
+
+- SIGNATURE: Ele geçiren modülün bir şüpheli davranış profiline uygun olup olmadığını gösterir
+- HIJACKEDMODULE: Ele geçirilen Windows sistem modülünün adı
+- HIJACKEDMODULEPATH: Ele geçirilen Windows sistem modülünün yolu
+- HIJACKINGMODULEPATH: Ele geçiren modülün yolu 
+
+İşte bu tür bir uyarı örneği:
+
+![DLL Ele Geçirme uyarısı](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig12-ga.png)
+
+### Kendini gizleyen Windows Modulü Algılandı
+
+Kötü amaçlı yazılım, “araya karışmak” ve kötü amaçlı yazılımın gerçek yapısını sistem yöneticilerinden saklamak amacıyla Windows sistem ikili dosyaları (örn. SVCHOST.EXE) veya modülleri (örn. NTDLL.DLL) için yaygın olarak kullanılan adları kullanabilir.  Bu uyarı, kilitlenme dökümü analizinde kilitlenme dökümü dosyalarının Windows sistem modülü adlarını kullanan, ancak normal Windows modüllerine yönelik diğer kriterleri karşılamayan modüller içerdiğinin algılandığını gösterir. Kendini gizleyen modülün diskteki kopyasının çözümlenmesi, bu modülün yasal mı yoksa kötü amaçlı mı olduğu konusunda daha fazla bilgi sağlayabilir. Analiz şunları içerebilir:
+
+- İlgili dosyanın yasal bir yazılım paketinin bir parçası olarak gönderildiğini doğrulayın
+- Dosyanın dijital imzasını doğrulayın 
+- Dosya üzerinde virüsten koruma taraması çalıştırın
+
+Bu uyarı, yukarıdaki “Kabuk Kodu Bulundu” bölümünde açıklanan ortak alanlara ek olarak aşağıdaki ek alanları sağlar:
+
+- DETAILS: Modülün meta verilerinin geçerli olup olmadığını ve modülün bir sistem yolundan yüklenip yüklenmediğini açıklar.
+- NAME: Kendini gizleyen Windows modülünün adı
+- PATH: Kendini gizleyen Windows modülünün yolu.
+
+Bu uyarı, modülün PE üst bilgisinden “CHECKSUM” ve “TIMESTAMP” gibi belirli alanları da ayıklar ve görüntüler.  Bu alanlar yalnızca modülde varsa görüntülenir. Bu alanlarla ilgili ayrıntılı bilgi için bkz. [Microsoft PE ve COFF Belirtimi](https://msdn.microsoft.com/windows/hardware/gg463119.aspx).
+
+İşte bu tür bir uyarı örneği:
+
+![Gizleme uyarısı](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig13-ga.png)
+
+### Değiştirilen Sistem İkili Dosyası Bulundu 
+
+Kötü amaçlı yazılım, verilere gizlice erişmek veya güvenliği ihlal edilmiş bir sistemde kendini gizleyerek kalıcı olmak için çekirdek sistem ikili dosyalarını değiştirebilir.  Bu uyarı, kilitlenme dökümü analizi tarafından bellekte veya diskte çekirdek Windows OS ikili dosyalarının değiştirildiğinin algılandığını gösterir. 
+
+Yasal uygulama geliştiricileri, Sapmalar veya uygulama uyumluluğu gibi kötü amaçlı olmayan nedenlerle bellekte sistem modüllerini nadiren değiştirir. Azure Güvenlik Merkezi, kötü amaçlı modüllerle yasal olabilecek modüllerin birbirinden ayırt edilmesine yardımcı olmak için değiştirilen modülün bir şüpheli profile uygun olup olmadığını denetler.   Bu denetimin sonucu, uyarının önem derecesi, uyarı açıklaması ve uyarı düzeltme adımları tarafından gösterilir. 
+
+Bu uyarı, yukarıdaki “Kabuk Kodu Bulundu” bölümünde açıklanan ortak alanlara ek olarak aşağıdaki ek alanları sağlar:
+
+- MODULENAME: Değiştirilen sistem ikili dosyasının adı 
+- MODULEVERSION: Değiştirilen sistem ikili dosyasının sürümü
+
+İşte bu tür bir uyarı örneği:
+
+![Değiştirilen ikili dosya uyarısı](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig14-ga.png)
+
 
 ## Ayrıca bkz.
 
 Bu belgede, Güvenlik Merkezi'nde güvenlik ilkelerinin nasıl yapılandırılacağını öğrendiniz. Güvenlik Merkezi hakkında daha fazla bilgi edinmek için şunlara bakın:
 
+- [Azure Güvenlik Merkezi'nde Güvenlik Olayını İşleme](security-center-incident.md)
+- [Azure Güvenlik Merkezi Algılama Özellikleri](security-center-detection-capabilities.md)
 - [Azure Güvenlik Merkezi Planlama ve İşlemler Kılavuzu](security-center-planning-and-operations-guide.md)
-- [Azure Güvenlik Merkezi'nde güvenlik uyarılarını yönetme ve yanıtlama](security-center-managing-and-responding-alerts.md)
-- [Azure Güvenlik Merkezi'nde güvenlik durumunu izleme](security-center-monitoring.md) - Azure kaynaklarınızın sistem durumunu nasıl izleyeceğiniz hakkında bilgi edinin.
-- [Azure Güvenlik Merkezi ile iş ortağı çözümlerini izleme](security-center-partner-solutions.md) - İş ortağı çözümlerinizin sistem durumunu nasıl izleyeceğiniz hakkında bilgi edinin.
 - [Azure Güvenlik Merkezi ile ilgili SSS](security-center-faq.md) - Hizmeti kullanımı ile ilgili sık sorulan soruları bulabilirsiniz.
 - [Azure Güvenlik blogu](http://blogs.msdn.com/b/azuresecurity/) - Azure güvenliği ve uyumluluğu ile ilgili blog yazılarını bulabilirsiniz.
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

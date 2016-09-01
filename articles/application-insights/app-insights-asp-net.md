@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="ibiza" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="06/21/2016" 
+    ms.date="08/09/2016" 
     ms.author="daviste"/>
 
 
@@ -58,7 +58,7 @@ Visual Studio'da yeni bir proje oluşturduğunuzda, Application Insights’ın s
 
 F5 ile uygulamanızı çalıştırın ve deneyin: Birkaç telemetri oluşturmak için farklı sayfalar açın.
 
-Visual Studio'da günlüğe kaydedilmiş etkinliklerin sayısını görürsünüz. 
+Visual Studio'da, günlüğe kaydedilmiş etkinliklerin sayısını görürsünüz. 
 
 ![Visual Studio'da, hata ayıklama sırasında Application Insights düğmesi gösterilir.](./media/app-insights-asp-net/54.png)
 
@@ -89,10 +89,22 @@ Application Insights kaynağınızı [Azure portalında](https://portal.azure.co
 Portal uygulamanızdan telemetrinin bir görünümünü açar:
 ![](./media/app-insights-asp-net/66.png)
 
-* **Ara**’da (1) tek tek etkinlikler görünür. Veriler önce burada (ve [Canlı Ölçümler Akışında](app-insights-metrics-explorer.md#live-metrics-stream)) görünür. Özelliklerini görmek için herhangi bir etkinliğe tıklayın. 
+* İlk telemetri [Canlı Ölçümler Akışı](app-insights-metrics-explorer.md#live-metrics-stream)’nda görünür.
+* **Ara**’da (1) tek tek etkinlikler görünür. Verilerin görünmesi birkaç dakika sürebilir. Özelliklerini görmek için herhangi bir etkinliğe tıklayın. 
 * Toplanan ölçümler grafiklerde (2) görünür. Verilerin burada görünmesi bir veya iki dakika sürebilir. Daha ayrıntılı bilginin bulunduğu dikey pencereyi açmak için herhangi bir grafiğe tıklayın.
 
 [Azure portalında Application Insights kullanma hakkında daha fazla bilgi edinin](app-insights-dashboards.md).
+
+## 4. Uygulamanızı yayımlama
+
+Uygulamanızı IIS sunucunuza veya Azure’a yayımlayın. Her şeyin sorunsuz çalıştığından emin olmak için [Canlı Ölçümler Akışı](app-insights-metrics-explorer.md#live-metrics-stream)’nı izleyin.
+
+Telemetrinizin Application Insights portalında oluşturulduğunu görebilir ve burada ölçümleri izleyebilir, telemetrinizde arama yapabilir ve [panolar](app-insights-dashboards.md) ayarlayabilirsiniz. Ayrıca, kullanım ve performansı analiz etmek veya belirli olayları bulmak için güçlü [Analytics sorgu dilini](app-insights-analytics.md) kullanabilirsiniz. 
+
+Tanılama araması ve [Eğilimler](app-insights-visual-studio-trends.md) gibi araçları kullanarak, [Visual Studio](app-insights-visual-studio.md)’da telemetrinizi analiz etmeye devam edebilirsiniz.
+
+> [AZURE.NOTE] Uygulamanız [azaltma sınırlarına](app-insights-pricing.md#limits-summary) yaklaşmak için yeterli telemetri gönderiyorsa, otomatik [örnekleme](app-insights-sampling.md) etkinleştirilir. Örnekleme, tanılama amaçlı bağlantı verilerini korurken uygulamanızdan gönderilen telemetri miktarını azaltır.
+
 
 ##<a name="land"></a> ‘Application Insights Ekle’ ne yapar?
 
@@ -108,7 +120,7 @@ Sonuçta komut şu üçünü yapar:
 
 İsterseniz bu adımları [ASP.NET 4](app-insights-asp-net-manual.md) veya [ASP.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Getting-Started) için el ile uygulayabilirsiniz.
 
-## Gelecekteki SDK sürümlerine yükseltmek için
+### Gelecekteki SDK sürümlerine yükseltmek için
 
 [SDK'nın yeni sürümüne](app-insights-release-notes-dotnet.md) yükseltme yapmak için NuGet paket yöneticisini yeniden açın ve yüklü paketleri filtreleyin. Microsoft.ApplicationInsights.Web’i ve Yükselt’i seçin.
 
@@ -132,6 +144,6 @@ ApplicationInsights.config dosyasında herhangi bir özelleştirme yaptıysanız
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

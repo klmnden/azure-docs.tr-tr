@@ -1,29 +1,23 @@
-1. Azure Portal'da **Yeni** **>** **Ağ** **>** **Yerel ağ geçidi**’ne gidin.
+1. Portalda **Yeni** > **Ağ** > **Yerel ağ geçidi** seçeneğine gidin.
 
     ![yerel ağ geçidi oluşturma](./media/vpn-gateway-add-lng-rm-portal-include/addlng250.png)
 
 2. **Yerel ağ geçidi oluştur** dikey penceresinde yerel ağ geçidi nesnesi için bir **Ad** belirtin.
  
-3. Ağ geçidiniz için bir **IP adresi** belirtin. Bu, bağlanmak istediğiniz dış VPN cihazının IP adresidir. NAT’nin ardında olamaz ve Azure tarafından erişilebilir olması gerekir.
+3. Bağlanmak istediğiniz VPN cihazı veya sanal ağ geçidi için geçerli bir genel **IP adresi** belirtin.<br>Söz konusu yerel ağ, şirket içi bir konumu temsil ediyorsa; bu, bağlanmak istediğiniz VPN cihazının genel IP adresidir. NAT’nin ardında olamaz ve Azure tarafından erişilebilir olması gerekir.<br>Bu yerel ağ başka bir VNet'i temsil ediyorsa, o VNet için sanal ağ geçidine atanan genel IP adresini belirtin.<br>
 
-4. **Adres Alanı** yerel (genellikle şirket içi) ağınızdaki adres aralığına başvurur. Birden fazla adres alanı aralığı ekleyebilirsiniz. Buraya girdiğiniz aralıklar, ağ geçidiyle iletişim kuracak sanal ağlar için kullandığınız adres alanı aralıklarıyla çakışamaz.  Azure Virtual Network adres alanları kadar şirket içi yapılandırmanızla da koordine olmanız gerekecek.
+4. **Adres Alanı**, bu yerel ağın temsil ettiği ağa ilişkin adres aralıkları anlamına gelir. Birden fazla adres alanı aralığı ekleyebilirsiniz. Burada belirttiğiniz aralıkların, bağlanmak istediğiniz diğer ağların aralıklarıyla çakışmadığından emin olun.
  
 5. **Abonelik** için doğru aboneliğin gösterildiğini doğrulayın.
 
-6. **Kaynak Grubu** için kullanmak istediğiniz kaynak grubunu seçin. Yeni bir kaynak grubu oluşturabilir veya önceden oluşturduğunuz birini seçebilirsiniz. Yeni bir kaynak grubu oluşturmak için kutuya adı yazın. Önceden oluşturduğunuz bir kaynak grubunu seçmek için **Kaynak grubu** dikey penceresini açacak **Kaynak Grubu**’na tıklayın ve kullanmak istediğiniz kaynak grubunu seçin.
+6. **Kaynak Grubu** için kullanmak istediğiniz kaynak grubunu seçin. Yeni bir kaynak grubu oluşturabilir veya önceden oluşturduğunuz birini seçebilirsiniz.
 
-7. **Konum** için, yeni bir yerel ağ geçidi oluşturuyorsanız sanal ağ geçidiyle aynı konumu kullanabilirsiniz. Ancak bu zorunlu değildir. Yerel ağ geçidi farklı bir konumda olabilir. 
+7. **Konum** için, bu nesnenin oluşturulacağı konumu seçin. VNet'inizin bulunduğu konumu seçebilirsiniz ancak bu zorunlu değildir.
 
-8. Bu yerel ağ geçidini panodan kolayca bulmak istiyorsanız “Panoya sabitle” seçimini seçili bırakın.
-
-9. Yerel ağ geçidi oluşturmak için **Oluştur**’a tıklayın. Panonuzda "Yerel ağ geçidi dağıtılıyor" öğesini görürsünüz.
-
-10. Yerel ağ geçidi oluşturulduğunda görmeniz için portalda açılır.
-
-    
+8. Yerel ağ geçidi oluşturmak için **Oluştur**’a tıklayın.
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

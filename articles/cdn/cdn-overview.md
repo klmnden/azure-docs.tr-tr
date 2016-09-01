@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="07/28/2016"
+    ms.date="08/09/2016"
     ms.author="casoper"/>
 
 # Azure İçerik Teslim Ağı'na (CDN) genel bakış
@@ -39,7 +39,7 @@ Web sitesi varlıklarını önbelleğe almak için CDN kullanmanın avantajları
 
 3. Kaynak, dosyanın Yaşam Süresi'ni (TTL) açıklayan isteğe bağlı HTTP üst bilgileri de dahil olmak üzere, dosyayı uç sunucuya döndürür.
 
-4. Uç sunucu, dosyayı önbelleğe alır ve dosyayı özgün istek sahibine (Alice) döndürür.  TTL süresi dolana kadar dosya uç sunucuda önbelleğe alınmış olarak kalır.  Kaynak bir TTL belirtmemişse varsayılan TTL 7 gündür.
+4. Uç sunucu, dosyayı önbelleğe alır ve dosyayı özgün istek sahibine (Alice) döndürür.  Dosya, TTL süresi dolana kadar uç sunucuda önbelleğe alınmış olarak kalır.  Kaynak, bir TTL belirtmemişse varsayılan TTL yedi gündür.
 
 5. Bu durumda, ek kullanıcılar (Bob gibi) aynı URL'yi kullanarak aynı dosyayı isteyebilir ve ayrıca, aynı POP'ye yönlendirilebilir.
 
@@ -57,16 +57,18 @@ Web sitesi varlıklarını önbelleğe almak için CDN kullanmanın avantajları
 | Yük dengeleme | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | DDOS koruması | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | IPv4/IPv6 ikili yığını | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| [HTTP/2](https://msdn.microsoft.com/library/mt762901.aspx) | **&#x2713;**  |  |  |
 | [Özel etki alanı adı desteği](cdn-map-content-to-custom-domain.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | [Sorgu dizesi önbelleğe alma](cdn-query-string.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | [Ülke filtreleme](cdn-restrict-access-by-country.md) |  | **&#x2713;** | **&#x2713;** |
 | [Hızlı temizleme](cdn-purge-endpoint.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | [Varlık önceden yükleme](cdn-preload-endpoint.md) |  | **&#x2713;** | **&#x2713;** |
 | [Temel analiz](cdn-analyze-usage-patterns.md) |  | **&#x2713;** | **&#x2713;** |
-| [REST API üzerinden yönetim](https://msdn.microsoft.com/library/mt634456.aspx) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| [REST API](https://msdn.microsoft.com/library/mt634456.aspx), [.NET](./cdn-app-dev-net.md), [Node.js](./cdn-app-dev-node.md), veya [PowerShell](./cdn-manage-powershell.md) aracılığıyla yönetim. | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | [Özelleştirilebilir, kural tabanlı içerik teslim altyapısı](cdn-rules-engine.md) | | | **&#x2713;** |
 | [Gelişmiş HTTP raporları](cdn-advanced-http-reports.md) | | | **&#x2713;** |
 | [Gerçek zamanlı istatistikler](cdn-real-time-stats.md) | | | **&#x2713;** |
+| [Gerçek zamanlı uyarılar](cdn-real-time-alerts.md) | | | **&#x2713;** |
 
 >[AZURE.TIP] Azure CDN'de görmek istediğiniz bir özellik mi var?  [Bize geri bildirim sağlayın](https://feedback.azure.com/forums/169397-cdn)! 
 
@@ -74,7 +76,7 @@ Web sitesi varlıklarını önbelleğe almak için CDN kullanmanın avantajları
 
 CDN ile çalışmaya başlamak için bkz. [Azure CDN'yi kullanma](./cdn-create-new-endpoint.md).
 
-Var olan bir CDN müşterisiyseniz artık CDN uç noktalarınızı [Microsoft Azure Portal](https://portal.azure.com) üzerinden yönetebilirsiniz.
+Zaten bir CDN müşterisiyseniz artık CDN uç noktalarınızı [Microsoft Azure Portal](https://portal.azure.com) üzerinden veya [PowerShell](cdn-manage-powershell.md) ile yönetebilirsiniz.
 
 CDN'yi uygulamalı olarak görmek için [Build 2016 oturumu videomuza](https://azure.microsoft.com/documentation/videos/build-2016-leveraging-the-new-azure-cdn-apis-to-build-wicked-fast-applications/) bakın.
 
@@ -84,6 +86,6 @@ Fiyatlandırma bilgileri için bkz. [CDN Fiyatlandırması](https://azure.micros
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

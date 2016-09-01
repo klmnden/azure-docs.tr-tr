@@ -13,14 +13,14 @@
      ms.topic="hero-article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="06/23/2016"
+     ms.date="08/11/2016"
      ms.author="dobett"/>
 
 # Java için Azure IoT Hub ile çalışmaya başlama
 
 [AZURE.INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
 
-Bu öğreticinin sonunda üç Java konsol uygulamanız olacak:
+Bu öğreticinin sonunda üç Java konsol uygulamanız olur:
 
 * Bir cihaz kimliği ve sanal cihazınızı bağlamak için ilişkili güvenlik anahtarı oluşturan **create-device-identity**.
 * Sanal cihazınız tarafından gönderilen telemetriyi görüntüleyen **read-d2c-messages**.
@@ -38,15 +38,15 @@ Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
 [AZURE.INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
-Son adım olarak, **Birincil anahtar** değerini kaydedin, IoT Hub dikey penceresinde **Ayarlar**'a tıklayın, ardından **Ayarlar** dikey penceresinde **Mesajlaşma**'ya tıklayın. **Mesajlaşma** dikey penceresinde **Event Hub ile uyumlu adı** ve **Event Hub ile uyumlu uç noktasını** not edin. Bu üç değer **read-d2c-messages** uygulamanızı oluştururken gerekir.
+Son adım olarak **Birincil anahtar** değerini not edin ve ardından **Mesajlaşma**’ya tıklayın. **Mesajlaşma** dikey penceresinde **Event Hub ile uyumlu adı** ve **Event Hub ile uyumlu uç noktasını** not edin. **read-d2c-messages** uygulamanızı oluştururken bu üç değere sahip olmanız gerekir.
 
 ![][6]
 
-Artık IoT hub'ınızı oluşturdunuz ve bu öğreticinin geri kalanını tamamlamak için ihtiyacınız olan IoT Hub ana bilgisayar adına, IoT Hub bağlantı dizesine, IoT Hub Birincil Anahtarına, Event Hubs ile uyumlu ada ve Event Hubs ile uyumlu uç noktasına sahipsiniz.
+Artık IoT hub'ınızı oluşturdunuz ve bu öğreticiyi tamamlamak için ihtiyacınız olan IoT Hub konak adına, IoT Hub bağlantı dizesine, IoT Hub Birincil Anahtarına, Event Hubs ile uyumlu ada ve Event Hubs ile uyumlu uç noktasına sahipsiniz.
 
 ## Cihaz kimliği oluşturma
 
-Bu bölümde IoT hub'ınızdaki kimlik kayıt defterinde yeni bir cihaz kimliği oluşturan bir Java konsol uygulaması oluşturacaksınız. Cihaz kimlik kayıt defterinde girişi olmayan bir cihaz IoT hub'ına bağlanamaz. Daha fazla bilgi için [IoT Hub Geliştirici Kılavuzu][lnk-devguide-identity] konumundaki **Cihaz Kimlik Kayıt Defteri** bölümüne bakın. Bu konsol uygulamasını çalıştırdığınızda, cihazınızın IoT Hub'a cihaz-bulut iletileri gönderdiğinde kendisini tanımlamak için kullanabileceği benzersiz bir cihaz kimliği ve anahtarı oluşturulur.
+Bu bölümde, IoT hub'ınızdaki kimlik kayıt defterinde yeni bir cihaz kimliği oluşturan bir Java konsol uygulaması oluşturursunuz. Cihaz kimlik kayıt defterinde girişi olmayan bir cihaz IoT hub'ına bağlanamaz. Daha fazla bilgi için [IoT Hub Geliştirici Kılavuzu][lnk-devguide-identity] konumundaki **Cihaz Kimlik Kayıt Defteri** bölümüne bakın. Bu konsol uygulamasını çalıştırdığınızda, cihazınızın IoT Hub'a cihaz-bulut iletileri gönderdiğinde kendisini tanımlamak için kullanabileceği benzersiz bir cihaz kimliği ve anahtarı oluşturulur.
 
 1. iot-java-get-started adlı yeni bir boş klasör oluşturun. Komut isteminizde aşağıdaki komutu kullanarak iot-java-get-started klasöründe **create-device-identity** adlı yeni bir Maven projesi oluşturun. Bunun tek ve uzun bir komut olduğunu unutmayın:
 
@@ -134,7 +134,7 @@ Bu bölümde IoT hub'ınızdaki kimlik kayıt defterinde yeni bir cihaz kimliği
 
 ## Cihazdan buluta iletileri alma
 
-Bu bölümde IoT Hub'dan cihaz-bulut iletilerini okuyan bir Java konsol uygulaması oluşturacaksınız. IoT hub'ı, cihaz bulut iletilerini okumanızı sağlamak için [Event Hub][lnk-event-hubs-overview] ile uyumlu bir uç noktasını kullanıma sunar. Sade ve basit bir anlatım gözetildiği için bu öğretici yüksek işleme dağıtımına uygun olmayan temel bir okuyucu oluşturur. [Cihazdan buluta iletileri işleme][lnk-process-d2c-tutorial] öğreticisi, cihazdan buluta iletilerin ölçekli olarak nasıl işleneceğini gösterir. [Event Hubs ile Çalışmaya Başlama][lnk-eventhubs-tutorial] öğreticisi, Event Hubs'dan alınan iletilerin nasıl işleneceği hakkında daha fazla bilgi sağlar; IoT Hub Event Hubs ile uyumlu uç noktalar için geçerlidir.
+Bu bölümde IoT Hub'dan cihaz-bulut iletilerini okuyan bir Java konsol uygulaması oluşturursunuz. IoT hub'ı, cihaz bulut iletilerini okumanızı sağlamak için [Event Hub][lnk-event-hubs-overview] ile uyumlu bir uç noktasını kullanıma sunar. Sade ve basit bir anlatım gözetildiği için bu öğretici yüksek işleme dağıtımına uygun olmayan temel bir okuyucu oluşturur. [Cihazdan buluta iletileri işleme][lnk-process-d2c-tutorial] öğreticisi, cihazdan buluta iletilerin ölçekli olarak nasıl işleneceğini gösterir. [Event Hubs ile Çalışmaya Başlama][lnk-eventhubs-tutorial] öğreticisi, Event Hubs'dan alınan iletilerin nasıl işleneceği hakkında daha fazla bilgi sağlar; IoT Hub Event Hubs ile uyumlu uç noktalar için geçerlidir.
 
 > [AZURE.NOTE] Cihazdan buluta iletileri okumak için Event Hubs ile uyumlu uç nokta her zaman AMQPS protokolünü kullanır.
 
@@ -240,7 +240,7 @@ Bu bölümde IoT Hub'dan cihaz-bulut iletilerini okuyan bir Java konsol uygulama
     }
     ```
 
-    > [AZURE.NOTE] Bu yöntem alıcı oluştururken bir filtre kullanır, böylece alıcı çalışmaya başladıktan sonra IoT Hub'a gönderilen iletileri yalnızca okur. Geçerli iletiler kümesini görebileceğiniz için bu bir test ortamında kullanışlıdır ancak bir üretim ortamında kodunuzun tüm iletileri işlediğinden emin olmanız gerekir. Daha fazla bilgi için [IoT Hub cihazdan buluta iletileri işleme][lnk-process-d2c-tutorial] öğreticisine bakın.
+    > [AZURE.NOTE] Bu yöntem alıcı oluştururken bir filtre kullanır, böylece alıcı çalışmaya başladıktan sonra IoT Hub'a gönderilen iletileri yalnızca okur. Bu, geçerli ileti kümesini görebilmeniz açısından bir test ortamında kullanışlıdır. Bir üretim ortamında kodunuzun tüm iletileri işlediğinden emin olmanız gerekir. Daha fazla bilgi için [IoT Hub cihazdan buluta iletileri işleme][lnk-process-d2c-tutorial] öğreticisine bakın.
 
 9. **main** yönteminin imzasını, aşağıda gösterilen özel durumu içerecek şekilde değiştirin:
 
@@ -279,7 +279,7 @@ Bu bölümde IoT Hub'dan cihaz-bulut iletilerini okuyan bir Java konsol uygulama
 
 ## Sanal cihaz uygulaması oluşturma
 
-Bu bölümde IoT Hub'a cihazdan buluta iletiler gönderen bir cihaza benzetim yapan bir Java konsol uygulaması oluşturacaksınız.
+Bu bölümde, IoT Hub'a cihazdan buluta iletiler gönderen bir cihaza benzetim yapan bir Java konsol uygulaması oluşturacaksınız.
 
 1. Komut isteminizde aşağıdaki komutu kullanarak *Bir cihaz kimliği oluşturma* bölümünde oluşturduğunuz iot-java-get-started klasöründe **simulated-device** adlı yeni bir Maven projesi oluşturun. Bunun tek ve uzun bir komut olduğunu unutmayın:
 
@@ -469,7 +469,7 @@ IoT Hub’ı kullanmaya başlamak ve diğer IoT senaryolarını keşfetmek için
 - [Cihaz yönetimi ile çalışmaya başlama][lnk-device-management]
 - [Ağ Geçidi SDK’sı ile çalışmaya başlama][lnk-gateway-SDK]
 
-IoT çözümünüzün nasıl genişletileceğini ve cihazdan buluta iletilerin ölçekli olarak nasıl işleneceğini öğrenmek için [Cihazdan buluta iletileri işleme][lnk-process-d2c-tutorial] öğreticisine bakın.
+IoT çözümünüzün nasıl genişletileceğini ve cihazdan buluta iletilerin doğru ölçekte nasıl işleneceğini öğrenmek için [Cihazdan buluta iletileri işleme][lnk-process-d2c-tutorial] öğreticisine bakın.
 
 <!-- Images. -->
 [6]: ./media/iot-hub-java-java-getstarted/create-iot-hub6.png
@@ -496,6 +496,6 @@ IoT çözümünüzün nasıl genişletileceğini ve cihazdan buluta iletilerin �
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

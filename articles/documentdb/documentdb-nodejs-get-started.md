@@ -14,7 +14,7 @@
   ms.tgt_pltfrm="na"
   ms.devlang="node"
   ms.topic="hero-article"
-  ms.date="04/26/2016"
+  ms.date="08/11/2016"
   ms.author="anhoh"/>
 
 # NoSQL Node.js öğreticisi: DocumentDB Node.js konsol uygulaması  
@@ -56,7 +56,7 @@ Bir DocumentDB hesabı oluşturalım. Kullanmak istediğiniz bir hesap zaten var
 
 [AZURE.INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
-##<a id="SetupNode"></a> 2. Adım: Node.js uygulamanızı kurma
+## <a id="SetupNode"></a>2. Adım: Node.js uygulamanızı kurma
 
 1. Sık kullandığınız terminali açın.
 2. Node.js uygulamanızı kaydetmek istediğiniz klasör veya dizini bulun.
@@ -72,7 +72,7 @@ Bir DocumentDB hesabı oluşturalım. Kullanmak istediğiniz bir hesap zaten var
 
 Harika! Kurulumu tamamladığınıza göre, biraz kod yazmaya başlayalım.
 
-##<a id="Config"></a> 3. Adım: Uygulamanızın yapılandırmalarını ayarlama
+## <a id="Config"></a>3. Adım: Uygulamanızın yapılandırmalarını ayarlama
 
 Sık kullandığınız metin düzenleyicisinde ```config.js``` öğesini açın.
 
@@ -598,7 +598,7 @@ Başlarken uygulamanızın çıktısını görmeniz gerekir. Çıktı aşağıda
 
 Tebrikler! Node.js öğreticisini tamamladınız ve ilk DocumentDB konsol uygulamanızı oluşturdunuz.
 
-##<a id="GetSolution"></a> Eksiksiz Node.js öğreticisi çözümünü edinme
+## <a id="GetSolution"></a>Eksiksiz Node.js öğreticisi çözümünü edinme
 Bu makaledeki tüm örnekleri içeren GetStarted çözümünü derlemek için aşağıdakilere ihtiyacınız vardır:
 
 -   [DocumentDB hesabı][documentdb-create-account].
@@ -623,6 +623,6 @@ Ardından, ```config.js``` dosyasında config.endpoint ve config.authKey değerl
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

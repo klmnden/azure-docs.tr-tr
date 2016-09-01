@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="05/16/2016"
+    ms.date="08/16/2016"
     ms.author="anhoh"/>
 
 # NoSQL öğreticisi: DocumentDB C# konsol uygulaması oluşturma
@@ -57,7 +57,7 @@ Bir DocumentDB hesabı oluşturalım. Kullanmak istediğiniz bir hesap zaten var
 
 [AZURE.INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
-##<a id="SetupVS"></a> 2. Adım: Visual Studio çözümünüzü kurma
+## <a id="SetupVS"></a>2. Adım: Visual Studio çözümünüzü kurma
 
 1. Bilgisayarınızda **Visual Studio 2015**'i açın.
 2. **Dosya** menüsünde **Yeni**'yi seçin ve ardından **Proje**'yi seçin.
@@ -73,7 +73,7 @@ DocumentDB İstemci Kitaplığı için paket kimliği [Microsoft.Azure.DocumentD
 
 Harika! Kurulumu tamamladığımıza göre, biraz kod yazmaya başlayalım. Bu öğreticinin tamamlanmış kod projesini [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started/blob/master/src/Program.cs)'da bulabilirsiniz.
 
-##<a id="Connect"></a> 3. Adım: DocumentDB hesabına bağlanma
+## <a id="Connect"></a>3. Adım: DocumentDB hesabına bağlanma
 
 İlk olarak, Program.cs dosyasında C# uygulamanızın başlangıcına bu başvuruları ekleyin:
 
@@ -100,9 +100,8 @@ Harika! Kurulumu tamamladığımıza göre, biraz kod yazmaya başlayalım. Bu �
 
 Ardından, URI ve birincil anahtarınızı almak için [Azure Portal](https://portal.azure.com)'a gidin. DocumentDB URI ve birincil anahtar, uygulamanızın nereye bağlanacağını anlaması ve DocumentDB'nin uygulamanızın bağlantısına güvenmesi için gereklidir.
 
-Azure Portal'da 1. Adım'daki DocumentDB hesabınıza gidin.
+1. Adımı uygulayarak Azure Portal'da DocumentDB hesabınıza gidin ve **Anahtarlar**a tıklayın.
 
-**Temel Bileşenler** çubuğundaki **anahtarlar** simgesine tıklayın.
 URI'yi kopyalayın ve *<your endpoint URI>* programınızdaki kopyalanan URI ile değiştirin.
 Birincil anahtarı kopyalayın ve *<your key>* programınızdaki kopyalanan anahtarla değiştirin.
 
@@ -206,7 +205,7 @@ Uygulamanızı çalıştırmak için **F5**'e basın.
 
 Tebrikler! Başarılı bir şekilde bir DocumentDB veritabanı oluşturdunuz.  
 
-##<a id="CreateColl"></a>5. Adım: Koleksiyon oluşturma  
+## <a id="CreateColl"></a>5. Adım: Koleksiyon oluşturma  
 
 > [AZURE.WARNING] **CreateDocumentCollectionAsync**, ayrılmış işleme ile yeni bir koleksiyon oluşturur, bu da ücret ödenmesini gerektirebilir. Daha ayrıntılı bilgi için lütfen [fiyatlandırma sayfamızı](https://azure.microsoft.com/pricing/details/documentdb/) ziyaret edin.
 
@@ -261,7 +260,7 @@ Uygulamanızı çalıştırmak için **F5**'e basın.
 
 Tebrikler! Bir DocumentDB belge koleksiyonunu başarıyla oluşturdunuz.  
 
-##<a id="CreateDoc"></a>6. Adım: JSON belgeleri oluşturma
+## <a id="CreateDoc"></a>6. Adım: JSON belgeleri oluşturma
 Bir [belge](documentdb-resources.md#documents), **DocumentClient** sınıfının [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) yöntemi kullanılarak oluşturulabilir. Belgeler, kullanıcı tanımlı (rastgele) JSON içeriğidir. Şimdi bir veya daha fazla belge ekleyebiliriz. Veritabanınızda depolamak istediğiniz veriler zaten varsa DocumentDB'nin [Veri Geçiş Aracı](documentdb-import-data.md)'nı kullanabilirsiniz.
 
 İlk olarak, bu örnekte DocumentDB içinde depolanan nesneleri temsil edecek bir **Family** sınıfı oluşturmamız gerekir. **Family**'nin içinde kullanılan **Parent**, **Child**, **Pet**, **Address** alt sınıflarını da oluşturacağız. Belgelerin, JSON'da **id** olarak seri hale getirilmiş bir **Id** özelliğine sahip olmaları gerektiğini unutmayın. Bu sınıfları oluşturmak için **GetStartedDemo** yönteminden sonra aşağıdaki iç alt sınıfları ekleyin.
@@ -449,7 +448,7 @@ DocumentDB, her bir koleksiyonda depolanan JSON belgelerde yapılan zengin [sorg
             // Now execute the same query via direct SQL
             IQueryable<Family> familyQueryInSql = this.client.CreateDocumentQuery<Family>(
                     UriFactory.CreateDocumentCollectionUri(databaseName, collectionName),
-                    "SELECT * FROM Family WHERE Family.lastName = 'Andersen'",
+                    "SELECT * FROM Family WHERE Family.LastName = 'Andersen'",
                     queryOptions);
 
             Console.WriteLine("Running direct SQL query...");
@@ -572,7 +571,7 @@ Tebrikler! Bir DocumentDB veritabanını başarıyla sildiniz.
 
 Uygulamayı hata ayıklama modunda oluşturmak için Visual Studio'da F5'e basın.
 
-Başlarken uygulamanızın çıktısını görmeniz gerekir. Çıkış, eklediğimiz sorguların sonuçlarını gösterir ve aşağıdaki örnek metinle eşleşmelidir.
+Başlarken uygulamanızın çıktısını görmeniz gerekir. Çıktı, eklediğimiz sorguların sonuçlarını gösterir ve aşağıdaki örnek metinle eşleşmelidir.
 
     Created FamilyDB
     Press any key to continue ...
@@ -620,6 +619,6 @@ Başvuruları Visual Studio'daki DocumentDB .NET SDK'sına geri yüklemek için,
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

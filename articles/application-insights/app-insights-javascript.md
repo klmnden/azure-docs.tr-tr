@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/18/2016"
+    ms.date="08/15/2016"
     ms.author="awills"/>
 
 # Web sayfaları için Application Insights
@@ -20,16 +20,16 @@
 
 [AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
 
-Web sayfanızın veya uygulamanızın performansı ve kullanımı hakkında bilgi edinin. Sayfa betiğinize Visual Studio Application Insights ekleyin; sayfa yükünün ve AJAX çağrılarının zamanlamasına, tarayıcı özel durumlar ve AJAX hataları sayısına ve ayrıntılarına kadar kullanıcı ve oturum sayılarına da sahip olacaksınız. Bunların tümü sayfaya, istemci işletim sistemi ve tarayıcı sürümüne, coğrafi konuma ve başka boyutlara göre kesimlere ayrılmıştır. Hata sayısı veya yavaş sayfa yüklemesi hakkında da uyarı ayarlayabilirsiniz.
+Web sayfanızın veya uygulamanızın performansı ve kullanımı hakkında bilgi edinin. Sayfa betiğinize Visual Studio Application Insights’ı ekleyerek, sayfa yüklemelerinin ve AJAX çağrılarının zamanlamalarının yanı sıra, tarayıcı özel durumları ile AJAX hatalarının sayılarını ve ayrıntılarını, ayrıca kullanıcı ve oturum sayılarını elde edebilirsiniz. Bunların tümü sayfaya, istemci işletim sistemi ve tarayıcı sürümüne, coğrafi konuma ve başka boyutlara göre kesimlere ayrılmıştır. Hata sayısı veya yavaş sayfa yüklemesi hakkında da uyarı ayarlayabilirsiniz.
 
 Application Insights’ı tüm web sayfalarıyla kullanabilirsiniz; kısa bir JavaScript eklemeniz yeterlidir. Web hizmetinizin [Java](app-insights-java-get-started.md) veya [ASP.NET](app-insights-asp-net.md) olması halinde, sunucunuzdan ve istemcilerinizden telemetri tümleştirebilirsiniz.
 
-Size bir [Microsoft Azure](https://azure.com) aboneliği gerekecektir. Takımınızın kurumsal bir aboneliği varsa sahibinden Microsoft Hesabınızı eklemesini isteyin. Ücretsiz bir katman olduğundan, geliştirme ve küçük ölçekli kullanımın herhangi bir maliyeti olmayacaktır.
+Bir [Microsoft Azure](https://azure.com) aboneliğine ihtiyacınız olacaktır. Takımınızın kurumsal bir aboneliği varsa sahibinden Microsoft Hesabınızı eklemesini isteyin. Ücretsiz bir katman olduğundan, geliştirme ve küçük ölçekli kullanımın herhangi bir maliyeti olmayacaktır.
 
 
 ## Web sayfalarınız için Application Insights’ı ayarlama
 
-Buna zaten sahip olabilirsiniz. Uygulamanızı yeni ASP.NET projesiyse ve Visual Studio Yeni proje iletişim kutusuna Application Insights’ı eklemeyi seçtiyseniz, betik dosyası eklenecek ve tüm ayarlarınız yapılacaktır.
+İlk olarak, Application Insights’ı web sayfalarınıza eklemeniz gerekiyor mu? Bunu zaten yapmış olabilirsiniz. Visual Studio’da Yeni Proje iletişim kutusunda Application Insights’ı web uygulamanıza eklemeyi seçtiyseniz, betik bu sırada eklenmiştir. Bu durumda, bunu yapmanız artık gerekmez.
 
 Aksi takdirde, web sayfalarınıza bir kod parçacığını aşağıdaki gibi eklemeniz gerekecektir.
 
@@ -57,7 +57,7 @@ Hızlı Başlangıç’ta web sayfaları için betik alın:
 
 ![Uygulamaya genel bakış dikey pencerenizde, Hızlı Başlat, Web sayfalarımı izlemeyi sağlayan kodu al'ı seçin. Betiği kopyalayın.](./media/app-insights-javascript/02-monitor-web-page.png)
 
-Betiği izlemek istediğiniz her sayfanın `<head>` etiketinin hemen önüne ekleyin. Web sayfanızda bir ana sayfa varsa betiği buraya koyabilirsiniz. Örneğin:
+Betiği, izlemek istediğiniz her sayfanın `</head>` etiketinin hemen önüne ekleyin. Web sayfanızda bir ana sayfa varsa betiği buraya koyabilirsiniz. Örneğin:
 
 * ASP.NET MVC projesinde buraya koyabilirsiniz `View\Shared\_Layout.cshtml`
 * SharePoint sitesinde, denetim masasında [Site Ayarları / Ana Sayfa](app-insights-sharepoint.md)’yı açın.
@@ -71,7 +71,7 @@ Betikte, verileri Application Insights kaynağınıza yönlendiren izleme anahta
 
 ## Ayrıntılı yapılandırma
 
-Çoğunlukla gerekmese de, ayarlayabileceğiniz birkaç [parametre](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config) vardır. Örneğin, sayfa görünümü başına rapor edilen Ajax çağrılarını devre dışı bırakabilir ya da sınırlayabilirsiniz (trafiğini azaltmak için); bunun yerine, telemetrinin toplu işlem olmadan işlem hattında hızlı taşınmasını sağlamak için hata ayıklama modu da ayarlayabilirsiniz.
+Çoğunlukla gerekmese de, ayarlayabileceğiniz birkaç [parametre](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config) vardır. Örneğin, sayfa başına görünümde bildirilen Ajax çağrılarını devre dışı bırakabilir veya çağrıların sayısını sınırlayabilirsiniz. Alternatif olarak, hata ayıklama modunu; telemetriyi toplu hale getirilmeden, ardışık düzende taşıyacak şekilde ayarlayabilirsiniz.
 
 Bu parametreleri ayarlamak için kod parçacığında bu satırı bulun ve şunun arkasına virgülle ayrılmış daha fazla öğe ekleyin:
 
@@ -205,9 +205,9 @@ Tanılama Ara dikey penceresinde Filtreler’i Sayfa Görünümü olarak ayarlay
 
 Daha fazla ayrıntı için herhangi bir olayı seçin. Daha da fazla ayrıntı görmek için, ayrıntılar sayfasında "..." öğesine tıklayın.
 
-> [AZURE.NOTE] [Ara](app-insights-diagnostic-search.md) seçeneğini kullanırsanız, tam sözcükleri eşleştirmeye özen gösterin: "Abou" ve "bout" girişleri "About" sözcüğüyle eşleşmezken, "Abou* " eşleşir. Bunun yanı sıra, bir terimi ararken sözcük joker karakterle başlayamaz. Örneğin, "*bou" araması "About" sözcüğüyle eşleşmez.
+> [AZURE.NOTE] [Ara](app-insights-diagnostic-search.md) seçeneğini kullanırsanız, tam sözcükleri eşleştirmeye özen gösterin: "Hak" ve "Hakkın" girişleri "About" sözcüğüyle eşleşmez.
 
-> [Tanılama araması hakkında daha fazla bilgi edinin](app-insights-diagnostic-search.md)
+Ayrıca sayfa görünümlerini aramak için güçlü [Analiz sorgu dilinden](app-insights-analytics-tour.md) de yararlanabilirsiniz.
 
 ### Sayfa görünümü özellikleri
 
@@ -215,7 +215,7 @@ Daha fazla ayrıntı için herhangi bir olayı seçin. Daha da fazla ayrıntı g
 
  * Varsayılan olarak, istemcinin tam yükleme isteğine ait sayfa yükleme süresi (yardımcı dosyalar da dahildir, ancak Ajax çağırıları gibi zaman uyumsuz görevler hariç tutulur). 
  * `overridePageViewDuration` seçeneğini [sayfa yapılandırması](#detailed-configuration) içinde ayarlarsanız, ilk `trackPageView` yürütmesi için istemci isteğinin zaman aralığıdır. betiğin başlatılmasından sonra trackPageView öğesini normal konumundan taşırsanız farklı bir değer yansıtır.
- * `overridePageViewDuration` ayarlanmış ve süre bağımsız değişkeni `trackPageView()` çağrısında verilmişse, bunu yerine bağımsız değişken değeri kullanılır. 
+ * `overridePageViewDuration` ayarlanmış ve süre bağımsız değişkeni `trackPageView()` çağrısında verilmişse, bunun yerine bağımsız değişken değeri kullanılır. 
 
 
 ## Özel sayfa sayıları
@@ -226,7 +226,7 @@ Varsayılan olarak, istemci tarayıcısına yeni bir sayfanın her yüklenişind
 
     appInsights.trackPageView(myPageName);
 
-Sayfa adında, URL’deki aynı karakterler olabilir, ancak "#" veya "?" karakterinden sonraki her şey göz ardı edilir.
+Sayfa adında,URL’deki karakterlerin aynısı bulunabilir, ancak "#" veya "?" karakterinden sonraki her şey göz ardı edilir.
 
 
 
@@ -253,6 +253,6 @@ Uygulamanızla kullanıcılarınızın neler yaptığını bilmek ister misiniz?
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

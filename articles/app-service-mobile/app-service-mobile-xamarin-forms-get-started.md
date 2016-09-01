@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-xamarin"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="05/06/2016"
+    ms.date="08/11/2016"
     ms.author="glenga"/>
 
 #Xamarin.Forms uygulaması oluşturma
@@ -52,14 +52,6 @@ Artık, mobil istemci uygulamalarınız tarafından kullanılabilecek bir Azure 
 Node.js veya .NET arka ucu kullanmak için sunucu projesi yapılandırmak üzere aşağıdaki adımları izleyin.
 
 [AZURE.INCLUDE [app-service-mobile-configure-new-backend](../../includes/app-service-mobile-configure-new-backend.md)]
-
-
-## (İsteğe bağlı) Arka uç projeniz yerel olarak test etme
-
-Yukarıda .NET arka ucu yapılandırmasını seçtiyseniz, arka ucu isteğe bağlı olarak yerel şekilde test edebilirsiniz.
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-test-local-service](../../includes/app-service-mobile-dotnet-backend-test-local-service.md)]
-
 
 ##Xamarin.Forms çözümünü indirme ve çalıştırma
 
@@ -195,6 +187,6 @@ Xamarin uygulamanızda yönetilen istemci SDK’sıyla çalışmayı öğrenin.
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

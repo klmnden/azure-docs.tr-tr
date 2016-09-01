@@ -11,11 +11,11 @@ Windows, Linux veya OSX çalıştıran herhangi bir bilgisayarın komut istemind
 
         info:    New mode is arm
 
-3. Gerekirse, yeni bir kaynak grubu oluşturmak için **azure group create** komutunu aşağıda gösterildiği gibi çalıştırın. Komutun çıktısına dikkat edin. Çıktıdan sonra gösterilen listede kullanılan parametreler açıklanmaktadır. Kaynak grupları hakkında daha fazla bilgi için [Azure Resource Manager’a Genel Bakış](../articles/virtual-network/resource-group-overview.md/#resource-groups)’ı ziyaret edin.
+3. Gerekirse, yeni bir kaynak grubu oluşturmak için **azure group create** komutunu aşağıda gösterildiği gibi çalıştırın. Komutun çıktısına dikkat edin. Çıktıdan sonra gösterilen listede, kullanılan parametreler açıklanmaktadır. Kaynak grupları hakkında daha fazla bilgi için [Azure Resource Manager’a Genel Bakış](../articles/virtual-network/resource-group-overview.md#resource-groups) sayfasını ziyaret edin.
 
         azure group create -n TestRG -l centralus
 
-    Yukarıdaki komut için beklenen çıkış buradaki gibidir:
+    Yukarıdaki komut için beklenen çıktı şu şekildedir:
 
         info:    Executing command group create
         + Getting resource group TestRG
@@ -36,7 +36,7 @@ Windows, Linux veya OSX çalıştıran herhangi bir bilgisayarın komut istemind
 
         azure network vnet create -g TestRG -n TestVNet -a 192.168.0.0/16 -l centralus
 
-    Yukarıdaki komut için beklenen çıkış buradaki gibidir:
+    Yukarıdaki komut için beklenen çıktı şu şekildedir:
 
         info:    Executing command network vnet create
         + Looking up virtual network "TestVNet"
@@ -51,16 +51,16 @@ Windows, Linux veya OSX çalıştıran herhangi bir bilgisayarın komut istemind
         data:      192.168.0.0/16
         info:    network vnet create command OK
 
-    - **-g (veya--kaynak-grubu)**. VNet kaynak grubunun oluşturulacağı kaynak grubunun adı. Bizim senaryomuz için bu *TestRG*’dir.
-    - **-n (veya--ad)**. Oluşturulacak VNet’in adı. Bizim senaryomuz için bu *TestVNet*’tir.
+    - **-g (veya --resource-group)**. VNet kaynak grubunun oluşturulacağı kaynak grubunun adı. Bizim senaryomuz için bu *TestRG*’dir.
+    - **-n (veya --name)**. Oluşturulacak VNet’in adı. Bizim senaryomuz için bu *TestVNet*’tir.
     - **-a (veya--adres-önekler)**. VNet adres alanı için kullanılan CIDR blokları listesi. Bizim senaryomuz için bu *192.168.0.0/16*’dır.
-    - **-l (veya --konum)**. VNet’in oluşturulacağı Azure bölgesi. Bizim senaryomuz için bu *centralus*’tur.
+    - **-l (veya --location)**. VNet’in oluşturulacağı Azure bölgesi. Bizim senaryomuz için bu *centralus*’tur.
 
-5. Aşağıda gösterildiği gibi, alt ağ oluşturmak için **azure network vnet subnet create** komutunu çalıştırın. Komutun çıktısına dikkat edin. Çıktıdan sonra gösterilen listede kullanılan parametreler açıklanmaktadır.
+5. Aşağıda gösterildiği gibi, alt ağ oluşturmak için **azure network vnet subnet create** komutunu çalıştırın. Komutun çıktısına dikkat edin. Çıktıdan sonra gösterilen listede, kullanılan parametreler açıklanmaktadır.
 
         azure network vnet subnet create -g TestRG -e TestVNet -n FrontEnd -a 192.168.1.0/24
 
-    Yukarıdaki komut için beklenen çıkış buradaki gibidir:
+    Yukarıdaki komut için beklenen çıktı şu şekildedir:
 
         info:    Executing command network vnet subnet create
         + Looking up the subnet "FrontEnd"
@@ -75,7 +75,7 @@ Windows, Linux veya OSX çalıştıran herhangi bir bilgisayarın komut istemind
         info:    network vnet subnet create command OK
 
     - **-e (veya--vnet-ad**. Alt ağın oluşturulacağı VNet’in adı. Bizim senaryomuz için bu *TestVNet*’tir.
-    - **-n (veya--ad)**. Yeni alt ağın adı. Bizim senaryomuz için bu *FrontEnd*’dir.
+    - **-n (veya --name)**. Yeni alt ağın adı. Bizim senaryomuz için bu *FrontEnd*’dir.
     - **-a (veya--adres-önek)**. Alt ağ CIDR bloğu. Bizim senaryomuz için bu *192.168.1.0/24*’tür.
 
 6. Gerekiyorsa, başka alt ağlar oluşturmak için yukarıdaki 5. adımı yineleyin. Senaryomuz için, *BackEnd* alt ağını oluşturacak aşağıdaki komutu çalıştırın.
@@ -86,7 +86,7 @@ Windows, Linux veya OSX çalıştıran herhangi bir bilgisayarın komut istemind
 
         azure network vnet show -g TestRG -n TestVNet
 
-    Yukarıdaki komut için beklenen çıkış buradaki gibidir:
+    Yukarıdaki komut için beklenen çıktı şu şekildedir:
 
         info:    Executing command network vnet show
         + Looking up virtual network "TestVNet"
@@ -108,6 +108,6 @@ Windows, Linux veya OSX çalıştıran herhangi bir bilgisayarın komut istemind
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

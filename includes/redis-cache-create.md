@@ -1,12 +1,12 @@
-Önbellek oluşturmak için [Azure Portal](https://portal.azure.com)’a giriş yapın, **Yeni**’ye, **Veri + Depolama**’ya, **Redis Önbelleği**’ne tıklayın.
+Önbellek oluşturmak için [Azure portalında](https://portal.azure.com) oturum açın; **Yeni**'ye, **Veri + Depolama**'ya ve ardından **Redis Önbelleği**'ne tıklayın.
 
 >[AZURE.NOTE] Azure hesabınız yoksa, yalnızca birkaç dakika içinde [Ücretsiz bir Azure hesabı açabilirsiniz](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero).
 
 ![Yeni önbellek](media/redis-cache-create/redis-cache-new-cache-menu.png)
 
->[AZURE.NOTE] Azure Portal’da önbellek oluşturmaya ek olarak, Ayrıca bunları ARM şablonları, PowerShell veya Azure CLI kullanarak da oluşturabilirsiniz.
+>[AZURE.NOTE] Önbellekleri Azure portalında oluşturabileceğiniz gibi, Resource Manager şablonlarını, PowerShell'i veya Azure CLI'sini kullanarak da oluşturabilirsiniz.
 >
->-  ARM şablonları kullanarak önbellek oluşturmak için bkz. [Şablon kullanarak Redis önbelleği oluşturma](../articles/redis-cache/cache-redis-cache-arm-provision.md).
+>-  Resource Manager şablonlarını kullanarak bir önbellek oluşturmak için bkz. [Şablon kullanarak Redis önbelleği oluşturma](../articles/redis-cache/cache-redis-cache-arm-provision.md).
 >-  Azure PowerShell kullanarak önbellek oluşturmak için bkz. [Azure PowerShell ile Azure Redis Önbelleğini Yönetme](../articles/redis-cache/cache-howto-manage-redis-cache-powershell.md).
 >-  Azure CLI kullanarak önbellek oluşturmak için bkz. [Azure Komut Satırı Arabirimi (CLI Azure) kullanarak Azure Redis Önbelleği oluşturma ve yönetme](../articles/redis-cache/cache-manage-cli.md).
 
@@ -23,13 +23,13 @@
 -   **Redis kalıcılığı**, önbelleğiniz bir Azure Storage hesabında kalması özelliğini sunar. Kalıcılığın yapılandırılması hakkında yönergeler için bkz. [Premium Azure Redis Önbelleği için kalıcılığı yapılandırma](../articles/redis-cache/cache-how-to-premium-persistence.md).
 -   **Sanal ağ** önbelleğe erişimi yalnızca belirtilen Azure Virtual Network içindeki istemcilerle sınırlayarak gelişmiş güvenlik ve yalıtım sağlar. Redis’e erişimi daha da fazla kısıtlamak için alt ağlar, erişim denetimi, ilkeler gibi VNet’in tüm özelliklerini ve diğer özellikleri kullanabilirsiniz. Daha fazla bilgi için bkz. [Premium Azure Redis Önbelleği için Sanal Ağ desteğini yapılandırma](../articles/redis-cache/cache-how-to-premium-vnet.md).
 
-Yeni önbellek seçenekleri yapılandırıldıktan sonra **Oluştur**’a tıklayın. Önbelleğin oluşturulması birkaç dakika sürebilir. Durumu denetlemek için başlangıç panosunda ilerlemeyi izleyebilirsiniz. Önbellek oluşturulduktan sonra yeni önbelleğiniz **Çalışıyor** durumundadır ve varsayılan ayarlarla kullanıma hazırdır.
+Yeni önbellek seçenekleri yapılandırıldıktan sonra **Oluştur**’a tıklayın. Önbelleğin oluşturulması birkaç dakika sürebilir. Durumu denetlemek için başlangıç panosunda ilerlemeyi izleyebilirsiniz. Önbellek oluşturulduktan sonra yeni önbelleğiniz **Çalışır** durumdadır ve [varsayılan ayarlarla](../articles/redis-cache/cache-configure.md#default-redis-server-configuration) kullanıma hazırdır.
 
 ![Önbellek oluşturuldu](media/redis-cache-create/redis-cache-cache-created.png)
 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

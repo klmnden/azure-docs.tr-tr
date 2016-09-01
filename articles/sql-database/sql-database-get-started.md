@@ -27,15 +27,17 @@
 - [C#](sql-database-get-started-csharp.md)
 - [PowerShell](sql-database-get-started-powershell.md)
 
-Bu öğreticide Azure portalını kullanarak şu işlemleri gerçekleştirmeyi öğreneceksiniz:
+Bu öğreticide, Azure portalını kullanarak şu işlemleri gerçekleştirmeyi öğreneceksiniz:
 
-- SQL veritabanlarını barındırmak için SQL Database mantıksal sunucusu oluşturma
+- SQL veritabanlarını barındırmak için bir SQL Veritabanı mantıksal sunucusu oluşturma.
 - Veri olmadan, örnek verilerle veya SQL veritabanı yedeklemesine ait verilerle bir SQL veritabanı oluşturma.
 - Tek bir IP adresi veya bir IP adresi aralığı için sunucu düzeyinde bir güvenlik duvarı kuralı oluşturma.
 
 Aynı görevleri [C#](sql-database-get-started-csharp.md) veya [PowerShell](sql-database-get-started-powershell.md)'i kullanarak gerçekleştirmek için bu bağlantıları kullanın.
 
 [AZURE.INCLUDE [Login](../../includes/azure-getting-started-portal-login.md)]
+
+<a name="create-logical-server-bk"></a>
 
 [AZURE.INCLUDE [Create SQL Database logical server](../../includes/sql-database-create-new-server-portal.md)]
 
@@ -64,6 +66,6 @@ Bu SQL Database öğreticisini tamamladığınıza ve bazı örnek verilerle bir
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

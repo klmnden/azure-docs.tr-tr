@@ -13,7 +13,7 @@
     ms.topic="hero-article"
     ms.tgt_pltfrm="mobile-baidu"
     ms.workload="mobile"
-    ms.date="05/05/2016"
+    ms.date="08/19/2016"
     ms.author="wesmc"/>
 
 # Baidu kullanarak Azure Notification Hubs ile çalışmaya başlama
@@ -505,6 +505,6 @@ Bir test bildirimi göndermek için, Klasik Azure Portalı'nın hata ayıklama s
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

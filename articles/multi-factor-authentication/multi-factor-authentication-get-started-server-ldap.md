@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="05/12/2016" 
+    ms.date="08/04/2016" 
     ms.author="billmath"/>
 
 # LDAP Kimlik Doğrulaması ve Azure Multi-Factor Authentication Sunucusu 
@@ -67,6 +67,6 @@ LDAP istemcisini yapılandırmak için yönergeleri kullanın:
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

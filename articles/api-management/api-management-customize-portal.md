@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/25/2016"
+    ms.date="08/09/2016"
     ms.author="sdanie"/>
 
 # Azure API Management’ta geliştirici portalını özelleştirme
@@ -97,10 +97,10 @@ Geliştirici portalının giriş sayfasında ne göründüğünü düzenlemek i�
 
 [Gelişmiş API yapılandırmasını kullanmaya başlama]: api-management-get-started-advanced.md
 [Önyükleme]: http://getbootstrap.com/
-[LESS değişkenleri]: http://getbootstrap.com/css/
+[LESS değişkenleridir]: http://getbootstrap.com/css/
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

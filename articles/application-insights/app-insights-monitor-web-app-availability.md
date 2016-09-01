@@ -12,15 +12,12 @@
     ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/21/2016"
+    ms.date="08/10/2016"
     ms.author="awills"/>
 
 # Web sitelerinin kullanılabilirlik ve yanıt hızını izleme
 
-
-[AZURE.INCLUDE [app-insights-selector-get-started-dotnet](../../includes/app-insights-selector-get-started-dotnet.md)]
-
-Web uygulamanızı dağıttıktan sonra kullanılabilirlik ve yanıt hızını izlemek için web testleri ayarlayabilirsiniz. Application Insights dünyanın her yerindeki noktalarından düzenli aralıklarla web istekleri gönderir; uygulamanız da yavaş yanıtlarsa ya da hiç yanıtlamazsa sizi uyarabilir.
+Web uygulamanızı herhangi bir ana bilgisayara dağıttıktan sonra, kullanılabilirlik ve yanıt hızını izlemek için web testleri ayarlayabilirsiniz. [Visual Studio Application Insights](app-insights-overview.md), dünyanın her yerindeki noktalarından düzenli aralıklarla web istekleri gönderir ve uygulamanız yavaş yanıtlarsa ya da hiç yanıtlamazsa sizi uyarabilir.
 
 ![Web testi örneği](./media/app-insights-monitor-web-app-availability/appinsights-10webtestresult.png)
 
@@ -40,11 +37,11 @@ Her uygulama kaynağı için 10 web testine kadar test oluşturabilirsiniz.
 
 Bu uygulama için zaten [Application Insights kaynağı ayarladıysanız][start] ve kullanılabilirlik verilerini aynı yerde görmek istiyorsanız bu adımı atlayın.
 
-[Microsoft Azure](http://azure.com) oturumu açın, [Azure portal](https://portal.azure.com)’a gidin ve yeni bir Application Insights kaynağı oluşturun.
+[Microsoft Azure](http://azure.com) oturumu açın, [Azure portalına](https://portal.azure.com) gidin ve bir Application Insights kaynağı oluşturun.
 
 ![Yeni > Application Insights](./media/app-insights-monitor-web-app-availability/11-new-app.png)
 
-Yeni kaynakla ilgili Genel Bakış dikey penceresi açılır. Her istediğinizde bunu [Azure portalda](https://portal.azure.com) bulmak için **Gözat**’a tıklayın.
+Yeni kaynağın Genel Bakış dikey penceresi açılır. Her istediğinizde bunu [Azure portalda](https://portal.azure.com) bulmak için **Gözat**’a tıklayın.
 
 ### <a name="setup"></a>2. Web testi oluşturma
 
@@ -52,19 +49,19 @@ Application Insights kaynağınızda Kullanılabilirlik kutucuğunu arayın. Uyg
 
 ![En azından web sitenizin URL'sini doldurma](./media/app-insights-monitor-web-app-availability/13-availability.png)
 
-- **URL** ortak internet'ten görünür olmalıdır. Bir sorgu dizesi içerebilir; bu nedenle, örneğin, veritabanınızla biraz alıştırma yapabilirsiniz. URL yeniden yönlendirme adresine çözümlenirse, en fazla 10 yeniden yönlendirmeyi izleyeceğiz.
-- **Bağımlı istekleri ayrıştır**: Görüntüler, betikler, stil dosyaları ve sayfanın diğer kaynakları testin bir parçası olarak istenir. Testin tamamının zaman aşımı süresi içinde tüm bu kaynaklar sorunsuz yüklenemezse test başarısız olur.
+- **URL** ortak internet'ten görünür olmalıdır. Bir sorgu dizesi içerebilir; bu nedenle, örneğin, veritabanınızla biraz alıştırma yapabilirsiniz. URL yeniden yönlendirme adresine çözümlenirse, en fazla 10 yeniden yönlendirmeyi izleriz.
+- **Bağımlı istekleri ayrıştır**: Görüntüler, betikler, stil dosyaları ve sayfanın diğer kaynakları testin bir parçası olarak istenir. Testin tamamının zaman aşımı süresi içinde tüm bu kaynaklar sorunsuz yüklenemezse, test başarısız olur.
 - **Yeniden denemeyi etkinleştir**: Test başarısız olduğunda, kısa bir süre sonra yeniden denenir. Art arda üç deneme başarısız olursa bir hata bildirilir. Sonraki testler bundan sonra her zamanki test sıklığında gerçekleştirilir. Bir sonraki başarılı olana kadar yeniden deneme geçici olarak askıya alınır. Bu kural her test konuma bağımsız olarak uygulanır. (Bu ayarı öneriyoruz. Ortalama olarak hataların yaklaşık %80’i yeniden deneme sırasında kaybolur.)
-- **Test sıklığı**: Her test konumdan testin ne sıklıkta çalıştırılacağını ayarlar. 5 dakikalık bir sıklık ve beş test konumuyla siteniz ortalama olarak dakikada bir test edilir.
+- **Test sıklığı**: Her test konumdan testin ne sıklıkta çalıştırılacağını ayarlar. Beş dakikalık sıklığında ve beş test konumuyla, siteniz ortalama olarak dakikada bir test edilir.
 - **Test konumları**, sunucularımızın URL’nize web istekleri gönderdiği yerlerdir. Bir konumdan fazla seçin; böylece, web sitenizdeki ağ sorunlarını ayırt edebilirsiniz. En fazla 16 konum seçebilirsiniz.
 
 - **Başarı ölçütleri**:
 
-    **Test zaman aşımı**: Yavaş yanıtlar hakkında uyarı almak için bunu azaltın. Yanıtlar sitenizden bu süre içinde alınmadıysa test başarısız sayılır. **Bağımlı istekleri ayrıştır**’ı seçerseniz, tüm görüntüler, stil dosyaları, betikler ve diğer bağımlı kaynaklar bu süre içinde alınmalıdır.
+    **Test zaman aşımı**: Yavaş yanıtlar hakkında uyarı almak için bu değeri azaltın. Yanıtlar sitenizden bu süre içinde alınmadıysa test başarısız sayılır. **Bağımlı istekleri ayrıştır**’ı seçtiyseniz; tüm görüntüler, stil dosyaları, betikler ve diğer bağımlı kaynaklar bu süre içinde alınmış olmalıdır.
 
     **HTTP yanıtı**: Başarılı sayılan döndürüldü durum kodu. 200, normal web sayfası döndürüldüğünü belirten koddur.
 
-    **İçerik eşleşmesi**: "Hoş geldiniz!" gibi bir dize. Oluştuğu her yanıtta test edeceğiz. Joker karakter bulunmayan düz bir dize olmalıdır. Sayfanızın içeriği değişirse bunu güncelleştirmeniz gerektiğini unutmayın.
+    **İçerik eşleşmesi**: "Hoş geldiniz!" gibi bir dize. Her yanıtta oluşup oluşmadığını test ederiz. Joker karakter bulunmayan düz bir dize olmalıdır. Sayfanızın içeriği değişirse bunu güncelleştirmeniz gerektiğini unutmayın.
 
 
 - **Uyarılar**, varsayılan olarak, beş dakikayı geçen bir sürede üç konumda hata varsa size gönderilir. Tek konumdaki hata daha çok bir ağ sorunudur, sitenizle ilgili değildir. Ancak, eşiği daha fazla veya daha az hassas olarak değiştirebilirsiniz; size kimlerin e-posta göndermesi gerektiğini de değiştirebilirsiniz.
@@ -82,7 +79,7 @@ Daha fazla test ekleyin. Örneğin, giriş sayfanızın test edilmesinin yanı s
 
 ![Giriş dikey penceresinde özet sonuçları](./media/app-insights-monitor-web-app-availability/14-availSummary.png)
 
-Bu döneme ait daha ayrıntılı bir görünüm için özet grafiğin üstteki herhangi bir çubuğuna tıklayın.
+Bu döneme ait daha ayrıntılı bir görünüm için özet grafiğin herhangi bir çubuğuna tıklayın.
 
 Bu grafikler, bu uygulamanın tüm web testleri için sonuçları birleştirir.
 
@@ -104,7 +101,7 @@ Bunun yerine, ekranı kaydırıp %100 başarı değerinden küçük olduğunu g�
 
 ![Belirli bir web testine tıklama](./media/app-insights-monitor-web-app-availability/15-webTestList.png)
 
-Böylece, bu testle ilgili sonuçları görürsünüz.
+Test sonuçları açılır.
 
 ![Belirli bir web testine tıklama](./media/app-insights-monitor-web-app-availability/16-1test.png)
 
@@ -131,7 +128,7 @@ Alternatif olarak, sonuç dosyasını indirip Visual Studio’da inceleyebilirsi
 
 Bir dizi URL'nin bulunduğu bir senaryoyu izleyebilirsiniz. Örneğin, bir satış web sitesi izliyorsanız, öğelerin alışveriş sepetine doğru eklendiğini test edebilirsiniz.
 
-Çok adımlı bir test oluşturmak için Visual Studio’yu kullanarak senaryoyu kaydedin ve kaydı Application Insights'a yükleyin. Application Insights senaryoyu aralıklarla yanıtlayıp yanıtları doğrulayacaktır.
+Çok adımlı bir test oluşturmak için Visual Studio’yu kullanarak senaryoyu kaydedin ve kaydı Application Insights'a yükleyin. Application Insights, senaryoyu aralıklarla yeniden yürütür ve yanıtları doğrular.
 
 Testlerinizde kodlanmış işlevleri kullanamadığınızı unutmayın: senaryo adımları .webtest dosyasında betik olarak yer almalıdır.
 
@@ -141,7 +138,7 @@ Web oturumu kaydetmek için Visual Studio Enterprise veya Ultimate kullanın.
 
 1. Web performans testi projesi oluşturun.
 
-    ![Visual Studio'da, Web Performansı ve Yük Testi şablonundan yeni bir proje oluşturun.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-create.png)
+    ![Visual Studio’da, Web Performansı ve Yük Testi şablonundan bir proje oluşturun.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-create.png)
 
 2. .webtest dosyasını açın ve kaydı başlatın.
 
@@ -182,7 +179,7 @@ Tek url testlerinde olduğu gibi test sonuçlarını ve hatalarını görüntül
 
 Yaygın bir başarısızlık nedeni testin çok uzun çalışmasıdır. İki dakikadan uzun çalıştırılmamalıdır.
 
-Betikler, stil sayfaları, görüntüler ve diğerleri de aralarında olmak üzere testin başarılı olması için sayfanın tüm kaynaklarının doğru yüklenmiş olması gerektiğini unutmayın.
+Betikler, stil sayfaları, görüntüler ve diğerleri de dahil olmak üzere, testin başarılı olması için sayfanın tüm kaynaklarının doğru yüklenmiş olması gerektiğini unutmayın.
 
 Web testinin tamamen .webtest dosyasında olması gerektiğini unutmayın. Testte kodlanmış işlevleri kullanamazsınız.
 
@@ -195,13 +192,13 @@ Dış bir kaynağa ait stoklar gibi zamana bağımlı veriler alan bir aracı te
 
 Testi çalıştırdığınızda, EndTime her zaman geçerli zaman, StartTime da 15 dakika öncesi olmalıdır.
 
-Web Testi Eklentileri bunu yapmanın bir yolunu sağlar.
+Web Testi Eklentileri, zamanları parametreleme yolunu sağlar.
 
 1. İstediğiniz her değişken parametre değeri için bir web testi eklentisi ekleyin. Web testi araç çubuğunda, **Web Testi Eklentisi Ekle**’yi seçin.
 
     ![Web Testi Eklentisi Ekle’yi, sonra da bir türü seçin.](./media/app-insights-monitor-web-app-availability/appinsights-72webtest-plugins.png)
 
-    Bu örnekte, Tarih Saat Eklentisinin iki örneğini kullanacağız. "15 dakika önce" için biri, "şimdi" için de bir başkası.
+    Bu örnekte, Tarih Saat Eklentisinin iki örneğini kullanacağız. Bir örnek "15 dakika önce" için, bir örnek de "şimdi" için.
 
 2. Her eklentinin özelliklerini açın. Buna bir ad verip geçerli saat olarak kullanılmak üzere ayarlayın. Bunlardan birini Dakika Ekle = 15 olarak ayarlayın.
 
@@ -211,18 +208,42 @@ Web Testi Eklentileri bunu yapmanın bir yolunu sağlar.
 
     ![Test parametresinde {{plug-in name}} kullanın.](./media/app-insights-monitor-web-app-availability/appinsights-72webtest-plugin-name.png)
 
-Artık testi portala yükleyin. Testin her çalıştırılışında dinamik değerler kullanacaktır.
+Artık testi portala yükleyin. Testin her çalıştırılışında dinamik değerler kullanılır.
 
 ## Oturum açmayla ilgilenme
 
-Kullanıcılarınız uygulamanızda oturum açarsa, oturum açma benzetimi için bir dizi seçeneğiniz vardır; bu nedenle, oturum açmanın ötesinde sayfaları test edebilirsiniz. Kullandığınız yaklaşım, uygulamanın sağladığı güvenlik türüne bağlıdır.
+Kullanıcılarınız uygulamanızda oturum açarsa, oturum açma benzetimi için bir dizi seçeneğiniz vardır; böylece, oturum açmanın ötesinde sayfaları test edebilirsiniz. Kullandığınız yaklaşım, uygulamanın sağladığı güvenlik türüne bağlıdır.
 
-Her durumda, yalnızca test amacıyla bir hesap oluşturmanız gerekir. Olabiliyorsa, izinlerini salt okunur olacak şekilde kısıtlayın.
+Her durumda, uygulamanızda yalnızca test amacıyla bir hesap oluşturmalısınız. Mümkünse, web testlerinin gerçek kullanıcıları etkileme olasılığını önlemek için test hesabının izinlerini kısıtlayın.
 
-* Basit kullanıcı adı ve parola: Normal yollardan web testini kaydetmek yeterlidir. Önce tanımlama bilgilerini silin.
-* SAML kimlik doğrulaması Bunun için, web testlerinde kullanıma uygun SAML eklentisini kullanabilirsiniz.
-* İstemci parolası: uygulamanızda istemci parolasını içeren bir oturum açma yolu varsa bunu kullanın. Azure Active Directory bunu sağlar. 
-* Açık Kimlik Doğrulaması - örneğin, Microsoft veya Google hesabınızla oturum açma. OAuth kullanan çok sayıda uygulama alternatif istemci parolası da sağlar; bu nedenle ilk taktik bunun incelenmesidir. Testinizde OAuth kullanılarak oturum açılmışsa genel yaklaşım şöyledir:
+### Basit kullanıcı adı ve parola
+
+Web testini normal şekilde kaydedin. Önce tanımlama bilgilerini silin.
+
+### SAML kimlik doğrulaması
+
+Web testlerinde kullanıma uygun SAML eklentisini kullanın.
+
+### Gizli anahtar
+
+Uygulamanızda gizli anahtar içeren bir oturum açma yolu varsa bu yolu kullanın. Azure Active Directory (AAD), gizli anahtarla oturum açmayı sağlayan bir hizmet örneğidir. AAD’de gizli anahtar, Uygulama Anahtarı’dır. 
+
+Aşağıda uygulama anahtarı kullanan bir Azure web uygulaması için web testi örneği verilmiştir:
+
+![Gizli anahtar örneği](./media/app-insights-monitor-web-app-availability/110.png)
+
+1. Gizli anahtar (AppKey) kullanarak AAD’den belirteç alın.
+2. Yanıttan taşıyıcı belirteci ayıklayın.
+3. Yetkilendirme üst bilgisinde taşıyıcı belirteç kullanarak API çağırın.
+
+Web testinin gerçek bir istemci olduğundan, yani AAD’de kendi uygulamasına sahip olduğundan emin olun ve bu istemcinin clientId’si ile appkey’ini kullanın. Test edilen hizmetiniz, AAD içinde kendi uygulamasına sahiptir: bu uygulamanın appID URI’si, web testinin “kaynak” alanında yansıtılır. 
+
+### Açık Kimlik Doğrulaması
+
+Microsoft veya Google hesabınızla oturum açma, bir açık kimlik doğrulaması örneğidir. OAuth kullanan çok sayıda uygulama, alternatif gizli anahtar da sağlar; bu nedenle ilk taktiğiniz bu olasılığın incelenmesi olmalıdır. 
+
+Testinizde OAuth kullanılarak oturum açılması gerekiyorsa, genel yaklaşım şöyledir:
+
  * Web tarayıcınız, kimlik doğrulama sitesi ve uygulamanız arasındaki trafiği incelemek için Fiddler gibi bir araç kullanın. 
  * Farklı makineler veya tarayıcılar kullanarak veya uzun aralıklarla (süresi dolacak şekilde belirteçleri izin vermek için) iki veya daha fazla oturum açın.
  * Farklı oturumları karşılaştırarak, kimlik doğrulama sitesinden geri geçirilen belirteci tanımlayın; başka bir deyişle oturum açıldıktan sonra uygulama sunucunuza geçirilen belirteç. 
@@ -261,7 +282,7 @@ Test tamamlandığında yanıt süreleri ve başarı oranları gösterilir.
 
 * *HTTPS destekleniyor mu?*
 
-    Şu anda SSL 3.0 ve TLS 1.0 sürümlerini destekliyoruz.
+    TLS 1.1 ve TLS 1.2 desteklenir.
 
 * *"Web testleri" ve "kullanılabilirlik testleri" arasında bir fark var mı?*
 
@@ -273,7 +294,7 @@ Test tamamlandığında yanıt süreleri ve başarı oranları gösterilir.
 
 * *Çok adımlı web testi yüklenemiyor*
 
-    300K boyut sınırı var.
+    300 K boyut sınırı vardır.
 
     Döngüler desteklenmez.
 
@@ -286,7 +307,7 @@ Test tamamlandığında yanıt süreleri ve başarı oranları gösterilir.
 
     Test başına 100 istek sınırı var.
 
-    İki dakikadan uzun çalışırsa test durdurulacak.
+    Test, iki dakikadan uzun çalışırsa durdurulur.
 
 * *İstemci sertifikasıyla testi nasıl çalıştırırım?*
 
@@ -315,6 +336,6 @@ Test tamamlandığında yanıt süreleri ve başarı oranları gösterilir.
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/20/2016"
+   ms.date="08/17/2016"
    ms.author="alkohli" />
 
 # Şirket içi StorSimple cihazınızı dağıtma (Güncelleştirme 1)
@@ -292,6 +292,6 @@ Bir Linux konağına bağlı bir StorSimple cihazına yönelik MPIO yükleme yö
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

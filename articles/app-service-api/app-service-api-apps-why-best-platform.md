@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="05/03/2016" 
+    ms.date="08/23/2016" 
     ms.author="rachelap"/>
 
 # API Apps’e genel bakış
@@ -65,6 +65,6 @@ API uygulamaları hakkında soru sormak için [API Apps forumunda](https://socia
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

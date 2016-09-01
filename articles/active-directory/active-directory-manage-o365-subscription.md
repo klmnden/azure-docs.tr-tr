@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="06/03/2016"
+   ms.date="08/23/2016"
    ms.author="curtand"/>
 
 # Azure'da Office 365 aboneliğinize yönelik dizini yönetme
@@ -63,6 +63,6 @@ Abonelikler ve dizinler arasındaki ilişki hakkında daha fazla bilgi için bkz
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

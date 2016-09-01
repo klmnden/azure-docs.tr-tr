@@ -12,7 +12,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="04/15/2016"
+    ms.date="08/16/2016"
     ms.author="sethm" />
 
 # Azure Event Hubs’a genel bakış
@@ -21,9 +21,9 @@ Birçok modern çözüm uyarlamalı müşteri deneyimleri sağlamayı veya süre
 
 ![Event Hubs](./media/event-hubs-overview/IC759856.png)
 
-Azure Event Hubs, düşük gecikme süresi ve yüksek güvenilirlikle bulutta büyük ölçekte telemetri girişi sağlayan bir olay işleme hizmetidir. Bu hizmet, diğer aşağı akış hizmetleriyle birlikte kullanıldığında özellikle uygulama izleme, kullanıcı deneyiminde veya iş akışı işlemede ve Nesnelerin İnterneti (IoT) senaryolarında yararlıdır. Event Hubs bir ileti akışı işleme yeteneği sağlar ve bir Event Hub'ı kuyruklara ve konulara benzer bir varlık olsa da geleneksel kurumsal mesajlaşmadan çok farklı olan özelliklere sahiptir. Kurumsal mesajlaşma senaryoları genellikle sıralama, ulaşmayan posta, işlem desteği ve güçlü teslim güvenceleri gibi birkaç gelişmiş özellik gerektirirken, olay girişi için en önemli kaygı olay akışlarında yüksek verimlilik ve işleme esnekliğidir. Bu nedenle, Event Hubs özellikleri yüksek verimlilik ve olay işleme senaryolarına doğru güçlü eğilimi nedeniyle Service Bus konularından farklıdır. Bu nedenle, Event Hubs konular için mevcut olan bazı mesajlaşma özelliklerini kullanılmaz. Bu özellikler gerekli olursa hala en uygun seçenek konulardır.
+Azure Event Hubs, düşük gecikme süresi ve yüksek güvenilirlikle bulutta büyük ölçekte telemetri girişi sağlayan bir olay işleme hizmetidir. Bu hizmet, diğer aşağı akış hizmetleriyle birlikte kullanıldığında özellikle uygulama izleme, kullanıcı deneyiminde veya iş akışı işlemede ve Nesnelerin İnterneti (IoT) senaryolarında yararlıdır. Event Hubs bir ileti akışı işleme yeteneği sağlar ve bir Event Hub'ı kuyruklara ve konulara benzer bir varlık olsa da geleneksel kurumsal mesajlaşmadan çok farklı olan özelliklere sahiptir. Kurumsal mesajlaşma senaryoları için genellikle sıralama, ulaşmayan posta, işlem desteği ve güçlü teslim güvenceleri gibi gelişmiş özellikler gerekirken olay girişi konusunda öncelikle, olay akışlarında yüksek verimlilik ve işleme esnekliğine odaklanılır. Bu nedenle, Event Hubs özellikleri yüksek verimlilik ve olay işleme senaryolarına doğru güçlü eğilimi nedeniyle Service Bus konularından farklıdır. Bu nedenle, Event Hubs konular için mevcut olan bazı mesajlaşma özelliklerini kullanılmaz. Bu özellikler gerekli olursa hala en uygun seçenek konulardır.
 
-Event Hub'ı, kuyruklar ve konulara benzer şekilde Service Bus içinde ad alanı düzeyinde oluşturulur. Event Hubs birincil API arabirimleri olarak AMQP ve HTTP kullanır. Aşağıdaki diyagramda Event Hubs ile Service Bus arasındaki ilişki gösterilmektedir.
+Olay Hub'ı, Service Bus kuyrukları ve konularına benzer şekilde Service Bus ad alanı düzeyinde oluşturulur. Event Hubs birincil API arabirimleri olarak AMQP ve HTTP kullanır. Aşağıdaki diyagramda Event Hubs ile Service Bus arasındaki ilişki gösterilmektedir.
 
 ![Event Hubs](./media/event-hubs-overview/IC741188.png)
 
@@ -43,7 +43,7 @@ Bölümler Event Hub'ı düzeyinde ayarlanan yapılandırılmış bir elde tutma
 
 Bölüm sayısı, Event Hub'ı oluşturma zamanında belirtilir ve 2 ile 32 arasında olmalıdır (varsayılan 4'tür). Bölümler bir veri düzenleme mekanizmasıdır ve Event Hubs işlemesinden daha çok, tüketen uygulamalarda gerekli aşağı akış paralellik derecesiyle ilgilidir. Bu durum bir Event Hub'ındaki bölüm sayısı seçimini, sahip olmayı beklediğiniz eşzamanlı okuyucu sayısıyla doğrudan ilgili hale getirir. Event Hub'ı oluşturulduktan sonra bölüm sayısı değiştirilemez; bu sayıyı uzun vadeli beklenen ölçek açısından göz önünde bulundurmanız gerekir. 32 olan bölüm sınırını Service Bus ekibine başvurarak artırabilirsiniz.
 
-Bölümler tanımlanabilir ve doğrudan gönderilebilir olsa da, belirli bölümlere veri göndermekten kaçınmanız genellikle en iyisidir. Bunun yerine, [Olay yayımcısı](#event-publisher) ve [Yayımcı İlkesi](#capacity-and-security) bölümlerinde sunulan daha yüksek düzeyli yapıları kullanabilirsiniz.
+Bölümler, tanımlanabilir ve doğrudan gönderilebilir olsa da belirli bölümlere veri göndermekten kaçınmanız en iyisidir. Bunun yerine, [Olay yayımcısı](#event-publisher) ve [Yayımcı İlkesi](#capacity-and-security) bölümlerinde sunulan daha yüksek düzeyli yapıları kullanabilirsiniz.
 
 Event Hubs bağlamında iletiler *olay verileri* olarak adlandırılır. Olay verileri olayın gövdesini, kullanıcı tarafından tanımlanan bir özellik paketini ve bölümdeki sapması ve akış dizisindeki sayısı gibi olaya ilişkin çeşitli meta verileri içerir. Bölümler bir olay verileri dizisi ile doldurulur.
 
@@ -118,27 +118,27 @@ Belirli bir bölüm için bir AMQP 1.0 oturumu ve bağlantı açıldıktan sonra
 
 ![Event Hubs](./media/event-hubs-overview/IC759862.png)
 
-Bu uzaklığın akış işlemede ilerlemeyi yönetmeyi en iyi şekilde sağlayan yöntemle yönetilmesi kullanıcının sorumluluğundadır.
+Bu uzaklığı, akış işlemede ilerleyişi yönetmenizi en iyi şekilde sağlayan bir yöntem kullanarak yönetmek sizin sorumluluğunuzdadır.
 
 ## Kapasite ve güvenlik
 
-Event Hubs, akış girişi için yüksek oranda ölçeklenebilen paralel bir mimaridir. Bu nedenle, bir çözümün Event Hubs temel alınarak boyutlandırılması ve ölçeklendirilmesi sırasında dikkate alınması gereken birkaç temel unsur vardır. Bu kapasite denetimlerinin birincisi sonraki bölümde açıklanan *işleme birimleridir*.
+Event Hubs, akış girişi için yüksek oranda ölçeklenebilen paralel bir mimaridir. Bu nedenle, bir çözümün Event Hubs temel alınarak boyutlandırılması ve ölçeklendirilmesi sırasında dikkate alınması gereken birkaç temel unsur vardır. Bu kapasite denetimlerinin birincisi, aşağıdaki bölümde açıklanan *işleme birimleridir*.
 
 ### İşleme birimleri
 
 Event Hubs işleme kapasitesi, işleme birimleri tarafından denetlenir. İşleme birimleri önceden satın alınan kapasite birimleridir. Tek bir işleme birimi aşağıdakileri içerir:
 
-- Giriş: Saniye başına en fazla 1MB veya saniye başına 1000 olay.
+- Giriş: Saniye başına 1 MB’a veya saniye başına 1000 olaya kadar.
 
-- Çıkış: Saniye başına 2MB.
+- Çıkış: Saniye başına 2 MB’a kadar.
 
 Giriş, satın alınan işleme birimi sayısına göre sağlanan kapasite miktarı ile kısıtlanır. Bu miktarın üzerinde veri gönderilmesi bir "kota aşıldı" özel durumu ile sonuçlanır. Bu miktar saniyede 1 MB veya saniyede 1000 olaydır (hangisi önce gerçekleşirse). Çıkış azaltma özel durumları oluşturmaz, ancak satın alınan işleme birimlerine göre sağlanan veri aktarımı miktarı ile sınırlıdır (bir işleme birimi için saniyede 2 MB). Yayımlama hızı özel durumları alırsanız veya daha yüksek çıkış görmeyi bekliyorsanız Event Hub'ının oluşturulduğu ad alanı için kaç tane işleme birimi satın aldığınızı denetlediğinizden emin olun. Daha fazla işleme birimi edinmek için [Klasik Azure portalı][]’nın **Ölçek** sekmesinde bulunan **Ad alanları** sayfasındaki ayarı düzenleyebilirsiniz. Ayrıca Azure API'lerini kullanarak bu ayarı değiştirebilirsiniz.
 
-Bölümler bir veri düzenleme kavramıyken, işleme birimleri tamamen kapasiteyle ilgili bir kavramdır. İşleme birimleri saat başına faturalandırılır ve önceden satın alınır. Satın alındıktan sonra işleme birimleri en az bir saat için faturalandırılır. Bir Service Bus ad alanı için en fazla 20 işleme birimi satın alınabilir ve bir Azure hesabının sınırı 20 işleme birimidir. Bu işleme birimleri belirli bir ad alanındaki tüm Event Hubs arasında paylaşılır.
+Bölümler bir veri düzenleme kavramıyken, işleme birimleri tamamen kapasiteyle ilgili bir kavramdır. İşleme birimleri saat başına faturalandırılır ve önceden satın alınır. Satın alındıktan sonra işleme birimleri en az bir saat için faturalandırılır. Bir Event Hubs ad alanı için en fazla 20 işleme birimi satın alınabilir ve bir Azure hesabının sınırı 20 işleme birimidir. Bu işleme birimleri belirli bir ad alanındaki tüm Event Hubs arasında paylaşılır.
 
-İşleme birimleri en iyi çaba ilkesine göre sağlanır ve her zaman hemen satın almak için uygun olmayabilir. Belirli bir kapasite gerekiyorsa bu işleme birimlerini önceden satın almanız önerilir. 20'den fazla işleme birimi gerekiyorsa, ilk 100 işleme birimine kadar 20’li bloklar içeren bir taahhüt temelinde daha fazla işleme birimi satın almak üzere Service Bus desteğine başvurabilirsiniz. Bundan sonraki miktarlar için 100 işleme biriminden oluşan bloklar satın alabilirsiniz.
+İşleme birimleri en iyi çaba ilkesine göre sağlanır ve her zaman hemen satın almak için uygun olmayabilir. Belirli bir kapasite gerekiyorsa bu işleme birimlerini önceden satın almanız önerilir. 20'den fazla işleme birimi gerekiyorsa ilk 100 işleme birimine kadar 20’li bloklar içeren bir taahhüt temelinde daha fazla işleme birimi satın almak üzere Azure desteğine başvurabilirsiniz. Bundan sonraki miktarlar için 100 işleme biriminden oluşan bloklar satın alabilirsiniz.
 
-Event Hubs ile en iyi ölçeği elde etmek için işleme birimleri ile bölümleri dikkatlice dengelemeniz önerilir. Tek bir bölüm en fazla bir işleme biriminden oluşan ölçeğe sahiptir. İşleme birimlerinin sayısı bir Event Hub’ındaki bölüm sayısına eşit veya daha az olmalıdır.
+Event Hubs ile en iyi ölçeği elde etmek için işleme birimleri ve bölümlerini dikkatlice dengelemeniz önerilir. Tek bir bölüm en fazla bir işleme biriminden oluşan ölçeğe sahiptir. İşleme birimlerinin sayısı bir Event Hub’ındaki bölüm sayısına eşit veya daha az olmalıdır.
 
 Ayrıntılı fiyatlandırma bilgileri için bkz. [Event Hubs Fiyatlandırması](https://azure.microsoft.com/pricing/details/event-hubs/).
 
@@ -148,7 +148,7 @@ Event Hubs, *yayımcı ilkeleri* aracılığıyla olay yayımcıları üzerinde 
 
     //<my namespace>.servicebus.windows.net/<event hub name>/publishers/<my publisher name>
 
-Yayımcı adlarını önceden oluşturmanız gerekli değildir, ancak bunlar bağımsız yayımcı kimlikleri sağlamak amacıyla bir olayı yayımlarken kullanılan SAS belirteci ile eşleşmelidir. SAS hakkında daha fazla bilgi için bkz. [Service Bus ile Paylaşılan Erişim İmzası Kimlik Doğrulaması](../service-bus/service-bus-shared-access-signature-authentication.md). Yayımcı ilkelerini kullanırken **PartitionKey** değeri yayımcı adına ayarlanır. Düzgün çalışması için bu değerlerin eşleşmesi gerekir.
+Yayımcı adlarını önceden oluşturmanız gerekli değildir, ancak bunlar bağımsız yayımcı kimlikleri sağlamak amacıyla bir olayı yayımlarken kullanılan SAS belirteci ile eşleşmelidir. SAS hakkında daha fazla bilgi için bkz. [Service Bus ile Paylaşılan Erişim İmzası Kimlik Doğrulaması](../service-bus/service-bus-shared-access-signature-authentication.md). Yayımcı ilkelerini kullanırken **PartitionKey** değeri yayımcı adına ayarlanır. Bu hizmetin düzgün çalışması için bu değerlerin eşleşmesi gerekir.
 
 ## Özet
 
@@ -170,6 +170,6 @@ Event Hubs kavramlarını öğrendiğinize göre aşağıdaki senaryolara geçeb
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

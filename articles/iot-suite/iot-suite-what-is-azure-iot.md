@@ -14,14 +14,14 @@
  ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="05/25/2016"
+ ms.date="08/09/2016"
  ms.author="dobett"/>
 
 [AZURE.INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
 
 ## Azure IoT Paketi
 
-The Microsoft Azure IoT Paketi, [uzaktan izleme][lnk-preconfigured-solutions] and [tahmine dayalı bakım][lnk-predictive-maintenance] gibi yaygın IoT senaryolarını belirten bir dizi genişletilebilir önceden yapılandırılmış çözüm aracılığıyla hemen başlamanızı sağlayan kurumsal düzeyde bir çözümdür. Bu çözümler, daha önce açıklanan IOT çözüm mimarisi uygulamalarıdır.
+The Microsoft Azure IoT Paketi, [uzaktan izleme][lnk-preconfigured-solutions] and [tahmine dayalı bakım][lnk-predictive-maintenance] gibi yaygın IoT senaryolarını belirten bir dizi genişletilebilir önceden yapılandırılmış çözüm aracılığıyla hemen başlamanızı sağlayan kurumsal düzeyde bir çözümdür. Bu çözümler, bu makalede ana hatlarıyla açıklanan IOT çözüm mimarisinin uygulamalarıdır.
 
 Önceden yapılandırılmış çözümler, [Azure IoT Hub’ı][], [Azure Event Hubs][], [Azure Stream Analytics][], [Azure Machine Learning][], ve [Azure Storage][] ve çözüme özel yönetim konsolları gibi önceden yapılandırılmış Azure hizmetlerine başlamanızı sağlayan sanal cihazları kapsayan eksiksiz, çalışan uçtan uca çözümlerdir. Önceden yapılandırılmış çözümlerde, özelleştirebildiğiniz ve kendi özel IoT senaryolarınıza uygulamak amacıyla uzanabildiğiniz kanıtlanmış, üretime hazır kod bulunur.
 
@@ -46,6 +46,6 @@ IoT Paketi ve önceden yapılandırılmış çözümler hakkında bilgi almaya d
 [lnk-predictive-maintenance]: iot-suite-predictive-overview.md
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

@@ -13,7 +13,7 @@
    ms.devlang="na"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/21/2016"
+   ms.date="08/05/2016"
    ms.author="yurid"/>
 
 # Azure Güvenlik Merkezi algılama özellikleri
@@ -49,12 +49,12 @@ Microsoft yoğun miktarda genel tehdit bilgisine sahiptir. Azure, Office 365, Mi
 
 ## Davranış analizi
 
-Davranış analizi, verileri analiz eden ve bilinen modeller koleksiyonuyla karşılaştıran bir tekniktir. Ancak, bu modeller basit imzalar değildir. Bunlar büyük veri kümelerine uygulanan karmaşık machine learning algoritmaları aracılığıyla belirlenir. Azure Güvenlik Merkezi; sanal makine günlükleri, sanal ağ cihaz günlükleri, yapı günlükleri ve diğer kaynakların analizine göre tehlike giren kaynaklarını belirlemek amacıyla davranış analizini kullanabilir. 
+Davranış analizi, verileri analiz eden ve bilinen modeller koleksiyonuyla karşılaştıran bir tekniktir. Ancak, bu modeller basit imzalar değildir. Bunlar büyük veri kümelerine uygulanan karmaşık machine learning algoritmaları aracılığıyla belirlenir. Bunlar, kötü amaçlı davranışların uzman analistler tarafından dikkatlice çözümlenmesiyle de belirlenir. Azure Güvenlik Merkezi, güvenliği ihlal edilen kaynakları belirlemek amacıyla sanal makine günlükleri, sanal ağ cihazı günlükleri, yapı günlükleri, kilitlenme dökümleri ve diğer kaynakların analizine bağlı olarak davranış analizi kullanabilir. 
 
 Ayrıca, yaygın bir kampanyanın kanıtını desteklemek üzere denetlenmesi gereken diğer sinyallerle bir bağlantı vardır. Bu durum yerleşik tehlike göstergeleriyle tutarlı olayları tanımlamaya yardımcı olur. Bazı örnekler:
 
 - **Şüpheli işlem yürütme**: Saldırganlar tespit edilmeden kötü amaçlı yazılım yürütmeye yönelik birkaç teknik kullanmaktadır. Örneğin, bir saldırgan kötü amaçlı yazılıma yasal sistem dosyalarıyla aynı adı verip, bu dosyaları alternatif konumlara yerleştirebilir, iyi amaçlı bir dosyaya çok benzer bir ad kullanabilir ya da dosyanın gerçek uzantısını maskeleyebilir. Güvenlik Merkezi modelleri, davranışları işler ve işlem yürütmeleri izleyerek bunlar gibi aykırı değerleri algılar.  
-- **Gizli kötü amaçlı yazılım ve açıktan faydalanmanın başarısız olması**: Karmaşık kötü amaçlı yazılımlar diske hiçbir zaman yazmayarak veya diske depolanmış yazılım bileşenlerini şifreleyerek geleneksel kötü amaçlı yazılımdan koruma ürünlerinden kurtulabilmektedir.  Ancak, bu tür kötü amaçlı yazılımlar çalışmak için bellekte iz bırakmak zorunda olduğundan bellek analizi kullanılarak algılanabilir. Yazılım kilitlendiğinde bir kilitlenme dökümü kilitlenme sırasında belleğin bir kısmını yakalar.  Kilitlenme dökümündeki belleği analiz eden Azure Güvenlik Merkezi, yazılımdaki açıklardan yararlanmak, gizli verilere erişmek ve makinenizin performansını etkilemeden tehlikeye giren bir makineye gizlice sızmak için kullanılan teknikleri algılayabilir.
+- **Gizli kötü amaçlı yazılım ve güvenlik açığından yararlanma girişimleri**: Karmaşık kötü amaçlı yazılımlar diske hiçbir zaman yazmayarak veya diske depolanmış yazılım bileşenlerini şifreleyerek geleneksel kötü amaçlı yazılımdan koruma ürünlerini atlatabilir.  Ancak, bu tür kötü amaçlı yazılımlar çalışmak için bellekte iz bırakmak zorunda olduğundan bellek analizi kullanılarak algılanabilir. Yazılım kilitlendiğinde bir kilitlenme dökümü kilitlenme sırasında belleğin bir kısmını yakalar.  Kilitlenme dökümündeki belleği analiz eden Azure Güvenlik Merkezi, yazılımdaki açıklardan yararlanmak, gizli verilere erişmek ve makinenizin performansını etkilemeden tehlikeye giren bir makineye gizlice sızmak için kullanılan teknikleri algılayabilir.
 - **Yana hareket ve iç keşif**: Tehlikeye giren bir ağda kalıcı olmak ve değerli verileri bulmak/toplamak için saldırganlar genellikle riskli makineden aynı ağdaki diğer makinelere yana doğru hareket etmeye çalışır. Güvenlik Merkezi bir saldırganın ağda kapladığı yeri genişletme denemelerini bulmak için uzaktan komut yürütme, ağ araştırma ve hesap numaralandırma gibi işlem ve oturum açma etkinliklerini izler.
 - **Kötü Amaçlı PowerShell Komut Dosyaları**: PowerShell çeşitli amaçlarla hedef sanal makinelerde kötü amaçlı kod yürütmek üzere saldırganlar tarafından kullanılmaktadır. Güvenlik Merkezi şüpheli etkinliklerin kanıtı için PowerShell etkinliğini inceler. 
 - **Giden saldırılar**: Saldırganlar genellikle bulut kaynaklarını ek saldırılar yerleştirmek üzere kullanma amacıyla bulut kaynaklarını hedefler. Örneğin, diğer sanal makinelere karşı deneme yanılma saldırıları başlatmak, istenmeyen posta göndermek veya açık bağlantı noktalarını ya da internet üzerindeki diğer cihazları taramak için riskli sanal makineler kullanılabilir. Ağ trafiğine machine learning uygulayan Güvenlik Merkezi giden ağ iletişimlerinin normu aştığını algılayabilir. İstenmeyen posta durumunda Güvenlik Merkezi, Office 365’ten alınan bilgilerle olağandışı e-posta trafiğini ilişkilendirerek, postanın kötü amaçlı ya da yasal bir e-posta kampanyasının sonucu olup olmadığını belirler.  
@@ -76,7 +76,7 @@ Azure Güvenlik Merkezi, tehdit kapsamındaki değişiklikleri sürekli olarak i
 
 Bu birleşik çabalar yeni ve geliştirilmiş algılamalarla sonuçlanır ve sizin hiçbir şey yapmanıza gerek kalmaz.
 
-## Sonraki adımlar
+## Ayrıca bkz.
 Bu belgede, Azure Güvenlik Merkezi algılama özelliklerinin nasıl çalıştığı hakkında bilgi edindiniz. Güvenlik Merkezi hakkında daha fazla bilgi edinmek için şunlara bakın:
 
 - [Azure Güvenlik Merkezi Planlama ve İşlemler Kılavuzu](security-center-planning-and-operations-guide.md)
@@ -88,6 +88,6 @@ Bu belgede, Azure Güvenlik Merkezi algılama özelliklerinin nasıl çalıştı
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

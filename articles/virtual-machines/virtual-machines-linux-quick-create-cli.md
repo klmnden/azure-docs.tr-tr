@@ -13,13 +13,15 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
-   ms.date="05/03/2016"
+   ms.date="08/18/2016"
    ms.author="v-livech"/>
 
 
 # CLI kullanarak Azure’da bir Linux VM oluşturma.
 
-Bu makalede, Azure’da Azure CLI `azure vm quick-create` komutu kullanarak hızlı bir şekilde Linux Sanal Makine dağıtma gösterilir. `quick-create` komutu, kendisini çevreleyen, bir kavramı çok hızlı bir şekilde prototip kullanabilmek veya test edebilmek için kullanabileceğiniz, temel altyapıyla bir VM dağıtır (bunu Linux bash kabuğun en hızlı yolu olarak düşünebilirsiniz).  Makale bir Azure hesabı ([ücretsiz bir deneme sürümünü edinin](https://azure.microsoft.com/pricing/free-trial/)) ve oturum açılmış (`azure login`) ve kaynak yöneticisi modunda (`azure config mode arm`) [Azure CLI](../xplat-cli-install.md) ve gerektirir.  Ayrıca bir [Azure Portal](virtual-machines-linux-quick-create-portal.md) kullanarak bir Linux VM dağıtabilirsiniz.
+> [AZURE.NOTE] Birkaç dakikanız varsa deneyimlerinize ilişkin bu [kısa ankete](https://aka.ms/linuxdocsurvey) katılarak Azure Linux VM belgelerini iyileştirmemize yardımcı olun. Bize vereceğiniz her yanıt, işlerinizi tamamlamanız konusunda size yardımcı olmamıza katkıda bulunur.
+
+Bu makalede, Azure’da Azure CLI `azure vm quick-create` komutu kullanarak hızlı bir şekilde Linux Sanal Makine dağıtma gösterilir. `quick-create` komutu, bir kavramı hızlı bir şekilde prototip kullanabilmek veya test edebilmek için kullanabileceğiniz, kendisini çevreleyen temel altyapıya sahip bir VM dağıtır.  Bu makale için bir Azure hesabının ([ücretsiz deneme sürümü edinin](https://azure.microsoft.com/pricing/free-trial/)) yanı sıra, oturum açılmış (`azure login`) ve Resource Manager modunda (`azure config mode arm`) bir [Azure CLI'si](../xplat-cli-install.md) gerekir.  [Azure portalını](virtual-machines-linux-quick-create-portal.md) kullanarak da hızlıca Linux VM dağıtabilirsiniz.
 
 ## Hızlı Komut Özeti
 
@@ -31,7 +33,7 @@ azure vm quick-create -M ~/.ssh/azure_id_rsa.pub -Q CoreOS
 
 ## Linux VM’i dağıtma
 
-Yukarıdaki aynı komutu kullanarak, aşağıda görmeyi beklemeniz gereken çıktıyla birlikte her istem gösterilmektedir, ancak RedHat Enteprise Linux 7.2 VM oluşturmak için RHEL diğer adını kulllanır.  
+Şimdi bu komutu inceleyecek ve RedHat Enterprise Linux 7.2'yi kullanarak her bir adımı açıklayacağız.  
 
 ## ImageURN diğer adını kullanma
 
@@ -44,14 +46,13 @@ Azure CLI `quick-create` komutu en yaygın işletim sistemi dağıtımlarına e�
 | Debian    | credativ  | Debian       | 8           | en son  |
 | openSUSE  | SUSE      | openSUSE     | 13.2        | en son  |
 | RHEL      | RedHat    | RHEL         | 7.2         | en son  |
-| SLES      | SLES      | SLES         | 12 SP1      | en son  |
 | UbuntuLTS | Canonical | UbuntuServer | 14.04.4-LTS | en son  |
 
 
 
-**ImageURN** seçeneği (`-Q`) için, RedHat Enterprise Linux 7.2 VM’i dağıtmak için `RHEL` kullanacağız. (Bu 7 diğer ad Azure’da kullanılabilen işletim sistemlerinin küçük bir kısmını temsil eder; [bir görüntü arayarak](virtual-machines-linux-cli-ps-findimage.md) markette diğer görüntüleri bulun veya [kendi özel görüntünüzü de yükleyebilirsiniz](virtual-machines-linux-create-upload-generic.md).)
+**ImageURN** seçeneği (`-Q`) için, RedHat Enterprise Linux 7.2 VM dağıtmak üzere `RHEL` kullanıyoruz. Bu `quick-create` diğer adları, Azure'da kullanılabilen işletim sistemlerinin çok küçük bir kısmını temsil eder.  [Görüntü arayarak](virtual-machines-linux-cli-ps-findimage.md) markette daha fazla görüntü bulabilir veya [kendi özel görüntünüzü karşıya yükleyebilirsiniz](virtual-machines-linux-create-upload-generic.md).
 
-Aşağıdaki komut kılavuzunda, lütfen komut istemlerini kendi ortamınızdaki değerlerle değiştirin, biz “örnek” değerler kullanıyoruz.  
+Aşağıdaki komut kılavuzunda istemleri kendi ortamınıza ait değerlerle değiştirin.
 
 Komut istemlerini izleyin ve kendi adlarınızı girin
 
@@ -145,7 +146,7 @@ data:      Diagnostics Instance View:
 info:    vm quick-create command OK
 ```
 
-Şimdi varsayılan SSH bağlantı noktası 22’de kendi VM’nizi ve yukarıdaki çıktıda listelenen tem uygun etki alanı adınızı (FQDN) SSH’leyebilirsiniz. (Ayrıca listelenen IP adresini de kullanabilirsiniz.)
+22 no.'lu bağlantı noktasındaki VM'nize yönelik SSH ve çıkışta listelenen ortak IP adresi. (Ayrıca listelenen FQDN'yi de kullanabilirsiniz.)
 
 ```bash
 ssh ops@rhel-westu-1630678171-pip.westus.cloudapp.azure.com
@@ -163,16 +164,14 @@ Warning: Permanently added 'rhel-westu-1630678171-pip.westus.cloudapp.azure.com,
 
 ## Sonraki Adımlar
 
-`azure vm quick-create`, bir bash kabuğunda oturum açabileceğiniz ve çalışabileceğiniz şekilde, hızlı olarak bir VM dağıtmanın yoludur. `vm quick-create` kullanmak size karmaşık bir ortama ilişkin ek faydalar sağlamaz.  Altyapınız için özelleştirilmiş bir Linux VM dağıtmak için aşağıdaki makalelerden birini izleyebilirsiniz.
+`azure vm quick-create`, Bash kabuğunda oturum açmak ve çalışmaya başlamak için hızlı şekilde VM dağıtmanın yoludur. `vm quick-create` kullanmak size karmaşık bir ortama ilişkin ek faydalar sağlamaz.  Altyapınız için özelleştirilmiş bir Linux VM dağıtmak için aşağıdaki makalelerden herhangi birine göz atabilirsiniz.
 
-- [Belirli bir dağıtım oluşturmak için Azure Resource Manager şablonu kullanma](virtual-machines-linux-cli-deploy-templates.md)
+- [Belirli bir dağıtımı oluşturmak için Azure Resource Manager şablonu kullanma](virtual-machines-linux-cli-deploy-templates.md)
 - [Doğrudan Azure CLI komutları kullanarak bir Linux VM için kendi özel ortamınızı oluşturun](virtual-machines-linux-create-cli-complete.md).
-- [Şablonları kullanarak Azure’da SSH Korumalı Linux VM oluşturma](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
-
-Bu makaleler, Azure altyapısının yanı sıra herhangi bir sayıda mülkiyete ait ve açık kaynak altyapı dağıtımı, yapılandırma ve düzenleme araçları oluşturmaya başlamanızı sağlar.
+- [Şablonları kullanarak Azure'da SSH Korumalı Linux VM oluşturma](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/31/2016"
+   ms.date="08/16/2016"
    ms.author="larryfr"/>
 
 
@@ -40,13 +40,13 @@ Bu Apache Storm öğreticisini başarıyla tamamlamak için şunlara sahip olman
 
 ## Storm kümesi oluşturma
 
-Bu bölümde Azure ARM şablonunu kullanarak bir HDInsight sürüm 3.2 kümesi (Storm sürüm 0.9.3) oluşturursunuz. HDInsight sürümleri ve SLA’ları hakkında bilgi için bkz. [HDInsight bileşen sürümü oluşturma](hdinsight-component-versioning.md). Diğer küme oluşturma yöntemleri için bkz. [HDInsight kümeleri oluşturma](hdinsight-hadoop-provision-linux-clusters.md).
+Bu bölümde Azure Resource Manager şablonunu kullanarak bir HDInsight sürüm 3.2 kümesi (Storm 0.9.3 sürümü) oluşturursunuz. HDInsight sürümleri ve SLA’ları hakkında bilgi için bkz. [HDInsight bileşen sürümü oluşturma](hdinsight-component-versioning.md). Diğer küme oluşturma yöntemleri için bkz. [HDInsight kümeleri oluşturma](hdinsight-hadoop-provision-linux-clusters.md).
 
-1. Azure Portal'da bir ARM şablonu açmak için aşağıdaki görüntüye tıklayın.         
+1. Azure Portal'da bir şablonu açmak için aşağıdaki görüntüye tıklayın.         
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-storm-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
     
-    ARM şablonu bir ortak blob kapsayıcısında, *https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-storm-cluster-in-hdinsight.json* bulunur. 
+    Şablon bir ortak blob kapsayıcısında, *https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-storm-cluster-in-hdinsight.json* adresinde bulunur. 
    
 2. Parametreler dikey penceresinde aşağıdakileri girin:
 
@@ -93,11 +93,11 @@ Bu bölümde Azure ARM şablonunu kullanarak bir HDInsight sürüm 3.2 kümesi (
 
 2. Örnek bir topoloji başlatmak için aşağıdaki komutu kullanın:
 
-        storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-0.9.3.2.2.4.9-1.jar storm.starter.WordCountTopology wordcount
+        storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-0.10.0.2.4.2.4-5.jar storm.starter.WordCountTopology wordcount
         
-    > [AZURE.NOTE] HDinsight daha yeni Storm sürümleriyle güncelleştirildikçe dosya adının `0.9.3.2.2.4.9-1` kısmı değişebilir.
+    > [AZURE.NOTE] HDInsight daha yeni Storm sürümleriyle güncelleştirildikçe dosya adının `0.10.0.2.4.2.4-5` kısmı değişebilir.
 
-    Bu durum kümede 'wordcount' kolay adı ile örnek WordCount topolojisini başlatır. Cümleleri rastgele oluşturur ve cümlelerdeki her bir sözcüğün kaç kez görüldüğünü sayar.
+    Bu durum kümede 'wordcount' kolay adı ile örnek WordCount topolojisini başlatır. Rastgele cümleler oluşturur ve cümlelerde her bir sözcüğün kaç kez geçtiğini sayar.
 
     > [AZURE.NOTE] Kümeye topoloji gönderirken `storm` komutunu kullanmadan önce kümeyi içeren jar dosyasını kopyalamanız gerekir. Bu işlem, dosyanın mevcut olduğu istemciden `scp` komutu kullanılarak gerçekleştirilebilir. Örneğin, `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.jar`
     >
@@ -149,9 +149,9 @@ Storm Kullanıcı Arabirimini kullanarak topolojiyi izlemek için aşağıdaki a
 
         > [AZURE.NOTE] Belirli bir zaman penceresinin seçilmesi sayfanın diğer bölümlerinde gösterilen bilgiler için zaman penceresini değiştirir.
 
-    * **Giriş istatistikleri** (yalnızca cıvata) - Cıvata tarafından kullanılan verileri üreten bileşenler hakkında bilgi.
+    * **Girdi istatistikleri** (yalnızca cıvata) - Cıvata tarafından kullanılan verileri üreten bileşenler hakkında bilgi.
 
-    * **Çıkış istatistikleri** - Bu cıvata tarafından yayılan veriler hakkında bilgi.
+    * **Çıktı istatistikleri** - Bu cıvata tarafından yayılan veriler hakkında bilgi.
 
     * **Yürütücüler** - Bu bileşenin örnekleri hakkında bilgi.
 
@@ -193,6 +193,6 @@ Java tabanlı topolojiler geliştirme hakkında zaten bilgi sahibiyseniz ve mevc
 [preview-portal]: https://portal.azure.com/
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

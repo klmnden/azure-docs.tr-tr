@@ -14,7 +14,7 @@
      ms.topic="get-started-article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="05/23/2016"
+     ms.date="08/09/2016"
      ms.author="dobett"/>
 
 # Azure IoT Paketi nedir?
@@ -67,6 +67,6 @@ IoT Paketi’nin yapabileceklerini ve ana bileşenlerini genel hatlarıyla görd
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

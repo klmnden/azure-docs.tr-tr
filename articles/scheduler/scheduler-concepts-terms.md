@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="get-started-article"
- ms.date="06/30/2016"
+ ms.date="08/18/2016"
  ms.author="krisragh"/>
 
 # Scheduler kavramları ve terminolojisi + varlık hiyerarşisi
@@ -220,6 +220,6 @@ Bir yeniden deneme ilkesi ayarlamak için iki ek ayar belirtilebilir: yeniden de
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

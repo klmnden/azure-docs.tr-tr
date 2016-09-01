@@ -14,20 +14,20 @@
      ms.topic="hero-article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="05/25/2016"
+     ms.date="08/16/2016"
      ms.author="dobett"/>
 
 # Öğretici: Önceden yapılandırılmış çözümleri kullanmaya başlama
 
 ## Giriş
 
-Azure IoT Paketi [önceden yapılandırılmış çözümleri][lnk-preconfigured-solutions], ortak IoT iş senaryolarını uygulayan uçtan uca çözümler sunmak için birden çok Azure IoT hizmetini birleştirir. Önceden yapılandırılmış *uzaktan izleme* çözümü cihazlarınıza bağlanır ve cihazları izler. Bu özellik cihazlarınızdan veri akışını analiz etmenize ve işlemleri bu veri akışına otomatik olarak yanıt verecek hale getirerek iş sonuçlarını iyileştirmeye imkan tanır.
+Azure IoT Paketi [önceden yapılandırılmış çözümleri][lnk-preconfigured-solutions], ortak IoT iş senaryolarını uygulayan uçtan uca çözümler sunmak için birden çok Azure IoT hizmetini birleştirir. Önceden yapılandırılmış *uzaktan izleme* çözümü cihazlarınıza bağlanır ve cihazları izler. Cihazlarınızdan alınan veri akışını analiz etmek ve işlemleri bu veri akışına otomatik olarak yanıt verecek hale getirerek iş sonuçlarını iyileştirmek için bu çözümü kullanabilirsiniz.
 
-Bu öğretici, önceden yapılandırılmış uzaktan izleme çözümünün nasıl hazırlanacağını gösterir. Ayrıca, önceden yapılandırılmış uzaktan izleme çözümünün temel özelliklerinde rehberlik sağlar. Bu özelliklerin birçoğuna önceden yapılandırılmış çözüm ile birlikte dağıtılan çözüm panosundan erişebilirsiniz:
+Bu öğretici, önceden yapılandırılmış uzaktan izleme çözümünün nasıl hazırlanacağını gösterir. Ayrıca, uzaktan izleme çözümünün temel özelliklerinde rehberlik sağlar. Bu özelliklerin birçoğuna önceden yapılandırılmış çözüm ile birlikte dağıtılan çözüm panosundan erişebilirsiniz:
 
 ![Önceden yapılandırılmış uzaktan izleme panosu][img-dashboard]
 
-Bu öğreticiyi tamamlamak için etkin bir Azure aboneliğine ihtiyacınız vardır.
+Bu öğreticiyi tamamlamak için etkin bir Azure aboneliğinizin olması gerekir.
 
 > [AZURE.NOTE]  Hesabınız yoksa yalnızca birkaç dakika içinde ücretsiz bir deneme sürümü hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü][lnk_free_trial].
 
@@ -93,11 +93,11 @@ Cihaz ayrıntıları bölmesi, belirli bir cihazın desteklediği komutların t�
 
 Önceden yapılandırılmış çözümü dağıttığınızda cihaz listesinde görebileceğiniz dört örnek cihazı otomatik olarak hazırlarsınız. Bu cihazlar bir Azure WebJob içinde çalışan *sanal cihazlardır*. Sanal cihazlar herhangi bir gerçek ve fiziksel cihaza dağıtmaya gerek olmadan önceden yapılandırılmış çözümü denemenizi kolaylaştırır. Çözüme gerçek bir cihaz bağlamak istemiyorsanız [Cihazınızı önceden yapılandırılmış uzaktan izleme çözümüne bağlama][lnk-connect-rm] öğreticisine bakın.
 
-Aşağıdaki adımlar çözüme yeni bir sanal cihazın nasıl ekleneceğini göstermektedir:
+Aşağıdaki adımlar bir sanal cihazın çözüme nasıl ekleneceğini göstermektedir:
 
 1.  Cihaz listesine geri gidin.
 
-2.  Yeni bir cihaz eklemek için sol alt köşedeki **+ Add A Device (+ Cihaz Ekle)** seçeneğine tıklayın.
+2.  Bir cihaz eklemek için sol alt köşedeki **+ Cihaz Ekle** seçeneğine tıklayın.
 
     ![Önceden yapılandırılmış çözüme cihaz ekleme][img-adddevice]
 
@@ -105,7 +105,7 @@ Aşağıdaki adımlar çözüme yeni bir sanal cihazın nasıl ekleneceğini gö
 
     ![Panoda yeni cihaz ayrıntılarını ayarlama][img-addnew]
     
-    Yeni bir sanal cihaz oluşturmaya ek olarak, bir **Özel Cihaz** oluşturmayı seçerseniz fiziksel bir cihaz da ekleyebilirsiniz. Bunun hakkında daha fazla bilgi edinmek için bkz. [Cihazınızı önceden yapılandırılmış IoT paketi uzaktan izleme çözümüne bağlama][lnk-connect-rm].
+    Yeni bir sanal cihaz oluşturmaya ek olarak, bir **Özel Cihaz** oluşturmayı seçerseniz fiziksel bir cihaz da ekleyebilirsiniz. Çözüme fiziksel cihazlar bağlama hakkında daha fazla bilgi edinmek için bkz. [Cihazınızı önceden yapılandırılmış IoT paketi uzak izleme çözümüne bağlama][lnk-connect-rm].
 
 4.  **Kendi Cihaz Kimliğimi tanımlamama izin ver**'i seçin ve **mydevice_01** gibi benzersiz bir cihaz kimliği girin.
 
@@ -125,7 +125,7 @@ Aşağıdaki adımlar çözüme yeni bir sanal cihazın nasıl ekleneceğini gö
 
 ## Cihaz meta verilerini düzenleme
 
-Cihaz çözüme ilk kez bağlandığında çözüme meta verileri gönderir. Çözüm panosu aracılığıyla cihaz meta verilerini düzenlediğinizde yeni meta veri değerleri cihaza gönderilir ve yeni değerler çözüm DocumentDB veritabanına depolanır. Daha fazla bilgi için bkz. [Cihaz kimliği kayıt defteri ve DocumentDB][lnk-devicemetadata].
+Bir cihaz çözüme ilk kez bağlandığında çözüme meta verilerini gönderir. Çözüm panosu aracılığıyla cihaz meta verilerini düzenlediğinizde yeni meta veri değerleri cihaza gönderilir ve yeni değerler çözüm DocumentDB veritabanına depolanır. Daha fazla bilgi için bkz. [Cihaz kimliği kayıt defteri ve DocumentDB][lnk-devicemetadata].
 
 1.  Cihaz listesine geri gidin.
 
@@ -143,11 +143,11 @@ Cihaz çözüme ilk kez bağlandığında çözüme meta verileri gönderir. Ç�
 
 ## Yeni cihaz için bir kural ekleme
 
-Yeni eklediğiniz yeni cihaz için hiçbir kural bulunmamaktadır. Bu bölümde yeni cihaz tarafından raporlanan sıcaklık 47 dereceyi aştığında uyarı tetikleyen bir kural ekleyeceksiniz. Başlamadan önce, panoda yeni cihaz için telemetri geçmişinin, cihaz sıcaklığının hiçbir zaman 45 dereceyi aşmadığını gösterdiğine dikkat edin.
+Yeni eklediğiniz yeni cihaz için hiçbir kural bulunmamaktadır. Bu bölümde, yeni cihaz tarafından bildirilen sıcaklık 47 dereceyi aştığında uyarı tetikleyen bir kural ekleyeceksiniz. Başlamadan önce, panoda yeni cihaz için telemetri geçmişinin, cihaz sıcaklığının hiçbir zaman 45 dereceyi aşmadığını gösterdiğine dikkat edin.
 
 1.  Cihaz listesine geri gidin.
 
-2.  **Cihazlar Listesi**'nde yeni cihazınızı seçin ve ardından cihaz için yeni bir kural eklemek üzere **Kural ekle**'ye tıklayın.
+2.  **Cihazlar Listesi**'nde yeni cihazınızı seçin ve ardından cihaz için bir kural eklemek üzere **Kural ekle**'ye tıklayın.
 
 3. Veri alanı olarak **Temperature** ve sıcaklık 47 dereceyi aştığında çıktı olarak **AlarmTemp** kullanan bir kural oluşturun:
 
@@ -189,11 +189,11 @@ Bir Cihazı devre dışı bırakabilir, devre dışı kaldıktan sonra da kaldı
 
 ## Arka planda
 
-Önceden yapılandırılmış bir çözümü dağıttığınızda, dağıtım işlemi seçtiğiniz Azure aboneliğinde birden çok kaynak oluşturur. Bu kaynakları Azure [portalında][lnk-portal] görüntüleyebilirsiniz. Dağıtım işlemi, önceden yapılandırılmış çözümünüz için seçtiğiniz ada dayalı bir ada sahip bir **kaynak grubu** oluşturur 
+Önceden yapılandırılmış bir çözümü dağıttığınızda, dağıtım işlemi seçtiğiniz Azure aboneliğinde birden çok kaynak oluşturur. Bu kaynakları Azure [portalında][lnk-portal] görüntüleyebilirsiniz. Dağıtım işlemi, önceden yapılandırılmış çözümünüz için seçtiğiniz adı temel alan bir ada sahip bir **kaynak grubu** oluşturur:
 
 ![Azure portalında önceden yapılandırılmış çözüm][img-portal]
 
-Her bir kaynağın ayarlarını, kaynak grubundaki kaynaklar listesinde seçerek görüntüleyebilirsiniz. Yukarıdaki ekran görüntüsü, önceden yapılandırılmış çözümde kullanılan IoT hub'ının ayarlarını gösterir.
+Her bir kaynağın ayarlarını, kaynak grubundaki kaynaklar listesinde seçerek görüntüleyebilirsiniz.
 
 Önceden yapılandırılmış çözüm için kaynak kodunu da görüntüleyebilirsiniz. Önceden yapılandırılmış uzaktan izleme çözümünün kaynak kodu [azure-iot-remote-monitoring][lnk-rmgithub] GitHub deposundadır:
 
@@ -201,7 +201,7 @@ Her bir kaynağın ayarlarını, kaynak grubundaki kaynaklar listesinde seçerek
 - **Simulator** klasörü, sanal cihaz için kaynak kodunu içerir.
 - **EventProcessor** klasörü, gelen telemetriyi işleyen arka uç işleme için kaynak kodunu içerir.
 
-İşiniz bittiğinde, önceden yapılandırılmış çözümü Azure aboneliğinizden [azureiotsuite.com][lnk-azureiotsuite] sitesinde silebilirsiniz; böylece önceden yapılandırılmış çözümü oluşturduğunuzda sağlanan tüm kaynakları kolaylıkla silebilmeniz sağlanır.
+İşiniz bittiğinde önceden yapılandırılmış çözümü [azureiotsuite.com][lnk-azureiotsuite] sitesindeki Azure aboneliğinizden silebilirsiniz. Bu site, önceden yapılandırılmış çözümü oluşturduğunuzda sağlanan tüm kaynakları kolayca silmenize imkan tanır.
 
 > [AZURE.NOTE] Önceden yapılandırılmış çözümle ilgili her şeyi sildiğinizden emin olmak için bu öğeleri [azureiotsuite.com][lnk-azureiotsuite] sitesinde silin. Yalnızca portaldaki kaynak grubunu silmekle kalmayın.
 
@@ -251,6 +251,6 @@ Her bir kaynağın ayarlarını, kaynak grubundaki kaynaklar listesinde seçerek
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

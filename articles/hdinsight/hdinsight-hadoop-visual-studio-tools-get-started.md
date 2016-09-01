@@ -1,7 +1,7 @@
 <properties
     pageTitle="HDInsight için Visual Studio Hadoop araçlarını kullanmayı öğrenme| Microsoft Azure"
     description="Bir Hadoop kümesine bağlanmak ve Hive sorgusu çalıştırmak amacıyla HDInsight için Visual Studio Hadoop araçlarını yüklemeyi ve kullanmayı öğrenin."
-    keywords="hadoop tools,hive query,visual studio"
+    keywords="hadoop araçları, hive sorgusu, visual studio"
     services="HDInsight"
     documentationCenter=""
     tags="azure-portal"
@@ -15,7 +15,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
     ms.workload="big-data"
-    ms.date="05/25/2016"
+    ms.date="08/10/2016"
     ms.author="jgao"/>
 
 # Bir Hive sorgusu çalıştırmak amacıyla HDInsight için Visual Studio Hadoop araçlarını kullanmaya başlama
@@ -86,6 +86,11 @@ Azure aboneliğinize bağlandıktan sonra aşağıdakileri yapabilirsiniz:
 Sunucu Gezgini'nde, varsayılan depolama hesabını ve bağlı tüm depolama hesaplarını görebilirsiniz. Varsayılan depolama hesabını genişletirseniz, depolama hesabında kapsayıcıları görebilirsiniz. Varsayılan depolama hesabı ve varsayılan kapsayıcı işaretlenmiştir. Ayrıca içeriğini görüntülemek için kapsayıcılara sağ tıklayabilirsiniz.
 
 ![Visual Studio için HDInsight Araçları sunucu gezgini küme listesi][2]
+
+Bir kapsayıcıyı açtıktan sonra aşağıdaki düğmeleri kullanarak blob’ları karşıya yükleyebilir, silebilir ve indirebilirsiniz:
+
+![Visual Studio için HDInsight Araçları sunucu gezgini blob işlemleri](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.blob.operations.png)
+
 
 ## Hive sorgusu çalıştırma
 [Apache Hive][apache.hive], veri özetleme, sorgular ve analiz sağlamaya yönelik, Hadoop’ta kurulu bir veri ambarı altyapısıdır. Visual Studio için HDInsight Araçları Visual Studio'dan Hive sorguları çalıştırmayı destekler. Hive hakkında daha fazla bilgi için bkz. [HDInsight ile Hive kullanma][hdinsight.hive].
@@ -202,7 +207,7 @@ Sorguları HiveServer2 aracılığıyla yürütmenin birçok performans avantaj�
 |---|---|---|
 |Sorguları yürütme|WebHCat’te ek yükü ortadan kaldırır (“TempletonControllerJob” adlı bir MapReduce İşi çalıştıran).|Bir sorgu WebHCat aracılığıyla yürütüldüğü sürece, WebHCat ek gecikme sağlayan bir MapReduce işi başlatır.|
 |Geriye akış günlükleri|Yakın gerçek zamanlı.|Yalnızca iş tamamlandığında, iş yürütme günlüklerini kullanılabilir.|
-|İş geçmişini görüntüleme|Bir sorgu HiveServer2 aracılığıyla yürütülürse, buna ait iş geçmişi (iş günlüğü, iş çıkışı) korunmaz. Uygulama YARN kullanıcı arabiriminde, sınırlı bilgiyle görüntülenebilir.|Bir sorgu WebHCat aracılığıyla yürütülürse, buna ait iş geçmişi (iş günlüğü, iş çıkışı) korunur ve Visual Studio/HDInsight SDK/PowerShell kullanarak görüntülenebilir. |
+|İş geçmişini görüntüleme|Bir sorgu HiveServer2 aracılığıyla yürütülürse, buna ait iş geçmişi (iş günlüğü, iş çıktısı) korunmaz. Uygulama YARN kullanıcı arabiriminde, sınırlı bilgiyle görüntülenebilir.|Bir sorgu WebHCat aracılığıyla yürütülürse, buna ait iş geçmişi (iş günlüğü, iş çıktısı) korunur ve Visual Studio/HDInsight SDK/PowerShell kullanarak görüntülenebilir. |
 |Pencereyi kapatma|  HiveServer2 aracılığıyla yürütme işlemi "zaman uyumlu" bir yöntemdir, bu nedenle pencereleri açık tutmalısınız; pencereler kapatılırsa, sorgu yürütme işlemi iptal edilir.|WebHCat aracılığıyla yürütme işlemi "zaman uyumsuz" bir yöntemdir, bu nedenle sorguyu WebHCat aracılığıyla gönderebilir ve Visual Studio’yu kapatabilirsiniz. İstediğiniz zaman geri dönüp sonuçlara bakabilirsiniz.|
 
 
@@ -240,7 +245,7 @@ Visual Studio için HDInsight araçları, Pig betikleri oluşturmayı ve HDInsig
 Bu makalede, Hadoop araçları paketini kullanarak Visual Studio’dan HDInsight kümelerine bağlanmayı ve Hive sorgusu çalıştırmayı öğrendiniz. Daha fazla bilgi için bkz.
 
 - [HDInsight’ta Hadoop Hive kullanma ][hdinsight.hive]
-- [HDInsight’ta Hadoop kullanmaya başlama][hbase-get-started].
+- [HDInsight’ta Hadoop kullanmaya başlama][hdinsight.get.started].
 - [HDInsight’ta Hadoop işleri gönderme][hdinsight.submit.jobs]
 - [Twitter verilerini HDInsight’ta Hadoop ile çözümleme][hdinsight.analyze.twitter.data]
 
@@ -270,7 +275,7 @@ Bu makalede, Hadoop araçları paketini kullanarak Visual Studio’dan HDInsight
 <!--Link references-->
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight.introduction]: hdinsight-hadoop-introduction.md
-[hbase-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
+[hdinsight.get.started]: hdinsight-hadoop-linux-tutorial-get-started.md
 [hdinsight.hive]: hdinsight-use-hive.md
 [hdinsight.submit.jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
 [hdinsight.analyze.twitter.data]: hdinsight-analyze-twitter-data.md
@@ -281,6 +286,6 @@ Bu makalede, Hadoop araçları paketini kullanarak Visual Studio’dan HDInsight
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

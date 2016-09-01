@@ -1,6 +1,6 @@
 <properties
    pageTitle="Azure Resource Manager ve Azure Portal’ını kullanarak Siteden Siteye VPN bağlantısına sahip bir sanal ağ oluşturma | Microsoft Azure"
-   description="Bu makalede, Resource Manager modelini kullanarak bir VNet oluşturmak ve bir S2S VPN ağ geçidi bağlantısı kullanarak söz konusu ağı yerel şirket içi ağınıza bağlama adım adım açıklanmaktadır."
+   description="Resource Manager modelini kullanarak bir sanal ağ oluşturma ve S2S VPN ağ geçidi bağlantısı kullanarak söz konusu ağı yerel şirket içi ağınıza bağlama."
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/13/2016"
+   ms.date="08/22/2016"
    ms.author="cherylmc"/>
 
 # Azure Portal ve Azure Resource Manager kullanarak Siteden Siteye VPN bağlantısına sahip bir VNet oluşturma
@@ -25,29 +25,25 @@
 - [PowerShell - Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
 
 
-Bu makalede, Azure Resource Manager dağıtım modeli ve Azure portalını kullanarak sanal bir ağ ve şirket içi ağınıza bir Siteden Siteye VPN bağlantısı oluşturmak adım adım açıklanmaktadır. Aşağıdaki adımlarda, bir VNet oluşturacak, bir ağ geçidi alt ağı, bir ağ geçidi, bir yerel site ve bir bağlantı ekleyeceksiniz. Ek olarak, VPN cihazınızı yapılandırmanız gerekecektir. 
+Bu makalede, Azure Resource Manager dağıtım modelini ve Azure portalını kullanarak sanal bir ağ ve şirket içi ağınıza yönelik Siteden Siteye VPN bağlantısı oluşturma işlemi adım adım açıklanmaktadır.
+
+![Diyagram](./media/vpn-gateway-howto-site-to-site-resource-manager-portal/s2srmportal.png)
 
 
 
-**Azure dağıtım modelleri hakkında**
+### Siteden Siteye bağlantılar için dağıtım modelleri ve araçları
 
 [AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
 
-## Bağlantı diyagramı
-
-![Siteden Siteye](./media/vpn-gateway-howto-site-to-site-resource-manager-portal/site2site.png)
-
-**Siteden Siteye bağlantılar için dağıtım modelleri ve araçları**
-
 [AZURE.INCLUDE [vpn-gateway-table-site-to-site-table](../../includes/vpn-gateway-table-site-to-site-include.md)] 
 
-Sanal ağları birbirine bağlamak istiyor ancak şirket içi bir konuma bağlantı oluşturmuyorsanız, bkz. [VNet’ten VNet’e bağlantıyı yapılandırma](vpn-gateway-vnet-vnet-rm-ps.md). Farklı türde bir bağlantı yapılandırması istiyorsanız [VPN Gateway bağlantı topolojileri](vpn-gateway-topology.md) makalesine bakın.
+Sanal ağları birbirine bağlamak istiyor ancak şirket içi bir konuma bağlantı oluşturmuyorsanız, bkz. [VNet’ten VNet’e bağlantıyı yapılandırma](vpn-gateway-vnet-vnet-rm-ps.md).
 
 ## Başlamadan önce
 
 Yapılandırmanıza başlamadan önce aşağıdaki öğelerin bulunduğunu doğrulayın:
 
-- Uyumlu bir VPN cihazı ve bu cihazı yapılandırabilecek biri. Bkz. [VPN Cihazları Hakkında](vpn-gateway-about-vpn-devices.md). VPN cihazınızı yapılandırmak konusunda veya şirket içi ağ yapılandırmanızdaki IP adresi aralıklarıyla ilgili bilginiz yoksa, bu detayları sağlayabilecek biriyle koordine olmanız gerekir.
+- Uyumlu bir VPN cihazı ve bu cihazı yapılandırabilecek biri. Bkz. [VPN Cihazları Hakkında](vpn-gateway-about-vpn-devices.md). VPN cihazınızı yapılandırma konusuyla veya şirket içi ağ yapılandırmanızdaki IP adresi aralıklarıyla ilgili fazla bilginiz yoksa size bu ayrıntıları sağlayabilecek biriyle çalışmanız gerekir.
 
 - VPN cihazınız için dışarıya yönelik genel bir IP adresi. Bu IP adresi bir NAT’nin arkasında olamaz.
     
@@ -79,7 +75,7 @@ Bu adımları bir alıştırma olarak kullanırken, şu örnek yapılandırma de
 
 ## 1. Sanal ağ oluşturma 
 
-Zaten bir sanal ağ yarattıysanız ayarların VPN ağ geçidi tasarımınız ile uyumlu olduğunu doğrulayın, tüm diğer ağlar ile çakışabilen alt ağlara özellikle dikkat edin. Çakışan alt ağlarınız varsa bağlantınız düzgün çalışmaz. VNet’inizi doğru ayarlarla doğruladıysanız [DNS sunucusu belirleme](#dns) adımı ile başlayabilirsiniz.
+Zaten bir VNet'iniz varsa ayarların VPN ağ geçidi tasarımınızla uyumlu olduğunu doğrulayın. Diğer ağlarla çakışabilecek herhangi bir alt ağ olup olmadığına özellikle dikkat edin. Çakışan alt ağlarınız varsa bağlantınız düzgün şekilde gerçekleşmeyebilir. VNet'iniz doğru ayarlarla yapılandırıldıysa [DNS sunucusu belirtme](#dns) bölümündeki adımları uygulamaya başlayabilirsiniz.
 
 ### Sanal ağ oluşturmak için
 
@@ -101,9 +97,9 @@ Bu yapılandırmayı bir alıştırma olarak oluşturuyorsanız DNS sunucunuzu b
 
 ## 4. Ağ geçidi alt ağı oluşturma
 
-Sanal ağınızı bir alt ağa bağlamadan önce ilk olarak bağlamak istediğiniz ağ geçidi alt ağını oluşturmanız gerekir. Oluşturduğunuz ağ geçidi alt ağı *GatewaySubnet* olarak adlandırılmalıdır yoksa düzgün şekilde çalışmaz. 
+Sanal ağınızı bir ağ geçidine bağlamadan önce, bağlamak istediğiniz sanal ağ için ağ geçidi alt ağını oluşturmanız gerekir. Oluşturduğunuz ağ geçidi alt ağı *GatewaySubnet* olarak adlandırılmalıdır; aksi halde düzgün şekilde çalışmaz. 
 
-Bazı yapılandırmalardaki ağ geçidi alt ağı ön adı, havuzda ihtiyaç duyulan IP adresleri sayısını sağlamak için /28’lik veya daha geniş bir alt ağı gerektirir.  Bunun anlamı ağ geçidi alt ağı ön adı /28, /27, /26 vb. şeklinde olması gerekir. Gelecekteki olası yapılandırma eklemelerini sağlamak için daha geniş bir alt ağ oluşturmak isteyebilirsiniz.
+Bazı yapılandırmalardaki ağ geçidi alt ağı ön adı, havuzda ihtiyaç duyulan IP adresleri sayısını sağlamak için /28’lik veya daha geniş bir alt ağı gerektirir.  Bunun anlamı ağ geçidi alt ağı ön adı /28, /27, /26 vb. şeklinde olması gerekir. Gelecekteki olası ek yapılandırmaları gerçekleştirebilmek için bu noktada daha geniş bir alt ağ oluşturmak isteyebilirsiniz.
 
 Bu yapılandırmayı bir alıştırma olarak oluşturuyorsanız ağ geçidi alt ağınızı oluştururken bu [değerlere](#values) başvurun.
 
@@ -123,7 +119,7 @@ Bu yapılandırmayı bir alıştırma olarak oluşturuyorsanız ağ geçidinizi 
 
 ## 6. Yerel ağ geçidi oluşturma
 
-*Yerel ağ geçidi* şirket içi konumunuz anlamına gelir. Yerel ağ geçidinize Azure’un başvurduğu bir ad verin. 
+*Yerel ağ geçidi* şirket içi konumunuz anlamına gelir. Azure'ın başvurmak üzere kullanabilmesi için yerel ağ geçidinize bir ad verin. 
 
 Bu yapılandırmayı bir alıştırma olarak oluşturuyorsanız yerel sitenizi eklerken bu [değerlere](#values) başvurun.
 
@@ -137,7 +133,7 @@ Bu yapılandırmayı bir alıştırma olarak oluşturuyorsanız yerel sitenizi e
 
 ## 8. Siteden Siteye bağlantı kurma
 
-Şimdi, sanal ağ geçidiniz ile VPN cihazınız arasındaki Siteden Siteye VPN bağlantısını oluşturacaksınız. Değerlerin kendinizinkilerle değiştirildiğinden emin olun. Paylaşılan anahtar, VPN cihazınızın yapılandırması için kullandığınız değerin aynısı olmalıdır. 
+Sanal ağ geçidiniz ile VPN cihazınız arasında Siteden Siteye VPN bağlantısı oluşturun. Değerlerin kendinizinkilerle değiştirildiğinden emin olun. Paylaşılan anahtar, VPN cihazınızın yapılandırması için kullandığınız değerin aynısı olmalıdır. 
 
 Bu bölüme başlamadan önce sanal ağa ait ağ geçidi ve yerel ağa ait ağ geçidinizin oluşturulmasının tamamlandığından emin olun. Bu yapılandırmayı bir alıştırma olarak oluşturuyorsanız bağlantınızı oluştururken bu [değerlere](#values) başvurun.
 
@@ -160,6 +156,6 @@ VPN bağlantınızı portaldan veya PowerShell kullanarak doğrulayabilirsiniz.
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

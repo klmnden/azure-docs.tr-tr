@@ -20,7 +20,7 @@
 
 # Azure Kapsayıcı Hizmeti kümesini dağıtma
 
-Azure Kapsayıcı Hizmeti popüler açık kaynak kapsayıcı kümeleme ve düzenleme çözümlerinin hızlı dağıtımını sağlar. Azure Kapsayıcı Hizmeti’ni kullanarak, Azure Resource Manager şablonları ya da Azure portal ile DC/OS ve Docker Swarm kümeleri dağıtabilirsiniz. Bu kümeleri, Azure Sanal Makine Ölçekleme Kümeleri kullanarak dağıtın--ve kümeler Azure ağ ve depolama sunumlarının avantajından faydalansın. Azure Kapsayıcı Hizmeti’ne erişmek için bir Azure aboneliği gerekir. Bir aboneliğiniz yoksa, [ücretsiz deneme için kaydolabilirsiniz](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935).
+Azure Kapsayıcı Hizmeti popüler açık kaynak kapsayıcı kümeleme ve düzenleme çözümlerinin hızlı dağıtımını sağlar. Azure Kapsayıcı Hizmeti’ni kullanarak, Azure Resource Manager şablonları ya da Azure portal ile DC/OS ve Docker Swarm kümeleri dağıtabilirsiniz. Bu kümeleri, Azure Sanal Makine Ölçekleme Kümeleri kullanarak dağıtabilirsiniz, böylece kümeler Azure ağ ve depolama sunumlarından yararlanabilir. Azure Kapsayıcı Hizmeti’ne erişmek için bir Azure aboneliği gerekir. Bir aboneliğiniz yoksa, [ücretsiz deneme için kaydolabilirsiniz](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935).
 
 Bu belge size [Azure portal](#creating-a-service-using-the-azure-portal), [Azure komut satırı arabirimi (CLI)](#creating-a-service-using-the-azure-cli) ve [Azure PowerShell modülü](#creating-a-service-using-powershell) kullanarak Azure Kapsayıcı Hizmeti kümesi dağıtmayı adım adım gösterir.  
 
@@ -82,7 +82,7 @@ Dağıtım tamamlandığında, Azure Kapsayıcı Hizmeti kümesi kullanım için
 
 ## Azure CLI kullanarak bir hizmet oluşturma
 
-Komut satırını kullanarak Azure Kapsayıcı Hizmeti’nin bir örneğini oluşturmak için bir Azure aboneliği gerekir. Bir aboneliğiniz yoksa, [ücretsiz deneme için kaydolabilirsiniz](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935). Ayrıca Azure CLI yükleyip yapılandırmış olmanız gerekir.
+Komut satırını kullanarak Azure Kapsayıcı Hizmeti’nin bir örneğini oluşturmak için bir Azure aboneliği gerekir. Bir aboneliğiniz yoksa, [ücretsiz deneme için kaydolabilirsiniz](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935). Ayrıca Azure CLI [yüklemiş](../xplat-cli-install.md) ve [yapılandırmış](../xplat-cli-connect.md) olmanız gerekir.
 
 DC/OS veya Docker Swarm kümesi dağıtmak için GitHub’da aşağıdaki şablonlardan birini seçin. Bu şablonların her ikisinin de, varsayılan orchestrator seçimi dışında, aynı olduğunu unutmayın.
 
@@ -197,6 +197,6 @@ Artık çalışan bir kümeniz olduğuna göre, bağlantı ve yönetim ayrıntı
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

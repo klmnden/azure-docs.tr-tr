@@ -13,13 +13,13 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/06/2016"
+   ms.date="08/16/2016"
    ms.author="cherylmc"/>
 
 # CLI kullanarak DNS kayıt kümelerini ve kayıtları oluşturma
 
 > [AZURE.SELECTOR]
-- [Azure Portal](dns-getstarted-create-recordset-portal.md)
+- [Azure Portalı](dns-getstarted-create-recordset-portal.md)
 - [PowerShell](dns-getstarted-create-recordset.md)
 - [Azure CLI](dns-getstarted-create-recordset-cli.md)
 
@@ -68,6 +68,6 @@ Azure DNS hakkında daha fazla bilgi için bkz. [Azure DNS'ye Genel Bakış](dns
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-android"
     ms.devlang="java"
     ms.topic="hero-article"
-    ms.date="07/21/2016"
+    ms.date="08/17/2016"
     ms.author="ricksal"/>
 
 #Android uygulaması oluşturma
@@ -32,7 +32,6 @@ Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
 * Android Studio tümleşik geliştirme ortamını ve en son Android platformunu içeren [Android Geliştirici Araçları](https://developer.android.com/sdk/index.html).
 * İndirdiğiniz hızlı başlangıç projesinin parçası olarak otomatik başvurulan Azure Mobile Android SDK.
-* [Visual Studio Community 2013] ya da daha yeni sürümünü içeren bir bilgisayar; &mdash; Node.js arka ucu için gerekli değildir.
 * [Etkin bir Azure hesabı](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Yeni bir Azure mobil uygulama arka ucu oluşturma
@@ -51,11 +50,11 @@ Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 <!-- Images. -->
 
 <!-- URLs -->
-[Azure portal]: https://portal.azure.com/
+[Azure portalına]: https://portal.azure.com/
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="nodejs"
     ms.topic="hero-article"
-    ms.date="06/24/2016" 
+    ms.date="08/11/2016" 
     ms.author="robmcm"/>
 
 # Bir Node.js uygulaması derleme ve Azure Cloud Service’e dağıtma
@@ -200,6 +200,6 @@ Daha fazla bilgi için bkz. [Node.js Geliştirici Merkezi].
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

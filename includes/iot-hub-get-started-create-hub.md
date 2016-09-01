@@ -21,7 +21,7 @@ Bağlanılacak benzetimli cihazınız için IoT Hub oluşturun. Aşağıdaki ad�
 
     ![Yeni IOT hub'ı durumu][3]
 
-5. IOT hub'ı sorunsuz oluşturulduğunda, yeni IOT hub'ı dikey penceresini açmak için portalınızdaki IOT hub'ına yönelik yeni kutucuğa tıklayın. **Konak adı**’nı not edin ve **Anahtarlar** simgesine tıklayın.
+5. IOT hub'ı sorunsuz oluşturulduğunda, yeni IOT hub'ı dikey penceresini açmak için portalınızdaki IOT hub'ına yönelik yeni kutucuğa tıklayın. **Ana bilgisayar adını** not edin ve **Paylaşılan erişim ilkeleri**'ne tıklayın.
 
     ![Yeni IOT hub'ı dikey penceresi][4]
 
@@ -45,6 +45,6 @@ Bağlanılacak benzetimli cihazınız için IoT Hub oluşturun. Aşağıdaki ad�
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

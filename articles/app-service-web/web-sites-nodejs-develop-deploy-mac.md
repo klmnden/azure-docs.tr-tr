@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="nodejs"
     ms.topic="hero-article"
-    ms.date="06/24/2016"
+    ms.date="08/11/2016"
     ms.author="robmcm"/>
 
 # Azure App Service’te bir Node.js web uygulaması oluşturma
@@ -227,6 +227,6 @@ Azure’da Node.js uygulamaları geliştirme hakkında daha fazla bilgi için bk
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

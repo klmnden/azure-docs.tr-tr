@@ -39,7 +39,7 @@ Aşağıdaki ekran görüntüsünde tamamlanan uygulama gösterilir.
 
 ## Senaryoya genel bakış: roller arası iletişim
 
-İşlemeye yönelik bir sipariş göndermek için web rolünde çalışan ön uç kullanıcı arabirimi bileşeninin çalışan rolünde çalışmakta olan orta katman mantığı ile etkileşim içinde olması gerekir. Bu örnekte, katmanlar arasındaki iletişim için Service Bus aracılı mesajlaşma kullanılır.
+İşlenmek üzere bir sipariş göndermeniz için web rolünde çalışan ön uç kullanıcı arabirimi bileşeninin çalışan rolünde çalışmakta olan orta katman mantığı ile etkileşim içinde olması gerekir. Bu örnekte, katmanlar arasındaki iletişim için Service Bus aracılı mesajlaşma kullanılır.
 
 Web katmanı ve orta katman arasında aracılı mesajlaşmayı kullanma iki bileşeni birbirinden ayırır. Doğrudan mesajlaşmanın aksine (yani TCP veya HTTP), web katmanı orta katmanla doğrudan bağlantı kurmaz. Bunun yerine çalışma birimlerini iletiler şeklinde, orta katman bu birimleri kullanmaya ve işlemeye hazır olana kadar güvende tutan Service Bus hizmetine gönderir.
 
@@ -73,45 +73,11 @@ Azure uygulamalarını geliştirmeye başlamadan önce, araçları edinip geliş
 
 6.  Kurulum tamamlandığında uygulamayı geliştirmeye başlamak için gereken her şeye sahip olacaksınız. SDK, Visual Studio'da Azure uygulamalarını kolayca geliştirmenize olanak sağlayan araçları içerir. Visual Studio yüklü değilse SDK ücretsiz Visual Studio Express de yükler.
 
-## Service Bus ad alanı oluşturma
+## Ad alanı oluşturma
 
-İlk adım, bir hizmet ad alanı oluşturmak ve Paylaşılan Erişim İmzası (SAS) anahtarı edinmektir. Ad alanı, Service Bus tarafından kullanıma sunulan her uygulama için bir uygulama sınırı sağlar. Hizmet ad alanı oluşturulduğunda sistem tarafından bir SAS anahtarı oluşturulur. Ad alanı ve SAS anahtarı birleşimi ile Service Bus hizmetinin bir uygulamaya erişim kimliğini doğrulayan kimlik bilgisi sağlanır.
+İlk adım, bir hizmet ad alanı oluşturmak ve Paylaşılan Erişim İmzası (SAS) anahtarı edinmektir. Ad alanı, Service Bus tarafından kullanıma sunulan her uygulama için bir uygulama sınırı sağlar. Bir ad alanı oluşturulduğunda sistem tarafından bir SAS anahtarı oluşturulur. Ad alanı ve SAS anahtarı birleşimi ile Service Bus hizmetinin bir uygulamaya erişim kimliğini doğrulayan kimlik bilgisi sağlanır.
 
-### Klasik Azure portalını kullanarak ad alanı ayarlama
-
-1.  [Klasik Azure portalında][] oturum açın.
-
-2.  Portalın sol gezinti bölmesinde **Service Bus** hizmetine tıklayın.
-
-3.  Portalın alt bölmesinde **Oluştur**'a tıklayın.
-
-    ![][6]
-
-4.  **Yeni bir ad alanı ekle** sayfasında, bir ad alanı adı girin. Adın kullanılabilirliği sistem tarafından hemen kontrol edilir.
-
-    ![][7]
-
-5.  Ad alanındaki adın kullanılabilirliğinden emin olduktan sonra, ad alanınızın barındırılması gereken ülkeyi veya bölgeyi seçin (işlem kaynaklarınızın dağıtıldığı ülkeyle aynı ülkeyi/bölgeyi kullandığınızdan emin olun). Ayrıca, ad alanının **Tür** alanı için **Mesajlaşma** ve **Mesajlaşma Kapsamı** alanı için **Standart** seçeneklerini belirlediğinizden emin olun.
-
-    > [AZURE.IMPORTANT] Uygulamanızı dağıtmak için seçmeyi planladığınız **aynı bölgeyi** seçin. Bunu uygulayarak en iyi performansı alırsınız.
-
-6.  Tamam onay işaretine tıklayın. Artık sistem hizmet ad alanınızı oluşturur ve kullanıma açar. Sistem, hesabınıza yönelik kaynakları sağlarken birkaç dakika beklemeniz gerekebilir.
-
-7.  Ana pencerede, hizmet ad alanı adınıza tıklayın.
-
-8. **Bağlantı Bilgileri**'ne tıklayın.
-
-9.  **Erişim bağlantısı bilgileri** bölmesinde, SAS anahtarını ve anahtar adını içeren bağlantı dizesini bulun.
-
-    ![][35]
-
-10.  Bu kimlik bilgilerini not edin veya panoya kopyalayın.
-
-11. Aynı portal sayfasında, sayfanın üst kısmındaki **Yapılandır** sekmesine tıklayın.
-
-12. **RootManageSharedAccessKey** ilkesinin birincil anahtarını panoya kopyalayın veya Not Defteri'ne yapıştırın. Bu değeri daha sonra bu öğreticide kullanacaksınız.
-
-    ![][36]
+[AZURE.INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 ## Web rolü oluşturma
 
@@ -140,7 +106,7 @@ Daha sonra, Service Bus kuyruğuna öğe gönderen ve kuyruk hakkındaki durum b
 
     ![][12]
 
-6. Yine **Yeni ASP.NET projesi** iletişim kutusunda **Kimlik Doğrulamayı Değiştir** düğmesine tıklayın. **Kimlik Doğrulamayı Değiştir** iletişim kutusunda **Kimlik Doğrulama Yok** seçeneğine ve ardından **Tamam**'a tıklayın. Bu öğreticide kullanıcının oturum açmasını gerektirmeyen bir uygulamayı dağıtıyorsunuz.
+6. Yine **Yeni ASP.NET projesi** iletişim kutusunda **Kimlik Doğrulamayı Değiştir** düğmesine tıklayın. **Kimlik Doğrulamayı Değiştir** iletişim kutusunda **Kimlik Doğrulama Yok**’a ve ardından **Tamam**’a tıklayın. Bu öğreticide kullanıcının oturum açmasını gerektirmeyen bir uygulamayı dağıtıyorsunuz.
 
     ![][16]
 
@@ -272,7 +238,7 @@ Bu bölümde, uygulamanızın görüntülediği çeşitli sayfalar oluşturursun
 
 2.  Sınıfı **QueueConnector.cs** olarak adlandırın. Sınıf oluşturmak için **Ekle**'ye tıklayın.
 
-3.  Şimdi, bağlantı bilgilerini yalıtan ve Service Bus kuyruğuna bağlantıyı başlatan kodu ekleyin. QueueConnector.cs öğesinin tüm içeriğini aşağıdaki kodla değiştirin ve `your Service Bus namespace` öğesi (ad alanındaki adınız) ile [Klasik Azure portalında][] "Service Bus ad alanı oluşturma" bölümünün 12. adımında el elde ettiğiniz **birincil anahtarınız olan** `yourKey` öğesi için değerleri girin.
+3.  Şimdi, bağlantı bilgilerini yalıtan ve Service Bus kuyruğuna bağlantıyı başlatan kodu ekleyin. QueueConnector.cs öğesinin tüm içeriğini aşağıdaki kodla değiştirin ve `your Service Bus namespace` öğesi (ad alanınızın adı) ile daha önce Azure portalda elde ettiğiniz **birincil anahtarınız** olan `yourKey` öğesi için değerleri girin.
 
     ```
     using System;
@@ -473,9 +439,6 @@ Service Bus hakkında daha fazla bilgi edinmek için şu kaynaklara bakın:
 
   [EventHubClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx
 
-  [Klasik Azure portalında]: http://manage.windowsazure.com
-  [6]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/sb-queues-03.png
-  [7]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/sb-queues-04.png
   [9]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-10.png
   [10]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-11.png
   [11]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-02.png
@@ -493,8 +456,6 @@ Service Bus hakkında daha fazla bilgi edinmek için şu kaynaklara bakın:
   [25]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/SBWorkerRoleProperties.png
   [26]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/SBNewWorkerRole.png
   [28]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-40.png
-  [35]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/multi-web-45.png
-  [36]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/service-bus-policies.png
 
   [sbmsdn]: http://msdn.microsoft.com/library/azure/ee732537.aspx  
   [sbwacom]: /documentation/services/service-bus/  
@@ -503,6 +464,6 @@ Service Bus hakkında daha fazla bilgi edinmek için şu kaynaklara bakın:
   
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

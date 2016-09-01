@@ -13,14 +13,14 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/09/2016"
+   ms.date="08/16/2016"
    ms.author="cherylmc"/>
 
 # CLI kullanarak bir Azure DNS bölgesi oluşturma
 
 
 > [AZURE.SELECTOR]
-- [Azure Portal](dns-getstarted-create-dnszone-portal.md)
+- [Azure Portalı](dns-getstarted-create-dnszone-portal.md)
 - [PowerShell](dns-getstarted-create-dnszone.md)
 - [Azure CLI](dns-getstarted-create-dnszone-cli.md)
 
@@ -189,6 +189,6 @@ Bir DNS bölgesi oluşturduktan sonra, İnternet etki alanınız için ad çöz�
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

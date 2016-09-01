@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-windows-phone"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="05/03/2016"
+    ms.date="08/19/2016"
     ms.author="piyushjo" />
 
 # Windows Phone Silverlight uygulamaları için Azure Mobile Engagement kullanmaya başlama
@@ -170,6 +170,6 @@ Aşağıdaki bölümler bunları almak için uygulamanızı ayarlar.
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Aug16_HO4-->
 
 

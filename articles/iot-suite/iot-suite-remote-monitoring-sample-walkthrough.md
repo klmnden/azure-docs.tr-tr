@@ -14,16 +14,20 @@
  ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="07/18/2016"
+ ms.date="08/17/2016"
  ms.author="dobett"/>
 
 # Önceden yapılandırılmış uzaktan izleme çözümünde gezinme
 
 ## Giriş
 
-IoT Paketi önceden yapılandırılmış [uzaktan izleme çözümü][lnk-preconfigured-solutions], uzak konumlarda çalışan birden fazla makine için uçtan uca izleme çözümünün bir uygulamasıdır. Bu çözüm, iş senaryosunun genel uygulamasını sağlamak üzere temel Azure hizmetlerini bir araya getirir ve kendi uygulamanız için başlangıç noktası olarak kullanılabilir. Çözümü kendi özel iş gereksinimleriniz için [özelleştirebilirsiniz][lnk-customize].
+IoT Paketi önceden yapılandırılmış [uzaktan izleme çözümü][lnk-preconfigured-solutions], uzak konumlarda çalışan birden fazla makine için uçtan uca izleme çözümünün bir uygulamasıdır. Bu çözüm, iş senaryosunun genel bir uygulamasını sağlamak üzere temel Azure hizmetlerini bir araya getirir ve kendi uygulamanız için başlangıç noktası olarak kullanılabilir. Çözümü kendi özel iş gereksinimleriniz için [özelleştirebilirsiniz][lnk-customize].
 
-Bu makalede uzaktan izleme çözümünün nasıl çalıştığını anlamanız için çözümün temel öğelerinden bazıları açıklanmaktadır. Bu bilgi, çözümle ilgili sorunları gidermek, çözümü kendi özel gereksinimlerinize göre özelleştirmeyi planlamak ve Azure hizmetleri kullanan kendi IoT çözümünüzü planlamak için yararlıdır.
+Bu makalede uzaktan izleme çözümünün nasıl çalıştığını anlamanız için çözümün temel öğelerinden bazıları açıklanmaktadır. Bu bilgiler şunları yapmanıza yardımcı olur:
+
+- Çözümdeki sorunları giderme.
+- Çözümü kendinize özel gereksinimleri karşılayacak şekilde nasıl özelleştireceğinizi planlama. 
+- Azure hizmetlerini kullanan kendi IoT çözümünüzü tasarlama.
 
 ## Mantıksal mimari
 
@@ -40,9 +44,9 @@ Her sanal cihaz IoT Hub'ına aşağıdaki ileti türlerini gönderebilir:
 
 | İleti  | Açıklama |
 |----------|-------------|
-| Başlangıç  | Cihaz başlatıldığında, cihaz kimliği, cihaz meta veriler, cihazın desteklediği komutların listesi, cihazın geçerli yapılandırması gibi cihazın kendi hakkında bilgileri kapsayan bir **device-info** iletisi gönderir. |
-| Varlık | Bir cihaz, cihazın sensör varlığını algılayıp algılamadığını bildirmek üzere düzenli aralıklarla bir **varlık** iletisi gönderir. |
-| Telemetri | Bir cihaz, sanal cihaza bağlı sanal sensörlerden toplanan sıcaklık ve nem sanal değerlerini bildiren **telemetri** iletisini düzenli aralıklarla gönderir. |
+| Başlangıç  | Cihaz başlatıldığında, arka uca kendisiyle ilgili bilgiler içeren bir **device-info** iletisi gönderir. Bu veriler cihaz kimliğini, cihaz meta verilerini, cihazın desteklediği komutların bir listesini ve cihazın geçerli yapılandırmasını içerir. |
+| Varlık | Bir cihaz, cihazın bir sensörün varlığını algılayıp algılamadığını bildirmek üzere düzenli aralıklarla bir **varlık** iletisi gönderir. |
+| Telemetri | Bir cihaz, düzenli aralıklarla cihazın sanal sensörlerinden toplanan sıcaklık ve nem sanal değerlerini bildiren bir **telemetri** iletisi gönderir. |
 
 
 Sanal cihazlar bir **cihaz bilgisi** iletisinde aşağıdaki cihaz özelliklerini gönderir:
@@ -63,7 +67,7 @@ Sanal cihazlar bir **cihaz bilgisi** iletisinde aşağıdaki cihaz özelliklerin
 | Enlem               | Cihazın enlem konumu |
 | Boylam              | Cihazın boylam konumu |
 
-Benzetici, örnek değerlerle sanal cihazlarda bu özelliklerin çekirdeğini oluşturur.  Benzeticinin sanal cihazı her başlatışında, cihaz IoT Hub'ına önceden tanımlanmış meta verileri gönderir. Cihaz portalında yapılmış meta veri güncelleştirmelerin üzerine yazılacağını unutmayın.
+Benzetici, örnek değerlerle sanal cihazlarda bu özelliklerin çekirdeğini oluşturur.  Benzeticinin sanal cihazı her başlatışında, cihaz IoT Hub'ına önceden tanımlanmış meta verileri gönderir. Bunun cihaz portalında yapılmış tüm meta veri güncelleştirmelerinin üzerine yazılacağını unutmayın.
 
 
 Sanal cihazlar çözüm panosundan IoT hub'ı aracılığıyla gönderilen aşağıdaki komutları işleyebilir:
@@ -81,13 +85,13 @@ Sanal cihazlar çözüm panosundan IoT hub'ı aracılığıyla gönderilen aşa�
 
 ## IoT Hub’ı
 
-[IoT hub][lnk-iothub], cihazlardan buluta gönderilen verileri alır ve Azure Akış Analizi (ASA) işlerinde kullanılabilir hale getirir. IoT hub ayrıca cihazlarınıza cihaz portalı adına komutlar gönderir. ASA işlerinin kullandığı her akış, cihazlarınızdaki ileti akışını okumak için ayrı bir IoT Hub tüketici grubu kullanır.
+[IoT hub][lnk-iothub], cihazlardan buluta gönderilen verileri alır ve Azure Akış Analizi (ASA) işlerinde kullanılabilir hale getirir. IoT hub ayrıca cihazlarınıza cihaz portalı adına komutlar gönderir. ASA işinin kullandığı her akış, cihazlarınızdaki ileti akışını okumak için ayrı bir IoT Hub tüketici grubu kullanır.
 
 ## Azure Stream Analytics
 
-Uzaktan izleme çözümünde [Azure Akış Analizi ][lnk-asa] (ASA), IoT hub’ın cihazlardan aldığı iletileri işleme veya depolama amacıyla diğer arka uç bileşenlerine gönderir. Farklı ASA işleri, iletilerin içeriğine göre belirli işlevler gerçekleştirir.
+Uzaktan izleme çözümünde [Azure Akış Analizi ][lnk-asa] (ASA), IoT hub tarafından alınan cihaz iletilerini işleme veya depolama amacıyla diğer arka uç bileşenlerine gönderir. Farklı ASA işleri, iletilerin içeriğine göre belirli işlevler gerçekleştirir.
 
-**İş 1: Cihaz bilgileri** gelen ileti akışından cihaz bilgileri iletilerine filtre uygular ve bunları olay hub'ı uç noktasına gönderir. Cihaz, cihaz bilgileri iletilerini başlangıçta ve **SendDeviceInfo** komutuna yanıt olarak gönderir. Bu iş **device-info** iletilerini tanımlamak için aşağıdaki sorgu tanımını kullanır:
+**İş 1: Cihaz bilgileri** gelen ileti akışından cihaz bilgileri iletilerine filtre uygular ve bunları olay hub'ı uç noktasına gönderir. Cihaz, başlangıçta ve **SendDeviceInfo** komutuna yanıt olarak cihaz bilgi iletileri gönderir. Bu iş **device-info** iletilerini tanımlamak için aşağıdaki sorgu tanımını kullanır:
 
 ```
 SELECT * FROM DeviceDataStream Partition By PartitionId WHERE  ObjectType = 'DeviceInfo'
@@ -101,28 +105,28 @@ Bu iş daha ayrıntılı işleme için Olay Hub’ına çıktısını gönderir.
 WITH AlarmsData AS 
 (
 SELECT
-     Stream.DeviceID,
+     Stream.IoTHub.ConnectionDeviceId AS DeviceId,
      'Temperature' as ReadingType,
      Stream.Temperature as Reading,
      Ref.Temperature as Threshold,
      Ref.TemperatureRuleOutput as RuleOutput,
      Stream.EventEnqueuedUtcTime AS [Time]
 FROM IoTTelemetryStream Stream
-JOIN DeviceRulesBlob Ref ON Stream.DeviceID = Ref.DeviceID
+JOIN DeviceRulesBlob Ref ON Stream.IoTHub.ConnectionDeviceId = Ref.DeviceID
 WHERE
      Ref.Temperature IS NOT null AND Stream.Temperature > Ref.Temperature
 
 UNION ALL
 
 SELECT
-     Stream.DeviceID,
+     Stream.IoTHub.ConnectionDeviceId AS DeviceId,
      'Humidity' as ReadingType,
      Stream.Humidity as Reading,
      Ref.Humidity as Threshold,
      Ref.HumidityRuleOutput as RuleOutput,
      Stream.EventEnqueuedUtcTime AS [Time]
 FROM IoTTelemetryStream Stream
-JOIN DeviceRulesBlob Ref ON Stream.DeviceID = Ref.DeviceID
+JOIN DeviceRulesBlob Ref ON Stream.IoTHub.ConnectionDeviceId = Ref.DeviceID
 WHERE
      Ref.Humidity IS NOT null AND Stream.Humidity > Ref.Humidity
 )
@@ -138,7 +142,7 @@ FROM AlarmsData
 
 İş daha ayrıntılı işleme için çıktısını Olay Hub’ına gönderir ve her bir uyarının ayrıntılarını, çözüm panosunun uyarı bilgilerini okuyabileceği blob depolamaya kaydeder.
 
-**ş 3: Telemetri**, gelen cihaz telemetrisi akışını iki yolla çalıştırır. İlk olarak tüm telemetri iletilerini cihazlardan uzun süreli depolama için kalıcı blob depolamaya gönderir. İkinci olarak beş dakikalık kayan pencere üzerinde ortalama, en düşük ve en yüksek nem değerlerini ölçer ve bu verileri blob depolamaya gönderir. Çözüm panosu blob depolama alanından telemetri verilerini okuyarak grafikleri doldurur. Bu iş şu sorgu tanımını kullanır:
+**ş 3: Telemetri**, gelen cihaz telemetrisi akışını iki yolla çalıştırır. İlk olarak tüm telemetri iletilerini cihazlardan uzun süreli depolama için kalıcı blob depolamaya gönderir. İkincisi beş dakikalık bir kayan pencerede ortalama, en düşük ve en yüksek nem değerlerini ölçer ve bu verileri blob depolamaya gönderir. Çözüm panosu blob depolama alanından telemetri verilerini okuyarak grafikleri doldurur. Bu iş şu sorgu tanımını kullanır:
 
 ```
 WITH 
@@ -146,33 +150,38 @@ WITH
 AS (
     SELECT
         *
-    FROM 
-      [IoTHubStream] 
+    FROM [IoTHubStream]
     WHERE
         [ObjectType] IS NULL -- Filter out device info and command responses
 ) 
 
 SELECT
-    *
+    IoTHub.ConnectionDeviceId AS DeviceId,
+    Temperature,
+    Humidity,
+    ExternalTemperature,
+    EventProcessedUtcTime,
+    PartitionId,
+    EventEnqueuedUtcTime,
+    * 
 INTO
     [Telemetry]
 FROM
     [StreamData]
 
 SELECT
-    DeviceId,
-    AVG (Humidity) AS [AverageHumidity], 
-    MIN(Humidity) AS [MinimumHumidity], 
-    MAX(Humidity) AS [MaxHumidity], 
+    IoTHub.ConnectionDeviceId AS DeviceId,
+    AVG (Humidity) AS [AverageHumidity],
+    MIN(Humidity) AS [MinimumHumidity],
+    MAX(Humidity) AS [MaxHumidity],
     5.0 AS TimeframeMinutes 
 INTO
     [TelemetrySummary]
-FROM
-    [StreamData]
+FROM [StreamData]
 WHERE
     [Humidity] IS NOT NULL
 GROUP BY
-    DeviceId, 
+    IoTHub.ConnectionDeviceId,
     SlidingWindow (mi, 5)
 ```
 
@@ -182,7 +191,7 @@ ASA işleri **cihaz bilgisi** ve **kurallar** verilerini, WebJob’da çalışan
 
 ## Azure Storage
 
-Çözüm, çözümdeki cihazlarda bulunan tüm ham ve özet telemetri verilerini kalıcı hale getirmek için Azure Blob Depolama kullanır. Pano blob depolama alanından telemetri verilerini okuyarak grafikleri doldurur. Uyarıları görüntülemek için pano, telemetri değerleri yapılandırılmış eşik değerlerini aştığında kayıt altına alan blob depolama alanından verileri okur. Çözüm ayrıca panodaki bir kullanıcı tarafından ayarlanan eşik değerlerini kaydetmek için blob depolama alanını kullanır.
+Çözüm, çözümdeki cihazlarda bulunan tüm ham ve özet telemetri verilerini kalıcı hale getirmek için Azure Blob Depolama kullanır. Pano blob depolama alanından telemetri verilerini okuyarak grafikleri doldurur. Uyarıları görüntülemek için pano, telemetri değerleri yapılandırılmış eşik değerlerini aştığında kayıt altına alan blob depolama alanından verileri okur. Çözüm, panodaki sizin ayarladığınız eşik değerlerini kaydetmek için de blob depolama alanını kullanır.
 
 ## WebJobs
 
@@ -193,7 +202,7 @@ WebJobs cihaz benzeticilerini barındırmaya ek olarak çözüm içinde cihaz bi
 
 ## DocumentDB
 
-Çözüm, cihaz meta verileri ve panodan cihazlara gönderilen komutların geçmişi gibi çözüme bağlı cihazlara ilişkin bilgileri depolamak üzere DocumentDB veritabanını kullanır.
+Çözüm, kendisine bağlı cihazlarla ilgili bilgileri depolamak için bir DocumentDB veritabanı kullanır. Bu bilgiler, cihaz meta verilerini ve panodan cihazlara gönderilen komutların geçmişini içerir.
 
 ## Web uygulamaları
 
@@ -205,8 +214,8 @@ Web uygulamasındaki bu sayfa, cihazlardaki telemetri verilerini görselleştirm
 
 Bu web uygulamasıyla şunları yapabilirsiniz:
 
-- Yeni bir cihaz hazırlayın. Bunun yapılması benzersiz cihaz kimliğini ayarlar ve kimlik doğrulaması anahtarını oluşturur. Hem IoT Hub kimlik kayıt defterine hem de çözüme özel DocumentDB veritabanına cihaz hakkındaki bilgileri yazar.
-- Cihaz özelliklerini yönetin. Bu işlem mevcut özellikleri görüntülemeyi ve yeni özelliklerle güncelleştirmeyi kapsar.
+- Yeni bir cihaz hazırlayın. Bu eylem, benzersiz cihaz kimliğini ayarlar ve kimlik doğrulaması anahtarını oluşturur. Hem IoT Hub kimlik kayıt defterine hem de çözüme özel DocumentDB veritabanına cihaz hakkındaki bilgileri yazar.
+- Cihaz özelliklerini yönetin. Bu eylem, mevcut özellikleri görüntülemeyi ve yeni özelliklerle güncelleştirmeyi kapsar.
 - Cihaza komut gönderme.
 - Cihaz için komut geçmişini görüntüleme.
 - Cihazları etkinleştirin ve devre dışı bırakın.
@@ -232,6 +241,6 @@ Aşağıdaki makaleleri okuyarak IoT Paketi ile çalışmaya başlayabilirsiniz:
 [lnk-permissions]: iot-suite-permissions.md
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="PHP"
     ms.topic="hero-article"
-    ms.date="06/24/2016"
+    ms.date="08/11/2016"
     ms.author="robmcm"/>
 
 # Azure App Service’te bir WordPress web uygulaması oluşturma
@@ -130,6 +130,6 @@ App Service Web Apps ile çalışma hakkında daha fazla bilgi için sayfanın s
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 
