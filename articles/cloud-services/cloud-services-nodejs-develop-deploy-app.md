@@ -189,12 +189,12 @@ Daha fazla bilgi için bkz. [Node.js Geliştirici Merkezi].
 
 <!-- IMG List -->
 
-[New-AzureService helloworld komutunun sonucu]: ./media/cloud-services-nodejs-develop-deploy-app/node9.png
+[The result of the New-AzureService helloworld command]: ./media/cloud-services-nodejs-develop-deploy-app/node9.png
 [Add-AzureNodeWebRole komutunun çıktısı]: ./media/cloud-services-nodejs-develop-deploy-app/node11.png
-[Hello World web sayfasını gösteren bir web tarayıcısı]: ./media/cloud-services-nodejs-develop-deploy-app/node14.png
+[A web browser displaying the Hello World web page]: ./media/cloud-services-nodejs-develop-deploy-app/node14.png
 [Publish-AzureService komutunun çıktısı]: ./media/cloud-services-nodejs-develop-deploy-app/node19.png
 [Publish-AzureService komutunun tam durum çıktısı]: ./media/cloud-services-nodejs-develop-deploy-app/node20.png
-[Hello world sayfasını gösteren bir tarayıcı penceresi; URL sayfanın Azure’da barındırıldığını gösterir.]: ./media/cloud-services-nodejs-develop-deploy-app/node21.png
+[A browser window displaying the hello world page; the URL indicates the page is hosted on Azure.]: ./media/cloud-services-nodejs-develop-deploy-app/node21.png
 [Stop-AzureService komutunun durumu]: ./media/cloud-services-nodejs-develop-deploy-app/node48.png
 [Remove-AzureService komutunun durumu]: ./media/cloud-services-nodejs-develop-deploy-app/node49.png
 
