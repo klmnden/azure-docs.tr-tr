@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="07/06/2016"
+   ms.date="09/01/2016"
    ms.author="mbaldwin"/>
 
 
@@ -23,15 +23,15 @@
 Bir hizmet olarak kimlik yönetimi (IDMaaS) platformu olan Azure Active Directory (AD), kimlik yönetimini uygulamalarına tümleştirmeleri için geliştiricilere etkili bir yol sağlar. Aşağıdaki makaleler Azure AD'nin uygulanmasına ve önemli özelliklerine genel bakış sunar. Bunları sırayla okumanızı öneririz, çalışmaya başlamak için hazır olduğunuzda [Başlarken](#getting-started) bölümüne atlayabilirsiniz.
 
 
-1. [Azure Active Directory tümleştirmenin avantajları](active-directory-how-to-integrate.md): Güvenli oturum açma ve kimlik doğrulama için en iyi çözümü neden Azure AD ile tümleştirmenin sunduğunu keşfedin.
+1. [Azure AD tümleştirmesinin avantajları](active-directory-how-to-integrate.md): Güvenli oturum açma ve kimlik doğrulama için en iyi çözümü neden Azure AD ile tümleştirmenin sunduğunu keşfedin.
 
-1. [Active Directory kimlik doğrulama senaryoları](active-directory-authentication-scenarios.md): Uygulamanıza oturum açma bağlantısı sağlamak için Azure AD'deki basitleştirilmiş kimlik doğrulama özelliğinden yararlanın.
+1. [Azure AD kimlik doğrulama senaryoları](active-directory-authentication-scenarios.md): Uygulamanıza oturum açma bağlantısı sağlamak için Azure AD'deki basitleştirilmiş kimlik doğrulama özelliğinden yararlanın.
 
-1. [Uygulamaları Azure Active Directory ile tümleştirme](active-directory-integrating-applications.md): Azure AD'de uygulamaları nasıl ekleyeceğinizi, güncelleştireceğinizi ve kaldıracağınızı öğrenin ve tümleşik uygulamalar için markalama talimatları hakkında bilgi alın.
+1. [Uygulamaları Azure AD ile tümleştirme](active-directory-integrating-applications.md): Azure AD'de uygulamaları nasıl ekleyeceğinizi, güncelleştireceğinizi ve kaldıracağınızı öğrenin ve tümleşik uygulamalar için markalama talimatları hakkında bilgi alın.
 
-1. [Azure Active Directory Grafik API'si](active-directory-graph-api.md): Azure AD'ye REST API uç noktaları yoluyla programlı olarak erişmek için Azure AD Grafik API'sini kullanın. Azure AD Grafik API'sine [Microsoft Graph](https://graph.microsoft.io/) yoluyla da erişilebileceğini unutmayın. Microsoft Graph, tek bir REST API uç noktası ve tek bir erişim belirteci ile birden çok Microsoft bulut hizmeti API'sine erişim sağlayan bir birleşik API'dir.
+1. [Azure AD Grafik API'si](active-directory-graph-api.md): Azure AD'ye REST API uç noktaları yoluyla programlı olarak erişmek için Azure AD Grafik API'sini kullanın. Azure AD Grafik API'sine [Microsoft Graph](https://graph.microsoft.io/) üzerinden de erişilebilir. Microsoft Graph, tek bir REST API uç noktası ve tek bir erişim belirteci ile birden çok Microsoft bulut hizmeti API'sine erişim sağlayan bir birleşik API sunar.
 
-1. [Azure Active Directory kimlik doğrulama kitaplıkları](active-directory-authentication-libraries.md): .NET, JavaScript, Objective-C, Android ve daha fazlası için Azure AD kimlik doğrulama kitaplıklarını kullanın ve erişim belirteçleri almak üzere kullanıcıların kimliklerini kolaylıkla doğrulayın.
+1. [Azure AD kimlik doğrulama kitaplıkları](active-directory-authentication-libraries.md): .NET, JavaScript, Objective-C, Android ve daha fazlası için Azure AD kimlik doğrulama kitaplıklarını kullanın ve erişim belirteçleri almak üzere kullanıcıların kimliklerini kolaylıkla doğrulayın.
 
 
 ## Başlarken
@@ -60,7 +60,7 @@ Bu öğreticiler birden çok platform için uyarlanabilir ve Azure Active Direct
 
 | [![.NET](./media/active-directory-developers-guide/graph.png)](active-directory-graph-api-quickstart.md)|
 |:--:|
-|[Grafik API'si](active-directory-graph-api-quickstart.md)|
+|[Graph API](active-directory-graph-api-quickstart.md)|
 
 ## Nasıl yapılır makaleleri
 
@@ -84,6 +84,7 @@ Bu makaleler REST ve kimlik doğrulama kitaplığı API'leri, protokolleri, hata
 
 ###  Destek
 - [Etiketli sorular](http://stackoverflow.com/questions/tagged/azure-active-directory): Azure Active Directory çözümlerini Stack Overflow'da bulmak için [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) ve [adal](http://stackoverflow.com/questions/tagged/adal) etiketlerini arayın.
+- Uygulama geliştirme ve tümleştirmeyle ilgili yaygın olarak kullanılan terimlerden bazılarının tanımları için bkz. [Azure AD geliştirici sözlüğü](active-directory-dev-glossary.md).
 
 ### Kod
 
@@ -93,11 +94,11 @@ Bu makaleler REST ve kimlik doğrulama kitaplığı API'leri, protokolleri, hata
 
 - [.NET için ADAL](https://msdn.microsoft.com/library/azure/mt417579.aspx): .NET kimlik doğrulama kitaplığı belgeleri.
 
-### Grafik API'si
+### Graph API
 
-- [Grafik API'si başvurusu](https://msdn.microsoft.com/library/azure/hh974476.aspx): Azure Active Directory Grafik API'si için REST başvurusu. [Etkileşimli Grafik API'si başvurusu deneyimini görüntüleyin](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).
+- [Graph API başvurusu](https://msdn.microsoft.com/library/azure/hh974476.aspx): Azure Active Directory Graph API için REST başvurusu. [Etkileşimli Graph API başvurusu deneyimini görüntüleyin](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).
 
-- [Grafik API'si izin kapsamları](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes): Bir kiracıdaki dizin verilerine bir uygulamanın sahip olduğu erişimi kontrol etmek için kullanılan OAuth 2.0 izin kapsamları.
+- [Graph API izin kapsamları](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes): Bir kiracıdaki dizin verilerine bir uygulamanın sahip olduğu erişimi kontrol etmek için kullanılan OAuth 2.0 izin kapsamları.
 
 ### Kimlik doğrulama ve yetkilendirme protokolleri
 
@@ -107,7 +108,7 @@ Bu makaleler REST ve kimlik doğrulama kitaplığı API'leri, protokolleri, hata
 
 - [OAuth 2.0 protokolü: Örtük vermeyi anlama](active-directory-dev-understanding-oauth2-implicit-grant.md): Örtük yetki verme ve uygulamanız için doğru olup olmadığını anlama hakkında daha fazla bilgi edinin.
 
-- [OAuth 2.0 protokolü: İstemci Kimlik Bilgileri ile Hizmetten Hizmete Çağrılar](active-directory-protocols-oauth-service-to-service.md): OAuth 2.0 İstemci Kimlik Bilgileri Verme akışı bir web hizmetinin (gizli bir istemci) başka bir web hizmetini çağırırken bir kullanıcının kimliğine bürünmek yerine kendi kimlik bilgilerini kullanmasına izin verir. Bu senaryoda istemci genellikle bir orta katman web hizmeti, arka plan programı hizmeti veya web sitesi olur.
+- [OAuth 2.0 protokolü: İstemci Kimlik Bilgileri ile Hizmetten Hizmete Çağrılar](active-directory-protocols-oauth-service-to-service.md): OAuth 2.0 İstemci Kimlik Bilgileri verme işlemi bir web hizmetinin (gizli bir istemci) başka bir web hizmetini çağırırken bir kullanıcının kimliğine bürünmek yerine kendi kimlik bilgilerini kullanmasına izin verir. Bu senaryoda istemci genellikle bir orta katman web hizmeti, arka plan programı hizmeti veya web sitesi olur.
 
 - [OpenID Connect 1.0 protokolü: Oturum açma ve kimlik doğrulaması](active-directory-protocols-openid-connect-code.md): OpenID Connect 1.0 protokolü, OAuth 2.0'ı bir kimlik doğrulama protokolü olarak kullanılmak üzere genişletir. Bir istemci uygulaması, oturum açma işlemini yönetmek üzere bir id_token alır ya da yetkilendirme kodu akışını hem bir id_token hem de yetkilendirme kodu alacak şekilde büyütür.
 
@@ -139,7 +140,7 @@ Azure Active Directory kullanılarak uygulamaların geliştirilmesini açıklaya
 
 - [Active Directory Ekip blogu](http://blogs.technet.com/b/ad/): Azure Active Directory dünyasındaki en son gelişmeler.
 
-- [Azure Active Directory Graph Ekip blogu](http://blogs.msdn.com/b/aadgraphteam): Grafik API'sine özel Azure Active Directory bilgileri.
+- [Azure Active Directory Graph Ekip blogu](http://blogs.msdn.com/b/aadgraphteam): Graph API’ye özel Azure Active Directory bilgileri.
 
 - [Bulut Kimliği](http://www.cloudidentity.net): Azure Active Directory'nin ana proje yöneticilerinden birinin hizmet olarak kimlik yönetimi hakkındaki düşünceleri.  
 
@@ -147,6 +148,6 @@ Azure Active Directory kullanılarak uygulamaların geliştirilmesini açıklaya
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=ago16_HO5-->
 
 

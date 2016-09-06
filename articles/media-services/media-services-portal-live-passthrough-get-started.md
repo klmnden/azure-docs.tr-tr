@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article"
-    ms.date="06/22/2016" 
+    ms.date="08/30/2016" 
     ms.author="juliako"/>
 
 
@@ -21,14 +21,12 @@
 
 Bu öğretici, Azure portal kullanarak doğrudan teslimat için yapılandırılmış bir **Kanal** oluşturmaya ilişkin adımları anlatmaktadır. 
 
-Azure portalda Azure Media Services şu anda önizlemededir.   
-
 
 ##Ön koşullar
 
 Öğreticiyi tamamlamak için aşağıdakiler gereklidir:
 
-- Bir Azure hesabı. Ayrıntılar için bkz. [Azure Ücretsiz Deneme](https://azure.microsoft.com/pricing/free-trial/). 
+- Bir Azure hesabı. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/). 
 - Bir Media Services hesabı. Bir Media Services hesabı oluşturmak için bkz. [Media Services hesabı oluşturma](media-services-create-account.md).
 - Bir Web kamerası. Örneğin, [Telestream Wirecast kodlayıcı](http://www.telestream.net/wirecast/overview.htm).
 
@@ -177,6 +175,6 @@ Varlıklarınızı yönetmek için, **Ayar**’ı seçin ve **Varlıklar**’a t
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=ago16_HO5-->
 
 

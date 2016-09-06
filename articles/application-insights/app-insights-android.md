@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Android uygulamaları için analiz"
+    pageTitle="Android uygulamaları için analiz | Microsoft Azure"
     description="Android uygulamanızın kullanımını ve performansını analiz edin."
     services="application-insights"
     documentationCenter="android"
@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="mobile-android"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/20/2016"
+    ms.date="08/26/2016"
     ms.author="awills"/>
 
 # Android uygulamaları için analiz
@@ -24,18 +24,27 @@ Microsoft, devOps cihazı için iki çözüm sağlar: [HockeyApp](http://hockeya
 Şuraya gidin:
 
 * [HockeyApp](http://support.hockeyapp.net/kb)
-* [Android için HockeyApp’e başlarken](http://support.hockeyapp.net/kb/client-integration-android/hockeyapp-for-android-sdk).
+* [Android için HockeyApp kullanmaya başlama](http://support.hockeyapp.net/kb/client-integration-android/hockeyapp-for-android-sdk).
 * [HockeyApp Blogu](http://hockeyapp.net/blog/)
 * Sürümleri erken almak için [Hockeyapp Preseason](http://hockeyapp.net/preseason/)’a katılın.
 
 Uygulamanız sunucu tarafındaysa, [ASP.NET](app-insights-asp-net.md) veya [J2EE](app-insights-java-get-started.md) üzerindeki uygulamanızın web sunucusu tarafını izlemek için [Application Insights](app-insights-overview.md)’ı kullanın. 
 
-> [AZURE.NOTE] [Application Insights Analytics](app-insights-analytics.md) ve [Sürekli Dışarı Aktarma](app-insights-export-telemetry.md) özelliklerini yakında HockeyApp SDK’sından gönderilen telemetri verileriyle kullanabileceksiniz. 
->
-> [Bu değişiklik hakkında daha fazla bilgi.](https://azure.microsoft.com/blog/update-on-transitioning-mobile-apps-from-application-insights-to-hockeyapp/)
+
+## HockeyApp verileri ile analiz, dışarı aktarma ve API erişimi 
+
+Application Insights’ta [HockeyApp köprüsü oluşturun](app-insights-hockeyapp-bridge-app.md). Şunları yapmanızı sağlar:
+
+* Telemetriniz üzerinden güçlü [Analytics](app-insights-analytics.md) sorgu dilini kullanın. 
+* Azure blob depolama alanına [telemetri aktarın](app-insights-export-telemetry.md).
+
+## Sonraki adımlar
+
+* [Android için HockeyApp kullanmaya başlama](http://support.hockeyapp.net/kb/client-integration-android/hockeyapp-for-android-sdk)
 
 
 
-<!--HONumber=Aug16_HO1-->
+
+<!--HONumber=ago16_HO5-->
 
 

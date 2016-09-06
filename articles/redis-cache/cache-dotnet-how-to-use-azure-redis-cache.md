@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="cache-redis" 
     ms.devlang="dotnet" 
     ms.topic="hero-article" 
-    ms.date="06/09/2016" 
+    ms.date="08/25/2016" 
     ms.author="sdanie"/>
 
 # Azure Redis Önbelleğini kullanma
@@ -290,6 +290,6 @@ Artık temel bilgileri öğrendiğinize göre, Azure Redis Önbelleği hakkında
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=ago16_HO5-->
 
 

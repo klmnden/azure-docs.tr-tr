@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="07/22/2016"
+    ms.date="08/30/2016"
     ms.author="swkrish"/>
 
 
@@ -39,11 +39,14 @@ Ayrıca dikey pencereye, [Azure portalındaki](https://portal.azure.com/) sol ge
 2. Dikey pencerenin en üstündeki **+Add (+Ekle)** seçeneğine tıklayın.
 3. Uygulamanızı tüketicilere tanımlayacak bir **Ad** girin. Örneğin, "Contoso B2C uygulaması"na girebilirsiniz.
 4. Web tabanlı bir uygulama yazıyorsanız **Include web app / web API (Web uygulamasını/web API'sini dahil et)** düğmesini **Yes (Evet)** olarak değiştirin. **Yanıt URL'leri**, Azure AD B2C'nin, uygulamanız tarafından istenen belirteçleri getirdiği uç noktalardır. Örneğin, `https://localhost:44321/` girin. Web uygulamanız aynı zamanda Azure AD B2C ile güvenliği sağlanan bazı web API’lerini çağıracaksa **Anahtarı Oluştur** düğmesine tıklayarak bir **Uygulama Gizli Anahtarı** da oluşturmak istersiniz.
+
+    > [AZURE.NOTE] **Uygulama Gizli Anahtarı** önemli bir güvenlik kimlik bilgisidir ve güvenliği uygun şekilde sağlanmalıdır.
+
 5. Mobil bir uygulama yazıyorsanız **Include native client (Yerel istemci ekle)** düğmesini **Yes (Evet)** olarak değiştirin. Sizin için otomatik olarak oluşturulan varsayılan **Yeniden Yönlendirme URI'sini** kopyalayın.
 6. Uygulamanızı kaydetmek için **Create (Oluştur)** seçeneğine tıklayın.
 7. Oluşturduğunuz uygulamaya tıklayın ve daha sonra kodunuzda kullanacağınız genel benzersiz **Uygulama İstemci Kimliğini** kopyalayın.
 
-> [AZURE.NOTE] **Uygulama Gizli Anahtarı** önemli bir güvenlik kimlik bilgisidir ve güvenliği uygun şekilde sağlanmalıdır.
+> [AZURE.IMPORTANT] B2C özellikleri dikey penceresinde oluşturulan uygulamaların aynı konumda yönetilmesi gerekir. B2C uygulamalarını PowerShell veya başka bir portal kullanarak düzenlerseniz desteklenmez duruma gelirler ve Azure AD B2C ile çalışma olasılığı düşüktür.
 
 ## Hızlı Başlangıç Uygulaması oluşturma
 
@@ -53,6 +56,6 @@ Azure AD B2C'ye kayıtlı bir uygulamaya sahip olduğunuza göre başlamak ve ç
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=ago16_HO5-->
 
 

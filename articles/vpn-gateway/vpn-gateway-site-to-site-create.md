@@ -14,18 +14,18 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/23/2016"
+   ms.date="08/31/2016"
    ms.author="cherylmc"/>
 
-# Klasik Azure portalını kullanarak Siteden Siteye VPN bağlantısı olan bir sanal ağ oluşturma
+# Klasik Azure portalını kullanarak Siteden Siteye bağlantı ile VNet oluşturma
 
 > [AZURE.SELECTOR]
-- [Azure Portalı](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+- [Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 - [Azure Klasik Portalı](vpn-gateway-site-to-site-create.md)
 - [PowerShell - Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
 
 
-Bu makalede, şirket içi ağınıza yönelik bir sanal ağ ve siteden siteye VPN bağlantısı oluşturma işlemi adım adım açıklanmaktadır. Siteden Siteye bağlantılar, şirket içi ve dışı karışık yapılandırmalar ve karma yapılandırmalar için kullanılabilir. Bu makale, klasik dağıtım modeli için geçerlidir ve klasik Azure portalını kullanır. Şu anda Azure portalını kullanarak klasik dağıtım modeli için uçtan uca bir Siteden Siteye yapılandırması oluşturamazsınız.
+Bu makalede **klasik dağıtım modelini** ve klasik portalı kullanarak sanal bir ağ ve şirket içi ağınızda siteden siteye VPN bağlantısı oluşturma işlemi adım adım açıklanmaktadır. Siteden Siteye bağlantılar, şirket içi ve dışı karışık yapılandırmalar ve karma yapılandırmalar için kullanılabilir. Şu anda Azure portalını kullanarak klasik dağıtım modeli için uçtan uca bir Siteden Siteye yapılandırması oluşturamazsınız.
 
 ![Siteden Siteye diyagram](./media/vpn-gateway-site-to-site-create/site2site.png "site-to-site")
 
@@ -109,6 +109,6 @@ Bağlantınız tamamlandıktan sonra sanal ağlarınıza sanal makineler ekleyeb
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

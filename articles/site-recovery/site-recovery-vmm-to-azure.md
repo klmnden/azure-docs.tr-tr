@@ -88,7 +88,7 @@ Bu senaryoyu dağıtmak için Azure'da ihtiyacınız olanlar aşağıda verilmi�
 --- | ---
 **VMM**| System Center 2012 R2 üzerinde çalışan bir veya daha fazla VMM sunucusu. Her VMM sunucusunun bir veya daha fazla yapılandırılmış bulut içermesi gerekir. Bir bulutun şunları içermesi gerekir:<br/><br/> Bir veya birden çok VMM ana bilgisayar grubu.<br/><br/> Her ana bilgisayar grubunda bir veya daha fazla Hyper-V sunucusu ya da kümesi.<br/><br/>VMM bulutlarını ayarlama hakkında [daha fazla bilgi edinin](http://www.server-log.com/blog/2011/8/26/vmm-2012-and-the-clouds.html).
 **Hyper-V** | Hyper-V ana bilgisayar sunucularının Hyper-V rolü içeren Windows Server 2012 R2 sürümünde veya sonraki bir sürümde çalıştırılması ve en son güncelleştirmelerinin yüklenmiş olması gerekir.<br/><br/> Bir Hyper-V sunucusunun bir veya daha fazla VM içermesi gerekir.<br/><br/> Çoğaltmak istediğiniz VM'leri içeren Hyper-V ana bilgisayar sunucusunun veya kümesinin bir VMM bulutunda yönetilmesi gerekir.<br/><br/>Hyper-V sunucularının, doğrudan veya bir ara sunucu üzerinden İnternet'e bağlanması gerekir.<br/><br/>Hyper-V sunucularında [2961977](https://support.microsoft.com/kb/2961977) makalesinde belirtilen düzeltmelerin yüklü olması gerekir.<br/><br/>Hyper-V ana bilgisayar sunucularının Azure'a veri çoğaltabilmesi için internet erişimi gerekir.
-**Sağlayıcı ve aracı** | Azure Site Recovery dağıtımı sırasında, Azure Site Recovery Sağlayıcısı'nı VMM sunucusuna ve Kurtarma Hizmetleri aracısını Hyper-V konağına yüklersiniz. Sağlayıcı ve aracının doğrudan İnternet üzerinden veya bir ara sunucu aracılığıyla Azure'a bağlanması gerekir. HTTPS tabanlı bir ara sunucunun desteklenmediğini unutmayın. Hyper-V ana bilgisayarlarının ve VMM sunucusundaki ara sunucunun şunlara yönelik erişime izin vermesi gerekir: <br/><br/> *.hypervrecoverymanager.windowsazure.com <br/><br/> *.accesscontrol.windows.net <br/><br/> *.backup.windowsazure.com <br/><br/> *.blob.core.windows.net <br/><br/> *.store.core.windows.net<br/><br/>VMM sunucusunda IP adresi tabanlı güvenlik duvarı kurallarına sahipseniz bu kuralların Azure ile iletişim kurmaya izin verip vermediğini denetleyin. [Azure Veri Merkezi IP Aralıkları](https://www.microsoft.com/download/confirmation.aspx?id=41653)'na ve HTTPS (433) protokolüne izin vermeniz gerekir.<br/><br/>Aboneliğinizin Azure bölgesi ve Batı ABD için IP adresi aralıklarına izin verin.<br/><br/>Ek olarak, VMM sunucusundaki ara sunucunun https://www.msftncsi.com/ncsi.txt adresine erişmesi gerekir
+**Sağlayıcı ve aracı** | Azure Site Recovery dağıtımı sırasında, Azure Site Recovery Sağlayıcısı'nı VMM sunucusuna ve Kurtarma Hizmetleri aracısını Hyper-V konağına yüklersiniz. Sağlayıcı ve aracının doğrudan İnternet üzerinden veya bir ara sunucu aracılığıyla Azure'a bağlanması gerekir. HTTPS tabanlı bir ara sunucunun desteklenmediğini unutmayın. Hyper-V ana bilgisayarlarının ve VMM sunucusundaki ara sunucunun şunlara yönelik erişime izin vermesi gerekir: <br/><br/> *.hypervrecoverymanager.windowsazure.com <br/><br/> *.accesscontrol.windows.net <br/><br/> *.backup.windowsazure.com <br/><br/>*.blob.core.windows.net <br/><br/> *.store.core.windows.net<br/><br/>VMM sunucusunda IP adresi tabanlı güvenlik duvarı kurallarına sahipseniz bu kuralların Azure ile iletişim kurmaya izin verip vermediğini denetleyin. [Azure Veri Merkezi IP Aralıkları](https://www.microsoft.com/download/confirmation.aspx?id=41653)'na ve HTTPS (433) protokolüne izin vermeniz gerekir.<br/><br/>Aboneliğinizin Azure bölgesi ve Batı ABD için IP adresi aralıklarına izin verin.<br/><br/>Ek olarak, VMM sunucusundaki ara sunucunun https://www.msftncsi.com/ncsi.txt adresine erişmesi gerekir
 
 
 ## Korumalı makine önkoşulları
@@ -115,12 +115,16 @@ Yük devretme işleminden sonra oluşturulan Azure VM'lerinin bağlanabilmesi i�
 - Azure ağını yük devri yapılan Azure VM'lerinde kullanmak istediğiniz kaynak modeline bağlı olarak [Resource Manager modunda](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) veya [klasik modda](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) ayarlarsınız.
 - Başlamadan önce bir ağ ayarlamanızı öneririz. Aksi takdirde, Site Recovery dağıtımı sırasında yapmanız gerekir.
 
+> [AZURE.NOTE] Site Recovery dağıtımında kullanılan ağlar için aynı abonelik içindeki kaynak grupları arasında veya abonelik arasında [ağ geçişi](../resource-group-move-resources.md) desteklenmez.
+
 
 ### Azure depolama hesabı ayarlama
 
 - Azure'a çoğaltılan verileri tutmak için standart bir Azure depolama hesabına sahip olmanız gerekir. Hesabın, Kurtarma Hizmetleri kasasıyla aynı bölgede olması gerekir.
 - Yük devri yapılan Azure VM'lerinde kullanmak istediğiniz kaynak modeline bağlı olarak [Resource Manager modunda](../storage/storage-create-storage-account.md) veya [klasik modda](../storage/storage-create-storage-account-classic-portal.md) bir hesap ayarlarsınız.
 - Başlamadan önce bir hesap ayarlamanızı öneririz. Aksi takdirde, Site Recovery dağıtımı sırasında yapmanız gerekir.
+
+> [AZURE.NOTE] Site Recovery dağıtımında kullanılan depolama hesapları için aynı abonelik içindeki kaynak grupları arasında veya abonelik arasında [depolama hesapları geçişi](../resource-group-move-resources.md) desteklenmez.
 
 ### VMM sunucusunu hazırlama
 
@@ -263,7 +267,7 @@ Konumlar:
 - **/proxyAddress**: Ara sunucunun adresini belirten isteğe bağlı parametre.
 - **/proxyport**: Ara sunucunun bağlantı noktasını belirten isteğe bağlı parametre.
 - **/proxyUsername**Ara sunucu kullanıcı adını belirten isteğe bağlı parametre (ara sunucu kimlik doğrulaması gerekiyorsa).
-- **/proxyPassword**: Ara sunucu ile kimlik doğrulamak için kulanılacak parolayı belirten isteğe bağlı parametre (ara sunucu kimlik doğrulaması gerekiyorsa).
+- **/proxyPassword**: Ara sunucu ile kimlik doğrulamak için kullanılacak parolayı belirten isteğe bağlı parametre (ara sunucu kimlik doğrulaması gerekiyorsa).
 
 
 ### Azure Kurtarma Hizmetleri aracısını Hyper-V ana bilgisayarlarına yükleme
@@ -437,7 +441,7 @@ Ayrıca, azaltma ayarı için [Set-OBMachineSetting](https://technet.microsoft.c
     ![Çoğaltmayı etkinleştirme](./media/site-recovery-vmm-to-azure/enable-replication-target.png)
 
 4. Kullanmak istediğiniz depolama hesabını seçin. Sahip olduğunuz hesaplardan farklı bir depolama hesabı kullanmak isterseniz [yeni bir hesap](#set-up-an-azure-storage-account) oluşturabilirsiniz. Resource Manager modelini kullanarak bir depolama hesabı oluşturmak için **Yeni oluştur**'a tıklayın. Klasik modeli kullanarak bir depolama hesabı oluşturmak istiyorsanız bu işlemi [Azure portalda](../storage/storage-create-storage-account-classic-portal.md) gerçekleştirirsiniz. Daha sonra, **Tamam**'a tıklayın.
-5. Yük devretme sonrasında çalışmaya başlayan Azure VM'lerinin bağlanacağı Azure ağını ve alt ağını seçin. Koruma için seçtiğiniz tüm makinelere ağ ayarını uygulamak için **Seçili makineler için şimdi yapılandırı** seçin. Makineler için Azure ağını ayrı ayrı seçmek için **Daha sonra yapılandır**'ı seçin. Sahip olduğunuz ağlardan farklı bir ağ kullanmak isterseniz [yeni bir ağ](#set-up-an-azure-network) oluşturabilirsiniz. Resource Manager modelini kullanarak bir ağ oluşturmak için **Yeni oluştur**'a tıklayın. Klasik modeli kullanarak bir ağ oluşturmak istiyorsanız bu işlemi [Azure portalda](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) gerçekleştirebilirsiniz. Bir alt ağ (varsa) seçin. Daha sonra, **Tamam**'a tıklayın.
+5. Yük devretme sonrasında çalışmaya başlayan Azure VM'lerinin bağlanacağı Azure ağını ve alt ağını seçin. Koruma için seçtiğiniz tüm makinelere ağ ayarını uygulamak için **Seçili makineler için şimdi yapılandır**’ı seçin. Makineler için Azure ağını ayrı ayrı seçmek için **Daha sonra yapılandır**'ı seçin. Sahip olduğunuz ağlardan farklı bir ağ kullanmak isterseniz [yeni bir ağ](#set-up-an-azure-network) oluşturabilirsiniz. Resource Manager modelini kullanarak bir ağ oluşturmak için **Yeni oluştur**'a tıklayın. Klasik modeli kullanarak bir ağ oluşturmak istiyorsanız bu işlemi [Azure portalda](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) gerçekleştirebilirsiniz. Bir alt ağ (varsa) seçin. Daha sonra, **Tamam**'a tıklayın.
 6. **Virtual Machines** > **Sanal makine seç** seçeneklerine tıklayın ve çoğaltmak istediğiniz makineleri seçin. Yalnızca çoğaltmanın etkinleştirildiği makineleri seçebilirsiniz. Daha sonra, **Tamam**'a tıklayın.
 
     ![Çoğaltmayı etkinleştirme](./media/site-recovery-vmm-to-azure/enable-replication5.png)
@@ -570,6 +574,6 @@ Dağıtımınız ayarlandıktan ve çalışmaya başladıktan sonra farklı tür
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

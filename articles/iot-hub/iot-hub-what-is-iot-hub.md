@@ -13,7 +13,7 @@
  ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="06/06/2016"
+ ms.date="08/25/2016"
  ms.author="dobett"/>
 
 # Azure IoT Hub nedir?
@@ -53,7 +53,7 @@ Azure IoT Hub aşağıdaki yollarla cihaz bağlantısı sorunlarını ele alır:
 
 -   **Cihaz başına kimlik doğrulaması ve güvenli bağlantı**. IoT Hub'a bağlanmalarını sağlamak için her bir cihaza kendi [güvenlik anahtarını][lnk-devguide-security] sağlayabilirsiniz. [IoT Hub kimlik kayıt defteri][lnk-devguide-identityregistry], cihaz kimliklerini ve anahtarlarını bir çözümün içinde depolar. Bir çözüm arka ucu, cihazları tek tek izin verme veya reddetme listesine ekleyerek cihaz erişiminde tam denetim olanağı sağlar.
 
--   **Cihaz bağlantısı işlemlerini izleme**. Cihaz kimlik yönetimi işlemleri ve cihaz bağlantısı etkinlikleri hakkında ayrıntılı işlem günlükleri alabilirsiniz. Bu izleme olanağı, IoT çözümünüzün yanlış kimlik bilgileriyle bağlanmaya, çok sık ileti göndermeye veya tüm bulut-cihaz iletilerini reddetmeye çalışan cihazlar gibi bağlantı sorunlarını kolaylıkla tanımlaması sağlanır.
+-   **Cihaz bağlantısı işlemlerini izleme**. Cihaz kimlik yönetimi işlemleri ve cihaz bağlantısı etkinlikleri hakkında ayrıntılı işlem günlükleri alabilirsiniz. Bu izleme olanağı, IoT çözümünüzün yanlış kimlik bilgileriyle bağlanmaya, çok sık ileti göndermeye veya tüm bulut-cihaz iletilerini reddetmeye çalışan cihazlar gibi bağlantı sorunlarını tanımlaması sağlanır.
 
 -   **Kapsamlı bir cihaz kitaplıkları kümesi**. [Azure IoT cihaz SDK'ları][lnk-device-sdks], birçok Linux dağıtımı, Windows ve gerçek zamanlı işletim sistemleri için C gibi çeşitli diller ve platformlarda kullanılabilir ve desteklenir. Azure IoT cihaz SDK'ları C#, Java ve JavaScript gibi yönetilen dilleri de destekler.
 
@@ -92,7 +92,7 @@ Azure IoT Hub, cihazlarınız ve çözüm arka ucunuz arasındaki etkileşimlere
 - Güç veya bağlantı sorunları nedeniyle belirli aralıklarla bağlanan cihazlar için çift yönlü iletişim, komutların ve cihaz bildirimlerinin bir cihazın bunları almak için bağlanmasına kadar tutularak gerçekleştirilir. IoT Hub, cihazın gönderdiği komutlar için cihaza özgü kuyruklar oluşturur.
 - Uygulama yük verilerinin güvenliği, ağ geçitleri aracılığıyla belirli bir hizmete korumalı geçiş için ayrı ayrı sağlanır.
 
-Mobil sektörü, [Windows Anında İletilen Bildirim Servisi][lnk-wns], [Google Cloud Messaging][lnk-google-messaging] ve [Apple Anında İletilen Bildirim Hizmeti][lnk-apple-push] gibi anında iletilen bildirim hizmetlerini uygulamak için hizmet destekli iletişim düzenini devasa ölçüde başarılı bir şekilde kullanmaktadır.
+Mobil sektörü, [Windows Anında İletilen Bildirim Servisi][lnk-wns], [Google Cloud Messaging][lnk-google-messaging] ve [Apple Anında İletilen Bildirim Servisi][lnk-apple-push] gibi anında iletilen bildirim hizmetlerini uygulamak için hizmet destekli iletişim düzenini devasa ölçüde kullanmaktadır.
 
 ## Sonraki adımlar
 
@@ -125,6 +125,6 @@ Bazı kodları yazmaya ve bazı örnekleri çalıştırmaya başlamak için [IoT
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

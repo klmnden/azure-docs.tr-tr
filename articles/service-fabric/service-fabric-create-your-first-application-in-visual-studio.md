@@ -123,6 +123,7 @@ Artık bir uygulamanız olduğuna göre uygulamayı çalıştırmayı deneyin.
 - [Azure’da küme](service-fabric-cluster-creation-via-portal.md) veya [Windows’ta tek başına küme](service-fabric-cluster-creation-for-windows-server.md) oluşturma hakkında bilgi edinin.
 - [Reliable Services](service-fabric-reliable-services-quick-start.md) veya [Reliable Actors](service-fabric-reliable-actors-get-started.md) programlama modelini kullanan bir hizmet oluşturmayı deneyin.
 - Hizmetlerinizi bir [web hizmeti ön ucu](service-fabric-add-a-web-frontend.md) ile İnternet’te nasıl gösterebileceğinizi öğrenin.
+- [Hands-on-lab](https://msdnshared.blob.core.windows.net/media/2016/07/SF-Lab-Part-I.docx) adımlarını uygulayın ve durum bilgisi olmayan hizmet oluşturun, izleme ve sistem durumu raporlarını yapılandırın ve bir uygulama yükseltmesi gerçekleştirin.
 
 <!-- Image References -->
 
@@ -140,6 +141,6 @@ Artık bir uygulamanız olduğuna göre uygulamayı çalıştırmayı deneyin.
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

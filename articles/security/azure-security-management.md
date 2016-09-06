@@ -13,14 +13,14 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/26/2016"
+   ms.date="08/25/2016"
    ms.author="terrylan"/>
 
 # Azure’da Güvenlik Yönetimi
 
 Azure aboneleri yönetim iş istasyonları, geliştirici PC’leri ve hatta göreve özel izinleri bulunan ayrıcalıklı son kullanıcı cihazları dahil birden fazla cihazda kendi bulut ortamlarını yönetebilir. Bazı durumlarda, yönetim işlevleri [Azure portal](https://azure.microsoft.com/features/azure-portal/) gibi web tabanlı konsollar aracılığıyla gerçekleştirilir Diğer durumlarda, Sanal Özel Ağlar (VPN), Terminal Hizmetleri, istemci uygulaması protokolleri ya da (programlı olarak) Azure Service Management API (SMAPI) üzerinden şirket için sistemlerden Azure’a bağlantılar olabilir. Ayrıca, istemci uç noktaları ya da etki alanına katılmış veya yalıtılmış ve yönetilmeyen olabilir, tabletler veya akıllı telefonlar gibi.
 
-Bu birden çok erişim ve yönetim özellikleri zengin bir seçenek kümesi sunmasına karşın, bu değişkenlik yönetim eylemlerini yönetme, izleme ve denetlemeyi zor hale getirerek bulut dağıtımına önemli bir risk ekleyebilir. Bu değişkenlik bulut hizmetlerini yönetmek için kullanılan istemci uç noktalarına düzenlenmemiş erişim aracılığıyla güvenlik tehditlerine neden olabilir. Altyapı geliştirme ve yönetme amacıyla genel ya da kişisel iş istasyonlarını kullanmak, web’e gözatma (örneğin, su kaynağı saldırıları) ya da e-posta (örneğin, sosyal mühendislik ve kimlik avı) gibi öngörülemeyen tehdit vektörlerini açar.
+Çoklu erişim ve yönetim özellikleri zengin seçenekler sunsa da, bu değişkenlik bulut dağıtımına önemli bir risk ekleyebilir. Yönetim eylemlerini yönetmek, izlemek ve denetlemek güç olabilir. Bu değişkenlik bulut hizmetlerini yönetmek için kullanılan istemci uç noktalarına düzenlenmemiş erişim aracılığıyla güvenlik tehditlerine neden olabilir. Altyapı geliştirme ve yönetme amacıyla genel ya da kişisel iş istasyonlarını kullanmak, web’e gözatma (örneğin, su kaynağı saldırıları) ya da e-posta (örneğin, sosyal mühendislik ve kimlik avı) gibi öngörülemeyen tehdit vektörlerini açar.
 
 ![][1]
 
@@ -197,7 +197,7 @@ Bir iş istasyonu kilitlenmiş olduğu için diğer genel güvenlik gereksinimle
 
 | Yapmayın | Yapın |
 | ----- | ----- |
-| Yönetici erişimine ilişkin kimlik bilgilerini veya diğer parolaları (ör. SSL veya yönetim sertifikaları) e-posta ile göndermeyin. | Hesap adlarını ve parolaları sesli olarak ileterek gizliliği koruyun (ancak bunları sesli posta olarak depolamayın), istemci/sunucu sertifikalarının uzaktan yüklemesini gerçekleştirin (şifreli oturum yoluyla), korumalı ağ paylaşımından indirin ya da taşınabilir medya kullanarak el ile dağıtın. |
+| Yönetici erişimine ilişkin kimlik bilgilerini veya diğer parolaları (ör. SSL veya yönetim sertifikaları) e-posta ile göndermeyin | Hesap adlarını ve parolaları sesli olarak ileterek gizliliği koruyun (ancak bunları sesli posta olarak depolamayın), istemci/sunucu sertifikalarının uzaktan yüklemesini gerçekleştirin (şifreli oturum yoluyla), korumalı ağ paylaşımından indirin ya da taşınabilir medya kullanarak el ile dağıtın. |
 | | Yaşam döngüsü yönetimi sertifikanızı proaktif olarak yönetin. |
 | Hesap parolalarını şifrelenmemiş ya da karma olmayan uygulama depolama biriminde depolamayın (örneğin, elektronik tablolarda, SharePoint sitelerinde ya da dosya paylaşımlarında). | Güvenlik yönetim ilkeleri ve sistem sağlamlaştırma ilkeleri oluşturun ve bunları geliştirme ortamınıza uygulayın. |
 | | Azure SSL/TLS sitelerine uygun erişim sağlamak için [Enhanced Mitigation Experience Toolkit 5.5](https://technet.microsoft.com/security/jj653751) sertifikası sabitleme kuralları kullanın. |
@@ -249,6 +249,6 @@ Azure ve ilgili Microsoft hizmetlerinin yanı sıra bu belgede başvurulan belir
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO5-->
 
 

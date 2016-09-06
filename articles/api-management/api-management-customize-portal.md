@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="08/09/2016"
+    ms.date="08/24/2016"
     ms.author="sdanie"/>
 
 # Azure API Management’ta geliştirici portalını özelleştirme
@@ -78,7 +78,7 @@ Geliştirici portalının giriş sayfasında ne göründüğünü düzenlemek i�
 
 ## <a name="next-steps"> </a>Sonraki adımlar
 
--   [Gelişmiş API yapılandırmasını kullanmaya başlama][] öğreticisindeki diğer konulara göz atın.
+-   [Geliştirici portal şablonları](api-management-developer-portal-templates.md)’nı kullanarak geliştirici portal sayfalarının içeriğini özelleştirme hakkında bilgi edinin.
 
 [Sayfa üst bilgisindeki metni/logoyu değiştirme]: #change-page-headers
 [Üst bilgilerin stilini değiştirme]: #change-headers-styling
@@ -95,12 +95,11 @@ Geliştirici portalının giriş sayfasında ne göründüğünü düzenlemek i�
 [api-management-customization-manage-content]: ./media/api-management-customize-portal/api-management-customization-manage-content.png
 
 
-[Gelişmiş API yapılandırmasını kullanmaya başlama]: api-management-get-started-advanced.md
 [Önyükleme]: http://getbootstrap.com/
 [LESS değişkenleridir]: http://getbootstrap.com/css/
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/23/2016"
+   ms.date="08/25/2016"
    ms.author="barbkess;lodipalm;sonyama"/>
 
 # Azure SQL Data Warehouse oluşturma
@@ -60,6 +60,8 @@ Başlamak için gerekli olanlar:
 
     - **Kaynak seçme**: **Kaynak seç** > **Örnek** seçeneğine tıklayın. Azure, **Örnek seçin** alanını AdventureWorksDW olarak otomatik doldurur.
 
+> [AZURE.NOTE] SQL Veri Ambarı için varsayılan harmanlama SQL_Latin1_General_CP1_CI_AS şeklindedir. Farklı bir harmanlama gerekiyorsa veritabanını farklı bir harmanlama ile oluşturmak için [T-SQL][] kullanılabilir.
+
 4. SQL Data Warehouse'unuzu oluşturmak için **Oluştur** düğmesine tıklayın.
 
 5. Birkaç dakika bekleyin. Veri ambarınız hazır olduğunda [Azure Portal](https://portal.azure.com) yeniden yönlendirileceksiniz. SQL Data Warehouse'unuzu SQL Database'ler altında listelenmiş bir şekilde panonuzda veya SQL Data Warehouse'unuzu oluşturmak için kullandığınız kaynak grubunda bulabilirsiniz. 
@@ -88,7 +90,8 @@ Güvenlik duvarı kuralları, Transact-SQL kullanarak de yapılandırılabilir. 
 [DWU]: sql-data-warehouse-overview-what-is.md#data-warehouse-units
 [aboneliği]: ../azure-glossary-cloud-terminology.md#subscription
 [kaynak grubu]: ../azure-glossary-cloud-terminology.md#resource-group
-
+[T-SQL]: ./sql-data-warehouse-get-started-create-database-tsql.md
+ 
 <!--MSDN references-->
 [sp_set_firewall_rule]: https://msdn.microsoft.com/library/dn270017.aspx
 [sp_set_database_firewall_rule]: https://msdn.microsoft.com/library/dn270010.aspx
@@ -101,6 +104,6 @@ Güvenlik duvarı kuralları, Transact-SQL kullanarak de yapılandırılabilir. 
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

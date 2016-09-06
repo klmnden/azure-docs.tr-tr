@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/24/2016"
+   ms.date="08/26/2016"
    ms.author="yurid"/>
 
 # Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama
@@ -38,7 +38,13 @@ Güvenlik ilkeleri, her bir abonelik veya kaynak grubu için yapılandırılabil
 
     ![Veri koleksiyonunu etkinleştirme](./media/security-center-policies/security-center-policies-fig2-ga.png)
 
-4. **Sanal makinelerden veri toplama** seçeneğinin **Açık** olduğundan emin olun. Bu seçenek, var olan ve yeni kaynaklar için otomatik günlük koleksiyonunu etkinleştirir. 
+    Bu dikey pencerede kullanılabilen seçenekler şunlardır:
+    - **Önleme ilkesi**: bu seçenek abonelik veya kaynak grubu başına ilkeleri yapılandırmanıza olanak verir.  
+    - **E-posta bildirimi**: bir uyarının gün içinde ilk kez oluşması durumunda ve yalnızca yüksek önem düzeyindeki uyarılar için bir e-posta bildirimi gönderilir. E-posta tercihleri yalnızca abonelik ilkeleri için yapılandırılabilir. E-posta bildirimini yapılandırma hakkında daha fazla bilgi için [Azure Güvenlik Merkezi’nde güvenlik kişi ayrıntılarını sağlama](security-center-provide-security-contact-details.md) konusunu okuyun. 
+    - **Fiyatlandırma katmanı**: Fiyatlandırma Katmanı seçiminden yükseltme yapmak için bu seçeneği kullanın. Fiyatlandırma seçenekleri hakkında daha fazla bilgi almak için [Güvenlik Merkezi sayfasını](https://azure.microsoft.com/pricing/details/security-center/) ziyaret edin.
+
+    
+4.  **Sanal makinelerden veri toplama** seçeneğinin **Açık** olduğundan emin olun. Bu seçenek, var olan ve yeni kaynaklar için otomatik günlük koleksiyonunu etkinleştirir. 
 
     >[AZURE.NOTE] Var olan ve yeni VM'lerin hepsinde güvenlik izleme özelliğinin kullanılabilir olduğundan emin olmak için her bir aboneliğinizde veri toplamayı açmanızı öneririz. Veri koleksiyonunu etkinleştirme, izleme aracısını yükler. Veri koleksiyonunu şimdi bu konumdan açmak istemiyorsanız bu işlemi daha sonra sistem durumu ve öneriler görünümlerinden gerçekleştirebilirsiniz. Ayrıca, yalnızca abonelik için veya VM'leri seçmek için de veri koleksiyonunu etkinleştirebilirsiniz. Desteklenen VM'ler hakkında daha fazla bilgi için bkz. [Azure Güvenlik Merkezi ile ilgili SSS](security-center-faq.md) 
 
@@ -68,7 +74,7 @@ Her bir seçeneğin ne yapacağını anlamak için aşağıdaki tabloya başvuru
 | İşletim Sistemi Güvenlik Açıkları | Her gün, sanal makineyi saldırı karşısında daha savunmasız hale getirebilecek olan işletim sistemi yapılandırmalarını çözümler ve bu güvenlik açıklarına değinen yapılandırma değişiklikleri önerir. İzlenmekte olan belirli yapılandırmalar hakkında daha fazla bilgi için bkz. [Önerilen temel kurallar listesi](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). |
 | Uç Nokta Koruması | Virüsleri, casus yazılımları ve diğer kötü amaçlı yazılımları tanımlamaya ve kaldırmaya yardımcı olmak için tüm Windows sanal makinelerine sağlamak üzere uç nokta koruması önerir.|
 | Disk Şifrelemesi | Bekleyen verilerin korunmasını geliştirmek için tüm sanal makinelerde disk şifrelemesini etkinleştirmeyi önerir. 
-| Ağ Güvenlik Grupları | Ortak uç noktalara sahip sanal makinelere gelen ve giden trafiği denetlemek için [Ağ Güvenlik Grupları](../virtual-network/virtual-networks-nsg.md)'nın (NSG) yapılandırılmasını önerir. Aksi belirtilmediği sürece bir alt ağ için yapılandırılan NSG'ler, tüm sanal makine ağ arabirimleri tarafından devralınır. Bir NSG'nin yapılandırılıp yapılandırılmadığını denetlemin yanı sıra, bu seçenek gelen trafiğe izin veren güvenlik kuralı varsa bunları tanımlamak için gelen güvenlik kurallarını değerlendirir. |
+| Ağ Güvenlik Grupları | Ortak uç noktalara sahip sanal makinelere gelen ve giden trafiği denetlemek için [Ağ Güvenlik Grupları](../virtual-network/virtual-networks-nsg.md)'nın (NSG) yapılandırılmasını önerir. Aksi belirtilmediği sürece bir alt ağ için yapılandırılan NSG'ler, tüm sanal makine ağ arabirimleri tarafından devralınır. Bir NSG'nin yapılandırılıp yapılandırılmadığını denetlemenin yanı sıra, bu seçenek gelen trafiğe izin veren güvenlik kuralı varsa bunları tanımlamak için gelen güvenlik kurallarını değerlendirir. |
 | Web Uygulaması Güvenlik Duvarı | Web Uygulaması Güvenlik Duvarı'nın sanal makinelerde şu durumlarda sağlanmasını önerir: [Örnek Düzeyinde Ortak IP](../virtual-network/virtual-networks-instance-level-public-ip.md) (ILPIP) kullanıldığında ve 80/443 numaralı bağlantı noktasına erişime izin verecek şekilde ilişkili NSG Gelen Güvenlik Kuralları yapılandırıldığında. Yük dengeli IP (VIP) kullanılır, ilişkili yük dengeleme ve gelen NAT kuralları 80/443 numaralı bağlantı noktasına erişime izin verecek şekilde yapılandırılır (daha fazla bilgi için bkz. [Load Balancer için Azure Resource Manager Desteği](../load-balancer/load-balancer-arm.md)) |
 | Yeni Nesil Güvenlik Duvarı | Bu da ağ korumalarını Azure’da yerleşik olan Ağ Güvenlik Grupları'nın ötesine genişletir. Güvenlik Merkezi, Yeni Nesil Güvenlik Duvarı'nın önerildiği dağıtımları bulur ve sanal gereç sağlamanızı imkan tanır. |
 | SQL Denetimi | Azure SQL Sunucuları'na ve Veritabanları'na erişim denetiminin uyumluluk, gelişmiş algılama ve araştırma amacıyla etkinleştirilmesini önerir. |
@@ -102,6 +108,6 @@ Bu belgede, Azure Güvenlik Merkezi'nde güvenlik ilkelerinin nasıl yapılandı
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

@@ -106,7 +106,7 @@ Bu adımlardan sonra aşağıdaki dört değere sahip olmanız gerekir:
         Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213
 6. Aşağıdaki **appSetttings** bölümünü **App.config** dosyasına ekleyin. Bu ayarlar **GetAuthorizationHeader** yardımcı yöntemi tarafından kullanılır. 
 
-    **&lt;Application ID&gt;**, **&lt;Password&gt;**, **&lt;Subscription ID&gt;** ve **&lt;tenant ID**&gt; değerlerini kendi değerlerinizle değiştirin. 
+    **&lt;Application ID&gt;**, **&lt;Password&gt;**, **&lt;Subscription ID&gt;** ve **&lt;tenant ID&gt;** değerlerini kendi değerlerinizle değiştirin. 
 
         <appSettings>
             <add key="ActiveDirectoryEndpoint" value="https://login.windows.net/" />
@@ -459,6 +459,7 @@ Bu adımlardan sonra aşağıdaki dört değere sahip olmanız gerekir:
  
 
 
-<!--HONumber=Aug16_HO4-->
+
+<!--HONumber=ago16_HO5-->
 
 

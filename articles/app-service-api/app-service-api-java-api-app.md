@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="java"
     ms.topic="get-started-article"
-    ms.date="06/01/2016"
+    ms.date="08/31/2016"
     ms.author="rachelap"/>
 
 # Azure App Service içinde Java API uygulaması derleme ve dağıtma
@@ -340,6 +340,6 @@ Azure’da Java kullanma hakkında daha fazla bilgi için bkz. [Java Geliştiric
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=ago16_HO5-->
 
 

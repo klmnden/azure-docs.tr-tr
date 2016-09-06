@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="08/09/2016"
+    ms.date="08/24/2016"
     ms.author="sdanie"/>
 
 # API’nizi, Azure API Management kullanarak hız sınırlarıyla koruma | Microsoft Azure
@@ -238,7 +238,6 @@ Dakikada 10 çağrılık hız sınırı ilkesi etkinken, hız sınırı aşılma
 
 ## <a name="next-steps"> </a>Sonraki adımlar
 
--   [Gelişmiş API yapılandırmasını kullanmaya başlama][] öğreticisindeki diğer konulara göz atın.
 -   Aşağıdaki videoda hız sınırlarını ve kotaları ayarlama gösterisini izleyin.
 
 > [AZURE.VIDEO rate-limits-and-quotas]
@@ -289,13 +288,12 @@ Dakikada 10 çağrılık hız sınırı ilkesi etkinken, hız sınırı aşılma
 [Ürün yayımlama]: #publish-product
 [Bir geliştirici hesabını ürüne abone yapma]: #subscribe-account
 [Bir işlem çağırma ve hız sınırını test etme]: #test-rate-limit
-[Gelişmiş API yapılandırmasını kullanmaya başlama]: api-management-get-started-advanced.md
 
 [Çağrı hızını sınırlama]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
 [Kullanım kotası ayarlama]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

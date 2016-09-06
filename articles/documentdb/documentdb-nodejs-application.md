@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="nodejs" 
     ms.topic="hero-article" 
-    ms.date="08/15/2016" 
+    ms.date="08/25/2016" 
     ms.author="anhoh"/>
 
 # <a name="_Toc395783175"></a>DocumentDB kullanarak bir Node.js web uygulaması oluşturma
@@ -573,6 +573,6 @@ Daha fazla bilgi için bkz. [Node.js Geliştirici Merkezi](https://azure.microso
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

@@ -12,7 +12,7 @@ authors="ashmaka"
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="05/31/2016"
+    ms.date="08/29/2016"
     ms.author="ashmaka"/>
 
 # Bir Azure Search dizini oluşturma
@@ -72,6 +72,6 @@ Veri depolama gereksinimleri zamanla değişiyorsa bölüm ekleyerek veya kaldı
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO5-->
 
 

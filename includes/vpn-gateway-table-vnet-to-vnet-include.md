@@ -7,12 +7,10 @@
 (+), bu dağıtım yönteminin yalnızca aynı abonelikteki VNet'ler için kullanılabildiğini gösterir.<br>
 (*) kısmi destek sağlandığını belirtir.
 
-Şu anda Önizlemede olan VNet eşlemesi, belirli dağıtım modelleri ve yapılandırmalar için kullanılabilir. Daha fazla bilgi edinmek için [VNet eşlemesi](../articles/virtual-network/virtual-network-peering-overview.md) makalesine bakın.
 
 
 
 
-
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

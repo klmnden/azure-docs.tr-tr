@@ -128,7 +128,7 @@ Kasada bir kayıt anahtarı oluşturun. Azure Site Recovery Sağlayıcısı'nı 
 
 5.  Sağlayıcı'nın yükleneceği konum **<SystemDrive>\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin** olarak belirlenmiştir. **Yükle**'ye tıklayın.
 
-    ![Installlocation](./media/site-recovery-vmm-to-azure-classic/install-location.png)
+    ![InstallLocation](./media/site-recovery-vmm-to-azure-classic/install-location.png)
 
 6. Sağlayıcı yüklendikten sonra sunucuyu kasaya kaydetmek için **Kaydet**'e tıklayın.
 
@@ -206,6 +206,8 @@ Parametre konumları aşağıdaki şekildedir:
 
     ![Depolama hesabı](./media/site-recovery-vmm-to-azure-classic/storage.png)
 
+> [AZURE.NOTE] Site Recovery dağıtımında kullanılan depolama hesapları için aynı abonelik içindeki kaynak grupları arasında veya abonelik arasında [depolama hesapları geçişi](../resource-group-move-resources.md) desteklenmez.
+
 ## 5. Adım: Azure Kurtarma Hizmetleri Aracısı'nı yükleme
 
 VMM bulutundaki tüm Hyper-V ana bilgisayar sunucularına Azure Kurtarma Hizmetleri aracısını yükleyin.
@@ -267,6 +269,8 @@ Ağ eşlemesine başlamadan önce kaynak VMM sunucusundaki sanal makinelerin bir
 Ayarlar kaydedildikten sonra eşleme işlemini izlemek için bir iş başlatılır ve bu iş, İşler sekmesinden izlenebilir. Kaynak VM ağına karşılık gelen tüm var olan çoğaltılmış sanal makineler hedef Azure ağlarına bağlanır. Kaynak VM ağına bağlanan yeni sanal makineler, çoğaltmanın ardından eşlenen Azure ağına bağlanır. Var olan bir eşlemeyi yeni bir ağ ile değiştirirseniz çoğaltılan sanal makineler yeni ayarlara göre bağlantı kurar.
 
 Hedef ağın birden çok alt ağı varsa ve bu alt ağlardan biri kaynak sanal makinenin bulunduğu alt ağ ile aynı adı taşıyorsa çoğaltılan sanal makinenin, yük devretme işleminin ardından hedef alt ağa bağlandığını unutmayın. Eşleşen ada sahip bir hedef alt ağ yoksa sanal makine ağdaki ilk alt ağa bağlanır.
+
+> [AZURE.NOTE] Site Recovery dağıtımında kullanılan ağlar için aynı abonelik içindeki kaynak grupları arasında veya abonelik arasında [ağ geçişi](../resource-group-move-resources.md) desteklenmez.
 
 ## 8. Adım: Sanal makinelere yönelik korumayı etkinleştirme
 
@@ -332,14 +336,10 @@ Yük devretme testi, yük devretme işleminizi ve kurtarma mekanizmanızı yalı
 
     ![Kurtarma planı oluşturma](./media/site-recovery-vmm-to-azure-classic/recovery-plan1.png)
 
-2. **Sanal Makine Seç** sayfasında kurtarma planına eklenecek sanal makineleri seçin. Bu sanal makineler kurtarma planının varsayılan grubuna eklenir—Grup 
-3. 
-4. 
-5. 1. Tek bir kurtarma planında en fazla 100 sanal makine test edilebilir.
+2. **Sanal Makine Seç** sayfasında kurtarma planına eklenecek sanal makineleri seçin. Bu sanal makineler, kurtarma planının varsayılan grubu olan Grup 1'e eklenir. Tek bir kurtarma planında en fazla 100 sanal makine test edilebilir.
 
-    - Plana eklemeden önce sanal makine özelliklerini doğrulamak isterseniz sanal makinenin bulunduğu bulutun özellikler sayfasında sanal makineye tıklayın. Ayrıca, VMM konsolunda da sanal makine özelliklerini yapılandırabilirsiniz.
-    - Gösterilen sanal makinelerin tümü için koruma etkinleştirilmiştir. Listede koruma özelliği etkinleştirilen ve ilk çoğaltması tamamlanan sanal makinelerin yanı sıra koruma özelliği etkinleştirilmiş ancak ilk çoğaltması bekleme durumunda olan sanal makineler bulunur. Yalnızca ilk çoğaltması tamamlanan sanal makineler kurtarma planının bir parçası olarak yük devredebilir.
-
+- Plana eklemeden önce sanal makine özelliklerini doğrulamak isterseniz sanal makinenin bulunduğu bulutun özellikler sayfasında sanal makineye tıklayın. Ayrıca, VMM konsolunda da sanal makine özelliklerini yapılandırabilirsiniz.
+- Gösterilen sanal makinelerin tümü için koruma etkinleştirilmiştir. Listede koruma özelliği etkinleştirilen ve ilk çoğaltması tamamlanan sanal makinelerin yanı sıra koruma özelliği etkinleştirilmiş ancak ilk çoğaltması bekleme durumunda olan sanal makineler bulunur. Yalnızca ilk çoğaltması tamamlanan sanal makineler kurtarma planının bir parçası olarak yük devredebilir.
 
     ![Kurtarma planı oluşturma](./media/site-recovery-vmm-to-azure-classic/select-rp.png)
 
@@ -385,6 +385,6 @@ Yük devretme testi çalıştırmak için şunları yapın:
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=ago16_HO5-->
 
 

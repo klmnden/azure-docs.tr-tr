@@ -58,7 +58,7 @@ Batch çözümleri geliştirdiğinizde, Microsoft Azure'de aşağıdaki hesaplar
 
 - **Azure hesabı ve aboneliği** -Henüz Azure aboneliğiniz yoksa [MSDN abone avantajlarınızı][msdn_benefits] etkinleştirebilir veya [ücretsiz Azure hesabı][free_account] için kaydolabilirsiniz. Hesap oluşturduğunuzda sizin için varsayılan bir abonelik oluşturulur.
 
-- **Batch hesabı** - Uygulamalarınız Batch hizmetiyle etkileşime geçtiğinde hesap adı, hesap URL'si ve bir erişim anahtarı kimlik bilgileri olarak kullanılır. Havuzlar, işlem düğümleri, işler ve görevler gibi tüm Batch kaynaklarınız Batch hesabıyla ilişkilendirilir. Azure portalında [Batch hesabı oluşturabilir ve yönetebilirsiniz](batch-account-create-portal.md).
+- **Batch hesabı** - Uygulamalarınız Batch hizmetiyle etkileşime geçtiğinde hesap adı, hesap URL'si ve bir erişim anahtarı kimlik bilgileri olarak kullanılır. Havuzlar, işlem düğümleri, işler ve görevler gibi tüm Batch kaynaklarınız Batch hesabıyla ilişkilendirilir. Azure portalında [Batch hesabı oluşturabilirsiniz](batch-account-create-portal.md).
 
 - **Storage hesabı** - Batch’te [Azure Storage][azure_storage] dosyalarıyla çalışmak için yerleşik destek bulunur. Neredeyse tüm Batch senaryolarında, görevlerinizin çalıştırdığı programların ve işlediği verilerin hazırlanmasının yanı sıra oluşturduğu çıktı verilerinin depolanması için Azure Depolama kullanılır. Storage hesabı oluşturmak için bkz. [Azure depolama hesapları hakkında](./../storage/storage-create-storage-account.md).
 
@@ -163,6 +163,6 @@ Batch hizmetine yüksek düzeyli bir genel bakışı gördüğünüze göre işl
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

@@ -19,9 +19,11 @@
 # VPN Gateway hakkında
 
 
-VPN Gateway sanal ağlar ve şirket içi konumlara arasında ağ trafiği göndermek için kullanılan bir ayar koleksiyonudur. VPN Gateway Siteden Siteye, Noktadan Siteye ve ExpressRoute bağlantıları için kullanılır. VPN Gateway ayrıca Azure’da (VNet-VNet) birden çok sanal ağ arasında trafik göndermek için de kullanılır. 
+VPN Gateway sanal ağlar ve şirket içi konumlara arasında ağ trafiği göndermek için kullanılan bir kaynak koleksiyonudur. Ağ geçitleri Siteden Siteye, Noktadan Siteye ve ExpressRoute bağlantıları için kullanılır. VPN Gateway ayrıca Azure’da (VNet-VNet) birden çok sanal ağ arasında trafik göndermek için de kullanılır. 
 
-Bir sanal ağın yalnızca bir sanal ağ geçidi olabilir. Bağlantı oluşturmak için bir VNet'e sanal ağ geçidi ekleyip diğer VPN Gateway ayarlarını yapılandırırsınız. Bazı durumlarda oluşturduğunuz bağlantı bir VPN bağlantısıdır. Diğer durumlarda yapılandırmanız için VPN gerekmez. Bağlantınız için bir VPN gerekip gerekmediğine bakılmaksızın, ayarlar koleksiyonu "VPN Gateway" olarak adlandırılır.
+Bağlantı oluşturmak için bir VNet'e sanal ağ geçidi ekleyip diğer VPN Gateway kaynaklarını ve ayarlarını yapılandırırsınız. Bir sanal ağın her ağ geçidi türü için yalnızca bir sanal ağ geçidi olabilir. Örneğin, GatewayType Vpn kullanan bir sanal ağ geçidiniz ve GatewayType ExpressRoute kullanan bir sanal ağ geçidiniz olabilir.
+
+Ağ geçidi gereksinimleri hakkında bilgi için bkz. [Ağ Geçidi Gereksinimleri](vpn-gateway-about-vpn-gateway-settings.md#requirements). Tahmin edilen toplam verimlilik için bkz. [VPN Gateway Ayarları Hakkında](vpn-gateway-about-vpn-gateway-settings.md#aggthroughput). Fiyatlandırma için bkz. [VPN Gateway Fiyatlandırması](https://azure.microsoft.com/pricing/details/vpn-gateway). Abonelikler ve hizmet sınırlamaları için bkz. [Ağ Limitleri](../articles/azure-subscription-service-limits.md#networking-limits).
 
 VPN Gateway'i yapılandırırken kullanacağınız yönergeler, sanal ağınızı oluşturmak için kullandığınız dağıtım modeline bağlıdır. Örneğin,VNet'inizi klasik dağıtım modeli kullanarak oluşturduysanız VPN ağ geçidi ayarlarınızı oluşturmak ve yapılandırmak için klasik dağıtım modeline ilişkin yönergeleri kullanırsınız. Daha fazla bilgi için bkz. [Resource Manager ve klasik dağıtım modellerini anlama](../resource-manager-deployment-model.md).
 
@@ -34,7 +36,10 @@ Aşağıdaki bölümlerde, yapılandırmaya ilişkin şu bilgilerin yer aldığ�
 
 Gereksinimlerinize uygun yapılandırma topolojisini seçmenize yardımcı olması için diyagramları ve açıklamaları kullanabilirsiniz. Diyagramlarda temel topolojilerin başlıca olanları gösterilmektedir ancak diyagramları bir kılavuz olarak kullanıp daha karmaşık yapılandırmalar da oluşturabilirsiniz. Her yapılandırma, seçtiğiniz VPN Gateway ayarlarını kullanır.
 
-VPN Gateway bir ayarlar koleksiyonu olduğundan, ayarların bazılarını bir havuzu kullanarak yapılandırdıktan sonra başka bir havuza geçiş yapabilirsiniz. Şu anda Azure portalında her VPN ağ geçidi ayarını yapılandıramazsınız. Her yapılandırmaya ilişkin makaledeki yönergelerde, belirli bir aracın gerekip gerekmediği belirtilmiştir. Klasik dağıtım modeliyle çalışıyorsanız bu aşamada klasik portalda çalışmak veya PowerShell kullanmak isteyebilirsiniz. Kullanılabilen ayarların her biri ile ilgili bilgi edinmek için bkz. [VPN Gateway ayarları hakkında](vpn-gateway-about-vpn-gateway-settings.md).
+### VPN Gateway ayarlarını yapılandırma
+
+VPN Gateway bir kaynak koleksiyonu olduğundan, kaynakların bazılarını bir araç kullanarak yapılandırabilir ve ardından farklı kaynakları yapılandırmak üzere başka bir araca geçiş yapabilirsiniz. Şu anda Azure portalında her VPN ağ geçidi kaynak ayarını yapılandıramazsınız. Her yapılandırmaya ilişkin makaledeki yönergelerde, belirli bir aracın gerekip gerekmediği belirtilmiştir. Klasik dağıtım modeliyle çalışıyorsanız bu aşamada klasik portalda çalışmak veya PowerShell kullanmak isteyebilirsiniz. Kullanılabilen ayarların her biri ile ilgili bilgi edinmek için bkz. [VPN Gateway ayarları hakkında](vpn-gateway-about-vpn-gateway-settings.md).
+
 
 
 ## Siteden Siteye ve Çok Siteli
@@ -77,14 +82,15 @@ Bağladığınız VNet'ler,
 
 Azure'ın şu anda iki dağıtım modeli vardır: Klasik ve Resource Manager. Azure'ı bir süredir kullanıyorsanız klasik VNet'te çalışan Azure VM'leriniz ve örnek rollerinizin olması olasıdır. Daha yeni VM'leriniz ve rol örnekleriniz Resource Manager'da oluşturulan bir VNet'te çalışıyor olabilir. Bir VNet'teki kaynakların bir diğerindeki kaynaklarla doğrudan iletişim kurabilmesini sağlamak üzere VNet'ler arasında bir bağlantı oluşturabilirsiniz.
 
-### VNet eşlemesi
-
-Sanal ağ yapılandırmanız belirli gereksinimleri karşılıyorsa bağlantınızı oluşturmak için VNet eşlemesini kullanabilirsiniz. VNet eşlemesi sanal ağ geçidini kullanmaz. [VNet eşlemesi](../virtual-network/virtual-network-peering-overview.md) şu anda Önizlemede.
-
 
 ### Dağıtım modelleri ve yöntemleri
 
 [AZURE.INCLUDE [vpn-gateway-table-vnet-to-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)] 
+
+### VNet eşlemesi
+
+Sanal ağ yapılandırmanız belirli gereksinimleri karşılıyorsa bağlantınızı oluşturmak için VNet eşlemesini kullanabilirsiniz. VNet eşlemesi sanal ağ geçidini kullanmaz. [VNet eşlemesi](../virtual-network/virtual-network-peering-overview.md) şu anda Önizlemede.
+
 
 
 ## Noktadan Siteye
@@ -108,7 +114,9 @@ ExpressRoute hakkında daha fazla bilgi için bkz: [ExpressRoute’a Teknik Gene
 
 ## Siteden Siteye ve ExpressRoute eşzamanlı bağlantıları
 
-ExpressRoute, WAN bağlantınızdan (genel İnternet üzerinden değil) Azure dahil olmak üzere Microsoft Hizmetlerine doğrudan, özel olarak gerçekleştirilen bir bağlantıdır. Siteden Siteye VPN trafiği genel İnternet üzerinden şifrelenmiş olarak hareket eder. Aynı sanal ağ için Siteden Siteye VPN ve ExpressRoute bağlantıları yapılandırabiliyor olmanın çeşitli avantajları vardır. ExpressRoute için güvenli bir yük devretme yolu olarak Siteden Siteye VPN yapılandırabilir veya ağınızın parçası olmayıp ExpressRoute üzerinden bağlanılan sitelere bağlanmak için Siteden Siteye VPN'ler kullanabilirsiniz. 
+ExpressRoute, WAN bağlantınızdan (genel İnternet üzerinden değil) Azure dahil olmak üzere Microsoft Hizmetlerine doğrudan, özel olarak gerçekleştirilen bir bağlantıdır. Siteden Siteye VPN trafiği genel İnternet üzerinden şifrelenmiş olarak hareket eder. Aynı sanal ağ için Siteden Siteye VPN ve ExpressRoute bağlantıları yapılandırabiliyor olmanın çeşitli avantajları vardır.
+
+ExpressRoute için güvenli bir yük devretme yolu olarak Siteden Siteye VPN yapılandırabilir veya ağınızın parçası olmayıp ExpressRoute üzerinden bağlanılan sitelere bağlanmak için Siteden Siteye VPN'ler kullanabilirsiniz. Bu yapılandırma, aynı sanal ağ için biri -GatewayType Vpn, diğeri -GatewayType ExpressRoute kullanan iki sanal ağ geçidinin kullanılmasını gerektirir.
 
 
 ![Eşzamanlı bağlantı](./media/vpn-gateway-about-vpngateways/demoer.png "expressroute-site2site")
@@ -133,6 +141,6 @@ VPN Gateway hakkında daha fazla bilgi edinmek için bkz. [VPN Gateway ile ilgil
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

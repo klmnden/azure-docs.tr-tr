@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="08/16/2016"
+    ms.date="08/29/2016"
     ms.author="anhoh"/>
 
 # NoSQL öğreticisi: DocumentDB C# konsol uygulaması oluşturma
@@ -100,10 +100,9 @@ Harika! Kurulumu tamamladığımıza göre, biraz kod yazmaya başlayalım. Bu �
 
 Ardından, URI ve birincil anahtarınızı almak için [Azure Portal](https://portal.azure.com)'a gidin. DocumentDB URI ve birincil anahtar, uygulamanızın nereye bağlanacağını anlaması ve DocumentDB'nin uygulamanızın bağlantısına güvenmesi için gereklidir.
 
-1. Adımı uygulayarak Azure Portal'da DocumentDB hesabınıza gidin ve **Anahtarlar**a tıklayın.
+Azure Portal'da DocumentDB hesabınıza gidin ve ardından **Anahtarlar**’a tıklayın.
 
-URI'yi kopyalayın ve *<your endpoint URI>* programınızdaki kopyalanan URI ile değiştirin.
-Birincil anahtarı kopyalayın ve *<your key>* programınızdaki kopyalanan anahtarla değiştirin.
+Portaldaki URI’yi kopyalayın ve program.cs dosyasındaki `<your endpoint URI>` içine yapıştırın. Ardından portaldan BİRİNCİL ANAHTARI kopyalayın ve `<your key>` içine yapıştırın.
 
 ![Bir C# konsol uygulaması oluşturmak için NoSQL öğreticisi tarafından kullanılan Azure Portal'ın ekran görüntüsü DocumentDB hesabı dikey penceresinde ANAHTARLAR düğmesi vurgulanmış, ETKİN hub'ı vurgulanmış ve Anahtarlar dikey penceresinde URI, BİRİNCİL ANAHTAR ve İKİNCİL ANAHTAR değerleri vurgulanmış bir DocumentDB hesabını gösterir][keys]
 
@@ -199,7 +198,7 @@ Aşağıdaki kodu kopyalayın ve istemci oluşturmanın altında **GetStartedDem
         this.client = new DocumentClient(new Uri(EndpointUri), PrimaryKey);
 
         // ADD THIS PART TO YOUR CODE
-        await this.CreateDatabaseIfNotExists("FamilyDB");
+        await this.CreateDatabaseIfNotExists("FamilyDB_oa");
 
 Uygulamanızı çalıştırmak için **F5**'e basın.
 
@@ -247,14 +246,14 @@ Bir [koleksiyon](documentdb-resources.md#collections), **DocumentClient** sını
         }
     }
 
-Aşağıdaki kodu kopyalayın ve veritabanı oluşturmanın altında **GetStartedDemo** yönteminize yapıştırın. Bu, *FamilyCollection* adlı bir belge koleksiyonu oluşturur.
+Aşağıdaki kodu kopyalayın ve veritabanı oluşturmanın altında **GetStartedDemo** yönteminize yapıştırın. Bunun yapılması *FamilyCollection_oa* adlı bir belge koleksiyonu oluşturur.
 
         this.client = new DocumentClient(new Uri(EndpointUri), PrimaryKey);
 
-        await this.CreateDatabaseIfNotExists("FamilyDB");
+        await this.CreateDatabaseIfNotExists("FamilyDB_oa");
 
         // ADD THIS PART TO YOUR CODE
-        await this.CreateDocumentCollectionIfNotExists("FamilyDB", "FamilyCollection");
+        await this.CreateDocumentCollectionIfNotExists("FamilyDB_oa", "FamilyCollection_oa");
 
 Uygulamanızı çalıştırmak için **F5**'e basın.
 
@@ -345,9 +344,9 @@ Andersen Ailesi ve Wakefield Ailesi için birer tane olmak üzere iki belge yerl
 
 Aşağıdaki kodu kopyalayın ve belge koleksiyonu oluşturmanın altında **GetStartedDemo** yönteminize yapıştırın.
 
-    await this.CreateDatabaseIfNotExists("FamilyDB");
+    await this.CreateDatabaseIfNotExists("FamilyDB_oa");
 
-    await this.CreateDocumentCollectionIfNotExists("FamilyDB", "FamilyCollection");
+    await this.CreateDocumentCollectionIfNotExists("FamilyDB_oa", "FamilyCollection_oa");
 
     // ADD THIS PART TO YOUR CODE
     Family andersenFamily = new Family
@@ -376,7 +375,7 @@ Aşağıdaki kodu kopyalayın ve belge koleksiyonu oluşturmanın altında **Get
             IsRegistered = true
     };
 
-    await this.CreateFamilyDocumentIfNotExists("FamilyDB", "FamilyCollection", andersenFamily);
+    await this.CreateFamilyDocumentIfNotExists("FamilyDB_oa", "FamilyCollection_oa", andersenFamily);
 
     Family wakefieldFamily = new Family
     {
@@ -413,7 +412,7 @@ Aşağıdaki kodu kopyalayın ve belge koleksiyonu oluşturmanın altında **Get
             IsRegistered = false
     };
 
-    await this.CreateFamilyDocumentIfNotExists("FamilyDB", "FamilyCollection", wakefieldFamily);
+    await this.CreateFamilyDocumentIfNotExists("FamilyDB_oa", "FamilyCollection_oa", wakefieldFamily);
 
 Uygulamanızı çalıştırmak için **F5**'e basın.
 
@@ -463,10 +462,10 @@ DocumentDB, her bir koleksiyonda depolanan JSON belgelerde yapılan zengin [sorg
 
 Aşağıdaki kodu kopyalayın ve ikinci belge oluşturmanın altında **GetStartedDemo** yönteminize yapıştırın.
 
-    await this.CreateFamilyDocumentIfNotExists("FamilyDB", "FamilyCollection", wakefieldFamily);
+    await this.CreateFamilyDocumentIfNotExists("FamilyDB_oa", "FamilyCollection_oa", wakefieldFamily);
 
     // ADD THIS PART TO YOUR CODE
-    this.ExecuteSimpleQuery("FamilyDB", "FamilyCollection");
+    this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");
 
 Uygulamanızı çalıştırmak için **F5**'e basın.
 
@@ -500,17 +499,17 @@ DocumentDB, JSON belgelerini değiştirmeyi destekler.
 
 Aşağıdaki kodu kopyalayın ve sorgu yürütmenin altında **GetStartedDemo** yönteminize yapıştırın. Belgeyi değiştirdikten sonra, aynı sorgu tekrar çalıştırılarak değiştirilen belge görüntülenir.
 
-    await this.CreateFamilyDocumentIfNotExists("FamilyDB", "FamilyCollection", wakefieldFamily);
+    await this.CreateFamilyDocumentIfNotExists("FamilyDB_oa", "FamilyCollection_oa", wakefieldFamily);
 
-    this.ExecuteSimpleQuery("FamilyDB", "FamilyCollection");
+    this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");
 
     // ADD THIS PART TO YOUR CODE
     // Update the Grade of the Andersen Family child
     andersenFamily.Children[0].Grade = 6;
 
-    await this.ReplaceFamilyDocument("FamilyDB", "FamilyCollection", "Andersen.1", andersenFamily);
+    await this.ReplaceFamilyDocument("FamilyDB_oa", "FamilyCollection_oa", "Andersen.1", andersenFamily);
 
-    this.ExecuteSimpleQuery("FamilyDB", "FamilyCollection");
+    this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");
 
 Uygulamanızı çalıştırmak için **F5**'e basın.
 
@@ -538,12 +537,12 @@ DocumentDB, JSON belgelerini silmeyi destekler.
 
 Aşağıdaki kodu kopyalayın ve ikinci sorguyu yürütmenin altında **GetStartedDemo** yönteminize yapıştırın.
 
-    await this.ReplaceFamilyDocument("FamilyDB", "FamilyCollection", "Andersen.1", andersenFamily);
+    await this.ReplaceFamilyDocument("FamilyDB_oa", "FamilyCollection_oa", "Andersen.1", andersenFamily);
 
-    this.ExecuteSimpleQuery("FamilyDB", "FamilyCollection");
+    this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");
 
     // ADD THIS PART TO CODE
-    await this.DeleteFamilyDocument("FamilyDB", "FamilyCollection", "Andersen.1");
+    await this.DeleteFamilyDocument("FamilyDB_oa", "FamilyCollection_oa", "Andersen.1");
 
 Uygulamanızı çalıştırmak için **F5**'e basın.
 
@@ -555,13 +554,13 @@ Oluşturulan veritabanı silindiğinde, veritabanı ve tüm alt kaynaklar (kolek
 
 Tüm veritabanını ve tüm alt kaynaklarını silmek için aşağıdaki kodu kopyalayın ve belge silmenin altında **GetStartedDemo** yönteminize yapıştırın.
 
-    this.ExecuteSimpleQuery("FamilyDB", "FamilyCollection");
+    this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");
 
-    await this.DeleteFamilyDocument("FamilyDB", "FamilyCollection", "Andersen.1");
+    await this.DeleteFamilyDocument("FamilyDB_oa", "FamilyCollection_oa", "Andersen.1");
 
     // ADD THIS PART TO CODE
     // Clean up/delete the database
-    await this.client.DeleteDatabaseAsync(UriFactory.CreateDatabaseUri("FamilyDB"));
+    await this.client.DeleteDatabaseAsync(UriFactory.CreateDatabaseUri("FamilyDB_oa"));
 
 Uygulamanızı çalıştırmak için **F5**'e basın.
 
@@ -573,9 +572,9 @@ Uygulamayı hata ayıklama modunda oluşturmak için Visual Studio'da F5'e bası
 
 Başlarken uygulamanızın çıktısını görmeniz gerekir. Çıktı, eklediğimiz sorguların sonuçlarını gösterir ve aşağıdaki örnek metinle eşleşmelidir.
 
-    Created FamilyDB
+    Created FamilyDB_oa
     Press any key to continue ...
-    Created FamilyCollection
+    Created FamilyCollection_oa
     Press any key to continue ...
     Created Family Andersen.1
     Press any key to continue ...
@@ -619,6 +618,6 @@ Başvuruları Visual Studio'daki DocumentDB .NET SDK'sına geri yüklemek için,
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

@@ -42,7 +42,7 @@ Aşağıdaki şirket içi ve dışı bağlantılar desteklenmektedir:
 
 - [ExpressRoute](../expressroute/expressroute-introduction.md) – ExpressRoute genel İnternet üzerinden değil WAN bağlantınızdan Azure’e doğrudan yapılan bir bağlantıdır. Daha fazla bilgi için bkz. [ExpressRoute’a Teknik Genel Bakış](../expressroute/expressroute-introduction.md) ve [.ExpressRoute SSS](../expressroute/expressroute-faqs.md).
 
-Bağlantılar hakkında daha fazla bilgi edinmek için bkz. [VPN Gateway bağlantı diyagramları](vpn-gateway-topology.md).
+Bağlantılar hakkında daha fazla bilgi için bkz. [VPN Gateway Hakkında](vpn-gateway-about-vpngateways.md).
 
 ### Siteden Siteye bağlantı ve Noktadan Siteye bağlantı arasındaki fark nelerdir?
 
@@ -68,11 +68,11 @@ Cihaz satıcılarıyla işbirliğiyle bir dizi standart Siteden Siteye VPN cihaz
 
 ### Bilinen uyumlu aygıt listesinde olmayan bir VPN cihazım varsa ne yapmalıyım?
 
-Cihazınızın bilinen uyumlu VPN cihazı olarak listelendiğini görmüyorsanız ve bunu VPN bağlantınız için kullanmak istiyorsanız, bunun [burada](vpn-gateway-about-vpn-devices.md#devices-not-on-the-compatible-list) listelenen desteklenen IPsec/IKE yapılandırma seçenekleri ve parametreleriyle eşleştiğini doğrulamanız gerekir. Minimum gereksinimleri karşılayan cihazların VPN gateway’lerle sorunsuz çalışması gerekir. Lütfen ek destek ve yapılandırma yönergeleri için cihaz üreticinize başvurun.
+Cihazınızın bilinen uyumlu VPN cihazı olarak listelendiğini görmüyorsanız ve bunu VPN bağlantınız için kullanmak istiyorsanız, bunun [burada](vpn-gateway-about-vpn-devices.md#devices-not-on-the-compatible-list) listelenen desteklenen IPsec/IKE yapılandırma seçenekleri ve parametreleriyle eşleştiğini doğrulamanız gerekir. Minimum gereksinimleri karşılayan cihazların VPN gateway’lerle sorunsuz çalışması gerekir. Ek destek ve yapılandırma yönergeleri için cihaz üreticinize başvurun.
 
 ### Trafik boştayken neden ilke tabanlı VPN tünelim kayboluyor?
 
-İlke tabanlı (statik rota olarak da bilinir) VPN Ağ geçitleri için bu beklenen bir davranıştır. tünel üzerindeki trafik 5 dakikadan fazla boşta kalırsa tünel bozulur. Ancak herhangi bir yönde trafik akışı başlar başlamaz tünel hemen yeniden başlatılır. Rota tabanlı (dinamik olarak da bilinir) VPN ağ geçidiniz varsa bu davranışla karşılaşmazsınız.
+İlke tabanlı (statik rota olarak da bilinir) VPN Ağ geçitleri için bu beklenen bir davranıştır. tünel üzerindeki trafik 5 dakikadan fazla boşta kalırsa tünel bozulur. Herhangi bir yönde trafik akışı başladığında tünel hemen yeniden başlatılır. Rota tabanlı (dinamik olarak da bilinir) VPN ağ geçidiniz varsa bu davranışla karşılaşmazsınız.
 
 ### Azure'e bağlanmak için VPN'ler yazılımını kullanabilir miyim?
 
@@ -126,7 +126,7 @@ Otomatik olarak yeniden ve DDNS şu anda Noktadan Siteye VPN'lerde desteklenmiyo
 
 ### Siteden Siteye ve Noktadan Siteye yapılandırmalarına aynı sanal ağda birlikte sahip olabilir miyim?
 
-Evet. Bu her iki çözüm de, ağ geçidiniz için rota tabanlı VPN türünüz varsa çalışacaktır. Klasik dağıtım modeli için dinamik bir ağ geçidiniz olması gerekir. Statik yönlendirme VPN ağ geçitleri veya -VpnType PolicyBased kullanan ağ geçitleri için Noktadan Siteye çözümünü desteklemiyoruz.
+Evet. Bu her iki çözüm de, ağ geçidiniz için Yol Tabanlı VPN türünüz varsa çalışacaktır. Klasik dağıtım modeli için dinamik bir ağ geçidiniz olması gerekir. Statik yönlendirme VPN ağ geçitleri veya -VpnType PolicyBased kullanan ağ geçitleri için Noktadan Siteye çözümünü desteklemiyoruz.
 
 ### Aynı anda birden çok sanal ağa bağlanmak için Noktadan Siteye istemcisi yapılandırabilir miyim?
 
@@ -148,7 +148,7 @@ Rota tabanlı ağ geçitleri yol tabanlı VPN'leri uygular. Rota temelli VPN'ler
 
 ### Oluşturmadan önce VPN ağ geçidi IP adresimi alabilir miyim?
 
-Hayır. IP adresini almak için önce ağ geçidi oluşturmanız gerekir. VPN ağ geçidinizi silip yeniden oluşturursanız IP adresiniz değişir.
+Hayır. IP adresini almak için önce ağ geçidi oluşturmanız gerekir. VPN ağ geçidinizi silip yeniden oluşturursanız IP adresi değişir.
 
 ### VPN tünelimin kimliği nasıl doğrulanır?
 
@@ -166,11 +166,11 @@ Evet, Önceden Paylaşılan Anahtar API’sini ve PowerShell cmdlet’ini Ayarla
 
 Şirket içi ve dışı bağlantısını etkinleştirmek üzere çalıştırdığımız bir ağ geçidi hizmetimiz bulunmaktadır. 
 
-Bir VPN ağ geçidi yapılandırmak için VNet’inizi için bir ağ geçidi alt ağı oluşturmanız gerekir. Tüm ağ geçidi alt ağları düzgün çalışması için GatewaySubnet şeklinde adlandırılmalıdır. Ağ geçidi alt ağını başka şekilde adlandırmayın. VM’leri veya herhangi başka bir şeyi de ağ geçidi alt ağına dağıtmayın.
+Bir VPN ağ geçidi yapılandırmak için VNet’inizi için bir ağ geçidi alt ağı oluşturmanız gerekir. Tüm ağ geçidi alt ağlarının düzgün çalışması için GatewaySubnet şeklinde adlandırılması gerekir. Ağ geçidi alt ağını başka şekilde adlandırmayın. VM’leri veya herhangi başka bir şeyi de ağ geçidi alt ağına dağıtmayın.
 
 Ağ geçidi alt ağı minimum boyutu tümüyle oluşturmak istediğiniz yapılandırmaya bağlıdır. Bazı yapılandırmalar için /29 kadar küçük ağ geçidi alt ağı yapılandırmaları oluşturmak mümkün olmakla birlikte, /28 ya da daha büyük (/28, /27, /26, vb.) ağ geçidi alt ağı oluşturmanızı öneriyoruz. 
 
-## Sanal Makineleri veya rol örneklerini ağ geçidi alt ağıma dağıtabilir miyim?
+### Sanal Makineleri veya rol örneklerini ağ geçidi alt ağıma dağıtabilir miyim?
 
 Hayır.
 
@@ -184,7 +184,7 @@ Evet. Bkz. [Zorlamalı tüneli yapılandırma](vpn-gateway-about-forced-tunnelin
 
 ### Azure'da kendi VPN sunucumu kurup bu sunucuyu şirket içi ağıma bağlanmak üzere kullanabilir miyim?
 
-Evet, Azure’de kendi VPN ağ geçitlerinizi veya sunucularınızı ister Azure Market’ten, ister kendi VPN yönlendiricilerinizi oluşturarak dağıtabilirsiniz. Şirket içi ağlarınız ve sanal ağ alt ağları arasında trafiğin düzgün yönlendirilmesini sağlamak amacıyla sanal ağınızda Kullanıcı Tanımlı Rotaları yapılandırmanız gerekir.
+Evet, Azure’de kendi VPN ağ geçitlerinizi veya sunucularınızı ister Azure Market’ten, ister kendi VPN yönlendiricilerinizi oluşturarak dağıtabilirsiniz. Şirket içi ağlarınız ve sanal ağ alt ağları arasında trafiğin düzgün yönlendirilmesini sağlamak amacıyla sanal ağınızda kullanıcı tanımlı yolları yapılandırmanız gerekir.
 
 ### Neden belirli bağlantı noktaları VPN ağ geçidimde açık?
 
@@ -195,7 +195,7 @@ VPN ağ geçidi temel olarak, müşterinin özel ağında dokunulan tek NIC, ort
 
 ### Ağ geçidi türleri, gereksinimleri ve verimliliği hakkında daha fazla bilgi
 
-Daha fazla bilgi için bkz. [VPN Ağ Geçitleri Hakkında](vpn-gateway-about-vpngateways.md).
+Daha fazla bilgi için bkz. [VPN Gateway Ayarları Hakkında](vpn-gateway-about-vpn gateway-settings.md).
 
 ## Çok siteli ve VNet - VNet bağlantısı
 
@@ -229,7 +229,7 @@ Hayır, Azure sanal ağı ve şirket içi bir site arasında yedek tüneller des
 
 ### Bağlı sanal ağlar ve şirket içi yerel siteleri arasında çakışan adres alanları olabilir mi?
 
-Hayır. Adres alanlarının çakışması netcfg dosyasının yüklenmesine veya Sanal Ağ Oluşturma işleminin başarısız olmasına neden olur.
+Hayır. Adres alanlarının çakışması ağ yapılandırma dosyasının yüklenmesine veya “Sanal Ağ Oluşturma” işleminin başarısız olmasına neden olur.
 
 ### Daha fazla Siteden Siteye VPN ile tek bir sanal ağa göre daha fazla bant genişliği elde edebilir miyim?
 
@@ -237,7 +237,10 @@ Hayır, Noktadan Siteye VPN’lerde dahil tüm VPN tünelleri aynı Azure VPN a�
 
 ### Şirket içi sitelerim arasında veya başka bir sanal ağa trafiği geçirmek için Azure VPN ağ geçidini kullanabilir miyim?
 
-Azure VPN ağ geçidi üzerinden trafik geçirilebilse de, netcfg yapılandırma dosyasında istatistiksel olarak tanımlanan adres alanlarına bağlıdır. BGP, Azure Sanal Ağları ve VPN ağ geçitleriyle henüz desteklenmemektedir. BGP olmadan, geçiş adres alanlarının el ile tanımlanması çok hata eğilimindedir ve önerilmez.
+**Klasik dağıtım modeli**<br>
+Klasik dağıtım modeli kullanılarak Azure VPN ağ geçidi üzerinden trafik geçirilebilse de, ağ yapılandırma dosyasında istatistiksel olarak tanımlanan adres alanlarına bağlıdır. Klasik dağıtım modeli kullanan Azure Virtual Networks ve VPN ağ geçitleri ile BGP henüz desteklenmemektedir. BGP olmadan, geçiş adres alanlarının el ile tanımlanması çok hata eğilimindedir ve önerilmez.<br>
+**Resource Manager dağıtım modeli**<br>
+Resource Manager dağıtım modeli kullanıyorsanız daha fazla bilgi için [BGP](#bgp) bölümüne bakın.
 
 ### Azure, IPsec/IKE önceden paylaşılan anahtarı tüm VPN bağlantılarımla aynı sanal ağ için mi üretiyor?
 
@@ -252,7 +255,7 @@ Farklı Azure sanal ağları arasındaki trafik için yalnızca trafik bir Azure
 
 Evet, bu desteklenir. Daha fazla bilgi için bkz. [Bir arada var olan ExpressRoute ve Siteden Siteye VPN bağlantıları yapılandırma](../expressroute/expressroute-howto-coexist-classic.md).
 
-## BGP
+## <a name="bgp"></a>BGP
 
 [AZURE.INCLUDE [vpn-gateway-bgp-faq-include](../../includes/vpn-gateway-bpg-faq-include.md)] 
 
@@ -262,27 +265,22 @@ Evet, bu desteklenir. Daha fazla bilgi için bkz. [Bir arada var olan ExpressRou
 
 ### Sanal makinem sanal bir ağdaysa, şirket içi ve dışı bağlantım varsa VM’ye nasıl bağlanmalıyım?
 
-Birkaç seçeneğiniz vardır. RDP etkinse ve bir uç nokta oluşturduysanız, VIP kullanarak sanal makineye bağlanabilirsiniz. Bu durumda, VIP ve bağlanmak istediğiniz bağlantı noktasını belirtmeniz gerekir. Sanal makinenizde trafik için bağlantı noktası yapılandırmanız gerekir. Genellikle, Klasik Azure Portalı’na gidip RDP bağlantı ayarlarını bilgisayarınıza kaydedersiniz. Ayarlarda gerekli bağlantı bilgileri olacaktır.
+Birkaç seçeneğiniz vardır. RDP etkinse ve bir uç nokta oluşturduysanız, VIP kullanarak sanal makineye bağlanabilirsiniz. Bu durumda, VIP ve bağlanmak istediğiniz bağlantı noktasını belirtmeniz gerekir. Sanal makinenizde trafik için bağlantı noktası yapılandırmanız gerekir. Genellikle, Klasik Azure Portalı’na gidip RDP bağlantı ayarlarını bilgisayarınıza kaydedersiniz. Ayarlar gerekli bağlantı bilgilerini içerir.
 
 Şirket içi bağlantısı ile yapılandırılmış bir sanal ağ varsa, iç DIP veya özel bir IP adresi kullanılarak sanal makinenizi sanal makineye bağlanabilir. Ayrıca, aynı sanal ağda bulunan başka bir sanal makineden sanal makinenize iç DIP ile bağlanabilirsiniz. Sanal ağınızın dışında bir konumdan bağlanıyorsanız DIP kullanarak sanal makinenizde RDP gerçekleştiremezsiniz. Örneğin, yapılandırılmış bir Noktadan Siteye sanal ağınız varsa ve bilgisayarınızdan bağlantı kurmuyorsanız, sanal makineyi DIP ile bağlayamazsınız.
 
 ### Sanal makinem şirket içi ve dışı bağlantılı bir sanal ağdaysa, VM’me ait trafiğin tümü bu bağlantıdan geçer mi?
 
-Hayır. Bir tek, belirttiğiniz sanal ağ Yerel Ağ Ip adresi aralıklarında bulunan hedef IP’si olan trafik sanal ağ geçidinden geçer. Trafikte, sanal ağ içinde kalacak sanal ağ içinde yer alan hedef IP’si vardır. Diğer trafik ortak ağlara yük dengeleyiciyle gönderilir veya zorlamalı tünel kullanılırsa, Azure VPN ağ geçidi üzerinden gönderilir. Sorun gideriyorsanız, ağ geçidi üzerinden göndermek istediğiniz Yerel Ağda tüm aralıklarınızın listelendiğinden emin olmanız önemlidir. Yerel Ağ adres aralıklarınızın sanal ağda başka adres aralıklarıyla çakışmadığını doğrulayın. Ayrıca, kullanmakta olduğunuz DNS sunucusunun uygun IP adresi için ad çözdüğünü doğrulamak istersiniz.
+Hayır. Bir tek, belirttiğiniz sanal ağ Yerel Ağ Ip adresi aralıklarında bulunan hedef IP’si olan trafik sanal ağ geçidinden geçer. Trafikte, sanal ağ içinde kalan sanal ağ içinde yer alan hedef IP vardır. Diğer trafik ortak ağlara yük dengeleyiciyle gönderilir veya zorlamalı tünel kullanılırsa, Azure VPN ağ geçidi üzerinden gönderilir. Sorun gideriyorsanız, ağ geçidi üzerinden göndermek istediğiniz Yerel Ağda tüm aralıklarınızın listelendiğinden emin olmanız önemlidir. Yerel Ağ adres aralıklarınızın sanal ağda başka adres aralıklarıyla çakışmadığını doğrulayın. Ayrıca, kullanmakta olduğunuz DNS sunucusunun uygun IP adresi için ad çözdüğünü doğrulamak istersiniz.
 
 
 ## Virtual Network SSS
 
 Ek sanal ağ ek bilgilerini [Virtual Network SSS](../virtual-network/virtual-networks-faq.md) bölümünde görürsünüz.
-
-## Sonraki adımlar
-
-VPN Ağ Geçitleri hakkında daha fazla bilgiyi [VPN Ağ Geçidi belgeleri sayfasında](https://azure.microsoft.com/documentation/services/vpn-gateway/) görebilirsiniz.
-
  
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

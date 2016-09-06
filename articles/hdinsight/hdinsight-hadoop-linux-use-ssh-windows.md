@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="06/14/2016"
+   ms.date="08/30/2016"
    ms.author="larryfr"/>
 
 #Windows’da HDInsight’ta Linux tabanlı Hadoop ile SSH kullanma
@@ -26,6 +26,8 @@
 [Secure Shell (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) Bir komut satırı arabirimi kullanarak, Linux tabanlı HDInsight kümelerinizde işlemleri uzaktan gerçekleştirmenizi sağlar. Bu belge PuTTY SSH istemcisini kullanarak Windows tabanlı istemcilerden HDInsight’a bağlanmaya ilişkin bilgiler sağlar
 
 > [AZURE.NOTE] Bu makaledeki adımlarda Windows tabanlı istemci kullandığınız varsayılır. Linux, Unix ya da OS X kullanıyorsanız, bkz. [Linux, Unix ya da OS X’te HDInsight’ta Linux tabanlı Hadoop ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md).
+>
+> Windows 10’unuz varsa ve [Bash on Ubuntu on Windows](https://msdn.microsoft.com/commandline/wsl/about) kullanıyorsanız [Linux, Unix ya da OS X üzerinde HDInsight’ta Linux tabanlı Hadoop ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md) belgesindeki adımları kullanabilirsiniz.
 
 ##Ön koşullar
 
@@ -237,6 +239,6 @@ Artık bir SSH anahtarı kullanarak kimlik doğrulaması yapacağınızı anlad�
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=ago16_HO5-->
 
 

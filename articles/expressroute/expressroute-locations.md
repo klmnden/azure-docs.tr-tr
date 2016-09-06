@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/28/2016"
+   ms.date="08/29/2016"
    ms.author="cherylmc" />
 
 # ExpressRoute ortakları ve eşleme konumları
@@ -76,7 +76,7 @@ Coğrafi bölgeler arasındaki bağlantı standart ExpressRoute SKU’da destekl
 | **[İnternet Initiative Japan Inc. - IIJ](http://www.iij.ad.jp/en/news/pressrelease/2015/1216-2.html)** |  Destekleniyor | Destekleniyor | Osaka, Tokyo |
 | **[InterCloud]( https://www.intercloud.com/)** | Destekleniyor | Destekleniyor | Amsterdam, Londra, Singapur, Washington DC |
 | **İnternet Solutions - Cloud Connect** | Destekleniyor | Destekleniyor | Amsterdam, Londra |
-| **Interxion** | Destekleniyor | Destekleniyor | Amsterdam, Londra, Paris |
+| **[Interxion](http://www.interxion.com/why-interxion/colocate-with-the-clouds/colocated-hybrid-cloud/microsoft-azure/)**  | Destekleniyor | Destekleniyor | Amsterdam, Londra, Paris |
 | **Jisc** | Çok yakında | Çok yakında | Londra+ | 
 | **[Level 3 Communications]( http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Destekleniyor | Destekleniyor | Amsterdam, Chicago, Dallas, Las Vegas+, Londra, Seattle, Silikon Vadisi, Washington DC |
 | **Megaport** | Destekleniyor | Destekleniyor | Dallas, Hong Kong, Las Vegas, Los Angeles, Melbourne, New York, Seattle, Singapur, Sidney, Washington DC |
@@ -89,7 +89,7 @@ Coğrafi bölgeler arasındaki bağlantı standart ExpressRoute SKU’da destekl
 | **Softbank** | Destekleniyor | Destekleniyor | Osaka, Tokyo | 
 | **[Tata Communications](http://www.tatacommunications.com/lp/izo/azure/azure_index.html)** | Destekleniyor | Destekleniyor | Amsterdam, Chennai, Hong Kong, Londra, Mumbai, Silikon Vadisi, Singapur, Washington DC |
 | **[TeleCity Group]( http://www.telecitygroup.com/investor-centre/news_details.htm?locid=03100500400b00d&xml)** | Destekleniyor | Destekleniyor | Amsterdam, Londra |
-| **Telefonica** | Çok yakında | Çok yakında | Sao Paulo+ |
+| **Telefonica** | Destekleniyor | Çok yakında | Sao Paulo |
 | **Telenor** | Destekleniyor | Destekleniyor | Amsterdam, Londra |
 | **[Telstra Corporation]( http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** | Destekleniyor | Çok Yakında | Melbourne, Sidney |
 | **[Verizon](http://www.verizonenterprise.com/products/networking/secure-cloud-interconnect/)** | Destekleniyor | Destekleniyor | Amsterdam, Hong Kong, Londra, Silikon Vadisi, Singapur, Sidney, Tokyo, Washington DC |
@@ -133,7 +133,7 @@ Bağlantı sağlayıcınız önceki bölümlerde listelenmemişse hala bağlant�
 
     - [Equinix Cloud Exchange](http://www.equinix.com/services/interconnection-connectivity/cloud-exchange/)
     - [TeleCity CloudIX](http://www.telecitygroup.com/colocation-services/cloud-ix.htm)
-    - [InterXion](http://www.interxion.com/)
+    - [Interxion](http://www.interxion.com/why-interxion/colocate-with-the-clouds/colocated-hybrid-cloud/microsoft-azure/)
     - [NextDC](http://www.nextdc.com/)
     - [CoreSite](http://www.coresite.com/)
     - [Cologix](http://www.cologix.com/)
@@ -173,6 +173,6 @@ Bağlantı sağlayıcınız önceki bölümlerde listelenmemişse hala bağlant�
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

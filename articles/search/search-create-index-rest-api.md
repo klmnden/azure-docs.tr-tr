@@ -14,7 +14,7 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="05/31/2016"
+    ms.date="08/29/2016"
     ms.author="ashmaka"/>
 
 # REST API'yi kullanarak Azure Search dizini oluşturma
@@ -84,7 +84,7 @@ Yukarıdaki dizin tanımı Fransızca metin depolamaya yönelik tasarlandığın
 
 ## III. HTTP isteği gönderme
 1. Dizin tanımınızı istek gövdesi olarak kullanarak Azure Search hizmeti uç nokta URL'nize HTTP POST isteği gönderin. URL'de hizmet adınızı ana bilgisayar adı olarak kullandığınızdan emin olun ve sorgu dizesi parametresi olarak uygun `api-version` öğesini kullanın (Bu belge yayımlandığı sırada, `2015-02-28` geçerli API sürümüdür).
-2. İstek üst bilgilerinde, `Content-Type`'ı `application/json` olarak belirtin. Ayrıca `api-key` üst bilgisinde, 1. Adımda tanımladığınız hizmet yöneticisi anahtarınızı sağlamanız gerekir.
+2. İstek üst bilgilerinde, `Content-Type` öğesini `application/json` olarak belirtin. Ayrıca `api-key` üst bilgisinde, 1. Adımda tanımladığınız hizmet yöneticisi anahtarınızı sağlamanız gerekir.
 
 
 Aşağıdaki isteği göndermek için kendi hizmet adınızı ve API anahtarınızı sağlamanız gerekir:
@@ -108,6 +108,6 @@ Azure Search dizini oluşturduktan sonra, [içeriğinizi dizine yüklemek](searc
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO5-->
 
 

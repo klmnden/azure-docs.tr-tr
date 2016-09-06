@@ -37,7 +37,7 @@ Bu öğreticide Visual Studio 2013 kullanarak aşağıdakileri yaparsınız:
 
 1. [Öğreticiye Genel Bakış](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) makalesini okuyun.
     
-    > [AZURE.IMPORTANT] Devam etmeden önce gereksinimleri tamamlayın. 
+    > [AZURE.IMPORTANT] Devam etmeden önce ön koşulları tamamlayın. 
 2. Azure Data Factory’ye Data Factory varlıkları yayımlayabilmek için bir **Azure aboneliğinin yöneticisi** olmanız gerekir.  
 3. Bilgisayarınızda şunların yüklü olması gerekir: 
     - Visual Studio 2013 veya Visual Studio 2015
@@ -281,6 +281,6 @@ Bu öğreticide oluşturduğunuz işlem hattını ve veri kümelerini izlemek ü
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

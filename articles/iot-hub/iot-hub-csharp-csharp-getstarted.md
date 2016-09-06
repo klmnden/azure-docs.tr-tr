@@ -60,7 +60,7 @@ Bu bölümde IoT hub'ınızdaki kimlik kayıt defterinde yeni bir cihaz kimliği
 5. **Program** sınıfına aşağıdaki alanları ekleyin. Yer tutucu değerini, önceki bölümde IoT hub'ı için oluşturduğunuz bağlantı dizesiyle değiştirin.
 
         static RegistryManager registryManager;
-        static string connectionString = "{iothub connection string}";
+        static string connectionString = "{iot hub connection string}";
 
 6. **Program** sınıfına aşağıdaki yöntemi ekleyin:
 
@@ -252,7 +252,7 @@ IoT Hub’ı kullanmaya başlamak ve diğer IoT senaryolarını keşfetmek için
 - [Cihaz yönetimi ile çalışmaya başlama][lnk-device-management]
 - [Ağ Geçidi SDK’sı ile çalışmaya başlama][lnk-gateway-SDK]
 
-IoT çözümünüzün nasıl genişletileceğini ve cihazdan buluta iletilerin ölçekli olarak nasıl işleneceğini öğrenmek için [Cihazdan buluta iletileri işleme][lnk-process-d2c-tutorial] öğreticisine bakın.
+IoT çözümünüzün nasıl genişletileceğini ve cihazdan buluta iletilerin doğru ölçekte nasıl işleneceğini öğrenmek için [Cihazdan buluta iletileri işleme][lnk-process-d2c-tutorial] öğreticisine bakın.
 
 <!-- Images. -->
 [41]: ./media/iot-hub-csharp-csharp-getstarted/run-apps1.png
@@ -283,6 +283,7 @@ IoT çözümünüzün nasıl genişletileceğini ve cihazdan buluta iletilerin �
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 
 
-<!--HONumber=Aug16_HO1-->
+
+<!--HONumber=ago16_HO5-->
 
 

@@ -122,7 +122,7 @@ Tüm parçaları yerinde olduğuna göre, şimdi sanal makine oluşturma vakti.
 
         $cred = Get-Credential -Message "Type the name and password of the local administrator account."
         
-    Parola 12-123 karakter uzunluğunda olmalıdır ve en az şunları içermelidir: bir küçük harf karakter, bir büyük harf karakter, bir sayı ve bir özel karakter. 
+    Parola 8-123 karakter uzunluğunda olmalıdır ve en az dört karmaşıklık gereksinimini karşılamalıdır: bir küçük harf karakter, bir büyük harf karakter, bir sayı ve bir özel karakter. [Kullanıcı adı ve parola gereksinimleri](virtual-machines-windows-faq.md#what-are-the-username-requirements-when-creating-a-vm) hakkında daha fazla bilgi edinin.
         
 2. **$vmName** değerini sanal makine adıyla değiştirin. Değişkeni ve sanal makine yapılandırmasını oluşturun.
 
@@ -174,6 +174,6 @@ Tüm parçaları yerinde olduğuna göre, şimdi sanal makine oluşturma vakti.
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=ago16_HO5-->
 
 

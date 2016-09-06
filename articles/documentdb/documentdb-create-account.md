@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="08/11/2016"
+    ms.date="08/25/2016"
     ms.author="mimig"/>
 
 # Azure portalını kullanarak DocumentDB hesabı oluşturma
@@ -28,7 +28,7 @@ Microsoft Azure DocumentDB ile bir veritabanı oluşturmak için şunları yapma
 - Bir Azure hesabınız olmalıdır. Zaten bir hesabınız yoksa [ücretsiz bir Azure hesabı](https://azure.microsoft.com/free) edinebilirsiniz. 
 - Bir DocumentDB hesabı oluşturmanız gerekir.  
 
-Azure portal, Azure Resource Manager şablonları veya Azure komut satırı arabiriminden (CLI) herhangi birini kullanarak bir DocumentDB hesabı oluşturabilirsiniz. Bu makale, Azure portalını kullanarak bir veritabanı hesabının nasıl oluşturulacağını göstermektedir. Azure Resource Manager veya Azure CLI'yı kullanarak bir hesap oluşturmak için bkz. [DocumentDB veritabanı hesabı oluşturmayı otomatikleştirme](documentdb-automation-resource-manager-cli.md).
+Azure portal, Azure Resource Manager şablonları veya Azure komut satırı arabiriminden (CLI) herhangi birini kullanarak bir DocumentDB hesabı oluşturabilirsiniz. Bu makale Azure portalını kullanarak bir DocumentDB hesabının nasıl oluşturulacağını göstermektedir. Azure Resource Manager veya Azure CLI'yı kullanarak bir hesap oluşturmak için bkz. [DocumentDB veritabanı hesabı oluşturmayı otomatikleştirme](documentdb-automation-resource-manager-cli.md).
 
 DocumentDB'de yeni misiniz? Çevrimiçi portalda en yaygın görevlerin nasıl tamamlanacağını görmek için Scott Hanselman'ın [bu](https://azure.microsoft.com/documentation/videos/create-documentdb-on-azure/) dört dakikalık videosunu izleyin.
 
@@ -46,7 +46,7 @@ Artık bir DocumentDB hesabına sahip olduğunuza göre, sonraki adım bir Docum
 
 Veritabanınızı oluşturduktan sonra, veritabanına [bir veya daha fazla koleksiyon eklemeniz](documentdb-create-collection.md), ardından koleksiyonlara [belgeler eklemeniz](documentdb-view-json-document-explorer.md) gerekir.
 
-Bir koleksiyonda belgeleriniz olduktan sonra, [DocumentDB SQL](documentdb-sql-query.md) kullanarak belgelerinizde [sorgular yürütmek](documentdb-sql-query.md#executing-queries) için Portal'daki [Sorgu Gezgini](documentdb-query-collections-query-explorer.md), [REST API'si](https://msdn.microsoft.com/library/azure/dn781481.aspx) veya [SDK'lardan](documentdb-sdk-dotnet.md) birini kullanabilirsiniz.
+Bir koleksiyonda belgeleriniz olduktan sonra, [DocumentDB SQL](documentdb-sql-query.md) kullanarak belgelerinizde [sorgular yürütmek](documentdb-sql-query.md#executing-queries) için portaldaki [Sorgu Gezgini](documentdb-query-collections-query-explorer.md), [REST API'si](https://msdn.microsoft.com/library/azure/dn781481.aspx) veya [SDK'lardan](documentdb-sdk-dotnet.md) birini kullanabilirsiniz.
 
 DocumentDB hakkında daha fazla bilgi edinmek için şu kaynakları araştırın:
 
@@ -55,6 +55,6 @@ DocumentDB hakkında daha fazla bilgi edinmek için şu kaynakları araştırın
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 
