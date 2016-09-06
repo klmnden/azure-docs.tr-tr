@@ -225,9 +225,9 @@ Bu öğreticiler hızlı bir şekilde yedekleme yapmanıza yardımcı olmayı am
 
 
 
-[yeşil]: ./media/backup-introduction-to-azure-backup/green.png
-[sarı]: ./media/backup-introduction-to-azure-backup/yellow.png
-[kırmızı]: ./media/backup-introduction-to-azure-backup/red.png
+[green]: ./media/backup-introduction-to-azure-backup/green.png
+[yellow]: ./media/backup-introduction-to-azure-backup/yellow.png
+[red]: ./media/backup-introduction-to-azure-backup/red.png
 
 
 

@@ -13,7 +13,7 @@ Yapılandırılmış ve ilişkisel olmayan verilerin büyük kümelerini depolam
 
 Tablo hizmetinde şu bileşenler bulunur:
 
-![Tablo1][Table1]
+![Table1][Table1]
 
 -   **URL biçimi:** Kod, buradaki adres biçimini kullanarak hesaptaki tabloları işaret eder:   
     http://`<storage account>`.table.core.windows.net/`<table>`  
@@ -30,7 +30,7 @@ Tablo hizmetinde şu bileşenler bulunur:
 
 Tabloları ve özellikleri adlandırma hakkında daha fazla bilgi için bkz. [Tablo Hizmeti Veri Modelini Anlama](https://msdn.microsoft.com/library/azure/dd179338.aspx).
   
-  [Tablo1]: ./media/storage-table-concepts-include/table1.png
+  [Table1]: ./media/storage-table-concepts-include/table1.png
   [OData.org]: http://www.odata.org/
 
 

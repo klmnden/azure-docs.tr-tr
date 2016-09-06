@@ -245,12 +245,12 @@ Beklediklerinizi bu konuda bulamadıysanız, eksik bir şeyler varsa veya herhan
 [portaloverview]: ./media/media-services-portal-get-started/media-services-content-page.png
 [publishedcontent]: ./media/media-services-portal-get-started/media-services-upload-content-published.png
 [uploadcontent]: ./media/media-services-portal-get-started/UploadContent.png
-[durum]: ./media/media-services-portal-get-started/Status.png
+[status]: ./media/media-services-portal-get-started/Status.png
 [kodlayıcı]: ./media/media-services-manage-content/EncoderDialog2.png
 [marka]: ./media/branding-reporting.png
 [contentpage]: ./media/media-services-portal-get-started/media-services-content-page.png
 [işlem]: ./media/media-services-manage-content/media-services-process-video.png
-[işlem2]: ./media/media-services-portal-get-started/media-services-process-video2.png
+[process2]: ./media/media-services-portal-get-started/media-services-process-video2.png
 [şifrele]: ./media/media-services-manage-content/media-services-encrypt-content.png
 [AMSPlayer]: ./media/media-services-portal-get-started/media-services-portal-player.png
 

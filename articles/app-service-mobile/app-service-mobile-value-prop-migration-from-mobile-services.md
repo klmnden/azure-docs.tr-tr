@@ -31,7 +31,7 @@ Mevcut Mobil Hizmetiniz güvendedir ve desteklenmeye devam edecektir. Ancak *Azu
 - Yerleşik hazırlık, yedekleme, geri alma ve üretim sırasında test etme özellikleri
 
 ## Yeni barındırma özellikleri
-*Azure App Service*’de *Mobil Uygulama* arka uç kodu; Web Uygulaması ve API Uygulaması ile aynı kapsayıcıda çalışır. Böylece, şu anda Mobile Services’de bulunmayan bazıları dahil, bu kapsayıcıdaki tüm özelliklerden faydalanabilirsiniz.
+*Azure App Service* ’de *Mobil Uygulama* arka uç kodu; Web Uygulaması ve API Uygulaması ile aynı kapsayıcıda çalışır. Böylece, şu anda Mobile Services’de bulunmayan bazıları dahil, bu kapsayıcıdaki tüm özelliklerden faydalanabilirsiniz.
 
 - Web İşleri aracılığıyla sürekli çalışan arka uç mantığı ekleyin
 - Arka uç kodunuzun her zaman çalıştığından emin olun

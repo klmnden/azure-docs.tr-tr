@@ -365,7 +365,7 @@ ToDoListAPI projesinin oluşturulan istemci kodu zaten vardır, ancak aşağıda
 
     ![Oluşturulan istemci için kod dosyaları](./media/app-service-api-dotnet-get-started/codegenfiles.png)
 
-5. ToDoListAPI projesinde, oluşturulan istemciyi kullanarak API’yi çağıran kodu görmek için *Controllers\ToDoListController.cs*’yi açın. 
+5. ToDoListAPI projesinde, oluşturulan istemciyi kullanarak API’yi çağıran kodu görmek için *Controllers\ToDoListController.cs* ’yi açın. 
 
     Aşağıdaki kod parçası, kodun istemci nesnesini nasıl başlattığını Alma yöntemini nasıl çağırdığını gösterir.
 
@@ -391,7 +391,7 @@ ToDoListAPI projesinin oluşturulan istemci kodu zaten vardır, ancak aşağıda
 
     Oluşturucu parametresi uç nokta URL’sini `toDoListDataAPIURL` uygulama ayarından alır. Uygulamayı yerel olarak çalıştırabilmeniz için, Web.config dosyasında, değer API projesinin yerel IIS Express URL’sine ayarlanır. Oluşturucu parametresini atlarsanız, varsayılan uç nokta koddan oluşturulan URL'dir.
 
-6. İstemci sınıfınız, API uygulaması adınıza göre farklı bir adla oluşturulacaktır; projenizde oluşturulanla tür adının eşleşmesi için, *Controllers\ToDoListController.cs*’deki kodda değişiklik yapın. Örneğin, API Uygulamanıza ToDoListDataAPI071316 adını verdiyseniz kodu değiştirin:
+6. İstemci sınıfınız, API uygulaması adınıza göre farklı bir adla oluşturulacaktır; projenizde oluşturulanla tür adının eşleşmesi için, *Controllers\ToDoListController.cs* ’deki kodda değişiklik yapın. Örneğin, API Uygulamanıza ToDoListDataAPI071316 adını verdiyseniz kodu değiştirin:
 
         private static ToDoListDataAPI NewDataAPIClient()
         {
