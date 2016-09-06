@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="06/20/2016" 
+    ms.date="08/31/2016" 
     ms.author="sethm"/>
 
 # Azure Service Bus
@@ -35,13 +35,12 @@ Ad alanı içinde, dört farklı iletişim mekanizmasının bir veya birden fazl
 - Tek yönlü iletişime izin veren *kuyruklar*. Her kuyruk, alınana kadar gönderilen iletileri depolayan bir ara hizmet olarak görev yapar (bazen *aracı* olarak adlandırılır). Her ileti tek bir alıcı tarafından alınır.
 - *Abonelikler* olmak üzere tek konu başlığı kullanan, tek yönlü iletişim sağlayan *Konu Başlıkları*, birden çok aboneliği barındırabilir. Kuyrukta olduğu gibi konu başlığı, aracı gibi davranır ancak her abonelik isteğe bağlı olarak yalnızca belirli kriterlerle eşleşen iletileri almak için filtre kullanabilir.
 - Çift yönlü iletişim sunan *geçişler*. Kuyruk ve konu başlıklarının aksine, bir geçiş yürütülen iletileri depolamaz; yani bir aracı değildir. Bunun yerine iletileri yalnızca hedef uygulamaya gönderir.
-- Düşük gecikme süresi ve yüksek güvenilirlikle buluta büyük ölçekte olay ve telemetri girişi sağlayan *Event Hubs*.
 
-Bir kuyruk, konu başlığı, geçiş veya Event Hub oluşturduğunuzda, aynı zamanda bunları adlandırırsınız. Ad alanınız ne olursa olsun, bu ad nesne için benzersiz bir tanıtıcı oluşturur. Uygulamalar bu adı Service Bus'a verir ve ardından birbirleriyle iletişim kurmak için bu kuyruğu, konu başlığını, geçişi veya Event Hub hizmetini kullanır. 
+Bir kuyruk, konu veya geçiş oluşturduğunuzda bunları adlandırırsınız. Ad alanınız ne olursa olsun, bu ad nesne için benzersiz bir tanıtıcı oluşturur. Uygulamalar bu adı Service Bus'a verebilir ve ardından birbirleriyle iletişim kurmak için bu kuyruğu, konuyu veya geçişi kullanabilir. 
 
-Geçiş senaryosundaki bu nesnelerden herhangi birini kullanmak için Windows uygulamaları Windows Communication Foundation'ı (WCF) kullanabilir. Windows uygulamaları; kuyruklar, konu başlıkları ve Event Hubs için Service Bus tanımlı mesajlaşma API'lerini kullanabilir. Bu nesnelerin Windows uygulaması olmayan uygulamalar tarafından kullanımını kolaylaştırmak için Microsoft Java, Node.js ve diğer dillere yönelik SDK sunar. Ayrıca kuyruklara, konu başlıklarına ve Event Hubs hizmetine HTTP üzerinden REST API'lerini kullanarak da erişebilirsiniz. 
+Geçiş senaryosundaki bu nesnelerden herhangi birini kullanmak için Windows uygulamaları Windows Communication Foundation'ı (WCF) kullanabilir. Windows uygulamaları kuyruklar ve konular için Service Bus tanımlı mesajlaşma API'lerini kullanabilir. Bu nesnelerin Windows uygulaması olmayan uygulamalar tarafından kullanımını kolaylaştırmak için Microsoft Java, Node.js ve diğer dillere yönelik SDK sunar. Kuyruklara ve konulara HTTP(s) üzerinden REST API'lerini kullanarak da erişebilirsiniz. 
 
-Service Bus hizmeti bulutta (Microsoft'un Azure veri merkezlerinde) çalışıyor olsa da Service Bus hizmetini kullanan uygulamaların herhangi bir yerde çalışabileceğini kavramak önemlidir. Service Bus hizmetini Azure'da çalışan uygulamaları (örneğin, kendi veri merkezinizde çalışan uygulamalar) bağlamak için kullanabilirsiniz . Ayrıca, bu hizmeti Azure veya başka bulut platformunda çalışan bir uygulama ile şirket içi bir uygulamayı veya tablet ve telefonları bağlamak için de kullanabilirsiniz. Ev aletlerini, sensörleri ve diğer cihazları merkezi bir uygulamaya veya başka bir uygulamaya bağlamak bile mümkündür. Service Bus, neredeyse her yerden erişilebilen bulut tabanlı genel bir iletişim mekanizmasıdır. Service Bus hizmetini kullanım şekliniz uygulamanızın gereksinimlerine göre değişir.
+Service Bus hizmeti bulutta (Microsoft'un Azure veri merkezlerinde) çalışıyor olsa da Service Bus hizmetini kullanan uygulamaların herhangi bir yerde çalışabileceğini kavramak önemlidir. Service Bus hizmetini Azure'da çalışan uygulamaları (örneğin, kendi veri merkezinizde çalışan uygulamalar) bağlamak için kullanabilirsiniz . Ayrıca, bu hizmeti Azure veya başka bulut platformunda çalışan bir uygulama ile şirket içi bir uygulamayı veya tablet ve telefonları bağlamak için de kullanabilirsiniz. Ev aletlerini, sensörleri ve diğer cihazları merkezi bir uygulamaya veya başka bir uygulamaya bağlamak bile mümkündür. Service Bus, neredeyse her yerden erişilebilen bulut tabanlı bir iletişim mekanizmasıdır. Service Bus hizmetini kullanım şekliniz uygulamanızın gereksinimlerine göre değişir.
 
 ## Kuyruklar
 
@@ -51,7 +50,7 @@ Service Bus hizmeti bulutta (Microsoft'un Azure veri merkezlerinde) çalışıyo
  
 **Şekil 2: Service Bus kuyrukları tek yönlü, zaman uyumsuz kuyruğa alma işlemi sunar.**
 
-İşlem oldukça basittir: Bir gönderici Service Bus kuyruğuna ileti gönderir ve daha sonra alıcı bu iletiyi alır. Şekil 2'de gösterildiği gibi bir kuyruk yalnızca bir alıcıya sahip olabilir veya birden çok uygulama aynı kuyrukta iletileri okuyabilir. İkinci durumda, her ileti tek bir alıcı tarafından okunur. Çok noktaya yayın yapan bir hizmet için konu başlığı kullanmanız gerekir.
+İşlem oldukça basittir: Bir gönderici Service Bus kuyruğuna ileti gönderir ve daha sonra alıcı bu iletiyi alır. Kuyruk Şekil 2'de gösterildiği gibi yalnızca tek bir alıcıya sahip olabilir. Ya da aynı kuyruktan birden fazla uygulama okuyabilir. İkinci durumda her ileti yalnızca bir alıcı tarafından okunur. Çok noktaya yayın hizmetinde bunun yerine bir konu kullanmanız gerekir.
 
 Her ileti iki bölümden oluşur: özellikler kümesi (her biri anahtar/değer çifti olmak üzere) ve ikili ileti gövdesi. Bunların nasıl kullanıldığı, uygulama tarafından gerçekleştirilmeye çalışılan işleme bağlıdır. Örneğin, yakın zamandaki bir satış hakkında bir ileti gönderen uygulama *Seller="Ava"* ve *Amount=10000* özelliklerini içerebilir. İleti gövdesi, satışın imzalı sözleşmesinin taranmış bir görüntüsünü içerebilir veya görüntü mevcut değilse bu kısım boş bırakılır.
 
@@ -103,13 +102,9 @@ Kuyruk ve konu başlıklarının aksine uygulamalar, geçişleri açık bir şek
 
 Uygulamalar arasında doğrudan iletişim kurulması gerekiyorsa geçişler doğru çözümdür. Örneğin; check-in kiosk cihazları, mobil cihazlar ve diğer bilgisayarlardan erişilebilmesi gereken ve bir şirket içi veri merkezinde çalışan hava yolu rezervasyon sistemini ele alalım. Bu sistemlerin tümünde çalışan uygulamalar, nerede çalışıyor olurlarsa olsunlar iletişim kurmak için buluttaki Service Bus geçişlerine güvenebilirler.
 
-## Event Hubs
-
-[Event Hubs](https://azure.microsoft.com/services/event-hubs/), saniye başına milyonlarca olayı işleyen ileri düzeyde ölçeklenebilir bir alım sistemidir. Bu sistem, uygulamanızın bağlı cihazlarınız ve uygulamalarınız tarafından üretilen oldukça büyük miktardaki veriyi işlemesine ve analiz etmesine olanak sağlar. Örneğin, bir araba filosundan canlı motor performansı verilerini toplamak için Event Hub hizmetini kullanabilirsiniz. Veriler Event Hubs hizmetinde toplandığında, herhangi bir gerçek zamanlı analitik sağlayıcısı veya depolama kümesi kullanarak bu verileri dönüştürebilir veya depolayabilirsiniz. Event Hubs hakkında daha fazla bilgi için bkz. [Event Hubs hizmetine genel bakış](../event-hubs/event-hubs-overview.md)
-
 ## Özet
 
-Uygulamalar arasında bağlantı kurma her zaman eksiksiz çözüm derlemelerinin bir parçası olmuştur. Bunun yanı sıra, uygulamaların ve hizmetlerin birbirleriyle iletişim kurmasını gerektiren senaryoların sayısı daha fazla uygulamanın ve cihazın İnternet'e bağlanmasıyla artmaktadır. Bu gibi durumlarda istenilen başarıya ulaşmak için kuyrukların, konu başlıklarının, geçişlerin ve Event Hubs hizmetinin kullanılmasına yönelik bulut tabanlı teknolojiler sağlayan Service Bus, bu temel işlevin uygulanmasını kolaylaştırmayı ve daha geniş kapsamda kullanılmasını amaçlar.
+Uygulamalar arasında bağlantı kurma her zaman eksiksiz çözüm derlemelerinin bir parçası olmuştur. Bunun yanı sıra, uygulamaların ve hizmetlerin birbirleriyle iletişim kurmasını gerektiren senaryoların sayısı daha fazla uygulamanın ve cihazın İnternet'e bağlanmasıyla artmaktadır. Bu gibi durumlarda istenilen başarıya ulaşmak için kuyrukların, konuların ve geçişlerin kullanılmasına yönelik bulut tabanlı teknolojiler sağlayan Service Bus, bu temel işlevin uygulanmasını kolaylaştırmayı ve daha geniş kapsamda kullanılmasını amaçlar.
 
 ## Sonraki adımlar
 
@@ -127,6 +122,6 @@ Artık Azure Service Bus hizmeti ile ilgili temel bilgileri edindiğinize göre,
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=ago16_HO5-->
 
 

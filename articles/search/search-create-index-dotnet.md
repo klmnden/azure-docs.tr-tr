@@ -14,7 +14,7 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="05/31/2016"
+    ms.date="08/29/2016"
     ms.author="brjohnst"/>
 
 # .NET SDK'yı kullanarak Azure Search dizini oluşturma
@@ -125,6 +125,6 @@ Azure Search dizini oluşturduktan sonra, [içeriğinizi dizine yüklemek](searc
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO5-->
 
 

@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/22/2016"
+   ms.date="08/30/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 # Azure SQL Data Warehouse sorgulama (sqlcmd)
@@ -24,17 +24,11 @@
 - [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 - [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
 
-Bu izlenecek yolda Azure SQL Data Warehouse’u sorgulamak için sqlcmd Komut Satırı Yardımcı Programı kullanılır.  
-
-## Ön koşullar
-
-Bu öğreticide ilerleyebilmeniz için şunlar gereklidir:
-
--  [sqlcmd.exe][]. İndirmek için [SQL Server Windows için Microsoft ODBC Sürücüsü 11][]’i de gerektirebilecek [SQL Server için Microsoft Komut Satırı Yardımcı Programları 11][]’e bakın.
+Bu izlenecek yolda Azure SQL Veri Ambarı’nı sorgulamak için [sqlcmd][] komut satırı yardımcı programı kullanılır.  
 
 ## 1. Bağlan
 
-Sqlcmd kullanmaya başlamadan önce komut istemini açın ve **sqlcmd** öğesinden sonra SQL Data Warehouse veritabanınızın bağlantı dizesini girin. Bağlantı dizesi için şu parametreler gereklidir:
+**Sqlcmd** kullanmaya başlamadan önce komut istemini açın ve [sqlcmd][] öğesinden sonra SQL Veri Ambarı veritabanınızın bağlantı dizesini girin. Bağlantı dizesi için aşağıdaki parametreler gereklidir:
 
 + **Server (-S):** `<`Sunucu Adı`>`.database.windows.net biçiminde belirtilmiş sunucu
 + **Database (-d):** Veritabanı adı.
@@ -73,22 +67,20 @@ sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@sswor
 
 ## Sonraki adımlar
 
-Sqlcmd’de kullanılabilen seçenekler hakkında daha fazla bilgi için bkz. [sqlcmd belgeleri][sqlcmd.exe].
+Sqlcmd’de kullanılabilen seçenekler hakkında daha fazla bilgi için bkz. [sqlcmd belgeleri][sqlcmd].
 
 <!--Image references-->
 
 <!--Article references-->
 
 <!--MSDN references--> 
-[sqlcmd.exe]: https://msdn.microsoft.com/library/ms162773.aspx
-[SQL Server Windows için Microsoft ODBC Sürücüsü 11]: https://www.microsoft.com/download/details.aspx?id=36434
-[SQL Server için Microsoft Komut Satırı Yardımcı Programları 11]: http://go.microsoft.com/fwlink/?LinkId=321501
-[Azure portalına]: https://portal.azure.com
+[sqlcmd]: https://msdn.microsoft.com/library/ms162773.aspx
+[Azure Portal]: https://portal.azure.com
 
 <!--Other Web references-->
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=ago16_HO5-->
 
 

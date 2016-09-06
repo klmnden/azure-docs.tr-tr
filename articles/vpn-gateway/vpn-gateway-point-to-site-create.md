@@ -14,20 +14,21 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/16/2016"
+   ms.date="08/31/2016"
    ms.author="cherylmc"/>
 
-# Klasik portalı kullanarak bir Sanal Ağa Noktadan Siteye bir VPN bağlantısı yapılandırma
+# Klasik portalı kullanarak bir Sanal Ağa Noktadan Siteye bir bağlantı yapılandırma
 
 > [AZURE.SELECTOR]
 - [PowerShell - Resource Manager](vpn-gateway-howto-point-to-site-rm-ps.md)
 - [Portal - Klasik](vpn-gateway-point-to-site-create.md)
 
-Noktadan Siteye (P2S) yapılandırması, ayrı bir istemci bilgisayardan bir sanal ağa yönelik güvenli bağlantı oluşturmanıza olanak sağlar. Sanal ağınıza uzak bir konumdan (örneğin, evden veya bir konferanstan) bağlanmak istediğinizde ya da sanal bir ağa bağlanması gereken yalnızca birkaç istemciniz bulunduğunda P2S bağlantısı kullanışlıdır. 
+Noktadan Siteye (P2S) yapılandırması, ayrı bir istemci bilgisayardan bir sanal ağa yönelik güvenli bağlantı oluşturmanıza olanak sağlar. Sanal ağınıza uzak bir konumdan (örneğin, evden veya bir konferanstan) bağlanmak istediğinizde ya da sanal bir ağa bağlanması gereken yalnızca birkaç istemciniz bulunduğunda P2S bağlantısı kullanışlıdır.
+
+Bu makalede klasik portal kullanılarak **klasik dağıtım modelinde** Noktadan Siteye bağlantı ile VNet oluşturma işlemi adım adım açıklanmaktadır. Şu anda bu yapılandırmayı klasik dağıtım modeli için Azure portalında uçtan uca oluşturamazsınız.
 
 Noktadan Siteye bağlantıların çalışması için bir VPN cihazına veya genel kullanıma yönelik bir IP adresine gerek yoktur. VPN bağlantısı, bağlantının istemci bilgisayardan başlatılmasıyla oluşturulur. Noktadan Siteye bağlantılar hakkında daha fazla bilgi edinmek için [VPN Gateway ile ilgili SSS](vpn-gateway-vpn-faq.md#point-to-site-connections) ve [Planlama ve Tasarım](vpn-gateway-plan-design.md) başlıklı makalelere bakın.
 
-Bu makalede, klasik dağıtım modeli kullanılarak oluşturulan bir sanal ağa yönelik Noktadan Siteye bağlantılar ele alınmaktadır. Bu makaledeki adımlarda klasik portal kullanılmaktadır. Şu anda bu bağlantıyı Azure portalını kullanarak oluşturamazsınız.
 
 **Noktadan Siteye bağlantılar için dağıtım modelleri ve araçları**
 
@@ -37,7 +38,7 @@ Bu makalede, klasik dağıtım modeli kullanılarak oluşturulan bir sanal ağa 
 
 [AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
 
-![Noktadan Siteye diyagramı](./media/vpn-gateway-point-to-site-create/point2site.png "point-to-site")
+![Noktadan Siteye diyagramı](./media/vpn-gateway-point-to-site-create/p2sclassic.png "point-to-site")
 
 ## Noktadan Siteye bağlantı oluşturma hakkında
  
@@ -135,18 +136,18 @@ Sanal ağa bağlanmak için bir VPN istemcisi de yapılandırmanız gerekir. İs
 
 ### 1. Kısım: VPN istemcisi yapılandırma paketini oluşturma
 
-1. Klasik Azure portalında, sanal ağınıza ilişkin **Pano** sayfasında sağ üst köşedeki hızlı bakış menüsüne gidin. Desteklenen istemci işletim sistemlerinin listesi için VPN Gateway ile ilgili SSS başlıklı makalenin [Noktadan Siteye bağlantılar](vpn-gateway-vpn-faq.md#point-to-site-connections) bölümüne göz atın.<br><br>Yükleneceği istemci işletim sistemine karşılık gelen indirme paketini seçin:
+1. Klasik Azure portalında, sanal ağınıza ilişkin **Pano** sayfasında sağ üst köşedeki hızlı bakış menüsüne gidin. Desteklenen istemci işletim sistemlerinin listesi için VPN Gateway ile ilgili SSS başlıklı makalenin [Noktadan Siteye bağlantılar](vpn-gateway-vpn-faq.md#point-to-site-connections) bölümüne göz atın. VPN istemci paketi, Windows'da yerleşik bulunan VPN istemci yazılımını yapılandırmaya yönelik yapılandırma bilgileri içerir. Paket, ek yazılım yüklemez. Ayarlar bağlanmak istediğiniz sanal ağa özeldir.<br><br>Yükleneceği istemci işletim sistemine karşılık gelen indirme paketini seçin:
  - 32 bit istemciler için **32 bit İstemci VPN Paketini İndir**’i seçin.
  - 64 bit istemciler için **64 bit İstemci VPN Paketini İndir**’i seçin.
 
 2. İstemci paketinizin oluşturulması birkaç dakika sürer. Paket tamamlandığında dosyayı indirebilirsiniz. İndirdiğiniz *.exe* dosyası yerel bilgisayarınızda güvenle depolanabilir.
 
-3. Klasik Azure Portalı’nda VPN istemci paketini oluşturup indirdikten sonra, sanal ağınıza bağlanmak istediğiniz istemci bilgisayara istemci paketini yükleyebilirsiniz. VPN istemci paketini birden çok istemci bilgisayara yüklemeyi planlıyorsanız, bu bilgisayarların her birine bir istemci sertifikası da yüklü olduğundan emin olun. VPN istemci paketi, Windows'da yerleşik bulunan VPN istemci yazılımını yapılandırmaya yönelik yapılandırma bilgileri içerir. Paket, ek yazılım yüklemez.
+3. Klasik Azure Portalı’nda VPN istemci paketini oluşturup indirdikten sonra, sanal ağınıza bağlanmak istediğiniz istemci bilgisayara istemci paketini yükleyebilirsiniz. VPN istemci paketini birden çok istemci bilgisayara yüklemeyi planlıyorsanız, bu bilgisayarların her birine bir istemci sertifikası da yüklü olduğundan emin olun.
 
 ### 2. Kısım: VPN yapılandırma paketini istemciye yükleme ve bağlantıyı başlatma 
 
 1. Yapılandırma dosyasını, sanal ağınıza bağlamak istediğiniz bilgisayara yerel olarak kopyalayın ve .exe dosyasına çift tıklayın. Paket yüklendikten sonra VPN bağlantısını başlatabilirsiniz. Yapılandırma paketi Microsoft tarafından imzalanmamıştır. Paketi, kuruluşunuzun imzalama hizmetini kullanarak veya kendiniz [SignTool]( http://go.microsoft.com/fwlink/p/?LinkId=699327) ile imzalamak isteyebilirsiniz. Paketin imzasız olarak kullanılmasında bir sorun yoktur. Ancak paket imzasızsa, yüklendiğinde bir uyarı görüntülenir.
-2. İstemci bilgisayarda VPN bağlantılarına gidin ve İstemci bilgisayarda VPN bağlantılarına gidin ve oluşturduğunuz VPN bağlantısını bulun. Sanal ağınızla aynı ada sahip olacaktır. **Bağlan**'a tıklayın.
+2. İstemci bilgisayarda VPN bağlantılarına gidin ve oluşturduğunuz VPN bağlantısını bulun. Sanal ağınızla aynı ada sahip olacaktır. **Bağlan**'a tıklayın.
 3. Ağ Geçidi uç noktası için otomatik olarak imzalanan sertifika oluşturmak üzere kullanılan bir açılır ileti görüntülenir. Yükseltilmiş ayrıcalıklar kullanmak için **Devam**’a tıklayın.
 4. **Bağlantı** durum sayfasında **Bağlan**'a tıklayarak bağlantıyı başlatın.
 5. Bir **Sertifika Seç** ekranı çıkarsa, gösterilen istemci sertifikasının bağlanmak için kullanmak istediğiniz sertifika olduğunu doğrulayın. Başka bir sertifika gösteriliyorsa, açılan liste okunu kullanarak doğru sertifikayı seçin ve **Tamam**’a tıklayın.
@@ -180,6 +181,6 @@ Sanal Ağlar hakkında daha fazla bilgi edinmek için [Sanal Ağ Belgeleri](http
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

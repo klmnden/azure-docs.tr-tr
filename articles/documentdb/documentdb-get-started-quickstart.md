@@ -23,33 +23,30 @@
 - [.NET](documentdb-get-started.md)
 - [Node.js](documentdb-nodejs-get-started.md)
 
-Azure DocumentDB .NET SDK'sı için NoSQL öğreticisine hoş geldiniz! Bu öğreticiyi uyguladıktan sonra, DocumentDB kaynaklarını oluşturan ve sorgulayan bir konsol uygulamasına sahip olacaksınız.
+Azure DocumentDB .NET SDK'sı için NoSQL öğreticisine hoş geldiniz! Hızlı Başlangıç projesini aldıktan veya öğreticiyi tamamladıktan sonra DocumentDB kaynaklarını oluşturan ve sorgulayan bir konsol uygulamanız olacaktır.
 
-Şu konulara değineceğiz:
+- **[Hızlı Başlangıç](#quickstart)**: Örnek projeyi indirin, bağlantı bilgilerinizi ekleyin ve 5 dakikadan az bir süre içinde çalışır durumdaki bir DocumentDB uygulamasını elde edin.
+- **[Öğretici](#tutorial)**: 30 dakika içerisinde sıfırdan Hızlı Başlangıç uygulaması oluşturun.
 
-- DocumentDB hesabı oluşturma ve DocumentDB hesabına bağlanma
-- Visual Studio Çözümünüzü yapılandırma
-- Çevrimiçi bir veritabanı oluşturma
-- Koleksiyon oluşturma
-- JSON belgeleri oluşturma
-- Koleksiyonu sorgulama
-- Bir belgeyi değiştirme
-- Bir belgeyi silme
-- Veritabanını silme
-
-Zamanınız yok mu? Endişelenmeyin! Eksiksiz çözümü [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started)'da bulabilirsiniz. Hızlı yönergeler için [Tam çözümü edinme bölümüne](#GetSolution) atlayın.
-
-Ardından bize geri bildirim sağlamak için lütfen bu sayfanın üst veya alt kısmındaki oylama düğmelerini kullanın. Doğrudan sizinle iletişim kurmamızı isterseniz yorumlarınıza e-posta adresinizi ekleyin.
-
-Şimdi başlayalım!
-
-## Önkoşullar
-
-Lütfen aşağıdakilere sahip olduğunuzdan emin olun:
+## Ön koşullar
 
 - Etkin bir Azure hesabı. Bir aboneliğiniz yoksa [ücretsiz bir hesap](https://azure.microsoft.com/free/) için kaydolabilirsiniz.
-- [Visual Studio 2013/Visual Studio 2015](http://www.visualstudio.com/).
+- [Visual Studio 2013 veya Visual Studio 2015](http://www.visualstudio.com/).
 - .NET Framework 4.6
+
+## Hızlı Başlangıç
+
+1. [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started-quickstart/archive/master.zip)’dan örnek projeyi indirin.
+2. Azure portalını kullanarak [bir DocumentDB hesabı oluşturun](documentdb-create-account.md).
+3. App.config dosyasında EndpointUri ve PrimaryKey değerlerini [Azure portalından](https://portal.azure.com/) alınan değerlerle değiştirmek için **DocumentDB (NoSQL)** dikey penceresine gidin, **Hesap adı**’na tıklayın ve ardından kaynak menüsündeki **Anahtarlar** öğesine tıklayın.
+    ![App.config dosyasında değiştirilecek EndpointUri ve PrimaryKey değerinin ekran görüntüsü](./media/documentdb-get-started-quickstart/nosql-tutorial-documentdb-keys.png)
+4. Projeyi derleyin. Konsol penceresinde oluşturulan, sorgulanan ve ardından temizlenen kaynaklar gösterilir.
+    
+    ![Konsol çıktısı ekran görüntüsü](./media/documentdb-get-started-quickstart/nosql-tutorial-documentdb-console-output.png)
+
+## <a id="tutorial"></a>Öğretici
+
+Bu öğretici bir DocumentDB veritabanı, DocumentDB koleksiyonu ve JSON belgelerinin oluşturulmasına size kılavuzluk eder. Bundan sonra koleksiyonu sorgulayabilir ve veritabanını temizleyip silebilirsiniz. Bu öğretici Hızlı Başlangıç projesiyle aynı projeyi oluşturur, ancak projeyi artımlı olarak oluşturursunuz ve projeye eklediğiniz kod hakkında açıklama alırsınız.
 
 ## 1. Adım: DocumentDB hesabı oluşturma
 
@@ -198,7 +195,7 @@ Aşağıdaki kodu kopyalayın ve istemci oluşturmanın altında **GetStartedDem
         this.client = new DocumentClient(new Uri(EndpointUri), PrimaryKey);
 
         // ADD THIS PART TO YOUR CODE
-        await this.CreateDatabaseIfNotExists("FamilyDB_oa");
+        await this.CreateDatabaseIfNotExists("FamilyDB_va");
 
 Uygulamanızı çalıştırmak için **F5**'e basın.
 
@@ -246,14 +243,14 @@ Bir [koleksiyon](documentdb-resources.md#collections), **DocumentClient** sını
         }
     }
 
-Aşağıdaki kodu kopyalayın ve veritabanı oluşturmanın altında **GetStartedDemo** yönteminize yapıştırın. Bunun yapılması *FamilyCollection_oa* adlı bir belge koleksiyonu oluşturur.
+Aşağıdaki kodu kopyalayın ve veritabanı oluşturmanın altında **GetStartedDemo** yönteminize yapıştırın. Bunun yapılması *FamilyCollection_va* adlı bir belge koleksiyonu oluşturur.
 
         this.client = new DocumentClient(new Uri(EndpointUri), PrimaryKey);
 
         await this.CreateDatabaseIfNotExists("FamilyDB_oa");
 
         // ADD THIS PART TO YOUR CODE
-        await this.CreateDocumentCollectionIfNotExists("FamilyDB_oa", "FamilyCollection_oa");
+        await this.CreateDocumentCollectionIfNotExists("FamilyDB_va", "FamilyCollection_va");
 
 Uygulamanızı çalıştırmak için **F5**'e basın.
 
@@ -344,9 +341,9 @@ Andersen Ailesi ve Wakefield Ailesi için birer tane olmak üzere iki belge yerl
 
 Aşağıdaki kodu kopyalayın ve belge koleksiyonu oluşturmanın altında **GetStartedDemo** yönteminize yapıştırın.
 
-    await this.CreateDatabaseIfNotExists("FamilyDB_oa");
+    await this.CreateDatabaseIfNotExists("FamilyDB_va");
 
-    await this.CreateDocumentCollectionIfNotExists("FamilyDB_oa", "FamilyCollection_oa");
+    await this.CreateDocumentCollectionIfNotExists("FamilyDB_va", "FamilyCollection_va");
 
     // ADD THIS PART TO YOUR CODE
     Family andersenFamily = new Family
@@ -375,7 +372,7 @@ Aşağıdaki kodu kopyalayın ve belge koleksiyonu oluşturmanın altında **Get
             IsRegistered = true
     };
 
-    await this.CreateFamilyDocumentIfNotExists("FamilyDB_oa", "FamilyCollection_oa", andersenFamily);
+    await this.CreateFamilyDocumentIfNotExists("FamilyDB_va", "FamilyCollection_va", andersenFamily);
 
     Family wakefieldFamily = new Family
     {
@@ -412,7 +409,7 @@ Aşağıdaki kodu kopyalayın ve belge koleksiyonu oluşturmanın altında **Get
             IsRegistered = false
     };
 
-    await this.CreateFamilyDocumentIfNotExists("FamilyDB_oa", "FamilyCollection_oa", wakefieldFamily);
+    await this.CreateFamilyDocumentIfNotExists("FamilyDB_va", "FamilyCollection_va", wakefieldFamily);
 
 Uygulamanızı çalıştırmak için **F5**'e basın.
 
@@ -462,10 +459,10 @@ DocumentDB, her bir koleksiyonda depolanan JSON belgelerde yapılan zengin [sorg
 
 Aşağıdaki kodu kopyalayın ve ikinci belge oluşturmanın altında **GetStartedDemo** yönteminize yapıştırın.
 
-    await this.CreateFamilyDocumentIfNotExists("FamilyDB_oa", "FamilyCollection_oa", wakefieldFamily);
+    await this.CreateFamilyDocumentIfNotExists("FamilyDB_va", "FamilyCollection_va", wakefieldFamily);
 
     // ADD THIS PART TO YOUR CODE
-    this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");
+    this.ExecuteSimpleQuery("FamilyDB_va", "FamilyCollection_va");
 
 Uygulamanızı çalıştırmak için **F5**'e basın.
 
@@ -499,17 +496,17 @@ DocumentDB, JSON belgelerini değiştirmeyi destekler.
 
 Aşağıdaki kodu kopyalayın ve sorgu yürütmenin altında **GetStartedDemo** yönteminize yapıştırın. Belgeyi değiştirdikten sonra, aynı sorgu tekrar çalıştırılarak değiştirilen belge görüntülenir.
 
-    await this.CreateFamilyDocumentIfNotExists("FamilyDB_oa", "FamilyCollection_oa", wakefieldFamily);
+    await this.CreateFamilyDocumentIfNotExists("FamilyDB_va", "FamilyCollection_va", wakefieldFamily);
 
-    this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");
+    this.ExecuteSimpleQuery("FamilyDB_va", "FamilyCollection_va");
 
     // ADD THIS PART TO YOUR CODE
     // Update the Grade of the Andersen Family child
     andersenFamily.Children[0].Grade = 6;
 
-    await this.ReplaceFamilyDocument("FamilyDB_oa", "FamilyCollection_oa", "Andersen.1", andersenFamily);
+    await this.ReplaceFamilyDocument("FamilyDB_va", "FamilyCollection_va", "Andersen.1", andersenFamily);
 
-    this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");
+    this.ExecuteSimpleQuery("FamilyDB_va", "FamilyCollection_va");
 
 Uygulamanızı çalıştırmak için **F5**'e basın.
 
@@ -537,12 +534,12 @@ DocumentDB, JSON belgelerini silmeyi destekler.
 
 Aşağıdaki kodu kopyalayın ve ikinci sorguyu yürütmenin altında **GetStartedDemo** yönteminize yapıştırın.
 
-    await this.ReplaceFamilyDocument("FamilyDB_oa", "FamilyCollection_oa", "Andersen.1", andersenFamily);
+    await this.ReplaceFamilyDocument("FamilyDB_va", "FamilyCollection_va", "Andersen.1", andersenFamily);
 
-    this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");
+    this.ExecuteSimpleQuery("FamilyDB_va", "FamilyCollection_va");
 
     // ADD THIS PART TO CODE
-    await this.DeleteFamilyDocument("FamilyDB_oa", "FamilyCollection_oa", "Andersen.1");
+    await this.DeleteFamilyDocument("FamilyDB_va", "FamilyCollection_va", "Andersen.1");
 
 Uygulamanızı çalıştırmak için **F5**'e basın.
 
@@ -554,13 +551,13 @@ Oluşturulan veritabanı silindiğinde, veritabanı ve tüm alt kaynaklar (kolek
 
 Tüm veritabanını ve tüm alt kaynaklarını silmek için aşağıdaki kodu kopyalayın ve belge silmenin altında **GetStartedDemo** yönteminize yapıştırın.
 
-    this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");
+    this.ExecuteSimpleQuery("FamilyDB_va", "FamilyCollection_va");
 
-    await this.DeleteFamilyDocument("FamilyDB_oa", "FamilyCollection_oa", "Andersen.1");
+    await this.DeleteFamilyDocument("FamilyDB_va", "FamilyCollection_va", "Andersen.1");
 
     // ADD THIS PART TO CODE
     // Clean up/delete the database
-    await this.client.DeleteDatabaseAsync(UriFactory.CreateDatabaseUri("FamilyDB_oa"));
+    await this.client.DeleteDatabaseAsync(UriFactory.CreateDatabaseUri("FamilyDB_va"));
 
 Uygulamanızı çalıştırmak için **F5**'e basın.
 
@@ -572,9 +569,9 @@ Uygulamayı hata ayıklama modunda oluşturmak için Visual Studio'da F5'e bası
 
 Başlarken uygulamanızın çıktısını görmeniz gerekir. Çıktı, eklediğimiz sorguların sonuçlarını gösterir ve aşağıdaki örnek metinle eşleşmelidir.
 
-    Created FamilyDB_oa
+    Created FamilyDB_va
     Press any key to continue ...
-    Created FamilyCollection_oa
+    Created FamilyCollection_va
     Press any key to continue ...
     Created Family Andersen.1
     Press any key to continue ...
@@ -595,15 +592,6 @@ Başlarken uygulamanızın çıktısını görmeniz gerekir. Çıktı, eklediği
 
 Tebrikler! Bu NoSQL öğreticisini tamamladınız ve çalışan bir C# konsol uygulamasına sahipsiniz!
 
-##<a id="GetSolution"></a> NoSQL öğreticisi tam çözümünü edinme
-Bu makaledeki tüm örnekleri içeren GetStarted çözümünü derlemek için aşağıdakilere ihtiyacınız vardır:
-
-- Etkin bir Azure hesabı. Bir aboneliğiniz yoksa [ücretsiz bir hesap](https://azure.microsoft.com/free/) için kaydolabilirsiniz.
--   Bir [DocumentDB hesabı][documentdb-create-account].
--   GitHub'da bulunan [GetStarted](https://github.com/Azure-Samples/documentdb-dotnet-getting-started) çözümü.
-
-Başvuruları Visual Studio'daki DocumentDB .NET SDK'sına geri yüklemek için, Çözüm Gezgini'nde **GetStarted** çözümüne sağ tıklayın ve ardından **NuGet Paketi Geri Yüklemeyi Etkinleştir**'e tıklayın. Ardından, App.config dosyasında EndpointUrl ve AuthorizationKey değerlerini [DocumentDB hesabına bağlanma](#Connect)'da açıklandığı gibi güncelleştirin.
-
 ## Sonraki adımlar
 
 - Daha karmaşık bir ASP.NET MVC NoSQL öğreticisi mi istiyorsunuz? Bkz. [DocumentDB kullanarak ASP.NET MVC ile bir web uygulaması oluşturma](documentdb-dotnet-application.md).
@@ -614,7 +602,8 @@ Başvuruları Visual Studio'daki DocumentDB .NET SDK'sına geri yüklemek için,
 
 [documentdb-create-account]: documentdb-create-account.md
 [documentdb-manage]: documentdb-manage.md
-[anahtarlar]: media/documentdb-get-started/nosql-tutorial-keys.png
+[anahtarlar]: media/documentdb-get-started-quickstart/nosql-tutorial-keys.png
+
 
 
 

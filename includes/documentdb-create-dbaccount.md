@@ -1,9 +1,9 @@
-1.  Çevrimiçi [Microsoft Azure portalı](https://portal.azure.com/)’nda oturum açın.
-2.  Atlama çubuğunda **Yeni**'ye, ardından **Veri + Depolama**'ya ve sonra da **Azure DocumentDB**’ye tıklayın.
+1.  [Azure Portal](https://portal.azure.com/) oturum açın.
+2.  Atlama çubuğunda **Yeni**'ye, **Veri + Depolama**'ya ve sonra **DocumentDB (NoSQL)** öğesine tıklayın.
 
-    ![Veritabanı oluşturacak Azure portalı; Yeni düğmesi, Oluştur dikey penceresinde Veri + depolama, Veri + Depolama dikey penceresinde de Azure DocumentDB vurgulanıyor](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-1.png)  
+    ![Diğer Hizmetler ve DocumentDB (NoSQL) seçeneğini vurgulayan Azure portalı ekran görüntüsü](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-1.png)  
 
-3. **Yeni DocumentDB hesabı** dikey penceresinde DocumentDB hesabı için istenen yapılandırmayı belirtin.
+3. **Yeni hesap** dikey penceresinde DocumentDB hesabı için istenen yapılandırmayı belirtin.
 
     ![Yeni DocumentDB dikey penceresi ekran görüntüsü](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-2.png)
 
@@ -27,7 +27,7 @@
 
     ![DocumentDB hesabının sorunsuz oluşturulduğunu ve bir kaynak grubuna dağıtıldığını gösteren Bildirimler hub’ının ekran görüntüsü- Çevrimiçi veritabanı oluşturucu bildirimi](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-5.png)
 
-5.  DocumentDB hesabı oluşturulduktan sonra çevrimiçi portalda varsayılan ayarlarla birlikte kullanıma hazırdır. DocumentDB hesabının varsayılan tutarlılığının **Oturum** olarak ayarlandığını unutmayın.  Menüde **Varsayılan Tutarlılık** seçeneğine tıklayarak varsayılan tutarlılık ayarını belirleyebilirsiniz. DocumentDB tarafından sunulan tutarlılık düzeyleri hakkında daha fazla bilgi edinmek için bkz. [DocumentDB'deki tutarlılık düzeyleri](../articles/azure-portal/resource-group-portal.md)
+5.  DocumentDB hesabı oluşturulduktan sonra varsayılan ayarlarla birlikte kullanıma hazırdır. DocumentDB hesabının varsayılan tutarlılığının **Oturum** olarak ayarlandığını unutmayın.  Kaynak menüsünde **Varsayılan Tutarlılık** seçeneğine tıklayarak varsayılan tutarlılık ayarını belirleyebilirsiniz. DocumentDB tarafından sunulan tutarlılık düzeyleri hakkında daha fazla bilgi edinmek için bkz. [DocumentDB'deki tutarlılık düzeyleri](../articles/azure-portal/resource-group-portal.md).
 
     ![Kaynak Grubu dikey penceresi ekran görüntüsü - uygulama geliştirmesini başlatma](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-6.png)  
 
@@ -39,6 +39,6 @@
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

@@ -78,15 +78,15 @@ Yönlendirme değişimi bir eBGP protokolü üzerinden olacaktır. EBGP oturumla
 
 ## Otonom Sistem numaraları
 
-Microsoft Azure genel, Azure özel ve Microsoft eşlemesi için AS 12076 kullanır. 65515 ile 65520 arasındaki ASN’ler şirket içi kullanım için ayrılmıştır. Hem 16 hem de 32 bit AS numaraları desteklenir.
+Microsoft Azure genel, Azure özel ve Microsoft eşlemesi için AS 12076 kullanır. 65515 ile 65520 arasındaki ASN’ler şirket içi kullanım için ayrılmıştır. Hem 16 hem de 32 bit AS numaraları desteklenir. Eşleme tarafında (müşteri veya sağlayıcı), AS size ait olduğu doğrulanabiliyorsa bir genel ASN ya da özel eşleme için özel bir ASN numarası olabilir ve genel eşlemeler ile Microsoft eşlemeleri için genel bir ASN gerektirir. 
 
-Veri aktarımı simetrisi etrafında bir gereksinim yoktur. İleri ve geri dönüş yolları farklı yönlendirici çiftlerinden geçiş yapabilir. Aynı yollar size ait birden fazla devre çiftinin her iki tarafından tanıtılmalıdır. Yol ölçümlerinin aynı olması gerekmez.
+Belirli bir devrenin birincil ve ikincil yollarındaki veri aktarımı simetrisine ilişkin herhangi bir gereksinim bulunmamaktadır. İleri ve geri dönüş yolları farklı yönlendirici çiftlerinden geçiş yapabilir. Size ait belirli bir devre çiftinin birincil veya ikincil taraflarından aynı yollar tanıtılmalıdır. Yol ölçümlerinin aynı olması gerekmez.
 
 ## Yol toplama ve ön ek sınırları
 
 Azure özel eşleme aracılığıyla bize tanıtılan 4000’e kadar ön eki destekliyoruz. ExpressRoute premium eklentisi etkinse bu sayı en fazla 10.000 ön eke kadar artırılabilir. Azure genel ve Microsoft eşlemesi için BGP oturumu başına en fazla 200 ön ek kabul edilmektedir. 
 
-Ön ek sayısı bu sınırı aşarsa BGP oturumu düşürülür. Yalnızca özel eşleme bağlantısında varsayılan yollar kabul edilir. Sağlayıcının Azure genel ve Microsoft eşlemesi yollarından varsayılan yolu ve özel IP adreslerini (RFC 1918) filtrelemesi gerekir. 
+Ön ek sayısı bu sınırı aşarsa BGP oturumu düşürülür. Yalnızca özel eşleme bağlantısında varsayılan yollar kabul edilir. Sağlayıcının veya müşterinin BGP tanıtımlarından Azure genel ve Microsoft eşlemesi yollarına varsayılan yolu ve özel IP adreslerini (RFC 1918) filtrelemesi gerekir. 
 
 ## Geçiş yönlendirme ve çapraz bölge yönlendirme
 
@@ -179,6 +179,6 @@ Yukarıdakilerin yanı sıra Microsoft, ön ekleri ait oldukları hizmet göre e
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

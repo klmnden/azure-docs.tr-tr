@@ -26,6 +26,7 @@ Azure Application Gateway, bir katman 7 yük dengeleyicidir. Bulutta veya şirke
 - [Azure Resource Manager PowerShell](application-gateway-create-gateway-arm.md)
 - [Azure Klasik PowerShell](application-gateway-create-gateway.md)
 - [Azure Resource Manager şablonu](application-gateway-create-gateway-arm-template.md)
+- [Azure CLI](application-gateway-create-gateway-cli.md)
 
 <BR>
 
@@ -74,7 +75,7 @@ GitHub’dan sanal ağ ve iki adet alt ağ oluşturmak için, mevcut Azure Resou
   	| **backendaddress2** | İkinci web sunucusunun IP adresi |
 
 
->[AZURE.IMPORTANT] GitHub’da tutulan Azure Resource Manager şablonları zaman içinde değişebilir. Kullanmadan önce şablonu denetlediğinizden emin olun.
+    >[AZURE.IMPORTANT] GitHub’da tutulan Azure Resource Manager şablonları zaman içinde değişebilir. Kullanmadan önce şablonu denetlediğinizden emin olun.
 
 6. **Kaynaklar** altındaki içeriği denetleyin ve aşağıdakilere dikkat edin:
 
@@ -147,8 +148,6 @@ Hangi Azure aboneliğinizin kullanılacağını seçin. <BR>
 Gerekirse, **New-AzureResourceGroup** cmdlet’ini kullanarak bir kaynak grubu oluşturun. Aşağıdaki örnekte, Doğu ABD konumunda AppgatewayRG adlı yeni bir kaynak grubu oluşturacaksınız.
 
     New-AzureRmResourceGroup -Name AppgatewayRG -Location "East US"
-        VERBOSE: 5:38:49 PM - Created resource group 'AppgatewayRG' in location 'eastus'
-
 
         ResourceGroupName : AppgatewayRG
         Location          : eastus
@@ -295,6 +294,6 @@ Yük dengeleme seçenekleri hakkında daha fazla genel bilgi edinmek istiyorsan�
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

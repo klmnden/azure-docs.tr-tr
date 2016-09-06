@@ -14,7 +14,7 @@
     ms.topic="hero-article"
     ms.tgt_pltfrm="NA"
     ms.workload="data-services"
-    ms.date="08/18/2016"
+    ms.date="08/24/2016"
     ms.author="anhoh"/>
 
 # DocumentDB kullanarak bir Java web uygulaması oluşturma
@@ -782,6 +782,6 @@ Bu öğreticideki tüm örnekler GitHub'daki [todo](https://github.com/Azure-Sam
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

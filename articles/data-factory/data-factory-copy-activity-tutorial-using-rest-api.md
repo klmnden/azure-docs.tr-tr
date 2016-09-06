@@ -39,10 +39,10 @@ Kopyalama Etkinliği, Azure Data Factory’de veri hareketini gerçekleştirir. 
 - [Öğreticiye Genel Bakış](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)’ı inceleyin.
 - [Curl](https://curl.haxx.se/dlwiz/) aracını makinenize yükleyin. Bir veri fabrikası oluşturmak için Curl aracını REST komutlarıyla kullanırsınız. 
 - Aşağıdakileri yapmak için [bu makaledeki](../resource-group-create-service-principal-portal.md) yönergeleri izleyin: 
-    1. Azure Active Directory’de **ADFCopyTutotiralApp** adlı bir Web uygulaması oluşturun.
+    1. Azure Active Directory’de **ADFCopyTutorialApp** adlı bir Web uygulaması oluşturun.
     2. **İstemci kimliği** ve **gizli anahtarı** alın. 
     3. **İstemci kimliğini** alın. 
-    4. **ADFCopyTutotiralApp** uygulamasını **Data Factory Katılımcısı** rolüne atayın.  
+    4. **ADFCopyTutorialApp** uygulamasını **Data Factory Katılımcısı** rolüne atayın.  
 - [Azure PowerShell](../powershell-install-configure.md)'i yükleyin.  
 - **PowerShell**’i başlatın ve aşağıdaki komutu çalıştırın. Bu öğreticide sonuna kadar Azure PowerShell’i açık tutun. Kapatıp yeniden açarsanız komutları yeniden çalıştırmanız gerekir.
     1. Aşağıdaki komutu çalıştırın ve Azure portalda oturum açmak için kullandığınız kullanıcı adı ve parolayı girin.
@@ -134,7 +134,7 @@ Curl.exe’nin bulunduğu klasörde aşağıdaki JSON dosyalarını oluşturun.
       }
     }
 
-JSON tanımı, işlem hattındaki bir etkinliğin girdi verilerini temsil eden **AzureBlobInput** adlı veri kümesini tanımlar. Buna ek olarak, girdi verilerinin **adftutorial** adlı blob kapsayısındaki **emp.txt** dosyasında bulunduğunu belirtir. 
+JSON tanımı, işlem hattındaki bir etkinliğin girdi verilerini temsil eden **AzureBlobInput** adlı veri kümesini tanımlar. Buna ek olarak, girdi verilerinin **adftutorial** adlı blob kapsayıcısındaki **emp.txt** dosyasında bulunduğunu belirtir. 
 
  Şunlara dikkat edin: 
 
@@ -147,7 +147,7 @@ JSON tanımı, işlem hattındaki bir etkinliğin girdi verilerini temsil eden *
 
 Girdi veri kümesi için bir **fileName** belirtmezseniz, girdi klasörüne (**folderPath**) ait tüm dosyalar/blob’lar girdi olarak kabul edilir. JSON’da bir fileName belirtirseniz yalnızca belirtilen dosya/blob girdi olarak kabul edilir.
 
-**Çıktı tablosu** için bir **fileName** belirtmezseniz, **folderPath**’de oluşturulan dosyaları şu biçimde adlandırılır: Data.&lt;Guid\&gt;.txt (örnek: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
+**Çıktı tablosu** için bir **fileName** belirtmezseniz **folderPath**’de oluşturulan dosyalar şu biçimde adlandırılır: Data.&lt;Guid&gt;.txt (örnek: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
 
 **folderPath** ve **fileName** öğelerini dinamik olarak **SliceStart** zamanı temelinde ayarlamak için **partitionedBy** özelliğini kullanın. Aşağıdaki örnekte, folderPath SliceStart’taki (işlemdeki dilimin başlangıç zamanı) Yıl, Ay ve Gün öğelerini, fileName ise SliceStart’taki Saat öğesini kullanır. Örneğin, dilim 2014-10-20T08:00:00 için oluşturulduysa, folderName wikidatagateway/wikisampledataout/2014/10/20, fileName de 08.csv olarak ayarlanır. 
 
@@ -259,7 +259,7 @@ Başlangıç ve bitiş tarih saatleri [ISO biçiminde](http://en.wikipedia.org/w
 
 Örnekte, her veri dilimi saatlik oluşturulduğundan 24 veri dilimi vardır.
     
-> [AZURE.NOTE] Yukarıdaki örnekte kullanılan JSON özellikleri hakkında ayrıntılı bilgi için bkz. [Bir İşlem Hattının Anatomisi](data-factory-create-pipelines.md#anatomy-of-a-pipeline).
+> [AZURE.NOTE] Önceki örnekte kullanılan JSON özellikleri hakkında ayrıntılı bilgi için bkz. [İşlem Hattı Anatomisi](data-factory-create-pipelines.md#anatomy-of-a-pipeline).
 
 ## Genel değişkenleri ayarlama
 
@@ -298,7 +298,7 @@ Bu adımda, **ADFCopyTutorialDF** adlı bir Azure Data Factory oluşturacaksın�
         $results = Invoke-Command -scriptblock $cmd;
 3. Sonuçlara bakın. Veri fabrikası başarıyla oluşturulduysa, **results** bölümünde veri fabrikasının JSON’unu görürsünüz; aksi takdirde bir hata iletisi görürsünüz.  
 
-        $results
+        Write-Host $results
 
 Şunlara dikkat edin:
  
@@ -339,7 +339,7 @@ Bu adımda, Azure Depolama hesabınızı veri fabrikanıza bağlarsınız. Bu ö
         $results = Invoke-Command -scriptblock $cmd;
 3. Sonuçlara bakın. Bağlı hizmet başarıyla oluşturulduysa, **results** bölümünde bağlı hizmetin JSON’unu görürsünüz; aksi takdirde bir hata iletisi görürsünüz.
   
-        $results
+        Write-Host $results
 
 ### Azure SQL bağlı hizmeti oluşturma
 Bu adımda, Azure SQL veritabanınızı veri fabrikanıza bağlarsınız. Bu öğreticide çıktı verilerini depolamak için aynı Azure SQL veritabanını kullanırsınız.
@@ -352,7 +352,7 @@ Bu adımda, Azure SQL veritabanınızı veri fabrikanıza bağlarsınız. Bu ö�
         $results = Invoke-Command -scriptblock $cmd;
 3. Sonuçlara bakın. Bağlı hizmet başarıyla oluşturulduysa, **results** bölümünde bağlı hizmetin JSON’unu görürsünüz; aksi takdirde bir hata iletisi görürsünüz.
   
-        $results
+        Write-Host $results
 
 ## Veri kümeleri oluşturma
 
@@ -391,7 +391,7 @@ Bu öğreticide kullanılacak Azure blob depolama ve Azure SQL veritabanını ha
 
     Bilgisayarınızda SQL Server 2014 yüklüyse: Azure SQL sunucunuza bağlanmak ve SQL betiğini çalıştırmak için [2. Adım: SQL Server Management Studio kullanarak, Yönetilen Azure SQL Database’in SQL Database’ine Bağlanma][sql-management-studio] makalesindeki yönergeleri uygulayın.
 
-    İstemcinizin Azure SQL sunucusuna erişim izni yoksa, makinenizden (IP adresi) erişim izni vermek için Azure SQL sunucunuzun güvenlik duvarını yapılandırmanız gerekir. Azure SQL sunucusunuzun güvenlik duvarını yapılandırmaya yönelik adımlar için [bu makaleye](../sql-database/sql-database-configure-firewall-settings.md) bakın.
+    İstemcinizin Azure SQL sunucusuna erişim izni yoksa, makinenizden (IP adresi) erişim izni vermek için Azure SQL sunucunuzun güvenlik duvarını yapılandırmanız gerekir. Azure SQL sunucunuzun güvenlik duvarını yapılandırmaya yönelik adımlar için [bu makaleye](../sql-database/sql-database-configure-firewall-settings.md) bakın.
         
 ### Girdi veri kümesi oluşturma 
 Bu adımda, **AzureStorageLinkedService** bağlı hizmetiyle temsil edilen Azure Depolama’daki bir blob kapsayıcısını işaret eden **AzureBlobInput** adlı bir veri kümesi oluşturacaksınız. Bu blob kapsayıcısında (**adftutorial**) şu dosyaya ait girdi verileri vardır: **emp.txt**. 
@@ -404,7 +404,7 @@ Bu adımda, **AzureStorageLinkedService** bağlı hizmetiyle temsil edilen Azure
         $results = Invoke-Command -scriptblock $cmd;
 3. Sonuçlara bakın. Veri kümesi başarıyla oluşturulduysa, **results** bölümünde veri kümesinin JSON’unu görürsünüz; aksi takdirde bir hata iletisi görürsünüz.
   
-        $results
+        Write-Host $results
 
 ### Çıktı veri kümesi oluşturma
 Bu adımda **AzureSqlOutput** adlı bir çıktı tablosu oluşturursunuz. Bu veri kümesi, **AzureSqlLinkedService** ile temsil edilen Azure SQL veritabanında bir SQL tablosunu (**emp**) işaret eder. İşlem hattı verileri girdi blob’undan **emp** tablosuna kopyalar. 
@@ -417,7 +417,7 @@ Bu adımda **AzureSqlOutput** adlı bir çıktı tablosu oluşturursunuz. Bu ver
         $results = Invoke-Command -scriptblock $cmd;
 3. Sonuçlara bakın. Veri kümesi başarıyla oluşturulduysa, **results** bölümünde veri kümesinin JSON’unu görürsünüz; aksi takdirde bir hata iletisi görürsünüz.
   
-        $results 
+        Write-Host $results 
 
 ## İşlem hattı oluşturma
 Bu adımda, girdi olarak **AzureBlobInput**, çıktı olaraksa **AzureSqlOutput** kullanan bir **Kopyalama Etkinliği**’ne sahip bir işlem hattı oluşturursunuz.
@@ -430,7 +430,7 @@ Bu adımda, girdi olarak **AzureBlobInput**, çıktı olaraksa **AzureSqlOutput*
         $results = Invoke-Command -scriptblock $cmd;
 3. Sonuçlara bakın. Veri kümesi başarıyla oluşturulduysa, **results** bölümünde veri kümesinin JSON’unu görürsünüz; aksi takdirde bir hata iletisi görürsünüz.  
 
-        $results
+        Write-Host $results
 
 **Tebrikler!** Azure Blob Depolama’dan Azure SQL veritabanına veri kopyalayan bir işlem hattına sahip bir Azure veri fabrikasını başarıyla oluşturdunuz.
 
@@ -494,6 +494,6 @@ Bu öğreticide bir Azure blob’undan Azure SQL veritabanına veri kopyalamak i
  
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

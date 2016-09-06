@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="08/09/2016"
+    ms.date="08/24/2016"
     ms.author="sdanie"/>
 
 # Azure API Management performansını artırmak için önbelleğe alma ekleme
@@ -129,7 +129,6 @@ Yanıttaki **sampleheader** değerinin artık **value2** olduğuna dikkat edin. 
 
 ## <a name="next-steps"> </a>Sonraki adımlar
 
--   [Gelişmiş API yapılandırmasını kullanmaya başlama][] öğreticisindeki diğer konulara göz atın.
 -   Önbelleğe alma ilkeleri hakkında daha fazla bilgi için bkz. [API Management ilke başvurusu][]’nda [Önbelleğe alma ilkeleri][].
 -   Anahtar kullanım ilkesi ifadeleri hakkında daha fazla bilgi için bkz. [Azure API Management’te özel önbelleğe alma](api-management-sample-cache-by-key.md).
 
@@ -151,7 +150,6 @@ Yanıttaki **sampleheader** değerinin artık **value2** olduğuna dikkat edin. 
 [Bir ürüne API ekleme]: api-management-howto-add-products.md#add-apis
 [Bir ürün yayımlama]: api-management-howto-add-products.md#publish-product
 [Azure API Management’i kullanmaya başlama]: api-management-get-started.md
-[Gelişmiş API yapılandırmasını kullanmaya başlama]: api-management-get-started-advanced.md
 
 [API Management ilke başvurusu]: https://msdn.microsoft.com/library/azure/dn894081.aspx
 [Önbelleğe alma ilkeleri]: https://msdn.microsoft.com/library/azure/dn894086.aspx
@@ -165,6 +163,6 @@ Yanıttaki **sampleheader** değerinin artık **value2** olduğuna dikkat edin. 
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

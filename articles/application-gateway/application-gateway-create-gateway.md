@@ -24,7 +24,7 @@ Azure Application Gateway, bir katman 7 yük dengeleyicidir. Bulutta veya şirke
 - [Azure Resource Manager PowerShell](application-gateway-create-gateway-arm.md)
 - [Azure Klasik PowerShell](application-gateway-create-gateway.md)
 - [Azure Resource Manager şablonu](application-gateway-create-gateway-arm-template.md)
-
+- [Azure CLI](application-gateway-create-gateway-cli.md)
 
 <BR>
 
@@ -36,7 +36,7 @@ Bu makale, uygulama ağ geçidi oluşturma, yapılandırma, başlatma ve silme a
 1. Web Platformu Yükleyicisi’ni kullanarak Azure PowerShell cmdlet’lerin en son sürümünü yükleyin. **İndirmeler sayfası**’ndaki [Windows PowerShell](https://azure.microsoft.com/downloads/) bölümünden en son sürümü indirip yükleyebilirsiniz.
 2. Mevcut bir sanal ağınız varsa var olan boş bir alt ağı seçin ya da var olan sanal ağınızda yalnızca uygulama ağ geçidinin kullanımına yönelik yeni bir alt ağ oluşturun. Uygulama ağ geçidini, uygulama ağ geçidinin arkasına dağıtmak istediğiniz kaynaklardan farklı bir sanal ağa dağıtamazsınız.
 3. Geçerli bir alt ağla çalışan bir sanal ağa sahip olduğunuzu doğrulayın. Hiçbir sanal makinenin veya bulut dağıtımlarının alt ağı kullanmadığından emin olun. Uygulama ağ geçidi tek başına bir sanal ağ alt ağında olmalıdır.
-3. Uygulama ağ geçidi kullanırken yapılandıracağınız sunucular mevcut olmalıdır veya uç noktaları sanal ağda veya atanan genel bir IP/VIP’de oluşturulmuş olmalıdır.
+3. Uygulama ağ geçidi kullanırken yapılandırdığınız sunucular mevcut olmalıdır veya uç noktaları sanal ağda veya atanan genel bir IP/VIP’de oluşturulmuş olmalıdır.
 
 ## Bir uygulama ağ geçidi oluşturmak için ne gereklidir?
 
@@ -49,11 +49,11 @@ Değerler şunlardır:
 - **Arka uç sunucusu havuzu:** Arka uç sunucularının IP adreslerinin listesi. Listede bulunan IP adresleri sanal ağ alt ağına veya genel IP/VIP’ye ait olmalıdır.
 - **Arka uç sunucu havuzu ayarları**: Her havuzun bağlantı noktası, protokol ve tanımlama bilgisi temelli benzeşim gibi ayarları vardır. Bu ayarlar bir havuza bağlıdır ve havuzdaki tüm sunuculara uygulanır.
 - **Ön uç bağlantı noktası:** Bu bağlantı noktası uygulama ağ geçidinde açılan genel bağlantı noktasıdır. Bu bağlantı noktasında trafik olursa arka uç sunuculardan birine yönlendirilir.
-- **Dinleyici:** Dinleyicide bir ön uç bağlantı noktası, bir protokol (büyük/küçük harfe duyarlı Http veya Https) ve SSL sertifika adı (SSL yük boşaltımı yapılandırılıyorsa) vardır.
+- **Dinleyici:** Dinleyicide bir ön uç bağlantı noktası, bir protokol (Http veya Https, bu değerler büyük/küçük harfe duyarlıdır) ve SSL sertifika adı (SSL yük boşaltımı yapılandırılıyorsa) vardır.
 - **Kural:** Kural, dinleyiciyi ve arka uç sunucusu havuzunu bağlar ve belli bir dinleyicide trafik olduğunda trafiğin hangi arka uç sunucu havuzuna yönlendirileceğini belirler.
 
 
-## Yeni bir uygulama ağ geçidi oluşturun
+## Uygulama ağ geçidi oluşturma
 
 Bir uygulama ağ geçidi oluşturmak için:
 
@@ -66,7 +66,7 @@ Bir uygulama ağ geçidi oluşturmak için:
 
 ### Bir uygulama ağ geçidi kaynağı oluşturma
 
-Ağ geçidini oluşturmak için, **New-AzureApplicationGateway** cmdlet’ini kullanın ve değerleri kendinizinkilerle değiştirin. Ağ geçidinin faturalanmasının henüz bu aşamada başlamadığını hatırlatmak isteriz.  Daha sonra ağ geçidi başarıyla başlatıldığında faturalama da başlar. 
+Ağ geçidini oluşturmak için, **New-AzureApplicationGateway** cmdlet’ini kullanın ve değerleri kendinizinkilerle değiştirin. Ağ geçidinin faturalanması bu aşamada başlamaz. Daha sonra ağ geçidi başarıyla başlatıldığında faturalama da başlar. 
 
 Aşağıdaki örnek, "testvnet1" adlı sanal ağı ve "subnet-1" aklı alt ağı kullanarak yeni bir uygulama ağ geçidi oluşturur.
 
@@ -102,7 +102,7 @@ Ağ geçidinin oluşturulduğunu doğrulamak için **Get-AzureApplicationGateway
 >[AZURE.NOTE]  *InstanceCount* için varsayılan değer 2 ile 10 arasıdır. *GatewaySize* için varsayılan değer Medium’dur. Small, Medium ve Large seçenekleri bulunur.
 
 
- Ağ geçidi daha başlatılmadığından dolayı *VirtualIPs* ve *DnsName* boş görünür. Ağ geçidi çalışma durumuna geçtiğinde oluşturulurlar.
+ Ağ geçidi daha başlatılmadığından dolayı *VirtualIPs* ve *DnsName* boş görünür. Bunlar ağ geçidi çalışma durumuna geçtiğinde oluşturulur.
 
 ## Uygulama ağ geçidini yapılandırma
 
@@ -110,7 +110,7 @@ XML veya bir yapılandırma nesnesi kullanarak uygulama ağ geçidini yapıland�
 
 ## XML kullanarak uygulama ağ geçidi yapılandırma
 
-Aşağıdaki örnekte, tüm uygulama ağ geçidi ayarlarını yapılandırmak için bir XML dosyası kullanacaksınız ve bu ayarları uygulama ağ geçidi kaynağına uygulayacaksınız.  
+Aşağıdaki örnekte, tüm uygulama ağ geçidi ayarlarını yapılandırmak için bir XML dosyası kullanır ve bu ayarları uygulama ağ geçidi kaynağına uygularsınız.  
 
 ### 1. Adım  
 
@@ -163,7 +163,7 @@ Parantez içindeki değerleri yapılandırma öğeleri için düzenleyin. Dosyas
 
 >[AZURE.IMPORTANT] Http veya Https protokol öğesi büyük/küçük harf duyarlıdır.
 
-Aşağıdaki örnek, bir yapılandırma dosyası kullanarak, 80 numaralı genel bağlantı noktasındaki HTTP trafiğinin yükünü dengelemek ve ağ trafiğini iki IP adresi arasından 80 numarası bağlantı noktası arka ucuna yönlendirmek amacıyla uygulama ağ geçidinin nasıl oluşturulacağını gösterir.
+Aşağıdaki örnekte uygulama ağ geçidi ayarlamak için yapılandırma dosyası kullanma işlemi gösterilmektedir. Örnek, genel bağlantı noktası 80 üzerinde HTTP trafiğinin yük dengelemesini yapar ve iki IP adresi arasındaki arka uç bağlantı noktası 80’e ağ trafiği gönderir.
 
     <?xml version="1.0" encoding="utf-8"?>
     <ApplicationGatewayConfiguration xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
@@ -226,7 +226,7 @@ Sonra, uygulama ağ geçidini kurun. **Set-AzureApplicationGatewayConfig** cmdle
 
 Aşağıdaki örnek yapılandırma nesnesi kullanarak nasıl uygulama ağ geçidi yapılandırılacağını gösterir. Tüm yapılandırma öğeleri ayrı ayrı yapılandırılıp bir uygulama ağ geçidi yapılandırma nesnesine eklenmelidir. Yapılandırma nesnesini oluşturduktan sonra, yapılandırmayı, daha önce oluşturulmuş bir uygulama ağ geçidi kaynağına uygulamak için **Set-AzureApplicationGateway** komutunu kullanın.
 
->[AZURE.NOTE] Her yapılandırma nesnesine değer atamadan önce, PowerShell’in depolama için ne tür bir nesneyi kullanacağını belirtmeniz gerekir. Bireysel öğeleri oluşturan ilk satır hangi Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model(nesne adı)’in kullanılacağını tanımlar.
+>[AZURE.NOTE] Her yapılandırma nesnesine değer atamadan önce, PowerShell’in depolama için ne tür bir nesneyi kullanacağını belirtmeniz gerekir. Bireysel öğeleri oluşturan ilk satır hangi Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model(nesne adı) öğesinin kullanılacağını tanımlar.
 
 ### 1. Adım
 
@@ -417,6 +417,6 @@ Yük dengeleme seçenekleri hakkında daha fazla genel bilgi edinmek istiyorsan�
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

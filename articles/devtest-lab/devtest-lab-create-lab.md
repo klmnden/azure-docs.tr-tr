@@ -13,12 +13,12 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/01/2016"
+    ms.date="08/25/2016"
     ms.author="tarcher"/>
 
 # Azure DevTest Labs'de laboratuvar oluşturma
 
-## Önkoşullar
+## Ön koşullar
 
 Laboratuvar oluşturmak için aşağıdakilere sahip olmanız gerekir:
 
@@ -46,6 +46,8 @@ Laboratuvar oluşturmak için aşağıdakilere sahip olmanız gerekir:
 
     ![Laboratuvar dikey penceresi oluşturma](./media/devtest-lab-create-lab/create-devtestlab-blade.png)
 
+[AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
+
 ## Sonraki adımlar
 
 Laboratuvarınızı oluşturduktan sonra dikkate alınması gereken sonraki adımlardan birkaçı şu şekildedir:
@@ -61,6 +63,6 @@ Laboratuvarınızı oluşturduktan sonra dikkate alınması gereken sonraki adı
 - [Yapı içeren bir VM'yi laboratuvara ekleme](devtest-lab-add-vm-with-artifacts.md).
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO5-->
 
 

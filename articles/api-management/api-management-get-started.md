@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="08/09/2016"
+    ms.date="08/24/2016"
     ms.author="sdanie"/>
 
 # İlk API’nizi Azure API Management’te Yönetme
@@ -57,7 +57,7 @@ Sistem aşağıdaki bileşenlerden oluşur:
     * Kendi kullanımlarına ilişkin analize erişme.
 
 
-## <a name="create-service-instance"> </a>API Management örneği oluşturma.
+## <a name="create-service-instance"> </a>API Management örneği oluşturma
 
 >[AZURE.NOTE] Bu öğreticiyi tamamlamak için bir Azure hesabınızın olması gerekir. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılar için bkz. [Azure Ücretsiz Deneme][].
 
@@ -186,11 +186,11 @@ Ayrıntılı ölçümler ve raporlar için soldaki **API Management** menüsünd
 
 ## <a name="next-steps"> </a>Sonraki adımlar
 
--   [Gelişmiş API yapılandırmasını kullanmaya başlama][] öğreticisindeki diğer konulara göz atın.
+- [Oran limitleri ile API’nizi koruma](api-management-howto-product-with-rules.md) hakkında bilgi edinin.
 
 [Azure Ücretsiz Deneme]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=api_management_hero_a
 
-[API Management örneği oluşturma.]: #create-service-instance
+[API Management örneği oluşturma]: #create-service-instance
 [Bir API oluşturma]: #create-api
 [Bir işlem ekleme]: #add-operation
 [Ürüne yeni API ekleme]: #add-api-to-product
@@ -205,7 +205,6 @@ Ayrıntılı ölçümler ve raporlar için soldaki **API Management** menüsünd
 [Azure API Management’te bildirimleri ve e-posta şablonlarını yapılandırma]: api-management-howto-configure-notifications.md
 [Yanıtlar]: api-management-howto-add-operations.md#responses
 [Ürün oluşturma ve yayımlama]: api-management-howto-add-products.md
-[Gelişmiş API yapılandırmasını kullanmaya başlama]: api-management-get-started-advanced.md
 [API Management fiyatlandırması]: http://azure.microsoft.com/pricing/details/api-management/
 
 [Klasik Azure Portalı]: https://manage.windowsazure.com/
@@ -247,6 +246,6 @@ Ayrıntılı ölçümler ve raporlar için soldaki **API Management** menüsünd
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

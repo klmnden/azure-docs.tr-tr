@@ -1,6 +1,6 @@
 <properties
    pageTitle="Azure Resource Manager ve PowerShell kullanarak Siteden Siteye VPN bağlantısı olan bir sanal ağ oluşturma | Microsoft Azure"
-   description="Bu makalede, Resource Manager modelini kullanarak bir sanal ağ oluşturmak ve bir S2S VPN ağ geçidi bağlantısı kullanarak söz konusu ağı yerel şirket içi ağınıza bağlamak adım adım açıklanmaktadır."
+   description="Bu makalede, Resource Manager dağıtım modelini kullanarak bir sanal ağ oluşturma ve bir S2S VPN ağ geçidi bağlantısı kullanarak söz konusu ağı yerel şirket içi ağınıza bağlama işlemi adım adım açıklanmaktadır."
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
@@ -14,17 +14,17 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/24/2016"
+   ms.date="08/31/2016"
    ms.author="cherylmc"/>
 
-# PowerShell ve Azure Resource Manager kullanarak Siteden Siteye VPN bağlantısı olan bir sanal ağ oluşturma
+# PowerShell kullanarak Siteden Siteye bağlantı ile VNet oluşturma
 
 > [AZURE.SELECTOR]
-- [Azure Portalı](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+- [Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 - [Azure Klasik Portalı](vpn-gateway-site-to-site-create.md)
 - [PowerShell - Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
 
-Bu makalede, Azure Resource Manager dağıtım modelini kullanarak şirket içi ağınıza yönelik bir sanal ağ ve Siteden Siteye VPN bağlantısı oluşturma işlemi adım adım açıklanmaktadır. Siteden Siteye bağlantılar, şirket içi ve dışı karışık yapılandırmalar ve karma yapılandırmalar için kullanılabilir.
+Bu makalede, **Azure Resource Manager dağıtım modelini** kullanarak şirket içi ağınıza yönelik bir sanal ağ ve Siteden Siteye VPN bağlantısı oluşturma işlemi adım adım açıklanmaktadır. Siteden Siteye bağlantılar, şirket içi ve dışı karışık yapılandırmalar ve karma yapılandırmalar için kullanılabilir.
 
 ![Siteden Siteye diyagram](./media/vpn-gateway-create-site-to-site-rm-powershell/s2srmps.png "site-to-site") 
 
@@ -35,7 +35,7 @@ Bu makalede, Azure Resource Manager dağıtım modelini kullanarak şirket içi 
 
 [AZURE.INCLUDE [vpn-gateway-table-site-to-site](../../includes/vpn-gateway-table-site-to-site-include.md)]
 
-Sanal ağları birbirine bağlamak istiyor ancak şirket içi bir konuma bağlantı oluşturmuyorsanız, bkz. [VNet’ten VNet’e bağlantıyı yapılandırma](vpn-gateway-vnet-vnet-rm-ps.md). Farklı türde bir bağlantı yapılandırması istiyorsanız [VPN Gateway bağlantı topolojileri](vpn-gateway-topology.md) makalesine bakın.
+Sanal ağları birbirine bağlamak istiyor ancak şirket içi bir konuma bağlantı oluşturmuyorsanız, bkz. [VNet’ten VNet’e bağlantıyı yapılandırma](vpn-gateway-vnet-vnet-rm-ps.md).
 
 
 ## Başlamadan önce
@@ -146,11 +146,11 @@ Bazen yerel ağ geçidi ön ekleriniz değişir. IP adresi ön eklerinizi deği�
 
 Bir sonraki adımda, Azure VNet VPN ağ geçidinize genel bir IP adresinin ayrılmasını isteyeceksiniz. Bu, VPN cihazınıza atanan IP adresinin aynısı değildir. Bu IP adresi, Azure VPN ağ geçidinin kendisine atanır. Kullanmak istediğiniz IP adresini belirtemezsiniz. IP adresi, ağ geçidinize dinamik olarak ayrılır. Şirket içi VPN cihazınızı ağ geçidine bağlanmak üzere yapılandırırken bu IP adresini kullanırsınız.
 
-Aşağıdaki PowerShell örneğini kullanın. Bu adres için Ayırma Yöntemi, Dinamik olmalıdır. 
+Resource Manager dağıtım modeline ait Azure VPN ağ geçidi, genel IP adreslerini şu anda yalnızca Dinamik Ayırma yöntemini kullanarak desteklemektedir. Ancak bu, IP adresinin değişeceği anlamına gelmez. Azure VPN ağ geçidi IP adresi, yalnızca ağ geçidi silinip yeniden oluşturulduğunda değişir. Ağ geçidi genel IP adresi, Azure VPN ağ geçidiniz üzerinde gerçekleştirilen yeniden boyutlandırma, sıfırlama veya diğer iç bakım/yükseltme işlemleri sırasında değişmez.
+
+Aşağıdaki PowerShell örneğini kullanın.
 
     $gwpip= New-AzureRmPublicIpAddress -Name gwpip -ResourceGroupName testrg -Location 'West US' -AllocationMethod Dynamic
-
->[AZURE.NOTE] Resource Manager dağıtım modeline ait Azure VPN ağ geçidi, genel IP adreslerini şu anda yalnızca Dinamik Ayırma yöntemini kullanarak desteklemektedir. Ancak bu, IP adresinin değişeceği anlamına gelmez. Azure VPN ağ geçidi IP adresi, yalnızca ağ geçidi silinip yeniden oluşturulduğunda değişir. Ağ geçidi genel IP adresi, Azure VPN ağ geçidiniz üzerinde gerçekleştirilen yeniden boyutlandırma, sıfırlama veya diğer iç bakım/yükseltme işlemleri sırasında değişmez.
 
 ## 5. Ağ geçidi IP adresleme yapılandırmasını oluşturma
 
@@ -225,6 +225,6 @@ Yerel ağ geçidiniz için ön ekleri değiştirmeniz gerekirse aşağıdaki yö
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

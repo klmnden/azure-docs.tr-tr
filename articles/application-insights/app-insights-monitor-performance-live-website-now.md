@@ -162,7 +162,7 @@ Durum İzleyicisi’ne izin vermek için sunucunuzun güvenlik duvarında [bazı
   * Olayları tek tek görmek için Tanılama Arama’yı (Ara kutucuğu) açın. Veri toplama grafiklerde görünmeden önce olaylar genellikle Tanılama Arama’da görülebilir.
   * Durum İzleyicisi’ni açın ve sol bölmede uygulamanızı seçin. "Yapılandırma bildirimleri" bölümünde bu uygulamayla ilgili herhangi bir tanılama iletisi olup olmadığını denetleyin:
 
-  ![](./media/app-insights-monitor-performance-live-website-now/appinsights-status-monitor-diagnostics-message.png)
+  ![İstek, yanıt süresi, bağımlılık ve diğer verileri görmek için Performans dikey penceresini açın](./media/app-insights-monitor-performance-live-website-now/appinsights-status-monitor-diagnostics-message.png)
 
   * Sunucu güvenlik duvarının yukarıda listelenen bağlantı noktalarında giden trafiğe izin verdiğinden emin olun.
   * "Yetersiz izinler" hakkında bir ileti görürseniz, sunucuda aşağıdakileri deneyin:
@@ -302,6 +302,6 @@ web uygulaması Azure’deyse ve Azure Resource Manager şablonu kullanarak kayn
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

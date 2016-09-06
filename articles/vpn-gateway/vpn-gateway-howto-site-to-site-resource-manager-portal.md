@@ -1,6 +1,6 @@
 <properties
    pageTitle="Azure Resource Manager ve Azure Portal’ını kullanarak Siteden Siteye VPN bağlantısına sahip bir sanal ağ oluşturma | Microsoft Azure"
-   description="Resource Manager modelini kullanarak bir sanal ağ oluşturma ve S2S VPN ağ geçidi bağlantısı kullanarak söz konusu ağı yerel şirket içi ağınıza bağlama."
+   description="Resource Manager dağıtım modelini kullanarak bir sanal ağ oluşturma ve S2S VPN ağ geçidi bağlantısı kullanarak söz konusu ağı yerel şirket içi ağınıza bağlama."
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
@@ -14,18 +14,18 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/22/2016"
+   ms.date="08/31/2016"
    ms.author="cherylmc"/>
 
-# Azure Portal ve Azure Resource Manager kullanarak Siteden Siteye VPN bağlantısına sahip bir VNet oluşturma
+# Azure portalını kullanarak Siteden Siteye bağlantı ile VNet oluşturma
 
 > [AZURE.SELECTOR]
-- [Azure Portalı](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+- [Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 - [Azure Klasik Portalı](vpn-gateway-site-to-site-create.md)
 - [PowerShell - Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
 
 
-Bu makalede, Azure Resource Manager dağıtım modelini ve Azure portalını kullanarak sanal bir ağ ve şirket içi ağınıza yönelik Siteden Siteye VPN bağlantısı oluşturma işlemi adım adım açıklanmaktadır.
+Bu makalede **Azure Resource Manager dağıtım modelini** ve Azure portalını kullanarak sanal bir ağ ve şirket içi ağınıza yönelik Siteden Siteye VPN bağlantısı oluşturma işlemi adım adım açıklanmaktadır. Siteden Siteye bağlantılar, şirket içi ve dışı karışık yapılandırmalar ve karma yapılandırmalar için kullanılabilir.
 
 ![Diyagram](./media/vpn-gateway-howto-site-to-site-resource-manager-portal/s2srmportal.png)
 
@@ -156,6 +156,6 @@ VPN bağlantınızı portaldan veya PowerShell kullanarak doğrulayabilirsiniz.
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 

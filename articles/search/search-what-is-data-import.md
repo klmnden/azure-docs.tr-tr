@@ -14,7 +14,7 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="05/31/2016"
+    ms.date="08/29/2016"
     ms.author="ashmaka"/>
 
 # Azure Search'e veri yükleme
@@ -47,6 +47,6 @@ Dizin oluşturucu işlevi, [Azure Portal](search-import-data-portal.md)'ın yan�
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=ago16_HO5-->
 
 

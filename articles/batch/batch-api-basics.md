@@ -67,7 +67,7 @@ Aşağıdaki kaynaklardan--hesaplar, işlem düğümleri, havuzlar, işler ve g�
 
 ## Hesap
 
-Bir Batch hesabı Batch hizmeti dahilinde benzersiz şekilde tanımlanan bir varlıktır. Tüm işlemler bir Batch hesabıyla ilişkilendirilir. Batch hizmeti ile işlemler gerçekleştirdiğinizde size hem hesap adı hem de hesap anahtarlarından biri gerekir. [Azure portalında bir Azure Batch hesabı oluşturabilir ve yönetebilirsiniz](batch-account-create-portal.md).
+Bir Batch hesabı Batch hizmeti dahilinde benzersiz şekilde tanımlanan bir varlıktır. Tüm işlemler bir Batch hesabıyla ilişkilendirilir. Batch hizmeti ile işlemler gerçekleştirdiğinizde size hem hesap adı hem de hesap anahtarlarından biri gerekir. [Azure portalı kullanarak Azure Batch hesabı oluşturabilirsiniz](batch-account-create-portal.md).
 
 ## İşlem düğümü
 
@@ -521,6 +521,6 @@ Bazı görevlerinizin başarısız olduğu durumlarda, Batch istemci uygulamanı
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=ago16_HO5-->
 
 
