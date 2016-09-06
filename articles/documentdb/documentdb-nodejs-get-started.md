@@ -619,7 +619,7 @@ Ardından, ```config.js``` dosyasında config.endpoint ve config.authKey değerl
 [documentdb-create-account]: documentdb-create-account.md
 [documentdb-manage]: documentdb-manage.md
 
-[anahtarlar]: media/documentdb-nodejs-get-started/node-js-tutorial-keys.png
+[keys]: media/documentdb-nodejs-get-started/node-js-tutorial-keys.png
 
 
 

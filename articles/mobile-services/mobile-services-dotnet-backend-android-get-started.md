@@ -54,7 +54,7 @@ Mobil hizmet oluşturdunuz, yerel bilgisayarınızda veya sanal makine üzerinde
 
 2. Önceden yapmadıysanız, [Visual Studio Professional 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934) veya sonraki bir sürümünü indirin ve yükleyin.
 
-3. 2. Adımda, **Hizmetinizi buluta indirme yayımlama** altında **İndir**’e tıklayın.
+3. 2 Adımda, **Hizmetinizi buluta indirme yayımlama** altında **İndir**’e tıklayın.
 
     Bu, mobil hizmetinizi uygulayan Visual Studio projesini indirir. Sıkıştırılmış proje dosyasını yerel bilgisayarınıza kaydedin ve kaydettiğiniz yeri not edin.
 

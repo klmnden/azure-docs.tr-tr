@@ -70,7 +70,7 @@ Temel Node.js iskelesiyle birlikte yeni bir Azure Cloud Service projesi oluştur
 
         Add-AzureNodeWebRole
 
-    ![Add-AzureNodeWebRole komutunun çıktısı][The output of the Add-AzureNodeWebRole command]
+    ![The output of the Add-AzureNodeWebRole command][The output of the Add-AzureNodeWebRole command]
 
     **Add-AzureNodeWebRole** cmdlet’i basit bir Node.js uygulaması oluşturur. Ayrıca yeni rol için yapılandırma girdileri eklemek üzere **.csfg** ve **.csdef** dosyalarını değiştirir.
 
@@ -125,7 +125,7 @@ Yayımlamak için aşağıdaki komutu çalıştırın:
 
 Yayımlama başarılı olduktan sonra aşağıdakine benzer bir yanıt görürsünüz:
 
-![Publish-AzureService komutunun çıktısı][The output of the Publish-AzureService command]
+![The output of the Publish-AzureService command][The output of the Publish-AzureService command]
 
 > [AZURE.NOTE]
 > Uygulamanın dağıtılması ve ilk kez yayımlandığında kullanılabilir olması birkaç dakika sürebilir.
@@ -157,7 +157,7 @@ Uygulamanızı dağıttıktan sonra ek maliyetlerden kaçınmak için devre dı�
 
     Hizmetin durdurulması birkaç dakika sürebilir. Hizmet durdurulduğunda bunu belirten bir ileti alırsınız.
 
-    ![Stop-AzureService komutunun durumu][The status of the Stop-AzureService command]
+    ![The status of the Stop-AzureService command][The status of the Stop-AzureService command]
 
 2.  Hizmeti silmek için aşağıdaki cmdlet'i çağırın:
 
@@ -167,7 +167,7 @@ Uygulamanızı dağıttıktan sonra ek maliyetlerden kaçınmak için devre dı�
 
     Hizmetin silinmesi birkaç dakika sürebilir. Hizmet silindikten sonra bunu belirten bir ileti alırsınız.
 
-    ![Remove-AzureService komutunun durumu][The status of the Remove-AzureService command]
+    ![The status of the Remove-AzureService command][The status of the Remove-AzureService command]
 
     > [AZURE.NOTE] Hizmetin silinmesi, hizmet ilk kez yayımlandığında oluşturulan depolama hesabını silmez ve kullanılan depolama alanı için faturalandırılmaya devam edersiniz. Bir depolama hesabını silme hakkında daha fazla bilgi için bkz. [Azure Aboneliğinden bir Storage Hesabını Silme].
 
@@ -190,13 +190,13 @@ Daha fazla bilgi için bkz. [Node.js Geliştirici Merkezi].
 <!-- IMG List -->
 
 [The result of the New-AzureService helloworld command]: ./media/cloud-services-nodejs-develop-deploy-app/node9.png
-[Add-AzureNodeWebRole komutunun çıktısı]: ./media/cloud-services-nodejs-develop-deploy-app/node11.png
+[The output of the Add-AzureNodeWebRole command]: ./media/cloud-services-nodejs-develop-deploy-app/node11.png
 [A web browser displaying the Hello World web page]: ./media/cloud-services-nodejs-develop-deploy-app/node14.png
-[Publish-AzureService komutunun çıktısı]: ./media/cloud-services-nodejs-develop-deploy-app/node19.png
-[Publish-AzureService komutunun tam durum çıktısı]: ./media/cloud-services-nodejs-develop-deploy-app/node20.png
+[The output of the Publish-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node19.png
+[The full status output of the Publish-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node20.png
 [A browser window displaying the hello world page; the URL indicates the page is hosted on Azure.]: ./media/cloud-services-nodejs-develop-deploy-app/node21.png
-[Stop-AzureService komutunun durumu]: ./media/cloud-services-nodejs-develop-deploy-app/node48.png
-[Remove-AzureService komutunun durumu]: ./media/cloud-services-nodejs-develop-deploy-app/node49.png
+[The status of the Stop-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node48.png
+[The status of the Remove-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node49.png
 
 
 

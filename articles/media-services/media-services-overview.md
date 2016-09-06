@@ -214,10 +214,10 @@ Media Services hesabınızı, depolama hesapları ekleyerek de ölçeklendirebil
 Daha fazla bilgi için bkz. [Microsoft Azure SLA](https://azure.microsoft.com/support/legal/sla/).
 
 <!-- Images -->
-[genel bakış]: ./media/media-services-overview/media-services-overview.png
-[vod-genel bakış]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
-[canlı-genel bakış 1]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-new.png
-[canlı-genel bakış 2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
+[overview]: ./media/media-services-overview/media-services-overview.png
+[vod-overview]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
+[live-overview1]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-new.png
+[live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
  
 
 

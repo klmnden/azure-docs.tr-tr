@@ -30,7 +30,7 @@ Tam Batch cmdlet’leri listesi ve ayrıntılı cmdlet sözdizimi için bkz. [Az
     
     * Hizmet güncelleştirmeleri ve geliştirmeleri avantajlarından yararlanmak için Azure PowerShell’inizi sık sık güncelleştirin. 
     
-* **Batch sağlayıcısı ad alanıyla kaydetme (bir defalık işlem) ** -Batch hesaplarınızla çalışmadan önce Batch sağlayıcı ad alanıyla kaydolmanız gerekir. Bu işlemin her abonelik için yalnızca bir kez gerçekleştirilmesi gerekir. Aşağıdaki cmdlet'i çalıştırın:
+* **Batch sağlayıcısı ad alanıyla kaydetme (bir defalık işlem)** -Batch hesaplarınızla çalışmadan önce Batch sağlayıcı ad alanıyla kaydolmanız gerekir. Bu işlemin her abonelik için yalnızca bir kez gerçekleştirilmesi gerekir. Aşağıdaki cmdlet'i çalıştırın:
 
         Register-AzureRMResourceProvider -ProviderNamespace Microsoft.Batch
 

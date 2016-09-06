@@ -6,7 +6,7 @@
 
 (*) klasik portalın yalnızca tek S2S VPN bağlantısının oluşturulmasını destekleyebildiğini gösterir
 
-(*) Azure portalı için bir uçtan uca senaryonun henüz kullanılabilir olmadığını gösterir.
+(**) Azure portalı için bir uçtan uca senaryonun henüz kullanılabilir olmadığını gösterir.
 
 (+) bu makalenin çok siteli bağlantılar için yazıldığını gösterir
 
