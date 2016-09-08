@@ -100,11 +100,11 @@ Bir havuz oluşturduğunuzda aşağıdaki öznitelikleri belirtebilirsiniz:
     **Sanal Makine Yapılandırması**, [Azure Virtual Machines Market’ten][vm_marketplace] işlem düğümleri için hem Linux hem de Windows görüntüleri sağlar.
     Sanal Makine Yapılandırması düğümleri içeren bir havuz oluşturduğunuzda yalnızca düğümlerin boyutunu değil, aynı zamanda **sanal makine görüntü başvurusunu** ve düğümlere yüklenecek Batch **düğümü aracı SKU’sunu** belirtmeniz gerekir. Bu havuz özelliklerini belirtme hakkında daha fazla bilgi için bkz. [Azure Batch havuzlarında Linux işlem düğümlerini hazırlama](batch-linux-nodes.md).
 
-    **Cloud Services Yapılandırması** *yalnızca* Windows işlem düğümleri sağlar. Cloud Services Yapılandırması havuzları için kullanılabilen işletim sistemleri [Azure Konuk işletim sistemi sürümleri ve SDK uyumluluk matrisi](../cloud-services/cloud-services-guestos-update-matrix.md) içinde listelenmiştir. Cloud Services düğümleri içeren bir havuz oluşturduğunuzda yalnızca düğüm boyutunu ve *İşletim Sistemi Ailesi*’ni belirtmeniz gerekir. Windows işlem düğümleri havuzları oluşturduğunuzda yaygın olarak Cloud Services kullanırsınız.
+    **Cloud Services Yapılandırması** *yalnızca* Windows işlem düğümleri sağlar. Cloud Services Yapılandırması havuzları için kullanılabilen işletim sistemleri [Azure Konuk işletim sistemi sürümleri ve SDK uyumluluk matrisi](../cloud-services/cloud-services-guestos-update-matrix.md) içinde listelenmiştir. Cloud Services düğümleri içeren bir havuz oluşturduğunuzda yalnızca düğüm boyutunu ve *İşletim Sistemi Ailesi* ’ni belirtmeniz gerekir. Windows işlem düğümleri havuzları oluşturduğunuzda yaygın olarak Cloud Services kullanırsınız.
 
     - *İşletim Sistemi Ailesi*, işletim sistemiyle hangi .NET sürümlerinin yüklendiğini de belirler.
     - Cloud Services dahilindeki çalışan rollerinde olduğu gibi bir *İşletim Sistemi Sürümü* belirtebilirsiniz (çalışan rolleri hakkında daha fazla bilgi için [Cloud Services’e genel bakış](../cloud-services/cloud-services-choose-me.md) içindeki [Bana cloud services hakkında bilgi ver](../cloud-services/cloud-services-choose-me.md#tell-me-about-cloud-services) bölümüne bakın).
-    - Çalışan rollerinde olduğu gibi düğümlerin otomatik olarak yükseltilmesi için *İşletim Sistemi Sürümü*’ne yönelik `*` belirtilmesi önerilir ve yeni yayımlanmış sürümlerin gereksinimini karşılamak için çalışma yapılması gerekmez. Belirli bir işletim sistemi sürümünün seçildiği birincil kullanım durumu, sürümün güncelleştirilmesine izin vermeden önce geriye dönük uyumluluk testinin gerçekleştirilmesine izin vererek uygulama uyumluluğunun sağlandığından emin olmaktır. Doğrulama sonrasında havuzun *İşletim Sistemi Sürümü* güncelleştirilebilir ve yeni işletim sistemi görüntüsü yüklenebilir; çalışan tüm görevler kesilir ve yeniden kuyruğa alınır.
+    - Çalışan rollerinde olduğu gibi düğümlerin otomatik olarak yükseltilmesi için *İşletim Sistemi Sürümü* ’ne yönelik `*` belirtilmesi önerilir ve yeni yayımlanmış sürümlerin gereksinimini karşılamak için çalışma yapılması gerekmez. Belirli bir işletim sistemi sürümünün seçildiği birincil kullanım durumu, sürümün güncelleştirilmesine izin vermeden önce geriye dönük uyumluluk testinin gerçekleştirilmesine izin vererek uygulama uyumluluğunun sağlandığından emin olmaktır. Doğrulama sonrasında havuzun *İşletim Sistemi Sürümü* güncelleştirilebilir ve yeni işletim sistemi görüntüsü yüklenebilir; çalışan tüm görevler kesilir ve yeniden kuyruğa alınır.
 
 - **Düğümlerin boyutu**
 
@@ -277,8 +277,8 @@ Adından da anlaşılacağı gibi [görev bağımlılıkları](batch-task-depend
 
 Görev bağımlılıkları ile aşağıdaki gibi senaryoları yapılandırabilirsiniz:
 
-* *görevB* *görevA*’ya bağlıdır (*görevB*, *görevA* tamamlanana kadar yürütülmeye başlamaz).
-* *görevC* hem *görevA* hem de *görevB*’ye bağlıdır.
+* *görevB* *görevA* ’ya bağlıdır (*görevB*, *görevA* tamamlanana kadar yürütülmeye başlamaz).
+* *görevC* hem *görevA* hem de *görevB* ’ye bağlıdır.
 * *görevD* yürütülmeden önce bir dizi göreve (örneğin görev *1* ile *10* arası) bağlıdır.
 
 Bu özelliğe ilişkin daha kapsamlı bilgi için [azure-batch-samples][github_samples] GitHub deposundaki [Azure Batch’deki görev bağımlılıkları](batch-task-dependencies.md) ve [TaskDependencies][github_sample_taskdeps] kod örneğine bakın.
@@ -407,7 +407,7 @@ Görev hataları kategorileri şunlardır:
 
     Bir iş ya da görev için maksimum yürütme süresini belirleyen bir kısıtlama (*maxWallClockTime*) ayarlayabilirsiniz. Bu, “askıdaki” görevlerin sonlandırılması için faydalı olabilir.
 
-    Maksimum süre aşıldığında görev *tamamlandı*olarak işaretlenir ancak çıkış kodu `0xC000013A` olarak ayarlanır ve *schedulingError* alanı `{ category:"ServerError", code="TaskEnded"}` olarak işaretlenir.
+    Maksimum süre aşıldığında görev *tamamlandı* olarak işaretlenir ancak çıkış kodu `0xC000013A` olarak ayarlanır ve *schedulingError* alanı `{ category:"ServerError", code="TaskEnded"}` olarak işaretlenir.
 
 ### Uygulama hatalarını ayıklama
 

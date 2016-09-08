@@ -29,8 +29,8 @@ Azure CLI kullanarak yüklediğiniz ARM şablonunu dağıtmak için aşağıdaki
         data:
         info:    group create command OK
 
-    - **-n (veya--ad)**. Yeni kaynak grubunun adı. Bizim senaryomuz için bu *TestRG*’dir.
-    - **-l (veya --konum)**. Yeni kaynak grubunun oluşturulacağı Azure bölgesi. Bizim senaryomuz için bu *centralus*’tur.
+    - **-n (veya--ad)**. Yeni kaynak grubunun adı. Bizim senaryomuz için bu *TestRG* ’dir.
+    - **-l (veya --konum)**. Yeni kaynak grubunun oluşturulacağı Azure bölgesi. Bizim senaryomuz için bu *centralus* ’tur.
 
 4. Yukarıda indirdiğiniz ve değiştirdiğiniz şablonu ve parametre dosyalarını kullanarak yeni VNet’i dağıtmak için **`azure group deployment create`** cmdlet’ini çalıştırın. Çıktıdan sonra gösterilen listede kullanılan parametreler açıklanmaktadır.
 

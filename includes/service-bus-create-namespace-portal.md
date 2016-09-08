@@ -28,13 +28,13 @@
 
 5. **İlke: RootManageSharedAccessKey** dikey penceresinde **Bağlantı dizesi–birincil anahtar** seçeneğinin yanındaki Kopyala düğmesine tıklayın ve bağlantı dizesini, daha sonra kullanmak üzere panonuza kopyalayın.
 
-    ![bağlantı dizesi][connection-string]
+    ![connection-string][connection-string]
 
 <!--Image references-->
 
-[ad alanı oluşturma]: ./media/service-bus-create-namespace-portal/create-namespace.png
-[bağlantı bilgisi]: ./media/service-bus-create-namespace-portal/connection-info.png
-[bağlantı dizesi]: ./media/service-bus-create-namespace-portal/connection-string.png
+[create-namespace]: ./media/service-bus-create-namespace-portal/create-namespace.png
+[connection-info]: ./media/service-bus-create-namespace-portal/connection-info.png
+[connection-string]: ./media/service-bus-create-namespace-portal/connection-string.png
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 [Azure Portal]: https://portal.azure.com

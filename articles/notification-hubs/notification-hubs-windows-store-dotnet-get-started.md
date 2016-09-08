@@ -71,7 +71,7 @@ Windows Mağazası uygulamalarına anında iletme bildirimleri göndermek için 
 
 5. Sihirbazda **Oturum aç**'a tıklayın ve ardından Microsoft hesabınızla oturum açın.
 
-6. 2. adımda kaydettiğiniz uygulamaya tıklayın, **İleri**'ye ve ardından **İlişkilendir**'e tıklayın.
+6. 2 adımda kaydettiğiniz uygulamaya tıklayın, **İleri**'ye ve ardından **İlişkilendir**'e tıklayın.
 
     ![][4]
 
@@ -279,7 +279,7 @@ Notification Hubs hakkında daha fazla genel bilgi için bkz. [Notification Hubs
 [Notification Hubs Kılavuzu]: http://msdn.microsoft.com/library/jj927170.aspx
 
 [Kullanıcılara anında iletme bildirimleri göndermek için Notification Hubs’ı kullanma]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
-[on dakika haberleri göndermek için Notification Hubs kullanma]: notification-hubs-windows-store-dotnet-send-breaking-news.md
+[Son dakika haberleri göndermek için Notification Hubs kullanma]: notification-hubs-windows-store-dotnet-send-breaking-news.md
 
 [bildirim kataloğu]: http://msdn.microsoft.com/library/windows/apps/hh761494.aspx
 [kutucuk kataloğu]: http://msdn.microsoft.com/library/windows/apps/hh761491.aspx

@@ -80,7 +80,7 @@ UWP uygulamalarına anında iletme bildirimleri göndermek için uygulamanızı 
 
 6. Sihirbazda **Oturum aç**'a tıklayın ve ardından Microsoft hesabınızla oturum açın.
 
-7. 2. adımda kaydettiğiniz uygulamaya tıklayın, **İleri**'ye ve ardından **İlişkilendir**'e tıklayın.
+7. 2 adımda kaydettiğiniz uygulamaya tıklayın, **İleri**'ye ve ardından **İlişkilendir**'e tıklayın.
 
     ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-associate-app-name.png)
 
