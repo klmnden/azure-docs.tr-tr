@@ -30,7 +30,7 @@ NSG'ler aşağıdaki özellikleri içerir.
 |Kaynak grubu|NSG'nin ait olduğu kaynak grubu|Bir NSG bir kaynak grubuna ait olsa da, kaynağın NSG'nin ait olduğu Azure bölgesinin bir parçası olması koşuluyla, NSG herhangi bir kaynak grubuyla ilişkilendirilebilir|Kaynak grupları, birden fazla kaynak grubunun birlikte bir dağıtım birimi olarak yönetilmesi için kullanılır<br/>NSG'yi ilişkili olduğu kaynaklarla gruplandırmayı değerlendirebilirsiniz|
 |Kurallar|Hangi trafiğe izin verildiğini veya reddedildiğini tanımlayan kurallar||Aşağıdaki [NSG kuralları](#Nsg-rules) bölümüne bakın| 
 
->[AZURE.NOTE] Uç nokta tabanlı ACL'ler ve ağ güvenlik grupları, aynı VM örneğinde desteklenmez. Bir NSG'yi kullanmak istiyorsanız ve bir uç nokta ACL'si zaten kullanılıyorsa öncelikle uç nokta ACL'sini kaldırın. Bunun nasıl yapılacağı hakkında bilgi için bkz. [Uç Noktalar için Erişim Denetimi Listelerini (ACL'ler) PowerShell kullanarak yönetme](virtual-networks-acl-powershell.md).
+>[AZURE.NOTE] Uç nokta tabanlı ACL'ler ve ağ güvenlik grupları, aynı VM örneğinde desteklenmez. Bir NSG'yi kullanmak istiyorsanız ve bir uç nokta ACL'si zaten kullanılıyorsa öncelikle uç nokta ACL'sini kaldırın. Bunun nasıl yapılacağı hakkında bilgi için bkz. [Uç Noktalar için Access Control Listelerini (ACL'ler) PowerShell kullanarak yönetme](virtual-networks-acl-powershell.md).
 
 ### NSG kuralları
 
@@ -278,9 +278,9 @@ Yukarıdaki NSG'lerden bazılarının tekil NIC'lerle ilişkilendirilmesi gerekt
 - [Resource Manager'da NSG'leri dağıtın](virtual-networks-create-nsg-arm-pportal.md).
 - [NSG günlüklerini yönetin](virtual-network-nsg-manage-log.md).
 
-[yeşil]: ./media/virtual-network-nsg-overview/green.png
-[sarı]: ./media/virtual-network-nsg-overview/yellow.png
-[kırmızı]: ./media/virtual-network-nsg-overview/red.png
+[green]: ./media/virtual-network-nsg-overview/green.png
+[yellow]: ./media/virtual-network-nsg-overview/yellow.png
+[red]: ./media/virtual-network-nsg-overview/red.png
 
 
 

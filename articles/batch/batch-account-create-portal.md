@@ -36,7 +36,7 @@
 
     ![Batch hesabı oluşturma][account_portal]
 
-    a. **Hesap adı**: Batch hesabı için benzersiz bir ad. Bu ad hesabın oluşturulduğu Azure bölgesinde benzersiz olmalıdır (aşağıdaki *Konum*’a bakın). Bu, yalnızca küçük harfler, sayılar içerebilir ve 3-24 karakter uzunluğunda olmalıdır.
+    a. **Hesap adı**: Batch hesabı için benzersiz bir ad. Bu ad hesabın oluşturulduğu Azure bölgesinde benzersiz olmalıdır (aşağıdaki *Konum* ’a bakın). Bu, yalnızca küçük harfler, sayılar içerebilir ve 3-24 karakter uzunluğunda olmalıdır.
 
     b. **Abonelik**: Batch hesabının oluşturulacağı bir abonelik. Yalnızca bir aboneliğiniz varsa, varsayılan olarak seçilidir.
 
@@ -74,7 +74,7 @@ Batch hesapları yalnızca, Batch hesabı için ücret ödemediğiniz anlamına 
 
 Daha önce bahsedildiği gibi **Genel amaçlı** bir Storage hesabını (isteğe bağlı olarak) Batch hesabınıza bağlayabilirsiniz. Batch [uygulama paketleri](batch-application-packages.md) özelliği, [Batch Dosya Kuralları .NET](batch-task-output.md) kitaplığının yaptığı gibi Genel amaçlı bir Storage hesabında blob depolama kullanır. Bu isteğe bağlı özellikler Batch görevlerinizin çalıştırdığı uygulamaları dağıtmanıza ve oluşturduğu verileri kalıcı hale getirmeniz yardımcı olur.
 
-Batch şu anda [Azure Storage hesapları hakkında](../storage/storage-create-storage-account.md) bölümünde 5. adım olan [Depolama hesabı oluşturma](../storage/storage-create-storage-account.md#create-a-storage-account) içinde açıklandığı gibi *sadece* **Genel amaçlı** depolama hesabı türünü destekler. Batch hesabınıza bir Azure Storage hesabı bağladığınızda *yalnızca***Genel amaçlı** depolama hesabı bağladığınızdan emin olun.
+Batch şu anda [Azure Storage hesapları hakkında](../storage/storage-create-storage-account.md) bölümünde 5. adım olan [Depolama hesabı oluşturma](../storage/storage-create-storage-account.md#create-a-storage-account) içinde açıklandığı gibi *sadece* **Genel amaçlı** depolama hesabı türünü destekler. Batch hesabınıza bir Azure Storage hesabı bağladığınızda *yalnızca* **Genel amaçlı** depolama hesabı bağladığınızdan emin olun.
 
 !["Genel amaçlı" depolama hesabı oluşturma][storage_account]
 

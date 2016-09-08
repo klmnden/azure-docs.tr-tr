@@ -614,7 +614,7 @@ Başvuruları Visual Studio'daki DocumentDB .NET SDK'sına geri yüklemek için,
 
 [documentdb-create-account]: documentdb-create-account.md
 [documentdb-manage]: documentdb-manage.md
-[anahtarlar]: media/documentdb-get-started/nosql-tutorial-keys.png
+[keys]: media/documentdb-get-started/nosql-tutorial-keys.png
 
 
 

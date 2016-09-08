@@ -49,7 +49,7 @@ Event Hubs bağlamında iletiler *olay verileri* olarak adlandırılır. Olay ve
 
 ## Olay yayımcısı
 
-Bir Event Hub'ına olayları ya da verileri gönderen herhangi bir varlık *Olay Yayımcısı*’dır. Olay yayımcıları olayları HTTPS veya AMQP 1.0 kullanarak yayımlayabilir. Olay yayımcıları kendilerini bir Event Hub'ına tanıtmak için Paylaşılan Erişim İmzası (SAS) belirteci kullanır ve senaryonun gereksinimlerine bağlı olarak benzersiz bir kimliğe sahip olabilir ya da ortak bir SAS belirteci kullanabilir.
+Bir Event Hub'ına olayları ya da verileri gönderen herhangi bir varlık *Olay Yayımcısı* ’dır. Olay yayımcıları olayları HTTPS veya AMQP 1.0 kullanarak yayımlayabilir. Olay yayımcıları kendilerini bir Event Hub'ına tanıtmak için Paylaşılan Erişim İmzası (SAS) belirteci kullanır ve senaryonun gereksinimlerine bağlı olarak benzersiz bir kimliğe sahip olabilir ya da ortak bir SAS belirteci kullanabilir.
 
 SAS ile çalışma hakkında daha fazla bilgi için bkz. [Service Bus ile Paylaşılan Erişim İmzası Kimlik Doğrulaması](../service-bus/service-bus-shared-access-signature-authentication.md).
 
