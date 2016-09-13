@@ -14,7 +14,7 @@
     ms.workload="search" 
     ms.topic="hero-article" 
     ms.tgt_pltfrm="na" 
-    ms.date="05/17/2016" 
+    ms.date="08/29/2016" 
     ms.author="heidist"/>
 
 # Portalda Azure Search ile çalışmaya başlama
@@ -27,7 +27,7 @@ Bu kodsuz giriş, doğrudan portal içinde yerleşik olarak sunulan işlevleri k
  
 ## Hizmetinizi bulma
 
-1. [Azure Portal](https://portal.azure.com)'da oturum açın.
+1. [Azure Portal](https://portal.azure.com)’da oturum açın.
 
 2. Azure Search hizmetinizin hizmet panosunu açın. Panoyu bulmanın birkaç yolu burada verilmiştir.
     - Harf çubuğunda **Arama hizmetleri**'ne tıklayın. Harf çubuğu, aboneliğinizde sağlanan tüm hizmeti listeler. Bir arama hizmeti tanımlanmışsa listede **Arama hizmetleri**'ni görürsünüz.
@@ -186,6 +186,6 @@ Bunu yapmanın kolay bir yolu varsayılan sorguyu kullanmaktır ancak varsayıla
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

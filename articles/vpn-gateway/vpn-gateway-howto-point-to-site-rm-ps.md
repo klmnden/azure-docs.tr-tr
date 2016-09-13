@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Resource Manager dağıtım modelini kullanarak sanal ağa yönelik bir Noktadan Siteye VPN bağlantısı yapılandırma | Microsoft Azure"
-   description="Noktadan Siteye bir VPN bağlantısı oluşturarak Azure Sanal Ağınıza güvenli bir şekilde bağlanın."
+   pageTitle="Resource Manager dağıtım modelini kullanarak sanal ağa yönelik bir Noktadan Siteye VPN ağ geçidi bağlantısı yapılandırma | Microsoft Azure"
+   description="Noktadan Siteye bir VPN ağ geçidi bağlantısı oluşturarak Azure Sanal Ağınıza güvenli bir şekilde bağlanın."
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
@@ -65,7 +65,7 @@ Bu yapılandırma için aşağıdaki değerler kullanılır. Değişkenler makal
 
 - Azure aboneliğiniz olduğunu doğrulayın. Henüz Azure aboneliğiniz yoksa [MSDN abonelik avantajlarınızı](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) etkinleştirebilir veya [ücretsiz bir hesap](https://azure.microsoft.com/pricing/free-trial/) için kaydolabilirsiniz.
     
-- Azure Resource Manager PowerShell cmdlet'lerini (1.0.2 veya sonraki bir sürümü) yükleyin. PowerShell cmdlet'lerini yükleme hakkında daha fazla bilgi için bkz. [Azure PowerShell'i yükleme ve yapılandırma](../powershell-install-configure.md).
+- Azure Resource Manager PowerShell cmdlet'lerini (1.0.2 veya sonraki bir sürümü) yükleyin. PowerShell cmdlet'lerini yükleme hakkında daha fazla bilgi için bkz. [Azure PowerShell'i yükleme ve yapılandırma](../powershell-install-configure.md). Bu yapılandırma için PowerShell ile çalışırken yönetici olarak işlem yaptığınızdan emin olun. 
 
 ## <a name="declare"></a>Bölüm 1 - Oturum açma ve değişkenleri ayarlama
 
@@ -176,15 +176,24 @@ P2S kullanarak Azure’a bağlanan istemcilerde hem bir istemci sertifikası hem
 
     ![VPN istemcisi](./media/vpn-gateway-howto-point-to-site-rm-ps/vpn.png "VPN client")
 
-## <a name="cc"></a>Bölüm 6 - İstemci sertifikası yükleme
-    
-İstemci bilgisayarlardaki kök sertifikadan oluşturulan istemci sertifikalarını (*.pfx) oluşturup yükleyin. Yükleme işlemi için istediğiniz herhangi bir yöntemi kullanabilirsiniz.
+## <a name="cc"></a>Bölüm 6 - İstemci sertifikası oluşturma
 
-Otomatik olarak imzalanan bir kök sertifika kullanıyorsanız ve bir istemci sertifikası oluşturma hakkında bilgi sahibi değilseniz [bu makaleye](vpn-gateway-certificates-point-to-site.md) bakabilirsiniz. Bir kuruluş çözümü ile çalışıyorsanız istemci sertifikalarını 'NetBIOS domain name\username' biçimi yerine 'name@yourdomain.com' ortak ad değeri biçimi ile verdiğinizden emin olun.
+Bir sonraki adımda istemci sertifikalarını oluşturacaksınız. Bağlanacak her istemci için benzersiz bir sertifika oluşturabileceğiniz gibi, birden çok istemcide aynı sertifikayı da kullanabilirsiniz. Benzersiz istemci sertifikaları oluşturmanın avantajı, gerektiğinde tek bir sertifikayı iptal edebiliyor olmanızdır. Herkesin aynı istemci sertifikasını kullandığı bir durumda bir istemcinin sertifikasını iptal etmeniz gerektiğinde, kimlik doğrulaması için söz konusu sertifikayı kullanan tüm istemciler için yeni sertifikalar oluşturmanız ve yüklemeniz gerekir.
 
-.Pfx dosyasına çift tıklayarak bir istemci sertifikasını doğrudan bir bilgisayara yükleyebilirsiniz.
+- Kurumsal bir sertifika çözümü kullanıyorsanız NetBIOS "ETKİALANI\kullanıcıadı" biçimini kullanmak yerine, yaygın olarak kullanılan "ad@etkialanınız.com" ad değer biçimiyle bir istemci sertifikası oluşturun. 
 
-## Bölüm 7 - Azure'a Bağlanma
+- Otomatik olarak imzalanan sertifika kullanıyorsanız istemci sertifikası oluşturmak için bkz. [Noktadan Siteye yapılandırmaları için otomatik olarak imzalanan kök sertifikalar ile çalışma](vpn-gateway-certificates-point-to-site.md).
+
+## Bölüm 7 - İstemci sertifikası yükleme
+
+Sanal ağa bağlamak istediğiniz her bilgisayara bir istemci sertifikası yükleyin. Kimlik doğrulaması için istemci sertifikası gereklidir. İstemci sertifikası yükleme işlemini otomatik hale getirebilir veya elle yapabilirsiniz. Aşağıda, istemci sertifikasını dışarı aktarma ve elle yükleme işlemleri adım adım açıklanmıştır.
+
+1. İstemci sertifikasını dışarı aktarmak için *certmgr.msc* kullanabilirsiniz. Dışarı aktarmak istediğiniz istemci sertifikasına sağ tıklayın, **tüm görevler**’e ve ardından **dışarı aktar**’a tıklayın.
+2. Özel anahtara sahip istemci sertifikasını dışarı aktarın. Bu bir *.pfx* dosyasıdır. Bu sertifika için ayarladığınız parolayı (anahtar) kaydettiğinizden ya da unutmayacağınızdan emin olun.
+3. *.pfx* dosyasını istemci bilgisayara kopyalayın. İstemci bilgisayarda *.pfx* dosyasına çift tıklayarak yükleme işlemini gerçekleştirin. İstendiğinde parolayı girin. Yükleme konumunu değiştirmeyin.
+
+
+## Bölüm 8 - Azure'a Bağlanma
 
 1. İstemci bilgisayarda VNet'inize bağlanmak için VPN bağlantılarında gezinin ve oluşturduğunuz VPN bağlantısını bulun. Bu VPN bağlantısı sanal ağınızla aynı ada sahiptir. **Bağlan**'a tıklayın. Sertifika kullanımına ilişkin bir açılır ileti görüntülenebilir. Böyle bir durumla karşılaşırsanız yükseltilmiş ayrıcalıkları kullanmak için **Devam**'a tıklayın. 
 
@@ -196,7 +205,7 @@ Otomatik olarak imzalanan bir kök sertifika kullanıyorsanız ve bir istemci se
 
     ![VPN istemcisi 3](./media/vpn-gateway-howto-point-to-site-rm-ps/connected.png "VPN client connection 2")
 
-## Bölüm 8 - Bağlantınızı doğrulama
+## Bölüm 9 - Bağlantınızı doğrulama
 
 1. VPN bağlantınızın etkin olduğunu doğrulamak için, yükseltilmiş bir komut istemi açın ve *ipconfig/all* komutunu çalıştırın.
 
@@ -306,6 +315,6 @@ Sanal ağınıza sanal makine ekleyebilirsiniz. Adımlar için bkz. [Sanal Makin
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=sep16_HO1-->
 
 

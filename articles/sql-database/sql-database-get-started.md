@@ -1,6 +1,6 @@
 <properties
     pageTitle="SQL Database öğreticisi: SQL veritabanı oluşturma | Microsoft Azure"
-    description="SQL Database mantıksal sunucusu, sunucu güvenlik duvarı kuralı, SQL veritabanı ve örnek veri ayarlamanın ve istemci araçlarına bağlanmanın yanı sıra kullanıcıları, veritabanını ve güvenlik duvarı kuralını yapılandırmayı öğrenin."
+    description="SQL Veritabanı mantıksal sunucusu, sunucu güvenlik duvarı kuralı, SQL veritabanı ve örnek veriler oluşturma hakkında bilgi edinin. Ayrıca, istemci araçlarına bağlanma, kullanıcıları yapılandırma ve bir veritabanı güvenlik duvarı kuralı oluşturma hakkında bilgi alın."
     keywords="sql veritabanı öğreticisi, sql veritabanı oluşturma"
     services="sql-database"
     documentationCenter=""
@@ -18,7 +18,8 @@
     ms.date="07/05/2016"
     ms.author="carlrab"/>
 
-# SQL Database öğreticisi: Azure portalını kullanarak dakikalar içinde bir SQL veritabanı oluşturma
+
+# SQL Veritabanı öğreticisi: Azure portalını kullanarak dakikalar içinde bir SQL veritabanı oluşturma
 
 **Tek veritabanı**
 
@@ -29,11 +30,11 @@
 
 Bu öğreticide, Azure portalını kullanarak şu işlemleri gerçekleştirmeyi öğreneceksiniz:
 
-- SQL veritabanlarını barındırmak için bir SQL Veritabanı mantıksal sunucusu oluşturma.
-- Veri olmadan, örnek verilerle veya SQL veritabanı yedeklemesine ait verilerle bir SQL veritabanı oluşturma.
+- SQL veritabanlarını barındırmak için bir Azure SQL Veritabanı mantıksal sunucusu oluşturun.
+- Veri olmadan, örnek verilerle veya SQL veritabanı yedeklemesine ait verilerle bir SQL veritabanı oluşturun.
 - Tek bir IP adresi veya bir IP adresi aralığı için sunucu düzeyinde bir güvenlik duvarı kuralı oluşturma.
 
-Aynı görevleri [C#](sql-database-get-started-csharp.md) veya [PowerShell](sql-database-get-started-powershell.md)'i kullanarak gerçekleştirmek için bu bağlantıları kullanın.
+Aynı görevleri [C#](sql-database-get-started-csharp.md) veya [PowerShell](sql-database-get-started-powershell.md) kullanarak gerçekleştirebilirsiniz.
 
 [AZURE.INCLUDE [Login](../../includes/azure-getting-started-portal-login.md)]
 
@@ -46,17 +47,17 @@ Aynı görevleri [C#](sql-database-get-started-csharp.md) veya [PowerShell](sql-
 [AZURE.INCLUDE [Create SQL Database database](../../includes/sql-database-create-new-server-firewall-portal.md)]
 
 ## Sonraki adımlar
-Bu SQL Database öğreticisini tamamladığınıza ve bazı örnek verilerle bir veritabanı oluşturduğunuza göre sık kullandığınız araçları kullanarak araştırmaya hazırsınız.
+Bu SQL Veritabanı öğreticisini tamamladığınıza ve bazı örnek verilerle bir veritabanı oluşturduğunuza göre sık kullandığınız araçları kullanarak araştırmaya hazırsınız.
 
-- Transact-SQL ve SQL Server Management Studio'yu daha önce kullandıysanız [SSMS ile bir SQL veritabanına bağlanma ve veritabanını sorgulama](sql-database-connect-query-ssms.md) işlemini nasıl gerçekleştireceğinizi öğrenin.
+- Transact-SQL ve SQL Server Management Studio'yu (SSMS) daha önce kullandıysanız [SSMS ile bir SQL veritabanına bağlanma ve veritabanını sorgulama](sql-database-connect-query-ssms.md) işlemini nasıl gerçekleştireceğinizi öğrenin.
 
-- Excel kullanmayı biliyorsanız [Excel ile SQL veritabanına bağlanma](sql-database-connect-excel.md) işlemini nasıl gerçekleştireceğinizi öğrenin.
+- Excel kullanmayı biliyorsanız [Excel ile Azure’da SQL veritabanına bağlanma](sql-database-connect-excel.md) işlemini nasıl gerçekleştireceğinizi öğrenin.
 
-- Kodlamaya başlamak için hazırsanız [SQL Database ve SQL Server için Bağlantı Kitaplıkları](sql-database-libraries.md) konu başlığına göz atarak programlama dilinizi belirleyin.
+- Kodlamaya başlamak için hazırsanız [SQL Veritabanı ve SQL Server için bağlantı kitaplıkları](sql-database-libraries.md) konu başlığına göz atarak programlama dilinizi belirleyin.
 
-- Şirket içi SQL Server veritabanlarınızı Azure'a taşımak istiyorsanız daha fazla bilgi edinmek için bkz. [Bir veritabanını Azure SQL Database'e aktarma](sql-database-cloud-migrate.md).
+- Şirket içi SQL Server veritabanlarınızı Azure'a taşımak istiyorsanız daha fazla bilgi edinmek için bkz. [Bir veritabanını SQL Veritabanı’na geçirme](sql-database-cloud-migrate.md).
 
-- BCP kullanarak yeni bir tabloya bir CSV dosyasından bazı veriler yüklemek istiyorsanız bkz. [BCP kullanarak bir CSV dosyasından SQL Veritabanına veri yükleme](sql-database-load-from-csv-with-bcp.md).
+- BCP komut satırı aracını kullanarak yeni bir tabloya bir CSV dosyasından bazı veriler yüklemek istiyorsanız bkz. [BCP kullanarak bir CSV dosyasından SQL Veritabanına veri yükleme](sql-database-load-from-csv-with-bcp.md).
 
 
 ## Ek kaynaklar
@@ -65,7 +66,6 @@ Bu SQL Database öğreticisini tamamladığınıza ve bazı örnek verilerle bir
 
 
 
-
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO1-->
 
 

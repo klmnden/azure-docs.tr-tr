@@ -21,7 +21,6 @@
 
 # Portal kullanarak Azure’da bir Linux VM oluşturma.
 
-> [AZURE.NOTE] Birkaç dakikanız varsa deneyimlerinize ilişkin bu [kısa ankete](https://aka.ms/linuxdocsurvey) katılarak Azure Linux VM belgelerini iyileştirmemize yardımcı olun. Bize vereceğiniz her yanıt, işlerinizi tamamlamanız konusunda size yardımcı olmamıza katkıda bulunur.
 
 Bu makalede hızlı şekilde Linux Sanal Makinesi oluşturmak için [Azure portalını](https://portal.azure.com/) nasıl kullanacağınız gösterilmektedir. [Bir Azure hesabı](https://azure.microsoft.com/pricing/free-trial/) ve [SSH ortak ve özel anahtar dosyaları](virtual-machines-linux-mac-create-ssh-keys.md) tek gerekenlerdir.
 
@@ -81,6 +80,6 @@ ssh -i ~/.ssh/azure_id_rsa ubuntu@13.91.99.206
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO1-->
 
 

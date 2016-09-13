@@ -283,11 +283,7 @@ web uygulaması Azure’deyse ve Azure Resource Manager şablonu kullanarak kayn
 * Web sayfası koduna ait özel durumları görmek ve izleme çağrıları eklemenize izin vermek için [web istemcisi telemetrisini ekleyin][usage].
 * [Web hizmeti kodunuza Application Insights SDK ekleyin][greenbrown]; böylece, izleme ekleyebilir ve sunucu koduna çağrı kaydedebilirsiniz.
 
-## Video
 
-#### Performans izleme
-
-[AZURE.VIDEO app-insights-performance-monitoring]
 
 <!--Link references-->
 
@@ -302,6 +298,6 @@ web uygulaması Azure’deyse ve Azure Resource Manager şablonu kullanarak kayn
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=sep16_HO1-->
 
 

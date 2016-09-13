@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Application Insights ile ASP.NET Web uygulaması analizini ayarlayın" 
+    pageTitle="Application Insights ile ASP.NET Web uygulaması analizini ayarlama | Microsoft Azure" 
     description="Şirket içi veya Azure’de barındırılan ASP.NET web siteniz için performans, kullanılabilirlik ve kullanım analizi yapılandırın." 
     services="application-insights" 
     documentationCenter=".net"
@@ -118,17 +118,17 @@ Sonuçta komut şu üçünü yapar:
 2. Application Insights kaynağını [Azure portalında](https://portal.azure.com/) oluşturun. Verilerinizi göreceğiniz yer burasıdır. Kaynağı belirten *izleme anahtarını* alır.
 3. İzleme anahtarını `ApplicationInsights.config` öğesine ekler, böylece SDK portala telemetri gönderebilir.
 
-İsterseniz bu adımları [ASP.NET 4](app-insights-asp-net-manual.md) veya [ASP.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Getting-Started) için el ile uygulayabilirsiniz.
+İsterseniz bu adımları [ASP.NET 4](app-insights-windows-services.md) veya [ASP.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Getting-Started) için el ile uygulayabilirsiniz.
 
 ### Gelecekteki SDK sürümlerine yükseltmek için
 
-[SDK'nın yeni sürümüne](app-insights-release-notes-dotnet.md) yükseltme yapmak için NuGet paket yöneticisini yeniden açın ve yüklü paketleri filtreleyin. Microsoft.ApplicationInsights.Web’i ve Yükselt’i seçin.
+[SDK'nın yeni sürümüne](https://github.com/Microsoft/ApplicationInsights-dotnet-server/releases) yükseltme yapmak için NuGet paket yöneticisini yeniden açın ve yüklü paketleri filtreleyin. Microsoft.ApplicationInsights.Web’i ve Yükselt’i seçin.
 
 ApplicationInsights.config dosyasında herhangi bir özelleştirme yaptıysanız yükseltmeden önce bir kopyasını kaydedin ve daha sonra değişikliklerinizi yeni sürümle birleştirin.
 
 
 
-## Sırada ne var?
+## Sonraki adımlar
 
 | | 
 |---|---
@@ -144,6 +144,6 @@ ApplicationInsights.config dosyasında herhangi bir özelleştirme yaptıysanız
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO1-->
 
 

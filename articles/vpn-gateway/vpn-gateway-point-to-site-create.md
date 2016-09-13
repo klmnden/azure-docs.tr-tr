@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Klasik portalı kullanarak bir Azure Sanal Ağa Noktadan Siteye bir VPN bağlantısı yapılandırma | Microsoft Azure"
-   description="Noktadan Siteye bir VPN bağlantısı oluşturarak Azure Sanal Ağınıza güvenli bir şekilde bağlanın."
+   pageTitle="Klasik portalı kullanarak bir Azure Sanal Ağa Noktadan Siteye bir VPN ağ geçidi bağlantısı yapılandırma | Microsoft Azure"
+   description="Noktadan Siteye bir VPN ağ geçidi bağlantısı oluşturarak Azure Sanal Ağınıza güvenli bir şekilde bağlanın."
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
@@ -144,16 +144,30 @@ Sanal ağa bağlanmak için bir VPN istemcisi de yapılandırmanız gerekir. İs
 
 3. Klasik Azure Portalı’nda VPN istemci paketini oluşturup indirdikten sonra, sanal ağınıza bağlanmak istediğiniz istemci bilgisayara istemci paketini yükleyebilirsiniz. VPN istemci paketini birden çok istemci bilgisayara yüklemeyi planlıyorsanız, bu bilgisayarların her birine bir istemci sertifikası da yüklü olduğundan emin olun.
 
-### 2. Kısım: VPN yapılandırma paketini istemciye yükleme ve bağlantıyı başlatma 
+### Bölüm 2: VPN yapılandırma paketini istemciye yükleme
 
-1. Yapılandırma dosyasını, sanal ağınıza bağlamak istediğiniz bilgisayara yerel olarak kopyalayın ve .exe dosyasına çift tıklayın. Paket yüklendikten sonra VPN bağlantısını başlatabilirsiniz. Yapılandırma paketi Microsoft tarafından imzalanmamıştır. Paketi, kuruluşunuzun imzalama hizmetini kullanarak veya kendiniz [SignTool]( http://go.microsoft.com/fwlink/p/?LinkId=699327) ile imzalamak isteyebilirsiniz. Paketin imzasız olarak kullanılmasında bir sorun yoktur. Ancak paket imzasızsa, yüklendiğinde bir uyarı görüntülenir.
-2. İstemci bilgisayarda VPN bağlantılarına gidin ve oluşturduğunuz VPN bağlantısını bulun. Sanal ağınızla aynı ada sahip olacaktır. **Bağlan**'a tıklayın.
-3. Ağ Geçidi uç noktası için otomatik olarak imzalanan sertifika oluşturmak üzere kullanılan bir açılır ileti görüntülenir. Yükseltilmiş ayrıcalıklar kullanmak için **Devam**’a tıklayın.
-4. **Bağlantı** durum sayfasında **Bağlan**'a tıklayarak bağlantıyı başlatın.
-5. Bir **Sertifika Seç** ekranı çıkarsa, gösterilen istemci sertifikasının bağlanmak için kullanmak istediğiniz sertifika olduğunu doğrulayın. Başka bir sertifika gösteriliyorsa, açılan liste okunu kullanarak doğru sertifikayı seçin ve **Tamam**’a tıklayın.
-6. Artık sanal ağınıza bağlısınız ve sanal ağınızda barındırılan tüm hizmetlere ve sanal makinelere tam erişiminiz var.
+1. Yapılandırma dosyasını, sanal ağınıza bağlamak istediğiniz bilgisayara yerel olarak kopyalayın ve .exe dosyasına çift tıklayın. 
 
-### 3. Kısım: VPN bağlantısını doğrulama
+2. Paket yüklendikten sonra VPN bağlantısını başlatabilirsiniz. Yapılandırma paketi Microsoft tarafından imzalanmamıştır. Paketi, kuruluşunuzun imzalama hizmetini kullanarak veya kendiniz [SignTool]( http://go.microsoft.com/fwlink/p/?LinkId=699327) ile imzalamak isteyebilirsiniz. Paketin imzasız olarak kullanılmasında bir sorun yoktur. Ancak paket imzasızsa, yüklendiğinde bir uyarı görüntülenir.
+
+3. İstemci bilgisayarda **Ağ Ayarları**’na gidin ve **VPN** öğesine tıklayın. Bağlantının listelendiğini görürsünüz. Bu listede bağlantı kurulacak sanal ağın adı gösterilir ve liste aşağıdaki gibi görünür: 
+
+    ![VPN istemcisi](./media/vpn-gateway-point-to-site-create/vpn.png "VPN client")
+
+
+### Bölüm 3 - Azure'a Bağlanma
+
+1. İstemci bilgisayarda VNet'inize bağlanmak için VPN bağlantılarında gezinin ve oluşturduğunuz VPN bağlantısını bulun. Bu VPN bağlantısı sanal ağınızla aynı ada sahiptir. **Bağlan**'a tıklayın. Sertifika kullanımına ilişkin bir açılır ileti görüntülenebilir. Böyle bir durumla karşılaşırsanız yükseltilmiş ayrıcalıkları kullanmak için **Devam**'a tıklayın. 
+
+2. **Bağlantı** durum sayfasında **Bağlan**'a tıklayarak bağlantıyı başlatın. Bir **Sertifika Seç** ekranı çıkarsa, gösterilen istemci sertifikasının bağlanmak için kullanmak istediğiniz sertifika olduğunu doğrulayın. Başka bir sertifika gösteriliyorsa, açılan liste okunu kullanarak doğru sertifikayı seçin ve **Tamam**’a tıklayın.
+
+    ![VPN istemcisi 2](./media/vpn-gateway-point-to-site-create/clientconnect.png "VPN client connection")
+
+3. Artık bağlantı kurabilirsiniz.
+
+    ![VPN istemcisi 3](./media/vpn-gateway-point-to-site-create/connected.png "VPN client connection 2")
+
+### Bölüm 4: VPN bağlantısını doğrulama
 
 1. VPN bağlantınızın etkin olduğunu doğrulamak için, yükseltilmiş bir komut istemi açın ve *ipconfig/all* komutunu çalıştırın.
 2. Sonuçlara bakın. Aldığınız IP adresinin, sanal ağınızı oluştururken belirlediğiniz Noktadan Siteye bağlantı adres aralığı içerisinden bir adres olduğuna dikkat edin. Sonuçlar aşağıdakine benzer olmalıdır:
@@ -181,6 +195,6 @@ Sanal Ağlar hakkında daha fazla bilgi edinmek için [Sanal Ağ Belgeleri](http
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=sep16_HO1-->
 
 

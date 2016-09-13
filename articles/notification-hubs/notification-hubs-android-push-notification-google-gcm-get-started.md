@@ -42,7 +42,7 @@ Bu öğreticiyi tamamlamak Android uygulamalarına ilişkin diğer tüm Notifica
 
 ##Google Cloud Messaging'i destekleyen bir proje oluşturma
 
-[AZURE.INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-Google-cloud-messaging.md)]
+[AZURE.INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-google-cloud-messaging.md)]
 
 
 ##Yeni bir bildirim hub'ı yapılandırma
@@ -723,12 +723,12 @@ Notification Hubs hakkında daha fazla genel bilgi edinmek için bkz. [Notificat
 [Bir kitaplık projesine başvurma]: http://go.microsoft.com/fwlink/?LinkId=389800
 [Klasik Azure Portalı]: https://manage.windowsazure.com/
 [Notification Hubs Kılavuzu]: http://msdn.microsoft.com/library/jj927170.aspx
-[Kullanıcılara anında iletme bildirimleri göndermek için Notification Hubs’ı kullanma]: notification-hubs-aspnet-backend-android-notify-users.md
-[Son dakika haberleri göndermek için Notification Hubs kullanma]: notification-hubs-aspnet-backend-android-breaking-news.md
+[Kullanıcılara anında iletme bildirimleri göndermek için Notification Hubs’ı kullanma]: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
+[Son dakika haberleri göndermek için Notification Hubs kullanma]: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
 [Azure Portal]: https://portal.azure.com
 
 
 
-<!---HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO1-->
 
 

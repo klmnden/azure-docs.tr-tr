@@ -19,8 +19,6 @@
 
 # CLI kullanarak Azure’da bir Linux VM oluşturma.
 
-> [AZURE.NOTE] Birkaç dakikanız varsa deneyimlerinize ilişkin bu [kısa ankete](https://aka.ms/linuxdocsurvey) katılarak Azure Linux VM belgelerini iyileştirmemize yardımcı olun. Bize vereceğiniz her yanıt, işlerinizi tamamlamanız konusunda size yardımcı olmamıza katkıda bulunur.
-
 Bu makalede, Azure’da Azure CLI `azure vm quick-create` komutu kullanarak hızlı bir şekilde Linux Sanal Makine dağıtma gösterilir. `quick-create` komutu, bir kavramı hızlı bir şekilde prototip kullanabilmek veya test edebilmek için kullanabileceğiniz, kendisini çevreleyen temel altyapıya sahip bir VM dağıtır.  Bu makale için bir Azure hesabının ([ücretsiz deneme sürümü edinin](https://azure.microsoft.com/pricing/free-trial/)) yanı sıra, oturum açılmış (`azure login`) ve Resource Manager modunda (`azure config mode arm`) bir [Azure CLI'si](../xplat-cli-install.md) gerekir.  [Azure portalını](virtual-machines-linux-quick-create-portal.md) kullanarak da hızlıca Linux VM dağıtabilirsiniz.
 
 ## Hızlı Komut Özeti
@@ -172,6 +170,6 @@ Warning: Permanently added 'rhel-westu-1630678171-pip.westus.cloudapp.azure.com,
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO1-->
 
 

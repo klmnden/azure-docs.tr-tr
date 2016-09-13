@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/29/2016"
+   ms.date="09/07/2016"
    ms.author="cherylmc" />
 
 # ExpressRoute ortakları ve eşleme konumları
@@ -31,7 +31,7 @@ Coğrafi bölge içindeki en az bir ExpressRoute konumuna bağlanırsanız coğr
 |---|---|---|
 |**Kuzey Amerika**|Doğu ABD, Batı ABD, Doğu ABD 2, Orta ABD, Güney Orta ABD, Kuzey Orta ABD, Orta Kanada, Doğu Kanada|Atlanta, Chicago, Dallas, Las Vegas+, Los Angeles, New York, Seattle, Silikon Vadisi, Washington DC, Montreal+, Quebec City+, Toronto|
 |**Güney Amerika**|Güney Brezilya|Sao Paulo|
-|**Avrupa**|Kuzey Avrupa, Batı Avrupa|Amsterdam, Dublin, Londra, Newport(Galler)+, Paris|
+|**Avrupa**|Kuzey Avrupa, Batı Avrupa, İngiltere Batı, İngiltere Güney|Amsterdam, Dublin, Londra, Newport(Galler)+, Paris|
 |**Asya**|Doğu Asya, Güneydoğu Asya|Hong Kong, Singapur|
 |**Japonya**|Batı Japonya, Doğu Japonya|Osaka, Tokyo|
 |**Avustralya**|Güneydoğu Avustralya, Doğu Avustralya|Melbourne, Sidney|
@@ -83,7 +83,7 @@ Coğrafi bölgeler arasındaki bağlantı standart ExpressRoute SKU’da destekl
 | **MTN** | Destekleniyor | Destekleniyor | Londra |
 | **NEXTDC** | Destekleniyor | Destekleniyor | Melbourne, Sidney |
 | **NTT Communications** | Destekleniyor | Destekleniyor | Londra, Los Angeles, Osaka, Tokyo |
-| **[Orange]( http://www.orange-business.com/en/products/business-vpn-galerie)** | Destekleniyor | Destekleniyor | Amsterdam, Hong Kong, Londra, Silikon Vadisi, Singapur, Washington DC |
+| **[Orange]( http://www.orange-business.com/en/products/business-vpn-galerie)** | Destekleniyor | Destekleniyor | Amsterdam, Hong Kong, Londra, Silikon Vadisi, Singapur, Sidney, Washington DC |
 | **PCCW Global Limited** | Destekleniyor | Destekleniyor | Hong Kong |
 | **[SingTel]( http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** |  Destekleniyor | Destekleniyor | Singapur |
 | **Softbank** | Destekleniyor | Destekleniyor | Osaka, Tokyo | 
@@ -173,6 +173,6 @@ Bağlantı sağlayıcınız önceki bölümlerde listelenmemişse hala bağlant�
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=sep16_HO1-->
 
 

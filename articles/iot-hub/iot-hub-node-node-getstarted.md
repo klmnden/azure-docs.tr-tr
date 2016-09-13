@@ -48,7 +48,7 @@ Bu bölümde IoT hub'ınızdaki kimlik kayıt defterinde yeni bir cihaz kimliği
     npm init
     ```
 
-2. Komut isteminizde **createdeviceidentity** klasöründe **azure-iothub** paketini yüklemek için aşağıdaki komutu çalıştırın:
+2. Komut isteminizde **createdeviceidentity** klasöründe **azure-iothub** Hizmet SDK paketini yüklemek için aşağıdaki komutu çalıştırın:
 
     ```
     npm install azure-iothub --save
@@ -96,7 +96,7 @@ Bu bölümde IoT hub'ınızdaki kimlik kayıt defterinde yeni bir cihaz kimliği
 
 7. **CreateDeviceIdentity.js** dosyasını kaydedin ve kapatın.
 
-8. **create-device-identity** uygulamasını çalıştırmak için, createdeviceidentity klasöründeki komut isteminde aşağıdaki komutu yürütün:
+8. **createdeviceidentity** uygulamasını çalıştırmak için, createdeviceidentity klasöründeki komut isteminde aşağıdaki komutu yürütün:
 
     ```
     node CreateDeviceIdentity.js 
@@ -184,7 +184,7 @@ Bu bölümde IoT Hub'a cihazdan buluta iletiler gönderen bir cihaza benzetim ya
     npm init
     ```
 
-2. Komut isteminizde **simulateddevice** klasöründe **azure-iot-device-amqp** paketini yüklemek için aşağıdaki komutu çalıştırın:
+2. Komut isteminizde **simulateddevice** klasöründe **azure-iot-device** Cihaz SDK paketini ve **azure-iot-device-amqp** paketini yüklemek için aşağıdaki komutu çalıştırın:
 
     ```
     npm install azure-iot-device azure-iot-device-amqp --save
@@ -313,6 +313,7 @@ IoT çözümünüzün nasıl genişletileceğini ve cihazdan buluta iletilerin �
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 
 
-<!--HONumber=Aug16_HO1-->
+
+<!--HONumber=sep16_HO1-->
 
 

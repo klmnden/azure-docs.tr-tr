@@ -13,14 +13,18 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article"
-    ms.date="08/30/2016" 
+    ms.date="09/05/2016" 
     ms.author="juliako"/>
 
 
 #Azure portal kullanarak şirket içi kodlayıcılarda canlı akış gerçekleştirme
 
-Bu öğretici, Azure portal kullanarak doğrudan teslimat için yapılandırılmış bir **Kanal** oluşturmaya ilişkin adımları anlatmaktadır. 
+> [AZURE.SELECTOR]
+- [Portal]( media-services-portal-live-passthrough-get-started.md)
+- [.NET]( media-services-dotnet-live-encode-with-onpremises-encoders.md)
+- [REST]( https://msdn.microsoft.com/library/azure/dn783458.aspx)
 
+Bu öğretici, Azure portal kullanarak doğrudan teslimat için yapılandırılmış bir **Kanal** oluşturmaya ilişkin adımları anlatmaktadır. 
 
 ##Ön koşullar
 
@@ -73,12 +77,13 @@ Azure portal tarafından oluşturulan bildirimleri ve hataları görüntülemek 
 
 ##Akış uç noktalarını yapılandırma 
 
-Media Services, şu akış biçimlerine yeniden paketlemenize gerekle kalmadan, çoklu bit hızlı MP4’leri göndermenizi sağlayan dinamik paketleme olanağı verir: MPEG DASH, HLS veya Kesintisiz Akış HDS. Dinamik paketleme ile dosyaları yalnızca tek bir depolama biçiminde depolamanız ve buna göre ödeme yapmanız gerekir. Media Services, istemciden gelen isteklere göre uygun yanıtı derler ve sunar.
+Media Services, MPEG DASH, HLS veya Kesintisiz Akış HDS akış biçimlerinde yeniden paketlemenize gerek kalmadan çoklu bit hızlı MP4’ler göndermenizi sağlayan dinamik paketleme olanağı verir. Dinamik paketleme ile dosyaları yalnızca tek bir depolama biçiminde depolamanız ve buna göre ödeme yapmanız gerekir; Media Services, istemciden gelen isteklere göre uygun yanıtı derler ve sunar.
 
 Dinamik paketlemeden yararlanmak için, içeriğinizi teslim etmek istediğiniz akış uç noktası için en az bir akış birimi almanız gerekir.  
 
 Akışa ayrılan birim sayısını oluşturmak ve değiştirmek için, aşağıdakileri yapın:
 
+1. [Azure portal](https://portal.azure.com/)’da oturum açın.
 1. **Ayarlar** penceresinde, **Akış uç noktaları**’na tıklayın. 
 
 2. Varsayılan akış uç noktasına tıklayın. 
@@ -87,7 +92,7 @@ Akışa ayrılan birim sayısını oluşturmak ve değiştirmek için, aşağıd
 
 3. Akış birimi sayısını belirtmek için, **Akış birimleri** kaydırıcısını kaydırın.
 
-    ![Akış birimleri](./media/media-services-portal-vod-get-started/media-services-streaming-units.png)
+    ![Akış birimleri](./media/media-services-portal-passthrough-get-started/media-services-streaming-units.png)
 
 4. Yaptığınız değişiklikleri kaydetmek için **Kaydet** düğmesine tıklayın.
 
@@ -99,7 +104,7 @@ Bir kanal, canlı akıştaki kesimleri yayımlamanızı ve depolamanızı denetl
     
 Program için kaydedilen içeriği kaç saat tutmak istediğinizi **Arşiv Penceresi** uzunluğunu ayarlayarak belirleyebilirsiniz. Bu değer en az 5 dakika, en çok 25 saat olarak ayarlanabilir. Arşiv penceresi uzunluğu, istemcilerin geçerli canlı konumdan zamanda geri gidebilecekleri en uzun süre miktarını da belirler. Olaylar belirtilen süre miktarında yürütülür, ancak pencere uzunluğunu aşan içerik sürekli olarak iptal edilir. Bu özelliğin bu değeri, istemci bildiriminin ne kadar uzayabileceğini de belirler.
 
-Her olay bir varlıkla ilişkilidir. Olayı yayımlamak için ilişkili varlığa yönelik bir OnDemand bulucu oluşturmanız gerekir. Bu bulucuya sahip olmak, istemcilerinize sağlayabileceğiniz bir akış URL’si oluşturmanıza olanak tanır.
+Her olay bir varlıkla ilişkilidir. Olayı yayımlamak için ilişkili varlığa yönelik bir OnDemand bulucu oluşturmanız gerekir. Bu bulucuya sahip olmak istemcilerinize sağlayabileceğiniz bir akış URL’si oluşturmanıza olanak tanır.
 
 Bir kanal eşzamanlı çalışan üç olaya kadar destekler, böylece aynı gelen akışta birden fazla arşiv oluşturabilirsiniz. Bu özellik, gerektiğinde bir olayın farklı kısımlarını yayımlamanıza ve arşivlemenize olanak tanır. Örneğin, iş gereksiniminiz bir programın 6 saatini arşivlemek ancak son 10 dakikasını yayınlamak olabilir. Bunu yapmak için, eşzamanlı olarak çalışan iki program oluşturmanız gerekir. Bir program olayı 6 saat arşivlemek için ayarlanır ancak program yayımlanmaz. Diğer program 10 dakika arşivlenecek şekilde ve bu program yayımlanır.
 
@@ -115,7 +120,7 @@ Arşivlenen içeriği tutmak istiyor ancak bu içeriğin akış için kullanılm
 
 ###Bir kanal oluşturmak amacıyla portalı kullanmak için 
 
-Bu bölümler bir geçiş kanalı oluşturmak için **Hızlı Oluştur** seçeneğinin nasıl kullanılacağını gösterir.
+Bu bölüm bir geçiş kanalı oluşturmak için **Hızlı Oluştur** seçeneğinin nasıl kullanılacağını gösterir.
 
 Geçiş kanalları hakkında daha fazla ayrıntı için bkz. [Çoklu bit hızı akışları oluşturan şirket içi kodlayıcılarla canlı akış](media-services-live-streaming-with-onprem-encoders.md).
 
@@ -130,11 +135,15 @@ Geçiş kanalları hakkında daha fazla ayrıntı için bkz. [Çoklu bit hızı 
     **YENİ KANAL OLUŞTUR** penceresi görüntülenir.
 4. Yeni kanala bir ad verin ve **Oluştur**’a tıklayın. 
 
-    Bu, RTMP alma protokolüyle bir geçiş kanalı oluşturur.
+    Bunun yapılması RTMP alma protokolüyle bir geçiş kanalı oluşturur.
 
-    Kanal ayrıca varsayılan bir canlı olay/program ekler, başlatır ve yayımlar. Bu olay 8 saatlik arşiv penceresine sahip olacak şekilde yapılandırılır. 
+##Olay oluşturma
 
-    Daha fazla olay eklemek için, **Canlı Olay** düğmesine basın.
+1. Olay eklemek istediğiniz bir kanal seçin.
+2. **Canlı Olay** düğmesine basın.
+
+![Olay](./media/media-services-portal-passthrough-get-started/media-services-create-events.png)
+
 
 ##Alma URL’leri alma
 
@@ -142,13 +151,13 @@ Kanal oluşturulduktan sonra, gerçek zamanlı kodlayıcıya sağlayacağınız 
 
 ![Oluşturulan](./media/media-services-portal-passthrough-get-started/media-services-channel-created.png)
 
-##Bir olay izleme
+##Olayı izleme
 
 Olay izlemek için, Azure portalda **İzle**’ye tıklayın veya akış URL'sini kopyalayın ve tercih ettiğiniz bir oynatıcı kullanın. 
  
 ![Oluşturulan](./media/media-services-portal-passthrough-get-started/media-services-default-event.png)
 
-Durduğunda, canlı olay otomatik olarak isteğe bağlı içeriğe dönüşür.
+Canlı olay durduğunda otomatik olarak isteğe bağlı içeriğe dönüştürülür.
 
 ##Temizleme
 
@@ -165,7 +174,9 @@ Varlıklarınızı yönetmek için, **Ayar**’ı seçin ve **Varlıklar**’a t
 
 ![Varlıklar](./media/media-services-portal-passthrough-get-started/media-services-assets.png)
 
-##Media Services’i öğrenme yolları
+##Sonraki adım
+
+Media Services öğrenme yollarını gözden geçirin.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -175,6 +186,6 @@ Varlıklarınızı yönetmek için, **Ayar**’ı seçin ve **Varlıklar**’a t
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=sep16_HO1-->
 
 

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="08/09/2016"
+    ms.date="09/01/2016"
     ms.author="casoper"/>
 
 # Azure İçerik Teslim Ağı'na (CDN) genel bakış
@@ -41,7 +41,7 @@ Web sitesi varlıklarını önbelleğe almak için CDN kullanmanın avantajları
 
 4. Uç sunucu, dosyayı önbelleğe alır ve dosyayı özgün istek sahibine (Alice) döndürür.  Dosya, TTL süresi dolana kadar uç sunucuda önbelleğe alınmış olarak kalır.  Kaynak, bir TTL belirtmemişse varsayılan TTL yedi gündür.
 
-5. Bu durumda, ek kullanıcılar (Bob gibi) aynı URL'yi kullanarak aynı dosyayı isteyebilir ve ayrıca, aynı POP'ye yönlendirilebilir.
+5. Bu durumda ek kullanıcılar aynı URL'yi kullanarak aynı dosyayı isteyebilir ve ayrıca, aynı POP'ye yönlendirilebilir.
 
 6. Dosya için TTL'nin süresi dolmamışsa uç sunucu dosyayı önbellekten döndürür.  Bu, daha hızlı ve daha duyarlı bir kullanıcı deneyimi sağlar.
 
@@ -53,22 +53,25 @@ Web sitesi varlıklarını önbelleğe almak için CDN kullanmanın avantajları
 |       | Standart Akamai | Standart Verizon | Premium Verizon |
 |-------|-----------------|------------------|-----------------|
 | [Storage](cdn-create-a-storage-account-with-cdn.md), [Cloud Services](cdn-cloud-service-with-cdn.md), [Web Apps](../app-service-web/cdn-websites-with-cdn.md) ve [Media Services](../media-services/media-services-manage-origins.md#enable_cdn) gibi Azure hizmetleriyle kolay tümleştirme | **&#x2713;** | **&#x2713;** | **&#x2713;**|
+| [REST API](https://msdn.microsoft.com/library/mt634456.aspx), [.NET](./cdn-app-dev-net.md), [Node.js](./cdn-app-dev-node.md), veya [PowerShell](./cdn-manage-powershell.md) aracılığıyla yönetim. | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | HTTPS desteği | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | Yük dengeleme | **&#x2713;** | **&#x2713;** | **&#x2713;** |
-| DDOS koruması | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| [DDOS](https://www.us-cert.gov/ncas/tips/ST04-015) koruması | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | IPv4/IPv6 ikili yığını | **&#x2713;** | **&#x2713;** | **&#x2713;** |
-| [HTTP/2](https://msdn.microsoft.com/library/mt762901.aspx) | **&#x2713;**  |  |  |
 | [Özel etki alanı adı desteği](cdn-map-content-to-custom-domain.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | [Sorgu dizesi önbelleğe alma](cdn-query-string.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | [Ülke filtreleme](cdn-restrict-access-by-country.md) |  | **&#x2713;** | **&#x2713;** |
 | [Hızlı temizleme](cdn-purge-endpoint.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | [Varlık önceden yükleme](cdn-preload-endpoint.md) |  | **&#x2713;** | **&#x2713;** |
 | [Temel analiz](cdn-analyze-usage-patterns.md) |  | **&#x2713;** | **&#x2713;** |
-| [REST API](https://msdn.microsoft.com/library/mt634456.aspx), [.NET](./cdn-app-dev-net.md), [Node.js](./cdn-app-dev-node.md), veya [PowerShell](./cdn-manage-powershell.md) aracılığıyla yönetim. | **&#x2713;** | **&#x2713;** | **&#x2713;** |
-| [Özelleştirilebilir, kural tabanlı içerik teslim altyapısı](cdn-rules-engine.md) | | | **&#x2713;** |
+| [HTTP/2 desteği](https://msdn.microsoft.com/library/mt762901.aspx) | **&#x2713;**  |  |  |
 | [Gelişmiş HTTP raporları](cdn-advanced-http-reports.md) | | | **&#x2713;** |
 | [Gerçek zamanlı istatistikler](cdn-real-time-stats.md) | | | **&#x2713;** |
 | [Gerçek zamanlı uyarılar](cdn-real-time-alerts.md) | | | **&#x2713;** |
+| [Özelleştirilebilir, kural tabanlı içerik teslim altyapısı](cdn-rules-engine.md) | | | **&#x2713;** |
+| Önbellek/üstbilgi ayarları ([kurallar altyapısı](cdn-rules-engine.md) kullanılarak)  | | | **&#x2713;** |
+| URL yeniden yönlendirme/yeniden yazma ([kurallar altyapısı](cdn-rules-engine.md) kullanılarak) | | | **&#x2713;** |
+| Mobil cihaz kuralları ([kurallar altyapısı](cdn-rules-engine.md) kullanılarak)  | | | **&#x2713;** |
 
 >[AZURE.TIP] Azure CDN'de görmek istediğiniz bir özellik mi var?  [Bize geri bildirim sağlayın](https://feedback.azure.com/forums/169397-cdn)! 
 
@@ -86,6 +89,6 @@ Fiyatlandırma bilgileri için bkz. [CDN Fiyatlandırması](https://azure.micros
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO1-->
 
 

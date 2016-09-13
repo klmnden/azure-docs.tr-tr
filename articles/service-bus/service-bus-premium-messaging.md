@@ -13,12 +13,12 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/22/2016"
+    ms.date="09/02/2016"
     ms.author="darosa;sethm"/>
 
 # Service Bus Premium ve Standart Mesajlaşma katmanları 
 
-Kuyruklar ve konu başlıkları gibi mesajlaşma varlıklarını içeren Service Bus aracılı mesajlaşma, kuruluşun mesajlaşma işlevlerini bulut ölçeğinde zengin yayımla-abone ol semantiği ile birleştirir. Service Bus mesajlaşması birçok gelişmiş bulut çözümü için iletişimin temel öğesi olarak kullanılır.
+Kuyruklar ve konu başlıkları gibi mesajlaşma varlıklarını içeren Service Bus mesajlaşma, kuruluşun mesajlaşma işlevlerini bulut ölçeğinde zengin yayımla-abone ol semantiği ile birleştirir. Service Bus mesajlaşması birçok gelişmiş bulut çözümü için iletişimin temel öğesi olarak kullanılır.
 
 Service Bus mesajlaşma hizmetinin *Premium* katmanı, görev açısından kritik uygulamalar için ölçek, performans ve kullanılabilirlik bağlamında yaygın müşteri isteklerini karşılar. Özellikler kümeleri neredeyse aynı olsa da, Service Bus mesajlaşma hizmetinin bu iki katmanı farklı kullanım durumlarına göre tasarlanmıştır.
 
@@ -40,13 +40,13 @@ Daha tahmin edilebilir ve kullanılabilir olmasının yanı sıra bu performans,
 
 Premium ve Standart mesajlaşma katmanları arasındaki bazı farklar aşağıda verilmiştir.
 
-### Bölümlenen varlıklar
+### Bölümlenmiş kuyruklar ve konular
 
-Bölümlenen varlıklar Premium mesajlaşmada desteklenir ancak Service Bus mesajlaşma hizmetinin Standart ve Temel katmanlarında aynı şekilde işlev görmez. Premium mesajlaşma, SQL'i bir veri deposu olarak kullanmaz ve artık paylaşılan platforma ilişkin olası kaynak rekabetini barındırmaz. Sonuç olarak, bölümleme gerekli değildir. Ayrıca, Standart mesajlaşmada 16 olan bölüm sayısı Premium'da 2 bölüm olarak değiştirilmiştir. İki bölümlemeye sahip olmak kullanılabilirliği garanti altına alır ve Premium çalışma zamanı ortamı için daha uygun bir sayıdır. Bölümleme hakkında daha fazla bilgi için bkz. [Bölümlenmiş Mesajlaşma Varlıkları](service-bus-partitioning.md).
+Bölümlenmiş kuyruklar ve konular Premium mesajlaşmada desteklenir ancak Service Bus mesajlaşma hizmetinin Standart ve Temel katmanlarında aynı şekilde işlev görmez. Premium mesajlaşma, SQL'i bir veri deposu olarak kullanmaz ve artık paylaşılan platforma ilişkin olası kaynak rekabetini barındırmaz. Sonuç olarak, bölümleme gerekli değildir. Ayrıca, Standart mesajlaşmada 16 olan bölüm sayısı Premium'da 2 bölüm olarak değiştirilmiştir. İki bölümlemeye sahip olmak kullanılabilirliği garanti altına alır ve Premium çalışma zamanı ortamı için daha uygun bir sayıdır. Bölümleme hakkında daha fazla bilgi için bkz. [Bölümlenmiş kuyruklar ve konular](service-bus-partitioning.md).
 
 ### İfade varlıkları
 
-Tamamen yalıtılmış bir çalışma zamanı ortamında çalıştığından, artık Premium mesajlaşmada ifade varlıklarına ihtiyaç duyulmaz. Sonuç olarak, ifade varlıkları Premium ad alanlarında desteklenmez. İfade özellikleri hakkında daha fazla bilgi için [Microsoft.ServiceBus.Messaging.QueueDescription.EnableExpress](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.enableexpress.aspx) özelliğine bakın.
+Premium Mesajlaşma tamamen yalıtılmış bir çalışma zamanı ortamında çalıştığından Premium ad alanlarında ifade varlıkları desteklenmemektedir. İfade özellikleri hakkında daha fazla bilgi için [Microsoft.ServiceBus.Messaging.QueueDescription.EnableExpress](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.enableexpress.aspx) özelliğine bakın.
 
 ## Sonraki adımlar
 
@@ -60,6 +60,6 @@ Service Bus mesajlaşma hizmeti hakkında daha fazla bilgi edinmek için aşağ�
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=sep16_HO1-->
 
 

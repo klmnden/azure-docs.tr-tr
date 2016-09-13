@@ -26,7 +26,7 @@ Güvenlik ilkeleri, belirtilen abonelik veya kaynak grubundaki kaynaklar için �
 
 ## Abonelikler için güvenlik ilkelerini ayarlama
 
-Güvenlik ilkeleri, her bir abonelik veya kaynak grubu için yapılandırılabilir. Güvenlik ilkesini değiştirmek için o aboneliğin Sahibi veya Katkıda Bulunanı olmanız gerekir. Azure portalına erişin ve önceki adımları izleyerek Güvenlik Merkezi'nde güvenlik ilkeleri yapılandırın:
+Güvenlik ilkeleri, her bir abonelik veya kaynak grubu için yapılandırılabilir. Güvenlik ilkesini değiştirmek için o aboneliğin Sahibi veya Katkıda Bulunanı olmanız gerekir. Azure portalına erişin ve aşağıdaki adımları izleyerek Güvenlik Merkezi'nde güvenlik ilkeleri yapılandırın:
 
 1. Güvenlik Merkezi panosunda **İlke** kutucuğuna tıklayın.
 
@@ -108,6 +108,6 @@ Bu belgede, Azure Güvenlik Merkezi'nde güvenlik ilkelerinin nasıl yapılandı
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=sep16_HO1-->
 
 

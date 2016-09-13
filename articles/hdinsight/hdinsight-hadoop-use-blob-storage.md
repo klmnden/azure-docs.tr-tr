@@ -15,7 +15,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="08/10/2016"
+    ms.date="09/06/2016"
     ms.author="jgao"/>
 
 
@@ -49,7 +49,7 @@ Ayrıca, HDInsight Azure Blob Storage’da depolanan verilere erişebilmeyi sağ
 
 Hadoop varsayılan dosya sistemi kavramını destekler. Varsayılan dosya sistemi varsayılan şema ve yetkilisi anlamına gelir. Bu göreceli yolları çözümlemek için de kullanılabilir. HDInsight oluşturma işlemi sırasında, bir Azure Storage hesabı ve bu hesaptan belirli bir Azure Blob Storage kapsayıcısı varsayılan dosya sistemi olarak atanır.
 
-Bu depolama hesabına ek olarak, oluşturma işlemi sırasında aynı Azure aboneliğinden veya farklı Azure aboneliklerinden ek depolama hesapları ekleyebilirsiniz. Ek depolama hesapları ekleme hakkında yönergeler için bkz. [HDInsight kümeleri oluşturma][hdinsight-creation].
+Bu depolama hesabına ek olarak, oluşturma işlemi sırasında veya bir küme oluşturulduktan sonra aynı Azure aboneliğinden veya farklı Azure aboneliklerinden başka depolama hesapları ekleyebilirsiniz. Ek depolama hesapları ekleme hakkında yönergeler için bkz. [HDInsight kümeleri oluşturma][hdinsight-creation].
 
 - **Bir kümeye bağlı depolama hesaplarındaki kapsayıcılar:** Oluşturma sırasında hesap adı ve anahtar kümeyle ilişkilendirildiğinden, bu kapsayıcılardaki blob'lara tam erişiminiz vardır.
 
@@ -301,6 +301,6 @@ Daha fazla bilgi için bkz.
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO1-->
 
 

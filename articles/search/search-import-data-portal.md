@@ -1,10 +1,10 @@
 <properties
     pageTitle="Azure Portal'daki dizin oluşturucuları kullanarak Azure Search'e veri aktarma | Microsoft Azure | Barındırılan bulut arama hizmeti"
-    description="Azure Portal'da dizin oluşturucuları kullanma"
+    description="Azure VM’lerde bulunan Azure Blob depolama, tablo depolama SQL Veritabanı ve SQL Server verilerinde gezinmek için Azure Portal’daki Azure Search Veri İçeri Aktarma Sihirbazı’nı kullanın."
     services="search"
     documentationCenter=""
     authors="HeidiSteen"
-    manager="mblythe"
+    manager="paulettm"
     editor=""
     tags="Azure Portal"/>
 
@@ -14,70 +14,114 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="06/08/2016"
+    ms.date="08/29/2016"
     ms.author="heidist"/>
 
 # Portalı kullanarak Azure Search'e veri aktarma
 
-Azure Portal, Azure Search panosunda verileri bir dizine yüklemeye yönelik **Verileri İçeri Aktar** komutunu içerir. Komut, veri kaynağından çekilen satır kümesini temel alan belgeler oluşturarak ve bunları karşıya yükleyerek var olan bir veri kaynağında gezinen yerleşik dizin oluşturucu özelliklerini kullanır.
+Azure portalı, Azure Search panosunda verileri bir dizine yüklemeye yönelik **İçeri Aktarma Verileri** sihirbazını içerir. 
 
-Sihirbazda verilerin içeri aktarılması 3 parçalı bir yapıdır:
+  ![Komut çubuğunda İçeri Aktarma Verileri][1]
 
-- bir veri kaynağı bağlantısı
-- verilerin karşıya yüklendiği bir hedef dizin (sihirbaz bunu genellikle sizin için oluşturur)
-- şimdi veya düzenli aralıklarla çalışan bir zamanlama
+Sihirbaz kendi içinde bir *dizin oluşturucu* yapılandırıp çağırır ve dizin oluşturma işleminin birkaç adımını otomatik hale getirir: 
 
-Bir dizin oluşturucu veya **Veri İçeri Aktar** komutu kullanmak için birincil veri kaynağınızın şu desteklenen veri kaynaklarından biri olması gerekir: Azure SQL Database, Azure VM'deki SQL Server ilişkisel veritabanları veya Azure DocumentDB.
+- Geçerli Azure aboneliğindeki bir dış veri kaynağına bağlanma
+- Kaynak veri yapısına dayalı bir dizin şemasını otomatik olarak oluşturma
+- Veri kaynağından alınan bir satır kümesine dayalı belgeler oluşturma
+- Belgeleri arama hizmetinizdeki dizine yükleme
 
-Yalnızca tek bir tablo, görünüm veya eşdeğeri veri yapısından aktarabilirsiniz. Arama dizininize doğru meta verileri ve veri girişlerini almak için öncelikle bu veri yapısını uygulamanızın veri kaynağında oluşturmanız gerekebilir.
+DocumentDB’deki örnek verileri kullanarak bu iş akışını deneyebilirsiniz. Yönergeler için [Azure Portal'da Azure Search ile çalışmaya başlama](search-get-started-portal.md) başlıklı sayfayı ziyaret edin.
 
-Örnek verileri kullanarak bu iş akışını deneyebilirsiniz. Azure Search ile çalışmaya başlamak için [Azure Portal'da Azure Search ile çalışmaya başlama](search-get-started-portal.md) başlıklı sayfayı ziyaret edin.
+## Veri Alma Sihirbazı tarafından desteklenen veri kaynakları
 
-##Verileri içeri aktarmayı yapılandırma
+Dizin otomasyonu ve araçları aşağıdaki veri kaynakları için kullanılabilir: 
 
-1. [Azure Portal](https://portal.azure.com)'da oturum açın.
+- Azure SQL Database
+- Azure VM’lerdeki SQL Server ilişkisel verileri
+- Azure DocumentDB
+- Azure Blob depolama (önizlemede)
+- Azure Tablo depolama (önizlemede)
 
-2. Azure Search hizmetinizin hizmet panosunu açın. Panoyu bulmanın birkaç yolu burada verilmiştir.
-    - Harf çubuğunda **Giriş**'e tıklayın. Giriş sayfasında, aboneliğinizin tüm hizmetleri için kutucuklar bulunur. Hizmet panosunu açmak için kutucuğa tıklayın.
-    - Harf çubuğunda, listedeki Arama hizmetinizi bulmak için **Tümüne Gözat** > **Filtreleme ölçütü:** > **Arama hizmetleri**'ne tıklayın.
+Düzleştirilmiş veri kümesi gerekli bir giriştir. Yalnızca tek bir tablo, veritabanı görünümü veya eşdeğeri veri yapısından aktarabilirsiniz. Sihirbazı çalıştırmadan önce bu veri yapısını oluşturmanız gerekir.
 
-3. Hizmet panosunda en üst kısımda **Veri İçeri Aktar** dahil olmak üzere bir komut çubuğu görürsünüz. Veri İçeri Aktar dikey penceresini kaydırarak açmak için **Veri İçeri Aktar**'a tıklayın.
+Dizin oluşturuculardan birkaç tanesi hala önizleme aşamasındadır; diğer bir deyişle dizin oluşturucu tanımı API’nin önizleme sürümü ile desteklenmektedir. Daha fazla bilgi ve bağlantılar için bkz. [Dizin oluşturucuya genel bakış](search-indexer-overview.md).
 
-4. Bir dizin oluşturucu tarafından kullanılan bir veri kaynağı tanımını belirtmek için **Verilerinize bağlanın**'a tıklayın. Seçeneklere şunlar dahildir:
-    -   Var olan veri kaynakları, önceden bir dizin oluşturucu için oluşturulan bir veri kaynağı tanımına başvurur. Arama hizmetinizde önceden tanımlanmış dizin oluşturuculara sahipseniz başka bir içeri aktarma için bir veri kaynağı tanımını yeniden amaçlandırabilirsiniz.
-    -   Azure SQL, Azure'daki bir SQL veritabanına veya Azure VM'deki bir SQL Server veritabanına bir veri kaynağı bağlantısını belirtmek için kullanılır.
-    -   DocumentDB, bu veri kaynağı türüne yönelik veri kaynağı bağlantısı belirtmek için kullanılır.
+## Verilerinize bağlanma
 
-   Veritabanı, hem Azure SQL hem de DocumentDB için aboneliğinizde var olmalıdır. Biliyorsanız bir bağlantı dizesini yapıştırabilir veya aboneliğiniz için yazma ayrıcalıklarına sahip biri tarafından önceden oluşturulmuş bir veri kaynağını seçebilirsiniz.
+1. [Azure Portal](https://portal.azure.com)’da oturum açın ve hizmet panosunu açın. Geçerli abonelikte var olan hizmetleri göstermek için atlama çubuğundaki **Hizmetleri ara** öğesine tıklayabilirsiniz. 
 
-5. Varsayılan dizini tamamlamak için **Hedef dizini özelleştir**'e tıklayın.
-    - **Anahtar** gereklidir. Anahtar için seçtiğiniz alan, benzersiz değerler içeren bir dize alanı olmalıdır.
-    - Alan adı ve türü genellikle sizin için doldurulur. Veri türünü değiştirebilirsiniz.
-    - Her bir alan için öznitelikler seçin:
-        - Alınabilir, arama sonuçlarındaki alanı döndürür.
-        - Filtrelenebilir, alana filtre ifadelerinde başvurulabilmesini sağlar.
-        - Sıralanabilir, alanın bir sıralamada kullanılabilmesini sağlar.
-        - Modellenebilir, alanın modellenmiş gezinmesine olanak sağlar.
-        - Aranabilir, tam metin aramayı etkinleştirir.
-    - Alan düzeyinde bir dil çözümleyicisi belirtmek istiyorsanız **Çözümleyici** sekmesine tıklayın. Ayrıntılı bilgi için bkz. [Birden çok dilde belgeler için dizin oluşturma](search-language-support.md).
-    - Otomatik tamamlamayı veya yazarken tamamlanan sorgu önerilerini etkinleştirmek istiyorsanız **Öneri Aracı**'na tıklayın.
+2. Veri İçeri Aktar dikey penceresini kaydırarak açmak için komut çubuğundaki **Veri İçeri Aktar**'a tıklayın.  
 
-6. Şimdi Çalıştır seçeneğini kullanarak içeri aktarma işlemini yürütmek veya yinelenen bir zamanlama ayarlamak için **Verilerinizi içeri aktarın**'a tıklayın.
+3. Bir dizin oluşturucu tarafından kullanılan bir veri kaynağı tanımını belirtmek için **Verilerinize bağlanın**'a tıklayın. Abonelik içi veri kaynakları için sihirbaz genellikle bağlantı bilgilerini algılayıp okuyabilir ve genel yapılandırma gereksinimlerini en aza indirebilir.
 
-Şimdi tamamladığınız verileri içeri aktarma işlemi, arka planda bir dizin oluşturucu oluşturdu. Artık bileşen parçalarından herhangi birini değiştirmek için dizin oluşturucuyu doğrudan düzenleyebilirsiniz.
+| | |
+|--------|------------|
+|**Var olan veri kaynağı** | Arama hizmetinizde önceden tanımlanmış dizin oluşturuculara sahipseniz başka bir içeri aktarma için var olan bir veri kaynağı seçebilirsiniz.|
+|**Azure SQL Database** | Hizmet adı, okuma iznine sahip bir veritabanı kullanıcısının kimlik bilgileri ve veritabanı adı, sayfa üzerinde ya da ADO.NET bağlantı dizesi aracılığıyla belirtilebilir. Özellikleri görüntülemek veya özelleştirmek için bağlantı dizesini seçin. <br/><br/>Sayfada satır kümesini sağlayan tablo veya görünüm belirtilmelidir. Bu seçenek bağlantı başarılı olduktan sonra görünür ve bir seçim yapmanızı sağlayan açılır listeyi gösterir.|
+|**Azure VM’lerde SQL Server** | Bağlantı dizesi olarak tam hizmet adı, kullanıcı kimliği ve parola ile veritabanı belirtin. Bu veri kaynağını kullanmak için bağlantıyı şifreleyen yerel depoya daha önce bir sertifika yüklemiş olmanız gerekir. <br/><br/>Sayfada satır kümesini sağlayan tablo veya görünüm belirtilmelidir. Bu seçenek bağlantı başarılı olduktan sonra görünür ve bir seçim yapmanızı sağlayan açılır listeyi gösterir.
+|**DocumentDB** |Hesap, veritabanı ve bağlantı gereklidir. Koleksiyondaki tüm belgeler dizine dahil edilir. Satır kümesini düzleştirmek veya filtrelemek ya da sonraki veri yenileme işlemleri için değiştirilen belgeleri algılamak üzere bir sorgu tanımlayabilirsiniz.|
+|**Azure Blob Depolama** | Depolama hesabı ve bir kapsayıcı gereklidir. İsteğe bağlı olarak, gruplandırma amacıyla blob adlarından önce bir sanal adlandırma kuralı varsa adın sanal dizin kısmını kapsayıcı altındaki bir klasör olarak belirtebilirsiniz. Daha fazla bilgi için bkz. [Blob Depolama Dizini Oluşturma (önizleme)](search-howto-indexing-azure-blob-storage.md). |
+|**Azure Table Storage** | Depolama hesabı ve bir tablo adı gereklidir. İsteğe bağlı olarak, tabloların bir alt kümesini almak için sorgu belirtebilirsiniz. Daha fazla bilgi için bkz. [Tablo Depolama Dizini Oluşturma (önizleme)](search-howto-indexing-azure-tables.md). |
 
-##Var olan bir dizin oluşturucuyu düzenleme
+## Hedef dizini özelleştirme
+
+Başlangıç dizini genellikle veri kümesinden çıkarılır. Şemayı tamamlamak için alan ekleyin, düzenleyin veya silin. Ayrıca, sonraki arama davranışlarını belirlemek üzere alan düzeyinde öznitelikler ayarlayın.
+
+1. **Hedef dizini özelleştir** menüsünde her bir belgeyi benzersiz bir şekilde tanımlamak için kullanılan adı ve **Anahtarı** belirtin. Anahtar bir dize olmalıdır. Alan değerleri boşluk veya tire içeriyorsa **Verilerinizi içeri aktarın** menüsündeki gelişmiş seçenekleri, bu karakterler üzerinde doğrulama denetimini gizleyecek şekilde ayarlayın.
+
+2. Kalan alanları gözden geçirin ve düzeltin. Alan adı ve türü genellikle sizin için doldurulur. Veri türünü değiştirebilirsiniz.
+
+3. Her bir alan için dizin özniteliklerini ayarlayın:
+
+ - Alınabilir, arama sonuçlarındaki alanı döndürür.
+ - Filtrelenebilir, alana filtre ifadelerinde başvurulabilmesini sağlar.
+ - Sıralanabilir, alanın bir sıralamada kullanılabilmesini sağlar.
+ - Modellenebilir, alanın modellenmiş gezinmesine olanak sağlar.
+ - Aranabilir, tam metin aramayı etkinleştirir.
+  
+4. Alan düzeyinde bir dil çözümleyicisi belirtmek istiyorsanız **Çözümleyici** sekmesine tıklayın. Şu anda yalnızca dil çözümleyicileri belirtilebilir. Özel bir çözümleyici veya Keyword, Pattern gibi dil dışı bir çözümleyici kullanılması kod gerektirir.
+
+ - Alan üzerinde tam metin araması belirlemek ve Çözümleyici açılır listesini etkinleştirmek için **Aranabilir** öğesine tıklayın.
+ - İstediğiniz çözümleyiciyi seçin. Ayrıntılı bilgi için bkz. [Birden çok dilde belgeler için dizin oluşturma](search-language-support.md).
+
+5. Seçili alanlarda yazarken tamamlanan sorgu önerilerini etkinleştirmek için **Öneri Aracı**’na tıklayın.
+
+
+## Verilerinizi içeri aktarma
+
+1. **Verilerinizi içeri aktarın** menüsünde dizin oluşturucu için bir ad belirtin. Dizin oluşturucunun, Verileri İçeri Aktarma sihirbazının bir ürünü olduğunu unutmayın. Daha sonra görüntülemek veya düzenlemek isterseniz sihirbazı yeniden çalıştırmak yerine portaldan seçebilirsiniz. 
+
+2. Hizmetin sağlandığı bölgesel saat dilimine dayalı zamanlamayı belirtin.
+
+3. Bir belge bırakılırsa dizin oluşturmanın devam edip etmeyeceğini belirlemeye yönelik eşikleri belirtmek için gelişmiş seçenekleri ayarlayın. Ek olarak, **Anahtar** alanlarının boşluk ve eğik çizgi içermesine izin verilip verilmeyeceğini belirtebilirsiniz.  
+
+## Var olan bir dizin oluşturucuyu düzenleme
 
 Hizmet panosunda, aboneliğiniz için oluşturulan tüm dizin oluşturucuların listesini kaydırarak açmak için Dizin Oluşturucu kutucuğuna çift tıklayın. Bir dizin oluşturucuyu çalıştırmak, düzenlemek veya silmek için bunlardan birine çift tıklayın. Dizini var olan başka bir dizinle değiştirebilir, veri kaynağını değiştirebilir ve dizin oluşturma sırasında hata eşikleri için seçenekleri ayarlayabilirsiniz.
 
-##Var olan bir dizini düzenleme
+## Var olan bir dizini düzenleme
 
 Azure Search hizmetinde bir dizinde yapısal güncelleştirmeler yapılması bu dizinin yeniden derlenmesini gerektirir; bu işlem dizinin silinmesini, yeniden oluşturulmasını ve verilerin yeniden yüklenmesini içerir. Yapısal güncelleştirmeler bir veri türünün değiştirilmesini ve bir alanın yeniden adlandırılmasını ya da silinmesini içerir.
 
 Yeni bir alan ekleme, puanlama profillerini değiştirme, öneri araçlarını değiştirme veya dil çözümleyicileri değiştirme gibi işlemler yeniden derleme gerektirmeyen düzenlemelerdir. Daha fazla bilgi için bkz. [Dizin Güncelleştirme](https://msdn.microsoft.com/library/azure/dn800964.aspx).
 
+## Sonraki adım
+
+Dizin oluşturucular hakkında daha fazla bilgi için bu bağlantıları gözden geçirin:
+
+- [Azure SQL Veritabanı dizini oluşturma](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)
+- [DocumentDB dizini oluşturma](../documentdb/documentdb-search-indexer.md)
+- [Blob Depolama (önizleme) dizini oluşturma](search-howto-indexing-azure-blob-storage.md)
+- [Tablo Depolama (önizleme) dizini oluşturma](search-howto-indexing-azure-tables.md)
 
 
-<!--HONumber=Aug16_HO1-->
+
+<!--Image references-->
+[1]: ./media/search-import-data-portal/search-import-data-command.png
+
+
+
+
+<!--HONumber=sep16_HO1-->
 
 

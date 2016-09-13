@@ -12,12 +12,12 @@
     ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="08/10/2016"
+    ms.date="09/07/2016"
     ms.author="awills"/>
 
 # Web sitelerinin kullanılabilirlik ve yanıt hızını izleme
 
-Web uygulamanızı herhangi bir ana bilgisayara dağıttıktan sonra, kullanılabilirlik ve yanıt hızını izlemek için web testleri ayarlayabilirsiniz. [Visual Studio Application Insights](app-insights-overview.md), dünyanın her yerindeki noktalarından düzenli aralıklarla web istekleri gönderir ve uygulamanız yavaş yanıtlarsa ya da hiç yanıtlamazsa sizi uyarabilir.
+Web uygulamanızı veya web sitenizi herhangi bir ana bilgisayara dağıttıktan sonra kullanılabilirlik ve yanıt hızını izlemek için web testleri ayarlayabilirsiniz. [Visual Studio Application Insights](app-insights-overview.md), dünyanın her yerindeki noktalarından uygulamanıza düzenli aralıklarla web istekleri gönderir. Uygulamanız yanıt vermezse veya yavaş yanıt verirse sizi uyarır.
 
 ![Web testi örneği](./media/app-insights-monitor-web-app-availability/appinsights-10webtestresult.png)
 
@@ -25,32 +25,29 @@ Genel İnternet'ten erişilebilen herhangi bir HTTP veya HTTPS uç noktası içi
 
 İki tür web testi bulunur:
 
-* [URL ping testi](#set-up-a-url-ping-test): Azure portalında oluşturabileceğiniz basit bir test.
+* [URL ping testi](#create): Azure portalında oluşturabileceğiniz basit bir test.
 * [Çok adımlı web testi](#multi-step-web-tests): Visual Studio Ultimate veya Visual Studio Enterprise’da oluşturup portala yüklediğiniz test.
 
 Her uygulama kaynağı için 10 web testine kadar test oluşturabilirsiniz.
 
+## <a name="create"></a>1. Test raporlarınız için kaynak oluşturma
 
-## URL ping testi ayarlama
-
-### <a name="create"></a>1. Yeni kaynak oluşturulsun mu?
-
-Bu uygulama için zaten [Application Insights kaynağı ayarladıysanız][start] ve kullanılabilirlik verilerini aynı yerde görmek istiyorsanız bu adımı atlayın.
+Bu uygulama için zaten [Application Insights kaynağı ayarladıysanız][start] ve kullanılabilirlik raporlarını aynı yerde görmek istiyorsanız bu adımı atlayın.
 
 [Microsoft Azure](http://azure.com) oturumu açın, [Azure portalına](https://portal.azure.com) gidin ve bir Application Insights kaynağı oluşturun.
 
 ![Yeni > Application Insights](./media/app-insights-monitor-web-app-availability/11-new-app.png)
 
-Yeni kaynağın Genel Bakış dikey penceresi açılır. Her istediğinizde bunu [Azure portalda](https://portal.azure.com) bulmak için **Gözat**’a tıklayın.
+Yeni kaynağa ait Genel Bakış dikey penceresini açmak için **Tüm kaynaklar**’a tıklayın.
 
-### <a name="setup"></a>2. Web testi oluşturma
+## <a name="setup"></a>2. URL ping testi oluşturma
 
 Application Insights kaynağınızda Kullanılabilirlik kutucuğunu arayın. Uygulamanızla ilgili Web testleri dikey penceresini açmak için tıklayın ve bir web testi ekleyin.
 
 ![En azından web sitenizin URL'sini doldurma](./media/app-insights-monitor-web-app-availability/13-availability.png)
 
 - **URL** ortak internet'ten görünür olmalıdır. Bir sorgu dizesi içerebilir; bu nedenle, örneğin, veritabanınızla biraz alıştırma yapabilirsiniz. URL yeniden yönlendirme adresine çözümlenirse, en fazla 10 yeniden yönlendirmeyi izleriz.
-- **Bağımlı istekleri ayrıştır**: Görüntüler, betikler, stil dosyaları ve sayfanın diğer kaynakları testin bir parçası olarak istenir. Testin tamamının zaman aşımı süresi içinde tüm bu kaynaklar sorunsuz yüklenemezse, test başarısız olur.
+- **Bağımlı istekleri ayrıştır**: Sayfanın görüntüleri, betikleri, stil dosyaları ve diğer kaynakları testin bir parçası olarak istenir ve kaydedilen yanıt süreleri bu süreleri içerir. Testin tamamının zaman aşımı süresi içinde tüm bu kaynaklar sorunsuz yüklenemezse, test başarısız olur.
 - **Yeniden denemeyi etkinleştir**: Test başarısız olduğunda, kısa bir süre sonra yeniden denenir. Art arda üç deneme başarısız olursa bir hata bildirilir. Sonraki testler bundan sonra her zamanki test sıklığında gerçekleştirilir. Bir sonraki başarılı olana kadar yeniden deneme geçici olarak askıya alınır. Bu kural her test konuma bağımsız olarak uygulanır. (Bu ayarı öneriyoruz. Ortalama olarak hataların yaklaşık %80’i yeniden deneme sırasında kaybolur.)
 - **Test sıklığı**: Her test konumdan testin ne sıklıkta çalıştırılacağını ayarlar. Beş dakikalık sıklığında ve beş test konumuyla, siteniz ortalama olarak dakikada bir test edilir.
 - **Test konumları**, sunucularımızın URL’nize web istekleri gönderdiği yerlerdir. Bir konumdan fazla seçin; böylece, web sitenizdeki ağ sorunlarını ayırt edebilirsiniz. En fazla 16 konum seçebilirsiniz.
@@ -68,14 +65,14 @@ Application Insights kaynağınızda Kullanılabilirlik kutucuğunu arayın. Uyg
 
     Bir uyarı ortaya çıktığında çağrılan bir [web kancası](../azure-portal/insights-webhooks-alerts.md) ayarlayabilirsiniz. (Ancak şu anda sorgu parametreleri Özellikler aracılığıyla geçirilmez.)
 
-#### Daha fazla URL test etme
+### Daha fazla URL test etme
 
 Daha fazla test ekleyin. Örneğin, giriş sayfanızın test edilmesinin yanı sıra, arama URL’sini de test ederek veritabanınızın çalıştığından emin olursunuz.
 
 
-### <a name="monitor"></a>3. Kullanılabilirlik raporlarını görüntüleme
+## <a name="monitor"></a>3. Web testi sonuçlarınıza bakın
 
-1-2 dakika sonra, kullanılabilirlik/web testi dikey penceresinde **Yenile**’ye tıklayın. (Otomatik olarak yenilenmez.)
+1-2 dakika sonra sonuçları şurada görüntülenir: 
 
 ![Giriş dikey penceresinde özet sonuçları](./media/app-insights-monitor-web-app-availability/14-availSummary.png)
 
@@ -83,15 +80,8 @@ Bu döneme ait daha ayrıntılı bir görünüm için özet grafiğin herhangi b
 
 Bu grafikler, bu uygulamanın tüm web testleri için sonuçları birleştirir.
 
-#### Web sayfanızın bileşenleri
 
-Görüntüler, stil sayfaları, betikler ve test ettiğiniz web sayfasının diğer statik bileşenleri testin bir parçası olarak istenir.  
-
-Kaydedilen yanıt süresi yüklemenin tamamlanması için tüm bileşenlerle ilgili geçen süredir.
-
-Herhangi bir bileşen yüklenemezse test başarısız olarak işaretlenir.
-
-## <a name="failures"></a>Hata görürseniz...
+## <a name="failures"></a>Hata görürseniz
 
 Kırmızı noktaya tıklayın.
 
@@ -336,6 +326,6 @@ Test tamamlandığında yanıt süreleri ve başarı oranları gösterilir.
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO1-->
 
 

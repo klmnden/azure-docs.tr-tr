@@ -27,12 +27,12 @@
 - [Azure CLI](data-lake-store-get-started-cli.md)
 - [Node.js](data-lake-store-manage-use-nodejs.md)
 
-Azure Data Lake hesabı oluşturmak ve klasör oluşturma, veri dosyalarını karşıya yükleme ve indirme, hesabınızı silme gibi temel işlemleri gerçekleştirmek için Azure Data Lake Store .NET SDK'nın nasıl kullanılacağını öğrenin. Data Lake hakkında daha fazla bilgi için bkz. [Azure Data Lake Store](data-lake-store-overview.md).
+Azure Data Lake hesabı oluşturmak ve klasör oluşturma, veri dosyalarını karşıya yükleme ve indirme, hesabınızı silme gibi temel işlemleri gerçekleştirmek için [Azure Data Lake Store .NET SDK](https://msdn.microsoft.com/library/mt581387.aspx)'sının nasıl kullanılacağını öğrenin. Data Lake hakkında daha fazla bilgi için bkz. [Azure Data Lake Store](data-lake-store-overview.md).
 
-## Önkoşullar
+## Ön koşullar
 
 * Visual Studio 2013 veya 2015. Aşağıdaki yönergelerde Visual Studio 2015 kullanılmıştır.
-* **Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü edinme](https://azure.microsoft.com/pricing/free-trial/).
+* **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü edinme](https://azure.microsoft.com/pricing/free-trial/).
 * Data Lake Store genel önizlemesi için **Azure aboneliğinizi etkinleştirme**. Bkz. [yönergeler](data-lake-store-get-started-portal.md#signup).
 * **Azure Active Directory Uygulaması oluşturma**. Azure Active Directory'yi kullanarak kimlik doğrulaması gerçekleştirmenin iki yolu vardır: **etkileşimli** ve **etkileşimli olmayan**. Kimlik doğrulamasını nasıl gerçekleştirmek istediğinize bağlı olarak farklı önkoşullar mevcuttur.
     * **Etkileşimli kimlik doğrulaması için** (bu makalede kullanılan) - Azure Active Directory'de bir **Yerel İstemci uygulaması** oluşturmanız gerekir. Uygulamayı oluşturduktan sonra uygulamayla ilgili aşağıdaki değerleri alın.
@@ -220,6 +220,8 @@ Aşağıdaki kod parçacığında, bir Data Lake Store hesabına dosya yüklemek
         var uploader = new DataLakeStoreUploader(parameters, frontend);
         uploader.Execute();
     }
+
+DataLakeStoreUploader bir yerel dosya (veya klasör) yolu ile Data Lake store arasında yinelemeli karşıya yükleme ve indirmeyi destekler.    
 
 ## Dosya veya dizin bilgilerini alma
 
@@ -525,9 +527,11 @@ Son olarak, burada sağladığınız yerel yolun ve dosya adının bilgisayar ü
 - [Data Lake Store'da verilerin güvenliğini sağlama](data-lake-store-secure-data.md)
 - [Azure Data Lake Analytics'i Data Lake Store ile kullanma](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Azure HDInsight'ı Data Lake Store ile kullanma](data-lake-store-hdinsight-hadoop-use-portal.md)
+- [Data Lake Store .NET SDK Başvurusu](https://msdn.microsoft.com/library/mt581387.aspx)
+- [Data Lake Store REST Başvurusu](https://msdn.microsoft.com/library/mt693424.aspx)
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=sep16_HO1-->
 
 
