@@ -7,7 +7,7 @@
    manager="erikre"
    editor=""
    tags=""
-   keywords="azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture"/>
+   keywords="azure işlevleri, işlevler, olay işleme, web kancaları, dinamik işlem, sunucusuz mimari"/>
 
 <tags
    ms.service="functions"
@@ -15,7 +15,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="05/08/2016"
+   ms.date="08/29/2016"
    ms.author="cfowler;mahender;glenga"/>
    
    
@@ -31,7 +31,7 @@ Azure İşlevlerinin önemli özelliklerinden bazıları şunlardır:
     
 * **Dil seçimi** - C#, Node.js, Python, F#, PHP, batch, bash, Java veya herhangi bir yürütülebilir dosya kullanarak işlevleri yazın.  
 * **Kullandıkça ödeme fiyatlandırma modeli** - Yalnızca kodunuzu çalıştırmaya harcanan zaman için ödeme yapın. Aşağıdaki [fiyatlandırma bölümünde](#pricing) Dinamik App Service Planı seçeneğine bakın.  
-* **Kendi bağımlılıklarını getir** - İşlevler NuGet ve NPM'yi desteklediğinden, sık kullandığınız kitaplıklarınızı kullanabilirsiniz.  
+* **Kendi bağımlılıklarınızı getirin** - İşlevler NuGet ve NPM'yi desteklediğinden, sık kullandığınız kitaplıklarınızı kullanabilirsiniz.  
 * **Tümleşik güvenlik** - Azure Active Directory, Facebook, Google, Twitter ve Microsoft Hesabı gibi OAuth sağlayıcılarıyla HTTP tetiklemeli işlevleri koruyun.  
 * **Basitleştirilmiş tümleştirme** - Azure hizmetlerini ve yazılım olarak hizmet (SaaS) tekliflerini kolayca kullanın. Bazı örnekler için aşağıdaki [tümleştirme bölümüne](#integrations) bakın.  
 * **Esnek geliştirme** - İşlevlerinizi doğrudan portalda kodlayın veya sürekli tümleştirme kurup kodunuzu GitHub, Visual Studio Team Services ve diğer [desteklenen geliştirme araçları](../app-service-web/web-sites-deploy.md#deploy-using-an-ide) aracılığıyla dağıtın.  
@@ -93,6 +93,6 @@ Dinamik hizmet planı dahil olmak üzere Azure İşlevlerinde kullanılabilen hi
 Azure İşlevleri; dağıtımlar, ortam değişkenleri ve tanılama gibi temel işlevler için Azure App Service platformunu kullanır. 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

@@ -42,8 +42,8 @@ NSG kuralları aşağıdaki özellikleri içerir.
 |**Protokol**|Kural ile eşleştirilecek protokol|TCP, UDP veya \*|Bir protokol olarak \* kullanmak ICMP'yi (yalnızca Doğu-Batı trafiği), aynı zamanda UDP'yi ve TCP'yi içerir ve ihtiyacınız olan kuralların sayısını azaltabilir<br/>Bununla birlikte \* kullanmak çok geniş bir yaklaşım olabilir, bu nedenle yalnızca gerçekten gerekli olduğu zaman kullandığınızdan emin olun|
 |**Kaynak bağlantı noktası aralığı**|Kural ile eşleştirilecek kaynak bağlantı noktası|1'den 65535'e kadar olan tek bağlantı noktası, bağlantı noktası aralığı (yani 1-65635) veya \* (tüm bağlantı noktaları için)|Kaynak bağlantı noktaları kısa ömürlü olabilir. İstemci programınız belirli bir bağlantı noktasını kullanmadığı sürece, lütfen çoğu durum için "*" kullanın.<br/>Birden çok kurala ihtiyaç duyulmasını önlemek için mümkün olduğunca bağlantı noktası aralıklarını kullanmaya çalışın<br/>Birden çok bağlantı noktası veya bağlantı noktası aralığı virgülle birleştirilemez
 |**Hedef bağlantı noktası aralığı**|Kural ile eşleştirilecek hedef bağlantı noktası aralığı|1'den 65535'e kadar olan tek bağlantı noktası, bağlantı noktası aralığı (yani 1-65535) veya \* (tüm bağlantı noktaları için)|Birden çok kurala ihtiyaç duyulmasını önlemek için mümkün olduğunca bağlantı noktası aralıklarını kullanmaya çalışın<br/>Birden çok bağlantı noktası veya bağlantı noktası aralığı virgülle birleştirilemez
-|**Kaynak adres ön eki**|Kural ile eşleştirilecek kaynak adres ön eki veya etiketi|Tek IP adresi (örneğin, 10.10.10.10), IP alt ağı (örneğin, 192.168.1.0/24), [varsayılan etiket](#Default-Tags) veya * (tüm adresler için)|Kuralların sayısını azaltmak için aralıklar, varsayılan etiketler ve * kullanmayı değerlendirin|
-|**Hedef adres ön eki**|Kural ile eşleştirilecek hedef adres ön eki veya etiketi|tek IP adresi (örneğin, 10.10.10.10), IP alt ağı (örneğin, 192.168.1.0/24), [varsayılan etiket](#Default-Tags) veya * (tüm adresler için)|Kuralların sayısını azaltmak için aralıklar, varsayılan etiketler ve * kullanmayı değerlendirin|
+|**Kaynak adres ön eki**|Kural ile eşleştirilecek kaynak adres ön eki veya etiketi|Tek IP adresi (örneğin, 10.10.10.10), IP alt ağı (örneğin, 192.168.1.0/24), [varsayılan etiket](#default-tags) veya * (tüm adresler için)|Kuralların sayısını azaltmak için aralıklar, varsayılan etiketler ve * kullanmayı değerlendirin|
+|**Hedef adres ön eki**|Kural ile eşleştirilecek hedef adres ön eki veya etiketi|tek IP adresi (örneğin, 10.10.10.10), IP alt ağı (örneğin, 192.168.1.0/24), [varsayılan etiket](#default-tags) veya * (tüm adresler için)|Kuralların sayısını azaltmak için aralıklar, varsayılan etiketler ve * kullanmayı değerlendirin|
 |**Yön**|Kural için eşleştirilecek trafik yönü|gelen veya giden|Gelen veya giden kuralları, yöne bağlı olarak ayrı ayrı işlenir|
 |**Öncelik**|Kurallar öncelik sırasına göre denetlenir, bir kural uygulandığı zaman başka hiçbir kural eşleştirme için test edilmez|100 ile 4096 arasında bir sayı|Var olan kuralların arasına gelecek yeni kurallara alan bırakmak amacıyla, her kural için öncelikleri 100'lü adımlarla atlayarak kuralları oluşturmayı değerlendirin|
 |**Erişim**|Kuralın eşleşmesi durumunda uygulanacak erişim türü|izin ver veya reddet|Bir paket için izin verme kuralı bulunmazsa paketin bırakılacağını göz önünde bulundurun|
@@ -124,13 +124,13 @@ Aşağıda listelenen farklı araçları kullanarak klasik veya Resource Manager
 
 |Dağıtım aracı|Klasik|Resource Manager|
 |---|---|---|
-|Klasik portal|![Hayır][red]|![Hayır][red]|
-|Azure portalına|![Evet][green]|[](virtual-networks-create-nsg-arm-pportal.md)![Evet][green]|
-|PowerShell|[](virtual-networks-create-nsg-classic-ps.md)![Evet][green]|[](virtual-networks-create-nsg-arm-ps.md)![Evet][green]|
-|Azure CLI|[](virtual-networks-create-nsg-classic-cli.md)![Evet][green]|[](virtual-networks-create-nsg-arm-cli.md)![Evet][green]|
-|ARM şablonu|![Hayır][red]|[](virtual-networks-create-nsg-arm-template.md)![Evet][green]|
+|Klasik portal|![Hayır](./media/virtual-network-nsg-overview/red.png)|![Hayır](./media/virtual-network-nsg-overview/red.png)|
+|Azure portalına|![Evet](./media/virtual-network-nsg-overview/green.png)|[![Yes][green]](virtual-networks-create-nsg-arm-pportal.md)|
+|PowerShell|[![Yes][green]](virtual-networks-create-nsg-classic-ps.md)|[![Yes][green]](virtual-networks-create-nsg-arm-ps.md)|
+|Azure CLI|[![Yes][green]](virtual-networks-create-nsg-classic-cli.md)|[![Yes][green]](virtual-networks-create-nsg-arm-cli.md)|
+|ARM şablonu|![Hayır](./media/virtual-network-nsg-overview/red.png)|[![Yes][green]](virtual-networks-create-nsg-arm-template.md)|
 
-|**Anahtar**|![Evet][green] Destekleniyor. Makale için tıklayın.|![Hayır][red] Desteklenmiyor.|
+|**Anahtar**|![Evet](./media/virtual-network-nsg-overview/green.png) Destekleniyor.|![Hayır](./media/virtual-network-nsg-overview/red.png) Desteklenmiyor.|
 |---|---|---|
 
 ## Planlama
@@ -284,6 +284,6 @@ Yukarıdaki NSG'lerden bazılarının tekil NIC'lerle ilişkilendirilmesi gerekt
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO1-->
 
 

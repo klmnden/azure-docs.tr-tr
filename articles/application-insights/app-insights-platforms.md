@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="08/15/2016"
+    ms.date="09/01/2016"
     ms.author="awills"/>
 
 # Geliştirici analizleri: diller, platformlar ve tümleştirmeler
@@ -22,8 +22,6 @@ Bu öğeler, bildiğimiz [Application Insights](app-insights-overview.md) uygula
 ## Diller
 
 + [C#|VB (.NET)](app-insights-asp-net.md)
-+ [C#|VB (Windows Mağazası)](app-insights-windows-get-started.md)
-+ [C++ (Windows Mağazası)](app-insights-windows-cpp.md)
 + [Java](app-insights-java-get-started.md)
 + [JavaScript web sayfaları](app-insights-web-track-usage.md)
 + [Objective-C](https://github.com/Microsoft/ApplicationInsights-iOS)
@@ -37,7 +35,7 @@ Bu öğeler, bildiğimiz [Application Insights](app-insights-overview.md) uygula
 + [Angular](https://www.npmjs.com/package/angular-applicationinsights)
 + [ASP.NET](app-insights-asp-net.md)
 + [ASP.NET - zaten canlı olan uygulamalar için](app-insights-monitor-performance-live-website-now.md)
-+ [ASP.NET 5](app-insights-asp-net-five.md)
++ [ASP.NET 5](app-insights-asp-net-core.md)
 + [Android](https://github.com/Microsoft/ApplicationInsights-Android) (HockeyApp)
 + [Azure web uygulamaları ve VM’ler](../azure-portal/insights-perf-analytics.md)
 + [Azure Bulut Hizmetleri](app-insights-cloudservices.md); hem web hem de çalışan rolleri dahil
@@ -47,12 +45,14 @@ Bu öğeler, bildiğimiz [Application Insights](app-insights-overview.md) uygula
 + [iOS](https://github.com/Microsoft/ApplicationInsights-iOS) (HockeyApp)
 + [J2EE](app-insights-java-get-started.md)
 + [J2EE - zaten canlı olan uygulamalar için](app-insights-java-live.md)
+* [Mac OS X uygulaması](https://support.hockeyapp.net/kb/client-integration-ios-mac-os-x-tvos/hockeyapp-for-mac-os-x) (HockeyApp)
 + [Node.JS](https://www.npmjs.com/package/applicationinsights)
 + [OSX](https://github.com/Microsoft/ApplicationInsights-OSX)
 + [Spring](http://joe.blog.freemansoft.com/2015/12/enabling-microsoft-application-insight.html)
+* [Evrensel Windows uygulaması](https://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone/how-to-create-an-app-for-uwp) (HockeyApp)
 + [WCF](https://github.com/Microsoft/ApplicationInsights-SDK-Labs/blob/master/WCF/readme.md)
-+ [Windows Mağazası C#|VB](app-insights-windows-get-started.md) (HockeyApp)
-+ [Windows Mağazası C++](app-insights-windows-cpp.md) (HockeyApp)
+* [Windows Phone 8 ve 8.1 uygulaması](https://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone/hockeyapp-for-windows-phone-silverlight-apps-80-and-81) (HockeyApp)
+* [Windows Presentation Foundation uygulaması](https://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone/hockeyapp-for-windows-wpf-apps) (HockeyApp)
 + [Windows masaüstü uygulamaları, hizmetleri ve çalışan rolleri](app-insights-windows-desktop.md)
 + [Diğer](#projects)
 
@@ -87,6 +87,6 @@ Diliniz veya platformunuz için henüz bir SDK yoksa, belki de bir tane derlemen
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO1-->
 
 

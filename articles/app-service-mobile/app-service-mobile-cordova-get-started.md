@@ -79,13 +79,13 @@ SDK'ları kullanmayı öğrenin.
 [Kimlik Doğrulaması Ekleme]: app-service-mobile-cordova-get-started-users.md
 [Anında İletme Bildirimleri Ekleme]: app-service-mobile-cordova-get-started-push.md
 [Kimlik Doğrulaması]: app-service-mobile-auth.md
-[Anında İletme Bildirimleri ]: ../notification-hubs/notification-hubs-overview.md
+[Anında İletme Bildirimleri ]: ../notification-hubs/notification-hubs-push-notification-overview.md
 [Apache Cordova SDK]: app-service-mobile-cordova-how-to-use-client-library.md
 [ASP.NET Sunucusu SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Node.js Sunucusu SDK]: app-service-mobile-node-backend-how-to-use-server-sdk.md
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO1-->
 
 

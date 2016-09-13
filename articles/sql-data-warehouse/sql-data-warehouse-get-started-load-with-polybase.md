@@ -3,7 +3,7 @@
    description="PolyBase'in ne olduğunu ve veri depolama senaryolarında nasıl kullanılacağını öğrenin."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="happynicolle"
+   authors="ckarst"
    manager="barbkess"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="06/30/2016"
-   ms.author="nicw;barbkess;jrj;sonyama"/>
+   ms.author="cakarst;barbkess;sonyama"/>
 
 
 # SQL Data Warehouse'da PolyBase ile veri yükleme
@@ -287,6 +287,6 @@ PolyBase kullanan bir çözüm geliştirirken bilmeniz gereken daha fazla bilgi 
 
 
 
-<!---HONumber=Aug16_HO1-->
+<!--HONumber=sep16_HO1-->
 
 

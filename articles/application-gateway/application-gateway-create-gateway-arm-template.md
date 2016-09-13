@@ -5,7 +5,7 @@
    documentationCenter="na"
    services="application-gateway"
    authors="georgewallace"
-   manager="jdial"
+   manager="carmonm"
    editor="tysonn"/>
 <tags
    ms.service="application-gateway"
@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/09/2016"
+   ms.date="09/06/2016"
    ms.author="gwallace"/>
 
 
@@ -28,12 +28,9 @@ Azure Application Gateway, bir katman 7 yük dengeleyicidir. Bulutta veya şirke
 - [Azure Resource Manager şablonu](application-gateway-create-gateway-arm-template.md)
 - [Azure CLI](application-gateway-create-gateway-cli.md)
 
-<BR>
-
 GitHub’dan mevcut bir Azure Resource Manager şablonu indirip değiştirmeyi ve şablonu GitHub, PowerShell ve Azure CLI’dan dağıtmayı öğreneceksiniz.
 
 Azure Resource Manager şablonunu hiçbir değişiklik yapmadan doğrudan GitHub'dan dağıtıyorsanız, GitHub'dan şablon dağıtma bölümüne atlayın.
-
 
 ## Senaryo
 
@@ -46,15 +43,11 @@ Bu senaryoda:
 
 >[AZURE.NOTE] Bu ayarlar, bu şablonun parametreleridir. Şablonu özelleştirmek için kuralları, dinleyiciyi ve azuredeploy.json’u açan SSL’yi değiştirebilirsiniz.
 
-
-
 ![Senaryo](./media/application-gateway-create-gateway-arm-template/scenario-arm.png)
-
-
 
 ## Azure Resource Manager şablonu indirme ve anlama
 
-GitHub’dan sanal ağ ve iki adet alt ağ oluşturmak için, mevcut Azure Resource Manager şablonunu indirebilir, istediğiniz değişikliği yapabilir ve yeniden kullanabilirsiniz. Bunun için aşağıdaki adımları uygulayın:
+GitHub’dan sanal ağ ve iki adet alt ağ oluşturmak için, mevcut Azure Resource Manager şablonunu indirebilir, istediğiniz değişikliği yapabilir ve yeniden kullanabilirsiniz. Bunu yapmak için aşağıdaki adımları kullanın:
 
 1. [Application Gateway Oluştur](https://github.com/Azure/azure-quickstart-templates/tree/master/101-application-gateway-create) bağlantısına gidin.
 2. Önce **azuredeploy.json**, sonra da **RAW**’a tıklayın.
@@ -89,7 +82,7 @@ GitHub’dan sanal ağ ve iki adet alt ağ oluşturmak için, mevcut Azure Resou
 10. Kaydettiğiniz dosyayı açın ve parametre değerlerini düzenleyin. Senaryomuzda açıklanan uygulama ağ geçidini dağıtmak için aşağıdaki değerleri kullanın.
 
         {
-          "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
         {
         "location" : {
         "value" : "West US"
@@ -124,8 +117,6 @@ Daha önce Azure PowerShell kullanmadıysanız, [Azure PowerShell’i yükleme v
 
     Login-AzureRmAccount
 
-
-
 ### 2. Adım
 
 Hesapla ilişkili abonelikleri kontrol edin.
@@ -145,47 +136,14 @@ Hangi Azure aboneliğinizin kullanılacağını seçin. <BR>
 ### 4. Adım
 
 
-Gerekirse, **New-AzureResourceGroup** cmdlet’ini kullanarak bir kaynak grubu oluşturun. Aşağıdaki örnekte, Doğu ABD konumunda AppgatewayRG adlı yeni bir kaynak grubu oluşturacaksınız.
+Gerekirse, **New-AzureResourceGroup** cmdlet’ini kullanarak bir kaynak grubu oluşturun. Aşağıdaki örnekte Doğu ABD konumunda AppgatewayRG adlı yeni bir kaynak grubu oluşturacaksınız.
 
     New-AzureRmResourceGroup -Name AppgatewayRG -Location "East US"
-
-        ResourceGroupName : AppgatewayRG
-        Location          : eastus
-        ProvisioningState : Succeeded
-        Tags              :
-        Permissions       :
-                     Actions  NotActions
-                     =======  ==========
-                      *
-
-        ResourceId        : /subscriptions/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/resourceGroups/AppgatewayRG
 
 Önceden indirdiğiniz ve değiştirdiğiniz şablonu ve parametre dosyalarını kullanarak yeni sanal ağı dağıtmak için, **New-AzureRmResourceGroupDeployment** cmdlet’ini çalıştırın.
 
     New-AzureRmResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
         -TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
-
-Komut satırı tarafından oluşturulan çıktı şu şekildedir:
-
-    DeploymentName    : testappgatewaydeployment
-    ResourceGroupName : appgatewayRG
-    ProvisioningState : Succeeded
-    Timestamp         : 9/19/2015 1:49:41 AM
-    Mode              : Incremental
-    TemplateLink      :
-    Parameters        :
-                Name             Type                       Value
-                ===============  =========================  ==========
-                location         String                     East US
-                addressPrefix    String                     10.0.0.0/16
-                subnetPrefix     String                     10.0.0.0/24
-                skuName          String                     Standard_Small
-                capacity         Int                        2
-                backendIpAddress1  String                     10.0.1.10
-                backendIpAddress2  String                     10.0.1.11
-
-    Outputs           :
-
 
 ## Azure CLI kullanarak Azure Resource Manager şablonu dağıtma
 
@@ -220,44 +178,13 @@ Yukarıda indirdiğiniz ve değiştirdiğiniz şablonu ve parametre dosyaların�
 
     azure group deployment create -g appgatewayRG -n TestAppgatewayDeployment -f C:\ARM\azuredeploy.json -e C:\ARM\azuredeploy-parameters.json
 
-Yukarıdaki komut için beklenen çıktı şu şekildedir:
-
-    azure group deployment create -g appgatewayRG -n TestAppgatewayDeployment -f C:\ARM\azuredeploy.json -e C:\ARM\azuredeploy-parameters.json
-    info:    Executing command group deployment create
-    + Initializing template configurations and parameters
-    + Creating a deployment
-    info:    Created template deployment "TestAppgatewayDeployment"
-    + Waiting for deployment to complete
-    data:    DeploymentName     : TestAppgatewayDeployment
-    data:    ResourceGroupName  : appgatewayRG
-    data:    ProvisioningState  : Succeeded
-    data:    Timestamp          : 2015-09-21T20:50:27.5129912Z
-    data:    Mode               : Incremental
-    data:    Name               Type    Value
-    data:    -----------------  ------  --------------
-    data:    location           String  East US
-    data:    addressPrefix      String  10.0.0.0/16
-    data:    subnetPrefix       String  10.0.0.0/24
-    data:    skuName            String  Standard_Small
-    data:    capacity           Int     2
-    data:    backendIpAddress1  String  10.0.1.10
-    data:    backendIpAddress2  String  10.0.1.11
-    info:    group deployment create command OK
-
-**-g (veya --resource-group)**. Yeni sanal ağın oluşturulduğu kaynak grubunun adı.
-
-**-f (veya --template-file)**. Azure Resource Manager şablonu dosyanızın yolu.
-
-**-e (veya --parameters-file)**. Azure Resource Manager parametreleri dosyanızın yolu.
-
 ## Dağıtmak için tıkla özelliğini kullanarak Azure Resource Manager şablonu dağıtma
 
 Dağıtmak için tıkla, Azure Resource Manager şablonlarını kullanmanın başka bir yoludur. Kolay bir Azure portalıyla şablonları kullanma yoludur.
 
-
 ### 1. Adım
-[Genel IP ile uygulama ağ geçidi oluşturma](https://azure.microsoft.com/documentation/templates/101-application-gateway-public-ip/) sayfasına gidin.
 
+[Genel IP ile uygulama ağ geçidi oluşturma](https://azure.microsoft.com/documentation/templates/101-application-gateway-public-ip/) sayfasına gidin.
 
 ### 2. Adım
 
@@ -279,8 +206,6 @@ Portalda, dağıtım şablonu parametrelerini doldurun ve **Tamam**’a tıklay�
 
 Özel dağıtım dikey penceresinde **Oluştur**’a tıklayın.
 
-
-
 ## Sonraki adımlar
 
 SSL yük boşaltmayı yapılandırmak istiyorsanız, bkz. [SSL yük boşaltımı için uygulama ağ geçidi yapılandırma](application-gateway-ssl.md).
@@ -294,6 +219,6 @@ Yük dengeleme seçenekleri hakkında daha fazla genel bilgi edinmek istiyorsan�
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=sep16_HO1-->
 
 

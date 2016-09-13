@@ -19,7 +19,7 @@
 # PowerShell ile yeni bir esnek veritabanı havuzu oluşturma
 
 > [AZURE.SELECTOR]
-- [Azure portalı](sql-database-elastic-pool-create-portal.md)
+- [Azure Portal](sql-database-elastic-pool-create-portal.md)
 - [PowerShell](sql-database-elastic-pool-create-powershell.md)
 - [C#](sql-database-elastic-pool-create-csharp.md)
 
@@ -28,7 +28,7 @@ PowerShell cmdlet'lerini kullanarak [esnek veritabanı havuzu](sql-database-elas
 
 Genel hata kodları için bkz. [SQL Database istemci uygulamaları için SQL hata kodları: Veritabanı bağlantı hatası ve diğer sorunlar](sql-database-develop-error-messages.md).
 
-> [AZURE.NOTE] Esnek veritabanı havuzları şu anda önizlemede olup yalnızca SQL Database V12 sunucuları ile kullanılabilir. SQL Database V11 sunucunuz varsa [PowerShell'i kullanarak tek bir adımda V12 sürümüne yükseltebilir ve bir havuz oluşturabilirsiniz](sql-database-upgrade-server-portal.md).
+> [AZURE.NOTE] Esnek havuzlar şu anda önizleme aşamasında oldukları Orta Kuzey ABD ve Batı Hindistan dışında tüm Azure bölgelerinde genel olarak kullanılabilir (GA) durumdadır.  Bu bölgelerdeki esnek havuzların GA durumları en kısa sürede bildirilecektir. Ayrıca, esnek havuzlar şu anda [bellek içi OLTP veya bellek içi analiz](sql-database-in-memory.md) kullanan veritabanlarını desteklememektedir.
 
 
 Azure PowerShell 1.0 sürümünü veya sonraki bir sürümünü çalıştırmanız gerekir. Ayrıntılı bilgi için bkz. [Azure PowerShell'i yükleme ve yapılandırma](../powershell-install-configure.md).
@@ -83,6 +83,6 @@ Bu betik, yeni bir Azure kaynak grubu ve yeni bir sunucu oluşturur. İstendiği
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

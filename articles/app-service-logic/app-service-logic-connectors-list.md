@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="07/28/2016"
+    ms.date="09/01/2016"
     ms.author="mandia"/>
 
 
@@ -35,9 +35,7 @@ Ad | Açıklama
 [Bing Çevirmen](https://azure.microsoft.com/marketplace/partners/bing/microsofttranslator/) | Metni başka bir dile çevirmek için Bing kullanın.
 [HTTP](app-service-logic-connector-http.md) | HTTP Dinleyicisi, HTTP sunucusu gibi davranan ve gelen HTTP ya da HTTPS isteklerini dinleyen bir uç nokta açar. HTTP eylemi bir API Uygulaması gerektirmez ve Logic Apps içinde yerel olarak desteklenir.
 [Microsoft Office 365](app-service-logic-connector-office365.md) | Office 365 Bağlayıcısı, Office 365 hesabınızı kullanarak e-posta gönderebilir ve alabilir, takviminizi yönetebilir ve kişilerinizi yönetebilir.
-[QuickBooks](app-service-logic-connector-quickbooks.md) | Intuit QuickBooks’ta müşteriler, öğeler, faturalar gibi farklı varlıkları oluşturma, güncelleştirme ve sorgulama dahil olmak üzere farklı görevler tamamlayabilirsiniz.
 [Slack](app-service-logic-connector-slack.md) | Slack’e bağlanın ve Slack kanallarında iletiler yayınlayın.
-[Wait](app-service-logic-connector-wait.md) | Uygulamanızın yürütülmesini ertelemek için bu bağlayıcıyı kullanın. Uygulamayı belirli bir süre için ya da belirli bir zamandaki olaya kadar erteleyebilirsiniz.
 
 
 ## Enterprise Integration Bağlayıcıları
@@ -61,9 +59,6 @@ Ad  | Açıklama
 [Informix](app-service-logic-connector-informix.md) | Şirket içindeki bir IBM Informix veritabanına ve Windows işletim sistemi çalıştıran bir Azure sanal makinesine bağlanır. Web API ve OData API işlemlerini Informix Yapılandırılmış Sorgu Dili komutları ile eşleyebilir.<br/><br/>Tetikleyici yoktur. Tablo seçme, ekleme, güncelleştirme, silme ve özel deyim eylemleri mevcuttur.<br/><br/>Şirket içinde kullanılırken VPN veya Azure ExpressRoute kullanılabilir. Bu bağlayıcı ayrıca bir TCP/IP ağı üzerinden bir Informix sunucusuna bağlanmak üzere DRDA için Microsoft Client içerir.
 [Microsoft SQL Server](app-service-logic-connector-sql.md) | Şirket içi SQL Server veya bir Azure SQL veritabanına bağlanır. SQL veritabanı tablosunda girdiler oluşturabilir, güncelleştirebilir, alabilir ve silebilirsiniz.
 MQ | Şirket içinde ve Windows işletim sistemi çalıştıran bir Azure sanal makinesinde IBM WebSphere MQ Server sürüm 8’e bağlanır. Şirket içinde kullanılırken VPN veya Azure ExpressRoute kullanılabilir. Bağlayıcı ayrıca MQ için Microsoft Client içerir.<br/><br/>Tetikleyici yoktur. Eylem yoktur.<br/><br/>**Not** Şu anda Logic Apps ile kullanılamamaktadır.
-[Oracle Veritabanı](app-service-logic-connector-oracle.md) | Şirket içi Oracle Veritabanına bağlanır ve bir veritabanı tablosunda girdiler oluşturabilir, güncelleştirebilir, alabilir ve silebilir.
-[POP3](app-service-logic-connector-pop3.md) (Postane Protokolü)| Ekli e-postaları almak için bir POP3 sunucusuna bağlanır.
-[SAP](app-service-logic-connector-sap.md) | Şirket içi SAP sunucusuna bağlanır ve RFC, BAPI ve tRFC çağırıp IDOC gönderir.
 
 ## Tetikleyici Olarak Bağlayıcılar
 Logic Apps için tetikleyiciler birkaç bağlayıcı tarafından sağlanır. Bu tetikleyicilerin iki türü vardır:
@@ -86,6 +81,6 @@ Bağlayıcılar Mantıksal Uygulama içinde eylem olarak da kullanılabilir. Eyl
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO1-->
 
 

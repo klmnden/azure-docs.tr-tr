@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/30/2016"
-   ms.author="mausher;barbkess;sonyama"/>
+   ms.date="09/06/2016"
+   ms.author="barbkess;sonyama"/>
 
 # Azure SQL Data Warehouse sorgulama (sqlcmd)
 
@@ -32,9 +32,12 @@ Bu izlenecek yolda Azure SQL Veri Ambarı’nı sorgulamak için [sqlcmd][] komu
 
 + **Server (-S):** `<`Sunucu Adı`>`.database.windows.net biçiminde belirtilmiş sunucu
 + **Database (-d):** Veritabanı adı.
++ **Tırnak İşaretli Tanımlayıcıları Etkinleştir (-I):** Bir SQL Veri Ambarı örneğine bağlanmak için tırnak işaretli tanımlayıcıların etkinleştirilmesi gerekir.
+
+SQL Server Kimlik Doğrulamasını kullanmak için kullanıcı adı/parola parametrelerini eklemeniz gerekir:
+
 + **User (-U):** `<`Kullanıcı biçimindeki sunucu kullanıcısı`>`
 + **Password (-P):** Kullanıcıyla ilişkili parola.
-+ **Enable Quoted Identifiers (-I):** Bir SQL Data Warehouse örneğine bağlanmak için tırnak işaretli tanımlayıcıların etkinleştirilmesi gerekir.
 
 Örneğin, bağlantı dizeniz aşağıdaki gibi görünebilir:
 
@@ -42,7 +45,17 @@ Bu izlenecek yolda Azure SQL Veri Ambarı’nı sorgulamak için [sqlcmd][] komu
 C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I
 ```
 
-> [AZURE.NOTE] Tırnak içindeki tanımlayıcıları etkinleştiren -I seçeneği şu anda SQL Data Warehouse’a bağlanmak için gereklidir.
+Azure Active Directory Tümleşik kimlik doğrulamasını kullanmak için Azure Active Directory parametrelerini eklemeniz gerekir:
+
++ **Azure Active Directory Kimlik Doğrulaması (-G):** Kimlik doğrulaması için Azure Active Directory kullanın
+
+Örneğin, bağlantı dizeniz aşağıdaki gibi görünebilir:
+
+```sql
+C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -G -I
+```
+
+> [AZURE.NOTE] Active Directory kullanarak kimlik doğrulaması yapmak için [Azure Active Directory Kimlik Doğrulamasını etkinleştirmeniz](sql-data-warehouse-authentication.md) gerekir.
 
 ## 2. Sorgu
 
@@ -81,6 +94,6 @@ Sqlcmd’de kullanılabilen seçenekler hakkında daha fazla bilgi için bkz. [s
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=sep16_HO1-->
 
 

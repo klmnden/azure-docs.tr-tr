@@ -1,7 +1,7 @@
 <properties
     pageTitle="Azure’da Active Directory Federasyon Hizmetleri | Microsoft Azure"
     description="Bu belgede AD FS’yi yüksek kullanılabilirlik için Azure’a dağıtma hakkında bilgi edineceksiniz."
-    keywords="AD FS’ye giriş, Azure, Azure AD Connect’e genel bakış, Azure’da AD FS, iaas, ADFS"
+    keywords="azure’da AD FS dağıtma, azure adfs dağıtma, azure adfs, azure ad fs, adfs dağıtma, ad fs dağıtma, azure’da adfs, azure’da adfs dağıtma, azure’da AD FS dağıtma, adfs azure, AD FS’ye giriş, Azure, Azure’da AD FS, iaas, ADFS, adfs’yi azure’a taşıma"
     services="active-directory"
     documentationCenter=""
     authors="anandyadavmsft"
@@ -311,6 +311,7 @@ Oturum açma başarılı olduğunda aşağıdaki gibi bir başarı iletisi göst
 
 * [Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](active-directory-aadconnect.md)
 * [Azure AD Connect kullanarak AD FS’yi yapılandırma ve yönetme](active-directory-aadconnectfed-whatis.md)
+* [Azure Traffic Manager ile Azure’da yüksek kullanılabilirliğe sahip çapraz coğrafi AD FS dağıtımı](active-directory-adfs-in-azure-with-azure-traffic-manager.md)
 
 
 
@@ -318,7 +319,6 @@ Oturum açma başarılı olduğunda aşağıdaki gibi bir başarı iletisi göst
 
 
 
-
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=sep16_HO1-->
 
 

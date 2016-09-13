@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/18/2016"
-   ms.author="sonyam;barbkess;sonyama"/>
+   ms.date="09/01/2016"
+   ms.author="sonyama;barbkess"/>
 
 # SQL Data Warehouse için destek bileti oluşturma
  
@@ -38,7 +38,7 @@ SQL Data Warehouse'unuz ile ilgili herhangi bir sorun yaşıyorsanız lütfen m�
 
     ![İstek türü](./media/sql-data-warehouse-get-started-create-support-ticket/request-type.png)
     
-    >[AZURE.NOTE]  Varsayılan olarak her SQL sunucusu (örn. myserver.database.windows.net) 45.000’lik **DTU Kotası**’na sahiptir. Bu kota yalnızca bir güvenlik sınırıdır. Bir destek bileti oluşturarak ve istek türü olarak *Kota*’yı seçerek kotanızı artırabilirsiniz. DTU gereksinimlerinizi hesaplamak için her 100 [DWU][] SQL Data Warehouse’un 750 DTU tükettiğini bilmeniz gerekir. Bu nedenle, 45.000’lik varsayılan kota en fazla DW6000 (45.000 / 750) veya daha az DWU ile birkaç küçük veritabanı oluşturmanıza imkan tanır. Örneğin, tek bir SQL sunucusu üzerinde iki DW6000 barındırmak istiyorsanız, 90.000’lik DTU kotası istemeniz gerekir.  Geçerli DTU tüketiminizi portaldaki SQL server dikey penceresinden görüntüleyebilirsiniz. DTU kotasında hem duraklatılmış hem de duraklatılmamış veritabanları sayılır. 
+    >[AZURE.NOTE]  Varsayılan olarak her SQL sunucusu (örn. myserver.database.windows.net) 45.000’lik **DTU Kotası**’na sahiptir. Bu kota yalnızca bir güvenlik sınırıdır. Bir destek bileti oluşturarak ve istek türü olarak *Kota*’yı seçerek kotanızı artırabilirsiniz. DTU gereksinimlerinizi hesaplamak için gereken toplam [DWU][] değerini 7,5 ile çarpın. Örneğin, tek bir SQL sunucusu üzerinde iki DW6000 barındırmak istiyorsanız, 90.000’lik DTU kotası istemeniz gerekir.  Geçerli DTU tüketiminizi portaldaki SQL server dikey penceresinden görüntüleyebilirsiniz. DTU kotasında hem duraklatılmış hem de duraklatılmamış veritabanları sayılır. 
 
 5. Bildirdiğiniz sorunun yaşandığı veritabanını barındıran **Aboneliği** seçin.
 
@@ -105,6 +105,6 @@ Ayrıca, [Stack Overflow][] veya [Azure SQL Data Warehouse MSDN forumu][] üzeri
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=sep16_HO1-->
 
 

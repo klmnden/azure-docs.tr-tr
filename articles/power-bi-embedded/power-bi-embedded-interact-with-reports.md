@@ -3,7 +3,7 @@
    description="Power BI Embedded, JavaScript API’si kullanarak raporlarla etkileşim kurma"
    services="power-bi-embedded"
    documentationCenter=""
-   authors="jocaplan"
+   authors="mgblythe"
    manager="NA"
    editor=""
    tags=""/>
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
    ms.date="08/26/2016"
-   ms.author="jocaplan"/>
+   ms.author="mblythe"/>
 
 # JavaScript API’sini kullanarak Power BI raporlarıyla etkileşim kurma
 
@@ -139,6 +139,6 @@ Power BI JavaScript API’si hakkında daha fazla bilgi için aşağıdaki bağl
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=sep16_HO1-->
 
 

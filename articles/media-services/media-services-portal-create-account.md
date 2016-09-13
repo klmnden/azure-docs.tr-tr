@@ -13,11 +13,16 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="08/29/2016"
+    ms.date="09/07/2016"
     ms.author="juliako"/>
 
 
 # Azure portalı ile Azure Media Services hesabı oluşturma
+
+> [AZURE.SELECTOR]
+- [Portal](media-services-portal-create-account.md)
+- [PowerShell](media-services-manage-with-powershell.md)
+- [REST](http://msdn.microsoft.com/library/azure/dn194267.aspx)
 
 > [AZURE.NOTE] Bu öğreticiyi tamamlamak için bir Azure hesabınızın olması gerekir. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/). 
 
@@ -36,7 +41,7 @@ Media Services’e erişim iki ilişkili hesap gerektirir:
     AMS bundan böyle şu veri merkezlerinde de mevcuttur: Brezilya Güney, Hindistan Batı, Hindistan Güney ve Hindistan Orta. Azure portalını bundan böyle Media Service hesapları oluşturmak ve burada açıklanan çeşitli görevleri gerçekleştirmek için kullanabilirsiniz. Ancak, Live Encoding bu veri merkezlerinde etkin değildir. Ayrıca, bu veri merkezlerinde Kodlamaya Ayrılan Birimlerin tüm türleri kullanılabilir değildir.
     
     - Brezilya Güney: Yalnızca Standart ve Temel Kodlamaya Ayrılan Birimler kullanılabilir.
-    - Hindistan Batı, Hindistan Güney, medya dosyaları için blob depolama alanı sağlar ve Media Services hesabıyla aynı coğrafi bölgede olmalıdır. Bir Media Services hesabı oluşturduğunuzda aynı bölgede var olan bir depolama hesabını seçebilir veya aynı bölgede yeni bir depolama hesabı oluşturabilirsiniz. Bir Media Services hesabını silerseniz ilişkili depolama hesabınızdaki blob’lar silinmez.
+    - Hindistan Batı, Hindistan Güney: Ortam dosyaları için depolama blob’ları sağlayın; depolama hesapları Media Services hesabıyla aynı coğrafi bölgede bulunmalıdır. Bir Media Services hesabı oluşturduğunuzda aynı bölgede var olan bir depolama hesabını seçebilir veya aynı bölgede yeni bir depolama hesabı oluşturabilirsiniz. Bir Media Services hesabını silerseniz ilişkili depolama hesabınızdaki blob’lar silinmez.
 
 ## AMS hesabı oluşturma
 
@@ -102,6 +107,6 @@ Bundan böyle dosyaları AMS hesabınıza yükleyebilirsiniz. Daha fazla bilgi i
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=sep16_HO1-->
 
 

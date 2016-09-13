@@ -12,8 +12,8 @@
     ms.workload="tbd"
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
-    ms.topic="hero-article"
-    ms.date="05/27/2016"
+    ms.topic="get-started-article"
+    ms.date="09/01/2016"
     ms.author="sethm"/>
 
 # Azure Service Bus kuyruklarını kullanan çok katmanlı .NET uygulaması
@@ -464,6 +464,6 @@ Service Bus hakkında daha fazla bilgi edinmek için şu kaynaklara bakın:
   
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO1-->
 
 

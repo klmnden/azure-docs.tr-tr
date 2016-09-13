@@ -87,7 +87,7 @@ Azure App Service platformu hakkında daha fazla bilgi için bkz. [Azure App Ser
 [DocumentDB]: ../documentdb/documentdb-get-started.md
 [Kimlik doğrulama özelliklerimiz]: ./app-service-mobile-auth.md
 [Veri özellikleri]: ./app-service-mobile-offline-data-sync.md
-[Anında iletme bildirimi özelliklerimiz]: ../notification-hubs/notification-hubs-overview.md
+[Anında iletme bildirimi özelliklerimiz]: ../notification-hubs/notification-hubs-push-notification-overview.md
 [iOS]: ./app-service-mobile-ios-how-to-use-client-library.md
 [Android]: ./app-service-mobile-android-how-to-use-client-library.md
 [Windows]: ./app-service-mobile-dotnet-how-to-use-client-library.md
@@ -105,6 +105,6 @@ Azure App Service platformu hakkında daha fazla bilgi için bkz. [Azure App Ser
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=sep16_HO1-->
 
 

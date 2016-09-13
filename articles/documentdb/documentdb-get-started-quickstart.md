@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="08/29/2016"
+    ms.date="09/01/2016"
     ms.author="anhoh"/>
 
 # NoSQL öğreticisi: DocumentDB C# konsol uygulaması oluşturma
@@ -25,7 +25,7 @@
 
 Azure DocumentDB .NET SDK'sı için NoSQL öğreticisine hoş geldiniz! Hızlı Başlangıç projesini aldıktan veya öğreticiyi tamamladıktan sonra DocumentDB kaynaklarını oluşturan ve sorgulayan bir konsol uygulamanız olacaktır.
 
-- **[Hızlı Başlangıç](#quickstart)**: Örnek projeyi indirin, bağlantı bilgilerinizi ekleyin ve 5 dakikadan az bir süre içinde çalışır durumdaki bir DocumentDB uygulamasını elde edin.
+- **[Hızlı Başlangıç](#quickstart)**: Örnek projeyi indirin, bağlantı bilgilerinizi ekleyin ve 10 dakikadan az bir süre içinde çalışır durumdaki bir DocumentDB uygulamasını elde edin.
 - **[Öğretici](#tutorial)**: 30 dakika içerisinde sıfırdan Hızlı Başlangıç uygulaması oluşturun.
 
 ## Ön koşullar
@@ -36,7 +36,7 @@ Azure DocumentDB .NET SDK'sı için NoSQL öğreticisine hoş geldiniz! Hızlı 
 
 ## Hızlı Başlangıç
 
-1. [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started-quickstart/archive/master.zip)’dan örnek projeyi indirin.
+1. Örnek proje .zip dosyasını [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started-quickstart/archive/master.zip)’dan indirin veya [documentdb-dotnet-getting-started-quickstart](https://github.com/Azure-Samples/documentdb-dotnet-getting-started-quickstart) deposunu kopyalayın.
 2. Azure portalını kullanarak [bir DocumentDB hesabı oluşturun](documentdb-create-account.md).
 3. App.config dosyasında EndpointUri ve PrimaryKey değerlerini [Azure portalından](https://portal.azure.com/) alınan değerlerle değiştirmek için **DocumentDB (NoSQL)** dikey penceresine gidin, **Hesap adı**’na tıklayın ve ardından kaynak menüsündeki **Anahtarlar** öğesine tıklayın.
     ![App.config dosyasında değiştirilecek EndpointUri ve PrimaryKey değerinin ekran görüntüsü](./media/documentdb-get-started-quickstart/nosql-tutorial-documentdb-keys.png)
@@ -602,11 +602,11 @@ Tebrikler! Bu NoSQL öğreticisini tamamladınız ve çalışan bir C# konsol uy
 
 [documentdb-create-account]: documentdb-create-account.md
 [documentdb-manage]: documentdb-manage.md
-[anahtarlar]: media/documentdb-get-started-quickstart/nosql-tutorial-keys.png
+[keys]: media/documentdb-get-started-quickstart/nosql-tutorial-keys.png
 
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=sep16_HO1-->
 
 

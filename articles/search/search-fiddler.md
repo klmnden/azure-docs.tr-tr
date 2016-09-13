@@ -13,7 +13,7 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="06/08/2016"
+    ms.date="08/08/2016"
     ms.author="heidist"/>
 
 # Azure Search REST API'lerini değerlendirmek ve test etmek için Fiddler'ı kullanma
@@ -75,7 +75,7 @@ Bu adımları tamamlamak için Azure Search hizmeti ve `api-key` gerekir. Kullan
              ]
             }
 
-6.  **Yürüt**'e tıklayın.
+6.  **Yürüt**’e tıklayın.
 
 Birkaç saniye içinde, dizinin başarıyla oluşturulduğunu belirten HTTP 201 yanıtını oturum listesinde görmeniz gerekir.
 
@@ -163,7 +163,7 @@ HTTP 504 yanıtı alırsanız HTTPS'yi belirten URL'yi doğrulayın. HTTP 400 ve
              ]
             }
 
-8.  **Yürüt**'e tıklayın.
+8.  **Yürüt**’e tıklayın.
 
 Birkaç saniye içinde, oturum listesinde bir HTTP 200 yanıtı görmeniz gerekir. Bu, belgelerin başarıyla oluşturulduğunu belirtir. 207 yanıtı alırsanız en az bir belge karşıya yüklenemedi. 404 yanıtı alırsanız üst bilgi veya istek gövdesinde söz dizimi hatanız var.
 
@@ -241,6 +241,6 @@ Azure Search hizmetini kod içermeyen bir yaklaşımla yönetmek ve kullanmak i�
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=sep16_HO1-->
 
 

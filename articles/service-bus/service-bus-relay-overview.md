@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Service Bus geçişli mesajlaşmaya genel bakış | Microsoft Azure"
+    pageTitle="Service Bus geçişine genel bakış | Microsoft Azure"
     description="Service Bus geçişine genel bakış."
     services="service-bus"
     documentationCenter=".net"
@@ -13,13 +13,13 @@
     ms.tgt_pltfrm="na"
     ms.devlang="multiple"
     ms.topic="get-started-article"
-    ms.date="05/06/2016"
+    ms.date="09/01/2016"
     ms.author="sethm"/>
 
 
-# Service Bus geçişli mesajlaşma
+# Service Bus geçişine genel bakış
 
-Service Bus'ın temel bileşeni, hem Azure veri merkezinde hem de şirket içi kurumsal ortamınızda çalışan karma uygulamalar oluşturmanıza olanak sağlayan merkezi (ancak yüksek düzeyde yük dengeleme olanağı sunan) geçiş hizmetidir.  Geçiş hizmeti, birçok çeşitli aktarım protokolünü ve web hizmeti standartlarını destekler. Bunlar; SOAP, WS-* ve hatta REST'i bile içerir. Service Bus geçişi karma uygulamalarınızı kolaylaştırma işlemini, güvenlik duvarı bağlantısını açmanıza veya kurumsal ağ altyapısına müdahale eden değişiklikler yapmanıza gerek kalmadan kurumsal işletme ağında bulunan Windows Communication Foundation (WCF) hizmetlerini genel bulutta kullanıma sunmanıza olanak sağlayarak gerçekleştirir. 
+Service Bus'ın temel bir bileşeni, hem Azure veri merkezinde hem de şirket içi kurumsal ortamınızda çalışan karma uygulamalar oluşturmanıza olanak sağlayan merkezi (ancak yüksek düzeyde yük dengeleme olanağı sunan) *geçiş* hizmetidir.  Service Bus geçişi birçok çeşitli aktarım protokolünü ve web hizmeti standartlarını destekler. Bunlar; SOAP, WS-* ve hatta REST'i bile içerir. Geçiş hizmeti karma uygulamalarınızı kolaylaştırma işlemini, güvenlik duvarı bağlantısını açmanıza veya kurumsal ağ altyapısına müdahale eden değişiklikler yapmanıza gerek kalmadan kurumsal işletme ağında bulunan Windows Communication Foundation (WCF) hizmetlerini genel bulutta kullanıma sunmanıza olanak sağlayarak gerçekleştirir. 
 
 ![Geçiş Kavramları](./media/service-bus-relay-overview/sb-relay-01.png)
 
@@ -34,11 +34,11 @@ WCF "geçiş" bağlamalarının bir paketini kullanarak geçiş hizmeti ile şir
 Service Bus geçişi hakkındaki ayrıntılar için aşağıdaki konu başlıklarına bakın.
 
 - [Azure Service Bus Mimarisine Genel Bakış](service-bus-fundamentals-hybrid-solutions.md)
-- [Service Bus Geçişi Hizmetini Kullanma](service-bus-dotnet-how-to-use-relay.md)
+- [Service Bus Geçişi hizmetini kullanma](service-bus-dotnet-how-to-use-relay.md)
 
  
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

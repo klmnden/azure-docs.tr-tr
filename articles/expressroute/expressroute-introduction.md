@@ -99,7 +99,7 @@ Microsoft, özel coğrafi bölgeler ve müşteri kesimine yönelik yalıtılmı�
 
 ### Desteklenen bant genişliği seçenekleri
 
-ExpressRoute bağlantı hattını çeşitli sayıda bant genişlikleriyle satın alabilirsiniz. Desteklenen bant genişlikleri listesi aşağıda listelenmektedir. Sağladıkları desteklenen bant genişlikleri listesini belirlemek için bağlantı sağlayıcınıza danıştığınızdan emin olun.
+ExpressRoute bağlantı hattını çeşitli sayıda bant genişlikleriyle satın alabilirsiniz. Desteklenen bant genişlikleri listesi aşağıda verilmiştir. Sağladıkları desteklenen bant genişlikleri listesini belirlemek için bağlantı sağlayıcınıza danıştığınızdan emin olun.
 
 - 50 Mbps
 - 100 Mbps
@@ -138,6 +138,6 @@ Size en uygun faturalama modelini seçin. Aşağıda listelenen faturalama model
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=sep16_HO1-->
 
 

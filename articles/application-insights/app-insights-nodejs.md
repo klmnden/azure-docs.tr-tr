@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="ibiza"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/25/2016"
+    ms.date="08/30/2016"
     ms.author="awills"/>
 
 
@@ -26,7 +26,7 @@
 
 SDK, gelen HTTP isteği oranlarının ve yanıtlarının, performans sayaçlarının (CPU, bellek, RPS) ve işlenmeyen özel durumların otomatik olarak toplanmasını sağlar. Ayrıca, bağımlılıkları, ölçümleri veya diğer olayları izlemek için özel çağrılar ekleyebilirsiniz.
 
-![Örnek performans izleme grafikleri](./media/app-insights-asp-net-manual/10-perf.png)
+![Örnek performans izleme grafikleri](./media/app-insights-windows-services/10-perf.png)
 
 
 #### Başlamadan önce
@@ -40,7 +40,7 @@ Gerekenler:
 
 [Azure portalında][portal] oturum açın ve yeni bir Application Insights kaynağı oluşturun. Azure’da [kaynak][roles] bir hizmetin örneğidir. Bu kaynak, uygulamanızdan alınan telemetri verilerinin analiz edilip size sunulacağı yerdir.
 
-![Yeni, Application Insights öğesine tıklayın](./media/app-insights-asp-net-manual/01-new-asp.png)
+![Yeni, Application Insights öğesine tıklayın](./media/app-insights-windows-services/01-new-asp.png)
 
 Uygulama türü olarak Diğer’i seçin. Uygulama türü seçimi, kaynak dikey pencerelerinin varsayılan içeriğini ve [Ölçüm Gezgini][metrics] içinde görünen özellikleri belirler.
 
@@ -48,7 +48,7 @@ Uygulama türü olarak Diğer’i seçin. Uygulama türü seçimi, kaynak dikey 
 
 Kaynağı tanımlayan bu anahtarı kısa bir süre sonra verileri kaynağa yönlendirmek için SDK’ya yükleyeceksiniz.
 
-![Özellikler'e tıklayın, anahtarı seçin ve ctrl + C tuşlarına basın](./media/app-insights-asp-net-manual/02-props-asp.png)
+![Özellikler'e tıklayın, anahtarı seçin ve ctrl + C tuşlarına basın](./media/app-insights-windows-services/02-props-asp.png)
 
 
 ## <a name="sdk"></a> Uygulamanıza SDK yükleme
@@ -84,7 +84,7 @@ Uygulamanızı çalıştırın ve deneyin: Birkaç telemetri oluşturmak için f
 
 Genel Bakış sayfasında veri arayın. İlk olarak yalnızca bir veya iki nokta görürsünüz. Örneğin:
 
-![Daha fazla veri için tıklayın](./media/app-insights-asp-net-manual/12-first-perf.png)
+![Daha fazla veri için tıklayın](./media/app-insights-windows-services/12-first-perf.png)
 
 Daha ayrıntılı ölçümler görmek için herhangi bir grafiğe tıklayın. [Ölçümler hakkında daha fazla bilgi edinin.][perf]
 
@@ -212,6 +212,10 @@ server.on("listening", () => {
 });
 ```
 
+## Sonraki adımlar
+
+* [Portalda telemetrinizi izleyin](app-insights-dashboards.md)
+* [Telemetriniz üzerinden Analytics sorguları yazın(app-insights-analytics-tour.md)
 
 
 
@@ -226,6 +230,6 @@ server.on("listening", () => {
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO1-->
 
 

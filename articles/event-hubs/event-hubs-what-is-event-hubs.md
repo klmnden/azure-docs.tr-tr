@@ -30,8 +30,6 @@ Event Hubs, düşük gecikme süresi ve yüksek güvenilirlik sunan, büyük öl
 
 Diğer temel Event Hubs özelliklerinden bazıları ise mobil uygulamalarda davranış işleme, web gruplarından trafik bilgileri, konsol oyunlarında oyun içi olay yakalama veya sanayi makinelerinden ya da bağlı taşıtlardan toplanan telemetri verileridir.
 
-Event Hubs [Service Bus kuyrukları ve konularından](../service-bus/service-bus-messaging-overview.md) farklı olarak ölçekli mesajlaşma akışı işlemesi sunmaya odaklanır. Event Hubs’ın özellikleri, güçlü şekilde yüksek verimlilik ve olay işleme senaryolarına eğilimli olmasıyla Service Bus konularından ayrılır. Sonuç olarak, Event Hubs [konular](../service-bus/service-bus-fundamentals-hybrid-solutions.md#topics) için mevcut olan bazı mesajlaşma özelliklerini kullanılmaz. Bu özellikler gerekli olursa hala en uygun seçenek konulardır.
-
 ## Sonraki adımlar
 
 Event Hubs hakkında ayrıntılı bilgi için aşağıdaki konulara bakın.
@@ -47,6 +45,6 @@ Event Hubs hakkında ayrıntılı bilgi için aşağıdaki konulara bakın.
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO1-->
 
 
