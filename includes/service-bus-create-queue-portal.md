@@ -26,6 +26,6 @@ Lütfen daha önce [burada][namespace-how-to] gösterildiği gibi bir Service Bu
 [azure-portal]: https://portal.azure.com
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO1-->
 
 

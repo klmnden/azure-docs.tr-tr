@@ -10,6 +10,6 @@ Geri bildirim sağlamak ve Azure Media Services’ı geliştirme hakkında öner
 - [VoD akışı](https://feedback.azure.com/forums/169396-media-services/category/144429-vod-streaming/)
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 

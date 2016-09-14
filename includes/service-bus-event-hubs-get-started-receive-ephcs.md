@@ -4,17 +4,21 @@
 
 [EventProcessorHost][]'u kullanabilmeniz için bir [Azure Depolama hesabınızın][] olması gerekir:
 
-1. [Klasik Azure portalı][]’nda oturum açın ve ekranın altındaki **YENİ**’ye tıklayın.
+1. [Azure portal][]’da oturum açın ve ekranın sol üst köşesindeki **Yeni**’ye tıklayın.
 
-2. **Veri Hizmetleri**’ne, **Depolama**’ya ve **Hızlı Oluştur**’a sırasıyla tıklayıp depolama hesabınız için bir ad yazın. İstediğiniz bölgeyi seçin ve **Depolama Hesabı Oluştur**’a tıklayın.
+2. **Veri + Depolama** ve ardından **Depolama hesabı**’na tıklayın.
 
-    ![][11]
+    ![][1]
 
-3. Yeni oluşturulan depolama hesabına ve **Erişim Tuşlarını Yönet**’e tıklayın:
+3. **Depolama hesabı oluştur** dikey penceresinde depolama hesabı için bir ad yazın. Bir Azure aboneliği, kaynak grubu ve kaynağın oluşturulacağı konumu seçin. Sonra **Oluştur**’a tıklayın.
 
-    ![][12]
+    ![][2]
 
-    Birincil erişim tuşunu daha sonra bu öğreticide kullanmak üzere kopyalayın.
+4. Depolama hesabı listesinde yeni oluşturulan depolama hesabına tıklayın.
+
+5. Depolama hesabı dikey penceresinde **Erişim anahtarları**’na tıklayın. **key1** değerini bu öğreticide daha sonra kullanmak üzere kopyalayın.
+
+    ![][3]
 
 4. Visual Studio'da, **Konsol Uygulaması** proje şablonunu kullanarak yeni Visual C# Masaüstü Uygulaması projesi oluşturun. Proje **Alıcı** için bir ad verin.
 
@@ -121,21 +125,22 @@
 [Event Hubs’a Genel Bakış]: event-hubs-overview.md
 [Event Hubs Programlama Kılavuzu]: event-hubs-programming-guide.md
 [Ölçeği genişletilmiş olay işleme]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
-[Azure Depolama hesabınızın]: ../storage/storage-create-storage-account-classic-portal.md
+[Azure Depolama hesabınızın]: ../storage/storage-create-storage-account.md
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
-[Klasik Azure portalı]: http://manage.windowsazure.com
+[Azure portal]: https://portal.azure.com
 
 <!-- Images -->
 
-[11]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp2.png
-[12]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp3.png
-[13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
-[14]: ./media/service-bus-event-hubs-getstarted/create-receiver-csharp1.png
-[15]: ./media/service-bus-event-hubs-getstarted/create-receiver-csharp2.png
+[1]: ./media/service-bus-event-hubs-getstarted-receive-ephcs/create-storage1.png
+[2]: ./media/service-bus-event-hubs-getstarted-receive-ephcs/create-storage2.png
+[3]: ./media/service-bus-event-hubs-getstarted-receive-ephcs/create-storage3.png
+[13]: ./media/service-bus-event-hubs-getstarted-receive-ephcs/create-eph-csharp1.png
+[14]: ./media/service-bus-event-hubs-getstarted-receive-ephcs/create-receiver-csharp1.png
+[15]: ./media/service-bus-event-hubs-getstarted-receive-ephcs/create-receiver-csharp2.png
 
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO1-->
 
 

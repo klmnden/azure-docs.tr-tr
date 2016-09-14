@@ -10,10 +10,10 @@
 4. **Oluştur**'a tıklayın. Devam etmeden önce hizmetin sorunsuz dağıtılması için birkaç dakika bekleyin.
 
 <!-- URLs. -->
-[Azure Portalı]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=sep16_HO1-->
 
 

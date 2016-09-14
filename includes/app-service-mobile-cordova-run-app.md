@@ -18,6 +18,6 @@ Böylece, daha önce dağıttığınız Azure arka ucuna bir POST isteği gönde
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO1-->
 
 

@@ -2,6 +2,6 @@ Azure’un şu anda iki dağıtım modeliyle çalıştığını bilmeniz önemli
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO1-->
 
 
