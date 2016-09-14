@@ -18,6 +18,6 @@ Bu öğretici şunların nasıl yapıldığını gösterir:
 - Bulut arka ucunuza telemetri gönderen ve bulut arka ucunuzdan komutları alan sanal bir cihaz oluşturma.
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=sep16_HO1-->
 
 

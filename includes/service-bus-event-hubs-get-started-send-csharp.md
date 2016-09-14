@@ -67,10 +67,10 @@ Bu bölümde, Olay Hub'ınıza olayları gönderen Windows konsol uygulamasını
 
 
 <!-- Images -->
-[7]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
-[8]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp2.png
+[7]: ./media/service-bus-event-hubs-getstarted-send-csharp/create-sender-csharp1.png
+[8]: ./media/service-bus-event-hubs-getstarted-send-csharp/create-sender-csharp2.png
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO1-->
 
 

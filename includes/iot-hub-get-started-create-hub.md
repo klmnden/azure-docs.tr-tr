@@ -45,6 +45,6 @@ Bağlanılacak benzetimli cihazınız için IoT Hub oluşturun. Aşağıdaki ad�
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO1-->
 
 

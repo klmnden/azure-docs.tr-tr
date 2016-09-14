@@ -12,43 +12,43 @@ articles/sql-database/sql-database-get-started-tutorial.md
 
 Yeni Azure SQL Database’i yeni veya var olan Azure SQL Database mantıksal sunucusunda oluşturmak için Azure Portal'da aşağıdaki adımları kullanın.
 
-1. O anda bağlı değilse [Azure portal](http://portal.azure.com)’a bağlanın.
-2. **Yeni**’ye tıklayın, **SQL Database** yazın ve ** SQL Database (yeni veritabanı)** seçeneğini belirleyin.
+1. O anda bağlı değilseniz [Azure portal](http://portal.azure.com)’a bağlanın.
+2. **Yeni**’ye tıklayın, **SQL Veritabanı** yazın ve **SQL Veritabanı (yeni veritabanı)** seçeneğini belirleyin.
 
-     ![yeni veritabanı](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-1.png)
+     ![Yeni veritabanı](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-1.png)
 
-3. SQL Database’e tıklayın (yeni veritabanı).
+3. **SQL Veritabanı (yeni veritabanı)** öğesine tıklayın.
 
-     ![yeni veritabanı](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-2.png)
-   
+     ![Yeni veritabanı](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-2.png)
+
 4. SQL Database hizmetinde yeni veritabanı oluşturmak için **Oluştur**’a tıklayın.
 
-     ![yeni veritabanı](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-3.png)
+     ![Yeni veritabanı](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-3.png)
 
 5. Şu sunucu özellikleri için değerleri girin:
 
  - Veritabanı adı
- - Abonelik (yalnızca birden fazla aboneliğiniz varsa)
- - Kaynak grubu (yalnızca başlamak içinse mantıksal sunucunun kaynak grubunu kullanın)
- - Kaynak seçin (boş bir veritabanı, örnek veriler veya bir Azure veritabanı yedeği seçebilirsiniz; şirket içi SQL Server veritabanını geçirmek veya BCP kullanarak veri yüklemek için bu makalenin sonundaki bağlantılara bakın)
- - Sunucu (yeni veya var olan mantıksal sunucu)
- - Sunucu yönetici parolası
+ - Abonelik: Yalnızca birden fazla aboneliğiniz varsa geçerlidir.
+ - Kaynak grubu: Yeni başlıyorsanız mantıksal sunucunun kaynak grubunu kullanın.
+ - Kaynak seç: Boş veritabanı, örnek verileri veya bir Azure veritabanı yedeği seçebilirsiniz. Şirket içi SQL Server veritabanını geçirmek veya BCP komut satırı aracını kullanarak veri yüklemek için bu makalenin sonundaki bağlantılara bakın.
+ - Sunucu: Yeni veya var olan bir mantıksal sunucu.
+ - Sunucu yöneticisi oturum açma
  - Parola
- - Fiyatlandırma katmanı (yalnızca başlamak içinse varsayılan S0 değerini kullanın)
- - Harmanlama (yalnızca boş veritabanı seçilmişse)
+ - Fiyatlandırma katmanı: Yeni başlıyorsanız varsayılan S0 değerini kullanın.
+ - Harmanlama: Yalnızca boş bir veritabanı seçilmişse geçerlidir.
 
-        ![new database](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-4.png)
+        ![New database](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-4.png)
 
-6.  **Oluştur**’a tıklayın; bildirim alanında dağıtımın başlatıldığını görebilirsiniz.
+6.  **Oluştur**’a tıklayın. Bildirim alanında dağıtımın başlatıldığını görebilirsiniz.
 
-     ![yeni veritabanı](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-5.png)
+     ![Yeni veritabanı](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-5.png)
 
 7. Sonraki adıma geçmeden önce dağıtımın tamamlanmasını bekleyin.
 
-     ![yeni veritabanı](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-6.png)
+     ![Yeni veritabanı](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-6.png)
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=sep16_HO1-->
 
 
