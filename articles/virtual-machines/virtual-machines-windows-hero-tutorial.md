@@ -119,6 +119,6 @@ Tekrar kullanmaya hazır olduğunuzda VM’yi yeniden başlatmak için **Başlat
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=sep12_HO2-->
 
 

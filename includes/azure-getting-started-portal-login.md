@@ -33,6 +33,6 @@ Bir Azure hesabınız yoksa hesap almak için aşağıdaki seçeneklerden birini
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=sep14_HO2-->
 
 
