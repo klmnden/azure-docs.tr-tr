@@ -15,7 +15,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/16/2016"
+   ms.date="09/13/2016"
    ms.author="nepeters"/>
 
 # REST API’si aracılığıyla kapsayıcı yönetimi
@@ -74,8 +74,6 @@ Docker biçimli kapsayıcıları Marathon aracılığıyla, hedeflenen dağıtı
 Docker biçimli bir kapsayıcıyı dağıtmak için, kendi JSON dosyanızı oluşturun veya [Azure Kapsayıcı Hizmeti gösteriminde](https://raw.githubusercontent.com/rgardler/AzureDevTestDeploy/master/marathon/marathon.json) verilen örneği kullanın. Bunu erişilebilir bir yerde saklayın. Ardından, kapsayıcıyı dağıtmak için aşağıdaki komutu çalıştırın. JSON dosyasının adını belirtin.
 
 ```
-# deploy container
-
 curl -X POST http://localhost/marathon/v2/apps -d @marathon.json -H "Content-type: application/json"
 ```
 
@@ -104,8 +102,6 @@ Uygulamanın ölçeğini genişletmek için aşağıdaki komutu çalıştırın.
 >[AZURE.NOTE] URI, http://localhost/marathon/v2/apps/ şeklinde olur ve ardından ölçeklendirilecek uygulamanın kimliği gelir. Burada sağlanan Nginx örneğini kullanıyorsanız, URI http://localhost/marathon/v2/apps/nginx şeklinde olacaktır.
 
 ```json
-# scale container
-
 curl http://localhost/marathon/v2/apps/nginx -H "Content-type: application/json" -X PUT -d @scale.json
 ```
 
@@ -149,8 +145,6 @@ Docker biçimli kapsayıcıları Marathon aracılığıyla, hedeflenen dağıtı
 Kendi JSON dosyanızı oluşturun veya [Azure Kapsayıcı Hizmeti gösteriminde](https://raw.githubusercontent.com/rgardler/AzureDevTestDeploy/master/marathon/marathon.json) verilen örneği kullanın. Bunu erişilebilir bir yerde saklayın. Ardından, kapsayıcıyı dağıtmak için aşağıdaki komutu çalıştırın. JSON dosyasının adını belirtin.
 
 ```powershell
-# deploy container
-
 Invoke-WebRequest -Method Post -Uri http://localhost/marathon/v2/apps -ContentType application/json -InFile 'c:\marathon.json'
 ```
 
@@ -165,8 +159,6 @@ Uygulamanın ölçeğini genişletmek için aşağıdaki komutu çalıştırın.
 > [AZURE.NOTE] URI, http://localhost/marathon/v2/apps/ şeklinde olur ve ardından ölçeklendirilecek uygulamanın kimliği gelir. Burada sağlanan Nginx örneğini kullanıyorsanız, URI http://localhost/marathon/v2/apps/nginx şeklinde olacaktır.
 
 ```powershell
-# scale container
-
 Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -ContentType application/json -InFile 'c:\scale.json'
 ```
 
@@ -177,6 +169,6 @@ Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -Cont
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=sep16_HO2-->
 
 

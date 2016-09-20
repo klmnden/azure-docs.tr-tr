@@ -1,6 +1,6 @@
 <properties
    pageTitle="Asimetrik Yönlendirme | Microsoft Azure"
-   description="Bu makalede, bir müşterinin sahip olduğu ve bir hedefin birden çok bağlantısını içeren bir ağda asimetrik yönlendirme konusunda karşılaşabileceği sorunlarla ilgili yol gösterilmektedir."
+   description="Bu makalede, bir hedefe birden çok bağlantı içeren bir ağda asimetrik yönlendirme konusunda karşılaşılabilecek sorunlarla ilgili yol gösterilmektedir."
    documentationCenter="na"
    services="expressroute"
    authors="osamazia"
@@ -9,76 +9,76 @@
 <tags
    ms.service="expressroute"
    ms.devlang="na"
-   ms.topic="get-started-article" 
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="08/23/2016"
    ms.author="osamazia"/>
 
-# Birden çok ağ yoluyla Asimetrik Yönlendirme
+# Birden çok ağ yoluyla Asimetrik yönlendirme
 
-Bu makale, kaynak ile hedef arasında birden çok yol varsa iletme ve döndürme trafiğinin nasıl farklı rotalar izleyebileceği açıklanmıştır.
+Bu makalede, ağ kaynağı ile hedef arasında birden çok yol varsa iletme ve döndürme ağ trafiğinin nasıl farklı rotalar izleyebileceği açıklanmaktadır.
 
-Asimetrik yönlendirmeyi anlayabilmemiz için iki konsepti anlamamız gerekir. Bunlardan biri, birden çok ağ yolunun etkisidir. Diğeriyse güvenlik duvarları gibi durum bilgisi tutan cihazların davranışıdır. Bu cihazlara durum bilgisi olan cihazlar denir. Bu iki etmenin birleşimi, durum bilgisi olan bir cihaz tarafından trafiğin kendisi üzerinden başladığını görmediği için trafiğin bırakıldığı senaryolar oluşturur.
+Asimetrik yönlendirmeyi anlayabilmek için iki konsepti anlamak önemlidir. Bunlardan biri, birden çok ağ yolunun etkisidir. Diğeri ise cihazların, bir güvenlik duvarı gibi nasıl durumlarını koruduğudur. Bu tür cihazlara durum bilgisi olan cihazlar denir. Bu iki faktörün bileşimi, durum bilgisi olan bir cihazın ağ trafiğinin bu cihazın kendisiyle başladığını algılamadığı için söz konusu trafikten çıktığı senaryolar oluşturur.
 
-## Birden Çok Ağ Yolu
+## Birden çok ağ yolu
 
-Bir kurumsal ağın İnternet hizmet sağlayıcısı aracılığıyla sunulan tek bir İnternet bağlantısı varsa, İnternet’e yönelik ve İnternet’ten gelen tüm trafik aynı yolu izler. Şirketler çoğunlukla ağ çalışma süresini artırmak için yedek yollar olarak birden çok devre satın alır. Böyle durumlarda, ağ dışına, yani İnternet’e giden trafik bir bağlantı üzerinden geçerken dönen trafik farklı bir bağlantı üzerinden geçer. Ters trafiğin ilk akıştan farklı bir yol izlediği bu olgu Asimetrik Yönlendirme olarak bilinir.
+Kurumsal bir ağın, İnternet hizmet sağlayıcısı üzerinden tek bir İnternet bağlantısı varsa İnternet’e giden ve buradan gelen tüm trafik aynı yolu izler. Şirketler çoğunlukla ağ çalışma süresini artırmak için yedek yollar olarak birden çok devre satın alır. Böyle durumlarda, ağ dışına, yani İnternet’e giden trafik bir bağlantı üzerinden geçerken dönüş trafiği farklı bir bağlantı üzerinden geçebilir. Bu duruma yaygın olarak asimetrik yönlendirme adı verilir. Asimetrik yönlendirmede, ters yöndeki ağ trafiği özgün akıştan farklı bir yol alır.
 
-![Yönlendirme3](./media/expressroute-asymmetric-routing/AsymmetricRouting3.png)
+![Birden çok yola sahip ağ](./media/expressroute-asymmetric-routing/AsymmetricRouting3.png)
 
-Bir önceki açıklama İnternet için olsa da diğer çoklu yol birleşimleri için de geçerlidir. Örnek olarak bir İnternet yolu ve aynı hedefe yönelik özel bir yol, aynı hedefe yönelik birden çok özel yol, vs. verilebilir. 
+Esas olarak İnternet üzerinde meydana gelse de asimetrik yönlendirme, birden çok yol bileşimi bulunan başka durumlar için de geçerlidir. Örneğin, aynı hedefe yönelik bir İnternet yolu ve özel bir yol veya aynı hedefe yönelik birden çok özel yol için asimetrik yönlendirme uygulanır.
 
-Kaynakla hedef arasındaki her yol, hedefe ulaşmak için en iyi yol hesaplamasına bağlı olarak bir hedefe ulaşmanın en iyi yolunu hesaplar. Olası en iyi yolun belirlenmesi iki ana etmene bağlıdır.
+Kaynaktan hedefe giden yol boyunca her yönlendirici hedefe ulaşmak için en uygun yolu hesaplar. Yönlendiricinin yaptığı en uygun yol belirlemesi iki ana faktöre bağlıdır:
 
-1.  Dış ağlar arası yönlendirme, BGP olarak bilinen Sınır Ağ Geçidi Protokolü adlı yönlendirme protokolüne bağlıdır. BGP komşularından tanıtımları toplar ve hedefe yönelik en iyi yolu belirlemek için bunları birkaç adımdan geçirip en iyi yolu yönlendirme tablosuna yükler.
-2.  Bir yolla ilişkili alt ağ maskesinin uzunluğu. Aynı IP adresi için birden çok tanıtım olmasına rağmen farklı alt ağ maskeleri alındıysa, alt ağ maskesi daha uzun olan tanıtım daha belirli bir yol olarak görüldüğü için bu tanıtım seçilir.
+-   Dış ağlar arası yönlendirme, Sınır Ağ Geçidi Protokolü (BGP) olarak bilinen bir yönlendirme protokolüne bağlıdır. BGP, komşulardan tanıtımları toplar ve bunları bir dizi adımdan geçirip hedefe yönelik en uygun yolu belirler. BGP, bu en uygun yolu yönlendirme tablosunda depolar.
+-   Bir rota ile ilişkili alt ağ maskesinin uzunluğu yönlendirme yollarını etkiler. Yönlendirici, aynı IP adresi için farklı alt ağ maskeleri olan birden çok tanıtım alırsa, alt ağ maskesi daha uzun olan tanıtım daha belirli bir yol olarak görüldüğü için bu tanıtım seçilir.
 
-## Durum Bilgisi Olan Cihazlar
+## Durum bilgisi olan cihazlar
 
-Yönlendiriciler yönlendirme amacıyla paketin IP üst bilgisine bakar. Bununla birlikte, pakette daha da derinlere bakan cihazlar vardır. Bu cihazlar genellikle Layer4 (TCP/UDP), hatta Layer7 (Uygulama Katmanı) üst bilgileri kullanır. Bu cihazlar ya güvenlik cihazları ya da bant genişliği iyileştirme cihazlarıdır. Durum bilgisi olan cihazlar için sık kullanılan bir örnek güvenlik duvarıdır. Güvenlik duvarı; protokol, TCP/UDP bağlantı noktası, URL üst bilgileri gibi çeşitli alanlara bağlı olarak bir paketin arabirimleri üzerinden geçmesine izin verir veya bunu reddeder. Bu paket denetimi nedeniyle cihaz üzerinde büyük bir işlem yükü oluşur. Güvenlik duvarı, performansı artırmak için bir akıştaki ilk paketi denetler. Pakete izin verilirse akış bilgileri durum tablosunda tutulur. İlk karar temel alınarak bu akışla ilgili sonraki tüm paketlere izin verilir. Dolayısıyla, var olan bir akışın bir parçası olan bir paket güvenlik duvarına ulaştığında ve güvenlik duvarının paketle ilgili önceki durum bilgisi olmadığında güvenlik duvarı paketi bırakır.
+Yönlendiriciler, yönlendirme amacıyla paketlerin IP üst bilgisine bakar. Bazı cihazlar, pakete daha da ayrıntılı şekilde bakar. Bu cihazlar, genellikle Katman4 (İletim Denetimi Protokolü veya TCP ya da Kullanıcı Veri Birimi Protokolü veya UDP) ve hatta Katman7 (Uygulama Katmanı) üst bilgilerine bakar. Bu tür cihazlar, güvenlik cihazları ya da bant genişliği iyileştirme cihazlarıdır. 
+
+Durum bilgisi olan cihazlar için tipik bir örnek güvenlik duvarıdır. Güvenlik duvarı; protokol, TCP/UDP bağlantı noktası ve URL üst bilgileri gibi çeşitli alanlara bağlı olarak bir paketin arabirimleri üzerinden geçmesine izin verir veya bunu reddeder. Bu düzeyde bir paket denetimi nedeniyle cihaz üzerinde ağır bir işlem yükü oluşur. Güvenlik duvarı, performansı artırmak için bir akıştaki ilk paketi denetler. Paketin geçmesine izin verirse akış bilgilerini durum tablosunda tutar. İlk belirlemeye dayalı olarak bu akışla ilgili sonraki tüm paketlere de izin verilir. Mevcut bir akışın parçası olan bir paket, güvenlik duvarına ulaşabilir. Güvenlik duvarının önceden bu paketle ilgili bir durum bilgisi yoksa, paket bırakılır.
 
 ## ExpressRoute ile asimetrik yönlendirme
 
-ExpressRoute üzerinden Microsoft’a bağlandığınızda, ağınızda aşağıdaki değişiklikler gerçekleşir.
+Azure ExpressRoute üzerinden Microsoft’a bağlandığınızda, ağınız aşağıdaki şekilde değişir:
 
-1.  Birden fazla Microsoft bağlantınız var. Var olan İnternet bağlantınız bir bağlantı, ExpressRoute üzerinden kurulan bağlantı ise başka bir bağlantıdır. Microsoft’a yönelik bazı trafikler İnternet üzerinden gidip ExpressRoute üzerinden dönebilir ya da tam tersi gerçekleşebilir.
-2.  ExpressRoute üzerinden daha belirli IP adresleri alırsınız. Bu nedenle, ExpressRoute aracılığıyla sunulan hizmetler için ağınızdan Microsoft’a giden trafik her zaman ExpressRoute seçeneğini tercih eder. 
+-   Birden fazla Microsoft bağlantınız var. Bağlantıların biri, var olan İnternet bağlantınız diğeri de ExpressRoute aracılığıyla olan bağlantı. Microsoft’a yönelik trafiğin bir kısmı İnternet üzerinden gidip ExpressRoute üzerinden dönebilir ya da tam tersi gerçekleşebilir.
+-   ExpressRoute üzerinden daha belirli IP adresleri alırsınız. Bu nedenle, ExpressRoute aracılığıyla sunulan hizmetlere ilişkin olarak ağınızdan Microsoft’a giden trafik için yönlendiriciler her zaman ExpressRoute seçeneğini tercih eder.
 
-Yukarıdaki iki durumun etkisini anlamak için bazı senaryolara bakalım. İnternet’e yönelik tek bir devreniz olduğunu ve tüm Microsoft hizmetlerini İnternet üzerinden tükettiğinizi varsayalım. Ağınızdan Microsoft’a giden ve geri gelen trafik aynı İnternet bağlantısını kullanır ve güvenlik duvarından geçer. Güvenlik duvarı ilk paketi gördüğünde akışı kaydeder ve akış durum tablosunda var olduğundan dönüş paketlerine izin verilir.
+Bu iki değişikliğin bir ağ üzerindeki etkisini anlamak için bazı senaryolara göz atalım. Örnek olarak, İnternet’e yönelik tek bir devreniz olduğunu ve tüm Microsoft hizmetlerini İnternet üzerinden tükettiğinizi varsayalım. Ağınızdan Microsoft’a giden ve ters yönde gelen trafik aynı İnternet bağlantısını kullanır ve güvenlik duvarından geçer. Güvenlik duvarı ilk paketi gördüğünde akışı kaydeder ve akış, durum tablosunda var olduğundan dönüş paketlerine izin verilir.
 
-![Yönlendirme1](./media/expressroute-asymmetric-routing/AsymmetricRouting1.png)
-
-
-Şimdi ExpressRoute hizmetini açıyorsunuz ve Microsoft tarafından sunulan tüm hizmetleri ExpressRoute üzerinden tüketiyorsunuz ve Microsoft tarafından sunulan diğer tüm hizmetler İnternet üzerinden tüketiliyor diyelim. ExpressRoute’a bağlanan ucunuzda ayrı bir güvenlik duvarı dağıtıyorsunuz. Microsoft, belirli hizmetler için ExpressRoute üzerinden ağınıza daha belirli ön ekler tanıtır. Yönlendirme altyapınız bu ön ekler için tercih edilen yol olarak ExpressRoute’u seçer. Genel IP adreslerinizi ExpressRoute üzerinden Microsoft’a tanıtmıyorsanız Microsoft, Genel IP adreslerinizle İnternet üzerinden iletişim kurar. Bu nedenle, ağınızdan Microsoft’a gönderilen ileri yönlü trafik ExpressRoute’u kullanırken, Microsoft’tan dönen trafik İnternet’i kullanır. Uçtaki güvenlik duvarı, durum tablosunda bulunmayan bir akış için bir yanıt paketi gördüğünde dönüş trafiğini bırakır. 
-
-ExpressRoute ve İnternet için aynı NAT havuzunu kullanmayı tercih ederseniz, ağınızdaki özel IP adreslerindeki istemcilerle de benzer sorunlar yaşarsınız. Windows Update gibi hizmetlerin IP adresleri ExpressRoute üzerinden tanıtılmadığından, bu hizmetlere yönelik istekler İnternet üzerinden gider. Ancak, dönüş trafiği ExpressRoute üzerinden geri gelir. Microsoft İnternet ve ExpressRoute’tan aynı alt ağ maskesine sahip bir IP adresi alırsa ExpressRoute’u İnternet’e tercih eder. ExpressRoute’a yönelik ağ ucunuzdaki bir güvenlik duvarının ya da durum bilgisi olan başka bir cihazın akışla ilgili daha önceden bilgisi yoksa, o akışa ait olan paketler bırakılır. 
-
-## Asimetrik Yönlendirme çözümleri
-
-Asimetrik Yönlendirme sorununu çözmenin iki ana yolu vardır. Biri yönlendirme, diğeriyse kaynak tabanlı NAT (SNAT) aracılığıyladır. 
-
-1. Yönlendirme 
-
-    - Genel IP adreslerinizin uygun WAN bağlantılarına tanıtıldığından emin olmanız gerekir. Örneğin, kimlik doğrulama trafiği için İnternet’i, posta trafiğiniz içinse ExpressRoute’u kullanmak istiyorsanız, ExpressRoute’ta ADFS genel IP adreslerinizi tanıtmamanız gerekir. Benzer şekilde, şirket içi ADFS sunucusu ExpressRoute üzerinden alınan IP adreslerine açılmamalıdır. ExpressRoute üzerinden alınan rotalar daha belirli olduğundan, bunlar Microsoft’a yönelik kimlik doğrulama trafiği için ExpressRoute’u tercih edilen yol haline getirir ve asimetrik yönlendirmeye yol açar.
-
-    - Kimlik doğrulaması için ExpressRoute’u kullanmak istiyorsanız ADFS genel IP adreslerini ExpressRoute üzerinden NAT olmadan tanıttığınızdan emin olun. Bu sayede, Microsoft’tan çıkıp şirket içi ADFS sunucusuna giden trafik ExpressRoute üzerinden giderken, müşteriden gelip Microsoft’a giden dönüş trafiği tercih edilen rota olarak İnternet’i değil ExpressRoute’u kullanır. 
-
-2. Kaynak tabanlı NAT
-
-    Asimetrik Yönlendirme sorunlarını çözmenin bir başka yolu da Kaynak NAT (SNAT) üzerindendir. Örneğin, bir iletişimde İnternet’i kullanmak istediğiniz için şirket içi SMTP sunucusunun genel IP adresini ExpressRoute üzerinden tanıtmadığınızı varsayalım. Şirket içi SMTP sunucunuza yönelik olarak Microsoft’tan çıkan bir istek İnternet’ten gönderilir. Gelen isteğe kaynak NAT uygulayarak bir dahili IP adresine yönlendirirsiniz. SMTP sunucusundan çıkan ters yönlü trafik, ExpressRoute yerine uç güvenlik duvarına (NAT uygulamak için kullanılan) gider. Bu sayede, dönüş trafiği İnternet üzerinden gönderilir. 
+![ExpressRoute ile asimetrik yönlendirme](./media/expressroute-asymmetric-routing/AsymmetricRouting1.png)
 
 
-![Yönlendirme2](./media/expressroute-asymmetric-routing/AsymmetricRouting2.png)
+Ardından, ExpressRoute hizmetini açıyorsunuz ve Microsoft tarafından ExpressRoute üzerinden sunulan hizmetleri tüketiyorsunuz. Microsoft tarafından sunulan diğer tüm hizmetler İnternet üzerinden tüketiliyor diyelim. ExpressRoute’a bağlanan ucunuzda ayrı bir güvenlik duvarı kullanıyorsunuz. Microsoft, belirli hizmetler için ExpressRoute üzerinden ağınıza daha belirli ön ekler tanıtır. Yönlendirme altyapınız bu ön ekler için tercih edilen yol olarak ExpressRoute’u seçer. Genel IP adreslerinizi ExpressRoute üzerinden Microsoft’a tanıtmıyorsanız Microsoft, genel IP adreslerinizle İnternet üzerinden iletişim kurar. Ağınızdan Microsoft’a giden trafik ExpressRoute’u kullanırken, Microsoft’tan dönen trafik İnternet’i kullanır. Uçtaki güvenlik duvarı, durum tablosunda bulamadığı bir akışa ilişkin bir yanıt paketi gördüğünde dönüş trafiğini bırakır.
 
-## Asimetrik Yönlendirmenin Algılanması
+ExpressRoute ve İnternet için aynı ağ adresi çevirisi (NAT) havuzunu kullanmayı tercih ederseniz, ağınızda özel IP adreslerinde bulunan istemcilerle de benzer sorunlar yaşarsınız. Windows Update gibi hizmetlerin IP adresleri ExpressRoute aracılığıyla tanıtılmadığından, bu hizmetlere yönelik istekler İnternet üzerinden gider. Ancak, dönüş trafiği ExpressRoute üzerinden geri gelir. Microsoft, İnternet ve ExpressRoute’tan aynı alt ağ maskesine sahip bir IP adresi alırsa ExpressRoute’u İnternet’e tercih eder. ExpressRoute’a yönelik ağ ucunuzdaki bir güvenlik duvarının ya da durum bilgisi olan başka bir cihazın akışla ilgili daha önceden bilgisi yoksa, söz konusu akışa ait olan paketler bırakılır.
 
-Traceroute, trafiğin beklenen yoldan gittiğinden emin olmanın en iyi yoludur. Şirket içi SMTP sunucunuzdan Microsoft’a giden trafiğin İnternet yolunu tercih etmesini bekliyorsanız, SMTP sunucusu ile Office 365 arasındaki yolu izleyin. Sonuç, ağınızdan çıkan trafiğin gerçekten de ExpressRoute’a değil İnternet’e gittiğini doğrular. 
+## Asimetrik yönlendirme çözümleri
+
+Asimetrik yönlendirme sorununu çözmek için iki ana seçeneğiniz vardır. Sorunu yönlendirme aracılığıyla ya da kaynak tabanlı NAT (SNAT) kullanarak çözebilirsiniz.
+
+### Yönlendirme
+
+Genel IP adreslerinizin uygun geniş alan ağı (WAN) bağlantılarına tanıtıldığından emin olmanız gerekir. Örneğin, kimlik doğrulama trafiği için İnternet ve posta trafiğiniz için ExpressRoute kullanmak istiyorsanız, Active Directory Federasyon Hizmetleri (AD FS) genel IP adreslerinizi ExpressRoute üzerinden tanıtmamanız gerekir. Benzer şekilde, yönlendiricinin ExpressRoute üzerinden aldığı IP adreslerini bir şirket içi AD FS sunucusunun kullanımına sunmamalısınız. ExpressRoute üzerinden alınan rotalar daha belirli olduğundan, bunlar Microsoft’a yönelik kimlik doğrulama trafiği için ExpressRoute’u tercih edilen yol haline getirir. Bu durum asimetrik yönlendirmeye yol açar.
+
+Kimlik doğrulaması için ExpressRoute’u kullanmak istiyorsanız AD FS genel IP adreslerini ExpressRoute üzerinden NAT olmadan tanıttığınızdan emin olun. Bu şekilde, Microsoft'tan kaynaklanan ve şirket içi bir AD FS sunucusuna giden trafik ExpressRoute üzerinden gider. Müşteriden Microsoft’a giden dönüş trafiği, İnternet üzerinden tercih edilen yol olduğundan ExpressRoute’u kullanır.
+
+### Kaynak tabanlı NAT
+
+Asimetrik yönlendirme sorunlarını çözmenin bir başka yolu da SNAT kullanmaktır. Örneğin, şirket içi bir Basit Posta Aktarım Protokolü (SMTP) sunucusunun genel IP adresini ExpressRoute üzerinden tanıtmadınız, çünkü bu tür iletişimler için İnternet’i kullanmayı amaçlıyorsunuz. Microsoft’tan kaynaklanıp daha sonra şirket içi SMTP sunucunuza giden bir istek İnternet’ten gönderilir. Gelen isteğe SNAT uygulayarak bir dahili IP adresine yönlendirirsiniz. SMTP sunucusundan kaynaklanan ters yöndeki trafik, ExpressRoute üzerinden gitmek yerine NAT için kullandığınız uç güvenlik duvarına gider. Dönüş trafiği İnternet üzerinden gider.
 
 
+![Kaynak tabanlı NAT ağ yapılandırması](./media/expressroute-asymmetric-routing/AsymmetricRouting2.png)
+
+## Asimetrik yönlendirmenin algılanması
+
+Traceroute, ağ trafiğinizin beklenen yoldan gittiğinden emin olmanın en iyi yoludur. Şirket içi SMTP sunucunuzdan Microsoft’a giden trafiğin İnternet yolunu tercih etmesini bekliyorsanız, beklenen traceroute SMTP sunucusundan Office 365’e gider. Sonuç, ağınızdan çıkan trafiğin ExpressRoute’a değil, gerçekten de İnternet’e gittiğini doğrular.
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO2-->
 
 

@@ -4,7 +4,7 @@
    services="data-lake-analytics" 
    documentationCenter="" 
    authors="edmacauley" 
-   manager="paulettm" 
+   manager="jhubbard" 
    editor="cgronlun"/>
  
 <tags
@@ -158,6 +158,7 @@ Veri kaynağını hazırladıktan sonra, U-SQL betiği geliştirmeye başlayabil
 - Tanılama bilgilerini günlüğe kaydetmek için bkz. [Azure Data Lake Analytics için tanılama günlüklerine erişme](data-lake-analytics-diagnostic-logs.md)
 
 
-<!--HONumber=Aug16_HO4-->
+
+<!--HONumber=sep16_HO2-->
 
 

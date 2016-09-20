@@ -1,4 +1,5 @@
 > [AZURE.SELECTOR]
+- [İlk web uygulaması](app-service-web-get-started.md)
 - [.NET](web-sites-dotnet-get-started.md)
 - [PHP](app-service-web-php-get-started.md)
 - [Node.js](app-service-web-nodejs-get-started.md)
@@ -8,6 +9,6 @@
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=sep16_HO2-->
 
 

@@ -4,6 +4,6 @@
 - [Python](../articles/storage/storage-python-how-to-use-file-storage.md)
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO2-->
 
 

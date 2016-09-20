@@ -13,13 +13,13 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="07/06/2016"
+    ms.date="09/07/2016"
     ms.author="maheshu"/>
 
 # Azure AD Etki Alanı Hizmetleri *(Önizleme)* - Azure AD Etki Alanı Hizmetleri için parola eşitlemeyi etkinleştirme
 
 ## Görev 5: Eşitlenmiş Azure AD kiracısı için AAD Etki Alanı Hizmetleri'ne parola eşitlemeyi etkinleştirme
-Azure AD dizininiz için Azure AD Etki Alanı Hizmetleri'ni etkinleştirdikten sonra, sıradaki görev Azure AD Etki Alanı Hizmetleri'ne parolaların eşitlenmesini etkinleştirmektir. Bu işlem, kullanıcıların etki alanında kurumsal kimlik bilgilerini kullanarak oturum açmalarını sağlar.
+Azure AD dizininiz için Azure AD Etki Alanı Hizmetleri'ni etkinleştirdikten sonra, sıradaki görev Azure AD Etki Alanı Hizmetleri'ne parolaların eşitlenmesini etkinleştirmektir. Bunu gerçekleştirdiğinizde, kullanıcılar etki alanında şirket kimlik bilgilerini kullanarak oturum açabilir.
 
 Uygulanan adımlar, kuruluşunuzun yalnızca bulutta yer alan bir Azure AD dizinine sahip olmasına veya Azure AD Connect yoluyla şirket içi dizininizle eşitlenmek üzere ayarlanmış olmasına göre değişiklik gösterir.
 
@@ -32,24 +32,24 @@ Uygulanan adımlar, kuruluşunuzun yalnızca bulutta yer alan bir Azure AD dizin
 <br>
 
 ### Eşitlenmiş kiracılar - NTLM ve Kerberos kimlik bilgisi karmalarının Azure AD'ye eşitlenmesini etkinleştirme
-Kuruluşunuzun Azure AD kiracısı Azure AD Connect yoluyla şirket içi dizininizle eşitlenmek üzere ayarlanmışsa Azure AD Connect'i yapılandırarak NTLM ve Kerberos kimlik doğrulaması için gerekli olan kimlik bilgisi karmalarını eşitlemeniz gerekir. Bu karmalar varsayılan olarak Azure AD ile eşitlenmemiştir, aşağıdaki adımlar bu karmaların Azure AD kiracınızla eşitlenmesini etkinleştirmenize yardımcı olur.
+Eşitlenen bir Azure AD kiracısı, Azure AD Connect kullanarak kuruluşunuzun şirket içi dizini ile eşitlenecek şekilde ayarlanır. Azure AD Connect, varsayılan olarak NTLM ve Kerberos kimlik bilgisi karmalarını Azure AD ile eşitlemez. Azure AD Etki Alanı Hizmetleri’ni kullanmak için, Azure AD Connect’i NTLM ve Kerberos kimlik doğrulamasında gereken kimlik bilgisi karmalarını eşitleyecek şekilde yapılandırmanız gerekir. Aşağıdaki adımlar, gerekli kimlik bilgisi karmalarının Azure AD kiracınız ile eşitlenmesini etkinleştirir.
 
 #### Azure AD Connect'i yükleme veya güncelleştirme 
 
-Azure AD Connect'in en son önerilen sürümünü etki alanına katılan bir bilgisayara yüklemeniz gerekir. Azure AD Connect kurulumunun var olan bir örneğine sahipseniz Azure AD Connect GA yapısını kullanmak için bu örneği güncelleştirmeniz gerekir. Düzeltilmiş olabilecek hataları/bilinen sorunları önlemek için Azure AD Connect'in en son sürümünü kullandığınızdan emin olun.
+Azure AD Connect'in en yeni önerilen sürümünü etki alanına katılan bir bilgisayara yüklemeniz gerekir. Azure AD Connect kurulumunun var olan bir örneğine sahipseniz, bu örneği Azure AD Connect’in en yeni sürümünü kullanacak şekilde güncelleştirmelisiniz. Düzeltilmiş olabilecek bilinen sorunlardan/hatalardan kaçınmak için her zaman Azure AD Connect'in en yeni sürümünü kullandığınızdan emin olun.
 
 **[Azure AD Connect'i indirme](http://www.microsoft.com/download/details.aspx?id=47594)**
 
-Önerilen sürüm: **1.1.189.0** - 3 Haziran 2016'da yayımlanmıştır.
+Önerilen sürüm: **1.1.281.0** - 7 Eylül 2016'da yayımlanmıştır.
 
-  > [AZURE.WARNING] Eski parola kimlik bilgilerini (NTLM ve Kerberos kimlik doğrulaması için gereklidir) Azure AD kiracınıza eşitlemek için Azure AD Connect'in en son önerilen sürümünü yüklemeniz GEREKİR. Bu işlev, Azure AD Connect'in önceki sürümlerinde veya eski DirSync aracında kullanılamaz.
+  > [AZURE.WARNING] Eski parola kimlik bilgilerinin (NTLM ve Kerberos kimlik doğrulaması için gereklidir), Azure AD kiracınız ile eşitlenebilmesini sağlamak için Azure AD Connect'in en yeni önerilen sürümünü yüklemeniz GEREKİR. Bu işlev, Azure AD Connect'in önceki sürümlerinde veya eski DirSync aracında kullanılamaz.
 
 Azure AD Connect'i yükleme talimatları şu makalede bulunabilir - [Azure AD Connect ile çalışmaya başlama](../active-directory/active-directory-aadconnect.md)
 
 
 #### Azure AD için tam parola eşitlemesini zorlama
 
-Tam parola eşitlemesini zorlamak ve tüm şirket içi kullanıcıların parola karmalarını (NTLM/Kerberos kimlik doğrulaması için gerekli olan kimlik bilgisi karmaları dahil olmak üzere) Azure AD kiracınıza eşitlemek için her AD ağacında aşağıdaki PowerShell betiğini yürütün.
+Tam parola eşitlemesini zorlamak ve tüm şirket içi kullanıcılara ait kimlik bilgisi karmalarının Azure AD kiracınız ile eşitlenmesini sağlamak için her AD ormanında aşağıdaki PowerShell betiğini yürütün. Bu betik, NTLM/Kerberos kimlik doğrulaması için gerekli olan kimlik bilgisi karmalarının Azure AD kiracınız ile eşitlenmesini sağlar.
 
 ```
 $adConnector = "<CASE SENSITIVE AD CONNECTOR NAME>"  
@@ -65,7 +65,7 @@ Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConn
 Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConnector $azureadConnector -Enable $true  
 ```
 
-Dizininizin boyutuna bağlı olarak (kullanıcıların, grupların vb. sayısı) kimlik bilgilerinin Azure AD'ye eşitlenmesi zaman alır. Kimlik bilgisi karmalarının Azure AD'ye eşitlenmesinden kısa bir süre sonra, parolalar Azure AD Etki Alanı Hizmetleri tarafından yönetilen etki alanında kullanılabilir olur.
+Dizininizin boyutuna bağlı olarak (kullanıcıların, grupların vb. sayısı), kimlik bilgisi karmalarının Azure AD ile eşitlenmesi zaman alır. Kimlik bilgisi karmalarının Azure AD'ye eşitlenmesinden kısa bir süre sonra, parolalar Azure AD Etki Alanı Hizmetleri tarafından yönetilen etki alanında kullanılabilir olur.
 
 
 <br>
@@ -82,6 +82,6 @@ Dizininizin boyutuna bağlı olarak (kullanıcıların, grupların vb. sayısı)
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=sep16_HO2-->
 
 

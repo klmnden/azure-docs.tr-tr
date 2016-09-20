@@ -60,7 +60,7 @@ Protokol        | TCP
 Kapsayıcı bağlantı noktasını statik olarak aracıdaki bağlantı noktasıyla eşlemek istiyorsanız, JSON Modu’nu kullanmalısınız. Bunu yapmak için, geçişi kullanarak Yeni Uygulama Sihirbazı'nı **JSON Modu**’na geçirin. Ardından, uygulama tanımının `portMappings` bölümünün altı aşağıdakini girin. Bu örnek, kapsayıcının 80 numaralı bağlantı noktasını DC/OS aracının 80 numaralı bağlantı noktasına bağlar. Bu değişikliği yaptıktan sonra bu sihirbazı JSON modundan çıkarabilirsiniz.
 
 ```none
-“hostPort”: 80,
+"hostPort": 80,
 ```
 
 ![Yeni Uygulama Kullanıcı Arabirimi--bağlantı noktası 80 örneği](media/dcos/dcos13.png)
@@ -103,6 +103,6 @@ Mesos ile Azure Container Service’e ilişkin ayrıntılar
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO2-->
 
 

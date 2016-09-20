@@ -37,7 +37,7 @@ Aşağıdaki özellikler, bulut etkin mobil geliştirme için önemlidir:
 
   [Kimlik doğrulama özelliklerimiz] hakkında daha fazlasını keşfedin.
 
-- **Veri Erişimi** - Azure Mobile Apps SQL Azure’a ya da şirket içi bir SQL Server’a bağlı mobil kullanımı kolay OData v3 veri kaynağı sağlar.  Bu hizmet, [Azure Table Storage], MongoDB, [DocumentDB] ve Office 365 ve Salesforce.com gibi SaaS API’si sağlayıcıları dahil, diğer NoSQL ve SQL veri sağlayıcılarıyla kolayca tümleştirmenizi sağlayarak Entity Framework’ü temel alabilir.
+- **Veri Erişimi** - Azure Mobile Apps, SQL Azure’a ya da şirket içi bir SQL Server’a bağlı, mobil kullanımı kolay bir OData v3 veri kaynağı sağlar.  Bu hizmet, [Azure Table Storage], MongoDB, [DocumentDB] ve Office 365 ve Salesforce.com gibi SaaS API’si sağlayıcıları dahil, diğer NoSQL ve SQL veri sağlayıcılarıyla kolayca tümleştirmenizi sağlayarak Entity Framework’ü temel alabilir.
 - **Çevrimdışı Eşitleme** - İstemci SDK’mız, çakışma çözümü desteği dahil, arka uç verileriyle otomatik olarak eşitlenebilecek çevrimdışı bir veri kümesiyle çalışan sağlam ve esnek mobil uygulamalar oluşturmanızı kolaylaştırır.
 
   [Veri özellikleri] hakkında daha fazlasını keşfedin.
@@ -63,7 +63,7 @@ Aşağıdaki platform özellikleri genellikle mobil üretim siteleri için yarar
 
   [Dağıtım seçenekleri] hakkında daha fazlasını keşfedin.
 
-- **Sanal Ağ** - App Service, sanal ağ, ExpressRoute ya da karma bağlantılar kullanarak şirket içi kaynaklara bağlanabilir.
+- **Sanal Ağ** - App Service; sanal ağ, ExpressRoute ya da karma bağlantılar kullanarak şirket içi kaynaklara bağlanabilir.
 
   [Karma bağlantılar], [sanal ağlar], ve [ExpressRoute] hakkında daha fazlasını keşfedin.
 
@@ -105,6 +105,6 @@ Azure App Service platformu hakkında daha fazla bilgi için bkz. [Azure App Ser
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=sep16_HO2-->
 
 

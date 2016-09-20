@@ -4,7 +4,7 @@
     services="hdinsight"
     documentationCenter=""
     authors="mumian"
-    manager="paulettm"
+    manager="jhubbard"
     editor="cgronlun"
     tags="azure-portal"/>
 
@@ -14,7 +14,7 @@
     ms.topic="hero-article"
     ms.tgt_pltfrm="na"
     ms.workload="big-data"
-    ms.date="06/29/2016"
+    ms.date="09/14/2016"
     ms.author="jgao"/>
 
 # HDInsight uygulamaları yükleme
@@ -27,7 +27,7 @@ HDInsight uygulaması kullanıcıların Linux tabanlı HDInsight kümesine yükl
 
 >[AZURE.NOTE] Datameer şu anda yalnızca Azure HDInsight sürüm 3.2 kümelerinde desteklenmektedir.
 
-Bu makalede verilen yönergeler Azure portalını kullanmaktadır. Ayrıca portaldan Azure Resouce Manager şablonunu dışarı aktarabilir veya satıcılardan Resouce Manager şablonunun bir kopyasını edinebilir ve Azure PowerShell ile Azure CLI kullanarak şablonu dağıtabilirsiniz.  Bkz. [HDInsight’ta Resource Manager şablonları kullanarak Linux tabanlı Hadoop kümeleri oluşturma](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
+Bu makalede verilen yönergeler Azure portalı kullanmaktadır. Ayrıca portaldan Azure Resouce Manager şablonunu dışarı aktarabilir veya satıcılardan Resouce Manager şablonunun bir kopyasını edinebilir ve Azure PowerShell ile Azure CLI kullanarak şablonu dağıtabilirsiniz.  Bkz. [HDInsight’ta Resource Manager şablonları kullanarak Linux tabanlı Hadoop kümeleri oluşturma](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
 ## Ön koşullar
 
@@ -121,8 +121,11 @@ Bkz. [Yükleme sorunlarını giderme](hdinsight-apps-install-custom-applications
 - [MSDN: HDInsight uygulaması yükleme](https://msdn.microsoft.com/library/mt706515.aspx): HDInsight uygulamalarını nasıl tanımlayacağınızı öğrenin.
 - [Betik Eylemi kullanarak Linux tabanlı HDInsight kümelerini özelleştirme](hdinsight-hadoop-customize-cluster-linux.md): ek uygulamalar yüklemek için Betik Eyleminin nasıl kullanılacağını öğrenin.
 - [Resource Manager şablonları kullanarak HDInsight’ta Linux tabanlı Hadoop kümeleri oluşturma](hdinsight-hadoop-create-linux-clusters-arm-templates.md): HDInsight kümeleri oluşturmak için Resource Manager şablonlarının nasıl çağrılacağını öğrenin.
+- [HDInsight’ta boş kenar düğümleri kullanma](hdinsight-apps-use-edge-node.md): HDInsight kümesine erişmek, HDInsight uygulamaları test etmek ve HDInsight uygulamalarını barındırmak için boş bir kenar düğümünü kullanmayı öğrenin.
 
 
-<!--HONumber=Aug16_HO1-->
+
+
+<!--HONumber=sep16_HO2-->
 
 

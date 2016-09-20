@@ -4,6 +4,6 @@ Azure Storage hizmetleri düzenli olarak yeni özelliklerle birlikte güncelleş
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO2-->
 
 

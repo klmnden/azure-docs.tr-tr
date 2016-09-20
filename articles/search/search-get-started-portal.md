@@ -4,7 +4,7 @@
     services="search" 
     documentationCenter="" 
     authors="HeidiSteen" 
-    manager="paulettm" 
+    manager="jhubbard" 
     editor=""
     tags="azure-portal"/>
 
@@ -186,6 +186,6 @@ Bunu yapmanın kolay bir yolu varsayılan sorguyu kullanmaktır ancak varsayıla
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=sep16_HO2-->
 
 

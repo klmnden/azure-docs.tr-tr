@@ -29,6 +29,6 @@
 Yeni bir StorSimple Yöneticisi hizmetinin nasıl oluşturulduğunu gösteren bir video izlemek için [buraya](https://azure.microsoft.com/documentation/videos/create-a-storsimple-manager-service/) tıklayın.
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO2-->
 
 

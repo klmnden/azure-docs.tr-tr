@@ -11,6 +11,6 @@ Depolama hesabınıza bağlı olarak Azure Storage kullanımınıza göre fatura
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO2-->
 
 

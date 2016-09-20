@@ -5,7 +5,7 @@
     services="hdinsight"
     documentationCenter=""
     authors="cjgronlund"
-    manager="paulettm"
+    manager="jhubbard"
     editor="cgronlun"/>
 
 <tags
@@ -271,6 +271,6 @@ Bu BI araçları, büyük veri çözümlemede size yardımcı olabilir:
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=sep16_HO2-->
 
 

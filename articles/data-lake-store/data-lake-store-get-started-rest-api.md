@@ -4,7 +4,7 @@
    services="data-lake-store" 
    documentationCenter="" 
    authors="nitinme" 
-   manager="paulettm" 
+   manager="jhubbard" 
    editor="cgronlun"/>
  
 <tags
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="08/02/2016"
+   ms.date="09/13/2016"
    ms.author="nitinme"/>
 
 # REST API'lerini kullanarak Azure Data Lake Store ile çalışmaya başlama
@@ -31,10 +31,9 @@ Bu makalede, Azure Data Lake Store üzerinde hesap yönetimi ve dosya sistemi i�
 
 >[AZURE.NOTE] Data Lake Store için REST API desteği hakkında ayrıntılı bilgi için bkz. [Azure Data Lake Store REST API Başvurusu](https://msdn.microsoft.com/library/mt693424.aspx).
 
-## Önkoşullar
+## Ön koşullar
 
-- **Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü edinme](https://azure.microsoft.com/pricing/free-trial/).
-- Data Lake Store genel önizlemesi için **Azure aboneliğinizi etkinleştirme**. Bkz. [yönergeler](data-lake-store-get-started-portal.md#signup).
+- **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü edinme](https://azure.microsoft.com/pricing/free-trial/).
 - **Azure Active Directory Uygulaması oluşturma**. Azure Active Directory'yi kullanarak kimlik doğrulaması gerçekleştirmenin iki yolu vardır: **etkileşimli** ve **etkileşimli olmayan**. Kimlik doğrulamasını nasıl gerçekleştirmek istediğinize bağlı olarak farklı önkoşullar mevcuttur.
     * **Etkileşimli kimlik doğrulaması için** (bu makalede kullanılan) - Azure Active Directory'de bir **Yerel İstemci uygulaması** oluşturmanız gerekir. Uygulamayı oluşturduktan sonra uygulamayla ilgili aşağıdaki değerleri alın.
         - Uygulama için **istemci kimliği** ve **yeniden yönlendirme URI'si** bilgilerini alın
@@ -278,6 +277,6 @@ Aşağıdaki gibi bir çıktı görmeniz gerekir:
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=sep16_HO2-->
 
 

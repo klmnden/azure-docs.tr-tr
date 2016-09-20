@@ -4,7 +4,7 @@
     services="search"
     documentationCenter=""
     authors="HeidiSteen"
-    manager="paulettm"
+    manager="jhubbard"
     editor=""
     tags="azure-portal"/>
 
@@ -79,6 +79,6 @@ Artık temel fikri anladığınıza göre, atmanız gereken bir sonraki adım he
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO2-->
 
 

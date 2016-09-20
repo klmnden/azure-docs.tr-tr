@@ -5,7 +5,7 @@
     keywords="Azure AD Connect nedir, Active Directory yükleme, Azure AD için gerekli bileşenler"
     documentationCenter=""
     authors="andkjell"
-    manager="stevenpo"
+    manager="femila"
     editor="curtand"/>
 
 <tags
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/27/2016"
+    ms.date="09/13/2016"
     ms.author="billmath;andkjell"/>
 
 # Azure AD Connect özel yüklemesi
@@ -27,10 +27,10 @@ Azure AD Connect'i yüklemeye başlamadan önce [Azure AD Connect'i indirdiğini
 ## Azure AD Connect özel ayarlarını yükleme
 
 ### Hızlı Ayarlar
-Özelleştirilmiş ayarları yüklemeyi başlatmak için bu sayfadaki **Özelleştir**'e tıklayın.
+Özelleştirilmiş ayarlar yüklemeyi başlatmak için bu sayfada **Özelleştir**'e tıklayın.
 
 ### Gerekli bileşenleri yükleme
-Eşitleme hizmetlerini yüklerken isteğe bağlı yapılandırma bölümünü işaretlenmemiş olarak bırakabilirsiniz. Azure AD Connect her şeyi otomatik olarak ayarlar. SQL Server 2012 Express LocalDB örneğini ayarlar, uygun gruplar oluşturur ve izinleri atar. Varsayılanları değiştirmek isterseniz var olan isteğe bağlı yapılandırma seçeneklerini anlamak üzere aşağıdaki tabloya bakabilirsiniz.
+Eşitleme hizmetlerini yüklerken isteğe bağlı yapılandırma bölümünü işaretlenmemiş olarak bırakabilirsiniz. Bu durumda, Azure AD Connect her şeyi otomatik olarak ayarlar. SQL Server 2012 Express LocalDB örneğini ayarlar, uygun gruplar oluşturur ve izinleri atar. Varsayılanları değiştirmek isterseniz var olan isteğe bağlı yapılandırma seçeneklerini anlamak üzere aşağıdaki tabloya bakabilirsiniz.
 
 ![Gerekli Bileşenler](./media/active-directory-aadconnect-get-started-custom/requiredcomponents.png)
 
@@ -43,7 +43,7 @@ Mevcut bir hizmet hesabını kullanma | Varsayılan olarak Azure AD Connect, eş
 ### Kullanıcı oturumu açma
 Gerekli bileşenleri yükledikten sonra kullanıcı çoklu oturumu açma yönteminizi seçmeniz istenir. Aşağıdaki tabloda mevcut seçeneklerle ilgili kısa bir açıklama bulunmaktadır. Oturum açma yöntemleriyle ilgili tam açıklama için bkz. [Kullanıcı oturumu açma](active-directory-aadconnect-user-signin.md).
 
-![Kullanıcı Oturumu Açma](./media/active-directory-aadconnect-get-started-custom/usersignin.png)
+![Kullanıcı Oturumu açma](./media/active-directory-aadconnect-get-started-custom/usersignin.png)
 
 Çoklu Oturum Açma Seçeneği | Açıklama
 ------------- | -------------
@@ -55,14 +55,14 @@ Yapılandırmayın | Özellik yüklenmez ve yapılandırılmaz. Zaten 3. taraf b
 Azure AD'ye Bağlanma ekranında, genel yönetici hesabı ve parolasını girin. Önceki sayfada **AD FS ile Federasyon** seçeneğini belirlediyseniz etki alanında federasyon için etkinleştirmeyi düşündüğünüz bir hesap ile oturum açmayın. Azure AD dizininizle sunulan, varsayılan **onmicrosoft.com** etki alanındaki bir hesabı kullanmanız önerilir.
 
 Bu hesap yalnızca Azure AD'de hizmet hesabı oluşturmak için kullanılır ve sihirbaz tamamlandıktan sonra kullanılmaz.  
-![Kullanıcı Oturumu Açma](./media/active-directory-aadconnect-get-started-custom/connectaad.png)
+![Kullanıcı Oturumu açma](./media/active-directory-aadconnect-get-started-custom/connectaad.png)
 
 Genel yönetici hesabınızda MFA etkinse açılır oturum açma penceresine parolayı tekrar girmeniz ve MFA testini tamamlamanız gerekir. Test için bir doğrulama kodu sağlanır veya telefon görüşmesi yapılır.  
-![Kullanıcı Oturumu Açma işlemi için MFA](./media/active-directory-aadconnect-get-started-custom/connectaadmfa.png)
+![MFA’da kullanıcı Oturumu açma](./media/active-directory-aadconnect-get-started-custom/connectaadmfa.png)
 
 Genel yönetici hesabında [Privileged Identity Management](active-directory-privileged-identity-management-getting-started.md) seçeneği de etkin olabilir.
 
-Bir hatayla karşılaştıysanız ve bağlantı sorunlarınız varsa lütfen bkz. [Bağlantı sorunlarını giderme](active-directory-aadconnect-troubleshoot-connectivity.md).
+Bir hatayla karşılaştıysanız ve bağlantı sorunlarınız varsa bkz. [Bağlantı sorunlarını giderme](active-directory-aadconnect-troubleshoot-connectivity.md).
 
 ## Eşitleme bölümünde yer alan sayfalar
 
@@ -75,12 +75,12 @@ Azure AD Connect'in Active Directory Etki Alanı Hizmetinize bağlanabilmesi iç
 Bu sayfa, Azure AD'de doğrulanmış olup şirket içi AD DS'de var olan UPN etki alanlarını gözden geçirmenize olanak sağlar. Ayrıca bu sayfa sayesinde userPrincipalName için kullanılacak özniteliği yapılandırabilirsiniz.
 
 ![Doğrulanmamış etki alanları](./media/active-directory-aadconnect-get-started-custom/aadsigninconfig.png)  
-**Eklenmedi** ve **Doğrulanmadı** olarak işaretlenen tüm etki alanlarını gözden geçirin. Kullandıklarınızın Azure AD'de doğrulanmış olduğundan emin olun. Etki alanlarınızı doğruladıktan sonra Yenile simgesine tıklayın. Daha fazla bilgi için bkz. [etki alanı ekleme ve doğrulama](active-directory-add-domain.md)
+**Eklenmedi** ve **Doğrulanmadı** olarak işaretlenen tüm etki alanlarını gözden geçirin. Kullandığınız etki alanlarının Azure AD'de doğrulanmış olduğundan emin olun. Etki alanlarınızı doğruladıktan sonra Yenile simgesine tıklayın. Daha fazla bilgi için bkz. [etki alanı ekleme ve doğrulama](active-directory-add-domain.md)
 
 **UserPrincipalName** - userPrincipalName özniteliği, kullanıcıların Azure AD'de ve Office 365'te oturum açarken kullandıkları özniteliktir. Kullanıcılar eşitlenmeden önce, UPN soneki olarak da bilinen kullanılan etki alanlarının Azure AD'de doğrulanması gerekir. Microsoft, userPrincipalName varsayılan özniteliğinin tutulmasını önerir. Bu öznitelik yönlendirilemeyen bir öznitelikse ve doğrulanamazsa başka bir öznitelik seçebilirsiniz. Örneğin, oturum açma kimliğinin bulunduğu öznitelik olarak e-postayı seçin. userPrincipalName dışında başka bir özniteliğin kullanılmasına **Alternatif kimlik** adı verilir. Alternatif kimlik öznitelik değeri, RFC822 standardına uygun olmalıdır. Alternatif kimlik, hem parola eşitleme ile hem de federasyon ile kullanılabilir.
 
 >[AZURE.WARNING]
-Alternatif kimlik kullanımı, hiçbir Office 365 iş yükü ile uyumlu değildir. Daha fazla bilgi için lütfen [Alternatif Oturum Açma Kimliğini Yapılandırma](https://technet.microsoft.com/library/dn659436.aspx) bölümüne bakın.
+Alternatif kimlik kullanımı, hiçbir Office 365 iş yükü ile uyumlu değildir. Daha fazla bilgi için [Alternatif Oturum Açma Kimliğini Yapılandırma](https://technet.microsoft.com/library/dn659436.aspx) bölümüne bakın.
 
 ### Etki alanı ve OU filtreleme
 Varsayılan olarak tüm etki alanları ve OU'lar eşitlenir. Azure AD ile eşitlemek istemediğiniz etki alanları veya OU'lar varsa bu etki alanlarının veya OU'ların işaretini kaldırabilirsiniz.  
@@ -157,10 +157,10 @@ Azure AD Connect ile AD FS'yi yalnızca birkaç tıklama ile kolayca yapılandı
 
 - Federasyon sunucusu için uzaktan yönetimi etkinleştirilmiş bir Windows Server 2012 R2 sunucusu
 - Web Uygulaması Ara Sunucusu için uzaktan yönetimi etkinleştirilmiş bir Windows Server 2012 R2 sunucusu
-- Kullanmayı düşündüğünüz federasyon hizmeti adı (ör. sts.contoso.com) için bir SSL sertifikası
+- Kullanmayı düşündüğünüz federasyon hizmeti adı (örneğin, sts.contoso.com) için bir SSL sertifikası
 
 ### AD FS yapılandırması önkoşulları
-Azure AD Connect'i kullanarak AD FS grubunuzu yapılandırmak için lütfen uzak sunucularda WinRM'nin etkinleştirildiğinden emin olun. Ayrıca, lütfen [Tablo 3 - Azure AD Connect ve Federasyon Sunucuları/WAP](active-directory-aadconnect-ports.md#table-3---azure-ad-connect-and-federation-serverswap) bölümünde listelenen bağlantı noktaları gereksinimlerini inceleyin.
+Azure AD Connect'i kullanarak AD FS grubunuzu yapılandırmak için uzak sunucularda WinRM'nin etkinleştirildiğinden emin olun. Ayrıca, [Tablo 3 - Azure AD Connect ve Federasyon Sunucuları/WAP](active-directory-aadconnect-ports.md#table-3---azure-ad-connect-and-federation-serverswap) bölümünde listelenen bağlantı noktaları gereksinimlerini inceleyin.
 
 ### Yeni bir AD FS grubu oluşturma veya var olan bir AD FS grubunu kullanma
 Var olan bir AD FS grubunu kullanabilir veya yeni bir AD FS grubu oluşturmayı seçebilirsiniz. Yeni bir grup oluşturmayı seçerseniz SSL sertifikası sağlamanız gerekir. SSL sertifikası bir parolayla korunuyorsa parolayı girmeniz istenir.
@@ -266,6 +266,6 @@ Yükleme için kullanılan hesaplar | [Azure AD Connect hesapları ve izinleri h
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=sep16_HO2-->
 
 

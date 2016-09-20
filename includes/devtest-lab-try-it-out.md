@@ -6,6 +6,6 @@ Azure’u zaten kullanıyor musunuz? DevTest Labs içinde yeni bir laboratuvar o
 [![GAzure DevTest Labs ile dakikalar içinde çalışma başlama(./media/devtest-lab-try-it-out/get-started.png)](http://go.microsoft.com/fwlink/?LinkID=627034&clcid=0x409)
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=sep16_HO2-->
 
 

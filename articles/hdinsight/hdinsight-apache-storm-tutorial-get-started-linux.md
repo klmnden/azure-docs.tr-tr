@@ -5,7 +5,7 @@
     services="hdinsight"
     documentationCenter=""
     authors="Blackmist"
-    manager="paulettm"
+    manager="jhubbard"
     editor="cgronlun"/>
 
 <tags
@@ -193,6 +193,7 @@ Java tabanlı topolojiler geliştirme hakkında zaten bilgi sahibiyseniz ve mevc
 [preview-portal]: https://portal.azure.com/
 
 
-<!--HONumber=Aug16_HO4-->
+
+<!--HONumber=sep16_HO2-->
 
 

@@ -1,6 +1,6 @@
 <properties
     pageTitle="İlk veri fabrikanızı derleme (Resource Manager şablonu) | Microsoft Azure"
-    description="Bu öğreticide Azure Resource Manager şablonu kullanarak örnek bir Azure Data Factory işlem hattı oluşturacaksınız."
+    description="Bu öğreticide, bir Azure Resource Manager şablonu kullanarak örnek bir Azure Data Factory işlem hattı oluşturacaksınız."
     services="data-factory"
     documentationCenter=""
     authors="spelluru"
@@ -18,27 +18,20 @@
 
 # Öğretici: Azure Resource Manager şablonu kullanarak ilk Azure veri fabrikanızı derleme
 > [AZURE.SELECTOR]
-- [Öğreticiye Genel Bakış](data-factory-build-your-first-pipeline.md)
-- [Data Factory Düzenleyici’yi kullanma](data-factory-build-your-first-pipeline-using-editor.md)
-- [PowerShell’i kullanma](data-factory-build-your-first-pipeline-using-powershell.md)
-- [Visual Studio’yu kullanma](data-factory-build-your-first-pipeline-using-vs.md)
-- [Resource Manager Şablonunu kullanma](data-factory-build-your-first-pipeline-using-arm.md)
-- [REST API kullanma](data-factory-build-your-first-pipeline-using-rest-api.md)
+- [Azure Portal](data-factory-build-your-first-pipeline-using-editor.md)
+- [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
+- [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
+- [Resource Manager Şablonu](data-factory-build-your-first-pipeline-using-arm.md)
+- [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
 
 
-Bu makalede Azure Resource Manager şablonu kullanarak ilk Azure veri fabrikanızı oluşturmayı öğrenirsiniz. 
+[AZURE.INCLUDE [data-factory-tutorial-prerequisites](../../includes/data-factory-tutorial-prerequisites.md)] 
 
+## Ek önkoşullar
+Yukarıdaki önkoşullar bölümünde listelenen önkoşullar dışında aşağıdakileri yükleyin:
 
-## Ön koşullar
-Öğreticiye Genel Bakış konusunda listelenen önkoşullar dışında aşağıdakileri yüklemeniz gerekir:
-
-- Başka bir işlem yapmadan önce [Öğreticiye Genel Bakış](data-factory-build-your-first-pipeline.md) makalesinin tamamını okuyun ve önkoşul adımlarını tamamlayın. 
 - **Azure PowerShell'i yükleme**. Bilgisayarınıza Azure PowerShell’in en son sürümünü yüklemek için [Azure PowerShell’i yükleme ve yapılandırma](../powershell-install-configure.md) makalesindeki yönergeleri izleyin.
-- Bu makale, Azure Data Factory hizmetine kavramsal bir genel bakış sağlamaz. Hizmet hakkında ayrıntılı bir genel bakış için [Azure Data Factory'ye giriş](data-factory-introduction.md) makalesini okuyun. 
 - Azure Resource Manager şablonları hakkında bilgi için bkz. [Azure Resource Manager Şablonları Yazma](../resource-group-authoring-templates.md). 
-
-> [AZURE.IMPORTANT]
-> Bu makaledeki kılavuzu uygulamak için [Öğreticiye Genel Bakış](data-factory-build-your-first-pipeline.md) bölümündeki önkoşul adımlarını tamamlayın. 
 
 ## Resource Manager şablonu oluşturma
 
@@ -46,8 +39,8 @@ Bu makalede Azure Resource Manager şablonu kullanarak ilk Azure veri fabrikanı
 
 Şablon aşağıdaki Data Factory varlıklarını oluşturmanıza olanak sağlar.
 
-1. **TutorialDataFactoryARM** adlı bir **veri fabrikası**. Bir veri fabrikasında bir veya daha fazla işlem hattı olabilir. İşlem hattında bir veya daha fazla etkinlik olabilir. Örneğin, verileri bir kaynaktan bir hedef veri deposuna kopyalamak için Kopyalama Etkinliği, girdi verilerini ürün çıktı verilerine dönüştürecek Hive betiğini çalıştırmak için de HDInsight Hive etkinliği. 
-2. İki **bağlı hizmet**: **StorageLinkedService** ve **HDInsightOnDemandLinkedService**. Bu bağlı hizmetler Azure Storage hesabınızı ve isteğe bağlı Azure HDInsight kümesini veri fabrikanıza bağlar. Azure Depolama hesabı, bu örnekteki işlem hattı için girdi ve çıktı verilerini tutar. HDInsight bağlı hizmeti, bu örnekte işlem hattının etkinliğinde belirtilen Hive betiğini çalıştırmak için kullanılır. Senaryonuzda hangi veri deposu/işlem hizmetlerinin kullanılacağını belirtmek ve bağlı hizmetler oluşturarak bu hizmetleri veri fabrikanıza bağlamak için gereklidir. 
+1. **TutorialDataFactoryARM** adlı bir **veri fabrikası**. Bir veri fabrikasında bir veya daha fazla işlem hattı olabilir. İşlem hattında bir veya daha fazla etkinlik olabilir. Örneğin, verileri bir kaynaktan bir hedef veri deposuna kopyalamak için bir Kopyalama Etkinliği ve giriş verilerini dönüştürecek Hive betiğini çalıştırmak için bir HDInsight Hive etkinliği. 
+2. İki **bağlı hizmet**: **StorageLinkedService** ve **HDInsightOnDemandLinkedService**. Bu bağlı hizmetler Azure Storage hesabınızı ve isteğe bağlı Azure HDInsight kümesini veri fabrikanıza bağlar. Azure Depolama hesabı, bu örnekteki işlem hattı için girdi ve çıktı verilerini tutar. HDInsight bağlı hizmeti, bu örnekte işlem hattının etkinliğinde belirtilen Hive betiğini çalıştırmak için kullanılır. Senaryonuzda hangi veri deposu/işlem hizmetlerinin kullanılacağını belirleyin ve bağlı hizmetler oluşturarak bu hizmetleri data factory’ye bağlayın. 
 3. İki (girdi/çıktı) **veri kümesi**: **AzureBlobInput** ve **AzureBlobOutput**. Bu veri kümeleri Hive işlemesi için girdi ve çıktı verilerini temsil eder. Bu veri kümeleri, bu öğreticide daha önce oluşturduğunuz **StorageLinkedService** öğesine başvurur. Bağlı hizmet Azure Storage hesabını belirtirken, veri kümeleri de girdi ve çıktı verilerini tutan depolama biriminde kapsayıcı, klasör, dosya adı belirtir.   
 
 Bu şablonda kullanılan JSON özelliklerine ilişkin ayrıntıları içeren makaleye geçmek için **Data Factory Düzenleyici’yi kullanma** sekmesine tıklayın.
@@ -254,7 +247,7 @@ Ayrıntılar için bkz. [İsteğe Bağlı HDInsight Bağlı Hizmeti](data-factor
 8. Diyagram Görünümü’nde **AzureBlobOutput** veri kümesine çift tıklayın. Dilimin işlenmekte olduğunu görürsünüz.
 
     ![Veri kümesi](./media/data-factory-build-your-first-pipeline-using-arm/AzureBlobOutput.png)
-9. İşlem tamamlandığında dilimi **Hazır** durumunda göreceksiniz. İsteğe bağlı HDInsight kümesinin oluşturulması genellikle biraz zaman alır (yaklaşık 20 dakika). 
+9. İşlem tamamlandığında dilimi **Hazır** durumunda görürsünüz. İsteğe bağlı HDInsight kümesinin oluşturulması genellikle biraz zaman alır (yaklaşık 20 dakika). 
 
     ![Veri kümesi](./media/data-factory-build-your-first-pipeline-using-arm/SliceReady.png) 
 10. Dilim **Hazır** durumunda olduğunda çıktı verileri için blob depolama alanınızın **adfgetstarted** kapsayıcısında **partitioneddata** klasörünü denetleyin.  
@@ -266,7 +259,7 @@ Veri işlem hatlarınızı izlemek için İzleme ve Yönetme Uygulaması’nı d
 > [AZURE.IMPORTANT] Dilim başarıyla işlendiğinde girdi dosyası silinir. Bu nedenle, dilimi yeniden çalıştırmak veya öğreticiyi yeniden uygulamak isterseniz girdi dosyasını (input.log) adfgetstarted kapsayıcısının inputdata klasörüne yükleyin.
 
 ## Bir ağ geçidi oluşturmak için Resource Manager şablonu
-Arka planda mantıksal bir ağ geçidi oluşturmaya yönelik örnek bir Resource Manager şablonu aşağıda verilmiştir. Şirket içi bilgisayarınıza ya da Azure IaaS sanal makinesine bir ağ geçidi yüklemeniz ve ağ geçidini bir anahtar kullanarak Data Factory hizmetine kaydetmeniz gerekir. Ayrıntılar için bkz. [Şirket içi ile bulut arasında veri taşıma](data-factory-move-data-between-onprem-and-cloud.md).
+Arka planda mantıksal bir ağ geçidi oluşturmaya yönelik örnek bir Resource Manager şablonu aşağıda verilmiştir. Şirket içi bilgisayarınıza ya da Azure IaaS sanal makinesine bir ağ geçidi yükleyin ve bu ağ geçidini bir anahtar kullanarak Data Factory hizmetine kaydedin. Ayrıntılar için bkz. [Şirket içi ile bulut arasında veri taşıma](data-factory-move-data-between-onprem-and-cloud.md).
 
     {
         "contentVersion": "1.0.0.0",
@@ -315,6 +308,6 @@ Bu şablon GatewayUsingArmDF adlı bir veri fabrikasını GatewayUsingARM adlı 
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO2-->
 
 

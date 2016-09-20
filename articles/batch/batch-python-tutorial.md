@@ -13,7 +13,7 @@
     ms.topic="hero-article"
     ms.tgt_pltfrm="na"
     ms.workload="big-compute"
-    ms.date="08/17/2016"
+    ms.date="09/08/2016"
     ms.author="marsma"/>
 
 # Azure Batch Python istemcisini kullanmaya başlama
@@ -23,8 +23,6 @@
 - [Python](batch-python-tutorial.md)
 
 Python’da yazılmış küçük bir Batch uygulamasından söz ettiğimizden, [Azure Batch][azure_batch] ve [Batch Python][py_azure_sdk] istemcisi hakkında temel bilgileri alın. İki örnek betiğin buluttaki Linux sanal makinelerde paralel bir iş yükünü işlemek için Batch hizmetini nasıl kullandıklarına; dosya hazırlığı ve alımı için [Azure Depolama](./../storage/storage-introduction.md) ile nasıl etkileşime girdiklerine bakacağız. Ortak Batch uygulama iş akışını öğrenmenin yanı sıra işler, görevler, havuzlar ve işlem düğümü gibi başlıca Batch bileşenleri hakkında da temel bir anlayış kazanacaksınız.
-
-> [AZURE.NOTE] Batch’te Linux desteği şu anda önizlemede değil. Burada tartışılan özelliklerin bazı yönleri genel kullanıma açılmadan önce değişebilir. [Uygulama paketleri](batch-application-packages.md), Linux işlem düğümlerinde **şu anda desteklenmemektedir**.
 
 ![Batch çözümü iş akışı (temel)][11]<br/>
 
@@ -680,6 +678,6 @@ Batch çözümünün temel iş akışı hakkında artık bilginiz olduğuna gör
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO2-->
 
 

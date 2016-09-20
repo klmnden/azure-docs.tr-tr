@@ -15,7 +15,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/13/2016"
+   ms.date="09/13/2016"
    ms.author="nepeters"/>
 
 # Docker Swarm ile kapsayıcı yönetimi
@@ -125,6 +125,6 @@ Doğal olarak, yalnızca `compose.yml` dosyanızda tanımlanan kapsayıcıları 
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=sep16_HO2-->
 
 

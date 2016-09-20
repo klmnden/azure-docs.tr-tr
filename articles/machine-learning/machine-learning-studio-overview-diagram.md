@@ -1,11 +1,11 @@
 <properties
     pageTitle="Machine Learning Studio işlevlerine genel bakış diyagramı | Microsoft Azure"
     description="Tahmine dayalı bir analiz denemesi geliştirmek ve bu denemeyi Azure bulutunda faaliyete geçirmek üzere Studio'nun nasıl kullanılacağını gösteren, Azure Machine Learning Studio'nun işlevlerinin yazdırılabilir bir diyagramı."
-    keywords="machine learning studio,overview diagram,download"
+    keywords="machine learning studio,genel bakış diyagramı,indirme"
     services="machine-learning"
     documentationCenter=""
     authors="hning86"
-    manager="paulettm"
+    manager="jhubbard"
     editor="cgronlun"/>
 
 <tags
@@ -50,6 +50,6 @@ Bu diyagramda bu parçaların nasıl uyumlu bir şekilde bir araya geldiği gös
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO2-->
 
 

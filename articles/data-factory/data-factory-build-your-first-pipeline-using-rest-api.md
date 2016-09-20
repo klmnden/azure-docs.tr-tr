@@ -17,20 +17,17 @@
     ms.date="08/16/2016"
     ms.author="spelluru"/>
 
-# İlk Azure data factory’nizi Data Factory REST API’sini kullanarak oluşturma
+# Öğretici: Data Factory REST API kullanarak ilk Azure data factory’nizi derleme
 > [AZURE.SELECTOR]
-- [Öğreticiye Genel Bakış](data-factory-build-your-first-pipeline.md)
-- [Data Factory Düzenleyici’yi kullanma](data-factory-build-your-first-pipeline-using-editor.md)
-- [PowerShell’i kullanma](data-factory-build-your-first-pipeline-using-powershell.md)
-- [Visual Studio’yu kullanma](data-factory-build-your-first-pipeline-using-vs.md)
-- [Resource Manager Şablonunu kullanma](data-factory-build-your-first-pipeline-using-arm.md)
-- [REST API kullanma](data-factory-build-your-first-pipeline-using-rest-api.md)
+- [Azure Portal](data-factory-build-your-first-pipeline-using-editor.md)
+- [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
+- [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
+- [Resource Manager Şablonu](data-factory-build-your-first-pipeline-using-arm.md)
+- [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
 
-Bu makalede, ilk Azure data factory’nizi oluşturmak için Data Factory REST API’sini kullanmayı öğrenirsiniz.
+[AZURE.INCLUDE [data-factory-tutorial-prerequisites](../../includes/data-factory-tutorial-prerequisites.md)] 
 
-## Ön koşullar
-
-- [Öğreticiye Genel Bakış](data-factory-build-your-first-pipeline.md) makalesini okuyun. Bu makale, Azure Data Factory’deki temel kavramları anlamanıza yardımcı olur. 
+## Ek önkoşullar
 - [Curl](https://curl.haxx.se/dlwiz/) aracını makinenize yükleyin. Bir veri fabrikası oluşturmak için CURL aracını REST komutlarıyla kullanırsınız. 
 - Aşağıdakileri yapmak için [bu makaledeki](../resource-group-create-service-principal-portal.md) yönergeleri izleyin: 
     1. Azure Active Directory’de **ADFGetStartedApp** adlı bir Web uygulaması oluşturun.
@@ -408,6 +405,6 @@ Bu makalede, isteğe bağlı Azure HDInsight kümesinde bir Hive betiği çalı�
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=sep16_HO2-->
 
 

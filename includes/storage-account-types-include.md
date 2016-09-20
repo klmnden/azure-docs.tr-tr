@@ -28,6 +28,6 @@ Depolama hesabı oluşturmayı öğrenmek amacıyla daha fazla bilgi için bkz. 
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO2-->
 
 

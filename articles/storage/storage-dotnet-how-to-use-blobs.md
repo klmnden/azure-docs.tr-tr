@@ -367,7 +367,7 @@ Varsayılan olarak Azure Storage, erişimi hesap erişim tuşlarına sahip olan 
 Varsayılan olarak depolama hesabındaki blob verileri yalnızca depolama hesabı sahibi tarafından erişilebilir. Blob Storage’a karşı istek kimlik doğrulamaları varsayılan olarak hesap erişim tuşu gerektirir. Buna karşın çeşitli blob verilerinin diğer kullanıcılar tarafından kullanılmasını sağlamak isteyebilirsiniz. İki seçeneğiniz vardır:
 
 - **Anonim erişim:** Bir kapsayıcıyı veya bloblarını anonim erişim için genel erişime açabilirsiniz. Daha fazla bilgi için bkz.: [Kapsayıcılar ve bloblar için anonim okuma erişimini yönetme](storage-manage-access-to-resources.md).
-- **Paylaşılan Erişim İmzası:** İstemcilere, belirlediğiniz izinler ve belirlediğiniz zaman aralığında depolama hesabınızdaki bir kaynağa yetkilendirmiş erişim sağlayan bir paylaşılan erişim imzası (SAS) sağlayabilirsiniz. Daha fazla için bkz. [Paylaşılan Erişim İmzaları: SAS modelini anlama](storage-dotnet-shared-access-signature-part-1.md).
+- **Paylaşılan Erişim İmzası:** İstemcilere, belirlediğiniz izinler ve belirlediğiniz zaman aralığında depolama hesabınızdaki bir kaynağa yetkilendirmiş erişim sağlayan bir paylaşılan erişim imzası (SAS) sağlayabilirsiniz. Daha fazla bilgi edinmek için bkz. [Paylaşılan Erişim İmzaları (SAS) kullanma](storage-dotnet-shared-access-signature-part-1.md).
 
 ### Blob verilerini şifreleme
 
@@ -411,6 +411,6 @@ Blob Storage’ın temellerini öğrendiğinize göre, daha fazla bilgi edinmek 
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=sep16_HO2-->
 
 

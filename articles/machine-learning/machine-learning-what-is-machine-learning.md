@@ -5,7 +5,7 @@
     services="machine-learning"
     documentationCenter=""
     authors="cjgronlund"
-    manager="paulettm"
+    manager="jhubbard"
     editor="cgronlun"/>
 
 <tags
@@ -127,6 +127,6 @@ Tahmine dayalı analizin ve makine öğreniminin temellerini, [adım adım öğr
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO2-->
 
 
