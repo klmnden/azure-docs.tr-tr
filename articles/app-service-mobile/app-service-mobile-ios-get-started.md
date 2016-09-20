@@ -43,7 +43,7 @@ Bu öğreticiyi tamamlamak için bir [Mac bilgisayar](https://azure.microsoft.co
 <!-- Images. -->
 
 <!-- URLs -->
-[Azure portalına]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/
 [Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
