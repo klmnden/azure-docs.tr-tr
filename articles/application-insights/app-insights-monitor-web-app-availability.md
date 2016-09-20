@@ -72,7 +72,7 @@ Daha fazla test ekleyin. Örneğin, giriş sayfanızın test edilmesinin yanı s
 
 ## <a name="monitor"></a>3. Web testi sonuçlarınıza bakın
 
-1-2 dakika sonra sonuçları şurada görüntülenir: 
+Sonuçlar, 1-2 dakika sonra Web Testi dikey penceresinde görüntülenir.
 
 ![Giriş dikey penceresinde özet sonuçları](./media/app-insights-monitor-web-app-availability/14-availSummary.png)
 
@@ -326,6 +326,6 @@ Test tamamlandığında yanıt süreleri ve başarı oranları gösterilir.
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=sep16_HO2-->
 
 

@@ -1,7 +1,7 @@
 <properties
    pageTitle="CSV dosyasından Azure SQL Veritabanına veri yükleme (bcp) | Microsoft Azure"
    description="Küçük veri boyutları için Azure SQL Veritabanına veri aktarırken bcp kullanır."
-   services="sql-data-warehouse"
+   services="sql-database"
    documentationCenter="NA"
    authors="CarlRabeler"
    manager="jhubbard"
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/30/2016"
+   ms.date="09/13/2016"
    ms.author="carlrab"/>
 
 
@@ -37,12 +37,9 @@ bcp ve sqlcmd yardımcı programlarını [Microsoft İndirme Merkezi][]'nden ind
 
 UTF-8 biçimi bcp tarafından desteklenmediğinden, bu öğreticiyi kendi verilerinizle deniyorsanız verilerinizin ASCII veya UTF-16 kodlamasını kullanıyor olması gerekir. 
 
-PolyBase UTF-8'i destekler ancak henüz UTF-16'yi desteklemiyor. bcp ve PolyBase'i birleştirmek istiyorsanız verileri SQL Server'dan dışarı aktardıktan sonra UTF-8 biçimine dönüştürmeniz gerektiğini unutmayın. 
-
-
 ## 1. Hedef tablo oluşturma
 
-SQL Data Warehouse'da daha sonra yükleme için hedef tablo olacak bir tablo tanımlayın. Tablodaki sütunlar, veri dosyanızın tüm satırlarındaki verilere karşılık gelmelidir.
+SQL Veritabanı'nda bir tabloyu hedef tablo olarak tanımlayın. Tablodaki sütunlar, veri dosyanızın tüm satırlarındaki verilere karşılık gelmelidir.
 
 Tablo oluşturmak için bir komut istemi açın ve sqlcmd.exe dosyasını kullanarak şu komutu çalıştırın:
 
@@ -129,6 +126,6 @@ Bir SQL Server veritabanına geçiş yapmak için bkz. [SQL Server veritabanı g
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=sep16_HO2-->
 
 

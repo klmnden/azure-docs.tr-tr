@@ -4,7 +4,7 @@
    services="data-lake-analytics" 
    documentationCenter="" 
    authors="edmacauley" 
-   manager="paulettm" 
+   manager="jhubbard" 
    editor="cgronlun"/>
  
 <tags
@@ -33,7 +33,7 @@ Diğer öğreticiler için bkz.
 - [.NET SDK'yı kullanarak Data Lake Analytics ile çalışmaya başlama](data-lake-analytics-get-started-net-sdk.md)
 - [Visual Studio için Data Lake Araçları'nı kullanarak U-SQL betikleri geliştirme](data-lake-analytics-data-lake-tools-get-started.md) 
 
-**Önkoşullar**
+**Ön koşullar**
 
 Bu öğreticiye başlamadan önce aşağıdakilere sahip olmanız gerekir:
 
@@ -63,7 +63,7 @@ Her Data Lake Analytics hesabı, bir [Azure Data Lake Store](../data-lake-store/
     - **Kaynak Grubu**. Var olan bir Azure Kaynak Grubu'nu seçin veya yeni bir grup oluşturun. Uygulamalar genellikle web uygulaması, veritabanı, veritabanı sunucusu, depolama alanı ve 3. taraf hizmetleri gibi birçok bileşenden oluşur. Azure Resource Manager (ARM), uygulamanızdaki kaynaklarla Azure Kaynak Grubu şeklinde adlandırılan bir grup olarak çalışmanıza olanak sağlar. Uygulamanıza yönelik tüm kaynakları tek ve eşgüdümlü bir işlemle dağıtabilir, güncelleştirebilir, izleyebilir veya silebilirsiniz. Dağıtım için bir şablon kullanabilirsiniz. Üstelik bu şablon test, hazırlık ve üretim gibi farklı ortamlarda da çalışabilir. Tüm grup için aktarılmış maliyetleri görüntüleyerek kuruluşunuzun fatura işlemlerine açıklık getirebilirsiniz. Daha fazla bilgi için bkz. [Azure Resource Manager'a Genel Bakış](resource-group-overview.md). 
     - **Konum**. Data Lake Analytics hesabı için bir Azure veri merkezi seçin. 
 7. **Başlangıç Panosuna Sabitle**'yi seçin. Bu işlem, bu öğreticinin uygulanması için gereklidir.
-8. **Oluştur**'a tıklayın. Bu işlem sizi Başlangıç Panosu'na götürür. Ana sayfaya, "Azure Data Lake Analytics'i dağıtma" etiketine sahip yeni bir kutucuk eklenir. Data Lake Analytics hesabının oluşturulması çok kısa sürer. Hesap oluşturulduğunda, portal, hesabı yeni bir dikey pencerede açar.
+8. **Oluştur**’a tıklayın. Bu işlem sizi Başlangıç Panosu'na götürür. Ana sayfaya, "Azure Data Lake Analytics'i dağıtma" etiketine sahip yeni bir kutucuk eklenir. Data Lake Analytics hesabının oluşturulması çok kısa sürer. Hesap oluşturulduğunda, portal, hesabı yeni bir dikey pencerede açar.
 
     ![Azure Data Lake Analytics portalı dikey penceresi](./media/data-lake-analytics-get-started-portal/data-lake-analytics-portal-blade.png)
 
@@ -91,6 +91,6 @@ Her Data Lake Analytics hesabı, bir [Azure Data Lake Store](../data-lake-store/
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=sep16_HO2-->
 
 

@@ -15,7 +15,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/12/2016"
+   ms.date="09/13/2016"
    ms.author="rogardle"/>
 
 
@@ -41,8 +41,6 @@ Linux veya OS X’de bir SSH tüneli oluşturduğunuzda yapacağınız ilk şey 
 **PATH_TO_PRIVATE_KEY** [OPTIONAL] Kapsayıcı Hizmeti kümesini oluştururken sağladığınız ortak anahtara karşılık gelen özel anahtar yoludur. Bu seçeneği i flag ile birlikte kullanın.
 
 ```bash
-# ssh sample
-
 ssh -L PORT:localhost:PORT -f -N [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com -p 2200
 ```
 > SSH bağlantı noktası 2200’dür; standart bağlantı noktası 22 değildir.
@@ -52,8 +50,6 @@ ssh -L PORT:localhost:PORT -f -N [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.az
 DC/OS ile ilgili uç noktalara bir tünel açmak için, aşağıdakine benzeyen bir komut yürütün:
 
 ```bash
-# ssh sample
-
 sudo ssh -L 80:localhost:80 -f -N azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com -p 2200
 ```
 
@@ -70,8 +66,6 @@ Benzer şekilde, bu tünel üzerinden her uygulama için rest API'lerine ulaşab
 Swarm uç noktalarına bir tünel açmak için, aşağıdakine benzeyen bir komut yürütün:
 
 ```bash
-# ssh sample
-
 ssh -L 2375:localhost:2375 -f -N azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com -p 2200
 ```
 
@@ -126,6 +120,6 @@ DC/OS ya da Swarm ile kapsayıcıları dağıtın ve yönetin:
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=sep16_HO2-->
 
 

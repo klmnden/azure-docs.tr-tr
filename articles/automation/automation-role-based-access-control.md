@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/20/2016"
+   ms.date="09/12/2016"
    ms.author="magoedte;sngun"/>
 
 # Azure Automation’da Rol Tabanlı Erişim Denetimi
@@ -239,6 +239,6 @@ Yukarıdaki örneklerde **oturum açma adını**, **abonelik kimliğini**, **kay
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=sep16_HO2-->
 
 

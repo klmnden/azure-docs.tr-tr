@@ -4,7 +4,7 @@
     services="search"
     documentationCenter=""
     authors="HeidiSteen"
-    manager="paulettm"
+    manager="jhubbard"
     editor=""
     tags="Azure Portal"/>
 
@@ -122,6 +122,6 @@ Dizin oluşturucular hakkında daha fazla bilgi için bu bağlantıları gözden
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=sep16_HO2-->
 
 

@@ -29,7 +29,7 @@ Coğrafi bölge içindeki en az bir ExpressRoute konumuna bağlanırsanız coğr
 
 |**Coğrafi bölge**|**Azure bölgeleri**|**ExpressRoute konumları**|
 |---|---|---|
-|**Kuzey Amerika**|Doğu ABD, Batı ABD, Doğu ABD 2, Orta ABD, Güney Orta ABD, Kuzey Orta ABD, Orta Kanada, Doğu Kanada|Atlanta, Chicago, Dallas, Las Vegas+, Los Angeles, New York, Seattle, Silikon Vadisi, Washington DC, Montreal+, Quebec City+, Toronto|
+|**Kuzey Amerika**|Doğu ABD, Batı ABD, Doğu ABD 2, Orta ABD, Güney Orta ABD, Kuzey Orta ABD, Orta Kanada, Doğu Kanada|Atlanta, Chicago, Dallas, Las Vegas, Los Angeles, New York, Seattle, Silikon Vadisi, Washington DC, Montreal+, Quebec City+, Toronto|
 |**Güney Amerika**|Güney Brezilya|Sao Paulo|
 |**Avrupa**|Kuzey Avrupa, Batı Avrupa, İngiltere Batı, İngiltere Güney|Amsterdam, Dublin, Londra, Newport(Galler)+, Paris|
 |**Asya**|Doğu Asya, Güneydoğu Asya|Hong Kong, Singapur|
@@ -43,9 +43,9 @@ Aşağıdaki tablo ulusal bulutlar için bölgeler ve coğrafi sınırlar hakkı
 
 |**Coğrafi bölge**|**Azure bölgeleri**|**ExpressRoute konumları**|
 |---|---|---|---|
-|**ABD bulutu**|ABD Iowa, ABD Virginia|Chicago, Dallas+, New York, Washington DC|
+|**ABD bulutu**|ABD Iowa, ABD Virginia|Chicago, Dallas, New York, Washington DC|
 |**Çin**|Kuzey Çin, Doğu Çin|Pekin, Şangay|
-|**Almanya**|Orta Almanya, Doğu Almanya|Berlin, Frankfurt|
+|**Almanya**|Orta Almanya, Doğu Almanya|Berlin+, Frankfurt|
 
 
 Coğrafi bölgeler arasındaki bağlantı standart ExpressRoute SKU’da desteklenmiyor. Genel bağlantıyı desteklemek için ExpressRoute premium eklentisini etkinleştirmeniz gerekir. Ulusal bulut ortamlarına bağlantı desteklenmiyor. Bu tür bir ihtiyaç ortaya çıkarsa bağlantı sağlayıcınız ile çalışabilirsiniz.
@@ -88,7 +88,7 @@ Coğrafi bölgeler arasındaki bağlantı standart ExpressRoute SKU’da destekl
 | **[SingTel]( http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** |  Destekleniyor | Destekleniyor | Singapur |
 | **Softbank** | Destekleniyor | Destekleniyor | Osaka, Tokyo | 
 | **[Tata Communications](http://www.tatacommunications.com/lp/izo/azure/azure_index.html)** | Destekleniyor | Destekleniyor | Amsterdam, Chennai, Hong Kong, Londra, Mumbai, Silikon Vadisi, Singapur, Washington DC |
-| **[TeleCity Group]( http://www.telecitygroup.com/investor-centre/news_details.htm?locid=03100500400b00d&xml)** | Destekleniyor | Destekleniyor | Amsterdam, Londra |
+| **[TeleCity Group]( http://www.telecitygroup.com/investor-centre/news_details.htm?locid=03100500400b00d&xml)** | Destekleniyor | Destekleniyor | Amsterdam, Dublin, Londra |
 | **Telefonica** | Destekleniyor | Çok yakında | Sao Paulo |
 | **Telenor** | Destekleniyor | Destekleniyor | Amsterdam, Londra |
 | **[Telstra Corporation]( http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** | Destekleniyor | Çok Yakında | Melbourne, Sidney |
@@ -105,7 +105,7 @@ Coğrafi bölgeler arasındaki bağlantı standart ExpressRoute SKU’da destekl
 | **Hizmet sağlayıcı**  |**Microsoft Azure** | **Office 365** | **Konumlar** |
 |-----------------------|--------------------|----------------|---------------|
 | **[AT&T NetBond]( https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | Destekleniyor | Destekleniyor | Chicago, Washington DC |
-| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Destekleniyor | Destekleniyor | Chicago, Dallas+, New York, Washington DC |
+| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Destekleniyor | Destekleniyor | Chicago, Dallas, New York, Washington DC |
 | **[Level 3 Communications]( http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Destekleniyor | Destekleniyor | Chicago, New York+, Washington DC |
 | **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | Destekleniyor | Destekleniyor | Chicago, Dallas+, New York, Washington DC |
 
@@ -173,6 +173,6 @@ Bağlantı sağlayıcınız önceki bölümlerde listelenmemişse hala bağlant�
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=sep16_HO2-->
 
 

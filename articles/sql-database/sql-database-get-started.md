@@ -139,6 +139,6 @@ Bu SQL Veritabanı öğreticisini tamamladığınıza ve bazı örnek verilerle 
 
 
 
-<!--HONumber=sep14_HO2-->
+<!--HONumber=sep16_HO2-->
 
 

@@ -242,6 +242,8 @@ if (-not $is_emulated){
 
 #### LaunchWorker.ps1’i değiştirme
 
+>[AZURE.NOTE] Bir **çalışan rolü** projesinde, başlangıç dosyasını yürütmek için **LauncherWorker.ps1** dosyası gereklidir. Bir **web rolü** projesinde ise başlangıç dosyası, bunun yerine proje özelliklerinde tanımlanır.
+
 **bin\LaunchWorker.ps1** başlangıçta çok fazla hazırlık çalışması yapmak için oluşturulmuştur, ancak gerçekten çalışmamaktadır. Bu dosyanın içeriğini aşağıdaki betikle değiştirin.
 
 Bu betik python projenizden **worker.py** dosyasını çağırır. **PYTHON2** ortam değişkeni **açık** olarak ayarlanırsa Python 2.7 kullanılır, aksi takdirde Python 3.5 kullanılır.
@@ -368,6 +370,6 @@ Web ve çalışan rollerinizden Azure Storage veya Service Bus gibi Azure hizmet
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=sep16_HO2-->
 
 

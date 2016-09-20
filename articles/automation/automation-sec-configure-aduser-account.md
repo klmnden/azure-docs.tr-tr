@@ -6,14 +6,14 @@
    authors="MGoedtel"
    manager="jwhit"
    editor="tysonn"
-   keywords="azure active directory user, azure service management, azure ad user account" />
+   keywords="azure active directory kullanıcısı, azure hizmet yönetimi, azure ad kullanıcı hesabı" />
 <tags
    ms.service="automation"
    ms.devlang="na"
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/10/2016"
+   ms.date="09/12/2016"
    ms.author="magoedte" />
 
 # Azure Hizmet Yönetimi ve Resource Manager ile Runbook'ların kimliklerini doğrulama
@@ -76,19 +76,19 @@ Kimlik bilgisinin oluşturulması tamamlandığında, Automation hesabını daha
 
 ## Runbook'ta kimlik bilgisi kullanma
 
-[Get-AutomationPSCredential](http://msdn.microsoft.com/library/dn940015.aspx) etkinliği kullanarak bir runbook’ta kimlik bilgisi alabilir ve ardından Azure aboneliğinize bağlanmak için [Add-AzureAccount](http://msdn.microsoft.com/library/azure/dn722528.aspx) ile birlikte kullanabilirsiniz. Kimlik bilgisi birden çok Azure aboneliği Yöneticisi ise, doğru olanı belirtmek için [Select-AzureSubscription](http://msdn.microsoft.com/library/dn495203.aspx)’ı kullanmalısınız. Bu, genellikle çoğu Azure Automation runbook’larının üst kısmında görünen örnek Windows PowerShell’in altında gösterilir.
+[Get-AutomationPSCredential](http://msdn.microsoft.com/library/dn940015.aspx) etkinliğini kullanarak bir runbook’taki kimlik bilgisini getirebilir ve ardından Azure aboneliğinize bağlanmak için [Add-AzureAccount](http://msdn.microsoft.com/library/azure/dn722528.aspx) ile birlikte bu bilgiyi kullanabilirsiniz. Kimlik bilgisi birden çok Azure aboneliğinin yöneticisi ise, doğru olanı belirlemek için [Select-AzureSubscription](http://msdn.microsoft.com/library/dn495203.aspx)’ı kullanmalısınız. Bu, genellikle çoğu Azure Automation runbook’larının üst kısmında görünen örnek Windows PowerShell’in altında gösterilir.
 
     $cred = Get-AutomationPSCredential –Name "myuseraccount.onmicrosoft.com"
     Add-AzureAccount –Credential $cred
     Select-AzureSubscription –SubscriptionName "My Subscription"
 
-Runbook uygulamanızdaki her [kontrol noktası](http://technet.microsoft.com/library/dn469257.aspx#bk_Checkpoints) sonrasında bunu satırları yinelemelisiniz. Runbook askıya alınır ve ardından başka bir çalışan üzerinde işlemi sürdürürse, yeniden kimlik doğrulaması gerçekleştirmesi gerekir.
+Runbook uygulamanızdaki her [kontrol noktası](http://technet.microsoft.com/library/dn469257.aspx#bk_Checkpoints) sonrasında bu satırları yinelemelisiniz. Runbook askıya alınır ve ardından başka bir çalışan üzerinde işlemi sürdürürse, yeniden kimlik doğrulaması gerçekleştirmesi gerekir.
 
 ## Sonraki Adımlar
 * Farklı runbook türleri ve kendi runbook'larınızı oluşturma adımları için [Azure Automation runbook türleri](../automation/automation-runbook-types.md) makalesini inceleyin.
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO2-->
 
 

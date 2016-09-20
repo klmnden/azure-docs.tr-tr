@@ -128,7 +128,7 @@ Hesap SAS ise bir veya daha fazla depolama hizmetindeki kaynaklara erişim atar.
 
 Son olarak bir kapsayıcı ve bloblarını veya belirli bir blobu genel erişime açabilirsiniz. Bir kapsayıcı veya bir blobun genel erişime açıldığını belirttiğinizde herkes anonim olarak okuyabilir, herhangi bir kimlik doğrulama gerekli değildir.  Genel kapsayıcılar ve bloblar web sitelerinde barındırılan ortam ve belgeler gibi kaynakların sunulması için kullanışlı bir seçenektir.  Global çapta kullanıcılar için ağ gecikmesini azaltmak üzere Azure CDN ile web siteleri tarafından kullanılan blob verilerini önbelleğe taşıyabilirsiniz.
 
-Paylaşılan erişim imzaları ile ilgili ayrıntılı bilgi için bkz. [Paylaşılan Erişim İmzaları: SAS Modelini Anlama](storage-dotnet-shared-access-signature-part-1.md). Depolama hesabınıza güvenli erişim ile ilgili daha fazla bilgi için bkz. [Kapsayıcılar ve bloblara anonim okuma erişimini yönetme](storage-manage-access-to-resources.md) ve [Azure Storage Hizmetleri için Kimlik Doğrulama](https://msdn.microsoft.com/library/azure/dd179428.aspx) 
+Paylaşılan erişim imzaları ile ilgili daha fazla bilgi edinmek için bkz. [Paylaşılan Erişim İmzaları (SAS) kullanma](storage-dotnet-shared-access-signature-part-1.md). Depolama hesabınıza güvenli erişim ile ilgili daha fazla bilgi için bkz. [Kapsayıcılar ve bloblara anonim okuma erişimini yönetme](storage-manage-access-to-resources.md) ve [Azure Storage Hizmetleri için Kimlik Doğrulama](https://msdn.microsoft.com/library/azure/dd179428.aspx) 
 
 ## Dayanıklılık ve Yüksek Seviyede Kullanılabilirlik için Çoğaltma
 
@@ -269,6 +269,6 @@ Azure Storage hakkında daha fazla bilgi için şu kaynakları araştırın:
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=sep16_HO2-->
 
 

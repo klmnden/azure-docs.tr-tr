@@ -14,6 +14,6 @@ Azure Yapılandırma Yöneticisi'ni kullanmak isteğe bağlıdır. .NET Framewor
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO2-->
 
 

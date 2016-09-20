@@ -37,7 +37,7 @@ Bu öğeler, bildiğimiz [Application Insights](app-insights-overview.md) uygula
 + [ASP.NET - zaten canlı olan uygulamalar için](app-insights-monitor-performance-live-website-now.md)
 + [ASP.NET 5](app-insights-asp-net-core.md)
 + [Android](https://github.com/Microsoft/ApplicationInsights-Android) (HockeyApp)
-+ [Azure web uygulamaları ve VM’ler](../azure-portal/insights-perf-analytics.md)
++ [Azure web uygulamaları ve VM’ler](app-insights-azure-web-apps.md)
 + [Azure Bulut Hizmetleri](app-insights-cloudservices.md); hem web hem de çalışan rolleri dahil
 + [Microsoft Dynamics için CRM Online](app-insights-sample-mscrm.md)
 + [Docker](app-insights-docker.md)
@@ -87,6 +87,6 @@ Diliniz veya platformunuz için henüz bir SDK yoksa, belki de bir tane derlemen
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=sep16_HO2-->
 
 

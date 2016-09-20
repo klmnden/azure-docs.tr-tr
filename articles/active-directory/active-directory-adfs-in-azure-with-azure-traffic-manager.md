@@ -19,7 +19,7 @@
     
 #Azure Traffic Manager ile Azure’da yüksek kullanılabilirliğe sahip çapraz coğrafi AD FS dağıtımı
 
-[Azure’da AD FS dağıtımı](.\active-directory-aadconnect-azure-adfs.md), kuruluşunuz için basit bir AD FS altyapısını Azure’da nasıl dağıtabileceğinize ilişkin adım adım yönergeler sağlar. Bu makale Azure’da [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) kullanılarak AD FS’nin çapraz coğrafi dağıtımını oluşturmaya ilişkin sıradaki adımları sunmaktadır. Azure Traffic Manager, altyapının farklı ihtiyaçlarına uygun olarak kullanılabilen çeşitli yönlendirme yöntemlerinden yararlanarak kuruluşunuz için coğrafi olarak yayılmış yüksek kullanılabilirliğe sahip ve yüksek performanslı bir AD FS altyapısı oluşturmaya yardımcı olur.
+[Azure’da AD FS dağıtımı](active-directory-aadconnect-azure-adfs.md), kuruluşunuz için basit bir AD FS altyapısını Azure’da nasıl dağıtabileceğinize ilişkin adım adım yönergeler sağlar. Bu makale Azure’da [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) kullanılarak AD FS’nin çapraz coğrafi dağıtımını oluşturmaya ilişkin sıradaki adımları sunmaktadır. Azure Traffic Manager, altyapının farklı ihtiyaçlarına uygun olarak kullanılabilen çeşitli yönlendirme yöntemlerinden yararlanarak kuruluşunuz için coğrafi olarak yayılmış yüksek kullanılabilirliğe sahip ve yüksek performanslı bir AD FS altyapısı oluşturmaya yardımcı olur.
 
 Çapraz coğrafi yüksek kullanılabilirliğe sahip AD FS altyapısı şunları sağlar:
 
@@ -49,7 +49,7 @@ Temel tasarım ilkeleri Azure’da AD FS dağıtımı adlı makaledeki Tasarım 
 ##Azure Traffic Manager’ı tümleştirme adımları
 
 ###Yeni coğrafi bölgede AD FS dağıtımı
-Aynı topolojiyi yeni coğrafi bölgeye dağıtmak için [Azure’da AD FS dağıtımı](.\active-directory-aadconnect-azure-adfs.md) içindeki adım ve yönergeleri izleyin.
+Aynı topolojiyi yeni coğrafi bölgeye dağıtmak için [Azure’da AD FS dağıtımı](active-directory-aadconnect-azure-adfs.md) içindeki adım ve yönergeleri izleyin.
 
 ###İnternet'e Yönelik (ortak) Yük Dengeleyicilerin genel IP adresleri için DNS etiketleri
 Yukarıda belirtildiği gibi Azure Traffic Manager uç nokta olarak yalnızca DNS etiketlerine başvurabilir ve bu nedenle Dış Yük Dengeleyicilerin genel IP adresleri için DNS etiketleri oluşturulması önemlidir. Aşağıdaki ekran görüntüsü, ortak IP adresi için DNS etiketinizin nasıl yapılandırılacağını göstermektedir. 
@@ -135,6 +135,6 @@ AD FS’yi test etmenin en kolay yolu IdpInitiatedSignon.aspx sayfasının kulla
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=sep16_HO2-->
 
 

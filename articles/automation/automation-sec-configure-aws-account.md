@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="get-started-article"
-   ms.date="08/17/2016"
+   ms.date="09/12/2016"
    ms.author="magoedte"/>
 
 # Amazon Web Hizmetleri ile Kimlik Doğrulaması Runbook'ları
@@ -38,6 +38,6 @@ AWS güvenlik anahtarlarınızı oluşturup kopyaladıktan sonra, bunları güve
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO2-->
 
 

@@ -37,6 +37,6 @@ Bir StorSimple biriminin nasıl bağlandığını, başlatıldığını ve biçi
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO2-->
 
 

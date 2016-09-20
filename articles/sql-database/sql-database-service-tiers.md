@@ -19,7 +19,9 @@
 
 # SQL Database seçenekleri ve performansı: Her hizmet katmanında nelerin kullanılabildiğini anlama
 
-[Azure SQL Database](sql-database-technical-overview.md) farklı iş yükleriyle kullanılabilecek birden çok hizmet katmanı içerir. Uygulamanızda çok az (genellikle ortalama dört saniyenin altında) kesinti ile dilediğiniz zaman [hizmet katmanlarını değiştirebilirsiniz](sql-database-scale-up.md). Ayrıca, tanımlanan özellikler ve fiyatlandırma ile [tek bir veritabanı oluşturabilirsiniz](sql-database-get-started.md). Veya [esnek veritabanı havuzu oluşturarak](sql-database-elastic-pool-create-portal.md) birden çok veritabanını yönetebilirsiniz. Her iki durumda **Temel**, **Standart** ve **Premium** katmanları mevcuttur. Bu katmanlardaki veritabanı seçenekleri tek başına veritabanları ve esnek havuzlar için benzerlik gösterir ancak esnek havuzlar için dikkat edilmesi gereken bazı noktalar söz konusudur. Bu makalede, tek başına veritabanları ve esnek havuzlar için hizmet katmanlarına yönelik ayrıntılı bilgi verilmiştir.
+[Azure SQL Veritabanı](sql-database-technical-overview.md), farklı iş yüklerini işlemek üzere birden çok performans düzeyine sahip üç hizmet katmanı sunar. Her performans düzeyi, gittikçe artan bir işleme hacmi sağlamak üzere tasarlanmış bir şekilde bir önceki düzeye göre daha fazla sayıda kaynak sağlar. Her veritabanını, kendi [hizmet katmanı](sql-database-service-tiers.md#standalone-database-service-tiers-and-performance-levels) içinde, kendine ait performans düzeyinde yönetebilirsiniz. Birden çok veritabanını, paylaşılan bir grup kaynakla bir [esnek havuz](sql-database-service-tiers.md#elastic-pool-service-tiers-and-performance-in-edtus) içinde de yönetebilirsiniz. Tek başına veritabanlarının kullanılabileceği kaynaklar, Veritabanı İşlem Birimleri (DTU'lar) ve esnek havuzlar için esnek DTU'lar, yani eDTU'lar cinsinden ifade edilir. DTU'lar ve eDTU'lar hakkında daha fazla bilgi edinmek için bkz. [DTU nedir?](sql-database-what-is-a-DTU.md). 
+
+Her iki durumda da **Temel**, **Standart** ve **Premium** hizmet katmanları mevcuttur. Bu katmanlardaki veritabanı seçenekleri tek başına veritabanları ve esnek havuzlar için benzerlik gösterir ancak esnek havuzlar için dikkat edilmesi gereken bazı noktalar söz konusudur. Bu makalede, tek başına veritabanları ve esnek havuzlar için hizmet katmanlarına yönelik ayrıntılı bilgi verilmiştir.
 
 ## Hizmet katmanları ve veritabanı seçenekleri
 Temel, Standart ve Premium hizmet katmanlarının tümü için %99,99 oranında çalışma süresi SLA'sı vardır. Hizmet katmanları; tahmin edilebilir performans, esnek iş sürekliliği seçenekleri, güvenlik özellikleri ve saatlik faturalandırma olanağı sunar. Aşağıdaki tabloda farklı uygulama iş yükleri için en uygun katman örnekleri verilmiştir.
@@ -39,24 +41,18 @@ Burada listelenen performans özellikleri [SQL Database V12](sql-database-v12-wh
 
 [AZURE.INCLUDE [SQL DB service tiers table](../../includes/sql-database-service-tiers-table.md)]
 
-DTU'lar hakkında daha fazla bilgi edinmek için bu konu başlığındaki [DTU bölümüne](#understanding-dtus) göz atın.
-
 >[AZURE.NOTE] Bu hizmet katmanları tablosundaki diğer tüm satırların ayrıntılı bir açıklaması için bkz. [Hizmet katmanı özellikleri ve sınırları](sql-database-performance-guidance.md#service-tier-capabilities-and-limits).
 
 ## eDTU'lardaki esnek havuz hizmet katmanları ve performansı
 Tek başına veritabanı oluşturmanın ve ölçeklendirmenin yanı sıra bir [esnek havuz](sql-database-elastic-pool.md) içinde birden çok veritabanını yönetme seçeneğine de sahipsiniz. Bir esnek havuzdaki tüm veritabanları, ortak bir kaynak kümesini paylaşır. Performans özellikleri *esnek Veritabanı İşlem Birimleri* (eDTU'lar) tarafından ölçülür. Tek başına veritabanlarında olduğu gibi, havuzlar da üç hizmet katmanıyla sunulur: **Temel**, **Standart** ve **Premium**. Bu üç hizmet katmanı, havuzlar için genel performans sınırlarını ve çeşitli özellikleri tanımlar 
 
-Havuzlar, veritabanlarının havuzdaki her bir veritabanına belirli bir performans düzeyi atanmasına gerek kalmadan DTU kaynaklarını paylaşmasına ve kullanmasına olanak sağlar. Örneğin, Standart havuzdaki tek başına veritabanı için eDTU kullanımı, 0 ile havuzu yapılandırdığınız sırada ayarladığınız maksimum veritabanı eDTU sayısı arasında değişiklik gösterebilir. Havuzlar, çeşitli iş yüklerine sahip birden çok veritabanının tüm havuz için kullanılabilir eDTU kaynaklarını verimli bir şekilde kullanmasına olanak sağlar. Ayrıntılı bilgi için bkz. [Esnek havuzlar için fiyat ve performans ile ilgili dikkat edilmesi gerekenler](sql-database-elastic-pool-guidance.md).
+Havuzlar, veritabanlarının havuzdaki her bir veritabanına belirli bir performans düzeyi atanmasına gerek kalmadan DTU kaynaklarını paylaşıp kullanmasına olanak sağlar. Örneğin, Standart havuzdaki tek başına veritabanı için eDTU kullanımı, 0 ile havuzu yapılandırdığınız sırada ayarladığınız maksimum veritabanı eDTU sayısı arasında değişiklik gösterebilir. Havuzlar, çeşitli iş yüklerine sahip birden çok veritabanının tüm havuz için kullanılabilir eDTU kaynaklarını verimli bir şekilde kullanmasına olanak sağlar. Ayrıntılı bilgi için bkz. [Esnek havuzlar için fiyat ve performans ile ilgili dikkat edilmesi gerekenler](sql-database-elastic-pool-guidance.md).
 
 Aşağıdaki tabloda havuz hizmet katmanlarının özellikleri açıklanmıştır.
 
 [AZURE.INCLUDE [SQL DB service tiers table for elastic pools](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
 
 Bir havuz içindeki her bir veritabanı, aynı zamanda ilgili katmanın tek başına veritabanı özelliklerine de bağlı kalır. Örneğin, Temel havuzun havuz başına maksimum oturum sayısı 4800 ile 28.800 arasında değişir ancak Temel havuz içindeki tek veritabanı için veritabanı sınırı 300 oturumdur.
-
-## DTU'ları anlama
-
-[AZURE.INCLUDE [SQL DB DTU description](../../includes/sql-database-understanding-dtus.md)]
 
 ## Hizmet katmanı seçme
 
@@ -94,6 +90,6 @@ Havuzunuzun hizmet katmanını belirledikten sonra havuzun performans düzeyini 
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO2-->
 
 

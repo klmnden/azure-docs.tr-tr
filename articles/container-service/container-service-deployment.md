@@ -15,7 +15,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/16/2016"
+   ms.date="09/13/2016"
    ms.author="rogardle"/>
 
 # Azure Kapsayıcı Hizmeti kümesini dağıtma
@@ -115,8 +115,6 @@ Aşağıdaki komutla bir Azure kaynak grubu ve Kapsayıcı Hizmeti Kümesi oluş
 > [AZURE.NOTE] Bu komutu çalıştırdığınızda, kabuk sizden dağıtım parametre değerlerini ister.
 
 ```bash
-# sample deployment
-
 azure group create -n RESOURCE_GROUP DEPLOYMENT_NAME -l LOCATION --template-uri TEMPLATE_URI
 ```
 
@@ -125,18 +123,14 @@ azure group create -n RESOURCE_GROUP DEPLOYMENT_NAME -l LOCATION --template-uri 
 Komutun bu sürümü parametreleri etkileşimli olarak tanımlamanızı gerektirir. JSON biçimli dize gibi, parametreleri sağlamak istiyorsanız bunu `-p` anahtarını kullanarak yapabilirsiniz. Örneğin:
 
  ```bash
- # sample deployment
-
 azure group deployment create RESOURCE_GROUP DEPLOYMENT_NAME --template-uri TEMPLATE_URI -p '{ "param1": "value1" … }'
- ```
+```
 
 Alternatif olarak, `-e` anahtarını kullanarak JSON biçimli parametreler dosyası sağlayabilirsiniz.
 
- ```bash
- # sample deployment
-
+```bash
 azure group deployment create RESOURCE_GROUP DEPLOYMENT_NAME --template-uri TEMPLATE_URI -e PATH/FILE.JSON
- ```
+```
 
 `azuredeploy.parameters.json` adlı örnek bir parametreler dosyası görmek için, GitHub’da Azure Kapsayıcı Hizmeti şablonları ile arayın.
 
@@ -170,10 +164,8 @@ New-AzureRmResourceGroup -Name GROUP_NAME -Location REGION
 Bir kaynak grubu oluşturduktan sonra, kümenizi aşağıdaki komutla oluşturabilirsiniz. İstenen şablon URI’si `-TemplateUri` parametresi için belirtilir. Bu komutu çalıştırdığınızda, PowerShell sizden dağıtım parametre değerlerini ister.
 
 ```powershell
-# sample deployment
-
 New-AzureRmResourceGroupDeployment -Name DEPLOYMENT_NAME -ResourceGroupName RESOURCE_GROUP_NAME -TemplateUri TEMPLATE_URI
- ```
+```
 
 ### Şablon parametrelerini belirtin
 
@@ -182,8 +174,6 @@ PowerShell hakkında bilginiz varsa, eksi işareti (-) yazarak ve ardından SEKM
 Aşağıda parametreleri içeren tam komut verilmiştir. Kaynakların adları için kendi değerlerinizi sağlayabilirsiniz.
 
 ```powershell
-# sample deployment
-
 New-AzureRmResourceGroupDeployment -ResourceGroupName RESOURCE_GROUP_NAME-TemplateURI TEMPLATE_URI -adminuser value1 -adminpassword value2 ....
 ```
 
@@ -197,6 +187,6 @@ Artık çalışan bir kümeniz olduğuna göre, bağlantı ve yönetim ayrıntı
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO2-->
 
 

@@ -58,8 +58,9 @@ Bu öğreticide [Azure App Service]’te cmd.exe veya bash gibi bir komut satır
 
     Tarayıcınızda, Express giriş sayfasını görebildiğinizden emin olmak için <http://localhost:3000> adresine gidin. Uygulamanızın düzgün çalıştığını doğruladıktan sonra, durdurmak için `Ctrl-C` kullanın.
     
-1. Benzer şekilde Azure’da oturum açın (bunun için [Azure CLI](#prereq) gerekir):
+1. ASM moduna geçiş yapın ve Azure’da oturum açın (bunun için [Azure CLI](#prereq) gerekir):
 
+        azure config mode asm
         azure login
 
     Azure aboneliğinizin bulunduğu bir Microsoft hesabıyla tarayıcıda oturum açmaya devam etmek için istemi izleyin.
@@ -245,6 +246,6 @@ Node-Inspector’ı etkinleştirmek için aşağıdaki adımları izleyin:
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=sep16_HO2-->
 
 

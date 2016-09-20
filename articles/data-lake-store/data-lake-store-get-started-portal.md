@@ -4,7 +4,7 @@
    services="data-lake-store" 
    documentationCenter="" 
    authors="nitinme" 
-   manager="paulettm" 
+   manager="jhubbard" 
    editor="cgronlun"/>
  
 <tags
@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="08/02/2016"
+   ms.date="09/13/2016"
    ms.author="nitinme"/>
 
 # Azure Portal'ı kullanarak Azure Data Lake Store ile çalışmaya başlama
@@ -34,16 +34,6 @@ Azure Data Lake Store hesabı oluşturmak ve klasör oluşturma, veri dosyaları
 Bu öğreticiye başlamadan önce aşağıdakilere sahip olmanız gerekir:
 
 - **Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü edinme](https://azure.microsoft.com/pricing/free-trial/).
-
-## <a name="signup"></a>Data Lake Store Genel Önizlemesi için Azure aboneliğinizi etkinleştirme
-
-İlk olarak, Azure aboneliğinizin Data Lake Store Genel Önizlemesi için etkinleştirilmesini istemeniz gerekir. Aşağıdaki adımları izleyin.
-
-1. Yeni [Azure Portal](https://portal.azure.com)'da oturum açın.
-2. **YENİ**'ye, **Veri + Depolama**'ya ve ardından **Azure Data Lake Store**'a tıklayın.
-3. **Yeni Data Lake Store** dikey penceresinde, **Önizlemek için kaydolun** seçeneğine tıklayın. Bilgileri okuyun ve ardından **Tamam**'a tıklayın. Aboneliğiniz Genel Önizleme için etkinleştirildikten sonra bir e-posta alacaksınız.
-
-    ![Genel Önizleme için Kaydolma](./media/data-lake-store-get-started-portal/preview-signup.png "Create a new Azure Data Lake account")
 
 ## Videolarla daha hızlı mı öğreniyorsunuz?
 
@@ -140,6 +130,6 @@ Bir Azure Data Lake Store hesabını silmek için, Data Lake Store dikey pencere
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=sep16_HO2-->
 
 

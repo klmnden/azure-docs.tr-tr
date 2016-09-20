@@ -1,6 +1,6 @@
 <properties
-    pageTitle="DevTest Labs'de laboratuvar oluşturma | Microsoft Azure"
-    description="Sanal makineler için DevTest Labs'de yeni bir laboratuvar oluşturma"
+    pageTitle="Azure DevTest Labs'de laboratuvar oluşturma | Microsoft Azure"
+    description="Sanal makineler için Azure DevTest Labs'de bir laboratuvar oluşturma"
     services="devtest-lab,virtual-machines"
     documentationCenter="na"
     authors="tomarcher"
@@ -13,25 +13,24 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="08/25/2016"
+    ms.date="09/12/2016"
     ms.author="tarcher"/>
 
 # Azure DevTest Labs'de laboratuvar oluşturma
 
 ## Ön koşullar
 
-Laboratuvar oluşturmak için aşağıdakilere sahip olmanız gerekir:
+Laboratuvar oluşturmak için aşağıdakilere ihtiyacınız vardır:
 
 - Azure aboneliği. Azure satın alma seçenekleri hakkında bilgi edinmek için bkz. [Azure'ı satın alma](https://azure.microsoft.com/pricing/purchase-options/) veya [Ücretsiz bir aylık deneme](https://azure.microsoft.com/pricing/free-trial/). Laboratuvarı oluşturmak için aboneliğin sahibi olmanız gerekir.
-- Laboratuvar için bir Azure Kaynak Grubu. Bkz. [Azure Resource Manager'a Genel Bakış](../resource-group-overview.md) ve [Azure Rol Tabanlı Erişim Denetimi](../active-directory/role-based-access-control-configure.md).
 
-## Laboratuvar oluşturma
+## Azure DevTest Labs'de laboratuvar oluşturma adımları
 
-1. [Azure portalında](http://go.microsoft.com/fwlink/p/?LinkID=525040) oturum açın.
+Aşağıdaki adımlar, Azure portal kullanarak Azure DevTest Labs’de nasıl bir laboratuvar oluşturulacağını göstermektedir. 
 
-1. **Gözat**'ı seçin.
+1. [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) oturum açın.
 
-1. Listeden **DevTest Labs**'i seçin.
+1. **More services**’i (Daha fazla hizmet’i) seçip ardından listeden **DevTest Labs**’i seçin.
 
 1. **DevTest Labs** dikey penceresinde, **Ekle**'yi seçin.
 
@@ -40,8 +39,15 @@ Laboratuvar oluşturmak için aşağıdakilere sahip olmanız gerekir:
 1. **DevTest Lab oluştur** dikey penceresinde:
 
     1. Yeni laboratuvar için bir **Laboratuvar Adı** girin.
+    
     1. Laboratuvarla ilişkilendirilecek **Abonelik** seçimini yapın.
+    
     1. Laboratuvarın depolanacağı bir **Konum** seçin.
+    
+    1. **Otomatik kapatma**’yı seçerek laboratuvarın tüm VM’lerinin otomatik olarak kapatılmasını etkinleştirmek isteyip istemediğinizi belirleyin ve buna yönelik parametreleri tanımlayın.
+    
+    1. **Depolama türü**’nü seçerek laboratuvarın VM'lerine yönelik depolama disk türünü belirtin. 
+    
     1. **Oluştur**'u seçin.
 
     ![Laboratuvar dikey penceresi oluşturma](./media/devtest-lab-create-lab/create-devtestlab-blade.png)
@@ -63,6 +69,6 @@ Laboratuvarınızı oluşturduktan sonra dikkate alınması gereken sonraki adı
 - [Yapı içeren bir VM'yi laboratuvara ekleme](devtest-lab-add-vm-with-artifacts.md).
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=sep16_HO2-->
 
 

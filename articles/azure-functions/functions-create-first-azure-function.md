@@ -15,7 +15,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="08/22/2016"
+   ms.date="09/08/2016"
    ms.author="glenga"/>
 
 #İlk Azure İşlevinizi oluşturma
@@ -23,7 +23,7 @@
 ##Genel Bakış
 Azure İşlevleri, diğer Azure hizmetlerinde, SaaS ürünlerinde ve şirket içi sistemlerde gerçekleşen olaylar tarafından tetiklenen kodları uygulama işlevine sahip var olan Azure uygulaması platformunu genişleten olay denetimli bir istendiğinde işlem deneyimidir. Azure İşlevleriyle uygulamalarınız isteğe göre ölçeklenir ve yalnızca tükettiğiniz kaynaklar için ödeme yaparsınız. Azure İşlevleri, çeşitli programlama dillerinde uygulanan zamanlanan veya tetiklenen kod birimleri oluşturmanızı sağlar. Azure İşlevleri hakkında daha fazla bilgi edinmek için bkz. [Azure İşlevlerine Genel Bakış](functions-overview.md).
 
-Bu konu başlığında, bir HTTP tetikleyicisi tarafından çağrılan basit bir "merhaba dünya" Node.js işlevi oluşturmak için Azure İşlevleri portalındaki Azure İşlevleri hızlı başlangıcının nasıl kullanılacağı gösterilmektedir. Bu adımların portalda nasıl gerçekleştirildiğini görmek için kısa bir video da izleyebilirsiniz.
+Bu konu başlığında, bir HTTP tetikleyicisi tarafından çağrılan basit bir "merhaba dünya" Node.js işlevi oluşturmak için portaldaki Azure İşlevleri hızlı başlangıcının nasıl kullanılacağı gösterilmektedir. Bu adımların portalda nasıl gerçekleştirildiğini görmek için kısa bir video da izleyebilirsiniz.
 
 ## Videoyu izleme
 
@@ -33,13 +33,17 @@ Aşağıdaki video bu öğreticideki temel adımların nasıl gerçekleştirilec
 
 ##Hızlı başlangıçtan bir işlev oluşturma
 
-Azure'da işlevlerinizin yürütülmesini bir işlev uygulaması barındırır. Yeni işlevin yanı sıra yeni bir işlev uygulaması oluşturmak için bu adımları izleyin. İlk işlevinizin oluşturmadan önce etkin bir Azure hesabınız olması gerekir. Bir Azure hesabınız yoksa [ücretsiz hesaplar kullanılabilir](https://azure.microsoft.com/free/).
+Azure'da işlevlerinizin yürütülmesini bir işlev uygulaması barındırır. Yeni işlevin yanı sıra yeni bir işlev uygulaması oluşturmak için bu adımları izleyin. Yeni işlev uygulaması, varsayılan yapılandırma ile oluşturulur. İşlev uygulamanızın açıkça nasıl oluşturulacağına ilişkin bir örnek görmek için bkz. [diğer Azure İşlevleri hızlı başlangıç öğreticisi](functions-create-first-azure-function-azure-portal.md).
+
+İlk işlevinizin oluşturmadan önce etkin bir Azure hesabınız olması gerekir. Bir Azure hesabınız yoksa [ücretsiz hesaplar kullanılabilir](https://azure.microsoft.com/free/).
 
 1. [Azure İşlevleri portalına](https://functions.azure.com/signin) gidin ve Azure hesabınız ile oturum açın.
 
 2. Yeni işlev uygulamanız için benzersiz bir **Ad** yazın veya oluşturulan adı kabul edin, tercih ettiğiniz **Region (Bölge)** seçeneğini belirleyin ve ardından **Create + get started (Oluştur + başla)** düğmesine tıklayın. 
 
-3. **Qucikstart (Hızlı Başlangıç)** sekmesinde **WebHook + API (Web Kancası + API)** > **Create a function (İşlev oluştur)** düğmesine tıklayın. Yeni bir önceden tanımlanmış Node.js işlevi oluşturulur. 
+3. **Hızlı Başlangıç** sekmesinde, **Web Kancası + API** ve **JavaScript**'e tıklayın ve ardından **İşlev oluştur**'a tıklayın. Yeni bir önceden tanımlanmış Node.js işlevi oluşturulur. 
+
+    ![](./media/functions-create-first-azure-function/function-app-quickstart-node-webhook.png)
 
 4. (İsteğe bağlı) Hızlı başlangıcın bu noktasında portaldaki Azure İşlevleri özelliklerinin hızlı turuna bakmayı seçebilirsiniz.   Turu tamamladıktan veya atladıktan sonra, HTTP tetikleyicisini kullanarak yeni işlevinizi test edebilirsiniz.
 
@@ -48,6 +52,8 @@ Azure'da işlevlerinizin yürütülmesini bir işlev uygulaması barındırır. 
 Azure İşlevleri hızlı başlangıçlarında işlevsel kod olduğundan, yeni işlevinizi hemen test edebilirsiniz.
 
 1. **Develop (Geliştir)** sekmesinde **Code (Kod)** penceresini inceleyin ve bu Node.js kodunun, ileti gövdesinde veya bir sorgu dizesinde geçirilen bir *ad* değerine sahip bir HTTP isteğini beklediğine dikkat edin. İşlev çalıştığında bu değer yanıt iletisinde döndürülür.
+
+    ![](./media/functions-create-first-azure-function/function-app-develop-tab-testing.png)
 
 2. **Request body (İstek gövdesi)** metin kutusuna doğru aşağı kaydırın, *ad* özelliğinin değerini adınızla değiştirin ve **Run (Çalıştır)** düğmesine tıklayın. Yürütmenin bir test HTTP isteği tarafından tetiklendiğini, akış günlüklerine bilginin yazıldığını ve **Output (Çıktı)** içinde "hello" yanıtının görüntülendiğini göreceksiniz. 
 
@@ -70,6 +76,6 @@ Azure İşlevleri; dağıtımlar, ortam değişkenleri ve tanılama gibi temel i
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=sep16_HO2-->
 
 

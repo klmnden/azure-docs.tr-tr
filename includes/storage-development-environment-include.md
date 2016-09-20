@@ -71,6 +71,6 @@ Depolama öykünücüsünü hedeflemek için iyi bilinen hesap adıyla ve anahta
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO2-->
 
 

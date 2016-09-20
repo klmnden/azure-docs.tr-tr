@@ -215,7 +215,7 @@ server.on("listening", () => {
 ## Sonraki adımlar
 
 * [Portalda telemetrinizi izleyin](app-insights-dashboards.md)
-* [Telemetriniz üzerinden Analytics sorguları yazın(app-insights-analytics-tour.md)
+* [Telemetriniz üzerinden Analytics sorguları yazma](app-insights-analytics-tour.md)
 
 
 
@@ -230,6 +230,6 @@ server.on("listening", () => {
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=sep16_HO2-->
 
 

@@ -424,7 +424,7 @@ Aşağıdaki örnekte, paylaşım için bir paylaşılan erişim ilkesi oluştur
         Console.WriteLine(fileSas.DownloadText());
     }
 
-Paylaşılan erişim imzaları oluşturma ve kullanma hakkında daha fazla bilgi edinmek için bkz. [Paylaşılan Erişim İmzaları: SAS modelini anlama](storage-dotnet-shared-access-signature-part-1.md) ve [Blob Storage ile SAS oluşturma ve kullanma](storage-dotnet-shared-access-signature-part-2.md).
+Paylaşılan erişim imzaları oluşturma ve kullanma hakkında daha fazla bilgi edinmek için bkz. [Paylaşılan Erişim İmzaları (SAS) kullanma](storage-dotnet-shared-access-signature-part-1.md) ve [Blob depolama ile SAS oluşturma ve kullanma](storage-dotnet-shared-access-signature-part-2.md).
 
 ### Dosyaları kopyalama
 
@@ -671,6 +671,6 @@ Azure File Storage hakkında daha fazla bilgi edinmek için şu bağlantılara g
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=sep16_HO2-->
 
 

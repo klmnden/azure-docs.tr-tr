@@ -4,7 +4,7 @@
    services="data-lake-store"
    documentationCenter=""
    authors="nitinme"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/07/2016"
+   ms.date="09/13/2016"
    ms.author="nitinme"/>
 
 # Azure PowerShell'i kullanarak Azure Data Lake Store ile çalışmaya başlama
@@ -34,7 +34,6 @@ Azure Data Lake Store hesabı oluşturma ve klasör oluşturma, veri dosyaların
 Bu öğreticiye başlamadan önce aşağıdakilere sahip olmanız gerekir:
 
 - **Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü edinme](https://azure.microsoft.com/pricing/free-trial/).
-- Data Lake Store genel önizlemesi için **Azure aboneliğinizi etkinleştirme**. Bkz. [yönergeler](data-lake-store-get-started-portal.md#signup).
 
 
 ##Azure PowerShell 1.0 sürümünü veya sonraki bir sürümü yükleme
@@ -143,6 +142,6 @@ Data Lake Store hesabınızı silmek için aşağıdaki komutu kullanın.
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=sep16_HO2-->
 
 

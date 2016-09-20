@@ -7,6 +7,6 @@
 - [CLI](../articles/data-lake-analytics/data-lake-analytics-get-started-cli.md)
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=sep16_HO2-->
 
 

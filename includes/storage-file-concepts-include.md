@@ -40,6 +40,6 @@ Dosya paylaşımlarının, dizinlerin ve dosyaların adlandırılması hakkında
 [files-concepts]: ./media/storage-file-concepts-include/files-concepts.png
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO2-->
 
 

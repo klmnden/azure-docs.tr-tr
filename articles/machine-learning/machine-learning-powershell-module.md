@@ -5,7 +5,7 @@
     services="machine-learning"
     documentationCenter=""
     authors="hning86"
-    manager="paulettm"
+    manager="jhubbard"
     editor="cgronlun"/>
 
 <tags
@@ -56,6 +56,7 @@ Machine Learning PowerShell’i kullanmaya başlamak için GitHub’dan [yayın 
 Bu önizleme dönemi boyunca PowerShell modülü geliştirilmeye ve genişletilmeye devam edilecektir. Daha fazla haber ve bilgi için gözünüzü [Cortana Intelligence ve Machine Learning Blog](https://blogs.technet.microsoft.com/machinelearning/)’dan ayırmayın.
 
 
-<!--HONumber=Aug16_HO4-->
+
+<!--HONumber=sep16_HO2-->
 
 

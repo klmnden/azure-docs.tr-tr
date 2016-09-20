@@ -30,6 +30,6 @@ Cihaz yapılandırmasını tamamladınız.
 Bir StorSimple yedeğinin nasıl alınacağını gösteren bir video izlemek için [buraya](https://azure.microsoft.com/documentation/videos/take-a-storsimple-backup/) tıklayın.
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=sep16_HO2-->
 
 
