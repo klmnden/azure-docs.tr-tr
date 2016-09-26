@@ -14,21 +14,21 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="09/09/2016" 
+    ms.date="09/16/2016" 
     ms.author="cephalin"
 />
     
 # İlk web uygulamanızı Azure’a beş dakikada dağıtın
 
-Bu öğretici, ilk web uygulamanızı [App Service](../app-service/app-service-value-prop-what-is.md)’e dağıtmanıza yardımcı olur.
+Bu öğretici, [Azure App Service](../app-service/app-service-value-prop-what-is.md)’e basit bir .HTML+CSS web uygulaması dağıtmanıza yardımcı olur.
 App Service’i web uygulamaları, [mobil uygulama arka uçları](/documentation/learning-paths/appservice-mobileapps/) ve [API uygulamaları](../app-service-api/app-service-api-apps-why-best-platform.md) oluşturmak için kullanabilirsiniz.
 
 Bu öğreticide yapacaklarınız: 
 
 - Azure App Service’te web uygulaması oluşturma.
-- Örnek kod (ASP.NET, PHP, Node.js, Java, veya Python arasından seçim yapın) dağıtın.
-- Kodunuzu üretim ortamında çalışırken görme.
-- [Git yürütmelerini gönderdiğiniz](https://git-scm.com/docs/git-push) şekilde web uygulamanızı güncelleştirme.
+- Bu web uygulamasına HTML ve CSS dağıtma.
+- Sayfalarınızı üretim ortamında çalışırken görme.
+- İçeriğinizi, [Git yürütmelerini gönderdiğiniz](https://git-scm.com/docs/git-push) şekilde güncelleştirebilirsiniz.
 
 ## Önkoşullar
 
@@ -44,7 +44,7 @@ Bu öğreticide yapacaklarınız:
 
 2. Sol taraftaki menüden **Yeni** > **Web + Mobil** > **Web Uygulaması**'na tıklayın.
 
-    ![Azure’da ilk web uygulamanızı oluşturmaya başlayın](./media/app-service-web-get-started/create-web-app-portal.png)
+    ![](./media/app-service-web-get-started-languages/create-web-app-portal.png)
 
 3. Uygulama oluşturma dikey penceresinde yeni uygulamanız için şu ayarları kullanın:
 
@@ -54,27 +54,27 @@ Bu öğreticide yapacaklarınız:
 
     İşlemleri tamamladığınızda uygulama oluşturma dikey pencereniz şu şekilde görünür:
 
-    ![Azure’da ilk web uygulamanızı yapılandırın](./media/app-service-web-get-started/create-web-app-settings.png)
+    ![](./media/app-service-web-get-started-languages/create-web-app-settings.png)
 
 3. Alttaki **Oluştur** düğmesine tıklayın. İlerlemeyi görmek için üstteki **Bildirim** simgesine tıklayabilirsiniz.
 
-    ![Azure’daki ilk web uygulamanız için uygulama oluşturma bildirimi](./media/app-service-web-get-started/create-web-app-started.png)
+    ![](./media/app-service-web-get-started-languages/create-web-app-started.png)
 
 4. Dağıtım tamamlandığında bu bildirim iletisini görürsünüz. Dağıtımınızın dikey penceresini açmak için iletiye tıklayın.
 
-    ![Azure’daki ilk web uygulamanız için dağıtım tamamlandı iletisi](./media/app-service-web-get-started/create-web-app-finished.png)
+    ![](./media/app-service-web-get-started-languages/create-web-app-finished.png)
 
 5. **Dağıtım başarılı oldu** dikey penceresinde, yeni web uygulamanızın dikey penceresini açmak için **Kaynak** bağlantısına tıklayın.
 
-    ![Azure’daki ilk web uygulamanız için kaynak bağlantısı](./media/app-service-web-get-started/create-web-app-resource.png)
+    ![](./media/app-service-web-get-started-languages/create-web-app-resource.png)
 
-## Kodu web uygulamanıza dağıtma
+## İçeriği web uygulamanıza dağıtma
 
-Şimdi de Git kullanarak Azure'a kod dağıtalım.
+Şimdi, Git kullanarak Azure'a içerik dağıtalım.
 
 5. Web uygulaması dikey penceresinde, aşağı kaydırarak veya aratarak **Dağıtım seçeneklerini** bulun ve üzerine tıklayın. 
 
-    ![Azure’daki ilk web uygulamanız için dağıtım seçenekleri](./media/app-service-web-get-started/deploy-web-app-deployment-options.png)
+    ![](./media/app-service-web-get-started-languages/deploy-web-app-deployment-options.png)
 
 6. **Kaynak Seç** > **Yerel Git Deposu** > **Tamam**'a tıklayın.
 
@@ -84,24 +84,15 @@ Bu öğreticide yapacaklarınız:
 
 7. Web uygulaması dikey penceresine döndüğünüzde, aşağı kaydırarak veya aratarak **Özellikler**'i bulun ve üzerine tıklayın. **Git URL'sinin** yanındaki **Kopyala** düğmesine tıklayın.
 
-    ![Azure’daki ilk web uygulamanız için özellikler dikey penceresi](./media/app-service-web-get-started/deploy-web-app-properties.png)
+    ![](./media/app-service-web-get-started-languages/deploy-web-app-properties.png)
 
-    Artık, kodunuzu Git ile dağıtmaya hazırsınız.
+    Artık, içeriğinizi Git ile dağıtmaya hazırsınız.
 
 1. Komut satırı terminalinizde, bir çalışma dizinine (`CD`) geçip örnek uygulamayı şu şekilde kopyalayın:
 
-        git clone <github_sample_url>
+        git clone https://github.com/Azure-Samples/app-service-web-html-get-started.git
 
-    ![Azure’daki ilk web uygulamanız için uygulama örnek kodunu kopyalama](./media/app-service-web-get-started/html-git-clone.png)
-
-    *&lt;github_sample_url>* için, tercih ettiğiniz çerçeveye bağlı olarak aşağıdaki URL’lerden birini kullanın:
-
-    - HTML+CSS+JS: [https://github.com/Azure-Samples/app-service-web-html-get-started.git](https://github.com/Azure-Samples/app-service-web-html-get-started.git)
-    - ASP.NET: [https://github.com/Azure-Samples/app-service-web-dotnet-get-started.git](https://github.com/Azure-Samples/app-service-web-dotnet-get-started.git)
-    - PHP (CodeIgniter): [https://github.com/Azure-Samples/app-service-web-php-get-started.git](https://github.com/Azure-Samples/app-service-web-php-get-started.git)
-    - Node.js (Express): [https://github.com/Azure-Samples/app-service-web-nodejs-get-started.git](https://github.com/Azure-Samples/app-service-web-nodejs-get-started.git)
-    - Java: [https://github.com/Azure-Samples/app-service-web-java-get-started.git](https://github.com/Azure-Samples/app-service-web-java-get-started.git)
-    - Python (Django): [https://github.com/Azure-Samples/app-service-web-python-get-started.git](https://github.com/Azure-Samples/app-service-web-python-get-started.git)
+    ![Azure’daki ilk web uygulamanız için uygulama örnek kodunu kopyalama](./media/app-service-web-get-started-languages/html-git-clone.png)
 
 2. Örnek uygulamanızın deposuna geçin. Örneğin: 
 
@@ -115,15 +106,13 @@ Bu öğreticide yapacaklarınız:
 
         git push azure master
 
-    ![Azure’daki ilk web uygulamanıza kod gönderme](./media/app-service-web-get-started/html-git-push.png)    
-
-    Dil çerçevelerinden birini kullandıysanız farklı bir çıktı görürsünüz. Bunun nedeni, `git push` komutunun Azure’a kod yerleştirmeye ek olarak dağıtım çerçevesinde dağıtım görevleri tetiklemesidir. Proje (depo) kökünde package.json (Node.js) veya requirements.txt (Python) dosyaları bulunuyorsa ya da ASP.NET projenizde packages.config dosyası bulunuyorsa, dağıtım betiği sizin için gerekli paketleri geri yükler. Ayrıca, PHP uygulamanızda composer.json dosyalarını otomatik olarak işlemek için [Composer uzantısını etkinleştirebilirsiniz](web-sites-php-mysql-deploy-use-git.md#composer).
+    ![Azure’daki ilk web uygulamanıza kod gönderme](./media/app-service-web-get-started-languages/html-git-push.png)    
 
 İşte bu kadar! Kodunuz artık Azure'da çalışıyor. Kodunuzun nasıl çalıştığını görmek için tarayıcınızdan http://*&lt;uygulamaadı >*.azurewebsites.net sayfasına gidin. 
 
 ## Uygulamanızda güncelleştirmeler yapma
 
-Artık, projenizin (depo) kökünden gönderim için Git kullanarak canlı sitede güncelleştirme yapabilirsiniz. Kodunuzu ilk kez dağıtırken de bu yolu izlemeniz gerekir. Örneğin, yerel olarak test ettiğiniz yeni değişiklikleri göndermek istediğinizde tek yapmanız gereken, projenizin (depo) kökünden aşağıdaki komutları çalıştırmaktır:
+Artık, projenizin (depo) kökünden gönderim için Git kullanarak canlı sitede güncelleştirme yapabilirsiniz. İçeriğinizi ilk kez dağıtırken de bu yolu izlemeniz gerekir. Örneğin, yerel olarak test ettiğiniz yeni değişiklikleri göndermek istediğinizde tek yapmanız gereken, projenizin (depo) kökünden aşağıdaki komutları çalıştırmaktır:
 
     git add .
     git commit -m "<your_message>"
