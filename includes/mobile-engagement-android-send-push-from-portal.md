@@ -46,13 +46,12 @@ Mobile Engagement’ın sizin adınıza anında iletme bildirimleri göndermesin
 
     ![](./media/mobile-engagement-android-send-push/campaign-content.png)
 
-5. Olabilecek en temel kampanya ayarını bitirdiniz. Şimdi kaydırarak yeniden aşağı gidin ve kampanyanızı kaydetmek için **Oluştur** düğmesine tıklayın.
+5. Olabilecek en temel kampanya ayarını bitirdiniz. Şimdi kaydırarak yeniden aşağı gidin ve **Oluştur** düğmesine tıklayarak kampanyanızı kaydedin.
 
 6. Son adım: anında iletme bildirimlerini gönderecek kampanyanızı etkinleştirmek için **Etkinleştir**’e tıklayın.
 
     ![](./media/mobile-engagement-android-send-push/campaign-activate.png)
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

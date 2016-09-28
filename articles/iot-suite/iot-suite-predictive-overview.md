@@ -17,6 +17,7 @@
  ms.date="08/17/2016"
  ms.author="araguila"/>
 
+
 # Önceden yapılandırılmış tahmine dayalı bakım çözümüne genel bakış
 
 Önceden yapılandırılmış *tahmine dayalı bakım* çözümü [önceden yapılandırılmış çözümlerden][lnk_preconfigured_solutions] biridir; [Microsoft Azure IOT Paketi][lnk_iot_suite]’nin bir parçası olarak yayımlanmıştır. Bu çözüm, gerçek zamanlı cihaz telemetri koleksiyonunu [Azure Machine Learning][lnk_machine_learning] kullanılarak oluşturulan tahmine dayalı modelle tümleştirir.
@@ -68,6 +69,6 @@ Tahmine dayalı önceden yapılandırılmış çözümün bir [adım adım kıla
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

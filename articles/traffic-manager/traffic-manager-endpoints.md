@@ -15,6 +15,7 @@
    ms.date="03/17/2016"
    ms.author="sewhee" />
 
+
 # Uç noktaları ekleme, devre dışı bırakma, etkinleştirme veya silme
 
 Azure App Service'teki Web Apps özelliği, web sitesi modundan bağımsız olarak bir veri merkezi içindeki web siteleri için yük devretme ve hepsini bir kez deneme trafik yönlendirme işlevini zaten sağlamaktadır. Azure Traffic Manager, farklı veri merkezlerinde bulunan web siteleri ve bulut hizmetleri için yük devretme ve hepsini bir kez deneme trafik yönlendirmesini belirtmenize olanak tanır. Bu işlevin sağlanması için gereken ilk adım, bulut hizmeti veya web sitesi uç noktasını Traffic Manager'a eklemektir.
@@ -77,6 +78,6 @@ Aynı zamanda bir Traffic Manager profilinin parçası olan tekil uç noktaları
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

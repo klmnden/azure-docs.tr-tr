@@ -16,6 +16,7 @@
     ms.date="06/27/2016"
     ms.author="douglasl"/>
 
+
 # Esnetme Veritabanı'na genel bakış
 
 Esnetme Veritabanı soğuk verilerinizi şeffaf ve güvenli bir şekilde Microsoft Azure bulutuna geçirir.
@@ -82,6 +83,6 @@ Esnetme Veritabanı için veritabanlarını ve tabloları tanımlamak üzere SQL
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

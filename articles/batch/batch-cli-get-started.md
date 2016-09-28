@@ -16,6 +16,7 @@
    ms.date="09/06/2016"
    ms.author="marsma"/>
 
+
 # Azure Batch CLI kullanmaya başlama
 
 Platformlar arası Azure Komut Satırı Arabirimi (Azure CLI); Linux, Mac ve Windows komut kabuklarında Batch hesaplarınızı ve havuzlar, işler ve görevler gibi kaynakları Kabukları görevler gibi kaynakları yönetmenizi sağlar. Azure Batch CLI ile Batch API'leri, Azure portalı ve Batch PowerShell cmdlet’leri ile gerçekleştirdiğiniz görevlerin çoğunu gerçekleştirebilir ve betik oluşturabilirsiniz.
@@ -255,6 +256,6 @@ Bu bölümde Azure CLI ile ilgili sorunları giderirken kullanılacak kaynaklar�
 [rest_add_pool]: https://msdn.microsoft.com/library/azure/dn820174.aspx
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

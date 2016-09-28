@@ -7,7 +7,6 @@
 - [Ruby](../articles/service-bus/service-bus-ruby-how-to-use-queues.md)
 
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

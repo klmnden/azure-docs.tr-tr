@@ -15,6 +15,7 @@
    ms.date="03/17/2016"
    ms.author="sewhee" />
 
+
 # Bir Azure Traffic Manager profilini yönetme
 
 Traffic Manager tarafından izlenecek bulut hizmetlerini veya web sitesi uç noktalarını, aynı zamanda bu uç noktalarına bağlantıları dağıtırken hangi trafik yönlendirme yöntemini kullanmak istediğinizi belirtmek için bir Traffic Manager profilini kullanırsınız.
@@ -86,6 +87,6 @@ Klasik Azure portalındaki Yönetim Hizmetleri'nde, Traffic Manager profilinizin
 [Traffic Manager düşürülmüş durumu için sorun giderme](traffic-manager-troubleshooting-degraded.md)
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

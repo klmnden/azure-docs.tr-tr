@@ -17,6 +17,7 @@
     ms.date="07/13/2016"
     ms.author="anandy;billmath"/>
 
+
 # Azure’da AD FS dağıtımı 
 
 AD FS basitleştirilmiş, güvenli kimlik federasyonu ve Web’de çoklu oturum açma (SSO) özellikleri sağlar. Azure AD veya O365 ile federasyon, kullanıcıların şirket içi kimlik bilgilerini kullanarak kimlik doğrulaması yapmasını ve buluttaki tüm kaynaklara erişmesini sağlar. Sonuç olarak, hem şirket içindeki hem de buluttaki kaynaklara erişimi sağlamak için yüksek oranda kullanılabilir bir AD FS altyapısına sahip olunması önemlidir. AD FS'nin Azure’da dağıtılması en az çaba ile yüksek kullanılabilirlik elde etmeye yardımcı olabilir.
@@ -319,6 +320,6 @@ Oturum açma başarılı olduğunda aşağıdaki gibi bir başarı iletisi göst
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

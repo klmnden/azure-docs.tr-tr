@@ -16,6 +16,7 @@
     ms.date="08/30/2016"
     ms.author="brandwe"/>
 
+
 # Azure AD B2C: Node.js kullanarak bir web API'sinin güvenliğini sağlama
 
 <!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->
@@ -782,6 +783,6 @@ Artık şunlar gibi daha ileri seviyeli konulara geçebilirsiniz:
 [B2C ile iOS kullanarak bir web API'sine bağlanma](active-directory-b2c-devquickstarts-ios.md)
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

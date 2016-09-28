@@ -19,6 +19,7 @@
     ms.author="v-livech"
 />
 
+
 # Portal kullanarak Azure’da bir Linux VM oluşturma.
 
 
@@ -80,6 +81,6 @@ ssh -i ~/.ssh/azure_id_rsa ubuntu@13.91.99.206
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

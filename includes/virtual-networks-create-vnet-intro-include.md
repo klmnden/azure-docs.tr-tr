@@ -2,7 +2,6 @@ Azure Virtual Network (VNet) buluttaki kendi ağınızın bir gösterimidir. Azu
 
 
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

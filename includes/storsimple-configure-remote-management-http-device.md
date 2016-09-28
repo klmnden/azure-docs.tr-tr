@@ -13,7 +13,6 @@
 
 6. Sayfanın alt kısmındaki **Kaydet**’e tıklayın.
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

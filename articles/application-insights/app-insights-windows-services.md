@@ -16,6 +16,7 @@
     ms.author="awills"/>
 
 
+
 # ASP.NET 4 uygulamaları için Application Insights’ı el ile yapılandırma
 
 *Application Insights önizlemededir.*
@@ -165,6 +166,6 @@ Lütfen [bu Sorun Giderme maddesine](app-insights-asp-net-troubleshoot-no-data.m
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

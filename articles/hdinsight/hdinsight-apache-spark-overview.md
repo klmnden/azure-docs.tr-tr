@@ -17,6 +17,7 @@
     ms.date="08/25/2016" 
     ms.author="nitinme"/>
 
+
 # Genel Bakış: HDInsight’ta Apache Spark Linux
  
 <a href="http://spark.apache.org/" target="_blank">Apache Spark</a>, Büyük veri analizi uygulamalarının performansını artırmak üzere bellek içi işlemeyi destekleyen açık kaynaklı bir paralel işleme altyapısıdır. Spark işleme altyapısı hız, kullanım kolaylığı, gelişmiş analizler için oluşturulmuştur. Spark'ın bellek içi hesaplama özellikleri onu, machine learning ve grafik hesaplamalarında yinelemeli algoritmalar için iyi bir seçim haline getirir. Azure'da depolanan mevcut verilerinizi Spark aracılığıyla kolayca işleyebileceğiniz şekilde Spark Azure Blob Storage (WASB) ile de uyumludur.
@@ -137,6 +138,6 @@ HDInsight Linux’ta Spark kümesi oluşturma ile başlayın. Bkz. [Hızlı Baş
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

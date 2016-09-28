@@ -16,6 +16,7 @@
     ms.date="07/16/2016"
     ms.author="jehollan"/>
 
+
 # SaaS hizmetlerine bağlanan yeni bir mantıksal uygulama oluşturma
 
 Bu konuda [Azure Logic Apps](app-service-logic-what-are-logic-apps.md)’i kullanmaya birkaç dakika içinde nasıl başlayabileceğiniz gösterilmektedir. E-postanıza ilgi çekici tweet’ler göndermenize imkan tanıyan basit bir iş akışı gösterilecektir.
@@ -68,6 +69,6 @@ Mantıksal uygulamanız artık çalışır durumdadır. Girilen arama terimini i
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

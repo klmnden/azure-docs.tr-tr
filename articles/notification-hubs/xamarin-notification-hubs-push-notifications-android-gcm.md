@@ -16,6 +16,7 @@
     ms.date="06/29/2016"
     ms.author="wesmc"/>
 
+
 # Android için Xamarin ile Notification Hubs'ı kullanmaya başlama
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -51,7 +52,7 @@ Bu öğreticiyi tamamlamak Xamarin.Android uygulamalarına ilişkin diğer tüm 
 
 ##Google Cloud Messaging'i etkinleştirme
 
-[AZURE.INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-Google-cloud-messaging.md)]
+[AZURE.INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-google-cloud-messaging.md)]
 
 ##Bildirim hub'ınızı yapılandırma
 
@@ -522,6 +523,6 @@ Bu basit örnekte, tüm Android cihazlarınıza bildirimler yayımladınız. Bel
 
 
 
-<!----HONumber=Aug16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

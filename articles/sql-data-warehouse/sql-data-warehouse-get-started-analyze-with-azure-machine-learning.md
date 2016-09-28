@@ -16,6 +16,7 @@
    ms.date="09/14/2016"
    ms.author="kevin;barbkess;sonyama"/>
 
+
 # Azure Machine Learning ile veri çözümleme
 
 > [AZURE.SELECTOR]
@@ -148,6 +149,6 @@ Tahmine dayalı makine öğrenimi modellerinin oluşturulmasına ilişkin daha f
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

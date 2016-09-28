@@ -1,20 +1,21 @@
-<properties 
-    pageTitle="AD FS 2.0 ile Azure Multi-Factor Authentication Sunucusu kullanarak bulut ve şirket içi kaynakları güvenli hale getirin." 
-    description="Bu, nasıl Azure MFA ve AD FS 2.0 kullanmaya başlayacağınızı açıklayan Azure Multi-Factor Authentication sayfasıdır." 
-    services="multi-factor-authentication" 
-    documentationCenter="" 
-    authors="billmath" 
-    manager="stevenpo" 
+<properties
+    pageTitle="AD FS 2.0 ile Azure Multi-Factor Authentication Sunucusu kullanarak bulut ve şirket içi kaynakları güvenli hale getirin."
+    description="Bu, nasıl Azure MFA ve AD FS 2.0 kullanmaya başlayacağınızı açıklayan Azure Multi-Factor Authentication sayfasıdır."
+    services="multi-factor-authentication"
+    documentationCenter=""
+    authors="kgremban"
+    manager="femila"
     editor="curtland"/>
 
-<tags 
-    ms.service="multi-factor-authentication" 
-    ms.workload="identity" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="get-started-article" 
-    ms.date="08/04/2016" 
-    ms.author="billmath"/>
+<tags
+    ms.service="multi-factor-authentication"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="08/04/2016"
+    ms.author="kgremban"/>
+
 # AD FS 2.0 ile Azure Multi-Factor Authentication Sunucusu kullanarak bulut ve şirket içi kaynakları güvenli hale getirin.
 
 Kuruluşunuz Azure Active Directory ile birleştirildiyse ve bulutta ya da şirket içi güvenli hale getirmek istediğiniz kaynaklarınız varsa, bunu Azure Multi-Factor Authentication Sunucusu kullanarak ve onu yüksek değerli uç noktalar için multi-factor authentication tetiklenecek şekilde yapılandırarak yapabilirsiniz.
@@ -23,7 +24,7 @@ Bu belge AD FS 2.0 ile Multi-Factor Authentication Sunucusu kullanmayı ele alı
 
 
 ## AD FS 2.0 ara sunucusu
-Ara sunucu ile AD FS 2.0 güvenliğini sağlamak için, ADFS ara sunucusunda Azure Multi-Factor Authentication Sunucusu’nu yükleyin ve aşağıdaki adımları kullanarak Sunucu’yu yapılandırın. 
+Ara sunucu ile AD FS 2.0 güvenliğini sağlamak için, ADFS ara sunucusunda Azure Multi-Factor Authentication Sunucusu’nu yükleyin ve aşağıdaki adımları kullanarak Sunucu’yu yapılandırın.
 
 ### Bir ara sunucu ile AD FS 2.0’ı güvenli hale getirmek için
 
@@ -63,7 +64,7 @@ Ara sunucu ile AD FS 2.0 güvenliğini sağlamak için, ADFS ara sunucusunda Azu
 
 ## Ara sunucu olmadan AD FS 2.0 Direct
 
-AD FS ara sunucusu kullanılmadığında AD FS’yi güvenli hale getirmek için, AD FS sunucusunda Azure Multi-Factor Authentication Sunucusu’nu yükleyin ve aşağıdaki adımları kullanarak Sunucu’yu yapılandırın. 
+AD FS ara sunucusu kullanılmadığında AD FS’yi güvenli hale getirmek için, AD FS sunucusunda Azure Multi-Factor Authentication Sunucusu’nu yükleyin ve aşağıdaki adımları kullanarak Sunucu’yu yapılandırın.
 
 ### Ara sunucu olmadan AD FS 2.0’ı güvenli hale getirmek için
 1. Azure Multi-Factor Authentication Sunucusu’nda, soldaki menüde IIS Kimlik Doğrulaması simgesine tıklayın.
@@ -80,7 +81,7 @@ AD FS ara sunucusu kullanılmadığında AD FS’yi güvenli hale getirmek için
 
 
 ## Güvenilen IP'ler
-Güvenilen IP'ler kullanıcıların belirli IP adresleri veya alt ağlardan kaynaklanan web sitesi istekleri için Azure Multi-Factor Authentication’ı atlamasına olanak tanır. Örneğin, ofisten oturum açarken kullanıcıların Azure Multi-Factor Authentication’dan muaf tutulmasını isteyebilirsiniz. Bunun için ofis alt ağını Güvenilen IP’ler girişi olarak belirtebilirsiniz. 
+Güvenilen IP'ler kullanıcıların belirli IP adresleri veya alt ağlardan kaynaklanan web sitesi istekleri için Azure Multi-Factor Authentication’ı atlamasına olanak tanır. Örneğin, ofisten oturum açarken kullanıcıların Azure Multi-Factor Authentication’dan muaf tutulmasını isteyebilirsiniz. Bunun için ofis alt ağını Güvenilen IP’ler girişi olarak belirtebilirsiniz.
 
 ### Güvenilen IP'leri yapılandırmak için
 
@@ -93,10 +94,8 @@ Güvenilen IP'ler kullanıcıların belirli IP adresleri veya alt ağlardan kayn
 
 <center>![Kurulum](./media/multi-factor-authentication-get-started-adfs-adfs2/trusted.png)</center>
 
- 
 
 
-
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

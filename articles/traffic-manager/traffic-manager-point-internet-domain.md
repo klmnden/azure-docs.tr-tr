@@ -15,6 +15,7 @@
    ms.date="03/17/2016"
    ms.author="sewhee" />
 
+
 # Bir şirketin İnternet etki alanını Azure Traffic Manager etki alanına yönlendirme
 
 Şirketinizin etki alanı adını bir Traffic Manager etki alanına yönlendirmek için İnternet DNS sunucunuzdaki DNS kaynak kaydını değiştirerek şirketinizin etki alanı adını Traffic Manager profilinizin etki alanı adına eşleyecek CNAME kaynak türünü kullanın. Traffic Manager profilinin Yapılandırma sayfasındaki **Genel** bölümünde Traffic Manager etki alanı adını görebilirsiniz.
@@ -37,6 +38,6 @@
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

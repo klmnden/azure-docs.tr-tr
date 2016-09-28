@@ -30,7 +30,6 @@ Joker karakter kaydı kümesi oluşturmak için "\*" kayıt kümesi adını kull
 CNAME kaydı kümeleri aynı ada sahip diğer kayıt kümeleriyle birlikte olamaz. Örneğin, "www" göreli adına sahip bir CNAME kaydı kümesini ve "www" göreli adına sahip bir A kaydını aynı anda oluşturamazsınız. Bölge tepesinde (ad = ' @') her zaman, bölge oluşturulduğunda oluşturulan NS ve SOA kaydı kümeleri bulunduğundan bölge tepesinde CNAME kaydı kümesi oluşturamazsınız. Bu kısıtlamalar DNS standartları kaynaklıdır, Azure DNS sınırlamaları değildir.
 
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

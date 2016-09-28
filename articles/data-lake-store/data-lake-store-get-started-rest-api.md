@@ -16,6 +16,7 @@
    ms.date="09/13/2016"
    ms.author="nitinme"/>
 
+
 # REST API'lerini kullanarak Azure Data Lake Store ile çalışmaya başlama
 
 > [AZURE.SELECTOR]
@@ -277,6 +278,6 @@ Aşağıdaki gibi bir çıktı görmeniz gerekir:
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

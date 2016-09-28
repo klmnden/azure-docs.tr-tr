@@ -16,6 +16,7 @@
     ms.date="08/17/2016"
     ms.author="sethm"/>
 
+
 # Azure Event Hubs nedir?
 
 Azure Event Hubs, bağlı cihazlarınız ve uygulamalarınız tarafından üretilen oldukça büyük miktardaki verileri işleyip analiz edebilmeniz için saniye başına milyonlarca olayı işleyebilen ileri düzeyde ölçeklenebilir bir veri alım sistemidir. Event Hubs bir olay komut zincirinin "ön kapısı" olarak görev yapar ve veriler bir Event Hub'ına toplandıktan sonra herhangi bir gerçek zamanlı analiz sağlayıcısı veya toplu işlem/depolama bağdaştırıcısı kullanılarak dönüştürülebilir ve depolanabilir. Event Hubs olay akışı üretimlerini bu olayların tüketilmesinden ayırır, böylece olay tüketicileri olaylara kendi zamanlamalarında erişebilir. Daha fazla bilgi ve teknik ayrıntılar için bkz. [Event Hubs’a genel bakış](event-hubs-overview.md).
@@ -45,6 +46,6 @@ Event Hubs hakkında ayrıntılı bilgi için aşağıdaki konulara bakın.
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

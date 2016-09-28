@@ -16,6 +16,7 @@
     ms.date="07/25/2016"
     ms.author="spelluru"/>
 
+
 # Azure Veri Kataloğu'nu benimseme
 Bu makale, kuruluşunuzda **Azure Veri Kataloğu**'nu benimsemeye başlamanıza yardımcı olacaktır. **Azure Veri Kataloğu**'nu başarıyla benimseyebilmek için üç temel öğeye odaklanmayı tercih edebilirsiniz: vizyonunuzu tanımlama, kuruluşunuz dahilindeki önemli iş kullanımı durumlarını tanımlama ve pilot proje seçme.
 
@@ -175,6 +176,6 @@ Bu makalede, kuruluşunuzda **Azure Veri Kataloğu** ile çalışmaya başlama k
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

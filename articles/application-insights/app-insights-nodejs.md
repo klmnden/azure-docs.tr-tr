@@ -16,6 +16,7 @@
     ms.author="awills"/>
 
 
+
 # Node.js uygulamanızı izlemek için Application Insights SDK’sı ekleme
 
 *Application Insights önizlemededir.*
@@ -230,6 +231,6 @@ server.on("listening", () => {
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

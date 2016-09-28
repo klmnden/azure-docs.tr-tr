@@ -16,6 +16,7 @@
     ms.date="07/06/2016"
     ms.author="maheshu"/>
 
+
 # Azure AD Etki Alanı Hizmetleri *(Önizleme)* - Azure AD Etki Alanı Hizmetleri'ni Etkinleştirme
 
 ## Görev 3: Azure AD Etki Alanı Hizmetleri'ni etkinleştirme
@@ -96,6 +97,6 @@ Sonraki yapılandırma görevi [Azure sanal ağı için DNS ayarlarını güncel
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

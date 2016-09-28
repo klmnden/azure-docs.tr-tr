@@ -13,8 +13,9 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/29/2016"
+   ms.date="09/26/2016"
    ms.author="chmatsk;tomfitz"/>
+
 
 # Visual Studio Code’da Azure Resource Manager Şablonları ile Çalışma
 
@@ -138,6 +139,6 @@ Bir şablonla çalışmaya başlamanın en kolay yolu [Github](https://github.co
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

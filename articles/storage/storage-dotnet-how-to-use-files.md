@@ -13,7 +13,8 @@
     ms.devlang="dotnet"
     ms.topic="hero-article"
     ms.date="07/26/2016"
-    ms.author="minet" />
+    ms.author="minet;robinsh" />
+
 
 # .NET kullanarak Azure File Storage’ı kullanmaya başlayın
 
@@ -27,7 +28,7 @@ Azure File Storage, standart [Sunucu İleti Blogu (SMB) Protokolü](https://msdn
 
 File Storage paylaşımı standart SMB dosya paylaşımı olduğu için Azure’da çalışan uygulamalar dosya sisteminin G/Ç API’leri üzerinden paylaşımdaki veriye erişebilir. Böylece geliştiriciler mevcut uygulamalarını taşımak üzere kullandıkları kodlar ve yeteneklerden yararlanabilir. BT Uzmanları Azure uygulamalarını yönetmenin bir parçası olarak File Storage paylaşımlarını oluşturmak, bunları bağlamak ve yönetmek için PowerShell.cmdlet’leri kullanabilir.
 
-[Azure Portal](https://portal.azure.com)’ı, Azure Storage PowerShell cmdlet’lerini, Azure Storage istemcisi kitaplıklarını veya Azure Storage REST API’sini kullanarak Azure dosya paylaşımları oluşturabilirsiniz. Ayrıca, bu dosya paylaşımları SMB paylaşımları olduğundan bunlara standart ve benzer dosya sistemi API’leriyle erişebilirsiniz. 
+[Azure Portal](https://portal.azure.com)’ı, Azure Storage PowerShell cmdlet’lerini, Azure Storage istemcisi kitaplıklarını veya Azure Storage REST API’sini kullanarak Azure dosya paylaşımları oluşturabilirsiniz. Ayrıca, bu dosya paylaşımları SMB paylaşımları olduğundan bunlara standart ve benzer dosya sistemi API’leriyle erişebilirsiniz.
 
 Dosya paylaşımını Linux ile kullanma hakkında bilgi edinmek için bkz. [Azure File Storage’ı Linux ile kullanma](storage-how-to-use-files-linux.md).
 
@@ -67,7 +68,7 @@ File Storage artık tüm depolama hesaplarında desteklenir. Bu sayede, ister me
 - Dosya paylaşımınızdan veya dosya paylaşımınıza dosya yükleme ve indirme
 - Her bir dosya paylaşımının gerçek kullanımını izleme
 - Paylaşım boyutu kotasını ayarlama
-- Dosya paylaşımını bağlamak üzere bir Windows istemcisinden `net use` komutunu alma 
+- Dosya paylaşımını bağlamak üzere bir Windows istemcisinden `net use` komutunu alma
 
 ### Dosya paylaşımı oluşturma
 
@@ -85,7 +86,7 @@ File Storage artık tüm depolama hesaplarında desteklenir. Bu sayede, ister me
 
     ![Portalda dosya paylaşımı oluşturmayı gösteren ekran görüntüsü](./media/storage-dotnet-how-to-use-files/files-create-share-2.png)
 
-5. "Dosya paylaşımları" seçeneğine tıklayın ve ilk dosya paylaşımınızı oluşturmak üzere bağlantıyı takip edin. 
+5. "Dosya paylaşımları" seçeneğine tıklayın ve ilk dosya paylaşımınızı oluşturmak üzere bağlantıyı takip edin.
 
     ![Portalda dosya paylaşımı oluşturmayı gösteren ekran görüntüsü](./media/storage-dotnet-how-to-use-files/files-create-share-3.png)
 
@@ -119,7 +120,7 @@ File Storage artık tüm depolama hesaplarında desteklenir. Bu sayede, ister me
 
     ![Dosya paylaşımını bağlamayı gösteren ekran görüntüsü](./media/storage-dotnet-how-to-use-files/files-manage-3.png)
 
-    >[AZURE.TIP] Bağlama için depolama hesabı erişim tuşunu bulmak üzere depolama hesabınızın **Ayarlar**’ına ve ardından **Erişim tuşları**’na tıklayın. 
+    >[AZURE.TIP] Bağlama için depolama hesabı erişim tuşunu bulmak üzere depolama hesabınızın **Ayarlar**’ına ve ardından **Erişim tuşları**’na tıklayın.
 
     ![Depolama hesabı erişim tuşu bulmayı gösteren ekran görüntüsü](./media/storage-dotnet-how-to-use-files/files-manage-4.png)
 
@@ -191,18 +192,18 @@ Azure PowerShell’in 0.9.7 sürümünden başlayarak, bir dosyayı başka bir d
     # copy a blob to a file directory
     Start-AzureStorageFileCopy -SrcContainerName srcctn -SrcBlobName hello2.txt -DestShareName hello -DestFilePath hellodir/hello2copy.txt -DestContext $ctx -Context $ctx
 
-## Dosya paylaşımını bağlama 
+## Dosya paylaşımını bağlama
 
-File Storage artık SMB 3.0 desteği sayesinde şifreleme ve SMB 3.0 istemcilerinden kalıcı tanıtıcıları destekler. Şifreleme desteği sayesinde SMB 3.0 istemciler aşağıdakiler dahil olmak üzere her yerde bir dosya paylaşımını bağlayabilir: 
+File Storage artık SMB 3.0 desteği sayesinde şifreleme ve SMB 3.0 istemcilerinden kalıcı tanıtıcıları destekler. Şifreleme desteği sayesinde SMB 3.0 istemciler aşağıdakiler dahil olmak üzere her yerde bir dosya paylaşımını bağlayabilir:
 
 - Aynı bölgede bulunan bir Azure Virtual Machine (ayrıca SMB 2.1 tarafından desteklenen)
 - Farklı bölgede bulunan bir Azure Virtual Machine (yalnızca SMB 3.0) 
-- Şirket içi bir istemci uygulaması (yalnızca SMB 3.0) 
+- Şirket içi bir istemci uygulaması (yalnızca SMB 3.0)
 
 Bir istemci File Storage’a eriştiğinde, kullanılan SMB sürümü işletim sistemi tarafından desteklenen SMB sürümüne bağlıdır. Aşağıdaki tabloda Windows istemcileri için sunulan desteğin bir özeti yer almaktadır. [SMB sürümleri](http://blogs.technet.com/b/josebda/archive/2013/10/02/windows-server-2012-r2-which-version-of-the-smb-protocol-smb-1-0-smb-2-0-smb-2-1-smb-3-0-or-smb-3-02-you-are-using.aspx) hakkında daha fazla ayrıntı için bu blogu inceleyin.
 
 | Windows İstemcisi         | Desteklenen SMB Sürümü |
-|------------------------|-----------------------|
+|:-----------------------|:----------------------|
 | Windows 7              | SMB 2.1               |
 | Windows Server 2008 R2 | SMB 2.1               |
 | Windows 8              | SMB 3.0               |
@@ -249,12 +250,12 @@ Artık başka bir sürücüyle yaptığınız gibi sanal makineden File Storage 
 
 Azure bulut hizmetindeki çalışan bir rolle uzaktan bağlantı kurarak bu rolden de dosya paylaşımını bağlayabilirsiniz.
 
-### Windows çalıştıran şirket içi bir istemciden dosya paylaşımını bağlama 
+### Windows çalıştıran şirket içi bir istemciden dosya paylaşımını bağlama
 
 Şirket için bir istemciden dosya paylaşımını bağlamak için, öncelikle şu adımları uygulamanız gerekir:
 
-- Windows’un SMB 3.0’ı destekleyen bir sürümünü yükleyin. Windows, şirket içi istemcileriniz ile buluttaki Azure dosya paylaşımı arasında güvenli şekilde veri aktarmak için SMB 3.0 şifreleme özelliğinden yararlanır. 
-- SMB protokolü için gerektiğinden dolayı yerel ağınızda 445 bağlantı noktası (TCP Giden) için İnternet erişimini açın. 
+- Windows’un SMB 3.0’ı destekleyen bir sürümünü yükleyin. Windows, şirket içi istemcileriniz ile buluttaki Azure dosya paylaşımı arasında güvenli şekilde veri aktarmak için SMB 3.0 şifreleme özelliğinden yararlanır.
+- SMB protokolü için gerektiğinden dolayı yerel ağınızda 445 bağlantı noktası (TCP Giden) için İnternet erişimini açın.
 
 > [AZURE.NOTE] Bazı İnternet hizmet sağlayıcıları 445 bağlantı noktasını engelleyebilir. Bu nedenle, hizmet sağlayıcınızı kontrol etmeniz gerekebilir.
 
@@ -270,7 +271,7 @@ Visual Studio’da yeni bir konsol uygulaması oluşturmak ve Azure Storage İst
 2. Konsol uygulamasının adını yazıp **Tamam**’a tıklayın.
 3. Projeniz oluşturulduktan sonra Çözüm Gezgini'nde projeye sağ tıklayın ve **NuGet Paketlerini Yönet**’i seçin. Çevrimiçi olarak "WindowsAzure.Storage" ifadesini arayın ve .NET paketi ve bağımlılıkları için Azure Storage İstemci Kitaplığı’nı yüklemek için **Yükle**’ye tıklayın.
 
-Bu makaledeki kod örnekleri, konsol uygulamasındaki app.config dosyasından depolama bağlantı dizesini almak için [Microsoft Azure Yapılandırma Yöneticisi Kitaplığı](https://msdn.microsoft.com/library/azure/mt634646.aspx)’nı da kullanır. Azure Yapılandırma Yöneticisi’ni kullanarak, uygulamanızın Microsoft Azure’da veya masaüstü, mobil veya web uygulamasından çalışması önemli olmaksızın çalışma zamanında bağlantı dizenizi alabilirsiniz. 
+Bu makaledeki kod örnekleri, konsol uygulamasındaki app.config dosyasından depolama bağlantı dizesini almak için [Microsoft Azure Yapılandırma Yöneticisi Kitaplığı](https://msdn.microsoft.com/library/azure/mt634646.aspx)’nı da kullanır. Azure Yapılandırma Yöneticisi’ni kullanarak, uygulamanızın Microsoft Azure’da veya masaüstü, mobil veya web uygulamasından çalışması önemli olmaksızın çalışma zamanında bağlantı dizenizi alabilirsiniz.
 
 Azure Yapılandırma Yöneticisi paketini yüklemek için Çözüm Gezgini'nde projeye sağ tıklayın ve **NuGet Paketlerini Yönet**’i seçin. Çevrimiçi olarak "ConfigurationManager" ifadesini arayın ve paketi yüklemek için **Yükle**’ye tıklayın.
 
@@ -540,7 +541,7 @@ Aşağıdaki kodlarda, File Storage için ölçümleri etkinleştirmek üzere .N
     using Microsoft.WindowsAzure.Storage.File.Protocol;
     using Microsoft.WindowsAzure.Storage.Shared.Protocol;
 
-Blob, Tablo ve Kuyruk depolamanın `Microsoft.WindowsAzure.Storage.Shared.Protocol` ad alanındaki paylaşılan `ServiceProperties` türünü kullanmasına rağmen, File Storage’ın `Microsoft.WindowsAzure.Storage.File.Protocol` ad alanındaki `FileServiceProperties` türü olan kendi türünü kullandığını unutmayın. Aşağıdaki kodların derlenebilmesi için her iki ad alanına da kodunuzdan başvurulmuş olması gerekir. 
+Blob, Tablo ve Kuyruk depolamanın `Microsoft.WindowsAzure.Storage.Shared.Protocol` ad alanındaki paylaşılan `ServiceProperties` türünü kullanmasına rağmen, File Storage’ın `Microsoft.WindowsAzure.Storage.File.Protocol` ad alanındaki `FileServiceProperties` türü olan kendi türünü kullandığını unutmayın. Aşağıdaki kodların derlenebilmesi için her iki ad alanına da kodunuzdan başvurulmuş olması gerekir.
 
     // Parse your storage connection string from your application's configuration file.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -584,37 +585,37 @@ Blob, Tablo ve Kuyruk depolamanın `Microsoft.WindowsAzure.Storage.Shared.Protoc
 
 ## File Storage SSS
 
-1. **File Storage Active Directory tabanlı kimlik doğrulamasını destekliyor mu?** 
+1. **File Storage Active Directory tabanlı kimlik doğrulamasını destekliyor mu?**
 
-    Şu anda AD tabanlı kimlik doğrulamasını veya ACL’leri desteklemiyoruz. Ancak, bunu özellik istekleri listemize ekledik. Şimdilik, dosya paylaşımı için kimlik doğrulaması sağlamak üzere Azure Storage hesabı anahtarları kullanılıyor. REST API veya istemci kitaplıkları aracılığıyla kullanılan paylaşılan erişim imzaları (SAS) ile geçici bir çözüm sunuyoruz. SAS’yi kullanarak belirli bir süre aralığında geçerli olan özel izinlere sahip belirteçler oluşturabilirsiniz. Örneğin, yalnızca verilen dosyaya salt okunur erişime sahip bir belirteç oluşturabilirsiniz. Geçerli olduğu sürece bu belirtece sahip olan herkes bu dosyaya salt okunur erişim elde eder. 
+    Şu anda AD tabanlı kimlik doğrulamasını veya ACL’leri desteklemiyoruz. Ancak, bunu özellik istekleri listemize ekledik. Şimdilik, dosya paylaşımı için kimlik doğrulaması sağlamak üzere Azure Storage hesabı anahtarları kullanılıyor. REST API veya istemci kitaplıkları aracılığıyla kullanılan paylaşılan erişim imzaları (SAS) ile geçici bir çözüm sunuyoruz. SAS’yi kullanarak belirli bir süre aralığında geçerli olan özel izinlere sahip belirteçler oluşturabilirsiniz. Örneğin, yalnızca verilen dosyaya salt okunur erişime sahip bir belirteç oluşturabilirsiniz. Geçerli olduğu sürece bu belirtece sahip olan herkes bu dosyaya salt okunur erişim elde eder.
 
     SAS yalnızca REST API veya istemci kitaplıkları aracılığıyla desteklenir. Dosya paylaşımını SMB protokolü aracılığıyla bağladığınızda, bu paylaşımdaki içeriklere erişimi devretmek için SAS kullanamazsınız.
 
 2. **Azure Dosya paylaşımları İnternet üzerinde herkese açık mı yoksa yalnızca Azure üzerinden mi erişilebilir?**
- 
+
     445 bağlantı noktası (TCP Giden) olduğu ve istemcinizi SMB 3.0 protokolünü (*örn.*, Windows 8 veya Windows Server 2012) desteklediği sürece dosya paylaşımınıza İnternet üzerinden erişilebilir.  
 
-3. **Azure Virtual Machine ve dosya paylaşımı arasındaki ağ trafiği ücreti aboneliği yansıtılan harici bir bant genişliği olarak mı sayılıyor?** 
+3. **Azure Virtual Machine ve dosya paylaşımı arasındaki ağ trafiği ücreti aboneliği yansıtılan harici bir bant genişliği olarak mı sayılıyor?**
 
     Dosya paylaşımı ve sanal makine farklı bölgelerde bulunuyorsa, aralarındaki trafik harici bant genişliği olarak ücretlendirilir.
- 
-4. **Sanal makine ve dosya paylaşımı arasındaki ağ trafiği aynı bölgede bulunması halinde ücretsiz mi?** 
+
+4. **Sanal makine ve dosya paylaşımı arasındaki ağ trafiği aynı bölgede bulunması halinde ücretsiz mi?**
 
     Evet. Trafiğin aynı bölgede olması koşuluyla ücretsizdir.
 
-5. **Şirket içi sanal makinelerden Azure File Storage’a bağlanmak için Azure ExpressRoute mu gerekir?** 
+5. **Şirket içi sanal makinelerden Azure File Storage’a bağlanmak için Azure ExpressRoute mu gerekir?**
 
     Hayır. ExpressRoute’a sahip olmasanız da, 445 bağlantı noktası (TCP Giden) için İnternet erişimi açık olduğu sürece şirket içi sanal makinelerden dosya paylaşımına erişebilirsiniz. Bununla birlikte, isterseniz File Storage ile ExpressRoute’u kullanabilirsiniz.
 
 6. **Yük devretme kümesi için "Dosya Paylaşım Tanığı" Azure File Storage için kullanım durumlarından biri mi?**
 
     Bu, şu anda desteklenmiyor.
- 
+
 7. **File Storage şu anda yalnızca LRS veya GRS aracılığıyla mı çoğaltılabiliyor?**  
 
     RA-GRS’yi de desteklemeyi planlıyoruz, ancak bunun için kesin bir tarih veremiyoruz.
 
-8. **Mevcut depolama hesaplarını Azure File Storage için ne zaman kullanabilirim?** 
+8. **Mevcut depolama hesaplarını Azure File Storage için ne zaman kullanabilirim?**
 
     Azure File Storage şimdi tüm depolama hesapları için etkinleştirildi.
 
@@ -636,7 +637,7 @@ Blob, Tablo ve Kuyruk depolamanın `Microsoft.WindowsAzure.Storage.Shared.Protoc
 
 13. **Azure Dosyaları ile yaşanan yavaş performans sorunu çözecek bir düzeltme eki yayımlandı**
 
-    Windows ekibi yakın zamanda Windows 8.1 veya Windows Server 2012 R2 üzerinden Azure File Storage’a erişen müşteriler için yavaş performans sorunu çözecek bir düzeltme eki yayımlandı. Daha fazla bilgi için lütfen ilgili KB makalesine göz atın: [Azure File Storage’a Windows 8.1 veya Windows Server 2012 R2 üzerinden erişildiğinde performansın yavaşlaması](https://support.microsoft.com/en-us/kb/3114025). 
+    Windows ekibi yakın zamanda Windows 8.1 veya Windows Server 2012 R2 üzerinden Azure File Storage’a erişen müşteriler için yavaş performans sorunu çözecek bir düzeltme eki yayımlandı. Daha fazla bilgi için lütfen ilgili KB makalesine göz atın: [Azure File Storage’a Windows 8.1 veya Windows Server 2012 R2 üzerinden erişildiğinde performansın yavaşlaması](https://support.microsoft.com/en-us/kb/3114025).
 
 14. **Azure File Storage’ı IBM MQ ile kullanma**
 
@@ -665,12 +666,12 @@ Azure File Storage hakkında daha fazla bilgi edinmek için şu bağlantılara g
 ### Blog yazıları
 
 - [Azure File Storage genel kullanıma sunulmuştur](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
-- [Azure File Storage İncelemesi](https://azure.microsoft.com/blog/inside-azure-file-storage/) 
+- [Azure File Storage İncelemesi](https://azure.microsoft.com/blog/inside-azure-file-storage/)
 - [Microsoft Azure Dosya Hizmeti’ne Giriş](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Microsoft Azure Dosyaları ile kalıcı bağlantılar](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

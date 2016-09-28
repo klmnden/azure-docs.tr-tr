@@ -16,6 +16,7 @@
    ms.date="09/12/2016"
    ms.author="magoedte;sngun"/>
 
+
 # Azure Automation’da Rol Tabanlı Erişim Denetimi
 
 ## Rol tabanlı erişim denetimi
@@ -239,6 +240,6 @@ Yukarıdaki örneklerde **oturum açma adını**, **abonelik kimliğini**, **kay
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -14,8 +14,9 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
     ms.workload="data-management"
-    ms.date="07/06/2016"
+    ms.date="09/27/2016"
     ms.author="carlrab"/>
+
 
 # Azure SQL Database'de veritabanı performansını izleme
 Azure SQL veritabanı performansını izlemeye, seçtiğiniz veritabanı performans düzeyiyle ilgili kaynak kullanımını izleyerek başlarsınız. İzleme, veritabanınızın gerekenden fazla kapasiteye sahip olup olmadığını veya veritabanınızda kaynak kullanımının üst sınıra ulaşması nedeniyle bir sorun olup olmadığını belirlemenize yardımcı olur. Böylece veritabanınızın performans düzeyinin ve [hizmet katmanının](sql-database-service-tiers.md) ayarlanma zamanının gelip gelmediğine karar verirsiniz. Veritabanınızı [Azure portalında](https://portal.azure.com) bulunan grafik araçlarını veya SQL [dinamik yönetim görünümlerini](https://msdn.microsoft.com/library/ms188754.aspx) kullanarak izleyebilirsiniz.
@@ -49,6 +50,6 @@ Esnek veritabanı havuzları için bu bölümde açıklanan olan tekniklerle hav
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

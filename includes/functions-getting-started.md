@@ -2,7 +2,6 @@ Azure İşlevleri, diğer Azure hizmetlerinde, SaaS ürünlerinde ve şirket iç
 
 Bu başlangıç videosu, işlev uygulaması oluşturma, kod değiştirmenin yanı sıra tetikleyiciler ve bağlamalarla etkileşim kurmayı da gösterir.
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

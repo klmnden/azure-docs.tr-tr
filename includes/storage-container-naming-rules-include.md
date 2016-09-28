@@ -12,7 +12,6 @@ Kapsayıcı adı, aşağıdaki adlandırma kurallarına uygun geçerli bir DNS a
 
 > [AZURE.IMPORTANT] Kapsayıcı adının her zaman küçük harfli olması gerektiğini unutmayın. Kapsayıcı adına bir büyük harf katarsanız ya da başka bir deyişle kapsayıcı adlandırma kurallarını ihlal ederseniz 400 hatası alabilirsiniz (Hatalı İstek). 
 
-
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

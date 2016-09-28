@@ -18,6 +18,7 @@
    ms.date="09/08/2016"
    ms.author="glenga"/>
 
+
 #İlk Azure İşlevinizi oluşturma
 
 ##Genel Bakış
@@ -76,6 +77,6 @@ Azure İşlevleri; dağıtımlar, ortam değişkenleri ve tanılama gibi temel i
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

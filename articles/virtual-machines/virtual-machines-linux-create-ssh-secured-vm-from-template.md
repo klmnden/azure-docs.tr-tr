@@ -17,6 +17,7 @@
     ms.date="08/17/2016"
     ms.author="v-livech"/>
 
+
 # Bir Azure şablonu kullanarak bir Linux VM oluşturma
 
 Bu makalede, Azure’da bir Azure Şablonu kullanarak hızlı bir şekilde Linux Sanal Makine dağıtma gösterilir.  Bu makale için bir Azure hesabının ([ücretsiz deneme sürümü edinin](https://azure.microsoft.com/pricing/free-trial/)) yanı sıra, oturum açılmış (`azure login`) ve Resource Manager modunda (`azure config mode arm`) bir [Azure CLI'si](../xplat-cli-install.md) gereklidir.  [Azure portalını](virtual-machines-linux-quick-create-portal.md) veya [Azure CLI'sini](virtual-machines-linux-quick-create-cli.md) kullanarak da Linux VM'yi hızlı bir şekilde dağıtabilirsiniz.
@@ -76,6 +77,6 @@ Daha sonra dağıtılacak uygulama altyapılarını keşfetmek için [şablon ga
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

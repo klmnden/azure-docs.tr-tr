@@ -16,6 +16,7 @@
     ms.date="07/24/2016"
     ms.author="swkrish"/>
 
+
 # Azure Active Directory B2C: Tüketicilerinizin uygulamanıza kaydolmalarını ve oturum açmalarını sağlama
 
 Azure Active Directory B2C, tüketiciye yönelik web ve mobil uygulamalarınız için kapsamlı bulut kimlik yönetimi çözümüdür. Yüz milyonlarca tüketici kimliği ölçeğinde yüksek oranda kullanılabilir bir küresel hizmettir. Kurumsal düzeyde güvenli bir platform üzerinde oluşturulan Azure Active Directory B2C uygulamalarınızın, işinizin ve tüketicilerinizin korunmasını sağlar.
@@ -68,6 +69,6 @@ Bu bağlantılar hizmeti derinlemesine keşfetmek için kullanışlıdır:
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

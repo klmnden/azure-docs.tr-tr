@@ -18,6 +18,7 @@
    ms.date="04/12/2016"
    ms.author="rogardle"/>
 
+
 # Bir uygulama veya kullanıcıya özel Marathon hizmeti oluşturma
 
 Azure Kapsayıcı Hizmeti, Apache Mesos ve Marathon’u önceden üzerinde yapılandırdığımız bir grup ana sunucu sağlar. Bunlar, uygulamalarınızı kümede düzenlemek için kullanılabilir, ancak en iyisi ana sunucuları bu amaç için kullanmamaktır. Örneğin, Marathon yapılandırmasına ince ayar yapma ana sunucuların kendilerinde oturum açmayı ve değişiklikler yapmayı gerektirir; bu, standart olandan biraz daha farklı olan benzersiz ana sunucuları teşvik eder ve bağımsız olarak ilgilenilmeli ve yönetilmelidir. Ayrıca, bir takım tarafından istenen yapılandırma başka bir takım için en uygun yapılandırma olmayabilir.
@@ -60,6 +61,6 @@ CLI’nizin hangi Marathon örneğine karşı çalıştığını `dcos config sh
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -16,6 +16,7 @@
    ms.date="05/16/2016"
    ms.author="edmaca"/>
 
+
 # Öğretici: Visual Studio için Data Lake Araçları'nı kullanarak U-SQL betikleri geliştirme
 
 [AZURE.INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -365,6 +366,6 @@ Aşağıdaki PowerShell betiği, sizin için bir Azure Data Lake Analytics hesab
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

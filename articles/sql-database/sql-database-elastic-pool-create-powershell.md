@@ -16,6 +16,7 @@
     ms.date="05/27/2016"
     ms.author="srinia"/>
 
+
 # PowerShell ile yeni bir esnek veritabanı havuzu oluşturma
 
 > [AZURE.SELECTOR]
@@ -83,6 +84,6 @@ Bu betik, yeni bir Azure kaynak grubu ve yeni bir sunucu oluşturur. İstendiği
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

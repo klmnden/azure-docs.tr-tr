@@ -16,6 +16,7 @@
    ms.date="06/16/2016"
    ms.author="lodipalm;barbkess;sonyama" />
 
+
 # Power BI ile verileri görselleştirme
 
 > [AZURE.SELECTOR]
@@ -123,6 +124,6 @@ Size örnek verilerle alıştırma yapmanız için biraz zaman tanıdığımıza
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

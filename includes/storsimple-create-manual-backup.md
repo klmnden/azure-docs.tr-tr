@@ -25,7 +25,6 @@
   Yedekleme, yedekleme kataloğunda görüntülenen yedekleme ayarları listesinde görüntülenmelidir.
 
 
-
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

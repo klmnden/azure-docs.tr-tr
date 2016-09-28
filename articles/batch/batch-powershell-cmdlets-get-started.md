@@ -16,6 +16,7 @@
    ms.date="07/28/2016"
    ms.author="danlep"/>
 
+
 # Azure Batch PowerShell cmdlet’leri kullanmaya başlama
 Azure Batch PowerShell cmdlet’leri ile Batch API'leri, Azure portalı ve Azure Komut Satırı Arabirimi (CLI) ile gerçekleştirdiğiniz Batch aynı görevlerin çoğunu gerçekleştirebilir ve betik oluşturabilirsiniz. Bu bilgiler, Batch hesabınızı yönetmek, havuzlar, işler ve görevler gibi Batch kaynaklarınızla da çalışmak için kullanabildiğiniz cmdlet’lere hızlı bir giriş yapmanızı sağlar. Bu makale Azure PowerShell 1.6.0 sürümündeki cmdlet’leri temel almaktadır.
 
@@ -30,7 +31,7 @@ Tam Batch cmdlet’leri listesi ve ayrıntılı cmdlet sözdizimi için bkz. [Az
     
     * Hizmet güncelleştirmeleri ve geliştirmeleri avantajlarından yararlanmak için Azure PowerShell’inizi sık sık güncelleştirin. 
     
-* **Batch sağlayıcısı ad alanıyla kaydetme (bir defalık işlem)** -Batch hesaplarınızla çalışmadan önce Batch sağlayıcı ad alanıyla kaydolmanız gerekir. Bu işlemin her abonelik için yalnızca bir kez gerçekleştirilmesi gerekir. Aşağıdaki cmdlet'i çalıştırın:
+* **Batch sağlayıcısı ad alanıyla kaydetme (bir defalık işlem) ** -Batch hesaplarınızla çalışmadan önce Batch sağlayıcı ad alanıyla kaydolmanız gerekir. Bu işlemin her abonelik için yalnızca bir kez gerçekleştirilmesi gerekir. Aşağıdaki cmdlet'i çalıştırın:
 
         Register-AzureRMResourceProvider -ProviderNamespace Microsoft.Batch
 
@@ -169,6 +170,6 @@ Batch cmdlet'leri, verileri cmdlet'ler arasında göndermek için PowerShell iş
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

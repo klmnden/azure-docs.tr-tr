@@ -1,20 +1,21 @@
 <properties 
-    pageTitle="Bulutta Microsoft Azure Multi-Factor Authentication kullanmaya başlama" 
-    description="Bu, bulutta nasıl Microsoft Azure MFA kullanmaya başlayacağınızı açıklayan Azure Multi-Factor Authentication sayfasıdır." 
-    services="multi-factor-authentication" 
-    documentationCenter="" 
-    authors="billmath" 
-    manager="femila" 
+    pageTitle="Bulutta Microsoft Azure Multi-Factor Authentication kullanmaya başlama"
+    description="Bu, bulutta nasıl Microsoft Azure MFA kullanmaya başlayacağınızı açıklayan Azure Multi-Factor Authentication sayfasıdır."
+    services="multi-factor-authentication"
+    documentationCenter=""
+    authors="kgremban"
+    manager="femila"
     editor="curtand"/>
 
-<tags 
-    ms.service="multi-factor-authentication" 
-    ms.workload="identity" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="get-started-article" 
-    ms.date="08/15/2016" 
-    ms.author="billmath"/>
+<tags
+    ms.service="multi-factor-authentication"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="08/15/2016"
+    ms.author="kgremban"/>
+
 
 # Bulutta Azure Multi-Factor Authentication kullanmaya başlama
 Aşağıdaki makalede bulutta Azure Multi-Factor Authentication kullanmaya nasıl başlayacağınızı öğrenirsiniz.
@@ -24,16 +25,16 @@ Aşağıdaki makalede bulutta Azure Multi-Factor Authentication kullanmaya nası
 ![Bulutta MFA](./media/multi-factor-authentication-get-started-cloud/mfa_in_cloud.png)
 
 ## Ön koşullar
-Aşağıdaki ön koşullar, kullanıcılarınız için Azure Multi-Factor Authentication’ı etkinleştirebilmeniz için gereklidir. 
+Aşağıdaki ön koşullar, kullanıcılarınız için Azure Multi-Factor Authentication’ı etkinleştirebilmeniz için gereklidir.
 
 
 
 
 - [Azure aboneliği için kaydolun](https://azure.microsoft.com/pricing/free-trial/) - Zaten bir Azure aboneliğiniz yoksa, birisi için kaydolmalısınız. Yeni başlıyor ve Azure MFA’yı henüz kullanmaya başlıyorsanız, deneme aboneliğini kullanabilirsiniz.
-2. [Multi-Factor Auth Sağlayıcısı oluşturun](multi-factor-authentication-get-started-auth-provider.md) ve dizininize atayın veya [kullanıcılara lisans atayın](multi-factor-authentication-get-started-assign-licenses.md). 
+2. [Multi-Factor Auth Sağlayıcısı oluşturun](multi-factor-authentication-get-started-auth-provider.md) ve dizininize atayın veya [kullanıcılara lisans atayın](multi-factor-authentication-get-started-assign-licenses.md).
 
-> [AZURE.NOTE]  Lisanlar, Azure MFA, Azure AD Premium ya da Enterprise Mobility Suite (EMS) sahibi kullanıcıların kullanımına sunulmuştur.  MFA, Azure AD Premium ve EMS’de yer almaktadır. Yeterli lisansa sahipseniz, Kimlik Doğrulaması Sağlayıcısı oluşturmanız gerekmez. 
-        
+> [AZURE.NOTE]  Lisanlar, Azure MFA, Azure AD Premium ya da Enterprise Mobility Suite (EMS) sahibi kullanıcıların kullanımına sunulmuştur.  MFA, Azure AD Premium ve EMS’de yer almaktadır. Yeterli lisansa sahipseniz, Kimlik Doğrulaması Sağlayıcısı oluşturmanız gerekmez.
+
 
 ## Kullanıcılar için multi-factor authentication’ı açma
 Bir kullanıcı için multi-factor authentication’ı açmak için, kullanıcının durumunu devre dışı iken etkin olarak değiştirmeniz yeterlidir.  Kullanıcı durumları hakkında daha fazla bilgi için bkz. [ Azure Multi-Factor Authentication’da kullanıcı durumları](multi-factor-authentication-get-started-user-states.md)
@@ -52,7 +53,7 @@ Kullanıcılarınız için MFA'yı etkinleştirmek üzere aşağıdaki yordamı 
 6.  Bu yeni bir tarayıcı sekmesi açar.  multi-factor authentication için etkinleştirmek istediğiniz kullanıcıyı bulun. Üst kısımdaki görünümü değiştirmeniz gerekebilir. Durumun **devre dışı** olduğundan emin olun.
 ![Kullanıcı etkinleştir](./media/multi-factor-authentication-get-started-cloud/enable1.png)
 7.  Kutuda, adının yanına bir **onay işareti** koyun.
-7.  Sağda, **Etkinleştir**’e tıklayın. 
+7.  Sağda, **Etkinleştir**’e tıklayın.
 ![Kullanıcı etkinleştir](./media/multi-factor-authentication-get-started-cloud/user1.png)
 8.  **Multi-Factor Auth'u etkinleştir** seçeneğine tıklayın.
 ![Kullanıcı etkinleştir](./media/multi-factor-authentication-get-started-cloud/enable2.png)
@@ -71,7 +72,7 @@ Kullanıcılarınız için MFA'yı etkinleştirmek üzere aşağıdaki yordamı 
 - Devre dışı  
 
 > [AZURE.IMPORTANT]  Lütfen, kullanıcı MFA kaydından geçmediği ve bir [uygulama parolası](multi-factor-authentication-whats-next.md#app-passwords) almadığından, Devre dışı durumundan Uygulandı durumuna doğrudan giderseniz, modern olmayan kimlik doğrulaması istemcilerinin çalışmayı bırakacağını unutmayın.  Modern olmayan kimlik doğrulaması istemcileriniz varsa ve uygulama parolaları istiyorlarsa, Devre dışı durumundan Etkin duruma getirmeniz önerilir.  Bu, kullanıcıların uygulama parolalarını kaydetmelerine ve almalarına izin verir.   
-        
+
         $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
         $st.RelyingParty = "*"
         $st.State = “Enabled”
@@ -79,7 +80,7 @@ Kullanıcılarınız için MFA'yı etkinleştirmek üzere aşağıdaki yordamı 
         Set-MsolUser -UserPrincipalName bsimon@contoso.com -StrongAuthenticationRequirements $sta
 
 PowerShell kullanmak toplu etkinleştirme kullanıcıları için bir seçenek olabilir.  Şu anda Azure portalda toplu etkinleştirme özelliği yoktur ve her kullanıcıyı ayrı ayrı seçmeniz gerekir.  Birçok kullanıcınız varsa bu yorucu bir görev olabilir.  Yukarıdakini kullanarak bir PowerShell betiği oluşturarak, bir kullanıcı listesinde sayım yaparak bunları etkinleştirebilirsiniz.  Örnek aşağıda verilmiştir:
-    
+
     $users = "bsimon@contoso.com","jsmith@contoso.com","ljacobson@contoso.com"
     foreach ($user in $users)
     {
@@ -98,6 +99,6 @@ Bulutta multi-factor authentication özelliğini ayarladığınıza göre, şimd
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

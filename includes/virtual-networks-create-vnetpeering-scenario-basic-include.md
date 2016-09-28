@@ -6,7 +6,6 @@ Bu senaryoda aynı aboneliğe ait **VNet1** ile **VNet2** adlı iki VNet arasın
 
 VNet eşlemesi, eşlenen sanal ağların tüm adres alanları arasında tam bağlantıya izin verir.    
 
-
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

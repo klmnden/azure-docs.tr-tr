@@ -16,6 +16,7 @@
    ms.date="07/28/2016"
    ms.author="narayan" />
 
+
 # VNet eşlemesi
 
 VNet eşlemesi, aynı bölgedeki iki sanal ağı Azure omurga ağı aracılığıyla birbirine bağlayan bir mekanizmadır. Eşleme yapıldıktan sonra, iki sanal ağ tüm bağlantılarda tek bir sanal ağ gibi görünür. Bunlar ayrı kaynaklar olarak yönetilmeye devam eder, ancak bu sanal ağlardaki sanal makineler özel IP adresleri kullanarak birbirleriyle doğrudan iletişim kurabilir.
@@ -90,6 +91,6 @@ VNet eşlemesi, gözden geçirme süresi boyunca ücretsiz olacaktır. Piyasaya 
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

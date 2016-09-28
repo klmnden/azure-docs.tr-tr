@@ -17,6 +17,7 @@
      ms.date="08/09/2016"
      ms.author="dobett"/>
 
+
 # Azure IoT Paketi nedir?
 
 Azure nesnelerin interneti (IoT) hizmetleri çok çeşitli özellikler sunar. Bu kurumsal sınıf hizmetler şunları yapmanızı sağlar:
@@ -67,6 +68,6 @@ IoT Paketi’nin yapabileceklerini ve ana bileşenlerini genel hatlarıyla görd
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

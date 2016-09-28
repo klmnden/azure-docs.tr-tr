@@ -17,6 +17,7 @@
     ms.date="08/29/2016" 
     ms.author="heidist"/>
 
+
 # Portalda Azure Search ile çalışmaya başlama
 
 Bu kodsuz giriş, doğrudan portal içinde yerleşik olarak sunulan işlevleri kullanarak Microsoft Azure Search ile çalışmaya başlamanızı sağlar. 
@@ -186,6 +187,6 @@ Bunu yapmanın kolay bir yolu varsayılan sorguyu kullanmaktır ancak varsayıla
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

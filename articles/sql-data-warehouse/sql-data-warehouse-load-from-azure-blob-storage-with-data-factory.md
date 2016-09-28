@@ -16,6 +16,7 @@
    ms.date="08/16/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
+
 # Azure blob depolama alanından Azure SQL Data Warehouse'a (Azure Data Factory) veri yükleme
 
 > [AZURE.SELECTOR]
@@ -240,6 +241,6 @@ Bu konu başlıklarında Azure Data Factory hakkında ayrıntılı bilgi sağlan
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

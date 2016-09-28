@@ -13,8 +13,9 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="05/16/2016"
+   ms.date="09/21/2016"
    ms.author="edmaca"/>
+
 
 # Öğretici: Azure PowerShell'i kullanarak Azure Data Lake Analytics ile çalışmaya başlama
 
@@ -23,8 +24,6 @@
 Azure Data Lake Analytics hesapları oluşturmak, Data Lake Analytics işlerini [U-SQL](data-lake-analytics-u-sql-get-started.md) içinde tanımlamak ve Data Lake Analytic hesaplarına iş göndermek için Azure PowerShell olanağından nasıl yararlanılacağını öğrenin. Data Lake Analytics hakkında daha fazla bilgi için bkz. [Azure Data Lake Analytics'e genel bakış](data-lake-analytics-overview.md).
 
 Bu öğreticide, bir sekmeyle ayrılmış değerler (TSV) dosyasını okuyan ve bunu virgülle ayrılmış değerler (CSV) dosyasına dönüştüren bir iş geliştireceksiniz. Öğreticiyi desteklenen diğer araçları kullanarak tamamlamak için bu bölümün üst kısmındaki sekmelere tıklayın.
-
-[AZURE.INCLUDE [basic-process-include](../../includes/data-lake-analytics-basic-process.md)]
 
 ##Önkoşullar
 
@@ -125,7 +124,8 @@ Aşağıdaki PowerShell betiği, bir Data Lake Analytics hesabı için varsayıl
 
     $resourceGroupName = "<ResourceGroupName>"
     $dataLakeAnalyticsName = "<DataLakeAnalyticsAccountName>"
-    $dataLakeStoreName = (Get-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticName).Properties.DefaultDataLakeAccount
+    $dataLakeStoreName = (Get-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticsName).Properties.DefaultDataLakeAccount
+    echo $dataLakeStoreName
 
 >[AZURE.NOTE] Azure Portal, örnek veri dosyalarını varsayılan Data Lake Store hesabına kopyalamak için bir kullanıcı arabirimi sağlar. Yönergeler için bkz. [Azure Portal'ı kullanarak Azure Data Lake Analytics ile çalışmaya başlama](data-lake-analytics-get-started-portal.md#upload-data-to-the-default-data-lake-store-account).
 
@@ -177,13 +177,10 @@ Data Lake Analytics işleri, U-SQL dilinde yazılır. U-SQL hakkında daha fazla
         $dataLakeAnalyticsName = "<DataLakeAnalyticsAccountName>"
         $usqlScript = "c:\tutorials\data-lake-analytics\copyFile.usql"
         
-        Submit-AzureRmDataLakeAnalyticsJob -Name "convertTSVtoCSV" -AccountName $dataLakeAnalyticsName –ScriptPath $usqlScript 
-                        
-        While (($t = Get-AzureRmDataLakeAnalyticsJob -AccountName $dataLakeAnalyticsName -JobId $job.JobId).State -ne "Ended"){
-            Write-Host "Job status: "$t.State"..."
-            Start-Sleep -seconds 5
-        }
-        
+        $job = Submit-AzureRmDataLakeAnalyticsJob -Name "convertTSVtoCSV" -AccountName $dataLakeAnalyticsName –ScriptPath $usqlScript 
+
+        Wait-AdlJob -Account $dataLakeAnalyticsName -JobId $job.JobId
+
         Get-AzureRmDataLakeAnalyticsJob -AccountName $dataLakeAnalyticsName -JobId $job.JobId
 
     Betikte, U-SQL betiği c:\tutorials\data-lake-analytics\copyFile.usql konumunda depolanır. Dosya yolunu uygun şekilde güncelleştirin.
@@ -212,6 +209,6 @@ Data Lake Analytics işleri, U-SQL dilinde yazılır. U-SQL hakkında daha fazla
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

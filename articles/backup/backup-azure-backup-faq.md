@@ -17,6 +17,7 @@
      ms.date="08/29/2016"
      ms.author="trinadhk; giridham; arunak; markgal; jimpark;"/>
 
+
 # Azure Backup hizmeti - SSS
 
 > [AZURE.SELECTOR]
@@ -262,6 +263,6 @@ Azure Backup aracısının beklenen işlevi için önbellek klasörünün veya m
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -21,7 +21,6 @@ Yeni mobil hizmet oluşturmak için bu adımları izleyin.
 Artık, mobil uygulamalarınızın kullanabileceği yeni bir mobil hizmet oluşturdunuz.
 
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

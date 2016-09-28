@@ -15,6 +15,7 @@
     ms.date="07/11/2016"
     ms.author="sethm" />
 
+
 # Service Bus mimarisi
 
 Bu makale Azure Service Bus hizmetinin ileti ve geçiş işleme mimarisini açıklar.
@@ -61,6 +62,6 @@ Service Bus mimarisine ilişkin genel bir bakış edindiğinize göre, aşağıd
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

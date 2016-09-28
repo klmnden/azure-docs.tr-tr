@@ -17,6 +17,7 @@
  ms.date="08/09/2016"
  ms.author="dobett"/>
 
+
 [AZURE.INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
 
 ## Azure IoT Paketi
@@ -46,6 +47,6 @@ IoT Paketi ve önceden yapılandırılmış çözümler hakkında bilgi almaya d
 [lnk-predictive-maintenance]: iot-suite-predictive-overview.md
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

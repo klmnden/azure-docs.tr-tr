@@ -17,6 +17,7 @@
     ms.date="07/22/2016"
     ms.author="wesmc"/>
 
+
 # Azure Notification Hubs ile Chrome uygulamalarına anında iletme bildirimleri gönderme
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -481,6 +482,6 @@ Kullanıcılarınızı ilgi alanı gruplarına göre segmentlere ayırmak istiyo
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

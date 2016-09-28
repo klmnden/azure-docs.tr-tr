@@ -15,6 +15,7 @@
     ms.date="08/16/2016"
     ms.author="sethm" />
 
+
 # Event Hubs programlama kılavuzu
 
 Bu konu Azure .NET SDK’sı kullanılarak Azure Event Hubs ile programlamayı açıklamaktadır. Burada Event Hubs’ın önceden bilindiği varsayılır. Event Hubs’a kavramsal genel bakış için bkz. [Event Hubs’a genel bakış](event-hubs-overview.md).
@@ -187,6 +188,6 @@ Event Hubs senaryoları hakkında daha fazla bilgi almak için aşağıdaki bağ
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

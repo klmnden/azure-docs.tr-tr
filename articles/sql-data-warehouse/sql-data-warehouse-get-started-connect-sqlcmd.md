@@ -16,6 +16,7 @@
    ms.date="09/06/2016"
    ms.author="barbkess;sonyama"/>
 
+
 # Azure SQL Data Warehouse sorgulama (sqlcmd)
 
 > [AZURE.SELECTOR]
@@ -94,6 +95,6 @@ Sqlcmd’de kullanılabilen seçenekler hakkında daha fazla bilgi için bkz. [s
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

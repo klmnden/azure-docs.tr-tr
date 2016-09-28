@@ -15,6 +15,7 @@
    ms.date="02/11/2016"
    ms.author="jdial" />
 
+
 # Ağ Güvenlik Grubu (NSG) nedir?
 
 Ağ güvenlik grubu (NSG), bir Virtual Network üzerindeki VM örneklerinize ağ trafiğinin gitmesine izin veren veya reddeden Erişim Denetimi Listesi (ACL) kurallarının bir listesini içerir. NSG'ler alt ağlarla veya bu alt ağların içindeki tekil VM örnekleriyle ilişkili olabilir. Bir NSG bir alt ağ ile ilişkili olduğunda, ACL kuralları bu alt ağdaki tüm VM örnekleri için geçerli olur. Ayrıca, bir NSG doğrudan tekil bir VM ile ilişkilendirildiği zaman bu VM'ye giden trafik daha da kısıtlanabilir.
@@ -284,6 +285,6 @@ Yukarıdaki NSG'lerden bazılarının tekil NIC'lerle ilişkilendirilmesi gerekt
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

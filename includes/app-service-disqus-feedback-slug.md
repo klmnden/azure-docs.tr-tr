@@ -1,8 +1,7 @@
 
 >[AZURE.TIP] **Başka bir şey mi arıyorsunuz?**  
->Bu konu altında bekledikleriniz yoksa, bir şeyler eksikse veya herhangi bir nedenle gereksinimleriniz karşılanmıyorsa, lütfen aşağıdaki Disqus iş parçacığını kullanarak bize geri bildirim sağlayın.
+>Beklediklerinizi bu konuda bulamadıysanız, eksik bir şeyler varsa veya herhangi bir nedenle gereksinimleriniz karşılanmadıysa, lütfen aşağıdaki Disqus yazışmasını kullanarak bize geri bildirimde bulunun.
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

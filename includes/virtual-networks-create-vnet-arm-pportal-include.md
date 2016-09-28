@@ -36,7 +36,6 @@ Azure Preview portalını kullanarak yukarıdaki senaryoya dayanan bir VNet olu�
     ![VNet’te alt ağlar listesi](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure7.png)
 
 
-
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

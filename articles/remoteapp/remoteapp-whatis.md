@@ -16,6 +16,7 @@
     ms.date="08/15/2016" 
     ms.author="elizapo"/>
 
+
 # Azure RemoteApp nedir?
 
 > [AZURE.IMPORTANT]
@@ -84,6 +85,6 @@ Başlayın! Deneyin! Bu makaleler Azure RemoteApp kullanmaya başlamanıza yard�
 Bu makaleyi derecelendirmenin ve aşağıda yorum yapmamanın yanı sıra makalede değişiklik de yapabileceğinizi biliyor muydunuz? Eksik bir şeyler mi var? Yanlış bir şeyler mi var? Kafa karıştırıcı bir şeyler mi yazdım? Değişiklik yapmak için yukarı doğru ilerleyin ve **GitHub üzerinde düzenle** veya **Düzenle**’ye tıklayın. Bu değişiklikler incelenmek üzere bize gönderilir ve kabul edildikten sonra değişiklikleriniz ve iyileştirmeleriniz burada görünür.
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

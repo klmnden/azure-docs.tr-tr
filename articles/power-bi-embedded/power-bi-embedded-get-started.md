@@ -16,6 +16,7 @@
    ms.date="07/05/2016"
    ms.author="mblythe"/>
 
+
 # Microsoft Power BI Embedded kullanmaya başlama
 
 **Power BI Embedded**, uygulama geliştiricilerin kendi uygulamalarına etkileşimli Power BI raporları eklemelerini sağlayan bir Azure hizmetidir. **Power BI Embedded** kullanıcıların oturum açma yöntemini yeniden tasarlamaya veya değiştirmeye gerek kalmadan var olan uygulamalarla birlikte çalışır.
@@ -103,6 +104,6 @@ Veri kaynağına bağlanma hakkında daha fazla bilgi için bkz. [Veri kaynağı
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

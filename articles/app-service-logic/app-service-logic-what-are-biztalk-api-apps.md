@@ -16,6 +16,7 @@
     ms.date="09/01/2016" 
     ms.author="mandia"/>
 
+
 # Bağlayıcılar ve BizTalk API Apps nedir?
 
 [AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
@@ -55,6 +56,6 @@ Standart Bağlayıcılar, BizTalk EAI, Premium Bağlayıcılar gibi her bir kate
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

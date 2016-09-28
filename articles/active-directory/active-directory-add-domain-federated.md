@@ -16,6 +16,7 @@
     ms.date="07/18/2016"
     ms.author="curtand;jeffsta"/>
 
+
 # Özel etki alanı adınızı Azure Active Directory'ye ekleme
 
 ‘contoso.com’ gibi özel bir etki alanı adını, contoso.com içindeki kullanıcılar şirket ağınızdan çoklu federasyon oturumu açma deneyimi yaşayabilsin diye yapılandırabilirsiniz. Active Directory Federasyon Hizmetleri (AD FS) veya şirket ağınızda çalışan farklı bir federasyon sunucunuz zaten varsa, Azure AD Connect aracını kullanarak Azure AD’yi özel etki alanınızı kullanacak şekilde yapılandırabilirsiniz. Azure AD Connect’i ayrıca yeni bir AD FS ortamı dağıtmak ve Azure AD’de federasyon çoklu oturum açma için yapılandırmak üzere kullanabilirsiniz.
@@ -77,6 +78,6 @@ Kuruluşunuz "contoso.com" ve "contosobank.com" gibi birden fazla özel etki ala
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

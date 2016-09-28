@@ -16,6 +16,7 @@
    ms.date="08/23/2016"
    ms.author="curtand"/>
 
+
 # Azure'da Office 365 aboneliğinize yönelik dizini yönetme
 
 Bu makalede klasik Azure portalı kullanılarak bir Office 365 aboneliği için oluşturulmuş bir dizinin nasıl yönetileceği açıklanmaktadır. Klasik Azure portalında oturum açmak için Hizmet Yöneticisi veya bir Azure aboneliğinin ortak yöneticisi olmanız gerekir. Henüz bir Azure aboneliğiniz yoksa hemen [30 günlük ücretsiz deneme sürümüne](https://azure.microsoft.com/trial/get-started-active-directory/) kaydolabilir ve bu bağlantıyı kullanarak ilk bulut çözümünüzü 5 dakikadan kısa bir sürede dağıtabilirsiniz. Office 365'te oturum açmak için kullandığınız iş veya okul hesabını kullandığınızdan emin olun.
@@ -63,6 +64,6 @@ Abonelikler ve dizinler arasındaki ilişki hakkında daha fazla bilgi için bkz
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -16,6 +16,7 @@
    ms.date="05/16/2016"
    ms.author="edmaca"/>
 
+
 # Microsoft Azure Data Lake Analytics'e genel bakış
 
 ## Azure Data Lake Analytics nedir?
@@ -82,6 +83,6 @@ Azure Data Lake Analytics, büyük veri analizini kolaylaştırmak için oluştu
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

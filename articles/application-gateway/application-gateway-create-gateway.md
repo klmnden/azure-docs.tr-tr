@@ -15,6 +15,7 @@
    ms.date="09/02/2016"
    ms.author="gwallace"/>
 
+
 # Bir uygulama ağ geçidi oluşturun, başlayın veya silin
 
 Azure Application Gateway, bir katman 7 yük dengeleyicidir. Bulutta veya şirket içinde olmalarından bağımsız olarak, farklı sunucular arasında yük devretme ile HTTP istekleri için performans amaçlı yönlendirme sağlar. Application Gateway şu uygulama teslim özelliklerine sahiptir: HTTP yük dengeleme, tanımlama bilgisi tabanlı oturum benzeşimi ve Güvenli Yuva Katmanı (SSL) yük boşaltma.
@@ -402,6 +403,6 @@ Yük dengeleme seçenekleri hakkında daha fazla genel bilgi edinmek istiyorsan�
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

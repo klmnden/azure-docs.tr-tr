@@ -16,6 +16,7 @@
    ms.date="08/26/2016"
    ms.author="mblythe"/>
 
+
 # JavaScript API’sini kullanarak Power BI raporlarıyla etkileşim kurma
 
 Power BI JavaScript API’’si Power BI raporlarını uygulamalarınıza kolaylıkla eklemenizi sağlar. API ile uygulamalarınız sayfalar ve filtreler gibi farklı rapor öğeleri ile programlı bir şekilde etkileşim kurabilir. Bu etkileşim Power BI raporlarını uygulamanızın daha tümleşik bir parçası yapar.
@@ -139,6 +140,6 @@ Power BI JavaScript API’si hakkında daha fazla bilgi için aşağıdaki bağl
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

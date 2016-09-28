@@ -1,21 +1,22 @@
 <properties 
-    pageTitle="Azure Multi-Factor Authentication Sunucusu’nu kullanmaya başlama" 
-    description="Bu, nasıl Azure MFA Sunucusu kullanmaya başlayacağınızı açıklayan Azure Multi-Factor Authentication sayfasıdır." 
+    pageTitle="Azure Multi-Factor Authentication Sunucusu’nu kullanmaya başlama"
+    description="Bu, nasıl Azure MFA Sunucusu kullanmaya başlayacağınızı açıklayan Azure Multi-Factor Authentication sayfasıdır."
     services="multi-factor-authentication"
-    keywords="kimlik doğrulama sunucusu, azure multi factor authentication uygulaması etkinleştirme sayfası, kimlik doğrulama sunucusu indirme" 
-    documentationCenter="" 
-    authors="billmath" 
-    manager="femila" 
+    keywords="kimlik doğrulama sunucusu, azure multi factor authentication uygulaması etkinleştirme sayfası, kimlik doğrulama sunucusu indirme"
+    documentationCenter=""
+    authors="kgremban"
+    manager="femila"
     editor="curtand"/>
 
-<tags 
-    ms.service="multi-factor-authentication" 
-    ms.workload="identity" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="get-started-article" 
-    ms.date="08/15/2016" 
-    ms.author="billmath"/>
+<tags
+    ms.service="multi-factor-authentication"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="08/15/2016"
+    ms.author="kgremban"/>
+
 
 # Azure Multi-Factor Authentication Sunucusu’nu kullanmaya başlama
 
@@ -73,7 +74,7 @@ Artık sunucuyu indirdiğinize göre, yükleyebilir ve yapılandırabilirsiniz. 
 
 
 Azure Multi-Factor Authentication Sunucusu Gereksinimleri|Açıklama|
-:------------- | :------------- | 
+:------------- | :------------- |
 Donanım|<li>200 MB boş sabit disk alanı</li><li>x32 veya x64 özellikli işlemci</li><li>1 GB veya daha fazla RAM</li>
 Yazılım|<li>Windows Server 2008 veya üst sürümü, ana bilgisayar sunucu işletim sistemi ise</li><li>Windows 7 veya üst sürümü, ana bilgisayar istemci işletim sistemi ise</li><li>Microsoft .NET 4.0 Framework</li><li>IIS 7.0 veya üst sürümü, kullanıcı portalı veya web hizmeti SDK’sı yüklüyorsanız</li>
 
@@ -122,7 +123,7 @@ Yukarıdaki adımlar yapılandırma sihirbazı ile hızlı kurulumu gösterir.  
 
 ##Kullanıcıları Active Directory'den içeri aktarma
 
-Artık sunucu yüklendiğine ve yapılandırıldığına göre, hızlı bir şekilde kullanıcıları Azure MFA Sunucusu’na aktarabilirsiniz 
+Artık sunucu yüklendiğine ve yapılandırıldığına göre, hızlı bir şekilde kullanıcıları Azure MFA Sunucusu’na aktarabilirsiniz
 
 ### Kullanıcıları Active Directory'den içeri aktarmak için
 --------------------------------------------------------------------------------
@@ -164,10 +165,10 @@ E-posta İçeriği sekmesinde, seçim yapabileceğiniz çeşitli e-posta şablon
 - E-posta Adresi - isteğe bağlı
 - Telefon Numarası - sesli arama veya SMS kimlik doğrulaması yapılırken
 - Cihaz belirteci - Mobil uygulama kimlik doğrulaması yaparken
-- Kimlik Doğrulaması Modu 
-- Kimlik Doğrulaması Sonucu 
-- MFA Sunucusu Adı 
-- MFA Sunucusu IP’si 
+- Kimlik Doğrulaması Modu
+- Kimlik Doğrulaması Sonucu
+- MFA Sunucusu Adı
+- MFA Sunucusu IP’si
 - İstemci IP’si - varsa
 
 
@@ -179,7 +180,7 @@ Yukarıdaki alanlara ek olarak, kimlik doğrulaması sonucu (başarılı/reddedi
 Gelişmiş kurulum ve yapılandırma bilgisi hakkında ek bilgiler için aşağıdaki tabloyu kullanın.
 
 Yöntem|Açıklama
-:------------- | :------------- | 
+:------------- | :------------- |
 [Kullanıcı Portalı](multi-factor-authentication-get-started-portal.md)|  Dağıtım ve kullanıcı self servis dahil Kullanıcı portalı kurulumu ve yapılandırması hakkında bilgiler.
 [Active Directory Federasyon Hizmeti](multi-factor-authentication-get-started-adfs.md)|AD FS ile Azure Multi-Factor Authentication kurulumu hakkında bilgiler
 [RADIUS Kimlik Doğrulaması](multi-factor-authentication-get-started-server-radius.md)|  RADIUS ile Azure MFA Sunucusu kurulumu ve yapılandırması hakkında bilgiler.
@@ -192,6 +193,6 @@ Yöntem|Açıklama
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

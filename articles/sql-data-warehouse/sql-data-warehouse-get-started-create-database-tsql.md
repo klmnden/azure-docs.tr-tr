@@ -17,6 +17,7 @@
    ms.date="08/24/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
+
 # Transact-SQL (TSQL) kullanarak SQL Data Warehouse oluşturma
 
 > [AZURE.SELECTOR]
@@ -30,7 +31,7 @@ Bu makalede T-SQL ile SQL Veri Ambarı oluşturma işlemi gösterilmektedir.
 
 Başlamak için gerekli olanlar: 
 
-- **Azure hesabı**: Hesap oluşturmak için [Azure Ücretsiz Deneme Sürümü][] veya [MSDN Azure Kredileri][] sayfasını ziyaret edin.
+- **Azure hesabı**: Hesap oluşturmak için [Azure Ücretsiz Deneme][] veya [MSDN Azure Kredileri][] sayfasını ziyaret edin.
 - **Azure SQL server**: Daha fazla bilgi için bkz. [Azure Portal ile Azure SQL Database mantıksal sunucusu oluşturma][] veya [PowerShell ile Azure SQL Database mantıksal sunucusu oluşturma][].
 - **Kaynak grubu**: Azure SQL sunucunuz ile aynı kaynak grubunu kullanın veya [kaynak grubu oluşturma][] işlemine bakın.
 - **T-SQL yürütme ortamı**: T-SQL yürütmek için [Visual Studio][Visual Studio ve SSDT Yükleme], [sqlcmd][] veya [SSMS][] işlemlerini kullanabilirsiniz.
@@ -80,11 +81,11 @@ SQL Data Warehouse'unuz hazırlandıktan sonra [örnek veri yükleyebilir][] vey
 
 <!--Other Web references-->
 [SQL Data Warehouse fiyatlandırması]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
-[Azure Ücretsiz Deneme Sürümü]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
+[Azure Ücretsiz Deneme]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
 [MSDN Azure Kredileri]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

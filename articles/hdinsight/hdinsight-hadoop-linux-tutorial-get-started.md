@@ -17,6 +17,7 @@
     ms.date="09/14/2016"
     ms.author="jgao"/>
 
+
 # Hadoop öğreticisi: HDInsight’ta Linux tabanlı Hadoop kullanmaya başlama
 
 > [AZURE.SELECTOR]
@@ -163,6 +164,6 @@ HDInsight kümesi oluşturma ve yönetme hakkında daha fazla bilgi edinmek isti
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

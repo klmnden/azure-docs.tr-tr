@@ -16,6 +16,7 @@
     ms.date="08/22/2016"
     ms.author="jotaub"/>
 
+
 # Azure portalını kullanarak Service Bus ad alanı oluşturma
 
 Ad alanı, tüm mesajlaşma bileşenleriniz için ortak bir kapsayıcıdır. Tek bir ad alanında birden fazla kuyruk ve konu bulunabilir ve ad alanları genellikle uygulama kapsayıcıları olarak görev yapar. Şu anda bir Service Bus ad alanı oluşturmak için iki farklı yol vardır.
@@ -34,10 +35,10 @@ Tebrikler! Bir Service Bus Mesajlaşması ad alanı oluşturdunuz.
 
 Azure Service Bus Mesajlaşması’nın daha gelişmiş özelliklerinden bazılarını gösteren örnekleri içeren [GitHub depomuza](https://github.com/Azure-Samples/azure-servicebus-messaging-samples][github-samples) göz atın.
 
-[create-namespace-using-arm]: ./service-bus-resource-manager-overview.md
+[create-namespace-using-arm]: ../service-bus-messaging/service-bus-resource-manager-overview.md
 [github-samples]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

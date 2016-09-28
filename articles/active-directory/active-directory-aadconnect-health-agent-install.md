@@ -4,7 +4,7 @@
     services="active-directory"
     documentationCenter=""
     authors="karavar"
-    manager="stevenpo"
+    manager="femila"
     editor="karavar"/>
 
 <tags
@@ -15,6 +15,7 @@
     ms.topic="get-started-article"
     ms.date="08/05/2016"
     ms.author="vakarand"/>
+
 
 
 # Azure AD Connect Health Aracısı Yüklemesi
@@ -269,6 +270,6 @@ Ayrıntılı günlükleri görüntülemek için komut içinde -ShowResults bayra
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

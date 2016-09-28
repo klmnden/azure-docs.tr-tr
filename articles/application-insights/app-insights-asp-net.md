@@ -16,6 +16,7 @@
     ms.author="daviste"/>
 
 
+
 # ASP.NET için Application Insights’ı ayarlama
 
 [Visual Studio Application Insights](app-insights-overview.md), [performans sorunlarını ve özel durumlarını saptayıp tanılamanıza](app-insights-detect-triage-diagnose.md) ve [uygulamanızın nasıl kullanıldığını keşfetmenize](app-insights-overview-usage.md) yardımcı olmak amacıyla canlı uygulamanızı izler.  Azure web uygulamalarının yanı sıra şirket içi kendi IIS sunucularınızda veya bulut VM’lerinde ler barındırılan uygulamalar için çalışır.
@@ -144,6 +145,6 @@ ApplicationInsights.config dosyasında herhangi bir özelleştirme yaptıysanız
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

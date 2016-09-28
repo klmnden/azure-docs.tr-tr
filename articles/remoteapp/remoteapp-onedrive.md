@@ -16,6 +16,7 @@
    ms.date="08/15/2016"
    ms.author="elizapo"/>
 
+
 # OneDrive İş ve Azure RemoteApp
 
 > [AZURE.IMPORTANT]
@@ -26,6 +27,6 @@ OneDrive İş eşitleme aracı, Azure RemoteApp ile desteklenmez.
 OneDrive İş’i Office 365 ile kullanmak üzere bir koleksiyon içine dahil edebilirsiniz. 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

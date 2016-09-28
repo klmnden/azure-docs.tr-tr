@@ -7,7 +7,6 @@
 Şu anda bir depolama hesabı oluşturmayı tercih ediyorsanız, yerel bir ortamda kodunuzu çalıştırıp sınamak için Azure Storage öykünücüsü de kullanabilirsiniz. Daha fazla bilgi için bkz. [Geliştirme ve Sınama için Azure Storage Öykünücüsünü Kullanma](../articles/storage/storage-use-emulator.md).
  
 
-
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

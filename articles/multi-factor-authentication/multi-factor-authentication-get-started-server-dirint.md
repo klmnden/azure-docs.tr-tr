@@ -1,24 +1,25 @@
 <properties 
-    pageTitle="Azure Multi-Factor Authentication ile Active Directory arasında dizin tümleştirme" 
-    description="Bu, dizinleri eşitleyebilmeniz için Azure Multi-Factor Authentication Server ile Active Directory’yi nasıl tümleştireceğinizi açıklayan Azure Multi-factor authentication sayfasıdır." 
-    services="multi-factor-authentication" 
-    documentationCenter="" 
-    authors="billmath" 
-    manager="stevenpo" 
+    pageTitle="Azure Multi-Factor Authentication ile Active Directory arasında dizin tümleştirme"
+    description="Bu, dizinleri eşitleyebilmeniz için Azure Multi-Factor Authentication Server ile Active Directory’yi nasıl tümleştireceğinizi açıklayan Azure Multi-factor authentication sayfasıdır."
+    services="multi-factor-authentication"
+    documentationCenter=""
+    authors="kgremban"
+    manager="femila"
     editor="curtand"/>
 
-<tags 
-    ms.service="multi-factor-authentication" 
-    ms.workload="identity" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="get-started-article" 
-    ms.date="08/04/2016" 
-    ms.author="billmath"/>
+<tags
+    ms.service="multi-factor-authentication"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="08/04/2016"
+    ms.author="kgremban"/>
+
 
 # Azure MFA Sunucusu ile Active Directory arasında dizin tümleştirme
 
-Dizin Tümleştirme bölümü, Active Directory veya başka bir LDAP dizini ile tümleştirmek üzere sunucuyu yapılandırmanızı sağlar.  Dizin şeması ile eşleşmesi için öznitelikleri yapılandırmanıza ve kullanıcıların otomatik eşitlemesini ayarlamanıza olanak tanır. 
+Dizin Tümleştirme bölümü, Active Directory veya başka bir LDAP dizini ile tümleştirmek üzere sunucuyu yapılandırmanızı sağlar.  Dizin şeması ile eşleşmesi için öznitelikleri yapılandırmanıza ve kullanıcıların otomatik eşitlemesini ayarlamanıza olanak tanır.
 
 ## Ayarlar
 Varsayılan olarak, Azure Multi-Factor Authentication Sunucusu kullanıcıları Active Directory'den aktarmak ya da eşitlemek üzere yapılandırılmıştır.  Sekme, varsayılan davranışın üzerine yazmanızı ve farklı bir LDAP dizini, ADAM dizini ya da belirli bir Active Directory etki alanı denetçisine bağlamanızı sağlar.  Ayrıca, LDAP Kimlik Doğrulaması için kullanmak üzere RADIUS hedefi olarak LDAP ya da LDAP Bağlama sunma, IIS Kimlik Doğrulaması için önceden kimlik doğrulaması ya da Kullanıcı Portalı için birincil kimlik doğrulaması sağlar.  Aşağıdaki tabloda tek tek ayarlar açıklanır.
@@ -126,7 +127,7 @@ Eşitleme sekmesindeki her bir ayar hakkında ek bilgi için aşağıdaki tabloy
 
 >[AZURE.WARNING]Eşitleme öğesi kaydı kaldırıldıktan sonra kurtarılamaz. Yanlışlıkla sildiyseniz, eşitleme öğesi kaydını yeniden eklemeniz gerekir.
 
-Eşitleme öğesi veya eşitleme öğeleri Multi-Factor Auth Sunucusu’ndan kaldırıldı.  Multi-Factor Auth Sunucusu artık eşitleme öğelerini işlemeyecek. 
+Eşitleme öğesi veya eşitleme öğeleri Multi-Factor Auth Sunucusu’ndan kaldırıldı.  Multi-Factor Auth Sunucusu artık eşitleme öğelerini işlemeyecek.
 
 Yukarı Taşı ve Aşağı Taşı düğmeleri yöneticinin eşitleme öğelerinin sırasını değiştirmesini sağlar.  Aynı kullanıcı birden fazla eşitleme öğesinin üyesi olabileceğinden (örneğin, kapsayıcı ve güvenlik grubu), sıra önemlidir.  Kullanıcıya eşitleme sırasında uygulanan ayarlar, kullanıcının ilişkilendirildiği, listedeki ilk eşitleme öğesinden gelir.  Bu nedenle, eşitleme öğeleri öncelik sırasına koyulmalıdır.
 
@@ -139,6 +140,6 @@ Yedek RADIUS proxy, LDAP proxy olarak hizmet etmesi ya da IIS Kimlik Doğrulamas
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

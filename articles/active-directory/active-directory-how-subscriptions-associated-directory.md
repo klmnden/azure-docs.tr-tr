@@ -16,6 +16,7 @@
     ms.date="08/15/2016"
     ms.author="curtand"/>
 
+
 # Azure aboneliklerinin Azure Active Directory ile ilişkisi
 
 Bu konu başlığında, Microsoft Azure'da oturum açma ve Azure aboneliğinin Azure Active Directory (Azure AD) ile ilişkisi gibi ilgili konulara yönelik bilgiler ele alınmaktadır.
@@ -141,6 +142,6 @@ Her iki dizini de klasik Azure portalında yönetmek için bu adımları tamamla
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

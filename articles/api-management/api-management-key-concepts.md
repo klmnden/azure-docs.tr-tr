@@ -16,6 +16,7 @@
     ms.date="08/09/2016" 
     ms.author="sdanie"/>
 
+
 #API Management nedir?
 
 API Management, kuruluşların kendi veri ve hizmet potansiyellerini ortaya çıkarmak üzere API’leri dış, iş ortağı ve iç geliştiricilere yayımlamalarına yardımcı olur. Her yerdeki işletmeler, bir dijital platform olarak işlemlerini genişletmek, yeni kanallar oluşturmak, yeni müşteriler bulmak ve mevcut müşterilerle daha derin etkileşimi yürütmeyi amaçlar. API Management; geliştirici katılımı, iş öngörüleri, analizler, güvenlik ve koruma aracılığıyla başarılı bir API programı yürütmeye ilişkin temel yetkinlikler sağlar.
@@ -124,6 +125,6 @@ API Management hakkında daha fazla bilgi için Microsoft Ignite 2015 konferans�
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -47,7 +47,6 @@ Zaten bir ağ geçidi bağlantısı varsa öncelikle bu bağlantıyı kaldırman
 
 
 
-
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -15,6 +15,7 @@
    ms.date="08/17/2016"
    ms.author="alkohli" />
 
+
 # Azure’da StorSimple sanal cihazını dağıtma ve yönetme
 
 
@@ -283,6 +284,6 @@ Sanal cihazı siler veya kapatırsanız, StorSimple Yönetici hizmetinin Cihazla
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

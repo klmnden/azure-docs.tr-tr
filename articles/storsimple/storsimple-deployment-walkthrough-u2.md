@@ -15,6 +15,7 @@
    ms.date="08/16/2016"
    ms.author="alkohli" />
 
+
 # Şirket içi StorSimple cihazınızı dağıtma (Güncelleştirme 2)
 
 > [AZURE.SELECTOR]
@@ -247,6 +248,6 @@ StorSimple cihazınızda tek bir birim için bir isteğe bağlı el ile yedeklem
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

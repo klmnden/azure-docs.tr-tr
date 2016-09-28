@@ -1,26 +1,27 @@
-<properties 
-    pageTitle="Azure Multi-Factor Authentication ve AD FS ile bulut kaynaklarını güvenli hale getirme" 
-    description="Bu, bulutta nasıl Azure MFA ve AD FS kullanmaya başlayacağınızı açıklayan Azure Multi-Factor Authentication sayfasıdır." 
-    services="multi-factor-authentication" 
-    documentationCenter="" 
-    authors="billmath" 
-    manager="stevenpo" 
+<properties
+    pageTitle="Azure Multi-Factor Authentication ve AD FS ile bulut kaynaklarını güvenli hale getirme"
+    description="Bu, bulutta nasıl Azure MFA ve AD FS kullanmaya başlayacağınızı açıklayan Azure Multi-Factor Authentication sayfasıdır."
+    services="multi-factor-authentication"
+    documentationCenter=""
+    authors="kgremban"
+    manager="femila"
     editor="curtland"/>
 
-<tags 
-    ms.service="multi-factor-authentication" 
-    ms.workload="identity" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="get-started-article" 
-    ms.date="08/04/2016" 
-    ms.author="billmath"/>
+<tags
+    ms.service="multi-factor-authentication"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="08/04/2016"
+    ms.author="kgremban"/>
+
 
 # Azure Multi-Factor Authentication ve AD FS ile bulut kaynaklarını güvenli hale getirme
 
 Kuruluşunuz Azure Active Directory ile birleştiriliyorsa ve Azure AD tarafından erişilen kaynaklara sahipseniz, bu kaynakları güvenli hale getirmek için Azure Multi-Factor Authentication ya da Active Directory Federasyon Hizmetleri’ni kullanabilirsiniz. Azure Active Directory kaynaklarını Azure Multi-Factor Authentication ya da Active Directory Federasyon Hizmetleri ile güvenli hale getirmek için aşağıdaki yordamları kullanın.
 
-## AD FS kullanarak Azure AD kaynaklarını güvenli hale getirmek için aşağıdakileri yapın: 
+## AD FS kullanarak Azure AD kaynaklarını güvenli hale getirmek için aşağıdakileri yapın:
 
 
 
@@ -71,7 +72,7 @@ Yapmamız gereken ilk şey, AD FS taleplerini yapılandırmaktır. Bir Kurumsal 
 10. Dönüştürme Kuralı Ekleme Sihirbazı’nda, açılır menüde Talepleri Özel bir Kural Kullanarak Gönder’i seçin ve İleri’ye tıklayın.
 11. Talep kuralı adı altındaki kutuya: Kullanıcıların Oturumlarını Açık Tut’u girin.
 12. Özel kural kutusuna şunu girin:
-        
+
         c:[Type == "http://schemas.microsoft.com/2014/03/psso"]
             => issue(claim = c);
 ![Bulut](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip5.png)
@@ -100,12 +101,6 @@ Bu kadar! Bu noktada, birleştirilmiş Office 365 kullanıcıları yalnızca tal
 
 
 
-
-
-
-
-
-
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

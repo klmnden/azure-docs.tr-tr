@@ -15,6 +15,7 @@
     ms.date="09/01/2016"
     ms.author="awills"/>
 
+
 # Geliştirici analizleri: diller, platformlar ve tümleştirmeler
 
 Bu öğeler, bildiğimiz [Application Insights](app-insights-overview.md) uygulamalardır. Bunlardan bazıları üçüncü taraflar aracılığıyla sunulur.
@@ -87,6 +88,6 @@ Diliniz veya platformunuz için henüz bir SDK yoksa, belki de bir tane derlemen
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

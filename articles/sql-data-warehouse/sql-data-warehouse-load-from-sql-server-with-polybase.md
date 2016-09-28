@@ -17,6 +17,7 @@
    ms.author="cakarst;barbkess;sonyama"/>
 
 
+
 # SQL Data Warehouse'da PolyBase ile veri yükleme
 
 > [AZURE.SELECTOR]
@@ -286,6 +287,6 @@ PolyBase kullanan bir çözüm geliştirirken bilmeniz gereken daha fazla bilgi 
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -16,6 +16,7 @@
     ms.date="07/05/2016"
     ms.author="wesmc"/>
 
+
 # Azure Notification Hubs ile Android'e anında iletme bildirimleri gönderme
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -42,7 +43,7 @@ Bu öğreticiyi tamamlamak Android uygulamalarına ilişkin diğer tüm Notifica
 
 ##Google Cloud Messaging'i destekleyen bir proje oluşturma
 
-[AZURE.INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-Google-cloud-messaging.md)]
+[AZURE.INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-google-cloud-messaging.md)]
 
 
 ##Yeni bir bildirim hub'ı yapılandırma
@@ -729,6 +730,6 @@ Notification Hubs hakkında daha fazla genel bilgi edinmek için bkz. [Notificat
 
 
 
-<!----HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

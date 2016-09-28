@@ -17,6 +17,7 @@
     ms.date="09/13/2016"
     ms.author="billmath;andkjell"/>
 
+
 # Azure AD Connect özel yüklemesi
 Yükleme için daha fazla seçenek istediğinizde Azure AD Connect **Özel ayarları** kullanılır. Birden fazla ormanınız varsa veya hızlı yükleme kapsamında yer almayan isteğe bağlı özellikleri yapılandırmak istiyorsanız kullanılır. [**Hızlı yükleme**](active-directory-aadconnect-get-started-express.md) seçeneğinin dağıtımınız veya topolojiniz için uygun olmadığı tüm durumlarda kullanılır.
 
@@ -266,6 +267,6 @@ Yükleme için kullanılan hesaplar | [Azure AD Connect hesapları ve izinleri h
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

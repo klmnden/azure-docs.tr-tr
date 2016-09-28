@@ -16,6 +16,7 @@
    ms.date="08/16/2016"
    ms.author="sonyama;barbkess"/>
 
+
 # SQL Data Warehouse için Visual Studio 2015'i ve SSDT'yi Yükleme
 
 SQL Data Warehouse için uygulama geliştirmek üzere Visual Studio 2015'i, SQL Server Veri Araçları'nın (SSDT) en son sürümüyle birlikte kullanmanızı öneririz.  Geriye dönük uyumluluk için SSDT ile Visual Studio 2013 Güncelleştirme 5 de desteklenir.  
@@ -58,6 +59,6 @@ SSDT'nin en son sürümüne sahip olduğunuza göre SQL Data Warehouse'unuza [ba
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

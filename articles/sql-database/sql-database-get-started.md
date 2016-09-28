@@ -19,6 +19,7 @@
     ms.author="carlrab"/>
 
 
+
 # SQL Veritabanı öğreticisi: Azure portalını kullanarak dakikalar içinde bir SQL veritabanı oluşturma
 
 > [AZURE.SELECTOR]
@@ -139,6 +140,6 @@ Bu SQL Veritabanı öğreticisini tamamladığınıza ve bazı örnek verilerle 
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

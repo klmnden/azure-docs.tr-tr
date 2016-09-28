@@ -16,6 +16,7 @@
     ms.date="12/16/2015"
     ms.author="dwrede"/>
 
+
 # Microsoft Azure portalına genel bakış
 
 Microsoft Azure portalı, Azure kaynaklarınızı sağlayabileceğiniz ve yönetebileceğiniz merkezi bir yerdir.  Bu öğretici, portal hakkında bilgi edinmenizi sağlar ve şu temel özellikleri nasıl kullanacağınızı gösterir:
@@ -100,6 +101,6 @@ Microsoft Azure portalını uygulamalarınızı bulutta oluşturma ve yönetme s
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

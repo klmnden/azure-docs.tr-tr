@@ -17,6 +17,7 @@
     ms.author="mandia"/>
 
 
+
 # Logic Apps içinde kullanılacak Bağlayıcılar ve API Apps listesi
 >[AZURE.NOTE] Makalenin bu sürümü Logic Apps 2014-12-01-önizleme şema sürümü için geçerlidir. Logic Apps Genel Kullanılabilirlik (GA) sürümü için bkz. [Yeni Bağlayıcılar Listesi](../connectors/apis-list.md).
 
@@ -81,6 +82,6 @@ Bağlayıcılar Mantıksal Uygulama içinde eylem olarak da kullanılabilir. Eyl
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

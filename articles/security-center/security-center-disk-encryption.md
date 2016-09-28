@@ -16,6 +16,7 @@
    ms.date="05/27/2016"
    ms.author="tomsh"/>
 
+
 # Azure Sanal Makine'yi şifreleme
 Şifrelenmemiş sanal makineleriniz varsa Azure Güvenlik Merkezi sizi uyarır. Bu uyarılar Yüksek Önem Derecesine Sahip olarak gösterilir ve bu sanal makineleri şifrelemeniz önerilir.
 
@@ -114,7 +115,7 @@ Doğru Kaynak Grubu adının girildiğini onaylamak için PowerShell ISE konsolu
 
 **$resourceGroupName**
 
-**ENTER**'a basın. Sanal makinelerinizin içinde bulunduğu Kaynak Grubunun adını görmeniz gerekir. Örnek:
+**ENTER**'a basın. Sanal makinelerinizin içinde bulunduğu Kaynak Grubunun adını görmeniz gerekir. Örneğin:
 
 ![PowerShell çıkışı](./media/security-center-disk-encryption\security-center-disk-encryption-fig6.png)
 
@@ -176,6 +177,6 @@ Bu belgede bir Azure Sanal Makine'nin nasıl şifreleneceğini öğrendiniz. Azu
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

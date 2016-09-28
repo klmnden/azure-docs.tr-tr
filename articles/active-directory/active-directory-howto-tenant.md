@@ -16,6 +16,7 @@
     ms.date="09/28/2015"
     ms.author="dastrock"/>
 
+
 # Azure Active Directory kiracısı edinme
 
 Azure Active Directory'de (Azure AD) [kiracı](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant), bir kuruluşun temsilcisidir.  Bir kuruluşun, Azure, Microsoft Intune veya Office 365 gibi bir Microsoft bulut hizmetine kaydolduğunda aldığı ve sahip olduğu adanmış bir Azure AD hizmeti örneğidir.  Her Azure AD kiracısı benzersizdir ve diğer Azure AD kiracılarından ayrıdır.  
@@ -67,6 +68,6 @@ Azure'a kaydolma işleminin bir parçası olarak, kredi kartı bilgileri sağlam
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

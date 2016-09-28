@@ -16,6 +16,7 @@
    ms.date="06/29/2016"
    ms.author="ganesr"/>
 
+
 # Bir ExpressRoute bağlantı hattı için yönlendirmeyi oluşturma ve değiştirme
 
 
@@ -406,6 +407,6 @@ Sonraki adım, [ExpressRoute bağlantı hattına bir VNet bağlama](expressroute
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

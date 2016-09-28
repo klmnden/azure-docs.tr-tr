@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="07/21/2016"
-    ms.author="tamram"/>
+    ms.date="09/20/2016"
+    ms.author="vamshik;tamram"/>
+
 
 # Microsoft Azure Storage’a Giriş
 
@@ -132,14 +133,14 @@ Paylaşılan erişim imzaları ile ilgili daha fazla bilgi edinmek için bkz. [P
 
 ## Dayanıklılık ve Yüksek Seviyede Kullanılabilirlik için Çoğaltma
 
-Microsoft Azure Storage hesabınızdaki veriler, geçici donanım arızalarında bile [Depolama için SLA](https://azure.microsoft.com/support/legal/sla/storage/)’nın sağlanması için dayanıklılık ve yüksek seviyede kullanılabilirlik sağlamak üzere her zaman çoğaltılır. 
+Microsoft Azure Storage hesabınızdaki veriler, geçici donanım arızalarında bile [Depolama için SLA](https://azure.microsoft.com/support/legal/sla/storage/)’nın sağlanması için dayanıklılık ve yüksek seviyede kullanılabilirlik sağlamak üzere her zaman çoğaltılır.
 
 Bir bölgede hangi hizmetin sağlandığına dair daha fazla bilgi için bkz. [Azure Bölgeleri](https://azure.microsoft.com/regions/#services).
 
 Bir depolama hesabı oluşturduğunuzda, aşağıdaki çoğaltma seçeneklerinden birini seçmeniz gerekir:  
 
 - **Yerel olarak yedekli depolama (LRS).** Yerel olarak yedekli depolama verilerinizin üç kopyasını tutar. LRS, tek bir bölgedeki tek bir tesis içinde üç kez çoğaltılır. LRS normal donanım arızalarına karşı verilerinizi korur ancak tek bir tesisin arızalanmasına karşı koruyamaz.  
-  
+
     LRS indirimli fiyatla sunulur. En üst düzeyde dayanıklılık için aşağıda açıklanan coğrafi olarak yedekli depolamayı kullanmanızı öneririz.
 
 
@@ -148,8 +149,8 @@ Bir depolama hesabı oluşturduğunuzda, aşağıdaki çoğaltma seçeneklerinde
     ZRS, LRS'ye daha yüksek düzeyde dayanıklılık sağlar; Ancak, en üst düzeyde dayanıklılık için aşağıda açıklanan coğrafi olarak yedekli depolamayı kullanmanızı öneririz.  
 
     > [AZURE.NOTE] ZRS şu an yalnızca blok bloblar için kullanılabilir ve yalnızca 2014 02 14 ve daha yeni sürümleri destekler.
-    > 
-    > Depolama hesabınızı oluşturup ZRS’yi seçtiğinizde farklı bir tür çoğaltma seçeneği kullanmak üzere dönüştüremezsiniz; tersi durumda da aynısı söz konusudur. 
+    >
+    > Depolama hesabınızı oluşturup ZRS’yi seçtiğinizde farklı bir tür çoğaltma seçeneği kullanmak üzere dönüştüremezsiniz; tersi durumda da aynısı söz konusudur.
 
 - **Coğrafi olarak yedekli depolama (GRS)**. GRS verilerinizin altı kopyasını tutar. GRS ile verileriniz birincil bölge içinde üç kez çoğaltılır ve ayrıca birincil bölgeden yüzlerce kilometre ötedeki ikincil bir bölgede üç kez çoğaltılarak en üst seviyede dayanıklılık sağlanır. Birincil bölgede bir arıza olması durumunda Azure Storage ikincil bölgeye yük devredecektir. GRS, verilerinizin iki ayrı bölge içinde dayanıklı olmasını sağlar.
 
@@ -158,7 +159,7 @@ Bir depolama hesabı oluşturduğunuzda, aşağıdaki çoğaltma seçeneklerinde
 - **Coğrafi olarak yedekli depolamaya okuma erişimi (RA-GRS)**. Coğrafi olarak yedekli depolamaya okuma erişimi, depolama hesabınızı oluşturduğunuzda hesabınız için varsayılan olarak etkinleştirilir. Coğrafi olarak yedekli depolamaya okuma erişimi verilerinizi ikincil bir coğrafi konumda çoğaltır, bununla birlikte ikincil konumdaki verilerinize okuma erişimi sağlar. Konumlardan birinin kullanılamaz durumda olması halinde Coğrafi olarak yedekli depolama okuma erişimi verilerinize birincil veya ikincil konumdan erişmenizi sağlar.
 
     > [AZURE.IMPORTANT] Hesabınızı oluştururken ZRS seçmediyseniz, depolama hesabınız oluşturulduktan sonra verilerinizin çoğaltılma yöntemini değiştirebilirsiniz. Buna karşın LRS’den GRS’ye veya RA-GRS’ye geçiş yaparsanız tek seferlik veri aktarımı ücreti ödemeniz gerekebileceğini unutmayın.
- 
+
 Depolama çoğaltma seçenekleri ile ilgili ayrıntılar için bkz. [Azure Storage çoğaltma](storage-redundancy.md).
 
 Depolama hesabı çoğaltma ile ilgili fiyat bilgileri için bkz. [Azure Storage Fiyatlandırması](https://azure.microsoft.com/pricing/details/storage/).
@@ -269,6 +270,6 @@ Azure Storage hakkında daha fazla bilgi için şu kaynakları araştırın:
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

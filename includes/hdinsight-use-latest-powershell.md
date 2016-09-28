@@ -3,7 +3,6 @@
 > Azure PowerShell’in en son sürümünü yüklemek için lütfen [Azure PowerShell’i yükleme ve yapılandırma](../articles/powershell-install-configure.md)’daki adımları uygulayın. Azure Resource Manager’la çalışan yeni cmdlet’lerle kullanmak için değiştirilmesi gereken komut dosyalarınız varsa, daha fazla bilgi için bkz. [HDInsight kümeleri için Azure Resource Manager tabanlı geliştirme araçlarına geçme](../articles/hdinsight/hdinsight-hadoop-development-using-azure-resource-manager.md).
 
 
-
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

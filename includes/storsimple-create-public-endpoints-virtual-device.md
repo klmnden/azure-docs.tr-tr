@@ -1,6 +1,6 @@
 #### Sanal cihazda genel uç noktalar oluşturmak için
 
-1. Klasik Azure portalına giriş yapın.
+1. Klasik Azure portalında oturum açın.
 
 - **Virtual Machines**’e tıklayın ve sanal cihazınız olarak kullanılacak sanal makineyi seçin.
 
@@ -20,7 +20,6 @@
 
 Uç nokta oluşturulduktan sonra, Genel Sanal IP (VIP) adresini saptamak için ayrıntılarını görüntüleyebilirsiniz. Bu adresini kaydedin.
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

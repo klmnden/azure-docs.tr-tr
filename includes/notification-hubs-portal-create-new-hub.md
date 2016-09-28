@@ -23,7 +23,6 @@
     ![Azure Portal - Bildirim hub'ı bağlantı dizeleri](./media/notification-hubs-portal-create-new-hub/notification-hubs-connection-strings-portal.png)
 
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

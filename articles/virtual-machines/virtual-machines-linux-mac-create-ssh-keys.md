@@ -17,6 +17,7 @@
     ms.date="08/08/2016"
     ms.author="v-livech"/>
 
+
 # Linux ve Mac’de Linux VM’ler için Azure’da SSH anahtarları oluşturma
 
 SSH anahtar çiftiyle Azure'da Sanal Makineler oluşturabilirsiniz. Bu sayede kimlik doğrulaması için SSH anahtarlarının kullanımını varsayılan hale getirerek oturum açmak için parolalara duyulan gereksinimi ortadan kaldırırsınız.  Parolalar, tahmin edilebilir olup sanal makinelerinizi parolanızı tahmin etmeye yönelik sayısız girişime maruz bırakır. Azure Şablonları veya `azure-cli` ile oluşturulan sanal makineler, dağıtımın bir parçası olarak SSH ortak anahtarınızı içerebilir; böylece dağıtım sonrası yapılandırma gereksinimini ortadan kaldırır.  Linux VM'ye Windows üzerinden bağlanıyorsanız [bu belgeye](virtual-machines-linux-ssh-from-windows.md) göz atın.
@@ -245,6 +246,6 @@ Sonraki adım, yeni SSH ortak anahtarını kullanarak Azure Linux VM’ler oluş
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

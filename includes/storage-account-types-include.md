@@ -27,7 +27,6 @@ Depolama hesabı oluşturabilmeniz için, öncelikle çeşitli Azure hizmetlerin
 Depolama hesabı oluşturmayı öğrenmek amacıyla daha fazla bilgi için bkz. [Depolama hesabı oluşturma](../articles/storage/storage-create-storage-account.md#create-a-storage-account). Tek bir abonelikte benzersiz olarak adlandırılmış 100 depolama hesabına kadar oluşturabilirsiniz. Depolama hesabı limitleri hakkında ayrıntılı bilgi için bkz. [Azure Storage Ölçeklenebilirlik ve Performans Hedefleri](../articles/storage/storage-scalability-targets.md).
 
 
-
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

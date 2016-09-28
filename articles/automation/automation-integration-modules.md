@@ -16,6 +16,7 @@
    ms.date="09/12/2016"
    ms.author="magoedte" />
 
+
 # Azure Automation Tümleştirme Modülleri
 
 PowerShell, Azure Automation’un ardındaki temel teknolojidir. Azure Automation PowerShell üzerine kurulu olduğundan, PowerShell modülleri Azure Automation’un genişletilmesinde önemlidir. Bu makalede, Azure Automation’un "Tümleştirme modülleri" adı verilen PowerShell modüllerini nasıl kullandığı ve kendi PowerShell modüllerinizi oluştururken Azure Automation’da Tümleştirme Modülü olarak çalışmalarını sağlayacak en iyi yöntemler anlatılır. 
@@ -208,6 +209,6 @@ Tümleştirme Modülleri temelde PowerShell modülleri olsa da, modülü yazarke
 - PowerShell Modülleri oluşturma hakkında daha fazla bilgi için bkz. [Windows PowerShell Modülü Yazma](https://msdn.microsoft.com/library/dd878310%28v=vs.85%29.aspx)
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

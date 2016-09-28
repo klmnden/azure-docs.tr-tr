@@ -4,7 +4,6 @@
 2. Azure kimlik bilgilerinizle giriş yapın ve **Var Olan Mobil Hizmetler**’den hizmetinizi seçin. Visual Studio yayım ayarlarınızı doğrudan Azure’dan indirir. Son olarak, **Yayımla**’ya tıklayın.
 
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

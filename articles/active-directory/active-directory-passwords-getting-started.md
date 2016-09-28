@@ -17,6 +17,7 @@
     ms.date="07/12/2016"
     ms.author="asteen"/>
 
+
 # Parola Yönetimine Başlarken
 
 > [AZURE.IMPORTANT] **Oturum açmada sorun yaşadığınız için mi buradasınız?** Sorun yaşıyorsanız bkz. [kendi parolanızı değiştirme ve sıfırlama](active-directory-passwords-update-your-own-password.md).
@@ -361,6 +362,6 @@ Aşağıda, tüm Azure AD Parola Sıfırlama belge sayfalarının bağlantılar�
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

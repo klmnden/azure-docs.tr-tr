@@ -17,6 +17,7 @@
     ms.author="adegeo"/>
 
 
+
 # Visual Studio için Python web ve çalışan rolleri içeren Python Araçları
 
 Bu makalede, [Visual Studio için Python Araçları][] ile Python web ve çalışan rollerini kullanmaya genel bir bakış sunulmuştur. Visual Studio’yu kullanarak Python kullanan temel bir Bulut Hizmetinin nasıl oluşturulup dağıtılacağını öğreneceksiniz.
@@ -370,6 +371,6 @@ Web ve çalışan rollerinizden Azure Storage veya Service Bus gibi Azure hizmet
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

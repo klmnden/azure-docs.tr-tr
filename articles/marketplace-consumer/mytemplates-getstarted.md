@@ -18,6 +18,7 @@
    ms.date="05/18/2016"
    ms.author="vybavar"/>
 
+
 # Azure Portal'da özel Şablonları kullanmaya başlama
 
 [Azure Resource Manager ](../resource-group-authoring-templates.md) şablonu, dağıtımınızı tanımlamak için kullanılan bildirim temelli bir şablondur. Bir çözümü dağıtmak amacıyla kaynaklarınızı tanımlayabilir ve farklı ortamlar için değer girmenizi sağlayan parametreler ve değişkenleri belirtebilirsiniz. Şablonda, JSON ve dağıtımınız için değerleri oluşturmada kullanabileceğiniz ifadeler bulunur.
@@ -136,6 +137,6 @@ Sağ tıklayarak veya belirli bir öğenin görüntüleme dikey penceresindeki g
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

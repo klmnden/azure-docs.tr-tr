@@ -16,6 +16,7 @@
     ms.date="07/13/2016"
     ms.author="MarkVi"/>
 
+
 # Oturum açma ve Erişim Paneli sayfalarınıza şirket markası ekleme
 
 
@@ -134,7 +135,7 @@ Teknik olarak, Azure AD tarafından desteklenen her dil için farklı bir küme 
 3. Üstteki araç çubuğunda **Configure (Yapılandır)** düğmesine tıklayın.
 4. **Customize Branding (Markayı Özelleştir)**düğmesine tıklayın.
 4. Özelleştirmek istediğiniz öğeleri değiştirin. Tüm alanlar isteğe bağlıdır.
-5. **Save (Kaydet)** düğmesine tıklayın.
+5. **Kaydet** düğmesine tıklayın.
 
 Oturum açma sayfası markasında yaptığınız yeni değişikliğin görünmesi bir saate kadar sürebilir.
 
@@ -164,7 +165,7 @@ Oturum açma sayfası markasında yaptığınız yeni değişikliğin görünmes
 
     c. Tüm metin kutularındaki metinleri kaldırın.
 
-    d. **Next (İleri)** düğmesine tıklayın.
+    d. **İleri**’ye tıklayın.
 
     e. Tüm metin kutularındaki metinleri kaldırın.
 
@@ -222,6 +223,6 @@ Oturum Açma Sayfası Arka Plan Rengi | Oturum açma sayfası arka plan rengi, o
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

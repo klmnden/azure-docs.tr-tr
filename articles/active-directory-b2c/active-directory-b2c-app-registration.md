@@ -17,6 +17,7 @@
     ms.author="swkrish"/>
 
 
+
 # Azure Active Directory B2C: Uygulamanızı kaydetme
 
 ## Önkoşul
@@ -56,6 +57,6 @@ Azure AD B2C'ye kayıtlı bir uygulamaya sahip olduğunuza göre başlamak ve ç
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

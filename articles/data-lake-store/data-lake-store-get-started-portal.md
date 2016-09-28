@@ -16,6 +16,7 @@
    ms.date="09/13/2016"
    ms.author="nitinme"/>
 
+
 # Azure Portal'ı kullanarak Azure Data Lake Store ile çalışmaya başlama
 
 > [AZURE.SELECTOR]
@@ -130,6 +131,6 @@ Bir Azure Data Lake Store hesabını silmek için, Data Lake Store dikey pencere
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

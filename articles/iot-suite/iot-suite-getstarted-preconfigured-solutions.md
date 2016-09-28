@@ -17,6 +17,7 @@
      ms.date="08/16/2016"
      ms.author="dobett"/>
 
+
 # Öğretici: Önceden yapılandırılmış çözümleri kullanmaya başlama
 
 ## Giriş
@@ -251,6 +252,6 @@ Her bir kaynağın ayarlarını, kaynak grubundaki kaynaklar listesinde seçerek
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -16,6 +16,7 @@
     ms.date="07/21/2016"
     ms.author="glenga"/>
 
+
 # Mobile Services’ı kullanmaya başlama
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
@@ -93,6 +94,6 @@ Hızlı başlangıcı tamamladığınıza göre [HTML/JavaScript için Mobile Se
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

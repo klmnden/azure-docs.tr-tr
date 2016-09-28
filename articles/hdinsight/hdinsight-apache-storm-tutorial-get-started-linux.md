@@ -18,6 +18,7 @@
    ms.author="larryfr"/>
 
 
+
 # Apache Storm öğreticisi: HDInsight’ta büyük veri analizi için Storm Starter örneklerini kullanmaya başlama
 
 Apache Storm, veri akışlarını işlemeye yönelik ölçeklenebilir, hataya dayanıklı, dağıtılmış ve gerçek zamanlı bir işlem sistemidir. Azure HDInsight’ta Storm ile büyük veri analizini gerçek zamanlı olarak gerçekleştiren bulut tabanlı bir Storm kümesi oluşturabilirsiniz.
@@ -194,6 +195,6 @@ Java tabanlı topolojiler geliştirme hakkında zaten bilgi sahibiyseniz ve mevc
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

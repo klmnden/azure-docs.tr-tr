@@ -90,7 +90,6 @@ Derlediğiniz tüm otomasyon ve betikler, Azure Hizmet Yönetimi modu altında o
 Yeni başlayanlar için kapsamlı bir dizi şablon [Azure Resource Manager Hızlı Başlangıç Şablonlarında](https://azure.microsoft.com/documentation/templates/) bulunabilir.
 
 
-
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -16,6 +16,7 @@
     ms.date="08/05/2016"
     ms.author="douglasl"/>
 
+
 # Esnetme İçin Veritabanını Etkinleştirme Sihirbazını çalıştırarak kullanmaya başlama
 
 Bir veritabanını Esnetme Veritabanı için çalıştırmak üzere, Esnetme İçin Veritabanını Etkinleştirme Sihirbazını çalıştırın.  Bu konu başlığında, sihirbazda girmeniz gereken bilgiler ve yapmanız gereken seçimler açıklanmaktadır.
@@ -196,6 +197,6 @@ Esnetme Veritabanı için ek tablolar etkinleştirin. Veri geçişini izleyin ve
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

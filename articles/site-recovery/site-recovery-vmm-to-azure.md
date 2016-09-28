@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="08/23/2016"
+    ms.date="09/16/2016"
     ms.author="raynew"/>
+
 
 # Azure portalı ile Azure Site Recovery'yi kullanarak VMM bulutlarındaki Hyper-V sanal makinelerini Azure'a çoğaltma | Microsoft Azure
 
@@ -574,6 +575,6 @@ Dağıtımınız ayarlandıktan ve çalışmaya başladıktan sonra farklı tür
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

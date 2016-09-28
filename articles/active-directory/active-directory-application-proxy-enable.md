@@ -16,6 +16,7 @@
     ms.date="07/19/2016"
     ms.author="kgremban"/>
 
+
 # Azure portalında Uygulama Ara Sunucusunu etkinleştirme
 
 Bu makale, Azure AD'deki bulut dizininiz için Microsoft Azure AD Uygulama Ara Sunucusunu etkinleştirme adımlarında size kılavuzluk eder.
@@ -92,6 +93,6 @@ Ayrı ağlarda veya farklı konumlarda uygulamalarınız varsa farklı bağlayı
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

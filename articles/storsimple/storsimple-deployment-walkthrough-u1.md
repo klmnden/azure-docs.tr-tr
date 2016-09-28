@@ -15,6 +15,7 @@
    ms.date="08/17/2016"
    ms.author="alkohli" />
 
+
 # Şirket içi StorSimple cihazınızı dağıtma (Güncelleştirme 1)
 
 > [AZURE.SELECTOR]
@@ -292,6 +293,6 @@ Bir Linux konağına bağlı bir StorSimple cihazına yönelik MPIO yükleme yö
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

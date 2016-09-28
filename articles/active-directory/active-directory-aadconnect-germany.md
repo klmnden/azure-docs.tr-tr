@@ -17,6 +17,7 @@
     ms.date="09/08/2016"
     ms.author="billmath"/>
 
+
 #Microsoft Bulut Almanya’da Azure AD Connect - Genel Önizleme
 
 ## Giriş
@@ -69,6 +70,6 @@ Azure AD Connect'i yüklemek için [buradaki](active-directory-aadconnect.md#ins
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

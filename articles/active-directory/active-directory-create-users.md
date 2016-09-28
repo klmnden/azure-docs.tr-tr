@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/21/2016"
-    ms.author="curtand;viviali"/>
+    ms.date="09/22/2016"
+    ms.author="curtand"/>
+
 
 # Azure Active Directory'ye yeni kullanıcı veya Microsoft hesabı olan bir kullanıcı ekleme
 
@@ -88,6 +89,6 @@ Ardından konuk kullanıcıların erişimini denetleme seçeneklerini düzenleye
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

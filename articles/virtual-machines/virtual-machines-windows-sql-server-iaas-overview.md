@@ -17,6 +17,7 @@
     ms.date="08/29/2016"
     ms.author="jroth"/>
 
+
 # Azure Virtual Machines’de SQL Server’a Genel Bakış
 
 Bu konu Azure virtual machines hizmetinde SQL Server çalıştırmaya yönelik seçeneklerle birlikte [portal görüntülerinin bağlantılarını](#option-1-deploy-a-sql-vm-per-minute-licensing) ve [ortak görevlerin](#manage-your-sql-vm) genel açıklamasını içermektedir.
@@ -96,6 +97,6 @@ Başka sorunuz mu var? Önce, bkz. [Azure Virtual Machines’de SQL Server Kulla
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

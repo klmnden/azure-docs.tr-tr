@@ -11,7 +11,6 @@ DNS bölgesi belirli bir etki alanıyla ilgili DNS kayıtlarını barındırmak 
 
 - Birden çok bölgenin aynı adı taşıdığı durumlarda, her örnek farklı ad sunucusu adreslerine atanır; yalnızca tek bir örnek üst etki alanından temsil edilebilir. Daha fazla bilgi için bkz. [Bir etki alanını Azure DNS'ye devretme](../articles/dns/dns-domain-delegation.md).
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

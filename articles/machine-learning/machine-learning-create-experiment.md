@@ -17,6 +17,7 @@
     ms.date="07/14/2016"
     ms.author="garye"/>
 
+
 # Makine öğrenimi öğreticisi: Azure Machine Learning Studio'da ilk veri bilimi denemenizi oluşturma
 
 Bu makine öğrenimi öğreticisi kolay bir veri bilimi deneyinde size kılavuzluk etmektedir. Marka ve teknik belirtimler gibi farklı değişkenleri esas alarak otomobil fiyatını tahmin eden bir doğrusal regresyon modeli oluşturacağız. Bunu yapmak için, tahmine dayalı basit bir analiz denemesini geliştirmek ve yinelemek amacıyla Azure Machine Learning Studio'yu kullanacağız.
@@ -249,6 +250,6 @@ Modeli oluşturma, eğitme, puanlama ve dağıtma için tahmine dayalı modellem
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -14,8 +14,9 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/10/2016"
+    ms.date="09/16/2016"
     ms.author="garye"/>
+
 
 
 # Kılavuz: Azure Machine Learning Studio'da kredi riski değerlendirmesi için tahmine dayalı bir analiz çözümü geliştirme
@@ -45,6 +46,6 @@ Bu kılavuz, [Cortana Intelligence Galerisi](http://gallery.cortanaintelligence.
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

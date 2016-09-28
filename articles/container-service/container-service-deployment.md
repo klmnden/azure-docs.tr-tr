@@ -18,6 +18,7 @@
    ms.date="09/13/2016"
    ms.author="rogardle"/>
 
+
 # Azure Kapsayıcı Hizmeti kümesini dağıtma
 
 Azure Kapsayıcı Hizmeti popüler açık kaynak kapsayıcı kümeleme ve düzenleme çözümlerinin hızlı dağıtımını sağlar. Azure Kapsayıcı Hizmeti’ni kullanarak, Azure Resource Manager şablonları ya da Azure portal ile DC/OS ve Docker Swarm kümeleri dağıtabilirsiniz. Bu kümeleri, Azure Sanal Makine Ölçekleme Kümeleri kullanarak dağıtabilirsiniz, böylece kümeler Azure ağ ve depolama sunumlarından yararlanabilir. Azure Kapsayıcı Hizmeti’ne erişmek için bir Azure aboneliği gerekir. Bir aboneliğiniz yoksa, [ücretsiz deneme için kaydolabilirsiniz](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935).
@@ -187,6 +188,6 @@ Artık çalışan bir kümeniz olduğuna göre, bağlantı ve yönetim ayrıntı
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

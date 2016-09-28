@@ -17,6 +17,7 @@
     ms.date="08/23/2016"
     ms.author="deonhe"/>
 
+
 # Mantıksal uygulamaları şema sürümü 2015-08-01-önizlemeye geçirme
 
 Mevcut mantıksal uygulamalarınızı yeni şemaya taşımak için aşağıdakileri yapın:  
@@ -51,6 +52,6 @@ Mevcut mantıksal uygulamalarınızı yeni şemaya taşımak için aşağıdakil
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

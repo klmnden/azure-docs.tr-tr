@@ -17,6 +17,7 @@
    ms.author="carlrab"/>
 
 
+
 # CSV dosyasından Azure SQL Data Warehouse'a veri yükleme (düz dosyalar)
 
 Bir CSV dosyasından Azure SQL Database’e veri aktarmak için bcp komut satırı yardımcı programını kullanabilirsiniz.
@@ -126,6 +127,6 @@ Bir SQL Server veritabanına geçiş yapmak için bkz. [SQL Server veritabanı g
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

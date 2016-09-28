@@ -16,6 +16,7 @@
    ms.date="05/16/2016"
    ms.author="edmaca"/>
 
+
 # Öğretici: Azure Portal'ı kullanarak Azure Data Lake Analytics ile çalışmaya başlama
 
 [AZURE.INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -23,8 +24,6 @@
 Azure Data Lake Analytics hesapları oluşturmak, Data Lake Analytics işlerini [U-SQL](data-lake-analytics-u-sql-get-started.md) içinde tanımlamak ve Data Lake Analytics hesaplarına iş göndermek için Azure Portal'ın nasıl kullanılacağını öğrenin. Data Lake Analytics hakkında daha fazla bilgi için bkz. [Azure Data Lake Analytics'e genel bakış](data-lake-analytics-overview.md).
 
 Bu öğreticide, bir sekmeyle ayrılmış değerler (TSV) dosyasını okuyan ve bunu virgülle ayrılmış değerler (CSV) dosyasına dönüştüren bir iş geliştireceksiniz. Öğreticiyi desteklenen diğer araçları kullanarak tamamlamak için bu bölümün üst kısmındaki sekmelere tıklayın. İlk işiniz başarılı olduktan sonra, U-SQL ile daha karmaşık veri dönüşümleri yazmaya başlayabilirsiniz.
-
-[AZURE.INCLUDE [basic-process-include](../../includes/data-lake-analytics-basic-process.md)]
 
 ##Ön koşullar
 
@@ -159,6 +158,6 @@ Veri kaynağını hazırladıktan sonra, U-SQL betiği geliştirmeye başlayabil
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

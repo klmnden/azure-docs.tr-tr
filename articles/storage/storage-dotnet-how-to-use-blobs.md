@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="07/22/2016"
-    ms.author="tamram"/>
+    ms.date="09/20/2016"
+    ms.author="jwillis;tamram"/>
+
 
 
 # .NET kullanarak Azure Blob Storage’ı kullanmaya başlayın
@@ -45,7 +46,7 @@ Bu öğreti, Azure Blob Storage kullanarak bazı genel senaryolar için .NET kod
 
 ### Daha fazla örnek
 
-Blob depolama kullanan diğer örnekler için [.NET’te Azure Blob Depolama Kullanmaya Başlama](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/). Örnek uygulamayı indirip çalıştırabilir veya GitHub’daki örneğe göz atabilirsiniz. 
+Blob depolama kullanan diğer örnekler için [.NET’te Azure Blob Depolama Kullanmaya Başlama](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/). Örnek uygulamayı indirip çalıştırabilir veya GitHub’daki örneğe göz atabilirsiniz.
 
 
 [AZURE.INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
@@ -374,7 +375,7 @@ Varsayılan olarak depolama hesabındaki blob verileri yalnızca depolama hesab�
 Azure Storage hem istemci hem de sunucuda blob verisi şifreleme özelliği destekler.
 
 - **İstemci tarafı şifreleme:** .NET için Depolama İstemci Kitaplığı Azure Storage’a yüklemeden önce istemci uygulamalar içinde verilerin şifrelenmesi ve istemciye indirirken verilerin şifresinin çözülmesini destekler. Kitaplık ayrıca depolama hesabı anahtarı yönetimi için Azure Anahtar Kasası ile tümleştirmeyi destekler. Daha fazla bilgi için bkz. [Microsoft Azure Storage için .NET içinde İstemci Tarafı Şifreleme](storage-client-side-encryption.md). Ayrıca bkz. [Öğretici: Azure Anahtar Kasası kullanılarak Microsoft Azure Storage’daki blobları şifreleme ve şifresini çözme](storage-encrypt-decrypt-blobs-key-vault.md).
-- **Sunucu tarafı şifreleme**: Azure Storage artık sunucu tarafı şifreleme desteklemektedir. Bkz. [Bekleyen Veri için Azure Storage Hizmeti Şifreleme (Önizleme)](storage-service-encryption.md). 
+- **Sunucu tarafı şifreleme**: Azure Storage artık sunucu tarafı şifreleme desteklemektedir. Bkz. [Bekleyen Veri için Azure Storage Hizmeti Şifreleme (Önizleme)](storage-service-encryption.md).
 
 ## Sonraki adımlar
 
@@ -411,6 +412,6 @@ Blob Storage’ın temellerini öğrendiğinize göre, daha fazla bilgi edinmek 
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

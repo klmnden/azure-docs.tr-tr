@@ -16,6 +16,7 @@
     ms.date="09/08/2016"
     ms.author="marsma"/>
 
+
 # Geliştiriciler için Batch özelliklerine genel bakış
 
 Azure Batch hizmetinin temel bileşenlerine ilişkin bu genel bakışta, Batch geliştiricilerinin büyük ölçekli paralel işlem çözümleri derlemek üzere kullanabileceği birincil hizmetler ve kaynaklar ele alınmaktadır.
@@ -519,6 +520,6 @@ Bazı görevlerinizin başarısız olduğu durumlarda, Batch istemci uygulamanı
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

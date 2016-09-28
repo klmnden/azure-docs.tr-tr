@@ -16,6 +16,7 @@
     ms.date="07/19/2016"
     ms.author="magoedte;bwren"/>
 
+
 # İlk PowerShell İş Akışı runbook uygulamam
 
 > [AZURE.SELECTOR] - [Grafik](automation-first-runbook-graphical.md) - [PowerShell](automation-first-runbook-textual-PowerShell.md) - [PowerShell İş Akışı](automation-first-runbook-textual.md)
@@ -116,7 +117,7 @@ Runbook uygulamamızı test ettik ve yayımladık, ancak şu ana kadar faydalı 
 
 Runbook uygulamamız Azure aboneliğimiz için kimlik doğrulaması yaptığına göre, kaynakları yönetebiliriz. Sanal makineyi başlatmak için bir komut ekleyeceğiz. Azure aboneliğinizdeki herhangi bir sanal makineyi seçebilirsiniz, şimdilik bu adı cmdlet’e kod olarak ekleyeceğiz.
 
-1.  *Add-AzureRmAccount* ’ un ardından, başlatılacak sanal makinenin adını ve Kaynak Grubu adını girip *Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'NameofResourceGroup'* yazın.  
+1.  *Add-AzureRmAccount* ’un ardından, başlatılacak sanal makinenin adını ve Kaynak Grubu adını girip *Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'NameofResourceGroup'* yazın.  
 
     ```
     workflow MyFirstRunbook-Workflow
@@ -165,6 +166,6 @@ Runbook uygulamamız şu anda, runbook’a kod olarak eklediğimiz sanal makiney
 -  PowerShell betik desteği özelliği hakkında daha fazla bilgi için bkz. [Azure Automation’da Yerel PowerShell betik desteği](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -16,6 +16,7 @@
    ms.date="08/15/2016"
    ms.author="elizapo"/>
 
+
 # Azure RemoteApp ile herhangi bir cihazda tüm Windows uygulamalarını çalıştırma
 
 > [AZURE.IMPORTANT]
@@ -125,6 +126,6 @@ Artık koleksiyon oluşturmayı öğrendiğinize göre [Office 365 kullanan bir 
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

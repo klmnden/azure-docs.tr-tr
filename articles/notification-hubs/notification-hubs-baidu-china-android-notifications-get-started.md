@@ -16,6 +16,7 @@
     ms.date="08/19/2016"
     ms.author="wesmc"/>
 
+
 # Baidu kullanarak Azure Notification Hubs ile çalışmaya başlama
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -505,6 +506,6 @@ Bir test bildirimi göndermek için, Klasik Azure Portalı'nın hata ayıklama s
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

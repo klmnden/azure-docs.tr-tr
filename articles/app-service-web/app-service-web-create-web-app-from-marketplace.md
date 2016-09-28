@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="07/11/2016"
+    ms.date="09/20/2016"
     ms.author="robmcm"/>
+
 
 <!-- Note: This article replaces web-sites-php-web-site-gallery.md -->
 
@@ -182,6 +183,6 @@ Azure’da WordPress web uygulamaları geliştirme hakkında daha fazla bilgi i�
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

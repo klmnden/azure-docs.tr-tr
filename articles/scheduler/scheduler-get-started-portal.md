@@ -15,6 +15,7 @@
  ms.date="08/10/2016"
  ms.author="krisragh"/>
 
+
 # Azure portalda Azure Scheduler kullanmaya başlama
 
 Azure Scheduler’da zamanlanmış işler oluşturmak kolaydır. Bu öğreticide bir iş oluşturmayı öğreneceksiniz: Ayrıca Scheduler’ın izleme ve yönetim özelliklerini öğreneceksiniz.
@@ -184,6 +185,6 @@ Azure Rol Tabanlı Erişim Denetimi (RBAC), Azure Scheduler için ayrıntılı e
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

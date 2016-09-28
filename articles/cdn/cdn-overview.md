@@ -16,6 +16,7 @@
     ms.date="09/01/2016"
     ms.author="casoper"/>
 
+
 # Azure İçerik Teslim Ağı'na (CDN) genel bakış
 
 > [AZURE.NOTE] Bu belgede, Azure İçerik Teslim Ağı'nın (CDN) ne olduğu, nasıl çalıştığı ve her bir Azure CDN ürününün özellikleri açıklanmaktadır.  Bu bilgileri atlayıp doğrudan CDN uç noktası oluşturmaya yönelik öğreticiye gitmek istiyorsanız bkz. [Azure CDN'yi kullanma](cdn-create-new-endpoint.md).  Geçerli CDN düğümü konumlarının listesini görmek istiyorsanız bkz. [Azure CDN POP Konumları](cdn-pop-locations.md).
@@ -89,6 +90,6 @@ Fiyatlandırma bilgileri için bkz. [CDN Fiyatlandırması](https://azure.micros
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

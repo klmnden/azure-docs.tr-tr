@@ -48,7 +48,6 @@
 7. Yeni oluşturulan depolama hesabı **Depolama hesapları** altında, **Yapılandır** sayfasında görüntülenir. Yeni depolama hesabını kaydetmek için **Kaydet**’e tıklayın. Onayınız istendiğinde **Tamam**’a tıklayın.
 
 
-
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

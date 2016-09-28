@@ -16,6 +16,7 @@
    ms.date="07/19/2016"
    ms.author="cherylmc"/>
 
+
 # Bir ExpressRoute bağlantı hattı için yönlendirmeyi oluşturma ve değiştirme
 
 
@@ -116,7 +117,7 @@ Bu bölümde bir ExpressRoute bağlantı hattı için Azure ortak eşleme yapıl
     - Birincil bağlantı için bir /30 alt ağı. 
     - İkincil bağlantı için bir /30 alt ağı. 
     - Bu eşlemeyi kurman için kullanılan tüm IP adresleri geçerli ortak IPv4 adresleri olmalıdır.
-    - Bu eşlemenin kurulacağı geçerli bir VLAN kimliği. Bağlantı hattındaki başka bir eşlemenin aynı VLAN kimliğini kullanmadığından emin olun.
+    - Bu eşlemenin kurulacak geçerli bir VLAN kimliği. Bağlantı hattındaki başka bir eşlemenin aynı VLAN kimliğini kullanmadığından emin olun.
     - Eşleme için AS numarası. 2 bayt ve 4 bayt AS numaralarını kullanabilirsiniz.
     - Kullanmayı seçerseniz bir MD5 karma değeri. **Bu isteğe bağlıdır**.
 
@@ -240,6 +241,6 @@ Sonraki adım, [ExpressRoute bağlantı hattına bir VNet bağlama](expressroute
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

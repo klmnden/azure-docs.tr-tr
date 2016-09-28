@@ -7,7 +7,6 @@ Yüklü Visual Studio’nuz yoksa Visual Studio 2015 bağlantısını kullanın;
 >[AZURE.NOTE] Makinenizde zaten bulunan SDK bağımlılığı sayısına bağlı olarak, SDK’nin yüklenmesi birkaç dakikadan yarım saate uzanacak şekilde biraz uzun sürebilir.
 
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

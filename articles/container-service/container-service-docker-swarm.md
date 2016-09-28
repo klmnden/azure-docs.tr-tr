@@ -18,6 +18,7 @@
    ms.date="09/13/2016"
    ms.author="nepeters"/>
 
+
 # Docker Swarm ile kapsayıcı yönetimi
 
 Docker Swarm, havuza alınmış Docker ana bilgisayarları grubuna kapsayıcılı iş yükleri dağıtmak için bir ortam sağlar. Docker Swarm yerel Docker API’sini kullanır. Docker Swarm kapsayıcılarında iş akışının yönetilmesi tek kapsayıcılı ana bilgisayardakiyle neredeyse aynıdır. Bu belge Docker Swarm’ın Azure Kapsayıcı Hizmeti örneğine kapsayıcılı iş yüklerini dağıtmaya ilişkin basit örnekler sağlar. Docker Swarm hakkında daha fazla ayrıntılı belgeler için bkz. [Docker.com’da Docker Swarm ](https://docs.docker.com/swarm/).
@@ -125,6 +126,6 @@ Doğal olarak, yalnızca `compose.yml` dosyanızda tanımlanan kapsayıcıları 
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

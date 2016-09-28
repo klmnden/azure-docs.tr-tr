@@ -17,6 +17,7 @@
    ms.date="08/16/2016"
    ms.author="shkurhek"/>
 
+
 # SQL Database nedir? SQL Database'e Giriş
 
 SQL Database, iş açısından önemli işlevleriyle piyasaya öncülük eden Microsoft SQL Server altyapısını temel alan, bulut üzerindeki bir ilişkisel veritabanı hizmetidir. SQL Database, yönetime neredeyse hiç gerek olmaksızın tahmin edilebilir performans, kesintisiz ölçeklenebilirlik, iş sürekliliği ve veri koruma olanağı sunar. Böylece sanal makineleri ve altyapıyı yönetmek yerine hızlı bir şekilde uygulama geliştirmeye ve pazara girişinizi hızlandırmaya odaklanabilirsiniz. SQL Database, [SQL Server](https://msdn.microsoft.com/library/bb545450.aspx) altyapısını kullandığı için var olan SQL Server araçlarını, kitaplıklarını ve API'lerini destekler. Böylece buluta taşıma ve genişletme işlemlerini gerçekleştirmeniz daha kolay hale gelir.
@@ -61,6 +62,6 @@ SQL Database'e giriş niteliğindeki makaleyi okuduğunuza ve "SQL Database Nedi
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

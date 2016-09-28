@@ -16,6 +16,7 @@
    ms.date="09/12/2016"
    ms.author="magoedte" />
 
+
 # Azure Hizmet Yönetimi ve Resource Manager ile Runbook'ların kimliklerini doğrulama
 
 Bu makalede, Azure Hizmet Yönetimi (ASM) veya Azure Resource Manager (ARM) kaynaklarına karşı çalışan Azure Automation runbook’ları için bir Azure AD Kullanıcı hesabını yapılandıracak gerçekleştirmeniz gereken adımlar açıklanmaktadır.  ARM tabanlı runbook'larınız için kimlik doğrulamasının desteklenmesi amacıyla bu devam ederken önerilen yöntem yeni Azure Farklı Çalıştır hesabının kullanılmasıdır.       
@@ -89,6 +90,6 @@ Runbook uygulamanızdaki her [kontrol noktası](http://technet.microsoft.com/lib
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

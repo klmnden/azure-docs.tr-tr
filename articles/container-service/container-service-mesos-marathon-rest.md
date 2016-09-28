@@ -18,6 +18,7 @@
    ms.date="09/13/2016"
    ms.author="nepeters"/>
 
+
 # REST API’si aracılığıyla kapsayıcı yönetimi
 
 DC/OS, temel donanımı özetlerken, kümelenmiş iş yüklerini dağıtmak ve ölçeklendirmek için ortam sağlar. DC/OS’nin en üstünde, hesaplama iş yüklerini zamanlamayı ve yürütmeyi yöneten bir çerçeve vardır.
@@ -169,6 +170,6 @@ Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -Cont
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

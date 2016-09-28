@@ -9,7 +9,6 @@
 - [(C | Java)](../articles/event-hubs/event-hubs-c-ephjava-getstarted.md)
 - [(C | Apache Storm)](../articles/event-hubs/event-hubs-c-storm-getstarted.md)
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

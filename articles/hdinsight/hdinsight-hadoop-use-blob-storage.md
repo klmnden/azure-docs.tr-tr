@@ -19,6 +19,7 @@
     ms.author="jgao"/>
 
 
+
 # HDInsight’ta Hadoop ile HDFS uyumlu Azure Blob Storage kullanma
 
 HDInsight ile düşük maliyetli Azure Blob Storage’ı kullanmayı, Azure Storage hesabı ve Blob Storage kapsayıcısı oluşturmayı ve sonra içindeki verileri işlemeyi öğrenin.
@@ -301,6 +302,6 @@ Daha fazla bilgi için bkz.
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

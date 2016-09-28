@@ -13,8 +13,9 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/11/2016"
+   ms.date="09/22/2016"
    ms.author="yurid"/>
+
 
 # Power BI ile Azure Güvenlik Merkezi verilerinden öngörü edinme
 Azure Güvenlik Merkezi için [Power BI Panosu](http://aka.ms/azure-security-center-power-bi), önerileri ve güvenlik uyarılarını her yerden (mobil cihazınız dahil) görselleştirmenizi, çözümlemenizi ve filtrelemenizi etkinleştirir. Power BI panosunu, eğilimleri ve saldırı desenlerini göstermek için kullanma - Kaynağa veya IP adresine göre güvenlik uyarılarını ve kaynak ya da yaşa göre adresi olmayan güvenlik risklerini görüntüler. 
@@ -26,7 +27,7 @@ Ayrıca, Power BI raporlarına erişmek için Azure Güvenlik Merkezi panosunu d
 
 1. **Azure Güvenlik Merkezi** panosunda **Power BI'da Araştır** düğmesine tıklayın.
 
-    ![Power BI'ı kullanarak Azure Güvenlik Merkezi'ne bağlanma](./media/security-center-powerbi/security-center-powerbi-fig1-new1.png) 
+    ![Power BI'ı kullanarak Azure Güvenlik Merkezi'ne bağlanma](./media/security-center-powerbi/security-center-powerbi-fig1-new10.png) 
 
 2. Aşağıdaki ekranda gösterildiği gibi, sağ tarafta **Power BI'da Araştır** dikey penceresi açılır:
 
@@ -117,6 +118,6 @@ Bu belgede, Azure Güvenlik Merkezi'nde Power BI hizmetini nasıl kullanacağın
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

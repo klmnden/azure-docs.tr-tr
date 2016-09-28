@@ -17,6 +17,7 @@
     ms.date="07/14/2016"
     ms.author="arluca"/>
 
+
 # Azure AD Connect Health'i AD DS ile Kullanma
 Aşağıdaki belgeler Azure AD Connect Health ile Active Directory Etki Alanı Hizmetleri’nin izlenmesine özgüdür. Buna Windows Server 2008 R2, Windows Server 2012 ve Windows Server 2012 R2’ye yüklü AD DS dahildir.
 
@@ -62,6 +63,6 @@ Varsayılan olarak, dört performans sayacı önceden seçilmiştir; ancak, filt
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

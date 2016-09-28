@@ -15,6 +15,7 @@
     ms.date="08/15/2016"
     ms.author="elizapo" />
 
+
 # Azure RemoteApp şablon görüntülerinde neler var?
 
 > [AZURE.IMPORTANT]
@@ -109,6 +110,6 @@ Bu görüntü, temel alınan görüntünün bir uzantısıdır ve Windows Server
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

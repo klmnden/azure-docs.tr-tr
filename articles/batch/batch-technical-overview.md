@@ -16,6 +16,7 @@
     ms.date="08/22/2016"
     ms.author="marsma"/>
 
+
 # Azure Batch temel bilgileri
 
 Azure Batch, büyük ölçekli paralel ve yüksek performanslı bilgi işlem (HPC) uygulamalarını bulutta verimli bir şekilde çalıştırmanızı sağlar. Yönetilen sanal makineler koleksiyonunda çalıştırılacak işlem yoğunluklu işi zamanlayan ve işinizin gereksinimlerini karşılayacak işlem kaynakların otomatik olarak ölçekleyebilen bir platform hizmetidir.
@@ -163,6 +164,6 @@ Batch hizmetine yüksek düzeyli bir genel bakışı gördüğünüze göre işl
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

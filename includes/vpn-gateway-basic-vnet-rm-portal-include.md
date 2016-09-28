@@ -30,7 +30,6 @@ Azure portalını kullanarak VNet oluşturmak için aşağıdaki adımları uygu
 
     ![Sanal ağ kutucuğu oluşturma](./media/vpn-gateway-basic-vnet-rm-portal-include/deploying150.png)
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

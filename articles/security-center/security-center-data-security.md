@@ -16,6 +16,7 @@
    ms.date="08/08/2016"
    ms.author="yurid"/>
 
+
 # Azure Güvenlik Merkezi Veri Güvenliği
 Müşterilerin tehditleri önlemesine, algılamasına ve yanıt vermesine yardımcı olmak amacıyla Azure Güvenlik Merkezi, Azure kaynaklarınıza ilişkin yapılandırma bilgileri, meta veriler, olay günlükleri, kilitlenme dökümü dosyaları ve diğer verileri toplar ve işler. Bu verilerin gizlilik ve güvenliğini korumak için önemli taahhütlerde bulunuyoruz. Microsoft kodlamadan hizmet çalıştırma konularına kadar her alanda uyumluluk ve güvenlik yönergelerine kesin olarak bağlı kalmaktadır. 
 
@@ -64,6 +65,6 @@ Bu belgede Azure Güvenlik Merkezi'nde verilerin yönetilmesi ve korunması hakk
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

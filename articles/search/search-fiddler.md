@@ -16,6 +16,7 @@
     ms.date="08/08/2016"
     ms.author="heidist"/>
 
+
 # Azure Search REST API'lerini değerlendirmek ve test etmek için Fiddler'ı kullanma
 > [AZURE.SELECTOR]
 - [Genel Bakış](search-query-overview.md)
@@ -241,6 +242,6 @@ Azure Search hizmetini kod içermeyen bir yaklaşımla yönetmek ve kullanmak i�
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

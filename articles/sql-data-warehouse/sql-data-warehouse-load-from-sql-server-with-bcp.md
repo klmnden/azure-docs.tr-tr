@@ -17,6 +17,7 @@
    ms.author="lodipalm;barbkess;sonyama"/>
 
 
+
 # SQL Server'dan Azure SQL Data Warehouse'a veri yükleme (düz dosyalar)
 
 > [AZURE.SELECTOR]
@@ -204,6 +205,6 @@ SQL Data Warehouse'da tablo oluşturma hakkında daha fazla bilgi için bkz. [Ta
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

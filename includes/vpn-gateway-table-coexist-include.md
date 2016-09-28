@@ -5,7 +5,6 @@
 | **PowerShell** | [Makale](../articles/expressroute/expressroute-howto-coexist-classic.md) | [Makale](../articles/expressroute/expressroute-howto-coexist-resource-manager.md) |
 
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

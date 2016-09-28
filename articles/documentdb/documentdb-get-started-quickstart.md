@@ -17,6 +17,7 @@
     ms.date="09/01/2016"
     ms.author="anhoh"/>
 
+
 # NoSQL öğreticisi: DocumentDB C# konsol uygulaması oluşturma
 
 > [AZURE.SELECTOR]
@@ -607,6 +608,6 @@ Tebrikler! Bu NoSQL öğreticisini tamamladınız ve çalışan bir C# konsol uy
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

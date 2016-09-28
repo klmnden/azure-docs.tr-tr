@@ -18,6 +18,7 @@
     ms.date="08/17/2016"
     ms.author="sstein;carlrab" />
 
+
 # SQL Server Management Studio ile SQL Database'e bağlanma ve örnek T-SQL sorgusu yürütme
 
 > [AZURE.SELECTOR]
@@ -67,6 +68,6 @@ SSMS hakkında daha fazla bilgi için bkz. [SQL Server Management Studio'yu Kull
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

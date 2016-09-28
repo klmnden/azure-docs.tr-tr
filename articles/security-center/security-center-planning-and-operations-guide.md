@@ -16,6 +16,7 @@
    ms.date="08/11/2016"
    ms.author="yurid"/>
 
+
 # Azure Güvenlik Merkezi planlama ve işlemler kılavuzu
 Bu kılavuz, kurumları Azure Güvenlik Merkezi'ni kullanmayı planlayan bilgi teknolojisi (BT) uzmanları, BT mimarları, bilgi güvenlik çözümleyicileri ve bulut yöneticilerine yöneliktir.
 
@@ -244,6 +245,6 @@ Bu belgede, Güvenlik Merkezi benimsemeyi nasıl planlayacağınızı öğrendin
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

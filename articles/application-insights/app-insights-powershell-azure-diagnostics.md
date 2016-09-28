@@ -15,6 +15,7 @@
     ms.date="11/17/2015"
     ms.author="awills"/>
 
+
 # PowerShell kullanarak Application Insights’a Azure Tanılama verileri gönderme
 
 [Microsoft Azure](https://azure.com), [Visual Studio Application Insights](app-insights-overview.md)’a [Azure Tanılama verileri gönderecek şekilde yapılandırılabilir.](app-insights-azure-diagnostics.md) Tanılama verileri Azure Cloud Services ve Azure VM’leriyle ilişkilidir. Uygulama içinde Application Insights SDK’sı kullanarak gönderdiğiniz telemetriyi tamamlar. Azure’da yeni kaynaklar oluşturma işlemini otomatikleştirmenin bir parçası olarak tanılamayı PowerShell kullanarak yapılandırabilirsiniz.
@@ -120,6 +121,6 @@ Tanılama uzantısını her bir rolden kaldırmak için:
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

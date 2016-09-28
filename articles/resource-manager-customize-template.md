@@ -16,6 +16,7 @@
     ms.date="08/01/2016"
     ms.author="tomfitz"/>
 
+
 # Dışarı aktarılan bir Azure Resource Manager şablonunu özelleştirme 
 
 Bu makalede, ek değerleri parametre olarak geçirebilmeniz için dışarı aktarılan bir şablonu nasıl değiştireceğiniz gösterilir. [Resource Manager şablonunu dışarı aktarma](resource-manager-export-template.md) makalesinde gerçekleştirilen adımları temel alır, ancak öncelikle makaleyi tamamlamanız gerekli değildir. Bu makalede gerekli şablon ve betikleri bulabilirsiniz.
@@ -236,6 +237,6 @@ Bu makalede her iki seçenek de gösterilmektedir.
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

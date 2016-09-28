@@ -17,6 +17,7 @@
     ms.date="08/10/2016"
     ms.author="curtand"/>
 
+
 # Self servis grup yönetimi için Azure Active Directory'yi ayarlama
 
 Self servis grup yönetimi kullanıcıların Azure Active Directory’de (Azure AD) güvenlik gruplarını veya Office 365 gruplarını oluşturup yönetmesine imkan tanır. Kullanıcılar ayrıca güvenlik grubu veya Office 365 grubu üyelikleri ister ve grubun sahibi üyeliği onaylayabilir ya da reddedebilir. Bu şekilde grup üyeliği günlük denetimi o üyeliğe ilişkin iş bağlamını bilen kişilere atanabilir. Self servis grup yönetimi özellikleri yalnızca güvenlik grupları ve Office 365 grupları için kullanılabilir, ancak posta etkin güvenlik grupları veya dağıtım listeleri için kullanılamaz.
@@ -59,6 +60,6 @@ Bu makalelerde Azure Active Directory ile ilgili ek bilgi sağlanmıştır.
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

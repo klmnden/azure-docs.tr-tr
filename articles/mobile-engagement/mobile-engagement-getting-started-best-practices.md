@@ -16,6 +16,7 @@
     ms.date="07/07/2016"
     ms.author="wesmc;ricksal"/>
 
+
 # Azure Mobile Engagement - En İyi Uygulamalarla Başlangıç Kılavuzu
 
 ## Genel Bakış
@@ -409,6 +410,6 @@ Biraz deneyim kazandıktan sonra, katılım programlarınıza aşağıdakileri e
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

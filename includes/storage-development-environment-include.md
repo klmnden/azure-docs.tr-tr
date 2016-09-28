@@ -70,7 +70,6 @@ Depolama öykünücüsünü hedeflemek için iyi bilinen hesap adıyla ve anahta
 
 
 
-
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

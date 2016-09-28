@@ -32,7 +32,6 @@
 <!--Link reference-->
 [Test]: https://technet.microsoft.com/library/dn715782(v=wps.630).aspx
 
-
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

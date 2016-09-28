@@ -17,6 +17,7 @@
     ms.date="09/13/2016" 
     ms.author="mimig"/>
 
+
 # DocumentDB'ye giriş: Bir NoSQL JSON Veritabanı
 
 ##DocumentDB nedir?
@@ -110,6 +111,6 @@ Daha fazla bilgi edinmeye hazır olduğunuzda sizin için kullanılabilir olan t
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

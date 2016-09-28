@@ -17,6 +17,7 @@
     ms.author="juliako"/>
 
 
+
 # Azure portal kullanarak isteğe bağlı içerik göndermeye başlama
 
 [AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
@@ -234,6 +235,6 @@ Media Services öğrenme yollarını gözden geçirin.
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

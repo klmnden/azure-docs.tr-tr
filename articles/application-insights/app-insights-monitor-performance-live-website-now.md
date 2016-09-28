@@ -16,6 +16,7 @@
     ms.author="awills"/>
 
 
+
 # Application Insights ile çalışma zamanında web uygulamalarını izleme
 
 *Application Insights önizlemededir.*
@@ -298,6 +299,6 @@ web uygulaması Azure’deyse ve Azure Resource Manager şablonu kullanarak kayn
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -32,7 +32,6 @@
 8. **API ANAHTARI** değerini not edin. Bu API anahtarı değerini daha sonra "Yerel Görderim" bölümünde yapılandırmak amacıyla kullanacaksınız. Şimdi **Bitti**’ye tıklayın.
 
 
-
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

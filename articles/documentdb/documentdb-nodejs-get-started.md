@@ -17,6 +17,7 @@
   ms.date="08/11/2016"
   ms.author="anhoh"/>
 
+
 # NoSQL Node.js öğreticisi: DocumentDB Node.js konsol uygulaması  
 
 > [AZURE.SELECTOR]
@@ -623,6 +624,6 @@ Ardından, ```config.js``` dosyasında config.endpoint ve config.authKey değerl
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

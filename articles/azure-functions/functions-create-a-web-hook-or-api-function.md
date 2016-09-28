@@ -18,6 +18,7 @@
    ms.date="08/30/2016"
    ms.author="glenga"/>
    
+
 # Bir web kancası veya API Azure İşlevi oluşturma
 
 Azure İşlevleri, çeşitli programlama dillerinde uygulanan zamanlanan veya tetiklenen kod birimleri oluşturmanızı sağlayan olay odaklı, isteğe bağlı bir hesaplama deneyimidir. Azure İşlevleri hakkında daha fazla bilgi edinmek için bkz. [Azure İşlevlerine Genel Bakış](functions-overview.md).
@@ -95,6 +96,6 @@ Dinamik hizmet planı dahil olmak üzere Azure İşlevlerinde kullanılabilen hi
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

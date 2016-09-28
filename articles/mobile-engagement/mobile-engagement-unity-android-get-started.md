@@ -16,6 +16,7 @@
     ms.date="08/19/2016"
     ms.author="piyushjo" />
 
+
 # Unity Android dağıtımı için Azure Mobile Engagement kullanmaya başlama
 
 [AZURE.INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
@@ -154,6 +155,6 @@ Bu Unity uygulamasını cihazınıza dağıtmaya çalışmadan önce makinenizde
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

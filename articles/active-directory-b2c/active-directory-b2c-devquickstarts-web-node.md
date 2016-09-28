@@ -17,11 +17,12 @@
     ms.author="brandwe"/>
 
 
+
 # Azure AD B2C: Node.js web uygulamasına oturum açma ekleme
 
 > [AZURE.WARNING] Çok özür dileriz; bu öğretici için bazı önemli değişiklikler gerekiyor ve bir süre için kaldırılmasına karar verildi.  [Geliştirici kılavuzunda](active-directory-b2c-overview.md) buna eşdeğer bir .NET öğreticisi mevcuttur.
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

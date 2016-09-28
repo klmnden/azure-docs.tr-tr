@@ -17,6 +17,7 @@
     ms.date="09/14/2016"
     ms.author="jgao"/>
 
+
 # Özel HDInsight uygulamaları yükleme
 
 HDInsight uygulaması kullanıcıların Linux tabanlı HDInsight kümesine yükleyebileceği bir uygulamadır.  Bu uygulamalar Microsoft veya bağımsız yazılım satıcıları (ISV) tarafından ya da sizin tarafınızdan geliştirilebilir. Bu makalede, HDInsight’ta Azure portalına yayımlanmamış bir HDInsight uygulamasının nasıl yükleneceğini öğreneceksiniz. Yükleyeceğiniz uygulama [Hue](http://gethue.com/) uygulamasıdır. 
@@ -147,6 +148,6 @@ Azure CLI kullanarak kümeyi veya kaynak grubunu silebilirsiniz. Bkz. [Azure CLI
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

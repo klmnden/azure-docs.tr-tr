@@ -58,7 +58,6 @@ VNet ve github’a ait iki alt ağı oluşturmak için var olan ARM şablonunu i
 11. Dosyayı kaydedin.
   
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

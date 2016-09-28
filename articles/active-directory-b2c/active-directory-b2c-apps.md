@@ -16,6 +16,7 @@
     ms.date="07/22/2016"
     ms.author="dastrock"/>
 
+
 # Azure Active Directory B2C: Uygulama türleri
 
 Azure Active Directory (Azure AD) B2C, çeşitli modern uygulama mimarilerine yönelik kimlik doğrulamasını destekler. Bunların tümü [OAuth 2.0](active-directory-b2c-reference-protocols.md) veya [OpenID Connect](active-directory-b2c-reference-protocols.md) endüstri standardı protokollerine dayalıdır. Bu belgede kısaca, tercih ettiğiniz dilden veya platformdan bağımsız olarak oluşturabileceğiniz uygulama türleri açıklanmaktadır. [Uygulama oluşturmaya başlamadan](active-directory-b2c-overview.md#getting-started) önce üst düzey senaryoları anlamanıza da yardımcı olur.
@@ -130,6 +131,6 @@ Bu zincirli web API'si senaryosu, temsili akış olarak da bilinen OAuth 2.0 JWT
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

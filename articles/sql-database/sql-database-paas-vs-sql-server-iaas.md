@@ -17,6 +17,7 @@
     ms.date="09/06/2016"
     ms.author="carlrab"/>
 
+
 # Bir bulut SQL Server seçeneği seçin: Azure SQL (PaaS) Veritabanı ya da Azure VM'lerde SQL Server (IaaS)
 
 Azure, SQL Server iş yüklerini Microsoft Azure’da barındırmaya yönelik iki seçenek içerir:
@@ -159,6 +160,6 @@ Bu makalede, SQL Database ve Azure Virtual Machines'de (VM'ler) SQL Server işle
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

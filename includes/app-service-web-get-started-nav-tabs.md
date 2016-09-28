@@ -8,7 +8,6 @@
 - [Market uygulaması](app-service-web-create-web-app-from-marketplace.md)
 
 
-
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

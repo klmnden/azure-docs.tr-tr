@@ -17,6 +17,7 @@
     ms.date="06/29/2016"
     ms.author="wesmc"/>
 
+
 # Xamarin uygulamaları için Notification Hubs ile iOS Anında İletme Bildirimleri
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -331,6 +332,6 @@ Bu basit örnekte, tüm iOS cihazlarınıza anında iletme bildirimleri yayımla
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

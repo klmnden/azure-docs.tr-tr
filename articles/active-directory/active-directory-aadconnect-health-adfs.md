@@ -5,7 +5,7 @@
     services="active-directory"
     documentationCenter=""
     authors="karavar"
-    manager="stevenpo"
+    manager="femila"
     editor="karavar"/>
 
 <tags
@@ -16,6 +16,7 @@
     ms.topic="get-started-article"
     ms.date="07/14/2016"
     ms.author="vakarand"/>
+
 
 # Azure AD Connect Health'i AD FS ile Kullanma
 Aşağıdaki belgeler, AD FS altyapınızın Azure AD Connect Health ile izlenmesine ilişkin belgelerdir. Azure AD Connect’i (Eşitleme) Azure AD Connect Health ile izleme hakkında bilgi için bkz. [Eşitleme için Azure AD Connect Health Kullanma](active-directory-aadconnect-health-sync.md). Ek olarak, Active Directory Etki Alanı Hizmetleri’ni Azure AD Connect Health ile izleme hakkında bilgi için bkz. [AD DS ile Azure AD Connect Health Kullanma](active-directory-aadconnect-health-adds.md). 
@@ -116,6 +117,6 @@ Raporda şunlar yer alır:
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

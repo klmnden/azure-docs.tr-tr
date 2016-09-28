@@ -16,6 +16,7 @@
     ms.date="05/06/2016"
     ms.author="raynew"/>
 
+
 #  VMM bulutlarındaki Hyper-V sanal makinelerini Azure'a çoğaltma
 
 > [AZURE.SELECTOR]
@@ -385,6 +386,6 @@ Yük devretme testi çalıştırmak için şunları yapın:
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

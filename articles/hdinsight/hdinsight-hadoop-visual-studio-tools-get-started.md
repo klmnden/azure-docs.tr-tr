@@ -18,6 +18,7 @@
     ms.date="08/10/2016"
     ms.author="jgao"/>
 
+
 # Bir Hive sorgusu çalıştırmak amacıyla HDInsight için Visual Studio Hadoop araçlarını kullanmaya başlama
 
 HDInsight kümelerine bağlanmak ve Hive sorguları göndermek amacıyla Visual Studio için HDInsight araçlarını kullanmayı öğrenin. HDInsight kullanma hakkında daha fazla bilgi için bkz. [HDInsight’a giriş][hdinsight.introduction] ve [ HDInsight kullanmaya başlama][hdinsight.get.started]. Bir Storm kümesine bağlanma hakkında daha fazla bilgi için bkz. [Visual Studio kullanarak HDInsight’ta Apache Storm için C# topolojileri geliştirme ][hdinsight.storm.visual.studio.tools].
@@ -286,6 +287,6 @@ Bu makalede, Hadoop araçları paketini kullanarak Visual Studio’dan HDInsight
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

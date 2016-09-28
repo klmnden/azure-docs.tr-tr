@@ -16,6 +16,7 @@
      ms.date="09/12/2016"
      ms.author="dobett"/>
 
+
 # Node.js için Azure IoT Hub'ı kullanmaya başlayın
 
 [AZURE.INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
@@ -314,6 +315,6 @@ IoT çözümünüzün nasıl genişletileceğini ve cihazdan buluta iletilerin d
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

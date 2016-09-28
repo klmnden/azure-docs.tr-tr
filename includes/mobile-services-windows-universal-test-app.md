@@ -13,7 +13,6 @@
     
     Önceki adımda kaydedilen verilerin uygulama başladıktan sonra mobil hizmetinden yüklenip yüklenmediğine dikkat edin.
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

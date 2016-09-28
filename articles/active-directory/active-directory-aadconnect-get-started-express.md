@@ -16,6 +16,7 @@
     ms.date="09/13/2016"
     ms.author="billmath;andkjell"/>
 
+
 # Hızlı ayarları kullanarak Azure AD Connect ile çalışmaya başlama
 Kimlik doğrulaması için [parola eşitleme](active-directory-aadconnectsync-implement-password-synchronization.md) özelliğine ve tek ormanlı bir topolojiye sahipseniz Azure AD Connect **Hızlı Ayarları** kullanılır. **Hızlı Ayarlar** varsayılan seçenek olup yaygın olarak dağıtılan senaryo için kullanılır. Şirket içi dizininizi buluta genişletmek için yalnızca birkaç tıklama yapmanız yeterli.
 
@@ -71,6 +72,6 @@ Yükleme için kullanılan hesaplar | [Azure AD Connect hesapları ve izinleri h
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

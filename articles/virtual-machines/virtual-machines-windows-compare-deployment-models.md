@@ -17,6 +17,7 @@
    ms.date="08/19/2015"
    ms.author="tomfitz"/>
 
+
 # Azure Resource Manager dağıtım modeli altında, Windows uygulamaları için Azure İşlem, Ağ ve Depolama Sağlayıcıları
 
 Azure Resource Manager dağıtım modeline işlem, ağ ve depolama özellikleri eklenmesi, IaaS’da çalışan karmaşık uygulamaların dağıtımını ve yönetilmesini temelden basit hale getirecektir. Birçok uygulama, Sanal Ağ, Depolama hesabı, Sanal Makine ve Ağ Arabirimi dahil kaynakların birlikte kullanılmasını gerektirmektedir. Azure Resource Manager dağıtım modeli, tüm bu kaynakları tek bir uygulama olarak birlikte dağıtmak ve yönetmek amacıyla bir JSON şablonu oluşturabilme olanağı sunar.
@@ -25,6 +26,6 @@ Azure Resource Manager dağıtım modeline işlem, ağ ve depolama özellikleri 
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

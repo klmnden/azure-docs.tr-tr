@@ -17,6 +17,7 @@
     ms.date="09/12/2016"
     ms.author="mimig"/>
 
+
 # Azure portalını kullanarak DocumentDB NoSQL hesabı oluşturma
 
 > [AZURE.SELECTOR]
@@ -95,6 +96,6 @@ DocumentDB hakkında daha fazla bilgi edinmek için şu kaynakları keşfedin:
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

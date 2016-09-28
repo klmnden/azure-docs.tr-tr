@@ -15,6 +15,7 @@
  ms.date="08/18/2016"
  ms.author="krisragh"/>
 
+
 # Scheduler kavramları ve terminolojisi + varlık hiyerarşisi
 
 ## Scheduler varlık hiyerarşisi
@@ -220,6 +221,6 @@ Bir yeniden deneme ilkesi ayarlamak için iki ek ayar belirtilebilir: yeniden de
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

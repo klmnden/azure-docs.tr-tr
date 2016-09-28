@@ -16,6 +16,7 @@
     ms.date="07/15/2016"
     ms.author="cabailey"/>
 
+
 # Azure Anahtar Kasası kullanmaya başlama  #
 Azure Anahtar Kasası çoğu bölgede kullanılabilir. Daha fazla bilgi için bkz. [Anahtar Kasası fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/key-vault/).
 
@@ -61,7 +62,7 @@ Bir Azure PowerShell oturumu başlatın ve aşağıdaki komutla Azure hesabını
 
     Login-AzureRmAccount 
 
-Azure Kamu gibi belirli bir Azure örneği kullanıyorsanız bu komutla birlikte -Environment parametresini kullanmayı unutmayın. Örnek: `Login-AzureRmAccount –Environment (Get-AzureRmEnvironment –Name AzureUSGovernment)`
+Azure Kamu gibi belirli bir Azure örneği kullanıyorsanız bu komutla birlikte -Environment parametresini kullanmayı unutmayın. Örneğin: `Login-AzureRmAccount –Environment (Get-AzureRmEnvironment –Name AzureUSGovernment)`
 
 Açılır tarayıcı penceresinde Azure hesabı kullanıcı adınızı ve parolanızı girin. Azure PowerShell bu hesapla ilişkili tüm abonelikleri alır ve varsayılan olarak birinciyi kullanır.
 
@@ -247,6 +248,6 @@ Programlama başvuruları için bkz. [Azure Anahtar Kasası geliştirici kılavu
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

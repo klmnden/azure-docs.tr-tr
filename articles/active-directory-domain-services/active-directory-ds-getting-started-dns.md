@@ -16,6 +16,7 @@
     ms.date="07/06/2016"
     ms.author="maheshu"/>
 
+
 # Azure AD Etki Alanı Hizmetleri *(Önizleme)* - Azure sanal ağı için DNS ayarlarını güncelleştirme
 
 ## Görev 4: Azure sanal ağı için DNS ayarlarını güncelleştirme
@@ -53,6 +54,6 @@ Bir sonraki yapılandırma görevi, [Azure AD Etki Alanı Hizmetleri için parol
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

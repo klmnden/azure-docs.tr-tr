@@ -16,6 +16,7 @@
  ms.date="07/19/2016"
  ms.author="dobett"/>
 
+
 [AZURE.INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
 
 ## Sonraki adımlar
@@ -38,6 +39,6 @@ Bazı kodları yazmaya ve bazı örnekleri çalıştırmaya başlamak için [IoT
 [lnk-device-management]: iot-hub-device-management-overview.md
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

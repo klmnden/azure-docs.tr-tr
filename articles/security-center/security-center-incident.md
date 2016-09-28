@@ -16,6 +16,7 @@
    ms.date="08/03/2016"
    ms.author="yurid"/>
 
+
 # Azure Güvenlik Merkezi'nde Güvenlik Olayını İşleme 
 Güvenlik uyarılarının önceliklendirilmesi ve araştırılması en nitelikli güvenlik analiz uzmanları için bile vakit harcayıcı olabilir ve birçoğu için nereden başlanacağını bilmek bile zordur. Farklı [güvenlik uyarıları](security-center-managing-and-responding-alerts.md) arasındaki bilgileri bağlamak için [Analiz](security-center-detection-capabilities.md) özelliğini kullanan Güvenlik Merkezi, bir saldırı kampanyasını ve tüm ilgili uyarıları tek bir yerde görmenizi sağlayabilir; saldırganın hangi işlemleri yaptığını ve hangi kaynakların etkilendiğini hızlıca görebilirsiniz.
 
@@ -65,6 +66,6 @@ Bu belgede, Güvenlik Merkezi'nde güvenlik olayı özelliğini nasıl kullanaca
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 
