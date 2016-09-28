@@ -17,6 +17,7 @@
    ms.date="03/15/2016"
    ms.author="jdial"/>
 
+
 # ARM şablonunu kullanarak sanal ağ oluşturma
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-selectors-arm-include](../../includes/virtual-networks-create-vnet-selectors-arm-include.md)]
@@ -40,6 +41,6 @@ ARM şablonunu hiçbir değişiklik yapmadan doğrudan GitHub'dan dağıtıyorsa
 [AZURE.INCLUDE [virtual-networks-create-vnet-arm-template-click-include](../../includes/virtual-networks-create-vnet-arm-template-click-include.md)]
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -3,7 +3,7 @@
     description="Azure Event Hubs’ı kullanmaya başlamak, olayları C# dilinde gönderip EventProcessorHost kullanarak Java dilinde almak için bu öğreticiyi izleyin."
     services="event-hubs"
     documentationCenter=""
-    authors="fsautomata"
+    authors="jtaubensee"
     manager="timlt"
     editor=""/>
 
@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="06/16/2016"
-    ms.author="jotaub"/>
+    ms.date="09/27/2016"
+    ms.author="jotaub;sethm"/>
+
 
 # Event Hubs kullanmaya başlayın
 
@@ -73,6 +74,6 @@ Event Hub'ı oluşturan ve veri gönderip alan çalışan bir uygulama oluşturd
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

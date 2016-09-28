@@ -16,6 +16,7 @@
    ms.date="09/12/2016"
    ms.author="markvi"/>
 
+
 # Azure Active Directory raporlama - önizleme
 
 *Bu belge, [Azure Active Directory Raporlama Kılavuzu](active-directory-reporting-guide.md)’nun bir parçasıdır.*
@@ -219,6 +220,6 @@ Bkz. [Azure Active Directory Raporlama Kılavuzu](active-directory-reporting-gui
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

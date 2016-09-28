@@ -15,6 +15,7 @@
     ms.date="08/29/2016"
     ms.author="ashmaka"/>
 
+
 # REST API kullanarak Azure Search dizininizi sorgulama
 > [AZURE.SELECTOR]
 - [Genel Bakış](search-query-overview.md)
@@ -161,6 +162,6 @@ Daha fazla bilgi edinmek için lütfen [Search Belgeleri](https://msdn.microsoft
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

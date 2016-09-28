@@ -17,6 +17,7 @@
     ms.date="09/09/2016"
     ms.author="garye"/>
 
+
 # Azure Machine Learning Studio nedir?
 
 Microsoft Azure Machine Learning Studio, verilerinizde tahmine dayalı analiz çözümleri oluşturma, test etme ve dağıtma amacıyla kullanabileceğiniz bir işbirliğine dayalı sürükle ve bırak aracıdır. Machine Learning Studio, modelleri özel uygulamalar veya Excel gibi BI araçları tarafından kolayca kullanılabilen web hizmetleri olarak yayımlar.
@@ -118,6 +119,6 @@ Tahmine dayalı analiz modeliniz hazır olduktan sonra, bunu doğrudan Machine L
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

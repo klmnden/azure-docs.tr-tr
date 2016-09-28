@@ -17,6 +17,7 @@
     ms.author="juliako"/>
 
 
+
 # Azure portalını kullanarak Media Services hesabına dosya yükleme 
 
 > [AZURE.SELECTOR]
@@ -61,6 +62,6 @@ Karşıya yüklenen varlıklarınızı artık kodlayabilirsiniz. Daha fazla bilg
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

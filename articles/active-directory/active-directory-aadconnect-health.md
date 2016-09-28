@@ -4,7 +4,7 @@
     services="active-directory"
     documentationCenter=""
     authors="karavar"
-    manager="stevenpo"
+    manager="femila"
     editor="karavar"/>
 
 <tags
@@ -15,6 +15,7 @@
     ms.topic="get-started-article"
     ms.date="07/14/2016"
     ms.author="vakarand"/>
+
 
 # Buluttaki şirket içi kimlik altyapınızı ve eşitleme hizmetlerini izleyin
 
@@ -127,6 +128,6 @@ Azure AD Connect Health portalı; uyarıları, performans izlemeyi ve kullanım 
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

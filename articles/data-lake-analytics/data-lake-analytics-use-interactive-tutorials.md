@@ -17,6 +17,7 @@
    ms.author="edmaca"/>
 
 
+
 # Azure Data Lake Analytics etkileşimli öğreticilerini kullanma
 
 Azure Portal, Data Lake Analytics ile çalışmaya başlamanız için etkileşimli bir öğretici sağlar. Bu makalede, web sitesi günlüklerini çözümlemeye yönelik öğreticinin nasıl tamamlanacağı gösterilmiştir.
@@ -91,6 +92,6 @@ Her Data Lake Analytics hesabı, bir [Azure Data Lake Store](../data-lake-store/
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -16,6 +16,7 @@
     ms.date="07/19/2016"
     ms.author="magoedte;sngun"/>
 
+
 # İlk PowerShell runbook’um
 
 > [AZURE.SELECTOR] - [Grafik](automation-first-runbook-graphical.md) - [PowerShell](automation-first-runbook-textual-PowerShell.md) - [PowerShell İş Akışı](automation-first-runbook-textual.md)  
@@ -167,6 +168,6 @@ PowerShell runbook'ları, PowerShell İş Akışı runbook'ları ile aynı yaşa
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

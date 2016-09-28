@@ -16,6 +16,7 @@
     ms.date="08/03/2016"
     ms.author="tomfitz"/>
 
+
 # Mevcut kaynaklardan Azure Resource Manager şablonunu dışarı aktarma
 
 Resource Manager, aboneliğinizde var olan kaynaklardan bir Resource Manager şablonunu dışarı aktarmanızı sağlar. Bu oluşturulan şablonu şablon söz dizimi hakkında bilgi edinmek veya çözümünüzün yeniden dağıtımını gerektiği gibi otomatikleştirmek için kullanabilirsiniz.
@@ -306,6 +307,6 @@ Tebrikler! Portalda oluşturduğunuz kaynaklardan bir şablonu dışarı aktarma
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

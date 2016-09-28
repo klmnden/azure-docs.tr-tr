@@ -17,6 +17,7 @@
     ms.date="08/19/2016"
     ms.author="sstein"/>
 
+
 # SQL veritabanı oluşturma ve PowerShell cmdlet'leri ile sık kullanılan veritabanı kurulum görevlerini gerçekleştirme
 
 
@@ -142,6 +143,6 @@ SQL veritabanı oluşturduktan ve temel veritabanı kurulumu görevlerini gerçe
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

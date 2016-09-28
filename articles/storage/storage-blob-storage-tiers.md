@@ -3,8 +3,8 @@
     description="Azure Blob Depolama için depolama katmanları, nesne verileri için erişim düzenlerini esas alarak uygun maliyetli depolama sunar. Seyrek erişimli depolama katmanı, daha az sıklıkta erişilen veriler için optimize edilmiştir."
     services="storage"
     documentationCenter=""
-    authors="sribhat-msft"
-    manager=""
+    authors="michaelhauss"
+    manager="vamshik"
     editor="tysonn"/>
 
 <tags
@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="07/05/2016"
-    ms.author="sribhat"/>
+    ms.date="09/20/2016"
+    ms.author="mihauss;robinsh"/>
+
 
 
 # Azure Blob Depolama: Sık erişimli ve seyrek erişimli depolama katmanları
@@ -355,6 +356,6 @@ Daha fazla bilgi için,bkz. [Azure Blob Storage’ı kullanmaya başlayın](stor
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

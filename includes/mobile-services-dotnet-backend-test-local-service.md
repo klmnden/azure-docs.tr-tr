@@ -7,7 +7,6 @@ Mobil hizmet projesi yeni mobil hizmetinizi yerel olarak çalıştırmanızı sa
 2. Projeyi yeniden oluşturmak ve mobil hizmeti yerel olarak başlatmak için **F5** tuşuna basın. Mobil hizmet sorunsuz başlatıldıktan sonra bir web sayfası görüntülenir.
 
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

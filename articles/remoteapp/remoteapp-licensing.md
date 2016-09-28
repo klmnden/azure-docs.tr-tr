@@ -16,6 +16,7 @@
     ms.author="elizapo" />
 
 
+
 # Azure RemoteApp’te lisanslama nasıl çalışır?
 
 > [AZURE.IMPORTANT]
@@ -39,6 +40,6 @@ Lütfen bir bulut koleksiyonunda CAL veya Toplu Lisans sözleşmesi kullanamayac
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

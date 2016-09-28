@@ -16,6 +16,7 @@
    ms.date="08/15/2016"
    ms.author="elizapo"/>
 
+
 # Azure RemoteApp ile SQL Azure
 
 > [AZURE.IMPORTANT]
@@ -56,6 +57,6 @@ Azure’da ya da şirket içinde barındırılan bir SQL veritabanına bağlanan
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

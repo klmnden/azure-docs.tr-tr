@@ -16,6 +16,7 @@
     ms.date="07/06/2016"
     ms.author="magoedte;bwren"/>
 
+
 # İlk grafik runbook uygulamam
 
 > [AZURE.SELECTOR] - [Grafik](automation-first-runbook-graphical.md) - [PowerShell](automation-first-runbook-textual-PowerShell.md) - [PowerShell İş Akışı](automation-first-runbook-textual.md)
@@ -218,6 +219,6 @@ Hala başlatılmamışsa, yalnızca sanal makineyi başlatmayı deneyecek şekil
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

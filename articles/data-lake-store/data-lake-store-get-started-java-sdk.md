@@ -16,6 +16,7 @@
    ms.date="09/13/2016"
    ms.author="nitinme"/>
 
+
 # Java'yı kullanarak Azure Data Lake Store ile çalışmaya başlama
 
 > [AZURE.SELECTOR]
@@ -281,6 +282,6 @@ Bu öğreticinin çalışması için, uygulamaya Azure'da kaynak oluşturmak üz
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

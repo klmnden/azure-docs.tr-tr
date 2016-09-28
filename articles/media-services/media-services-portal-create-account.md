@@ -17,6 +17,7 @@
     ms.author="juliako"/>
 
 
+
 # Azure portalı ile Azure Media Services hesabı oluşturma
 
 > [AZURE.SELECTOR]
@@ -107,6 +108,6 @@ Bundan böyle dosyaları AMS hesabınıza yükleyebilirsiniz. Daha fazla bilgi i
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

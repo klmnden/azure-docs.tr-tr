@@ -18,6 +18,7 @@
     ms.author="cephalin"
 />
 
+
 # İlk web uygulamanıza işlevsellik ekleme
 
 [5 dakikada Azure’a web uygulaması dağıtma](app-service-web-get-started.md) bölümünde [Azure App Service](../app-service/app-service-value-prop-what-is.md)’e örnek bir web uygulaması dağıttınız. Bu makalede dağıtılmış web uygulamanıza hızla harika özellikler ekleyeceksiniz. Birkaç dakika içinde:
@@ -157,6 +158,6 @@ Dağıttığınız uygulama ile daha fazlasını nasıl başarabileceğinizi ö�
 - [App Service’in nasıl çalıştığını öğrenin](../app-service/app-service-how-works-readme.md) 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -16,6 +16,7 @@
    ms.date="08/15/2016"
    ms.author="piotrci"/>
 
+
 # Azure RemoteApp koleksiyonunda (Önizleme) bireysel kullanıcılara uygulama yayımlama
 
 > [AZURE.IMPORTANT]
@@ -107,6 +108,6 @@ Henüz önizlemeye katılmadıysanız, lütfen erişim isteğinden bulunmak içi
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

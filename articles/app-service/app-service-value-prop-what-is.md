@@ -17,6 +17,7 @@
     ms.date="05/25/2016" 
     ms.author="omark"/>
 
+
 # Azure App Service nedir?
 
 *App Service*, Microsoft Azure’un bir [hizmet olarak platform](https://en.wikipedia.org/wiki/Platform_as_a_service) (PaaS) teklifidir. Herhangi bir platform veya cihaz için web ve mobil uygulamalar oluşturun. Uygulamalarınızı SaaS çözümleriyle tümleştirin, şirket içi uygulamalara bağlanın ve iş süreçlerinizi otomatikleştirin. Azure, uygulamalarınızı tam yönetilen sanal makineler (VM) üzerinde, seçtiğiniz paylaşılan VM kaynakları veya özel VM’ler ile çalıştırır. 
@@ -82,6 +83,6 @@ Ya da bir [ücretsiz Azure hesabı](https://azure.microsoft.com/pricing/free-tri
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -18,6 +18,7 @@
     ms.date="08/17/2016"
     ms.author="carlrab"/>
 
+
 # SQL Veritabanı öğreticisi: Bir veritabanına erişmek ve onu yönetmek için SQL veritabanı kullanıcı hesabı oluşturma
 
 
@@ -54,6 +55,6 @@ Artık SQL Database öğreticisini tamamladığınıza, bir kullanıcı hesabı 
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

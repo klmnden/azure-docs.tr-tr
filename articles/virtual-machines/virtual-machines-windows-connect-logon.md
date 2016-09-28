@@ -17,6 +17,7 @@
     ms.date="07/28/2016"
     ms.author="cynthn"/>
 
+
 # Windows çalıştıran bir Azure Virtual Machine’e bağlanma ve oturum açma 
 
 
@@ -47,6 +48,6 @@ Bağlanmayı denediğinizde sorun yaşıyorsanız, bkz. [Uzak Masaüstü bağlan
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

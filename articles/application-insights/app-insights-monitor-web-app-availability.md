@@ -15,6 +15,7 @@
     ms.date="09/07/2016"
     ms.author="awills"/>
 
+
 # Web sitelerinin kullanılabilirlik ve yanıt hızını izleme
 
 Web uygulamanızı veya web sitenizi herhangi bir ana bilgisayara dağıttıktan sonra kullanılabilirlik ve yanıt hızını izlemek için web testleri ayarlayabilirsiniz. [Visual Studio Application Insights](app-insights-overview.md), dünyanın her yerindeki noktalarından uygulamanıza düzenli aralıklarla web istekleri gönderir. Uygulamanız yanıt vermezse veya yavaş yanıt verirse sizi uyarır.
@@ -326,6 +327,6 @@ Test tamamlandığında yanıt süreleri ve başarı oranları gösterilir.
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -16,6 +16,7 @@
     ms.date="08/17/2016"
     ms.author="cgronlun;chhavib;olgali"/>
 
+
 # Örnek denemeleri kopyalayarak yeni makine öğrenimi denemeleri oluşturma
 Sıfırdan makine öğrenimi denemeleri oluşturmayı öğrenmek yerine [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/)’deki örnek denemelerle nasıl çalışmaya başlayacağınızı öğrenin. Örnekleri kullanarak kendi makine öğrenimi çözümünüzü oluşturabilirsiniz.
 
@@ -70,6 +71,6 @@ Ayrıca, bir Galeri örneğini bir şablon olarak kullanıp Machine Learning Stu
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

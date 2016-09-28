@@ -17,6 +17,7 @@
     ms.date="06/29/2016"
     ms.author="jgao"/>
 
+
 # HDInsight uygulamalarını Azure Marketi’nde yayımlama
 
 HDInsight uygulaması kullanıcıların Linux tabanlı HDInsight kümesine yükleyebileceği bir uygulamadır. Bu uygulamalar Microsoft veya bağımsız yazılım satıcıları (ISV) tarafından ya da sizin tarafınızdan geliştirilebilir. Bu makalede bir HDInsight uygulamasının Azure Marketi’nde nasıl yayımlanacağını öğreneceksiniz.  Azure Marketi’nde yayımlama hakkında genel bilgi için bkz. [bir teklifi Azure Marketinde yayımlama](../marketplace-publishing/marketplace-publishing-getting-started.md).
@@ -104,6 +105,6 @@ Bir HDInsight uygulamasını yayımlamak için aşağıdaki adımları izleyin:
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -29,7 +29,6 @@ Görmeyi beklediğiniz ancak çözümünüz için listelenmemiş ayrıntılar m�
 [lnk-portal]: http://portal.azure.com/
 [lnk-faq]: ../articles/iot-suite/iot-suite-faq.md
 
-
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

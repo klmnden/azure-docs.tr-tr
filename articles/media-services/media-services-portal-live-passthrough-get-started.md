@@ -17,6 +17,7 @@
     ms.author="juliako"/>
 
 
+
 #Azure portal kullanarak şirket içi kodlayıcılarda canlı akış gerçekleştirme
 
 > [AZURE.SELECTOR]
@@ -186,6 +187,6 @@ Media Services öğrenme yollarını gözden geçirin.
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -1,20 +1,21 @@
 <properties 
-    pageTitle="Azure Multi-Factor Authentication - Kullanmaya Başlama" 
-    description="Neyi güvenli hale getirmeye çalışıyorum ve kullanıcılarım nerede yer alıyor sorularını kendinize sorarak multi-factor authentication güvenlik çözümünüzü seçin.  Sonra bulut, MFA Sunucusu ya da AD FS arasından seçim yapın." 
-    services="multi-factor-authentication" 
-    documentationCenter="" 
-    authors="billmath" 
-    manager="femila" 
+    pageTitle="Azure Multi-Factor Authentication - Kullanmaya Başlama"
+    description="Neyi güvenli hale getirmeye çalışıyorum ve kullanıcılarım nerede yer alıyor sorularını kendinize sorarak multi-factor authentication güvenlik çözümünüzü seçin.  Sonra bulut, MFA Sunucusu ya da AD FS arasından seçim yapın."
+    services="multi-factor-authentication"
+    documentationCenter=""
+    authors="kgremban"
+    manager="femila"
     editor="curtland"/>
 
-<tags 
-    ms.service="multi-factor-authentication" 
-    ms.workload="identity" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="get-started-article" 
-    ms.date="08/15/2016" 
-    ms.author="billmath"/>
+<tags
+    ms.service="multi-factor-authentication"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="08/15/2016"
+    ms.author="kgremban"/>
+
 
 #Sizin için multi-factor güvenlik çözümünü seçtik
 
@@ -30,7 +31,7 @@ Aşağıdaki bölümler bunların her birini belirlemede rehberlik sağlar.
 Doğru multi-factor authentication çözümünü belirlemek için, önce ikinci bir kimlik doğrulama yöntemiyle neyi güvenli hale getirmeye çalıştığınız sorusunu yanıtlamalıyız.  Bu, Azure’da olan bir uygulama mi?  Veya örneğin bir uzaktan erişim sistemi mi?  Neyi güvenli hale getirmeye çalıştığımızı belirleyerek multi-factor authentication’ın nerede etkinleştirilmesi gerektiği sorusunun yanıtını görelim.  
 
 
-Neyi güvenli hale getirmeye çalışıyorsunuz?| Bulutta Multi-Factor Authentication|Multi-Factor Authentication Sunucusu 
+Neyi güvenli hale getirmeye çalışıyorsunuz?| Bulutta Multi-Factor Authentication|Multi-Factor Authentication Sunucusu
 ------------- | :-------------: | :-------------: |
 Birinci taraf Microsoft uygulamaları|* |* |
 Uygulama galerisinde Saas uygulamaları|* |* |
@@ -47,10 +48,10 @@ Sonra, kullanıcılarımızın bulunduğu yere bağlı olarak, kullanılacak do�
 
 
 Kullanıcı Konumu| Çözüm
-------------- | :------------- | 
+------------- | :------------- |
 Azure Active Directory| Bulutta Multi-Factor Authentication|
-AD FS ile federasyon kullanana Azure AD ve şirket içi AD| Hem bulutta MFA hem de MFA Sunucusu kullanılabilir seçeneklerdir 
-DirSync, Azure AD Sync, Azure AD Connect kullanan Azure AD ve şirket içi AD - parola eşitleme yok|Hem bulutta MFA hem de MFA Sunucusu kullanılabilir seçeneklerdir 
+AD FS ile federasyon kullanana Azure AD ve şirket içi AD| Hem bulutta MFA hem de MFA Sunucusu kullanılabilir seçeneklerdir
+DirSync, Azure AD Sync, Azure AD Connect kullanan Azure AD ve şirket içi AD - parola eşitleme yok|Hem bulutta MFA hem de MFA Sunucusu kullanılabilir seçeneklerdir
 DirSync, Azure AD Sync, Azure AD Connect kullanan Azure AD ve şirket içi AD - parola eşitleme ile|Bulutta Multi-Factor Authentication
 Şirket içi Active Directory|Multi-Factor Authentication Sunucusu
 
@@ -60,22 +61,22 @@ Aşağıdaki tabloda bulutta Multi-Factor Authentication ile Multi-Factor Authen
 ------------- | :-------------: | :-------------: |
 İkinci öğe olarak mobil uygulama bildirimi | ● | ● |
 İkinci öğe olarak mobil uygulama doğrulama kodu | ● | ●
-İkinci öğe olarak telefon araması | ● | ● 
+İkinci öğe olarak telefon araması | ● | ●
 İkinci öğe olarak tek yönlü SMS | ● | ●
-İkinci öğe olarak iki yönlü SMS |  | ● 
-İkinci öğe olarak Donanım Belirteçleri |  | ● 
+İkinci öğe olarak iki yönlü SMS |  | ●
+İkinci öğe olarak Donanım Belirteçleri |  | ●
 MFA'yı desteklemeyen istemciler için uygulama parolaları | ● |  
-Kimlik doğrulama yöntemleri üzerinde yönetici denetimi | ● | ● 
+Kimlik doğrulama yöntemleri üzerinde yönetici denetimi | ● | ●
 PIN modu |  | ●
 Sahtekarlık uyarısı | ● | ●
-MFA Raporları | ● | ● 
-Bir Kerelik Atlama |  | ● 
-Telefon aramaları için özel karşılama | ● | ● 
-Telefon aramaları için özelleştirilebilir arayan kimliği | ● | ● 
-Güvenilen IP'ler | ● | ● 
+MFA Raporları | ● | ●
+Bir Kerelik Atlama |  | ●
+Telefon aramaları için özel karşılama | ● | ●
+Telefon aramaları için özelleştirilebilir arayan kimliği | ● | ●
+Güvenilen IP'ler | ● | ●
 Güvenilen cihazlar için MFA hatırlama  | ● |  
-Koşullu erişim | ● | ● 
-Önbellek |  | ● 
+Koşullu erişim | ● | ●
+Önbellek |  | ●
 
 Artık bulutta multi-factor authentication mı yoksa şirket içi MFA Sunucusu mu kullanacağımızı belirlediğimize göre, Azure Multi-Factor Authentication’ı ayarlamaya ve kullanmaya başlayabiliriz.   **Senaryonuz temsil eden simgeyi seçin!**
 
@@ -89,8 +90,6 @@ Artık bulutta multi-factor authentication mı yoksa şirket içi MFA Sunucusu m
 
 
 
-
-
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

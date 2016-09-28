@@ -5,7 +5,7 @@
     services="active-directory"
     documentationCenter=""
     authors="billmath"
-    manager="stevenpo"
+    manager="femila"
     editor="curtand"/>
 
 <tags
@@ -16,6 +16,7 @@
     ms.topic="get-started-article"
     ms.date="08/08/2016"
     ms.author="billmath"/>
+
 
 # Eşitleme için Azure AD Connect Health'i kullanma
 Aşağıdaki belgeler Azure AD Connect Health ile Azure AD Connect’in (Eşitleme) izlenmesine özgüdür.  Azure Connect Health ile AD FS'yi izleme hakkında bilgi almak için bkz. [Azure AD Connect Health'i AD FS ile kullanma](active-directory-aadconnect-health-adfs.md). Ek olarak, Active Directory Etki Alanı Hizmetleri’ni Azure AD Connect Health ile izleme hakkında bilgi için bkz. [AD DS ile Azure AD Connect Health Kullanma](active-directory-aadconnect-health-adds.md).
@@ -71,6 +72,6 @@ Bu özellik, değerlendirilen ve Azure AD'ye aktarılan değişiklik sayısını
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

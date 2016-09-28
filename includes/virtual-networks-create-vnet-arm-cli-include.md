@@ -29,8 +29,8 @@ Windows, Linux veya OSX çalıştıran herhangi bir bilgisayarın komut istemind
         data:
         info:    group create command OK
 
-    - **-n (veya--ad)**. Yeni kaynak grubunun adı. Bizim senaryomuz için bu *TestRG*’dir.
-    - **-l (veya --konum)**. Yeni kaynak grubunun oluşturulacağı Azure bölgesi. Bizim senaryomuz için bu *centralus*’tur.
+    - **-n (veya--ad)**. Yeni kaynak grubunun adı. Bizim senaryomuz için bu *TestRG* ’dir.
+    - **-l (veya --konum)**. Yeni kaynak grubunun oluşturulacağı Azure bölgesi. Bizim senaryomuz için bu *centralus* ’tur.
 
 4. Aşağıda gösterildiği gibi, VNet ve alt ağ oluşturmak için **azure network vnet create** komutunu çalıştırın. 
 
@@ -51,10 +51,10 @@ Windows, Linux veya OSX çalıştıran herhangi bir bilgisayarın komut istemind
         data:      192.168.0.0/16
         info:    network vnet create command OK
 
-    - **-g (veya --resource-group)**. VNet kaynak grubunun oluşturulacağı kaynak grubunun adı. Bizim senaryomuz için bu *TestRG*’dir.
-    - **-n (veya --name)**. Oluşturulacak VNet’in adı. Bizim senaryomuz için bu *TestVNet*’tir.
-    - **-a (veya--adres-önekler)**. VNet adres alanı için kullanılan CIDR blokları listesi. Bizim senaryomuz için bu *192.168.0.0/16*’dır.
-    - **-l (veya --location)**. VNet’in oluşturulacağı Azure bölgesi. Bizim senaryomuz için bu *centralus*’tur.
+    - **-g (veya --resource-group)**. VNet kaynak grubunun oluşturulacağı kaynak grubunun adı. Bizim senaryomuz için bu *TestRG* ’dir.
+    - **-n (veya --name)**. Oluşturulacak VNet’in adı. Bizim senaryomuz için bu *TestVNet* ’tir.
+    - **-a (veya--adres-önekler)**. VNet adres alanı için kullanılan CIDR blokları listesi. Bizim senaryomuz için bu *192.168.0.0/16* ’dır.
+    - **-l (veya --location)**. VNet’in oluşturulacağı Azure bölgesi. Bizim senaryomuz için bu *centralus* ’tur.
 
 5. Aşağıda gösterildiği gibi, alt ağ oluşturmak için **azure network vnet subnet create** komutunu çalıştırın. Komutun çıktısına dikkat edin. Çıktıdan sonra gösterilen listede, kullanılan parametreler açıklanmaktadır.
 
@@ -74,9 +74,9 @@ Windows, Linux veya OSX çalıştıran herhangi bir bilgisayarın komut istemind
         data:
         info:    network vnet subnet create command OK
 
-    - **-e (veya--vnet-ad**. Alt ağın oluşturulacağı VNet’in adı. Bizim senaryomuz için bu *TestVNet*’tir.
-    - **-n (veya --name)**. Yeni alt ağın adı. Bizim senaryomuz için bu *FrontEnd*’dir.
-    - **-a (veya--adres-önek)**. Alt ağ CIDR bloğu. Bizim senaryomuz için bu *192.168.1.0/24*’tür.
+    - **-e (veya--vnet-ad**. Alt ağın oluşturulacağı VNet’in adı. Bizim senaryomuz için bu *TestVNet* ’tir.
+    - **-n (veya --name)**. Yeni alt ağın adı. Bizim senaryomuz için bu *FrontEnd* ’dir.
+    - **-a (veya--adres-önek)**. Alt ağ CIDR bloğu. Bizim senaryomuz için bu *192.168.1.0/24* ’tür.
 
 6. Gerekiyorsa, başka alt ağlar oluşturmak için yukarıdaki 5. adımı yineleyin. Senaryomuz için, *BackEnd* alt ağını oluşturacak aşağıdaki komutu çalıştırın.
 
@@ -107,7 +107,6 @@ Windows, Linux veya OSX çalıştıran herhangi bir bilgisayarın komut istemind
         info:    network vnet show command OK
 
 
-
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

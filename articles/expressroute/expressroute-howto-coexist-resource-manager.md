@@ -16,6 +16,7 @@
    ms.date="07/19/2016"
    ms.author="charleywen"/>
 
+
 # Resource Manager dağıtım modeli için aynı anda var olabilen ExpressRoute ve Siteden Siteye bağlantılarını yapılandırma
 
 > [AZURE.SELECTOR]
@@ -196,6 +197,6 @@ ExpressRoute hakkında daha fazla bilgi için, bkz. [ExpressRoute SSS](expressro
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -7,7 +7,6 @@ PowerShell kullanarak sanal ağ geçidinizin ortak IP adresini bulmak için şu 
 
 Azure portalı kullanarak da sanal ağ geçidiniz için genel IP adresini görüntüleyebilirsiniz. **Sanal Ağ Geçitleri**’ne gidin ve ağ geçidinizin adına tıklayın.
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

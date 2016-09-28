@@ -18,6 +18,7 @@
     ms.author="markvi"/>
 
 
+
 # Sorun giderme: Bu uygulamaya buradan erişemezsiniz
 
 SharePoint Online gibi bir uygulamaya erişirken erişim engellendi sayfasıyla karşılaştınız.  
@@ -142,6 +143,6 @@ Android telefonlara veya tabletlere yönelik yönergeler yakında paylaşılacak
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

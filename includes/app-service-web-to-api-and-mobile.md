@@ -1,7 +1,6 @@
 > [AZURE.NOTE] Bu makale web uygulamalarıyla ilgili olsa da, API uygulamaları ve mobil uygulamalara da uygulanır.
 
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

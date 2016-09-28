@@ -19,7 +19,6 @@ Bu öğreticinin son aşaması yeni uygulamanızı oluşturmak ve çalıştırma
 
     ![](./media/mobile-services-javascript-backend-run-app/mobile-data-browse.png)
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

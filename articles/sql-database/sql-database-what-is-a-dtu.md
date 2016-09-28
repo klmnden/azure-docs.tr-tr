@@ -17,6 +17,7 @@
     ms.date="09/06/2016"
     ms.author="carlrab"/>
 
+
 # Veritabanı İşlem Birimlerini (DTU'lar) ve esnek Veritabanı İşlem Birimlerini (eDTU'lar) açıklama
 
 Bu makalede, Veritabanı İşlem Birimleri (DTU'lar) ve esnek Veritabanı İşlem Birimlerinin (eDTU'lar) yanı sıra maksimum DTU veya eDTU sayısına ulaşıldığında ne olacağı açıklanmaktadır.  
@@ -59,6 +60,6 @@ Performans düzeyleri, veritabanı iş yükünüzü seçilen hizmet katmanı/per
 - DTU karışımını belirlemek için kullanılan OLTP kıyaslama iş yükünün arkasındaki metodolojiyi anlamak için bkz. [SQL Database benchmark overview](sql-database-benchmark-overview.md) (SQL Veritabanı kıyaslamaya genel bakış).
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

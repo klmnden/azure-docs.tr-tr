@@ -16,6 +16,7 @@
     ms.date="08/17/2016"
     ms.author="tarcher" />
 
+
 # Depolama Gezgini ile çalışmaya başlama (Önizleme)
 
 ## Genel Bakış 
@@ -231,6 +232,6 @@ Aramayı temizlemek için arama kutusundaki **x** düğmesini seçin.
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -15,6 +15,7 @@
     ms.date="08/29/2016"
     ms.author="brjohnst"/>
 
+
 # .NET SDK kullanarak Azure Search dizininizi sorgulama
 > [AZURE.SELECTOR]
 - [Genel Bakış](search-query-overview.md)
@@ -164,6 +165,6 @@ Yukarıdaki örnek kod, arama sonuçlarını çıkarmak için konsolu kullanır.
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

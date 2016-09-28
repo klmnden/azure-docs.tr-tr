@@ -16,6 +16,7 @@
    ms.date="09/01/2016"
    ms.author="sonyama;barbkess"/>
 
+
 # SQL Data Warehouse için destek bileti oluşturma
  
 SQL Data Warehouse'unuz ile ilgili herhangi bir sorun yaşıyorsanız lütfen mühendislik ekibimizin size yardımcı olabilmesi için bir destek bileti oluşturun.
@@ -105,6 +106,6 @@ Ayrıca, [Stack Overflow][] veya [Azure SQL Data Warehouse MSDN forumu][] üzeri
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -3,9 +3,8 @@ Azure’da yeni misiniz? [Ücretsiz bir Azure hesabı oluşturun](https://azure.
 
 Azure’u zaten kullanıyor musunuz? DevTest Labs içinde yeni bir laboratuvar oluşturmak için aşağıdaki düğmeye tıklayın!
 
-[![GAzure DevTest Labs ile dakikalar içinde çalışma başlama](./media/devtest-lab-try-it-out/get-started.png)](http://go.microsoft.com/fwlink/?LinkID=627034&clcid=0x409)
+[![GAzure DevTest Labs ile dakikalar içinde çalışma başlama(./media/devtest-lab-try-it-out/get-started.png)](http://go.microsoft.com/fwlink/?LinkID=627034&clcid=0x409)
 
-
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

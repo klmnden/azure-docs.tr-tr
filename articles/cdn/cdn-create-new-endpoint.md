@@ -15,6 +15,7 @@
      ms.date="07/28/2016" 
      ms.author="casoper"/>
 
+
 # Azure CDN'yi kullanma  
 
 Bu konu başlığında, yeni bir CDN profili ve uç noktası oluşturarak Azure CDN'yi etkinleştirme işlemi boyunca size yol gösterilecektir.
@@ -99,6 +100,6 @@ CDN profili, CDN uç noktaları koleksiyonudur.  Her bir profil, bir veya daha f
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

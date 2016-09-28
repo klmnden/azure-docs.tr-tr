@@ -76,7 +76,6 @@ Cihaz sorunsuz kaydedildikten ve çevrimiçi olmadıktan sonra, ağ bağlantıs�
 
 StorSimple için Windows PowerShell aracılığıyla cihazınızın nasıl yapılandırılacağını ve kaydedileceğini gösteren bir video izlemek için [buraya](https://azure.microsoft.com/documentation/videos/initialize-the-storsimple-appliance/) tıklayın.
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

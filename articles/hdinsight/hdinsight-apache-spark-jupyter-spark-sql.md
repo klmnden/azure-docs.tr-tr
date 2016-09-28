@@ -18,6 +18,7 @@
     ms.author="nitinme"/>
 
 
+
 # Başlangıç: HDInsight Linux üzerinde Apache Spark kümesi oluşturma ve Spark SQL kullanarak etkileşimli sorgular gerçekleştirme
 
 HDInsight’ta bir Apache Spark kümesi oluşturmayı ve ardından [Jupyter](https://jupyter.org) not defteri kullanarak Spark kümesi üzerinde Spark SQL etkileşimli sorguları gerçekleştirmeyi öğrenin.
@@ -216,6 +217,6 @@ Bu makalede PySpark çekirdeği kullanılacaktır. [Spark HDInsight kümeleri il
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

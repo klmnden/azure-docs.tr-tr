@@ -16,6 +16,7 @@
     ms.date="06/16/2016"
     ms.author="piyushjo" />
 
+
 # Xamarin.Android Uygulamaları için Azure Mobile Engagement kullanmaya başlama
 
 [AZURE.INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
@@ -149,6 +150,6 @@ Aşağıdaki bölümler, uygulamanızı bu bildirim ve mesajları alacak şekild
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

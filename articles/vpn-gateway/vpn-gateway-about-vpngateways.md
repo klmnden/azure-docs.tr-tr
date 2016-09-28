@@ -16,6 +16,7 @@
    ms.date="09/01/2016"
    ms.author="cherylmc" />
 
+
 # VPN Gateway hakkında
 
 
@@ -138,6 +139,6 @@ VPN ağ geçidi yapılandırmanızı planlayın. Bkz. [VPN Gateway Planlama ve T
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

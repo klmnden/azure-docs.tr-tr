@@ -17,6 +17,7 @@
     ms.date="07/14/2016"
     ms.author="garye"/>
 
+
 # Azure Machine Learning ile ilgili Sık Sorulan Sorular (SSS): Faturalama, özellikler, sınırlamalar ve destek
 
 Bu SSS, tahmine dayalı modeller geliştirmeye ve web hizmetleri aracılığıyla çözümleri faaliyete geçirmeye yönelik bir bulut hizmeti olan Azure Machine Learning hakkındaki soruları yanıtlar. Bu SSS; faturalama modeli, özellikler, sınırlamalar ve destek dahil olmak üzere hizmetin kullanımı hakkındaki soruları kapsar.
@@ -588,6 +589,6 @@ Konuk Erişimi, Azure Machine Learning Studio’da herhangi bir maliyet ve kimli
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

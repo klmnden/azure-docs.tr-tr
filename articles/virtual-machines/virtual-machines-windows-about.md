@@ -14,8 +14,9 @@
     ms.tgt_pltfrm="vm-windows"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/15/2016"
+    ms.date="09/27/2016"
     ms.author="cynthn"/>
+
 
 #Azure’da Windows sanal makineler hakkında
 
@@ -42,6 +43,6 @@ Hızlı bir şekilde basit bir sanal makine oluşturarak sanal makineyi deneyin.
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

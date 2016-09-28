@@ -16,6 +16,7 @@
    ms.date="08/04/2016"
    ms.author="navale;tomfitz"/>
    
+
 # Resource Manager Şablonu kılavuzu
 
 Bir şablon oluştururken “nasıl başlayacağım?” sorusu ilk akla gelen sorulardan biridir. [Şablon Yazma makalesinde](resource-group-authoring-templates.md#template-format) açıklanan temel yapı izlenerek boş bir şablondan başlanabilir ve ardından kaynaklar ile ilgili parametreler ve değişkenler eklenebilir. Bunun dışında [hızlı başlama galerisi](https://github.com/Azure/azure-quickstart-templates) kullanılarak oluşturulmak istenen senaryolara benzer senaryolar aranması iyi bir alternatif oluşturabilir. Çok sayıda şablonu birleştirebilir veya kendi belirli senaryonuza uyacak mevcut bir senaryoyu düzenleyebilirsiniz. 
@@ -583,6 +584,6 @@ Depolama hesabını dağıtırken kullandığınız aynı komutları kullanarak 
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

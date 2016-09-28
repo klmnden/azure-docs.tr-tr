@@ -16,6 +16,7 @@
    ms.date="09/13/2016"
    ms.author="ryanwi"/>
 
+
 # Geliştirme ortamınızı hazırlama
  Geliştirme makinenizde [Azure Service Fabric uygulamaları][1] derlemek ve çalıştırmak için çalışma zamanını, SDK'yı ve araçları yükleyin. Ayrıca, SDK'da bulunan Windows PowerShell betiklerinin çalıştırılmasını da etkinleştirmeniz gerekir.
 
@@ -64,6 +65,6 @@ Artık geliştirme ortamınızı ayarlamayı tamamladığınıza göre, uygulama
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

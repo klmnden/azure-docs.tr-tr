@@ -3,7 +3,6 @@ Bu makaledeki adımları gerçekleştirmek için [Azure PowerShell’i yüklemen
 
 > [AZURE.NOTE] Azure hesabınız yoksa bir tane gerekecektir. [Buradaki ücretsiz deneme sürümüyle](../articles/active-directory/sign-up-organization.md) kaydolun. 
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

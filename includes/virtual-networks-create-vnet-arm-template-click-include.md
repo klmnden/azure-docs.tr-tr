@@ -27,7 +27,6 @@ Microsoft tarafından korunan ve topluluğa açık bir github deposuna yüklenmi
 
     ![Önizleme portalında VNet oluşturma](./media/virtual-networks-create-vnet-arm-template-click-include/figure5.gif)
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

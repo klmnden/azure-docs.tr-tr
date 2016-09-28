@@ -69,7 +69,6 @@ Sanal ortam otomatik olarak yönetildiği sırada kalan dosyaları engellemek i�
 [Microsoft Visual C++ 2010 Express]: http://go.microsoft.com/?linkid=9709949
 
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

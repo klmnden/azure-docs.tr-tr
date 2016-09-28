@@ -16,6 +16,7 @@
     ms.date="08/02/2016"
     ms.author="curtand"/>
 
+
 # Azure Active Directory'de diğer dizinlerden veya iş ortağı şirketlerden kullanıcılar ekleme
 
 > [AZURE.SELECTOR]
@@ -90,6 +91,6 @@ Bir kullanıcı kendi giriş dizininde silinirse veya Microsoft hesabını iptal
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

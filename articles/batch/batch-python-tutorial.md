@@ -16,6 +16,7 @@
     ms.date="09/08/2016"
     ms.author="marsma"/>
 
+
 # Azure Batch Python istemcisini kullanmaya başlama
 
 > [AZURE.SELECTOR]
@@ -678,6 +679,6 @@ Batch çözümünün temel iş akışı hakkında artık bilginiz olduğuna gör
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

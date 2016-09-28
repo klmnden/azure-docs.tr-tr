@@ -14,7 +14,8 @@
     ms.devlang="na"
     ms.topic="get-started-article"
     ms.date="07/26/2016"
-    ms.author="robinsh"/>
+    ms.author="micurd;robinsh"/>
+
 
 
 # Azure Storage hesapları hakkında
@@ -179,6 +180,6 @@ Artık kullanmadığınız bir depolama hesabını kaldırmak için panoda**Sil*
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

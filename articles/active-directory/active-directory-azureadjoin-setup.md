@@ -14,8 +14,9 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/23/2016"
+    ms.date="09/27/2016"
     ms.author="femila"/>
+
 
 # Kuruluşunuzda Azure AD'ye Katılımı ayarlama
 
@@ -57,6 +58,6 @@ Kullanıcılarınızın Azure AD Katılımını ayarlamalarını sağlamak üzer
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -15,6 +15,7 @@
    ms.date="06/20/2016"
    ms.author="ganesr"/>
 
+
 # ExpressRoute bağlantı hatlarını klasikten Resource Manager dağıtım modeline taşıma
 
 Bu makale, bir Azure ExpressRoute bağlantı hattını klasikten Azure Resource Manager dağıtım modeline taşmanın ne anlama geldiği hakkında genel bir bakış sağlar.
@@ -112,6 +113,6 @@ Bu bölümde ExpressRoute bağlantı hatları için desteklenmeyen durumlar aç�
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

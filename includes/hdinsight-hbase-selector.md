@@ -3,7 +3,6 @@
 - [Windows kümesi](../articles/hdinsight/hdinsight-hbase-tutorial-get-started.md)
 
 
-
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -17,6 +17,7 @@
     ms.date="08/29/2016"
     ms.author="heidist"/>
 
+
 # Portalı kullanarak Azure Search'e veri aktarma
 
 Azure portalı, Azure Search panosunda verileri bir dizine yüklemeye yönelik **İçeri Aktarma Verileri** sihirbazını içerir. 
@@ -122,6 +123,6 @@ Dizin oluşturucular hakkında daha fazla bilgi için bu bağlantıları gözden
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

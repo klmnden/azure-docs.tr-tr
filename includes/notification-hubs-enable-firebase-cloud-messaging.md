@@ -12,7 +12,6 @@
 4. Proje ayarlarınızdaki **Cloud Messaging** sekmesine tıklayın ve **Sunucu anahtarı** ile **Gönderen Kimliği** değerini kopyalayın.  Bu değerler daha sonra bildirim hub'ı Erişim İlkesini ve bildirim işleyicinizi uygulamada yapılandırmak için kullanılacaktır.
   
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

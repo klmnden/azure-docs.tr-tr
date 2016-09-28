@@ -16,6 +16,7 @@
     ms.date="08/31/2016" 
     ms.author="sethm"/>
 
+
 # Azure Service Bus
 
 Bir uygulama veya hizmet ister bulutta ister şirket içinde çalışsın, genellikle diğer uygulamalarla veya hizmetlerle etkileşimde olmalıdır. Bunu gerçekleştirmenin oldukça kapsamlı ve kullanışlı bir yöntemi ise Microsoft Azure tarafından sunulan Service Bus hizmetidir. Bu makalede, hizmetin yapısına ve hizmeti kullanmanız durumunda elde edeceğiniz avantajlara yer verilerek bu teknoloji genel hatlarıyla incelenir.
@@ -122,6 +123,6 @@ Artık Azure Service Bus hizmeti ile ilgili temel bilgileri edindiğinize göre,
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

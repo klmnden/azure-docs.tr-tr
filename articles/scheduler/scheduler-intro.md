@@ -15,6 +15,7 @@
  ms.date="08/18/2016"
  ms.author="krisragh"/>
 
+
 # Azure Scheduler nedir?
 
 Azure Scheduler, bulutta çalıştırmak üzere eylemleri bildirimli olarak tanımlamanızı sağlar. Sonra, bu eylemleri otomatik olarak zamanlar ve çalıştırır.  Scheduler bunu [Azure portal](scheduler-get-started-portal.md), kod, [REST API](https://msdn.microsoft.com/library/mt629143.aspx) ya da Azure PowerShell kullanarak yapar.
@@ -52,6 +53,6 @@ Scheduler, programlı olarak, betikleri kullanarak ve portalda işler ve [iş ko
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

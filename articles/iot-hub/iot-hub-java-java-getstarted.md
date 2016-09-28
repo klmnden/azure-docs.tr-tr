@@ -16,6 +16,7 @@
      ms.date="08/11/2016"
      ms.author="dobett"/>
 
+
 # Java için Azure IoT Hub ile çalışmaya başlama
 
 [AZURE.INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
@@ -496,6 +497,6 @@ IoT çözümünüzün nasıl genişletileceğini ve cihazdan buluta iletilerin d
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

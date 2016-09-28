@@ -17,6 +17,7 @@
    ms.date="06/16/2016"
    ms.author="yushwang"/>
 
+
 # Azure VPN Gateways ile BGP’ye genel bakış
 
 Bu makale Azure VPN Gateways içindeki BGP (Sınır Ağ Geçidi Protokolü) desteğine genel bakış sağlar.
@@ -70,6 +71,6 @@ BGP’yi şirketler arası ve VNet’ten VNet’te bağlantılar için yapıland
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

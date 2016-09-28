@@ -16,6 +16,7 @@
     ms.date="06/29/2016"
     ms.author="wesmc"/>
 
+
 # Kindle uygulamaları için Notification Hubs'ı kullanmaya başlama
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -284,6 +285,6 @@ ADM'yi desteklemesi için uygulama bildiriminizi düzenleyin:
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

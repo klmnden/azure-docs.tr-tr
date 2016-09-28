@@ -67,7 +67,6 @@
 ** Esnek veritabanı, havuz depolama alanını paylaşır; bu nedenle veritabanı depolama alanı, kalan havuz depolama alanı ve veritabanı başına maks. depolama alanı değerlerinin hangisi daha küçükse bu değerle sınırlıdır
 
 
-
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -6,7 +6,6 @@
 
 - **Sil**’e tıklayın ve silinecek tüm sanal makine disklerini seçin.
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

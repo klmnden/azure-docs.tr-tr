@@ -16,6 +16,7 @@
     ms.date="09/12/2016"
     ms.author="tarcher"/>
 
+
 # Azure DevTest Labs'de laboratuvar oluşturma
 
 ## Ön koşullar
@@ -69,6 +70,6 @@ Laboratuvarınızı oluşturduktan sonra dikkate alınması gereken sonraki adı
 - [Yapı içeren bir VM'yi laboratuvara ekleme](devtest-lab-add-vm-with-artifacts.md).
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

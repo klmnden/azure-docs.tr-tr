@@ -16,6 +16,7 @@
    ms.date="09/06/2016"
    ms.author="nitinme"/>
 
+
 # Azure Data Lake Store’da erişim denetimi
 
 Data Lake Store; HDFS ve sonuç olarak POSIX erişim denetimi modelinden türetilen bir erişim denetimi modeli kullanır. Bu makalede Data Lake Store için erişim denetimi modelinin temel bilgileri özetlenmektedir. HDFS erişim denetimi modeli hakkında daha fazla bilgi almak için bkz. [HDFS İzinleri Kılavuzu](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html).
@@ -313,6 +314,6 @@ Hayır.
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

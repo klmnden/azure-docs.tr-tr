@@ -34,7 +34,6 @@ Bu dosyalar olmadığında, Azure geçici bir dağıtım betiği oluşturur ve b
 [Azure komut satırı arabirimi]: http://azure.microsoft.com/downloads/
 
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

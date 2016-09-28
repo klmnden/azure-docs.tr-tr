@@ -16,6 +16,7 @@
     ms.date="01/04/2016"
     ms.author="piyushjo;matt-gibbs" />
 
+
 #Azure Mobile Engagement’a genel bakış
 
 Azure Mobile Engagement, uygulama kullanımı hakkında veriye dayalı öngörüler ve kullanıcıların gerçek zamanlı olarak segmentlere ayrılmasını sağlayan, bağlamsal farkındalığa sahip anında iletme bildirimleri ve uygulama içi mesajlaşmaya olanak tanıyan, hizmet olarak yazılım (SaaS) şeklinde bir kullanıcı etkileşimi platformudur.
@@ -53,6 +54,6 @@ Microsoft, gizliliğin korunması konusunda her zaman kararlı olmuştur ve bu k
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

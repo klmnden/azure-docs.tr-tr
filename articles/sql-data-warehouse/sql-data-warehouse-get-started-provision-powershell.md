@@ -16,6 +16,7 @@
    ms.date="08/25/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
+
 # PowerShell kullanarak SQL Data Warehouse oluşturma
 
 > [AZURE.SELECTOR]
@@ -109,6 +110,6 @@ Programlama yoluyla SQL Data Warehouse'u yönetme hakkında daha fazla bilgi edi
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

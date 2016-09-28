@@ -17,6 +17,7 @@
     ms.author="piyushjo"/>
 
 
+
 # Azure Mobile Engagement Uygulaması oluşturma
 
 Bu makale yeni bir **Azure Mobile Engagement** Uygulaması oluşturmak için **Hızlı Oluştur** yöntemini kullanmayı gösterir. Makale ayrıca uygulamalarınızı izlemeye ve yönetmeye başlamak için **Mobile Engagement** portalına nasıl gideceğinizi gösterir. 
@@ -50,6 +51,6 @@ Mobile Engagement portalında iken, kesimleri çözümleyebilir, oluşturabilir 
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

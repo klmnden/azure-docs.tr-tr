@@ -17,6 +17,7 @@
     ms.date="09/08/2016" 
     ms.author="spelluru"/>
 
+
 # Buluttaki bir veri tümleştirme hizmeti olan Azure Data Factory Hizmetine giriş
 
 ## Azure Data Factory nedir? 
@@ -78,6 +79,6 @@ Veri işlem hatları ile veri fabrikaları oluşturmayı öğrenmek için aşağ
 [Veri Yönetimi Ağ Geçidi kullanarak verileri şirket içi veri deposu ile bulut veri deposu arasında taşımak üzere veri işlem hattı oluşturma](data-factory-move-data-between-onprem-and-cloud.md) | Bu öğreticide, **şirket içi** SQL Server veritabanından Azure blob’a **veri taşıyan** bir işlem hattı ile veri fabrikası oluşturacaksınız. Adım adım kılavuzun bir parçası olarak makinenize Veri Yönetimi Ağ Geçidi yükleyip bunu yapılandıracaksınız. 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

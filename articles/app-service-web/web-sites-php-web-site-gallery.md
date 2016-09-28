@@ -16,6 +16,7 @@
     ms.date="08/11/2016"
     ms.author="robmcm"/>
 
+
 # Azure App Service’te bir WordPress web uygulaması oluşturma
 
 [AZURE.INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
@@ -130,6 +131,6 @@ App Service Web Apps ile çalışma hakkında daha fazla bilgi için sayfanın s
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

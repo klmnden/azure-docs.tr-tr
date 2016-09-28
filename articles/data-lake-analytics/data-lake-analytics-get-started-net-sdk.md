@@ -16,6 +16,7 @@
    ms.date="06/22/2016"
    ms.author="edmaca"/>
 
+
 # Öğretici: .NET SDK'yı kullanarak Azure Data Lake Analytics ile çalışmaya başlama
 
 [AZURE.INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -24,8 +25,6 @@
 Azure Data Lake Analytics hesapları oluşturmak, Data Lake Analytics işlerini [U-SQL](data-lake-analytics-u-sql-get-started.md) içinde tanımlamak ve Data Lake Analytic hesaplarına iş göndermek için Azure .NET SDK olanağının nasıl kullanılacağını öğrenin. Data Lake Analytics hakkında daha fazla bilgi için bkz. [Azure Data Lake Analytics'e genel bakış](data-lake-analytics-overview.md).
 
 Bu öğreticide, bir sekmeyle ayrılmış değerler (TSV) dosyasını okuyan ve bunu virgülle ayrılmış değerler (CSV) dosyasına dönüştüren bir U-SQL betiği içeren bir C# konsolu uygulaması geliştireceksiniz. Öğreticiyi desteklenen diğer araçları kullanarak tamamlamak için bu bölümün üst kısmındaki sekmelere tıklayın.
-
-[AZURE.INCLUDE [basic-process-include](../../includes/data-lake-analytics-basic-process.md)]
 
 ##Önkoşullar
 
@@ -267,6 +266,6 @@ Bu öğreticide, bazı arama günlüklerini işleyeceksiniz.  Arama günlüğü,
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

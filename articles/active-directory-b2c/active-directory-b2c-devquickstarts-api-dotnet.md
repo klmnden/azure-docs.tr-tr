@@ -16,6 +16,7 @@
     ms.date="07/22/2016"
     ms.author="dastrock"/>
 
+
 # Azure Active Directory B2C: .NET web API'si oluşturma
 
 <!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->
@@ -223,6 +224,6 @@ You can now move onto more advanced B2C topics. You may try:
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

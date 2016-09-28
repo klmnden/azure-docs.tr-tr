@@ -16,6 +16,7 @@
    ms.date="09/13/2016"
    ms.author="nitinme"/>
 
+
 # Azure Komut Satırı'nı kullanarak Azure Data Lake Store ile çalışmaya başlama
 
 > [AZURE.SELECTOR]
@@ -190,6 +191,6 @@ Bir Data Lake Store hesabını silmek için aşağıdaki komutu kullanın.
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -17,6 +17,7 @@
     ms.date="07/21/2016"
     ms.author="jimpark; trinadhk"/>
 
+
 # Azure Backup nedir?
 Azure Backup, verilerinizi Microsoft bulutunda yedeklemek ve geri yüklemek için kullandığınız hizmettir. Var olan şirket içi veya şirket dışı yedekleme çözümünüzün yerine, güvenilir, güvenli ve maliyet açısından rekabetçi bir bulut tabanlı çözüm sunar. Ayrıca, bulutta çalıştırılan varlıkları korumaya yardımcı olur. Azure Backup ölçeklenebilir, dayanıklı ve yüksek oranda kullanılabilir olan birinci sınıf bir altyapı üzerine kurulmuş kurtarma hizmetleri sağlar.
 
@@ -225,12 +226,12 @@ Bu öğreticiler hızlı bir şekilde yedekleme yapmanıza yardımcı olmayı am
 
 
 
-[green]: ./media/backup-introduction-to-azure-backup/green.png
+[yeşil]: ./media/backup-introduction-to-azure-backup/green.png
 [yellow]: ./media/backup-introduction-to-azure-backup/yellow.png
 [red]: ./media/backup-introduction-to-azure-backup/red.png
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

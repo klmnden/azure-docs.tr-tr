@@ -16,6 +16,7 @@
     ms.date="07/06/2016" 
     ms.author="raynew"/>
 
+
 # Azure Site Recovery ile hangi iş yüklerini koruyabilirsiniz?
 
 
@@ -116,9 +117,9 @@ Uzak Masaüstü Hizmetleri (RDS), sanal masaüstü altyapısını (VDI), oturum 
 
 **RDS** | **Hyper-V VM'lerini ikincil bir siteye çoğaltma** | **Hyper-V VM'lerini Azure'a çoğaltma** | **VMware VM'lerini ikincil bir siteye çoğaltma** | **VMware VM'lerini Azure'a çoğaltma** | **Fiziksel sunucuları ikincil bir siteye çoğaltma** | **Fiziksel sunucuları Azure'a çoğaltma**
 ---|---|---|---|---|---|---
-**Havuza Alınmış Sanal Masaüstü (yönetilmeyen)** | Evet | Hayır | Evet | Hayır | Evet | Hayır
-**Havuza Alınmış Sanal Masaüstü (yönetilen ve UPD'siz)** | Evet | Hayır | Evet | Hayır | Evet | Hayır
-**Uzak uygulamalar ve Masaüstü oturumları (UPD'siz)** | Evet | Evet | Evet | Evet | Evet | Evet
+**Havuza Alınmış Sanal Masaüstü (yönetilmeyen)** | Yes | Hayır | Yes | Hayır | Yes | Hayır
+**Havuza Alınmış Sanal Masaüstü (yönetilen ve UPD'siz)** | Yes | Hayır | Yes | Hayır | Yes | Hayır
+**Uzak uygulamalar ve Masaüstü oturumları (UPD'siz)** | Yes | Evet | Evet | Evet | Evet | Yes
 
 
 RDS'yi koruma hakkında [daha fazla bilgi edinin](https://gallery.technet.microsoft.com/Remote-Desktop-DR-Solution-bdf6ddcb).
@@ -152,6 +153,6 @@ Site Recovery dağıtımına [hazırlanma](site-recovery-best-practices.md)
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

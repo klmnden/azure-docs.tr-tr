@@ -16,6 +16,7 @@
     ms.date="08/31/2016"
     ms.author="cabailey"/>
 
+
 # Azure Anahtar Kasası Günlüğü #
 Azure Anahtar Kasası çoğu bölgede kullanılabilir. Daha fazla bilgi için bkz. [Anahtar Kasası fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/key-vault/).
 
@@ -284,6 +285,6 @@ Azure Anahtar Kasası ile anahtar döndürme ve günlük denetimine ilişkin bir
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

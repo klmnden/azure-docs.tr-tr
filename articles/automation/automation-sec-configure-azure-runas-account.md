@@ -16,6 +16,7 @@
     ms.date="08/17/2016"
     ms.author="magoedte"/>
 
+
 # Azure Farklı Çalıştır hesabıyla Kimlik Doğrulaması Runbook’ları
 
 Bu konuda, Azure Resource Manager veya Azure Service Management’ta kaynakları yöneten runbook’ların kimliğini doğrulamak üzere Farklı Çalıştır hesap özelliği kullanılarak Azure portalından bir Otomasyon hesabının nasıl yapılandırılacağı gösterilecektir.
@@ -388,6 +389,6 @@ Runbook’larınızla klasik kaynakları yönetecek Klasik Farklı Çalıştır 
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

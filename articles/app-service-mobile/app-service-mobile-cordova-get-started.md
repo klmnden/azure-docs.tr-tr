@@ -18,6 +18,7 @@
     ms.date="08/11/2016"
     ms.author="glenga"/>
 
+
 #Apache Cordova uygulaması oluşturma
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
@@ -86,6 +87,6 @@ SDK'ları kullanmayı öğrenin.
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

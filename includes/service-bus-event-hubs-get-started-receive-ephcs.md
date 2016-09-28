@@ -8,33 +8,33 @@
 
 2. **Veri + Depolama** ve ardından **Depolama hesabı**’na tıklayın.
 
-    ![][1]
+    ![](./media/service-bus-event-hubs-getstarted-receive-ephcs/create-storage1.png)
 
 3. **Depolama hesabı oluştur** dikey penceresinde depolama hesabı için bir ad yazın. Bir Azure aboneliği, kaynak grubu ve kaynağın oluşturulacağı konumu seçin. Sonra **Oluştur**’a tıklayın.
 
-    ![][2]
+    ![](./media/service-bus-event-hubs-getstarted-receive-ephcs/create-storage2.png)
 
 4. Depolama hesabı listesinde yeni oluşturulan depolama hesabına tıklayın.
 
 5. Depolama hesabı dikey penceresinde **Erişim anahtarları**’na tıklayın. **key1** değerini bu öğreticide daha sonra kullanmak üzere kopyalayın.
 
-    ![][3]
+    ![](./media/service-bus-event-hubs-getstarted-receive-ephcs/create-storage3.png)
 
 4. Visual Studio'da, **Konsol Uygulaması** proje şablonunu kullanarak yeni Visual C# Masaüstü Uygulaması projesi oluşturun. Proje **Alıcı** için bir ad verin.
 
-    ![][14]
+    ![](./media/service-bus-event-hubs-getstarted-receive-ephcs/create-receiver-csharp1.png)
 
 5. Çözüm Gezgini'nde çözüme sağ tıklayın ve ardından **Çözüm için NuGet Paketlerini Yönet**'e tıklayın.
 
 6. **Gözat** sekmesine tıklayıp `Microsoft Azure Service Bus Event Hub - EventProcessorHost` aramasını gerçekleştirin. Proje adının (**Alıcı**), **Sürüm(ler)** kutusunda belirtildiğinden emin olun. **Yükle**'ye tıklayın ve kullanım koşullarını kabul edin.
 
-    ![][13]
+    ![](./media/service-bus-event-hubs-getstarted-receive-ephcs/create-eph-csharp1.png)
 
     Visual Studio, tüm bağımlılıklarıyla birlikte [Azure Service Bus Olay Hub'ı - EventProcessorHost NuGet paketini](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost) indirir, yükler ve ona başvuru ekler.
 
 7. **Alıcı** projesine sağ tıklayın, **Ekle** ve **Sınıf**’a tıklayın. Yeni sınıf **SimpleEventProcessor**’ı adlandırın ve ardından sınıfı oluşturmak için **Ekle**’ye tıklayın.
 
-    ![][15]
+    ![](./media/service-bus-event-hubs-getstarted-receive-ephcs/create-receiver-csharp2.png)
 
 8. Aşağıdaki deyimleri SimpleEventProcessor.cs dosyasının en üstüne ekleyin:
 
@@ -129,18 +129,6 @@
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
 [Azure portal]: https://portal.azure.com
 
-<!-- Images -->
-
-[1]: ./media/service-bus-event-hubs-getstarted-receive-ephcs/create-storage1.png
-[2]: ./media/service-bus-event-hubs-getstarted-receive-ephcs/create-storage2.png
-[3]: ./media/service-bus-event-hubs-getstarted-receive-ephcs/create-storage3.png
-[13]: ./media/service-bus-event-hubs-getstarted-receive-ephcs/create-eph-csharp1.png
-[14]: ./media/service-bus-event-hubs-getstarted-receive-ephcs/create-receiver-csharp1.png
-[15]: ./media/service-bus-event-hubs-getstarted-receive-ephcs/create-receiver-csharp2.png
-
-
-
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

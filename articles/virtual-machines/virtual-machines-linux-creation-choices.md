@@ -17,6 +17,7 @@
     ms.date="07/06/2016"
     ms.author="iainfou"/>
 
+
 # Resource Manager ile Linux sanal makine oluşturmanın farklı yolları
 
 Farklı kullanıcılara ve amaçlara uyması için Azure Resource Manager geliştirme modelini kullanarak bir VM oluşturmanın farklı yollarını sunar. Bu makale söz konusu farkları ve kendi Linux sanal makinelerinizi (VM’ler) oluşturmak için yapabileceğiniz seçimleri özetler.
@@ -123,6 +124,6 @@ Belirli özelleştirmelere ihtiyaç duyuyorsanız, mevcut bir Azure VM’i temel
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

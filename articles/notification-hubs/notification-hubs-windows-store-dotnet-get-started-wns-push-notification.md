@@ -16,6 +16,7 @@
     ms.date="07/21/2016"
     ms.author="wesmc"/>
 
+
 # Windows Evrensel Platform Uygulamaları için Notification Hubs'ı kullanmaya başlama
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -276,6 +277,6 @@ Notification Hubs hakkında daha fazla genel bilgi için bkz. [Notification Hubs
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

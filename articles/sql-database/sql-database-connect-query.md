@@ -19,6 +19,7 @@
 
 
 
+
 # Visual Studio ile SQL Database'e bağlanma
 
 > [AZURE.SELECTOR]
@@ -107,6 +108,6 @@ Artık veritabanına bağlı olduğumuza göre, basit bir sorgunun nasıl çalı
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

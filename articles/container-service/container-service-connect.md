@@ -19,6 +19,7 @@
    ms.author="rogardle"/>
 
 
+
 # Azure Kapsayıcı Hizmeti kümesine bağlanma
 
 Azure Container Service tarafından dağıtılan DC/OS ve Docker Swarm kümeleri REST uç noktalarını kullanıma sunar. Ancak, bu uç noktalar dış dünyaya açık değildir. Bu uç noktaları yönetmek için bir Secure Shell (SSH) tüneli oluşturmanız gerekir. SSH tüneli oluşturulduktan sonra küme uç noktalarına karşı komutları çalıştırabilir ve kendi sisteminizdeki bir tarayıcı aracılığıyla küme kullanıcı arabirimini görüntüleyebilirsiniz. Bu belgede size Linux, OS X ve Windows’da bir SSH tüneli oluşturma konusunu adım adım anlatılmaktadır.
@@ -120,6 +121,6 @@ DC/OS ya da Swarm ile kapsayıcıları dağıtın ve yönetin:
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

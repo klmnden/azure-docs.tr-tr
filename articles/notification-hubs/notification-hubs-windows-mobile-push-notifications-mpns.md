@@ -17,6 +17,7 @@
     ms.date="06/29/2016"
     ms.author="wesmc"/>
 
+
 # Windows Phone'da Azure Notification Hubs ile anında iletme bildirimleri gönderme
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -224,6 +225,6 @@ Kullanıcılarınızı ilgi alanı gruplarına göre segmentlere ayırmak istiyo
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -17,6 +17,7 @@
     ms.date="08/05/2016"
     ms.author="garye;haining"/>
 
+
 # Microsoft Azure Machine Learning için PowerShell modülü
 
 Azure Machine Learning için PowerShell modülü, Windows PowerShell’i kullanarak iş alanlarını, denemeleri, veri kümelerin, web hizmetlerini ve daha fazlasını yönetmenize imkan tanır.
@@ -57,6 +58,6 @@ Bu önizleme dönemi boyunca PowerShell modülü geliştirilmeye ve genişletilm
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

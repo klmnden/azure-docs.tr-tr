@@ -3,7 +3,7 @@
     description="Azure Event Hubs’ı C# ve EventProcessorHost ile kullanmaya başlamak için bu öğreticiyi izleyin."
     services="event-hubs"
     documentationCenter=""
-    authors="fsautomata"
+    authors="jtaubensee"
     manager="timlt"
     editor=""/>
 
@@ -14,7 +14,8 @@
     ms.devlang="na"
     ms.topic="hero-article"
     ms.date="09/02/2016"
-    ms.author="sethm"/>
+    ms.author="jotaub;sethm"/>
+
 
 # Event Hubs kullanmaya başlayın
 
@@ -96,6 +97,6 @@ Event Hub'ı oluşturan ve veri gönderip alan çalışan bir uygulama oluşturd
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

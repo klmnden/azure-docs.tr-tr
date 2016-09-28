@@ -17,7 +17,6 @@
 8. Yerel ağ geçidi oluşturmak için **Oluştur**’a tıklayın.
 
 
-
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

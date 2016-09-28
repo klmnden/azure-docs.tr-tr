@@ -35,7 +35,6 @@ DNS etiketi oluşturmak için önce portalda **Virtual Machines**’i seçin. Ö
     ![ssms bağlanma](./media/virtual-machines-sql-server-connection-steps/rm-ssms-connect.png)
 
 
-
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

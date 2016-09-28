@@ -16,6 +16,7 @@
     ms.date="07/14/2016"
     ms.author="evboyle"/>
 
+
 # NodeJS'de Azure Search kullanmaya başlama
 > [AZURE.SELECTOR]
 - [Portal](search-get-started-portal.md)
@@ -122,6 +123,6 @@ Azure Search'ü ilk kez mi kullanıyorsunuz? Neler yapabileceğinizi anlamak iç
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

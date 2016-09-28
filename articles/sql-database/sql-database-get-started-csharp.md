@@ -17,6 +17,7 @@
    ms.date="09/14/2016"
    ms.author="sstein"/>
 
+
 # SQL Database'i deneme: C# kullanarak .NET için SQL Database Kitaplığı ile bir SQL veritabanı oluşturma
 
 
@@ -293,6 +294,6 @@ SQL Database'i ve C# ile bir veritabanını ayarlamayı denediğinize göre şu 
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

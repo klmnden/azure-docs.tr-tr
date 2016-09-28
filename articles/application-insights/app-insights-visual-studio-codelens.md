@@ -15,6 +15,7 @@
     ms.date="08/30/2016" 
     ms.author="daviste"/>
     
+
 # Visual Studio CodeLens’te Application Insights telemetrisi
 
 Web uygulamanızın kodundaki yöntemlere, çalışma zamanı özel durumları ve istek yanıt süreleri hakkında telemetri ile açıklama eklenebilir. [Visual Studio Application Insights](app-insights-overview.md)’ı uygulamanıza yüklerseniz telemetri Visual Studio [CodeLens](https://msdn.microsoft.com/library/dn269218.aspx) içinde (işlevin başvurulduğu yer sayısı veya düzenleyen kişi gibi yararlı bilgileri görmeye alışkın olduğunuz her bir işlevin üst kısmında) görünür.
@@ -72,6 +73,6 @@ Daha fazla ayrıntı için CodeLens istek göstergesine tıklayın:
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

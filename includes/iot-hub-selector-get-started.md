@@ -17,7 +17,6 @@ Bu öğretici şunların nasıl yapıldığını gösterir:
 - IoT hub'ınızda bir cihaz kimliği oluşturma.
 - Bulut arka ucunuza telemetri gönderen ve bulut arka ucunuzdan komutları alan sanal bir cihaz oluşturma.
 
-
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -17,6 +17,7 @@
    ms.author="guscatal;elizapo"/>
 
 
+
 # Azure RemoteApp ile herhangi bir cihazda aynı Office 365 deneyimini elde edin
 
 > [AZURE.IMPORTANT]
@@ -72,6 +73,6 @@ Bu uygulamalardan herhangi birine tıkladığınızda, uygulama Azure sanal maki
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

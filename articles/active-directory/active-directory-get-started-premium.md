@@ -16,6 +16,7 @@
     ms.date="08/16/2016"
     ms.author="markvi"/>
 
+
 # Azure Active Directory Premium ile çalışmaya başlama
 
 
@@ -164,6 +165,6 @@ Bir Microsoft bulut hizmeti için hizmetlerin ve özelliklerin kullanılabilirli
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

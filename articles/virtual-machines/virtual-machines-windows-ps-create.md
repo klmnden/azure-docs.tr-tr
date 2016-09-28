@@ -17,6 +17,7 @@
     ms.date="06/07/2016"
     ms.author="davidmu"/>
 
+
 # Resource Manager ve PowerShell kullanarak Windows VM oluşturma
 
 Bu makalede, [Resource Manager](../resource-group-overview.md) ve PowerShell kullanarak Windows Server çalıştıran bir Azure Virtual Machine’i ve ihtiyacı olan kaynakları nasıl hızlı bir şekilde oluşturacağınız gösterilir. 
@@ -174,6 +175,6 @@ Tüm parçaları yerinde olduğuna göre, şimdi sanal makine oluşturma vakti.
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

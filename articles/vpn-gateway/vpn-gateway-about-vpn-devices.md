@@ -16,6 +16,7 @@
    ms.date="09/13/2016"
    ms.author="yushwang;cherylmc" />
 
+
 # Siteden siteye VPN Gateway bağlantıları için VPN cihazları hakkında
 
 Siteden Siteye (S2S) VPN bağlantısı yapılandırmak için bir VPN cihazı gereklidir. Siteden siteye bağlantılar karma çözüm oluşturmak amacıyla ya da şirket içi ağınız ile sanal ağınız arasında güvenli bir bağlantı istediğinizde kullanılabilir. Bu makalede uyumlu VPN cihazları ve yapılandırma parametreleri açıklanır. 
@@ -164,6 +165,6 @@ Aşağıdaki tabloda IPsec SA Şifreleme ve Kimlik Doğrulama Teklifleri listele
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

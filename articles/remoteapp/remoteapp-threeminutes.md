@@ -18,6 +18,7 @@
 
 
 
+
 # Azure RemoteApp’i 3 dakika veya daha kısa bir süre içinde cihazınızda deneme
 
 > [AZURE.IMPORTANT]
@@ -40,6 +41,6 @@ Görüşleriniz önemlidir. Her oturum sonunda, geri bildirim için bir iletişi
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

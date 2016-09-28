@@ -16,6 +16,7 @@
     ms.date="08/19/2016"
     ms.author="piyushjo" />
 
+
 # Azure Mobile Engagement kavramları
 
 Mobile Engagement, desteklenen tüm platformlar için ortak olan birkaç kavram tanımlar. Bu makalede, söz konusu kavramlar kısaca açıklanmaktadır.
@@ -87,6 +88,6 @@ Anahtar/değer çiftlerinden oluşan ağacın tamamı bir JSON nesnesi olarak de
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

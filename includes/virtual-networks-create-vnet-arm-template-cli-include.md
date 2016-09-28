@@ -11,11 +11,11 @@ Azure CLI kullanarak yüklediğiniz ARM şablonunu dağıtmak için aşağıdaki
 
         info:    New mode is arm
 
-3. Gerekirse, yeni bir kaynak grubu oluşturmak için **`azure group create`** komutunu aşağıda gösterildiği gibi çalıştırın. Komutun çıktısına dikkat edin. Çıktıdan sonra gösterilen listede kullanılan parametreler açıklanmaktadır. Kaynak grupları hakkında daha fazla bilgi için [Azure Resource Manager’a Genel Bakış](../articles/resource-group-overview.md)’ı ziyaret edin.
+3. Gerekirse, yeni bir kaynak grubu oluşturmak için **`azure group create`** komutunu aşağıda gösterildiği gibi çalıştırın. Komutun çıktısına dikkat edin. Çıktıdan sonra gösterilen listede, kullanılan parametreler açıklanmaktadır. Kaynak grupları hakkında daha fazla bilgi için [Azure Resource Manager’a Genel Bakış](../articles/resource-group-overview.md) sayfasını ziyaret edin.
 
         azure group create -n TestRG -l centralus
 
-    Yukarıdaki komut için beklenen çıkış buradaki gibidir:
+    Yukarıdaki komut için beklenen çıktı şu şekildedir:
 
         info:    Executing command group create
         + Getting resource group TestRG
@@ -36,7 +36,7 @@ Azure CLI kullanarak yüklediğiniz ARM şablonunu dağıtmak için aşağıdaki
 
         azure group deployment create -g TestRG -n TestVNetDeployment -f C:\ARM\azuredeploy.json -e C:\ARM\azuredeploy-parameters.json
 
-    Yukarıdaki komut için beklenen çıkış buradaki gibidir:
+    Yukarıdaki komut için beklenen çıktı şu şekildedir:
 
         info:    Executing command group deployment create
         + Initializing template configurations and parameters
@@ -90,7 +90,6 @@ Azure CLI kullanarak yüklediğiniz ARM şablonunu dağıtmak için aşağıdaki
         info:    network vnet show command OK
 
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

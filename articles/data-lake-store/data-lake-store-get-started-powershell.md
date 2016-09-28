@@ -16,6 +16,7 @@
    ms.date="09/13/2016"
    ms.author="nitinme"/>
 
+
 # Azure PowerShell'i kullanarak Azure Data Lake Store ile çalışmaya başlama
 
 > [AZURE.SELECTOR]
@@ -142,6 +143,6 @@ Data Lake Store hesabınızı silmek için aşağıdaki komutu kullanın.
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

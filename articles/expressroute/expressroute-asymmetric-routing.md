@@ -15,6 +15,7 @@
    ms.date="08/23/2016"
    ms.author="osamazia"/>
 
+
 # Birden çok ağ yoluyla Asimetrik yönlendirme
 
 Bu makalede, ağ kaynağı ile hedef arasında birden çok yol varsa iletme ve döndürme ağ trafiğinin nasıl farklı rotalar izleyebileceği açıklanmaktadır.
@@ -79,6 +80,6 @@ Traceroute, ağ trafiğinizin beklenen yoldan gittiğinden emin olmanın en iyi 
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

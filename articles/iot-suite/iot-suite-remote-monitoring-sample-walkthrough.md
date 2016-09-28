@@ -17,6 +17,7 @@
  ms.date="08/17/2016"
  ms.author="dobett"/>
 
+
 # Önceden yapılandırılmış uzaktan izleme çözümünde gezinme
 
 ## Giriş
@@ -241,6 +242,6 @@ Aşağıdaki makaleleri okuyarak IoT Paketi ile çalışmaya başlayabilirsiniz:
 [lnk-permissions]: iot-suite-permissions.md
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

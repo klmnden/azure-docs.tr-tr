@@ -16,6 +16,7 @@
    ms.date="07/27/2016"
    ms.author="danlep"/>
 
+
 # Azure bulutta Batch ve HPC çözümleri
 
 Azure toplu işlem ve *Big Compute* olarak da bilinen yüksek performanslı bilgi işlem (HPC) için verimli, ölçeklenebilir bulut çözümleri sunar. Burada, desteklemek için Big Compute iş yükleri ve Azure hizmetleri hakkında bilgi edinin veya doğrudan bu makalenin ilerisinde yer alan [çözüm senaryolarına](#scenarios) gidin. Temel olarak teknik karar verenler, BT yöneticileri ve bağımsız yazılım satıcıları için olan bu makaleyi başka BT profesyonelleri ve geliştiricileri de bu çözümlerle tanışmak amacıyla kullanabilir.
@@ -159,6 +160,6 @@ Big Compute çözümünüze, şirket içi veya başka ortamlardaki kaynaklara ba
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

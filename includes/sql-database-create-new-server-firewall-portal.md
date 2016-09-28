@@ -47,7 +47,6 @@ Tek bir IP adresinden (istemci bilgisayarınız) veya bir IP adresi aralığın�
     >[AZURE.IMPORTANT] İstemci IP adresiniz zaman zaman değişebilir; siz de yeni bir güvenlik duvarı kuralı oluşturana kadar sunucunuza erişemeyebilirsiniz. [Bing](http://www.bing.com/search?q=my%20ip%20address) kullanarak IP adresinizi denetleyebilirsiniz. Ardından tek bir IP adresi veya bir IP adresi aralığı ekleyin. Ayrıntılar için bkz. [Güvenlik duvarı ayarlarını yönetme](sql-database-configure-firewall-settings.md#manage-existing-server-level-firewall-rules-through-the-azure-portal).
 
 
-
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -22,7 +22,6 @@ Burada, Python’un istenen sürümüyle eşleşmediğinde dağıtım betiğinin
 Dağıtım betiğini özelleştirdiyseniz, env klasörünü silmesi amacıyla zorlamak için deploy.cmd dosyasında kodu değiştirebilirsiniz.
 
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

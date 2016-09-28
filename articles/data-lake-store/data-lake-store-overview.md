@@ -16,6 +16,7 @@
    ms.date="08/02/2016"
    ms.author="nitinme"/>
 
+
 # Azure Data Lake Store'a genel bakış
 
 Azure Data Lake Store, büyük veri analitik iş yükleri için kuruluş çapında hiper ölçekli bir depodur. Azure Data Lake, işletimsel ve keşifsel analiz için herhangi bir boyuta, türe ve alım hızına sahip olan verileri tek bir konumda yakalamanıza olanak sağlar.
@@ -115,6 +116,6 @@ Azure Portal'ı kullanarak Data Lake Store sağlamaya yönelik bilgiler için bk
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

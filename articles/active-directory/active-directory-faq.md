@@ -16,6 +16,7 @@
     ms.date="08/16/2016"
     ms.author="markusvi"/>
 
+
 # Azure Active Directory ile ilgili SSS
 
 Azure Active Directory kimlik, erişim yönetimi ve güvenliği tüm yönleriyle kapsayan bir Identity as a Service (IDaaS) çözümüdür.
@@ -207,6 +208,6 @@ Daha fazla bilgi için bkz. [Azure Active Directory ile SaaS Uygulamalarına Kul
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

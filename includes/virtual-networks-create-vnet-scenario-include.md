@@ -11,7 +11,6 @@ Bu senaryoda, **192.168.0.0./16** bloğuna ayrılmış CIDR bulunan **TestVNet**
 
  
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

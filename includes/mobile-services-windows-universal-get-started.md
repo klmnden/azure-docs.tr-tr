@@ -9,7 +9,6 @@ Aşağıdaki ekran görüntüleri tamamlanan şu uygulamalara aittir:
 
 Bu öğreticinin tamamlanması Windows Mağazası ve Windows Phone Mağazası uygulamalarına ilişkin tüm Mobile Services öğreticileri için ön koşuldur. 
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

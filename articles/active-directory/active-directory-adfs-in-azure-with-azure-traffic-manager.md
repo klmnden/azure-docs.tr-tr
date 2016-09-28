@@ -17,6 +17,7 @@
     ms.date="09/01/2016"
     ms.author="anandy;billmath"/>
     
+
 #Azure Traffic Manager ile Azure’da yüksek kullanılabilirliğe sahip çapraz coğrafi AD FS dağıtımı
 
 [Azure’da AD FS dağıtımı](active-directory-aadconnect-azure-adfs.md), kuruluşunuz için basit bir AD FS altyapısını Azure’da nasıl dağıtabileceğinize ilişkin adım adım yönergeler sağlar. Bu makale Azure’da [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) kullanılarak AD FS’nin çapraz coğrafi dağıtımını oluşturmaya ilişkin sıradaki adımları sunmaktadır. Azure Traffic Manager, altyapının farklı ihtiyaçlarına uygun olarak kullanılabilen çeşitli yönlendirme yöntemlerinden yararlanarak kuruluşunuz için coğrafi olarak yayılmış yüksek kullanılabilirliğe sahip ve yüksek performanslı bir AD FS altyapısı oluşturmaya yardımcı olur.
@@ -135,6 +136,6 @@ AD FS’yi test etmenin en kolay yolu IdpInitiatedSignon.aspx sayfasının kulla
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -19,7 +19,6 @@ Bu bölümde, yeni uygulamanızı yerel olarak çalışan mobil hizmete karşı 
 
     Bu, yerel mobil hizmete bir POST isteği gönderir. İstekten alınan veriler TodoItem tablosuna eklenir. Tabloda depolanan öğeler mobil hizmet tarafından döndürülür ve veriler uygulamada ikinci sütunda görüntülenir.
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

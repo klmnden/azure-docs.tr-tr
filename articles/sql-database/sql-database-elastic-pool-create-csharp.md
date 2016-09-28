@@ -16,6 +16,7 @@
     ms.date="09/14/2016"
     ms.author="sstein"/>
 
+
 # C &#x23; ile bir esnek veritabanı havuzu oluşturma
 
 > [AZURE.SELECTOR]
@@ -317,6 +318,6 @@ Aşağıdaki PowerShell betiği Active Directory (AD) uygulamasını ve C# uygul
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

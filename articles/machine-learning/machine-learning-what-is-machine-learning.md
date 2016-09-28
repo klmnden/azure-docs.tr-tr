@@ -18,6 +18,7 @@
     ms.author="cgronlun;tedway;olgali"/>
 
 
+
 # Bulutta makine öğrenimine giriş
 
 ## Machine learning nedir?
@@ -127,6 +128,6 @@ Tahmine dayalı analizin ve makine öğreniminin temellerini, [adım adım öğr
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

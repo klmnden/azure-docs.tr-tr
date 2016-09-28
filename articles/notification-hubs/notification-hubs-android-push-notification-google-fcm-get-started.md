@@ -16,6 +16,7 @@
     ms.date="07/14/2016"
     ms.author="wesmc"/>
 
+
 # Azure Notification Hubs ile Android'e anında iletme bildirimleri gönderme
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -735,6 +736,6 @@ Notification Hubs hakkında daha fazla genel bilgi edinmek için bkz. [Notificat
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

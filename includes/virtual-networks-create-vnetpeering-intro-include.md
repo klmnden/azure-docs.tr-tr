@@ -7,7 +7,6 @@ VNet Eşlemesi genel önizleme modundadır. Eşlemeyi kullanabilmek için aşağ
     Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
  
 
-
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

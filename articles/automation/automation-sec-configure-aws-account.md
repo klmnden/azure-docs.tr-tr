@@ -16,6 +16,7 @@
    ms.date="09/12/2016"
    ms.author="magoedte"/>
 
+
 # Amazon Web Hizmetleri ile Kimlik Doğrulaması Runbook'ları
 Amazon Web Hizmetleri’ndeki (AWS) kaynaklarla ortak görevlerin otomatikleştirilmesi Azure’ün Automation runbook'ları ile sonuçlandırılabilir.  Tıpkı Azure’deki kaynaklarla yapabildiğiniz gibi Automation runbook'ları kullanarak AWS’deki birçok görevi otomatik hale getirebilirsiniz.  Gerekenlerin tümü şu iki şeydir:
 
@@ -38,6 +39,6 @@ AWS güvenlik anahtarlarınızı oluşturup kopyaladıktan sonra, bunları güve
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -7,7 +7,6 @@ Bu ayar, bu sanal ağ için ad çözümlemede kullanmak istediğiniz DNS sunucus
 
     ![Özel DNS](./media/vpn-gateway-add-dns-rm-portal/customdns400.png)
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

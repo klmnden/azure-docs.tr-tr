@@ -4,7 +4,7 @@
     services="active-directory"
     documentationCenter=""
     authors="billmath"
-    manager="stevenpo"
+    manager="femila"
     editor="curtand"/>
 
 <tags
@@ -15,6 +15,7 @@
     ms.topic="get-started-article"
     ms.date="08/08/2016"
     ms.author="billmath"/>
+
 
 # Karma Kimlik dizin tümleştirme araçları karşılaştırması
 
@@ -98,6 +99,6 @@ Minimal öznitelik kümesinin eşitlenmesine izin ver (MinSync) | ● | ● |  |
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

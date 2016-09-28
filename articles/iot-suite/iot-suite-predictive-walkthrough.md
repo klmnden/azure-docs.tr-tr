@@ -17,6 +17,7 @@
  ms.date="08/17/2016"
  ms.author="araguila"/>
 
+
 # Önceden yapılandırılmış tahmine dayalı bakım çözümünde gezinme
 
 ## Giriş
@@ -135,6 +136,6 @@ Benzetimi istediğiniz an durdurabilirsiniz; ancak, **Benzetimi Başlat**’a t�
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

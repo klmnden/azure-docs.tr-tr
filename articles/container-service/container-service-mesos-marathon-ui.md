@@ -15,8 +15,9 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/16/2016"
+   ms.date="09/19/2016"
    ms.author="nepeters"/>
+
 
 # Web kullanıcı arabirimi aracılığıyla kapsayıcı yönetimi
 
@@ -103,6 +104,6 @@ Mesos ile Azure Container Service’e ilişkin ayrıntılar
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

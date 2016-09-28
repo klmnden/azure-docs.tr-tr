@@ -17,6 +17,7 @@
    ms.date="07/27/2016"
    ms.author="larryfr"/>
 
+
 #HDInsight üzerinde Apache Storm’a giriş: Hadoop için gerçek zamanlı analiz
 
 HDInsight üzerinde Apache Storm, [Apache Hadoop](http://hadoop.apache.org) kullanarak Azure ortamında dağıtılmış, gerçek zamanlı analiz çözümleri oluşturmanıza imkan tanır.
@@ -227,6 +228,6 @@ HDInsight’ta Apache Storm ile gerçek zamanlı analiz çözümleri hakkında d
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

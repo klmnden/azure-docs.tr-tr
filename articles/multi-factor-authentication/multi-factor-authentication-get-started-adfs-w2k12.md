@@ -3,8 +3,8 @@
     description="Bu makale Windows Server 2012 R2’de Azure Multi-Factor Authentication ve AD FS’yi kullanmaya başlama işlemi açıklanmaktadır."
     services="multi-factor-authentication"
     documentationCenter=""
-    authors="billmath"
-    manager="stevenpo"
+    authors="kgremban"
+    manager="femila"
     editor="curtland"/>
 
 <tags
@@ -14,7 +14,8 @@
     ms.devlang="na"
     ms.topic="get-started-article"
     ms.date="08/04/2016"
-    ms.author="billmath"/>
+    ms.author="kgremban"/>
+
 
 
 # Windows Server 2012 R2’de AD FS ile Azure Multi-Factor Authentication Sunucusu kullanarak bulut ve şirket içi kaynakları güvenli hale getirme
@@ -88,6 +89,6 @@ Bağdaştırıcıyı kaydetmek için PowerShell’de \Program Files\Multi-Factor
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

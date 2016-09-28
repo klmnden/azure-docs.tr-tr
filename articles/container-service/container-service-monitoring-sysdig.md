@@ -18,6 +18,7 @@
    ms.date="08/08/2016"
    ms.author="t-ribhat"/>
 
+
 # Sysdig ile bir Azure Container Service kümesini izleme
 
 Bu makalede, Azure Container Service kümenizdeki tüm aracı düğümlere Sysdig aracıları dağıtılır. Bu yapılandırma için bir Sysdig hesabınızın olması gerekir. 
@@ -55,6 +56,6 @@ Kümeye yeni bir düğüm eklendiğinde Sysdig’in bu yeni düğüme otomatik o
 Paketi yükledikten sonra Sysdig kullanıcı arabirimine geri dönün. Buradan kümeniz içindeki kapsayıcılar için farklı ölçümlerin nasıl kullanıldığını keşfedebilirsiniz. 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

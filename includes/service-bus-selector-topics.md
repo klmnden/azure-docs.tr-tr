@@ -7,7 +7,6 @@
 - [Ruby](../articles/service-bus/service-bus-ruby-how-to-use-topics-subscriptions.md)
 
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

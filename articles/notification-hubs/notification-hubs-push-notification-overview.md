@@ -17,6 +17,7 @@
     ms.author="wesmc"/>
 
 
+
 #Azure Notification Hubs
 
 ##Genel Bakış
@@ -177,6 +178,6 @@ Bildirim hub'ları için ilgili .NET yönetilen API başvuruları burada bulunur
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

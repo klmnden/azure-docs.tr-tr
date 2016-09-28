@@ -18,6 +18,7 @@
     ms.tgt_pltfrm="NA"/>
 
 
+
 # Azure portalıyla yeni bir esnek veritabanı havuzu oluşturma
 
 > [AZURE.SELECTOR]
@@ -117,6 +118,6 @@ Havuza veritabanı eklendikten sonra öneriler, seçtiğiniz veritabanlarının 
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

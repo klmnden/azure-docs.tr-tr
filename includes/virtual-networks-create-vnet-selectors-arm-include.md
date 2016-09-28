@@ -4,7 +4,6 @@
 - [Azure CLI](../articles/virtual-network/virtual-networks-create-vnet-arm-cli.md)
 - [ARM şablonu](../articles/virtual-network/virtual-networks-create-vnet-arm-template-click.md)
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

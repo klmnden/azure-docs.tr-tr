@@ -16,6 +16,7 @@
    ms.date="05/16/2016"
    ms.author="edmaca"/>
 
+
 # Azure Data Lake Analytics'i Node.js için Azure SDK'yı kullanarak yönetme
 
 
@@ -145,6 +146,6 @@ catalogClient.catalog.listDatabases(accountName, function (err, result, request,
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -17,6 +17,7 @@
      ms.date="08/21/2016"
      ms.author="trinadhk; markgal; jimpark;"/>
 
+
 # Kurtarma Hizmetleri kasası - SSS
 
 > [AZURE.SELECTOR]
@@ -45,6 +46,6 @@ Yedekleme kasasındaki klasik VM yedekleri, VM’leri klasik moddan Resource Man
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

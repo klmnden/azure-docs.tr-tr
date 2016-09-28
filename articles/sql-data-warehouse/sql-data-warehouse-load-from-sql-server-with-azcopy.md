@@ -17,6 +17,7 @@
    ms.author="cakarst;barbkess;sonyama"/>
 
 
+
 # SQL Server'dan Azure SQL Data Warehouse'a veri yükleme (AZCopy)
 
 SQL Server'dan Azure blob depolama alanına veri yüklemek için bcp ve AZCopy komut satırı yardımcı programlarını kullanın. Ardından verileri Azure SQL Data Warehouse'a yüklemek için PolyBase'i veya Azure Data Factory'yi kullanın. 
@@ -174,6 +175,6 @@ Geliştirme ile ilgili daha fazla ipucu için bkz. [SQL Data Warehouse geliştir
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

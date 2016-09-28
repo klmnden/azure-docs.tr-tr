@@ -20,7 +20,6 @@
 
 7. Yeni profili oluşturmak için **Oluştur**’a tıklayın. 
 
-
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

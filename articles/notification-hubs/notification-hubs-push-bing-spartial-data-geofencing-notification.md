@@ -17,6 +17,7 @@
     ms.date="05/31/2016"
     ms.author="dendeli"/>
     
+
 # Azure Notification Hubs ve Bing Uzamsal Veri ile bölge sınırlamalı anında iletme bildirimleri
  
  > [AZURE.NOTE] Bu öğreticiyi tamamlamak için etkin bir Azure hesabınızın olması gerekir. Hesabınız yoksa yalnızca birkaç dakika içinde ücretsiz bir deneme sürümü hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02).
@@ -384,6 +385,6 @@ Notification Hubs özellikleri hakkında daha ayrıntılı bilgi için [belge po
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

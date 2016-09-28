@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="07/23/2016"
-    ms.author="tamram"/>
+    ms.date="09/20/2016"
+    ms.author="gusapost;tamram"/>
+
 
 
 # .NET kullanarak Azure Table Storage’ı kullanmaya başlayın
@@ -25,7 +26,7 @@
 
 ## Genel Bakış
 
-Azure Table Storage, bulutta yapılandırılmış NoSQL verileri depolayan bir hizmettir. Table Storage, şemasız tasarım ile bir anahtar/öznitelik deposudur. Table Storage şemasız olduğu için uygulamanızın ihtiyaçları geliştikçe verilerinizi kolayca uyarlayabilirsiniz. Her türlü uygulama için verilere erişim hızlı ve uygun maliyetlidir. Table Storage, benzer hacimdeki veriler için geleneksel SQL’e oranla çok daha düşük maliyetlidir. 
+Azure Table Storage, bulutta yapılandırılmış NoSQL verileri depolayan bir hizmettir. Table Storage, şemasız tasarım ile bir anahtar/öznitelik deposudur. Table Storage şemasız olduğu için uygulamanızın ihtiyaçları geliştikçe verilerinizi kolayca uyarlayabilirsiniz. Her türlü uygulama için verilere erişim hızlı ve uygun maliyetlidir. Table Storage, benzer hacimdeki veriler için geleneksel SQL’e oranla çok daha düşük maliyetlidir.
 
 Web uygulamaları için kullanıcı verileri, adres defterleri, cihaz bilgileri ve hizmetiniz için gerekli olan tüm diğer meta veri türleri gibi esnek veri kümelerini depolamak üzere Table Storage’ı kullanabilirsiniz. Bir tabloda istediğiniz kadar varlık depolayabilirsiniz ve bir depolama hesabı kapasite limitini dolduracak kadar tablo içerebilir.
 
@@ -46,7 +47,7 @@ Bu öğretici, bir tablo oluşturma ve silme ile tablo verilerinin yerleştirilm
 
 ### Daha fazla örnek
 
-Tablo depolama kullanan diğer örnekler için [.NET’te Azure Table Storage Kullanmaya Başlama](https://azure.microsoft.com/documentation/samples/storage-table-dotnet-getting-started/). Örnek uygulamayı indirip çalıştırabilir veya GitHub’daki örneğe göz atabilirsiniz. 
+Tablo depolama kullanan diğer örnekler için [.NET’te Azure Table Storage Kullanmaya Başlama](https://azure.microsoft.com/documentation/samples/storage-table-dotnet-getting-started/). Örnek uygulamayı indirip çalıştırabilir veya GitHub’daki örneğe göz atabilirsiniz.
 
 
 [AZURE.INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
@@ -59,7 +60,7 @@ Tablo depolama kullanan diğer örnekler için [.NET’te Azure Table Storage Ku
 
 Aşağıdaki `using` bildirimlerini `program.cs` dosyasının üstüne ekleyin:
 
-    using Microsoft.Azure; // Namespace for CloudConfigurationManager 
+    using Microsoft.Azure; // Namespace for CloudConfigurationManager
     using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
     using Microsoft.WindowsAzure.Storage.Table; // Namespace for Table storage types
 
@@ -83,13 +84,13 @@ Bu örnek, zaten yoksa, nasıl bir tablo oluşturulacağını gösterir:
     // Retrieve the storage account from the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
-    
+
     // Create the table client.
     CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
     // Retrieve a reference to the table.
     CloudTable table = tableClient.GetTableReference("people");
-        
+
     // Create the table if it doesn't exist.
     table.CreateIfNotExists();
 
@@ -478,6 +479,6 @@ Table Storage’ın temellerini öğrendiğinize göre, daha karmaşık depolama
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

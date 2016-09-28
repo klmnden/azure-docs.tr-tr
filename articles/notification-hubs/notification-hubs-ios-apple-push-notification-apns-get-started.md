@@ -17,6 +17,7 @@
     ms.date="06/29/2016"
     ms.author="wesmc"/>
 
+
 # Azure Notification Hubs ile iOS'a anında iletme bildirimleri gönderme
 
 [AZURE.INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -508,6 +509,6 @@ Notification Hubs hakkında genel bilgi için bkz. [Notification Hubs Kılavuzu]
 [Azure Portal]: https://portal.azure.com
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

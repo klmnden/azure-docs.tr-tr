@@ -16,6 +16,7 @@
     ms.author="awills"/>
 
 
+
 # Visual Studio’da Application Insights ile çalışma
 
 Visual Studio’da (2015 ve sonraki sürümler) hem hata ayıklama hem de üretim sırasında [Visual Studio Application Insights](app-insights-overview.md)’tan alınan telemetri verilerini kullanarak performansı çözümleyebilir ve sorunları tanılayabilirsiniz.
@@ -112,6 +113,6 @@ Verilerinizdeki anormallikleri bulmak için "Görünüm Türü" açılır listes
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

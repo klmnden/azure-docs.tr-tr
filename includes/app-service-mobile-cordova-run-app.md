@@ -17,7 +17,6 @@ Böylece, daha önce dağıttığınız Azure arka ucuna bir POST isteği gönde
 [Azure Portal]: https://portal.azure.com/
 
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

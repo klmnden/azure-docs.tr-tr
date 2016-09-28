@@ -17,6 +17,7 @@
     ms.date="08/08/2016"
     ms.author="heidist"/>
 
+
 # Azure Search'te dizin oluşturucular
 > [AZURE.SELECTOR]
 - [Genel Bakış](search-indexer-overview.md)
@@ -79,6 +80,6 @@ Artık temel fikri anladığınıza göre, atmanız gereken bir sonraki adım he
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

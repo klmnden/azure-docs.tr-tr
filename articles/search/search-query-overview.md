@@ -15,6 +15,7 @@
     ms.date="08/29/2016"
     ms.author="ashmaka"/>
 
+
 # Azure Search dizininizi sorgulama
 > [AZURE.SELECTOR]
 - [Genel Bakış](search-query-overview.md)
@@ -60,6 +61,6 @@ Azure Search'te arama sonuçlarının arama sorgusuyla tam olarak eşleşen kıs
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

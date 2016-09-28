@@ -25,7 +25,6 @@ Bu adımlar SSMS kullanan Nesne Gezgini'nde SQL Database’e bağlı olduğunuzu
 
 
 
-
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -49,7 +49,6 @@ Kendi ağ geçidi bağlantınızı oluşturduysanız ve yerel ağ geçidinizde b
         -RoutingWeight 10 -SharedKey 'abc123'
 
 
-
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -18,6 +18,7 @@
 
 
 
+
 # Azure Anahtar Kasası nedir?
 
 Azure Anahtar Kasası çoğu bölgede kullanılabilir. Daha fazla bilgi için bkz. [Anahtar Kasası fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/key-vault/).
@@ -69,6 +70,6 @@ Azure Anahtar Kasası ile anahtarları ve gizli anahtarları kullanma hakkında 
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

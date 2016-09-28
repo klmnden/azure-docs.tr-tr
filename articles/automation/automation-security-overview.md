@@ -16,6 +16,7 @@
    ms.date="07/29/2016"
    ms.author="magoedte" />
 
+
 # Azure Otomasyonu güvenliği
 Azure Automation, Azure’deki, şirket içindeki kaynaklara karşı ve Amazon Web Hizmetleri (AWS) gibi diğer bulut sağlayıcılarıyla görevleri otomatikleştirmenizi sağlar.  Runbook'un gerekli işlemlerini gerçekleştirebilmesi için, abonelikte gereken en düşük haklara sahip kaynaklara güvenli erişim izinlerinin olması gerekir.  
 Bu makale, Azure Automation’ın desteklediği çeşitli kimlik doğrulaması senaryolarını kapsamakta ve yönetmeniz gereken ortam veya ortamlar temelinde nasıl başlayacağınızı göstermektedir.  
@@ -55,6 +56,6 @@ AWS Kimlik Bilgileri | Amazon Web Hizmetleri | [Amazon Web Hizmetleri (AWS) ile 
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

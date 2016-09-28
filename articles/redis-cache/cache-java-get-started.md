@@ -16,6 +16,7 @@
     ms.date="08/24/2016"
     ms.author="sdanie"/>
 
+
 # Java ile Azure Redis Önbelleği kullanma
 
 > [AZURE.SELECTOR]
@@ -82,6 +83,6 @@ Bazı Redis istemcileri SSL’yi desteklemez ve varsayılan olarak [SSL olmayan 
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

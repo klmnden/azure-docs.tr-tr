@@ -3,7 +3,6 @@
 - [REST API](../articles/media-services/media-services-rest-connect_programmatically.md)
 
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

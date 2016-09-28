@@ -18,6 +18,7 @@
    ms.author="cgronlun"/>
 
 
+
 # Bulutta Hadoop nedir? HDInsight’ta Hadoop ekosistemine giriş
 
 Azure HDInsight’ta Hadoop, ekosistemi ve büyük verilere girişi: HDInsight’ta Hadoop nedir ve büyük veri analizi için Hadoop bileşenleri, ortak terminoloji ve senaryolar nelerdir? Ayrıca, HDInsight’ta bulutta Hadoop kullanmaya ilişkin Hadoop öğreticileri, belgeleri ve kaynakları hakkında bilgi edinin.
@@ -271,6 +272,6 @@ Bu BI araçları, büyük veri çözümlemede size yardımcı olabilir:
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

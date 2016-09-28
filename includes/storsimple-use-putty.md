@@ -30,7 +30,6 @@
 7. Seri oturum başlatmak için **Aç**’a tıklayın.
  
 
-
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

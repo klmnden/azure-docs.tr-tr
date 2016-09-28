@@ -15,6 +15,7 @@
     ms.date="08/08/2016" 
     ms.author="daviste"/>
     
+
 # Visual Studio Eğilimlerini Çözümleme
 
 Application Insights Eğilimleri aracı, uygulamanızın önemli telemetri olaylarının zaman içinde nasıl değiştiğini gösterir ve sorunları ve anormallikleri hızlıca belirlemenize yardımcı olur. Sizi daha ayrıntılı tanılama bilgilerine bağlayan Eğilimler, uygulamanızın performansını geliştirmenize, özel durumların nedenlerini izlemenize ve özel olaylarınıza ilişkin bilgileri açığa çıkarmanıza yardımcı olabilir.
@@ -102,6 +103,6 @@ Eğilimler aracı, aynı zaman dizisindeki diğer baloncuklara kıyasla anormal 
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

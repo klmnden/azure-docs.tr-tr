@@ -16,6 +16,7 @@
     ms.date="07/21/2016"
     ms.author="glenga"/>
 
+
 # <a name="getting-started"> </a>Mobile Services ve Sencha Touch kullanmaya başlama
 
 [AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
@@ -726,6 +727,6 @@ Sencha Touch kullanmaya başlama hakkında daha fazla bilgi için lütfen tüm [
 [Klasik Azure Portalı]: https://manage.windowsazure.com/
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

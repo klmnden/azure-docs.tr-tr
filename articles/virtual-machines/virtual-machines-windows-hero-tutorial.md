@@ -17,6 +17,7 @@
     ms.date="09/06/2016"
     ms.author="cynthn"/>
 
+
 # Azure portalı kullanarak ilk Windows sanal makinenizi oluşturma
 
 Bu öğretici, Azure Portal'ı kullanarak birkaç dakika içinde bir Windows sanal makinesi (VM) oluşturmanın ne kadar kolay olduğunu gösterir.  
@@ -119,6 +120,6 @@ Tekrar kullanmaya hazır olduğunuzda VM’yi yeniden başlatmak için **Başlat
 
 
 
-<!--HONumber=sep12_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

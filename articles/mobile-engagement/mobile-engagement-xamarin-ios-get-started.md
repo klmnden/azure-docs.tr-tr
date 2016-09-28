@@ -16,6 +16,7 @@
     ms.date="08/19/2016"
     ms.author="piyushjo" />
 
+
 # Xamarin.iOS Uygulamaları için Azure Mobile Engagement kullanmaya başlama
 
 [AZURE.INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
@@ -172,6 +173,6 @@ Aşağıdaki bölümler bunları almak için uygulamanızı ayarlar.
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

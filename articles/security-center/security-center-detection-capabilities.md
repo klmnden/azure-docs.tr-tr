@@ -16,6 +16,7 @@
    ms.date="08/25/2016"
    ms.author="yurid"/>
 
+
 # Azure Güvenlik Merkezi algılama özellikleri
 Bu belge, Microsoft Azure kaynaklarınızı hedefleyen etkin tehditleri belirlemenize yardımcı olan ve hızlı yanıt vermek için gereken bilgileri sağlayan Azure Güvenlik Merkezi’nin gelişmiş algılama özelliklerini ele almaktadır.
 
@@ -90,6 +91,6 @@ Bu belgede, Azure Güvenlik Merkezi algılama özelliklerinin nasıl çalıştı
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

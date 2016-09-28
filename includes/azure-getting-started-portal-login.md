@@ -32,7 +32,6 @@ Bir Azure hesabınız yoksa hesap almak için aşağıdaki seçeneklerden birini
    ![Oturum aç](./media/azure-getting-started-portal-login/login.png)
 
 
-
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -14,8 +14,9 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/22/2016"
+    ms.date="09/21/2016"
     ms.author="haining;garye" />
+
 
 
 # Azure Machine Learning Studio işlevlerine genel bakış diyagramı
@@ -50,6 +51,6 @@ Bu diyagramda bu parçaların nasıl uyumlu bir şekilde bir araya geldiği gös
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

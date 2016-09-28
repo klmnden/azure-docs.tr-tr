@@ -17,6 +17,7 @@
     ms.date="08/29/2016"
     ms.author="ashmaka"/>
 
+
 # REST API kullanarak Azure Search'e veri yükleme
 > [AZURE.SELECTOR]
 - [Genel Bakış](search-what-is-data-import.md)
@@ -170,6 +171,6 @@ Azure Search dizininizi doldurduktan sonra, belgeleri aramak için sorgu gönder
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

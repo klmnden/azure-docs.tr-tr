@@ -17,6 +17,7 @@
    ms.author="mbaldwin"/>
 
 
+
 # Azure Active Directory geliştirici kılavuzu
 
 ## Genel Bakış
@@ -148,6 +149,6 @@ Azure Active Directory kullanılarak uygulamaların geliştirilmesini açıklaya
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

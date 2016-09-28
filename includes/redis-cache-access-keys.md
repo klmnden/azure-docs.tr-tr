@@ -14,7 +14,6 @@ Erişim tuşlarını almak için **Erişim anahtarları**’na tıklayın.
 
 ![Redis önbelleği erişim tuşları](media/redis-cache-access-keys/redis-cache-access-keys.png)
 
-
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -17,6 +17,7 @@
    ms.author="v-livech"/>
 
 
+
 # CLI'yi kullanarak Azure'da Linux VM'si oluşturma
 
 Bu makalede, Azure komut satırı arabiriminde (CLI) `azure vm quick-create` komutunu kullanarak Azure'da bir Linux sanal makinesini (VM) hızlı bir şekilde nasıl dağıtacağınız gösterilmektedir. `quick-create` komutu, bir kavramı hızlıca prototipleştirmek veya sınamak için kullanabileceğiniz temel, güvenli bir altyapı içine VM dağıtır. Bu makale için şunlar gereklidir:
@@ -207,6 +208,6 @@ exampleAdminUser@exampleVMName:~$
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

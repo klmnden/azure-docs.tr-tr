@@ -1,28 +1,29 @@
 <properties 
-    pageTitle="Azure Multi-Factor Authentication Sunucusu için kullanıcı portalını dağıtma" 
-    description="Bu, nasıl Azure MFA ve kullanıcı portalını kullanmaya başlayacağınızı açıklayan Azure Multi-factor authentication sayfasıdır." 
-    services="multi-factor-authentication" 
-    documentationCenter="" 
-    authors="billmath" 
-    manager="femila" 
+    pageTitle="Azure Multi-Factor Authentication Sunucusu için kullanıcı portalını dağıtma"
+    description="Bu, nasıl Azure MFA ve kullanıcı portalını kullanmaya başlayacağınızı açıklayan Azure Multi-factor authentication sayfasıdır."
+    services="multi-factor-authentication"
+    documentationCenter=""
+    authors="kgremban"
+    manager="femila"
     editor="curtand"/>
 
-<tags 
-    ms.service="multi-factor-authentication" 
-    ms.workload="identity" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="get-started-article" 
-    ms.date="08/15/2016" 
-    ms.author="billmath"/>
+<tags
+    ms.service="multi-factor-authentication"
+    ms.workload="identity"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="08/15/2016"
+    ms.author="kgremban"/>
+
 
 # Azure Multi-Factor Authentication Sunucusu için kullanıcı portalını dağıtma
 
-Kullanıcı Portalı yöneticinin Azure Multi-Factor Authentication Kullanıcı Portalı’nı yüklemesine ve yapılandırmasına olanak tanır. Kullanıcı Portalı, kullanıcıların Azure Multi-Factor Authentication’a kaydolmasını ve hesaplarını korumalarını sağlayan bir IIS web sitesidir. Bir kullanıcı, sonraki oturum açışı sırasında telefon numarasını, PIN’ini değiştirebilir ya da Azure Multi-Factor Authentication’ı atlayabilir. 
+Kullanıcı Portalı yöneticinin Azure Multi-Factor Authentication Kullanıcı Portalı’nı yüklemesine ve yapılandırmasına olanak tanır. Kullanıcı Portalı, kullanıcıların Azure Multi-Factor Authentication’a kaydolmasını ve hesaplarını korumalarını sağlayan bir IIS web sitesidir. Bir kullanıcı, sonraki oturum açışı sırasında telefon numarasını, PIN’ini değiştirebilir ya da Azure Multi-Factor Authentication’ı atlayabilir.
 
-Kullanıcılar kendi normal kullanıcı adı ve parolalarını kullanarak Kullanıcı Portalı’ndan oturum açar ve kendi kimlik doğrulamalarını tamamlamak için bir Azure Multi-Factor Authentication çağrısını tamamlar veya güvenlik sorularını yanıtlar. Kullanıcı kaydına izin veriliyorsa, kullanıcı ilk kez Kullanıcı Portalı’nda oturum açtığında kendi telefon numarasını ve PIN’ini yapılandırır. 
+Kullanıcılar kendi normal kullanıcı adı ve parolalarını kullanarak Kullanıcı Portalı’ndan oturum açar ve kendi kimlik doğrulamalarını tamamlamak için bir Azure Multi-Factor Authentication çağrısını tamamlar veya güvenlik sorularını yanıtlar. Kullanıcı kaydına izin veriliyorsa, kullanıcı ilk kez Kullanıcı Portalı’nda oturum açtığında kendi telefon numarasını ve PIN’ini yapılandırır.
 
-Kullanıcı Portalı Yöneticileri yeni kullanıcı eklemek ve mevcut kullanıcıları güncelleştirmek üzere ayarlanabilir ve izin verilebilir. 
+Kullanıcı Portalı Yöneticileri yeni kullanıcı eklemek ve mevcut kullanıcıları güncelleştirmek üzere ayarlanabilir ve izin verilebilir.
 
 <center>![Kurulum](./media/multi-factor-authentication-get-started-portal/install.png)</center>
 
@@ -30,12 +31,12 @@ Kullanıcı Portalı Yöneticileri yeni kullanıcı eklemek ve mevcut kullanıc�
 
 Aşağıdaki ön koşullar Kullanıcı Portalı’nı Azure Multi-Factor Authentication Sunucusu ile aynı sunucuya yüklemek için gereklidir.
 
-- asp.net ve IIS 6 metatabanı uyumluluğu (IIS 7 ya da üst sürümü için) dahil IIS yüklenmelidir. 
+- asp.net ve IIS 6 metatabanı uyumluluğu (IIS 7 ya da üst sürümü için) dahil IIS yüklenmelidir.
 - Oturum açmış kullanıcının, varsa bilgisayar ve Etki Alanı yönetici hakları olması gerekir.  Bunun nedeni hesabın Active Directory güvenlik grupları oluşturmak için izin gerektirmesidir.
 
 ### Azure Multi-Factor Authentication Sunucusu için kullanıcı portalını dağıtmak için
 
-1. Azure Multi-Factor Authentication Sunucusu’nda: soldaki menüde Kullanıcı Portalı simgesine tıklayın ve Kullanıcı Portalı’nı Yükle düğmesine tıklayın 
+1. Azure Multi-Factor Authentication Sunucusu’nda: soldaki menüde Kullanıcı Portalı simgesine tıklayın ve Kullanıcı Portalı’nı Yükle düğmesine tıklayın
 1. İleri'ye tıklayın.
 1. İleri'ye tıklayın.
 1. Bilgisayar bir etki alanına katıldıysa ve Kullanıcı Portalı ile Azure Multi-Factor Authentication hizmeti arasındaki hizmeti güvenli hale getirmek üzere Active Directory yapılandırması tamamlanmamışsa, Active Directory adımı görüntülenir. Otomatik olarak bu yapılandırmayı tamamlamak için İleri düğmesine tıklayın.
@@ -48,7 +49,7 @@ Aşağıdaki ön koşullar Kullanıcı Portalı’nı Azure Multi-Factor Authent
 
 ## Azure Multi-Factor Authentication Sunucusu Kullanıcı Portalı’nı Farklı Sunucuda dağıtma
 
-Azure Multi-Factor Authentication Uygulamasını kullanmak için, uygulamanın Kullanıcı Portalı ile başarıyla iletişim kurabilmesini sağlamak amacıyla aşağıdakiler gereklidir: 
+Azure Multi-Factor Authentication Uygulamasını kullanmak için, uygulamanın Kullanıcı Portalı ile başarıyla iletişim kurabilmesini sağlamak amacıyla aşağıdakiler gereklidir:
 
 Donanım ve yazılım gereksinimleri için lütfen Donanım ve Yazılım Gereksinimleri’ne bakın.
 
@@ -71,7 +72,7 @@ Azure Multi-Factor Authentication Sunucusu dışında bir sunucuya kullanıcı p
 
 ### Web hizmeti SDK’sını yükleme
 
-Azure Multi-Factor Authentication Web Hizmeti SDK’sı Azure Multi-Factor Authentication Sunucusu’nda halihazırda yüklü değilse, bu sunucuya gidin ve Azure Multi-Factor Authentication Sunucusu’nu açın. Web Hizmeti SDK’sı simgesine tıklayın, Web Hizmeti SDK’sını yükle düğmesine... tıklayın ve sunulan yönergeleri izleyin. Web Hizmeti SDK’sı bir SSL sertifikası ile güvenli hale getirilmelidir. Kendinden imzalı bir sertifika bu amaç doğrultusunda kabul edilebilir, ancak SSL bağlantısı başlatıldığında bu sertifikaya güvenmesi için, Kullanıcı Portalı web sunucusundaki Yerel Bilgisayar hesabının “Güvenilen Kök Sertifika Yetkilileri” deposuna aktarılmalıdır. 
+Azure Multi-Factor Authentication Web Hizmeti SDK’sı Azure Multi-Factor Authentication Sunucusu’nda halihazırda yüklü değilse, bu sunucuya gidin ve Azure Multi-Factor Authentication Sunucusu’nu açın. Web Hizmeti SDK’sı simgesine tıklayın, Web Hizmeti SDK’sını yükle düğmesine... tıklayın ve sunulan yönergeleri izleyin. Web Hizmeti SDK’sı bir SSL sertifikası ile güvenli hale getirilmelidir. Kendinden imzalı bir sertifika bu amaç doğrultusunda kabul edilebilir, ancak SSL bağlantısı başlatıldığında bu sertifikaya güvenmesi için, Kullanıcı Portalı web sunucusundaki Yerel Bilgisayar hesabının “Güvenilen Kök Sertifika Yetkilileri” deposuna aktarılmalıdır.
 
 <center>![Kurulum](./media/multi-factor-authentication-get-started-portal/sdk.png)</center>
 
@@ -101,7 +102,7 @@ Artık portal yüklendiğine göre, portal ile çalışmak için Azure Multi-Fac
 Azure Multi-Factor Authentication Sunucusu kullanıcı portalı için çeşitli seçenekler sunar.  Aşağıdaki tabloda bu seçeneklerin ve ne için kullanıldıklarının açıklamasının bir listesi verilmiştir.
 
 Kullanıcı Portalı Ayarları|Açıklama|
-:------------- | :------------- | 
+:------------- | :------------- |
 Kullanıcı Portalı URL’si| Portalın barındırıldığı URL’yi girmenizi sağlar.
 Birincil kimlik doğrulama| Portalda oturum açarken kullanılacak kimlik doğrulama türünü belirtmenizi sağlar.  Windows, Radius veya LDAP kimlik doğrulaması.
 Kullanıcıların oturum açmasına izin verir|Kullanıcıların, Kullanıcı portalı oturum açma sayfasında kullanıcı adı ve parola girmesini sağlar.  Bu seçilmezse, kutuları gri görünür.
@@ -153,7 +154,7 @@ SAML kullanarak bir kimlik sağlayıcısından gelen talepleri kabul etmek için
 ![SAML](./media/multi-factor-authentication-get-started-portal/saml.png)
 
 ## Güvenilen IP'ler
-Bu sekme, bir kullanıcı bu adreslerden birinden oturum açarsa, multi-factor authentication’ın atlanacağı şekilde, eklenebilecek tek bir IP adresi ya da IP adresleri aralığı belirtmenize olanak tanır. 
+Bu sekme, bir kullanıcı bu adreslerden birinden oturum açarsa, multi-factor authentication’ın atlanacağı şekilde, eklenebilecek tek bir IP adresi ya da IP adresleri aralığı belirtmenize olanak tanır.
 
 ![Kullanıcı portalı güvenilen IP'leri](./media/multi-factor-authentication-get-started-portal/trusted.png)
 
@@ -168,13 +169,13 @@ Sesli Arama kimlik doğrulama yöntemini seçerse ya da bu yöntemi kullanmak ü
 
 Kimlik doğrulaması sırasında kullanıcının PIN kullanması gerekiyorsa, sayfa kullanıcıdan PIN’i girmesini de ister.  Kendi telefon numaralarını ve PIN’i (varsa) girdikten sonra, kullanıcı Kimlik Doğrulaması için şimdi Beni Ara düğmesine tıklar.  Azure Multi-Factor Authentication kullanıcının birincil telefon numarasına bir telefon araması yapar.  Kullanıcı aramayı yanıtlamalı ve PIN’ini girmeli (varsa) ve self servis kayıt işleminin sonraki adımına geçmek için # tuşuna basmalıdır.   
 
-Kullanıcı SMS Metni kimlik doğrulama yöntemini seçerse ya da bu yöntemi kullanmak üzere önceden yapılandırıldıysa, sayfa kullanıcıdan birincil telefonu numarasını ister.  Kimlik doğrulaması sırasında kullanıcının PIN kullanması gerekiyorsa, sayfa kullanıcıdan PIN’i girmesini de ister.  Kendi telefon numarasını ve PIN’ini (varsa) girdikten sonra, kullanıcı Kimlik Doğrulaması için şimdi Bana SMS gönder düğmesine tıklar.  Azure Multi-Factor Authentication kullanıcının mobil uygulamasına bir SMS kimlik doğrulaması yapar.  Kullanıcı tek seferlik parolayı (OTP) içeren bir SMS almalı ve bu SMS’i bu OTP’nin yanı sıra kendi PIN’ini (varsa) ile yanıtlayarak self servis kayıt işleminin sonraki adımına geçmelidir. 
+Kullanıcı SMS Metni kimlik doğrulama yöntemini seçerse ya da bu yöntemi kullanmak üzere önceden yapılandırıldıysa, sayfa kullanıcıdan birincil telefonu numarasını ister.  Kimlik doğrulaması sırasında kullanıcının PIN kullanması gerekiyorsa, sayfa kullanıcıdan PIN’i girmesini de ister.  Kendi telefon numarasını ve PIN’ini (varsa) girdikten sonra, kullanıcı Kimlik Doğrulaması için şimdi Bana SMS gönder düğmesine tıklar.  Azure Multi-Factor Authentication kullanıcının mobil uygulamasına bir SMS kimlik doğrulaması yapar.  Kullanıcı tek seferlik parolayı (OTP) içeren bir SMS almalı ve bu SMS’i bu OTP’nin yanı sıra kendi PIN’ini (varsa) ile yanıtlayarak self servis kayıt işleminin sonraki adımına geçmelidir.
 
 ![Kullanıcı portalı SMS](./media/multi-factor-authentication-get-started-portal/text.png)   
 
 Kullanıcı Mobil uygulama kimlik doğrulama yöntemini seçerse veya bu yöntemi kullanmak için önceden yapılandırılmış ise, sayfa cihazlarına Azure Multi-Factor Authentication uygulamasını yüklemek ve bir etkinleştirme kodu oluşturmak için kullanıcıya sorar.  Azure Multi-Factor Authentication uygulamasını yükledikten sonra, kullanıcı Etkinleştirme Kodu Oluştur düğmesine tıklar.    
 
->[AZURE.NOTE]Azure Multi-Factor Authentication uygulamasını kullanmak için, kullanıcının kendi cihazı için anında iletme bildirimlerini etkinleştirmesi gerekir. 
+>[AZURE.NOTE]Azure Multi-Factor Authentication uygulamasını kullanmak için, kullanıcının kendi cihazı için anında iletme bildirimlerini etkinleştirmesi gerekir.
 
 Böylece sayfada bir barkod resmi ile birlikte, etkinleştirme kodu ve bir URL görüntülenir.  Kimlik doğrulaması sırasında kullanıcının PIN kullanması gerekiyorsa, sayfa kullanıcıdan PIN’i girmesini de ister.  Kullanıcı Azure Multi-Factor Authentication uygulamasına etkinleştirme kodunu ve URL’yi girer ya da barkod resmini taramak için barkod tarayıcısını kullanır ve Etkinleştir düğmesine tıklar.    
 
@@ -187,10 +188,8 @@ Yöneticiler Azure Multi-Factor Authentication Sunucusu’nu güvenlik soruları
 
 Kullanıcı self servis kayıt işlemi artık tamamlanmış ve kullanıcı Kullanıcı Portalı’nda oturum açmıştır.  Kullanıcılar, yöneticileri izin vermişse, gelecekte istedikleri zaman telefon numarası, PIN, kimlik doğrulama yöntemi ve güvenlik sorularını değiştirmek için Kullanıcı Portalı’na dönebilirler.
 
- 
 
 
-
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

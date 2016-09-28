@@ -4,7 +4,7 @@
    services="active-directory"
    documentationCenter=""
    authors="andkjell"
-   manager="stevenpo"
+   manager="femila"
    editor=""/>
 
 <tags
@@ -15,6 +15,7 @@
    ms.topic="get-started-article"
    ms.date="08/19/2016"
    ms.author="andkjell;shoatman;billmath"/>
+
 
 # Azure AD Connect: DirSync'ten yükseltme
 Azure AD Connect, DirSync'in yerini almıştır. Bu konu başlığı altında DirSync'ten yükseltme yöntemlerini bulabilirsiniz. Bu adımlar, Azure AD Connect'in başka bir sürümünden veya Azure AD Eşitleme'den yapılacak yükseltmeler için geçerli değildir.
@@ -223,6 +224,6 @@ Yükleme için kullanılan hesaplar | [Azure AD Connect hesapları ve izinleri h
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

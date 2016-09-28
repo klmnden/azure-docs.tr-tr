@@ -17,6 +17,7 @@
  ms.date="08/09/2016"
  ms.author="dobett"/>
 
+
 # Azure IoT Paketi önceden yapılandırılmış çözümleri nelerdir?
 
 Azure IoT Paketi önceden yapılandırılmış çözümleri, aboneliği kullanarak Azure’e dağıtabildiğiniz yaygın IoT çözüm modellerinin uygulamalarıdır. Önceden yapılandırılmış çözümleri kullanabilirsiniz:
@@ -132,6 +133,6 @@ IoT çözümü mimarileri hakkında daha fazla bilgi için bkz. [Microsoft Azure
 [Ink-get-started-preconfigured]: iot-suite-getstarted-preconfigured-solutions.md
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -5,7 +5,6 @@
 > Azure Mobile Apps’le başlayın; bkz. [Azure Mobile Apps belge merkezi](https://azure.microsoft.com/documentation/learning-paths/appservice-mobileapps/).
 
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

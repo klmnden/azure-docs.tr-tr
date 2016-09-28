@@ -19,6 +19,7 @@
     ms.author="joseidz"/>
 
 
+
 # SQL Database öğreticisi: Excel'i bir Azure SQL veritabanına bağlama ve rapor oluşturma
 
 > [AZURE.SELECTOR]
@@ -86,6 +87,6 @@ Artık bağlantıyı kurup verileri ve bağlantı bilgilerini kullanarak dosyay�
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 
