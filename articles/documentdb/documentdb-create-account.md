@@ -96,6 +96,6 @@ DocumentDB hakkında daha fazla bilgi edinmek için şu kaynakları keşfedin:
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!---HONumber=Sep16_HO3-->
 
 
