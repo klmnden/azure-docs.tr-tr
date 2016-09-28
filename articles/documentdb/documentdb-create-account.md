@@ -1,4 +1,4 @@
-properties
+<properties
     pageTitle="DocumentDB hesabı oluşturma| Microsoft Azure"
     description="Azure DocumentDB ile bir NoSQL veritabanı oluşturun. DocumentDB hesabı oluşturmak ve üstün hızlı, küresel ölçekli NoSQL veritabanınızı oluşturmaya başlamak için bu yönergeleri uygulayın." 
     keywords="veritabanı oluşturma"
