@@ -13,8 +13,9 @@
     ms.topic="hero-article"
     ms.tgt_pltfrm="vm-windows-sql-server"
     ms.workload="infrastructure-services"
-    ms.date="06/21/2016"
+    ms.date="09/20/2016"
     ms.author="jroth" />
+
 
 # Azure Portal’da bir SQL Server sanal makine sağlama
 
@@ -125,6 +126,7 @@ Yapılandırma ayarlarını tamamladığınızda, **Tamam**’a tıklayın.
 | [Otomatik Düzeltme Eki Uygulama](#automated-patching) |
 | [Otomatik Yedekleme](#automated-backup)             |
 | [Azure Anahtar Kasası Tümleştirme](#azure-key-vault-integration)             |
+| [R Hizmetleri](#r-services) |
 
 ### Bağlantı
 **SQL bağlantısı** altında, bu VM’de SQL Server örneğini istediğiniz erişim türünü belirtin. Bu öğreticinin amacı doğrultusunda, SQL Server’a İnternet’teki makineler ve hizmetlerden bağlantılara izin vermek amacıyla **Genel (internet)**’i seçin. Bu seçenek seçildiğinde, Azure güvenlik duvarı ve ağ güvenlik grubunu bağlantı noktası 1433'te trafiğe izin verecek şekilde otomatik olarak yapılandırır.  
@@ -141,6 +143,8 @@ Yapılandırma ayarlarını tamamladığınızda, **Tamam**’a tıklayın.
 - SQL Server’a aynı sanal ağdaki makineler ve hizmetlerden gelen bağlantılara izin vermek için **Özel (Sanal Ağ dahilinde)** 
 
 Genel olarak, senaryonuzun izin verdiği en kısıtlayıcı bağlantıyı seçerek güvenliği geliştirin. Ancak tüm seçenekler Ağ Güvenlik Grubu kuralları ve SQL/Windows Kimlik Doğrulaması üzerinden korumaya alınabilir.
+
+>[AZURE.NOTE] SQL Server Express veya Developer sürümleri için sanal makine görüntüleri, TCP/IP protokolünü otomatik olarak etkinleştirmez. Portalda Genel veya Özel seçimini yapmış olsanız bile uzaktan bağlantı engellenir. Express ve Developer sürümleri için, VM'yi oluşturduktan sonra [TCP/IP protokolünü el ile etkinleştirmek](virtual-machines-windows-sql-connect.md#configure-sql-server-to-listen-on-the-tcp-protocol) üzere SQL Server Yapılandırma Yöneticisi'ni kullanmanız gerekir.
 
 **Bağlantı noktası** 1433 olarak varsayılan değer kılınır. Farklı bir bağlantı noktası belirtebilirsiniz.
 Daha fazla bilgi için bkz. [Bir SQL Server Sanal Makinesine (Resource Manager) Bağlanma | Microsoft Azure](virtual-machines-windows-sql-connect.md).
@@ -178,7 +182,7 @@ Varsayılan olarak, Azure Storage’ı 5000 IOP 200 MB ve 1 TB depolama alanı i
 
 ![SQL Otomatik Düzeltme Eki Uygulama](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-patching.png)
 
-Daha fazla bilgi için bkz. [Azure Virtual Machines’de SQL Server için Otomatik Düzeltme Eki Uygulama](virtual-machines-windows-classic-sql-automated-patching.md).
+Daha fazla bilgi için bkz. [Azure Virtual Machines’de SQL Server için Otomatik Düzeltme Eki Uygulama](virtual-machines-windows-sql-automated-patching.md).
 
 ### Otomatik yedekleme
 **Otomatik yedekleme** altında, tüm veritabanları için otomatik veritabanı yedeklemeyi etkinleştirin. Otomatik yedekleme varsayılan olarak devre dışıdır.
@@ -193,7 +197,7 @@ Yedeklemeyi şifrelemek için **Etkinleştir**’e tıklayın. Ardından **Parol
 
 ![SQL Otomatik Yedekleme](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-autobackup.png)
 
- Daha fazla bilgi için bkz. [Azure Virtual Machines’de SQL Server için Otomatik Yedekleme](virtual-machines-windows-classic-sql-automated-backup.md).
+ Daha fazla bilgi için bkz. [Azure Virtual Machines’de SQL Server için Otomatik Yedekleme](virtual-machines-windows-sql-automated-backup.md).
 
 ### Azure Anahtar Kasası tümleştirme
 Şifreleme için güvenlik gizli anahtarlarını depolamak üzere, **Azure anahtar kasası tümleştirme**’ye ve **Etkinleştir**’e tıklayın.
@@ -209,9 +213,16 @@ Aşağıdaki tabloda Azure Anahtar Kasası Tümleştirmeyi yapılandırmak için
 | **Asıl gizli anahtar**|Azure Active Directory hizmet asıl gizli anahtarı. Bu gizli anahtar İstemci Gizli Anahtarı olarak da bilinir. | 9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM=|
 |**Kimlik bilgisi adı**|**Kimlik bilgisi adı**: AKV Tümleştirme, VM’nin anahtar kasasına erişim sağlamasına izin vererek, SQL Server’da bir kimlik bilgisi oluşturur Bu kimlik bilgisi için bir ad seçin.| mycred1|
 
-Daha fazla bilgi için bkz. [Azure VM’lerde SQL Server için Azure Anahtar Kasası Tümleştirmeyi Yapılandırma](virtual-machines-windows-classic-ps-sql-keyvault.md).
+Daha fazla bilgi için bkz. [Azure VM’lerde SQL Server için Azure Anahtar Kasası Tümleştirmeyi Yapılandırma](virtual-machines-windows-ps-sql-keyvault.md).
 
 SQL Server ayarlarını yapılandırmayı bitirdiğinizde, **Tamam**’a tıklayın.
+
+### R hizmetleri
+SQL Server 2016 Enterprise sürümü için [SQL Server R Hizmetleri](https://msdn.microsoft.com/library/mt604845.aspx) seçeneğini etkinleştirebilirsiniz. Bu özellik, SQL Server 2016 ile gelişmiş analizi kullanmanıza olanak sağlar. **SQL Server Ayarları** dikey penceresinde **Etkinleştir** seçeneğini belirleyin.
+
+![SQL Server R Hizmetlerini Etkinleştirme](./media/virtual-machines-windows-portal-sql-server-provision/azure-vm-sql-server-r-services.png)
+
+>[AZURE.NOTE] 2016 Enterprise sürümü olmayan SQL Server görüntüleri için R Hizmetleri'ni etkinleştirme seçeneği devre dışı bırakılmıştır.
 
 ## 5. Özeti gözden geçirme
 **Özet** dikey penceresinde, özeti gözden geçirin ve **Tamam**’a tıklayarak bu VM için belirtilen SQL Server, kaynak grubu ve kaynakları oluşturun.
@@ -257,6 +268,6 @@ Azure Virtual Machines’de SQL Server için.[Öğrenme Yolunu keşfedin](https:
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

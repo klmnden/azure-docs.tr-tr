@@ -4,9 +4,11 @@ Bu senaryoda farklı aboneliklere ait iki VNet arasında eşleme oluşturulacakt
 
 ![çapraz alt senaryo](./media/virtual-networks-create-vnetpeering-scenario-crosssub-include/figure01.PNG)
 
-VNet eşlemesi yetkilendirme için Rol tabanlı erişim denetimi (RBAC) kullanır. Çapraz abonelik senaryosunda ilk olarak eşleme bağlantısını oluşturacak kullanıcılara yeterli izinleri vermeniz gerekir: NOT: aynı kullanıcı her iki abonelik üzerinde de ayrıcalığa sahipse aşağıda 1-4 aralığındaki adımları atlayabilirsiniz. 
+VNet eşlemesi yetkilendirme için Rol tabanlı erişim denetimi (RBAC) kullanır. Çapraz abonelik senaryosu için ilk olarak eşleme bağlantısını oluşturacak kullanıcılara yeterli izinleri vermeniz gerekir:
+
+> [AZURE.NOTE] Aynı kullanıcı her iki abonelik üzerinde ayrıcalığa sahipse aşağıdaki adım 1-4’ü atlayabilirsiniz.
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

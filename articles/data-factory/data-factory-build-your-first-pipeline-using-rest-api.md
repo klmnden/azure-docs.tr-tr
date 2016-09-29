@@ -17,17 +17,20 @@
     ms.date="08/16/2016"
     ms.author="spelluru"/>
 
+
 # Öğretici: Data Factory REST API kullanarak ilk Azure data factory’nizi derleme
 > [AZURE.SELECTOR]
-- [Azure Portal](data-factory-build-your-first-pipeline-using-editor.md)
+- [Genel bakış ve ön koşullar](data-factory-build-your-first-pipeline.md)
+- [Azure portal](data-factory-build-your-first-pipeline-using-editor.md)
 - [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 - [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Resource Manager Şablonu](data-factory-build-your-first-pipeline-using-arm.md)
 - [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
 
-[AZURE.INCLUDE [data-factory-tutorial-prerequisites](../../includes/data-factory-tutorial-prerequisites.md)] 
+Bu makalede, ilk Azure data factory’nizi oluşturmak için Data Factory REST API’sini kullanırsınız.
 
-## Ek önkoşullar
+## Önkoşullar
+- [Öğreticiye Genel Bakış](data-factory-build-your-first-pipeline.md) makalesinin tamamını okuyun ve **ön koşul** adımlarını tamamlayın.
 - [Curl](https://curl.haxx.se/dlwiz/) aracını makinenize yükleyin. Bir veri fabrikası oluşturmak için CURL aracını REST komutlarıyla kullanırsınız. 
 - Aşağıdakileri yapmak için [bu makaledeki](../resource-group-create-service-principal-portal.md) yönergeleri izleyin: 
     1. Azure Active Directory’de **ADFGetStartedApp** adlı bir Web uygulaması oluşturun.
@@ -39,7 +42,7 @@
     1. **Login-AzureRmAccount** komutunu çalıştırın ve Azure Portal’da oturum açmak için kullandığınız kullanıcı adı ve parolayı girin.  
     2. Bu hesapla ilgili tüm abonelikleri görmek için **Get-AzureRmSubscription** komutunu çalıştırın.
     3. Kullanmak istediğiniz aboneliği seçmek için **Get-AzureRmSubscription - SubscriptionName NameOfAzureSubscription | Set-AzureRmContext** komutunu çalıştırın. **NameOfAzureSubscription** değerini Azure aboneliğinizin adıyla değiştirin. 
-3. PowerShell’de aşağıdaki komutu çalıştırarak **ADFTutorialResourceGroup** adlı bir Azure kaynak grubu oluşturun.  
+3. PowerShell’de aşağıdaki komutu çalıştırarak **ADFTutorialResourceGroup** adlı bir Azure kaynak grubu oluşturun:  
 
         New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
 
@@ -94,7 +97,7 @@ Aşağıdaki tabloda, kod parçacığında kullanılan JSON özellikleri için a
 | TimeToLive | Silinmeden önce HDInsight kümesinin boşta kalma süresini belirtir. |
 | linkedServiceName | HDInsight tarafından oluşturulan günlükleri depolamak için kullanılan depolama hesabını belirtir. |
 
-Şunlara dikkat edin: 
+Aşağıdaki noktalara dikkat edin: 
 
 - Data Factory **Windows tabanlı** bir HDInsight kümesini yukarıdaki JSON ile sizin için oluşturur. **Linux tabanlı** bir HDInsight kümesi de oluşturabilirsiniz. Ayrıntılar için bkz. [İsteğe Bağlı HDInsight Bağlı Hizmeti](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). 
 - İsteğe bağlı HDInsight kümesi yerine **kendi HDInsight kümenizi** kullanabilirsiniz. Ayrıntılar için bkz. [HDInsight Bağlı Hizmeti](data-factory-compute-linked-services.md#azure-hdinsight-linked-service).
@@ -261,9 +264,9 @@ Bu adımda, **FirstDataFactoryREST** adlı bir Azure Data Factory oluşturursunu
 
         Write-Host $results
 
-Şunlara dikkat edin:
+Aşağıdaki noktalara dikkat edin:
  
-- Azure Data Factory adı küresel olarak benzersiz olmalıdır. Sonuçlarda **Veri fabrikası adı “FirstDataFactoryREST” kullanılamıyor** hatasını görürseniz şunu yapın:  
+- Azure Data Factory adı küresel olarak benzersiz olmalıdır. Sonuçlarda **Veri fabrikası adı “FirstDataFactoryREST” kullanılamıyor** hatasını görürseniz aşağıdaki adımları uygulayın:  
     1. **datafactory.json** dosyasında adı değiştirin (örneğin, adınızFirstDataFactoryREST). Data Factory yapıtlarının adlandırma kuralları için [Data Factory - Adlandırma Kuralları](data-factory-naming-rules.md) konusuna bakın.
     2. **$cmd** değişkenine bir değerin atandığı ilk komutta, FirstDataFactoryREST’i yeni adla değiştirip komutu çalıştırın. 
     3. Veri fabrikasını oluşturmak ve işlemin sonuçlarını yazdırmak üzere REST API’yi çağırmak için sonraki iki komutu çalıştırın. 
@@ -271,11 +274,11 @@ Bu adımda, **FirstDataFactoryREST** adlı bir Azure Data Factory oluşturursunu
 - Veri fabrikasının adı gelecekte bir DNS adı olarak kaydedilmiş ve herkese görünür hale gelmiş olabilir.
 - Şu hatayı alırsanız: "**Abonelik, Microsoft.DataFactory ad alanını kullanacak şekilde kaydedilmemiş**", aşağıdakilerden birini yapın ve yeniden yayımlamayı deneyin: 
 
-    - Azure PowerShell’de Data Factory sağlayıcısını kaydetmek için aşağıdaki komutu çalıştırın. 
+    - Azure PowerShell’de Data Factory sağlayıcısını kaydetmek için aşağıdaki komutu çalıştırın: 
         
             Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
     
-        Data Factory sağlayıcısının kayıtlı olduğunu onaylamak için aşağıdaki komutu çalıştırabilirsiniz. 
+        Data Factory sağlayıcısının kayıtlı olduğunu onaylamak için aşağıdaki komutu çalıştırabilirsiniz: 
     
             Get-AzureRmResourceProvider
     - Azure aboneliğini kullanarak [Azure portalında](https://portal.azure.com) oturum açın ve Data Factory dikey penceresine gidin (ya da) Azure portalında bir data factory oluşturun. Bu eylem sağlayıcıyı sizin için otomatik olarak kaydeder.
@@ -370,6 +373,10 @@ Bu adımda, Data Factory REST API’sini kullanarak işlem hattı tarafından ü
             (convertFrom-Json $results2).RemoteException
     }
 
+
+> [AZURE.IMPORTANT] 
+> İsteğe bağlı HDInsight kümesinin oluşturulması genellikle biraz zaman alır (yaklaşık 20 dakika). Bu nedenle, işlem hattının dilimi işlemesi için **yaklaşık 30 dakika** bekleyin.  
+
 Çıktı dilimini **Hazır** veya **Başarısız** durumunda görene kadar Invoke komutunu ve sonraki komutu çalıştırın. Dilim Hazır durumunda olduğunda, çıktı verileri için blob depolamanızın **adfgetstarted** klasöründe **partitioneddata** klasörünü denetleyin.  İsteğe bağlı HDInsight kümesinin oluşturulması genellikle biraz zaman alır.
 
 ![çıktı verileri](./media/data-factory-build-your-first-pipeline-using-rest-api/three-ouptut-files.png)
@@ -405,6 +412,6 @@ Bu makalede, isteğe bağlı Azure HDInsight kümesinde bir Hive betiği çalı�
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

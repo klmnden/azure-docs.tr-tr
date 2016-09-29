@@ -6,7 +6,7 @@
     authors="mgoedtel"
     manager="jwhit"
     editor=""
-    keywords="what is automation, azure automation, azure automation examples"/>
+    keywords="otomasyon nedir, azure otomasyonu, azure otomasyonu örnekleri"/>
 <tags
     ms.service="automation"
     ms.workload="tbd"
@@ -15,6 +15,7 @@
     ms.topic="get-started-article" 
     ms.date="05/10/2016"
     ms.author="magoedte;bwren"/>
+
 
 # Azure Automation’a genel bakış
 
@@ -104,6 +105,6 @@ Azure Automation ve kendi runbook'larınızı oluşturma hakkında daha fazla bi
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

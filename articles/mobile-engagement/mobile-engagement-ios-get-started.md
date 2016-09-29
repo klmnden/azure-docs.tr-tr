@@ -1,10 +1,10 @@
 <properties
-    pageTitle="Objective C’de iOS için Azure Mobile Engagement kullanmaya başlama"
+    pageTitle="Objective C'de iOS için Azure Mobile Engagement ile Çalışmaya Başlama | Microsoft Azure"
     description="iOS uygulamaları için analizler ve anında iletme bildirimleri ile Azure Mobile Engagement kullanmayı öğrenin."
     services="mobile-engagement"
-    documentationCenter="ios"
+    documentationCenter="mobile"
     authors="piyushjo"
-    manager="dwrede"
+    manager="erikre"
     editor="" />
 
 <tags
@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="mobile-ios"
     ms.devlang="objective-c"
     ms.topic="hero-article"
-    ms.date="05/03/2016"
+    ms.date="09/14/2016"
     ms.author="piyushjo" />
+
 
 # Objective C’de iOS uygulamaları için Azure Mobile Engagement kullanmaya başlama
 
@@ -25,7 +26,7 @@ Bu öğreticide, temel verileri toplayan ve Apple Anında İletme Bildirimi Sist
 
 Bu öğretici için aşağıdakiler gereklidir:
 
-+ MAC App Store'dan yükleyebileceğiniz XCode 6 veya XCode 7
++ MAC App Store'dan yükleyebileceğiniz XCode 8
 + [Mobile Engagement iOS SDK]
 
 Bu öğreticiyi tamamlamak iOS uygulamalarına ilişkin tüm Mobile Engagement öğreticileri için önkoşuldur.
@@ -183,6 +184,6 @@ Aşağıdaki bölümler bunları almak için uygulamanızı ayarlar.
 
 
 
-<!----HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

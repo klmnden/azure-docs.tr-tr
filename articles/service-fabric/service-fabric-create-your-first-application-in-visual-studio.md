@@ -13,8 +13,9 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/10/2016"
+   ms.date="08/26/2016"
    ms.author="ryanwi"/>
+
 
 # Visual Studio'da ilk Azure Service Fabric uygulamanızı oluşturma
 
@@ -110,6 +111,14 @@ Artık bir uygulamanız olduğuna göre uygulamayı çalıştırmayı deneyin.
 
     ![Yük devretme sonrası tanılama olayları görüntüleyicisi][diagnostic-events-viewer-detail-post-failover]
 
+## Küme moduna geçme
+
+Varsayılan olarak, yerel geliştirme kümesi birden fazla düğüme dağıtılmış hizmetlerin hatalarını ayıklamak için yararlı olan 5 düğümlü bir küme olarak çalışacak şekilde yapılandırılmıştır. Ancak, bir uygulamanın 5 düğümlü dağıtım kümesine dağıtılması biraz zaman alabilir. Uygulamanızı 5 düğüm üzerinde çalıştırmadan kod değişikliklerini hızlıca yinelemek istiyorsanız, geliştirme kümesini 1 Düğümlü moda geçirebilirsiniz. Kodunuzu tek düğümlü bir kümede çalıştırmak için sistem tepsisindeki Yerel Küme Yöneticisi’ne sağ tıklayın ve **Küme Modunu Değiştir -> 1 Düğüm** öğesini seçin.  
+
+![Küme moduna geçme][switch-cluster-mode]
+
+Küme modunuzu değiştirdiğinizde geliştirme kümesi sıfırlanır ve sağlanan ya da küme üzerinde çalışan tüm uygulamalar kaldırılır.
+
 ## Temizleme
 
   Sonlandırmadan önce, yerel kümenin büyük ölçüde kaynak kullanımı gerektirdiğini unutmayın. Hata ayıklayıcının durdurulması uygulama örneğinizi ve uygulama türünün kaydını kaldırır. Ancak, küme arka planda çalışmaya devam eder. Kümeyi yönetmek için birkaç seçeneğiniz vardır:
@@ -138,9 +147,10 @@ Artık bir uygulamanız olduğuna göre uygulamayı çalıştırmayı deneyin.
 [systray-launch-sfx]: ./media/service-fabric-create-your-first-application-in-visual-studio/launch-sfx.png
 [diagnostic-events-viewer-detail-post-failover]: ./media/service-fabric-create-your-first-application-in-visual-studio/diagnostic-events-viewer-detail-post-failover.png
 [sfe-delete-application]: ./media/service-fabric-create-your-first-application-in-visual-studio/sfe-delete-application.png
+[switch-cluster-mode]: ./media/service-fabric-create-your-first-application-in-visual-studio/switch-cluster-mode.png
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

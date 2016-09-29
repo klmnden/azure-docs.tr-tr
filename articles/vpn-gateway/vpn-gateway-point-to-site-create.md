@@ -17,15 +17,16 @@
    ms.date="08/31/2016"
    ms.author="cherylmc"/>
 
+
 # Klasik portalı kullanarak bir Sanal Ağa Noktadan Siteye bir bağlantı yapılandırma
 
 > [AZURE.SELECTOR]
-- [PowerShell - Resource Manager](vpn-gateway-howto-point-to-site-rm-ps.md)
-- [Portal - Klasik](vpn-gateway-point-to-site-create.md)
+- [Resource Manager - PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
+- [Klasik - Klasik Portal](vpn-gateway-point-to-site-create.md)
 
 Noktadan Siteye (P2S) yapılandırması, ayrı bir istemci bilgisayardan bir sanal ağa yönelik güvenli bağlantı oluşturmanıza olanak sağlar. Sanal ağınıza uzak bir konumdan (örneğin, evden veya bir konferanstan) bağlanmak istediğinizde ya da sanal bir ağa bağlanması gereken yalnızca birkaç istemciniz bulunduğunda P2S bağlantısı kullanışlıdır.
 
-Bu makalede klasik portal kullanılarak **klasik dağıtım modelinde** Noktadan Siteye bağlantı ile VNet oluşturma işlemi adım adım açıklanmaktadır. Şu anda bu yapılandırmayı klasik dağıtım modeli için Azure portalında uçtan uca oluşturamazsınız.
+Bu makalede **klasik portal** kullanılarak **klasik dağıtım modelinde** Noktadan Siteye bağlantı ile sanal ağ oluşturma işlemi adım adım açıklanır. Şu anda bu yapılandırmayı klasik dağıtım modeli için Azure portalında uçtan uca oluşturamazsınız. Adımların bazılarını Azure portalında gerçekleştirebilirsiniz ancak VPN istemcisi yapılandırma indirmesi için yine de PowerShell gerekir.
 
 Noktadan Siteye bağlantıların çalışması için bir VPN cihazına veya genel kullanıma yönelik bir IP adresine gerek yoktur. VPN bağlantısı, bağlantının istemci bilgisayardan başlatılmasıyla oluşturulur. Noktadan Siteye bağlantılar hakkında daha fazla bilgi edinmek için [VPN Gateway ile ilgili SSS](vpn-gateway-vpn-faq.md#point-to-site-connections) ve [Planlama ve Tasarım](vpn-gateway-plan-design.md) başlıklı makalelere bakın.
 
@@ -102,7 +103,7 @@ Bu bölümde şunları yapacaksınız:
 
 ### <a name="root"></a>1. Kısım: Kök sertifikaya ilişkin .cer dosyasını alma
 
-Kurumsal bir sertifika sistemi kullanıyorsanız kullanmak istediğiniz kök sertifikaya ilişkin .cer dosyasını alın. [3. Kısım](#createclientcert)'da bu kök sertifikayı kullanarak istemci sertifikalarını oluşturacaksınız.
+Kurumsal bir sertifika sistemi kullanıyorsanız kullanmak istediğiniz kök sertifikaya ilişkin .cer dosyasını alın. [3. Kısım](#createclientcert)'da, kök sertifikadan istemci sertifikalarını oluşturursunuz.
 
 Kurumsal bir sertifika çözümü kullanmıyorsanız, otomatik olarak imzalanan bir sertifika oluşturmanız gerekir. Windows 10’a yönelik adımlar için [Working with self-signed root certificates for Point-to-Site configurations](vpn-gateway-certificates-point-to-site.md) (Noktadan Siteye yapılandırmaları için otomatik olarak imzalanan kök sertifikalar ile çalışma) makalesine başvurabilirsiniz. Bu makalede, makecert işlevi kullanılarak otomatik olarak imzalanan sertifika oluşturma ve .cer dosyasını dışarı aktarma işlemleri adım adım açıklanmaktadır.
 
@@ -195,6 +196,6 @@ Sanal Ağlar hakkında daha fazla bilgi edinmek için [Sanal Ağ Belgeleri](http
 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

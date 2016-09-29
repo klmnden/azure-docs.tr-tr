@@ -17,6 +17,7 @@
    ms.date="08/30/2016"
    ms.author="larryfr"/>
 
+
 #Windows’da HDInsight’ta Linux tabanlı Hadoop ile SSH kullanma
 
 > [AZURE.SELECTOR]
@@ -127,7 +128,7 @@ Bu komutu kullanma hakkında daha fazla bilgi için bkz. [Özel seçenekleri kul
 
 3. **Kategori**’de **Oturum**’u seçin. **PuTTY oturumunuz için temel seçenekler** ekranında, **Ana bilgisayar adı (veya IP adresi)** alanına HDInsight sunucunuzun SSH adresini girin. Bir kümeye bağlanırken kullanabileceğiniz iki olası SSH adresi vardır:
 
-    * __Baş düğüm adresi__: Kümenin baş düğümüne bağlanmak için, küme adınızı ve ardından **-ssh.azurehdinsight.net**’i kullanın. Örneğin, **mycluster-ssh.azurehdinsight.net**.
+    * __Baş düğüm adresi__: Kümenin baş düğümüne bağlanmak için küme adınızı ve ardından **-ssh.azurehdinsight.net**'i kullanın. Örneğin, **mycluster-ssh.azurehdinsight.net**.
     
     * __Edge düğüm adresi__: HDInsight kümesinde bir R Server’a bağlanıyorsanız, CLUSTERNAME’in küme adınız olduğu __RServer.CLUSTERNAME.ssh.azurehdinsight.net__ adresini kullanarak R Server edge düğümüne bağlanabilirsiniz. Örneğin, __RServer.mycluster.ssh.azurehdinsight.net__.
 
@@ -141,7 +142,7 @@ Bu komutu kullanma hakkında daha fazla bilgi için bkz. [Özel seçenekleri kul
 
 6. İstendiğinde, kümeyi oluşturduğunuzda girdiğiniz kullanıcıyı girin. Kullanıcı için parola sağladıysanız, parolayı girmeniz de istenir.
 
-> [AZURE.NOTE] Yukarıdaki adımlarda HDInsight kümesinde 0 baş düğümüne bağlanan bağlantı noktası 22’yi kullandığınız varsayılır. Bağlantı noktası 23’ü kullanırsanız, baş düğüm 1’e bağlanırsınız. Baş düğümler hakkında daha fazla bilgi için bkz. [HDInsight’ta Hadoop kümelerinin kullanılabilirliği ve güvenilirliği](hdinsight-high-availability-linux.md).
+> [AZURE.NOTE] Yukarıdaki adımlarda, HDInsight kümesindeki birincil baş düğüme bağlanacak olan bağlantı noktası 22'yi kullandığınız varsayılmıştır. Bağlantı noktası 23'ü kullanırsanız ikincil baş düğüme bağlanırsınız. Baş düğümler hakkında daha fazla bilgi için bkz. [HDInsight’ta Hadoop kümelerinin kullanılabilirliği ve güvenilirliği](hdinsight-high-availability-linux.md).
 
 ###Çalışan düğümüne bağlanma
 
@@ -185,9 +186,9 @@ Kullanıcı hesabınızı oluştururken bir SSH anahtarı sağladıysanız, çal
 
     > [AZURE.NOTE] SSH oturumunuzun kimliğini doğrulamak için parola kullanıyorsanız, parolayı tekrar girmeniz istenir. SSH anahtarı kullanıyorsanız, bağlantı herhangi bir soru olmadan tamamlanmalıdır.
 
-9. Oturum kurulduktan sonra, çalışan düğümüne bağlandığınızı belirtmek için PuTTY oturumu isteminiz `username@hn0-clustername` iken `username@wn0-clustername` olarak değişir. Bu noktada çalıştırdığını tüm çalışan düğümünde çalışır.
+9. Oturum kurulduktan sonra, çalışan düğümüne bağlandığınızı belirtmek için PuTTY oturumu isteminiz `username@hn#-clustername` iken `username@wn#-clustername` olarak değişir. Bu noktada çalıştırdığını tüm çalışan düğümünde çalışır.
 
-10. Çalışan düğümünde eylemler gerçekleştirmeyi tamamladıktan sonra, çalışan düğümüne olan oturumu kapatmak için `exit` komutunu kullanın. Bu, size `username@hn0-clustername` istemini döndürür.
+10. Çalışan düğümünde eylemler gerçekleştirmeyi tamamladıktan sonra, çalışan düğümüne olan oturumu kapatmak için `exit` komutunu kullanın. Bu, size `username@hn#-clustername` istemini döndürür.
 
 ##Daha fazla hesap ekleme
 
@@ -239,6 +240,6 @@ Artık bir SSH anahtarı kullanarak kimlik doğrulaması yapacağınızı anlad�
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

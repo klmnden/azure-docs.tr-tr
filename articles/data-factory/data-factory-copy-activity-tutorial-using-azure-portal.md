@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Öğretici: Data Factory Düzenleyici kullanarak Kopyalama Etkinliği ile işlem hattı oluşturma | Microsoft Azure" 
+    pageTitle="Öğretici: Azure portalı kullanarak Kopyalama Etkinliği ile işlem hattı oluşturma | Microsoft Azure" 
     description="Bu öğreticide, Azure Portal'daki Data Factory Düzenleyiciyi kullanarak Kopyalama Etkinliği ile bir Azure Data Factory işlem hattı oluşturursunuz." 
     services="data-factory" 
     documentationCenter="" 
@@ -13,32 +13,35 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="08/01/2016" 
+    ms.date="09/16/2016" 
     ms.author="spelluru"/>
 
-# Öğretici: Data Factory Düzenleyici kullanarak Kopyalama Etkinliği ile işlem hattı oluşturma
+
+# Öğretici: Azure portalı kullanarak Kopyalama Etkinliği ile işlem hattı oluşturma
 > [AZURE.SELECTOR]
-- [Öğreticiye Genel Bakış](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-- [Data Factory Düzenleyici’yi kullanma](data-factory-copy-activity-tutorial-using-azure-portal.md)
-- [PowerShell’i kullanma](data-factory-copy-activity-tutorial-using-powershell.md)
-- [Visual Studio’yu kullanma](data-factory-copy-activity-tutorial-using-visual-studio.md)
-- [REST API kullanma](data-factory-copy-activity-tutorial-using-rest-api.md)
-- [.NET API kullanma](data-factory-copy-activity-tutorial-using-dotnet-api.md)
-- [Kopyalama Sihirbazı'nı kullanma](data-factory-copy-data-wizard-tutorial.md)
+- [Genel bakış ve ön koşullar](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+- [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
+- [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
+- [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+- [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
+- [.NET API’si](data-factory-copy-activity-tutorial-using-dotnet-api.md)
+- [Kopyalama Sihirbazı](data-factory-copy-data-wizard-tutorial.md)
 
 
-Bu öğreticide şu adımlar bulunur:
+Bu öğretici, Azure portalını kullanarak bir Azure data factory oluşturmayı ve izlemeyi gösterir. Veri fabrikasındaki işlem hattı, Azure Blob Depolama’dan Azure SQL veritabanı’na veri kopyalamak için bir Kopyalama Etkinliği kullanır.
+
+Bu eğitimin bir parçası olarak gerçekleştireceğiniz adımlar şunlardır:
 
 Adım | Açıklama
 -----| -----------
 [Azure Data Factory oluşturma](#create-data-factory) | Bu adımda, **ADFTutorialDataFactory** adlı bir Azure data factory oluşturursunuz.  
 [Bağlı hizmetler oluşturma](#create-linked-services) | Bu adımda iki bağlı hizmet oluşturursunuz: **AzureStorageLinkedService** ve **AzureSqlLinkedService**. AzureStorageLinkedService Azure depolamayı, AzureSqlLinkedService de Azure SQL veritabanını ADFTutorialDataFactory konumuna bağlar. İşlem hattıyla ilgili girdi verileri Azure blob depolamadaki bir blob kapsayıcısında yer alırken çıktı verileri de Azure SQL veritabanındaki bir tabloda depolanır. Bu nedenle, bu iki veri deposunu bağlı hizmet olarak data factory’ye ekliyorsunuz.      
-[Girdi ve çıktı veri kümeleri oluşturma](#create-datasets) | Önceki adımda girdi/çıktı verilerini kapsayan veri depolarına başvuran bağlı hizmetleri oluşturdunuz. Bu adımda, **EmpTableFromBlob** ve **EmpSQLTable** adlı, veri depolarında depolanan girdi/çıktı verilerini temsil eden iki data factory tablosunu tanımlarsınız. EmpTableFromBlob için, kaynak verilere sahip bir blob’un bulunduğu blob kapsayıcısını, EmpSQLTable için de, çıktı verilerini depolayan SQL tablosunu belirtirsiniz. Yapı, kullanılabilirlik vb. gibi diğer özellikleri de belirtirsiniz. 
+[Girdi ve çıktı veri kümeleri oluşturma](#create-datasets) | Önceki adımda girdi/çıktı verilerini kapsayan veri depolarına başvuran bağlı hizmetleri oluşturdunuz. Bu adımda, **EmpTableFromBlob** ve **EmpSQLTable** adlı, veri depolarında depolanan girdi/çıktı verilerini temsil eden iki data factory tablosunu tanımlarsınız. EmpTableFromBlob için, kaynak verilere sahip bir blob’un bulunduğu blob kapsayıcısını, EmpSQLTable için de, çıktı verilerini depolayan SQL tablosunu belirtirsiniz. Yapı, kullanılabilirlik ve ilke gibi diğer özellikleri de belirtirsiniz. 
 [İşlem hattı oluşturma](#create-pipeline) | Bu adımda, ADFTutorialDataFactory’de **ADFTutorialPipeline** adlı işlem hattını oluşturursunuz. İşlem hattında, girdi verilerini Azure blob’tan çıktı Azure SQL tablosuna kopyalayan **Kopyalama Etkinliği** vardır. Kopyalama Etkinliği, Azure Data Factory’de veri hareketini gerçekleştirir. Bu etkinlik, çeşitli veri depolama alanları arasında güvenli, güvenilir ve ölçeklenebilir bir yolla veri kopyalayabilen genel olarak kullanılabilir bir hizmet tarafından desteklenir. Kopyalama etkinliği hakkında ayrıntılı bilgi için [Veri Taşıma Etkinlikleri](data-factory-data-movement-activities.md) makalesine bakın. 
 [İşlem hattını izleme](#monitor-pipeline) | Bu adımda, girdi ve çıktı tablolarının dilimlerini Azure Portal’ı kullanarak izlersiniz.
 
 > [AZURE.IMPORTANT] 
-> [Öğreticiye Genel Bakış](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) makalesini inceleyip, bu öğreticiyi gerçekleştirmeden önce önkoşul adımlarını tamamlayın.
+> [Öğreticiye Genel Bakış](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) makalesini inceleyin ve bu öğreticiyi uygulamadan önce **ön koşul** adımlarını tamamlayın.
 
 ## Veri fabrikası oluşturma
 Bu adımda **ADFTutorialDataFactory** adlı bir Azure data factory oluşturmak için Azure Portal’ı kullanırsınız.
@@ -51,7 +54,7 @@ Bu adımda **ADFTutorialDataFactory** adlı bir Azure data factory oluşturmak i
     1. **Ad** için **ADFTutorialDataFactory** girin. 
     
         ![Yeni veri fabrikası dikey penceresi][image-data-factory-getstarted-new-data-factory-blade]
-    2. **KAYNAK GRUBU ADI**’na tıklayın ve şunları yapın:
+    2. **KAYNAK GRUBU ADI**’na tıklayın ve aşağıdaki adımları uygulayın:
         1. **Yeni bir kaynak grubu oluştur**’a tıklayın.
         2. **Kaynak grubu oluştur** dikey penceresinde kaynak grubunun **adı** olarak **ADFTutorialResourceGroup** girin ve **Tamam**’a tıklayın. 
 
@@ -72,7 +75,7 @@ Bu adımda **ADFTutorialDataFactory** adlı bir Azure data factory oluşturmak i
     > Data Factory örnekleri oluşturmak için, Azure aboneliğinde katılımcı/yönetici rolünüz olmalıdır
 
 9. Soldaki **BİLDİRİMLER** hub’ına tıklayın ve oluşturma işlemine ait bildirimleri arayın. Açıksa, **BİLDİRİMLER** dikey penceresini kapatmak için **X** işaretine tıklayın. 
-10. Oluşturma işlemi tamamlandıktan sonra, aşağıda gösterildiği gibi **DATA FACTORY** dikey penceresini görürsünüz.
+10. Oluşturma işlemi tamamlandıktan sonra, görüntüde gösterildiği gibi **DATA FACTORY** dikey penceresini görürsünüz.
 
     ![Data factory giriş sayfası][image-data-factory-get-stated-factory-home-page]
 
@@ -151,7 +154,7 @@ Tablo dikdörtgen bir veri kümesidir ve bir şeması vardır. Bu adımda, **Azu
         }
 
         
-     Şunlara dikkat edin: 
+     Aşağıdaki noktalara dikkat edin: 
     
     - veri kümesi **türü** **AzureBlob** olarak ayarlanır.
     - **linkedServiceName** **AzureStorageLinkedService** olarak ayarlanır. Bu bağlı hizmeti 2. adımda oluşturmuştunuz.
@@ -213,7 +216,7 @@ Adımın bu bölümünde **EmpSQLTable** adlı bir çıktı veri kümesi oluştu
         }
 
         
-     Şunlara dikkat edin: 
+     Aşağıdaki noktalara dikkat edin: 
     
     * veri kümesi **türü** **AzureSQLTable** olarak ayarlanır.
     * **linkedServiceName** **AzureSqlLinkedService** olarak ayarlanır (bu bağlı hizmeti 2. adımda oluşturmuştunuz).
@@ -276,7 +279,7 @@ Su adımda, girdi olarak **EmpTableFromBlob**, çıktı olarak da **EmpSQLTable*
           }
         } 
 
-    Şunlara dikkat edin:
+    Aşağıdaki noktalara dikkat edin:
 
     - Etkinlikler bölümünde, **türü** **CopyActivity** olarak ayarlanmış yalnızca bir etkinlik vardır.
     - Etkinlik girdisi **EmpTableFromBlob** olarak, etkinlik çıktısı da **EmpSQLTable** olarak ayarlanmıştır.
@@ -303,7 +306,7 @@ Su adımda, girdi olarak **EmpTableFromBlob**, çıktı olarak da **EmpSQLTable*
 
     ![Data Factory Dikey Penceresi - Diyagram Kutucuğu][image-datafactoryblade-diagramtile]
 
-2. Aşağıdakine benzer bir diyagram görmeniz gerekir: 
+2. Aşağıdaki görüntüye benzer bir diyagram görmeniz gerekir: 
 
     ![Diyagram görünümü][image-data-factory-get-started-diagram-blade]
 
@@ -330,7 +333,7 @@ Bu adımda, Azure data factory’de neler olduğunu izlemek için Azure Portal k
     ![EmpTableFromBlob seçili olarak veri kümeleri][image-data-factory-get-started-datasets-emptable-selected]   
 5. Geçerli zamana kadar olan veri dilimlerinin zaten oluşturulmuş olduğunu ve **Hazır** olduğunu unutmayın; çünkü **emp.txt** dosyası her zaman şu blob kapsayıcısında yer almaktadır: **adftutorial\input**. Alttaki **En son başarısız olan dilimler** bölümünde hiç dilim gösterilmediğini onaylayın.
 
-    Hem **En son güncelleştirilen dilimler**, hem de **En son başarısız olan dilimler** listesi **SON GÜNCELLEŞTİRME ZAMANI**’na göre listelenir. Dilimin güncelleştirme zamanı aşağıdaki durumlarda değişir. 
+    Hem **En son güncelleştirilen dilimler**, hem de **En son başarısız olan dilimler** listesi **SON GÜNCELLEŞTİRME ZAMANI**’na göre listelenir. Dilimin güncelleştirme zamanı aşağıdaki durumlarda değişir: 
     
     Dilimlerin daha büyük listesini görmek için listeler başlığına veya **... (üç nokta)** seçeneğine tıklayın. Dilimlere filtre uygulamak için araç çubuğunda **Filtre**’ye tıklayın.  
     
@@ -462,6 +465,6 @@ Bu öğreticide Azure blob’undan Azure SQL veritabanına veri kopyalamak üzer
  
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

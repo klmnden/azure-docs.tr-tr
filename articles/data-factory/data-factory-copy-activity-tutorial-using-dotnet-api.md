@@ -13,18 +13,19 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="08/19/2016" 
+    ms.date="09/16/2016" 
     ms.author="spelluru"/>
+
 
 # Öğretici: .NET API kullanarak Kopyalama Etkinlikli bir işlem hattı oluşturma
 > [AZURE.SELECTOR]
-- [Öğreticiye Genel Bakış](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-- [Data Factory Düzenleyici’yi kullanma](data-factory-copy-activity-tutorial-using-azure-portal.md)
-- [PowerShell’i kullanma](data-factory-copy-activity-tutorial-using-powershell.md)
-- [Visual Studio’yu kullanma](data-factory-copy-activity-tutorial-using-visual-studio.md)
-- [REST API kullanma](data-factory-copy-activity-tutorial-using-rest-api.md)
-- [.NET API kullanma](data-factory-copy-activity-tutorial-using-dotnet-api.md)
-- [Kopyalama Sihirbazı'nı kullanma](data-factory-copy-data-wizard-tutorial.md)
+- [Genel bakış ve ön koşullar](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+- [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
+- [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
+- [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+- [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
+- [.NET API’si](data-factory-copy-activity-tutorial-using-dotnet-api.md)
+- [Kopyalama Sihirbazı](data-factory-copy-data-wizard-tutorial.md)
 
 Bu öğretici, .NET API kullanarak bir Azure veri fabrikası oluşturmayı ve izlemeyi gösterir. Veri fabrikasındaki işlem hattı, Azure Blob Depolama’dan Azure SQL veritabanı’na veri kopyalamak için bir Kopyalama Etkinliği kullanır.
 
@@ -33,8 +34,8 @@ Kopyalama Etkinliği, Azure Data Factory’de veri hareketini gerçekleştirir. 
 > [AZURE.NOTE] 
 > Bu makale, Data Factory .NET API’nin tamamını kapsamaz. Data Factory .NET SDK hakkında ayrıntılı bilgi için bkz. [Data Factory .NET API Başvurusu](https://msdn.microsoft.com/library/mt415893.aspx). 
 
-## Ön koşullar
-- Öğreticiye genel bir bakış atmak ve önkoşulları tamamlamak için [Öğreticiye Genel Bakış ve Önkoşullar](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) bölümündeki adımları tamamlayın. 
+## Önkoşullar
+- Öğreticiye genel bir bakış atmak ve **ön koşul** adımlarını tamamlamak için [Öğreticiye Genel Bakış ve Ön Koşullar](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) bölümündeki adımları tamamlayın. 
 - Visual Studio 2012 veya 2013 veya 2015
 - [Azure .NET SDK](http://azure.microsoft.com/downloads/)’yı indirip yükleyin
 - Azure PowerShell. Bilgisayarınıza Azure PowerShell’i yüklemek için [Azure PowerShell’i yükleme ve yapılandırma](../powershell-install-configure.md) makalesindeki yönergeleri izleyin. Azure PowerShell’i kullanarak bir Azure Active Directory uygulaması oluşturursunuz.
@@ -460,6 +461,6 @@ Bu adımlardan sonra aşağıdaki dört değere sahip olmanız gerekir:
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

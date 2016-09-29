@@ -13,27 +13,26 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="NA"
     ms.workload="data-catalog"
-    ms.date="07/06/2016"
+    ms.date="09/20/2016"
     ms.author="spelluru"/>
+
 
 # Azure Veri Kataloğu ile çalışmaya başlama
 Azure Veri Kataloğu kurumsal veri varlıkları için bir kayıt sistemi ve bulma sistemi olarak görev yapan tam yönetilen bir bulut hizmetidir. Ayrıntılı bir genel bakış için bkz. [Azure Veri Kataloğu nedir](data-catalog-what-is-data-catalog.md).
 
-Bu öğretici Azure Veri Kataloğu ile çalışmaya başlamanıza yardımcı olur. Bu öğreticide aşağıdaki yordamları gerçekleştireceksiniz:
+Bu öğretici Azure Veri Kataloğu ile çalışmaya başlamanıza yardımcı olur. Bu öğreticide aşağıdaki yordamları gerçekleştirirsiniz:
 
 | Yordam | Açıklama |
 | :--- | :---------- |
-| [Veri kataloğu hazırlama](#provision-data-catalog) | Bu yordamda Azure Veri Kataloğu hizmetini hazırlayacak veya ayarlayacaksınız. Bu adımı yalnızca katalog daha önce ayarlanmamışsa yapın. Azure hesabınızla ilişkili birden fazla abonelik olsa bile bir kuruluş (Microsoft Azure Active Directory etki alanı) için yalnızca bir veri kataloğunuz olabilir. |
-| [Veri varlıklarını kaydetme](#register-data-assets) | Bu yordamda AdventureWorks2014 örnek veritabanından veri varlıklarını veri kataloğuna kaydedeceksiniz. Kayıt, veri kaynağına ait adlar, türler ve konumlar gibi önemli yapısal meta verilerin ayıklanması ve meta verilerin kataloğa kopyalanması işlemidir. Veri kaynakları ve veri varlıkları olduğu yerde kalır, ancak katalog tarafından daha kolay bulunabilir ve anlaşılabilir hale getirilmeleri için meta veriler kullanılır. |
-| [Veri varlıklarını bulma](#discover-data-assets) | Bu yordamda, önceki adımda kaydedilen veri varlıklarını bulmak için Azure Veri Kataloğu portalını kullanacaksınız. Bir veri kaynağı Azure Veri Kataloğu’na kaydedildikten sonra kullanıcıların ihtiyaç duydukları verileri kolayca arayabilmesi için hizmet tarafından meta verileri için dizin oluşturulur. |
-| [Veri varlıklarına açıklama ekleme](#annotate-data-assets) | Bu yordamda, veri kaynağından ayıklanan meta verileri desteklemek ve veri kaynağını daha fazla insan için daha anlaşılır hale getirmek için ek açıklamalar (açıklamalar, etiketler, belgeler veya uzmanlar gibi bilgiler) sağlayacaksınız. |
-| [Veri varlıklarına bağlanma](#connect-to-data-assets) | Bu yordamda bağlantı bilgilerini kullanarak veri varlıklarını tümleşik istemci araçlarında (Excel ve SQL Server Veri Araçları gibi) ve tümleşik olmayan bir araçta (SQL Server Management Studio) açacaksınız. |
-| [Veri varlıklarını yönetme](#manage-data-assets) | Bu yordamda veri varlıklarınız için güvenliği ayarlayacaksınız. Veri Kataloğu kullanıcılara veri erişimi sağlamaz. Veri erişimini veri kaynağının sahibi denetler. <br/><br/> Veri Kataloğu ile veri kaynaklarını bulabilir ve kataloğa kayıtlı kaynaklarla ilgili **meta verileri** görüntüleyebilirsiniz. Ancak, veri kaynaklarının yalnızca belirli kullanıcılara veya belirli grupların üyelerine görünmesi gereken durumlar olabilir. Bu senaryolarda katalog içindeki kayıtlı veri kaynaklarının sahipliğini almak ve sahip olduğunuz kaynakların güvenilirliğini denetlemek üzere Veri Kataloğu hizmetini kullanabilirsiniz. |
-| [Veri varlıklarını kaldırma](#remove-data-assets) | Bu yordamda veri varlıklarını veri kataloğundan kaldırma hakkında bilgi edineceksiniz. |  
+| [Veri kataloğu hazırlama](#provision-data-catalog) | Bu yordamda Azure Veri Kataloğu hizmetini hazırlar veya ayarlarsınız. Bu adımı yalnızca katalog daha önce ayarlanmamışsa yapın. Azure hesabınızla ilişkili birden fazla abonelik olsa bile bir kuruluş (Microsoft Azure Active Directory etki alanı) için yalnızca bir veri kataloğunuz olabilir. |
+| [Veri varlıklarını kaydetme](#register-data-assets) | Bu yordamda AdventureWorks2014 örnek veritabanından veri varlıklarını veri kataloğuna kaydedersiniz. Kayıt, veri kaynağına ait adlar, türler ve konumlar gibi önemli yapısal meta verilerin ayıklanması ve meta verilerin kataloğa kopyalanması işlemidir. Veri kaynakları ve veri varlıkları olduğu yerde kalır, ancak katalog tarafından daha kolay bulunabilir ve anlaşılabilir hale getirilmeleri için meta veriler kullanılır. |
+| [Veri varlıklarını bulma](#discover-data-assets) | Bu yordamda, önceki adımda kaydedilen veri varlıklarını bulmak için Azure Veri Kataloğu portalını kullanırsınız. Bir veri kaynağı Azure Veri Kataloğu’na kaydedildikten sonra kullanıcıların ihtiyaç duydukları verileri kolayca arayabilmesi için hizmet tarafından meta verileri için dizin oluşturulur. |
+| [Veri varlıklarına açıklama ekleme](#annotate-data-assets) | Bu yordamda veri varlıkları için ek açıklamalar (açıklamalar, etiketler, belgeler veya uzmanlar gibi bilgiler) sağlarsınız. Bu bilgiler veri kaynağından ayıklanan meta verileri destekler ve veri kaynağını daha fazla kişi için anlaşılır hale getirir. |
+| [Veri varlıklarına bağlanma](#connect-to-data-assets) | Bu yordamda veri varlıklarını tümleşik istemci araçlarında (Excel ve SQL Server Veri Araçları gibi) ve tümleşik olmayan bir araçta (SQL Server Management Studio) açarsınız. |
+| [Veri varlıklarını yönetme](#manage-data-assets) | Bu yordamda veri varlıklarınız için güvenliği ayarlarsınız. Veri Kataloğu kullanıcılara veri erişimi sağlamaz. Veri erişimini veri kaynağının sahibi denetler. <br/><br/> Veri Kataloğu ile veri kaynaklarını bulabilir ve kataloğa kayıtlı kaynaklarla ilgili **meta verileri** görüntüleyebilirsiniz. Ancak, veri kaynaklarının yalnızca belirli kullanıcılara veya belirli grupların üyelerine görünmesi gereken durumlar olabilir. Bu senaryolarda katalog içindeki kayıtlı veri kaynaklarının sahipliğini almak ve sahip olduğunuz kaynakların güvenilirliğini denetlemek üzere Veri Kataloğu hizmetini kullanabilirsiniz. |
+| [Veri varlıklarını kaldırma](#remove-data-assets) | Bu yordamda veri varlıklarını veri kataloğundan kaldırma hakkında bilgi edinirsiniz. |  
 
 ## Öğretici önkoşulları
-
-Bu öğreticiye başlamadan önce aşağıdakilere sahip olmanız gerekir.
 
 ### Azure aboneliği
 Azure Veri Kataloğu’nu ayarlamak için bir Azure aboneliğinin sahibi veya ortak sahibi olmanız gerekir.
@@ -43,13 +42,13 @@ Azure abonelikleri Azure Veri Kataloğu gibi bulut hizmeti kaynaklarına erişim
 Bir aboneliğiniz yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/).
 
 ### Azure Active Directory
-Azure Veri Kataloğu’nu ayarlamak için bir Azure Active Directory (Azure AD) kullanıcı hesabıyla oturum açmanız gerekir. Kullanıcı bir Azure aboneliğinin sahibi veya ortak sahibi olmalıdır.  
+Azure Veri Kataloğu’nu ayarlamak için bir Azure Active Directory (Azure AD) kullanıcı hesabıyla oturum açmanız gerekir. Bir Azure aboneliğinin sahibi veya ortak sahibi olmanız gerekir.  
 
-Azure AD işletmenizin kimlik ve erişimi hem bulutta hem de şirket içinde yönetmesi için kolay bir yöntem sağlar. Kullanıcılar tek bir iş veya okul hesabı kullanarak herhangi bir bulut ya da şirket içi web uygulamasında oturum açabilir. Azure Veri Kataloğu, oturum açma kimliğini doğrulamak için Azure AD kullanır. Daha fazla bilgi için bkz. [Azure Active Directory Nedir](../active-directory/active-directory-whatis.md).
+Azure AD işletmenizin kimlik ve erişimi hem bulutta hem de şirket içinde yönetmesi için kolay bir yöntem sağlar. Tek bir iş veya okul hesabı kullanarak herhangi bir bulut ya da şirket içi web uygulamasında oturum açabilirsiniz. Azure Veri Kataloğu, oturum açma kimliğini doğrulamak için Azure AD kullanır. Daha fazla bilgi için bkz. [Azure Active Directory Nedir](../active-directory/active-directory-whatis.md).
 
 ### Azure Active Directory ilke yapılandırması
 
-Azure Veri Kataloğu portalında oturum açabildiğiniz, ancak veri kaynağı kayıt aracında oturum açmak istediğinizde oturum açmanızı engelleyen bir hata iletisiyle karşılaştığınız bir durum yaşayabilirsiniz. Bu durum şirket ağında olduğunuzda ya da şirket ağının dışından bağlantı kurduğunuzda gerçekleşebilir.
+Azure Veri Kataloğu portalında oturum açabildiğiniz, ancak veri kaynağı kayıt aracında oturum açmak istediğinizde oturum açmanızı engelleyen bir hata iletisiyle karşılaştığınız bir durum yaşayabilirsiniz. Bu hata şirket ağında olduğunuzda ya da şirket ağının dışından bağlantı kurduğunuzda gerçekleşebilir.
 
 Kayıt aracı, kullanıcının Azure Active Directory ile oturum açtığını doğrulamak için *form kimlik doğrulaması* kullanır. Başarılı bir oturum açma için Azure Active Directory yöneticisinin *genel kimlik doğrulama ilkesinde* form kimlik doğrulamasını etkinleştirmesi gerekir.
 
@@ -93,10 +92,10 @@ Bir kuruluş (Azure Active Directory etki alanı) için yalnızca bir tane veri 
     ![Azure Veri Kataloğu--fiyatlandırma katmanı](media/data-catalog-get-started/data-catalog-change-pricing-tier.png)
 
 ### Adventure Works örnek veritabanı
-Bu öğreticide SQL Server Database Engine için AdventureWorks2014 örnek veritabanından veri kaynaklarını (tablolar) kaydedeceksiniz, ancak bildiğiniz ve rolünüzle ilgili olan verilerle çalışmayı tercih ederseniz desteklenen herhangi bir veri kaynağını kullanabilirsiniz. Desteklenen veri kaynaklarının listesi için bkz. [Desteklenen veri kaynakları](data-catalog-dsr.md).
+Bu öğreticide SQL Server Database Engine için AdventureWorks2014 örnek veritabanından veri kaynaklarını (tablolar) kaydedersiniz, ancak bildiğiniz ve rolünüzle ilgili olan verilerle çalışmayı tercih ederseniz desteklenen herhangi bir veri kaynağını kullanabilirsiniz. Desteklenen veri kaynaklarının listesi için bkz. [Desteklenen veri kaynakları](data-catalog-dsr.md).
 
 ### Adventure Works 2014 OLTP veritabanını yükleme
-Adventure Works veritabanı; ürünler, satış ve satın almayı içeren kurgusal bir bisiklet üreticisine (Adventure Works Cycles) yönelik standart çevrimiçi işlem gerçekleştirme senaryolarını destekler. Bu öğreticide, ürünlerle ilgili bilgileri Azure Veri Kataloğu'na kaydedersiniz.
+Adventure Works veritabanı; ürünler, satış ve satın almayı içeren kurgusal bir bisiklet üreticisine (Adventure Works Cycles) yönelik standart çevrimiçi işlem gerçekleştirme senaryolarını destekler. Bu öğreticide ürünlerle ilgili bilgileri Azure Veri Kataloğu'na kaydedersiniz.
 
 Adventure Works örnek veritabanını yüklemek için:
 
@@ -118,7 +117,7 @@ Bu alıştırmada, Adventure Works veritabanından veri varlıklarını kataloğ
 
 ### Veri kaynağını kaydetme
 
-1.  [Azure Veri Kataloğu giriş sayfasına](https://azuredatacatlog.com) gidin ve **Verileri Yayımla**’ya tıklayın.
+1.  [Azure Veri Kataloğu giriş sayfasına](https://azuredatacatalog.com) gidin ve **Verileri Yayımla**’ya tıklayın.
 
     ![Azure Veri Kataloğu--Verileri Yayımla düğmesi](media/data-catalog-get-started/data-catalog-publish-data.png)
 
@@ -142,12 +141,12 @@ Bu alıştırmada, Adventure Works veritabanından veri varlıklarını kataloğ
 
     1. **Sunucu Hiyerarşisi** ağacında **AdventureWorks2014**’ü genişletin ve **Üretim**’e tıklayın.
     2. Ctrl tuşuna basıp tıklayarak **Product**, **ProductCategory**, **ProductDescription** ve **ProductPhoto** seçimini yapın.
-    3. **Seçili oku taşı** öğesine tıklayın (**>**). Bunun yapılması seçilen tüm nesneleri **Kaydedilecek nesneler** listesine taşır.
+    3. **Seçili oku taşı** öğesine tıklayın (**>**). Bu eylem seçilen tüm nesneleri **Kaydedilecek nesneler** listesine taşır.
 
         ![Azure Veri Kataloğu öğreticisi--nesnelere göz atma ve seçme](media/data-catalog-get-started/data-catalog-server-hierarchy.png)
     4. Verilerin bir anlık görüntü önizlemesini dahil etmek için **Önizleme Ekle**’yi seçin. Anlık görüntü her tablodan en fazla 20 kayıt içerir ve kataloğa kopyalanır.
     5. Veri profili için nesne istatistiklerinin bir anlık görüntüsünü dahil etmek üzere **Veri Profili Ekle**’yi seçin (örneğin: bir sütun için en küçük, en büyük ve ortalama değerler, satır sayısı).
-    6. **Etiket ekle** alanına **adventure works, cycles** yazın. Bu, söz konusu veri varlıklarına arama etiketleri ekler. Etiketler, kullanıcıların kayıtlı bir veri kaynağını bulmasına yardımcı olmak için kullanışlı bir yoludur.
+    6. **Etiket ekle** alanına **adventure works, cycles** yazın. Bu eylem söz konusu veri varlıklarına arama etiketleri ekler. Etiketler, kullanıcıların kayıtlı bir veri kaynağını bulmasına yardımcı olmak için kullanışlı bir yoludur.
     7. Bu veriler için bir **uzman** adı belirtin (isteğe bağlı).
 
         ![Azure Veri Kataloğu öğreticisi--kaydedilecek nesneler](media/data-catalog-get-started/data-catalog-objects-register.png)
@@ -180,7 +179,7 @@ Katalogdaki veri varlıklarını bulmaya yönelik birkaç örnek aşağıda veri
 Basit arama bir veya daha fazla arama terimi kullanarak bir katalogda arama yapmanıza yardımcı olur. Sonuçlar herhangi bir özellikte belirtilen terimlerin bir veya daha fazlasıyla eşleşen tüm varlıkları içerir.
 
 1. Azure Veri Kataloğu portalında **Giriş**’e tıklayın. Web tarayıcısını kapattıysanız [Azure Veri Kataloğu giriş sayfasına](https://www.azuredatacatalog.com) gidin.
-2. Arama kutusuna **cycles** yazın ve **ENTER** tuşuna basın.
+2. Arama kutusuna `cycles` yazın ve **ENTER** tuşuna basın.
 
     ![Azure Veri Kataloğu--basit metin araması](media/data-catalog-get-started/data-catalog-basic-text-search.png)
 3. Sonuçlarda dört tablonun tamamını ve veritabanını (AdventureWorks2014) gördüğünüzü onaylayın. Aşağıdaki görüntüde gösterildiği gibi araç çubuğundaki düğmelere tıklayarak **ızgara görünümü** ile **liste görünümü** arasında geçiş yapabilirsiniz. **Vurgula** seçeneği **Açık** olduğu için arama anahtar sözcüğü arama sonuçlarında vurgulanır. Arama sonuçlarında **sayfa başına sonuç** sayısını da belirtebilirsiniz.
@@ -204,7 +203,7 @@ Basit arama bir veya daha fazla arama terimi kullanarak bir katalogda arama yapm
 Özellik kapsamı, arama teriminin belirtilen özellikle eşleştirildiği veri varlıklarını bulmanıza yardımcı olur.
 
 1. **Filtreler** içindeki **Nesne Türü** altında **Tablo** filtresini temizleyin.  
-2. Arama kutusuna **tags:cycles** yazın ve **ENTER** tuşuna basın. Veri kataloğunu aramak üzere kullanabileceğiniz tüm özellikler için bkz. [Veri Kataloğu Arama söz dizimi başvurusu](https://msdn.microsoft.com/library/azure/mt267594.aspx).
+2. Arama kutusuna `tags:cycles` yazın ve **ENTER** tuşuna basın. Veri kataloğunu aramak üzere kullanabileceğiniz tüm özellikler için bkz. [Veri Kataloğu Arama söz dizimi başvurusu](https://msdn.microsoft.com/library/azure/mt267594.aspx).
 3. Sonuçlarda dört tablonun tamamını ve veritabanını (AdventureWorks2014) gördüğünüzü onaylayın.  
 
     ![Veri Kataloğu--özellik kapsamı arama sonuçları](media/data-catalog-get-started/data-catalog-property-scoping-results.png)
@@ -223,7 +222,7 @@ Basit arama bir veya daha fazla arama terimi kullanarak bir katalogda arama yapm
 ### Boole işleçleri
 Aramanızı Boole işleçleriyle genişletebilir veya daraltabilirsiniz.
 
-1. Arama kutusuna **tags:cycles AND objectType:table** yazın ve **ENTER** tuşuna basın.
+1. Arama kutusuna `tags:cycles AND objectType:table` yazın ve **ENTER** tuşuna basın.
 2. Sonuçlarda yalnızca tabloları (veritabanı değil) gördüğünüzü onaylayın.  
 
     ![Azure Veri Kataloğu--aramada Boole işleci](media/data-catalog-get-started/data-catalog-search-boolean-operator.png)
@@ -231,7 +230,7 @@ Aramanızı Boole işleçleriyle genişletebilir veya daraltabilirsiniz.
 ### Parantezler ile gruplandırma
 Parantezler ile gruplandırma yaparak, özellikle Boole işleçleri ile birlikte mantıksal ayırma sağlamak için sorgunun bölümlerini gruplandırabilirsiniz.
 
-1. Arama kutusuna **name:product AND (tags:cycles AND objectType:table)** yazın ve **ENTER** tuşuna basın.
+1. Arama kutusuna `name:product AND (tags:cycles AND objectType:table)` yazın ve **ENTER** tuşuna basın.
 2. Arama sonuçlarında yalnızca **Ürün** tablosunu gördüğünüzü onaylayın.
 
     ![Azure Veri Kataloğu--gruplandırma araması](media/data-catalog-get-started/data-catalog-grouping-search.png)   
@@ -239,7 +238,7 @@ Parantezler ile gruplandırma yaparak, özellikle Boole işleçleri ile birlikte
 ### Karşılaştırma işleçleri
 Karşılaştırma işleçleri ile sayısal ve tarih veri türlerine sahip özellikler için eşitlik dışındaki karşılaştırmaları kullanabilirsiniz.
 
-1. Arama kutusuna **lastRegisteredTime:>"06/09/2016"** yazın.
+1. Arama kutusuna `lastRegisteredTime:>"06/09/2016"` yazın.
 2. **Nesne Türü** altındaki **Tablo** filtresini temizleyin.
 3. **ENTER**'a basın.
 4. Arama sonuçlarında **Product**, **ProductCategory**, **ProductDescription** ve **ProductPhoto** tablolarını ve kaydettiğiniz AdventureWorks2014 veritabanını gördüğünüzü onaylayın.
@@ -249,11 +248,11 @@ Karşılaştırma işleçleri ile sayısal ve tarih veri türlerine sahip özell
 Veri varlıklarını bulma hakkında ayrıntılı bilgi için [Veri varlıklarını bulma](data-catalog-how-to-discover.md), arama söz dizimi için [Veri Kataloğu Arama söz dizimi başvurusu](https://msdn.microsoft.com/library/azure/mt267594.aspx) bölümüne bakın.
 
 ## Veri varlıklarına açıklama ekleme
-Bu alıştırmada daha önce kataloğa kaydettiğiniz veri kaynaklarına açıklama eklemek (açıklamalar, etiketler veya uzmanlar) için Azure Veri Kataloğu portalını kullanırsınız. Sağladığınız ek açıklamalar, kayıt sırasında veri kaynağından ayıklanan yapısal meta verileri destekleyip geliştirecek ve veri varlıklarının bulunmasını ve anlaşılmasını çok daha kolay hale getirecektir.
+Bu alıştırmada daha önce kataloğa kaydettiğiniz veri kaynaklarına açıklama eklemek (açıklamalar, etiketler veya uzmanlar) için Azure Veri Kataloğu portalını kullanırsınız. Ek açıklamalar, kayıt sırasında veri kaynağından ayıklanan yapısal meta verileri destekleyip geliştirir ve veri varlıklarının bulunmasını ve anlaşılmasını çok daha kolay hale getirir.
 
-Bu alıştırmada tek bir veri varlığına (ProductPhoto) açıklama ekleyeceksiniz. ProductPhoto veri varlığına kolay bir ad ve açıklama ekleyeceksiniz.  
+Bu alıştırmada tek bir veri varlığına (ProductPhoto) açıklama eklersiniz. ProductPhoto veri varlığına kolay bir ad ve açıklama eklersiniz.  
 
-1.  [Azure Veri Kataloğu giriş sayfasına](https://www.azuredatacatalog.com) gidin ve **tags:cycles** ile arama yaparak kaydettiğiniz veri varlıklarını bulun.  
+1.  [Azure Veri Kataloğu giriş sayfasına](https://www.azuredatacatalog.com) gidin ve `tags:cycles` ile arama yaparak kaydettiğiniz veri varlıklarını bulun.  
 2. Arama sonuçlarında **ProductPhoto** öğesine tıklayın.  
 3. **Kolay Ad** için **Ürün görüntüleri** ve **Açıklama** için **Pazarlama malzemeleri için ürün fotoğrafları** yazın.
 
@@ -285,7 +284,7 @@ Azure Veri Kataloğu, ek açıklamalara yönelik kitle kaynak yaklaşımını de
 Veri varlıklarına açıklama ekleme hakkında ayrıntılı bilgi için bkz. [Veri varlıklarına açıklama ekleme](data-catalog-how-to-annotate.md).
 
 ## Veri varlıklarına bağlanma
-Bu alıştırmada bağlantı bilgilerini kullanarak veri varlıklarını tümleşik bir istemci aracında (Excel) ve tümleşik olmayan bir araçta (SQL Server Management Studio) açacaksınız.
+Bu alıştırmada bağlantı bilgilerini kullanarak veri varlıklarını tümleşik bir istemci aracında (Excel) ve tümleşik olmayan bir araçta (SQL Server Management Studio) açarsınız.
 
 > [AZURE.NOTE] Azure Veri Kataloğu gerçek veri kaynağına erişmenizi sağlamak; yalnızca onu bulup anlamanızı kolaylaştırır. Bir veri kaynağına bağlandığınızda seçtiğiniz istemci uygulaması Windows kimlik bilgilerinizi kullanır veya gerektiğinde kimlik bilgilerinizi ister. Daha önce veri kaynağı için size erişim verilmemişse bağlanabilmeniz için ilk olarak erişim verilmesi gerekir.
 
@@ -307,7 +306,7 @@ Bu alıştırmada bağlantı bilgilerini kullanarak veri varlıklarını tümle�
 
     ![Azure Veri Kataloğu--Excel’deki ürün tablosu](media/data-catalog-get-started/data-catalog-connect2.png)
 
-Bu alıştırmada Azure Veri Kataloğu kullanarak bulunan veri varlıklarına bağlandınız. Azure Veri Kataloğu portalı ile **İçinde Aç** menüsüne tümleştirilmiş istemci uygulamalarını kullanarak doğrudan bağlantı kurabilirsiniz. Ayrıca varlık meta verilerine dahil edilen bağlantı konumu bilgilerini kullanarak seçtiğiniz herhangi bir uygulamayla bağlantı kurabilirsiniz. Örneğin, bu öğreticide kaydedilen veri varlıklarındaki verilere erişmek için SQL Server Management Studio’yu kullanarak AdventureWorks2014 veritabanına erişebilirsiniz.
+Bu alıştırmada Azure Veri Kataloğu kullanarak bulunan veri varlıklarına bağlandınız. Azure Veri Kataloğu portalı ile **Şurada Aç** menüsüne tümleştirilmiş istemci uygulamalarını kullanarak doğrudan bağlantı kurabilirsiniz. Ayrıca varlık meta verilerine dahil edilen bağlantı konumu bilgilerini kullanarak seçtiğiniz herhangi bir uygulamayla bağlantı kurabilirsiniz. Örneğin, bu öğreticide kaydedilen veri varlıklarındaki verilere erişmek için SQL Server Management Studio’yu kullanarak AdventureWorks2014 veritabanına erişebilirsiniz.
 
 1. **SQL Server Management Studio**’yu açın.
 2. **Sunucuya Bağlan** iletişim kutusunda Azure Veri Kataloğu portalındaki **Özellikler** bölmesinde bulunan sunucu adını girin.
@@ -318,7 +317,7 @@ Bu alıştırmada Azure Veri Kataloğu kullanarak bulunan veri varlıklarına ba
 ADF.NET, ODBC ve OLEDB bağlantı ayarlarını görüntüleyip, uygulamanızda kullanmak üzere panoya kopyalamak için **Bağlantı Dizelerini Görüntüle**’ye tıklayın.
 
 ## Veri varlıklarını yönetme
-Bu adımda veri varlıklarınız için güvenliği ayarlayacaksınız. Veri Kataloğu kullanıcılara veri erişimi sağlamaz. Veri erişimini veri kaynağının sahibi denetler.
+Bu adımda veri varlıklarınız için güvenliği ayarlarsınız. Veri Kataloğu kullanıcılara veri erişimi sağlamaz. Veri erişimini veri kaynağının sahibi denetler.
 
 Veri Kataloğu’nu kullanarak veri kaynaklarını bulabilir ve kataloğa kayıtlı kaynaklarla ilgili meta verileri görüntüleyebilirsiniz. Ancak, veri kaynaklarının yalnızca belirli kullanıcılara veya belirli grupların üyelerine görünmesi gereken durumlar olabilir. Bu senaryolarda katalog içindeki kayıtlı veri kaynaklarının sahipliğini almak ve sonra sahip olduğunuz kaynakların güvenilirliğini denetlemek üzere Veri Kataloğu hizmetini kullanabilirsiniz.
 
@@ -327,7 +326,7 @@ Azure Veri Kataloğu'nda veri varlıklarının sahipliğini alabilir, veri varl�
 
 ### Veri varlıklarının sahipliğini alma ve görünürlüğü kısıtlama
 
-1. [Azure Veri Kataloğu giriş sayfasına](https://www.azuredatacatalog.com) gidin. **Arama** metin kutusuna **tags:cycles** yazın ve **ENTER** tuşuna basın.
+1. [Azure Veri Kataloğu giriş sayfasına](https://www.azuredatacatalog.com) gidin. **Arama** metin kutusuna `tags:cycles` yazın ve **ENTER** tuşuna basın.
 2. Sonuç listesindeki bir öğeye ve araç çubuğundaki **Sahipliği Al** öğesine tıklayın.
 3. **Özellikler** panelinin **Yönetim** bölümünde **Sahipliği Al** öğesine tıklayın.
 
@@ -338,17 +337,17 @@ Azure Veri Kataloğu'nda veri varlıklarının sahipliğini alabilir, veri varl�
 
 ## Veri varlıklarını kaldırma
 
-Bu alıştırmada, önizleme verilerini kayıtlı veri varlıklarından kaldırmak ve veri varlıklarını katalogdan silmek için Azure Veri Kataloğu portalını kullanacaksınız.
+Bu alıştırmada, önizleme verilerini kayıtlı veri varlıklarından kaldırmak ve veri varlıklarını katalogdan silmek için Azure Veri Kataloğu portalını kullanırsınız.
 
 Azure Veri Kataloğu'nda tek bir varlığı veya birden çok varlığı silebilirsiniz.
 
 1. [Azure Veri Kataloğu giriş sayfasına](https://www.azuredatacatalog.com) gidin.
-2. **Arama** metin kutusuna **tags:cycles** yazın ve **ENTER** tuşuna tıklayın.
-3. Sonuç listesinden bir öğe seçin ve aşağıdaki görüntüde gösterildiği gibi araç çubuğunda **Sil** öğesine tıklayın.
+2. **Arama** metin kutusuna `tags:cycles` yazın ve **ENTER** seçeneğine tıklayın.
+3. Sonuç listesinden bir öğe seçin ve aşağıdaki görüntüde gösterildiği gibi araç çubuğunda **Sil** öğesine tıklayın:
 
     ![Azure Veri Kataloğu--ızgara öğesini silme](media/data-catalog-get-started/data-catalog-delete-grid-item.png)
 
-    Liste görünümünü kullanıyorsanız aşağıdaki görüntüde gösterildiği gibi onay kutusu öğenin sol tarafındadır.
+    Liste görünümünü kullanıyorsanız aşağıdaki görüntüde gösterildiği gibi onay kutusu öğenin sol tarafındadır:
 
     ![Azure Veri Kataloğu--liste öğesini silme](media/data-catalog-get-started/data-catalog-delete-list-item.png)
 
@@ -375,6 +374,6 @@ Bu öğreticide, kurumsal veri varlıklarını kaydetme, bulma, yönetme ve bunl
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

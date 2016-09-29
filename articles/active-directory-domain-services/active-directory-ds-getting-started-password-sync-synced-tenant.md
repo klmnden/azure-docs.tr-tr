@@ -13,30 +13,30 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="09/07/2016"
+    ms.date="09/20/2016"
     ms.author="maheshu"/>
 
-# Azure AD Etki Alanı Hizmetleri *(Önizleme)* - Azure AD Etki Alanı Hizmetleri için parola eşitlemeyi etkinleştirme
 
-## Görev 5: Eşitlenmiş Azure AD kiracısı için AAD Etki Alanı Hizmetleri'ne parola eşitlemeyi etkinleştirme
-Azure AD dizininiz için Azure AD Etki Alanı Hizmetleri'ni etkinleştirdikten sonra, sıradaki görev Azure AD Etki Alanı Hizmetleri'ne parolaların eşitlenmesini etkinleştirmektir. Bunu gerçekleştirdiğinizde, kullanıcılar etki alanında şirket kimlik bilgilerini kullanarak oturum açabilir.
+# Azure AD Domain Services için parola eşitlemeyi etkinleştirme
+Önceki görevlerde Azure AD kiracınız için Azure AD Etki Alanı Hizmetleri’ni etkinleştirdiniz. Bir sonraki göreviniz, Azure AD Domain Services'de parola eşitlemeyi etkinleştirmektir. Kimlik bilgisi eşitlemesi ayarlandıktan sonra kullanıcılar, şirket kimlik bilgilerini kullanarak yönetilen etki alanında oturum açabilir.
 
-Uygulanan adımlar, kuruluşunuzun yalnızca bulutta yer alan bir Azure AD dizinine sahip olmasına veya Azure AD Connect yoluyla şirket içi dizininizle eşitlenmek üzere ayarlanmış olmasına göre değişiklik gösterir.
+Uygulanan adımlar, kuruluşunuzun yalnızca bulutta yer alan bir Azure AD kiracısına sahip olmasına veya Azure AD Connect yoluyla şirket içi dizininizle eşitlenmek üzere ayarlanmış olmasına göre değişiklik gösterir.
 
 <br>
 
 > [AZURE.SELECTOR]
-- [Yalnızca bulutta yer alan Azure AD dizini](active-directory-ds-getting-started-password-sync.md)
-- [Eşitlenmiş Azure AD dizini](active-directory-ds-getting-started-password-sync-synced-tenant.md)
+- [Yalnızca bulutta yer alan Azure AD kiracısı](active-directory-ds-getting-started-password-sync.md)
+- [Eşitlenmiş Azure AD kiracısı](active-directory-ds-getting-started-password-sync-synced-tenant.md)
 
 <br>
 
-### Eşitlenmiş kiracılar - NTLM ve Kerberos kimlik bilgisi karmalarının Azure AD'ye eşitlenmesini etkinleştirme
+
+## Görev 5: Eşitlenmiş Azure AD kiracısı için AAD Etki Alanı Hizmetleri'ne parola eşitlemeyi etkinleştirme
 Eşitlenen bir Azure AD kiracısı, Azure AD Connect kullanarak kuruluşunuzun şirket içi dizini ile eşitlenecek şekilde ayarlanır. Azure AD Connect, varsayılan olarak NTLM ve Kerberos kimlik bilgisi karmalarını Azure AD ile eşitlemez. Azure AD Etki Alanı Hizmetleri’ni kullanmak için, Azure AD Connect’i NTLM ve Kerberos kimlik doğrulamasında gereken kimlik bilgisi karmalarını eşitleyecek şekilde yapılandırmanız gerekir. Aşağıdaki adımlar, gerekli kimlik bilgisi karmalarının Azure AD kiracınız ile eşitlenmesini etkinleştirir.
 
-#### Azure AD Connect'i yükleme veya güncelleştirme 
 
-Azure AD Connect'in en yeni önerilen sürümünü etki alanına katılan bir bilgisayara yüklemeniz gerekir. Azure AD Connect kurulumunun var olan bir örneğine sahipseniz, bu örneği Azure AD Connect’in en yeni sürümünü kullanacak şekilde güncelleştirmelisiniz. Düzeltilmiş olabilecek bilinen sorunlardan/hatalardan kaçınmak için her zaman Azure AD Connect'in en yeni sürümünü kullandığınızdan emin olun.
+### Azure AD Connect'i yükleme veya güncelleştirme 
+Etki alanına katılan bir bilgisayara, Azure AD Connect'in önerilen en son sürümünü yükleyin. Azure AD Connect kurulumunun var olan bir örneğine sahipseniz, bu örneği Azure AD Connect’in en yeni sürümünü kullanacak şekilde güncelleştirmelisiniz. Düzeltilmiş olabilecek bilinen sorunlardan/hatalardan kaçınmak için her zaman Azure AD Connect'in en yeni sürümünü kullandığınızdan emin olun.
 
 **[Azure AD Connect'i indirme](http://www.microsoft.com/download/details.aspx?id=47594)**
 
@@ -47,8 +47,7 @@ Azure AD Connect'in en yeni önerilen sürümünü etki alanına katılan bir bi
 Azure AD Connect'i yükleme talimatları şu makalede bulunabilir - [Azure AD Connect ile çalışmaya başlama](../active-directory/active-directory-aadconnect.md)
 
 
-#### Azure AD için tam parola eşitlemesini zorlama
-
+### NTLM ve Kerberos kimlik bilgisi karmalarını Azure AD'ye eşitlemeyi etkinleştirme
 Tam parola eşitlemesini zorlamak ve tüm şirket içi kullanıcılara ait kimlik bilgisi karmalarının Azure AD kiracınız ile eşitlenmesini sağlamak için her AD ormanında aşağıdaki PowerShell betiğini yürütün. Bu betik, NTLM/Kerberos kimlik doğrulaması için gerekli olan kimlik bilgisi karmalarının Azure AD kiracınız ile eşitlenmesini sağlar.
 
 ```
@@ -82,6 +81,6 @@ Dizininizin boyutuna bağlı olarak (kullanıcıların, grupların vb. sayısı)
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

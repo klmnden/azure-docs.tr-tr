@@ -13,10 +13,11 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="09/08/2016"
+    ms.date="09/20/2016"
     ms.author="maheshu"/>
 
-# Azure AD Etki Alanı Hizmetleri *(Önizleme)* - Azure AD Etki Alanı Hizmetleri için parola eşitlemeyi etkinleştirme
+
+# Azure AD Domain Services için parola eşitlemeyi etkinleştirme
 Önceki görevlerde Azure AD kiracınız için Azure AD Etki Alanı Hizmetleri’ni etkinleştirdiniz. Sıradaki görev, NTLM ve Kerberos kimlik doğrulamasını Azure AD Etki Alanı Hizmetleri ile eşitlemek için gereken kimlik bilgisi karmalarını etkinleştirmektir. Kimlik bilgisi eşitlemesi ayarlandıktan sonra kullanıcılar, şirket kimlik bilgilerini kullanarak yönetilen etki alanında oturum açabilir.
 
 Uygulanan adımlar, kuruluşunuzun yalnızca bulutta yer alan bir Azure AD kiracısına sahip olmasına veya Azure AD Connect yoluyla şirket içi dizininizle eşitlenmek üzere ayarlanmış olmasına göre değişiklik gösterir.
@@ -61,11 +62,11 @@ Parolanızı değiştirdikten sonra, yeni parola kısa süre içinde Azure AD Et
 
 ## İlgili İçerik
 
-- [Eşitlenmiş Azure AD kiracısı için AAD Etki Alanı Hizmetleri'ne parola eşitlemeyi etkinleştirme](active-directory-ds-getting-started-password-sync-synced-tenant.md)
-
 - [Kendi parolanızı güncelleştirme](../active-directory/active-directory-passwords-update-your-own-password.md)
 
 - [Azure AD’de Parola Yönetimine başlarken](../active-directory/active-directory-passwords-getting-started.md).
+
+- [Eşitlenmiş Azure AD kiracısı için AAD Etki Alanı Hizmetleri'ne parola eşitlemeyi etkinleştirme](active-directory-ds-getting-started-password-sync-synced-tenant.md)
 
 - [Azure AD Etki Alanı Hizmetleri tarafından yönetilen etki alanını yönetme](active-directory-ds-admin-guide-administer-domain.md)
 
@@ -75,6 +76,6 @@ Parolanızı değiştirdikten sonra, yeni parola kısa süre içinde Azure AD Et
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

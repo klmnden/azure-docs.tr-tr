@@ -13,15 +13,16 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="07/29/2016"
+    ms.date="09/15/2016"
     ms.author="markgal; jimpark"/>
+
 
 
 # İlk bakış: Azure sanal makinelerini yedekleme
 
 > [AZURE.SELECTOR]
-- [İlk bakış: Sanal makineleri bir kurtarma hizmetleri kasasıyla koruma](backup-azure-vms-first-look-arm.md)
-- [İlk Bakış: Azure sanal makinelerini bir yedekleme kasasıyla koruma](backup-azure-vms-first-look.md)
+- [VM'leri bir kurtarma hizmetleri kasasıyla koruma](backup-azure-vms-first-look-arm.md)
+- [Azure VM'lerini yedekleme kasasıyla koruma](backup-azure-vms-first-look.md)
 
 Bu öğretici bir Azure sanal makinesini (VM) Azure'daki bir yedekleme kasasına yedeklemeye yönelik adımlar boyunca size yol gösterir. Bu makalede sanal makineleri yedeklemeye yönelik Klasik modeli veya Service Manager dağıtım modeli açıklanmaktadır. Bir sanal makineyi bir Kaynak Grubuna ait Kurtarma Hizmetleri kasasına yedeklemek istiyorsanız bkz. [İlk bakış: Sanal makineleri bir kurtarma hizmetleri kasasıyla koruma](backup-azure-vms-first-look-arm.md). Bu öğreticiyi başarıyla tamamlamak için şu önkoşulların mevcut olması gerekir:
 
@@ -225,6 +226,6 @@ Sorularınız varsa veya dahil edilmesini istediğiniz herhangi bir özellik var
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -1,9 +1,9 @@
 <properties
-    pageTitle="PlayReady ve/veya Widevine Dinamik Ortak Şifreleme Kullanma"
+    pageTitle="PlayReady ve/veya Widevine dinamik ortak şifreleme kullanma | Microsoft Azure"
     description="Microsoft Azure Media Services, Microsoft PlayReady DRM korumalı MPEG-DASH, Kesintisiz Akış ve Http Canlı Akış (HLS) akışlar sunmanıza olanak sağlar. Ayrıca, Widevine DRM ile şifrelenmiş DASH teslim etmenizi sağlar. Bu konuda, PlayReady ve Widevine DRM ile nasıl dinamik olarak şifreleme yapılacağı gösterilmektedir."
     services="media-services"
     documentationCenter=""
-    authors="Juliako,Mingfeiy"
+    authors="juliako"
     manager="erikre"
     editor=""/>
 
@@ -13,11 +13,12 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article" 
-    ms.date="06/22/2016"
+    ms.date="09/27/2016"
     ms.author="juliako"/>
 
 
-#PlayReady ve/veya Widevine Dinamik Ortak Şifreleme Kullanma
+
+#PlayReady ve/veya Widevine dinamik ortak şifreleme kullanma
 
 > [AZURE.SELECTOR]
 - [.NET](media-services-protect-with-drm.md)
@@ -37,7 +38,7 @@ Dinamik şifrelemeden yararlanmak için, bir grup çoklu bit hızlı MP4 dosyas�
 
 Bu konu, PlayReady ve Widevine benzeri birden çok DRM ile korunan medya teslim eden uygulamalar üzerinde çalışan geliştiricilere yararlı olacaktır. Konuda, yalnızca yetkili istemcilerin PlayReady veya Widevine lisansları alabilmesini sağlamak üzere PlayReady lisans teslimat hizmetinin yetkilendirme ilkeleri ile nasıl yapılandırılacağı gösterilmektedir. Ayrıca, PlayReady veya Widevine DRM ile DASH üzerinde dinamik şifrelemenin nasıl kullanılacağı açıklanmaktadır.
 
->[AZURE.NOTE]Dinamik şifreleme kullanmaya başlamak için önce en az bir ölçek birimi (akış birimi olarak da bilinir) almanız gerekir. Daha fazla bilgi için bkz. [Medya Hizmetini Ölçeklendirme](media-services-manage-origins.md#scale_streaming_endpoints).
+>[AZURE.NOTE]Dinamik şifreleme kullanmaya başlamak için önce en az bir ölçek birimi (akış birimi olarak da bilinir) almanız gerekir. Daha fazla bilgi için bkz. [Bir Medya Hizmetini Ölçekleme](media-services-portal-manage-streaming-endpoints.md).
 
 
 ##Örnek indirme
@@ -48,15 +49,15 @@ Bu makalede açıklanan örneği [buradan](https://github.com/Azure-Samples/medi
 
 Media Services lisans teslimat hizmeti ve dinamik şifreleme kullanarak PlayReady ile varlıklarınızı korurken gerçekleştirmeniz gereken genel adımlar aşağıdadır.
 
-1. Bir varlık oluşturun ve dosyaları varlığa yükleyin. 
+1. Bir varlık oluşturun ve dosyaları varlığa yükleyin.
 1. Dosyayı içeren varlığı, bit hızı uyarlamalı MP4 kümesine kodlayın.
-1. Bir içerik anahtarı oluşturup kodlanmış varlıkla ilişkilendirin. Media Services’de, içerik anahtarı varlığın şifreleme anahtarını içerir. 
+1. Bir içerik anahtarı oluşturup kodlanmış varlıkla ilişkilendirin. Media Services’de, içerik anahtarı varlığın şifreleme anahtarını içerir.
 1. İçerik anahtarının yetkilendirme ilkesini yapılandırın. İçerik anahtarının istemciye teslimi için, içerik anahtarı yetkilendirme ilkesinin tarafınızdan yapılandırılması ve istemci tarafından karşılanması gerekir.
 
-    İçerik anahtarı yetkilendirme ilkesini oluştururken şunları belirtmeniz gerekir: teslim yöntemi (PlayReady veya Widevine), kısıtlamalar (açık veya belirteç) ve anahtarın istemciye nasıl teslim edildiğini tanımlayan anahtar teslim türüne özgü bilgiler ([PlayReady](media-services-playready-license-template-overview.md) veya [Widevine](media-services-widevine-license-template-overview.md) lisans şablonu). 
-1. Varlıklara ilişkin teslim ilkesini yapılandırın. Teslim ilkesi yapılandırması şunları içerir: teslim protokolü (örneğin MPEG DASH, HLS, HDS, Kesintisiz Akış veya tümü), dinamik şifreleme türü (Ortak Şifreleme gibi), PlayReady veya Widevine lisans edinme URL’si. 
- 
-    Bir varlıktaki her bir protokole farklı birer ilke uygulayabilirsiniz. Örneğin, Kesintisiz/DASH için PlayReady şifreleme ve HLS için AES Zarfı uygulayabilirsiniz. Herhangi bir teslim ilkesinde tanımlanmayan tüm protokollerin (örneğin, protokol olarak yalnızca HLS‘yi belirten tek bir ilke ekliyorsunuz) akışla aktarılması engellenir. Bunun tek istisnası, hiçbir varlık teslim ilkesinin tanımlanmadığı durumdur. Bu halde tüm protokollere açık bir şekilde izin verilir.
+İçerik anahtarı yetkilendirme ilkesini oluştururken şunları belirtmeniz gerekir: teslim yöntemi (PlayReady veya Widevine), kısıtlamalar (açık veya belirteç) ve anahtarın istemciye nasıl teslim edildiğini tanımlayan anahtar teslim türüne özgü bilgiler ([PlayReady](media-services-playready-license-template-overview.md) veya [Widevine](media-services-widevine-license-template-overview.md) lisans şablonu).
+1. Varlıklara ilişkin teslim ilkesini yapılandırın. Teslim ilkesi yapılandırması şunları içerir: teslim protokolü (örneğin MPEG DASH, HLS, HDS, Kesintisiz Akış veya tümü), dinamik şifreleme türü (Ortak Şifreleme gibi), PlayReady veya Widevine lisans edinme URL’si.
+
+Bir varlıktaki her bir protokole farklı birer ilke uygulayabilirsiniz. Örneğin, Kesintisiz/DASH için PlayReady şifreleme ve HLS için AES Zarfı uygulayabilirsiniz. Herhangi bir teslim ilkesinde tanımlanmayan tüm protokollerin (örneğin, protokol olarak yalnızca HLS‘yi belirten tek bir ilke ekliyorsunuz) akışla aktarılması engellenir. Bunun tek istisnası, hiçbir varlık teslim ilkesinin tanımlanmadığı durumdur. Bu halde tüm protokollere açık bir şekilde izin verilir.
 1. Akış URL’si almak için bir OnDemand bulucu oluşturun.
 
 Konunun sonunda eksiksiz bir .NET örneği bulabilirsiniz.
@@ -65,17 +66,17 @@ Aşağıdaki görüntüde, yukarıda açıklanan iş akışı gösterilmektedir.
 
 ![PlayReady ile koruma](./media/media-services-content-protection-overview/media-services-content-protection-with-drm.png)
 
-Bu konunun geri kalanı, yukarıda açıklanan görevlerin nasıl yerine getirileceğini gösteren ayrıntılı açıklamalar, kod örnekleri ve başka konulara bağlantılar sağlamaktadır. 
+Bu konunun geri kalanı, yukarıda açıklanan görevlerin nasıl yerine getirileceğini gösteren ayrıntılı açıklamalar, kod örnekleri ve başka konulara bağlantılar sağlamaktadır.
 
 ##Geçerli sınırlamalar
 
 Bir varlık teslim ilkesi ekler veya ilkeyi güncelleştirirseniz, ilişkili bulucuyu (varsa) silip yeni bir bulucu oluşturmanız gerekir.
 
-Azure Media Services aracılığıyla Widevine ile şifrelerken sınırlama: Şu anda, birden çok içerik anahtarı desteklenmemektedir. 
+Azure Media Services aracılığıyla Widevine ile şifrelerken sınırlama: Şu anda, birden çok içerik anahtarı desteklenmemektedir.
 
 ##Varlık oluşturma ve dosyaları varlığa yükleme
 
-Videolarınızı yönetmek, kodlamak ve akışla aktarmak için önce içeriğinizi Microsoft Azure Media Services’e yüklemeniz gerekir. Yüklenmesinin ardından içeriğiniz, sonraki işleme ve akışla aktarma faaliyetleri için güvenli bir şekilde bulutta depolanır. 
+Videolarınızı yönetmek, kodlamak ve akışla aktarmak için önce içeriğinizi Microsoft Azure Media Services’e yüklemeniz gerekir. Yüklenmesinin ardından içeriğiniz, sonraki işleme ve akışla aktarma faaliyetleri için güvenli bir şekilde bulutta depolanır.
 
 Ayrıntılı bilgi için bkz. [Media Services hesabına dosya yükleme](media-services-dotnet-upload-files.md).
 
@@ -84,7 +85,7 @@ Ayrıntılı bilgi için bkz. [Media Services hesabına dosya yükleme](media-se
 Dinamik şifreleme ile tek ihtiyacınız, bir grup çoklu bit hızlı MP4 dosyası ya da çoklu bit hızlı Kesintisiz Akış kaynak dosyası içeren bir varlık oluşturmaktır. Ardından, bildirimde ve parça isteğindeki belirtilen biçime bağlı olarak, İsteğe Bağlı Akış sunucusu akışı seçtiğiniz protokolde almanızı sağlar. Bunu sonucunda, dosyaları yalnızca tek bir depolama biçiminde depolamanız ve buna göre ödeme yapmanız gerekir. Media Services hizmeti, istemciden gelen isteklere göre uygun yanıtı derler ve sunar. Daha fazla bilgi için [Dinamik Paketlemeye Genel Bakış](media-services-dynamic-packaging-overview.md) konusuna bakın.
 
 Kodlama yönergeleri için bkz. [Medya Kodlayıcı Standart kullanarak bir varlık kodlama](media-services-dotnet-encode-with-media-encoder-standard.md).
-    
+
 
 ##<a id="create_contentkey"></a>Bir içerik anahtarı oluşturup kodlanmış varlıkla ilişkilendirme
 
@@ -329,7 +330,7 @@ Aşağıdaki örnek, .Net için Azure Media Services SDK’sı Sürüm 3.5.2’d
         
                 static public IContentKey CreateCommonTypeContentKey(IAsset asset)
                 {
-                    // Create envelope encryption content key
+                    
                     Guid keyId = Guid.NewGuid();
                     byte[] contentKey = GetRandomBuffer(16);
         
@@ -544,6 +545,8 @@ Aşağıdaki örnek, .Net için Azure Media Services SDK’sı Sürüm 3.5.2’d
         
                         };
         
+                    // In this case we only specify Dash streaming protocol in the delivery policy,
+                    // All other protocols will be blocked from streaming.
                     var assetDeliveryPolicy = _context.AssetDeliveryPolicies.Create(
                             "AssetDeliveryPolicy",
                         AssetDeliveryPolicyType.DynamicCommonEncryption,
@@ -609,7 +612,9 @@ Aşağıdaki örnek, .Net için Azure Media Services SDK’sı Sürüm 3.5.2’d
         }
 
 
-##Media Services’i öğrenme yolları
+## Sonraki adım
+
+Media Services öğrenme yollarını gözden geçirin.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -628,6 +633,6 @@ Aşağıdaki örnek, .Net için Azure Media Services SDK’sı Sürüm 3.5.2’d
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

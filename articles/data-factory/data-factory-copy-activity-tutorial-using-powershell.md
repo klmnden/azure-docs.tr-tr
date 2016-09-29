@@ -13,33 +13,32 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="08/01/2016" 
+    ms.date="09/16/2016" 
     ms.author="spelluru"/>
+
 
 # Öğretici: Azure PowerShell kullanarak Kopyalama Etkinliği ile işlem hattı oluşturma
 > [AZURE.SELECTOR]
-- [Öğreticiye Genel Bakış](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-- [Data Factory Düzenleyici’yi kullanma](data-factory-copy-activity-tutorial-using-azure-portal.md)
-- [PowerShell’i kullanma](data-factory-copy-activity-tutorial-using-powershell.md)
-- [Visual Studio’yu kullanma](data-factory-copy-activity-tutorial-using-visual-studio.md)
-- [REST API kullanma](data-factory-copy-activity-tutorial-using-rest-api.md)
-- [.NET API kullanma](data-factory-copy-activity-tutorial-using-dotnet-api.md)
-- [Kopyalama Sihirbazı'nı kullanma](data-factory-copy-data-wizard-tutorial.md)
+- [Genel bakış ve ön koşullar](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+- [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
+- [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
+- [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+- [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
+- [.NET API’si](data-factory-copy-activity-tutorial-using-dotnet-api.md)
+- [Kopyalama Sihirbazı](data-factory-copy-data-wizard-tutorial.md)
 
-[Blob Depolamadan SQL Veritabanına veri kopyalama](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) öğreticisi, [Azure Portal][azure-portal] kullanılarak Azure data factory oluşturmayı ve izlemeyi göstermektedir. Bu öğreticide, Azure PowerShell cmdlet’leri kullanarak bir Azure data factory oluşturur ve izlersiniz. Bu öğreticide oluşturduğunuz data factory’de işlem hattı verileri Azure blob’tan Azure SQL veritabanına kopyalamak için Kopyalama Etkinliği’ni kullanır.
+Bu öğreticide, Azure PowerShell cmdlet’leri kullanarak bir Azure data factory oluşturur ve izlersiniz. Bu öğreticide oluşturduğunuz data factory’de işlem hattı verileri Azure blob’tan Azure SQL veritabanına kopyalamak için Kopyalama Etkinliği’ni kullanır.
 
 Kopyalama Etkinliği, Azure Data Factory’de veri hareketini gerçekleştirir. Etkinlik, çeşitli veri depolama alanları arasında güvenli, güvenilir ve ölçeklenebilir bir yolla veri kopyalayabilen genel olarak kullanılabilir bir hizmet tarafından desteklenir. Kopyalama etkinliği hakkında ayrıntılı bilgi için [Veri Taşıma Etkinlikleri](data-factory-data-movement-activities.md) makalesine bakın.   
 
 > [AZURE.IMPORTANT] 
-> [Öğreticiye Genel Bakış](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) makalesini inceleyip, bu öğreticiyi gerçekleştirmeden önce önkoşul adımlarını tamamlayın.
+> [Öğreticiye Genel Bakış](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) makalesini inceleyin ve bu öğreticiyi uygulamadan önce **ön koşul** adımlarını tamamlayın.
 >   
 > Bu makalede, tüm Data Factory cmdlet'lerini kapsamaz. Data Factory cmdlet’leri hakkında kapsamlı bilgi için bkz. [Data Factory Cmdlet Başvurusu](https://msdn.microsoft.com/library/dn820234.aspx).
   
 
-##Ön koşullar
-Öğreticiye Genel Bakış konusunda listelenen önkoşullar dışında aşağıdakileri yüklemeniz gerekir:
-
-- **Azure PowerShell**. Bilgisayarınıza Azure PowerShell’i yüklemek için [Azure PowerShell’i yükleme ve yapılandırma](../powershell-install-configure.md) makalesindeki yönergeleri izleyin.
+##Önkoşullar
+Öğreticiye Genel Bakış konusunda listelenen önkoşullar dışında **Azure PowerShell** yüklemeniz gerekir. Bilgisayarınıza Azure PowerShell’i yüklemek için [Azure PowerShell’i yükleme ve yapılandırma](../powershell-install-configure.md) makalesindeki yönergeleri izleyin.
 
 ##Bu öğreticide
 Aşağıdaki tabloda, öğreticinin ve açıklamalarının bir parçası olarak gerçekleştireceğiniz adımlar listelenmektedir. 
@@ -55,28 +54,28 @@ Adım | Açıklama
 ## Veri fabrikası oluşturma
 Bu adımda **ADFTutorialDataFactoryPSH** adlı bir Azure data factory oluşturmak için Azure PowerShell’i kullanırsınız.
 
-1. **PowerShell**’i başlatın ve aşağıdaki komutu çalıştırın. Bu öğreticide sonuna kadar Azure PowerShell’i açık tutun. Kapatıp yeniden açarsanız komutları yeniden çalıştırmanız gerekir.
-    1. Aşağıdaki komutu çalıştırın ve Azure portalda oturum açmak için kullandığınız kullanıcı adı ve parolayı girin.
+1. **PowerShell**’i başlatın. Bu öğreticide sonuna kadar Azure PowerShell’i açık tutun. Kapatıp yeniden açarsanız komutları yeniden çalıştırmanız gerekir.
+    1. Aşağıdaki komutu çalıştırın ve Azure portalda oturum açmak için kullandığınız kullanıcı adı ve parolayı girin:
     
             Login-AzureRmAccount   
-    2. Bu hesapla ilgili tüm abonelikleri görmek için aşağıdaki komutu çalıştırın.
+    2. Bu hesapla ilgili tüm abonelikleri görmek için aşağıdaki komutu çalıştırın:
 
             Get-AzureRmSubscription 
-    3. Çalışmak isteğiniz aboneliği seçmek için aşağıdaki komutu çalıştırın. **&lt;NameOfAzureSubscription**&gt; değerini Azure aboneliğinizin adıyla değiştirin. 
+    3. Çalışmak isteğiniz aboneliği seçmek için aşağıdaki komutu çalıştırın. **&lt;NameOfAzureSubscription**&gt; değerini Azure aboneliğinizin adıyla değiştirin:
 
             Get-AzureRmSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzureRmContext
 
-3. Aşağıdaki komutu kullanarak şu adda bir Azure kaynak grubu oluşturun: **ADFTutorialResourceGroup**.
+3. Aşağıdaki komutu kullanarak **ADFTutorialResourceGroup** adlı bir Azure kaynak grubu oluşturun:
    
         New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
 
     Bu öğreticideki adımlardan bazıları **ADFTutorialResourceGroup** adlı kaynak grubunu kullandığınızı varsayar. Farklı bir kaynak grubu kullanıyorsanız, bu öğreticide ADFTutorialResourceGroup yerine onu kullanmanız gerekir. 
-4. Şu adda data factory: **ADFTutorialDataFactoryPSH** oluşturmak için **New-AzureRmDataFactory** cmdlet’ini çalıştırın.  
+4. **ADFTutorialDataFactoryPSH** adlı bir data factory oluşturmak için **New-AzureRmDataFactory** cmdlet’ini çalıştırın:  
 
         New-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name ADFTutorialDataFactoryPSH –Location "West US"
 
     
-Şunlara dikkat edin:
+Aşağıdaki noktalara dikkat edin:
  
 - Azure veri fabrikasının adı genel olarak benzersiz olmalıdır. Aşağıdaki hatayı alırsanız adı değiştirin (örneğin adınızADFTutorialDataFactory). Bu öğreticide adımları uygularken ADFTutorialFactoryPSH yerine bu adı kullanın. Data Factory yapıtlarının adlandırma kuralları için [Data Factory - Adlandırma Kuralları](data-factory-naming-rules.md) konusuna bakın.
     
@@ -85,11 +84,11 @@ Bu adımda **ADFTutorialDataFactoryPSH** adlı bir Azure data factory oluşturma
 - Data factory adı gelecekte bir DNS adı olarak kaydedilmiş olabilir; bu nedenle herkese görünür hale gelmiştir.
 - Şu hatayı alırsanız: "**Abonelik, Microsoft.DataFactory ad alanını kullanacak şekilde kaydedilmemiş**", aşağıdakilerden birini yapın ve yeniden yayımlamayı deneyin: 
 
-    - Azure PowerShell’de Data Factory sağlayıcısını kaydetmek için aşağıdaki komutu çalıştırın. 
+    - Azure PowerShell’de Data Factory sağlayıcısını kaydetmek için aşağıdaki komutu çalıştırın: 
         
             Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
     
-        Data Factory sağlayıcısının kayıtlı olduğunu onaylamak için aşağıdaki komutu çalıştırabilirsiniz. 
+        Data Factory sağlayıcısının kayıtlı olduğunu onaylamak için aşağıdaki komutu çalıştırın: 
     
             Get-AzureRmResourceProvider
     - Azure aboneliğini kullanarak [Azure portalında](https://portal.azure.com) oturum açın ve Data Factory dikey penceresine gidin (ya da) Azure portalında bir data factory oluşturun. Bu eylem sağlayıcıyı sizin için otomatik olarak kaydeder.
@@ -114,7 +113,7 @@ Bu adımda, iki bağlı hizmet oluşturursunuz: **StorageLinkedService** ve **Az
 
     **accountname** ve **accountkey** sözcüklerini Azure depolama hesabınızın adı ve anahtarıyla değiştirin.
 2.  **Azure PowerShell**’de **ADFGetStartedPSH** klasörüne geçin. 
-3.  Bağlı hizmet oluşturmak için **New-AzureRmDataFactoryLinkedService** cmdlet’ini kullanabilirsiniz. Bu öğreticide kullandığınız bu cmdlet ve diğer Data Factory cmdlet’lerini **ResourceGroupName** ve **DataFactoryName** parametreleri için değerleri geçirmeniz gerekir. Alternatif olarak, DataFactory nesnesini almak ve cmdlet’i her çalıştırdığınızda ResourceGroupName ve DataFactoryName yazmadan nesneyi geçirmek için **Get-AzureRmDataFactory** kullanabilirsiniz. **Get-AzureRmDataFactory** cmdlet’inin çıktısını **$df** değişkenine atamak için aşağıdaki komutu çalıştırın. 
+3.  Bağlı hizmet oluşturmak için **New-AzureRmDataFactoryLinkedService** cmdlet’ini kullanabilirsiniz. Bu öğreticide kullandığınız bu cmdlet ve diğer Data Factory cmdlet’lerini **ResourceGroupName** ve **DataFactoryName** parametreleri için değerleri geçirmeniz gerekir. Alternatif olarak, DataFactory nesnesini almak ve cmdlet’i her çalıştırdığınızda ResourceGroupName ve DataFactoryName yazmadan nesneyi geçirmek için **Get-AzureRmDataFactory** kullanabilirsiniz. **Get-AzureRmDataFactory** cmdlet’inin çıktısını **$df** değişkenine atamak için aşağıdaki komutu çalıştırın: 
 
         $df=Get-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name ADFTutorialDataFactoryPSH
 
@@ -129,14 +128,14 @@ Bu adımda, iki bağlı hizmet oluşturursunuz: **StorageLinkedService** ve **Az
     Öğreticinin ortasında Azure PowerShell’i kapatırsanız, öğreticiyi tamamlamak için Azure PowerShell’i sonraki başlatışınızda Get-AzureRmDataFactory cmdlet’ini çalıştırmanız gerekir.
 
 ### Azure SQL Database için bağlı hizmet oluşturma
-1.  Aşağıdaki içerikle AzureSqlLinkedService.json adlı bir JSON dosyası oluşturun.
+1.  Aşağıdaki içerikle AzureSqlLinkedService.json adlı bir JSON dosyası oluşturun:
 
             {
                 "name": "AzureSqlLinkedService",
                 "properties": {
                     "type": "AzureSqlDatabase",
                     "typeProperties": {
-                        "connectionString": "Server=tcp:<server>.database.windows.net,1433;Database=<databasename>;User ID=user@server;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+                        "connectionString": "Server=tcp:<server>.database.windows.net,1433;Database=<databasename>;User ID=<user>@<server>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
                     }
                 }
             }
@@ -147,7 +146,7 @@ Bu adımda, iki bağlı hizmet oluşturursunuz: **StorageLinkedService** ve **Az
     
         New-AzureRmDataFactoryLinkedService $df -File .\AzureSqlLinkedService.json
 
-    **Azure hizmetlerine erişime izin ver** ayarının Azure SQL sunucusunda AÇIK olduğunu onaylayın. Doğrulayıp etkinleştirmek için aşağıdakileri yapın:
+    **Azure hizmetlerine erişime izin ver** ayarının Azure SQL sunucusunda AÇIK olduğunu onaylayın. Doğrulayıp etkinleştirmek için aşağıdaki adımları uygulayın:
 
     1. Soldaki **GÖZAT** hub’ına ve **SQL sunucuları**’na tıklayın.
     2. Sunucunuzu seçip SQL SERVER dikey penceresinde **AYARLAR**’a tıklayın.
@@ -165,7 +164,7 @@ Tablo dikdörtgen bir veri kümesidir ve bu sırada desteklenen tek veri kümesi
 ### Azure Blob Storage ve Azure SQL Database’i öğretici için hazırlama
 Öğreticide [Blob Depolamadan SQL Veritabanına veri kopyalama](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) makalesinden ilerlediyseniz bu adımı atlayın. 
 
-Bu öğretici için Azure blob depolama ve Azure SQL veritabanını hazırlamak amacıyla aşağıdaki adımları uygulamanız gerekir. 
+Bu öğreticide kullanılacak Azure blob depolama ve Azure SQL veritabanını hazırlamak için aşağıdaki adımları uygulayın. 
  
 * **StorageLinkedService** tarafından belirtilen Azure blob depolamada **adftutorial** adlı bir blob kapsayıcı oluşturun. 
 * **emp.txt** adıyla bir metin dosyasını oluşturup, bir blob olarak **adftutorial** kapsayıcısına yükleyin. 
@@ -195,7 +194,7 @@ Bu öğretici için Azure blob depolama ve Azure SQL veritabanını hazırlamak 
 
     Bilgisayarınızda SQL Server 2014 yüklüyse: Azure SQL sunucunuza bağlanmak ve SQL betiğini çalıştırmak için [2. Adım: SQL Server Management Studio kullanarak, Yönetilen Azure SQL Veritabanı’nın SQL Veritabanı’na Bağlanma](../sql-database/sql-database-manage-azure-ssms.md) makalesindeki yönergeleri uygulayın.
 
-    İstemcinizin Azure SQL sunucusuna erişim izni yoksa, makinenizden (IP adresi) erişim izni vermek için Azure SQL sunucunuzun güvenlik duvarını yapılandırmanız gerekir. Azure SQL sunucusunuzun güvenlik duvarını yapılandırmaya yönelik adımlar için [bu makaleye](../sql-database/sql-database-configure-firewall-settings.md) bakın.
+    İstemcinizin Azure SQL sunucusuna erişim izni yoksa, makinenizden (IP adresi) erişim izni vermek için Azure SQL sunucunuzun güvenlik duvarını yapılandırmanız gerekir. Azure SQL sunucunuzun güvenlik duvarını yapılandırmaya yönelik adımlar için [bu makaleye](../sql-database/sql-database-configure-firewall-settings.md) bakın.
         
 ### Girdi veri kümesi oluşturma 
 Tablo dikdörtgen bir veri kümesidir ve bir şeması vardır. Bu adımda, **StorageLinkedService** bağlı hizmetiyle temsil edilen Azure Depolama’da bir blob kapsayıcısını belirten **EmpBlobTable** adlı bir tablo oluşturursunuz. Bu blob kapsayıcısında (**adftutorial**) şu dosyaya ait girdi verileri vardır: **emp.txt**. 
@@ -233,7 +232,7 @@ Tablo dikdörtgen bir veri kümesidir ve bir şeması vardır. Bu adımda, **Sto
               }
             }
     
-    Şunlara dikkat edin: 
+    Aşağıdaki noktalara dikkat edin: 
     
     - veri kümesi **türü** **AzureBlob** olarak ayarlanır.
     - **linkedServiceName** **StorageLinkedService** olarak ayarlanır. 
@@ -241,13 +240,13 @@ Tablo dikdörtgen bir veri kümesidir ve bir şeması vardır. Bu adımda, **Sto
     - **fileName** **emp.txt** olarak ayarlanır. Blob adını belirtmezseniz, kapsayıcıdaki tüm blob'lara ait veriler girdi verisi olarak kabul edilir.  
     - biçim **türü** **TextFormat** olarak ayarlanır
     - Metin dosyasında virgül karakteriyle (**columnDelimiter**) ayrılmış, **FirstName** ve **LastName** adlı iki alan vardır 
-    - **Availability** **hourly** olarak ayarlanmıştır (**sıklık** **saat** olarak, **aralık** ise **1** olarak ayarlanmıştır). Bu nedenle, Data Factory belirttiğiniz blob kapsayıcısının (**adftutorial**) kök klasöründe girdi verilerini saatte bir kere arar.
+    - **Availability** **hourly** olarak ayarlanmıştır (**sıklık** **saat** olarak, **aralık** ise **1** olarak ayarlanmıştır). Bu nedenle Data Factory, blob kapsayıcısının (**adftutorial**) kök klasöründe girdi verilerini saatte bir kere arar.
 
     **Girdi** **tablosu** için bir **fileName** belirtmediyseniz, girdi klasörüne ait (**folderPath**) tüm dosyalar/blob’lar girdi olarak kabul edilir. JSON’da fileName belirtmediyseniz, yalnızca belirtilen dosya/blob girdi olarak kabul edilir. 
  
     **Çıktı tablosu** için bir **fileName** belirtmezseniz, **folderPath**’de oluşturulan dosyaları şu biçimde adlandırılır: Data.<Guid\>gt;.txt (örnek: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
 
-    **folderPath** ve **fileName** öğelerini dinamik olarak **SliceStart** zamanı temelinde ayarlamak için **partitionedBy** özelliğini kullanın. Aşağıdaki örnekte, folderPath SliceStart’taki (işlemdeki dilimin başlangıç zamanı) Yıl, Ay ve Gün öğelerini, fileName ise SliceStart’taki Saat öğesini kullanır. Örneğin, dilim 2014-10-20T08:00:00 için oluşturulduysa, folderName wikidatagateway/wikisampledataout/2014/10/20, fileName de 08.csv olarak ayarlanır. 
+    **folderPath** ve **fileName** öğelerini dinamik olarak **SliceStart** zamanı temelinde ayarlamak için **partitionedBy** özelliğini kullanın. Aşağıdaki örnekte, folderPath SliceStart’taki (işlemdeki dilimin başlangıç zamanı) Yıl, Ay ve Gün öğelerini, fileName ise SliceStart’taki Saat öğesini kullanır. Örneğin, dilim 2016-10-20T08:00:00 için oluşturulduysa, folderName wikidatagateway/wikisampledataout/2016/10/20, fileName de 08.csv olarak ayarlanır. 
 
             "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
             "fileName": "{Hour}.csv",
@@ -295,7 +294,7 @@ Bu adımda **EmpSQLTable** adlı bir çıktı veri kümesi oluşturursunuz. Bu v
               }
             }
 
-     Şunlara dikkat edin: 
+     Aşağıdaki noktalara dikkat edin: 
     
     * veri kümesi **türü** **AzureSqlTable** olarak ayarlanır.
     * **linkedServiceName** **AzureSqlLinkedService** olarak ayarlanır.
@@ -355,13 +354,13 @@ Su adımda, girdi olarak **EmpTableFromBlob**, çıktı olarak da **EmpSQLTable*
               }
             }
 
-    Şunlara dikkat edin:
+    Aşağıdaki noktalara dikkat edin:
 
     - Etkinlikler bölümünde, **türü** **Copy** olarak ayarlanmış yalnızca bir etkinlik vardır.
     - Etkinlik girdisi **EmpTableFromBlob** olarak, etkinlik çıktısı da **EmpSQLTable** olarak ayarlanmıştır.
     - **dönüştürme** bölümünde **BlobSource** kaynak türü, **SqlSink** de havuz türü olarak belirtilir.
 
-    **start** özelliğinin değerini geçerli günle, **end** değerini de sonraki günle değiştirin. Başlangıç ve bitiş tarih saatleri [ISO biçiminde](http://en.wikipedia.org/wiki/ISO_8601) olmalıdır. Örneğin: 2014-10-14T16:32:41Z. **End** zamanı isteğe bağlıdır; ancak bu öğreticide bunu kullanacağız. 
+    **start** özelliğinin değerini geçerli günle, **end** değerini de sonraki günle değiştirin. Başlangıç ve bitiş tarih saatleri [ISO biçiminde](http://en.wikipedia.org/wiki/ISO_8601) olmalıdır. Örneğin: 2016-10-14T16:32:41Z. **End** zamanı isteğe bağlıdır; ancak bu öğreticide bunu kullanacağız. 
     
     **end** özelliği için değer belirtmezseniz "**start + 48 hours**" olarak hesaplanır. İşlem hattını süresiz olarak çalıştırmak için **end** özelliği değerini **9/9/9999** olarak ayarlayın.
     
@@ -383,53 +382,41 @@ Bu adımda, Azure data factory’de neler olduğunu izlemek için Azure PowerShe
  
 2.  İşlem hattının çıktı tablosu olan **EmpSQLTable** tablosunun tüm dilimleri hakkında bilgi almak için **Get-AzureRmDataFactorySlice** komutunu çalıştırın.  
 
-        Get-AzureRmDataFactorySlice $df -DatasetName EmpSQLTable -StartDateTime 2015-03-03T00:00:00
+        Get-AzureRmDataFactorySlice $df -DatasetName EmpSQLTable -StartDateTime 2016-08-09T00:00:00
 
     **StartDateTime** parametresinin year, month ve date bölümünü geçerli yıl, ay ve tarihle değiştirin. Bu ayar JSON işlem hattının **Başlat** değeriyle eşleşmelidir. 
 
     24 dilim görmeniz gerekir, geçerli günün saat 12 AM’den başlayıp ertesi günün 12 AM’inde biten her biri bir saati belirten dilimlerdir. 
     
-    **İlk dilim:**
+    **Örnek çıktı:**
 
         ResourceGroupName : ADFTutorialResourceGroup
         DataFactoryName   : ADFTutorialDataFactoryPSH
         TableName         : EmpSQLTable
-        Start             : 3/3/2015 12:00:00 AM
-        End               : 3/3/2015 1:00:00 AM
+        Start             : 8/9/2016 12:00:00 AM
+        End               : 8/9/2016 1:00:00 AM
         RetryCount        : 0
         Status            : Waiting
         LatencyStatus     :
         LongRetryCount    : 0
 
-    **Son dilim:**
+3.  **Belirli** bir dilimle ilgili etkinlik çalıştırmalarının ayrıntılarını almak için **Get-AzureRmDataFactoryRun** komutunu çalıştırın. **StartDateTime** parametresinin değerini, çıktıya ait dilimin **Başlat** zamanıyla eşleşecek şekilde değiştirin. **StartDateTime** değeri [ISO biçiminde](http://en.wikipedia.org/wiki/ISO_8601) olmalıdır. 
 
-        ResourceGroupName : ADFTutorialResourceGroup
-        DataFactoryName   : ADFTutorialDataFactoryPSH
-        TableName         : EmpSQLTable
-        Start             : 3/4/2015 11:00:00 PM
-        End               : 3/4/2015 12:00:00 AM
-        RetryCount        : 0
-        Status            : Waiting
-        LatencyStatus     : 
-        LongRetryCount    : 0
+        Get-AzureRmDataFactoryRun $df -DatasetName EmpSQLTable -StartDateTime 2016-08-09T00:00:00
 
-3.  **Belirli** bir dilimle ilgili etkinlik çalıştırmalarının ayrıntılarını almak için **Get-AzureRmDataFactoryRun** komutunu çalıştırın. **StartDateTime** parametresinin değerini, çıktıya ait dilimin **Başlat** zamanıyla eşleşecek şekilde değiştirin. **StartDateTime** değeri [ISO biçiminde](http://en.wikipedia.org/wiki/ISO_8601) olmalıdır. Örneğin: 2014-03-03T22:00:00Z.
-
-        Get-AzureRmDataFactoryRun $df -DatasetName EmpSQLTable -StartDateTime 2015-03-03T22:00:00
-
-    Aşağıdakine benzer bir çıktı görmeniz gerekir:
+    Aşağıda örnek çıktıya benzer bir çıktı görmeniz gerekir:
 
         Id                  : 3404c187-c889-4f88-933b-2a2f5cd84e90_635614488000000000_635614524000000000_EmpSQLTable
         ResourceGroupName   : ADFTutorialResourceGroup
         DataFactoryName     : ADFTutorialDataFactoryPSH
         TableName           : EmpSQLTable
-        ProcessingStartTime : 3/3/2015 11:03:28 PM
-        ProcessingEndTime   : 3/3/2015 11:04:36 PM
+        ProcessingStartTime : 8/9/2016 11:03:28 PM
+        ProcessingEndTime   : 8/9/2016 11:04:36 PM
         PercentComplete     : 100
-        DataSliceStart      : 3/8/2015 10:00:00 PM
-        DataSliceEnd        : 3/8/2015 11:00:00 PM
+        DataSliceStart      : 8/9/2016 10:00:00 PM
+        DataSliceEnd        : 8/9/2016 11:00:00 PM
         Status              : Succeeded
-        Timestamp           : 3/8/2015 11:03:28 PM
+        Timestamp           : 8/9/2016 11:03:28 PM
         RetryAttempt        : 0
         Properties          : {}
         ErrorMessage        :
@@ -478,6 +465,6 @@ Bu öğreticide Azure blob’undan Azure SQL veritabanına veri kopyalamak üzer
  
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

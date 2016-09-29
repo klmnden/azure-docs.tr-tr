@@ -17,30 +17,23 @@
     ms.date="08/16/2016"
     ms.author="spelluru"/>
 
+
 # Öğretici: Azure PowerShell kullanarak ilk Azure data factory’nizi derleme
 > [AZURE.SELECTOR]
-- [Azure Portal](data-factory-build-your-first-pipeline-using-editor.md)
+- [Genel bakış ve ön koşullar](data-factory-build-your-first-pipeline.md)
+- [Azure portal](data-factory-build-your-first-pipeline-using-editor.md)
 - [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 - [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Resource Manager Şablonu](data-factory-build-your-first-pipeline-using-arm.md)
 - [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
 
+Bu makalede, ilk Azure data factory’nizi oluşturmak için Azure PowerShell kullanırsınız. 
 
-[AZURE.INCLUDE [data-factory-tutorial-prerequisites](../../includes/data-factory-tutorial-prerequisites.md)] 
+## Önkoşullar
 
-## Ek önkoşullar
-Öğreticiye Genel Bakış konusunda listelenen önkoşullar dışında aşağıdakileri yüklemeniz gerekir:
-
-- **Azure PowerShell**. Bilgisayarınıza Azure PowerShell’in en son sürümünü yüklemek için [Azure PowerShell’i yükleme ve yapılandırma](../powershell-install-configure.md) makalesindeki yönergeleri izleyin.
+- [Öğreticiye Genel Bakış](data-factory-build-your-first-pipeline.md) makalesinin tamamını okuyun ve **ön koşul** adımlarını tamamlayın.
+- Bilgisayarınıza Azure PowerShell’in en son sürümünü yüklemek için [Azure PowerShell’i yükleme ve yapılandırma](../powershell-install-configure.md) makalesindeki yönergeleri izleyin.
 - (isteğe bağlı) Bu makalede, tüm Data Factory cmdlet'lerini kapsamaz. Data Factory cmdlet’leri hakkında kapsamlı bilgi için bkz. [Data Factory Cmdlet Başvurusu](https://msdn.microsoft.com/library/dn820234.aspx). 
-
-Azure PowerShell **sürüm < 1.0** kullanıyorsanız, [burada](https://msdn.microsoft.com/library/azure/dn820234.aspx) belgelenen cmdlet’leri kullanmalısınız. Data Factory cmdlet’lerini kullanmadan önce de aşağıdaki komutları çalıştırmanız gerekir: 
- 
-1. Azure PowerShell’i başlatın ve aşağıdaki komutları çalıştırın. Bu öğreticide sonuna kadar Azure PowerShell’i açık tutun. Kapatıp yeniden açarsanız, bu komutları yeniden çalıştırmanız gerekir.
-    1. `Add-AzureAccount` komutunu çalıştırın ve Azure portalda oturum açmak için kullandığınız kullanıcı adı ve parolayı girin.
-    2. Bu hesapla ilgili tüm abonelikleri görmek için `Get-AzureSubscription` komutunu çalıştırın.
-    3. Çalışmak isteğiniz aboneliği seçmek için `Get-AzureRmSubscription -SubscriptionName NameOfAzureSubscription | Set-AzureRmContext` komutunu çalıştırın. **NameOfAzureSubscription** değerini Azure aboneliğinizin adıyla değiştirin.
-4. Azure Data Factory cmdlet’leri bu modda kullanılabildiğinden Azure Resource Manager moduna geçin: `Switch-AzureMode AzureResourceManager`.
 
 ## Veri fabrikası oluşturma
 
@@ -49,8 +42,8 @@ Bu adımda **FirstDataFactoryPSH** adlı bir Azure Data Factory oluşturmak içi
 1. Azure PowerShell’i başlatın ve aşağıdaki komutu çalıştırın. Bu öğreticide sonuna kadar Azure PowerShell’i açık tutun. Kapatıp yeniden açarsanız, bu komutları yeniden çalıştırmanız gerekir.
     - `Login-AzureRmAccount` komutunu çalıştırın ve Azure portalda oturum açmak için kullandığınız kullanıcı adı ve parolayı girin.  
     - Bu hesapla ilgili tüm abonelikleri görmek için `Get-AzureRmSubscription` komutunu çalıştırın.
-    - Çalışmak isteğiniz aboneliği seçmek için `Select-AzureRmSubscription <Name of the subscription>` komutunu çalıştırın. Bu abonelik Azure portalında kullanılanla aynı olmalıdır.
-3. Aşağıdaki komutu kullanarak şu adda bir Azure kaynak grubu oluşturun: **ADFTutorialResourceGroup**.
+    - Çalışmak isteğiniz aboneliği seçmek için `Get-AzureRmSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzureRmContext` komutunu çalıştırın. Bu abonelik Azure portalında kullanılanla aynı olmalıdır.
+3. Aşağıdaki komutu kullanarak **ADFTutorialResourceGroup** adlı bir Azure kaynak grubu oluşturun:
 
         New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
 
@@ -60,18 +53,18 @@ Bu adımda **FirstDataFactoryPSH** adlı bir Azure Data Factory oluşturmak içi
         New-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name FirstDataFactoryPSH –Location "West US"
 
 
-Şunlara dikkat edin:
+Aşağıdaki noktalara dikkat edin:
  
 - Azure Data Factory adı küresel olarak benzersiz olmalıdır. Şu hatayı alırsanız: ** “FirstDataFactoryPSH” veri fabrikası adı yok**, adı değiştirin (örneğin, yournameFirstDataFactoryPSH). Bu öğreticide adımları uygularken ADFTutorialFactoryPSH yerine bu adı kullanın. Data Factory yapıtlarının adlandırma kuralları için [Data Factory - Adlandırma Kuralları](data-factory-naming-rules.md) konusuna bakın.
 - Data Factory örnekleri oluşturmak için, Azure aboneliğinde katılımcı/yönetici rolünüz olmalıdır
 - Data factory adı gelecekte bir DNS adı olarak kaydedilmiş olabilir; bu nedenle herkese görünür hale gelmiştir.
 - Şu hatayı alırsanız: "**Abonelik, Microsoft.DataFactory ad alanını kullanacak şekilde kaydedilmemiş**", aşağıdakilerden birini yapın ve yeniden yayımlamayı deneyin: 
 
-    - Azure PowerShell’de Data Factory sağlayıcısını kaydetmek için aşağıdaki komutu çalıştırın. 
+    - Azure PowerShell’de Data Factory sağlayıcısını kaydetmek için aşağıdaki komutu çalıştırın: 
         
             Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
     
-        Data Factory sağlayıcısının kayıtlı olduğunu onaylamak için aşağıdaki komutu çalıştırabilirsiniz. 
+        Data Factory sağlayıcısının kayıtlı olduğunu onaylamak için aşağıdaki komutu çalıştırabilirsiniz: 
     
             Get-AzureRmResourceProvider
     - Azure aboneliğini kullanarak [Azure portalında](https://portal.azure.com) oturum açın ve Data Factory dikey penceresine gidin (ya da) Azure portalında bir data factory oluşturun. Bu eylem sağlayıcıyı sizin için otomatik olarak kaydeder.
@@ -141,7 +134,7 @@ Bu adımda, isteğe bağlı HDInsight kümesini data factory’nize bağlarsın�
   	| TimeToLive | Silinmeden önce HDInsight kümesinin boşta kalma süresini belirtir. |
   	| linkedServiceName | HDInsight tarafından oluşturulan günlükleri depolamak için kullanılan depolama hesabını belirtir. |
 
-    Şunlara dikkat edin: 
+    Aşağıdaki noktalara dikkat edin: 
     
     - Data Factory, sizin için JSON ile **Windows tabanlı** bir HDInsight kümesi oluşturur. **Linux tabanlı** bir HDInsight kümesi de oluşturabilirsiniz. Ayrıntılar için bkz. [İsteğe Bağlı HDInsight Bağlı Hizmeti](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). 
     - İsteğe bağlı HDInsight kümesi yerine **kendi HDInsight kümenizi** kullanabilirsiniz. Ayrıntılar için bkz. [HDInsight Bağlı Hizmeti](data-factory-compute-linked-services.md#azure-hdinsight-linked-service).
@@ -197,7 +190,7 @@ Bu adımda, Hive işlenmesi için girdi ve çıktı verilerini temsil edecek ver
   	| frequency/interval | frequency Ay, interval de 1 olarak ayarlanmıştır; girdi dilimlerinin aylık olarak kullanılabileceğini belirtir. | 
   	| external | bu özellik, girdi verileri Data Factory hizmetiyle oluşturulmadıysa true olarak ayarlanır. | 
 
-2. Data Factory veri kümesi oluşturmak için Azure PowerShell’de şu komutu çalıştırın.
+2. Data Factory veri kümesi oluşturmak için Azure PowerShell’de şu komutu çalıştırın:
 
         New-AzureRmDataFactoryDataset $df -File .\InputTable.json
 
@@ -227,7 +220,7 @@ Bu adımda, Hive işlenmesi için girdi ve çıktı verilerini temsil edecek ver
 
     Bu JSON, işlem hattındaki bir etkinliğin çıktı verilerini temsil eden **AzureBlobOutput** adlı veri kümesini tanımlamaktadır. Ek olarak, sonuçların **adfgetstarted** adlı blob kapsayıcısında ve **partitioneddata** adlı klasörde depolandığını belirtir. Burada, **availability** bölümü çıktı veri kümesinin aylık tabanda oluşturulduğunu belirtiyor.
 
-2. Data Factory veri kümesi oluşturmak için Azure PowerShell’de şu komutu çalıştırın.
+2. Data Factory veri kümesi oluşturmak için Azure PowerShell’de şu komutu çalıştırın:
 
         New-AzureRmDataFactoryDataset $df -File .\OutputTable.json
 
@@ -307,15 +300,15 @@ Bu adımda, Azure data factory’de neler olduğunu izlemek için Azure PowerShe
 
 2. İşlem hattının çıktı tablosu olan **EmpSQLTable** tablosunun tüm dilimleri hakkında bilgi almak için **Get-AzureRmDataFactorySlice** komutunu çalıştırın.  
 
-        Get-AzureRmDataFactorySlice $df -DatasetName AzureBlobOutput -StartDateTime 2014-02-01
+        Get-AzureRmDataFactorySlice $df -DatasetName AzureBlobOutput -StartDateTime 2016-04-01
 
     Burada belirttiğiniz StartDateTime ile JSON işlem hattında belirtilen başlangıç zamanıyla aynı olmasına özen gösterin. Aşağıdakine benzer bir çıktı görmeniz gerekir.
 
         ResourceGroupName : ADFTutorialResourceGroup
         DataFactoryName   : FirstDataFactoryPSH
         DatasetName       : AzureBlobOutput
-        Start             : 2/1/2014 12:00:00 AM
-        End               : 3/1/2014 12:00:00 AM
+        Start             : 4/1/2016 12:00:00 AM
+        End               : 4/2/2016 12:00:00 AM
         RetryCount        : 0
         State             : InProgress
         SubState          :
@@ -325,7 +318,7 @@ Bu adımda, Azure data factory’de neler olduğunu izlemek için Azure PowerShe
 
 3. Belirli bir dilimle ilgili etkinlik çalıştırmalarının ayrıntılarını almak için **Get-AzureRmDataFactoryRun** komutunu çalıştırın.
 
-        Get-AzureRmDataFactoryRun $df -DatasetName AzureBlobOutput -StartDateTime 2014-02-01
+        Get-AzureRmDataFactoryRun $df -DatasetName AzureBlobOutput -StartDateTime 2016-04-01
 
     Aşağıdakine benzer bir çıktı görmeniz gerekir.
         
@@ -336,8 +329,8 @@ Bu adımda, Azure data factory’de neler olduğunu izlemek için Azure PowerShe
         ProcessingStartTime : 12/18/2015 4:50:33 AM
         ProcessingEndTime   : 12/31/9999 11:59:59 PM
         PercentComplete     : 0
-        DataSliceStart      : 2/1/2014 12:00:00 AM
-        DataSliceEnd        : 3/1/2014 12:00:00 AM
+        DataSliceStart      : 4/1/2016 12:00:00 AM
+        DataSliceEnd        : 4/2/2016 12:00:00 AM
         Status              : AllocatingResources
         Timestamp           : 12/18/2015 4:50:33 AM
         RetryAttempt        : 0
@@ -352,7 +345,10 @@ Bu adımda, Azure data factory’de neler olduğunu izlemek için Azure PowerShe
     ![çıktı verileri](./media/data-factory-build-your-first-pipeline-using-powershell/three-ouptut-files.png)
 
 
-> [AZURE.IMPORTANT] Dilim başarıyla işlendiğinde girdi dosyası silinir. Bu nedenle, dilimi yeniden çalıştırmak veya öğreticiyi yeniden uygulamak isterseniz girdi dosyasını (input.log) adfgetstarted kapsayıcısının inputdata klasörüne yükleyin.
+> [AZURE.IMPORTANT] 
+> İsteğe bağlı HDInsight kümesinin oluşturulması genellikle biraz zaman alır (yaklaşık 20 dakika). Bu nedenle, işlem hattının dilimi işlemesi için **yaklaşık 30 dakika** bekleyin.  
+> 
+> Dilim başarıyla işlendiğinde girdi dosyası silinir. Bu nedenle, dilimi yeniden çalıştırmak veya öğreticiyi yeniden uygulamak isterseniz girdi dosyasını (input.log) adfgetstarted kapsayıcısının inputdata klasörüne yükleyin.
 
 ## Özet 
 Bu öğreticide, HDInsight hadoop kümesindeki Hive betiği çalıştırılarak verileri işlemek için bir Azure data factory oluşturdunuz. Aşağıdaki adımları uygulamak için Azure Portal’da Data Factory Düzenleyici’yi kullandınız:  
@@ -381,6 +377,6 @@ Bu makalede, isteğe bağlı Azure HDInsight kümesinde bir Hive betiği çalı�
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

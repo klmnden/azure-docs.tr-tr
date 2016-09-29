@@ -12,8 +12,9 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/10/2016"
+   ms.date="09/16/2016"
    ms.author="ganesr"/>
+
 
 
 # ExpressRoute yönlendirme gereksinimleri  
@@ -78,7 +79,7 @@ Yönlendirme değişimi bir eBGP protokolü üzerinden olacaktır. EBGP oturumla
 
 ## Otonom Sistem numaraları
 
-Microsoft Azure genel, Azure özel ve Microsoft eşlemesi için AS 12076 kullanır. 65515 ile 65520 arasındaki ASN’ler şirket içi kullanım için ayrılmıştır. Hem 16 hem de 32 bit AS numaraları desteklenir. Eşleme tarafında (müşteri veya sağlayıcı), AS size ait olduğu doğrulanabiliyorsa bir genel ASN ya da özel eşleme için özel bir ASN numarası olabilir ve genel eşlemeler ile Microsoft eşlemeleri için genel bir ASN gerektirir. 
+Microsoft Azure genel, Azure özel ve Microsoft eşlemesi için AS 12076 kullanır. 65515 ile 65520 arasındaki ASN’ler şirket içi kullanım için ayrılmıştır. Hem 16 hem de 32 bit AS numaraları desteklenir. Eşleme tarafında (müşteri veya sağlayıcı), size ait olduğu doğrulanabiliyorsa AS bir genel ASN ya da özel bir ASN numarası olabilir.
 
 Belirli bir devrenin birincil ve ikincil yollarındaki veri aktarımı simetrisine ilişkin herhangi bir gereksinim bulunmamaktadır. İleri ve geri dönüş yolları farklı yönlendirici çiftlerinden geçiş yapabilir. Size ait belirli bir devre çiftinin birincil veya ikincil taraflarından aynı yollar tanıtılmalıdır. Yol ölçümlerinin aynı olması gerekmez.
 
@@ -179,6 +180,6 @@ Yukarıdakilerin yanı sıra Microsoft, ön ekleri ait oldukları hizmet göre e
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

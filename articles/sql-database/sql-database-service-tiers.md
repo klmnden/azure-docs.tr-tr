@@ -17,6 +17,7 @@
     ms.date="08/10/2016"
     ms.author="carlrab"/>
 
+
 # SQL Database seçenekleri ve performansı: Her hizmet katmanında nelerin kullanılabildiğini anlama
 
 [Azure SQL Veritabanı](sql-database-technical-overview.md), farklı iş yüklerini işlemek üzere birden çok performans düzeyine sahip üç hizmet katmanı sunar. Her performans düzeyi, gittikçe artan bir işleme hacmi sağlamak üzere tasarlanmış bir şekilde bir önceki düzeye göre daha fazla sayıda kaynak sağlar. Her veritabanını, kendi [hizmet katmanı](sql-database-service-tiers.md#standalone-database-service-tiers-and-performance-levels) içinde, kendine ait performans düzeyinde yönetebilirsiniz. Birden çok veritabanını, paylaşılan bir grup kaynakla bir [esnek havuz](sql-database-service-tiers.md#elastic-pool-service-tiers-and-performance-in-edtus) içinde de yönetebilirsiniz. Tek başına veritabanlarının kullanılabileceği kaynaklar, Veritabanı İşlem Birimleri (DTU'lar) ve esnek havuzlar için esnek DTU'lar, yani eDTU'lar cinsinden ifade edilir. DTU'lar ve eDTU'lar hakkında daha fazla bilgi edinmek için bkz. [DTU nedir?](sql-database-what-is-a-DTU.md). 
@@ -62,7 +63,7 @@ Hizmet katmanı seçimini yapmak için, veritabanının tek başına veritabanı
 
 Tek başına veritabanına yönelik hizmet katmanı seçimini yapmak üzere, SQL Veritabanı sürümünü seçmek için gereken veritabanı özelliklerini belirleyerek işe başlayın:
 
-- Veritabanı boyutu (performans düzeyine bağlı olarak temel için en fazla 5 GB, Standart için en fazla 250 GB ve Premium için 500 Gb ila 1 TB)
+- Veritabanı boyutu (performans düzeyine bağlı olarak Temel için maksimum 2 GB, Standart için maksimum 250 GB ve Premium için maksimum 500 GB ila 1 TB)
 - Veritabanı yedeği saklama dönemi (Temel için 7 gün, Standart için 35 gün ve Premium için 35 gün)
 
 SQL Database sürümünü belirledikten sonra veritabanının performans düzeyini belirlemeye hazır olursunuz (DTU sayısı). Tahminde bulunabilir ve sonra gerçek deneyime göre [dinamik olarak ölçek artırabilir veya azaltabilirsiniz](sql-database-scale-up.md). Gerekli DTU sayısını yaklaşık olarak belirlemek için [DTU Hesaplayıcı](http://dtucalculator.azurewebsites.net/)’yı da kullanabilirsiniz. 
@@ -90,6 +91,6 @@ Havuzunuzun hizmet katmanını belirledikten sonra havuzun performans düzeyini 
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

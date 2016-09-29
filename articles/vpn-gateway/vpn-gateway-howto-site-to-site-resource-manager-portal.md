@@ -17,12 +17,13 @@
    ms.date="08/31/2016"
    ms.author="cherylmc"/>
 
+
 # Azure portalını kullanarak Siteden Siteye bağlantı ile VNet oluşturma
 
 > [AZURE.SELECTOR]
-- [Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-- [Azure Klasik Portalı](vpn-gateway-site-to-site-create.md)
-- [PowerShell - Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
+- [Resource Manager - Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+- [Resource Manager - PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
+- [Klasik - Klasik Portal](vpn-gateway-site-to-site-create.md)
 
 
 Bu makalede **Azure Resource Manager dağıtım modelini** ve Azure portalını kullanarak sanal bir ağ ve şirket içi ağınıza yönelik Siteden Siteye VPN bağlantısı oluşturma işlemi adım adım açıklanmaktadır. Siteden Siteye bağlantılar, şirket içi ve dışı karışık yapılandırmalar ve karma yapılandırmalar için kullanılabilir.
@@ -156,6 +157,6 @@ VPN bağlantınızı portaldan veya PowerShell kullanarak doğrulayabilirsiniz.
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

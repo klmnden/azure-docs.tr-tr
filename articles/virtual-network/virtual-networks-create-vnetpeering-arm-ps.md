@@ -14,8 +14,9 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/02/2016"
-   ms.author="narayanannamalai"/>
+   ms.date="09/14/2016"
+   ms.author="narayanannamalai; annahar"/>
+
 
 # PowerShell cmdlet’lerini kullanarak VNet Eşlemesi oluşturma
 
@@ -29,18 +30,18 @@ PowerShell kullanarak VNet eşlemesi oluşturmak için lütfen aşağıdaki adı
 
 1. Daha önce Azure PowerShell kullanmadıysanız, [Azure PowerShell’i Yükleme ve Yapılandırma](../powershell-install-configure.md) sayfasına gidin ve Azure’da oturum açıp aboneliğinizi seçmek için talimatları sonuna kadar uygulayın.
 
-        Note: PowerShell cmdlet for managing VNet peering is shipped with [Azure PowerShell 1.6.](http://www.powershellgallery.com/packages/Azure/1.6.0)
+        > [AZURE.NOTE] VNet eşlemesini yönetmeye yönelik PowerShell cmdlet’i [Azure PowerShell 1.6](http://www.powershellgallery.com/packages/Azure/1.6.0) ile birlikte gönderilir.
 
 2. Sanal ağ nesnelerini okuyun:
 
         $vnet1 = Get-AzureRmVirtualNetwork -ResourceGroupName vnet101 -Name vnet1
         $vnet2 = Get-AzureRmVirtualNetwork -ResourceGroupName vnet101 -Name vnet2
-    
+
 3. VNet eşlemesi oluşturmak için iki (her yön için bir tane) bağlantı oluşturmanız gerekir. Aşağıdaki adımda ilk olarak VNet1'den VNet2'ye yönelik bir VNet eşleme bağlantısı oluşturulmaktadır:
 
-        Add-AzureRmVirtualNetworkPeering -name LinkToVNet2 -VirtualNetwork $vnet1 -RemoteVirtualNetworkId $vnet2.id 
+        Add-AzureRmVirtualNetworkPeering -name LinkToVNet2 -VirtualNetwork $vnet1 -RemoteVirtualNetworkId $vnet2.id
 
-        Output shows:
+    Çıktı şunu gösterir:
 
         Name            : LinkToVNet2
         Id: /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/vnet101/providers/Microsoft.Network/virtualNetworks/vnet1/virtualNetworkPeerings/LinkToVNet2
@@ -60,9 +61,9 @@ PowerShell kullanarak VNet eşlemesi oluşturmak için lütfen aşağıdaki adı
 
 4. Bu adımda VNet2'den VNet1'e yönelik bir VNet eşleme bağlantısı oluşturulmaktadır:
 
-        Add-AzureRmVirtualNetworkPeering -name LinkToVNet1 -VirtualNetwork $vnet2 -RemoteVirtualNetworkId $vnet1.id 
+        Add-AzureRmVirtualNetworkPeering -name LinkToVNet1 -VirtualNetwork $vnet2 -RemoteVirtualNetworkId $vnet1.id
 
-        Output shows:
+    Çıktı şunu gösterir:
 
         Name            : LinkToVNet1
         Id              : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/vnet101/providers/Microsoft.Network/virtualNetworks/vnet2/virtualNetworkPeerings/LinkToVNet1
@@ -84,7 +85,7 @@ PowerShell kullanarak VNet eşlemesi oluşturmak için lütfen aşağıdaki adı
 
         Get-AzureRmVirtualNetworkPeering -VirtualNetworkName vnet1 -ResourceGroupName vnet101 -Name linktovnet2
 
-        Output shows:
+    Çıktı şunu gösterir:
 
         Name            : LinkToVNet2
         Id              : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/vnet101/providers/Microsoft.Network/virtualNetworks/vnet1/virtualNetworkPeerings/LinkToVNet2
@@ -117,7 +118,7 @@ PowerShell kullanarak VNet eşlemesi oluşturmak için lütfen aşağıdaki adı
         $LinktoVNet2.AllowForwardedTraffic = $true
         Set-AzureRmVirtualNetworkPeering -VirtualNetworkPeering $LinktoVNet2
 
-        You can run Get-AzureRmVirtualNetworkPeering to double check the property value after the change.  From the output, you can see AllowForwardedTraffic changes set to True after running the above cmdlets. 
+    Get-AzureRmVirtualNetworkPeering seçeneğini çalıştırarak değişiklikten sonra özellik değerini iki kez denetleyebilirsiniz.  Çıktıda, yukarıdaki cmdlet’leri çalıştırdıktan sonra AllowForwardedTraffic seçeneğinin True olarak ayarlandığını görebilirsiniz.
 
         Name            : LinkToVNet2
         Id          : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/vnet101/providers/Microsoft.Network/virtualNetworks/vnet1/virtualNetworkPeerings/LinkToVNet2
@@ -143,13 +144,13 @@ PowerShell kullanarak abonelikler arasında VNet eşlemesi oluşturmak için lü
 
 1. A Aboneliği için ayrıcalıklı A kullanıcısının hesabıyla Azure'da oturum açın ve şu cmdlet'i çalıştırın:
 
-        New-AzureRmRoleAssignment -SignInName <UserB ID> -RoleDefinitionName "Network Contributor" -Scope /subscriptions/<Subscription-A-ID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Network/VirtualNetwork/VNet5
+        New-AzureRmRoleAssignment -SignInName <UserB ID> -RoleDefinitionName "Network Contributor" -Scope /subscriptions/<Subscription-A-ID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Network/VirtualNetworks/VNet5
 
-        This is not a requirement, peering can be established even if users individually raise peering requests for thier respective Vnets as long as the requests match. Adding a privileged user of the other VNet as a user in the local VNet makes it easier to do the setup. 
+    Bu bir gereklilik değildir; istekler eşleştiği sürece kullanıcılar ilgili sanal ağları için eşleme isteklerini ayrı ayrı gönderse bile eşleme kurulabilir. Diğer VNet'in ayrıcalıklı bir kullanıcısının yerel VNet'e kullanıcı olarak eklenmesi kurulumu kolaylaştırır.
 
 2. B Aboneliği için ayrıcalıklı B kullanıcısının hesabıyla Azure'da oturum açın ve şu cmdlet'i çalıştırın:
 
-        New-AzureRmRoleAssignment -SignInName <UserA ID> -RoleDefinitionName "Network Contributor" -Scope /subscriptions/<Subscription-B-ID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Network/VirtualNetwork/VNet3
+        New-AzureRmRoleAssignment -SignInName <UserA ID> -RoleDefinitionName "Network Contributor" -Scope /subscriptions/<Subscription-B-ID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Network/VirtualNetworks/VNet3
 
 3. A Kullanıcısının oturumunda aşağıdaki cmdlet'i çalıştırın:
 
@@ -167,7 +168,7 @@ PowerShell kullanarak abonelikler arasında VNet eşlemesi oluşturmak için lü
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-scenario-transit-include](../../includes/virtual-networks-create-vnetpeering-scenario-transit-include.md)]
 
-1. Bu senaryoda VNet eşlemesini oluşturmak için aşağıdaki PowerShell cmdlet'lerini çalıştırabilirsiniz.  AllowForwardedTraffic özelliğini True olarak ayarlamanız ve VNET1'i HubVnet'e bağlamanız gerekir. Bu, VNet eşlemesi adres alanının dışından gelen trafiğe izin verir. 
+1. Bu senaryoda VNet eşlemesini oluşturmak için aşağıdaki PowerShell cmdlet'lerini çalıştırabilirsiniz.  AllowForwardedTraffic özelliğini True olarak ayarlamanız ve VNET1'i HubVnet'e bağlamanız gerekir. Bu, VNet eşlemesi adres alanının dışından gelen trafiğe izin verir.
 
         $hubVNet = Get-AzureRmVirtualNetwork -ResourceGroupName vnet101 -Name HubVNet
         $vnet1 = Get-AzureRmVirtualNetwork -ResourceGroupName vnet101 -Name vnet1
@@ -188,21 +189,54 @@ PowerShell kullanarak abonelikler arasında VNet eşlemesi oluşturmak için lü
 
         Set-AzureRmVirtualNetwork -VirtualNetwork $vnet1
 
+[AZURE.INCLUDE [virtual-networks-create-vnet-scenario-asmtoarm-include](../../includes/virtual-networks-create-vnetpeering-scenario-asmtoarm-include.md)]
+
+PowerShell’de klasik bir Sanal ağ ile Azure resource manager sanal ağı arasında bir VNet eşlemesi oluşturmak için aşağıdaki adımları izleyin:
+
+1. **VNET1**, Azure Resource Manager sanal ağının sanal ağ nesnesini şu şekilde okuyun:      $vnet1 = Get-AzureRmVirtualNetwork -ResourceGroupName vnet101 -Name vnet1
+
+2. Bu senaryoda VNet eşlemesi oluşturmak için başta **VNET1**’den **VNET2**’ye bağlantı olmak üzere yalnızca bir bağlantı gereklidir. Bu adım klasik sanal ağın kaynak kimliğini bilmeyi gerektirir. Kaynak grubu kimlik biçimi şu şekilde görünür: /subscriptions/SubscriptionID/resourceGroups/ResourceGroupName/providers/Microsoft.ClassicNetwork/virtualNetworks/VirtualNetworkName
+
+    SubscriptionID, ResourceGroupName ve VirtualNetworkName seçeneklerini uygun adlarla değiştirdiğinizden emin olun.
+
+    Bunu yapmak için aşağıdaki adımları izleyin:
+
+        Add-AzureRmVirtualNetworkPeering -name LinkToVNet2 -VirtualNetwork $vnet1 -RemoteVirtualNetworkId /subscriptions/xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxx/resourceGroups/MyResourceGroup/providers/Microsoft.ClassicNetwork/virtualNetworks/VNET2
+
+3. VNet eşleme bağlantısı oluşturulduktan sonra bağlantı durumunu aşağıdaki çıktıda gösterildiği gibi görebilirsiniz:
+
+        Name                             : LinkToVNet2
+        Id                               : /subscriptions/xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxx/resourceGroups/MyResourceGroup/providers/Microsoft.Network/virtualNetworks/VNET1/virtualNetworkPeerings/LinkToVNet2
+        Etag                             : W/"acecbd0f-766c-46be-aa7e-d03e41c46b16"
+        ResourceGroupName                : MyResourceGroup
+        VirtualNetworkName               : VNET1
+        PeeringState                     : Connected
+        ProvisioningState                : Succeeded
+        RemoteVirtualNetwork             : {
+                                         "Id": "/subscriptions/xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxx/resourceGroups/MyResourceGroup/providers/Microsoft.ClassicNetwork/virtualNetworks/VNET2"
+                                       }
+        AllowVirtualNetworkAccess        : True
+        AllowForwardedTraffic            : False
+        AllowGatewayTransit              : False
+        UseRemoteGateways                : False
+        RemoteGateways                   : null
+        RemoteVirtualNetworkAddressSpace : null
+
 ## VNet Eşlemesini Kaldırma
 
-1.  VNet eşlemesini kaldırmak için şu cmdlet'i çalıştırmanız gerekir: 
+1.  VNet eşlemesini kaldırmak için şu cmdlet'i çalıştırmanız gerekir:
 
         Remove-AzureRmVirtualNetworkPeering  
-    
+
         remove both links, as shown below:
 
-        Remove-AzureRmVirtualNetworkPeering -ResourceGroupName vnet101 -VirtualNetworkName vnet1 -Name linktovnet2 
-        Remove-AzureRmVirtualNetworkPeering -ResourceGroupName vnet101 -VirtualNetworkName vnet1 -Name linktovnet2 
+        Remove-AzureRmVirtualNetworkPeering -ResourceGroupName vnet101 -VirtualNetworkName vnet1 -Name linktovnet2
+        Remove-AzureRmVirtualNetworkPeering -ResourceGroupName vnet101 -VirtualNetworkName vnet1 -Name linktovnet2
 
-2. VNET eşlemesindeki bir bağlantıyı kaldırdıktan sonra, eşleme bağlantısının durumu "bağlantı kesildi" olarak değişir. Bu durumda eşleme bağlantı durumu Başlatıldı olana kadar bağlantıyı yeniden oluşturamazsınız. VNet eşlemesini yeniden oluşturmadan önce her iki bağlantıyı da kaldırmanız önerilir. 
+2. VNET eşlemesindeki bir bağlantıyı kaldırdıktan sonra, eşleme bağlantısının durumu "bağlantı kesildi" olarak değişir. Bu durumda eşleme bağlantı durumu Başlatıldı olana kadar bağlantıyı yeniden oluşturamazsınız. VNet eşlemesini yeniden oluşturmadan önce her iki bağlantıyı da kaldırmanız önerilir.
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

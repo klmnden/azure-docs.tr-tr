@@ -19,6 +19,7 @@
 
 
 
+
 # HBase öğreticisi: HDInsight’ta Linux tabanlı Hadoop ile Apache HBase kullanmaya başlayın 
 
 [AZURE.INCLUDE [hbase-selector](../../includes/hdinsight-hbase-selector.md)]
@@ -39,9 +40,9 @@ HBase öğreticisine başlamadan önce aşağıdakilere sahip olmanız gerekir:
 
 ## HBase kümesi oluşturma
 
-Aşağıdaki yordam bir HBase kümesi oluşturmak için Azure ARM şablonu kullanır. Yordamda ve diğer küme oluşturma yöntemlerinde kullanılan parametreleri anlamak için bkz. [HDInsight’ta Linux tabanlı Hadoop kümeleri oluşturma](hdinsight-hadoop-provision-linux-clusters.md).
+Aşağıdaki yordamda, HBase kümesi oluşturmak için bir Azure Resource Manager şablonu kullanılıyor. Yordamda ve diğer küme oluşturma yöntemlerinde kullanılan parametreleri anlamak için bkz. [HDInsight’ta Linux tabanlı Hadoop kümeleri oluşturma](hdinsight-hadoop-provision-linux-clusters.md).
 
-1. Azure Portal'da bir ARM şablonu açmak için aşağıdaki görüntüye tıklayın. ARM şablonu bir ortak blob kapsayıcısı içinde bulunur. 
+1. Şablonu Azure Portal'da açmak için aşağıdaki görüntüye tıklayın. Şablon, ortak bir blob kapsayıcısında bulunur. 
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
@@ -188,7 +189,7 @@ Hive kullanarak HBase tablolarındaki verileri sorgulayabilirsiniz. Bu bölüm H
     * **-u** - İstek kimliğini doğrulamak için kullanılan kullanıcı adı ve parola.
     * **-G** - Bunun bir GET isteği olduğunu belirtir.
 
-2. Var olan HBase tablolarını listelemek için aşağıdaki komutu kullanın:
+2. Mevcut HBase tablolarını listelemek için şu komutu kullanın:
 
         curl -u <UserName>:<Password> \
         -G https://<ClusterName>.azurehdinsight.net/hbaserest/
@@ -247,7 +248,7 @@ SSH web istekleri gibi yerel istekler için HDInsight kümesine tünel oluşturm
 4. PuTTY oturum ekranınızın Temel seçeneklerinden aşağıdaki değerleri girin:
 
     - **Ana Bilgisayar Adı**: Ana bilgisayar adı (veya IP adresi) alanındaki HDInsight sunucusu SSH adresidir. SSH adresi kümenizin adıdır, bu durumda **-ssh.azurehdinsight.net**. Örneğin, *mycluster-ssh.azurehdinsight.net*.
-    - **Bağlantı noktası**: 22. Baş düğüm 0’daki ssh bağlantı noktası 22’dir.  
+    - **Bağlantı noktası**: 22. Birincil baş düğümdeki SSH bağlantı noktası 22'dir.  
 5. İletişim kutusunun solundaki **Kategori** bölümünde **Bağlantı**’yı genişletin, **SSH**’yi genişletin ve ardından **Tüneller**’e tıklayın.
 6. SSH bağlantı noktası iletme biçimini denetleyen Seçenekler bölümünde aşağıdaki bilgileri sağlayın:
 
@@ -327,6 +328,6 @@ Daha fazla bilgi için bkz:
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 
