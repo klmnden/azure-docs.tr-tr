@@ -17,12 +17,13 @@
    ms.date="08/31/2016"
    ms.author="cherylmc"/>
 
+
 # PowerShell kullanarak Siteden Siteye bağlantı ile VNet oluşturma
 
 > [AZURE.SELECTOR]
-- [Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-- [Azure Klasik Portalı](vpn-gateway-site-to-site-create.md)
-- [PowerShell - Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
+- [Resource Manager - Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+- [Resource Manager - PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
+- [Klasik - Klasik Portal](vpn-gateway-site-to-site-create.md)
 
 Bu makalede, **Azure Resource Manager dağıtım modelini** kullanarak şirket içi ağınıza yönelik bir sanal ağ ve Siteden Siteye VPN bağlantısı oluşturma işlemi adım adım açıklanmaktadır. Siteden Siteye bağlantılar, şirket içi ve dışı karışık yapılandırmalar ve karma yapılandırmalar için kullanılabilir.
 
@@ -148,7 +149,7 @@ Bir sonraki adımda, Azure VNet VPN ağ geçidinize genel bir IP adresinin ayrı
 
 Resource Manager dağıtım modeline ait Azure VPN ağ geçidi, genel IP adreslerini şu anda yalnızca Dinamik Ayırma yöntemini kullanarak desteklemektedir. Ancak bu, IP adresinin değişeceği anlamına gelmez. Azure VPN ağ geçidi IP adresi, yalnızca ağ geçidi silinip yeniden oluşturulduğunda değişir. Ağ geçidi genel IP adresi, Azure VPN ağ geçidiniz üzerinde gerçekleştirilen yeniden boyutlandırma, sıfırlama veya diğer iç bakım/yükseltme işlemleri sırasında değişmez.
 
-Aşağıdaki PowerShell örneğini kullanın.
+Aşağıdaki PowerShell örneğini kullanın:
 
     $gwpip= New-AzureRmPublicIpAddress -Name gwpip -ResourceGroupName testrg -Location 'West US' -AllocationMethod Dynamic
 
@@ -177,7 +178,7 @@ Aşağıdaki değerleri kullanın:
 
 ## 7. VPN cihazınızı yapılandırma
 
-Bu noktada, şirket içi VPN cihazınızı yapılandırmak için sanal ağ geçidinin genel IP adresi gereklidir. Belirli yapılandırma bilgilerini edinmek için cihazınızın üreticisiyle iş birliği yapın. Ayrıca, daha fazla bilgi için [VPN Cihazları](vpn-gateway-about-vpn-devices.md) makalesine bakın.
+Bu noktada, şirket içi VPN cihazınızı yapılandırmak için sanal ağ geçidinin genel IP adresi gereklidir. Belirli yapılandırma bilgilerini edinmek için cihazınızın üreticisiyle iş birliği yapın. Daha fazla bilgi için [VPN Cihazları](vpn-gateway-about-vpn-devices.md) makalesine bakın.
 
 Sanal ağ geçidinizin genel IP adresini bulmak için aşağıdaki örneği kullanın:
 
@@ -225,6 +226,6 @@ Yerel ağ geçidiniz için ön ekleri değiştirmeniz gerekirse aşağıdaki yö
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

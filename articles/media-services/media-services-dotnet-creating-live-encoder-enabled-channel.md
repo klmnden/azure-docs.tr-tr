@@ -1,9 +1,9 @@
 <properties 
-    pageTitle=" .NET çoklu bit hızına sahip akışlar oluşturmak üzere Azure Media Services’i kullanarak canlı akış gerçekleştirme" 
+    pageTitle=".NET çoklu bit hızına sahip akışlar oluşturmak için Azure Media Services'i kullanarak canlı akış gerçekleştirme | Microsoft Azure" 
     description="Bu öğreticide, tek bit hızında bir canlı akışı alıp .NET SDK kullanarak çoklu bit hızında akışa kodlayan bir Kanal oluşturulması adım adım anlatılmaktadır." 
     services="media-services" 
     documentationCenter="" 
-    authors="juliako,anilmur" 
+    authors="anilmur" 
     manager="erikre" 
     editor=""/>
 
@@ -13,11 +13,12 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article"
-    ms.date="06/22/2016"
-    ms.author="juliako"/>
+    ms.date="09/15/2016"
+    ms.author="juliako;anilmur"/>
 
 
-# .NET çoklu bit hızına sahip akışlar oluşturmak üzere Azure Media Services’i kullanarak canlı akış gerçekleştirme
+
+#.NET çoklu bit hızına sahip akışlar oluşturmak üzere Azure Media Services’i kullanarak canlı akış gerçekleştirme
 
 > [AZURE.SELECTOR]
 - [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
@@ -25,7 +26,7 @@
 - [REST API](https://msdn.microsoft.com/library/azure/dn783458.aspx)
 
 >[AZURE.NOTE]
-> Bu öğreticiyi tamamlamak için bir Azure hesabınızın olması gerekir. Ayrıntılar için bkz. [Azure Ücretsiz Deneme](/pricing/free-trial/?WT.mc_id=A261C142F). 
+> Bu öğreticiyi tamamlamak için bir Azure hesabınızın olması gerekir. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](/pricing/free-trial/?WT.mc_id=A261C142F). 
 
 ##Genel Bakış
 
@@ -85,13 +86,13 @@ Bu konuda aşağıdakilerin nasıl gerçekleştirileceği gösterilmektedir.
 1. Kanalınızı ve ilişkili tüm kaynakları temizleyin.
 
 
-##Ön koşullar
+##Önkoşullar
 
 Öğreticiyi tamamlamak için aşağıdakiler gereklidir.
 
 - Bu öğreticiyi tamamlamak için bir Azure hesabınızın olması gerekir. 
     
-    Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılar için bkz. [Azure Ücretsiz Deneme](/pricing/free-trial/?WT.mc_id=A261C142F). Ücretli Azure hizmetlerini denemek için kullanabileceğiniz krediler alırsınız. Krediler bitmiş olsa bile hesabı sürdürebilir ve Azure App Service’deki Web Apps özelliği gibi ücretsiz Azure hizmetlerinden faydalanabilirsiniz.
+    Hesabınız yoksa yalnızca birkaç dakika içinde ücretsiz bir deneme sürümü hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](/pricing/free-trial/?WT.mc_id=A261C142F). Ücretli Azure hizmetlerini denemek için kullanabileceğiniz krediler alırsınız. Krediler bitmiş olsa bile hesabı sürdürebilir ve Azure App Service’deki Web Apps özelliği gibi ücretsiz Azure hizmetlerinden faydalanabilirsiniz.
 - Bir Media Services hesabı. Media Services hesabı oluşturma konusunda bilgi edinmek için bkz. [Hesap Oluşturma](media-services-create-account.md).
 - Visual Studio 2010 SP1 (Professional, Premium, Ultimate veya Express) veya sonraki sürümleri.
 - Media Services .NET SDK sürüm 3.2.0.0 veya daha yeni bir sürümünü kullanmanız gerekir.
@@ -518,7 +519,9 @@ App.config dosyasına appSettings bölümünü ekleyin ve Media Services hesap a
     }   
 
 
-##Sonraki adımlar: Media Services’i öğrenme yolları
+##Sonraki adım
+
+Media Services öğrenme yollarını gözden geçirin.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -532,6 +535,6 @@ Beklediklerinizi bu konuda bulamadıysanız, eksik bir şeyler varsa veya herhan
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

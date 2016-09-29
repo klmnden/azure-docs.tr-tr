@@ -17,13 +17,13 @@
    ms.date="08/31/2016"
    ms.author="cherylmc"/>
 
+
 # Klasik Azure portalını kullanarak Siteden Siteye bağlantı ile VNet oluşturma
 
 > [AZURE.SELECTOR]
-- [Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-- [Azure Klasik Portalı](vpn-gateway-site-to-site-create.md)
-- [PowerShell - Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
-
+- [Resource Manager - Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+- [Resource Manager - PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
+- [Klasik - Klasik Portal](vpn-gateway-site-to-site-create.md)
 
 Bu makalede **klasik dağıtım modelini** ve klasik portalı kullanarak sanal bir ağ ve şirket içi ağınızda siteden siteye VPN bağlantısı oluşturma işlemi adım adım açıklanmaktadır. Siteden Siteye bağlantılar, şirket içi ve dışı karışık yapılandırmalar ve karma yapılandırmalar için kullanılabilir. Şu anda Azure portalını kullanarak klasik dağıtım modeli için uçtan uca bir Siteden Siteye yapılandırması oluşturamazsınız.
 
@@ -55,11 +55,11 @@ Yapılandırmaya başlamadan önce aşağıdaki öğelerin bulunduğunu doğrula
 
 2. Ekranın sol alt köşesinde **Yeni**’ye tıklayın. Gezinme bölmesinde **Ağ Hizmetleri**’ne, sonra da **Virtual Network**’a tıklayın. Yapılandırma sihirbazını başlatmak için **Özel Oluştur**’a tıklayın.
 
-3. VNet'inizi oluşturmak için ilerleyen sayfalardaki bilgileri doldurun.
+3. Sanal ağınızı oluşturmak için aşağıdaki sayfalara yapılandırma ayarlarınızı girin:
 
 ## Sanal ağ detayları sayfası
 
-Aşağıdaki bilgileri girin.
+Aşağıdaki bilgileri girin:
 
 - **Ad**: Sanal ağınıza bir ad verin. Örneğin, *EastUSVNet*. VM’lerinizi ve PaaS örneklerinizi dağıtırken bu sanal ağ adını kullanacağınız için, karışık bir isim vermekten kaçınmak isteyebilirsiniz.
 - **Konum**: Konum, kaynaklarınızın (VM’ler) bulunmasını istediğiniz fiziksel konum (bölge) ile doğrudan ilişkilidir. Örneğin, bu sanal ağa dağıttığınız VM’lerin fiziksel olarak *Doğu ABD*’de bulunmasını istiyorsanız, o konumu seçin. Sanal ağınızı oluşturduktan sonra sanal ağınızla ilişkili bölgeyi değiştiremezsiniz.
@@ -109,6 +109,6 @@ Bağlantınız tamamlandıktan sonra sanal ağlarınıza sanal makineler ekleyeb
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

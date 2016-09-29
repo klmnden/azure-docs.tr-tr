@@ -10,24 +10,26 @@
 <tags 
     ms.service="data-factory" 
     ms.workload="data-services" 
-    ms.tgt_pltfrm="na" 
+    ms.tgt_pltfrm="na" **
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="08/01/2016" 
+    ms.date="09/16/2016" 
     ms.author="spelluru"/>
+
 
 # Öğretici: Data Factory Kopyalama Sihirbazı kullanarak Kopyalama Etkinliği ile işlem hattı oluşturma
 > [AZURE.SELECTOR]
-- [Öğreticiye Genel Bakış](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-- [Data Factory Düzenleyici’yi kullanma](data-factory-copy-activity-tutorial-using-azure-portal.md)
-- [PowerShell’i kullanma](data-factory-copy-activity-tutorial-using-powershell.md)
-- [Visual Studio’yu kullanma](data-factory-copy-activity-tutorial-using-visual-studio.md)
-- [REST API kullanma](data-factory-copy-activity-tutorial-using-rest-api.md) 
-- [Kopyalama Sihirbazı'nı kullanma](data-factory-copy-data-wizard-tutorial.md)
+- [Genel bakış ve ön koşullar](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+- [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
+- [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
+- [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+- [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
+- [.NET API’si](data-factory-copy-activity-tutorial-using-dotnet-api.md)
+- [Kopyalama Sihirbazı](data-factory-copy-data-wizard-tutorial.md)
 
 Bu öğreticide, Data Factory Kopyalama Sihirbazı’nı kullanarak bir veri fabrikasında Kopyalama Etkinlikli işlem hattı oluşturacaksınız. İlk olarak, Azure portalını kullanarak bir veri fabrikası oluşturun. Ardından Kopyalama Sihirbazı’nı kullanarak Data Factory bağlı hizmetleri, veri kümeleri ve bir Azure blob depolama alanından Azure SQL veritabanına veri kopyalayan bir Kopyalama Etkinlikli işlem hattı oluşturun. Kopyalama etkinliği hakkında ayrıntılı bilgi için [Veri Taşıma Etkinlikleri](data-factory-data-movement-activities.md) makalesine bakın. 
 
-> [AZURE.IMPORTANT] [Öğreticiye Genel Bakış](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) makalesini inceleyin ve bu öğreticiyi uygulamadan önce önkoşul adımlarını tamamlayın.
+> [AZURE.IMPORTANT] [Öğreticiye Genel Bakış](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) makalesini inceleyin ve bu öğreticiyi uygulamadan önce **ön koşul** adımlarını tamamlayın.
 
 ## Veri fabrikası oluşturma
 Bu adımda, Azure portalı kullanarak **ADFTutorialDataFactory** adlı bir Azure veri fabrikası oluşturursunuz.
@@ -40,7 +42,7 @@ Bu adımda, Azure portalı kullanarak **ADFTutorialDataFactory** adlı bir Azure
     1. **Ad** için **ADFTutorialDataFactory** girin. 
     
         ![Yeni veri fabrikası dikey penceresi](./media/data-factory-copy-data-wizard-tutorial/getstarted-new-data-factory.png)
-    2. **KAYNAK GRUBU ADI**’na tıklayın ve şunları yapın:
+    2. **KAYNAK GRUBU ADI**’na tıklayın ve aşağıdaki adımları uygulayın:
         1. **Yeni bir kaynak grubu oluştur**’a tıklayın.
         2. **Kaynak grubu oluştur** dikey penceresinde kaynak grubunun **adı** olarak **ADFTutorialResourceGroup** girin ve **Tamam**’a tıklayın. 
 
@@ -57,7 +59,7 @@ Bu adımda, Azure portalı kullanarak **ADFTutorialDataFactory** adlı bir Azure
     > [AZURE.NOTE] Data factory adı gelecekte bir DNS adı olarak kaydedilmiş olabilir; bu nedenle herkese görünür hale gelmiştir.  
 
 9. Soldaki **BİLDİRİMLER** hub’ına tıklayın ve oluşturma işlemine ait bildirimleri arayın. Açıksa, **BİLDİRİMLER** dikey penceresini kapatmak için **X** işaretine tıklayın. 
-10. Oluşturma işlemi tamamlandıktan sonra, aşağıdaki görüntüde gösterildiği gibi **DATA FACTORY** dikey penceresini görürsünüz.
+10. Oluşturma işlemi tamamlandıktan sonra, aşağıdaki görüntüde gösterildiği gibi **DATA FACTORY** dikey penceresini görürsünüz:
 
     ![Data factory giriş sayfası](./media/data-factory-copy-data-wizard-tutorial/getstarted-data-factory-home-page.png)
 
@@ -88,7 +90,10 @@ Bu adımda, Azure portalı kullanarak **ADFTutorialDataFactory** adlı bir Azure
     3. **İleri**’ye tıklayın. 
 
     ![Kopyalama Aracı - Girdi dosyası veya klasörü seçin](./media/data-factory-copy-data-wizard-tutorial/copy-tool-choose-input-file-or-folder.png)
-7. **Dosya biçimi ayarları** sayfasında **varsayılan** değerleri seçin ve **İleri**’ye tıklayın.
+7. **Girdi dosyası veya klasörü seçin** sayfasında **İleri**’ye tıklayın. **İkili kopya**’yı seçmeyin. 
+
+    ![Kopyalama Aracı - Girdi dosyası veya klasörü seçin](./media/data-factory-copy-data-wizard-tutorial/chose-input-file-folder.png) 
+8. **Dosya biçimi ayarları** sayfasında **varsayılan** değerleri seçin ve **İleri**’ye tıklayın.
 
     ![Kopyalama Aracı - Dosya biçimi ayarları](./media/data-factory-copy-data-wizard-tutorial/copy-tool-file-format-settings.png)  
 8. Hedef veri deposu sayfasında **Azure SQL Database** kutucuğuna ve **İleri**’ye tıklayın.
@@ -102,11 +107,12 @@ Bu adımda, Azure portalı kullanarak **ADFTutorialDataFactory** adlı bir Azure
 
     ![Kopyalama Aracı - Tablo eşleme](./media/data-factory-copy-data-wizard-tutorial/copy-tool-table-mapping-page.png) 
 10. **Şema eşleme** sayfasında **İleri**’ye tıklayın.
+11. **Performans ayarları** sayfasında **İleri**’ye tıklayın. 
 11. **Özet** sayfasındaki bilgileri gözden geçirin ve **Son**’a tıklayın. Sihirbaz, veri fabrikasında (Kopyalama Sihirbazı’nı başlattığınız yer) iki bağlı hizmet, iki veri kümesi (girdi ve çıktı) ve bir işlem hattı oluşturur. 
-12. **Dağıtım başarılı** sayfasında **Kopyalama işlem hattını izlemek için buraya tıklayın** öğesine tıklayın.
+12. **Dağıtım başarılı** sayfasında **Kopyalama işlem hattını izlemek için buraya tıklayın** bağlantısına tıklayın.
 
     ![Kopyalama Aracı - Dağıtım başarılı](./media/data-factory-copy-data-wizard-tutorial/copy-tool-deployment-succeeded.png)  
-13. Oluşturduğunuz işlem hattını izleme hakkında bilgi almak için [İzleme Uygulamasını kullanarak işlem hattını izleme ve yönetme](data-factory-monitor-manage-app.md) bölümündeki yönergeleri kullanın.
+13. Oluşturduğunuz işlem hattını izleme hakkında bilgi almak için [İzleme Uygulamasını kullanarak işlem hattını izleme ve yönetme](data-factory-monitor-manage-app.md) bölümündeki yönergeleri kullanın. Dilimi görmek için **ETKİNLİK PENCERELERİ** listesindeki **Yenile** simgesine tıklayın. 
 
     ![İzleme Uygulaması](./media/data-factory-copy-data-wizard-tutorial/monitoring-app.png) 
  
@@ -121,6 +127,6 @@ Bu adımda, Azure portalı kullanarak **ADFTutorialDataFactory** adlı bir Azure
 | [İzleme Uygulaması kullanılarak işlem hatlarını izleme ve yönetme](data-factory-monitor-manage-app.md) | Bu makalede İzleme ve Yönetim Uygulaması kullanılarak işlem hatlarını izleme, yönetme ve hatalarını ayıklama işlemleri açıklanmaktadır. 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

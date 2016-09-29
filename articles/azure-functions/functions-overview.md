@@ -19,9 +19,10 @@
    ms.author="cfowler;mahender;glenga"/>
    
    
+
 # Azure İşlevlerine Genel Bakış
 
-Azure İşlevleri, küçük kod parçalarını veya "işlevleri" bulutta kolayca çalıştırmaya yönelik bir çözümdür. Tüm uygulama veya bunu çalıştıracak altyapı hakkında endişelenmeden elinizdeki sorun için ihtiyacınız olan kodu yazabilirsiniz. Bu, geliştirmeyi daha da verimli hale getirebilir ve C#, Node.js, Python veya PHP gibi tercih ettiğiniz geliştirme dilini kullanabilirsiniz. Yalnızca kodunuzun çalıştığı zaman için ödeme yapın ve ihtiyaca göre ölçekleme konusunda Azure'a güvenin.
+Azure İşlevleri, küçük kod parçalarını veya "işlevleri" bulutta kolayca çalıştırmaya yönelik bir çözümdür. Tüm uygulama veya bunu çalıştıracak altyapı hakkında endişelenmeden elinizdeki sorun için ihtiyacınız olan kodu yazabilirsiniz. Böylece geliştirmeniz daha verimli hale gelebilir ve tercih ettiğiniz bir geliştirme dilini (C#, F#, Node.js, Python veya PHP gibi) kullanabilirsiniz. Yalnızca kodunuzun çalıştığı zaman için ödeme yapın ve ihtiyaca göre ölçekleme konusunda Azure'a güvenin.
 
 Bu konu başlığında, Azure İşlevlerine üst düzey bir genel bakış sağlanmıştır. Azure İşlevlerini kullanmaya hemen başlamak isterseniz [İlk Azure İşlevinizi oluşturma](functions-create-first-azure-function.md) ile başlayın. İşlevler hakkında daha teknik bilgi arıyorsanız bkz. [geliştirici başvurusu](functions-reference.md).
 
@@ -29,7 +30,7 @@ Bu konu başlığında, Azure İşlevlerine üst düzey bir genel bakış sağla
 
 Azure İşlevlerinin önemli özelliklerinden bazıları şunlardır:
     
-* **Dil seçimi** - C#, Node.js, Python, F#, PHP, batch, bash, Java veya herhangi bir yürütülebilir dosya kullanarak işlevleri yazın.  
+* **Dil seçimi** - C#, F#, Node.js, Python, PHP, Batch, Bash, Java veya herhangi bir yürütülebilir dosya kullanarak işlevleri yazın.
 * **Kullandıkça ödeme fiyatlandırma modeli** - Yalnızca kodunuzu çalıştırmaya harcanan zaman için ödeme yapın. Aşağıdaki [fiyatlandırma bölümünde](#pricing) Dinamik App Service Planı seçeneğine bakın.  
 * **Kendi bağımlılıklarınızı getirin** - İşlevler NuGet ve NPM'yi desteklediğinden, sık kullandığınız kitaplıklarınızı kullanabilirsiniz.  
 * **Tümleşik güvenlik** - Azure Active Directory, Facebook, Google, Twitter ve Microsoft Hesabı gibi OAuth sağlayıcılarıyla HTTP tetiklemeli işlevleri koruyun.  
@@ -93,6 +94,6 @@ Dinamik hizmet planı dahil olmak üzere Azure İşlevlerinde kullanılabilen hi
 Azure İşlevleri; dağıtımlar, ortam değişkenleri ve tanılama gibi temel işlevler için Azure App Service platformunu kullanır. 
 
 
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

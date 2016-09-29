@@ -16,28 +16,26 @@
     ms.date="08/01/2016"
     ms.author="spelluru"/>
 
+
 # Öğretici: Azure Resource Manager şablonu kullanarak ilk Azure veri fabrikanızı derleme
 > [AZURE.SELECTOR]
-- [Azure Portal](data-factory-build-your-first-pipeline-using-editor.md)
+- [Genel bakış ve ön koşullar](data-factory-build-your-first-pipeline.md)
+- [Azure portal](data-factory-build-your-first-pipeline-using-editor.md)
 - [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 - [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Resource Manager Şablonu](data-factory-build-your-first-pipeline-using-arm.md)
 - [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
 
+Bu makalede Azure Resource Manager şablonu kullanarak ilk Azure veri fabrikanızı oluşturursunuz.
 
-[AZURE.INCLUDE [data-factory-tutorial-prerequisites](../../includes/data-factory-tutorial-prerequisites.md)] 
-
-## Ek önkoşullar
-Yukarıdaki önkoşullar bölümünde listelenen önkoşullar dışında aşağıdakileri yükleyin:
-
-- **Azure PowerShell'i yükleme**. Bilgisayarınıza Azure PowerShell’in en son sürümünü yüklemek için [Azure PowerShell’i yükleme ve yapılandırma](../powershell-install-configure.md) makalesindeki yönergeleri izleyin.
+## Önkoşullar
+- [Öğreticiye Genel Bakış](data-factory-build-your-first-pipeline.md) makalesinin tamamını okuyun ve **ön koşul** adımlarını tamamlayın.
+- Bilgisayarınıza Azure PowerShell’in en son sürümünü yüklemek için [Azure PowerShell’i yükleme ve yapılandırma](../powershell-install-configure.md) makalesindeki yönergeleri izleyin.
 - Azure Resource Manager şablonları hakkında bilgi için bkz. [Azure Resource Manager Şablonları Yazma](../resource-group-authoring-templates.md). 
 
 ## Resource Manager şablonu oluşturma
 
-**C:\ADFGetStarted** klasöründe aşağıdaki içeriğe sahip **ADFTutorialARM.json** adlı bir JSON dosyası oluşturun: 
-
-Şablon aşağıdaki Data Factory varlıklarını oluşturmanıza olanak sağlar.
+Bu bölümde aşağıdaki Data Factory varlıklarını oluşturursunuz: 
 
 1. **TutorialDataFactoryARM** adlı bir **veri fabrikası**. Bir veri fabrikasında bir veya daha fazla işlem hattı olabilir. İşlem hattında bir veya daha fazla etkinlik olabilir. Örneğin, verileri bir kaynaktan bir hedef veri deposuna kopyalamak için bir Kopyalama Etkinliği ve giriş verilerini dönüştürecek Hive betiğini çalıştırmak için bir HDInsight Hive etkinliği. 
 2. İki **bağlı hizmet**: **StorageLinkedService** ve **HDInsightOnDemandLinkedService**. Bu bağlı hizmetler Azure Storage hesabınızı ve isteğe bağlı Azure HDInsight kümesini veri fabrikanıza bağlar. Azure Depolama hesabı, bu örnekteki işlem hattı için girdi ve çıktı verilerini tutar. HDInsight bağlı hizmeti, bu örnekte işlem hattının etkinliğinde belirtilen Hive betiğini çalıştırmak için kullanılır. Senaryonuzda hangi veri deposu/işlem hizmetlerinin kullanılacağını belirleyin ve bağlı hizmetler oluşturarak bu hizmetleri data factory’ye bağlayın. 
@@ -45,8 +43,9 @@ Yukarıdaki önkoşullar bölümünde listelenen önkoşullar dışında aşağ�
 
 Bu şablonda kullanılan JSON özelliklerine ilişkin ayrıntıları içeren makaleye geçmek için **Data Factory Düzenleyici’yi kullanma** sekmesine tıklayın.
 
-> [AZURE.IMPORTANT] **storageAccountName** ve **storageAccountKey** değişkenlerinin değerlerini değiştirin. Adın benzersiz olması gerektiğinden **dataFactoryName** değerini de değiştirin.
+**C:\ADFGetStarted** klasöründe aşağıdaki içeriğe sahip **ADFTutorialARM.json** adlı bir JSON dosyası oluşturun:
 
+> [AZURE.IMPORTANT] **storageAccountName** ve **storageAccountKey** değişkenlerinin değerlerini değiştirin. Adın benzersiz olması gerektiğinden **dataFactoryName** değerini de değiştirin.
 
     {
         "contentVersion": "1.0.0.0",
@@ -226,10 +225,10 @@ Ayrıntılar için bkz. [İsteğe Bağlı HDInsight Bağlı Hizmeti](data-factor
 
 ## Veri fabrikası oluşturma
 
-1. **Azure PowerShell**’i başlatın ve aşağıdaki komutu çalıştırın. 
-    - **Login-AzureRmAccount** komutunu çalıştırın ve Azure Portal’da oturum açmak için kullandığınız kullanıcı adı ve parolayı girin.  
-    - İçinde veri fabrikasını oluşturmak istediğiniz aboneliği seçmek için aşağıdaki komutu çalıştırın.
-            Get-AzureRmSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzureRmContext
+1. **Azure PowerShell**’i başlatın ve aşağıdaki komutu çalıştırın: 
+    - `Login-AzureRmAccount` komutunu çalıştırın ve Azure portalda oturum açmak için kullandığınız kullanıcı adı ve parolayı girin.  
+    - Bu hesapla ilgili tüm abonelikleri görmek için `Get-AzureRmSubscription` komutunu çalıştırın.
+    - Çalışmak isteğiniz aboneliği seçmek için `Get-AzureRmSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzureRmContext` komutunu çalıştırın. Bu abonelik Azure portalında kullanılanla aynı olmalıdır.
 1. 1 Adımda oluşturduğunuz Resource Manager şablonunu kullanarak Data Factory varlıklarını dağıtmak için aşağıdaki komutu çalıştırın. 
 
         New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFGetStarted\ADFTutorialARM.json
@@ -247,7 +246,7 @@ Ayrıntılar için bkz. [İsteğe Bağlı HDInsight Bağlı Hizmeti](data-factor
 8. Diyagram Görünümü’nde **AzureBlobOutput** veri kümesine çift tıklayın. Dilimin işlenmekte olduğunu görürsünüz.
 
     ![Veri kümesi](./media/data-factory-build-your-first-pipeline-using-arm/AzureBlobOutput.png)
-9. İşlem tamamlandığında dilimi **Hazır** durumunda görürsünüz. İsteğe bağlı HDInsight kümesinin oluşturulması genellikle biraz zaman alır (yaklaşık 20 dakika). 
+9. İşlem tamamlandığında dilimi **Hazır** durumunda görürsünüz. İsteğe bağlı HDInsight kümesinin oluşturulması genellikle biraz zaman alır (yaklaşık 20 dakika). Bu nedenle, işlem hattının dilimi işlemesi için **yaklaşık 30 dakika** bekleyin.
 
     ![Veri kümesi](./media/data-factory-build-your-first-pipeline-using-arm/SliceReady.png) 
 10. Dilim **Hazır** durumunda olduğunda çıktı verileri için blob depolama alanınızın **adfgetstarted** kapsayıcısında **partitioneddata** klasörünü denetleyin.  
@@ -308,6 +307,6 @@ Bu şablon GatewayUsingArmDF adlı bir veri fabrikasını GatewayUsingARM adlı 
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

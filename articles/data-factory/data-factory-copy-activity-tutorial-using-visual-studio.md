@@ -16,33 +16,34 @@
     ms.date="08/01/2016" 
     ms.author="spelluru"/>
 
+
 # Öğretici: Visual Studio kullanarak Kopyalama Etkinliği ile işlem hattı oluşturma
 > [AZURE.SELECTOR]
-- [Öğreticiye Genel Bakış](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-- [Data Factory Düzenleyici’yi kullanma](data-factory-copy-activity-tutorial-using-azure-portal.md)
-- [PowerShell’i kullanma](data-factory-copy-activity-tutorial-using-powershell.md)
-- [Visual Studio’yu kullanma](data-factory-copy-activity-tutorial-using-visual-studio.md)
-- [REST API kullanma](data-factory-copy-activity-tutorial-using-rest-api.md)
-- [.NET API kullanma](data-factory-copy-activity-tutorial-using-dotnet-api.md)
-- [Kopyalama Sihirbazı'nı kullanma](data-factory-copy-data-wizard-tutorial.md)
+- [Genel bakış ve ön koşullar](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+- [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
+- [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
+- [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+- [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
+- [.NET API’si](data-factory-copy-activity-tutorial-using-dotnet-api.md)
+- [Kopyalama Sihirbazı](data-factory-copy-data-wizard-tutorial.md)
 
-Bu öğreticide Visual Studio 2013 kullanarak aşağıdakileri yaparsınız:
+Bu öğretici, Visual Studio kullanarak bir Azure data factory oluşturmayı ve izlemeyi gösterir. Veri fabrikasındaki işlem hattı, Azure Blob Depolama’dan Azure SQL veritabanı’na veri kopyalamak için bir Kopyalama Etkinliği kullanır.
+
+Bu eğitimin bir parçası olarak gerçekleştireceğiniz adımlar şunlardır:
 
 1. İki bağlı hizmet oluşturun: **AzureStorageLinkedService1** ve **AzureSqlinkedService1**. AzureStorageLinkedService1 bağlı hizmeti Azure depolamayı, AzureSqlLinkedService1 de Azure SQL veritabanını data factory: **ADFTutorialDataFactoryVS** konumuna bağlar. İşlem hattıyla ilgili girdi verileri Azure blob depolamadaki bir blob kapsayıcısında yer alırken çıktı verileri de Azure SQL veritabanındaki bir tabloda depolanır. Bu nedenle, bu iki veri deposunu bağlı hizmet olarak data factory’ye ekliyorsunuz.
-2. **EmpTableFromBlob** ve **EmpSQLTable** adlı, veri depolarında depolanan girdi/çıktı verilerini temsil eden iki data factory tablosu oluşturun. EmpTableFromBlob için, kaynak verilerin bulunduğu blob’u içeren blob kapsayıcısını belirtirsiniz. EmpSQLTable için çıktı verilerini depolayan SQL tablosunu belirtirsiniz. Yapı, kullanılabilirlik vb. gibi diğer özellikleri de belirtirsiniz.
+2. **EmpTableFromBlob** ve **EmpSQLTable** adlı, veri depolarında depolanan girdi/çıktı verilerini temsil eden iki data factory tablosu oluşturun. EmpTableFromBlob için, kaynak verilerin bulunduğu blob’u içeren blob kapsayıcısını belirtirsiniz. EmpSQLTable için çıktı verilerini depolayan SQL tablosunu belirtirsiniz. Yapı, kullanılabilirlik ve ilke gibi diğer özellikleri de belirtirsiniz.
 3. ADFTutorialDataFactoryVS’de **ADFTutorialPipeline** adlı işlem hattını oluşturun. İşlem hattında, girdi verilerini Azure blob’tan çıktı Azure SQL tablosuna kopyalayan **Kopyalama Etkinliği** vardır. Kopyalama Etkinliği, Azure Data Factory’de veri hareketini gerçekleştirir. Etkinlik, çeşitli veri depolama alanları arasında güvenli, güvenilir ve ölçeklenebilir bir yolla veri kopyalayabilen genel olarak kullanılabilir bir hizmet tarafından desteklenir. Kopyalama etkinliği hakkında ayrıntılı bilgi için [Veri Taşıma Etkinlikleri](data-factory-data-movement-activities.md) makalesine bakın. 
 4. Data factory oluşturup bağlı hizmetleri, tabloları ve işlem hattını dağıtın.    
 
-## Ön koşullar
+## Önkoşullar
 
-1. [Öğreticiye Genel Bakış](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) makalesini okuyun.
-    
-    > [AZURE.IMPORTANT] Devam etmeden önce ön koşulları tamamlayın. 
+1. [Öğreticiye Genel Bakış](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) makalesinin tamamını okuyun ve **ön koşul** adımlarını tamamlayın. 
 2. Azure Data Factory’ye Data Factory varlıkları yayımlayabilmek için bir **Azure aboneliğinin yöneticisi** olmanız gerekir.  
 3. Bilgisayarınızda şunların yüklü olması gerekir: 
     - Visual Studio 2013 veya Visual Studio 2015
     - Visual Studio 2013 veya Visual Studio 2015 için Azure SDK’sını indirin. [Azure İndirme Sayfası](https://azure.microsoft.com/downloads/)’na gidin ve **.NET** bölümündeki **VS 2013** veya **VS 2015**’e tıklayın.
-    - Visual Studio için en son Azure Data Factory eklentisini indirin: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) veya [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). Visual Studio 2013 kullanıyorsanız, buradaki işlemleri yaparak eklentiyi güncelleştirebilirsiniz: Menüde **Araçlar** -> **Uzantılar ve Güncelleştirmeler** -> **Çevrimiçi** -> **Visual Studio Galerisi** -> **Visual Studio için Microsoft Azure Data Factory Araçları** -> **Güncelleştir**’e tıklayın. 
+    - Visual Studio için en son Azure Data Factory eklentisini indirin: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) veya [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). Visual Studio 2013 kullanıyorsanız, aşağıdaki adımları uygulayarak eklentiyi güncelleştirebilirsiniz: Menüde **Araçlar** -> **Uzantılar ve Güncelleştirmeler** -> **Çevrimiçi** -> **Visual Studio Galerisi** -> **Visual Studio için Microsoft Azure Data Factory Araçları** -> **Güncelleştir**’e tıklayın. 
  
 
 
@@ -212,7 +213,7 @@ Bu adımda, iki bağlı hizmet oluşturursunuz: **AzureStorageLinkedService1** v
 
     ![Yayımla iletişim kutusu](./media/data-factory-copy-activity-tutorial-using-visual-studio/publish.png)
 
-21. Data factory yapılandırma sayfasında aşağıdakileri yapın: 
+21. Data factory yapılandırma sayfasında aşağıdaki adımları uygulayın: 
     1. **Yeni Data Factory Oluştur** seçeneğini seçin.
     2. **Ad** için **VSTutorialFactory** girin.  
     
@@ -227,7 +228,7 @@ Bu adımda, iki bağlı hizmet oluşturursunuz: **AzureStorageLinkedService1** v
 24. Özeti gözden geçirin, dağıtım işlemini başlatmak ve **Dağıtım Durumu**’nu görüntülemek için **İleri**’ye tıklayın.
 25. **Dağıtım Durumu** sayfasında dağıtım sürecinin durumunu görmelisiniz. Dağıtımını gerçekleştirdikten sonra Son'a tıklayın. 
 
-Şunlara dikkat edin: 
+Aşağıdaki noktalara dikkat edin: 
 
 - Şu hatayı alırsanız: "**Abonelik, Microsoft.DataFactory ad alanını kullanacak şekilde kaydedilmemiş**", aşağıdakilerden birini yapın ve yeniden yayımlamayı deneyin: 
 
@@ -249,7 +250,7 @@ Bu öğreticide Azure blob’undan Azure SQL veritabanına veri kopyalamak üzer
 2.  Oluşturulan **bağlı hizmetler**:
     1. Girdi verilerini tutan Azure Storage hesabınıza bağlamak için **Azure Storage** bağlı hizmeti.    
     2. Çıktı verilerini tutan Azure SQL veritabanınıza bağlamak için **Azure SQL** bağlı hizmeti. 
-3.  İşlem hatları için girdi verilerini ve çıktı verilerini açıklayan oluşturulan **veri kümeleri**.
+3.  İşlem hatları için girdi ve çıktı verilerini açıklayan **veri kümeleri** oluşturuldu.
 4.  Kaynak olarak **BlobSource**’u, havuz olarak da **SqlSink**’i kapsayan **Kopyalama Etkinliği**’ne sahip oluşturulan **işlem hattı**. 
 
 
@@ -262,7 +263,7 @@ Bu öğreticide Azure blob’undan Azure SQL veritabanına veri kopyalamak üzer
     ![Data factory’yi VS projesine aktarma](./media/data-factory-copy-activity-tutorial-using-visual-studio/export-data-factory-menu.png)  
 
 ## Visual Studio için Data Factory araçlarını güncelleştirme
-Visual Studio için Azure Data Factory araçlarını güncelleştirmek üzere şunları yapın:
+Visual Studio için Azure Data Factory araçlarını güncelleştirmek üzere aşağıdaki adımları uygulayın:
 
 1. Menüde **Araçlar**’a tıklayın ve **Uzantılar ve Güncelleştirmeler**’i seçin. 
 2. Sol bölmede **Güncelleştirmeler**’i, sonra da **Visual Studio Galerisi**’ni seçin.
@@ -281,6 +282,6 @@ Bu öğreticide oluşturduğunuz işlem hattını ve veri kümelerini izlemek ü
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

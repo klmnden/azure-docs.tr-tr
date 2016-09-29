@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="08/26/2016"
+    ms.date="09/21/2016"
     ms.author="marsma"/>
+
 
 # Azure portalı kullanarak Azure Batch hesabı oluşturma
 
@@ -28,7 +29,7 @@
 
 1. [Azure portal][azure_portal]’da oturum açın.
 
-2. **Yeni** > **Sanal Makineler** > **Batch Hizmeti**’ne tıklayın.
+2. **Yeni** > **İşlem** > **Batch Hizmeti**'ne tıklayın.
 
     ![Market’te Batch][marketplace_portal]
 
@@ -127,6 +128,6 @@ Azure portalını kullanmaya ek olarak Batch hesaplarını aşağıdakilerle olu
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

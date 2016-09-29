@@ -1,0 +1,112 @@
+<properties
+   pageTitle="Olay Yanıtı için Azure Güvenlik Merkezi’nden Yararlanma | Microsoft Azure"
+   description="Bu belgede bir Olay Yanıtı senaryosu için Azure Güvenlik Merkezi’nden yararlanma işlemi açıklanmaktadır."
+   services="security-center"
+   documentationCenter="na"
+   authors="YuriDio"
+   manager="swadhwa"
+   editor=""/>
+
+<tags
+   ms.service="security-center"
+   ms.topic="hero-article"
+   ms.devlang="na"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="09/20/2016"
+   ms.author="yurid"/>
+
+
+# Olay Yanıtı için Azure Güvenlik Merkezi’nden Yararlanma
+Birçok kuruluş güvenlik olaylarına nasıl yanıt vereceğini ancak bir saldırıya uğradıktan sonra öğrenir. Maliyetini ve zararını azaltmak için bir saldırı gerçekleşmeden önce olay yanıtı planınızın olması önemlidir. Bir olay yanıtının farklı aşamalarında Azure Güvenlik Merkezi’nden yararlanılabilir.
+
+## Olay yanıtı
+
+Etkili bir plan üç temel özelliğe bağlıdır: tehditlere karşı koruma, tehditleri algılama ve yanıtlama becerileri. Koruma; olayları önlemek, algılama; tehditleri erken belirlemek ve yanıt; saldırganı uzaklaştırıp sistemleri geri yükleyerek bir ihlalin etkilerini azaltmak içindir. 
+
+Bu makale aşağıdaki diyagramda gösterildiği gibi [Bulutta Microsoft Azure Güvenlik Yanıtı](https://gallery.technet.microsoft.com/Azure-Security-Response-in-dd18c678) makalesinden güvenlik olay yanıtı aşamalarını kullanmaktadır:
+
+![Olay yanıtı yaşam döngüsü](./media/security-center-incident-response/security-center-incident-response-fig1.png)
+
+Algılama, Değerlendirme ve Tanılama aşamalarında Güvenlik Merkezi’nden yararlanılabilir. Bu aşamaların her biri hakkında daha fazla bilgi için. Olay yanıtının başlangıçtaki üç aşaması sırasında Güvenlik Merkezi’nin nasıl yararlı olabileceğine ilişkin bir örnek aşağıda verilmiştir:
+
+- **Algılama**: olay araştırmasının ilk göstergesi
+    - Örnek: Güvenlik Merkezi panosunda yüksek öncelikli bir güvenlik uyarısının oluşturulduğuna ilişkin ilk doğrulama.
+- **Değerlendirme**: şüpheli etkinlik hakkında daha fazla bilgi edinmek için ilk değerlendirmeyi gerçekleştirin.
+    - Örnek: güvenlik uyarısı hakkında daha fazla bilgi edinme.
+- **Tanılama**: teknik bir inceleme gerçekleştirme, kapsamı tanımlama, giderme ve geçici çözüm stratejileri
+    - Örnek: ilgili güvenlik uyarısında Güvenlik Merkezi tarafından tanımlanan düzeltme adımlarını izleyin.
+
+Aşağıdaki senaryoda bir güvenlik olayının algılama, değerlendirme ve tanılama/yanıtlama aşamaları sırasında Güvenlik Merkezi’nden nasıl yararlanılacağı gösterilmektedir.  Güvenlik Merkezi'nde bir [güvenlik olayı](security-center-incident.md), bir kaynağın [sonlandırma zinciri](https://blogs.technet.microsoft.com/office365security/addressing-your-cxos-top-five-cloud-security-concerns/) desenleri ile hizalanan tüm uyarılarının toplamıdır. Olaylar [Güvenlik Uyarıları](security-center-managing-and-responding-alerts.md) kutucuğunda ve dikey penceresinde görüntülenir. Bir Olay, her olay hakkında daha fazla bilgi almanızı sağlayan ilgili uyarıların listesini ortaya çıkarır. Güvenlik Merkezi şüpheli bir etkinliği izlemek için de kullanılabilen bağımsız güvenlik uyarıları da sunar.
+
+## Senaryo
+
+Contoso kısa süre önce bazı sanal makine tabanlı iş kolu iş yükleri ve SQL veritabanları dahil olmak üzere şirket içi kaynaklarından bazılarını Azure’a taşımıştır. Contoso'nun Çekirdek Bilgisayar Güvenliği Olay Yanıtı Ekibi (CSIRT) şu anda geçerli olay yanıtı araçlarıyla tümleşik güvenlik bilgileri olmadığı için güvenlik sorunlarını araştırmayla ilgili bir sorun yaşamaktadır. Bu tümleştirme eksikliği, algılama sırasında (çok sayıda hatalı pozitif sonuç) ve değerlendirme ile tanılama aşamalarında bir sorun oluşturmaktadır. Bu geçişin bir parçası olarak, bu sorunu gidermeye yardımcı olmak üzere Güvenlik Merkezi’ni kullanmaya karar verilmiştir. 
+
+Bu geçişin ilk aşaması tüm kaynaklar eklendikten sonra ve Güvenlik Merkezi'nin tüm güvenlik önerileri ele alındıktan sonra tamamlanmıştır. Contoso CSIRT, bilgisayar güvenliği olaylarıyla ilgilenmek için odak noktasıdır. Ekip her türlü güvenlik olayıyla ilgilenmekten sorumlu kişilerden oluşur. Hiçbir sorumluluk alanının kapsam dışında kalmaması için ekip üyeleri açıkça tanımlanmış görevlere sahiptir. 
+
+Bu senaryoda Contoso CSIRT ekibinin bir parçası olan aşağıdaki kişilerin rollerine odaklanılacaktır:
+
+![Olay yanıtı yaşam döngüsü](./media/security-center-incident-response/security-center-incident-response-fig2.png)
+
+Meltem güvenlik operasyonlarında görevlidir ve aşağıdaki sorumluluklara sahiptir:
+- Gün boyunca güvenlik tehditlerini izleme ve yanıtlama
+- Gerektiğinde bulut iş yükü sahibine veya güvenlik analiz uzmanına başvurma
+
+Vedat bir güvenlik analiz uzmanıdır ve aşağıdaki sorumluluklara sahiptir:
+- Saldırıları araştırma
+- Uyarıları düzeltme 
+- İş yükü sahipleriyle birlikte çalışarak çözümleri belirleyip uygulama
+
+Gördüğünüz gibi Meltem ve Vedat farklı sorumluluklara sahiptir ve Güvenlik Merkezi'nden elde edilen bilgileri paylaşarak birlikte çalışmaları gerekir. 
+
+## Önerilen çözüm
+
+Meltem ve Vedat farklı rollere sahip olduğundan günlük etkinlikleriyle ilgili bilgileri almak için Güvenlik Merkezi’nin farklı alanlarını kullanacaklardır. Meltem günlük izleme görevinin bir parçası olarak Güvenlik Uyarıları’nı kullanır. 
+
+![Güvenlik Uyarısı](./media/security-center-incident-response/security-center-incident-response-fig3.png)
+
+Meltem, Algılama ve Değerlendirme aşamaları sırasında Güvenlik Uyarıları’nı kullanır. Meltem ilk değerlendirmesini tamamladıktan sonra ek araştırma gerekiyorsa sorunu Vedat’a taşıyabilir. Bu noktada Vedat, Tanılama aşamasına geçmek için bazen diğer veri kaynaklarıyla birlikte Güvenlik Merkezi tarafından sağlanan bilgileri kullanmak zorundadır.
+
+
+## Bu çözümü uygulama 
+
+Bir olay yanıtı senaryosunda Azure Güvenlik Merkezi’nin nasıl kullanılacağını görmek için Meltem’in Algılama ve Değerlendirme aşamasındaki adımlarını izleyecek ve Vedat’ın sorunu tanılamak için ne yaptığını göreceğiz. 
+
+### Algılama ve değerlendirme olay yanıtı aşamaları 
+
+Meltem Azure portalında oturum açmıştır ve Güvenlik Merkezi konsolundadır. Günlük izleme etkinliklerinin bir parçası olarak aşağıdaki adımları uygulayarak yüksek öncelikli güvenlik ayarlarını gözden geçirmeye başlamıştır:
+
+1. **Güvenlik Uyarıları** kutucuğuna tıklamış ve **Güvenlik Uyarıları** dikey penceresine erişmiştir.
+    ![Güvenlik Uyarısı dikey penceresi](./media/security-center-incident-response/security-center-incident-response-fig4.png)
+
+    > [AZURE.NOTE] Bu senaryoda Meltem, yukarıdaki şekilde görünen Kötü Amaçlı SQL etkinliği uyarısı üzerinde bir değerlendirme yapacaktır. 
+2. **Kötü Amaçlı SQL etkinliği** uyarısına tıklayın ve **Kötü Amaçlı SQL Etkinliği** dikey penceresi:  ![Olay ayrıntıları](./media/security-center-incident-response/security-center-incident-response-fig5.png) için saldırılan kaynakları gözden geçirin
+    
+    Bu dikey pencerede Meltem, saldırıya uğrayan kaynaklar, bu saldırının kaç kez gerçekleştiği ve ne zaman algılandığı ile ilgili notlar alabilir.
+3. Bu saldırı hakkında daha fazla bilgi almak için **saldırıya uğrayan kaynak** öğesine tıklayın. 
+
+Meltem açıklamayı okuduktan sonra bunun yanlış pozitif olmadığına ve bu sorunu Vedat’a götürmesi gerektiğine ikna olur.
+
+### Tanılama olay yanıtı aşaması 
+
+Vedat olayı Meltem’den alır ve Güvenlik Merkezi tarafından önerilen düzeltme adımlarını gözden geçirmeye başlar.
+
+![Olay yanıtı yaşam döngüsü](./media/security-center-incident-response/security-center-incident-response-fig6.png)
+
+### Ek kaynaklar
+
+Olay yanıtı ekibi ayrıca önerileri ve güvenlik uyarılarını görüntülemek, çözümlemek ve filtrelemek üzere daha ayrıntılı araştırma sırasında kendilerine yardımcı olabilecek farklı rapor türlerini görmek üzere [Güvenlik Merkezi Power BI](security-center-powerbi.md)’dan yararlanabilir. Araştırma işlemi sırasında Güvenlik Bilgileri ve Olay Yönetimi (SIEM) çözümünü kullanan şirketler ayrıca [Güvenlik Merkezi’ni çözümleriyle tümleştirebilir](security-center-integrating-alerts-with-log-integration.md). Azure denetim günlükleri ve VM güvenlik olayları da [Azure günlük tümleştirme aracı](https://blogs.msdn.microsoft.com/azuresecurity/2016/07/21/microsoft-azure-log-integration-preview/) kullanılarak tümleştirilebilir. Bu bilgiler bir saldırıyı araştırmak üzere Güvenlik Merkezi tarafından sağlanan bilgilerle birlikte kullanılabilir.
+
+
+## Sonuç
+
+Olay gerçekleşmeden önce bir ekibin toplanması kuruluşunuz için çok önemlidir ve olayların nasıl ele alındığını olumlu yönde etkiler. Kaynakları izlemek için doğru araçlara sahip olunması bu ekibin bir güvenlik olayını düzeltmek üzere doğru adımları uygulamasına yardımcı olabilir. Güvenlik Merkezi [algılama özellikleri](security-center-detection-capabilities.md), BT’nin güvenlik olaylarına hızlıca yanıt vermesine ve güvenlik sorunlarını düzeltmesine yardımcı olur.
+
+
+
+
+
+<!--HONumber=Sep16_HO3-->
+
+

@@ -12,8 +12,9 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/07/2016"
+   ms.date="09/20/2016"
    ms.author="cherylmc" />
+
 
 # ExpressRoute ortakları ve eşleme konumları
 
@@ -64,7 +65,7 @@ Coğrafi bölgeler arasındaki bağlantı standart ExpressRoute SKU’da destekl
 | **Atlanta** | Equinix |
 | **Chennai** | Tata Communications |
 | **Chicago** | AT&T NetBond, Comcast, Equinix, Level 3 Communications, Zayo Group |
-| **Dallas** | AT&T NetBond, Equinix, Level 3 Communications, Megaport |
+| **Dallas** | AT&T NetBond, Cologix, Equinix, Level 3 Communications, Megaport |
 | **Dublin** | Colt, Telecity Group |
 | **Hong Kong** | British Telecom, China Telecom Global, Equinix, Megaport, Orange, PCCW Global Limited, Tata Communications, Verizon |
 | **Londra** | AT&T NetBond, British Telecom, Colt, Equinix, InterCloud, Internet Solutions - Cloud Connect, Interxion, Jisc+, Level 3 Communications, MTN, NTT Communications, Orange, Tata Communications, Telecity Group, Telenor, Verizon, Vodafone |
@@ -158,6 +159,6 @@ Bağlantı sağlayıcınız önceki bölümlerde listelenmemişse hala bağlant�
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

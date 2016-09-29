@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure Kapsayıcı Hizmeti kümesi yük dengelemesi | Microsoft Azure"
-   description="Azure Kapsayıcı Hizmeti kümesi yük dengelemesi."
+   pageTitle="Azure Container Service kümesinde yük dengeleme kapsayıcıları | Microsoft Azure"
+   description="Azure Container Service kümesindeki birden çok kapsayıcıda yük dengeleyin."
    services="container-service"
    documentationCenter=""
    authors="rgardler"
@@ -18,11 +18,12 @@
    ms.date="07/11/2016"
    ms.author="rogardle"/>
 
-# Azure Kapsayıcı Hizmeti kümesi yük dengelemesi
 
-Bu makalede bir DC/OS yönetilen Azure Container Service üzerinde web ön ucu oluşturulacaktır. Ayrıca uygulama ölçeğini artırmanız için bir Marathon-LB yapılandırılacaktır.
+# Bir Azure Container Service kümesindeki yük dengeleme kapsayıcıları
 
-## Ön koşullar
+Bu makalede, DC/OS tarafından yönetilen bir Azure Container Service içinde bir iç yük dengeleyicinin Marathon-LB kullanılarak nasıl oluşturulacağını öğreneceğiz. Bu, uygulamalarınızı yatay olarak ölçeklemenize olanak sağlar. Bu ayrıca, yük dengeleyicilerinizi genel kümeye, uygulama kapsayıcılarınızı ise özel kümeye ekleyerek genel ve özel aracı kümelerinden yararlanmanıza da olanak tanır.
+
+## Önkoşullar
 
 [DC/OS orchestrator türüyle Azure Container Service örneğini dağıtın](container-service-deployment.md) ve [istemcinizin kümenize bağlanabildiğinden emin olun](container-service-connect.md). 
 
@@ -55,9 +56,11 @@ DC/OS CLI’sini yükleyip kümenize bağlanabildiğinizden emin olduktan sonra 
 dcos package install marathon-lb
 ```
 
+Bu komut, yük dengeleyicileri genel aracı kümesine otomatik olarak yükler.
+
 ## Yük Dengeli Web Uygulaması Dağıtma
 
-Artık marathon-lb paketine sahip olduğumuza göre, aşağıdaki yapılandırmayı kullanarak basit bir web sunucusu dağıtabiliriz:
+Marathon-lb paketine sahip olduğumuza göre yük dengeleme işlemi uygulamak istediğimiz bir uygulama kapsayıcısını dağıtabiliriz. Bu örnek için şu yapılandırmayı kullanarak basit bir web sunucusunu dağıtacağız:
 
 ```json
 {
@@ -100,6 +103,8 @@ Artık marathon-lb paketine sahip olduğumuza göre, aşağıdaki yapılandırma
   * `hostPort` değerini 0 olarak ayarlayın. Bunun yapılması Marathon’un kullanılabilir bir bağlantı noktasını rastgele ayıracağı anlamına gelir.
   * `instances` değerini oluşturmak istediğiniz örnek sayısına ayarlayın. Bunların ölçeğini daha sonra dilediğiniz zaman artırıp azaltabilirsiniz.
 
+Marathon'un varsayılan olarak özel kümeye dağıtım yapacağını lütfen unutmayın. Bu, yukarıdaki dağıtıma yalnızca yük dengeleyiciniz aracılığıyla erişilebileceği anlamına gelir; istediğimiz davranış genellikle bu şekildedir.
+
 ### DC/OS web kullanıcı arabirimi kullanarak dağıtma
 
   1. http://localhost/marathon adresindeki Marathon sayfasını ziyaret edin ([SSH tünelinizi](container-service-connect.md) ayarladıktan sonra `Create Appliction`
@@ -141,6 +146,6 @@ Azure lb:8080 -> marathon-lb:1002 -> mycontainer2:33432
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

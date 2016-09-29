@@ -1,6 +1,6 @@
 <properties
     pageTitle="Azure AD Etki Alanı Hizmetleri: Sanal ağ oluşturma veya seçme | Microsoft Azure"
-    description="Azure Active Directory Etki Alanı Hizmetleri ile (Önizleme) çalışmaya başlama"
+    description="Azure Active Directory Etki Alanı Hizmetleri ile çalışmaya başlama"
     services="active-directory-ds"
     documentationCenter=""
     authors="mahesh-unnikrishnan"
@@ -13,35 +13,24 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="07/06/2016"
+    ms.date="09/20/2016"
     ms.author="maheshu"/>
 
-# Azure AD Etki Alanı Hizmetleri *(Önizleme)* - Sanal ağ oluşturma veya seçme
+
+# Azure AD Domain Services için bir sanal ağ oluşturma veya seçme
 
 ## Azure sanal ağı seçmeye yönelik yönergeler
-Azure AD Etki Alanı Hizmetleri ile kullanmak üzere bir sanal ağ seçerken aşağıdaki yönergeleri göz önünde bulundurun:
-
-- Azure AD Etki Alanı Hizmetleri tarafından desteklenen bir bölgede bulunan bir sanal ağı seçtiğinizden emin olun. Azure AD Etki Alanı Hizmetleri'nin kullanılabildiği Azure bölgelerini öğrenmek için [bölgeye göre Azure hizmetleri](https://azure.microsoft.com/regions/#services/) sayfasına göz atın.
-
-- Var olan bir sanal ağı kullanmayı planlıyorsanız bunun bölgesel sanal ağ olduğundan emin olun. Eski benzeşim grupları mekanizmasını kullanan sanal ağlar, Azure AD Etki Alanı Hizmetleri ile kullanılamaz. [Eski sanal ağları bölgesel sanal ağlara geçirmeniz](../virtual-network/virtual-networks-migrate-to-regional-vnet.md) gerekir.
-
-- Var olan bir sanal ağı kullanmayı planlıyorsanız sanal ağ için yapılandırılmış hiçbir özel DNS sunucusunun bulunmadığından emin olun. Azure AD Etki Alanı Hizmetleri, özel DNS sunucularını/kendi DNS sunucunu getir olanağını desteklemez.
-
-- Var olan bir sanal ağı kullanmayı planlıyorsanız bu sanal ağ üzerinde aynı etki alanı adına sahip başka bir etki alanınızın olmadığından emin olun. Örneğin, seçilen sanal ağ üzerinde zaten "contoso.com" adında bir etki alanınız olduğunu varsayın. Ardından, bu sanal ağ üzerinde Azure AD Etki Alanı Hizmetleri tarafından yönetilen ve aynı etki alanı adına ("contoso.com") sahip olan bir etki alanını etkinleştirmeyi deniyorsunuz. Azure AD Etki Alanı Hizmetleri'ni etkinleştirmeye çalışırken bir hatayla karşılaşırsınız. Bu, söz konusu sanal ağ üzerindeki etki alanı adı çakışmalarından kaynaklanır. Bu durumda, Azure AD Etki Alanı Hizmetleri tarafından yönetilen etki alanınızı ayarlamak için farklı bir ad kullanmanız gerekir. Alternatif olarak, var olan etki alanının sağlanmasını kaldırıp Azure AD Etki Alanı Hizmetleri'ni etkinleştirme işlemiyle devam edebilirsiniz.
-
-- Azure AD Etki Alanı Hizmetleri'ne erişmesi gereken sanal makineleri şu anda barındıran/barındıracak olan sanal ağı seçin. Hizmeti etkinleştirdikten sonra, Etki Alanı Hizmetleri'ni farklı bir sanal ağa taşıyamazsınız.
-
-- Azure AD Etki Alanı Hizmetleri, Azure Resource Manager kullanılarak oluşturulan sanal ağlar için desteklenmez. Azure AD Etki Alanı Hizmetleri'ni, Azure Resource Manager kullanılarak oluşturulan bir sanal ağda kullanmak için, [bir klasik sanal ağı ARM tabanlı bir sanal ağa bağlayabilirsiniz](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md).
+> [AZURE.NOTE] **Başlamadan önce**: [Azure AD Domain Services için ağ ile ilgili dikkat edilmesi gerekenler](active-directory-ds-networking.md) sayfasına bakın.
 
 
 ## Görev 2: Azure sanal ağı oluşturma
 Sonraki yapılandırma görevi, üzerinde Azure AD Etki Alanı Hizmetleri'ni etkinleştirmek istediğiniz bir Azure sanal ağı oluşturmaktır. Kullanmayı tercih ettiğiniz bir sanal ağınız zaten varsa bu adımı atlayabilirsiniz.
 
-> [AZURE.NOTE] Oluşturduğunuz veya Azure AD Etki Alanı Hizmetleri ile kullanmayı seçtiğiniz Azure sanal ağının, Azure AD Etki Alanı Hizmetleri tarafından desteklenen bir Azure bölgesine ait olduğundan emin olun. Azure AD Etki Alanı Hizmetleri'nin kullanılabildiği Azure bölgelerini öğrenmek için [bölgeye göre Azure hizmetleri](https://azure.microsoft.com/regions/#services/) sayfasına göz atın.
+> [AZURE.NOTE] Oluşturduğunuz veya Azure AD Etki Alanı Hizmetleri ile kullanmayı seçtiğiniz Azure sanal ağının, Azure AD Etki Alanı Hizmetleri tarafından desteklenen bir Azure bölgesine ait olduğundan emin olun. Azure AD Domain Services'in kullanılabildiği Azure bölgelerini öğrenmek için [bölgeye göre Azure hizmetleri](https://azure.microsoft.com/regions/#services/) sayfasına bakın.
 
-Sonraki bir yapılandırma adımında Azure AD Etki Alanı Hizmetleri etkinleştirilirken doğru sanal ağı seçebilmek için sanal ağın adını not etmeniz gerekir.
+Sanal ağın adını not edin, böylece daha sonraki bir yapılandırma adımında Azure AD Domain Services'i etkinleştirirken doğru sanal ağı seçersiniz.
 
-Üzerinde Azure AD Etki Alanı Hizmetleri'ni etkinleştirmek istediğiniz bir Azure sanal ağı oluşturmak için sonraki yapılandırma adımlarını uygulayın.
+Azure AD Domain Services'i etkinleştirmek istediğiniz bir Azure sanal ağı oluşturmak için aşağıdaki yapılandırma adımlarını gerçekleştirin.
 
 1. **Klasik Azure portalına** ([https://manage.windowsazure.com](https://manage.windowsazure.com)) gidin.
 
@@ -59,7 +48,7 @@ Sonraki bir yapılandırma adımında Azure AD Etki Alanı Hizmetleri etkinleşt
 
 6. Sanal ağınız için bir **Ad** belirtin. Ayrıca bu ağ için **Adres alanını** veya **Maksimum VM sayısını** yapılandırmayı tercih edebilirsiniz. Şu an için DNS sunucusu ayarını "Yok" olarak ayarlanmış şekilde bırakabilirsiniz. Bu ayar, Azure AD Etki Alanı Hizmetleri'ni etkinleştirmenizin ardından güncelleştirilir.
 
-7. **Konum** açılan menüsünde desteklenen bir Azure bölgesini seçtiğinizden emin olun. Azure AD Etki Alanı Hizmetleri'nin kullanılabildiği Azure bölgelerini öğrenmek için [bölgeye göre Azure hizmetleri](https://azure.microsoft.com/regions/#services/) sayfasına göz atın. Bu önemli bir adımdır. Azure AD Etki Alanı Hizmetleri tarafından desteklenmeyen bir Azure bölgesindeki bir sanal ağı seçerseniz hizmeti bu sanal ağ üzerinde etkinleştiremezsiniz.
+7. **Konum** açılan menüsünde desteklenen bir Azure bölgesini seçtiğinizden emin olun. Azure AD Domain Services'in kullanılabildiği Azure bölgelerini öğrenmek için [bölgeye göre Azure hizmetleri](https://azure.microsoft.com/regions/#services/) sayfasına bakın.
 
 8. Sanal ağınızı oluşturmak için **Sanal Ağ Oluştur** düğmesine tıklayın.
 
@@ -72,6 +61,6 @@ Sonraki yapılandırma görevi, [Azure AD Etki Alanı Hizmetleri'ni etkinleştir
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

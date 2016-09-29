@@ -3,7 +3,7 @@
     description="Bu öğreticide, tek bit hızında bir canlı akışı alıp Azure portalını kullanarak çoklu bit hızında akışa kodlayan bir Kanal oluşturulması adım adım anlatılmaktadır." 
     services="media-services" 
     documentationCenter="" 
-    authors="juliako,anilmur" 
+    authors="anilmur" 
     manager="erikre" 
     editor=""/>
 
@@ -14,7 +14,8 @@
     ms.devlang="na" 
     ms.topic="get-started-article"
     ms.date="09/06/2016"
-    ms.author="juliako"/>
+    ms.author="juliako;juliako"/>
+
 
 
 #Azure portalı ile çoklu bit hızına sahip akışlar oluşturmak üzere Azure Media Services’i kullanarak canlı akış gerçekleştirme
@@ -183,7 +184,7 @@ Olayı başlatmanın iki yolu vardır:
     
     ![createprogram](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-program.png)
     
-    **Bu olayı şimdi yayımla** seçeneğini işaretli bıraktıysanız YAYIMLAMA URL'leri oluşturulur.
+    **Bu canlı olayı şimdi yayımla** seçeneğini işaretli bıraktıysanız URL'leri YAYIMLAMA olayı oluşturulacaktır.
     
     Olayı yayınlamaya hazır olduğunuzda **Başlat** tuşuna basabilirsiniz.
 
@@ -241,6 +242,7 @@ Media Services öğrenme yollarını gözden geçirin.
  
 
 
-<!--HONumber=sep16_HO1-->
+
+<!--HONumber=Sep16_HO3-->
 
 

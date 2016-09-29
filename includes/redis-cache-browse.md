@@ -1,8 +1,8 @@
-[Azure Portal](https://portal.azure.com)’daki önbelleklere **Gözat** dikey penceresi kullanılarak erişilebilir.
+Önbelleklere, [Azure portalındaki](https://portal.azure.com) **Gözat** dikey penceresi kullanılarak erişilebilir.
 
 ![Azure Redis Önbelleği Gözat Dikey Penceresi](media/redis-cache-browse/redis-cache-browse.png)
 
-Önbellekleri görüntülemek için **Gözat > Redis Önbellekleri**’ne tıklayın. Daha önce bir Redis Önbelleği’ne göz attıysanız, **Gözat**’a tıklamadan doğrudan listeden **Redis Önbellekleri**’ne tıklayabilirsiniz.
+Önbelleklerinizi görüntülemek için **Daha fazla hizmet > Redis Önbellekleri** seçeneğine tıklayın. Daha önce bir Redis Önbelleğine göz attıysanız **Daha fazla hizmet** seçeneğine tıklamayıp listede doğrudan **Redis Önbellekleri**'ne tıklayabilirsiniz.
 
 İstediğiniz önbelleğin özelliklerini görüntülemek için bu önbelleği seçin.
 
@@ -12,7 +12,6 @@
 
 ![Redis Önbelleği Tüm Ayarları](media/redis-cache-browse/redis-cache-blade.png)
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

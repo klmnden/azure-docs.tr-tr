@@ -12,8 +12,9 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/03/2016"
+   ms.date="09/20/2016"
    ms.author="tomfitz" />
+
 
 # Visual Studio aracılığıyla Azure kaynak grupları oluşturma ve dağıtma
 
@@ -47,7 +48,7 @@ Bu yordamda, bir **Web uygulaması + SQL** şablonu ile Azure Kaynak Grubu proje
 
     ![düğümleri gösterme](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-items.png)
 
-    Bu örnek için Web uygulaması + SQL şablonunu seçtiğimiz için, aşağıdaki dosyaları göreceksiniz. 
+    Bu örnek için Web uygulaması + SQL şablonunu seçtiğimiz için aşağıdaki dosyaları göreceksiniz: 
 
   	|Dosya adı|Açıklama|
   	|---|---|
@@ -75,7 +76,7 @@ JSON Ana Hattı penceresinin üst tarafında bulunan **Kaynak Ekle** düğmesini
 
 ![kaynak ekle](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-resource.png)
 
-Bu öğreticide, **Depolama Hesabı**’nı seçin ve bir ad verin. Depolama hesabı adı yalnızca sayı ve küçük harflerden oluşmalıdır ve 24 karakterden daha kısa olmalıdır. Proje, sağladığınız ada 13 karakterden oluşan benzersiz bir dize ekler. Bu nedenle girdiğiniz adın 11 karakteri geçmediğinden emin olun.
+Bu öğreticide, **Depolama Hesabı**’nı seçin ve bir ad verin. 11 karakterden uzun olmayan ve yalnızca sayı ile küçük harf içeren bir ad belirtin.
 
 ![depolama ekleme](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-storage.png)
 
@@ -83,7 +84,7 @@ Yalnızca kaynak eklenmediğini, aynı zamanda depolama hesabı türü için bir
 
 ![ana hattı göster](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-new-items.png)
 
-**storageType** parametresi izin verilen türler ve varsayılan tür ile önceden tanımlanmıştır. Bu değerleri bırakabilir veya senaryonuz için düzenleyebilirsiniz. Bu şablon aracılığıyla herkesin **Premium_LRS** depolama hesabı dağıtmasını istemiyorsanız, izin verilen türlerden bunu kaldırmanız yeterli olur. 
+**storageType** parametresi izin verilen türler ve varsayılan tür ile önceden tanımlanmıştır. Bu değerleri bırakabilir veya senaryonuz için düzenleyebilirsiniz. Bu şablon aracılığıyla herkesin **Premium_LRS** depolama hesabı dağıtmasını istemiyorsanız izin verilen türlerden bunu kaldırın. 
 
     "storageType": {
       "type": "string",
@@ -127,30 +128,37 @@ Artık, projenizi dağıtmaya hazırsınız. Bir Azure Kaynak Grubu projesi dağ
 
     ![Kaynak Grubu Oluştur İletişim Kutusu](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/create-resource-group.png)
    
-1. **Parametreleri Düzenle** düğmesini seçerek dağıtım parametrelerini düzenleyebilirsiniz. Parametre değerlerini sağlayın ve **Kaydet** düğmesini seçin.
+1. **Parametreleri Düzenle** düğmesini seçerek dağıtım parametrelerini düzenleyin.
+
+    ![Parametreleri Düzenle düğmesi](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/edit-parameters.png)
+
+1. Boş parametreler için değerleri belirtin ve **Kaydet** düğmesini seçin. **hostingPlanName**, **administratorLogin**, **administratorLoginPassword** ve **databaseName** boş parametrelerdir.
+
+    **hostingPlanName**, oluşturulacak [App Service planı](./app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) için bir ad belirtir. 
+    
+    **administratorLogin**, SQL Server yöneticisinin kullanıcı adını belirtir. **sa** veya **admin** gibi yaygın yönetici adlarını kullanmayın. 
+    
+    **administratorLoginPassword**, SQL Server yöneticisi için bir parola belirtir. **Parolaları parametre dosyasına düz metin olarak kaydet** seçeneği güvenli değildir; bu nedenle bu seçeneği belirlemeyin. Parola düz metin olarak kaydedilmediğinden dağıtım sırasında bu parolayı yeniden belirtmeniz gerekecektir. 
+    
+    **databaseName**, oluşturulacak veritabanı için bir ad belirtir. 
 
     ![Parametreleri Düzenle İletişim Kutusu](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/provide-parameters.png)
     
-    **Parolaları parametre dosyasına düz metin olarak kaydet** seçeneği güvenli değildir.
-
-1. Projeyi Azure’da dağıtmak için **Dağıt** düğmesini seçin. **Çıktı** penceresinde dağıtımın ilerleme durumunu görebilirsiniz. Dağıtımın tamamlanması yapılandırmanıza bağlı olarak birkaç dakika sürebilir. İstendiğinde PowerShell konsolunda veritabanı yönetici parolasını girin. Dağıtımınızdaki ilerleme durdurulursa, PowerShell konsolunda parola girmediğiniz için işlem bekletiliyor olabilir.
+1. Projeyi Azure’da dağıtmak için **Dağıt** düğmesini seçin. Visual Studio örneğinin dışında bir PowerShell konsolu açılır. İstendiğinde PowerShell konsolunda SQL Server yönetici parolasını girin. **PowerShell konsolunuz diğer öğelerin arkasına gizlenmiş veya görev çubuğunda simge haline getirilmiş olabilir.** Bu konsolu arayın ve parolayı belirtmek için seçin.
 
     >[AZURE.NOTE] Visual Studio, Azure PowerShell cmdlet'lerini yüklemenizi isteyebilir. Kaynak gruplarını başarıyla dağıtmak için Azure PowerShell cmdlet'lerini ihtiyacınız vardır. İstenirse, bunları yükleyin.
     
-1. Dağıtım tamamlandığında, **Çıktı** penceresinde şuna benzer bir ileti görürsünüz:
+1. Dağıtım birkaç dakika sürebilir. **Çıktı** pencerelerinde dağıtımın durumunu görürsünüz. Dağıtım tamamlandığında son ileti aşağıdakine benzer bir ifadeyle dağıtımın başarılı olduğunu belirtir:
 
-        ...
-        15:19:19 - DeploymentName     : websitesqldatabase-0212-2318
-        15:19:19 - CorrelationId      : 6cb43be5-86b4-478f-9e2c-7e7ce86b26a2
-        15:19:19 - ResourceGroupName  : DemoSiteGroup
-        15:19:19 - ProvisioningState  : Succeeded
-        ...
+        ... 
+        18:00:58 - Successfully deployed template 'c:\users\user\documents\visual studio 2015\projects\azureresourcegroup1\azureresourcegroup1\templates\websitesqldatabase.json' to resource group 'DemoSiteGroup'.
 
-1. Bir tarayıcıda [Azure Portal](https://portal.azure.com/)’ı açın ve hesabınızda oturum açın. Kaynak grubunu görmek için **Kaynak grupları**’nu ve dağıttığınız kaynak grubunu seçin.
+
+1. Bir tarayıcıda [Azure portal](https://portal.azure.com/)’ı açın ve hesabınızda oturum açın. Kaynak grubunu görmek için **Kaynak grupları**’nu ve dağıttığınız kaynak grubunu seçin.
 
     ![grup seçme](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/select-group.png)
 
-1. Dağıtılan tüm kaynakları görürsünüz.
+1. Dağıtılan tüm kaynakları görürsünüz. Depolama hesabı adının, ilgili kaynağı eklerken belirttiğiniz adla tam olarak aynı olmadığına dikkat edin. Depolama hesabı benzersiz olmalıdır. Şablon benzer bir ad belirtmek üzere belirttiğiniz ada otomatik olarak bir karakter dizesi ekler. 
 
     ![kaynakları göster](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-deployed-resources.png)
 
@@ -162,7 +170,11 @@ Artık, projenizi dağıtmaya hazırsınız. Bir Azure Kaynak Grubu projesi dağ
 
 Bu noktada, uygulamanız için altyapı dağıttınız, ancak proje ile dağıtılan gerçek bir kod yoktur. Bu konuda, bir web uygulaması ve SQL Database tablolarını dağıtım sırasında nasıl dağıtacağınız gösterilir. Bir web uygulaması yerine bir Sanal Makine dağıtıyorsanız, dağıtımının bir parçası olarak bazı kodlar çalıştırmak isteyebilirsiniz. Bir web uygulaması için kod dağıtma veya Sanal Makine kurma işlemi neredeyse aynıdır.
 
-1. Visual Studio çözümünüzde, bir **ASP.NET Web uygulaması** ekleyin. 
+1. Visual Studio çözümünüze bir proje ekleyin. Çözüme sağ tıklayın ve **Ekle** > **Yeni Proje** öğesini seçin.
+
+    ![proje ekleme](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-project.png)
+
+1. Bir **ASP.NET Web Uygulaması** oluşturun. 
 
     ![web uygulaması ekleme](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-app.png)
     
@@ -170,41 +182,59 @@ Bu noktada, uygulamanız için altyapı dağıttınız, ancak proje ile dağıt�
 
     ![MVC’yi seçme](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/select-mvc.png)
     
-1. Visual Studio web uygulamanızı oluşturduktan sonra kaynak grubu projesindeki bir başvuruyu web uygulaması projesine ekleyin.
+1. Visual Studio web uygulamanızı oluşturduktan sonra her iki projeyi de çözümde görürsünüz.
+
+    ![projeleri göster](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-projects.png)
+
+1. Bundan böyle kaynak grubu projenizin yeni projeyi tanıdığından emin olmanız gerekir. Kaynak grubu projenize (AzureResourceGroup1) geri dönün. **Başvurular**’a sağ tıklayın ve **Başvuru Ekle**’yi seçin.
+
+    ![başvuru ekleme](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-new-reference.png)
+
+1. Oluşturduğunuz web uygulaması projesini seçin.
 
     ![başvuru ekleme](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-reference.png)
     
-    Bir başvuru ekleyerek, web uygulama projesini kaynak grubu projesine bağlar ve otomatik olarak üç anahtar özellik ayarlamış olursunuz.  
+    Bir başvuru ekleyerek, web uygulama projesini kaynak grubu projesine bağlar ve otomatik olarak üç anahtar özellik ayarlamış olursunuz. Bu özellikleri başvurunun **Özellikler** penceresinde görürsünüz.
+
+      ![başvuruya bakma](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/see-reference.png)
     
-    - **Ek Özellikler**, Azure Depolama’ya gönderilen web dağıtımı paketini hazırlama konumunu içerir. 
+    Özellikler şunlardır:
+
+    - **Ek Özellikler**, Azure Depolama’ya gönderilen web dağıtımı paketini hazırlama konumunu içerir. Klasörü (ExampleApp) ve dosyayı (package.zip) not edin. Uygulamayı dağıtırken parametre olarak bu değerleri sağlayacaksınız. 
     - **Dosya Yolu Ekle** paketin oluşturulduğu yerin yolunu içerir. **Hedefleri Ekle** dağıtımın yürüttüğü komutu içerir. 
     - **Build;Package** varsayılan değeri, dağıtımın bir web dağıtımı paketi (package.zip) oluşturmasını sağlar.  
     
     Dağıtım paketi oluşturmak için gereken bilgileri özelliklerden elde ettiği için bir yayımlama profili gerekmez.
-    
-      ![başvuruya bakma](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/see-reference.png)
       
-1. Şablona bir kaynak ekleyin ve bu defa **Web Apps için Web Dağıtımı** seçeneğini belirleyin. 
+1. Şablona bir kaynak ekleyin.
+
+    ![kaynak ekle](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-resource-2.png)
+
+1. Bu kez **Web Apps için Web Dağıtımı**’nı seçin. 
 
     ![web dağıtımı ekleme](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-web-deploy.png)
     
-1. Kaynak grubu projenizi kaynak grubuna yeniden dağıtın. Bu defa, bazı yeni parametre bulunur. **_artifactsLocation** ve **_artifactsLocationSasToken** değerleri Visual Studio tarafından otomatik olarak oluşturulduğundan, bunlar için değer girmeniz gerekmez. Klasör ve dosya adını dağıtım paketini içeren yola ayarlayın.
+1. Kaynak grubu projenizi kaynak grubuna yeniden dağıtın. Bu defa, bazı yeni parametre bulunur. **_artifactsLocation** ve **_artifactsLocationSasToken** değerleri Visual Studio tarafından otomatik olarak oluşturulduğundan, bunlar için değer girmeniz gerekmez. Ancak, klasör ve dosya adını, dağıtım paketini içeren yola ayarlamanız gerekir (aşağıdaki görüntüde **ExampleAppPackageFolder** ve **ExampleAppPackageFileName** olarak gösterilmiştir). Daha önce başvuru özelliklerinde gördüğünüz değerleri belirtin (**ExampleApp** ve **package.zip**).
 
     ![web dağıtımı ekleme](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/set-new-parameters.png)
     
-    **Yapıt depolama hesabı** için bu kaynak grubu ile dağıtılmış bir tanesini kullanabilirsiniz.
+    Bu kaynak grubu ile dağıtılmış bir **Yapıt depolama hesabı** seçin.
     
-Dağıtım tamamlandıktan sonra siteye göz attığınızda varsayılan ASP.NET uygulamasını başarıyla dağıtmış olduğunuza dikkat edin.
+1. Dağıtım tamamlandıktan sonra portalda web uygulamanızı seçin. Yeni siteye göz atmak için URL’yi seçin.
 
-![dağıtılmış uygulamayı gösterme](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-deployed-app.png)
+    ![siteye göz atma](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/browse-site.png)
+
+1. Varsayılan ASP.NET uygulamasını başarıyla dağıttığınızdan emin olun.
+
+    ![dağıtılmış uygulamayı gösterme](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-deployed-app.png)
 
 ## Sonraki adımlar
 
-- Portalı kullanarak kaynaklarınızı yönetme hakkında daha fazla bilgi için bkz. [Azure Portal’ıkullanarak Azure kaynaklarınızı yönetme](./azure-portal/resource-group-portal.md).
+- Portalı kullanarak kaynaklarınızı yönetme hakkında daha fazla bilgi için bkz. [Azure portalı kullanarak Azure kaynaklarınızı yönetme](./azure-portal/resource-group-portal.md).
 - Şablonlar hakkında daha fazla bilgi edinmek için bkz. [Azure Resource Manager şablonları yazma](resource-group-authoring-templates.md).
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

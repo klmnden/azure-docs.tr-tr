@@ -14,8 +14,9 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/30/2016"
+   ms.date="09/13/2016"
    ms.author="larryfr"/>
+
 
 #Linux, Unix ya da OS X’te HDInsight’ta Linux tabanlı Hadoop ile SSH’yi kullanma
 
@@ -43,11 +44,11 @@ OR
 
 ##SSH nedir?
 
-SSH, uzak bir sunucuda oturum açma ve komutları uzaktan yürütme yardımcı programdır. Linux tabanlı HDInsight ile, SSH küme baş düğümüne şifreli bir bağlantı kurar ve komutları yazmak için kullandığınız bir komut satırı sağlar. Komutlar böylece doğrudan sunucuda yürütülür.
+SSH, uzak bir sunucuda oturum açma ve komutları uzaktan yürütme yardımcı programdır. SSH, Linux tabanlı HDInsight ile küme baş düğümüne şifreli bir bağlantı kurar ve komutları yazmak için kullandığınız bir komut satırı sağlar. Komutlar böylece doğrudan sunucuda yürütülür.
 
 ###SSH kullanıcı adı
 
-SSH kullanıcı adı, HDInsight kümesi için kimlik doğrulamasında kullandığınız addır. Küme oluşturma sırasında bir SSH kullanıcı adı belirttiğinizde, bu kullanıcı kümedeki tüm düğümlerde oluşturulur. Küme oluşturulduktan sonra, HDInsight kümesi baş düğümlerine bağlanmak için bu kullanıcı adını kullanabilirsiniz. Baş düğümlerden de ayrı ayrı çalışan düğümlerine bağlanabilirsiniz.
+SSH kullanıcı adı, HDInsight kümesi için kimlik doğrulamasında kullandığınız addır. Küme oluşturma sırasında bir SSH kullanıcı adı belirttiğinizde, bu kullanıcı kümedeki tüm düğümlerde oluşturulur. Kime oluşturulduğunda, bu kullanıcı adını HDInsight küme baş düğümüne bağlanmak için kullanabilirsiniz. Baş düğümlerden de ayrı ayrı çalışan düğümlerine bağlanabilirsiniz.
 
 ###SSH parolası veya Ortak anahtar
 
@@ -118,7 +119,7 @@ Bu komutu kullanma hakkında daha fazla bilgi için bkz. [Özel seçenekleri kul
 
 ##Linux tabanlı HDInsight kümesine bağlanma
 
-Terminal oturumunda, adresi ve kullanıcı adını sağlayarak küme baş düğümüne bağlanmak için SSH komutunu kullanın:
+Terminal oturumunda, şu adresi ve kullanıcı adını sağlayarak küme baş düğümüne bağlanmak için SSH komutunu kullanın:
 
 * **SSH adresi** -SSH kullanarak bir kümeye bağlanmak için kullanılabilecek iki adres vardır:
 
@@ -128,7 +129,7 @@ Terminal oturumunda, adresi ve kullanıcı adını sağlayarak küme baş düğ�
 
 * **Kullanıcı adı** -Küme oluştururken verdiğiniz SSH kullanıcı adı.
 
-Aşağıdaki örnekte **me** kullanıcısı olarak 0 baş düğümüne bağlanacak **mycluster** kümesi gösterilmektedir:
+Şu örnekte **me** kullanıcısı olarak **mycluster** birincil baş düğümüne bağlanılmaktadır:
 
     ssh me@mycluster-ssh.azurehdinsight.net
 
@@ -140,11 +141,11 @@ Parola korumalı bir SSH anahtarı kullandıysanız, parola girmeniz istenir. Ak
 >
 > `ssh -i ~/.ssh/id_rsa me@mycluster-ssh.azurehdinsight.net`
 
-Baş düğüm için olan adresi kullanarak bağlanıyorsanız ve bağlantı noktası belirtilmediyse, SSH HDInsight kümesinde 0 baş düğümüne bağlanacak bağlantı noktası 22’yi varsayılan olarak atar. Bağlantı noktası 23’ü kullanırsanız, baş düğüm 1’e bağlanırsınız. Baş düğümler hakkında daha fazla bilgi için bkz. [HDInsight’ta Hadoop kümelerinin kullanılabilirliği ve güvenilirliği](hdinsight-high-availability-linux.md).
+Baş düğüme ilişkin adresi kullanarak bağlanıyorsanız ve bağlantı noktası belirtilmediyse SSH, HDInsight kümesinde birincil baş düğüme bağlanacak olan bağlantı noktası 22'yi varsayılan olarak atar. Bağlantı noktası 23'ü kullanırsanız ikincil baş düğüme bağlanırsınız. Baş düğümler hakkında daha fazla bilgi için bkz. [HDInsight'ta Hadoop kümelerinin kullanılabilirliği ve güvenilirliği](hdinsight-high-availability-linux.md).
 
 ###Çalışan düğümüne bağlanma
 
-Çalışan düğümüne Azure veri merkezi dışında doğrudan erişilemez, ancak küme baş düğümünden SSH aracılığıyla erişilebilir.
+Çalışan düğümlerine Azure veri merkezi dışında doğrudan erişilemez ancak SSH aracılığıyla küme baş düğümünden erişilebilir.
 
 Kullanıcı hesabınızın kimlik doğrulaması için bir SSH anahtarı kullanıyorsanız, istemcide aşağıdaki adımları tamamlamanız gerekir:
 
@@ -195,9 +196,9 @@ Kümeniz için çalışan düğümüne bağlanmak üzere aşağıdaki adımları
 
     > [AZURE.NOTE] SSH oturumunuzun kimliğini doğrulamak için parola kullanıyorsanız, parolayı tekrar girmeniz istenir. SSH anahtarı kullanıyorsanız, bağlantı herhangi bir soru olmadan tamamlanmalıdır.
 
-4. Oturum kurulduktan sonra, çalışan düğümüne bağlandığınızı belirtmek için terminal istemi `username@hn0-clustername` iken `username@wk0-clustername` olarak değişir. Bu noktada çalıştırdığını tüm çalışan düğümünde çalışır.
+4. Oturum kurulduktan sonra, çalışan düğümüne bağlandığınızı belirtmek için terminal istemi `username@hn#-clustername` iken `username@wk#-clustername` olarak değişir. Bu noktada çalıştırdığını tüm çalışan düğümünde çalışır.
 
-4. Çalışan düğümünde eylemler gerçekleştirmeyi tamamladıktan sonra, çalışan düğümüne olan oturumu kapatmak için `exit` komutunu kullanın. Bu, size `username@hn0-clustername` istemini döndürür.
+4. Çalışan düğümünde eylemler gerçekleştirmeyi tamamladıktan sonra, çalışan düğümüne olan oturumu kapatmak için `exit` komutunu kullanın. Bu, size `username@hn#-clustername` istemini döndürür.
 
 ##Daha fazla hesap ekleme
 
@@ -229,7 +230,7 @@ Kümeniz için çalışan düğümüne bağlanmak üzere aşağıdaki adımları
 
 ##<a id="tunnel"></a>SSH tünel oluşturma
 
-SSH, web istekleri gibi yerel istekler için HDInsight kümesine tünel oluşturmak üzere kullanılabilir. Daha sonra, istek HDInsight kümesi baş düğümünde oluşturulmuş gibi istenen kaynağa iletilir.
+SSH, web istekleri gibi yerel istekler için HDInsight kümesine tünel oluşturmak üzere kullanılabilir. Daha sonra istek, HDInsight kümesi baş düğümünde oluşturulmuş gibi istenen kaynağa iletilir.
 
 > [AZURE.IMPORTANT] SSH tüneli bazı Hadoop hizmetleri için web kullanıcı arabirimine erişmek üzere bir gereksinimdir. Örneğin, İş Geçmişi kullanıcı arabirimi veya Kaynak Yöneticisi kullanıcı arabirimine yalnızca SSH tüneli kullanılarak erişilebilir.
 
@@ -249,6 +250,6 @@ Artık bir SSH anahtarı kullanarak kimlik doğrulaması yapacağınızı anlad�
 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

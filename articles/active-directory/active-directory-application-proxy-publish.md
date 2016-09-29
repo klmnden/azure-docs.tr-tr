@@ -17,6 +17,7 @@
     ms.author="kgremban"/>
 
 
+
 # Azure AD Uygulama Ara Sunucusu ile uygulama yayımlama
 
 Azure AD Uygulama Proxy’si internet üzerinden erişilecek şirket içi uygulamalar yayımlayarak uzak çalışanları desteklemenize yardımcı olur. Bu noktaya kadar [Klasik Azure portalında Uygulama Proxy'si etkinleştirmiş olmanız](active-directory-application-proxy-enable.md) gerekir. Bu makalede, yerel ağınızda çalışan uygulamaları yayımlamaya ve ağınızın dışından güvenli uzaktan erişim sağlamaya ilişkin adımlar bulunur. Bu makaleyi tamamladıktan sonra uygulamayı kişiselleştirilmiş bilgiler veya güvenlik gereksinimleri ile yapılandırmaya hazır olursunuz.
@@ -103,6 +104,6 @@ En yeni haberler ve güncelleştirmeler için [Uygulama Ara Sunucusu bloguna](ht
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

@@ -1,9 +1,8 @@
-       Now navigate to the DocumentDB account blade, and click **Keys**, as we will use these values in the web application we create next.
+  Bundan sonra oluşturulacak web uygulamasında bu değerler kullanılacağı için şimdi DocumentDB hesabı dikey penceresine gidin ve **Anahtarlar**’a tıklayın.
 
-       ![Screen shot of the Azure portal, showing a DocumentDB account, with the Keys button highlighted on the DocumentDB account blade, and the URI, PRIMARY KEY and SECONDARY KEY values highlighted on the Keys blade](./media/documentdb-keys/keys.png)
+![DocumentDB hesabı dikey penceresinde ANAHTARLAR düğmesi vurgulanmış ve Anahtarlar dikey penceresinde URI, BİRİNCİL ANAHTAR ve İKİNCİL ANAHTAR değerleri vurgulanmış bir DocumentDB hesabını gösteren Azure portalı ekran görüntüsü](./media/documentdb-keys/keys.png)
 
 
-
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

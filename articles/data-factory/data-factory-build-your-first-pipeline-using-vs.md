@@ -16,24 +16,28 @@
     ms.date="08/01/2016"
     ms.author="spelluru"/>
 
+
 # Öğretici: Microsoft Visual Studio kullanarak ilk Azure data factory’nizi derleme
 > [AZURE.SELECTOR]
-- [Azure Portal](data-factory-build-your-first-pipeline-using-editor.md)
+- [Genel bakış ve ön koşullar](data-factory-build-your-first-pipeline.md)
+- [Azure portal](data-factory-build-your-first-pipeline-using-editor.md)
 - [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 - [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Resource Manager Şablonu](data-factory-build-your-first-pipeline-using-arm.md)
 - [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
 
-[AZURE.INCLUDE [data-factory-tutorial-prerequisites](../../includes/data-factory-tutorial-prerequisites.md)] 
+Bu makalede, ilk Azure data factory’nizi oluşturmak için Microsoft Visual Studio kullanacaksınız.
 
-## Ek önkoşullar
-2. Visual Studio’dan Azure Data Factory’ye Data Factory varlıkları yayımlayabilmek için bir **Azure aboneliğinin yöneticisi** olmanız gerekir.   
+## Önkoşullar
+1. [Öğreticiye Genel Bakış](data-factory-build-your-first-pipeline.md) makalesinin tamamını okuyun ve **ön koşul** adımlarını tamamlayın.
+2. Visual Studio’dan Azure Data Factory’ye Data Factory varlıkları yayımlayabilmek için bir **Azure aboneliğinin yöneticisi** olmanız gerekir.
 3. Bilgisayarınızda şunların yüklü olması gerekir: 
     - Visual Studio 2013 veya Visual Studio 2015
     - Visual Studio 2013 veya Visual Studio 2015 için Azure SDK’sını indirin. [Azure İndirme Sayfası](https://azure.microsoft.com/downloads/)’na gidin ve **.NET** bölümündeki **VS 2013** veya **VS 2015**’e tıklayın.
     - Visual Studio için en son Azure Data Factory eklentisini indirin: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) veya [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). Visual Studio 2013 kullanıyorsanız, buradaki işlemleri yaparak eklentiyi güncelleştirebilirsiniz: Menüde **Araçlar** -> **Uzantılar ve Güncelleştirmeler** -> **Çevrimiçi** -> **Visual Studio Galerisi** -> **Visual Studio için Microsoft Azure Data Factory Araçları** -> **Güncelleştir**’e tıklayın. 
  
-Aşağıdaki izlenecek yollar Data Factory varlıklarını oluşturma ve dağıtma işlemini göstermektedir.
+Şimdi bir Azure data factory oluşturmak için Visual Studio kullanalım. 
+
 
 ## Visual Studio projesi oluşturma 
 1. **Visual Studio 2013** veya **Visual Studio 2015**’i başlatın. **Dosya**’ya tıklayın, **Yeni**’nin üzerine gelin ve **Proje**’ye tıklayın. **Yeni Proje** iletişim kutusu görmeniz gerekir.  
@@ -267,15 +271,19 @@ Sonraki adımda çözümü yayımladığınızda, **partitionweblogs.hql** dosya
 
 21. Data factory yapılandırma sayfasında aşağıdakileri yapın: 
     1. **Yeni Data Factory Oluştur** seçeneğini seçin.
-    2. **Ad** için **FirstDataFactoryUsingVS** girin. 
+    2. Data factory için benzersiz bir **ad** girin. Örneğin: **FirstDataFactoryUsingVS09152016**. Adın genel olarak benzersiz olması gerekir.  
     
-        > [AZURE.IMPORTANT] Azure Data Factory adı küresel olarak benzersiz olmalıdır. Yayımladığınızda **“FirstDataFactoryUsingVS” data factory adı yok** hatasını alırsanız adı değiştirin (örneğin, yournameFirstDataFactoryUsingVS). Data Factory yapıtlarının adlandırma kuralları için [Data Factory - Adlandırma Kuralları](data-factory-naming-rules.md) konusuna bakın.
-3. **Abonelik** alanı için doğru abonelik seçin. 4. oluşturulacak data factory için **kaynak grubu** seçin. 5. Data factory için **bölge** seçin. 6. **Öğeleri Yayımla** sayfasına geçmek için **İleri**’ye tıklayın. (Ad alanından çıkmak için, **İleri** düğmesi devre dışıysa **SEKME** tuşuna basın.) 
+        > [AZURE.IMPORTANT] Yayımladığınızda **“FirstDataFactoryUsingVS” data factory adı yok** hatasını alırsanız adı değiştirin (örneğin, yournameFirstDataFactoryUsingVS). Data Factory yapıtlarının adlandırma kuralları için [Data Factory - Adlandırma Kuralları](data-factory-naming-rules.md) konusuna bakın.
+3. **Abonelik** alanı için doğru abonelik seçin.
+     
+        > [AZURE.IMPORTANT] Herhangi bir abonelik görmüyorsanız aboneliğin yöneticisi veya ortak yöneticisi olan bir hesapla oturum açtığınızdan emin olun.  
+    4. oluşturulacak data factory için **kaynak grubu** seçin. 5. Data factory için **bölge** seçin. 6. **Öğeleri Yayımla** sayfasına geçmek için **İleri**’ye tıklayın. (Ad alanından çıkmak için, **İleri** düğmesi devre dışıysa **SEKME** tuşuna basın.) 
 23. **Öğeleri Yayımla** sayfasında tüm Data Factory varlıklarının işaretli olmasını sağlayın ve **Özet** sayfasına geçmek için **İleri**’ye tıklayın.     
 24. Özeti gözden geçirin, dağıtım işlemini başlatmak ve **Dağıtım Durumu**’nu görüntülemek için **İleri**’ye tıklayın.
 25. **Dağıtım Durumu** sayfasında dağıtım sürecinin durumunu görmelisiniz. Dağıtımını gerçekleştirdikten sonra Son'a tıklayın. 
 
-Şunlara dikkat edin: 
+ 
+Dikkat edilmesi gereken önemli noktalar şunlardır: 
 
 - Şu hatayı alırsanız: "**Abonelik, Microsoft.DataFactory ad alanını kullanacak şekilde kaydedilmemiş**", aşağıdakilerden birini yapın ve yeniden yayımlamayı deneyin: 
 
@@ -288,15 +296,17 @@ Sonraki adımda çözümü yayımladığınızda, **partitionweblogs.hql** dosya
             Get-AzureRmResourceProvider
     - Azure aboneliğini kullanarak [Azure portalında](https://portal.azure.com) oturum açın ve Data Factory dikey penceresine gidin (ya da) Azure portalında bir data factory oluşturun. Bu eylem sağlayıcıyı sizin için otomatik olarak kaydeder.
 -   Data factory adı gelecekte bir DNS adı olarak kaydedilmiş olabilir; bu nedenle herkese görünür hale gelmiştir.
--   Data Factory örnekleri oluşturmak için, Azure aboneliğinde katılımcı/yönetici rolünüz olmalıdır
+-   Data Factory örnekleri oluşturmak için Azure aboneliğinde yönetici veya ortak yönetici olmanız gerekir
 
  
 ## İşlem hattını izleme
 
+### Diyagram Görünümünü kullanarak işlem hattını izleme
 6. [Azure Portal](https://portal.azure.com/)’da oturum açıp şunları yapın:
-    1. **Gözat**’a tıklayın ve **Veri fabrikaları**’nı seçin.
+    1. **Diğer hizmetler** ve **Data factory’ler** öğesine tıklayın.
         ![Data factory’lere göz atma](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png) 
-    2. Data factory’ler listesinden **FirstDataFactoryUsingVS** öğesini seçin. 
+    2. Data factory listesinden data factory’nizin adını seçin (örneğin: **FirstDataFactoryUsingVS09152016**). 
+        ![Data factory’nizi seçme](./media/data-factory-build-your-first-pipeline-using-vs/select-first-data-factory.png)
 7. Veri fabrikanızın giriş sayfasında penceresinde **Diyagram**’a tıklayın.
   
     ![Diyagram kutucuğu](./media/data-factory-build-your-first-pipeline-using-vs/diagram-tile.png)
@@ -319,17 +329,36 @@ Sonraki adımda çözümü yayımladığınızda, **partitionweblogs.hql** dosya
 
     ![Veri kümesi](./media/data-factory-build-your-first-pipeline-using-vs/dataset-blade.png)
 9. İşlem tamamlandığında dilimi **Hazır** durumunda görürsünüz.
-    >[AZURE.IMPORTANT] İsteğe bağlı HDInsight kümesinin oluşturulması genellikle biraz zaman alır (yaklaşık 20 dakika).  
+    >[AZURE.IMPORTANT] İsteğe bağlı HDInsight kümesinin oluşturulması genellikle biraz zaman alır (yaklaşık 20 dakika). Bu nedenle, işlem hattının dilimi işlemesi için **yaklaşık 30 dakika** bekleyin.  
 
     ![Veri kümesi](./media/data-factory-build-your-first-pipeline-using-vs/dataset-slice-ready.png) 
     
 10. Dilim **Hazır** durumunda olduğunda çıktı verileri için blob depolama alanınızın **adfgetstarted** kapsayıcısında **partitioneddata** klasörünü denetleyin.  
  
     ![çıktı verileri](./media/data-factory-build-your-first-pipeline-using-vs/three-ouptut-files.png)
+11. Dilimin ayrıntılarını bir **Veri dilimi** dikey penceresinde görmek için dilime tıklayın.
+
+    ![Veri dilimi ayrıntıları](./media/data-factory-build-your-first-pipeline-using-vs/data-slice-details.png)  
+12. Bir etkinlik çalışmasına ilişkin ayrıntıları (bu senaryoda Hive etkinliği) bir **Etkinlik çalışma ayrıntıları** penceresinde görmek için **Etkinlik çalışma listesi** içinden bir etkinlik çalışmasına tıklayın.   
+    ![Etkinlik çalışma ayrıntıları](./media/data-factory-build-your-first-pipeline-using-vs/activity-window-blade.png)  
+    
+    Yürütülen Hive sorgusunu ve durum bilgilerini günlük dosyalarında görebilirsiniz. Bu günlükler her türlü sorunu gidermek için kullanışlıdır.  
+ 
 
 Bu öğreticide oluşturduğunuz işlem hattını ve veri kümelerini izlemek üzere Azure Portal’ın ilişkin yönergeler için bkz. [Veri kümelerini ve işlem hatlarını izleme](data-factory-monitor-manage-pipelines.md).
 
-Veri işlem hatlarınızı izlemek için İzleme ve Yönetme Uygulaması’nı da kullanabilirsiniz. Uygulamanın kullanımına ilişkin ayrıntılar için bkz. [İzleme Uygulaması kullanarak Azure Data Factory işlem hatlarını izleme ve yönetme](data-factory-monitor-manage-app.md). 
+### İzleme ve Yönetme Uygulamasını kullanarak işlem hattını izleme
+İşlem hatlarınızı izlemek için İzleme ve Yönetme uygulamasını da kullanabilirsiniz. Bu uygulamanın kullanımına ilişkin ayrıntılı bilgi için bkz. [İzleme ve Yönetme Uygulamasını kullanarak Azure Data Factory işlem hatlarını izleme ve yönetme](data-factory-monitor-manage-app.md).
+
+1. İzleme ve Yönetme kutucuğuna tıklayın.
+
+    ![İzleme ve Yönetme kutucuğu](./media/data-factory-build-your-first-pipeline-using-vs/monitor-and-manage-tile.png) 
+2. İzleme ve Yönetme uygulamasını görmeniz gerekir. **Başlangıç saati** ve **Bitiş saati** değerlerini işlem hattınızın başlangıç (04-01-2016 12:00 AM) ve bitiş saatleri (04-02-2016 12:00 AM) ile eşleşecek şekilde değiştirin ve **Uygula**’ya tıklayın.
+
+    ![İzleme ve Yönetme Uygulaması](./media/data-factory-build-your-first-pipeline-using-vs/monitor-and-manage-app.png) 
+3. Ayrıntılarını görmek için Etkinlik Pencereleri listesinden bir etkinlik penceresi seçin. 
+    ![Etkinlik penceresi ayrıntıları](./media/data-factory-build-your-first-pipeline-using-vs/activity-window-details.png)
+
 
 > [AZURE.IMPORTANT] Dilim başarıyla işlendiğinde girdi dosyası silinir. Bu nedenle, dilimi yeniden çalıştırmak veya öğreticiyi yeniden uygulamak isterseniz girdi dosyasını (input.log) adfgetstarted kapsayıcısının inputdata klasörüne yükleyin.
  
@@ -477,6 +506,6 @@ Bu makalede, isteğe bağlı HDInsight kümesinde bir Hive betiği çalıştıra
 | [İzleme Uygulaması kullanılarak işlem hatlarını izleme ve yönetme](data-factory-monitor-manage-app.md) | Bu makalede İzleme ve Yönetim Uygulaması kullanılarak işlem hatlarını izleme, yönetme ve hatalarını ayıklama işlemleri açıklanmaktadır. 
 
 
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Sep16_HO3-->
 
 

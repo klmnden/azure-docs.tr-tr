@@ -13,30 +13,29 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article" 
-    ms.date="08/17/2016" 
+    ms.date="09/16/2016" 
     ms.author="spelluru"/>
+
 
 # Öğretici: REST API kullanarak Kopyalama Etkinlikli işlem hattı oluşturma
 > [AZURE.SELECTOR]
-- [Öğreticiye Genel Bakış](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-- [Data Factory Düzenleyici’yi kullanma](data-factory-copy-activity-tutorial-using-azure-portal.md)
-- [PowerShell’i kullanma](data-factory-copy-activity-tutorial-using-powershell.md)
-- [Visual Studio’yu kullanma](data-factory-copy-activity-tutorial-using-visual-studio.md)
-- [REST API kullanma](data-factory-copy-activity-tutorial-using-rest-api.md)
-- [.NET API kullanma](data-factory-copy-activity-tutorial-using-dotnet-api.md)
-- [Kopyalama Sihirbazı'nı kullanma](data-factory-copy-data-wizard-tutorial.md)
+- [Genel bakış ve ön koşullar](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+- [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
+- [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
+- [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+- [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
+- [.NET API’si](data-factory-copy-activity-tutorial-using-dotnet-api.md)
+- [Kopyalama Sihirbazı](data-factory-copy-data-wizard-tutorial.md)
 
 Bu öğretici, REST API kullanarak bir Azure veri fabrikası oluşturmayı ve izlemeyi gösterir. Veri fabrikasındaki işlem hattı, Azure Blob Depolama’dan Azure SQL veritabanı’na veri kopyalamak için bir Kopyalama Etkinliği kullanır.
-
-Kopyalama Etkinliği, Azure Data Factory’de veri hareketini gerçekleştirir. Etkinlik, çeşitli veri depolama alanları arasında güvenli, güvenilir ve ölçeklenebilir bir yolla veri kopyalayabilen genel olarak kullanılabilir bir hizmet tarafından desteklenir. Kopyalama etkinliği hakkında ayrıntılı bilgi için [Veri Taşıma Etkinlikleri](data-factory-data-movement-activities.md) makalesine bakın.   
 
 > [AZURE.NOTE] 
 > Bu makale, Data Factory REST API’sinin tamamını kapsamaz. Data Factory cmdlet’leri hakkında kapsamlı belgeler için bkz. [Data Factory REST API Başvurusu](https://msdn.microsoft.com/library/azure/dn906738.aspx).
   
 
-## Ön koşullar
+## Önkoşullar
 
-- [Öğreticiye Genel Bakış](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)’ı inceleyin.
+- [Öğreticiye Genel Bakış](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) bölümünü inceleyin ve **ön koşul** adımlarını tamamlayın.
 - [Curl](https://curl.haxx.se/dlwiz/) aracını makinenize yükleyin. Bir veri fabrikası oluşturmak için Curl aracını REST komutlarıyla kullanırsınız. 
 - Aşağıdakileri yapmak için [bu makaledeki](../resource-group-create-service-principal-portal.md) yönergeleri izleyin: 
     1. Azure Active Directory’de **ADFCopyTutorialApp** adlı bir Web uygulaması oluşturun.
@@ -136,11 +135,11 @@ Curl.exe’nin bulunduğu klasörde aşağıdaki JSON dosyalarını oluşturun.
 
 JSON tanımı, işlem hattındaki bir etkinliğin girdi verilerini temsil eden **AzureBlobInput** adlı veri kümesini tanımlar. Buna ek olarak, girdi verilerinin **adftutorial** adlı blob kapsayıcısındaki **emp.txt** dosyasında bulunduğunu belirtir. 
 
- Şunlara dikkat edin: 
+ Aşağıdaki noktalara dikkat edin: 
 
 - veri kümesi **türü** **AzureBlob** olarak ayarlanır.
 - **linkedServiceName** **AzureStorageLinkedService** olarak ayarlanır. 
-- **folderPath** değeri **adftutorial** kapsayıcısı olarka, **fileName** ise **emp.txt** olarak ayarlanmıştır.  
+- **folderPath** değeri **adftutorial** kapsayıcısı olarak, **fileName** ise **emp.txt** olarak ayarlanmıştır.  
 - biçim **türü** **TextFormat** olarak ayarlanır
 - Metin dosyasında virgül karakteriyle (**columnDelimiter**) ayrılmış, **FirstName** ve **LastName** adlı iki alan vardır 
 - **Availability** **hourly** olarak ayarlanmıştır (sıklık saat olarak, aralıksa 1 olarak ayarlanmıştır). Bu nedenle, Data Factory saatte bir kere belirtilen blob kapsayıcısının (**adftutorial**) kök klasöründe girdi verilerini arar. 
@@ -192,7 +191,7 @@ Girdi veri kümesi için bir **fileName** belirtmezseniz, girdi klasörüne (**f
 
 JSON tanımı, işlem hattındaki bir etkinliğin çıktı verilerini temsil eden **AzureSqlOutput** adlı veri kümesini tanımlar. Buna ek olarak, sonuçların AzureSqlLinkedService ile temsil edilen veritabanındaki **emp** tablosunda depolandığını belirtir. **Availability** bölümü, çıktı veri kümesinin saatlik (sıklık: saat aralık: 1) tabanda oluşturulduğunu belirtir.
 
-Şunlara dikkat edin: 
+Aşağıdaki noktalara dikkat edin: 
 
 - veri kümesi **türü** **AzureSQLTable** olarak ayarlanır.
 - **linkedServiceName** **AzureSqlLinkedService** olarak ayarlanır.
@@ -245,7 +244,7 @@ JSON tanımı, işlem hattındaki bir etkinliğin çıktı verilerini temsil ede
     }
 
 
-Şunlara dikkat edin:
+Aşağıdaki noktalara dikkat edin:
 
 - Etkinlikler bölümünde, **türü** **CopyActivity** olarak ayarlanmış yalnızca bir etkinlik vardır.
 - Etkinlik girdisi **AzureBlobInput** olarak, etkinlik çıktısıysa **AzureSqlOutput** olarak ayarlanmıştır.
@@ -300,9 +299,9 @@ Bu adımda, **ADFCopyTutorialDF** adlı bir Azure Data Factory oluşturacaksın�
 
         Write-Host $results
 
-Şunlara dikkat edin:
+Aşağıdaki noktalara dikkat edin:
  
-- Azure Data Factory adı küresel olarak benzersiz olmalıdır. Sonuçlarda **Veri fabrikası adı “ADFCopyTutorialDF” kullanılamıyor** hatasını görürseniz şunu yapın:  
+- Azure Data Factory adı küresel olarak benzersiz olmalıdır. Sonuçlarda **Veri fabrikası adı “ADFCopyTutorialDF” kullanılamıyor** hatasını görürseniz aşağıdaki adımları uygulayın:  
     1. **datafactory.json** dosyasında adı değiştirin (örneğin, adınızADFCopyTutorialDF).
     2. **$cmd** değişkenine bir değerin atandığı ilk komutta, ADFCopyTutorialDF’yi yeni adla değiştirip komutu çalıştırın. 
     3. Veri fabrikasını oluşturmak ve işlemin sonuçlarını yazdırmak üzere REST API’yi çağırmak için sonraki iki komutu çalıştırın. 
@@ -494,6 +493,6 @@ Bu öğreticide bir Azure blob’undan Azure SQL veritabanına veri kopyalamak i
  
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

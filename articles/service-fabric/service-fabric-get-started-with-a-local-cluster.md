@@ -13,8 +13,9 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/10/2016"
-   ms.author="ryanwi"/>
+   ms.date="09/09/2016"
+   ms.author="ryanwi;mikhegn"/>
+
 
 # Yerel kümenizdeki uygulamaları dağıtma ve yükseltme işlemlerine giriş
 Azure Service Fabric SDK, yerel bir kümede hızlıca dağıtma ve uygulamaları yönetme işlemlerine başlamak için kullanabileceğiniz eksiksiz bir yerel geliştirme ortamı içerir. Bu makalede, yerel bir küme oluşturup var olan bir uygulamayı kümeye dağıtır, ardından uygulamayı yeni bir sürüme yükseltirsiniz ve tüm bu işlemleri Windows PowerShell'den gerçekleştirirsiniz.
@@ -193,7 +194,37 @@ Sonlandırmadan önce yerel kümenin gerçek olduğunu unutmamanız önemlidir. 
 
 3. Kümeyi kapatıp uygulama verilerini ve izlemelerini tutmak için sistem tepsisi uygulamasında **Yerel Kümeyi Durdur**'a tıklayın.
 
-4. Kümeyi tamamen silmek için sistem tepsisi uygulamasında **Yerel Kümeyi Kaldır**'a tıklayın. Visual Studio'da F5'e bir sonraki basışınızda bu seçeneğin başka bir yavaş dağıtımla sonuçlanacağını unutmayın. Yerel kümeyi yalnızca bir süre kullanmayı planlamıyorsanız veya kaynaklarınızı geri kazanmanız gerekiyorsa kaldırın.
+4. Kümeyi tamamen silmek için sistem tepsisi uygulamasında **Yerel Kümeyi Kaldır**'a tıklayın. Visual Studio'da F5'e bir sonraki basışınızda bu seçenek başka bir yavaş dağıtımla sonuçlanır. Yerel kümeyi yalnızca bir süre kullanmayı planlamıyorsanız veya kaynaklarınızı geri kazanmanız gerekiyorsa kaldırın.
+
+## 1 Düğümlü ve 5 Düğümlü küme modu
+
+Uygulama geliştirmek üzere yerel küme ile birlikte çalışırken çoğunlukla kendinizi kod yazma, hata ayıklama, kod değiştirme, hata ayıklama, vb. işlemleri yinelerken bulursunuz. Bu işlemi en iyi duruma getirmek için yerel küme iki modda çalışabilir: 1 Düğümlü veya 5 Düğümlü. Her iki küme modunun da faydaları vardır.
+5 Düğümlü küme modu gerçek bir küme ile çalışmanıza olanak tanır. Yük devretme senaryolarını test edebilir, hizmetlerinizin daha fazla örneği ve yinelemeleri ile çalışabilirsiniz.
+1 Düğümlü küme modu Service Fabric çalışma zamanı kullanılarak kodu hızlıca doğrulamanıza yardımcı olmak amacıyla hizmetlerin hızlı dağıtımını ve kaydını yapmak üzere en iyi hale getirilmiştir.
+
+Hem 1 Düğümlü küme modu hem de 5 Düğümlü küme modu bir öykünücü ya da benzetici değildir. Çok makineli kümelerde bulunan aynı platform kodunu çalıştırır.
+
+> [AZURE.NOTE] Bu özellik SDK sürüm 5.2 ve üzerinde kullanılabilir.
+
+Küme modunu 1 Düğümlü kümeye geçirmek için Service Fabric Yerel Küme Yöneticisi’ni veya aşağıdaki şekilde PowerShell’i kullanın:
+
+1. Yönetici olarak yeni bir PowerShell penceresi başlatın.
+
+2. SDK klasöründeki küme kurulumu betiğini çalıştırın:
+
+    ```powershell
+    & "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1" -CreateOneNodeCluster
+    ```
+
+    Küme kurulumu biraz zaman alır. Kurulum tamamlandıktan sonra şunun gibi görünen bir çıktı görmelisiniz:
+    
+    ![Küme kurulumu çıktısı][cluster-setup-success-1-node]
+
+Service Fabric Yerel Küme Yöneticisini kullanıyorsanız:
+
+![Küme moduna geçme][switch-cluster-mode]
+
+> [AZURE.WARNING] Küme komunu değiştirirken geçerli küme sisteminizden kaldırılır ve yeni bir küme oluşturulur. Küme modunu değiştirdiğinizde kümede depolamanız gereken veriler silinir.
 
 ## Sonraki adımlar
 - Önceden derlenen bazı uygulamaları dağıtıp geliştirdiğinize göre [Visual Studio'da kendi uygulamanızı derlemeyi deneyebilirsiniz](service-fabric-create-your-first-application-in-visual-studio.md).
@@ -217,9 +248,11 @@ Sonlandırmadan önce yerel kümenin gerçek olduğunu unutmamanız önemlidir. 
 [sfx-upgradeprogress]: ./media/service-fabric-get-started-with-a-local-cluster/SfxUpgradeOverview.png
 [sfx-service-overview]: ./media/service-fabric-get-started-with-a-local-cluster/sfx-service-overview.png
 [sfe-delete-application]: ./media/service-fabric-get-started-with-a-local-cluster/sfe-delete-application.png
+[cluster-setup-success-1-node]: ./media/service-fabric-get-started-with-a-local-cluster/cluster-setup-success-1-node.png
+[switch-cluster-mode]: ./media/service-fabric-get-started-with-a-local-cluster/switch-cluster-mode.png
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 
