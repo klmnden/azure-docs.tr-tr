@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/17/2016"
+   ms.date="09/23/2016"
    ms.author="alkohli" />
 
 
@@ -132,13 +132,15 @@ Başlamadan önce aşağıdaki bilgilere sahip olduğunuzdan emin olun:
 
 Bu yordamları gerçekleştirmeden önce, [sanal cihaz önkoşullarını](#prerequisites-for-the-virtual-device) karşıladığınızdan emin olun. 
 
-Sanal ağ oluşturduktan, StorSimple Yöneticisi hizmeti yapılandırdıktan ve fiziksel StorSimple cihazınızı hizmete kaydettikten sonra, StorSimple sanal cihazı oluşturmak amacıyla aşağıdaki adımları kullanabilirsiniz.
+Sanal ağ oluşturduktan, StorSimple Yöneticisi hizmeti yapılandırdıktan ve fiziksel StorSimple cihazınızı hizmete kaydettikten sonra, StorSimple sanal cihazı oluşturmak amacıyla aşağıdaki adımları kullanabilirsiniz. 
 
 ### 1. Adım: Sanal cihaz oluşturma
 
 StorSimple sanal cihazı oluşturmak için aşağıdaki adımları gerçekleştirin.
 
 [AZURE.INCLUDE [Create a virtual device](../../includes/storsimple-create-virtual-device-u2.md)]
+
+Bu adımda sanal cihaz oluşturulamazsa İnternet bağlantınız olmayabilir. Daha fazla bilgi için sanal cihaz oluştururken [İnternet bağlantısı sorunlarını giderme](#troubleshoot-internet-connectivity-errors) bölümüne gidin.
 
 
 ### 2. Adım: Sanal cihaz yapılandırma ve kaydetme
@@ -274,6 +276,19 @@ Sanal cihazı siler veya kapatırsanız, StorSimple Yönetici hizmetinin Cihazla
 [AZURE.INCLUDE [Delete a virtual device](../../includes/storsimple-delete-virtual-device.md)]
 
    
+## İnternet bağlantısı sorunlarını giderme 
+
+Sanal cihaz oluştururken İnternet bağlantısı yoksa oluşturma adımı başarısız olur. Hatanın İnternet bağlantısından kaynaklanması durumunda sorun gidermek için klasik Azure portalında aşağıdaki adımları gerçekleştirin:
+
+1. Azure’da bir Windows server 2012 sanal makinesi oluşturun. Bu sanal makine, sanal cihazınızla aynı depolama hesabı, sanal ağ ve alt ağı kullanmalıdır. Azure’da aynı depolama hesabını, sanal ağı ve alt ağı kullanan bir Windows Server ana bilgisayarınız varsa, İnternet bağlantısı sorunlarını gidermek için onu da kullanabilirsiniz.
+2. Önceki adımda oluşturduğunuz sanal makinede uzaktan oturum açın. 
+3. Sanal makinenin içinde bir komut penceresi açın (Win + R ve ardından `cmd` yazın).
+4. Komut isteminde aşağıdaki cmd’yi çalıştırın.
+
+    `nslookup windows.net`
+
+5. `nslookup` başarısız olursa İnternet bağlantısı sorunu sanal cihazın StorSimple Yöneticisi hizmetine kaydedilmesini önlüyordur. 
+6. Sanal cihazın "windows.net" gibi Azure sitelerine erişebildiğinden emin olmak için sanal ağınızda gerekli değişiklikleri yapın.
 
 ## Sonraki adımlar
 
@@ -284,6 +299,6 @@ Sanal cihazı siler veya kapatırsanız, StorSimple Yönetici hizmetinin Cihazla
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

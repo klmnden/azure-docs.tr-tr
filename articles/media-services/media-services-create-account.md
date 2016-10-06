@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/22/2016"
+    ms.date="09/26/2016"
     ms.author="juliako"/>
+
 
 
 # Azure Media Services hesabı oluşturma
@@ -108,6 +109,6 @@ Ayrıca, videoları karşıya yükleme, kodlama ve yayımlama görevlerini gerç
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Sep16_HO4-->
 
 

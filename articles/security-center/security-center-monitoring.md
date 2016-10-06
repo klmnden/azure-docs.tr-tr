@@ -13,8 +13,9 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/21/2016"
+   ms.date="09/22/2016"
    ms.author="yurid"/>
+
 
 #Azure Güvenlik Merkezi'nde güvenlik durumunu izleme
 Bu belge, ilkelerle uyumluluğu izlemek için Azure Güvenlik Merkezi'ndeki izleme işlevlerini kullanmanıza yardımcı olur.
@@ -29,7 +30,7 @@ Bir aboneliğin kaynakları için [güvenlik ilkelerini](security-center-policie
 
 **Kaynak güvenlik durumu** kutucuğunda kaynaklarınızın güvenlik durumunu izleyebilirsiniz. Aşağıdaki örnekte yüksek ve orta önem derecesine sahip olan ve dikkat gerektiren birkaç sorun görebilirsiniz. Etkinleştirilmiş güvenlik ilkeleri, izlenen denetim türlerini etkiler.
 
-![Kaynak durumu](./media/security-center-monitoring/security-center-monitoring-fig1-ga.png)
+![Kaynak durumu](./media/security-center-monitoring/security-center-monitoring-fig1-new4.png)
 
 Güvenlik Merkezi, eksik güvenlik güncelleştirmelerine sahip bir VM veya [ağ güvenlik grubu](../virtual-network/virtual-networks-nsg.md) olmayan bir alt ağ gibi ilgilenilmesi gereken bir güvenlik açığı tanımlarsa güvenlik açıkları burada listelenir.
 
@@ -51,7 +52,7 @@ Bu bölüm, veri toplama ve bunların geçerli durumu için başlatılan sanal m
 
 
 ####Sanal makine önerileri
-Bu bölümde, Azure Güvenlik Merkezi tarafından izlenen her bir VM için bir öneri kümesi bulunur. İlk sütunda öneri listelenir; ikinci sütunda da öneriden etkilenen VM'lerin toplam sayısı listelenir ve üçüncü sütun ise aşağıda gösterildiği gibi sorunun önem derecesini gösterir.
+Bu bölümde, Azure Güvenlik Merkezi tarafından izlenen [her bir VM için bir öneri](security-center-virtual-machine-recommendations.md) kümesi bulunur. İlk sütunda öneri listelenir; ikinci sütunda da öneriden etkilenen VM'lerin toplam sayısı listelenir ve üçüncü sütun ise aşağıda gösterildiği gibi sorunun önem derecesini gösterir.
 
 ![VM Önerileri](./media/security-center-monitoring/security-center-monitoring-fig4-ga.png)
 
@@ -116,7 +117,7 @@ Bu öneriyle ilgili daha kesin bir açıklama görmek için **AÇIKLAMA** sütun
 
 Bu dikey pencere, sanal makinelerin kaynak durumu bilgilerine benzer şekilde dikey pencerenin en üstünde sorunların bir özet listesini ve en altında izlenen ağların bir listesini sağlar.
 
-Ağ durumu döküm bölümü, olası güvenlik sorunlarını listeler ve öneriler sunar. Olası sorunlar şunları içerebilir:
+Ağ durumu döküm bölümü, olası güvenlik sorunlarını listeler ve [öneriler](security-center-network-recommendations.md) sunar. Olası sorunlar şunları içerebilir:
 
 - Yeni Nesil Güvenlik Duvarı (NGFW) yüklü değil
 - Alt ağlardaki Ağ Güvenlik Grupları (NSG'ler) etkin değil
@@ -160,8 +161,8 @@ Bu topoloji görünümünde ilk düzeyde [Sanal Ağlar](../virtual-network/virtu
 
 Bu dikey pencerenin alt kısmı, yukarıda açıklanana benzer şekilde bu VM için öneriler içerir. Daha fazla bilgi edinmek veya gerekli güvenlik denetimini/yapılandırmasını uygulamak için bir öneriye tıklayabilirsiniz.
 
-###SQL kaynaklarını izleme
-**Kaynak güvenlik durumu** kutucuğunda **SQL**'ye tıkladığınızda SQL dikey penceresi denetim ve saydam veri şifrelemesinin etkinleştirilmemiş olması gibi sorunlar için önerilerle birlikte açılır. Ayrıca, veritabanının genel sağlık durumu için öneriler içerir.
+###Veri izleme
+**Kaynak güvenlik durumu** kutucuğunda **Veriler**'e tıkladığınızda **SQL** dikey penceresi denetim ve saydam veri şifrelemesinin etkinleştirilmemiş olması gibi sorunlar için önerilerle birlikte açılır. Ayrıca, veritabanının genel sağlık durumu için [öneriler](security-center-sql-service-recommendations.md) içerir.
 
 ![SQL Kaynak Durumu](./media/security-center-monitoring/security-center-monitoring-fig13-ga.png)
 
@@ -208,6 +209,6 @@ Bu belgede, Azure Güvenlik Merkezi'nde izleme işlevlerini nasıl kullanacağı
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Sep16_HO4-->
 
 

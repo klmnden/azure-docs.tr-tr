@@ -1,20 +1,21 @@
 <properties
-	pageTitle="Azure Stack Key Vault introduction | Microsoft Azure"
-	description="Learn how Azure Stack Key Vault manages keys and secrets"
-	services="azure-stack"
-	documentationCenter=""
-	authors="rlfmendes"
-	manager="natmack"
-	editor=""/>
+    pageTitle="Azure Stack Key Vault introduction | Microsoft Azure"
+    description="Learn how Azure Stack Key Vault manages keys and secrets"
+    services="azure-stack"
+    documentationCenter=""
+    authors="rlfmendes"
+    manager="natmack"
+    editor=""/>
 
 <tags
-	ms.service="azure-stack"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="09/26/2016"
-	ms.author="ricardom"/>
+    ms.service="azure-stack"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="09/26/2016"
+    ms.author="ricardom"/>
+
 
 # Introduction to Key Vault in Azure Stack #
 
@@ -24,8 +25,7 @@ This article assumes the following:
 
 - The reader has access to a subscription that has Azure Key Vault enabled.
 - The Azure PowerShell SDK is configured and available.
-- For the TP2 release, all tenant-facing operations can be performed only
-from PowerShell.
+- For the TP2 release, all tenant-facing operations can be performed only from PowerShell.
 
 ## Key Vault basics
 
@@ -37,8 +37,7 @@ Anybody with an Azure Stack subscription can create and use key vaults. Although
 
 - Create or import a key or secret
 - Revoke or delete a key or secret
-- Authorize users or applications to access the key vault, so they can
-    then manage or use its keys and secrets
+- Authorize users or applications to access the key vault, so they can   then manage or use its keys and secrets
 - Configure key usage (for example, sign or encrypt)
 
 This administrator can then provide developers with URIs to call from their applications, and provide a security administrator with key usage logging information.
@@ -73,3 +72,9 @@ The following table depicts some of the scenarios where Key Vault can help meet 
 ## Next Steps
 
 [Get Started with Key Vault](azure-stack-kv-getting-started.md)
+
+
+
+<!--HONumber=Sep16_HO4-->
+
+

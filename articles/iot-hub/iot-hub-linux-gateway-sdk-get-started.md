@@ -86,6 +86,6 @@ Başlamadan önce Linux üzerindeki SDK ile çalışacak [geliştirme ortamını
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

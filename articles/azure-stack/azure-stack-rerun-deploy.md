@@ -1,21 +1,22 @@
 <properties
-	pageTitle="Rerun a deployment from a failed step | Microsoft Azure"
-	description="If you experience a failure during deployment, you can attempt the following steps to rerun the deployment from where it failed."
-	services="azure-stack"
-	documentationCenter=""
-	authors="ErikjeMS"
-	manager="byronr"
-	editor=""/>
+    pageTitle="Rerun a deployment from a failed step | Microsoft Azure"
+    description="If you experience a failure during deployment, you can attempt the following steps to rerun the deployment from where it failed."
+    services="azure-stack"
+    documentationCenter=""
+    authors="ErikjeMS"
+    manager="byronr"
+    editor=""/>
 
 <tags
-	ms.service="azure-stack"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="09/26/2016"
-	ms.author="erikje"/>
-	
+    ms.service="azure-stack"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="09/26/2016"
+    ms.author="erikje"/>
+    
+
 # Rerun a deployment from a failed step
   
 If you experience a failure during deployment, you can attempt the following steps to rerun the deployment from where it failed.
@@ -54,17 +55,17 @@ Now that you have the step that the deployment failed on, you can attempt a -Rer
 
 2. Then execute the following command (example from above used here):
 
-    `Invoke-EceAction -RolePath Cloud -ActionType Deployment -Start 60.140.143 -Verbose`
+        Invoke-EceAction -RolePath Cloud -ActionType Deployment -Start 60.140.143 -Verbose
 
-3.	This will initiate the deployment from the step identified by the -Start parameter of the Invoke-EceAction command
+3.  This will initiate the deployment from the step identified by the -Start parameter of the Invoke-EceAction command
 
 ### Results of a -Rerun/-Start
 
 Regardless of the option you choose, the deployment will begin again from the specified -Start parameter.
 
-1.	If the failure is recoverable, the deployment will continue through completion.
+1.  If the failure is recoverable, the deployment will continue through completion.
 
-2.	If the deployment fails again at…
+2.  If the deployment fails again at…
     
     - the same place: the failure is probably not recoverable, and further investigation is required.
 
@@ -80,5 +81,11 @@ Regardless of the option you choose, the deployment will begin again from the sp
 
 
 
+
+
+
+
+
+<!--HONumber=Sep16_HO4-->
 
 

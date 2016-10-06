@@ -13,7 +13,7 @@
     ms.topic="hero-article"
     ms.tgt_pltfrm="vm-windows-sql-server"
     ms.workload="infrastructure-services"
-    ms.date="09/20/2016"
+    ms.date="09/21/2016"
     ms.author="jroth" />
 
 
@@ -142,9 +142,9 @@ Yapılandırma ayarlarını tamamladığınızda, **Tamam**’a tıklayın.
 - SQL Server’a Yalnızca VM içinden gelen bağlantılara izin vermek için **Yerel (yalnızca VM dahilinde)** 
 - SQL Server’a aynı sanal ağdaki makineler ve hizmetlerden gelen bağlantılara izin vermek için **Özel (Sanal Ağ dahilinde)** 
 
-Genel olarak, senaryonuzun izin verdiği en kısıtlayıcı bağlantıyı seçerek güvenliği geliştirin. Ancak tüm seçenekler Ağ Güvenlik Grubu kuralları ve SQL/Windows Kimlik Doğrulaması üzerinden korumaya alınabilir.
+>[AZURE.NOTE] SQL Server Express sürümü için sanal makine görüntüsü, TCP/IP protokolünü otomatik olarak etkinleştirmez. Bu durum Genel ve Özel bağlantı seçenekleri için de geçerlidir. Express sürümü için VM'yi oluşturduktan sonra [TCP/IP protokolünü el ile etkinleştirmek](#configure-sql-server-to-listen-on-the-tcp-protocol) üzere SQL Server Yapılandırma Yöneticisi'ni kullanmanız gerekir.
 
->[AZURE.NOTE] SQL Server Express veya Developer sürümleri için sanal makine görüntüleri, TCP/IP protokolünü otomatik olarak etkinleştirmez. Portalda Genel veya Özel seçimini yapmış olsanız bile uzaktan bağlantı engellenir. Express ve Developer sürümleri için, VM'yi oluşturduktan sonra [TCP/IP protokolünü el ile etkinleştirmek](virtual-machines-windows-sql-connect.md#configure-sql-server-to-listen-on-the-tcp-protocol) üzere SQL Server Yapılandırma Yöneticisi'ni kullanmanız gerekir.
+Genel olarak, senaryonuzun izin verdiği en kısıtlayıcı bağlantıyı seçerek güvenliği geliştirin. Ancak tüm seçenekler Ağ Güvenlik Grubu kuralları ve SQL/Windows Kimlik Doğrulaması üzerinden korumaya alınabilir.
 
 **Bağlantı noktası** 1433 olarak varsayılan değer kılınır. Farklı bir bağlantı noktası belirtebilirsiniz.
 Daha fazla bilgi için bkz. [Bir SQL Server Sanal Makinesine (Resource Manager) Bağlanma | Microsoft Azure](virtual-machines-windows-sql-connect.md).
@@ -245,7 +245,7 @@ Uzak Masaüstü kullanarak sanal makineye bağlanmak için aşağıdaki adımlar
 1. Bu VM için daha önce yapılandırdığınız **Parola**’yı yazın ve bağlanmak için **Tamam**’a tıklayın.
 1. Başka bir **Uzak Masaüstü Bağlantısı** iletişim kutusu size bağlanıp bağlanmayı sorarsa **Evet**’e tıklayın.
 
-SQL Server sanal makineye bağlandıktan sonra, SQL Server Management Studio'yu başlatabilir ve yerel yönetici kimlik bilgilerinizi kullanarak Windows Kimlik Doğrulamasına bağlanabilirsiniz. SQL Server Kimlik Doğrulamasını etkinleştirdeyseniz, sağlama işlemi sırasında yapılandırdığınız SQL oturum açma adı ve parolasını kullanarak da SQL Kimlik Doğrulamasına bağlanabilirsiniz.
+SQL Server sanal makineye bağlandıktan sonra, SQL Server Management Studio'yu başlatabilir ve yerel yönetici kimlik bilgilerinizi kullanarak Windows Kimlik Doğrulamasına bağlanabilirsiniz. SQL Server Kimlik Doğrulamasını etkinleştirdiyseniz, sağlama işlemi sırasında yapılandırdığınız SQL oturum açma adı ve parolasını kullanarak da SQL Kimlik Doğrulamasına bağlanabilirsiniz.
 
 Makineye erişim, gereksinimlerinize göre makineyi ve SQL Server ayarlarını doğrudan değiştirmenize olanak tanır. Örneğin, güvenlik duvarı ayarlarını yapılandırabilir veya SQL Server yapılandırma ayarlarını değiştirebilirsiniz.
 

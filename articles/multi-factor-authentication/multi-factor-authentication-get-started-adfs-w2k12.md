@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Windows Server 2012 R2 AD FS ile Azure Multi-Factor Authentication Sunucusu kullanarak bulut ve şirket içi kaynakları güvenli hale getirme | Microsoft Azure"
+    pageTitle="Windows Server 2012 R2 AD FS ile MFA Sunucusu | Microsoft Azure"
     description="Bu makale Windows Server 2012 R2’de Azure Multi-Factor Authentication ve AD FS’yi kullanmaya başlama işlemi açıklanmaktadır."
     services="multi-factor-authentication"
     documentationCenter=""
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="08/04/2016"
+    ms.date="09/22/2016"
     ms.author="kgremban"/>
 
 
@@ -75,20 +75,61 @@ Bu noktada Multi-Factor Authentication Sunucusu, AD FS ile birlikte kullanım am
 3. MultiFactorAuthenticationAdfsAdapterSetup64.msi yükleme dosyasını çalıştırın.
 4. Yükleme işlemini gerçekleştirmek için Multi-Factor Authentication AD FS bağdaştırıcısı yükleyicisinde **İleri**’ye tıklayın.
 5. Yükleme tamamlandığında **Kapat**'a tıklayın.
-6. Aşağıdakileri yaparak MultiFactorAuthenticationAdfsAdapter.config dosyasını düzenleyin:
 
-|MultiFactorAuthenticationAdfsAdapter.config Adımı| Alt adım|
-|:------------- | :------------- |
-|**UseWebServiceSdk** düğümünü **true** olarak ayarlayın.||
-|**WebServiceSdkUrl** değerini Multi-Factor Authentication Web Hizmeti SDK URL’sine ayarlayın.</br></br>Örnek:  **https://contoso.com/&lt;certificatename&gt;/MultiFactorAuthWebServicesSdk/PfWsSdk.asmx**</br></br>Burada certificatename sertifikanızın adıdır. ||
-|Web Hizmeti SDK’sını yapılandırın.<br><br>*Seçenek 1*: Bir kullanıcı adı ve parola kullanarak|<ol type="a"><li>**WebServiceSdkUsername** değerini PhoneFactor Admins güvenlik grubunun üyesi olan bir hesaba ayarlayın. &lt;Etki alanı&gt;&#92;&lt;kullanıcı adı&gt; biçimini kullanın.<li>**WebServiceSdkPassword** değerini uygun hesap parolası olarak ayarlayın.</li></ol>
-|Web Hizmeti SDK’sını yapılandırma, *devam*<br><br>*Seçenek 2*: İstemci sertifikası kullanarak|<ol type="a"><li>Web Hizmeti SDK’sı çalıştıran sunucu için sertifika yetkilisinden bir istemci sertifikası alın. [İstemci sertifikalarını alma](https://technet.microsoft.com/library/cc770328.aspx) hakkında bilgi edinin.</li><li>İstemci sertifikasını Web Hizmeti SDK’sı çalıştıran sunucudaki yerel bilgisayar kişisel sertifika deposuna aktarın. Not: sertifika yetkilisinin genel sertifikasının Güvenilen Kök Sertifikalar sertifika deposunda olduğundan emin olun.</li><li>İstemci sertifikasının ortak ve özel anahtarlarını bir .pfx dosyasına aktarın.</li><li>Base64 biçimindeki ortak anahtarı bir .cer dosyasına aktarın.</li><li>Sunucu Yöneticisi'nde, Web Server (IIS)\Web Server\Security\IIS İstemci Sertifikası Eşleme Kimlik doğrulaması özelliğinin yüklü olduğunu doğrulayın. Yüklü değilse, bu özelliğe eklemek üzere **Rol ve Özellik Ekle**’yi seçin.</li><li>IIS Yöneticisi'nde, Web Hizmeti SDK’sı sanal dizinini içeren web sitesinde **Yapılandırma Düzenleyicisi**'ne çift tıklayın. Not: Bunu sanal dizin düzeyinde değil web sitesi düzeyinde yapmanız çok önemlidir.</li><li>**System.webServer/security/authentication/iisClientCertificateMappingAuthentication** bölümüne gidin.</li><li>**Etkin**’i **true** olarak ayarlayın.</li><li>**oneToOneCertificateMappingsEnabled** değerini **true** olarak ayarlayın.</li><li>**oneToOneMappings** ifadesinin yanındaki **...** düğmesine ve ardından **Ekle** bağlantısına tıklayın.</li><li>Önceden dışarı aktardığınız Base64 .cer dosyasını açın. *-----BEGIN CERTIFICATE-----*, *-----END CERTIFICATE-----* ifadelerini ve tüm satır sonlarını kaldırın. Sonuç dizesini kopyalayın.</li><li>**Sertifika** değerini önceki adımda kopyaladığınız dizeye ayarlayın.</li><li>**Etkin**’i **true** olarak ayarlayın.</li><li>**userName** değerini PhoneFactor Admins güvenlik grubunun üyesi olan bir hesaba ayarlayın. &lt;Etki alanı&gt;&#92;&lt;kullanıcı adı&gt; biçimini kullanın.</li><li>Parolayı uygun hesap parolasına ayarlayın ve ardından Yapılandırma Düzenleyicisi’ni kapatın.</li><li>**Uygula** bağlantısına tıklayın.</li><li>Web Hizmeti SDK’sı sanal dizininde **Kimlik doğrulama** öğesine çift tıklayın.</li><li>**ASP.NET Kimliğe Bürünme** ve **Temel Kimlik Doğrulaması**’nın **Etkin** olarak ve diğer tüm öğelerin **Devre Dışı** olarak ayarlandığını doğrulayın.</li><li>Web Hizmeti SDK’sı sanal dizininde **SSL Ayarları** öğesine çift tıklayın.</li><li>**İstemci Sertifikaları**’nı **Kabul Et** olarak ayarlayın ve ardından **Uygula**’ya tıklayın.</li><li>Önceden dışarı aktardığınız .pfx dosyasını AD FS bağdaştırıcısı çalıştıran sunucuya kopyalayın.</li><li>.pfx dosyasını yerel bilgisayar kişisel sertifika deposuna aktarın.</li><li>Sağ tıklayıp **Özel Anahtarları Yönet**’i seçin ve ardından AD FS hizmetinde oturum açmak için kullandığınız hesaba okuma erişimi verin.</li><li>İstemci sertifikasını açın ve **Ayrıntılar** sekmesinden parmak izini kopyalayın.</li><li>MultiFactorAuthenticationAdfsAdapter.config dosyasında, **WebServiceSdkCertificateThumbprint**’i önceki adımda kopyalanan dizeye ayarlayın.</li></ol>
-| *-ConfigurationFilePath &lt;path&gt;* dizesini `Register-AdfsAuthenticationProvider` komutunun sonuna ekleyerek Register-MultiFactorAuthenticationAdfsAdapter.ps1 komut dosyasını düzenleyin; burada *&lt;path&gt;*, MultiFactorAuthenticationAdfsAdapter.config dosyasının tam yoludur.||
+## MultiFactorAuthenticationAdfsAdapter.config dosyasını düzenleme
 
-Bağdaştırıcıyı kaydetmek için PowerShell’de \Program Files\Multi-Factor Authentication Server\Register-MultiFactorAuthenticationAdfsAdapter.ps1 betiğini Çalıştırın. Bağdaştırıcı WindowsAzureMultiFactorAuthentication olarak kaydedilir. Kaydın etkili olması için AD FS hizmetini yeniden başlatmalısınız.
+MultiFactorAuthenticationAdfsAdapter.config dosyasını düzenlemek için aşağıdaki adımları izleyin:
+
+1. **UseWebServiceSdk** düğümünü **true** olarak ayarlayın.  
+2. **WebServiceSdkUrl** değerini Multi-Factor Authentication Web Hizmeti SDK URL’sine ayarlayın. Örneğin:  **https://contoso.com/&lt;certificatename&gt;/MultiFactorAuthWebServicesSdk/PfWsSdk.asmx** Burada sertifika adı, sertifikanızın adıdır.  
+3. *-ConfigurationFilePath &lt;path&gt;* dizesini `Register-AdfsAuthenticationProvider` komutunun sonuna ekleyerek Register-MultiFactorAuthenticationAdfsAdapter.ps1 komut dosyasını düzenleyin; burada *&lt;path&gt;*, MultiFactorAuthenticationAdfsAdapter.config dosyasının tam yoludur.
+
+### Web Hizmeti SDK’sını bir kullanıcı adı ve parola kullanarak yapılandırma
+
+Web Hizmeti SDK’sını yapılandırmaya yönelik iki seçenek vardır. Birincisi kullanıcı adı ve parola, ikincisi ise istemci sertifikası ile yapılır. Birinci seçenek için bu adımları izleyin veya ikinci seçenek için bu adımları atlayın.  
+
+1. **WebServiceSdkUsername** değerini PhoneFactor Admins güvenlik grubunun üyesi olan bir hesaba ayarlayın. &lt;Etki alanı&gt;&#92;&lt;kullanıcı adı&gt; biçimini kullanın.  
+2. **WebServiceSdkPassword** değerini uygun hesap parolası olarak ayarlayın.
+
+### Web Hizmeti SDK’sını bir istemci sertifikası ile yapılandırma
+
+Bir kullanıcı adı ve parola kullanmak istemiyorsanız Web Hizmeti SDK’sını bir istemci sertifikası ile yapılandırmak için aşağıdaki adımları izleyin.
+
+1. Web Hizmeti SDK’sı çalıştıran sunucu için sertifika yetkilisinden bir istemci sertifikası alın. [İstemci sertifikalarını alma](https://technet.microsoft.com/library/cc770328.aspx) hakkında bilgi edinin.  
+2. İstemci sertifikasını Web Hizmeti SDK’sı çalıştıran sunucudaki yerel bilgisayar kişisel sertifika deposuna aktarın. Not: sertifika yetkilisinin genel sertifikasının Güvenilen Kök Sertifikalar sertifika deposunda olduğundan emin olun.  
+3. İstemci sertifikasının ortak ve özel anahtarlarını bir .pfx dosyasına aktarın.  
+4. Base64 biçimindeki ortak anahtarı bir .cer dosyasına aktarın.  
+5. Sunucu Yöneticisi'nde, Web Server (IIS)\Web Server\Security\IIS İstemci Sertifikası Eşleme Kimlik doğrulaması özelliğinin yüklü olduğunu doğrulayın. Yüklü değilse, bu özelliğe eklemek üzere **Rol ve Özellik Ekle**’yi seçin.  
+6. IIS Yöneticisi'nde, Web Hizmeti SDK’sı sanal dizinini içeren web sitesinde **Yapılandırma Düzenleyicisi**'ne çift tıklayın. Not: Bunu sanal dizin düzeyinde değil web sitesi düzeyinde yapmanız çok önemlidir.  
+7. **System.webServer/security/authentication/iisClientCertificateMappingAuthentication** bölümüne gidin.  
+8. **Etkin**’i **true** olarak ayarlayın.  
+9. **oneToOneCertificateMappingsEnabled** değerini **true** olarak ayarlayın.  
+10. **oneToOneMappings** ifadesinin yanındaki **...** düğmesine ve ardından **Ekle** bağlantısına tıklayın.  
+11. Önceden dışarı aktardığınız Base64 .cer dosyasını açın. *-----BEGIN CERTIFICATE-----*, *-----END CERTIFICATE-----* ifadelerini ve tüm satır sonlarını kaldırın. Sonuç dizesini kopyalayın.  
+12. **Sertifika** değerini önceki adımda kopyaladığınız dizeye ayarlayın.  
+13. **Etkin**’i **true** olarak ayarlayın.  
+14. **userName** değerini PhoneFactor Admins güvenlik grubunun üyesi olan bir hesaba ayarlayın. &lt;Etki alanı&gt;&#92;&lt;kullanıcı adı&gt; biçimini kullanın.  
+15. Parolayı uygun hesap parolasına ayarlayın ve ardından Yapılandırma Düzenleyicisi’ni kapatın.  
+16. **Uygula** bağlantısına tıklayın.  
+17. Web Hizmeti SDK’sı sanal dizininde **Kimlik doğrulama** öğesine çift tıklayın.  
+18. **ASP.NET Kimliğe Bürünme** ve **Temel Kimlik Doğrulaması**’nın **Etkin** olarak ve diğer tüm öğelerin **Devre Dışı** olarak ayarlandığını doğrulayın.  
+19. Web Hizmeti SDK’sı sanal dizininde **SSL Ayarları** öğesine çift tıklayın.  
+20. **İstemci Sertifikaları**’nı **Kabul Et** olarak ayarlayın ve ardından **Uygula**’ya tıklayın.  
+21. Önceden dışarı aktardığınız .pfx dosyasını AD FS bağdaştırıcısı çalıştıran sunucuya kopyalayın.  
+22. .pfx dosyasını yerel bilgisayar kişisel sertifika deposuna aktarın.  
+23. Sağ tıklayıp **Özel Anahtarları Yönet**’i seçin ve ardından AD FS hizmetinde oturum açmak için kullandığınız hesaba okuma erişimi verin.  
+24. İstemci sertifikasını açın ve **Ayrıntılar** sekmesinden parmak izini kopyalayın.  
+25. MultiFactorAuthenticationAdfsAdapter.config dosyasında, **WebServiceSdkCertificateThumbprint**’i önceki adımda kopyalanan dizeye ayarlayın.  
+
+
+Son olarak, bağdaştırıcıyı kaydetmek için PowerShell’de \Program Files\Multi-Factor Authentication Server\Register-MultiFactorAuthenticationAdfsAdapter.ps1 betiğini çalıştırın. Bağdaştırıcı WindowsAzureMultiFactorAuthentication olarak kaydedilir. Kaydın etkili olması için AD FS hizmetini yeniden başlatmalısınız.
+
+## İlgili konular
+
+Sorun giderme yardımı için bkz. [Azure Multi-Factor Authentication SSS](multi-factor-authentication-faq.md)
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Azure Stack'te teklif oluşturma | Microsoft Azure"
-    description="Hizmet yöneticisi olarak Azure Stack'te kiracılarınız için nasıl teklif oluşturacağınızı öğrenin."
+    pageTitle="Create an offer in Azure Stack | Microsoft Azure"
+    description="As a service administrator, learn how to create an offer for your tenants in Azure Stack."
     services="azure-stack"
     documentationCenter=""
     authors="ErikjeMS"
@@ -13,55 +13,50 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/25/2016"
+    ms.date="09/26/2016"
     ms.author="erikje"/>
 
 
-# Azure Stack'te teklif oluşturma
+# Create an offer in Azure Stack
 
-[Teklifler](azure-stack-key-features.md#services-plans-offers-and-subscriptions), sağlayıcılar tarafından kiracılara satın almaları (abone olmaları) için sunulan bir veya daha fazla plandan oluşan gruplardır. Bu örnekte, son adımda [oluşturduğunuz planı](azure-stack-create-plan.md) içeren bir teklif oluşturacaksınız. Bu teklifin aboneleri sanal makineler sağlayabilir.
+[Offers](azure-stack-key-features.md#services-plans-offers-and-subscriptions) are groups of one or more plans that providers present to tenants to purchase or subscribe to. This document shows you how to create an offer that includes the [plan that you created](azure-stack-create-plan.md) in the last step. This offer gives subscribers the ability to provision virtual machines.
 
-1.  Portalda hizmet yöneticisi olarak [oturum açın](azure-stack-connect-azure-stack.md#log-in-as-a-service-administrator).
-    ![](media/azure-stack-create-offer/image1.png)
+1.  [Sign in](azure-stack-connect-azure-stack.md#log-in-as-a-service-administrator) to the portal as a service administrator and then click **New** > **Tenant Offers + Plans** > **Offer**.
+    ![](media/azure-stack-create-offer/image01.png)
 
-2.  **Yeni**’ye tıklayın.
+2.  In the **New Offer** blade, fill in **Display Name** and **Resource Name**, and then select a new or existing **Resource Group**. The Display Name is the offer's friendly name. Only the admin can see the Resource Name. It's the name that admins use to work with the offer as an Azure Resource Manager resource.
 
-3.  **Tenant Offers and Plans** (Kiracı Teklifleri ve Planları) seçeneğine ve ardından **Offer** (Teklif) seçeneğine tıklayın.
-    ![](media/azure-stack-create-offer/image2.png)
+    ![](media/azure-stack-create-offer/image01a.png)
 
-4.  **New Offer** (Yeni Teklif) dikey penceresinde şunları gerçekleştirin:
+3.  Click **Base plans** and, in the **Plan** blade, select the plans you want to include in the offer, and then click **Select**. Click **Create** to create the offer.
 
-    1.  **Display Name** (Görünen Ad) ve **Resource Name** (Kaynak Adı) alanlarını doldurun. Görünen Ad, teklifin kolay adıdır. Kaynak Adını yalnızca yönetici görebilir. Bu ad, yöneticilerin teklifle Azure Resource Manager kaynağı olarak çalışmak için kullandıkları addır.
+    ![](media/azure-stack-create-offer/image02.png)
+    
+4. Click **Offers** and then click the offer you just created.
 
-    2.  Yeni veya var olan bir **Kaynak Grubu** seçin.
+    ![](media/azure-stack-create-offer/image03.png)
 
-        ![](media/azure-stack-create-offer/image3.png)
 
-5.  **Base plans** (Temel planlar) seçeneğine tıklayın ve **Plan** dikey penceresinde teklife eklemek istediğiniz planları seçip **Select** (Seç) öğesine tıklayın. Teklifi oluşturmak için **Create** (Oluştur) seçeneğine tıklayın.
+5.  Click **Change State**, and then click **Public**.
+  
+    ![](media/azure-stack-create-offer/image04.png)
 
-    ![](media/azure-stack-create-offer/image4.png)
+Offers must be made public for tenants to get the full view when subscribing. Offers can be:
 
-6.  **Change State** (Durumu Değiştir) öğesine ve **Public** (Genel) seçeneğine tıklayın.
-Kiracıların, abone olurken planları ve teklifleri tam olarak görüntüleyebilmeleri için söz konusu plan ve tekliflerin kiracılar için genel durumda olması gerekir. Bir plan durumunun özel, teklif durumunun ise genel olması halinde; kiracılar teklifi alabilir ancak planın ayrıntılarını görüntüleyemez. Plan ve teklif durumları:
+- **Public**: Visible to tenants.
 
-    -   **Genel**: Kiracılar görebilir.
+- **Private**: Only visible to the service administrators. Useful while drafting the plan or offer, or if the service administrator wants to approve every subscription.
 
-    -   **Özel**: Yalnızca hizmet yöneticileri görebilir. Plan veya teklif taslağı oluşturulurken veya hizmet yöneticisi, her aboneliği onaylamak istediğinde faydalıdır.
+- **Decommissioned**: Closed to new subscribers. The service administrator can use decommissioned to prevent future subscriptions, but leave current subscribers untouched.
 
-    -   **Yetkisi Alınmış**: Yeni abonelere kapalıdır. Hizmet yöneticisi, geçerli abonelere müdahale etmeden sonraki abonelikleri engellemek için yetkisi alınmış seçeneğini kullanabilir.
+Changes to the offer are not immediately visible to the tenant. To see the changes, you might have to logout/login to see the new subscription in the “Subscription picker” when creating resources/resource groups.
 
-    ![](media/azure-stack-create-offer/image6.png)
+## Next steps
 
-Plan veya tekliflerde yapılan değişiklikler, kiracılar tarafından anında görülemez. Değişiklikleri görmek için abonelik durumunun InSync olması ve kiracının portalı yenilemesi veya oturumu kapatıp açması gerekir.
-
-InSync durumunda ek bir abonelik oluşturduktan sonra bile yeni kaynak/kaynak grubu oluştururken "Abonelik seçici" kısmında yeni aboneliği görmek için oturumunuzu kapatıp açmanız gerekebilir.
-
-## Sonraki adımlar
-
-[Bir teklife abone olma ve VM sağlama](azure-stack-subscribe-plan-provision-vm.md)
+[Subscribe to an offer and then provision a VM](azure-stack-subscribe-plan-provision-vm.md)
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

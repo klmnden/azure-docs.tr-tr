@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Log Analytics'e erişimi yönetme | Microsoft Azure"
-    description="Kullanıcılar, hesaplar, OMS çalışma alanları ve Azure hesapları ile ilgili çeşitli yönetim görevlerini kullanarak Log Analytics'e erişimi yönetin."
+    pageTitle="Manage access to Log Analytics | Microsoft Azure"
+    description="Manage access to Log Analytics using a variety of administrative tasks on users, accounts, OMS workspaces, and Azure accounts."
     services="log-analytics"
     documentationCenter=""
     authors="bandersmsft"
@@ -17,291 +17,291 @@
     ms.author="banders"/>
 
 
-# Log Analytics'e erişimi yönetme
+# Manage access to Log Analytics
 
-Log Analytics'e erişimi yönetmek için kullanıcılar, hesaplar, OMS çalışma alanları ve Azure hesapları ile ilgili çeşitli yönetim görevlerini kullanırsınız. Operations Management Suite'te (OMS) yeni bir çalışma alanı oluşturmak için, bir çalışma alanı adı seçer, bu çalışma alanını hesabınızla ilişkilendirir ve coğrafi bir konum belirlersiniz. Çalışma alanı, temelde hesap bilgilerini ve hesaba ilişkin basit yapılandırma bilgilerini içeren bir kapsayıcıdır. Siz veya kuruluşunuzun diğer üyeleri, IT altyapınızın tümünden veya bir bölümünden toplanan farklı veri kümelerini yönetmek için birden çok OMS çalışma alanı kullanabilirsiniz.
+To manage access to Log Analytics, you'll use a variety of administrative tasks on users, accounts, OMS workspaces, and Azure accounts. To create a new workspace in the Operations Management Suite (OMS), you choose a workspace name, associate it with your account, and you choose a geographical location. A workspace is essentially a container that includes account information and simple configuration information for the account. You or other members of your organization might use multiple OMS workspaces to manage different sets of data that is collected from all or portions of your IT infrastructure.
 
-[Log Analytics'i kullanmaya başlama](log-analytics-get-started.md) makalesinde nasıl hızlı şekilde çalışmaya başlayacağınız gösterilmiş ve makalenin geri kalanında OMS'ye erişimi yönetmek için ihtiyacınız olan işlemlerin bazıları ayrıntılı olarak açıklanmıştır.
+The [Get started with Log Analytics](log-analytics-get-started.md) article shows you how to quickly get up and running and the rest of this article describes in more detail some of the actions you'll need to manage access to OMS.
 
-Başlangıçta tüm yönetim görevlerini gerçekleştirmeniz gerekmese de şu bölümlerde, kullanabileceğiniz yaygın olarak kullanılan görevlerin tümünü ele alacağız:
+Although you might not need to perform every management task at first, we'll cover all the commonly used tasks that you might use in the following sections:
 
-- İhtiyacınız olan çalışma alanı sayısını belirleme
-- Hesapları ve kullanıcıları yönetme
-- Mevcut bir çalışma alanına grup ekleme
-- Mevcut bir çalışma alanını Azure aboneliğine bağlama
-- Çalışma alanını ücretli veri planına yükseltme
-- Veri planı türünü değiştirme
-- Mevcut bir çalışma alanına Azure Active Directory Kuruluşu ekleme
-- OMS çalışma alanınızı kapatma
+- Determine the number of workspaces you need
+- Manage accounts and users
+- Add a group to an existing workspace
+- Link an existing workspace to an Azure subscription
+- Upgrade a workspace to a paid data plan
+- Change a data plan type
+- Add an Azure Active Directory Organization to an existing workspace
+- Close your OMS workspace
 
-## İhtiyacınız olan çalışma alanı sayısını belirleme
+## Determine the number of workspaces you need
 
-Çalışma alanı, bir Azure kaynağı olmanın yanı sıra verilerin toplandığı, derlendiği, çözümlendiği ve OMS portalında sunulduğu bir kapsayıcıdır.
+A workspace is an Azure resource and is a container where data is collected, aggregated, analyzed, and presented in the OMS portal.
 
-Birden çok OMS Log Analytics çalışma alanı oluşturulabilir ve kullanıcılar, bir veya daha çok çalışma alanı için erişim sahibi olabilir. Genel olarak, maksimum sayıda veriyi sorgulamanızı ve ilişkilendirmenizi sağlayacağı için çalışma alanlarının sayısını en aza indirmek istersiniz. Bu bölümde birden çok çalışma alanı oluşturmanın yararlı olabileceği durumlar açıklanır.
+It is possible to create multiple OMS Log Analytics workspaces and for users to have access to one or more workspaces. In general you want to minimize the number of workspaces as this will allow you to query and correlate across the most data. This section describes when it can be helpful to create more than one workspace.
 
-Şu anda bir Log Analytics çalışma alanı şunları sağlamaktadır:
+Today, a Log Analytics workspace provides:
 
-- Veri depolama için coğrafi bir konum
-- Fatura için ayrıntı düzeyi
-- Veri yalıtımı
+- A geographic location for data storage
+- Granularity for billing
+- Data isolation
 
-Yukarıdaki özelliklere bağlı olarak, şu durumlarda birden çok çalışma alanı oluşturmak isteyebilirsiniz:
+Based on the above characteristics, you may want to create multiple workspaces if:
 
-- Global bir şirketseniz ve veri bağımsızlığı veya uyumluluk nedenleriyle verilerin belirli bölgelerde depolanmasına gerek duyuyorsanız.
-- Azure kullanıyorsanız ve Log Analytics çalışma alanını, yönettiği Azure kaynaklarıyla aynı bölgede bulundurarak giden veri aktarımı ücretlerini ortadan kaldırmak istiyorsanız.
-- Kullanımlarına dayalı olarak, ücretleri farklı departmanlara veya iş gruplarına göre ayırmak istiyorsanız. Her departman veya iş grubu için bir çalışma alanı oluşturduğunuzda, Azure faturanız ve kullanım ekstreniz her çalışma alanına ilişkin ücretleri ayrı olarak gösterir.
-- Yönetilen bir hizmet sağlayıcısıysanız ve yönettiğiniz her bir müşteriye ilişkin Log Analytics verilerini diğer müşterilerin verilerinden yalıtmak istiyorsanız.
-- Birden çok müşteriyi yönetiyorsanız ve her bir müşterinin, departmanın veya iş grubunun kendi verilerini görmesini; ancak diğer müşterilerin, departmanların veya iş gruplarının verilerini görmemesini istiyorsanız.
+- You are a global company and you need data stored in specific regions for data sovereignty or compliance reasons.
+- You are using Azure and you want to avoid outbound data transfer charges by having a Log Analytics workspace in the same region as the Azure resources it manages.
+- You want to allocate charges to different departments or business groups based on their usage. When you create a workspace for each department or business group, your Azure bill and usage statement shows the charges for each workspace separately.
+- You are a managed service provider and need to keep the log analytics data for each customer you manage isolated from other customer’s data.
+- You manage multiple customers and you want each customer or department or business group to see their own data but not the data for other customers or departments or business groups.
 
-Verileri toplamak için aracıları kullanıyorsanız her bir aracıyı, gerekli çalışma alanına raporlama yapacak şekilde yapılandırabilirsiniz.
+When using agents to collect data, you can configure each agent to report to the required workspace.
 
-System Center Operations Manager'ı kullanıyorsanız her bir Operations Manager yönetim grubu yalnızca bir çalışma alanıyla bağlantılı olabilir. Operations Manager tarafından yönetilen bilgisayarlara Microsoft İzleme Aracısını yükleyebilir ve hem Operations Manager hem de farklı bir Log Analytics çalışma alanı için aracı raporu alabilirsiniz.
+If you are using System Center Operations manager, each Operations Manager management group can be connected with only one workspace. You can install the Microsoft Monitoring Agent on computers managed by Operations Manager and have the agent report to both Operations Manager and a different Log Analytics workspace.
 
-### Çalışma alanı bilgileri
+### Workspace information
 
-OMS portalında çalışma alanı bilgilerinizi görüntüleyebilir ve Microsoft'tan bilgi almak isteyip istemediğinizi seçebilirsiniz.
+In the OMS portal, you can view your workspace information and choose whether you want to receive information from Microsoft.
 
-#### Çalışma alanı bilgilerini görüntüleme
+#### View workspace information
 
-1. OMS'de **Ayarlar** kutucuğuna tıklayın.
-2. **Hesaplar** sekmesine tıklayın.
-3. **Çalışma Alanı Bilgileri** sekmesine tıklayın.  
-  ![Çalışma Alanı Bilgileri](./media/log-analytics-manage-access/workspace-information.png)
+1. In OMS, click the **Settings** tile.
+2. Click the **Accounts** tab.
+3. Click the **Workspace Information** tab.  
+  ![Workspace Information](./media/log-analytics-manage-access/workspace-information.png)
 
-## Hesapları ve kullanıcıları yönetme
+## Manage accounts and users
 
-Her çalışma alanı kendisiyle ilişkilendirilmiş birden çok kullanıcı hesabı içerebilir ve her kullanıcı hesabı (Microsoft hesabı veya Kuruluş hesabı) birden çok OMS çalışma alanına erişim sahibi olabilir.
+Each workspace can have multiple user accounts associated with it, and each user account (Microsoft account or Organizational account) can have access to multiple OMS workspaces.
 
-Çalışma alanı oluşturmak için kullanılan Microsoft hesabı veya Kuruluş hesabı, varsayılan olarak çalışma alanının yöneticisi olur. Yönetici daha sonra ek Microsoft hesaplarını davet edebilir veya Azure Active Directory'den kullanıcı seçebilir.
+By default, the Microsoft account or Organizational account used to create the workspace becomes the Administrator of the workspace. The administrator can then invite additional Microsoft accounts or pick users from Azure Active Directory.
 
-Kullanıcılara OMS çalışma alanı erişimi verme işlemi şu 2 yerde denetlenir:
+Giving people access to the OMS workspace is controlled in 2 places:
 
-- Azure'da, Azure aboneliğine ve ilişkili olduğu Azure kaynaklarına erişim sağlamak için rol tabanlı erişim denetimini kullanabilirsiniz. Bu aynı zamanda PowerShell ve REST API erişimi için de kullanılır.
-- OMS portalında, ilişkili Azure aboneliğine değil, yalnızca OMS portalına erişim vardır.
+- In Azure, you can use role-based access control to provide access to the Azure subscription and the associated Azure resources. This is also used for PowerShell and REST API access.
+- In the OMS portal, access to only the OMS portal - not the associated Azure subscription.
 
-Kullanıcılara yalnızca OMS portalına yönelik erişim sağlayıp OMS portalının bağlı olduğu Azure aboneliğine yönelik erişim sağlamazsanız kullanıcılar OMS portalında oturum açtıklarında Automation, Backup ve Site Recovery çözüm kutucuklarında herhangi bir veri gösterilmez.
+If you give people access to the OMS portal but not to the Azure subscription that it is linked to, then the Automation, Backup, and Site Recovery solution tiles do not show any data to users when they sign-in the OMS portal.
 
-Tüm kullanıcıların bu çözümlerdeki verileri görmelerine izin vermek için, OMS çalışma alanına bağlı olan Automation Hesabı, Backup Kasası ve Site Recovery kasası için en az bir **okuyucu** erişimine sahip olduklarından emin olun.   
+To allow all users to see the data in these solutions, ensure they have at least **reader** access for the Automation Account, Backup Vault, and Site Recovery vault that is linked to the OMS workspace.   
 
-### Azure portalını kullanarak Log Analytics'e erişimi yönetme
+### Managing access to Log Analytics using the Azure portal
 
-Örneğin, Azure portalında Azure izinlerini kullanarak kullanıcılara Log Analytics erişimi verirseniz aynı kullanıcılar Log Analytics portalına da erişebilir. Kullanıcılar Azure portalında olduklarında, Log Analytics çalışma alanı kaynağını görüntülerken **OMS Portalı** görevine tıklayarak OMS portalına gidebilir.
+If you give people access to the Log Analytics workspace using Azure permissions, in the Azure portal for example, then the same users can access the Log Analytics portal. If users are in the Azure portal, they can navigate to the OMS portal by clicking the **OMS Portal** task when viewing the Log Analytics workspace resource.
 
-Azure portalı hakkında dikkate alınması gereken bazı noktalar:
+Some points to keep in mind about the Azure portal:
 
-- Bu bir *Rol Tabanlı Erişim Denetimi* değildir. Log Analytics çalışma alanı için Azure portalında *Okuyucu* erişim izinlerine sahipseniz OMS portalını kullanarak değişiklikler yapabilirsiniz. OMS portalında Yönetici, Katkıda Bulunan ve Yalnızca Okuma Erişimi Olan Kullanıcı kavramları vardır. Oturum açtığınız hesap, çalışma alanına bağlı olan Azure Active Directory'de yer alıyorsa OMS portalında Yönetici olursunuz, aksi halde Katkıda Bulunan olursunuz.
+- This is not *Role-Based Access Control*. If you have *Reader* access permissions in the Azure portal for the Log Analytics workspace, then you can make changes using the OMS portal. The OMS portal has a concept of Administrator, Contributor, and ReadOnly User. If the account you are signed-in with is in the Azure Active Directory linked to the workspace you will be an Administrator in the OMS portal, otherwise you will be a Contributor.
 
-- http://mms.microsoft.com adresini kullanarak OMS portalında oturum açtığınızda varsayılan olarak **Çalışma alanı seçin** listesini görürsünüz. Bu listede yalnızca OMS portalı kullanılarak eklenmiş olan çalışma alanları bulunur. Azure abonelikleri ile erişim sahibi olduğunuz çalışma alanlarını görmek için, URL'nin parçası olarak bir kiracı belirtmeniz gerekir. Örneğin:
+- When you sign-in to the OMS portal using http://mms.microsoft.com, then by default, you see the **Select a workspace** list. It only contains workspaces that were added by using the OMS portal. To see the workspaces you have access to with Azure subscriptions, then you need to specify a tenant as part of the URL. For example:
 
-  `mms.microsoft.com/?tenant=contoso.com` Kiracı tanımlayıcısı, genellikle oturum açtığınız e-posta adresinin bu son bölümüdür.
+  `mms.microsoft.com/?tenant=contoso.com` The tenant identifier is often that last part of the e-mail address that you sign-in with.
 
-- Oturum açtığınız hesap, Azure Active Directory kiracısında bulunan bir hesapsa (CSP olarak oturum açmadığınız sürece genellikle böyledir) OMS portalında *Yönetici* olursunuz. Hesabınız Azure Active Directory kiracısında değilse OMS portalında bir *Kullanıcı* olursunuz.
+- If the account you sign-in with is an account in the tenant Azure Active Directory, which is usually the case unless you’re signing-in as a CSP, then you will be an *Administrator* in the OMS portal. If your account is not in the tenant Azure Active Directory, then you will be a *User* in the OMS portal.
 
-- Azure izinlerini kullanarak, doğrudan erişim sahibi olduğunuz bir portala gitmek istiyorsanız URL'nin parçası olarak kaynağı belirtmeniz gerekir. Bu URL'yi PowerShell kullanarak elde edebilirsiniz.
+- If you want to navigate directly to a portal that you have access to using Azure permissions, then you need to specify the resource as part of the URL. It is possible to get this URL using PowerShell.
 
-  Örneğin, `(Get-AzureRmOperationalInsightsWorkspace).PortalUrl`.
+  For example,  `(Get-AzureRmOperationalInsightsWorkspace).PortalUrl`.
 
-  URL şöyle görünecektir:
+  The URL will look like:
 `https://eus.mms.microsoft.com/?tenant=contoso.com&resource=%2fsubscriptions%2faaa5159e-dcf6-890a-a702-2d2fee51c102%2fresourcegroups%2fdb-resgroup%2fproviders%2fmicrosoft.operationalinsights%2fworkspaces%2fmydemo12`
 
 
-### OMS portalında kullanıcıları yönetme
+### Managing users in the OMS portal
 
-Ayarlar sayfasının **Hesaplar** sekmesinin altında yer alan **Kullanıcıları Yönet** sekmesinde kullanıcıları ve grupları yönetebilirsiniz. Burada, aşağıdaki bölümlerde yer alan görevleri gerçekleştirebilirsiniz.  
+You manage users and group on the **Manage Users** tab under the **Accounts** tab in the Settings page. There, you can perform the tasks in the following sections.  
 
-![Kullanıcıları yönetme](./media/log-analytics-manage-access/setup-workspace-manage-users.png)
+![manage users](./media/log-analytics-manage-access/setup-workspace-manage-users.png)
 
-#### Mevcut bir çalışma alanına kullanıcı ekleme
+#### Add a user to an existing workspace
 
-Bir OMS çalışma alanına kullanıcı veya grup eklemek için aşağıdaki adımları kullanın. Kullanıcı veya grup, bu çalışma alanıyla ilişkili tüm uyarıları görüntüleyebilir ve bu uyarılar üzerinde işlem yapabilir.
+Use the following steps to add a user or group to an OMS workspace. The user or group will be able to view and act on all alerts that are associated with this workspace.
 
->[AZURE.NOTE] Azure Active Directory kuruluş hesabınızdan bir kullanıcı veya grup eklemek istiyorsanız öncelikle OMS hesabınızı Azure Active Directory etki alanınızla ilişkilendirdiğinizden emin olmanız gerekir. Bkz. [Mevcut bir çalışma alanına Azure Active Directory Kuruluşu ekleme](#add-an-azure-active-directory-organization-to-an-existing-workspace).
+>[AZURE.NOTE] If you want to add a user or group from your Azure Active Directory organizational account, you must first ensure that you have associated your OMS account with your Active Directory domain. See [Add an Azure Active Directory Organization to an existing workspace](#add-an-azure-active-directory-organization-to-an-existing-workspace).
 
-1. OMS'de **Ayarlar** kutucuğuna tıklayın.
-2. **Hesaplar** sekmesine ve ardından **Kullanıcıları Yönet** sekmesine tıklayın.
-3. **Kullanıcıları Yönet** bölümünde, eklenecek hesap türünü seçin: **Kuruluş Hesabı**, **Microsoft Hesabı** ve **Microsoft Destek**.
-    - Microsoft Hesabı seçeneğini belirlerseniz Microsoft Hesabı ile ilişkili kullanıcının e-posta adresini yazın.
-    - Kuruluş Hesabı seçeneğini belirlerseniz kullanıcı veya grup adının bir bölümünü veya e-posta diğer adını girebilirsiniz. Ardından bir kullanıcı ve grup listesi görüntülenir. Bir kullanıcı veya grup seçin.
-    - Sorun gidermeye yardımcı olması için bir Microsoft Destek mühendisine, çalışma alanınıza geçici erişim vermek üzere Microsoft Destek seçeneğini kullanın.
+1. In OMS, click the **Settings** tile.
+2. Click the **Accounts** tab and then click the **Manage Users** tab.
+3. In the **Manage Users** section, choose the account type to add: **Organizational Account**, **Microsoft Account**, **Microsoft Support**.
+    - If you choose Microsoft Account, type the email address of the user associated with the Microsoft Account.
+    - If you choose Organizational Account, you can enter part of the user or group’s name or email alias and a list of users and groups will appear. Select a user or group.
+    - Use Microsoft Support to give a Microsoft Support engineer temporary access to your workspace to help with troubleshooting.
 
-    >[AZURE.NOTE] En iyi performansı elde etmek için, tek bir OMS hesabı ile ilişkili Active Directory gruplarının sayısını; yöneticiler için, katkıda bulunanlar için ve yalnızca okuma erişimi olan kullanıcılar için birer grup olacak şekilde üç grup ile sınırlayın. Daha fazla grubun kullanılması, Log Analytics performansını etkileyebilir.
+    >[AZURE.NOTE] For the best performance results, limit the number of Active Directory groups associated with a single OMS account to three—one for administrators, one for contributors, and one for read-only users. Using more groups might impact the performance of Log Analytics.
 
-5. Eklenecek kullanıcının veya grubun türünü seçin: **Yönetici**, **Katkıda Bulunan** veya **Yalnızca Okuma Erişimi Olan Kullanıcı** .  
-6. **Ekle**'ye tıklayın.
+5. Choose the type of user or group to add: **Administrator**, **Contributor**, or **ReadOnly User** .  
+6. Click **Add**.
 
-  Bir Microsoft hesabı ekliyorsanız sağladığınız e-posta adresine, çalışma alanına katılmaya yönelik bir davet gönderilir. Kullanıcı, OMS'ye katılma davetinde yer alan yönergeleri uyguladıktan sonra, bu OMS hesabına ilişkin uyarıları ve hesap bilgilerini görüntüleyebilir. Siz de **Ayarlar** sayfasındaki **Hesaplar** sekmesinde kullanıcı bilgilerini görüntüleyebilirsiniz.
-  Bir kuruluş hesabı ekliyorsanız kullanıcı Log Analytics'e hemen erişebilir.  
-  ![davet e-postası](./media/log-analytics-manage-access/setup-workspace-invitation-email.png)
+  If you are adding a Microsoft account, an invitation to join the workspace is sent to the email you provided. After the user follows the instructions in the invitation to join OMS, the user can view the alerts and account information for this OMS account, and you will be able to view the user information on the **Accounts**  tab of the **Settings** page.
+  If you are adding an organizational account, the user will be able to access Log Analytics immediately.  
+  ![invitation email](./media/log-analytics-manage-access/setup-workspace-invitation-email.png)
 
-#### Mevcut bir kullanıcı türünü düzenleme
+#### Edit an existing user type
 
-OMS hesabınızla ilişkili bir kullanıcı için hesap rolünü değiştirebilirsiniz. Şu rol seçeneklerine sahipsiniz:
+You can change the account role for a user associated with your OMS account. You have the following role options:
 
- - *Yönetici*: Kullanıcıları yönetebilir, tüm uyarıları görüntüleyip bu uyarılar üzerinde işlem yapabilir ve sunucu ekleyip kaldırabilir
+ - *Administrator*: Can manage users, view and act on all alerts, and add and remove servers
 
- - *Katkıda Bulunan*: Tüm uyarıları görüntüleyip bu uyarılar üzerinde işlem yapabilir ve sunucu ekleyip kaldırabilir
+ - *Contributor*: Can view and act on all alerts, and add and remove servers
 
- - *Yalnızca Okuma Erişimi Olan Kullanıcı*: Yalnızca okuma erişimine sahip olarak işaretlenen kullanıcılar şunları yapamaz:
-   1. Çözüm ekleme/kaldırma. Çözüm galerisi gizlidir.
-   2. **Panom** üzerinde kutucuk ekleme/değiştirme/kaldırma.
-   3. **Ayarlar** sayfalarını görüntüleme. Sayfalar gizlidir.
-   4. Arama görünümünde; Power BI yapılandırması, Kaydedilen Aramalar ve Uyarılar görevleri gizlidir.
+ - *ReadOnly User*: Users marked as read-only will not be able to:
+   1. Add/remove solutions. The solution gallery is hidden.
+   2. Add/modify/remove tiles on **My Dashboard**.
+   3. View the **Settings** pages. The pages are hidden.
+   4. In the Search view, PowerBI configuration, Saved Searches, and Alerts tasks are hidden.
 
 
-#### Bir hesabı düzenleme
+#### To edit an account
 
-1. OMS'de **Ayarlar** kutucuğuna tıklayın.
-2. **Hesaplar** sekmesine ve ardından **Kullanıcıları Yönet** sekmesine tıklayın.
-3. Değiştirmek istediğiniz kullanıcı için rolü seçin.
-2. Onay iletişim kutusunda, **Evet**'e tıklayın.
+1. In OMS, click the **Settings** tile.
+2. Click the **Accounts** tab and then click the **Manage Users** tab.
+3. Select the role for the user that you want to change.
+2. In the confirmation dialog box, click **Yes**.
 
-### OMS çalışma alanından bir kullanıcıyı kaldırma
+### Remove a user from a OMS workspace
 
-OMS çalışma alanından bir kullanıcıyı kaldırmak için aşağıdaki adımları izleyin. Bu işlemin, kullanıcının çalışma alanını kapatmadığını unutmayın. Bunun yerine, kullanıcı ve çalışma alanı arasındaki ilişki kaldırılır. Bir kullanıcı birden çok çalışma alanıyla ilişkilendirilmişse OMS'de oturum açmaya ve diğer çalışma alanlarını görmeye devam eder.
+Use the following steps to remove a user from an OMS workspace. Note that this does not close the user’s workspace. Instead, it removes the association between that user and the workspace. If a user is associated with multiple workspaces, that user will still be able to sign in to OMS and see the other workspaces.
 
-1. OMS'de **Ayarlar** kutucuğuna tıklayın.
-2. **Hesaplar** sekmesine ve ardından **Kullanıcıları Yönet** sekmesine tıklayın.
-3. Kaldırmak istediğiniz kullanıcı adının yanındaki **Kaldır** düğmesine tıklayın.
-4. Onay iletişim kutusunda, **Evet**'e tıklayın.
+1. In OMS, click the **Settings** tile.
+2. Click the **Accounts** tab and then click the **Manage Users** tab.
+3. Click **Remove** next to the user name that you want to remove.
+4. In the confirmation dialog box, click **Yes**.
 
 
-### Mevcut bir çalışma alanına grup ekleme
+### Add a group to an existing workspace
 
-1.  Yukarıdaki "Mevcut bir çalışma alanına kullanıcı ekleme" bölümünde yer alan 1 ila 4. adımları uygulayın.
-2.  **Kullanıcı/Grup Seç** bölümünde **Grup**'u seçin.
-    ![Mevcut bir çalışma alanına grup ekleme](./media/log-analytics-manage-access/add-group.png)
-3.  Eklemek istediğiniz grup için Görünen Ad veya E-posta adresi girin.
-4.  Liste sonuçlarından grubu seçin ve ardından **Ekle**'ye tıklayın.
+1.  Follow steps 1 -4 in “To add a user to an existing workspace”, above.
+2.  Under **Choose User/Group**, select **Group**.
+    ![add a group to an existing workspace](./media/log-analytics-manage-access/add-group.png)
+3.  Enter the Display Name or Email address for the group you’d like to add.
+4.  Select the group in the list results and then click **Add**.
 
-## Mevcut bir çalışma alanını Azure aboneliğine bağlama
+## Link an existing workspace to an Azure subscription
 
-[microsoft.com/oms](https://microsoft.com/oms) web sitesinden bir çalışma alanı oluşturulabilir.  Ancak, bu çalışma alanları için belirli sınırlar mevcuttur; bunlardan en önemlisi ise ücretsiz hesap kullanmanız durumunda söz konusu olan günlük 500 MB karşıya yükleme sınırıdır. Bu çalışma alanlarında değişiklik yapmak için *mevcut çalışma alanınızı bir Azure aboneliğine eklemeniz* gerekir.
+It is possible to create a workspace from the [microsoft.com/oms](https://microsoft.com/oms) website.  However, certain limits exist for these workspaces, the most notable being a limit of 500MB/day of data uploads if you're using a free account. To make changes to this workspace you will need to *link your existing workspace to an Azure subscription*.
 
->[AZURE.IMPORTANT] Bir çalışma alanını bağlamak için, Azure hesabınızın bağlamak istediğiniz çalışma alanına erişiminin olması gerekir.  Diğer bir deyişle Azure portalına erişmek için kullandığınız hesap, OMS çalışma alanınıza erişmek için kullandığınız hesapla **aynı** olmalıdır. Öyle değilse bkz. [Mevcut bir çalışma alanına kullanıcı ekleme](#add-a-user-to-an-existing-workspace).
+>[AZURE.IMPORTANT] In order to link a workspace, your Azure account must already have access to the workspace you'd like to link.  In other words, the account you use to access the Azure portal must be **the same** as the account you use to access your OMS workspace. If this is not the case, see [Add a user to an existing workspace](#add-a-user-to-an-existing-workspace).
 
-### Çalışma alanını OMS portalında bir Azure aboneliğine bağlama
+### To link a workspace to an Azure subscription in the OMS portal
 
-Çalışma alanını OMS portalında bir Azure aboneliğine bağlamak için, oturum açmış olan kullanıcının ücretli bir Azure hesabının olması gerekir. Etkin olarak kullandığınız çalışma alanı, Azure hesabına bağlanır.
+In order to link a workspace to an Azure subscription in the OMS portal, the signed-in user must already have a paid Azure account. The workspace that you're actively using gets linked to the Azure account.
 
-1. OMS'de **Ayarlar** kutucuğuna tıklayın.
-2. **Hesaplar** sekmesine ve ardından **Azure Aboneliği ve Veri Planı** sekmesine tıklayın.
-3. Kullanmak istediğiniz veri planına tıklayın.
-4. **Kaydet** düğmesine tıklayın.  
-  ![abonelik ve veri planları](./media/log-analytics-manage-access/subscription-tab.png)
+1. In OMS, click the **Settings** tile.
+2. Click the **Accounts** tab and then click the **Azure Subscription & Data Plan** tab.
+3. Click the data plan that you want use.
+4. Click **Save**.  
+  ![subscription and data plans](./media/log-analytics-manage-access/subscription-tab.png)
 
-Yeni veri planınız, web sayfanızın üst kısmındaki OMS portalı şeridinde görüntülenir.
+Your new data plan is displayed in the OMS portal ribbon at the top of your web page.
 
-![OMS şeridi](./media/log-analytics-manage-access/data-plan-changed.png)
+![OMS ribbon](./media/log-analytics-manage-access/data-plan-changed.png)
 
-### Çalışma alanını, Azure portalında bir Azure aboneliğine bağlama
+### To link a workspace to an Azure subscription in the Azure portal
 
-1.  [Azure portal](http://portal.azure.com) oturum açın.
-2.  **Log Analytics'e (OMS)** göz atın ve ardından bu seçeneği belirleyin.
-3.  Mevcut çalışma alanlarınızın listesini göreceksiniz. **Ekle**'ye tıklayın.  
-    ![çalışma alanlarının listesi](./media/log-analytics-manage-access/manage-access-link-azure01.png)
-4.  **OMS Çalışma Alanı** altında, **Or link existing (Veya var olanı bağla)** seçeneğine tıklayın.  
-    ![mevcut olanı bağlama](./media/log-analytics-manage-access/manage-access-link-azure02.png)
-5.  **Gerekli ayarları yapılandır**'a tıklayın.  
-    ![gerekli ayarları yapılandırma](./media/log-analytics-manage-access/manage-access-link-azure03.png)
-6.  Henüz Azure hesabınıza bağlanmamış olan çalışma alanlarının listesini göreceksiniz. Bir çalışma alanı seçin.  
-    ![çalışma alanları seçme](./media/log-analytics-manage-access/manage-access-link-azure04.png)
-7.  Gerekirse şu öğelere ilişkin değerleri değiştirebilirsiniz:
-    - Abonelik
-    - Kaynak grubu
-    - Konum
-    - Fiyatlandırma katmanı  
-        ![değerleri değiştirme](./media/log-analytics-manage-access/manage-access-link-azure05.png)
-8.  **Oluştur**’a tıklayın. Çalışma alanı artık Azure hesabınıza bağlı.
+1.  Sign into the [Azure portal](http://portal.azure.com).
+2.  Browse for **Log Analytics (OMS)** and then select it.
+3.  You’ll see your list of existing workspaces. Click **Add**.  
+    ![list of workspaces](./media/log-analytics-manage-access/manage-access-link-azure01.png)
+4.  Under **OMS Workspace**, click **Or link existing**.  
+    ![link existing](./media/log-analytics-manage-access/manage-access-link-azure02.png)
+5.  Click **Configure required settings**.  
+    ![configure required settings](./media/log-analytics-manage-access/manage-access-link-azure03.png)
+6.  You’ll see the list of workspaces that are not yet linked to your Azure account. Select a workspace.  
+    ![select workspaces](./media/log-analytics-manage-access/manage-access-link-azure04.png)
+7.  If needed, you can change values for the following items:
+    - Subscription
+    - Resource group
+    - Location
+    - Pricing tier  
+        ![change values](./media/log-analytics-manage-access/manage-access-link-azure05.png)
+8.  Click **Create**. The workspace is now linked to your Azure account.
 
->[AZURE.NOTE] Bağlamak istediğiniz çalışma alanını görmüyorsanız Azure aboneliğinizin, OMS web sitesini kullanarak oluşturduğunuz OMS çalışma alanına erişimi yoktur.  OMS web sitesini kullanarak OMS çalışma alanınızın içinden bu hesaba erişim vermeniz gerekir. Bunu yapmak için bkz. [Mevcut bir çalışma alanına kullanıcı ekleme](#add-a-user-to-an-existing-workspace).
+>[AZURE.NOTE] If you do not see the workspace you'd like to link, then your Azure subscription does not have access to the OMS workspace that you created using the OMS website.  You will need to grant access to this account from inside your OMS workspace using the OMS website. To do so, see [Add a user to an existing workspace](#add-a-user-to-an-existing-workspace).
 
 
 
-## Çalışma alanını ücretli veri planına yükseltme
+## Upgrade a workspace to a paid data plan
 
-OMS için şu üç çalışma alanı veri planı türü mevcuttur: **Ücretsiz**, **Standart** ve **Premium**.  *Ücretsiz* bir plan kullanıyorsanız 500 MB veri sınırınıza ulaşmış olabilirsiniz.  Bu sınırı aşan miktarda veri toplamak için çalışma alanınızı bir ***kullandıkça öde planına*** yükseltmeniz gerekir. İstediğiniz zaman plan türünüzü değiştirebilirsiniz.  OMS fiyatlandırması hakkında daha fazla bilgi için bkz. [Fiyatlandırma Ayrıntıları](https://www.microsoft.com/en-us/server-cloud/operations-management-suite/pricing.aspx).
+There are three workspace data plan types for OMS: **Free**, **Standard**, and **Premium**.  If you are on a *Free* plan, you may have hit your data cap of 500MB.  You will need to upgrade your workspace to a ***pay-as-you-go plan*** in order to collect data beyond this limit. At any time you can convert your plan type.  For more information on OMS pricing, see [Pricing Details](https://www.microsoft.com/en-us/server-cloud/operations-management-suite/pricing.aspx).
 
->[AZURE.IMPORTANT] Çalışma alanı planları, yalnızca bir Azure aboneliğine *bağlı* olmaları durumunda değiştirilebilir.  Çalışma alanınızı Azure'da oluşturduysanız veya çalışma alanınızı *zaten* bağladıysanız bu iletiyi yoksayabilirsiniz.  Çalışma alanınızı [OMS web sitesi](http://www.microsoft.com/oms) ile oluşturduysanız [Mevcut bir çalışma alanını Azure aboneliğine bağlama](#link-an-existing-workspace-to-an-azure-subscription) bölümündeki adımları uygulamanız gerekir.
+>[AZURE.IMPORTANT] Workspace plans can only be changed if they are *linked* to an Azure subscription.  If you created your workspace in Azure or if you've *already* linked your workspace, you can ignore this message.  If you created your workspace with the [OMS website](http://www.microsoft.com/oms), you will need to follow the steps at [Link an existing workspace to an Azure subscription](#link-an-existing-workspace-to-an-azure-subscription).
 
-### System Center için OMS Eklentisinden gelen yetkilendirmeleri kullanma
+### Using entitlements from the OMS Add-On for System Center
 
-System Center için OMS Eklentisi, OMS Log Analytics Premium planına ilişkin bir yetkilendirme sağlar. ([OMS Fiyatlandırması](https://www.microsoft.com/en-us/server-cloud/operations-management-suite/pricing.aspx)'nda açıklanmaktadır.)
+The OMS Add-On for System Center provides an entitlement for the Premium plan of OMS Log Analytics, described at [OMS Pricing](https://www.microsoft.com/en-us/server-cloud/operations-management-suite/pricing.aspx).
 
-System Center için OMS eklentisini satın aldığınızda OMS eklentisi, System Center sözleşmenize bir yetkilendirme olarak eklenir. Bu sözleşme çerçevesinde oluşturulan herhangi bir Azure aboneliği, bu yetkilendirmeden yararlanabilir. Bu sayede OMS eklentisinden gelen yetkilendirmeyi kullanan birden çok OMS çalışma alanına sahip olabilirsiniz.
+When you purchase the OMS add-on for System Center, the OMS add-on is added as an entitlement on your System Center agreement. Any Azure subscription that is created under this agreement can make use of the entitlement. This allows you, for example, to have multiple OMS workspaces that use the entitlement from the OMS add-on.
 
-OMS çalışma alanı kullanımının, OMS eklentisinden gelen yetkilendirmelere uygulandığından emin olmak için şunları yapmanız gerekir:
+To ensure that usage of an OMS workspace is applied to your entitlements from the OMS add-on, you'll need to:
 
-1. OMS çalışma alanınızı, hem OMS eklenti satın alımını hem de Azure abonelik kullanımını içeren Kurumsal Anlaşmanın parçası olan bir Azure aboneliğine bağlama
-2. Çalışma alanı için Premium planı seçme
+1. Link your OMS workspace to an Azure subscription that is part of the Enterprise Agreement that includes both the OMS add-on purchase and Azure subscription usage
+2. Select the Premium plan for the workspace
 
-Azure veya OMS portalında kullanımınızı gözden geçirirken, OMS eklentisi yetkilendirmelerini görmezsiniz. Ancak, yetkilendirmeleri Enterprise Portal'da görebilirsiniz.  
+When you review your usage in the Azure or OMS portal, you won’t see the OMS add-on entitlements. However, you can see entitlements in the Enterprise Portal.  
 
-OMS çalışma alanınızın bağlı olduğu Azure aboneliğini değiştirmeniz gerekiyorsa Azure PowerShell [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx) cmdlet'ini kullanabilirsiniz.
+If you need to change the Azure subscription that your OMS workspace is linked to, you can use the Azure PowerShell [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx) cmdlet.
 
-### Kurumsal Anlaşmadaki bir Azure Taahhüdünü Kullanma
+### Using Azure Commitment from an Enterprise Agreement
 
-OMS bileşenleri için bağımsız fiyatlandırmayı seçerseniz her bir OMS bileşeni için ayrı olarak ödeme yaparsınız ve kullanımınız Azure faturanızda görünür.
+If you choose to use standalone pricing for OMS components, you will pay for each component of OMS separately and the usage will appear on your Azure bill.
 
-Azure aboneliklerinizin bağlı olduğu kurumsal kayıt anlaşmasında bir Azure parasal taahhüdünüz varsa herhangi bir Log Analytics kullanımı, kalan parasal taahhüde otomatik olarak eklenir.
+If you have an Azure monetary commit on the enterprise enrollment to which your Azure subscriptions are linked, any usage of Log Analytics will automatically debit against any remaining monetary commit.
 
-OMS çalışma alanının bağlı olduğu Azure aboneliğini değiştirmeniz gerekiyorsa Azure PowerShell [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx) cmdlet'ini kullanabilirsiniz.  
+If you need to change the Azure subscription that the OMS workspace is linked to you can use the Azure PowerShell [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx) cmdlet.  
 
 
 
-### Çalışma alanını ücretli veri planı olarak değiştirme
+### To change a workspace to a paid data plan
 
-1.  [Azure portal](http://portal.azure.com) oturum açın.
-2.  **Log Analytics'e (OMS)** göz atın ve ardından bu seçeneği belirleyin.
-3.  Mevcut çalışma alanlarınızın listesini göreceksiniz. Bir çalışma alanı seçin.  
-    ![çalışma alanlarının listesi](./media/log-analytics-manage-access/manage-access-change-plan01.png)
-4.  **Ayarlar** altında **Fiyatlandırma katmanı**'na tıklayın.  
-    ![fiyatlandırma katmanı](./media/log-analytics-manage-access/manage-access-change-plan02.png)
-5.  **Fiyatlandırma katmanı** altında bir veri planı seçin ve ardından **Seç**'e tıklayın.  
-    ![plan seçme](./media/log-analytics-manage-access/manage-access-change-plan03.png)
-6.  Azure portalındaki görünümünüzü yenilediğinizde, **Fiyatlandırma katmanı**'nın seçtiğiniz plan olarak güncelleştirildiğini göreceksiniz.  
-    ![fiyatlandırma katmanını güncelleştirme](./media/log-analytics-manage-access/manage-access-change-plan04.png)
+1.  Sign into the [Azure portal](http://portal.azure.com).
+2.  Browse for **Log Analytics (OMS)** and then select it.
+3.  You’ll see your list of existing workspaces. Select a workspace.  
+    ![list of workspaces](./media/log-analytics-manage-access/manage-access-change-plan01.png)
+4.  Under **Settings**, click **Pricing tier**.  
+    ![pricing tier](./media/log-analytics-manage-access/manage-access-change-plan02.png)
+5.  Under **Pricing tier**, select a data plan and then click **Select**.  
+    ![select plan](./media/log-analytics-manage-access/manage-access-change-plan03.png)
+6.  When you refresh your view in the Azure portal, you’ll see **Pricing tier** updated for the plan you selected.  
+    ![update pricing tier](./media/log-analytics-manage-access/manage-access-change-plan04.png)
 
-Artık "ücretsiz" veri sınırının üstünde veri toplayabilirsiniz.
+Now you can collect data beyond the "free" data cap.
 
 
-## Mevcut bir çalışma alanına Azure Active Directory Kuruluşu ekleme
+## Add an Azure Active Directory Organization to an existing workspace
 
-Log Analytics (OMS) çalışma alanınızı bir Azure Active Directory etki alanı ile ilişkilendirebilirsiniz. Bu, ayrı bir Microsoft hesabına gerek olmadan kullanıcıları Active Directory'den doğrudan OMS çalışma alanınıza ekleyebilmenizi sağlar.
+You can associate your Log Analytics (OMS) workspace with an Azure Active Directory domain. This enables you to add users from Active Directory directly to your OMS workspace without requiring a separate Microsoft account.
 
-Çalışma alanını Azure portalından oluşturduğunuzda veya çalışma alanınızı bir Azure aboneliğine bağladığınızda, Azure Active Directory'niz kuruluş hesabınız olarak bağlanır.
+When you create the workspace from the Azure portal, or link your workspace to an Azure subscription your Azure Active Directory will be linked as your organizational account.
 
-Çalışma alanını OMS portalından oluşturduğunuzda, çalışma alanınızı bir Azure aboneliğine ve bir kuruluş hesabına bağlanmanız istenir.
+When you create the workspace from the OMS portal you will be prompted to link to an Azure subscription and an organizational account.
 
-### Mevcut bir çalışma alanına Azure Active Directory Kuruluşu ekleme
+### To add an Azure Active Directory Organization to an existing workspace
 
-1. OMS'deki Ayarlar sayfasında **Hesaplar**'a ve ardından **Çalışma Alanı Bilgileri** sekmesine tıklayın.  
-2. Kuruluş hesapları ile ilgili bilgileri gözden geçirin ve ardından **Add Organization (Kuruluş Ekle)** düğmesine tıklayın.  
-    ![kuruluş ekleme](./media/log-analytics-manage-access/manage-access-add-adorg01.png)
-3. Azure Active Directory etki alanınızın yöneticisine ilişkin kimlik bilgilerini girin. Daha sonra, çalışma alanınızın Azure Active Directory etki alanınıza bağlandığını belirten bir bildirim göreceksiniz.
-    ![bağlanan çalışma alanı bildirimi](./media/log-analytics-manage-access/manage-access-add-adorg02.png)
+1. On the Settings page in OMS, click **Accounts** and then click the **Workspace Information** tab.  
+2. Review the information about organizational accounts, and then click **Add Organization**.  
+    ![add organization](./media/log-analytics-manage-access/manage-access-add-adorg01.png)
+3. Enter the identity information for the administrator of your Azure Active Directory domain. Afterward, you'll see an acknowledgment stating that your workspace is linked to your Azure Active Directory domain.
+    ![linked workspace acknowledgment](./media/log-analytics-manage-access/manage-access-add-adorg02.png)
 
->[AZURE.NOTE] Hesabınız bir Kuruluş Hesabına bağlandığında, söz konusu bağlama kaldırılamaz veya değiştirilemez.
+>[AZURE.NOTE] Once your account is linked to an Organizational Account, linking cannot be removed or changed.
 
-## OMS çalışma alanınızı kapatma
+## Close your OMS workspace
 
-OMS çalışma alanını kapattığınızda, çalışma alanını kapatmanızdan itibaren 30 gün içerisinde çalışma alanınıza bağlı tüm veriler OMS hizmetinden silinir.
+When you close an OMS workspace, all data related to your workspace is deleted from the OMS service within 30 days of closing the workspace.
 
-Bir yöneticiyseniz ve çalışma alanıyla ilişkilendirilmiş birden çok kullanıcı varsa bu kullanıcılar ve çalışma alanı arasındaki ilişki kaybolur. Kullanıcılar başka çalışma alanlarıyla ilişkilendirilmişse bu diğer çalışma alanlarıyla OMS'yi kullanmaya devam edebilirler. Ancak, başka çalışma alanlarıyla ilişkili olmamaları durumunda, OMS'yi kullanmak için yeni bir çalışma alanı oluşturmaları gerekir.
+If you are an administrator and there are multiple users associated with the workspace, the association between those users and the workspace is broken. If the users are associated with other workspaces, then they can continue using OMS with those other workspaces. However, if they are not associated with other workspaces then they will need to create a new workspace to use OMS.
 
-### OMS çalışma alanını kapatma
+### To close an OMS workspace
 
-1. OMS'de **Ayarlar** kutucuğuna tıklayın.
-2. **Hesaplar** sekmesine ve ardından **Çalışma Alanı Bilgileri** sekmesine tıklayın.
-3. **Çalışma Alanını Kapat**'a tıklayın.
-4. Çalışma alanınızı kapatma nedenlerinden birini seçin veya metin kutusuna farklı bir neden girin.
-5. **Çalışma alanını kapat**'a tıklayın.
+1. In OMS, click the **Settings** tile.
+2. Click the **Accounts** tab and then click the **Workspace Information** tab.
+3. Click **Close Workspace**.
+4. Select one of the reasons for closing your workspace, or enter a different reason in the text box.
+5. Click **Close workspace**.
 
-## Sonraki adımlar
+## Next steps
 
-- Aracı eklemek ve veri toplamak için bkz. [Windows bilgisayarlarını Log Analytics'e bağlama](log-analytics-windows-agents.md).
-- İşlev eklemek ve veri toplamak için bkz. [Çözüm Galerisinden Log Analytics çözümleri ekleme](log-analytics-add-solutions.md).
-- Kuruluşunuz, aracıların Log Analytics hizmetiyle iletişim kurabilmeleri için bir ara sunucu veya güvenlik duvarı kullanıyorsa bkz. [Log Analytics'te ara sunucu ve güvenlik duvarı ayarlarını yapılandırma](log-analytics-proxy-firewall.md).
+- See [Connect Windows computers to Log Analytics](log-analytics-windows-agents.md) to add agents and gather data.
+- [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md) to add functionality and gather data.
+- [Configure proxy and firewall settings in Log Analytics](log-analytics-proxy-firewall.md) if your organization uses a proxy server or firewall so that agents can communicate with the Log Analytics service.
 
 
 

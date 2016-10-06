@@ -1,57 +1,64 @@
 <properties
-	pageTitle="Service Bus messaging overview | Microsoft Azure"
-	description="Service Bus Messaging: flexible data delivery in the cloud"
-	services="service-bus-messaging"
-	documentationCenter=".net"
-	authors="sethmanheim"
-	manager="timlt"
-	editor=""/>
+    pageTitle="Service Bus mesajlaşma hizmetine genel bakış | Microsoft Azure"
+    description="Service Bus Mesajlaşma hizmeti: bulutta esnek veri teslimatı"
+    services="service-bus-messaging"
+    documentationCenter=".net"
+    authors="sethmanheim"
+    manager="timlt"
+    editor=""/>
 
 <tags
-	ms.service="service-bus-messaging"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="multiple"
-	ms.topic="get-started-article"
-	ms.date="09/27/2016"
-	ms.author="sethm"/>
+    ms.service="service-bus-messaging"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="multiple"
+    ms.topic="get-started-article"
+    ms.date="09/27/2016"
+    ms.author="sethm"/>
 
 
-# Service Bus messaging: flexible data delivery in the cloud
 
-Microsoft Azure Service Bus is a reliable information delivery service. The purpose of this service is to make communication easier. When two or more parties want to exchange information, they need a communication mechanism. Service Bus is a brokered, or third-party communication mechanism. This is similar to a postal service in the physical world. Postal services make it very easy to send different kinds of letters and packages with a variety of delivery guarantees, anywhere in the world.
+# Service Bus mesajlaşma hizmeti: bulutta esnek veri teslimatı
 
-Similar to the postal service delivering letters, Service Bus is flexible information delivery from both the sender and the recipient. The messaging service ensures that the information is delivered even if the two parties are never both online at the same time, or if they aren't available at the exact same time. In this way, messaging is similar to sending a letter, while non-brokered communication is similar to placing a phone call (or how a phone call used to be - before call waiting and caller ID, which are much more like brokered messaging).
+Microsoft Azure Service Bus, güvenilir bir bilgi teslimatı hizmetidir. Bu hizmetin amacı, iletişimi daha kolay hale getirmektir. İki veya daha fazla taraf bilgi değişimi gerçekleştirmek istediğinde bir iletişim mekanizmasına ihtiyaç duyarlar. Service Bus ise aracılı ya da üçüncü taraf iletişim mekanizmasıdır. Fiziksel dünyadaki posta hizmetine benzer şekilde işler. Posta hizmetleri, farklı türdeki mektupların ve paketlerin dünyanın her yanına çeşitli teslimat garantileriyle gönderilmesini oldukça kolaylaştırır.
 
-The message sender can also require a variety of delivery characteristics including transactions, duplicate detection, time-based expiration, and batching. These patterns have postal analogies as well: repeat delivery, required signature, address change, or recall.
+Posta hizmetlerinin mektup teslimatlarına benzer şekilde, Service Bus hem alıcı hem de göndericilerden gelen esnek bilgi teslimatıdır. Mesajlaşma hizmeti, iki taraf aynı anda çevrimiçi veya tam olarak aynı anda kullanılabilir olmasalar da bilgilerin teslim edilmesini sağlar. Bu şekilde, mesajlaşma bir mektup göndermeye benzer; aracısız iletişim ise bir telefon araması gerçekleştirmeye (veya daha çok aracılı mesajlaşmaya benzeyen, çağrı bekletme ve arayan kimliğinden önceki telefon aramalarına) benzetilebilir.
 
-Service Bus supports two distinct messaging patterns: *Relay* and *brokered messaging*.
+Ayrıca, ileti alıcısı işlemler, yineleme algılaması, zamana bağlı süre sonu ve toplu işlem gerçekleştirme de dahil olmak üzere çeşitli teslimat özelliklerini ihtiyaç duyar. Bu düzenler de posta hizmetindekilerle benzerlik gösterir: tekrar teslimat, gerekli imza, adres değişikliği veya geri çağırma.
 
-## Service Bus Relay
+Service Bus iki farklı mesajlaşma düzenini destekler: *Geçiş* ve *aracılı mesajlaşma*.
 
-The [Relay](../service-bus-relay/service-bus-relay-overview.md) component of Service Bus is a centralized (but highly load-balanced) service that supports a variety of different transport protocols and Web services standards. This includes SOAP, WS-*, and even REST. The [relay service](../service-bus-relay/service-bus-dotnet-how-to-use-relay.md) provides a variety of different relay connectivity options and can help negotiate direct peer-to-peer connections when it is possible. Service Bus is optimized for .NET developers who use the Windows Communication Foundation (WCF), both with regard to performance and usability, and provides full access to its relay service through SOAP and REST interfaces. This makes it possible for any SOAP or REST programming environment to integrate with Service Bus.
+## Service Bus Geçişi
 
-The relay service supports traditional one-way messaging, request/response messaging, and peer-to-peer messaging. It also supports event distribution at Internet-scope to enable publish-subscribe scenarios and bi-directional socket communication for increased point-to-point efficiency. In the relayed messaging pattern, an on-premises service connects to the relay service through an outbound port and creates a bi-directional socket for communication tied to a particular rendezvous address. The client can then communicate with the on-premises service by sending messages to the relay service targeting the rendezvous address. The relay service will then "relay" messages to the on-premises service through the bi-directional socket already in place. The client does not need a direct connection to the on-premises service, nor is it required to know where the service resides, and the on-premises service does not need any inbound ports open on the firewall.
+Service Bus'ın [Geçiş](../service-bus-relay/service-bus-relay-overview.md) bileşeni, birçok farklı aktarım protokolünü ve Web hizmeti standardını destekleyen merkezileştirilmiş (ancak yüksek düzeyde yük dengeleme olanağı sunan) bir hizmettir. Bunlar; SOAP, WS-* ve hatta REST'i bile içerir. [Geçiş hizmeti](../service-bus-relay/service-bus-dotnet-how-to-use-relay.md), birçok farklı geçiş bağlanabilirliği seçeneği sağlar ve mümkün olduğunda doğrudan eşdüzey bağlantılar anlaşmasına yardım edebilir. Service Bus, hem performans hem de kullanılabilirlik bağlamında Windows Communication Foundation (WCF) kullanan .NET geliştiricileri için iyileştirilmiştir. Ayrıca, SOAP ve REST arabirimleri aracılığıyla geçiş hizmetine tam erişim sunar. Bu özellik sayesinde, tüm SOAP ve REST programlama ortamlarının Service Bus ile tümleşmesine olanak sağlanır.
 
-You initiate the connection between your on-premises service and the relay service, using a suite of WCF "relay" bindings. Behind the scenes, the relay bindings map to transport binding elements designed to create WCF channel components that integrate with Service Bus in the cloud.
+Geçiş hizmeti, geleneksel tek yönlü mesajlaşmayı, istek/yanıt mesajlaşmasını ve eşdüzey mesajlaşmayı destekler. Ayrıca, artırılmış uçtan uca verimliliğe yönelik çift yönlü yuva iletişimi ile yayımla ve abone ol senaryolarına olanak sağlamak için İnternet kapsamında olay dağıtımını destekler. Geçişli mesajlaşma düzeninde bir şirket içi hizmet, giden bağlantı noktası aracılığıyla geçiş hizmetine bağlanır ve belirli bir randevu adresine bağlanan iletişim için çift yönlü yuva oluşturur. Ardından istemci, randevu adresini hedef alan geçiş hizmetine iletiler göndererek şirket içi hizmet ile iletişim kurabilir. Böylece geçiş hizmeti, zaten kullanımda olan çift yönlü yuva aracılığıyla iletileri şirket içi hizmete "geçirir". İstemcinin şirket içi hizmete doğrudan bağlantısının olmasına veya hizmetin nerede bulunduğunu bilmesine gerek yoktur. Ayrıca şirket içi hizmet için güvenlik duvarında gelen bağlantı noktalarının açık olması gerekmez.
 
-Service Bus Relay provides many benefits, but requires the server and client to both be online at the same time in order to send and receive messages. This is not optimal for HTTP-style communication, in which the requests may not be typically long-lived, nor for clients that connect only occasionally, such as browsers, mobile applications, and so on. Brokered messaging supports decoupled communication, and has its own advantages; clients and servers can connect when needed and perform their operations in an asynchronous manner.
+WCF "geçiş" bağlamalarının bir paketini kullanarak geçiş hizmeti ile şirket içi hizmetiniz arasındaki bağlantıyı başlatırsınız. Arka planda ise geçiş bağlamaları, bulutta Service Bus ile tümleşen WCF kanalı bileşenleri oluşturmak üzere tasarlanan aktarım bağlama öğeleriyle eşleşir.
 
-## Brokered messaging
+Service Bus Geçişi birçok avantaj sunar, ancak iletileri almak ve göndermek için istemci ile sunucunun aynı anda çevrimiçi olmasını gerektirir. Bu durum HTTP stili iletişim için en uygun seçim değildir. HTTP stili iletişimde tarayıcılar, mobil uygulamalar vb. gibi sürekli bağlantı kurmayan istemciler için istekler genellikle uzun ömürlü değildir. Aracılı mesajlaşma, ayrılmış iletişimi destekler ve kendine özgü avantajları vardır. Örneğin, istemciler ve sunucular gerektiğinde bağlanır ve zaman uyumsuz olarak işlemlerini gerçekleştirir.
 
-In contrast to the relay scheme, [brokered messaging](service-bus-queues-topics-subscriptions.md) can be thought of as asynchronous, or "temporally decoupled." Producers (senders) and consumers (receivers) do not have to be online at the same time. The messaging infrastructure reliably stores messages in a "broker" (such as a queue) until the consuming party is ready to receive them. This allows the components of the distributed application to be disconnected, either voluntarily; for example, for maintenance, or due to a component crash, without affecting the entire system. Furthermore, the receiving application may only have to come online during certain times of the day, such as an inventory management system that only is required to run at the end of the business day.
+## Aracılı mesajlaşma
 
-The core components of the Service Bus brokered messaging infrastructure are queues, topics, and subscriptions.  The primary difference is that topics support publish/subscribe capabilities that can be used for sophisticated content-based routing and delivery logic, including sending to multiple recipients. These components enable new asynchronous messaging scenarios, such as temporal decoupling, publish/subscribe, and load balancing. For more information about these messaging entities, see [Service Bus queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md).
+Geçiş şemasının aksine, [aracılı mesajlaşma](service-bus-queues-topics-subscriptions.md) zaman uyumsuz veya "zamana bağlı olarak ayrılmış" olarak düşünülebilir. Üreticiler (göndericiler) ve tüketicilerin (alıcılar) aynı anda çevrimiçi olması gerekmez. Mesajlaşma altyapısı, kullanıcı tarafı almaya hazır olana kadar iletileri bir "aracıda" (kuyruk gibi) güvenli şekilde depolar. Bu özellik, dağıtılan uygulamanın bileşenlerinin isteğe bağlı olarak (örneğin, bakım için) veya bir bileşen çökmesinden dolayı sistemin tamamını etkilemeden bağlantısının kesilmesine olanak sağlar. Ayrıca, alıcı uygulamanın yalnızca günün belirli zamanlarında çevrimiçi olması gerekebilir. Örneğin, bir stok yönetim sisteminin sadece iş günü sonunda çalıştırılması gerekir.
 
-As with the Relay infrastructure, the brokered messaging capability is provided for WCF and .NET Framework programmers, and also via REST.
+Service Bus aracılı mesajlaşma altyapısının temel bileşenleri kuyruklar, konu başlıkları ve aboneliklerdir.  Bu bileşenler arasındaki temel fark ise konu başlıklarının, birden çok alıcıya gönderim yapma dahil olmak üzere gelişmiş içerik tabanlı yönlendirme ve teslimat mantığı için kullanılabilen yayımla/abone ol işlevlerini desteklemesidir. Bu bileşenler zamana bağlı ayırma, yayımla/abone ol ve yük dengelemesi gibi yeni, zaman uyumsuz mesajlaşma senaryolarına olanak sağlar. Bu mesajlaşma varlıkları hakkında daha fazla bilgi edinmek için bkz. [Service Bus kuyrukları, konu başlıkları ve abonelikleri](service-bus-queues-topics-subscriptions.md).
 
-## Next steps
+Geçiş altyapısı sayesinde, aracılı mesajlaşma işlevi WCF ve .NET Framework programcıları için (REST aracılığıyla da) sunulur.
 
-To learn more about Service Bus messaging, see the following topics.
+## Sonraki adımlar
 
-- [Service Bus fundamentals](../service-bus/service-bus-fundamentals-hybrid-solutions.md)
-- [Service Bus queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md)
-- [Service Bus architecture](../service-bus/service-bus-architecture.md)
-- [How to use Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
-- [How to use Service Bus topics and subscriptions](service-bus-dotnet-how-to-use-topics-subscriptions.md)
+Service Bus mesajlaşma hizmeti hakkında daha fazla bilgi edinmek için aşağıdaki konu başlıklarına bakın.
+
+- [Service Bus ile ilgili temel bilgiler](../service-bus/service-bus-fundamentals-hybrid-solutions.md)
+- [Service Bus kuyrukları, konu başlıkları ve abonelikleri](service-bus-queues-topics-subscriptions.md)
+- [Service Bus mimarisi](../service-bus/service-bus-architecture.md)
+- [Service Bus kuyruklarını kullanma](service-bus-dotnet-get-started-with-queues.md)
+- [Service Bus konu başlıklarını ve aboneliklerini kullanma](service-bus-dotnet-how-to-use-topics-subscriptions.md)
  
+
+
+
+<!--HONumber=Sep16_HO4-->
+
+

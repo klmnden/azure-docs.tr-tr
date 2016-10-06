@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Log Analytics'te ara sunucu ve güvenlik duvarı ayarlarını yapılandırma | Microsoft Azure"
-    description="Aracılarınız veya OMS hizmetlerinizin belirli bağlantı noktalarını kullanmaları gerektiğinde ara sunucu ve güvenlik duvarı ayarlarını yapılandırın."
+    pageTitle="Configure proxy and firewall settings in Log Analytics | Microsoft Azure"
+    description="Configure proxy and firewall settings when your agents or OMS services need to use specific ports."
     services="log-analytics"
     documentationCenter=""
     authors="bandersmsft"
@@ -17,39 +17,39 @@
     ms.author="banders;magoedte"/>
 
 
-# Log Analytics'te ara sunucu ve güvenlik duvarı ayarlarını yapılandırma
+# Configure proxy and firewall settings in Log Analytics
 
-OMS'de Log Analytics için ara sunucu ve güvenlik duvarı ayarlarını yapılandırmak için gerekli olan işlemler, Operations Manager ve aracılarını kullanmanız durumunda sunuculara doğrudan bağlanan Microsoft İzleme Aracılarına göre farklılık gösterir. Kullandığınız aracı türüne göre aşağıdaki bölümleri gözden geçirin.
+Actions needed to configure proxy and firewall settings for Log Analytics in OMS differ when you use Operations Manager and its agents versus Microsoft Monitoring Agents that connect directly to servers. Review the following sections for the type of agent that you use.
 
-## Ara sunucu ve güvenlik duvarı ayarlarını Microsoft İzleme Aracısı ile yapılandırma
+## Configure proxy and firewall settings with the Microsoft Monitoring Agent
 
-Microsoft İzleme Aracısının OMS hizmetine bağlanması ve kaydolması için etki alanlarınızın bağlantı noktası numarasına ve URL'lere erişimi olmalıdır. Aracı ile OMS hizmeti arasındaki iletişim için bir ara sunucu kullanıyorsanız uygun kaynakların erişilebilir olduğundan emin olmanız gerekir. İnternet'e erişimi kısıtlamak için güvenlik duvarı kullanıyorsanız OMS'ye erişime izin vermek için güvenlik duvarınızı yapılandırmanız gerekir. Aşağıdaki tablolar OMS'nin ihtiyaç duyduğu bağlantı noktalarını listeler.
+For the Microsoft Monitoring Agent to connect to and register with the OMS service, it must have access to the port number of your domains and the URLs. If you use a proxy server for communication between the agent and the OMS service, you’ll need to ensure that the appropriate resources are accessible. If you use a firewall to restrict access to the Internet, you need to configure your firewall to permit access to OMS. The following tables list the ports that OMS needs.
 
-|**Aracı Kaynağı**|**Bağlantı Noktaları**|**HTTPS denetlemesini atlama**|
+|**Agent Resource**|**Ports**|**Bypass HTTPS inspection**|
 |--------------|-----|--------------|
 |\*.ods.opinsights.azure.com|443|Yes|
 |\*.oms.opinsights.azure.com|443|Yes|
 |\*.blob.core.windows.net|443|Yes|
 |ods.systemcenteradvisor.com|443| |
 
-Denetim Masası'nı kullanarak Microsoft İzleme Aracısı'na ilişkin ara sunucu ayarlarını yapılandırmak için aşağıdaki yordamı kullanabilirsiniz. Yordamı her bir sunucu için kullanmanız gerekecektir. Yapılandırmanız gereken birden çok sunucu olması durumunda, bu işlemi otomatikleştirmek için bir betik kullanmak sizin için daha kolay olabilir. Bu durumda, bir sonraki [Microsoft İzleme Aracısı için ara sunucu ayarlarını betik kullanarak yapılandırma](#to-configure-proxy-settings-for-the-microsoft-monitoring-agent-using-a-script) yordamına bakabilirsiniz.
+You can use the following procedure to configure proxy settings for the Microsoft Monitoring Agent using Control Panel. You'll need to use the procedure for each server. If you have many servers that you need to configure, you might find it easier to use a script to automate this process. If so, see the next procedure [To configure proxy settings for the Microsoft Monitoring Agent using a script](#to-configure-proxy-settings-for-the-microsoft-monitoring-agent-using-a-script).
 
-### Denetim Masası'nı kullanarak Microsoft İzleme Aracısı için ara sunucu ayarlarını yapılandırma
+### To configure proxy settings for the Microsoft Monitoring Agent using Control Panel
 
-1. **Denetim Masası**'nı açın.
+1. Open **Control Panel**.
 
-2. **Microsoft İzleme Aracısı**'nı açın.
+2. Open **Microsoft Monitoring Agent**.
 
-3. **Ara Sunucu Ayarları** sekmesine tıklayın.<br>  
-  ![ara sunucu ayarları sekmesi](./media/log-analytics-proxy-firewall/proxy-direct-agent-proxy.png)
+3. Click the **Proxy Settings** tab.<br>  
+  ![proxy settings tab](./media/log-analytics-proxy-firewall/proxy-direct-agent-proxy.png)
 
-4. **Ara sunucu kullan**'ı seçin ve gerekiyorsa gösterilen örneğe benzer şekilde URL ile bağlantı noktasını yazın. Ara sunucunuz kimlik doğrulaması gerektiriyorsa ara sunucuya erişmek için kullanıcı adını ve parolayı yazın.
+4. Select **Use a proxy server** and type the URL and port number, if one is needed, similar to the example shown. If your proxy server requires authentication, type the username and password to access the proxy server.
 
-Doğrudan sunuculara bağlanan her aracıya ilişkin ara sunucu ayarlarını belirlemek için çalıştırabileceğiniz bir PowerShell betiği oluşturmak amacıyla aşağıdaki yordamı kullanın.
+Use the following procedure to create a PowerShell script that you can run to set the proxy settings for each agent that connects directly to servers.
 
-### Betik kullanarak Microsoft İzleme Aracısı için ara sunucu ayarlarını yapılandırma
+### To configure proxy settings for the Microsoft Monitoring Agent using a script
 
-Aşağıdaki örneği kopyalayın, ortamınıza özgü bilgilerle güncelleştirin, bir PS1 dosya adı uzantısıyla kaydedin ve ardından betiği doğrudan OMS hizmetine bağlanan her bilgisayardan çalıştırın.
+Copy the following sample, update it with information specific to your environment, save it with a PS1 file name extension, and then run the script on each computer that connects directly to the OMS service.
 
         
     param($ProxyDomainName="http://proxy.contoso.com:80", $cred=(Get-Credential))
@@ -75,32 +75,32 @@ Aşağıdaki örneği kopyalayın, ortamınıza özgü bilgilerle güncelleştir
     $healthServiceSettings.SetProxyInfo($ProxyDomainName, $ProxyUserName, $cred.GetNetworkCredential().password)
         
 
-## Ara sunucu ve güvenlik duvarı ayarlarını Operations Manager ile yapılandırma
+## Configure proxy and firewall settings with Operations Manager
 
-Bir Operations Manager yönetim grubunun OMS hizmetine bağlanması ve kaydolması için etki alanlarınızın bağlantı noktası numarasına ve URL'lere erişimi olmalıdır. Operations Manager yönetim sunucusu ile OMS hizmeti arasındaki iletişim için bir ara sunucu kullanıyorsanız uygun kaynakların erişilebilir olduğundan emin olmanız gerekir. İnternet'e erişimi kısıtlamak için güvenlik duvarı kullanıyorsanız OMS'ye erişime izin vermek için güvenlik duvarınızı yapılandırmanız gerekir. Operations Manager yönetim sunucusu bir ara sunucunun arkasında olmasa bile, aracıları öyle olabilir. Bu durumda, Güvenlik ve Günlük Yönetimi çözümü verilerinin OMS web hizmetine gönderilebilmesi için ara sunucunun aracılarla aynı şekilde yapılandırılmış olması gerekir.
+For an Operations Manager management group to connect to and register with the OMS service, it must have access to the port numbers of your domains and URLs. If you use a proxy server for communication between the Operations Manager management server and the OMS service, you’ll need to ensure that the appropriate resources are accessible. If you use a firewall to restrict access to the Internet, you need to configure your firewall to permit access to OMS. Even if an Operations Manager management server is not behind a proxy server, its agents might be. In this case, the proxy server should be configured in the same manner as agents are in order to enable and allow Security and Log Management solution data to get sent to the OMS web service.
 
-Operations Manager aracılarının OMS hizmetiyle iletişim kurabilmesi için, Operations Manager altyapınızın (aracılar dahil) doğru ara sunucu ayarları ve sürümüne sahip olması gerekir. Aracılara ilişkin ara sunucu ayarları Operations Manager konsolunda belirtilmiştir. Sürümünüz şunlardan biri olmalıdır:
+In order for Operations Manager agents to communicate with the OMS service, your Operations Manager infrastructure (including agents) should have the correct proxy settings and version. The proxy setting for agents is specified in the Operations Manager console. Your version should be one of the following:
 
-- Operations Manager 2012 SP1 Güncelleştirme Paketi 7 veya üzeri
-- Operations Manager 2012 R2 Güncelleştirme Paketi 3 veya üzeri
+- Operations Manager 2012 SP1 Update Rollup 7 or later
+- Operations Manager 2012 R2 Update Rollup 3 or later
 
 
-Bu görevlere ilişkin bağlantı noktaları aşağıdaki tablolarda listelenmiştir.
+The following tables list the ports related to these tasks.
 
->[AZURE.NOTE] Aşağıdaki kaynaklardan bazıları, her ikisi de OMS'nin önceki sürümleri olan Danışman Öngörüleri ve Operasyonel Öngörüler'den bahseder. Ancak listelenen kaynaklar gelecekte değişecektir.
+>[AZURE.NOTE] Some of the following resources mention Advisor and Operational Insights, both were previous versions of OMS. However, the listed resources will change in the future.
 
-Aracı kaynakları ve bağlantı noktalarının listesi aşağıdadır:<br>
+Here's a list of agent resources and ports:<br>
 
-|**Aracı kaynağı**|**Bağlantı Noktaları**|
+|**Agent resource**|**Ports**|
 |--------------|-----|
 |\*.ods.opinsights.azure.com|443|
 |\*.oms.opinsights.azure.com|443|
 |\*.blob.core.windows.net/\*|443|
 |ods.systemcenteradvisor.com|443|
 <br>
-Yönetim sunucusu kaynakları ve bağlantı noktalarının listesi aşağıdadır:<br>
+Here's a list of management server resources and ports:<br>
 
-|**Yönetim sunucusu kaynağı**|**Bağlantı Noktaları**|**HTTPS denetlemesini atlama**|
+|**Management server resource**|**Ports**|**Bypass HTTPS inspection**|
 |--------------|-----|--------------|
 |service.systemcenteradvisor.com|443| |
 |\*.service.opinsights.azure.com|443| |
@@ -109,81 +109,81 @@ Yönetim sunucusu kaynakları ve bağlantı noktalarının listesi aşağıdadı
 |ods.systemcenteradvisor.com|443| | 
 |\*.ods.opinsights.azure.com|443|Yes| 
 <br>
-OMS ve Operations Manager konsolu kaynakları ve bağlantı noktalarının listesi aşağıdadır.<br>
+Here's a list of OMS and Operations Manager console resources and ports.<br>
 
-|**OMS ve Operations Manager konsolu kaynakları**|**Bağlantı Noktaları**|
+|**OMS and Operations Manager console resource**|**Ports**|
 |----|----|
 |service.systemcenteradvisor.com|443|
 |\*.service.opinsights.azure.com|443|
-|\*.live.com|Bağlantı noktası 80 ve 443|
-|\*.microsoft.com|Bağlantı noktası 80 ve 443|
-|\*.microsoftonline.com|Bağlantı noktası 80 ve 443|
-|\*.mms.microsoft.com|Bağlantı noktası 80 ve 443|
-|login.windows.net|Bağlantı noktası 80 ve 443|
+|\*.live.com|Port 80 and 443|
+|\*.microsoft.com|Port 80 and 443|
+|\*.microsoftonline.com|Port 80 and 443|
+|\*.mms.microsoft.com|Port 80 and 443|
+|login.windows.net|Port 80 and 443|
 <br>
 
-Operations Manager yönetim grubunuzu OMS hizmetiyle kaydetmek için aşağıdaki yordamları kullanın. Yönetim grubu ve OMS hizmeti arasında iletişim sorunları yaşıyorsanız OMS hizmetine veri iletimi konusundaki sorunları gidermek için doğrulama yordamlarını kullanın.
+Use the following procedures to register your Operations Manager management group with the OMS service. If you are having communication problems between the management group and the OMS service, use the validation procedures to troubleshoot data transmission to the OMS service.
 
-### OMS hizmeti uç noktaları için özel durumlar isteme
+### To request exceptions for the OMS service endpoints
 
-1. Operations Manager yönetim sunucusu için gerekli kaynakların sahip olabileceğiniz tüm güvenlik duvarları tarafından erişilebilir olduğundan emin olmak için daha önceden sunulmuş olan ilk tabloda yer alan bilgileri kullanın.
-2. Operations Manager ve OMS'de bulunan İşletim konsolu için gerekli kaynakların sahip olabileceğiniz tüm güvenlik duvarları tarafından erişilebilir olduğundan emin olmak için daha önceden sunulmuş olan ilk tabloda yer alan bilgileri kullanın.
-3. Internet Explorer ile bir ara sunucu kullanıyorsanız bunun yapılandırıldığından ve doğru çalıştığından emin olun. Doğrulamak için güvenli bir web bağlantısı (HTTPS) açabilirsiniz; örneğin [https://bing.com](https://bing.com). Güvenli web bağlantısı bir tarayıcıda çalışmıyorsa büyük olasılıkla bulutta yer alan web hizmetleri içeren Operations Manager yönetim konsolunda da çalışmayacaktır.
+1. Use the information from the first table presented previously to ensure that the resources needed for the Operations Manager management server are accessible through any firewalls you might have.
+2. Use the information from the second table presented previously to ensure that the resources needed for the Operations console in Operations Manager and OMS are accessible through any firewalls you might have.
+3. If you use a proxy server with Internet Explorer, ensure that it is configured and works correctly. To verify, you can open a secure web connection (HTTPS), for example [https://bing.com](https://bing.com). If the secure web connection doesn’t work in a browser, it probably won’t work in the Operations Manager management console with web services in the cloud.
 
-### Ara sunucuyu Operations Manager konsolunda yapılandırma
+### To configure the proxy server in the Operations Manager console
 
-1. Operations Manager konsolunu açın ve **Yönetim** çalışma alanını seçin.
+1. Open the Operations Manager console and select the **Administration** workspace.
 
-2. **Operasyonel Öngörüler**'i genişletin ve ardından **Operasyonel Öngörüler Bağlantısı**'nı seçin.<br>  
-    ![Operations Manager OMS Bağlantısı](./media/log-analytics-proxy-firewall/proxy-om01.png)
-3. OMS Bağlantısı görünümünde, **Ara Sunucuyu Yapılandır**'a tıklayın.<br>  
-    ![Operations Manager OMS Bağlantısı Ara Sunucuyu Yapılandırma](./media/log-analytics-proxy-firewall/proxy-om02.png)
-4. Operasyonel Öngörüler Ayarlar Sihirbazı: Ara Sunucu, **Operasyonel Öngörüler Web Servisine erişmek için bir ara sunucu kullan**'ı seçin ve ardından bağlantı noktası numarasını içeren URL'yi yazın; örneğin, **http://myproxy:80**.<br>  
-    ![Operations Manager OMS ara sunucu adresi](./media/log-analytics-proxy-firewall/proxy-om03.png)
-
-
-### Ara sunucunun kimlik doğrulaması gerektirmesi durumunda kimlik bilgilerini belirtme
- Ara sunucu kimlik bilgileri ve ayarları, OMS'ye raporlama yapacak olan yönetilen bilgisayarlara yayılmalıdır. Bu sunucular *Microsoft System Center Advisor İzleme Sunucusu Grubu*'nda olmalıdır. Kimlik bilgileri gruptaki her sunucunun kayıt defterinde şifrelenmiştir.
-
-1. Operations Manager konsolunu açın ve **Yönetim** çalışma alanını seçin.
-2. **RunAs Yapılandırması** altında, **Profiller**'i seçin.
-3. **System Center Advisor Farklı Çalıştır Profili Ara Sunucusu** profilini açın.  
-    ![System Center Advisor Farklı Çalıştır Ara Sunucusu profilinin görüntüsü](./media/log-analytics-proxy-firewall/proxy-proxyacct1.png)
-4. Farklı Çalıştır Profili Sihirbazı'nda, bir Farklı Çalıştır hesabı kullanmak için **Ekle**'ye tıklayın. Yeni bir Farklı Çalıştır hesabı oluşturabilir veya mevcut bir hesabı kullanabilirsiniz. Doğrudan ara sunucuya geçiş yapmak için bu hesabın yeterli izinlere sahip olması gerekir.  
-    ![Farklı Çalıştır Profili Sihirbazı görüntüsü](./media/log-analytics-proxy-firewall/proxy-proxyacct2.png)
-5. Yönetilecek hesabı belirlemek için, Nesne Araması kutusunu açmak amacıyla **Seçilen bir sınıf, grup veya nesne**'yi seçin.  
-    ![Farklı Çalıştır Profili Sihirbazı görüntüsü](./media/log-analytics-proxy-firewall/proxy-proxyacct2-1.png)
-6. **Microsoft System Center Advisor İzleme Sunucusu Grubu**'nu arayın ve ardından seçin.  
-    ![Nesne Araması kutusunun görüntüsü](./media/log-analytics-proxy-firewall/proxy-proxyacct3.png)
-7. Farklı Çalıştır Hesabı Ekle kutusunu kapatmak için **Tamam**'a tıklayın.  
-    ![Farklı Çalıştır Profili Sihirbazı görüntüsü](./media/log-analytics-proxy-firewall/proxy-proxyacct4.png)
-8. Sihirbazı tamamlayın ve değişiklikleri kaydedin.  
-    ![Farklı Çalıştır Profili Sihirbazı görüntüsü](./media/log-analytics-proxy-firewall/proxy-proxyacct5.png)
+2. Expand **Operational Insights**, and then select **Operational Insights Connection**.<br>  
+    ![Operations Manager OMS Connection](./media/log-analytics-proxy-firewall/proxy-om01.png)
+3. In the OMS Connection view, click **Configure Proxy Server**.<br>  
+    ![Operations Manager OMS Connection Configure Proxy Server](./media/log-analytics-proxy-firewall/proxy-om02.png)
+4. In Operational Insights Settings Wizard: Proxy Server, select **Use a proxy server to access the Operational Insights Web Service**, and then type the URL with the port number, for example, **http://myproxy:80**.<br>  
+    ![Operations Manager OMS proxy address](./media/log-analytics-proxy-firewall/proxy-om03.png)
 
 
-### OMS yönetim paketlerinin indirildiğini doğrulama
+### To specify credentials if the proxy server requires authentication
+ Proxy server credentials and settings need to propagate to managed computers that will report to OMS. Those servers should be in the *Microsoft System Center Advisor Monitoring Server Group*. Credentials are encrypted in the registry of each server in the group.
 
-OMS'ye çözümler eklediyseniz bu çözümleri Operations Manager konsolunda **Yönetim** altında yönetim paketleri olarak görüntüleyebilirsiniz. Bunları hızlıca bulabilmek için *System Center Advisor* araması yapın.  
-    ![indirilen yönetim paketleri](./media/log-analytics-proxy-firewall/proxy-mpdownloaded.png) Veya Operations Manager yönetim sunucusunda şu Windows PowerShell komutunu kullanarak OMS yönetim paketlerini kontrol edebilirsiniz:
+1. Open the Operations Manager console and select the **Administration** workspace.
+2. Under **RunAs Configuration**, select **Profiles**.
+3. Open the **System Center Advisor Run As Profile Proxy** profile.  
+    ![image of the System Center Advisor Run As Proxy profile](./media/log-analytics-proxy-firewall/proxy-proxyacct1.png)
+4. In the Run As Profile Wizard, click **Add** to use a Run As account. You can create a new Run As account or use an existing account. This account needs to have sufficient permissions to pass through the proxy server.  
+    ![image of the Run As Profile Wizard](./media/log-analytics-proxy-firewall/proxy-proxyacct2.png)
+5. To set the account to manage, choose **A selected class, group, or object** to open the Object Search box.  
+    ![image of the Run As Profile Wizard](./media/log-analytics-proxy-firewall/proxy-proxyacct2-1.png)
+6. Search for then select **Microsoft System Center Advisor Monitoring Server Group**.  
+    ![image of the Object Search box](./media/log-analytics-proxy-firewall/proxy-proxyacct3.png)
+7. Click **OK** to close the Add a Run As account box.  
+    ![image of the Run As Profile Wizard](./media/log-analytics-proxy-firewall/proxy-proxyacct4.png)
+8. Complete the wizard and save the changes.  
+    ![image of the Run As Profile Wizard](./media/log-analytics-proxy-firewall/proxy-proxyacct5.png)
+
+
+### To validate that OMS management packs are downloaded
+
+If you've added solutions to OMS, you can view them in the Operations Manager console as management packs under **Administration**. Search for *System Center Advisor* to quickly find them.  
+    ![management packs downloaded](./media/log-analytics-proxy-firewall/proxy-mpdownloaded.png) Or, you can also check for OMS management packs by using the following Windows PowerShell command in the Operations Manager management server:
 
     ```
     Get-ScomManagementPack | where {$_.DisplayName -match 'Advisor'} | select Name,DisplayName,Version,KeyToken
     ```
 
-### Operations Manager'ın OMS hizmetine veri gönderdiğini doğrulama
+### To validate that Operations Manager is sending data to the OMS service
 
-1. Operations Manager yönetim sunucusunda Performans İzleyicisi'ni (perfmon.exe) açın ve **Performans İzleyicisi**'ni seçin.
-2. **Ekle**'ye tıklayın ve ardından **Sistem Sağlığı Hizmeti Yönetim Grupları**'nı seçin.
-3. **HTTP** ile başlayan tüm sayaçları ekleyin.  
-    ![sayaçları ekleme](./media/log-analytics-proxy-firewall/proxy-sendingdata1.png)
-4. Operations Manager yapılandırması doğruysa OMS'de eklediğiniz yönetim paketlerini ve yapılandırılmış günlük toplama ilkesini temel alan olaylar ve diğer veri öğeleri için Sistem Sağlığı Hizmeti Yönetim sayaçlarına ilişkin etkinlikleri göreceksiniz.  
-    ![Etkinliği gösteren Performans İzleyicisi](./media/log-analytics-proxy-firewall/proxy-sendingdata2.png)
+1. In the Operations Manager management server, open Performance Monitor (perfmon.exe), and select **Performance Monitor**.
+2. Click **Add**, and then select **Health Service Management Groups**.
+3. Add all the counters that start with **HTTP**.  
+    ![add counters](./media/log-analytics-proxy-firewall/proxy-sendingdata1.png)
+4. If your Operations Manager configuration is good, you will see activity for Health Service Management counters for events and other data items, based on the management packs that you added in OMS and the configured log collection policy.  
+    ![Performance Monitor showing activity](./media/log-analytics-proxy-firewall/proxy-sendingdata2.png)
 
 
-## Sonraki adımlar
+## Next steps
 
-- İşlev eklemek ve veri toplamak için bkz. [Çözüm Galerisinden Log Analytics çözümleri ekleme](log-analytics-add-solutions.md).
-- Çözümler tarafından toplanan ayrıntılı bilgileri görüntülemek için [günlük aramaları](log-analytics-log-searches.md) hakkında bilgi edinin.
+- [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md) to add functionality and gather data.
+- Get familiar with [log searches](log-analytics-log-searches.md) to view detailed information gathered by solutions.
 
 
 

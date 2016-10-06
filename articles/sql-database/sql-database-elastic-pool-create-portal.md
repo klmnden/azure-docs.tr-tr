@@ -30,7 +30,7 @@ Bu makalede [Azure portalı](https://portal.azure.com/) ile nasıl ölçeklenebi
 
 Bir sunucuya birden fazla havuz ekleyebilirsiniz ancak aynı havuza farklı sunuculara ait veritabanlarını ekleyemezsiniz. Havuz oluşturmak için V12 sunucusunda en az bir veritabanınızın olması gerekir. Veritabanınız yoksa bkz. [İlk Azure SQL veritabanınızı oluşturma](sql-database-get-started.md). Yalnızca bir veritabanı ile havuz oluşturabilirsiniz ancak havuzlar yalnızca birden çok veritabanıyla kullanıldığında maliyet açısından verimlidir. Bkz. [Esnek veritabanı havuzuna ilişkin fiyat ve performans ile ilgili dikkat edilmesi gerekenler](sql-database-elastic-pool-guidance.md).
 
-> [AZURE.NOTE] Esnek havuzlar şu anda önizleme aşamasında oldukları Orta Kuzey ABD ve Batı Hindistan dışında tüm Azure bölgelerinde genel olarak kullanılabilir (GA) durumdadır.  Bu bölgelerdeki esnek havuzların GA durumları en kısa sürede bildirilecektir. Ayrıca, esnek havuzlar şu anda [bellek içi OLTP veya bellek içi analiz](sql-database-in-memory.md) kullanan veritabanlarını desteklememektedir.
+> [AZURE.NOTE] Esnek havuzlar şu anda önizleme aşamasında oldukları Batı Hindistan dışında tüm Azure bölgelerinde genel olarak kullanılabilir (GA) durumdadır.  Bu bölgede esnek havuz GA’sı olabildiğince çabuk ortaya çıkar. Ayrıca, esnek havuzlar şu anda [bellek içi OLTP veya bellek içi analiz](sql-database-in-memory.md) kullanan veritabanlarını desteklememektedir.
 
 ## 1. Adım: Yeni bir havuz oluşturma
 
@@ -118,6 +118,6 @@ Havuza veritabanı eklendikten sonra öneriler, seçtiğiniz veritabanlarının 
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

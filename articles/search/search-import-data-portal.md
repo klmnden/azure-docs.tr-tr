@@ -35,7 +35,7 @@ DocumentDB’deki örnek verileri kullanarak bu iş akışını deneyebilirsiniz
 
 ## Veri Alma Sihirbazı tarafından desteklenen veri kaynakları
 
-Dizin otomasyonu ve araçları aşağıdaki veri kaynakları için kullanılabilir: 
+Veri Alma Sihirbazı aşağıdaki veri kaynaklarını destekler: 
 
 - Azure SQL Database
 - Azure VM’lerdeki SQL Server ilişkisel verileri
@@ -123,6 +123,6 @@ Dizin oluşturucular hakkında daha fazla bilgi için bu bağlantıları gözden
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

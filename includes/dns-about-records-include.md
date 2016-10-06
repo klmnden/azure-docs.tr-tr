@@ -2,7 +2,9 @@
 
 Her DNS kaydında bir ad ve bir tür vardır. Kayıtlar, içerdikleri verilere göre çeşitli türlerde düzenlenmiştir. En yaygın tür olan "A" kaydı bir adı bir IPv4 adresiyle eşleştirir. Başka bir tür olan "MX" kaydıysa bir adı bir posta sunucusuyla eşleştirir.
 
-Azure DNS, A, AAAA, CNAME, MX, NS, SOA, SRV ve TXT gibi tüm yaygın DNS kayıt türlerini destekler. SOA kaydı kümeleri her bölgeyle birlikte otomatik olarak oluşturulur. Bunlar ayrı ayrı oluşturulamaz. SPF kayıtlarının TXT kayıt türü kullanılarak oluşturulması gerektiğini unutmayın. Daha fazla bilgi için [bu sayfaya](http://tools.ietf.org/html/rfc7208#section-3.1) bakın.
+Azure DNS; A, AAAA, CNAME, MX, NS, PTR, SOA, SRV ve TXT gibi tüm yaygın DNS kayıt türlerini destekler. Şunlara dikkat edin:
+- SOA kaydı kümeleri her bölgeyle birlikte otomatik olarak oluşturulur ve ayrı ayrı oluşturulamaz.
+- SPF kayıtlarının TXT kaydı türü kullanılarak oluşturulması gerekir. Daha fazla bilgi için [bu sayfaya](http://tools.ietf.org/html/rfc7208#section-3.1) bakın.
 
 Azure DNS’de, kayıtlar göreli adlar kullanılarak belirtilir. "Tam" etki alanı adında (FQDN) bölge adı varken "göreli" adda bu yoktur. Örneğin, "contoso.com" bölgesindeki "www" göreli kayıt adı www.contoso.com tam kayıt adını verir.
 
@@ -30,6 +32,6 @@ Joker karakter kaydı kümesi oluşturmak için "\*" kayıt kümesi adını kull
 CNAME kaydı kümeleri aynı ada sahip diğer kayıt kümeleriyle birlikte olamaz. Örneğin, "www" göreli adına sahip bir CNAME kaydı kümesini ve "www" göreli adına sahip bir A kaydını aynı anda oluşturamazsınız. Bölge tepesinde (ad = ' @') her zaman, bölge oluşturulduğunda oluşturulan NS ve SOA kaydı kümeleri bulunduğundan bölge tepesinde CNAME kaydı kümesi oluşturamazsınız. Bu kısıtlamalar DNS standartları kaynaklıdır, Azure DNS sınırlamaları değildir.
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

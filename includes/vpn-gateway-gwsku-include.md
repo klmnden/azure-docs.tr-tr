@@ -1,7 +1,11 @@
-When you create a virtual network gateway, you need to specify the gateway SKU that you want to use. When you select a higher gateway SKU, more CPUs and network bandwidth are allocated to the gateway, and as a result, the gateway can support higher network throughput to the virtual network.
+Bir sanal ağ geçidi oluşturduğunuzda, kullanmak istediğiniz ağ geçidi SKU’sunu belirtmeniz gerekir. Daha yüksek bir ağ geçidi SKU’su seçtiğinizde ağ geçidine daha fazla CPU ve ağ bant genişliği ayrılır ve sonuç olarak ağ geçidi, sanal ağda daha yüksek ağ verimliliğini destekleyebilir.
 
-VPN Gateway can use the following SKUs:
+VPN Gateway aşağıdaki SKU’ları kullanabilir:
 
-- Basic
-- Standard
+- Temel
+- Standart
 - HighPerformance
+
+<!--HONumber=Sep16_HO4-->
+
+

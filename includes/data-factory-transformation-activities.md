@@ -1,16 +1,20 @@
-Azure Data Factory supports the following transformation activities that can be added to pipelines either individually or chained with another activity.
+Azure Data Factory, işlem hatlarına tek tek veya başka bir etkinlikle zincirleme halinde eklenebilecek aşağıdaki dönüştürme etkinliklerini destekler.
 
-Data transformation activity |  Compute environment 
+Veri dönüştürme etkinliği |  İşlem ortamı 
 :----------------------- | :--------------------
 [Hive](../articles/data-factory/data-factory-hive-activity.md) | HDInsight [Hadoop] 
 [Pig](../articles/data-factory/data-factory-pig-activity.md) | HDInsight [Hadoop]  
 [MapReduce](../articles/data-factory/data-factory-map-reduce.md) | HDInsight [Hadoop]  
-[Hadoop Streaming](../articles/data-factory/data-factory-hadoop-streaming-activity.md) | HDInsight [Hadoop]
-[Machine Learning activities: Batch Execution and Update Resource](../articles/data-factory/data-factory-azure-ml-batch-execution-activity.md) | Azure VM 
-[Stored Procedure](../articles/data-factory/data-factory-stored-proc-activity.md) | Azure SQL, Azure SQL Data Warehouse, or SQL Server |
+[Hadoop Akışı](../articles/data-factory/data-factory-hadoop-streaming-activity.md) | HDInsight [Hadoop]
+[Machine Learning etkinlikleri: Toplu Yürütme ve Kaynak Güncelleştirme](../articles/data-factory/data-factory-azure-ml-batch-execution-activity.md) | Azure VM 
+[Saklı Yordam](../articles/data-factory/data-factory-stored-proc-activity.md) | Azure SQL, Azure SQL Veri Ambarı veya SQL Server |
 [Data Lake Analytics U-SQL](../articles/data-factory/data-factory-usql-activity.md) | Azure Data Lake Analytics 
-[DotNet](../articles/data-factory/data-factory-use-custom-activities.md) | HDInsight [Hadoop] or Azure Batch
+[DotNet](../articles/data-factory/data-factory-use-custom-activities.md) | HDInsight [Hadoop] veya Azure Batch
    
 > [AZURE.NOTE] 
-> You can use MapReduce activity to run Spark programs on your HDInsight Spark cluster. See [Invoke Spark programs from Azure Data Factory](../articles/data-factory/data-factory-spark.md) for details.
-> You can create a custom activity to run R scripts on your HDInsight cluster with R installed. See [Run R Script using Azure Data Factory](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample).
+> MapReduce etkinliğini kullanarak HDInsight Spark kümenizde Spark programları çalıştırabilirsiniz. Ayrıntılar için bkz. [Azure Data Factory’den Spark programlarını çağırma](../articles/data-factory/data-factory-spark.md).
+> R yüklü HDInsight kümenizde R betiklerini çalıştırmak için özel bir etkinlik oluşturabilirsiniz. Bkz. [Azure Data Factory kullanarak R Betiği çalıştırma](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample).
+
+<!--HONumber=Sep16_HO4-->
+
+

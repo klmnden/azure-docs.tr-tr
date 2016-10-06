@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Operations Management Suite Güvenlik ve Denetim Çözümünü kullanmaya başlama | Microsoft Azure"
-   description="Bu belge, karma bulutunuzu izlemek için Operations Management Suite Güvenlik ve Denetim çözümü becerilerini kullanmaya başlamanıza yardımcı olur."
+   pageTitle="Getting started with Operations Management Suite Security and Audit Solution | Microsoft Azure"
+   description="This document helps you to get started with Operations Management Suite Security and Audit solution capabilities to monitor your hybrid cloud."
    services="operations-management-suite"
    documentationCenter="na"
    authors="YuriDio"
@@ -17,156 +17,156 @@
    ms.author="yurid"/>
  
 
-# Operations Management Suite Güvenlik ve Denetim Çözümünü kullanmaya başlama
-Bu belge, size her bir seçenekte yol göstererek Operations Management Suite (OMS) Güvenlik ve Denetim çözümü becerilerini hızlıca kullanmaya başlamanıza yardımcı olur.
+# Getting started with Operations Management Suite Security and Audit Solution
+This document helps you get started quickly with Operations Management Suite (OMS) Security and Audit solution capabilities by guiding you through each option.
 
-## OMS nedir?
-Microsoft Operations Management Suite (OMS), şirket içi ve bulut altyapınızı yönetmenize ve korumanıza yardımcı olan, Microsoft'un bulut tabanlı BT yönetim çözümüdür. OMS hakkında daha fazla bilgi için bkz. [Operations Management Suite](https://technet.microsoft.com/library/mt484091.aspx).
+## What is OMS?
+Microsoft Operations Management Suite (OMS) is Microsoft's cloud-based IT management solution that helps you manage and protect your on-premises and cloud infrastructure. For more information about OMS, read the article [Operations Management Suite](https://technet.microsoft.com/library/mt484091.aspx).
 
-## OMS Güvenlik ve Denetim panosu
+## OMS Security and Audit dashboard
 
-OMS Güvenlik ve Denetim çözümü, ilgilenmenizi gerektiren önemli sorunlar için şirket içi arama sorgularıyla kuruluşunuzun IT güvenlik duruşuna ilişkin kapsamlı bir görünüm sağlar. **Güvenlik ve Denetim** panosu, OMS'de yer alan güvenlikle ilgili tüm öğelere ilişkin giriş ekranıdır. Bu pano, size bilgisayarlarınızın güvenlik durumuyla ilgili yüksek düzeyde öngörü sağlar. Ayrıca son 24 saat, 7 gün veya herhangi bir özel zaman dilimine ait tüm olayları görüntüleme becerisine sahiptir. **Güvenlik ve Denetim** panosuna erişmek için şu adımları izleyin:
+The OMS Security and Audit solution provides a comprehensive view into your organization’s IT security posture with built-in search queries for notable issues that require your attention. The **Security and Audit** dashboard is the home screen for everything related to security in OMS. It provides high-level insight into the security state of your computers. It also includes the ability to view all events from the past 24 hours, 7 days, or any other custom time frame. To access the **Security and Audit** dashboard, follow these steps:
 
-1. **Microsoft Operations Management Suite** ana panosunun sol kısmında yer alan **Ayarlar** kutucuğuna tıklayın.
-2. **Ayarlar** dikey penceresinde, **Çözümler** altında **Güvenlik ve Denetim** seçeneğine tıklayın.
-3. **Güvenlik ve Denetim** panosu görüntülenir:
+1. In the **Microsoft Operations Management Suite** main dashboard click **Settings** tile in the left.
+2. In the **Settings** blade, under **Solutions** click **Security and Audit** option.
+3. The **Security and Audit** dashboard will appear:
 
-    ![OMS Güvenlik ve Denetim panosu](./media/oms-security-getting-started/oms-getting-started-fig1-ga.png)
+    ![OMS Security and Audit dashboard](./media/oms-security-getting-started/oms-getting-started-fig1-ga.png)
 
-Bu panoya ilk kez erişiyorsanız ve OMS tarafından izlenen cihazlarınız yoksa kutucuklar aracıdan elde edilen verilerle doldurulmaz. Aracıyı yükledikten sonra kutucukların doldurulması biraz zaman alabilir. Bu nedenle, veriler hâlâ buluta yüklenmekte olduğundan, ilk gördüğünüz ekranda bazı veriler eksik olabilir.  Bu durumda, somut bilgiler içermeyen bazı kutucuklar görmeniz normaldir. OMS aracısının Windows sistemine yüklenmesiyle ilgili daha fazla bilgi için bkz. [Windows bilgisayarlarını doğrudan OMS'ye bağlama](https://technet.microsoft.com/library/mt484108.aspx) ve bu görevin bir Linux sisteminde nasıl gerçekleştirileceği hakkında daha fazla bilgi için bkz. [Linux bilgisayarları OMS'ye bağlama](https://technet.microsoft.com/library/mt622052.aspx).
+If you are accessing this dashboard for the first time and you don’t have devices monitored by OMS, the tiles will not be populated with data obtained from the agent. Once you install the agent, it can take some time to populate, therefore what you see initially may be missing some data as they are still uploading to the cloud.  In this case, it is normal to see some tiles without tangible information. Read [Connect Windows computers directly to OMS](https://technet.microsoft.com/library/mt484108.aspx) for more information on how to install OMS agent in a Windows system and [Connect Linux computers to OMS](https://technet.microsoft.com/library/mt622052.aspx) for more information on how to perform this task in a Linux system.
 
-> [AZURE.NOTE] Aracı, etkinleştirilmiş geçerli olaylara bağlı olarak bilgileri toplayacaktır; örneğin bilgisayar adı, IP adresi ve kullanıcı adı. Ancak belgeler/dosyalar, veritabanı adı veya özel veriler toplanmaz.   
+> [AZURE.NOTE] The agent will collect the information based on the current events that are enabled, for instance computer name, IP address and user name. However no document/files, database name or private data are collected.   
 
-Çözümler, önemli müşteri taleplerine yönelik mantık, görselleştirme ve veri alımı kurallarından oluşan bir koleksiyondur. Güvenlik ve Denetim tek bir çözümdür; diğer çözümler ayrıca eklenebilir. Yeni bir çözüm ekleme hakkında daha fazla bilgi için bkz. [Çözümleri ekleme](https://technet.microsoft.com/library/mt674635.aspx).
+Solutions are a collection of logic, visualization and data acquisition rules that address key customer challenges. Security and Audit is one solution, others can be added separately. Read the article [Add solutions](https://technet.microsoft.com/library/mt674635.aspx) for more information on how to add a new solution.
 
-OMS Güvenlik ve Denetim panosu dört ana kategoride düzenlenmiştir:
+The OMS Security and Audit dashboard is organized in four major categories:
 
-- **Güvenlik Etki Alanları**: Bu alanda zamanla güvenlik kayıtlarını daha çok keşfedecek, kötü amaçlı yazılım değerlendirmesine erişebilecek, değerlendirme, ağ güvenliği, kimlik ve erişim bilgileri ve bilgisayarları güvenlik olaylarıyla güncelleştirebilecek ve Azure Güvenlik Merkezi panosuna hızlıca erişebileceksiniz.
-- **Önemli Sorunlar**: Bu seçenek etkin sorunların sayısını ve sorunların önem derecesini hızlıca tanımlamanıza olanak verir.
-- **Algılama (Önizleme)**: Kaynaklarınıza karşı gerçekleşen güvenlik uyarılarını görselleştirerek saldırı düzenlerini tanımlayabilmenizi sağlar.
-- **Tehdit Bilgileri**: Giden kötü amaçlı IP trafiğine sahip sunucuların toplam sayısını, kötü amaçlı tehdit türünü ve bu IP'lerin nereden geldiğini gösteren bir haritayı görselleştirerek saldırı düzenlerini tanımlayabilmenizi sağlar. 
-- **Sık kullanılan güvenlik sorguları**: Bu seçenek size ortamınızı izlemek için kullanabileceğiniz en sık kullanılan güvenlik sorgularının listesini sağlar. Bu sorgulardan birine tıkladığınızda, bu sorguya ilişkin sonuçları içeren **Arama** dikey penceresi açılır.
+- **Security Domains**: in this area you will be able to further explore security records over time, access malware assessment, update assessment, network security, identity and access information, computers with security events and quickly have access to Azure Security Center dashboard.
+- **Notable Issues**: this option will allow you to quickly identify the number of active issues and the severity of these issues.
+- **Detections (Preview)**: enables you to identify attack patterns by visualizing security alerts as they take place against your resources.
+- **Threat Intelligence**: enables you to identify attack patterns by visualizing the total number of servers with outbound malicious IP traffic, the malicious threat type and a map that shows where these IPs are coming from. 
+- **Common security queries**: this option provides you a list of the most common security queries that you can use to monitor your environment. When you click in one of those queries, it opens the **Search** blade with the results for that query.
 
-> [AZURE.NOTE] OMS'nin verilerinizi nasıl koruduğuna ilişkin daha fazla bilgi için bkz. OMS verilerinizin güvenliğini nasıl sağlar?.
+> [AZURE.NOTE] for more information on how OMS keeps your data secure, read How OMS secures your data.
 
-## Güvenlik etki alanları
+## Security domains
 
-Kaynaklarınızı izlerken, ortamınızın geçerli durumuna hızlı bir şekilde erişebilmeniz önemlidir. Ancak aynı zamanda ortamınızda herhangi bir tarihte neler olduğunu daha iyi anlamanızı sağlamak için geçmişte gerçekleşen olayları izleyebilmek de önemlidir. 
+When monitoring resources, it is important to be able to quickly access the current state of your environment. However it is also important to be able to track back events that occurred in the past that can lead to a better understanding of what’s happening in your environment at certain point in time. 
 
-> [AZURE.NOTE] Veri saklama OMS fiyatlandırma planına göre yapılır. Daha fazla bilgi için bkz. [Microsoft Operations Management Suite](https://www.microsoft.com/server-cloud/operations-management-suite/pricing.aspx) fiyatlandırma sayfası.
+> [AZURE.NOTE] data retention is according to the OMS pricing plan. For more information visit the [Microsoft Operations Management Suite](https://www.microsoft.com/server-cloud/operations-management-suite/pricing.aspx) pricing page.
 
-Olay yanıtı ve adli tıp araştırma senaryoları doğrudan **Zaman İçindeki Güvenlik Kayıtları** kutucuğunda mevcut olan sonuçlardan yararlanır.
+Incident response and forensics investigation scenarios will directly benefit from the results available in the **Security Records over Time** tile.
 
-![Zaman içindeki güvenlik kayıtları](./media/oms-security-getting-started/oms-getting-started-fig2.JPG)
+![Security records over time](./media/oms-security-getting-started/oms-getting-started-fig2.JPG)
 
-Bu kutucuğa tıkladığınızda, aşağıda gösterildiği gibi son yedi güne ilişkin verileri içeren **Güvenlik Olayları** (tür=SecurityEvents) için sorgu sonucunu gösteren **Arama** dikey penceresi açılır:
+When you click on this tile, the **Search** blade will open, showing a query result for **Security Events** (Type=SecurityEvents) with data based on the last seven days, as shown below:
 
-![Zaman içindeki güvenlik kayıtları](./media/oms-security-getting-started/oms-getting-started-fig3.JPG)
+![Security records over time](./media/oms-security-getting-started/oms-getting-started-fig3.JPG)
 
-Arama sonucu iki bölmeye ayrılır: Sol bölme size bulunan güvenlik olayları sayısının çözümlemesini, bu olayların bulunduğu bilgisayarları, bu bilgisayarlarda bulunan hesapların sayısını ve etkinlik türlerini sağlar. Sağ bölme ise size toplam sonuçları ve güvenlik olaylarının bilgisayar adı ile olay etkinliğini içeren kronolojik bir görünümünü sağlar. Ayrıca, bu olay hakkında olay verileri, olay kimliği ve olay kaynağı gibi daha fazla ayrıntıyı görüntülemek için **Daha Fazla Göster**'e tıklayabilirsiniz.
+The search result is divided in two panes: the left pane gives you a breakdown of the number of security events that were found, the computers in which these events were found, the number of accounts that were discovered in these computers and the types of activities. The right pane provides you the total results and a chronological view of the security events with the computer’s name and event activity. You can also click **Show More** to view more details about this event, such as the event data, the event ID and the event source.
 
-> [AZURE.NOTE] OMS arama sorgusu hakkında daha fazla bilgi için bkz. [OMS arama başvurusu](https://technet.microsoft.com/library/mt450427.aspx).
+> [AZURE.NOTE] for more information about OMS search query, read [OMS search reference](https://technet.microsoft.com/library/mt450427.aspx).
 
-### Kötü amaçlı yazılımdan koruma değerlendirmesi
+### Antimalware assessment
 
-Bu seçenek yetersiz korumaya sahip ve kötü amaçlı bir yazılım tarafından güvenliği aşılmış olan bilgisayarları hızlıca tanımlamanızı sağlar. Kötü amaçlı yazılım değerlendirme durumu ve izlenen sunucularda algılanan tehditler okunur ve ardından veriler işlenmesi için buluttaki OMS hizmetine gönderilir. **Kötü Amaçlı Yazılımdan Koruma Değerlendirmesi** kutucuğuna tıklanarak erişilen kötü amaçlı yazılım değerlendirme panosunda, algılanan tehditleri içeren sunucular ve yetersiz korumaya sahip sunucular görüntülenir. 
+This option enables you to quickly identify computers with insufficient protection and computers that are compromised by a piece of malware. Malware assessment status and detected threats on the monitored servers are read, and then the data is sent to the OMS service in the cloud for processing. Servers with detected threats and servers with insufficient protection are shown in the malware assessment dashboard, which is accessible after you click in the **Antimalware Assessment** tile. 
 
-![kötü amaçlı yazılım değerlendirmesi](./media/oms-security-getting-started/oms-getting-started-fig4-ga.png)
+![malware assessment](./media/oms-security-getting-started/oms-getting-started-fig4-ga.png)
 
-OMS Panosunda yer alan tüm diğer canlı kutucuklarda olduğu gibi, üzerine tıkladığınızda sorgu sonucunu içeren **Arama** dikey penceresi açılır. Bu seçenekte, **Koruma Durumu** altındaki **Raporlama Yok** seçeneğine tıkladığınızda, aşağıda gösterildiği gibi bilgisayarın adını ve sıralamasını içeren tek bir girdiyi gösteren sorgu sonucuna erişirsiniz:
+Just like any other live tile available in OMS Dashboard, when you click on it, the **Search** blade will open with the query result. For this option, if you click in the **Not Reporting** option under **Protection Status**, you will have the query result that shows this single entry that contains the computer’s name and its rank, as shown below:
 
-![arama sonucu](./media/oms-security-getting-started/oms-getting-started-fig5.png)
+![search result](./media/oms-security-getting-started/oms-getting-started-fig5.png)
 
-> [AZURE.NOTE] *sıralama* koruma durumunu (açık, kapalı, güncelleştirilmiş vb.) ve bulunan tehditleri yansıtmak üzere belirlenen bir derecedir. Bu değere sayısal olarak sahip olmak, toplama yapmanıza yardımcı olur.
+> [AZURE.NOTE] *rank* is a grade giving to reflect the status of the protection (on, off, updated, etc) and threats that are found. Having that as a number helps to make aggregations.
 
-Bilgisayarın adına tıkladığınızda, bu bilgisayara ilişkin koruma durumunun kronolojik bir görünümünü elde edersiniz. Bu, kötü amaçlı yazılımdan koruma yazılımının daha önceden yüklenmiş olup bir noktada kaldırıldığını anlamanız gereken senaryolarda çok yararlıdır.   
+If you click in the computer’s name, you will have the chronological view of the protection status for this computer. This is very useful for scenarios in which you need to understand if the antimalware was once installed and at some point it was removed.   
 
-### Güncelleştirme değerlendirmesi 
+### Update assessment 
 
-Bu seçenek olası güvenlik sorunlarına genel olarak maruz kalma durumunu ve bu güncelleştirmelerin ortamınız için ne kadar kritik olduğunu hızlıca belirleyebilmenizi sağlar. OMS Güvenlik ve Denetim çözümü yalnızca bu güncelleştirmelere ilişkin bir görselleştirme sağlar; gerçek veriler OMS içinde farklı bir modül olan [Sistem Güncelleştirme Çözümleri](https://technet.microsoft.com/library/mt484096.aspx)'nden gelir. Güncelleştirmelerin bir örneği aşağıda verilmiştir:
+This option enables you to quickly determine the overall exposure to potential security problems, and whether or how critical these updates are for your environment. OMS Security and Audit solution only provide the visualization of these updates, the real data comes from [System Updates Solutions](https://technet.microsoft.com/library/mt484096.aspx), which is a different module within OMS. Here an example of the updates:
 
-![sistem güncelleştirmeleri](./media/oms-security-getting-started/oms-getting-started-fig6.png)
+![system updates](./media/oms-security-getting-started/oms-getting-started-fig6.png)
 
-> [AZURE.NOTE] Güncelleştirmeler çözümü hakkında daha fazla bilgi için bkz. [Sunucuları Sistem Güncelleştirmeleri çözümüyle güncelleştirme](https://technet.microsoft.com/library/mt484096.aspx).
+> [AZURE.NOTE] for more information about Updates solution, read [Update servers with the System Updates solution](https://technet.microsoft.com/library/mt484096.aspx).
 
-### Kimlik ve Erişim
+### Identity and Access
 
-Kimlik, kuruluşunuz için denetim düzlemi olmalıdır, kimliğinizi korumak ise en yüksek önceliğiniz olmalıdır. Geçmişte kuruluşlar etrafında çevresel alanlar vardı ve bu alanlar birincil savunma sınırları olarak görev yapardı, ancak günümüzde giderek daha fazla veri ve uygulamanın buluta taşınmasıyla birlikte, kimlik yeni çevresel alan haline geldi. 
+Identity should be the control plane for your enterprise, protecting your identity should be your top priority. While in the past there were perimeters around organizations and those perimeters were one of the primary defensive boundaries, nowadays with more data and more apps moving to the cloud the identity becomes the new perimeter. 
 
-> [AZURE.NOTE] Veriler şu anda gelecekteki Office365 oturum açmalarında yalnızca Güvenlik Olayları oturum açma verilerini (olay kimliği 4624) temel alır ve Azure AD verileri de dahil edilir.
+> [AZURE.NOTE] currently the data is based only on Security Events login data (event ID 4624) in the future Office365 logins and Azure AD data will also be included.
 
-Kimlik etkinliklerinizi izleyerek bir olay gerçekleşmeden önce öngörülü eylemlerde veya bir saldırı girişimini durdurmak için reaktif eylemlerde bulunabilirsiniz. **Kimlik ve Erişim** panosu, size hatalı oturum açma girişimlerinin sayısını, bu girişimler sırasında kullanılan kullanıcı hesabını, kilitlenmiş hesapları, parolaları değiştirilen veya sıfırlanan hesapları ve şu anda oturum açmış olan hesap sayısını içerecek şekilde, kimlik durumunuza ilişkin bir genel bakış sağlar. 
+By monitoring your identity activities you will be able to take proactive actions before an incident takes place or reactive actions to stop an attack attempt. The **Identity and Access** dashboard provides you an overview of your identity state, including the number of failed attempts to log on, the user’s account that were used during those attempts, accounts that were locked out, accounts with changed or reset password and currently number of accounts that are logged in. 
 
-**Kimlik ve Erişim** kutucuğuna tıkladığınızda, şu panoyu göreceksiniz:
+When you click in the **Identity and Access** tile you will see the following dashboard:
 
-![kimlik ve erişim](./media/oms-security-getting-started/oms-getting-started-fig7-ga.png)
+![identity and access](./media/oms-security-getting-started/oms-getting-started-fig7-ga.png)
 
-Bu panoda mevcut olan bilgiler, olası bir şüpheli etkinliğini tanımlamanız için size hemen yardımcı olabilir. Örneğin, **Yönetici** olarak 338 defa oturum açma girişimi gerçekleşmiş ve bunların %100'ü başarısız olmuş olabilir. Bu durum, bu hesaba karşı gerçekleştirilen bir deneme yanılma saldırısından kaynaklanıyor olabilir. Bu hesaba tıkladığınızda, bu olası saldırının hedef kaynağını belirlemenize yardım edecek daha fazla bilgi elde edersiniz:
+The information available in this dashboard can immediately assist you to identify a potential suspicious activity. For example, there are 338 attempts to log on as **Administrator** and 100% of these attempts failed. This can be caused by a brute force attack against this account. If you click on this account you will obtain more information that can assist you to determine the target resource for this potential attack:
 
-![arama sonuçları](./media/oms-security-getting-started/oms-getting-started-fig8.JPG)
+![search results](./media/oms-security-getting-started/oms-getting-started-fig8.JPG)
 
-Ayrıntılı rapor bu olay hakkında hedef bilgisayar, oturum açma türü (bu durumda Ağ oturumu açma), etkinlik (bu durumda olay 4625) ve her girişimin kapsamlı bir zaman çizelgesini içeren önemli bilgileri sağlar. 
+The detailed report provides important information about this event, including: the target computer, the type of logon (in this case Network logon), the activity (in this case event 4625) and a comprehensive timeline of each attempt. 
 
-### Bilgisayarlar
+### Computers
 
-Bu kutucuk, etkin bir şekilde güvenlik olayları içeren tüm bilgisayarlara erişmek için kullanılabilir. Bu kutucuğa tıkladığınızda, güvenlik olayları içeren bilgisayarların listesini ve her bilgisayardaki olay sayısını göreceksiniz:
+This tile can be used to access all computers that actively have security events. When you click in this tile you will see the list of computers with security events and the number of events on each computer:
 
-![Bilgisayarlar](./media/oms-security-getting-started/oms-getting-started-fig9.JPG)
+![Computers](./media/oms-security-getting-started/oms-getting-started-fig9.JPG)
 
-Her bir bilgisayara tıklayarak araştırmanızı devam ettirebilir ve bayrak eklenmiş güvenlik olaylarını inceleyebilirsiniz.
+You can continue your investigation by clicking on each computer and review the security events that were flagged.
 
-### Azure Güvenlik Merkezi
+### Azure Security Center
 
-Bu kutucuk temel olarak Azure Güvenlik Merkezi panosuna erişmek için bir kısayol görevi yapar. Bu çözüm hakkında daha fazla bilgi için bkz. [Azure Güvenlik Merkezini Kullanmaya Başlama](../security-center/security-center-get-started.md).
+This tile is basically a shortcut to access Azure Security Center dashboard. Read [Getting started with Azure Security Center](../security-center/security-center-get-started.md) for more information about this solution.
 
-## Önemli sorunlar
+## Notable issues
 
-Bu seçenek grubunun ana amacı, ortamınızda bulunan sorunları Kritik, Uyarı ve Bilgilendirici olarak kategorilere ayırarak bu sorunlara ilişkin hızlı bir görünüm sağlamaktır. Etkin sorun türü kutucuğu - bu sorunlara ilişkin bir görselleştirmedir, ancak sorunlar hakkında daha fazla ayrıntıyı keşfetmenize izin vermez. Bunun için sorunun adını (NAME), sorunun kaç nesnede gerçekleştiğini (COUNT) ve sorunun ne kadar kritik olduğunu (SEVERITY) gösteren kutucuğun alt bölümünü kullanmanız gerekir.
+The main intent of this group of options is to provide a quick view of the issues that you have in your environment, by categorizing them in Critical, Warning and Informational. The Active issue type tile it’s a visualization of these issues, but it doesn’t allow you to explore more details about them, for that you need to use the lower part of this tile that has the name of the issue (NAME), how many objects had this happen (COUNT) and how critical it is (SEVERITY).
 
-![Önemli sorunlar](./media/oms-security-getting-started/oms-getting-started-fig10.JPG)
+![Notable issues](./media/oms-security-getting-started/oms-getting-started-fig10.JPG)
 
-Bu sorunların daha önceden **Güvenlik Etki Alanları** grubundaki farklı alanlarda ele alındığını görebilirsiniz; bu durum bu görünümün amacını pekiştirir: Ortamınızdaki en önemli sorunları tek bir yerden görselleştirmek.
+You can see that these issues were already covered in different areas of the **Security Domains** group, which reinforces the intent of this view: visualize the most important issues in your environment from a single place.
 
-## Algılama (Önizleme)
+## Detections (Preview)
 
-Bu seçeneğin ana amacı, IT'nin ortamındaki olası tehditleri ve bu tehditlerin önem derecesini hızlıca tanımlamasını sağlamaktır.
+The main intent of this option is to allow IT to quickly identify potential threats to their environment via and the severity of this threat.
 
-![Tehdit Bilgisi](./media/oms-security-getting-started/oms-getting-started-fig12.png)
+![Threat Intel](./media/oms-security-getting-started/oms-getting-started-fig12.png)
 
-Bu seçenek bir olay yanıtı araştırması sırasında değerlendirme gerçekleştirmek ve saldırı hakkında daha fazla bilgi elde etmek için de kullanılabilir.
+This option can also be used during an incident response investigation to perform the assessment and obtain more information about the attack.
 
-> [AZURE.NOTE] OMS'nin Olay Yanıtı için nasıl kullanılabileceği hakkında daha fazla bilgi için [Olay Yanıtı için Azure Güvenlik Merkezi'nden ve Operations Management Suite'ten Yararlanma](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703) videosunu izleyin.
+> [AZURE.NOTE] For more information on how to use OMS for Incident Response, watch [How to Leverage the Azure Security Center & Microsoft Operations Management Suite for an Incident Response](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703).
 
-## Tehdit Bilgisi
+## Threat Intelligence
 
-Güvenlik ve Denetim çözümünün yeni tehdit bilgisi bölümü olası saldırı düzenlerini çeşitli şekillerde görselleştirir: Giden kötü amaçlı IP trafiğinin toplam sayısı, kötü amaçlı tehdit türü ve bu IP'lerin nereden geldiğini gösteren bir harita. Haritayla etkileşim kurabilir ve daha fazla bilgi için IP'lere tıklayabilirsiniz.
+The new threat intelligence section of the Security and Audit solution visualizes the possible attack patterns in several ways: the total number of servers with outbound malicious IP traffic, the malicious threat type and a map that shows where these IPs are coming from. You can interact with the map and click on the IPs for more information.
 
-Harita üzerindeki sarı raptiyeler kötü amaçlı IP'lerden gelen trafiği belirtir. İnternet'e bağlı sunucuların gelen kötü amaçlı trafiği görmesi alışılmamış bir durum değildir, ancak biz yine de saldırılardan hiçbirinin başarılı olmadığından emin olmak için bu saldırıları incelemenizi öneririz. Bu göstergeler IIS günlüklerini, İletilen Verileri ve Windows Güvenlik Duvarı günlüklerini temel alır.  
+Yellow pushpins on the map indicate incoming traffic from malicious IPs. It is not uncommon for servers that are exposed to the internet to see incoming malicious traffic, but we recommend reviewing these attempts to make sure none of them was successful. These indicators are based on IIS logs, WireData and Windows Firewall logs.  
 
-![Tehdit Bilgisi](./media/oms-security-getting-started/oms-getting-started-fig11-ga.png)
+![Threat Intel](./media/oms-security-getting-started/oms-getting-started-fig11-ga.png)
 
-## Ortak güvenlik sorguları
+## Common security queries
 
-Mevcut ortak güvenlik sorguları listesi, kaynağın bilgilerine hızlıca ulaşmanız ve bunları ortamınızın ihtiyaçlarına göre özelleştirmeniz için yararlı olabilir. Bu ortak sorgular şunlardır:
+The list of common security queries available can be useful for you to rapidly access resource’s information and customize it based on your environment’s needs. These common queries are:
 
-- Tüm Güvenlik Etkinlikleri
-- "bilgisayar01.contoso.com" (kendi bilgisayar adınızla değiştirin) bilgisayarındaki Güvenlik Etkinlikleri
-- "Yönetici" hesabı için "bilgisayar01.contoso.com" bilgisayarındaki Güvenlik Etkinlikleri (kendi bilgisayar ve hesap adlarınızla değiştirin)
-- Bilgisayara göre Oturum Açma Etkinliği
-- Herhangi bir bilgisayarda Microsoft kötü amaçlı yazılımdan koruma yazılımını sonlandıran hesaplar
-- Microsoft kötü amaçlı yazılımdan koruma işleminin sonlandırıldığı bilgisayarlar
-- "Hash.exe" işleminin (farklı bir işlem adıyla değiştirin) yürütüldüğü bilgisayarlar
-- Yürütülen tüm İşlem adları
-- Hesaba göre Oturum Açma Etkinliği
-- "Bilgisayar01.contoso.com" (kendi bilgisayarınızın adıyla değiştirin) bilgisayarında uzaktan oturum açan hesaplar
+- All Security Activities
+- Security Activities on the computer "computer01.contoso.com" (replace with your own computer name)
+- Security Activities on the computer "computer01.contoso.com" for account "Administrator" (replace with your own computer and account names)
+- Log on Activity by Computer
+- Accounts who terminated Microsoft antimalware on any computer
+- Computers where the Microsoft antimalware process was terminated
+- Computers where "hash.exe" was executed (replace with different process name)
+- All Process names that were executed
+- Log on Activity by Account
+- Accounts who remotely logged on the computer "computer01.contoso.com" (replace with your own computer name)
 
-## Ayrıca bkz.
+## See also
 
-Bu belgede size OMS Güvenlik ve Denetim çözümü tanıtılmaktadır. OMS Güvenlik hakkında daha fazla bilgi edinmek için şu makalelere göz atın:
+In this document, you were introduced to OMS Security and Audit solution. To learn more about OMS Security, see the following articles:
 
-- [Operations Management Suite'e (OMS) genel bakış](operations-management-suite-overview.md)
-- [Operations Management Suite Güvenlik ve Denetim Çözümünde Güvenlik Uyarılarını İzleme ve Yanıtlama](oms-security-responding-alerts.md)
-- [Operations Management Suite Güvenlik ve Denetim Çözümünde Kaynakları İzleme](oms-security-monitoring-resources.md)
+- [Operations Management Suite (OMS) overview](operations-management-suite-overview.md)
+- [Monitoring and Responding to Security Alerts in Operations Management Suite Security and Audit Solution](oms-security-responding-alerts.md)
+- [Monitoring Resources in Operations Management Suite Security and Audit Solution](oms-security-monitoring-resources.md)
 
 
 

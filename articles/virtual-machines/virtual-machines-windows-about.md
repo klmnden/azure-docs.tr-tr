@@ -43,6 +43,6 @@ Hızlı bir şekilde basit bir sanal makine oluşturarak sanal makineyi deneyin.
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

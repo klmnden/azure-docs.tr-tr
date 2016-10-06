@@ -14,16 +14,15 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/23/2016"
-    ms.author="femila"/>
+    ms.date="09/27/2016"
+    ms.author="Markvi"/>
+
 
 # Azure Active Directory Cihaz Kaydına Başlarken
 
 Azure Active Directory Cihaz Kaydı, cihaz temelli koşullu erişim senaryoları için altyapıdır. Bir cihaz kaydedildiğinde Azure Active Directory Cihaz Kaydı, bir kullanıcı oturum açtığında kimlik doğrulama için kullanılan kimliğe sahip cihazı sağlar. Kimliği doğrulanmış cihaz ve cihaz öznitelikleri böylece bulutta ve şirket içinde barındırılan uygulamalar için koşullu erişim ilkelerini zorlamak üzere kullanılabilir.
 
-Intune gibi bir mobil cihaz yönetimi (MDM) çözümü ile birleştirildiğinde Azure Active Directory'deki cihaz öznitelikleri cihaz hakkındaki ek bilgilerle güncelleştirilir. Bu durum, güvenlik ve uyumluluğa yönelik standartlarınızı karşılamak için cihazlardan erişimi zorlayan koşullu erişim kuralları oluşturmanıza olanak sağlar.
-
-Azure Active Directory Cihaz Kaydı, Azure Active Directory'nizden kullanılabilir. Bu hizmet iOS, Android ve Windows cihazları için destek içerir. Azure Active Directory Cihaz Kaydı'nı kullanan bireysel senaryolar daha fazla özel gereksinime ve platform desteğine sahip olabilir.
+Microsoft Intune gibi bir mobil cihaz yönetimi (MDM) çözümü ile birleştirildiğinde Azure Active Directory'deki cihaz öznitelikleri cihaz hakkındaki ek bilgilerle güncelleştirilir. Bu durum, güvenlik ve uyumluluğa yönelik standartlarınızı karşılamak için cihazlardan erişimi zorlayan koşullu erişim kuralları oluşturmanıza olanak sağlar. Microsoft Intune’da cihazları kaydetme hakkında daha fazla bilgi için bkz. [Intune’da yönetim için cihazları kaydetme](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune).
 
 ## Azure Active Directory Cihaz Kaydı tarafından etkinleştirilen senaryolar
 
@@ -31,12 +30,15 @@ Azure Active Directory Cihaz Kaydı iOS, Android ve Windows cihazları için des
 
 - **Şirket içinde barındırılan uygulamalara koşullu erişim**: Windows Server 2012 R2 ile AD FS'yi kullanmak için yapılandırılan uygulamalar için erişim ilkeleri içeren kayıtlı cihazları kullanabilirsiniz. Şirket içi uygulamalara koşullu erişimi ayarlama hakkında daha fazla bilgi edinmek için bkz. [Azure Active Directory Cihaz Kaydı hizmetini kullanarak Şirket İçi Uygulamalara Koşullu Erişim](active-directory-conditional-access-on-premises-setup.md).
 
-- **Microsoft Intune ile Office 365 uygulamaları için koşullu erişim** : BT yöneticileri kurumsal kaynakların güvenliğinin yanı sıra uyumlu cihazlar üzerindeki bilgi çalışanlarının hizmetlere erişimine olanak sağlamak için koşullu erişim cihaz ilkeleri sağlayabilirler. Daha fazla bilgi edinmek için bkz. Office 365 hizmetleri için Koşullu Erişim Cihaz İlkeleri.
+- **Microsoft Intune ile Office 365 uygulamaları için koşullu erişim** : BT yöneticileri kurumsal kaynakların güvenliğinin yanı sıra uyumlu cihazlar üzerindeki bilgi çalışanlarının hizmetlere erişimine olanak sağlamak için koşullu erişim cihaz ilkeleri sağlayabilirler. Daha fazla bilgi edinmek için bkz. [Office 365 hizmetleri için Koşullu Erişim Cihaz İlkeleri](active-directory-conditional-access-device-policies.md).
 
 ##Azure Active Directory Cihaz Kaydı'nı ayarlama
 
 Mobil cihazların iyi bilinen DNS kayıtlarına bakarak hizmeti keşfedebilmesi için Azure Portal'da Azure AD Cihaz Kaydı'nı etkinleştirmeniz gerekir. Windows 10, Windows 8.1, Windows 7, Android ve iOS cihazlarının hizmeti keşfedebilmesi ve kullanabilmesi için şirket DNS'nizi yapılandırmanız gerekir.
 Azure Active Directory'de Yönetici Portalı'nı kullanarak kayıtlı cihazları görüntüleyebilir ve etkinleştirebilir/devre dışı bırakabilirsiniz.
+
+>[AZURE.NOTE]
+ Otomatik cihaz kaydını ayarlama hakkında en son yönergeler için bkz. [Windows etki alanına katılmış cihazların Azure Active Directory ile otomatik kaydını ayarlama](active-directory-conditional-access-automatic-device-registration-setup.md).
 
 ### Azure Active Directory Cihaz Kaydı Hizmetini etkinleştirme
 
@@ -81,7 +83,7 @@ Azure Active Directory Cihaz Kaydı hizmetiniz ile ilişkili A kaydına işaret 
 
 ## Ek konu başlıkları
 
-Azure AD Cihaz Kaydı ile Windows 7 ve Windows 8.1 Etki Alanına Katılmış cihazlarınızı kaydedebilirsiniz. Aşağıdaki konu başlığında Windows 7 ve Windows 8.1 cihazlarında cihaz kaydını yapılandırmak için gereken önkoşullar ve adımlar hakkında daha fazla bilgi sağlanmaktadır.
+Azure AD Cihaz Kaydı ile Windows 7 ve Windows 8.1 Etki Alanına Katılmış cihazlarınızı kaydedebilirsiniz. Aşağıdaki konu başlıklarında Windows 7 ve Windows 8.1 cihazlarında cihaz kaydını yapılandırmak için gereken önkoşullar ve adımlar hakkında daha fazla bilgi sağlanmaktadır.
 
 - [Windows Etki Alanına Katılmış Cihazlar için Azure Active Directory ile Otomatik Cihaz Kaydı](active-directory-conditional-access-automatic-device-registration.md)
 - [Windows 7 etki alanına katılmış cihazlar için otomatik cihaz kaydını yapılandırma](active-directory-conditional-access-automatic-device-registration-windows7.md)
@@ -90,6 +92,6 @@ Azure AD Cihaz Kaydı ile Windows 7 ve Windows 8.1 Etki Alanına Katılmış cih
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Sep16_HO4-->
 
 

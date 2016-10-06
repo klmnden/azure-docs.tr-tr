@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Operations Management Suite Güvenlik ve Denetim Çözümü Veri Güvenliği | Microsoft Azure"
-   description="Bu belgede verilerin Operations Management Suite Güvenlik ve Denetim Çözümünde nasıl yönetildiği ve korunduğu açıklanmaktadır."
+   pageTitle="Operations Management Suite Security and Audit Solution Data Security | Microsoft Azure"
+   description="This document explains how data is managed and safeguarded in Operations Management Suite Security and Audit Solution."
    services="operations-management-suite"
    documentationCenter="na"
    authors="YuriDio"
@@ -17,44 +17,44 @@
    ms.author="yurid"/>
 
 
-# Operations Management Suite Güvenlik ve Denetim çözümü veri güvenliği
+# Operations Management Suite Security and Audit solution data security
 
-Müşterilerin tehditleri önlemesine, tespit etmesine ve müdahale etmesine yardımcı olmak için [Operations Management Suite (OMS) Güvenlik ve Denetim Çözümü](operations-management-suite-overview.md), kaynaklarınız hakkında aşağıdakileri içeren verileri toplar ve işler:
+To help customers prevent, detect, and respond to threats, [Operations Management Suite  (OMS) Security and Audit Solution](operations-management-suite-overview.md) collects and processes data about your resources, which includes:
 
-- Güvenlik olay günlüğü
-- Windows için Olay İzleme (ETW) olayları
-- AppLocker denetim olayları
-- Windows Güvenlik Duvarı günlüğü
-- Gelişmiş Threat Analytics olayları
-- Temel değerlendirmesinin sonuçları
-- Kötü amaçlı yazılımdan koruma değerlendirmesinin sonuçları
-- Güncelleştirme/düzeltme eki değerlendirmesinin sonuçları
-- Aracı üzerinde açıkça etkinleştirilen Syslog akışları
+- Security event log
+- Event Tracing for Windows (ETW) events
+- AppLocker auditing events
+- Windows Firewall log
+- Advanced Threat Analytics events
+- Results of baseline assessment
+- Results of antimalware assessment
+- Results of update/patch assessment
+- Syslogs streams that are explicitly enabled on the agent
 
-Bu verilerin gizlilik ve güvenliğini korumak için önemli taahhütlerde bulunuyoruz. Microsoft kodlamadan hizmet çalıştırma konularına kadar her alanda uyumluluk ve güvenlik yönergelerine kesin olarak bağlı kalmaktadır.
-Bu makalede, OMS Güvenlik ve Denetim Çözümü'nde verilerin nasıl yönetildiği ve korunduğu açıklanmaktadır.
+We make strong commitments to protect the privacy and security of this data. Microsoft adheres to strict compliance and security guidelines—from coding to operating a service.
+This article explains how data is managed and safeguarded in OMS Security and Audit Solution.
 
-## Veri kaynakları
+## Data sources
 
-OMS Güvenlik ve Denetim Çözümü, OMS Aracısı'nın yüklü olduğu Sanal Makinelerinizdeki ve fiziksel bilgisayarlarınızdaki verileri analiz eder. OMS Güvenlik ve Denetim Çözümü; Windows olayı, denetim günlükleri, IIS günlükleri ve syslog iletileri gibi güvenlik olayları hakkında yapılandırma bilgilerini toplayabilir. Bu verilere örnek olarak işletim sistemi türü ve sürümü, devam eden işlemler, makine adı, IP adresleri, oturum açmış kullanıcı ve kiracı kimliği verilebilir.  
+OMS Security and Audit Solution analyze data from your Virtual Machines and physical computers where the OMS Agent is installed. OMS Security and Audit Solution can collect configuration information about security events, such as Windows event, audit logs, IIS logs and syslog messages. Examples of such data are: operating system type and version, running processes, machine name, IP addresses, logged in user, and tenant ID.  
 
-## Veri koruma
+## Data protection
 
-**Veri ayırma**: Veriler hizmet boyunca her bir bileşende mantıksal olarak ayrı tutulur. Tüm veriler kuruluşa göre etiketlenir. Bu etiketleme, veri yaşam döngüsü boyunca devam eder ve her bir hizmet katmanında uygulanır. 
+**Data segregation**: Data is kept logically separate on each component throughout the service. All data is tagged per organization. This tagging persists throughout the data lifecycle, and it is enforced at each layer of the service. 
 
-**Veri erişimi**: Güvenlik önerileri sağlamak ve olası güvenlik tehditlerini araştırmak üzere Microsoft personeli, hizmetler tarafından toplanan veya çözümlenen bilgilere erişebilir. Microsoft’un Müşteri Verilerini kullanmayacağını veya reklam ya da benzeri ticari amaçlarla bundan bilgi türetmeyeceğini belirten [Microsoft Çevrimiçi Hizmet Koşulları](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) ve [Gizlilik Bildirimi](https://www.microsoft.com/privacystatement/en-us/OnlineServices/Default.aspx) belgelerine bağlı kalıyoruz. Güvenlik önerileri sağlamak ve olası güvenlik tehditlerini araştırmak üzere Microsoft personeli, hizmetler tarafından toplanan veya çözümlenen bilgilere erişebilir. Müşteri Verileri yalnızca size Azure hizmetlerini sağlamak için, bu hizmetleri sağlamayla uyumlu amaçlar da dahil olmak üzere gerektiğinde kullanılır. Kendi verileriniz üzerindeki tüm haklarınız saklıdır.
+**Data access**: To provide security recommendations and investigate potential security threats, Microsoft personnel may access information collected or analyzed by services. We adhere to the [Microsoft Online Services Terms](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) and [Privacy Statement](https://www.microsoft.com/privacystatement/en-us/OnlineServices/Default.aspx), which state that Microsoft will not use Customer Data or derive information from it for any advertising or similar commercial purposes. To provide security recommendations and investigate potential security threats, Microsoft personnel may access information collected or analyzed by services. We only use Customer Data as needed to provide you with Azure services, including purposes compatible with providing those services. You retain all rights to your own data.
 
-**Veri kullanımı**: Microsoft önleme ve algılama özelliklerimizi geliştirmek amacıyla birden fazla kiracıda görülen modelleri ve tehdit bilgilerini kullanır; bunu [Gizlilik Bildirimi](https://www.microsoft.com/privacystatement/en-us/OnlineServices/Default.aspx) belgemizde açıklanan gizlilik taahhütlerine uygun şekilde yaparız.
+**Data use**: Microsoft uses patterns and threat intelligence seen across multiple tenants to enhance our prevention and detection capabilities; we do so in accordance with the privacy commitments described in our [Privacy Statement](https://www.microsoft.com/privacystatement/en-us/OnlineServices/Default.aspx).
 
-> [AZURE.NOTE] Veri konumu, ilk OMS Güvenlik ve Denetim yapılandırma işleminin bir parçası olan çalışma alanı oluşturma işlemi sırasında OMS çalışma alanı düzeyinde yapılandırılır.
+> [AZURE.NOTE] Data location is configured at the OMS workspace level, during the workspace creation, which is part of the initial OMS Security and Audit configuration process.
 
-## Ayrıca bkz.
+## See also
 
-Bu belgede, OMS'de verilerin nasıl yönetileceğine ve korunacağına ilişkin bilgi edindiniz. OMS Güvenlik ve Denetim çözümü hakkında daha fazla bilgi edinmek için bkz.
+In this document, you learned how data is managed and safeguarded in OMS. To learn more about OMS Security and Audit solution, see:
 
-- [Operations Management Suite'e (OMS) genel bakış](operations-management-suite-overview.md)
-- [Operations Management Suite Güvenlik ve Denetim Çözümünde Güvenlik Uyarılarını İzleme ve Yanıtlama](oms-security-responding-alerts.md)
-- [Operations Management Suite Güvenlik ve Denetim Çözümünde Kaynakları İzleme](oms-security-monitoring-resources.md)
+- [Operations Management Suite (OMS) overview](operations-management-suite-overview.md)
+- [Monitoring and Responding to Security Alerts in Operations Management Suite Security and Audit Solution](oms-security-responding-alerts.md)
+- [Monitoring Resources in Operations Management Suite Security and Audit Solution](oms-security-monitoring-resources.md)
 
 
 

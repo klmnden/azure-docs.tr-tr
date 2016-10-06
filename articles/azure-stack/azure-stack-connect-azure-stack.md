@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Microsoft Azure Stack POC'ye bağlanma | Microsoft Azure"
-    description="Hizmet yöneticisi veya kiracı olarak Azure Stack POC'ye nasıl bağlanılacağını öğrenin."
+    pageTitle="Connect to Microsoft Azure Stack POC | Microsoft Azure"
+    description="Learn how to connect to the Azure Stack POC portal as a service administrator or tenant."
     services="azure-stack"
     documentationCenter=""
     authors="ErikjeMS"
@@ -13,63 +13,55 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="08/01/2016"
+    ms.date="09/26/2016"
     ms.author="erikje"/>
 
 
-# Azure Stack POC sanal makinesinde oturum açma
+# Log in to the Azure Stack POC virtual machine
 
-Azure Stack POC sanal makinesinde
+You can log in to the Azure Stack POC virtual machine as a
 
-- [**Hizmet yöneticisi**](#log-in-as-a-service-administrator) olarak oturum açabilir; böylece kaynak sağlayıcılarını, kiracı tekliflerini, planları, hizmetleri, kota ve fiyatlandırmayı yönetebilirsiniz.
+- [**service administrator**](#log-in-as-a-service-administrator) to manage resource providers, tenant offers, plans, services, quotas, and pricing.
 
-veya
+or
 
-- [**Kiracı**](#log-in-as-a-tenant) olarak oturum açabilir; böylece Web Apps, depolama ve sanal makineler gibi abone olduğunuz hizmetleri sağlayabilir, izleyebilir ve yönetebilirsiniz.
+- [**tenant**](#log-in-as-a-tenant) to provision, monitor, and manage services that you're subscribe to, like Web Apps, storage, and virtual machines.
 
-## Hizmet yöneticisi olarak oturum açma
+## Log in as a service administrator
 
-1.  Azure Stack POC fiziksel makinesinde oturum açın.
+1.  Log in to the Azure Stack POC physical machine.
 
-2.  **ClientVM.AzureStack.local.rdp** masaüstü simgesine çift tıklayarak istemci sanal makinesi için bir Uzak Masaüstü Bağlantısı açın.
- 
-    ![](media/azure-stack-connect-azure-stack/clientvmazurestacklocalicon.png)
-    
-    Bu otomatik olarak, dağıtım betiği tarafından oluşturulan AzureStack\\AzureStackUser hesabını kullanır. **Enter the password for the built-in administrator** (Yerleşik yönetici için parolayı girin) isteminde betik işleminin 5. adımında sağladığınız yönetici parolasını kullanın.
+2.  Open a Remote Desktop Connection and connect to MAS-CON01. Use the admin password you gave in step 5 of the script process at the **Enter the password for the built-in administrator** prompt.
 
-3.  ClientVM.AzureStack.local masaüstünde, **Microsoft Azure Stack POC Portal** simgesine (https://portal.azurestack.local/) çift tıklayarak [portalı](azure-stack-key-features.md#portal) açın.
+3.  On the ClientVM.AzureStack.local desktop, double-click **Microsoft Azure Stack Portal** icon (https://portal.azurestack.local/) to open the [portal](azure-stack-key-features.md#portal).
 
-    ![](media/azure-stack-connect-azure-stack/microsoftazurestackpocprtalicon.png)
+    ![](media/azure-stack-connect-azure-stack/microsoftazurestackportalicon.png)
 
-4.  Hizmet yöneticisi hesabını kullanarak oturum açın.
+4.  Log in using the service administrator account.
 
-## Kiracı olarak oturum açma
+## Log in as a tenant
 
-Bir hizmet yöneticisi; kiracılarının kullanabileceği planları, teklifleri ve abonelikleri test etmek için kiracı olarak oturum açabilir.
-Kiracı hesabınız yoksa oturum açmadan önce [Kiracı hesabı oluşturun](azure-stack-add-new-user-aad.md).
+A service administrator can log in as a tenant to test the plans, offers, and subscriptions that their tenants might use.
+If you don’t already have one, [Create a tenant account](azure-stack-add-new-user-aad.md) before you log in.
 
-1.  Azure Stack fiziksel makinesinde oturum açın.
+1.  Log in to the Azure Stack physical machine.
 
-2.  **ClientVM.AzureStack.local.rdp** masaüstü simgesine çift tıklayarak istemci sanal makinesi için bir Uzak Masaüstü Bağlantısı açın. 
+2.  Open a Remote Desktop Connection and connect to MAS-CON01. Use the admin password you gave in step 5 of the script process at the **Enter the password for the built-in administrator** prompt.
 
-    ![](media/azure-stack-connect-azure-stack/clientvmazurestacklocalicon.png)
+3.  On the ClientVM.AzureStack.local desktop, double-click **Microsoft Azure Stack POC Portal** icon (https://portal.azurestack.local/) to open the [portal](azure-stack-key-features.md#portal).
 
-    Bu otomatik olarak, dağıtım betiği tarafından oluşturulan AzureStack\\AzureStackUser hesabını kullanır. **Enter the password for the built-in administrator** (Yerleşik yönetici için parolayı girin) isteminde betik işleminin 5. adımında sağladığınız yönetici parolasını kullanın.
+    ![](media/azure-stack-connect-azure-stack/microsoftazurestackportalicon.png)
 
-3.  ClientVM.AzureStack.local masaüstünde, **Microsoft Azure Stack POC Portal** simgesine (https://portal.azurestack.local/) çift tıklayarak [portalı](azure-stack-key-features.md#portal) açın.
+4.  Log in using a tenant account.
 
-    ![](media/azure-stack-connect-azure-stack/microsoftazurestackpocprtalicon.png)
+RDP may restrict how many users can access the physical Microsoft Azure POC host.
 
-4.  Kiracı hesabı kullanarak oturum açın.
+## Next steps
 
-RDP, fiziksel Microsoft Azure POC konağına erişebilecek kullanıcı sayısını kısıtlayabilir. Birden çok kullanıcının erişebilmesine olanak tanımak için bkz. [Birden çok eş zamanlı kullanıcı bağlantısını etkinleştirme](azure-stack-enable-multiple-concurrent-users.md).
-
-## Sonraki adımlar
-
-[İlk görevler](azure-stack-first-scenarios.md)
+[First tasks](azure-stack-first-scenarios.md)
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

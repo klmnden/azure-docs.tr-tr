@@ -13,21 +13,33 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/01/2016"
+   ms.date="09/21/2016"
    ms.author="cherylmc" />
 
 
 # VPN Gateway hakkında
 
 
-Sanal ağ geçidi, Azure sanal ağları ile şirket içi konumlar arasında ve Azure içindeki sanal ağlar arasında (Sanal Ağdan Sanal Ağa) ağ trafiği göndermek için kullanılır. Bağlantı oluşturmak için bir sanal ağa ek kaynaklar ve ayarları ile birlikte bir sanal ağ geçidi ekleyin. 
+Sanal ağ geçidi, Azure sanal ağları ile şirket içi konumlar arasında ve Azure içindeki sanal ağlar arasında (Sanal Ağdan Sanal Ağa) ağ trafiği göndermek için kullanılır. Bir VPN ağ geçidini yapılandırdığınızda sanal bir ağ geçidi ve sanal ağ geçidi bağlantısı oluşturup yapılandırmanız gerekir.
 
-Bir sanal ağ geçidi kaynağı oluştururken birkaç ayar yapılandırırsınız. Gerekli ayarlardan biri '-GatewayType' şeklindedir. Ağ geçidi türü, ağ geçidinin nasıl bağlandığını belirtir. İki sanal ağ geçidi türü vardır: Vpn ve ExpressRoute. Ayrılmış bir bağlantı üzerinde ağ trafiği gönderilmediğinde 'ExpressRoute' ağ geçidini kullanırsınız. Bu seçenek ExpressRoute ağ geçidi olarak da adlandırılır. Ağ trafiği ortak bir bağlantı üzerinden şifreli olarak gönderildiğinde 'Vpn' ağ geçidi türünü kullanırsınız. Bu seçenek VPN ağ geçidi olarak adlandırılır. Siteden Siteye, Noktadan Siteye ve Sanal Ağdan Sanal Ağa bağlantıların tümü VPN ağ geçidi kullanır.
+Resource Manager dağıtım modelinde bir sanal ağ geçidi kaynağı oluştururken birkaç ayar yapılandırırsınız. Gerekli ayarlardan biri '-GatewayType' şeklindedir. İki sanal ağ geçidi türü vardır: Vpn ve ExpressRoute. 
 
-Bir sanal ağın her ağ geçidi türü için yalnızca bir sanal ağ geçidi olabilir. Örneğin, GatewayType Vpn kullanan bir sanal ağ geçidiniz ve GatewayType ExpressRoute kullanan bir sanal ağ geçidiniz olabilir. Bu makale öncelikli olarak VPN Gateway seçeneğine odaklanmaktadır. ExpressRoute hakkında daha fazla bilgi için bkz. [ExpressRoute’a Teknik Genel Bakış](../expressroute/expressroute-introduction.md).
+Ayrılmış bir bağlantı üzerinde ağ trafiği gönderilmediğinde 'ExpressRoute' ağ geçidini kullanırsınız. Bu seçenek ExpressRoute ağ geçidi olarak da adlandırılır. Ağ trafiği ortak bir bağlantı üzerinden şifreli olarak gönderildiğinde 'Vpn' ağ geçidi türünü kullanırsınız. Bu seçenek VPN ağ geçidi olarak adlandırılır. Siteden Siteye, Noktadan Siteye ve Sanal Ağdan Sanal Ağa bağlantıların tümü VPN ağ geçidi kullanır.
 
-Ağ geçidi gereksinimleri hakkında bilgi için bkz. [Ağ Geçidi Gereksinimleri](vpn-gateway-about-vpn-gateway-settings.md#requirements). Tahmin edilen toplam verimlilik için bkz. [VPN Gateway Ayarları Hakkında](vpn-gateway-about-vpn-gateway-settings.md#aggthroughput). Fiyatlandırma için bkz. [VPN Gateway Fiyatlandırması](https://azure.microsoft.com/pricing/details/vpn-gateway). Abonelikler ve hizmet sınırlamaları için bkz. [Ağ Limitleri](../articles/azure-subscription-service-limits.md#networking-limits).
+Bir sanal ağın her ağ geçidi türü için yalnızca bir sanal ağ geçidi olabilir. Örneğin, -GatewayType ExpressRoute kullanan bir sanal ağ geçidiniz ve -GatewayType Vpn kullanan bir sanal ağ geçidiniz olabilir. Bu makale öncelikli olarak VPN Gateway seçeneğine odaklanmaktadır. ExpressRoute hakkında daha fazla bilgi için bkz. [ExpressRoute’a Teknik Genel Bakış](../expressroute/expressroute-introduction.md).
 
+## Fiyatlandırma
+
+[AZURE.INCLUDE [vpn-gateway-about-pricing-include](../../includes/vpn-gateway-about-pricing-include.md)] 
+
+
+## Ağ geçidi SKU'ları
+
+[AZURE.INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)] 
+
+Aşağıdaki tabloda ağ geçidi türleri ve tahmini toplam verimlilik gösterilmiştir. Bu tablo hem Resource Manager, hem de klasik dağıtım modellerine uygulanır.
+
+[AZURE.INCLUDE [vpn-gateway-table-gwtype-aggthroughput](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)] 
 
 ## VPN Gateway yapılandırma
 
@@ -82,7 +94,7 @@ Azure'ın şu anda iki dağıtım modeli vardır: Klasik ve Resource Manager. Az
 
 #### VNet eşlemesi
 
-Sanal ağınız belirli gereksinimleri karşılıyorsa bağlantınızı oluşturmak için VNet eşlemesini kullanabilirsiniz. VNet eşlemesi sanal ağ geçidini kullanmaz. [VNet eşlemesi](../virtual-network/virtual-network-peering-overview.md) şu anda Önizlemede.
+Sanal ağınız belirli gereksinimleri karşılıyorsa bağlantınızı oluşturmak için VNet eşlemesini kullanabilirsiniz. VNet eşlemesi sanal ağ geçidini kullanmaz. Daha fazla bilgi için bkz. [VNet eşlemesi](../virtual-network/virtual-network-peering-overview.md).
 
 
 ### Sanal Ağdan Sanal Ağa dağıtım modelleri ve yöntemleri
@@ -139,6 +151,6 @@ VPN ağ geçidi yapılandırmanızı planlayın. Bkz. [VPN Gateway Planlama ve T
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

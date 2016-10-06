@@ -26,7 +26,7 @@
 - [C#](sql-database-get-started-csharp.md)
 - [PowerShell](sql-database-get-started-powershell.md)
 
-[.NET için Azure SQL Database Kitaplığı](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql) ile bir Azure SQL veritabanı oluşturmak üzere C# dilini nasıl kullanacağınızı öğrenin. Bu makalede SQL ve C# ile tek bir veritabanını oluşturma işlemi açıklanmaktadır. Esnek veritabanı havuzu oluşturmak için bkz. [Esnek veritabanı havuzu oluşturma](sql-database-elastic-pool-create-portal.md).
+[.NET için Azure SQL Database Kitaplığı](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql) ile bir Azure SQL veritabanı oluşturmak üzere C# dilini nasıl kullanacağınızı öğrenin. Bu makalede SQL ve C# ile tek bir veritabanını oluşturma işlemi açıklanmaktadır. Esnek veritabanı havuzu oluşturmak için bkz. [Esnek veritabanı havuzu oluşturma](sql-database-elastic-pool-create-csharp.md).
 
 .NET için Azure SQL Database Kitaplığı [Resource Manager tabanlı SQL Database REST API'sini](https://msdn.microsoft.com/library/azure/mt163571.aspx) sarmalayan [Azure Resource Manager](../resource-group-overview.md) tabanlı bir API sağlar.
 
@@ -294,6 +294,6 @@ SQL Database'i ve C# ile bir veritabanını ayarlamayı denediğinize göre şu 
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

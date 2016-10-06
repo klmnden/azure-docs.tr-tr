@@ -50,6 +50,6 @@ Esnek veritabanı havuzları için bu bölümde açıklanan olan tekniklerle hav
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

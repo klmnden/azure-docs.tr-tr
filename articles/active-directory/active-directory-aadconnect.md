@@ -5,7 +5,7 @@
     services="active-directory"
     documentationCenter=""
     authors="andkjell"
-    manager="stevenpo"
+    manager="femila"
     editor=""/>
 
 <tags
@@ -14,10 +14,12 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="07/14/2016"
+    ms.date="09/30/2016"
     ms.author="andkjell;billmath"/>
 
+
 # Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme
+
 Azure AD Connect, şirket içi dizinlerinizi Azure Active Directory ile tümleştirir. Bu sayede kullanıcılarınıza Azure AD ile tümleşik Office 365, Azure ve SaaS uygulamaları için ortak bir kimlik sağlayabilirsiniz. Planlama, dağıtım ve işlem adımları sırasında sizi yönlendirmesi için bu konu başlığından faydalanabilirsiniz. Bu alanla ilgili konu başlıklarına yönelik bağlantılar mevcuttur.
 
 <!-- The hardcoded link is a workaround for campaign ids not working in acom links-->
@@ -165,6 +167,6 @@ Sık Sorulan Sorular | [Azure AD Connect ile ilgili SSS](active-directory-aadcon
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Sep16_HO4-->
 
 

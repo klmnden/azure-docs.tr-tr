@@ -14,7 +14,8 @@
     ms.devlang="dotnet"
     ms.topic="hero-article"
     ms.date="07/26/2016"
-    ms.author="gusapost"/>
+    ms.author="cbrooks;robinsh"/>
+
 
 # .NET kullanarak Azure Kuyruk Depolamaya başlayın
 
@@ -52,7 +53,7 @@ Bu öğreti, Azure kuyruk depolama kullanarak bazı genel senaryolar için .NET 
 
 Aşağıdaki `using` bildirimlerini `program.cs` dosyasının üstüne ekleyin:
 
-    using Microsoft.Azure; // Namespace for CloudConfigurationManager 
+    using Microsoft.Azure; // Namespace for CloudConfigurationManager
     using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
     using Microsoft.WindowsAzure.Storage.Queue; // Namespace for Queue storage types
 
@@ -280,6 +281,6 @@ Kuyruk depolamanın temellerini öğrendiğinize göre, daha karmaşık depolama
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 

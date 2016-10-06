@@ -21,16 +21,17 @@
 
 [AZURE.INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
 
-Bu öğreticide [Azure App Service]’te cmd.exe veya bash gibi bir komut satırı ortamında nasıl basit bir [Node.js][NODEJS] uygulaması oluşturulacağı ve bir [web uygulamasına] dağıtılacağı gösterilmektedir. Bu öğreticideki yönergeler Node.js çalıştırabilen tüm işletim sistemlerinde izlenebilir.
+Bu öğreticide cmd.exe veya bash gibi bir komut satırı ortamında basit bir [Node.js] uygulaması oluşturma ve bir [Azure App Service]’e dağıtma işlemi gösterilmektedir. Bu öğreticideki yönergeler Node.js çalıştırabilen tüm işletim sistemlerinde izlenebilir.
+
 
 <a name="prereq"></a>
-## Ön koşullar
+## Önkoşullar
 
-- **Node.js** ([Yüklemek için buraya tıklayın][NODEJS])
-- **Bower** ([Yüklemek için buraya tıklayın][BOWER])
-- **Yeoman** ([Yüklemek için buraya tıklayın][YEOMAN])
-- **Git** ([Yüklemek için buraya tıklayın][GIT])
-- **Azure CLI** ([Yüklemek için buraya tıklayın][Azure CLI])
+- [Node.js]
+- [Bower]
+- [Yeoman]
+- [Git]
+- [Azure CLI]
 - Bir Microsoft Azure hesabı. Bir hesabınız yoksa, [ücretsiz deneme için kaydolabilir] veya [Visual Studio abone avantajlarınızı etkinleştirebilirsiniz.]
 
 ## Basit bir Node.js web uygulamasına oluşturma ve dağıtma
@@ -59,20 +60,20 @@ Bu öğreticide [Azure App Service]’te cmd.exe veya bash gibi bir komut satır
 
     Tarayıcınızda, Express giriş sayfasını görebildiğinizden emin olmak için <http://localhost:3000> adresine gidin. Uygulamanızın düzgün çalıştığını doğruladıktan sonra, durdurmak için `Ctrl-C` kullanın.
     
-1. ASM moduna geçiş yapın ve Azure’da oturum açın (bunun için [Azure CLI](#prereq) gerekir):
+1. ASM moduna geçiş yapın ve Azure’da oturum açın ([Azure CLI](#prereq) gerekir):
 
         azure config mode asm
         azure login
 
     Azure aboneliğinizin bulunduğu bir Microsoft hesabıyla tarayıcıda oturum açmaya devam etmek için istemi izleyin.
 
-2. Hala uygulamanızın kök dizininde olduğunuzdan emin olun, sonra Azure’da sonraki komutla benzersiz bir uygulama adına sahip App Service uygulama kaynağı oluşturun; örneğin, http://{uygulama adı}.azurewebsites.net
+2. Hala uygulamanızın kök dizininde olduğunuzdan emin olun, sonra Azure’da sonraki komutla benzersiz bir uygulama adına sahip App Service uygulama kaynağı oluşturun. Örneğin: http://{appname}.azurewebsites.net
 
         azure site create --git {appname}
 
     Dağıtım yapılacak Azure bölgesini seçmek için istemi izleyin. Azure aboneliğiniz için daha önce Git/FTP dağıtımı kimlik bilgileri oluşturmadıysanız, bunların oluşturmanız da istenir.
 
-3. Uygulamanızın kökünde./config/config.js dosyasını açın ve üretim bağlantı noktasını `process.env.port` olarak değiştirin; `config` nesnesi içindeki `production` özelliği aşağıdaki örnekteki gibi görünmelidir.
+3. Uygulamanızın kökünde./config/config.js dosyasını açın ve üretim bağlantı noktasını `process.env.port` olarak değiştirin; `config` nesnesi içindeki `production` özelliği aşağıdaki örnekteki gibi görünmelidir:
 
         production: {
             root: rootPath,
@@ -84,13 +85,19 @@ Bu öğreticide [Azure App Service]’te cmd.exe veya bash gibi bir komut satır
 
     Bu, Node.js uygulamanızın, iisnode’un dinlediği varsayılan bağlantı noktasında web isteklerine yanıt vermesini sağlar.
     
+4. ./package.json dosyasını açın ve [istediğiniz Node.js sürümünü belirtmek üzere](#version) `engines` özelliğini ekleyin.
+
+        "engines": {
+            "node": "6.6.0"
+        }, 
+
 4. Yaptığınız değişiklikleri kaydedin, uygulamanızı Azure’a dağıtmak için git’i kullanın:
 
         git add .
         git commit -m "{your commit message}"
         git push azure master
 
-    Hızlı oluşturucu zaten bir .gitignore dosyası sağlar, bu nedenle, `git push` node_modules/ dizinini yüklemeye çalışırken bant genişliği tüketmezsiniz.
+    Hızlı oluşturucu zaten bir .gitignore dosyası sağlar; bu nedenle `git push` node_modules/ dizinine yüklemeye çalışırken bant genişliği kullanmaz.
 
 5. Son olarak, dinamik Azure uygulamanızı tarayıcıda başlatın:
 
@@ -125,13 +132,14 @@ Aşağıdaki öğreticiler App Service’te belirli bir altyapıyla nasıl çal�
 - [Azure App Service’te Socket.IO ile bir Node.js sohbet uygulaması oluşturma]
 - [Azure App Service Web Apps ile io.js kullanma]
 
+<a name="version"></a>
 ## Belirli bir Node.js altyapısını kullanma
 
 Tipik iş akışınızda, normalde package.json’da yapabildiğiniz gibi App Service’e belirli bir Node.js altyapısını kullanmasını söyleyebilirsiniz.
 Örneğin:
 
     "engines": {
-        "node": "5.5.0"
+        "node": "6.6.0"
     }, 
 
 Kudu dağıtım altyapısı aşağıdaki sırayla, hangi Node.js altyapısının kullanılacağını belirler:
@@ -140,10 +148,12 @@ Kudu dağıtım altyapısı aşağıdaki sırayla, hangi Node.js altyapısının
 - Sonra, `engines` nesnesinde `"node": "..."` belirtilmiş olup olmadığını görmek için package.json’a bakın. Belirtilmişse, bunu kullanın.
 - Varsayılan olarak, varsayılan bir Node.js sürümünü seçin.
 
+>[AZURE.NOTE] İstediğiniz Node.js altyapısını açıkça tanımlamanız önerilir. Varsayılan Node.js sürümü değişebilir ve varsayılan Node.js sürümü uygulamanıza uygun olmadığı için Azure web uygulamanızda hatalar alabilirsiniz.
+
 <a name="iisnodelog"></a>
 ## iisnode’dan stdout ve stder günlüklerini alma
 
-iisnode günlüklerini okumak için aşağıdaki adımları kullanın.
+iisnode günlüklerini okumak için aşağıdaki adımları izleyin.
 
 > [AZURE.NOTE] Bu adımları tamamladıktan sonra, bir hata gerçekleşene kadar günlük dosyaları oluşmayabilir.
 
@@ -162,13 +172,13 @@ iisnode günlüklerini okumak için aşağıdaki adımları kullanın.
         git commit -m "{your commit message}"
         git push azure master
    
-   iisnode artık yapılandırılmıştır. Sonraki adımlar, bu günlüklere nasıl erişeceğinizi gösterir.
+    iisnode artık yapılandırılmıştır. Sonraki adımlar, bu günlüklere nasıl erişeceğinizi gösterir.
      
 4. Tarayıcınızda, aşağıdaki konumda bulunan, uygulamanızın Kudu hata ayıklama konsoluna erişin:
 
         https://{appname}.scm.azurewebsites.net/DebugConsole 
 
-    Bu URL’nin DNS adına "*.scm.*" eklentisiyle web uygulaması URL’sinden farklı olduğuna dikkat edin. Bunu URL’ye eklemeyi atlarsanız, 404 hatası alırsınız.
+    Bu URL "*.scm.*" eklentisi nedeniyle web uygulaması URL’sinden farklıdır dikkat edin. Bunu URL’ye eklemeyi atlarsanız, 404 hatası alırsınız.
 
 5. D:\home\site\wwwroot\iisnode konumuna gidin
 
@@ -223,20 +233,20 @@ Node-Inspector’ı etkinleştirmek için aşağıdaki adımları izleyin:
 [Azure CLI]: ../xplat-cli-install.md
 [Azure App Service]: ../app-service/app-service-value-prop-what-is.md
 [Visual Studio abone avantajlarınızı etkinleştirebilirsiniz.]: http://go.microsoft.com/fwlink/?LinkId=623901
-[BOWER]: http://bower.io/
+[Bower]: http://bower.io/
 [Azure App Service’te Socket.IO ile bir Node.js sohbet uygulaması oluşturma]: ./web-sites-nodejs-chat-app-socketio.md
 [Azure App Service’e Sails.js web uygulaması dağıtma]: ./app-service-web-nodejs-sails.md
 [Süper Gizli Kudu Hata Ayıklama Konsolunu keşfetme]: /documentation/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [Yeoman için Hızlı oluşturucu]: https://github.com/petecoop/generator-express
-[GIT]: http://www.git-scm.com/downloads
+[Git]: http://www.git-scm.com/downloads
 [Azure App Service Web Apps ile io.js kullanma]: ./web-sites-nodejs-iojs.md
 [iisnode]: https://github.com/tjanczuk/iisnode/wiki
 [MEANJS]: http://meanjs.org/
-[NODEJS]: http://nodejs.org
+[Node.js]: http://nodejs.org
 [SAILSJS]: http://sailsjs.org/
 [ücretsiz deneme için kaydolabilir]: http://go.microsoft.com/fwlink/?LinkId=623901
 [web uygulamasına]: ./app-service-web-overview.md
-[YEOMAN]: http://yeoman.io/
+[Yeoman]: http://yeoman.io/
 
 <!-- IMG List -->
 
@@ -247,6 +257,6 @@ Node-Inspector’ı etkinleştirmek için aşağıdaki adımları izleyin:
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

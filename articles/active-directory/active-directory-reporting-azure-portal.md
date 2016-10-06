@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/12/2016"
+   ms.date="09/25/2016"
    ms.author="markvi"/>
 
 
@@ -27,7 +27,7 @@ Azure Active Directory önizlemesindeki raporlama ile ortamınızın nasıl çal
 
 - **Oturum açma etkinlikleri**: Yönetilen uygulamaların kullanımı ve kullanıcıların oturum açma etkinlikleri hakkında bilgiler
 
-- **Sistem etkinlikleri**: Kullanıcılar ve grup yönetimi, yönetilen uygulamalarınız ve dizin etkinlikleri hakkında denetim bilgileri
+- **Denetim günlükleri** - Kullanıcılar ve grup yönetimi, yönetilen uygulamalarınız ve dizin etkinlikleriniz hakkında sistem etkinliği bilgileri
 
 Aradığınız verilerin kapsamını bağlı olarak, bu raporlara erişmek için [Azure portal](https://portal.azure.com) hizmetler listesinde **Kullanıcılar ve gruplar** ya da **Kurumsal uygulamalar** seçeneklerine tıklayabilirsiniz.
 
@@ -120,7 +120,7 @@ Arama yöntemi, oturum açma işlemlerinin kapsamı olarak belirli **kullanıcı
 
 ![Raporlama](./media/active-directory-reporting-azure-portal/84.png "Reporting")
 
-## Sistem etkinlikleri
+## Denetim günlükleri
 
 Azure Active Directory'deki denetim günlükleri uyumluluk amacıyla sistem etkinliklerinin kayıtlarını sağlar.
 
@@ -220,6 +220,6 @@ Bkz. [Azure Active Directory Raporlama Kılavuzu](active-directory-reporting-gui
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="09/15/2016"
+   ms.date="09/26/2016"
    ms.author="nitinme"/>
 
 
@@ -38,13 +38,7 @@ Klasör oluşturma, veri dosyalarını karşıya yükleme ve indirme gibi temel 
 
 * **Azure Data Lake Store hesabı**. Hesap oluşturmaya ilişkin yönergeler için bkz. [Azure Data Lake Store kullanmaya başlama](data-lake-store-get-started-portal.md)
 
-* Uygulamanızın Azure Active Directory’de kimlik doğrulamasını otomatik olarak yapmasını istiyorsanız bir **Azure Active Directory Uygulaması oluşturun**.
-
-    * **Etkileşimli olmayan hizmet sorumlusu kimlik doğrulaması için** - Azure Active Directory'de bir **Web uygulaması** oluşturmanız gerekir. Uygulamayı oluşturduktan sonra uygulamayla ilgili aşağıdaki değerleri alın.
-        - Uygulama için **istemci kimliği** ve **istemci parolası** edinme
-        - Azure Active Directory uygulamasını bir role atayın. Rol, Azure Active Directory uygulamasına izin vermek istediğiniz kapsam düzeyinde olabilir. Örneğin, uygulamayı abonelik düzeyinde veya kaynak grubu düzeyinde atayabilirsiniz. 
-
-    Bu değerleri almaya, izinleri ayarlamaya ve rolleri atamaya yönelik yönergeler için bkz. [Portalı kullanarak Active Directory uygulaması ve hizmet sorumlusu oluşturma](../resource-group-create-service-principal-portal.md).
+* **Azure Active Directory Uygulaması oluşturma**. Data Lake Store uygulamasında Azure AD ile kimlik doğrulaması yapmak için Azure AD uygulamasını kullanın. Azure AD kimlik doğrulaması için **son kullanıcı kimlik doğrulaması** veya **hizmetten hizmete kimlik doğrulama** gibi farklı yaklaşımlar bulunmaktadır. Kimlik doğrulaması hakkında yönergeler ve daha fazla bilgi için bkz. [Azure Active Directory kullanarak Data Lake Store kimlik doğrulaması yapma](data-lake-store-authenticate-using-active-directory.md).
 
 ## .NET uygulaması oluşturma
 
@@ -97,12 +91,15 @@ Klasör oluşturma, veri dosyalarını karşıya yükleme ve indirme gibi temel 
                 private static string _adlsAccountName;
                 private static string _resourceGroupName;
                 private static string _location;
+                private static string _subId;
+
                 
                 private static void Main(string[] args)
                 {
                     _adlsAccountName = "<DATA-LAKE-STORE-NAME>"; // TODO: Replace this value with the name of your existing Data Lake Store account.
                     _resourceGroupName = "<RESOURCE-GROUP-NAME>"; // TODO: Replace this value with the name of the resource group containing your Data Lake Store account.
                     _location = "East US 2";
+                    _subId = "<SUBSCRIPTION-ID>";
                     
                     string localFolderPath = @"C:\local_path\"; // TODO: Make sure this exists and can be overwritten.
                     string localFilePath = localFolderPath + "file.txt"; // TODO: Make sure this exists and can be overwritten.
@@ -116,31 +113,41 @@ Makalenin geriye kalan bölümlerinde, kullanılabilir .NET yöntemlerinin, kiml
 
 ## Kimlik Doğrulaması
 
-Aşağıdaki kod parçacığı etkileşimli oturum açma deneyimi için kullanılabilir.
+### Son kullanıcı kimlik doğrulaması kullanıyorsanız
+
+Bunu mevcut Azure AD "Yerel İstemci" Uygulamanız ile birlikte kullanın; aşağıda bir tanesi verilmiştir.
 
     // User login via interactive popup
-    //    Use the client ID of an existing AAD "Native Client" application.
+    // Use the client ID of an existing AAD "Native Client" application.
     SynchronizationContext.SetSynchronizationContext(new SynchronizationContext());
     var domain = "common"; // Replace this string with the user's Azure Active Directory tenant ID or domain name, if needed.
     var nativeClientApp_clientId = "1950a258-227b-4e31-a9cf-717495945fc2";
-    var activeDirectoryClientSettings = ActiveDirectoryClientSettings.UsePromptOnly(nativeClientApp_clientId, new Uri("urn:ietf:wg:oauth:2.0:oob"))
+    var activeDirectoryClientSettings = ActiveDirectoryClientSettings.UsePromptOnly(nativeClientApp_clientId, new Uri("urn:ietf:wg:oauth:2.0:oob"));
     var creds = UserTokenProvider.LoginWithPromptAsync(domain, activeDirectoryClientSettings).Result;
 
-Alternatif olarak, istemci parolası / uygulama anahtarı / hizmet sorumlusu kullanılarak aşağıdaki kod parçacığı uygulamanızın etkileşimli olmayan kimlik doğrulaması için kullanılabilir.
+Yukarıdaki parçacıkta varsayılan olarak tüm Azure abonelikleri için kullanılabilir olan bir Azure AD etki alanı ve istemci kimliği kullanılmaktadır. Kendi Azure AD etki alanınızı ve uygulama istemci kimliğinizi kullanmak istiyorsanız bir Azure AD yerel uygulaması oluşturmanız gerekir. Yönergeler için bkz. [Active Directory Uygulaması oluşturma](../resource-group-create-service-principal-portal.md#create-an-active-directory-application).
+
+>[AZURE.NOTE] Yukarıdaki bağlantılarda verilen yönergeler bir Azure AD web uygulaması içindir. Bununla birlikte, bunun yerine yerel istemci uygulaması oluşturmayı seçtiğinizde bile adımlar tam olarak aynıdır. 
+
+### Gizli anahtar ile hizmetten hizmete kimlik doğrulaması kullanıyorsanız 
+
+Gizli anahtar / uygulama anahtarı / hizmet sorumlusu kullanılarak aşağıdaki kod parçacığı uygulamanızın etkileşimli olmayan kimlik doğrulaması için kullanılabilir. Bunu var olan [Azure AD "Web App" Uygulaması](../resource-group-create-service-principal-portal.md) ile birlikte kullanın.
 
     // Service principal / appplication authentication with client secret / key
-    //    Use the client ID and certificate of an existing AAD "Web App" application.
+    // Use the client ID and certificate of an existing AAD "Web App" application.
     SynchronizationContext.SetSynchronizationContext(new SynchronizationContext());
     var domain = "<AAD-directory-domain>";
     var webApp_clientId = "<AAD-application-clientid>";
-    var clientSecret = "<AAD-application-clientid>";
+    var clientSecret = "<AAD-application-client-secret>";
     var clientCredential = new ClientCredential(webApp_clientId, clientSecret);
     var creds = ApplicationTokenProvider.LoginSilentAsync(domain, clientCredential).Result;
 
-Üçüncü bir seçenek olarak, uygulama sertifikası / hizmet sorumlusu kullanılarak aşağıdaki kod parçacığı uygulamanızın etkileşimli olmayan kimlik doğrulaması için kullanılabilir.
+### Sertifika ile hizmetten hizmete kimlik doğrulaması kullanıyorsanız
+
+Üçüncü bir seçenek olarak, uygulama sertifikası / hizmet sorumlusu kullanılarak aşağıdaki kod parçacığı uygulamanızın etkileşimli olmayan kimlik doğrulaması için kullanılabilir. Bunu var olan [Azure AD "Web App" Uygulaması](../resource-group-create-service-principal-portal.md) ile birlikte kullanın.
 
     // Service principal / application authentication with certificate
-    //    Use the client ID and certificate of an existing AAD "Web App" application.
+    // Use the client ID and certificate of an existing AAD "Web App" application.
     SynchronizationContext.SetSynchronizationContext(new SynchronizationContext());
     var domain = "<AAD-directory-domain>";
     var webApp_clientId = "<AAD-application-clientid>";
@@ -152,8 +159,11 @@ Alternatif olarak, istemci parolası / uygulama anahtarı / hizmet sorumlusu kul
 
 Aşağıdaki kod parçacığı Data Lake Store hesabını ve hizmete verme isteği göndermek için kullanılan dosya sistemi istemci nesnelerini oluşturur.
 
-    // Create client objects
-    var fileSystemClient = new DataLakeStoreFileSystemManagementClient(creds);
+    // Create client objects and set the subscription ID
+    _adlsClient = new DataLakeStoreAccountManagementClient(creds);
+    _adlsFileSystemClient = new DataLakeStoreFileSystemManagementClient(creds);
+
+    _adlsClient.SubscriptionId = _subId;
 
 ## Bir abonelik içindeki tüm Data Lake Store hesaplarını listeleme
 
@@ -162,7 +172,7 @@ Aşağıdaki kod parçacığı belirli bir Azure aboneliği içindeki tüm Data 
     // List all ADLS accounts within the subscription
     public static List<DataLakeStoreAccount> ListAdlStoreAccounts()
     {
-        var response = _adlsClient.Account.List(_adlsAccountName);
+        var response = _adlsClient.Account.List();
         var accounts = new List<DataLakeStoreAccount>(response);
         
         while (response.NextPageLink != null)
@@ -197,7 +207,7 @@ Aşağıdaki kod parçacığında, bir Data Lake Store hesabına dosya yüklemek
         uploader.Execute();
     }
 
-DataLakeStoreUploader bir yerel dosya (veya klasör) yolu ile Data Lake store arasında yinelemeli karşıya yükleme ve indirmeyi destekler.    
+`DataLakeStoreUploader` bir yerel dosya ile Data Lake Store dosya yolu arasında yinelemeli karşıya yükleme ve indirmeyi destekler.    
 
 ## Dosya veya dizin bilgilerini alma
 
@@ -266,6 +276,6 @@ Aşağıdaki kod parçacığında, bir Data Lake Store hesabındaki bir dosyayı
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

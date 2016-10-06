@@ -13,14 +13,14 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="08/02/2016"
+    ms.date="09/22/2016"
     ms.author="curtand"/>
 
 
 # Azure Active Directory'de diğer dizinlerden veya iş ortağı şirketlerden kullanıcılar ekleme
 
 > [AZURE.SELECTOR]
-- [Azure Portal](active-directory-create-users-external-azure-portal.md)
+- [Azure Portal](active-directory-users-create-external-azure-portal.md)
 - [Klasik Azure portalı](active-directory-create-users-external.md)
 
 Bu makalede Azure Active Directory'de diğer dizinlerden kullanıcıların eklenmesi veya iş ortağı şirketlerden kullanıcıların eklenmesi açıklanmaktadır. Kuruluşunuzdaki yeni kullanıcıların ve Microsoft hesabına sahip kullanıcıların eklenmesi hakkında daha fazla bilgi için bkz. [Azure Active Directory'ye yeni kullanıcı ekleme](active-directory-create-users.md). Eklenen kullanıcılar varsayılan olarak yönetici izinlerine sahip olmaz ancak bu kullanıcılara herhangi bir zamanda roller atayabilirsiniz.
@@ -71,7 +71,7 @@ Bir kullanıcı kendi giriş dizininde silinirse veya Microsoft hesabını iptal
 - **Klasik Azure portalı**: Birden çok dizinin yöneticisi olan bir dış kullanıcının bu dizinlerin her birini yönetmesine izin verir.
 - **SharePoint Online**: Dış paylaşım etkinleştirilmişse bir dış kullanıcının SharePoint Online yetkili kaynaklarına erişmesine izin verir.
 - **Dynamics CRM**: Kullanıcı PowerShell yoluyla lisanslanmışsa bir dış kullanıcının Dynamics CRM'deki yetkili kaynaklara erişmesine izin verir.
-- **Dynamics AX**: Kullanıcı PowerShell yoluyla lisanslanmışsa bir dış kullanıcının Dynamics AX'teki yetkili kaynaklara erişmesine izin verir. [Azure AD dış kullanıcıları](#known-limitations-of-azure-ad-external-users) ve [Konuk kullanıcılar](#guest-user-management-and-limitations) için geçerli olan sınırlamalar Dynamics AX'teki dış kullanıcılar için de geçerlidir.
+- **Dynamics AX**: Kullanıcı PowerShell yoluyla lisanslanmışsa bir dış kullanıcının Dynamics AX'teki yetkili kaynaklara erişmesine izin verir. [Azure AD dış kullanıcıları](#known-limitations-of-azure-ad-external-users) için geçerli olan sınırlamalar Dynamics AX'teki dış kullanıcılar için de geçerlidir.
 
 ### Azure AD dış kullanıcılarının bilinen sınırlamaları
 
@@ -91,6 +91,6 @@ Bir kullanıcı kendi giriş dizininde silinirse veya Microsoft hesabını iptal
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

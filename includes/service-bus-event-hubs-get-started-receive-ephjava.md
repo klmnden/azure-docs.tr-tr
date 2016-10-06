@@ -189,7 +189,7 @@ Derleme ortamlarının farklı türleri için JAR dosyalarının en son sürüm�
 > [AZURE.NOTE] Bu öğretici, EventProcessorHost’un tek bir örneğini kullanır. Verimliliği artırmak için, birden çok EventProcessorHost örneğini çalıştırmanız önerilir. Böyle durumlarda, alınan olayların yük dengesi için çeşitli örnekler otomatik olarak birbirleriyle koordine olurlar. Birden çok alıcının her birinin *tüm* olayları işlemesini istiyorsanız **ConsumerGroup** kavramını kullanmalısınız. Olaylar farklı makinelerden alındığında, dağıtıldıkları makineleri (veya rolleri) temel alan EventProcessorHost örnekleri için ad belirtmek yararlı olabilir.
 
 <!-- Links -->
-[Event Hubs’a Genel Bakış]: event-hubs-overview.md
+[Event Hubs’a genel bakış]: event-hubs-overview.md
 [Azure Storage hesabınız]: ../storage/storage-create-storage-account.md
 [Klasik Azure portalı]: http://manage.windowsazure.com
 [Maven Package]: https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs-eph%22
@@ -200,6 +200,6 @@ Derleme ortamlarının farklı türleri için JAR dosyalarının en son sürüm�
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

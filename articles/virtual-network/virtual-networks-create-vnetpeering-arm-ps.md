@@ -30,7 +30,7 @@ PowerShell kullanarak VNet eşlemesi oluşturmak için lütfen aşağıdaki adı
 
 1. Daha önce Azure PowerShell kullanmadıysanız, [Azure PowerShell’i Yükleme ve Yapılandırma](../powershell-install-configure.md) sayfasına gidin ve Azure’da oturum açıp aboneliğinizi seçmek için talimatları sonuna kadar uygulayın.
 
-        > [AZURE.NOTE] VNet eşlemesini yönetmeye yönelik PowerShell cmdlet’i [Azure PowerShell 1.6](http://www.powershellgallery.com/packages/Azure/1.6.0) ile birlikte gönderilir.
+> [AZURE.NOTE] VNet eşlemesini yönetmeye yönelik PowerShell cmdlet’i [Azure PowerShell 1.6](http://www.powershellgallery.com/packages/Azure/1.6.0) ile birlikte gönderilir.
 
 2. Sanal ağ nesnelerini okuyun:
 
@@ -48,7 +48,8 @@ PowerShell kullanarak VNet eşlemesi oluşturmak için lütfen aşağıdaki adı
         Etag            : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
         ResourceGroupName   : vnet101
         VirtualNetworkName  : vnet1
-        ProvisioningState       : Succeeded
+        PeeringState        : Initiated
+        ProvisioningState   : Succeeded
         RemoteVirtualNetwork    : {
                                             "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/vnet101/providers/Microsoft.Network/virtualNetworks/vnet2"
                                         }
@@ -70,7 +71,8 @@ PowerShell kullanarak VNet eşlemesi oluşturmak için lütfen aşağıdaki adı
         Etag            : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
         ResourceGroupName   : vnet101
         VirtualNetworkName  : vnet2
-        ProvisioningState       : Succeeded
+        PeeringState        : Connected
+        ProvisioningState   : Succeeded
         RemoteVirtualNetwork    : {
                                             "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/vnet101/providers/Microsoft.Network/virtualNetworks/vnet1"
                                         }
@@ -92,7 +94,8 @@ PowerShell kullanarak VNet eşlemesi oluşturmak için lütfen aşağıdaki adı
         Etag            : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
         ResourceGroupName   : vnet101
         VirtualNetworkName  : vnet1
-        ProvisioningState       : Succeeded
+        PeeringState        : Connected
+        ProvisioningState   : Succeeded
         RemoteVirtualNetwork    : {
                                              "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/vnet101/providers/Microsoft.Network/virtualNetworks/vnet2"
                                         }
@@ -110,7 +113,7 @@ PowerShell kullanarak VNet eşlemesi oluşturmak için lütfen aşağıdaki adı
   	|AllowVirtualNetworkAccess|Eş VNet’in adres alanının Virtual_network Etiketine eklenip eklenmeyeceği|Evet|
   	|AllowForwardedTraffic|Eşlenen VNet’ten kaynaklanmayan trafiğin kabul edilmesine veya bırakılmasına izin verir|Hayır|
   	|AllowGatewayTransit|Eş VNet’in VNet ağ geçidinizi kullanmasına izin verir|Hayır|
-  	|UseRemoteGateways|Eşinizin VNet ağ geçidini kullanır. Eş VNet için yapılandırılmış bir ağ geçidi olmalı ve AllowGatewayTransit seçilmelidir. Yapılandırılmış bir ağ geçidiniz varsa bu seçeneği kullanamazsınız|Hayır|
+  	|UseRemoteGateways|Eşinizin VNet ağ geçidini kullanır. Eş VNet'in yapılandırılmış bir ağ geçidi olmalı ve AllowGatewayTransit seçili olmalıdır. Yapılandırılmış bir ağ geçidiniz varsa bu seçeneği kullanamazsınız|Hayır|
 
     VNet eşlemesindeki her bağlantı yukarıdaki özellikleri içerir. Örneğin, AllowVirtualNetworkAccess seçeneğini VNet1'den VNet2'ye yönelik bir VNet eşlemesi için True olarak ve diğer yöndeki VNet eşleme bağlantısı için False olarak ayarlayabilirsiniz.
 
@@ -125,6 +128,7 @@ PowerShell kullanarak VNet eşlemesi oluşturmak için lütfen aşağıdaki adı
         Etag            : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
         ResourceGroupName   : vnet101
         VirtualNetworkName  : vnet1
+        PeeringState        : Connected
         ProvisioningState   : Succeeded
         RemoteVirtualNetwork    : {
                                             "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/vnet101/providers/Microsoft.Network/virtualNetworks/vnet2"
@@ -146,7 +150,7 @@ PowerShell kullanarak abonelikler arasında VNet eşlemesi oluşturmak için lü
 
         New-AzureRmRoleAssignment -SignInName <UserB ID> -RoleDefinitionName "Network Contributor" -Scope /subscriptions/<Subscription-A-ID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Network/VirtualNetworks/VNet5
 
-    Bu bir gereklilik değildir; istekler eşleştiği sürece kullanıcılar ilgili sanal ağları için eşleme isteklerini ayrı ayrı gönderse bile eşleme kurulabilir. Diğer VNet'in ayrıcalıklı bir kullanıcısının yerel VNet'e kullanıcı olarak eklenmesi kurulumu kolaylaştırır.
+    Bu zorunlu değildir; istekler eşleştiği sürece kullanıcılar ilgili sanal ağları için eşleme isteklerini ayrı ayrı gönderse bile eşleme oluşturulabilir. Diğer VNet'in ayrıcalıklı bir kullanıcısının yerel VNet'e kullanıcı olarak eklenmesi kurulumu kolaylaştırır.
 
 2. B Aboneliği için ayrıcalıklı B kullanıcısının hesabıyla Azure'da oturum açın ve şu cmdlet'i çalıştırın:
 
@@ -237,6 +241,6 @@ PowerShell’de klasik bir Sanal ağ ile Azure resource manager sanal ağı aras
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Azure Stack POC anahtarı görevleri | Microsoft Azure"
-    description="Plan ve teklif oluşturmayı öğrenin ve ardından söz konusu teklife abone olup sanal makine oluşturmak için sağlanan hizmetleri kullanın."
+    pageTitle="Azure Stack POC key tasks | Microsoft Azure"
+    description="Learn how to create a plan and offer and then subscribe to that offer and use the services provided to create a virtual machine."
     services="azure-stack"
     documentationCenter=""
     authors="ErikjeMS"
@@ -17,30 +17,20 @@
     ms.author="erikje"/>
 
 
-# Azure Stack POC ile ilgili ilk görevler
+# Azure Stack POC first tasks
 
-Azure Stack'teki birincil nesneler ([planlar, teklifler ve abonelikler](azure-stack-key-features.md#services-plans-offers-and-subscriptions)), kiracılara IaaS hizmetleri (sanal makineler ve web siteleri gibi) sağlar. Bu hizmetler, kiracılarınıza sunduğunuz değerlerdir.
+Now that you've [deployed](azure-stack-deploy.md) and [logged in](azure-stack-connect-azure-stack.md) to Azure Stack POC, you can create some resources.
 
-Artık [dağıtım yapıp](azure-stack-deploy.md) Azure Stack POC'de [oturum açtığınıza](azure-stack-connect-azure-stack.md) göre, sonraki adımlara geçebilirsiniz.
+1.  [Provision a virtual machine](azure-stack-subscribe-plan-provision-vm.md).
 
-Öncelikle [hizmet yöneticisi olarak oturum açın](azure-stack-connect-azure-stack.md#log-in-as-a-service-administrator) ve şunları yapın:
+2.  [Create a storage account](azure-stack-provision-storage-account.md).
 
-1.  İşlem, ağ ve depolama hizmetleri sağlamak için [bir plan oluşturun](azure-stack-create-plan.md).
+## Next steps
 
-2.  Bu planı kapsayan [bir teklif oluşturun](azure-stack-create-offer.md).
-
-Ardından, [kiracı olarak oturum açın](azure-stack-connect-azure-stack.md#log-in-as-a-tenant) ve şunları yapın:
-
-1.  [Teklife abone olun](azure-stack-subscribe-plan-provision-vm.md) ve teklifin planlarına erişin.
-
-2.  Sanal makine oluşturmak için teklife ilişkin plan tarafından sağlanan [hizmetleri kullanın](azure-stack-provision-vm.md).
-
-## Sonraki adımlar
-
-[Plan oluşturma](azure-stack-create-plan.md)
+[Provision a virtual machine](azure-stack-subscribe-plan-provision-vm.md)
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

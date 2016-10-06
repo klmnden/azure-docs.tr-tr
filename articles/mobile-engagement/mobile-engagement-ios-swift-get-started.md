@@ -1,10 +1,10 @@
 <properties
-    pageTitle="Swift’te iOS için Azure Mobile Engagement Kullanmaya Başlama"
+    pageTitle="Swift'te iOS için Azure Mobile Engagement ile Çalışmaya Başlama | Microsoft Azure"
     description="iOS Uygulamaları için Analizler ve Anında İletme Bildirimleri ile Azure Mobile Engagement kullanmayı öğrenin."
     services="mobile-engagement"
-    documentationCenter="ios"
+    documentationCenter="mobile"
     authors="piyushjo"
-    manager="dwrede"
+    manager="erikre"
     editor="" />
 
 <tags
@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="mobile-ios"
     ms.devlang="swift"
     ms.topic="hero-article"
-    ms.date="08/19/2016"
+    ms.date="09/20/2016"
     ms.author="piyushjo" />
+
 
 # Swift’te iOS Uygulamaları için Azure Mobile Engagement Kullanmaya Başlama
 
@@ -25,11 +26,11 @@ Bu öğreticide, temel verileri toplayan ve Apple Anında İletme Bildirimi Sist
 
 Bu öğretici için aşağıdakiler gereklidir:
 
-+ MAC App Store'dan yükleyebileceğiniz XCode 6 veya XCode 7
++ MAC App Store'dan yükleyebileceğiniz XCode 8
 + [Mobile Engagement iOS SDK]
 + Apple Dev Center'ınızda edinebileceğiniz anında iletme bildirimi sertifikası (.p12)
 
-> [AZURE.NOTE] Bu öğreticide, Swift sürüm 2.0 kullanılmaktadır. 
+> [AZURE.NOTE] Bu öğreticide Swift sürüm 3.0 kullanılmaktadır. 
 
 Bu öğreticiyi tamamlamak iOS uygulamalarına ilişkin tüm Mobile Engagement öğreticileri için önkoşuldur.
 
@@ -61,17 +62,15 @@ Tümleştirmeyi göstermek için XCode ile temel bir uygulama oluşturacağız:
 
     ![][2]
 
-5. `Build Phases` sekmesini açıp `Link Binary With Libraries` menüsünde aşağıda gösterildiği gibi çerçeveleri ekleyin. **NOT** `CoreLocation, CFNetwork, CoreTelephony, and SystemConfiguration` dahil edilmelidir:
+5. `Build Phases` sekmesini açıp `Link Binary With Libraries` menüsünde aşağıda gösterildiği gibi çerçeveleri ekleyin:
 
     ![][3]
 
-6. **XCode 7** için, `libxml2.dylib` yerine `libxml2.tbd` ekleyin.
-
-7. SDK'nın Objective C API'lerini kullanabilmek için Dosya > Yeni > Dosya > iOS > Kaynak > Üst Bilgi Dosyası’nı seçerek bir Köprü Oluşturma üst bilgisi oluşturun.
+8. SDK'nın Objective C API'lerini kullanabilmek için Dosya > Yeni > Dosya > iOS > Kaynak > Üst Bilgi Dosyası’nı seçerek bir Köprü Oluşturma üst bilgisi oluşturun.
 
     ![][4]
 
-8. Mobile Engagement Objective-C kodunu Swift kodunuzun kullanımına sunmak için köprü oluşturma üst bilgi dosyasını düzenleyin, aşağıdaki içeri aktarmaları ekleyin:
+9. Mobile Engagement Objective-C kodunu Swift kodunuzun kullanımına sunmak için köprü oluşturma üst bilgi dosyasını düzenleyin, aşağıdaki içeri aktarmaları ekleyin:
 
         /* Mobile Engagement Agent */
         #import "AEModule.h"
@@ -80,19 +79,20 @@ Tümleştirmeyi göstermek için XCode ile temel bir uygulama oluşturacağız:
         #import "EngagementAgent.h"
         #import "EngagementTableViewController.h"
         #import "EngagementViewController.h"
+        #import "AEUserNotificationHandler.h"
         #import "AEIdfaProvider.h"
 
-9. Derleme Ayarları’nda Swift Derleyicisi - Kod Oluşturma altındaki Objective-C Köprü Oluşturma Üst Bilgisi derleme ayarının bu üst bilgiye bir yolu bulunduğundan emin olun. Yol için bir örnek şudur: **$(SRCROOT)/MySuperApp/MySuperApp-Bridging-Header.h (yola bağlı olarak)**
+10. Derleme Ayarları’nda Swift Derleyicisi - Kod Oluşturma altındaki Objective-C Köprü Oluşturma Üst Bilgisi derleme ayarının bu üst bilgiye bir yolu bulunduğundan emin olun. Yol için bir örnek şudur: **$(SRCROOT)/MySuperApp/MySuperApp-Bridging-Header.h (yola bağlı olarak)**
 
     ![][6]
 
-10. Uygulamanızın*Bağlantı Bilgileri* sayfasında Azure Portalı’na geri gidin ve Bağlantı Dizesini kopyalayın.
+11. Uygulamanızın*Bağlantı Bilgileri* sayfasında Azure Portalı’na geri gidin ve Bağlantı Dizesini kopyalayın.
 
     ![][5]
 
-11. Şimdi, bağlantı dizesini `didFinishLaunchingWithOptions` temsilcisine yapıştırın
+12. Şimdi, bağlantı dizesini `didFinishLaunchingWithOptions` temsilcisine yapıştırın
 
-        func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool
+        func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool
         {
             [...]
                 EngagementAgent.init("Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}")
@@ -156,8 +156,9 @@ Aşağıdaki bölümler, uygulamanızı bu bildirim ve mesajları alacak şekild
 
 1. `didFinishLaunchingWithOptions` içerisinde bir erişim modülü oluşturun ve bu modülü mevcut Engagement başlatma satırınıza geçirin:
 
-        func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-            let reach = AEReachModule.moduleWithNotificationIcon(UIImage(named:"icon.png")) as! AEReachModule
+        func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool 
+        {
+            let reach = AEReachModule.module(withNotificationIcon: UIImage(named:"icon.png")) as! AEReachModule
             EngagementAgent.init("Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}", modulesArray:[reach])
             [...]
             return true
@@ -166,29 +167,32 @@ Aşağıdaki bölümler, uygulamanızı bu bildirim ve mesajları alacak şekild
 ###APNS Anında İletme Bildirimlerini almak üzere uygulamanızı etkinleştirme
 1. `didFinishLaunchingWithOptions` yöntemine aşağıdaki satırı ekleyin:
 
-        /* Ask user to receive push notifications */
         if #available(iOS 8.0, *)
         {
-           let settings = UIUserNotificationSettings(forTypes: [UIUserNotificationType.Alert, UIUserNotificationType.Badge, UIUserNotificationType.Sound], categories: nil)
-           application.registerUserNotificationSettings(settings)
-           application.registerForRemoteNotifications()
+            if #available(iOS 10.0, *)
+            {
+                UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in }
+            }else
+            {
+                let settings = UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+                application.registerUserNotificationSettings(settings)
+            }
+            application.registerForRemoteNotifications()
         }
         else
         {
-           application.registerForRemoteNotificationTypes([UIRemoteNotificationType.Alert, UIRemoteNotificationType.Badge, UIRemoteNotificationType.Sound])
+            application.registerForRemoteNotifications(matching: [.alert, .badge, .sound])
         }
 
 2. `didRegisterForRemoteNotificationsWithDeviceToken` yöntemini aşağıdaki şekilde ekleyin:
 
-        func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData)
-        {
+        func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
             EngagementAgent.shared().registerDeviceToken(deviceToken)
         }
 
 3. `didReceiveRemoteNotification:fetchCompletionHandler:` yöntemini aşağıdaki şekilde ekleyin:
 
-        func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject], fetchCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void)
-        {
+        func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
             EngagementAgent.shared().applicationDidReceiveRemoteNotification(userInfo, fetchCompletionHandler:completionHandler)
         }
 
@@ -207,6 +211,6 @@ Aşağıdaki bölümler, uygulamanızı bu bildirim ve mesajları alacak şekild
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO4-->
 
 

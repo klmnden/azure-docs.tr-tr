@@ -112,8 +112,7 @@ IP Alt ağı|Ağ maskesi|IP aralığı
 2. Yükleme Klasörünü Seçin ekranında, klasörün doğru olduğundan emin olun ve İleri’ye tıklayın.
 3. Yükleme tamamlandığında, Son'a tıklayın.  Bu yapılandırma sihirbazını başlatır.
 4. Yapılandırma sihirbazı karşılama ekranında, **Kimlik Doğrulaması Yapılandırma Sihirbazı kullanmayı atla** seçeneği işaretleyin ve **İleri**’ye tıklayın.  Bu sihirbazı kapatır ve sunucuyu başlatır.
-![Bulut](./media/multi-factor-authentication-get-started-server/skip2.png)
-
+    ![Bulut](./media/multi-factor-authentication-get-started-server/skip2.png)
 5. Sunucuyu indirdiğimiz sayfaya dönerek, **Etkinleştirme Kimlik Bilgileri Oluştur** düğmesine tıklayın.  Bu bilgileri verilen kutularda Azure MFA Sunucusu’na kopyalayın ve **Etkinleştir**’e tıklayın.
 
 
@@ -193,6 +192,6 @@ Yöntem|Açıklama
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 
