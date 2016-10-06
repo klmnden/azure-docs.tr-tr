@@ -35,13 +35,15 @@ SDK çeşitli işletim sistemleri ve platformlar üzerinde çalışacak ağ geç
 
 ### İletiler
 
-Birbirlerine ileti gönderen modüllerin düşünülmesi bir ağ geçidinin nasıl çalıştığını kavramsallaştırmanın kolay bir yolu olsa da neler olduğunu doğru şekilde yansıtmaz. Modüller birbirleri ile iletişim kurmak için bir ileti veri yolu kullanır, veri yoluna iletileri yayımlar ve veri yolu bu iletileri veri yoluna bağlı tüm modüllere yayınlar.
+Birbirlerine ileti gönderen modüllerin düşünülmesi bir ağ geçidinin nasıl çalıştığını kavramsallaştırmanın kolay bir yolu olsa da neler olduğunu doğru şekilde yansıtmaz. Modüller birbirleriyle iletişim kurmak için bir aracı kullanır, aracıya iletiler yayımlar (veri yolu, pubsub veya başka bir mesajlaşma deseni) ve ardından aracının iletiyi kendisine bağlı modüllere yönlendirmesine izin verir.
 
-Modül, ileti veri yoluna bir mesajı yayımlamak için **MessageBus_Publish** işlevini kullanır. İleti veri yolu bir geri çağırma işlevini çağırarak iletileri bir modüle teslim eder. İleti bir dizi anahtar/değer özelliklerinden ve bir bellek bloğu olarak geçirilen içeriklerden oluşur.
+Bir modül, aracıya ileti yayımlamak için **Broker_Publish** işlevini kullanır. Aracı bir geri çağırma işlevini çağırarak iletileri bir modüle teslim eder. İleti bir dizi anahtar/değer özelliklerinden ve bir bellek bloğu olarak geçirilen içeriklerden oluşur.
 
 ![][3]
 
-İleti veri yolu her bir iletiyi kendisine bağlı her bir modüle iletmek için bir yayın mekanizması kullandığı için her modül iletilerin filtrelenmesinden sorumludur. Bir modül yalnızca kendisine yönelik iletiler üzerinde işlem yapmalıdır. İleti filtreleme, ileti işlem hattını etkili bir şekilde oluşturur. Modül genellikle işlemesi gereken iletileri tanımlamak üzere ileti özelliklerini kullanarak aldığı iletileri filtreler.
+### İleti yönlendirme ve filtreleme
+
+İletileri doğru modüllerine yönlendirmenin iki yolu vardır. Aracının her bir modüle ait kaynağı veya havuzu bilmesi için aracıya bir bağlantı kümesi geçirilebilir veya iletinin özellikleri modül tarafından filtrelenebilir. İleti bu amaca yönelikse modül yalnızca iletiye göre davranmalıdır. Bağlantılar ve ileti filtreleri etkin olarak bir ileti işlem hattı oluşturur.
 
 ## Hello World örnek mimarisi
 
@@ -52,11 +54,11 @@ Hello World örneği önceki bölümde açıklanan kavramları göstermektedir. 
 
 ![][4]
 
-Önceki bölümde açıklandığı gibi Hello World modülü iletileri beş saniyede bir günlükçü modülüne doğrudan iletmez. Bunun yerine, beş saniyede bir ileti veri yoluna bir ileti yayımlar.
+Önceki bölümde açıklandığı gibi Hello World modülü iletileri beş saniyede bir günlükçü modülüne doğrudan iletmez. Bunun yerine, beş saniyede bir aracıya bir ileti yayımlar.
 
-Günlükçü modülü ileti veri yolundan iletiyi alır ve bir filtre içinde özelliklerini inceler. Günlükçü modülü iletiyi işlemesi gerektiğini belirlerse iletinin içindekileri bir dosyaya yazar.
+Günlükçü modülü aracıdan iletiyi alır ve buna göre davranırken iletinin içeriğini bir dosyaya yazar.
 
-Günlükçü modülü yalnızca ileti veri yolundan gelen iletileri kullanır, veri yoluna hiçbir zaman yeni ileti yayımlamaz.
+Günlükçü modülü yalnızca aracıdan gelen iletileri kullanır, aracıya hiçbir zaman yeni ileti yayımlamaz.
 
 ![][5]
 
@@ -73,6 +75,6 @@ Yukarıdaki şekilde Hello World örneğinin mimarisi ve örneğin farklı kıs�
 [lnk-helloworld-sample]: https://github.com/Azure/azure-iot-gateway-sdk/tree/master/samples/hello_world
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

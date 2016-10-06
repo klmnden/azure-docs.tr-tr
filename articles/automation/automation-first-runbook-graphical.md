@@ -136,7 +136,7 @@ Runbook'unuzda bu noktada aşağıdakine benzer: <br>![Runbook kimlik doğrulama
 Şimdi bir sanal makineyi başlatmak için **Start-AzureRmVM** etkinliği ekleyeceğiz.  Azure aboneliğinizdeki herhangi bir sanal makineyi seçebilirsiniz, şimdilik bu adı cmdlet’e kod olarak ekleyeceğiz.
 
 1. Kitaplık denetiminde, arama metin kutusuna **Start-AzureRm** yazın.
-2. Tuvale **Start-AzureRmVM** ekleyin ve ardından **Azure’a Bağlan** altına tıklayarak sürükleyin.
+2. Tuvale **Start-AzureRmVM** ekleyin ve ardından **Abonelik Kimliği Belirt** altına tıklayarak sürükleyin.
 3. Şeklin altında bir daire görünene kadar **Abonelik Kimliği Belirt** üzerinde bekleyin.  Daireye tıklayın ve oku **Start-AzureRmVM**’ye sürükleyin. 
 4.  **Start-AzureRmVM**’yi seçin.  **Start-AzureRmVM** için kümeleri görüntülemek üzere **Parametreler**’i ve ardından **Parametre kümesi**’ni seçin.  **ResourceGroupNameParameterSetName** parametre kümesini seçin. **ResourceGroupName** ve **Ad**’ın yanında ünlem işareti olduğuna dikkat edin.  Bu, bunların gerekli parametreler olduğunu gösterir.  Ayrıca, her ikisinin de dize değerleri beklediğini unutmayın.
 5.  **Ad**’ı seçin.  **Veri Kaynağı** için **PowerShell ifadesi**’ni seçin ve çift tırnakların arasına, bu runbook uygulamasını başlatacağımız sanal makine adını yazın.  **Tamam**’a tıklayın.<br>![Start-AzureRmVM Adı Parametre Değeri](media/automation-first-runbook-graphical/runbook-startvm-nameparameter.png)
@@ -219,6 +219,6 @@ Hala başlatılmamışsa, yalnızca sanal makineyi başlatmayı deneyecek şekil
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

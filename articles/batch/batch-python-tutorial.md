@@ -13,7 +13,7 @@
     ms.topic="hero-article"
     ms.tgt_pltfrm="na"
     ms.workload="big-compute"
-    ms.date="09/08/2016"
+    ms.date="09/27/2016"
     ms.author="marsma"/>
 
 
@@ -46,9 +46,33 @@ Python eğitmen [kod örneği][github_article_samples], GitHub’daki [azure-bat
 
 ### Python ortamı
 
-*python_tutorial_client.py* örnek betiğini yerel iş istasyonunuzda çalıştırmak için, bir **2.7** veya **3.3-3.5** sürümüyle uyumlu **Python yorumlayıcı** gerekir. Betik Linux ve Windows'da test edilmiştir.
+*python_tutorial_client.py* örnek betiğini yerel iş istasyonunuzda çalıştırmak için, bir **2.7** veya **3.3+** sürümüyle uyumlu **Python yorumlayıcı** gerekir. Betik Linux ve Windows'da test edilmiştir.
 
-Bunun yanı sıra, **Azure Batch** ve **Azure Depolama** Python paketlerini de yüklemelisiniz. Bunu, **pip** ve aşağıda bulabileceğiniz *requirements.txt* ile yapabilirsiniz:
+### şifreleme bağımlılıkları
+
+[Şifreleme][crypto] kitaplığı için `azure-batch` ve `azure-storage` Python paketlerinin gerektirdiği bağımlılıkları yüklemeniz gerekir. Aşağıdaki işlemlerden platformunuz için uygun olan birini gerçekleştirin veya daha fazla bilgi için [şifreleme yüklemesi][crypto_install] ayrıntılarına bakın:
+
+* Ubuntu
+
+    `apt-get update && apt-get install -y build-essential libssl-dev libffi-dev libpython-dev python-dev`
+
+* CentOS
+
+    `yum update && yum install -y gcc openssl-dev libffi-devel python-devel`
+
+* SLES/OpenSUSE
+
+    `zypper ref && zypper -n in libopenssl-dev libffi48-devel python-devel`
+
+* Windows
+
+    `pip install cryptography`
+
+>[AZURE.NOTE] Linux üzerinde 3.3+ Python yüklüyorsanız Python bağımlılıkları için python3 eşdeğerlerini kullanın. Örneğin, Ubuntu üzerinde: `apt-get update && apt-get install -y build-essential libssl-dev libffi-dev libpython3-dev python3-dev`
+
+### Azure paketleri
+
+Ardından, **Azure Batch** ve **Azure Storage** Python paketlerini yükleyin. Bunu, **pip** ve aşağıda bulabileceğiniz *requirements.txt* ile yapabilirsiniz:
 
 `/azure-batch-samples/Python/Batch/requirements.txt`
 
@@ -58,8 +82,8 @@ Batch ve Storage paketlerini yüklemek için aşağıdaki **pip** komutunu yayı
 
 Ayrıca, [azure-batch][pypi_batch] ve [azure-storage][pypi_storage] Python paketlerini el ile de yükleyebilirsiniz:
 
-`pip install azure-batch==0.30.0rc4`<br/>
-`pip install azure-storage==0.30.0`
+`pip install azure-batch`<br/>
+`pip install azure-storage`
 
 > [AZURE.TIP] Ayrıcalığı olmayan bir hesap kullanıyorsanız, komutlarınıza `sudo` önekini eklemeniz gerekebilir. Örneğin, `sudo pip install -r requirements.txt`. Python paketlerini yükleme hakkında daha fazla bilgi için bkz. [Paketleri Yükleme][pypi_install] (readthedocs.io).
 
@@ -271,7 +295,7 @@ Ardından, `create_pool` çağrısıyla Batch hesabında işlem düğümü havuz
 
 ```python
 def create_pool(batch_service_client, pool_id,
-                resource_files, distro, version):
+                resource_files, publisher, offer, sku):
     """
     Creates a pool of compute nodes with the specified OS settings.
 
@@ -280,10 +304,9 @@ def create_pool(batch_service_client, pool_id,
     :param str pool_id: An ID for the new pool.
     :param list resource_files: A collection of resource files for the pool's
     start task.
-    :param str distro: The Linux distribution that should be installed on the
-    compute nodes, e.g. 'Ubuntu' or 'CentOS'.
-    :param str version: The version of the operating system for the compute
-    nodes, e.g. '15' or '14.04'.
+    :param str publisher: Marketplace image publisher
+    :param str offer: Marketplace image offer
+    :param str sku: Marketplace image sku
     """
     print('Creating pool [{}]...'.format(pool_id))
 
@@ -299,24 +322,32 @@ def create_pool(batch_service_client, pool_id,
         # Copy the python_tutorial_task.py script to the "shared" directory
         # that all tasks that run on the node have access to.
         'cp -r $AZ_BATCH_TASK_WORKING_DIR/* $AZ_BATCH_NODE_SHARED_DIR',
-        # Install pip and then the azure-storage module so that the task
-        # script can access Azure Blob storage
+        # Install pip and the dependencies for cryptography
         'apt-get update',
         'apt-get -y install python-pip',
+        'apt-get -y install build-essential libssl-dev libffi-dev python-dev',
+        # Install the azure-storage module so that the task script can access
+        # Azure Blob storage
         'pip install azure-storage']
 
-    # Get the virtual machine configuration for the desired distro and version.
+    # Get the node agent SKU and image reference for the virtual machine
+    # configuration.
     # For more information about the virtual machine configuration, see:
     # https://azure.microsoft.com/documentation/articles/batch-linux-nodes/
-    vm_config = get_vm_config_for_distro(batch_service_client, distro, version)
+    sku_to_use, image_ref_to_use = \
+        common.helpers.select_latest_verified_vm_image_with_node_agent_sku(
+            batch_service_client, publisher, offer, sku)
 
     new_pool = batch.models.PoolAddParameter(
         id=pool_id,
-        virtual_machine_configuration=vm_config,
+        virtual_machine_configuration=batchmodels.VirtualMachineConfiguration(
+            image_reference=image_ref_to_use,
+            node_agent_sku_id=sku_to_use),
         vm_size=_POOL_VM_SIZE,
         target_dedicated=_POOL_NODE_COUNT,
         start_task=batch.models.StartTask(
-            command_line=wrap_commands_in_shell('linux', task_commands),
+            command_line=
+            common.helpers.wrap_commands_in_shell('linux', task_commands),
             run_elevated=True,
             wait_for_success=True,
             resource_files=resource_files),
@@ -327,7 +358,6 @@ def create_pool(batch_service_client, pool_id,
     except batchmodels.batch_error.BatchErrorException as err:
         print_batch_exception(err)
         raise
-}
 ```
 
 Havuz oluşturduğunuzda, havuz için bazı özellikler belirten bir [PoolAddParameter][py_pooladdparam] tanımlarsınız:
@@ -336,7 +366,7 @@ Havuz oluşturduğunuzda, havuz için bazı özellikler belirten bir [PoolAddPar
 
 - **İşlem düğümleri sayısı** (*target_dedicated* - gerekli)<p/>Bu özellik, havuzda kaç VM dağıtılması gerektiğini belirtir. Tüm Batch hesaplarının, bir Batch hesabında bir dizi **çekirdekle** (bu nedenle de işlem düğümleriyle) sınırlanan varsayılan bir **kotasının** olduğunu unutmamak önemlidir. [Kota artırma](batch-quota-limit.md#increase-a-quota) (Batch hesabınızdaki en yüksek çekirdek sayısı gibi) hakkında varsayılan kotalar ve yönergeleri [Azure Batch hizmeti için kotalar ve sınırlar](batch-quota-limit.md)’da bulabilirsiniz. Kendinizi "Neden havuzum X düğümden fazlasına ulaşamıyor?" sorusunu sorarken bulursanız nedeni çekirdek kotası olabilir.
 
-- Düğümler için **işletim sistemi** (*virtual_machine_configuration* **veya** *cloud_service_configuration* - gerekli)<p/>*python_tutorial_client.py* öğesinde, `get_vm_config_for_distro` yardımcı işlevimizle alınan [VirtualMachineConfiguration][py_vm_config] kullanarak Linux için havuz oluşturuyoruz. Bu yardımcı işlevi, uyumlu [Azure Virtual Machines Marketi][vm_marketplace] görüntüleri listesinden görüntü alma ve seçmek için [list_node_agent_skus][py_list_skus] kullanır. Bunun yerine bir [CloudServiceConfiguration][py_cs_config] belirtebilir ve Cloud Services’dan bir Windows düğümleri havuzu oluşturabilirsiniz. İki yapılandırma hakkında daha fazla bilgi için bkz. [Azure Batch havuzlarında Linux işlem düğümlerini hazırlama](batch-linux-nodes.md).
+- Düğümler için **işletim sistemi** (*virtual_machine_configuration* **veya** *cloud_service_configuration* - gerekli)<p/>*python_tutorial_client.py* öğesinde [VirtualMachineConfiguration][py_vm_config] kullanarak Linux için havuz oluşturuyoruz. `common.helpers` içindeki `select_latest_verified_vm_image_with_node_agent_sku` işlevi [Azure Sanal Makineler Marketi][vm_marketplace] görüntüleriyle çalışmayı kolaylaştırır. Market görüntülerini kullanma hakkında daha fazla bilgi için bkz. [Azure Batch havuzlarında Linux işlem düğümlerini hazırlama](batch-linux-nodes.md).
 
 - **İşlem düğümlerinin boyutu** (*vm_size* - gerekli)<p/>[VirtualMachineConfiguration][py_vm_config] için Linux düğümleri belirlediğimizden, bir VM boyutunu (bu örnekte `STANDARD_A1`) [Azure’de sanal makine boyutları](../virtual-machines/virtual-machines-linux-sizes.md)’nda belirttik. Bir kez daha, daha fazla bilgi için bkz. [Azure Batch havuzlarında Linux işlem düğümlerini hazırlama](batch-linux-nodes.md).
 
@@ -575,7 +605,9 @@ if query_yes_no('Delete pool?') == 'yes':
 
 Eğitmen [kod örneği][github_article_samples] içindeki *python_tutorial_client.py* betiğini çalıştırdığınızda, konsol çıktısı aşağıdakine benzer. Havuzun işlem düğümleri oluşturulurken, başlatılırken ve havuzun görev başlatma komutları yürütülürken `Monitoring all tasks for 'Completed' state, timeout in 0:20:00...` konumunda duraklama olur. Havuzunuzu, işlem düğümlerinizi, işinizi ve görevlerinizi yürütme sırasında ve sonrasında izlemek için [Azure portalı][azure_portal] kullanın. Uygulamanın oluşturduğu Storage kaynaklarını (kapsayıcılar ve bloblar) görüntülemek için [Azure portalı][azure_portal] veya [Microsoft Azure Storage Gezgini][storage_explorer] birini kullanın.
 
-Varsayılan yapılandırmasında uygulama çalıştırıldığında tipik yürütme süresi **yaklaşık 5-7 dakika arasıdır**.
+>[AZURE.TIP] `azure-batch-samples/Python/Batch/article_samples` dizininden *python_tutorial_client.py* betiğini çalıştırın. Bu dosya `common.helpers` modül içeri aktarımı için göreli bir yol kullanır; bu nedenle betiği bu dizinden çalıştırmazsanız `ImportError: No module named 'common'` seçeneğini görebilirsiniz.
+
+Varsayılan yapılandırmasında örnek çalıştırıldığında tipik yürütme süresi **yaklaşık 5-7 dakika arasıdır**.
 
 ```
 Sample start: 2016-05-20 22:47:10
@@ -620,6 +652,8 @@ Batch çözümünün temel iş akışı hakkında artık bilginiz olduğuna gör
 [azure_portal]: https://portal.azure.com
 [batch_learning_path]: https://azure.microsoft.com/documentation/learning-paths/batch/
 [blog_linux]: http://blogs.technet.com/b/windowshpc/archive/2016/03/30/introducing-linux-support-on-azure-batch.aspx
+[crypto]: https://cryptography.io/en/latest/
+[crypto_install]: https://cryptography.io/en/latest/installation/
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [github_samples_zip]: https://github.com/Azure/azure-batch-samples/archive/master.zip
 [github_topnwords]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/TopNWords
@@ -679,6 +713,6 @@ Batch çözümünün temel iş akışı hakkında artık bilginiz olduğuna gör
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

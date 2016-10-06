@@ -32,7 +32,7 @@ VNet eşlemesi ile ilgili gereksinimler ve önemli noktalar:
 - Eşlenen iki sanal ağ, aynı Azure bölgesinde olmalıdır.
 - Eşlenen sanal ağların IP Adresi alanları çakışmamalıdır.
 - VNet eşlemesi iki sanal ağ arasında gerçekleşir ve türetilmiş geçişli bir ilişki yoktur. Örneğin, A sanal ağı B sanal ağıyla, B sanal ağı da C sanal ağıyla eşlenirse bu, A sanal ağının C sanal ağıyla eşlendiği anlamına gelmez.
-- İki farklı abonelikteki sanal ağlar arasında eşleme yapılabilmesi için, eşlemenin her iki aboneliğin de ayrıcalıklı bir kullanıcısı tarafından yetkilendirilmiş olması gerekir.
+- İki farklı abonelikteki sanal ağlar arasında eşleme yapılabilmesi için, eşlemenin her iki aboneliğin de ayrıcalıklı bir kullanıcısı tarafından yetkilendirilmiş olması ve aboneliklerin aynı Active Directory kiracısı ile ilişkilendirilmesi gerekir. 
 - Resource Manager dağıtım modelini kullanan bir sanal ağ, bu modeli kullanan başka bir sanal ağ ile veya klasik dağıtım modelini kullanan bir sanal ağ ile eşlenebilir. Ancak, klasik dağıtım modelini kullanan sanal ağlar birbiriyle eşlenemez.
 - Eşlenmiş sanal ağlarda bulunan sanal makineler arasındaki iletişim başka bir bant genişliği kısıtlaması içermese de VM boyutunu temel alan bant genişliği sınırı geçerli olmaya devam eder.
 
@@ -91,6 +91,6 @@ VNet eşlemesi, gözden geçirme süresi boyunca ücretsiz olacaktır. Piyasaya 
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

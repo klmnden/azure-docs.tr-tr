@@ -1,43 +1,35 @@
-﻿<properties
-	pageTitle="Quotas in Azure Stack | Microsoft Azure"
-	description="Administrators set quotas to restrict the maximum amount of resources that tenants have access to."
-	services="azure-stack"
-	documentationCenter=""
-	authors="mattmcg"
-	manager="byronr"
-	editor=""/>
+<properties
+    pageTitle="Quotas in Azure Stack | Microsoft Azure"
+    description="Administrators set quotas to restrict the maximum amount of resources that tenants have access to."
+    services="azure-stack"
+    documentationCenter=""
+    authors="mattmcg"
+    manager="byronr"
+    editor=""/>
 
 <tags
-	ms.service="azure-stack"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="09/26/2016"
-	ms.author="mattmcg"/>
+    ms.service="azure-stack"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="09/26/2016"
+    ms.author="mattmcg"/>
+
 
 
 
 # Set quotas in Azure Stack
 
-Quotas define the limits of resources that a tenant subscription
-can provision or consume. For example, a quota might allow a tenant to
-create up to five VMs. To add a service to a plan, the
-administrator must configure the quota settings for that service.
+Quotas define the limits of resources that a tenant subscription can provision or consume. For example, a quota might allow a tenant to create up to five VMs. To add a service to a plan, the administrator must configure the quota settings for that service.
 
-Quotas are configurable per service and per location, enabling administrators to provide granular control over the resource
-consumption. Administrators can create one or more quota
-resources and associate them with plans, which means they can provide
-differentiated offerings for their services. Quotas for a given service can be created
-from the **Resource Provider** administration blade for that service.
+Quotas are configurable per service and per location, enabling administrators to provide granular control over the resource consumption. Administrators can create one or more quota resources and associate them with plans, which means they can provide differentiated offerings for their services. Quotas for a given service can be created from the **Resource Provider** administration blade for that service.
 
-A tenant that subscribes to an offer that contains multiple
-plans can use all resources that are available in each plan.
+A tenant that subscribes to an offer that contains multiple plans can use all resources that are available in each plan.
 
 ## To create an IaaS quota
 
-1.  In a browser, go to
-    [https://portal.azurestack.local](https://portal.azurestack.local/).
+1.  In a browser, go to [https://portal.azurestack.local](https://portal.azurestack.local/).
 
     Sign in to the Azure Stack portal as an administrator (by using the credentials that you provided during deployment).
 
@@ -50,22 +42,15 @@ In this example, we first create a quota for the Compute service. In the **Names
 
 4.  Choose the location where the quota is defined (for example, 'local').
 
-5.  On the **Quota Settings** item, it says **Set the
-    Capacity of Quota**. Click this item to configure the quota settings.
+5.  On the **Quota Settings** item, it says **Set the Capacity of Quota**. Click this item to configure the quota settings.
 
-6.  On the **Set Quotas** blade, you see all the Compute resources for which
-    you can configure limits. Each type has a default
-    value that's associated with it. You can change these values or you can select the **Ok** button at the bottom of the blade to accept
-    the defaults.
+6.  On the **Set Quotas** blade, you see all the Compute resources for which you can configure limits. Each type has a default value that's associated with it. You can change these values or you can select the **Ok** button at the bottom of the blade to accept the defaults.
 
     > ![Setting a Compute quota](/articles/azure-stack/media/azure-stack-setting-quota/SetQuotasBladeCompute.PNG)
 
-7.  After you have configured the values and clicked **Ok**, the **Quota
-    Settings** item appears as **Configured**. Click **Ok** to
-    create the **Quota** resource.
+7.  After you have configured the values and clicked **Ok**, the **Quota Settings** item appears as **Configured**. Click **Ok** to create the **Quota** resource.
 
-    You should see a notification indicating that the quota resource is
-    being created.
+    You should see a notification indicating that the quota resource is being created.
 
 8.   After the quota set has been successfully created, you receive a second notification. The Compute service quota is now ready to be associated with a plan. Repeat these steps with the Network and Storage services, and you are ready to create an IaaS plan!
 
@@ -99,3 +84,9 @@ In this example, we first create a quota for the Compute service. In the **Names
 | Max load balancers                     |50                  |The maximum number of load balancers that a subscription can create in this location. |
 | Max NICs                               |100                 |The maximum number of network interfaces that a subscription can create in this location. |
 | Max network security groups            |50                  |The maximum number of network security groups that a subscription can create in this location. |
+
+
+
+<!--HONumber=Sep16_HO4-->
+
+

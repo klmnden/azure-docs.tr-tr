@@ -106,6 +106,8 @@ En iyi yöntem genellikle, çözümünüz için tüm altyapıyı tek bir işlemd
 
 Her bir dağıtım yalnızca kaynak grubunuzda yapmış olduğunuz değişiklikleri gösterir, ancak herhangi bir zamanda, tüm kaynak grubunuzun özniteliklerini göstermek için bir şablonu dışarı aktarabilirsiniz.  
 
+> [AZURE.NOTE] 200’den fazla kaynağı olan bir kaynak grubu için bir şablonu dışarı aktaramazsınız.
+
 1. Bir kaynak grubu için şablonu görüntülemek üzere **Otomasyon betiği**’ni seçin.
 
       ![kaynak grubunu dışarı aktarma](./media/resource-manager-export-template/export-resource-group.png)
@@ -307,6 +309,6 @@ Tebrikler! Portalda oluşturduğunuz kaynaklardan bir şablonu dışarı aktarma
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

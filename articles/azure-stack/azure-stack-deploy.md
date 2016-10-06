@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Azure Stack POC'yi dağıtmadan önce| Microsoft Azure"
-    description="Azure Stack POC için ortam ve donanım gereksinimlerini görüntüleyin (hizmet yöneticisi)."
+    pageTitle="Before you deploy Azure Stack POC | Microsoft Azure"
+    description="View the environment and hardware requirements for Azure Stack POC (service administrator)."
     services="azure-stack"
     documentationCenter=""
     authors="ErikjeMS"
@@ -13,42 +13,36 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/29/2016"
+    ms.date="09/27/2016"
     ms.author="erikje"/>
 
 
-# Azure Stack dağıtım önkoşulları
+# Azure Stack deployment prerequisites
 
-Azure Stack POC'yi ([Kavram Kanıtı](azure-stack-poc.md)) dağıtmadan önce, bilgisayarınızın aşağıdaki gereksinimleri karşıladığından emin olun.
-Bu gereksinimler, yalnızca Azure Stack POC için geçerlidir ve gelecekteki sürümlerde değişebilir.
+Before you deploy Azure Stack POC ([Proof of Concept](azure-stack-poc.md)), make sure your computer meets the following requirements.
+The Technical Preview 2 deployment requirements for the POC are the same as those required for Technical Preview 1. Therefore, you can use the same hardware that you used for the previous single-box preview.
 
-Ayrıca dağıtıma ilişkin şu öğretici videosunu izlemeniz de faydalı olabilir:
+## Hardware
 
-[AZURE.VIDEO microsoft-azure-stack-tp1-poc-deployment-tutorial]
-
-## Donanım
-
-| Bileşen | Minimum  | Önerilen |
+| Component | Minimum  | Recommended |
 |---|---|---|
-| Disk sürücüleri: İşletim Sistemi | Sistem bölümü için en az 200 GB'lık kullanılabilir alana sahip 1 işletim sistemi diski (SSD veya HDD) | Sistem bölümü için en az 200 GB'lık kullanılabilir alana sahip 1 işletim sistemi diski (SSD veya HDD) |
-| Disk sürücüleri: Genel Azure Stack POC Verileri | 4 disk. Her disk, en az 140 GB'lık kapasiteye (SSD veya HDD) sahiptir. Mevcut tüm diskler kullanılır. | 4 disk. Her disk, en az 250 GB'lık kapasiteye (SSD veya HDD) sahiptir. Mevcut tüm diskler kullanılır.|
-| İşlem: CPU | Çift Yuvalı: 12 Fiziksel Çekirdek (toplam)  | Çift Yuvalı: 16 Fiziksel Çekirdek (toplam) |
-| İşlem: Bellek | 96 GB RAM  | 128 GB RAM |
-| İşlem: BIOS | Hyper-V Etkin (SLAT desteğiyle)  | Hyper-V Etkin (SLAT desteğiyle) |
-| Ağ: NIC | NIC için Windows Server 2012 R2 Sertifikası gerekir; özelleştirilmiş herhangi bir özellik gerekmez | NIC için Windows Server 2012 R2 Sertifikası gerekir; özelleştirilmiş herhangi bir özellik gerekmez |
-| Donanım logosu sertifikası | [Windows Server 2012 R2 için sertifikalı](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |[Windows Server 2012 R2 için sertifikalı](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0)|
+| Disk drives: Operating System | 1 OS disk with minimum of 200 GB available for system partition (SSD or HDD) | 1 OS disk with minimum of 200 GB available for system partition (SSD or HDD) |
+| Disk drives: General Azure Stack POC Data | 4 disks. Each disk provides a minimum of 140 GB of capacity (SSD or HDD). All available disks will be used. | 4 disks. Each disk provides a minimum of 250 GB of capacity (SSD or HDD). All available disks will be used.|
+| Compute: CPU | Dual-Socket: 12 Physical Cores (total)  | Dual-Socket: 16 Physical Cores (total) |
+| Compute: Memory | 96 GB RAM  | 128 GB RAM |
+| Compute: BIOS | Hyper-V Enabled (with SLAT support)  | Hyper-V Enabled (with SLAT support) |
+| Network: NIC | Windows Server 2012 R2 Certification required for NIC; no specialized features required | Windows Server 2012 R2 Certification required for NIC; no specialized features required |
+| HW logo certification | [Certified for Windows Server 2012 R2](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |[Certified for Windows Server 2012 R2](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0)|
 
-Gereksinimlerinizi doğrulamak için [Deployment Checker for Azure Stack Technical Preview 1](https://gallery.technet.microsoft.com/Deployment-Checker-for-76d824e1) paketini kullanabilirsiniz.
+**Data disk drive configuration:** All data drives must be of the same type (all SAS or all SATA) and capacity. If SAS disk drives are used, the disk drives must be attached via a single path (no MPIO, multi-path support is provided).
 
-**Veri disk sürücüsü yapılandırması:** Tüm veri sürücüleri aynı türde (tümü SAS veya tümü SATA) ve kapasitede olmalıdır. SAS disk sürücüleri kullanılıyorsa disk sürücülerinin (MPIO kullanılmaz, çok yollu destek sağlanır) tek bir yolla bağlanması gerekir.
-
-**HBA yapılandırma seçenekleri**
+**HBA configuration options**
  
-- (Tercih edilen) Basit HBA
-- RAID HBA - Bağdaştırıcının "geçiş" modunda yapılandırılmış olması gerekir
-- RAID HBA - Disklerin Tek Disk ve RAID-0 olarak yapılandırılmış olması gerekir
+- (Preferred) Simple HBA
+- RAID HBA – Adapter must be configured in “pass through” mode
+- RAID HBA – Disks should be configured as Single-Disk, RAID-0
 
-**Desteklenen veri yolu ve medya türü bileşimleri**
+**Supported bus and media type combinations**
 
 -   SATA HDD
 
@@ -56,99 +50,93 @@ Gereksinimlerinizi doğrulamak için [Deployment Checker for Azure Stack Technic
 
 -   RAID HDD
 
--   RAID SSD (Medya türü belirtilmemişse/bilinmiyorsa\*)
+-   RAID SSD (If the media type is unspecified/unknown\*)
 
 -   SATA SSD + SATA HDD
 
 -   SAS SSD + SAS HDD
 
-\* Geçiş özelliği olmayan RAID denetleyicileri, medya türünü tanıyamaz. Bu tür denetleyiciler, hem HDD'yi hem de SSD'yi Belirtilmemiş olarak işaretler. Bu durumda, kalıcı depolama alanı olarak önbelleğe alma cihazları yerine SSD kullanılır. Bu nedenle Microsoft Azure Stack POC'yi bu SDD'ler üzerinde dağıtabilirsiniz.
+\* RAID controllers without pass-through capability can’t recognize the media type. Such controllers will mark both HDD and SSD as Unspecified. In that case, the SSD will be used as persistent storage instead of caching devices. Therefore, you can deploy the Microsoft Azure Stack POC on those SSDs.
 
-**Örnek HBA'lar**: geçiş modunda LSI 9207-8i, LSI-9300-8i veya LSI-9265-8i
+**Example HBAs**: LSI 9207-8i, LSI-9300-8i, or LSI-9265-8i in pass-through mode
 
-Örnek OEM yapılandırmaları kullanılabilir.
+Sample OEM configurations are available.
 
+## Operating system
 
-
-
-## İşletim sistemi
-
-| | **Gereksinimler**  |
+| | **Requirements**  |
 |---|---|
-| **İşletim Sistemi Sürümü** | Son önemli güncelleştirmelerin yüklü olduğu, Windows Server 2016 Datacenter Edition **Technical Preview 4**. WindowsServer2016Datacenter.vhdx, indirme paketine dahildir. Bu VHDX'e önyükleme yapabilir ve ardından VHDX'i Azure Stack POC dağıtımı için temel işletim sistemi olarak kullanabilirsiniz.|
-| **Yükleme Yöntemi** | Temiz yükleme. İşletim sistemini Azure Stack POC makinenize hızlı şekilde yüklemek için dağıtım paketinde sağlanan WindowsServer2016Datacenter.vhdx'i kullanabilirsiniz. |
-| **Etki alanına katılmış mı?** | Hayır. |
+| **OS Version** | Windows Server 2012 R2 or later. The operating system version isn’t critical before the deployment starts, as you'll boot the host computer into the VHD that's included in Azure Stack installation zip. The OS and all required patches are already integrated into the image. Don’t use any keys to activate any Windows Server instances used in the POC.|
+
+## Deployment requirements check tool
+
+After you have installed the operating system onto your hardware, you can use the [Deployment Checker for Azure Stack Technical Preview 1](https://gallery.technet.microsoft.com/Deployment-Checker-for-76d824e1) to confirm that your hardware meets all of the requirements.
 
 
-## Microsoft Azure Active Directory hesapları
 
-1. En az bir Azure Active Directory'nin dizin yöneticisi olan bir Azure AD hesabı oluşturun. Zaten bir hesabınız varsa bu hesabı kullanabilirsiniz. Aksi halde, şu adrese giderek ücretsiz bir hesap oluşturabilirsiniz: [http://azure.microsoft.com/tr-TR/pricing/free-trial/](http://azure.microsoft.com/pricing/free-trial/) (Çin'de, <http://go.microsoft.com/fwlink/?LinkID=717821> adresini ziyaret edin.)
+## Microsoft Azure Active Directory accounts
 
-    Bu kimlik bilgilerini, [PowerShell dağıtım betiğini çalıştırma](azure-stack-run-powershell-script.md#run-the-powershell-deployment-script) adlı makalenin 6. adımında kullanmak üzere kaydedin. Bu *hizmet yöneticisi* hesabı; kaynak bulutlarını, kullanıcı hesaplarını, kiracı planlarını, kotaları ve fiyatlandırmayı yapılandırıp yönetebilir. Portalda web sitesi bulutları, sanal makine özel bulutları ve planlar oluşturup kullanıcı aboneliklerini yönetebilir.
+The Microsoft Azure Stack deployment must be connected to Azure. Therefore, you must prepare a Microsoft Azure Active Directory account prior to running the deployment PowerShell script. This account will become the Global Admin for the Azure Active Directory tenant. It will be used to provision and delegate applications and service principals for all Azure Stack services that interact with Azure Active Directory and Graphic API. It will also be used as the owner of the default provider subscription (which you can later change). You can log into your Azure Stack system’s admin portal by using this account.
 
-2. Azure Stack POC'de kiracı olarak oturum açabilmeniz için en az bir hesap [oluşturun](azure-stack-add-new-user-aad.md).
+1. Create an Azure AD account that is the directory administrator for at least one Azure Active Directory. If you already have one, you can use that. Otherwise, you can create one for free at  [http://azure.microsoft.com/en-us/pricing/free-trial/](http://azure.microsoft.com/pricing/free-trial/) (in China, visit <http://go.microsoft.com/fwlink/?LinkID=717821> instead.)
 
-  	| **Azure Active Directory hesabı**  | **Destekleniyor mu?** |
+    Save these credentials for use in step 6 of [Run the PowerShell deployment script](azure-stack-run-powershell-script.md#run-the-powershell-deployment-script). This *service administrator* account can configure and manage resource clouds, user accounts, tenant plans, quotas, and pricing. In the portal, they can create website clouds, virtual machine private clouds, create plans, and manage user subscriptions.
+
+2. [Create](azure-stack-add-new-user-aad.md) at least one account so that you can sign in to the Azure Stack POC as a tenant.
+
+  	| **Azure Active Directory account**  | **Supported?** |
   	|---|---| 
-  	| Geçerli Genel Azure Aboneliğine sahip Kuruluş Kimliği  | Yes |
-  	| Geçerli Genel Azure Aboneliğine sahip Microsoft Hesabı  | Yes |
-  	| Geçerli Çin Azure Aboneliğine sahip Kuruluş Kimliği  | Yes |
-  	| Geçerli ABD Azure Aboneliğine sahip Kuruluş Kimliği  | Hayır |
-
->[AZURE.NOTE] Azure Stack POC, yalnızca Azure Active Directory kimlik doğrulamasını destekler.
+  	| Organization ID with valid Public Azure Subscription  | Yes |
+  	| Microsoft Account with valid Public Azure Subscription  | No |
+  	| Organization ID with valid China Azure Subscription  | Yes |
+  	| Organization ID with valid US Government Azure Subscription  | Yes |
 
 
-## Ağ
+## Network
 
-### Anahtar
+### Switch
 
-POC makinesi için anahtar üzerinde mevcut bir bağlantı noktası.  
+One available port on a switch for the POC machine.  
 
-Azure Stack POC makinesi, anahtar erişimi bağlantı noktasına veya santral bağlantı noktasına yönelik erişimi destekler. Anahtar üzerinde özelleştirilmiş herhangi bir özellik gerekmez. Santral bağlantı noktası kullanıyorsanız veya VLAN kimliği yapılandırmanız gerekiyorsa dağıtım parametresi olarak VLAN kimliğini sağlamanız gerekir. Örneğin:
+The Azure Stack POC machine supports connecting to a switch access port or trunk port. No specialized features are required on the switch. If you are using a trunk port or if you need to configure a VLAN ID, you have to provide the VLAN ID as a deployment parameter. You can see examples in the [list of deployment parameters](azure-stack-run-powershell-script.md).
 
-    DeployAzureStack.ps1 –Verbose –PublicVLan 305
+### Subnet
 
-Bu parametre belirtildiğinde yalnızca ana bilgisayar ve NATVM için VLAN kimliği ayarlanır.
+Do not connect the POC machine to the following subnets:
+- 192.168.200.0/24
+- 192.168.100.0/27
+- 192.168.101.0/26
+- 192.168.102.0/24
+- 192.168.103.0/25
+- 192.168.104.0/25
 
-### Alt ağ
-
-POC makinesini 192.168.200.0/24, 192.168.100.0/24 veya 192.168.133.0/24 alt ağına bağlamayın. Bu ağlar, Microsoft Azure Stack POC ortamındaki iç ağlar için ayrılmıştır.
+These are reserved for the internal networks within the Microsoft Azure Stack POC environment.
 
 ### IPv4/IPv6
 
-Yalnızca IPv4 desteklenir. IPv6 ağı oluşturamazsınız.
+Only IPv4 is supported. You cannot create IPv6 networks.
 
 ### DHCP
 
-Ağ üzerinde NIC'nin bağlanabileceği kullanılabilir bir DHCP sunucusunun olduğundan emin olun. Kullanılabilir bir DHCP sunucusu yoksa ana bilgisayar tarafından kullanılanın dışında ek bir statik IPv4 ağı hazırlamanız gerekir. Dağıtım parametresi olarak bu IP adresini ve ağ geçidini sağlamanız gerekir. Örneğin:
+Make sure there is a DHCP server available on the network that the NIC connects to. If DHCP is not available, you must prepare an additional static IPv4 network besides the one used by host. You must provide that IP address and gateway as a deployment parameter. You can see examples in the [list of deployment parameters](azure-stack-run-powershell-script.md).
 
-    DeployAzureStack.ps1 -Verbose -NATVMStaticIP 10.10.10.10/24 -NATVMStaticGateway 10.10.10.1
+### Internet access
 
-### İnternet erişimi
+Azure Stack requires access to the Internet, either directly or through a transparent proxy. Azure Stack does not support the configuration of a web proxy to enable Internet access. Both the host IP and the new IP assigned to the NATVM (by DHCP or static IP) must be able to access Internet. Ports 80 and 443 are used under the graph.windows.net and login.windows.net domains.
 
-NIC'nin İnternet'e bağlanabildiğinden emin olun. Hem NATVM'ye atanan yeni IP'nin (DHCP veya statik IP tarafından) hem de ana bilgisayar IP'sinin İnternet erişiminin olması gerekir. Bağlantı noktası 80 ve 443, graph.windows.net ve login.windows.net etki alanlarının altında kullanılır.
+### Telemetry
 
-### Ara sunucu
-
-Ortamınızda bir ara sunucu gerekiyorsa dağıtım parametresi olarak ara sunucu adresini ve bağlantı noktasını belirtin. Örneğin:
-
-    DeployAzureStack.ps1 -Verbose -ProxyServer 172.11.1.1:8080
-
-Azure Stack POC, ara sunucu kimlik doğrulamasını desteklemez. 
-
-### Telemetri
-
-Bağlantı noktası 443 (HTTPS) ağınız için açık olmalıdır. İstemci uç noktası https://vortex-win.data.microsoft.com'dur.
+To support telemetry data flow, port 443 (HTTPS) must be open in your network. The client endpoint is https://vortex-win.data.microsoft.com.
 
 
-## Sonraki adımlar
+## Next steps
 
-[Azure Stack POC dağıtım paketini indirme](https://azure.microsoft.com/overview/azure-stack/try/?v=try)
+[Download the Azure Stack POC deployment package](https://azure.microsoft.com/overview/azure-stack/try/?v=try)
 
-[Azure Stack POC'yi dağıtma](azure-stack-run-powershell-script.md)
+[Deploy Azure Stack POC](azure-stack-run-powershell-script.md)
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

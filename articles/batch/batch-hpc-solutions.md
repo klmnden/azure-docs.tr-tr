@@ -21,7 +21,7 @@
 
 Azure toplu işlem ve *Big Compute* olarak da bilinen yüksek performanslı bilgi işlem (HPC) için verimli, ölçeklenebilir bulut çözümleri sunar. Burada, desteklemek için Big Compute iş yükleri ve Azure hizmetleri hakkında bilgi edinin veya doğrudan bu makalenin ilerisinde yer alan [çözüm senaryolarına](#scenarios) gidin. Temel olarak teknik karar verenler, BT yöneticileri ve bağımsız yazılım satıcıları için olan bu makaleyi başka BT profesyonelleri ve geliştiricileri de bu çözümlerle tanışmak amacıyla kullanabilir.
 
-Kuruluşlarda, mühendislik tasarımı ve analizi, görüntü işleme, karmaşık modelleme, Monte Carlo benzetimleri ve finansal risk hesaplamaları da aralarında bulunmak üzere büyük ölçekli bilgi işlem sorunları vardır. Azure, bu sorunları çözmeleri ve gerekli kaynaklar, ölçek ve zamanlama hakkında kara vermeleri için kuruluşlara yardımcı olur. Azure’le kuruluşların yapabildikleri:
+Kuruluşlarda büyük ölçekli bilgi işlem sorunları vardır: mühendislik tasarımı ve analizi, görüntü işleme, karmaşık modelleme, Monte Carlo benzetimleri, finansal risk hesaplamaları ve diğerleri. Azure gerekli kaynaklar, ölçek ve zamanlama ile ilgili sorunları çözmeleri için kuruluşlara yardımcı olur. Azure’le kuruluşların yapabildikleri:
 
 * Şirket içi HPC kümesinden tepe iş yüklerini boşaltmaya, buradan da buluta uzanan karma çözümler oluşturma
 
@@ -48,12 +48,12 @@ Tür | Özellikler | Örnekler
 Şirket içi HPC kümelerinde çalışmak üzere tasarlanmış birçok uygulamayı Azure’e ya da karma (şirket içi ve dışı karışık) ortama geçirmeye hazırdır. Ancak, bazı sınırlamalar veya değerlendirmeler olabilir; örneğin şunlar:
 
 
-* **Bulut kaynaklarının kullanılabilirliği** - Kullandığınız bulut işlem kaynaklarının türüne bağlı olarak işin yürütülmesi sırasında sürekli makine kullanılabilirliğine bağlanamayabilirsiniz. Durum işleme ve ilerleme denetim noktalarını oluşturma olası geçici hataları işlemek için ortak tekniklerdir ve bulut kaynakları geliştirilirken daha da gereklidir.
+* **Bulut kaynaklarının kullanılabilirliği** - Kullandığınız bulut işlem kaynaklarının türüne bağlı olarak bir iş çalışırken sürekli makine kullanılabilirliğine bağlanamayabilirsiniz. Durum işleme ve ilerleme denetim noktalarını oluşturma olası geçici hataları işlemek için ortak tekniklerdir ve bulut kaynakları kullanılırken daha da gereklidir.
 
 
-* **Veri erişimi** - NFS gibi, kuruluş ağı kümesinde yaygın olarak kullanılan veri erişimi tekniklerine bulutta özel yapılandırma gerekebilir; bunun yerine, bulut için farklı veri erişimi uygulamaları ve desenleri de kabul etmeniz gerekebilir.
+* **Veri erişimi** - NFS gibi kurumsal kümelerde yaygın olarak kullanılabilen veri erişimi teknikleri bulutta özel bir yapılandırma gerektirebilir. Veya bulut için farklı veri erişimi uygulamaları ve desenleri benimsemeniz gerekebilir.
 
-* **Veri taşıma** - Büyük miktarda veri işleyen uygulamalar için stratejilerin verileri bulut depolamaya ve işlem kaynaklarına taşıması gerekir; [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) gibi yüksek hızda şirket içi ve dışı karışık ağa gerek duyabilirsiniz. Ayrıca, bu verileri depolama ve erişme hakkında yasal, düzenleme ve ilke kısıtlamalarını dikkate alın.
+* **Veri taşıma** - Büyük miktarda veri işleyen uygulamalar için stratejilerin verileri bulut depolamaya ve işlem kaynaklarına taşıması gerekir. [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) gibi yüksek hızda şirket içi ve dışı karışık ağa gerek duyabilirsiniz. Ayrıca, bu verileri depolama ve erişme hakkında yasal, düzenleme ve ilke kısıtlamalarını dikkate alın.
 
 
 * **Lisans** - Bulutta çalışmayla ilgili lisans ya da başka kısıtlamalar için satıcıyla birlikte ticari uygulamaları denetleyin. Satıcıların tümü kullandıkça öde lisansı sunmaz. Çözümünüz için bulutta bir lisans sunucusu planlamanız gerekebilir, bu olmuyorsa şirket içi bir lisans sunucusuna bağlanın.
@@ -65,7 +65,7 @@ Big Compute ile Büyük Veri uygulamaları arasındaki çizgi her zaman net değ
 
 • **Big Compute**, CPU gücüne ve belleğe bağlı uygulamalardan oluşmaya yatkındır; örneğin, mühendislik benzetimleri, finansal risk modelleme ve dijital işleme. Big Compute çözümünün altyapısı kaba hesaplama gerçekleştirecek özelleştirilmiş çok çekirdekli işlemcilere sahip bilgisayarlar ve bilgisayarları bağlamak için özelleştirilmiş, yüksek hızda ağ donanımlarına sahip olabilir.
 
-• **Büyük Veri**, büyük hacimli web günlükleri veya diğer iş zekası verileri gibi tek bir bilgisayarla veya veritabanı yönetim sistemiyle yönetilemeyen yüksek miktarda verilerden oluşan veri analizi sorunlarını çözümler. Büyük Veri, CPU gücünden çok disk kapasitesine ve G/Ç performansına bağlanma eğilimindedir ve verilerin kümesini ve bölümünü yönetmek için Apache Hadoop gibi özel araçlar kullanabilir. (Azure HDInsight ve diğer Azure Hadoop çözümleri hakkında bilgi için bkz. [Hadoop](https://azure.microsoft.com/solutions/hadoop/).)
+• **Büyük Veri**, tek bir bilgisayarla veya veritabanı yönetim sistemiyle yönetilemeyen yüksek miktarda verilerden oluşan veri analizi sorunlarını çözümler. büyük hacimli web günlükleri veya diğer iş zekası verileri bunun örneklerindendir. Büyük Veri, CPU gücünden daha fazla disk kapasitesi ve G/Ç performansı kullanma eğilimindedir. Ayrıca Apache Hadoop gibi küme yönetmeye ve verileri bölümlemeye yönelik özel Büyük Veri araçları vardır. (Azure HDInsight ve diğer Azure Hadoop çözümleri hakkında bilgi için bkz. [Hadoop](https://azure.microsoft.com/solutions/hadoop/).)
 
 ## İşlem yönetimi ve iş zamanlama
 
@@ -73,35 +73,35 @@ Kümelenmiş işlem kaynaklarının yönetilmesine ve bunları işleri çalışt
 
 * **Küme yöneticisi** - Sağlamalar, yayımlar ve yönetici işlem kaynakları (veya işlem düğümleri). Küme yöneticisi, işletim sistemi görüntülerinin ve uygulamaların işlem düğümlerine yüklenmesini otomatikleştirebilir, işlem kaynaklarını istek üzerine zamanlayabilir ve düğümlerin performansını izleyebilir.
 
-* **İş zamanlayıcı** - Kaynakları (örneğin, işlemci veya bellek), uygulama gereksinimleri ve çalışacağı koşulları belirtir. İş zamanlayıcı bir iş kuyruğu tutar ve atanan öncelik veya başka özelliklere göre kaynakları ayırır.
+* **İş zamanlayıcı** - Bir uygulamanın gereksinim duyduğu kaynakları (örneğin, işlemci veya bellek) ve çalışacağı koşulları belirtir. İş zamanlayıcı bir iş kuyruğu tutar ve atanan öncelik veya başka özelliklere göre kaynakları ayırır.
 
-Windows tabanlı ve Linux tabanlı kümeler için kümeleme ve iş zamanlama araçları Azure’e de geçirilebilir. Örneğin, Windows ve Linux HPC iş yükleri için Microsoft'un ücretsiz işlem kümesi çözümü olan [Microsoft HPC Paketi](https://technet.microsoft.com/library/cc514029), Azure'da çalışma için çeşitli seçenekler sunmaktadır. Torque ve SLURM gibi açık kaynaklı araçları çalıştırmak için Linux kümelerini derleyebilir ya da Azure’da [TIBCO DataSynapse GridServer](http://www.tibco.com/company/news/releases/2016/tibco-to-accelerate-cloud-adoption-of-banking-and-capital-markets-customers-via-microsoft-collaboration), [IBM Platform Symphony](http://www-01.ibm.com/support/docview.wss?uid=isg3T1023592) ve [Univa Grid Engine](http://www.univa.com/products/grid-engine) gibi ticari araçları çalıştırabilirsiniz.
+Windows tabanlı ve Linux tabanlı kümeler için kümeleme ve iş zamanlama araçları Azure’e de geçirilebilir. Örneğin, Windows ve Linux HPC iş yükleri için Microsoft'un ücretsiz işlem kümesi çözümü olan [Microsoft HPC Paketi](https://technet.microsoft.com/library/cc514029), Azure'da çalışma için çeşitli seçenekler sunmaktadır. Ayrıca Torque ve SLURM gibi açık kaynaklı araçlar çalıştırmak için Linux kümeleri oluşturabilirsiniz. Ek olarak [TIBCO DataSynapse GridServer](http://www.tibco.com/company/news/releases/2016/tibco-to-accelerate-cloud-adoption-of-banking-and-capital-markets-customers-via-microsoft-collaboration), [IBM Platform Symphony](http://www-01.ibm.com/support/docview.wss?uid=isg3T1023592) ve [Univa Grid Engine](http://www.univa.com/products/grid-engine) gibi ticari kılavuz çözümlerini Azure’a getirebilirsiniz.
 
 Aşağıdaki bölümlerde gösterildiği gibi, geleneksel küme yönetim araçları olmadan (ya da buna ek olarak) işlem kaynaklarını ve zamanlama işlerini yönetmek için de Azure hizmetlerinden yararlanabilirsiniz.
 
 
 ## Senaryolar
 
-Mevcut HPC küme çözümlerini, Azure hizmetlerini veya ikisinin birleşimini destekleyerek Big Compute iş yüklerini çalıştırmak için burada üç yaygın senaryo vardır. Her senaryoyu seçmeyle ilgili önemli kararlar listelenmiş olsa da bunlar pek kapsamlı değildir. Çözümünüzde kullanabildiğiniz Azure hizmetleri hakkında daha fazla bilgi makalenin ilerideki bölümlerindedir.
+Mevcut HPC küme çözümlerini, Azure hizmetlerini veya ikisinin birleşimini kullanarak Big Compute iş yüklerini çalıştırmaya yönelik üç yaygın senaryo aşağıda verilmiştir. Her senaryoyu seçmeyle ilgili önemli kararlar listelenmiş olsa da bunlar pek kapsamlı değildir. Çözümünüzde kullanabildiğiniz Azure hizmetleri hakkında daha fazla bilgi makalenin ilerideki bölümlerindedir.
 
   | Senaryo | Neden seçiliyor?
 ------------- | ----------- | ---------------
-**HPC kümesinin Azure’de ortaya çıkması**<br/><br/>[![Cluster burst][burst_cluster]](./media/batch-hpc-solutions/burst_cluster.png) <br/><br/> Daha fazla bilgi edinin:<br/>• [HPC Pack ile Azure çalışan örneklerine patlama](https://technet.microsoft.com/library/gg481749.aspx)<br/><br/>• [HPC Paketi ile karma işlem kümesi ayarlama](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md)<br/><br/>• [HPC Pack ile Azure Batch’e patlama](https://technet.microsoft.com/library/mt612877.aspx)<br/><br/>|• [Microsoft HPC Paketini](https://technet.microsoft.com/library/cc514029) veya başka şirket içi kümesini karma bir çözümde ek Azure kaynaklarıyla birleştirin.<br/><br/>• Platformda çalışacak Big Compute iş yüklerinizi Hizmet (PaaS) sanal makine örnekleri (şu anda yalnızca Windows Server) olarak uzatın.<br/><br/>• İsteğe bağlı bir Azure sanal ağını kullanarak şirket içi lisans sunucusuna veya veri deposuna erişim|• Mevcut bir HPC kümeniz var ve daha fazla kaynak gerekiyor <br/><br/>• Ek HPC kümesi altyapısı satın almak ve yönetmek istemezsiniz<br/><br/>• Geçici yoğun istek dönemleriniz veya özel projeleriniz var
+**HPC kümesinin Azure’de ortaya çıkması**<br/><br/>[![Cluster burst][burst_cluster]](./media/batch-hpc-solutions/burst_cluster.png) <br/><br/> Daha fazla bilgi edinin:<br/>• [HPC Pack ile Azure çalışan örneklerine patlama](https://technet.microsoft.com/library/gg481749.aspx)<br/><br/>• [HPC Paketi ile karma işlem kümesi ayarlama](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md)<br/><br/>• [HPC Pack ile Azure Batch’e patlama](https://technet.microsoft.com/library/mt612877.aspx)<br/><br/>|• [Microsoft HPC Paketini](https://technet.microsoft.com/library/cc514029) veya başka şirket içi kümesini karma bir çözümde ek Azure kaynaklarıyla birleştirin.<br/><br/>• Platformda çalışacak Big Compute iş yüklerinizi Hizmet (PaaS) sanal makine örnekleri (şu anda yalnızca Windows Server) olarak uzatın.<br/><br/>• İsteğe bağlı bir Azure sanal ağını kullanarak şirket içi lisans sunucusuna veya veri deposuna erişin|• Mevcut bir HPC kümeniz var ve daha fazla kaynak gerekiyor <br/><br/>• Ek HPC kümesi altyapısı satın almak ve yönetmek istemezsiniz<br/><br/>• Geçici yoğun istek dönemleriniz veya özel projeleriniz var
 **HPC kümesini Azure’da tamamen oluşturma**<br/><br/>[![Cluster in IaaS][iaas_cluster]](./media/batch-hpc-solutions/iaas_cluster.png)<br/><br/>Daha fazla bilgi edinin:<br/>• [Azure’de HPC kümesi çözümleri](./big-compute-resources.md)<br/><br/>|• Uygulamalarınızı ve küme araçlarınızı standart veya özel Windows ya da Linux hizmet olarak altyapı (IaaS) sanal makinelerine hızlı ve tutarlı bir şekilde dağıtın.<br/><br/>• Tercih ettiğiniz iş zamanlaması çözümünü kullanarak çeşitli Big Compute iş yüklerini çalıştırın.<br/><br/>• Tam bulut tabanlı çözümler oluşturmak için ağ ve depolama da dahil olmak üzere ek Azure Hizmetleri kullanın. |• Ek Linux veya Windows HPC kümesi altyapısı satın almak ve yönetmek istemezsiniz<br/><br/>• Geçici yoğun istek dönemleriniz veya özel projeleriniz var<br/><br/>• Bir dönem için ek küme gerekiyor, ancak bunu dağıtmak için yere ve bilgisayarlara yatırım yapmak istemiyorsunuz<br/><br/>• İşlem yoğunluklu uygulamanızı boşaltmak istiyorsunuz, bu nedenle de bulutta tamamen bir hizmet olarak çalışıyor
-**Azure’de paralel uygulama ölçeğini genişletme**<br/><br/>[![Azure Batch][batch_proc]](./media/batch-hpc-solutions/batch_proc.png)<br/><br/>Daha fazla bilgi edinin:<br/>• [Azure Batch temel bilgileri](./batch-technical-overview.md)<br/><br/>• [.NET için Azure Batch kitaplığını kullanmaya başlama](./batch-dotnet-get-started.md)|• Windows veya Linux sanal makinelerinin havuzlarında çalışacak çeşitli Big Compute iş yüklerinin ölçeğini genişletmek için [Azure Batch](https://azure.microsoft.com/documentation/services/batch/) ile geliştirin.<br/><br/>• Sanal makinelerin dağıtımı ve otomatik ölçeklendirilmesi, iş zamanlaması, olağanüstü durum kurtarma, veri taşıma, bağımlılık yönetimi ve uygulama dağıtımını ayrı bir HPC kümesi veya iş zamanlayıcı gerekmeden yönetmek için Azure hizmeti kullanın.|• işlem kaynakları veya iş zamanlayıcıyı yönetmek istemiyorsunuz; bunun yerine uygulamalarınızın çalışmasına odaklanmak istiyorsunuz<br/><br/>• İşlem yoğunluklu uygulamanızı boşaltmak istiyorsunuz, bu nedenle de bulutta bir hizmet olarak çalışıyor<br/><br/>• İşlem iş yüküne uyması için işlem kaynaklarınızı otomatik ölçeklendirmek istiyorsunuz
+**Azure’de paralel uygulama ölçeğini genişletme**<br/><br/>[![Azure Batch][batch_proc]](./media/batch-hpc-solutions/batch_proc.png)<br/><br/>Daha fazla bilgi edinin:<br/>• [Azure Batch temel bilgileri](./batch-technical-overview.md)<br/><br/>• [.NET için Azure Batch kitaplığını kullanmaya başlama](./batch-dotnet-get-started.md)|• Windows veya Linux sanal makinelerinin havuzlarında çalışacak çeşitli Big Compute iş yüklerinin ölçeğini genişletmek için [Azure Batch](https://azure.microsoft.com/documentation/services/batch/) ile geliştirin.<br/><br/>• Sanal makinelerin dağıtımı ve otomatik ölçeklendirilmesi, iş zamanlaması, olağanüstü durum kurtarma, veri taşıma, bağımlılık yönetimi ve uygulama dağıtımını yönetmek için Azure platform hizmetini kullanın.|• işlem kaynakları veya iş zamanlayıcıyı yönetmek istemiyorsunuz; bunun yerine uygulamalarınızın çalışmasına odaklanmak istiyorsunuz<br/><br/>• İşlem yoğunluklu uygulamanızı boşaltmak istiyorsunuz, bu nedenle de bulutta bir hizmet olarak çalışıyor<br/><br/>• İşlem iş yüküne uyması için işlem kaynaklarınızı otomatik ölçeklendirmek istiyorsunuz
 
 
 ## Big Compute için Azure Hizmetleri
 
-Burada, Big Compute çözümleri ve iş akışları için birleştirebildiğiniz hesaplama, veriler, ağ ve ilgili hizmetler hakkında daha fazla bilgi bulunmaktadır. Azure hizmetleri hakkında ayrıntılı yönergeler için Azure hizmetleri [belgelerine](https://azure.microsoft.com/documentation/) bakın. Bu makalede yukarıda söz edilen [senaryolar](#scenarios) tam da bu hizmetleri kullanmanın bazı yollarını gösterir.
+Big Compute çözümleri ve iş akışları için birleştirebildiğiniz hesaplama, veriler, ağ ve ilgili hizmetler hakkında daha fazla bilgi aşağıda verilmiştir. Azure hizmetleri hakkında ayrıntılı yönergeler için Azure hizmetleri [belgelerine](https://azure.microsoft.com/documentation/) bakın. Bu makalede yukarıda söz edilen [senaryolar](#scenarios) tam da bu hizmetleri kullanmanın bazı yollarını gösterir.
 
 >[AZURE.NOTE] Azure düzenli olarak senaryonuz için yararlı olabilecek yeni hizmetler sunar. Sorularınız varsa, [Azure iş ortağı](https://pinpoint.microsoft.com/en-US/search?keyword=azure) ile görüşün veya *bigcompute@microsoft.com* adresine e-posta gönderin.
 
 ### İşlem hizmetleri
 
-Azure işlem hizmetleri Big Compute çözümünün çekirdeğidir ve farklı işlem hizmetleri farklı senaryolar için avantaj sunarlar. Temel düzeyde, bu hizmetler, Azure’ün Windows Server Hyper-V teknolojisini kullanarak sağladığı sanal makine tabanlı işlem örneklerini çalıştırmak için uygulamaların farklı modlarını sağlar. Bu örnekler standart ve özel Linux ve Windows işletim sistemlerinin ve araçlarının çeşitlerini çalıştırabilir. Azure, CPU çekirdekleri, bellek, disk kapasitesi ve diğer özelliklerin farklı yapılandırmalarıyla size [örnek boyutları](../virtual-machines/virtual-machines-windows-sizes.md) seçimi sağlar. Gereksinimlerinize bağlı olarak örnekleri binlerce çekirdeğe ölçeklendirip, daha az kaynak gerektiğinde de ölçeklendirmeyi azaltın.
+Azure işlem hizmetleri Big Compute çözümünün çekirdeğidir ve farklı işlem hizmetleri farklı senaryolar için avantaj sunarlar. Temel düzeyde, bu hizmetler, Azure’ün Windows Server Hyper-V teknolojisini kullanarak sağladığı sanal makine tabanlı işlem örneklerini çalıştırmak için uygulamaların farklı modlarını sağlar. Bu örnekler standart ve özel Linux ve Windows işletim sistemlerinin ve araçlarını çalıştırabilir. Azure, CPU çekirdekleri, bellek, disk kapasitesi ve diğer özelliklerin farklı yapılandırmalarıyla size [örnek boyutları](../virtual-machines/virtual-machines-windows-sizes.md) seçimi sağlar. Gereksinimlerinize bağlı olarak örnekleri binlerce çekirdeğe ölçeklendirip, daha az kaynak gerektiğinde de ölçeklendirmeyi azaltın.
 
->[AZURE.NOTE] Düşük gecikme süresi ve yüksek işleme uygulama ağı gereken paralel MPI uygulamaları da dahil, bazı HPC iş yüklerinin performansını artırmak için Azure işlem yoğunluklu örneklerinden yararlanın. Bkz. [A8, A9, A10 ve A11 işlem yoğunluklu örnekleri hakkında](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md).  
+>[AZURE.NOTE] Düşük gecikme süresi ve yüksek işleme uygulama ağı gereken paralel MPI uygulamaları da dahil, HPC iş yüklerinin performansını ve ölçeklenebilirliğini artırmak için Azure işlem yoğunluklu örneklerinden yararlanın. Bkz. [H serisi ve işlem yoğunluklu A serisi sanal makineler hakkında](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md).  
 
 Hizmet | Açıklama
 ------------- | -----------
@@ -117,11 +117,11 @@ Big Compute çözümü tipik olarak bir dizi girdi verisi üzerinde çalışır 
 
 * [Azure File storage](https://azure.microsoft.com/services/storage/files/) - Bazı HPC küme çözümleri için gerekli olan standart SMB protokolü kullanarak Azure’de ortak dosyaları ve verileri paylaşır.
 
-* [Data Lake Store](https://azure.microsoft.com/services/data-lake-store/) - Bulut için üst ölçekte bir Apache Hadoop Dağıtılmış Dosya Sistemi sağlar; özellikle toplu işlem, gerçek zamanlı ve etkileşimli analizler için yararlıdır.
+* [Data Lake Store](https://azure.microsoft.com/services/data-lake-store/) - Bulut için üst ölçekte bir Apache Hadoop Dağıtılmış Dosya Sistemi sağlar; toplu işlem, gerçek zamanlı ve etkileşimli analizler için yararlıdır.
 
 ### Veri ve analiz hizmetleri
 
-Bazı Big Compute senaryoları büyük ölçekli veri akışlarından oluşur ya da daha fazla işleme veya analiz gereken veriler üretir. Bu durumu çözmek için Azure bir dizi veri ve analiz hizmeti sunar:
+Bazı Big Compute senaryoları büyük ölçekli veri akışlarından oluşur ya da daha fazla işleme veya analiz gereken veriler üretir. Azure aşağıdakiler dahil birkaç veri ve analiz hizmeti sunar:
 
 * [Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) - Şirket içi, bulut tabanlı ve İnternet veri depolarına ait verilerle birleşen, yığılan ve dönüştüren veri temelli iş akışlarını (işlem hattı) derler.
 
@@ -135,9 +135,9 @@ Bazı Big Compute senaryoları büyük ölçekli veri akışlarından oluşur ya
 
 Big Compute çözümünüze, şirket içi veya başka ortamlardaki kaynaklara bağlanmak için başka Azure hizmetleri gerekebilir. Örneklere şunlar dahildir:
 
-* [Virtual Network](https://azure.microsoft.com/documentation/services/virtual-network/) - Azure kaynaklarını birbirine veya şirket içi veri merkezinize bağlamak için Azure’de mantıksal yalıtılmış bir bölüm oluşturur; Big Compute uygulamalarının şirket içi verilere, Active Directory hizmetlerine ve lisans sunucularına erişmesini sağlar
+* [Sanal Ağ](https://azure.microsoft.com/documentation/services/virtual-network/) - Azure’da Azure kaynaklarını birbirine veya şirket içi veri merkezinize bağlamak için mantıksal olarak yalıtılmış bir bölüm oluşturur. Şirket içi ve dışı karışık bir sanal ağ ile Big Compute uygulamaları şirket içi verilere, Active Directory hizmetlerine ve lisans sunucularına erişebilir
 
-* [ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/) - Microsoft veri merkezleri ve şirket içi ya da birlikte bulunan bir ortam olan altyapıya İnternet üzerindeki genel bağlantılara göre daha yüksek güvenlikli, daha güvenilir, daha hızlı ve daha az bekleme süreli özel bir bağlantı oluşturur.
+* [ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/) - Microsoft veri merkezleri ile şirketinizde veya bir birlikte bulundurma ortamında bulunan altyapı arasında özel bir bağlantı oluşturur. ExpressRoute İnternet üzerinden kurulan tipik bağlantılardan daha fazla güvenilirlik, daha yüksek hızlar ve daha düşük gecikme sağlar.
 
 * [Hizmet Veri Yolu](https://azure.microsoft.com/documentation/services/service-bus/) - İster Azure’de, ister başka bir bulut platformunda, isterse de bir veri merkezinde olsun, uygulamaların iletişim kurması ve veri değişimi yapması için birçok mekanizma sağlar.
 
@@ -160,6 +160,6 @@ Big Compute çözümünüze, şirket içi veya başka ortamlardaki kaynaklara ba
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

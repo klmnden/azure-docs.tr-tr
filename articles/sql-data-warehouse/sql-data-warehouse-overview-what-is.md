@@ -13,8 +13,9 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/23/2016"
+   ms.date="09/27/2016"
    ms.author="lodipalm;barbkess;mausher;jrj;sonyama;kevin"/>
+
 
 
 # Azure SQL Data Warehouse Nedir?
@@ -49,7 +50,7 @@ Aşağıdaki diyagramda mimari daha ayrıntılı olarak gösterilmiştir.
 
 **İşlem düğümleri:** İşlem düğümleri, SQL Veri Ambarı’nın arkasındaki güç olarak hizmet verir. Bunlar verilerinizi depolayan ve sorgunuzu işleyen SQL Veritabanlarıdır. Veri eklediğiniz zaman SQL Veri Ambarı satırları İşlem düğümlerinize dağıtır. İşlem düğümleri verilerinizde paralel sorguları çalıştıran çalışanlardır. İşlemeden sonra, sonuçları yeniden Kontrol düğümüne geçirirler. Kontrol düğümü sorguyu tamamlamak için sonuçları toplar ve son sonucu döndürür.
 
-**Depolama:** Verileriniz Azure Blob depolama alanına depolanır. İşlem düğümleri verilerinizle etkileşim kurduklarında, doğrudan blob depolamaya ve blob depolamadan yazma ve okuma işlemlerini gerçekleştirirler. Azure depolama saydam ve sınırsız şekilde genişlediğinden, SQL Data Warehouse da aynısını yapabilir. İşlem ve depolama bağımsız olduğundan, SQL Data Warehouse işlemi ölçeklendirmeden ayrı olarak depolamayı otomatik şekilde ölçeklendirebilir ve tam tersini yapabilir. Azure Blob depolama aynı zamanda hatalara tamamen dayanıklıdır ve yedekleme ve geri yükleme işlemini kolaylaştırır.
+**Depolama:** Verileriniz Azure Blob depolama alanına depolanır. İşlem düğümleri verilerinizle etkileşim kurduklarında, doğrudan blob depolamaya ve blob depolamadan yazma ve okuma işlemlerini gerçekleştirirler. Azure depolama saydam ve büyük ölçüde genişlediğinden, SQL Veri Ambarı da aynısını yapabilir. İşlem ve depolama bağımsız olduğundan, SQL Data Warehouse işlemi ölçeklendirmeden ayrı olarak depolamayı otomatik şekilde ölçeklendirebilir ve tam tersini yapabilir. Azure Blob depolama aynı zamanda hatalara tamamen dayanıklıdır ve yedekleme ve geri yükleme işlemini kolaylaştırır.
 
 **Veri Taşıma Hizmeti:** Veri Taşıma Hizmeti (DMS), düğümler arasında verileri taşır. DMS, İşlem düğümlerinin birleşimler ve toplamalar için ihtiyaç duydukları verilere erişmelerini sağlar. DMS bir Azure hizmeti değildir. Tüm düğümlerde SQL Database'in yanında çalışan bir Windows hizmetidir. DMS arka planda çalıştığı için doğrudan DMS ile etkileşim kurmazsınız. Bununla birlikte sorgu planlarına baktığınız zaman planların bazı DMS işlemlerini içerdiğini fark edersiniz, bunun nedeni her sorguyu paralel olarak çalıştırmak için veri taşımanın gerekli olmasıdır.
 
@@ -142,19 +143,20 @@ Polybase farklı kaynaklardaki verilerinizi alışık olduğunuz T-SQL komutlar�
 
 - Polybase, tümleştirme sırasında bağımsız şekilde hareket eder. Desteklediği tüm kaynaklar için aynı özellikleri ve işlevleri kullanıma sunar. Polybase tarafından okunan veriler, sınırlandırılmış dosyalar veya ORC dosyaları dahil olmak üzere çeşitli biçimlerde olabilir.
 
-- PolyBase aynı zamanda bir HD Insight kümesi için depolama alanı olarak kullanılan blob depolama alanına erişmek için kullanılabilir. Bu özellik, ilişkisel ve ilişkisel olmayan araçlarla aynı verilere erişmenizi sağlar.
+- PolyBase aynı zamanda bir HDInsight kümesi için depolama alanı olarak kullanılan blob depolama alanına erişmek için kullanılabilir. Bu özellik, ilişkisel ve ilişkisel olmayan araçlarla aynı verilere erişmenizi sağlar.
 
 ## Sonraki adımlar
 
 SQL Veri Ambarı hakkında biraz bilgi sahibi olduğunuza göre hızlıca [SQL Veri Ambarı oluşturma][] ve [örnek verileri yükleme][] hakkında bilgi edinin. Azure’da yeniyseniz yeni terimlerle karşılaşabileceğinizi için [Azure sözlüğünü][] yararlı bulabilirsiniz. Alternatif olarak, aşağıdaki diğer SQL Data Warehouse Kaynakları'na göz atın.  
 
+- [Başarı hikayeleri]
 - [Bloglar]
-- [Özellik İstekleri]
+- [Özellik istekleri]
 - [Videolar]
-- [CAT Ekibi Blogları]
-- [Destek Bileti Oluşturun]
-- [MSDN Forumu]
-- [Stack Overflow Forumu]
+- [Müşteri Danışma Ekibi blogları]
+- [Destek bileti oluşturun]
+- [MSDN forumu]
+- [Stack Overflow forumu]
 - [Twitter]
 
 
@@ -162,28 +164,29 @@ SQL Veri Ambarı hakkında biraz bilgi sahibi olduğunuza göre hızlıca [SQL V
 [1]: ./media/sql-data-warehouse-overview-what-is/dwarchitecture.png
 
 <!--Article references-->
-[Destek Bileti Oluşturun]: sql-data-warehouse-get-started-create-support-ticket.md
-[örnek verileri yükleme]: sql-data-warehouse-load-sample-databases.md
-[SQL Veri Ambarı oluşturma]: sql-data-warehouse-get-started-provision.md
-[Geçiş belgeleri]: sql-data-warehouse-overview-migrate.md
-[SQL Veri Ambarı çözüm ortakları]: sql-data-warehouse-partner-business-intelligence.md
-[Tümleşik araçlara genel bakış]: sql-data-warehouse-overview-integrate.md
-[Yedekleme ve geri yüklemeye genel bakış]: sql-data-warehouse-restore-database-overview.md
+[Destek bileti oluşturun]: ./sql-data-warehouse-get-started-create-support-ticket.md
+[örnek verileri yükleme]: ./sql-data-warehouse-load-sample-databases.md
+[SQL Veri Ambarı oluşturma]: ./sql-data-warehouse-get-started-provision.md
+[Geçiş belgeleri]: ./sql-data-warehouse-overview-migrate.md
+[SQL Veri Ambarı çözüm ortakları]: ./sql-data-warehouse-partner-business-intelligence.md
+[Tümleşik araçlara genel bakış]: ./sql-data-warehouse-overview-integrate.md
+[Yedekleme ve geri yüklemeye genel bakış]: ./sql-data-warehouse-restore-database-overview.md
 [Azure sözlüğünü]: ../azure-glossary-cloud-terminology.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
+[Başarı hikayeleri]: https://customers.microsoft.com/search?sq=&ff=story_products_services%26%3EAzure%2FAzure%2FAzure%20SQL%20Data%20Warehouse%26%26story_product_families%26%3EAzure%2FAzure%26%26story_product_categories%26%3EAzure&p=0
 [Bloglar]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
-[CAT Ekibi Blogları]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
-[Özellik İstekleri]: https://feedback.azure.com/forums/307516-sql-data-warehouse
-[MSDN Forumu]: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=AzureSQLDataWarehouse
-[Stack Overflow Forumu]: http://stackoverflow.com/questions/tagged/azure-sqldw
+[Müşteri Danışma Ekibi blogları]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
+[Özellik istekleri]: https://feedback.azure.com/forums/307516-sql-data-warehouse
+[MSDN forumu]: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=AzureSQLDataWarehouse
+[Stack Overflow forumu]: http://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Videolar]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Sep16_HO4-->
 
 

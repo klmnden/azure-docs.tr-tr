@@ -1,20 +1,21 @@
 <properties
-	pageTitle="Getting Started with Azure Stack Key Vault | Microsoft Azure"
-	description="Get started using Azure Stack Key Vault"
-	services="azure-stack"
-	documentationCenter=""
-	authors="rlfmendes"
-	manager="natmack"
-	editor=""/>
+    pageTitle="Getting Started with Azure Stack Key Vault | Microsoft Azure"
+    description="Get started using Azure Stack Key Vault"
+    services="azure-stack"
+    documentationCenter=""
+    authors="rlfmendes"
+    manager="natmack"
+    editor=""/>
 
 <tags
-	ms.service="azure-stack"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="09/26/2016"
-	ms.author="ricardom"/>
+    ms.service="azure-stack"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="09/26/2016"
+    ms.author="ricardom"/>
+
 
 
 # Getting started with Key Vault
@@ -35,9 +36,7 @@ The output of the above command should report “Registered” for the “Regist
     Microsoft.KeyVault Registered {vaults/secrets} {local}
     
 
- If that’s not the case, you should
-invoke the following command to register the KeyVault service within
-your subscription:
+ If that’s not the case, you should invoke the following command to register the KeyVault service within your subscription:
 
     Register-AzureRmResourceProvider -ProviderNamespace Microsoft.KeyVault
 
@@ -132,8 +131,7 @@ The following is the output of the *Add-AzureKeyVaultKey* cmdlet:
     Version : 86062b02b10342688f3b0b3713e343ff
     Id : https://vault010.vault.azurestack.local:443/keys/keyVaultKeyName001/86062b02b10342688f3b0b3713e343ff
     
-You can now reference this key that you created or uploaded to Azure Key Vault, by using its URI. Use **https://vault010.vault.azurestack.local:443/keys/keyVaultKeyName001**
-to always get the current version; and use **https://vault010.vault.azurestack.local:443/keys/keyVaultKeyName001/86062b02b10342688f3b0b3713e343ff** to get this specific version.
+You can now reference this key that you created or uploaded to Azure Key Vault, by using its URI. Use **https://vault010.vault.azurestack.local:443/keys/keyVaultKeyName001** to always get the current version; and use **https://vault010.vault.azurestack.local:443/keys/keyVaultKeyName001/86062b02b10342688f3b0b3713e343ff** to get this specific version.
 
 ### Retrieving a key
 
@@ -210,3 +208,8 @@ If you want to authorize that same application to read secrets in your vault, ru
 [Deploy a VM with a Key Vault password](azure-stack-kv-deploy-vm-with-secret.md)
 
 [Deploy a VM with a Key Vault certificate](azure-stack-kv-push-secret-into-vm.md)
+
+
+<!--HONumber=Sep16_HO4-->
+
+

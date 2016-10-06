@@ -36,7 +36,7 @@ Bu bölümde Hello World örneğindeki kodun bazı önemli bölümleri ele alın
 
 ### Ağ geçidi oluşturma
 
-Geliştirici *ağ geçidi işlemini* yazmalıdır. Bu program iç altyapıyı (ileti veri yolu) oluşturur, modülleri yükler ve her şeyi doğru çalışacak şekilde ayarlar. SDK bir JSON dosyasından ağ geçidini önyüklemenizi sağlayan **Gateway_Create_From_JSON** işlevini sağlar. **Gateway_Create_From_JSON** işlevini kullanmak için yüklenecek modülleri belirten bir JSON dosyası yoluna geçirmeniz gerekir. 
+Geliştirici *ağ geçidi işlemini* yazmalıdır. Bu program iç altyapıyı (aracı) oluşturur, modülleri yükler ve her şeyi doğru çalışacak şekilde ayarlar. SDK bir JSON dosyasından ağ geçidini önyüklemenizi sağlayan **Gateway_Create_From_JSON** işlevini sağlar. **Gateway_Create_From_JSON** işlevini kullanmak için yüklenecek modülleri belirten bir JSON dosyası yoluna geçirmeniz gerekir. 
 
 Hello World örneğindeki ağ geçidi işleminin kodunu [main.c][lnk-main-c] dosyasına bulabilirsiniz. Okunaklılık için aşağıdaki kod parçacığında ağ geçidi işlem kodunun kısaltılmış sürümü gösterilmektedir. Bu program bir ağ geçidi oluşturur ve ağ geçidini çıkarmadan önce kullanıcının **ENTER** tuşuna basmasını bekler. 
 
@@ -65,21 +65,34 @@ JSON ayarlar dosyası yüklenecek modüllerin bir listesini içerir. Her modül�
 - **module_path**: modülü içeren kitaplığın yolu. Linux için bu bir .so dosyası, Windows'ta ise bir .dll dosyasıdır.
 - **args**: modül için gereken tüm yapılandırma bilgileri.
 
-Aşağıdaki örnekte Linux üzerinde Hello World örneğini yapılandırmak için kullanılan JSON ayarlar dosyası gösterilmektedir. Bir modülün bağımsız değişken gerektirip gerektirmediği modülün tasarımına bağlıdır. Bu örnekte günlükçü modülü, çıktı dosyasının yolu olan bir bağımsız değişkeni alır ve Hello World modülü herhangi bir bağımsız değişken almaz:
+JSON dosyası ayrıca aracıya geçirilecek modüller arasındaki bağlantıları içerir. Bir bağlantı iki özelliğe sahiptir:
+- **kaynak**: `modules` bölümünden bir modül adı veya "\*".
+- **havuz**: `modules` bölümünden bir modül adı
+
+Her bağlantı bir ileti yolu ve yönü tanımlar. `source` modülünden gelen iletiler `sink` modülüne teslim edilmelidir. Herhangi bir modülden gelen iletilerin `sink` tarafından alınacağını belirtmek üzere `source` ayarı "\*" olarak belirlenebilir.
+
+Aşağıdaki örnekte Linux üzerinde Hello World örneğini yapılandırmak için kullanılan JSON ayarlar dosyası gösterilmektedir. `hello_world` modülü tarafından üretilen her ileti `logger` modülü tarafından kullanılır. Bir modülün bağımsız değişken gerektirip gerektirmediği modülün tasarımına bağlıdır. Bu örnekte günlükçü modülü, çıktı dosyasının yolu olan bir bağımsız değişkeni alır ve Hello World modülü herhangi bir bağımsız değişken almaz:
 
 ```
 {
     "modules" :
     [ 
         {
-            "module name" : "logger_hl",
+            "module name" : "logger",
             "module path" : "./modules/logger/liblogger_hl.so",
             "args" : {"filename":"log.txt"}
         },
         {
-            "module name" : "helloworld",
+            "module name" : "hello_world",
             "module path" : "./modules/hello_world/libhello_world_hl.so",
             "args" : null
+        }
+    ],
+    "links" :
+    [
+        {
+            "source" : "hello_world",
+            "sink" : "logger"
         }
     ]
 }
@@ -92,24 +105,24 @@ Aşağıdaki örnekte Linux üzerinde Hello World örneğini yapılandırmak iç
 ```
 int helloWorldThread(void *param)
 {
-    // Create data structures used in function.
+    // create data structures used in function.
     HELLOWORLD_HANDLE_DATA* handleData = param;
     MESSAGE_CONFIG msgConfig;
     MAP_HANDLE propertiesMap = Map_Create(NULL);
     
-    // Add a property named "helloWorld" with a value of "from Azure IoT
+    // add a property named "helloWorld" with a value of "from Azure IoT
     // Gateway SDK simple sample!" to a set of message properties that
     // will be appended to the message before publishing it. 
     Map_AddOrUpdate(propertiesMap, "helloWorld", "from Azure IoT Gateway SDK simple sample!")
 
-    // Set the content for the message
+    // set the content for the message
     msgConfig.size = strlen(HELLOWORLD_MESSAGE);
     msgConfig.source = HELLOWORLD_MESSAGE;
 
-    // Set the properties for the message
+    // set the properties for the message
     msgConfig.sourceProperties = propertiesMap;
     
-    // Create a message based on the msgConfig structure
+    // create a message based on the msgConfig structure
     MESSAGE_HANDLE helloWorldMessage = Message_Create(&msgConfig);
 
     while (1)
@@ -121,8 +134,8 @@ int helloWorldThread(void *param)
         }
         else
         {
-            // Publish the message to the bus
-            (void)MessageBus_Publish(handleData->busHandle, helloWorldMessage);
+            // publish the message to the broker
+            (void)Broker_Publish(handleData->brokerHandle, helloWorldMessage);
             (void)Unlock(handleData->lockHandle);
         }
 
@@ -137,7 +150,7 @@ int helloWorldThread(void *param)
 
 ### Hello World modülü ileti işleme
 
-Diğer modüllerin ileti veri yoluna yayımladıkları herhangi bir iletiyi Hello World modülünün hiçbir zaman işlemesi gerekmez. Bu özellik Hello World modülünde ileti çağırma uygulamasını işlemsiz bir işlev haline getirir.
+Diğer modüllerin aracıya yayımladıkları herhangi bir iletiyi Hello World modülünün hiçbir zaman işlemesi gerekmez. Bu özellik Hello World modülünde ileti çağırma uygulamasını işlemsiz bir işlev haline getirir.
 
 ```
 static void HelloWorld_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHandle)
@@ -148,9 +161,9 @@ static void HelloWorld_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messag
 
 ### Günlükçü modülü ileti yayımlama ve işleme
 
-Günlükçü modülü iletileri ileti veri yolundan alır ve bir dosyaya yazar. İletileri hiçbir zaman ileti veri yolunda yayımlamaz. Bu nedenle, günlükçü modülünün kodu **MessageBus_Publish** işlevini hiçbir zaman çağırmaz.
+Günlükçü modülü iletileri aracıdan alır ve bir dosyaya yazar. Hiçbir zaman bir ileti yayımlamaz. Bu nedenle, günlükçü modülünün kodu **Broker_Publish** işlevini hiçbir zaman çağırmaz.
 
-[logger.c][lnk-logger-c] dosyasındaki **Logger_Recieve** işlevi, ileti veri yolunun günlükçü modülüne iletileri ulaştırmak üzere çağırdığı geri çağırmadır. Aşağıdaki kod parçacığı ek açıklamalarla birlikte değiştirilmiş bir sürümü göstermektedir ve bazı hata işleme kodları okunaklılık için kaldırılmıştır:
+[logger.c][lnk-logger-c] dosyasındaki **Logger_Recieve** işlevi, aracının günlükçü modülüne iletileri ulaştırmak üzere çağırdığı geri çağırmadır. Aşağıdaki kod parçacığı ek açıklamalarla birlikte değiştirilmiş bir sürümü göstermektedir ve bazı hata işleme kodları okunaklılık için kaldırılmıştır:
 
 ```
 static void Logger_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHandle)
@@ -205,6 +218,6 @@ Gateway SDK’sını kullanma hakkında bilgi için aşağıdakilere bakın:
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/
 [lnk-gateway-simulated]: ../articles/iot-hub/iot-hub-linux-gateway-sdk-simulated-device.md
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

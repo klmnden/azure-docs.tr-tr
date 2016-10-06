@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Azure Stack'te plan oluşturma| Microsoft Azure"
-    description="Hizmet yöneticisi olarak, abonelerin sanal makine sağlamasına olanak tanıyan bir plan oluşturun."
+    pageTitle="Create a plan in Azure Stack | Microsoft Azure"
+    description="As a service administrator, create a plan that lets subscribers provision virtual machines."
     services="azure-stack"
     documentationCenter=""
     authors="ErikjeMS"
@@ -13,68 +13,74 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="08/15/2016"
+    ms.date="09/26/2016"
     ms.author="erikje"/>
 
 
-# Azure Stack'te plan oluşturma
+# Create a plan in Azure Stack
 
-[Planlar](azure-stack-key-features.md#services-plans-offers-and-subscriptions), bir veya birden fazla hizmetten oluşan gruplardır. Bir sağlayıcı olarak, kiracılarınıza sunabileceğiniz planlar oluşturabilirsiniz. Böylece kiracılarınız tekliflerinize abone olarak, bu tekliflerin içerdiği planları ve hizmetleri kullanabilir. Bu örnekte işlem, ağ ve depolama kaynağı sağlayıcılarını içeren bir plan oluşturursunuz. Bu işlem, abonelere sanal makine sağlayabilme olanağı tanır.
+[Plans](azure-stack-key-features.md#services-plans-offers-and-subscriptions) are groupings of one or more services. As a provider, you can create plans to offer to your tenants. In turn, your tenants subscribe to your offers to use the plans and services they include. This example shows you how to create a plan that includes the compute, network, and storage resource providers. This plan gives subscribers the ability to provision virtual machines.
 
-1.  Bir İnternet tarayıcısında https://portal.azurestack.local adresine gidin.
+1.  In an internet browser, navigate to https://portal.azurestack.local.
 
-2.  Azure Stack Portal'da hizmet yöneticisi olarak [Oturum açın](azure-stack-connect-azure-stack.md#log-in-as-a-service-administrator) ve hizmet yöneticisi kimlik bilgilerinizi (bu, [PowerShell betiğini çalıştırma](azure-stack-run-powershell-script.md) bölümünün 5. adımında oluşturulan hesaptır) girdikten sonra **Oturum aç** seçeneğine tıklayın.
+2.  [Sign in](azure-stack-connect-azure-stack.md#log-in-as-a-service-administrator) to the Azure Stack Portal as a service administrator and enter your service administrator credentials (the account that you created during step 5 of the [Run the PowerShell script](azure-stack-run-powershell-script.md) section), and then click **Sign in**.
 
-    Hizmet yöneticileri teklif ve plan oluşturabilir, kullanıcıları yönetebilir.
+    Service administrators can create offers and plans, and manage users.
 
-3.  Kiracıların abone olabileceği bir plan ve teklif oluşturmak için **New** (Yeni) seçeneğine tıklayın.
+3.  To create a plan and offer that tenants can subscribe to, click **New** > **Tenant Offers + Plans** > **Plan**.
 
-    ![](media/azure-stack-create-plan/image1.png)
+    ![](media/azure-stack-create-plan/image01.png)
 
-4.  Oluştur dikey penceresinde **Tenant Offers and Plans** (Kiracı Teklifleri ve Planlar) seçeneğine ve ardından**Plan**'a tıklayın.
+4.  In the **New Plan** blade, fill in **Display Name** and **Resource Name**. The Display Name is the plan's friendly name that tenants see. Only the admin can see the Resource Name. It's the name that admins use to work with the plan as an Azure Resource Manager resource.
 
-    ![](media/azure-stack-create-plan/image2.png)
+    ![](media/azure-stack-create-plan/image02.png)
 
-5.  **Display Name** (Görünen Ad) ve **Resource Name** (Kaynak Adı) alanlarını doldurun. Görünen Ad, planın kolay adıdır. Kaynak Adını yalnızca yönetici görebilir. Bu; yöneticilerin, Azure Resource Manager kaynağı olarak planla birlikte çalışmak için kullandığı addır.
+5.  Create a new **Resource Group**, or select an existing one, as a container for the plan (e.g. "OffersAndPlans")
 
-    ![](media/azure-stack-create-plan/image3.png)
+    ![](media/azure-stack-create-plan/image02a.png)
 
-6.  Plan için kapsayıcı olarak yeni bir **Kaynak Grubu** seçin veya oluşturun. Varsayılan olarak, tüm planlar ve teklifler OffersAndPlans adlı bir kaynak grubunda yer alır.
+6.  Click **Services**, select **Microsoft.Compute**, **Microsoft.Network**, and **Microsoft.Storage**, and then click **Select**.
 
-7.  **Sunulan Hizmetler**'e tıklayın, üç sağlayıcı için de çoklu seçim yapmak (**İşlem Sağlayıcısı**, **Depolama Sağlayıcısı** ve **Ağ Sağlayıcısı**) üzere Shift tuşunu kullanın ve ardından **Seç**'e tıklayın.
+    ![](media/azure-stack-create-plan/image03.png)
 
-    ![](media/azure-stack-create-plan/image4.png)
+7.  Click **Quotas**, click **Microsoft.Storage (local)**, and then either select the default quota or click **Create new quota** to customize the quota.
 
-8.  **Microsoft.Compute**'a ve ardından **Yapılandırma Gerekiyor**'a tıklayın.
+    ![](media/azure-stack-create-plan/image04.png)
 
-    ![](media/azure-stack-create-plan/image5.png)
+8.  Type a name for the quota, click **Quota Settings**, set the quota values and click **OK**, and then click **Create**.
 
-9.  **Kota Belirle** dikey penceresinde tüm varsayılanları kabul edin, **Tamam**'a ve ardından tekrar **Tamam**'a tıklayın.
+    ![](media/azure-stack-create-plan/image06.png)
 
-    ![](media/azure-stack-create-plan/image6.png)
+9. Click **Microsoft.Network (local)**, and then either select the default quota or click **Create new quota** to customize the quota.
 
-10. **Microsoft.Network**'e ve ardından **Yapılandırma Gerekiyor**'a tıklayın.
+    ![](media/azure-stack-create-plan/image07.png)
 
-    ![](media/azure-stack-create-plan/image7.png)
+10. Type a name for the quota, click **Quota Settings**, set the quota values and click **OK**, and then click **Create**.
 
-11. **Kotaları Belirleyin** dikey penceresinde tüm onay kutularını seçin, **Tamam**'a ve ardından tekrar **Tamam**'a tıklayın.
+    ![](media/azure-stack-create-plan/image08.png)
 
-    ![](media/azure-stack-create-plan/image8.png)
+11. Click **Microsoft.Compute (local)**, and then either select the default quota or click **Create new quota** to customize the quota.
 
-12. **Microsoft.Storage**'a ve **Yapılandırma Gerekiyor**'a tıklayın, ardından **Kotaları Belirleyin** dikey penceresinde tüm varsayılanları kabul edip **Tamam**'a, sonra tekrar **Tamam**'a ve planı oluşturmak için **Oluştur**'a tıklayın.
+    ![](media/azure-stack-create-plan/image09.png)
 
-    ![](media/azure-stack-create-plan/image9.png)
-
-13. Planınız artık bir teklifte yer alabilir. Sağ üst taraftaki zil simgesine tıklayarak bildirimleri görüntüleyebilirsiniz.
+12.  Type a name for the quota, click **Quota Settings**, set the quota values and click **OK**, and then click **Create**.
 
     ![](media/azure-stack-create-plan/image10.png)
 
-## Sonraki adımlar
+13. In the **Quotas** blade, click **OK**, and then in the **New Plan** blade, click **Create** to create the plan.
 
-[Teklif oluşturma](azure-stack-create-offer.md)
+    ![](media/azure-stack-create-plan/image11.png)
+
+14. To see your new plan, click **All resources**, then search for the plan and click its name.
+
+    ![](media/azure-stack-create-plan/image12.png)
+
+## Next steps
+
+[Create an offer](azure-stack-create-offer.md)
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

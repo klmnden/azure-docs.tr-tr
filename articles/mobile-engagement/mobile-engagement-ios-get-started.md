@@ -63,28 +63,24 @@ Tümleştirmeyi göstermek için XCode ile temel bir uygulama oluşturacağız.
 
     ![][3]
 
-6. **XCode 7** için, `libxml2.dylib` yerine `libxml2.tbd` ekleyin.
-
-7. Uygulamanızın**Bağlantı Bilgileri** sayfasında Azure Portalı’na geri gidin ve bağlantı dizesini kopyalayın.
+6. Uygulamanızın**Bağlantı Bilgileri** sayfasında Azure Portalı’na geri gidin ve bağlantı dizesini kopyalayın.
 
     ![][4]
 
-8. **AppDelegate.m** dosyanıza aşağıdaki kod satırını ekleyin.
+7. **AppDelegate.m** dosyanıza aşağıdaki kod satırını ekleyin.
 
         #import "EngagementAgent.h"
 
-9. Şimdi, bağlantı dizesini `didFinishLaunchingWithOptions` temsilcisine yapıştırın.
+8. Şimdi, bağlantı dizesini `didFinishLaunchingWithOptions` temsilcisine yapıştırın.
 
         - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
         {
-            [...]
-            //[EngagementAgent setTestLogEnabled:YES];
-   
+            [...]   
             [EngagementAgent init:@"Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}"];
             [...]
         }
 
-10. `setTestLogEnabled` sorunları belirleyebilmeniz için SDK günlüklerini etkinleştiren isteğe bağlı bir ifadedir. 
+9. `setTestLogEnabled` sorunları belirleyebilmeniz için SDK günlüklerini etkinleştiren isteğe bağlı bir ifadedir. 
 
 ##<a id="monitor"></a>Gerçek zamanlı izlemeyi etkinleştirme
 
@@ -124,6 +120,7 @@ Aşağıdaki bölümler bunları almak için uygulamanızı ayarlar.
 1. **AppDeletegate.m** dosyana geri dönüp Engagement Reach modülünü içeri aktarın.
 
         #import "AEReachModule.h"
+        #import <UserNotifications/UserNotifications.h>
 
 2. `application:didFinishLaunchingWithOptions` yöntemi içerisinde bir Reach modülü oluşturun ve bu modülü mevcut Engagement başlatma satırınıza geçirin:
 
@@ -138,12 +135,19 @@ Aşağıdaki bölümler bunları almak için uygulamanızı ayarlar.
 
 1. `application:didFinishLaunchingWithOptions` yöntemine aşağıdaki satırı ekleyin:
 
-        if ([application respondsToSelector:@selector(registerUserNotificationSettings:)]) {
-            [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert) categories:nil]];
+        if (NSFoundationVersionNumber >= NSFoundationVersionNumber_iOS_8_0)
+        {
+            if (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_9_x_Max)
+            {
+                [UNUserNotificationCenter.currentNotificationCenter requestAuthorizationWithOptions:(UNAuthorizationOptionBadge | UNAuthorizationOptionSound | UNAuthorizationOptionAlert) completionHandler:^(BOOL granted, NSError * _Nullable error) {}];
+            }else
+            {
+                [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert)   categories:nil]];
+            }
             [application registerForRemoteNotifications];
         }
-        else {
-
+        else
+        {
             [application registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
         }
 
@@ -184,6 +188,6 @@ Aşağıdaki bölümler bunları almak için uygulamanızı ayarlar.
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

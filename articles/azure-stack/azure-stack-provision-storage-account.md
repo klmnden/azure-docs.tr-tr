@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Azure Stack'teki depolama hesapları | Microsoft Azure"
-    description="Azure Stack depolama hesaplarının Blob ve Tablo hizmetlerine erişmenizi nasıl sağladığını öğrenin."
+    pageTitle="Storage accounts in Azure Stack | Microsoft Azure"
+    description="Learn how to create an Azure Stack storage account."
     services="azure-stack"
     documentationCenter=""
     authors="ErikjeMS"
@@ -13,36 +13,36 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="08/15/2016"
+    ms.date="09/26/2016"
     ms.author="erikje"/>
 
 
-# Azure Stack'teki depolama hesapları
+# Storage accounts in Azure Stack
 
-Depolama hesapları, Blob ve Tablo hizmetlerinin yanı sıra depolama verisi nesneleriniz için benzersiz ad alanı içerir. Varsayılan olarak hesabınızdaki veriler, depolama hesabı sahibi olarak sizin kullanımınıza sunulur.
+Storage accounts include Blob and Table services, and the unique namespace for your storage data objects. By default, the data in your account is available only to you, the storage account owner.
 
-1.  **Yeni**'ye, **Veri + Depolama**'ya ve ardından **Depolama**'ya tıklayın.
+1.  On the Azure Stack POC computer, log in to `https://portal.azurestack.local` as [an admin](azure-stack-connect-azure-stack.md#log-in-as-a-service-administrator), and then click **New** > **Data + Storage** > **Storage account**.
 
-  **Önemli**: Aboneliği ve kaynak grubunu seçmeden önce bir ad yazmayın. Yazmanız halinde dikey pencereyi kapatın ve bu adımı yineleyin.
+    ![](media/azure-stack-provision-storage-account/image01.png)
 
-3.  Birden fazla aboneliğiniz varsa **Abonelik** alanı görüntülenir. Yeni depolama hesabına ilişkin aboneliği seçin.
+2.  In the **Create storage account** blade, type a name for your storage account. Create a new **Resource Group**, or select an existing one, then click **Create** to create the storage account.
 
-4.  Yeni bir kaynak grubu belirtin veya var olan bir grubu seçin.
+    ![](media/azure-stack-provision-storage-account/image02.png)
 
-5.  Depolama hesabınız için bir ad yazın.
+3. To see your new storage account, click **All resources**, then search for the storage account and click its name.
 
-6.  **Oluştur**’a tıklayın.
+    ![](media/azure-stack-provision-storage-account/image03.png)
+    
+## Next steps
 
-## Sonraki adımlar
+[Use Azure Resource Manager templates](azure-stack-arm-templates.md)
 
-[Azure Resource Manager şablonlarını kullanma](azure-stack-arm-templates.md)
+[Learn about Azure storage accounts](../storage/storage-create-storage-account.md)
 
-[Azure depolama hesapları hakkında bilgi edinin](../storage/storage-create-storage-account.md)
-
-[Azure Stack Azure ile Tutarlı Depolama Doğrulama Kılavuzunu indirin](http://aka.ms/azurestacktp1doc)
+[Download the Azure Stack Azure-consistent Storage Validation Guide](http://aka.ms/azurestacktp1doc)
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

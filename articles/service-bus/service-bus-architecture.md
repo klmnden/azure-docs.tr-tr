@@ -32,7 +32,7 @@ Service Bus ad alanı, bir ölçek birimi ile eşleştirilir. Ölçek birimi, Se
 
 - **Bir ağ geçidi deposu.** Ağ geçidi deposu, bu ölçek biriminde tanımlanan her varlık için veriler tutar. Ağ geçidi deposu, SQL Azure veritabanının üst kısmında uygulanır.
 
-- **Birden çok mesajlaşma deposu.** Mesajlaşma depoları, bu ölçek biriminde tanımlanan tüm kuyrukların, konu başlıklarının ve aboneliklerin iletilerini içerir. Ayrıca, tüm abonelik verilerini de içerir. [Bölümlenmiş mesajlaşma varlıkları](service-bus-partitioning.md) etkinleştirilmediği sürece kuyruk veya konu başlığı, bir mesajlaşma deposuna eşlenir. Abonelikler, üst konu başlıklarıyla aynı mesajlaşma deposunda depolanır. Service Bus [Premium Mesajlaşma](service-bus-premium-messaging.md) dışındaki mesajlaşma depoları, SQL Azure veritabanının üst kısmında uygulanır.
+- **Birden çok mesajlaşma deposu.** Mesajlaşma depoları, bu ölçek biriminde tanımlanan tüm kuyrukların, konu başlıklarının ve aboneliklerin iletilerini içerir. Ayrıca, tüm abonelik verilerini de içerir. [Bölümlenmiş mesajlaşma varlıkları](../service-bus-messaging/service-bus-partitioning.md) etkinleştirilmediği sürece kuyruk veya konu başlığı, bir mesajlaşma deposuna eşlenir. Abonelikler, üst konu başlıklarıyla aynı mesajlaşma deposunda depolanır. Service Bus [Premium Mesajlaşma](../service-bus-messaging/service-bus-premium-messaging.md) dışındaki mesajlaşma depoları, SQL Azure veritabanının üst kısmında uygulanır.
 
 ## Kapsayıcılar
 
@@ -56,12 +56,12 @@ Geçiş bağlantısı kurulduğunda istemciler, randevu için kullanılan ağ ge
 
 Service Bus mimarisine ilişkin genel bir bakış edindiğinize göre, aşağıdaki bağlantıları ziyaret edebilirsiniz:
 
-- [Service Bus mesajlaşma hizmetine genel bakış](service-bus-messaging-overview.md)
+- [Service Bus mesajlaşma hizmetine genel bakış](../service-bus-messaging/service-bus-messaging-overview.md)
 - [Service Bus ile ilgili temel bilgiler](service-bus-fundamentals-hybrid-solutions.md)
-- [Service Bus kuyruklarını kullanan kuyruğa alınan mesajlaşma çözümü](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
+- [Service Bus kuyruklarını kullanan kuyruğa alınan mesajlaşma çözümü](../service-bus-messaging/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

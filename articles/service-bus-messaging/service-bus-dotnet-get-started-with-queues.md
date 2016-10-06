@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Get started with Service Bus queues | Microsoft Azure"
-    description="How to write a C# console application for Service Bus messaging"
+    pageTitle="Service Bus kuyruklarını kullanmaya başlama | Microsoft Azure"
+    description="Service Bus mesajlaşması için C# konsolu uygulaması yazma"
     services="service-bus-messaging"
     documentationCenter=".net"
     authors="jtaubensee"
@@ -16,67 +16,68 @@
     ms.date="08/23/2016"
     ms.author="jotaub;sethm"/>
 
-# Get started with Service Bus Queues
+
+# Service Bus Kuyruklarını kullanmaya başlama
 
 [AZURE.INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-## What will be accomplished
+## Ne elde edilecek
 
-In this tutorial, we will complete the following:
+Bu öğreticide aşağıdaki işlemler tamamlanacaktır:
 
-1. Create a Service Bus namespace, using the Azure portal.
+1. Azure portalı ile Service Bus ad alanı oluşturma.
 
-2. Create a Service Bus Messaging queue, using the Azure portal.
+2. Azure portalı ile Service Bus Mesajlaşma kuyruğu oluşturma.
 
-3. Write a console application to send a message.
+3. İleti göndermek için bir konsol uygulaması yazma.
 
-4. Write a console application to receive messages.
+4. İleti almak için bir konsol uygulaması yazma.
 
-## Prerequisites
+## Ön koşullar
 
-1. [Visual Studio 2013 or Visual Studio 2015](http://www.visualstudio.com). The examples in this tutorial use Visual Studio 2015.
+1. [Visual Studio 2013 veya Visual Studio 2015](http://www.visualstudio.com). Bu öğreticideki örneklerde Visual Studio 2015 kullanılır.
 
-2. An Azure subscription.
+2. Azure aboneliği.
 
 [AZURE.INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-## 1. Create a namespace using the Azure portal
+## 1. Azure portalı kullanılarak ad alanı oluşturma
 
-If you already have a Service Bus namespace created, jump to the [Create a queue using the Azure portal](#2-create-a-queue-using-the-azure-portal) section.
+Daha önce oluşturduğunuz bir Service Bus ad alanı varsa [Azure portalını kullanarak kuyruk oluşturma](#2-create-a-queue-using-the-azure-portal) bölümüne atlayın.
 
 [AZURE.INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-## 2. Create a queue using the Azure portal
+## 2. Azure portalını kullanarak kuyruk oluşturma
 
-If you already have a Service Bus queue created, jump to the [Send messages to the queue](#3-send-messages-to-the-queue) section.
+Daha önce oluşturduğunuz bir Service Bus kuyruğu varsa [Kuyruğa ileti gönderme](#3-send-messages-to-the-queue) bölümüne atlayın.
 
 [AZURE.INCLUDE [service-bus-create-queue-portal](../../includes/service-bus-create-queue-portal.md)]
 
-## 3. Send messages to the queue
+## 3. Kuyruğa ileti gönderme
 
-To send messages to the queue, we will write a C# console application using Visual Studio.
+Kuyruğa ileti göndermek için, Visual Studio’yu kullanarak bir C# konsolu uygulaması yazacağız.
 
-### Create a console application
+### Konsol uygulaması oluşturma
 
-1. Launch Visual Studio and create a new Console application.
+1. Visual Studio'yu başlatın ve yeni bir Konsol uygulaması oluşturun.
 
-### Add the Service Bus NuGet package
+### Service Bus NuGet paketi ekleme
 
-1. Right-click the newly created project and select **Manage NuGet Packages**.
+1. Yeni oluşturulan projeye sağ tıklayın ve **NuGet Paketlerini Yönet**’i seçin.
 
-2. Click the **Browse** tab, then search for “Microsoft Azure Service Bus” and select the **Microsoft Azure Service Bus** item. Click **Install** to complete the installation, then close this dialog box.
+2. **Gözat** sekmesine tıklayın, ardından “Microsoft Azure Service Bus” araması yapın ve **Microsoft Azure Service Bus**’ı seçin. Yüklemeyi tamamlamak için **Yükle**'ye tıklayın, ardından bu iletişim kutusunu kapatın.
 
-    ![Select a NuGet package][nuget-pkg]
+    ![NuGet paketi seçme][nuget-pkg]
 
-### Write some code to send a message to the queue
+### Kuyruğa ileti göndermek için kod yazma
 
-1. Add the following using statement to the top of the Program.cs file.
+1. Aşağıdaki deyimi Program.cs dosyasının üst kısmına ekleyin.
 
     ```
     using Microsoft.ServiceBus.Messaging;
     ```
     
-2. Add the following code to the `Main` method, set the **connectionString** variable as the connection string that was obtained when creating the namespace, and set **queueName** as the queue name that used when creating the queue.
+2. Aşağıdaki kodu `Main` yöntemine ekleyin, **connectionString** değişkenini ad alanı oluşturulurken el edilen bağlantı dizesi olarak ayarlayın ve **queueName** değişkenini kuyruk oluşturulurken kullanılan kuyruk adı olarak ayarlayın.
 
     ```
     var connectionString = "<Your connection string>";
@@ -87,7 +88,7 @@ To send messages to the queue, we will write a C# console application using Visu
     client.Send(message);
     ```
 
-    Here is what your Program.cs should look like.
+    Program.cs dosyanız aşağıdaki gibi görünmelidir.
 
     ```
     using System;
@@ -111,21 +112,21 @@ To send messages to the queue, we will write a C# console application using Visu
     }
     ```
   
-3. Run the program, and check the Azure portal. Click the name of your queue in the namespace **Overview** blade. Notice that the **Active message count** value should now be 1.
+3. Programı çalıştırın ve Azure portalı denetleyin. Ad alanı **Genel Bakış** dikey penceresinde kuyruğunuzun adına tıklayın. **Etkin ileti sayısı**’nın şimdi 1 olması gerektiğini fark edebilirsiniz.
     
-      ![Message count][queue-message]
+      ![İleti sayısı][queue-message]
     
-## 4. Receive messages from the queue
+## 4. Kuyruktan ileti alma
 
-1. Create a new console application and add a reference to the Service Bus NuGet package, similar to the previous sending application.
+1. Yeni bir konsol uygulaması oluşturun ve Service Bus NuGet paketine, daha önceki gönderme uygulamasına benzer bir başvuru ekleyin.
 
-2. Add the following `using` statement to the top of the Program.cs file.
+2. Aşağıdaki `using` deyimini Program.cs dosyasının üst kısmına ekleyin.
   
     ```
     using Microsoft.ServiceBus.Messaging;
     ```
   
-3. Add the following code to the `Main` method, set the **connectionString** variable as the connection string that was obtained when creating the namespace, and set **queueName** as the queue name that you used when creating the queue.
+3. Aşağıdaki kodu `Main` yöntemine ekleyin, **connectionString** değişkenini ad alanı oluşturulurken el edilen bağlantı dizesi olarak ayarlayın ve **queueName** değişkenini kuyruk oluşturulurken kullandığınız kuyruk adı olarak ayarlayın.
 
     ```
     var connectionString = "";
@@ -142,7 +143,7 @@ To send messages to the queue, we will write a C# console application using Visu
     Console.ReadLine();
     ```
 
-	Here is what your Program.cs file should look like:
+    Program.cs dosyanız aşağıdaki gibi görünmelidir:
 
     ```
     using System;
@@ -171,15 +172,15 @@ To send messages to the queue, we will write a C# console application using Visu
     }
     ```
   
-4. Run the program, and check the portal. Notice that the **Queue Length** value should now be 0.
+4. Programı çalıştırın ve portalı denetleyin. **Kuyruk Uzunluğu** değeri şu anda 0 olmalıdır.
 
-    ![Queue length][queue-message-receive]
+    ![Kuyruk uzunluğu][queue-message-receive]
   
-Congratulations! You have now created a queue, sent a message, and received a message.
+Tebrikler! Bir kuyruk oluşturdunuz, ileti gönderdiniz ve ileti aldınız.
 
-## Next steps
+## Sonraki adımlar
 
-Check out our [GitHub repository with samples](https://github.com/Azure-Samples/azure-servicebus-messaging-samples) that demonstrate some of the more advanced features of Azure Service Bus messaging.
+Azure Service Bus mesajlaşmasının daha gelişmiş özelliklerinden bazılarını gösteren [örnekleri içeren GitHub depomuza](https://github.com/Azure-Samples/azure-servicebus-messaging-samples) göz atın.
 
 <!--Image references-->
 
@@ -191,3 +192,8 @@ Check out our [GitHub repository with samples](https://github.com/Azure-Samples/
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 
 [github-samples]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples
+
+
+<!--HONumber=Sep16_HO4-->
+
+

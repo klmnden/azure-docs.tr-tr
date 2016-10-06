@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/26/2016"
+   ms.date="09/22/2016"
    ms.author="yurid"/>
 
 
@@ -65,7 +65,7 @@ Her bir abonelik veya kaynak grubu için güvenlik ilkeleri yapılandırabilirsi
 
 9. Bu abonelikte kullanmak istediğiniz güvenlik önerilerini etkinleştirmek için **Güvenlik İlkesi** dikey penceresinde **Açık**'a tıklayın. Aşağıdaki ekran görüntüsüne benzer seçenekleri görmek için **Önleme ilkesi** öğesine tıklayın:
 
-    ![Güvenlik ilkelerini seçme](./media/security-center-policies/security-center-policies-fig4-ga.png)
+    ![Güvenlik ilkelerini seçme](./media/security-center-policies/security-center-policies-fig4-ga-new.png)
 
 Her bir seçeneği anlamak için aşağıdaki tabloyu kullanın:
 
@@ -78,8 +78,9 @@ Her bir seçeneği anlamak için aşağıdaki tabloyu kullanın:
 | Ağ güvenlik grupları | Ortak uç noktalara sahip sanal makinelere gelen ve giden trafiği denetlemek için [ağ güvenlik grupları](../virtual-network/virtual-networks-nsg.md)'nın yapılandırılmasını önerir. Aksi belirtilmediği sürece bir alt ağ için yapılandırılan ağ güvenlik grupları tüm sanal makine ağ arabirimleri tarafından devralınır. Bir ağ güvenlik grubunun yapılandırılıp yapılandırılmadığını denetlemenin yanı sıra, bu ilke gelen trafiğe izin veren kuralları tanımlamak için gelen güvenlik kurallarını değerlendirir. |
 | Web uygulaması güvenlik duvarı | Aşağıdaki koşullardan biri geçerli olduğunda sanal makinelerde bir web uygulaması güvenlik duvarının sağlanmasını önerir:</br></br>[Örnek Düzeyinde Ortak IP](../virtual-network/virtual-networks-instance-level-public-ip.md) (ILPIP) kullanılır ve ilişkili ağ güvenlik grubuna yönelik gelen güvenlik kuralları 80/443 numaralı bağlantı noktasına erişime izin verecek şekilde yapılandırılır.</br></br>Yük dengeli IP kullanılır ve ilişkili yük dengeleme ve gelen ağ adresi çevirisi (NAT) kuralları, 80/443 numaralı bağlantı noktasına erişime izin verecek şekilde yapılandırılır. (Daha fazla bilgi için bkz. [Yük Dengeleyici için Azure Resource Manager desteği](../load-balancer/load-balancer-arm.md). |
 | Yeni nesil güvenlik duvarı | Ağ korumalarını Azure’da yerleşik olan ağ güvenlik gruplarının ötesine genişletir. Güvenlik Merkezi, yeni nesil güvenlik duvarının önerildiği dağıtımları bulur ve sanal gereç sağlamanıza imkan tanır. |
-| SQL denetimi | Azure Veritabanı'na erişim denetiminin uyumluluk, gelişmiş algılama ve araştırma amacıyla etkinleştirilmesini önerir. |
+| SQL denetimi ve Tehdit algılama | Azure Veritabanı'na erişim denetiminin, araştırma amacıyla uyumluluk ve gelişmiş algılama için etkinleştirilmesini önerir. |
 | SQL saydam veri şifrelemesi | Azure SQL Veritabanınız, ilişkili yedeklemeler ve işlem günlük dosyaları için bekleyen şifrelemenin etkinleştirilmesini önerir. Verilerinizi ihlal edilse bile okunabilir olmayacaktır. |
+| Güvenlik açığı değerlendirmesi | Sanal makinenize bir güvenlik açığı değerlendirme çözümü yüklemenizi önerir. |
 
 Tüm seçenekleri yapılandırdıktan sonra öneriler içeren **Güvenlik İlkesi** dikey penceresinde **Tamam**'a tıklayın ve ilk ayarları içeren **Güvenlik İlkesi** dikey penceresinde **Kaydet**'e tıklayın.
 
@@ -109,6 +110,6 @@ Bu belgede, Azure Güvenlik Merkezi'nde güvenlik ilkelerinin nasıl yapılandı
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

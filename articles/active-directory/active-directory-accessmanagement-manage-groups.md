@@ -1,4 +1,5 @@
-<properties
+<özellikler
+
     pageTitle="Managing groups in Azure Active Directory | Microsoft Azure"
     description="How to create and manage groups to manage Azure users using Azure Active Directory."
     services="active-directory"
@@ -76,6 +77,8 @@ Görevleri Klasik Azure portalında gerçekleştirilen şekilde açıklayacağı
 
 Hangi kullanıcıların gruba üye olacağını belirlemek için Azure AD'de basit bir kuralı kolayca ayarlayabilirsiniz . Basit bir kural yalnızca tek bir karşılaştırma yapan kuraldır. Örneğin, bir grup bir SaaS uygulamasına atanırsa iş unvanı "Satış Temsilcisi" olan kullanıcıları eklemeye yönelik bir kural oluşturabilirsiniz. Bu kural daha sonra dizininizde o iş unvanına sahip tüm kullanıcılara bu SaaS uygulaması için erişim verir.
 
+Bir kullanıcının herhangi bir özniteliği değiştiğinde sistem, kullanıcının öznitelik değişikliğinin herhangi bir grup ekleme veya kaldırmayı tetikleyip tetiklemediğini görmek üzere bir dizindeki tüm dinamik grup kurallarını değerlendirir. Bir kullanıcı bir grup üzerindeki kuralı karşılıyorsa bu gruba üye olarak eklenir. Üyesi olduğu grubun kuralını artık karşılamıyorsa bu grubun üyeliğinden çıkarılır.
+
 > [AZURE.NOTE] Güvenlik gruplarında veya Office 365 gruplarında dinamik üyelik için bir kural ayarlayabilirsiniz. Şu anda uygulamalara grup tabanlı atama yapmak için iç içe geçmiş grup üyelikleri desteklenmemektedir.
 >
 > Gruplara yönelik dinamik üyelikler, bir Azure AD Premium lisansının atanmasını gerektirir.
@@ -114,6 +117,6 @@ Bu makalelerde Azure Active Directory ile ilgili ek bilgi sağlanmıştır.
 * [Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](active-directory-aadconnect.md)
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

@@ -1,7 +1,7 @@
 <properties
    pageTitle="Olay işleme işlevi oluşturma | Microsoft Azure"
    description="Bir olay zamanlayıcısını temel alarak çalışan bir C# bir işlevi oluşturmak için Azure İşlevlerini kullanın."
-   services="azure-functions"
+   services="functions"
    documentationCenter="na"
    authors="ggailey777"
    manager="erikre"
@@ -15,7 +15,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="06/05/2016"
+   ms.date="09/25/2016"
    ms.author="glenga"/>
    
 
@@ -45,7 +45,7 @@ Azure'da işlevlerinizin yürütülmesini bir işlev uygulaması barındırır. 
 
     ![Zamanlayıcı ile tetiklenen yeni bir işlev oluşturma](./media/functions-create-an-event-processing-function/functions-create-storage-queue-output-binding.png)
 
-5. **Azure Depolama Kuyruğu çıktısında** **Depolama hesabı bağlantısı**’nın yanındaki **seç** öğesine tıklayın, var olan depolama hesabını seçin veya yeni bir tane oluşturun, ardından **Kaydet**’e tıklayın. 
+5. **Azure Storage Kuyruğu çıktısında** var olan bir **Storage hesabı bağlantısını** seçin veya yeni bir tane oluşturun, ardından **Kaydet**’e tıklayın. 
 
     ![Zamanlayıcı ile tetiklenen yeni bir işlev oluşturma](./media/functions-create-an-event-processing-function/functions-create-storage-queue-output-binding-2.png)
 
@@ -87,6 +87,6 @@ Dinamik hizmet planı dahil olmak üzere Azure İşlevlerinde kullanılabilen hi
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

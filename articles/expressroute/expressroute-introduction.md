@@ -139,6 +139,6 @@ Size en uygun faturalama modelini seçin. Aşağıda listelenen faturalama model
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

@@ -39,6 +39,11 @@ Bu örnekte, bölgenin tepesinde (bu durumda "contoso.com") MX kaydı oluşturma
 
     azure network dns record-set add-record myresourcegroup  contoso.com  "test-ns" NS -d "ns1.contoso.com"
 
+#### Tek kayıtlı bir PTR kaydı kümesi oluşturma  
+Bu durumda 'my-arpa-zone.com' ifadesi IP aralığınızı temsil eden ARPA bölgesini ifade eder.  Bu bölgedeki her PTR kaydı bu IP aralığındaki bir IP adresine karşılık gelir.    
+
+    azure network dns record-set add-record myresourcegroup my-arpa-zone.com "10" PTR -P "myservice.contoso.com"   
+
 #### Tek kayıtlı bir SRV kayıt kümesi oluşturma
 
 Bölgenin kökünde bir SRV kaydı oluşturuyorsanız, kayıt adında "_service" and "_protocol" belirtebilirsiniz. Kayıt adına "@" eklemek gerekmez.
@@ -48,13 +53,13 @@ Bölgenin kökünde bir SRV kaydı oluşturuyorsanız, kayıt adında "_service"
 
     azure network dns record-set add-record myresourcegroup contoso.com  "_sip._tls" SRV -p 0 - w 5 -o 8080 -u "sip.contoso.com"
 
-#### Tek kayıtlı bir TXT kayıt kümesi oluşturma
+#### Tek kayıtlı bir TXT kaydı kümesi oluşturma
 
     azure network dns record-set create myresourcegroup contoso.com "test-TXT" TXT --ttl 300
 
     azure network dns record-set add-record myresourcegroup contoso.com "test-txt" TXT -x "this is a TXT record"
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

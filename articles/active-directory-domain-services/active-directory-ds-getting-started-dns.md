@@ -1,6 +1,6 @@
 <properties
     pageTitle="Azure AD Etki Alanı Hizmetleri: Azure sanal ağı için DNS ayarlarını güncelleştirme| Microsoft Azure"
-    description="Azure Active Directory Etki Alanı Hizmetleri ile (Önizleme) çalışmaya başlama"
+    description="Azure Active Directory Etki Alanı Hizmetleri ile çalışmaya başlama"
     services="active-directory-ds"
     documentationCenter=""
     authors="mahesh-unnikrishnan"
@@ -13,14 +13,14 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="07/06/2016"
+    ms.date="09/21/2016"
     ms.author="maheshu"/>
 
 
-# Azure AD Etki Alanı Hizmetleri *(Önizleme)* - Azure sanal ağı için DNS ayarlarını güncelleştirme
+# Azure AD Etki Alanı Hizmetleri - Azure sanal ağı için DNS ayarlarını güncelleştirme
 
 ## Görev 4: Azure sanal ağı için DNS ayarlarını güncelleştirme
-Dizininiz için Azure AD Etki Alanı Hizmetleri'ni başarıyla etkinleştirdiğinize göre, bir sonraki görev sanal ağ içindeki bilgisayarların bu hizmetlere bağlanmasını ve hizmetleri kullanmasını sağlamaktır. Bunun için sanal ağınızın DNS sunucusu ayarlarını güncelleştirerek Azure AD Etki Alanı Hizmetleri'nin sanal ağda kullanılabilir olduğu IP adreslerine işaret etmesini sağlamanız gerekir.
+Önceki yapılandırma görevlerinde dizininiz için Azure AD Etki Alanı Hizmetlerini başarıyla etkinleştirdiniz. Sonraki göreviniz sanal ağınızdaki bilgisayarların bu hizmetlere bağlanabilmesini ve bu hizmetleri kullanabilmesini sağlamaktır. Sanal ağınızdaki DNS sunucusu ayarlarını, sanal ağda Azure AD Etki Alanı Hizmetlerinin kullanılabilir olduğu iki IP adresini işaret edecek şekilde güncelleştirin.
 
 > [AZURE.NOTE] Azure AD Etki Alanı Hizmetleri'ni dizininiz için etkinleştirdikten sonra, dizinin **Yapılandır** sekmesinde görüntülenen Azure AD Etki Alanı Hizmetleri'nin IP adreslerini not edin.
 
@@ -34,7 +34,7 @@ Azure AD Etki Alanı Hizmetleri'ni etkinleştirdiğiniz sanal ağın DNS sunucus
 
 3. **Sanal Ağlar** sekmesinde, Azure AD Etki Alanı Hizmetleri'ni etkinleştirdiğiniz sanal ağı seçerek özelliklerini görüntüleyin.
 
-4. **Yapılandır** sekmesine tıklayın.
+4. **Configure (Yapılandır)** sekmesine tıklayın.
 
     ![Sanal ağlar düğümü](./media/active-directory-domain-services-getting-started/virtual-network-configure-tab.png)
 
@@ -42,11 +42,11 @@ Azure AD Etki Alanı Hizmetleri'ni etkinleştirdiğiniz sanal ağın DNS sunucus
 
 6. Dizininizin **Yapılandır** sekmesindeki **Etki Alanı Hizmetleri**'nde görüntülenen her iki IP adresini de girdiğinizden emin olun.
 
-7. Bu sanal ağın DNS sunucusu ayarlarını kaydetmek için sayfanın alt kısmındaki görev bölmesinde **Kaydet**'e tıklayın.
+7. Bu sanal ağa ait DNS sunucusu ayarlarını kaydetmek için sayfanın alt kısmındaki görev bölmesinde **Kaydet**’e tıklayın.
 
    ![Sanal ağın DNS sunucusu ayarlarını güncelleştirin.](./media/active-directory-domain-services-getting-started/update-dns.png)
 
-> [AZURE.NOTE] Sanal ağın DNS sunucusu ayarları güncelleştirildikten sonra, ağdaki sanal makinelerin güncelleştirilen DNS yapılandırmasını almaları biraz sürebilir. Bir sanal makine etki alanına bağlanamıyorsa sanal makinedeki DNS ayarlarının yenilenmesini zorlamak için DNS önbelleğini boşaltabilirsiniz (ör. "ipconfig /flushdns").
+> [AZURE.NOTE] Sanal ağın DNS sunucusu ayarları güncelleştirildikten sonra, ağdaki sanal makinelerin güncelleştirilen DNS yapılandırmasını almaları biraz sürebilir. Bir sanal makine etki alanına bağlanamıyorsa sanal makinedeki DNS ayarlarının yenilenmesini zorlamak için DNS önbelleğini boşaltabilirsiniz (ör. 'ipconfig /flushdns') sanal makine üzerinde. Bu komut, sanal makinedeki DNS ayarlarını yenilenmeye zorlar.
 
 
 ## Görev 5 - Azure AD Etki Alanı Hizmetleri için parola eşitlemeyi etkinleştirme
@@ -54,6 +54,6 @@ Bir sonraki yapılandırma görevi, [Azure AD Etki Alanı Hizmetleri için parol
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="07/15/2016"
+    ms.date="09/27/2016"
     ms.author="cabailey"/>
 
 
@@ -37,8 +37,8 @@ Geliştiricilerin ve güvenlik yöneticilerinin ihtiyaçlarını karşılamaya A
 
 | Rol        | Sorun bildirimi           | Azure Anahtar Kasası tarafından çözüldü  |
 | ------------- |-------------|-----|
-| Bir Azure uygulaması geliştiricisi      | "İmzalama ve şifreleme için anahtarları kullanan Azure'a yönelik bir uygulama yazmak istiyorum ancak bunların benim uygulamamın dışında olmasını ve böylelikle çözümün coğrafi olarak dağıtılan bir uygulamaya uygun olmasını istiyorum. <br/><br/>Ayrıca kod yazmama gerek kalmadan bu anahtarların ve gizli anahtarların korunmasını ve bunları en uygun performansla uygulamam üzerinden kolayca kullanmayı istiyorum." | √ Anahtarlar bir kasada depolanır ve gerektiğinde URI tarafından çağrılır.<br/><br/> √ Anahtarlar, endüstri standardında algoritmalar, anahtar uzunlukları ve donanım güvenliği modülleri (HSM'ler) kullanılarak Azure tarafından korunur.<br/><br/> √ Anahtarlar, uygulamalarla aynı Azure veri merkezlerinde bulunan HSM'lerde işlenir; böylece anahtarların şirket içi gibi ayrı bir konumda bulunduğu durumlardan daha fazla güvenilirlik ve daha düşük gecikme süresi sağlanır.|
-| Hizmet olarak Yazılım (SaaS) geliştiricisi      |"Müşterilerimin kiracı anahtarları ve gizli anahtarları için sorumluluk veya olası bir yükümlülük almak istemiyorum. <br/><br/>Müşterilerin kendi anahtarlarına sahip olmalarını ve bunları yönetmelerini istiyorum; böylece en iyi yaptığım şeye, yani çekirdek yazılım özelliklerini sağlamaya odaklanabilirim." | √ Müşteriler kendi anahtarları Azure'a aktarabilir ve bunları yönetebilir. Bir SaaS uygulamasının müşterilerin anahtarlarını kullanarak şifreleme işlemleri gerçekleştirmesi gerektiğinde, Anahtar Kasası uygulama adına bunu yapar. Uygulama, müşterilerin anahtarlarını görmez.|
+| Bir Azure uygulaması geliştiricisi      | "İmzalama ve şifreleme için anahtarları kullanan Azure'a yönelik bir uygulama yazmak istiyorum ancak bu anahtarların benim uygulamamın dışında olmasını ve böylelikle çözümün coğrafi olarak dağıtılan bir uygulamaya uygun olmasını istiyorum. <br/><br/>Ayrıca, kodu kendim yazmak zorunda kalmadan bu anahtarların ve parolaların korunmasını istiyorum. Ayrıca bu anahtarları ve parolaları uygulamamdan en iyi performans ile kolayca kullanabilmek istiyorum." | √ Anahtarlar bir kasada depolanır ve gerektiğinde URI tarafından çağrılır.<br/><br/> √ Anahtarlar, endüstri standardında algoritmalar, anahtar uzunlukları ve donanım güvenliği modülleri (HSM'ler) kullanılarak Azure tarafından korunur.<br/><br/> √ Anahtarlar uygulamalarla aynı Azure veri merkezinde bulunan HSM'lerde işlenir. Bunun yapılması, anahtarlar şirket içi gibi ayrı konumlarda bulunuyorsa daha fazla güvenilirlik ve daha az gecikme sağlar.|
+| Hizmet olarak Yazılım (SaaS) geliştiricisi      |"Müşterilerimin kiracı anahtarları ve gizli anahtarları için sorumluluk veya olası bir yükümlülük almak istemiyorum. <br/><br/>Müşterilerin kendi anahtarlarına sahip olmalarını ve bunları yönetmelerini istiyorum; böylece en iyi yaptığım şeye, yani çekirdek yazılım özelliklerini sağlamaya odaklanabilirim." | √ Müşteriler kendi anahtarları Azure'a aktarabilir ve bunları yönetebilir. Bir SaaS uygulamasının müşterilerin anahtarlarını kullanarak şifreleme işlemleri gerçekleştirmesi gerektiğinde, Anahtar Kasası uygulama adına bu işlemleri yapar. Uygulama, müşterilerin anahtarlarını görmez.|
 | Güvenlik başkanı (CSO) | "Uygulamalarımızın güvenli anahtar yönetimi için FIPS 140-2 Düzey 2 HSM'lerle uyumlu olduğunu bilmek istiyorum. <br/><br/>Kuruluşumun anahtar yaşam döngüsü denetimine sahip olduğundan ve anahtar kullanımını izleyebildiğinden emin olmak istiyorum. <br/><br/>Ayrıca, birden çok Azure hizmeti ve kaynağı kullanıyor olsak da, anahtarları Azure'da tek bir konumdan yönetmek istiyorum."     |√ HSM'ler, FIPS 140-2 Düzey 2 doğrulanmasına sahiptir.<br/><br/>√ Anahtar Kasası, Microsoft anahtarlarınızı görmeyecek ve ayıklamayacak şekilde tasarlanmıştır.<br/><br/>√ Gerçek zamanlıya yakın anahtar kullanımı günlüğü.<br/><br/>√ Kasa, Azure'da kaç kasanız olduğuna, bunların hangi bölgeleri desteklediğine ve hangi uygulamaların bunları kullandığına bakmaksızın tek bir arabirim sağlar. |
 
 
@@ -62,7 +62,7 @@ Bir yöneticiye yönelik başlama öğreticisi için bkz. [Azure Anahtar Kasası
 
 Anahtar Kasası'na yönelik kullanım günlüğü hakkında daha fazla bilgi için bkz. [Azure Anahtar Kasası Günlüğü](key-vault-logging.md).
 
-Azure Anahtar Kasası ile anahtarları ve gizli anahtarları kullanma hakkında daha fazla bilgi için bkz. [Anahtarlar ve Gizli Anahtarlar Hakkında](https://msdn.microsoft.com/library/azure/dn903623.aspx).
+Azure Anahtar Kasası ile anahtarları ve gizli anahtarları kullanma hakkında daha fazla bilgi için bkz. [Anahtarlar, Parolalar ve Sertifikalar Hakkında](https://msdn.microsoft.com/library/azure/dn903623\(v=azure.1\).aspx).
 
 
 <!--Image references-->
@@ -70,6 +70,6 @@ Azure Anahtar Kasası ile anahtarları ve gizli anahtarları kullanma hakkında 
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

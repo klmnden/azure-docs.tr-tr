@@ -111,9 +111,9 @@ Uygulamalar arasında bağlantı kurma her zaman eksiksiz çözüm derlemelerini
 
 Artık Azure Service Bus hizmeti ile ilgili temel bilgileri edindiğinize göre, daha fazla bilgi edinmek için aşağıdaki bağlantıları izleyin.
 
-- [Service Bus kuyruklarını](service-bus-dotnet-get-started-with-queues.md) kullanma
-- [Service Bus konu başlıklarını](service-bus-dotnet-how-to-use-topics-subscriptions.md) kullanma
-- [Service Bus geçişini](service-bus-dotnet-how-to-use-relay.md) kullanma
+- [Service Bus kuyruklarını](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md) kullanma
+- [Service Bus konu başlıklarını](../service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions.md) kullanma
+- [Service Bus geçişini](../service-bus-relay/service-bus-dotnet-how-to-use-relay.md) kullanma
 - [Service Bus örnekleri](service-bus-samples.md)
 
 [1]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_01_architecture.png
@@ -123,6 +123,6 @@ Artık Azure Service Bus hizmeti ile ilgili temel bilgileri edindiğinize göre,
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

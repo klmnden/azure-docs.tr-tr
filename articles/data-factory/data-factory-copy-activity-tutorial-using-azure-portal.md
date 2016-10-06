@@ -35,95 +35,95 @@ Bu eğitimin bir parçası olarak gerçekleştireceğiniz adımlar şunlardır:
 Adım | Açıklama
 -----| -----------
 [Azure Data Factory oluşturma](#create-data-factory) | Bu adımda, **ADFTutorialDataFactory** adlı bir Azure data factory oluşturursunuz.  
-[Bağlı hizmetler oluşturma](#create-linked-services) | Bu adımda iki bağlı hizmet oluşturursunuz: **AzureStorageLinkedService** ve **AzureSqlLinkedService**. AzureStorageLinkedService Azure depolamayı, AzureSqlLinkedService de Azure SQL veritabanını ADFTutorialDataFactory konumuna bağlar. İşlem hattıyla ilgili girdi verileri Azure blob depolamadaki bir blob kapsayıcısında yer alırken çıktı verileri de Azure SQL veritabanındaki bir tabloda depolanır. Bu nedenle, bu iki veri deposunu bağlı hizmet olarak data factory’ye ekliyorsunuz.      
-[Girdi ve çıktı veri kümeleri oluşturma](#create-datasets) | Önceki adımda girdi/çıktı verilerini kapsayan veri depolarına başvuran bağlı hizmetleri oluşturdunuz. Bu adımda, **EmpTableFromBlob** ve **EmpSQLTable** adlı, veri depolarında depolanan girdi/çıktı verilerini temsil eden iki data factory tablosunu tanımlarsınız. EmpTableFromBlob için, kaynak verilere sahip bir blob’un bulunduğu blob kapsayıcısını, EmpSQLTable için de, çıktı verilerini depolayan SQL tablosunu belirtirsiniz. Yapı, kullanılabilirlik ve ilke gibi diğer özellikleri de belirtirsiniz. 
-[İşlem hattı oluşturma](#create-pipeline) | Bu adımda, ADFTutorialDataFactory’de **ADFTutorialPipeline** adlı işlem hattını oluşturursunuz. İşlem hattında, girdi verilerini Azure blob’tan çıktı Azure SQL tablosuna kopyalayan **Kopyalama Etkinliği** vardır. Kopyalama Etkinliği, Azure Data Factory’de veri hareketini gerçekleştirir. Bu etkinlik, çeşitli veri depolama alanları arasında güvenli, güvenilir ve ölçeklenebilir bir yolla veri kopyalayabilen genel olarak kullanılabilir bir hizmet tarafından desteklenir. Kopyalama etkinliği hakkında ayrıntılı bilgi için [Veri Taşıma Etkinlikleri](data-factory-data-movement-activities.md) makalesine bakın. 
+[Bağlı hizmetler oluşturma](#create-linked-services) | Bu adımda iki bağlı hizmet oluşturursunuz: **AzureStorageLinkedService** ve **AzureSqlLinkedService**. <br/><br/>AzureStorageLinkedService Azure depolamayı, AzureSqlLinkedService de Azure SQL veritabanını ADFTutorialDataFactory konumuna bağlar. İşlem hattıyla ilgili girdi verileri Azure blob depolamadaki bir blob kapsayıcısında yer alırken çıktı verileri de Azure SQL veritabanındaki bir tabloda depolanır. Bu nedenle, bu iki veri deposunu bağlı hizmet olarak data factory’ye ekliyorsunuz.      
+[Girdi ve çıktı veri kümeleri oluşturma](#create-datasets) | Önceki adımda girdi/çıktı verilerini kapsayan veri depolarına başvuran bağlı hizmetleri oluşturdunuz. Bu adımda veri depolarına depolanan girdi/çıktı verilerini temsil eden **InputDataset** ve **OutputDataset** adlı iki veri kümesi tanımlayacaksınız. <br/><br/>InputDataset için, kaynak verilere sahip bir blob’un bulunduğu blob kapsayıcısını ve OutputDataset için çıktı verilerini depolayan SQL tablosunu belirtin. Yapı, kullanılabilirlik ve ilke gibi diğer özellikleri de belirtirsiniz. 
+[İşlem hattı oluşturma](#create-pipeline) | Bu adımda, ADFTutorialDataFactory’de **ADFTutorialPipeline** adlı işlem hattını oluşturursunuz. <br/><br/>İşlem hattına, girdi verilerini Azure blob’dan çıktı Azure SQL tablosuna kopyalayan bir **Kopyalama Etkinliği** ekleyin. Kopyalama Etkinliği, Azure Data Factory’de veri hareketini gerçekleştirir. Bu etkinlik, çeşitli veri depolama alanları arasında güvenli, güvenilir ve ölçeklenebilir bir yolla veri kopyalayabilen genel olarak kullanılabilir bir hizmet tarafından desteklenir. Kopyalama etkinliği hakkında ayrıntılı bilgi için [Veri Taşıma Etkinlikleri](data-factory-data-movement-activities.md) makalesine bakın. 
 [İşlem hattını izleme](#monitor-pipeline) | Bu adımda, girdi ve çıktı tablolarının dilimlerini Azure Portal’ı kullanarak izlersiniz.
 
-> [AZURE.IMPORTANT] 
-> [Öğreticiye Genel Bakış](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) makalesini inceleyin ve bu öğreticiyi uygulamadan önce **ön koşul** adımlarını tamamlayın.
+## Ön koşullar 
+Bu öğreticiyi uygulamadan önce [Öğreticiye Genel Bakış](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) makalesinde listelenen önkoşulları tamamlayın.
 
 ## Veri fabrikası oluşturma
 Bu adımda **ADFTutorialDataFactory** adlı bir Azure data factory oluşturmak için Azure Portal’ı kullanırsınız.
 
-1.  [Azure Portal][azure-portal]’da oturum açtıktan sonra sol alt köşede **YENİ**’ye tıklayın, **Oluştur** dikey penceresinde **Veri analizi**’ni seçin, **Veri analizi** dikey penceresinde de **Data Factory**’yi seçin. 
+1.  [Azure portalında](https://portal.azure.com/) oturum açtıktan sonra **Yeni**’ye tıklayın, **Intelligence + Analytics**’i seçin ve **Data Factory**’ye tıklayın. 
 
-    ![Yeni->DataFactory][image-data-factory-new-datafactory-menu]    
+    ![Yeni->DataFactory](./media/data-factory-copy-activity-tutorial-using-azure-portal/NewDataFactoryMenu.png)  
 
 6. **Yeni data factory** dikey penceresinde:
     1. **Ad** için **ADFTutorialDataFactory** girin. 
     
-        ![Yeni veri fabrikası dikey penceresi][image-data-factory-getstarted-new-data-factory-blade]
-    2. **KAYNAK GRUBU ADI**’na tıklayın ve aşağıdaki adımları uygulayın:
-        1. **Yeni bir kaynak grubu oluştur**’a tıklayın.
-        2. **Kaynak grubu oluştur** dikey penceresinde kaynak grubunun **adı** olarak **ADFTutorialResourceGroup** girin ve **Tamam**’a tıklayın. 
+        ![Yeni veri fabrikası dikey penceresi](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-new-data-factory.png)
 
-            ![Kaynak Grubu oluşturma][image-data-factory-create-resource-group]
-
-        Bu öğreticideki adımlardan bazıları kaynak grubu için şu adı kullandığınızı varsayar: **ADFTutorialResourceGroup**. Kaynak grupları hakkında daha fazla bilgi için bkz. [Azure kaynaklarınızı yönetmek için kaynak gruplarını kullanma](../resource-group-overview.md).  
-7. **Yeni veri fabrikası** dikey penceresinde **Başlangıç Panosuna Ekle** öğesinin seçili olmasına özen gösterin.
-8. **Yeni data factory** dikey penceresinde **Oluştur**’a tıklayın.
-
-    Azure veri fabrikasının adı genel olarak benzersiz olmalıdır. Aşağıdaki hatayı alırsanız veri fabrikasının adını değiştirin (örneğin adınızADFTutorialDataFactory) ve oluşturmayı yeniden deneyin. Data Factory yapıtlarının adlandırma kuralları için [Data Factory - Adlandırma Kuralları](data-factory-naming-rules.md) konusuna bakın.
+        Azure data factory adı **küresel olarak benzersiz** olmalıdır. Aşağıdaki hatayı alırsanız veri fabrikasının adını değiştirin (örneğin adınızADFTutorialDataFactory) ve oluşturmayı yeniden deneyin. Data Factory yapıtlarının adlandırma kuralları için [Data Factory - Adlandırma Kuralları](data-factory-naming-rules.md) konusuna bakın.
     
-        Data factory name “ADFTutorialDataFactory” is not available  
+            Data factory name “ADFTutorialDataFactory” is not available  
      
-    ![Data Factory adı yok][image-data-factory-name-not-available]
+        ![Data Factory adı yok](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-data-factory-not-available.png)
+    2. Azure **aboneliğinizi** seçin.
+    3. Kaynak Grubu için aşağıdaki adımlardan birini uygulayın:
+        1. **Var olanı kullan**’ı seçin ve ardından açılır listeden var olan bir kaynak grubu belirleyin. 
+        2. **Yeni oluştur**’u seçin ve bir kaynak grubunun adını girin.   
     
-    > [AZURE.NOTE] Data factory adı gelecekte bir DNS adı olarak kaydedilmiş olabilir; bu nedenle herkese görünür hale gelmiştir.  
-    > 
-    > Data Factory örnekleri oluşturmak için, Azure aboneliğinde katılımcı/yönetici rolünüz olmalıdır
+            Bu öğreticideki adımlardan bazıları kaynak grubu için şu adı kullandığınızı varsayar: **ADFTutorialResourceGroup**. Kaynak grupları hakkında daha fazla bilgi için bkz. [Azure kaynaklarınızı yönetmek için kaynak gruplarını kullanma](../resource-group-overview.md).  
+    4. Data factory için **konum** seçin. Açılır listede yalnızca Data Factory hizmeti tarafından desteklenen bölgeler gösterilmektedir.
+    5. **Başlangıç Panosuna Sabitle**'yi seçin.     
+    6. **Oluştur**’a tıklayın.
 
-9. Soldaki **BİLDİRİMLER** hub’ına tıklayın ve oluşturma işlemine ait bildirimleri arayın. Açıksa, **BİLDİRİMLER** dikey penceresini kapatmak için **X** işaretine tıklayın. 
-10. Oluşturma işlemi tamamlandıktan sonra, görüntüde gösterildiği gibi **DATA FACTORY** dikey penceresini görürsünüz.
+        > [AZURE.IMPORTANT] Data Factory örnekleri oluşturmak için abonelik/kaynak grubu düzeyinde [Data Factory Katılımcısı](../active-directory/role-based-access-built-in-roles.md/#data-factory-contributor) rolünün üyesi olmanız gerekir.
+        >  
+        >  Data factory adı gelecekte bir DNS adı olarak kaydedilmiş olabilir; bu nedenle herkese görünür hale gelmiştir.              
+9.  Durum/bildirim iletilerini görmek için araç çubuğundaki zil simgesine tıklayın. 
 
-    ![Data factory giriş sayfası][image-data-factory-get-stated-factory-home-page]
+    ![Bildirim iletileri](./media/data-factory-copy-activity-tutorial-using-azure-portal/Notifications.png) 
+10. Oluşturma işlemi tamamlandıktan sonra, görüntüde gösterildiği gibi **Data Factory** dikey penceresini görürsünüz.
+
+    ![Data factory giriş sayfası](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-data-factory-home-page.png)
 
 ## Bağlı hizmetler oluşturma
-Bağlı hizmetler veri depolarını veya işlem hizmetlerini Azure data factory’ye bağlar. Data store bir Azure Depolama, Azure SQL Veritabanı veya şirket içi SQL Server veritabanı olabilir.
+Bağlı hizmetler veri depolarını veya işlem hizmetlerini Azure data factory’ye bağlar. Kopyalama Etkinliği tarafından desteklenen tüm kaynaklar ve havuzlar için bkz. [desteklenen veri depoları](data-factory-data-movement-activities.md##supported-data-stores-and-formats). Data Factory tarafından desteklenen işlem hizmetlerinin listesi için bkz. [bağlantılı işlem hizmetleri](data-factory-compute-linked-services.md). Bu öğreticide herhangi bir işlem hizmeti kullanmayın. 
 
 Bu adımda iki bağlı hizmet oluşturursunuz: **AzureStorageLinkedService** ve **AzureSqlLinkedService**. AzureStorageLinkedService bağlı hizmeti Azure Storage Hesabını, AzureSqlLinkedService de Azure SQL veritabanını **ADFTutorialDataFactory** konumuna bağlar. Daha sonra bu öğreticide, verileri AzureStorageLinkedService’teki bir blob kapsayıcısından AzureSqlLinkedService’teki bir SQL tablosuna kopyalayan bir işlem hattı oluşturacaksınız.
 
 ### Azure depolama hesabı için bağlı hizmet oluşturma
-1.  **DATA FACTORY** dikey penceresinde **Geliştir ve dağıt** kutucuğuna tıklayarak data factory için **Düzenleyici**’yi başlatın.
+1.  **Data Factory** dikey penceresinde **Geliştir ve dağıt** kutucuğuna tıklayarak data factory için **Düzenleyici**’yi başlatın.
 
-    ![Geliştir ve Dağıt Kutucuğu][image-author-deploy-tile] 
-
-     
+    ![Geliştir ve Dağıt Kutucuğu](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-author-deploy-tile.png) 
 5. **Düzenleyici**’de, araç çubuğundaki **Yeni veri deposu** düğmesine tıklayın ve açılan menüden **Azure depolama**’yı seçin. Sağ bölmede Azure depolama bağlı hizmeti oluşturmak için JSON şablonunu görmeniz gerekir. 
 
-    ![Düzenleyici Yeni veri deposu düğmesi][image-editor-newdatastore-button]
-    
-6. Burada, **accountname** ve **accountkey** sözcüklerini Azure depolama hesabınıza ait hesap adı ve hesap anahtarı değerleriyle değiştirin. 
+    ![Düzenleyici Yeni veri deposu düğmesi](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-editor-newdatastore-button.png)    
+6. Burada, `<accountname>` ve `<accountkey>` sözcüklerini Azure depolama hesabınıza ait hesap adı ve hesap anahtarı değerleriyle değiştirin. 
 
-    ![Düzenleyici Blob Storage JSON](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-editor-blob-storage-json.png)    
-    
-    JSON özellikleri hakkında ayrıntılı bilgi için bkz. [JSON Betik Oluşturma Başvurusu](http://go.microsoft.com/fwlink/?LinkId=516971).
+    ![Düzenleyici Blob Storage JSON](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-editor-blob-storage-json.png) 
+6. Araç çubuğunda **Dağıt**’a tıklayın. Dağıtılan **AzureStorageLinkedService** öğesini şu anda ağaçta görmeniz gerekir. 
 
-6. AzureStorageLinkedService’i dağıtmak için araç çubuğunda **Dağıt**’a tıklayın. Başlık çubuğunda **BAĞLI HİZMET BAŞARIYLA OLUŞTURULDU** iletisini gördüğünüzü onaylayın.
+    ![Düzenleyici Blob Storage Dağıtma](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-editor-blob-storage-deploy.png)
 
-    ![Düzenleyici Blob Storage Dağıtma][image-editor-blob-storage-deploy]
+> [AZURE.NOTE]
+> JSON özellikleri hakkında ayrıntılar için bkz. [Azure Blob’dan/Azure Blob’a veri taşıma](data-factory-azure-blob-connector.md#azure-storage-linked-service).
 
 ### Azure SQL Database için bağlı hizmet oluşturma
-1. **Data Factory Düzenleyici**’de, araç çubuğundaki **Yeni veri deposu** düğmesine tıklayın ve açılan menüden **Azure SQL veritabanı**’nı seçin. Sağ bölmede Azure SQL bağlı hizmeti oluşturmak için JSON şablonunu görmeniz gerekir.
+1. **Data Factory Düzenleyici**’de, araç çubuğundaki **Yeni veri deposu** düğmesine tıklayın ve açılan menüden **Azure SQL Veritabanı**’nı seçin. Sağ bölmede Azure SQL bağlı hizmeti oluşturmak için JSON şablonunu görmeniz gerekir.
+2. `<servername>`, `<databasename>`, `<username>@<servername>` ve `<password>` öğesini Azure SQL sunucusu, veritabanı, kullanıcı hesabı ve parolası ile değiştirin. 
+3. **AzureSqlLinkedService**’i oluşturmak ve dağıtmak için araç çubuğunda **Dağıt**’a tıklayın.
+4. Ağaç görünümünde **AzureSqlLinkedService** öğesini gördüğünüzü onaylayın. 
 
-    ![Düzenleyici Azure SQL Ayarları][image-editor-azure-sql-settings]
-
-2. Burada, **servername**, **databasename**, **username@servername** ve **password** sözcüklerini Azure SQL sunucunuzun, veritabanınızın, kullanıcı hesabınızın adlarıyla ve parolasıyla değiştirin. 
-3. AzureSqlLinkedService’i oluşturmak ve dağıtmak için araç çubuğunda **Dağıt**’a tıklayın. 
-   
+> [AZURE.NOTE]
+> JSON özellikleri hakkında ayrıntılar için bkz. [SQL Veritabanı’ndan/SQL Veritabanı’na veri taşıma](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties).
 
 ## Veri kümeleri oluşturma
-Önceki adımda, Azure Storage hesabını ve Azure SQL veritabanını data factory’ye bağlamak için **AzureStorageLinkedService** ve **AzureSqlLinkedService** bağlı hizmetlerini oluşturdunuz; burada söz edilen data factory adı: **ADFTutorialDataFactory**. Bu adımda, **EmpTableFromBlob** ve **EmpSQLTable** adlı, sırasıyla AzureStorageLinkedService ve AzureSqlLinkedService’in başvurduğu veri depolarında depolanan girdi/çıktı verilerini temsil eden iki data factory tablosunu tanımlarsınız. EmpTableFromBlob için, kaynak verilere sahip bir blob’un bulunduğu blob kapsayıcısını, EmpSQLTable için de, çıktı verilerini depolayan SQL tablosunu belirtirsiniz. 
+Önceki adımda, Azure Storage hesabını ve Azure SQL veritabanını data factory’ye bağlamak için **AzureStorageLinkedService** ve **AzureSqlLinkedService** bağlı hizmetlerini oluşturdunuz; burada söz edilen data factory adı: **ADFTutorialDataFactory**. Bu adımda, sırasıyla AzureStorageLinkedService ve AzureSqlLinkedService tarafından başvurulan veri depolarında depolanan girdi/çıktı verilerini temsil eden **InputDataset** ve **OutputDataset** adlı iki data factory tablosunu tanımlayın. InputDataset için, kaynak verilere sahip bir blob’un bulunduğu blob kapsayıcısını ve OutputDataset için çıktı verilerini depolayan SQL tablosunu belirtin. 
 
 ### Girdi veri kümesi oluşturma 
-Tablo dikdörtgen bir veri kümesidir ve bir şeması vardır. Bu adımda, **AzureStorageLinkedService** bağlı hizmetiyle temsil edilen Azure Depolama’da bir blob kapsayıcısını belirten **EmpBlobTable** adlı bir tablo oluşturursunuz.
+Bu adımda, Azure Storage hizmetinde **AzureStorageLinkedService** bağlı hizmetiyle temsil edilen bir blob kapsayıcısını işaret eden **InputDataset** adlı bir veri kümesi oluşturacaksınız.
 
-1. Data Factory’deki **Düzenleyici**’de, araç çubuğunda yer alan **Yeni veri kümesi** kümesine, sonra da açılan menüden **Blob tablosu**’na tıklayın. 
+1. Data Factory **Düzenleyici**’de açılır listeden **... Daha fazla**, **Yeni veri kümesi** ve **Azure Blob depolama** öğelerine tıklayın. 
+
+    ![Yeni veri kümesi menüsü](./media/data-factory-copy-activity-tutorial-using-azure-portal/new-dataset-menu.png)
 2. Sağ bölmedeki JSON ifadesini aşağıdaki JSON parçacığıyla değiştirin: 
 
         {
-          "name": "EmpTableFromBlob",
+          "name": "InputDataset",
           "properties": {
             "structure": [
               {
@@ -152,46 +152,44 @@ Tablo dikdörtgen bir veri kümesidir ve bir şeması vardır. Bu adımda, **Azu
             }
           }
         }
-
         
      Aşağıdaki noktalara dikkat edin: 
     
     - veri kümesi **türü** **AzureBlob** olarak ayarlanır.
     - **linkedServiceName** **AzureStorageLinkedService** olarak ayarlanır. Bu bağlı hizmeti 2. adımda oluşturmuştunuz.
-    - **folderPath** **adftutorial** kapsayıcısı olarak ayarlanır. Ayrıca klasörün içinde blob adını belirtebilirsiniz. Blob adını belirtmediğinizden, kapsayıcıdaki tüm blob'lara ait veriler girdi verisi olarak kabul edilir.  
+    - **folderPath** **adftutorial** kapsayıcısı olarak ayarlanır. Ayrıca **fileName** özelliğini kullanarak klasörün içinde bir blob’un adını belirtebilirsiniz. Blob adını belirtmediğinizden, kapsayıcıdaki tüm blob'lara ait veriler girdi verisi olarak kabul edilir.  
     - biçim **türü** **TextFormat** olarak ayarlanır
     - Metin dosyasında virgül karakteriyle (**columnDelimiter**) ayrılmış, **FirstName** ve **LastName** adlı iki alan vardır 
     - **Availability** **hourly** olarak ayarlanmıştır (**sıklık** **saat** olarak, **aralık** ise **1** olarak ayarlanmıştır). Bu nedenle, Data Factory belirttiğiniz blob kapsayıcısının (**adftutorial**) kök klasöründe girdi verilerini saatte bir kere arar. 
     
-
-    **Girdi** **tablosu** için bir **fileName** belirtmediyseniz, girdi klasörüne ait (**folderPath**) tüm dosyalar/blob’lar girdi olarak kabul edilir. JSON’da fileName belirtmediyseniz, yalnızca belirtilen dosya/blob girdi olarak kabul edilir.
+    **Girdi** veri kümesi için bir **fileName** belirtmezseniz, girdi klasörüne (**folderPath**) ait tüm dosyalar/blob’lar girdi olarak kabul edilir. JSON’da fileName belirtmediyseniz, yalnızca belirtilen dosya/blob girdi olarak kabul edilir.
  
     **Çıktı tablosu** için bir **fileName** belirtmezseniz, **folderPath**’de oluşturulan dosyaları şu biçimde adlandırılır: Data.&lt;Guid\&gt;.txt (örnek: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
 
-    **folderPath** ve **fileName** öğelerini dinamik olarak **SliceStart** zamanı temelinde ayarlamak için **partitionedBy** özelliğini kullanın. Aşağıdaki örnekte, folderPath SliceStart’taki (işlemdeki dilimin başlangıç zamanı) Yıl, Ay ve Gün öğelerini, fileName ise SliceStart’taki Saat öğesini kullanır. Örneğin, dilim 2014-10-20T08:00:00 için oluşturulduysa, folderName wikidatagateway/wikisampledataout/2014/10/20, fileName de 08.csv olarak ayarlanır. 
+    **folderPath** ve **fileName** öğelerini dinamik olarak **SliceStart** zamanı temelinde ayarlamak için **partitionedBy** özelliğini kullanın. Aşağıdaki örnekte, folderPath SliceStart’taki (işlemdeki dilimin başlangıç zamanı) Yıl, Ay ve Gün öğelerini, fileName ise SliceStart’taki Saat öğesini kullanır. Örneğin, dilim 2016-09-20T08:00:00 için oluşturulduysa, folderName wikidatagateway/wikisampledataout/2016/09/20, fileName de 08.csv olarak ayarlanır. 
 
-        "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
-        "fileName": "{Hour}.csv",
-        "partitionedBy": 
-        [
-            { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
-            { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } }, 
-            { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } }, 
-            { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } } 
-        ],
+            "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
+            "fileName": "{Hour}.csv",
+            "partitionedBy": 
+            [
+                { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
+                { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } }, 
+                { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } }, 
+                { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } } 
+            ],
+2. **InputDataset** veri kümesini oluşturmak ve dağıtmak için araç çubuğunda **Dağıt**’a tıklayın. **InputDataset** öğesini ağaç görünümünde gördüğünüzü onaylayın.
 
-    JSON özellikleri hakkında ayrıntılı bilgi için bkz. [JSON Betik Oluşturma Başvurusu](http://go.microsoft.com/fwlink/?LinkId=516971).
-
-2. **EmpTableFromBlob** tablosunu oluşturmak ve dağıtmak için araç çubuğunda **Dağıt**’a tıklayın. Düzenleyici’nin başlık çubuğunda **TABLO BAŞARIYLA OLUŞTURULDU** iletisini gördüğünüzü onaylayın.
+> [AZURE.NOTE]
+> JSON özellikleri hakkında ayrıntılar için bkz. [Azure Blob’dan/Azure Blob’a veri taşıma](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
 
 ### Çıktı veri kümesi oluşturma
-Adımın bu bölümünde **EmpSQLTable** adlı bir çıktı veri kümesi oluşturursunuz. Bu veri kümesi, **AzureSqlLinkedService** ile temsil edilen Azure SQL veritabanında bir SQL tablosunu işaret eder. 
+Adımın bu bölümünde **OutputDataset** adlı bir çıktı veri kümesi oluşturursunuz. Bu veri kümesi, **AzureSqlLinkedService** ile temsil edilen Azure SQL veritabanında bir SQL tablosunu işaret eder. 
 
-1. Data Factory’deki **Düzenleyici**’de, araç çubuğunda yer alan **Yeni veri kümesi** kümesine, sonra da açılan menüden **Azure SQL tablosu**’na tıklayın. 
+1. Data Factory **Düzenleyici**’de açılır listeden **... Daha fazla**, **Yeni veri kümesi** ve **Azure SQL** öğelerine tıklayın. 
 2. Sağ bölmedeki JSON ifadesini aşağıdaki JSON parçacığıyla değiştirin:
 
         {
-          "name": "EmpSQLTable",
+          "name": "OutputDataset",
           "properties": {
             "structure": [
               {
@@ -214,27 +212,24 @@ Adımın bu bölümünde **EmpSQLTable** adlı bir çıktı veri kümesi oluştu
             }
           }
         }
-
         
      Aşağıdaki noktalara dikkat edin: 
     
-    * veri kümesi **türü** **AzureSQLTable** olarak ayarlanır.
-    * **linkedServiceName** **AzureSqlLinkedService** olarak ayarlanır (bu bağlı hizmeti 2. adımda oluşturmuştunuz).
-    * **tablename** **emp** olarak ayarlanır.
-    * Veritabanındaki emp tablosunda üç sütun vardır: **ID**, **FirstName** ve **LastName**. ID bir kimlik sütunu olduğundan, burada yalnızca **FirstName** ve **LastName** değerlerini belirtmeniz gerekir.
-    * **availability** **hourly** olarak ayarlanmıştır (**frequency** **hour**, **interval** de **1** olarak ayarlanmıştır).  Data Factory hizmeti Azure SQL veritabanındaki **emp** tablosunda her saat bir çıktı veri dilimi oluşturur.
+    - veri kümesi **türü** **AzureSQLTable** olarak ayarlanır.
+    - **linkedServiceName** **AzureSqlLinkedService** olarak ayarlanır (bu bağlı hizmeti 2. adımda oluşturmuştunuz).
+    - **tablename** **emp** olarak ayarlanır.
+    - Veritabanındaki emp tablosunda üç sütun vardır: **ID**, **FirstName** ve **LastName**. ID bir kimlik sütunu olduğundan, burada yalnızca **FirstName** ve **LastName** değerlerini belirtmeniz gerekir.
+    - **availability** **hourly** olarak ayarlanmıştır (**frequency** **hour**, **interval** de **1** olarak ayarlanmıştır).  Data Factory hizmeti Azure SQL veritabanındaki **emp** tablosunda her saat bir çıktı veri dilimi oluşturur.
 
+3. **OutputDataset** veri kümesini oluşturmak ve dağıtmak için araç çubuğunda **Dağıt**’a tıklayın. **OutputDataset** öğesini ağaç görünümünde gördüğünüzü onaylayın. 
 
-3. **EmpSQLTable** tablosunu oluşturmak ve dağıtmak için araç çubuğunda **Dağıt**’a tıklayın.
-
+> [AZURE.NOTE]
+> JSON özellikleri hakkında ayrıntılar için bkz. [SQL Veritabanı’ndan/SQL Veritabanı’na veri taşıma](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties).
 
 ## İşlem hattı oluşturma
-Su adımda, girdi olarak **EmpTableFromBlob**, çıktı olarak da **EmpSQLTable** kullanan bir **Kopyalama Etkinliği**’ne sahip işlem hattı oluşturacaksınız.
+Bu adımda, girdi olarak **InputDataset** ve çıktı olarak **OutputDataset** kullanan **Kopyalama Etkinliği**’ne sahip bir işlem hattı oluşturursunuz.
 
-1. Data Factory’nin **Düzenleyici** konumunda, anaç çubuğundaki **Yeni işlem hattı** düğmesine tıklayın. Düğmeyi görmüyorsanız araç çubuğunda **... (Üç nokta)** seçeneğine tıklayın. Alternatif olarak, ağaç görünümünde **İşlem hatları**’na sağ tıklayın ve**Yeni işlem hattı**’na tıklayın.
-
-    ![Düzenleyici Yeni İşlem Hattı Düğmesi][image-editor-newpipeline-button]
- 
+1. Data Factory **Düzenleyici**’de açılır listeden **... Daha fazla** ve **Yeni işlem hattı** öğelerine tıklayın. Alternatif olarak, ağaç görünümünde **İşlem hatları**’na sağ tıklayın ve**Yeni işlem hattı**’na tıklayın.
 2. Sağ bölmedeki JSON ifadesini aşağıdaki JSON parçacığıyla değiştirin: 
         
         {
@@ -244,16 +239,15 @@ Su adımda, girdi olarak **EmpTableFromBlob**, çıktı olarak da **EmpSQLTable*
             "activities": [
               {
                 "name": "CopyFromBlobToSQL",
-                "description": "Push Regional Effectiveness Campaign data to Azure SQL database",
                 "type": "Copy",
                 "inputs": [
                   {
-                    "name": "EmpTableFromBlob"
+                    "name": "InputDataset"
                   }
                 ],
                 "outputs": [
                   {
-                    "name": "EmpSQLTable"
+                    "name": "OutputDataset"
                   }
                 ],
                 "typeProperties": {
@@ -274,103 +268,109 @@ Su adımda, girdi olarak **EmpTableFromBlob**, çıktı olarak da **EmpSQLTable*
                 }
               }
             ],
-            "start": "2015-07-12T00:00:00Z",
-            "end": "2015-07-13T00:00:00Z"
+            "start": "2016-07-12T00:00:00Z",
+            "end": "2016-07-13T00:00:00Z"
           }
         } 
 
     Aşağıdaki noktalara dikkat edin:
 
-    - Etkinlikler bölümünde, **türü** **CopyActivity** olarak ayarlanmış yalnızca bir etkinlik vardır.
-    - Etkinlik girdisi **EmpTableFromBlob** olarak, etkinlik çıktısı da **EmpSQLTable** olarak ayarlanmıştır.
-    - **dönüştürme** bölümünde **BlobSource** kaynak türü, **SqlSink** de havuz türü olarak belirtilir.
+    - Etkinlikler bölümünde, **türü** **Copy** olarak ayarlanmış yalnızca bir etkinlik vardır.
+    - Etkinlik girdisi **InputDataset** olarak, etkinlik çıktısı ise **OutputDataset** olarak ayarlanmıştır.
+    - **typeProperties** bölümünde **BlobSource** kaynak türü, **SqlSink** de havuz türü olarak belirtilir.
 
-    **start** özelliğinin değerini geçerli günle, **end** değerini de sonraki günle değiştirin. Tarih saatin yalnızca tarih bölümünü belirtip saat bölümünü atlayabilirsiniz. Örneğin, "2015-02-03", "2015-02-03T00:00:00Z" ile eşdeğerdir
+    **start** özelliğinin değerini geçerli günle, **end** değerini de sonraki günle değiştirin. Tarih saatin yalnızca tarih bölümünü belirtip saat bölümünü atlayabilirsiniz. Örneğin, "2016-02-03", "2016-02-03T00:00:00Z" ile eşdeğerdir
     
-    Başlangıç ve bitiş tarih saatleri [ISO biçiminde](http://en.wikipedia.org/wiki/ISO_8601) olmalıdır. Örneğin: 2014-10-14T16:32:41Z. **End** zamanı isteğe bağlıdır; ancak bu öğreticide bunu kullanacağız. 
+    Başlangıç ve bitiş tarih saatleri [ISO biçiminde](http://en.wikipedia.org/wiki/ISO_8601) olmalıdır. Örneğin: 2016-10-14T16:32:41Z. **End** zamanı isteğe bağlıdır; ancak bu öğreticide bunu kullanacağız. 
     
     **end** özelliği için değer belirtmezseniz "**start + 48 hours**" olarak hesaplanır. İşlem hattını süresiz olarak çalıştırmak için **end** özelliği değerini **9999-09-09** olarak ayarlayın.
     
     Önceki örnekte, her veri dilimi saatlik oluşturulduğundan 24 veri dilimi vardır.
     
-    JSON özellikleri hakkında ayrıntılı bilgi için bkz. [JSON Betik Oluşturma Başvurusu](http://go.microsoft.com/fwlink/?LinkId=516971).
-
-4. **ADFTutorialPipeline** tablosunu oluşturmak ve dağıtmak için araç çubuğunda **Dağıt**’a tıklayın. **İŞLEM HATTI BAŞARIYLA OLUŞTURULDU** iletisini gördüğünüzü onaylayın.
-5. Şimdi, **Düzenleyici** dikey penceresini **X** işaretine tıklayarak kapatın. Araç çubuğu ve ağaç görünümüne sahip ADFTutorialDataFactory dikey penceresini kapatmak için de **X** işaretine bir kez daha tıklayın. **Kaydedilmemiş düzenlemeleriniz atılacak** iletisini görürseniz **Tamam**’a tıklayın.
-6. **ADFTutorialDataFactory** için **DATA FACTORY** dikey penceresine dönmeniz gerekir.
+4. **ADFTutorialPipeline** tablosunu oluşturmak ve dağıtmak için araç çubuğunda **Dağıt**’a tıklayın. İşlem hattını ağaç görünümünde gördüğünüzü onaylayın. 
+5. Şimdi, **Düzenleyici** dikey penceresini **X** işaretine tıklayarak kapatın. **X** simgesine yeniden tıklayarak **ADFTutorialDataFactory** için **Data Factory** giriş sayfasını görüntüleyin.
 
 **Tebrikler!** Başarılı bir şekilde Azure data factory, bağlı hizmetler, tablolar ve işlem hattı oluşturdunuz, işlem hattını zamanladınız.   
  
 ### Data factory’yi Diyagram Görünümünde görüntüleme 
-1. **DATA FACTORY** dikey penceresinde **Diyagram**’a tıklayın.
+1. **Data Factory** dikey penceresinde **Diyagram**’a tıklayın.
 
-    ![Data Factory Dikey Penceresi - Diyagram Kutucuğu][image-datafactoryblade-diagramtile]
-
+    ![Data Factory Dikey Penceresi - Diyagram Kutucuğu](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-datafactoryblade-diagramtile.png)
 2. Aşağıdaki görüntüye benzer bir diyagram görmeniz gerekir: 
 
-    ![Diyagram görünümü][image-data-factory-get-started-diagram-blade]
+    ![Diyagram görünümü](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-diagram-blade.png)
 
     İşlem hatlarını ve tabloları yakınlaştırabilir, uzaklaştırabilir, %100 yakınlaştırabilir, sığacak kadar yakınlaştırabilirsiniz ve çizgileri gösterebilirsiniz (seçilen öğelerin yukarı akış ve aşağı akış öğelerini vurgular).  Özelliklerini görmek için bir nesneye (girdi/çıktı tablosu veya işlem hattı) çift tıklayabilirsiniz. 
-3. Diyagram Görünümü’nde **ADFTutorialPipeline**’a sağ tıklayın ve **Ardışık düzeni aç**’a tıklayın. İşlem hattında etkinlikleri, etkinliklerle ilgili girdi ve çıktı veri kümeleriyle birlikte görebilirsiniz. Bu öğreticide, işlem hattında girdi verisi olarak EmpTableBlob, çıktı verisi olarak da EmpSQLTable bulunan tek bir etkinliğiniz (Kopyalama Etkinliği) vardır.   
+3. Diyagram Görünümü’nde **ADFTutorialPipeline**’a sağ tıklayın ve **Ardışık düzeni aç**’a tıklayın. 
 
     ![İşlem Hattını Açma](./media/data-factory-copy-activity-tutorial-using-azure-portal/DiagramView-OpenPipeline.png)
+4. İşlem hattında etkinlikleri, etkinliklerle ilgili girdi ve çıktı veri kümeleriyle birlikte görebilirsiniz. Bu öğreticide, işlem hattında girdi verisi olarak InputDataset, çıktı verisi olarak da OutputDataset bulunan tek bir etkinliğiniz (Kopyalama Etkinliği) vardır.   
 
-4. Diyagram görünümüne dönmek için sol üst köşede yer alan içerik haritasındaki **Data factory**’ye tıklayın. Diyagram görünümü tüm işlem hatlarını görüntüler. Bu örnekte, yalnızca bir işlem hattı oluşturdunuz.   
+    ![Açık işlem hattı görünümü](./media/data-factory-copy-activity-tutorial-using-azure-portal/DiagramView-OpenedPipeline.png)
+5. Diyagram görünümüne dönmek için sol üst köşede yer alan içerik haritasındaki **Data factory**’ye tıklayın. Diyagram görünümü tüm işlem hatlarını görüntüler. Bu örnekte, yalnızca bir işlem hattı oluşturdunuz.   
  
 
 ## İşlem hattını izleme
 Bu adımda, Azure data factory’de neler olduğunu izlemek için Azure Portal kullanacaksınız. 
 
-1. Açık değilse, [Azure Portal (Preview)][azure-portal] seçeneğine gidin. 
-2. **ADFTutorialDataFactory** dikey penceresi açık değilse, **Startboard**’ta **ADFTutorialDataFactory**’ye tıklayarak açın. 
+### Diyagram Görünümünü kullanarak işlem hattını izleme
+
+1. Veri fabrikasına ait Data Factory giriş sayfasını görmek üzere **Diyagram** görünümünü kapatmak için **X** simgesine tıklayın. Web tarayıcısını kapattıysanız aşağıdaki adımları uygulayın: 
+    2. [Azure portalına](https://portal.azure.com/) gidin. 
+    2. **Başlangıç Panosu** üzerindeki **ADFTutorialDataFactory** öğesine çift tıklayın (veya) sol menüdeki **Veri fabrikaları** öğesine tıklayıp ADFTutorialDataFactory araması yapın. 
 3. Bu dikey pencerede tabloların adlarını ve sayısını, oluşturduğunuz işlem hattını görmeniz gerekir.
 
-    ![adların olduğu giriş sayfası][image-data-factory-get-started-home-page-pipeline-tables]
-
+    ![adların olduğu giriş sayfası](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-datafactory-home-page-pipeline-tables.png)
 4. Şimdi, **Veri kümeleri** kutucuğuna tıklayın.
-5. **Veri kümeleri** dikey penceresinde **EmpTableFromBlob**’a tıklayın. Bu veri kümesi, **ADFTutorialPipeline** için girdi veri kümesidir.
+5. **Veri kümeleri** dikey penceresinde **InputDataset**’e tıklayın. Bu veri kümesi, **ADFTutorialPipeline** için girdi veri kümesidir.
 
-    ![EmpTableFromBlob seçili olarak veri kümeleri][image-data-factory-get-started-datasets-emptable-selected]   
-5. Geçerli zamana kadar olan veri dilimlerinin zaten oluşturulmuş olduğunu ve **Hazır** olduğunu unutmayın; çünkü **emp.txt** dosyası her zaman şu blob kapsayıcısında yer almaktadır: **adftutorial\input**. Alttaki **En son başarısız olan dilimler** bölümünde hiç dilim gösterilmediğini onaylayın.
+    ![InputDataset seçiliyken veri kümeleri](./media/data-factory-copy-activity-tutorial-using-azure-portal/DataSetsWithInputDatasetFromBlobSelected.png)   
+5. Tüm veri dilimlerini görmek için **… (üç nokta)** seçeneğine tıklayın.
 
-    Hem **En son güncelleştirilen dilimler**, hem de **En son başarısız olan dilimler** listesi **SON GÜNCELLEŞTİRME ZAMANI**’na göre listelenir. Dilimin güncelleştirme zamanı aşağıdaki durumlarda değişir: 
+    ![Tüm girdi veri dilimleri](./media/data-factory-copy-activity-tutorial-using-azure-portal/all-input-slices.png)  
+
+    **emp.txt** dosyası her zaman **adftutorial\input** blob kapsayıcısında yer aldığından geçerli zamana kadar olan tüm veri dilimleri **Hazır**’dır. Alttaki **En son başarısız olan dilimler** bölümünde hiç dilim gösterilmediğini onaylayın.
+
+    Hem **En son güncelleştirilen dilimler**, hem de **En son başarısız olan dilimler** listesi **SON GÜNCELLEŞTİRME ZAMANI**’na göre listelenir. 
     
-    Dilimlerin daha büyük listesini görmek için listeler başlığına veya **... (üç nokta)** seçeneğine tıklayın. Dilimlere filtre uygulamak için araç çubuğunda **Filtre**’ye tıklayın.  
+    Dilimlere filtre uygulamak için araç çubuğunda **Filtre**’ye tıklayın.  
     
-    Bunun yerine, dilim başlangıç/bitiş zamanına göre sıralanmış veri dilimlerini görüntülemek için **Veri dilimleri (dilimlenme zamanına göre)** kutucuğuna tıklayın.   
+    ![Girdi dilimlerini filtreleme](./media/data-factory-copy-activity-tutorial-using-azure-portal/filter-input-slices.png)
+6. **Veri kümeleri** dikey penceresini görene kadar dikey pencereleri kapatın. **OutputDataset** öğesine tıklayın. Bu veri kümesi, **ADFTutorialPipeline** için çıktı veri kümesidir.
 
-    ![Dilimlenme Zamanına Göre Veri Dilimleri][DataSlicesBySliceTime]   
+    ![veri kümeleri dikey penceresi](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-datasets-blade.png)
+6. **OutputDataset** dikey penceresini aşağıda resimde olduğu gibi görmeniz gerekir:
 
-6. Şimdi, **Veri Kümeleri** dikey penceresinde, **EmpSQLTable** öğesine tıklayın. Bu veri kümesi, **ADFTutorialPipeline** için çıktı veri kümesidir.
-
-    ![veri kümeleri dikey penceresi][image-data-factory-get-started-datasets-blade]
-
-6. **EmpSQLTable** dikey penceresini aşağıda resimde olduğu gibi görmeniz gerekir:
-
-    ![tablo dikey penceresi][image-data-factory-get-started-table-blade]
- 
+    ![tablo dikey penceresi](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-table-blade.png) 
 7. Geçerli zamana kadar olan veri dilimlerinin zaten oluşturulduğunu ve **Hazır** olduklarını unutmayın. Alttaki **Sorun dilimleri** bölümünde hiç dilim gösterilmiyor.
 8. Tüm dilimleri görmek için **… (Üç nokta)** seçeneğine tıklayın.
 
-    ![veri dilimleri dikey penceresi][image-data-factory-get-started-dataslices-blade]
+    ![veri dilimleri dikey penceresi](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-dataslices-blade.png)
+9. Listeden herhangi bir veri dilimine tıklayın; **Veri dilimi** dikey penceresini görmeniz gerekir.
 
-9. Listeden herhangi bir veri dilimine tıklayın; **VERİ DİLİMİ** dikey penceresini görmeniz gerekir.
-
-    ![veri dilimi dikey penceresi][image-data-factory-get-started-dataslice-blade]
+    ![veri dilimi dikey penceresi](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-dataslice-blade.png)
   
-    Dilim **Hazır** durumunda değilse, Hazır olmayan ve geçerli dilimin yürütülmesini engelleyen yukarı akış dilimlerini **Hazır olmayan yukarı akış dilimleri** listesinde görebilirsiniz. 
+    Dilim **Hazır** durumunda değilse, Hazır olmayan ve geçerli dilimin yürütülmesini engelleyen yukarı akış dilimlerini **Hazır olmayan yukarı akış dilimleri** listesinde görebilirsiniz.
+11. **VERİ DİLİMİ** dikey penceresinde, alttaki listede tüm etkinlik çalıştırmalarını görmelisiniz. **Etkinlik çalışma ayrıntıları** dikey penceresini görmek için bir **etkinlik çalışması**’na tıklayın. 
 
-11. **VERİ DİLİMİ** dikey penceresinde, alttaki listede tüm etkinlik çalıştırmalarını görmelisiniz. **ETKİNLİK ÇALIŞMA AYRINTILARI** dikey penceresini görmek için bir **etkinlik çalıştırmasına** tıklayın. 
-
-    ![Etkinlik Çalışma Ayrıntıları][image-data-factory-get-started-activity-run-details]
-
-    
+    ![Etkinlik Çalışma Ayrıntıları](./media/data-factory-copy-activity-tutorial-using-azure-portal/ActivityRunDetails.png)
 12. **ADFTutorialDataFactory** giriş dikey penceresine dönene kadar tüm dikey pencereleri kapatmak için **X** işaretine tıklayın.
 14. (isteğe bağlı) **ADFTutorialDataFactory** için girdi sayfasındaki **İşlem hatları**’na, **İşlem hatları** dikey penceresinde **ADFTutorialPipeline**’a tıklayın, girdi tablolarında (**Tüketilen**) çıktı tablolarında (**Üretilen**) ayrıntılarına gidin.
 15. **SQL Server Management Studio**’yu başlatın, Azure SQL Veritabanı’na bağlanın ve veritabanındaki **emp** tablosuna satırların eklenmiş olduğunu doğrulayın.
 
-    ![sql sorgu sonuçları][image-data-factory-get-started-sql-query-results]
+    ![sql sorgu sonuçları](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-sql-query-results.png)
 
+### İzleme ve Yönetme Uygulamasını kullanarak işlem hattını izleme
+İşlem hatlarınızı izlemek için İzleme ve Yönetme uygulamasını da kullanabilirsiniz. Bu uygulamanın kullanımına ilişkin ayrıntılı bilgi için bkz. [İzleme ve Yönetme Uygulamasını kullanarak Azure Data Factory işlem hatlarını izleme ve yönetme](data-factory-monitor-manage-app.md).
+
+1. Data factory’nin giriş sayfasındaki **İzleme ve Yönetme** kutucuğuna tıklayın.
+
+    ![İzleme ve Yönetme kutucuğu](./media/data-factory-copy-activity-tutorial-using-azure-portal/monitor-manage-tile.png) 
+2. **İzleme ve Yönetme uygulaması**’nı görmeniz gerekir. **Başlangıç saati** ve **Bitiş saati**’ni işlem hattınızın başlangıç (2016-07-12) ve bitiş saatlerini (2016-07-13) içerecek şekilde değiştirin ve **Uygula**’ya tıklayın. 
+
+    ![İzleme ve Yönetme Uygulaması](./media/data-factory-copy-activity-tutorial-using-azure-portal/monitor-and-manage-app.png) 
+3. Ayrıntılarını görmek için **Etkinlik Pencereleri** listesinden bir etkinlik penceresi seçin. 
+    ![Etkinlik penceresi ayrıntıları](./media/data-factory-copy-activity-tutorial-using-azure-portal/activity-window-details.png)
 
 ## Özet 
 Bu öğreticide Azure blob’undan Azure SQL veritabanına veri kopyalamak üzere Azure data factory oluşturdunuz. Data factory, bağlı hizmetler, veri kümeleri ve işlem hattı oluşturmak için Azure Portal’ı kullandınız. Bu öğreticide gerçekleştirilen üst düzey adımları şunlardır:  
@@ -392,79 +392,10 @@ Bu öğreticide Azure blob’undan Azure SQL veritabanına veri kopyalamak üzer
 | [Veri kümeleri](data-factory-create-datasets.md) | Bu makale, Azure Data Factory’deki veri kümelerini anlamanıza yardımcı olur.
 | [İzleme Uygulaması kullanılarak işlem hatlarını izleme ve yönetme](data-factory-monitor-manage-app.md) | Bu makalede İzleme ve Yönetim Uygulaması kullanılarak işlem hatlarını izleme, yönetme ve hatalarını ayıklama işlemleri açıklanmaktadır. 
 
-<!--Link references-->
-[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-
-[msdn-activities]: https://msdn.microsoft.com/library/dn834988.aspx
-[msdn-linkedservices]: https://msdn.microsoft.com/library/dn834986.aspx
-[data-factory-naming-rules]: https://msdn.microsoft.com/library/azure/dn835027.aspx
-
-[azure-portal]: https://portal.azure.com/
-[download-azure-powershell]: http://azure.microsoft.com/documentation/articles/install-configure-powershell
-[sql-management-studio]: http://azure.microsoft.com/documentation/articles/sql-database-manage-azure-ssms/#Step2
-[sql-cmd-exe]: https://msdn.microsoft.com/library/azure/ee336280.aspx
-
-[use-custom-activities]: data-factory-use-custom-activities.md
-[troubleshoot]: data-factory-troubleshoot.md
-[data-factory-introduction]: data-factory-introduction.md
-[data-factory-create-storage]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#create-a-storage-account
 
 
 
-[developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
-[cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
 
-<!--Image references-->
-
-[DataSlicesBySliceTime]: ./media/data-factory-copy-activity-tutorial-using-azure-portal/DataSlicesBySliceTime.png
-
-[image-data-factory-getstarted-new-data-factory-blade]: ./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-new-data-factory.png
-
-[image-data-factory-get-stated-factory-home-page]: ./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-data-factory-home-page.png
-
-[image-author-deploy-tile]: ./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-author-deploy-tile.png
-
-[image-editor-newdatastore-button]: ./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-editor-newdatastore-button.png
-
-[image-editor-blob-storage-deploy]: ./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-editor-blob-storage-deploy.png
-
-[image-editor-azure-sql-settings]: ./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-editor-azure-sql-settings.png
-
-[image-editor-newpipeline-button]: ./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-editor-newpipeline-button.png
-
-[image-datafactoryblade-diagramtile]: ./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-datafactoryblade-diagramtile.png
-
-
-[image-data-factory-get-started-diagram-blade]: ./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-diagram-blade.png
-
-[image-data-factory-get-started-home-page-pipeline-tables]: ./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-datafactory-home-page-pipeline-tables.png
-
-[image-data-factory-get-started-datasets-blade]: ./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-datasets-blade.png
-
-[image-data-factory-get-started-table-blade]: ./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-table-blade.png
-
-[image-data-factory-get-started-dataslices-blade]: ./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-dataslices-blade.png
-
-[image-data-factory-get-started-dataslice-blade]: ./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-dataslice-blade.png
-
-[image-data-factory-get-started-sql-query-results]: ./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-sql-query-results.png
-
-[image-data-factory-get-started-datasets-emptable-selected]: ./media/data-factory-copy-activity-tutorial-using-azure-portal/DataSetsWithEmpTableFromBlobSelected.png
-
-[image-data-factory-get-started-activity-run-details]: ./media/data-factory-copy-activity-tutorial-using-azure-portal/ActivityRunDetails.png
-
-[image-data-factory-create-resource-group]: ./media/data-factory-copy-activity-tutorial-using-azure-portal/CreateNewResourceGroup.png
-
-
-[image-data-factory-new-datafactory-menu]: ./media/data-factory-copy-activity-tutorial-using-azure-portal/NewDataFactoryMenu.png
-
-
-[image-data-factory-name-not-available]: ./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-data-factory-not-available.png
- 
-
-
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

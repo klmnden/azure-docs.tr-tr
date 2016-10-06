@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="07/15/2016"
+    ms.date="09/27/2016"
     ms.author="cabailey"/>
 
 
@@ -27,7 +27,7 @@ Bu öğreticiyi, Azure'da sağlamlaştırılmış bir kapsayıcı (bir kasa) olu
 
 >[AZURE.NOTE]  Bu öğretici, adımlardan birinde yani bir uygulamanın anahtar kasasında bir anahtarı veya gizli anahtarı kullanmasının yetkilendirilmesinde bulunan Azure uygulaması yazma için yönergeler içermez.
 >
->Şu anda Azure portalında Azure Anahtar Kasası'nı yapılandıramazsınız. Bunun yerine, bu Azure PowerShell yönergelerini kullanın. Alternatif olarak, Platformlar Arası Komut Satırı Arabirimi yönergeleri için [bu eşdeğer öğreticiye](key-vault-manage-with-cli.md) bakın.
+>Bu öğretici Azure PowerShell kullanır. Platformlar Arası Komut Satırı Arabirimi yönergeleri için [bu eşdeğer öğreticiye](key-vault-manage-with-cli.md) bakın.
 
 Azure Anahtar Kasası genel bakış bilgileri için bkz. [Azure Anahtar Kasası nedir?](key-vault-whatis.md)
 
@@ -86,7 +86,7 @@ Azure Resource Manager'ı kullandığınızda, tüm ilgili kaynaklar bir kaynak 
 
 ## <a id="vault"></a>Bir anahtar kasası oluşturma ##
 
-Bir anahtar kasası oluşturmak için [New-AzureRmKeyVault](https://msdn.microsoft.com/library/azure/mt603736.aspx) cmdlet'ini kullanın. Bu cmdlet, üç zorunlu parametreye sahiptir: bir **kaynak grubu adı**, bir **anahtar kasası adı** ve **coğrafi konum**.
+Bir anahtar kasası oluşturmak için [New-AzureRmKeyVault](https://msdn.microsoft.com/library/azure/mt603736\(v=azure.200\).aspx).aspx cmdlet'ini kullanın. Bu cmdlet, üç zorunlu parametreye sahiptir: bir **kaynak grubu adı**, bir **anahtar kasası adı** ve **coğrafi konum**.
 
 Örneğin, **ContosoKeyVault** kasa adını, **ContosoResourceGroup** kaynak grubu adını ve **Doğu Asya** konumunu kullanıyorsanız şunu yazın:
 
@@ -99,12 +99,12 @@ Bu cmdlet'in çıkışı, yeni oluşturduğunuz anahtar kasasının özellikleri
 
 Azure hesabınız artık bu anahtar kasasında herhangi bir işlemi gerçekleştirmeye yetkilidir. Henüz başka kimse yetkilendirilmedi.
 
->[AZURE.NOTE]  Yeni anahtar kasanızı oluşturmaya çalışırken **Abonelik 'Microsoft.KeyVault ad alanını kullanmaya kayıtlı değil'** hatasını görürseniz `Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.KeyVault"` çalıştırın ve ardından New-AzureRmKeyVault komutunuzu yeniden çalıştırın. Daha fazla bilgi için bkz. [AzureRmProvider'ı kaydetme](https://msdn.microsoft.com/library/mt679020.aspx).
+>[AZURE.NOTE]  Yeni anahtar kasanızı oluşturmaya çalışırken **Abonelik 'Microsoft.KeyVault ad alanını kullanmaya kayıtlı değil'** hatasını görürseniz `Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.KeyVault"` çalıştırın ve ardından New-AzureRmKeyVault komutunuzu yeniden çalıştırın. Daha fazla bilgi için bkz. [AzureRmProvider'ı kaydetme](https://msdn.microsoft.com/library/azure/mt759831\(v=azure.200\).aspx).
 >
 
 ## <a id="add"></a>Anahtar kasasına bir anahtar veya gizli anahtar ekleme ##
 
-Azure Anahtar Kasası'nın sizin için yazılım korumalı bir anahtar oluşturmasını istiyorsanız [Add-AzureKeyVaultKey](https://msdn.microsoft.com/library/azure/dn868048.aspx) cmdlet'ini kullanın ve aşağıdakini yazın:
+Azure Anahtar Kasası'nın sizin için yazılım korumalı bir anahtar oluşturmasını istiyorsanız [Add-AzureKeyVaultKey](https://msdn.microsoft.com/library/azure/dn868048\(v=azure.200\).aspx) cmdlet'ini kullanın ve aşağıdakini yazın:
 
     $key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey' -Destination 'Software'
 
@@ -164,7 +164,7 @@ Bir uygulamayı Azure Active Directory'ye kaydetmek için:
 3. **UYGULAMALAR**'a tıklayın. Dizininize hiçbir uygulama eklenmemişse bu sayfa yalnızca **Uygulama Ekle** bağlantısını gösterir. Bağlantıya tıklayın veya alternatif olarak komut çubuğunda **EKLE**'ye tıklayabilirsiniz.
 4.  **UYGULAMA EKLEME** sihirbazında **Ne yapmak istiyorsunuz?** sayfasında **Add an application my organization is developing (Kuruluşumun geliştirdiği bir uygulama ekle)** seçeneğine tıklayın.
 5.  **Bize uygulamanızı anlatın** sayfasında uygulamanız için bir ad belirtin ve ardından **WEB UYGULAMASI VE/VEYA WEB API'Sİ**'ni (varsayılan) seçin. **İleri** simgesine tıklayın.
-6.  **Uygulama özellikleri** sayfasında web uygulamanız için **OTURUM AÇMA URL'Sİ** ve **UYGULAMA KİMLİĞİ URI'Sİ** belirtin. Uygulamanız bu değerlere sahip değilse değerleri bu adım için kendiniz belirleyebilirsiniz. (örneğin, her iki kutu için http://test1.contoso.com belirtebilirsiniz). Bu sitelerin var olup olmaması önemli değildir; önemli olan her bir uygulama için uygulama kimliği URI'sinin dizininizdeki tüm uygulamalar için farklı olmasıdır. Dizin uygulamanızı tanımlamak için bu dizeyi kullanır.
+6.  **Uygulama özellikleri** sayfasında web uygulamanız için **OTURUM AÇMA URL'Sİ** ve **UYGULAMA KİMLİĞİ URI'Sİ** belirtin. Uygulamanız bu değerlere sahip değilse değerleri bu adım için kendiniz belirleyebilirsiniz. (örneğin, her iki kutu için http://test1.contoso.com belirtebilirsiniz). Bu sitelerin mevcut olup olmaması önemli değildir. Önemli olan her bir uygulama için uygulama kimliği URI'sinin dizininizdeki tüm uygulamalar için farklı olmasıdır. Dizin uygulamanızı tanımlamak için bu dizeyi kullanır.
 7.  Sihirbazda yaptığınız değişiklikleri kaydetmek için **Tamamlandı** simgesine tıklayın.
 8.  **Hızlı Başlangıç** sayfasında **YAPILANDIR**'a tıklayın.
 9.  **Anahtarlar** bölümüne kaydırın, süre seçin ve ardından **KAYDET**'e tıklayın. Sayfa yenilenir ve ardından bir anahtar değeri gösterir. Bu anahtar değeri ve **İSTEMCİ KİMLİĞİ** değeri ile uygulamanızı yapılandırmanız gerekir. (Bu yapılandırma için yönergeler uygulamaya özgü olur.)
@@ -172,7 +172,7 @@ Bir uygulamayı Azure Active Directory'ye kaydetmek için:
 
 ## <a id="authorize"></a>Anahtar veya gizli anahtarı kullanması için uygulamayı yetkilendirme ##
 
-Uygulamayı kasadaki anahtar veya gizli anahtara erişmek üzere yetkilendirmek için  [AzureRmKeyVaultAccessPolicy](https://msdn.microsoft.com/library/azure/mt603625.aspx) cmdlet'ini ayarlayın.
+Uygulamayı kasadaki anahtar veya gizli anahtara erişmek üzere yetkilendirmek için  [AzureRmKeyVaultAccessPolicy](https://msdn.microsoft.com/library/azure/mt603625\(v=azure.200\).aspx) cmdlet'ini ayarlayın.
 
 Örneğin, kasa adınız **ContosoKeyVault** ise ve yetkilendirmek istediğiniz uygulama 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed istemci kimliğine sahipse ve uygulamaya kasanızdaki anahtarların şifresini çözme ve bunlarla oturum açma yetkisi vermek istiyorsanız şunu çalıştırın:
 
@@ -207,7 +207,7 @@ Bilgisayarınızdaki bir .PFX dosyasından bir anahtarı içeri aktarmak için a
     $key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMKey' -KeyFilePath 'c:\softkey.pfx' -KeyFilePassword $securepfxpwd -Destination 'HSM'
 
 
-Bir sonraki komut bir "kendi anahtarınızı getirin" (BYOK) paketini içeri aktarır. Böylece anahtar HSM sınırını terk etmeden yerel HSM'nizde anahtarınızı oluşturmanız ve Anahtar Kasası hizmetindeki HSM'lere bunu aktarmanız sağlanır.
+Bir sonraki komut bir "kendi anahtarınızı getirin" (BYOK) paketini içeri aktarır. Bu senaryo anahtar HSM sınırını terk etmeden yerel HSM'nizde anahtarınızı oluşturmanızı ve Anahtar Kasası hizmetindeki HSM'lere bunu aktarmanızı sağlar:
 
     $key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMKey' -KeyFilePath 'c:\ITByok.byok' -Destination 'HSM'
 
@@ -215,7 +215,7 @@ Bu BYOK paketini oluşturma hakkında daha ayrıntılı yönergeler için bkz. [
 
 ## <a id="delete"></a>Anahtar kasasını ve ilişkili anahtarları ve gizli anahtarları silme ##
 
-Anahtar kasasına veya içerdiği anahtar veya gizli anahtara artık ihtiyacınız yoksa anahtar kasasını [Remove-AzureRmKeyVault](https://msdn.microsoft.com/library/azure/mt619485.aspx) cmdlet'ini kullanarak silebilirsiniz.
+Anahtar kasasına veya içerdiği anahtar veya gizli anahtara artık ihtiyacınız yoksa anahtar kasasını [Remove-AzureRmKeyVault](https://msdn.microsoft.com/library/azure/mt619485\(v=azure.200\).aspx) cmdlet'ini kullanarak silebilirsiniz.
 
     Remove-AzureRmKeyVault -VaultName 'ContosoKeyVault'
 
@@ -241,13 +241,13 @@ Azure Anahtar Kasası'nı bir web uygulamasında kullanan bir izleme öğreticis
 
 Anahtar kasanızın nasıl kullanıldığını görmek için bkz. [Azure Anahtar Kasası Günlüğü](key-vault-logging.md).
 
-Azure Anahtar Kasası'na yönelik en son Azure PowerShell cmdlet'leri listesi için bkz. [Azure Anahtar Kasası Cmdlet'leri](https://msdn.microsoft.com/library/azure/dn868052.aspx). 
+Azure Anahtar Kasası'na yönelik en son Azure PowerShell cmdlet'leri listesi için bkz. [Azure Anahtar Kasası Cmdlet'leri](https://msdn.microsoft.com/library/azure/dn868052\(v=azure.200\).aspx). 
  
 
 Programlama başvuruları için bkz. [Azure Anahtar Kasası geliştirici kılavuzu](key-vault-developers-guide.md).
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

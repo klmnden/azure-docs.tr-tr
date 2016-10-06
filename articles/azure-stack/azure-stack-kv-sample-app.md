@@ -1,20 +1,21 @@
 <properties
-	pageTitle="Allow application to revtrieve Azure Stack Key Vault secrets  | Microsoft Azure"
-	description="Use a sample app to work with Azure Stack Key Vault"
-	services="azure-stack"
-	documentationCenter=""
-	authors="rlfmendes"
-	manager="natmack"
-	editor=""/>
+    pageTitle="Allow application to revtrieve Azure Stack Key Vault secrets  | Microsoft Azure"
+    description="Use a sample app to work with Azure Stack Key Vault"
+    services="azure-stack"
+    documentationCenter=""
+    authors="rlfmendes"
+    manager="natmack"
+    editor=""/>
 
 <tags
-	ms.service="azure-stack"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="09/26/2016"
-	ms.author="ricardom"/>
+    ms.service="azure-stack"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="09/26/2016"
+    ms.author="ricardom"/>
+
 
 # Run the sample application for Key Vault 
 
@@ -52,3 +53,8 @@ That console application should run with no changes, except that the appropriate
 [Deploy a VM with a Key Vault password](azure-stack-kv-deploy-vm-with-secret.md)
 
 [Deploy a VM with a Key Vault certificate](azure-stack-kv-push-secret-into-vm.md)
+
+
+<!--HONumber=Sep16_HO4-->
+
+

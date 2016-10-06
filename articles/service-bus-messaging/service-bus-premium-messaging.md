@@ -1,59 +1,66 @@
 <properties
-	pageTitle="Service Bus Premium and Standard Messaging pricing tiers overview | Microsoft Azure"
-	description="Service Bus Premium and Standard Messaging"
-	services="service-bus-messaging"
-	documentationCenter=".net"
-	authors="djrosanova"
-	manager="timlt"
-	editor=""/>
+    pageTitle="Service Bus Premium ve Standart Mesajlaşma hizmeti fiyatlandırma katmanlarına genel bakış | Microsoft Azure"
+    description="Service Bus Premium ve Standart Mesajlaşma Hizmeti"
+    services="service-bus-messaging"
+    documentationCenter=".net"
+    authors="djrosanova"
+    manager="timlt"
+    editor=""/>
 
 <tags
-	ms.service="service-bus-messaging"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="09/02/2016"
-	ms.author="darosa;sethm"/>
+    ms.service="service-bus-messaging"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="09/02/2016"
+    ms.author="darosa;sethm"/>
 
-# Service Bus Premium and Standard messaging tiers 
 
-Service Bus messaging, which includes messaging entities such as queues and topics, combines enterprise messaging capabilities with rich publish-subscribe semantics at cloud scale. Service Bus messaging is used as the communication backbone for many sophisticated cloud solutions.
+# Service Bus Premium ve Standart Mesajlaşma katmanları 
 
-The *Premium* tier of Service Bus messaging addresses common customer requests around scale, performance, and availability for mission-critical applications. Although the feature sets are nearly identical, these two tiers of Service Bus messaging are designed to serve different use cases.
+Kuyruklar ve konu başlıkları gibi mesajlaşma varlıklarını içeren Service Bus mesajlaşma, kuruluşun mesajlaşma işlevlerini bulut ölçeğinde zengin yayımla-abone ol semantiği ile birleştirir. Service Bus mesajlaşması birçok gelişmiş bulut çözümü için iletişimin temel öğesi olarak kullanılır.
 
-Some high-level differences are highlighted in the table below.
+Service Bus mesajlaşma hizmetinin *Premium* katmanı, görev açısından kritik uygulamalar için ölçek, performans ve kullanılabilirlik bağlamında yaygın müşteri isteklerini karşılar. Özellikler kümeleri neredeyse aynı olsa da, Service Bus mesajlaşma hizmetinin bu iki katmanı farklı kullanım durumlarına göre tasarlanmıştır.
 
-| Premium                               | Standard                       |
+Aşağıdaki tabloda bazı üst düzey farklılıklar vurgulanmıştır.
+
+| Premium                               | Standart                       |
 |---------------------------------------|--------------------------------|
-| High throughput                       | Variable throughput            |
-| Predictable performance               | Variable latency               |
-| Predictable pricing                   | Pay as you go variable pricing |
-| Ability to scale up and down workload | N/A                            |
-| Message size > 256KB                  | Message size is 256KB          |
+| Yüksek verimlilik                       | Değişken işleme            |
+| Tahmin edilebilir performans               | Değişken gecikme süresi               |
+| Tahmin edilebilir fiyatlandırma                   | Kullandıkça Öde değişken fiyatlandırması |
+| İş yükünü yukarı ve aşağı ölçeklendirebilme | Yok                            |
+| İleti boyutu > 256 KB                  | İleti boyutu 256 KB'dir          |
 
-**Service Bus Premium Messaging** provides resource isolation at the CPU and memory layer so that each customer workload runs in isolation. This resource container is called a *messaging unit*. Each premium namespace is allocated at least one messaging unit. You can purchase 1, 2, or 4 messaging units for each Service Bus Premium namespace. A single workload or entity can span multiple messaging units and the number of messaging units can be changed at will, although billing is in 24-hour or daily rate charges. The result is predictable and repeatable performance for your Service Bus-based solution.
+**Service Bus Premium Mesajlaşma Hizmeti**, CPU'da ve bellek katmanında kaynak yalıtımına olanak sağladığından her müşterinin iş yükü yalıtımlı şekilde çalışır. Bu kaynak kapsayıcısı *mesajlaşma birimi* olarak adlandırılır. Her premium ad alanı, en az bir mesajlaşma birimi için ayrılmıştır. Her Service Bus Premium ad alanı için 1, 2 veya 4 mesajlaşma birimi satın alabilirsiniz. Tek bir iş yükü veya varlık, birden çok mesajlaşma birimine yayılabilir ve faturalandırma 24 saatlik veya günlük oran fiyatlarında gerçekleştirilse de mesajlaşma birimlerinin sayısı isteğe bağlı olarak değiştirilebilir. Sonuç olarak, Service Bus tabanlı çözümünüz için tahmin edilebilir ve tekrarlanabilir bir performans elde edersiniz.
 
-Not only is this performance more predictable and available, but it is also faster. Service Bus Premium messaging builds on the storage engine introduced in [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/). With Premium messaging, peak performance is much faster than with the Standard tier.
+Daha tahmin edilebilir ve kullanılabilir olmasının yanı sıra bu performans, daha hızlıdır. Service Bus Premium mesajlaşma hizmeti, [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) kısmında tanıtılan depolama motorunda derlenir. Premium mesajlaşma sayesinde, en yüksek performans Standart katmanda olduğundan daha hızlıdır.
 
-## Premium Messaging technical differences
+## Premium Mesajlaşmanın teknik farklılıkları
 
-The following are a few differences between Premium and Standard messaging tiers.
+Premium ve Standart mesajlaşma katmanları arasındaki bazı farklar aşağıda verilmiştir.
 
-### Partitioned queues and topics
+### Bölümlenmiş kuyruklar ve konular
 
-Partitioned queues and topics are supported in Premium messaging, but they do not function the same way as in the Standard and Basic tiers of Service Bus messaging. Premium messaging does not use SQL as a data store and no longer has the possible resource competition associated with a shared platform. As a result, partitioning is not necessary. Additionally, the partition count has been changed from 16 partitions in Standard messaging to 2 partitions in Premium. Having two partitions ensures availability and is a more appropriate number for the Premium runtime environment. For more information about partitioning, see [Partitioned queues and topics](service-bus-partitioning.md).
+Bölümlenmiş kuyruklar ve konular Premium mesajlaşmada desteklenir ancak Service Bus mesajlaşma hizmetinin Standart ve Temel katmanlarında aynı şekilde işlev görmez. Premium mesajlaşma, SQL'i bir veri deposu olarak kullanmaz ve artık paylaşılan platforma ilişkin olası kaynak rekabetini barındırmaz. Sonuç olarak, bölümleme gerekli değildir. Ayrıca, Standart mesajlaşmada 16 olan bölüm sayısı Premium'da 2 bölüm olarak değiştirilmiştir. İki bölümlemeye sahip olmak kullanılabilirliği garanti altına alır ve Premium çalışma zamanı ortamı için daha uygun bir sayıdır. Bölümleme hakkında daha fazla bilgi için bkz. [Bölümlenmiş kuyruklar ve konular](service-bus-partitioning.md).
 
-### Express entities
+### İfade varlıkları
 
-Because Premium Messaging runs in a completely isolated runtime environment, express entities are not supported in Premium namespaces. For more information about the express feature, see the [Microsoft.ServiceBus.Messaging.QueueDescription.EnableExpress](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.enableexpress.aspx) property.
+Premium Mesajlaşma tamamen yalıtılmış bir çalışma zamanı ortamında çalıştığından Premium ad alanlarında ifade varlıkları desteklenmemektedir. İfade özellikleri hakkında daha fazla bilgi için [Microsoft.ServiceBus.Messaging.QueueDescription.EnableExpress](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.enableexpress.aspx) özelliğine bakın.
 
-## Next steps
+## Sonraki adımlar
 
-To learn more about Service Bus messaging, see the following topics.
+Service Bus mesajlaşma hizmeti hakkında daha fazla bilgi edinmek için aşağıdaki konu başlıklarına bakın.
 
-- [Introducing Azure Service Bus Premium messaging (blog post)](http://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
-- [Introducing Azure Service Bus Premium messaging (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
-- [Service Bus messaging overview](service-bus-messaging-overview.md)
-- [Azure Service Bus architectural overview](../service-bus/service-bus-fundamentals-hybrid-solutions.md)
-- [How to use Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
+- [Azure Service Bus mesajlaşma hizmetine giriş (blog gönderisi)](http://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
+- [Azure Service Bus mesajlaşma hizmetine giriş (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
+- [Service Bus mesajlaşma hizmetine genel bakış](service-bus-messaging-overview.md)
+- [Azure Service Bus mimarisine genel bakış](../service-bus/service-bus-fundamentals-hybrid-solutions.md)
+- [Service Bus kuyruklarını kullanma](service-bus-dotnet-get-started-with-queues.md)
+
+
+
+<!--HONumber=Sep16_HO4-->
+
+

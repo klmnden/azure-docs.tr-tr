@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Bir teklife abone olma ve Azure Stack'te bir VM sağlama (kiracı) | Microsoft Azure"
-    description="Kiracı olarak bir teklife nasıl abone olunacağını öğrenin ve ardından Azure Stack'te bir VM sağlayın."
+    pageTitle="Subscribe to an offer and then provision a VM in Azure Stack (tenant) | Microsoft Azure"
+    description="As a tenant, learn how to subscribe to an offer and then provision a VM in Azure Stack."
     services="azure-stack"
     documentationCenter=""
     authors="ErikjeMS"
@@ -13,41 +13,38 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="08/15/2016"
+    ms.date="09/26/2016"
     ms.author="erikje"/>
 
 
-# Bir teklife abone olma
+# Subscribe to an offer
 
-[Teklif oluşturduğunuza](azure-stack-create-offer.md) göre, kiracılarınızın abonelik oluşturup oluşturamayacağını test edebilirsiniz.
+Now that you've [created an offer](azure-stack-create-offer.md), test that your tenants can create a subscription.
 
-1.  Azure Stack POC bilgisayarında, `https://portal.azurestack.local` üzerinde [Kiracı](azure-stack-connect-azure-stack.md#log-in-as-a-tenant) olarak oturum açıp **Abonelik Al** seçeneğine tıklayın.
+1.  On the Azure Stack POC computer, log in to `https://portal.azurestack.local` as [a tenant](azure-stack-connect-azure-stack.md#log-in-as-a-tenant) and click **Get a Subscription**.
 
-    ![](media/azure-stack-subscribe-plan-provision-vm/image1.png)
+    ![](media/azure-stack-subscribe-plan-provision-vm/image01.png)
 
-2.  **Görünen Ad** alanına aboneliğiniz için bir ad yazın.
+2.  In the **Display Name** field, type a name for your subscription, click **Offer**, click one of the offers in the **Choose an offer** blade, and then click **Create**.
 
-    ![](media/azure-stack-subscribe-plan-provision-vm/image2.png)
+    ![](media/azure-stack-subscribe-plan-provision-vm/image02.png)
 
-3.  **Teklif**'e tıklayın ve oluşturduğunuz teklif in **Bir teklif seçin** dikey penceresinde olup olmadığını doğrulayın. Bu teklife ve **Seç**'e, ardından da **Tamam**'a tıklayın.  
+4.  To view the subscription you created, click **Browse**, click **Subscriptions**, then click your new subscription.  
 
-    ![](media/azure-stack-subscribe-plan-provision-vm/image3.png)
+    ![](media/azure-stack-subscribe-plan-provision-vm/image03.png)
 
-4.  Oluşturduğunuz aboneliği görüntülemek için **Gözat**'a ve ardından **Abonelikler**'e tıklayın.  
 
-    ![](media/azure-stack-subscribe-plan-provision-vm/image4.png)
-
-Bir teklife abone olduktan sonra abonelik durumu InSync şeklinde olana kadar bekleyin. Ardından yeni aboneliğe hangi hizmetlerin dahil olduğunu görmek için portalı yenileyin.
+After you subscribe to an offer, refresh the portal to see which services are part of the new subscription.
 
 
 
 
-## Sonraki adımlar
+## Next steps
 
-[Depolama hesapları](azure-stack-provision-storage-account.md)
+[Provision a virtual machine](azure-stack-provision-vm.md)
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

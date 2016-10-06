@@ -96,6 +96,6 @@ Dinamik hizmet planı dahil olmak üzere Azure İşlevlerinde kullanılabilen hi
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

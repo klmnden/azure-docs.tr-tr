@@ -3,7 +3,7 @@
     description="Azure oturum açma sayfasına ve erişim paneli sayfasına nasıl şirket markası ekleyeceğiniz hakkında bilgi edinin"
     services="active-directory"
     documentationCenter=""
-    authors="markusvi"
+    authors="curtand"
     manager="femila"
     editor=""/>
 
@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="07/13/2016"
-    ms.author="MarkVi"/>
+    ms.date="09/22/2016"
+    ms.author="curtand"/>
 
 
 # Oturum açma ve Erişim Paneli sayfalarınıza şirket markası ekleme
@@ -30,7 +30,7 @@ Bu konu başlığında, oturum açma sayfasını ve erişim paneli sayfasını n
 
 > [AZURE.NOTE]
 >
-- Şirket markası özelliğini, yalnızca Azure Active Directory Basic veya Premium sürümüne yükseltme yaptıysanız kullanabilirsiniz. Daha fazla bilgi için bkz. [Azure Active Directory sürümleri](active-directory-editions.md).
+- Şirket markası özelliğini, yalnızca Azure Active Directory Basic veya Premium sürümüne yükseltme yaptıysanız veya bir Office 365 kullanıcısıysanız kullanabilirsiniz. Daha fazla bilgi için bkz. [Azure Active Directory sürümleri](active-directory-editions.md).
 - Azure Active Directory Premium ve Basic sürümleri, Azure Active Directory'nin dünya çapındaki örneğini kullanan Çin'deki müşterilerin kullanımına sunulmuştur. Azure Active Directory Premium ve Basic sürümleri, şu anda Çin'de 21Vianet tarafından işletilen Microsoft Azure hizmeti kapsamında desteklenmemektedir. Daha fazla bilgi için [Azure Active Directory Forumu](https://feedback.azure.com/forums/169401-azure-active-directory/)'nda bizimle iletişime geçin.
 
 
@@ -223,6 +223,6 @@ Oturum Açma Sayfası Arka Plan Rengi | Oturum açma sayfası arka plan rengi, o
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

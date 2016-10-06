@@ -14,7 +14,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="vm-windows-sql-server"
     ms.workload="infrastructure-services"
-    ms.date="08/29/2016"
+    ms.date="09/21/2016"
     ms.author="jroth"/>
 
 
@@ -39,10 +39,13 @@ Kuruluş uygulaması gibi diğer iş yüklerini Azure’a taşıyorsanız, geli�
 
 Azure VM’lerde SQL Server çalıştırmaya karar verdiğinizde, ilk kararlarınızdan biri SQL Server lisans maliyetlerini içeren bir VM görüntüsü kullanıp kullanmamaktır. Diğer seçeneğiniz kendi lisansını getirmektir (KLG), böylece yalnızca VM için ödeme yaparsınız. Sonraki iki bölümde bu seçenekler açıklanmaktadır.
 
-## Seçenek 1: Bir SQL VM dağıtma (dakika başına lisans)
-Aşağıdaki tabloda sanal makine galerisindeki kullanılabilir SQL Server görüntülerinin bir matrisi verilmektedir. Belirtilen sürüm, yayın ve işletim sisteminizle yeni bir SQL VM oluşturmaya başlamak için bağlantılardan birine tıklayın. Tüm görüntülere [SQL Server lisans maliyetleri](https://azure.microsoft.com/pricing/details/virtual-machines/#Sql) dahildir.
+## Yeni bir SQL sanal makinesi oluşturma
+Aşağıdaki bölümlerde SQL Server sanal makine galeri görüntüleri için Azure portalının doğrudan bağlantıları verilmektedir. Seçtiğiniz görüntüye bağlı olarak, SQL Server lisans maliyetlerini dakika başına temelde ödeyebilir veya kendi lisansınızı getirebilirsiniz (KLG).
 
-Adım adım rehberlik [Azure Portal'da SQL Server sanal makine sağlama](virtual-machines-windows-portal-sql-server-provision.md) adlı öğreticide mevcuttur. Ayrıca,uygun makine boyutunu seçmeyi ve sağlama işlemi sırasında kullanılabilir diğer seçenekleri açıklayan [ SQL Server VM’ler için performans en iyi uygulamaları](virtual-machines-windows-sql-performance.md)’nı gözden geçirin.
+Bu işleme ilişkin adım adım yönergeler [Azure Portal'da SQL Server sanal makine hazırlama](virtual-machines-windows-portal-sql-server-provision.md) adlı öğreticide mevcuttur. Ayrıca,uygun makine boyutunu seçmeyi ve sağlama işlemi sırasında kullanılabilir diğer seçenekleri açıklayan [ SQL Server VM’ler için performans en iyi uygulamaları](virtual-machines-windows-sql-performance.md)’nı gözden geçirin.
+
+## Seçenek 1: Dakika başına lisanslama ile SQL sanal makinesi oluşturma
+Aşağıdaki tabloda sanal makine galerisindeki kullanılabilir SQL Server görüntülerinin bir matrisi verilmektedir. Belirtilen sürüm, yayın ve işletim sisteminizle yeni bir SQL VM oluşturmaya başlamak için bağlantılardan birine tıklayın.
 
 |Sürüm|İşletim Sistemi|Sürüm|
 |---|---|---|
@@ -55,12 +58,8 @@ Adım adım rehberlik [Azure Portal'da SQL Server sanal makine sağlama](virtual
 |**SQL 2008 R2 SP3**|Windows Server 2008 R2|[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2008R2SP3EnterpriseWindowsServer2008R2), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2008R2SP3StandardWindowsServer2008R2), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2008R2SP3WebWindowsServer2008R2)|
 |**SQL 2008 R2 SP3**|Windows Server 2012|[Express](https://portal.azure.com/#create/Microsoft.SQLServer2008R2SP3ExpressWindowsServer2012)|
 
-## Seçenek 2: SQL VM dağıtma (KLG)
-Diğer seçenek kendi lisansını getirmektir (KLG). Bu senaryoda, SQL Server Lisans için hiçbir ek bir ücret olmadan yalnızca VM için ödeme yaparsınız. Kendi lisansınızı kullanmak için, aşağıdaki SQL Server sürümleri, yayınları ve işletim sistemleri matrisini kullanın. Portalda, görüntü adlarına Portal’da **{KLG}** ön eki eklenir.
-
-> [AZURE.IMPORTANT] KLG VM görüntüleri kullanmak için, olması gerekir ve Kuruluş Sözleşmesi ile [Azure’da Yazılım Güvencesi ile Lisans Taşınabilirliği](https://azure.microsoft.com/pricing/license-mobility/) içeren bir Kuruluş Sözleşmeniz olmalıdır. Ayrıca, kullanmak istediğiniz SQL Server sürümü/yayını için geçerli bir lisans da gerekir. VM’nizi sağladıktan sonra **10** gün içinde [gerekli KLG bilgilerini Microsoft’a vermelisiniz.](http://d36cz9buwru1tt.cloudfront.net/License_Mobility_Customer_Verification_Guide.pdf)
-
-[Sağlama işlemi öğretici](virtual-machines-windows-portal-sql-server-provision.md)sindeki rehberlik geçerlidir, ancak aşağıdaki **KLG** görüntü seçeneklerinden birini kullanmalısınız. Ayrıca,uygun makine boyutunu seçmeyi ve sağlama işlemi sırasında kullanılabilir diğer seçenekleri açıklayan [ SQL Server VM’ler için performans en iyi uygulamaları](virtual-machines-windows-sql-performance.md)’nı gözden geçirin.
+## Seçenek 2: Var olan bir lisans ile SQL sanal makinesi oluşturma
+Ayrıca kendi lisansınızı getirebilirsiniz (KLG). Bu senaryoda, SQL Server Lisans için hiçbir ek bir ücret olmadan yalnızca VM için ödeme yaparsınız. Kendi lisansınızı kullanmak için, aşağıdaki SQL Server sürümleri, yayınları ve işletim sistemleri matrisini kullanın. Portalda, bu görüntü adlarına **{KLG}** ön eki getirilir.
 
 |Sürüm|İşletim sistemi|Sürüm|
 |---|---|---|
@@ -68,8 +67,10 @@ Diğer seçenek kendi lisansını getirmektir (KLG). Bu senaryoda, SQL Server Li
 |**SQL Server 2014 SP1**|Windows Server 2012 R2|[Enterprise KLG](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2014SP1EnterpriseWindowsServer2012R2), [Standard KLG](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2014SP1StandardWindowsServer2012R2)|
 |**SQL Server 2012 SP2**|Windows Server 2012 R2|[Enterprise KLG](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2012SP3EnterpriseWindowsServer2012R2), [Standard KLG](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2012SP3StandardWindowsServer2012R2)|
 
+> [AZURE.IMPORTANT] KLG VM görüntülerini kullanmak için, [Azure’da Yazılım Güvencesi ile Lisans Taşınabilirliği](https://azure.microsoft.com/pricing/license-mobility/) içeren bir Kuruluş Sözleşmeniz olmalıdır. Ayrıca, kullanmak istediğiniz SQL Server sürümü/yayını için geçerli bir lisans da gerekir. VM’nizi sağladıktan sonra **10** gün içinde [gerekli KLG bilgilerini Microsoft’a vermelisiniz.](http://d36cz9buwru1tt.cloudfront.net/License_Mobility_Customer_Verification_Guide.pdf)
+
 ## SQL VM’nizi yönetme
-SQL Server sanal makinenizi sağladıktan sonra isteğe bağlı birkaç yönetim görevi vardır. Bazı durumlarda, SQL Server’ı tam olarak şirket içindeki şekilde yapılandırır ve yönetirsiniz. Ancak bazı görevler Azure’a özgüdür. Aşağıdaki bölümlerde daha fazla bilgi için bağlantılar ile birlikte bu alanlardan bazıları vurgulanmaktır.
+SQL Server sanal makinenizi sağladıktan sonra isteğe bağlı birkaç yönetim görevi vardır. Birçok yönden, SQL Server’ı tam olarak şirket içi SQL Server örneğindeki gibi yapılandırır ve yönetirsiniz. Ancak bazı görevler Azure’a özgüdür. Aşağıdaki bölümlerde daha fazla bilgi için bağlantılar ile birlikte bu alanlardan bazıları vurgulanmaktır.
 
 ### Verilerinizi geçirme
 

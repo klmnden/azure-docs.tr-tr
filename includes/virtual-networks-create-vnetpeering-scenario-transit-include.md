@@ -10,6 +10,6 @@ Bu senaryoda, bir abonelikte aşağıdaki diyagramda açıklandığı gibi HubVN
 Geçiş yönlendirmeyi etkinleştirmeye yönelik temel özellik "İletilen Trafiğe İzin Ver" parametresidir. Bu parametre eşlenen VNet içindeki NVA’ya trafik almaya/göndermeye izin verir.  
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

@@ -97,6 +97,6 @@ Event Hub'ı oluşturan ve veri gönderip alan çalışan bir uygulama oluşturd
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 
