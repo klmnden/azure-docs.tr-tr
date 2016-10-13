@@ -3,8 +3,8 @@
     description="Objective-C ya da Swift’te iOS geliştirme için Azure mobil uygulaması arka uçlarını kullanmaya başlamak için bu öğreticiden yararlanın."
     services="app-service\mobile"
     documentationCenter="ios"
-    authors="krisragh"
-    manager="dwrede"
+    authors="yuaxu"
+    manager="yochayk"
     editor=""/>
 
 <tags
@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="mobile-ios"
     ms.devlang="objective-c"
     ms.topic="hero-article"
-    ms.date="08/17/2016"
-    ms.author="krisragh"/>
+    ms.date="10/01/2016"
+    ms.author="yuaxu"/>
+
 
 #iOS uygulaması oluşturma
 
@@ -49,6 +50,6 @@ Bu öğreticiyi tamamlamak için bir [Mac bilgisayar](https://azure.microsoft.co
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Oct16_HO1-->
 
 

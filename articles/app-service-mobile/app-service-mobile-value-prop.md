@@ -4,7 +4,7 @@
     services="app-service\mobile"
     documentationCenter=""
     authors="adrianhall"
-    manager="dwrede"
+    manager="yochayk"
     editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="mobile-multiple"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="05/03/2016"
-    ms.author="glennga"/>
+    ms.date="10/01/2016"
+    ms.author="adrianha"/>
 
 
 # <a name="getting-started"> </a>Mobile Apps nedir?
@@ -100,12 +100,12 @@ Azure App Service platformu hakkında daha fazla bilgi için bkz. [Azure App Ser
 [Dağıtım seçenekleri]: ../app-service-web/web-sites-deploy.md
 [Karma bağlantılar]: ../app-service-web/web-sites-hybrid-connection-get-started.md
 [sanal ağlar]: ../app-service-web/web-sites-integrate-with-vnet.md
-[ExpressRoute]: ../app-service/app-service-app-service-environment-network-configuration-expressroute.md
+[ExpressRoute]: ../app-service-web/app-service-app-service-environment-network-configuration-expressroute.md
 [App Service ortamları]: ../app-service-web/app-service-app-service-environment-intro.md
 [öğrenme haritamızı]: https://azure.microsoft.com/en-us/documentation/learning-paths/appservice-mobileapps/
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO1-->
 
 

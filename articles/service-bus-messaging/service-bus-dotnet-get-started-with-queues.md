@@ -17,7 +17,7 @@
     ms.author="jotaub;sethm"/>
 
 
-# Service Bus Kuyruklarını kullanmaya başlama
+# Service Bus kuyruklarını kullanmaya başlama
 
 [AZURE.INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
@@ -194,6 +194,6 @@ Azure Service Bus mesajlaşmasının daha gelişmiş özelliklerinden bazıları
 [github-samples]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Sep16_HO5-->
 
 

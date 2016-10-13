@@ -23,6 +23,7 @@
 
 Bu öğreticide cmd.exe veya bash gibi bir komut satırı ortamında basit bir [Node.js] uygulaması oluşturma ve bir [Azure App Service]’e dağıtma işlemi gösterilmektedir. Bu öğreticideki yönergeler Node.js çalıştırabilen tüm işletim sistemlerinde izlenebilir.
 
+>[AZURE.INCLUDE [app-service-linux](../../includes/app-service-linux.md)] 
 
 <a name="prereq"></a>
 ## Önkoşullar
@@ -257,6 +258,6 @@ Node-Inspector’ı etkinleştirmek için aşağıdaki adımları izleyin:
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO1-->
 
 

@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="09/13/2016"
+   ms.date="10/04/2016"
    ms.author="nitinme"/>
 
 
@@ -34,12 +34,13 @@ Azure Data Lake Store hesabı oluşturma ve klasör oluşturma, veri dosyaların
 
 Bu öğreticiye başlamadan önce aşağıdakilere sahip olmanız gerekir:
 
-- **Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü edinme](https://azure.microsoft.com/pricing/free-trial/).
+* **Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/pricing/free-trial/).
 
+* **Azure PowerShell 1.0 veya üstü**. Bkz. [Azure PowerShell'i yükleme ve yapılandırma](../powershell-install-configure.md).
 
-##Azure PowerShell 1.0 sürümünü veya sonraki bir sürümü yükleme
+## Kimlik Doğrulaması
 
-[Azure PowerShell'i Azure Resource Manager ile kullanma](../powershell-azure-resource-manager.md#prerequisites) konusunun Önkoşul bölümüne bakın.
+Bu makalede, Azure hesabı kimlik bilgilerinizi girmenizi isteyen daha basit bir Data Lake Store kimlik doğrulama yaklaşımı kullanılmaktadır. Data Lake Store hesabına ve dosya sistemine erişim düzeyi bu durumda oturum açmış kullanıcının erişim düzeyine göre yönetilir. Ancak, Data Lake Store kimlik doğrulaması için **son kullanıcı kimlik doğrulaması** veya **hizmetten hizmete kimlik doğrulama** şeklinde diğer yaklaşımlar da mevcuttur. Kimlik doğrulaması hakkında yönergeler ve daha fazla bilgi için bkz. [Azure Active Directory kullanarak Data Lake Store kimlik doğrulaması yapma](data-lake-store-authenticate-using-active-directory.md).
 
 ## Azure Data Lake Store hesabı oluşturma
 
@@ -143,6 +144,6 @@ Data Lake Store hesabınızı silmek için aşağıdaki komutu kullanın.
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO1-->
 
 

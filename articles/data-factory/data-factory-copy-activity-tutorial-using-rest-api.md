@@ -20,12 +20,13 @@
 # Öğretici: REST API kullanarak Kopyalama Etkinlikli işlem hattı oluşturma
 > [AZURE.SELECTOR]
 - [Genel bakış ve ön koşullar](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-- [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
+- [Kopyalama Sihirbazı](data-factory-copy-data-wizard-tutorial.md)
+- [Azure portalı](data-factory-copy-activity-tutorial-using-azure-portal.md)
 - [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 - [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 - [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
 - [.NET API’si](data-factory-copy-activity-tutorial-using-dotnet-api.md)
-- [Kopyalama Sihirbazı](data-factory-copy-data-wizard-tutorial.md)
+
 
 Bu öğretici, REST API kullanarak bir Azure veri fabrikası oluşturmayı ve izlemeyi gösterir. Veri fabrikasındaki işlem hattı, Azure Blob Depolama’dan Azure SQL veritabanı’na veri kopyalamak için bir Kopyalama Etkinliği kullanır.
 
@@ -493,6 +494,6 @@ Bu öğreticide bir Azure blob’undan Azure SQL veritabanına veri kopyalamak i
  
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO5-->
 
 

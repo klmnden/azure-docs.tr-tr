@@ -16,6 +16,7 @@
     ms.date="08/11/2016" 
     ms.author="robmcm"/>
 
+
 # Bir Node.js uygulaması derleme ve Azure Cloud Service’e dağıtma
 
 > [AZURE.SELECTOR]
@@ -169,7 +170,7 @@ Uygulamanızı dağıttıktan sonra ek maliyetlerden kaçınmak için devre dı�
 
     ![The status of the Remove-AzureService command][The status of the Remove-AzureService command]
 
-    > [AZURE.NOTE] Hizmetin silinmesi, hizmet ilk kez yayımlandığında oluşturulan depolama hesabını silmez ve kullanılan depolama alanı için faturalandırılmaya devam edersiniz. Bir depolama hesabını silme hakkında daha fazla bilgi için bkz. [Azure Aboneliğinden bir Storage Hesabını Silme].
+    > [AZURE.NOTE] Hizmetin silinmesi, hizmet ilk kez yayımlandığında oluşturulan depolama hesabını silmez ve kullanılan depolama alanı için faturalandırılmaya devam edersiniz. Depolama alanı başka bir işlem tarafından kullanılmıyorsa silmek isteyebilirsiniz.
 
 ## Sonraki adımlar
 
@@ -183,7 +184,6 @@ Daha fazla bilgi için bkz. [Node.js Geliştirici Merkezi].
 [.NET 2.7 için Azure SDK’sını]: http://www.microsoft.com/en-us/download/details.aspx?id=48178
 [PowerShell’i bağlayın]: ../powershell-install-configure.md#how-to-connect-to-your-subscription
 [nodejs.org]: http://nodejs.org/
-[Azure Aboneliğinden bir Storage Hesabını Silme]: ../storage/how-to-manage-a-storage-account.md
 [Azure için Barındırılan Hizmet Oluşturmaya Genel Bakış]: https://azure.microsoft.com/documentation/services/cloud-services/
 [Node.js Geliştirici Merkezi]: https://azure.microsoft.com/develop/nodejs/
 
@@ -193,13 +193,12 @@ Daha fazla bilgi için bkz. [Node.js Geliştirici Merkezi].
 [The output of the Add-AzureNodeWebRole command]: ./media/cloud-services-nodejs-develop-deploy-app/node11.png
 [A web browser displaying the Hello World web page]: ./media/cloud-services-nodejs-develop-deploy-app/node14.png
 [The output of the Publish-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node19.png
-[The full status output of the Publish-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node20.png
-[A browser window displaying the hello world page; the URL indicates the page is hosted on Azure.]: ./media/cloud-services-nodejs-develop-deploy-app/node21.png
+[Hello world sayfasını gösteren bir tarayıcı penceresi; URL sayfanın Azure’da barındırıldığını gösterir.]: ./media/cloud-services-nodejs-develop-deploy-app/node21.png
 [The status of the Stop-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node48.png
 [The status of the Remove-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node49.png
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Oct16_HO1-->
 
 

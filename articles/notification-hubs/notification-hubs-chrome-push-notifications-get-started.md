@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="mobile-chrome"
     ms.devlang="JavaScript"
     ms.topic="hero-article"
-    ms.date="07/22/2016"
+    ms.date="10/03/2016"
     ms.author="wesmc"/>
 
 
@@ -477,11 +477,11 @@ Kullanıcılarınızı ilgi alanı gruplarına göre segmentlere ayırmak istiyo
 [crypto-js kitaplığı]: http://code.google.com/p/crypto-js/
 [Chrome Uygulamaları ile GCM]: https://developer.chrome.com/apps/cloudMessaging
 [Google Cloud Messaging for Chrome]: https://developer.chrome.com/apps/cloudMessagingV1
-[Azure Notification Hubs Kullanıcılara Bildirme]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
-[Azure Notification Hubs son dakika haberleri]: notification-hubs-windows-store-dotnet-send-breaking-news.md
+[Azure Notification Hubs Kullanıcılara Bildirme]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
+[Azure Notification Hubs son dakika haberleri]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO1-->
 
 

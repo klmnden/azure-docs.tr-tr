@@ -1,8 +1,8 @@
 > [AZURE.SELECTOR]
 - [.NET](../articles/media-services/media-services-dotnet-connect-programmatically.md)
-- [REST API](../articles/media-services/media-services-rest-connect_programmatically.md)
+- [REST API](../articles/media-services/media-services-rest-connect-programmatically.md)
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO1-->
 
 

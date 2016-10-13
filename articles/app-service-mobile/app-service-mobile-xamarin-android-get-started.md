@@ -3,7 +3,7 @@
     description="Xamarin Android geliştirme için Azure Mobile Apps’i kullanmaya başlamak için bu öğreticiden yararlanın"
     services="app-service\mobile"
     documentationCenter="xamarin"
-    authors="ggailey777"
+    authors="adrianhall"
     manager="erikre"
     editor="" />
 
@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="mobile-xamarin-android"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="08/11/2016"
-    ms.author="glenga" />
+    ms.date="10/01/2016"
+    ms.author="adrianha" />
+
 
 #Xamarin.Android Uygulaması oluşturma
 
@@ -91,6 +92,6 @@ Xamarin uygulamanızda yönetilen istemci SDK’sıyla çalışmayı öğrenin.
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Oct16_HO1-->
 
 

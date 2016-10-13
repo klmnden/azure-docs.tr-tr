@@ -20,12 +20,13 @@
 # Öğretici: Azure portalı kullanarak Kopyalama Etkinliği ile işlem hattı oluşturma
 > [AZURE.SELECTOR]
 - [Genel bakış ve ön koşullar](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-- [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
+- [Kopyalama Sihirbazı](data-factory-copy-data-wizard-tutorial.md)
+- [Azure portalı](data-factory-copy-activity-tutorial-using-azure-portal.md)
 - [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 - [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 - [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
 - [.NET API’si](data-factory-copy-activity-tutorial-using-dotnet-api.md)
-- [Kopyalama Sihirbazı](data-factory-copy-data-wizard-tutorial.md)
+
 
 
 Bu öğretici, Azure portalını kullanarak bir Azure data factory oluşturmayı ve izlemeyi gösterir. Veri fabrikasındaki işlem hattı, Azure Blob Depolama’dan Azure SQL veritabanı’na veri kopyalamak için bir Kopyalama Etkinliği kullanır.
@@ -396,6 +397,6 @@ Bu öğreticide Azure blob’undan Azure SQL veritabanına veri kopyalamak üzer
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Sep16_HO5-->
 
 

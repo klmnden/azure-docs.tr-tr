@@ -22,17 +22,17 @@
 
 Bu makalede, Azure komut satırı arabiriminde (CLI) `azure vm quick-create` komutunu kullanarak Azure'da bir Linux sanal makinesini (VM) hızlı bir şekilde nasıl dağıtacağınız gösterilmektedir. `quick-create` komutu, bir kavramı hızlıca prototipleştirmek veya sınamak için kullanabileceğiniz temel, güvenli bir altyapı içine VM dağıtır. Bu makale için şunlar gereklidir:
 
-- bir Azure hesabı ([ücretsiz deneme sürümü edinin](https://azure.microsoft.com/pricing/free-trial/))
+- bir Azure hesabı ([ücretsiz deneme sürümü edinin](https://azure.microsoft.com/pricing/free-trial/)).
 
-- `azure login` ile oturum açılmış [Azure CLI'si](../xplat-cli-install.md).
+- oturum açmak için [Azure CLI'si](../xplat-cli-install.md) `azure login`
 
-- Azure CLI'si, `azure config mode arm` Azure Resource Manager modunda _olmalıdır_.  
+- Azure CLI'si, Azure Resource Manager modunda _olmalıdır_ `azure config mode arm`
 
 [Azure portalını](virtual-machines-linux-quick-create-portal.md) kullanarak da hızlıca bir Linux VM'si dağıtabilirsiniz.
 
 ## Hızlı komutlar
 
-Aşağıdaki örnekte, bir CoreOS VM'sinin nasıl dağıtılacağı ve Secure Shell (SSH) anahtarının nasıl ekleneceği gösterilmektedir. (Bağımsız değişkenleriniz farklı olabilir).
+Aşağıdaki örnekte, bir CoreOS VM'sinin nasıl dağıtılacağı ve Secure Shell (SSH) anahtarının nasıl ekleneceği gösterilmektedir. (Bağımsız değişkenleriniz farklı olabilir):
 
 ```bash
 azure vm quick-create -M ~/.ssh/azure_id_rsa.pub -Q CoreOS
@@ -57,15 +57,15 @@ Aşağıdaki bölümlerde, Ubuntu 14.04.4 LTS Server'ı dağıtmak üzere **Imag
 
 ## Ayrıntılı kılavuz
 
-Önceki `quick-create` örneğinde, SSH parolaları devre dışı bırakılarak karşıya yüklenecek SSH ortak anahtarını tanımlamak üzere yalnızca `-M` bayrağı çağrıldı, bu nedenle sizden şunları girmeniz istendi:
+Önceki `quick-create` örneğinde, SSH parolaları devre dışı bırakılarak karşıya yüklenecek SSH ortak anahtarını tanımlamak üzere yalnızca `-M` bayrağı çağrılmıştır, bu nedenle sizden aşağıdaki bağımsız değişkenler istenir:
 
 - kaynak grup adı (ilk Azure kaynak grubunuz için genellikle herhangi bir dize olabilir)
 - VM adı
-- konum (westus veya westeurope konumları, varsayılan olmaya uygundur)
+- konum (`westus` veya `westeurope` iyi varsayılanlardır)
 - linux (Azure'ın hangi işletim sistemini istediğinizi bilmesi için)
 - kullanıcı adı
 
-Daha fazla istemde bulunulmaması için aşağıda tüm değerler belirtilmiştir. ssh-rsa biçiminde ortak anahtar dosyası olarak `~/.ssh/id_rsa.pub` dosyanız olduğu sürece bu dosyayı kullanabilirsiniz.
+Daha fazla istemin gerekli olmaması için aşağıdaki örnekte tüm değerler belirtilmiştir. ssh-rsa biçiminde ortak anahtar dosyası olarak `~/.ssh/id_rsa.pub` dosyanız olduğu sürece bu dosyayı kullanabilirsiniz:
 
 ```bash
 azure vm quick-create \
@@ -78,7 +78,7 @@ azure vm quick-create \
 -Q UbuntuLTS
 ```
 
-Çıktı aşağıdaki çıktı bloğu gibi görünmelidir.
+Çıktı aşağıdaki çıktı bloğu gibi görünmelidir:
 
 ```bash
 info:    Executing command vm quick-create
@@ -156,13 +156,13 @@ data:      Diagnostics Instance View:
 info:    vm quick-create command OK
 ```
 
-Çıktıda listelenen genel IP adresini kullanarak VM'inizde oturum açın. Listelenen tam etki alanı adını (FQDN) da kullanabilirsiniz.
+Çıktıda listelenen genel IP adresini kullanarak VM'inizde oturum açın. Listelenen tam etki alanı adını (FQDN) da kullanabilirsiniz:
 
 ```bash
 ssh -i ~/.ssh/id_rsa.pub exampleAdminUser@138.91.247.29
 ```
 
-Oturum açma işlemi aşağıdaki gibi görünmelidir:
+Oturum açma işlemi aşağıdaki çıktı bloğuna benzer şekilde görünmelidir:
 
 ```bash
 Warning: Permanently added '138.91.247.29' (ECDSA) to the list of known hosts.
@@ -208,6 +208,6 @@ exampleAdminUser@exampleVMName:~$
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO5-->
 
 

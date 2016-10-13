@@ -6,7 +6,7 @@
     authors="MGoedtel"
     manager="jwhit"
     editor=""
-	/>
+    />
 <tags
     ms.service="operations-management-suite"
     ms.workload="tbd"
@@ -15,6 +15,7 @@
     ms.topic="get-started-article"
     ms.date="09/28/2016"
     ms.author="magoedte"/>
+
 
 # ![Update Management Solution in OMS](./media/oms-solution-update-management/update-management-solution-icon.png) Update Management solution in OMS
 
@@ -26,17 +27,17 @@ The Update Management solution in OMS allows you to manage updates for your Wind
 
     >[AZURE.NOTE] The Windows agent cannot be managed concurrently by System Center Configuration Manager.  
   
--	Linux agents must have access to an update repository.  The OMS Agent for Linux can be downloaded from [GitHub](https://github.com/microsoft/oms-agent-for-linux). 
+-   Linux agents must have access to an update repository.  The OMS Agent for Linux can be downloaded from [GitHub](https://github.com/microsoft/oms-agent-for-linux). 
 
 ## Configuration
 
 Perform the following steps to add the Update Management solution to your OMS workspace and add Linux agents.  Windows agents are added automatically with no additional configuration.
 
-1.	Add the Update Management solution to your OMS workspace using the process described in [Add OMS solutions](../log-analytics/log-analytics-add-solutions.md) from the Solutions Gallery.  
-2.	In the OMS portal, select **Settings** and then **Connected Sources**.  Note the **Workspace ID** and either the **Primary Key** or **Secondary Key**.
-3.	Perform the following steps for each Linux computer.
+1.  Add the Update Management solution to your OMS workspace using the process described in [Add OMS solutions](../log-analytics/log-analytics-add-solutions.md) from the Solutions Gallery.  
+2.  In the OMS portal, select **Settings** and then **Connected Sources**.  Note the **Workspace ID** and either the **Primary Key** or **Secondary Key**.
+3.  Perform the following steps for each Linux computer.
 
-    a.	Install the latest version of the OMS Agent for Linux by running the following commands.  Replace <Workspace ID> with the Workspace ID and <Key> with either the Primary or Secondary Key.
+    a.  Install the latest version of the OMS Agent for Linux by running the following commands.  Replace <Workspace ID> with the Workspace ID and <Key> with either the Primary or Secondary Key.
 
         cd ~
         wget https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/v1.2.0-75/omsagent-1.2.0-75.universal.x64.sh
@@ -52,7 +53,7 @@ If your System Center Operations Manager management group is connected to your O
 
 -   Microsoft System Center Advisor Update Assessment Intelligence Pack (Microsoft.IntelligencePacks.UpdateAssessment)
 -   Microsoft.IntelligencePack.UpdateAssessment.Configuration (Microsoft.IntelligencePack.UpdateAssessment.Configuration)
--   Update Run MP
+-   Update Deployment MP
 
 For more information on how solution management packs are updated, see [Connect Operations Manager to Log Analytics](../log-analytics/log-analytics-om-agents.md).
 
@@ -91,10 +92,10 @@ Critical or Security Updates | Lists the top ten computers that are missing upda
 Critical or Security Updates older than 30 days| Identifies number of computers that are missing critical or security updates grouped by the length of time since the update was published. Click on one of the entries to run a log search returning all missing and critical updates.|
 **Required Missing Updates**||
 Critical or Security Updates | Lists classifications of updates that computers are missing sorted by the number of computers missing updates in the category. Click a classification to run a log search returning all update records for that classification.|
-**Update Runs**||
-Update Runs | Number of currently scheduled update runs and the duration until the next scheduled run.  Click on the tile to view schedules, currently running, and completed updates or to schedule a new run.|  
+**Update Deployments**||
+Update Deployments | Number of currently scheduled update deployments and the duration until the next scheduled run.  Click on the tile to view schedules, currently running, and completed updates or to schedule a new deployment.|  
 <br>  
-![Update Management Summary Dashboard](./media/oms-solution-update-management/update-management-dashboard-2.png)<br>  
+![Update Management Summary Dashboard](./media/oms-solution-update-management/update-management-deployment-dashboard.png)<br>  
 <br>
 ![Update Management Dashboard Computer View](./media/oms-solution-update-management/update-management-assessment-computer-view.png)<br>  
 <br>
@@ -102,48 +103,48 @@ Update Runs | Number of currently scheduled update runs and the duration until t
 
 ## Installing updates
 
-Once updates have been assessed for all of the computers in your environment, you can have required updates installed by creating an *Update Run*.  An Update Run is a scheduled installation of required updates for one or more Windows computers.  You specify the date and time for the run in addition to a computer or group of computers that should be included.  
+Once updates have been assessed for all of the computers in your environment, you can have required updates installed by creating an *Update Deployment*.  An Update Deployment is a scheduled installation of required updates for one or more Windows computers.  You specify the date and time for the deployment in addition to a computer or group of computers that should be included.  
 
-Updates are installed by runbooks in Azure Automation.  You cannot currently view these runbooks, and they don’t require any configuration.  When an Update Run is created, it creates a schedule in that starts a master update runbook at the specified time for the included computers.  This master runbook starts a child runbook on each Windows agent that performs installation of required updates.  
+Updates are installed by runbooks in Azure Automation.  You cannot currently view these runbooks, and they don’t require any configuration.  When an Update Deployment is created, it creates a schedule in that starts a master update runbook at the specified time for the included computers.  This master runbook starts a child runbook on each Windows agent that performs installation of required updates.  
 
-### Viewing update runs
+### Viewing update deployments
 
-Click the **Update Runs** tile to view the list of existing Update Runs.  They are grouped by status – **Scheduled**, **Running**, and **Completed**.<br><br> ![Update Runs Schedule Page](./media/oms-solution-update-management/update-updaterun-schedule-page.png)<br>  
+Click the **Update Deployment** tile to view the list of existing Update Deployments.  They are grouped by status – **Scheduled**, **Running**, and **Completed**.<br><br> ![Update Deployments Schedule Page](./media/oms-solution-update-management/update-updatedeployment-schedule-page.png)<br>  
 
-The properties displayed for each Update Run are described in the following table.
+The properties displayed for each Update Deployment are described in the following table.
 
 Property | Description|
 ----------|----------|
-Name | Name of the Update Run.|
+Name | Name of the Update Deployment.|
 Schedule | Type of schedule.  *OneTime* is currently the only possible value.|
-Start Time|Date and time that the Update Run is scheduled to start.|
-Duration | Number of minutes the Update Run is allowed to run.  If all updates are not installed within this duration, then the remaining updates must wait until the next Update Run.|
-Servers | Number of computers affected by the Update Run.|
-Status | Current status of the Update Run.<br><br>Possible values are:<br>-	Not Started<br>- Running<br>- Finished|  
+Start Time|Date and time that the Update Deployment is scheduled to start.|
+Duration | Number of minutes the Update Deployment is allowed to run.  If all updates are not installed within this duration, then the remaining updates must wait until the next Update Deployment.|
+Servers | Number of computers affected by the Update Deployment.|
+Status | Current status of the Update Deployment.<br><br>Possible values are:<br>-  Not Started<br>- Running<br>- Finished|  
 
-Click on an Update Run to view its detail screen which includes the columns in the following table.  These columns will not be populated if the Update Run has not yet started.<br>
+Click on an Update Deployment to view its detail screen which includes the columns in the following table.  These columns will not be populated if the Update Deployment has not yet started.<br>
 
 Column | Description|
 ----------|----------|
 **Computer Results**||
-Completed Successfully | Lists the number of computers in the Update Run by status.  Click on a status to run a log search returning all update records with that status for the Update Run.|
-Computer Installation Status| Lists the computers involved in the Update Run and the percentage of updates that successfully installed. Click on one of the entries to run a log search returning all missing and critical updates.|
+Completed Successfully | Lists the number of computers in the Update Deployment by status.  Click on a status to run a log search returning all update records with that status for the Update Deployment.|
+Computer Installation Status| Lists the computers involved in the Update Deployment and the percentage of updates that successfully installed. Click on one of the entries to run a log search returning all missing and critical updates.|
 **Update Instance Results**||
 Instance Installation Status | Lists classifications of updates that computers are missing sorted by the number of computers missing updates in the category. Click a computer to run a log search returning all update records for that computer.|  
-<br><br> ![Overview of Update Run Results](./media/oms-solution-update-management/update-la-updaterunresults-page.png)
+<br><br> ![Overview of Update Deployment Results](./media/oms-solution-update-management/update-la-updaterunresults-page.png)
 
-### Creating an Update Run
+### Creating an Update Deployment
 
-Create a new Update Run by clicking the **Add** button at the top of the screen to open the **New Update Run** page.  You must provide values for the properties in the following table.
+Create a new Update Deployment by clicking the **Add** button at the top of the screen to open the **New Update Deployment** page.  You must provide values for the properties in the following table.
 
 Property | Description|
 ----------|----------|
-Name | Unique name to identify the update run.|
+Name | Unique name to identify the update deployment.|
 Time Zone | Time zone to use for the start time.|
-Start Time | Date and time to start the update run.|
-Duration | Number of minutes the Update Run is allowed to run.  If all updates are not installed within this duration, then the remaining updates must wait until the next Update Run.|
-Computers | Names of computers or computer groups to include in the Update Run.  Select one or more entries from the drop down list.|
-<br><br> ![New Update Run Page](./media/oms-solution-update-management/update-newupdaterun-page.png)
+Start Time | Date and time to start the update deployment.|
+Duration | Number of minutes the Update Deployment is allowed to run.  If all updates are not installed within this duration, then the remaining updates must wait until the next Update Deployment.|
+Computers | Names of computers or computer groups to include in the Update Deployment.  Select one or more entries from the drop down list.|
+<br><br> ![New Update Deployment Page](./media/oms-solution-update-management/update-newupdaterun-page.png)
 
 ### Time range
 
@@ -162,9 +163,9 @@ A record with a type of **Update** is created for each update that is either ins
 Property | Description|
 ----------|----------|
 Type | *Update*|
-SourceSystem | The source that approved installation of the update.<br>Possible values are:<br>- Microsoft Update<br>-	Windows Update<br>-	SCCM<br>- Linux Servers (Fetched from Package Managers)|
+SourceSystem | The source that approved installation of the update.<br>Possible values are:<br>- Microsoft Update<br>-  Windows Update<br>- SCCM<br>- Linux Servers (Fetched from Package Managers)|
 Approved | Specifies whether the update has been approved for installation.<br> For Linux servers this is currently optional as patching is not managed by OMS.|
-Classification for Windows | Classification of the update.<br>Possible values are:<br>-	Applications<br>- Critical Updates<br>- Definition Updates<br>- Feature Packs<br>- Security Updates<br>- Service Packs<br>- Update Rollups<br>- Updates|
+Classification for Windows | Classification of the update.<br>Possible values are:<br>- Applications<br>- Critical Updates<br>- Definition Updates<br>- Feature Packs<br>- Security Updates<br>- Service Packs<br>- Update Rollups<br>- Updates|
 Classification for Linux | Cassification of the update.<br>Possible values are:<br>-Critical Updates<br>- Security Updates<br>- Other Updates|
 Computer | Name of the computer.|
 InstallTimeAvailable | Specifies whether the installation time is available from other agents that installed the same update.|
@@ -211,7 +212,7 @@ Computer | Name of the computer.|
 CriticalUpdatesMissing | Number of critical updates missing on the computer.|
 ManagementGroupName | Name of the management group for SCOM agents. For other agents, this is AOI-<workspace ID>.|
 NETRuntimeVersion | Version of the .NET runtime installed on the computer.|
-OldestMissingSecurityUpdateBucket | Bucket to categorize the time since the oldest missing security update on this computer was published.<br>Possible values are:<br>- Older<br>-	180 days ago<br>- 150 days ago<br>-	120 days ago<br>- 90 days ago<br>- 60 days ago<br>-	30 days go<br>-	Recent|
+OldestMissingSecurityUpdateBucket | Bucket to categorize the time since the oldest missing security update on this computer was published.<br>Possible values are:<br>- Older<br>-  180 days ago<br>- 150 days ago<br>- 120 days ago<br>- 90 days ago<br>- 60 days ago<br>- 30 days go<br>- Recent|
 OldestMissingSecurityUpdateInDays | Number of days since the oldest missing security update on this computer was published.|
 OsVersion | Version of the operating system installed on the computer.|
 OtherUpdatesMissing | Number of other updates missing on the computer.|
@@ -254,5 +255,11 @@ List of all the “Ubuntu” machines with any update available | Type=Update an
 - [Create alerts](../log-analytics/log-analytics-alerts.md) when critical updates are detected as missing from computers or a computer has automatic updates disabled.  
 
 
+
+
+
+
+
+<!--HONumber=Sep16_HO5-->
 
 

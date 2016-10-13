@@ -118,7 +118,7 @@ Bir güncelleştirme yapmanız gerektiğinde, yeni WAR dosyasını FTP/FTPS iste
 
 ## Sonraki adımlar
 
-[Azure Market’te şablondan Java web uygulaması oluşturma](app-service-web-java-get-started.md#marketplace). Tamamen özelleştirilebilen kendi Tomcat kapsayıcınıza sahip olabilir ve alışık olduğunuz Yönetici Kullanıcı Arabiriminden yararlanabilirsiniz. 
+[Azure Market’te şablondan Java web uygulaması oluşturma](web-sites-java-get-started.md#marketplace). Tamamen özelleştirilebilen kendi Tomcat kapsayıcınıza sahip olabilir ve alışık olduğunuz Yönetici Kullanıcı Arabiriminden yararlanabilirsiniz. 
 
 Doğrudan [IntelliJ](app-service-web-debug-java-web-app-in-intellij.md) veya [Eclipse](app-service-web-debug-java-web-app-in-eclipse.md) içinden Azure web uygulamanızda hata ayıklayın.
 
@@ -130,6 +130,6 @@ Veya ilk web uygulamanızla daha fazlasını yapın. Örnek:
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO1-->
 
 

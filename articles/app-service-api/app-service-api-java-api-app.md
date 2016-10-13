@@ -16,6 +16,7 @@
     ms.date="08/31/2016"
     ms.author="rachelap"/>
 
+
 # Azure App Service içinde Java API uygulaması derleme ve dağıtma
 
 [AZURE.INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
@@ -24,7 +25,7 @@ Bu öğretici bir Java uygulamasının nasıl oluşturulacağını ve [Git] kull
 
 ## Ön koşullar
 
-1. [Java Geliştirme Seti 8] (veya üzeri)
+1. [Java Geliştirme Seti 8] \(veya üzeri)
 1. Dağıtım makinenize yüklü [Maven]
 1. Dağıtım makinenize yüklü [Git]
 1. [Microsoft Azure] için ücretli veya [ücretsiz deneme] aboneliği
@@ -340,6 +341,6 @@ Azure’da Java kullanma hakkında daha fazla bilgi için bkz. [Java Geliştiric
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Oct16_HO1-->
 
 

@@ -3,8 +3,8 @@
    description="Bir kasa oluşturarak, Kurtarma Hizmetleri aracısını yükleyerek ve dosya ve klasörlerinizi Azure'a yedekleyerek Windows Server verilerini nasıl yedekleyeceğinizi öğrenin."
    services="backup"
    documentationCenter=""
-   authors="Jim-Parker"
-   manager="jwhit"
+   authors="markgalioto"
+   manager="cfreeman"
    editor=""
    keywords="yedekleme nasıl yapılır; yedekleme işlemi"/>
 
@@ -14,8 +14,9 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="hero-article"
-   ms.date="06/27/2016"
-   ms.author="jimpark;"/>
+   ms.date="09/27/2016"
+   ms.author="markgal;"/>
+
 
 # İlk bakış: Resource Manager dağıtım modelini kullanarak Azure Backup ile dosya ve klasörleri yedekleme
 
@@ -209,6 +210,6 @@ Sorularınız varsa veya dahil edilmesini istediğiniz herhangi bir özellik var
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Sep16_HO4-->
 
 

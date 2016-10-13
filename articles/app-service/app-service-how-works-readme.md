@@ -18,7 +18,7 @@
     ms.author="yochay"/>
 
 
-# App Service Nasıl Çalışır?
+# <a name="how-app-service-works"></a>App Service Nasıl Çalışır?
 
 Azure Uygulama Hizmeti, günümüzde mühendislerin karşılaştığı pratik sorunları çözmek için tasarlanmış bir bulut hizmetidir. App Service, bulut ölçeğinde uygulama sağlama ihtiyacından ödün vermeden üstün geliştirici verimliliği sağlamaya odaklanmıştır. App Service ayrıca, geliştiricileri en popüler geliştirme dilleri (.NET, Java, PHP, Node.JS ve Python) desteği ile buluştururken, kurumsal iş kolu uygulamaları oluşturmak için gereken özellik ve çerçeveler sağlar.
 App Service ile geliştiriciler şunları yapabilir:
@@ -27,6 +27,8 @@ App Service ile geliştiriciler şunları yapabilir:
 * Mobile Apps ile veri arka uçları, kullanıcı kimlik doğrulaması ve anında iletme bildirimleri gibi kullanımı kolay mobil özellik gruplarıyla hızlı şekilde Mobil Uygulama arka uçları oluşturun. 
 * API Apps ile API’leri uygulama, dağıtma ve yayımlama
 * İş uygulamalarını iş akışlarında birbirine bağlayın ve Logic Apps ile verileri dönüştürün.
+
+>[AZURE.INCLUDE [app-service-linux](../../includes/app-service-linux.md)] 
 
 Tüm uygulama türleri, geliştiricilere uygulama tasarımından uygulama bakımına en iyi duruma getirilmiş tam yaşam deneyimi sağlayan ölçeklenebilir ve esnek Web Uygulaması platformuna dayanır. Yaşam döngüsü özellikleri aşağıdakilere imkan tanır:
 
@@ -43,6 +45,6 @@ App Service özelliklerini bir araya getirmek geliştiricilerin kendi kodlarına
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO1-->
 
 

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-windows"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="07/21/2016"
+    ms.date="10/03/2016"
     ms.author="wesmc"/>
 
 
@@ -268,8 +268,8 @@ Notification Hubs hakkında daha fazla genel bilgi için bkz. [Notification Hubs
 
 <!-- URLs. -->
 
-[Kullanıcılara anında iletme bildirimleri göndermek için Notification Hubs’ı kullanma]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
-[Son dakika haberleri göndermek için Notification Hubs kullanma]: notification-hubs-windows-store-dotnet-send-breaking-news.md
+[Kullanıcılara anında iletme bildirimleri göndermek için Notification Hubs’ı kullanma]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
+[Son dakika haberleri göndermek için Notification Hubs kullanma]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
 
 [bildirim kataloğu]: http://msdn.microsoft.com/library/windows/apps/hh761494.aspx
 [kutucuk kataloğu]: http://msdn.microsoft.com/library/windows/apps/hh761491.aspx
@@ -277,6 +277,6 @@ Notification Hubs hakkında daha fazla genel bilgi için bkz. [Notification Hubs
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO1-->
 
 

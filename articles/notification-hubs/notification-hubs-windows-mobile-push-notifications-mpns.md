@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="mobile-windows-phone"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="06/29/2016"
+    ms.date="10/03/2016"
     ms.author="wesmc"/>
 
 
@@ -217,7 +217,7 @@ Kullanıcılarınızı ilgi alanı gruplarına göre segmentlere ayırmak istiyo
 [Notification Hubs Kılavuzu]: http://msdn.microsoft.com/library/jj927170.aspx
 [MPNS kimlik doğrulamalı mod]: http://msdn.microsoft.com/library/windowsphone/develop/ff941099(v=vs.105).aspx
 [Kullanıcılara anında iletme bildirimleri göndermek için Notification Hubs’ı kullanma]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
-[Son dakika haberleri göndermek için Notification Hubs kullanma]: notification-hubs-windows-phone-send-breaking-news.md
+[Son dakika haberleri göndermek için Notification Hubs kullanma]: notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md
 [bildirim kataloğu]: http://msdn.microsoft.com/library/windowsphone/develop/jj662938(v=vs.105).aspx
 [kutucuk kataloğu]: http://msdn.microsoft.com/library/windowsphone/develop/hh202948(v=vs.105).aspx
 [Notification Hubs - Windows Phone Silverlight öğreticisi]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSLPhoneApp
@@ -225,6 +225,6 @@ Kullanıcılarınızı ilgi alanı gruplarına göre segmentlere ayırmak istiyo
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO1-->
 
 

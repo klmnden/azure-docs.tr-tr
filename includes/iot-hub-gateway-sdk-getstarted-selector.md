@@ -2,7 +2,7 @@
 - [Linux](../articles/iot-hub/iot-hub-linux-gateway-sdk-get-started.md)
 - [Windows](../articles/iot-hub/iot-hub-windows-gateway-sdk-get-started.md)
 
-Bu makalede [Azure IoT Ağ Geçidi SDK’sı][lnk-gateway-sdk] mimarisinin temel bileşenlerini göstermek üzere [Hello World örnek kodunun][lnk-helloworld-sample] ayrıntılı bilgileri verilmektedir. Örnek, "hello world" iletisini her beş saniyede bir dosyaya kaydeden basit bir ağ geçidi oluşturmak üzere Ağ Geçidi SDK’sını kullanır.
+Bu makalede [Azure IoT Ağ Geçidi SDK’sı][lnk-gateway-sdk] mimarisinin temel bileşenlerini göstermek üzere [Hello World örnek kodunun][lnk-helloworld-sample] ayrıntılı bilgileri verilmektedir. Örnek, "hello world" iletisini her beş saniyede bir dosyaya kaydeden basit bir ağ geçidi oluşturmak üzere IoT Hub Ağ Geçidi SDK’sını kullanır.
 
 Bu kılavuzda aşağıdaki konular ele alınmaktadır:
 
@@ -21,7 +21,7 @@ Bu kılavuzda aşağıdaki konular ele alınmaktadır:
 
 Azure IoT Ağ Geçidi SDK’sı ile *modüller* oluşturup derleyerek bir ağ geçidi oluşturursunuz. Modüller birbirileriyle veri alışverişinde bulunmak için *iletileri* kullanır. Modül bir ileti alır, üzerinde bir işlem yapar, isteğe bağlı olarak onu yeni bir iletiye dönüştürür ve ardından diğer modüllerin işlemesi için yayımlar. Bazı modüller yalnızca yeni iletiler oluşturabilir ve hiçbir zaman gelen iletileri işlemez. Bir modül zinciri, her bir modülün bir noktadaki veriler üzerinde dönüştürme gerçekleştirdiği bir veri işleme işlem hattı oluşturur.
 
-![][1]
+![Ağ geçidinde Azure IoT Ağ Geçidi SDK’sı ile oluşturulan modül zinciri][1]
  
 SDK aşağıdakileri içerir:
 
@@ -31,7 +31,7 @@ SDK aşağıdakileri içerir:
 
 SDK çeşitli işletim sistemleri ve platformlar üzerinde çalışacak ağ geçitleri derlemenizi sağlayan bir soyut katman sağlar.
 
-![][2]
+![Azure IoT Hub Ağ Geçidi SDK’sı özet katmanı][2]
 
 ### İletiler
 
@@ -39,7 +39,7 @@ Birbirlerine ileti gönderen modüllerin düşünülmesi bir ağ geçidinin nas�
 
 Bir modül, aracıya ileti yayımlamak için **Broker_Publish** işlevini kullanır. Aracı bir geri çağırma işlevini çağırarak iletileri bir modüle teslim eder. İleti bir dizi anahtar/değer özelliklerinden ve bir bellek bloğu olarak geçirilen içeriklerden oluşur.
 
-![][3]
+![Azure IoT Ağ Geçidi SDK’sında Aracı’nın rolü][3]
 
 ### İleti yönlendirme ve filtreleme
 
@@ -52,7 +52,7 @@ Hello World örneği önceki bölümde açıklanan kavramları göstermektedir. 
 -   *Hello world* modülü beş saniyede bir ileti oluşturur ve günlükçü modülüne geçirir.
 -   *Günlükçü* modülü aldığı iletileri bir dosyaya yazar.
 
-![][4]
+![Azure IoT Ağ Geçidi SDK’sı ile oluşturulan Hello World örneğinin mimarisi][4]
 
 Önceki bölümde açıklandığı gibi Hello World modülü iletileri beş saniyede bir günlükçü modülüne doğrudan iletmez. Bunun yerine, beş saniyede bir aracıya bir ileti yayımlar.
 
@@ -60,7 +60,7 @@ Günlükçü modülü aracıdan iletiyi alır ve buna göre davranırken iletini
 
 Günlükçü modülü yalnızca aracıdan gelen iletileri kullanır, aracıya hiçbir zaman yeni ileti yayımlamaz.
 
-![][5]
+![Aracının Azure IoT Ağ Geçidi SDK’sındaki modüller arasında iletileri yönlendirme yöntemi][5]
 
 Yukarıdaki şekilde Hello World örneğinin mimarisi ve örneğin farklı kısımlarını [depoda][lnk-gateway-sdk] kullanan kaynak dosyalarının ilgili yolları gösterilmektedir. Kodu kendiniz keşfedin veya kılavuz olarak aşağıdaki kod parçacıklarından birini kullanın.
 
@@ -75,6 +75,6 @@ Yukarıdaki şekilde Hello World örneğinin mimarisi ve örneğin farklı kıs�
 [lnk-helloworld-sample]: https://github.com/Azure/azure-iot-gateway-sdk/tree/master/samples/hello_world
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO1-->
 
 

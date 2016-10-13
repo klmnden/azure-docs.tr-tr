@@ -41,10 +41,12 @@ Ayrıca protokol ve bağlantı noktası numarasını, şunun gibi bir sunucu ad�
 
 Ağ bağlantısı sorunları, bağlantı hatalarına ve zaman aşımlarına da neden olabilir. Yeniden bağlanmayı denerseniz (sunucu adının, kimlik bilgilerinin ve güvenlik duvarı kurallarının doğru olduğundan eminseniz) sorun çözülebilir.
 
+Bağlantı sorunları ile ilgili ayrıntılar ve daha fazla bilgi için bkz. [SQL Veritabanı için SQL bağlantı sorunlarını ve geçici sorunları giderme, tanılama ve önleme](../articles/sql-database/sql-database-connectivity-issues.md).
 
 
 
 
-<!--HONumber=Sep16_HO3-->
+
+<!--HONumber=Oct16_HO1-->
 
 

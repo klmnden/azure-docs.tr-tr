@@ -3,7 +3,7 @@
     description="C#, Visual Basic ya da JavaScript’te Evrensel Windows Platformu (UWP) uygulaması geliştirme için Azure mobil uygulama arka uçlarını kullanmaya başlamak üzere bu öğreticiyi izleyin."
     services="app-service\mobile"
     documentationCenter="windows"
-    authors="ggailey777"
+    authors="adrianhall"
     manager="erikre"
     editor=""/>
 
@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="mobile-windows"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="08/11/2016"
-    ms.author="glenga"/>
+    ms.date="10/01/2016"
+    ms.author="adrianha"/>
+
 
 #Windows uygulaması oluşturma
 
@@ -98,6 +99,6 @@ Mobil Uygulama arka ucunuzu yapılandırdıktan sonra, Azure’a bağlanmak içi
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Oct16_HO1-->
 
 

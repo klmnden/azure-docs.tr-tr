@@ -24,11 +24,11 @@
 - [Klasik mod için Backup ile ilgili SSS](backup-azure-backup-faq.md)
 - [Resource Manager modu için Backup ile ilgili SSS](backup-azure-backup-ibiza-faq.md)
 
-Bu makalede, Kurtarma Hizmetleri kasasına özgü bilgiler sağlanmaktadır ve makale, [Azure Backup hakkında SSS](backup-azure-backup-faq) makalesi için tamamlayıcı niteliktedir. Azure Backup ile ilgili SSS, Azure Backup hizmeti hakkında tam kapsamlı sorular ve yanıtlar sağlamaktadır.  
+Bu makalede, Kurtarma Hizmetleri kasasına özgü bilgiler sağlanmaktadır ve makale, [Azure Backup hakkında SSS](backup-azure-backup-faq.md) makalesi için tamamlayıcı niteliktedir. Azure Backup ile ilgili SSS, Azure Backup hizmeti hakkında tam kapsamlı sorular ve yanıtlar sağlamaktadır.  
 
 Azure Backup ile ilgili sorularınızı, bu makalenin veya ilgili bir makalenin Disqus bölümünde sorabilirsiniz. Ayrıca Azure Backup hizmeti ile ilgili sorularınızı [tartışma forumunda](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) paylaşabilirsiniz.
 
-## Kurtarma Hizmetleri kasaları Resource Manager tabanlıdır. Backup kasaları (klasik mod) hala destekleniyor mu? <br/>
+## Kurtarma Hizmetleri kasaları Resource Manager tabanlıdır. Backup kasaları (Klasik mod) hala destekleniyor mu? <br/>
 Evet, Yedekleme kasaları hâlâ destekleniyor. [Klasik portalda](https://manage.windowsazure.com) Backup kasaları oluşturun. [Azure portalında](https://portal.azure.com) Kurtarma Hizmetleri kasaları oluşturun. Ancak gelecekteki tüm geliştirmeler yalnızca Kurtarma Hizmetleri kasasında kullanılabileceği için, kurtarma hizmetleri kasası oluşturmanızı öneririz. 
 
 ## Bir Backup kasasının Kurtarma Hizmetleri kasasına geçişini sağlayabilir miyim? <br/>
@@ -46,6 +46,6 @@ Yedekleme kasasındaki klasik VM yedekleri, VM’leri klasik moddan Resource Man
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO5-->
 
 

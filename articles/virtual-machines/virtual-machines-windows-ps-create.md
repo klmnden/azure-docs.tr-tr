@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/07/2016"
+    ms.date="09/27/2016"
     ms.author="davidmu"/>
 
 
@@ -26,7 +26,7 @@ Bu makaledeki tüm adımlar bir sanal makine oluşturmak için gereklidir ve bu 
 
 ## 1. adım: Azure PowerShell'i yükleme
 
-Azure PowerShell’in en son sürümünü yükleme, kullanmak istediğiniz aboneliği seçime ve Azure hesabınızda oturum açma hakkında bilgi almak için bkz. [Azure PowerShell’i yükleme ve yapılandırma](../powershell-install-configure.md)
+Azure PowerShell’in en son sürümünü yükleme, aboneliğinizi seçme ve hesabınızda oturum açma hakkında bilgi almak için bkz. [Azure PowerShell’i yükleme ve yapılandırma](../powershell-install-configure.md).
         
 ## 2. adım: bir kaynak grubu oluşturma
 
@@ -36,7 +36,7 @@ Azure PowerShell’in en son sürümünü yükleme, kullanmak istediğiniz abone
 
         Get-AzureRmLocation | sort Location | Select Location
         
-    Şuna benzer bir şey görmeniz gerekir:
+    Bu örnektekine benzer bir şey görmeniz gerekir:
     
         Location
         --------
@@ -99,7 +99,7 @@ Tüm sanal makineler bir [sanal ağın](../virtual-network/virtual-networks-over
         $vnetName = "myvnet1"
         $vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $locName -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
         
-    Uygulamanız ve ortamınız için anlamlı değerleri kullanmanız gerekir.
+    Uygulamanız ve ortamınız için anlamlı değerleri kullanın.
         
 ## 5. adım: Genel IP adresi ve ağ arabirimi oluşturma
 
@@ -123,7 +123,7 @@ Tüm parçaları yerinde olduğuna göre, şimdi sanal makine oluşturma vakti.
 
         $cred = Get-Credential -Message "Type the name and password of the local administrator account."
         
-    Parola 8-123 karakter uzunluğunda olmalıdır ve en az dört karmaşıklık gereksinimini karşılamalıdır: bir küçük harf karakter, bir büyük harf karakter, bir sayı ve bir özel karakter. [Kullanıcı adı ve parola gereksinimleri](virtual-machines-windows-faq.md#what-are-the-username-requirements-when-creating-a-vm) hakkında daha fazla bilgi edinin.
+    Parola 12-123 karakter uzunluğunda olmalıdır ve en az şunları içermelidir: bir küçük harf karakter, bir büyük harf karakter, bir sayı ve bir özel karakter. 
         
 2. **$vmName** değerini sanal makine adıyla değiştirin. Değişkeni ve sanal makine yapılandırmasını oluşturun.
 
@@ -147,7 +147,7 @@ Tüm parçaları yerinde olduğuna göre, şimdi sanal makine oluşturma vakti.
 
         $vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
         
-6. **$blobPath** değerini sanal sabit diskin kullanacağı depolamadaki yol ve dosya adıyla değiştirin. Sanal sabit disk dosyası genellikle bir kapsayıcıda depolanır, örneğin, **vhds/WindowsVMosDisk.vhd**. Değişkenleri oluşturun.
+6. **$blobPath** değerini sanal sabit diskteki depolamanın yol ve dosya adıyla değiştirin. Sanal sabit disk dosyası genellikle bir kapsayıcıda depolanır, örneğin, **vhds/WindowsVMosDisk.vhd**. Değişkenleri oluşturun.
 
         $blobPath = "vhds/WindowsVMosDisk.vhd"
         $osDiskUri = $storageAcc.PrimaryEndpoints.Blob.ToString() + $blobPath
@@ -169,12 +169,12 @@ Tüm parçaları yerinde olduğuna göre, şimdi sanal makine oluşturma vakti.
                                   
 ## Sonraki Adımlar
 
-- Dağıtım ile ilgili sorunlar varsa, bir sonraki adım [Azure Portal’daki kaynak grubu dağıtımı sorunlarını giderme](../resource-manager-troubleshoot-deployments-portal.md)’ye bakmak için olacaktır
-- [Azure Resource Manager ve PowerShell kullanarak sanal makineleri yönetme](virtual-machines-windows-ps-manage.md) gözden geçirerek henüz oluşturduğunuz sanal makineyi yönetmeyi öğrenin.
+- Dağıtım ile ilgili sorunlar varsa, bir sonraki adım [Azure portalındaki kaynak grubu dağıtımı sorunlarını giderme](../resource-manager-troubleshoot-deployments-portal.md)’ye bakmak için olacaktır
+- [Azure Resource Manager ve PowerShell kullanarak sanal makineleri yönetme](virtual-machines-windows-ps-manage.md) gözden geçirerek, oluşturduğunuz sanal makineyi yönetmeyi öğrenin.
 - [Bir Resource Manager şablonu ile Windows sanal makine oluşturma](virtual-machines-windows-ps-template.md)’daki bilgileri kullanarak sanal makine oluşturmak için şablon kullanma avantajından yararlanın
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO5-->
 
 

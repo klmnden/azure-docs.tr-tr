@@ -3,8 +3,8 @@
  description="Azure portalda Azure Scheduler kullanmaya başlama"
  services="scheduler"
  documentationCenter=".NET"
- authors="krisragh"
- manager="dwrede"
+ authors="derek1ee"
+ manager="kevinlam1"
  editor=""/>
 <tags
  ms.service="scheduler"
@@ -13,7 +13,7 @@
  ms.devlang="dotnet"
  ms.topic="hero-article"
  ms.date="08/10/2016"
- ms.author="krisragh"/>
+ ms.author="deli"/>
 
 
 # Azure portalda Azure Scheduler kullanmaya başlama
@@ -185,6 +185,6 @@ Azure Rol Tabanlı Erişim Denetimi (RBAC), Azure Scheduler için ayrıntılı e
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO5-->
 
 

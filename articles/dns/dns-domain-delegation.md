@@ -3,7 +3,7 @@
    description="Etki alanı temsilcisi seçiminin nasıl değiştirileceğini ve etki alanı barındırma sağlamak üzere Azure DNS ad sunucularının nasıl kullanılacağını anlayın."
    services="dns"
    documentationCenter="na"
-   authors="cherylmc"
+   authors="sdwheeler"
    manager="carmonm"
    editor=""/>
 
@@ -14,7 +14,8 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="06/30/2016"
-   ms.author="cherylmc"/>
+   ms.author="sewhee"/>
+
 
 
 # Azure DNS'ye bir etki alanı devretme
@@ -53,7 +54,7 @@ Etki alanı kayıt şirketi, İnternet etki alanı adlarını sağlayabilen bir 
 
 Bilgisayarlar veya mobil cihazlarda bulunan DNS istemcileri, istemci uygulamaları için gereken tüm DNS sorgularını gerçekleştirmek için genellikle özyinelemeli bir DNS sunucusu çağırır.
 
-Özyinelemeli bir DNS sunucusu "www.contoso.com" gibi bir DNS kaydı için bir sorguyu aldığında öncelikle "contoso.com" etki alanı için bölgeyi barındıran ad sunucusunu bulması gerekir. Bunu yapmak için kök adı sunucularından başlar ve buradan "com" bölgesini barındıran ad sunucularını bulur. Ardından, "contoso.com" bölgesini barındıran ad sunucularını bulmak için "com" ad sunucularını sorgular.  Son olarak, bu ad sunucularını "www.contoso.com" için sorgulayabilir.  
+Özyinelemeli bir DNS sunucusu "www.contoso.com" gibi bir DNS kaydı için bir sorguyu aldığında öncelikle "contoso.com" etki alanı için bölgeyi barındıran ad sunucusunu bulması gerekir. Bunu yapmak için kök adı sunucularından başlar ve buradan "com" bölgesini barındıran ad sunucularını bulur. Ardından, "contoso.com" bölgesini barındıran ad sunucularını bulmak için "com" ad sunucularını sorgular.  Son olarak, bu ad sunucularını "www.contoso.com" için sorgulayabilir.
 
 Bu işlem DNS adını çözümleme olarak adlandırılır. Net olarak ifade etmek gerekirse DNS çözümlemesi CNAME'leri izleme gibi ek adımları içerir ancak DNS temsilcisi seçmenin nasıl çalıştığını anlamak için bu önemli değildir.
 
@@ -83,7 +84,7 @@ Azure portalı, bölgenize atanan ad sunucularını görmenin en kolay yoludur. 
 
 Azure DNS, atanan ad sunucularını içeren yetkili NS kayıtlarını bölgenizde otomatik olarak oluşturur.  Ad sunucusu adlarını Azure PowerShell veya Azure CLI aracılığıyla görmek için bu kayıtları almanız yeterlidir.
 
-Azure PowerShell'i kullanarak, yetkili NS kayıtları şu şekilde alınabilir. "@" kayıt adının, bölgenin tepesindeki kayıtları ifade etmek için kullanıldığını unutmayın. 
+Azure PowerShell'i kullanarak, yetkili NS kayıtları şu şekilde alınabilir. "@" kayıt adının, bölgenin tepesindeki kayıtları ifade etmek için kullanıldığını unutmayın.
 
     PS> $zone = Get-AzureRmDnsZone –Name contoso.net –ResourceGroupName MyResourceGroup
     PS> Get-AzureRmDnsRecordSet –Name “@” –RecordType NS –Zone $zone
@@ -146,7 +147,7 @@ Temsilci seçme doğru şekilde ayarlandığında normal DNS çözümleme işlem
 
 ## Azure DNS'de alt etki alanlarını devretme
 
-Ayrı bir alt bölge kurmak istiyorsanız Azure DNS'de bir alt etki alanını devredebilirsiniz. Örneğin, Azure DNS'de ayarladığınız ve devrettiğiniz "contoso.com" için "partners.contoso.com" olarak ayrı bir alt bölge ayarlamak istediğinizi varsayalım. 
+Ayrı bir alt bölge kurmak istiyorsanız Azure DNS'de bir alt etki alanını devredebilirsiniz. Örneğin, Azure DNS'de ayarladığınız ve devrettiğiniz "contoso.com" için "partners.contoso.com" olarak ayrı bir alt bölge ayarlamak istediğinizi varsayalım.
 
 Bir alt etki alanının ayarlanmasında normal bir temsilci seçmeye benzer bir süreç izlenmektedir. Tek fark, 3. adımda NS kayıtlarının bir etki alanı kayıt şirketi aracılığıyla değil de Azure DNS'deki "contoso.com" üst bölgesinde oluşturulması gerekmesidir.
 
@@ -169,7 +170,7 @@ Aşağıdaki PowerShell örneğinde bunun nasıl çalıştığı gösterilmekted
 
 #### 2. Adım NS kayıtlarını alma
 
-Ardından, bir sonraki örnekte gösterildiği gibi alt bölgeden yetkili NS kayıtlarını alıyoruz.  Bu, alt bölgeye atanan ad sunucularını içerir. 
+Ardından, bir sonraki örnekte gösterildiği gibi alt bölgeden yetkili NS kayıtlarını alıyoruz.  Bu, alt bölgeye atanan ad sunucularını içerir.
 
     $child_ns_recordset = Get-AzureRmDnsRecordSet -Zone $child -Name "@" -RecordType NS
 
@@ -208,6 +209,6 @@ Alt bölgenin SOA kaydına bakarak her şeyin doğru şekilde ayarlandığını 
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Oct16_HO1-->
 
 

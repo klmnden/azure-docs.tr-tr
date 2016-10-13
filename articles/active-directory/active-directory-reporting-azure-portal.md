@@ -13,11 +13,15 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/25/2016"
+   ms.date="09/30/2016"
    ms.author="markvi"/>
 
 
 # Azure Active Directory raporlama - önizleme
+
+> [AZURE.SELECTOR]
+- [Azure portalı](active-directory-reporting-azure-portal.md)
+- [Klasik Azure portalı](active-directory-reporting-guide.md)
 
 *Bu belge, [Azure Active Directory Raporlama Kılavuzu](active-directory-reporting-guide.md)’nun bir parçasıdır.*
 
@@ -220,6 +224,6 @@ Bkz. [Azure Active Directory Raporlama Kılavuzu](active-directory-reporting-gui
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO1-->
 
 

@@ -16,6 +16,7 @@
     ms.date="08/26/2016"
     ms.author="rachelap"/>
 
+
 # Web Apps’e Genel Bakış
 
 *App Service Web Apps* web sitelerini ve web uygulamalarını barındırmak için en uygun hale getirilmiş tam olarak yönetilen bir işlem platformudur. Microsoft Azure tarafından sunulan bu [hizmet olarak platform](https://en.wikipedia.org/wiki/Platform_as_a_service) (PaaS) teklifi, Azure sizin yerinize uygulamalarınızı çalıştıracak ve ölçeklendirecek altyapınızla ilgilenirken, sizin işlerinize odaklanmanızı sağlar.
@@ -23,6 +24,8 @@
 Aşağıdaki 5 dakikalık videoda Azure App Service Web Apps hakkında genel bilgi verilmektedir.
 
 [AZURE.VIDEO azure-app-service-web-apps-with-yochay-kiriaty]
+
+>[AZURE.INCLUDE [app-service-linux](../../includes/app-service-linux.md)] 
 
 ## App Service’teki bir web uygulaması nedir?
 
@@ -64,6 +67,6 @@ Azure hesabı için kaydolmadan önce Azure App Service’i kullanmaya başlamak
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Oct16_HO1-->
 
 

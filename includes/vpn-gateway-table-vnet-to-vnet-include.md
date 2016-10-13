@@ -1,15 +1,15 @@
-|  | **Klasik Dağıtım** | **Resource Manager Dağıtımı** | **Klasik - Resource Manager Dağıtımları** |
-|----------------------------------------|-------------|----------------------|---------------------------------|
-| **Klasik Portal** | [Makale](../articles/vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)  |  Desteklenmiyor |  [Makale*](../articles/vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md) |
-| **Azure Portalı** |  Desteklenmiyor | Destekleniyor+ |  Desteklenmiyor |
-| **PowerShell** | Destekleniyor | [Makale](../articles/vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md) | [Makale](../articles/vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
+| **Dağıtım Modeli/Yöntemi** | **Azure Portal** | **Klasik Portal** | **PowerShell** |
+|---|---|---|---|
+|**Klasik** | Desteklenmiyor | [Makale](../articles/vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md) | Destekleniyor |
+|**Resource Manager** | Desteklenmiyor |Destekleniyor+ | [Makale](../articles/vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)|
+|**Farklı dağıtım modelleri arasındaki bağlantılar** | [Makale*](../articles/vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md) | [Makale*](../articles/vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md) |[Makale](../articles/vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)|
 
 (+), bu dağıtım yönteminin yalnızca aynı abonelikteki VNet'ler için kullanılabildiğini gösterir.<br>
-(*) kısmi destek sağlandığını belirtir.
+(*) bu dağıtım yönteminin PowerShell de gerektirdiğini gösterir.
 
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO1-->
 
 
