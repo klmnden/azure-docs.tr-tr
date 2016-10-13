@@ -20,7 +20,7 @@
 
 # SQL Database seçenekleri ve performansı: Her hizmet katmanında nelerin kullanılabildiğini anlama
 
-[Azure SQL Veritabanı](sql-database-technical-overview.md), farklı iş yüklerini işlemek üzere birden çok performans düzeyine sahip üç hizmet katmanı sunar. Her performans düzeyi, gittikçe artan bir işleme hacmi sağlamak üzere tasarlanmış bir şekilde bir önceki düzeye göre daha fazla sayıda kaynak sağlar. Her veritabanını, kendi [hizmet katmanı](sql-database-service-tiers.md#standalone-database-service-tiers-and-performance-levels) içinde, kendine ait performans düzeyinde yönetebilirsiniz. Birden çok veritabanını, paylaşılan bir grup kaynakla bir [esnek havuz](sql-database-service-tiers.md#elastic-pool-service-tiers-and-performance-in-edtus) içinde de yönetebilirsiniz. Tek başına veritabanlarının kullanılabileceği kaynaklar, Veritabanı İşlem Birimleri (DTU'lar) ve esnek havuzlar için esnek DTU'lar, yani eDTU'lar cinsinden ifade edilir. DTU'lar ve eDTU'lar hakkında daha fazla bilgi edinmek için bkz. [DTU nedir?](sql-database-what-is-a-DTU.md). 
+[Azure SQL Veritabanı](sql-database-technical-overview.md), farklı iş yüklerini işlemek üzere birden çok performans düzeyine sahip üç hizmet katmanı sunar. Her performans düzeyi, gittikçe artan bir işleme hacmi sağlamak üzere tasarlanmış bir şekilde bir önceki düzeye göre daha fazla sayıda kaynak sağlar. Her veritabanını, kendi [hizmet katmanı](sql-database-service-tiers.md#standalone-database-service-tiers-and-performance-levels) içinde, kendine ait performans düzeyinde yönetebilirsiniz. Birden çok veritabanını, paylaşılan bir grup kaynakla bir [esnek havuz](sql-database-service-tiers.md#elastic-pool-service-tiers-and-performance-in-edtus) içinde de yönetebilirsiniz. Tek başına veritabanlarının kullanılabileceği kaynaklar, Veritabanı İşlem Birimleri (DTU'lar) ve esnek havuzlar için esnek DTU'lar, yani eDTU'lar cinsinden ifade edilir. DTU'lar ve eDTU'lar hakkında daha fazla bilgi edinmek için bkz. [DTU nedir?](sql-database-what-is-a-dtu.md). 
 
 Her iki durumda da **Temel**, **Standart** ve **Premium** hizmet katmanları mevcuttur. Bu katmanlardaki veritabanı seçenekleri tek başına veritabanları ve esnek havuzlar için benzerlik gösterir ancak esnek havuzlar için dikkat edilmesi gereken bazı noktalar söz konusudur. Bu makalede, tek başına veritabanları ve esnek havuzlar için hizmet katmanlarına yönelik ayrıntılı bilgi verilmiştir.
 
@@ -91,6 +91,6 @@ Havuzunuzun hizmet katmanını belirledikten sonra havuzun performans düzeyini 
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO1-->
 
 

@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="09/13/2016"
+   ms.date="09/27/2016"
    ms.author="nitinme"/>
 
 
@@ -35,17 +35,8 @@ Bu makalede, Azure Data Lake Store üzerinde hesap yönetimi ve dosya sistemi i�
 ## Ön koşullar
 
 - **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü edinme](https://azure.microsoft.com/pricing/free-trial/).
-- **Azure Active Directory Uygulaması oluşturma**. Azure Active Directory'yi kullanarak kimlik doğrulaması gerçekleştirmenin iki yolu vardır: **etkileşimli** ve **etkileşimli olmayan**. Kimlik doğrulamasını nasıl gerçekleştirmek istediğinize bağlı olarak farklı önkoşullar mevcuttur.
-    * **Etkileşimli kimlik doğrulaması için** (bu makalede kullanılan) - Azure Active Directory'de bir **Yerel İstemci uygulaması** oluşturmanız gerekir. Uygulamayı oluşturduktan sonra uygulamayla ilgili aşağıdaki değerleri alın.
-        - Uygulama için **istemci kimliği** ve **yeniden yönlendirme URI'si** bilgilerini alın
-        - Yetki verilmiş izinleri ayarlayın
 
-    * **Etkileşimli olmayan kimlik doğrulaması için** - Azure Active Directory'de bir **Web uygulaması** oluşturmanız gerekir. Uygulamayı oluşturduktan sonra uygulamayla ilgili aşağıdaki değerleri alın.
-        - Uygulama için **istemci kimliği**, **gizli anahtar** ve **yeniden yönlendirme URI'si** bilgilerini alın
-        - Yetki verilmiş izinleri ayarlayın
-        - Azure Active Directory uygulamasını bir role atayın. Rol, Azure Active Directory uygulamasına izin vermek istediğiniz kapsam düzeyinde olabilir. Örneğin, uygulamayı abonelik düzeyinde veya kaynak grubu düzeyinde atayabilirsiniz. Yönergeler için bkz. [Role uygulama atama](../resource-group-create-service-principal-portal.md#assign-application-to-role). 
-
-    Bu değerleri almaya, izinleri ayarlamaya ve rolleri atamaya yönelik yönergeler için bkz. [Portalı kullanarak Active Directory uygulaması ve hizmet sorumlusu oluşturma](../resource-group-create-service-principal-portal.md).
+- **Azure Active Directory Uygulaması oluşturma**. Data Lake Store uygulamasında Azure AD ile kimlik doğrulaması yapmak için Azure AD uygulamasını kullanın. Azure AD kimlik doğrulaması için **son kullanıcı kimlik doğrulaması** veya **hizmetten hizmete kimlik doğrulama** gibi farklı yaklaşımlar bulunmaktadır. Kimlik doğrulaması hakkında yönergeler ve daha fazla bilgi için bkz. [Azure Active Directory kullanarak Data Lake Store kimlik doğrulaması yapma](data-lake-store-authenticate-using-active-directory.md).
 
 - [cURL](http://curl.haxx.se/). Bu makalede, bir Data Lake Store hesabına yönelik olarak REST API çağrılarının nasıl yapılacağını göstermek üzere cURL kullanılmıştır.
 
@@ -53,7 +44,7 @@ Bu makalede, Azure Data Lake Store üzerinde hesap yönetimi ve dosya sistemi i�
 
 Azure Active Directory'yi kullanarak kimlik doğrulaması gerçekleştirmek üzere iki yaklaşımdan faydalanabilirsiniz:
 
-### Etkileşimli (kullanıcı kimlik doğrulaması)
+### Son kullanıcı kimlik doğrulaması (etkileşimli)
 
 Bu senaryoda, uygulama kullanıcıdan oturum açmasını ister ve tüm işlemler, kullanıcı bağlamında gerçekleştirilir. Etkileşimli kimlik doğrulaması için aşağıdaki adımları gerçekleştirin.
 
@@ -61,7 +52,7 @@ Bu senaryoda, uygulama kullanıcıdan oturum açmasını ister ve tüm işlemler
 
         https://login.microsoftonline.com/<TENANT-ID>/oauth2/authorize?client_id=<CLIENT-ID>&response_type=code&redirect_uri=<REDIRECT-URI>
 
-    >[AZURE.NOTE] \<REDIRECT-URI> , bir URL içinde kullanıma yönelik kodlanmalıdır. (Bu nedenle https://localhost için `https%3A%2F%2Flocalhost` kullanılır.)
+    >[AZURE.NOTE] \<REDIRECT-URI> , bir URL içinde kullanıma yönelik kodlanmalıdır. Bu nedenle, https://localhost için `https%3A%2F%2Flocalhost` kullanılır)
 
     Bu öğreticinin amaçları doğrultusunda, yukarıdaki URL'deki yer tutucu değerlerini değiştirebilir ve bir web tarayıcısının adres çubuğuna yapıştırabilirsiniz. Azure oturum açma bilgilerinizi kullanarak kimlik doğrulaması gerçekleştirmeye yönlendirileceksiniz. Başarıyla oturum açmanızın ardından yanıt, tarayıcının adres çubuğunda görüntülenir. Yanıt şu biçimde olacaktır:
         
@@ -92,7 +83,7 @@ Bu senaryoda, uygulama kullanıcıdan oturum açmasını ister ve tüm işlemler
  
 Etkileşimli kullanıcı kimlik doğrulaması hakkında daha fazla bilgi için bkz. [Yetki kodu izin akışı](https://msdn.microsoft.com/library/azure/dn645542.aspx).
 
-### Etkileşimli olmayan
+### Hizmetten hizmete kimlik doğrulaması (etkileşimli olmayan)
 
 Bu senaryoda uygulama, işlemleri gerçekleştirmek için kendi kimlik bilgilerini sağlar. Bunun için aşağıda gösterilene benzer bir POST isteği yayımlamanız gerekir. 
 
@@ -278,6 +269,6 @@ Aşağıdaki gibi bir çıktı görmeniz gerekir:
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO5-->
 
 

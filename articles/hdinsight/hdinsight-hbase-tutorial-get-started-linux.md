@@ -30,13 +30,17 @@ Bu belgedeki bilgiler Linux tabanlı HDInsight kümelerine özeldir. Windows tab
 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-###Ön koşullar
+##Ön koşullar
 
 HBase öğreticisine başlamadan önce aşağıdakilere sahip olmanız gerekir:
 
 - **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- [Secure Shell(SSU)](hdinsight-hadoop-linux-use-ssh-unix.md). 
+- [Secure Shell(SSH)](hdinsight-hadoop-linux-use-ssh-unix.md). 
 - [curl](http://curl.haxx.se/download.html).
+
+### Erişim denetimi gereksinimleri
+
+[AZURE.INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
 ## HBase kümesi oluşturma
 
@@ -328,6 +332,6 @@ Daha fazla bilgi için bkz:
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO5-->
 
 

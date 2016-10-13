@@ -241,6 +241,6 @@ PowerShell’de klasik bir Sanal ağ ile Azure resource manager sanal ağı aras
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO1-->
 
 

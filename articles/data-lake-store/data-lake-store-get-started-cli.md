@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="09/13/2016"
+   ms.date="09/27/2016"
    ms.author="nitinme"/>
 
 
@@ -38,36 +38,40 @@ Azure CLI, Node.js içinde uygulanmıştır. Windows, Mac ve Linux da dahil olma
 Bu makaleye başlamadan önce aşağıdakilere sahip olmanız ve aşağıdaki işlemleri yapmış olmanız gerekir:
 
 - **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü edinme](https://azure.microsoft.com/pricing/free-trial/).
+
 - **Azure CLI** - Yükleme ve yapılandırma bilgileri için bkz. [Azure CLI'yı yükleme ve yapılandırma](../xplat-cli-install.md). CLI'yı yükledikten sonra bilgisayarınızı yeniden başlattığınızdan emin olun.
+
+## Kimlik Doğrulaması
+
+Bu makalede Data Lake Store için son kullanıcı olarak oturum açtığınız daha basit bir kimlik doğrulama yaklaşımı kullanılmaktadır. Data Lake Store hesabına ve dosya sistemine erişim düzeyi bu durumda oturum açmış kullanıcının erişim düzeyine göre yönetilir. Ancak, Data Lake Store kimlik doğrulaması için **son kullanıcı kimlik doğrulaması** veya **hizmetten hizmete kimlik doğrulama** şeklinde diğer yaklaşımlar da mevcuttur. Kimlik doğrulaması hakkında yönergeler ve daha fazla bilgi için bkz. [Azure Active Directory kullanarak Data Lake Store kimlik doğrulaması yapma](data-lake-store-authenticate-using-active-directory.md).
 
 ##Azure aboneliğinizde oturum açma
 
-[Azure Komut Satırı Arabirimi'nden (Azure CLI) bir Azure aboneliğine bağlanma](../xplat-cli-connect.md) konusunda belgelenen adımları izleyin ve __oturum açma__ yöntemini kullanarak aboneliğinze bağlanın.
+1. [Azure Komut Satırı Arabirimi'nden (Azure CLI) bir Azure aboneliğine bağlanma](../xplat-cli-connect.md) konusunda belgelenen adımları izleyin ve `azure login` yöntemini kullanarak aboneliğinze bağlanın.
+
+2. `azure account list` komutunu kullanarak hesabınızla ilişkili abonelikleri listeleyin.
+
+        info:    Executing command account list
+        data:    Name              Id                                    Current
+        data:    ----------------  ------------------------------------  -------
+        data:    Azure-sub-1       ####################################  true
+        data:    Azure-sub-2       ####################################  false
+
+    Yukarıdaki çıktıda **Azure-sub-1** şu anda etkindir ve diğer abonelik **Azure-sub-2**’dir. 
+
+3. Altında çalışmak isteğiniz aboneliği seçin. Azure-sub-2 aboneliği altında çalışmak istiyorsanız `azure account set` komutunu kullanın.
+
+        azure account set Azure-sub-2
 
 
 ## Azure Data Lake Store hesabı oluşturma
 
 Bir komut istemi, kabuk veya terminal oturumu açın ve aşağıdaki komutları çalıştırın.
 
-1. Azure aboneliğinizde oturum açın:
-
-        azure login
-
-    Bir web sayfası açmanız ve kimlik doğrulaması kodu girmeniz istenir. Azure aboneliğinizde oturum açmak için sayfadaki yönergeleri izleyin.
-
 2. Şu komutu kullanarak Azure Resource Manager moduna geçin:
 
         azure config mode arm
 
-
-3. Hesabınıza yönelik Azure aboneliklerini listeleyin.
-
-        azure account list
-
-
-4. Birden çok Azure aboneliğiniz varsa Azure CLI komutlarının kullanacağı aboneliği ayarlamak için şu komutu kullanın:
-
-        azure account set <subscriptionname>
 
 5. Yeni bir kaynak grubu oluşturun. Aşağıdaki komut içinde kullanmak istediğiniz parametre değerlerini sağlayın.
 
@@ -191,6 +195,6 @@ Bir Data Lake Store hesabını silmek için aşağıdaki komutu kullanın.
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO5-->
 
 

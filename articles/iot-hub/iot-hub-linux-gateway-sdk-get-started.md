@@ -1,6 +1,6 @@
 <properties
     pageTitle="IoT Hub Ağ Geçidi SDK’sı ile çalışmaya başlama | Microsoft Azure"
-    description="Azure IoT Hub Ağ Geçidi SDK’sı kılavuzu, Azure IoT Hub Ağ Geçidi SDK’sı kullanırken anlamanız gereken temel kavramları göstermek üzere Linux kullanır."
+    description="Bu Azure IoT Hub Ağ Geçidi SDK’sı kılavuzu, Azure IoT Hub Ağ Geçidi SDK’sı kullanırken anlamanız gereken temel kavramları göstermek üzere Linux kullanır."
     services="iot-hub"
     documentationCenter=""
     authors="chipalost"
@@ -86,6 +86,6 @@ Başlamadan önce Linux üzerindeki SDK ile çalışacak [geliştirme ortamını
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO1-->
 
 

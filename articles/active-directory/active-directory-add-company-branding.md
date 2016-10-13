@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="09/22/2016"
+    ms.date="09/30/2016"
     ms.author="curtand"/>
 
 
@@ -87,14 +87,33 @@ Oturum açma sayfasında şu öğeleri özelleştirebilirsiniz:
 
 ![][5]
 
- Sayfa öğesi  | Sayfadaki konum
-    ------------- | -------------
-Başlık Logosu | Sayfanın sağ üst tarafında gösterilir. Oturum açtığınız hedef sitede (örneğin, Office 365 veya Azure) görüntülenen logonun yerini alır.
-Büyük Çizim/Arka Plan Rengi | Sayfanın solunda gösterilir. Oturum açtığınız hedef sitede görüntülenen görüntünün yerini alır. Düşük bant genişliğine sahip bağlantılarda veya dar ekranlarda Büyük Çizimlerin yerine Arka Plan Rengi gösterilebilir.
-Oturum Açma Sayfası Metni | İş veya okul hesabıyla oturum açmadan önce yardımcı olacak bilgiler sağlamanız gerektiğinde sayfa alt bilgisinde gösterilir. Örneğin, yardım masanıza bir telefon numarası veya yasal bildirim eklemek isteyebilirsiniz.
+
+
+| Sayfa öğesi  | Sayfadaki konum |
+|:--            | ---                  |
+|Başlık Logosu    | Sayfanın sağ üst tarafında gösterilir. Oturum açtığınız hedef sitede (örneğin, Office 365 veya Azure) görüntülenen logonun yerini alır.|
+|Büyük Çizim/Arka Plan Rengi | Sayfanın solunda gösterilir. Oturum açtığınız hedef sitede görüntülenen görüntünün yerini alır. Düşük bant genişliğine sahip bağlantılarda veya dar ekranlarda Büyük Çizimlerin yerine Arka Plan Rengi gösterilebilir.|
+|Oturumum açık kalsın | Parola metin kutusunun altında gösterilir. |
+|Oturum Açma Sayfası Metni | İş veya okul hesabıyla oturum açmadan önce yardımcı olacak bilgiler sağlamanız gerektiğinde sayfa alt bilgisinde gösterilir. Örneğin, yardım masanıza bir telefon numarası veya yasal bildirim eklemek isteyebilirsiniz.|
+
 
 > [AZURE.NOTE]
 Tüm öğeler isteğe bağlıdır. Örneğin, Büyük Çizim yerine Başlık Logosu belirtirseniz oturum açma sayfasında hedef siteye ilişkin çizim (bu örnekte Office 365'in California otoyol görüntüsü) ve logonuz gösterilir.
+
+
+Oturum açma sayfanızdaki **Oturumum açık kalsın** onay kutusu, kullanıcının tarayıcıyı kapatıp yeniden açması durumunda oturumunun açık kalmasına olanak tanır. Bu durum oturum ömrünü etkilemez. Azure Active Directory oturum açma sayfasındaki onay kutusunu gizleyebilirsiniz.
+
+Onay kutusunun görüntülenip görüntülenmeyeceği **KMSI Gizle** ayarına bağlıdır.
+
+![][9]
+
+
+Onay kutusunu gizlemek için bu ayarı **Gizli** olarak yapılandırın. 
+
+> [AZURE.NOTE] SharePoint Online ve Office 2010’un bazı özellikleri kullanıcıların bu kutuyu işaretleyebilmesine bağlıdır. Bu ayarı gizli olarak yapılandırırsanız kullanıcılarınız oturum açmaya yönelik ek ve beklenmeyen istemler görebilir.
+
+
+
 
 Ayrıca bu sayfadaki tüm öğeleri yerelleştirebilirsiniz. Özelleştirme öğelerine ilişkin "varsayılan" bir küme yapılandırdıktan sonra farklı yerel ayarlar için daha fazla sürüm yapılandırabilirsiniz. Ayrıca, çeşitli öğeleri karıştırabilir ve eşleştirebilirsiniz. Örneğin, şunları yapabilirsiniz:
 
@@ -220,9 +239,10 @@ Oturum Açma Sayfası Arka Plan Rengi | Oturum açma sayfası arka plan rengi, o
 [6]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedleft.png
 [7]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedtop.png
 [8]: ./media/active-directory-add-company-branding/APBranding.png
+[9]: ./media/active-directory-add-company-branding/hidekmsi.png
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Sep16_HO5-->
 
 

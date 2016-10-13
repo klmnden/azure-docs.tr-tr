@@ -70,7 +70,7 @@ Sample OEM configurations are available.
 
 ## Deployment requirements check tool
 
-After you have installed the operating system onto your hardware, you can use the [Deployment Checker for Azure Stack Technical Preview 1](https://gallery.technet.microsoft.com/Deployment-Checker-for-76d824e1) to confirm that your hardware meets all of the requirements.
+After you have installed the operating system onto your hardware, you can use the [Deployment Checker for Azure Stack Technical Preview 2](https://gallery.technet.microsoft.com/Deployment-Checker-for-50e0f51b) to confirm that your hardware meets all of the requirements.
 
 
 
@@ -122,7 +122,7 @@ Make sure there is a DHCP server available on the network that the NIC connects 
 
 ### Internet access
 
-Azure Stack requires access to the Internet, either directly or through a transparent proxy. Azure Stack does not support the configuration of a web proxy to enable Internet access. Both the host IP and the new IP assigned to the NATVM (by DHCP or static IP) must be able to access Internet. Ports 80 and 443 are used under the graph.windows.net and login.windows.net domains.
+Azure Stack requires access to the Internet, either directly or through a transparent proxy. Azure Stack does not support the configuration of a web proxy to enable Internet access. Both the host IP and the new IP assigned to the MAS-BGPNAT01 (by DHCP or static IP) must be able to access Internet. Ports 80 and 443 are used under the graph.windows.net and login.windows.net domains.
 
 ### Telemetry
 
@@ -137,6 +137,6 @@ To support telemetry data flow, port 443 (HTTPS) must be open in your network. T
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO1-->
 
 

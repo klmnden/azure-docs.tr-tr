@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="mobile-ios"
     ms.devlang="objective-c"
     ms.topic="hero-article"
-    ms.date="06/29/2016"
+    ms.date="10/03/2016"
     ms.author="wesmc"/>
 
 
@@ -502,13 +502,13 @@ Notification Hubs hakkında genel bilgi için bkz. [Notification Hubs Kılavuzu]
 [iOS Provisioning Portal (iOS Hazırlama Portalı)]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 
 [Mobile Services'de anında iletme bildirimlerini kullanmaya başlama]: ../mobile-services-javascript-backend-ios-get-started-push.md
-[Azure Notification Hubs .NET arka ucu ile iOS için Kullanıcılara Bildirme]: notification-hubs-aspnet-backend-ios-notify-users.md
-[Son dakika haberleri göndermek için Notification Hubs kullanma]: notification-hubs-ios-send-breaking-news.md
+[Azure Notification Hubs .NET arka ucu ile iOS için Kullanıcılara Bildirme]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
+[Son dakika haberleri göndermek için Notification Hubs kullanma]: notification-hubs-ios-xplat-segmented-apns-push-notification.md
 
 [Local and Push Notification Programming Guide (Yerel ve Anında İletilen Bildirim Programlama Kılavuzu)]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 [Azure Portal]: https://portal.azure.com
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO1-->
 
 

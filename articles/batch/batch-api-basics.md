@@ -13,7 +13,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
     ms.workload="big-compute"
-    ms.date="09/08/2016"
+    ms.date="09/29/2016"
     ms.author="marsma"/>
 
 
@@ -21,7 +21,7 @@
 
 Azure Batch hizmetinin temel bileşenlerine ilişkin bu genel bakışta, Batch geliştiricilerinin büyük ölçekli paralel işlem çözümleri derlemek üzere kullanabileceği birincil hizmetler ve kaynaklar ele alınmaktadır.
 
-Dağıtılmış bir işlem uygulaması veya doğrudan [Batch REST][batch_rest_api] API çağrıları kullanan bir hizmet geliştirirken ya da [Batch SDK’ları](batch-technical-overview.md#batch-development-apis) kullanırken bu makalede ele alınan kaynak ve özelliklerin birçoğunu kullanırsınız.
+Dağıtılmış bir işlem uygulaması veya doğrudan [REST API][batch_rest_api] çağrıları kullanan bir hizmet geliştirirken ya da [Batch SDK’ları](batch-technical-overview.md#batch-development-apis) kullanırken bu makalede ele alınan kaynak ve özelliklerin birçoğunu kullanırsınız.
 
 > [AZURE.TIP] Batch hizmetine daha yüksek düzeyde bir giriş için bkz. [Azure Batch temel bilgileri](batch-technical-overview.md).
 
@@ -111,9 +111,9 @@ Bir havuz oluşturduğunuzda aşağıdaki öznitelikleri belirtebilirsiniz:
 
     **Sanal Makine Yapılandırması** işlem düğümü boyutları [Azure’da sanal makine boyutları](../virtual-machines/virtual-machines-linux-sizes.md) (Linux) ve [Azure’da sanal makine boyutları](../virtual-machines/virtual-machines-windows-sizes.md) (Windows) içinde listelenmiştir. Batch `STANDARD_A0` ve premium depolama alanına sahip olanlar (`STANDARD_GS`, `STANDARD_DS` ve `STANDARD_DSV2` serisi) dışında tüm Azure sanal makinelerini destekler.
 
-    Bir düğüm boyutu seçerken işlem düğümlerinde çalıştırılacak olan uygulamanın veya uygulamaların özelliklerini ve gereksinimlerini dikkate almanız gerekir. Genellikle düğümde aynı anda bir görevin çalışacağını varsayarak düğüm boyutu seçersiniz. En uygun ve ekonomik düğüm boyutunu belirlemek için uygulamanın çok iş parçacıklı olup olmadığı ve ne kadar bellek kullandığı gibi konuları dikkate alın. [Paralel olarak çalışan](batch-parallel-node-tasks.md) birden fazla görevin ve dolayısıyla uygulama örneğinin olması mümkündür; bu örnekte genellikle daha büyük bir düğüm seçersiniz. Daha fazla bilgi için aşağıdaki "Görev zamanlama ilkesi" bölümüne bakın.
+    Bir işlem düğümü boyutu seçerken, düğümler üzerinde çalıştıracağınız uygulamaların özelliklerini ve gereksinimlerini göz önünde bulundurun. Uygulamanın çok iş parçacıklı olup olmadığı ve ne kadar bellek kullandığı gibi konular en uygun ve ekonomik düğüm boyutunu belirlemeye yardımcı olabilir. Genellikle düğümde aynı anda bir görevin çalışacağını varsayarak düğüm boyutu seçilir. Ancak, iş yürütme sırasında işlem düğümleri üzerinde birden fazla görevin (ve dolayısıyla birden fazla uygulama örneğinin) [paralel olarak çalışması](batch-parallel-node-tasks.md) mümkündür. Bu durumda, paralel görev yürütmeye yönelik artan talebi karşılamak üzere genellikle daha büyük bir düğüm boyutu seçilir. Daha fazla bilgi için bkz. [Görev zamanlama ilkesi](#task-scheduling-policy).
 
-    Bir havuzdaki tüm düğümler aynı boyuttadır. Farklı sistem gereksinimlerine ve/veya yük düzeylerine sahip uygulamalar çalıştıracaksanız ayrı havuzlar oluşturmanız gerekir.
+    Bir havuzdaki tüm düğümler aynı boyuttadır. Farklı sistem gereksinimlerine ve/veya yük düzeylerine sahip uygulamalar çalıştırmayı planlıyorsanız ayrı havuzlar oluşturmanız önerilir.
 
 - **Hedef düğüm sayısı**
 
@@ -133,7 +133,7 @@ Bir havuz oluşturduğunuzda aşağıdaki öznitelikleri belirtebilirsiniz:
 
 - İşlem düğümlerinin **iletişim durumu**
 
-    Çoğu senaryoda görevler bağımsız olarak çalışır ve birbirleriyle iletişim kurmaları gerekmez. Ancak görevlerin iletişim kurması gereken bazı uygulamalar olabilir ([MPI senaryolarında](batch-mpi.md) olduğu gibi).
+    Çoğu senaryoda görevler bağımsız olarak çalışır ve birbirleriyle iletişim kurmaları gerekmez. Ancak, [MPI senaryolarında](batch-mpi.md) olduğu gibi içinde görevlerin iletişim kurması gereken bazı uygulamalar olabilir.
 
     Bir havuzu içindeki düğümler arasında iletişime izin verecek şekilde yapılandırabilirsiniz: **düğümler arası iletişim**. Düğümler arası iletişim etkinleştirildiğinde, Cloud Services havuzlarındaki düğümler 1100'den büyük bağlantı noktaları üzerinde birbiriyle iletişim kurabilir ve Sanal Makine Yapılandırması havuzları hiçbir bağlantı noktası üzerinde trafiği kısıtlamaz.
 
@@ -151,15 +151,15 @@ Bir havuz oluşturduğunuzda aşağıdaki öznitelikleri belirtebilirsiniz:
 
     Havuz işlem düğümlerinin oluşturulması gereken Azure [sanal ağın (VNet)](../virtual-network/virtual-networks-overview.md) kimliğini belirtebilirsiniz. Havuzunuz için sanal ağ belirtme gereksinimlerini, Batch REST API başvurusundaki [Bir hesaba havuz ekleme][sanal ağ] bölümünde bulabilirsiniz.
 
-> [AZURE.IMPORTANT] Tüm Batch hesaplarının bir Batch hesabında bir dizi **çekirdekle** (ve dolayısıyla işlem düğümleriyle) sınırlanan varsayılan bir **kotası** vardır. [Kota artırma](batch-quota-limit.md#increase-a-quota) (Batch hesabınızdaki en yüksek çekirdek sayısı gibi) hakkında varsayılan kotalar ve yönergeleri [Azure Batch hizmeti için Kotalar ve Sınırlar](batch-quota-limit.md)’da bulacaksınız. Kendinizi "Neden havuzum X düğümden fazlasına ulaşamıyor?" sorusunu sorarken bulursanız nedeni bu çekirdek kotası olabilir.
+> [AZURE.IMPORTANT] Tüm Batch hesaplarının bir Batch hesabında bir dizi **çekirdekle** (ve dolayısıyla işlem düğümleriyle) sınırlanan varsayılan bir **kotası** vardır. [Kota artırma](batch-quota-limit.md#increase-a-quota) (Batch hesabınızdaki en yüksek çekirdek sayısı gibi) hakkında varsayılan kotalar ve yönergeleri [Azure Batch hizmeti için kotalar ve sınırlar](batch-quota-limit.md)’da bulabilirsiniz. Kendinizi "Neden havuzum X düğümden fazlasına ulaşamıyor?" sorusunu sorarken bulursanız nedeni bu çekirdek kotası olabilir.
 
 ## İş
 
 İş bir görev koleksiyonudur. Bir havuzdaki işlem düğümleri üzerindeki görevleri tarafından hesaplamanın nasıl gerçekleştirildiğini yönetir.
 
-- İş, çalışmanın çalıştırılacağı **havuzu** belirtir. Her iş için yeni havuz oluşturabilir veya çok sayıda iş için bir havuz kullanabilirsiniz. Bir iş zamanlaması ile ilişkili her iş için veya bir iş zamanlaması ile ilişkili tüm işler için havuz oluşturabilirsiniz.
+- İş, çalışmanın gerçekleştirileceği **havuzu** belirtir. Her iş için yeni havuz oluşturabilir veya çok sayıda iş için bir havuz kullanabilirsiniz. Bir iş zamanlaması ile ilişkili her iş için veya bir iş zamanlaması ile ilişkili tüm işler için havuz oluşturabilirsiniz.
 
-- İsteğe bağlı bir **iş önceliği** belirtebilirsiniz. Bir iş devam eden işlerden daha yüksek öncelikle gönderilirse yüksek önceliğe sahip işin görevleri düşük önceliğe sahip iş görevlerinin önünde kuyruğa eklenir. Çalışmakta olan düşük öncelikli görevler engellenemez.
+- İsteğe bağlı bir **iş önceliği** belirtebilirsiniz. Bir iş devam eden işlerden daha yüksek öncelikle gönderilirse yüksek önceliğe sahip işin görevleri düşük önceliğe sahip iş görevlerinin önünde kuyruğa eklenir. Çalışmakta olan düşük öncelikli işlerdeki görevler engellenmez.
 
 - İşleriniz için bazı sınırlar belirtmek üzere iş **kısıtlamaları** kullanabilirsiniz:
 
@@ -231,7 +231,7 @@ Ancak, işlem düğümü üzerinde çalışan tüm görevler tarafından kullan�
 
 Bu, düğümün görevlere atanmak üzere hazır olduğunu düşünmeden önce başlangıç görevinin tamamlanmasını beklemek amacıyla Batch hizmeti için genelde istenen bir durumdur, ancak bunu yapılandırabilirsiniz.
 
-Bir işlem düğümünde başlangıç görevi başarısız olursa, düğümün durumu hatayı yansıtacak şekilde güncelleştirilir ve düğüm, atanacak görevler için kullanılamaz. Bir başlangıç görevi, depolamadan kaynak dosya kopyalamada bir sorun olması ya da komut satırı tarafından yürütülen işlemin sıfır olmayan bir çıkış kodu döndürmesi durumunda başarısız olabilir.
+Bir işlem düğümünde başlangıç görevi başarısız olursa, düğümün durumu hatayı yansıtacak şekilde güncelleştirilir ve düğüm hiçbir göreve atanmaz. Bir başlangıç görevi, depolamadan kaynak dosya kopyalamada bir sorun olması ya da komut satırı tarafından yürütülen işlemin sıfır olmayan bir çıkış kodu döndürmesi durumunda başarısız olabilir.
 
 *Mevcut* bir havuz için başlangıç görevi ekler veya güncelleştirirseniz başlangıç görevinin düğümlere uygulanması için işlem düğümlerini yeniden başlatmanız gerekir.
 
@@ -284,30 +284,13 @@ Bu özelliğe ilişkin daha kapsamlı bilgi için [azure-batch-samples][github_s
 
 ## Görevler için ortam ayarları
 
-Bir Batch işinde yürütülen her görev, hem Batch hizmeti tarafından tanımlanan ortam değişkenlerine (aşağıdaki tabloda açıklandığı gibi hizmet tanımlı) hem de görevleriniz için ayarlayabileceğiniz özel ortam değişkenlerine erişebilir. Görevleriniz tarafından düğümler üzerinde çalıştırılan uygulamalar ve komut dosyaları yürütme sırasında bu ortam değişkenlerine erişebilir.
+Batch hizmeti tarafından yürütülen her görevin, işlem düğümleri üzerinde ayarladığı ortam değişkenlerine erişimi vardır. Buna Batch hizmeti tarafından tanımlanan ortam değişkenleri ([service-defined][msdn_env_vars]) ve görevleriniz için tanımlayabileceğiniz özel ortam değişkenleri dahildir. Görevleriniz tarafından yürütülen uygulamalar ve komut dosyaları yürütme sırasında bu ortam değişkenlerine erişebilir.
 
 Bu varlıkların *ortam ayarları* özelliğini doldurarak görev ya da iş düzeyinde özel ortam değişkenleri ayarlayabilirsiniz. Örneğin, Batch .NET içindeki [Bir işe görev ekleme][rest_add_task] işlemine (Batch REST API’si) veya [CloudTask.EnvironmentSettings][net_cloudtask_env] ve [CloudJob.CommonEnvironmentSettings][net_job_env] özelliklerine bakın.
 
 [Bir görev hakkında bilgi alma][rest_get_task_info] işlemini (Batch REST) kullanarak veya [CloudTask.EnvironmentSettings][net_cloudtask_env] özelliğine (Batch .NET) erişerek istemci uygulamanız ya da hizmetiniz bir görevin hem hizmet tanımlı hem de özel ortam değişkenlerini elde edebilir. Bir işlem düğümünde yürütülen işlemler bu ve düğümdeki diğer ortam değişkenlerine erişebilir, örneğin bilinen bir `%VARIABLE_NAME%` (Windows) veya `$VARIABLE_NAME` (Linux) söz dizimini kullanarak.
 
-Aşağıdaki ortam değişkenleri Batch hizmeti tarafından ayarlanır ve görevleriniz tarafından erişime açıktır:
-
-| Ortam Değişkeni Adı       | Açıklama                                                              |
-|---------------------------------|--------------------------------------------------------------------------|
-| `AZ_BATCH_ACCOUNT_NAME`         | Görevin ait olduğu hesabın adı.                       |
-| `AZ_BATCH_JOB_ID`               | Görevin ait olduğu işin kimliği.                             |
-| `AZ_BATCH_JOB_PREP_DIR`         | Düğümdeki iş hazırlama görevi dizininin tam yolu.         |
-| `AZ_BATCH_JOB_PREP_WORKING_DIR` | Düğümdeki iş hazırlama görevi çalışma dizininin tam yolu. |
-| `AZ_BATCH_NODE_ID`              | Görevin çalıştığı düğümün kimliği.                         |
-| `AZ_BATCH_NODE_ROOT_DIR`        | Düğümdeki kök dizinin tam yolu.                         |
-| `AZ_BATCH_NODE_SHARED_DIR`      | Düğümdeki paylaşılan dizinin tam yolu.                       |
-| `AZ_BATCH_NODE_STARTUP_DIR`     | Düğümdeki işlem düğümü başlangıç görevi dizininin tam yolu.    |
-| `AZ_BATCH_POOL_ID`              | Görevin çalıştığı havuzun kimliği.                         |
-| `AZ_BATCH_TASK_DIR`             | Düğümdeki görev dizininin tam yolu.                         |
-| `AZ_BATCH_TASK_ID`              | Geçerli görevin kimliği.                                              |
-| `AZ_BATCH_TASK_WORKING_DIR`     | Düğümdeki görev çalışma dizininin tam yolu.                 |
-
->[AZURE.IMPORTANT] Bu ortam değişkenleri yalnızca **görev kullanıcısı** bağlamında (diğer bir deyişle, görevin yürütüldüğü düğümün üzerindeki kullanıcı hesabı) kullanılabilir. Bir işlem düğümüne Uzak Masaüstü Protokolü (RDP) veya Güvenli Kabuk (SSH) aracılığıyla [uzaktan bağlanıp](#connecting-to-compute-nodes) ortam değişkenlerini listelerseniz bunları *göremezsiniz*. Bunun nedeni, uzak bağlantı için kullanılan kullanıcı hesabının görev tarafından kullanılan hesapla aynı olmamasıdır.
+[İşlem düğümü ortam değişkenleri][msdn_env_vars] içinde hizmet tarafından tanımlanan tüm ortam değişkenlerinin tam listesini bulabilirsiniz.
 
 ## Dosyalar ve dizinler
 
@@ -347,9 +330,9 @@ Uygulama paketi özelliği hakkında daha fazla bilgi almak için bkz. [Azure Ba
 
 Azure Batch çözümünüzü tasarlarken havuzların nasıl ve ne zaman oluşturulacağı ve bu havuzlardaki işlem düğümlerinin ne kadar süre kullanımda tutulacağına ilişkin bir tasarım kararı vermeniz gerekir.
 
-Spektrumun bir ucunda, iş gönderildiğinde her iş için bir havuz oluşturabilir ve bunun düğümleri görevlerin yürütülmesi biter bitmez kaldırabilirsiniz. Bu, düğümler yalnızca kesinlikle gerekli olduğunda ayrıldığından ve boşta durumuna gelir gelmez kapandığından kullanımı en iyi duruma getirir. Bu da işin, düğümlerin ayrılmasını beklemesi gerektiği anlamına gelmekle birlikte, tek tek kullanılabilir, ayrılmış olmalarının ve başlangıç görevinin tamamlanmasının hemen ardından görevlerin düğümlere zamanlanacağını bilmek önemlidir. Batch, görev atamadan önce havuzdaki tüm düğümlerin kullanılabilir olmasını *beklemez*. Böylece kullanılabilir tüm düğümlerden en iyi şekilde faydalanılmasını sağlar.
+Spektrumun bir ucunda, gönderdiğiniz her iş için bir havuz oluşturabilir ve görevlerin yürütülmesi biter bitmez havuzu silebilirsiniz. Düğümler yalnızca gerektiğinde ayrıldığından ve boşta kalır kalmaz kapatıldığından bunun yapılması kullanımı en iyi duruma getirir. Bu durum işin, düğümlerin ayrılmasını beklemesi gerektiği anlamına gelmekle birlikte, tek tek kullanılabilir, ayrılmış olmalarının ve başlangıç görevinin tamamlanmasının hemen ardından görevlerin yürütülmek üzere zamanlanacağını bilmek önemlidir. Batch, görevler düğümlere atamadan önce havuzdaki tüm düğümlerin kullanılabilir olmasını *beklemez*. Böylece kullanılabilir tüm düğümlerden en iyi şekilde faydalanılmasını sağlar.
 
-Spektrumun diğer ucunda, işlerin hemen başlatılması en yüksek önceliğe sahipse işler gönderilmeden önce bir havuz oluşturabilir ve bu havuzun düğümlerini kullanıma sunabilirsiniz. Bu senaryoda, iş görevleri hemen başlayabilir ancak görevlerin atanmasını beklerken düğümler boşta durumda kalmaya devam edebilir.
+Spektrumun diğer ucunda, işlerin hemen başlatılması en yüksek önceliğe sahipse işler gönderilmeden önce bir havuz oluşturabilir ve bu havuzun düğümlerini kullanıma sunabilirsiniz. Bu senaryoda görevler hemen başlayabilir, ancak görevlerin atanmasını beklerken düğümler boşta kalmaya devam edebilir.
 
 Değişken ancak devam eden bir yükü işlemek için genellikle birleştirilmiş bir yaklaşım kullanılır. Birden fazla işin gönderildiği bir havuzunuz olabilir, ancak düğüm sayısını iş yüküne uygun olarak artırabilir veya azaltabilirsiniz (aşağıdaki bölümde yer alan [İşlem kaynaklarını ölçeklendirme](#scaling-compute-resources) kısmına bakın). Mevcut yüke bağlı olarak reaktif bir şekilde ya da yük öngörülebiliyorsa proaktif olarak bu işlemi yapabilirsiniz.
 
@@ -475,6 +458,7 @@ Bazı görevlerinizin başarısız olduğu durumlarda, Batch istemci uygulamanı
 [github_sample_taskdeps]:  https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/TaskDependencies
 [github_batchexplorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [batch_net_api]: https://msdn.microsoft.com/library/azure/mt348682.aspx
+[msdn_env_vars]: https://msdn.microsoft.com/library/azure/mt743623.aspx
 [net_cloudjob_jobmanagertask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.jobmanagertask.aspx
 [net_cloudjob_priority]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.priority.aspx
 [net_cloudpool_starttask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.starttask.aspx
@@ -520,6 +504,6 @@ Bazı görevlerinizin başarısız olduğu durumlarda, Batch istemci uygulamanı
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO5-->
 
 

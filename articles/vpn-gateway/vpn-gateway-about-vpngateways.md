@@ -35,7 +35,8 @@ Bir sanal ağın her ağ geçidi türü için yalnızca bir sanal ağ geçidi ol
 
 ## Ağ geçidi SKU'ları
 
-[AZURE.INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)] 
+[AZURE.INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
+Ağ geçidi SKU’ları hakkında bilgi için bkz. [Ağ geçidi SKU’ları](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 
 Aşağıdaki tabloda ağ geçidi türleri ve tahmini toplam verimlilik gösterilmiştir. Bu tablo hem Resource Manager, hem de klasik dağıtım modellerine uygulanır.
 
@@ -151,6 +152,6 @@ VPN ağ geçidi yapılandırmanızı planlayın. Bkz. [VPN Gateway Planlama ve T
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO1-->
 
 

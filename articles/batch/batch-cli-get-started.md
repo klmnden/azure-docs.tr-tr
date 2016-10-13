@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="multiple"
    ms.workload="big-compute"
-   ms.date="09/06/2016"
+   ms.date="09/30/2016"
    ms.author="marsma"/>
 
 
@@ -21,7 +21,7 @@
 
 Platformlar arası Azure Komut Satırı Arabirimi (Azure CLI); Linux, Mac ve Windows komut kabuklarında Batch hesaplarınızı ve havuzlar, işler ve görevler gibi kaynakları Kabukları görevler gibi kaynakları yönetmenizi sağlar. Azure Batch CLI ile Batch API'leri, Azure portalı ve Batch PowerShell cmdlet’leri ile gerçekleştirdiğiniz görevlerin çoğunu gerçekleştirebilir ve betik oluşturabilirsiniz.
 
-Bu makale Azure CLI sürüm 0.10.3’ü temel almaktadır.
+Bu makale Azure CLI sürüm 0.10.5’i temel alır.
 
 ## Ön koşullar
 
@@ -216,19 +216,39 @@ Bir uygulama paketi **ekleyin**:
 
 Paketin **etkinleştirin**:
 
-    azure batch application package activate "resgroup002" "azbatch002" "MyTaskApplication" "1.10-beta3" zip
+    azure batch application package activate "resgroup001" "batchaccount001" "MyTaskApplication" "1.10-beta3" zip
+
+Uygulamanın **varsayılan sürümünü** ayarlayın:
+
+    azure batch application set "resgroup001" "batchaccount001" "MyTaskApplication" --default-version "1.10-beta3"
 
 ### Uygulama paketi dağıtma
 
 Yeni bir havuz oluşturduğunuzda dağıtım için bir veya daha fazla uygulama paketi belirtebilirsiniz. Havuz oluşturma saatinde bir paket belirttiğinizde düğüm havuza katıldıkça her bir düğüme dağıtılır. Paketler ayrıca bir düğüm yeniden başlatıldığında veya yeniden görüntüsü oluşturulduğunda dağıtılır.
 
-Bu komut, havuz oluşturma sırasında bir paket belirtir ve her bir düğüm yeni havuza eklendikçe dağıtılır:
+Bir uygulama paketini havuza katıldıklarında havuzun düğümlerine dağıtmak üzere havuz oluştururken `--app-package-ref` seçeneğini belirtin. `--app-package-ref` seçeneği, işlem düğümlerine dağıtılacak uygulama kimliklerinin noktalı virgülle ayrılmış bir listesini kabul eder.
 
-    azure batch pool create --id "pool001" --target-dedicated 1 --vm-size "small" --os-family "4" --app-package-ref "MyTaskApplication"
+    azure batch pool create --pool-id "pool001" --target-dedicated 1 --vm-size "small" --os-family "4" --app-package-ref "MyTaskApplication"
 
-Şu anda komut satırı seçeneklerini kullanarak hangi paket sürümünün dağıtılacağını belirtemezsiniz. Uygulamayı bir havuza atayabilmeniz için öncelikle Azure portalını kullanarak uygulamaya ilişkin varsayılan sürümü ayarlamanız gerekir. Varsayılan sürümü ayarlama hakkında bilgi için bkz. [Azure Batch uygulama paketleriyle uygulama dağıtımı](batch-application-packages.md). Ancak, bir havuz oluştururken komut satırı seçenekleri yerine bir [JSON dosyası](#json-files) kullanırsanız varsayılan sürümü belirtebilirsiniz.
+Şu anda, komut satırı seçeneklerini kullanarak bir havuz oluştururken işlem düğümlerine *hangi* uygulama paketi sürümünün dağıtılacağını belirtemezsiniz (örneğin, "1.10-beta3"). Bu nedenle, havuzu oluşturmadan önce ilk olarak `azure batch application set [options] --default-version <version-id>` ile uygulamanın varsayılan sürümünü belirtmeniz gerekir (önceki bölüme bakın). Ancak, havuz oluştururken komut satırı seçenekleri yerine bir [JSON dosyası](#json-files) kullanırsanız havuzun paket sürümünü belirtebilirsiniz.
+
+[Azure Batch uygulama paketleri ile uygulama dağıtımı](batch-application-packages.md) içinde uygulama paketlerine ilişkin daha fazla bilgi bulabilirsiniz.
 
 >[AZURE.IMPORTANT] Uygulama paketlerini kullanmak için Batch hesabınıza [bir Azure Depolama hesabı bağlamanız](#linked-storage-account-autostorage) gerekir.
+
+### Bir havuzun uygulama paketlerini güncelleştirme
+
+Var olan bir havuza atanan uygulamaları güncelleştirmek için `azure batch pool set` komutunu `--app-package-ref` seçeneği ile verin:
+
+    azure batch pool set --pool-id "pool001" --app-package-ref "MyTaskApplication2"
+
+Yeni uygulama paketini var olan havuzda zaten olan işlem düğümlerine dağıtmak için bu düğümleri yeniden başlatmanız ya da görüntülerini yeniden oluşturmanız gerekir:
+
+    azure batch node reboot --pool-id "pool001" --node-id "tvm-3105992504_1-20160930t164509z"
+
+>[AZURE.TIP] `azure batch node list` ile bir havuzdaki düğümlerin listesini, düğüm kimlikleriyle birlikte edinebilirsiniz.
+
+Uygulamayı dağıtımdan önce varsayılan bir sürümle yapılandırmış olmanız gerekir (`azure batch application set [options] --default-version <version-id>`).
 
 ## Sorun giderme ipuçları
 
@@ -256,6 +276,6 @@ Bu bölümde Azure CLI ile ilgili sorunları giderirken kullanılacak kaynaklar�
 [rest_add_pool]: https://msdn.microsoft.com/library/azure/dn820174.aspx
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO1-->
 
 

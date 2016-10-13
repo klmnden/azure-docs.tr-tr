@@ -3,7 +3,7 @@
    description="CLI'yi kullanarak DNS etki alanınızı barındırmaya başlamak üzere Azure DNS için DNS bölgelerinin adım adım nasıl oluşturulacağını öğrenin"
    services="dns"
    documentationCenter="na"
-   authors="cherylmc"
+   authors="sdwheeler"
    manager="carmonm"
    editor=""/>
 
@@ -14,7 +14,8 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="08/16/2016"
-   ms.author="cherylmc"/>
+   ms.author="sewhee"/>
+
 
 # CLI kullanarak bir Azure DNS bölgesi oluşturma
 
@@ -25,9 +26,9 @@
 - [Azure CLI](dns-getstarted-create-dnszone-cli.md)
 
 
-Bu makale, CLI kullanarak bir DNS bölgesi oluşturma adımları boyunca size yol gösterir. PowerShell veya Azure portalını kullanarak da bir DNS bölgesi oluşturabilirsiniz. 
+Bu makale, CLI kullanarak bir DNS bölgesi oluşturma adımları boyunca size yol gösterir. PowerShell veya Azure portalını kullanarak da bir DNS bölgesi oluşturabilirsiniz.
 
-[AZURE.INCLUDE [dns-create-zone-about](../../includes/dns-create-zone-about-include.md)] 
+[AZURE.INCLUDE [dns-create-zone-about](../../includes/dns-create-zone-about-include.md)]
 
 
 ## Başlamadan önce
@@ -42,56 +43,56 @@ Windows, Linux veya Mac için Azure CLI'yı yükleyebilirsiniz. Azure CLI'yı ku
 
 CLI'deki tüm ağ sağlayıcı komutları aşağıdaki komut kullanılarak bulunabilir:
 
-    Azure network
+    azure network
 
 ### 2. CLI moduna geçme
 
 Azure DNS, Azure Resource Manager'ı kullanır. ARM komutlarını kullanmak için CLI moduna geçtiğinizden emin olun.
 
-    Azure config mode arm
+    azure config mode arm
 
 ### 3. Azure hesabınızda oturum açma
 
 Kimlik bilgilerinizle kimliğinizi doğrulamanız istenir. Yalnızca ORGID hesaplarını kullanabileceğinizi göz önünde bulundurun.
 
-    Azure login -u "username"
+    azure login -u "username"
 
 ### 4. Aboneliği seçme
 
 Hangi Azure aboneliğinizin kullanılacağını seçin.
 
-    Azure account set "subscription name"
+    azure account set "subscription name"
 
 ### 5. Kaynak grubu oluşturma
 
 Azure Resource Manager, tüm kaynak gruplarının bir konum belirtmesini gerektirir. Bu, kaynak grubunda kaynaklar için varsayılan konum olarak kullanılır. Ancak tüm DNS kaynakları bölgesel değil de global olduğundan, kaynak grubu konumu seçiminin Azure DNS üzerinde hiçbir etkisi yoktur.
 
-Var olan bir kaynak grubunu kullanıyorsanız bu adımı atlayabilirsiniz. 
+Var olan bir kaynak grubunu kullanıyorsanız bu adımı atlayabilirsiniz.
 
-    Azure group create -n myresourcegroup --location "West US"
+    azure group create -n myresourcegroup --location "West US"
 
 
 ### 6. Kaydolma
 
 Azure DNS hizmeti, Microsoft.Network kaynak sağlayıcısı tarafından yönetilir. Azure DNS'yi kullanmadan önce, Azure aboneliğinizin bu kaynak sağlayıcısını kullanmak için kayıtlı olması gerekir. Bu, her bir abonelik için tek seferlik bir işlemdir.
 
-    Azure provider register --namespace Microsoft.Network
+    azure provider register --namespace Microsoft.Network
 
 
 ## 2. Adım - Bir DNS bölgesi oluşturma
 
-DNS bölgesi, `azure network dns zone create` komutu kullanılarak oluşturulur. İsteğe bağlı olarak bir DNS bölgesini etiketlerle birlikte oluşturabilirsiniz. Etiketler, bir ad-değer çifti listesidir ve Azure Resource Manager tarafından faturalama veya gruplandırma amaçları için kaynakları etiketlemek üzere kullanılır. Etiketler hakkında daha fazla bilgi için bkz. [Etiketleri kullanarak Azure kaynaklarınızı düzenleme](../resource-group-using-tags.md). 
+DNS bölgesi, `azure network dns zone create` komutu kullanılarak oluşturulur. İsteğe bağlı olarak bir DNS bölgesini etiketlerle birlikte oluşturabilirsiniz. Etiketler, bir ad-değer çifti listesidir ve Azure Resource Manager tarafından faturalama veya gruplandırma amaçları için kaynakları etiketlemek üzere kullanılır. Etiketler hakkında daha fazla bilgi için bkz. [Etiketleri kullanarak Azure kaynaklarınızı düzenleme](../resource-group-using-tags.md).
 
 Azure DNS'de bölge adları, sonlandıran **"."** işareti olmadan belirtilmelidir. Örneğin, "**contoso.com.**" yerine "**contoso.com**" kullanılmalıdır.
 
 
 ### Bir DNS bölgesi oluşturmak için
 
-Aşağıdaki örnek, *MyResourceGroup* adlı kaynak grubunda *contoso.com* adlı bir DNS bölgesi oluşturur. 
+Aşağıdaki örnek, *MyResourceGroup* adlı kaynak grubunda *contoso.com* adlı bir DNS bölgesi oluşturur.
 
 Değerleri kendinizinkilerle değiştirerek DNS bölgenizi oluşturmak için örneği kullanın.
 
-    Azure network dns zone create myresourcegroup contoso.com
+    azure network dns zone create myresourcegroup contoso.com
 
 ### Bir DNS bölgesi ve etiketler oluşturma.
 
@@ -99,7 +100,7 @@ Azure DNS CLI'si, isteğe bağlı *-Tag* parametresi kullanılarak belirtilen DN
 
 Değerleri kendinizinkilerle değiştirerek bir DNS bölgesi ve etiket oluşturmak için aşağıdaki örneği kullanın.
 
-    Azure network dns zone create myresourcegroup contoso.com -t "project=demo";"env=test"
+    azure network dns zone create myresourcegroup contoso.com -t "project=demo";"env=test"
 
 ## Kayıtları görüntüleme
 
@@ -189,6 +190,6 @@ Bir DNS bölgesi oluşturduktan sonra, İnternet etki alanınız için ad çöz�
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Oct16_HO1-->
 
 

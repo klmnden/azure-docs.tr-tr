@@ -3,7 +3,7 @@
    description="Azure DNS için ana bilgisayar kayıtları nasıl oluşturulur? CLI kullanarak kayıt kümelerini ve kayıtları ayarlama"
    services="dns"
    documentationCenter="na"
-   authors="cherylmc"
+   authors="sdwheeler"
    manager="carmonm"
    editor=""/>
 
@@ -14,7 +14,8 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="08/16/2016"
-   ms.author="cherylmc"/>
+   ms.author="sewhee"/>
+
 
 # CLI kullanarak DNS kayıt kümelerini ve kayıtları oluşturma
 
@@ -68,6 +69,6 @@ Azure DNS hakkında daha fazla bilgi için bkz. [Azure DNS'ye Genel Bakış](dns
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Oct16_HO1-->
 
 

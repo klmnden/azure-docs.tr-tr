@@ -13,7 +13,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="mobile-multiple"
     ms.workload="mobile" 
-    ms.date="07/07/2016"
+    ms.date="10/04/2016"
     ms.author="wesmc;ricksal"/>
 
 
@@ -357,7 +357,7 @@ Uygulamanıza eklediğiniz tüm bildirim davranışı türlerini baştan sona te
 
 #### Kurulum
 
-Azure Mobile Engagement kurulumu çok kolaydır. Kullanıcı arabirimine ilişkin tüm bilgiler Azure Mobile Engagement web sitesinde, [Kullanıcı arabiriminde gezinme](mobile-engagement-user-interface.md) başlığında yer alır.
+Azure Mobile Engagement kurulumu çok kolaydır. Kullanıcı arabirimine ilişkin tüm bilgiler Azure Mobile Engagement web sitesinde, [Kullanıcı arabiriminde gezinme](mobile-engagement-user-interface-home.md) başlığında yer alır.
 
 Projenizin kullanıcıları için doğru rolleri ve rol üyeliklerini ayarlayarak başlamanız önerilir. Bu, tüm kullanıcılar için platforma düzgün erişimi yönetmenize yardımcı olur. Rolleriniz şunları içerebilir:
 
@@ -410,6 +410,6 @@ Biraz deneyim kazandıktan sonra, katılım programlarınıza aşağıdakileri e
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO1-->
 
 

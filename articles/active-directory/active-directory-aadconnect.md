@@ -4,7 +4,7 @@
     keywords="Azure AD Connect’e giriş, Azure AD Connect’e genel bakış, Azure AD Connect nedir, active directory yükleme"
     services="active-directory"
     documentationCenter=""
-    authors="andkjell"
+    authors="billmath"
     manager="femila"
     editor=""/>
 
@@ -14,8 +14,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="09/30/2016"
-    ms.author="andkjell;billmath"/>
+    ms.date="10/04/2016"
+    ms.author="billmath"/>
 
 
 # Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme
@@ -24,7 +24,7 @@ Azure AD Connect, şirket içi dizinlerinizi Azure Active Directory ile tümleş
 
 <!-- The hardcoded link is a workaround for campaign ids not working in acom links-->
 
-> [AZURE.IMPORTANT] [Azure AD Connect, size Azure AD ve Office 365 ile şirket içi dizininize bağlanmak için en iyi yolu sunmaktadır. Şimdi Microsoft Azure Active Directory Eşitleme (DirSync) veya Azure AD Eşitleme'den Azure AD Connect'e yükseltmenin tam zamanı! Bu araçlar artık kullanım dışı ve destek süresi 13 Nisan 2017'de dolacak.](https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-dirsync-deprecated/?WT.mc_id=DirSyncDepACOM)
+> [AZURE.IMPORTANT] [Azure AD Connect, size Azure AD ve Office 365 ile şirket içi dizininize bağlanmak için en iyi yolu sunmaktadır. Şimdi Microsoft Azure Active Directory Eşitleme (DirSync) veya Azure AD Eşitleme'den Azure AD Connect'e yükseltmenin tam zamanı! Bu araçlar artık kullanım dışı ve destek süresi 13 Nisan 2017'de dolacak.]active-directory-aadconnect-dirsync-deprecated.md)
 
 ![Azure AD Connect nedir?](./media/active-directory-aadconnect/arch.png)
 
@@ -56,9 +56,9 @@ Azure AD Connect'i [Microsoft İndirme Merkezi](http://go.microsoft.com/fwlink/?
 Çözüm | Senaryo
 ----- | ----- |
 Başlamadan önce - [Donanım ve önkoşullar](active-directory-aadconnect-prerequisites.md) | <li>Azure AD Connect'i yüklemeye başlamadan önce tamamlamanız gereken adımlar.</li>
-[Hızlı ayarlar](active-directory-aadconnect-get-started-express.md) | <li>Tek bir AD ormanınız varsa bu seçeneği kullanmanız önerilir. </li> <li>Parola eşitleme özelliğini kullanarak aynı parola ile kullanıcı oturumu açma.</li>
-[Özelleştirilmiş ayarlar](active-directory-aadconnect-get-started-custom.md) | <li>Birden çok ormanınız olduğunda kullanılır. Birçok şirket içi [topolojiyi](active-directory-aadconnect-topologies.md) destekler.</li> <li>Oturum açma seçeneğinizi özelleştirin (örneğin, federasyon için ADFS) veya 3. taraf bir kimlik sağlayıcısı kullanın.</li> <li>Eşitleme özelliklerini özelleştirin (örneğin, filtreleme ve geri yazma).</li>
-[DirSync'ten yükseltme](active-directory-aadconnect-dirsync-upgrade-get-started.md) | <li>Zaten çalışmakta olan bir DirSync sunucunuz varsa kullanılır.</li>
+[Hızlı ayarlar](./aad-connect/active-directory-aadconnect-get-started-express.md) | <li>Tek bir AD ormanınız varsa bu seçeneği kullanmanız önerilir. </li> <li>Parola eşitleme özelliğini kullanarak aynı parola ile kullanıcı oturumu açma.</li>
+[Özelleştirilmiş ayarlar](./aad-connect/active-directory-aadconnect-get-started-custom.md) | <li>Birden çok ormanınız olduğunda kullanılır. Birçok şirket içi [topolojiyi](active-directory-aadconnect-topologies.md) destekler.</li> <li>Oturum açma seçeneğinizi özelleştirin (örneğin, federasyon için ADFS) veya 3. taraf bir kimlik sağlayıcısı kullanın.</li> <li>Eşitleme özelliklerini özelleştirin (örneğin, filtreleme ve geri yazma).</li>
+[DirSync'ten yükseltme](./aad-connect/active-directory-aadconnect-dirsync-upgrade-get-started.md) | <li>Zaten çalışmakta olan bir DirSync sunucunuz varsa kullanılır.</li>
 [Azure AD Eşitleme veya Azure AD Connect'ten yükseltme](active-directory-aadconnect-upgrade-previous-version.md)| <li>Tercihinize bağlı olarak birkaç farklı yöntem vardır.</li>
 
 
@@ -69,9 +69,9 @@ Başlamadan önce - [Donanım ve önkoşullar](active-directory-aadconnect-prere
 Konu başlığı |  
 --------- | ---------
 Azure AD Connect'i indirme | [Azure AD Connect'i indirme](http://go.microsoft.com/fwlink/?LinkId=615771)
-Hızlı ayarları kullanarak yükleme | [Azure AD Connect'i hızlı yükleme](active-directory-aadconnect-get-started-express.md)
-Özelleştirilmiş ayarları kullanarak yükleme | [Azure AD Connect özel yüklemesi](active-directory-aadconnect-get-started-custom.md)
-DirSync'ten yükseltme | [Azure AD eşitleme aracından (DirSync) yükseltme](active-directory-aadconnect-dirsync-upgrade-get-started.md)
+Hızlı ayarları kullanarak yükleme | [Azure AD Connect'i hızlı yükleme](./aad-connect/active-directory-aadconnect-get-started-express.md)
+Özelleştirilmiş ayarları kullanarak yükleme | [Azure AD Connect özel yüklemesi](./aad-connect/active-directory-aadconnect-get-started-custom.md)
+DirSync'ten yükseltme | [Azure AD eşitleme aracından (DirSync) yükseltme](./aad-connect/active-directory-aadconnect-dirsync-upgrade-get-started.md)
 Yükleme işleminden sonra | [Yüklemeyi doğrulama ve lisansları atama ](active-directory-aadconnect-whats-next.md)
 
 ### Azure AD Connect'i yükleme hakkında daha fazla bilgi edinin
@@ -82,7 +82,7 @@ Konu başlığı |
 --------- | ---------
 Desteklenen topolojiler | [Azure AD Connect için topolojiler](active-directory-aadconnect-topologies.md)
 Tasarım kavramları | [Azure AD Connect tasarım kavramları](active-directory-aadconnect-design-concepts.md)
-Yükleme için kullanılan hesaplar | [Azure AD Connect kimlik bilgileri ve izinleri hakkında daha fazla bilgi](active-directory-aadconnect-accounts-permissions.md)
+Yükleme için kullanılan hesaplar | [Azure AD Connect kimlik bilgileri ve izinleri hakkında daha fazla bilgi](./aad-connect/active-directory-aadconnect-accounts-permissions.md)
 İşletimsel planlama | [Azure AD Connect Eşitleme: İşletimsel görevler ve önemli noktalar](active-directory-aadconnectsync-operations.md)
 Kullanıcı oturumu açma seçenekleri | [Azure AD Connect kullanıcı oturumu açma seçenekleri](active-directory-aadconnect-user-signin.md)
 
@@ -167,6 +167,6 @@ Sık Sorulan Sorular | [Azure AD Connect ile ilgili SSS](active-directory-aadcon
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO1-->
 
 

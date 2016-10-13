@@ -15,6 +15,7 @@
    ms.date="03/10/2016"
    ms.author="yushwang" />
 
+
 # VPN Gateway SSS
 
 ## Sanal ağlara bağlama
@@ -72,7 +73,7 @@ Cihazınızın bilinen uyumlu VPN cihazı olarak listelendiğini görmüyorsanı
 
 ### Trafik boştayken neden ilke tabanlı VPN tünelim kayboluyor?
 
-İlke tabanlı (statik rota olarak da bilinir) VPN Ağ geçitleri için bu beklenen bir davranıştır. tünel üzerindeki trafik 5 dakikadan fazla boşta kalırsa tünel bozulur. Herhangi bir yönde trafik akışı başladığında tünel hemen yeniden başlatılır. Rota tabanlı (dinamik olarak da bilinir) VPN ağ geçidiniz varsa bu davranışla karşılaşmazsınız.
+İlke tabanlı (statik rota olarak da bilinir) VPN Ağ geçitleri için bu beklenen bir davranıştır. tünel üzerindeki trafik 5 dakikadan fazla boşta kalırsa tünel bozulur. Herhangi bir yönde trafik akışı başladığında tünel hemen yeniden başlatılır.
 
 ### Azure'e bağlanmak için VPN'ler yazılımını kullanabilir miyim?
 
@@ -281,6 +282,6 @@ Ek sanal ağ ek bilgilerini [Virtual Network SSS](../virtual-network/virtual-net
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Sep16_HO5-->
 
 

@@ -12,6 +12,7 @@
     ms.date="07/26/2016"
     ms.author="brandwe"/>
 
+
 # Azure AD B2C: Üçüncü taraf kitaplık kullanılarak bir iOS uygulamasından web API’si çağırma
 
 <!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->
@@ -151,7 +152,7 @@ Yapılandırma değerlerinin yerleştirileceği merkezi bir konum mevcutsa uygul
 
 `authURL`, `loginURL`, `bhh`, `tokenURL` için kiracı adınızı doldurmanız gerektiğini fark edeceksiniz. Bu kiracı adı, size atanan B2C kiracınızın adıdır. Örneğin, `kidventusb2c.onmicrosoft.com`. Açık kaynak Microsoft Azure Kimlik Kitaplıklarını kullanırsanız meta veri uç noktası kullanılarak bu veriler sizin için çekilir. Bu değerleri sizin yerinize ayıklamak için çok çalıştık.
 
-B2C kiracı adları hakkında daha fazla bilgi için şuraya göz atın: [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
 `keychain` değeri, NXOAuth2Client kitaplığının belirteçlerinizi depolamak üzere bir anahtarlık oluştururken kullanacağı kapsayıcıdır. Çok sayıda uygulamada SSO edinmek istiyorsanız uygulamalarınızın her birinde aynı anahtarlığı belirtebilir ve bu anahtarlığın XCode yetkilendirmelerinizde kullanılmasını isteyebilirsiniz. Bu konu Apple belgelerinde ele alınmıştır.
 
@@ -648,6 +649,6 @@ Artık daha ileri seviyeli B2C konu başlıklarına geçebilirsiniz: Deneyebilec
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Oct16_HO1-->
 
 

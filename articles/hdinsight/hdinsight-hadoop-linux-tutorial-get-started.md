@@ -28,11 +28,15 @@ HDInsight’ta Linux tabanlı [Hadoop](http://hadoop.apache.org/) kümeleri olu�
 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-### Ön koşullar
+## Ön koşullar
 
 Bu öğreticiye başlamadan önce
 
 - **Azure aboneliği** gereklidir. Bir aylık ücretsiz deneme hesabı oluşturmak için [azure.microsoft.com/free](https://azure.microsoft.com/free) adresine gidin.
+
+### Erişim denetimi gereksinimleri
+
+[AZURE.INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
 ## Küme oluşturma
 
@@ -164,6 +168,6 @@ HDInsight kümesi oluşturma ve yönetme hakkında daha fazla bilgi edinmek isti
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO5-->
 
 

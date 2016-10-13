@@ -133,7 +133,7 @@ Aşağıdaki PowerShell betiğiyle bir SQL veritabanı ve onun tüm bağımlı k
 ## Sonraki adımlar
 SQL veritabanı oluşturduktan ve temel veritabanı kurulumu görevlerini gerçekleştirdikten sonra şu işlem için hazır duruma gelirsiniz:
 
-- [SQL Veritabanı'nı PowerShell ile yönetme](sql-database-command-line-tools.md)
+- [SQL Veritabanı'nı PowerShell ile yönetme](sql-database-manage-powershell.md)
 - [SQL Server Management Studio ile SQL Database'e bağlanma ve bir örnek T-SQL sorgusu gerçekleştirme](sql-database-connect-query-ssms.md)
 
 
@@ -143,6 +143,6 @@ SQL veritabanı oluşturduktan ve temel veritabanı kurulumu görevlerini gerçe
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO5-->
 
 

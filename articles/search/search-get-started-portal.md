@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Azure Search ile çalışmaya başlama | Microsoft Azure | Azure Search ile çalışmaya başlama | DocumentDB | Bulut arama hizmeti" 
-    description="Bu öğretici kılavuzu kullanarak ilk Azure Search çözümünüzü oluşturun. DocumentDB verilerini kullanarak bir Azure Search dizininin nasıl oluşturulacağını öğrenin. Bu, Veri İçeri Aktarma sihirbazının kullanıldığı portal tabanlı ve kodsuz bir alıştırmadır." 
+    pageTitle="Azure Search ile çalışmaya başlama | Microsoft Azure | DocumentDB | Bulut arama hizmeti" 
+    description="Bu öğretici yolunu ve DocumentDB örnek verilerini kullanarak ilk Azure Search dizininizi oluşturma hakkında bilgi edinin. Bu işlem, Veri Alma sihirbazını kullanan portal tabanlı ve kodsuz bir alıştırmadır." 
     services="search" 
     documentationCenter="" 
     authors="HeidiSteen" 
@@ -14,7 +14,7 @@
     ms.workload="search" 
     ms.topic="hero-article" 
     ms.tgt_pltfrm="na" 
-    ms.date="08/29/2016" 
+    ms.date="10/03/2016" 
     ms.author="heidist"/>
 
 
@@ -24,11 +24,11 @@ Bu kodsuz giriş, doğrudan portal içinde yerleşik olarak sunulan işlevleri k
 
 Öğretici, verilerimizi ve yönergelerimizi kullanarak bir [örnek Azure DocumentDB veritabanı](#apdx-sampledata) oluşturmanın kolay olduğunu varsayar ancak bu adımları DocumentDB veya SQL Database'de var olan verilerinize de uyarlayabilirsiniz.
 
-> [AZURE.NOTE] Bu Başlarken öğreticisi için bir [Azure aboneliği](../../includes/free-trial-note.md) ve [Azure Search hizmeti](search-create-service-portal.md) gerekir. 
+> [AZURE.NOTE] Bu Başlarken öğreticisi için bir [Azure aboneliği](/pricing/free-trial/?WT.mc_id=A261C142F) ve [Azure Search hizmeti](search-create-service-portal.md) gerekir. 
  
 ## Hizmetinizi bulma
 
-1. [Azure Portal](https://portal.azure.com)’da oturum açın.
+1. [Azure portalında](https://portal.azure.com) oturum açın.
 
 2. Azure Search hizmetinizin hizmet panosunu açın. Panoyu bulmanın birkaç yolu burada verilmiştir.
     - Harf çubuğunda **Arama hizmetleri**'ne tıklayın. Harf çubuğu, aboneliğinizde sağlanan tüm hizmeti listeler. Bir arama hizmeti tanımlanmışsa listede **Arama hizmetleri**'ni görürsünüz.
@@ -40,11 +40,11 @@ Birçok müşteri ücretsiz hizmetle başlar. Bu sürüm üç dizin, üç veri k
 
 ## Bir dizin ve yük verileri oluşturma
 
-Arama sorguları, belirli arama davranışlarını iyileştirmek için kullanılan aranabilir verileri, meta verileri ve yapıları içeren bir *dizinde* yinelenir. İlk adım olarak, bir dizin tanımlayıp dolduracaksınız.
+Arama sorguları, belirli arama davranışlarını iyileştirmek için kullanılan aranabilir verileri, meta verileri ve yapıları içeren bir *dizinde* yinelenir. İlk adım olarak, bir dizin tanımlayıp doldurun.
 
 Bir dizin oluşturmanın birkaç yolu vardır. Verileriniz Azure SQL Database, Azure VM'deki SQL Server veya DocumentDB gibi Azure Search'ün gezinebileceği bir depodaysa *dizin oluşturucu* kullanarak dizini çok kolay bir şekilde oluşturup doldurabilirsiniz.
 
-Bu görevi portal tabanlı tutmak için **Veri içeri aktarma** sihirbazı aracılığıyla bir dizin oluşturucu kullanarak gezinilebilen DocumentDB'den veri varsayacağız. 
+Bu görevi portal tabanlı tutmak için **Veri alma** sihirbazı aracılığıyla bir dizin oluşturucu kullanarak gezinilebilen DocumentDB'den veriler kullanılır. 
 
 Devam etmeden önce bu öğreticiyle kullanmak üzere bir [örnek DocumentDB veritabanı](#apdx-sampledata) oluşturun ve ardından aşağıdaki adımları tamamlamak için bu bölüme geri dönün.
 
@@ -53,13 +53,13 @@ Devam etmeden önce bu öğreticiyle kullanmak üzere bir [örnek DocumentDB ver
 
 1. Azure Search hizmeti panonuzda, bir dizini hem oluşturan hem de dolduran bir sihirbazı başlatmak için komut çubuğundaki **Veri içeri aktar** seçeneğine tıklayın.
 
-  ![][7]
+    ![][7]
 
 2. Sihirbazda **Veri Kaynağı** > **DocumentDB** > **Ad**'a tıklayın ve veri kaynağı için bir ad yazın. Veri kaynağı, diğer dizin oluşturucularla kullanılabilen bir Azure Search bağlantı nesnesidir. Oluşturulduktan sonra, hizmetinizde "var olan bir veri kaynağı" olarak kullanılabilir hale gelir.
 
 3. Var olan DocumentDB hesabınızı, veritabanını ve koleksiyonu seçin. Bizim sağladığımız örnek verileri kullanıyorsanız veri kaynağı tanımınız şöyle görünür:
 
-  ![][2]
+    ![][2]
 
 Sorguyu atladığımıza dikkat edin. Bunun nedeni, veri kümemize bu sefer değişiklik takibi uygulamıyor olmamızdır. Veri kümenizde bir kaydın güncelleştirilmesini takip eden bir alan varsa dizininizde tercihe bağlı güncelleştirmeler için değişiklik takibi kullanma amacıyla bir Azure Search dizin oluşturucusunu yapılandırabilirsiniz.
 
@@ -187,6 +187,6 @@ Bunu yapmanın kolay bir yolu varsayılan sorguyu kullanmaktır ancak varsayıla
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO1-->
 
 

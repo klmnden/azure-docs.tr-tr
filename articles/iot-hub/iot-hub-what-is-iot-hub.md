@@ -19,9 +19,7 @@
 
 # Azure IoT Hub nedir?
 
-Azure IoT Hub'a hoş geldiniz. Bu makale Azure IoT Hub'a genel bir bakış sağlar ve bir Nesnelerin İnterneti (IoT) çözümü uygularken bu hizmeti neden kullanmanız gerektiğini açıklar.
-
-Azure IoT Hub, milyonlarca IoT cihazları ile bir çözüm arka ucu arasında güvenilir ve güvenli çift yönlü iletişimler sağlayan tam olarak yönetilen bir hizmettir. Azure IoT Hub:
+Azure IoT Hub'a hoş geldiniz. Bu makale Azure IoT Hub'a genel bir bakış sağlar ve bir Nesnelerin İnterneti (IoT) çözümü uygularken bu hizmeti neden kullanmanız gerektiğini açıklar. Azure IoT Hub, milyonlarca IoT cihazları ile bir çözüm arka ucu arasında güvenilir ve güvenli çift yönlü iletişimler sağlayan tam olarak yönetilen bir hizmettir. Azure IoT Hub:
 
 - Cihazdan buluta ve buluttan cihaza ölçekli şekilde güvenilir mesajlaşma sağlar.
 - Cihaz başına güvenlik kimlik bilgisi ve erişim denetimi kullanarak güvenli iletişimlere olanak sağlar.
@@ -107,15 +105,13 @@ Bazı kodları yazmaya ve bazı örnekleri çalıştırmaya başlamak için [IoT
 
 
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
-[lnk-connect-device]: https://azure.microsoft.com/develop/iot/
-[lnk-d2c]: iot-hub-csharp-csharp-process-d2c.md
 [protocol-gateway]: https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md
 [lnk-service-assisted-pattern]: http://blogs.msdn.com/b/clemensv/archive/2014/02/10/service-assisted-communication-for-connected-devices.aspx "Hizmet Destekli İletişim, Clemens Vasters'ın blog yazısı"
 [lnk-compare]: iot-hub-compare-event-hubs.md
 [lnk-gateway]: iot-hub-protocol-gateway.md
-[lnk-field-gateway]: iot-hub-guidance.md#field-gateways
-[lnk-devguide-identityregistry]: iot-hub-devguide.md#identityregistry
-[lnk-devguide-security]: iot-hub-devguide.md#security
+[lnk-field-gateway]: iot-hub-devguide-endpoints.md#field-gateways
+[lnk-devguide-identityregistry]: iot-hub-devguide-identity-registry.md
+[lnk-devguide-security]: iot-hub-devguide-security.md
 [lnk-wns]: https://msdn.microsoft.com/library/windows/apps/mt187203.aspx
 [lnk-google-messaging]: https://developers.google.com/cloud-messaging/
 [lnk-apple-push]: https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW9
@@ -126,6 +122,6 @@ Bazı kodları yazmaya ve bazı örnekleri çalıştırmaya başlamak için [IoT
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO1-->
 
 

@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="09/26/2016"
+   ms.date="09/27/2016"
    ms.author="nitinme"/>
 
 
@@ -113,9 +113,9 @@ Makalenin geriye kalan bölümlerinde, kullanılabilir .NET yöntemlerinin, kiml
 
 ## Kimlik Doğrulaması
 
-### Son kullanıcı kimlik doğrulaması kullanıyorsanız
+### Son kullanıcı kimlik doğrulaması kullanıyorsanız (bu öğretici için önerilir)
 
-Bunu mevcut Azure AD "Yerel İstemci" Uygulamanız ile birlikte kullanın; aşağıda bir tanesi verilmiştir.
+Bunu mevcut Azure AD "Yerel İstemci" Uygulamanız ile birlikte kullanın; aşağıda bir tanesi verilmiştir. Bu öğreticiyi daha hızlı tamamlamanıza yardımcı olması için bu yaklaşımı kullanmanız önerilir.
 
     // User login via interactive popup
     // Use the client ID of an existing AAD "Native Client" application.
@@ -125,7 +125,10 @@ Bunu mevcut Azure AD "Yerel İstemci" Uygulamanız ile birlikte kullanın; aşa�
     var activeDirectoryClientSettings = ActiveDirectoryClientSettings.UsePromptOnly(nativeClientApp_clientId, new Uri("urn:ietf:wg:oauth:2.0:oob"));
     var creds = UserTokenProvider.LoginWithPromptAsync(domain, activeDirectoryClientSettings).Result;
 
-Yukarıdaki parçacıkta varsayılan olarak tüm Azure abonelikleri için kullanılabilir olan bir Azure AD etki alanı ve istemci kimliği kullanılmaktadır. Kendi Azure AD etki alanınızı ve uygulama istemci kimliğinizi kullanmak istiyorsanız bir Azure AD yerel uygulaması oluşturmanız gerekir. Yönergeler için bkz. [Active Directory Uygulaması oluşturma](../resource-group-create-service-principal-portal.md#create-an-active-directory-application).
+Yukarıdaki bu kod parçacığı hakkında bilmeniz gereken birkaç şey.
+
+* Öğreticiyi daha hızlı tamamlamanıza yardımcı olmak üzere bu kod parçacığı tüm Azure abonelikleri için varsayılan olarak kullanılabilen bir Azure AD etki alanı ve istemci kimliği kullanır. Böylece **bu kod parçacığını uygulamanızda olduğu gibi kullanabilirsiniz**.
+* Ancak, kendi Azure AD etki alanınızı ve uygulama istemci kimliğinizi kullanmak istemiyorsanız bir Azure AD yerel uygulaması oluşturmanız ve ardından oluşturduğunuz uygulamaya ait Azure AD etki alanı, istemci kimliği ve yeniden yönlendirme URI’sini kullanmanız gerekir. Yönergeler için bkz. [Active Directory Uygulaması oluşturma](../resource-group-create-service-principal-portal.md#create-an-active-directory-application).
 
 >[AZURE.NOTE] Yukarıdaki bağlantılarda verilen yönergeler bir Azure AD web uygulaması içindir. Bununla birlikte, bunun yerine yerel istemci uygulaması oluşturmayı seçtiğinizde bile adımlar tam olarak aynıdır. 
 
@@ -276,6 +279,6 @@ Aşağıdaki kod parçacığında, bir Data Lake Store hesabındaki bir dosyayı
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Sep16_HO5-->
 
 

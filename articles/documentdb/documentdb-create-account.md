@@ -21,7 +21,7 @@
 # Azure portalını kullanarak DocumentDB NoSQL hesabı oluşturma
 
 > [AZURE.SELECTOR]
-- [Azure portalı](documntdb-create-account.md)
+- [Azure portalı](documentdb-create-account.md)
 - [Azure CLI'si ve Azure Resource Manager](documentdb-automation-resource-manager-cli.md)
 
 Microsoft Azure DocumentDB ile bir veritabanı oluşturmak için:
@@ -96,6 +96,6 @@ DocumentDB hakkında daha fazla bilgi edinmek için şu kaynakları keşfedin:
 
 
 
-<!---HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO1-->
 
 

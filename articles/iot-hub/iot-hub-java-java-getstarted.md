@@ -41,7 +41,7 @@ Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
 Son adım olarak **Birincil anahtar** değerini not edin ve ardından **Mesajlaşma**’ya tıklayın. **Mesajlaşma** dikey penceresinde **Event Hub ile uyumlu adı** ve **Event Hub ile uyumlu uç noktasını** not edin. **read-d2c-messages** uygulamanızı oluştururken bu üç değere sahip olmanız gerekir.
 
-![][6]
+![Azure portalı IoT Hub Mesajlaşma dikey penceresi][6]
 
 Artık IoT hub'ınızı oluşturdunuz ve bu öğreticiyi tamamlamak için ihtiyacınız olan IoT Hub konak adına, IoT Hub bağlantı dizesine, IoT Hub Birincil Anahtarına, Event Hubs ile uyumlu ada ve Event Hubs ile uyumlu uç noktasına sahipsiniz.
 
@@ -63,7 +63,7 @@ Bu bölümde, IoT hub'ınızdaki kimlik kayıt defterinde yeni bir cihaz kimliğ
     <dependency>
       <groupId>com.microsoft.azure.iothub-java-client</groupId>
       <artifactId>iothub-java-service-client</artifactId>
-      <version>1.0.7</version>
+      <version>1.0.9</version>
     </dependency>
     ```
     
@@ -153,7 +153,7 @@ Bu bölümde IoT Hub'dan cihaz-bulut iletilerini okuyan bir Java konsol uygulama
     <dependency> 
         <groupId>com.microsoft.azure</groupId> 
         <artifactId>azure-eventhubs</artifactId> 
-        <version>0.7.1</version> 
+        <version>0.8.2</version> 
     </dependency>
     ```
 
@@ -296,7 +296,7 @@ Bu bölümde, IoT Hub'a cihazdan buluta iletiler gönderen bir cihaza benzetim y
     <dependency>
       <groupId>com.microsoft.azure.iothub-java-client</groupId>
       <artifactId>iothub-java-device-client</artifactId>
-      <version>1.0.8</version>
+      <version>1.0.14</version>
     </dependency>
     <dependency>
       <groupId>com.google.code.gson</groupId>
@@ -446,7 +446,7 @@ Bu bölümde, IoT Hub'a cihazdan buluta iletiler gönderen bir cihaza benzetim y
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
     ```
 
-    ![][7]
+    ![Cihazdan buluta iletileri izlemeye yönelik Java IoT Hub hizmeti istemci uygulaması][7]
 
 2. simulated-device klasöründeki bir komut isteminde IoT hub'ınıza telemetri verileri göndermeye başlamak için aşağıdaki komutu çalıştırın:
 
@@ -454,11 +454,11 @@ Bu bölümde, IoT Hub'a cihazdan buluta iletiler gönderen bir cihaza benzetim y
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App" 
     ```
 
-    ![][8]
+    ![Cihazdan buluta iletileri göndermeye yönelik Java IoT Hub cihazı istemci uygulaması][8]
 
 3. [Azure portalındaki][lnk-portal] **Kullanım** kutucuğu, hub'a gönderilen ileti sayısını gösterir:
 
-    ![][43]
+    ![IoT Hub’a gönderilen ileti sayısını gösteren Azure portalı Kullanım kutucuğu][43]
 
 ## Sonraki adımlar
 
@@ -482,13 +482,13 @@ IoT çözümünüzün nasıl genişletileceğini ve cihazdan buluta iletilerin d
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 
 [lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
-[lnk-devguide-identity]: iot-hub-devguide.md#identityregistry
+[lnk-devguide-identity]: iot-hub-devguide-identity-registry.md
 [lnk-event-hubs-overview]: ../event-hubs/event-hubs-overview.md
 
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/java-devbox-setup.md
 [lnk-process-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
 
-[lnk-hub-sdks]: iot-hub-sdks-summary.md
+[lnk-hub-sdks]: iot-hub-devguide-sdks.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-portal]: https://portal.azure.com/
 
@@ -497,6 +497,6 @@ IoT çözümünüzün nasıl genişletileceğini ve cihazdan buluta iletilerin d
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO1-->
 
 

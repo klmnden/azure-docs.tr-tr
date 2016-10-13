@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="mobile-multiple"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/30/2016"
-    ms.author="krisragh"/>
+    ms.date="10/01/2016"
+    ms.author="adrianha"/>
+
 
 # <a name="getting-started"> </a>Mobile Services kullanıyorum, App Service bana nasıl yardımcı olur?
 
@@ -31,7 +32,7 @@ Mevcut Mobil Hizmetiniz güvendedir ve desteklenmeye devam edecektir. Ancak *Azu
 - Yerleşik hazırlık, yedekleme, geri alma ve üretim sırasında test etme özellikleri
 
 ## Yeni barındırma özellikleri
-*Azure App Service* ’de *Mobil Uygulama* arka uç kodu; Web Uygulaması ve API Uygulaması ile aynı kapsayıcıda çalışır. Böylece, şu anda Mobile Services’de bulunmayan bazıları dahil, bu kapsayıcıdaki tüm özelliklerden faydalanabilirsiniz.
+*Azure App Service*’de *Mobil Uygulama* arka uç kodu; Web Uygulaması ve API Uygulaması ile aynı kapsayıcıda çalışır. Böylece, şu anda Mobile Services’de bulunmayan bazıları dahil, bu kapsayıcıdaki tüm özelliklerden faydalanabilirsiniz.
 
 - Web İşleri aracılığıyla sürekli çalışan arka uç mantığı ekleyin
 - Arka uç kodunuzun her zaman çalıştığından emin olun
@@ -64,6 +65,6 @@ Bu [öğreticiyi](app-service-mobile-migrating-from-mobile-services.md) izleyere
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Oct16_HO1-->
 
 

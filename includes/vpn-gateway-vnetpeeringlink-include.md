@@ -1,6 +1,5 @@
->[AZURE.NOTE] VNet’leriniz aynı bölgedeyse VNet eşlemesi kullanarak bağlamayı düşünebilirsiniz. VNet eşlemesi şu anda Önizleme aşamasındadır. Daha fazla bilgi için [VNet eşlemesi](../articles/virtual-network/virtual-network-peering-overview.md) makalesine bakın.
+Sanal ağlar bir VPN ağ geçidi kullanılmadan da bağlanabilir. VNet’leriniz aynı bölgedeyse VNet eşlemesi kullanarak bağlamayı düşünebilirsiniz. Daha fazla bilgi için [VNet eşlemesi](../articles/virtual-network/virtual-network-peering-overview.md) makalesine bakın.
 
-
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Oct16_HO1-->
 
 

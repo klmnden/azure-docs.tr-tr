@@ -13,11 +13,15 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="07/18/2016"
+    ms.date="09/30/2016"
     ms.author="curtand;jeffsta"/>
 
 
 # Azure Active Directory'ye özel etki alanı adı ekleyin
+
+> [AZURE.SELECTOR]
+- [Azure portalı](active-directory-domains-add-qzure-portal.md)
+- [Klasik Azure portalı](active-directory-add-domain.md)
 
 Kuruluşunuzun iş amaçlı kullandığı bir veya daha fazla etki alanı adı var ve kullanıcılarınız şirket ağınızda sizin şirket etki alanı adınızı kullanarak oturum açıyor. Artık Azure Active Directory'yi (Azure AD) kullandığınıza göre şirket etki alanı adınızı da Azure AD'ye ekleyebilirsiniz. Bu sayede dizininizde "alice@contoso.com" gibi kullanıcılarınızın aşina olduğu kullanıcı adları atayabilirsiniz. Bu basit bir işlemdir:
 
@@ -94,6 +98,6 @@ Kuruluşunuz "contoso.com" ve "contosobank.com" gibi birden fazla özel etki ala
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO1-->
 
 

@@ -17,11 +17,12 @@
    ms.date="08/31/2016"
    ms.author="cherylmc"/>
 
+
 # Resource Manager için PowerShell kullanarak Sanal Ağdan Sanal Ağa bağlantı yapılandırma
 
 > [AZURE.SELECTOR]
-- [Azure Klasik Portalı](virtual-networks-configure-vnet-to-vnet-connection.md)
-- [PowerShell - Resource Manager](vpn-gateway-vnet-vnet-rm-ps.md)
+- [Resource Manager - PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
+- [Klasik - Klasik Portal](virtual-networks-configure-vnet-to-vnet-connection.md)
 
 Bu makalede VPN Gateway kullanılarak Resource Manager dağıtım modelinde sanal ağlar arası bağlantı oluşturma işlemi adım adım açıklanmaktadır. Sanal ağlar aynı ya da farklı bölgelerde ve aynı ya da farklı aboneliklerde bulunuyor olabilirler.
 
@@ -29,24 +30,23 @@ Bu makalede VPN Gateway kullanılarak Resource Manager dağıtım modelinde sana
 ![v2v diyagramı](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
 
 
-### Sanal Ağdan Sanal Ağa dağıtım modelleri ve araçları
+### Sanal Ağdan Sanal Ağa dağıtım modelleri ve yöntemleri
 
 
 [AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
 
-Bir Sanal Ağdan Sanal Ağa bağlantısı hem dağıtım modelleriyle, hem de birkaç farklı aracı kullanarak yapılandırılabilir. Daha fazla bilgi için aşağıdaki tabloya bakın. Bu tabloyu bu yapılandırma için yeni makaleler, yeni dağıtım modelleri ve ek araçlar kullanılabilir olduğunda güncelleştiriyoruz. Bir makale kullanılabilir olduğunda tabloda ona doğrudan bağlantı oluşturuyoruz.
+Bir Sanal Ağdan Sanal Ağa bağlantısı hem dağıtım modelleriyle, hem de birkaç farklı aracı kullanarak yapılandırılabilir. Bu yapılandırma için yeni makaleler ve ek araçlar kullanılabilir oldukça aşağıdaki tablo güncelleştirilmektedir. Bir makale kullanılabilir olduğunda tabloda ona doğrudan bağlantı oluşturuyoruz.<br><br>
 
 [AZURE.INCLUDE [vpn-gateway-table-vnet-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)] 
 
-
 #### VNet eşlemesi
 
-Sanal ağ yapılandırmanız belirli gereksinimleri karşılıyorsa bağlantınızı oluşturmak için VNet eşlemesini kullanabilirsiniz. VNet eşlemesi sanal ağ geçidini kullanmaz. [VNet eşlemesi](../virtual-network/virtual-network-peering-overview.md) şu anda Önizlemede.
+[AZURE.INCLUDE [vpn-gateway-vnetpeeringlink](../../includes/vpn-gateway-vnetpeeringlink-include.md)]
 
 
 ## Sanal Ağdan Sanal Ağa bağlantıları hakkında
 
-Bir sanal ağı başka bir sanal ağa bağlamak (VNet'ten VNet'e), bir VNet'i şirket içi site konumuna bağlamakla aynıdır. Her iki bağlantı türü de Azure VPN ağ geçidini kullanarak IPsec/IKE ile güvenli bir tünel sunar. Bağlandığınız Sanal Ağlar farklı bölgelerde, ve farklı aboneliklerde bulunabilir. Hatta Sanal Ağdan Sanal Ağa iletişimini çok siteli yapılandırmalarla bile birleştirebilirsiniz. Bunun yapılması aşağıdaki diyagramda da görüldüğü gibi şirket içi ve şirket dışı bağlantıyla ağ içi bağlantıyı birleştiren ağ topolojileri kurabilmenize olanak sağlar.
+Bir sanal ağı başka bir sanal ağa bağlamak (VNet'ten VNet'e), bir VNet'i şirket içi site konumuna bağlamakla aynıdır. Her iki bağlantı türü de Azure VPN ağ geçidini kullanarak IPsec/IKE ile güvenli bir tünel sunar. Bağlandığınız Sanal Ağlar farklı bölgelerde, ve farklı aboneliklerde bulunabilir. Hatta Sanal Ağdan Sanal Ağa iletişimini çok siteli yapılandırmalarla bile birleştirebilirsiniz. Bunun yapılması aşağıdaki diyagramda da görüldüğü gibi şirket içi ve şirket dışı bağlantıyla sanal ağ içi bağlantıyı birleştiren ağ topolojileri kurabilmenize olanak sağlar:
 
 
 ![Bağlantılar hakkında](./media/vpn-gateway-vnet-vnet-rm-ps/aboutconnections.png)
@@ -453,7 +453,7 @@ Bu örnekte ağ geçitleri farklı aboneliklerde olduğundan bu adımı [1. Abon
 
 3. **[1. Abonelik]** TestVNet1 - TestVNet5 bağlantısını oluşturma
 
-    Bu adımda TestVNet1 - TestVNet5 arasında bağlantı oluşturursunuz. Burada farklı olan, $vnet5gw’nun farklı bir abonelikte bulunmasından dolayı doğrudan alınamıyor olmasıdır. Yukarıdaki adımlarda belirtilen 1. Abonelik’ten iletişim sağlanan yeni bir PowerShell nesnesi oluşturmanız gerekecektir. Ad, Kimlik ve paylaşılan anahtar değerlerini kendi değerlerinizle değiştirin. Paylaşılan anahtarın her iki bağlantıyla da eşleşiyor olması önemlidir. Bir bağlantı oluşturmak çok zaman almaz.
+    Bu adımda TestVNet1 - TestVNet5 arasında bağlantı oluşturursunuz. Burada farklı olan, $vnet5gw’nun farklı bir abonelikte bulunmasından dolayı doğrudan alınamıyor olmasıdır. Yukarıdaki adımlarda belirtilen 1. Abonelik’ten iletişim sağlanan yeni bir PowerShell nesnesi oluşturmanız gerekecektir. Aşağıdaki örneği kullanın. Ad, Kimlik ve paylaşılan anahtar değerlerini kendi değerlerinizle değiştirin. Paylaşılan anahtarın her iki bağlantıyla da eşleşiyor olması önemlidir. Bir bağlantı oluşturmak çok zaman almaz.
 
     1. Abonelik’e bağlandığınızdan emin olun. 
     
@@ -487,6 +487,6 @@ Bu örnekte ağ geçitleri farklı aboneliklerde olduğundan bu adımı [1. Abon
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Oct16_HO1-->
 
 

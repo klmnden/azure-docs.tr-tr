@@ -389,6 +389,6 @@ Runbook’larınızla klasik kaynakları yönetecek Klasik Farklı Çalıştır 
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO1-->
 
 

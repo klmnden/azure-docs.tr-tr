@@ -3,7 +3,7 @@
     description="Xamarin.iOS geliştirme için Mobile Apps kullanmaya başlamak için bu öğreticiyi izleyin."
     services="app-service\mobile"
     documentationCenter="xamarin"
-    authors="wesmc7777"
+    authors="adrianhall"
     manager="dwrede"
     editor=""/>
 
@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="mobile-xamarin-ios"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="08/04/2016"
-    ms.author="normesta"/>
+    ms.date="10/01/2016"
+    ms.author="adrianha"/>
+
 
 
 #Yeni bir Xamarin.iOS uygulaması oluşturma
@@ -103,6 +104,6 @@ Node.js veya .NET arka ucu kullanmak için sunucu projesi yapılandırmak üzere
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Oct16_HO1-->
 
 

@@ -25,7 +25,7 @@ Apache Storm, veri akışlarını işlemeye yönelik ölçeklenebilir, hataya da
 
 > [AZURE.NOTE] Bu makaledeki adımlar Linux tabanlı bir HDInsight kümesi oluşturur. HDInsight kümesinde Windows tabanlı bir Storm oluşturma adımları için bkz. [Apache Storm öğreticisi: HDInsight’ta veri analizi kullanarak Storm Starter örneği kullanmaya başlama](hdinsight-apache-storm-tutorial-get-started.md)
 
-## Başlamadan önce
+## Ön koşullar
 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -38,6 +38,10 @@ Bu Apache Storm öğreticisini başarıyla tamamlamak için şunlara sahip olman
     - **Linux, Unix veya OS X istemcileri**: Bkz. [Linux, OS X veya Unix işletim sistemlerinden HDInsight’ta Linux tabanlı Hadoop ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md)
 
     - **Windows istemcileri**: [Windows’dan HDInsight’ta Linux tabanlı Hadoop ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-windows.md)
+
+### Erişim denetimi gereksinimleri
+
+[AZURE.INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
 ## Storm kümesi oluşturma
 
@@ -195,6 +199,6 @@ Java tabanlı topolojiler geliştirme hakkında zaten bilgi sahibiyseniz ve mevc
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO5-->
 
 

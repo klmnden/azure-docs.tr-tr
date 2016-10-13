@@ -15,9 +15,10 @@
    ms.date="03/15/2016"
    ms.author="jdial" />
 
+
 # Virtual Network'e Genel Bakış
 
-Azure sanal ağ (VNet) buluttaki kendi ağınızın bir gösterimidir.  Azure bulutunun aboneliğinize adanmış mantıksal bir yalıtımıdır. Bu ağ içindeki IP adres bloklarını, DNS ayarlarını, güvenlik ilkelerini ve yol tablolarını tam olarak denetleyebilirsiniz. Ayrıca sanal ağınızı alt ağlara ayırabilir ve Azure IaaS sanal makinelerini (VM'ler) ve/veya [Bulut hizmetlerini (PaaS rol örnekleri)](../cloud-services/cloud-services-choose-me.md) başlatabilirsiniz. Bunun yanı sıra, Azure'ın sunduğu [bağlantı seçeneklerinden](../vpn-gateway/vpn-gateway-cross-premises-options.md) birini kullanarak sanal ağı şirket içi ağınıza bağlayabilirsiniz. Özetle, IP adres blokları üzerinde tam bir kontrol sahibi olarak ve Azure'ın sunduğu kurumsal ölçek avantajıyla, ağınızı Azure'a genişletebilirsiniz.
+Azure sanal ağ (VNet) buluttaki kendi ağınızın bir gösterimidir.  Azure bulutunun aboneliğinize adanmış mantıksal bir yalıtımıdır. Bu ağ içindeki IP adres bloklarını, DNS ayarlarını, güvenlik ilkelerini ve yol tablolarını tam olarak denetleyebilirsiniz. Ayrıca sanal ağınızı alt ağlara ayırabilir ve Azure IaaS sanal makinelerini (VM'ler) ve/veya [Bulut hizmetlerini (PaaS rol örnekleri)](../cloud-services/cloud-services-choose-me.md) başlatabilirsiniz. Bunun yanı sıra, Azure'ın sunduğu [bağlantı seçeneklerinden](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site) birini kullanarak sanal ağı şirket içi ağınıza bağlayabilirsiniz. Özetle, IP adres blokları üzerinde tam bir kontrol sahibi olarak ve Azure'ın sunduğu kurumsal ölçek avantajıyla, ağınızı Azure'a genişletebilirsiniz.
 
 Sanal ağları daha iyi anlayabilmek için basitleştirilmiş bir şirket içi ağını gösteren aşağıdaki şekle göz atın.
 
@@ -78,7 +79,7 @@ Ağ arabirimlerine (NIC'ler), VM'lere ve alt ağlara gelen ve giden erişimi den
 
 Sanal gereç, yazılım tabanlı bir gereç işlevini (örneğin; güvenlik duvarı, WAN iyileştirmesi veya yetkisiz erişim algılama) çalıştıran sanal ağınızdaki diğer bir VM'dir. Bir sanal gerecin işlevlerini kullanmak üzere sanal ağ trafiğinizi bu sanal gerece yönlendirmek için Azure'da bir yol oluşturabilirsiniz.
 
-Örneğin, NSG'ler sanal ağınızda güvenlik sağlamak için kullanılabilir. Ancak NSG'ler gelen ve giden paketler için katman 4 Erişim Denetimi Listesi (ACL) sağlar. Katman 7 güvenlik modelini kullanmak istiyorsanız bir güvenlik duvarı gerecini kullanmanız gerekir.
+Örneğin, NSG'ler sanal ağınızda güvenlik sağlamak için kullanılabilir. Ancak NSG'ler gelen ve giden paketler için katman 4 Access Control Listesi (ACL) sağlar. Katman 7 güvenlik modelini kullanmak istiyorsanız bir güvenlik duvarı gerecini kullanmanız gerekir.
 
 Sanal gereçler [kullanıcı tanımlı yollara ve IP iletimine](virtual-networks-udr-overview.md) bağımlıdır.
 
@@ -97,6 +98,6 @@ Azure'da Virtual Network'ü kullanmanın ek bir maliyeti yoktur. Sanal ağ için
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Oct16_HO1-->
 
 

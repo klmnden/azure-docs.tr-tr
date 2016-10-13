@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/31/2016"
+   ms.date="10/03/2016"
    ms.author="cherylmc"/>
 
 
@@ -55,23 +55,22 @@ Yapılandırmanıza başlamadan önce aşağıdaki öğelerin bulunduğunu doğr
 
 Bu adımları bir alıştırma olarak kullanırken, şu örnek yapılandırma değerlerini kullanabilirsiniz:
 
-- VNet Name: TestVNet1
-- Address Space: 10.11.0.0/16 ve 10.12.0.0/16
-- Alt ağlar: 
+- **VNet Name:** TestVNet1
+- **Adres Alanı:** 10.11.0.0/16 ve 10.12.0.0/16
+- **Alt ağlar:**
     - FrontEnd: 10.11.0.0/24
     - BackEnd: 10.12.0.0/24
     - GatewaySubnet: 10.12.255.0/27
-- Resource Group: TestRG1
-- Location: East US
-- DNS Server: 8.8.8.8
-- Gateway Name: VNet1GW
-- Public IP: VNet1GWIP
-- VPN Type: Route-based
-- Connection Type: Site-to-site (IPsec)
-- Gateway Type: VPN
-- Local Network Gateway Name: Site2
-- Connection Name: VNet1toSite2
-
+- **Kaynak Grubu:** TestRG1
+- **Konum:** Doğu ABD
+- **DNS Sunucusu:** 8.8.8.8
+- **Ağ Geçidi Adı:** VNet1GW
+- **Genel IP:** VNet1GWIP
+- **VPN Türü:** Yol tabanlı
+- **Bağlantı Türü:** Siteden siteye (IPsec)
+- **Ağ Geçidi Türü:** VPN
+- **Yerel Ağ Geçidi Adı:** Site2
+- **Bağlantı Adı:** VNet1toSite2
 
 
 ## 1. Sanal ağ oluşturma 
@@ -90,29 +89,24 @@ Ek adres alanı ve alt ağları VNet’iniz oluşturulduktan sonra ekleyebilirsi
 
 ## <a name="dns"></a>3. DNS sunucusu belirleme
 
-Bu yapılandırmayı bir alıştırma olarak oluşturuyorsanız DNS sunucunuzu belirlerken bu [değerlere](#values) başvurun.
-
 ### DNS sunucusu belirlemek için
 
 [AZURE.INCLUDE [vpn-gateway-add-dns-rm-portal](../../includes/vpn-gateway-add-dns-rm-portal-include.md)]
 
 ## 4. Ağ geçidi alt ağı oluşturma
 
-Sanal ağınızı bir ağ geçidine bağlamadan önce, bağlamak istediğiniz sanal ağ için ağ geçidi alt ağını oluşturmanız gerekir. Oluşturduğunuz ağ geçidi alt ağı *GatewaySubnet* olarak adlandırılmalıdır; aksi halde düzgün şekilde çalışmaz. 
-
-Bazı yapılandırmalardaki ağ geçidi alt ağı ön adı, havuzda ihtiyaç duyulan IP adresleri sayısını sağlamak için /28’lik veya daha geniş bir alt ağı gerektirir.  Bunun anlamı ağ geçidi alt ağı ön adı /28, /27, /26 vb. şeklinde olması gerekir. Gelecekteki olası ek yapılandırmaları gerçekleştirebilmek için bu noktada daha geniş bir alt ağ oluşturmak isteyebilirsiniz.
+Sanal ağınızı bir ağ geçidine bağlamadan önce, bağlamak istediğiniz sanal ağ için ağ geçidi alt ağını oluşturmanız gerekir. Mümkünse, gelecekteki ek yapılandırma gereksinimlerini karşılamaya yetecek sayıda IP adresi sağlamak için /28 veya /27 CIDR bloğu kullanılarak ağ geçidi alt ağı oluşturulması idealdir.
 
 Bu yapılandırmayı bir alıştırma olarak oluşturuyorsanız ağ geçidi alt ağınızı oluştururken bu [değerlere](#values) başvurun.
 
 ### Bir ağ geçidi alt ağı oluşturmak için
 
-[AZURE.INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)] 
 
 [AZURE.INCLUDE [vpn-gateway-add-gwsubnet-rm-portal](../../includes/vpn-gateway-add-gwsubnet-rm-portal-include.md)]
 
 ## 5. Sanal ağ geçidi oluşturma
 
-Bu yapılandırmayı bir alıştırma olarak oluşturuyorsanız ağ geçidinizi oluştururken bu [değerlere](#values) başvurun.
+Bu yapılandırmayı bir alıştırma olarak oluşturuyorsanız [örnek yapılandırma değerlerine](#values) başvurabilirsiniz.
 
 ### Bir sanal ağ geçidi oluşturmak için
 
@@ -120,9 +114,9 @@ Bu yapılandırmayı bir alıştırma olarak oluşturuyorsanız ağ geçidinizi 
 
 ## 6. Yerel ağ geçidi oluşturma
 
-*Yerel ağ geçidi* şirket içi konumunuz anlamına gelir. Azure'ın başvurmak üzere kullanabilmesi için yerel ağ geçidinize bir ad verin. 
+‘Yerel ağ geçidi’ şirket içi konumunuz anlamına gelir. Azure'ın başvurmak üzere kullanabilmesi için yerel ağ geçidinize bir ad verin. 
 
-Bu yapılandırmayı bir alıştırma olarak oluşturuyorsanız yerel sitenizi eklerken bu [değerlere](#values) başvurun.
+Bu yapılandırmayı bir alıştırma olarak oluşturuyorsanız [örnek yapılandırma değerlerine](#values) başvurabilirsiniz.
 
 ### Bir yerel ağ geçidi oluşturmak için
 
@@ -157,6 +151,6 @@ VPN bağlantınızı portaldan veya PowerShell kullanarak doğrulayabilirsiniz.
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO1-->
 
 

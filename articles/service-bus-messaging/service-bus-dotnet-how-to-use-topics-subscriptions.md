@@ -152,6 +152,8 @@ if (!namespaceManager.TopicExists("TestTopic"))
 
 Ayrıca, [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) sınıfını kullanarak da konu başlığı abonelikleri oluşturabilirsiniz. Abonelikler adlandırılır ve aboneliğin sanal kuyruğuna gönderilen ileti kümesini sınırlayan isteğe bağlı bir filtre içerebilir.
 
+> [AZURE.IMPORTANT] İletilerin bir abonelik tarafından alınabilmesi için konuya herhangi bir ileti göndermeden önce ilgili aboneliği oluşturmanız gerekir. Bir konuya abonelik yoksa konu bu iletileri atar.
+
 ### Varsayılan (MatchAll) filtreyle abonelik oluşturma
 
 Yeni bir abonelik oluşturulurken filtre belirtilmezse kullanılan varsayılan filtre **MatchAll** filtresidir. **MatchAll** filtresini kullandığınızda konu başlığında yayımlanan tüm iletiler aboneliğin sanal kuyruğuna yerleştirilir. Aşağıdaki örnekte "AllMessages" adlı bir abonelik oluşturulur ve varsayılan **MatchAll** filtresi kullanılır.
@@ -330,6 +332,6 @@ Artık Service Bus konu başlıklarına ve aboneliklerine ilişkin temel bilgile
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Sep16_HO5-->
 
 

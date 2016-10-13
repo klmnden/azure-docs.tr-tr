@@ -48,113 +48,8 @@ To complete this configuration, you need the following items so make sure you ha
 
 You will deploy two Azure Stack POC environments to complete this configuration.
 
--   For the first POC, you can simply follow the deployment instructions detailed in the article [Deploy Azure Stack POC](azure-stack-run-powershell-script.md).
-
--   For the second POC, you need to change the external network address range, which requires changing settings in files in the Cloud Deployment files **before you deploy the POC**.
-
->[AZURE.NOTE] It is important that you make changes to the Deployment before you deploy the second POC because you cannot change this after it has been deployed.
-
-### Deploying POC Environment 1
-
-
-For the first POC deployment, you must first prepare the deployment machine and then run the PowerShell deployment script. You can find step-by-step instructions online on [How to Deploy Azure Stack POC](azure-stack-run-powershell-script.md).
-
-### Deploying POC Environment 2
-
-
-Before you deploy the second POC, you must change the external (VIP) address range, and the hardcoded IP addresses of several services. The Azure Stack POC deployment is designed to be self-contained and isolated from the test of the network. By default, the Azure Stack POC deployment uses the same address ranges for its networks so that the experience is consistent for all users evaluating Azure Stack. However, since we want to connect two Azure Stack POC deployments, it is necessary to change the External VIP range in one environment so that it is different from the other.
-
-### Change the External Address (VIP) Range
-
-1.  Open the One-Node Customer Configuration Template from the CloudDeployment package. If you downloaded the package to your C: drive, the path to this file looks like this.
-
-     > C:\\CloudDeployment\\Configuration\\OneNodeCustomerConfigTemplate.xml
-
-2.  Open the file with your preferred text editor.
-
-3.  Find the Network Configuration section, which should be near the top of the document. Find the network with the name “External”.
-
-     > &lt;Network Id="External" Name="External" VLanId="0"&gt;
-     >
-     > &lt;!-- Default Gateway should be .0 --&gt;
-     >
-     > &lt;IPv4 Subnet="192.168.102.0/24" DefaultGateway="192.168.102.0" /&gt;
-     >
-     > &lt;/Network&gt;
-
-4.  Change the **Subnet** entry to **192.168.112.0/24** and the **DefaultGateway** entry to **192.168.112.0**.
-
-5.  Be sure to save the file.
-
-### Change the Gateway Pool Public IP Address
-
-Next, change the IP Address of the Fabric multi-tenant Gateway
-
-1.  Open the fabric Gateway configuration template with your preferred text editor. If you downloaded your POC deployment package to your C: drive, you would find this file in the following location.
-
-     > C:\\CloudDeployment\\Configuration\\Roles\\Fabric\\Gateway\\OneNodeRole.xml
-
-2.  Look for the following entry.
-
-     > &lt;PublicInfo&gt;
-     >
-     > &lt;VIPs&gt;
-     >
-     > &lt;VIP Id="GatewayPublicIPaddress" Name="PublicIPExternaVIP" NetworkId="External" IPv4Address="192.168.102.1/24" /&gt;
-     >
-     > &lt;/VIPs&gt;
-     >
-     > &lt;/PublicInfo&gt;
-
-3.  Change the value for **Ipv4Address** from **192.168.102.1/24** to **192.168.112.1/24**.
-
-4.  Save the file.
-
-### Change the VIPs of External Facing Service Endpoints
-
-Finally, change the VIP addresses of a few externally facing fabric services so that they correspond with the correct VIP address pool range. There are a handful of such services, and you will need to edit the Configuration file (OneNodeRole.xml) for each one. After making the change described for each file, make sure you save the file so that the changes get picked up during deployment.  In our example, we're going to change each entry from 192.168.102.0/24 to 192.168.112.0/24 for each occurrence.
-
-#### Active Directory Federation Services (ADFS)
-
-| Item | Configuration |
-|---------------------------|---------------------------------------------------------------------------|
-| Path to config file |  C:\\CloudDeployment\\Configuration\\Roles\\Fabric\\ADFS\\OneNodeRole.xml |
-| Default Value       | &lt;VIP Id="Adfs" Name="Active Directory Federation Services" NetworkId="External" IPv4Address="192.168.102.2/24" EnableOutboundNat="True"&gt; |
-| New Value           | &lt;VIP Id="Adfs" Name="Active Directory Federation Services" NetworkId="External" IPv4Address="192.168.112.2/24" EnableOutboundNat="True"&gt; |
-| Default Value        | &lt;VIP Id="Graph" Name="Azure Stack Graph" NetworkId="External" IPv4Address="192.168.102.8/24" EnableOutboundNat="True"&gt; |
-| New Value             | &lt;VIP Id="Graph" Name="Azure Stack Graph" NetworkId="External" IPv4Address="192.168.112.8/24" EnableOutboundNat="True"&gt; |
-
-#### Fabric Ring Services
-| Item | Configuration |
-|---------------------------|---------------------------------------------------------------------------|
-| Path to config file  | C:\\CloudDeployment\\Configuration\\Roles\\Fabric\\FabricRingServices\\OneNodeRole.xml |
-| Default Value        | &lt;VIP Id="XrpExternal" Name="XRP External (extension)" NetworkId="External" IPv4Address="192.168.102.7/24" EnableOutboundNat="True"&gt; |
-| New Value            | &lt;VIP Id="XrpExternal" Name="XRP External (extension)" NetworkId="External" IPv4Address="192.168.112.7/24" EnableOutboundNat="True"&gt; |
-
-#### Key Vault Service
-| Item | Configuration |
-|---------------------------|---------------------------------------------------------------------------|
-| Path to config file  | C:\\CloudDeployment\\Configuration\\Roles\\Fabric\\KeyVault\\OneNodeRole.xml |
-| Default Value        | &lt;VIP Id="KeyVaultDataPlane" Name="Key Vault Data Plane API" NetworkId="External" IPv4Address="192.168.102.3/24" EnableOutboundNat="True"&gt; |
-| New Value          | &lt;VIP Id="KeyVaultDataPlane" Name="Key Vault Data Plane API" NetworkId="External" IPv4Address="192.168.112.3/24" EnableOutboundNat="True"&gt; |
-
-#### Microsoft Azure Stack Resource Manager
-
-| Item | Configuration |
-|---------------------------|---------------------------------------------------------------------------|
-| Path to config file  | C:\\CloudDeployment\\Configuration\\Roles\\Fabric\\WAS\\OneNodeRole.xml |
-| Default Value         |&lt;VIP Id="WapApi" Name="Azure Stack Resource Manager" NetworkId="External" IPv4Address="192.168.102.4/24" EnableOutboundNat="True"&gt; |
-| New Value             | &lt;VIP Id="WapApi" Name="Azure Stack Resource Manager" NetworkId="External" IPv4Address="192.168.112.4/24" EnableOutboundNat="True"&gt; |
-
-#### Azure-consistent Storage Services (WOSS)
-
-| Item | Configuration |
-|---------------------------|---------------------------------------------------------------------------|
-| Path to config file  | C:\\CloudDeployment\\Configuration\\Roles\\Fabric\\WOSS\\OneNodeRole.xml |
-| Default Value         | &lt;VIP Id="AcsRestApi" Name="Acs Rest API" NetworkId="External" IPv4Address="192.168.102.6/24" EnableOutboundNat="True" InterfaceName="SLBTraffic" &gt; |
-| New Value             | &lt;VIP Id="AcsRestApi" Name="Acs Rest API" NetworkId="External" IPv4Address="192.168.112.6/24" EnableOutboundNat="True" InterfaceName="SLBTraffic" &gt; |
-
-Once you have made the necessary changes and saved them, you can proceed with the second POC deployment. From here it should work exactly like the first POC deployment. Again, you can find step-by-step instructions online on [How to Deploy Azure Stack POC](azure-stack-run-powershell-script.md).
+-   For each POC that you deploy, you can simply follow the deployment instructions detailed in the article [Deploy Azure Stack POC](azure-stack-run-powershell-script.md).
+    We will refer to each POC environment in this document generically as POC1 and POC2.
 
 ## Configure Quotas for Compute, Network and Storage
 
@@ -205,9 +100,9 @@ A service administrator can log in as a tenant to test the plans, offers, and su
   	| **Field**             | **Value** |
   	|----------------------- | ------ |
   	| Name                  |vnet-01 |
-  	| Address space         | 10.0.0.0/16 |
+  	| Address space         | 10.0.10.0/23 |
   	| Subnet name           | subnet-01 |
-  	| Subnet address range  | 10.0.0.0/24 |
+  	| Subnet address range  | 10.0.10.0/24 |
 
 6.  You should see the Subscription you created earlier populated in the **Subscription** field.
 
@@ -230,7 +125,7 @@ A service administrator can log in as a tenant to test the plans, offers, and su
 4.  The name of the Subnet is set to **GatewaySubnet** by default.
     Gateway subnets are special and must have this specific name in order to function properly.
 
-5.  In the **Address range** field, enter **10.0.1.0/24**.
+5.  In the **Address range** field, enter **10.0.11.0/24**.
 
 6.  Click on the **Create** button to create the Gateway subnet.
 
@@ -282,7 +177,7 @@ A way to think about this more generically is that the Local Network Gateway res
 
 5.  Type **IPConfig /all**.
 
-6.  Find the Ethernet Adapter that is connected to your on-premise network, and take note of the IPv4 address bound to that adapter. In my environment, it’s **10.16.169.132** but yours will be something different.
+6.  Find the Ethernet Adapter that is connected to your on-premise network, and take note of the IPv4 address bound to that adapter. In my environment, it’s **10.16.167.195** but yours will be something different.
 
 7.  Record this address. This is what we will use as the Public IP Address of the Local Network Gateway resource we create in POC1.
 
@@ -302,9 +197,9 @@ A way to think about this more generically is that the Local Network Gateway res
 
 6.  In the **Name** field enter **POC2-GW**.
 
-7.  We don’t know the IP address of our other Gateway yet, but that’s ok because we can come back and change it later. For now, enter **10.16.169.132** in the **IP address field**.
+7.  We don’t know the IP address of our other Gateway yet, but that’s ok because we can come back and change it later. For now, enter **10.16.167.195** in the **IP address field**.
 
-8.  In the **Address Space** field enter the address space of the Vnet that we will be creating in POC2. This is going to be **20.0.0.0/16** so enter that value.
+8.  In the **Address Space** field enter the address space of the Vnet that we will be creating in POC2. This is going to be **10.0.20.0/23** so enter that value.
 
 9.  Verify that your **Subscription**, **Resource Group** and **location** are all correct and click **Create**.
 
@@ -352,7 +247,7 @@ In order to validate data traveling through the VPN Connection, you need VMs to 
 
 7.  On the **Size** blade, choose a VM size for this instance and then click **Select**.
 
-8.  On the Settings blade, you can accept the defaults, just make sure that the Virtual network selected is **VNET-01** and the Subnet is set to **10.0.0.0/24**. Click **Ok**.
+8.  On the Settings blade, you can accept the defaults, just make sure that the Virtual network selected is **VNET-01** and the Subnet is set to **10.0.10.0/24**. Click **Ok**.
 
 9.  Review the settings on the **Summary** blade and click **Ok**.
 
@@ -382,9 +277,9 @@ A service administrator can log in as a tenant to test the plans, offers, and su
   	|**Field**              |**Value** |
   	| ----------------------|----------|
   	| Name                  | vnet-02 |
-  	| Address space         | 20.0.0.0/16 |
+  	| Address space         | 10.0.20.0/23 |
   	| Subnet name           | subnet-02 |
-  	| Subnet address range  | 20.0.0.0/24 |
+  	| Subnet address range  | 10.0.20.0/24 |
 
 6.  You should see the Subscription you created earlier populated in the **Subscription** field.
 
@@ -408,7 +303,7 @@ A service administrator can log in as a tenant to test the plans, offers, and su
 4.  The name of the Subnet is set to **GatewaySubnet** by default.
     Gateway subnets are special and must have this specific name in order to function properly.
 
-5.  In the **Address range** field, enter **20.0.1.0/24**.
+5.  In the **Address range** field, enter **10.0.20.0/24**.
 
 6.  Click the **Create** button to create the Gateway subnet.
 
@@ -589,7 +484,7 @@ Now that the Site-to-Site connection has been established we should validate tha
 
 6.  Open a Command Prompt from inside the VM and type **IPConfig /all**.
 
-7.  Find the **IPv4 Address** in the output and take note of it. This is the address you will ping from POC2. In this environment, the address is **10.0.0.4**, but in your environment it might be different. It should however fall within the **10.0.0.0/24** subnet that was created earlier.
+7.  Find the **IPv4 Address** in the output and take note of it. This is the address you will ping from POC2. In this environment, the address is **10.0.10.4**, but in your environment it might be different. It should however fall within the **10.0.10.0/24** subnet that was created earlier.
 
 ### Log in to the tenant VM in POC2
 
@@ -605,10 +500,10 @@ Now that the Site-to-Site connection has been established we should validate tha
 
 6.  Open a Command Prompt from inside the VM and type **IPConfig /all**.
 
-7.  You should see an IPv4 address that falls within 20.0.0.0/24. In my test lab, the address is 20.0.0.4, but yours might be different.
+7.  You should see an IPv4 address that falls within 10.0.20.0/24. In my test lab, the address is 10.0.20.4, but yours might be different.
 
 8.  Now from the VM in POC2 we want to ping the VM in POC1, through the tunnel. To do this we ping the DIP that we recorded from VM01.
-    In my lab this is 10.0.0.4, but be sure to ping the address you found in your lab. You should see a result that looks like this.
+    In my lab this is 10.0.10.4, but be sure to ping the address you found in your lab. You should see a result that looks like this.
 
      ![](media/azure-stack-create-vpn-connection-one-node-tp2/image16.png)
 
@@ -631,6 +526,6 @@ If you want to know how much data is passing through your Site-to-Site connectio
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO1-->
 
 

@@ -3,7 +3,7 @@
     description="Xamarin.Forms geliştirme için Azure Mobile Apps kullanmaya başlamak için bu öğreticiyi izleyin."
     services="app-service\mobile"
     documentationCenter="xamarin"
-    authors="wesmc7777"
+    authors="adrianhall"
     manager="erikre"
     editor=""/>
 
@@ -13,8 +13,9 @@
     ms.tgt_pltfrm="mobile-xamarin"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="08/11/2016"
-    ms.author="glenga"/>
+    ms.date="10/01/2016"
+    ms.author="adrianha"/>
+
 
 #Xamarin.Forms uygulaması oluşturma
 
@@ -187,6 +188,6 @@ Xamarin uygulamanızda yönetilen istemci SDK’sıyla çalışmayı öğrenin.
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Oct16_HO1-->
 
 

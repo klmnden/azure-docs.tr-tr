@@ -13,10 +13,15 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="07/21/2016"
+    ms.date="09/30/2016"
     ms.author="kgremban"/>
 
+
 # Azure abonelik kaynaklarınıza erişimi yönetmek için rol atamalarını kullanın
+
+> [AZURE.SELECTOR]
+- [Azure portalı](role-based-access-control-azure-portal.md)
+- [Klasik Azure portalı](role-based-access-control-configure.md)
 
 Azure Rol Tabanlı Erişim Denetimi (RBAC), Azure için ayrıntılı erişim yönetimi sağlar. RBAC kullanarak, yalnızca kullanıcıların işlerini yapmak için gereksinim duyduğu erişim miktarını verebilirsiniz. Bu makale, Azure portalında RBAC ile çalışmaya başlamanıza yardımcı olur. RBAC'nin erişimi yönetmenize nasıl yardımcı olduğu konusunda daha fazla bilgi isterseniz bkz. [Rol Tabanlı Erişim Denetimi Nedir?](role-based-access-control-what-is.md).
 
@@ -78,6 +83,6 @@ Azure portal dışındaki araçlarda Azure RBAC komutları ile roller atayabilir
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Oct16_HO1-->
 
 

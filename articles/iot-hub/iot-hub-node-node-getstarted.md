@@ -263,7 +263,7 @@ Bu bölümde, bir IoT hub'a cihazdan buluta iletiler gönderen bir cihaza benzet
     node ReadDeviceToCloudMessages.js 
     ```
 
-    ![][7]
+    ![Cihazdan buluta iletileri izlemeye yönelik Node.js IoT Hub hizmeti istemci uygulaması][7]
 
 2. **simulateddevice** klasöründeki bir komut isteminde IoT hub'ınıza telemetri verileri göndermeye başlamak için aşağıdaki komutu çalıştırın:
 
@@ -271,11 +271,11 @@ Bu bölümde, bir IoT hub'a cihazdan buluta iletiler gönderen bir cihaza benzet
     node SimulatedDevice.js
     ```
 
-    ![][8]
+    ![Cihazdan buluta iletileri göndermeye yönelik Node.js IoT Hub cihazı istemci uygulaması][8]
 
 3. [Azure portalındaki][lnk-portal] **Kullanım** kutucuğu, hub'a gönderilen ileti sayısını gösterir:
 
-    ![][43]
+    ![IoT Hub’a gönderilen ileti sayısını gösteren Azure portalı Kullanım kutucuğu][43]
 
 ## Sonraki adımlar
 
@@ -290,7 +290,6 @@ IoT Hub’ı kullanmaya başlamak ve diğer IoT senaryolarını keşfetmek için
 IoT çözümünüzün nasıl genişletileceğini ve cihazdan buluta iletilerin doğru ölçekte nasıl işleneceğini öğrenmek için [Cihazdan buluta iletileri işleme][lnk-process-d2c-tutorial] öğreticisine bakın.
 
 <!-- Images. -->
-[6]: ./media/iot-hub-node-node-getstarted/create-iot-hub6.png
 [7]: ./media/iot-hub-node-node-getstarted/runapp1.png
 [8]: ./media/iot-hub-node-node-getstarted/runapp2.png
 [43]: ./media/iot-hub-csharp-csharp-getstarted/usage.png
@@ -299,13 +298,13 @@ IoT çözümünüzün nasıl genişletileceğini ve cihazdan buluta iletilerin d
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 
 [lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
-[lnk-devguide-identity]: iot-hub-devguide.md#identityregistry
+[lnk-devguide-identity]: iot-hub-devguide-identity-registry.md
 [lnk-event-hubs-overview]: ../event-hubs/event-hubs-overview.md
 
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
 [lnk-process-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
 
-[lnk-hub-sdks]: iot-hub-sdks-summary.md
+[lnk-hub-sdks]: iot-hub-devguide-sdks.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-portal]: https://portal.azure.com/
 
@@ -315,6 +314,6 @@ IoT çözümünüzün nasıl genişletileceğini ve cihazdan buluta iletilerin d
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO1-->
 
 

@@ -27,7 +27,7 @@ HDInsight’ta bir Apache Spark kümesi oluşturmayı ve ardından [Jupyter](htt
 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-**Ön koşullar:**
+## Ön koşullar
 
 - **Bir Azure aboneliği**. Bu öğreticiye başlamadan önce bir Azure aboneliğinizin olması gerekir. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
@@ -39,18 +39,21 @@ HDInsight’ta bir Apache Spark kümesi oluşturmayı ve ardından [Jupyter](htt
     
     -  Bir Windows bilgisayardan - [SSH’yi Windows işletim sisteminde Linux tabanlı HDInsight (Hadoop) ile birlikte kullanma](hdinsight-hadoop-linux-use-ssh-windows.md).
 
->[AZURE.NOTE] Bu makalede [küme depolama birimi olarak Azure Depolama Blobları](hdinsight-hadoop-use-blob-storage.md) kullanan bir Spark kümesi oluşturmak üzere ARM şablonu kullanılmaktadır. Ayrıca, varsayılan depolama birimi olan Azure Depolama Bloblarına ek olarak [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md) kullanan bir Spark kümesi oluşturabilirsiniz. Yönergeler için bkz. [Data Lake Store ile HDInsight kümesi oluşturma](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+>[AZURE.NOTE] Bu makalede [küme depolama birimi olarak Azure Depolama Blobları](hdinsight-hadoop-use-blob-storage.md) kullanan bir Spark kümesi oluşturmak üzere Azure resource manager şablonu kullanılmaktadır. Ayrıca, varsayılan depolama birimi olan Azure Depolama Bloblarına ek olarak [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md) kullanan bir Spark kümesi oluşturabilirsiniz. Yönergeler için bkz. [Data Lake Store ile HDInsight kümesi oluşturma](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 
+### Erişim denetimi gereksinimleri
+
+[AZURE.INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
 ## Spark kümesi oluşturma
 
-Bu bölümde Azure ARM şablonunu kullanarak bir HDInsight sürüm 3.4 kümesi (Spark sürüm 1.6.1) oluşturursunuz. HDInsight sürümleri ve SLA’ları hakkında bilgi için bkz. [HDInsight bileşen sürümü oluşturma](hdinsight-component-versioning.md). Diğer küme oluşturma yöntemleri için bkz. [HDInsight kümeleri oluşturma](hdinsight-hadoop-provision-linux-clusters.md).
+Bu bölümde Azure resource manager şablonunu kullanarak bir HDInsight sürüm 3.4 kümesi (Spark 1.6.1 sürümü) oluşturursunuz. HDInsight sürümleri ve SLA’ları hakkında bilgi için bkz. [HDInsight bileşen sürümü oluşturma](hdinsight-component-versioning.md). Diğer küme oluşturma yöntemleri için bkz. [HDInsight kümeleri oluşturma](hdinsight-hadoop-provision-linux-clusters.md).
 
-1. Azure Portal'da bir ARM şablonu açmak için aşağıdaki görüntüye tıklayın.         
+1. Şablonu Azure Portal'da açmak için aşağıdaki görüntüye tıklayın.         
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-spark-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
     
-    ARM şablonu bir ortak blob kapsayıcısında, *https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-spark-cluster-in-hdinsight.json* bulunur. 
+    Şablon bir ortak blob kapsayıcısında, *https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-spark-cluster-in-hdinsight.json* bulunur. 
    
 2. Parametreler dikey penceresinde aşağıdakileri girin:
 
@@ -217,6 +220,6 @@ Bu makalede PySpark çekirdeği kullanılacaktır. [Spark HDInsight kümeleri il
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO5-->
 
 
