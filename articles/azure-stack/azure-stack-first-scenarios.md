@@ -21,7 +21,7 @@
 
 Now that you've [deployed](azure-stack-deploy.md) and [logged in](azure-stack-connect-azure-stack.md) to Azure Stack POC, you can create some resources.
 
-1.  [Provision a virtual machine](azure-stack-subscribe-plan-provision-vm.md).
+1.  [Provision a virtual machine](azure-stack-provision-vm.md).
 
 2.  [Create a storage account](azure-stack-provision-storage-account.md).
 
@@ -31,6 +31,6 @@ Now that you've [deployed](azure-stack-deploy.md) and [logged in](azure-stack-co
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO3-->
 
 
