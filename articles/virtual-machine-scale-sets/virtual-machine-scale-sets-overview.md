@@ -1,158 +1,165 @@
 <properties
-	pageTitle="Virtual Machine Scale Sets Overview | Microsoft Azure"
-	description="Learn more about Virtual Machine Scale Sets"
-	services="virtual-machine-scale-sets"
-	documentationCenter=""
-	authors="gbowerman"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
+    pageTitle="Sanal Makine Ölçek Kümelerine Genel Bakış | Microsoft Azure"
+    description="Sanal Makine Ölçek Kümeleri hakkında daha fazla bilgi edinin"
+    services="virtual-machine-scale-sets"
+    documentationCenter=""
+    authors="gbowerman"
+    manager="timlt"
+    editor=""
+    tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machine-scale-sets"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/13/2016"
-	ms.author="guybo"/>
+    ms.service="virtual-machine-scale-sets"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="09/13/2016"
+    ms.author="guybo"/>
 
-# Virtual Machine Scale Sets Overview
 
-Virtual machine scale sets are an Azure Compute resource you can use to deploy and manage a set of identical VMs. With all VMs configured the same, VM scale sets are designed to support true autoscale – no pre-provisioning of VMs is required – and as such makes it easier to build large-scale services targeting big compute, big data, and containerized workloads.
+# <a name="virtual-machine-scale-sets-overview"></a>Sanal Makine Ölçek Kümelerine Genel Bakış
 
-For applications that need to scale compute resources out and in, scale operations are implicitly balanced across fault and update domains. For an introduction to VM scale sets refer to the [Azure blog announcement](https://azure.microsoft.com/blog/azure-virtual-machine-scale-sets-ga/).
+Sanal makine ölçek kümeleri, özdeş VM’lerden oluşan bir sanal makine kümesini dağıtıp yönetmek için kullanabileceğiniz bir Azure İşlem kaynağıdır. Tüm VM’lerin aynı şekilde yapılandırıldığı VM ölçek kümeleri, gerçek otomatik ölçeklendirmeyi destekleyecek şekilde tasarlanmıştır (VM’lerin önceden sağlanması gerekmez) ve böylece büyük işlem, büyük veri ve kapsayıcılı iş yüklerini hedefleyen büyük ölçekli hizmetler oluşturmayı kolay hale getirir.
 
-Take a look at these videos for more about VM scale sets:
+İşlem kaynaklarının ölçeğini artırmaya veya azaltmaya gerek duyan uygulamalar için ölçeklendirme işlemleri, arıza ve güncelleştirme etki alanlarında örtülü olarak dengelenir. VM ölçek kümelerine giriş için bkz. [Azure blog duyuruları](https://azure.microsoft.com/blog/azure-virtual-machine-scale-sets-ga/).
 
- - [Mark Russinovich talks Azure Scale Sets](https://channel9.msdn.com/Blogs/Regular-IT-Guy/Mark-Russinovich-Talks-Azure-Scale-Sets/)  
+VM ölçek kümeleri hakkında daha fazla bilgi için şu videolara göz atın:
 
- - [Virtual Machine Scale Sets with Guy Bowerman](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman)
+ - [Mark Russinovich, Azure Ölçek Kümeleri hakkında konuşuyor](https://channel9.msdn.com/Blogs/Regular-IT-Guy/Mark-Russinovich-Talks-Azure-Scale-Sets/)  
 
-## Creating and managing VM scale sets
+ - [Guy Bowerman ile Sanal Makine Ölçek Kümeleri](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman)
 
-You can create a VM Scale Set in the [Azure portal](https://portal.azure.com) by selecting _new_ and typing in "scale" in the search bar. You will see "Virtual machine scale set" in the results. From there you can fill in the required fields to customize and deploy your scale set. 
+## <a name="creating-and-managing-vm-scale-sets"></a>VM ölçek kümeleri oluşturma ve yönetme
 
-VM scale sets can also be defined and deployed using JSON templates and [REST APIs](https://msdn.microsoft.com/library/mt589023.aspx) just like individual Azure Resource Manager VMs. Therefore, any standard Azure Resource Manager deployment methods can be used. For more information about templates, see [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md).
+[Azure portalında](https://portal.azure.com) _yeni_ öğesini seçip arama çubuğuna "ölçek" yazarak bir VM Ölçek Kümesi oluşturabilirsiniz. Sonuçlar arasında "Sanal makine ölçek kümesi" seçeneğini görürsünüz. Buradan gerekli alanları doldurarak ölçek kümenizi özelleştirip dağıtabilirsiniz. 
 
-A set of example templates for VM scale sets can be found in the Azure Quickstart templates GitHub repository [here.](https://github.com/Azure/azure-quickstart-templates) (look for templates with _vmss_ in the title)
+Sanal makine ölçek kümeleri, tıpkı tek Azure Resource Manager VM’lerinde olduğu gibi JSON şablonları ve [REST API’leri](https://msdn.microsoft.com/library/mt589023.aspx) kullanılarak da tanımlanıp dağıtılabilir. Bu nedenle, tüm standart Azure Resource Manager dağıtım yöntemleri kullanılabilir. Şablonlar hakkında daha fazla bilgi için bkz. [Azure Resource Manager şablonları yazma](../resource-group-authoring-templates.md).
 
-In the detail pages for these templates you'll see a button that links to the portal deployment feature. To deploy the VM scale set, click on the button and then fill in any parameters that are required in the portal. If you're not sure whether a resource supports upper or mixed case it is safer to always use lower case parameter values. There is also a handy video dissection of a VM scale set template here:
+VM ölçek kümelerine ilişkin bir dizi örnek, [buradaki](https://github.com/Azure/azure-quickstart-templates) Azure Hızlı Başlangıç şablonları GitHub deposunda bulunabilir. (başlığında _vmss_ olan şablonları arayın)
 
-[VM Scale Set Template Dissection](https://channel9.msdn.com/Blogs/Windows-Azure/VM-Scale-Set-Template-Dissection/player)
+Bu şablonların ayrıntı sayfalarında, portal dağıtım özelliğine bağlanan bir düğme görürsünüz. VM ölçek kümesini dağıtmak için düğmeye tıklayın ve ardından portalda gerekli olan tüm parametreleri doldurun. Bir kaynağın büyük harfleri veya büyük/küçük harflerin karışımını desteklediğinden emin değilseniz, her zaman küçük harfli parametrelerin kullanılması daha güvenlidir. Burada ayrıca bir VM ölçek kümesi şablonunun kullanışlı bir video açıklaması verilmiştir:
 
-## Scaling a VM scale set out and in
+[VM Ölçek Kümesi Şablon Açıklaması](https://channel9.msdn.com/Blogs/Windows-Azure/VM-Scale-Set-Template-Dissection/player)
 
-To increase or decrease the number of virtual machines in a VM scale set, simply change the _capacity_ property and redeploy the template. This simplicity makes it easy to write your own custom scaling layer if you want to define custom scale events that are not supported by Azure autoscale.
+## <a name="scaling-a-vm-scale-set-out-and-in"></a>VM ölçeğini artırma veya azaltma
 
-If you are redeploying a template to change the capacity, you could define a much smaller template which only includes the SKU and the updated capacity. An example of this is shown [here.](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing)
+Bir VM ölçek kümesindeki sanal makinelerin sayısını artırmak ya da azaltmak için, _capacity_ özelliğini değiştirmeniz ve şablonu yeniden dağıtmanız yeterlidir. Bu kolaylık, Azure otomatik ölçeklendirme tarafından desteklenmeyen özel ölçek olayları tanımlamak isterseniz kendi özel ölçeklendirme katmanınızı yazmayı kolay hale getirir.
 
-To walk through the steps that create a scale set that is automatically scaled, see [Automatically Scale Machines in a Virtual Machine Scale Set](virtual-machine-scale-sets-windows-autoscale.md)
+Kapasiteyi değiştirmek için bir şablonu yeniden dağıtıyorsanız, yalnızca SKU ve güncelleştirilmiş kapasiteyi içeren çok daha küçük bir şablon tanımlayabilirsiniz. Bunun bir örneği [burada](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing) gösterilmiştir.
 
-## Monitoring your VM scale set
+Otomatik olarak ölçeklendirilen bir ölçek kümesi oluşturan adımları uygulamak için bkz. [Sanal Makine Ölçek Kümesinde Makineleri Otomatik Olarak Ölçeklendirme](virtual-machine-scale-sets-windows-autoscale.md)
 
-The [Azure portal](https://portal.azure.com) lists scale sets and shows basic properties, as well as listing VMs in the set. For more detail you can use the [Azure Resource Explorer](https://resources.azure.com) to view VM scale sets. VM scale sets are a resource under Microsoft.Compute, so from this site you can see them by expanding the following links:
+## <a name="monitoring-your-vm-scale-set"></a>VM ölçek kümenizi izleme
 
-	subscriptions -> your subscription -> resourceGroups -> providers -> Microsoft.Compute -> virtualMachineScaleSets -> your VM scale set -> etc.
+[Azure portalı](https://portal.azure.com), ölçek kümelerini listeleyip temel özellikleri göstermesinin yanında küme içindeki VM’leri listeler. Daha fazla ayrıntı için [Azure Resource Explorer](https://resources.azure.com)’ı kullanarak VM ölçek kümelerini görüntüleyebilirsiniz. VM ölçek kümeleri Microsoft.Compute altındaki bir kaynaktır; bu nedenle, bu siteden aşağıdaki bağlantıları genişleterek bunları görebilirsiniz:
 
-## VM scale set scenarios
+    subscriptions -> your subscription -> resourceGroups -> providers -> Microsoft.Compute -> virtualMachineScaleSets -> your VM scale set -> etc.
 
-This section lists some typical VM scale set scenarios. Some higher level Azure services (like Batch, Service Fabric, Azure Container Service) will use these scenarios.
+## <a name="vm-scale-set-scenarios"></a>VM ölçek kümesi senaryoları
 
- - **RDP / SSH to VM scale set instances** - A VM scale set is created inside a VNET and individual VMs in the scale set are not allocated public IP addresses. This is a good thing because you don't generally want the expense and management overhead of allocating separate public IP addresses to all the stateless resources in your compute grid, and you can easily connect to these VMs from other resources in your VNET including ones which have public IP addresses like load balancers or standalone virtual machines.
+Bu bölümde tipik VM ölçek kümesi senaryolarından bazıları listelenmektedir. Daha yüksek düzeydeki bazı Azure hizmetleri (Batch, Service Fabric, Azure Container Service gibi) bu senaryoları kullanır.
 
- - **Connect to VMs using NAT rules** - You can create a public IP address, assign it to a load balancer, and define inbound NAT rules which map a port on the IP address to a port on a VM in the VM scale set. For example:
+ - **RDP / SSH’den VM ölçek kümesi örneklerine** - Bir Sanal ağ ve ölçek kümesi içinde genel IP adresleri atanmamış tek VM’ler içinde bir sanal makine ölçek kümesi oluşturulur. Genellikle işlem kılavuzunuzda durum bilgisi olmayan tüm kaynaklara ayrı genel IP adresleri ayırmanın harcama ve yönetim yüklerini istemediğinizden ve bu VM’lere, sanal ağınız içindeki yük dengeleyiciler veya tek başına sanal makineler gibi genel IP adreslerine sahip olan diğer kaynaklardan kolayca bağlanabileceğinizden, bunun yapılması yararlıdır.
+
+ - **NAT kurallarını kullanarak VM’lere bağlanma** - Bir genel IP adresi oluşturabilir, bunu bir yük dengeleyiciye bağlayabilir ve IP adresi üzerindeki bir bağlantı noktasını VM ölçek kümesindeki bir VM’nin bağlantı noktasına eşleyen gelen NAT kuralları tanımlayabilirsiniz. Örneğin:
  
-	Source | Source Port | Destination | Destination Port
-	--- | --- | --- | ---
-	Public IP | Port 50000 | vmss\_0 | Port 22
-	Public IP | Port 50001 | vmss\_1 | Port 22
-	Public IP | Port 50002 | vmss\_2 | Port 22
+    Kaynak | Kaynak Bağlantı Noktası | Hedef | Hedef Bağlantı Noktası
+    --- | --- | --- | ---
+    Genel IP | Bağlantı Noktası 50000 | vmss\_0 | Bağlantı noktası 22
+    Genel IP | Bağlantı noktası 50001 | vmss\_1 | Bağlantı noktası 22
+    Genel IP | Bağlantı noktası 50002 | vmss\_2 | Bağlantı noktası 22
 
-	Here's an example of creating a VM scale set which uses NAT rules to enable SSH connection to every VM in a scale set using a single public IP: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-nat](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-nat)
+    Tek bir genel IP kullanarak bir ölçek kümesindeki her VM ile SSH bağlantısını etkinleştirmek üzere NAT kuralları kullanan bir VM ölçeği oluşturma örneği burada verilmiştir: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-nat](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-nat)
 
-	Here's an example of doing the same with RDP and Windows: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-nat](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-nat)
+    RDP ve Windows ile aynı işlemi yapmanın örneği ise burada verilmiştir: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-nat](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-nat)
 
- - **Connect to VMs using a "jumpbox"** - If you create a VM scale set and a standalone VM in the same VNET, the standalone VM and the VM scale set VMs can connect to one another using their internal IP addresses as defined by the VNET/Subnet. If you create a public IP address and assign it to the standalone VM you can RDP or SSH to the standalone VM and then connect from that machine to your VM scale set instances. You may notice at this point that a simple VM scale set is inherently more secure than a simple standalone VM with a public IP address in its default configuration.
+ - **"Sıçrama kutusu" kullanarak VM’lere bağlanma** - Aynı sanal ağ için bir VM ölçeği ve tek başına VM oluşturursanız, tek başına VM ve VM ölçek kümesinin VM’leri, Sanal Ağ/Alt Ağ tarafından tanımlanan iç IP adreslerini kullanarak birbirine bağlanabilir. Genel bir IP adresi oluşturup tek başına VM’ye atarsanız, tek başına VM’ye RDP veya SSH uygulayabilir ve ardından bu makineden VM ölçek kümesi örneklerine bağlanabilirsiniz. Bu noktada, basit VM ölçek kümesinin, varsayılan yapılandırmasında genel IP adresine sahip basit bir tek başına VM’den doğal olarak daha güvenli olduğunu fark edebilirsiniz.
 
-	[For an example of this approach, this template creates a simple Mesos cluster consisting of a standalone Master VM which manages a VM scale-set based cluster of VMs.](https://github.com/gbowerman/azure-myriad/blob/master/mesos-vmss-simple-cluster.json)
+    [Bu yaklaşımın bir örneği olarak, bu şablon bir VM ölçek kümesini temel alan VM kümesini yöneten tek başına bir Ana VM’nin oluşturduğu basit bir Mesos kümesi oluşturur.](https://github.com/gbowerman/azure-myriad/blob/master/mesos-vmss-simple-cluster.json)
 
- - **Load balancing to VM scale set instances** - If you want to deliver work to a compute cluster of VMs using a "round-robin" approach, you can configure an Azure load balancer with load-balancing rules accordingly. You can define probes to verify your application is running by pinging ports with a specified protocol, interval and request path. The Azure [Application Gateway](https://azure.microsoft.com/services/application-gateway/) also supports scale sets, along with more sophisticated load balancing scenarios.
+ - **VM ölçek kümesi örneklerine yük devretme** - "Hepsini bir kez deneyen" bir yaklaşım kullanarak bir VM işlem kümesine çalışma iletmek istiyorsanız, bir Azure Load Balancer’ı uygun yük dengeleme kurallarıyla yapılandırabilirsiniz. Belirtilen bir protokol, aralık ve istek yolu ile bağlantı noktalarına ping göndererek, uygulamanızın çalıştığını doğrulamak için araştırmalar tanımlayabilirsiniz. Azure [Application Gateway](https://azure.microsoft.com/services/application-gateway/) ayrıca daha karmaşık yük dengeleme senaryolarıyla birlikte ölçek kümelerini destekler.
 
-	[Here is an example which creates a VM scale set of VMs running IIS web server, and uses a load balancer to balance the load that each VM receives. It also uses the HTTP protocol to ping a specific URL on each VM.](https://github.com/gbowerman/azure-myriad/blob/master/vmss-win-iis-vnet-storage-lb.json) (look at the Microsoft.Network/loadBalancers resource type and the networkProfile and extensionProfile in the virtualMachineScaleSet)
+    [IIS web sunucusu çalıştıran bir VM ölçek kümesinin oluşturulduğu ve her VM’nin aldığı yükü dengelemek üzere bir yük dengeleyicinin kullanıldığı örnek aşağıda verilmiştir. Bu örnekte ayrıca her VM’de belirli bir URL’ye ping göndermek için HTTP protokolü kullanılır.](https://github.com/gbowerman/azure-myriad/blob/master/vmss-win-iis-vnet-storage-lb.json) (Microsoft.Network/loadBalancers kaynak türüne ve virtualMachineScaleSet içindeki networkProfile ve extensionProfile öğesine bakın)
 
- - **Deploying a VM scale set as a compute cluster in a PaaS cluster manager** - VM scale sets are sometimes described as a next-generation worker role. It's a valid description but it also runs the risk of confusing scale set features with PaaS v1 Worker role features. In a sense VM scale sets provide a true "worker role" or worker resource, in that they provide a generalized compute resource which is platform/runtime independent, customizable and integrates into Azure Resource Manager IaaS.
+ - **Bir VM ölçek kümesini PaaS küme yöneticisi içinde işlem kümesi olarak dağıtma** - VM ölçek kümeleri bazı durumlarda yeni nesil çalışan rolü olarak tanımlanır. Bu geçerli bir açıklamadır, ancak aynı zamanda PaaS v1 Çalışan rolü özellikleriyle ölçek kümesi özelliklerini karıştırma riskini taşır. VM ölçek kümeleri, platformdan/çalışma zamanından bağımsız, özelleştirilebilir ve Azure Resource Manager IaaS hizmeti ile tümleştirilen genelleştirilmiş bir işlem kaynağı sağlamaları bakımından gerçek bir "çalışan rolü" veya çalışan kaynağı sağlar.
 
-	A PaaS v1 worker role, while limited in terms of platform/runtime support (Windows platform images only) also includes services such as VIP swap, configurable upgrade settings, runtime/app deployment specific settings which are either not _yet_ available in VM scale sets, or will be delivered by other higher level PaaS services like Service Fabric. With this in mind you can look at VM scale sets as an infrastructure which supports PaaS. I.e. PaaS solutions like Service Fabric or cluster managers like Mesos can build on top of VM scale sets as a scalable compute layer.
+    PaaS v1 çalışan rolü, platform/çalışma zamanı desteği bakımından sınırlı olmasına karşın (yalnızca Windows platform görüntüleri), ayrıca VIP takas gibi hizmetler, yapılandırılabilir yükseltme ayarları, VM ölçek kümelerinde _henüz_ kullanılamayan veya Service Fabric gibi diğer yüksek PaaS hizmetleri tarafından sunulacak olan çalışma zamanı/uygulama dağıtımına özgü ayarlar içerir. Bunu aklınızda bulundurarak, VM ölçek kümelerine PaaS destekleyen bir altyapı olarak bakabilirsiniz. Ör. Service Fabric gibi PaaS çözümleri veya Mesos gibi küme yöneticileri, VM ölçek kümelerinin üzerine ölçeklenebilir bir işlem katmanı olarak oluşturulabilir.
 
-	[For an example of this approach, this template creates a simple Mesos cluster consisting of a standalone Master VM which manages a VM scale-set based cluster of VMs.](https://github.com/gbowerman/azure-myriad/blob/master/mesos-vmss-simple-cluster.json) Future versions of the [Azure Container Service](https://azure.microsoft.com/blog/azure-container-service-now-and-the-future/) will deploy more complex/hardened versions of this scenario based on VM scale sets.
+    [Bu yaklaşımın bir örneği olarak, bu şablon bir VM ölçek kümesini temel alan VM kümesini yöneten tek başına bir Ana VM’nin oluşturduğu basit bir Mesos kümesi oluşturur.](https://github.com/gbowerman/azure-myriad/blob/master/mesos-vmss-simple-cluster.json) [Azure Container Service](https://azure.microsoft.com/blog/azure-container-service-now-and-the-future/)’in gelecekteki sürümleri, bu senaryonun VM ölçek kümelerini temel alan daha karmaşık/zorlaştırılmış sürümlerini dağıtacaktır.
 
-## VM scale set performance and scale guidance
+## <a name="vm-scale-set-performance-and-scale-guidance"></a>VM ölçek kümesi performansı ve ölçek Kılavuzu
 
-- Do not create more than 500 VMs in multiple VM Scale Sets at a time.
-- Plan for no more than 20 VMs per storage account (unless you set the _overprovision_ property to "false", in which case you can go up to 40).
-- Spread out the first letters of storage account names as much as possible.  The example VMSS templates in [Azure Quickstart templates](https://github.com/Azure/azure-quickstart-templates/) provide examples of how to do this.
-- If using custom VMs, plan for no more than 40 VMs per VM scale set, in a single storage account.  You will need the image pre-copied into the storage account before you can begin VM scale set deployment. See the FAQ for more information.
-- Plan for no more than 4096 VMs per VNET.
-- The number of VMs you can create is limited by the core quota in the region in which you are deploying. You may need to contact Customer Support to increase your Compute quota limit increased even if you have a high limit of cores for use with cloud services or IaaS v1 today. To query your quota you can run the following Azure CLI command: `azure vm list-usage`, and the following PowerShell command: `Get-AzureRmVMUsage` (if using a version of PowerShell below 1.0 use `Get-AzureVMUsage`).
+- Aynı anda birden fazla VM Ölçek Kümesinde en fazla 500 VM oluşturabilirsiniz.
+- Depolama hesabı başına 20 VM’den fazlasını planlamayın (_overprovision_ özelliği "false" olarak ayarlanırsa 40’a kadar gidilebilir).
+- Depolama hesabı adlarının ilk harflerini mümkün olduğunca yaymaya dikkat edin.  [Azure Hızlı Başlangıç şablonlarındaki](https://github.com/Azure/azure-quickstart-templates/) VMSS şablonları bunun nasıl yapılacağına ilişkin örnekler vermektedir.
+- Özel VM’ler kullanıyorsanız bir VM ölçek kümesi için tek bir depolama hesabında en fazla 40 VM planlayabilirsiniz.  VM ölçek kümesi dağıtımına başlayabilmeniz için görüntüyü depolama hesabına önceden kopyalamanız gerekir. Daha fazla bilgi için SSS bölümüne bakın.
+- Sanal ağ başına en fazla 4096 VM planlayabilirsiniz.
+- Oluşturabileceğiniz VM sayısı, dağıtmakta olduğunuz bölgedeki çekirdek kotasıyla sınırlıdır. Şu anda bulut hizmetleri veya IaaS v1 ile kullanmak üzere yüksek çekirdek sınırına sahip olsanız bile, İşlem kota sınırınızı yükseltmek için Müşteri Desteği ile iletişim kurmanız gerekebilir. Kotanızı sorgulamak için şu Azure CLI komutunu: `azure vm list-usage` ve şu PowerShell komutunu: `Get-AzureRmVMUsage` çalıştırabilirsiniz (PowerShell 1.0’dan önceki bir sürümü kullanıyorsanız `Get-AzureVMUsage` kullanın).
 
-## VM scale set frequently asked questions
+## <a name="vm-scale-set-frequently-asked-questions"></a>VM ölçek kümeleri hakkında sık sorulan sorular
 
-**Q.** How many VMs can you have in a VM scale set?
+**S.** Bir VM ölçek kümesinde kaç tane VM’niz olabilir?
 
-**A.** 100 if you use platform images which can be distributed across multiple storage accounts. If you use custom images, up to 40 (if the _overprovision_ property is set to "false", 20 by default), since custom images are currently limited to a single storage account.
+**C.** birden fazla depolama hesabı arasında dağıtılabilir platform görüntüleri kullanıyorsanız, 100. Özel görüntüler kullanıyorsanız, özel görüntüler şu anda tek bir depolama hesabıyla sınırlı olduğundan en fazla 40 sanal makineniz olabilir (_overprovision_ özelliği "false" olarak ayarlanırsa, varsayılan değer 20’dir).
 
-**Q** What other resource limits exist for VM scale sets?
+**S** VM ölçek kümeleri için başka hangi kaynak limitleri mevcuttur?
 
-**A.** You are limited to creating no more than 500 VMs in multiple scale sets per region during a 10 minute period. The existing [Azure Subscription Service Limits/](../azure-subscription-service-limits.md) apply.
+**C.** 10 dakikalık bir süre boyunca her bölge için birden fazla ölçek kümesinde en fazla 500 VM oluşturabilirsiniz. Var olan [Azure Abonelik Hizmeti Limitleri/](../azure-subscription-service-limits.md) geçerlidir.
 
-**Q.** Are Data Disks Supported within VM scale sets?
+**S.** VM ölçek kümelerinde Veri Diskleri destekleniyor mu?
 
-**A.** Not in the initial release. Your options for storing data are:
+**C.** İlk sürümde desteklenmez. Veri depolama seçenekleriniz şunlardır:
 
-- Azure files (SMB shared drives)
+- Azure dosyaları (paylaşılan SMB sürücüleri)
 
-- OS drive
+- İşletim sistemi sürücüsü
 
-- Temp drive (local, not backed by Azure storage)
+- Geçici sürücü (yerel, Azure depolama tarafından yedeklenmez)
 
-- Azure data service (e.g. Azure tables, Azure blobs)
+- Azure veri hizmeti (ör. Azure tabloları, Azure blob’ları)
 
-- External data service (e.g. remote DB)
+- Dış veri hizmeti (ör. uzak DB)
 
-**Q.** Which Azure regions support VM scale sets?
+**S.** Hangi Azure bölgeleri VM ölçek kümelerini destekler?
 
-**A.** Any region which supports Azure Resource Manager supports VM Scale Sets.
+**C.** Azure Resource Manager’ı destekleyen tüm bölgeler VM Ölçek Kümelerini de destekler.
 
-**Q.** How do you create a VM scale set using a custom image?
+**S.** Özel bir görüntü kullanarak nasıl VM ölçek kümesi oluşturulur?
 
-**A.** Leave the vhdContainers property blank, for example:
+**C.** vhdContainers özelliğini boş bırakın, örneğin:
 
-	"storageProfile": {
-		"osDisk": {
-			"name": "vmssosdisk",
-			"caching": "ReadOnly",
-			"createOption": "FromImage",
-			"image": {
-				"uri": "https://mycustomimage.blob.core.windows.net/system/Microsoft.Compute/Images/mytemplates/template-osDisk.vhd"
-			},
-			"osType": "Windows"
-		}
-	},
+    "storageProfile": {
+        "osDisk": {
+            "name": "vmssosdisk",
+            "caching": "ReadOnly",
+            "createOption": "FromImage",
+            "image": {
+                "uri": "https://mycustomimage.blob.core.windows.net/system/Microsoft.Compute/Images/mytemplates/template-osDisk.vhd"
+            },
+            "osType": "Windows"
+        }
+    },
 
 
-**Q.** If I reduce my VM scale set capacity from 20 to 15, which VMs will be removed?
+**S.** VM ölçek kümemin kapasitesini 20’den 15’e düşürürsem hangi VM’ler kaldırılacak?
 
-**A.** Virtual machines are removed from the scale set evenly across upgrade domains and fault domains to maximize availability. VMs with the highest id's are removed first.
+**C.** Sanal makineler, ölçek kümesinden yükseltme etki alanları ve hata etki alanları arasında eşit olacak şekilde kaldırılır. En yüksek kimlik numarasına sahip VM’ler ilk önce kaldırılır.
 
-**Q.** How about it if I then increase the capacity from 15 to 18?
+**S.** O halde kapasiteyi 15’ten 18’e yükseltirsem ne olur?
 
-**A.** If you increase capacity to 18, then 3 new VMs will be created. Each time the VM instance id will be incremented from the previous highest value (e.g. 20, 21, 22). VMs are balanced across FDs and UDs.
+**C.** Kapasiteyi 18’e artırırsanız 3 yeni VM oluşturulur. Her defasında VM örnek kimliği önceki en yüksek değerden artırılır (ör. 20, 21, 22). VM’ler FD ve UD’ler arasında dengelenir.
 
-**Q.** When using multiple extensions in a VM scale set, can I enforce an execution sequence?
+**S.** Bir VM ölçek kümesinde birden fazla uzantı kullanırken bir yürütme sırası uygulamayı zorunlu kılabilir miyim?
 
-**A.** Not directly, but for the customScript extension, your script could wait for another extension to complete ([for example by monitoring the extension log](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vmss-lapstack-autoscale/install_lap.sh)). Additional guidance on extension sequencing can be found in this blog post: [Extension Sequencing in Azure VM Scale Sets](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/).
+**C.** Doğrudan olmasa da, customScript uzantısı için komut dosyanız başka bir uzantının tamamlanmasını bekleyebilir ([örneğin, uzantı günlüğü izlenerek](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vmss-lapstack-autoscale/install_lap.sh)). Uzantı sıralama hakkında ek yönergeler şu blog gönderisinde bulunabilir: [Azure VM Ölçek Kümelerinde Uzantı Sıralama](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/).
 
-**Q.** Do VM scale sets work with Azure availability sets?
+**S.** VM ölçek kümeleri Azure kullanılabilirlik kümeleri ile birlikte çalışır mı?
 
-**A.** Yes. A VM scale set is an implicit availability set with 5 FDs and 5 UDs. You don't need to configure anything under virtualMachineProfile. In future releases, VM scale sets are likely to span multiple tenants but for now a scale set is a single availability set.
+**C.** Evet. Bir VM ölçek kümesi, 5 FD ve 5 UD’ye sahip örtülü bir kullanılabilirlik kümesidir. VirtualMachineProfile altında herhangi bir yapılandırma yapılması gerekmez. Gelecekteki sürümlerde, VM ölçek kümeleri birden fazla kiracıya yayılabilir, ancak şimdilik bir ölçek kümesi tek bir kullanılabilirlik kümesidir.
+
+
+
+<!--HONumber=Oct16_HO3-->
+
+

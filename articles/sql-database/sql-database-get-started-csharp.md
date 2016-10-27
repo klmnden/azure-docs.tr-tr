@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="csharp"
    ms.workload="data-management"
-   ms.date="09/14/2016"
+   ms.date="10/04/2016"
    ms.author="sstein"/>
 
 
@@ -26,18 +26,19 @@
 - [C#](sql-database-get-started-csharp.md)
 - [PowerShell](sql-database-get-started-powershell.md)
 
-[.NET için Azure SQL Database Kitaplığı](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql) ile bir Azure SQL veritabanı oluşturmak üzere C# dilini nasıl kullanacağınızı öğrenin. Bu makalede SQL ve C# ile tek bir veritabanını oluşturma işlemi açıklanmaktadır. Esnek veritabanı havuzu oluşturmak için bkz. [Esnek veritabanı havuzu oluşturma](sql-database-elastic-pool-create-csharp.md).
+[.NET için Microsoft Azure SQL Yönetim Kitaplığı](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql) ile bir Azure SQL veritabanı oluşturmak üzere C# dilini nasıl kullanacağınızı öğrenin. Bu makalede SQL ve C# ile tek bir veritabanını oluşturma işlemi açıklanmaktadır. Esnek veritabanı havuzu oluşturmak için bkz. [Esnek veritabanı havuzu oluşturma](sql-database-elastic-pool-create-csharp.md).
 
-.NET için Azure SQL Database Kitaplığı [Resource Manager tabanlı SQL Database REST API'sini](https://msdn.microsoft.com/library/azure/mt163571.aspx) sarmalayan [Azure Resource Manager](../resource-group-overview.md) tabanlı bir API sağlar.
+.NET için Azure SQL Veritabanı Yönetim Kitaplığı [Resource Manager tabanlı SQL Veritabanı REST API'sini](https://msdn.microsoft.com/library/azure/mt163571.aspx) sarmalayan [Azure Resource Manager](../resource-group-overview.md) tabanlı bir API sağlar.
 
-
-> [AZURE.NOTE] .NET için SQL Database Kitaplığı şu anda önizlemede.
-
+>[AZURE.NOTE] SQL Veritabanı’nın pek çok yeni özelliği, yalnızca [Azure Resource Manager dağıtım modeli](../resource-group-overview.md) kullanıldığında desteklenir. Bu nedenle .NET için her zaman en son **Azure SQL Veritabanı Yönetim Kitaplığını ([docs](https://msdn.microsoft.com/library/azure/mt349017.aspx) | [NuGet Paketi](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql)) kullanmanız gerekir**. Eski [klasik dağıtım modeli tabanlı kitaplıklar](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Sql), yalnızca geriye dönük uyumluluk için desteklenir. Bu nedenle daha yeni Resource Manager tabanlı kitaplıkları kullanmanızı öneririz.
 
 Bu makaledeki adımları tamamlayabilmeniz için şunlar gereklidir:
 
 - Azure aboneliği. Bir Azure aboneliğine ihtiyacınız varsa bu sayfanın üst kısmındaki **ÜCRETSİZ HESAP**'a tıklamanız yeterlidir; ardından makaleyi tamamlamak için geri dönün.
 - Visual Studio. Ücretsiz bir Visual Studio kopyası için [Visual Studio İndirmeleri](https://www.visualstudio.com/downloads/download-visual-studio-vs) sayfasına göz atın.
+
+>[AZURE.NOTE] Bu makalede, yeni ve boş bir SQL veritabanı oluşturulmuştur. Veritabanlarını kopyalamak, veritabanlarını ölçeklendirmek, havuzda bir veritabanı oluşturmak vb. için aşağıdaki örnekte *CreateOrUpdateDatabase(...)* yöntemini değiştirin. Daha fazla bilgi için bkz. [DatabaseCreateMode](https://msdn.microsoft.com/library/microsoft.azure.management.sql.models.databasecreatemode.aspx) ve [DatabaseProperties](https://msdn.microsoft.com/library/microsoft.azure.management.sql.models.databaseproperties.aspx) sınıfları.
+
 
 
 ## Bir konsol uygulaması oluşturun ve gerekli kitaplıkları yükleyin
@@ -50,7 +51,7 @@ Bu makaledeki adımları tamamlayabilmeniz için şunlar gereklidir:
 C# ile bir SQL veritabanı oluşturmak için gerekli yönetim kitaplıklarını yükleyin ([paket yöneticisi konsolunu](http://docs.nuget.org/Consume/Package-Manager-Console) kullanarak):
 
 1. **Araçlar** > **NuGet Paket Yöneticisi** > **Paket Yöneticisi Konsolu**’na tıklayın.
-2. [Microsoft Azure SQL Yönetim Kitaplığı](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql)’nı yüklemek için `Install-Package Microsoft.Azure.Management.Sql –Pre` yazın.
+2. En son [Microsoft Azure SQL Yönetim Kitaplığı](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql)’nı yüklemek için `Install-Package Microsoft.Azure.Management.Sql –Pre` yazın.
 3. [Microsoft Azure Resource Manager Kitaplığı](https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceManager)’nı yüklemek için `Install-Package Microsoft.Azure.Management.ResourceManager –Pre` yazın.
 4. [Microsoft Azure Sık Kullanılan Kimlik Doğrulama Kitaplığı](https://www.nuget.org/packages/Microsoft.Azure.Common.Authentication)’nı yüklemek için `Install-Package Microsoft.Azure.Common.Authentication –Pre` yazın. 
 
@@ -294,6 +295,6 @@ SQL Database'i ve C# ile bir veritabanını ayarlamayı denediğinize göre şu 
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO3-->
 
 

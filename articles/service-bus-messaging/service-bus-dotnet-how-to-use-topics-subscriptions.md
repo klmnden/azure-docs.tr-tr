@@ -1,14 +1,14 @@
 <properties
     pageTitle=".NET içeren Service Bus konu başlıklarını kullanma | Microsoft Azure"
     description="Azure'da .NET içeren Service Bus konu başlıklarını ve abonelikleri kullanmayı öğrenin. Kod örnekleri .NET uygulamalarına yönelik yazılır."
-    services="service-bus-messaging"
+    services="service-bus"
     documentationCenter=".net"
     authors="sethmanheim"
     manager="timlt"
     editor=""/>
 
 <tags
-    ms.service="service-bus-messaging"
+    ms.service="service-bus"
     ms.workload="na"
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
@@ -17,7 +17,7 @@
     ms.author="sethm"/>
 
 
-# Service Bus konu başlıklarını ve aboneliklerini kullanma
+# <a name="how-to-use-service-bus-topics-and-subscriptions"></a>Service Bus konu başlıklarını ve aboneliklerini kullanma
 
 [AZURE.INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
@@ -27,11 +27,11 @@ Bu makale, Service Bus konu başlıklarını ve aboneliklerini kullanmayı açı
 
 [AZURE.INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
 
-## Service Bus hizmetini kullanmak için uygulamayı yapılandırma
+## <a name="configure-the-application-to-use-service-bus"></a>Service Bus hizmetini kullanmak için uygulamayı yapılandırma
 
 Service Bus kullanan bir uygulama oluştururken Service Bus derlemesine yönelik bir başvuru eklemeniz ve ilgili ad alanlarını dahil etmeniz gerekir. Bunu yapmanın en kolay yolu uygun [NuGet](https://www.nuget.org) paketini indirmektir.
 
-## Service Bus NuGet paketi alma
+## <a name="get-the-service-bus-nuget-package"></a>Service Bus NuGet paketi alma
 
 [Service Bus NuGet paketi](https://www.nuget.org/packages/WindowsAzure.ServiceBus), Service Bus API'sini almanın ve uygulamanızı gerekli tüm Service Bus bağımlılıklarıyla yapılandırmanın en kolay yoludur. Service Bus NuGet paketini projenize yüklemek için aşağıdakileri yapın:
 
@@ -42,7 +42,7 @@ Service Bus kullanan bir uygulama oluştururken Service Bus derlemesine yönelik
 
 Artık Service Bus için kod yazmaya hazırsınız.
 
-## Service Bus bağlantı dizesi oluşturma
+## <a name="create-a-service-bus-connection-string"></a>Service Bus bağlantı dizesi oluşturma
 
 Service Bus, uç noktaları ve kimlik bilgilerini depolamak için bir bağlantı dizesi kullanır. Sabit kodlama yerine, bağlantı dizenizi bir yapılandırma dosyasının içine koyabilirsiniz:
 
@@ -51,7 +51,7 @@ Service Bus, uç noktaları ve kimlik bilgilerini depolamak için bir bağlantı
 
 Her iki durumda da, bağlantı dizenizi bu makalenin sonraki bölümlerinde açıklanan `CloudConfigurationManager.GetSetting` yöntemini kullanarak alabilirsiniz.
 
-### Bağlantı dizenizi yapılandırma
+### <a name="configure-your-connection-string"></a>Bağlantı dizenizi yapılandırma
 
 Hizmet yapılandırma mekanizması, uygulamanızı yeniden dağıtmanıza gerek kalmadan [Azure portal][] aracılığıyla yapılandırma ayarlarınızı dinamik olarak değiştirmenize olanak sağlar. Örneğin, bir sonraki örnekte gösterildiği gibi hizmet tanımı (**.csdef**) dosyanıza bir `Setting` etiketi ekleyin.
 
@@ -84,7 +84,7 @@ Ardından, hizmet yapılandırma (.cscfg) dosyasında değerleri belirtirsiniz.
 
 Daha önce açıklandığı gibi portaldan alınan Paylaşılan Erişim İmzası (SAS) anahtar adını ve anahtar değerlerini kullanın.
 
-### Azure web sitelerini veya Azure Virtual Machines hizmetini kullanırken bağlantı dizesini yapılandırma
+### <a name="configure-your-connection-string-when-using-azure-websites-or-azure-virtual-machines"></a>Azure web sitelerini veya Azure Virtual Machines hizmetini kullanırken bağlantı dizesini yapılandırma
 
 Web sitelerini veya Virtual Machines hizmetini kullanırken, .NET yapılandırma sistemini kullanmanız önerilir (örneğin, Web.config). `<appSettings>` ögesini kullanarak bağlantı dizenizi depolarsınız.
 
@@ -99,7 +99,7 @@ Web sitelerini veya Virtual Machines hizmetini kullanırken, .NET yapılandırma
 
 Daha önce açıklandığı gibi [Azure portal][] aldığınız SAS adını ve anahtar değerlerini kullanın.
 
-## Konu başlığı oluşturma
+## <a name="create-a-topic"></a>Konu başlığı oluşturma
 
 [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) sınıfını kullanarak Service Bus konu başlıklarına ve aboneliklerine yönelik yönetim işlemlerini gerçekleştirebilirsiniz. Bu sınıfın sağladığı yöntemlerle konu oluşturabilir, konu başlıklarını numaralandırabilir ve silebilirsiniz.
 
@@ -148,13 +148,13 @@ if (!namespaceManager.TopicExists("TestTopic"))
 
 > [AZURE.NOTE] Konu başlığı için belirtilen adın zaten bir hizmet ad alanında kullanılıp kullanılmadığını kontrol etmek için [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) nesnelerinde [TopicExists](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.topicexists.aspx) yöntemini kullanabilirsiniz.
 
-## Abonelik oluşturma
+## <a name="create-a-subscription"></a>Abonelik oluşturma
 
 Ayrıca, [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) sınıfını kullanarak da konu başlığı abonelikleri oluşturabilirsiniz. Abonelikler adlandırılır ve aboneliğin sanal kuyruğuna gönderilen ileti kümesini sınırlayan isteğe bağlı bir filtre içerebilir.
 
 > [AZURE.IMPORTANT] İletilerin bir abonelik tarafından alınabilmesi için konuya herhangi bir ileti göndermeden önce ilgili aboneliği oluşturmanız gerekir. Bir konuya abonelik yoksa konu bu iletileri atar.
 
-### Varsayılan (MatchAll) filtreyle abonelik oluşturma
+### <a name="create-a-subscription-with-the-default-(matchall)-filter"></a>Varsayılan (MatchAll) filtreyle abonelik oluşturma
 
 Yeni bir abonelik oluşturulurken filtre belirtilmezse kullanılan varsayılan filtre **MatchAll** filtresidir. **MatchAll** filtresini kullandığınızda konu başlığında yayımlanan tüm iletiler aboneliğin sanal kuyruğuna yerleştirilir. Aşağıdaki örnekte "AllMessages" adlı bir abonelik oluşturulur ve varsayılan **MatchAll** filtresi kullanılır.
 
@@ -171,7 +171,7 @@ if (!namespaceManager.SubscriptionExists("TestTopic", "AllMessages"))
 }
 ```
 
-### Filtre içeren abonelik oluşturma
+### <a name="create-subscriptions-with-filters"></a>Filtre içeren abonelik oluşturma
 
 Bir konu başlığına gönderilen iletilerden hangilerinin belirli bir konu başlığı aboneliğinde görüneceğini belirlemenize olanak sağlayan filtreler de ayarlayabilirsiniz.
 
@@ -203,7 +203,7 @@ namespaceManager.CreateSubscription("TestTopic",
 
 Artık `TestTopic` konu başlığına bir ileti gönderildiğinde bu ileti **AllMessages** konu başlığı aboneliği bulunan tüm alıcılara teslim edilir. **HighMessages** ve **LowMessages** konu başlığı aboneliklerini seçen diğer alıcılara ise ileti teslimi seçime bağlı olarak gerçekleştirilir (ileti içeriğine göre).
 
-## Konu başlığına ileti gönderme
+## <a name="send-messages-to-a-topic"></a>Konu başlığına ileti gönderme
 
 Bir Service Bus konu başlığına bir ileti göndermek için uygulamanız bağlantı dizesini kullanarak bir [TopicClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicclient.aspx) nesnesi oluşturur.
 
@@ -239,7 +239,7 @@ for (int i=0; i<5; i++)
 
 Service Bus konu başlıkları, [Standart katmanda](service-bus-premium-messaging.md) maksimum 256 KB ve [Premium katmanda](service-bus-premium-messaging.md) maksimum 1 MB ileti boyutunu destekler. Standart ve özel uygulama özelliklerini içeren üst bilginin maksimum dosya boyutu 64 KB olabilir. Konu başlığında tutulan ileti sayısına ilişkin bir sınır yoktur ancak konu başlığı tarafından tutulan iletilerin toplam boyutu için uç sınır vardır. Bu konu başlığı boyutu, üst sınır 5 GB olacak şekilde oluşturulma zamanında belirlenir. Bölümlendirme etkinse üst sınır daha yüksektir. Daha fazla bilgi için bkz. [Bölümlenmiş mesajlaşma varlıkları](service-bus-partitioning.md).
 
-## Abonelikten ileti alma
+## <a name="how-to-receive-messages-from-a-subscription"></a>Abonelikten ileti alma
 
 Abonelikten ileti almak için tavsiye edilen yöntem [SubscriptionClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.aspx) nesnesi kullanmaktır. [SubscriptionClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.aspx) nesneleri iki farklı modda çalışabilir: [*ReceiveAndDelete* ve *PeekLock*](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx)
 
@@ -286,7 +286,7 @@ Client.OnMessage((message) =>
 
 Bu örnek, bir [OnMessageOptions](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.aspx) nesnesini kullanarak [OnMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.onmessage.aspx) geri çağrısını yapılandırır. Alınan iletide [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx) çağrısı yapıldığında ileti üzerinde kontrol sağlamanız için [AutoComplete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.autocomplete.aspx) **yanlış** olarak ayarlanmıştır. Otomatik yenileme özelliği sonlandırılmadan önce istemcinin ileti için en fazla bir dakika beklemesini ve iletileri kontrol etmek için istemcinin yeni bir çağrı yapmasını sağlamak için [AutoRenewTimeout](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.onmessageoptions.autorenewtimeout.aspx) 1 dakika olarak ayarlanır. Bu özellik değeri sayesinde, istemci tarafından gerçekleştirilen, ileti almayan ücretlendirilebilir çağrı sayısı azaltılır.
 
-## Uygulama çökmelerini ve okunmayan iletileri giderme
+## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>Uygulama çökmelerini ve okunmayan iletileri giderme
 
 Service Bus, uygulamanızda gerçekleşen hataları veya ileti işlenirken oluşan zorlukları rahat bir şekilde ortadan kaldırmanıza yardımcı olmak için işlevsellik sağlar. Bazı nedenlerden dolayı alıcı uygulamanın iletiyi işleyememesi durumunda, alınan iletide [Abandon](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.abandon.aspx) yöntemini ([Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx) yöntemi yerine) çağrılabilir. Bu işlem, Service Bus hizmetinin abonelikteki iletinin kilidini açmasına ve iletiyi aynı veya başka bir kullanıcı uygulama tarafından tekrar alınabilir hale getirmesine neden olur.
 
@@ -294,7 +294,7 @@ Ayrıca abonelikte kilitlenen iletiye ilişkin bir zaman aşımı vardır. Uygul
 
 Uygulamanın iletiyi işleyip [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx) isteği bildirilmeden önce çökmesi durumunda ise uygulama yeniden başlatıldığında ileti uygulamaya tekrar teslim edilir. Bu durum *En Az Bir Kez İşleme* olarak adlandırılır. Her ileti en az bir kez işlenir ancak belirli durumlarda aynı ileti yeniden teslim edilebilir. Senaryo yinelenen işlemeyi kabul etmiyorsa yinelenen ileti teslimine izin vermek için uygulama geliştiricilerin uygulamaya ilave bir mantık eklemesi gerekir. Bu işlem genellikle iletinin teslimat denemelerinde korunan [MessageId](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.messageid.aspx) özelliği kullanılarak gerçekleştirilir.
 
-## Konu başlıklarını ve abonelikleri silme
+## <a name="delete-topics-and-subscriptions"></a>Konu başlıklarını ve abonelikleri silme
 
 Aşağıdaki örnekte **HowToSample** hizmeti ad alanından **TestTopic** konu başlığının nasıl silineceği gösterilir.
 
@@ -309,7 +309,7 @@ Bir konu başlığı silindiğinde bu konu başlığıyla kaydedilen tüm abonel
 namespaceManager.DeleteSubscription("TestTopic", "HighMessages");
 ```
 
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 
 Artık Service Bus konu başlıklarına ve aboneliklerine ilişkin temel bilgileri öğrendiniz, daha fazla bilgi edinmek için aşağıdaki bağlantıları izleyin.
 
@@ -317,7 +317,7 @@ Artık Service Bus konu başlıklarına ve aboneliklerine ilişkin temel bilgile
 -   [Konu başlığı filtreleri örneği][]
 -   [SqlFilter][] için API başvurusu
 -   Service Bus kuyruğundan ileti alıp gönderen, çalışan bir uygulama oluşturun: [Service Bus aracılı mesajlaşma .NET öğreticisi][].
--   Service Bus örnekleri: [Azure örneklerinden][] indirin veya [genel bakışı](../service-bus/service-bus-samples.md) gözden geçirin.
+-   Service Bus örnekleri: [Azure örneklerinden][] indirin veya [genel bakışı](service-bus-samples.md) gözden geçirin.
 
   [Azure portal]: https://portal.azure.com
 
@@ -328,10 +328,10 @@ Artık Service Bus konu başlıklarına ve aboneliklerine ilişkin temel bilgile
   [SqlFilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx
   [SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
   [Service Bus aracılı mesajlaşma .NET öğreticisi]: service-bus-brokered-tutorial-dotnet.md
-  [Azure örneklerinden]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
+  [Azure örnekleri]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
 
 
 
-<!--HONumber=Sep16_HO5-->
+<!--HONumber=Oct16_HO3-->
 
 

@@ -13,15 +13,15 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="09/30/2016"
+    ms.date="10/10/2016"
     ms.author="kgremban"/>
 
 
 # Azure abonelik kaynaklarınıza erişimi yönetmek için rol atamalarını kullanın
 
 > [AZURE.SELECTOR]
-- [Azure portalı](role-based-access-control-azure-portal.md)
-- [Klasik Azure portalı](role-based-access-control-configure.md)
+- [Kullanıcı veya gruba göre erişimi yönetme](role-based-access-control-manage-assignments.md)
+- [Kaynaklara göre erişimi yönetme](role-based-access-control-configure.md)
 
 Azure Rol Tabanlı Erişim Denetimi (RBAC), Azure için ayrıntılı erişim yönetimi sağlar. RBAC kullanarak, yalnızca kullanıcıların işlerini yapmak için gereksinim duyduğu erişim miktarını verebilirsiniz. Bu makale, Azure portalında RBAC ile çalışmaya başlamanıza yardımcı olur. RBAC'nin erişimi yönetmenize nasıl yardımcı olduğu konusunda daha fazla bilgi isterseniz bkz. [Rol Tabanlı Erişim Denetimi Nedir?](role-based-access-control-what-is.md).
 
@@ -31,9 +31,8 @@ Kimin bir kaynağa, kaynak grubuna veya aboneliğe erişimi olduğunu [Azure por
 1. Soldaki gezinti çubuğunda **Kaynak grupları** seçeneğini belirleyin.  
     ![Kaynak grupları - simge](./media/role-based-access-control-configure/resourcegroups_icon.png)
 2. **Kaynak grupları** dikey penceresinde kaynak grubunun adını seçin.
-3. Kaynak grubu dikey penceresinin sağ üst kısmında **Kullanıcılar**'ı seçin.  
-    ![Kullanıcılar - simge](./media/role-based-access-control-configure/users_icon.png)
-4. **Kullanıcılar** dikey penceresi, kaynak grubuna erişim verilen tüm kullanıcıları, grupları ve uygulamaları listeler.  
+3. Soldaki menüden **Erişim denetimi (IAM)** öğesini seçin.  
+4. Erişim denetimi dikey penceresi, kaynak grubuna erişim verilen tüm kullanıcıları, grupları ve uygulamaları listeler.  
 
     ![Kullanıcılar dikey penceresi - devralınmış veya atanmış erişim ekran görüntüsü](./media/role-based-access-control-configure/view-access.png)
 
@@ -45,8 +44,7 @@ Bazı kullanıcıların **Atanmış**, diğerlerinin **Devralınmış** erişime
 ## Erişim Ekleme
 Rol atamasının kapsamı olan kaynak, kaynak grubu veya abonelik içinden erişim verebilirsiniz.
 
-1. **Kullanıcılar** dikey penceresinde **Ekle**'yi seçin.  
-    ![Ekle - simge](./media/role-based-access-control-configure/add_icon.png)  
+1. Erişim denetimi dikey penceresinde **Ekle**’yi seçin.  
 2. **Rol seçin** dikey penceresinde atamak istediğiniz rolü seçin.
 3. Dizininizde, erişim vermek istediğiniz kullanıcı, grup veya uygulamayı seçin. Görünen adlar, e-posta adresleri ve nesne tanımlayıcıları ile dizinde arama yapabilirsiniz.  
 
@@ -59,9 +57,8 @@ Bir rol ataması başarıyla eklendikten sonra **Kullanıcılar** dikey penceres
 
 ## Erişimi Kaldırma
 
-1. **Kullanıcılar** dikey penceresinde rol atamasını seçin.
+1. Erişim denetimi dikey penceresinde rol atamasını seçin.
 2. Atama ayrıntıları dikey penceresinde **Kaldır**'ı seçin.  
-    ![Kaldır - simge](./media/role-based-access-control-configure/remove_icon.png)
 3. Kaldırmayı onaylamak için **Evet**'i seçin.  
     ![Kullanıcılar dikey penceresi - rolden kaldır ekran görüntüsü](./media/role-based-access-control-configure/remove-access1.png)
 
@@ -83,6 +80,6 @@ Azure portal dışındaki araçlarda Azure RBAC komutları ile roller atayabilir
 
 
 
-<!--HONumber=Oct16_HO1-->
+<!--HONumber=Oct16_HO3-->
 
 

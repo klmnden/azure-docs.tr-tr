@@ -14,8 +14,9 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="07/13/2016"
+    ms.date="10/10/2016"
     ms.author="markvi"/>
+
 
 # Azure AD dizinini yönetme
 
@@ -151,6 +152,6 @@ Azure AD, bir dizinin silinmesi için belirli koşulların sağlanmasını gerek
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Oct16_HO3-->
 
 

@@ -12,38 +12,38 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/16/2016"
+   ms.date="10/11/2016"
    ms.author="alkohli" />
 
 
-# Şirket içi StorSimple cihazınızı dağıtma (Güncelleştirme 2)
+# <a name="deploy-your-on-premises-storsimple-device-(update-2)"></a>Şirket içi StorSimple cihazınızı dağıtma (Güncelleştirme 2)
 
 > [AZURE.SELECTOR]
 - [Güncelleştirme 2](../articles/storsimple/storsimple-deployment-walkthrough-u2.md)
 - [Güncelleştirme 1](../articles/storsimple/storsimple-deployment-walkthrough-u1.md)
 - [GA Sürümü](../articles/storsimple/storsimple-deployment-walkthrough.md)
 
-## Genel Bakış
+## <a name="overview"></a>Genel Bakış
 
 Microsoft Azure StorSimple cihaz dağıtımına hoş geldiniz. Bu dağıtım öğreticileri StorSimple 8000 Serisi Güncelleştirme 2 için geçerlidir. Bu öğretici dizisi, StorSimple cihazınız için yapılandırma denetim listesi, yapılandırma önkoşulları ve ayrıntılı yapılandırma adımlarını içerir.
 
 Bu öğreticilerdeki bilgiler, güvenlik önlemlerini gözden geçirdiğinizi ve StorSimple cihazınızı kutusundan çıkardığınızı, yerleştirdiğinizi ve kablolarını taktığınızı varsayar. Bu görevleri henüz gerçekleştirmediyseniz, [güvenlik önlemlerini](storsimple-safety.md) inceleyerek başlayın. Cihazınızı açmak, rafa monte etmek ve kablo bağlantısını yapmak için cihaza özel yönergeleri izleyin.
 
-- [8100 model cihazınızı kutusundan çıkarma, rafa monte etme ve kablolarını bağlama](storsimple-8100-hardware-installation.md)
-- [8600 model cihazınızı kutusundan çıkarma, rafa monte etme ve kablolarını bağlama](storsimple-8600-hardware-installation.md)
+- [8100 model cihazınızı kutusundan çıkarma, rafa takma ve kablolarını bağlama](storsimple-8100-hardware-installation.md)
+- [8600 model cihazınızı kutusundan çıkarma, rafa takma ve kablolarını bağlama](storsimple-8600-hardware-installation.md)
 
 Kurulum ve yapılandırma işlemini tamamlamak için yönetici ayrıcalıkları gerekir. Başlamadan önce yapılandırma denetim listesini gözden geçirmenizi öneririz. Dağıtım ve yapılandırma işleminin tamamlanması biraz zaman alabilir.
 
 > [AZURE.NOTE] Microsoft Azure Web sitesinde yayınlanan StorSimple dağıtım bilgileri yalnızca StorSimple 8000 serisi cihazlar için geçerlidir. 7000 serisi cihazlar hakkında tam bilgi için şu adresi ziyaret edin: [http://onlinehelp.storsimple.com/](http://onlinehelp.storsimple.com). 7000 serisi dağıtım bilgileri için bkz. [StorSimple Sistemi Hızlı Başlangıç Kılavuzu](http://onlinehelp.storsimple.com/111_Appliance/).
 
-## Dağıtım adımları
+## <a name="deployment-steps"></a>Dağıtım adımları
 
 StorSimple cihazınızı yapılandırmak ve StorSimple Yöneticisi hizmetine bağlamak için gerekli adımları gerçekleştirin. Gerekli adımlara ek olarak, dağıtım sırasında ihtiyacınız olabilecek isteğe bağlı adım ve yordamlar vardır. Bu adım adım dağıtım yönergelerinde isteğe bağlı adımların her birini ne zaman gerçekleştirmeniz gerektiği belirtilmiştir.
 
 
 | Adım                                                                                   | Açıklama                                                                                                                                                   |
 |----------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **ÖN KOŞULLAR**                                                                      | Dağıtım için bu önkoşulların tamamlanması gerekir.                                                                                        |
+| **ÖNKOŞULLAR**                                                                      | Dağıtım için bu önkoşulların tamamlanması gerekir.                                                                                        |
 | [Dağıtım yapılandırma denetim listesi](#deployment-configuration-checklist)                                                     | Dağıtımdan önce ve dağıtım sırasında bilgi toplamak ve bilgileri kaydetmek için bu denetim listesini kullanın.                                                                       |
 | [Dağıtım önkoşulları](#deployment-prerequisites)                                                               | Bunlar, ortamın dağıtım için hazır olduğunu doğrular.                                                                                                     |
 |                                                                                        |                                                                                                                                                               |
@@ -51,10 +51,10 @@ StorSimple cihazınızı yapılandırmak ve StorSimple Yöneticisi hizmetine ba�
 | [1. Adım: Yeni bir hizmet oluşturun](#step-1-create-a-new-service)                                                         | StorSimple cihazınız için bulut yönetimi ve depolamayı ayarlayın. *Başka StorSimple cihazlar için bir hizmetiniz varsa, bu adımı atlayın*.                |
 | [2. Adım: Hizmet kayıt anahtarını alın](#step-2-get-the-service-registration-key)                                               | StorSimple cihazınızı kaydetmek ve yönetim hizmetine bağlamak için bu anahtarı kullanın.                                                                         |
 | [3. Adım: StorSimple için Windows PowerShell üzerinden cihazı yapılandırın ve kaydedin](#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple)    | Yönetim hizmetini kullanarak kurulumu tamamlamak için cihazı ağınıza bağlayın ve Azure ile kaydedin.                                            |
-| [4. Adım: Minimum cihaz kurulumunu tamamlayın](#step-4-complete-minimum-device-setupd)</br>[İsteğe bağlı: StorSimple cihazınızı güncelleştirin.](#scan-for-and-apply-updates)      | Depolama alanı sağlamak için, yönetim hizmetini kullanarak cihaz kurulumunu tamamlayın ve etkinleştirin.                                                                      |
+| [4. Adım: Minimum cihaz kurulumunu tamamlayın](#step-4-complete-minimum-device-setupd)</br>[İsteğe bağlı: StorSimple cihazınızı güncelleştirin](#scan-for-and-apply-updates)      | Depolama alanı sağlamak için, yönetim hizmetini kullanarak cihaz kurulumunu tamamlayın ve etkinleştirin.                                                                      |
 | [5. Adım: Birim kapsayıcısı oluşturun](#step-5-create-a-volume-container)                                                      | Birimleri sağlamak için bir kapsayıcı oluşturun. Birim kapsayıcısı, kapsadığı tüm birimler için depolama hesabı, bant genişliği ve şifreleme ayarlarını içerir.    |
 | [6. Adım: Birim oluşturun](#step-6-create-a-volume)                                                                | Sunucularınız için StorSimple cihazında depolama birimleri sağlayın.                                                                                        |
-| [7. Adım: Bir birimi bağlayın, başlatın ve biçimlendirin](#step-7-mount-initialize-and-format-a-volume)</br>[İsteğe bağlı: MPIO’yu yapılandırın.](storsimple-configure-mpio-windows-server.md)            | Sunucularınızı cihaz tarafından sağlanan iSCSI depolama alanına bağlayın. İsteğe bağlı olarak, sunucularınızın bağlantı, ağ ve arabirim hatalarından etkilenmemesini sağlamak için MPIO’yu yapılandırın.                                                                                                                                                              |
+| [7. Adım: Bir birimi bağlayın, başlatın ve biçimlendirin](#step-7-mount-initialize-and-format-a-volume)</br>[İsteğe bağlı: MPIO’yu yapılandırın](storsimple-configure-mpio-windows-server.md)            | Sunucularınızı cihaz tarafından sağlanan iSCSI depolama alanına bağlayın. İsteğe bağlı olarak, sunucularınızın bağlantı, ağ ve arabirim hatalarından etkilenmemesini sağlamak için MPIO’yu yapılandırın.                                                                                                                                                              |
 | [8. Adım: Yedekleyin](#step-8-take-a-backup)                                                                  | Verilerinizi korumak için yedekleme ilkenizi ayarlayın                                                                                                                 |
 |                                                                                        |                                                                                                                                                               |
 | **DİĞER YORDAMLAR**                                                                   | Çözümünüzü dağıtırken bu yordamlara başvurmanız gerekebilir.                                                                                        |
@@ -64,18 +64,18 @@ StorSimple cihazınızı yapılandırmak ve StorSimple Yöneticisi hizmetine ba�
 | [El ile yedekleme oluşturun](#create-a-manual-backup)                                                                 | 
 
 
-## Dağıtım yapılandırma denetim listesi
+## <a name="deployment-configuration-checklist"></a>Dağıtım yapılandırma denetim listesi
 
 Cihazınızı dağıtmadan önce, StorSimple cihazınızda yazılımı yapılandırmak amacıyla bilgi toplamanız gerekecektir. Bu bilgilerin bir bölümünü önceden hazırlamak, ortamınızda StorSimple cihazını dağıtma işlemini kolaylaştırmaya yardımcı olur. Cihazınızı dağıtırken yapılandırma ayrıntılarını not etmek için bu denetim listesini indirin ve kullanın.
 
 - [StorSimple dağıtım yapılandırma denetim listesini indirme](http://www.microsoft.com/download/details.aspx?id=49159)
 
 
-## Dağıtım önkoşulları
+## <a name="deployment-prerequisites"></a>Dağıtım önkoşulları
 
 Aşağıdaki bölümlerde, StorSimple Yöneticisi hizmetiniz ve StorSimple cihazınız için yapılandırma önkoşulları açıklanmaktadır.
 
-### StorSimple Yöneticisi hizmeti için
+### <a name="for-the-storsimple-manager-service"></a>StorSimple Yöneticisi hizmeti için
 
 Başlamadan önce aşağıdakilerden emin olun:
 
@@ -87,26 +87,26 @@ Başlamadan önce aşağıdakilerden emin olun:
 
 - PuTTY gibi bir terminal öykünme yazılımına erişiminiz var.
 
-### Veri merkezindeki cihaz için
+### <a name="for-the-device-in-the-datacenter"></a>Veri merkezindeki cihaz için
 
 Cihazınızı yapılandırmadan önce, Cihazınızın tam olarak açılmış, bir rafa monte edilmiş ve güç, ağ ve seri erişim için kablolar aşağıdaki şekilde tam olarak bağlanmış olduğundan emin olun:
 
--  [8100 model cihazınızı kutusundan çıkarma, rafa monte etme ve kablolarını bağlama](storsimple-8100-hardware-installation.md)
--  [8600 model cihazınızı kutusundan çıkarma, rafa monte etme ve kablolarını bağlama](storsimple-8600-hardware-installation.md)
+-  [8100 model cihazınızı kutusundan çıkarma, rafa takma ve kablolarını bağlama](storsimple-8100-hardware-installation.md)
+-  [8600 model cihazınızı kutusundan çıkarma, rafa takma ve kablolarını bağlama](storsimple-8600-hardware-installation.md)
 
 
-### Veri merkezindeki ağ için
+### <a name="for-the-network-in-the-datacenter"></a>Veri merkezindeki ağ için
 
 Başlamadan önce aşağıdakilerden emin olun:
 
 - Veri merkezi güvenlik duvarınızdaki bağlantı noktaları iSCSI ve bulut trafiğine izin vermek için [StorSimple cihazınız için ağ gereksinimleri](storsimple-system-requirements.md#networking-requirements-for-your-storsimple-device) bölümünde belirtildiği şekilde açık.
 
 
-## Adım adım dağıtım
+## <a name="step-by-step-deployment"></a>Adım adım dağıtım
 
 StorSimple cihazınızı veri merkezinde dağıtmak için aşağıdaki adım adım yönergeleri kullanın.
 
-## 1. Adım: Yeni bir hizmet oluşturun
+## <a name="step-1:-create-a-new-service"></a>1. Adım: Yeni bir hizmet oluşturun
 
 Bir StorSimple Yöneticisi hizmeti birden çok StorSimple cihazını yönetebilir. StorSimple Yöneticisi hizmetinin yeni bir örneğini oluşturmak için aşağıdaki adımları gerçekleştirin.
 
@@ -117,7 +117,7 @@ Bir StorSimple Yöneticisi hizmeti birden çok StorSimple cihazını yönetebili
 > * Otomatik olarak bir depolama hesabı oluşturmadıysanız, ayrıntılı yönergeler için [Hizmet için yeni bir depolama hesabı yapılandırma](#configure-a-new-storage-account-for-the-service) bölümüne gidin. 
 > * Bir depolama hesabının otomatik olarak oluşturulmasını etkinleştirdiyseniz, [2. Adım: Hizmet kayıt anahtarını alın](#step-2-get-the-service-registration-key) bölümüne gidin.
 
-## 2. Adım: Hizmet kayıt anahtarını alın
+## <a name="step-2:-get-the-service-registration-key"></a>2. Adım: Hizmet kayıt anahtarını alın
 
 StorSimple Yöneticisi hizmeti çalışır duruma geldikten sonra, hizmet kayıt anahtarını almanız gerekir. Bu anahtar StorSimple cihazınızı kaydetmek ve hizmete bağlamak için kullanılır.
 
@@ -126,13 +126,13 @@ Yönetim Portalı’nda aşağıdaki adımları gerçekleştirin.
 [AZURE.INCLUDE [storsimple-get-service-registration-key](../../includes/storsimple-get-service-registration-key.md)]
 
 
-## 3. Adım: StorSimple için Windows PowerShell üzerinden cihazı yapılandırın ve kaydedin
+## <a name="step-3:-configure-and-register-the-device-through-windows-powershell-for-storsimple"></a>3. Adım: StorSimple için Windows PowerShell üzerinden cihazı yapılandırın ve kaydedin
 
 Aşağıdaki yordamda açıklandığı gibi StorSimple cihazınızın ilk kurulumu tamamlamak üzere StorSimple için Windows PowerShell kullanın. Bu adımı tamamlamak için bir terminal öykünme yazılımı kullanmanız gerekir. Daha fazla bilgi için bkz. [Cihaz seri konsoluna bağlanmak için PuTTY kullanma](#use-putty-to-connect-to-the-device-serial-console).
 
 [AZURE.INCLUDE [storsimple-configure-and-register-device-u1](../../includes/storsimple-configure-and-register-device-u1.md)]
 
-## 4. Adım: Minimum cihaz kurulumunu tamamlayın
+## <a name="step-4:-complete-minimum-device-setup"></a>4. Adım: Minimum cihaz kurulumunu tamamlayın
 
 StorSimple cihazınız için en düşük cihaz yapılandırması için aşağıdakileri yapmanız gerekir: 
 
@@ -144,7 +144,7 @@ En düşük cihaz kurulumunu tamamlamak için Yönetim Portalı’nda aşağıda
 
 [AZURE.INCLUDE [storsimple-complete-minimum-device-setup](../../includes/storsimple-complete-minimum-device-setup-u1.md)]
 
-## 5. Adım: Birim kapsayıcısı oluşturun
+## <a name="step-5:-create-a-volume-container"></a>5. Adım: Birim kapsayıcısı oluşturun
 
 Birim kapsayıcısı, kapsadığı tüm birimler için depolama hesabı, bant genişliği ve şifreleme ayarlarını içerir. StorSimple cihazınızda birimleri sağlamaya başlamadan önce bir birim kapsayıcısı oluşturmanız gerekir. 
 
@@ -152,7 +152,7 @@ Birim kapsayıcısı oluşturmak için Yönetim Portalı’nda aşağıdaki adı
 
 [AZURE.INCLUDE [storsimple-create-volume-container](../../includes/storsimple-create-volume-container.md)]
 
-## 6. Adım: Birim oluşturun
+## <a name="step-6:-create-a-volume"></a>6. Adım: Birim oluşturun
 
 Bir birim kapsayıcısı oluşturduktan sonra, sunucularınız için StorSimple cihazında bir depolama birimi sağlayabilirsiniz. Birim oluşturmak için Yönetim Portalı’nda aşağıdaki adımları gerçekleştirin.
 
@@ -160,7 +160,7 @@ Bir birim kapsayıcısı oluşturduktan sonra, sunucularınız için StorSimple 
 
 [AZURE.INCLUDE [storsimple-create-volume](../../includes/storsimple-create-volume-u2.md)]
 
-## 7. Adım: Bir birimi bağlayın, başlatın ve biçimlendirin
+## <a name="step-7:-mount,-initialize,-and-format-a-volume"></a>7. Adım: Bir birimi bağlayın, başlatın ve biçimlendirin
 
 Aşağıdaki adımlar, Windows Server konağınızda gerçekleştirilir. 
 
@@ -177,7 +177,7 @@ MPIO yapılandırmamaya karar verirseniz, bir Windows Server konağında StorSim
 
 [AZURE.INCLUDE [storsimple-mount-initialize-format-volume](../../includes/storsimple-mount-initialize-format-volume.md)]
 
-## 8. Adım: Yedekleyin
+## <a name="step-8:-take-a-backup"></a>8. Adım: Yedekleyin
 
 Yedeklemeler, birimlerin zaman noktası korumasını sağlar ve geri yükleme sürelerini azaltırken kurtarılabilirliği iyileştirir. StorSimple cihazınızda iki tür yedekleme oluşturabilirsiniz: yerel anlık görüntüler ve bulut anlık görüntüleri. Bu yedekleme türlerinin her biri **Zamanlanmış** veya **El ile** olabilir. 
 
@@ -187,7 +187,7 @@ Zamanlanmış yedekleme oluşturmak için Yönetim Portalı’nda aşağıdaki a
 
 İstediğiniz zaman el ile yedekleme oluşturabilirsiniz. Yordamlar için, [El ile yedekleme oluşturun](#create-a-manual-backup) bölümüne gidin. 
 
-## Hizmet için yeni bir depolama hesabı yapılandırın
+## <a name="configure-a-new-storage-account-for-the-service"></a>Hizmet için yeni bir depolama hesabı yapılandırın
 
 Bu yalnızca hizmetinizle bir depolama hesabının otomatik olarak oluşturulmasını etkinleştirmediyseniz gerçekleştirmeniz gereken isteğe bağlı bir adımdır. StorSimple birim kapsayıcısı oluşturmak için bir Microsoft Azure Storage hesabı gereklidir.
 
@@ -198,21 +198,21 @@ Yönetim Portalı’nda **StorSimple Yöneticisi hizmeti** sayfasında aşağıd
 [AZURE.INCLUDE [storsimple-configure-new-storage-account-u1](../../includes/storsimple-configure-new-storage-account-u1.md)]
 
 
-## Cihaz seri konsoluna bağlanmak için PuTTY kullanın
+## <a name="use-putty-to-connect-to-the-device-serial-console"></a>Cihaz seri konsoluna bağlanmak için PuTTY kullanın
 
 StorSimple için Windows PowerShell’e bağlanmak için PuTTY gibi bir terminal öykünme yazılımı kullanmanız gerekir. Cihaza seri konsolu aracılığıyla doğrudan veya uzak bir bilgisayardan telnet oturumu açarak eriştiğinizde PuTTY kullanabilirsiniz.
 
 [AZURE.INCLUDE [Use PuTTY to connect to the device serial console](../../includes/storsimple-use-putty.md)]
 
 
-## Güncelleştirmeleri tarama ve güncelleştirmeleri uygulama
+## <a name="scan-for-and-apply-updates"></a>Güncelleştirmeleri tarama ve güncelleştirmeleri uygulama
 
 Cihazınızın güncelleştirilmesi birkaç saat sürebilir. Cihazınızda güncelleştirmeleri taramak ve güncelleştirmeleri uygulamak için aşağıdaki adımları gerçekleştirin.
 <!--can take 1-4 hours--> 
 
 <!--If you have a gateway configured on a network interface other than Data 0, you will need to disable Data 2 and Data 3 network interfaces before installing the update. Go to **Devices > Configure** and disable Data 2 and Data 3 interfaces. You should re-enable these interfaces after the device is updated.-->
 
-#### Cihazınızı güncelleştirmek için
+#### <a name="to-update-your-device"></a>Cihazınızı güncelleştirmek için
 
 1.  Cihaz **Hızlı Başlangıç** sayfasında, **Cihazlar**’a tıklayın. Fiziksel cihazı seçin, **Bakım**’a tıklayın ve ardından **Güncelleştirmeleri Tara**’ya tıklayın.  
 
@@ -226,20 +226,20 @@ Cihazınızın güncelleştirilmesi birkaç saat sürebilir. Cihazınızda günc
 
 <!-- In step 2, you may be requested to disable Data 2 and Data 3 prior to installing the updates. You must disable these network interfaces or the updates may fail.-->
 
-## Bir Windows Server konağının IQN’ini alın
+## <a name="get-the-iqn-of-a-windows-server-host"></a>Bir Windows Server konağının IQN’ini alın
 
 Windows Server® 2012 çalıştıran bir Windows konağının iSCSI Tam Adını (IQN) almak için aşağıdaki adımları gerçekleştirin.
 
 [AZURE.INCLUDE [Create a manual backup](../../includes/storsimple-get-iqn.md)]
 
-## El ile yedekleme oluşturun
+## <a name="create-a-manual-backup"></a>El ile yedekleme oluşturun
 
 StorSimple cihazınızda tek bir birim için bir isteğe bağlı el ile yedekleme oluşturmak üzere Yönetim Portalı’nda aşağıdaki adımları gerçekleştirin.
 
 [AZURE.INCLUDE [Create a manual backup](../../includes/storsimple-create-manual-backup.md)]
 
 
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 
 - [Sanal cihaz](storsimple-virtual-device-u2.md) yapılandırın.
 
@@ -248,6 +248,6 @@ StorSimple cihazınızda tek bir birim için bir isteğe bağlı el ile yedeklem
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

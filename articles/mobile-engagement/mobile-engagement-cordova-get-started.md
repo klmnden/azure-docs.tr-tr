@@ -16,6 +16,7 @@
     ms.date="08/19/2016"
     ms.author="piyushjo" />
 
+
 # Cordova/Phonegap için Azure Mobile Engagement Kullanmaya Başlama
 
 [AZURE.INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
@@ -24,7 +25,7 @@ Bu konuda, uygulama kullanımınızı anlamak için nasıl Azure Mobile Engageme
 
 Bu öğreticide, Mac kullanarak boş bir Cordova uygulaması oluşturup Mobile Engagement SDK ile tümleştireceğiz. Uygulama, temel analiz verileri toplar, iOS için Apple Anında İletilen Bildirim Sistemi (APNS) ve Android için Google Cloud Messaging (GCM) kullanarak anında iletme bildirimlerini alır. Bu uygulamayı, test etme amacıyla bir iOS veya Android cihazına dağıtacağız.  
 
-> [AZURE.NOTE] Bu öğreticiyi tamamlamak için etkin bir Azure hesabınızın olması gerekir. Hesabınız yoksa yalnızca birkaç dakika içinde ücretsiz bir deneme sürümü hesabı oluşturabilirsiniz. Ayrıntılar için bkz. [Azure Ücretsiz Deneme](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-cordova-get-started).
+> [AZURE.NOTE] Bu öğreticiyi tamamlamak için etkin bir Azure hesabınızın olması gerekir. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılar için bkz. [Azure Ücretsiz Deneme](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-cordova-get-started).
 
 Bu öğretici için aşağıdakiler gereklidir:
 
@@ -38,7 +39,7 @@ Bu öğretici için aşağıdakiler gereklidir:
 
 ##<a id="setup-azme"></a>Cordova uygulamanız için Mobile Engagement kurma
 
-[AZURE.INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal.md)]
+[AZURE.INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
 ##<a id="connecting-app"></a>Uygulamanızı Mobile Engagement arka ucuna bağlama
 
@@ -241,6 +242,6 @@ GCM bildirimleri Android öykünücüsünde desteklendiğinden Android uygulamas
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Oct16_HO3-->
 
 

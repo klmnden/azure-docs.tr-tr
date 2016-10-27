@@ -13,17 +13,17 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="10/04/2016"
+    ms.date="10/07/2016"
     ms.author="magoedte"/>
 
 
 # Otomasyon’da VM’leri çalışma saatleri dışında Başlatma/Durdurma [Önizleme] çözümü
 
-VM’leri çalışma saatleri dışında Başlatma/Durdurma [Önizleme] çözümü, Azure Resource Manager sanal makinelerinizi kullanıcı tanımlı bir zamanlama dahilinde başlatır ve durdurur, bunun yanı sıra OMS Log Analytics aracılığıyla, sanal makinelerinizi başlatıp durduran Otomasyon işlerinin başarı durumu hakkında öngörüler sağlar.  
+VM’leri çalışma saatleri dışında Başlatma/Durdurma [Önizleme] çözümü, Azure Resource Manager sanal makinelerinizi kullanıcının belirlediği bir zamanlamada başlatır ve durdurur. Ayrıca, OMS Log Analytics aracılığıyla, sanal makinelerinizi başlatan ve durduran Otomasyon işlerinin başarı durumu hakkında öngörüler sağlar.  
 
-## Ön koşullar
+## Önkoşullar
 
-- Runbook’lar bir [Azure Farklı Çalıştır hesabı](automation-sec-configure-azure-runas-account.md) ile çalışır.  Süresi dolabilecek ya da sık değişebilecek olan bir parola yerine sertifika doğrulaması kullandığından Farklı Çalıştır hesabı, tercih edilen kimlik doğrulama yöntemidir.  
+- Runbook'lar, [Azure Farklı Çalıştır hesabı](automation-sec-configure-azure-runas-account.md) ile çalışır.  Süresi dolabilecek ya da sık değişebilecek olan bir parola yerine sertifika doğrulaması kullandığından Farklı Çalıştır hesabı, tercih edilen kimlik doğrulama yöntemidir.  
 
 - Bu çözüm, yalnızca Otomasyon hesabı ile aynı abonelikte ve kaynak grubunda yer alan sanal makineleri yönetebilir.  
 
@@ -76,8 +76,8 @@ StopByResourceGroup-TargetSubscriptionID-MS-Mgmt-VM | Çözüm tarafından yöne
 
 Zamanlama | Açıklama|
 ---------|------------|
-StartByResourceGroup-Schedule-MS-Mgmt | StartByResourceGroup runbook’una ait zamanlama.|
-StopByResourceGroup-Schedule-MS-Mgmt | StopByResourceGroup runbook’una ait zamanlama.|
+StartByResourceGroup-Schedule-MS-Mgmt | VM’lerin bu çözüm tarafından yönetilen başlatma işlemlerini yürüten StartByResourceGroup runbook’u için zamanlama belirleyin.|
+StopByResourceGroup-Schedule-MS-Mgmt | VM’lerin bu çözüm tarafından yönetilen durdurma işlemlerini yürüten StopByResourceGroup runbook’u için zamanlama belirleyin.|
 
 ### Kimlik Bilgileri
 
@@ -93,7 +93,7 @@ VM’leri çalışma saatleri dışında Başlatma/Durdurma [Önizleme] çözüm
 2. Market dikey penceresinde arama kutusuna **VM Başlat** yazın ve arama sonuçlarının arasından **VM’leri çalışma saatleri dışında Başlatma/Durdurma [Önizleme]** çözümünü seçin.  
 3. Seçili çözümün **VM’leri çalışma saatleri dışında Başlatma/Durdurma [Önizleme]** dikey penceresinde özet bilgileri gözden geçirin ve **Oluştur**’a tıklayın.  
 4. **Çözüm Ekle** dikey penceresi görünür ve çözümü Otomasyon aboneliğinize aktarmadan önce yapılandırmanız istenir.<br><br> ![VM Management Çözüm Ekle dikey penceresi](media/automation-solution-vm-management/vm-management-solution-add-solution-blade.png)<br><br>
-5.  **Çözüm Ekle** dikey penceresinde, **Çalışma alanı**’nı seçin. Burada, Otomasyon hesabının bulunduğu Azure aboneliğine bağlı olan bir OMS çalışma alanı seçmeniz ya da yeni bir OMS çalışma alanı oluşturmanız gerekir.  OMS çalışma alanınız yoksa **Yeni Çalışma Alanı Oluştur**’u seçip **OMS Çalışma Alanı** dikey penceresinde aşağıdakileri gerçekleştirebilirsiniz: 
+5.  **Çözüm Ekle** dikey penceresinde, **Çalışma alanı**’nı seçin. Burada, Otomasyon hesabının bulunduğu Azure aboneliğine bağlı olan bir OMS çalışma alanı seçmeniz ya da yeni bir OMS çalışma alanı oluşturmanız gerekir.  OMS çalışma alanınız yoksa **Yeni Çalışma Alanı Oluştur**’u seçip **OMS Çalışma Alanı** dikey penceresinde aşağıdakileri yapabilirsiniz: 
    - Yeni **OMS Çalışma Alanı** için bir ad belirtin.
    - Varsayılan seçili abonelik uygun değilse açılan listeden bağlanacak bir **Abonelik** seçin.
    - **Kaynak Grubu** için, yeni bir kaynak grubu oluşturabilir veya mevcut bir kaynak grubunu seçebilirsiniz.  
@@ -101,7 +101,7 @@ VM’leri çalışma saatleri dışında Başlatma/Durdurma [Önizleme] çözüm
    - Bir **Fiyatlandırma katmanı** seçin.  Çözüm iki katmanda sunulur: ücretsiz ve OMS ücretli katmanı.  Ücretsiz katmanında günlük toplanan veri miktarı, elde tutma süresi ve runbook işi çalışma zamanı dakika sayısına ilişkin sınırlar vardır.  OMS ücretli katmanında günlük toplanan veri miktarı için bir sınır yoktur.  
 
         > [AZURE.NOTE]
-        > Tek Başına ücretli katmanı bir seçenek olarak görüntülenir, ancak geçerli değildir.  Bu katmanı seçerek aboneliğinizde bu çözümü oluşturmaya çalışırsanız, işlem başarısız olur.  Bu çözüm resmi olarak yayımlandığında, bu sorun da ele alınacaktır.<br>Bu çözümü kullanırsanız, yalnızca otomasyon işi dakikaları ve günlük alımı kullanılır.  Çözüm, ortamınıza ek OMS düğümleri eklemez.  
+        > Ücretli katman tek başına bir seçenek olarak görüntülenir, ancak geçerli değildir.  Bu katmanı seçerek aboneliğinizde bu çözümü oluşturmaya çalışırsanız, işlem başarısız olur.  Bu çözüm resmi olarak yayımlandığında, bu sorun da ele alınacaktır.<br>Bu çözümü kullanırsanız, yalnızca otomasyon işi dakikaları ve günlük alımı kullanılır.  Çözüm, ortamınıza ek OMS düğümleri eklemez.  
 
 6. **OMS çalışma alanı** dikey penceresinde gerekli bilgileri girdikten sonra **Oluştur**’a tıklayın.  Bilgilerin doğrulanıp çalışma alanının oluşturulması sırasında işlemin ilerleme durumunu menüdeki **Bildirimler**’in altından izleyebilirsiniz.  **Çözüm Ekle** dikey penceresine döndürülürsünüz.  
 7. **Çözüm Ekle** dikey penceresinde **Otomasyon Hesabı**’nı seçin.  Yeni bir OMS çalışma alanı oluşturuyorsanız Azure aboneliğiniz, kaynak grubunuz ve bölgeniz dahil olmak üzere belirtilen yeni OMS çalışma alanı ile ilişkilendirilecek olan yeni bir Otomasyon hesabı da oluşturmanız gerekir.  **Otomasyon hesabı oluştur**’u seçerek, **Otomasyon hesabı ekle** dikey penceresinde aşağıdakileri girebilirsiniz: 
@@ -113,7 +113,7 @@ VM’leri çalışma saatleri dışında Başlatma/Durdurma [Önizleme] çözüm
 
 8. Son olarak, **Çözüm Ekle** dikey penceresinde **Yapılandırma**’yı seçin. Böylece **Parametreler** dikey penceresi görüntülenir.  **Parametreler** dikey penceresinde aşağıdakileri yapmanız istenir:  
    - Bu çözüm tarafından yönetilecek VM’leri içeren bir kaynak grubu adı olan **Hedef ResourceGroup Adları**’nı belirtin.  Her birini noktalı virgül ile ayırarak birden fazla ad girebilirsiniz (Değerler büyük küçük harfe duyarlıdır.)  Abonelikte yer alan tüm kaynak gruplarındaki sanal makineleri hedeflemek istiyorsanız, joker karakter kullanılması desteklenir.
-   - Hedef kaynak gruplarındaki VM’lerin başlatılmasına ve durdurulmasına ilişkin yinelenen bir tarih ve saat olan bir **Zamanlama** seçin.
+   - Hedef kaynak gruplarındaki VM’lerin başlatılmasına ve durdurulmasına ilişkin yinelenen bir tarih ve saat olan bir **Zamanlama** seçin.  
 
 10. Çözüm için gereken ilk ayarların yapılandırılmasını tamamlandığınızda **Oluştur**’u seçin.  Tüm ayarlar doğrulanır ve çözümün aboneliğinize dağıtılması denenir.  Bu işlemin tamamlanması birkaç saniye alabilir ve ilerleme durumunu menüdeki **Bildirimler**’in altından izleyebilirsiniz. 
 
@@ -128,6 +128,9 @@ VM Management çözümünü OMS çalışma alanınıza eklediğinizde, OMS panon
 Otomasyon hesabınızda **Çözümler** kutucuğunu seçip **Çözümler** dikey penceresindeki listeden çözüme ait **Başlat-Durdur-VM[Çalışma Alanı]** seçeneğini belirleyerek çözüme erişebilir ve çözümü yönetebilirsiniz.<br><br> ![Otomasyon Çözümler Listesi](media/automation-solution-vm-management/vm-management-solution-autoaccount-solution-list.png)  
 
 Çözümün seçilmesi, **Başlat-Durdur-VM[Çalışma Alanı]** çözüm dikey penceresini görüntüler. Bu pencerede, OMS çalışma alanınızda olduğu gibi çözüme ait başlatılmış ve başarıyla tamamlanmış runbook işlerinin sayısını ve grafik temsilini görüntüleyen **StartStopVM** kutucuğu benzeri önemli ayrıntıları gözden geçirebilirsiniz.<br><br> ![Otomasyon VM Çözüm Dikey Penceresi](media/automation-solution-vm-management/vm-management-solution-solution-blade.png)  
+
+Burada kendi OMS çalışma alanınızı açabilir ve iş kayıtlarıyla ilgili başka analizler alabilirsiniz.  **Tüm ayarlar**’a tıklamanız ve **Ayarlar** dikey penceresinde **Hızlı Başlangıç**’ı ve **Hızlı Başlangıç** dikey penceresinde **OMS Portalı**’nı seçmeniz yeterlidir.   Böylece, yeni bir sekme veya yeni tarayıcı oturumu açılacak ve Otomasyon hesabınız ile aboneliğinize ilişkin OMS çalışma alanınız sunulacaktır.  
+
 
 ### E-posta bildirimlerini yapılandırma
 
@@ -150,6 +153,10 @@ Daha önce vurgulanan değişkenleri yapılandırmak için aşağıdaki adımlar
 2. **Ayarlar** dikey penceresindeki **Otomasyon Kaynakları** bölümünün altında **Varlıklar**’ı seçin. 
 3. **Varlıklar** dikey penceresinde **Değişkenler** kutucuğunu seçin ve **Değişkenler** dikey penceresinde yukarıda listelenen değişkenleri seçip yukarıdaki [değişken](##variables) bölümünde sağlanan tanımlar uyarınca bunların değerlerini değiştirin.  
 4. Değişkene yapılan değişiklikleri kaydetmek için **Kaydet**’e tıklayın.   
+
+### Başlatma ve kapatma zamanlamasını değiştirme
+
+Bu çözümde başlatma ve kapatma zamanlamasının yönetimi için [Azure Otomasyonu’nda runbook zamanlama](automation-scheduling-a-runbook.md) bölümünde açıklanan adımlar uygulanır.  Zamanlama yapılandırmasını değiştiremeyeceğinizi unutmayın.  Mevcut zamanlamayı devre dışı bırakmanız ve yeni bir zamanlama oluşturup bu zamanlama için geçerli olmasını istediğiniz **StartByResourceGroup-MS-Mgmt-VM** veya **StopByResourceGroup-MS-Mgmt-VM** runbook’una bağlamanız gerekir.   
 
 ## Log Analytics kayıtları
 
@@ -224,6 +231,6 @@ StartVM ve StopVM runbook'ları için zaman içerisinde iş durumunu göster | C
 
 
 
-<!--HONumber=Oct16_HO1-->
+<!--HONumber=Oct16_HO3-->
 
 

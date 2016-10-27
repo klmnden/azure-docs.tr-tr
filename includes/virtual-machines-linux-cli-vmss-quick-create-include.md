@@ -1,4 +1,4 @@
-If you haven't already, you can get an [Azure subscription free trial](https://azure.microsoft.com/pricing/free-trial/) and the [Azure CLI](../articles/xplat-cli-install.md) [connected to your Azure account](../articles/xplat-cli-connect.md). Once you do, you can run the following commands to quick-create a scale set:
+Daha önce yapmadıysanız [Azure aboneliği ücretsiz deneme sürümünü](https://azure.microsoft.com/pricing/free-trial/) ve [Azure hesabınıza bağlı](../articles/xplat-cli-connect.md) [Azure CLI](../articles/xplat-cli-install.md)’yı alabilirsiniz. Bunu yaptığınızda, hızla bir ölçek kümesi oluşturmak için aşağıdaki komutları çalıştırabilirsiniz:
 
 ```bash
 # make sure we are in Resource Manager mode (https://azure.microsoft.com/en-us/documentation/articles/resource-manager-deployment-model/)
@@ -13,9 +13,9 @@ azure config mode arm
 azure vmss quick-create -n negatvmss -g negatvmssrg -l westus -u negat -p P4ssw0rd -C 5 -Q Canonical:UbuntuServer:14.04.4-LTS:latest
 ```
 
-If you want to customize the location or image-urn, please look into the commands `azure location list` and `azure vm image {list-publishers|list-offers|list-skus|list|show}`.
+Konum veya görüntü urn’sini özelleştirmek istiyorsanız `azure location list` ve `azure vm image {list-publishers|list-offers|list-skus|list|show}` komutlarına bakın.
 
-Once this command has returned, the scale set will have been created. This scale set will have a load balancer with NAT rules mapping port 50,000+i on the load balancer to port 22 on VM i. Thus, once we figure out the FQDN of the load balancer, we will be able to connect via ssh to our VMs:
+Bu komut döndürüldükten sonra, ölçek kümesi oluşturulacaktır. Bu ölçekte, yük dengeleyicideki bağlantı noktası 50.000+i’yi VM i’deki bağlantı noktası 22’yle eşleyen NAT kurallarına sahip yük dengeleyici olacaktır. Bu nedenle, yük dengeleyicinin FQDN’sini belirledikten sonra VM’lerimize ssh aracılığıyla bağlanabileceğiz:
 
 ```bash
 # (if you decide to run this as a script, please invoke using bash)
@@ -55,3 +55,7 @@ FQDN=${split_line[3]}
 # example to connct via ssh into VM "0":
 ssh -p 50000 negat@$FQDN
 ```
+
+<!--HONumber=Oct16_HO3-->
+
+

@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="vm-linux"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="08/08/2016"
+    ms.date="10/06/2016"
     ms.author="v-livech"/>
 
 
@@ -24,7 +24,7 @@ SSH anahtar çiftiyle Azure'da Sanal Makineler oluşturabilirsiniz. Bu sayede ki
 
 ## Hızlı Komut Listesi
 
-Aşağıdaki komut örneklerinde, &lt; ile &gt; arasındaki değerleri kendi ortamınızdaki değerlerle değiştirin.
+Aşağıdaki komut örneklerinde, &lt; ile &gt; arasındaki değerleri kendi ortamınızdaki değerlerle değiştirin.  Tüm ssh anahtarlarınızın bu dizinde oluşturulmasını sağlamak için işe `cd ~/.ssh/` dizinlerini değiştirerek başlayın.
 
 ```bash
 ssh-keygen -t rsa -b 2048 -C "<your_user@yourdomain.com>"
@@ -79,7 +79,7 @@ Azure en az 2048 bit, ssh-rsa biçimli ortak ve özel anahtarlar gerektirir. Ana
 
 ## SSH-keygen’i kullanma
 
-Bu komut, 2048 bit RSA kullanarak parola korumalı (şifrelenmiş) bir SSH Anahtar Çifti oluşturur; kolayca anlaşılabilmesi için komuta açıklama eklenir.
+Bu komut, 2048 bit RSA kullanarak parola korumalı (şifrelenmiş) bir SSH Anahtar Çifti oluşturur; kolayca anlaşılabilmesi için komuta açıklama eklenir.  Tüm ssh anahtarlarınızın bu dizinde oluşturulmasını sağlamak için işe `cd ~/.ssh/` dizinlerini değiştirerek başlayın.
 
 ```bash
 ssh-keygen -t rsa -b 2048 -C "ahmet@fedoraVMAzure"
@@ -102,12 +102,12 @@ Klasik dağıtım modelini kullanıyorsanız (Klasik Azure Portalı veya Azure H
 Var olan bir SSH ortak anahtarından PEM biçimli bir anahtar oluşturmak için:
 
 ```bash
-ssh-keygen -f id_rsa.pub -m 'PEM' -e > id_rsa.pem
+ssh-keygen -f ~/.ssh/id_rsa.pub -e > ~/.ssh/id_ssh2.pem
 ```
 
 ## Ssh-keygen kılavuzu
 
-Her adım ayrıntılı olarak açıklanmıştır.  `ssh-keygen` çalıştırarak başlayın.
+Her adım ayrıntılı olarak açıklanmıştır.  İşe `~/.ssh` dizinini değiştirerek başlayın ve ardından şunu çalıştırın: `ssh-keygen`.
 
 ```bash
 ssh-keygen -t rsa -b 2048 -C "ahmet@fedoraVMAzure"
@@ -246,6 +246,6 @@ Sonraki adım, yeni SSH ortak anahtarını kullanarak Azure Linux VM’ler oluş
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

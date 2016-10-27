@@ -16,6 +16,7 @@
     ms.date="08/12/2016"
     ms.author="piyushjo;ricksal" />
 
+
 # Windows Evrensel Uygulamaları için Azure Mobile Engagement kullanmaya başlama
 
 [AZURE.INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
@@ -30,7 +31,7 @@ Bu öğretici, Mobile Engagement kullanarak basit bir yayın senaryosunu göster
 
 ## Windows Evrensel uygulamanız için Mobile Engagement kurma
 
-[AZURE.INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal.md)]
+[AZURE.INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
 ##<a id="connecting-app"></a>Uygulamanızı Mobile Engagement arka ucuna bağlama
 
@@ -209,6 +210,6 @@ Uygulama içi bildirim görür ancak bildirim görmezseniz ve uygulamayı Visual
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Oct16_HO3-->
 
 

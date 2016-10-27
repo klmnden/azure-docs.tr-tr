@@ -1,14 +1,14 @@
 <properties
     pageTitle="Service Bus Premium ve Standart Mesajlaşma hizmeti fiyatlandırma katmanlarına genel bakış | Microsoft Azure"
     description="Service Bus Premium ve Standart Mesajlaşma Hizmeti"
-    services="service-bus-messaging"
+    services="service-bus"
     documentationCenter=".net"
     authors="djrosanova"
     manager="timlt"
     editor=""/>
 
 <tags
-    ms.service="service-bus-messaging"
+    ms.service="service-bus"
     ms.workload="na"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
@@ -17,7 +17,7 @@
     ms.author="darosa;sethm"/>
 
 
-# Service Bus Premium ve Standart Mesajlaşma katmanları 
+# <a name="service-bus-premium-and-standard-messaging-tiers"></a>Service Bus Premium ve Standart Mesajlaşma katmanları 
 
 Kuyruklar ve konu başlıkları gibi mesajlaşma varlıklarını içeren Service Bus mesajlaşma, kuruluşun mesajlaşma işlevlerini bulut ölçeğinde zengin yayımla-abone ol semantiği ile birleştirir. Service Bus mesajlaşması birçok gelişmiş bulut çözümü için iletişimin temel öğesi olarak kullanılır.
 
@@ -37,30 +37,29 @@ Aşağıdaki tabloda bazı üst düzey farklılıklar vurgulanmıştır.
 
 Daha tahmin edilebilir ve kullanılabilir olmasının yanı sıra bu performans, daha hızlıdır. Service Bus Premium mesajlaşma hizmeti, [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) kısmında tanıtılan depolama motorunda derlenir. Premium mesajlaşma sayesinde, en yüksek performans Standart katmanda olduğundan daha hızlıdır.
 
-## Premium Mesajlaşmanın teknik farklılıkları
+## <a name="premium-messaging-technical-differences"></a>Premium Mesajlaşmanın teknik farklılıkları
 
 Premium ve Standart mesajlaşma katmanları arasındaki bazı farklar aşağıda verilmiştir.
 
-### Bölümlenmiş kuyruklar ve konular
+### <a name="partitioned-queues-and-topics"></a>Bölümlenmiş kuyruklar ve konular
 
 Bölümlenmiş kuyruklar ve konular Premium mesajlaşmada desteklenir ancak Service Bus mesajlaşma hizmetinin Standart ve Temel katmanlarında aynı şekilde işlev görmez. Premium mesajlaşma, SQL'i bir veri deposu olarak kullanmaz ve artık paylaşılan platforma ilişkin olası kaynak rekabetini barındırmaz. Sonuç olarak, bölümleme gerekli değildir. Ayrıca, Standart mesajlaşmada 16 olan bölüm sayısı Premium'da 2 bölüm olarak değiştirilmiştir. İki bölümlemeye sahip olmak kullanılabilirliği garanti altına alır ve Premium çalışma zamanı ortamı için daha uygun bir sayıdır. Bölümleme hakkında daha fazla bilgi için bkz. [Bölümlenmiş kuyruklar ve konular](service-bus-partitioning.md).
 
-### İfade varlıkları
+### <a name="express-entities"></a>İfade varlıkları
 
 Premium Mesajlaşma tamamen yalıtılmış bir çalışma zamanı ortamında çalıştığından Premium ad alanlarında ifade varlıkları desteklenmemektedir. İfade özellikleri hakkında daha fazla bilgi için [Microsoft.ServiceBus.Messaging.QueueDescription.EnableExpress](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.enableexpress.aspx) özelliğine bakın.
 
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 
 Service Bus mesajlaşma hizmeti hakkında daha fazla bilgi edinmek için aşağıdaki konu başlıklarına bakın.
 
 - [Azure Service Bus mesajlaşma hizmetine giriş (blog gönderisi)](http://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
-- [Azure Service Bus mesajlaşma hizmetine giriş (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
+- [Azure Service Bus Premium mesajlaşma hizmetine giriş (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
 - [Service Bus mesajlaşma hizmetine genel bakış](service-bus-messaging-overview.md)
-- [Azure Service Bus mimarisine genel bakış](../service-bus/service-bus-fundamentals-hybrid-solutions.md)
 - [Service Bus kuyruklarını kullanma](service-bus-dotnet-get-started-with-queues.md)
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO3-->
 
 

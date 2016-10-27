@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/27/2016"
+   ms.date="10/11/2016"
    ms.author="larryfr"/>
 
 
@@ -228,6 +228,6 @@ HDInsight’ta Apache Storm ile gerçek zamanlı analiz çözümleri hakkında d
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

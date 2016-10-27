@@ -1,14 +1,14 @@
 <properties
     pageTitle="Service Bus geçişine genel bakış | Microsoft Azure"
     description="Service Bus geçişine genel bakış."
-    services="service-bus-relay"
+    services="service-bus"
     documentationCenter=".net"
     authors="sethmanheim"
     manager="timlt"
     editor=""/>
 
 <tags
-    ms.service="service-bus-relay"
+    ms.service="service-bus"
     ms.workload="na"
     ms.tgt_pltfrm="na"
     ms.devlang="multiple"
@@ -18,7 +18,7 @@
 
 
 
-# Service Bus geçişine genel bakış
+# <a name="overview-of-service-bus-relay"></a>Service Bus geçişine genel bakış
 
 Service Bus'ın temel bir bileşeni, hem Azure veri merkezinde hem de şirket içi kurumsal ortamınızda çalışan karma uygulamalar oluşturmanıza olanak sağlayan merkezi (ancak yüksek düzeyde yük dengeleme olanağı sunan) *geçiş* hizmetidir.  Service Bus geçişi birçok çeşitli aktarım protokolünü ve web hizmeti standartlarını destekler. Bunlar; SOAP, WS-* ve hatta REST'i bile içerir. Geçiş hizmeti karma uygulamalarınızı kolaylaştırma işlemini, güvenlik duvarı bağlantısını açmanıza veya kurumsal ağ altyapısına müdahale eden değişiklikler yapmanıza gerek kalmadan kurumsal işletme ağında bulunan Windows Communication Foundation (WCF) hizmetlerini genel bulutta kullanıma sunmanıza olanak sağlayarak gerçekleştirir. 
 
@@ -30,16 +30,16 @@ Geçişli mesajlaşma düzeninde bir şirket içi hizmet, giden bağlantı nokta
 
 WCF "geçiş" bağlamalarının bir paketini kullanarak geçiş hizmeti ile şirket içi hizmetiniz arasındaki bağlantıyı başlatırsınız. Arka planda ise geçiş bağlamaları, bulutta Service Bus ile tümleşen WCF kanalı bileşenlerini oluşturmak üzere tasarlanan yeni aktarım bağlama öğeleriyle eşleşir. 
 
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 
 Service Bus geçişi hakkındaki ayrıntılar için aşağıdaki konu başlıklarına bakın.
 
-- [Azure Service Bus Mimarisine Genel Bakış](../service-bus/service-bus-fundamentals-hybrid-solutions.md)
-- [Service Bus Geçişi hizmetini kullanma](../service-bus-relay/service-bus-dotnet-how-to-use-relay.md)
+- [Azure Service Bus Mimarisine Genel Bakış](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md)
+- [Service Bus Geçişi hizmetini kullanma](service-bus-dotnet-how-to-use-relay.md)
 
  
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO3-->
 
 

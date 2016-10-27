@@ -18,7 +18,7 @@
 
 
 
-#Azure portalı ile çoklu bit hızına sahip akışlar oluşturmak üzere Azure Media Services’i kullanarak canlı akış gerçekleştirme
+#<a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multi-bitrate-streams-with-the-azure-portal"></a>Azure portalı ile çoklu bit hızına sahip akışlar oluşturmak üzere Azure Media Services’i kullanarak canlı akış gerçekleştirme
 
 > [AZURE.SELECTOR]
 - [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
@@ -29,7 +29,7 @@ Bu öğreticide, tek bit hızında bir canlı akışı alıp çoklu bit hızınd
 
 >[AZURE.NOTE]Gerçek zamanlı kodlama için etkinleştirilmiş Kanallar ile ilgili daha fazla kavramsal bilgi için bkz. [Çoklu bit hızı akışları oluşturmak için Azure Media Services kullanarak canlı akış](media-services-manage-live-encoder-enabled-channels.md).
 
-##Ortak Canlı Akış Senaryosu
+##<a name="common-live-streaming-scenario"></a>Ortak Canlı Akış Senaryosu
 
 Yaygın canlı akış uygulamaları oluşturmak için gerekli olan genel adımlar aşağıdadır.
 
@@ -57,7 +57,7 @@ Yaygın canlı akış uygulamaları oluşturmak için gerekli olan genel adımla
 1. Olay akışını ve arşivlemeyi durdurmak istediğinizde, olayı durdurun.
 1. Olayı silin (ve isteğe bağlı olarak varlığı silin).   
 
-##Bu öğreticide
+##<a name="in-this-tutorial"></a>Bu öğreticide
 
 Bu öğreticide, Azure portalı aşağıdaki görevleri gerçekleştirmek için kullanılır: 
 
@@ -69,14 +69,14 @@ Bu öğreticide, Azure portalı aşağıdaki görevleri gerçekleştirmek için 
 1.  İçeriğinizi oynatma 
 2.  Temizleme
 
-##Ön koşullar
+##<a name="prerequisites"></a>Ön koşullar
 Öğreticiyi tamamlamak için aşağıdakiler gereklidir.
 
-- Bu öğreticiyi tamamlamak için bir Azure hesabınızın olması gerekir. Hesabınız yoksa yalnızca birkaç dakika içinde ücretsiz bir deneme sürümü hesabı oluşturabilirsiniz. Ayrıntılar için bkz. [Azure Ücretsiz Deneme](https://azure.microsoft.com/pricing/free-trial/).
-- Bir Media Services hesabı. Media Services hesabı oluşturma konusunda bilgi edinmek için bkz. [Hesap Oluşturma](media-services-create-account.md).
+- Bu öğreticiyi tamamlamak için bir Azure hesabınızın olması gerekir. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılar için bkz. [Azure Ücretsiz Deneme](https://azure.microsoft.com/pricing/free-trial/).
+- Bir Media Services hesabı. Media Services hesabı oluşturma konusunda bilgi edinmek için bkz. [Hesap Oluşturma](media-services-portal-create-account.md).
 - Bir web kamerası ve tek bit hızlı bir canlı akış gönderebilen bir kodlayıcı.
 
-##Akış uç noktalarını yapılandırma 
+##<a name="configure-streaming-endpoints"></a>Akış uç noktalarını yapılandırma 
 
 Media Services, MPEG DASH, HLS veya Kesintisiz Akış HDS akış biçimlerinde yeniden paketlemenize gerek kalmadan çoklu bit hızlı MP4’ler göndermenizi sağlayan dinamik paketleme olanağı verir. Dinamik paketleme ile dosyaları yalnızca tek bir depolama biçiminde depolamanız ve buna göre ödeme yapmanız gerekir. Media Services, istemciden gelen isteklere göre uygun yanıtı derler ve sunar.
 
@@ -99,7 +99,7 @@ Akışa ayrılan birim sayısını oluşturmak ve değiştirmek için, aşağıd
 
     >[AZURE.NOTE]Yeni birimleri ayırmanın tamamlanması 20 dakika sürebilir.
 
-##KANAL oluşturma
+##<a name="create-a-channel"></a>KANAL oluşturma
 
 1. [Azure portalı](https://portal.azure.com/)’nda Media Services’e ve ardından Media Services hesap adına tıklayın.
 2. **Canlı Akış**’ı seçin.
@@ -143,16 +143,16 @@ Kanalı oluşturduktan sonr, Kanal’a tıklayıp **Ayarlar**’ı seçerek kana
 Daha fazla bilgi için bkz. [Çoklu bit hızına sahip akışlar oluşturmak üzere Azure Media Services’i kullanarak canlı akış gerçekleştirme](media-services-manage-live-encoder-enabled-channels.md).
 
 
-##Alma URL’leri alma
+##<a name="get-ingest-urls"></a>Alma URL’leri alma
 
 Kanal oluşturulduktan sonra, gerçek zamanlı kodlayıcıya sağlayacağınız alma URL’lerini alabilirsiniz. Kodlayıcı bu URL'leri canlı akış girişi için kullanır.
 
 ![ingesturls](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-ingest-urls.png)
 
 
-##Olay oluşturma ve yönetme
+##<a name="create-and-manage-events"></a>Olay oluşturma ve yönetme
 
-###Genel Bakış
+###<a name="overview"></a>Genel Bakış
 
 Bir kanal, canlı akıştaki kesimleri yayımlamanızı ve depolamanızı denetlemenizi sağlayan olaylar/programlarla ilişkilidir. Olayları/programları kanallar yönetir. Kanal ve Program arasındaki ilişki, kanalın sürekli bir içerik akışının bulunduğu ve programın bu kanalda zamanlanmış bir olayı kapsadığı geleneksel medyadaki ilişkiye benzer.
 
@@ -172,7 +172,7 @@ Olayı durdurduktan ve sildikten sonra dahi, varlığı silmeniz sürece, kullan
 
 Arşivlenen içeriği tutmak istiyor ancak bu içeriğin akış için kullanılmasını istemiyorsanız, akış bulucuyu silin.
 
-###Olay oluşturma/başlatma/durdurma
+###<a name="create/start/stop-events"></a>Olay oluşturma/başlatma/durdurma
 
 Akışın Kanala akması sağlandıktan sonra bir Varlık, Program ve Akış Bulucu oluşturarak akış olayını başlatabilirsiniz. Bu olay, akışı arşivler ve akışın Akış Uç Noktası aracılığıyla izleyiciler tarafından kullanılabilmesini sağlar. 
 
@@ -199,7 +199,7 @@ Yayımlanmış olayı **Canlı olay** sayfasından izleyebilirsiniz.
 **Çevrimdışı** seçeneğine tıklarsanız tüm canlı olaylar durdurulur. 
 
 
-##Olayı izleme
+##<a name="watch-the-event"></a>Olayı izleme
 
 Olay izlemek için, Azure portalda **İzle**’ye tıklayın veya akış URL'sini kopyalayın ve tercih ettiğiniz bir oynatıcı kullanın. 
  
@@ -207,7 +207,7 @@ Olay izlemek için, Azure portalda **İzle**’ye tıklayın veya akış URL'sin
 
 Canlı olay durduğunda otomatik olarak isteğe bağlı içeriğe dönüşür.
 
-##Temizleme
+##<a name="clean-up"></a>Temizleme
 
 Olayların akışla aktarılmasını tamamlayıp önceden sağlanan kaynakları temizlemek istediğinizde aşağıdaki yordamı izleyin.
 
@@ -215,7 +215,7 @@ Olayların akışla aktarılmasını tamamlayıp önceden sağlanan kaynakları 
 - Kanalı durdurun. Kanal durdurulduktan sonra herhangi bir ücret uygulanmaz. Tekrar başlatmanız gerektiğinde, aynı alma URL’sine sahip olacağından kodlayıcıyı yeniden yapılandırmanız gerekmez.
 - Canlı olayınızın arşivini isteğe bağlı bir akış olarak sunmaya devam etmek istemiyorsanız Akış Uç Noktanızı durdurabilirsiniz. Kanalın durumu, durdurulmuş ise herhangi bir ücret uygulanmaz.
   
-##Arşivlenen içeriği görüntüleme
+##<a name="view-archived-content"></a>Arşivlenen içeriği görüntüleme
 
 Olayı durdurduktan ve sildikten sonra dahi, varlığı silmeniz sürece, kullanıcılar arşivlenen içeriğinizin isteğe bağlı içerik olarak akışını gerçekleştirebilir. Bir olay tarafından kullanılıyorsa varlık silinemez; önce olayın silinmesi gerekir. 
 
@@ -223,19 +223,19 @@ Varlıklarınızı yönetmek için, **Ayar**’ı seçin ve **Varlıklar**’a t
 
 ![Varlıklar](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-assets.png)
 
-##Dikkat edilmesi gerekenler
+##<a name="considerations"></a>Dikkat edilmesi gerekenler
 
 - Canlı bir etkinlik için önerilen en uzun süre şu anda 8 saattir. Daha uzun bir süre için bir Kanal çalıştırmanız gerekiyorsa lütfen amslived@microsoft.com adresine başvurun.
 - İçerik akışını gerçekleştirmek istediğiniz akış uç noktasında akışa ayrılan en az bir birim olduğundan emin olun.
 
 
-##Sonraki adım
+##<a name="next-step"></a>Sonraki adım
 
 Media Services öğrenme yollarını gözden geçirin.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##Geri bildirimde bulunma
+##<a name="provide-feedback"></a>Geri bildirimde bulunma
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
@@ -243,6 +243,6 @@ Media Services öğrenme yollarını gözden geçirin.
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

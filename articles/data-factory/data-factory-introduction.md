@@ -83,6 +83,7 @@ Veri işlem hatları ile veri fabrikaları oluşturmayı öğrenmek için aşağ
 [Veri Yönetimi Ağ Geçidi kullanarak verileri şirket içi veri deposu ile bulut veri deposu arasında taşımak üzere veri işlem hattı oluşturma](data-factory-move-data-between-onprem-and-cloud.md) | Bu öğreticide, **şirket içi** SQL Server veritabanından Azure blob’a **veri taşıyan** bir işlem hattı ile veri fabrikası oluşturacaksınız. Adım adım kılavuzun bir parçası olarak makinenize Veri Yönetimi Ağ Geçidi yükleyip bunu yapılandıracaksınız. 
 
 
-<!--HONumber=Sep16_HO4-->
+
+<!--HONumber=Oct16_HO3-->
 
 

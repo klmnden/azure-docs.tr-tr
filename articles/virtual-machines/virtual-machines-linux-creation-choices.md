@@ -36,14 +36,14 @@ Azure CLI bir npm paketi, distro ile sağlanan paketler veya Docker kapsayıcıs
     ```
 
 - [Bir Azure şablonu kullanarak güvenli bir Linux VM oluşturma](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
-    - Aşağıdaki örnekte GitHub’a depolanmış bir şablon kullanılarak sanal makine oluşturulmaktadır:
+    - Aşağıdaki örnekte GitHub’a depolanmış bir şablon kullanılarak bir VM oluşturulmuştur:
 
     ```bash
     azure group create --name TestRG --location WestUS 
         --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json
     ```
 
-- [Azure CLI’de eksiksiz bir Linux ortamı oluşturma](virtual-machines-linux-create-cli-complete.md)
+- [Azure CLI kullanarak eksiksiz bir Linux ortamı oluşturma](virtual-machines-linux-create-cli-complete.md)
     - Bir yük dengeleyici ve kullanılabilirlik kümesi içinde birden fazla sanal makine oluşturmayı içerir.
 
 - [Linux VM'ye disk ekleme](virtual-machines-linux-add-disk.md)
@@ -133,6 +133,6 @@ Belirli özelleştirmelere ihtiyaç duyuyorsanız, mevcut bir Azure VM’i temel
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO3-->
 
 

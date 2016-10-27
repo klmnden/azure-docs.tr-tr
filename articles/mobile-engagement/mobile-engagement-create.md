@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-windows-store"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="08/19/2016"  
+    ms.date="10/10/2016"  
     ms.author="piyushjo"/>
 
 
@@ -28,15 +28,13 @@ Uygulamalarınız için veri toplayabilmek ve anında iletme bildirimleri gönde
 
 ##Azure’da mobil uygulamanız için Mobile Engagement kurma
 
-[AZURE.INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal.md)]
+[AZURE.INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
 ##Mobile Engagement portalınıza gidin.
 
-Uygulamanızı izlemeye ve yönetmeye başlamak için, alt kısımdaki **Engage** düğmesine tıklayarak Mobile Engagement portalınıza gidin.
+Uygulamanızı izlemeye ve yönetmeye başlamak için üst çubuktaki **Engagement portal** düğmesine tıklayarak Mobile Engagement portalınıza gidin.
 
-![](../../includes/media/mobile-engagement-connect-app-with-monitor/engage-button.png)
-
-Mobile Engagement portalında iken, kesimleri çözümleyebilir, oluşturabilir ve yönetebilir, kullanıcılara erişebilirsiniz, vb.:    
+Mobile Engagement portalındayken, segmentleri çözümleyebilir, oluşturabilir, yönetebilir, kullanıcılara erişebilir ve bunlara benzer birçok işlem yapabilirsiniz:    
 
 - [Uygulamanız hakkında gerçek zamanlı verileri izleyin](mobile-engagement-user-interface-monitor.md)
 - [Uygulamanız hakkındaki geçmiş verilerini çözümleyin](mobile-engagement-user-interface-analytics.md)
@@ -51,6 +49,6 @@ Mobile Engagement portalında iken, kesimleri çözümleyebilir, oluşturabilir 
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

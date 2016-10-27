@@ -17,7 +17,7 @@
     ms.author="rachelap"/>
 
 
-# Web Apps’e Genel Bakış
+# <a name="web-apps-overview"></a>Web Apps’e Genel Bakış
 
 *App Service Web Apps* web sitelerini ve web uygulamalarını barındırmak için en uygun hale getirilmiş tam olarak yönetilen bir işlem platformudur. Microsoft Azure tarafından sunulan bu [hizmet olarak platform](https://en.wikipedia.org/wiki/Platform_as_a_service) (PaaS) teklifi, Azure sizin yerinize uygulamalarınızı çalıştıracak ve ölçeklendirecek altyapınızla ilgilenirken, sizin işlerinize odaklanmanızı sağlar.
 
@@ -27,7 +27,7 @@ Aşağıdaki 5 dakikalık videoda Azure App Service Web Apps hakkında genel bil
 
 >[AZURE.INCLUDE [app-service-linux](../../includes/app-service-linux.md)] 
 
-## App Service’teki bir web uygulaması nedir?
+## <a name="what-is-a-web-app-in-app-service?"></a>App Service’teki bir web uygulaması nedir?
 
 App Service’teki bir *web uygulaması* bir web sitesini veya web uygulamasını barındırmak için Azure tarafından sağlanan işlem kaynaklarıdır.  
 
@@ -37,7 +37,7 @@ Kodlarınız, ASP.NET, Node.js, Java, PHP veya Python [Azure App Service](../app
 
 Web Apps’i kullanabileceğiniz tipik uygulama senaryo örnekleri için bkz. [Azure App Service, Virtual Machines, Service Fabric ve Cloud Services karşılaştırmasının](choose-web-site-cloud-service-vm.md#scenarios) [Web uygulaması senaryoları](https://azure.microsoft.com/documentation/scenarios/web-app/) ve **Senaryolar ve öneriler** bölümüne bakın.
 
-## Web Apps neden kullanılır?
+## <a name="why-use-web-apps?"></a>Web Apps neden kullanılır?
 
 App Service’in Web Apps için geçerli olan temel özelliklerinden bazıları aşağıda sunulmuştur:
 
@@ -59,7 +59,7 @@ Ayrıca, web uygulamasında [API Apps](../app-service-api/app-service-api-apps-w
 
 Azure, App Service’te Web Apps’in yanı sıra web siteleri ve web uygulamaları barındırmak için kullanılabilen başka hizmetler de sunar. Çoğu senaryo için Web Apps en iyi seçenektir.  Mikro hizmet mimarisi için [Service Fabric](https://azure.microsoft.com/documentation/services/service-fabric)’i göz önünde bulundurun ve kodlarınızın çalıştığı sanal makineler üzerinde daha fazla denetim elde etmeniz gerekirse [Azure Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/)’i düşünün. Bu Azure hizmetleri arasında seçim yapma hakkında daha fazla bilgi için bkz. [Azure App Service, Virtual Machines, Service Fabric ve Cloud Services karşılaştırması](choose-web-site-cloud-service-vm.md).
 
-## Başlarken
+## <a name="getting-started"></a>Başlarken
 
 App Service’te basit kodları yeni web uygulamasına dağıtmaya başlamak için [Azure’da ilk web uygulamanızı 5 dakika içinde dağıtma](app-service-web-get-started.md) öğreticisini izleyin. Ücretsiz Azure hesabınızın olması gerekir.
 
@@ -67,6 +67,6 @@ Azure hesabı için kaydolmadan önce Azure App Service’i kullanmaya başlamak
 
 
 
-<!--HONumber=Oct16_HO1-->
+<!--HONumber=Oct16_HO3-->
 
 

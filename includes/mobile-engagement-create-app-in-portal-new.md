@@ -1,3 +1,4 @@
+
 1. [Azure Portal](https://portal.azure.com)'da oturum açın.
 
 2. **Yeni**, ardından **Web + Mobil** ve sonra **Mobile Engagement**’a tıklayın.
@@ -38,6 +39,6 @@
     ![](./media/mobile-engagement-create-app-in-portal-new/app-connection-info.png)
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 
