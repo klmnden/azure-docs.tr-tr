@@ -3,8 +3,8 @@
    description="Power BI Embedded, iş zekası uygulamanıza etkileşimli Power BI raporları ekler"
    services="power-bi-embedded"
    documentationCenter=""
-   authors="mgblythe"
-   manager="NA"
+   authors="guyinacube"
+   manager="erikre"
    editor=""
    tags=""/>
 <tags
@@ -13,8 +13,8 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
-   ms.date="07/05/2016"
-   ms.author="mblythe"/>
+   ms.date="10/04/2016"
+   ms.author="asaxton"/>
 
 
 # Microsoft Power BI Embedded kullanmaya başlama
@@ -104,6 +104,6 @@ Veri kaynağına bağlanma hakkında daha fazla bilgi için bkz. [Veri kaynağı
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

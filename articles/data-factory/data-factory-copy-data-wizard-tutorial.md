@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Öğretici: Kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma" 
+    pageTitle="Öğretici: Kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma | Microsoft Azure" 
     description="Bu öğreticide, Data Factory ile desteklenen Kopyalama Sihirbazı’nı kullanarak Kopyalama Etkinlikli bir Azure Data Factory işlem hattı oluşturursunuz" 
     services="data-factory" 
     documentationCenter="" 
@@ -10,7 +10,7 @@
 <tags 
     ms.service="data-factory" 
     ms.workload="data-services" 
-    ms.tgt_pltfrm="na" **
+    ms.tgt_pltfrm="na"
     ms.devlang="na" 
     ms.topic="get-started-article" 
     ms.date="09/16/2016" 
@@ -24,6 +24,7 @@
 - [Azure portalı](data-factory-copy-activity-tutorial-using-azure-portal.md)
 - [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 - [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+- [Azure Resource Manager şablonu](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
 - [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
 - [.NET API’si](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 
@@ -120,7 +121,7 @@ Bu adımda **ADFTutorialDataFactory** adlı bir Azure data factory oluşturmak i
     ![Kopyalama Aracı - performans ayarları](./media/data-factory-copy-data-wizard-tutorial/summary-page.png)
 
 ## Uygulama İzleme ve Yönetmeyi başlatma 
-12. **Dağıtım** sayfasında **Kopyalama işlem hattını izlemek için buraya tıklayın** bağlantısına tıklayın.
+12. **Dağıtım** sayfasında, şu bağlantıya tıklayın: `Click here to monitor copy pipeline`.
 
     ![Kopyalama Aracı - Dağıtım başarılı](./media/data-factory-copy-data-wizard-tutorial/copy-tool-deployment-succeeded.png)  
 13. Oluşturduğunuz işlem hattını izleme hakkında bilgi almak için [İzleme Uygulamasını kullanarak işlem hattını izleme ve yönetme](data-factory-monitor-manage-app.md) bölümündeki yönergeleri kullanın. Dilimi görmek için **ETKİNLİK PENCERELERİ** listesindeki **Yenile** simgesine tıklayın. 
@@ -139,6 +140,6 @@ Bu adımda **ADFTutorialDataFactory** adlı bir Azure data factory oluşturmak i
 | [İzleme Uygulaması kullanılarak işlem hatlarını izleme ve yönetme](data-factory-monitor-manage-app.md) | Bu makalede İzleme ve Yönetim Uygulaması kullanılarak işlem hatlarını izleme, yönetme ve hatalarını ayıklama işlemleri açıklanmaktadır. 
 
 
-<!--HONumber=Oct16_HO1-->
+<!--HONumber=Oct16_HO3-->
 
 

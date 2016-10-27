@@ -18,7 +18,7 @@
 
 
 
-#Azure portal kullanarak şirket içi kodlayıcılarda canlı akış gerçekleştirme
+#<a name="how-to-perform-live-streaming-with-on-premise-encoders-using-the-azure-portal"></a>Azure portal kullanarak şirket içi kodlayıcılarda canlı akış gerçekleştirme
 
 > [AZURE.SELECTOR]
 - [Portal]( media-services-portal-live-passthrough-get-started.md)
@@ -27,12 +27,12 @@
 
 Bu öğretici, Azure portal kullanarak doğrudan teslimat için yapılandırılmış bir **Kanal** oluşturmaya ilişkin adımları anlatmaktadır. 
 
-##Ön koşullar
+##<a name="prerequisites"></a>Ön koşullar
 
 Öğreticiyi tamamlamak için aşağıdakiler gereklidir:
 
 - Bir Azure hesabı. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/). 
-- Bir Media Services hesabı. Bir Media Services hesabı oluşturmak için bkz. [Media Services hesabı oluşturma](media-services-create-account.md).
+- Bir Media Services hesabı. Bir Media Services hesabı oluşturmak için bkz. [Media Services hesabı oluşturma](media-services-portal-create-account.md).
 - Bir Web kamerası. Örneğin, [Telestream Wirecast kodlayıcı](http://www.telestream.net/wirecast/overview.htm).
 
 Aşağıdaki makaleleri gözden geçirmeniz için önerilir:
@@ -42,7 +42,7 @@ Aşağıdaki makaleleri gözden geçirmeniz için önerilir:
 - [Çoklu bit hızı akışları oluşturan şirket içi kodlayıcılarla canlı akış](media-services-live-streaming-with-onprem-encoders.md)
 
 
-##<a id="scenario"></a>Ortak canlı akış senaryosu
+##<a name="<a-id="scenario"></a>common-live-streaming-scenario"></a><a id="scenario"></a>Ortak canlı akış senaryosu
 
 Aşağıdaki adımlar, doğrudan teslimat için yapılandırılan kanalları kullanan ortak canlı akış uygulamaları oluşturmaya dahil olan görevleri açıklamaktadır. Bu öğretici, doğrudan geçiş kanalı ve canlı olayları oluşturmayı ve yönetmeyi gösterir.
 
@@ -70,13 +70,13 @@ Aşağıdaki adımlar, doğrudan teslimat için yapılandırılan kanalları kul
 
 >[AZURE.IMPORTANT] Lütfen şirket içi kodlayıcılarda ve geçiş kanallarında canlı akışlar ilgili kavramları ve dikkate alınması gereken konuları öğrenmek için [Çoklu bit hızı akışları oluşturan şirket içi kodlayıcılarla canlı akış](media-services-live-streaming-with-onprem-encoders.md) başlığını gözden geçirin.
 
-##Bildirimleri ve hataları görüntülemek için
+##<a name="to-view-notifications-and-errors"></a>Bildirimleri ve hataları görüntülemek için
 
 Azure portal tarafından oluşturulan bildirimleri ve hataları görüntülemek istiyorsanız, Bildirim simgesine tıklayın.
 
 ![Bildirimler](./media/media-services-portal-passthrough-get-started/media-services-notifications.png)
 
-##Akış uç noktalarını yapılandırma 
+##<a name="configure-streaming-endpoints"></a>Akış uç noktalarını yapılandırma 
 
 Media Services, MPEG DASH, HLS veya Kesintisiz Akış HDS akış biçimlerinde yeniden paketlemenize gerek kalmadan çoklu bit hızlı MP4’ler göndermenizi sağlayan dinamik paketleme olanağı verir. Dinamik paketleme ile dosyaları yalnızca tek bir depolama biçiminde depolamanız ve buna göre ödeme yapmanız gerekir; Media Services, istemciden gelen isteklere göre uygun yanıtı derler ve sunar.
 
@@ -99,7 +99,7 @@ Akışa ayrılan birim sayısını oluşturmak ve değiştirmek için, aşağıd
 
     >[AZURE.NOTE]Yeni birimleri ayırmanın tamamlanması 20 dakika sürebilir.
     
-##Geçiş kanalları ve olayları oluşturma ve başlatma
+##<a name="create-and-start-pass-through-channels-and-events"></a>Geçiş kanalları ve olayları oluşturma ve başlatma
 
 Bir kanal, canlı akıştaki kesimleri yayımlamanızı ve depolamanızı denetlemenizi sağlayan olaylar/programlarla ilişkilidir. Kanallar olayları yönetir. 
     
@@ -119,7 +119,7 @@ Olayı durdurduktan ve sildikten sonra dahi, varlığı silmeniz sürece, kullan
 
 Arşivlenen içeriği tutmak istiyor ancak bu içeriğin akış için kullanılmasını istemiyorsanız, akış bulucuyu silin.
 
-###Bir kanal oluşturmak amacıyla portalı kullanmak için 
+###<a name="to-use-the-portal-to-create-a-channel"></a>Bir kanal oluşturmak amacıyla portalı kullanmak için 
 
 Bu bölüm bir geçiş kanalı oluşturmak için **Hızlı Oluştur** seçeneğinin nasıl kullanılacağını gösterir.
 
@@ -138,7 +138,7 @@ Geçiş kanalları hakkında daha fazla ayrıntı için bkz. [Çoklu bit hızı 
 
     Bunun yapılması RTMP alma protokolüyle bir geçiş kanalı oluşturur.
 
-##Olay oluşturma
+##<a name="create-events"></a>Olay oluşturma
 
 1. Olay eklemek istediğiniz bir kanal seçin.
 2. **Canlı Olay** düğmesine basın.
@@ -146,13 +146,13 @@ Geçiş kanalları hakkında daha fazla ayrıntı için bkz. [Çoklu bit hızı 
 ![Olay](./media/media-services-portal-passthrough-get-started/media-services-create-events.png)
 
 
-##Alma URL’leri alma
+##<a name="get-ingest-urls"></a>Alma URL’leri alma
 
 Kanal oluşturulduktan sonra, gerçek zamanlı kodlayıcıya sağlayacağınız alma URL’lerini alabilirsiniz. Kodlayıcı bu URL'leri canlı akış girişi için kullanır.
 
 ![Oluşturulan](./media/media-services-portal-passthrough-get-started/media-services-channel-created.png)
 
-##Olayı izleme
+##<a name="watch-the-event"></a>Olayı izleme
 
 Olay izlemek için, Azure portalda **İzle**’ye tıklayın veya akış URL'sini kopyalayın ve tercih ettiğiniz bir oynatıcı kullanın. 
  
@@ -160,14 +160,14 @@ Olay izlemek için, Azure portalda **İzle**’ye tıklayın veya akış URL'sin
 
 Canlı olay durduğunda otomatik olarak isteğe bağlı içeriğe dönüştürülür.
 
-##Temizleme
+##<a name="clean-up"></a>Temizleme
 
 Geçiş kanalları hakkında daha fazla ayrıntı için bkz. [Çoklu bit hızı akışları oluşturan şirket içi kodlayıcılarla canlı akış](media-services-live-streaming-with-onprem-encoders.md).
 
 - Bir kanal yalnızca kanaldaki tüm olaylar/programlar durdurulduğunda durdurulabilir.  Kanal durdurulduktan sonra herhangi bir ücret uygulanmaz. Tekrar başlatmanız gerektiğinde, aynı alma URL’sine sahip olacağından kodlayıcıyı yeniden yapılandırmanız gerekmez.
 - Bir kanal yalnızca kanaldaki tüm canlı olaylar silindiğinde silinebilir.
 
-##Arşivlenen içeriği görüntüleme
+##<a name="view-archived-content"></a>Arşivlenen içeriği görüntüleme
 
 Olayı durdurduktan ve sildikten sonra dahi, varlığı silmeniz sürece, kullanıcılar arşivlenen içeriğinizin isteğe bağlı içerik olarak akışını gerçekleştirebilir. Bir olay tarafından kullanılıyorsa varlık silinemez; önce olayın silinmesi gerekir. 
 
@@ -175,18 +175,18 @@ Varlıklarınızı yönetmek için, **Ayar**’ı seçin ve **Varlıklar**’a t
 
 ![Varlıklar](./media/media-services-portal-passthrough-get-started/media-services-assets.png)
 
-##Sonraki adım
+##<a name="next-step"></a>Sonraki adım
 
 Media Services öğrenme yollarını gözden geçirin.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##Geri bildirimde bulunma
+##<a name="provide-feedback"></a>Geri bildirimde bulunma
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

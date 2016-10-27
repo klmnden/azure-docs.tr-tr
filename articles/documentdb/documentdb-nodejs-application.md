@@ -4,7 +4,7 @@
     keywords="Uygulama geliştirme, veritabanı öğreticisi, node.js öğrenme, node.js öğreticisi, documentdb, azure, Microsoft azure"
     services="documentdb" 
     documentationCenter="nodejs" 
-    authors="AndrewHoh" 
+    authors="syamkmsft" 
     manager="jhubbard" 
     editor="cgronlun"/>
 
@@ -15,9 +15,10 @@
     ms.devlang="nodejs" 
     ms.topic="hero-article" 
     ms.date="08/25/2016" 
-    ms.author="anhoh"/>
+    ms.author="syamk"/>
 
-# <a name="_Toc395783175"></a>DocumentDB kullanarak bir Node.js web uygulaması oluşturma
+
+# <a name="<a-name="_toc395783175"></a>build-a-node.js-web-application-using-documentdb"></a><a name="_Toc395783175"></a>DocumentDB kullanarak bir Node.js web uygulaması oluşturma
 
 > [AZURE.SELECTOR]
 - [.NET](documentdb-dotnet-application.md)
@@ -42,7 +43,7 @@ Bu veritabanı öğreticisini uygulayarak görevlerin oluşturulmasını, alınm
 
 Öğreticiyi tamamlayacak zamanınız yok ve yalnızca tam çözümü mü edinmek istiyorsunuz? Sorun değil, tam örnek çözümü [GitHub][]'dan edinebilirsiniz.
 
-## <a name="_Toc395783176"></a>Önkoşullar
+## <a name="<a-name="_toc395783176"></a>prerequisites"></a><a name="_Toc395783176"></a>Önkoşullar
 
 > [AZURE.TIP] Bu Node.js öğreticisi, Node.js ve Azure Web Siteleri'ni kullanma konusunda biraz deneyim sahibi olduğunuzu varsayar.
 
@@ -53,7 +54,7 @@ Bu makaledeki yönergeleri uygulamadan önce aşağıdakilere sahip olduğunuzda
 - [Express oluşturucu](http://www.expressjs.com/starter/generator.html) (bunu `npm install express-generator -g` aracılığıyla yükleyebilirsiniz)
 - [Git][].
 
-## <a name="_Toc395637761"></a>1. Adım: DocumentDB veritabanı hesabı oluşturma
+## <a name="<a-name="_toc395637761"></a>step-1:-create-a-documentdb-database-account"></a><a name="_Toc395637761"></a>1. Adım: DocumentDB veritabanı hesabı oluşturma
 
 Bir DocumentDB hesabı oluşturarak başlayalım. Hesabınız zaten varsa [2. Adım: Yeni bir Node.js uygulaması oluşturma](#_Toc395783178) adımına atlayabilirsiniz.
 
@@ -61,7 +62,7 @@ Bir DocumentDB hesabı oluşturarak başlayalım. Hesabınız zaten varsa [2. Ad
 
 [AZURE.INCLUDE [documentdb-keys](../../includes/documentdb-keys.md)]
 
-## <a name="_Toc395783178"></a>2. Adım: Yeni bir Node.js uygulaması oluşturmayı öğrenme
+## <a name="<a-name="_toc395783178"></a>step-2:-learn-to-create-a-new-node.js-application"></a><a name="_Toc395783178"></a>2. Adım: Yeni bir Node.js uygulaması oluşturmayı öğrenme
 
 Şimdi [Express](http://expressjs.com/) altyapısını kullanarak temel bir Hello World Node.js projesi oluşturmayı öğrenelim.
 
@@ -84,7 +85,7 @@ Bir DocumentDB hesabı oluşturarak başlayalım. Hesabınız zaten varsa [2. Ad
 
     ![Node.js öğrenin - Bir tarayıcı penceresinde Hello World uygulamasının ekran görüntüsü](./media/documentdb-nodejs-application/image12.png)
 
-## <a name="_Toc395783179"></a>3. Adım: Ek modülleri yükleme
+## <a name="<a-name="_toc395783179"></a>step-3:-install-additional-modules"></a><a name="_Toc395783179"></a>3. Adım: Ek modülleri yükleme
 
 **Package.json** dosyası, projenin kökünde oluşturulan dosyalardan biridir. Bu dosya, Node.js uygulamanız için gerekli olan ek modüllerin listesini içerir. Daha sonra bu uygulamayı bir Azure Web Sitesi'ne dağıttığınızda uygulamanızı desteklemek amacıyla Azure'a hangi modüllerin yüklenmesi gerektiğini belirlemek için bu dosya kullanılır. Bu öğretici için iki paket daha yüklememiz gerekiyor.
 
@@ -100,13 +101,13 @@ Bir DocumentDB hesabı oluşturarak başlayalım. Hesabınız zaten varsa [2. Ad
 
     ![Package.json sekmesinin ekran görüntüsü](./media/documentdb-nodejs-application/image17.png)
 
-       This tells Node (and Azure later) that your application depends on these additional modules.
+    Bu düğüm, Düğüme (ve daha sonra Azure’a) uygulamanızın bu ek modüllere bağlı olduğunu bildirir.
 
-## <a name="_Toc395783180"></a>4. Adım: DocumentDB hizmetini bir düğüm uygulamasında kullanma
+## <a name="<a-name="_toc395783180"></a>step-4:-using-the-documentdb-service-in-a-node-application"></a><a name="_Toc395783180"></a>4. Adım: DocumentDB hizmetini bir düğüm uygulamasında kullanma
 
 Böylece tüm ilk kurulum ve yapılandırma işlemleri sona erdi, şimdi burada olma nedenimize dönelim ve Azure DocumentDB'yi kullanarak biraz kod yazalım.
 
-### Modeli oluşturma
+### <a name="create-the-model"></a>Modeli oluşturma
 
 1. Proje dizininde **models** adlı yeni bir dizin oluşturun.
 2. **models** dizininde **taskDao.js** adında yeni bir dosya oluşturun. Bu dosya, uygulamamız tarafından oluşturulan görevlerin modelini içerir.
@@ -301,7 +302,7 @@ Böylece tüm ilk kurulum ve yapılandırma işlemleri sona erdi, şimdi burada 
 
 6. **taskDao.js** dosyasını kaydedin ve kapatın. 
 
-### Denetleyiciyi oluşturma
+### <a name="create-the-controller"></a>Denetleyiciyi oluşturma
 
 1. Projenizin **routes** dizininde **tasklist.js** adlı yeni bir dosya oluşturun. 
 2. Aşağıdaki kodu **tasklist.js**'ye ekleyin. Bu kod **tasklist.js** tarafından kullanılan DocumentDBClient ve async modüllerini yükler. Bu, daha önce tanımladığımız **Task** nesnesinin bir örneği olarak geçirilmiş olup **TaskList** işlevi olarak da tanımlanır.
@@ -379,7 +380,7 @@ Böylece tüm ilk kurulum ve yapılandırma işlemleri sona erdi, şimdi burada 
 
 4. **tasklist.js** dosyasını kaydedin ve kapatın.
  
-### Config.js ekleme
+### <a name="add-config.js"></a>Config.js ekleme
 
 1. Proje dizininizde **config.js** adlı yeni bir dosya oluşturun.
 2. Aşağıdakileri **config.js**'ye ekleyin. Bu, uygulamamız için gereken yapılandırma ayarlarını ve değerlerini tanımlar.
@@ -397,7 +398,7 @@ Böylece tüm ilk kurulum ve yapılandırma işlemleri sona erdi, şimdi burada 
 
 4. **config.js** dosyasını kaydedin ve kapatın.
  
-### App.js'yi değiştirme
+### <a name="modify-app.js"></a>App.js'yi değiştirme
 
 1. Proje dizininde **app.js** dosyasını açın. Bu dosya daha önce Express web uygulaması oluşturulduğu zaman oluşturulmuştur.
 2. Aşağıdaki kodu **app.js**'nin üst kısmına ekleyin
@@ -433,7 +434,7 @@ Böylece tüm ilk kurulum ve yapılandırma işlemleri sona erdi, şimdi burada 
 
 7. Son olarak, **app.js** dosyasını kaydedip kapattığınızda işimiz neredeyse bitti demektir.
  
-## <a name="_Toc395783181"></a>5. Adım: Kullanıcı arabirimi oluşturma
+## <a name="<a-name="_toc395783181"></a>step-5:-build-a-user-interface"></a><a name="_Toc395783181"></a>5. Adım: Kullanıcı arabirimi oluşturma
 
 Artık bir kullanıcının uygulamamızla gerçekte etkileşim kurabilmesi için kullanıcı arabirimini oluşturmaya dönelim. Oluşturduğumuz Express uygulaması, görüntüleme altyapısı olarak **Jade**'i kullanır. Jade hakkında daha fazla bilgi için lütfen [http://jade-lang.com/](http://jade-lang.com/) adresine başvurun.
 
@@ -529,7 +530,7 @@ Artık bir kullanıcının uygulamamızla gerçekte etkileşim kurabilmesi için
 
     Bu **style.css** dosyasını kaydedin ve kapatın.
 
-## <a name="_Toc395783181"></a>6. Adım: Uygulamanızı yerel olarak çalıştırma
+## <a name="<a-name="_toc395783181"></a>step-6:-run-your-application-locally"></a><a name="_Toc395783181"></a>6. Adım: Uygulamanızı yerel olarak çalıştırma
 
 1. Uygulamanızı yerel makinenizde test etmek için, bir terminalde `npm start` çalıştırarak uygulamanızı başlatın ve aşağıdaki görüntü gibi görünen bir sayfaya sahip olan bir tarayıcıyı başlatın:
 
@@ -544,7 +545,7 @@ Artık bir kullanıcının uygulamamızla gerçekte etkileşim kurabilmesi için
 
 4. Bir görevi tamamlamak için Tamamla sütunundaki onay kutusunu işaretlemeniz ve ardından **Görevleri güncelleştir**'e tıklamanız yeterlidir.
 
-## <a name="_Toc395783182"></a>7. Adım: Uygulama geliştirme projenizi Azure Web Siteleri'ne dağıtma
+## <a name="<a-name="_toc395783182"></a>step-7:-deploy-your-application-development-project-to-azure-websites"></a><a name="_Toc395783182"></a>7. Adım: Uygulama geliştirme projenizi Azure Web Siteleri'ne dağıtma
 
 1. Daha önce yapmadıysanız Azure Web Siteniz için bir git deposunu etkinleştirin. Bunun nasıl yapılacağı hakkındaki yönergeleri [Azure Uygulama Hizmeti’nde Yere l Git Dağıtımı](../app-service-web/app-service-deploy-local-git.md) konu başlığında bulabilirsiniz.
 
@@ -558,7 +559,7 @@ Artık bir kullanıcının uygulamamızla gerçekte etkileşim kurabilmesi için
 
 4. Git birkaç saniye içinde web uygulamanızı yayımlamayı bitirecek ve eserinizi Azure'da çalışırken görebileceğiniz bir tarayıcıyı başlatacak!
 
-## <a name="_Toc395637775"></a>Sonraki adımlar
+## <a name="<a-name="_toc395637775"></a>next-steps"></a><a name="_Toc395637775"></a>Sonraki adımlar
 
 Tebrikler! Azure DocumentDB kullanarak ilk Node.js Express Web Uygulamanızı oluşturdunuz ve bunu Azure Web Siteleri'ne yayımladınız.
 
@@ -568,11 +569,11 @@ Daha fazla bilgi için bkz. [Node.js Geliştirici Merkezi](https://azure.microso
 
 [Node.js]: http://nodejs.org/
 [Git]: http://git-scm.com/
-[GitHub]: https://github.com/Azure-Samples/documentdb-node-todo-app
+[Github]: https://github.com/Azure-Samples/documentdb-node-todo-app
  
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Oct16_HO3-->
 
 

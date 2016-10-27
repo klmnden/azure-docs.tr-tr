@@ -13,16 +13,17 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/30/2016"
+   ms.date="10/10/2016"
    ms.author="cakarst;barbkess;sonyama"/>
 
 
 
-# SQL Data Warehouse'da PolyBase ile veri yükleme
+# <a name="load-data-with-polybase-in-sql-data-warehouse"></a>SQL Data Warehouse'da PolyBase ile veri yükleme
 
 > [AZURE.SELECTOR]
-- [Data Factory](sql-data-warehouse-get-started-load-with-azure-data-factory.md)
-- [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)
+- [Redgate](sql-data-warehouse-load-with-redgate.md)  
+- [Data Factory](sql-data-warehouse-get-started-load-with-azure-data-factory.md)  
+- [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)  
 - [BCP](sql-data-warehouse-load-with-bcp.md)
 
 Bu öğreticide, AzCopy ve PolyBase kullanarak SQL Data Warehouse'a nasıl veri yükleyeceğiniz gösterilmektedir. Öğreticiyi tamamladığınızda şunları öğrenmiş olacaksınız:
@@ -33,7 +34,7 @@ Bu öğreticide, AzCopy ve PolyBase kullanarak SQL Data Warehouse'a nasıl veri 
 
 >[AZURE.VIDEO loading-data-with-polybase-in-azure-sql-data-warehouse]
 
-## Önkoşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticide ilerleyebilmeniz için, şunlar gereklidir:
 
@@ -44,11 +45,11 @@ Bu öğreticide ilerleyebilmeniz için, şunlar gereklidir:
     ![Azure Storage Araçları](./media/sql-data-warehouse-get-started-load-with-polybase/install-azcopy.png)
 
 
-## 1. Adım: Azure blob depolama alanına örnek veri ekleme
+## <a name="step-1:-add-sample-data-to-azure-blob-storage"></a>1. Adım: Azure blob depolama alanına örnek veri ekleme
 
 Veri yüklemek için Azure blob depolama alanına birkaç örnek veri eklememiz gerekir. Bu adımda bir Azure Storage blobunu örnek verilerle dolduracağız. Daha sonra PolyBase kullanarak bu örnek verileri SQL Data Warehouse veritabanınıza yükleyeceğiz.
 
-### A. Örnek metin dosyası hazırlama
+### <a name="a.-prepare-a-sample-text-file"></a>A. Örnek metin dosyası hazırlama
 
 Örnek metin dosyası hazırlamak için şunları yapın:
 
@@ -69,7 +70,7 @@ Veri yüklemek için Azure blob depolama alanına birkaç örnek veri eklememiz 
 20150101,1,3
 ```
 
-### B. Blob hizmeti uç noktanızı bulma
+### <a name="b.-find-your-blob-service-endpoint"></a>B. Blob hizmeti uç noktanızı bulma
 
 Blob hizmeti uç noktanızı bulmak için şunları yapın:
 
@@ -83,7 +84,7 @@ Blob hizmeti uç noktanızı bulmak için şunları yapın:
 
     ![Blob hizmeti uç noktası](./media/sql-data-warehouse-get-started-load-with-polybase/blob-service.png)
 
-### C. Azure depolama anahtarınızı bulma
+### <a name="c.-find-your-azure-storage-key"></a>C. Azure depolama anahtarınızı bulma
 
 Azure depolama anahtarınızı bulmak için şunları yapın:
 
@@ -94,7 +95,7 @@ Azure depolama anahtarınızı bulmak için şunları yapın:
 
     ![Azure depolama anahtarını kopyalama](./media/sql-data-warehouse-get-started-load-with-polybase/access-key.png)
 
-### D. Örnek dosyayı Azure blob depolama alanına kopyalama
+### <a name="d.-copy-the-sample-file-to-azure-blob-storage"></a>D. Örnek dosyayı Azure blob depolama alanına kopyalama
 
 Verilerinizi Azure blob depolama alanına kopyalamak için şunları yapın:
 
@@ -112,7 +113,7 @@ Verilerinizi Azure blob depolama alanına kopyalamak için şunları yapın:
 
 Ayrıca bkz. [AzCopy Komut Satırı Yardımcı Programı ile Çalışmaya Başlama][].
 
-### E. Blob depolama kapsayıcınızı araştırma
+### <a name="e.-explore-your-blob-storage-container"></a>E. Blob depolama kapsayıcınızı araştırma
 
 Blob depolama alanına yüklediğiniz dosyayı görmek için şunları yapın:
 
@@ -125,7 +126,7 @@ Blob depolama alanına yüklediğiniz dosyayı görmek için şunları yapın:
     ![Azure depolama blobunu görüntüleme](./media/sql-data-warehouse-get-started-load-with-polybase/view-blob.png)
 
 
-## 2. Adım: Örnek veriler için dış tablo oluşturma
+## <a name="step-2:-create-an-external-table-for-the-sample-data"></a>2. Adım: Örnek veriler için dış tablo oluşturma
 
 Bu bölümde örnek verileri tanımlayan bir dış tablo oluşturuyoruz.
 
@@ -215,7 +216,7 @@ Visual Studio'da bulunan SQL Server Nesne Gezgini'nde dış dosya biçimini, dı
 
 ![Dış tabloyu görüntüleme](./media/sql-data-warehouse-get-started-load-with-polybase/external-table.png)
 
-## 3. Adım: SQL Data Warehouse'a veri yükleme
+## <a name="step-3:-load-data-into-sql-data-warehouse"></a>3. Adım: SQL Data Warehouse'a veri yükleme
 
 Dış tablo oluşturulduktan sonra verileri yeni bir tabloya yükleyebilir veya var olan bir tabloya ekleyebilirsiniz.
 
@@ -235,7 +236,7 @@ AS
 SELECT * FROM [dbo].[DimDate2External];
 ```
 
-## 4. Adım: Yeni yüklenmiş verilerinize ilişkin istatistikler oluşturma
+## <a name="step-4:-create-statistics-on-your-newly-loaded-data"></a>4. Adım: Yeni yüklenmiş verilerinize ilişkin istatistikler oluşturma
 
 SQL Data Warehouse, istatistikleri otomatik olarak oluşturup güncelleştirmez. Bu nedenle yüksek sorgu performansı elde etmek için ilk yükleme işleminden sonra her tablonun her sütunu için istatistik oluşturulması önemlidir. Ayrıca veriler üzerinde önemli değişiklikler yapıldıktan sonra istatistiklerin güncelleştirilmesi de önemlidir.
 
@@ -250,19 +251,19 @@ CREATE STATISTICS [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
 Daha fazla bilgi edinmek için bkz. [İstatistikler][].  
 
 
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 PolyBase kullanan bir çözüm geliştirirken bilmeniz gereken daha fazla bilgi için bkz. [PolyBase kılavuzu][].
 
 <!--Image references-->
 
 
 <!--Article references-->
-[SQL Data Warehouse'da PolyBase Öğreticisi]: ./sql-data-warehouse-get-started-load-with-polybase.md
-[bcp ile veri yükleme]: ./sql-data-warehouse-load-with-bcp.md
+[SQL Veri Ambarı'nda PolyBase Öğreticisi]: ./sql-data-warehouse-get-started-load-with-polybase.md
+[Bcp ile veri yükleme]: ./sql-data-warehouse-load-with-bcp.md
 [İstatistikler]: ./sql-data-warehouse-tables-statistics.md
 [PolyBase kılavuzu]: ./sql-data-warehouse-load-polybase-guide.md
 [AzCopy Komut Satırı Yardımcı Programı ile Çalışmaya Başlama]: ../storage/storage-use-azcopy.md
-[en güncel AzCopy sürümünü]: ../storage/storage-use-azcopy.md
+[en güncel AzCopy sürümü]: ../storage/storage-use-azcopy.md
 
 <!--External references-->
 [desteklenen kaynak/havuz]: https://msdn.microsoft.com/library/dn894007.aspx
@@ -288,6 +289,6 @@ PolyBase kullanan bir çözüm geliştirirken bilmeniz gereken daha fazla bilgi 
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

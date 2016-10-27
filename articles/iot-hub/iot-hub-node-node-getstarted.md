@@ -31,7 +31,7 @@ Bu öğreticinin sonunda üç Node.js konsol uygulamanız olacak:
 
 Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
-+ Node.js 0.12.x sürümü veya sonraki bir sürüm. <br/> [Geliştirme ortamınızı hazırlama][lnk-dev-setup], bu öğretici için Node.js'nin Windows veya Linux'ta nasıl yükleneceğini açıklar.
++ Node.js 0.10.x sürümü veya sonraki bir sürüm.
 
 + Etkin bir Azure hesabı. (Hesabınız yoksa yalnızca birkaç dakika içinde ücretsiz bir deneme sürümü hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü][lnk-free-trial].)
 
@@ -314,6 +314,6 @@ IoT çözümünüzün nasıl genişletileceğini ve cihazdan buluta iletilerin d
 
 
 
-<!--HONumber=Oct16_HO1-->
+<!--HONumber=Oct16_HO3-->
 
 

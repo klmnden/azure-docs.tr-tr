@@ -13,7 +13,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="csharp"
     ms.workload="data-management"
-    ms.date="09/14/2016"
+    ms.date="10/04/2016"
     ms.author="sstein"/>
 
 
@@ -29,9 +29,7 @@ Bu makalede, C# kullanarak [.NET için Azure SQL Veritabanı Kitaplığı](https
 
 .NET için Azure SQL Database Kitaplığı [Resource Manager tabanlı SQL Database REST API'sini](https://msdn.microsoft.com/library/azure/mt163571.aspx) sarmalayan [Azure Resource Manager](../resource-group-overview.md) tabanlı bir API sağlar.
 
-
-> [AZURE.NOTE] .NET için SQL Database Kitaplığı şu anda önizlemede.
-
+>[AZURE.NOTE] SQL Veritabanı’nın pek çok yeni özelliği, yalnızca [Azure Resource Manager dağıtım modeli](../resource-group-overview.md) kullanıldığında desteklenir. Bu nedenle .NET için her zaman en son **Azure SQL Veritabanı Yönetim Kitaplığını ([docs](https://msdn.microsoft.com/library/azure/mt349017.aspx) | [NuGet Paketi](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql)) kullanmanız gerekir**. Eski [klasik dağıtım modeli tabanlı kitaplıklar](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Sql), yalnızca geriye dönük uyumluluk için desteklenir. Bu nedenle daha yeni Resource Manager tabanlı kitaplıkları kullanmanızı öneririz.
 
 Bu makaledeki adımları tamamlayabilmeniz için şunlar gereklidir:
 
@@ -318,6 +316,6 @@ Aşağıdaki PowerShell betiği Active Directory (AD) uygulamasını ve C# uygul
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

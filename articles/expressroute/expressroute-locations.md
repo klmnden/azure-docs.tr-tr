@@ -12,15 +12,15 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/20/2016"
+   ms.date="10/12/2016"
    ms.author="cherylmc" />
 
 
-# ExpressRoute ortakları ve eşleme konumları
+# <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute ortakları ve eşleme konumları
 
 Bu makaledeki tablolar ExpressRoute bağlantı sağlayıcıları, ExpressRoute coğrafi kapsamı, ExpressRoute üzerinden desteklenen Microsoft bulut hizmetleri ve ExpressRoute Sistem Tümleştiricileri (SIs) hakkında bilgi sağlar.
 
-## <a name="partners"></a>ExpressRoute bağlantı sağlayıcıları
+## <a name="<a-name="partners"></a>expressroute-connectivity-providers"></a><a name="partners"></a>ExpressRoute bağlantı sağlayıcıları
 
 ExpressRoute tüm Azure bölgeleri ve konumları arasında desteklenir. Aşağıdaki harita Azure bölgeleri ve ExpressRoute konumlarının listesini sağlar. ExpressRoute konumları birkaç hizmet sağlayıcının sahip olduğu Microsoft eşlerine başvurur.
 
@@ -28,7 +28,7 @@ ExpressRoute tüm Azure bölgeleri ve konumları arasında desteklenir. Aşağı
 
 Coğrafi bölge içindeki en az bir ExpressRoute konumuna bağlanırsanız coğrafi bölge içindeki tüm bölgeler arasında Azure hizmetlerine erişebileceksiniz. Aşağıdaki tablo, coğrafi bölge içindeki Azure bölgeler ile ExpressRoute konumları arasında yapılan eşlemeyi sağlar.
 
-|**Coğrafi bölge**|**Azure bölgeleri**|**ExpressRoute konumları**|
+|**Jeopolitik bölge**|**Azure bölgeleri**|**ExpressRoute konumları**|
 |---|---|---|
 |**Kuzey Amerika**|Doğu ABD, Batı ABD, Doğu ABD 2, Orta ABD, Güney Orta ABD, Kuzey Orta ABD, Orta Kanada, Doğu Kanada|Atlanta, Chicago, Dallas, Las Vegas, Los Angeles, New York, Seattle, Silikon Vadisi, Washington DC, Montreal+, Quebec City+, Toronto|
 |**Güney Amerika**|Güney Brezilya|Sao Paulo|
@@ -42,26 +42,27 @@ Coğrafi bölge içindeki en az bir ExpressRoute konumuna bağlanırsanız coğr
 
 Aşağıdaki tablo ulusal bulutlar için bölgeler ve coğrafi sınırlar hakkında bilgi sağlar.
 
-|**Coğrafi bölge**|**Azure bölgeleri**|**ExpressRoute konumları**|
+|**Jeopolitik bölge**|**Azure bölgeleri**|**ExpressRoute konumları**|
 |---|---|---|---|
-|**ABD bulutu**|ABD Iowa, ABD Virginia|Chicago, Dallas, New York, Washington DC|
+|**ABD Hükümeti bulutu**|ABD Iowa, ABD Virginia|Chicago, Dallas, New York, Washington DC|
 |**Çin**|Kuzey Çin, Doğu Çin|Pekin, Şangay|
-|**Almanya**|Orta Almanya, Doğu Almanya|Berlin+, Frankfurt|
+|**Almanya**|Orta Almanya, Doğu Almanya|Berlin, Frankfurt|
 
 
 Coğrafi bölgeler arasındaki bağlantı standart ExpressRoute SKU’da desteklenmiyor. Genel bağlantıyı desteklemek için ExpressRoute premium eklentisini etkinleştirmeniz gerekir. Ulusal bulut ortamlarına bağlantı desteklenmiyor. Bu tür bir ihtiyaç ortaya çıkarsa bağlantı sağlayıcınız ile çalışabilirsiniz.
 
 
-## Bağlantı sağlayıcı konumları
+## <a name="connectivity-provider-locations"></a>Bağlantı sağlayıcı konumları
 
 > [AZURE.SELECTOR]
 [Sağlayıcıya Göre Konumlar](expressroute-locations.md#connectivity-provider-locations)
 [Konuma Göre Sağlayıcılar](expressroute-locations-providers.md#connectivity-provider-locations)
 
-### Üretim Azure
+### <a name="production-azure"></a>Üretim Azure
 
 | **Hizmet sağlayıcı**  |**Microsoft Azure** | **Office 365 ve CRM Online** | **Konumlar** |
 |-----------------------|--------------------|----------------|---------------|
+| **AARNet** | Destekleniyor | Destekleniyor | Melbourne, Sidney |
 | **[Aryaka Networks]( http://www.aryaka.com/)** | Destekleniyor | Destekleniyor | Amsterdam, Silikon Vadisi, Singapur, Tokyo, Washington DC |
 | **[AT&T NetBond]( https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | Destekleniyor | Destekleniyor | Amsterdam, Chicago, Dallas, Londra, Silikon Vadisi, Singapur, Sidney, Washington DC |
 | **[British Telecom]( http://www.globalservices.bt.com/uk/en/news/bt_to_provide_connectivity_to_microsoft_azure)** | Destekleniyor | Destekleniyor | Amsterdam, Hong Kong, Londra, Silikon Vadisi, Singapur, Sidney, Tokyo, Washington DC |
@@ -73,10 +74,10 @@ Coğrafi bölgeler arasındaki bağlantı standart ExpressRoute SKU’da destekl
 | **[CoreSite](http://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** | Destekleniyor | Destekleniyor | Los Angeles | 
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Destekleniyor | Destekleniyor | Amsterdam, Atlanta, Chicago, Dallas, Hong Kong, Londra, Los Angeles, Melbourne, New York, Osaka, Sao Paulo, Seattle, Silikon Vadisi, Singapur, Sidney, Tokyo, Toronto, Washington DC |
 | **euNetworks** |  Destekleniyor | Destekleniyor | Amsterdam |
-| **GÉANT** | Çok yakında | Çok yakında | Amsterdam+ |
-| **[İnternet Initiative Japan Inc. - IIJ](http://www.iij.ad.jp/en/news/pressrelease/2015/1216-2.html)** |  Destekleniyor | Destekleniyor | Osaka, Tokyo |
+| **GÉANT** | Destekleniyor | Destekleniyor | Amsterdam |
+| **[Internet Initiative Japan Inc. - IIJ](http://www.iij.ad.jp/en/news/pressrelease/2015/1216-2.html)** |  Destekleniyor | Destekleniyor | Osaka, Tokyo |
 | **[InterCloud]( https://www.intercloud.com/)** | Destekleniyor | Destekleniyor | Amsterdam, Londra, Singapur, Washington DC |
-| **İnternet Solutions - Cloud Connect** | Destekleniyor | Destekleniyor | Amsterdam, Londra |
+| **Internet Solutions - Cloud Connect** | Destekleniyor | Destekleniyor | Amsterdam, Londra |
 | **[Interxion](http://www.interxion.com/why-interxion/colocate-with-the-clouds/colocated-hybrid-cloud/microsoft-azure/)**  | Destekleniyor | Destekleniyor | Amsterdam, Londra, Paris |
 | **Jisc** | Çok yakında | Çok yakında | Londra+ | 
 | **[Level 3 Communications]( http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Destekleniyor | Destekleniyor | Amsterdam, Chicago, Dallas, Las Vegas+, Londra, Seattle, Silikon Vadisi, Washington DC |
@@ -99,9 +100,9 @@ Coğrafi bölgeler arasındaki bağlantı standart ExpressRoute SKU’da destekl
 
  **+** çok yakında anlamına geliyor
 
-### Ulusal bulut ortamları
+### <a name="national-cloud-environments"></a>Ulusal bulut ortamları
 
-#### ABD bulutu
+#### <a name="us-government-cloud"></a>ABD bulutu
 
 | **Hizmet sağlayıcı**  |**Microsoft Azure** | **Office 365** | **Konumlar** |
 |-----------------------|--------------------|----------------|---------------|
@@ -110,23 +111,23 @@ Coğrafi bölgeler arasındaki bağlantı standart ExpressRoute SKU’da destekl
 | **[Level 3 Communications]( http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Destekleniyor | Destekleniyor | Chicago, New York+, Washington DC |
 | **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | Destekleniyor | Destekleniyor | Chicago, Dallas+, New York, Washington DC |
 
-#### Çin
+#### <a name="china"></a>Çin
 
 | **Hizmet sağlayıcı**  |**Microsoft Azure** | **Office 365** | **Konumlar** |
 |-----------------------|--------------------|----------------|---------------|
 | **China Telecom** | Destekleniyor | Desteklenmiyor | Pekin, Şangay|
 Daha fazla öğrenmek için, bkz. [Çin’de ExpressRoute](http://www.windowsazure.cn/home/features/expressroute/).
 
-#### Almanya
+#### <a name="germany"></a>Almanya
 
 | **Hizmet sağlayıcı**  |**Microsoft Azure** | **Office 365** | **Konumlar** |
 |-----------------------|--------------------|----------------|---------------|
-| **[Colt]( http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** | Destekleniyor | Desteklenmiyor | Berlin+, Frankfurt|
-| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Çok yakında | Desteklenmiyor | Frankfurt+|
-| **e-shelter** | Çok yakında | Desteklenmiyor | Berlin+|
+| **[Colt]( http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** | Destekleniyor | Desteklenmiyor | Berlin, Frankfurt|
+| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Destekleniyor | Desteklenmiyor | Frankfurt|
+| **e-shelter** | Destekleniyor | Desteklenmiyor | Berlin|
 | **Interxion** | Destekleniyor | Desteklenmiyor | Frankfurt|
 
-## <a name="nonpartners"></a>Listelenmeyen hizmet sağlayıcıları üzerinden bağlantı
+## <a name="<a-name="nonpartners"></a>connectivity-through-service-providers-not-listed"></a><a name="nonpartners"></a>Listelenmeyen hizmet sağlayıcılar üzerinden bağlantı
 
 Bağlantı sağlayıcınız önceki bölümlerde listelenmemişse hala bağlantı oluşturabilirsiniz.
 
@@ -151,11 +152,11 @@ Bağlantı sağlayıcınız önceki bölümlerde listelenmemişse hala bağlant�
 |**[XO Communications](http://www.xo.com/)**|Equinix|Silikon Vadisi|
 
 
-## ExpressRoute sistem tümleştiricileri
+## <a name="expressroute-system-integrators"></a>ExpressRoute sistem tümleştiricileri
 
 İhtiyaçlarınıza uyan özel bağlantıyı etkinleştirme ağınızın ölçeğine bağlı olarak zorlu olabilir. ExpressRoute’a yönelik ekleme işleminde size yardımcı olmak üzere aşağıdaki tabloda listelenen herhangi bir sistem tümleştirici ile çalışabilirsiniz.
 
-|**Sistem tümleştirici**|**Kıta**|
+|**Sistem tümleştirici**|**Continent**|
 |---|---|
 |**[Avanade Inc.](http://www.avanade.com/)**| Asya, Avrupa, ABD |
 |**[Dotnet Solutions](http://www.dotnetsolutions.co.uk/)**| Avrupa |
@@ -164,7 +165,7 @@ Bağlantı sağlayıcınız önceki bölümlerde listelenmemişse hala bağlant�
 |**[Perficient](http://www.perficient.com/Partners/Microsoft/Cloud/Azure-ExpressRoute)** | ABD |
 |**[Project Leadership](http://www.projectleadership.net/azure)** | ABD |
 
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 
 - ExpressRoute hakkında daha fazla bilgi için, bkz. [ExpressRoute SSS](expressroute-faqs.md).
 - Tüm önkoşulların sağlandığından emin olun. Bkz. [ExpressRoute önkoşulları](expressroute-prerequisites.md).
@@ -174,6 +175,6 @@ Bağlantı sağlayıcınız önceki bölümlerde listelenmemişse hala bağlant�
 
 
 
-<!--HONumber=Sep16_HO5-->
+<!--HONumber=Oct16_HO2-->
 
 

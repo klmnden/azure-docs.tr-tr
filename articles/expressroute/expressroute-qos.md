@@ -12,8 +12,9 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/19/2016"
+   ms.date="10/10/2016"
    ms.author="cherylmc"/>
+
 
 # ExpressRoute QoS gereksinimleri
 
@@ -30,7 +31,6 @@ Aşağıdaki tabloda Skype Kurumsal tarafından kullanılan DSCP işaretlerinin 
 | **Ses** | EF (46) | Skype / Lync ses |
 | **Etkileşimli** | AF41 (34) | Video |
 |   | AF21 (18) | Uygulama paylaşımı | 
-|   | CS3 (24) | SIP sinyali |
 | **Varsayılan** | AF11 (10) | Dosya aktarımı|
 |   | CS0 (0) | Diğer| 
 
@@ -52,6 +52,6 @@ Aşağıdaki tabloda Skype Kurumsal tarafından kullanılan DSCP işaretlerinin 
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Oct16_HO3-->
 
 

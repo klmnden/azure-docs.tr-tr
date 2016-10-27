@@ -1,14 +1,14 @@
 <properties
     pageTitle="Service Bus kuyruklarını kullanmaya başlama | Microsoft Azure"
     description="Service Bus mesajlaşması için C# konsolu uygulaması yazma"
-    services="service-bus-messaging"
+    services="service-bus"
     documentationCenter=".net"
     authors="jtaubensee"
     manager="timlt"
     editor=""/>
 
 <tags
-    ms.service="service-bus-messaging"
+    ms.service="service-bus"
     ms.devlang="tbd"
     ms.topic="hero-article"
     ms.tgt_pltfrm="dotnet"
@@ -17,11 +17,11 @@
     ms.author="jotaub;sethm"/>
 
 
-# Service Bus kuyruklarını kullanmaya başlama
+# <a name="get-started-with-service-bus-queues"></a>Service Bus kuyruklarını kullanmaya başlama
 
 [AZURE.INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-## Ne elde edilecek
+## <a name="what-will-be-accomplished"></a>Ne elde edilecek
 
 Bu öğreticide aşağıdaki işlemler tamamlanacaktır:
 
@@ -33,7 +33,7 @@ Bu öğreticide aşağıdaki işlemler tamamlanacaktır:
 
 4. İleti almak için bir konsol uygulaması yazma.
 
-## Ön koşullar
+## <a name="prerequisites"></a>Ön koşullar
 
 1. [Visual Studio 2013 veya Visual Studio 2015](http://www.visualstudio.com). Bu öğreticideki örneklerde Visual Studio 2015 kullanılır.
 
@@ -41,27 +41,27 @@ Bu öğreticide aşağıdaki işlemler tamamlanacaktır:
 
 [AZURE.INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-## 1. Azure portalı kullanılarak ad alanı oluşturma
+## <a name="1.-create-a-namespace-using-the-azure-portal"></a>1. Azure portalı kullanılarak ad alanı oluşturma
 
 Daha önce oluşturduğunuz bir Service Bus ad alanı varsa [Azure portalını kullanarak kuyruk oluşturma](#2-create-a-queue-using-the-azure-portal) bölümüne atlayın.
 
 [AZURE.INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-## 2. Azure portalını kullanarak kuyruk oluşturma
+## <a name="2.-create-a-queue-using-the-azure-portal"></a>2. Azure portalını kullanarak kuyruk oluşturma
 
 Daha önce oluşturduğunuz bir Service Bus kuyruğu varsa [Kuyruğa ileti gönderme](#3-send-messages-to-the-queue) bölümüne atlayın.
 
 [AZURE.INCLUDE [service-bus-create-queue-portal](../../includes/service-bus-create-queue-portal.md)]
 
-## 3. Kuyruğa ileti gönderme
+## <a name="3.-send-messages-to-the-queue"></a>3. Kuyruğa ileti gönderme
 
 Kuyruğa ileti göndermek için, Visual Studio’yu kullanarak bir C# konsolu uygulaması yazacağız.
 
-### Konsol uygulaması oluşturma
+### <a name="create-a-console-application"></a>Konsol uygulaması oluşturma
 
 1. Visual Studio'yu başlatın ve yeni bir Konsol uygulaması oluşturun.
 
-### Service Bus NuGet paketi ekleme
+### <a name="add-the-service-bus-nuget-package"></a>Service Bus NuGet paketi ekleme
 
 1. Yeni oluşturulan projeye sağ tıklayın ve **NuGet Paketlerini Yönet**’i seçin.
 
@@ -69,7 +69,7 @@ Kuyruğa ileti göndermek için, Visual Studio’yu kullanarak bir C# konsolu uy
 
     ![NuGet paketi seçme][nuget-pkg]
 
-### Kuyruğa ileti göndermek için kod yazma
+### <a name="write-some-code-to-send-a-message-to-the-queue"></a>Kuyruğa ileti göndermek için kod yazma
 
 1. Aşağıdaki deyimi Program.cs dosyasının üst kısmına ekleyin.
 
@@ -116,7 +116,7 @@ Kuyruğa ileti göndermek için, Visual Studio’yu kullanarak bir C# konsolu uy
     
       ![İleti sayısı][queue-message]
     
-## 4. Kuyruktan ileti alma
+## <a name="4.-receive-messages-from-the-queue"></a>4. Kuyruktan ileti alma
 
 1. Yeni bir konsol uygulaması oluşturun ve Service Bus NuGet paketine, daha önceki gönderme uygulamasına benzer bir başvuru ekleyin.
 
@@ -178,7 +178,7 @@ Kuyruğa ileti göndermek için, Visual Studio’yu kullanarak bir C# konsolu uy
   
 Tebrikler! Bir kuyruk oluşturdunuz, ileti gönderdiniz ve ileti aldınız.
 
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 
 Azure Service Bus mesajlaşmasının daha gelişmiş özelliklerinden bazılarını gösteren [örnekleri içeren GitHub depomuza](https://github.com/Azure-Samples/azure-servicebus-messaging-samples) göz atın.
 
@@ -194,6 +194,6 @@ Azure Service Bus mesajlaşmasının daha gelişmiş özelliklerinden bazıları
 [github-samples]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples
 
 
-<!--HONumber=Sep16_HO5-->
+<!--HONumber=Oct16_HO3-->
 
 

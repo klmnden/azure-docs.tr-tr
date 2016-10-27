@@ -1,14 +1,14 @@
 <properties
     pageTitle="Çok katmanlı .NET uygulaması | Microsoft Azure"
     description="Azure'da katmanlar arasında iletişim sağlamak için Service Bus kuyruklarını kullanan çok katmanlı uygulama geliştirmenize yardımcı olan bir .NET öğreticisi."
-    services="service-bus-messaging"
+    services="service-bus"
     documentationCenter=".net"
     authors="sethmanheim"
     manager="timlt"
     editor=""/>
 
 <tags
-    ms.service="service-bus-messaging"
+    ms.service="service-bus"
     ms.workload="tbd"
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
@@ -17,9 +17,9 @@
     ms.author="sethm"/>
 
 
-# Azure Service Bus kuyruklarını kullanan çok katmanlı .NET uygulaması
+# <a name=".net-multi-tier-application-using-azure-service-bus-queues"></a>Azure Service Bus kuyruklarını kullanan çok katmanlı .NET uygulaması
 
-## Giriş
+## <a name="introduction"></a>Giriş
 
 Visual Studio ve .NET için ücretsiz Azure SDK kullanarak Microsoft Azure'a yönelik geliştirme işlemleri oldukça kolaydır. Bu öğretici, yerel ortamınızda çalışan birden çok Azure kaynağı kullanan bir uygulama oluşturmak için sizi adım adım yönlendirir. Öğreticideki adımlar, Azure kullanma konusunda deneyim sahibi olmadığınızı varsayar.
 
@@ -38,7 +38,7 @@ Aşağıdaki ekran görüntüsünde tamamlanan uygulama gösterilir.
 
 ![][0]
 
-## Senaryoya genel bakış: roller arası iletişim
+## <a name="scenario-overview:-inter-role-communication"></a>Senaryoya genel bakış: roller arası iletişim
 
 İşlenmek üzere bir sipariş göndermeniz için web rolünde çalışan ön uç kullanıcı arabirimi bileşeninin çalışan rolünde çalışmakta olan orta katman mantığı ile etkileşim içinde olması gerekir. Bu örnekte, katmanlar arasındaki iletişim için Service Bus aracılı mesajlaşma kullanılır.
 
@@ -60,7 +60,7 @@ Bu iletişim mekanizması, doğrudan mesajlaşma ile karşılaştırıldığınd
 
 Aşağıdaki bölümlerde, bu mimariyi uygulayan kod ele alınır.
 
-## Geliştirme ortamını ayarlama
+## <a name="set-up-the-development-environment"></a>Geliştirme ortamını ayarlama
 
 Azure uygulamalarını geliştirmeye başlamadan önce, araçları edinip geliştirme ortamınızı ayarlayın.
 
@@ -74,18 +74,18 @@ Azure uygulamalarını geliştirmeye başlamadan önce, araçları edinip geliş
 
 6.  Kurulum tamamlandığında uygulamayı geliştirmeye başlamak için gereken her şeye sahip olacaksınız. SDK, Visual Studio'da Azure uygulamalarını kolayca geliştirmenize olanak sağlayan araçları içerir. Visual Studio yüklü değilse SDK ücretsiz Visual Studio Express de yükler.
 
-## Ad alanı oluşturma
+## <a name="create-a-namespace"></a>Ad alanı oluşturma
 
 İlk adım, bir hizmet ad alanı oluşturmak ve Paylaşılan Erişim İmzası (SAS) anahtarı edinmektir. Ad alanı, Service Bus tarafından kullanıma sunulan her uygulama için bir uygulama sınırı sağlar. Bir ad alanı oluşturulduğunda sistem tarafından bir SAS anahtarı oluşturulur. Ad alanı ve SAS anahtarı birleşimi ile Service Bus hizmetinin bir uygulamaya erişim kimliğini doğrulayan kimlik bilgisi sağlanır.
 
 [AZURE.INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-## Web rolü oluşturma
+## <a name="create-a-web-role"></a>Web rolü oluşturma
 
 Bu bölümde, uygulamanızın ön ucunu derleyin. Öncelikle, uygulamanızda görüntülenecek sayfaları oluşturursunuz.
 Daha sonra, Service Bus kuyruğuna öğe gönderen ve kuyruk hakkındaki durum bilgilerini gösteren kodu ekleyin.
 
-### Proje oluşturma
+### <a name="create-the-project"></a>Proje oluşturma
 
 1.  Yönetici ayrıcalıklarını kullanarak Microsoft Visual Studio'yu başlatın. Yönetici ayrıcalıklarıyla Visual Studio'yu başlatmak için **Visual Studio** programının simgesine sağ tıklayın ve ardından **Yönetici olarak çalıştır**'a tıklayın. Bu makalenin sonraki bölümlerinde ele alınan Azure işlem öykünücüsü, Visual Studio'nun yönetici ayrıcalıklarıyla başlatılmasını gerektirir.
 
@@ -123,7 +123,7 @@ Daha sonra, Service Bus kuyruğuna öğe gönderen ve kuyruk hakkındaki durum b
 
 9.  **Çözüm Gezgini**'nde, **Modeller**'e sağ tıklayın ve ardından **Ekle** ile **Sınıf** seçeneklerine tıklayın. **Ad** kutusuna **OnlineOrder.cs** yazın: Daha sonra **Ekle**'ye tıklayın.
 
-### Web rolünüz için kod yazma
+### <a name="write-the-code-for-your-web-role"></a>Web rolünüz için kod yazma
 
 Bu bölümde, uygulamanızın görüntülediği çeşitli sayfalar oluşturursunuz.
 
@@ -231,7 +231,7 @@ Bu bölümde, uygulamanızın görüntülediği çeşitli sayfalar oluşturursun
 
     ![][17]
 
-### Service Bus kuyruğuna öğe göndermek için kod yazma
+### <a name="write-the-code-for-submitting-items-to-a-service-bus-queue"></a>Service Bus kuyruğuna öğe göndermek için kod yazma
 
 Şimdi, öğeleri kuyruğa göndermek için bir kod ekleyin. İlk olarak, Service Bus kuyruğunuzun bağlantı bilgilerini içeren bir sınıf oluşturun. Ardından, bağlantınızı Global.aspx.cs üzerinden başlatın. Son olarak, öğeleri gerçekten Service Bus kuyruğuna göndermek için daha önce HomeController.cs dosyasında oluşturduğunuz gönderme kodunu güncelleştirin.
 
@@ -353,7 +353,7 @@ Bu bölümde, uygulamanızın görüntülediği çeşitli sayfalar oluşturursun
 
     ![][18]
 
-## Çalışan rolü oluşturma
+## <a name="create-the-worker-role"></a>Çalışan rolü oluşturma
 
 Şimdi, sipariş gönderimlerini işleyen çalışan rolünü oluşturacaksınız. Bu örnekte, **Service Bus Kuyruğu İçeren Çalışan Rolü** Visual Studio proje şablonu kullanılır. Gerekli kimlik bilgilerini zaten portaldan almıştınız.
 
@@ -412,7 +412,7 @@ Bu bölümde, uygulamanızın görüntülediği çeşitli sayfalar oluşturursun
 
     ![][20]
 
-## Sonraki adımlar  
+## <a name="next-steps"></a>Sonraki adımlar  
 
 Service Bus hakkında daha fazla bilgi edinmek için şu kaynaklara bakın:  
 
@@ -461,10 +461,10 @@ Service Bus hakkında daha fazla bilgi edinmek için şu kaynaklara bakın:
   [sbmsdn]: http://msdn.microsoft.com/library/azure/ee732537.aspx  
   [sbwacom]: /documentation/services/service-bus/  
   [sbwacomqhowto]: service-bus-dotnet-get-started-with-queues.md  
-  [multitierstorage]: https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36
+  [mutitierstorage]: https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36
   
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO3-->
 
 

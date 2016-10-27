@@ -21,8 +21,9 @@
 # İlk Azure Service Fabric uygulamanızı oluşturma
 
 > [AZURE.SELECTOR]
-- [C#](service-fabric-create-your-first-application-in-visual-studio.md)
-- [Java](service-fabric-create-your-first-linux-application-with-java.md)
+- [C# - Windows](service-fabric-create-your-first-application-in-visual-studio.md)
+- [Java - Linux](service-fabric-create-your-first-linux-application-with-java.md)
+- [C# - Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
 
 Service Fabric SDK, Service Fabric uygulamaları oluşturmak, dağıtmak ve bu uygulamalarda hata ayıklamak için şablonlar ve araçlar sağlayan Visual Studio ürününe yönelik bir eklenti içerir. Bu konu başlığı, Visual Studio'da ilk uygulamanızı oluşturma işleminizde size kılavuzluk eder.
 
@@ -156,6 +157,6 @@ Küme modunuzu değiştirdiğinizde geliştirme kümesi sıfırlanır ve sağlan
 
 
 
-<!--HONumber=Sep16_HO5-->
+<!--HONumber=Oct16_HO3-->
 
 

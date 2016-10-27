@@ -87,10 +87,11 @@ Havuzunuzun hizmet katmanını belirledikten sonra havuzun performans düzeyini 
 
 ## Ek kaynaklar
 
-Çok kiracılı hizmet olarak yazılım (SaaS) veritabanı uygulamalarının ortak veri mimarisi düzenlerine ilişkin bilgi için bkz. [Azure SQL Database ile Çok Kiracılı SaaS Uygulamaları için Tasarım Düzenleri](sql-database-design-patterns-multi-tenancy-saas-applications.md).
+- [Azure SQL veritabanını kullanarak çok kiracılı SaaS uygulamaları için desenler tasarlama](sql-database-design-patterns-multi-tenancy-saas-applications.md)
+- [Azure SQL Veritabanı’ndaki esnek veritabanı özellikleriyle ilgili Microsoft Virtual Academy video dersi](https://mva.microsoft.com/en-US/training-courses/elastic-database-capabilities-with-azure-sql-db-16554)
 
 
 
-<!--HONumber=Oct16_HO1-->
+<!--HONumber=Oct16_HO3-->
 
 

@@ -18,49 +18,49 @@
 
 
 
-#Yeni bir Xamarin.iOS uygulaması oluşturma
+#<a name="create-a-xamarin.ios-app"></a>Yeni bir Xamarin.iOS uygulaması oluşturma
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
-##Genel Bakış
+##<a name="overview"></a>Genel Bakış
 
-Bu öğreticide, bir Xamarin.iOS mobil uygulamasına Azure mobil uygulaması arka ucunu kullanarak bulut tabanlı arka uç hizmetini nasıl ekleyeceğiniz gösterilir.  Yeni bir mobil uygulama arka ucu ve uygulama verilerini Azure’da depolayan basit bir _Yapılacaklar listesi_ Xamarin.iOS uygulaması oluşturacaksınız.
+Bu öğreticide, bir Xamarin.iOS mobil uygulamasına Azure mobil uygulaması arka ucunu kullanarak bulut tabanlı arka uç hizmetini nasıl ekleyeceğiniz gösterilir.  Hem yeni bir mobil arka uç hem de Azure’da uygulama verilerini depolayan basit bir _Yapılacaklar listesi_ oluşturursunuz.
 
 Bu öğreticiyi tamamlamak, Azure App Service’de Mobile Apps özelliğini kullanmayla ilgili diğer tüm Xamarin.iOS öğreticileri için ön koşuldur.
 
-##Ön koşullar
+##<a name="prerequisites"></a>Önkoşullar
 
-Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
+Bu öğreticiyi tamamlamak için aşağıdaki önkoşulları karşılamanız gerekir:
 
-* Etkin bir Azure hesabı. Bir hesabınız yoksa, Azure deneme sürümünü kaydolabilir ve deneme süresi bittikten sonra dahi kullanmaya devam edebileceğiniz 10 ücretsiz mobil uygulama edinebilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/).
+* Etkin bir Azure hesabı. Hesabınız yoksa Azure deneme sürümü için kaydolun ve deneme süreniz bittikten sonra bile kullanmaya devam edebileceğiniz 10 ücretsiz mobil uygulama edinin. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/).
 
 * Xamarin ile Visual Studio. Yönergeler için bkz. [Visual Studio ve Xamarin için Kurulum ve Yükleme](https://msdn.microsoft.com/library/mt613162.aspx).
 
 * Xcode v7.0 veya daha sonraki sürümü ve Xamarin Studio Community yüklü bir Mac. Bkz. [Visual Studio ve Xamarin için kurulum ve yükleme](https://msdn.microsoft.com/library/mt613162.aspx) ve [Mac kullanıcıları için kurulum, yükleme ve doğrulamalar](https://msdn.microsoft.com/library/mt488770.aspx) (MSDN).
 
->[AZURE.NOTE] Bir Azure hesabı için kaydolmadan önce Azure App Service’i kullanmaya başlamak istiyorsanız [App Service’i Deneyin](https://tryappservice.azure.com/?appServiceName=mobile)’e gidin. Burada, App Services’de hemen bir kısa süreli başlangıç mobil uygulaması oluşturabilirsiniz; kredi kartı gerekmez ve hiçbir taahhüt yoktur.
+>[AZURE.NOTE] Azure hesabı için kaydolmadan önce Azure Uygulama Hizmeti’ni kullanmaya başlamak istiyorsanız [Uygulama Hizmeti’ni Deneyin](https://tryappservice.azure.com/?appServiceName=mobile)’e gidin. App Service’de hemen kısa süreli, başlangıç niteliğinde bir mobil uygulama oluşturabilirsiniz. Kredi kartına veya herhangi bir taahhüt verilmesine gerek yoktur.
 
-## Yeni bir Azure Mobil Uygulama arka ucu oluşturma
+## <a name="create-an-azure-mobile-app-backend"></a>Azure Mobil Uygulama arka ucu oluşturma
 
-Yeni Mobil Uygulama arka ucu oluşturmak için bu adımları izleyin.
+Mobil Uygulama arka ucu oluşturmak için bu adımları izleyin.
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-## Sunucu projesi yapılandırma
+## <a name="configure-the-server-project"></a>Sunucu projesi yapılandırma
 
-Artık, mobil istemci uygulamalarınız tarafından kullanılabilecek bir Azure Mobil Uygulama arka ucu sağladınız. Sonra, basit bir "yapılacaklar listesi" arka ucu için bir sunucu projesi indirecek ve Azure’a yayımlayacaksınız.
+Artık, mobil istemci uygulamalarınız tarafından kullanılabilecek bir Azure Mobil Uygulama arka ucu sağladınız. Ardından, basit bir "Yapılacaklar listesi" arka ucu için sunucu projesi indirin ve Azure’a yayımlayın.
 
-Node.js veya .NET arka ucu kullanmak için sunucu projesi yapılandırmak üzere aşağıdaki adımları izleyin.
+Sunucu projesini Node.js veya .NET arka ucunu kullanacak şekilde yapılandırmak için bu adımları izleyin.
 
 [AZURE.INCLUDE [app-service-mobile-configure-new-backend](../../includes/app-service-mobile-configure-new-backend.md)]
 
-## Xamarin iOS uygulamasını indirme ve çalıştırma
+## <a name="download-and-run-the-xamarin.ios-app"></a>Xamarin iOS uygulamasını indirme ve çalıştırma
 
 1. Bir tarayıcı penceresine [Azure Portal]’ı açın.
 
-2. Mobil Uygulamanızın dikey penceresinde, **Kullanmaya Başlama** > **Xamarin.iOS**.’a tıklayın. 3. Adım altında, henüz seçili değilse, **Yeni uygulama oluştur**’u seçin.  Sonra **İndir** düğmesine tıklayın.
+2. Mobil Uygulamanızın dikey penceresinde, **Kullanmaya Başlama** > **Xamarin.iOS**.’a tıklayın. 3. adımın altında, henüz seçili değilse **Yeni uygulama oluştur**’a tıklayın.  Sonra **İndir** düğmesine tıklayın.
 
-    Bu, mobil uygulamanıza bağlı olan istemci uygulaması içeren bir projeyi indirir. Sıkıştırılmış proje dosyasını yerel bilgisayarınıza kaydedin ve kaydettiğiniz yeri not edin.
+    Mobil arka ucunuza bağlanan istemci uygulaması indirilir. Sıkıştırılmış proje dosyasını yerel bilgisayarınıza kaydedin ve kaydettiğiniz yeri not edin.
 
 3. İndirdiğiniz projeyi çıkarın ve Xamarin Studio veya Visual Studio'da açın.
 
@@ -74,24 +74,21 @@ Node.js veya .NET arka ucu kullanmak için sunucu projesi yapılandırmak üzere
 
     ![][10]
 
-    Bu, Azure üzerinde barındırılan yeni mobil uygulama arka ucuna bir POST isteği gönderir. İstekten alınan veriler TodoItem tablosuna eklenir. Tabloda depolanan öğeler mobil uygulama arka ucu tarafından döndürülür ve veriler listede görüntülenir.
+    İstekten alınan veriler TodoItem tablosuna eklenir. Tabloda depolanan öğeler mobil uygulama arka ucu tarafından döndürülür ve veriler listede görüntülenir.
 
 >[AZURE.NOTE]Sorgulamak ve QSTodoService.cs C# dosyasına veri eklemek için, mobil uygulamanızın arka ucuna erişen kodu gözden geçirebilirsiniz.
 
-##Sonraki adımlar
+##<a name="next-steps"></a>Sonraki adımlar
 
-* [Uygulamanıza kimlik doğrulaması ekleme ](app-service-mobile-xamarin-ios-get-started-users.md)
-  <br/>Uygulamanızdaki kullanıcıların kimliklerini bir kimlik sağlayıcısı kullanarak nasıl doğrulayacağınızı öğrenin.
-
-* [Uygulamanıza anında iletme bildirimleri ekleme](app-service-mobile-xamarin-ios-get-started-push.md)
-  <br/>Uygulamanıza en temel anında iletme bildirimlerini nasıl göndereceğinizi öğrenin.
+* [Uygulamanıza Çevrimdışı Eşitleme ekleme](app-service-mobile-xamarin-ios-get-started-offline-data.md)
+* [Uygulamanıza kimlik doğrulaması ekleme](app-service-mobile-xamarin-ios-get-started-users.md)
+* [Xamarin.Android uygulamanıza anında iletme bildirimleri ekleme](app-service-mobile-xamarin-ios-get-started-push.md)
+* [Azure Mobile Apps için yönetilen istemciyi kullanma](app-service-mobile-dotnet-how-to-use-client-library.md)
 
 <!-- Anchors. -->
-[Mobil uygulama arka ucu kullanmaya başlama]:#getting-started
+[Mobil uygulama arka uçları kullanmaya başlama]:#getting-started
 [Yeni bir mobil uygulama arka ucu oluşturma]:#create-new-service
 [Sonraki Adımlar]:#next-steps
-
-
 
 <!-- Images. -->
 [6]: ./media/app-service-mobile-xamarin-ios-get-started/xamarin-ios-quickstart.png
@@ -100,10 +97,10 @@ Node.js veya .NET arka ucu kullanmak için sunucu projesi yapılandırmak üzere
 [10]: ./media/app-service-mobile-xamarin-ios-get-started/mobile-quickstart-startup-ios.png
 
 <!-- URLs. -->
-[Azure Portal]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/
 
 
 
-<!--HONumber=Oct16_HO1-->
+<!--HONumber=Oct16_HO3-->
 
 

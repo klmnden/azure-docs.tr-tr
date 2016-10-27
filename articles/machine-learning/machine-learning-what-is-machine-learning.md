@@ -69,7 +69,7 @@ Azure Machine Learning, büyük bir algoritma kitaplığından model oluşturmay
     * [Web hizmetlerini dağıtma](machine-learning-publish-a-machine-learning-web-service.md)
     * [API'ler aracılığıyla modelleri eğitme ve yeniden eğitme](machine-learning-retrain-models-programmatically.md)
     * [Web hizmeti uç noktalarını yönetme](machine-learning-create-endpoint.md)
-    * [Web hizmetlerini ölçeklendirme](machine-learning-scaling-endpoints.md)
+    * [Web hizmetini ölçeklendirme](machine-learning-scaling-webservice.md)
     * [Web hizmetlerini kullanma](machine-learning-consume-web-services.md)
 
 ## Önemli makine öğrenimi terimleri ve kavramları
@@ -128,6 +128,6 @@ Tahmine dayalı analizin ve makine öğreniminin temellerini, [adım adım öğr
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO2-->
 
 

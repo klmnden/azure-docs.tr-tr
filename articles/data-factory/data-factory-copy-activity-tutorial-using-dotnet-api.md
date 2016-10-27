@@ -24,6 +24,7 @@
 - [Azure portalı](data-factory-copy-activity-tutorial-using-azure-portal.md)
 - [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 - [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+- [Azure Resource Manager şablonu](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
 - [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
 - [.NET API’si](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 
@@ -462,6 +463,6 @@ Bu adımlardan sonra aşağıdaki dört değere sahip olmanız gerekir:
 
 
 
-<!--HONumber=Sep16_HO5-->
+<!--HONumber=Oct16_HO3-->
 
 

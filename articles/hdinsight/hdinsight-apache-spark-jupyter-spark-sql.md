@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="07/25/2016"
+    ms.date="10/05/2016"
     ms.author="nitinme"/>
 
 
@@ -33,7 +33,7 @@ HDInsight’ta bir Apache Spark kümesi oluşturmayı ve ardından [Jupyter](htt
 
 - **Güvenli Kabuk (SSH) istemcisi**: Linux, Unix ve OS X sistemleri `ssh` komutu ile bir SSH istemcisi sağlar. Windows sistemleri için [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) önerilir.
     
-- **Güvenli Kabuk (SSH) anahtarları (isteğe bağlı)**: Bir parola veya ortak anahtar kullanarak, kümeye bağlanmak için kullanılan SSH hesabını güvenli hale getirebilirsiniz. Parola kullanmak hızlıca başlamanızı sağlar ve bir kümeyi hızlıca oluşturup bazı test işlemleri gerçekleştirmek isterseniz bu seçeneği kullanmanız gerekir. Anahtar kullanmak daha güvenlidir, ancak ek kurulum gerektirir. Bir üretim kümesi oluştururken bu yaklaşımı kullanmak isteyebilirsiniz. Bu makalede parola yaklaşımı kullanılmaktadır. HDInsight ile SSH anahtarları oluşturma ve kullanma hakkında yönergeler için aşağıdaki makalelere bakın:
+- **Secure Shell (SSH) anahtarları (isteğe bağlı)**: Bir parola veya ortak anahtar kullanarak, kümeye bağlanmak için kullanılan SSH hesabını güvenli hale getirebilirsiniz. Parola kullanmak hızlıca başlamanızı sağlar ve bir kümeyi hızlıca oluşturup bazı test işlemleri gerçekleştirmek isterseniz bu seçeneği kullanmanız gerekir. Anahtar kullanmak daha güvenlidir, ancak ek kurulum gerektirir. Bir üretim kümesi oluştururken bu yaklaşımı kullanmak isteyebilirsiniz. Bu makalede parola yaklaşımı kullanılmaktadır. HDInsight ile SSH anahtarları oluşturma ve kullanma hakkında yönergeler için aşağıdaki makalelere bakın:
 
     -  Bir Linux bilgisayardan - [SSH’yi Linux, Unix veya OS X işletim sistemlerinde Linux tabanlı HDInsight (Hadoop) ile birlikte kullanma](hdinsight-hadoop-linux-use-ssh-unix.md).
     
@@ -79,13 +79,13 @@ Bu bölümde Azure resource manager şablonunu kullanarak bir HDInsight sürüm 
 
 5. **Yasal koşullar**’a ve ardından **Oluştur**’a tıklayın.
 
-6. **Oluştur**’a tıklayın. Şablon dağıtımı için dağıtım gönderme başlıklı yeni bir kutucuk görürsünüz. Kümenin ve SQL Database’in oluşturulması yaklaşık 20 dakika sürer.
+6. **Oluştur**’a tıklayın. Şablon dağıtımı için Dağıtım gönderme başlıklı yeni bir kutucuk görürsünüz. Kümenin ve SQL veritabanının oluşturulması yaklaşık 20 dakika sürer.
 
 
 
 ## Jupyter not defteri kullanarak Spark SQL sorguları çalıştırma
 
-Bu bölümde, Spark kümesine yönelik Spark SQL sorguları gerçekleştirmek için Jupyter not defteri kullanırsınız. HDInsight Spark kümeleri Jupyter not defteri ile kullanabileceğiniz iki çekirdek sağlar. Bunlar:
+Bu bölümde, Spark kümesine yönelik Spark SQL sorguları çalıştırmak için Jupyter not defteri kullanırsınız. HDInsight Spark kümeleri Jupyter not defteri ile kullanabileceğiniz iki çekirdek sağlar. Bunlar:
 
 * **PySpark** (Python içinde yazılmış uygulamalar için)
 * **Spark** (Scala içinde yazılmış uygulamalar için)
@@ -93,16 +93,16 @@ Bu bölümde, Spark kümesine yönelik Spark SQL sorguları gerçekleştirmek i�
 Bu makalede PySpark çekirdeği kullanılacaktır. [Spark HDInsight kümeleri ile Jupyter not defterlerinde kullanılabilen çekirdekler](hdinsight-apache-spark-jupyter-notebook-kernels.md#why-should-i-use-the-new-kernels) makalesinde PySpark çekirdeğini kullanmanın yararları hakkında ayrıntılı bilgi bulabilirsiniz. Ancak, PySpark çekirdeği kullanmanın birkaç avantajı şunlardır:
 
 * Spark ve Hive bağlamlarını ayarlamanız gerekmez. Bunlar sizin için otomatik olarak ayarlanır.
-* SQL veya Hive sorgularınızı önceki kod parçacıkları olmadan doğrudan çalıştırmak için `%%sql` gibi hücre sihirleri kullanabilirsiniz.
+* SQL veya Hive sorgularınızı önceki kod parçacıkları olmadan doğrudan çalıştırmak için `%%sql` gibi hücre işlevlerini kullanabilirsiniz.
 * SQL veya Hive sorgularının çıktıları otomatik olarak gösterilir.
 
 ### PySpark çekirdeği ile Jupyter not defteri oluşturma 
 
-1. [Azure Portal](https://portal.azure.com/)’daki başlangıç panosunda Spark kümenizin kutucuğuna tıklayın (başlangıç panosuna sabitlediyseniz). Ayrıca **Tüm** > **HDInsight Kümelerine Gözat** altından kümenize gidebilirsiniz.   
+1. [Azure Portal](https://portal.azure.com/)’daki başlangıç panosunda Spark kümenizin kutucuğuna tıklayın (başlangıç panosuna sabitlediyseniz). Ayrıca **Browse All (Tümüne Gözat)** > **HDInsight Clusters (HDInsight Kümeleri)** altından kümenize gidebilirsiniz.   
 
-2. Spark kümesi dikey penceresinden **Hızlı Bağlantılar**’a ve sonra **Küme Panosu** dikey penceresinden **Jupyter Not Defteri**’ne tıklayın. İstenirse, küme için yönetici kimlik bilgilerini girin.
+2. Spark kümesi dikey penceresinden **Küme Panosu**’na ve ardından **Jupyter Notebook**’a tıklayın. İstenirse, küme için yönetici kimlik bilgilerini girin.
 
-    > [AZURE.NOTE] Aşağıdaki URL’yi tarayıcınızda açarak da Jupyter Not Defteri’ne ulaşabilirsiniz. __CLUSTERNAME__ değerini kümenizin adıyla değiştirin:
+    > [AZURE.NOTE] Aşağıdaki URL’yi tarayıcınızda açarak da Jupyter Notebook’a ulaşabilirsiniz. __CLUSTERNAME__ değerini kümenizin adıyla değiştirin:
     >
     > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
@@ -118,7 +118,7 @@ Bu makalede PySpark çekirdeği kullanılacaktır. [Spark HDInsight kümeleri il
 
         from pyspark.sql.types import *
         
-    Jupyter’de bir işi her çalıştırdığınızda web tarayıcınızın pencere başlığında not defteri başlığı ile birlikte **(Meşgul)** durumu gösterilir. Ayrıca sağ üst köşedeki **PySpark** metninin yanında kapalı bir daire görürsünüz. İş tamamlandıktan sonra bu simge boş bir daireye dönüşür.
+    Jupyter’de bir işi her çalıştırdığınızda web tarayıcınızın pencere başlığında not defteri başlığı ile birlikte **(Meşgul)** durumu gösterilir. Ayrıca sağ üst köşedeki **PySpark** metninin yanında içi dolu bir daire görürsünüz. İş tamamlandıktan sonra bu simge boş bir daireye dönüşür.
 
      ![Jupyter not defteri işinin durumu](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.jupyter.job.status.png "Status of a Jupyter notebook job")
 
@@ -193,7 +193,7 @@ Bu makalede PySpark çekirdeği kullanılacaktır. [Spark HDInsight kümeleri il
 
 * [Spark uygulamalarında uzaktan hata ayıklamak amacıyla IntelliJ IDEA için HDInsight Araçları Eklentisi kullanma](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 
-* [HDInsight’ta Spark kümesinde ile Zeppelin not defterlerini kullanma](hdinsight-apache-spark-use-zeppelin-notebook.md)
+* [HDInsight’ta Spark kümesi ile Zeppelin not defterlerini kullanma](hdinsight-apache-spark-use-zeppelin-notebook.md)
 
 * [HDInsight için Spark kümesinde Jupyter not defteri için kullanılabilir çekirdekler](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 
@@ -220,6 +220,6 @@ Bu makalede PySpark çekirdeği kullanılacaktır. [Spark HDInsight kümeleri il
 
 
 
-<!--HONumber=Sep16_HO5-->
+<!--HONumber=Oct16_HO3-->
 
 

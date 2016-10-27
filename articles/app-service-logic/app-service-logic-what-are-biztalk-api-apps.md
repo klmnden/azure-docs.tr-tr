@@ -38,9 +38,6 @@ Farklı Hizmet "Katmanları" vardır. Tüm Katmanlar tam işlevleriyle birlikte 
 ## Karma Bağlayıcılar 
 Karma bağlayıcılar [DB2](app-service-logic-connector-db2.md), [Informix](app-service-logic-connector-informix.md) ve WebSphere MQ bağlantısı ile kuruluş içinde kapsamı artırır. 
 
-## EAI ve EDI Hizmetleri
-Kritik iş uygulamalarının oluşturulması bağlantıdan fazlasını gerektirir. Microsoft'un sektör lideri tümleştirme platformu BizTalk Server’ın altyapısını temel alan BizTalk API Uygulamaları; Web, Mobil ve Logic Uygulamalarına kolayca eklenebilen gelişmiş tümleştirme özellikleri sağlar. Bu tümleştirme özelliklerinden bazıları [Doğrulama](app-service-logic-xml-validator.md), [Ayıklama](app-service-logic-xpath-extract.md), [Dönüşüm](app-service-logic-transform-xml-documents.md), [Kodlayıcılar](app-service-logic-connector-jsonencoder.md), [Ticari Ortak Yönetimi](app-service-logic-connector-tpm.md) ve [X12](app-service-logic-connector-x12.md), [EDIFACT](app-service-logic-connector-edifact.md) ile [AS2](app-service-logic-connector-as2.md) gibi EDI biçimleridir.
-
 Ek kaynaklar: [İşletmeler arası bağlayıcılar ve API uygulamaları](app-service-logic-b2b-connectors.md)  
 [B2B işlemi oluşturma](app-service-logic-create-a-b2b-process.md)  
 [Ticari ortak sözleşmesi oluşturma](app-service-logic-create-a-trading-partner-agreement.md)  
@@ -56,6 +53,6 @@ Standart Bağlayıcılar, BizTalk EAI, Premium Bağlayıcılar gibi her bir kate
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 
