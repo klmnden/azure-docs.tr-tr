@@ -422,7 +422,7 @@ Service Bus hakkında daha fazla bilgi edinmek için şu kaynaklara bakın:
 
 Çok katmanlı senaryolar hakkında daha fazla bilgi için bkz.  
 
-* [Depolama Tabloları, Kuyrukları ve Blobları Kullanan .NET Çok Kapsamlı Uygulaması][multitierstorage]  
+* [Depolama Tabloları, Kuyrukları ve Blobları Kullanan .NET Çok Kapsamlı Uygulaması](multitierstorage)  
 
   [0]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-01.png
   [1]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-100.png

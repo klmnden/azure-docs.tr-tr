@@ -40,7 +40,7 @@ Daha önce bahsedildiği gibi Logic Apps ile iş süreçlerini otomatik hale get
 * Şirket işi ve bulut sistemlerinde siparişleri işleme ve yönlendirme
 * Belirli bir konu hakkındaki tüm tweet izleme, düşünceleri çözümleme ve takip gerektiren öğeler için uyarılar ve görevler oluşturma.
 
-Bunlar gibi senaryoların tümü görsel tasarımcıdan ve tek bir satır kod yazmadan yapılandırılabilir. [Mantıksal uygulamanızı derlemeye][oluşturmaya] hemen başlayın.  Mantıksal uygulama yazıldıktan sonra birden fazla ortam ve bölgeye [hızlı bir şekilde dağıtılabilir ve yeniden yapılandırılabilir](app-service-logic-create-deploy-template.md).
+Bunlar gibi senaryoların tümü görsel tasarımcıdan ve tek bir satır kod yazmadan yapılandırılabilir. [Mantıksal uygulamanızı derlemeye](app-service-logic-create-a-logic-app.md) hemen başlayın.  Mantıksal uygulama yazıldıktan sonra birden fazla ortam ve bölgeye [hızlı bir şekilde dağıtılabilir ve yeniden yapılandırılabilir](app-service-logic-create-deploy-template.md).
 
 ## <a name="why-logic-apps?"></a>Logic Apps neden kullanılmalıdır?
 
@@ -52,7 +52,7 @@ Ayrıca, [Enterprise Integration Hesabı][biztalk] ile [XML mesajlaşması][xml]
 
 - **API’leri kolayca bağlayın** - Açıklanması kolay olan oluşturma görevlerinin bile koda uygulanması zordur. Logic Apps farklı sistemleri birbirine bağlamayı kolaylaştırır. Bulut pazarlama çözümünüzü şirket içi faturalama sisteminize bağlamak mı istiyorsunuz? API’ler ile sistemler arasında mesajlaşmayı bir Enterprise Service Bus ile merkezi hale getirmek mi istiyorsunuz? Logic Apps bu sorunlara çözüm getirmenin en hızlı ve en güvenilir yoludur.
 
-- **Şablonlardan hızlıca başlayın** - Başlamanıza yardımcı olmak üzere bazı yaygın çözümleri hızlıca oluşturmanıza imkan tanıyan bir [şablon galerisi][templates] sunulmuştur. Galeri, Gelişmiş B2B çözümlerinden basit SaaS bağlantısına ve hatta 'eğlencelik' olan birkaç özelliğe kadar her şey için, Logic Apps’in gücünü kullanmaya başlamanın en hızlı yoludur.
+- **Şablonlardan hızlıca başlayın** - Başlamanıza yardımcı olmak üzere bazı yaygın çözümleri hızlıca oluşturmanıza imkan tanıyan bir [şablon galerisi](app-service-logic-use-logic-app-templates.md) sunulmuştur. Galeri, Gelişmiş B2B çözümlerinden basit SaaS bağlantısına ve hatta 'eğlencelik' olan birkaç özelliğe kadar her şey için, Logic Apps’in gücünü kullanmaya başlamanın en hızlı yoludur.
 
 - **Desteklenmiş genişletilebilirlik** - İhtiyaç duyduğunuz bağlayıcıyı görmüyor musunuz? Logic Apps kendi API’leriniz ve kodunuzla çalışacak şekilde tasarlanmıştır; kendi API uygulamanızı özel bir bağlayıcı kullanacak şekilde kolayca oluşturabilir veya bir [Azure İşlevi](https://functions.azure.com)’ne çağırarak kod parçacıklarını talep üzerine yürütebilirsiniz. 
 
@@ -70,7 +70,7 @@ Logic Apps deneyimini oluşturan bazı temel parçalar aşağıda verilmiştir.
 
 ## <a name="getting-started"></a>Başlarken  
 
-- Logic Apps’i kullanmaya başlamak için [Logic App oluşturma][oluşturmaya] öğreticisini izleyin.  
+- Logic Apps’i kullanmaya başlamak için [Logic App oluşturma](app-service-logic-create-a-logic-app.md) öğreticisini izleyin.  
 - [Sık rastlanan örnekleri ve senaryoları inceleyin](app-service-logic-examples-and-scenarios.md)
 - [Logic Apps ile iş süreçlerini otomatik hale getirebilirsiniz](http://channel9.msdn.com/Events/Build/2016/T694) 
 - [Sistemlerinizi Logic Apps ile nasıl tümleştireceğinizi öğrenin](http://channel9.msdn.com/Events/Build/2016/P462)
