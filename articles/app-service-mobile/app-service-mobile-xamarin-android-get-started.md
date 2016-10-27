@@ -17,11 +17,11 @@
     ms.author="adrianha" />
 
 
-#Xamarin.Android Uygulaması oluşturma
+#<a name="create-a-xamarin.android-app"></a>Xamarin.Android Uygulaması oluşturma
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
-##Genel Bakış
+##<a name="overview"></a>Genel Bakış
 
 Bu öğreticide, bir Xamarin.Android uygulamasına bulut tabanlı arka uç hizmetini nasıl ekleyeceğiniz gösterilmiştir. Daha fazla bilgi için bkz. [Mobile Apps nedir?](app-service-mobile-value-prop.md).
 
@@ -31,33 +31,33 @@ Aşağıda tamamlanmış uygulamadan bir ekran görüntüsünü görebilirsiniz:
 
 Bu öğreticiyi tamamlamak Xamarin Android uygulamalarına ilişkin tüm Mobile Apps öğreticileri için ön koşuldur.
 
-##Ön koşullar
+##<a name="prerequisites"></a>Önkoşullar
 
-Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
+Bu öğreticiyi tamamlamak için aşağıdaki önkoşulları karşılamanız gerekir:
 
-* Etkin bir Azure hesabı. Bir hesabınız yoksa, Azure deneme sürümünü kaydolabilir ve deneme süresi bittikten sonra dahi kullanmaya devam edebileceğiniz 10 ücretsiz Mobil Uygulama edinebilirsiniz. Ayrıntılar için bkz. [Azure Ücretsiz Deneme](https://azure.microsoft.com/pricing/free-trial/).
+* Etkin bir Azure hesabı. Hesabınız yoksa Azure deneme sürümü için kaydolun ve 10 ücretsiz Mobil Uygulama edinin. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/).
 
-* Xamarin ile Visual Studio. Yönergeler için bkz. [Visual Studio ve Xamarin için Kurulum ve Yükleme](https://msdn.microsoft.com/library/mt613162.aspx).  
- 
->[AZURE.NOTE] Azure hesabı için kaydolmadan önce Azure App Service’i kullanmaya başlamak isterseniz, App Service’de hemen kısa süreli bir başlangıç Mobil Uygulama oluşturabileceğiniz [App Service’i Deneyin](https://tryappservice.azure.com/?appServiceName=mobile) sayfasına gidin. Kredi kartı ve taahhüt gerekmez.
+* Xamarin ile Visual Studio. Yönergeler için bkz. [Visual Studio ve Xamarin için Kurulum ve Yükleme](https://msdn.microsoft.com/library/mt613162.aspx).
 
-## Yeni bir Azure Mobil Uygulama arka ucu oluşturma
+>[AZURE.NOTE] Azure hesabı için kaydolmadan önce Azure Uygulama Hizmeti’ni kullanmaya başlamak istiyorsanız [Uygulama Hizmeti’ni Deneyin](https://tryappservice.azure.com/?appServiceName=mobile)’e gidin.  App Service’de hemen kısa süreli, başlangıç niteliğinde bir Mobil Uygulama oluşturabilirsiniz. Kredi kartı ve taahhüt gerekmez.
 
-Yeni Mobil Uygulama arka ucu oluşturmak için bu adımları izleyin.
+## <a name="create-an-azure-mobile-app-backend"></a>Azure Mobil Uygulama arka ucu oluşturma
+
+Mobil Uygulama arka ucu oluşturmak için bu adımları izleyin.
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-Artık, mobil istemci uygulamalarınız tarafından kullanılabilecek bir Azure Mobil Uygulama arka ucu sağladınız. Sonra, basit bir "yapılacaklar listesi" arka ucu için bir sunucu projesi indirecek ve Azure’a yayımlayacaksınız.
+Artık, mobil istemci uygulamalarınız tarafından kullanılabilecek bir Azure Mobil Uygulama arka ucu sağladınız. Ardından, basit bir "Yapılacaklar listesi" arka ucu için sunucu projesi indirin ve Azure’a yayımlayın.
 
-## Sunucu projesi yapılandırma
+## <a name="configure-the-server-project"></a>Sunucu projesi yapılandırma
 
 [AZURE.INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
-## Xamarin Android uygulamasını indirme ve çalıştırma
+## <a name="download-and-run-the-xamarin.android-app"></a>Xamarin Android uygulamasını indirme ve çalıştırma
 
 1. Altında **Xamarin.Android projenizi indirme ve çalıştırma** altında **İndir**’e tıklayın.
 
-    Bu, mobil uygulamanıza bağlı olan istemci uygulaması içeren bir projeyi indirir. Sıkıştırılmış proje dosyasını yerel bilgisayarınıza kaydedin ve kaydettiğiniz yeri not edin.
+    Sıkıştırılmış proje dosyasını yerel bilgisayarınıza kaydedin ve kaydettiğiniz yeri not edin.
 
 2. Projeyi oluşturmak ve uygulamayı başlatmak için **F5** tuşuna basın.
 
@@ -65,18 +65,16 @@ Artık, mobil istemci uygulamalarınız tarafından kullanılabilecek bir Azure 
 
     ![][10]
 
-    Bu, Azure üzerinde barındırılan yeni mobil uygulama arka ucuna bir POST isteği gönderir. İstekten alınan veriler TodoItem tablosuna eklenir. Tabloda depolanan öğeler mobil uygulama arka ucu tarafından döndürülür ve veriler listede görüntülenir.
+    İstekten alınan veriler TodoItem tablosuna eklenir. Tabloda depolanan öğeler mobil uygulama arka ucu tarafından döndürülür ve veriler listede görüntülenir.
 
     > [AZURE.NOTE] Sorgulamak ve ToDoActivity.cs C# dosyasında bulunan verileri eklemek için, mobil uygulamanızın arka ucuna erişen kodu gözden geçirebilirsiniz.
 
-##Sonraki adımlar
+##<a name="next-steps"></a>Sonraki adımlar
 
-* [Uygulamanıza kimlik doğrulaması ekleme ](app-service-mobile-xamarin-android-get-started-users.md)  
-Uygulamanızdaki kullanıcıların kimliklerini bir kimlik sağlayıcısı ile nasıl doğrulayacağınızı öğrenin.
-* [Xamarin.Android uygulamanıza anında iletme bildirimleri ekleme](app-service-mobile-xamarin-android-get-started-push.md)  
-Uygulamanıza anında iletme bildirimleri eklemeyi öğrenin.
-* [Azure Mobile Apps için yönetilen istemci kullanma](app-service-mobile-dotnet-how-to-use-client-library.md)  
-Xamarin uygulamanızda yönetilen istemci SDK’sıyla çalışmayı öğrenin. 
+* [Uygulamanıza Çevrimdışı Eşitleme ekleme](app-service-mobile-xamarin-android-get-started-offline-data.md)
+* [Uygulamanıza kimlik doğrulaması ekleme](app-service-mobile-xamarin-android-get-started-users.md)
+* [Xamarin.Android uygulamanıza anında iletme bildirimleri ekleme](app-service-mobile-xamarin-android-get-started-push.md)
+* [Azure Mobile Apps için yönetilen istemciyi kullanma](app-service-mobile-dotnet-how-to-use-client-library.md)
 
 
 <!-- Images. -->
@@ -87,11 +85,11 @@ Xamarin uygulamanızda yönetilen istemci SDK’sıyla çalışmayı öğrenin.
 [10]: ./media/app-service-mobile-xamarin-android-get-started/mobile-quickstart-startup-android.png
 
 <!-- URLs. -->
-[Azure Portalı]: https://azure.portal.com/
+[Azure Portal]: https://azure.portal.com/
 [Visual Studio]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
 
 
-<!--HONumber=Oct16_HO1-->
+<!--HONumber=Oct16_HO3-->
 
 

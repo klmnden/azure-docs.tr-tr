@@ -1,14 +1,14 @@
 <properties
     pageTitle="Karma bulut/şirket içi uygulama (.NET) | Microsoft Azure"
     description="Azure Service Bus geçişini kullanarak karma .NET şirket içi/bulut uygulama oluşturmayı öğrenin."
-    services="service-bus-relay"
+    services="service-bus"
     documentationCenter=".net"
     authors="sethmanheim"
     manager="timlt"
     editor=""/>
 
 <tags
-    ms.service="service-bus-relay"
+    ms.service="service-bus"
     ms.workload="tbd"
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
@@ -17,9 +17,9 @@
     ms.author="sethm"/>
 
 
-# Azure Service Bus Geçişini kullanan karma .NET şirket içi/bulut uygulama
+# <a name=".net-on-premises/cloud-hybrid-application-using-azure-service-bus-relay"></a>Azure Service Bus Geçişini kullanan karma .NET şirket içi/bulut uygulama
 
-## Giriş
+## <a name="introduction"></a>Giriş
 
 Bu makale, Microsoft Azure ve Visual Studio ile nasıl karma bulut uygulaması derleyeceğinizi açıklar. Öğretici Azure kullanımına ilişkin deneyim sahibi olmadığınızı varsayar. 30 dakikadan kısa sürede, birden çok Azure kaynağını kullanan ve bulutta çalışan bir uygulamaya sahip olacaksınız.
 
@@ -30,15 +30,15 @@ Bu makale, Microsoft Azure ve Visual Studio ile nasıl karma bulut uygulaması d
 
 [AZURE.INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-## Service Bus geçişinin karma çözümlere yönelik yardımları
+## <a name="how-the-service-bus-relay-helps-with-hybrid-solutions"></a>Service Bus geçişinin karma çözümlere yönelik yardımları
 
 İşletme çözümleri, genel olarak yeni ve benzersiz işletme gereksinimlerini karşılamak için yazılan özel bir kodun ve kullanılan çözüm ve sistemler tarafından sağlanan var olan işlevselliğin bir birleşiminden oluşur.
 
 Çözüm mimarları, ölçek gereksinimlerini daha kolay bir şekilde karşılamak ve işlem maliyetlerini düşürmek için bulutu kullanmaya başlıyor. Bunu yaparken de çözümleri için yapı taşı olarak kullanmak istedikleri var olan hizmet varlıklarının kurumsal güvenlik duvarının içinde ve bulut çözümüyle kolayca erişilemeyecek konumda olduklarını fark ettiler. Birçok dahili hizmet, kurumsal ağ ucunda kolayca kullanıma sunulabilecek şekilde derlenmez veya barındırılmaz.
 
-Service Bus geçişi ise var olan Windows Communication Foundation (WCF) web hizmetlerinin alınmasına yönelik kullanım durumu için tasarlanmıştır. Aynı zamanda, kurumsal ağ altyapısına müdahale eden değişikliklere gerek olmadan bu web hizmetlerinin kurumsal çevre dışında bulunan çözümlere güvenli bir şekilde erişmesini sağlama işlevini de üstlenir. Bu tür Service Bus geçişi hizmetleri, var olan ortamlarında barındırılmaya devam eder ancak bu hizmetler gelen oturumları ve istekleri bulutta barındırılan Service Bus'a devreder. Ayrıca, Service Bus bu hizmetleri [Paylaşılan Erişim İmzası](../service-bus/service-bus-sas-overview.md) (SAS) kimlik doğrulaması kullanarak yetkilendirilmemiş erişime karşı korur.
+Service Bus geçişi ise var olan Windows Communication Foundation (WCF) web hizmetlerinin alınmasına yönelik kullanım durumu için tasarlanmıştır. Aynı zamanda, kurumsal ağ altyapısına müdahale eden değişikliklere gerek olmadan bu web hizmetlerinin kurumsal çevre dışında bulunan çözümlere güvenli bir şekilde erişmesini sağlama işlevini de üstlenir. Bu tür Service Bus geçişi hizmetleri, var olan ortamlarında barındırılmaya devam eder ancak bu hizmetler gelen oturumları ve istekleri bulutta barındırılan Service Bus'a devreder. Ayrıca, Service Bus bu hizmetleri [Paylaşılan Erişim İmzası](../service-bus-messaging/service-bus-sas-overview.md) (SAS) kimlik doğrulaması kullanarak yetkilendirilmemiş erişime karşı korur.
 
-## Çözüm senaryosu
+## <a name="solution-scenario"></a>Çözüm senaryosu
 
 Bu öğreticide, ürün stoğu sayfasındaki ürünlerin listesini görmenize olanak sağlayan bir ASP.NET web sitesi oluşturacaksınız.
 
@@ -50,7 +50,7 @@ Aşağıdaki görüntü, tamamlanan web uygulamasının başlangıç sayfasında
 
 ![][1]
 
-## Geliştirme ortamını ayarlama
+## <a name="set-up-the-development-environment"></a>Geliştirme ortamını ayarlama
 
 Azure uygulamalarını geliştirmeye başlamadan önce, araçları edinip geliştirme ortamınızı ayarlayın.
 
@@ -64,19 +64,19 @@ Azure uygulamalarını geliştirmeye başlamadan önce, araçları edinip geliş
 
 6.  Kurulum tamamlandığında uygulamayı geliştirmeye başlamak için gereken her şeye sahip olacaksınız. SDK, Visual Studio'da Azure uygulamalarını kolayca geliştirmenize olanak sağlayan araçları içerir. Visual Studio yüklü değilse SDK ücretsiz Visual Studio Express de yükler.
 
-## Ad alanı oluşturma
+## <a name="create-a-namespace"></a>Ad alanı oluşturma
 
 Azure'da Service Bus özelliklerini kullanmaya başlamak için öncelikle bir hizmet ad alanı oluşturmanız gerekir. Ad alanı, uygulamanızda bulunan Service Bus kaynaklarını adreslemek için içeriğin kapsamını belirleyen bir kapsayıcı sunar.
 
 [AZURE.INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-## Şirket içi sunucu oluşturma
+## <a name="create-an-on-premises-server"></a>Şirket içi sunucu oluşturma
 
 Öncelikle, bir (sahte) şirket içi ürün kataloğu sistemi derleyeceksiniz. Bu oldukça kolay bir işlemdir. Bu çalışmanın, entegre etmeye çalıştığımız tüm hizmet yüzeyini içeren gerçek bir şirket içi ürün kataloğu sistemini temsil ettiğini düşünebilirsiniz.
 
 Bu proje bir Visual Studio konsol uygulamasıdır ve Service Bus kitaplıkları ile yapılandırma ayarlarını dahil etmek için [Azure Service Bus NuGet paketini](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) kullanır.
 
-### Proje oluşturma
+### <a name="create-the-project"></a>Proje oluşturma
 
 1.  Yönetici ayrıcalıklarını kullanarak Microsoft Visual Studio'yu başlatın. Yönetici ayrıcalıklarıyla Visual Studio'yu başlatmak için **Visual Studio** programının simgesine sağ tıklayın ve ardından **Yönetici olarak çalıştır**'a tıklayın.
 
@@ -229,11 +229,11 @@ Bu proje bir Visual Studio konsol uygulamasıdır ve Service Bus kitaplıkları 
 
 14. Uygulamayı derlemek ve o ana kadarki doğruluğunu onaylamak üzere **Derle** menüsünde **Çözümü Derle** seçeneğine tıklayın veya **Ctrl+Shift+B**'ye basın.
 
-## ASP.NET uygulaması oluşturma
+## <a name="create-an-asp.net-application"></a>ASP.NET uygulaması oluşturma
 
 Bu bölümde, ürün hizmetinizden alınan verileri görüntüleyen basit bir ASP.NET uygulaması oluşturacaksınız.
 
-### Proje oluşturma
+### <a name="create-the-project"></a>Proje oluşturma
 
 1.  Visual Studio'nun yönetici ayrıcalıklarıyla çalıştığından emin olun.
 
@@ -265,7 +265,7 @@ Bu bölümde, ürün hizmetinizden alınan verileri görüntüleyen basit bir AS
 
     ![][17]
 
-### Web uygulamasını değiştirme
+### <a name="modify-the-web-application"></a>Web uygulamasını değiştirme
 
 1.  Visual Studio'da Product.cs dosyasındaki var olan ad alanı tanımını şu kod ile değiştirin:
 
@@ -354,7 +354,7 @@ Bu bölümde, ürün hizmetinizden alınan verileri görüntüleyen basit bir AS
 9.  Çalışmanızın o ana kadarki doğruluğunu onaylamak üzere projeyi derlemek için **Ctrl+Shift+B**'ye basabilirsiniz.
 
 
-### Uygulamayı yerel olarak çalıştırma
+### <a name="run-the-app-locally"></a>Uygulamayı yerel olarak çalıştırma
 
 Çalışır durumda olduğunu doğrulamak için uygulamayı çalıştırın.
 
@@ -364,7 +364,7 @@ Bu bölümde, ürün hizmetinizden alınan verileri görüntüleyen basit bir AS
 
     ![][21]
 
-## Parçaları bir araya getirme
+## <a name="put-the-pieces-together"></a>Parçaları bir araya getirme
 
 Sonraki adım, şirket içi ürünlerin sunucusu ile ASP.NET uygulamasını birleştirmektir.
 
@@ -442,7 +442,7 @@ Sonraki adım, şirket içi ürünlerin sunucusu ile ASP.NET uygulamasını birl
 
 15. **Özellik Sayfaları** iletişim kutusunda **Tamam**'a tıklayın.
 
-## Projeyi yerel olarak çalıştırma
+## <a name="run-the-project-locally"></a>Projeyi yerel olarak çalıştırma
 
 Uygulamayı yerel olarak test etmek için Visual Studio'da **F5**'e basın. İlk olarak şirket içi sunucunun (**ProductsServer**) başlaması gerekir, ardından **ProductsPortal** uygulaması bir tarayıcı penceresinde başlamalıdır. Bu kez ürün stoğunun ürün hizmeti şirket içi sisteminden aldığı verileri listelediğini görürsünüz.
 
@@ -452,7 +452,7 @@ Uygulamayı yerel olarak test etmek için Visual Studio'da **F5**'e basın. İlk
 
 Sonraki adıma geçmeden önce her iki uygulamayı da kapatın.
 
-## ProductsPortal projesini bir Azure web uygulamasına dağıtma
+## <a name="deploy-the-productsportal-project-to-an-azure-web-app"></a>ProductsPortal projesini bir Azure web uygulamasına dağıtma
 
 Sonraki adımda, **ProductsPortal** ön ucu bir Azure web uygulamasına dönüştürülür. İlk olarak, [Web projesini Azure web uygulamasına dağıtma](../app-service-web/web-sites-dotnet-get-started.md#deploy-the-web-project-to-the-azure-web-app) bölümde yer alan tüm adımları uygulayarak **ProductsPortal** projesini dağıtın. Dağıtma işlemi tamamlandıktan sonra bu öğreticiye dönerek bir sonraki adıma geçin.
 
@@ -462,7 +462,7 @@ Bir sonraki adımda ihtiyaç duyacağınız için, dağıtılan web uygulamasın
 
 ![][9] 
 
-### ProductsPortal'ı web uygulaması olarak ayarlama
+### <a name="set-productsportal-as-web-app"></a>ProductsPortal'ı web uygulaması olarak ayarlama
 
 Uygulamayı bulutta çalıştırmadan önce **ProductsPortal** öğesinin Visual Studio'da bir web uygulaması olarak başlatıldığından emin olmanız gerekir.
 
@@ -478,7 +478,7 @@ Uygulamayı bulutta çalıştırmadan önce **ProductsPortal** öğesinin Visual
 
 7. Visual Studio'da Derle menüsünde **Çözümü Yeniden Derle**'ye tıklayın.
 
-## Uygulamayı çalıştırma
+## <a name="run-the-application"></a>Uygulamayı çalıştırma
 
 2.  Uygulamayı derleyip çalıştırmak için F5'e basın. Öncelikle şirket içi sunucu (**ProductsServer** konsol uygulaması) başlamalıdır, ardından aşağıdaki ekran görüntüsünde gösterildiği gibi **ProductsPortal** uygulaması bir tarayıcı penceresinde başlamalıdır. Ürün stoğunun ürün hizmeti şirket içi sisteminden aldığı verileri listelediğini ve bu verileri web uygulamasında gösterdiğini göz önünde bulundurun. **ProductsPortal**'ın bir Azure web uygulaması olarak bulutta çalıştığından emin olmak için URL'yi kontrol edin. 
 
@@ -492,7 +492,7 @@ Uygulamayı bulutta çalıştırmadan önce **ProductsPortal** öğesinin Visual
 
     ![][38]
 
-## Sonraki adımlar  
+## <a name="next-steps"></a>Sonraki adımlar  
 
 Service Bus hakkında daha fazla bilgi edinmek için şu kaynaklara bakın:  
 
@@ -534,6 +534,6 @@ Service Bus hakkında daha fazla bilgi edinmek için şu kaynaklara bakın:
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO3-->
 
 

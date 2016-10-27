@@ -1,31 +1,35 @@
-## Load Balancer differences
+## <a name="load-balancer-differences"></a>Load Balancer farklılıkları
 
-There are different options to distribute network traffic using Microsoft Azure. These options work differently from each other, having a different feature set and support different scenarios. They can each be used in isolation, or combining them.
+Microsoft Azure’u kullanarak ağ trafiğini dağıtmak için farklı seçenekler bulunur. Bu seçenekler birbirlerinden farklı şekilde çalışır, farklı özelliklere sahiptir ve farklı senaryoları destekler. Birbirlerinden ayrı olarak veya birleştirilerek kullanılabilirler.
 
-- **Azure Load Balancer** works at the transport layer (Layer 4 in the OSI network reference stack). It provides network-level distribution of traffic across instances of an application running in the same Azure data center.
+- **Azure Load Balancer**, aktarım katmanında (OSI ağ başvurusu yığınında Katman 4) çalışır. Aynı Azure veri merkezinde çalışan uygulama örnekleri arasında trafiğin ağ düzeyinde dağıtılmasını sağlar.
 
-- **Application Gateway** works at the application layer (Layer 7 in the OSI network reference stack). It acts as a reverse-proxy service, terminating the client connection and forwarding requests to back-end endpoints.
+- **Application Gateway**, uygulama katmanında (OSI ağ başvurusu yığınında Katman 7) çalışır. İstemci bağlantısını sonlandıran ve istekleri arka uç noktalarına ileten ters proxy hizmeti olarak çalışır.
 
-- **Traffic Manager** works at the DNS level.  It uses DNS responses to direct end-user traffic to globally distributed endpoints. Clients then connect to those endpoints directly.
+- **Traffic Manager**, DNS düzeyinde çalışır.  Son kullanıcı trafiğini küresel ölçekte dağıtılmış uç noktalara yönlendirmek için DNS yanıtları kullanır. İstemciler daha sonra bu uç noktalara doğrudan bağlanır.
 
-The following table summarizes the features offered by each service:
+Aşağıdaki tabloda, hizmetler tarafından sunulan özellikler özetlenmiştir:
 
-| Service | Azure Load Balancer | Application Gateway | Traffic Manager |
+| Hizmet | Azure Load Balancer | Application Gateway | Traffic Manager |
 |---|---|---|---|
-|Technology| Transport level (Layer 4) | Application level (Layer 7) | DNS level |
-| Application protocols supported |	Any | HTTP and HTTPS | 	Any (An HTTP endpoint is required for endpoint monitoring) |
-| Endpoints | Azure VMs and Cloud Services role instances | Any Azure Internal IP address or public internet IP address | Azure VMs, Cloud Services, Azure Web Apps, and external endpoints |
-| Vnet support | Can be used for both Internet facing and internal (Vnet) applications | Can be used for both Internet facing and internal (Vnet) applications |	Only supports Internet-facing applications |
-Endpoint Monitoring | Supported via probes | Supported via probes | Supported via HTTP/HTTPS GET | 
+|Teknoloji| Aktarım düzeyi (Katman 4) | Uygulama düzeyi (Katman 7) | DNS düzeyi |
+| Desteklenen uygulama protokolleri | Herhangi biri | HTTP ve HTTPS |  Herhangi biri (Uç nokta izleme için HTTP uç noktası gereklidir) |
+| Uç Noktalar | Azure VM’leri ve Cloud Services rol örnekleri | Herhangi bir Azure İç IP adresi ya da genel İnternet IP adresi | Azure VM’leri, Cloud Services, Azure Web Apps ve dış uç noktalar |
+| Vnet desteği | Hem İnternet’e yönelik hem de iç (Vnet) uygulamalar için kullanılabilir | Hem İnternet’e yönelik hem de iç (Vnet) uygulamalar için kullanılabilir |    Yalnızca İnternet'e yönelik uygulamaları destekler |
+Uç Nokta İzleme | Araştırmalar aracılığıyla desteklenir | Araştırmalar aracılığıyla desteklenir | HTTP/HTTPS GET aracılığıyla desteklenir | 
 
-Azure Load Balancer and Application Gateway route network traffic to endpoints but they have different usage scenarios to which traffic to handle. The following table helps understanding the difference between the two load balancers:
+Azure Load Balancer ve Application Gateway, ağ trafiğini uç noktalara yönlendirir, ancak hangi trafiğin işleneceğine ilişkin farklı kullanım senaryolara sahiptir. Aşağıdaki tablo, iki yük dengeleyici arasındaki farkın anlaşılmasına yardımcı olabilir:
 
-| Type | Azure Load Balancer | Application Gateway |
+| Tür | Azure Load Balancer | Application Gateway |
 |---|---|---|
-| Protocols | UDP/TCP | HTTP/ HTTPS |
-| IP reservation | Supported | Not supported | 
-| Load balancing mode | 5-tuple(source IP, source port, destination IP, destination port, protocol type) | Round Robin<br>Routing based on URL | 
-| Load balancing mode (source IP /sticky sessions) |  2-tuple (source IP and destination IP), 3-tuple (source IP, destination IP, and port). Can scale up or down based on the number of virtual machines | Cookie-based affinity<br>Routing based on URL |
-| Health probes | Default: probe interval - 15 secs. Taken out of rotation: 2 Continuous failures. Supports user-defined probes | Idle probe interval 30 secs. Taken out after 5 consecutive live traffic failures or a single probe failure in idle mode. Supports user-defined probes | 
-| SSL offloading | Not supported | Supported | 
+| Protokoller | UDP/TCP | HTTP/ HTTPS |
+| IP ayırma | Destekleniyor | Desteklenmiyor | 
+| Yük dengeleme modu | 5’li demet (kaynak IP, kaynak bağlantı noktası, hedef IP, hedef bağlantı noktası, protokol türü) | Hepsini Bir Kez Deneme<br>URL'ye dayalı yönlendirme | 
+| Yük dengeleme modu (kaynak IP/yapışkan oturumlar) |  2’li demet (kaynak IP ve hedef IP), 3’lü demet (kaynak IP, hedef IP ve bağlantı noktası). Sanal makine sayısına bağlı olarak ölçeği artırabilir veya azaltılabilir | Tanımlama bilgisi tabanlı benzeşim<br>URL'ye dayalı yönlendirme |
+| Sistem durumu araştırmaları | Varsayılan: araştırma aralığı - 15 saniye Yönlendirme dışına çıkarma: Arka arkaya 2 hata. Kullanıcı tanımlı araştırmaları destekler | Boşta araştırma aralığı 30 saniye. Arka arkaya 5 canlı trafik hatasından veya boşta modunda tek bir araştırma hatasından sonra çıkarılır. Kullanıcı tanımlı araştırmaları destekler | 
+| SSL aktarma | Desteklenmiyor | Destekleniyor | 
   
+
+<!--HONumber=Oct16_HO3-->
+
+

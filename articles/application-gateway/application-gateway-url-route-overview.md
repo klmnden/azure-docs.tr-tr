@@ -1,6 +1,6 @@
 <properties
-   pageTitle="URL-based content routing overview | Microsoft Azure"
-   description="This page provides an overview of the Application Gateway URL-based content routing, UrlPathMap configuration and PathBasedRouting rule ."
+   pageTitle="URL tabanlı içerik yönlendirmeye genel bakış | Microsoft Azure"
+   description="Bu sayfada, Application Gateway URL'si tabanlı içerik yönlendirme, UrlPathMap yapılandırması ve PathBasedRouting kuralı için genel bir bakış sunulmuştur."
    documentationCenter="na"
    services="application-gateway"
    authors="georgewallace"
@@ -9,27 +9,28 @@
 <tags
    ms.service="application-gateway"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="09/16/2016"
    ms.author="gwallace"/>
 
-# URL Path Based Routing overview
 
-URL Path Based Routing allows you to route traffic to back-end server pools based on URL Paths of the request. One of the scenarios is to route requests for different content types to different backend server pools.
-In the following example, Application Gateway is serving traffic for contoso.com from three back-end server pools for example: VideoServerPool, ImageServerPool, and DefaultServerPool.
+# <a name="url-path-based-routing-overview"></a>URL Yolu Tabanlı Yönlendirmeye genel bakış
+
+URL Yolu Tabanlı Yönlendirme, trafiği isteğin URL Yollarına göre arka uç sunucu havuzlarına yönlendirmenizi sağlar. Senaryolardan biri, farklı içerik türleri için istekleri farklı arka uç sunucu havuzlarına yönlendirmektir.
+Aşağıdaki örnekte, Application Gateway contoso.com için VideoServerPool, ImageServerPool ve DefaultServerPool gibi üç arka uç sunucu havuzlarından trafik sunmaktadır.
 
 ![imageURLroute](./media/application-gateway-url-route-overview/figure1.png)
 
-Requests for http://contoso.com/video* are routed to VideoServerPool, and http://contoso.com/images* are routed to ImageServerPool. DefaultServerPool is selected if none of the path patterns match.
+http://contoso.com/video* için istekler VideoServerPool’a ve http://contoso.com/images* için istekler ImageServerPool’a yönlendirilir. Yol desenlerinden hiçbiri eşleşmiyorsa DefaultServerPool seçilir.
 
-## UrlPathMap configuration element
+## <a name="urlpathmap-configuration-element"></a>UrlPathMap yapılandırma öğesi
 
-UrlPathMap element is used to specify Path patterns to back-end server pool mappings. The following code example is the snippet of urlPathMap element from template file.
+UrlPathMap öğesi, arka uç sunucu havuzu eşlemeleri için Yol desenleri belirtmek üzere kullanılır. Aşağıdaki kod örneği, şablon dosyasındaki urlPathMap öğesinin kod parçacığıdır.
 
-	"urlPathMaps": [
-	{
+    "urlPathMaps": [
+    {
     "name": "<urlPathMapName>",
     "id": "/subscriptions/<subscriptionId>/../microsoft.network/applicationGateways/<gatewayName>/ urlPathMaps/<urlPathMapName>",
     "properties": {
@@ -56,20 +57,20 @@ UrlPathMap element is used to specify Path patterns to back-end server pool mapp
         ],
 
     }
-	}
-	
+    }
+    
 
->[AZURE.NOTE] PathPattern: This setting is a list of path patterns to match. Each must start with / and the only place a "*" is allowed is at the end following a "/". The string fed to the path matcher does not include any text after the first? or #, and those chars are not allowed here. 
+>[AZURE.NOTE] PathPattern: Bu ayar, eşleştirilecek yol desenlerinin listesidir. Her biri / ile başlamalıdır. "*" işareti, yalnızca "/" işaretinin ardından en sona koyulabilir. Desen eşleştiricisine verilen dize, ilk ? veya # işaretinden sonra herhangi bir metin içermez ve burada, bu karakterlere izin verilmez. 
 
-You can check out a [Resource Manager template using URL-based routing](https://azure.microsoft.com/documentation/templates/201-application-gateway-url-path-based-routing) for more information.
+Daha fazla bilgi için [URL tabanlı yönlendirme kullanan bir Resource Manager şablonunu](https://azure.microsoft.com/documentation/templates/201-application-gateway-url-path-based-routing) inceleyebilirsiniz.
 
-## PathBasedRouting rule
+## <a name="pathbasedrouting-rule"></a>PathBasedRouting kuralı
 
-RequestRoutingRule of type PathBasedRouting is used to bind a listener to a urlPathMap. All requests that are received for this listener are routed based on policy specified in urlPathMap.
-Snippet of PathBasedRouting rule:
+PathBasedRouting türündeki RequestRoutingRule, bir dinleyiciyi urlPathMap’e bağlamak için kullanılır. Bu dinleyici için alınan tüm istekler, urlPathMap’te belirtilen ilkeye göre yönlendirilir.
+PathBasedRouting kuralının kod parçacığı:
 
-	"requestRoutingRules": [
-  	{
+    "requestRoutingRules": [
+    {
 
     "name": "<ruleName>",
     "id": "/subscriptions/<subscriptionId>/../microsoft.network/applicationGateways/<gatewayName>/requestRoutingRules/<ruleName>",
@@ -83,7 +84,13 @@ Snippet of PathBasedRouting rule:
         },
 
     }
-	
-## Next steps
+    
+## <a name="next-steps"></a>Sonraki adımlar
 
-After learning about URL-based content routing, go to [create an application gateway using URL-based routing](application-gateway-create-url-route-portal.md) to create an application gateway with URL routing rules.
+URL tabanlı içerik yönlendirme hakkında bilgi edindikten sonra, URL yönlendirme kurallarıyla bir uygulama ağ geçidi oluşturmak için [URL tabanlı yönlendirme kullanan uygulama ağ geçidi oluşturma](application-gateway-create-url-route-portal.md) bölümüne gidin.
+
+
+
+<!--HONumber=Oct16_HO3-->
+
+

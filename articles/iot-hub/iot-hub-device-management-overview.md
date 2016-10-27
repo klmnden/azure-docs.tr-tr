@@ -1,6 +1,6 @@
 <properties
- pageTitle="Cihaz yönetimine genel bakış | Microsoft Azure"
- description="Azure IoT Hub cihaz yönetimine genel bakış"
+ pageTitle="IoT Hub cihaz yönetimine genel bakış | Microsoft Azure"
+ description="Bu makalede Azure IoT Hub’daki cihaz yönetimine genel bakış sunulmaktadır: kurumsal cihaz yaşam döngüsü, yeniden başlatma, fabrika sıfırlaması, üretici yazılımı güncelleştirmesi, yapılandırma, cihaz çiftleri, sorgular, işler"
  services="iot-hub"
  documentationCenter=""
  authors="bzurcher"
@@ -13,91 +13,92 @@
  ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="09/16/2016"
+ ms.date="10/03/2016"
  ms.author="bzurcher"/>
 
 
+# <a name="overview-of-azure-iot-hub-device-management-(preview)"></a>Azure IoT Hub cihaz yönetimine genel bakış (önizleme)
 
+## <a name="introduction"></a>Giriş
 
-# Azure IoT Hub cihaz yönetimine genel bakış (önizleme)
+Azure IoT Hub, cihaz ve arka uç geliştiricilerinin sağlam IoT cihaz yönetimi çözümleri oluşturmasını sağlayan özellikler ve bir genişletilebilirlik modeli sunar. IoT cihazları kısıtlı algılayıcılardan tek amaçlı mikro denetleyicilere ve cihaz grupları için iletişimi yönlendiren güçlü ağ geçitlerine varan çeşitler barındırır.  Ayrıca, kullanım örnekleri ve IoT operatörlerinin gereksinimleri sektörler arasında farklılık gösterir.  Bu farklılığa rağmen, Azure IoT Hub cihaz yönetimi çok çeşitli cihaz ve son kullanıcılara uygun özellikler, desenler ve kod kitaplıkları sağlar.
 
-## Azure IoT cihaz yönetimi yaklaşımı
+Başarılı bir kurumsal IoT çözümü oluşturmanın önemli bir kısmı, operatörlerin cihaz koleksiyonu için devam eden yönetimi nasıl gerçekleştirdiğine ilişkin bir strateji sağlanmasıdır. IoT operatörleri, işlerinin daha stratejik yönlerine odaklanmalarını sağlayan basit ve güvenilir araç ve uygulamalar gerektirir. Bu makalede aşağıdakiler sunulmaktadır:
 
-Azure IoT Hub cihaz yönetimi, IoT içindeki çeşitli cihaz ve protokoller için IoT cihaz yönetiminden yararlanan cihazlara ve arka uçlara yönelik özellikler ve genişletilebilirlik modeli sağlar.  IoT içindeki cihazlar çok kısıtlı sensörler, tek amaçlı mikro denetleyiciler ve diğer cihazlar ile protokolleri etkinleştiren daha güçlü ağ geçitlerine varan çeşitlilikte cihazları içerir.  IoT çözümleri ayrıca dikey etki alanlarında ve her bir etki alanındaki operatörler için benzersiz kullanım örnekleri içeren uygulamalarda büyük ölçüde farklılık gösterir.  IoT çözümleri çeşitli cihazlar ve operatörler için cihaz yönetimi sağlamak üzere IoT Hub cihaz yönetimi özellikleri, modelleri ve kod kitaplıklarından yararlanabilir.  
+- Azure IoT Hub cihaz yönetimi yaklaşımına kısa bir genel bakış.
+- Genel cihaz yönetimi ilkelerinin açıklaması.
+- Cihaz yaşam döngüsü açıklaması.
+- Genel cihaz yönetimi desenlerine genel bakış.
 
-## Giriş
+## <a name="iot-device-management-principles"></a>IoT cihaz yönetimi ilkeleri
 
-Başarılı bir IoT çözümü oluşturmanın önemli bir kısmı, operatörlerin cihaz grubu için devam eden yönetimi nasıl gerçekleştirdiğine ilişkin bir strateji sağlanmasıdır. IoT operatörleri hem basit hem de güvenilir olup, işlerinin daha stratejik yönlerine odaklanmalarını sağlayan araç ve uygulamalar gerektirir. Azure IoT Hub, en önemli cihaz yönetimi modellerini kolaylaştıran IoT uygulamaları oluşturmaya yönelik yapı taşları sağlar.
+IoT bir dizi benzersiz cihaz yönetimi zorluğunu beraberinde getirir ve kurumsal sınıftaki her çözüm aşağıdaki ilkeleri hesaba katmalıdır:
 
-Cihazlar, cihazı buluta güvenli bir şekilde bağlayan cihaz yönetimi aracısı adlı basit bir uygulama çalıştırdığında IoT Hub tarafından yönetildiği kabul edilir. Aracı kodu, uygulama tarafından bir operatörün cihaz durumunu uzaktan onaylamasını ve ağ yapılandırma değişikliklerini uygulama veya üretici yazılımı güncelleştirmelerini dağıtma gibi yönetim işlemlerini gerçekleştirmeyi sağlar.
+![Azure IoT Hub cihaz yönetimi ilkeleri grafiği][img-dm_principles]
 
-## IoT cihaz yönetimi ilkeleri
+- **Ölçek ve otomasyon**: IoT çözümleri, rutin görevleri otomatik hale getirebilen ve oldukça küçük bir operasyon ekibinin milyonlarca cihazı yönetmesine olanak tanıyabilen basit araçlar gerektirir. Operatörler toplu cihaz işlemlerini günlük olarak uzaktan gerçekleştirmeyi ve yalnızca doğrudan dikkat gerektiren sorunlar oluştuğunda uyarılmayı beklemektedir.
 
-IoT bir dizi yönetim zorlukları getirir ve çözümü aşağıdaki IoT cihaz yönetimi özelliklerini hesaba katmalıdır:
-
-![][img-dm_principles]
-
-- **Ölçek ve otomasyon**: IoT rutin görevleri otomatik hale getirebilen ve oldukça küçük bir operasyon ekibinin milyonlarca cihazı yönetmesine olanak tanıyabilen basit araçlar gerektirir. Operatörler toplu cihaz işlemlerini günlük olarak uzaktan gerçekleştirmeyi ve yalnızca doğrudan dikkat gerektiren sorunlar oluştuğunda uyarılmayı beklemektedir.
-
-- **Açıklık ve uyumluluk**: IoT cihaz ekosistemi olağanüstü çeşitliliğe sahiptir. Yönetim araçları çok sayıda cihaz sınıfına, platforma ve protokole uyum sağlayacak şekilde uyarlanmalıdır. Operatörler en kısıtlı katıştırılmış tek işlemli yongalardan güçlü ve tam işlevsel bilgisayarlara kadar tüm cihazları destekleyebilmelidir.
+- **Açıklık ve uyumluluk**: IoT cihaz ekosistemi olağanüstü çeşitliliğe sahiptir. Yönetim araçları çok sayıda cihaz sınıfına, platforma ve protokole uyum sağlayacak şekilde uyarlanmalıdır. Operatörler en kısıtlı katıştırılmış tek işlemli yongalardan güçlü ve tam işlevsel bilgisayarlara kadar çok sayıda cihaz türünü destekleyebilmelidir.
 
 - **Bağlam tanıma**: IoT ortamları dinamik ve sürekli değişen yapıdadır. Hizmet güvenilirliği üst düzey öneme sahiptir. Cihaz yönetimi işlemleri; bakım kaynaklı kapalı kalma süresinin kritik iş işlemlerini etkilemediğinden veya tehlikeli koşullar oluşturmadığından emin olmak üzere SLA bakım pencerelerini, ağ ve güç durumlarını, kullanım sırasındaki koşulları ve cihazın coğrafi konumunu hesaba katmalıdır.
 
-- **Çok sayıda servis rolü**: Benzersiz iş akışları ve IoT işlemleri için destek çok önemlidir. Operasyon personeli ayrıca iç BT bölümlerinin belirtilen kısıtlamalarıyla uyumlu bir şekilde çalışmalı ve ilgili cihaz çalışma bilgilerini denetçilere ve diğer yönetim rollerine göstermelidir.
+- **Çok sayıda servis rolü**: Benzersiz iş akışları ve IoT işlemleri için destek çok önemlidir. Operasyon personeli, şirket içi BT bölümlerinin belirtilen kısıtlamalarıyla uyumlu bir şekilde çalışmalıdır.  Ayrıca, denetçilere ve diğer iş yönetimi rollerine gerçek zamanlı cihaz çalışma bilgilerini sunmanın uygun yollarını bulmalıdır.
 
-## IoT cihazı yaşam döngüsü 
+## <a name="iot-device-lifecycle"></a>IoT cihazı yaşam döngüsü
 
-IoT projeleri büyük ölçüde farklılık gösterse de cihazları yönetmek için bir dizi genel model vardır. Azure IoT içinde bu modeller beş ayrı aşamadan oluşan IoT cihazı yaşam döngüsünde tanımlanır:
+Tüm kurumsal IoT projelerinde ortak olan genel cihaz yönetimi aşamaları vardır. Azure IoT içinde IoT cihaz yaşam döngüsünün beş aşaması vardır:
 
-![][img-device_lifecycle]
+![Beş Azure IoT cihaz yaşam döngüsü aşaması şunlardır: planlama, sağlama, yapılandırma, izleme, devre dışı bırakma][img-device_lifecycle]
 
-1. **Plan**: Operatörlerin toplu yönetim işlemleri için bir cihaz grubunu kolayca ve doğru bir şekilde sorgulamasına ve hedeflemesine olanak tanıyan cihaz özelliği düzeni oluşturmasını sağlar.
+Bu beş aşamanın her birinde, tam bir çözüm sağlamak için yerine getirilmesi gereken birkaç cihaz operatörü gereksinimi vardır:
 
-    *İlgili yapı taşları*: [Cihaz çiftleri ile çalışmaya başlama][lnk-twins-getstarted], [Çift özelliklerini kullanma][lnk-twin-properties]
+- **Plan**: Operatörlerin toplu yönetim işlemleri için bir cihaz grubunu kolayca ve doğru bir şekilde sorgulamasına ve hedeflemesine olanak tanıyan cihaz meta verileri düzeni oluşturmasını sağlar. Bu cihaz meta verilerini etiketler ve özellikler halinde depolamak için cihaz ikizlerini kullanabilirsiniz.
 
-2. **Sağlama**: IoT hub’ında cihazların kimliğini güvenli bir şekilde sağlar ve operatörlerin cihaz özellikleri ile mevcut durumu hemen bulmasına olanak tanır.
+    *Daha fazla okuma*: [Cihaz ikizlerini kullanmaya başlama][lnk-twins-getstarted], [Cihaz ikizlerini anlama][lnk-twins-devguide], [İkiz özelliklerini kullanma][lnk-twin-properties]
 
-    *İlgili yapı taşları*: [IoT Hub ile çalışmaya başlama][lnk-hub-getstarted], [Çift özelliklerini kullanma][lnk-twin-properties]
+- **Sağlama**: IoT Hub’ına yeni cihazları güvenli bir şekilde sağlar ve operatörlerin cihaz özelliklerini hemen bulmasına olanak tanır.  Esnek cihaz kimlikleri ve kimlik bilgileri oluşturmanın yanı sıra bu işlemi bir iş kullanarak toplu halde gerçekleştirmek için IoT Hub cihazı kayıt defterini kullanın. Cihaz ikizindeki cihaz özellikleri aracılığıyla kapasite ve koşullarını raporlamak için cihazlar oluşturun.
 
-3. **Yapılandırma**: Cihazların hem sistem durumunu hem de güvenliğini korurken toplu yapılandırma değişikliklerini ve üretici yazılımı güncelleştirmelerini kolaylaştırır.
+    *Daha fazla okuma*: [Cihaz ikizlerini yönetme][lnk-identity-registry], [Cihaz kimliklerinin toplu yönetimi][lnk-bulk-identity], [İkiz özelliklerini kullanma][lnk-twin-properties]
 
-    *İlgili yapı taşları*: [Çift özelliklerini kullanma][lnk-twin-properties], [C2D Yöntemleri][lnk-c2d-methods], [İşleri Zamanlama/Yayınlama][lnk-jobs]
+- **Yapılandırma**: Cihazların hem sistem durumunu hem de güvenliğini korurken toplu yapılandırma değişikliklerini ve üretici yazılımı güncelleştirmelerini kolaylaştırır. İstediğiniz özellikleri kullanarak ve doğrudan yöntemler ve yayın işleri ile bu cihaz yönetimi işlemlerini toplu olarak gerçekleştirin.
 
-4. **İzleme**: Operatörleri dikkat gerektirebilecek sorunlar konusunda uyarmak için genel cihaz grubu durumunu ve devam eden toplu güncelleştirmelerin durumunu izler.
+    *Daha fazla okuma*:  [Doğrudan yöntemler kullanma][lnk-c2d-methods], [Bir cihazda doğrudan yöntem çağırma][lnk-methods-devguide], [İkiz özelliklerini kullanma][lnk-twin-properties], [İşleri zamanlama ve yayınlama][lnk-jobs], [İşleri birden fazla cihazda zamanlama][lnk-jobs-devguide]
 
-    *İlgili yapı taşları*: [Çift özelliklerini kullanma][lnk-twin-properties]
+- **İzleme**: Operatörleri dikkat gerektirebilecek sorunlar konusunda uyarmak için genel cihaz koleksiyonu durumunu ve devam eden işlemlerin durumunu izler.  Cihazların gerçek zamanlı çalışma koşullarını ve güncelleştirme işlemlerinin durumunu raporlamasına olanak tanımak üzere cihaz ikisi uygulayın. Cihaz ikizi sorgularını kullanarak en acil sorunları ortaya çıkaran güçlü pano raporları oluşturun.
 
-5. **Devre dışı bırakma**: Bir hata ya da yükseltme döngüsü sonrasında veya hizmet ömrünün sonunda cihazları değiştirin ya da kullanımdan kaldırın.
+    *Daha fazla okuma*: [İkiz özelliklerini kullanma][lnk-twin-properties], [İkizler ve işler için sorgu dili][lnk-query-language]
 
-    *İlgili yapı taşları*:
-    
-## IoT Hub cihaz yönetimi modelleri
+- **Devre dışı bırakma**: Bir hata ya da yükseltme döngüsü sonrasında veya hizmet ömrünün sonunda cihazları değiştirin ya da kullanımdan kaldırın.  Fiziksel cihaz değiştiriliyorsa cihaz bilgilerini korumak veya kullanım dışı bırakılıyorsa cihaz bilgilerini arşivlemek için cihaz ikizini kullanın. Cihaz kimliklerini ve kimlik bilgilerini güvenli bir şekilde iptal etmek için IoT Hub cihaz kayıt defterini kullanın.
 
-IoT Hub aşağıdaki (başlangıç) cihaz yönetim modellerini sağlar.  [Öğreticilerde][lnk-get-started] gösterildiği gibi bu modelleri senaryonuza uyacak şekilde genişletebilir ve bu temel modellere göre diğer senaryolar için yeni modeller tasarlayabilirsiniz.
+    *Daha fazla okuma*: [İkiz özelliklerini kullanma][lnk-twin-properties], [Cihaz kimliklerini yönetme][lnk-identity-registry]
 
-1. **Yeniden başlatma** - Arka uç uygulaması, yeniden başlatma işleminin başlatıldığını bir D2C yöntemi aracılığıyla cihaza bildirir.  Cihaz, cihaz çiftinin bildirilen özelliklerini kullanarak cihazın yeniden başlatma durumunu güncelleştirir. 
+## <a name="iot-hub-device-management-patterns"></a>IoT Hub cihaz yönetimi modelleri
 
-    ![][img-reboot_pattern]
+IoT Hub aşağıdaki cihaz yönetim modellerini sağlar.  [Cihaz yönetimi öğreticileri][lnk-get-started], bu desenleri gerçek senaryonuza uygun hale getirme ve bu çekirdek şablonları temel alan yeni desenler tasarlama konularını daha ayrıntılı olarak gösterir.
 
-2. **Fabrika Sıfırlaması** - Arka uç uygulaması, fabrika sıfırlamasının başlatıldığını bir D2C yönetimi aracılığıyla cihaza bildirir.  Cihaz, cihaz çiftinin bildirilen özelliklerini kullanarak cihazın fabrika sıfırlama durumunu güncelleştirir.
+- **Yeniden başlatma** - Arka uç uygulaması, yeniden başlatma işleminin başlatıldığını bir doğrudan yöntem aracılığıyla cihaza bildirir.  Cihaz, cihaz çiftinin bildirilen özelliklerini kullanarak cihazın yeniden başlatma durumunu güncelleştirir.
 
-    ![][img-facreset_pattern]
+    ![Azure IoT Hub cihaz yönetimi yeniden başlatma deseninin grafiği][img-reboot_pattern]
 
-3. **Yapılandırma** - Arka uç uygulaması, cihaz çiftinin istenen özelliklerini kullanarak cihaz üzerinde çalışan yazılımı yapılandırır.  Cihaz, cihaz çiftinin bildirilen özelliklerini kullanarak cihazın yapılandırma durumunu güncelleştirir. 
+- **Fabrika Sıfırlaması** - Arka uç uygulaması, fabrika sıfırlamasının başlatıldığını bir doğrudan yöntem aracılığıyla cihaza bildirir.  Cihaz, cihaz çiftinin bildirilen özelliklerini kullanarak cihazın fabrika sıfırlama durumunu güncelleştirir.
 
-    ![][img-config_pattern]
+    ![Azure IoT Hub cihaz yönetimi fabrika sıfırlaması deseninin grafiği][img-facreset_pattern]
 
-4. **Üretici Yazılımı Güncelleştirmesi** - Arka uç uygulaması, üretici yazılımı güncelleştirme işleminin başlatıldığını bir D2C yöntemi aracılığıyla cihaza bildirir.  Cihaz; üretici yazılımı paketini indirmek, üretici yazılımı paketini uygulamak ve son olarak IoT Hub hizmetine yeniden bağlanmak için çok adımlı bir işlem başlatır.  Çok adımlı işlem boyunca cihaz, cihaz çiftinin bildirilen özelliklerini kullanarak cihazın ilerleme ve durumunu güncelleştirir. 
+- **Yapılandırma** - Arka uç uygulaması, cihaz çiftinin istenen özelliklerini kullanarak cihaz üzerinde çalışan yazılımı yapılandırır.  Cihaz, cihaz çiftinin bildirilen özelliklerini kullanarak cihazın yapılandırma durumunu güncelleştirir.
 
-    ![][img-fwupdate_pattern]
+    ![Azure IoT Hub cihaz yönetimi yapılandırma deseninin grafiği][img-config_pattern]
 
-5. **İlerleme ve durumu raporlama** - Uygulama arka ucu, cihaz üzerinde çalışan eylemlerin durum ve ilerlemesini bildirmek üzere bir dizi cihazda cihaz çifti sorguları çalıştırır.
+- **Üretici Yazılımı Güncelleştirmesi** - Arka uç uygulaması, üretici yazılımı güncelleştirme işleminin başlatıldığını bir doğrudan yöntem aracılığıyla cihaza bildirir.  Cihaz; üretici yazılımı paketini indirmek, üretici yazılımı paketini uygulamak ve son olarak IoT Hub hizmetine yeniden bağlanmak için çok adımlı bir işlem başlatır.  Çok adımlı işlem boyunca cihaz, cihaz çiftinin bildirilen özelliklerini kullanarak cihazın ilerleme ve durumunu güncelleştirir.
 
-    ![][img-report_progress_pattern]
+    ![Azure IoT Hub cihaz yönetimi üretici yazılımı güncelleştirme deseninin grafiği][img-fwupdate_pattern]
 
-## Sonraki Adımlar
+- **İlerleme ve durumu raporlama** - Uygulama arka ucu, cihaz üzerinde çalışan eylemlerin durum ve ilerlemesini bildirmek üzere bir dizi cihazda cihaz çifti sorguları çalıştırır.
 
-Geliştiriciler Azure IoT Hub tarafından sağlanan yapı taşlarını kullanarak, her bir cihaz yaşam döngüsü aşamasında benzersiz IoT operatörü gereksinimlerini karşılayan IoT uygulamaları oluşturabilir.
+    ![Azure IoT Hub cihaz yönetimi raporlama ilerleme ve durum deseninin grafiği][img-report_progress_pattern]
+
+## <a name="next-steps"></a>Sonraki Adımlar
+
+Her cihaz yaşam döngüsü aşamasında kurumsal IoT operatörünün gereksinimlerini yerine getiren IoT uygulamaları oluşturmak için Azure IoT Hub cihaz yönetimi tarafından sağlanan özellik, desen ve kod kitaplıklarını kullanabilirsiniz.
 
 Azure IoT Hub cihaz yönetimi özellikleri hakkında daha fazla bilgi almak için [Azure IoT Hub cihaz yönetimini kullanmaya başlama][lnk-get-started] öğreticisine bakın.
 
@@ -110,14 +111,20 @@ Azure IoT Hub cihaz yönetimi özellikleri hakkında daha fazla bilgi almak içi
 [img-reboot_pattern]: media/iot-hub-device-management-overview/reboot-pattern.png
 [img-report_progress_pattern]: media/iot-hub-device-management-overview/report-progress-pattern.png
 
+[lnk-twins-devguide]: iot-hub-devguide-device-twins.md
 [lnk-get-started]: iot-hub-device-management-get-started.md
 [lnk-twins-getstarted]: iot-hub-node-node-twin-getstarted.md
 [lnk-twin-properties]: iot-hub-node-node-twin-how-to-configure.md
 [lnk-hub-getstarted]: iot-hub-csharp-csharp-getstarted.md
+[lnk-identity-registry]: iot-hub-devguide-identity-registry.md
+[lnk-bulk-identity]: iot-hub-bulk-identity-mgmt.md
+[lnk-query-language]: iot-hub-devguide-query-language
 [lnk-c2d-methods]: iot-hub-c2d-methods.md
+[lnk-methods-devguide]: iot-hub-devguide-direct-methods.md
 [lnk-jobs]: iot-hub-schedule-jobs.md
+[lnk-jobs-devguide]: iot-hub-devguide-jobs.md
 
 
-<!--HONumber=Oct16_HO1-->
+<!--HONumber=Oct16_HO3-->
 
 

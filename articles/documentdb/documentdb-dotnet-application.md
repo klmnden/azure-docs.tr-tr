@@ -4,7 +4,7 @@
     keywords="asp.net mvc öğreticisi, web uygulaması dağıtımı, mvc web uygulaması, asp net mvc adım adım öğreticisi"
     services="documentdb" 
     documentationCenter=".net" 
-    authors="AndrewHoh" 
+    authors="syamkmsft" 
     manager="jhubbard" 
     editor="cgronlun"/>
 
@@ -16,7 +16,8 @@
     ms.devlang="dotnet" 
     ms.topic="hero-article" 
     ms.date="08/25/2016" 
-    ms.author="anhoh"/>
+    ms.author="syamk"/>
+
 
 # <a name="_Toc395809351"></a>ASP.NET MVC Öğreticisi: DocumentDB ile web uygulaması geliştirme
 
@@ -117,7 +118,7 @@ Bu çözüm için gereken ASP.NET MVC altyapısının çoğunu elde ettiğimize 
     ![Çözüm Gezgini'nde JSON veri projesine eklenen iki başvurunun ekran görüntüsü](./media/documentdb-dotnet-application/image22.png)
 
 
-##<a name="_Toc395637763"></a>4. Adım: ASP.NET MVC uygulamasını ayarlama
+## <a name="_Toc395637763"></a>4. Adım: ASP.NET MVC uygulamasını ayarlama
  
 Şimdi bu MVC uygulamasına modeller, görünümler ve denetleyiciler ekleyelim:
 
@@ -230,7 +231,7 @@ MVC'de **M** olan modeli oluşturarak başlayalım.
     - Düzen sayfası kutusunda ***~/Views/Shared/_Layout.cshtml*** yazın.
     - **Ekle**'ye tıklayın.
 
-#### <a name="_Toc395888515"></a>Öğe Düzenleme görünümü ekleme
+#### <a name="_Toc395888515"></a>Düzenleme Öğesi görünümü ekleme
 
 Son olarak, bir **Öğe**'yi düzenlemek için daha önce kullandığımız yolu tekrarlayarak son bir görünüm ekleyin.
 
@@ -594,6 +595,6 @@ Uygulamanıza ilave işlevler eklemek için [DocumentDB .NET Kitaplığı](https
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Oct16_HO3-->
 
 

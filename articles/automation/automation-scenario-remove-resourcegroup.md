@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Kaynak Gruplarını otomatik kaldırma | Microsoft Azure"
-    description="Bir Azure Otomasyonu senaryosunun, aboneliğinizdeki tüm Kaynak Gruplarını kaldırmaya yönelik runbook’ları içeren PowerShell İş Akışı sürümü."
+    pageTitle="Kaynak gruplarını otomatik kaldırma | Microsoft Azure"
+    description="Bir Azure Otomasyonu senaryosunun, aboneliğinizdeki tüm kaynak gruplarını kaldırmaya yönelik runbook’lar içeren PowerShell İş Akışı sürümü."
     services="automation"
     documentationCenter=""
     authors="MGoedtel"
@@ -19,24 +19,24 @@
 
 # Azure Otomasyonu senaryosu - kaynak gruplarının kaldırılmasını otomatik hale getirme
 
-Çok sayıda müşteri, bazıları üretim uygulamalarını yönetmeye ayrılırken bazıları geliştirme, test ve hazırlık ortamları için olan birden fazla kaynak grubu oluşturmaktadır. Bu kaynakların dağıtımının otomatik hale getirilmesi bir özelliktir, ancak bir kaynak grubunun tek bir düğme tıklanarak kullanımdan kaldırılması da başka bir özelliktir.  Bunu işlemek için Otomasyon hizmetinin kullanılması mükemmel bir kullanım örneği ve böyle bir ortak yönetim görevini kolaylaştıran bir fırsattır. Bu özellik ayrıca MSDN veya Microsoft İş Ortağı Ağı Bulut Temel Bileşenleri programı gibi bir üye teklifi üzerinden harcama limitine sahip bir Azure aboneliği ile çalışıyorsanız yararlı olur. 
+Birçok müşteri birden fazla kaynak grubu oluşturur. Bazıları üretim uygulamalarını yönetmek için, bazıları ise geliştirme, test ve hazırlık ortamları olarak kullanılabilir. Bu kaynakların dağıtımının otomatik hale getirilmesi bir özelliktir, ancak bir kaynak grubunun tek bir düğme tıklanarak kullanımdan kaldırılması da başka bir özelliktir. Bu ortak yönetim görevini Azure Otomasyonu'nu kullanarak basit hale getirebilirsiniz. Bu özellik, örneğin MSDN veya Microsoft İş Ortağı Ağı Bulut Temel Bileşenleri programı gibi bir üye teklifi üzerinden harcama limitine sahip bir Azure aboneliği ile çalışıyorsanız yararlı olur.
 
-Bu senaryo bir PowerShell runbook'u temel alır ve aboneliğinizden belirttiğiniz bir veya daha fazla kaynak grubunu kaldırmak için tasarlanmıştır.  Runbook devam etmeden önce varsayılan olarak test etmeyi destekler.  Bu şekilde, bu yordamı tamamlamaya hazır olduğunuzdan mutlaka emin olmadan kaynak grubunu yanlışlıkla silmezsiniz.   
+Bu senaryo bir PowerShell runbook'u temel alır ve aboneliğinizden belirttiğiniz bir veya daha fazla kaynak grubunu kaldırmak için tasarlanmıştır. Runbook’un varsayılan ayarı, devam etmeden önce test etmektir. Bu ayar, kaynak grubunu bu yordamı tamamlamak için hazır olmadan yanlışlıkla silmenizi önler.   
 
 ## Senaryoyu alma
 
-Bu senaryo [PowerShell Galerisi](https://www.powershellgallery.com/packages/Remove-ResourceGroup/1.0/DisplayScript)’nden indirebileceğiniz veya doğrudan Azure portalındaki [Runbook Galerisi](automation-runbook-gallery.md)’nden içe aktarabileceğiniz bir PowerShell runbook’tan oluşur.<br><br> 
+Bu senaryo, [PowerShell Galerisi](https://www.powershellgallery.com/packages/Remove-ResourceGroup/1.0/DisplayScript)’nden indirebileceğiniz PowerShell runbook’u içerir. Doğrudan Azure portal’daki [Runbook Galerisi](automation-runbook-gallery.md)’nden de indirebilirsiniz.<br><br>
 
 Runbook | Açıklama|
 ----------|------------|
-Remove-ResourceGroup | Bir veya daha fazla Azure kaynak grubunu ve onun kaynaklarını abonelikten kaldırır.  
+Remove-ResourceGroup | Bir veya daha fazla Azure kaynak grubunu ve ilişkili kaynakları abonelikten kaldırır.  
 <br>
 Bu runbook için aşağıdaki giriş parametreleri tanımlanmıştır:
 
 Parametre | Açıklama|
 ----------|------------|
-NameFilter (Gerekli) | Silmeyi amaçladığınız kaynak gruplarını sınırlandırmak için bir ad filtresi belirtmenizi sağlar. Virgülle ayrılmış bir liste kullanarak birden çok değer geçirebilirsiniz.<br>Filtre büyük küçük harfe duyarlı değildir ve dizeyi içeren herhangi bir kaynak grubunu eşleştirir.|
-PreviewMode (İsteğe bağlı) | Hangi kaynak gruplarının silineceğini görmek ve herhangi bir işlem yapmamak için runbook’u yürütün.<br>Varsayılan değer, runbook’a geçirilen bir veya daha fazla kaynak grubunun yanlışlıkla silinmesini önlemeye yardımcı olmak üzere **true** olarak ayarlanmıştır.  
+NameFilter (Gerekli) | Silmeyi amaçladığınız kaynak gruplarını sınırlandırmak için bir ad filtresi belirtir. Virgülle ayrılmış bir liste kullanarak birden çok değer geçirebilirsiniz.<br>Filtre büyük küçük harfe duyarlı değildir ve dizeyi içeren herhangi bir kaynak grubunu eşleştirir.|
+PreviewMode (İsteğe bağlı) | Hangi kaynak gruplarının silineceğini görmek için runbook’u yürütür, ancak herhangi bir işlem yapmaz.<br>Varsayılan değer, runbook’a geçirilen bir veya daha fazla kaynak grubunun yanlışlıkla silinmesini önlemeye yardımcı olmak üzere **true** olarak ayarlanmıştır.  
 
 ## Bu senaryoyu yükleme ve yapılandırma
 
@@ -46,31 +46,32 @@ Bu runbook [Azure Farklı Çalıştır hesabı](automation-sec-configure-azure-r
 
 ### Runbook yükleme ve yayımlama
 
-Runbook’u indirdikten sonra [Runbook’ları içeri aktarma yordamları](automation-creating-importing-runbook.md#importing-a-runbook-from-a-file-into-Azure-Automation) içindeki yordamı kullanarak içeri aktarabilirsiniz.  Runbook’u Otomasyon hesabınıza başarıyla içeri aktarıldıktan sonra yayımlayın.
+Runbook’u indirdikten sonra [Runbook’ları içeri aktarma yordamları](automation-creating-importing-runbook.md#importing-a-runbook-from-a-file-into-Azure-Automation) içindeki yordamı kullanarak içeri aktarabilirsiniz. Runbook’u Otomasyon hesabınıza başarıyla içeri aktarıldıktan sonra yayımlayın.
 
 
 ## Runbook’u kullanma
 
-Aşağıdaki adımlar bu runbook’un yürütülmesinde size yol gösterir ve nasıl çalıştığını anlamanıza yardımcı olur.  Bu örnekte yalnızca runbook test edilecek, kaynak grubu gerçekten silinmeyecektir.  
+Aşağıdaki adımlar bu runbook’un yürütülmesinde size yol gösterir ve nasıl çalıştığını anlamanıza yardımcı olur. Bu örnekte yalnızca runbook’u test edeceksiniz, kaynak grubunu gerçekten silmeyeceksiniz.  
 
-1. Azure Portal’da Otomasyon hesabınızı açın ve  **Runbook'lar** kutucuğuna tıklayın.
+1. Azure portal’da Otomasyon hesabınızı açın ve **Runbook'lar** seçeneğine tıklayın.
 2. **Remove-ResourceGroup** runbook’unu seçin ve **Başlat**’a tıklayın.
-3. Runbook’u başlattığınızda **Runbook’u Başlat** dikey penceresi açılır ve parametrelerin aşağıdaki değerlerini yapılandırabilirsiniz.  Aboneliğinizde test etmek istediğiniz ve yanlışlıkla silinirse zararı olmayacak bir veya daha faza kaynak grubunun adını girin.<br> ![Remove-ResouceGroup Parametreleri](media/automation-scenario-remove-resourcegroup/remove-resourcegroup-input-parameters.png)
-    
-    >[AZURE.NOTE] Seçili kaynak gruplarının yanlışlıkla silinmesini önlemek için **Previewmode** seçeneğinin **true** olarak ayarlandığından emin olun.  Bu runbook’un bu runbook’u çalıştıran Otomasyon hesabını içeren kaynak grubunu kaldırmayacağını **unutmayın**.  
+3. Runbook’u başlattığınızda **Runbook’u Başlat** dikey penceresi açılır ve parametreleri yapılandırabilirsiniz. Aboneliğinizde test için kullanabileceğiniz ve yanlışlıkla silinirse zararı olmayacak kaynak gruplarının adlarını girin.<br> ![Remove-ResouceGroup parametreleri](media/automation-scenario-remove-resourcegroup/remove-resourcegroup-input-parameters.png)
 
-4. Tüm parametre değerlerini yapılandırdıktan sonra **Tamam**’a tıkladığınızda runbook yürütme kuyruğuna alınır.  
+    >[AZURE.NOTE] Seçili kaynak gruplarının yanlışlıkla silinmesini önlemek için **Previewmode**’un **true** olarak ayarlandığından emin olun.  Bu runbook’un, kendisini çalıştıran Otomasyon hesabını içeren kaynak grubunu kaldırmayacağını **unutmayın**.  
 
-**Remove-ResourceGroup** runbook işinin ayrıntılarını Azure portalında görüntülemek için runbook’un **İşler** kutucuğunu seçin. İş özetinde giriş parametreleri ve çıkış akışına ek olarak işe ilişkin genel bilgiler ve gerçekleşmişse özel durumlar gösterilir.<br> ![Remove-ResourceGroup Runbook İş Durumu](media/automation-scenario-remove-resourcegroup/remove-resourcegroup-runbook-job-status.png).
+4. Tüm parametre değerlerini yapılandırdıktan sonra **Tamam**’a tıklarsanız runbook yürütme kuyruğuna alınır.  
 
-**İş Özeti** bölümünde çıkış, uyarı ve hata akışlarından iletiler bulunur. Runbook yürütmeyle ilgili ayrıntılı sonuçları görüntülemek için **Çıkış** kutucuğunu seçin.<br> ![Remove-ResourceGroup Runbook Çıktı Sonuçları](media/automation-scenario-remove-resourcegroup/remove-resourcegroup-runbook-job-output.png) 
+**Remove-ResourceGroup** runbook işinin ayrıntılarını Azure portal’da görüntülemek için runbook’ta **İşler**’i seçin. İş özetinde, giriş parametreleri ve çıkış akışına ek olarak işe ilişkin genel bilgiler ve gerçekleşen özel durumlar gösterilir.<br> ![Remove-ResourceGroup runbook iş durumu](media/automation-scenario-remove-resourcegroup/remove-resourcegroup-runbook-job-status.png).
+
+**İş Özeti** bölümünde çıkış, uyarı ve hata akışlarından iletiler bulunur. Runbook yürütmeyle ilgili ayrıntılı sonuçları görüntülemek için **Çıkış**’ı seçin.<br> ![Remove-ResourceGroup runbook çıkış sonuçları](media/automation-scenario-remove-resourcegroup/remove-resourcegroup-runbook-job-output.png)
 
 ## Sonraki adımlar
 
-- Kendi runbook’unuzu oluşturmaya başlamak için bkz. [Azure Otomasyonu’nda runbook oluşturma veya içeri aktarma](automation-creating-importing-runbook.md)
-- PowerShell İş Akışı runbook'larını kullanmaya başlamak için bkz. [İlk PowerShell İş Akışı runbook uygulamam](automation-first-runbook-textual.md)
+- Kendi runbook’unuzu oluşturmaya başlamak için bkz. [Azure Otomasyonu’nda runbook oluşturma veya içeri aktarma](automation-creating-importing-runbook.md).
+- PowerShell İş Akışı runbook'larını kullanmaya başlamak için bkz. [İlk PowerShell İş Akışı runbook uygulamam](automation-first-runbook-textual.md).
 
 
-<!--HONumber=Sep16_HO4-->
+
+<!--HONumber=Oct16_HO3-->
 
 

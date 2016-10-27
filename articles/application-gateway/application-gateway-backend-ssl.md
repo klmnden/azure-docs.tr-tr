@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Enabling SSL Policy and end to end SSL on Application Gateway | Microsoft Azure"
-   description="This page provides an overview of the Application Gateway end to end SSL support."
+   pageTitle="Application Gateway’de SSL İlkesi ve uçtan uca SSL’yı etkinleştirme | Microsoft Azure"
+   description="Bu sayfada, Application Gateway uçtan uca SSL desteği için genel bir bakış sunulmuştur."
    documentationCenter="na"
    services="application-gateway"
    authors="amsriva"
@@ -9,38 +9,45 @@
 <tags
    ms.service="application-gateway"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="09/26/2016"
    ms.author="amsriva"/>
 
-# Enabling SSL Policy and end to end SSL on Application Gateway
 
-## Overview
+# <a name="enabling-ssl-policy-and-end-to-end-ssl-on-application-gateway"></a>Application Gateway’de SSL İlkesi ve uçtan uca SSL’yi etkinleştirme
 
-Application gateway supports SSL termination at the gateway, after which traffic typically flows unencrypted to the backend servers. This allows web servers to be unburdened from costly encryption/decryption overhead. However for some customers unencrypted communication to the backend servers is not an acceptable option. This could be due to security/compliance requirements or the application may only accept secure connection. For such applications, application gateway now supports end to end SSL encryption.
+## <a name="overview"></a>Genel Bakış
 
-End to end SSL allows you to securely transmit sensitive data to the backend encrypted while availing benefits of Layer 7 load balancing features which application gateway provides, such as cookie affinity, URL-based routing, support for routing based on sites or ability to inject X-Forwarded-* headers.
+Application Gateway, ağ geçidinde SSL sonlandırmasını destekler. Bu sonlandırmanın ardından, trafik genelde arka uç sunucularına şifrelenmemiş olarak akar. Bu, web sunucularının maliyetli şifreleme/şifre çözme ek yükünden kurtulmasını sağlar. Ancak arka uç sunucularıyla şifrelenmemiş iletişim, bazı müşteriler için kabul edilebilir bir seçenek değildir. Bunun nedeni, güvenlik/uyumluluk gereksinimleri veya uygulamanın yalnızca güvenli bağlantı kabul etmesi olabilir. Application Gateway, böyle uygulamalar için artık uçtan uca SSL şifrelemesini desteklemektedir.
 
-When configured with end to end SSL communication mode, application gateway terminates user SSL sessions at the gateway and decrypts user traffic. It then applies the configured rules to select an appropriate backend pool instance to route traffic to. Application gateway then initiates a new SSL connection to the backend server and re-encrypts data using backend server's public key certificate before transmitting request to the backend. End to end SSL is enabled by setting protocol setting in BackendHTTPSetting to Https, which is then applied to a backend pool. Each backend server in the backend pool with end to end SSL enabled must be configured with a certificate to allow secure communication.
+Uçtan uca SSL, hassas verileri arka uca şifrelenmiş olarak güvenli bir şekilde aktarmanızı ve tanımlama bilgisi benzeşimi, URL tabanlı yönlendirme, sitelere dayalı yönlendirme desteği veya X-Forwarded-* üst bilgilerini ekleme imkanı gibi Application Gateway’in sunduğu Katman 7 yük dengeleme özelliklerinin avantajlarından yararlanmanızı sağlar.
+
+Application Gateway uçtan uca SSL iletişimi modu ile yapılandırıldığında, ağ geçidindeki SSL oturumlarını sonlandırır ve kullanıcı trafiğinin şifresini çözer. Ardından trafiğin yönlendirileceği uygun arka uç havuzunu seçmek için yapılandırılan kuralları uygular. Application Gateway, arka uç sunucusuyla yeni bir SSL bağlantısı başlatır ve isteği arka uca aktarmadan önce arka uç sunucusunun ortak anahtar sertifikasını kullanarak verileri yeniden şifreler. Uçtan uca SSL, BackendHTTPSetting’de protokol ayarı Https yapılarak etkinleştirilir. Bu ayar, daha sonra arka uç havuzuna uygulanır. Arka uç sunucusunda uçtan uca SSL’nin etkin olduğu her arka uç sunucusunun, güvenli iletişime izin veren bir sertifikayla yapılandırılması gerekir.
 
 ![imageURLroute](./media/application-gateway-multi-site-overview/multisite.png)
 
-In this example, requests for https://contoso.com can be routed to ContosoServerPool over HTTP, and https://fabrikam.com will be routed to FabrikamServerPool over HTTPS using end to end SSL.
+Bu örnekte, uçtan uca SSL kullanılarak https://contoso.com için istekler HTTP üzerinden ContosoServerPool’a ve https://fabrikam.com için istekler HTTPS üzerinden FabrikamServerPool’a yönlendirilebilir.
 
-## End to end SSL and white listing of certificates
+## <a name="end-to-end-ssl-and-white-listing-of-certificates"></a>Uçtan uca SSL ve sertifikaların güvenilir listeye alınması
 
-Application gateway only communicates with known backend instances, which have whitelisted their certificate with the application gateway. To enable whitelisting of certificates, you must upload the public key of backend server certificates to the application gateway. Only connections to known and white listed backend is then allowed and remaining result in a gateway error. Self-signed certificates are for test purposes only and not recommended for production workloads. Such certificates must also be white listed with the application gateway as described above before they can be used.
+Uygulama ağ geçidi, yalnızca sertifikalarını uygulama ağ geçidiyle güvenilir listeye aldırmış, bilinen arka uç örnekleriyle iletişim kurar. Sertifikaların güvenilir listeye alınmasını etkinleştirmek için arka uç sunucusu sertifikalarının ortak anahtarlarını uygulama ağ geçidine yüklemeniz gerekir. Yalnızca bilinen ve güvenilir listeye alınan arka uçla bağlantı kurulmasına izin verilir ve geri kalanlar ağ geçidi hatasına neden olur. Otomatik olarak imzalanan sertifikalar, yalnızca test amaçlarına yöneliktir ve üretim iş yükleri için önerilmez. Bu gibi sertifikaların da kullanılabilmesi için önce uygulama ağ geçidiyle güvenilir listeye alınması gerekir.
 
-## Application Gateway SSL Policy
+## <a name="application-gateway-ssl-policy"></a>Application Gateway SSL İlkesi
 
-Application gateway also supports user configurable SSL negotiation policies, which allow customers finer grained control over SSL connections at the application gateway.
+Application Gateway, kullanıcı tarafından yapılandırılabilen SSL anlaşma ilkelerini de destekler. Bu ilkeler, müşterilere uygulama ağ geçidi üzerinde daha ayrıntılı denetim imkanı sağlar.
 
-1. SSL 2.0 and 3.0 are forced disabled for all Application Gateways. They are not configurable at all.
-2. SSL policy definition gives you option to disable any of the following 3 protocols - TLSv1_0, TLSv1_1, TLSv1_2.
-3. If no SSL policy is defined all three (TLSv1_0, TLSv1_1, TLSv1_2) would be enabled.
+1. SSL 2.0 ve 3.0, tüm Application Gateway’ler için devre dışı bırakılmaya zorlanır. Bunlar tamamen yapılandırılabilir değildir.
+2. SSL ilkesi tanımı, şu 3 protokolden herhangi birini değiştirebilmenizi sağlar: TLSv1_0, TLSv1_1, TLSv1_2.
+3. Hiçbir SSL ilkesi tanımlanmazsa üçü de (TLSv1_0, TLSv1_1, TLSv1_2) etkinleştirilebilir.
 
-## Next steps
+## <a name="next-steps"></a>Sonraki adımlar
 
-After learning about end to end SSL and SSL policy, go to [enable end to end SSL on application gateway](application-gateway-end-to-end-ssl-powershell.md) to create an application gateway with ability to send traffic to backend in encrypted form.
+Uçtan uca SSL ve SSL ilkesi hakkında bilgi edindikten sonra arka uca şifrelenmiş biçimde trafik gönderme özelliğine sahip uygulama ağ geçidi oluşturmak için [Uygulama ağ geçidinde uçtan uca SSL'yi etkinleştirme](application-gateway-end-to-end-ssl-powershell.md) bölümüne gidin.
+
+
+
+<!--HONumber=Oct16_HO3-->
+
+

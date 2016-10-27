@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="09/27/2016"
+    ms.date="10/10/2016"
     ms.author="cabailey"/>
 
 
@@ -70,6 +70,6 @@ Azure Anahtar Kasası ile anahtarları ve gizli anahtarları kullanma hakkında 
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO3-->
 
 

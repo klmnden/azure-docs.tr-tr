@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Hosting multiple sites on Application Gateway | Microsoft Azure"
-   description="This page provides an overview of the Application Gateway multi-site support."
+   pageTitle="Application Gateway’de birden fazla siteyi barındırma | Microsoft Azure"
+   description="Bu sayfada, Application Gateway çoklu site desteği için genel bir bakış sunulmuştur."
    documentationCenter="na"
    services="application-gateway"
    authors="amsriva"
@@ -9,36 +9,36 @@
 <tags
    ms.service="application-gateway"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/07/2016"
+   ms.date="10/04/2016"
    ms.author="amsriva"/>
 
-# Application Gateway multiple site hosting
 
-Multiple site hosting enables you to configure more than one web application on the same application gateway instance. This feature allows you to configure more efficient topology for your deployments by packing up to 20 websites to one application gateway. Each website could be directed to its own backend pool. In the following example, application gateway is serving traffic for contoso.com and fabrikam.com from two back-end server pools called ContosoServerPool and FabrikamServerPool.
+# <a name="application-gateway-multiple-site-hosting"></a>Application Gateway birden çok site barındırma
+
+Birden çok site barındırma, aynı uygulama ağ geçidi örneğinde birden fazla web uygulaması yapılandırmanızı sağlar. Bu özellik, bir uygulama ağ geçidine en fazla 20 web sitesi ekleyerek dağıtımlarınız için daha verimli bir topoloji yapılandırmanıza olanak tanır. Her web sitesi, kendi arka uç havuzuna yönlendirilebilir. Aşağıdaki örnekte, uygulama ağ geçidi ContosoServerPool ve FabrikamServerPool adlı iki arka uç sunucu havuzundan contoso.com ve fabrikam.com için trafik sunmaktadır.
 
 ![imageURLroute](./media/application-gateway-multi-site-overview/multisite.png)
 
-Requests for http://contoso.com are routed to ContosoServerPool, and http://fabrikam.com are routed to FabrikamServerPool. 
+http://contoso.com için istekler ContosoServerPool’a, http://fabrikam.com için istekler ise FabrikamServerPool’a yönlendirilir.
 
-Similarly two subdomains of the same parent domain can be hosted on the same application gateway deployment. Examples of using sub-domains could include http://blog.contoso.com and http://app.contoso.com hosted on a single application gateway deployment.
+Benzer şekilde aynı üst etki alanının iki alt etki alanı, aynı uygulama ağ geçidi dağıtımında barındırılabilir. Alt etki alanı kullanım örnekleri, tek bir uygulama ağ geçidi dağıtımında barındırılan http://blog.contoso.com ve http://app.contoso.com’u içerebilir.
 
+## <a name="host-headers-and-server-name-indication-(sni)"></a>Barındırma üstbilgileri ve Sunucu Adı Belirtme (SNI)
 
-## Host headers and Server Name Indication (SNI)
-There are three common mechanisms for enabling multiple site hosting on the same infrastructure. 
+Aynı altyapıda birden çok site barındırmayı etkinleştirmek için üç yaygın mekanizma bulunur.
 
-1. Host multiple web applications each on a unique IP address.
-2. Use host name to host multiple web applications on the same IP address.
-3. Use different ports to host multiple web application on the same IP address.
+1. Birden çok web uygulamasının her birini benzersiz bir IP adresinde barındırın.
+2. Birden çok web uygulamasını aynı IP adresinde barındırmak için ana bilgisayar adını kullanın.
+3. Birden çok web uygulamasını aynı IP adresinde barındırmak için farklı bağlantı noktalarını kullanın.
 
-Currently an application gateway gets a single public IP address on which it listens for traffic. Therefore supporting multiple applications, each with its own IP address, is currently not supported. Application Gateway supports hosting multiple application each listening on different ports but this scenario would require the applications to accept traffic on non-standard ports and is often not a desired configuration. Application Gateway relies on HTTP 1.1 host headers to host more than one website on the same public IP address and port. The sites hosted on application gateway can also support SSL offload with Server Name Indication (SNI) TLS extension. This scenario means that the client browser and backend web farm must support HTTP/1.1 and TLS extension as defined in RFC 6066.
+Şu anda bir uygulama ağ geçidi, üzerinde trafiği dinlediği tek bir genel IP adresi almaktadır. Bu nedenle, her biri kendi IP adresine sahip olan birden çok uygulama şu anda desteklenmemektedir. Application Gateway, her biri farklı bağlantı noktasında dinleme yapan birden çok uygulamanın barındırılmasını destekler, ancak bu senaryo uygulamaların standart olmayan bağlantı noktalarında trafiği kabul etmesini gerekli kılar ve çoğu zaman istenen bir yapılandırma değildir. Application Gateway, aynı genel IP adresinde ve bağlantı noktasında birden çok web sitesini barındırmak için HTTP 1.1 barındırma bilgilerini kullanır. Uygulama ağ geçidinde barındırılan siteler, Sunucu Adı Belirtme (SNI) uzantısına sahip SSL yük boşaltmayı da destekleyebilir. Bu senaryo, istemci tarayıcısının ve arka uç web grubunun RFC 6066’da belirtildiği gibi HTTP/1.1 ve TLS uzantısını desteklemesi gerektiği anlamına gelir.
 
+## <a name="listener-configuration-element"></a>Dinleyici yapılandırma öğesi
 
-## Listener configuration element
-
-Existing HTTPListener configuration element is enhanced to support host name and server name indication elements, which is used by application gateway to route traffic to appropriate backend pool. The following code example is the snippet of HttpListeners element from template file.
+Mevcut HTTPListener yapılandırma öğesi, ana bilgisayar adını ve sunucu adı belirtme öğelerini destekleyecek şekilde geliştirilmiştir. Bu öğe, uygulama ağ geçidi tarafından trafiği uygun arka uç havuzuna yönlendirmek için kullanılır. Aşağıdaki kod örneği, şablon dosyasındaki HttpListeners öğesinin kod parçacığıdır.
 
     "httpListeners": [
                 {
@@ -77,47 +77,53 @@ Existing HTTPListener configuration element is enhanced to support host name and
 
 
 
-You can check out [Resource Manager template using multiple site hosting](https://github.com/Azure/azure-quickstart-templates/blob/master/201-application-gateway-multihosting) for an end to end template-based deployment.
+Uçtan uca şablon tabanlı dağıtım için [birden çok site barındırma kullanan Resource Manager şablonunu](https://github.com/Azure/azure-quickstart-templates/blob/master/201-application-gateway-multihosting) ziyaret edebilirsiniz.
 
-## Routing rule
+## <a name="routing-rule"></a>Yönlendirme kuralı
 
-There is no change required in routing rule. Routing rule 'Basic' should continue to be chosen to tie the appropriate site listener to the corresponding backend address pool.
+Yönlendirme kuralında yapılması gereken bir değişiklik yoktur. Uygun site dinleyicisini ilgili arka uç adres havuzuna bağlamak için 'Temel' yönlendirme kuralını kullanmaya devam etmeniz gerekir.
 
-	"requestRoutingRules": [
-	{
-		"name": "<ruleName1>",
-		"properties": {
-			"RuleType": "Basic",
-			"httpListener": {
-				"id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/httpListeners/appGatewayHttpsListener1')]"
-			},
-			"backendAddressPool": {
-				"id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/backendAddressPools/ContosoServerPool')]"
-			},
-			"backendHttpSettings": {
-				"id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/backendHttpSettingsCollection/appGatewayBackendHttpSettings')]"
-			}
-		}
+    "requestRoutingRules": [
+    {
+        "name": "<ruleName1>",
+        "properties": {
+            "RuleType": "Basic",
+            "httpListener": {
+                "id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/httpListeners/appGatewayHttpsListener1')]"
+            },
+            "backendAddressPool": {
+                "id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/backendAddressPools/ContosoServerPool')]"
+            },
+            "backendHttpSettings": {
+                "id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/backendHttpSettingsCollection/appGatewayBackendHttpSettings')]"
+            }
+        }
 
-	},
-	{
-		"name": "<ruleName2>",
-		"properties": {
-			"RuleType": "Basic",
-			"httpListener": {
-				"id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/httpListeners/appGatewayHttpListener2')]"
-			},
-			"backendAddressPool": {
-				"id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/backendAddressPools/FabrikamServerPool')]"
-			},
-			"backendHttpSettings": {
-				"id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/backendHttpSettingsCollection/appGatewayBackendHttpSettings')]"
-			}
-		}
+    },
+    {
+        "name": "<ruleName2>",
+        "properties": {
+            "RuleType": "Basic",
+            "httpListener": {
+                "id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/httpListeners/appGatewayHttpListener2')]"
+            },
+            "backendAddressPool": {
+                "id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/backendAddressPools/FabrikamServerPool')]"
+            },
+            "backendHttpSettings": {
+                "id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/backendHttpSettingsCollection/appGatewayBackendHttpSettings')]"
+            }
+        }
 
-	}
-	]
-	
-## Next steps
+    }
+    ]
 
-After learning about multiple site hosting, go to [create an application gateway using multiple site hosting](application-gateway-create-multisite-azureresourcemanager-powershell.md) to create an application gateway with ability to support more than one web application.
+## <a name="next-steps"></a>Sonraki adımlar
+
+Birden çok site barındırma hakkında bilgi aldıktan sonra birden fazla web uygulamasını destekleyebilen uygulama ağ geçidi oluşturmak için [birden çok site barındırma kullanan uygulama ağ geçidi oluşturma](application-gateway-create-multisite-azureresourcemanager-powershell.md) bölümüne gidin.
+
+
+
+<!--HONumber=Oct16_HO3-->
+
+

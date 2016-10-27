@@ -12,23 +12,17 @@
     ms.tgt_pltfrm="na"
     ms.devlang="dotnet"
     ms.topic="hero-article"
-    ms.date="07/26/2016"
-    ms.author="minet;robinsh" />
+    ms.date="10/18/2016"
+    ms.author="minet" />
 
 
-# .NET kullanarak Azure File Storage’ı kullanmaya başlayın
+# <a name="get-started-with-azure-file-storage-on-windows"></a>.NET kullanarak Azure File Storage’ı kullanmaya başlayın
 
 [AZURE.INCLUDE [storage-selector-file-include](../../includes/storage-selector-file-include.md)]
 <br/>
 [AZURE.INCLUDE [storage-try-azure-tools-files](../../includes/storage-try-azure-tools-files.md)]
 
-## Genel Bakış
-
-Azure File Storage, standart [Sunucu İleti Blogu (SMB) Protokolü](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) kullanılarak bulutta dosya paylaşımı sunan bir hizmettir. SMB 2.1 ve SMB 3.0 desteklenir. Azure File Storage, Azure’a dosya paylaşımı kullanan eski uygulamaları maliyetli yeniden yazdırmaya ihtiyaç duymadan ve hızla taşıyabilmenizi sağlar. Azure Virtual Machines’de, Cloud Services’da veya şirket içi istemcilerde çalışan uygulamalar, bir masaüstü uygulamanın tipik SMB paylaşımı bağladığı gibi buluta bir dosya paylaşımı bağlayabilir. Ardından herhangi sayıda uygulama bileşeni eş zamanlı olarak File Storage paylaşımını bağlayıp buna erişim sağlayabilir.
-
-File Storage paylaşımı standart SMB dosya paylaşımı olduğu için Azure’da çalışan uygulamalar dosya sisteminin G/Ç API’leri üzerinden paylaşımdaki veriye erişebilir. Böylece geliştiriciler mevcut uygulamalarını taşımak üzere kullandıkları kodlar ve yeteneklerden yararlanabilir. BT Uzmanları Azure uygulamalarını yönetmenin bir parçası olarak File Storage paylaşımlarını oluşturmak, bunları bağlamak ve yönetmek için PowerShell.cmdlet’leri kullanabilir.
-
-[Azure Portal](https://portal.azure.com)’ı, Azure Storage PowerShell cmdlet’lerini, Azure Storage istemcisi kitaplıklarını veya Azure Storage REST API’sini kullanarak Azure dosya paylaşımları oluşturabilirsiniz. Ayrıca, bu dosya paylaşımları SMB paylaşımları olduğundan bunlara standart ve benzer dosya sistemi API’leriyle erişebilirsiniz.
+[AZURE.INCLUDE [storage-file-overview-include](../../includes/storage-file-overview-include.md)]
 
 Dosya paylaşımını Linux ile kullanma hakkında bilgi edinmek için bkz. [Azure File Storage’ı Linux ile kullanma](storage-how-to-use-files-linux.md).
 
@@ -38,13 +32,13 @@ File Storage’ın ölçeklenebilirlik ve performans hedefleri hakkında ayrınt
 
 [AZURE.INCLUDE [storage-file-concepts-include](../../includes/storage-file-concepts-include.md)]
 
-## Video: Azure File Storage’ı Windows ile kullanma
+## <a name="video:-using-azure-file-storage-with-windows"></a>Video: Azure File Storage’ı Windows ile kullanma
 
 Aşağıdaki videoda Windows’da Azure Dosya paylaşımlarının nasıl oluşturulacağı ve kullanılacağı gösterilir.
 
 > [AZURE.VIDEO azure-file-storage-with-windows]
 
-## Bu öğretici hakkında
+## <a name="about-this-tutorial"></a>Bu öğretici hakkında
 
 Bu başlangıç öğreticisinde, Microsoft Azure File Storage’ı kullanma hakkında temel bilgiler verilir. Bu öğreticide, şunları yapacağız:
 
@@ -60,7 +54,7 @@ Bu başlangıç öğreticisinde, Microsoft Azure File Storage’ı kullanma hakk
 
 File Storage artık tüm depolama hesaplarında desteklenir. Bu sayede, ister mevcut bir depolama hesabını kullanabilir, isterseniz de yeni bir tane oluşturabilirsiniz. Yeni depolama hesabı oluşturma hakkında bilgi edinmek için bkz. [Depolama hesabı oluşturma](storage-create-storage-account.md#create-a-storage-account).
 
-## Dosya paylaşımı yönetmek için Azure Portal’ıkullanma
+## <a name="use-the-azure-portal-to-manage-a-file-share"></a>Dosya paylaşımı yönetmek için Azure Portal’ıkullanma
 
 [Azure Portal](https://portal.azure.com) müşterilerin dosya paylaşımlarını yönetebilmeleri için bir kullanıcı arabirimi sunar. Portaldan şunları yapabilirsiniz:
 
@@ -70,7 +64,7 @@ File Storage artık tüm depolama hesaplarında desteklenir. Bu sayede, ister me
 - Paylaşım boyutu kotasını ayarlama
 - Dosya paylaşımını bağlamak üzere bir Windows istemcisinden `net use` komutunu alma
 
-### Dosya paylaşımı oluşturma
+### <a name="create-file-share"></a>Dosya paylaşımı oluşturma
 
 1. Azure Portal’da oturum açın.
 
@@ -94,7 +88,7 @@ File Storage artık tüm depolama hesaplarında desteklenir. Bu sayede, ister me
 
     ![Portalda dosya paylaşımı oluşturmayı gösteren ekran görüntüsü](./media/storage-dotnet-how-to-use-files/files-create-share-4.png)
 
-### Dosyaları yükleme ve indirme
+### <a name="upload-and-download-files"></a>Dosyaları yükleme ve indirme
 
 1. Zaten oluşturduğunuz bir dosya paylaşımını seçin.
 
@@ -108,7 +102,7 @@ File Storage artık tüm depolama hesaplarında desteklenir. Bu sayede, ister me
 
     ![Portaldan dosya indirmeyi gösteren ekran görüntüsü](./media/storage-dotnet-how-to-use-files/files-upload-download-3.png)
 
-### Dosya paylaşımı yönetme
+### <a name="manage-file-share"></a>Dosya paylaşımı yönetme
 
 1. Dosya paylaşımı boyutunu (en fazla 5120 GB) değiştirmek **Kota**’ya tıklayın.
 
@@ -127,11 +121,11 @@ File Storage artık tüm depolama hesaplarında desteklenir. Bu sayede, ister me
     ![Depolama hesabı erişim tuşu bulmayı gösteren ekran görüntüsü](./media/storage-dotnet-how-to-use-files/files-manage-5.png)
 
 
-## Dosya paylaşımı yönetmek için PowerShell’i kullanma
+## <a name="use-powershell-to-manage-a-file-share"></a>Dosya paylaşımı yönetmek için PowerShell’i kullanma
 
 Alternatif olarak, dosya paylaşımları oluşturma ve yönetmek için Azure PowerShell’i de kullanabilirsiniz.
 
-### Azure Storage için PowerShell cmdlet’leri yükleme
+### <a name="install-the-powershell-cmdlets-for-azure-storage"></a>Azure Storage için PowerShell cmdlet’leri yükleme
 
 PowerShell’i kullanmaya hazırlamak için Azure PowerShell cmdlet’lerini indirin ve yükleyin. Yükleme noktası ve yükleme yönergeleri için bkz. [Azure PowerShell’i yükleme ve yapılandırma](../powershell-install-configure.md).
 
@@ -139,7 +133,7 @@ PowerShell’i kullanmaya hazırlamak için Azure PowerShell cmdlet’lerini ind
 
 **Başlat**’a tıklayıp **Windows PowerShell** yazarak Azure PowerShell penceresini açın. PowerShell penceresi sizin için Azure Powershell modülünü yükler.
 
-### Depolama hesabınız ve anahtarı için bir bağlam oluşturma
+### <a name="create-a-context-for-your-storage-account-and-key"></a>Depolama hesabınız ve anahtarı için bir bağlam oluşturma
 
 Şimdi depolama hesabı bağlamını oluşturun. Bağlam, depolama hesabı adını ve hesap anahtarını kapsar. Hesap anahtarını [Azure Portal](https://portal.azure.com)’dan kopyalama yönergeleri için bkz. [Depolama erişim tuşlarını görüntüleme ve kopyalama](storage-create-storage-account.md#view-and-copy-storage-access-keys).
 
@@ -148,7 +142,7 @@ PowerShell’i kullanmaya hazırlamak için Azure PowerShell cmdlet’lerini ind
     # create a context for account and key
     $ctx=New-AzureStorageContext storage-account-name storage-account-key
 
-### Yeni dosya paylaşımı oluşturma
+### <a name="create-a-new-file-share"></a>Yeni dosya paylaşımı oluşturma
 
 Daha sonra, `logs` adında yeni bir paylaşım oluşturun.
 
@@ -159,21 +153,21 @@ Artık, File Storage’da bir dosya paylaşımınız bulunur. Şimdi, bir dizin 
 
 > [AZURE.IMPORTANT] Dosya paylaşımınızın adı küçük harflerden oluşmalıdır. Dosya paylaşımlarının ve dosyaların adlandırılması hakkında tüm ayrıntılara ulaşmak için bkz. [Paylaşımları, Dizinleri, Dosyaları ve Meta Verileri Adlandırma ve Bunlara Başvuruda Bulunma](https://msdn.microsoft.com/library/azure/dn167011.aspx)
 
-### Dosya paylaşımında bir dizin oluşturma
+### <a name="create-a-directory-in-the-file-share"></a>Dosya paylaşımında bir dizin oluşturma
 
 Şimdi, paylaşımda bir dizin oluşturun. Aşağıdaki örnekte, dizin `CustomLogs` olarak adlandırılmıştır.
 
     # create a directory in the share
     New-AzureStorageDirectory -Share $s -Path CustomLogs
 
-### Dizine yerel bir dosya yükleme
+### <a name="upload-a-local-file-to-the-directory"></a>Dizine yerel bir dosya yükleme
 
 Şimdi, dizine yerel bir doya yükleyin. Aşağıdaki örnekte `C:\temp\Log1.txt` konumundan bir dosya yüklenir. Dosya yolunu yerel makinenizdeki geçerli bir dosyaya işaret edecek şekilde düzenleyin.
 
     # upload a local file to the new directory
     Set-AzureStorageFileContent -Share $s -Source C:\temp\Log1.txt -Path CustomLogs
 
-### Dizindeki dosyaları listeleme
+### <a name="list-the-files-in-the-directory"></a>Dizindeki dosyaları listeleme
 
 Dizindeki dosyaları görmek üzere tüm dizin dosyalarını listeleyebilirsiniz. Bu komut, CustomLogs dizinindeki dosyaları ve alt dizinleri (varsa) döndürür.
 
@@ -182,7 +176,7 @@ Dizindeki dosyaları görmek üzere tüm dizin dosyalarını listeleyebilirsiniz
 
 Get-AzureStorageFile, hangi dizin nesnesi geçiriliyorsa, onun için dosyaların ve dizinlerin bir listesini döndürür. "Get-AzureStorageFile -Share $s" kök dizindeki dosyaların ve dizinlerin bir listesini döndürür. Alt dizindeki dosyaların bir listesini almak için alt dizini Get-AzureStorageFile dizinine geçirmeniz gerekir. Böylece şu işlemleri gerçekleştirmiş olursunuz; komutun kanala kadar olan ilk parçası CustomLogs alt dizininin dizin örneğini döndürür. Daha sonra, CustomLogs alt dizinindeki dosyaları ve dizinleri döndüren Get-AzureStorageFile dizinine geçirilir.
 
-### Dosyaları kopyalama
+### <a name="copy-files"></a>Dosyaları kopyalama
 
 Azure PowerShell’in 0.9.7 sürümünden başlayarak, bir dosyayı başka bir dosyaya, bir dosyayı başka bir bloba veya bir blobu bir dosyaya kopyalayabilirsiniz. Bu kopyalama işlemlerinin PowerShell cmdlet'leri kullanılarak nasıl yapılacağı aşağıda gösterilmiştir.
 
@@ -192,7 +186,7 @@ Azure PowerShell’in 0.9.7 sürümünden başlayarak, bir dosyayı başka bir d
     # copy a blob to a file directory
     Start-AzureStorageFileCopy -SrcContainerName srcctn -SrcBlobName hello2.txt -DestShareName hello -DestFilePath hellodir/hello2copy.txt -DestContext $ctx -Context $ctx
 
-## Dosya paylaşımını bağlama
+## <a name="mount-the-file-share"></a>Dosya paylaşımını bağlama
 
 File Storage artık SMB 3.0 desteği sayesinde şifreleme ve SMB 3.0 istemcilerinden kalıcı tanıtıcıları destekler. Şifreleme desteği sayesinde SMB 3.0 istemciler aşağıdakiler dahil olmak üzere her yerde bir dosya paylaşımını bağlayabilir:
 
@@ -211,7 +205,7 @@ Bir istemci File Storage’a eriştiğinde, kullanılan SMB sürümü işletim s
 | Windows Server 2012 R2 | SMB 3.0               |
 | Windows 10             | SMB 3.0               |
 
-### Windows çalıştıran Azure sanal makinesinden dosya paylaşımını bağlama
+### <a name="mount-the-file-share-from-an-azure-virtual-machine-running-windows"></a>Windows çalıştıran Azure sanal makinesinden dosya paylaşımını bağlama
 
 Azure dosya paylaşımının nasıl bağlandığını göstermek üzere Windows çalıştıran bir Azure Virtual Machine oluşturacak ve paylaşımı bağlamak için buna uzaktan bağlanacaksınız.
 
@@ -220,7 +214,7 @@ Azure dosya paylaşımının nasıl bağlandığını göstermek üzere Windows 
 2. Daha sonra, [Azure Portal’ıkullanarak Windows sanal makinesinde oturum açma](../virtual-machines/virtual-machines-windows-connect-logon.md) sayfasındaki yönergeleri izleyerek sanal makineye uzaktan bağlanın.
 3. Sanal makinede bir PowerShell penceresi açın.
 
-### Sanal makine için depolama hesabı kimlik bilgilerinizi kalıcı yapma
+### <a name="persist-your-storage-account-credentials-for-the-virtual-machine"></a>Sanal makine için depolama hesabı kimlik bilgilerinizi kalıcı yapma
 
 Dosya paylaşımını bağlamadan önce, ilk olarak depolama hesabı kimlik bilgilerinizi sanal makinede kalıcı yapın. Bu adım uygulanmasıyla birlikte sanal makine yeniden başlatıldığında Windows otomatik olarak dosya paylaşımıyla yeniden bağlantı kurar. Hesap kimlik bilgilerinizi kalıcı yapmak için sanal makinede PowerShell penceresinden `cmdkey` komutunu çalıştırın. `<storage-account-name>` değerini depolama hesabınızın adıyla ve `<storage-account-key>` değerini depolama hesabınızın anahtarıyla değiştirin.
 
@@ -230,7 +224,7 @@ Artık, sanal makine yeniden başlatıldığında Windows dosya paylaşımınız
 
 Kimlik bilgilerinin yalnızca `cmdkey` komutunun çalıştığı bağlamda kalıcı yapıldığını unutmayın. Hizmet olarak çalışan bir uygulama geliştiriyorsanız, bu bağlam içinde de kimlik bilgilerinizi kalıcı yapmanız gerekir.
 
-### Kalıcı kimlik bilgilerini kullanarak dosya paylaşımını bağlama
+### <a name="mount-the-file-share-using-the-persisted-credentials"></a>Kalıcı kimlik bilgilerini kullanarak dosya paylaşımını bağlama
 
 Sanal makineyle uzaktan bağlantı kurduktan sonra, aşağıdaki söz dizimini kullanarak dosya paylaşımını bağlamak için `net use` komutunu çalıştırın. `<storage-account-name>` değerini depolama hesabınızın adıyla ve `<share-name>` değerini File Storage paylaşımınızın adıyla değiştirin.
 
@@ -250,7 +244,7 @@ Artık başka bir sürücüyle yaptığınız gibi sanal makineden File Storage 
 
 Azure bulut hizmetindeki çalışan bir rolle uzaktan bağlantı kurarak bu rolden de dosya paylaşımını bağlayabilirsiniz.
 
-### Windows çalıştıran şirket içi bir istemciden dosya paylaşımını bağlama
+### <a name="mount-the-file-share-from-an-on-premises-client-running-windows"></a>Windows çalıştıran şirket içi bir istemciden dosya paylaşımını bağlama
 
 Şirket için bir istemciden dosya paylaşımını bağlamak için, öncelikle şu adımları uygulamanız gerekir:
 
@@ -259,11 +253,11 @@ Azure bulut hizmetindeki çalışan bir rolle uzaktan bağlantı kurarak bu rold
 
 > [AZURE.NOTE] Bazı İnternet hizmet sağlayıcıları 445 bağlantı noktasını engelleyebilir. Bu nedenle, hizmet sağlayıcınızı kontrol etmeniz gerekebilir.
 
-## File Storage ile geliştirme
+## <a name="develop-with-file-storage"></a>File Storage ile geliştirme
 
 File Storage’a çağrı yapan kodlar yazmak için .NET ve Java için depolama istemcisi kitaplıklarını veya Azure Storage REST API’sini kullanabilirsiniz. Bu bölümdeki örnekte, masaüstünde çalışan basit bir konsol uygulaması üzerinden [.NET için Azure Storage İstemci Kitaplığı](https://msdn.microsoft.com/library/mt347887.aspx)’nı kullanarak dosya paylaşmayla nasıl çalışacağınız gösterilmektedir.
 
-### Konsol uygulaması oluşturma ve derleme alma
+### <a name="create-the-console-application-and-obtain-the-assembly"></a>Konsol uygulaması oluşturma ve derleme alma
 
 Visual Studio’da yeni bir konsol uygulaması oluşturmak ve Azure Storage İstemci Kitaplığı’nı içeren NuGet paketini yüklemek için:
 
@@ -277,7 +271,7 @@ Azure Yapılandırma Yöneticisi paketini yüklemek için Çözüm Gezgini'nde p
 
 Azure Yapılandırma Yöneticisi'ni kullanmak isteğe bağlıdır. .NET Framework'ün [ConfigurationManager sınıfı](https://msdn.microsoft.com/library/system.configuration.configurationmanager.aspx) gibi bir API de kullanabilirsiniz.
 
-### Depolama hesabı kimlik bilgilerinizi app.config dosyasına kaydetme
+### <a name="save-your-storage-account-credentials-to-the-app.config-file"></a>Depolama hesabı kimlik bilgilerinizi app.config dosyasına kaydetme
 
 Sonraki adımda, kimlik bilgilerinizi projenizin app.config dosyasına kaydedin. app.config dosyasını aşağıdaki örneğe benzeyecek şekilde düzenleyin. `myaccount` değerini depolama hesabınızın adıyla ve `mykey` değerini depolama hesabınızın anahtarıyla değiştirin.
 
@@ -294,7 +288,7 @@ Sonraki adımda, kimlik bilgilerinizi projenizin app.config dosyasına kaydedin.
 
 > [AZURE.NOTE] Azure Storage öykünücüsünün en son sürümü File Storage’ı desteklemez. Bağlantı dizeniz, File Storage ile çalışmak için buluttaki bir Azure Storage hesabını hedeflemelidir.
 
-### Ad alanı bildirimleri ekleme
+### <a name="add-namespace-declarations"></a>Ad alanı bildirimleri ekleme
 
 Çözüm Gezgini’nde `program.cs` dosyasını açın ve aşağıdaki ad alanı bildirimlerini dosyanın üst tarafına ekleyin.
 
@@ -305,7 +299,7 @@ Sonraki adımda, kimlik bilgilerinizi projenizin app.config dosyasına kaydedin.
 
 [AZURE.INCLUDE [storage-cloud-configuration-manager-include](../../includes/storage-cloud-configuration-manager-include.md)]
 
-### Dosya paylaşımına programlamayla erişme
+### <a name="access-the-file-share-programmatically"></a>Dosya paylaşımına programlamayla erişme
 
 Şimdi, bağlantı dizesini almak için aşağıdaki kodu `Main()` yöntemine (yukarıda gösterilen koddan sonra) ekleyin. Bu kod, daha önce oluşturduğumuz dosyaya başvuru alır ve bu dosyanın içeriğini konsol penceresine çıkarır.
 
@@ -341,7 +335,7 @@ Sonraki adımda, kimlik bilgilerinizi projenizin app.config dosyasına kaydedin.
 
 Çıkışı görmek konsol uygulamasını çalıştırın.
 
-### Dosya paylaşımı için boyut üst sınırını ayarlama
+### <a name="set-the-maximum-size-for-a-file-share"></a>Dosya paylaşımı için boyut üst sınırını ayarlama
 
 Azure Storage İstemci Kitaplığı’nın 5.x sürümünden başlayarak, dosya paylaşımı için gigabayt cinsinden kota (veya boyut üst sınırı) ayarlayabilirsiniz. Paylaşımda halihazırda ne kadar verinin depolandığını da kontrol edebilirsiniz.
 
@@ -377,7 +371,7 @@ Aşağıdaki örnekte, paylaşımdaki mevcut kullanımını nasıl kontrol edile
         Console.WriteLine("Current share quota: {0} GB", share.Properties.Quota);
     }
 
-### Dosya veya dosya paylaşımı için paylaşılan erişim imzası oluşturma
+### <a name="generate-a-shared-access-signature-for-a-file-or-file-share"></a>Dosya veya dosya paylaşımı için paylaşılan erişim imzası oluşturma
 
 Azure Storage İstemci Kitaplığı’nın 5.x sürümünden başlayarak, bir dosya paylaşımı veya yalnızca dosya için paylaşılan erişim imzası (SAS) oluşturabilirsiniz. Ayrıca, paylaşılan erişim imzalarını yönetmek için dosya paylaşımında bir paylaşılan erişim ilkesi oluşturabilirsiniz. Gizliliğinin tehlikeye girdiği durumlarda SAS’yi iptal etme aracı olarak kullanılabilmesi nedeniyle bir paylaşılan erişim ilkesi oluşturmanız önerilir.
 
@@ -427,7 +421,7 @@ Aşağıdaki örnekte, paylaşım için bir paylaşılan erişim ilkesi oluştur
 
 Paylaşılan erişim imzaları oluşturma ve kullanma hakkında daha fazla bilgi edinmek için bkz. [Paylaşılan Erişim İmzaları (SAS) kullanma](storage-dotnet-shared-access-signature-part-1.md) ve [Blob depolama ile SAS oluşturma ve kullanma](storage-dotnet-shared-access-signature-part-2.md).
 
-### Dosyaları kopyalama
+### <a name="copy-files"></a>Dosyaları kopyalama
 
 Azure Storage İstemci Kitaplığı’nın 5.x sürümünden başlayarak, bir dosyayı başka bir dosyaya, bir dosyayı başka bir bloba veya bir blobu bir dosyaya kopyalayabilirsiniz. Sonraki bölümlerde, bu kopyalama işlemlerini programlamayla nasıl gerçekleştirebileceğinizi göstereceğiz.
 
@@ -528,7 +522,7 @@ Aşağıdaki örnekte, bir dosya oluşturulur ve aynı depolama hesabındaki bir
 
 Aynı şekilde, bir blobu bir dosyaya kopyalayabilirsiniz. Kaynak dosya bir blob ise, kopyalama sırasında bu bloba erişimin kimlik doğrulamasını yapması için bir SAS oluşturun.
 
-## Ölçümleri kullanarak File Storage sorunlarını giderme
+## <a name="troubleshooting-file-storage-using-metrics"></a>Ölçümleri kullanarak File Storage sorunlarını giderme
 
 Azure Storage Analitikleri, File Storage için artık ölçümleri destekliyor. Ölçüm verilerini kullanarak istekleri ve tanılama sorunlarını izleyebilirsiniz.
 
@@ -583,9 +577,9 @@ Blob, Tablo ve Kuyruk depolamanın `Microsoft.WindowsAzure.Storage.Shared.Protoc
     Console.WriteLine(serviceProperties.MinuteMetrics.Version);
 
 
-## File Storage SSS
+## <a name="file-storage-faq"></a>File Storage SSS
 
-1. **File Storage Active Directory tabanlı kimlik doğrulamasını destekliyor mu?**
+1. **Dosya depolama Active Directory tabanlı kimlik doğrulamasını destekliyor mu?**
 
     Şu anda AD tabanlı kimlik doğrulamasını veya ACL’leri desteklemiyoruz. Ancak, bunu özellik istekleri listemize ekledik. Şimdilik, dosya paylaşımı için kimlik doğrulaması sağlamak üzere Azure Storage hesabı anahtarları kullanılıyor. REST API veya istemci kitaplıkları aracılığıyla kullanılan paylaşılan erişim imzaları (SAS) ile geçici bir çözüm sunuyoruz. SAS’yi kullanarak belirli bir süre aralığında geçerli olan özel izinlere sahip belirteçler oluşturabilirsiniz. Örneğin, yalnızca verilen dosyaya salt okunur erişime sahip bir belirteç oluşturabilirsiniz. Geçerli olduğu sürece bu belirtece sahip olan herkes bu dosyaya salt okunur erişim elde eder.
 
@@ -595,27 +589,27 @@ Blob, Tablo ve Kuyruk depolamanın `Microsoft.WindowsAzure.Storage.Shared.Protoc
 
     445 bağlantı noktası (TCP Giden) olduğu ve istemcinizi SMB 3.0 protokolünü (*örn.*, Windows 8 veya Windows Server 2012) desteklediği sürece dosya paylaşımınıza İnternet üzerinden erişilebilir.  
 
-3. **Azure Virtual Machine ve dosya paylaşımı arasındaki ağ trafiği ücreti aboneliği yansıtılan harici bir bant genişliği olarak mı sayılıyor?**
+3. **Azure sanal makinesi ve dosya paylaşımı arasındaki ağ trafiği ücreti aboneliğe yansıtılan harici bir bant genişliği olarak mı sayılıyor?**
 
     Dosya paylaşımı ve sanal makine farklı bölgelerde bulunuyorsa, aralarındaki trafik harici bant genişliği olarak ücretlendirilir.
 
-4. **Sanal makine ve dosya paylaşımı arasındaki ağ trafiği aynı bölgede bulunması halinde ücretsiz mi?**
+4. **Sanal makine ve dosya paylaşımı arasındaki ağ trafiği aynı bölgede bulunursa ücretsiz mi oluyor?**
 
     Evet. Trafiğin aynı bölgede olması koşuluyla ücretsizdir.
 
-5. **Şirket içi sanal makinelerden Azure File Storage’a bağlanmak için Azure ExpressRoute mu gerekir?**
+5. **Şirket içi sanal makinelerden Azure Dosya Depolama’ya bağlanmak için Azure ExpressRoute mu gerekir?**
 
     Hayır. ExpressRoute’a sahip olmasanız da, 445 bağlantı noktası (TCP Giden) için İnternet erişimi açık olduğu sürece şirket içi sanal makinelerden dosya paylaşımına erişebilirsiniz. Bununla birlikte, isterseniz File Storage ile ExpressRoute’u kullanabilirsiniz.
 
-6. **Yük devretme kümesi için "Dosya Paylaşım Tanığı" Azure File Storage için kullanım durumlarından biri mi?**
+6. **Yük devretme kümesi için "Dosya Paylaşım Tanığı" Azure Dosya Depolama için kullanım durumlarından biri mi?**
 
     Bu, şu anda desteklenmiyor.
 
-7. **File Storage şu anda yalnızca LRS veya GRS aracılığıyla mı çoğaltılabiliyor?**  
+7. **Dosya Depolama şu anda yalnızca LRS veya GRS aracılığıyla mı çoğaltılabiliyor?**  
 
     RA-GRS’yi de desteklemeyi planlıyoruz, ancak bunun için kesin bir tarih veremiyoruz.
 
-8. **Mevcut depolama hesaplarını Azure File Storage için ne zaman kullanabilirim?**
+8. **Mevcut depolama hesaplarını Azure Dosya Depolama için ne zaman kullanabilirim?**
 
     Azure File Storage şimdi tüm depolama hesapları için etkinleştirildi.
 
@@ -631,47 +625,47 @@ Blob, Tablo ve Kuyruk depolamanın `Microsoft.WindowsAzure.Storage.Shared.Protoc
 
     Dosya paylaşımını SMB aracılığıyla bağlamanız halinde izinler üzerinde bu düzeyde bir denetiminiz bulunmaz. Ancak, REST API veya istemci kitaplıkları aracılığıyla paylaşılan erişim imzası (SAS) oluşturarak bunu gerçekleştirebilirsiniz.  
 
-12. **Dosyaların sıkıştırmasını File Storage’da açarken performansta yavaşlama oluyor? Ne yapmalıyım?**
+12. **Dosyaların sıkıştırmasını Dosya Depolama’da açarken performansta yavaşlama oluyor. Ne yapmalıyım?**
 
     File Storage’a çok sayıda dosya aktarmak istiyorsanız; AzCopy’i, Azure Powershell’i (Windows) veya Azure CLI’yi (Linux/Unix) kullanmanızı öneririz. Bu araçlar, ağ aktarımı için en uygun hale getirilmiştir.
 
-13. **Azure Dosyaları ile yaşanan yavaş performans sorunu çözecek bir düzeltme eki yayımlandı**
+13. **Azure Dosyaları ile yaşanan yavaş performans sorununu çözecek bir düzeltme eki yayımlandı**
 
     Windows ekibi yakın zamanda Windows 8.1 veya Windows Server 2012 R2 üzerinden Azure File Storage’a erişen müşteriler için yavaş performans sorunu çözecek bir düzeltme eki yayımlandı. Daha fazla bilgi için lütfen ilgili KB makalesine göz atın: [Azure File Storage’a Windows 8.1 veya Windows Server 2012 R2 üzerinden erişildiğinde performansın yavaşlaması](https://support.microsoft.com/en-us/kb/3114025).
 
-14. **Azure File Storage’ı IBM MQ ile kullanma**
+14. **Azure Dosya Depolama’yı IBM MQ ile kullanma**
 
     IBM, IBM MQ müşterileri için hizmetlerini Azure File Storage ile yapılandırmalarına yardımcı olacak bir belge yayımladı. Daha fazla bilgi için bkz. [Microsoft Azure Dosya Hizmeti ile IBM MQ Çok örnekli kuyruk yöneticisini kurma](https://github.com/ibm-messaging/mq-azure/wiki/How-to-setup-IBM-MQ-Multi-instance-queue-manager-with-Microsoft-Azure-File-Service).
 
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 
 Azure File Storage hakkında daha fazla bilgi edinmek için şu bağlantılara göz atın.
 
-### Kavramsal makaleler ve videolar
+### <a name="conceptual-articles-and-videos"></a>Kavramsal makaleler ve videolar
 
-- [Azure File Storage: Windows ve Linux için uyumlu bulut SMB dosya sistemi](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
-- [Azure File Storage’ı Linux ile kullanma](storage-how-to-use-files-linux.md)
+- [Azure Dosya Depolama: Windows ve Linux için uyumlu bulut SMB dosya sistemi](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
+- [Azure Dosya Depolama’yı Linux ile kullanma](storage-how-to-use-files-linux.md)
 
-### File Storage için araç desteği
+### <a name="tooling-support-for-file-storage"></a>File Storage için araç desteği
 
-- [Azure Storage ile Azure PowerShell’i kullanma](storage-powershell-guide-full.md)
-- [Microsoft Azure Storage ile AzCopy kullanma](storage-use-azcopy.md)
-- [Azure Storage ile Azure CLI kullanma](storage-azure-cli.md#create-and-manage-file-shares)
+- [Azure Depolama ile Azure PowerShell’i kullanma](storage-powershell-guide-full.md)
+- [Microsoft Azure Depolama ile AzCopy kullanma](storage-use-azcopy.md)
+- [Azure Depolama ile Azure CLI kullanma](storage-azure-cli.md#create-and-manage-file-shares)
 
-### Başvuru
+### <a name="reference"></a>Başvuru
 
 - [.NET başvurusu için Depolama İstemci Kitaplığı](https://msdn.microsoft.com/library/azure/dn261237.aspx)
 - [Dosya Hizmeti REST API başvurusu](http://msdn.microsoft.com/library/azure/dn167006.aspx)
 
-### Blog yazıları
+### <a name="blog-posts"></a>Blog yazıları
 
-- [Azure File Storage genel kullanıma sunulmuştur](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
-- [Azure File Storage İncelemesi](https://azure.microsoft.com/blog/inside-azure-file-storage/)
+- [Azure Dosya Depolama genel kullanıma sunulmuştur](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
+- [Azure Dosya Depolama İncelemesi](https://azure.microsoft.com/blog/inside-azure-file-storage/)
 - [Microsoft Azure Dosya Hizmeti’ne Giriş](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 - [Microsoft Azure Dosyaları ile kalıcı bağlantılar](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

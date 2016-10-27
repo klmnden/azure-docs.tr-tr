@@ -4,7 +4,7 @@
     keywords="Uygulama geliştirme, veritabanı öğreticisi, node.js öğrenme, node.js öğreticisi, documentdb, azure, Microsoft azure"
     services="documentdb" 
     documentationCenter="nodejs" 
-    authors="AndrewHoh" 
+    authors="syamkmsft" 
     manager="jhubbard" 
     editor="cgronlun"/>
 
@@ -15,7 +15,8 @@
     ms.devlang="nodejs" 
     ms.topic="hero-article" 
     ms.date="08/25/2016" 
-    ms.author="anhoh"/>
+    ms.author="syamk"/>
+
 
 # <a name="_Toc395783175"></a>DocumentDB kullanarak bir Node.js web uygulaması oluşturma
 
@@ -100,13 +101,13 @@ Bir DocumentDB hesabı oluşturarak başlayalım. Hesabınız zaten varsa [2. Ad
 
     ![Package.json sekmesinin ekran görüntüsü](./media/documentdb-nodejs-application/image17.png)
 
-       This tells Node (and Azure later) that your application depends on these additional modules.
+    Bu düğüm, Düğüme (ve daha sonra Azure’a) uygulamanızın bu ek modüllere bağlı olduğunu bildirir.
 
 ## <a name="_Toc395783180"></a>4. Adım: DocumentDB hizmetini bir düğüm uygulamasında kullanma
 
 Böylece tüm ilk kurulum ve yapılandırma işlemleri sona erdi, şimdi burada olma nedenimize dönelim ve Azure DocumentDB'yi kullanarak biraz kod yazalım.
 
-### Modeli oluşturma
+### <a name="create-the-model"></a>Modeli oluşturma
 
 1. Proje dizininde **models** adlı yeni bir dizin oluşturun.
 2. **models** dizininde **taskDao.js** adında yeni bir dosya oluşturun. Bu dosya, uygulamamız tarafından oluşturulan görevlerin modelini içerir.
@@ -301,7 +302,7 @@ Böylece tüm ilk kurulum ve yapılandırma işlemleri sona erdi, şimdi burada 
 
 6. **taskDao.js** dosyasını kaydedin ve kapatın. 
 
-### Denetleyiciyi oluşturma
+### <a name="create-the-controller"></a>Denetleyiciyi oluşturma
 
 1. Projenizin **routes** dizininde **tasklist.js** adlı yeni bir dosya oluşturun. 
 2. Aşağıdaki kodu **tasklist.js**'ye ekleyin. Bu kod **tasklist.js** tarafından kullanılan DocumentDBClient ve async modüllerini yükler. Bu, daha önce tanımladığımız **Task** nesnesinin bir örneği olarak geçirilmiş olup **TaskList** işlevi olarak da tanımlanır.
@@ -379,7 +380,7 @@ Böylece tüm ilk kurulum ve yapılandırma işlemleri sona erdi, şimdi burada 
 
 4. **tasklist.js** dosyasını kaydedin ve kapatın.
  
-### Config.js ekleme
+### <a name="add-config.js"></a>Config.js ekleme
 
 1. Proje dizininizde **config.js** adlı yeni bir dosya oluşturun.
 2. Aşağıdakileri **config.js**'ye ekleyin. Bu, uygulamamız için gereken yapılandırma ayarlarını ve değerlerini tanımlar.
@@ -397,7 +398,7 @@ Böylece tüm ilk kurulum ve yapılandırma işlemleri sona erdi, şimdi burada 
 
 4. **config.js** dosyasını kaydedin ve kapatın.
  
-### App.js'yi değiştirme
+### <a name="modify-app.js"></a>App.js'yi değiştirme
 
 1. Proje dizininde **app.js** dosyasını açın. Bu dosya daha önce Express web uygulaması oluşturulduğu zaman oluşturulmuştur.
 2. Aşağıdaki kodu **app.js**'nin üst kısmına ekleyin
@@ -568,11 +569,11 @@ Daha fazla bilgi için bkz. [Node.js Geliştirici Merkezi](https://azure.microso
 
 [Node.js]: http://nodejs.org/
 [Git]: http://git-scm.com/
-[GitHub]: https://github.com/Azure-Samples/documentdb-node-todo-app
+[Github]: https://github.com/Azure-Samples/documentdb-node-todo-app
  
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Oct16_HO3-->
 
 

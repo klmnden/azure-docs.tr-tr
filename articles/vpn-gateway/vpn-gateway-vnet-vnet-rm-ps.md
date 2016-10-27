@@ -70,7 +70,7 @@ Sanal ağları aşağıdaki sebeplerden dolayı bağlamak isteyebilirsiniz:
 
 ## Hangi adımları tamamlamalıyım? 
 
-Bu makalede iki farklı adım kümesi görürsünüz. Bir adım kümesi [Aynı abonelikte bulunan sanal ağlar](#samesub), diğer adım kümesi ise [Farklı aboneliklerde bulunan sanal ağlar](#difsub) içindir. Kümeler arasındaki temel farklılık, tüm sanal ağı ve ağ geçidi kaynaklarını aynı PowerShell oturumunda oluşturup yapılandırabilmenizdir.
+Bu makalede iki farklı adım kümesi görürsünüz. Bir adım kümesi [Aynı abonelikte bulunan sanal ağlar](#samesub), diğer adım kümesi ise [Farklı aboneliklerde bulunan sanal ağlar](#difsub) içindir. Kümeler arasındaki temel farklılık, tüm sanal ağ ve ağ geçidi kaynaklarını oluşturma ve yapılandırma işlemini aynı PowerShell oturumunda yapıp yapamayacağınızdadır.
 
 Bu makaledeki adımlar her bölümün başında bildirilen değişkenleri kullanır. Zaten var olan Vnet'ler ile çalışıyorsanız değişkenleri kendi ortamınızdaki ayarları yansıtacak şekilde değiştirin. 
 
@@ -132,7 +132,7 @@ Aşağıdaki adımlarda kendi ağ geçidi alt ağları ve yapılandırmalarıyla
 
 1. Değişkenlerinizi bildirme
 
-    Değişkenleri bildirerek başlayın. Bu örnekte bu alıştırmada kullanılan değişkenler bildirilmektedir. Çoğu durumda değerleri kendi değerlerinizle değiştirmeniz gerekir. Ancak, bu tür yapılandırmaları tanımaya başlamak için adımları gözden geçiriyorsanız bu değişkenleri kullanabilirsiniz. Gerekirse değişkenleri değiştirin, daha sonra kopyalayın ve PowerShell konsolunuza yapıştırın.
+    Değişkenleri bildirerek başlayın. Bu örnekte bu alıştırmaya yönelik değerleri kullanan değişkenler bildirilmektedir. Çoğu durumda değerleri kendi değerlerinizle değiştirmeniz gerekir. Ancak, bu tür yapılandırmaları tanımaya başlamak için adımları gözden geçiriyorsanız bu değişkenleri kullanabilirsiniz. Gerekirse değişkenleri değiştirin, daha sonra kopyalayın ve PowerShell konsolunuza yapıştırın.
 
         $Sub1 = "Replace_With_Your_Subcription_Name"
         $RG1 = "TestRG1"
@@ -175,7 +175,7 @@ Aşağıdaki adımlarda kendi ağ geçidi alt ağları ve yapılandırmalarıyla
 
     Bu örnekte TestVNet1 adlı bir sanal ağ ve üç alt ağ oluşturulmaktadır. Biri GatewaySubnet, biri FrontEnd, diğeri BackEnd’dir. Kendi değerlerinizi yerleştirirken ağ geçidi alt ağınızı özellikle GatewaySubnet olarak adlandırmanız önem taşır. Başka bir ad kullanırsanız ağ oluşturma işleminiz başarısız olur. 
 
-    Aşağıdaki örnekte daha önce belirlediğiniz değişkenler kullanılmaktadır. Bu örnekte ağ geçidi alt ağı bir /27 kullanmaktadır. /29 kadar küçük bir alt ağ kullanarak da ağ geçidi oluşturabilseniz de bunun yapılması önerilmez. /27 veya /26 gibi daha büyük bir ağ geçidi kullanmanız önerilir. Bunun yapılması daha büyük bir ağ geçidi alt ağı gerektiren mevcut veya gelecekteki yapılandırmalardan yararlanabilmenizi sağlar. 
+    Aşağıdaki örnekte daha önce belirlediğiniz değişkenler kullanılmaktadır. Bu örnekte ağ geçidi alt ağı bir /27 kullanmaktadır. /29 kadar küçük bir ağ geçidi alt ağı oluşturmak mümkün olsa da en az /28 veya /27’yi seçerek daha fazla adres içeren büyük bir alt ağ oluşturmanızı öneririz. Bu, gelecekte isteyebileceğiniz ek yapılandırmaları da içerecek yeteri kadar adres sağlayacaktır. 
 
         $fesub1 = New-AzureRmVirtualNetworkSubnetConfig -Name $FESubName1 -AddressPrefix $FESubPrefix1
         $besub1 = New-AzureRmVirtualNetworkSubnetConfig -Name $BESubName1 -AddressPrefix $BESubPrefix1
@@ -310,7 +310,7 @@ Bu senaryoda TestVNet1 ve TestVNet5 bağlanır. TestVNet1 ve TestVNet5 farklı b
 
 Burada farklı olan, yapılandırma adımlarının bir kısmının ikinci abonelik bağlamında farklı bir PowerShell oturumunda tamamlanması gerektiğidir. Bu durum özellikle iki aboneliğin farklı kuruluşlara ait olduğu durumlarda geçerlidir. 
 
-Yönergeler yukarıda listelenen geçmiş adımların devamı niteliğindedir. TestVNet1 için TestVNet1 ve VPN ağ geçidini oluşturup yapılandırmak için [1. Adımı](#Step1) ve [2. Adımı](#Step2) tamamlamalısınız. 1. Adım ve 2. Adımı tamamladıktan sonra 5. Adıma geçerek TestVNet5’i oluşturun.
+Yönergeler yukarıda listelenen geçmiş adımların devamı niteliğindedir. TestVNet1'i ve TestVNet1 için VPN ağ geçidini oluşturup yapılandırmak için [1. Adımı](#Step1) ve [2. Adımı](#Step2) tamamlamalısınız. 1. Adım ve 2. Adımı tamamladıktan sonra 5. Adıma geçerek TestVNet5’i oluşturun.
 
 ### 5. Adım - Ek IP adresi aralıklarını doğrulama
 
@@ -417,7 +417,7 @@ Bu örnekte ağ geçitleri farklı aboneliklerde olduğundan bu adımı [1. Abon
 
 1. **[1. Abonelik ]** 1. Abonelik için sanal ağ geçidini alma
 
-    1. Aboneliğe giriş yapıp bağlandığınızdan emin olun.
+    1. Abonelikle oturum açıp bağlandığınızdan emin olun.
 
         $vnet1gw = Get-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1
 
@@ -435,7 +435,7 @@ Bu örnekte ağ geçitleri farklı aboneliklerde olduğundan bu adımı [1. Abon
 
 2. **[5. Abonelik]** 5. Abonelik için sanal ağ geçidini edinme
 
-    5. Aboneliğe giriş yapıp bağlandığınızdan emin olun.
+    5. Abonelikle oturum açıp bağlandığınızdan emin olun.
 
         $vnet5gw = Get-AzureRmVirtualNetworkGateway -Name $GWName5 -ResourceGroupName $RG5
 
@@ -476,6 +476,9 @@ Bu örnekte ağ geçitleri farklı aboneliklerde olduğundan bu adımı [1. Abon
 
 ## <a name="verify"></a>Bağlantı doğrulama
 
+
+[AZURE.INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
+
 [AZURE.INCLUDE [vpn-gateway-verify-connection-rm](../../includes/vpn-gateway-verify-connection-rm-include.md)]
 
 
@@ -487,6 +490,6 @@ Bu örnekte ağ geçitleri farklı aboneliklerde olduğundan bu adımı [1. Abon
 
 
 
-<!--HONumber=Oct16_HO1-->
+<!--HONumber=Oct16_HO3-->
 
 

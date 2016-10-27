@@ -18,11 +18,11 @@
 
 
 
-# Visual Studio için Python web ve çalışan rolleri içeren Python Araçları
+# <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Visual Studio için Python web ve çalışan rolleri içeren Python Araçları
 
 Bu makalede, [Visual Studio için Python Araçları][] ile Python web ve çalışan rollerini kullanmaya genel bir bakış sunulmuştur. Visual Studio’yu kullanarak Python kullanan temel bir Bulut Hizmetinin nasıl oluşturulup dağıtılacağını öğreneceksiniz.
 
-## Ön koşullar
+## <a name="prerequisites"></a>Ön koşullar
 
  - Visual Studio 2013 veya 2015
  - [Visual Studio için Python Araçları][] (PTVS)
@@ -31,18 +31,18 @@ Bu makalede, [Visual Studio için Python Araçları][] ile Python web ve çalı�
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
-## Python web ve çalışan rolleri nelerdir?
+## <a name="what-are-python-web-and-worker-roles?"></a>Python web ve çalışan rolleri nelerdir?
 
 Azure uygulamaları çalıştırmak üzere üç işlem modeli sunar: [Azure App Service için Web Apps][execution model-web sites], [Azure Virtual Machines][execution model-vms], ve [Azure Cloud Services][execution model-cloud services]. Python bu üç modeli de destekler. Web ve çalışan rolleri içeren Cloud Services *Hizmet Olarak Platform (PaaS)* sunar. Web rolü, bir bulut hizmetinde ön uç web uygulamalarını barındırmak için özel Internet Information Services (IIS) web sunucusu sağlar. Çalışan rolü ise kullanıcı etkileşimi ve girişinden bağımsız zaman uyumsuz, uzun çalışan ve kalıcı görevleri çalıştırabilir.
 
 Daha fazla bilgi için bkz. [Bulut Hizmeti nedir?].
 
-> [AZURE.NOTE] *Basit bir web sitesi tasarlamak mı istiyorsunuz?*
+> [AZURE.NOTE] *Basit bir web sitesi mi oluşturmak istiyorsunuz?*
 Senaryonuz yalnızca basit bir web sitesi ön ucu içeriyorsa, Azure App Service’teki basit Web Apps özelliğini kullanmayı düşünün. Web siteniz büyüdükçe ve gereksinimleriniz değiştikçe kolayca Bulut Hizmetleri’ne yükseltebilirsiniz. Azure App Service’teki Web Apps özelliğini geliştirme hakkındaki makaleler için <a href="/develop/python/">Python Geliştirici Merkezi</a>’ne bakın.
 <br />
 
 
-## Proje oluşturma
+## <a name="project-creation"></a>Proje oluşturma
 
 Visual Studio’da, **Python** altındaki **Yeni Proje** iletişim kutusunda **Azure Bulut Hizmeti**’ni seçebilirsiniz.
 
@@ -62,7 +62,7 @@ Herhangi bir zamanda mevcut bulut hizmetine web veya çalışan rolleri ekleyebi
 
 Bulut hizmetiniz farklı dillerde uygulanan roller içerebilir.  Örneğin, Python veya C# çalışan rolleri ile Django kullanılarak uygulanan bir Python web rolünüz olabilir.  Service Bus kuyruklarını veya depolama kuyruklarını kullanarak rolleriniz arasında kolaya iletişim kurabilirsiniz.
 
-## Bulut hizmetine Python yükleme
+## <a name="install-python-on-the-cloud-service"></a>Bulut hizmetine Python yükleme
 
 >[AZURE.WARNING] Visual Studio ile yüklenen ayar betikleri (bu makalenin son güncelleştirildiği tarihte) çalışmamaktadır. Bu bölümde geçici bir çözüm açıklanmaktadır.
 
@@ -113,7 +113,7 @@ Aşağıdaki betikler Python 3.5 hedeflenerek yazılmıştır. Python 2.x sürü
 </Runtime>
 ```
 
-#### Örnek ServiceDefinition.csdef
+#### <a name="sample-servicedefinition.csdef"></a>Örnek ServiceDefinition.csdef
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -165,7 +165,7 @@ Aşağıdaki betikler Python 3.5 hedeflenerek yazılmıştır. Python 2.x sürü
 
 Ardından, rolünüzün **./bin** klasöründe **PrepPython.ps1** ve **PipInstaller.ps1** dosyalarını oluşturun.
 
-#### PrepPython.ps1
+#### <a name="preppython.ps1"></a>PrepPython.ps1
 
 Bu betik python yükler. **PYTHON2** ortam değişkeni **açık** olarak ayarlanırsa Python 2.7 yüklenir, aksi takdirde Python 3.5 yüklenir.
 
@@ -212,7 +212,7 @@ if (-not $is_emulated){
 }
 ```
 
-#### PipInstaller.ps1
+#### <a name="pipinstaller.ps1"></a>PipInstaller.ps1
 
 Bu betik pip çağırır ve tüm bağımlılıkları **requirements.txt** dosyasına yükler. **PYTHON2** ortam değişkeni **açık** olarak ayarlanırsa Python 2.7 kullanılır, aksi takdirde Python 3.5 kullanılır.
 
@@ -241,7 +241,7 @@ if (-not $is_emulated){
 }
 ```
 
-#### LaunchWorker.ps1’i değiştirme
+#### <a name="modify-launchworker.ps1"></a>LaunchWorker.ps1’i değiştirme
 
 >[AZURE.NOTE] Bir **çalışan rolü** projesinde, başlangıç dosyasını yürütmek için **LauncherWorker.ps1** dosyası gereklidir. Bir **web rolü** projesinde ise başlangıç dosyası, bunun yerine proje özelliklerinde tanımlanır.
 
@@ -284,7 +284,7 @@ else
 }
 ```
 
-#### ps.cmd
+#### <a name="ps.cmd"></a>ps.cmd
 
 Visual Studio şablonları **./bin** klasöründe bir **ps.cmd** dosyası oluşturmuş olmalıdır. Bu kabuk betiği yukarıdaki PowerShell sarmalayıcı betiklerini çağırır ve çağrılan PowerShell sarmalayıcısının adına göre günlük kaydı yapar. Bu dosya oluşturulmadıysa içinde olması gerekenler aşağıda verilmiştir. 
 
@@ -299,7 +299,7 @@ if not exist "%DiagnosticStore%\LogFiles" mkdir "%DiagnosticStore%\LogFiles"
 
 
 
-## Yerel olarak çalıştırma
+## <a name="run-locally"></a>Yerel olarak çalıştırma
 
 Bulut hizmeti projenizi başlangıç projesi olarak ayarlar ve F5 tuşuna basarsanız, bulut hizmeti yerel Azure öykünücüsünde çalışacaktır.
 
@@ -309,7 +309,7 @@ Web ve çalışan rollerinizin hatalarını ayıklamak için rol projesini başl
 
 ![Çözüm Başlangıç Projesi Özellikleri](./media/cloud-services-python-ptvs/startup.png)
 
-## Azure’da Yayımlama
+## <a name="publish-to-azure"></a>Azure’da Yayımlama
 
 Yayımlamak için, çözümdeki bulut hizmeti projesine sağ tıklayın ve ardından **Yayımla**’yı seçin.
 
@@ -325,11 +325,11 @@ Yapılandırma ayarları bittiğinde **Yayımla**’ya tıklayın.
 
 Dağıtımın tamamlanması birkaç dakika sürer, ardından web ve/veya çalışan rolleri Azure üzerinde çalışır!
 
-### Günlükleri araştırma
+### <a name="investigate-logs"></a>Günlükleri araştırma
 
 Bulut hizmeti sanal makinesi başlatılıp Python’u yükledikten sonra herhangi bir hata iletisini bulmak için günlüklere bakabilirsiniz. Bu günlükler **C:\Resources\Directory\{role}\LogFiles** klasöründe bulunur. Betiğin Python’un yüklü olup olmadığını algılamaya çalışmasından itibaren **PrepPython.err.txt** dosyasında en az bir hata olur ve **PipInstaller.err.txt** eskimiş bir pip sürümünü şikayet edebilir.
 
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 
 Visual Studio için Python Araçları’ndaki web ve çalışan rolleri ile çalışma hakkında daha ayrıntılı bilgi için PTVS belgelerine bakın:
 
@@ -337,11 +337,11 @@ Visual Studio için Python Araçları’ndaki web ve çalışan rolleri ile çal
 
 Web ve çalışan rollerinizden Azure Storage veya Service Bus gibi Azure hizmetlerini kullanma hakkında daha ayrıntılı bilgi için aşağıdaki makalelere göz atın.
 
-- [Blob Hizmeti][]
+- [BLOB Hizmeti][]
 - [Tablo Hizmeti][]
 - [Kuyruk Hizmeti][]
 - [Service Bus Kuyrukları][]
-- [Service Bus Konuları][]
+- [Service Bus Konu Başlıkları][]
 
 
 <!--Link references-->
@@ -355,8 +355,8 @@ Web ve çalışan rollerinizden Azure Storage veya Service Bus gibi Azure hizmet
 [Blob Hizmeti]: ../storage/storage-python-how-to-use-blob-storage.md
 [Kuyruk Hizmeti]: ../storage/storage-python-how-to-use-queue-storage.md
 [Tablo Hizmeti]: ../storage/storage-python-how-to-use-table-storage.md
-[Service Bus Kuyrukları]: ../service-bus/service-bus-python-how-to-use-queues.md
-[Service Bus Konuları]: ../service-bus/service-bus-python-how-to-use-topics-subscriptions.md
+[Service Bus Kuyrukları]: ../service-bus-messaging/service-bus-python-how-to-use-queues.md
+[Service Bus Konu Başlıkları]: ../service-bus-messaging/service-bus-python-how-to-use-topics-subscriptions.md
 
 
 <!--External Link references-->
@@ -371,6 +371,6 @@ Web ve çalışan rollerinizden Azure Storage veya Service Bus gibi Azure hizmet
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

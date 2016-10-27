@@ -14,18 +14,18 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/16/2016"
+   ms.date="10/12/2016"
    ms.author="larryfr"/>
 
 
 
-# Apache Storm öğreticisi: HDInsight’ta büyük veri analizi için Storm Starter örneklerini kullanmaya başlama
+# <a name="apache-storm-tutorial:-get-started-with-the-storm-starter-samples-for-big-data-analytics-on-hdinsight"></a>Apache Storm öğreticisi: HDInsight’ta büyük veri analizi için Storm Starter örneklerini kullanmaya başlama
 
 Apache Storm, veri akışlarını işlemeye yönelik ölçeklenebilir, hataya dayanıklı, dağıtılmış ve gerçek zamanlı bir işlem sistemidir. Azure HDInsight’ta Storm ile büyük veri analizini gerçek zamanlı olarak gerçekleştiren bulut tabanlı bir Storm kümesi oluşturabilirsiniz.
 
 > [AZURE.NOTE] Bu makaledeki adımlar Linux tabanlı bir HDInsight kümesi oluşturur. HDInsight kümesinde Windows tabanlı bir Storm oluşturma adımları için bkz. [Apache Storm öğreticisi: HDInsight’ta veri analizi kullanarak Storm Starter örneği kullanmaya başlama](hdinsight-apache-storm-tutorial-get-started.md)
 
-## Ön koşullar
+## <a name="prerequisites"></a>Ön koşullar
 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -39,11 +39,11 @@ Bu Apache Storm öğreticisini başarıyla tamamlamak için şunlara sahip olman
 
     - **Windows istemcileri**: [Windows’dan HDInsight’ta Linux tabanlı Hadoop ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-windows.md)
 
-### Erişim denetimi gereksinimleri
+### <a name="access-control-requirements"></a>Erişim denetimi gereksinimleri
 
 [AZURE.INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
-## Storm kümesi oluşturma
+## <a name="create-a-storm-cluster"></a>Storm kümesi oluşturma
 
 Bu bölümde Azure Resource Manager şablonunu kullanarak bir HDInsight sürüm 3.2 kümesi (Storm 0.9.3 sürümü) oluşturursunuz. HDInsight sürümleri ve SLA’ları hakkında bilgi için bkz. [HDInsight bileşen sürümü oluşturma](hdinsight-component-versioning.md). Diğer küme oluşturma yöntemleri için bkz. [HDInsight kümeleri oluşturma](hdinsight-hadoop-provision-linux-clusters.md).
 
@@ -77,10 +77,10 @@ Bu bölümde Azure Resource Manager şablonunu kullanarak bir HDInsight sürüm 
 
 5. **Yasal koşullar**’a ve ardından **Oluştur**’a tıklayın.
 
-6. **Oluştur**’a tıklayın. Şablon dağıtımı için dağıtım gönderme başlıklı yeni bir kutucuk görürsünüz. Kümenin ve SQL Database’in oluşturulması yaklaşık 20 dakika sürer.
+6. **Oluştur**’a tıklayın. Şablon dağıtımı için Dağıtım gönderme başlıklı yeni bir kutucuk görürsünüz. Kümenin ve SQL Database’in oluşturulması yaklaşık 20 dakika sürer.
 
 
-##HDInsight’ta bir Storm Starter örneği çalıştırma
+##<a name="run-a-storm-starter-sample-on-hdinsight"></a>HDInsight’ta bir Storm Starter örneği çalıştırma
 
 [storm-starter](https://github.com/apache/storm/tree/master/examples/storm-starter) örnekleri HDInsight kümesine dahil edilir. Aşağıdaki adımlarda WordCount örneği çalıştırılacaktır.
 
@@ -98,9 +98,9 @@ Bu bölümde Azure Resource Manager şablonunu kullanarak bir HDInsight sürüm 
 
 2. Örnek bir topoloji başlatmak için aşağıdaki komutu kullanın:
 
-        storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-0.10.0.2.4.2.4-5.jar storm.starter.WordCountTopology wordcount
+        storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-*.jar storm.starter.WordCountTopology wordcount
         
-    > [AZURE.NOTE] HDInsight daha yeni Storm sürümleriyle güncelleştirildikçe dosya adının `0.10.0.2.4.2.4-5` kısmı değişebilir.
+    > [AZURE.NOTE] Dosya adının `*` bölümü, HDInsight güncelleştikçe değişen sürüm numarasını eşleştirmek için kullanılır.
 
     Bu durum kümede 'wordcount' kolay adı ile örnek WordCount topolojisini başlatır. Rastgele cümleler oluşturur ve cümlelerde her bir sözcüğün kaç kez geçtiğini sayar.
 
@@ -108,7 +108,7 @@ Bu bölümde Azure Resource Manager şablonunu kullanarak bir HDInsight sürüm 
     >
     > WordCount örneği ve diğer storm starter örnekleri `/usr/hdp/current/storm-client/contrib/storm-starter/` konumunda kümenize zaten dahil edilmiştir.
 
-##Topolojiyi izleme
+##<a name="monitor-the-topology"></a>Topolojiyi izleme
 
 Storm Kullanıcı Arabirimi çalışan topolojilerle çalışmaya yönelik bir web arabirimi sağlar ve HDInsight kümenize dahil edilir.
 
@@ -175,15 +175,15 @@ Storm Kullanıcı Arabirimini kullanarak topolojiyi izlemek için aşağıdaki a
 
     Bu verilerde **yedi** sözcüğünün 1493957 kez ortaya çıktığını görebilirsiniz. Bu sayı, bu topoloji başlatıldığından beri kaç kez karşılaşıldığını gösterir.
 
-##Topolojiyi durdurma
+##<a name="stop-the-topology"></a>Topolojiyi durdurma
 
 Word-count topolojisi için **Topoloji özeti** sayfasına geri dönün ve ardından **Topoloji eylemleri** bölümünden **Sonlandır** düğmesini seçin. İstendiğinde, topolojiyi durdurmadan önce beklenecek saniye sayısı için 10 girin. Zaman aşımı süresinden sonra panonun **Storm Kullanıcı Arabirimi** bölümünü ziyaret ettiğinizde topoloji bir daha görünmez.
 
-##Küme silme
+##<a name="delete-the-cluster"></a>Küme silme
 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-##<a id="next"></a>Sonraki adımlar
+##<a name="<a-id="next"></a>next-steps"></a><a id="next"></a>Sonraki adımlar
 
 Bu Apache Storm öğreticisinde HDInsight kümesinde bir Storm oluşturmak ve Storm topolojilerini dağıtmak, izlemek ve yönetmek üzere Storm Panosunu kullanmak için Storm Starter’ı kullandınız. Ardından, [Maven kullanarak Java tabanlı topolojiler geliştirme](hdinsight-storm-develop-java-topology.md) hakkında bilgi edindiniz.
 
@@ -199,6 +199,6 @@ Java tabanlı topolojiler geliştirme hakkında zaten bilgi sahibiyseniz ve mevc
 
 
 
-<!--HONumber=Sep16_HO5-->
+<!--HONumber=Oct16_HO3-->
 
 

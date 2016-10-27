@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/27/2016"
+   ms.date="10/06/2016"
    ms.author="cherylmc"/>
 
 
@@ -22,6 +22,7 @@
 
 > [AZURE.SELECTOR]
 - [Resource Manager - PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
+- [Klasik - Azure Portal](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
 - [Klasik - Klasik Portal](vpn-gateway-point-to-site-create.md)
 
 Noktadan Siteye (P2S) yapılandırması, ayrı bir istemci bilgisayardan bir sanal ağa yönelik güvenli bağlantı oluşturmanıza olanak sağlar. Sanal ağınıza uzak bir konumdan (örneğin, evden veya bir konferanstan) bağlanmak istediğinizde ya da sanal bir ağa bağlanması gereken yalnızca birkaç istemciniz bulunduğunda P2S bağlantısı kullanışlıdır.
@@ -196,6 +197,6 @@ Sanal Ağlar hakkında daha fazla bilgi edinmek için [Sanal Ağ Belgeleri](http
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO3-->
 
 

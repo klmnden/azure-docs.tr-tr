@@ -17,11 +17,11 @@
     ms.author="jotaub;sethm"/>
 
 
-# Event Hubs kullanmaya başlayın
+# <a name="get-started-with-event-hubs"></a>Event Hubs kullanmaya başlayın
 
 [AZURE.INCLUDE [service-bus-selector-get-started](../../includes/service-bus-selector-get-started.md)]
 
-## Giriş
+## <a name="introduction"></a>Giriş
 
 Event Hubs bağlı cihaz ve uygulamalardan büyük miktarlarda olay verileri (telemetri) işleyen bir hizmettir. Verileri Event Hubs’a topladıktan sonra bir depolama kümesi kullanarak depolayabilir veya gerçek zamanlı bir analiz sağlayıcısı kullanarak dönüştürebilirsiniz. Bu büyük ölçekli olay toplama ve işleme özelliği, Nesnelerin İnterneti (IoT) gibi modern uygulama mimarilerinin temel bir bileşenidir.
 
@@ -39,7 +39,7 @@ Bu öğreticiyi tamamlamak için şunlar gerekir:
 
 [AZURE.INCLUDE [service-bus-event-hubs-get-started-receive-ephcs](../../includes/service-bus-event-hubs-get-started-receive-ephcs.md)]
 
-## Uygulamaları çalıştırma
+## <a name="run-the-applications"></a>Uygulamaları çalıştırma
 
 Şimdi uygulamaları çalıştırmaya hazırsınız.
 
@@ -71,13 +71,12 @@ Bu öğreticiyi tamamlamak için şunlar gerekir:
 
 **Gönderen** penceresinde **Ctrl+C** tuşlarına basarak Gönderen uygulamasını sonlandırın, ardından Alıcı penceresinde **Enter** tuşuna basarak bu uygulamayı kapatın.
 
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 
 Event Hub'ı oluşturan ve veri gönderip alan çalışan bir uygulama oluşturduğunuza göre aşağıdaki senaryolara geçebilirsiniz:
 
 - [Event Hubs kullanan bir örnek uygulamanın][] tamamı.
 - [Event Hubs ile Olay İşleme Ölçeğini Artırma][] örneği.
-- Service Bus kuyruklarını kullanan [kuyruğa alınan mesajlaşma çözümü][].
 - [Event Hubs’a genel bakış][]
 
 <!-- Images. -->
@@ -88,15 +87,15 @@ Event Hub'ı oluşturan ve veri gönderip alan çalışan bir uygulama oluşturd
 
 <!-- Links -->
 [Klasik Azure portalı]: https://manage.windowsazure.com/
-[Olay İşleyicisi Konağı]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
+[Olay İşlemcisi Konağı]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [Event Hubs’a genel bakış]: event-hubs-overview.md
-[Event Hubs kullanan bir örnek uygulamanın]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
-[Event Hubs ile Olay İşleme Ölçeğini Artırma]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
-[kuyruğa alınan mesajlaşma çözümü]: ../service-bus/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
+[Event Hubs kullanan örnek uygulama]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
+[Event Hubs ile Olay İşleme ölçeğini artırma]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
+[kuyruğa alınan mesajlaşma çözümü]: ../service-bus-messaging/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO3-->
 
 

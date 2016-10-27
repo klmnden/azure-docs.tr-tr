@@ -1,4 +1,4 @@
-### PowerShell'i kullanarak bağlantınızı doğrulama
+### <a name="to-verify-your-connection-by-using-powershell"></a>PowerShell'i kullanarak bağlantınızı doğrulama
 
 `-Debug` öğesinin mevcut olup olmadığından bağımsız olarak `Get-AzureRmVirtualNetworkGatewayConnection` cmdlet'i ile bağlantınızın başarılı olup olmadığını doğrulayabilirsiniz. 
 
@@ -34,18 +34,16 @@
             "egressBytesTransferred": 4142431
           }
 
-### Azure portalını kullanarak bağlantınızı doğrulama
+### <a name="to-verify-your-connection-by-using-the-azure-portal"></a>Azure portalını kullanarak bağlantınızı doğrulama
 
-Azure portalında, bağlantıya giderek bağlantı durumunu görüntüleyebilirsiniz. Bunu yapmanın birden çok yolu vardır. Aşağıda, bağlantınıza gitmenin yollarından biri açıklanmıştır.
+Azure portalında, bağlantıya giderek bağlantı durumunu görüntüleyebilirsiniz. Bunu yapmanın birden çok yolu vardır. Aşağıdaki adımlarda, bağlantınıza gitmek ve doğrulamak için bir yol gösterilmiştir.
 
-1. [Azure portalında](http://portal.azure.com) **Sanal ağ geçitleri**'ne gidin. Ağ geçidi adınıza tıklayın.
-2. Bölmede, **Ayarlar** öğesinin altında **Bağlantılar**'a tıklayın. Her bağlantının durumunu görebilirsiniz.
-3. Bağlantı hakkında daha fazla bilgi edinmek için bağlantının adına tıklayın. Bağlantınıza ilişkin Temel Bileşenler sayfasında **Bağlantı Durumu**'na dikkat edin. Başarılı bir bağlantı gerçekleştirdiğinizde, durum "Başarılı" ve "Bağlandı" olur. **Veri girişi** ve **Veri çıkışı**'na bakarak veri akışını kontrol edebilirsiniz.
+1. [Azure portal](http://portal.azure.com)’da, **Tüm kaynaklar**’a tıklayın ve sanal ağ geçidinize gidin.
+2. Sanal ağ geçidinizin dikey penceresinde **Bağlantılar**’a tıklayın. Her bağlantının durumunu görebilirsiniz.
+3. **Temel Bileşenler**’i açmak için doğrulamak istediğiniz bağlantının adına tıklayın. Temel Bileşenler’de, bağlantınız hakkında daha fazla bilgi görebilirsiniz. Başarılı bir bağlantı gerçekleştirdiğinizde, **Durum** ‘Başarılı’ ve ‘Bağlandı’ olur.
 
-    Aşağıdaki örnekte **Bağlantı Durumu** "Bağlı değil"dir. 
+    ![Bağlantıyı doğrulayın](./media/vpn-gateway-verify-connection-rm-include/connectionsucceeded.png)
 
-    ![Bağlantıyı doğrulayın](./media/vpn-gateway-verify-connection-rm-include/connectionverify450.png)
-
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

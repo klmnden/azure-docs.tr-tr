@@ -1,13 +1,13 @@
 <properties 
     pageTitle="Service Bus aracılı mesajlaşma .NET öğreticisi | Microsoft Azure"
     description="Aracılı mesajlaşma .NET öğreticisi."
-    services="service-bus-messaging"
+    services="service-bus"
     documentationCenter="na"
     authors="sethmanheim"
     manager="timlt"
     editor="" />
 <tags 
-    ms.service="service-bus-messaging"
+    ms.service="service-bus"
     ms.devlang="na"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
@@ -16,7 +16,7 @@
     ms.author="sethm" />
 
 
-# Service Bus aracılı mesajlaşma .NET öğreticisi
+# <a name="service-bus-brokered-messaging-.net-tutorial"></a>Service Bus aracılı mesajlaşma .NET öğreticisi
 
 Azure Service Bus iki kapsamlı mesajlaşma çözümü sunar. Bunlardan birincisi, birçok aktarım protokollerini ve SOAP, WS_* ve REST dahil olmak üzere Web hizmeti standartlarını destekleyen, bulutta çalışan merkezi "geçiş" hizmetinin kullanıldığı çözümdür. İstemcinin, şirket içi hizmete doğrudan bağlantısının olmasına veya hizmetin nerede bulunduğunu bilmesine gerek yoktur. Ayrıca şirket içi hizmet için güvenlik duvarında gelen bağlantı noktalarının açık olması gerekmez.
 
@@ -24,21 +24,21 @@ Azure Service Bus iki kapsamlı mesajlaşma çözümü sunar. Bunlardan birincis
 
 Bu öğretici, Service Bus aracılı mesajlaşmanın temel bileşenlerinden biri olan kuyruklarla ilgili genel bir bakış ve uygulamalı deneyim sağlamak üzere tasarlanmıştır. Bu öğreticide bulunan konu başlıklarını sırasıyla çalıştıktan sonra bir ileti listesi dolduran, kuyruk oluşturan ve iletileri bu kuyruğa gönderen bir uygulamaya sahip olursunuz. Son olarak, uygulama bu kuyruktan iletileri alır ve görüntüler. Ardından, kaynaklarını temizler ve çıkış yapar. Service Bus Geçişi kullanan bir uygulamanın nasıl oluşturulacağını açıklayan ilgili öğretici için bkz. [Service Bus geçişli mesajlaşma öğreticisi](../service-bus-relay/service-bus-relay-tutorial.md).
 
-## Giriş ve önkoşullar
+## <a name="introduction-and-prerequisites"></a>Giriş ve önkoşullar
 
 Kuyruklar, bir veya birden çok rakip tüketiciye İlk Giren İlk Çıkar (FIFO) yöntemine göre ileti teslimi sunar. FIFO, genellikle iletilerin sıraya alındığı zamana bağlı bir düzende alıcılar tarafından alınıp işleneceği ve her iletinin tek bir ileti tüketicisi tarafından alınıp işleneceği anlamına gelir. Kuyrukları kullanmanın en büyük avantajlarından biri de uygulama bileşenlerinin *zamana bağlı olarak ayrılmasıdır*. Diğer bir deyişle, iletiler sürekli olarak kuyrukta depolandığından üreticilerin ve tüketicilerin iletileri aynı anda almasına ve göndermesine gerek yoktur. Buna benzer başka bir avantaj ise üreticilerin ve tüketicilerin iletileri farklı hızlarda almasına ve göndermesine olanak sağlayan *yük dengeleme* özelliğidir.
 
 Aşağıda, öğretici başlamadan önce uygulamanız gereken bazı yönetim ve önkoşul adımları yer almaktadır. İlk adımda bir hizmet ad alanı oluşturulur ve paylaşılan erişim imzası (SAS) anahtarı edinilir. Ad alanı, Service Bus tarafından kullanıma sunulan her uygulama için bir uygulama sınırı sağlar. Hizmet ad alanı oluşturulduğunda sistem tarafından otomatik olarak bir SAS anahtarı oluşturulur. Hizmet ad alanı ve SAS anahtarı bileşimi ile kimlik bilgisi oluşur. Service Bus hizmeti, bir uygulamaya yönelik erişim için kimlik doğrulaması yapmak üzere bu kimlik bilgisini kullanır.
 
-### Hizmet ad alanı oluşturma ve bir SAS anahtarı edinme
+### <a name="create-a-service-namespace-and-obtain-a-sas-key"></a>Hizmet ad alanı oluşturma ve bir SAS anahtarı edinme
 
-İlk adım bir hizmet ad alanı oluşturmak ve [Paylaşılan Erişim İmzası](../service-bus/service-bus-sas-overview.md) (SAS) anahtarı edinmektir. Ad alanı, Service Bus tarafından kullanıma sunulan her uygulama için bir uygulama sınırı sağlar. Hizmet ad alanı oluşturulduğunda sistem tarafından otomatik olarak bir SAS anahtarı oluşturulur. Hizmet ad alanı ve SAS anahtarı birleşimi ile Service Bus hizmetinin bir uygulamaya erişim kimliğini doğrulayan kimlik bilgisi sağlanır.
+İlk adım bir hizmet ad alanı oluşturmak ve [Paylaşılan Erişim İmzası](service-bus-sas-overview.md) (SAS) anahtarı edinmektir. Ad alanı, Service Bus tarafından kullanıma sunulan her uygulama için bir uygulama sınırı sağlar. Hizmet ad alanı oluşturulduğunda sistem tarafından otomatik olarak bir SAS anahtarı oluşturulur. Hizmet ad alanı ve SAS anahtarı birleşimi ile Service Bus hizmetinin bir uygulamaya erişim kimliğini doğrulayan kimlik bilgisi sağlanır.
 
 [AZURE.INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 Sonraki adımda Visual Studio projesi oluşturulur ve kesin tür belirtilmiş [BrokeredMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx) .NET[Liste](https://msdn.microsoft.com/library/6sh2ey19.aspx) nesnesine virgülle ayrılmış ileti listesini yükleyen iki yardımcı işlev yazılır.
 
-### Visual Studio projesi oluşturma
+### <a name="create-a-visual-studio-project"></a>Visual Studio projesi oluşturma
 
 1. Başlat menüsünde programa sağ tıklayıp Visual Studio'yu yönetici olarak açın ve **Yönetici olarak çalıştır**'a tıklayın.
 
@@ -95,7 +95,7 @@ Sonraki adımda Visual Studio projesi oluşturulur ve kesin tür belirtilmiş [B
 
 1. 6. adımda oluşturduğunuz Data.csv dosyasına gözatın. Dosyaya ve ardından **Ekle**'ye tıklayın. Dosya türü listesinde **Tüm Dosyalar(*.*)** seçeneğinin belirlendiğinden emin olun.
 
-### İleti listesini ayrıştıran bir yöntem oluşturma
+### <a name="create-a-method-that-parses-a-list-of-messages"></a>İleti listesini ayrıştıran bir yöntem oluşturma
 
 1. `Main()` yönteminden önce, `Program` sınıfında iki değişken bildirin: Bunlardan ilki, Data.csv dosyasındaki iletilerin listesini içeren **DataTable** türüdür. Diğeri ise [BrokeredMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx) olarak kesin tür belirtilmiş List nesnesi türünde olmalıdır. İkinci değişken, öğreticide sonraki adımlarda kullanılacak olan aracılı iletilerin listesidir.
 
@@ -158,7 +158,7 @@ Sonraki adımda Visual Studio projesi oluşturulur ve kesin tür belirtilmiş [B
     }
     ```
 
-### İleti listesini yükleyen bir yöntem oluşturma
+### <a name="create-a-method-that-loads-the-list-of-messages"></a>İleti listesini yükleyen bir yöntem oluşturma
 
 1. `Main()` dışında, `ParseCSVFile()` tarafından döndürülen **DataTable** nesnesini alan ve tabloyu kesin tür belirtilmiş aracılı ileti listesine yükleyen bir `GenerateMessages()` yöntemi tanımlayın. Ardından, yöntem aşağıdaki örnekte olduğu gibi **List** nesnesini döndürür. 
 
@@ -194,7 +194,7 @@ Sonraki adımda Visual Studio projesi oluşturulur ve kesin tür belirtilmiş [B
     }
     ```
 
-### Kullanıcı kimlik bilgilerini alma
+### <a name="obtain-user-credentials"></a>Kullanıcı kimlik bilgilerini alma
 
 1. İlk olarak, bu değerleri tutmak için üç genel dize değişkeni oluşturun. Önceki değişkenleri bildirdikten hemen sonra bu değişkenleri bildirin. Örnek:
 
@@ -244,11 +244,11 @@ Sonraki adımda Visual Studio projesi oluşturulur ve kesin tür belirtilmiş [B
     }
     ```
 
-### Çözümü derleme
+### <a name="build-the-solution"></a>Çözümü derleme
 
 Visual Studio'daki **Derle** menüsünde çalışmanızın o ana kadarki doğruluğunu onaylamak üzere **Çözümü Derle**'ye tıklayın veya **Ctrl+Shift+B**'ye basın.
 
-## Yönetim kimlik bilgileri oluşturma
+## <a name="create-management-credentials"></a>Yönetim kimlik bilgileri oluşturma
 
 Bu adımda, paylaşılan erişim imzası (SAS) kimlik bilgilerini oluşturmak üzere kullanacağınız yönetim işlemlerini tanımlayın. Uygulamanızın yetkilendirilmesi için bu kimlik bilgileri kullanılır.
 
@@ -280,7 +280,7 @@ Bu adımda, paylaşılan erişim imzası (SAS) kimlik bilgilerini oluşturmak ü
     NamespaceManager namespaceClient = new NamespaceManager(ServiceBusEnvironment.CreateServiceUri("sb", "<yourNamespace>", string.Empty), credentials);
     ```
 
-### Örnek
+### <a name="example"></a>Örnek
 
 Bu noktada kodunuzun şu şekilde olması gerekir:
 
@@ -388,11 +388,11 @@ namespace Microsoft.ServiceBus.Samples
 }
 ```
 
-## Kuyruğa ileti gönderme
+## <a name="send-messages-to-the-queue"></a>Kuyruğa ileti gönderme
 
 Bu adımda, bir kuyruk oluşturun ve ardından bu aracılı iletiler listesinde bulunan iletileri kuyruğa gönderin.
 
-### Kuyruk oluşturma ve kuyruğa ileti gönderme
+### <a name="create-queue-and-send-messages-to-the-queue"></a>Kuyruk oluşturma ve kuyruğa ileti gönderme
 
 1. İlk olarak kuyruğu oluşturun. Örneğin, bunu `myQueue` olarak adlandırın ve son adımda `Queue()` yöntemine eklediğiniz yönetim işlemlerinin hemen ardından belirtin:
 
@@ -433,11 +433,11 @@ Bu adımda, bir kuyruk oluşturun ve ardından bu aracılı iletiler listesinde 
     }
     ```
 
-## Kuyruktan ileti alma
+## <a name="receive-messages-from-the-queue"></a>Kuyruktan ileti alma
 
 Bu adımda, önceki adımda oluşturduğunuz kuyruktan ileti listesini alın.
 
-### Alıcı oluşturma ve kuyruktan ileti alma
+### <a name="create-a-receiver-and-receive-messages-from-the-queue"></a>Alıcı oluşturma ve kuyruktan ileti alma
 
 `Queue()` yönteminde, kuyrukta gezinip [QueueClient.ReceiveAsync](https://msdn.microsoft.com/library/azure/dn130423.aspx) yöntemini kullanarak iletileri alın. Bu işlem sonunda her ileti konsola yazdırılır. Önceki adımda eklediğiniz kodun hemen ardından aşağıdaki kodu ekleyin:
 
@@ -456,7 +456,7 @@ while ((message = await myQueueClient.ReceiveAsync(new TimeSpan(hours: 0, minute
 
 `Thread.Sleep` öğesinin yalnızca ileti işleme benzetimi için kullanıldığını ve bunun gerçek bir mesajlaşma uygulamasında gerekli olmayacağını unutmayın.
 
-### Queue yöntemini sonlandırma ve kaynakları temizleme
+### <a name="end-the-queue-method-and-clean-up-resources"></a>Queue yöntemini sonlandırma ve kaynakları temizleme
 
 Önceki kodun hemen ardından, ileti fabrikasını ve kuyruk kaynaklarını temizlemek üzere aşağıdaki kodu ekleyin:
 
@@ -466,7 +466,7 @@ myQueueClient.Close();
 namespaceClient.DeleteQueue("IssueTrackingQueue");
 ```
 
-### Queue yöntemini çağırma
+### <a name="call-the-queue-method"></a>Queue yöntemini çağırma
 
 Son adımda `Main()` öğesinden `Queue()` yöntemini çağıran bir deyim eklenir. Aşağıda vurgulanan kod satırını Main() yönteminin sonuna ekleyin:
     
@@ -485,7 +485,7 @@ public static void Main(string[] args)
 }
 ```
 
-### Örnek
+### <a name="example"></a>Örnek
 
 Aşağıdaki kod, **QueueSample** uygulamasının tamamını içerir.
 
@@ -636,27 +636,27 @@ namespace Microsoft.ServiceBus.Samples
 }
 ```
 
-## QueueSample uygulamasını derleme ve çalıştırma
+## <a name="build-and-run-the-queuesample-application"></a>QueueSample uygulamasını derleme ve çalıştırma
 
 Önceki adımları tamamladığınıza göre artık **QueueSample** uygulamasını derleyip çalıştırabilirsiniz.
 
-### QueueSample uygulamasını derleme
+### <a name="build-the-queuesample-application"></a>QueueSample uygulamasını derleme
 
 Visual Studio'da **Derle** menüsünde **Çözümü Derle**'ye tıklayın veya **Ctrl + Shift + B**'ye basın. Hatalarla karşılaşırsanız lütfen önceki adımın sonunda sunulan tam örneğe bakarak kodunuzun doğru olduğunu doğrulayın.
 
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 
 Bu öğreticiyle birlikte Service Bus aracılı mesajlaşma işlevlerini kullanarak nasıl Service Bus istemci uygulaması ve hizmeti oluşturacağınızı gördünüz. Service Bus [Geçişi](service-bus-messaging-overview.md#Relayed-messaging) işlevinin kullanıldığı benzer bir öğretici için bkz. [Service Bus geçişli mesajlaşma öğreticisi](../service-bus-relay/service-bus-relay-tutorial.md).
 
 [Service Bus](https://azure.microsoft.com/services/service-bus/) hakkında daha fazla bilgi edinmek için aşağıdaki konu başlıklarına bakın.
 
 - [Service Bus mesajlaşma hizmetine genel bakış](service-bus-messaging-overview.md)
-- [Service Bus ile ilgili temel bilgiler](../service-bus/service-bus-fundamentals-hybrid-solutions.md)
-- [Service Bus mimarisi](../service-bus/service-bus-architecture.md)
+- [Service Bus ile ilgili temel bilgiler](service-bus-fundamentals-hybrid-solutions.md)
+- [Service Bus mimarisi](service-bus-architecture.md)
 
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO3-->
 
 

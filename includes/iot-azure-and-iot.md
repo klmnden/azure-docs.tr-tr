@@ -1,8 +1,12 @@
+
 # Azure ve Nesnelerin İnterneti
 
-Microsoft Azure’a ve Nesnelerin İnterneti’ne (IOT) Hoş Geldiniz. Bu makalede, Azure hizmetlerini kullanarak dağıtabileceğiniz IoT çözümünün genel özelliklerini açıklayan bir IOT çözüm mimarisi tanıtılmaktadır. IoT çözümleri için güvenli, milyonlarca olabilen cihazlar arasında iki yönlü iletişim ve örneğin, cihaz - bulut olay akışınızda sezgileri açığa çıkarmak için otomatik, tahmine dayalı analizleri kullanan bir çözüm arka ucu gerekir.
+Microsoft Azure’a ve Nesnelerin İnterneti’ne (IOT) Hoş Geldiniz. Bu makalede, Azure hizmetlerini kullanarak dağıtabileceğiniz IoT çözümünün genel özelliklerini açıklayan bir IOT çözüm mimarisi tanıtılmaktadır. IoT çözümleri, sayıları milyonları bulabilecek cihazlar arasında güvenli, çift yönlü iletişim ve çözüm arka ucu gerektirir. Örneğin, cihaz - bulut olay akışınızda sezgileri açığa çıkarmak için otomatik, tahmine dayalı analizleri kullanan bir çözüm arka ucu gerekir.
 
-Azure IoT Hub’ı, Azure hizmetlerini kullanarak bu IoT çözüm mimarisini uyguladığınızda ve IoT Paketi belirli bir IoT senaryosunun bu mimarisine ait tam, uçtan uca uygulamaları sağladığında önemli bir yapı taşıdır. Örneğin, *uzaktan izleme* çözümü, satış makineleri gibi cihazların durumunu takip etmeniz sağlar; *tahmine dayalı bakım* da, uzak pompa istasyonlarındaki pompalar gibi cihazların bakım gereksinimlerini tahmin etmenize ve zamansız zaman kayıplarından kaçınmanıza yardımcı olur.
+Azure IoT Hub’ı, Azure hizmetlerini kullanarak bu IoT çözüm mimarisini uyguladığınızda önemli bir yapı taşıdır. IoT Paketi, belirli IoT senaryoları için bu mimarinin eksiksiz, uçtan uca uygulamalarını sağlar. Örneğin: 
+
+- *Uzaktan izleme* çözümü, satış makineleri gibi cihazların durumunu takip etmeniz sağlar. 
+- *Tahmine dayalı bakım* çözümü, uzak pompa istasyonlarındaki pompalar gibi cihazların bakım gereksinimlerini tahmin etmenize ve zamansız zaman kayıplarından kaçınmanıza yardımcı olur.
 
 ## IOT çözüm mimarisi
 
@@ -16,32 +20,32 @@ Aşağıdaki diyagram tipik bir IoT çözüm mimarisini göstermektedir. Belirli
 
 Bu IoT çözüm mimarisinde cihazlar pompa istasyonuna ait sensör okumaları gibi telemetriyi depolanması ve işlenmesi amacıyla bulut uç noktasına gönderir. Tahmine dayalı bakım senaryosunda arka uç, belirli bir pompanın ne zaman bakıma gerek duyacağını saptamak için sensör verilerinin akışını kullanabilir. Cihazlar, bulut uç noktasına ait iletileri okuyarak buluttan cihaza komutları da alıp yanıtlayabilir. Örneğin, tahmine dayalı bakım senaryosunda çözüm arka ucu, ulaşır ulaşmaz bakım mühendisinin başladığından emin olmak için bakımın başlamasından hemen önce akışların yeniden yönlendirilmesini başlatmak amacıyla pompa istasyonundaki diğer pompalara da komut gönderebilir.
 
-IoT projelerinin karşılaştığı en büyük zorluklardan biri de, cihazın telemetri gönderip komut almasını etkinleştirmek üzere cihazların güvenle ve güvenilir olarak çözüm arka uçlarına nasıl bağlanacaklarıdır. IoT cihazlarında, tarayıcılar ve mobil uygulamalar gibi diğer istemcilerle karşılaştırıldığında farklı özellikler bulunur. IoT cihazları:
+IoT projelerinin karşılaştığı en büyük zorluklardan biri de, cihazların güvenle ve güvenilir olarak çözüm arka uçlarına nasıl bağlanacaklarıdır. IoT cihazlarında, tarayıcılar ve mobil uygulamalar gibi diğer istemcilerle karşılaştırıldığında farklı özellikler bulunur. IoT cihazları:
 
 - İnsan olan bir operatörü bulunmayan ve genellikle katıştırılmış sistemlerdir.
-- Fiziksel erişimin çok pahalı olduğu uzak konumlarda dağıtılabilir.
+- Fiziksel erişimin pahalı olduğu uzak konumlarda dağıtılabilir.
 - Yalnızca çözüm arka ucu aracılığıyla erişilebilir. Cihazla etkileşime geçmek için başka bir yol yoktur.
 - Sınırlı güç ve işleme kaynaklarına sahip olabilir.
 - Aralıklı, yavaş veya pahalı bir ağ bağlantısına sahip olabilir.
-- Mülkiyete ait, özel veya sektöre özel uygulama protokolleri kullanması gerekebilir.
+- Mülkiyete ait, özel veya sektöre özgü uygulama protokolleri kullanması gerekebilir.
 - Büyük bir popüler donanım ve yazılım platformu kümesi kullanılarak oluşturulabilir.
 
 Yukarıdaki gereksinimlere ek olarak, tüm IoT çözümlerinin ölçek, güvenlik ve güvenilirlik de sunması gerekir. Elde edilen bağlantı gereksinimleri kümesi, web kapsayıcıları ve mesajlaşma aracıları gibi geleneksel teknolojiler kullanıldığında uygulaması zor ve zaman alıcı olabilir. Azure IoT Hub'ı ve IoT Cihazı SDK'ları bu gereksinimleri karşılayan çözümlerin uygulanmasını kolaylaştırır.
 
-Cihaz doğrudan bir bulut ağ geçidi uç noktasıyla iletişim kurabilir veya cihaz bulut ağ geçidinin destelediği iletişim protokollerinin hiçbirini kullanamıyorsa, protokol çevirisini gerçekleştiren [IoT Hub'ı protokol ağ geçidi][lnk-protocol-gateway] gibi bir ara ağ geçidiyle bağlanabilir. Örneğin, Ortak Endüstriyel Protokol’den (CIP) AMQPS’ye.
+Cihaz doğrudan bir bulut ağ geçidi uç noktasıyla iletişim kurabilir veya cihaz bulut ağ geçidinin desteklediği iletişim protokollerinin hiçbirini kullanamıyorsa bir ara ağ geçidiyle bağlanabilir. Örneğin, [IOT Hub protokol ağ geçidi][lnk-protocol-gateway], cihazlar IOT Hub'ın desteklediği protokollerden herhangi birini kullanamıyorsa protokol çevirisi gerçekleştirebilir.
 
 ### Veri işleme ve analizi
 
-Bulutta, IoT çözüm arka ucu, çoğu çözüm işlemenin, özellikle de telemetri filtreleme ve yığma ve bunu diğer hizmetlere yönlendirmenin çözümde oluştuğu yerdedir. IoT çözüm arka ucu:
+Bulutta IoT çözüm arka ucu, telemetri filtreleme ve yığma ve bunu diğer hizmetlere yönlendirme gibi veri işlemenin büyük kısmının gerçekleştiği yerdedir. IoT çözüm arka ucu:
 
 - Telemetriyi cihazlarınızdan ölçekli alır ve bu verilerin nasıl işleneceğini ve depolanacağını saptar. 
 - Komutları buluttan belirli bir cihaza göndermenizi sağlar.
 - Cihazları hazırlamanızı ve hangi cihazların altyapıya bağlanmasına izin verildiğini denetlemenizi sağlayan cihaz kaydı becerileri sağlar.
 - Cihazlarınızın durumunu izlemenizi ve etkinliklerini takip etmenizi sağlar.
 
-Tahmine dayalı bakım senaryosunda, çözüm arka ucu geçmiş telemetri verilerini desenleri tanımlamakta kullanmak için depolar ve belirli bir pompada bakım zamanının geldiğini belirten desenleri görmek amacıyla telemetri ulaştığında bunu analiz eder.
+Tahmine dayalı bakım senaryosunda, çözüm arka ucu geçmiş telemetri verilerini depolar. Arka uç, bu verileri belirli bir pompada bakım zamanının geldiğini belirten desenleri görmek amacıyla kullanabilir.
 
-IOT çözümlerinde otomatik geri bildirim döngüleri bulunabilir. Örneğin, arka uçtaki analitik bir modül, belirli bir cihazdaki sıcaklık normal çalışma seviyesinin üzerinde olduğunu telemetriden tanımlayabilir ve cihaza, doğru işlem yapması için talimat veren bir komut gönderebilir.
+IOT çözümlerinde otomatik geri bildirim döngüleri bulunabilir. Örneğin, arka uçtaki analitik bir modül, belirli bir cihazdaki sıcaklığın normal çalışma seviyesinin üzerinde olduğunu telemetriden tanımlayabilir. Ardından çözüm cihaza, doğru işlemi yapması için talimat veren bir komut gönderebilir.
 
 ### Sunu ve iş bağlantısı
 
@@ -58,6 +62,6 @@ Sunu ve iş bağlantı katmanı son kullanıcıların IoT çözümü ve cihazlar
 [lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

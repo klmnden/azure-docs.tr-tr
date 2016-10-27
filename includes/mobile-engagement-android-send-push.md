@@ -1,5 +1,5 @@
 
-###Bildirimleri etkinleştirmek için bildirim dosyasını güncelleştirme
+###<a name="update-manifest-file-to-enable-notifications"></a>Bildirimleri etkinleştirmek için bildirim dosyasını güncelleştirme
 
 Aşağıdaki uygulama içi mesajlaşma kaynaklarını aşağıdaki Manifest.xml dosyasında `<application>` ve `</application>` etiketleri arasına kopyalayın.
 
@@ -45,7 +45,7 @@ Aşağıdaki uygulama içi mesajlaşma kaynaklarını aşağıdaki Manifest.xml 
             </intent-filter>
         </receiver>
 
-###Bildirimler için simge belirtme
+###<a name="specify-an-icon-for-notifications"></a>Bildirimler için simge belirtme
 
 Manifest.xml dosyanızda yer alan aşağıdaki XML parçacığını `<application>` ve `</application>` etiketleri arasına yapıştırın.
 
@@ -62,9 +62,9 @@ Gerçek uygulamalar için, her[Android tasarım yönergesi](http://developer.and
 >[AZURE.TIP] Doğru simge çözünürlüğü kullandığınızdan emin olmak için [bu örneklere](https://www.google.com/design/icons) bakabilirsiniz.
 Kayarak **Bildirim** bölümüne gidin, simgeye tıklayın ve ardından simge çizilebilir kümesini indirmek için `PNGS` öğesine tıklayın. Simgenin her sürümü için hangi drawable klasörlerde hangi çözünürlüğün kullanıldığını da görebilirsiniz.
 
-###GCM anında iletme bildirimlerini almak için uygulamanızı etkinleştirme
+###<a name="enable-your-app-to-receive-gcm-push-notifications"></a>GCM anında iletme bildirimlerini almak için uygulamanızı etkinleştirme
 
-1. Aşağıdaki kodu, Google Play konsolundan alınan `project number` değiştirildikten sonra, Manifest.xml dosyanızda `<application>` ve `</application>` etiketleri arasına yapıştırın. \n kasıtlı olarak konmuştur; bu nedenle proje numarasını bununla bitirdiğinizden emin olun.
+1. Firebase proje konsolunuzdan alınan **Gönderen Kimliği**’ni değiştirdikten sonra aşağıdaki kodu, Manifest.xml dosyanızda `<application>` ve `</application>` etiketleri arasına yapıştırın. \n kasıtlı olarak konmuştur; bu nedenle proje numarasını bununla bitirdiğinizden emin olun.
 
         <meta-data android:name="engagement:gcm:sender" android:value="************\n" />
 
@@ -96,6 +96,6 @@ Kayarak **Bildirim** bölümüne gidin, simgeye tıklayın ve ardından simge ç
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

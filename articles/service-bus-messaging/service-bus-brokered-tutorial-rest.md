@@ -1,13 +1,13 @@
 <properties 
     pageTitle="Service Bus aracılı mesajlaşma REST öğreticisi | Microsoft Azure"
     description="Aracılı mesajlaşma REST öğreticisi."
-    services="service-bus-messaging"
+    services="service-bus"
     documentationCenter="na"
     authors="sethmanheim"
     manager="timlt"
     editor="" />
 <tags 
-    ms.service="service-bus-messaging"
+    ms.service="service-bus"
     ms.devlang="na"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
@@ -16,23 +16,25 @@
     ms.author="sethm" />
 
 
-# Service Bus aracılı mesajlaşma REST öğreticisi
+# <a name="service-bus-brokered-messaging-rest-tutorial"></a>Service Bus aracılı mesajlaşma REST öğreticisi
+
+[AZURE.INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
 Bu öğretici, temel REST tabanlı Azure Service Bus kuyruğunun ve konu başlığının/aboneliğinin nasıl oluşturulacağını gösterir.
 
-## Ad alanı oluşturma
+## <a name="create-a-namespace"></a>Ad alanı oluşturma
 
-İlk adım bir hizmet ad alanı oluşturmak ve [Paylaşılan Erişim İmzası](../service-bus/service-bus-sas-overview.md) (SAS) anahtarı edinmektir. Ad alanı, Service Bus tarafından kullanıma sunulan her uygulama için bir uygulama sınırı sağlar. Hizmet ad alanı oluşturulduğunda sistem tarafından otomatik olarak bir SAS anahtarı oluşturulur. Hizmet ad alanı ve SAS anahtarı birleşimi ile Service Bus hizmetinin bir uygulamaya erişim kimliğini doğrulayan kimlik bilgisi sağlanır.
+İlk adım bir hizmet ad alanı oluşturmak ve [Paylaşılan Erişim İmzası](service-bus-sas-overview.md) (SAS) anahtarı edinmektir. Ad alanı, Service Bus tarafından kullanıma sunulan her uygulama için bir uygulama sınırı sağlar. Hizmet ad alanı oluşturulduğunda sistem tarafından otomatik olarak bir SAS anahtarı oluşturulur. Hizmet ad alanı ve SAS anahtarı birleşimi ile Service Bus hizmetinin bir uygulamaya erişim kimliğini doğrulayan kimlik bilgisi sağlanır.
 
 [AZURE.INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-## Bir konsol istemcisi oluşturma
+## <a name="create-a-console-client"></a>Bir konsol istemcisi oluşturma
 
 Service Bus kuyrukları, iletileri; ilk giren ilk çıkar özelliğine sahip bir kuyrukta depolamanıza olanak sağlar. Konu başlıkları ve abonelikler bir yayımlama/abone olma deseni uygular. Bir konu oluşturun ve ardından bu konu başlığıyla ilişkili bir veya birden çok abonelik oluşturun. İletiler konu başlığına gönderildiğinde, anında o konu başlığının abonelerine gönderilir.
 
 Bu öğreticideki kod şunları gerçekleştirir:
 
-- Service Bus ad alanı kaynaklarınıza erişmek için ad alanınızı ve [Paylaşılan Erişim İmzası](../service-bus/service-bus-sas-overview.md) (SAS) anahtarınızı kullanır.
+- Service Bus ad alanı kaynaklarınıza erişmek için ad alanınızı ve [Paylaşılan Erişim İmzası](service-bus-sas-overview.md) (SAS) anahtarınızı kullanır.
 
 - Bir kuyruk oluşturur, kuyruğa ileti gönderir ve kuyruktaki iletileri okur.
 
@@ -46,7 +48,7 @@ Bu hizmet bir REST stili Web hizmeti olduğundan, özel türler bulunmaz; bunun 
 
 İlk adımda ad alanını ve kimlik bilgilerini aldıktan sonra, bir sonraki adımınız temel bir Visual Studio konsol uygulaması oluşturmaktır.
 
-### Konsol uygulaması oluşturma
+### <a name="create-a-console-application"></a>Konsol uygulaması oluşturma
 
 1. **Başlat**menüsünde programa sağ tıklayarak bir yönetici olarak Visual Studio'yu açın ve **Yönetici olarak çalıştır**'a tıklayın.
 
@@ -147,11 +149,11 @@ Bu hizmet bir REST stili Web hizmeti olduğundan, özel türler bulunmaz; bunun 
     Console.ReadLine();
     ```
 
-## Yönetim kimlik bilgileri oluşturma
+## <a name="create-management-credentials"></a>Yönetim kimlik bilgileri oluşturma
 
 Sonraki adım, önceki adımda girdiğiniz SAS anahtarını ve ad alanını işleyen bir yöntem yazmaktır ve bu işlem bir SAS belirteci döndürür. Bu örnek, bir saat için geçerli olan bir SAS belirteci oluşturur.
 
-### GetSASToken() yöntemi oluşturma
+### <a name="create-a-getsastoken()-method"></a>GetSASToken() yöntemi oluşturma
 
 `Main()` yönteminden sonra `Program` sınıfında aşağıdaki kodu yapıştırın:
 
@@ -169,7 +171,7 @@ private static string GetSASToken(string SASKeyName, string SASKeyValue)
   return sasToken;
 }
 ```
-## Kuyruk oluşturma
+## <a name="create-the-queue"></a>Kuyruk oluşturma
 
 Sonraki adım, bir kuyruk oluşturmak için REST stili HTTP PUT komutunu kullanan bir yöntem yazmaktır.
 
@@ -198,7 +200,7 @@ private static string CreateQueue(string queueName, string token)
 }
 ```
 
-## Kuyruğa bir ileti gönderme
+## <a name="send-a-message-to-the-queue"></a>Kuyruğa bir ileti gönderme
 
 Bu adımda, önceki adımda oluşturduğunuz kuyruğa ileti göndermek için REST stili HTTP POST komutu kullanan bir yöntem eklersiniz.
 
@@ -235,7 +237,7 @@ Bu adımda, önceki adımda oluşturduğunuz kuyruğa ileti göndermek için RES
     webClient.Headers.Add("Customer", "12345");
     ```
 
-## Kuyruktan bir ileti alma ve silme
+## <a name="receive-and-delete-a-message-from-the-queue"></a>Kuyruktan bir ileti alma ve silme
 
 Bir sonraki adım, kuyruktan ileti almak ve silmek için REST stili HTTP DELETE komutu kullanan bir yöntem eklemektir.
 
@@ -259,11 +261,11 @@ private static string ReceiveAndDeleteMessage(string resourceName)
 }
 ```
 
-## Konu başlığı ve abonelik oluşturma
+## <a name="create-a-topic-and-subscription"></a>Konu başlığı ve abonelik oluşturma
 
 Sonraki adım, bir konu başlığı oluşturmak için REST stili HTTP PUT komutunu kullanan bir yöntem yazmaktır. Ardından, bu konu başlığına bir abonelik oluşturan yöntemi yazın.
 
-### Konu başlığı oluşturma
+### <a name="create-a-topic"></a>Konu başlığı oluşturma
 
 Önceki adımda eklediğiniz `ReceiveAndDeleteMessage()` kodundan hemen sonra aşağıdaki kodu yapıştırın:
 
@@ -289,7 +291,7 @@ private static string CreateTopic(string topicName)
 }
 ```
 
-### Abonelik oluşturma
+### <a name="create-a-subscription"></a>Abonelik oluşturma
 
 Aşağıdaki kod, önceki adımda oluşturduğunuz konu başlığına bir abonelik oluşturur. `CreateTopic()` tanımından hemen sonra aşağıdaki kodu ekleyin:
 
@@ -314,11 +316,11 @@ private static string CreateSubscription(string topicName, string subscriptionNa
 }
 ```
 
-## İleti kaynaklarını alma
+## <a name="retrieve-message-resources"></a>İleti kaynaklarını alma
 
 Bu adımda, ileti özelliklerini alan kodu eklersiniz ve ardından önceki adımlarda oluşturduğunuz mesajlaşma kaynaklarını silersiniz.
 
-### Belirtilen kaynakları içeren Atom akışı alma
+### <a name="retrieve-an-atom-feed-with-the-specified-resources"></a>Belirtilen kaynakları içeren Atom akışı alma
 
 Önceki adımda eklediğiniz `CreateSubscription()` yönteminden hemen sonra aşağıdaki kodu ekleyin:
 
@@ -333,7 +335,7 @@ private static string GetResources(string resourceAddress)
 }
 ```
 
-### Mesajlaşma varlıklarını silme
+### <a name="delete-messaging-entities"></a>Mesajlaşma varlıklarını silme
 
 Önceki adımda eklediğiniz kodun hemen ardından aşağıdaki kodu ekleyin:
 
@@ -350,7 +352,7 @@ private static string DeleteResource(string resourceName)
 }
 ```
 
-### Atom akışı biçimlendirme
+### <a name="format-the-atom-feed"></a>Atom akışı biçimlendirme
 
 `GetResources()` yöntemi, daha okunur olması için alınan Atom akışını yeniden biçimlendiren `FormatXml()` yöntemine yönelik bir çağrı içerir. Aşağıda verilenler `FormatXml()` kodunun açıklamasıdır; önceki bölümde eklediğiniz `DeleteResource()` kodundan hemen sonra bu kodu ekleyin:
 
@@ -372,15 +374,15 @@ private static string FormatXml(string inputXml)
 }
 ```
 
-## Uygulamayı derleme ve çalıştırma
+## <a name="build-and-run-the-application"></a>Uygulamayı derleme ve çalıştırma
 
 Artık uygulamayı derleyebilir ve çalıştırabilirsiniz. Visual Studio'daki **Derle** menüsünde **Çözümü Derle**'ye tıklayın veya **Ctrl + Shift + B**'ye basın.
 
-### Uygulamayı çalıştırma
+### <a name="run-the-application"></a>Uygulamayı çalıştırma
 
 Herhangi bir hata yoksa uygulamayı çalıştırmak için F5'e basın. İstendiğinde, ilk adımda aldığınız ad alanını, SAS anahtarı adını ve SAS anahtarı değerini girin.
 
-### Örnek
+### <a name="example"></a>Örnek
 
 Öğreticideki adımların tümü uygulandıktan sonra görüneceğinden, aşağıdaki örnek eksiksiz koddur.
 
@@ -618,17 +620,17 @@ namespace Microsoft.ServiceBus.Samples
 }
 ```
 
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 
 Daha fazla bilgi edinmek için şu makalelere bakın:
 
 - [Service Bus mesajlaşma hizmetine genel bakış](service-bus-messaging-overview.md)
-- [Azure Service Bus ile ilgili temel bilgiler](../service-bus/service-bus-fundamentals-hybrid-solutions.md)
+- [Azure Service Bus ile ilgili temel bilgiler](service-bus-fundamentals-hybrid-solutions.md)
 - [Service Bus geçişi REST öğreticisi](../service-bus-relay/service-bus-relay-rest-tutorial.md)
 
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO3-->
 
 

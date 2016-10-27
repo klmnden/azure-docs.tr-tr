@@ -3,7 +3,7 @@
     description="Bu makale, Azure Veri Kataloğu'nu benimsemeyi planlayan kuruluşlar için, vizyon tanımlama, işle ilgili önemli kullanım durumlarını belirleme ve pilot proje seçme aşamaları da dahil olmak üzere bir yaklaşım ve süreç sağlamaktadır."
     services="data-catalog"
     documentationCenter=""
-    authors="spelluru"
+    authors="steelanddata"
     manager="NA"
     editor=""
     tags=""/>
@@ -13,12 +13,12 @@
     ms.topic="hero-article"
     ms.tgt_pltfrm="NA"
     ms.workload="data-catalog"
-    ms.date="07/25/2016"
-    ms.author="spelluru"/>
+    ms.date="10/11/2016"
+    ms.author="maroche"/>
 
 
 # Azure Veri Kataloğu'nu benimseme
-Bu makale, kuruluşunuzda **Azure Veri Kataloğu**'nu benimsemeye başlamanıza yardımcı olacaktır. **Azure Veri Kataloğu**'nu başarıyla benimseyebilmek için üç temel öğeye odaklanmayı tercih edebilirsiniz: vizyonunuzu tanımlama, kuruluşunuz dahilindeki önemli iş kullanımı durumlarını tanımlama ve pilot proje seçme.
+Bu makale, kuruluşunuzda **Azure Veri Kataloğu**'nu benimsemeye başlamanıza yardımcı olacaktır. **Azure Veri Kataloğu**'nu başarıyla benimseyebilmek için üç temel öğeye odaklanırsınız: vizyonunuzu tanımlama, kuruluşunuz dahilindeki önemli iş kullanımı durumlarını belirleme ve pilot proje seçme.
 
 ## Azure Veri Kataloğu'na giriş
 İş dünyasında insanların veri varlıkları hakkında uzman bilgilerine ulaşabilmek için başvuracakları yola yönelik beklentileri değişmiştir. Günümüzde Yammer gibi sosyal medya araçlarının iş yerinde yaygın şekilde kullanılmasıyla, insanlar çok çeşitli konularda hızlı bir şekilde yardım ve öneri alabilmeyi beklemektedir. **Azure Veri Kataloğu**, işletmelerin ve ekiplerin kurumsal veri varlıkları ile ilgili verileri merkezi bir depoda birleştirmesine yardımcı olmaktadır. Veri tüketicileri, bu tür bir depoda kullanılabilir veri kaynaklarını keşfedebilmekte ve konu uzmanlarınca paylaşılan bilgileri edinebilmektedir.
@@ -30,8 +30,8 @@ Bu makalede, **Azure Veri Kataloğu** ile çalışmaya başlamaya yönelik bir y
 **Azure Veri Kataloğu**, Azure'da bulunan tam yönetimli bir hizmet olmasının yanı sıra self servis veri kaynağı bulmaya olanak tanıyan, kuruluş genelinde geçerli bir bilgi (meta veri) kataloğudur. Veri Kataloğu ile veri varlıklarını kaydeder, bulur, bunlara açıklama ekler ve bağlanırsınız. Veri Kataloğu, farklı bilgi varlıklarını yöneterek kolay bulunur hale getirmenin ve kullanıcıların buldukları veri varlıklarını anlamasını sağlamanın yanı sıra, bu veri varlıklarına bağlanarak hızla öngörü elde etmeyi kolaylaştırıp kuruluşlara daha fazla değer sağlamak için tasarlanmıştır. Daha fazla bilgi için bkz. [Microsoft Azure Veri Kataloğu](https://azure.microsoft.com/services/data-catalog/).
 
 ## Azure Veri Kataloğu Benimseme Planı
-**Azure Veri Kataloğu** benimseme planında, Veri Kataloğu hizmet kullanımının sağladığı avantajların paydaşlara ve kullanıcılara nasıl iletileceği ve hizmetin kullanıcılarına sağlayacağınız eğitimin türü açıklanır. Veri Kataloğu'nu benimsemeye yönelik önemli bir başarı ölçütü, hizmetin değerini kullanıcılara ve paydaşlara iletmede göstereceğiniz etkinliktir. İlk benimseme planındaki birincil hedef kitle, hizmetin kullanıcılarıdır. Paydaşlardan ne kadar destek alırsanız alın, Veri Kataloğu hizmetinizin kullanıcıları veya müşterileri bunu kendi faaliyetlerine dahil etmediği sürece benimseme başarılı olmaz. Bu nedenle, bu makalede paydaş desteğine sahip olduğunuz varsayılarak Veri Kataloğu'nun kullanıcılar tarafından benimsenmesine yönelik bir plan oluşturulmasına odaklanılmaktadır.
-Etkili bir benimseme planı, kişilerin Veri Kataloğu'ndaki olanaklara ilgi göstermesini sağlar ve bunu elde etmek için gerekli bilgileri ve rehberliği onlara sunar. Kullanıcıların, Veri Kataloğu'nun kendi işlerinde başarılı olmalarına yardımcı olmak için sağladığı değeri kavraması gerekir. Kişiler Veri Kataloğu'nun verilerle daha fazla sonuç elde etmelerine yardımcı olabileceğini gördüğünde, Veri Kataloğu'nu benimsemenin değeri açıkça ortaya çıkar. Değişim zordur; bu nedenle etkili bir planda değişimin zorluklarının da hesaba katılması gerekir.
+**Azure Veri Kataloğu** benimseme planında, Veri Kataloğu hizmet kullanımının sağladığı avantajların paydaşlara ve kullanıcılara nasıl iletildiği ve hizmetin kullanıcılarına sağladığınız eğitimin türü açıklanır. Veri Kataloğu'nu benimsemeye yönelik önemli bir başarı ölçütü, hizmetin değerini kullanıcılara ve paydaşlara iletmede göstereceğiniz etkinliktir. İlk benimseme planındaki birincil hedef kitleler, hizmetin kullanıcılarıdır. Paydaşlardan ne kadar destek alırsanız alın, Veri Kataloğu hizmetinizin kullanıcıları veya müşterileri bunu kendi kullanımlarına dahil etmediği sürece benimseme başarılı olmaz. Bu nedenle, bu makalede paydaş desteğine sahip olduğunuz varsayılarak Veri Kataloğu'nun kullanıcılar tarafından benimsenmesine yönelik bir plan oluşturulmasına odaklanılmıştır.
+Etkili bir benimseme planı, kişilerin Veri Kataloğu'ndaki olanaklara ilgi göstermesini sağlar ve bunu elde etmek için gerekli bilgileri ve rehberliği onlara sunar. Kullanıcıların, Veri Kataloğu'nun kendi işlerinde başarılı olmalarına yardımcı olmak için sağladığı değeri kavraması gerekir. Kişiler Veri Kataloğu'nun verilerle daha fazla sonuç elde etmelerine yardımcı olabileceğini gördüğünde, Veri Kataloğu'nu benimsemenin değeri ortaya çıkar. Değişim zordur; bu nedenle etkili bir planda değişimin zorluklarının da hesaba katılması gerekir.
 
 Benimseme planı, kişilerin başarılı olması ve hedeflerine ulaşması için kritik önem taşıyan unsurları iletmenize yardımcı olur. Genel bir plan, Veri Kataloğu'nun kullanıcının hayatını nasıl kolaylaştıracağını açıklar ve şu bölümleri içerir:
 
@@ -43,21 +43,21 @@ Benimseme planı, kişilerin başarılı olması ve hedeflerine ulaşması için
 Aşağıda **Azure Veri Kataloğu** benimseme planını tanımlamaya yönelik birkaç ipucu verilmiştir.
 
 ## Veri Kataloğu proje vizyonunuzu tanımlama
-**Azure Veri Kataloğu** benimseme planı tanımlamanın ilk adımı, elde etmeye çalıştığınız başarının istek uyandıran bir açıklamasını yazmaktır. Vizyon mesajını geniş tutmak ancak kısa vadede ve uzun vadede ayrıntılı hedefler tanımlayacak kadar net olmasını sağlamak en iyi seçenektir.
+**Azure Veri Kataloğu** benimseme planı tanımlamanın ilk adımı, elde etmeye çalıştığınız başarının istek uyandıran bir açıklamasını yazmaktır. Vizyon mesajını geniş tutmak, ancak kısa vadede ve uzun vadede ayrıntılı hedefler tanımlayacak kadar net olmasını sağlamak en iyi seçenektir.
 
 Aşağıda vizyonunuzu tanımlamanıza yardımcı olacak birkaç ipucu verilmiştir:
 
 -   **Önemli dağıtım teşvikini tanımlama** - Veri Kataloğu kullanılarak ele alınabilecek, işle ilgili belirli veri kaynağı yönetim ihtiyaçlarını düşünün. Bu ayrıca Veri Kataloğu'nu kullanmanın en önemli avantajlarını da belirtmenize yardımcı olur. Örneğin, tüm yeni çalışanların; hakkında bilgi edinmesi ve kullanması gereken genel veri kaynakları veya yalnızca birkaç anahtar kişinin ayrıntılı olarak kavraması gereken önemli ve karmaşık veri kaynakları söz konusu olabilir. **Azure Veri Kataloğu** bu veri kaynaklarının bulunmasını ve anlaşılmasını kolaylaştırmaya yardımcı olabilir; böylece, bilinen bu zorluk noktaları, hizmetin benimsenme aşamasında doğrudan ve erken bir noktada ele alınabilir.
 
--   **Kısa ve net bir içerik sağlayın** - Vizyonun net bir şekilde anlaşılması, Veri Kataloğu'nun kuruluşa sağladığı değer konusunda ve vizyonun kuruluş hedeflerini ne şekilde desteklediğiyle ilgili olarak herkesin aynı noktada buluşmasını sağlayacaktır.
+-   **Kısa ve net bir içerik sağlayın** - Vizyonun net bir şekilde anlaşılması, Veri Kataloğu'nun kuruluşa sağladığı değer ve vizyonun kuruluş hedeflerine verdiği destekle ilgili olarak herkesin aynı noktada buluşmasını sağlar.
 
 -   **Veri Kataloğu'nu kullanmaları için ilham verin** - Vizyonunuz ve iletişim planınız kişilere, verilerle daha fazlasını başarmak üzere veri kaynaklarını bulmak ve bunlara bağlanmak için Veri Kataloğu'ndan yararlanabileceklerini göstermelidir.
 
--   **Belirli hedefler ve belirli bir zaman çizelgesi belirtin** - Bu, benimseme planınızın ayrıntılı ve erişilebilir sonuçlara sahip olmasını sağlar. Zaman çizelgesi herkesin odağını korur ve başarıyı ölçmeye yönelik denetim noktalarına olanak tanır.
+-   **Hedefler ve zaman çizelgesi belirtin** - Bu, benimseme planınızın ayrıntılı ve erişilebilir sonuçlara sahip olmasını sağlar. Zaman çizelgesi herkesin odağını korur ve başarıyı ölçmeye yönelik denetim noktalarına olanak tanır.
 
 Aşağıda, Adventure Works adlı kurgusal şirket için örnek bir Veri Kataloğu vizyon mesajı verilmiştir:
 
-**Azure Veri Kataloğu**, Adventure Works Finans ekibini önemli veri kaynakları konusunda iş birliği yapmaya teşvik edecektir; böylece her ekip üyesi, ihtiyacı olan verileri kolayca bulup kullanabilecek ve bilgilerini ekibin tamamıyla paylaşabilecektir.
+**Azure Veri Kataloğu**, Adventure Works Finans ekibini önemli veri kaynakları konusunda iş birliği yapmaya teşvik eder; böylece her ekip üyesi, ihtiyacı olan verileri kolayca bulup kullanabilir ve bilgilerini ekibin tamamıyla paylaşabilir.
 
 Net bir vizyon mesajınız olduğunda, Veri Kataloğu için uygun bir pilot proje tanımlamanız gerekir. Genellikle Veri Kataloğu için birkaç senaryo mevcuttur; bu nedenle sonraki bölümde ilgili kullanım durumlarını tanımlamaya yönelik birkaç ipucu sağlanmıştır.
 
@@ -105,7 +105,7 @@ Ekibin dengeli bir sunuma sahip olabilmesi için ilk projeniz, veri üreten ve v
 
 **Veri Tüketicileri**, verilerin iş sorunlarını çözmeye yönelik kullanımı konusunda uzmanlık sahibi kişilerdir. Örneğin, Nancy, veri analizi için Adventure Works SQL Server veri kaynaklarını kullanan bir iş analistidir.
 
-**Azure Veri Kataloğu**'nun çözüm getirdiği iş sorunlarından biri, **Veri Üreticileri**'nin **Veri Tüketicileri** ile bağlanmasıdır. Bunu, kurumsal veri kaynakları hakkındaki bilgiler için merkezi bir depo görevi görerek gerçekleştirir. David, Veri Kataloğu'nu kullanarak Adventure Works ve SQL Server veri kaynaklarını kaydeder. Bu veri kaynağını bulan herhangi bir kullanıcı, kitle kaynak olanağını kullanarak verilere ilişkin görüşlerini paylaşabilir ve bulduğu verileri kullanabilir. Örneğin, Nancy katalogda arama yaparak veri kaynaklarını bulur ve verilerle ilgili uzman bilgilerini paylaşır.  Böylece kuruluş bünyesindeki diğer kişiler yalnızca katalogda arama yaparak paylaşılan bilgilerden faydalanabilir.
+**Azure Veri Kataloğu**'nun çözdüğü iş sorunlarından biri, **Veri Üreticileri**'nin **Veri Tüketicileri**’ne bağlanmasıdır. Bunu, kurumsal veri kaynakları hakkındaki bilgiler için merkezi bir depo görevi görerek gerçekleştirir. David, Veri Kataloğu'nu kullanarak Adventure Works ve SQL Server veri kaynaklarını kaydeder. Bu veri kaynağını bulan herhangi bir kullanıcı, kitle kaynak olanağını kullanarak verilere ilişkin görüşlerini paylaşabilir ve bulduğu verileri kullanabilir. Örneğin, Nancy katalogda arama yaparak veri kaynaklarını bulur ve verilerle ilgili uzman bilgilerini paylaşır.  Böylece kuruluş bünyesindeki diğer kişiler yalnızca katalogda arama yaparak paylaşılan bilgilerden faydalanabilir.
 
 -   Veri kaynaklarını kaydetme hakkında daha fazla bilgi için bkz. [Veri kaynaklarını kaydetme](data-catalog-get-started.md#exercise-2-registering-data-sources).
 
@@ -121,7 +121,7 @@ Sonraki bölümde, Adventure Works şirketine ait bir örnek proje açıklanmakt
 ### Örnek proje
 Bu örnekte, iş analisti olan Nancy, SQL Server veritabanındaki verileri kullanarak ekibi için raporlar oluşturmaktadır. Sorun, yalnızca birkaç iş arkadaşı ile görüştükten sonra veri kaynağından haberdar olmuş olmasıdır. Bu veri kaynaklarının **Azure Veri Kataloğu** gibi merkezi bir konumda kayıtlı ve açıklama eklenmiş olarak bulunması durumunda bunları hızlı bir şekilde bulmuş olacaktı.
 
-Nancy ve ekibinin yüksek değere sahip veri kaynaklarını ne kadar kolay bulabileceğini göstermek açısından, Kataloğu veri kaynakları ile ilgili bilgilerle (meta veriler) doldurmak için veri kaynağı kayıt aracını kullanırsınız. Böylece, veritabanı ile ilgili bilgiler yalnızca birkaç kişi tarafından değil, ekip ve kuruluş tarafından kullanılabilir. Veri kaynakları Veri Kataloğu'na kaydedildikten sonra, Nancy ve ekibi kullandıkları veri kaynaklarını kolayca bulabilir. Sonuç olarak ekibi için ve kuruluş için daha kapsamlı, ilgi düzeyi yüksek bir veri kataloğu elde edilir. Veri Kataloğu'nu benimseyen ekiplerin sayısı arttıkça işle ilgili veri kaynaklarının bulunması ve kullanılması kolaylaşır; böylece, verilerinizden daha fazla sonuç elde edilebilmesi için daha veri merkezli bir kültüre olanak tanınır.
+Nancy ve ekibinin yüksek değere sahip veri kaynaklarını ne kadar kolay bulabileceğini göstermek açısından, Kataloğu veri kaynakları ile ilgili bilgilerle (meta veriler) doldurmak için veri kaynağı kayıt aracını kullanırsınız. Böylece, veritabanı ile ilgili bilgiler yalnızca birkaç kişi tarafından değil, ekip ve kuruluş tarafından kullanılabilir. Veri kaynakları Veri Kataloğu'na kaydedildikten sonra, Nancy ve ekibi bunları kolayca kullanabilir. Sonuç olarak ekibi için ve kuruluş için daha kapsamlı, ilgi düzeyi yüksek bir veri kataloğu elde edilir. Veri Kataloğu'nu benimseyen ekiplerin sayısı arttıkça işle ilgili veri kaynaklarının bulunması ve kullanılması kolaylaşır; böylece, verilerinizden daha fazla sonuç elde edilebilmesi için daha veri merkezli bir kültüre olanak tanınır.
 
 Veri kaynağı kayıt aracı hakkında daha fazla bilgi için bkz. [Azure Veri Kataloğu ile çalışmaya başlama](data-catalog-get-started.md).
 
@@ -136,7 +136,7 @@ Bu aşamada, Veri Kataloğu için kullanım durumlarını ve ilk projenizi tanı
 
 Aşağıda başlamanıza yardımcı olacak birkaç ipucu verilmiştir:
 
--   **Heyecan yaratın** - İş kullanıcıları, **Azure Veri Kataloğu**'nun hayatlarını kolaylaştıracağına inanmaları halinde heyecan duyacaktır. Teknolojiden ziyade, çözüm ve sağladığı avantajlar üzerine konuşmaya çalışın.
+-   **Heyecan yaratın** - İş kullanıcıları, **Azure Veri Kataloğu**'nun hayatlarını kolaylaştırdığına inanmaları halinde heyecan duyacaktır. Teknolojiden ziyade, çözüm ve sağladığı avantajlar üzerine konuşmaya çalışın.
 
 -   **Değişimi kolaylaştırın** - Küçük başlayın ve planı iş kullanıcılarına iletin. Başarılı olmak için, kullanıcıların başlangıçtan itibaren sürece dahil edilmesi hayati önem taşır; böylece kullanıcılar sonucu etkiler ve çözüme ilişkin bir sahiplik duygusu geliştirir.
 
@@ -153,7 +153,7 @@ Beklenti ve hedeflerin belirlenmesi, iş kullanıcılarının belirli sonuçlara
 
 Bazı ek açıklamaları gözden geçirmek için ekiple düzenli aralıklarla toplanın. Veri kaynakları ile ilgili etkili ek açıklamalar, Veri Kataloğu'nun başarıyla benimsenmesinde temel rol oynar; bunun nedeni, söz konusu ek açıklamaların merkezi bir konumda anlamlı veri kaynağı öngörüleri sağlamasıdır. Etkili ek açıklamalar olmadan, veri kaynakları ile ilgili bilgiler kuruluş geneline dağılmış halde kalır. Bkz. [Veri kaynaklarına açıklama ekleme](data-catalog-get-started.md#exercise-4-annotating-registered-data-sources).
 
-Elbette projeyi test edecek nihai unsur, kullanıcıların kullanmaya ihtiyaç duydukları veri kaynaklarını bulma ve anlama başarısıdır. Pilot kullanıcılar, günlük işleri için kullandıkları veri kaynaklarının ilgili olduğundan emin olmak için kataloğu düzenli olarak test etmelidir. Gerekli bir veri kaynağı eksik olduğunda veya bu veri kaynağına düzgün olmayan bir şekilde açıklama eklendiğinde bu, ek veri kaynaklarının kaydedilmesine veya ilave ek açıklamaların sağlanmasına yönelik bir hatırlatma işlevi görecektir. Bu uygulama pilot girişime değer kazandırmanın yanı sıra, pilot projenin tamamlanmasının ardından diğer ekiplere devredilecek etkili alışkanlıkların oluşturulmasını sağlar.
+Elbette projeyi test edecek nihai unsur, kullanıcıların kullanmaya ihtiyaç duydukları veri kaynaklarını bulma ve anlama başarısıdır. Pilot kullanıcılar, günlük işleri için kullandıkları veri kaynaklarının ilgili olduğundan emin olmak için kataloğu düzenli olarak test etmelidir. Gerekli bir veri kaynağı eksik olduğunda veya bu veri kaynağına düzgün olmayan bir şekilde açıklama eklendiğinde bu, ek veri kaynaklarının kaydedilmesine veya ilave ek açıklamaların sağlanmasına yönelik bir hatırlatma işlevi görecektir. Bu uygulama, pilot girişime değer kazandırmanın yanı sıra pilot projenin tamamlanmasının ardından diğer ekiplere devredilecek etkili alışkanlıkların oluşturulmasını sağlar.
 
 ### Eğitim verme
 Eğitim, kullanıcılara başlangıç için gerekli bilgileri sağlayacak düzeyde olmalı ve pilot ekip üyelerinin ayrıntılı hedeflerine ve deneyim düzeyine uyarlanmalıdır. Eğitime başlamak için [Azure veri Kataloğu ile çalışmaya başlama](data-catalog-get-started.md) makalesindeki adımları uygulayabilirsiniz. Ayrıca [Azure Veri Kataloğu Pilot Proje Eğitimi sunumunu](https://github.com/Azure-Samples/data-catalog-dotnet-get-started/blob/master/Azure%20Data%20Catalog%20Training.pptx?raw=true) indirebilirsiniz. Bu PowerPoint sunumu, Veri Kataloğu'nu pilot ekip üyelerinize tanıtmaya başlamanıza yardımcı olacaktır.
@@ -176,6 +176,6 @@ Bu makalede, kuruluşunuzda **Azure Veri Kataloğu** ile çalışmaya başlama k
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

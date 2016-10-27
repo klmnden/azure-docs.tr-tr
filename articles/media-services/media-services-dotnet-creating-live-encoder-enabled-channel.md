@@ -13,12 +13,12 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="get-started-article"
-    ms.date="09/15/2016"
+    ms.date="10/12/2016"
     ms.author="juliako;anilmur"/>
 
 
 
-#.NET çoklu bit hızına sahip akışlar oluşturmak üzere Azure Media Services’i kullanarak canlı akış gerçekleştirme
+#<a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multi-bitrate-streams-with-.net"></a>.NET çoklu bit hızına sahip akışlar oluşturmak üzere Azure Media Services’i kullanarak canlı akış gerçekleştirme
 
 > [AZURE.SELECTOR]
 - [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
@@ -26,16 +26,16 @@
 - [REST API](https://msdn.microsoft.com/library/azure/dn783458.aspx)
 
 >[AZURE.NOTE]
-> Bu öğreticiyi tamamlamak için bir Azure hesabınızın olması gerekir. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](/pricing/free-trial/?WT.mc_id=A261C142F). 
+> Bu öğreticiyi tamamlamak için bir Azure hesabınızın olması gerekir. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](/pricing/free-trial/?WT.mc_id=A261C142F).
 
-##Genel Bakış
+##<a name="overview"></a>Genel Bakış
 
 Bu öğreticide, tek bit hızında bir canlı akışı alıp çoklu bit hızında akışa kodlayan bir **Kanal** oluşturulması adım adım anlatılmaktadır.
 
 Gerçek zamanlı kodlama için etkinleştirilmiş Kanallar ile ilgili daha fazla kavramsal bilgi için bkz. [Çoklu bit hızı akışları oluşturmak için Azure Media Services kullanarak canlı akış](media-services-manage-live-encoder-enabled-channels.md).
 
 
-##Ortak Canlı Akış Senaryosu
+##<a name="common-live-streaming-scenario"></a>Ortak Canlı Akış Senaryosu
 
 Aşağıdaki adımlar, ortak canlı akış uygulamaları oluşturmak için gerekli olan görevleri açıklamaktadır.
 
@@ -43,17 +43,17 @@ Aşağıdaki adımlar, ortak canlı akış uygulamaları oluşturmak için gerek
 
 1. Bilgisayara bir video kamera bağlayın. Şu protokollerin birinde tek bit hızlı bir akış çıkışı sağlayabilecek şirket içi bir gerçek zamanlı kodlayıcı başlatıp bunu yapılandırın: RTMP, Kesintisiz Akış veya RTP (MPEG-TS). Daha fazla bilgi için bkz. [Azure Media Services RTMP Desteği ve Gerçek Zamanlı Kodlayıcılar](http://go.microsoft.com/fwlink/?LinkId=532824).
 
-    Bu adım, Kanalınızı oluşturduktan sonra da gerçekleştirilebilir.
+Bu adım, Kanalınızı oluşturduktan sonra da gerçekleştirilebilir.
 
 1. Bir Kanal oluşturup başlatın.
 
 1. Kanal alma URL’sini alın.
 
-    Alma URL’si gerçek zamanlı kodlayıcı tarafından akışı Kanala göndermek için kullanılır.
+Alma URL’si gerçek zamanlı kodlayıcı tarafından akışı Kanala göndermek için kullanılır.
 
 1. Kanal önizleme URL’sini alın.
 
-    Kanalınızın canlı akışı düzgün şekilde aldığını doğrulamak için bu URL’yi kullanın.
+Kanalınızın canlı akışı düzgün şekilde aldığını doğrulamak için bu URL’yi kullanın.
 
 2. Bir varlık oluşturun.
 3. Varlığın kayıttan yürütme sırasında dinamik olarak şifrelenmesini istiyorsanız aşağıdakileri yapın:
@@ -63,14 +63,14 @@ Aşağıdaki adımlar, ortak canlı akış uygulamaları oluşturmak için gerek
 3. Bir program oluşturun ve oluşturduğunuz varlığın kullanılacağını belirtin.
 1. Bir OnDemand bulucu oluşturarak programla ilişkili varlığı yayımlayın.
 
-    İçerik akışını gerçekleştirmek istediğiniz akış uç noktasında akışa ayrılan en az bir birim olduğundan emin olun.
+İçerik akışını gerçekleştirmek istediğiniz akış uç noktasında akışa ayrılan en az bir birim olduğundan emin olun.
 
 1. Akışı ve arşivlemeyi başlatmaya hazır olduğunuzda programı başlatın.
 2. İsteğe bağlı olarak, gerçek zamanlı kodlayıcıya bir reklam başlatması bildirilebilir. Reklam, çıktı akışına eklenir.
 1. Olay için akışı ve arşivlemeyi durdurmak istediğinizde programı durdurun.
 1. Programı silin (ve isteğe bağlı olarak varlığı da silin).
 
-## Öğrenecekleriniz
+## <a name="what-you'll-learn"></a>Öğrenecekleriniz
 
 Bu konuda, Media Services .NET SDK'sını kullanarak kanallar ve programlarda farklı işlemlerin nasıl yürütüleceği gösterilmektedir. İşlemlerin çoğu uzun süre çalışacağından, uzun süre çalışan işlemleri yöneten .NET API'leri kullanılmaktadır.
 
@@ -86,37 +86,37 @@ Bu konuda aşağıdakilerin nasıl gerçekleştirileceği gösterilmektedir.
 1. Kanalınızı ve ilişkili tüm kaynakları temizleyin.
 
 
-##Önkoşullar
+##<a name="prerequisites"></a>Önkoşullar
 
 Öğreticiyi tamamlamak için aşağıdakiler gereklidir.
 
-- Bu öğreticiyi tamamlamak için bir Azure hesabınızın olması gerekir. 
-    
-    Hesabınız yoksa yalnızca birkaç dakika içinde ücretsiz bir deneme sürümü hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](/pricing/free-trial/?WT.mc_id=A261C142F). Ücretli Azure hizmetlerini denemek için kullanabileceğiniz krediler alırsınız. Krediler bitmiş olsa bile hesabı sürdürebilir ve Azure App Service’deki Web Apps özelliği gibi ücretsiz Azure hizmetlerinden faydalanabilirsiniz.
-- Bir Media Services hesabı. Media Services hesabı oluşturma konusunda bilgi edinmek için bkz. [Hesap Oluşturma](media-services-create-account.md).
+- Bu öğreticiyi tamamlamak için bir Azure hesabınızın olması gerekir.
+
+Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](/pricing/free-trial/?WT.mc_id=A261C142F). Ücretli Azure hizmetlerini denemek için kullanabileceğiniz krediler alırsınız. Krediler bitmiş olsa bile hesabı sürdürebilir ve Azure App Service’deki Web Apps özelliği gibi ücretsiz Azure hizmetlerinden faydalanabilirsiniz.
+- Bir Media Services hesabı. Media Services hesabı oluşturma konusunda bilgi edinmek için bkz. [Hesap Oluşturma](media-services-portal-create-account.md).
 - Visual Studio 2010 SP1 (Professional, Premium, Ultimate veya Express) veya sonraki sürümleri.
 - Media Services .NET SDK sürüm 3.2.0.0 veya daha yeni bir sürümünü kullanmanız gerekir.
 - Bir web kamerası ve tek bit hızlı bir canlı akış gönderebilen bir kodlayıcı.
 
-##Dikkat edilmesi gerekenler
+##<a name="considerations"></a>Dikkat edilmesi gerekenler
 
 - Canlı bir etkinlik için önerilen en uzun süre şu anda 8 saattir. Daha uzun bir süre için bir Kanal çalıştırmanız gerekiyorsa lütfen amslived@microsoft.com adresine başvurun.
 - İçerik akışını gerçekleştirmek istediğiniz akış uç noktasında akışa ayrılan en az bir birim olduğundan emin olun.
 
-##Örnek indirme
+##<a name="download-sample"></a>Örnek indirme
 
 [Buradan](https://azure.microsoft.com/documentation/samples/media-services-dotnet-encode-live-stream-with-ams-clear/) bir örnek alarak çalıştırın.
 
 
-##.NET için Media Services SDK ile geliştirme amaçlı ayarlama
+##<a name="set-up-for-development-with-media-services-sdk-for-.net"></a>.NET için Media Services SDK ile geliştirme amaçlı ayarlama
 
 1. Visual Studio'yu kullanarak bir konsol uygulaması oluşturun.
 1. Media Services NuGet paketini kullanarak .NET için Media Services SDK'sını konsol uygulamanıza ekleyin.
 
-##Media Services’e bağlanmak
+##<a name="connect-to-media-services"></a>Media Services’e bağlanmak
 En iyi uygulama olarak, bir app.config dosyası kullanarak Media Services adını ve hesap anahtarını depolamanız gerekir.
 
->[AZURE.NOTE]Ad ve Anahtar değerlerini bulmak için Klasik Azure portalına gidin, Medya Hizmeti hesabınızı seçin ve portal penceresinin en altındaki "ANAHTARLARI YÖNET" simgesine tıklayın. Her bir metin kutusunun yanındaki simgeye tıklandığında söz konusu değer sistem panosuna kopyalanır.
+>[AZURE.NOTE]Adı ve Anahtar değerlerini bulmak için Azure portal’a gidin ve hesabınızı seçin. Sağda Ayarlar penceresi görüntülenir. Ayarlar penceresinde Anahtarlar’ı seçin. Her bir metin kutusunun yanındaki simgeye tıklandığında söz konusu değer sistem panosuna kopyalanır.
 
 App.config dosyasına appSettings bölümünü ekleyin ve Media Services hesap adı ve hesap anahtarınızın değerlerini ayarlayın.
 
@@ -130,7 +130,7 @@ App.config dosyasına appSettings bölümünü ekleyin ve Media Services hesap a
     </configuration>
      
     
-##Kod örneği
+##<a name="code-example"></a>Kod örneği
 
     using System;
     using System.Collections.Generic;
@@ -519,22 +519,22 @@ App.config dosyasına appSettings bölümünü ekleyin ve Media Services hesap a
     }   
 
 
-##Sonraki adım
+##<a name="next-step"></a>Sonraki adım
 
 Media Services öğrenme yollarını gözden geçirin.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##Geri bildirimde bulunma
+##<a name="provide-feedback"></a>Geri bildirimde bulunma
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-### Başka bir şey mi arıyorsunuz?
+### <a name="looking-for-something-else?"></a>Başka bir şey mi arıyorsunuz?
 
 Beklediklerinizi bu konuda bulamadıysanız, eksik bir şeyler varsa veya herhangi bir nedenle gereksinimleriniz karşılanmadıysa, lütfen aşağıdaki Disqus yazışmasını kullanarak bize geri bildirimde bulunun.
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

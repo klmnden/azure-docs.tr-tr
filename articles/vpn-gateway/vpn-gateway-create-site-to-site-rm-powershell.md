@@ -70,7 +70,7 @@ Kullanmak istediğiniz aboneliği belirtin.
 
 ## 2. Sanal ağ ve ağ geçidi alt ağı oluşturma
 
-Örneklerde /28 boyutunda bir ağ geçidi alt ağı kullanılmaktadır. /29 kadar küçük bir ağ geçidi alt ağı oluşturmak mümkün olsa da bu boyut önerilmez. Ek özellik gereksinimlerini karşılamak üzere /27 veya daha büyük (/26, /25 vb.) bir ağ geçidi alt ağı kullanmanızı öneriyoruz. 
+Örneklerde /28 boyutunda bir ağ geçidi alt ağı kullanılmaktadır. /29 kadar küçük bir ağ geçidi alt ağı oluşturmak mümkün olsa da en az /28 veya /27’yi seçerek daha fazla adres içeren büyük bir alt ağ oluşturmanızı öneririz. Bu, gelecekte isteyebileceğiniz ek yapılandırmaları da içerecek yeteri kadar adres sağlayacaktır.
 
 /29 veya daha büyük bir ağ geçidi alt ağına sahip bir sanal ağınız varsa, [Yerel ağ geçidinizi ekleme](#localnet) bölümüne atlayabilirsiniz.
 
@@ -226,6 +226,6 @@ Yerel ağ geçidiniz için ön ekleri değiştirmeniz gerekirse aşağıdaki yö
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Oct16_HO3-->
 
 

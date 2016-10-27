@@ -1,45 +1,46 @@
 <properties
-	pageTitle="Create a Virtual Machine Scale Set | Microsoft Azure"
-	description="Create a Virtual Machine Scale Set using PowerShell"
-	services="virtual-machine-scale-sets"
+    pageTitle="PowerShell kullanarak Sanal Makine Ölçek Kümesi Oluşturma | Microsoft Azure"
+    description="PowerShell kullanarak Sanal Makine Ölçek Kümesi oluşturma"
+    services="virtual-machine-scale-sets"
     documentationCenter=""
-	authors="davidmu1"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
+    authors="davidmu1"
+    manager="timlt"
+    editor=""
+    tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machine-scale-sets"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/25/2016"
-	ms.author="davidmu"/>
+    ms.service="virtual-machine-scale-sets"
+    ms.workload="na"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="10/10/2016"
+    ms.author="davidmu"/>
 
-# Create a Windows Virtual Machine Scale Set using Azure PowerShell
 
-These steps follow a fill-in-the-blanks approach for creating an Azure Virtual Machine Scale Set. See [Virtual Machine Scale Sets Overview](virtual-machine-scale-sets-overview.md) to learn more about scale sets.
+# <a name="create-a-windows-virtual-machine-scale-set-using-azure-powershell"></a>Azure PowerShell kullanarak bir Windows sanal makine ölçek kümesi oluşturma
 
-It should take about 30 minutes to do the steps in this article.
+Bu adımlar bir Azure sanal makine ölçek kümesi oluşturmaya yönelik boşluk doldurma yaklaşımını izlemektedir. Ölçek kümeleri hakkında daha fazla bilgi almak için bkz. [Sanal Makine Ölçek Kümeleri’ne Genel Bakış](virtual-machine-scale-sets-overview.md).
 
-## Step 1: Install Azure PowerShell
+Bu makaledeki adımların uygulanması yaklaşık 30 dakika sürer.
 
-See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for information about how to install the latest version of Azure PowerShell, select the subscription that you want to use, and sign in to your Azure account.
+## <a name="step-1:-install-azure-powershell"></a>1. adım: Azure PowerShell'i yükleme
 
-## Step 2: Create resources
+Azure PowerShell’in en son sürümünü yükleme, aboneliğinizi seçme ve hesabınızda oturum açma hakkında bilgi almak için bkz. [Azure PowerShell’i yükleme ve yapılandırma](../powershell-install-configure.md).
 
-Create the resources that are needed for your new virtual machine scale set.
+## <a name="step-2:-create-resources"></a>2. Adım: Kaynak oluşturma
 
-### Resource group
+Yeni ölçek kümeniz için gereken kaynakları oluşturun.
 
-A virtual machine scale set must be contained in a resource group.
+### <a name="resource-group"></a>Kaynak grubu
 
-1.  Get a list of available locations and the services that are supported:
+Bir kaynak grubunda bir sanal makine ölçek kümesi yer almalıdır.
+
+1. Kullanılabilir konumların ve desteklenen hizmetlerin bir listesini alın:
 
         Get-AzureLocation | Sort Name | Select Name, AvailableServices
 
-    You should see something like this
+    Bu örnektekine benzer bir şey görmeniz gerekir:
 
         Name                AvailableServices
         ----                -----------------
@@ -62,19 +63,19 @@ A virtual machine scale set must be contained in a resource group.
         West India          {Compute, Storage, PersistentVMRole, HighMemory}
         West US             {Compute, Storage, PersistentVMRole, HighMemory}
 
-2. Pick a location that works best for you, replace the value of **$locName** with that location name, and then create the variable:
+2. Sizin için en uygun konumu seçin, **$locName** değerini konum adıyla değiştirin ve ardından değişkeni oluşturun:
 
         $locName = "location name from the list, such as Central US"
 
-3. Replace the value of **$rgName** with the name that you want to use for the new resource group and then create the variable: 
+3. **$rgName** değerini yeni kaynak grubu için kullanmak istediğiniz adla değiştirin ve ardından değişkeni oluşturun: 
 
         $rgName = "resource group name"
         
-4. Create the resource group:
+4. Kaynak grubunu oluşturun:
     
         New-AzureRmResourceGroup -Name $rgName -Location $locName
 
-    You should see something like this:
+    Bu örnektekine benzer bir şey görmeniz gerekir:
 
         ResourceGroupName : myrg1
         Location          : centralus
@@ -82,36 +83,33 @@ A virtual machine scale set must be contained in a resource group.
         Tags              :
         ResourceId        : /subscriptions/########-####-####-####-############/resourceGroups/myrg1
 
-### Storage account
+### <a name="storage-account"></a>Depolama hesabı
 
-A storage account is used by a virtual machine to store the operating system disk and diagnostic data used for scaling. It is a best practice to have one storage account for every 20 virtual machines created in a scale set. Since scale sets are designed to be easy to scale out, create as many storage accounts as you need for the maximum number of virtual machines you plan your scale set to grow to. The example in this article shows 3 storage accounts being created, allowing the scale set to grow comfortably to 60 virtual machines.
+Ölçeklendirme için kullanılan işletim sistemi diskini ve tanılama verilerini depolamak için sanal makine tarafından bir depolama hesabı kullanılır. Mümkün olduğunda, bir ölçek kümesi içinde oluşturulan her sanal makine için bir depolama hesabına sahip olunması en iyi uygulamadır. Bu mümkün değilse, her depolama hesabı için en fazla 20 VM planlayın. Bu makaledeki örnekte üç sanal makine için oluşturulan üç depolama hesabı gösterilmektedir.
 
-1. Replace the value of **saName** with the name that you want to use for the storage account and then create the variable: 
+1. **$saName** değerini depolama hesabının adıyla değiştirin. Adın benzersizliğini test edin. 
 
         $saName = "storage account name"
-        
-2. Test whether the name that you selected is unique:
-    
-        Test-AzureName -Storage $saName
+        Get-AzureRmStorageAccountNameAvailability $saName
 
-    If the answer is **False**, your proposed name is unique.
+    Yanıt **True** ise önerdiğiniz ad benzersizdir.
 
-3. Replace the value of **$saType** with the type of the storage account and then create the variable:  
+3. **$saType** değerini depolama hesabının türüyle değiştirin ve ardından değişkeni oluşturun:  
 
         $saType = "storage account type"
         
-    Possible values are: Standard_LRS, Standard_GRS, Standard_RAGRS, or Premium_LRS.
+    Olası değerler şunlardır: Standard_LRS, Standard_GRS, Standard_RAGRS veya Premium_LRS.
         
-4. Create the account:
+4. Hesabı oluşturun:
     
         New-AzureRmStorageAccount -Name $saName -ResourceGroupName $rgName –Type $saType -Location $locName
 
-    You should see something like this:
+    Bu örnektekine benzer bir şey görmeniz gerekir:
 
         ResourceGroupName   : myrg1
         StorageAccountName  : myst1
         Id                  : /subscriptions/########-####-####-####-############/resourceGroups/myrg1/providers/Microsoft
-	                    	.Storage/storageAccounts/myst1
+                              .Storage/storageAccounts/myst1
         Location            : centralus
         AccountType         : StandardLRS
         CreationTime        : 3/15/2016 4:51:52 PM
@@ -127,93 +125,93 @@ A storage account is used by a virtual machine to store the operating system dis
         Tags                : {}
         Context             : Microsoft.WindowsAzure.Commands.Common.Storage.AzureStorageContext
 
-5. Repeat steps 1 through 4 to create 3 storage accounts, for example myst1, myst2, and myst3.
+5. Üç depolama hesabı oluşturmak için 1 ile 4 arasındaki adımları tekrarlayın: örneğin myst1, myst2 ve myst3.
 
-### Virtual network
+### <a name="virtual-network"></a>Sanal ağ
 
-A virtual network is required for the virtual machines in the scale set.
+Ölçek kümesindeki sanal makineler için bir sanal ağ gereklidir.
 
-1. Replace the value of **$subName** with the name that you want to use for the subnet in the virtual network and then create the variable: 
+1. **$subnetName** değerini sanal ağdaki alt ağ için kullanmak istediğiniz adla değiştirin ve ardından değişkeni oluşturun: 
 
-        $subName = "subnet name"
+        $subnetName = "subnet name"
         
-2. Create the subnet configuration:
+2. Alt ağ yapılandırmasını oluşturun:
     
-        $subnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subName -AddressPrefix 10.0.0.0/24
+        $subnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/24
         
-    The address prefix may be different in your virtual network.
+    Adres ön eki sanal ağınızdakinden farklı olabilir.
 
-3. Replace the value of **$netName** with the name that you want to use for the virtual network and then create the variable: 
+3. **$netName** değerini sanal ağ için kullanmak istediğiniz adla değiştirin ve ardından değişkeni oluşturun: 
 
         $netName = "virtual network name"
         
-4. Create the virtual network:
+4. Sanal ağı oluşturun:
     
         $vnet = New-AzureRmVirtualNetwork -Name $netName -ResourceGroupName $rgName -Location $locName -AddressPrefix 10.0.0.0/16 -Subnet $subnet
 
-### Public IP address
+### <a name="public-ip-address"></a>Genel IP adresi
 
-Before a network interface can be created, you need to create a public IP address.
+Bir ağ arabiriminin oluşturulabilmesi için genel bir IP adresi oluşturmanız gerekir.
 
-1. Replace the value of **$domName** with the domain name label that you want to use with your public IP address and then create the variable:  
+1. **$domName** değerini genel IP adresinizle kullanmak istediğiniz etki alanı ad etiketiyle değiştirin ve ardından değişkeni oluşturun:  
 
         $domName = "domain name label"
         
-    The label can contain only letters, numbers, and hyphens, and the last character must be a letter or number.
+    Etiket yalnızca harf, rakam ve tire içerebilir ve son karakterin bir harf veya sayı olması gerekir.
     
-2. Test whether the name is unique:
+2. Adın benzersiz olup olmadığını test edin:
     
         Test-AzureRmDnsAvailability -DomainQualifiedName $domName -Location $locName
 
-    If the answer is **True**, your proposed name is unique.
+    Yanıt **True** ise önerdiğiniz ad benzersizdir.
 
-3. Replace the value of **$pipName** with the name that you want to use for the public IP address and then create the variable. 
+3. **$pipName** değerini genel IP adresi için kullanmak istediğiniz adla değiştirin ve ardından değişkeni oluşturun. 
 
         $pipName = "public ip address name"
         
-4. Create the public IP address:
+4. Genel IP adresini oluşturun:
     
         $pip = New-AzureRmPublicIpAddress -Name $pipName -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic -DomainNameLabel $domName
 
-### Network interface
+### <a name="network-interface"></a>Ağ arabirimi
 
-Now that you have the public IP address, you can create the network interface.
+Artık genel IP adresine sahip olduğunuza göre ağ arabirimini oluşturabilirsiniz.
 
-1. Replace the value of **$nicName** with the name that you want to use for the network interface and then create the variable: 
+1. **$nicName** değerini ağ arabirimi için kullanmak istediğiniz adla değiştirin ve ardından değişkeni oluşturun: 
 
         $nicName = "network interface name"
         
-2. Create the network interface:
+2. Ağ arabirimini oluşturun:
     
         $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
 
-### Configuration of the scale set
+### <a name="configuration-of-the-scale-set"></a>Ölçek kümesinin yapılandırması
 
-You have all the resources that you need for the scale set configuration, so let's create it.  
+Ölçek kümesi yapılandırması için gereken tüm kaynaklara sahip olduğunuza göre artık ölçek kümesini oluşturabiliriz.  
 
-1. Replace the value of **$ipName** with the name that you want to use for the IP configuration and then create the variable: 
+1. **$ipName** değerini IP yapılandırması için kullanmak istediğiniz adla değiştirin ve ardından değişkeni oluşturun: 
 
         $ipName = "IP configuration name"
         
-2. Create the IP configuration:
+2. IP yapılandırmasını oluşturun:
 
         $ipConfig = New-AzureRmVmssIpConfig -Name $ipName -LoadBalancerBackendAddressPoolsId $null -SubnetId $vnet.Subnets[0].Id
 
-2. Replace the value of **$vmssConfig** with the name that you want to use for the scale set configuration and then create the variable:   
+2. **$vmssConfig** değerini ölçek kümesi yapılandırması için kullanmak istediğiniz adla değiştirin ve ardından değişkeni oluşturun:   
 
         $vmssConfig = "Scale set configuration name"
         
-3. Create the configuration for the scale set:
+3. Ölçek kümesi yapılandırmasını oluşturun:
 
-        $vmss = New-AzureRmVmssConfig -Location $locName -SkuCapacity 3 -SkuName "Standard_A1" -UpgradePolicyMode "manual"
+        $vmss = New-AzureRmVmssConfig -Location $locName -SkuCapacity 3 -SkuName "Standard_A0" -UpgradePolicyMode "manual"
         
-    This example shows a scale set being created with 3 virtual machines. See [Virtual Machine Scale Sets Overview](virtual-machine-scale-sets-overview.md) for more about the capacity of scale sets. This step also includes setting the size (referred to as SkuName) of the virtual machines in the set. Look at [Sizes for virtual machines](../virtual-machines/virtual-machines-windows-sizes.md) to find a size that meets your needs.
+    Bu örnekte üç sanal makine ile oluşturulan bir ölçek kümesi gösterilmektedir. Ölçek kümelerinin kapasitesi hakkında daha fazla bilgi için bkz. [Sanal Makine Ölçek Kümelerine Genel Bakış](virtual-machine-scale-sets-overview.md). Bu adım ayrıca kümedeki sanal makinelerin boyutunu ayarlamayı (SkuName olarak adlandırılır) içerir. İhtiyaçlarınıza uygun bir boyut bulmak için [Sanal makine boyutları](../virtual-machines/virtual-machines-windows-sizes.md) bölümüne bakın.
     
-4. Add the network interface configuration to the scale set configuration:
+4. Ağ arabirimi yapılandırmasını ölçek kümesi yapılandırmasına ekleyin:
         
         Add-AzureRmVmssNetworkInterfaceConfiguration -VirtualMachineScaleSet $vmss -Name $vmssConfig -Primary $true -IPConfiguration $ipConfig
         
-    You should see something like this:
+    Bu örnektekine benzer bir şey görmeniz gerekir:
 
         Sku                   : Microsoft.Azure.Management.Compute.Models.Sku
         UpgradePolicy         : Microsoft.Azure.Management.Compute.Models.UpgradePolicy
@@ -226,59 +224,59 @@ You have all the resources that you need for the scale set configuration, so let
         Location              : Central US
         Tags                  :
 
-#### Operating system  profile
+#### <a name="operating-system-profile"></a>İşletim sistemi profili
 
-1. Replace the value of **$computerName** with the computer name prefix that you want to use and then create the variable: 
+1. **$computerName** değerini kullanmak istediğiniz bilgisayar adıyla değiştirin ve ardından değişkeni oluşturun: 
 
         $computerName = "computer name prefix"
         
-2. Replace the value of **$adminName** the name of the administrator account on the virtual machines and then create the variable:
+2. **$adminName** değerini sanal makineler üzerindeki yönetici hesabının adıyla değiştirin ve ardından değişkeni oluşturun:
 
         $adminName = "administrator account name"
         
-3. Replace the value of **$adminPassword** with the account password and then create the variable:
+3. **$adminPassword** değerini hesap parolasıyla değiştirin ve ardından değişkeni oluşturun:
 
         $adminPassword = "password for administrator accounts"
         
-4. Create the operating system profile:
+4. İşletim sistemi profilini oluşturun:
 
         Set-AzureRmVmssOsProfile -VirtualMachineScaleSet $vmss -ComputerNamePrefix $computerName -AdminUsername $adminName -AdminPassword $adminPassword
 
-#### Storage profile
+#### <a name="storage-profile"></a>Depolama profili
 
-1. Replace the value of **$storageProfile** with the name that you want to use for the storage profile and then create the variable:  
+1. **$storageProfile** değerini depolama profili için kullanmak istediğiniz adla değiştirin ve ardından değişkeni oluşturun:  
 
         $storageProfile = "storage profile name"
         
-2. Create the variables that define the image to use:  
+2. Kullanılacak görüntüyü tanımlayan değişkenleri oluşturun:  
       
         $imagePublisher = "MicrosoftWindowsServer"
         $imageOffer = "WindowsServer"
         $imageSku = "2012-R2-Datacenter"
         
-    Look at [Navigate and select Azure virtual machine images with Windows PowerShell and the Azure CLI](../virtual-machines/virtual-machines-windows-cli-ps-findimage.md) to find the information about other images to use.
+    Kullanılacak diğer görüntüler hakkında bilgi almak için [Windows PowerShell ve Azure CLI ile Azure sanal makine görüntülerinde gezinme ve seçme](../virtual-machines/virtual-machines-windows-cli-ps-findimage.md).
         
-3. Replace the value of **$vhdContainers** with a list that contains the paths where the virtual hard disks are stored, such as "https://mystorage.blob.core.windows.net/vhds", and then create the variable:
+3. **$vhdContainers** değerini, "https://mystorage.blob.core.windows.net/vhds" gibi sanal sabit disklerin depolandığı yolları içeren bir listeyle değiştirin ve ardından değişkeni oluşturun:
        
         $vhdContainers = @("https://myst1.blob.core.windows.net/vhds","https://myst2.blob.core.windows.net/vhds","https://myst3.blob.core.windows.net/vhds")
         
-4. Create the storage profile:
+4. Depolama profilini oluşturun:
 
         Set-AzureRmVmssStorageProfile -VirtualMachineScaleSet $vmss -ImageReferencePublisher $imagePublisher -ImageReferenceOffer $imageOffer -ImageReferenceSku $imageSku -ImageReferenceVersion "latest" -Name $storageProfile -VhdContainer $vhdContainers -OsDiskCreateOption "FromImage" -OsDiskCaching "None"  
 
-### Virtual machine scale set
+### <a name="virtual-machine-scale-set"></a>Sanal makine ölçek kümesi
 
-Finally, you can create the scale set.
+Son olarak, ölçek kümesini oluşturabilirsiniz.
 
-1. Replace the value of **$vmssName** with the name of the virtual machine scale set and then create the variable:
+1. **$vmssName** değerini sanal makine ölçek kümesinin adıyla değiştirin ve ardından değişkeni oluşturun:
 
         $vmssName = "scale set name"
         
-2. Create the scale set:
+2. Ölçek kümesini oluşturun:
 
         New-AzureRmVmss -ResourceGroupName $rgName -Name $vmssName -VirtualMachineScaleSet $vmss
 
-    You should see something like this that shows you the deployment succeeded:
+    Başarılı dağıtımı gösteren bu örnek gibi bir şey görmeniz gerekir:
 
         Sku                   : Microsoft.Azure.Management.Compute.Models.Sku
         UpgradePolicy         : Microsoft.Azure.Management.Compute.Models.UpgradePolicy
@@ -286,19 +284,19 @@ Finally, you can create the scale set.
         ProvisioningState     : Updating
         OverProvision         :
         Id                    : /subscriptions/########-####-####-####-############/resourceGroups/myrg1/providers/Microso
-                               ft.Compute/virtualMachineScaleSets/myvmss1
+                                ft.Compute/virtualMachineScaleSets/myvmss1
         Name                  : myvmss1
         Type                  : Microsoft.Compute/virtualMachineScaleSets
         Location              : centralus
         Tags                  :
 
-## Step 3: Explore resources
+## <a name="step-3:-explore-resources"></a>3. Adım: Kaynakları keşfetme
 
-Use these resources to explore the virtual machine scale set that you just created:
+Oluşturduğunuz sanal makine ölçek kümesini keşfetmek için aşağıdaki kaynakları kullanın:
 
-- Azure portal - A limited amount of information is available using the portal.
-- [Azure Resource Explorer](https://resources.azure.com/) - This is the best tool for exploring the current state of your scale set.
-- Azure PowerShell - Use this command to get information:
+- Azure portalı - Portal kullanılarak sınırlı miktarda bilgiye ulaşılabilir.
+- [Azure Kaynak Gezgini](https://resources.azure.com/) - Bu araç, ölçek kümenizin mevcut durumunu araştırmak için en iyi yöntemdir.
+- Azure PowerShell - Bilgileri almak için şu komutu kullanın:
 
         Get-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name"
         
@@ -307,8 +305,14 @@ Use these resources to explore the virtual machine scale set that you just creat
         Get-AzureRmVmssVM -ResourceGroupName "resource group name" -VMScaleSetName "scale set name"
         
 
-## Next steps
+## <a name="next-steps"></a>Sonraki adımlar
 
-- Manage the scale set that you just created using the information in [Manage virtual machines in a Virtual Machine Scale Set](virtual-machine-scale-sets-windows-manage.md)
-- Consider setting up automatic scaling of your scale set by using information in [Automatic scaling and virtual machine scale sets](virtual-machine-scale-sets-autoscale-overview.md)
-- Learn more about vertical scaling by reviewing [Vertical autoscale with Virtual Machine Scale sets](virtual-machine-scale-sets-vertical-scale-reprovision.md)
+- [Bir Sanal Makine Ölçek Kümesindeki sanal makineleri yönetme](virtual-machine-scale-sets-windows-manage.md) bölümündeki bilgileri kullanarak yeni oluşturduğunuz ölçek kümesini yönetin
+- [Otomatik ölçeklendirme ve sanal makine ölçek kümeleri](virtual-machine-scale-sets-autoscale-overview.md) bölümündeki bilgileri kullanarak ölçek kümenizin otomatik ölçeklendirmesini ayarlamayı düşünün
+- [Sanal Makine Ölçek kümeleri ile dikey otomatik ölçeklendirme](virtual-machine-scale-sets-vertical-scale-reprovision.md) bölümünü gözden geçirerek dikey ölçeklendirme hakkında daha fazla bilgi edinin
+
+
+
+<!--HONumber=Oct16_HO3-->
+
+

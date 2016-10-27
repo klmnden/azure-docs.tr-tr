@@ -13,10 +13,11 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/19/2016"
+   ms.date="10/10/2016"
    ms.author="charwen"/>
 
-# Klasik dağıtım modeli için aynı anda varolabilen ExpressRoute ve Siteden Siteye bağlantılarını yapılandırma
+
+# <a name="configure-expressroute-and-site-to-site-coexisting-connections-for-the-classic-deployment-model"></a>Klasik dağıtım modeli için aynı anda varolabilen ExpressRoute ve Siteden Siteye bağlantılarını yapılandırma
 
 
 > [AZURE.SELECTOR]
@@ -31,26 +32,25 @@ Siteden Siteye VPN ve ExpressRoute yapılandırma yeteneğine sahip olmanın çe
 
 >[AZURE.IMPORTANT] Aşağıdaki yönergeleri izlemeden önce ExpressRoute bağlantı hatlarının önceden yapılandırılmış olması gerekir. Aşağıdaki adımları izlemeden önce [ExpressRoute bağlantı hattı oluşturma](expressroute-howto-circuit-classic.md) ve [yönlendirmeyi yapılandırma](expressroute-howto-routing-classic.md) kılavuzlarını izlediğinizden emin olun.
 
-## Sınırlar ve sınırlamalar
+## <a name="limits-and-limitations"></a>Sınırlar ve sınırlamalar
 
-- **Geçiş yönlendirme desteklenmiyor:** Siteden Siteye VPN aracılığıyla bağlanan yerel ağınız ve ExpressRoute aracılığıyla bağlanan yerel ağınız arasında (Azure üzerinden) yönlendirme yapamazsınız.
-- **Noktadan siteye desteklenmiyor:** ExpressRoute’a bağlı VNet üzerinde noktadan siteye VPN bağlantılarını etkinleştiremezsiniz. Noktadan siteye VPN ve ExpressRoute aynı VNet’te bir arada varolamaz.
-- **Zorlanan tünel Siteden Siteye VPN ağ geçidinde etkinleştirilemez:** İnternet’i hedefleyen tüm trafiği yalnızca ExpressRoute aracılığıyla şirket içi ağınıza geri dönmeye zorlayabilirsiniz. 
-- **Yalnızca standart veya yüksek performanslı ağ geçitleri:** ExpressRoute ağ geçidi ve Siteden Siteye VPN ağ geçidi için standart veya yüksek performanslı bir ağ geçidi kullanmanız gerekir. Ağ geçidi SKU’ları hakkında bilgi için bkz. [Ağ geçidi SKU’ları](../vpn-gateway/vpn-gateway-about-vpngateways.md).
-- **Yalnızca yol tabanlı VPN ağ geçidi:** Yol tabanlı bir VPN ağ geçidi kullanmanız gerekir. Yol tabanlı VPN ağ geçidi hakkında bilgi için bkz. [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md).
-- **Statik yol gereksinimi:** Yerel ağınız ExpressRoute ve bir Siteden Siteye VPN’e bağlıysa, Siteden Siteye VPN bağlantısını genel İnternet’e yönlendirmek için yerel ağınızda bir statik yol yapılandırılmış olmalıdır.
-- **ExpressRoute ağ geçidi önce yapılandırılmalıdır:** ExpressRoute ağ geçidini ilk olarak, Siteden Siteye VPN ağ geçidini eklemeden önce oluşturmanız gerekir.
+- **Geçiş yönlendirmesi desteklenmez.** Siteden Siteye VPN aracılığıyla bağlanan yerel ağınız ve ExpressRoute aracılığıyla bağlanan yerel ağınız arasında (Azure aracılığıyla) yönlendirme yapamazsınız.
+- **Noktadan siteye desteklenmez.** ExpressRoute’e bağlı aynı VNet için noktadan siteye VPN bağlantılarını etkinleştiremezsiniz. Noktadan siteye VPN ve ExpressRoute aynı VNet’te bir arada varolamaz.
+- **Zorlamalı tünel, Siteden Siteye VPN ağ geçidinde etkinleştirilemez.** ExpressRoute aracılığıyla İnternet’e bağlı tüm trafiği yalnızca şirket içi ağınıza geri “zorlayabilirsiniz”.
+- **Temel SKU ağ geçidi desteklenmez.** Hem [ExpressRoute ağ geçidi](expressroute-about-virtual-network-gateways.md) hem de [VPN ağ geçidi](../vpn-gateway/vpn-gateway-about-vpngateways.md) için Temel SKU olmayan bir ağ geçidi kullanmanız gerekir.
+- **Yalnızca rota tabanlı VPN ağ geçidi desteklenir.** Rota tabanlı [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) kullanmanız gerekir.
+- **VPN ağ geçidiniz için statik rota yapılandırılmalıdır.** Yerel ağınız hem ExpressRoute hem de Siteden Siteye VPN’e bağlıysa Siteden Siteye VPN bağlantısını genel İnternet’e yönlendirebilmeniz için yerel ağınızda statik bir rotanın yapılandırılmış olması gerekir.
+- **İlk olarak ExpressRoute ağ geçidi yapılandırılmalıdır.** Siteden Siteye VPN ağ geçidini ekleyebilmek için önce ExpressRoute ağ geçidini oluşturmanız gerekir.
 
+## <a name="configuration-designs"></a>Yapılandırma tasarımları
 
-## Yapılandırma tasarımları
-
-### Siteden siteye VPN’i ExpressRoute için bir yük devretme yolu olarak yapılandırma
+### <a name="configure-a-site-to-site-vpn-as-a-failover-path-for-expressroute"></a>Siteden siteye VPN’i ExpressRoute için bir yük devretme yolu olarak yapılandırma
 
 Siteden siteye bir VPN bağlantısını ExpressRoute için yedek olarak yapılandırabilirsiniz. Bu yalnızca Azure özel eşleme yoluna bağlı sanal ağlar için geçerlidir. Azure ortak ve Microsoft eşlemeleri aracılığıyla erişilebilen hizmetler için VPN tabanlı yük devretme çözümü yoktur. ExpressRoute bağlantı hattı her zaman birincil bağlantıdır. Veriler yalnızca ExpressRoute bağlantı hattı başarısız olursa, Siteden Siteye VPN üzerinden akar. 
 
 ![Bir arada var olma](media/expressroute-howto-coexist-classic/scenario1.jpg)
 
-### ExpressRoute aracılığıyla bağlanılmayan sitelere bağlanmak için Siteden Siteye VPN yapılandırma
+### <a name="configure-a-site-to-site-vpn-to-connect-to-sites-not-connected-through-expressroute"></a>ExpressRoute aracılığıyla bağlanılmayan sitelere bağlanmak için Siteden Siteye VPN yapılandırma
 
 Ağınızı bazı sitelerin Azure’a Siteden Siteye VPN üzerinden doğrudan ve bazı sitelerin ExpressRoute üzerinden bağlanması için yapılandırabilirsiniz. 
 
@@ -58,7 +58,7 @@ Ağınızı bazı sitelerin Azure’a Siteden Siteye VPN üzerinden doğrudan ve
 
 >[AZURE.NOTE] Bir sanal ağı geçiş yönlendiricisi olarak yapılandıramazsınız.
 
-## Kullanılacak adımları seçme
+## <a name="selecting-the-steps-to-use"></a>Kullanılacak adımları seçme
 
 Bir arada var olabilen bağlantılar yapılandırmak için seçebileceğiniz iki farklı yordam kümesi vardır. Seçtiğiniz yapılandırma yordamı, bağlanmak istediğiniz mevcut bir sanal ağ olup olmadığına veya yeni bir sanal ağ oluşturmak isteyip istememenize bağlıdır.
 
@@ -114,7 +114,7 @@ Bu yordamda, bir VNet oluşturma ve bir arada var olabilen Siteden Siteye ve Exp
 
         Set-AzureVNetConfig -ConfigurationPath 'C:\NetworkConfig.xml'
 
-4. <a name="gw"></a>Bir ExpressRoute ağ geçidi oluşturun. GatewaySKU’yu *Standard* veya *HighPerformance*, GatewayType’ı ise *DynamicRouting* olarak belirttiğinizden emin olun.
+4. <a name="gw"></a>ExpressRoute ağ geçidi oluşturun. GatewaySKU’yu *Standard*, *HighPerformance* veya *UltraPerformance*, GatewayType’ı ise *DynamicRouting* olarak belirttiğinizden emin olun.
 
     Aşağıdaki örneği değerleri kendi değerlerinizle değiştirerek kullanın.
 
@@ -124,7 +124,7 @@ Bu yordamda, bir VNet oluşturma ve bir arada var olabilen Siteden Siteye ve Exp
 
         New-AzureDedicatedCircuitLink -ServiceKey <service-key> -VNetName MyAzureVNET
 
-6. <a name="vpngw"></a>Ardından, Siteden Siteye VPN ağ geçidinizi oluşturun. GatewaySKU *Standard* veya *HighPerformance*, GatewayType ise *DynamicRouting* olmalıdır.
+6. <a name="vpngw"></a>Ardından, Siteden Siteye VPN ağ geçidinizi oluşturun. GatewaySKU *Standard*, *HighPerformance* veya *UltraPerformance*, GatewayType ise *DynamicRouting* olmalıdır.
 
         New-AzureVirtualNetworkGateway -VNetName MyAzureVNET -GatewayName S2SVPN -GatewayType DynamicRouting -GatewaySKU  HighPerformance
 
@@ -184,7 +184,7 @@ Bu yordamda, bir VNet oluşturma ve bir arada var olabilen Siteden Siteye ve Exp
 
         New-AzureVirtualNetworkGatewayConnection -connectedEntityId <local-network-gateway-id> -gatewayConnectionName Azure2Local -gatewayConnectionType IPsec -sharedKey abc123 -virtualNetworkGatewayId <azure-s2s-vpn-gateway-id>
 
-## <a name="add"></a>Zaten olan bir VNet için aynı anda mevcut bağlantıları yapılandırmak için
+## <a name="add"></a>Zaten mevcut bir VNet için bir arada var olabilen bağlantılar yapılandırma
 
 Zaten bir sanal ağınız varsa, ağ geçidi alt ağ boyutunu kontrol edin. Ağ geçidi alt ağı /28 veya /29 ise, önce sanal ağ geçidi silmeniz ve ağ geçidi alt ağı boyutunu artırmanız gerekir. Bu bölümdeki adımlar bunu nasıl yapacağınızı gösterir.
 
@@ -221,12 +221,12 @@ Ağ geçidi alt ağı /27 veya daha büyükse ve sanal ağ ExpressRoute üzerind
 
 6. Bu noktada, hiçbir ağ geçidi olmayan bir VNet’e sahip olursunuz. Yeni ağ geçitleri oluşturmak ve bağlantılarınızı tamamlamak için, önceki adım kümesinde bulabileceğiniz [4. Adım - Bir ExpressRoute ağ geçidi oluşturma](#gw) bölümüyle devam edebilirsiniz.
 
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 
 ExpressRoute hakkında daha fazla bilgi için bkz. [ExpressRoute hakkında SSS](expressroute-faqs.md).
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Oct16_HO3-->
 
 
