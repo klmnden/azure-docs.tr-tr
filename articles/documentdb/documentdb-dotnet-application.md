@@ -19,7 +19,7 @@
     ms.author="syamk"/>
 
 
-# <a name="<a-name="_toc395809351"></a>asp.net-mvc-tutorial:-web-application-development-with-documentdb"></a><a name="_Toc395809351"></a>ASP.NET MVC Öğreticisi: DocumentDB ile web uygulaması geliştirme
+# <a name="_Toc395809351"></a>ASP.NET MVC Öğreticisi: DocumentDB ile web uygulaması geliştirme
 
 > [AZURE.SELECTOR]
 - [.NET](documentdb-dotnet-application.md)
@@ -35,7 +35,7 @@ Bu adım adım kılavuz, Azure tarafından sağlanan DocumentDB hizmetinin, Azur
 
 > [AZURE.TIP] Bu öğretici, ASP.NET MVC ve Azure Web Siteleri'ni kullanma konusunda deneyim sahibi olduğunuzu varsayar. ASP.NET veya [önkoşul araçlarında](#_Toc395637760) yeniyseniz [GitHub][] konumundan örnek projenin tamamını indirmenizi ve bu örnekteki yönergeleri uygulamanızı öneririz. Oluşturduktan sonra, proje bağlamında kodu daha iyi kavramak için bu makaleyi inceleyebilirsiniz.
 
-## <a name="<a-name="_toc395637760"></a>prerequisites-for-this-database-tutorial"></a><a name="_Toc395637760"></a>Bu veritabanı öğreticisi için önkoşullar
+## <a name="_Toc395637760"></a>Bu veritabanı öğreticisi için önkoşullar
 
 Bu makaledeki yönergeleri uygulamadan önce aşağıdakilere sahip olduğunuzdan emin olmanız gerekir:
 
@@ -45,7 +45,7 @@ Bu makaledeki yönergeleri uygulamadan önce aşağıdakilere sahip olduğunuzda
 
 Bu makaledeki tüm ekran görüntüleri, Güncelleştirme 4 uygulanmış Visual Studio 2013 ve .NET için Azure SDK'sı 2.5.1 sürümü kullanılarak alınmıştır. Sisteminiz farklı sürümlerle yapılandırılmışsa ekranlarınızın ve seçeneklerinizin tamamen eşleşmeme olasılığı bulunur ancak yukarıdaki önkoşulları karşılarsanız bu çözümün çalışması gerekir.
 
-## <a name="<a-name="_toc395637761"></a>step-1:-create-a-documentdb-database-account"></a><a name="_Toc395637761"></a>1. Adım: DocumentDB veritabanı hesabı oluşturma
+## <a name="_Toc395637761"></a>1. Adım: DocumentDB veritabanı hesabı oluşturma
 
 Bir DocumentDB hesabı oluşturarak başlayalım. Hesabınız zaten varsa [Yeni bir ASP.NET MVC uygulaması oluşturma](#_Toc395637762) adımına atlayabilirsiniz.
 
@@ -56,7 +56,7 @@ Bir DocumentDB hesabı oluşturarak başlayalım. Hesabınız zaten varsa [Yeni 
 <br/>
 Şimdi yeni bir ASP.NET MVC uygulamasının nasıl oluşturulacağını en başından başlayarak inceleyeceğiz. 
 
-## <a name="<a-name="_toc395637762"></a>step-2:-create-a-new-asp.net-mvc-application"></a><a name="_Toc395637762"></a>2. Adım: Yeni bir ASP.NET MVC uygulaması oluşturma
+## <a name="_Toc395637762"></a>2. Adım: Yeni bir ASP.NET MVC uygulaması oluşturma
 
 Artık bir hesabınız olduğuna göre yeni ASP.NET projemizi oluşturalım.
 
@@ -93,7 +93,7 @@ Artık bir hesabınız olduğuna göre yeni ASP.NET projemizi oluşturalım.
 
     Hepimizin ASP.NET "Hello World" uygulamasını gördüğünden emin olduğum için, projeyi yerel olarak çalıştırmayı atlayacağız. Şimdi doğrudan bu projeye DocumentDB eklemeye ve uygulamamızı oluşturmaya geçelim.
 
-## <a name="<a-name="_toc395637767"></a>step-3:-add-documentdb-to-your-mvc-web-application-project"></a><a name="_Toc395637767"></a>3. Adım: MVC web uygulaması projenize DocumentDB ekleme
+## <a name="_Toc395637767"></a>3. Adım: MVC web uygulaması projenize DocumentDB ekleme
 
 Bu çözüm için gereken ASP.NET MVC altyapısının çoğunu elde ettiğimize göre, bu öğreticinin asıl amacı olan MVC web uygulamamıza Azure DocumentDB'yi eklemeye geçelim.
 
@@ -118,7 +118,7 @@ Bu çözüm için gereken ASP.NET MVC altyapısının çoğunu elde ettiğimize 
     ![Çözüm Gezgini'nde JSON veri projesine eklenen iki başvurunun ekran görüntüsü](./media/documentdb-dotnet-application/image22.png)
 
 
-##<a name="<a-name="_toc395637763"></a>step-4:-set-up-the-asp.net-mvc-application"></a><a name="_Toc395637763"></a>4. Adım: ASP.NET MVC uygulamasını ayarlama
+## <a name="_Toc395637763"></a>4. Adım: ASP.NET MVC uygulamasını ayarlama
  
 Şimdi bu MVC uygulamasına modeller, görünümler ve denetleyiciler ekleyelim:
 
@@ -127,7 +127,7 @@ Bu çözüm için gereken ASP.NET MVC altyapısının çoğunu elde ettiğimize 
 - [Görünümler ekleme](#_Toc395637766).
 
 
-### <a name="<a-name="_toc395637764"></a>add-a-json-data-model"></a><a name="_Toc395637764"></a>JSON veri modeli ekleme
+### <a name="_Toc395637764"></a>JSON veri modeli ekleme
 
 MVC'de **M** olan modeli oluşturarak başlayalım. 
 
@@ -169,7 +169,7 @@ MVC'de **M** olan modeli oluşturarak başlayalım.
     Özellik adının biçimini JSON'a gittiği zaman denetlemenin yanı sıra, **Açıklama** özelliğinde yaptığım gibi .NET özelliklerinizi tamamen yeniden adlandırabilirsiniz. 
     
 
-### <a name="<a-name="_toc395637765"></a>add-a-controller"></a><a name="_Toc395637765"></a>Denetleyici ekleme
+### <a name="_Toc395637765"></a>Denetleyici ekleme
 
 **M** ile işimiz bitti; şimdi de MVC'deki **C**'yi, yani denetleyici sınıfını oluşturalım.
 
@@ -191,7 +191,7 @@ MVC'de **M** olan modeli oluşturarak başlayalım.
 
     ItemController.cs'yi kapatabilirsiniz, buna daha sonra geri döneceğiz. 
 
-### <a name="<a-name="_toc395637766"></a>add-views"></a><a name="_Toc395637766"></a>Görünümler ekleme
+### <a name="_Toc395637766"></a>Görünümler ekleme
 
 Şimdi MVC'deki **V**'yi, yani görünümleri oluşturalım:
 
@@ -200,7 +200,7 @@ MVC'de **M** olan modeli oluşturarak başlayalım.
 - [Düzenleme Öğesi görünümü ekleme](#_Toc395888515).
 
 
-#### <a name="<a-name="additemindexview"></a>add-an-item-index-view"></a><a name="AddItemIndexView"></a>Öğe Dizini görünümü ekleme
+#### <a name="AddItemIndexView"></a>Öğe Dizini görünümü ekleme
 
 1. **Çözüm Gezgini**'nde **Görünümler** klasörünü genişletin, daha önce **ItemController**'ı eklediğinizde Visual Studio'nun sizin için oluşturduğu boş **Öğe** klasörüne sağ tıklayın, **Ekle**'ye tıklayın ve ardından **Görünüm**'e tıklayın.
 
@@ -217,7 +217,7 @@ MVC'de **M** olan modeli oluşturarak başlayalım.
 
 3. Bu değerlerin tümü ayarlandıktan sonra, **Ekle**'ye tıklayın ve Visual Studio'nun yeni bir şablon görünümü oluşturmasına izin verin. Tamamlandığında, oluşturulan cshtml dosyasını açar. Daha sonra geri döneceğimiz için Visual Studio'daki bu dosyayı kapatabiliriz.
 
-#### <a name="<a-name="addnewindexview"></a>add-a-new-item-view"></a><a name="AddNewIndexView"></a>Yeni Öğe görünümü ekleme
+#### <a name="AddNewIndexView"></a>Yeni Öğe görünümü ekleme
 
 **Öğe Dizini** görünümü oluşturmamıza benzer şekilde, şimdi de yeni **Öğeler** oluşturmak için yeni bir görünüm oluşturacağız.
 
@@ -231,7 +231,7 @@ MVC'de **M** olan modeli oluşturarak başlayalım.
     - Düzen sayfası kutusunda ***~/Views/Shared/_Layout.cshtml*** yazın.
     - **Ekle**'ye tıklayın.
 
-#### <a name="<a-name="_toc395888515"></a>add-an-edit-item-view"></a><a name="_Toc395888515"></a>Düzenleme Öğesi görünümü ekleme
+#### <a name="_Toc395888515"></a>Düzenleme Öğesi görünümü ekleme
 
 Son olarak, bir **Öğe**'yi düzenlemek için daha önce kullandığımız yolu tekrarlayarak son bir görünüm ekleyin.
 
@@ -247,7 +247,7 @@ Son olarak, bir **Öğe**'yi düzenlemek için daha önce kullandığımız yolu
 
 Bunu yaptıktan sonra, bu görünümlere daha sonra geri döneceğimiz için Visual Studio'daki tüm cshtml belgelerini kapatın.
 
-## <a name="<a-name="_toc395637769"></a>step-5:-wiring-up-documentdb"></a><a name="_Toc395637769"></a>5. Adım: DocumentDB'yi bağlama
+## <a name="_Toc395637769"></a>5. Adım: DocumentDB'yi bağlama
 
 Standart MVC işleri hallolduğuna göre, DocumentDB için kod eklemeye dönelim. 
 
@@ -257,7 +257,7 @@ Bu bölümde, aşağıdakileri işlemek için kod ekleyeceğiz:
 - [Öğeler ekleme](#_Toc395637771).
 - [Öğeleri düzenleme](#_Toc395637772).
 
-### <a name="<a-name="_toc395637770"></a>listing-incomplete-items-in-your-mvc-web-application"></a><a name="_Toc395637770"></a>MVC web uygulamanızda tamamlanmamış Öğeleri listeleme
+### <a name="_Toc395637770"></a>MVC web uygulamanızda tamamlanmamış Öğeleri listeleme
 
 Burada yapılacak ilk şey, DocumentDB'ye bağlanmayı ve kullanmayı sağlayan tüm mantığı içeren bir sınıf eklemektir. Bu öğretici için tüm bu mantığı DocumentDBRepository adlı bir depo sınıfına kapsülleyeceğiz. 
 
@@ -413,7 +413,7 @@ Bu projeyi şimdi oluşturur ve çalıştırırsanız buna benzeyen bir şey gö
 
 ![Bu veritabanı öğreticisi tarafından oluşturulan yapılacaklar listesi web uygulamasının ekran görüntüsü](./media/documentdb-dotnet-application/image23.png)
 
-### <a name="<a-name="_toc395637771"></a>adding-items"></a><a name="_Toc395637771"></a>Öğeler ekleme
+### <a name="_Toc395637771"></a>Öğeler ekleme
 
 Boş bir kılavuzdan başka şeyler görmek için veritabanımıza biraz öğe ekleyelim.
 
@@ -463,7 +463,7 @@ DocumentDB'deki kaydı kalıcı hale getirmek için DocumentDBRepository ve Item
 Veritabanımıza yeni Öğeler eklemek için gereken kod burada son bulur.
 
 
-### <a name="<a-name="_toc395637772"></a>editing-items"></a><a name="_Toc395637772"></a>Öğeleri Düzenleme
+### <a name="_Toc395637772"></a>Öğeleri Düzenleme
 
 Yapacağımız son bir şey kaldı, bu da veritabanında **Öğeler**'i düzenleme ve bunları tamamlanmış olarak işaretleme özelliğini eklemektir. Düzenleme görünümü projeye zaten eklenmişti, bu nedenle yalnızca denetleyicimize ve **DocumentDBRepository** sınıfına biraz kod eklememiz gereklidir.
 
@@ -539,7 +539,7 @@ Yapacağımız son bir şey kaldı, bu da veritabanında **Öğeler**'i düzenle
 
 Hepsi bu; uygulamamızı çalıştırmak, tamamlanmamış **Öğeleri** listelemek, yeni **Öğeler** eklemek ve **Öğeleri** düzenlemek için ihtiyacımız olan her şey bu kadar.
 
-## <a name="<a-name="_toc395637773"></a>step-6:-run-the-application-locally"></a><a name="_Toc395637773"></a>6. Adım: Uygulamayı yerel olarak çalıştırma
+## <a name="_Toc395637773"></a>6. Adım: Uygulamayı yerel olarak çalıştırma
 
 Yerel makinenizde uygulamayı test etmek için aşağıdakileri yapın:
 
@@ -565,7 +565,7 @@ Yerel makinenizde uygulamayı test etmek için aşağıdakileri yapın:
 
 4. Uygulamayı test ettikten sonra, uygulamanın hata ayıklamasını durdurmak için Ctrl+F5'e basın. Dağıtıma hazırsınız!
 
-## <a name="<a-name="_toc395637774"></a>step-7:-deploy-the-application-to-azure-websites"></a><a name="_Toc395637774"></a>7. Adım: Uygulamayı Azure Web Siteleri'ne dağıtma
+## <a name="_Toc395637774"></a>7. Adım: Uygulamayı Azure Web Siteleri'ne dağıtma
 
 Artık uygulamanın tamamı DocumentDB ile doğru şekilde çalıştığına göre, bu web uygulamasını Azure Web Siteleri'ne dağıtacağız. Boş ASP.NET MVC projesini oluştururken **Bulutta barındır**'ı seçtiyseniz Visual Studio bu işlemi gerçekten kolaylaştırır ve işlerin çoğunu sizin için yapar. 
 
@@ -579,7 +579,7 @@ Artık uygulamanın tamamı DocumentDB ile doğru şekilde çalıştığına gö
 
 Visual Studio birkaç saniye içinde web uygulamanızı yayımlamayı bitirecek ve eserinizi Azure'da çalışırken görebileceğiniz bir tarayıcıyı başlatacak!
 
-## <a name="<a-name="_toc395637775"></a>next-steps"></a><a name="_Toc395637775"></a>Sonraki adımlar
+## <a name="_Toc395637775"></a>Sonraki adımlar
 
 Tebrikler! Azure DocumentDB kullanarak ilk ASP.NET MVC web uygulamanızı oluşturdunuz ve bunu Azure Web Siteleri'ne yayımladınız. Bu öğreticide bulunmayan ayrıntı ve silme işlevleri dahil olmak üzere, tüm uygulamanın kaynak kodu [GitHub][]'dan indirilebilir veya kopyalanabilir. Uygulamanıza bunları eklemek isterseniz kodu alın ve bu uygulamaya ekleyin.
 

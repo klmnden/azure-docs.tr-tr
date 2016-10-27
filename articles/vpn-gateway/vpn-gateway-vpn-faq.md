@@ -256,7 +256,7 @@ Farklı Azure sanal ağları arasındaki trafik için yalnızca trafik bir Azure
 
 Evet, bu desteklenir. Daha fazla bilgi için bkz. [Bir arada var olan ExpressRoute ve Siteden Siteye VPN bağlantıları yapılandırma](../expressroute/expressroute-howto-coexist-classic.md).
 
-## <a name="<a-name="bgp"></a>bgp"></a><a name="bgp"></a>BGP
+## <a name="bgp"></a>BGP
 
 [AZURE.INCLUDE [vpn-gateway-bgp-faq-include](../../includes/vpn-gateway-bpg-faq-include.md)] 
 

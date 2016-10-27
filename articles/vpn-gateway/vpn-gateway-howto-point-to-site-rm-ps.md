@@ -69,7 +69,7 @@ Bu yapılandırma için aşağıdaki değerler kullanılır. Değişkenler makal
     
 - Azure Resource Manager PowerShell cmdlet'lerini (1.0.2 veya sonraki bir sürümü) yükleyin. PowerShell cmdlet'lerini yükleme hakkında daha fazla bilgi için bkz. [Azure PowerShell'i yükleme ve yapılandırma](../powershell-install-configure.md). Bu yapılandırma için PowerShell ile çalışırken yönetici olarak işlem yaptığınızdan emin olun. 
 
-## <a name="<a-name="declare"></a>part-1---log-in-and-set-variables"></a><a name="declare"></a>1. Bölüm - Oturum açma ve değişkenleri ayarlama
+## <a name="declare"></a>1. Bölüm - Oturum açma ve değişkenleri ayarlama
 
 Bu bölümde oturum açıp bu yapılandırma için kullanılan değerleri bildirirsiniz. Belirtilen değerler örnek betiklerde kullanılır. Değerleri, ortamınızı yansıtacak şekilde değiştirin. Veya, bildirilen değerleri kullanın ve bir alıştırma olarak adımları uygulayın.
 
@@ -178,7 +178,7 @@ P2S kullanarak Azure’a bağlanan istemcilerde hem bir istemci sertifikası hem
 
     ![VPN istemcisi](./media/vpn-gateway-howto-point-to-site-rm-ps/vpn.png "VPN client")
 
-## <a name="<a-name="cc"></a>part-6---generate-the-client-certificate"></a><a name="cc"></a>6. Bölüm - İstemci sertifikası oluşturma
+## <a name="cc"></a>6. Bölüm - İstemci sertifikası oluşturma
 
 Bir sonraki adımda istemci sertifikalarını oluşturacaksınız. Bağlanacak her istemci için benzersiz bir sertifika oluşturabileceğiniz gibi, birden çok istemcide aynı sertifikayı da kullanabilirsiniz. Benzersiz istemci sertifikaları oluşturmanın avantajı, gerektiğinde tek bir sertifikayı iptal edebiliyor olmanızdır. Herkesin aynı istemci sertifikasını kullandığı bir durumda bir istemcinin sertifikasını iptal etmeniz gerektiğinde, kimlik doğrulaması için söz konusu sertifikayı kullanan tüm istemciler için yeni sertifikalar oluşturmanız ve yüklemeniz gerekir.
 
