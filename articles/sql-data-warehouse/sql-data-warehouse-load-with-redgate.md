@@ -4,7 +4,7 @@
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="twounder"
-   manager="barbkess"
+   manager="jhubbard"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/13/2016"
+   ms.date="10/31/2016"
    ms.author="mausher;barbkess"/>
 
 
@@ -41,17 +41,17 @@ Bu öğreticiye başlamadan önce aşağıdakilere sahip olmanız gerekir:
 
 > [AZURE.NOTE] Depolama hesabı ve veri ambarı aynı bölge oluşturulursa performans geliştirilir.
 
-## <a name="step-1:-sign-in-to-data-platform-studio-with-your-azure-account"></a>1. Adım: Azure hesabınızla Data Platform Studio’da oturum açın
+## <a name="step-1-sign-in-to-data-platform-studio-with-your-azure-account"></a>1. Adım: Azure hesabınızla Data Platform Studio’da oturum açın
 Web tarayıcınızı açın ve [Data Platform Studio](https://www.dataplatformstudio.com/) web sitesine gidin. Depolama hesabını ve veri ambarını oluşturmak için kullandığını Azure hesabıyla oturum açın. E-posta adresiniz bir iş veya okul hesabı ve bir Microsoft hesabıyla ilişkiliyse, kaynaklarınıza erişimi olan hesabı seçtiğinizden emin olun.
 
 > [AZURE.NOTE] Data Platform Studio’yu ilk kez kullanıyorsanız, Azure kaynaklarınızı yönetmesi için uygulamaya izin vermeniz istenir.
 
-## <a name="step-2:-start-the-import-wizard"></a>2. Adım: Alma Sihirbazı’nı başlatın
+## <a name="step-2-start-the-import-wizard"></a>2. Adım: Alma Sihirbazı’nı başlatın
 Alma sihirbazını başlatmak için DPS ana ekranında Azure SQL Veri Ambarı’na Al bağlantısını seçin.
 
 ![][1]
 
-## <a name="step-3:-install-the-data-platform-studio-gateway"></a>3. Adım: Data Platform Studio Ağ Geçidini yükleyin
+## <a name="step-3-install-the-data-platform-studio-gateway"></a>3. Adım: Data Platform Studio Ağ Geçidini yükleyin
 Şirket içi SQL Server veritabanınıza bağlanmak için DPS Ağ Geçidi’ni yüklemeniz gerekir. Ağ geçidi, şirket içi ortamınıza erişim sağlayan, verileri ayıklayan ve depolama hesabınıza yükleyen bir istemci aracısıdır. Verileriniz hiçbir zaman Redgate sunucularından geçmez. Ağ Geçidi’ni yüklemek için:
 
 1.  **Ağ Geçidi Oluştur** bağlantısına tıklayın
@@ -63,28 +63,28 @@ Alma sihirbazını başlatmak için DPS ana ekranında Azure SQL Veri Ambarı’
 
 Yüklendikten sonra, Ağ Geçidi durumu Bağlı olarak değişir ve İleri’yi seçebilirsiniz.
 
-## <a name="step-4:-identify-the-source-database"></a>4. Adım: Kaynak veritabanınızı tanımlayın
+## <a name="step-4-identify-the-source-database"></a>4. Adım: Kaynak veritabanınızı tanımlayın
 *Sunucu Adı Girin* metin kutusuna veritabanınızı barındıran sunucunun adını girin ve **İleri**’yi seçin. Ardından, açılır menüden verileri almak istediğiniz veritabanını seçin.
 
 ![][3]
 
 DPS, seçili veritabanında içeri aktarılacak tabloları inceler. DPS varsayılan olarak veritabanındaki tüm tabloları içeri aktarır. Tüm Tablolar bağlantısını genişleterek tabloları seçebilir veya seçimini kaldırabilirsiniz. İlerlemek için İleri düğmesini seçin.
 
-## <a name="step-5:-choose-a-storage-account-to-stage-the-data"></a>5. Adım: Verileri hazırlamak için bir depolama hesabı seçin
+## <a name="step-5-choose-a-storage-account-to-stage-the-data"></a>5. Adım: Verileri hazırlamak için bir depolama hesabı seçin
 DPS, verilerin hazırlanacağı bir konum seçmenizi ister. Aboneliğinizde var olan bir depolama hesabı seçin ve **İleri**’yi seçin.
 
 > [AZURE.NOTE] DPS, seçilen depolama hesabında yeni bir blob kapsayıcısı oluşturur ve her içeri aktarma için ayrı bir klasör kullanır.
 
 ![][4]
 
-## <a name="step-6:-select-a-data-warehouse"></a>6. Adım: Veri ambarı seçin
+## <a name="step-6-select-a-data-warehouse"></a>6. Adım: Veri ambarı seçin
 Ardından, verileri içine aktarmak için çevrimiçi bir [Azure SQL Veri Ambarı](http://aka.ms/sqldw) veritabanı seçin. Veritabanınızı seçtikten sonra veritabanına bağlanmak için kimlik bilgilerini girip **İleri**’yi seçmeniz gerekir.
 
 ![][5]
 
 > [AZURE.NOTE] DPS, kaynak veri tablolarını veri ambarında birleştirir. Tablo adının veri ambarında var olan tabloların üzerine yazılması gerekirse DPS sizi uyarır. İsterseniz, İçeri aktarmadan önce var olan tüm nesneleri silin seçeneğini işaretleyerek veri ambarında var olan tüm nesneleri silebilirsiniz.
 
-## <a name="step-7:-import-the-data"></a>7. Adım: Verileri içeri aktarın
+## <a name="step-7-import-the-data"></a>7. Adım: Verileri içeri aktarın
 DPS, verileri içeri aktarmak istediğinizi onaylar. Verileri içeri aktarmaya başlamak için İçeri aktarmayı başlat düğmesine tıklamanız yeterlidir.
 
 ![][6]
