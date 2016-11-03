@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="10/10/2016"
-   ms.author="mausher;barbkess;sonyama"/>
+   ms.date="10/31/2016"
+   ms.author="mausher;barbkess"/>
 
 
 
@@ -57,7 +57,7 @@ Bu öğreticide ilerleyebilmeniz için şunlar gereklidir:
 
 Bu öğreticide, Azure SQL Data Warehouse'da bir tablo oluşturup tabloya veri aktaracaksınız.
 
-### <a name="step-1:-create-a-table-in-azure-sql-data-warehouse"></a>1. Adım: Azure SQL Data Warehouse'da tablo oluşturma
+### <a name="step-1-create-a-table-in-azure-sql-data-warehouse"></a>1. Adım: Azure SQL Data Warehouse'da tablo oluşturma
 
 Örneğinizde bir tablo oluşturmak için aşağıdaki sorguyu çalıştırmak üzere bir komut isteminden sqlcmd yardımcı programını kullanın:
 
@@ -79,7 +79,7 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 
 >[AZURE.NOTE] SQL Data Warehouse'da tablo oluşturma ve WITH yan tümcesinde bulunan seçenekler hakkında daha fazla bilgi için bkz. [Tabloya Genel Bakış][] veya [CREATE TABLE söz dizimi][].
 
-### <a name="step-2:-create-a-source-data-file"></a>2. Adım: Kaynak veri dosyası oluşturma
+### <a name="step-2-create-a-source-data-file"></a>2. Adım: Kaynak veri dosyası oluşturma
 
 Not Defteri'ni açın ve yeni bir metin dosyasına aşağıdaki veri satırlarını kopyalayıp dosyayı yerel geçici dizininize (C:\Temp\DimDate2.txt) kaydedin.
 
@@ -100,7 +100,7 @@ Not Defteri'ni açın ve yeni bir metin dosyasına aşağıdaki veri satırları
 
 > [AZURE.NOTE] bcp.exe dosyasının UTF-8 dosya kodlamasını desteklemediğini unutmayın. bcp.exe dosyasını kullanırken lütfen ASCII dosyalarını veya UTF-16 kodlu dosyaları kullanın.
 
-### <a name="step-3:-connect-and-import-the-data"></a>3. Adım: Bağlanma ve verileri içeri aktarma
+### <a name="step-3-connect-and-import-the-data"></a>3. Adım: Bağlanma ve verileri içeri aktarma
 bcp ile aşağıdaki komutu kullanıp değerleri uygun şekilde değiştirerek bağlanabilir ve verileri içeri aktarabilirsiniz.
 
 ```sql
@@ -130,7 +130,7 @@ DateId |CalendarQuarter |FiscalQuarter
 20151101 |4 |2
 20151201 |4 |2
 
-### <a name="step-4:-create-statistics-on-your-newly-loaded-data"></a>4. Adım: Yeni yüklenmiş verilerinize ilişkin İstatistikler oluşturma
+### <a name="step-4-create-statistics-on-your-newly-loaded-data"></a>4. Adım: Yeni yüklenmiş verilerinize ilişkin İstatistikler oluşturma
 
 Azure SQL Data Warehouse henüz istatistiklerin otomatik olarak oluşturulup güncelleştirilmesini desteklemiyor. Sorgularınızdan en iyi performansı elde edebilmeniz için ilk yüklemeden veya verilerdeki önemli değişikliklerden sonra her tablonun her sütununa ilişkin istatistiklerin oluşturulması önemlidir. İstatistikler hakkında ayrıntılı bir açıklama için Geliştirme ile ilgili konu başlığı grubunda yer alan [İstatistikler][] bölümüne göz atın. Aşağıda bu örnekte yüklenen tablolar için nasıl istatistik oluşturacağınıza yönelik kısa bir örnek verilmiştir.
 
@@ -147,7 +147,7 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 ## <a name="export-data-from-sql-data-warehouse"></a>SQL Data Warehouse'dan veri aktarma
 Bu öğreticide SQL Data Warehouse'da bulunan bir tablodan veri dosyası oluşturacaksınız. Yukarıda oluşturduğumuz verileri DimDate2_export.txt adlı dosyaya aktaracağız.
 
-### <a name="step-1:-export-the-data"></a>1. Adım: Verileri dışarı aktarma
+### <a name="step-1-export-the-data"></a>1. Adım: Verileri dışarı aktarma
 
 bcp yardımcı programı ile aşağıdaki komutu kullanıp değerleri uygun şekilde değiştirerek bağlanabilir ve verileri içeri aktarabilirsiniz.
 
