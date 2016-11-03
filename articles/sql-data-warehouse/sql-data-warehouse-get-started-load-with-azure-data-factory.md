@@ -44,7 +44,7 @@ Bu öğreticiye başlamadan önce aşağıdaki kaynaklara sahip olmanız gerekir
 
    + **Azure Storage Blobu**: Bu öğreticide Azure Data Factory işlem hattı için veri kaynağı olarak Azure Storage Blobu kullanılır; bu nedenle örnek verileri saklamak için bir Azure Storage Blobuna sahip olmanız gerekir. Azure Storage Blobunuz yoksa [Depolama hesabı oluşturma][] işlemini nasıl gerçekleştireceğinizi öğrenin.
 
-   + **SQL Data Warehouse**: Bu öğreticide Azure Storage Blobundan SQL Data Warehouse'a veri taşınır; bu nedenle AdventureWorksDW örnek verileriyle yüklü çevrimiçi bir veri ambarınızın olması gerekir. Veri ambarınız yoksa nasıl [sağlayacağınızı][SQL Data Warehouse oluşturma] öğrenin. Veri ambarınız var ancak bu veri ambarına örnek veri sağlamadıysanız [el ile yükleme][SQL Data Warehouse'a örnek veri yükleme] işlemini gerçekleştirebilirsiniz.
+   + **SQL Data Warehouse**: Bu öğreticide Azure Storage Blobundan SQL Data Warehouse'a veri taşınır; bu nedenle AdventureWorksDW örnek verileriyle yüklü çevrimiçi bir veri ambarınızın olması gerekir. Veri ambarınız yoksa nasıl [sağlayacağınızı][SQL Veri Ambarı oluşturma] öğrenin. Veri ambarınız var ancak bu veri ambarına örnek veri sağlamadıysanız [el ile yükleme][SQL Veri Ambarı'na örnek veri yükleme] işlemini gerçekleştirebilirsiniz.
 
    + **Azure Data Factory**: Azure Data Factory, gerçek yükü tamamladığından veri taşıma işlem hattını oluşturmak üzere kullanmak için bir tanesine sahip olmanız gerekir. Henüz sahip değilseniz [Azure Data Factory’yi kullanmaya başlama (Data Factory Düzenleyicisi)][] bölümünün 1. adımında nasıl oluşturacağınızı öğrenin.
 
@@ -150,7 +150,7 @@ Bağlı hizmetleri oluşturduktan sonra veri kümelerini tanımlamamız gerekir.
 
 ## <a name="step-3-create-and-run-your-pipeline"></a>3. Adım: İşlem hattınızı oluşturma ve çalıştırma
 
-Son olarak Azure Data Factory'de işlem hattı oluşturup çalıştıracağız.  Bu işlem ile gerçek veri taşıma işlemi tamamlanır.  SQL Data Warehouse ve Azure Data Factory ile gerçekleştirebileceğiniz işlemlerin tam görünümünü [burada][Azure Data Factory kullanarak Azure'a/Azure'dan veri taşıma] bulabilirsiniz.
+Son olarak Azure Data Factory'de işlem hattı oluşturup çalıştıracağız.  Bu işlem ile gerçek veri taşıma işlemi tamamlanır.  SQL Data Warehouse ve Azure Data Factory ile gerçekleştirebileceğiniz işlemlerin tam görünümünü [burada][Azure Data Factory (Data Factory Editor) ile çalışmaya başlama] bulabilirsiniz.
 
 ‘Geliştir ve Dağıt’ bölümünde ‘Daha Fazla Komut’ seçeneğine ve ardından ‘Yeni İşlem Hattı’ seçeneğine tıklayın.  İşlem hattını oluşturduktan sonra verileri veri ambarınıza aktarmak için aşağıdaki kodu kullanabilirsiniz:
 
@@ -241,6 +241,6 @@ Bu konu başlıklarında Azure Data Factory hakkında ayrıntılı bilgi sağlan
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!---HONumber=Oct16_HO3-->
 
 
