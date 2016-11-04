@@ -1,44 +1,36 @@
-<properties
-    pageTitle="Node.js uygulamanızı izlemek için Application Insights SDK’sı ekleme | Microsoft Azure"
-    description="Application Insights ile şirket içi veya Microsoft Azure web uygulamanızın kullanımını, kullanılabilirliğini ve performansını analiz edin."
-    services="application-insights"
-    documentationCenter=""
-    authors="alancameronwills"
-    manager="douge"/>
+---
+title: Node.js uygulamanızı izlemek için Application Insights SDK’sı ekleme | Microsoft Docs
+description: Application Insights ile şirket içi veya Microsoft Azure web uygulamanızın kullanımını, kullanılabilirliğini ve performansını analiz edin.
+services: application-insights
+documentationcenter: ''
+author: alancameronwills
+manager: douge
 
-<tags
-    ms.service="application-insights"
-    ms.workload="tbd"
-    ms.tgt_pltfrm="ibiza"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="08/30/2016"
-    ms.author="awills"/>
+ms.service: application-insights
+ms.workload: tbd
+ms.tgt_pltfrm: ibiza
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 08/30/2016
+ms.author: awills
 
-
-
+---
 # Node.js uygulamanızı izlemek için Application Insights SDK’sı ekleme
-
 *Application Insights önizlemededir.*
 
 [Visual Studio Application Insights](app-insights-overview.md), [performans sorunlarını ve özel durumlarını saptayıp tanılamanıza](app-insights-detect-triage-diagnose.md) ve [uygulamanızın nasıl kullanıldığını keşfetmenize](app-insights-overview-usage.md) yardımcı olmak amacıyla canlı uygulamanızı izler. Azure web uygulamalarının yanı sıra şirket içi kendi IIS sunucularınızda veya Azure sanal makinelerinde barındırılan uygulamalar için çalışır.
-
-
 
 SDK, gelen HTTP isteği oranlarının ve yanıtlarının, performans sayaçlarının (CPU, bellek, RPS) ve işlenmeyen özel durumların otomatik olarak toplanmasını sağlar. Ayrıca, bağımlılıkları, ölçümleri veya diğer olayları izlemek için özel çağrılar ekleyebilirsiniz.
 
 ![Örnek performans izleme grafikleri](./media/app-insights-windows-services/10-perf.png)
 
-
 #### Başlamadan önce
-
 Gerekenler:
 
 * Visual Studio 2013 veya üstü. Ne kadar yeniyse o kadar iyidir.
 * Bir [Microsoft Azure](http://azure.com) aboneliği. Ekibinizin ve kuruluşunuzun Azure aboneliği varsa, sahibi [Microsoft hesabınızı](http://live.com) kullanarak sizi buna ekleyebilir.
 
 ## <a name="add"></a>Application Insights kaynağı oluşturma
-
 [Azure portalında][portal] oturum açın ve yeni bir Application Insights kaynağı oluşturun. Azure’da [kaynak][roles] bir hizmetin örneğidir. Bu kaynak, uygulamanızdan alınan telemetri verilerinin analiz edilip size sunulacağı yerdir.
 
 ![Yeni, Application Insights öğesine tıklayın](./media/app-insights-windows-services/01-new-asp.png)
@@ -46,20 +38,16 @@ Gerekenler:
 Uygulama türü olarak Diğer’i seçin. Uygulama türü seçimi, kaynak dikey pencerelerinin varsayılan içeriğini ve [Ölçüm Gezgini][metrics] içinde görünen özellikleri belirler.
 
 #### İzleme Anahtarını Kopyalama
-
 Kaynağı tanımlayan bu anahtarı kısa bir süre sonra verileri kaynağa yönlendirmek için SDK’ya yükleyeceksiniz.
 
 ![Özellikler'e tıklayın, anahtarı seçin ve ctrl + C tuşlarına basın](./media/app-insights-windows-services/02-props-asp.png)
 
-
 ## <a name="sdk"></a> Uygulamanıza SDK yükleme
-
 ```
 npm install applicationinsights --save
 ```
 
 ## Kullanım
-
 Bu işlem istek izleme, işlenmemiş özel durum izleme ve sistem performansı izlemeyi (CPU/Bellek/RPS) etkinleştirir.
 
 ```javascript
@@ -72,16 +60,11 @@ appInsights.setup("<instrumentation_key>").start();
 
 SDK’yı telemetri verilerini göndermeden deneyebilirsiniz: İzleme anahtarını boş olmayan bir dize olarak ayarlayın.
 
-
 ## <a name="run"></a> Projenizi çalıştırma
-
 Uygulamanızı çalıştırın ve deneyin: Birkaç telemetri oluşturmak için farklı sayfalar açın.
 
-
 ## <a name="monitor"></a> Telemetrinizi görüntüleme
-
 [Azure portal](https://portal.azure.com)’a geri dönün ve Application Insights kaynağınıza göz atın.
-
 
 Genel Bakış sayfasında veri arayın. İlk olarak yalnızca bir veya iki nokta görürsünüz. Örneğin:
 
@@ -90,35 +73,25 @@ Genel Bakış sayfasında veri arayın. İlk olarak yalnızca bir veya iki nokta
 Daha ayrıntılı ölçümler görmek için herhangi bir grafiğe tıklayın. [Ölçümler hakkında daha fazla bilgi edinin.][perf]
 
 #### Veri yok mu?
-
 * Birkaç telemetri oluşturması için farklı sayfaları açarak uygulamayı kullanın.
 * Olayları tek tek görmek için [Ara](app-insights-diagnostic-search.md) kutucuğunu açın. Bazı durumlarda olayların ölçüm ardışık düzenine ulaşması biraz daha uzun sürer.
 * Birkaç saniye bekleyin ve **Yenile**’ye tıklayın. Grafikler kendilerini düzenli olarak yeniler, ancak bazı verilerin görüntülenmesini bekliyorsanız el ile yenileyebilirsiniz.
 * Bkz. [Sorun giderme][qna].
 
 ## Uygulamanızı yayımlama
-
 Şimdi uygulamanızı IIS veya Azure’a dağıtın ve verilerin birikmesini izleyin.
 
-
 #### Sunucunuza yayımladıktan sonra veri yok mu?
-
 Sunucunuzun güvenlik duvarında giden trafik için şu bağlantı noktalarını açın:
 
-+ `dc.services.visualstudio.com:443`
-+ `f5.services.visualstudio.com:443`
-
+* `dc.services.visualstudio.com:443`
+* `f5.services.visualstudio.com:443`
 
 #### Derleme sunucunuzda sorun mu yaşıyorsunuz?
-
 Lütfen [bu Sorun Giderme maddesine](app-insights-asp-net-troubleshoot-no-data.md#NuGetBuild) bakın.
 
-
-
-## Özelleştirilmiş Kullanım 
-
+## Özelleştirilmiş Kullanım
 ### Otomatik toplamayı devre dışı bırakma
-
 ```javascript
 import appInsights = require("applicationinsights");
 appInsights.setup("<instrumentation_key>")
@@ -130,7 +103,6 @@ appInsights.setup("<instrumentation_key>")
 ```
 
 ### Özel izleme
-
 ```javascript
 import appInsights = require("applicationinsights");
 var client = appInsights.getClient();
@@ -144,7 +116,6 @@ client.trackTrace("trace message");
 [Telemetri API’si hakkında daha fazla bilgi edinin](app-insights-api-custom-events-metrics.md).
 
 ### Birden çok izleme anahtarı kullanma
-
 ```javascript
 import appInsights = require("applicationinsights");
 
@@ -157,9 +128,7 @@ otherClient.trackEvent("custom event");
 ```
 
 ## Örnekler
-
 ### Bağımlılık izleme
-
 ```javascript
 import appInsights = require("applicationinsights");
 var client = appInsights.getClient();
@@ -176,7 +145,6 @@ client.trackDependency("dependency name", "command name", elapsedTime, success);
 
 
 ### Tüm "GET" istekleri için el ile istek izleme
-
 ```javascript
 var http = require("http");
 var appInsights = require("applicationinsights");
@@ -214,11 +182,8 @@ server.on("listening", () => {
 ```
 
 ## Sonraki adımlar
-
 * [Portalda telemetrinizi izleyin](app-insights-dashboards.md)
 * [Telemetriniz üzerinden Analytics sorguları yazma](app-insights-analytics-tour.md)
-
-
 
 <!--Link references-->
 

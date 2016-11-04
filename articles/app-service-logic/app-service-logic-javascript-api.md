@@ -1,24 +1,26 @@
-<properties
-   pageTitle="Using the JavaScript API app in a Logic app | Microsoft Azure"
-   description="JavaScript API app or connector"
-   services="logic-apps"
-   documentationCenter=".net,nodejs,java"
-   authors="stepsic-microsoft-com"
-   manager="dwrede"
-   editor=""/>
+---
+title: Using the JavaScript API app in a Logic app | Microsoft Docs
+description: JavaScript API app or connector
+services: logic-apps
+documentationcenter: .net,nodejs,java
+author: stepsic-microsoft-com
+manager: dwrede
+editor: ''
 
-<tags
-   ms.service="logic-apps"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration"
-   ms.date="09/01/2016"
-   ms.author="stepsic"/>
+ms.service: logic-apps
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: integration
+ms.date: 09/01/2016
+ms.author: stepsic
 
+---
 # JavaScript API App
-
->[AZURE.NOTE] This version of the article applies to Logic apps 2014-12-01-preview schema version. 
+> [!NOTE]
+> This version of the article applies to Logic apps 2014-12-01-preview schema version. 
+> 
+> 
 
 The JavaScript API App gives you an easy way to run simple JavaScript expressions *while your Logic app executes*. 
 
@@ -39,8 +41,9 @@ To use the JavaScript API App, you need to first create an instance of the JavaS
 You can create a trigger that the Logic app service polls (on an interval you define), and, if it returns any content, the Logic app runs, otherwise, it waits until the next polling interval to check again.
 
 The inputs to the trigger are:
-- **JavaScript expression**  - An expression that is evaluated. It is invoked inside a function and must return `false` when you do not want the Logic app to run, and can return anything else when you want the Logic app to run. You can use the content of the response in the actions of the Logic app.
-- **Context object** - An optional object that can be passed into the trigger. You can define as many properties as you want, but the top-level entity must be an object, e.g. `{ "bar" : 0}`.
+
+* **JavaScript expression**  - An expression that is evaluated. It is invoked inside a function and must return `false` when you do not want the Logic app to run, and can return anything else when you want the Logic app to run. You can use the content of the response in the actions of the Logic app.
+* **Context object** - An optional object that can be passed into the trigger. You can define as many properties as you want, but the top-level entity must be an object, e.g. `{ "bar" : 0}`.
 
 For example, you could have a simple trigger that only runs your Logic app between the :15 and :30 of the hour:
 
@@ -49,35 +52,36 @@ var d = new Date(); return (d.getMinutes() > 15) && (d.getMinutes() < 30);
 ```
 
 ### Action
-
 Likewise, you can provide an action to run. 
 
 The inputs to the action are:
-- **JavaScript expression**  - An expression that is evaluated. You must include the `return` statement to get any content. 
-- **Context object** - An optional object that can be passed into the trigger. You can define as many properties as you want, but the top-level entity must be an object, e.g. `{ "bar" : 0}`.
+
+* **JavaScript expression**  - An expression that is evaluated. You must include the `return` statement to get any content. 
+* **Context object** - An optional object that can be passed into the trigger. You can define as many properties as you want, but the top-level entity must be an object, e.g. `{ "bar" : 0}`.
 
 For example, imagine you are using the Office 365 trigger **New Email**. That returns the following object:
+
 ```
 {
-	...
-	"Attachments" : [
-		{
-			"name" : "Picture.png",
-			"content" : {
-				"ContentData" : "iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFAQMAAAC3obSmAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAGUExURf///wAAAFXC034AAAASSURBVAjXY2BgCGBgYOhgKAAABEIBSWDJEbYAAAAASUVORK5CYII=",
-				"ContentType" : "image/png",
-				"ContentTransferEncoding" : "Base64"
-			}
-		},	
-		{
-			"name" : "File.txt",
-			"content" : {
-				"ContentData" : "Don't worry, be happy!",
-				"ContentType" : "text/plain",
-				"ContentTransferEncoding" : "None"
-			}
-		}	
-	]
+    ...
+    "Attachments" : [
+        {
+            "name" : "Picture.png",
+            "content" : {
+                "ContentData" : "iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFAQMAAAC3obSmAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAGUExURf///wAAAFXC034AAAASSURBVAjXY2BgCGBgYOhgKAAABEIBSWDJEbYAAAAASUVORK5CYII=",
+                "ContentType" : "image/png",
+                "ContentTransferEncoding" : "Base64"
+            }
+        },    
+        {
+            "name" : "File.txt",
+            "content" : {
+                "ContentData" : "Don't worry, be happy!",
+                "ContentType" : "text/plain",
+                "ContentTransferEncoding" : "None"
+            }
+        }    
+    ]
 }
 ```
 
@@ -91,8 +95,6 @@ The action returns the JSON that you returned from your function. Thus, in the Y
 
 ## Do more with your Connector
 Now that the connector is created, you can add it to a business flow using a Logic app. See [What are Logic apps?](app-service-logic-what-are-logic-apps.md).
-
- 
 
 <!--References -->
 

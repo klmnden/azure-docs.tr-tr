@@ -1,44 +1,40 @@
-<properties
-   pageTitle="SQL Server'dan Azure SQL Data Warehouse'a (PolyBase) veri yükleme | Microsoft Azure"
-   description="SQL Server'dan düz dosyalara veri aktarmak için bcp'yi, Azure blob depolama alanına veri aktarmak için AZCopy'yi ve verileri Azure SQL Data Warehouse'a almak için PolyBase'i kullanın."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="ckarst"
-   manager="barbkess"
-   editor=""/>
+---
+title: SQL Server'dan Azure SQL Data Warehouse'a (PolyBase) veri yükleme | Microsoft Docs
+description: SQL Server'dan düz dosyalara veri aktarmak için bcp'yi, Azure blob depolama alanına veri aktarmak için AZCopy'yi ve verileri Azure SQL Data Warehouse'a almak için PolyBase'i kullanın.
+services: sql-data-warehouse
+documentationcenter: NA
+author: ckarst
+manager: barbkess
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="06/30/2016"
-   ms.author="cakarst;barbkess;sonyama"/>
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: get-started-article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 06/30/2016
+ms.author: cakarst;barbkess;sonyama
 
-
-
+---
 # SQL Server'dan Azure SQL Data Warehouse'a veri yükleme (AZCopy)
-
 SQL Server'dan Azure blob depolama alanına veri yüklemek için bcp ve AZCopy komut satırı yardımcı programlarını kullanın. Ardından verileri Azure SQL Data Warehouse'a yüklemek için PolyBase'i veya Azure Data Factory'yi kullanın. 
 
-
 ## Önkoşullar
-
 Bu öğreticide ilerleyebilmeniz için şunlar gereklidir:
 
-- SQL Data Warehouse veritabanı
-- bcp komut satırı yardımcı programının yüklü olması
-- SQLCMD komut satırı yardımcı programının yüklü olması
+* SQL Data Warehouse veritabanı
+* bcp komut satırı yardımcı programının yüklü olması
+* SQLCMD komut satırı yardımcı programının yüklü olması
 
->[AZURE.NOTE] bcp ve sqlcmd yardımcı programlarını [Microsoft İndirme Merkezi][]'nden indirebilirsiniz.
+> [!NOTE]
+> bcp ve sqlcmd yardımcı programlarını [Microsoft İndirme Merkezi][Microsoft İndirme Merkezi]'nden indirebilirsiniz.
+> 
+> 
 
 ## SQL Data Warehouse'a veri aktarma
-
 Bu öğreticide, Azure SQL Data Warehouse'da bir tablo oluşturup tabloya veri aktaracaksınız.
 
 ### 1. Adım: Azure SQL Data Warehouse'da tablo oluşturma
-
 Örneğinizde bir tablo oluşturmak için aşağıdaki sorguyu çalıştırmak üzere bir komut isteminden sqlcmd yardımcı programını kullanın:
 
 ```sql
@@ -57,10 +53,12 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 "
 ```
 
->[AZURE.NOTE] SQL Data Warehouse'da tablo oluşturma ve WITH yan tümcesinde bulunan seçenekler hakkında daha fazla bilgi için bkz. [Tabloya Genel Bakış][] veya [CREATE TABLE söz dizimi][].
+> [!NOTE]
+> SQL Data Warehouse'da tablo oluşturma ve WITH yan tümcesinde bulunan seçenekler hakkında daha fazla bilgi için bkz. [Tabloya Genel Bakış][Tabloya Genel Bakış] veya [CREATE TABLE söz dizimi][CREATE TABLE söz dizimi].
+> 
+> 
 
 ### 2. Adım: Kaynak veri dosyası oluşturma
-
 Not Defteri'ni açın ve yeni bir metin dosyasına aşağıdaki veri satırlarını kopyalayıp dosyayı yerel geçici dizininize (C:\Temp\DimDate2.txt) kaydedin.
 
 ```
@@ -78,7 +76,10 @@ Not Defteri'ni açın ve yeni bir metin dosyasına aşağıdaki veri satırları
 20150101,1,3
 ```
 
-> [AZURE.NOTE] bcp.exe dosyasının UTF-8 dosya kodlamasını desteklemediğini unutmayın. bcp.exe dosyasını kullanırken lütfen ASCII dosyalarını veya UTF-16 kodlu dosyaları kullanın.
+> [!NOTE]
+> bcp.exe dosyasının UTF-8 dosya kodlamasını desteklemediğini unutmayın. bcp.exe dosyasını kullanırken lütfen ASCII dosyalarını veya UTF-16 kodlu dosyaları kullanın.
+> 
+> 
 
 ### 3. Adım: Bağlanma ve verileri içeri aktarma
 bcp ile aşağıdaki komutu kullanıp değerleri uygun şekilde değiştirerek bağlanabilir ve verileri içeri aktarabilirsiniz.
@@ -95,24 +96,23 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 
 Bu işlem sonrasında şu sonuçların döndürülmesi gerekir:
 
-DateId |CalendarQuarter |FiscalQuarter
------------ |--------------- |-------------
-20150101 |1 |3
-20150201 |1 |3
-20150301 |1 |3
-20150401 |2 |4
-20150501 |2 |4
-20150601 |2 |4
-20150701 |3 |1
-20150801 |3 |1
-20150801 |3 |1
-20151001 |4 |2
-20151101 |4 |2
-20151201 |4 |2
+| DateId | CalendarQuarter | FiscalQuarter |
+| --- | --- | --- |
+| 20150101 |1 |3 |
+| 20150201 |1 |3 |
+| 20150301 |1 |3 |
+| 20150401 |2 |4 |
+| 20150501 |2 |4 |
+| 20150601 |2 |4 |
+| 20150701 |3 |1 |
+| 20150801 |3 |1 |
+| 20150801 |3 |1 |
+| 20151001 |4 |2 |
+| 20151101 |4 |2 |
+| 20151201 |4 |2 |
 
 ### 4. Adım: Yeni yüklenmiş verilerinize ilişkin İstatistikler oluşturma
-
-Azure SQL Data Warehouse henüz istatistiklerin otomatik olarak oluşturulup güncelleştirilmesini desteklemiyor. Sorgularınızdan en iyi performansı elde edebilmeniz için ilk yüklemeden veya verilerdeki önemli değişikliklerden sonra her tablonun her sütununa ilişkin istatistiklerin oluşturulması önemlidir. İstatistikler hakkında ayrıntılı bir açıklama için Geliştirme ile ilgili konu başlığı grubunda yer alan [İstatistikler][] bölümüne göz atın. Aşağıda bu örnekte yüklenen tablolar için nasıl istatistik oluşturacağınıza yönelik kısa bir örnek verilmiştir.
+Azure SQL Data Warehouse henüz istatistiklerin otomatik olarak oluşturulup güncelleştirilmesini desteklemiyor. Sorgularınızdan en iyi performansı elde edebilmeniz için ilk yüklemeden veya verilerdeki önemli değişikliklerden sonra her tablonun her sütununa ilişkin istatistiklerin oluşturulması önemlidir. İstatistikler hakkında ayrıntılı bir açıklama için Geliştirme ile ilgili konu başlığı grubunda yer alan [İstatistikler][İstatistikler] bölümüne göz atın. Aşağıda bu örnekte yüklenen tablolar için nasıl istatistik oluşturacağınıza yönelik kısa bir örnek verilmiştir.
 
 Bir sqlcmd isteminden şu CREATE STATISTICS deyimlerini yürütün:
 
@@ -128,7 +128,6 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 Bu öğreticide SQL Data Warehouse'da bulunan bir tablodan veri dosyası oluşturacaksınız. Yukarıda oluşturduğumuz verileri DimDate2_export.txt adlı dosyaya aktaracağız.
 
 ### 1. Adım: Verileri dışarı aktarma
-
 bcp yardımcı programı ile aşağıdaki komutu kullanıp değerleri uygun şekilde değiştirerek bağlanabilir ve verileri içeri aktarabilirsiniz.
 
 ```sql
@@ -151,11 +150,14 @@ Yeni dosyayı açarak verilerin düzgün bir şekilde dışarı aktarıldığın
 20150101,1,3
 ```
 
->[AZURE.NOTE] Dağıtılmış sistemlerin yapısı gereği, veri sırası SQL Data Warehouse veritabanlarında aynı olmayabilir. Tüm tabloyu dışarı aktarmak yerine, bcp yardımcı programının **queryout** işlevini kullanarak bir sorgu ayıklaması da yazabilirsiniz.
+> [!NOTE]
+> Dağıtılmış sistemlerin yapısı gereği, veri sırası SQL Data Warehouse veritabanlarında aynı olmayabilir. Tüm tabloyu dışarı aktarmak yerine, bcp yardımcı programının **queryout** işlevini kullanarak bir sorgu ayıklaması da yazabilirsiniz.
+> 
+> 
 
 ## Sonraki adımlar
-Yüklemeye genel bakış için bkz. [SQL Data Warehouse'a veri yükleme][].
-Geliştirme ile ilgili daha fazla ipucu için bkz. [SQL Data Warehouse geliştirmeye genel bakış][].
+Yüklemeye genel bakış için bkz. [SQL Data Warehouse'a veri yükleme][SQL Data Warehouse'a veri yükleme].
+Geliştirme ile ilgili daha fazla ipucu için bkz. [SQL Data Warehouse geliştirmeye genel bakış][SQL Data Warehouse geliştirmeye genel bakış].
 
 <!--Image references-->
 

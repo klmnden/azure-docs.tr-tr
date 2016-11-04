@@ -1,41 +1,38 @@
-<properties 
-    pageTitle="Azure Service Bus | Microsoft Azure" 
-    description="Azure uygulamalarını başka bir yazılıma bağlamak için Service Bus kullanımına giriş." 
-    services="service-bus" 
-    documentationCenter=".net" 
-    authors="sethmanheim" 
-    manager="timlt" 
-    editor=""/>
+---
+title: Azure Service Bus | Microsoft Docs
+description: Azure uygulamalarını başka bir yazılıma bağlamak için Service Bus kullanımına giriş.
+services: service-bus
+documentationcenter: .net
+author: sethmanheim
+manager: timlt
+editor: ''
 
-<tags 
-    ms.service="service-bus" 
-    ms.workload="na" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="get-started-article" 
-    ms.date="08/31/2016" 
-    ms.author="sethm"/>
+ms.service: service-bus
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 08/31/2016
+ms.author: sethm
 
-
+---
 # <a name="azure-service-bus"></a>Azure Service Bus
-
 Bir uygulama veya hizmet ister bulutta ister şirket içinde çalışsın, genellikle diğer uygulamalarla veya hizmetlerle etkileşimde olmalıdır. Bunu gerçekleştirmenin oldukça kapsamlı ve kullanışlı bir yöntemi ise Microsoft Azure tarafından sunulan Service Bus hizmetidir. Bu makalede, hizmetin yapısına ve hizmeti kullanmanız durumunda elde edeceğiniz avantajlara yer verilerek bu teknoloji genel hatlarıyla incelenir.
 
 ## <a name="service-bus-fundamentals"></a>Service Bus ile ilgili temel bilgiler
-
 Farklı çözümler, farklı iletişim stilleri gerektirir. Bazı durumlarda, uygulamaların basit bir kuyruk aracılığıyla iletileri almasına veya göndermesine izin vermek en iyi çözümdür. Diğer durumlarda ise sıradan bir kuyruk yeterli değildir; yayımla ve abone ol mekanizmasını içeren bir kuyruk daha faydalıdır. Gereken tek şeyin uygulamalar arasında kurulan bağlantı olduğu ve kuyrukların gerekmediği durumlar da mevcuttur. Service Bus, uygulamalarınızın birçok farklı yöntemle etkileşim kurmasına olanak sağlayarak bu seçeneklerin üçünü de sunar.
 
 Service Bus çok kiracılı bir bulut hizmetidir, yani hizmet birçok kullanıcı tarafından paylaşılır. Her kullanıcı (örneğin, uygulama geliştiricisi) bir *ad alanı* oluşturur ve ardından ad alanında ihtiyaç duyacağı iletişim mekanizmasını tanımlar. Şekil 1'de bu sistem gösterilmektedir.
 
 ![][1]
- 
+
 **Şekil 1: Service Bus, bulut üzerinden uygulamaları bağlamak için çok kiracılı bir hizmet sunar.**
 
 Ad alanı içinde, dört farklı iletişim mekanizmasının bir veya birden fazla örneğini kullanabilirsiniz. Bu mekanizmaların her biri, uygulamaları farklı yöntemlerle bağlar. Seçenekler şunlardır:
 
-- Tek yönlü iletişime izin veren *kuyruklar*. Her kuyruk, alınana kadar gönderilen iletileri depolayan bir ara hizmet olarak görev yapar (bazen *aracı* olarak adlandırılır). Her ileti tek bir alıcı tarafından alınır.
-- *Abonelikler* olmak üzere tek konu başlığı kullanan, tek yönlü iletişim sağlayan *Konu Başlıkları*, birden çok aboneliği barındırabilir. Kuyrukta olduğu gibi konu başlığı, aracı gibi davranır ancak her abonelik isteğe bağlı olarak yalnızca belirli kriterlerle eşleşen iletileri almak için filtre kullanabilir.
-- Çift yönlü iletişim sunan *geçişler*. Kuyruk ve konu başlıklarının aksine, bir geçiş yürütülen iletileri depolamaz; yani bir aracı değildir. Bunun yerine iletileri yalnızca hedef uygulamaya gönderir.
+* Tek yönlü iletişime izin veren *kuyruklar*. Her kuyruk, alınana kadar gönderilen iletileri depolayan bir ara hizmet olarak görev yapar (bazen *aracı* olarak adlandırılır). Her ileti tek bir alıcı tarafından alınır.
+* *Abonelikler* olmak üzere tek konu başlığı kullanan, tek yönlü iletişim sağlayan *Konu Başlıkları*, birden çok aboneliği barındırabilir. Kuyrukta olduğu gibi konu başlığı, aracı gibi davranır ancak her abonelik isteğe bağlı olarak yalnızca belirli kriterlerle eşleşen iletileri almak için filtre kullanabilir.
+* Çift yönlü iletişim sunan *geçişler*. Kuyruk ve konu başlıklarının aksine, bir geçiş yürütülen iletileri depolamaz; yani bir aracı değildir. Bunun yerine iletileri yalnızca hedef uygulamaya gönderir.
 
 Bir kuyruk, konu veya geçiş oluşturduğunuzda bunları adlandırırsınız. Ad alanınız ne olursa olsun, bu ad nesne için benzersiz bir tanıtıcı oluşturur. Uygulamalar bu adı Service Bus'a verebilir ve ardından birbirleriyle iletişim kurmak için bu kuyruğu, konuyu veya geçişi kullanabilir. 
 
@@ -44,11 +41,10 @@ Geçiş senaryosundaki bu nesnelerden herhangi birini kullanmak için Windows uy
 Service Bus hizmeti bulutta (Microsoft'un Azure veri merkezlerinde) çalışıyor olsa da Service Bus hizmetini kullanan uygulamaların herhangi bir yerde çalışabileceğini kavramak önemlidir. Service Bus hizmetini Azure'da çalışan uygulamaları (örneğin, kendi veri merkezinizde çalışan uygulamalar) bağlamak için kullanabilirsiniz . Ayrıca, bu hizmeti Azure veya başka bulut platformunda çalışan bir uygulama ile şirket içi bir uygulamayı veya tablet ve telefonları bağlamak için de kullanabilirsiniz. Ev aletlerini, sensörleri ve diğer cihazları merkezi bir uygulamaya veya başka bir uygulamaya bağlamak bile mümkündür. Service Bus, neredeyse her yerden erişilebilen bulut tabanlı bir iletişim mekanizmasıdır. Service Bus hizmetini kullanım şekliniz uygulamanızın gereksinimlerine göre değişir.
 
 ## <a name="queues"></a>Kuyruklar
-
 İki uygulamayı Service Bus kuyruğu kullanarak bağlamaya karar verdiğinizi varsayalım. Şekil 2'de bu durum gösterilir.
 
 ![][2]
- 
+
 **Şekil 2: Service Bus kuyrukları tek yönlü, zaman uyumsuz kuyruğa alma işlemi sunar.**
 
 İşlem oldukça basittir: Bir gönderici Service Bus kuyruğuna ileti gönderir ve daha sonra alıcı bu iletiyi alır. Kuyruk Şekil 2'de gösterildiği gibi yalnızca tek bir alıcıya sahip olabilir. Ya da aynı kuyruktan birden fazla uygulama okuyabilir. İkinci durumda her ileti yalnızca bir alıcı tarafından okunur. Çok noktaya yayın hizmetinde bunun yerine bir konu kullanmanız gerekir.
@@ -59,36 +55,34 @@ Bir alıcı iki farklı şekilde Service Bus kuyruğundaki iletileri okuyabilir.
 
 *PeekLock* olan ikinci seçenek ise bu soruna çözüm bulmak için tasarlanmıştır. **ReceiveAndDelete** gibi, **PeekLock** yöntemindeki okuma işlemi de iletiyi kuyruktan kaldırır. Ancak iletiyi silmez. Bunun yerine, iletiyi kilitleyerek diğer alıcılar için görünmez yapar ve aşağıdaki olaylardan birinin gerçekleşmesini bekler:
 
-- Alıcı iletiyi başarıyla işlediğinde **Complete** çağrısı yapar ve kuyruk iletiyi siler. 
-- Alıcı, iletiyi başarıyla işleyemediğine karar verirse **Abandon** çağrısını yapar. Daha sonra kuyruk iletinin kilidini açar ve iletiyi diğer alıcılar için kullanılabilir hale getirir.
-- Ayarlanabilir bir süre içinde alıcı bu yöntemlerin hiçbirini çağırmazsa (varsayılan 60 saniyedir) kuyruk alıcının başarısız olduğunu varsayar. Bu durumda, alıcının **Abandon** çağrısı yaptığını varsayarak hareket eder ve iletiyi diğer alıcılar için kullanılabilir hale getirir.
+* Alıcı iletiyi başarıyla işlediğinde **Complete** çağrısı yapar ve kuyruk iletiyi siler. 
+* Alıcı, iletiyi başarıyla işleyemediğine karar verirse **Abandon** çağrısını yapar. Daha sonra kuyruk iletinin kilidini açar ve iletiyi diğer alıcılar için kullanılabilir hale getirir.
+* Ayarlanabilir bir süre içinde alıcı bu yöntemlerin hiçbirini çağırmazsa (varsayılan 60 saniyedir) kuyruk alıcının başarısız olduğunu varsayar. Bu durumda, alıcının **Abandon** çağrısı yaptığını varsayarak hareket eder ve iletiyi diğer alıcılar için kullanılabilir hale getirir.
 
 Burada gerçekleşebilecek şu duruma dikkat edin: Aynı ileti iki kez (belki de iki farklı alıcıya) teslim edilebilir. Service Bus kuyruklarını kullanan uygulamalar bu duruma karşı hazırlıklı olmalıdır. Yinelenen öğe algılamasını daha kolay hale getirmek için her iletinin benzersiz **MessageID** özelliği vardır. Bu özellik, iletinin kuyruktan kaç kez okunduğuna bakılmaksızın varsayılan olarak sürekli aynıdır. 
 
 Kuyruklar birçok durumda oldukça faydalıdır. Kuyruklar sayesinde aynı anda çalışmayan uygulamaların bile iletişim kurmasına olanak sağlanır; özellikle toplu işlem ve mobil uygulamalarda olmak üzere bu özellik oldukça kullanışlıdır. Ayrıca, birden çok alıcısı bulunan bir kuyruk otomatik olarak yük dengelemesi sunar. Bu durum, gönderilen iletilerin tüm alıcılara dağıtılmasından kaynaklanır.
 
 ## <a name="topics"></a>Konu başlıkları
-
 Ne kadar faydalı olsalar da kuyruklar her zaman doğru çözüm değildir. Bazı durumlarda Service Bus konu başlıkları daha faydalıdır. Şekil 3'te bu durum gösterilir.
 
 ![][3]
- 
+
 **Şekil 3: Uygulama, abone uygulamanın belirlediği bir filtreye bağlı olarak Service Bus konu başlığına gönderilen iletilerin bazılarını veya tümünü alabilir.**
 
 *Konu başlığı* birçok açıdan kuyruğa benzer. Göndericiler, iletileri kuyruğa gönderdikleri gibi aynı şekilde konu başlığına gönderir ve bu iletiler kuyrukta göründükleri gibi görünür. Aradaki büyük fark ise konu başlıklarının, alıcı uygulamaların her birinin bir *filtre* belirleyerek kendi *aboneliklerini* oluşturmalarına olanak sağlamasıdır. Böylece abone yalnızca filtreyle eşleşen iletileri görebilir. Örneğin, Şekil 3'te, bir gönderici ile üç abonesi bulunan bir konu başlığı ve abonelerin her birinin kendi filtrelerine sahip olduğu bir durum gösterilir:
 
-- Abone 1 yalnızca *Seller="Ava"* özelliğini içeren iletileri alır.
-- Abone 2 ise *Seller="Ruby"* ve/veya değeri 100.000'den fazla olan *Amount* özelliklerini içeren iletileri alır. Ruby'nin bir satış müdürü olduğunu varsayarsak Ruby kendi satışları haricindeki tüm büyük satışları kimin yaptığına bakmaksızın görmek isteyebilir.
-- Abone 3, filtresini *True* olarak ayarlar ve tüm iletileri alır. Örneğin, bu uygulama bir denetim kaydı tutmakla görevlendirilmiştir ve tüm iletileri görmesi gerekir.
+* Abone 1 yalnızca *Seller="Ava"* özelliğini içeren iletileri alır.
+* Abone 2 ise *Seller="Ruby"* ve/veya değeri 100.000'den fazla olan *Amount* özelliklerini içeren iletileri alır. Ruby'nin bir satış müdürü olduğunu varsayarsak Ruby kendi satışları haricindeki tüm büyük satışları kimin yaptığına bakmaksızın görmek isteyebilir.
+* Abone 3, filtresini *True* olarak ayarlar ve tüm iletileri alır. Örneğin, bu uygulama bir denetim kaydı tutmakla görevlendirilmiştir ve tüm iletileri görmesi gerekir.
 
 Kuyruklarda olduğu gibi, bir konu başlığının aboneleri de iletileri **ReceiveAndDelete** veya **PeekLock** kullanarak okuyabilir. Ancak kuyrukların aksine, konu başlığına gönderilen tek bir ileti birden çok abonelik tarafından alınabilir. Yaygın şekilde *yayımla ve abone ol* (veya *pub/sub*) olarak adlandırılan bu yaklaşım, aynı iletilerin birden çok uygulamanın ilgi alanına girmesi durumunda faydalıdır. Her abone, doğru filtreyi tanımlayarak ileti akışının yalnızca görmesi gereken kısmını seçebilir.
 
 ## <a name="relays"></a>Geçişler
-
 Hem kuyruklar hem de konu başlıkları, bir aracı yoluyla tek yönlü zaman uyumsuz iletişim sağlar. Trafik akışları sadece tek yöndedir ve göndericiler ile alıcılar arasında doğrudan bağlantı yoktur. Peki bunu istemezseniz çözüm nedir? Uygulamalarınızın iletileri hem göndermesi hem de alması gerektiğini ya da gönderici ile alıcılar arasında doğrudan bağlantı istediğinizi ve iletileri depolamak için aracıya ihtiyacınız olmadığını düşünelim. Bunun gibi bir senaryoya uyum sağlamak için Service Bus, Şekil 4'te gösterildiği gibi *geçişleri* kullanır.
 
 ![][4]
- 
+
 **Şekil 4: Service Bus geçişi, uygulamalar arasında zaman uyumlu, çift yönlü iletişim sağlar.**
 
 Geçiş kullanımı hakkında akla gelen ilk soru ise şudur: Neden geçiş kullanmalıyım? Kuyruklara ihtiyacım olmasa bile doğrudan etkileşim sağlamak yerine uygulamaların arasındaki iletişimi neden bir bulut hizmeti aracılığıyla sağlamalıyım? Bu soruya verilen cevap ise doğrudan iletişim kurmanın düşündüğünüzden daha zor olmasıdır.
@@ -104,17 +98,15 @@ Kuyruk ve konu başlıklarının aksine uygulamalar, geçişleri açık bir şek
 Uygulamalar arasında doğrudan iletişim kurulması gerekiyorsa geçişler doğru çözümdür. Örneğin; check-in kiosk cihazları, mobil cihazlar ve diğer bilgisayarlardan erişilebilmesi gereken ve bir şirket içi veri merkezinde çalışan hava yolu rezervasyon sistemini ele alalım. Bu sistemlerin tümünde çalışan uygulamalar, nerede çalışıyor olurlarsa olsunlar iletişim kurmak için buluttaki Service Bus geçişlerine güvenebilirler.
 
 ## <a name="summary"></a>Özet
-
 Uygulamalar arasında bağlantı kurma her zaman eksiksiz çözüm derlemelerinin bir parçası olmuştur. Bunun yanı sıra, uygulamaların ve hizmetlerin birbirleriyle iletişim kurmasını gerektiren senaryoların sayısı daha fazla uygulamanın ve cihazın İnternet'e bağlanmasıyla artmaktadır. Bu gibi durumlarda istenilen başarıya ulaşmak için kuyrukların, konuların ve geçişlerin kullanılmasına yönelik bulut tabanlı teknolojiler sağlayan Service Bus, bu temel işlevin uygulanmasını kolaylaştırmayı ve daha geniş kapsamda kullanılmasını amaçlar.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-
 Artık Azure Service Bus hizmeti ile ilgili temel bilgileri edindiğinize göre, daha fazla bilgi edinmek için aşağıdaki bağlantıları izleyin.
 
-- [Service Bus kuyruklarını](service-bus-dotnet-get-started-with-queues.md) kullanma
-- [Service Bus konu başlıklarını](service-bus-dotnet-how-to-use-topics-subscriptions.md) kullanma
-- [Service Bus geçişini](../service-bus-relay/service-bus-dotnet-how-to-use-relay.md) kullanma
-- [Service Bus örnekleri](service-bus-samples.md)
+* [Service Bus kuyruklarını](service-bus-dotnet-get-started-with-queues.md) kullanma
+* [Service Bus konu başlıklarını](service-bus-dotnet-how-to-use-topics-subscriptions.md) kullanma
+* [Service Bus geçişini](../service-bus-relay/service-bus-dotnet-how-to-use-relay.md) kullanma
+* [Service Bus örnekleri](../service-bus/service-bus-samples.md)
 
 [1]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_01_architecture.png
 [2]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_02_queues.png

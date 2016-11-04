@@ -1,32 +1,30 @@
-<properties
- pageTitle="Nesnelerin İnterneti için Azure çözümleri | Microsoft Azure"
- description="Örnek bir çözüm mimarisi ve bu mimarinin Azure IoT Hub, cihaz SDK'ları ve önceden yapılandırılmış çözümlerle olan ilişkisini içeren, Azure'daki IoT'ye genel bakış"
- services="iot-hub"
- documentationCenter=""
- authors="dominicbetts"
- manager="timlt"
- editor=""/>
+---
+title: Nesnelerin İnterneti için Azure çözümleri | Microsoft Docs
+description: Örnek bir çözüm mimarisi ve bu mimarinin Azure IoT Hub, cihaz SDK'ları ve önceden yapılandırılmış çözümlerle olan ilişkisini içeren, Azure'daki IoT'ye genel bakış
+services: iot-hub
+documentationcenter: ''
+author: dominicbetts
+manager: timlt
+editor: ''
 
-<tags
- ms.service="iot-hub"
- ms.devlang="na"
- ms.topic="get-started-article"
- ms.tgt_pltfrm="na"
- ms.workload="na"
- ms.date="10/05/2016"
- ms.author="dobett"/>
+ms.service: iot-hub
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 10/05/2016
+ms.author: dobett
 
-
-[AZURE.INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
+---
+[!INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
 
 ## Sonraki adımlar
-
 Azure IoT Hub, uygulamanızın arka ucu ile milyonlarca cihaz arasında düzgün ve güvenli çift yönlü iletişimler sağlayan bir Azure hizmetidir. Şunları yapmak için uygulama arka ucu sağlar:
 
-- Cihazlarınızdan ölçekleyerek telemetri alma.
-- Verileri cihazlarınızdan akış olayı işlemcisine yönlendirme.
-- Cihazlardan dosya yüklemeleri alma.
-- Belirli cihazlara, buluttan cihaza komutları gönderme.
+* Cihazlarınızdan ölçekleyerek telemetri alma.
+* Verileri cihazlarınızdan akış olayı işlemcisine yönlendirme.
+* Cihazlardan dosya yüklemeleri alma.
+* Belirli cihazlara, buluttan cihaza komutları gönderme.
 
 Kendi çözüm arka ucunuzu uygulamak için IoT Hub'ınızı kullanabilirsiniz. Buna ek olarak IoT Hub cihazları, güvenlik kimlik bilgilerini ve hub'a bağlanma haklarını sağlamak için kullanılan bir cihaz kimlik kayıt defterini içerir. IoT Hub hakkında daha fazla bilgi almak için bkz. [IoT Hub nedir?][lnk-iot-hub].
 

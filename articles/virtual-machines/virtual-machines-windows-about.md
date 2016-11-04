@@ -1,27 +1,24 @@
-<properties
-    pageTitle="Windows Sanal Makineler Hakkında| Microsoft Azure"
-    description="Her iki dağıtım modelini kullanarak Azure’da Windows Sanal Makinelerin temel özelliklerini öğrenin."
-    services="virtual-machines-windows"
-    documentationCenter=""
-    authors="cynthn"
-    manager="timlt"
-    editor="tysonn"
-    tags="azure-resource-manager,azure-service-management"/>
+---
+title: Windows Sanal Makineler Hakkında| Microsoft Docs
+description: Her iki dağıtım modelini kullanarak Azure’da Windows Sanal Makinelerin temel özelliklerini öğrenin.
+services: virtual-machines-windows
+documentationcenter: ''
+author: cynthn
+manager: timlt
+editor: tysonn
+tags: azure-resource-manager,azure-service-management
 
-<tags
-    ms.service="virtual-machines-windows"
-    ms.workload="infrastructure-services"
-    ms.tgt_pltfrm="vm-windows"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="09/27/2016"
-    ms.author="cynthn"/>
+ms.service: virtual-machines-windows
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: vm-windows
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 09/27/2016
+ms.author: cynthn
 
-
-#Azure’da Windows sanal makineler hakkında
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
-
+---
+# Azure’da Windows sanal makineler hakkında
+[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 Azure Virtual Machines Azure’un sunduğu isteğe bağlı, ölçeklenebilir çeşitli bilgi işlem kaynağı türlerinden biridir. Genellikle, sunulan diğer seçimlere göre bilgi işlem ortamınız üzerinde daha fazla denetime ihtiyacınız varsa, bir sanal makineyi seçersiniz.
 
@@ -29,19 +26,14 @@ Bir Azure sanal makinesi, sanal makineyi çalıştıran fiziksel donanımı sat�
 
 Bu tablo, Azure tarafından sunulan seçimleri karşılaştırmanıza yardımcı olur.
 
-[AZURE.INCLUDE [compute-table](../../includes/compute-options-table.md)]
+[!INCLUDE [compute-table](../../includes/compute-options-table.md)]
 
-[AZURE.INCLUDE [virtual-machines-choose-me-content](../../includes/virtual-machines-choose-me-content.md)]
-
+[!INCLUDE [virtual-machines-choose-me-content](../../includes/virtual-machines-choose-me-content.md)]
 
 ## Sonraki adımlar
-
 Hızlı bir şekilde basit bir sanal makine oluşturarak sanal makineyi deneyin. Yönergeler için bkz. [Azure portalda Windows çalıştıran bir sanal makine oluşturma](virtual-machines-windows-hero-tutorial.md).
 
 Öğretici bir sanal makineyi hızlı bir şekilde oluşturmanıza yardımcı olduğundan, sanal makineler oluşturmak için kullanabileceğiniz çeşitli araçları açıklamak yerine bunu yapmanın tek bir yolunu gösterir. Bu araçların bir özeti ve yönergelere bağlantılar için bkz. [Windows sanal makine oluşturmanın farklı yolları](virtual-machines-windows-creation-choices.md).
-
-
-
 
 <!--HONumber=Sep16_HO4-->
 

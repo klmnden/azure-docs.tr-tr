@@ -2,13 +2,12 @@
 PowerShell kullanarak VNet oluşturmak için aşağıdaki adımları uygulayın.
 
 1. Azure PowerShell’i hiç kullanmadıysanız bkz. [Azure PowerShell’i yükleme ve yapılandırma](../articles/powershell-install-configure.md) ve Azure'a giriş yapıp aboneliğinizi seçene kadar da tüm bu süreç boyunca tüm talimatları uygulayın.
-    
 2. Gerekirse, yeni bir kaynak grubunu aşağıda gösterildiği gibi oluşturun. Senaryomuz için *TestRG* adlı bir kaynak grubu oluşturun. Kaynak grupları hakkında daha fazla bilgi için [Azure Resource Manager’a Genel Bakış](../articles/resource-group-overview.md)’ı ziyaret edin.
-
+   
         New-AzureRmResourceGroup -Name TestRG -Location centralus
-
+   
     Beklenen çıktı:
-    
+   
         ResourceGroupName : TestRG
         Location          : centralus
         ProvisioningState : Succeeded
@@ -17,16 +16,15 @@ PowerShell kullanarak VNet oluşturmak için aşağıdaki adımları uygulayın.
                             Actions  NotActions
                             =======  ==========
                             *
-        
+   
         ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG   
-
 3. *TestVNet* adıyla, aşağıda gösterildiği gibi yeni bir VNet oluşturun.
-
+   
         New-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet `
             -AddressPrefix 192.168.0.0/16 -Location centralus   
-        
+   
     Beklenen çıktı:
-
+   
         Name              : TestVNet
         ResourceGroupName : TestRG
         Location          : centralus
@@ -44,20 +42,21 @@ PowerShell kullanarak VNet oluşturmak için aşağıdaki adımları uygulayın.
                             }
         NetworkInterfaces : null
         Subnets           : []
-
 4. Sanal ağ nesnesini aşağıda gösterildiği gibi bir değişkende saklayın.
-
+   
         $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
-    
-    >[AZURE.TIP] 3. ve 4. adımları **$vnet = New-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet -AddressPrefix 192.168.0.0/16 -Location centralus** komutunu çalıştırarak birleştirebilirsiniz.
-
+   
+   > [!TIP]
+   > 1. ve 4. adımları **$vnet = New-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet -AddressPrefix 192.168.0.0/16 -Location centralus** komutunu çalıştırarak birleştirebilirsiniz.
+   > 
+   > 
 5. Yeni VNet değişkenine aşağıda gösterildiği gibi bir alt ağ ekleyin.
-
+   
         Add-AzureRmVirtualNetworkSubnetConfig -Name FrontEnd `
             -VirtualNetwork $vnet -AddressPrefix 192.168.1.0/24
-        
+   
     Beklenen çıktı:
-
+   
         Name              : TestVNet
         ResourceGroupName : TestRG
         Location          : centralus
@@ -86,18 +85,16 @@ PowerShell kullanarak VNet oluşturmak için aşağıdaki adımları uygulayın.
                                 "ProvisioningState": null
                               }
                             ]
-
 6. Yukarıdaki 5. adımı oluşturmak istediğiniz her alt ağ için yineleyin. Aşağıdaki komut senaryomuz için *BackEnd* alt ağı oluşturur.
-
+   
         Add-AzureRmVirtualNetworkSubnetConfig -Name BackEnd `
             -VirtualNetwork $vnet -AddressPrefix 192.168.2.0/24
-
 7. Alt ağları oluşturmuş olsanız da, bunlar şu anda yalnızca yukarıdaki 4. adımda oluşturduğunuz VNet’i almak için kullanılan yerel değişkende olacaktır. Azure değişikliklerini kaydetmek için **Set-AzureRmVirtualNetwork** cmdlet’ini aşağıda gösterildiği gibi çalıştırın.
-
+   
         Set-AzureRmVirtualNetwork -VirtualNetwork $vnet 
-        
+   
     Beklenen çıktı:
-
+   
         Name              : TestVNet
         ResourceGroupName : TestRG
         Location          : centralus
@@ -136,8 +133,6 @@ PowerShell kullanarak VNet oluşturmak için aşağıdaki adımları uygulayın.
                                 "ProvisioningState": "Succeeded"
                               }
                             ]
-
-
 
 <!--HONumber=Jun16_HO2-->
 

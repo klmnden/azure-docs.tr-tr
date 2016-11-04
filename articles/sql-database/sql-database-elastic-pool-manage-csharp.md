@@ -1,29 +1,29 @@
-<properties
-    pageTitle="Monitor and manage an elastic database pool with C# | Microsoft Azure"
-    description="Use C# database development techniques to manage an Azure SQL Database elastic database pool."
-    services="sql-database"
-    documentationCenter=""
-    authors="srinia"
-    manager="jhubbard"
-    editor=""/>
+---
+title: Monitor and manage an elastic database pool with C# | Microsoft Docs
+description: Use C# database development techniques to manage an Azure SQL Database elastic database pool.
+services: sql-database
+documentationcenter: ''
+author: srinia
+manager: jhubbard
+editor: ''
 
-<tags
-    ms.service="sql-database"
-    ms.devlang="NA"
-    ms.topic="article"
-    ms.tgt_pltfrm="csharp"
-    ms.workload="data-management"
-    ms.date="07/05/2016"
-    ms.author="srinia"/>
+ms.service: sql-database
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: csharp
+ms.workload: data-management
+ms.date: 07/05/2016
+ms.author: srinia
 
-# Monitor and manage an elastic database pool with C&#x23; 
-
-> [AZURE.SELECTOR]
-- [Azure portal](sql-database-elastic-pool-manage-portal.md)
-- [PowerShell](sql-database-elastic-pool-manage-powershell.md)
-- [C#](sql-database-elastic-pool-manage-csharp.md)
-- [T-SQL](sql-database-elastic-pool-manage-tsql.md)
-
+---
+# Monitor and manage an elastic database pool with C&#x23;
+> [!div class="op_single_selector"]
+> * [Azure portal](sql-database-elastic-pool-manage-portal.md)
+> * [PowerShell](sql-database-elastic-pool-manage-powershell.md)
+> * [C#](sql-database-elastic-pool-manage-csharp.md)
+> * [T-SQL](sql-database-elastic-pool-manage-tsql.md)
+> 
+> 
 
 Learn how to manage an [elastic database pool](sql-database-elastic-pool.md) using C&#x23;. 
 
@@ -35,7 +35,6 @@ The examples below use the [SQL Database Library for .NET](https://msdn.microsof
 
 
 ## Move a database into an elastic pool
-
 You can move a stand-alone database in or out of a pool.  
 
     // Retrieve current database properties.
@@ -60,7 +59,6 @@ You can move a stand-alone database in or out of a pool.
     var dbUpdateResponse = sqlClient.Databases.CreateOrUpdate("resourcegroup-name", "server-name", "Database1", updatePooledDbParameters);
 
 ## List databases in an elastic pool
-
 To retrieve all databases in a pool, call the [ListDatabases](https://msdn.microsoft.com/library/microsoft.azure.management.sql.elasticpooloperationsextensions.listdatabases) method.
 
     //List databases in the elastic pool
@@ -72,7 +70,6 @@ To retrieve all databases in a pool, call the [ListDatabases](https://msdn.micro
     }
 
 ## Change performance settings of a pool
-
 Retrieve existing the pool properties. Modify the values and execute the CreateOrUpdate method.
 
     var currentPool = sqlClient.ElasticPools.Get("resourcegroup-name", "server-name", "ElasticPool1").ElasticPool;
@@ -95,13 +92,10 @@ Retrieve existing the pool properties. Modify the values and execute the CreateO
 
 
 ## Latency of elastic pool operations
-
-- Changing the min eDTUs per database or max eDTUs per database typically completes in 5 minutes or less.
-- Changing the eDTUs per pool depends on the total amount of space used by all databases in the pool. Changes average 90 minutes or less per 100 GB. For example, if the total space used by all databases in the pool is 200 GB, then the expected latency for changing the pool eDTU per pool is 3 hours or less.
-
+* Changing the min eDTUs per database or max eDTUs per database typically completes in 5 minutes or less.
+* Changing the eDTUs per pool depends on the total amount of space used by all databases in the pool. Changes average 90 minutes or less per 100 GB. For example, if the total space used by all databases in the pool is 200 GB, then the expected latency for changing the pool eDTU per pool is 3 hours or less.
 
 ## Manage a pool C&#x23; example
-
 The following libraries are required to run this example. You can install by running the following commands in the [package manager console](http://docs.nuget.org/Consume/Package-Manager-Console) in Visual Studio (**Tools** > **NuGet Package Manager** > **Package Manager Console**)
 
     PM> Install-Package Microsoft.Azure.Management.Sql –Pre
@@ -117,7 +111,7 @@ Create a console app and replace the contents of Program.cs with the following. 
     using Microsoft.Azure.Management.Sql.Models;
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
     using System;
-    
+
     namespace SqlDbElasticPoolsSample
     {
     class Program
@@ -344,7 +338,7 @@ Create a console app and replace the contents of Program.cs with the following. 
             DatabaseListResponse dbListInPool = sqlClient.ElasticPools.ListDatabases(resourceGroupName, serverName, poolName);
             return dbListInPool;
         }
-     
+
 
         static ServerGetResponse CreateServer()
         {
@@ -423,10 +417,9 @@ Create a console app and replace the contents of Program.cs with the following. 
     }
 
 ## Additional Resources
-
-- [SQL Database](https://azure.microsoft.com/documentation/services/sql-database/)
-- [Azure Resource Management APIs](https://msdn.microsoft.com/library/azure/dn948464.aspx)
-- [Create a new elastic database pool with C#](sql-database-elastic-pool-create-csharp.md)
-- [When should an elastic database pool be used?](sql-database-elastic-pool-guidance.md)
-- See [Scaling out with Azure SQL Database](sql-database-elastic-scale-introduction.md): use elastic database tools to scale-out, move data, query, or create transactions.
+* [SQL Database](https://azure.microsoft.com/documentation/services/sql-database/)
+* [Azure Resource Management APIs](https://msdn.microsoft.com/library/azure/dn948464.aspx)
+* [Create a new elastic database pool with C#](sql-database-elastic-pool-create-csharp.md)
+* [When should an elastic database pool be used?](sql-database-elastic-pool-guidance.md)
+* See [Scaling out with Azure SQL Database](sql-database-elastic-scale-introduction.md): use elastic database tools to scale-out, move data, query, or create transactions.
 

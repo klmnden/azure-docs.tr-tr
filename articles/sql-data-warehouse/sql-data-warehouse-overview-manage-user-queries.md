@@ -1,40 +1,31 @@
-<properties
-   pageTitle="Monitor user queries in Azure SQL Data Warehouse | Microsoft Azure"
-   description="Overview of the considerations, best practices, and tasks for monitoring user queries in Azure SQL Data Warehouse"
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="jrowlandjones"
-   manager="barbkess"
-   editor=""/>
+---
+title: Monitor user queries in Azure SQL Data Warehouse | Microsoft Docs
+description: Overview of the considerations, best practices, and tasks for monitoring user queries in Azure SQL Data Warehouse
+services: sql-data-warehouse
+documentationcenter: NA
+author: jrowlandjones
+manager: barbkess
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="08/17/2016"
-   ms.author="jrj;barbkess;sonyama"/>
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 08/17/2016
+ms.author: jrj;barbkess;sonyama
 
+---
 # Monitor user queries in Azure SQL Data Warehouse
-
 Overview of the considerations, best practices, and tasks for monitoring user queries in SQL Data Warehouse.
 
-
-
-| Category                | Task or consideration                           | Description  |
-| :-----------------------| :---------------------------------------------- | :----------- |
-| Slow performance        | Find a long-running user query                  | [Find long-running queries][] |
-| Concurrency             | Assign concurrent resources to user queries     | [Concurrency and workload management][] |
-
-
-
-
-
+| Category | Task or consideration | Description |
+|:--- |:--- |:--- |
+| Slow performance |Find a long-running user query |[Find long-running queries][Find long-running queries] |
+| Concurrency |Assign concurrent resources to user queries |[Concurrency and workload management][Concurrency and workload management] |
 
 ## Next steps
-
-For more management tips, head over to the [Management overview][].
+For more management tips, head over to the [Management overview][Management overview].
 
 <!--Image references-->
 

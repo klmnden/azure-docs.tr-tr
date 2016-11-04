@@ -1,33 +1,36 @@
-<properties
-	pageTitle="How to download your Azure billing invoice and daily usage data | Microsoft Azure"
-	description="Describes how to download your Azure billing invoice and daily usage data"
-	services=""
-	documentationCenter=""
-	authors="genlin"
-	manager="mbaldwin"
-	editor=""
-	tags="billing"
-	/>
+---
+title: How to download your Azure billing invoice and daily usage data | Microsoft Docs
+description: Describes how to download your Azure billing invoice and daily usage data
+services: ''
+documentationcenter: ''
+author: genlin
+manager: mbaldwin
+editor: ''
+tags: billing
 
-<tags
-	ms.service="billing"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/17/2016"
-	ms.author="genli"/>
+ms.service: billing
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/17/2016
+ms.author: genli
 
+---
 # How to download your Azure billing invoice and daily usage data
-
-> [AZURE.NOTE] If you need more help at any point in this article, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
+> [!NOTE]
+> If you need more help at any point in this article, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
+> 
+> 
 
 As the Azure account administrator, you can view the current bill at the Azure Account Center and download statements for the previous six billing periods as well. Here’s how:
 
 1. Sign into the [Azure Account Center](https://account.windowsazure.com/subscriptions) as the account administrator. In the [Azure portal](https://portal.azure.com), you can access the Account Center by selecting **Subscription**>*the subscription name*>**Manage**.
-
-	> [AZURE.NOTE] Only the  account administrator has permission to access the Account Center. For more information about how to find out who is the account administrator of the subscription, see the [Frequently asked questions](billing-subscription-transfer.md#faq).
-
+   
+   > [!NOTE]
+   > Only the  account administrator has permission to access the Account Center. For more information about how to find out who is the account administrator of the subscription, see the [Frequently asked questions](billing-subscription-transfer.md#faq).
+   > 
+   > 
 2. Select the subscription for which you want the invoice and usage information.
 3. Select **BILLING HISTORY**. </br>![billinghistory](./media/billing-download-azure-invoice-daily-usage-date/Billinghisotry.png)
 4. You can see your statements for the last six billing periods as well as the current unbilled period. </br>![billingsum](./media/billing-download-azure-invoice-daily-usage-date/billingSum.png)</br>
@@ -35,4 +38,8 @@ As the Azure account administrator, you can view the current bill at the Azure A
 6. Select **Download Invoice** to see a copy of your last bill. </br>![DLInvoice](./media/billing-download-azure-invoice-daily-usage-date/DLInvoice1.png)
 7. Select **Download Usage** to download the daily usage data as a CSV file.</br>![DLusage](./media/billing-download-azure-invoice-daily-usage-date/DLusage.png)
 
-> [AZURE.NOTE] If you still have further questions, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
+> [!NOTE]
+> If you still have further questions, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
+> 
+> 
+

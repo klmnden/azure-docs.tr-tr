@@ -1,56 +1,51 @@
-<properties
-   pageTitle="Web Kullanıcı Arabirimi aracılığıyla Azure Kapsayıcı Hizmeti kapsayıcı yönetimi | Microsoft Azure"
-   description="Marathon web kullanıcı arabirimini kullanarak Azure Kapsayıcı Hizmeti küme hizmetine kapsayıcıları dağıtın."
-   services="container-service"
-   documentationCenter=""
-   authors="neilpeterson"
-   manager="timlt"
-   editor=""
-   tags="acs, azure-container-service"
-   keywords="Docker, Kapsayıcılar, Mikro hizmetler, Mesos, Azure"/>
+---
+title: Web Kullanıcı Arabirimi aracılığıyla Azure Kapsayıcı Hizmeti kapsayıcı yönetimi | Microsoft Docs
+description: Marathon web kullanıcı arabirimini kullanarak Azure Kapsayıcı Hizmeti küme hizmetine kapsayıcıları dağıtın.
+services: container-service
+documentationcenter: ''
+author: neilpeterson
+manager: timlt
+editor: ''
+tags: acs, azure-container-service
+keywords: Docker, Kapsayıcılar, Mikro hizmetler, Mesos, Azure
 
-<tags
-   ms.service="container-service"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="09/19/2016"
-   ms.author="nepeters"/>
+ms.service: container-service
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 09/19/2016
+ms.author: nepeters
 
-
+---
 # Web kullanıcı arabirimi aracılığıyla kapsayıcı yönetimi
-
 DC/OS, temel donanımı özetlerken, kümelenmiş iş yüklerini dağıtmak ve ölçeklendirmek için ortam sağlar. DC/OS’nin en üstünde, hesaplama iş yüklerini zamanlamayı ve yürütmeyi yöneten bir çerçeve vardır.
 
 Çerçeveler çok sayıda yaygın iş yükü için kullanılabilir, ancak bu belgede Marathon ile kapsayıcı dağıtımlarını nasıl oluşturacağınız ve ölçeklendireceğiniz açıklanmıştır. Bu örneklerin üzerinden geçmeden önce, Azure Kapsayıcı Hizmeti’nde yapılandırılan bir DC/OS kümeniz olması gerekir. Bu kümeye uzaktan bağlantınız olması da gerekir. Bu öğeler hakkında daha fazla bilgi için, aşağıdaki makalelere bakın:
 
-- [Azure Kapsayıcı Hizmeti kümesini dağıtma](container-service-deployment.md)
-- [Azure Kapsayıcı Hizmeti kümesine bağlanma](container-service-connect.md)
+* [Azure Kapsayıcı Hizmeti kümesini dağıtma](container-service-deployment.md)
+* [Azure Kapsayıcı Hizmeti kümesine bağlanma](container-service-connect.md)
 
 ## DC/OS kullanıcı arabirimini keşfetme
-
 Secure Shell (SSH) tüneli oluşturarak, http://localhost/ adresine gidin. Bu, DC/OS web kullanıcı arabirimini yükler ve kullanılan kaynaklar, etkin aracılar ve çalışan hizmetler gibi, küme hakkında bilgileri gösterir.
 
 ![DC/OS Kullanıcı Arabirimi](media/dcos/dcos2.png)
 
 ## Marathon kullanıcı arabirimini keşfetme
-
 Marathon kullanıcı arabirimini görmek için http://localhost/Marathon adresine gidin. Bu ekranda, Azure Kapsayıcı Hizmeti DC/OS kümesinde yeni kapsayıcı veya başka bir uygulama başlatabilirsiniz. Kapsayıcıları ve uygulamaları çalıştırma hakkında bilgileri de görebilirsiniz.  
 
 ![Marathon kullanıcı arabirimi](media/dcos/dcos3.png)
 
 ## Docker biçimli kapsayıcı dağıtma
-
 Yeni kapsayıcıyı Marathon kullanarak dağıtmak için, **Uygulama Oluştur** düğmesine tıklayın ve forma aşağıdaki bilgileri girin:
 
-Alan           | Değer
-----------------|-----------
-Kimlik              | nginx
-Görüntü           | nginx
-Ağ         | Bağlantı
-Ana Bilgisayar Bağlantı Noktası       | 80
-Protokol        | TCP
+| Alan | Değer |
+| --- | --- |
+| Kimlik |nginx |
+| Görüntü |nginx |
+| Ağ |Bağlantı |
+| Ana Bilgisayar Bağlantı Noktası |80 |
+| Protokol |TCP |
 
 ![Yeni Uygulama Kullanıcı Arabirimi --Genel](media/dcos/dcos4.png)
 
@@ -83,7 +78,6 @@ DC/OS web kullanıcı arabirimine (http://localhost/) geri döndüğünüzde, bi
 ![DC/OS web kullanıcı arabirimi--görev küme düğümü](media/dcos/dcos9.png)
 
 ## Kapsayıcılarınızı ölçeklendirme
-
 Bir kapsayıcı örnek sayısını ölçeklendirmek için Marathon kullanıcı arabirimi kullanabilirsiniz. Bunu yapmak için, **Marathon** sayfasına gidin, ölçeklendirmek istediğiniz kapsayıcıyı seçin ve **Ölçeklendir** düğmesine tıklayın. **Uygulamayı Ölçeklendir** iletişim kutusuna istediğiniz kapsayıcı örneği sayısını girin ve **Uygulamayı Ölçeklendir**’i seçin.
 
 ![Marathon kullanıcı arabirimi--Uygulamayı Ölçeklendir iletişim kutusu](media/dcos/dcos10.png)
@@ -95,14 +89,13 @@ Bir kapsayıcı örnek sayısını ölçeklendirmek için Marathon kullanıcı a
 ![DC/OS web kullanıcı arabirimi--düğümler](media/dcos/dcos12.png)
 
 ## Sonraki adımlar
-
-- [DC/OS ve Marathon API’si ile çalışma](container-service-mesos-marathon-rest.md)
+* [DC/OS ve Marathon API’si ile çalışma](container-service-mesos-marathon-rest.md)
 
 Mesos ile Azure Container Service’e ilişkin ayrıntılar
 
 > [AZURE.VIDEO] azurecon-2015-deep-dive-on-the-azure-container-service-with-mesos]
-
-
+> 
+> 
 
 <!--HONumber=Sep16_HO3-->
 

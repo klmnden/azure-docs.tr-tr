@@ -1,24 +1,22 @@
-<properties
-    pageTitle="Esnetme Veritabanı'na genel bakış | Microsoft Azure"
-    description="Esnetme Veritabanı'nın soğuk verilerinizi şeffaf ve güvenli bir şekilde Microsoft Azure bulutuna nasıl geçirdiğini öğrenin."
-    services="sql-server-stretch-database"
-    documentationCenter=""
-    authors="douglaslMS"
-    manager=""
-    editor=""/>
+---
+title: Esnetme Veritabanı'na genel bakış | Microsoft Docs
+description: Esnetme Veritabanı'nın soğuk verilerinizi şeffaf ve güvenli bir şekilde Microsoft Azure bulutuna nasıl geçirdiğini öğrenin.
+services: sql-server-stretch-database
+documentationcenter: ''
+author: douglaslMS
+manager: ''
+editor: ''
 
-<tags
-    ms.service="sql-server-stretch-database"
-    ms.workload="data-management"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="06/27/2016"
-    ms.author="douglasl"/>
+ms.service: sql-server-stretch-database
+ms.workload: data-management
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 06/27/2016
+ms.author: douglasl
 
-
+---
 # Esnetme Veritabanı'na genel bakış
-
 Esnetme Veritabanı soğuk verilerinizi şeffaf ve güvenli bir şekilde Microsoft Azure bulutuna geçirir.
 
 Yalnızca Esnetme Veritabanını hemen kullanmaya başlamak istiyorsanız bkz. [Esnetme İçin Veritabanını Etkinleştirme Sihirbazını çalıştırarak kullanmaya başlama](sql-server-stretch-database-wizard.md).
@@ -41,9 +39,8 @@ En önemli uygulamalarınızı güvenli bir şekilde buluta esnetirken içiniz r
 ## Esnetme Veritabanı ne yapar?
 Esnetme Veritabanı'nı bir SQL Server örneği, bir veritabanı ve en az bir tablo için etkinleştirdikten sonra Esnetme Veritabanı soğuk verilerinizi sessiz bir şekilde Azure'a geçirmeye başlar.
 
--   Soğuk verileri ayrı bir tabloda saklarsanız tüm tabloyu geçirebilirsiniz.
-
--   Tablonuz hem sıcak hem de soğuk verileri içeriyorsa geçirilecek satırları seçmek için bir filtre işlevi belirtebilirsiniz.
+* Soğuk verileri ayrı bir tabloda saklarsanız tüm tabloyu geçirebilirsiniz.
+* Tablonuz hem sıcak hem de soğuk verileri içeriyorsa geçirilecek satırları seçmek için bir filtre işlevi belirtebilirsiniz.
 
 **Var olan sorguları ve istemci uygulamalarını değiştirmeniz gerekmez.** Veri geçişi sırasında bile hem yerel hem de uzak verilere sorunsuz şekilde erişim sağlamaya devam edersiniz. Uzak sorgular için kısa süreli gecikme gerçekleşir ancak bu gecikmeyle yalnızca soğuk verileri sorguladığınızda karşılaşırsınız.
 
@@ -56,12 +53,12 @@ Yerel sunucudaki sorunları gidermek veya kullanılabilir ağ bant genişliğini
 ## Esnetme Veritabanı sizin için uygun mu?
 Aşağıdaki ifadeler sizin için geçerliyse Esnetme Veritabanı gereksinimlerinizi karşılamanıza ve sorunlarınızı çözmenize yardımcı olabilir.
 
-|Karar verme yetkisine sahipseniz|DBA iseniz|
-|------------------------------|-------------------|
-|İşlem verilerini uzun süreyle tutmam gerekiyor.|Tablolarımın boyutu kontrolden çıkıyor.|
-|Bazen soğuk verileri sorgulamam gerekiyor.|Kullanıcılarım soğuk verilere erişmek istediklerini söylüyor ancak bunları nadiren kullanıyorlar.|
-|Eski uygulamalar dahil olmak üzere, güncelleştirmek istemediğim uygulamalarım var.|Sürekli daha fazla depolama alanı almam ve eklemem gerekiyor.|
-|Depolama alanında paradan tasarruf etmem gerekiyor.|SLA'da bu kadar büyük tabloları yedekleyemiyor veya geri yükleyemiyorum.|
+| Karar verme yetkisine sahipseniz | DBA iseniz |
+| --- | --- |
+| İşlem verilerini uzun süreyle tutmam gerekiyor. |Tablolarımın boyutu kontrolden çıkıyor. |
+| Bazen soğuk verileri sorgulamam gerekiyor. |Kullanıcılarım soğuk verilere erişmek istediklerini söylüyor ancak bunları nadiren kullanıyorlar. |
+| Eski uygulamalar dahil olmak üzere, güncelleştirmek istemediğim uygulamalarım var. |Sürekli daha fazla depolama alanı almam ve eklemem gerekiyor. |
+| Depolama alanında paradan tasarruf etmem gerekiyor. |SLA'da bu kadar büyük tabloları yedekleyemiyor veya geri yükleyemiyorum. |
 
 ## Ne tür veritabanları ve tablolar Esnetme Veritabanı için aday niteliği taşır?
 Esnetme Veritabanı, genellikle az sayıda tablo içinde saklanan ve çok miktarda soğuk veri içeren işlem veritabanlarını hedefler. Bu tablolar bir milyardan fazla satır içerebilir.

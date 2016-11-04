@@ -1,24 +1,22 @@
-<properties
-	pageTitle="Use Twilio for Voice and SMS Capabilities | Microsoft Azure"
-	description="Learn how to perform common tasks using the Twilio API with Azure Mobile Services."
-	services="mobile-services"
-	documentationCenter=""
-	authors="devinrader"
-	manager="dwrede"
-	editor=""/>
+---
+title: Use Twilio for Voice and SMS Capabilities | Microsoft Docs
+description: Learn how to perform common tasks using the Twilio API with Azure Mobile Services.
+services: mobile-services
+documentationcenter: ''
+author: devinrader
+manager: dwrede
+editor: ''
 
-<tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="na"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.date="07/21/2016"
-	ms.author="glenga"/>
+ms.service: mobile-services
+ms.workload: mobile
+ms.tgt_pltfrm: na
+ms.devlang: multiple
+ms.topic: article
+ms.date: 07/21/2016
+ms.author: glenga
 
-
+---
 # How to use Twilio for voice and SMS capabilities from Mobile Services
-
 This topic shows you how to perform common tasks using the Twilio API with Azure Mobile Services. In this tutorial you will learn how to create Custom API scripts that use the Twilio API to initiate a phone call and to send a Short Message Service (SMS) message. 
 
 ## <a id="WhatIs"></a>What is Twilio?
@@ -80,36 +78,36 @@ Twilio provides a Node.js library that wraps various aspects of Twilio to provid
 To use the Twilio node.js library in your Mobile Service, you need leverage Mobile Services npm module support, which you can do by storing your scripts in source control.
 
 1. Complete the tutorial [Store Scripts in Source Control](mobile-services-store-scripts-source-control.md). This walks you through setting-up source control for your Mobile Services and storing your server scripts in a Git repository.
-
 2. After you have set up source control for your Mobile Service, open the repository on your local computer, browse to the `\services` subfolder, open the package.json file in a text editor, and add the following field to the **dependencies** object:
-
-		"twilio": "~1.7.0"
-
+   
+        "twilio": "~1.7.0"
 3. After you have added the Twilio package reference to the **dependencies** object, the package.json file should look like the following:
-
-		{
-		  "name": "todolist",
-		  "version": "1.0.0",
-		  "description": "todolist - hosted on Azure Mobile Services",
-		  "main": "server.js",
-		  "engines": {
-		    "node": ">= 0.8.19"
-		  },
-		  "dependencies": {
-			"twilio": "~1.7.0"
-		  },
-		  "devDependencies": {},
-		  "scripts": {},
-		  "author": "unknown",
-		  "licenses": [],
-		  "keywords":[]
-		}
-
-	>[AZURE.NOTE]The dependency for Twilio should be added as `"twilio": "~1.7.0"`, with a (~). A reference with a caret (^) is not supported.
-
+   
+        {
+          "name": "todolist",
+          "version": "1.0.0",
+          "description": "todolist - hosted on Azure Mobile Services",
+          "main": "server.js",
+          "engines": {
+            "node": ">= 0.8.19"
+          },
+          "dependencies": {
+            "twilio": "~1.7.0"
+          },
+          "devDependencies": {},
+          "scripts": {},
+          "author": "unknown",
+          "licenses": [],
+          "keywords":[]
+        }
+   
+   > [!NOTE]
+   > The dependency for Twilio should be added as `"twilio": "~1.7.0"`, with a (~). A reference with a caret (^) is not supported.
+   > 
+   > 
 4. Commit this file update and push the update back to the mobile service.
-
-	This update to the package.json file will restart your mobile service.
+   
+    This update to the package.json file will restart your mobile service.
 
 The mobile service now installs and loads the Twilio package so you can reference and use the Twilio library in your custom API and table scripts.
 
@@ -167,10 +165,12 @@ The following code shows how to send an SMS message using the **sendSms**  funct
 
 
 ## <a id="howto_provide_twiml_responses"></a>How to: Provide TwiML responses from your own website
-
 When your application initiates a call to the Twilio API - for example, via the client.InitiateOutboundCall method - Twilio sends your request to a URL that is expected to return a TwiML response. The example in How to: Make an outgoing call uses the Twilio-provided URL http://twimlets.com/message to return the response.
 
-> [AZURE.NOTE] While TwiML is designed for use by web services, you can view the TwiML in your browser. For example, click [twimlet_message_url](http://twimlets.com/message) to see an empty &lt;Response&gt; element; as another example, click [twimlet_message_url_hello_world](http://twimlets.com/message?Message%5B0%5D=Hello%20World) to see a &lt;Response&gt; element that contains a &lt;Say&gt; element.
+> [!NOTE]
+> While TwiML is designed for use by web services, you can view the TwiML in your browser. For example, click [twimlet_message_url](http://twimlets.com/message) to see an empty &lt;Response&gt; element; as another example, click [twimlet_message_url_hello_world](http://twimlets.com/message?Message%5B0%5D=Hello%20World) to see a &lt;Response&gt; element that contains a &lt;Say&gt; element.
+> 
+> 
 
 Instead of relying on the Twilio-provided URL, you can create your own URL site that returns HTTP responses. You can create the site in any language that returns HTTP responses. This topic assumes you'll be hosting the URL from an ASP.NET generic handler.
 
@@ -207,8 +207,7 @@ Once you have set up a way to provide TwiML responses, you can pass that URL int
         });
     };
 
-[AZURE.INCLUDE [twilio-additional-services-and-next-steps](../../includes/twilio-additional-services-and-next-steps.md)]
-
+[!INCLUDE [twilio-additional-services-and-next-steps](../../includes/twilio-additional-services-and-next-steps.md)]
 
 [twilio_rest_making_calls]: http://www.twilio.com/docs/api/rest/making-calls
 

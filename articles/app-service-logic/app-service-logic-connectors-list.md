@@ -1,54 +1,57 @@
-<properties
-    pageTitle="Kullanılabilir Bağlayıcılar ve API Apps listesi | Microsoft Azure App Service"
-    description="Azure App Service’deki Bağlayıcılar ve API Apps hakkında bilgi alın"
-    services="logic-apps"
-    documentationCenter=""
-    authors="MandiOhlinger"
-    manager="erikre"
-    editor="cgronlun"/>
+---
+title: Kullanılabilir Bağlayıcılar ve API Apps listesi | Microsoft Docs
+description: Azure App Service’deki Bağlayıcılar ve API Apps hakkında bilgi alın
+services: logic-apps
+documentationcenter: ''
+author: MandiOhlinger
+manager: erikre
+editor: cgronlun
 
-<tags
-    ms.service="logic-apps"
-    ms.workload="integration"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="09/01/2016"
-    ms.author="mandia"/>
+ms.service: logic-apps
+ms.workload: integration
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 09/01/2016
+ms.author: mandia
 
-
-
+---
 # Logic Apps içinde kullanılacak Bağlayıcılar ve API Apps listesi
->[AZURE.NOTE] Makalenin bu sürümü Logic Apps 2014-12-01-önizleme şema sürümü için geçerlidir. Logic Apps Genel Kullanılabilirlik (GA) sürümü için bkz. [Yeni Bağlayıcılar Listesi](../connectors/apis-list.md).
+> [!NOTE]
+> Makalenin bu sürümü Logic Apps 2014-12-01-önizleme şema sürümü için geçerlidir. Logic Apps Genel Kullanılabilirlik (GA) sürümü için bkz. [Yeni Bağlayıcılar Listesi](../connectors/apis-list.md).
+> 
+> 
 
 Logic Apps’inizde kullanılmak üzere Microsoft tarafından oluşturulan tüm kullanılabilir bağlayıcılar ve API Apps hakkında bilgi edinin.
 
 Fiyatlandırma bilgileri ve her bir Hizmet Katmanına dahil olanların listesi için bkz. [Azure App Service Fiyatlandırması](https://azure.microsoft.com/pricing/details/app-service/).
 
-> [AZURE.NOTE] Bir Azure hesabı için kaydolmadan önce Logic Apps’i kullanmak üzere [Logic Apps’i Deneyin](https://tryappservice.azure.com/?appservice=logic)’e gidin. App Service’de başlangıç düzeyinde kısa süreli mantıksal uygulamayı hemen oluşturabilirsiniz. Kredi kartı ve taahhüt gerekmez.
+> [!NOTE]
+> Bir Azure hesabı için kaydolmadan önce Logic Apps’i kullanmak üzere [Logic Apps’i Deneyin](https://tryappservice.azure.com/?appservice=logic)’e gidin. App Service’de başlangıç düzeyinde kısa süreli mantıksal uygulamayı hemen oluşturabilirsiniz. Kredi kartı ve taahhüt gerekmez.
+> 
+> 
 
 ## Çekirdek Bağlayıcılar
 Aşağıdaki tabloda Microsoft tarafından oluşturulan ve Çekirdek Bağlayıcılar olarak kullanılabilen tüm mevcut bağlayıcılar ve API Apps listelenmiştir:
 
-Ad | Açıklama
---- | ---
-[Bing Çevirmen](https://azure.microsoft.com/marketplace/partners/bing/microsofttranslator/) | Metni başka bir dile çevirmek için Bing kullanın.
-[HTTP](app-service-logic-connector-http.md) | HTTP Dinleyicisi, HTTP sunucusu gibi davranan ve gelen HTTP ya da HTTPS isteklerini dinleyen bir uç nokta açar. HTTP eylemi bir API Uygulaması gerektirmez ve Logic Apps içinde yerel olarak desteklenir.
-[Slack](app-service-logic-connector-slack.md) | Slack’e bağlanın ve Slack kanallarında iletiler yayınlayın.
-
+| Ad | Açıklama |
+| --- | --- |
+| [Bing Çevirmen](https://azure.microsoft.com/marketplace/partners/bing/microsofttranslator/) |Metni başka bir dile çevirmek için Bing kullanın. |
+| [HTTP](app-service-logic-connector-http.md) |HTTP Dinleyicisi, HTTP sunucusu gibi davranan ve gelen HTTP ya da HTTPS isteklerini dinleyen bir uç nokta açar. HTTP eylemi bir API Uygulaması gerektirmez ve Logic Apps içinde yerel olarak desteklenir. |
+| [Slack](app-service-logic-connector-slack.md) |Slack’e bağlanın ve Slack kanallarında iletiler yayınlayın. |
 
 ## Enterprise Integration Bağlayıcıları
 Aşağıdaki tabloda Microsoft tarafından oluşturulan ve Enterprise Integration Bağlayıcıları olarak kullanılabilen tüm mevcut Bağlayıcılar ve API Uygulamaları listelenmiştir:
 
-Ad  | Açıklama
-------------- | -------------
-[BizTalk Kuralları](app-service-logic-use-biztalk-rules.md) | Bir kuruluştaki iş mantığını tanımlamak ve denetlemek için BizTalk Kurallarını kullanın. İş ilkeleri, ilişkili uygulamalar yeniden derlenmeden veya yeniden dağıtılmadan güncelleştirilebilir.
-[BizTalk XPath Ayıklayıcısı](app-service-logic-xpath-extract.md) | Seçtiğiniz bir XPath’i temel alarak verileri arar ve XML içeriğinden ayıklar.
-[DB2 Bağlayıcısı](app-service-logic-connector-db2.md) | Şirket içindeki bir IBM DB2 veritabanına ve Windows işletim sistemi çalıştıran bir Azure sanal makinesine bağlanır. Web API ve OData API işlemlerini Informix Yapılandırılmış Sorgu Dili komutları ile eşleyebilir. <br/><br/>Tetikleyici yoktur. Tablo seçme, ekleme, güncelleştirme, silme ve özel deyim eylemleri mevcuttur<br/><br/>Bu bağlayıcı ayrıca bir TCP/IP ağı üzerinden bir Informix sunucusuna bağlanmak üzere DRDA için Microsoft Client içerir.
-[Dosya](app-service-logic-connector-file.md) | Bu bağlayıcıyı kullanarak, şirket içi dosya sistemine veya ağına bağlanabilir ve dosyaları karşıya yükleme, silme, listeleme gibi farklı dosya görevlerini tamamlayabilirsiniz.
-[Informix](app-service-logic-connector-informix.md) | Şirket içindeki bir IBM Informix veritabanına ve Windows işletim sistemi çalıştıran bir Azure sanal makinesine bağlanır. Web API ve OData API işlemlerini Informix Yapılandırılmış Sorgu Dili komutları ile eşleyebilir.<br/><br/>Tetikleyici yoktur. Tablo seçme, ekleme, güncelleştirme, silme ve özel deyim eylemleri mevcuttur.<br/><br/>Şirket içinde kullanılırken VPN veya Azure ExpressRoute kullanılabilir. Bu bağlayıcı ayrıca bir TCP/IP ağı üzerinden bir Informix sunucusuna bağlanmak üzere DRDA için Microsoft Client içerir.
-[Microsoft SQL Server](app-service-logic-connector-sql.md) | Şirket içi SQL Server veya bir Azure SQL veritabanına bağlanır. SQL veritabanı tablosunda girdiler oluşturabilir, güncelleştirebilir, alabilir ve silebilirsiniz.
-MQ | Şirket içinde ve Windows işletim sistemi çalıştıran bir Azure sanal makinesinde IBM WebSphere MQ Server sürüm 8’e bağlanır. Şirket içinde kullanılırken VPN veya Azure ExpressRoute kullanılabilir. Bağlayıcı ayrıca MQ için Microsoft Client içerir.<br/><br/>Tetikleyici yoktur. Eylem yoktur.<br/><br/>**Not** Şu anda Logic Apps ile kullanılamamaktadır.
+| Ad | Açıklama |
+| --- | --- |
+| [BizTalk Kuralları](app-service-logic-use-biztalk-rules.md) |Bir kuruluştaki iş mantığını tanımlamak ve denetlemek için BizTalk Kurallarını kullanın. İş ilkeleri, ilişkili uygulamalar yeniden derlenmeden veya yeniden dağıtılmadan güncelleştirilebilir. |
+| [BizTalk XPath Ayıklayıcısı](app-service-logic-xpath-extract.md) |Seçtiğiniz bir XPath’i temel alarak verileri arar ve XML içeriğinden ayıklar. |
+| [DB2 Bağlayıcısı](app-service-logic-connector-db2.md) |Şirket içindeki bir IBM DB2 veritabanına ve Windows işletim sistemi çalıştıran bir Azure sanal makinesine bağlanır. Web API ve OData API işlemlerini Informix Yapılandırılmış Sorgu Dili komutları ile eşleyebilir. <br/><br/>Tetikleyici yoktur. Tablo seçme, ekleme, güncelleştirme, silme ve özel deyim eylemleri mevcuttur<br/><br/>Bu bağlayıcı ayrıca bir TCP/IP ağı üzerinden bir Informix sunucusuna bağlanmak üzere DRDA için Microsoft Client içerir. |
+| [Dosya](app-service-logic-connector-file.md) |Bu bağlayıcıyı kullanarak, şirket içi dosya sistemine veya ağına bağlanabilir ve dosyaları karşıya yükleme, silme, listeleme gibi farklı dosya görevlerini tamamlayabilirsiniz. |
+| [Informix](app-service-logic-connector-informix.md) |Şirket içindeki bir IBM Informix veritabanına ve Windows işletim sistemi çalıştıran bir Azure sanal makinesine bağlanır. Web API ve OData API işlemlerini Informix Yapılandırılmış Sorgu Dili komutları ile eşleyebilir.<br/><br/>Tetikleyici yoktur. Tablo seçme, ekleme, güncelleştirme, silme ve özel deyim eylemleri mevcuttur.<br/><br/>Şirket içinde kullanılırken VPN veya Azure ExpressRoute kullanılabilir. Bu bağlayıcı ayrıca bir TCP/IP ağı üzerinden bir Informix sunucusuna bağlanmak üzere DRDA için Microsoft Client içerir. |
+| [Microsoft SQL Server](app-service-logic-connector-sql.md) |Şirket içi SQL Server veya bir Azure SQL veritabanına bağlanır. SQL veritabanı tablosunda girdiler oluşturabilir, güncelleştirebilir, alabilir ve silebilirsiniz. |
+| MQ |Şirket içinde ve Windows işletim sistemi çalıştıran bir Azure sanal makinesinde IBM WebSphere MQ Server sürüm 8’e bağlanır. Şirket içinde kullanılırken VPN veya Azure ExpressRoute kullanılabilir. Bağlayıcı ayrıca MQ için Microsoft Client içerir.<br/><br/>Tetikleyici yoktur. Eylem yoktur.<br/><br/>**Not** Şu anda Logic Apps ile kullanılamamaktadır. |
 
 ## Tetikleyici Olarak Bağlayıcılar
 Logic Apps için tetikleyiciler birkaç bağlayıcı tarafından sağlanır. Bu tetikleyicilerin iki türü vardır:
@@ -68,8 +71,6 @@ Bağlayıcılar Mantıksal Uygulama içinde eylem olarak da kullanılabilir. Eyl
 [Bağlayıcılar ve BizTalk API Apps nedir?](app-service-logic-what-are-biztalk-api-apps.md)  
 [Azure App Service içinde Karma Bağlantı Yöneticisi](app-service-logic-hybrid-connection-manager.md)  
 [Yerleşik API Uygulamalarınızı ve Bağlayıcılarınızı Yönetme ve İzleme](app-service-logic-monitor-your-connectors.md)
-
-
 
 <!--HONumber=Oct16_HO3-->
 

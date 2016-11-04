@@ -1,28 +1,30 @@
-<properties
-	pageTitle="Develop API for PowerApps Enterprise | Microsoft Azure"
-	description="Build or create custom APIs for PowerApps"
-	services=""
-    suite="powerapps"
-	documentationCenter="" 
-	authors="rajram"
-	manager="erikre"
-	editor=""/>
+---
+title: Develop API for PowerApps Enterprise | Microsoft Docs
+description: Build or create custom APIs for PowerApps
+services: ''
+suite: powerapps
+documentationcenter: ''
+author: rajram
+manager: erikre
+editor: ''
 
-<tags
-   ms.service="powerapps"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na" 
-   ms.date="05/02/2016"
-   ms.author="rajram"/>
+ms.service: powerapps
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 05/02/2016
+ms.author: rajram
 
+---
 # Develop an API for PowerApps
-
-> [AZURE.IMPORTANT] This topic is archived and will soon be removed. Come and see what we're up to at the new [PowerApps](https://powerapps.microsoft.com). 
+> [!IMPORTANT]
+> This topic is archived and will soon be removed. Come and see what we're up to at the new [PowerApps](https://powerapps.microsoft.com). 
 > 
-> - To learn more about PowerApps and to get started, go to [PowerApps](https://powerapps.microsoft.com).  
-> - To learn more about custom APIs in PowerApps, go to [What are Custom APIs](https://powerapps.microsoft.com/tutorials/register-custom-api/). 
+> * To learn more about PowerApps and to get started, go to [PowerApps](https://powerapps.microsoft.com).  
+> * To learn more about custom APIs in PowerApps, go to [What are Custom APIs](https://powerapps.microsoft.com/tutorials/register-custom-api/). 
+> 
+> 
 
 <!--Archived
 You can create or develop your own API that can be used within PowerApps. The steps include:
@@ -66,17 +68,17 @@ If an operation is marked as "important", the Logic Flow client is expected to h
 
 ##### x-ms-trigger
 Defines whether this operation can be used as a trigger in the Logic Flow. Options include:
-	
+
 - none (default): The operation cannot be used as a trigger.
 - single: This operation can also be used as a trigger.
 - batched: This operation can be used as a trigger.  In addition, this operation responds with a JSON  'array' of objects, and the Logic Flow fires a trigger for each item in the array.
 
 
 ##### x-ms-dynamic-values
-This is a hint to the Logic Flow designer that the API provides a list of dynamically allowed values for this parameter. The Logic Flow designer can invoke an operation as defined by the value of this field, and extract the possible values from the result.  The Logic Flow designer can then display these values as options to the end user.  
+This is a hint to the Logic Flow designer that the API provides a list of dynamically allowed values for this parameter. The Logic Flow designer can invoke an operation as defined by the value of this field, and extract the possible values from the result.  The Logic Flow designer can then display these values as options to the end user.  
 
 The value is an object that contains the following properties:
-	
+
 - operationId: A string that matches the operationId for the operation that is invoked
 - parameters: An object whose properties define the parameters required for the operation
 - value-collection: A path string that evaluates to an array of objects in the response payload
@@ -89,19 +91,19 @@ Example:
 ```javascript
 "/api/tables/{table}/items": {
   "post": {
-    "operationId": "TableData_CreateItem",
-    "summary": "Create an object in {Salesforce}",
-    "parameters": [
-      {
-        "name": "table",
-        "x-ms-summary": "Object Type",
-        "x-ms-dynamic-values": {
-          "operationId": "TableMetadata_ListTables",      // operation that needs to be invoked
-          "parameters": { },                              // parameters for the above operation, if any
-          "value-collection": "values",                   // field that contains the collection
-          "value-path": "Name",                           // field that contains the value
-          "value-title": "DisplayName"                    // field that contains a display name for the value
-      }
+    "operationId": "TableData_CreateItem",
+    "summary": "Create an object in {Salesforce}",
+    "parameters": [
+      {
+        "name": "table",
+        "x-ms-summary": "Object Type",
+        "x-ms-dynamic-values": {
+          "operationId": "TableMetadata_ListTables",      // operation that needs to be invoked
+          "parameters": { },                              // parameters for the above operation, if any
+          "value-collection": "values",                   // field that contains the collection
+          "value-path": "Name",                           // field that contains the value
+          "value-title": "DisplayName"                    // field that contains a display name for the value
+      }
       // ...
     ]
     // ...
@@ -115,7 +117,7 @@ In the above example, the swagger defines an operation called _TableData_CreateI
 Salesforce has a lot of built-in objects. _x-ms-dynamic-values_ is used here to help the designer figure out the list of the built in Salesforce objects. It obtains it by calling _TableMetadata_ListTables_.
 
 ##### x-ms-dynamic-schema
-This is a hint to the Logic Flow designer that the schema for this parameter (or response) is dynamic in nature.  It can invoke an operation as defined by the value of this field, and discover the schema dynamically.  It can then display an appropriate UI to take inputs from the user or display available fields.
+This is a hint to the Logic Flow designer that the schema for this parameter (or response) is dynamic in nature.  It can invoke an operation as defined by the value of this field, and discover the schema dynamically.  It can then display an appropriate UI to take inputs from the user or display available fields.
 
 Example:
 
@@ -127,9 +129,9 @@ Example:
   "x-ms-dynamic-schema": {
     "operationId": "Metadata_GetTableSchema",
     "parameters": {
-      "tablename": "{table}"              // the value that the user has selected from the above parameter
+      "tablename": "{table}"              // the value that the user has selected from the above parameter
     },
-    "value-path": "Schema"                // the field that contains the JSON schema
+    "value-path": "Schema"                // the field that contains the JSON schema
   }
 },
 ```

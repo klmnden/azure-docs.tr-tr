@@ -1,88 +1,79 @@
-<properties
-    pageTitle="Web Apps için Azure Mobile Engagement kullanmaya başlama | Microsoft Azure"
-    description="Web Apps için analizler ve anında iletme bildirimleri ile Azure Mobile Engagement kullanmayı öğrenin."
-    services="mobile-engagement"
-    documentationCenter="Mobile"
-    authors="piyushjo"
-    manager=""
-    editor="" />
+---
+title: Web Apps için Azure Mobile Engagement kullanmaya başlama | Microsoft Docs
+description: Web Apps için analizler ve anında iletme bildirimleri ile Azure Mobile Engagement kullanmayı öğrenin.
+services: mobile-engagement
+documentationcenter: Mobile
+author: piyushjo
+manager: ''
+editor: ''
 
-<tags
-    ms.service="mobile-engagement"
-    ms.workload="mobile"
-    ms.tgt_pltfrm="na"
-    ms.devlang="js"
-    ms.topic="hero-article"
-    ms.date="06/01/2016"
-    ms.author="piyushjo" />
+ms.service: mobile-engagement
+ms.workload: mobile
+ms.tgt_pltfrm: na
+ms.devlang: js
+ms.topic: hero-article
+ms.date: 06/01/2016
+ms.author: piyushjo
 
-
+---
 # Web Apps için Azure Mobile Engagement kullanmaya başlama
-
-[AZURE.INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
+[!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
 Bu konuda Web Uygulaması kullanımınızı anlamak için Azure Mobile Engagement’ın nasıl kullanılacağı gösterilmektedir.
 
 Bu öğretici için aşağıdakiler gereklidir:
 
-+ Visual Studio 2015 veya tercih ettiğiniz başka bir düzenleyici
-+ [Web SDK](http://aka.ms/P7b453) 
+* Visual Studio 2015 veya tercih ettiğiniz başka bir düzenleyici
+* [Web SDK](http://aka.ms/P7b453) 
 
 Bu Web SDK Önizleme modundadır ve şu anda yalnızca Analizi destekleyip, tarayıcı ya da herhangi bir uygulama içi bildirim göndermeyi henüz desteklememektedir. 
 
-> [AZURE.NOTE] Bu öğreticiyi tamamlamak için etkin bir Azure hesabınızın olması gerekir. Hesabınız yoksa yalnızca birkaç dakika içinde ücretsiz bir deneme sürümü hesabı oluşturabilirsiniz. Ayrıntılar için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-web-app-get-started).
+> [!NOTE]
+> Bu öğreticiyi tamamlamak için etkin bir Azure hesabınızın olması gerekir. Hesabınız yoksa yalnızca birkaç dakika içinde ücretsiz bir deneme sürümü hesabı oluşturabilirsiniz. Ayrıntılar için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-web-app-get-started).
+> 
+> 
 
-##Web uygulamanız için Mobile Engagement ayarlama
+## Web uygulamanız için Mobile Engagement ayarlama
+[!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-[AZURE.INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
-
-##<a id="connecting-app"></a>Uygulamanızı Mobile Engagement arka ucuna bağlama
-
+## <a id="connecting-app"></a>Uygulamanızı Mobile Engagement arka ucuna bağlama
 Bu öğreticide, veri toplamak için gereken en küçük grup olan bir "temel tümleştirme" gösterilmektedir.
 
 Tümleştirmeyi göstermek üzere Visual Studio ile temel bir web uygulaması oluşturulacaktır; ancak Visual Studio’nun dışında oluşturulmuş herhangi bir web uygulamasının adımlarını da izleyebilirsiniz. 
 
-###Yeni bir Web Uygulaması oluşturma
-
+### Yeni bir Web Uygulaması oluşturma
 Aşağıdaki adımlarda Visual Studio 2015 kullanıldığı varsayılmaktadır ancak Visual Studio'nun önceki sürümleri için de benzer adımlar izlenir. 
 
 1. Visual Studio'yu başlatın ve **Giriş** ekranında **Yeni Proje**’yi seçin.
-
 2. Açılır listeden **Web** -> **ASP.Net Web Uygulaması**’nı seçin. Uygulamanın **Ad**, **Konum** ve **Çözüm adı** alanını doldurun ve ardından **Tamam**’a tıklayın.
-
 3. **Şablon seçin** açılır penceresinde **ASP.Net 4.5 Şablonları** altında **Boş**’u seçin ve **Tamam**’a tıklayın. 
 
 Azure Mobile Engagement Web SDK’sını tümleştireceğimiz yeni ve boş bir Windows Web Uygulaması projesi oluşturmuş oldunuz.
 
-###Uygulamanızı Mobile Engagement arka ucuna bağlama
-
+### Uygulamanızı Mobile Engagement arka ucuna bağlama
 1. Çözümünüzde **javascript** adlı yeni bir klasör oluşturun ve **azure-engagement.js** adlı Web SDK JS dosyasını buna ekleyin. 
-
 2. Aşağıdaki kodla birlikte bu javascript klasörüne **main.js** adlı yeni bir dosya ekleyin. Bağlantı dizesini güncelleştirdiğinizden emin olun. Bu `azureEngagement` nesnesi Web SDK yöntemlerine erişmek için kullanılır. 
-
+   
         var azureEngagement = {
             debug: true,
             connectionString: 'xxxxx'
         };
-
+   
     ![Js dosyaları ile Visual Studio][1]
 
-##Gerçek zamanlı izlemeyi etkinleştirme
-
+## Gerçek zamanlı izlemeyi etkinleştirme
 Veri göndermeye başlamak ve kullanıcıların etkin olduğundan emin olmak için, Mobile Engagement arka ucuna en az bir Etkinlik göndermelisiniz. Web uygulaması bağlamında etkinlik bir web sayfasıdır. 
 
 1. Çözümünüzde **home.html** adlı yeni bir sayfa oluşturun ve web uygulamanızın başlangıç sayfası olarak ayarlayın. 
 2. Gövde etiketine aşağıdakileri ekleyerek bu sayfada daha önce eklediğimiz iki javascript’i dahil edin. 
-
+   
         <script type="text/javascript" src="javascript/main.js"></script>
         <script type="text/javascript" src="javascript/azure-engagement.js"></script>
-
 3. Gövde etiketini EngagementAgent `startActivity` yöntemini çağıracak şekilde güncelleştirin
-        
+   
         <body onload="engagement.agent.startActivity('Home')">
-
 4. **home.html** dosyanız bu şekilde görünür
-        
+   
         <html>
         <head>
             ...
@@ -93,31 +84,26 @@ Veri göndermeye başlamak ve kullanıcıların etkin olduğundan emin olmak iç
         </body>
         </html>
 
-##Uygulamayı gerçek zamanlı izlemeyle bağlama
-
-[AZURE.INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
+## Uygulamayı gerçek zamanlı izlemeyle bağlama
+[!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
 ![][2]
 
-##Analizi genişletme
-
+## Analizi genişletme
 Analiz için şu anda Web SDK ile birlikte kullanabileceğiniz tüm yöntemler aşağıda verilmiştir:
 
 1. Etkinlikler/Web sayfaları:
-
+   
         engagement.agent.startActivity(name);
         engagement.agent.endActivity();
-
 2. Olaylar
-        
+   
         engagement.agent.sendEvent(name, extras);
-
 3. Hatalar
-
+   
         engagement.agent.sendError(name, extras);
-
 4. İşler
-
+   
         engagement.agent.startJob(name);
         engagement.agent.endJob(name);
 

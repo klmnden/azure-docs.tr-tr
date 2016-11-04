@@ -1,38 +1,38 @@
-<properties
-    pageTitle="Azure Notification Hubs ve Bing Uzamsal Veri ile bölge sınırlamalı anında iletme bildirimleri | Microsoft Azure"
-    description="Bu öğreticide, Azure Notification Hubs ve Bing Uzamsal Veri ile konum temelli anında iletme bildirimleri göndermeyi öğreneceksiniz."
-    services="notification-hubs"
-    documentationCenter="windows"
-    keywords="anında iletme bildirimi, anında iletme bildirimi"
-    authors="dend"
-    manager="yuaxu"
-    editor="dend"/>
+---
+title: Azure Notification Hubs ve Bing Uzamsal Veri ile bölge sınırlamalı anında iletme bildirimleri | Microsoft Docs
+description: Bu öğreticide, Azure Notification Hubs ve Bing Uzamsal Veri ile konum temelli anında iletme bildirimleri göndermeyi öğreneceksiniz.
+services: notification-hubs
+documentationcenter: windows
+keywords: anında iletme bildirimi, anında iletme bildirimi
+author: dend
+manager: yuaxu
+editor: dend
 
-<tags
-    ms.service="notification-hubs"
-    ms.workload="mobile"
-    ms.tgt_pltfrm="mobile-windows-phone"
-    ms.devlang="dotnet"
-    ms.topic="hero-article"
-    ms.date="05/31/2016"
-    ms.author="dendeli"/>
-    
+ms.service: notification-hubs
+ms.workload: mobile
+ms.tgt_pltfrm: mobile-windows-phone
+ms.devlang: dotnet
+ms.topic: hero-article
+ms.date: 05/31/2016
+ms.author: dendeli
 
+---
 # Azure Notification Hubs ve Bing Uzamsal Veri ile bölge sınırlamalı anında iletme bildirimleri
- 
- > [AZURE.NOTE] Bu öğreticiyi tamamlamak için etkin bir Azure hesabınızın olması gerekir. Hesabınız yoksa yalnızca birkaç dakika içinde ücretsiz bir deneme sürümü hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02).
+> [!NOTE]
+> Bu öğreticiyi tamamlamak için etkin bir Azure hesabınızın olması gerekir. Hesabınız yoksa yalnızca birkaç dakika içinde ücretsiz bir deneme sürümü hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02).
+> 
+> 
 
 Bu öğreticide, bir Evrensel Windows Platform uygulaması içinde kullanılan Azure Notification Hubs ve Bing Uzamsal Veri ile konum temelli anında iletme bildirimleri göndermeyi öğreneceksiniz.
 
-##Önkoşullar
+## Önkoşullar
 Öncelikle, tüm yazılım ve hizmet önkoşullarına sahip olduğunuzdan emin olmanız gerekir:
 
 * [Visual Studio 2015 Güncelleştirmesi 1](https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx) veya üzeri ([Community Edition](https://go.microsoft.com/fwlink/?LinkId=691978&clcid=0x409) da geçerli olur). 
 * [Azure SDK](https://azure.microsoft.com/downloads/)'nın en son sürümü. 
 * [Bing Haritalar Geliştirme Merkezi hesabı](https://www.bingmapsportal.com/) (ücretsiz bir tane oluşturabilir ve Microsoft hesabınızla ilişkilendirebilirsiniz). 
 
-##Başlarken
-
+## Başlarken
 Projeyi oluşturarak başlayalım. Visual Studio'da **Boş Uygulama (Evrensel Windows)** türü yeni bir proje başlatın.
 
 ![](./media/notification-hubs-geofence/notification-hubs-create-blank-app.png)
@@ -40,17 +40,16 @@ Projeyi oluşturarak başlayalım. Visual Studio'da **Boş Uygulama (Evrensel Wi
 Proje oluşturmayı tamamladıktan sonra, uygulamanın kendisi için donanımınız olması gerekir. Şimdi, bölge sınırlama altyapısı için her şeyi ayarlayalım. Bunun için Bing hizmetlerini kullanacağımızdan, belirli konum çerçevelerini sorgulamamıza izin veren bir ortak REST API uç noktası vardır:
 
     http://spatial.virtualearth.net/REST/v1/data/
-    
+
 Bunu çalıştırmak için aşağıdaki parametreleri belirtmeniz gerekir:
 
 * **Veri Kaynağı Kimliği** ve **Veri Kaynağı Adı**: Veri kaynakları, Bing Haritalar API'sinde konumlar ve çalışma saatleri gibi kümelenmiş çeşitli meta veriler içerir. Burada, bunlar hakkında daha fazla bilgi edinebilirsiniz. 
 * **Varlık Adı**: Bildirim için bir başvuru noktası olarak kullanmak istediğiniz varlık. 
 * **Bing Haritalar API'si Anahtarı**: Bu, daha önce Bing Geliştirme Merkezi hesabı oluşturduğunuzda edindiğiniz anahtardır.
- 
+
 Yukarıdaki öğelerin her biri için kurulumu derinlemesine inceleyelim.
 
-##Veri kaynağını ayarlama
-
+## Veri kaynağını ayarlama
 Bunu, Bing Haritalar Geliştirme Merkezi'nde yapabilirsiniz. Üst gezinti çubuğunda **Veri kaynakları**'na tıklayın ve **Veri Kaynaklarını Yönet**'i seçin.
 
 ![](./media/notification-hubs-geofence/bing-maps-manage-data.png)
@@ -64,14 +63,17 @@ Merak ediyor olabilirsiniz, veri dosyası nedir ve neleri karşıya yüklemeniz 
     Bing Spatial Data Services, 1.0, TestBoundaries
     EntityID(Edm.String,primaryKey)|Name(Edm.String)|Longitude(Edm.Double)|Latitude(Edm.Double)|Boundary(Edm.Geography)
     1|SanFranciscoPier|||POLYGON ((-122.389825 37.776598,-122.389438 37.773087,-122.381885 37.771849,-122.382186 37.777022,-122.389825 37.776598))
-    
+
 Yukarıdaki dize bu varlığı temsil eder:
 
 ![](./media/notification-hubs-geofence/bing-maps-geofence.png)
 
 Yukarıdaki dizeyi kopyalayıp yeni bir dosyaya yapıştırın, dosyayı **NotificationHubsGeofence.pipe** olarak kaydedin ve Bing Geliştirme Merkezi'ne yükleyin.
 
->[AZURE.NOTE]**Sorgu Anahtarı**'ndan farklı olan **Ana Anahtar** için yeni bir anahtar belirtmeniz istenebilir. Pano aracılığıyla yeni bir anahtar oluşturun ve veri kaynağını karşıya yükleme sayfasını yenileyin.
+> [!NOTE]
+> **Sorgu Anahtarı**'ndan farklı olan **Ana Anahtar** için yeni bir anahtar belirtmeniz istenebilir. Pano aracılığıyla yeni bir anahtar oluşturun ve veri kaynağını karşıya yükleme sayfasını yenileyin.
+> 
+> 
 
 Veri dosyasını karşıya yükledikten sonra, veri kaynağını yayımladığınızdan emin olmanız gerekir. 
 
@@ -101,8 +103,7 @@ Bu yanıt yalnızca, söz konusu nokta belirlenen sınırlar içinde olduğunda 
 
 ![](./media/notification-hubs-geofence/bing-maps-nores.png)
 
-##UWP uygulamasını ayarlama
-
+## UWP uygulamasını ayarlama
 Şimdi veri kaynağımız hazır olduğuna göre, daha önce önyüklemesini yaptığımız UWP uygulaması üzerinde çalışmaya başlayabiliriz.
 
 Öncelikle, uygulamamız için konum hizmetlerini etkinleştirmemiz gerekir. Bunu yapmak için **Çözüm Gezgini**'nde `Package.appxmanifest` dosyasına çift tıklayın.
@@ -199,8 +200,7 @@ Uygulama, konum koordinatlarını **Çıkış** penceresinde gösterecektir:
         });
     }
 
-##Arka ucu ayarlama
-
+## Arka ucu ayarlama
 [GitHub'dan .NET Arka Ucu Örneği](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/NotifyUsers)'ni indirin. İndirme işlemi tamamlandıktan sonra, `NotifyUsers` klasörünü ve ardından `NotifyUsers.sln` dosyasını açın.
 
 `AppBackend` projesini **Başlangıç Projesi** olarak ayarlayın ve başlatın.
@@ -276,7 +276,10 @@ Proje içinde `ApiHelper.cs` adlı yeni bir sınıf oluşturun. Bunu, nokta sın
         }
     }
 
->[AZURE.NOTE] API uç noktasını, daha önce Bing Geliştirme Merkezi'nden edindiğiniz sorgu URL'si ile değiştirdiğinizden emin olun (aynısı API anahtarı için de geçerlidir). 
+> [!NOTE]
+> API uç noktasını, daha önce Bing Geliştirme Merkezi'nden edindiğiniz sorgu URL'si ile değiştirdiğinizden emin olun (aynısı API anahtarı için de geçerlidir). 
+> 
+> 
 
 Sorgunun sonuçları getirmesi belirtilen noktanın bölge sınırının içinde olduğu anlamına gelir, bu durumda `true` döndürürüz. Sonuç yoksa Bing bize noktanın arama çerçevesi dışında olduğunu belirtiyor demektir. Bu durumda, `false` döndürürüz.
 
@@ -303,8 +306,7 @@ Sorgunun sonuçları getirmesi belirtilen noktanın bölge sınırının içinde
 
 Bu şekilde, bildirim yalnızca nokta sınırlar içinde olduğunda gönderilir.
 
-##UWP uygulamasında anında iletme bildirimlerini test etme
-
+## UWP uygulamasında anında iletme bildirimlerini test etme
 UWP uygulamasında artık bildirimleri test edebilmemiz gerekir. `LocationHelper` sınıfı içinde yeni bir işlev oluşturun (`SendLocationToBackend`):
 
     public static async Task SendLocationToBackend(string pns, string userTag, string message, string latitude, string longitude)
@@ -326,7 +328,10 @@ UWP uygulamasında artık bildirimleri test edebilmemiz gerekir. `LocationHelper
         }
     }
 
->[AZURE.NOTE] `POST_URL` öğesini önceki bölümde oluşturduğumuz dağıtılmış web uygulamanızın konumuna götürün. Şu an için bunu yerel olarak çalıştırabilirsiniz. Ancak genel bir sürümü dağıtma üzerine çalıştığınızdan, bunu dış sağlayıcı ile barındırmanız gerekir.
+> [!NOTE]
+> `POST_URL` öğesini önceki bölümde oluşturduğumuz dağıtılmış web uygulamanızın konumuna götürün. Şu an için bunu yerel olarak çalıştırabilirsiniz. Ancak genel bir sürümü dağıtma üzerine çalıştığınızdan, bunu dış sağlayıcı ile barındırmanız gerekir.
+> 
+> 
 
 Şimdi, UWP uygulamasını anında iletme bildirimleri için kaydettiğimizden emin olalım. Visual Studio'da, **Proje** > **Mağaza** > **Uygulamayı mağaza ile ilişkilendir**'e tıklayın.
 
@@ -371,8 +376,7 @@ Gerçek koordinatları geçirmediğimiz (şu anda sınırlar içinde olmayabilir
 
 ![](./media/notification-hubs-geofence/notification-hubs-test-notification.png)
 
-##Sırada ne var?
-
+## Sırada ne var?
 Çözümün üretime hazır olduğundan emin olmak için, yukarıdakilere ek olarak izlemeniz gerekebilecek birkaç adım vardır.
 
 Öncelikle, bölge sınırlarının dinamik olduğundan emin olmanız gerekebilir. Bu, yeni sınırları mevcut veri kaynağı içinde karşıya yükleyebilmek için Bing API'si ile bazı ek çalışmalar yapmayı gerektirir. Bu konu hakkında daha fazla bilgi edinmek için [Bing Uzamsal Veri Hizmetleri API belgelerine](https://msdn.microsoft.com/library/ff701734.aspx) başvurun.
@@ -382,8 +386,6 @@ Gerçek koordinatları geçirmediğimiz (şu anda sınırlar içinde olmayabilir
 Yukarıda gösterilen çözümde, çok çeşitli hedef platformlara sahip olabileceğiniz bir senaryo açıklanmaktadır. Bu nedenle, bölge sınırlamasını sisteme özgü özelliklerle sınırlamadık. Bununla birlikte, Evrensel Windows Platformu [bölge sınırlarını hemen algılayan](https://msdn.microsoft.com/windows/uwp/maps-and-location/set-up-a-geofence) özellikler sunar.
 
 Notification Hubs özellikleri hakkında daha ayrıntılı bilgi için [belge portalımıza](https://azure.microsoft.com/documentation/services/notification-hubs/) göz atın.
-
-
 
 <!--HONumber=Sep16_HO3-->
 

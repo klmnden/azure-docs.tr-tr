@@ -1,21 +1,21 @@
-<properties
-   pageTitle="Understanding Service Fabric application  and service security policies | Microsoft Azure"
-   description="An overview of how to run a Service Fabric application under system and local security accounts, including the SetupEntry point where an application needs to perform some privileged action before it starts"
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="msfussell"
-   manager="timlt"
-   editor=""/>
+---
+title: Understanding Service Fabric application  and service security policies | Microsoft Docs
+description: An overview of how to run a Service Fabric application under system and local security accounts, including the SetupEntry point where an application needs to perform some privileged action before it starts
+services: service-fabric
+documentationcenter: .net
+author: msfussell
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="09/22/2016"
-   ms.author="mfussell"/>
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 09/22/2016
+ms.author: mfussell
 
+---
 # Configure security policies for your application
 Azure Service Fabric provides the ability to secure applications running in the cluster under different user accounts. Service Fabric also secures the resources used by the applications at the time of deployment under the user account such as files, directories, and certificates. This makes running applications, even in a shared hosted environment, secure from one another. 
 
@@ -26,7 +26,6 @@ By default, Service Fabric applications run under the account that the Fabric.ex
 User groups can be defined and created so that one or more users can be added to each group to be managed together. This is useful when there are multiple users for different service entry points and they need to have certain common privileges that are available at the group level.
 
 ## Configure the policy for service SetupEntryPoint
-
 As described in the [application model](service-fabric-application-model.md) the **SetupEntryPoint** is a privileged entry point that runs with the same credentials as Service Fabric (typically the *NetworkService* account) before any other entry point. The executable specified by **EntryPoint** is typically the long-running service host, so having a separate setup entry point avoids having to run the service host executable with high privileges for extended periods of time. The executable specified by **EntryPoint** is run after **SetupEntryPoint** exits successfully. The resulting process is monitored and restarted, beginning again with **SetupEntryPoint**, if it ever terminates or crashes.
 
 The following is a simple service manifest example that shows the SetupEntryPoint and the main EntryPoint for the service.
@@ -56,7 +55,6 @@ The following is a simple service manifest example that shows the SetupEntryPoin
 ~~~
 
 ### Configure the policy using a local account
-
 After you configure the service to have a setup entry point, you can change the security permissions that it runs under in the application manifest. The followin example shows how to configure the service to run under user administrator account privileges.
 
 ~~~
@@ -116,7 +114,7 @@ Then, note the name of the node where the service was deployed and started in th
 C:\SfDevCluster\Data\_App\Node.2\MyApplicationType_App\work\out.txt
 ~~~
 
-###  Configure the policy using local system accounts
+### Configure the policy using local system accounts
 Often it is preferable to run the startup script using a local system account rather than an administrators account as shown preceding. Running the RunAs policy as Administrators typically doesn’t work well since machines have User Access Control (UAC) enabled by default. In such cases, **the recommendation is to run the SetupEntryPoint as LocalSystem instead of a local user added to administrators group**. The following example shows setting the SetupEntryPoint to run as LocalSystem.
 
 ~~~
@@ -137,9 +135,8 @@ Often it is preferable to run the startup script using a local system account ra
 </ApplicationManifest>
 ~~~
 
-##  Launch PowerShell commands from a SetupEntryPoint
+## Launch PowerShell commands from a SetupEntryPoint
 To run PowerShell from the **SetupEntryPoint** point, you can run **PowerShell.exe** in a batch file that points to a PowerShell file. First, add a PowerShell file to the service project, such as **MySetup.ps1**. Remember to set the *Copy if newer* property so that the file is also included in the service package. The following example shows a sample batch file to launch a PowerShell file called MySetup.ps1, which sets a system environment variable called **TestVariable**.
-
 
 MySetup.bat to launch PowerShell file.
 
@@ -190,7 +187,7 @@ Echo "Test console redirection which writes to the application log folder on the
 
 **Once you have debugged your script, immediately remove this console redirection policy**
 
-## Configure policy for service code packages 
+## Configure policy for service code packages
 In the preceding steps, you saw how to apply RunAs policy to SetupEntryPoint. Let's look a little deeper into how to create different principals that can be applied as service policies.
 
 ### Create local user groups
@@ -356,7 +353,7 @@ The following application manifest shows many of the different settings:
       <DefaultRunAsPolicy UserRef="LocalAdmin" />
    </Policies>
    <Certificates>
-	 <EndpointCertificate Name="Cert1" X509FindValue="FF EE E0 TT JJ DD JJ EE EE XX 23 4T 66 "/>
+     <EndpointCertificate Name="Cert1" X509FindValue="FF EE E0 TT JJ DD JJ EE EE XX 23 4T 66 "/>
   </Certificates>
 </ApplicationManifest>
 ~~~
@@ -364,7 +361,6 @@ The following application manifest shows many of the different settings:
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
-
 * [Understand the application model](service-fabric-application-model.md)
 * [Specify resources in a service manifest](service-fabric-service-manifest-resources.md)
 * [Deploy an application](service-fabric-deploy-remove-applications.md)

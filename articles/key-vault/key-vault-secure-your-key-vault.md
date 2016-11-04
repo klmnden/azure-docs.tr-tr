@@ -1,29 +1,25 @@
-<properties
-    pageTitle="Anahtar kasanızın güvenliğini sağlama | Microsoft Azure"
-    description="Kasaları ve anahtarlar ile parolaları yönetmek için anahtar kasasına yönelik erişim izinlerini yönetin. Anahtar kasasına yönelik kimlik doğrulama ve yetkilendirme modeli ve anahtar kasanızın güvenliğini sağlama"
-    services="key-vault"
-    documentationCenter=""
-    authors="amitbapat"
-    manager="mbaldwin"
-    tags="azure-resource-manager"/>
+---
+title: Anahtar kasanızın güvenliğini sağlama | Microsoft Docs
+description: Kasaları ve anahtarlar ile parolaları yönetmek için anahtar kasasına yönelik erişim izinlerini yönetin. Anahtar kasasına yönelik kimlik doğrulama ve yetkilendirme modeli ve anahtar kasanızın güvenliğini sağlama
+services: key-vault
+documentationcenter: ''
+author: amitbapat
+manager: mbaldwin
+tags: azure-resource-manager
 
-<tags
-    ms.service="key-vault"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="hero-article"
-    ms.date="10/07/2016"
-    ms.author="ambapat"/>
+ms.service: key-vault
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: hero-article
+ms.date: 10/07/2016
+ms.author: ambapat
 
-
-
+---
 # Anahtar kasanızın güvenliğini sağlama
-
 Azure Anahtar Kasası, bulut uygulamalarınıza ait şifreleme anahtarlarını ve parolaları (sertifikalar, bağlantı dizeleri, parolalar gibi) koruyan bir bulut hizmetidir. Bu veriler hassas ve iş için önemli olduğundan, anahtar kasalarınıza erişimi yalnızca yetkili uygulamaların ve kullanıcıların erişebileceği şekilde güvenli hale getirmek istersiniz. Bu makalede anahtar kasası erişim modeline genel bakış sunulmakta, kimlik doğrulaması ve yetkilendirme açıklanmakta ve bulut uygulamalarınız için anahtar kasasına erişimin güvenliğini sağlama işlemi bir örnekle anlatılmaktadır.
 
 ## Genel Bakış
-
 Bir anahtar kasasına erişim, iki ayrı arabirim ile denetlenir: yönetim düzlemi ve veri düzlemi. Her iki düzlem için de bir çağıranın (kullanıcı ya da uygulama) anahtar kasasına erişim elde edebilmesi için uygun kimlik doğrulaması ve yetkilendirme gereklidir. Kimlik doğrulama işlemi çağıranın kimliğini, yetkilendirme işlemi ise çağıranın hangi işlemleri yapmaya izinli olduğunu belirler.
 
 Kimlik doğrulaması için yönetim düzlemi ve veri düzleminde Azure Active Directory kullanılır. Yetkilendirme için yönetim düzleminde rol tabanlı erişim denetimi (RBAC), veri düzleminde ise anahtar kasası erişim ilkesi kullanılır.
@@ -40,13 +36,11 @@ Ele alınan konulara kısa bir genel bakış aşağıda verilmiştir:
 
 [Örnek](#example) - Bu örnekte üç farklı ekibin (güvenlik ekibi, geliştiriciler/operatörler ve denetçiler) Azure’da bir uygulama geliştirmek, yönetmek ve izlemek üzere belirli görevleri gerçekleştirmesine olanak tanımak amacıyla anahtar kasanıza yönelik erişim denetiminin nasıl ayarlanacağı açıklanmaktadır.
 
-
 ## Azure Active Directory'yi kullanarak kimlik doğrulama
-
 Bir Azure aboneliğinde yeni bir anahtar kasası oluşturduğunuzda, kasa bu aboneliğin Azure Active Directory kiracısı ile otomatik olarak ilişkilendirilir. Tüm çağıranların (kullanıcılar ve uygulamalar) bu anahtar kasasına erişmek için bu kiracıya kaydedilmesi gerekir. Bir uygulama veya kullanıcının anahtar kasasına erişebilmesi için Azure Active Directory kimlik doğrulaması yapması gerekir. Bu durum hem yönetim düzlemi hem de veri düzlemi erişimi için geçerlidir. Her iki durumda da bir uygulama, anahtar kasasına iki şekilde erişebilir:
 
--  **kullanıcı+uygulama erişimi** - bu seçenek genellikle oturum açmış bir kullanıcı adına anahtar kasasına erişen uygulamalar için geçerlidir. Azure PowerShell ve Azure Portalı bu tür erişimin örneğidir. Kullanıcılara iki yolla erişim verilebilir: bir yolu, anahtar kasasına herhangi bir uygulamadan erişebilmeleri için kullanıcılara erişim verilmesi, diğer yolu ise kullanıcıya yalnızca belirli bir uygulamayı kullandıklarında (birleşik kimlik olarak adlandırılır) anahtar kasası erişimi verilmesidir. 
--  **yalnızca uygulama erişimi** - daemon hizmetleri, arka plan işleri, vb. çalıştıran uygulamalar içindir. Uygulamanın kimliğine anahtar kasası erişimi verilir.
+* **kullanıcı+uygulama erişimi** - bu seçenek genellikle oturum açmış bir kullanıcı adına anahtar kasasına erişen uygulamalar için geçerlidir. Azure PowerShell ve Azure Portalı bu tür erişimin örneğidir. Kullanıcılara iki yolla erişim verilebilir: bir yolu, anahtar kasasına herhangi bir uygulamadan erişebilmeleri için kullanıcılara erişim verilmesi, diğer yolu ise kullanıcıya yalnızca belirli bir uygulamayı kullandıklarında (birleşik kimlik olarak adlandırılır) anahtar kasası erişimi verilmesidir. 
+* **yalnızca uygulama erişimi** - daemon hizmetleri, arka plan işleri, vb. çalıştıran uygulamalar içindir. Uygulamanın kimliğine anahtar kasası erişimi verilir.
 
 Her iki uygulama türünde de, [desteklenen kimlik doğrulama yöntemlerinden](../active-directory/active-directory-authentication-scenarios.md) biri kullanılarak uygulamanın Azure Active Directory kimlik doğrulaması yapılır ve uygulama bir belirteç alır. Kullanılan kimlik doğrulama yöntemi, uygulama türüne bağlıdır. Uygulama bundan sonra bu belirteci kullanıcı ve anahtar kasasına REST API isteği gönderir. Yönetim düzlemi erişiminde istekler Azure Resource Manager uç noktasından yönlendirilir. Veri düzlemine erişirken uygulamalar bir anahtar kasası uç noktasıyla doğrudan konuşur. [Kimlik doğrulama akışının tamamı](../active-directory/active-directory-protocols-oauth-code.md) hakkında daha fazla bilgi edinin. 
 
@@ -54,25 +48,23 @@ Uygulamanın belirteç istediği kaynak adı, uygulamanın yönetim düzlemine v
 
 Hem yönetim hem de veri düzleminde kimlik doğrulaması için tek bir mekanizmaya sahip olunması kendi avantajlarına sahiptir:
 
-- Kuruluşlar, kuruluş içindeki tüm anahtar kasalarına erişimi merkezi olarak denetleyebilir
-- Bir kullanıcı ayrılırsa, kuruluştaki tüm anahtar kasalarına erişimini kaybeder
-- Kuruluşlar Azure Active Directory’deki seçenekleri kullanarak kimlik doğrulamasını özelleştirebilir (örneğin, daha fazla güvenlik için çok faktörlü kimlik doğrulamasını etkinleştirme)
+* Kuruluşlar, kuruluş içindeki tüm anahtar kasalarına erişimi merkezi olarak denetleyebilir
+* Bir kullanıcı ayrılırsa, kuruluştaki tüm anahtar kasalarına erişimini kaybeder
+* Kuruluşlar Azure Active Directory’deki seçenekleri kullanarak kimlik doğrulamasını özelleştirebilir (örneğin, daha fazla güvenlik için çok faktörlü kimlik doğrulamasını etkinleştirme)
 
 ## Yönetim düzlemi ve veri düzlemi
-
 Azure Anahtar Kasası, Azure Resource Manager dağıtım modeli üzerinden kullanılabilen bir Azure hizmetidir. Bir anahtar kasası oluşturduğunuzda, içinde anahtar, parola ve sertifika gibi diğer nesneleri oluşturabileceğiniz sanal bir kapsayıcı elde edersiniz. Sonra belirli işlemleri gerçekleştirmek üzere yönetim düzlemi ve veri düzlemini kullanarak anahtar kasanıza erişirsiniz. Yönetim düzlemi arabirimi; anahtar kasası özniteliklerini oluşturma,i silme, güncelleştirme ve veri düzlemi için erişim ilkelerini ayarlama gibi işlemlerle anahtar kasanızı yönetmek için kullanılır. Veri düzlemi arabirimi, anahtar kasanıza depolanmış anahtar, parola ve sertifikaları eklemek, silmek, değiştirmek ve kullanmak için kullanılır.
 
 Yönetim düzlemi ve veri düzlemi arabirimlerine farklı uç noktalardan erişilir (tabloya bakın). Tablodaki ikinci sütun, farklı Azure ortamlarında bu uç noktaların DNS adlarını açıklamaktadır. Üçüncü sütunda, her erişim düzleminde gerçekleştirebileceğiniz işlemler açıklanır. Her erişim düzlemi kendi erişim denetimi mekanizmasına sahiptir: yönetim düzlemi için erişim denetimi Azure Resource Manager Rol Tabanlı Access Control (RBAC) kullanılarak ayarlanırken veri düzlemi erişim denetimi, anahtar kasası erişim ilkesi kullanılarak ayarlanır.
 
-| Erişim düzlemi | Erişim uç noktaları | İşlemler | Erişim denetimi mekanizması|
-|--------------|------------------|--------------------|--------|
-| Yönetim düzlemi|**Genel:**<br> management.azure.com:443<br><br> **Azure Çin:**<br> management.chinacloudapi.cn:443<br><br> **Azure ABD:**<br> management.usgovcloudapi.net:443<br><br> **Azure Almanya:**<br> management.microsoftazure.de:443 | Anahtar kasası oluşturma/okuma/güncelleştirme/silme <br> Anahtar kasası için erişim ilkelerini ayarlama<br>Anahtar kasası etiketlerini ayarlama | Azure Resource Manager Rol Tabanlı Access Control (RBAC) |
-| Veri düzlemi | **Genel:**<br> &lt;vault-name&gt;.vault.azure.net:443<br><br> **Azure Çin:**<br> &lt;vault-name&gt;.vault.azure.cn:443<br><br> **Azure ABD:**<br> &lt;vault-name&gt;.vault.usgovcloudapi.net:443<br><br> **Azure Almanya:**<br> &lt;vault-name&gt;.vault.microsoftazure.de:443 | Anahtarlar için: Şifre Çöz, Şifrele, UnwrapKey, WrapKey, Doğrula, İmzala, Al, Listele, Güncelleştir, Oluştur, İçeri Aktar, Sil, Yedekle, Geri Yükle<br><br> Parolalar için: Al, Listele, Ayarla, Sil | Anahtar kasası erişim ilkesi|
+| Erişim düzlemi | Erişim uç noktaları | İşlemler | Erişim denetimi mekanizması |
+| --- | --- | --- | --- |
+| Yönetim düzlemi |**Genel:**<br> management.azure.com:443<br><br> **Azure Çin:**<br> management.chinacloudapi.cn:443<br><br> **Azure ABD:**<br> management.usgovcloudapi.net:443<br><br> **Azure Almanya:**<br> management.microsoftazure.de:443 |Anahtar kasası oluşturma/okuma/güncelleştirme/silme <br> Anahtar kasası için erişim ilkelerini ayarlama<br>Anahtar kasası etiketlerini ayarlama |Azure Resource Manager Rol Tabanlı Access Control (RBAC) |
+| Veri düzlemi |**Genel:**<br> &lt;vault-name&gt;.vault.azure.net:443<br><br> **Azure Çin:**<br> &lt;vault-name&gt;.vault.azure.cn:443<br><br> **Azure ABD:**<br> &lt;vault-name&gt;.vault.usgovcloudapi.net:443<br><br> **Azure Almanya:**<br> &lt;vault-name&gt;.vault.microsoftazure.de:443 |Anahtarlar için: Şifre Çöz, Şifrele, UnwrapKey, WrapKey, Doğrula, İmzala, Al, Listele, Güncelleştir, Oluştur, İçeri Aktar, Sil, Yedekle, Geri Yükle<br><br> Parolalar için: Al, Listele, Ayarla, Sil |Anahtar kasası erişim ilkesi |
 
 Yönetim düzlemi ve veri düzlemi erişim denetimleri birbirinden bağımsız olarak çalışır. Örneğin, bir uygulamaya anahtar kasasındaki anahtarları kullanmak üzere erişim vermek istiyorsanız, yalnızca anahtar kasası erişim ilkelerini kullanarak veri düzlemi erişim izinleri vermeniz gerekir ve bu uygulama için bir yönetim düzlemi erişimi gerekli değildir. Buna karşılık, bir kullanıcının kasa özelliklerini ve etiketlerini okuyabilmesini, ancak anahtar, parola veya sertifikalara erişmemesini istiyorsanız, RBAC kullanarak bu kullanıcıya 'okuma' erişimi verebilirsiniz ve veri düzlemine erişim gerekmez.
 
 ## Yönetim düzlemi erişim denetimi
-
 Yönetim düzlemi, anahtar kasasını etkileyen işlemlerden oluşur. Örneğin, bir anahtar kasası oluşturabilir veya silebilirsiniz. Bir abonelikteki kasaların listesini alabilirsiniz. Anahtar kasası özelliklerini alabilir (SKU, etiketler gibi) ve kasadaki anahtarlara ve parolalara erişebilen kullanıcıları ve uygulamaları denetleyen anahtar kasası erişim ilkelerini ayarlayabilirsiniz. Yönetim düzlemi erişim denetimi, RBAC kullanır. Önceki bölümde yer alan tabloda, yönetim düzlemi üzerinden gerçekleştirilebilecek anahtar kasası işlemlerinin tam listesini görebilirsiniz. 
 
 ### Rol Tabanlı Access Control (RBAC)
@@ -82,64 +74,70 @@ Azure Resource Manager modeliyle, bir kaynak grubunda anahtar kasanızı oluştu
 
 Belirli bir kapsamdaki kullanıcılara, gruplara ve uygulamalara uygun RBAC rollerini atayarak erişim verebilirsiniz. Örneğin, bir kullanıcıya anahtar kasalarını yönetmesi için erişim vermek amacıyla, belirli bir kapsamda bu kullanıcıya önceden tanımlı bir 'anahtar kasasına Katkıda Bulunan' rolü atarsınız. Bu örnekteki kapsam bir abonelik, bir kaynak grubu veya yalnızca belirli bir anahtar kasası olabilir. Abonelik düzeyinde atanmış bir rol, bu abonelikteki tüm kaynak grupları ve kaynaklar için geçerlidir. Kaynak grubu düzeyinde atanmış bir rol, ilgili kaynak grubundaki tüm kaynaklar için geçerli olur. Belirli bir kaynağa atanmış bir rol, yalnızca ilgili kaynak için geçerli olur. Önceden tanımlı birkaç rol vardır (bkz. [RBAC: Yerleşik roller](../active-directory/role-based-access-built-in-roles.md)) ve önceden tanımlı roller ihtiyaçlarınıza uygun değilse kendi rollerinizi de tanımlayabilirsiniz.
 
->[AZURE.IMPORTANT] Bir kullanıcı bir anahtar kasası yönetim düzleminde Katkıda Bulunan izinlerine (RBAC) sahipse, veri düzlemine erişimi denetleyen anahtar kasası erişim ilkesini ayarlayarak, kendisine veri düzlemine erişim verebilir. Bu nedenle, anahtar kasalarınıza, anahtarlarınıza, parolalarınıza ve sertifikalarınıza erişip bunları yönetebilen kullanıcıların yalnızca yetkili kişiler olduğundan emin olmak amacıyla anahtar kasalarınıza 'Katkıda Bulunan' erişimine kimlerin sahip olduğunun sıkı denetlenmesi önerilir.
+> [!IMPORTANT]
+> Bir kullanıcı bir anahtar kasası yönetim düzleminde Katkıda Bulunan izinlerine (RBAC) sahipse, veri düzlemine erişimi denetleyen anahtar kasası erişim ilkesini ayarlayarak, kendisine veri düzlemine erişim verebilir. Bu nedenle, anahtar kasalarınıza, anahtarlarınıza, parolalarınıza ve sertifikalarınıza erişip bunları yönetebilen kullanıcıların yalnızca yetkili kişiler olduğundan emin olmak amacıyla anahtar kasalarınıza 'Katkıda Bulunan' erişimine kimlerin sahip olduğunun sıkı denetlenmesi önerilir.
+> 
+> 
 
 ## Veri düzlemi erişim denetimi
-
 Anahtar kasası veri düzlemi, bir anahtar kasasındaki anahtarlar, parolalar ve sertifikalar gibi nesneleri etkileyen işlemlerden oluşur.  Buna anahtar oluşturma, içeri aktarma, güncelleştirme, listeleme, yedekleme ve geri yükleme gibi anahtar işlemleri, anahtar etiketlerini ve diğer özniteliklerini imzalama, doğrulama, şifreleme, şifresini çözme, sarmalama, sarmalamadan çıkarma ve ayarlama gibi şifreleme işlemleri dahildir. Benzer şekilde, parolalar için alma, ayarlama, listeleme ve silme işlemleri dahildir.
 
 Veri düzlemi erişimi, bir anahtar kasasına ilişkin erişim ilkeleri ayarlanarak verilir. Bir kullanıcı, grup veya uygulamanın bir anahtar kasasına ait erişim ilkelerini ayarlayabilmesi için, ilgili anahtar kasasının yönetim düzleminde Katkıda Bulunan izinlerine (RBAC) sahip olması gerekir. Bir kullanıcı, grup veya uygulamaya, bir anahtar kasasındaki anahtarlar veya parolalar için belirli işlemleri gerçekleştirmek üzere erişim verilebilir. bir anahtar kasası için en fazla 16 erişim ilkesi girişine yönelik anahtar kasası desteği. Bir Azure Active Directory güvenlik grubu oluşturun ve bir anahtar kasasındaki birkaç kullanıcıya veri düzlemi erişimi vermek amacıyla ilgili gruba kullanıcılar ekleyin.
 
 ### anahtar kasası Erişim İlkeleri
-
 Anahtar kasası erişim ilkeleri anahtarlara, parolalara ve sertifikalara ayrı ayrı izinler verir. Örneğin, bir kullanıcıya parolalar için herhangi bir izin vermeden yalnızca anahtarlar için erişim verebilirsiniz. Ancak, anahtar, parola veya sertifikalara erişim izni kasa düzeyinde verilir. Diğer bir deyişle, anahtar kasası erişim ilkesi nesne düzeyinde izinleri desteklemez. Bir anahtar kasasının erişim ilkelerini ayarlamak için [Azure portalı](https://portal.azure.com/), [Azure CLI araçları](../xplat-cli-install.md), [PowerShell](../powershell-install-configure.md) veya [anahtar kasası Yönetim REST API’lerini](https://msdn.microsoft.com/library/azure/mt620024.aspx) kullanabilirsiniz.
 
->[AZURE.IMPORTANT] Anahtar kasası erişim ilkelerinin kasa düzeyinde geçerli olduğunu unutmayın. Örneğin, bir kullanıcıya anahtar oluşturma ve silme izni verildiğinde kullanıcı bu işlemleri ilgili anahtar kasasındaki tüm anahtarlar üzerinde gerçekleştirebilir.
+> [!IMPORTANT]
+> Anahtar kasası erişim ilkelerinin kasa düzeyinde geçerli olduğunu unutmayın. Örneğin, bir kullanıcıya anahtar oluşturma ve silme izni verildiğinde kullanıcı bu işlemleri ilgili anahtar kasasındaki tüm anahtarlar üzerinde gerçekleştirebilir.
+> 
+> 
 
 ## Örnek
-
 SSL için sertifika, verileri depolamak için Azure depolama ve imzalama işlemleri için RSA 2048 bit anahtarı kullanan bir uygulama geliştirdiğinizi varsayalım. Bu uygulamanın bir VM (veya VM Ölçek Kümesi) içinde çalıştığını kabul edelim. Tüm uygulama parolalarını depolamak için bir anahtar kasa kullanabilir ve anahtar kasasını kullanarak, uygulamanın Azure Active Directory kimlik doğrulaması için kullandığı önyükleme sertifikasını depolayabilirsiniz.
 
 Bu nedenle, bir anahtar kasasına depolanacak tüm anahtar ve parolaların özeti aşağıda verilmiştir.
 
-- **SSL Sertifikası** - SSL için kullanılır
-- **Depolama Anahtarı** - Depolama hesabına erişmek için kullanılır
-- **RSA 2048 bit anahtarı** - imzalama işlemleri için kullanılır
-- **Önyükleme sertifikası** - Azure Active Directory kimlik doğrulaması yapmak, depolama anahtarını getirmek üzere anahtar kasasına erişim elde etmek ve imzalama için RSA anahtarını kullanmak üzere kullanılır.
+* **SSL Sertifikası** - SSL için kullanılır
+* **Depolama Anahtarı** - Depolama hesabına erişmek için kullanılır
+* **RSA 2048 bit anahtarı** - imzalama işlemleri için kullanılır
+* **Önyükleme sertifikası** - Azure Active Directory kimlik doğrulaması yapmak, depolama anahtarını getirmek üzere anahtar kasasına erişim elde etmek ve imzalama için RSA anahtarını kullanmak üzere kullanılır.
 
 Şimdi de bu uygulamayı yöneten, dağıtan ve denetleyen kişilerle tanışalım. Bu örnekte üç rol kullanılacaktır.
 
-- **Güvenlik ekibi** - Bunlar genellikle 'CSO (Güvenlik Müdürü) ofisi' veya eşdeğerindeki bir bölümde, SSL sertifikaları, imzalama için kullanılan RSA anahtarları, veritabanlarına ait bağlantı dizeleri ve depolama hesabı anahtarlarının doğru korunmasından sorumlu BT personelidir.
-- **Geliştiriciler/operatörler** - Bunlar bu uygulamayı geliştirip Azure’da dağıtan kişilerdir. Genellikle, güvenlik ekibinin parçası değildir ve bu nedenle SSL sertifikaları ve RSA anahtarları gibi hassas verilerin erişimine sahip olmaması gerekir, ancak dağıttıkları uygulama bu erişime sahip olmalıdır.
-- **Denetçiler** - Bunlar genellikle geliştiricilerden ve genel BT personelinden ayrı tutulan farklı bir kullanıcı grubudur. Sorumlulukları arasında sertifika, anahtar, vb. doğru kullanımını ve bakımını incelemek ve veri güvenliği standartlarına uygunluğu sağlamak bulunur. 
+* **Güvenlik ekibi** - Bunlar genellikle 'CSO (Güvenlik Müdürü) ofisi' veya eşdeğerindeki bir bölümde, SSL sertifikaları, imzalama için kullanılan RSA anahtarları, veritabanlarına ait bağlantı dizeleri ve depolama hesabı anahtarlarının doğru korunmasından sorumlu BT personelidir.
+* **Geliştiriciler/operatörler** - Bunlar bu uygulamayı geliştirip Azure’da dağıtan kişilerdir. Genellikle, güvenlik ekibinin parçası değildir ve bu nedenle SSL sertifikaları ve RSA anahtarları gibi hassas verilerin erişimine sahip olmaması gerekir, ancak dağıttıkları uygulama bu erişime sahip olmalıdır.
+* **Denetçiler** - Bunlar genellikle geliştiricilerden ve genel BT personelinden ayrı tutulan farklı bir kullanıcı grubudur. Sorumlulukları arasında sertifika, anahtar, vb. doğru kullanımını ve bakımını incelemek ve veri güvenliği standartlarına uygunluğu sağlamak bulunur. 
 
 Bu uygulamanın kapsamı dışında olup burada bahsedilecek bir rol daha mevcuttur: abonelik (veya kaynak grubu) yöneticisi. Abonelik yöneticisi, güvenlik ekibi için ilk erişim izinlerini ayarlar. Burada, abonelik yöneticisinin bu uygulama için gerekli olan tüm kaynakların bulunduğu bir kaynak grubu için güvenlik ekibine erişim verdiği kabul edilmektedir.
 
 Her bir rolün bu uygulama bağlamında gerçekleştirdiği işlemler aşağıda verilmiştir.
 
-- **Güvenlik ekibi**
-    - Anahtar kasaları oluşturma
-    - Anahtar kasası günlüğünü açma
-    - Anahtar/parola ekleme
-    - Olağanüstü durum kurtarma için anahtarların yedeğini oluşturma
-    - Kullanıcılara ve uygulamalara belirli işlemleri gerçekleştirmesi için izinler veren anahtar kasası erişim ilkesini ayarlama
-    - Anahtarları/parolaları düzenli aralıklarla alma
-- **Geliştiriciler/operatörler**
-    - Güvenlik ekibinden önyükleme ve SSL sertifikalarının (parmak izleri), depolama anahtarının (güvenlik URI’si) ve imzalama anahtarının (Anahtar URI’si) başvurularını alma
-    - Anahtarlara ve parolalara programlı olarak erişen uygulamayı geliştirme ve dağıtma
-- **Denetçiler**
-    - Uygun anahtar/parola kullanımını ve veri güvenliği standartlarına uyumu onaylamak üzere kullanım günlüklerini gözden geçirme
+* **Güvenlik ekibi**
+  * Anahtar kasaları oluşturma
+  * Anahtar kasası günlüğünü açma
+  * Anahtar/parola ekleme
+  * Olağanüstü durum kurtarma için anahtarların yedeğini oluşturma
+  * Kullanıcılara ve uygulamalara belirli işlemleri gerçekleştirmesi için izinler veren anahtar kasası erişim ilkesini ayarlama
+  * Anahtarları/parolaları düzenli aralıklarla alma
+* **Geliştiriciler/operatörler**
+  * Güvenlik ekibinden önyükleme ve SSL sertifikalarının (parmak izleri), depolama anahtarının (güvenlik URI’si) ve imzalama anahtarının (Anahtar URI’si) başvurularını alma
+  * Anahtarlara ve parolalara programlı olarak erişen uygulamayı geliştirme ve dağıtma
+* **Denetçiler**
+  * Uygun anahtar/parola kullanımını ve veri güvenliği standartlarına uyumu onaylamak üzere kullanım günlüklerini gözden geçirme
 
 Her bir rolün (ve uygulamanın) atanmış görevleri gerçekleştirmesi için gereken anahtar kasası erişim izinlerinin ne olduğu aşağıda açıklanmaktadır. 
 
-| Kullanıcı Rolü    | Yönetim düzlemi izinleri | Veri düzlemi izinleri |
-|--------------|------------------------------|------------------------|
-|Güvenlik Ekibi|anahtar kasasına Katkıda Bulunan|Anahtarlar: yedekleme, oluşturma, silme, alma, içeri aktarma, listeleme, geri yükleme <br> Parolalar: tümü|
-|Geliştiriciler/Operatörler| dağıttıkları VM’lerin parolaları anahtar kasasından getirebilmesi anahtar kasası dağıtma izni | None |
-|Denetçiler| None | Anahtarlar: listeleme<br>Parolalar: listeleme|
-|Uygulama| None | Anahtarlar: imzalama<br>Parolalar: imzalama |
+| Kullanıcı Rolü | Yönetim düzlemi izinleri | Veri düzlemi izinleri |
+| --- | --- | --- |
+| Güvenlik Ekibi |anahtar kasasına Katkıda Bulunan |Anahtarlar: yedekleme, oluşturma, silme, alma, içeri aktarma, listeleme, geri yükleme <br> Parolalar: tümü |
+| Geliştiriciler/Operatörler |dağıttıkları VM’lerin parolaları anahtar kasasından getirebilmesi anahtar kasası dağıtma izni |None |
+| Denetçiler |None |Anahtarlar: listeleme<br>Parolalar: listeleme |
+| Uygulama |None |Anahtarlar: imzalama<br>Parolalar: imzalama |
 
->[AZURE.NOTE] Denetçilerin etiketler, etkinleştirme ve sona erme tarihleri gibi günlüklerde verilmeyen anahtar ve parola özniteliklerini inceleyebilmesi için anahtar ve parolalara yönelik listeleme izni gereklidir.
+> [!NOTE]
+> Denetçilerin etiketler, etkinleştirme ve sona erme tarihleri gibi günlüklerde verilmeyen anahtar ve parola özniteliklerini inceleyebilmesi için anahtar ve parolalara yönelik listeleme izni gereklidir.
+> 
+> 
 
 Anahtar kasası iznine ek olarak üç rolün tamamı da diğer kaynaklara erişebilmelidir. Örneğin, VM’leri (veya Web Apps, vb.) dağıtabilmek için Geliştiriciler/Operatörler aynı zamanda bu kaynak türlerine 'Katkıda Bulunan' erişimine sahip olmalıdır. Denetçiler, anahtar kasası günlüklerinin depolandığı depolama hesabına okuma erişimine sahip olmalıdır.
 
@@ -149,12 +147,9 @@ Erişim izinlerinin büyük bölümü Azure portalı kullanılarak verilebilir, 
 
 Aşağıdaki PowerShell kod parçacıkları şu varsayımlara sahiptir:
 
-- Azure Active Directory yöneticisi Contoso Güvenlik Ekibi, Contoso Uygulama Devops, Contoso Uygulama Denetçileri adlı üç rolü temsil eden güvenlik grupları oluşturmuştur. Yönetici ayrıca ait oldukları gruplara kullanıcılar eklemiştir.
-
-- **ContosoAppRG** tüm kaynakların bulunduğu kaynak grubudur. **contosologstorage**, günlüklerin depolandığı yerdir. 
-
-- **ContosoKeyVault** anahtar kasası ve **contosologstorage** anahtar kasası günlükleri için kullanılan depolama hesabı aynı Azure konumunda olmalıdır
-
+* Azure Active Directory yöneticisi Contoso Güvenlik Ekibi, Contoso Uygulama Devops, Contoso Uygulama Denetçileri adlı üç rolü temsil eden güvenlik grupları oluşturmuştur. Yönetici ayrıca ait oldukları gruplara kullanıcılar eklemiştir.
+* **ContosoAppRG** tüm kaynakların bulunduğu kaynak grubudur. **contosologstorage**, günlüklerin depolandığı yerdir. 
+* **ContosoKeyVault** anahtar kasası ve **contosologstorage** anahtar kasası günlükleri için kullanılan depolama hesabı aynı Azure konumunda olmalıdır
 
 İlk olarak, abonelik yöneticisi güvenlik ekibine 'anahtar kasasına Katkıda Bulunan' ve 'Kullanıcı Erişimi Yöneticisi' rollerini atar. Bunun yapılması, güvenlik ekibinin diğer kaynaklara erişmesine ve diğer kaynaklara erişim ile ContosoAppRG kaynak grubundaki anahtar kasalarını yönetmesine olanak tanır.
 
@@ -199,61 +194,50 @@ Geliştiriciler/operatörler için "dağıtma/işlem" iznine yönelik özel rol 
 
 Bu örnekte basit bir senaryo gösterilmektedir. Gerçek yaşam senaryoları daha karmaşık olabilir ve gereksinimlerinize göre izinleri anahtar kasanıza uyarlamanız gerekebilir. Örneğin, bu örnekte güvenlik ekibinin uygulamalarında başvurmaları gereken anahtar ve parola başvurularını (URI’ler ve parmak izleri) sağladığı varsayılmaktadır. Bu nedenle, geliştiricilere/operatörlere herhangi bir veri düzlemi erişimi vermez. Ayrıca, bu örnekte anahtar kasanızın güvenliğini sağlama konusuna odaklanılmıştır. [VM’leriniz](https://azure.microsoft.com/services/virtual-machines/security/), [depolama hesaplarınız](../storage/storage-security-guide.md) ve diğer Azure kaynaklarının güvenliğini sağlamak için de benzer önem verilmelidir.
 
->[AZURE.NOTE] Not: Bu örnekte, üretim sırasında anahtar kasası erişiminin nasıl kilitleneceği gösterilmektedir. Geliştiriciler uygulamayı geliştirdikleri kasalar, VM’ler ve depolama hesabını yönetmek için tam izinlerinin olduğu aboneliklere veya kaynak grubuna sahip olmalıdır.
-
+> [!NOTE]
+> Not: Bu örnekte, üretim sırasında anahtar kasası erişiminin nasıl kilitleneceği gösterilmektedir. Geliştiriciler uygulamayı geliştirdikleri kasalar, VM’ler ve depolama hesabını yönetmek için tam izinlerinin olduğu aboneliklere veya kaynak grubuna sahip olmalıdır.
+> 
+> 
 
 ## Kaynaklar
-
--   [Azure Active Directory Rol Tabanlı Access Control](../active-directory/role-based-access-control-configure.md)
-
-    Bu makalede Azure Active Directory Rol Tabanlı Access Control ve nasıl çalıştığı açıklanmaktadır.
-
--   [RBAC: Yerleşik Roller](../active-directory/role-based-access-built-in-roles.md)
-
-    Bu makalede RBAC’de kullanılabilen tüm yerleşik roller ayrıntılı olarak açıklanmaktadır.
-
--   [Resource Manager dağıtımını ve klasik dağıtımı anlama](../resource-manager-deployment-model.md)
-
-    Bu makalede Resource Manager dağıtımı ve klasik dağıtım modelleri açıklanmakta ve Resource Manager ile kaynak gruplarını kullanmanın avantajları anlatılmaktadır
-
--    [Rol Tabanlı Access Control’ü Azure PowerShell İle Yönetme](../active-directory/role-based-access-control-manage-access-powershell.md)
-
-     Bu makalede rol tabanlı erişim denetiminin Azure PowerShell ile nasıl denetleneceği açıklanmaktadır
-
--   [Rol Tabanlı Access Control REST API’si İle Yönetme](../active-directory/role-based-access-control-manage-access-rest.md)
-
-    Bu makalede RBAC yönetimi için REST API’sinin nasıl kullanılacağı gösterilmektedir.
-
--   [Ignite’tan Microsoft Azure için Rol Tabanlı Access Control](https://channel9.msdn.com/events/Ignite/2015/BRK2707)
-
-    Bu bağlantı 2015 MS Ignite konferansının 9. Kanalındaki videoya aittir. Bu oturumda, Azure’daki erişim yönetimi ve raporlama özellikleri konuşulmakta ve Azure Active Directory'yi kullanarak Azure aboneliklerine erişimin güvenliğini sağlama konusundaki en iyi uygulamalar keşfedilmektedir.
-
--   [OAuth 2.0 ve Azure Active Directory kullanarak web uygulamalarına erişim yetkisi verme](../active-directory/active-directory-protocols-oauth-code.md)
-
-    Bu makalede Azure Active Directory ile kimlik doğrulaması için tam OAuth 2.0 akışı açıklanmaktadır.
-
--   [anahtar kasası Yönetim REST API’leri](https://msdn.microsoft.com/library/azure/mt620024.aspx)
-
-    Bu belge, anahtar kasası erişim ilkesinin ayarlanması dahil olmak üzere anahtar kasanızı programlı olarak yönetmeye yönelik REST API’leri başvurusudur.
-
--   [anahtar kasası REST API’leri](https://msdn.microsoft.com/library/azure/dn903609.aspx)
-
-    Anahtar kasası REST API başvuru belgelerinin bağlantısı.
-
--   [Anahtar erişim denetimi](https://msdn.microsoft.com/library/azure/dn903623.aspx#BKMK_KeyAccessControl)
-
-    Anahtar erişim denetimi başvuru belgelerinin bağlantısı.
-
--   [Parola erişim denetimi](https://msdn.microsoft.com/library/azure/dn903623.aspx#BKMK_SecretAccessControl)
-
-    Anahtar erişim denetimi başvuru belgelerinin bağlantısı.
-
--   PowerShell kullanarak anahtar kasası erişimini [ayarlama](https://msdn.microsoft.com/library/mt603625.aspx) ve [kaldırma](https://msdn.microsoft.com/library/mt619427.aspx)
-
-    Anahtar kasası erişim ilkesini yönetmeye yönelik PowerShell cmdlet’lerinin başvuru belgesi bağlantıları.
+* [Azure Active Directory Rol Tabanlı Access Control](../active-directory/role-based-access-control-configure.md)
+  
+  Bu makalede Azure Active Directory Rol Tabanlı Access Control ve nasıl çalıştığı açıklanmaktadır.
+* [RBAC: Yerleşik Roller](../active-directory/role-based-access-built-in-roles.md)
+  
+  Bu makalede RBAC’de kullanılabilen tüm yerleşik roller ayrıntılı olarak açıklanmaktadır.
+* [Resource Manager dağıtımını ve klasik dağıtımı anlama](../resource-manager-deployment-model.md)
+  
+  Bu makalede Resource Manager dağıtımı ve klasik dağıtım modelleri açıklanmakta ve Resource Manager ile kaynak gruplarını kullanmanın avantajları anlatılmaktadır
+* [Rol Tabanlı Access Control’ü Azure PowerShell İle Yönetme](../active-directory/role-based-access-control-manage-access-powershell.md)
+  
+  Bu makalede rol tabanlı erişim denetiminin Azure PowerShell ile nasıl denetleneceği açıklanmaktadır
+* [Rol Tabanlı Access Control REST API’si İle Yönetme](../active-directory/role-based-access-control-manage-access-rest.md)
+  
+  Bu makalede RBAC yönetimi için REST API’sinin nasıl kullanılacağı gösterilmektedir.
+* [Ignite’tan Microsoft Azure için Rol Tabanlı Access Control](https://channel9.msdn.com/events/Ignite/2015/BRK2707)
+  
+  Bu bağlantı 2015 MS Ignite konferansının 9. Kanalındaki videoya aittir. Bu oturumda, Azure’daki erişim yönetimi ve raporlama özellikleri konuşulmakta ve Azure Active Directory'yi kullanarak Azure aboneliklerine erişimin güvenliğini sağlama konusundaki en iyi uygulamalar keşfedilmektedir.
+* [OAuth 2.0 ve Azure Active Directory kullanarak web uygulamalarına erişim yetkisi verme](../active-directory/active-directory-protocols-oauth-code.md)
+  
+  Bu makalede Azure Active Directory ile kimlik doğrulaması için tam OAuth 2.0 akışı açıklanmaktadır.
+* [anahtar kasası Yönetim REST API’leri](https://msdn.microsoft.com/library/azure/mt620024.aspx)
+  
+  Bu belge, anahtar kasası erişim ilkesinin ayarlanması dahil olmak üzere anahtar kasanızı programlı olarak yönetmeye yönelik REST API’leri başvurusudur.
+* [anahtar kasası REST API’leri](https://msdn.microsoft.com/library/azure/dn903609.aspx)
+  
+  Anahtar kasası REST API başvuru belgelerinin bağlantısı.
+* [Anahtar erişim denetimi](https://msdn.microsoft.com/library/azure/dn903623.aspx#BKMK_KeyAccessControl)
+  
+  Anahtar erişim denetimi başvuru belgelerinin bağlantısı.
+* [Parola erişim denetimi](https://msdn.microsoft.com/library/azure/dn903623.aspx#BKMK_SecretAccessControl)
+  
+  Anahtar erişim denetimi başvuru belgelerinin bağlantısı.
+* PowerShell kullanarak anahtar kasası erişimini [ayarlama](https://msdn.microsoft.com/library/mt603625.aspx) ve [kaldırma](https://msdn.microsoft.com/library/mt619427.aspx)
+  
+  Anahtar kasası erişim ilkesini yönetmeye yönelik PowerShell cmdlet’lerinin başvuru belgesi bağlantıları.
 
 ## Sonraki Adımlar
-
 Bir yöneticiye yönelik başlama öğreticisi için bkz. [Azure anahtar kasası ile çalışmaya başlama](key-vault-get-started.md).
 
 Anahtar Kasası'na yönelik kullanım günlüğü hakkında daha fazla bilgi için bkz. [Azure anahtar kasası günlüğü](key-vault-logging.md).
@@ -261,8 +245,6 @@ Anahtar Kasası'na yönelik kullanım günlüğü hakkında daha fazla bilgi iç
 Azure anahtar kasası ile anahtarları ve gizli anahtarları kullanma hakkında daha fazla bilgi için bkz. [Anahtarlar ve Gizli Anahtarlar Hakkında](https://msdn.microsoft.com/library/azure/dn903623.aspx).
 
 Anahtar kasası ile ilgili sorularınız varsa bkz. [Azure Anahtar Kasası Forumları](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault)
-
-
 
 <!--HONumber=Oct16_HO3-->
 

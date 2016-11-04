@@ -11,7 +11,6 @@
 * [Azure App Service Geliştirme Yığınları Desteği](/blog/windows-azure-websites-development-stacks-support/)
 
 ## Videolar
-
 * [Azure App Service Mimarisi](/documentation/videos/why-azure-web-sites-plus-architecture/)
 
 <!--HONumber=Sep16_HO3-->

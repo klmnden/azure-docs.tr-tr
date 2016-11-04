@@ -5,21 +5,14 @@ Sanal cihazı durdurmak ve başlatmak için aşağıdaki cmdlet'leri kullanın.
 
 `Stop-AzureVM -ServiceName "MyStorSimpleservice1" -Name "MyStorSimpleDevice"`
 
-
 `Start-AzureVM -ServiceName "MyStorSimpleservice1" -Name "MyStorSimpleDevice"`
-    
-#### Sanal cihazı yeniden başlatmak için
 
+#### Sanal cihazı yeniden başlatmak için
 Sanal cihaz çalışırken yeniden başlatmak istediğinizde cihazın adına tıklayın ve ardından **Yeniden Başlat**’a tıklayın. Sanal cihaz yeniden başlatıldığı sırada **Yeniden başlatılıyor** durumundadır. Sanal cihaz kullanımınıza hazır olduğunda **Çalışıyor** durumundadır.
 
 Sanal cihazı yeniden başlatmak için aşağıdaki cmdlet'i kullanın.
 
 `Restart-AzureVM -ServiceName "MyStorSimpleservice1" -Name "MyStorSimpleDevice"`
-
-
-
-
-
 
 <!--HONumber=Sep16_HO3-->
 

@@ -1,56 +1,53 @@
-<properties
-   pageTitle="SQL Data Warehouse'da PolyBase Öğreticisi | Microsoft Azure"
-   description="PolyBase'in ne olduğunu ve veri depolama senaryolarında nasıl kullanılacağını öğrenin."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="ckarst"
-   manager="barbkess"
-   editor=""/>
+---
+title: SQL Data Warehouse'da PolyBase Öğreticisi | Microsoft Docs
+description: PolyBase'in ne olduğunu ve veri depolama senaryolarında nasıl kullanılacağını öğrenin.
+services: sql-data-warehouse
+documentationcenter: NA
+author: ckarst
+manager: barbkess
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="10/31/2016"
-   ms.author="cakarst;barbkess"/>
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: get-started-article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 10/31/2016
+ms.author: cakarst;barbkess
 
-
-
+---
 # <a name="load-data-with-polybase-in-sql-data-warehouse"></a>SQL Data Warehouse'da PolyBase ile veri yükleme
-
-> [AZURE.SELECTOR]
-- [Redgate](sql-data-warehouse-load-with-redgate.md)  
-- [Data Factory](sql-data-warehouse-get-started-load-with-azure-data-factory.md)  
-- [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)  
-- [BCP](sql-data-warehouse-load-with-bcp.md)
+> [!div class="op_single_selector"]
+> * [Redgate](sql-data-warehouse-load-with-redgate.md)  
+> * [Data Factory](sql-data-warehouse-get-started-load-with-azure-data-factory.md)  
+> * [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)  
+> * [BCP](sql-data-warehouse-load-with-bcp.md)
+> 
+> 
 
 Bu öğreticide, AzCopy ve PolyBase kullanarak SQL Data Warehouse'a nasıl veri yükleyeceğiniz gösterilmektedir. Öğreticiyi tamamladığınızda şunları öğrenmiş olacaksınız:
 
-- AzCopy kullanarak Azure blob depolama alanına veri kopyalama
-- Verileri tanımlamak için veritabanı nesneleri oluşturma
-- T-SQL sorgusu çalıştırarak veri yükleme
+* AzCopy kullanarak Azure blob depolama alanına veri kopyalama
+* Verileri tanımlamak için veritabanı nesneleri oluşturma
+* T-SQL sorgusu çalıştırarak veri yükleme
 
->[AZURE.VIDEO loading-data-with-polybase-in-azure-sql-data-warehouse]
+> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Loading-data-with-PolyBase-in-Azure-SQL-Data-Warehouse/player]
+> 
+> 
 
 ## <a name="prerequisites"></a>Önkoşullar
-
 Bu öğreticide ilerleyebilmeniz için, şunlar gereklidir:
 
-- SQL Data Warehouse veritabanı.
-- Standart Yerel Olarak Yedekli Depolama (Standard-LRS), Standart Coğrafi Olarak Yedekli Depolama (Standard-GRS), veya Standart Okuma Erişimli Coğrafi Olarak Yedekli Depolama (Standard-RAGRS) türünde bir Azure depolama hesabı.
-- AzCopy Komut Satırı Yardımcı Programı Microsoft Azure Storage Araçları ile birlikte yüklenen [en güncel AzCopy sürümünü][] indirip yükleyin.
-
+* SQL Data Warehouse veritabanı.
+* Standart Yerel Olarak Yedekli Depolama (Standard-LRS), Standart Coğrafi Olarak Yedekli Depolama (Standard-GRS), veya Standart Okuma Erişimli Coğrafi Olarak Yedekli Depolama (Standard-RAGRS) türünde bir Azure depolama hesabı.
+* AzCopy Komut Satırı Yardımcı Programı Microsoft Azure Storage Araçları ile birlikte yüklenen [en güncel AzCopy sürümünü][] indirip yükleyin.
+  
     ![Azure Storage Araçları](./media/sql-data-warehouse-get-started-load-with-polybase/install-azcopy.png)
 
-
 ## <a name="step-1-add-sample-data-to-azure-blob-storage"></a>1. Adım: Azure blob depolama alanına örnek veri ekleme
-
 Veri yüklemek için Azure blob depolama alanına birkaç örnek veri eklememiz gerekir. Bu adımda bir Azure Storage blobunu örnek verilerle dolduracağız. Daha sonra PolyBase kullanarak bu örnek verileri SQL Data Warehouse veritabanınıza yükleyeceğiz.
 
 ### <a name="a-prepare-a-sample-text-file"></a>A. Örnek metin dosyası hazırlama
-
 Örnek metin dosyası hazırlamak için şunları yapın:
 
 1. Not Defteri'ni açın ve aşağıdaki veri satırlarını yeni bir dosyaya kopyalayın. Bu dosyayı yerel geçici dizininize %temp%\DimDate2.txt olarak kaydedin.
@@ -71,50 +68,44 @@ Veri yüklemek için Azure blob depolama alanına birkaç örnek veri eklememiz 
 ```
 
 ### <a name="b-find-your-blob-service-endpoint"></a>B. Blob hizmeti uç noktanızı bulma
-
 Blob hizmeti uç noktanızı bulmak için şunları yapın:
 
 1. Azure Portal'dan **Gözat** > **Storage Hesapları**'nı seçin.
 2. Kullanmak istediğiniz depolama hesabına tıklayın.
 3. Depolama hesabı dikey penceresinde Bloblar'a tıklayın.
-
+   
     ![Bloblar'a tıklayın](./media/sql-data-warehouse-get-started-load-with-polybase/click-blobs.png)
-
-1. Blob hizmeti uç nokta URL'nizi daha sonra kullanmak üzere kaydedin.
-
+4. Blob hizmeti uç nokta URL'nizi daha sonra kullanmak üzere kaydedin.
+   
     ![Blob hizmeti uç noktası](./media/sql-data-warehouse-get-started-load-with-polybase/blob-service.png)
 
 ### <a name="c-find-your-azure-storage-key"></a>C. Azure depolama anahtarınızı bulma
-
 Azure depolama anahtarınızı bulmak için şunları yapın:
 
 1. Azure Portal'dan, **Gözat** > **Storage Hesapları**'nı seçin.
 2. Kullanmak istediğiniz depolama hesabına tıklayın.
 3. **Tüm ayarlar** > **Erişim anahtarları** öğesini seçin.
 4. Erişim anahtarlarınızdan birini panoya kopyalamak için kopyalama kutusuna tıklayın.
-
+   
     ![Azure depolama anahtarını kopyalama](./media/sql-data-warehouse-get-started-load-with-polybase/access-key.png)
 
 ### <a name="d-copy-the-sample-file-to-azure-blob-storage"></a>D. Örnek dosyayı Azure blob depolama alanına kopyalama
-
 Verilerinizi Azure blob depolama alanına kopyalamak için şunları yapın:
 
 1. Bir komut istemi açın ve dizinleri AzCopy yükleme dizini olarak değiştirin. Bu komut, 64 bit Windows istemcisinde varsayılan yükleme dizinine değiştirme işlemini gerçekleştirir.
-
+   
     ```
     cd /d "%ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy"
     ```
-
-1. Dosyayı karşıya yüklemek için aşağıdaki şu komutu çalıştırın: <blob service endpoint URL> için blob hizmeti uç nokta URL'nizi ve <azure_storage_account_key> için Azure depolama hesabı anahtarınızı belirtin.
-
+2. Dosyayı karşıya yüklemek için aşağıdaki şu komutu çalıştırın: <blob service endpoint URL> için blob hizmeti uç nokta URL'nizi ve <azure_storage_account_key> için Azure depolama hesabı anahtarınızı belirtin.
+   
     ```
     .\AzCopy.exe /Source:C:\Temp\ /Dest:<blob service endpoint URL> /datacontainer/datedimension/ /DestKey:<azure_storage_account_key> /Pattern:DimDate2.txt
     ```
 
-Ayrıca bkz. [AzCopy Komut Satırı Yardımcı Programı ile Çalışmaya Başlama][].
+Ayrıca bkz. [AzCopy Komut Satırı Yardımcı Programı ile Çalışmaya Başlama][AzCopy Komut Satırı Yardımcı Programı ile Çalışmaya Başlama].
 
 ### <a name="e-explore-your-blob-storage-container"></a>E. Blob depolama kapsayıcınızı araştırma
-
 Blob depolama alanına yüklediğiniz dosyayı görmek için şunları yapın:
 
 1. Blob hizmeti dikey pencerenize geri dönün.
@@ -122,26 +113,23 @@ Blob depolama alanına yüklediğiniz dosyayı görmek için şunları yapın:
 3. Verilerinizin yolunu keşfetmek için **datedimension** klasörüne tıkladığınızda karşıya yüklediğiniz **DimDate2.txt** dosyasıyla karşılaşırsınız.
 4. Özellikleri görüntülemek için **DimDate2.txt** dosyasına tıklayın.
 5. Blob özellikleri dikey penceresinde dosya indirme ve dosya silme işlemlerini gerçekleştirebileceğinizi unutmayın.
-
+   
     ![Azure depolama blobunu görüntüleme](./media/sql-data-warehouse-get-started-load-with-polybase/view-blob.png)
 
-
 ## <a name="step-2-create-an-external-table-for-the-sample-data"></a>2. Adım: Örnek veriler için dış tablo oluşturma
-
 Bu bölümde örnek verileri tanımlayan bir dış tablo oluşturuyoruz.
 
 PolyBase, Azure blob depolama alanındaki verilere erişmek için dış tabloları kullanır. Veriler SQL Data Warehouse'da depolanmadığı için PolyBase, dış veriler için kimlik doğrulaması gerçekleştirirken veritabanı kapsamlı bir kimlik bilgisi kullanır.
 
 Bu adımdaki örnekte, bir dış tablo oluşturmak için aşağıdaki Transact-SQL deyimleri kullanılmaktadır.
 
-- [Create Master Key (Transact-SQL)][]: Veritabanı kapsamlı kimlik bilgileri anahtarınızı şifrelemek için kullanılır.
-- [Create Database Scoped Credential (Transact-SQL)][]: Azure depolama hesabınız için kimlik doğrulama bilgilerinin belirtilmesi için kullanılır.
-- [Create External Data Source (Transact-SQL)][]: Azure blob depolama alanınızın konumunu belirtmek için kullanılır.
-- [Create External File Format (Transact-SQL)][]: Verilerinizin biçimini belirtmek için kullanılır.
-- [Create External Table (Transact-SQL)][]: Tablo tanımını ve verilerin konumunu belirtmek için kullanılır.
+* [Create Master Key (Transact-SQL)][Create Master Key (Transact-SQL)]: Veritabanı kapsamlı kimlik bilgileri anahtarınızı şifrelemek için kullanılır.
+* [Create Database Scoped Credential (Transact-SQL)][Create Database Scoped Credential (Transact-SQL)]: Azure depolama hesabınız için kimlik doğrulama bilgilerinin belirtilmesi için kullanılır.
+* [Create External Data Source (Transact-SQL)][Create External Data Source (Transact-SQL)]: Azure blob depolama alanınızın konumunu belirtmek için kullanılır.
+* [Create External File Format (Transact-SQL)][Create External File Format (Transact-SQL)]: Verilerinizin biçimini belirtmek için kullanılır.
+* [Create External Table (Transact-SQL)][Create External Table (Transact-SQL)]: Tablo tanımını ve verilerin konumunu belirtmek için kullanılır.
 
 Bu sorguyu SQL Data Warehouse veritabanınızda çalıştırın. Bu sorgu, Azure blob depolama alanındaki DimDate2.txt örnek verilerini gösteren dbo şemasında DimDate2External adlı bir dış tablo oluşturacak.
-
 
 ```sql
 -- A: Create a master key.
@@ -217,11 +205,10 @@ Visual Studio'da bulunan SQL Server Nesne Gezgini'nde dış dosya biçimini, dı
 ![Dış tabloyu görüntüleme](./media/sql-data-warehouse-get-started-load-with-polybase/external-table.png)
 
 ## <a name="step-3-load-data-into-sql-data-warehouse"></a>3. Adım: SQL Data Warehouse'a veri yükleme
-
 Dış tablo oluşturulduktan sonra verileri yeni bir tabloya yükleyebilir veya var olan bir tabloya ekleyebilirsiniz.
 
-- Verileri yeni bir tabloya yüklemek için [CREATE TABLE AS SELECT (Transact-SQL)][] deyimini çalıştırın. Yeni tablo, sorguda adlandırılan sütunları içerir. Sütunların veri türleri, dış tablo tanımındaki veri türleriyle eşleşir.
-- Verileri, var olan bir tabloya yüklemek için [INSERT...SELECT (Transact-SQL)][] deyimini kullanın.
+* Verileri yeni bir tabloya yüklemek için [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)] deyimini çalıştırın. Yeni tablo, sorguda adlandırılan sütunları içerir. Sütunların veri türleri, dış tablo tanımındaki veri türleriyle eşleşir.
+* Verileri, var olan bir tabloya yüklemek için [INSERT...SELECT (Transact-SQL)][INSERT...SELECT (Transact-SQL)] deyimini kullanın.
 
 ```sql
 -- Load the data from Azure blob storage to SQL Data Warehouse
@@ -237,7 +224,6 @@ SELECT * FROM [dbo].[DimDate2External];
 ```
 
 ## <a name="step-4-create-statistics-on-your-newly-loaded-data"></a>4. Adım: Yeni yüklenmiş verilerinize ilişkin istatistikler oluşturma
-
 SQL Data Warehouse, istatistikleri otomatik olarak oluşturup güncelleştirmez. Bu nedenle yüksek sorgu performansı elde etmek için ilk yükleme işleminden sonra her tablonun her sütunu için istatistik oluşturulması önemlidir. Ayrıca veriler üzerinde önemli değişiklikler yapıldıktan sonra istatistiklerin güncelleştirilmesi de önemlidir.
 
 Bu örnekte, yeni DimDate2 tablosuna ilişkin tek sütunlu istatistikler oluşturulmuştur.
@@ -248,11 +234,10 @@ CREATE STATISTICS [CalendarQuarter] on [DimDate2] ([CalendarQuarter]);
 CREATE STATISTICS [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
 ```
 
-Daha fazla bilgi edinmek için bkz. [İstatistikler][].  
-
+Daha fazla bilgi edinmek için bkz. [İstatistikler][İstatistikler].  
 
 ## <a name="next-steps"></a>Sonraki adımlar
-PolyBase kullanan bir çözüm geliştirirken bilmeniz gereken daha fazla bilgi için bkz. [PolyBase kılavuzu][].
+PolyBase kullanan bir çözüm geliştirirken bilmeniz gereken daha fazla bilgi için bkz. [PolyBase kılavuzu][PolyBase kılavuzu].
 
 <!--Image references-->
 

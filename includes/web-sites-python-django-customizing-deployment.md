@@ -1,14 +1,14 @@
 Azure, uygulamanızın **bu koşulların her ikisi de doğruysa** Python kullandığını saptayacaktır:
 
-- requirements.txt dosyası kök klasöründe
-- .py dosyaları VEYA python belirten runtime.txt dosyası kök klasöründe
+* requirements.txt dosyası kök klasöründe
+* .py dosyaları VEYA python belirten runtime.txt dosyası kök klasöründe
 
 Durum böyle olduğunda, aşağıdaki ek Python işlemlerinin yanı sıra dosyaların standart eşitlemesini gerçekleştiren Python’a özel bir dağıtım betiğini de kullanacaktır:
 
-- Sanal ortamın otomatik yönetimi
-- PIP kullanarak requirements.txt dosyasında listelenen paketlerin yüklenmesi
-- Seçili Python sürümü temelinde uygun web.config oluşturun.
-- Django uygulamaları için statik dosyaları toplama
+* Sanal ortamın otomatik yönetimi
+* PIP kullanarak requirements.txt dosyasında listelenen paketlerin yüklenmesi
+* Seçili Python sürümü temelinde uygun web.config oluşturun.
+* Django uygulamaları için statik dosyaları toplama
 
 Betiği özelleştirmek zorunda kalmadan, varsayılan dağıtım adımlarının bazı yönlerini denetleyebilirsiniz.
 
@@ -25,7 +25,7 @@ Dağıtım üzerinde daha fazla denetim için aşağıdaki dosyaları oluşturar
     \.deployment
     \deploy.cmd
 
-bu dosyaları oluşturmak için [Azure komut satırı arabirimi][]’ni kullanabilirsiniz.  Bu komutu proje klasörünüzden kullanın:
+bu dosyaları oluşturmak için [Azure komut satırı arabirimi][Azure komut satırı arabirimi]’ni kullanabilirsiniz.  Bu komutu proje klasörünüzden kullanın:
 
     azure site deploymentscript --python
 

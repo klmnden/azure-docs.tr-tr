@@ -1,29 +1,28 @@
-<properties
-	pageTitle="Create app passwords in the Office 365 portal for Azure Multi-Factor Authentication"
-	description="This page shows users how they can create additional app passwords in the Office 365 portal."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="kgremban"
-	manager="femila"
-	editor="curtland"/>
+---
+title: Create app passwords in the Office 365 portal for Azure Multi-Factor Authentication
+description: This page shows users how they can create additional app passwords in the Office 365 portal.
+services: multi-factor-authentication
+documentationcenter: ''
+author: kgremban
+manager: femila
+editor: curtland
 
-<tags
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/04/2016"
-	ms.author="kgremban"/>
+ms.service: multi-factor-authentication
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/04/2016
+ms.author: kgremban
 
+---
 # Create or delete app passwords in the Office 365 portal for Azure Multi-Factor Authentication
-
 If you use multi-factor authentication with Office 365 you will want to create and delete app passwords through the Office 365 portal.
 
 ## To create app passwords in the Office 365 portal
---------------------------------------------------------------------------------
-
+- - -
 <ol>
+
 <li>Sign-in to the Office 365 portal</li>
 <li>In the top right corner select the settings widget</li>
 <li>On the left, select Additional Security Verification</li>
@@ -46,9 +45,9 @@ If you use multi-factor authentication with Office 365 you will want to create a
 
 
 ## To delete app passwords in the Office 365 portal
---------------------------------------------------------------------------------
-
+- - -
 <ol>
+
 <li>Sign-in to the Office 365 portal</li>
 <li>In the top right corner select the widget and choose Office 365 Settings</li>
 <li>At the bottom, click Additional Security Verification and select **Update your phone numbers used for account security**.3</li>

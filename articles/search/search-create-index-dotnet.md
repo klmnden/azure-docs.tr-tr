@@ -1,30 +1,30 @@
-<properties
-    pageTitle=".NET SDK'yı kullanarak Azure Search dizini oluşturma | Microsoft Azure | Barındırılan bulut arama hizmeti"
-    description="Azure Search .NET SDK'sını kullanarak kod içinde bir dizin oluşturun."
-    services="search"
-    documentationCenter=""
-    authors="brjohnstmsft"
-    manager=""
-    editor=""
-    tags="azure-portal"/>
+---
+title: .NET SDK'yı kullanarak Azure Search dizini oluşturma | Microsoft Docs
+description: Azure Search .NET SDK'sını kullanarak kod içinde bir dizin oluşturun.
+services: search
+documentationcenter: ''
+author: brjohnstmsft
+manager: ''
+editor: ''
+tags: azure-portal
 
-<tags
-    ms.service="search"
-    ms.devlang="dotnet"
-    ms.workload="search"
-    ms.topic="get-started-article"
-    ms.tgt_pltfrm="na"
-    ms.date="08/29/2016"
-    ms.author="brjohnst"/>
+ms.service: search
+ms.devlang: dotnet
+ms.workload: search
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.date: 08/29/2016
+ms.author: brjohnst
 
-
+---
 # .NET SDK'yı kullanarak Azure Search dizini oluşturma
-> [AZURE.SELECTOR]
-- [Genel Bakış](search-what-is-an-index.md)
-- [Portal](search-create-index-portal.md)
-- [.NET](search-create-index-dotnet.md)
-- [REST](search-create-index-rest-api.md)
-
+> [!div class="op_single_selector"]
+> * [Genel Bakış](search-what-is-an-index.md)
+> * [Portal](search-create-index-portal.md)
+> * [.NET](search-create-index-dotnet.md)
+> * [REST](search-create-index-rest-api.md)
+> 
+> 
 
 Bu makale, [Azure Search .NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx)'sını kullanarak Azure Search [dizini](https://msdn.microsoft.com/library/azure/dn798941.aspx) oluşturma işlemi konusunda size yol gösterecektir.
 
@@ -41,12 +41,13 @@ Bu makaledeki örnek kodun tamamının C# dilinde yazıldığını unutmayın. T
 
 Hizmetiniz, *yönetici anahtarlarına* ve *sorgu anahtarlarına* sahiptir.
 
-  - Birincil ve ikincil *yönetici anahtarlarınız*; hizmeti yönetme, dizinler, dizin oluşturucular ve veri kaynakları ekleme ve silme de dahil olmak üzere her türlü işlem için tüm hakları verir. Birincil anahtarı yeniden oluşturmaya karar verirseniz ikincil anahtarı kullanmaya devam edebilmeniz ve tam tersini yapabilmeniz için iki anahtar vardır.
-  - *Sorgu anahtarları*, dizinler ve belgeler için salt okunur erişim verir ve genellikle, arama istekleri gönderen istemci uygulamalarına dağıtılır.
+* Birincil ve ikincil *yönetici anahtarlarınız*; hizmeti yönetme, dizinler, dizin oluşturucular ve veri kaynakları ekleme ve silme de dahil olmak üzere her türlü işlem için tüm hakları verir. Birincil anahtarı yeniden oluşturmaya karar verirseniz ikincil anahtarı kullanmaya devam edebilmeniz ve tam tersini yapabilmeniz için iki anahtar vardır.
+* *Sorgu anahtarları*, dizinler ve belgeler için salt okunur erişim verir ve genellikle, arama istekleri gönderen istemci uygulamalarına dağıtılır.
 
 Dizin oluşturma amacıyla, birincil ya da ikincil yönetici anahtarınızı kullanabilirsiniz.
 
 <a name="CreateSearchServiceClient"></a>
+
 ## II. SearchServiceClient sınıfının örneğini oluşturma
 Azure Search .NET SDK'sını kullanmaya başlamak için `SearchServiceClient` sınıfının bir örneğini oluşturmanız gerekir. Bu sınıfın birkaç oluşturucusu vardır. İstediğiniz oluşturucu, arama hizmeti adınızı ve `SearchCredentials` nesnesini parametre olarak alır. `SearchCredentials` api anahtarınızı sarmalar.
 
@@ -61,9 +62,13 @@ SearchServiceClient serviceClient = new SearchServiceClient(searchServiceName, n
 
 `SearchServiceClient` `Indexes` özelliğine sahiptir. Bu özellik Azure Search dizinlerini oluşturmanız, listelemeniz, güncelleştirmeniz veya silmeniz için gereken tüm yöntemleri sağlar.
 
-> [AZURE.NOTE] `SearchServiceClient` sınıfı, arama hizmetinize yönelik bağlantıları yönetir. Çok fazla bağlantı açmayı önlemek için, mümkünse uygulamanızda tek bir `SearchServiceClient` örneği paylaşmaya çalışmanız gerekir. Yöntemlerinin iş parçacığı bu tür paylaşımları etkinleştirmek için güvenlidir.
+> [!NOTE]
+> `SearchServiceClient` sınıfı, arama hizmetinize yönelik bağlantıları yönetir. Çok fazla bağlantı açmayı önlemek için, mümkünse uygulamanızda tek bir `SearchServiceClient` örneği paylaşmaya çalışmanız gerekir. Yöntemlerinin iş parçacığı bu tür paylaşımları etkinleştirmek için güvenlidir.
+> 
+> 
 
 <a name="DefineIndex"></a>
+
 ## III. `Index` sınıfını kullanarak Azure Search dizininizi tanımlama
 `Indexes.Create` yöntemine yönelik tek bir çağrı dizininizi oluşturur. Bu yöntem, Azure Search dizininizi tanımlayan bir `Index` nesnesini parametre olarak alır. Bir `Index` nesnesi oluşturmanız ve bunu aşağıdaki gibi başlatmanız gerekir:
 
@@ -98,11 +103,14 @@ var definition = new Index()
 
 Her bir `Field` için özellik değerlerini, bunların bir uygulamada nasıl kullanılacağını düşünerek dikkatle seçtik. Örneğin, oteller için arama yapan kişiler büyük olasılıkla `description` alanındaki anahtar sözcük eşleşmeleri ile ilgilenecektir. Bu nedenle, `IsSearchable` değerini `true` olarak ayarlayarak bu alan için tam metin aramasını etkinleştiririz.
 
-Lütfen `IsKey` değerini `true` olarak ayarladığınızda, `DataType.String` türündeki dizininizde yalnızca bir alanın _anahtar alanı_ olarak belirlenmesi gerektiğini unutmayın (yukarıdaki örnekte bkz. `hotelId` ).
+Lütfen `IsKey` değerini `true` olarak ayarladığınızda, `DataType.String` türündeki dizininizde yalnızca bir alanın *anahtar alanı* olarak belirlenmesi gerektiğini unutmayın (yukarıdaki örnekte bkz. `hotelId` ).
 
 Yukarıdaki dizin tanımı Fransızca metin depolamaya yönelik tasarlandığından, `description_fr` alanı için özel bir dil çözümleyicisi kullanır. Dil çözümleyicileri hakkında daha fazla bilgi için ilgili [blog yazısının](https://msdn.microsoft.com/library/azure/dn879793.aspx) yanı sıra [MSDN'de Dil desteği konu başlığına](https://azure.microsoft.com/blog/language-support-in-azure-search/) bakın.
 
-> [AZURE.NOTE]  Oluşturucuya `AnalyzerName.FrLucene` geçirdiğinizde, `Field` türünün otomatik olarak `DataType.String` olacağını ve `IsSearchable` değerinin `true` olarak ayarlanacağını unutmayın.
+> [!NOTE]
+> Oluşturucuya `AnalyzerName.FrLucene` geçirdiğinizde, `Field` türünün otomatik olarak `DataType.String` olacağını ve `IsSearchable` değerinin `true` olarak ayarlanacağını unutmayın.
+> 
+> 
 
 ## IV. Dizini oluşturma
 Şimdi, başlatılan bir `Index` nesneniz olduğuna göre `Indexes.Create` nesneniz üzerinden `SearchServiceClient` çağrısı yaparak dizininizi oluşturabilirsiniz:
@@ -119,12 +127,13 @@ Dizin ile işiniz bittiğinde ve bunu silmek istediğinizde nesneniz `SearchServ
 serviceClient.Indexes.Delete("hotels");
 ```
 
-> [AZURE.NOTE] Bu makaledeki örnek kod, kolaylık amacıyla Azure Search .NET SDK'sının zaman uyumlu yöntemlerini kullanır. Kendi uygulamalarınızda zaman uyumsuz yöntemler kullanarak bunları ölçeklenebilir ve esnek tutmanızı öneririz. Örneğin, yukarıdaki örneklerde `Create` ve `Delete` yerine `CreateAsync` ve `DeleteAsync` kullanabilirsiniz.
+> [!NOTE]
+> Bu makaledeki örnek kod, kolaylık amacıyla Azure Search .NET SDK'sının zaman uyumlu yöntemlerini kullanır. Kendi uygulamalarınızda zaman uyumsuz yöntemler kullanarak bunları ölçeklenebilir ve esnek tutmanızı öneririz. Örneğin, yukarıdaki örneklerde `Create` ve `Delete` yerine `CreateAsync` ve `DeleteAsync` kullanabilirsiniz.
+> 
+> 
 
 ## Sonraki
 Azure Search dizini oluşturduktan sonra, [içeriğinizi dizine yüklemek](search-what-is-data-import.md) için hazır olursunuz. Böylece, verilerinizi aramaya başlayabilirsiniz.
-
-
 
 <!--HONumber=Sep16_HO3-->
 

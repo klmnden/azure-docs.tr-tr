@@ -9,28 +9,22 @@ articles/sql-database/sql-database-get-started-tutorial.md
 
 -->
 ## Azure portala abonelikle bağlanma
-
 Azure portala abonelikle bağlanmak için bir aboneliğinizin olması gerekir.
 
 ### Yeni bir hesap alın
-
 Bir Azure hesabınız yoksa hesap almak için aşağıdaki seçeneklerden birini belirleyin:
 
-- [Ücretsiz hesap](https://azure.microsoft.com/get-started/) alın.
-- [MSDN aboneliği](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/) kullanın.
+* [Ücretsiz hesap](https://azure.microsoft.com/get-started/) alın.
+* [MSDN aboneliği](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/) kullanın.
 
 ### Var olan hesabınızı kullanarak oturum açın
-
-[Var olan aboneliğinizi]( https://account.windowsazure.com/Home/Index) kullanarak Azure portala bağlanmak için aşağıdaki adımları uygulayın.
+[Var olan aboneliğinizi](https://account.windowsazure.com/Home/Index) kullanarak Azure portala bağlanmak için aşağıdaki adımları uygulayın.
 
 1. Tercih ettiğiniz tarayıcınızı açın ve [Azure portal](https://portal.azure.com/)’a bağlanın.
-
-1. [Azure Portal](https://portal.azure.com/) oturum açın.
-
-1. **Oturum açma** sayfasında aboneliğinize ait kimlik bilgilerini sağlayın.
-
+2. [Azure Portal](https://portal.azure.com/) oturum açın.
+3. **Oturum açma** sayfasında aboneliğinize ait kimlik bilgilerini sağlayın.
+   
    ![Oturum aç](./media/azure-getting-started-portal-login/login.png)
-
 
 <!--HONumber=Sep16_HO3-->
 

@@ -2,8 +2,6 @@ SSL olmayan bağlantı noktasını etkinleştirmek için [Azure portalında](htt
 
 ![Redis önbelleği ayarları](media/redis-cache-non-ssl-port/redis-cache-non-ssl-port.png)
 
-
-
 <!--HONumber=Sep16_HO3-->
 
 

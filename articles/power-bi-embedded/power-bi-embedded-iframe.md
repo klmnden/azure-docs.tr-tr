@@ -1,21 +1,22 @@
-<properties
-   pageTitle="Microsoft Power BI Embedded - IFrame ile bir Power BI raporu ekleme"
-   description="Microsoft Power BI Embedded - Bir raporu uygulamanızla tümleştirmek, Power BI Embedded uygulama belirteci kimliğini doğrulamak, raporlar almak için temel kod"
-   services="power-bi-embedded"
-   documentationCenter=""
-   authors="minewiskan"
-   manager="NA"
-   editor=""
-   tags=""/>
-<tags
-   ms.service="power-bi-embedded"
-   ms.devlang="NA"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="powerbi"
-   ms.date="07/19/2016"
-   ms.author="owend"/>
+---
+title: Microsoft Power BI Embedded - IFrame ile bir Power BI raporu ekleme
+description: Microsoft Power BI Embedded - Bir raporu uygulamanızla tümleştirmek, Power BI Embedded uygulama belirteci kimliğini doğrulamak, raporlar almak için temel kod
+services: power-bi-embedded
+documentationcenter: ''
+author: minewiskan
+manager: NA
+editor: ''
+tags: ''
 
+ms.service: power-bi-embedded
+ms.devlang: NA
+ms.topic: get-started-article
+ms.tgt_pltfrm: NA
+ms.workload: powerbi
+ms.date: 07/19/2016
+ms.author: owend
+
+---
 # IFrame ile bir Power BI raporu ekleme
 Bu makale, bir raporu uygulamanızla tümleştirmek veya eklemek için **Power BI Embedded** REST API’si, uygulama belirteçleri, IFrame ve bazı JavaScript’leri kullanmak üzere temel kodu gösterir.
 
@@ -25,20 +26,20 @@ Bu makale uygulamanıza bir rapor ekleme adımlarını gösterir. Bu makaleyi iz
 
 Bir raporu tümleştirmek için uygulanması gereken adımlar aşağıda verilmiştir:
 
-- 1. Adım: [Bir çalışma alanında rapor alma](#GetReport). Bu adımda, [Raporlar Alma](https://msdn.microsoft.com/library/mt711510.aspx) REST işlemini çağırmak için erişim belirteci almak üzere bir uygulama belirteci akışı kullanırsınız. **Raporları Alma** listesinden raporu aldıktan sonra, raporu **IFrame** öğesiyle bir uygulamaya eklersiniz.
-- 2. Adım: [Uygulamaya bir rapor ekleme](#EmbedReport). Bu adımda, web uygulamasına bir rapor tümleştirmek, ya da eklemek üzere bir rapor için ekleme belirteci, bazı JavaScript’ler ve IFrame kullanacaksınız.
+* 1. Adım: [Bir çalışma alanında rapor alma](#GetReport). Bu adımda, [Raporlar Alma](https://msdn.microsoft.com/library/mt711510.aspx) REST işlemini çağırmak için erişim belirteci almak üzere bir uygulama belirteci akışı kullanırsınız. **Raporları Alma** listesinden raporu aldıktan sonra, raporu **IFrame** öğesiyle bir uygulamaya eklersiniz.
+* 1. Adım: [Uygulamaya bir rapor ekleme](#EmbedReport). Bu adımda, web uygulamasına bir rapor tümleştirmek, ya da eklemek üzere bir rapor için ekleme belirteci, bazı JavaScript’ler ve IFrame kullanacaksınız.
 
 Örneği çalıştırmak istiyorsanız, GitHub’da [IFrame ile bir rapor tümleştirme](https://github.com/Azure-Samples/power-bi-embedded-iframe) örneğini indirin ve üç Web.Config ayarını yapılandırın:
 
-- **AccessKey**: **AccessKey**, raporlar almak ve rapor eklemek için kullanılan bir JSON Web Belirteci oluşturmak için kullanılır.
-- **Çalışma Alanı Koleksiyon Adı**: Çalışma alanını tanımlar.
-- **Çalışma Alanı Kimliği**: Çalışma alanı için benzersiz bir kimlik
+* **AccessKey**: **AccessKey**, raporlar almak ve rapor eklemek için kullanılan bir JSON Web Belirteci oluşturmak için kullanılır.
+* **Çalışma Alanı Koleksiyon Adı**: Çalışma alanını tanımlar.
+* **Çalışma Alanı Kimliği**: Çalışma alanı için benzersiz bir kimlik
 
 Erişim Tuşu, Çalışma Alanı Koleksiyon Adı ve Çalışma Alanı Kimliğini Azure Portal’dan alma hakkında bilgi edinmek için bkz. [Microsoft Power BI Embedded kullanmaya başlama](power-bi-embedded-get-started.md).
 
 <a name="GetReport"/>
-## Bir çalışma alanında rapor alma
 
+## Bir çalışma alanında rapor alma
 Bir uygulamaya rapor tümleştirmek için bir rapor **Kimliği** ve **embedUrl**’si gerekir. Bunları almak için [Raporları Al](https://msdn.microsoft.com/library/mt711510.aspx) REST işlemini çağırın ve JSON listesinden raporu seçin.
 
 ### Raporlar JSON yanıtını alma
@@ -96,13 +97,13 @@ protected void getReportsButton_Click(object sender, EventArgs e)
 ```
 
 <a name="EmbedReport"/>
-## Uygulamaya bir rapor ekleme
 
+## Uygulamaya bir rapor ekleme
 Uygulamanıza bir rapor ekleyebilmeniz için önce bir rapora yönelik ekleme belirteci gerekir. Bu belirteç, Power BI Embedded REST işlemlerini çağırmak için kullanılan bir uygulama belirtecine benzer, ancak REST kaynağı yerine bir rapor kaynağı için oluşturulur. Aşağıda rapor için bir uygulama belirteci alma kodu verilmiştir.
 
 <a name="EmbedReportToken"/>
-### Rapor için bir uygulama belirteci alma
 
+### Rapor için bir uygulama belirteci alma
 ```
 protected void getReportAppTokenButton_Click(object sender, EventArgs e)
 {
@@ -120,12 +121,11 @@ protected void getReportAppTokenButton_Click(object sender, EventArgs e)
 ```
 
 <a name="EmbedReportJS"/>
-### Uygulamanıza rapor ekleme
 
+### Uygulamanıza rapor ekleme
 Uygulamanıza bir **Power BI** raporu eklemek için IFrame ve bazı JavaScript kodları kullanın. Aşağıda bir rapor eklemek için örnek IFrame ve JavaScript kodu verilmiştir. Rapor eklemeye ilişkin tüm örnek kodları görmek için, GitHub’da [IFrame ile bir rapor tümleştirme](https://github.com/Azure-Samples/power-bi-embedded-iframe) örneğine bakın.
 
-![Iframe](media\power-bi-embedded-integrate-report\Iframe.png)
-
+![Iframe](media\\power-bi-embedded-integrate-report\\Iframe.png)
 
 ```
 window.onload = function () {
@@ -170,9 +170,7 @@ function postActionLoadReport() {
 Uygulamanıza bir rapor ekledikten sonra, raporu filtreleyebilirsiniz. Sonraki bölümde, bir URL söz dizimini kullanarak bir raporun nasıl filtreleneceği gösterilir.
 
 ## Bir raporu filtreleme
-
 Bir URL söz dizimini kullanarak eklenmiş bir raporu filtreleyebilirsiniz. Bunu yapmak için, filtreyi belirterek iFrame src url’nize bir sorgu dizesi parametresi ekleyin. **Değere göre filtreleyebilir** ve **Filtre Bölmesini gizleyebilirsiniz**.
-
 
 **Değere göre filtreleme**
 
@@ -190,7 +188,10 @@ $filter={tableName/fieldName}%20eq%20'{fieldValue}'
 $filter=Store/Chain%20eq%20'Lindseys'
 ```
 
-> [AZURE.NOTE] {tableName/fieldName} boşluk ya da özel karakter içeremez. {fieldValue} tek bir kategorik değer kabul eder.
+> [!NOTE]
+> {tableName/fieldName} boşluk ya da özel karakter içeremez. {fieldValue} tek bir kategorik değer kabul eder.
+> 
+> 
 
 **Filtre Bölmesini Gizleme**
 
@@ -201,18 +202,15 @@ $filter=Store/Chain%20eq%20'Lindseys'
 ```
 
 ## Ek kaynaklar
-
 Bu makalede, uygulamanız eklemek için bir **Power BI**raporu tümleştirmeyi öğrendiniz. GitHub üzerinde bu ek örnekleri denetlediğinizden emin olun:
 
-- [IFrame ile bir rapor tümleştirme örneği](https://github.com/Azure-Samples/power-bi-embedded-iframe)
-- [Örnek pano web uygulaması](http://go.microsoft.com/fwlink/?LinkId=761493)
+* [IFrame ile bir rapor tümleştirme örneği](https://github.com/Azure-Samples/power-bi-embedded-iframe)
+* [Örnek pano web uygulaması](http://go.microsoft.com/fwlink/?LinkId=761493)
 
 ## Ayrıca Bkz.
-- [System.IdentityModel.Tokens.SigningCredentials](https://msdn.microsoft.com/library/system.identitymodel.tokens.signingcredentials.aspx)
-- [System.IdentityModel.Tokens.JwtSecurityToken](https://msdn.microsoft.com/library/system.identitymodel.tokens.jwtsecuritytoken.aspx)
-- [System.IdentityModel.Tokens.JwtSecurityTokenHandler](https://msdn.microsoft.com/library/system.identitymodel.tokens.signingcredentials.aspx)
-
-
+* [System.IdentityModel.Tokens.SigningCredentials](https://msdn.microsoft.com/library/system.identitymodel.tokens.signingcredentials.aspx)
+* [System.IdentityModel.Tokens.JwtSecurityToken](https://msdn.microsoft.com/library/system.identitymodel.tokens.jwtsecuritytoken.aspx)
+* [System.IdentityModel.Tokens.JwtSecurityTokenHandler](https://msdn.microsoft.com/library/system.identitymodel.tokens.signingcredentials.aspx)
 
 <!--HONumber=Aug16_HO1-->
 

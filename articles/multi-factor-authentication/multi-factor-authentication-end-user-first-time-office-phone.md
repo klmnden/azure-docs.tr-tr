@@ -1,28 +1,27 @@
-<properties
-	pageTitle="Use office phone as your contact method with Azure MFA"
-	description="This page will show users how to use their office phone as the primary contact method for Azure MFA."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="kgremban"
-	manager="femila"
-	editor="curtland"/>
+---
+title: Use office phone as your contact method with Azure MFA
+description: This page will show users how to use their office phone as the primary contact method for Azure MFA.
+services: multi-factor-authentication
+documentationcenter: ''
+author: kgremban
+manager: femila
+editor: curtland
 
-<tags
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/04/2016"
-	ms.author="kgremban"/>
+ms.service: multi-factor-authentication
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/04/2016
+ms.author: kgremban
 
+---
 # Use office phone as your contact method with Azure Multi-Factor Authentication
-
 If you want to use your office phone as your primary contact method you can use this article.  It will walk you through setting up multi-factor authentication to use your office phone for a call as your contact method.
 
 ## To use your office phone as your contact method
-
 <ol>
+
 <li>Select Office Phone from the drop-down</li>
 
 <center>![Setup](./media/multi-factor-authentication-end-user-first-time-office-phone/office.png)</center>

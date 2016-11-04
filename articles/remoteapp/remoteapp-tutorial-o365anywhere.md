@@ -1,34 +1,32 @@
-<properties
-   pageTitle="Azure RemoteApp ile herhangi bir cihazda aynı Office 365 deneyimini elde edin | Microsoft Azure"
-   description="Azure RemoteApp kullanarak herhangi bir Office 365 uygulamasını kullanıcılarınızla nasıl paylaşacağınızı öğrenin."
-   services="remoteapp"
-   documentationCenter=""
-   authors="guscatalano"
-   manager="mbaldwin"
-   editor=""/>
+---
+title: Azure RemoteApp ile herhangi bir cihazda aynı Office 365 deneyimini elde edin | Microsoft Docs
+description: Azure RemoteApp kullanarak herhangi bir Office 365 uygulamasını kullanıcılarınızla nasıl paylaşacağınızı öğrenin.
+services: remoteapp
+documentationcenter: ''
+author: guscatalano
+manager: mbaldwin
+editor: ''
 
-<tags
-   ms.service="remoteapp"
-   ms.devlang="na"
-   ms.topic="hero-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="compute"
-   ms.date="08/15/2016"
-   ms.author="guscatal;elizapo"/>
+ms.service: remoteapp
+ms.devlang: na
+ms.topic: hero-article
+ms.tgt_pltfrm: na
+ms.workload: compute
+ms.date: 08/15/2016
+ms.author: guscatal;elizapo
 
-
-
+---
 # Azure RemoteApp ile herhangi bir cihazda aynı Office 365 deneyimini elde edin
-
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > Azure RemoteApp kullanımdan kaldırılıyor. Ayrıntılı bilgi için [duyuruyu](https://go.microsoft.com/fwlink/?linkid=821148) okuyun.
+> 
+> 
 
 Bu makalede, Office 365’i şirket içinde herhangi bir cihazda nasıl dağıtacağınız açıklanmaktadır. Kullanıcılarınız Android, Apple ve Windows’da aynı özellikler ve kullanıcı arabirimi deneyimine sahip olur.
 
 Bunu Azure’da kullanıcıların bağlanabileceği ölçeklenebilir sanal makinelerde Office 365’i barındırmak için Azure RemoteApp kullanarak yapabiliriz. Bu sanal makineler kümesi "bulut koleksiyonu" olarak adlandırılır.
 
 ## Bulut koleksiyonu oluşturma
-
 Azure hesabı oluşturduktan sonra, sol taraftaki bağlantıya tıklayarak **RemoteApp**’e gidin.
 ![Azure Portalı’nda Azure RemoteApp gösteriliyor](./media/remoteapp-tutorial-o365anywhere/1-menu.png)
 
@@ -50,7 +48,6 @@ Bu noktada **Kullanıcı Erişimi**’ne tıklayarak bu koleksiyona erişimi ola
 Şimdi Office 365’e bağlanmayı deneyelim!
 
 ## Office 365’e bağlanın
-
 Kullandığınız cihaza Azure RemoteApp istemcisini yüklemek için [https://www.remoteapp.windowsazure.com/](https://www.remoteapp.windowsazure.com/) adresine giderek aşağı doğru ilerleyecek ve **İstemcileri indir**’e tıklayacağız. Aşağıdaki ekran görüntüleri Windows içindir.
 
 Uygulama başlatıldıktan sonra Microsoft hesabınızda (eski adıyla “Live ID”) oturum açmanız istenir, şimdilik Azure hesabınızla aynı hesabı kullanın. Oturum açtığınızda yeni davetlerle ilgili bir bildirim görürsünüz, buna tıkladığınızda aşağıdakine benzer bir liste görüntülenir. Azure hesabı sahibinin e-postasıyla ile eşleşen daveti kabul edin.
@@ -70,8 +67,6 @@ Bu uygulamalardan herhangi birine tıkladığınızda, uygulama Azure sanal maki
 ![başlatma](./media/remoteapp-tutorial-o365anywhere/10-arastart.png)
 
 ![powerpoint](./media/remoteapp-tutorial-o365anywhere/11-pp.png)
-
-
 
 <!--HONumber=Sep16_HO3-->
 

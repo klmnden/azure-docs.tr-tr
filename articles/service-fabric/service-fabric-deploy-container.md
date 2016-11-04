@@ -1,45 +1,49 @@
-<properties
-   pageTitle="Service Fabric and Deploying Containers | Microsoft Azure"
-   description="Service Fabric and the use of containers to deploy microservice applications. This article the capabilities that Service Fabric provides for containers and how to deploy a container image into a cluster"
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="msfussell"
-   manager=""
-   editor=""/>
+---
+title: Service Fabric and Deploying Containers | Microsoft Docs
+description: Service Fabric and the use of containers to deploy microservice applications. This article the capabilities that Service Fabric provides for containers and how to deploy a container image into a cluster
+services: service-fabric
+documentationcenter: .net
+author: msfussell
+manager: ''
+editor: ''
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="09/25/2016"
-   ms.author="msfussell"/>
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 09/25/2016
+ms.author: msfussell
 
+---
 # Preview: Deploy a container to Service Fabric
-
->[AZURE.NOTE] This feature is in preview for Linux and not currently available on Windows Server. This will be in preview for Windows Server on the next release of Service Fabric after Windows Server 2016 GA and supported in the subsequent release after that.
+> [!NOTE]
+> This feature is in preview for Linux and not currently available on Windows Server. This will be in preview for Windows Server on the next release of Service Fabric after Windows Server 2016 GA and supported in the subsequent release after that.
+> 
+> 
 
 Service Fabric has several container capabilities that help you with building applications that are composed of microservices that are containerized. These are called containerized services. The capabilities include;
 
-- Container image deployment and activation
-- Resource governance
-- Repository authentication
-- Container port to host port mapping
-- Container-to-container discovery and communication
-- Ability to configure and set environment variables
+* Container image deployment and activation
+* Resource governance
+* Repository authentication
+* Container port to host port mapping
+* Container-to-container discovery and communication
+* Ability to configure and set environment variables
 
 Lets look at each of capabilities in turn when packaging a containerized service to be included into your application.
 
 ## Packaging a container
-
 When packaging a container, you can choose either to use a Visual Studio project template or [create the application package manually](#manually). Using Visual Studio, the application package structure and manifest files are created by the new project wizard for you.
 
 ## Using Visual Studio to package an existing executable
-
->[AZURE.NOTE] In a future release of the Visual Studio tooling SDK, you will be able to add a container to an application in a similar way that you can add a guest executable today. See [Deploy a guest executable to Service Fabric](service-fabric-deploy-existing-app.md) topic. Currently you have to do manual packaging as described below.
+> [!NOTE]
+> In a future release of the Visual Studio tooling SDK, you will be able to add a container to an application in a similar way that you can add a guest executable today. See [Deploy a guest executable to Service Fabric](service-fabric-deploy-existing-app.md) topic. Currently you have to do manual packaging as described below.
+> 
+> 
 
 <a id="manually"></a>
+
 ## Manually packaging and deploying container
 The process of manually packaging a containerized service is based on the following steps:
 
@@ -67,14 +71,16 @@ You can provide input commands to the container image by specifying the optional
 ## Resource governance
 Resource governance is a capability of the container and restricts the resources that the container can use on the host. The `ResourceGovernancePolicy`, specified in the application manifest, provides the ability to declare resource limits for a service code package. Resource limits can be set for;
 
-- Memory
-- MemorySwap
-- CpuShares (CPU relative weight)
-- MemoryReservationInMB  
-- BlkioWeight (BlockIO relative weight). 
+* Memory
+* MemorySwap
+* CpuShares (CPU relative weight)
+* MemoryReservationInMB  
+* BlkioWeight (BlockIO relative weight). 
 
->[AZURE.NOTE] In a future release, support for specifying specific block IO limits such as IOPs, read/write BPS and others will be possible.
-
+> [!NOTE]
+> In a future release, support for specifying specific block IO limits such as IOPs, read/write BPS and others will be possible.
+> 
+> 
 
     <ServiceManifestImport>
         <ServiceManifestRef ServiceManifestName="FrontendServicePackage" ServiceManifestVersion="1.0"/>
@@ -88,7 +94,6 @@ Resource governance is a capability of the container and restricts the resources
 ## Repository authentication
 To download a container you may have to provide login credentials to the container repository. The login credentials, specified in the *application* manifest are used to specify the login information, or SSH key, for downloading the container image from the image repository.  The following example shows an account called *TestUser* along with the password in clear text. This is **not** recommended.
 
-
     <ServiceManifestImport>
         <ServiceManifestRef ServiceManifestName="FrontendServicePackage" ServiceManifestVersion="1.0"/>
         <Policies>
@@ -101,7 +106,6 @@ To download a container you may have to provide login credentials to the contain
 The password can and should be encrypted using a certificate deployed to the machine.
 
 The following example shows an account called *TestUser* with the password encrypted using a certificate called *MyCert*. You can use the `Invoke-ServiceFabricEncryptText` Powershell command to create the secret cipher text for the password. See this article [Managing secrets in Service Fabric applications](service-fabric-application-secret-management.md) for details on how. The private key of the certificate to decrypt the password must be deployed to the local machine in an out-of-band method (in Azure this is via the Resource Manager). Then, when Service Fabric deploys the service package to the machine, it is able to decrypt the secret and along with the account name, authenticate with the container repository using these credentials.
-
 
     <ServiceManifestImport>
         <ServiceManifestRef ServiceManifestName="FrontendServicePackage" ServiceManifestVersion="1.0"/>
@@ -117,7 +121,6 @@ The following example shows an account called *TestUser* with the password encry
 
 ## Container port to host port mapping
 You can configure a host port used to communicate with the container by specifying a `PortBinding` in application manifest. The port binding maps the port that the service is listening on inside the container to a port on the host.
-
 
     <ServiceManifestImport>
         <ServiceManifestRef ServiceManifestName="FrontendServicePackage" ServiceManifestVersion="1.0"/>
@@ -183,7 +186,6 @@ In the above example, we have specified an explicit value for the `HttpGateway` 
 
 ## Complete examples for application and service manifest
 The following is an example application manifest that shows the container features.
-
 
     <ApplicationManifest ApplicationTypeName="SimpleContainerApp" ApplicationTypeVersion="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
         <Description>A simple service container application</Description>

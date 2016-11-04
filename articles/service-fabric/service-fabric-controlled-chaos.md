@@ -1,21 +1,21 @@
-<properties
-   pageTitle="Induce Chaos in Service Fabric Clusters | Microsoft Azure"
-   description="Using Fault Injection and Cluster Analysis Service APIs to manage Chaos in the cluster."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="motanv"
-   manager="rsinha"
-   editor="toddabel"/>
+---
+title: Induce Chaos in Service Fabric Clusters | Microsoft Docs
+description: Using Fault Injection and Cluster Analysis Service APIs to manage Chaos in the cluster.
+services: service-fabric
+documentationcenter: .net
+author: motanv
+manager: rsinha
+editor: toddabel
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="09/19/2016"
-   ms.author="motanv"/>
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 09/19/2016
+ms.author: motanv
 
+---
 # Induce Controlled Chaos in Service Fabric Clusters
 Large-scale distributed systems like cloud infrastructures are inherently unreliable. Azure Service Fabric enables developers to write reliable services on top of an unreliable infrastructure. To write robust services, developers need to be able to induce faults against such unreliable infrastructure to test the stability of their services.
 
@@ -24,12 +24,12 @@ The Fault Injection and Cluster Analysis Service (aka FAS) gives developers the 
 ## Faults induced in Chaos
 Chaos generates faults across the entire Service Fabric cluster and compresses faults seen in months or years into a few hours. The combination of interleaved faults with the high fault rate finds corner cases that are otherwise missed. This exercise of Chaos leads to a significant improvement in the code quality of the service. Chaos induces faults from the following categories:
 
- - Restart a node
- - Restart a deployed code package
- - Remove a replica
- - Restart a replica
- - Move a primary replica (configurable)
- - Move a secondary replica (configurable)
+* Restart a node
+* Restart a deployed code package
+* Remove a replica
+* Restart a replica
+* Move a primary replica (configurable)
+* Move a secondary replica (configurable)
 
 Chaos runs in multiple iterations; each iteration consists of faults and cluster validation for the specified period. The time spent for the cluster to stabilize and for validation to succeed is configurable. If a failure is found in cluster validation, Chaos generates and persists a ValidationFailedEvent with the UTC timestamp and the failure details.
 
@@ -38,16 +38,16 @@ For example, consider an instance of Chaos, set to run for an hour with a maximu
 In its current form, Chaos induces only safe faults, which implies that in the absence of external faults, a quorum loss, or data loss never occurs.
 
 ## Important configuration options
- - **TimeToRun**: Total time that Chaos runs before finishing with success. Chaos can be stopped before it has run for TimeToRun period through the StopChaos API.
- - **MaxClusterStabilizationTimeout**: Maximum amount of time to wait for the cluster to become healthy before checking on again, this wait is to reduce load on the cluster while it is recovering. The checks performed are 
-    - If the cluster health is OK 
-    - The service health is OK 
-    - The target replica set size is achieved for the service partition 
-    - No InBuild replicas exist
- - **MaxConcurrentFaults**: Maximum number of concurrent faults induced in each iteration. The higher the number, the more aggressive the Chaos, hence resulting in more complex failovers and transition combinations. Chaos guarantees that in the absence of external faults there is no quorum loss or data loss, irrespective of how high a value this configuration has.
- - **EnableMoveReplicaFaults**: Enables or disables the faults that cause the move of the primary or secondary replicas. These faults are disabled by default.
- - **WaitTimeBetweenIterations**: Amount of time to wait between iterations, that is, after a round of faults and corresponding validation.
- - **WaitTimeBetweenFaults**: Amount of time to wait between two consecutive faults in an iteration.
+* **TimeToRun**: Total time that Chaos runs before finishing with success. Chaos can be stopped before it has run for TimeToRun period through the StopChaos API.
+* **MaxClusterStabilizationTimeout**: Maximum amount of time to wait for the cluster to become healthy before checking on again, this wait is to reduce load on the cluster while it is recovering. The checks performed are 
+  * If the cluster health is OK 
+  * The service health is OK 
+  * The target replica set size is achieved for the service partition 
+  * No InBuild replicas exist
+* **MaxConcurrentFaults**: Maximum number of concurrent faults induced in each iteration. The higher the number, the more aggressive the Chaos, hence resulting in more complex failovers and transition combinations. Chaos guarantees that in the absence of external faults there is no quorum loss or data loss, irrespective of how high a value this configuration has.
+* **EnableMoveReplicaFaults**: Enables or disables the faults that cause the move of the primary or secondary replicas. These faults are disabled by default.
+* **WaitTimeBetweenIterations**: Amount of time to wait between iterations, that is, after a round of faults and corresponding validation.
+* **WaitTimeBetweenFaults**: Amount of time to wait between two consecutive faults in an iteration.
 
 ## How to run Chaos
 C# sample

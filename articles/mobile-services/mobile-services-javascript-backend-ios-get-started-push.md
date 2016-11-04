@@ -1,47 +1,47 @@
-<properties
-	pageTitle="Add Push Notifications to App (iOS) | JavaScript Backend"
-	description="Learn how to use Azure Mobile Services to send push notifications to your iOS app."
-	services="mobile-services,notification-hubs"
-	documentationCenter="ios"
-	manager="dwrede"
-	editor=""
-	authors="krisragh"/>
+---
+title: Add Push Notifications to App (iOS) | Microsoft Docs
+description: Learn how to use Azure Mobile Services to send push notifications to your iOS app.
+services: mobile-services,notification-hubs
+documentationcenter: ios
+manager: dwrede
+editor: ''
+author: krisragh
 
-<tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="ios"
-	ms.devlang="objective-c"
-	ms.topic="article"
-	ms.date="07/21/2016"
-	ms.author="krisragh"/>
+ms.service: mobile-services
+ms.workload: mobile
+ms.tgt_pltfrm: ios
+ms.devlang: objective-c
+ms.topic: article
+ms.date: 07/21/2016
+ms.author: krisragh
 
+---
 # Add Push Notifications to iOS App and JavaScript Backend
-
-[AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
+[!INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
 &nbsp;
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[!INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
 > For the equivalent Mobile Apps version of this topic, see [Add Push Notifications to your iOS App](../app-service-mobile/app-service-mobile-ios-get-started-push.md).
+> 
+> 
 
 This topic shows you how to add push notifications to the [quickstart project](mobile-services-ios-get-started.md), so that your mobile service sends a push notification each time a record is inserted. You must complete [Get Started with Mobile Services] first.
 
-> [AZURE.NOTE] The [iOS simulator does not support push notifications](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html), so you must use a physical iOS device. You'll also need to sign up for a paid [Apple Developer Program membership](https://developer.apple.com/programs/ios/).
+> [!NOTE]
+> The [iOS simulator does not support push notifications](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html), so you must use a physical iOS device. You'll also need to sign up for a paid [Apple Developer Program membership](https://developer.apple.com/programs/ios/).
+> 
+> 
 
-[AZURE.INCLUDE [Enable Apple Push Notifications](../../includes/enable-apple-push-notifications.md)]
-
+[!INCLUDE [Enable Apple Push Notifications](../../includes/enable-apple-push-notifications.md)]
 
 ## <a id="configure"></a>Configure Azure to Send Push Notifications
-
-[AZURE.INCLUDE [Configure Push Notifications in Azure Mobile Services](../../includes/mobile-services-apns-configure-push.md)]
+[!INCLUDE [Configure Push Notifications in Azure Mobile Services](../../includes/mobile-services-apns-configure-push.md)]
 
 ## <a id="update-scripts"></a>Update Backend Script to Send Push Notifications
-
 * In the [Azure classic portal], click the **Data** tab and then click **TodoItem**. In **TodoItem**, click the **Script** tab and select **Insert**. This displays the function that is invoked when an insert occurs in the **TodoItem** table.
-
 * Replace the insert function with the following code, and then click **Save**.  This registers a new insert script, which uses the [apns object] to send a push notification (the inserted text) to the device provided in the insert request. This script delays sending the notification to give you time to close the app to receive a push notification.
-
 
 ```
         function insert(item, user, request) {
@@ -59,10 +59,9 @@ This topic shows you how to add push notifications to the [quickstart project](m
         }
 ```
 
-[AZURE.INCLUDE [Add Push Notifications to App](../../includes/add-push-notifications-to-app.md)]
+[!INCLUDE [Add Push Notifications to App](../../includes/add-push-notifications-to-app.md)]
 
-[AZURE.INCLUDE [Test Push Notifications in App](../../includes/test-push-notifications-in-app.md)]
-
+[!INCLUDE [Test Push Notifications in App](../../includes/test-push-notifications-in-app.md)]
 
 <!-- Anchors. -->
 

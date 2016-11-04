@@ -1,35 +1,34 @@
-<properties
-    pageTitle="Azure Search Dizininizi sorgulama | Microsoft Azure | Barındırılan bulut arama hizmeti"
-    description="Azure Search'te bir arama sorgusu oluşturun ve arama sonuçlarını filtrelemek ve sıralamak için arama parametrelerini kullanın."
-    services="search"
-    documentationCenter=""
-    authors="ashmaka"
-/>
+---
+title: Azure Search Dizininizi sorgulama | Microsoft Docs
+description: Azure Search'te bir arama sorgusu oluşturun ve arama sonuçlarını filtrelemek ve sıralamak için arama parametrelerini kullanın.
+services: search
+documentationcenter: ''
+author: ashmaka
 
-<tags
-    ms.service="search"
-    ms.devlang="na"
-    ms.workload="search"
-    ms.topic="get-started-article"
-    ms.tgt_pltfrm="na"
-    ms.date="08/29/2016"
-    ms.author="ashmaka"/>
+ms.service: search
+ms.devlang: na
+ms.workload: search
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.date: 08/29/2016
+ms.author: ashmaka
 
-
+---
 # Azure Search dizininizi sorgulama
-> [AZURE.SELECTOR]
-- [Genel Bakış](search-query-overview.md)
-- [Portal](search-explorer.md)
-- [.NET](search-query-dotnet.md)
-- [REST](search-query-rest-api.md)
+> [!div class="op_single_selector"]
+> * [Genel Bakış](search-query-overview.md)
+> * [Portal](search-explorer.md)
+> * [.NET](search-query-dotnet.md)
+> * [REST](search-query-rest-api.md)
+> 
+> 
 
 Azure Search'e arama istekleri gönderirken, uygulamanızın arama kutusuna yazılan gerçek sözcüklerin yanı sıra belirtilebilecek birkaç parametre bulunur. Bu sorgu parametreleri, tam metin arama deneyiminde biraz daha derin denetim elde etmenizi sağlar.
 
 Azure Search'te sorgu parametrelerinin ortak kullanımlarını kısaca açıklayan bir liste aşağıda bulunmaktadır. Sorgu parametrelerinin ve bunların davranışlarının tam kapsamı için lütfen [REST API](https://msdn.microsoft.com/library/azure/dn798927.aspx) ve [.NET SDK](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.searchparameters_properties.aspx) için ayrıntılı bilgilerin yer aldığı sayfalara bakın.
 
 ## Sorgu türleri
-
-Azure Search, son derece güçlü sorgular oluşturmak için birçok seçenek sunar. Kullanacağınız iki ana sorgu türü `search` ve `filter` sorgularıdır. `search` sorgusu, dizininizdeki tüm _aranabilir_ alanlarda bir veya daha çok terimi arar ve Google veya Bing gibi bir arama alt yapısının çalışmasını beklediğiniz şekilde çalışır. `filter` sorgusu, bir dizindeki tüm _filtrelenebilir_ alanlarda bir boole ifadesini değerlendirir. `search` sorgularının aksine, `filter` sorguları bir alanın tam içeriğini eşleştirir; bu da dize alanları için büyük/küçük harfe duyarlı olduklarını gösterir.
+Azure Search, son derece güçlü sorgular oluşturmak için birçok seçenek sunar. Kullanacağınız iki ana sorgu türü `search` ve `filter` sorgularıdır. `search` sorgusu, dizininizdeki tüm *aranabilir* alanlarda bir veya daha çok terimi arar ve Google veya Bing gibi bir arama alt yapısının çalışmasını beklediğiniz şekilde çalışır. `filter` sorgusu, bir dizindeki tüm *filtrelenebilir* alanlarda bir boole ifadesini değerlendirir. `search` sorgularının aksine, `filter` sorguları bir alanın tam içeriğini eşleştirir; bu da dize alanları için büyük/küçük harfe duyarlı olduklarını gösterir.
 
 Aramaları ve filtreleri birlikte veya ayrı olarak kullanabilirsiniz. Bunları birlikte kullandığınızda filtre öncelikle tüm dizine uygulanır ve ardından filtrenin sonuçlarında arama gerçekleştirilir. Filtreler arama sorgusunun işlemesi gereken belge kümesini azalttığından, sorgu performansını iyileştirmeye yönelik kullanışlı bir teknik olabilir.
 
@@ -43,8 +42,6 @@ Filtre ifadeleri için söz dizimi, [OData filtre dilinin](https://msdn.microsof
 
 Bu sorgu söz diziminin kullanılması, şu işlevleri kolayca elde etmenizi sağlar: [Alan kapsamlı sorgular](https://msdn.microsoft.com/library/azure/mt589323.aspx#bkmk_fields), [belirsiz arama](https://msdn.microsoft.com/library/azure/mt589323.aspx#bkmk_fuzzy), [yakınlık araması](https://msdn.microsoft.com/library/azure/mt589323.aspx#bkmk_proximity), [terim artırma](https://msdn.microsoft.com/library/azure/mt589323.aspx#bkmk_termboost), [normal ifade araması](https://msdn.microsoft.com/library/azure/mt589323.aspx#bkmk_regex), [joker karakterle arama](https://msdn.microsoft.com/library/azure/mt589323.aspx#bkmk_wildcard), [temel söz dizimi bilgileri](https://msdn.microsoft.com/library/azure/mt589323.aspx#bkmk_syntax) ve [boole işleçlerini kullanan sorgular](https://msdn.microsoft.com/library/azure/mt589323.aspx#bkmk_boolean).
 
-
-
 ## Sonuçları sıralama
 Bir arama sorgusunun sonuçları alınırken, Azure Search'ün sonuçları belirli bir alandaki değerlere göre sıralayarak sunmasını isteyebilirsiniz. Varsayılan olarak Azure Search, her bir belgenin [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf)'den türetilen arama puanı sıralamasını temel alarak arama sonuçlarını sıralar.
 
@@ -55,11 +52,8 @@ Azure Search, arama sonuçlarının sayfalanması uygulamasını kolaylaştırı
 
 [Azure Search'te arama sonuçlarını numaralandırma](search-pagination-page-layout.md) makalesinde arama sonuçlarının numaralanması hakkında daha fazla bilgi alabilirsiniz.
 
-
 ## İsabet vurgulama
-Azure Search'te arama sonuçlarının arama sorgusuyla tam olarak eşleşen kısmının vurgulanması `highlight`, `highlightPreTag` ve `highlightPostTag` parametreleri kullanılarak kolaylaştırılır. Hangi _aranabilir_ alanların eşleşen metninin vurgulanacağının yanı sıra Azure Search'ün döndürdüğü eşleşen metnin başına ve sonuna eklenecek dize etiketlerini tam olarak belirtebilirsiniz.
-
-
+Azure Search'te arama sonuçlarının arama sorgusuyla tam olarak eşleşen kısmının vurgulanması `highlight`, `highlightPreTag` ve `highlightPostTag` parametreleri kullanılarak kolaylaştırılır. Hangi *aranabilir* alanların eşleşen metninin vurgulanacağının yanı sıra Azure Search'ün döndürdüğü eşleşen metnin başına ve sonuna eklenecek dize etiketlerini tam olarak belirtebilirsiniz.
 
 <!--HONumber=Sep16_HO3-->
 

@@ -1,15 +1,13 @@
 ## PowerShell kullanarak ARM şablonu dağıtma
-
 PowerShell kullanarak yüklediğiniz ARM şablonunu dağıtmak için aşağıdaki adımları izleyin.
 
 1. Azure PowerShell’i hiç kullanmadıysanız bkz. [Azure PowerShell’i yükleme ve yapılandırma](../articles/powershell-install-configure.md) ve Azure'a giriş yapıp aboneliğinizi seçene kadar da tüm bu süreç boyunca tüm talimatları uygulayın.
-
-3. Gerekirse, yeni bir kaynak grubu oluşturmak için **`New-AzureRmResourceGroup`** cmdlet’ini çalıştırın. Aşağıdaki komut, *TestRG* adıyla, *Orta ABD* Azure bölgesinde bir kaynak grubu oluşturur. Kaynak grupları hakkında daha fazla bilgi için [Azure Resource Manager’a Genel Bakış](../articles/resource-group-overview.md)’ı ziyaret edin.
-
+2. Gerekirse, yeni bir kaynak grubu oluşturmak için **`New-AzureRmResourceGroup`** cmdlet’ini çalıştırın. Aşağıdaki komut, *TestRG* adıyla, *Orta ABD* Azure bölgesinde bir kaynak grubu oluşturur. Kaynak grupları hakkında daha fazla bilgi için [Azure Resource Manager’a Genel Bakış](../articles/resource-group-overview.md)’ı ziyaret edin.
+   
         New-AzureRmResourceGroup -Name TestRG -Location centralus
-        
+   
     Yukarıdaki komut için beklenen çıkış buradaki gibidir:
-
+   
         ResourceGroupName : TestRG
         Location          : centralus
         ProvisioningState : Succeeded
@@ -19,14 +17,13 @@ PowerShell kullanarak yüklediğiniz ARM şablonunu dağıtmak için aşağıdak
                             =======  ==========
                             *
         ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG
-
-4. Yukarıda indirdiğiniz ve değiştirdiğiniz şablonu ve parametre dosyalarını kullanarak yeni VNet’i dağıtmak için **`New-AzureRmResourceGroupDeployment`** cmdlet’ini çalıştırın.
-
+3. Yukarıda indirdiğiniz ve değiştirdiğiniz şablonu ve parametre dosyalarını kullanarak yeni VNet’i dağıtmak için **`New-AzureRmResourceGroupDeployment`** cmdlet’ini çalıştırın.
+   
         New-AzureRmResourceGroupDeployment -Name TestVNetDeployment -ResourceGroupName TestRG `
             -TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
-            
+   
     Yukarıdaki komut için beklenen çıkış buradaki gibidir:
-        
+   
         DeploymentName    : TestVNetDeployment
         ResourceGroupName : TestRG
         ProvisioningState : Succeeded
@@ -43,16 +40,14 @@ PowerShell kullanarak yüklediğiniz ARM şablonunu dağıtmak için aşağıdak
                             subnet1Name      String                     FrontEnd
                             subnet2Prefix    String                     192.168.2.0/24
                             subnet2Name      String                     BackEnd
-        
+   
         Outputs           :
-
-5. Aşağıda gösterildiği gibi, yeni VNet’in özelliklerini görüntülemek için **`Get-AzureRmVirtualNetwork`** cmdlet'ini çalıştırın.
-
+4. Aşağıda gösterildiği gibi, yeni VNet’in özelliklerini görüntülemek için **`Get-AzureRmVirtualNetwork`** cmdlet'ini çalıştırın.
 
         Get-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
-        
+
     Yukarıdaki komut için beklenen çıkış buradaki gibidir:
-        
+
         Name              : TestVNet
         ResourceGroupName : TestRG
         Location          : centralus

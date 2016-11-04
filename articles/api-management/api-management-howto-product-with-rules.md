@@ -1,23 +1,22 @@
-<properties
-    pageTitle="API’nizi Azure API Management ile koruma | Microsoft Azure"
-    description="API’nizi kotalar ve azaltma (hız sınırlama) ilkeleriyle korumayı öğrenin."
-    services="api-management"
-    documentationCenter=""
-    authors="steved0x"
-    manager="erikre"
-    editor=""/>
+---
+title: API’nizi Azure API Management ile koruma | Microsoft Docs
+description: API’nizi kotalar ve azaltma (hız sınırlama) ilkeleriyle korumayı öğrenin.
+services: api-management
+documentationcenter: ''
+author: steved0x
+manager: erikre
+editor: ''
 
-<tags
-    ms.service="api-management"
-    ms.workload="mobile"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="08/24/2016"
-    ms.author="sdanie"/>
+ms.service: api-management
+ms.workload: mobile
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 08/24/2016
+ms.author: sdanie
 
+---
 # API’nizi, Azure API Management kullanarak hız sınırlarıyla koruma | Microsoft Azure
-
 Bu kılavuz size Azure API Management ile hız sınırı ve kota ilkeleri yapılandırarak arka uç API’niz için koruma eklemenin ne kadar kolay olduğunu gösterir.
 
 Bu öğreticide, geliştiricilerin [Abonelik başına çağrı hızını sınırla](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate) ve [Abonelik başına kullanım kotası ayarla](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota) ilkelerini kullanarak API’nize dakikada en fazla 10 ve haftada maksimum 200 çağrı yapmasını sağlayan “Ücretsiz Deneme” API ürünü oluşturacaksınız. Ardından, API yayımlayacak ve hız sınırı ilkesini test edeceksiniz.
@@ -25,16 +24,20 @@ Bu öğreticide, geliştiricilerin [Abonelik başına çağrı hızını sınır
 [rate-limit-by-key](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRateByKey) ve [quota-by-key](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuotaByKey) ilkeleriyle daha gelişmiş azaltma senaryoları için bkz. [Azure API Management ile gelişmiş istek azaltma](api-management-sample-flexible-throttling.md).
 
 ## <a name="create-product"> </a>Ürün oluşturmak için
-
 Bu adımda, abonelik onayı gerektirmeyen bir Ücretsiz Deneme ürünü oluşturacaksınız.
 
->[AZURE.NOTE] Önceden yapılandırılmış bir ürününüz varsa ve ürünü bu öğretici için kullanmak istiyorsanız, [Çağrı hızı sınırı ve kota ilkeleri yapılandırma][]’ya geçebilir ve Ücretsiz Deneme ürünü yerine ürününüzü kullanarak öğreticiyi izleyebilirsiniz.
+> [!NOTE]
+> Önceden yapılandırılmış bir ürününüz varsa ve ürünü bu öğretici için kullanmak istiyorsanız, [Çağrı hızı sınırı ve kota ilkeleri yapılandırma][Çağrı hızı sınırı ve kota ilkeleri yapılandırma]’ya geçebilir ve Ücretsiz Deneme ürünü yerine ürününüzü kullanarak öğreticiyi izleyebilirsiniz.
+> 
+> 
 
 Kullanmaya başlamak üzere API Management hizmetiniz için Klasik Azure Portalı'nda **Yönet**’e tıklayın. Bu sizi API Management yayımcı portalına götürür.
 
 ![Yayımcı portalı][api-management-management-console]
 
->Henüz bir API Management hizmeti örneği oluşturmadıysanız, [Azure API Management’te ilk API’nizi yönetme][] öğreticisinde [API Management hizmet örneği oluşturma][]’ya bakın.
+> Henüz bir API Management hizmeti örneği oluşturmadıysanız, [Azure API Management’te ilk API’nizi yönetme][Azure API Management’te ilk API’nizi yönetme] öğreticisinde [API Management hizmet örneği oluşturma][API Management hizmet örneği oluşturma]’ya bakın.
+> 
+> 
 
 **Ürünler** sayfasını görüntülemek için soldaki **API Management** menüsünde **Ürünler**’e tıklayın.
 
@@ -60,17 +63,20 @@ Tüm değerleri girdikten sonra ürünü oluşturmak için **Kaydet**’e tıkla
 
 Varsayılan olarak, yeni ürünleri **Yöneticiler** grubundaki kullanıcılar görür. Biz **Geliştiriciler** grubunu ekleyeceğiz. **Ücretsiz Deneme**’ye ve ardından **Görünürlük** sekmesine tıklayın.
 
->API Management’te, ürünlerin geliştiricilere görünürlüğünü yönetmek için gruplar kullanılır. Ürünler gruplara görünürlük sağlar ve geliştiriciler ait oldukları gruplar tarafından görünür olan ürünleri görüntüleyip bunlara abone olabilir. Daha fazla bilgi için bkz. [Azure API Management’te grupları oluşturma ve kullanma][].
+> API Management’te, ürünlerin geliştiricilere görünürlüğünü yönetmek için gruplar kullanılır. Ürünler gruplara görünürlük sağlar ve geliştiriciler ait oldukları gruplar tarafından görünür olan ürünleri görüntüleyip bunlara abone olabilir. Daha fazla bilgi için bkz. [Azure API Management’te grupları oluşturma ve kullanma][Azure API Management’te grupları oluşturma ve kullanma].
+> 
+> 
 
 ![Geliştiriciler grubu ekleme][api-management-add-developers-group]
 
 **Geliştiriciler** onay kutusunu işaretleyin ve ardından **Kaydet**’e tıklayın.
 
 ## <a name="add-api"> </a>Ürüne bir API eklemek için
-
 Öğreticinin bu adımında yeni Ücretsiz Deneme ürününe Echo API’sini ekleyeceğiz.
 
->Her API Management hizmeti örneği, API Management’i denemek ve hakkında bilgi almak için kullanılabilecek bir Echo API’si ile önceden yapılandırılmış olarak gelir. Daha fazla bilgi için bkz. [Azure API Management’te ilk API’nizi yönetme][].
+> Her API Management hizmeti örneği, API Management’i denemek ve hakkında bilgi almak için kullanılabilecek bir Echo API’si ile önceden yapılandırılmış olarak gelir. Daha fazla bilgi için bkz. [Azure API Management’te ilk API’nizi yönetme][Azure API Management’te ilk API’nizi yönetme].
+> 
+> 
 
 Soldaki **API Management** menüsünde **Ürünler**’e tıklayın ve ardından ürünü yapılandırmak için **Ücretsiz Deneme**’ye tıklayın.
 
@@ -85,7 +91,6 @@ Soldaki **API Management** menüsünde **Ürünler**’e tıklayın ve ardından
 ![Echo API’si ekleme][api-management-add-echo-api]
 
 ## <a name="policies"> </a>Çağrı hızı sınırı ve kota ilkelerini yapılandırmak için
-
 Hız sınırları ve kotalar ilke düzenleyicisinde yapılandırılır. Soldaki **API Management** menüsü altında **İlkeler**’e tıklayın. **Ürün** listesinde **Ücretsiz Deneme**’ye tıklayın.
 
 ![Ürün ilkesi][api-management-product-policy]
@@ -143,7 +148,9 @@ Kotalar aralık, bant genişliği ya da hem aralık hem de bant genişliği baş
     <quota calls="200" renewal-period="604800">
     </quota>
 
->İlke aralıkları saniye cinsinden belirtilir. Bir hafta aralığını hesaplamak üzere, gün sayısını (7) bir gündeki saat sayısıyla (24), çıkan sonucu bir saatteki dakika sayısıyla (60) ve son sonucu bir dakikadaki saniye sayısıyla (60) çarpabilirsiniz: 7 * 24 * 60 * 60 = 604800.
+> İlke aralıkları saniye cinsinden belirtilir. Bir hafta aralığını hesaplamak üzere, gün sayısını (7) bir gündeki saat sayısıyla (24), çıkan sonucu bir saatteki dakika sayısıyla (60) ve son sonucu bir dakikadaki saniye sayısıyla (60) çarpabilirsiniz: 7 * 24 * 60 * 60 = 604800.
+> 
+> 
 
 İlke yapılandırmayı tamamladığınızda ilkenin aşağıdaki örnekle eşleşmesi gerekir.
 
@@ -168,7 +175,6 @@ Kotalar aralık, bant genişliği ya da hem aralık hem de bant genişliği baş
 ![İlkeyi kaydetme][api-management-policy-save]
 
 ## <a name="publish-product"> </a> Ürün yayımlamak için
-
 Artık API'ler eklendiğine ve ilkeler yapılandırıldığına göre, geliştiriciler tarafından kullanılması için ürünün yayımlanması gerekir. Soldaki **API Management** menüsünde **Ürünler**’e tıklayın ve ardından ürünü yapılandırmak için **Ücretsiz Deneme**’ye tıklayın.
 
 ![Ürünü yapılandırma][api-management-configure-product]
@@ -178,10 +184,11 @@ Artık API'ler eklendiğine ve ilkeler yapılandırıldığına göre, geliştir
 ![Ürünü yayımlama][api-management-publish-product]
 
 ## <a name="subscribe-account"> </a>Bir geliştirici hesabını ürüne abone yapmak için
-
 Artık ürün yayımlandığına göre, ürüne abone olunabilir ve ürün, geliştiriciler tarafından kullanılmaya hazırdır.
 
->Bir API Management örneğinin yöneticileri otomatik olarak her ürüne abone olur. Bu öğretici adımında, yönetici olmayan geliştirici hesaplarından birini Ücretsiz Deneme ürününe abone yapacağız. Geliştirici hesabınız Yönetici rolünün bir parçası ise, zaten abone olmanıza rağmen bu adımın üzerinden devam edebilirsiniz.
+> Bir API Management örneğinin yöneticileri otomatik olarak her ürüne abone olur. Bu öğretici adımında, yönetici olmayan geliştirici hesaplarından birini Ücretsiz Deneme ürününe abone yapacağız. Geliştirici hesabınız Yönetici rolünün bir parçası ise, zaten abone olmanıza rağmen bu adımın üzerinden devam edebilirsiniz.
+> 
+> 
 
 Soldaki **API Management** menüsünde **Kullanıcılar**’a tıklayın ve ardından geliştirici hesabınızın adına tıklayın. Bu örnekte **Clayton Gragg** geliştirici hesabını kullanıyoruz.
 
@@ -195,7 +202,10 @@ Soldaki **API Management** menüsünde **Kullanıcılar**’a tıklayın ve ard�
 
 ![Abonelik ekleme][api-management-add-subscription]
 
->[AZURE.NOTE] Bu öğreticide, Ücretsiz Deneme ürünü için aynı anda birden çok abonelik etkin değildir. Etkin olsaydı, aşağıdaki örnekte gösterildiği gibi abonelik adı girmeniz istenirdi.
+> [!NOTE]
+> Bu öğreticide, Ücretsiz Deneme ürünü için aynı anda birden çok abonelik etkin değildir. Etkin olsaydı, aşağıdaki örnekte gösterildiği gibi abonelik adı girmeniz istenirdi.
+> 
+> 
 
 ![Abonelik ekleme][api-management-add-subscription-multiple]
 
@@ -204,7 +214,6 @@ Soldaki **API Management** menüsünde **Kullanıcılar**’a tıklayın ve ard�
 ![Abonelik eklendi][api-management-subscription-added]
 
 ## <a name="test-rate-limit"> </a>Bir işlem çağırmak ve hız sınırını test etmek için
-
 Ücretsiz Deneme ürünü yayımlanmış ve yapılandırılmış olduğuna göre, bazı işlemler çağırabilir ve hız sınırı ilkesini test edebiliriz.
 Sağ üstteki menüde **Geliştirici portalı**’na tıklayarak geliştirici portalına geçin.
 
@@ -222,7 +231,10 @@ Varsayılan parametre değerlerini koruyun ve Ücretsiz Deneme ürünü için ab
 
 ![Abonelik anahtarı][api-management-select-key]
 
->[AZURE.NOTE] Birden çok aboneliğiniz varsa, **Ücretsiz Deneme** anahtarını seçtiğinizden emin olun, aksi takdirde önceki adımlarda yapılandırılmış ilkeler etkin olmayacaktır.
+> [!NOTE]
+> Birden çok aboneliğiniz varsa, **Ücretsiz Deneme** anahtarını seçtiğinizden emin olun, aksi takdirde önceki adımlarda yapılandırılmış ilkeler etkin olmayacaktır.
+> 
+> 
 
 **Gönder**’e tıklayın ve ardından yanıtı görüntüleyin. **200 Tamam** **Yanıt durumunu** not edin.
 
@@ -237,11 +249,11 @@ Dakikada 10 çağrı olan hız sınır ilkesinden daha büyük bir hızda **Gön
 Dakikada 10 çağrılık hız sınırı ilkesi etkinken, hız sınırı aşılmadan önce ürüne yapılan ilk 10 başarılı çağrının sona ermesinin üzerinden 60 saniye geçinceye kadar sonraki çağrılar başarısız olur. Bu örnekte, kalan aralık 54 saniyedir.
 
 ## <a name="next-steps"> </a>Sonraki adımlar
+* Aşağıdaki videoda hız sınırlarını ve kotaları ayarlama gösterisini izleyin.
 
--   Aşağıdaki videoda hız sınırlarını ve kotaları ayarlama gösterisini izleyin.
-
-> [AZURE.VIDEO rate-limits-and-quotas]
-
+> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Rate-Limits-and-Quotas/player]
+> 
+> 
 
 [api-management-management-console]: ./media/api-management-howto-product-with-rules/api-management-management-console.png
 [api-management-add-product]: ./media/api-management-howto-product-with-rules/api-management-add-product.png

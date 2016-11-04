@@ -1,26 +1,24 @@
-<properties
-   pageTitle="Docker Swarm ile Azure Kapsayıcı Hizmeti kapsayıcı yönetimi | Microsoft Azure"
-   description="Azure Kapsayıcı Hizmetinde kapsayıcıları bir Docker Swarm’a dağıtma"
-   services="container-service"
-   documentationCenter=""
-   authors="neilpeterson"
-   manager="timlt"
-   editor=""
-   tags="acs, azure-container-service"
-   keywords="Docker, Kapsayıcılar, Mikro hizmetler, Mesos, Azure"/>
+---
+title: Docker Swarm ile Azure Kapsayıcı Hizmeti kapsayıcı yönetimi | Microsoft Docs
+description: Azure Kapsayıcı Hizmetinde kapsayıcıları bir Docker Swarm’a dağıtma
+services: container-service
+documentationcenter: ''
+author: neilpeterson
+manager: timlt
+editor: ''
+tags: acs, azure-container-service
+keywords: Docker, Kapsayıcılar, Mikro hizmetler, Mesos, Azure
 
-<tags
-   ms.service="container-service"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="09/13/2016"
-   ms.author="nepeters"/>
+ms.service: container-service
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 09/13/2016
+ms.author: nepeters
 
-
+---
 # Docker Swarm ile kapsayıcı yönetimi
-
 Docker Swarm, havuza alınmış Docker ana bilgisayarları grubuna kapsayıcılı iş yükleri dağıtmak için bir ortam sağlar. Docker Swarm yerel Docker API’sini kullanır. Docker Swarm kapsayıcılarında iş akışının yönetilmesi tek kapsayıcılı ana bilgisayardakiyle neredeyse aynıdır. Bu belge Docker Swarm’ın Azure Kapsayıcı Hizmeti örneğine kapsayıcılı iş yüklerini dağıtmaya ilişkin basit örnekler sağlar. Docker Swarm hakkında daha fazla ayrıntılı belgeler için bkz. [Docker.com’da Docker Swarm ](https://docs.docker.com/swarm/).
 
 Bu belgedeki alıştırmalar için ön koşullar:
@@ -30,9 +28,7 @@ Bu belgedeki alıştırmalar için ön koşullar:
 [Azure Kapsayıcı Hizmeti’nde bir Swarm kümesine bağlanma](container-service-connect.md)
 
 ## Yeni bir kapsayıcı dağıtma
-
 Docker Swarm’da yeni bir kapsayıcı oluşturmak için `docker run` komutunu kullanın (yukarıdaki önkoşullara uygun olarak SSH tünelini ana sunuculara açtığınızdan emin olun). Bu örnek `yeasy/simple-web` görüntüsünden bir kapsayıcı oluşturur:
-
 
 ```bash
 user@ubuntu:~$ docker run -d -p 80:80 yeasy/simple-web
@@ -41,7 +37,6 @@ user@ubuntu:~$ docker run -d -p 80:80 yeasy/simple-web
 ```
 
 Kapsayıcıyı oluşturduktan sonra, kapsayıcı hakkında bilgileri döndürmek için `docker ps` kullanın. Burada, kapsayıcıyı barındıran Swarm aracının listelendiğine dikkat edin:
-
 
 ```bash
 user@ubuntu:~$ docker ps
@@ -52,15 +47,12 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 
 Artık Swarm aracı yük dengeleyicinin genel DNS adı aracılığıyla bu kapsayıcıda çalışan uygulamaya erişebilirsiniz. Bu bilgileri Azure portalda bulabilirsiniz:  
 
-
 ![Gerçek ziyaret sonuçları](media/real-visit.jpg)  
 
 Varsayılan olarak Yük Dengeleyicinin 80, 8080 ve 443 bağlantı noktaları açıktır. Başka bir bağlantı noktasında bağlanmak istiyorsanız Aracı Havuzu için Azure Load Balancer üzerinde ilgili bağlantı noktasını açmanız gerekir.
 
 ## Birden çok kapsayıcı dağıtma
-
 Birden çok kapsayıcı başlatıldığında ‘docker çalışmasını’ birden çok kez yürüterek kapsayıcıların hangi ana bilgisayarlar üzerinde çalıştığını görmek için `docker ps` komutunu kullanabilirsiniz. Aşağıdaki örnekte üç kapsayıcı üç Swarm aracısında eşit olarak yayılır:  
-
 
 ```bash
 user@ubuntu:~$ docker ps
@@ -72,7 +64,6 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 ```  
 
 ## Docker Compose kullanarak kapsayıcıları dağıtma
-
 Birden çok kapsayıcının dağıtımını ve yapılandırmasını otomatik hale getirmek için Docker Compose’u kullanabilirsiniz. Bunu yapmak için, bir Secure Shell (SSH) tüneli oluşturulduğundan ve DOCKER_HOST değişkeninin ayarlandığından emin olun (yukarıdaki önkoşullara bakın).
 
 Yerel sisteminizde docker-compose.yml dosyası oluşturun. Bunu yapmak için, bu [örneği](https://raw.githubusercontent.com/rgardler/AzureDevTestDeploy/master/docker-compose.yml) kullanın.
@@ -93,7 +84,6 @@ rest:
 
 Kapsayıcı dağıtımlarını başlatmak için `docker-compose up -d` komutunu çalıştırın:
 
-
 ```bash
 user@ubuntu:~/compose$ docker-compose up -d
 Pulling rest (adtd/rest:0.1)...
@@ -110,7 +100,6 @@ Creating compose_web_1
 
 Son olarak, çalışan kapsayıcılar listesi döndürülür. Bu liste Docker Compose kullanılarak dağıtılan kapsayıcıları yansıtır:
 
-
 ```bash
 user@ubuntu:~/compose$ docker ps
 CONTAINER ID        IMAGE               COMMAND                CREATED             STATUS              PORTS                     NAMES
@@ -121,10 +110,7 @@ caf185d221b7        adtd/web:0.1        "apache2-foreground"   2 minutes ago    
 Doğal olarak, yalnızca `compose.yml` dosyanızda tanımlanan kapsayıcıları incelemek için `docker-compose ps` kullanabilirsiniz.
 
 ## Sonraki adımlar
-
 [Docker Swarm hakkında daha fazla bilgi edinme](https://docs.docker.com/swarm/)
-
-
 
 <!--HONumber=Sep16_HO3-->
 

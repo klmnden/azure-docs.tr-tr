@@ -1,80 +1,73 @@
-<properties
- pageTitle="List of Azure IoT Hub SDKs | Microsoft Azure"
- description="Information about and links to the various Azure IoT Hub device and service SDKs."
- services="iot-hub"
- documentationCenter=""
- authors="dominicbetts"
- manager="timlt"
- editor=""/>
+---
+title: List of Azure IoT Hub SDKs | Microsoft Docs
+description: Information about and links to the various Azure IoT Hub device and service SDKs.
+services: iot-hub
+documentationcenter: ''
+author: dominicbetts
+manager: timlt
+editor: ''
 
-<tags
- ms.service="iot-hub"
- ms.devlang="multiple"
- ms.topic="article"
- ms.tgt_pltfrm="na"
- ms.workload="na"
- ms.date="09/13/2016"
- ms.author="dobett"/>
+ms.service: iot-hub
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 09/13/2016
+ms.author: dobett
 
+---
 # IoT Hub SDKs
-
-This article provides information about the various [Microsoft Azure IoT SDKs][] along with links to additional resources.
+This article provides information about the various [Microsoft Azure IoT SDKs][Microsoft Azure IoT SDKs] along with links to additional resources.
 
 ## IoT Hub device SDKs
-
 The Microsoft Azure IoT device SDKs contain code that facilitates building devices and applications that connect to and are managed by Azure IoT Hub services.
 
 The following IoT device SDKs are available to download from GitHub:
 
-- [Azure IoT device SDK for C][] written in ANSI C (C99) for portability and broad platform compatibility.
-- [Azure IoT device SDK for .NET][]
-- [Azure IoT device SDK for Java][]
-- [Azure IoT device SDK for Node.js][]
-- [Microsoft Azure IoT device SDK for Python 2.7][]
+* [Azure IoT device SDK for C][Azure IoT device SDK for C] written in ANSI C (C99) for portability and broad platform compatibility.
+* [Azure IoT device SDK for .NET][Azure IoT device SDK for .NET]
+* [Azure IoT device SDK for Java][Azure IoT device SDK for Java]
+* [Azure IoT device SDK for Node.js][Azure IoT device SDK for Node.js]
+* [Microsoft Azure IoT device SDK for Python 2.7][Microsoft Azure IoT device SDK for Python 2.7]
 
 ### OS Platforms and hardware compatibility
-
 For more information about compatibility with specific hardware devices, see the following articles:
 
-- [OS Platforms and hardware compatibility with device SDKs][OS Platforms and hardware compatibility]
-- [Microsoft Azure Certified for IoT program][].
+* [OS Platforms and hardware compatibility with device SDKs][OS Platforms and hardware compatibility]
+* [Microsoft Azure Certified for IoT program][Microsoft Azure Certified for IoT program].
 
 ## IoT Hub service SDKs
-
 The Microsoft Azure IoT service SDKs contain code that facilitates building applications that interact directly with IoT Hub to manage devices and security.
 
 The following IoT service SDKs are available to download from GitHub:
 
-- [Azure IoT service SDK for Node.js][]
-- [Azure IoT service SDK for Java][]
+* [Azure IoT service SDK for Node.js][Azure IoT service SDK for Node.js]
+* [Azure IoT service SDK for Java][Azure IoT service SDK for Java]
 
 ## Azure IoT Gateway SDK
-
 This Azure IoT Gateway SDK contains the infrastructure and modules to create IoT gateway solutions. You can extend the SDK to create gateways tailored to any end-to-end scenario.
 
-You can download the [Azure IoT Gateway SDK][] from GitHub.
+You can download the [Azure IoT Gateway SDK][Azure IoT Gateway SDK] from GitHub.
 
 ## Online API reference documentation
-
 The following is a list of links to online API reference documentation for Azure IoT device, service, and gateway libraries:
 
-- [Internet of Things (IoT) .NET][]
-- [IoT Hub REST][]
-- [Microsoft Azure IoT device SDK for C][]
-- [Microsoft Azure IoT device SDK for Java][]
-- [Microsoft Azure IoT service SDK for Java][]
-- [Microsoft Azure IoT device SDK for Node.js][]
-- [Microsoft Azure IoT service SDK for Node.js][]
-- [Microsoft Azure IoT gateway SDK][]
+* [Internet of Things (IoT) .NET][Internet of Things (IoT) .NET]
+* [IoT Hub REST][IoT Hub REST]
+* [Microsoft Azure IoT device SDK for C][Microsoft Azure IoT device SDK for C]
+* [Microsoft Azure IoT device SDK for Java][Microsoft Azure IoT device SDK for Java]
+* [Microsoft Azure IoT service SDK for Java][Microsoft Azure IoT service SDK for Java]
+* [Microsoft Azure IoT device SDK for Node.js][Microsoft Azure IoT device SDK for Node.js]
+* [Microsoft Azure IoT service SDK for Node.js][Microsoft Azure IoT service SDK for Node.js]
+* [Microsoft Azure IoT gateway SDK][Microsoft Azure IoT gateway SDK]
 
 ## Next steps
-
 To further explore the capabilities of IoT Hub, see:
 
-- [Designing your solution][lnk-design]
-- [Exploring device management using the sample UI][lnk-dmui]
-- [Simulating a device with the Gateway SDK][lnk-gateway]
-- [Using the Azure Portal to manage IoT Hub][lnk-portal]
+* [Designing your solution][lnk-design]
+* [Exploring device management using the sample UI][lnk-dmui]
+* [Simulating a device with the Gateway SDK][lnk-gateway]
+* [Using the Azure Portal to manage IoT Hub][lnk-portal]
 
 [Microsoft Azure IoT SDKs]: https://github.com/Azure/azure-iot-sdks/blob/master/readme.md
 [Azure IoT device SDK for C]: https://github.com/Azure/azure-iot-sdks/blob/master/c/readme.md

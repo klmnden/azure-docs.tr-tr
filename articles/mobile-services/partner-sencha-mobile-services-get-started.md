@@ -1,89 +1,79 @@
-<properties
-    pageTitle="Azure Mobile Services ve Sencha Kullanmaya Başlama"
-    description="Mobile Services ve Sencha HTML5 mobil uygulama çerçevesi ile geliştirmeye başlamak için bu öğreticiyi izleyin."
-    services="mobile-services"
-    documentationCenter=""
-    authors="ggailey777"
-    manager="dwrede"
-    editor=""/>
+---
+title: Azure Mobile Services ve Sencha Kullanmaya Başlama
+description: Mobile Services ve Sencha HTML5 mobil uygulama çerçevesi ile geliştirmeye başlamak için bu öğreticiyi izleyin.
+services: mobile-services
+documentationcenter: ''
+author: ggailey777
+manager: dwrede
+editor: ''
 
-<tags
-    ms.service="mobile-services"
-    ms.workload="mobile"
-    ms.tgt_pltfrm="mobile-sencha"
-    ms.devlang="multiple"
-    ms.topic="get-started-article"
-    ms.date="07/21/2016"
-    ms.author="glenga"/>
+ms.service: mobile-services
+ms.workload: mobile
+ms.tgt_pltfrm: mobile-sencha
+ms.devlang: multiple
+ms.topic: get-started-article
+ms.date: 07/21/2016
+ms.author: glenga
 
-
+---
 # <a name="getting-started"> </a>Mobile Services ve Sencha Touch kullanmaya başlama
-
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[!INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
 
 &nbsp;
 
+[!INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
 
-[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
 &nbsp;
 
-[AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
+[!INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
 
-##Genel Bakış
-
+## Genel Bakış
 Bu öğretici Azure Mobile Services’i Sencha Touch uygulamanızda nasıl kullanacağınızı göstermektedir. Klasik Azure portalı üzerinden tanımladığınız bir mobil hizmet kullanan Sencha Touch kullanarak basit bir *Yapılacaklar Listesi* oluşturacaksınız. Bu öğretici JavaScript konusunda yeterli bilgiye sahip olan ve Sencha Touch çerçevesini bilen orta ile ileri düzeyde web uygulaması geliştiricileri için tasarlanmıştır.
 
 Bir video izlemeyi tercih ederseniz, bu klip de bu öğretici ile aynı adımları izlemektedir. Videoda Arthur Kay bir Azure Mobile Services arka ucu kullanarak Sencha Touch uygulamasının nasıl oluşturulacağını açıklamaktadır.
 
-> [AZURE.VIDEO getting-started-with-sencha-touch]
-
+> [!VIDEO https://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Getting-Started-with-Windows-Azure-for-Sencha-Touch/player]
+> 
+> 
 
 Tamamlanmış uygulamanın bir ekran görüntüsü aşağıda gösterilmiştir:
 
 ![][0]
 
-##Gereksinimler
-
-- [Sencha Touch](http://wwww.sencha.com/products/touch/download" target="_blank") uygulamasını indirip yükleyin.
-
-- [Sencha Cmd Aracı](http://www.sencha.com/products/sencha-cmd/download" target="_blank")’nı indirip yükleyin.
-
-- Java Çalışma Zamanı Ortamı (JRE) veya Java Geliştirme Seti (Android uygulamaları oluşturuyorsanız)
-- Ruby ve SASS gem.
+## Gereksinimler
+* [Sencha Touch](http://wwww.sencha.com/products/touch/download" target="_blank") uygulamasını indirip yükleyin.
+* [Sencha Cmd Aracı](http://www.sencha.com/products/sencha-cmd/download" target="_blank")’nı indirip yükleyin.
+* Java Çalışma Zamanı Ortamı (JRE) veya Java Geliştirme Seti (Android uygulamaları oluşturuyorsanız)
+* Ruby ve SASS gem.
 
 ## <a name="create-new-service"> </a>Yeni bir mobil hizmet oluşturma
+[!INCLUDE [mobile-services-create-new-service](../../includes/mobile-services-create-new-service.md)]
 
-[AZURE.INCLUDE [mobile-services-create-new-service](../../includes/mobile-services-create-new-service.md)]
-
-##TodoItems Tablosu oluşturma
-
+## TodoItems Tablosu oluşturma
 Mobil hizmetinizi oluşturduktan sonra klasik Azure portalındaki kolay hızlı başlangıcı izleyerek mobil hizmetinizde kullanılacak yeni bir veritabanı tablosu oluşturabilirsiniz.
 
 1. [Klasik Azure Portalı]’nda, **Mobile Services**’a ve ardından yeni oluşturduğunuz mobil hizmete tıklayın.
-
 2. Hızlı başlangıç sekmesindeki **Platform seçin** altında **HTML**’e tıklayın ve **Yeni HTML uygulaması oluştur** seçeneğini genişletin.
-
+   
     ![Mobil hızlı başlangıç html](./media/partner-sencha-mobile-services-get-started/mobile-portal-quickstart-html.png)
-
+   
     Burada, mobil hizmetinize bağlanan bir HTML uygulaması barındırmanın üç kolay adımı gösterilmiştir.
-
+   
     ![Mobil hızlı başlangıç html](./media/partner-sencha-mobile-services-get-started/mobile-quickstart-steps-html.png)
-
 3. Uygulama verilerini depolamak üzere bir tablo oluşturmak için **TodoItems tablosu oluştur**’a tıklayın.
-
-    > [AZURE.NOTE] Klasik Azure portalından HTML uygulamasını İNDİRMEYİN. Bunun yerine, Sencha Touch uygulamasını aşağıdaki bölümde el ile oluşturacağız.
-
-
-1. Klasik Azure portalındaki **appKey** ve **appUrl** öğelerini not edin. Bunları bu öğreticinin diğer bölümlerinde kullanacaksınız.
-
+   
+   > [!NOTE]
+   > Klasik Azure portalından HTML uygulamasını İNDİRMEYİN. Bunun yerine, Sencha Touch uygulamasını aşağıdaki bölümde el ile oluşturacağız.
+   > 
+   > 
+4. Klasik Azure portalındaki **appKey** ve **appUrl** öğelerini not edin. Bunları bu öğreticinin diğer bölümlerinde kullanacaksınız.
+   
     ![app key](./media/partner-sencha-mobile-services-get-started/mobile-app-key-portal.png)
-
-1. **Yapılandır** sekmesinde `localhost` öğesinin **Çıkış noktaları arası kaynak paylaşma (CORS)** altındaki **Ana bilgisayar adlarından gelen isteklere izin ver** listesinde zaten olduğunu doğrulayın. Listede yoksa, **ana bilgisayar adı** alanına `localhost` yazın ve ardından **Kaydet**’e tıklayın.
-
+5. **Yapılandır** sekmesinde `localhost` öğesinin **Çıkış noktaları arası kaynak paylaşma (CORS)** altındaki **Ana bilgisayar adlarından gelen isteklere izin ver** listesinde zaten olduğunu doğrulayın. Listede yoksa, **ana bilgisayar adı** alanına `localhost` yazın ve ardından **Kaydet**’e tıklayın.
+   
     ![Localhost için CORS kurulumu](./media/partner-sencha-mobile-services-get-started/mobile-services-set-cors-localhost.png)
 
-##Touch uygulamanızı oluşturma
-
+## Touch uygulamanızı oluşturma
 Sencha Touch şablon uygulamasının oluşturulması Sencha Cmd kullanılarak gerçekleştirilen basit bir görevdir ve bir uygulamayı hızlıca çalışır duruma getirmenin harika bir yoludur.
 
 Touch çerçevesini yüklediğiniz dizinde aşağıdaki komutu yürütün:
@@ -92,30 +82,28 @@ Touch çerçevesini yüklediğiniz dizinde aşağıdaki komutu yürütün:
 
 Bunun yapılması uygulama adı 'Temel' olan bir şablon Touch uygulaması oluşturur. Uygulamanızı başlatmak için tarayıcınızı /path/to/application dizinine yönlendirin; standart Touch örnek uygulaması sunulacaktır.
 
-##Azure için Sencha Touch Uzantılarını yükleme
-
+## Azure için Sencha Touch Uzantılarını yükleme
 Azure uzantısı el ile veya bir Sencha Paketi halinde yüklenir. Kullandığınız yöntem tamamen size bağlıdır.
 
-###El ile yükleme
-
+### El ile yükleme
 Birçok Touch uygulamasında bir dış sınıf kitaplığı eklemek isterseniz paketi indirmeniz, uygulama dizininizde açmanız ve Touch yükleyicisini kitaplığın konumu ile yapılandırmanız yeterlidir.
 
 Aşağıdaki adımları kullanarak Azure uzantılarını uygulamanıza el ile ekleyebilirsiniz:
 
 1. Azure uzantıları paketini [buradan](https://market.sencha.com/extensions/sencha-extensions-for-microsoft-azure) indirin. (Bu alana erişmek için Sencha Forumları Kimliğinizi kullanabilirsiniz.)
-
 2. Azure uzantı paketini indirme dizininden son olarak kalmasını istediğiniz yere kopyalayın ve paketinden çıkarın:
-
+   
         $ cd /path/to/application
         $ mv /download-location/azure.zip .
         $ unzip azure.zip
-
+   
     Bunun yapılması tüm paket kaynağını, örneklerini ve belgelerini içeren bir **azure** dizini oluşturur. Kaynak **azure/src** dizininde kalır.
 
-
-###Sencha paketi olarak yükleme
-
-> [AZURE.NOTE] Yalnızca uygulamanızı <code>sencha generate app</code> komutu ile oluşturduğunuzda bu yöntemi kullanabilirsiniz.
+### Sencha paketi olarak yükleme
+> [!NOTE]
+> Yalnızca uygulamanızı <code>sencha generate app</code> komutu ile oluşturduğunuzda bu yöntemi kullanabilirsiniz.
+> 
+> 
 
 Sencha Cmd tarafından oluşturulan tüm uygulamaların kökünde "paketler" klasörü bulunur. Bu klasörün konumu yapılandırılabilir, ancak konumundan bağımsız olarak "paketler" klasörünün rolü uygulamanız (veya bir Sencha Çalışma Alanı oluşturduysanız uygulamalarınız) tarafından kullanılan tüm paketlerin deposu olarak görev yapmaktır.
 
@@ -124,30 +112,28 @@ Ext.Azure bir Sencha Cmd "paketi" olduğundan kaynak kodu Sencha Cmd kullanılar
 Azure uzantı paketini Sencha Paketleri deposundan indirip yüklemek için paket adını **app.json** dosyanıza ekleyip uygulamanızı oluşturmanız gerekir:
 
 1. Azure paketini app.json dosyanızın gerekli bölümüne ekleyin:
-
+   
         {
             "name": "Basic",
             "requires": [
                 "touch-azure"
             ]
         }
-
 2. Paketi getirip yüklemek için **sencha cmd** kullanarak uygulamanızı yeniden oluşturun:
-
+   
         $ sencha app build
 
 Bu durumda hem **sencha app build** hem de **sencha app refresh** komutu, paketi uygulamanızla bütünleştirmek için gereken adımları gerçekleştirecektir. Genellikle, paket gereksinimlerini değiştirdikten sonra “geliştirme modunu” desteklemek için gerekli meta verilerin güncel olabilmesi için **sencha app refresh** komutunu çalıştırmanız gerekir.
 
 Hangi komutu çalıştırdığınıza bakılmaksızın, Sencha Cmd paketi indirir ve "paketler" klasöründe genişletir. Bundan sonra çalışma alanınızda bir "packages/touch-azure" klasörü bulabilirsiniz.
 
-##Azure’u dahil etme ve yapılandırma
-
+## Azure’u dahil etme ve yapılandırma
 **Dosya adı**: app.js
 
 Azure uzantısı indirilip uygulama dizininize yüklendiğine göre sonraki adım, uygulamanıza kaynak dosyaları nerede bulacağını ve bu dosyaları istemesini söylemeyi içerir:
 
 1. Sencha Yükleyicisini kaynak kodunun konumu ile yapılandırın:
-
+   
         Ext.Loader.setConfig({
             enabled : true,
             paths   : {
@@ -155,59 +141,52 @@ Azure uzantısı indirilip uygulama dizininize yüklendiğine göre sonraki adı
                 'Ext.azure' : '/path-to/azure-for-touch/azure/src'
             }
         });
-
-
 2. Azure sınıf dosyalarını isteyin:
-
+   
         Ext.application({
-
+   
             requires: [ 'Ext.azure.Azure' ],
-
+   
             // ...
-
+   
         });
-
-
 3. Azure yapılandırma
-
+   
     Azure paketi, uygulamanızın başlatma bölümünde **Ext.Azure.init** yöntemi çağrılarak başlatılır. Bu yöntem, mobil hizmet kimlik bilgilerinin yanı sıra kullanmak istediğiniz diğer kimlik bilgilerini ve özellikleri içeren bir yapılandırma nesnesinden geçirilir.
-
+   
     Yapılandırma nesnesini doğrudan init yöntemine geçirebilmenize karşın, **azure** adlı bir Sencha uygulama yapılandırma özelliği oluşturmanız ve tüm uygun bilgileri buraya yerleştirmeniz önerilir. Ardından bu özellik değerini Ext.Azure.init yöntemine geçirebilirsiniz.
-
+   
     Azure’da bir mobil hizmet oluşturduğunuzda (bkz. [Azure Kullanmaya Başlama](http://senchaazuredocs.azurewebsites.net/#!/guide/getting_started)) ilgili hizmete bir uygulama anahtarı ve URL atanır. Azure paketinin hizmetinize bağlanabilmesi için bu bilgiler sağlanmalıdır.
-
+   
     Bu örnekte çok basit bir Azure yapılandırması ve yalnızca uygulama anahtarı ve URL sağlayan başlatma işlemi gösterilmektedir:
-
+   
         Ext.application({
             name: 'Basic',
-
+   
             requires: [ 'Ext.azure.Azure' ],
-
+   
             azure: {
                 appKey: 'myazureservice-access-key',
                 appUrl: 'myazure-service.azure-mobile.net'
             },
-
+   
             launch: function() {
-
+   
                 // Call Azure initialization
-
+   
                 Ext.Azure.init(this.config.azure);
-
+   
            }
         });
-
+   
     Azure yapılandırma seçenekleri hakkında daha fazla bilgi için lütfen Ext.Azure API belgelerine başvurun.
-
 
 Tebrikler! Uygulamanızı şimdi mobil hizmetinize erişebilir.
 
-##ToDo uygulaması oluşturma
-
+## ToDo uygulaması oluşturma
 Uygulamanızı Azure uzantısı içerecek şekilde yapılandırıp mobil hizmet kimlik bilgilerinizi sağladığınıza göre, hizmete depolanmış ToDo listesi verilerini görüntülemek ve düzenlemek için mobil hizmetinizden yararlanan bir Touch uygulaması oluşturma işlemine geçebiliriz.
 
-###Azure veri proxy’sini yapılandırma
-
+### Azure veri proxy’sini yapılandırma
 **Dosya adı:** app/model/TodoItem.js
 
 Touch uygulamanız mobil hizmetiniz ile bir veri proxy’si üzerinden iletişim kuracaktır. Proxy hem istekleri mobil hizmete gönderme hem de istekleri mobil hizmetten alma işlerinin tamamını gerçekleştirir. Bir Touch veri modeli ve deposu ile birlikte kullanıldığında uzak verileri işleme ve uygulamanıza alma ile ilgili tüm zorlu işler Touch tarafından kaldırılır ve gerçekleştirilir.
@@ -253,8 +232,7 @@ Azure proxy tüm HTTP üst bilgilerini Azure API’si tarafından beklenen uygun
     });
 
 
-###ToDo öğelerinizi depolama
-
+### ToDo öğelerinizi depolama
 **Dosya adı**: app/store/TodoItems.js
 
 Sencha Touch depoları, veri kayıtlarının (modellerin) çeşitli yöntemlerle kayıtları görüntülemek amacıyla Touch bileşenleri için kullanılabilen koleksiyonlarını depolamak için kullanılır. Buna Kılavuzlar, Grafikler, Listeler ve daha fazlası dahil olabilir.
@@ -279,8 +257,7 @@ Ayrıca depo için sayfa boyutunu belirtme (8 kayıt) gibi ek yapılandırma se�
     });
 
 
-###ToDo öğelerinizi görüntüleme ve düzenleme
-
+### ToDo öğelerinizi görüntüleme ve düzenleme
 **Dosya adı**: app/view/DataItem.js
 
 Her bir ToDo öğesinin yapısı tanımlandığına ve tüm kayıtların yerleştirileceği bir depo oluşturulduğuna göre bu bilgilerin uygulama kullanıcısına nasıl gösterileceği üzerine düşünmemiz gerekir. Normalde bilgiler kullanıcıya **Görünümler** kullanılarak gösterilir. Görünüm tek tek veya diğerleriyle birlikte herhangi bir sayıda Touch bileşeni olabilir.
@@ -357,8 +334,7 @@ Aşağıdaki görünüm her bir kaydın, her bir öğeyi silme eylemlerine uyum 
     });
 
 
-###Birincil görünümünüzü oluşturma
-
+### Birincil görünümünüzü oluşturma
 **Dosya adı**: app/view/Main.js
 
 Tek bir ToDo listesi öğesini (yukarıda) tanımladığımıza göre bu listenin etrafında öğelerin gerçek listesini, bir uygulama başlığını ve yeni görev eklemeye yönelik bir düğmeyi içeren tam bir kullanıcı arabirimi sarmalamak istiyoruz.
@@ -424,8 +400,7 @@ Tek bir ToDo listesi öğesini (yukarıda) tanımladığımıza göre bu listeni
         }
     });
 
-###Her şeyi birlikte çalışır duruma getirin
-
+### Her şeyi birlikte çalışır duruma getirin
 **Dosya adı**: app/controller/Main.js
 
 Uygulamamızdaki son adım düğme basma işlemlerine (sil, kaydet vb) yanıt vermek ve tüm bu isteklerin ardındaki mantığı açıklamaktır. Sencha Touch bu olayları dinleyen ve uygun şekilde yanıtlayan denetleyiciler kullanır.
@@ -581,12 +556,10 @@ Uygulamamızdaki son adım düğme basma işlemlerine (sil, kaydet vb) yanıt ve
         }
     });
 
-###Hepsini bir araya getirin
-
+### Hepsini bir araya getirin
 **Dosya adı**: app.js
 
 Son adımımız ana uygulama dosyasının düzenlenmesini tamamlamayı ve tanımlanan modeller, depolar, görünümler ve denetleyiciler hakkında bilgi sağlamayı içermektedir. Bu kaynakların kaynak dosyaları uygulamaya otomatik olarak yüklenir. Son olarak, 'Basic.main.View' adlı birincil uygulama görünümünü oluşturup görüntüleyen başlatma yöntemi çağrılır.
-
 
     Ext.Loader.setConfig({
         enabled : true,
@@ -663,63 +636,52 @@ Son adımımız ana uygulama dosyasının düzenlenmesini tamamlamayı ve tanım
         }
     });
 
-###Sencha Touch uygulamanızı barındırma ve çalıştırma
-
+### Sencha Touch uygulamanızı barındırma ve çalıştırma
 Bu öğreticinin son aşaması yerel bilgisayarda yeni uygulamanızı barındırmak ve çalıştırmaktır.
 
-  1. Terminalinizde sıkıştırması açılmış uygulamanızın konumuna göz atın.
+1. Terminalinizde sıkıştırması açılmış uygulamanızın konumuna göz atın.
+2. Sencha Cmd kullanarak aşağıdaki komutları çalıştırın:
+   
+   * *sencha app refresh*: Bu komut Sencha Cmd’den tüm uygulama bağımlılıklarını bulmasını ve gereken tüm paketleri indirmesini (örneğin, [Azure için Sencha Touch Uzantıları](https://market.sencha.com/extensions/sencha-extensions-for-microsoft-azure)) ister.
+   * *sencha web start*: Bu komut, uygulamamızı test etmek üzere bir yerel web sunucusu başlatır.
+   
+   ![sencha web start](./media/partner-sencha-mobile-services-get-started/sencha-web-start.png)
+3. Terminalinizde listelenen URL’yi bir web tarayıcısında açarak uygulamayı başlatın (örn. http://localhost:1841).
+4. Uygulamada, “Öğreticiyi tamamla” gibi anlamlı bir metin yazın ve ardından **Ekle** seçeneğine tıklayın.
+   
+   ![new todo item](./media/partner-sencha-mobile-services-get-started/new-todo-item.png)
+   
+   Bu, Azure üzerinde barındırılan yeni mobil hizmete bir POST isteği gönderir. İstekten alınan veriler TodoItem tablosuna eklenir.
+5. [Klasik Azure Portalı] geri dönün, **Veri** sekmesine ve sonra TodoItems tablosuna tıklayın.
+   
+   ![Todo Items tablosu](./media/partner-sencha-mobile-services-get-started/mobile-data-tab.png)
+   
+   Bu, uygulama tarafından tabloya eklenen verilere göz atmanızı sağlar.
+   
+   ![browse todo table](./media/partner-sencha-mobile-services-get-started/mobile-data-browse.png)
 
-  2. Sencha Cmd kullanarak aşağıdaki komutları çalıştırın:
-
-    * *sencha app refresh*: Bu komut Sencha Cmd’den tüm uygulama bağımlılıklarını bulmasını ve gereken tüm paketleri indirmesini (örneğin, [Azure için Sencha Touch Uzantıları](https://market.sencha.com/extensions/sencha-extensions-for-microsoft-azure)) ister.
-
-    * *sencha web start*: Bu komut, uygulamamızı test etmek üzere bir yerel web sunucusu başlatır.
-
-    ![sencha web start](./media/partner-sencha-mobile-services-get-started/sencha-web-start.png)
-
-  3. Terminalinizde listelenen URL’yi bir web tarayıcısında açarak uygulamayı başlatın (örn. http://localhost:1841).
-
-  4. Uygulamada, “Öğreticiyi tamamla” gibi anlamlı bir metin yazın ve ardından **Ekle** seçeneğine tıklayın.
-
-    ![new todo item](./media/partner-sencha-mobile-services-get-started/new-todo-item.png)
-
-    Bu, Azure üzerinde barındırılan yeni mobil hizmete bir POST isteği gönderir. İstekten alınan veriler TodoItem tablosuna eklenir.
-
-  5. [Klasik Azure Portalı] geri dönün, **Veri** sekmesine ve sonra TodoItems tablosuna tıklayın.
-
-    ![Todo Items tablosu](./media/partner-sencha-mobile-services-get-started/mobile-data-tab.png)
-
-    Bu, uygulama tarafından tabloya eklenen verilere göz atmanızı sağlar.
-
-    ![browse todo table](./media/partner-sencha-mobile-services-get-started/mobile-data-browse.png)
-
-##Sonraki Adımlar
+## Sonraki Adımlar
 Başlangıç Kılavuzunu tamamladığınıza göre, Sencha ile Mobile Services’taki diğer önemli görevleri nasıl gerçekleştireceğinizi öğrenin.
 
 Ek stile ve özelliklere sahip tamamlanmış bir örnek uygulama [indirin](https://github.com/arthurakay/sencha-touch-azure-example) ve Sencha Touch’ın başka neler yapabildiğini görün!
 
 Ardından, Azure için Sencha Touch Uzantıları hakkında daha fazla bilgi alın:
 
-  * Örnek uygulama için [izlenecek yol](http://docs.sencha.com/touch-azure/1.0.0/#!/guide/data_filters)
-  * [Sencha Forumları](http://www.sencha.com/forum)’nda yardım alın
-  * [Sencha Belgeleri](http://docs.sencha.com/)’ne göz atın
-  * Sencha’yı Azure Mobile Services ile kullanın: [(Video)](http://channel9.msdn.com/Shows/Cloud+Cover/Episode-126-Using-Sencha-With-Windows-Azure-Mobile-Services)
+* Örnek uygulama için [izlenecek yol](http://docs.sencha.com/touch-azure/1.0.0/#!/guide/data_filters)
+* [Sencha Forumları](http://www.sencha.com/forum)’nda yardım alın
+* [Sencha Belgeleri](http://docs.sencha.com/)’ne göz atın
+* Sencha’yı Azure Mobile Services ile kullanın: [(Video)](http://channel9.msdn.com/Shows/Cloud+Cover/Episode-126-Using-Sencha-With-Windows-Azure-Mobile-Services)
 
+## Ek Kaynaklar
+* [Sencha Touch indirin](http://pages.sencha.com/touch-for-azure.html)
+* [Azure için Sencha Touch Uzantıları](https://market.sencha.com/extensions/sencha-extensions-for-microsoft-azure)
 
-##Ek Kaynaklar
-
-  * [Sencha Touch indirin](http://pages.sencha.com/touch-for-azure.html)
-  * [Azure için Sencha Touch Uzantıları](https://market.sencha.com/extensions/sencha-extensions-for-microsoft-azure)
-
-
-##Özet
-
+## Özet
 Burada ana hatlarıyla verilen örnek, Azure için Sencha Touch Uzantısı paketinde verilmektedir ve Temel Veri örneği olarak örnek dizinde bulunur. Bu uzantının diğer işlevlerini ayrıntılı yorumlar ve açıklamalar ile birlikte gösteren birkaç örnek daha sunulmuştur.
 
 Sencha Touch kullanmaya başlama hakkında daha fazla bilgi için lütfen tüm [kılavuzları](http://docs.sencha.com/touch/#!/guide) ziyaret edin
 
-
-[AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
+[!INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
 
 <!-- images -->
 [0]: ./media/partner-sencha-mobile-services-get-started/finished-app.png

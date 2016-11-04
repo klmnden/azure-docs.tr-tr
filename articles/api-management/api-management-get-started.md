@@ -1,29 +1,26 @@
-<properties
-    pageTitle="İlk API’nizi Azure API Management’te Yönetme | Microsoft Azure"
-    description="API oluşturmayı ve işlemler eklemeyi öğrenin, API Management’i kullanmaya başlayın."
-    services="api-management"
-    documentationCenter=""
-    authors="steved0x"
-    manager="erikre"
-    editor=""/>
+---
+title: İlk API’nizi Azure API Management’te Yönetme | Microsoft Docs
+description: API oluşturmayı ve işlemler eklemeyi öğrenin, API Management’i kullanmaya başlayın.
+services: api-management
+documentationcenter: ''
+author: steved0x
+manager: erikre
+editor: ''
 
-<tags
-    ms.service="api-management"
-    ms.workload="mobile"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="hero-article"
-    ms.date="08/24/2016"
-    ms.author="sdanie"/>
+ms.service: api-management
+ms.workload: mobile
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: hero-article
+ms.date: 08/24/2016
+ms.author: sdanie
 
+---
 # İlk API’nizi Azure API Management’te Yönetme
-
 ## <a name="overview"> </a>Genel Bakış
-
 Bu kılavuz size Azure API Management’i hızlı bir şekilde nasıl kullanmaya başlayacağınızı ve ilk API çağrınızı yapmayı gösterir.
 
 ## <a name="concepts"> </a>Azure API Management nedir?
-
 Azure API Management’i bir arka uç almak ve bunu temel alan tam özellikli bir API programını başlatmak için kullanabilirsiniz.
 
 Yaygın senaryolar şunlardır:
@@ -32,36 +29,37 @@ Yaygın senaryolar şunlardır:
 * **ISV iş ortağı ekosistemlerini etkinleştirme**: Geliştirici Portalı üzerinden hızlı iş ortağı ekleyerek ve iş ortağı kullanımı için hazır olmayan dahili uygulamalardan bir API cephesi oluşturarak ISV iş ortağı eko sistemlerini etkinleştirin.
 * **Dahili API programı çalıştırma** API’lerin kullanılabilirliği ve son değişikliklerine ilişkin iletişim için kuruluşa merkezi bir konum sağlayarak ve kurumsal hesaplar temelinde erişim geçişi sağlayarak, tümü API ağ geçidi ve arka uç arasında güvenli bir kanalı temel alan dahili API programı çalıştırın.
 
-
 Sistem aşağıdaki bileşenlerden oluşur:
 
 * **API ağ geçidi** şunları yapan uç noktadır:
+  
   * API çağrılarını kabul eder ve bunları arka uçlarınıza yönlendirir.
   * API anahtarları, JWT belirteçleri, sertifikaları ve diğer kimlik bilgilerini doğrular.
   * Kullanım kotalarını ve oran limitlerini uygular.
   * Kod değişiklikleri olmadan API'nizi anında dönüştürür.
   * Ayarlandığında arka uç yanıtlarını önbelleğe kaydeder.
   * Analiz amaçlı çağrı meta verilerini günlüğe kaydeder.
-
 * **Yayımcı portalı** API programınızı ayarladığınız yönetim arabirimidir. Bunu şunlar için kullanın:
-    * API şeması tanımlama ya da içeri aktarma.
-    * API'leri ürünler halinde paketleme.
-    * API’lerde kota veya dönüşüm gibi ilkeler ayarlama.
-    * Analizlerden öngörüler edinme
-    * Kullanıcıları yönetme.
-
+  
+  * API şeması tanımlama ya da içeri aktarma.
+  * API'leri ürünler halinde paketleme.
+  * API’lerde kota veya dönüşüm gibi ilkeler ayarlama.
+  * Analizlerden öngörüler edinme
+  * Kullanıcıları yönetme.
 * **Geliştirici portalı**, geliştiricilerin şunları yapabileceği ana web varlığı görevi görür:
-    * API belgelerini okuma.
-    * Etkileşimli konsol üzerinden bir API’yi deneme.
-    * Bir hesap oluşturma ve API anahtarlarını almak için abone olma.
-    * Kendi kullanımlarına ilişkin analize erişme.
-
+  
+  * API belgelerini okuma.
+  * Etkileşimli konsol üzerinden bir API’yi deneme.
+  * Bir hesap oluşturma ve API anahtarlarını almak için abone olma.
+  * Kendi kullanımlarına ilişkin analize erişme.
 
 ## <a name="create-service-instance"> </a>API Management örneği oluşturma
+> [!NOTE]
+> Bu öğreticiyi tamamlamak için bir Azure hesabınızın olması gerekir. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılar için bkz. [Azure Ücretsiz Deneme][Azure Ücretsiz Deneme].
+> 
+> 
 
->[AZURE.NOTE] Bu öğreticiyi tamamlamak için bir Azure hesabınızın olması gerekir. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılar için bkz. [Azure Ücretsiz Deneme][].
-
-API Management ile çalışmanın ilk adımı bir hizmet örneği oluşturmaktır. [Klasik Azure Portalı][]’nda oturum açın ve **Yeni**, **Uygulama Hizmetleri**, **API Management**, **Oluştur**’a tıklayın.
+API Management ile çalışmanın ilk adımı bir hizmet örneği oluşturmaktır. [Klasik Azure Portalı][Klasik Azure Portalı]’nda oturum açın ve **Yeni**, **Uygulama Hizmetleri**, **API Management**, **Oluştur**’a tıklayın.
 
 ![Yeni API Management örneği][api-management-create-instance-menu]
 
@@ -73,13 +71,19 @@ Hizmet örneğiniz için istediğiniz **Abonelik** ve **Bölge**’yi seçin. Se
 
 **Contoso Ltd.**’yi **Kuruluş Adı** olarak girin ve e-posta adresinizi **Yönetici E-postası** alanına girin.
 
->[AZURE.NOTE] Bu e-posta adresi API Management sisteminden gelen bildirimler için kullanılır. Daha fazla bilgi için bkz. [Azure API Management’te bildirimleri ve e-posta şablonlarını yapılandırma][].
+> [!NOTE]
+> Bu e-posta adresi API Management sisteminden gelen bildirimler için kullanılır. Daha fazla bilgi için bkz. [Azure API Management’te bildirimleri ve e-posta şablonlarını yapılandırma][Azure API Management’te bildirimleri ve e-posta şablonlarını yapılandırma].
+> 
+> 
 
 ![Yeni API Management hizmeti][api-management-create-instance-step2]
 
 API Management hizmeti örnekleri üç katmanda kullanılabilir: Geliştirici, Standart ve Premium. Varsayılan olarak, yeni API Management hizmeti örnekleri Geliştirici katmanında oluşturulur. Standart veya Premium katmanı seçmek için **Gelişmiş Ayarlar** onay kutusunu işaretleyin ve çıkan ekranda istediğiniz katmanı seçin.
 
->[AZURE.NOTE] Geliştirici Katmanı; geliştirme, test ve yüksek kullanılabilirliğin gerekli görülmediği pilot API programları içindir. Standart ve Premium katmanlarda, daha fazla trafik işlemek için ayrılmış birim sayınızı ölçeklendirebilirsiniz. Standart ve Premium katmanlar, API Management hizmetinize en fazla işlem gücü ve performans sağlar. Bu öğreticiyi herhangi bir katmanı kullanarak tamamlayabilirsiniz. API Management katmanları hakkında daha fazla bilgi için bkz. [API Management fiyatlandırması][].
+> [!NOTE]
+> Geliştirici Katmanı; geliştirme, test ve yüksek kullanılabilirliğin gerekli görülmediği pilot API programları içindir. Standart ve Premium katmanlarda, daha fazla trafik işlemek için ayrılmış birim sayınızı ölçeklendirebilirsiniz. Standart ve Premium katmanlar, API Management hizmetinize en fazla işlem gücü ve performans sağlar. Bu öğreticiyi herhangi bir katmanı kullanarak tamamlayabilirsiniz. API Management katmanları hakkında daha fazla bilgi için bkz. [API Management fiyatlandırması][API Management fiyatlandırması].
+> 
+> 
 
 Hizmet örneğinizi oluşturmak için bu onay kutusuna tıklayın.
 
@@ -88,12 +92,14 @@ Hizmet örneğinizi oluşturmak için bu onay kutusuna tıklayın.
 Hizmet örneği oluşturulduktan sonra bir API oluşturmak ya da içeri aktarmak sonraki adımdır.
 
 ## <a name="create-api"> </a>Bir API’yi içeri aktarma
-
 Bir API, istemci uygulamasından çağrılabilen işlemler grubundan oluşur. API işlemleri mevcut web hizmetlerine taşınır.
 
 API'ler el ile oluşturulabilir (ve API’lere işlem eklenebilir) veya içeri aktarılabilir. Bu öğreticide, Microsoft tarafından sağlanan ve Azure üzerinde barındırılan bir örnek hesaplayıcı web hizmeti için API’yi içeri aktaracağız.
 
->[AZURE.NOTE] API oluşturma ve işlemleri el ile ekleme yönergeleri için bkz. [API oluşturma](api-management-howto-create-apis.md) ve [API’ye işlem ekleme](api-management-howto-add-operations.md).
+> [!NOTE]
+> API oluşturma ve işlemleri el ile ekleme yönergeleri için bkz. [API oluşturma](api-management-howto-create-apis.md) ve [API’ye işlem ekleme](api-management-howto-add-operations.md).
+> 
+> 
 
 API'ler Klasik Azure Portalı aracılığıyla erişilen yayımcı portalında yapılandırılır. Yayımcı portalına erişmek için API Management hizmetiniz için Klasik Azure Portalı'nda **Yönet**’e tıklayın.
 
@@ -112,7 +118,10 @@ Hesaplayıcı API’sini yapılandırmak için aşağıdaki adımları uygulayı
 
 ![Yeni API ekle][api-management-import-new-api]
 
->[AZURE.NOTE] **API Management** şu anda içeri aktarma için Swagger belgesinin 1.2 ve 2.0 sürümünü destekler. [Swagger 2.0 belirtimi](http://swagger.io/specification) `host`, `basePath` ve `schemes` özelliklerinin isteğe bağlı olduğunu belirtse dahi, Swagger 2.0 belgeniz bu özellikleri **İÇERMELİDİR**; aksi takdirde içeri aktarılmaz. 
+> [!NOTE]
+> **API Management** şu anda içeri aktarma için Swagger belgesinin 1.2 ve 2.0 sürümünü destekler. [Swagger 2.0 belirtimi](http://swagger.io/specification) `host`, `basePath` ve `schemes` özelliklerinin isteğe bağlı olduğunu belirtse dahi, Swagger 2.0 belgeniz bu özellikleri **İÇERMELİDİR**; aksi takdirde içeri aktarılmaz. 
+> 
+> 
 
 API içeri aktarıldığında, yayımcı portalında API’nin özet sayfası gösterilir.
 
@@ -122,15 +131,14 @@ API bölümünde birden çok sekme bulunur. **Özet** sekmesi, API hakkında tem
 
 Varsayılan olarak, her bir API Management örneği iki örnek ürün ile birlikte gelir:
 
--   **Başlangıç**
--   **Sınırsız**
+* **Başlangıç**
+* **Sınırsız**
 
 Bu öğreticide, API içeri aktarılırken Başlangıç ürününe Temel Hesaplayıcı API’si eklenmiştir.
 
 Bir API’ye çağrı yapmak için, geliştiricilerin önce buna erişim imkanı sağlayan bir ürüne abone olması gerekir. Geliştiriciler geliştirici portalında ürünlere abone olabilir ya da yöneticiler geliştiricileri yayım portalında ürünlere abone yapabilir. Öğreticinin önceki adımlarında API Management örneği oluşturduğunuz için siz bir yöneticisiniz, bu nedenle varsayılan olarak her ürüne zaten abone oldunuz.
 
 ## <a name="call-operation"> </a>Geliştirici portalından bir işlem çağırma
-
 İşlemler doğrudan bir API’nin işlemlerini görüntülemek ve test etmek için kullanışlı bir yol sağlayan geliştirici portalından çağrılabilir. Bu öğretici adımında, Temel Hesaplayıcı API’sinin **İki tamsayı ekle** işlemini çağıracaksınız. Yayımcı portalının sağ üst kısmında **Geliştirici Portalı**’na tıklayın.
 
 ![Geliştirici portalı][api-management-developer-portal-menu]
@@ -154,7 +162,6 @@ Bir işlem çağrıldıktan sonra, geliştirici portalı **Yanıt durumu**, **Ya
 ![Yanıt][api-management-invoke-get-response]
 
 ## <a name="view-analytics"> </a>Görünüm analizi
-
 Temel Hesaplayıcı için analizleri görüntülemek üzere, geliştirici portalının sağ üst kısmındaki menüde **Yönet**’i seçerek yayımcı portalına geri dönün.
 
 ![Yönet][api-management-manage-menu]
@@ -165,7 +172,10 @@ Yayımcı portalı için varsayılan görünüm, API Management örneğinize gen
 
 Belirli bir süre için API’nin kullanımına ilişkin belirli ölçümleri görüntülemek üzere fareyi **Temel Hesaplayıcı** grafiğinin üzerine getirin.
 
->[AZURE.NOTE] Grafiğinizde satır görmüyorsanız, geliştirici portalına dönün ve API’ye bazı çağrılar yapın, birkaç dakika bekleyip panoya geri dönün.
+> [!NOTE]
+> Grafiğinizde satır görmüyorsanız, geliştirici portalına dönün ve API’ye bazı çağrılar yapın, birkaç dakika bekleyip panoya geri dönün.
+> 
+> 
 
 Görüntülenen ölçümlerin daha büyük bir sürümü dahil olmak üzere API için özet sayfasını görüntülemek isterseniz **Ayrıntıları Görüntüle**’ye tıklayın.
 
@@ -179,14 +189,13 @@ Ayrıntılı ölçümler ve raporlar için soldaki **API Management** menüsünd
 
 **Analiz** bölümünde aşağıdaki dört sekme yer alır:
 
--   **Bir bakışta** sekmesi genel kullanım ve durum ölçümlerinin yanı sıra en iyi geliştiriciler, en iyi ürünler, sık kullanılan API'ler ve sık kullanılan işlemleri gösterir.
--   **Kullanım** sekmesi coğrafi bir temsil dahil olmak üzere API çağrıları ve bant genişliğine ilişkin ayrıntılı bir bakış sunar.
--   **Durum**sekmesi durum kodları, önbellek başarı oranları, yanıt zamanları ve API ve hizmet yanıt zamanlarına odaklanır.
--   **Etkinlik**sekmesi geliştirici, ürün, API ve işleme göre belirli bir etkinliğe ilişkin ayrıntılı raporlar sunar.
+* **Bir bakışta** sekmesi genel kullanım ve durum ölçümlerinin yanı sıra en iyi geliştiriciler, en iyi ürünler, sık kullanılan API'ler ve sık kullanılan işlemleri gösterir.
+* **Kullanım** sekmesi coğrafi bir temsil dahil olmak üzere API çağrıları ve bant genişliğine ilişkin ayrıntılı bir bakış sunar.
+* **Durum**sekmesi durum kodları, önbellek başarı oranları, yanıt zamanları ve API ve hizmet yanıt zamanlarına odaklanır.
+* **Etkinlik**sekmesi geliştirici, ürün, API ve işleme göre belirli bir etkinliğe ilişkin ayrıntılı raporlar sunar.
 
 ## <a name="next-steps"> </a>Sonraki adımlar
-
-- [Oran limitleri ile API’nizi koruma](api-management-howto-product-with-rules.md) hakkında bilgi edinin.
+* [Oran limitleri ile API’nizi koruma](api-management-howto-product-with-rules.md) hakkında bilgi edinin.
 
 [Azure Ücretsiz Deneme]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=api_management_hero_a
 

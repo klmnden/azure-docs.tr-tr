@@ -1,24 +1,22 @@
-<properties
-   pageTitle="Resource Manager Şablonu Kılavuzu | Microsoft Azure"
-   description="Temel Azure IaaS mimarisi sağlayan bir kaynak Resource Manager şablonu ile ilgili adım adım yönergeler."
-   services="azure-resource-manager"
-   documentationCenter="na"
-   authors="navalev"
-   manager=""
-   editor=""/>
+---
+title: Resource Manager Şablonu Kılavuzu | Microsoft Docs
+description: Temel Azure IaaS mimarisi sağlayan bir kaynak Resource Manager şablonu ile ilgili adım adım yönergeler.
+services: azure-resource-manager
+documentationcenter: na
+author: navalev
+manager: ''
+editor: ''
 
-<tags
-   ms.service="azure-resource-manager"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/04/2016"
-   ms.author="navale;tomfitz"/>
-   
+ms.service: azure-resource-manager
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 08/04/2016
+ms.author: navale;tomfitz
 
+---
 # Resource Manager Şablonu kılavuzu
-
 Bir şablon oluştururken “nasıl başlayacağım?” sorusu ilk akla gelen sorulardan biridir. [Şablon Yazma makalesinde](resource-group-authoring-templates.md#template-format) açıklanan temel yapı izlenerek boş bir şablondan başlanabilir ve ardından kaynaklar ile ilgili parametreler ve değişkenler eklenebilir. Bunun dışında [hızlı başlama galerisi](https://github.com/Azure/azure-quickstart-templates) kullanılarak oluşturulmak istenen senaryolara benzer senaryolar aranması iyi bir alternatif oluşturabilir. Çok sayıda şablonu birleştirebilir veya kendi belirli senaryonuza uyacak mevcut bir senaryoyu düzenleyebilirsiniz. 
 
 Ortak altyapıya bir bakalım.
@@ -33,10 +31,12 @@ Bu konu, söz konusu altyapı için bir Resource Manager şablonu oluşturma ad�
 
 Ancak bunların tamamının aynı anda oluşturulması çok karmaşıktır, bu nedenle ilk olarak bir depolama hesabı oluşturup bunu dağıtalım. Depolama hesabı oluşturma konusunda uzmanlaştıktan sonra altyapıyı tamamlamak için diğer kaynakları ekleyeceksiniz ve şablonu yeniden dağıtacaksınız.
 
->[AZURE.NOTE] Şablonu oluştururken istediğiniz türde bir düzenleyici kullanabilirsiniz. Visual Studio şablon geliştirmeyi kolaylaştıran araçlar sağlar, ancak bu öğreticiyi tamamlamak için Visual Studio gerekmez. Web Uygulaması ve SQL Database dağıtımı oluşturmak için Visual Studio kullanımı ile ilgili bir öğreti için bkz. [Visual Studio üzerinden Azure kaynak gruplarını oluşturma ve dağıtma](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md). 
+> [!NOTE]
+> Şablonu oluştururken istediğiniz türde bir düzenleyici kullanabilirsiniz. Visual Studio şablon geliştirmeyi kolaylaştıran araçlar sağlar, ancak bu öğreticiyi tamamlamak için Visual Studio gerekmez. Web Uygulaması ve SQL Database dağıtımı oluşturmak için Visual Studio kullanımı ile ilgili bir öğreti için bkz. [Visual Studio üzerinden Azure kaynak gruplarını oluşturma ve dağıtma](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md). 
+> 
+> 
 
 ## Resource Manager şablonu oluşturma
-
 Şablon, dağıtacağınız tüm kaynakları tanımlayan bir JSON dosyasıdır. Bunun yanında dağıtım sırasında belirlenen parametreleri, diğer değerler ve ifadelerden oluşturulan değişkenleri ve dağıtım çıktılarını tanımlamanıza izin verir. 
 
 En basit şablonla başlayalım:
@@ -162,14 +162,15 @@ Depolama hesabının tanımlanmasından sonra sanal makineler için bir kullanı
 ```
 
 Veya, Azure CLI kullanıyorsanız, aşağıdaki komutu çalıştırabilirsiniz:
+
 ```
     azure provider list
 ```
 Bu konuda oluşturma işlemlerini depolama hesapları, sanal makineler ve sanal ağ oluşturma ile gerçekleştireceğiniz için aşağıdakilerle çalışacaksınız:
 
-- Microsoft.Storage
-- Microsoft.Compute
-- Microsoft.Network
+* Microsoft.Storage
+* Microsoft.Compute
+* Microsoft.Network
 
 Belirli bir sağlayıcı için kaynak türlerini görmek için aşağıdaki PowerShell komutunu çalıştırın:
 
@@ -387,7 +388,7 @@ Tüm özellikler için [Ağ arabirimleri için REST API](https://msdn.microsoft.
 [Ağ arabirimleri](#network-interface) oluşturma sırasında yaptığınız gibi copyIndex () işlevini kullanarak 2 sanal makine oluşturacaksınız.
 VM oluşturma depolama hesabı, ağ arabirimi ve kullanılabilirlik kümesine bağlıdır. Bu VM, görüntü yayımlayıcı, teklif, sku ve sürümü tanımlamak için kullanılan `storageProfile` özellik- `imageReference` içinde tanımlanan bir market görüntüsünden oluşturulacaktır. Son olarak VM için tanılamayı etkinleştirmek üzere bir tanılama profili yapılandırılacaktır. 
 
-Bir market görüntüsü için ilgili özellikleri bulmak üzere [Linux sanal makine görüntüleri](./virtual-machines/virtual-machines-linux-cli-ps-findimage.md) veya [Windows sanal makine görüntülerini seçme](./virtual-machines/virtual-machines-windows-cli-ps-findimage.md) makalelerini izleyin.
+Bir market görüntüsü için ilgili özellikleri bulmak üzere [Linux sanal makine görüntüleri](virtual-machines/virtual-machines-linux-cli-ps-findimage.md) veya [Windows sanal makine görüntülerini seçme](virtual-machines/virtual-machines-windows-cli-ps-findimage.md) makalelerini izleyin.
 
 ```json
 {
@@ -448,12 +449,14 @@ Bir market görüntüsü için ilgili özellikleri bulmak üzere [Linux sanal ma
 }
 ```
 
->[AZURE.NOTE] **3. taraf satıcılar** tarafından yayımlanan görüntüler için `plan` adlı başka bir özellik belirlemeniz gerekecektir. Bununla ilgili bir örnek hızlı başlama galerisindeki [bu şablonda](https://github.com/Azure/azure-quickstart-templates/tree/master/checkpoint-single-nic) bulunabilir. 
+> [!NOTE]
+> **3. taraf satıcılar** tarafından yayımlanan görüntüler için `plan` adlı başka bir özellik belirlemeniz gerekecektir. Bununla ilgili bir örnek hızlı başlama galerisindeki [bu şablonda](https://github.com/Azure/azure-quickstart-templates/tree/master/checkpoint-single-nic) bulunabilir. 
+> 
+> 
 
 Şablonunuz için kaynakları tanımlamayı tamamladınız.
 
 ## Parametreler
-
 Parametreler bölümünde, şablonu dağıtırken belirlenebilecek değerleri tanımlayın. Yalnızca dağıtım sırasında değişmesi gerektiğini düşündüğünüz değerler için parametre tanımlayın. Dağıtım sırasında sağlanmamışsa, kullanılan bir parametre için bir varsayılan değer sağlayabilirsiniz. Bunun yanında **imageSKU** parametresinde görüntülendiği şekilde izin verilen değerleri tanımlayabilirsiniz.
 
 ```json
@@ -554,7 +557,6 @@ Parametreler bölümünde, şablonu dağıtırken belirlenebilecek değerleri ta
 ```
 
 ## Değişkenler
-
 Değişkenler bölümünde şablonunuzda birden çok yerde kullanılan değerleri veya diğer ifadeler veya değişkenlerden oluşturulan değerleri tanımlayabilirsiniz. Değişkenler, şablonunuzun söz dizimini basitleştirmek üzere sıkça kullanılır.
 
 ```json
@@ -577,12 +579,9 @@ Değişkenler bölümünde şablonunuzda birden çok yerde kullanılan değerler
 Depolama hesabını dağıtırken kullandığınız aynı komutları kullanarak şablonu yeniden dağıtabilirsiniz. Resource Manager mevcut olan ve değiştirilmemiş kaynakların yeniden oluşturulmasını atlayacağı için yeniden dağıtım öncesinde depolama hesabını silmenize gerek yoktur.
 
 ## Sonraki adımlar
-
-- ARM şablonlarının json dosyasından okunmayacak kadar büyümesi mümkün olduğundan, [Azure Resource Manager Şablonu Görselleştirici (ARMViz)](http://armviz.io/#/) ARM şablonlarını görselleştirmek için harika bir araçtır.
-- Bir şablonun yapısı hakkında daha fazla bilgi edinmek için bkz. [Azure Resource Manager şablonları yazma](resource-group-authoring-templates.md).
-- Bir şablonu dağıtmayı öğrenmek için bkz [Azure Resource Manager şablonu ile bir Kaynak Grubu dağıtma](resource-group-template-deploy.md)
-
-
+* ARM şablonlarının json dosyasından okunmayacak kadar büyümesi mümkün olduğundan, [Azure Resource Manager Şablonu Görselleştirici (ARMViz)](http://armviz.io/#/) ARM şablonlarını görselleştirmek için harika bir araçtır.
+* Bir şablonun yapısı hakkında daha fazla bilgi edinmek için bkz. [Azure Resource Manager şablonları yazma](resource-group-authoring-templates.md).
+* Bir şablonu dağıtmayı öğrenmek için bkz [Azure Resource Manager şablonu ile bir Kaynak Grubu dağıtma](resource-group-template-deploy.md)
 
 <!--HONumber=Sep16_HO3-->
 

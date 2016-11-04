@@ -1,90 +1,68 @@
-<properties
- pageTitle="Azure portalda Azure Scheduler kullanmaya başlama | Microsoft Azure"
- description="Azure portalda Azure Scheduler kullanmaya başlama"
- services="scheduler"
- documentationCenter=".NET"
- authors="derek1ee"
- manager="kevinlam1"
- editor=""/>
-<tags
- ms.service="scheduler"
- ms.workload="infrastructure-services"
- ms.tgt_pltfrm="na"
- ms.devlang="dotnet"
- ms.topic="hero-article"
- ms.date="08/10/2016"
- ms.author="deli"/>
+---
+title: Azure portalda Azure Scheduler kullanmaya başlama | Microsoft Docs
+description: Azure portalda Azure Scheduler kullanmaya başlama
+services: scheduler
+documentationcenter: .NET
+author: derek1ee
+manager: kevinlam1
+editor: ''
 
+ms.service: scheduler
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: na
+ms.devlang: dotnet
+ms.topic: hero-article
+ms.date: 08/10/2016
+ms.author: deli
 
+---
 # Azure portalda Azure Scheduler kullanmaya başlama
-
 Azure Scheduler’da zamanlanmış işler oluşturmak kolaydır. Bu öğreticide bir iş oluşturmayı öğreneceksiniz: Ayrıca Scheduler’ın izleme ve yönetim özelliklerini öğreneceksiniz.
 
 ## Bir iş oluşturma
-
-1.  [Azure portalda](https://portal.azure.com/) oturum açın.  
-
-2.  **+ Yeni**’ye tıklayın arama kutusuna > _Scheduler_ yazın > sonuçlarda **Scheduler**’ı seçin > **Oluştur**’a tıklayın.
-
-     ![][marketplace-create]
-
-3.  Şimdi bir GET isteğiyle http://www.microsoft.com/ adresine işaret eden bir iş oluşturalım. **Scheduler İşi** ekranına, aşağıdaki bilgileri girin:
-
-    1.  **Ad:** `getmicrosoft`  
-
-    2.  **Abonelik:** Azure aboneliğiniz   
-
-    3.  **İş Koleksiyonu:** Mevcut bir iş koleksiyonu seçin veya tıklatın **Yeni Oluştur**’a tıklayın > bir ad girin.
-
-4.  Sonra, **Eylem Ayarları**’nda, aşağıdaki değerleri tanımlayın:
-
-    1.  **Eylem Türü:** ` HTTP`  
-
-    2.  **Yöntem:** `GET`  
-
-    3.  **URL:** ` http://www.microsoft.com`  
-
+1. [Azure portalda](https://portal.azure.com/) oturum açın.  
+2. **+ Yeni**’ye tıklayın arama kutusuna > *Scheduler* yazın > sonuçlarda **Scheduler**’ı seçin > **Oluştur**’a tıklayın.
+   
+    ![][marketplace-create]
+3. Şimdi bir GET isteğiyle http://www.microsoft.com/ adresine işaret eden bir iş oluşturalım. **Scheduler İşi** ekranına, aşağıdaki bilgileri girin:
+   
+   1. **Ad:** `getmicrosoft`  
+   2. **Abonelik:** Azure aboneliğiniz   
+   3. **İş Koleksiyonu:** Mevcut bir iş koleksiyonu seçin veya tıklatın **Yeni Oluştur**’a tıklayın > bir ad girin.
+4. Sonra, **Eylem Ayarları**’nda, aşağıdaki değerleri tanımlayın:
+   
+   1. **Eylem Türü:** ` HTTP`  
+   2. **Yöntem:** `GET`  
+   3. **URL:** ` http://www.microsoft.com`  
+      
       ![][action-settings]
-
-5.  Son olarak, şimdi bir zamanlama tanımlayalım. İş bir kerelik iş olarak tanımlanabilir, ancak bir yineleme zamanlaması seçelim.
-
-    1. **Yineleme**: `Recurring`
-
-    2. **Başlat**: Bugünün tarihi
-
-    3. **Yineleme sıklığı**: `12 Hours`
-
-    4. **Bitiş tarihi**: Bugünden itibaren iki gün  
-
+5. Son olarak, şimdi bir zamanlama tanımlayalım. İş bir kerelik iş olarak tanımlanabilir, ancak bir yineleme zamanlaması seçelim.
+   
+   1. **Yineleme**: `Recurring`
+   2. **Başlat**: Bugünün tarihi
+   3. **Yineleme sıklığı**: `12 Hours`
+   4. **Bitiş tarihi**: Bugünden itibaren iki gün  
+      
       ![][recurrence-schedule]
-
-6.  **Oluştur**'a tıklayın
+6. **Oluştur**'a tıklayın
 
 ## İşleri yönetme ve izleme
-
 Bir işi oluşturulduktan sonra, ana Azure panosunda görünür. İşe tıkladığınızda aşağıdaki sekmeleri içeren yeni bir pencere açılır:
 
-1.  Özellikler  
-
-2.  Eylem Ayarları  
-
-3.  Zamanlama  
-
-4.  Geçmiş
-
-5.  Kullanıcılar
-
-    ![][job-overview]
+1. Özellikler  
+2. Eylem Ayarları  
+3. Zamanlama  
+4. Geçmiş
+5. Kullanıcılar
+   
+   ![][job-overview]
 
 ### Özellikler
-
 Bu salt okunur özellikler Scheduler işi için yönetim meta verilerini açıklar.
 
    ![][job-properties]
 
-
 ### Eylem ayarları
-
 **İşler** ekranındaki bir işe tıklamak bu işi yapılandırmanıza olanak tanır. Bu, bunları hızlı oluşturma sihirbazında yapılandırmadıysanız, gelişmiş ayarları yapılandırmanızı sağlar.
 
 Tüm eylem türleri için, yeniden deneme ilkesini ve hata eylemini değiştirebilirsiniz.
@@ -98,7 +76,6 @@ Hizmet veri yolu eylemi türleri için, ad alanı, konu/kuyruk yolu, kimlik doğ
    ![][job-action-settings]
 
 ### Zamanlama
-
 Bu, hızlı oluşturma sihirbazında oluşturduğunuz zamanlamayı değiştirmek istediğinizde, zamanlamayı yeniden yapılandırmanızı sağlar.
 
 Bu, [işinizde karmaşık zamanlamalar ve gelişmiş yineleme](scheduler-advanced-complexity.md) oluşturmak için bir fırsattır
@@ -107,23 +84,16 @@ Başlangıç tarihini ve saatini, yineleme zamanlamasını ve bitiş tarihini ve
 
    ![][job-schedule]
 
-
 ### Geçmiş
-
 **Geçmişi** sekmesi seçili iş için sistemdeki her iş yürütme için seçilen ölçümleri görüntüler. Bu ölçümler Scheduler sistem durumunuz ile ilgili gerçek zamanlı değerleri belirtir:
 
-1.  Durum  
-
-2.  Ayrıntılar  
-
-3.  Yeniden deneme sayısı
-
-4.  Oluşma 1., 2., 3., vs.
-
-5.  Yürütme başlangıç saati  
-
-6.  Yürütme bitiş saati
-
+1. Durum  
+2. Ayrıntılar  
+3. Yeniden deneme sayısı
+4. Oluşma 1., 2., 3., vs.
+5. Yürütme başlangıç saati  
+6. Yürütme bitiş saati
+   
    ![][job-history]
 
 Her yürütmeye ilişkin tüm yanıtlar dahil **Geçmiş Ayrıntıları**’nı görüntülemek için bir yürütmeye tıklayabilirsiniz. Bu iletişim kutusu yanıtı panoya kopyalamanızı da sağlar.
@@ -131,12 +101,9 @@ Her yürütmeye ilişkin tüm yanıtlar dahil **Geçmiş Ayrıntıları**’nı 
    ![][job-history-details]
 
 ### Kullanıcılar
-
 Azure Rol Tabanlı Erişim Denetimi (RBAC), Azure Scheduler için ayrıntılı erişim yönetimi sağlar. Kullanıcılar sekmesini kullanmayı öğrenmek için, bkz. [Azure Rol Tabanlı Erişim Denetimi](../active-directory/role-based-access-control-configure.md)
 
-
 ## Ayrıca bkz.
-
  [Scheduler nedir?](scheduler-intro.md)
 
  [Scheduler kavramları ve terminolojisi ve varlık hiyerarşisi](scheduler-concepts-terms.md)
@@ -154,7 +121,6 @@ Azure Rol Tabanlı Erişim Denetimi (RBAC), Azure Scheduler için ayrıntılı e
  [Scheduler sınırları, varsayılanları ve hata kodları](scheduler-limits-defaults-errors.md)
 
  [Scheduler giden bağlantı kimlik doğrulaması](scheduler-outbound-authentication.md)
-
 
 [marketplace-create]: ./media/scheduler-get-started-portal/scheduler-v2-portal-marketplace-create.png
 [action-settings]: ./media/scheduler-get-started-portal/scheduler-v2-portal-action-settings.png

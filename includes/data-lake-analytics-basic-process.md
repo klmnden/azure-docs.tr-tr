@@ -1,7 +1,7 @@
 **Temel Data Lake Analytics süreci:**
-    
+
 ![Azure Data Lake Analytics süreç akışı diyagramı](./media/data-lake-analytics-basic-process-include/data-lake-analytics-process.png)
-    
+
     1. Create a Data Lake Analytics account.
     2. Prepare the source data. Data Lake Analytic jobs can read data from either Azure Data Lake Store accounts or Azure Blob storage accounts.   
     3. Develop a U-SQL script.

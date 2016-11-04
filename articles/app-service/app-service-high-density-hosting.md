@@ -1,28 +1,26 @@
-<properties
-	pageTitle="High-density hosting on Azure App Service | Microsoft Azure"
-	description="High-density hosting on Azure App Service"
-	authors="btardif"
-	manager="wpickett"
-	editor=""
-	services="app-service\web"
-	documentationCenter=""/>
+---
+title: High-density hosting on Azure App Service | Microsoft Docs
+description: High-density hosting on Azure App Service
+author: btardif
+manager: wpickett
+editor: ''
+services: app-service\web
+documentationcenter: ''
 
-<tags
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.date="08/07/2016"
-	ms.author="byvinyal"/>
+ms.service: app-service-web
+ms.workload: web
+ms.tgt_pltfrm: na
+ms.devlang: multiple
+ms.topic: article
+ms.date: 08/07/2016
+ms.author: byvinyal
 
-# High-density hosting on Azure App Service#
-
+---
+# High-density hosting on Azure App Service
 When using App Service, your application will be decoupled from the capacity allocated to it by 2 concepts:
 
-- **The Application:** Represents the app and its runtime configuration. For example, it includes the version of .NET that the runtime should load, the app settings, etc.
-
-- **The App Service Plan:** Defines the characteristics of the capacity, available feature set, and locality of the application. For example, characteristics might be large (four cores) machine, four instances, Premium features in East US.
+* **The Application:** Represents the app and its runtime configuration. For example, it includes the version of .NET that the runtime should load, the app settings, etc.
+* **The App Service Plan:** Defines the characteristics of the capacity, available feature set, and locality of the application. For example, characteristics might be large (four cores) machine, four instances, Premium features in East US.
 
 An app is always linked to an App Service plan, but an App Service plan can provide capacity to one or more apps.
 
@@ -34,7 +32,7 @@ However, when multiple apps share an App Service plan, an
 instance of that app runs on every instance of that
 App Service plan.
 
-## Per app scaling##
+## Per app scaling
 *Per app scaling* is a feature that can be enabled at the
 App Service plan level and then used per application.
 
@@ -97,7 +95,6 @@ workers** to use to 1 (`"properties": { "numberOfWorkers": "1" }`).
 
 
 ## Recommended configuration for high-density hosting
-
 Per app scaling is a feature that is enabled in both public Azure regions
 and App Service Environments. However, the recommended strategy is to
 use App Service Environments to take advantage of their advanced features and the larger
@@ -107,18 +104,15 @@ Follow these steps to configure
 high-density hosting for your apps:
 
 1. Configure the App Service Environment and choose a worker pool that
-will be dedicated to the high-density hosting scenario.
+   will be dedicated to the high-density hosting scenario.
+2. Create a single App Service plan, and scale it to use all the available
+   capacity on the worker pool.
+3. Set the per-site scaling flag to true on the App Service plan.
+4. New sites are created and assigned to that App Service plan with the
+   **numberOfWorkers** property set to **1**. This will yield the highest density
+   possible on this worker pool.
+5. The number of workers can be configured independently per site to grant
+   additional resources as needed. For example, a high-use site might set
+   **numberOfWorkers** to **3** to have more processing capacity for that app, while
+   low-use sites would set **numberOfWorkers** to **1**.
 
-1. Create a single App Service plan, and scale it to use all the available
-capacity on the worker pool.
-
-1. Set the per-site scaling flag to true on the App Service plan.
-
-1. New sites are created and assigned to that App Service plan with the
-**numberOfWorkers** property set to **1**. This will yield the highest density
-possible on this worker pool.
-
-1. The number of workers can be configured independently per site to grant
-additional resources as needed. For example, a high-use site might set
-**numberOfWorkers** to **3** to have more processing capacity for that app, while
-low-use sites would set **numberOfWorkers** to **1**.

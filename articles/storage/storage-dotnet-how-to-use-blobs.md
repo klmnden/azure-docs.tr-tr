@@ -1,62 +1,53 @@
-<properties
-    pageTitle=".NET kullanarak Azure Blob Storage’ı (nesne depolama) kullanmaya başlayın | Microsoft Azure"
-    description="Azure Blob Storage (nesne depolama) ile bulutta yapılandırılmamış veri depolayın."
-    services="storage"
-    documentationCenter=".net"
-    authors="tamram"
-    manager="carmonm"
-    editor="tysonn"/>
+---
+title: .NET kullanarak Azure Blob Storage’ı (nesne depolama) kullanmaya başlayın | Microsoft Docs
+description: Azure Blob Storage (nesne depolama) ile bulutta yapılandırılmamış veri depolayın.
+services: storage
+documentationcenter: .net
+author: tamram
+manager: carmonm
+editor: tysonn
 
-<tags
-    ms.service="storage"
-    ms.workload="storage"
-    ms.tgt_pltfrm="na"
-    ms.devlang="dotnet"
-    ms.topic="hero-article"
-    ms.date="09/20/2016"
-    ms.author="jwillis;tamram"/>
+ms.service: storage
+ms.workload: storage
+ms.tgt_pltfrm: na
+ms.devlang: dotnet
+ms.topic: hero-article
+ms.date: 09/20/2016
+ms.author: jwillis;tamram
 
-
-
+---
 # .NET kullanarak Azure Blob Storage’ı kullanmaya başlayın
+[!INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
 
-[AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
-<br/>
-[AZURE.INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
+[!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
 ## Genel Bakış
-
 Azure Blob Storage, bulutta nesne/blob olarak yapılandırılmamış veri depolayan bir hizmettir. Blob Storage belge, medya dosyası veya uygulama yükleyici gibi her tür metin veya ikili veri depolayabilir. Blob Storage aynı zamanda nesne depolama olarak adlandırılır.
 
 ### Bu öğretici hakkında
-
 Bu öğreti, Azure Blob Storage kullanarak bazı genel senaryolar için .NET kodunun nasıl yazılacağını göstermektedir. Kapsanan senaryolar arasında blob yükleme, listeleme, indirme ve silme yer alır.
 
 **Tahmini tamamlanma süresi:** 45 dakika
 
 **Ön koşullar:**
 
-- [Microsoft Visual Studio](https://www.visualstudio.com/en-us/visual-studio-homepage-vs.aspx)
-- [.NET için Depolama İstemci Kitaplığı](https://www.nuget.org/packages/WindowsAzure.Storage/)
-- [.NET için Azure Yapılandırma Yöneticisi](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
-- Bir [Azure Storage hesabı](storage-create-storage-account.md#create-a-storage-account)
+* [Microsoft Visual Studio](https://www.visualstudio.com/en-us/visual-studio-homepage-vs.aspx)
+* [.NET için Depolama İstemci Kitaplığı](https://www.nuget.org/packages/WindowsAzure.Storage/)
+* [.NET için Azure Yapılandırma Yöneticisi](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
+* Bir [Azure Storage hesabı](storage-create-storage-account.md#create-a-storage-account)
 
-
-[AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
+[!INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
 ### Daha fazla örnek
-
 Blob depolama kullanan diğer örnekler için [.NET’te Azure Blob Depolama Kullanmaya Başlama](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/). Örnek uygulamayı indirip çalıştırabilir veya GitHub’daki örneğe göz atabilirsiniz.
 
+[!INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
 
-[AZURE.INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
+[!INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
 
-[AZURE.INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
-
-[AZURE.INCLUDE [storage-development-environment-include](../../includes/storage-development-environment-include.md)]
+[!INCLUDE [storage-development-environment-include](../../includes/storage-development-environment-include.md)]
 
 ### Ad alanı bildirimleri ekleme
-
 Aşağıdaki `using` bildirimlerini `program.cs` dosyasının üstüne ekleyin:
 
     using Microsoft.Azure; // Namespace for CloudConfigurationManager
@@ -64,11 +55,9 @@ Aşağıdaki `using` bildirimlerini `program.cs` dosyasının üstüne ekleyin:
     using Microsoft.WindowsAzure.Storage.Blob; // Namespace for Blob storage types
 
 ### Bağlantı dizesini ayrıştırma
-
-[AZURE.INCLUDE [storage-cloud-configuration-manager-include](../../includes/storage-cloud-configuration-manager-include.md)]
+[!INCLUDE [storage-cloud-configuration-manager-include](../../includes/storage-cloud-configuration-manager-include.md)]
 
 ### Blob hizmeti istemcisi oluşturma
-
 **CloudBlobClient** sınıfı Blob Storage’da  depolanan kapsayıcıları ve blobları almanızı sağlar. Hizmet istemcisini oluşturma yöntemlerinden biri aşağıda verilmiştir:
 
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
@@ -76,8 +65,7 @@ Aşağıdaki `using` bildirimlerini `program.cs` dosyasının üstüne ekleyin:
 Artık Blob Storage’da n veri okuyan ve bu depolamaya veri yazan kodu yazmaya hazırsınız.
 
 ## Bir kapsayıcı oluşturma
-
-[AZURE.INCLUDE [storage-container-naming-rules-include](../../includes/storage-container-naming-rules-include.md)]
+[!INCLUDE [storage-container-naming-rules-include](../../includes/storage-container-naming-rules-include.md)]
 
 Bu örnek, zaten yoksa, nasıl bir kapsayıcı oluşturulacağını gösterir:
 
@@ -102,7 +90,6 @@ Varsayılan olarak yeni kapsayıcı özeldir, bu kapsayıcıdan blob indirmek i�
 İnternet üzerindeki herkes, herkese açık bir kapsayıcıdaki blobları görebilir ancak uygun hesap erişim tuşu veya paylaşılan erişim imzanız olması durumunda bunları değiştirebilir veya silebilirsiniz.
 
 ## Bir kapsayıcıya bir blob yükleme
-
 Azure Blob Storage blok blobları ve sayfa bloblarını destekler.  Çoğu durumda kullanılması önerilen blob türü blok blobudur.
 
 Bir dosyayı bir blok blobuna yüklemek için bir kapsayıcı başvurusu alın ve blok blob başvurusu almak için kullanın. Bir blob başvurusu edindiğinizde **UploadFromStream** yöntemini çağırarak istediğiniz veri akışını yükleyebilirsiniz. Bu işlemle, eğer önceden oluşturulmadıysa bir blob oluşturulacaktır, aksi takdirde üzerine yazılacaktır.
@@ -129,7 +116,6 @@ Aşağıdaki örnek kapsayıcının önceden oluşturulduğunu varsayarak bir bl
     }
 
 ## Blob’ları bir kapsayıcıda listeleme
-
 Blob’ları bir kapsayıcıda listelemek için ilk olarak bir kapsayıcı başvurusu edinin. Ardından içindeki blobları ve/veya dizinleri almak için kapsayıcının **ListBlobs** yöntemini kullanabilirsiniz. Dönen **IListBlobItem** için zengin özellik ve yöntem kümesine erişmek için **CloudBlockBlob**, **CloudPageBlob** veya **CloudBlobDirectory** nesnesine yayınlamanız gerekir.  Tür bilinmiyorsa, hangisine yayınlayacağınızı belirlemek için bir tür denetimi kullanabilirsiniz.  Aşağıdaki kod, `photos` kapsayıcıdaki her nesnenin URI’nın nasıl alınacağını ve çıkacağını gösterir:
 
     // Retrieve storage account from connection string.
@@ -208,7 +194,6 @@ ve sonuçlar şöyle görünür:
 
 
 ## Blob’ları indirme
-
 Blob’ları indirmek için ilk olarak bir blob başvurusu alın ve ardından **DownloadToStream** yöntemini çağırın. Aşağıdaki örnek, blob içeriklerini bir akış nesnesine aktarmak ve ardından yerel bir dosyaya kalıcı olarak almak için **DownloadToStream** yöntemini kullanır:
 
     // Retrieve storage account from connection string.
@@ -253,7 +238,6 @@ Bunun yanında bir blobun içeriklerini metin dizesi olarak indirmek için **Dow
     }
 
 ## Blob’ları silme
-
 Bir blobu silmek için ilk olarak bir blob başvurusu alın ve ardından **Sil** yöntemini çağırın.
 
     // Retrieve storage account from connection string.
@@ -274,7 +258,6 @@ Bir blobu silmek için ilk olarak bir blob başvurusu alın ve ardından **Sil**
 
 
 ## Blob’ları sayfalarda zaman uyumsuz olarak listeleme
-
 Çok sayıda blob listeliyorsanız veya bir listeleme işlemi ile dönen sonuç sayısını denetlemek isterseniz sonuç sayfalarında blobları listeleyebilirsiniz. Bu örnek, geniş bir sonuç kümesinin dönmesini beklerken çalıştırmanın engellenmemesi için sayfalardaki sonuçların zaman uyumsuz olarak nasıl döneceğini gösterir.
 
 Bu örnek düz bir blob listesi gösterir, ancak **ListBlobsSegmentedAsync** yönteminin `useFlatBlobListing` parametresini `false` olarak ayarlayarak hiyerarşik bir listeleme gerçekleştirebilirsiniz.
@@ -311,7 +294,6 @@ Bu örnek düz bir blob listesi gösterir, ancak **ListBlobsSegmentedAsync** yö
     }
 
 ## Ek blobu yazma
-
 Ek blob ise .NET için Azure Storage istemci kitaplığının 5.x sürümü ile sunulan yeni bir blob türüdür. Ek blob, günlük tutma gibi ekleme işlemleri için en iyi duruma getirilmiştir. Blok blobuna benzer şekilde bir ek blobu bloklardan oluşur ancak bir ek bloba yeni bir blok eklediğinizde her zaman blobun sonuna eklenir. Bir ek blobdaki mevcut bloğu güncelleştiremezsiniz veya silemezsiniz. Bir blok blobu olduğu için ek blobun blok kimliği gösterilmez.
 
 Her biri en fazla 4 MB olmak üzere bir ek blobundaki her blok farklı boyutlarda olabilir ve bir ek blobu en fazla 50.000 blok içerebilir. Bu nedenle bir ek blobunun en büyük boyutu 195 GB’den biraz fazladır (4 MB x 50.000 blok).
@@ -358,57 +340,50 @@ Aşağıdaki örnek yeni bir ek blob oluşturur ve basit bir günlük yazma işl
 Üç blob türü arasındaki farklar hakkında bilgi edinmek için bkz. [Blok Blobları, Sayfa Blobları ve Ek Bloblarını anlama](https://msdn.microsoft.com/library/azure/ee691964.aspx).
 
 ## Blobların güvenliğini sağlama
-
 Varsayılan olarak Azure Storage, erişimi hesap erişim tuşlarına sahip olan hesap sahibiyle sınırlandırarak verilerinizi güvende tutar. Depolama hesabınızda blob verileri paylaşmanız gerektiğinde bunu hesap erişim tuşlarınızın güvenliğini tehlikeye atmadan yapmak önem taşır. Buna ek olarak kablo ve Azure Storage üzerinden güvenle geçmesini sağlamak için blob verilerini şifreleyebilirsiniz.
 
-[AZURE.INCLUDE [storage-account-key-note-include](../../includes/storage-account-key-note-include.md)]
+[!INCLUDE [storage-account-key-note-include](../../includes/storage-account-key-note-include.md)]
 
 ### Blob verilerine erişimi denetleme
-
 Varsayılan olarak depolama hesabındaki blob verileri yalnızca depolama hesabı sahibi tarafından erişilebilir. Blob Storage’a karşı istek kimlik doğrulamaları varsayılan olarak hesap erişim tuşu gerektirir. Buna karşın çeşitli blob verilerinin diğer kullanıcılar tarafından kullanılmasını sağlamak isteyebilirsiniz. İki seçeneğiniz vardır:
 
-- **Anonim erişim:** Bir kapsayıcıyı veya bloblarını anonim erişim için genel erişime açabilirsiniz. Daha fazla bilgi için bkz.: [Kapsayıcılar ve bloblar için anonim okuma erişimini yönetme](storage-manage-access-to-resources.md).
-- **Paylaşılan Erişim İmzası:** İstemcilere, belirlediğiniz izinler ve belirlediğiniz zaman aralığında depolama hesabınızdaki bir kaynağa yetkilendirmiş erişim sağlayan bir paylaşılan erişim imzası (SAS) sağlayabilirsiniz. Daha fazla bilgi edinmek için bkz. [Paylaşılan Erişim İmzaları (SAS) kullanma](storage-dotnet-shared-access-signature-part-1.md).
+* **Anonim erişim:** Bir kapsayıcıyı veya bloblarını anonim erişim için genel erişime açabilirsiniz. Daha fazla bilgi için bkz.: [Kapsayıcılar ve bloblar için anonim okuma erişimini yönetme](storage-manage-access-to-resources.md).
+* **Paylaşılan Erişim İmzası:** İstemcilere, belirlediğiniz izinler ve belirlediğiniz zaman aralığında depolama hesabınızdaki bir kaynağa yetkilendirmiş erişim sağlayan bir paylaşılan erişim imzası (SAS) sağlayabilirsiniz. Daha fazla bilgi edinmek için bkz. [Paylaşılan Erişim İmzaları (SAS) kullanma](storage-dotnet-shared-access-signature-part-1.md).
 
 ### Blob verilerini şifreleme
-
 Azure Storage hem istemci hem de sunucuda blob verisi şifreleme özelliği destekler.
 
-- **İstemci tarafı şifreleme:** .NET için Depolama İstemci Kitaplığı Azure Storage’a yüklemeden önce istemci uygulamalar içinde verilerin şifrelenmesi ve istemciye indirirken verilerin şifresinin çözülmesini destekler. Kitaplık ayrıca depolama hesabı anahtarı yönetimi için Azure Anahtar Kasası ile tümleştirmeyi destekler. Daha fazla bilgi için bkz. [Microsoft Azure Storage için .NET içinde İstemci Tarafı Şifreleme](storage-client-side-encryption.md). Ayrıca bkz. [Öğretici: Azure Anahtar Kasası kullanılarak Microsoft Azure Storage’daki blobları şifreleme ve şifresini çözme](storage-encrypt-decrypt-blobs-key-vault.md).
-- **Sunucu tarafı şifreleme**: Azure Storage artık sunucu tarafı şifreleme desteklemektedir. Bkz. [Bekleyen Veri için Azure Storage Hizmeti Şifreleme (Önizleme)](storage-service-encryption.md).
+* **İstemci tarafı şifreleme:** .NET için Depolama İstemci Kitaplığı Azure Storage’a yüklemeden önce istemci uygulamalar içinde verilerin şifrelenmesi ve istemciye indirirken verilerin şifresinin çözülmesini destekler. Kitaplık ayrıca depolama hesabı anahtarı yönetimi için Azure Anahtar Kasası ile tümleştirmeyi destekler. Daha fazla bilgi için bkz. [Microsoft Azure Storage için .NET içinde İstemci Tarafı Şifreleme](storage-client-side-encryption.md). Ayrıca bkz. [Öğretici: Azure Anahtar Kasası kullanılarak Microsoft Azure Storage’daki blobları şifreleme ve şifresini çözme](storage-encrypt-decrypt-blobs-key-vault.md).
+* **Sunucu tarafı şifreleme**: Azure Storage artık sunucu tarafı şifreleme desteklemektedir. Bkz. [Bekleyen Veri için Azure Storage Hizmeti Şifreleme (Önizleme)](storage-service-encryption.md).
 
 ## Sonraki adımlar
-
 Blob Storage’ın temellerini öğrendiğinize göre, daha fazla bilgi edinmek için bu bağlantıları izleyin.
 
 ### Microsoft Azure Depolama Gezgini
-- [Microsoft Azure Depolama Gezgini (MASE)](../vs-azure-tools-storage-manage-with-storage-explorer.md), Microsoft’un Windows, OS X ve Linux üzerinde Azure Storage verileriyle görsel olarak çalışmanızı sağlayan ücretsiz ve tek başına uygulamasıdır.
+* [Microsoft Azure Depolama Gezgini (MASE)](../vs-azure-tools-storage-manage-with-storage-explorer.md), Microsoft’un Windows, OS X ve Linux üzerinde Azure Storage verileriyle görsel olarak çalışmanızı sağlayan ücretsiz ve tek başına uygulamasıdır.
 
 ### Blob depolama örnekleri
-
-- [.NET’te Azure Blob Depolama Kullanmaya Başlama](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/)
+* [.NET’te Azure Blob Depolama Kullanmaya Başlama](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/)
 
 ### Blob Storage başvurusu
-
-- [.NET başvurusu için Depolama İstemci Kitaplığı](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
-- [REST API başvurusu](http://msdn.microsoft.com/library/azure/dd179355)
+* [.NET başvurusu için Depolama İstemci Kitaplığı](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
+* [REST API başvurusu](http://msdn.microsoft.com/library/azure/dd179355)
 
 ### Kavramsal kılavuzlar
+* [AzCopy komut satırı yardımcı programı ile veri aktarımı](storage-use-azcopy.md)
+* [.NET için File Storage’ı kullanmaya başlayın](storage-dotnet-how-to-use-files.md)
+* [WebJobs SDK ile Azure Blob Storage kullanımı](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
 
-- [AzCopy komut satırı yardımcı programı ile veri aktarımı](storage-use-azcopy.md)
-- [.NET için File Storage’ı kullanmaya başlayın](storage-dotnet-how-to-use-files.md)
-- [WebJobs SDK ile Azure Blob Storage kullanımı](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
+[Blob5]: ./media/storage-dotnet-how-to-use-blobs/blob5.png
+[Blob6]: ./media/storage-dotnet-how-to-use-blobs/blob6.png
+[Blob7]: ./media/storage-dotnet-how-to-use-blobs/blob7.png
+[Blob8]: ./media/storage-dotnet-how-to-use-blobs/blob8.png
+[Blob9]: ./media/storage-dotnet-how-to-use-blobs/blob9.png
 
-  [Blob5]: ./media/storage-dotnet-how-to-use-blobs/blob5.png
-  [Blob6]: ./media/storage-dotnet-how-to-use-blobs/blob6.png
-  [Blob7]: ./media/storage-dotnet-how-to-use-blobs/blob7.png
-  [Blob8]: ./media/storage-dotnet-how-to-use-blobs/blob8.png
-  [Blob9]: ./media/storage-dotnet-how-to-use-blobs/blob9.png
-
-  [Azure Storage Ekibi Blog’u]: http://blogs.msdn.com/b/windowsazurestorage/
-  [Bağlantı Dizeleri Yapılandırma]: http://msdn.microsoft.com/library/azure/ee758697.aspx
-  [.NET istemci kitaplığı başvurusu]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
-  [REST API başvurusu]: http://msdn.microsoft.com/library/azure/dd179355
+[Azure Storage Ekibi Blog’u]: http://blogs.msdn.com/b/windowsazurestorage/
+[Bağlantı Dizeleri Yapılandırma]: http://msdn.microsoft.com/library/azure/ee758697.aspx
+[.NET istemci kitaplığı başvurusu]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
+[REST API başvurusu]: http://msdn.microsoft.com/library/azure/dd179355
 
 
 

@@ -1,64 +1,61 @@
-<properties
-    pageTitle="Öğretici - Azure Batch.NET kitaplığını kullanmaya başlama | Microsoft Azure"
-    description="Azure Batch’in temel kavramlarını ve basit bir senaryoyla Batch hizmetini geliştirmeyi öğrenin."
-    services="batch"
-    documentationCenter=".net"
-    authors="mmacy"
-    manager="timlt"
-    editor=""/>
+---
+title: Öğretici - Azure Batch.NET kitaplığını kullanmaya başlama | Microsoft Docs
+description: Azure Batch’in temel kavramlarını ve basit bir senaryoyla Batch hizmetini geliştirmeyi öğrenin.
+services: batch
+documentationcenter: .net
+author: mmacy
+manager: timlt
+editor: ''
 
-<tags
-    ms.service="batch"
-    ms.devlang="dotnet"
-    ms.topic="hero-article"
-    ms.tgt_pltfrm="na"
-    ms.workload="big-compute"
-    ms.date="08/15/2016"
-    ms.author="marsma"/>
+ms.service: batch
+ms.devlang: dotnet
+ms.topic: hero-article
+ms.tgt_pltfrm: na
+ms.workload: big-compute
+ms.date: 08/15/2016
+ms.author: marsma
 
+---
 # .NET için Azure Batch itaplığını kullanmaya başlama
-
-> [AZURE.SELECTOR]
-- [.NET](batch-dotnet-get-started.md)
-- [Python](batch-python-tutorial.md)
+> [!div class="op_single_selector"]
+> * [.NET](batch-dotnet-get-started.md)
+> * [Python](batch-python-tutorial.md)
+> 
+> 
 
 Adım adım C# örnek uygulamasında tartıştığımız gibi, bu makalede [Azure Batch][azure_batch] ve [Batch .NET][net_api] kitaplığı hakkında temel bilgileri öğrenin. Dosya hazırlığı ve alımı için [Azure Storage](../storage/storage-introduction.md) ile nasıl etkileşime girdiğinin yanı sıra, bu örnek uygulamanın bulutta paralel bir iş yükünü işlemek için Batch hizmetini nasıl geliştirdiğini de göreceğiz. Yaygın Batch uygulaması iş akışı tekniklerini öğreneceksiniz. İşler, görevler, havuzlar ve işlem düğümü gibi başlıca Batch bileşenleri hakkında da temel bir anlayış kazanacaksınız.
 
 ![Batch çözümü iş akışı (temel)][11]<br/>
 
 ## Ön koşullar
-
 Bu makalede, C# ve Visual Studio deneyimine sahip olduğunuz varsayılmaktadır. Azure’ün yanı sıra Batch ve Storage hizmetleri için aşağıda belirtilen hesap oluşturma gerekliliklerini karşılayabildiğiniz de varsayılmaktadır.
 
 ### Hesaplar
+* **Azure hesabı**: Henüz bir Azure aboneliğiniz yoksa, [ücretsiz Azure hesabı oluşturun][azure_free_account].
+* **Batch hesabı**: Azure aboneliğiniz olduktan sonra, [Azure Batch hesabı oluşturun](batch-account-create-portal.md).
+* **Storage hesabı**: Bkz. [Azure Storage hesapları hakkında](../storage/storage-create-storage-account.md) sayfası, [Storage hesabı oluşturma](../storage/storage-create-storage-account.md#create-a-storage-account) bölümü.
 
-- **Azure hesabı**: Henüz bir Azure aboneliğiniz yoksa, [ücretsiz Azure hesabı oluşturun][azure_free_account].
-- **Batch hesabı**: Azure aboneliğiniz olduktan sonra, [Azure Batch hesabı oluşturun](batch-account-create-portal.md).
-- **Storage hesabı**: Bkz. [Azure Storage hesapları hakkında](../storage/storage-create-storage-account.md) sayfası, [Storage hesabı oluşturma](../storage/storage-create-storage-account.md#create-a-storage-account) bölümü.
-
-> [AZURE.IMPORTANT] Batch şu anda, [Azure Storage hesapları hakkında](../storage/storage-create-storage-account.md) bölümünde 5. adım olan [Depolama hesabı oluşturma](../storage/storage-create-storage-account.md#create-a-storage-account)da açıklandığı gibi, *sadece* **Genel amaçlı** depolama hesabı türünü destekler.
+> [!IMPORTANT]
+> Batch şu anda, [Azure Storage hesapları hakkında](../storage/storage-create-storage-account.md) bölümünde 5. adım olan [Depolama hesabı oluşturma](../storage/storage-create-storage-account.md#create-a-storage-account)da açıklandığı gibi, *sadece* **Genel amaçlı** depolama hesabı türünü destekler.
+> 
+> 
 
 ### Visual Studio
-
 Örnek proje oluşturmak için **Visual Studio 2015** sürümünüz olmalıdır. Visual Studio'nun ücretsiz ve deneme sürümlerini [Visual Studio 2015 Ürünlerine Genel Bakış][visual_studio] sayfasında bulabilirsiniz.
 
 ### *DotNetTutorial* kodu örneği
-
 [DotNetTutorial][github_dotnettutorial] örneği GitHub’daki [azure-batch-samples][github_samples] deposunda bulunan çok sayıda kod örneğinden biridir. Örneği, depo giriş sayfasındaki **ZIP’i İndir** düğmesine veya [azure-batch-samples-master.zip][github_samples_zip] doğrudan indirme bağlantısına tıklayarak indirebilirsiniz. ZIP dosyasının içeriğini ayıkladıktan sonra çözümü aşağıdaki klasörde bulacaksınız:
 
 `\azure-batch-samples\CSharp\ArticleProjects\DotNetTutorial`
 
 ### Azure Batch Gezgini (isteğe bağlı)
-
 [Azure Batch Gezgini][github_batchexplorer], GitHub’daki [azure-batch-samples][github_samples] deposunda yer alan ücretsiz bir yardımcı programdır. Bu öğreticiyi tamamlamak için gerekli olmasa da, Batch çözümlerinizi geliştirirken ve hatalarını ayıklarken yararlı olabilir.
 
 ## DotNetTutorial örnek projesine genel bakış
-
 *DotNetTutorial* kod örneği buradaki iki projeden oluşan bir Visual Studio 2015 çözümüdür: **DotNetTutorial** ve **TaskApplication**.
 
-- **DotNetTutorial**, işlem düğümlerinde paralel iş yükünü yürütmek için Batch ve Storage hizmetleriyle etkileşime giren istemci uygulamasıdır (sanal makineler). DotNetTutorial yerel iş istasyonunuzda çalışır.
-
-- **TaskApplication**, asıl işi gerçekleştirmek için Azure’deki işlem düğümlerinde çalışan programdır. Örnekte, `TaskApplication.exe` metni (girdi dosyası), Azure Storage’dan indirilen dosyada ayrıştırıyor. Ardından, girdi dosyasında ilk üç sözcüğün göründüğü listenin bulunduğu bir metin dosyası (çıktı dosyası) oluşturur. TaskApplication, çıktı dosyasını oluşturduktan sonra dosyayı Azure Storage’a yükler. Böylece, indirmek üzere istemci uygulamasının kullanımına hazır hale getirir. TaskApplication, Batch hizmetinde paralel olarak birden çok işlem düğümünde çalışır.
+* **DotNetTutorial**, işlem düğümlerinde paralel iş yükünü yürütmek için Batch ve Storage hizmetleriyle etkileşime giren istemci uygulamasıdır (sanal makineler). DotNetTutorial yerel iş istasyonunuzda çalışır.
+* **TaskApplication**, asıl işi gerçekleştirmek için Azure’deki işlem düğümlerinde çalışan programdır. Örnekte, `TaskApplication.exe` metni (girdi dosyası), Azure Storage’dan indirilen dosyada ayrıştırıyor. Ardından, girdi dosyasında ilk üç sözcüğün göründüğü listenin bulunduğu bir metin dosyası (çıktı dosyası) oluşturur. TaskApplication, çıktı dosyasını oluşturduktan sonra dosyayı Azure Storage’a yükler. Böylece, indirmek üzere istemci uygulamasının kullanımına hazır hale getirir. TaskApplication, Batch hizmetinde paralel olarak birden çok işlem düğümünde çalışır.
 
 Aşağıdaki diyagram, istemci uygulaması tarafından gerçekleştirilen birincil işlemleri, *DotNetTutorial* ve görevler tarafından yürütülen uygulamayı, *TaskApplication* göstermektedir. Bu temel iş akışı, Batch’le oluşturulan çok sayıda işlem çözümünün tipik halidir. Batch hizmetinde erişilebilir olan özelliklerin hepsini göstermese de, neredeyse tüm Batch senaryoları buna benzer işlemler içerir.
 
@@ -79,7 +76,6 @@ Aşağıdaki diyagram, istemci uygulaması tarafından gerçekleştirilen birinc
 Yukarıda belirtildiği gibi, her Batch çözümü tam olarak bu adımları gerçekleştirmese ve çok daha fazlasını içerebilse de; *DotNetTutorial* örnek uygulaması, Batch çözümünde bulunan ortak işlemleri göstermektedir.
 
 ## *DotNetTutorial* örnek projesini derleme
-
 Örneği sorunsuz çalıştırmadan önce, *DotNetTutorial* projesinin `Program.cs` dosyasında Batch ve Storage hesabı kimlik bilgilerini belirtmelisiniz. Henüz bunu yapmadıysanız, Visual Studio'da `DotNetTutorial.sln` çözüm dosyasına çift tıklayarak çözümü açın. Bunun yerine, **Dosya > Aç > Proje/Çözüm** menüsünü kullanarak Visual Studio'da da açabilirsiniz.
 
 *DotNetTutorial* projesinin içinde `Program.cs` öğesini açın. Sonra da kimlik bilgilerinizi belirtildiği gibi dosyanın en üstüne yakın bir yere ekleyin:
@@ -99,7 +95,10 @@ private const string StorageAccountName = "";
 private const string StorageAccountKey  = "";
 ```
 
-> [AZURE.IMPORTANT] Yukarıda da belirtildiği gibi, Azure Storage’daki kimlik bilgilerini **Genel amaçlı** depolama hesabı için belirtmelisiniz. Toplu Batch uygulamalarınız, **Genel amaçlı** depolama hesabında blob depolama kullanır. *Blob depolama* hesap türünü seçerek oluşturulmuş Storage hesabı için kimlik bilgilerini belirtmeyin.
+> [!IMPORTANT]
+> Yukarıda da belirtildiği gibi, Azure Storage’daki kimlik bilgilerini **Genel amaçlı** depolama hesabı için belirtmelisiniz. Toplu Batch uygulamalarınız, **Genel amaçlı** depolama hesabında blob depolama kullanır. *Blob depolama* hesap türünü seçerek oluşturulmuş Storage hesabı için kimlik bilgilerini belirtmeyin.
+> 
+> 
 
 Batch ve Storage hesabı kimlik bilgilerinizi [Azure portalındaki][azure_portal] her hizmetin hesap dikey penceresinde bulabilirsiniz :
 
@@ -108,22 +107,24 @@ Batch ve Storage hesabı kimlik bilgilerinizi [Azure portalındaki][azure_portal
 
 Kimlik bilgilerinizle projeyi güncelleştirdiğinizden, Çözüm Gezgini'ndeki çözüme sağ tıklayıp **Çözümü Derle**’ye tıklayın. İstenirse, herhangi bir NuGet paketinin geri yüklenmesini onaylayın.
 
-> [AZURE.TIP] NuGet paketleri otomatik olarak geri yüklemezse ya da paketlerin geri yüklenmesiyle ilgili hatalar görürseniz, [NuGet Paket Yöneticisi][nuget_packagemgr]’sinin yüklü olduğundan emin olun. Sonra da eksik paketleri indirilmesini etkinleştirin. Paket indirilmesini etkinleştirmek için bkz. [Derleme sırasında paket Geri Yüklemeyi Etkinleştirme][nuget_restore].
+> [!TIP]
+> NuGet paketleri otomatik olarak geri yüklemezse ya da paketlerin geri yüklenmesiyle ilgili hatalar görürseniz, [NuGet Paket Yöneticisi][nuget_packagemgr]’sinin yüklü olduğundan emin olun. Sonra da eksik paketleri indirilmesini etkinleştirin. Paket indirilmesini etkinleştirmek için bkz. [Derleme sırasında paket Geri Yüklemeyi Etkinleştirme][nuget_restore].
+> 
+> 
 
 Aşağıdaki bölümlerde, Batch hizmetinde iş yükünü işlemeyi gerçekleştiren örnek uygulamayı adımlara ayırdık ve bu adımlar üzerine ayrıntılı tartıştık. Örneğin her kod satırı tartışılmadığından, bu makalenin kalanında kendi işinizi yaparken Visual Studio’da çözüm açmak için başvurmanızı öneririz.
 
 1. Adımla başlamak için *DotNetTutorial* projesinin `Program.cs` dosyasındaki `MainAsync` yönteminin en üstüne gidin. Aşağıdaki her adım bundan sonra kabaca `MainAsync` içindeki yöntem çağrılarının ilerleyişini izler.
 
 ## 1. Adım: Depolama kapsayıcıları oluşturma
-
 ![Azure Storage’da kapsayıcı oluşturma][1]
 <br/>
 
 Azure Storage ilet etkileşimde bulunmak için Batch’te yerleşik destek bulunur. Storage hesabınızdaki kapsayıcılar, Batch hesabınızda çalışan görevler için gerekli dosyaları sağlar. Kapsayıcılar ayrıca görevlerin oluşturduğu çıktı verilerini depolamak için bir yer sağlar. *DotNetTutorial* istemci uygulamasının yapacağı ilk şey [Azure Blob Storage](../storage/storage-introduction.md)’da üç kapsayıcı oluşturmaktır:
 
-- **uygulama**: Bu kapsayıcı, DLL’ler gibi birçok bağlantının yanı sıra görevlerin yürüttüğü uygulamayı da depolar.
-- **girdi**: Görevler, işlemek için veri dosyalarını *girdi* kapsayıcısından yükleyecektir.
-- **çıktı**: Görevler girdi dosyası işlemeyi tamamladıklarında, sonuçları*çıktı* kapsayıcısına yüklerler.
+* **uygulama**: Bu kapsayıcı, DLL’ler gibi birçok bağlantının yanı sıra görevlerin yürüttüğü uygulamayı da depolar.
+* **girdi**: Görevler, işlemek için veri dosyalarını *girdi* kapsayıcısından yükleyecektir.
+* **çıktı**: Görevler girdi dosyası işlemeyi tamamladıklarında, sonuçları*çıktı* kapsayıcısına yüklerler.
 
 Storage hesabıyla etkileşime geçmek ve kapsayıcılar oluşturmak için, [.NET için Storage İstemci Kitaplığı][net_api_storage] kullanıyoruz. [CloudStorageAccount][net_cloudstorageaccount] ile hesaba bir başvuru oluşturuyoruz ve buradan da bir [CloudBlobClient][net_cloudblobclient] oluşturuyoruz:
 
@@ -178,10 +179,12 @@ private static async Task CreateContainerIfNotExistAsync(
 
 Kapsayıcılar oluşturulduktan sonra uygulama artık görevler tarafından kullanılacak dosyaları karşıya yükleyebilir.
 
-> [AZURE.TIP] [Net'ten Blob Storage kullanma](../storage/storage-dotnet-how-to-use-blobs.md), Azure depolama kapsayıcıları ve blob'larla çalışma hakkında kapsamlı bilgi sağlar. Batch’le çalışmaya başladığınızda okuma listenizin en üstüne yakın olması gerekir.
+> [!TIP]
+> [Net'ten Blob Storage kullanma](../storage/storage-dotnet-how-to-use-blobs.md), Azure depolama kapsayıcıları ve blob'larla çalışma hakkında kapsamlı bilgi sağlar. Batch’le çalışmaya başladığınızda okuma listenizin en üstüne yakın olması gerekir.
+> 
+> 
 
 ## 2. Adım: Görev uygulamasını ve veri dosyalarını karşıya yükleme
-
 ![Görev uygulamasını ve girdi dosyalarını (veriler) kapsayıcılara yükleme][2]
 <br/>
 
@@ -223,8 +226,8 @@ List<ResourceFile> inputFiles = await UploadFilesToContainerAsync(
 
 Karşıya yükleme işlemini oluşturan `Program.cs` öğesinde iki yöntem vardır:
 
-- `UploadFilesToContainerAsync`: Bu yöntem, [ResourceFile][net_resourcefile] nesnelerinin bir koleksiyonunu döndürür (aşağıda açıklanmıştır) ve *filePaths* parametresine geçirilen her dosyayı karşıya yüklemek için `UploadFileToContainerAsync` çağırır.
-- `UploadFileToContainerAsync`: Dosyayı gerçekten karşıya yüklemeyi gerçekleştiren ve [ResourceFile][net_resourcefile] nesnelerini oluşturan yöntem budur. Dosyayı karşıya yükledikten sonra, dosya için paylaşılan erişim imzasını (SAS) alır ve temsil ettiği bir ResourceFile nesnesini döndürür. Paylaşılan erişim imzaları aşağıda da açıklanmıştır.
+* `UploadFilesToContainerAsync`: Bu yöntem, [ResourceFile][net_resourcefile] nesnelerinin bir koleksiyonunu döndürür (aşağıda açıklanmıştır) ve *filePaths* parametresine geçirilen her dosyayı karşıya yüklemek için `UploadFileToContainerAsync` çağırır.
+* `UploadFileToContainerAsync`: Dosyayı gerçekten karşıya yüklemeyi gerçekleştiren ve [ResourceFile][net_resourcefile] nesnelerini oluşturan yöntem budur. Dosyayı karşıya yükledikten sonra, dosya için paylaşılan erişim imzasını (SAS) alır ve temsil ettiği bir ResourceFile nesnesini döndürür. Paylaşılan erişim imzaları aşağıda da açıklanmıştır.
 
 ```
 private static async Task<ResourceFile> UploadFileToContainerAsync(
@@ -259,28 +262,27 @@ private static async Task<ResourceFile> UploadFileToContainerAsync(
 ```
 
 ### ResourceFiles
-
 [ResourceFile][net_resourcefile], görev çalıştırılmadan önce işlem düğümüne yüklenecek, Azure Depolama’da yer alan bir dosyaya bağlantısı olan URL’ye sahip Batch’teki görevleri sağlar. [ResourceFile.BlobSource][net_resourcefile_blobsource] özelliği, Azure Storage’da olduğu gibi dosyanın tam URL'sini belirtir. URL’de, dosyaya güvenli erişim sağlayan bir paylaşılan erişim imzası da (SAS) bulunabilir. Batch .NET’teki çoğu görev türünde *ResourceFiles* özelliği vardır; bu özellikte şunlar bulunur:
 
-- [CloudTask][net_task]
-- [StartTask][net_pool_starttask]
-- [JobPreparationTask][net_jobpreptask]
-- [JobReleaseTask][net_jobreltask]
+* [CloudTask][net_task]
+* [StartTask][net_pool_starttask]
+* [JobPreparationTask][net_jobpreptask]
+* [JobReleaseTask][net_jobreltask]
 
 DotNetTutorial örnek uygulaması JobPreparationTask veya JobReleaseTask görev türlerini kullanmaz; ancak, bununla ilgili daha fazla bilgiyi [Azure Batch işlem düğümlerinde iş hazırlama ve tamamlama görevlerini çalıştırma](batch-job-prep-release.md) makalesinden edinebilirsiniz.
 
 ### Paylaşılan erişim imzası (SAS)
-
 Paylaşılan erişim imzalar, URL parçası olarak eklendiğinde Azure Storage'da kapsayıcılara ve blob’lara güvenli erişim sağlayan dizelerdir. DotNetTutorial uygulaması hem blob, hem de kapsayıcı paylaşılan erişim imzası URL’lerini kullanır ve Storage hizmetinden bu paylaşılan erişim imzalarının nasıl alındığını gösterir.
 
-- **Blob paylaşılan erişim imzaları**: DotNetTutorial’daki havuza ait StartTask, Storage’dan uygulama ikililerini ve girdi veri dosyalarını indirdiğinde blob paylaşılan erişim imzalarını kullanır (bkz. 3. Adım; aşağıda). DotNetTutorial'ın `Program.cs` içindeki `UploadFileToContainerAsync` yönteminde her blob'un paylaşılan erişim imzasını alan kod bulunur. Bu işlemi [CloudBlob.GetSharedAccessSignature][net_sas_blob] çağırarak gerçekleştirir.
+* **Blob paylaşılan erişim imzaları**: DotNetTutorial’daki havuza ait StartTask, Storage’dan uygulama ikililerini ve girdi veri dosyalarını indirdiğinde blob paylaşılan erişim imzalarını kullanır (bkz. 3. Adım; aşağıda). DotNetTutorial'ın `Program.cs` içindeki `UploadFileToContainerAsync` yönteminde her blob'un paylaşılan erişim imzasını alan kod bulunur. Bu işlemi [CloudBlob.GetSharedAccessSignature][net_sas_blob] çağırarak gerçekleştirir.
+* **Kapsayıcı paylaşılan erişim imzaları**: Hesaplama düğümünde her görev işini bitirdiğinde, kendi çıktı dosyasını Azure Storage’daki *çıktı* kapsayıcısına yükler. Bunu yapmak için, TaskApplication dosyayı karşıya yüklediğinde yolun parçası olarak kapsayıcıya yazma izni sağlayan kapsayıcı paylaşılan erişim imzasını kullanır. Kapsayıcı paylaşılan erişim imzası blob paylaşılan erişim imzası alındığında yapılan işleme benzer. DotNetTutorial’de, bunu yapmak için `GetContainerSasUrl` yardımcı yönteminin [CloudBlobContainer.GetSharedAccessSignature][net_sas_container] çağırdığını görürsünüz. TaskApplication’ın kapsayıcı paylaşılan erişim imzasını kullanması hakkında daha fazla bilgi için "6. Adım: İzleme Görevleri" başlığı altındakileri okuyacaksınız.
 
-- **Kapsayıcı paylaşılan erişim imzaları**: Hesaplama düğümünde her görev işini bitirdiğinde, kendi çıktı dosyasını Azure Storage’daki *çıktı* kapsayıcısına yükler. Bunu yapmak için, TaskApplication dosyayı karşıya yüklediğinde yolun parçası olarak kapsayıcıya yazma izni sağlayan kapsayıcı paylaşılan erişim imzasını kullanır. Kapsayıcı paylaşılan erişim imzası blob paylaşılan erişim imzası alındığında yapılan işleme benzer. DotNetTutorial’de, bunu yapmak için `GetContainerSasUrl` yardımcı yönteminin [CloudBlobContainer.GetSharedAccessSignature][net_sas_container] çağırdığını görürsünüz. TaskApplication’ın kapsayıcı paylaşılan erişim imzasını kullanması hakkında daha fazla bilgi için "6. Adım: İzleme Görevleri" başlığı altındakileri okuyacaksınız.
-
-> [AZURE.TIP] Storage hesabınızdaki verilere güvenli erişim sağlama hakkında daha fazla bilgi için paylaşılan erişim imzalarındaki iki parçalı seriyi kullanıma alın, [1. Bölüm: Paylaşılan erişim imzası (SAS) modelini anlama](../storage/storage-dotnet-shared-access-signature-part-1.md) ve [2. Bölüm: Blob depolama ile paylaşılan erişim imzasını (SAS) oluşturma ve kullanma](../storage/storage-dotnet-shared-access-signature-part-2.md).
+> [!TIP]
+> Storage hesabınızdaki verilere güvenli erişim sağlama hakkında daha fazla bilgi için paylaşılan erişim imzalarındaki iki parçalı seriyi kullanıma alın, [1. Bölüm: Paylaşılan erişim imzası (SAS) modelini anlama](../storage/storage-dotnet-shared-access-signature-part-1.md) ve [2. Bölüm: Blob depolama ile paylaşılan erişim imzasını (SAS) oluşturma ve kullanma](../storage/storage-dotnet-shared-access-signature-part-2.md).
+> 
+> 
 
 ## 3. Adım: Batch havuzu oluşturma
-
 ![Batch havuzu oluşturma][3]
 <br/>
 
@@ -344,20 +346,28 @@ private static async Task CreatePoolAsync(
 
 [CreatePool][net_pool_create] ile havuz oluşturduğunuzda, işlem düğümlerinin sayısı, [düğümlerin boyutu](../cloud-services/cloud-services-sizes-specs.md) ve düğümlerin işletim sistemi gibi parametreleri belirtirsiniz. *DotNetTutorial* ’da, [Cloud Services](../cloud-services/cloud-services-guestos-update-matrix.md)’dan Windows Server 2012 R2'yi belirtmek için [CloudServiceConfiguration][net_cloudserviceconfiguration] kullanırız. Ancak bunun yerine [VirtualMachineConfiguration][net_virtualmachineconfiguration] belirterek, hem Windows hem de Linux görsellerinin yer aldığı Market görsellerinden havuz oluşturabilirsiniz; daha fazla bilgi için bkz. [Azure Batch havuzlarında Linux işlem düğümlerini hazırlama](batch-linux-nodes.md).
 
-> [AZURE.IMPORTANT] Batch’teki işlem kaynakları ücretlidir. Maliyetleri en aza indirmek için, örneği çalıştırmadan önce `targetDedicated` değerini 1 olarak düşürün.
+> [!IMPORTANT]
+> Batch’teki işlem kaynakları ücretlidir. Maliyetleri en aza indirmek için, örneği çalıştırmadan önce `targetDedicated` değerini 1 olarak düşürün.
+> 
+> 
 
 Bu fiziksel düğüm özellikleriyle birlikte, havuz için ayrıca bir [StartTask][net_pool_starttask] belirtebilirsiniz. StartTask, her düğümü havuza katıldığında ve her yeniden başlatıldığında yürütecektir. StartTask özellikle, görevler yürütülmeden önce işlem düğümlerine uygulamaların yüklenmesi için yararlıdır. Örneğin, görevleriniz verileri Python betiklerini kullanarak işliyorsa, işlem düğümlerine Python yüklemek için StartTask kullanabilirsiniz.
 
 Bu örnek uygulamasında, Storage’dan indirilen dosyaları (hangi belirtilen kullanarak [StartTask][net_starttask].[ResourceFiles][net_starttask_resourcefiles] özelliğini kullanarak belirtilir) StartTask, StartTask çalışma dizininden, erişilebilir düğümdeki *tüm* görevlerin çalıştığı paylaşılan dizine kopyalar. Aslında, `TaskApplication.exe` uygulamasını ve bağlantılarını, düğüm havuza katılmış olduğundan her düğüme kopyalar; bu nedenle düğümde çalışan görevler buna erişebilir.
 
-> [AZURE.TIP] Azure Batch’in **uygulama paketleri** özelliği, havuzdaki işlem düğümlerinin uygulamanızı almasının başka bir yolunu sağlar. Ayrıntılı bilgi için bkz. [Azure Batch uygulama paketleriyle uygulama dağıtımı](batch-application-packages.md) .
+> [!TIP]
+> Azure Batch’in **uygulama paketleri** özelliği, havuzdaki işlem düğümlerinin uygulamanızı almasının başka bir yolunu sağlar. Ayrıntılı bilgi için bkz. [Azure Batch uygulama paketleriyle uygulama dağıtımı](batch-application-packages.md) .
+> 
+> 
 
 Yukarıdaki kod parçacığında dikkat çeken bir şey de, StartTask’ın *CommandLine* özelliğinde iki ortam değişkenin kullanılmasıdır: `%AZ_BATCH_TASK_WORKING_DIR%` ve `%AZ_BATCH_NODE_SHARED_DIR%`. Batch havuzundaki her işlem düğümü, Batch’e özel bazı ortam değişkenleriyle yapılandırılmıştır. Görev tarafından yürütülen işlemlerin bu ortam değişkenlerine erişimi vardır.
 
-> [AZURE.TIP] Batch havuzundaki işlem düğümlerinde bulunan ortam değişkenleri ve görev çalışma dizinleri hakkında daha fazla bilgi almak için [Geliştiriciler için Batch özelliğine genel bakış](batch-api-basics.md) içindeki [Görevler için ortam değişkenleri](batch-api-basics.md#environment-settings-for-tasks) ve [Dosya ve dizinler](batch-api-basics.md#files-and-directories) bölümlerine bakın.
+> [!TIP]
+> Batch havuzundaki işlem düğümlerinde bulunan ortam değişkenleri ve görev çalışma dizinleri hakkında daha fazla bilgi almak için [Geliştiriciler için Batch özelliğine genel bakış](batch-api-basics.md) içindeki [Görevler için ortam değişkenleri](batch-api-basics.md#environment-settings-for-tasks) ve [Dosya ve dizinler](batch-api-basics.md#files-and-directories) bölümlerine bakın.
+> 
+> 
 
 ## 4. Adım: Batch işi oluşturma
-
 ![Batch işi oluşturma][4]<br/>
 
 Batch **işi**, görevler koleksiyonudur ve işlem düğümlerinin bir havuzuyla ilişkilidir. İşteki görevler ilişkili havuzunun işlem düğümlerini yürütür.
@@ -385,7 +395,6 @@ private static async Task CreateJobAsync(
 İş oluşturulduğuna göre, artık çalışmak için görevler eklenir.
 
 ## 5. Adım: İşe görev ekleme
-
 ![İşe görev ekleme][5]<br/>
 *(1) Görevler işe eklenir, (2) görevler düğümlerde çalışmak üzere zamanlanır ve (3) görevler işlemek üzere veri dosyalarını indirir*
 
@@ -430,14 +439,15 @@ private static async Task<List<CloudTask>> AddTasksAsync(
 }
 ```
 
-> [AZURE.IMPORTANT] `%AZ_BATCH_NODE_SHARED_DIR%` gibi ortam değişkenlerine eriştiklerinde veya düğüme ait `PATH` öğesinde bulunmayan bir uygulama yürüttüklerinde görev komut satırları `cmd /c` önekini almalıdır. Bunu kesinlikle komut yorumlayıcı yürütecek ve komutunuzu uyguladıktan sonra sonlandırması talimatını verecektir. Görevleriniz düğümün `PATH` öğesinde (*robocopy.exe* veya *powershell.exe* gibi) bir uygulama yürütüyorsa ve hiç ortam değişkeni kullanılmıyorsa bu gereksinim gereksizdir.
+> [!IMPORTANT]
+> `%AZ_BATCH_NODE_SHARED_DIR%` gibi ortam değişkenlerine eriştiklerinde veya düğüme ait `PATH` öğesinde bulunmayan bir uygulama yürüttüklerinde görev komut satırları `cmd /c` önekini almalıdır. Bunu kesinlikle komut yorumlayıcı yürütecek ve komutunuzu uyguladıktan sonra sonlandırması talimatını verecektir. Görevleriniz düğümün `PATH` öğesinde (*robocopy.exe* veya *powershell.exe* gibi) bir uygulama yürütüyorsa ve hiç ortam değişkeni kullanılmıyorsa bu gereksinim gereksizdir.
+> 
+> 
 
 Yukarıdaki kod parçacığında, `foreach` döngüsü içinde görevle ilgili komut satırının, üç komut satırı bağımsız değişkeni *TaskApplication.exe* dosyasına geçirilecek şekilde oluşturulduğunu görürsünüz:
 
 1. **İlk bağımsız değişken** işlenecek dosyanın yoludur. Düğümde yer aldığından dosyanın yerel yolu budur. `UploadFileToContainerAsync` ResourceFile nesnesi ilk oluşturulduğunda dosya adı bu özellik için kullanılır (parametrenin ResourceFile oluşturucuda yaptığı gibi). Dosyanın *TaskApplication.exe* ile aynı dizinde bulunabileceğini belirtir.
-
 2. **İkinci bağımsız değişken** ilk *N* sayıda sözcüğün çıktı dosyasına yazılması gerektiğini belirtir. Bu, örnekte sabit kodlanmıştır; bu nedenle çıktı dosyasına ilk üç sözcük yazılır.
-
 3. **Üçüncü bağımsız değişken**, Azure Storage’da **çıktı** kapsayıcısına yazma erişimi sağlayan paylaşılan erişim imzasıdır (SAS). *TaskApplication.exe*, çıktı dosyasını Azure Storage’a yüklediğinde paylaşılan erişim imzası URL'sini kullanır. Bunun için kodu, TaskApplication projesinin `Program.cs` dosyasındaki `UploadFileToContainer` yönteminde bulabilirsiniz:
 
 ```csharp
@@ -476,7 +486,6 @@ private static void UploadFileToContainer(string filePath, string containerSas)
 ```
 
 ## 6. Adım: Görevleri izleme
-
 ![Görevleri izleme][6]<br/>
 *İstemci uygulaması (1) tamamlama ve başarı durumu için görevleri izler, (2) görevler de sonuç verilerini Azure Storage’a yükler.*
 
@@ -485,9 +494,7 @@ Görevler bir projeye eklendiğinde, otomatik olarak kuyruğa alınır ve işle 
 DotNetTutorial'in `Program.cs` konumundaki `MonitorTasks` yönteminde tartışmayı destekleyen üç Batch .NET kavramı vardır. Görüntülenme sırasıyla aşağıda listelenmişlerdir:
 
 1. **ODATADetailLevel**: Liste işlemlerinde [ODATADetailLevel][net_odatadetaillevel] belirtilmesi (iş görevlerinin listesini almak gibi) Batch uygulaması performansını sağlamak için önemlidir. Batch uygulamanızda durum izlemenin herhangi bir biçimini yapmak için hazırlık yapıyorsanız okuma listenize [Azure Batch hizmetini etkin bir şekilde sorgulama](batch-efficient-list-queries.md) makalesini de ekleyin.
-
 2. **TaskStateMonitor**: [TaskStateMonitor][net_taskstatemonitor], görev durumlarının izlenmesi için yardımcı programlara sahip Batch .NET uygulamalarını sağlar. `MonitorTasks` konumunda, *DotNetTutorial* tüm görevler için sınırlı bir süre içinde [TaskState.Completed][net_taskstate] konumuna ulaşmak için bekler. Sonra da işi sonlandırır.
-
 3. **TerminateJobAsync**: İşin [JobOperations.TerminateJobAsync][net_joboperations_terminatejob] ile sonlandırılması (veya JobOperations.TerminateJob’un engellenmesi) bu işin tamamlandı olarak işaretlenmesine yol açar. Batch çözümünüz [JobReleaseTask][net_jobreltask] kullanıyorsa bunun yapılması gereklidir. [İş hazırlama ve tamamlama görevleri](batch-job-prep-release.md)’nde açıklanan özel tür bir görevdir.
 
 *DotNetTutorial*'ın `Program.cs` öğesine ait `MonitorTasks` yöntemi aşağıda görüntülenmektedir:
@@ -582,7 +589,6 @@ private static async Task<bool> MonitorTasks(
 ```
 
 ## 7. Adım: Görev çıktısı indirme
-
 ![Storage’dan görev çıktısını indirme][7]<br/>
 
 Artık iş tamamlandı, görevlere ait çıktı Azure Storage’dan indirilebilir. *DotNetTutorial*'a ait `Program.cs` içinde `DownloadBlobsFromContainerAsync` çağrısıyla yapılır:
@@ -615,10 +621,12 @@ private static async Task DownloadBlobsFromContainerAsync(
 }
 ```
 
-> [AZURE.NOTE] *DotNetTutorial* uygulamasındaki `DownloadBlobsFromContainerAsync` çağrısı dosyaların `%TEMP%` klasörünüze yüklenmiş olması gerektiğini belirtir. Bu çıktı konumunu değiştirmekten çekinmeyin.
+> [!NOTE]
+> *DotNetTutorial* uygulamasındaki `DownloadBlobsFromContainerAsync` çağrısı dosyaların `%TEMP%` klasörünüze yüklenmiş olması gerektiğini belirtir. Bu çıktı konumunu değiştirmekten çekinmeyin.
+> 
+> 
 
 ## 8. Adım: Sil kapsayıcıları
-
 Azure Storage’da yer alan veriler için ücretlendirildiğinizden, Batch işleriniz için artık gerekmeyen blobları kaldırmak iyi bir fikirdir. DotNetTutorial'ın `Program.cs` öğesinde, `DeleteContainerAsync` yardımcı yöntemine yönelik üç çağrı yapılır:
 
 ```csharp
@@ -650,7 +658,6 @@ private static async Task DeleteContainerAsync(
 ```
 
 ## 9. Adım: İşi ve havuzu silme
-
 Bu son adımda kullanıcıdan DotNetTutorial uygulaması tarafından oluşturulan işi ve havuzu silmesi istenir. İşlerin ve görevlerin kendileri için sizden ücret istenmese de, işlem düğümleri için *ücret* istenecektir. Bu nedenle, düğümleri yalnızca gerektiğinde ayırmanız önerilir. Kullanılmayan havuzların silinmesi bakım işleminizin bir parçası olabilir.
 
 BatchClient'ın [JobOperations][net_joboperations] ve [PoolOperations][net_pooloperations] öğelerinin her ikisinde de, kullanıcı silmeye karar verirse ilgili silme yöntemleri vardır:
@@ -673,10 +680,12 @@ if (response != "n" && response != "no")
 }
 ```
 
-> [AZURE.IMPORTANT] İşlem kaynaklarının ücretli olduğunu unutmayın; kullanılmayan havuzların silinmesi masrafları azaltacaktır. Bunun yanı sıra, bir havuzun silinmesinin, bu havuz içindeki tüm işlem düğümlerini de sileceğini unutmayın; bu nedenle, düğümlerdeki veriler de havuz silindikten sonra kurtarılamayacaktır.
+> [!IMPORTANT]
+> İşlem kaynaklarının ücretli olduğunu unutmayın; kullanılmayan havuzların silinmesi masrafları azaltacaktır. Bunun yanı sıra, bir havuzun silinmesinin, bu havuz içindeki tüm işlem düğümlerini de sileceğini unutmayın; bu nedenle, düğümlerdeki veriler de havuz silindikten sonra kurtarılamayacaktır.
+> 
+> 
 
 ## *DotNetTutorial* örneğini çalıştırma
-
 Örnek uygulamayı çalıştırdığınızda, konsol çıktısı aşağıdakine benzer. Yürütme sırasında, havuzun işlem düğümleri başlatıldığı sırada `Awaiting task completion, timeout in 00:30:00...` öğesiyle karşılaşacaksınız. Havuzunuzu, işlem düğümlerinizi, işinizi ve görevlerinizi yürütme sırasında ve sonrasında izlemek için [Azure portalı][azure_portal] kullanın. Uygulamanın oluşturduğu Storage kaynaklarını (kapsayıcılar ve bloblar) görüntülemek için [Azure portalı][azure_portal] veya [Azure Storage Gezgini][storage_explorers] birini kullanın.
 
 Varsayılan yapılandırmasında uygulama çalıştırıldığında tipik yürütme süresi **yaklaşık 5 dakikadır**.
@@ -713,14 +722,13 @@ Sample complete, hit ENTER to exit...
 ```
 
 ## Sonraki adımlar
-
 Farklı işlem senaryolarıyla denemeler yapmak için *DotNetTutorial* ve *TaskApplication* öğelerinde değişiklik yapmaktan çekinmeyin. Örneğin, uzun soluklu görevlerin benzetimini gerçekleştirmek ve bunları portalda izlemek için [Thread.Sleep][net_thread_sleep] ile olduğu gibi *TaskApplication* ’a bir yürütme gecikmesi eklemeye çalışın. Daha fazla görev eklemeye veya işlem düğüm sayısını ayarlamaya çalışın. Yürütme süresini hızlandırmak için mevcut havuzun kullanımını denetleyip izin vermek için mantık ekleyin (*ipucu*: [azure-batch-samples][github_samples] içindeki [Microsoft.Azure.Batch.Samples.Common][github_samples_common] projesinde `ArticleHelpers.cs` öğesini kullanıma alın).
 
 Batch çözümünün temel iş akışı hakkında artık bilginiz olduğuna göre, Batch hizmetinin ek özelliklerinin derinliklerine dalma zamanı gelmiştir.
 
-- Tüm yeni Batch kullanıcıları için önerilen [Geliştiriciler için Batch özelliğine genel bakış](batch-api-basics.md) konusunu okuyun.
-- [Batch öğrenme yolu][batch_learning_path]’ndaki **Ayrıntılı geliştirme** altında diğer Batch geliştirmesi makalelerine başlayın.
-- [TopNWords][github_topnwords] örneğinde Batch tarafından kullanılan "ilk N sözcük" iş yükünü işlemenin farklı uygulamalarını kullanıma alın.
+* Tüm yeni Batch kullanıcıları için önerilen [Geliştiriciler için Batch özelliğine genel bakış](batch-api-basics.md) konusunu okuyun.
+* [Batch öğrenme yolu][batch_learning_path]’ndaki **Ayrıntılı geliştirme** altında diğer Batch geliştirmesi makalelerine başlayın.
+* [TopNWords][github_topnwords] örneğinde Batch tarafından kullanılan "ilk N sözcük" iş yükünü işlemenin farklı uygulamalarını kullanıma alın.
 
 [azure_batch]: https://azure.microsoft.com/services/batch/
 [azure_free_account]: https://azure.microsoft.com/free/

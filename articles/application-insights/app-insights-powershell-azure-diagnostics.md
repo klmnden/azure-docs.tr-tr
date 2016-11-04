@@ -1,27 +1,24 @@
-<properties
-    pageTitle="PowerShell kullanarak Application Insights’a Azure Tanılama verileri gönderme | Microsoft Azure"
-    description="Application Insights’a kanal oluşturmak için Azure Tanılama’yı yapılandırmayı otomatikleştirme"
-    services="application-insights"
-    documentationCenter=".net"
-    authors="sbtron"
-    manager="douge"/>
+---
+title: PowerShell kullanarak Application Insights’a Azure Tanılama verileri gönderme | Microsoft Docs
+description: Application Insights’a kanal oluşturmak için Azure Tanılama’yı yapılandırmayı otomatikleştirme
+services: application-insights
+documentationcenter: .net
+author: sbtron
+manager: douge
 
-<tags
-    ms.service="application-insights"
-    ms.workload="tbd"
-    ms.tgt_pltfrm="ibiza" 
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="11/17/2015"
-    ms.author="awills"/>
+ms.service: application-insights
+ms.workload: tbd
+ms.tgt_pltfrm: ibiza
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 11/17/2015
+ms.author: awills
 
-
+---
 # PowerShell kullanarak Application Insights’a Azure Tanılama verileri gönderme
-
 [Microsoft Azure](https://azure.com), [Visual Studio Application Insights](app-insights-overview.md)’a [Azure Tanılama verileri gönderecek şekilde yapılandırılabilir.](app-insights-azure-diagnostics.md) Tanılama verileri Azure Cloud Services ve Azure VM’leriyle ilişkilidir. Uygulama içinde Application Insights SDK’sı kullanarak gönderdiğiniz telemetriyi tamamlar. Azure’da yeni kaynaklar oluşturma işlemini otomatikleştirmenin bir parçası olarak tanılamayı PowerShell kullanarak yapılandırabilirsiniz.
 
 ## Bulut Hizmeti dağıtımının bir parçası olarak tanılama uzantısını etkinleştirme
-
 `New-AzureDeployment` cmdlet’i, bir dizi tanılama yapılandırması içeren `ExtensionConfiguration` parametresine sahiptir. Bunlar, `New-AzureServiceDiagnosticsExtensionConfig` cmdlet’i kullanılarak oluşturulabilir. Örneğin:
 
 ```ps
@@ -58,11 +55,10 @@
 ``` 
 
 ## Mevcut bir Bulut Hizmetinde tanılama uzantısını etkinleştirme
-
 Mevcut bir hizmet üzerinde `Set-AzureServiceDiagnosticsExtension` kullanma
 
 ```ps
- 
+
     $service_name = "MyService"
     $diagnostics_storagename = "myservicediagnostics"
     $webrole_diagconfigpath = "MyService.WebRole.PubConfig.xml" 
@@ -88,7 +84,6 @@ Mevcut bir hizmet üzerinde `Set-AzureServiceDiagnosticsExtension` kullanma
 ```
 
 ## Güncel tanılama uzantı yapılandırmasını alma
-
 ```ps
 
     Get-AzureServiceDiagnosticsExtension -ServiceName "MyService"
@@ -96,7 +91,6 @@ Mevcut bir hizmet üzerinde `Set-AzureServiceDiagnosticsExtension` kullanma
 
 
 ## Tanılama uzantısını kaldırma
-
 ```ps
 
     Remove-AzureServiceDiagnosticsExtension -ServiceName "MyService"
@@ -113,13 +107,9 @@ Tanılama uzantısını her bir rolden kaldırmak için:
 
 
 ## Ayrıca bkz.
-
 * [Application Insights’la Azure Cloud Services uygulamalarını izleme](app-insights-cloudservices.md)
 * [Azure Tanılama verilerini Application Insights’a gönderme](app-insights-azure-diagnostics.md)
 * [Yapılandırma uyarılarını otomatik hale getirme](app-insights-powershell-alerts.md)
-
-
-
 
 <!--HONumber=Sep16_HO3-->
 

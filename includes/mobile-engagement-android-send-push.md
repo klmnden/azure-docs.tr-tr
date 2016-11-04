@@ -1,6 +1,5 @@
 
-###<a name="update-manifest-file-to-enable-notifications"></a>Bildirimleri etkinleştirmek için bildirim dosyasını güncelleştirme
-
+### <a name="update-manifest-file-to-enable-notifications"></a>Bildirimleri etkinleştirmek için bildirim dosyasını güncelleştirme
 Aşağıdaki uygulama içi mesajlaşma kaynaklarını aşağıdaki Manifest.xml dosyasında `<application>` ve `</application>` etiketleri arasına kopyalayın.
 
         <activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementTextAnnouncementActivity" android:theme="@android:style/Theme.Light" android:exported="false">
@@ -45,8 +44,7 @@ Aşağıdaki uygulama içi mesajlaşma kaynaklarını aşağıdaki Manifest.xml 
             </intent-filter>
         </receiver>
 
-###<a name="specify-an-icon-for-notifications"></a>Bildirimler için simge belirtme
-
+### <a name="specify-an-icon-for-notifications"></a>Bildirimler için simge belirtme
 Manifest.xml dosyanızda yer alan aşağıdaki XML parçacığını `<application>` ve `</application>` etiketleri arasına yapıştırın.
 
         <meta-data android:name="engagement:reach:notification:icon" android:value="engagement_close"/>
@@ -55,28 +53,32 @@ Böylece simgenin hem sistemde, hem de uygulama içi bildirimlerde görüntülen
 
 **drawable** klasörlerinden birinde bulunan simgeleri kullandığınızdan emin olun (örneğin, ``engagement_close.png``). **mipmap** klasörü desteklenmez.
 
->[AZURE.NOTE] **Başlatıcı** simgesi kullanılamaz. Bunun farklı bir çözünürlüğü vardır ve çoğunlukla desteklemediğimiz mipmap klasörlerinde yer alır.
+> [!NOTE]
+> **Başlatıcı** simgesi kullanılamaz. Bunun farklı bir çözünürlüğü vardır ve çoğunlukla desteklemediğimiz mipmap klasörlerinde yer alır.
+> 
+> 
 
 Gerçek uygulamalar için, her[Android tasarım yönergesi](http://developer.android.com/design/patterns/notifications.html) için bir bildirime uygun simgeleri kullanabilirsiniz.
 
->[AZURE.TIP] Doğru simge çözünürlüğü kullandığınızdan emin olmak için [bu örneklere](https://www.google.com/design/icons) bakabilirsiniz.
-Kayarak **Bildirim** bölümüne gidin, simgeye tıklayın ve ardından simge çizilebilir kümesini indirmek için `PNGS` öğesine tıklayın. Simgenin her sürümü için hangi drawable klasörlerde hangi çözünürlüğün kullanıldığını da görebilirsiniz.
+> [!TIP]
+> Doğru simge çözünürlüğü kullandığınızdan emin olmak için [bu örneklere](https://www.google.com/design/icons) bakabilirsiniz.
+> Kayarak **Bildirim** bölümüne gidin, simgeye tıklayın ve ardından simge çizilebilir kümesini indirmek için `PNGS` öğesine tıklayın. Simgenin her sürümü için hangi drawable klasörlerde hangi çözünürlüğün kullanıldığını da görebilirsiniz.
+> 
+> 
 
-###<a name="enable-your-app-to-receive-gcm-push-notifications"></a>GCM anında iletme bildirimlerini almak için uygulamanızı etkinleştirme
-
+### <a name="enable-your-app-to-receive-gcm-push-notifications"></a>GCM anında iletme bildirimlerini almak için uygulamanızı etkinleştirme
 1. Firebase proje konsolunuzdan alınan **Gönderen Kimliği**’ni değiştirdikten sonra aşağıdaki kodu, Manifest.xml dosyanızda `<application>` ve `</application>` etiketleri arasına yapıştırın. \n kasıtlı olarak konmuştur; bu nedenle proje numarasını bununla bitirdiğinizden emin olun.
-
+   
         <meta-data android:name="engagement:gcm:sender" android:value="************\n" />
-
 2. Aşağıdaki kodu Manifest.xml dosyanızda `<application>` ve `</application>` etiketleri arasına yapıştırın. <Your package name> paket adını değiştirin.
-
+   
         <receiver android:name="com.microsoft.azure.engagement.gcm.EngagementGCMEnabler"
         android:exported="false">
             <intent-filter>
                 <action android:name="com.microsoft.azure.engagement.intent.action.APPID_GOT" />
             </intent-filter>
         </receiver>
-
+   
         <receiver android:name="com.microsoft.azure.engagement.gcm.EngagementGCMReceiver" android:permission="com.google.android.c2dm.permission.SEND">
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
@@ -84,17 +86,11 @@ Kayarak **Bildirim** bölümüne gidin, simgeye tıklayın ve ardından simge ç
                 <category android:name="<Your package name>" />
             </intent-filter>
         </receiver>
-
 3. `<application>` etiketinin önünde vurgulanan son izin kümesini ekleyin. `<Your package name>` öğesini uygulamanızın asıl paket adıyla değiştirin.
-
+   
         <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
         <uses-permission android:name="<Your package name>.permission.C2D_MESSAGE" />
         <permission android:name="<Your package name>.permission.C2D_MESSAGE" android:protectionLevel="signature" />
-
-
-
-
-
 
 <!--HONumber=Oct16_HO3-->
 

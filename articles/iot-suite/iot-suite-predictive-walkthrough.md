@@ -1,31 +1,27 @@
-<properties
- pageTitle="Tahmine dayalı bakımda gezinme | Microsoft Azure"
- description="Azure IoT önceden yapılandırılmış tahmine dayalı bakım çözümü gezintisi."
- services=""
- suite="iot-suite"
- documentationCenter=""
- authors="aguilaaj"
- manager="timlt"
- editor=""/>
+---
+title: Tahmine dayalı bakımda gezinme | Microsoft Docs
+description: Azure IoT önceden yapılandırılmış tahmine dayalı bakım çözümü gezintisi.
+services: ''
+suite: iot-suite
+documentationcenter: ''
+author: aguilaaj
+manager: timlt
+editor: ''
 
-<tags
- ms.service="iot-suite"
- ms.devlang="na"
- ms.topic="get-started-article"
- ms.tgt_pltfrm="na"
- ms.workload="na"
- ms.date="08/17/2016"
- ms.author="araguila"/>
+ms.service: iot-suite
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 08/17/2016
+ms.author: araguila
 
-
+---
 # Önceden yapılandırılmış tahmine dayalı bakım çözümünde gezinme
-
 ## Giriş
-
 IoT Paketi önceden yapılandırılmış tahmine dayalı bakım çözümü, arıza oluştuğu sırada noktayı tahmin eden iş senaryosu için uçtan uca bir çözümüdür. Bu önceden yapılandırılmış çözümü, bakım iyileştirmesi gibi etkinlikler için proaktif olarak kullanabilirsiniz. Çözüm, bir [Azure Machine Learning][lnk_machine_learning] çalışma alanı dahil olmak üzere önemli Azure IoT Paketi hizmetlerini birleştirir. Bu çalışma alanı, bir uçak motorunun Kalan Kullanım Ömrü’nü (RUL) öngörmek için genel bir örnek veri kümesini temel alan denemeler içerir. Bu çözüm, kendinize özel iş gereksinimlerinizi karşılayacak bir çözümü planlamanız ve uygulamanız amacıyla sizin için bir başlangıç noktası olarak IoT iş senaryosunu tam olarak uygular.
 
 ## Mantıksal mimari
-
 Aşağıdaki diyagram önceden yapılandırılmış çözümün mantıksal bileşenlerinin ana hatların vermektedir:
 
 ![][img-architecture]
@@ -39,7 +35,6 @@ Yeşil öğe uçak motorunu temsil eden sanal cihazdır. Aşağıdaki bölümde 
 Gri öğeler, *cihaz yönetimi* becerilerini uygulayan bileşenleri temsil eder. Önceden yapılandırılmış tahmine dayalı bakım çözümü bu kaynakları hazırlamaz. Cihaz yönetimi hakkında daha fazla bilgi edinmek için [önceden yapılandırılmış uzaktan izleme çözümü][lnk-remote-monitoring] konusuna bakın.
 
 ## Sanal cihazlar
-
 Önceden yapılandırılmış çözümde sanal cihaz uçak motorunu temsil eder. Çözüm, tek bir uçakla eşlenen 2 motorla sağlanır. Her motor dört tür telemetri yayar: Algılayıcı 9, Algılayıcı 11, Algılayıcı 14 ve Algılayıcı 15, Machine Learning modelinin bu motorun Kalan Kullanım Ömrü’nü (RUL) hesaplaması için gereken verileri sağlar. Her sanal cihaz IoT Hub'ına şu telemetri iletilerini gönderir:
 
 *Döngü sayısı*. Bir döngü, 2-10 saat arası değişken bir uzunluğa sahip olan ve uçuş sırasında her yarım saatte bir telemetri verilerinin yakalandığı tamamlanmış bir uçuşu temsil eder.
@@ -49,37 +44,31 @@ Gri öğeler, *cihaz yönetimi* becerilerini uygulayan bileşenleri temsil eder.
 Sanal cihazlar IoT hub'ından gönderilen şu komutları işleyebilir:
 
 | Komut | Açıklama |
-|---------|-------------|
-| StartTelemetry | Benzetim durumunu denetler.<br/>Cihazın telemetri göndermesini başlatır     |
-| StopTelemetry  | Benzetim durumunu denetler.<br/>Cihazın telemetri göndermesini durdurur |
+| --- | --- |
+| StartTelemetry |Benzetim durumunu denetler.<br/>Cihazın telemetri göndermesini başlatır |
+| StopTelemetry |Benzetim durumunu denetler.<br/>Cihazın telemetri göndermesini durdurur |
 
 IoT hub'ı cihaz komut bildirim sağlar.
 
 ## Azure Stream Analytics işi
-
 **İş: Telemetri**, gelen cihaz telemetrisi akışını iki durumu kullanarak çalıştırır. Önce, cihazlardan tüm telemetriyi seçer ve bu verileri web uygulamasında görselleştirildiği yerden blob depolamaya gönderir. İkinci durum, iki dakikalık kayan pencere üzerinde ortalama algılayıcı değerlerini ölçer ve bu verileri Olay hub'ı aracılığıyla **olay işlemcisi**’ne gönderir.
 
 ## Olay işlemcisi
-
 **Olay işlemcisi**, tamamlanan bir döngü için ortalama algılayıcı değerlerini alır. Bu değerleri bir motorun RUL değerini hesaplaması için Machine Learning eğitilmiş modelinin kullanımına sunan bir API’ye geçirir.
 
 ## Azure Machine Learning
-
 Özgün veri kümesinden modelin oluşturulması hakkında daha fazla bilgi için bkz. [Cortana Intelligence Gallery Tahmine Dayalı Bakım Şablonu][lnk-cortana-analytics].
 
 ## Haydi dolaşmaya başlayalım
-
 Bu bölümde, çözüm bileşenlerinde gezineceksiniz; burada hedeflenen kullanım örneğini açıklanacak ve örnekler verilecektir.
 
 ### Tahmine Dayalı Bakım Panosu
-
 Web uygulamasındaki bu sayfa PowerBI JavaScript denetimlerini (bkz. [PowerBI-visuals repository][lnk-powerbi]) kullanarak şunları görselleştirir:
 
-- Blob depolamada Stream Analytics işlerine ait çıktı verileri.
-- Uçak motoru başına RUL ve döngüsü sayısı.
+* Blob depolamada Stream Analytics işlerine ait çıktı verileri.
+* Uçak motoru başına RUL ve döngüsü sayısı.
 
 ### Bulut çözümünün davranışını gözlemleme
-
 Azure portalda sağlanan kaynaklarınızı görüntülemek için seçtiğiniz çözüm adına sahip kaynak grubuna gidin.
 
 ![][img-resource-group]
@@ -107,16 +96,14 @@ Benzetim 148 döngü için tam veri kümesinde çalışır, son RUL ve döngü d
 Benzetimi istediğiniz an durdurabilirsiniz; ancak, **Benzetimi Başlat**’a tıkladığınızda benzetim veri kümesinin başından başlayarak yeniden oynatılır.
 
 ## Sonraki adımlar
-
 Şimdi de değiştirmek istediğiniz önceden yapılandırılmış tahmine dayalı bakım çözümünü çalıştırıyorsunuz; bkz.[Önceden yapılandırılmış çözümleri özelleştirme kılavuzu][lnk-customize].
 
  [IoT Paketi - Başlık Altında - Tahmine Dayalı Bakım](http://social.technet.microsoft.com/wiki/contents/articles/33527.iot-suite-under-the-hood-predictive-maintenance.aspx) TechNet blog gönderisi önceden yapılandırılmış tahmine dayalı bakım çözümü hakkında ek ayrıntılar sağlar.
 
 Önceden yapılandırılmış IoT Suite çözümlerinin diğer özelliklerinden bazılarını da keşfedebilirsiniz:
 
-- [IoT Paketi hakkında sık sorulan sorular][lnk-faq]
-- [Her yönüyle IoT güvenliği][lnk-security-groundup]
-
+* [IoT Paketi hakkında sık sorulan sorular][lnk-faq]
+* [Her yönüyle IoT güvenliği][lnk-security-groundup]
 
 [img-architecture]: media/iot-suite-predictive-walkthrough/architecture.png
 [img-resource-group]: media/iot-suite-predictive-walkthrough/resource-group.png

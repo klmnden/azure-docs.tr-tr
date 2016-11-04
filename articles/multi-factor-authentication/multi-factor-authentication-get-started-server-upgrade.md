@@ -1,24 +1,22 @@
-<properties 
-    pageTitle="PhoneFactor Aracısı’nı Azure Multi-Factor Authentication Sunucusu’na yükseltme"
-    description="Bu belgede Azure MFA Sunucusu kullanmaya başlama ve eski phonefactor aracısından yükseltme açıklanır."
-    services="multi-factor-authentication"
-    documentationCenter=""
-    authors="kgremban"
-    manager="femila"
-    editor="curtland"/>
+---
+title: PhoneFactor Aracısı’nı Azure Multi-Factor Authentication Sunucusu’na yükseltme
+description: Bu belgede Azure MFA Sunucusu kullanmaya başlama ve eski phonefactor aracısından yükseltme açıklanır.
+services: multi-factor-authentication
+documentationcenter: ''
+author: kgremban
+manager: femila
+editor: curtland
 
-<tags
-    ms.service="multi-factor-authentication"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="08/04/2016"
-    ms.author="kgremban"/>
+ms.service: multi-factor-authentication
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 08/04/2016
+ms.author: kgremban
 
-
+---
 # PhoneFactor Aracısı’nı Azure Multi-Factor Authentication Sunucusu’na yükseltme
-
 PhoneFactor Agent v5.x ya da eski bir sürümünden Azure Multi-Factor Authentication Sunucusu’na yükseltmek PhoneFactor Aracısı ve bağlantılı bileşenlerin Multi-Factor Authentication Sunucusu ve bunun bağlı bileşenleri yüklenmeden önce kaldırılmasını gerektirir.
 
 ## PhoneFactor Aracısı’nı Azure Multi-Factor Authentication Sunucusu’na yükseltmek için
@@ -40,6 +38,7 @@ PhoneFactor Agent v5.x ya da eski bir sürümünden Azure Multi-Factor Authentic
 
 
 <li>Mobil Uygulama Web Hizmeti yüklü ise:
+
 <ol>
 <li>Yükleme klasörüne gidin ve web.config dosyasını yedekleyin. Varsayılan yükleme konumu C:\inetpub\wwwroot\PhoneFactorPhoneAppWebService şeklindedir.</li>
 <li>Mobil Uygulama Web Hizmeti’ni Windows Programlar ve Özellikler aracılığıyla kaldırın.</li></ol>
@@ -57,6 +56,7 @@ PhoneFactor Agent v5.x ya da eski bir sürümünden Azure Multi-Factor Authentic
 <li>Kullanıcı Portalı önceden PhoneFactor Aracısı Sunucusu’nda yüklüyse, yeni Multi-Factor Authentication Kullanıcı Portalı’nı Multi-Factor Authentication Sunucusu Kullanıcı Arabirimi aracılığıyla yükleyin. Varsayılan sanal dizin adının artık “PhoneFactor” yerine “MultiFactorAuth” olduğuna dikkat edin. Önceki adı kullanmak istiyorsanız, yükleme sırasında sanal dizin adını değiştirmeniz gerekir. Aksi takdirde, yeni varsayılan adı kullanacak şekilde yüklemeye izin verirseniz, Multi-Factor Authentication Sunucusu’nda Kullanıcı Portalı simgesine tıklamanız ve Ayarlar sekmesinde Kullanıcı Portalı URL’sini güncelleştirmeniz gerekir.
 
 <li>Kullanıcı Portalı ve/veya Mobil Uygulama Web hizmeti daha önce PhoneFactor Aracısı’ndan farklı bir sunucuya yüklendiyse:
+
 <ol>
 <li>Yükleme konumuna gidin (örneğin, C:\Program Files\PhoneFactor) ve uygun yükleyicileri diğer sunucuya kopyalayın. Kullanıcı Portalı ve Mobil Uygulama Web Hizmeti için 32-bit ve 64-bit yükleyiciler vardır. Bunlara sırasıyla MultiFactorAuthenticationUserPortalSetupXX.msi ve MultiFactorAuthenticationMobileAppWebServiceSetupXX.msi adı verilir.</li>
 <li>Web sunucusunda Kullanıcı Portalı'nı yüklemek için, yönetici olarak bir komut istemi açın ve MultiFactorAuthenticationUserPortalSetupXX.msi komutunu çalıştırın. Varsayılan sanal dizin adının artık “PhoneFactor” yerine “MultiFactorAuth” olduğuna dikkat edin. Önceki adı kullanmak istiyorsanız, yükleme sırasında sanal dizin adını değiştirmeniz gerekir. Aksi takdirde, yeni varsayılan adı kullanacak şekilde yüklemeye izin verirseniz, Multi-Factor Authentication Sunucusu’nda Kullanıcı Portalı simgesine tıklamanız ve Ayarlar sekmesinde Kullanıcı Portalı URL’sini güncelleştirmeniz gerekir. Mevcut kullanıcıların yeni URL konusunda bilgilendirilmesi gerekir.</li>

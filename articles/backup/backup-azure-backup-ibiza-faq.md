@@ -1,28 +1,28 @@
-<properties
-   pageTitle="Kurtarma Hizmetleri kasası hakkında SSS | Microsoft Azure"
-   description="SSS'nin bu sürümü, Azure Backup hizmetinin Genel Önizleme sürümünü destekler. Backup aracısı, yedekleme ve bekletme, kurtarma, güvenlik ve Azure Backup çözümü ile ilgili diğer sık sorulan soruların yanıtları."
-   services="backup"
-   documentationCenter=""
-   authors="markgalioto"
-   manager="jwhit"
-   editor=""
-   keywords="yedekleme çözümü; backup hizmeti"/>
+---
+title: Kurtarma Hizmetleri kasası hakkında SSS | Microsoft Docs
+description: SSS'nin bu sürümü, Azure Backup hizmetinin Genel Önizleme sürümünü destekler. Backup aracısı, yedekleme ve bekletme, kurtarma, güvenlik ve Azure Backup çözümü ile ilgili diğer sık sorulan soruların yanıtları.
+services: backup
+documentationcenter: ''
+author: markgalioto
+manager: jwhit
+editor: ''
+keywords: yedekleme çözümü; backup hizmeti
 
-<tags
-   ms.service="backup"
-   ms.workload="storage-backup-recovery"
-     ms.tgt_pltfrm="na"
-     ms.devlang="na"
-     ms.topic="get-started-article"
-     ms.date="08/21/2016"
-     ms.author="trinadhk; markgal; jimpark;"/>
+ms.service: backup
+ms.workload: storage-backup-recovery
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 08/21/2016
+ms.author: trinadhk; markgal; jimpark;
 
-
+---
 # Kurtarma Hizmetleri kasası - SSS
-
-> [AZURE.SELECTOR]
-- [Klasik mod için Backup ile ilgili SSS](backup-azure-backup-faq.md)
-- [Resource Manager modu için Backup ile ilgili SSS](backup-azure-backup-ibiza-faq.md)
+> [!div class="op_single_selector"]
+> * [Klasik mod için Backup ile ilgili SSS](backup-azure-backup-faq.md)
+> * [Resource Manager modu için Backup ile ilgili SSS](backup-azure-backup-ibiza-faq.md)
+> 
+> 
 
 Bu makalede, Kurtarma Hizmetleri kasasına özgü bilgiler sağlanmaktadır ve makale, [Azure Backup hakkında SSS](backup-azure-backup-faq.md) makalesi için tamamlayıcı niteliktedir. Azure Backup ile ilgili SSS, Azure Backup hizmeti hakkında tam kapsamlı sorular ve yanıtlar sağlamaktadır.  
 
@@ -43,8 +43,6 @@ Yedekleme kasasındaki klasik VM yedekleri, VM’leri klasik moddan Resource Man
 1. Yedekleme kasasıda, **Korunan Öğeler** sekmesine gidin ve VM’yi seçin. [Korumayı Durdur](backup-azure-manage-vms-classic.md#stop-protecting-virtual-machines)’a tıklayın. *İlişkili yedekleme verilerini sil* seçeneğini **işaretlenmemiş** olarak bırakın. 
 2. Sanal makineyi, klasik moddan Resource Manager moduna geçirin. Sanal makine için karşılık gelen depolama ve ağın da Resource Manager moduna geçirildiğinden emin olun. 
 3. Bir kurtarma hizmetleri kasası oluşturun ve kasa panosunun üstündeki **Backup** işlemini kullanarak, geçirilen sanal makinede yedeklemeyi yapılandırın. [Kurtarma hizmetleri kasasında yedeklemeyi etkinleştirme](backup-azure-vms-first-look-arm.md) hakkında daha fazla bilgi edinin
-
-
 
 <!--HONumber=Sep16_HO5-->
 

@@ -1,67 +1,52 @@
-<properties
-    pageTitle="Azure Active Directory Premium ile çalışmaya başlama"
-    description="Azure Active Directory Premium sürümü için, Toplu Lisanslama web sitesi üzerinden kayıt işleminin nasıl yapıldığını açıklayan bir konu başlığı."
-    services="active-directory"
-    documentationCenter=""
-    authors="markusvi"
-    manager="femila" 
-    editor=""/>
+---
+title: Azure Active Directory Premium ile çalışmaya başlama
+description: Azure Active Directory Premium sürümü için, Toplu Lisanslama web sitesi üzerinden kayıt işleminin nasıl yapıldığını açıklayan bir konu başlığı.
+services: active-directory
+documentationcenter: ''
+author: markusvi
+manager: femila
+editor: ''
 
-<tags
-    ms.service="active-directory"
-    ms.workload="infrastructure-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="08/16/2016"
-    ms.author="markvi"/>
+ms.service: active-directory
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 08/16/2016
+ms.author: markvi
 
-
+---
 # Azure Active Directory Premium ile çalışmaya başlama
-
-
 Active Directory Premium'a kaydolmanız için birkaç seçenek sunulmaktadır: 
 
 **Azure veya Office 365** Azure veya Office 365 abonesi olarak, Active Directory Premium'u çevrimiçi satın alabilirsiniz. Ayrıntılı adımlar için bkz. [Azure Active Directory Premium'u satın alma - Mevcut Müşteriler](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-Existing-Customer) veya [Azure Active Directory Premium'u satın alma - Yeni Müşteriler](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-New-Customers).  
 
 **Enterprise Mobility + Security** - Enterprise Mobility + Security, (eski adıyla Enterprise Mobility Suite), kuruluşların şu hizmetleri tek lisans planı kapsamında birlikte kullanmasını sağlayan uygun maliyetli bir yöntemdir: Active Directory Premium, Azure Rights Management, Microsoft Intune. Daha fazla bilgi için [Enterprise Mobility + Security](https://www.microsoft.com/en-us/server-cloud/enterprise-mobility/overview.aspx) web sitesine göz atın. Ücretsiz 30 günlük deneme sürümünü edinmek için [buraya](https://portal.office.com/Signup/Signup.aspx?OfferId=2E63A04D-BE0B-4A0F-A8CF-407C1C299221&dl=EMS&ali=1#0) tıklayın.
 
-
 **Microsoft Toplu Lisanslama** - Azure Active Directory Premium bir [Microsoft Enterprise Sözleşmesi](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx) (250 veya daha fazla lisans) veya [Açık Toplu Lisans](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx) (5 - 250 lisans) programı ile sunulmaktadır.
-
 
 Bu konu başlığında, Toplu Lisanslama programı aracılığıyla satın aldığınız Azure Active Directory Premium ile çalışmaya nasıl başlayacağınız gösterilmektedir. Azure Active Directory'nin farklı sürümleri hakkında henüz bilgi sahibi değilseniz bkz. [Azure Active Directory sürümleri](active-directory-editions.md).  
 
-> [AZURE.NOTE]
-Azure Active Directory Premium ve Basic sürümleri, Azure Active Directory'nin dünya çapındaki örneğini kullanan Çin'deki müşterilerin kullanımına sunulmuştur. Azure Active Directory Premium ve Basic sürümleri, şu anda Çin'de 21Vianet tarafından işletilen Microsoft Azure hizmeti kapsamında desteklenmemektedir. Daha fazla bilgi için [Azure Active Directory Forumu](https://feedback.azure.com/forums/169401-azure-active-directory/)'nda bizimle iletişime geçin.
-
-
-
+> [!NOTE]
+> Azure Active Directory Premium ve Basic sürümleri, Azure Active Directory'nin dünya çapındaki örneğini kullanan Çin'deki müşterilerin kullanımına sunulmuştur. Azure Active Directory Premium ve Basic sürümleri, şu anda Çin'de 21Vianet tarafından işletilen Microsoft Azure hizmeti kapsamında desteklenmemektedir. Daha fazla bilgi için [Azure Active Directory Forumu](https://feedback.azure.com/forums/169401-azure-active-directory/)'nda bizimle iletişime geçin.
+> 
+> 
 
 ## 1. Adım: Active Directory Premium'a kaydolma
-
 Kaydolmak için bkz. [Toplu Lisanslama ile satın alma](http://www.microsoft.com/en-us/licensing/how-to-buy/how-to-buy.aspx).
 
-
-
 ## 2. Adım: Lisans planınızı etkinleştirme
-
 Bu, Microsoft Enterprise Toplu Lisanslama programı aracılığıyla satın aldığınız ilk lisans planı mı?
 Bu durumda, satın alma işleminiz tamamlandıktan sonra bir onay e-postası alırsınız.
 İlk lisans planınızı etkinleştirmek için bu e-postaya ihtiyacınız vardır.
 
 Bu dizine yönelik sonraki tüm satın alma işlemlerinde, lisanslar otomatik olarak aynı dizinde etkinleştirilir.
 
-
-
 **Lisans planınızı etkinleştirmek için aşağıdaki adımlardan birini gerçekleştirin:**
 
-
 1. Etkinleştirmeyi başlatmak için, **Oturum Aç** veya **Kaydol** seçeneğine tıklayın.
-
+   
     ![Oturum aç][1]
-
-
 
     - Mevcut bir kiracınız varsa mevcut yönetici hesabınızla oturum açmak için **Oturum Aç** seçeneğine tıklayın. Lisansların etkinleştirilmesi için kullanılması gereken dizinden genel yönetici kimlik bilgileriyle oturum açmanız gerekir.
 
@@ -74,7 +59,6 @@ Bu dizine yönelik sonraki tüm satın alma işlemlerinde, lisanslar otomatik ol
 ![Onay][3]
 
 ## 3. Adım: Azure Active Directory erişiminizi etkinleştirme
-
 Microsoft Azure'ı daha önce kullandıysanız [4. Adım](#step-4-assign-license-to-user-accounts)'a geçebilirsiniz. 
 
 Lisanslar, dizininize sağlandığında size bir **Hoş geldiniz e-postası** gönderilir. E-posta, Azure Active Directory Premium veya Enterprise Mobility Suite lisanslarınızı ve özelliklerinizi yönetmeye başlayabileceğinizi onaylar. 
@@ -87,19 +71,13 @@ Lütfen e-postayı aldıktan birkaç dakika sonra tekrar deneyin.
 
 Aboneliğiniz kapsamındaki yeni yöneticiler de bu bağlantı üzerinden klasik Azure portalına erişimlerini etkinleştirebilir.
 
-
-
-
-
-
 **Azure Active Directory erişiminizi etkinleştirmek için aşağıdaki adımları uygulayın:**
 
 1. **Hoş geldiniz e-postanızda**, **Oturum Aç**'a tıklayın. 
-    
+   
     ![Hoş geldiniz e-postası][4]
-
 2. Başarıyla oturum açtıktan sonra, mobil doğrulama biçimindeki ikinci kimlik doğrulaması öğesini tamamlamanız gerekir:
-
+   
     ![Mobil doğrulama][5]
 
 Etkinleştirme birkaç dakika sürebilir. Erişiminiz etkinleştirildikten sonra, kahverengi çubuk kaybolur ve **Portal**'a tıklayabilirsiniz.
@@ -114,10 +92,7 @@ Bu durumda, Azure erişiminiz Azure Active Directory ile sınırlıdır.
 
 ![Azure özellikleri][8]
 
-
-
 ## 4. Adım: Kullanıcı hesaplarına lisans atama
-
 Satın aldığınız planı kullanmaya başlamadan önce, Premium ile sağlanan zengin özellikleri kullanabilmeleri için kuruluşunuzdaki kullanıcı hesaplarına lisansları kendiniz atamanız gerekir. Azure Active Directory Premium özelliklerini kullanabilmeleri için kullanıcılara lisans atamak üzere aşağıdaki adımları uygulayın.
 
 **Kullanıcılara lisans atamak için aşağıdaki adımları uygulayın:**
@@ -125,19 +100,16 @@ Satın aldığınız planı kullanmaya başlamadan önce, Premium ile sağlanan 
 1. Klasik Azure portalında, özelleştirmek istediğiniz dizinin genel yöneticisi olarak oturum açın.
 2. **Active Directory** seçeneğine tıklayın ve ardından, lisansları atamak istediğiniz dizini seçin.
 3. **Lisanslar** sekmesini seçin, **Active Directory Premium** veya **Enterprise Mobility Suite** seçeneğini belirleyin ve ardından **Ata**'ya tıklayın.
-
+   
     ![Lisans planları][10]
-
 4. İletişim kutusunda, lisans atamak istediğiniz kullanıcıları seçin ve ardından değişiklikleri kaydetmek için onay işareti simgesine tıklayın.
-
+   
     ![Lisans atama][11]
 
 ### Lisans kısıtlamaları
-
 Bazı lisans planları diğer lisans planlarının alt kümeleri veya üst kümeleridir. Genellikle, bir kullanıcı zaten kendisine atanmış olan bir lisans planına atanamaz. Üst küme olan bir lisans planını atamak istiyorsanız öncelikle alt küme lisans planını kaldırmanız gerekir.
 
 ### Lisans gereksinimleri
-
 Bir kullanıcıya lisans atadığınızda, hesabının özelliklerinde birincil kullanım konumu belirtebilirsiniz. Kullanım konumu belirtilmezse kullanıcıya otomatik olarak kiracının konumu atanır.
 
 ![Kullanıcı konumu][12]
@@ -145,9 +117,8 @@ Bir kullanıcıya lisans atadığınızda, hesabının özelliklerinde birincil 
 Bir Microsoft bulut hizmeti için hizmetlerin ve özelliklerin kullanılabilirliği ülkeye veya bölgeye göre değişiklik gösterir. Internet protokolü üzerinden ses (VoIP) gibi bir hizmet, bir ülkede veya bölgede kullanılabilirken başka bir ülkede veya bölgede kullanılamıyor olabilir. Bir hizmet kapsamındaki özellikler, belirli ülke veya bölgelerde yasal nedenlerden ötürü kısıtlanmış olabilir. Bir hizmetin veya özelliğin kısıtlamalı veya kısıtlamasız olarak kullanılabilirlik durumunu öğrenmek için hizmetin lisans kısıtlamaları sitesinde ülkenizi veya bölgenizi arayın.
 
 ## Sırada ne var?
-
-- [Oturum Aç ve Erişim Paneli sayfalarınıza şirket markası ekleme](active-directory-add-company-branding.md)
-- [Erişim ve kullanım raporlarınızı görüntüleme](active-directory-view-access-usage-reports.md)
+* [Oturum Aç ve Erişim Paneli sayfalarınıza şirket markası ekleme](active-directory-add-company-branding.md)
+* [Erişim ve kullanım raporlarınızı görüntüleme](active-directory-view-access-usage-reports.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-get-started-premium/MOLSEmail.png

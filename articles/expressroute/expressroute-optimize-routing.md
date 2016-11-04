@@ -1,21 +1,21 @@
-<properties
-   pageTitle="ExpressRoute yönlendirmeyi en iyi duruma getirme | Microsoft Azure"
-   description="Bu sayfa, bir müşteri Microsoft ve müşterinin şirket ağı arasında bağlanan birden fazla ExpressRoute bağlantı hattına sahip olduğunda yönlendirmenin nasıl iyileştirileceği hakkında ayrıntılı bilgi sağlar."
-   documentationCenter="na"
-   services="expressroute"
-   authors="charwen"
-   manager="carmonm"
-   editor=""/>
-<tags
-   ms.service="expressroute"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="10/10/2016"
-   ms.author="charwen"/>
+---
+title: ExpressRoute yönlendirmeyi en iyi duruma getirme | Microsoft Docs
+description: Bu sayfa, bir müşteri Microsoft ve müşterinin şirket ağı arasında bağlanan birden fazla ExpressRoute bağlantı hattına sahip olduğunda yönlendirmenin nasıl iyileştirileceği hakkında ayrıntılı bilgi sağlar.
+documentationcenter: na
+services: expressroute
+author: charwen
+manager: carmonm
+editor: ''
 
+ms.service: expressroute
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 10/10/2016
+ms.author: charwen
 
+---
 # <a name="optimize-expressroute-routing"></a>ExpressRoute Yönlendirmeyi En iyi Duruma Getirme
 Birden çok ExpressRoute bağlantı hattına sahip olduğunuzda, Microsoft'a bağlanmak için birden fazla yolunuz vardır. Sonuç olarak, yetersiz yönlendirme olabilir, diğer bir deyişle, trafiğinizin Microsoft’a ulaşması ve Microsoft’un ağınıza ulaşması daha uzun bir yol alabilir. Ne kadar uzun ağ yolu, o kadar yüksek gecikme. Gecikmenin uygulama performansı ve kullanıcı deneyimi üzerinde doğrudan etkisi vardır. Bu makale, bu sorunu gösterir ve standart yönlendirme teknolojilerini kullanarak yönlendirmenin nasıl iyileştirileceğini açıklar.
 
@@ -39,13 +39,17 @@ Bu sorunun iki çözümü vardır. Birinci yol Los Angeles ofisiniz için ABD Ba
 
 İkinci çözüm, her iki ExpressRoute bağlantı hattında iki öneki de tanıtmaya devam etmeniz ve buna ek olarak, hangi önekin hangi ofisinize daha yakın olduğu ile ilgili bize ipucu vermenizdir. BGP AS Yolu eklenmesini desteklediğimizden, yönlendirmeyi etkilemek için önekiniz için AS Yolu’nu yapılandırabilirsiniz. Bu örnekte, bu önek (ağımız bu önek yolunun batıdan daha kısa olacağını düşüneceğinden) için hedeflenen trafikte ABD Batı’daki ExpressRoute bağlantı hattını tercih edeceğimizden, ABD Doğu’daki 172.2.0.0/31 AS YOLU’nu uzatabilirsiniz. Benzer şekilde, ABD Doğu ExpressRoute bağlantı hattını tercih edeceğimiz için, ABD Batı’daki 172.2.0.2/31 için AS YOLU’nu uzatabilirsiniz. Her iki ofis için de yönlendirme en iyi duruma getirilmiştir. Bu tasarımla, bir ExpressRoute bağlantı hattı bozuk ise, Exchange Online başka bir ExpressRoute bağlantı hattı ve WAN’ınız aracılığıyla yine de size ulaşabilir. 
 
->[AZURE.IMPORTANT] Microsoft Eşlemesi’nde alınan önekler için AS YOLU’ndaki özel AS numaralarını kaldırırız. Microsoft Eşlemesi için yönlendirmeyi etkilemek amacıyla AS YOLU’nda ortak AS numaraları eklemeniz gerekir.
+> [!IMPORTANT]
+> Microsoft Eşlemesi’nde alınan önekler için AS YOLU’ndaki özel AS numaralarını kaldırırız. Microsoft Eşlemesi için yönlendirmeyi etkilemek amacıyla AS YOLU’nda ortak AS numaraları eklemeniz gerekir.
+> 
+> 
 
 ![](./media/expressroute-optimize-routing/expressroute-case2-solution.png)
 
->[AZURE.IMPORTANT] Burada verilen örnekler Microsoft ve Ortak eşlemelere yöneliktir, ancak Özel eşleme için de aynı özellikleri destekleriz. Ayrıca AS Yolu ekleme, birincil ve ikincil yolların seçimini etkilemek için tek bir ExpressRoute devresi içinde çalışır.
-
-
+> [!IMPORTANT]
+> Burada verilen örnekler Microsoft ve Ortak eşlemelere yöneliktir, ancak Özel eşleme için de aynı özellikleri destekleriz. Ayrıca AS Yolu ekleme, birincil ve ikincil yolların seçimini etkilemek için tek bir ExpressRoute devresi içinde çalışır.
+> 
+> 
 
 <!--HONumber=Oct16_HO3-->
 

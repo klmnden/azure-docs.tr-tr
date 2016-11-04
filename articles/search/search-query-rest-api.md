@@ -1,27 +1,27 @@
-<properties
-    pageTitle="REST API kullanarak Azure Search Dizininizi sorgulama | Microsoft Azure | Barındırılan bulut arama hizmeti"
-    description="Azure Search'te bir arama sorgusu oluşturun ve arama sonuçlarını filtrelemek ve sıralamak için arama parametrelerini kullanın."
-    services="search"
-    documentationCenter=""
-    authors="ashmaka"
-/>
+---
+title: REST API kullanarak Azure Search Dizininizi sorgulama | Microsoft Docs
+description: Azure Search'te bir arama sorgusu oluşturun ve arama sonuçlarını filtrelemek ve sıralamak için arama parametrelerini kullanın.
+services: search
+documentationcenter: ''
+author: ashmaka
 
-<tags
-    ms.service="search"
-    ms.devlang="na"
-    ms.workload="search"
-    ms.topic="get-started-article"
-    ms.tgt_pltfrm="na"
-    ms.date="08/29/2016"
-    ms.author="ashmaka"/>
+ms.service: search
+ms.devlang: na
+ms.workload: search
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.date: 08/29/2016
+ms.author: ashmaka
 
-
+---
 # REST API kullanarak Azure Search dizininizi sorgulama
-> [AZURE.SELECTOR]
-- [Genel Bakış](search-query-overview.md)
-- [Portal](search-explorer.md)
-- [.NET](search-query-dotnet.md)
-- [REST](search-query-rest-api.md)
+> [!div class="op_single_selector"]
+> * [Genel Bakış](search-query-overview.md)
+> * [Portal](search-explorer.md)
+> * [.NET](search-query-dotnet.md)
+> * [REST](search-query-rest-api.md)
+> 
+> 
 
 Bu makale, [Azure Search REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx)'sini kullanarak bir dizinin nasıl sorgulanacağını gösterir.
 
@@ -36,8 +36,8 @@ Azure Search REST API'sine karşı tüm arama işlemlerinin önemli bir bileşen
 
 Hizmetiniz, *yönetici anahtarlarına* ve *sorgu anahtarlarına* sahiptir.
 
- - Birincil ve ikincil *yönetici anahtarlarınız*; hizmeti yönetme, dizinler, dizin oluşturucular ve veri kaynakları ekleme ve silme de dahil olmak üzere her türlü işlem için tüm hakları verir. Birincil anahtarı yeniden oluşturmaya karar verirseniz ikincil anahtarı kullanmaya devam edebilmeniz ve tam tersini yapabilmeniz için iki anahtar vardır.
- - *Sorgu anahtarları*, dizinler ve belgeler için salt okunur erişim verir ve genellikle, arama istekleri gönderen istemci uygulamalarına dağıtılır.
+* Birincil ve ikincil *yönetici anahtarlarınız*; hizmeti yönetme, dizinler, dizin oluşturucular ve veri kaynakları ekleme ve silme de dahil olmak üzere her türlü işlem için tüm hakları verir. Birincil anahtarı yeniden oluşturmaya karar verirseniz ikincil anahtarı kullanmaya devam edebilmeniz ve tam tersini yapabilmeniz için iki anahtar vardır.
+* *Sorgu anahtarları*, dizinler ve belgeler için salt okunur erişim verir ve genellikle, arama istekleri gönderen istemci uygulamalarına dağıtılır.
 
 Bir dizini sorgulama amacıyla, sorgu anahtarlarınızdan birini kullanabilirsiniz. Yönetici anahtarlarınız da sorgular için kullanılabilir ancak uygulama kodunuzda bir sorgu anahtarı kullanmanız gerekir. Böylece [En az ayrıcalık prensibi](https://en.wikipedia.org/wiki/Principle_of_least_privilege) daha iyi takip edilmiş olur.
 
@@ -50,10 +50,7 @@ POST ve GET için *hizmet adınızı*, *dizin adını* ve uygun *API sürümün�
 
 POST için biçim aynıdır ancak sorgu dizesi parametrelerinde yalnızca api sürümü olur.
 
-
-
 #### Örnek Sorgular
-
 Burada "hotels" adlı bir dizinde birkaç örnek sorgu verilmiştir. Bu sorgular, hem GET hem de POST biçiminde gösterilir.
 
 Tüm dizinde "budget" terimi araması yapın ve yalnızca `hotelName` alanını döndürün:
@@ -100,6 +97,7 @@ Artık HTTP istek URL'nizin (GET için) veya gövdenizin (POST için) parçası 
 
 #### İstek ve İstek Üst Bilgileri
 GET için iki, POST için ise üç istek üst bilgisi tanımlamanız gerekir:
+
 1. `api-key` üst bilgisi, yukarıdaki 1. adımda bulduğunuz sorgu anahtarına ayarlanmalıdır. `api-key` üst bilgisi olarak bir yönetici anahtarı da kullanabileceğinizi unutmayın ancak dizinlere ve belgelere açık bir şekilde salt okunur erişimi verdiğinden, bir sorgu anahtarı kullanmanızı öneririz.
 2. `Accept` üst bilgisi `application/json` şeklinde ayarlanmalıdır.
 3. Yalnızca POST için `Content-Type` üst bilgisi `application/json` olarak ayarlanmalıdır.
@@ -159,8 +157,6 @@ Başarılı bir sorgu isteği, `200 OK` Durum Koduna sonucunu verir ve arama son
 ```
 
 Daha fazla bilgi edinmek için lütfen [Search Belgeleri](https://msdn.microsoft.com/library/azure/dn798927.aspx)'nin "Yanıt" bölümünü ziyaret edin. Hata durumunda döndürülebilen diğer HTTP durum kodları hakkında daha fazla bilgi için bkz. [HTTP durum kodları (Azure Search)](https://msdn.microsoft.com/library/azure/dn798925.aspx).
-
-
 
 <!--HONumber=Sep16_HO3-->
 

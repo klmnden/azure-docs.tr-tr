@@ -1,42 +1,41 @@
-<properties
-   pageTitle="Azure RemoteApp ile SQL Azure | Microsoft Azure"
-   description="Azure RemoteApp ile SQL Azure kullanmayı öğrenin."
-   services="remoteapp"
-   documentationCenter=""
-   authors="ericorman"
-   manager="mbaldwin"
-   editor=""/>
+---
+title: Azure RemoteApp ile SQL Azure | Microsoft Docs
+description: Azure RemoteApp ile SQL Azure kullanmayı öğrenin.
+services: remoteapp
+documentationcenter: ''
+author: ericorman
+manager: mbaldwin
+editor: ''
 
-<tags
-   ms.service="remoteapp"
-   ms.devlang="na"
-   ms.topic="hero-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="compute"
-   ms.date="08/15/2016"
-   ms.author="elizapo"/>
+ms.service: remoteapp
+ms.devlang: na
+ms.topic: hero-article
+ms.tgt_pltfrm: na
+ms.workload: compute
+ms.date: 08/15/2016
+ms.author: elizapo
 
-
+---
 # Azure RemoteApp ile SQL Azure
-
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > Azure RemoteApp kullanımdan kaldırılıyor. Ayrıntılı bilgi için [duyuruyu](https://go.microsoft.com/fwlink/?linkid=821148) okuyun.
+> 
+> 
 
 Genellikle, müşteriler kendi Windows uygulamalarını Azure RemoteApp ile bulutta barındırma istediklerinde, tam bir bulut dağıtımı için SQL sunucuları gibi verilerini de buluta geçirmek isterler. Bu, Azure RemoteApp kullanarak her zaman herhangi bir cihazdan erişilebilir tümü bulutta barındırılan çözüme olanak sağlar. Aşağıda, bu işlemde size yardımcı olacak adımlarla birlikte bağlantı ve kılavuzlar verilmiştir.  
 
 ## SQL verilerinizi geçirme
-
 [SQL Server veritabanını Azure SQL Database’e geçirme](../sql-database/sql-database-cloud-migrate.md) ile başlayın. 
 
 ## Azure RemoteApp’i yapılandırma
 Windows uygulamanızı Azure RemoteApp’te barındırma Aşağıda çok üst düzey adım adım açıklama bulunmaktadır:
 
-1.     [Azure RemoteApp şablonu VM](remoteapp-imageoptions.md) oluşturun. 
-2.     Gerekli uygulamayı VM'ye yükleyin.
-3.     SQL DB’ye bağlanacak şekilde uygulamayı yapılandırın ve çalıştığını doğrulayın.
-4.     Sysprep ve VM’yi kapatın. Azure ile kullanmak için bunu bir görüntü olarak yakalayın. **Not:** Uygulamanın sysprep işlemiyle veritabanı bağlantısı bilgilerini tutabileceğinden emin olmanız gerekir. Uygulama DB bağlantısı bilgilerini tutamıyorsa, bağlantı dizesini nasıl belirtebileceğimizi denetlemek için uygulamanın satıcısına başvurmak isteyebilirsiniz.
-5.     SQL Azure dağıtımınızın bulunduğu uygun coğrafi konumu seçerek özel görüntüyü Azure RemoteApp kitaplığınıza aktarın. 
-6.     Yukarıdaki şablonu kullanarak aynı veri merkezindeki bir RemoteApp koleksiyonunu SQL Azure dağıtımınız olarak dağıtın ve uygulamayı yayımlayın. Aynı veri merkezindeki Azure RemoteApp’i SQL Azure dağıtımınız olarak dağıtmak en hızlı bağlantıyı hızını ve düşük gecikmeyi sağlar. 
+1. [Azure RemoteApp şablonu VM](remoteapp-imageoptions.md) oluşturun. 
+2. Gerekli uygulamayı VM'ye yükleyin.
+3. SQL DB’ye bağlanacak şekilde uygulamayı yapılandırın ve çalıştığını doğrulayın.
+4. Sysprep ve VM’yi kapatın. Azure ile kullanmak için bunu bir görüntü olarak yakalayın. **Not:** Uygulamanın sysprep işlemiyle veritabanı bağlantısı bilgilerini tutabileceğinden emin olmanız gerekir. Uygulama DB bağlantısı bilgilerini tutamıyorsa, bağlantı dizesini nasıl belirtebileceğimizi denetlemek için uygulamanın satıcısına başvurmak isteyebilirsiniz.
+5. SQL Azure dağıtımınızın bulunduğu uygun coğrafi konumu seçerek özel görüntüyü Azure RemoteApp kitaplığınıza aktarın. 
+6. Yukarıdaki şablonu kullanarak aynı veri merkezindeki bir RemoteApp koleksiyonunu SQL Azure dağıtımınız olarak dağıtın ve uygulamayı yayımlayın. Aynı veri merkezindeki Azure RemoteApp’i SQL Azure dağıtımınız olarak dağıtmak en hızlı bağlantıyı hızını ve düşük gecikmeyi sağlar. 
 
 ## Uygulama ve SQL yapılandırmada dikkat edilmesi gerekenler
 RemoteApp ile Azure SQL kullanırken dikkate alınması gereken birkaç nokta vardır:
@@ -50,12 +49,9 @@ IP aralığını belirtmek için, [Nasıl yapılır: Azure Portal’ı kullanara
 ## Sorun giderme
 Azure’da ya da şirket içinde barındırılan bir SQL veritabanına bağlanan Azure RemoteApp’te barındırılan bir istemci uygulamasını kullanma deneyimi yavaş ise, bunun birkaç nedeni olabilir.  
 
-- Cihazınızdan Azure’a olan ağ gecikmesi yüksektir. En iyi performans için mümkün olan en iyi ve en hızlı ağ bağlantısına yaklaşın. Cihazlarınızın Azure veri merkezine olan gecikmesini test etmek için genel araç olarak [azurespeed.com](http://azurespeed.com/)’u kullanın.  
-- Azure RemoteApp’te barındırılan istemci uygulaması gerilim altında. Premium faturalama gibi farklı bir fatura planı seçmek performansı iyileştirir. Başka bir çözüm, uygulamanızın kullandığı kaynakları izlemektir: etkin bir oturum sırasında SAS ekranını başlatacak olan ctrl-alt-end tuşlarına basın, Görev Yöneticisi'ni seçin ve uygulamanız için kaynak kullanımını gözleyin 
-- SQL server gerilim altından veya en iyi hale getirilmemiş. Sorun giderme için SQL yönergelerini izleyin. 
-
-
-
+* Cihazınızdan Azure’a olan ağ gecikmesi yüksektir. En iyi performans için mümkün olan en iyi ve en hızlı ağ bağlantısına yaklaşın. Cihazlarınızın Azure veri merkezine olan gecikmesini test etmek için genel araç olarak [azurespeed.com](http://azurespeed.com/)’u kullanın.  
+* Azure RemoteApp’te barındırılan istemci uygulaması gerilim altında. Premium faturalama gibi farklı bir fatura planı seçmek performansı iyileştirir. Başka bir çözüm, uygulamanızın kullandığı kaynakları izlemektir: etkin bir oturum sırasında SAS ekranını başlatacak olan ctrl-alt-end tuşlarına basın, Görev Yöneticisi'ni seçin ve uygulamanız için kaynak kullanımını gözleyin 
+* SQL server gerilim altından veya en iyi hale getirilmemiş. Sorun giderme için SQL yönergelerini izleyin. 
 
 <!--HONumber=Sep16_HO3-->
 

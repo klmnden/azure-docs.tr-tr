@@ -1,59 +1,54 @@
-<properties
-   pageTitle="Azure blob depolama alanından Azure SQL Data Warehouse'a (Azure Data Factory) veri yükleme | Microsoft Azure"
-   description="Azure Data Factory ile veri yüklemeyi öğrenin"
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="lodipalm"
-   manager="barbkess"
-   editor=""
-   tags="azure-sql-data-warehouse"/>
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="08/16/2016"
-   ms.author="lodipalm;barbkess;sonyama"/>
+---
+title: Azure blob depolama alanından Azure SQL Data Warehouse'a (Azure Data Factory) veri yükleme | Microsoft Docs
+description: Azure Data Factory ile veri yüklemeyi öğrenin
+services: sql-data-warehouse
+documentationcenter: NA
+author: lodipalm
+manager: barbkess
+editor: ''
+tags: azure-sql-data-warehouse
 
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: get-started-article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 08/16/2016
+ms.author: lodipalm;barbkess;sonyama
 
+---
 # Azure blob depolama alanından Azure SQL Data Warehouse'a (Azure Data Factory) veri yükleme
-
-> [AZURE.SELECTOR]
-- [Data Factory](sql-data-warehouse-load-from-azure-blob-storage-with-data-factory.md)
-- [PolyBase](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
+> [!div class="op_single_selector"]
+> * [Data Factory](sql-data-warehouse-load-from-azure-blob-storage-with-data-factory.md)
+> * [PolyBase](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
+> 
+> 
 
  Bu öğreticide, Azure Storage Blobundan SQL Data Warehouse'a veri taşımak üzere Azure Data Factory'de nasıl işlem hattı oluşturacağınız gösterilmiştir. Sonraki adımlarda şunları gerçekleştireceksiniz:
 
-+ Bir Azure Storage Blobunda örnek veri oluşturma
-+ Kaynakları Azure Data Factory'ye bağlama
-+ Storage Bloblarından SQL Data Warehouse'a veri taşımak üzere bir işlem hattı oluşturma
+* Bir Azure Storage Blobunda örnek veri oluşturma
+* Kaynakları Azure Data Factory'ye bağlama
+* Storage Bloblarından SQL Data Warehouse'a veri taşımak üzere bir işlem hattı oluşturma
 
->[AZURE.VIDEO loading-azure-sql-data-warehouse-with-azure-data-factory]
-
+> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Loading-Azure-SQL-Data-Warehouse-with-Azure-Data-Factory/player]
+> 
+> 
 
 ## Başlamadan önce
-
-Azure Data Factory hakkında bilgi edinmek için bkz. [Azure Data Factory'ye giriş][].
+Azure Data Factory hakkında bilgi edinmek için bkz. [Azure Data Factory'ye giriş][Azure Data Factory'ye giriş].
 
 ### Kaynak oluşturma veya tanımlama
-
 Bu öğreticiye başlamadan önce aşağıdaki kaynaklara sahip olmanız gerekir.
 
-   + **Azure Storage Blobu**: Bu öğreticide Azure Data Factory işlem hattı için veri kaynağı olarak Azure Storage Blobu kullanılır; bu nedenle örnek verileri saklamak için bir Azure Storage Blobuna sahip olmanız gerekir. Azure Storage Blobunuz yoksa [Depolama hesabı oluşturma][] işlemini nasıl gerçekleştireceğinizi öğrenin.
-
-   + **SQL Data Warehouse**: Bu öğreticide Azure Storage Blobundan SQL Data Warehouse'a veri taşınır; bu nedenle AdventureWorksDW örnek verileriyle yüklü çevrimiçi bir veri ambarınızın olması gerekir. Veri ambarınız yoksa nasıl [sağlayacağınızı][SQL Data Warehouse oluşturma] öğrenin. Veri ambarınız var ancak bu veri ambarına örnek veri sağlamadıysanız [el ile yükleme][SQL Data Warehouse'a örnek veri yükleme] işlemini gerçekleştirebilirsiniz.
-
-   + **Azure Data Factory**: Azure Data Factory gerçek yüklemeyi tamamlar; bu nedenle veri taşıma işlem hattı oluşturmak için kullanmak üzere bir Azure Data Factory'nizin olması gerekir. Azure Data Factory'niz yoksa [Azure Data Factory (Data Factory Editor) ile çalışmaya başlama][] makalesinin 1. Adımına göz atarak nasıl oluşturacağınızı öğrenin.
-
-   + **AZCopy**: Yerel istemcinizden Azure Storage Blobuna örnek veri kopyalamak için AZCopy gerekir. Yükleme yönergeleri için bkz. [AZCopy belgeleri][].
+* **Azure Storage Blobu**: Bu öğreticide Azure Data Factory işlem hattı için veri kaynağı olarak Azure Storage Blobu kullanılır; bu nedenle örnek verileri saklamak için bir Azure Storage Blobuna sahip olmanız gerekir. Azure Storage Blobunuz yoksa [Depolama hesabı oluşturma][Depolama hesabı oluşturma] işlemini nasıl gerçekleştireceğinizi öğrenin.
+* **SQL Data Warehouse**: Bu öğreticide Azure Storage Blobundan SQL Data Warehouse'a veri taşınır; bu nedenle AdventureWorksDW örnek verileriyle yüklü çevrimiçi bir veri ambarınızın olması gerekir. Veri ambarınız yoksa nasıl [sağlayacağınızı][SQL Data Warehouse oluşturma] öğrenin. Veri ambarınız var ancak bu veri ambarına örnek veri sağlamadıysanız [el ile yükleme][SQL Data Warehouse'a örnek veri yükleme] işlemini gerçekleştirebilirsiniz.
+* **Azure Data Factory**: Azure Data Factory gerçek yüklemeyi tamamlar; bu nedenle veri taşıma işlem hattı oluşturmak için kullanmak üzere bir Azure Data Factory'nizin olması gerekir. Azure Data Factory'niz yoksa [Azure Data Factory (Data Factory Editor) ile çalışmaya başlama][Azure Data Factory (Data Factory Editor) ile çalışmaya başlama] makalesinin 1. Adımına göz atarak nasıl oluşturacağınızı öğrenin.
+* **AZCopy**: Yerel istemcinizden Azure Storage Blobuna örnek veri kopyalamak için AZCopy gerekir. Yükleme yönergeleri için bkz. [AZCopy belgeleri][AZCopy belgeleri].
 
 ## 1. Adım: Azure Storage Blobuna örnek veri kopyalama
-
 Her şey hazırsa Azure Storage Blobunuza örnek veri kopyalamaya başlayabilirsiniz.
 
-1. [Örnek veri indirin][]. Bu işlem sonrasında AdventureWorksDW örnek verilerinize üç yıla ilişkin satış verileri eklenir.
-
+1. [Örnek veri indirin][Örnek veri indirin]. Bu işlem sonrasında AdventureWorksDW örnek verilerinize üç yıla ilişkin satış verileri eklenir.
 2. Üç yıla ilişkin verileri Azure Storage Blobunuza kopyalamak için bu AZCopy komutunu kullanın.
 
 ````
@@ -62,17 +57,14 @@ AzCopy /Source:<Sample Data Location>  /Dest:https://<storage account>.blob.core
 
 
 ## 2. Adım: Kaynakları Azure Data Factory'ye bağlama
-
 Verileri aldığınıza göre verileri Azure Blob depolama alanından SQL Data Warehouse'a taşımak üzere Azure Data Factory işlem hattını oluşturabiliriz.
 
-Başlamak için [Azure portalını][] açıp sol taraftaki menüden veri fabrikanızı seçin.
+Başlamak için [Azure portalını][Azure portalını] açıp sol taraftaki menüden veri fabrikanızı seçin.
 
 ### 2.1. Adım: Bağlı Hizmet oluşturma
-
 Azure depolama hesabınızı ve SQL Data Warehouse'unuzu veri fabrikanıza bağlayın.  
 
 1. Öncelikle veri fabrikanızın "Bağlı Hizmetler" bölümüne ve ardından "Yeni veri deposu" öğesine tıklayarak kayıt işlemine başlayın. Azure depolama alanınızı hangi adla kaydedeceğinizi seçin. Tür olarak Azure Storage'ı belirleyip Hesap Adı ve Hesap Anahtarı bilgilerinizi girin.
-
 2. SQL Data Warehouse'u kaydetmek için "Geliştir ve Dağıt" bölümüne giderek "Yeni Veri Deposu" seçeneğini ve ardından "Azure SQL Data Warehouse" seçeneğini belirleyin. Kopyalama ve yapıştırma işlemlerini bu şablonda gerçekleştirip size özgü bilgileri girin.
 
 ```JSON
@@ -89,11 +81,9 @@ Azure depolama hesabınızı ve SQL Data Warehouse'unuzu veri fabrikanıza bağl
 ```
 
 ### 2.2. Adım: Veri kümesini tanımlama
-
 Bağlı hizmetleri oluşturduktan sonra veri kümelerini tanımlamamız gerekir.  Bu, depolama alanınızdan veri ambarınıza taşınan verilerin yapısının tanımlanması anlamına gelir.  Oluşturma işlemi hakkında daha fazla bilgi edinebilirsiniz
 
 1. Veri fabrikanızın "Geliştir ve Dağıt" bölümüne giderek bu işlemi başlatın.
-
 2. Depolama alanınızı veri fabrikanıza bağlamak için "Yeni veri kümesi" ve ardından "Azure Blob depolama alanı" seçeneğine tıklayın.  Azure Blob depolama alanındaki verilerinizi tanımlamak için şu betiği kullanabilirsiniz:
 
 ```JSON
@@ -128,7 +118,7 @@ Bağlı hizmetleri oluşturduktan sonra veri kümelerini tanımlamamız gerekir.
 ```
 
 
-3. Şimdi biz de SQL Data Warehouse'a ilişkin veri kümemizi tanımlayacağız.  Aynı şekilde başlayarak önce "Yeni veri kümesi" seçeneğine ve ardından "Azure SQL Data Warehouse" seçeneğine tıklıyoruz.
+1. Şimdi biz de SQL Data Warehouse'a ilişkin veri kümemizi tanımlayacağız.  Aynı şekilde başlayarak önce "Yeni veri kümesi" seçeneğine ve ardından "Azure SQL Data Warehouse" seçeneğine tıklıyoruz.
 
 ```JSON
 {
@@ -148,7 +138,6 @@ Bağlı hizmetleri oluşturduktan sonra veri kümelerini tanımlamamız gerekir.
 ```
 
 ## 3. Adım: İşlem hattınızı oluşturma ve çalıştırma
-
 Son olarak Azure Data Factory'de işlem hattı oluşturup çalıştıracağız.  Bu işlem ile gerçek veri taşıma işlemi tamamlanır.  SQL Data Warehouse ve Azure Data Factory ile gerçekleştirebileceğiniz işlemlerin tam görünümünü [burada][Azure Data Factory kullanarak Azure'a/Azure'dan veri taşıma] bulabilirsiniz.
 
 Şimdi ise "Geliştir ve Dağıt" bölümünde "Daha Fazla Komut" seçeneğine ve ardından "Yeni İşlem Hattı" seçeneğine tıklayın.  İşlem hattını oluşturduktan sonra verileri veri ambarınıza aktarmak için aşağıdaki kodu kullanabilirsiniz:
@@ -202,18 +191,15 @@ Son olarak Azure Data Factory'de işlem hattı oluşturup çalıştıracağız. 
 ```
 
 ## Sonraki adımlar
-
 Şunları görüntüleyerek daha fazla bilgi edinmeye başlayabilirsiniz:
 
-- [Azure Data Factory öğrenme yolu][]
-- [Azure SQL Data Warehouse Bağlayıcısı][]. Bu, Azure SQL Data Warehouse ile Azure Data Factory kullanımına yönelik temel başvuru konu başlığıdır.
-
+* [Azure Data Factory öğrenme yolu][Azure Data Factory öğrenme yolu]
+* [Azure SQL Data Warehouse Bağlayıcısı][Azure SQL Data Warehouse Bağlayıcısı]. Bu, Azure SQL Data Warehouse ile Azure Data Factory kullanımına yönelik temel başvuru konu başlığıdır.
 
 Bu konu başlıklarında Azure Data Factory hakkında ayrıntılı bilgi sağlanmıştır. Bunlarda, Azure SQL Database veya HDinsight hakkında bilgi verilmiştir ancak bu bilgiler Azure SQL Data Warehouse için de geçerlidir.
 
-- [Öğretici: Azure Data Factory ile çalışmaya başlama][] Bu, Azure Data Factory ile veri işlemeye yönelik temel öğreticidir. Bu öğreticide web günlüklerini aylık olarak dönüştürmek ve çözümlemek üzere HDInsight'ı kullanan ilk işlem hattınızı oluşturacaksınız. Not: Bu öğreticide herhangi bir kopyalama etkinliği yoktur.
-- [Öğretici: Azure Storage Blobundan Azure SQL Database'e veri kopyalama][]. Bu öğreticide Azure Storage Blobundan Azure SQL Database'e veri kopyalamak üzere Azure Data Factory'de bir işlem hattı oluşturacaksınız.
-
+* [Öğretici: Azure Data Factory ile çalışmaya başlama][Öğretici: Azure Data Factory ile çalışmaya başlama] Bu, Azure Data Factory ile veri işlemeye yönelik temel öğreticidir. Bu öğreticide web günlüklerini aylık olarak dönüştürmek ve çözümlemek üzere HDInsight'ı kullanan ilk işlem hattınızı oluşturacaksınız. Not: Bu öğreticide herhangi bir kopyalama etkinliği yoktur.
+* [Öğretici: Azure Storage Blobundan Azure SQL Database'e veri kopyalama][Öğretici: Azure Storage Blobundan Azure SQL Database'e veri kopyalama]. Bu öğreticide Azure Storage Blobundan Azure SQL Database'e veri kopyalamak üzere Azure Data Factory'de bir işlem hattı oluşturacaksınız.
 
 <!--Image references-->
 

@@ -1,41 +1,39 @@
 
-<properties
-   pageTitle="Azure sanal ağ eşlemesi | Microsoft Azure"
-   description="Azure'da VNet eşlemesi hakkında bilgi edinin."
-   services="virtual-network"
-   documentationCenter="na"
-   authors="NarayanAnnamalai"
-   manager="jefco"
-   editor="tysonn" />
-<tags
-   ms.service="virtual-network"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="07/28/2016"
-   ms.author="narayan" />
+---
+title: Azure sanal ağ eşlemesi | Microsoft Docs
+description: Azure'da VNet eşlemesi hakkında bilgi edinin.
+services: virtual-network
+documentationcenter: na
+author: NarayanAnnamalai
+manager: jefco
+editor: tysonn
 
+ms.service: virtual-network
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 07/28/2016
+ms.author: narayan
 
+---
 # VNet eşlemesi
-
 VNet eşlemesi, aynı bölgedeki iki sanal ağı Azure omurga ağı aracılığıyla birbirine bağlayan bir mekanizmadır. Eşleme yapıldıktan sonra, iki sanal ağ tüm bağlantılarda tek bir sanal ağ gibi görünür. Bunlar ayrı kaynaklar olarak yönetilmeye devam eder, ancak bu sanal ağlardaki sanal makineler özel IP adresleri kullanarak birbirleriyle doğrudan iletişim kurabilir.
 
 Eşlenen sanal ağlardaki sanal makineler arasındaki trafik, Azure altyapısı aracılığıyla aynı sanal ağ üzerindeki VM'ler arasında olduğu gibi yönlendirilir. VNet eşlemesini kullanmanın bazı avantajları şunlardır:
 
-- Farklı sanal ağlardaki kaynaklar arasında düşük gecikme süresi ve yüksek bant genişlikli bağlantı.
-- VPN ağ geçitleri ve ağ sanal gereçleri gibi kaynakları, eşlenmiş VNet içinde geçiş noktaları olarak kullanabilme.
-- Azure Resource Manager modelini kullanan bir sanal ağı, klasik modeli kullanan bir sanal ağa bağlayabilme ve bu iki sanal ağ arasında tam bağlantıya olanak tanıma.
+* Farklı sanal ağlardaki kaynaklar arasında düşük gecikme süresi ve yüksek bant genişlikli bağlantı.
+* VPN ağ geçitleri ve ağ sanal gereçleri gibi kaynakları, eşlenmiş VNet içinde geçiş noktaları olarak kullanabilme.
+* Azure Resource Manager modelini kullanan bir sanal ağı, klasik modeli kullanan bir sanal ağa bağlayabilme ve bu iki sanal ağ arasında tam bağlantıya olanak tanıma.
 
 VNet eşlemesi ile ilgili gereksinimler ve önemli noktalar:
 
-- Eşlenen iki sanal ağ, aynı Azure bölgesinde olmalıdır.
-- Eşlenen sanal ağların IP Adresi alanları çakışmamalıdır.
-- VNet eşlemesi iki sanal ağ arasında gerçekleşir ve türetilmiş geçişli bir ilişki yoktur. Örneğin, A sanal ağı B sanal ağıyla, B sanal ağı da C sanal ağıyla eşlenirse bu, A sanal ağının C sanal ağıyla eşlendiği anlamına gelmez.
-- İki farklı abonelikteki sanal ağlar arasında eşleme yapılabilmesi için, eşlemenin her iki aboneliğin de ayrıcalıklı bir kullanıcısı tarafından yetkilendirilmiş olması ve aboneliklerin aynı Active Directory kiracısı ile ilişkilendirilmesi gerekir. 
-- Resource Manager dağıtım modelini kullanan bir sanal ağ, bu modeli kullanan başka bir sanal ağ ile veya klasik dağıtım modelini kullanan bir sanal ağ ile eşlenebilir. Ancak, klasik dağıtım modelini kullanan sanal ağlar birbiriyle eşlenemez.
-- Eşlenmiş sanal ağlarda bulunan sanal makineler arasındaki iletişim başka bir bant genişliği kısıtlaması içermese de VM boyutunu temel alan bant genişliği sınırı geçerli olmaya devam eder.
-
+* Eşlenen iki sanal ağ, aynı Azure bölgesinde olmalıdır.
+* Eşlenen sanal ağların IP Adresi alanları çakışmamalıdır.
+* VNet eşlemesi iki sanal ağ arasında gerçekleşir ve türetilmiş geçişli bir ilişki yoktur. Örneğin, A sanal ağı B sanal ağıyla, B sanal ağı da C sanal ağıyla eşlenirse bu, A sanal ağının C sanal ağıyla eşlendiği anlamına gelmez.
+* İki farklı abonelikteki sanal ağlar arasında eşleme yapılabilmesi için, eşlemenin her iki aboneliğin de ayrıcalıklı bir kullanıcısı tarafından yetkilendirilmiş olması ve aboneliklerin aynı Active Directory kiracısı ile ilişkilendirilmesi gerekir. 
+* Resource Manager dağıtım modelini kullanan bir sanal ağ, bu modeli kullanan başka bir sanal ağ ile veya klasik dağıtım modelini kullanan bir sanal ağ ile eşlenebilir. Ancak, klasik dağıtım modelini kullanan sanal ağlar birbiriyle eşlenemez.
+* Eşlenmiş sanal ağlarda bulunan sanal makineler arasındaki iletişim başka bir bant genişliği kısıtlaması içermese de VM boyutunu temel alan bant genişliği sınırı geçerli olmaya devam eder.
 
 ![Temel VNet eşlemesi](./media/virtual-networks-peering-overview/figure01.png)
 
@@ -83,13 +81,10 @@ Tek bir sanal ağ için izin verilen eşleme sayısı sınırlıdır. Daha fazla
 ## Fiyatlandırma
 VNet eşlemesi, gözden geçirme süresi boyunca ücretsiz olacaktır. Piyasaya sürüldükten sonra, eşlemeyi kullanan giriş ve çıkış trafiği için düşük miktarda bir ücret alınacaktır. Daha fazla bilgi edinmek için bkz. [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/virtual-network).
 
-
 ## Sonraki adımlar
-- [Sanal ağlar arasında eşlemeyi ayarlama](virtual-networks-create-vnetpeering-arm-portal.md).
-- [NSG'ler](virtual-networks-nsg.md) hakkında bilgi edinin.
-- [Kullanıcı tanımlı yollar ve IP iletimi](virtual-networks-udr-overview.md) hakkında bilgi edinin.
-
-
+* [Sanal ağlar arasında eşlemeyi ayarlama](virtual-networks-create-vnetpeering-arm-portal.md).
+* [NSG'ler](virtual-networks-nsg.md) hakkında bilgi edinin.
+* [Kullanıcı tanımlı yollar ve IP iletimi](virtual-networks-udr-overview.md) hakkında bilgi edinin.
 
 <!--HONumber=Sep16_HO4-->
 

@@ -1,27 +1,25 @@
-<properties
-	pageTitle="Feature Engineering and Selection in Azure Machine Learning | Microsoft Azure"
-	description="Explains the purposes of feature selection and feature engineering and provides examples of their role in the data enhancement process of machine learning."
-	services="machine-learning"
-	documentationCenter=""
-	authors="bradsev"
-	manager="jhubbard"
-	editor="cgronlun"/>
+---
+title: Feature Engineering and Selection in Azure Machine Learning | Microsoft Docs
+description: Explains the purposes of feature selection and feature engineering and provides examples of their role in the data enhancement process of machine learning.
+services: machine-learning
+documentationcenter: ''
+author: bradsev
+manager: jhubbard
+editor: cgronlun
 
-<tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/12/2016"
-	ms.author="zhangya;bradsev" />
+ms.service: machine-learning
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/12/2016
+ms.author: zhangya;bradsev
 
-
+---
 # Feature engineering and selection in Azure Machine Learning
-
 This topic explains the purposes of feature engineering and feature selection in the data enhancement process of machine learning. It illustrates what these processes involve using examples provided by Azure Machine Learning Studio.
 
-[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+[!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 The training data used in machine learning can often be enhanced by the selection or extraction of features from the raw data collected. An example of an engineered feature in the context of learning how to classify the images of handwritten characters is a bit density map constructed from the raw bit distribution data. This map can help locate the edges of the characters more efficiently than the raw distribution.
 
@@ -42,9 +40,7 @@ Engineering and selection are the **data enhancement** step of machine learning.
 
 This topic only covers the feature engineering and feature selection aspects of the data enhancement process. For additional information on the data pre-processing step, see the [Pre-processing Data in Azure ML Studio](https://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/) video.
 
-
 ## Creating Features from Your Data - Feature Engineering
-
 The training data consists of a matrix composed of examples (records or observations stored in rows), each of which has a set of features (variables or fields stored in columns). The features specified in the experimental design are expected to characterize the patterns in the data. Although many of the raw data fields can be directly included in the selected feature set used to train a model, it is often the case that additional (engineered) features need to be constructed from the features in the raw data to generate an enhanced training dataset.
 
 What kind of features should be created to enhance the dataset when training a model? Engineered features that enhance the training provide information that better differentiates the patterns in the data. We expect the new features to provide additional information that is not clearly captured or easily apparent in the original or existing feature set. But this process is something of an art. Sound and productive decisions often require some domain expertise.
@@ -54,8 +50,7 @@ When starting with Azure Machine Learning, it is easiest to grasp this process c
 * A regression example [Prediction of the number of bike rentals](http://gallery.cortanaintelligence.com/Experiment/Regression-Demand-estimation-4) in a supervised experiment where the target values are known
 * A text mining classification example using [Feature Hashing][feature-hashing]
 
-### Example 1: Adding Temporal Features for Regression Model ###
-
+### Example 1: Adding Temporal Features for Regression Model
 To demonstrate how to engineer features for a regression task, let's use the experiment "Demand forecasting of bikes" in Azure Machine Learning Studio. The objective of this experiment is to predict the demand for the bikes, that is, the number of bike rentals within a specific month/day/hour. The dataset "Bike Rental UCI dataset" is used as the raw input data. This dataset is based on real data from the Capital Bikeshare company that maintains a bike rental network in Washington DC in the United States. The dataset represents the number of bike rentals within a specific hour of a day, from 2011 to 2012, and contains 17379 rows and 17 columns. The raw feature set contains weather conditions (temperature/humidity/wind speed) and the type of the day (holiday/weekday). The field to predict is "cnt", a count that represents the bike rentals within a specific hour and that ranges from 1 to 977.
 
 With the goal of constructing effective features in the training data, four regression models are built using the same algorithm but with four different training datasets. The four datasets represent the same raw input data, but with an increasing number of features set. These features are grouped into four categories:
@@ -75,8 +70,7 @@ The comparison of the performance results of the four models is summarized in th
 
 ![result comparison](./media/machine-learning-feature-selection-and-engineering/result1.png)
 
-### <a name="example2"></a> Example 2: Creating Features in Text Mining  
-
+### <a name="example2"></a> Example 2: Creating Features in Text Mining
 Feature engineering is widely applied in tasks related to text mining, such as document classification and sentiment analysis. For example, when we want to classify documents into several categories, a typical assumption is that the word/phrases included in one doc category are less likely to occur in another doc category. In other words, the frequency of the words/phrases distribution is able to characterize different document categories. In text mining applications, because individual pieces of text-contents usually serve as the input data, the feature engineering process is needed to create the features involving word/phrase frequencies.
 
 To achieve this task, a technique called **feature hashing** is applied to efficiently turn arbitrary text features into indices. Instead of associating each text feature (words/phrases) to a particular index, this method functions by applying a hash function to the features and using their hash values as indices directly.
@@ -93,8 +87,7 @@ The following figure shows what these new features look like.
 
 !["Feature Hashing" example](./media/machine-learning-feature-selection-and-engineering/feature-Hashing2.png)
 
-## Filtering Features from Your Data - Feature Selection  ##
-
+## Filtering Features from Your Data - Feature Selection
 Feature selection is a process that is commonly applied for the construction of training datasets for predictive modeling tasks such as classification or regression tasks. The goal is to select a subset of the features from the original dataset that reduce its dimensions by using a minimal set of features to represent the maximum amount of variance in the data. This subset of features contains the only features to be included to train the model. Feature selection serves two main purposes.
 
 * First, feature selection often increases classification accuracy by eliminating irrelevant, redundant, or highly correlated features.
@@ -107,7 +100,6 @@ Among others, one widely applied category of feature selection methods in a supe
 In Azure Machine Learning Studio, there are modules provided for feature selection. As shown in the following figure, these modules include [Filter-Based Feature Selection][filter-based-feature-selection] and [Fisher Linear Discriminant Analysis][fisher-linear-discriminant-analysis].
 
 ![Feature selection example](./media/machine-learning-feature-selection-and-engineering/feature-Selection.png)
-
 
 Consider, for example, the use of the [Filter-Based Feature Selection][filter-based-feature-selection] module. For convenience, we continue to use the text mining example outlined previously. Assume that we want to build a regression model after a set of 256 features are created through the [Feature Hashing][feature-hashing] module, and that the response variable is "Col1" and represents a book review rating ranging from 1 to 5. By setting "Feature scoring method" to be "Pearson Correlation", the "Target column" to be "Col1", and the "Number of desired features" to 50. Then the module [Filter-Based Feature Selection][filter-based-feature-selection] produces a dataset containing 50 features together with the target attribute "Col1". The following figure shows the flow of this experiment and the input parameters we just described.
 

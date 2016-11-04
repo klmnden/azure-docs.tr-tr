@@ -1,23 +1,22 @@
 
-<properties
-    pageTitle="Eşitleme için Azure AD Connect Health'i kullanma| Microsoft Azure"
-    description="Bu Azure AD Connect Health sayfasında, Azure AD Connect eşitlemesinin nasıl izleneceği ele alınmıştır."
-    services="active-directory"
-    documentationCenter=""
-    authors="billmath"
-    manager="femila"
-    editor="curtand"/>
+---
+title: Eşitleme için Azure AD Connect Health'i kullanma| Microsoft Docs
+description: Bu Azure AD Connect Health sayfasında, Azure AD Connect eşitlemesinin nasıl izleneceği ele alınmıştır.
+services: active-directory
+documentationcenter: ''
+author: billmath
+manager: femila
+editor: curtand
 
-<tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="08/08/2016"
-    ms.author="billmath"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 08/08/2016
+ms.author: billmath
 
-
+---
 # Eşitleme için Azure AD Connect Health'i kullanma
 Aşağıdaki belgeler Azure AD Connect Health ile Azure AD Connect’in (Eşitleme) izlenmesine özgüdür.  Azure Connect Health ile AD FS'yi izleme hakkında bilgi almak için bkz. [Azure AD Connect Health'i AD FS ile kullanma](active-directory-aadconnect-health-adfs.md). Ek olarak, Active Directory Etki Alanı Hizmetleri’ni Azure AD Connect Health ile izleme hakkında bilgi için bkz. [AD DS ile Azure AD Connect Health Kullanma](active-directory-aadconnect-health-adds.md).
 
@@ -44,8 +43,8 @@ Bunu, "Ayarlar"a tıklayarak ve Azure AD Connect Health aracısının tüm hata 
 ## Eşitleme Öngörüsü
 Eşitleme için Azure AD Connect Health'in en son sürümüne şu yeni özellikler eklendi:
 
-- Eşitleme işlemlerinin gecikme süresi
-- Nesne Değişikliği eğilimi
+* Eşitleme işlemlerinin gecikme süresi
+* Nesne Değişikliği eğilimi
 
 ### Eşitleme Gecikme Süresi
 Bu özellik, bağlayıcılara ilişkin eşitleme işlemlerinin (içeri aktarma, dışarı aktarma vb.) gecikme sürelerinin grafik eğilimini sağlar.  Bu, yalnızca işlemlerinizin gecikme süresini (çok sayıda değişikliğinizin olması çok iyidir) anlamak için değil, aynı zamanda gecikme süresindeki daha fazla incelenmesi gerekebilecek anomalilerin algılanması için de hızlı ve kolay bir yol sunar.
@@ -60,7 +59,6 @@ Bu özellik, değerlendirilen ve Azure AD'ye aktarılan değişiklik sayısını
 ![Eşitleme Gecikme Süresi](./media/active-directory-aadconnect-health-sync/syncobjectchanges.png)
 
 ## İlgili bağlantılar
-
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)
 * [Azure AD Connect Health Aracısı Yüklemesi](active-directory-aadconnect-health-agent-install.md)
 * [Azure AD Connect Health İşlemleri](active-directory-aadconnect-health-operations.md)
@@ -68,9 +66,6 @@ Bu özellik, değerlendirilen ve Azure AD'ye aktarılan değişiklik sayısını
 * [Azure AD Connect Health'i AD DS ile Kullanma](active-directory-aadconnect-health-adds.md)
 * [Azure AD Connect Health ile ilgili SSS](active-directory-aadconnect-health-faq.md)
 * [Azure AD Connect Health Sürüm Geçmişi](active-directory-aadconnect-health-version-history.md)
-
-
-
 
 <!--HONumber=Sep16_HO4-->
 

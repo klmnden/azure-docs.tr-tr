@@ -1,38 +1,41 @@
-<properties
-    pageTitle="Azure API Management performansını artırmak için önbelleğe alma ekleme | Microsoft Azure"
-    description="API Management hizmeti çağrıları için gecikme, bant genişliği kullanımı ve web hizmeti yüklerini geliştirmeyi öğrenin."
-    services="api-management"
-    documentationCenter=""
-    authors="steved0x"
-    manager="erikre"
-    editor=""/>
+---
+title: Azure API Management performansını artırmak için önbelleğe alma ekleme | Microsoft Docs
+description: API Management hizmeti çağrıları için gecikme, bant genişliği kullanımı ve web hizmeti yüklerini geliştirmeyi öğrenin.
+services: api-management
+documentationcenter: ''
+author: steved0x
+manager: erikre
+editor: ''
 
-<tags
-    ms.service="api-management"
-    ms.workload="mobile"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="08/24/2016"
-    ms.author="sdanie"/>
+ms.service: api-management
+ms.workload: mobile
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 08/24/2016
+ms.author: sdanie
 
+---
 # Azure API Management performansını artırmak için önbelleğe alma ekleme
-
 API Management işlemleri yanıt önbelleğe alma için yapılandırılabilir. Yanıt önbelleğe alma, çok sık değişmeyen veriler için API gecikmesi, bant genişliği kullanımı ve web hizmeti yükünü önemli ölçüde azaltabilir.
 
 Bu kılavuz size API’nize yanıt önbelleğe alma eklemeyi ve örnek Echo API işlemleri için ilkeleri yapılandırmayı gösterir. Böylece önbelleğe alma eylemini doğrulamak için işlemi geliştirici portalından çağırabilirsiniz.
 
->[AZURE.NOTE] Anahtar kullanım ilkesi ifadeleri hakkında daha fazla bilgi için bkz. [Azure API Management’te özel önbelleğe alma](api-management-sample-cache-by-key.md).
+> [!NOTE]
+> Anahtar kullanım ilkesi ifadeleri hakkında daha fazla bilgi için bkz. [Azure API Management’te özel önbelleğe alma](api-management-sample-cache-by-key.md).
+> 
+> 
 
 ## Ön koşullar
-
-Bu kılavuzdaki adımları izlemeden önce, API ve ürün yapılandırılmış bir API Management hizmeti örneğine sahip olmalısınız. Henüz bir API Management hizmeti örneği oluşturmadıysanız, [Azure API Management’i kullanmaya başlama][] öğreticisinde [API Management hizmet örneği oluşturma][]’ya bakın.
+Bu kılavuzdaki adımları izlemeden önce, API ve ürün yapılandırılmış bir API Management hizmeti örneğine sahip olmalısınız. Henüz bir API Management hizmeti örneği oluşturmadıysanız, [Azure API Management’i kullanmaya başlama][Azure API Management’i kullanmaya başlama] öğreticisinde [API Management hizmet örneği oluşturma][API Management hizmet örneği oluşturma]’ya bakın.
 
 ## <a name="configure-caching"> </a>Önbelleğe almak üzere bir işlem yapılandırma
-
 Bu adımda, örnek Echo API’sinin **GET Kaynağı (önbelleğe alınmış)** işleminin önbelleğe alma ayarlarını inceleyeceksiniz.
 
->[AZURE.NOTE] Her API Management hizmeti örneği, API Management’i denemek ve hakkında bilgi almak için kullanılabilecek bir Echo API’si ile önceden yapılandırılmış olarak gelir. Daha fazla bilgi için bkz. [Azure API Management’i kullanmaya başlama][]
+> [!NOTE]
+> Her API Management hizmeti örneği, API Management’i denemek ve hakkında bilgi almak için kullanılabilecek bir Echo API’si ile önceden yapılandırılmış olarak gelir. Daha fazla bilgi için bkz. [Azure API Management’i kullanmaya başlama][Azure API Management’i kullanmaya başlama]
+> 
+> 
 
 Kullanmaya başlamak üzere API Management hizmetiniz için Klasik Azure Portalı'nda **Yönet**’e tıklayın. Bu sizi API Management yayımcı portalına götürür.
 
@@ -59,7 +62,6 @@ Her işlem, **Sorgu dizesi parametrelerine göre değişiklik gösterebilir** ve
 Bu örnekte önbelleğe alma yapılandırması kullanılarak, **GET Kaynağı (önbelleğe alınmış)** işlemine yapılan ilk istek işlemi arka uç hizmetinden bir yanıt döndürür. Bu yanıt, belirtilen üst bilgiler ve sorgu dizesi parametreleri tarafından önbelleğe alınır ve anahtarlanır. Eşleşen parametrelerle, işleme yapılan sonraki çağrılar, önbelleğe alma süresi aralığı sona erinceye kadar, önbelleğe alınan yanıtın döndürülmesini sağlar.
 
 ## <a name="caching-policies"> </a>Önbelleğe alma ilkelerini gözden geçirme
-
 Bu adımda, örnek Echo API’sinin **GET Kaynağı (önbelleğe alınmış)** işleminin önbelleğe alma ayarlarını incelersiniz.
 
 Bir işlem için **Önbelleğe alma** sekmesinde önbelleğe alma ayarları yapılandırıldığında, işlem için önbelleğe alma ilkeleri eklenir. Bu ilkeler ilke düzenleyicisinde görüntülenip düzenlenebilir.
@@ -89,10 +91,12 @@ Bu işlem için ilke tanımı, önceki adımda **Önbelleğe alma** sekmesi kull
         </outbound>
     </policies>
 
->[AZURE.NOTE] İlk düzenleyicisinde önbelleğe alma ilkelerinde yapılan değişiklikler işlemin **Önbelleğe alma** sekmesinde yansıtılır ve bu durumun tersi de geçerlidir.
+> [!NOTE]
+> İlk düzenleyicisinde önbelleğe alma ilkelerinde yapılan değişiklikler işlemin **Önbelleğe alma** sekmesinde yansıtılır ve bu durumun tersi de geçerlidir.
+> 
+> 
 
 ## <a name="test-operation"> </a>Bir işlem çağırma ve önbelleğe almayı test etme
-
 Önbelleğe alma eylemini görmek için, işlemi geliştirici portalından çağırabiliriz. Sağ üstteki menüde **Geliştirici Portalı**’na tıklayın.
 
 ![Geliştirici portalı][api-management-developer-portal-menu]
@@ -101,7 +105,9 @@ Bu işlem için ilke tanımı, önceki adımda **Önbelleğe alma** sekmesi kull
 
 ![Echo API’si][api-management-apis-echo-api]
 
->Yapılandırılmış ya da hesabınıza görünen yalnızca bir API’niz varsa, API’lere tıklamak sizi doğrudan bu API’nin işlemlerine götürür.
+> Yapılandırılmış ya da hesabınıza görünen yalnızca bir API’niz varsa, API’lere tıklamak sizi doğrudan bu API’nin işlemlerine götürür.
+> 
+> 
 
 **GET Kaynağı (önbelleğe alınmış) ** işlemini seçin ve ardından **Konsolu Aç**’a tıklayın.
 
@@ -128,9 +134,8 @@ Konsol, işlemleri doğrudan geliştirici portalından çağırmanızı sağlar.
 Yanıttaki **sampleheader** değerinin artık **value2** olduğuna dikkat edin. İşlem sonuçları sorgu dizesi tarafından anahtarlandığından, önceki önbelleğe alınan yanıt döndürülmedi.
 
 ## <a name="next-steps"> </a>Sonraki adımlar
-
--   Önbelleğe alma ilkeleri hakkında daha fazla bilgi için bkz. [API Management ilke başvurusu][]’nda [Önbelleğe alma ilkeleri][].
--   Anahtar kullanım ilkesi ifadeleri hakkında daha fazla bilgi için bkz. [Azure API Management’te özel önbelleğe alma](api-management-sample-cache-by-key.md).
+* Önbelleğe alma ilkeleri hakkında daha fazla bilgi için bkz. [API Management ilke başvurusu][API Management ilke başvurusu]’nda [Önbelleğe alma ilkeleri][Önbelleğe alma ilkeleri].
+* Anahtar kullanım ilkesi ifadeleri hakkında daha fazla bilgi için bkz. [Azure API Management’te özel önbelleğe alma](api-management-sample-cache-by-key.md).
 
 [api-management-management-console]: ./media/api-management-howto-cache/api-management-management-console.png
 [api-management-echo-api]: ./media/api-management-howto-cache/api-management-echo-api.png

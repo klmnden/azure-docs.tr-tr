@@ -1,120 +1,115 @@
-<properties
-    pageTitle="HTML/JavaScript uygulamaları için Azure Mobile Services’ı Kullanmaya Başlama | Microsoft Azure"
-    description="HTML geliştirme için Azure Mobile Services’ı kullanmaya başlamak için bu öğreticiden yararlanın."
-    services="mobile-services"
-    documentationCenter=""
-    authors="ggailey777"
-    manager="dwrede"
-    editor=""/>
+---
+title: HTML/JavaScript uygulamaları için Azure Mobile Services’ı Kullanmaya Başlama | Microsoft Docs
+description: HTML geliştirme için Azure Mobile Services’ı kullanmaya başlamak için bu öğreticiden yararlanın.
+services: mobile-services
+documentationcenter: ''
+author: ggailey777
+manager: dwrede
+editor: ''
 
-<tags
-    ms.service="mobile-services"
-    ms.workload="mobile"
-    ms.tgt_pltfrm="mobile-html5"
-    ms.devlang="javascript"
-    ms.topic="get-started-article" 
-    ms.date="07/21/2016"
-    ms.author="glenga"/>
+ms.service: mobile-services
+ms.workload: mobile
+ms.tgt_pltfrm: mobile-html5
+ms.devlang: javascript
+ms.topic: get-started-article
+ms.date: 07/21/2016
+ms.author: glenga
 
-
+---
 # <a name="getting-started"> </a>Mobile Services’ı kullanmaya başlama
+[!INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
 
-[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
 &nbsp;
 
-[AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
+[!INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
 
-##Genel Bakış 
-
+## Genel Bakış
 Bu öğreticide, bir HTML uygulamasına Azure Mobile Services’ı kullanarak bulut tabanlı arka uç hizmetini nasıl ekleyeceğiniz gösterilmiştir. Bu öğretici kapsamında, hem yeni bir mobil hizmet hem de yeni mobil hizmetteki uygulama verilerini depolayan basit bir *Yapılacaklar listesi* uygulaması oluşturacaksınız. Aşağıda bu öğreticinin video sürümünü görüntüleyebilirsiniz. 
 
-> [AZURE.VIDEO mobile-get-started-html]
- 
+> [!VIDEO https://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Getting-Started-with-the-Mobile-Services-HTML-Client/player]
+> 
+> 
+
 Aşağıda tamamlanmış uygulamadan bir ekran görüntüsünü görebilirsiniz:
 
 ![][0]
 
 Bu öğreticiyi tamamlamak HTML uygulamalarına ilişkin tüm Mobile Services öğreticileri için ön koşuldur. PhoneGap/Cordova uygulaması için, bu öğreticinin [PhoneGap/Cordova sürüm](mobile-services-javascript-backend-phonegap-get-started.md)üne bakın.
 
-##Ön koşullar
-
+## Ön koşullar
 Bu öğreticiyi tamamlamak için aşağıdakiler gereklidir:
 
-+ Yerel bilgisayarınızda aşağıdaki web sunucularından biri çalışıyor olmalıdır:
-
-    +  **Windows**: IIS Express. IIS Express [Microsoft Web Platformu Yükleyicisi] tarafından yüklenir.
-    +  **MacOS x**: Python, önceden yüklenmiş olması gerekir.
-    +  **Linux**: Python. [Python’un en son sürümünü] yüklemelisiniz.
-
+* Yerel bilgisayarınızda aşağıdaki web sunucularından biri çalışıyor olmalıdır:
+  
+  * **Windows**: IIS Express. IIS Express [Microsoft Web Platformu Yükleyicisi] tarafından yüklenir.
+  * **MacOS x**: Python, önceden yüklenmiş olması gerekir.
+  * **Linux**: Python. [Python’un en son sürümünü] yüklemelisiniz.
+    
     Uygulamayı barındırmak için herhangi bir web sunucusunu kullanabilirsiniz, ancak bunlar indirilmiş betikler tarafından desteklenen web sunucularıdır.  
-
-+ HTML5'i destekleyen bir web tarayıcısı.
-+ Bir Azure hesabı. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılar için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-html%2F"%20target="_blank). 
-
+* HTML5'i destekleyen bir web tarayıcısı.
+* Bir Azure hesabı. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılar için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-html%2F"%20target="_blank). 
 
 ## <a name="create-new-service"> </a>Yeni bir mobil hizmet oluşturma
-
-[AZURE.INCLUDE [mobile-services-create-new-service](../../includes/mobile-services-create-new-service.md)]
+[!INCLUDE [mobile-services-create-new-service](../../includes/mobile-services-create-new-service.md)]
 
 ## Yeni HTML uygulaması oluşturma
-
 Mobil hizmetinizi oluşturduktan sonra yeni bir uygulama oluşturmak veya mevcut bir uygulamayı mobil hizmetinize bağlamak üzere değiştirmek için Klasik Azure Portalı’ndaki kolay bir hızlı başlangıcı izleyebilirsiniz.
 
 Bu bölümde, mobil hizmetinize bağlanan yeni bir HTML uygulaması oluşturacaksınız.
 
-1.  [Klasik Azure Portalı]’nda, **Mobile Services**’a ve ardından yeni oluşturduğunuz mobil hizmete tıklayın.
-
-
+1. [Klasik Azure Portalı]’nda, **Mobile Services**’a ve ardından yeni oluşturduğunuz mobil hizmete tıklayın.
 2. Hızlı başlangıç sekmesinde, **Platform seçin** altında **Windows**’a tıklayın ve **Yeni HTML uygulaması oluştur** seçeneğini genişletin.
-
+   
     ![][6]
-
+   
     Burada, mobil hizmetinize bağlanan bir HTML uygulaması barındırmanın üç kolay adımı gösterilmiştir.
-
+   
     ![][7]
-
 3. Uygulama verilerini depolamak üzere bir tablo oluşturmak için **TodoItems tablosu oluştur**’a tıklayın.
-
 4. **Uygulamanızı indirme ve çalıştırma** altında **İndir**’e tıklayın.
-
-    Bu, mobil hizmetinize bağlanan örnek için _Yapılacaklar listesi_ uygulamasın için web sitesi dosyalarını indirir. Sıkıştırılmış dosyayı yerel bilgisayarınıza kaydedin ve kaydettiğiniz yeri not edin.
-
+   
+    Bu, mobil hizmetinize bağlanan örnek için *Yapılacaklar listesi* uygulamasın için web sitesi dosyalarını indirir. Sıkıştırılmış dosyayı yerel bilgisayarınıza kaydedin ve kaydettiğiniz yeri not edin.
 5. **Yapılandır** sekmesinde `localhost` öğesinin **Çıkış noktaları arası kaynak paylaşma (CORS)** altındaki **Ana bilgisayar adlarından gelen isteklere izin ver** listesinde zaten olduğunu doğrulayın. Listede yoksa, **ana bilgisayar adı** alanına `localhost` yazın ve ardından **Kaydet**’e tıklayın.
-
+   
     ![][9]
-
-    > [AZURE.IMPORTANT] Hız başlangıç uygulamasını localhost dışında bir web sunucusuna dağıtırsanız, web sunucusunun adını **Ana bilgisayar adlarından gelen isteklere izin ver** listesine eklemelisiniz. Daha fazla bilgi için bkz. [Çıkış noktaları arası kaynak paylaşma](http://msdn.microsoft.com/library/windowsazure/dn155871.aspx).
+   
+   > [!IMPORTANT]
+   > Hız başlangıç uygulamasını localhost dışında bir web sunucusuna dağıtırsanız, web sunucusunun adını **Ana bilgisayar adlarından gelen isteklere izin ver** listesine eklemelisiniz. Daha fazla bilgi için bkz. [Çıkış noktaları arası kaynak paylaşma](http://msdn.microsoft.com/library/windowsazure/dn155871.aspx).
+   > 
+   > 
 
 ## HTML uygulamanızı barındırma ve çalıştırma
-
 Bu öğreticinin son aşaması yerel bilgisayarda yeni uygulamanızı barındırmak ve çalıştırmaktır.
 
 1. Sıkıştırılmış proje dosyalarını kaydettiğiniz konuma gidin, bilgisayarınızda dosyaları genişletin ve **server** alt klasöründeki aşağıdaki betiklerden birini başlatın.
-
-    + **launch-windows** (Windows bilgisayarlar)
-    + **launch-mac.command** (Mac OS X bilgisayarlar)
-    + **launch-linux.sh** (Linux bilgisayarlar)
-
-    > [AZURE.NOTE] Bir Windows bilgisayarda, PowerShell sizden betiği çalıştırmayı istediğinizi onaylamanızı istediğinde `R` yazın. Web tarayıcınız, İnternet'ten indirildiği için betiği çalıştırmamanız konusunda sizi uyarabilir. Bu durumda, tarayıcının betiği yüklemeye devam etmesini istemelisiniz.
-
-    Bu, yerel bilgisayarınızda yeni uygulamayı barındıracak bir web sunucusu başlatır.
-
+   
+   * **launch-windows** (Windows bilgisayarlar)
+   * **launch-mac.command** (Mac OS X bilgisayarlar)
+   * **launch-linux.sh** (Linux bilgisayarlar)
+     
+     > [!NOTE]
+     > Bir Windows bilgisayarda, PowerShell sizden betiği çalıştırmayı istediğinizi onaylamanızı istediğinde `R` yazın. Web tarayıcınız, İnternet'ten indirildiği için betiği çalıştırmamanız konusunda sizi uyarabilir. Bu durumda, tarayıcının betiği yüklemeye devam etmesini istemelisiniz.
+     > 
+     > 
+     
+     Bu, yerel bilgisayarınızda yeni uygulamayı barındıracak bir web sunucusu başlatır.
 2. Uygulamayı başlatmak için bir web tarayıcısında <a href="http://localhost:8000/" target="_blank">http://localhost:8000 /</a> URL’sini açın.
-
-3. Uygulamada, **Yeni görev gir** bölümüne _Öğreticiyi tamamla_ gibi anlamlı bir metin yazın ve ardından**Ekle**’ye tıklayın.
-
+3. Uygulamada, **Yeni görev gir** bölümüne *Öğreticiyi tamamla* gibi anlamlı bir metin yazın ve ardından**Ekle**’ye tıklayın.
+   
     ![][10]
-
+   
     Bu, Azure üzerinde barındırılan yeni mobil hizmete bir POST isteği gönderir. İstekten alınan veriler TodoItem tablosuna eklenir. Tabloda depolanan öğeler mobil hizmet tarafından döndürülür ve veriler uygulamada ikinci sütunda görüntülenir.
-
-    > [AZURE.NOTE] Sorgulamak ve page.js dosyasında bulunan verileri eklemek için, mobil hizmetinize erişen kodu gözden geçirebilirsiniz.
-
+   
+   > [!NOTE]
+   > Sorgulamak ve page.js dosyasında bulunan verileri eklemek için, mobil hizmetinize erişen kodu gözden geçirebilirsiniz.
+   > 
+   > 
 4. [Klasik Azure Portalı] geri dönün, **Veri** sekmesine ve sonra **TodoItems** tablosuna tıklayın.
-
+   
     ![][11]
-
+   
     Bu, uygulama tarafından tabloya eklenen verilere göz atmanızı sağlar.
-
+   
     ![][12]
 
 ## <a name="next-steps"> </a>Sonraki Adımlar
@@ -122,12 +117,10 @@ Hızlı başlangıcı tamamladığınıza göre, Mobile Services’taki diğer �
 
 * **[Uygulamanıza kimlik doğrulaması ekleme]**  
   Uygulamanızdaki kullanıcıların kimliklerini bir kimlik sağlayıcısı ile nasıl doğrulayacağınızı öğrenin.
-
 * **[Mobile Services HTML/JavaScript Kavramsal Başvurusu Nasıl Yapılır?]**  
   Mobile Services’ı HTML/JavaScript ile kullanma hakkında daha fazla bilgi edinin
 
-
-[AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
+[!INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
 
 <!-- Anchors. -->
 [Mobile Services’ı kullanmaya başlama]:#getting-started
@@ -155,7 +148,7 @@ Hızlı başlangıcı tamamladığınıza göre, Mobile Services’taki diğer �
 [Python’un en son sürümünü]: http://go.microsoft.com/fwlink/p/?LinkId=286342
 [Mobile Services HTML/JavaScript Kavramsal Başvurusu Nasıl Yapılır?]: mobile-services-html-how-to-use-client-library.md
 [Çıkış noktaları arası kaynak paylaşma]: http://msdn.microsoft.com/library/azure/dn155871.aspx
- 
+
 
 
 

@@ -1,143 +1,109 @@
-<properties
-   pageTitle="Register your app and get the client id and key for connecting to SQL Database from code | Microsoft Azure"
-   description="Get the client id and key for accessing SQL Database from code."
-   services="sql-database"
-   documentationCenter=""
-   authors="stevestein"
-   manager="jhubbard"
-   editor=""
-   tags=""/>
+---
+title: Register your app and get the client id and key for connecting to SQL Database from code | Microsoft Docs
+description: Get the client id and key for accessing SQL Database from code.
+services: sql-database
+documentationcenter: ''
+author: stevestein
+manager: jhubbard
+editor: ''
+tags: ''
 
-<tags
-   ms.service="sql-database"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="data-management"
-   ms.date="06/06/2016"
-   ms.author="sstein"/>
+ms.service: sql-database
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: data-management
+ms.date: 06/06/2016
+ms.author: sstein
 
+---
 # Get the client id and key for connecting to SQL Database from code
-
 To create and manage SQL Database from code you must register your app in the Azure Active Directory (AAD) domain associated with the subscription where your Azure resources have been created. When you register your application, Azure will generate a client id and key that you will need in your code to authenticate your app. For more information, see [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/).
 
 ## Register a native client application and get the client id
-
 To create a new application and register it do the following:
 
 1. Login to the [Classic Portal](https://manage.windowsazure.com/) (currently, registering applications need to be done in the Classic Portal).
-1. Locate **Active Directory** in the menu and select it.
-
+2. Locate **Active Directory** in the menu and select it.
+   
     ![AAD][1]
-
-2. Select the directory to authenticate your application and click it's **Name**.
-
+3. Select the directory to authenticate your application and click it's **Name**.
+   
     ![Directories][4]
-
-3. On the directory page, click **APPLICATIONS**.
-
+4. On the directory page, click **APPLICATIONS**.
+   
     ![Applications][5]
-
-4. Click **ADD** to create a new application.
-
+5. Click **ADD** to create a new application.
+   
     ![Add application][6]
-
-5. Provide a **NAME** for the app, and select **NATIVE CLIENT APPLICATION**.
-
+6. Provide a **NAME** for the app, and select **NATIVE CLIENT APPLICATION**.
+   
     ![Add application][7]
-
-6. Provide a **REDIRECT URI**. It doesn't need to be an actual endpoint, just a valid URI.
-
+7. Provide a **REDIRECT URI**. It doesn't need to be an actual endpoint, just a valid URI.
+   
     ![Add application][8]
-
-7. Finish creating the app, click **CONFIGURE**, and copy the **CLIENT ID** (this is the value you will need in your code).
-
+8. Finish creating the app, click **CONFIGURE**, and copy the **CLIENT ID** (this is the value you will need in your code).
+   
     ![get client id][9]
-
-
-1. Scroll down on the page and click **Add application**.
-1. Select **Microsoft Apps**.
-1. Select **Windows Azure Service Management API**, and then complete the wizard.
-2. In the **permissions to other applications** section locate the **Windows Azure Service Management API** and click **Delegated Permissions**.
-3. Select **Access Azure Service Management...**.
-
-    ![permissions][2]
-
-2. Click **SAVE** at the bottom of the page.
-
-
+9. Scroll down on the page and click **Add application**.
+10. Select **Microsoft Apps**.
+11. Select **Windows Azure Service Management API**, and then complete the wizard.
+12. In the **permissions to other applications** section locate the **Windows Azure Service Management API** and click **Delegated Permissions**.
+13. Select **Access Azure Service Management...**.
+    
+     ![permissions][2]
+14. Click **SAVE** at the bottom of the page.
 
 ## Register a web app (or web api) and get the client id and key
-
 To create a new application and register it in the correct active directory do the following:
 
 1. Login to the [Classic Portal](https://manage.windowsazure.com/).
-1. Locate **Active Directory** in the menu and select it.
-
+2. Locate **Active Directory** in the menu and select it.
+   
     ![AAD][1]
-
-2. Select the directory to authenticate your application and click it's **Name**.
-
+3. Select the directory to authenticate your application and click it's **Name**.
+   
     ![Directories][4]
-
-3. On the directory page, click **APPLICATIONS**.
-
+4. On the directory page, click **APPLICATIONS**.
+   
     ![Applications][5]
-
-4. Click **ADD** to create a new application.
-
+5. Click **ADD** to create a new application.
+   
     ![Add application][6]
-
-5. Provide a **NAME** for the app, and select **WEB APPLICATION AND/OR WEB API**.
-
+6. Provide a **NAME** for the app, and select **WEB APPLICATION AND/OR WEB API**.
+   
     ![Add application][10]
-
-6. Provide a **SIGN-ON URL**, and an **APP ID URI**. It doesn't need to be an actual endpoint, just a valid URI.
-
+7. Provide a **SIGN-ON URL**, and an **APP ID URI**. It doesn't need to be an actual endpoint, just a valid URI.
+   
     ![Add application][11]
-
-7. Finish creating the app, then click **CONFIGURE**.
-
+8. Finish creating the app, then click **CONFIGURE**.
+   
     ![configure][12]
-
-8. Scroll to the **keys** section and select **1 year** in the **Select duration** list. The key value will be displayed after you save so we'll come back and copy the key later.
-
+9. Scroll to the **keys** section and select **1 year** in the **Select duration** list. The key value will be displayed after you save so we'll come back and copy the key later.
+   
     ![set key duration][13]
-
-
-
-1. Scroll down on the page and click **Add application**.
-1. Select **Microsoft Apps**.
-1. Locate and select **Windows Azure Service Management API**, and then complete the wizard.
-2. In the **permissions to other applications** section locate the **Windows Azure Service Management API** and click **Delegated Permissions**.
-3. Select **Access Azure Service Management...**.
-
-    ![permissions][2]
-
-2. Click **SAVE** at the bottom of the page.
-3. After the save completes locate and save the CLIENT ID and key:
-
-    ![web app secrets][14]
-
-
+10. Scroll down on the page and click **Add application**.
+11. Select **Microsoft Apps**.
+12. Locate and select **Windows Azure Service Management API**, and then complete the wizard.
+13. In the **permissions to other applications** section locate the **Windows Azure Service Management API** and click **Delegated Permissions**.
+14. Select **Access Azure Service Management...**.
+    
+     ![permissions][2]
+15. Click **SAVE** at the bottom of the page.
+16. After the save completes locate and save the CLIENT ID and key:
+    
+     ![web app secrets][14]
 
 ## Get your domain name
-
 The domain name is sometimes required for your auth code. An easy way to identify the proper domain name is to:
 
 1. Go to the [Azure Portal](https://portal.azure.com).
 2. Hover over your name in the upper right corner and note the Domain that appears in the pop-up window.
-
+   
     ![Identify domain name][3]
 
-
-
-
 ## Example Console Application
-
-
 Get the required management library by installing the following packages using the [package manager console](http://docs.nuget.org/Consume/Package-Manager-Console) in Visual Studio (**Tools** > **NuGet Package Manager** > **Package Manager Console**):
-
 
     PM> Install-Package Microsoft.Azure.Common.Authentication –Pre
 
@@ -146,7 +112,7 @@ Create a console app named **SqlDbAuthSample** and replace the contents of **Pro
 
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
     using System;
-    
+
     namespace SqlDbAuthSample
     {
     class Program
@@ -228,11 +194,8 @@ Create a console app named **SqlDbAuthSample** and replace the contents of **Pro
 For specific code examples related to Azure AD authentication see the [SQL Server Security Blog](http://blogs.msdn.com/b/sqlsecurity/) on MSDN.
 
 ## See also
-
-- [Create a SQL database with C#](sql-database-get-started-csharp.md)
-- [Connecting to SQL Database By Using Azure Active Directory Authentication](sql-database-aad-authentication.md)
-
-
+* [Create a SQL database with C#](sql-database-get-started-csharp.md)
+* [Connecting to SQL Database By Using Azure Active Directory Authentication](sql-database-aad-authentication.md)
 
 <!--Image references-->
 [1]: ./media/sql-database-client-id-keys/aad.png

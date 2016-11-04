@@ -1,5 +1,4 @@
 ## Overview of Azure Resource Manager templates
-
 Azure Resource Manager templates allow you to declaratively specify the Azure IaaS infrastructure in Json language by defining the dependencies between resources. For a detailed overview of Azure Resource Manager Templates, please refer to the article below:
 
 [Resource Group Overview](../articles/resource-group-overview.md)
@@ -31,5 +30,5 @@ As you can see from the above, the extension template contains two main parts:
 2. Extension Configuration.
 
 ## Identifying the publisher, type, and typeHandlerVersion for any extension
-
 Azure VM extensions are published by Microsoft and trusted 3rd party publishers and each extension is uniquely identified by its publisher,type and the typeHandlerVersion. These can be determined as following:  
+

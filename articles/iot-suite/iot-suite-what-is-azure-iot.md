@@ -1,39 +1,36 @@
-<properties
- pageTitle="Nesnelerin İnterneti için Azure çözümleri | Microsoft Azure"
- description="Azure'da IoT'ye, örnek bir çözüm mimarisini ve bunun Azure IoT Paketi ve önceden yapılandırılmış çözümlerle nasıl ilişkili olduğunu içeren genel bir bakış"
- services=""
- suite="iot-suite"
- documentationCenter=""
- authors="dominicbetts"
- manager="timlt"
- editor=""/>
+---
+title: Nesnelerin İnterneti için Azure çözümleri | Microsoft Docs
+description: Azure'da IoT'ye, örnek bir çözüm mimarisini ve bunun Azure IoT Paketi ve önceden yapılandırılmış çözümlerle nasıl ilişkili olduğunu içeren genel bir bakış
+services: ''
+suite: iot-suite
+documentationcenter: ''
+author: dominicbetts
+manager: timlt
+editor: ''
 
-<tags
- ms.service="iot-suite"
- ms.devlang="na"
- ms.topic="get-started-article"
- ms.tgt_pltfrm="na"
- ms.workload="na"
- ms.date="08/09/2016"
- ms.author="dobett"/>
+ms.service: iot-suite
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 08/09/2016
+ms.author: dobett
 
-
-[AZURE.INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
+---
+[!INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
 
 ## Azure IoT Paketi
-
 The Microsoft Azure IoT Paketi, [uzaktan izleme][lnk-preconfigured-solutions] and [tahmine dayalı bakım][lnk-predictive-maintenance] gibi yaygın IoT senaryolarını belirten bir dizi genişletilebilir önceden yapılandırılmış çözüm aracılığıyla hemen başlamanızı sağlayan kurumsal düzeyde bir çözümdür. Bu çözümler, bu makalede ana hatlarıyla açıklanan IOT çözüm mimarisinin uygulamalarıdır.
 
-Önceden yapılandırılmış çözümler, [Azure IoT Hub’ı][], [Azure Event Hubs][], [Azure Stream Analytics][], [Azure Machine Learning][], ve [Azure Storage][] ve çözüme özel yönetim konsolları gibi önceden yapılandırılmış Azure hizmetlerine başlamanızı sağlayan sanal cihazları kapsayan eksiksiz, çalışan uçtan uca çözümlerdir. Önceden yapılandırılmış çözümlerde, özelleştirebildiğiniz ve kendi özel IoT senaryolarınıza uygulamak amacıyla uzanabildiğiniz kanıtlanmış, üretime hazır kod bulunur.
+Önceden yapılandırılmış çözümler, [Azure IoT Hub’ı][Azure IoT Hub’ı], [Azure Event Hubs][Azure Event Hubs], [Azure Stream Analytics][Azure Stream Analytics], [Azure Machine Learning][Azure Machine Learning], ve [Azure Storage][Azure Storage] ve çözüme özel yönetim konsolları gibi önceden yapılandırılmış Azure hizmetlerine başlamanızı sağlayan sanal cihazları kapsayan eksiksiz, çalışan uçtan uca çözümlerdir. Önceden yapılandırılmış çözümlerde, özelleştirebildiğiniz ve kendi özel IoT senaryolarınıza uygulamak amacıyla uzanabildiğiniz kanıtlanmış, üretime hazır kod bulunur.
 
-Çok sayıda önceden yapılandırılmış çözümün kullandığı [Azure IoT Hub’ı][] hizmeti de ilginizi çekebilir. [Azure IoT Hub’ı][], önceden yapılandırılmış çözüm mimarisinde kullanılan, cihazlar ve bulut arasındaki güvenli ve çift yönlü iletişimi sağlar.
+Çok sayıda önceden yapılandırılmış çözümün kullandığı [Azure IoT Hub’ı][Azure IoT Hub’ı] hizmeti de ilginizi çekebilir. [Azure IoT Hub’ı][Azure IoT Hub’ı], önceden yapılandırılmış çözüm mimarisinde kullanılan, cihazlar ve bulut arasındaki güvenli ve çift yönlü iletişimi sağlar.
 
 ## Sonraki adımlar
-
 IoT Paketi ve önceden yapılandırılmış çözümler hakkında bilgi almaya devam etmek için aşağıdaki kaynakları keşfedin:
 
-- [Azure IoT Paketi nedir?][lnk-whatissuite]
-- [Azure IoT Paketi önceden yapılandırılmış çözümleri nelerdir?][lnk-whatarepreconfigured]
+* [Azure IoT Paketi nedir?][lnk-whatissuite]
+* [Azure IoT Paketi önceden yapılandırılmış çözümleri nelerdir?][lnk-whatarepreconfigured]
 
 [lnk-whatissuite]: iot-suite-overview.md
 [lnk-whatarepreconfigured]: iot-suite-what-are-preconfigured-solutions.md

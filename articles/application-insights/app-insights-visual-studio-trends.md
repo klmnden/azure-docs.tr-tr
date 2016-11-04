@@ -1,31 +1,31 @@
-<properties 
-    pageTitle="Visual Studio Eğilimlerini Çözümleme | Microsoft Azure" 
-    description="Visual Studio Application Insights telemetri eğilimlerini çözümleyin, görselleştirin ve keşfedin." 
-    services="application-insights" 
-    documentationCenter=".net"
-    authors="numberbycolors" 
-    manager="douge"/>
+---
+title: Visual Studio Eğilimlerini Çözümleme | Microsoft Docs
+description: Visual Studio Application Insights telemetri eğilimlerini çözümleyin, görselleştirin ve keşfedin.
+services: application-insights
+documentationcenter: .net
+author: numberbycolors
+manager: douge
 
-<tags 
-    ms.service="application-insights" 
-    ms.workload="tbd" 
-    ms.tgt_pltfrm="ibiza" 
-    ms.devlang="na" 
-    ms.topic="get-started-article" 
-    ms.date="08/08/2016" 
-    ms.author="daviste"/>
-    
+ms.service: application-insights
+ms.workload: tbd
+ms.tgt_pltfrm: ibiza
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 08/08/2016
+ms.author: daviste
 
+---
 # Visual Studio Eğilimlerini Çözümleme
-
 Application Insights Eğilimleri aracı, uygulamanızın önemli telemetri olaylarının zaman içinde nasıl değiştiğini gösterir ve sorunları ve anormallikleri hızlıca belirlemenize yardımcı olur. Sizi daha ayrıntılı tanılama bilgilerine bağlayan Eğilimler, uygulamanızın performansını geliştirmenize, özel durumların nedenlerini izlemenize ve özel olaylarınıza ilişkin bilgileri açığa çıkarmanıza yardımcı olabilir.
 
 ![Örnek Eğilimler penceresi](./media/app-insights-visual-studio-trends/app-insights-trends-hero-750.png)
 
-> [AZURE.NOTE] Application Insights Eğilimleri Visual Studio 2015 Güncelleştirme 3 ve sonrasında ya da [Geliştirici Analiz Araçları uzantısı](https://visualstudiogallery.msdn.microsoft.com/82367b81-3f97-4de1-bbf1-eaf52ddc635a) sürüm 5.209 ve sonrasında mevcuttur.
+> [!NOTE]
+> Application Insights Eğilimleri Visual Studio 2015 Güncelleştirme 3 ve sonrasında ya da [Geliştirici Analiz Araçları uzantısı](https://visualstudiogallery.msdn.microsoft.com/82367b81-3f97-4de1-bbf1-eaf52ddc635a) sürüm 5.209 ve sonrasında mevcuttur.
+> 
+> 
 
 ## Application Insights Eğilimleri’ni açma
-
 Application Insights Eğilimleri penceresini açmak için:
 
 * Application Insights araç çubuğu düğmesinden **Telemetri Eğilimlerini Keşfet**’i seçin veya
@@ -35,7 +35,6 @@ Application Insights Eğilimleri penceresini açmak için:
 Kaynak seçmenizi isteyen bir ileti görebilirsiniz. **Kaynak seç** öğesine tıklayın, bir Azure aboneliği ile oturum açın, ardından listeden telemetri eğilimlerini çözümlemek istediğiniz bir Application Insights kaynağını seçin.
 
 ## Eğilim analizi seçme
-
 ![Eğilim analizi genel türleri menüsü](./media/app-insights-visual-studio-trends/app-insights-trends-1-750.png)
 
 Her biri son 24 saatin verilerini çözümleyen beş genel eğilim analizinden birini seçerek işe başlayın:
@@ -49,7 +48,6 @@ Her biri son 24 saatin verilerini çözümleyen beş genel eğilim analizinden b
 Önceden oluşturulmuş bu çözümlemeler Eğilimler penceresinin sol üst köşesindeki **Sık kullanılan telemetri analizi türlerini görüntüleyin** düğmesinden kullanılabilir.
 
 ## Uygulamanızdaki eğilimleri görselleştirme
-
 Application Insights Eğilimleri, uygulamanızın telemetrisinden bir zaman dizisi görselleştirmesi oluşturur. Her bir zaman dizisi görselleştirmesi bir telemetri türünü, ilgili telemetrinin bir özelliğine göre gruplandırarak ve bir zaman aralığı üzerinde gösterir. Örneğin, oluşturuldukları ülkeye göre gruplandırılmış son 24 saatteki sunucu isteklerini görüntülemek isteyebilirsiniz. Bu örnekte görselleştirme üzerindeki her baloncuk bir saat boyunca belirli bir ülke/bölge için yapılan sunucu isteklerinin sayısını gösterir.
 
 Hangi telemetri türlerini görüntüleyeceğinizi ayarlamak için pencerenin üstündeki denetimleri kullanın. İlk olarak ilgilendiğiniz telemetri türlerini seçin:
@@ -66,10 +64,12 @@ Görseldeki baloncuklar arasında gezinmek için:
 * Arama aracında gezinmek için bir baloncuğa çift tıklayın ve ilgili süre içinde gerçekleşen tüm telemetri olaylarını tek tek görüntüleyin
 * Baloncuğun görseldeki seçimini kaldırmak için Ctrl tuşuna basıp tıklayın.
 
-> [AZURE.TIP] Eğilimler ve Arama araçları, binlerce telemetri olayı arasından hizmetinizdeki sorunların nedenlerini belirlemenize yardımcı olmak üzere birlikte çalışır. Örneğin, bir öğleden sonra müşterileriniz uygulamanızın daha az yanıt verdiğini fark ederse Eğilimler ile çalışmaya başlayın. Son birkaç saat içinde hizmetinize yapılan istekleri, yanıt süresine göre gruplandırılmış halde çözümleyin. Olağan dışı derecede büyük bir yavaş istekler kümesi olup olmadığına bakın. Ardından baloncuğa çift tıklayarak Arama aracına gidin ve bu istek olaylarını filtreleyin. Arama aracında bu isteklerin içeriklerini keşfedebilir ve sorunu çözmek için ilgili koda gidebilirsiniz.
+> [!TIP]
+> Eğilimler ve Arama araçları, binlerce telemetri olayı arasından hizmetinizdeki sorunların nedenlerini belirlemenize yardımcı olmak üzere birlikte çalışır. Örneğin, bir öğleden sonra müşterileriniz uygulamanızın daha az yanıt verdiğini fark ederse Eğilimler ile çalışmaya başlayın. Son birkaç saat içinde hizmetinize yapılan istekleri, yanıt süresine göre gruplandırılmış halde çözümleyin. Olağan dışı derecede büyük bir yavaş istekler kümesi olup olmadığına bakın. Ardından baloncuğa çift tıklayarak Arama aracına gidin ve bu istek olaylarını filtreleyin. Arama aracında bu isteklerin içeriklerini keşfedebilir ve sorunu çözmek için ilgili koda gidebilirsiniz.
+> 
+> 
 
 ## Filtre
-
 Pencerenin altındaki filtre denetimleri ile daha özel eğilimleri bulun. Bir filtre uygulamak için adına tıklayın. Telemetrinizin belirli bir yönünde gizlenmiş olabilecek eğilimleri bulmak için farklı filtreler arasında hızlıca geçiş yapabilirsiniz. Bir yönde Özel Durum Türü gibi bir filtre uygularsanız, diğer yönlerdeki filtreler grileştirilmiş görünse bile tıklanabilir durumda kalır. Bir filtrenin uygulamasını kaldırmak için filtreye yeniden tıklayın. Aynı yönde birden fazla filtreyi seçmek için Ctrl tuşuna basıp tıklayın.
 
 ![Eğilim filtreleri](./media/app-insights-visual-studio-trends/TrendsFiltering-750.png)
@@ -79,29 +79,28 @@ Birden fazla filtre uygulamak isterseniz ne olur?
 1. İlk filtreyi uygulayın. 
 2. Birinci filtrenizin yön adının yanındaki **Seçili filtreleri uygula ve yeniden sorgula** düğmesine tıklayın. Bunun yapılması telemetrinizi yalnızca birinci filtreyle eşleşen olaylar için yeniden sorgular. 
 3. İkinci bir filtre uygulayın. 
-4. Telemetrinizin belirli alt kümelerindeki eğilimleri bulmak için işlemi tekrarlayın. Örneğin, adı "GET Home/Index" olan _ve_ Almanya’dan gelen _ve_ 500 yanıt kodu alan sunucu istekleri. 
+4. Telemetrinizin belirli alt kümelerindeki eğilimleri bulmak için işlemi tekrarlayın. Örneğin, adı "GET Home/Index" olan *ve* Almanya’dan gelen *ve* 500 yanıt kodu alan sunucu istekleri. 
 
 Bu filtrelerden birini kaldırmak için yöne ilişkin **Seçili filtreleri kaldır ve yeniden sorgula** düğmesine tıklayın.
 
 ![Birden fazla filtre](./media/app-insights-visual-studio-trends/TrendsFiltering2-750.png)
 
 ## Anormallikleri bulma
-
 Eğilimler aracı, aynı zaman dizisindeki diğer baloncuklara kıyasla anormal olan olayların baloncuklarını vurgulayabilir. Görünüm Türü açılır listesinde **Zaman aralığındaki sayımlar (anomalileri vurgula)** veya **Zaman aralığındaki yüzdeler (anomalileri vurgula)** seçeneğini belirleyin. Kırmızı baloncuklar anormaldir. Anomaliler sayıları/yüzdeleri, son iki zaman dilimi (örneğin, son 24 saati görüntülüyorsanız 48 saat) boyunca gerçekleşen sayıların/yüzdelerin standart sapmasının 2.1 katını aşan baloncuklar olarak tanımlanır.
 
 ![Renkli noktalar anomalileri gösterir](./media/app-insights-visual-studio-trends/TrendsAnomalies-750.png)
 
-> [AZURE.TIP] Anomalilerin vurgulanması özellikle diğer durumlarda benzer şekilde boyutlandırılabilecek küçük baloncukların zaman dizisindeki aykırı değerlerini bulmak için yararlıdır.  
+> [!TIP]
+> Anomalilerin vurgulanması özellikle diğer durumlarda benzer şekilde boyutlandırılabilecek küçük baloncukların zaman dizisindeki aykırı değerlerini bulmak için yararlıdır.  
+> 
+> 
 
 ## <a name="next"></a>Sonraki adımlar
-
-||
-|---|---
-|**[Visual Studio’da Application Insights ile çalışma](app-insights-visual-studio.md)**<br/>Telemetri arayın, CodeLens içindeki verilere bakın ve Application Insights’ı yapılandırın. Hepsi Visual Studio’da. |![Projeye sağ tıklayın ve Application Insights, Ara’yı seçin](./media/app-insights-visual-studio-trends/34.png)
-|**[Daha fazla veri ekleme](app-insights-asp-net-more.md)**<br/>Kullanımı, kullanılabilirliği, bağımlılıkları, özel durumları izleyin. Günlük altyapılarından izlemeleri tümleştirin. Özel telemetri yazın. | ![Visual studio](./media/app-insights-visual-studio-trends/64.png)
-|**[Application Insights portalıyla çalışma](app-insights-dashboards.md)**<br/>Panolar, güçlü tanılama ve analiz araçları, uyarılar, uygulamanızın canlı bağımlılık haritası ve telemetriyi dışarı aktarma. |![Visual studio](./media/app-insights-visual-studio-trends/62.png)
-
-
+|  |  |
+| --- | --- |
+| **[Visual Studio’da Application Insights ile çalışma](app-insights-visual-studio.md)**<br/>Telemetri arayın, CodeLens içindeki verilere bakın ve Application Insights’ı yapılandırın. Hepsi Visual Studio’da. |![Projeye sağ tıklayın ve Application Insights, Ara’yı seçin](./media/app-insights-visual-studio-trends/34.png) |
+| **[Daha fazla veri ekleme](app-insights-asp-net-more.md)**<br/>Kullanımı, kullanılabilirliği, bağımlılıkları, özel durumları izleyin. Günlük altyapılarından izlemeleri tümleştirin. Özel telemetri yazın. |![Visual studio](./media/app-insights-visual-studio-trends/64.png) |
+| **[Application Insights portalıyla çalışma](app-insights-dashboards.md)**<br/>Panolar, güçlü tanılama ve analiz araçları, uyarılar, uygulamanızın canlı bağımlılık haritası ve telemetriyi dışarı aktarma. |![Visual studio](./media/app-insights-visual-studio-trends/62.png) |
 
 <!--HONumber=Sep16_HO3-->
 

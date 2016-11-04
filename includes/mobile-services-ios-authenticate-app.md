@@ -1,4 +1,4 @@
-* Open **QSTodoListViewController.m** and add the following method. Change _facebook_ to _microsoftaccount_, _twitter_, _google_, or _windowsazureactivedirectory_ if you're not using Facebook as your identity provider.
+* Open **QSTodoListViewController.m** and add the following method. Change *facebook* to *microsoftaccount*, *twitter*, *google*, or *windowsazureactivedirectory* if you're not using Facebook as your identity provider.
 
 ```
         - (void) loginAndGetData
@@ -21,3 +21,4 @@
 ```
 
 * Press  **Run** to start the app, and then log in. When you are logged in, you should be able to view the Todo list and make updates.
+

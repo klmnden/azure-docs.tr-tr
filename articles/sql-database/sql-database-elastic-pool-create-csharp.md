@@ -1,48 +1,47 @@
-<properties
-    pageTitle="C# ile esnek veritabanı havuzu oluşturma | Microsoft Azure"
-    description="Kaynakları birçok veritabanı arasında paylaşabilmek üzere Azure SQL Database'de ölçeklendirilebilir bir esnek veritabanı havuzu oluşturmak için C# veritabanı geliştirme tekniklerini kullanın."
-    services="sql-database"
-    documentationCenter=""
-    authors="stevestein"
-    manager="jhubbard"
-    editor=""/>
+---
+title: C# ile esnek veritabanı havuzu oluşturma | Microsoft Docs
+description: Kaynakları birçok veritabanı arasında paylaşabilmek üzere Azure SQL Database'de ölçeklendirilebilir bir esnek veritabanı havuzu oluşturmak için C# veritabanı geliştirme tekniklerini kullanın.
+services: sql-database
+documentationcenter: ''
+author: stevestein
+manager: jhubbard
+editor: ''
 
-<tags
-    ms.service="sql-database"
-    ms.devlang="NA"
-    ms.topic="get-started-article"
-    ms.tgt_pltfrm="csharp"
-    ms.workload="data-management"
-    ms.date="10/04/2016"
-    ms.author="sstein"/>
+ms.service: sql-database
+ms.devlang: NA
+ms.topic: get-started-article
+ms.tgt_pltfrm: csharp
+ms.workload: data-management
+ms.date: 10/04/2016
+ms.author: sstein
 
-
+---
 # C &#x23; ile bir esnek veritabanı havuzu oluşturma
-
-> [AZURE.SELECTOR]
-- [Azure Portal](sql-database-elastic-pool-create-portal.md)
-- [PowerShell](sql-database-elastic-pool-create-powershell.md)
-- [C#](sql-database-elastic-pool-create-csharp.md)
-
+> [!div class="op_single_selector"]
+> * [Azure Portal](sql-database-elastic-pool-create-portal.md)
+> * [PowerShell](sql-database-elastic-pool-create-powershell.md)
+> * [C#](sql-database-elastic-pool-create-csharp.md)
+> 
+> 
 
 Bu makalede, C# kullanarak [.NET için Azure SQL Veritabanı Kitaplığı](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql) ile bir Azure SQL esnek veritabanı havuzunun nasıl oluşturulacağı açıklanmaktadır. Tek başına bir SQL veritabanı oluşturmak için bkz. [Use C# to create a SQL database with the SQL Database Library for .NET](sql-database-get-started-csharp.md) (C# kullanarak .NET için SQL Veritabanı Kitaplığı ile bir SQL veritabanı oluşturma).
 
 .NET için Azure SQL Database Kitaplığı [Resource Manager tabanlı SQL Database REST API'sini](https://msdn.microsoft.com/library/azure/mt163571.aspx) sarmalayan [Azure Resource Manager](../resource-group-overview.md) tabanlı bir API sağlar.
 
->[AZURE.NOTE] SQL Veritabanı’nın pek çok yeni özelliği, yalnızca [Azure Resource Manager dağıtım modeli](../resource-group-overview.md) kullanıldığında desteklenir. Bu nedenle .NET için her zaman en son **Azure SQL Veritabanı Yönetim Kitaplığını ([docs](https://msdn.microsoft.com/library/azure/mt349017.aspx) | [NuGet Paketi](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql)) kullanmanız gerekir**. Eski [klasik dağıtım modeli tabanlı kitaplıklar](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Sql), yalnızca geriye dönük uyumluluk için desteklenir. Bu nedenle daha yeni Resource Manager tabanlı kitaplıkları kullanmanızı öneririz.
+> [!NOTE]
+> SQL Veritabanı’nın pek çok yeni özelliği, yalnızca [Azure Resource Manager dağıtım modeli](../resource-group-overview.md) kullanıldığında desteklenir. Bu nedenle .NET için her zaman en son **Azure SQL Veritabanı Yönetim Kitaplığını ([docs](https://msdn.microsoft.com/library/azure/mt349017.aspx) | [NuGet Paketi](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql)) kullanmanız gerekir**. Eski [klasik dağıtım modeli tabanlı kitaplıklar](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Sql), yalnızca geriye dönük uyumluluk için desteklenir. Bu nedenle daha yeni Resource Manager tabanlı kitaplıkları kullanmanızı öneririz.
+> 
+> 
 
 Bu makaledeki adımları tamamlayabilmeniz için şunlar gereklidir:
 
-- Azure aboneliği. Bir Azure aboneliğine ihtiyacınız varsa bu sayfanın üst kısmındaki **ÜCRETSİZ HESAP**'a tıklamanız yeterlidir; ardından makaleyi tamamlamak için geri dönün.
-- Visual Studio. Ücretsiz bir Visual Studio kopyası için [Visual Studio İndirmeleri](https://www.visualstudio.com/downloads/download-visual-studio-vs) sayfasına göz atın.
-
+* Azure aboneliği. Bir Azure aboneliğine ihtiyacınız varsa bu sayfanın üst kısmındaki **ÜCRETSİZ HESAP**'a tıklamanız yeterlidir; ardından makaleyi tamamlamak için geri dönün.
+* Visual Studio. Ücretsiz bir Visual Studio kopyası için [Visual Studio İndirmeleri](https://www.visualstudio.com/downloads/download-visual-studio-vs) sayfasına göz atın.
 
 ## Bir konsol uygulaması oluşturun ve gerekli kitaplıkları yükleyin
-
 1. Visual Studio’yu çalıştırın.
 2. **Dosya** > **Yeni** > **Proje**’ye tıklayın.
 3. Bir C# **Konsol Uygulaması** oluşturun ve uygulamaya şu adı verin: *SqlElasticPoolConsoleApp*
-
 
 C# ile bir SQL veritabanı oluşturmak için gerekli yönetim kitaplıklarını yükleyin ([paket yöneticisi konsolunu](http://docs.nuget.org/Consume/Package-Manager-Console) kullanarak):
 
@@ -51,17 +50,15 @@ C# ile bir SQL veritabanı oluşturmak için gerekli yönetim kitaplıklarını 
 3. [Microsoft Azure Resource Manager Kitaplığı](https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceManager)’nı yüklemek için `Install-Package Microsoft.Azure.Management.ResourceManager –Pre` yazın.
 4. [Microsoft Azure Sık Kullanılan Kimlik Doğrulama Kitaplığı](https://www.nuget.org/packages/Microsoft.Azure.Common.Authentication)’nı yüklemek için `Install-Package Microsoft.Azure.Common.Authentication –Pre` yazın. 
 
-
-
-> [AZURE.NOTE] Bu makaledeki örneklerde, temel alınan hizmet üzerindeki REST çağrısı tamamlanana kadar her bir API isteğinin ve bloğunun zaman uyumlu bir biçimi kullanıldı. Zaman uyumsuz yöntemler de kullanılabilir.
-
+> [!NOTE]
+> Bu makaledeki örneklerde, temel alınan hizmet üzerindeki REST çağrısı tamamlanana kadar her bir API isteğinin ve bloğunun zaman uyumlu bir biçimi kullanıldı. Zaman uyumsuz yöntemler de kullanılabilir.
+> 
+> 
 
 ## SQL esnek veritabanı havuzu oluşturma - C# örneği
-
 Aşağıdaki örnek bir kaynak grubu, sunucu, güvenlik duvarı kuralı ve esnek havuz oluşturup ardından havuzda bir SQL veritabanı oluşturur. `_subscriptionId, _tenantId, _applicationId, and _applicationSecret` değişkenlerini almak için bkz. [Kaynaklara erişmek için hizmet sorumlusu oluşturma](#create-a-service-principal-to-access-resources).
 
 **Program.cs** dosyasının içeriğini aşağıdakilerle değiştirin ve `{variables}` öğesini uygulama değerlerinizle güncelleştirin (`{}` öğesini dahil etmeyin).
-
 
 ```
 using Microsoft.Azure;
@@ -258,63 +255,57 @@ namespace SqlElasticPoolConsoleApp
 
 
 ## Kaynaklara erişmek için hizmet sorumlusu oluşturma
-
 Aşağıdaki PowerShell betiği Active Directory (AD) uygulamasını ve C# uygulamamızda kimlik doğrulamak için gereken hizmet sorumlusunu oluşturur. Betik önceki C# örneği için gereken değerleri çıkarır. Ayrıntılı bilgi için bkz. [Kaynaklara erişmek üzere hizmet sorumlusu oluşturmak için Azure PowerShell kullanma](../resource-group-authenticate-service-principal.md).
 
-   
     # Sign in to Azure.
     Add-AzureRmAccount
-    
+
     # If you have multiple subscriptions, uncomment and set to the subscription you want to work with.
     #$subscriptionId = "{xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}"
     #Set-AzureRmContext -SubscriptionId $subscriptionId
-    
+
     # Provide these values for your new AAD app.
     # $appName is the display name for your app, must be unique in your directory.
     # $uri does not need to be a real uri.
     # $secret is a password you create.
-    
+
     $appName = "{app-name}"
     $uri = "http://{app-name}"
     $secret = "{app-password}"
-    
+
     # Create a AAD app
     $azureAdApplication = New-AzureRmADApplication -DisplayName $appName -HomePage $Uri -IdentifierUris $Uri -Password $secret
-    
+
     # Create a Service Principal for the app
     $svcprincipal = New-AzureRmADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
-    
+
     # To avoid a PrincipalNotFound error, I pause here for 15 seconds.
     Start-Sleep -s 15
-    
+
     # If you still get a PrincipalNotFound error, then rerun the following until successful. 
     $roleassignment = New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
-    
-    
+
+
     # Output the values we need for our C# application to successfully authenticate
-    
+
     Write-Output "Copy these values into the C# sample app"
-    
+
     Write-Output "_subscriptionId:" (Get-AzureRmContext).Subscription.SubscriptionId
     Write-Output "_tenantId:" (Get-AzureRmContext).Tenant.TenantId
     Write-Output "_applicationId:" $azureAdApplication.ApplicationId.Guid
     Write-Output "_applicationSecret:" $secret
 
 
-  
+
 
 ## Sonraki adımlar
-
-- [Havuzunuzu yönetme](sql-database-elastic-pool-manage-csharp.md)
-- [Esnek iş oluşturma](sql-database-elastic-jobs-overview.md): Esnek işler, bir havuzda bulunan herhangi bir sayıdaki veritabanı için T-SQL betikleri çalıştırmanızı sağlar.
-- [Azure SQL Veritabanı ile ölçek genişletme](sql-database-elastic-scale-introduction.md): Ölçek genişletmek için esnek veritabanı araçlarını kullanın.
+* [Havuzunuzu yönetme](sql-database-elastic-pool-manage-csharp.md)
+* [Esnek iş oluşturma](sql-database-elastic-jobs-overview.md): Esnek işler, bir havuzda bulunan herhangi bir sayıdaki veritabanı için T-SQL betikleri çalıştırmanızı sağlar.
+* [Azure SQL Veritabanı ile ölçek genişletme](sql-database-elastic-scale-introduction.md): Ölçek genişletmek için esnek veritabanı araçlarını kullanın.
 
 ## Ek Kaynaklar
-
-- [SQL Database](https://azure.microsoft.com/documentation/services/sql-database/)
-- [Azure Resource Management API'leri](https://msdn.microsoft.com/library/azure/dn948464.aspx)
-
-
+* [SQL Database](https://azure.microsoft.com/documentation/services/sql-database/)
+* [Azure Resource Management API'leri](https://msdn.microsoft.com/library/azure/dn948464.aspx)
 
 <!--HONumber=Oct16_HO3-->
 

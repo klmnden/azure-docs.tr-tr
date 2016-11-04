@@ -1,27 +1,29 @@
-<properties
-    pageTitle=".NET SDK kullanarak Azure Search'te karşıya veri yükleme | Microsoft Azure | Barındırılan bulut arama hizmeti"
-    description=".NET SDK kullanarak Azure Search'te bir dizine nasıl veri yükleneceğini öğrenin."
-    services="search"
-    documentationCenter=""
-    authors="brjohnstmsft"
-    manager=""
-    editor=""
-    tags=""/>
+---
+title: .NET SDK kullanarak Azure Search'te karşıya veri yükleme | Microsoft Docs
+description: .NET SDK kullanarak Azure Search'te bir dizine nasıl veri yükleneceğini öğrenin.
+services: search
+documentationcenter: ''
+author: brjohnstmsft
+manager: ''
+editor: ''
+tags: ''
 
-<tags
-    ms.service="search"
-    ms.devlang="dotnet"
-    ms.workload="search"
-    ms.topic="get-started-article"
-    ms.tgt_pltfrm="na"
-    ms.date="08/29/2016"
-    ms.author="brjohnst"/>
+ms.service: search
+ms.devlang: dotnet
+ms.workload: search
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.date: 08/29/2016
+ms.author: brjohnst
 
+---
 # .NET SDK kullanarak Azure Search'e veri yükleme
-> [AZURE.SELECTOR]
-- [Genel Bakış](search-what-is-data-import.md)
-- [.NET](search-import-data-dotnet.md)
-- [REST](search-import-data-rest-api.md)
+> [!div class="op_single_selector"]
+> * [Genel Bakış](search-what-is-data-import.md)
+> * [.NET](search-import-data-dotnet.md)
+> * [REST](search-import-data-rest-api.md)
+> 
+> 
 
 Bu makalede, bir Azure Search dizinine veri aktarmak için [Azure Search .NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx)'sının nasıl kullanılacağı gösterilir.
 
@@ -31,9 +33,9 @@ Bu makaledeki örnek kodun tamamının C# dilinde yazıldığını unutmayın. T
 
 .NET SDK kullanarak dizininize belge göndermek için şunu yapmanız gerekir:
 
-  1. Arama dizininize bağlamak için bir `SearchIndexClient` nesnesi oluşturun.
-  2. Eklenecek, değiştirilecek veya silinecek belgeleri içeren bir `IndexBatch` oluşturun.
-  3. Arama dizininize `IndexBatch` göndermek için `SearchIndexClient` öğenizin `Documents.Index` yöntemini çağırın.
+1. Arama dizininize bağlamak için bir `SearchIndexClient` nesnesi oluşturun.
+2. Eklenecek, değiştirilecek veya silinecek belgeleri içeren bir `IndexBatch` oluşturun.
+3. Arama dizininize `IndexBatch` göndermek için `SearchIndexClient` öğenizin `Documents.Index` yöntemini çağırın.
 
 ## I. SearchIndexClient sınıfının bir örneğini oluşturma
 Azure Search .NET SDK'sını kullanarak dizininize veri aktarmak için `SearchIndexClient` sınıfının bir örneğini oluşturmanız gerekir. Bu örneği kendiniz oluşturulabilirsiniz ancak bunun `Indexes.GetClient` yöntemini çağırmak için bir `SearchServiceClient` örneğine zaten sahipseniz daha kolay olur. Örneğin, `serviceClient` adlı bir `SearchServiceClient` öğesinden "hotels" adlı bir dizin için şu şekilde bir `SearchIndexClient` elde edebilirsiniz:
@@ -42,19 +44,22 @@ Azure Search .NET SDK'sını kullanarak dizininize veri aktarmak için `SearchIn
 SearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
 ```
 
-> [AZURE.NOTE] Genel bir arama uygulamasında, dizin yönetimi ve popülasyon, arama sorgularından ayrı bir bileşen tarafından işlenir. `Indexes.GetClient` başka bir `SearchCredentials` sağlama zahmetini ortadan kaldırdığı için bir dizini doldurmada kullanışlıdır. Yeni `SearchIndexClient` için `SearchServiceClient` oluşturmak üzere kullandığınız yönetici anahtarını geçirerek bunu yapar. Ancak uygulamanızın sorguları yürüten bölümünde, bir yönetici anahtarı yerine sorgu anahtarında geçirebilmeniz için doğrudan `SearchIndexClient` oluşturmak daha iyi olur. Bu, [en az ayrıcalık ilkesiyle](https://en.wikipedia.org/wiki/Principle_of_least_privilege) tutarlıdır ve uygulamanızı daha güvenli hale getirmenize yardımcı olur. [MSDN'deki Azure Search REST API'si başvurusunda](https://msdn.microsoft.com/library/azure/dn798935.aspx) yönetici anahtarları ve sorgu anahtarları hakkında daha fazla bilgi edinebilirsiniz.
+> [!NOTE]
+> Genel bir arama uygulamasında, dizin yönetimi ve popülasyon, arama sorgularından ayrı bir bileşen tarafından işlenir. `Indexes.GetClient` başka bir `SearchCredentials` sağlama zahmetini ortadan kaldırdığı için bir dizini doldurmada kullanışlıdır. Yeni `SearchIndexClient` için `SearchServiceClient` oluşturmak üzere kullandığınız yönetici anahtarını geçirerek bunu yapar. Ancak uygulamanızın sorguları yürüten bölümünde, bir yönetici anahtarı yerine sorgu anahtarında geçirebilmeniz için doğrudan `SearchIndexClient` oluşturmak daha iyi olur. Bu, [en az ayrıcalık ilkesiyle](https://en.wikipedia.org/wiki/Principle_of_least_privilege) tutarlıdır ve uygulamanızı daha güvenli hale getirmenize yardımcı olur. [MSDN'deki Azure Search REST API'si başvurusunda](https://msdn.microsoft.com/library/azure/dn798935.aspx) yönetici anahtarları ve sorgu anahtarları hakkında daha fazla bilgi edinebilirsiniz.
+> 
+> 
 
 `SearchIndexClient` bir `Documents` özelliğine sahiptir. Bu özellik, belgeleri dizininize eklemek, bunları değiştirmek, silmek veya sorgulamak için ihtiyacınız olan tüm yöntemleri sağlar.
 
 ## II. Hangi dizin oluşturma eyleminin kullanılacağına karar verme
 .NET SDK kullanarak veri içeri aktarmak için verilerinizi bir `IndexBatch` nesnesine paketlemeniz gerekir. Bir `IndexBatch`, her birinde bir belge ve söz konusu belgede hangi eylemin (karşıya yükleme, birleştirme, silme, vb.) gerçekleştirileceğini Azure Search'e söyleyen bir özellik bulunan `IndexAction` nesneleri koleksiyonunu kapsar. Yukarıdaki eylemlerden hangisini seçtiğinize bağlı olarak, her bir belgeye yalnızca belirli alanlar dahil edilmelidir:
 
-Eylem | Açıklama | Her bir belge için gerekli alanlar | Notlar
---- | --- | --- | ---
-`Upload` | Bir `Upload` eylemi, belgenin yeni olması durumunda ekleneceği ve var olması durumunda güncelleştirileceği/değiştirileceği bir "upsert" ile benzerlik gösterir. | anahtar ve tanımlamak istediğiniz diğer alanlar | Var olan bir belgeyi güncelleştirirken/değiştirirken istekte belirtilmeyen herhangi bir alan `null` olarak ayarlanır. Bu durum, alan daha önce değersiz olmayan bir değere ayarlanmış olsa dahi gerçekleşir.
-`Merge` | Var olan belgeyi belirtilen alanlarla güncelleştirir. Belge dizinde mevcut değilse birleştirme işlemi başarısız olur. | anahtar ve tanımlamak istediğiniz diğer alanlar | Birleştirmede belirttiğiniz herhangi bir alan belgede var olan alanın yerini alır. Buna `DataType.Collection(DataType.String)` türünde alanlar dahildir. Örneğin, belge `["budget"]` değerine sahip bir `tags` alanını içeriyorsa ve `tags` için `["economy", "pool"]` değeriyle bir birleştirme yürütürseniz `tags` alanının son değeri `["economy", "pool"]` olur. `["budget", "economy", "pool"]` olmayacaktır.
-`MergeOrUpload` | Belirtilen anahtara sahip bir belge dizinde zaten mevcutsa bu eylem `Merge` gibi davranır. Belge mevcut değilse yeni bir belgeyle `Upload` gibi davranır. | anahtar ve tanımlamak istediğiniz diğer alanlar | -
-`Delete` | Belirtilen belgeyi dizinden kaldırır. | yalnızca anahtar | Anahtar alanı dışında belirttiğiniz tüm alanlar yoksayılır. Bir belgeden tek bir alanı kaldırmak istiyorsanız bunun yerine `Merge` kullanıp alanı açık bir şekilde null olarak ayarlamanız yeterlidir.
+| Eylem | Açıklama | Her bir belge için gerekli alanlar | Notlar |
+| --- | --- | --- | --- |
+| `Upload` |Bir `Upload` eylemi, belgenin yeni olması durumunda ekleneceği ve var olması durumunda güncelleştirileceği/değiştirileceği bir "upsert" ile benzerlik gösterir. |anahtar ve tanımlamak istediğiniz diğer alanlar |Var olan bir belgeyi güncelleştirirken/değiştirirken istekte belirtilmeyen herhangi bir alan `null` olarak ayarlanır. Bu durum, alan daha önce değersiz olmayan bir değere ayarlanmış olsa dahi gerçekleşir. |
+| `Merge` |Var olan belgeyi belirtilen alanlarla güncelleştirir. Belge dizinde mevcut değilse birleştirme işlemi başarısız olur. |anahtar ve tanımlamak istediğiniz diğer alanlar |Birleştirmede belirttiğiniz herhangi bir alan belgede var olan alanın yerini alır. Buna `DataType.Collection(DataType.String)` türünde alanlar dahildir. Örneğin, belge `["budget"]` değerine sahip bir `tags` alanını içeriyorsa ve `tags` için `["economy", "pool"]` değeriyle bir birleştirme yürütürseniz `tags` alanının son değeri `["economy", "pool"]` olur. `["budget", "economy", "pool"]` olmayacaktır. |
+| `MergeOrUpload` |Belirtilen anahtara sahip bir belge dizinde zaten mevcutsa bu eylem `Merge` gibi davranır. Belge mevcut değilse yeni bir belgeyle `Upload` gibi davranır. |anahtar ve tanımlamak istediğiniz diğer alanlar |- |
+| `Delete` |Belirtilen belgeyi dizinden kaldırır. |yalnızca anahtar |Anahtar alanı dışında belirttiğiniz tüm alanlar yoksayılır. Bir belgeden tek bir alanı kaldırmak istiyorsanız bunun yerine `Merge` kullanıp alanı açık bir şekilde null olarak ayarlamanız yeterlidir. |
 
 Bir sonraki bölümde gösterildiği üzere, `IndexBatch` ve `IndexAction` sınıflarının çeşitli statik yöntemleriyle hangi eylemi kullanmak istediğinizi belirtebilirsiniz.
 
@@ -116,7 +121,10 @@ Bu "hotels" dizini örneğinin, birçok belgeyle önceden doldurulduğunu varsay
 
 Ayrıca, tek bir dizin oluşturma isteğine yalnızca en fazla 1000 belge dahil edebileceğinizi unutmayın.
 
-> [AZURE.NOTE] Bu örnekte, farklı belgelere farklı eylemler uyguluyoruz. Toplu işlemdeki tüm belgelerde aynı eylemleri gerçekleştirmek istiyorsanız `IndexBatch.New` çağırmak yerine `IndexBatch` öğesinin diğer statik yöntemlerini kullanabilirsiniz. Örneğin; `IndexBatch.Merge`, `IndexBatch.MergeOrUpload` ve `IndexBatch.Delete` çağırarak toplu işlemler oluşturabilirsiniz. Bu yöntemler, `IndexAction` nesneleri yerine bir belge koleksiyonu (bu örnekte `Hotel` türünde nesneler) alır.
+> [!NOTE]
+> Bu örnekte, farklı belgelere farklı eylemler uyguluyoruz. Toplu işlemdeki tüm belgelerde aynı eylemleri gerçekleştirmek istiyorsanız `IndexBatch.New` çağırmak yerine `IndexBatch` öğesinin diğer statik yöntemlerini kullanabilirsiniz. Örneğin; `IndexBatch.Merge`, `IndexBatch.MergeOrUpload` ve `IndexBatch.Delete` çağırarak toplu işlemler oluşturabilirsiniz. Bu yöntemler, `IndexAction` nesneleri yerine bir belge koleksiyonu (bu örnekte `Hotel` türünde nesneler) alır.
+> 
+> 
 
 ## IV. Dizine veri aktarma
 Artık başlatılan bir `IndexBatch` nesneniz olduğuna göre `SearchIndexClient` nesneniz üzerinden `Documents.Index` çağrısı yaparak bunu dizininize gönderebilirsiniz. Aşağıdaki örnekte, nasıl `Index` çağrılacağının yanı sıra gerçekleştirmeniz gereken bazı ek adımlar gösterilmektedir:
@@ -145,8 +153,8 @@ Thread.Sleep(2000);
 Son olarak, yukarıdaki örnekteki kod iki saniye gecikir. Azure Search hizmetinizde dizin oluşturma uyumsuz şekilde meydana gelir; bu nedenle belgelerin aramada kullanılabilir olduğundan emin olmak için örnek uygulamanızın kısa bir süre beklemesi gerekir. Bu gibi gecikmeler genellikle yalnızca gösterilerde, testlerde ve örnek uygulamalarda gereklidir.
 
 <a name="HotelClass"></a>
-### .NET SDK belgeleri nasıl işler?
 
+### .NET SDK belgeleri nasıl işler?
 Azure Search .NET SDK'sının `Hotel` gibi kullanıcı tanımlı bir sınıfın örneklerini dizine nasıl yükleyebildiğini merak ediyor olabilirsiniz. Bu sorunun yanıtlanmasına yardımcı olmak için [.NET SDK kullanarak Azure Search dizini oluşturma](search-create-index-dotnet.md#DefineIndex)'da tanımlanan dizin şemasıyla eşlenen `Hotel` sınıfına bakalım:
 
 ```csharp
@@ -184,13 +192,19 @@ public partial class Hotel
 
 Fark edilecek ilk şey, `Hotel` öğesinin her bir genel özelliğinin dizin tanımındaki bir alana karşılık geldiği ancak çok önemli bir fark olduğudur: `Hotel` öğesinin her bir genel özelliğinin adı büyük harfle ("Pascal büyük/küçük harfi") başlarken her bir alanın adı küçük harfle ("ortası büyük harf") başlar. Bu durum, hedef şemanın uygulama geliştiricisinin denetimi dışında kaldığı bir veri bağlamayı gerçekleştiren .NET uygulamalarında ortak bir senaryodur. Özellik adlarını ortası büyük harf yaparak .NET adlandırma yönergelerini bozmanın yerine, `[SerializePropertyNamesAsCamelCase]` özniteliğiyle SDK'nın özellik adlarını otomatik olarak ortası büyük harfle eşlenmesini söyleyebilirsiniz.
 
-> [AZURE.NOTE] Azure Search .NET SDK'sı, özel model nesnelerinizi JSON'a ve JSON'dan seri hale getirmek ve seri durumdan çıkarmak için [NewtonSoft JSON.NET](http://www.newtonsoft.com/json/help/html/Introduction.htm) kitaplığını kullanır. Gerekirse bu seri hale getirmeyi özelleştirebilirsiniz. [Azure Search .NET SDK'sı sürüm 1.1'e yükseltme](search-dotnet-sdk-migration.md#WhatsNew)'de daha fazla ayrıntı bulabilirsiniz. Bunun bir örneği, yukarıdaki örnek kodda `DescriptionFr` özelliğinde `[JsonProperty]` özniteliğinin kullanılmasıdır.
+> [!NOTE]
+> Azure Search .NET SDK'sı, özel model nesnelerinizi JSON'a ve JSON'dan seri hale getirmek ve seri durumdan çıkarmak için [NewtonSoft JSON.NET](http://www.newtonsoft.com/json/help/html/Introduction.htm) kitaplığını kullanır. Gerekirse bu seri hale getirmeyi özelleştirebilirsiniz. [Azure Search .NET SDK'sı sürüm 1.1'e yükseltme](search-dotnet-sdk-migration.md#WhatsNew)'de daha fazla ayrıntı bulabilirsiniz. Bunun bir örneği, yukarıdaki örnek kodda `DescriptionFr` özelliğinde `[JsonProperty]` özniteliğinin kullanılmasıdır.
+> 
+> 
 
 `Hotel` sınıfı hakkında ikinci önemli şey, genel özelliklerin veri türleridir. Bu özelliklerin .NET türleri, dizin tanımında eşdeğer alan türleriyle eşlenir. Örneğin, `Category` dize özelliği `DataType.String` türündeki `category` alanına eşlenir. `bool?` ve `DataType.Boolean`, `DateTimeOffset?` ve `DataType.DateTimeOffset`, vb. arasında benzer türde eşlemeler bulunur. Tür eşlemesine yönelik belirli kurallar, [MSDN](https://msdn.microsoft.com/library/azure/dn931291.aspx)'deki `Documents.Get` yönteminde belirtilmiştir.
 
 Kendi sınıflarınızı belge olarak kullanabilme iki yönde de işe yarar: [Sonraki makalede](search-query-dotnet.md) gösterildiği üzere, arama sonuçlarını da alabilir ve SDK'nın bunları otomatik olarak istediğiniz bir türe seri durumdan çıkarmasını sağlayabilirsiniz.
 
-> [AZURE.NOTE] Azure Search .NET SDK'sı, alan adlarını alan değerlerine bir anahtar/değer eşlemesi olan `Document` sınıfını kullanarak dinamik tür belirtilmiş belgeleri de destekler. Bu durum, tasarım sırasında dizin şemasını bilmediğiniz veya belirli model sınıflarına bağlamanın kullanışlı olmayacağı senaryolarda kullanışlıdır. SDK'da belgelerle ilgili tüm yöntemler, `Document` sınıfıyla çalışan aşırı yüklerin yanı sıra genel türde bir parametre alan kesin tür belirtilmiş aşırı yüklere de sahiptir. Bu makaledeki örnek kodda yalnızca ikinci durum kullanılır. [MSDN'de](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.document.aspx) `Document` sınıfı hakkında daha fazla bilgi alabilirsiniz.
+> [!NOTE]
+> Azure Search .NET SDK'sı, alan adlarını alan değerlerine bir anahtar/değer eşlemesi olan `Document` sınıfını kullanarak dinamik tür belirtilmiş belgeleri de destekler. Bu durum, tasarım sırasında dizin şemasını bilmediğiniz veya belirli model sınıflarına bağlamanın kullanışlı olmayacağı senaryolarda kullanışlıdır. SDK'da belgelerle ilgili tüm yöntemler, `Document` sınıfıyla çalışan aşırı yüklerin yanı sıra genel türde bir parametre alan kesin tür belirtilmiş aşırı yüklere de sahiptir. Bu makaledeki örnek kodda yalnızca ikinci durum kullanılır. [MSDN'de](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.document.aspx) `Document` sınıfı hakkında daha fazla bilgi alabilirsiniz.
+> 
+> 
 
 **Veri türleri hakkında önemli bir not**
 
@@ -204,8 +218,6 @@ Bu nedenle, en iyi uygulama olarak model sınıflarınızda boş değer atanabil
 
 ## Sonraki
 Azure Search dizininizi doldurduktan sonra, belgeleri aramak için sorgu göndermeye başlamaya hazır olursunuz. Ayrıntılı bilgi için bkz. [Azure Search Dizininizi Sorgulama](search-query-overview.md).
-
-
 
 <!--HONumber=ago16_HO5-->
 

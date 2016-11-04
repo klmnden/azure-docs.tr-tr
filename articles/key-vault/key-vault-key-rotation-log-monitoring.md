@@ -1,32 +1,32 @@
-<properties
-	pageTitle="How to setup Key Vault with end to end key rotation and auditing | Microsoft Azure"
-	description="Use this how-to to help you get setup with key rotation and monitoring key vault logs"
-	services="key-vault"
-	documentationCenter=""
-	authors="swgriffith"
-	manager=""
-	tags=""/>
+---
+title: How to setup Key Vault with end to end key rotation and auditing | Microsoft Docs
+description: Use this how-to to help you get setup with key rotation and monitoring key vault logs
+services: key-vault
+documentationcenter: ''
+author: swgriffith
+manager: ''
+tags: ''
 
-<tags
-	ms.service="key-vault"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/05/2016"
-	ms.author="jodehavi;stgriffi"/>
-#How to setup Key Vault with end to end key rotation and auditing
+ms.service: key-vault
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 07/05/2016
+ms.author: jodehavi;stgriffi
 
-##Introduction
-
+---
+# How to setup Key Vault with end to end key rotation and auditing
+## Introduction
 After creating your Azure Key Vault, you will be able to start leveraging that vault to store your Keys and Secrets. Your applications no longer need to persist your keys or secrets, but rather will request them from the key vault as needed. This allows you to update keys and secrets without impacting the behavior of your application, which opens up a breadth of possibilities around your key and secret management behavior.
 
 This article walks through an example of leveraging Azure Key Vault to store a secret, in this case an Azure Storage Account key which is accessed by an application. It will also demonstrate implementation of a scheduled rotation of that storage account key. Finally, it will walk through a demonstration of how to monitor the key vault audit logs and raise alerts when unexpected requests are made.
 
 > \[AZURE.NOTE\] This tutorial is not intended to explain in detail the initial set up of your Azure Key Vault. For this information, see [Get started with Azure Key Vault](key-vault-get-started.md). Or, for Cross-Platform Command-Line Interface instructions, see [this equivalent tutorial](key-vault-manage-with-cli.md).
+> 
+> 
 
-##Setting up KeyVault
-
+## Setting up KeyVault
 In order to enable an application to retrieve a secret from Azure Key Vault, you must first create the secret and upload it to your vault. This can be accomplished easily via PowerShell as shown below.
 
 Start an Azure PowerShell session and sign in to your Azure account with the following command:
@@ -68,11 +68,12 @@ Next you will want to get the URI for the secret you just created. This will be 
 Get-AzureKeyVaultSecret –VaultName <vaultName>
 ```
 
-##Setting up Application
-
+## Setting up Application
 Now that you have a secret stored you will want to retrieve that secret and use it from code. There are a few steps required to achieve this, the first and most important of which is registering your application with Azure Active Directory and then telling Azure Key Vault your application information so that it can allow requests from your application.
 
 > \[AZURE.NOTE\] Your application must be created on the same Azure Active Directory tenant as your Key Vault. 
+> 
+> 
 
 First open the applications tab of Azure Active Directory
 
@@ -142,7 +143,7 @@ using Microsoft.Azure.KeyVault;
 ```
 
 Next you will add the method calls to invoke Key Vault and retrieve your secret. In this method you will provide the secret URI which you saved in a previous step. Note the use of the GetToken method from the Utils class created above.
-    
+
 ```csharp
 var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(Utils.GetToken));
 
@@ -151,8 +152,7 @@ var sec = kv.GetSecretAsync(<SecretID>).Result.Value;
 
 When you run your application, you should now be authenticating to Azure Active Directory and then retrieving your secret value from your Azure Key Vault.
 
-##Key Rotation using Azure Automation
-
+## Key Rotation using Azure Automation
 There are various options for implementing a rotation strategy for values you store as Azure Key Vault secrets. Secrets can be rotated as part of a manual process, they may be rotated programatically by leveraging API calls, or they may be rotated by way of an automation script. For the purposes of this article we will be leveraging Azure PowerShell combined with Azure Automation to change an Azure Storage Account access key, and then we will update a key vault secret with that new key. 
 
 In order to allow Azure Automation to set secret values in your key vault you will need to get the client ID for the connection named 'AzureRunAsConnection' which was created when you established your Azure Automation instance. You can get to this ID by choosing 'Assets' from your Azure Automation instance. From there you choose 'Connections' and then select the 'AzureRunAsConnection' service principle. You will want to take note of the 'Application ID'. 
@@ -161,14 +161,16 @@ In order to allow Azure Automation to set secret values in your key vault you wi
 
 While you are still in the Assets window you will also want to choose 'Modules'. From modules you will select 'Gallery' and then search for and 'Import' updated versions of each of the following modules.
 
-	Azure
-	Azure.Storage	
-	AzureRM.Profile
-	AzureRM.KeyVault
-	AzureRM.Automation
-	AzureRM.Storage
-	
+    Azure
+    Azure.Storage    
+    AzureRM.Profile
+    AzureRM.KeyVault
+    AzureRM.Automation
+    AzureRM.Storage
+
 > \[AZURE.NOTE\] At the writing of this article only the above noted modules needed to be updated for the script shared below. If you find that your automation job is failing, you should confirm that you have all necessary modules and their dependencies imported.
+> 
+> 
 
 After you have retrieved the application ID for your Azure Automation connection, you will need to tell your Azure Key Vault that this application has access to update secrets in your vault. This can be accomplished with the following PowerShell command.
 
@@ -225,8 +227,7 @@ $secret = Set-AzureKeyVaultSecret -VaultName $VaultName -Name $SecretName -Secre
 
 From the editor pane you can choose 'Test pane' to test your script. Once the script is running without error you can select the 'Publish' option, and then you can apply a schedule for the runbook back at the runbook configuration pane.
 
-##Key Vault Auditing pipeline
-
+## Key Vault Auditing pipeline
 When you setup an Azure Key Vault you can turn on auditing to collect logs on access requests made to the Key Vault. These logs are stored in a designated Azure Storage account and can then be pulled out, monitored and analyzed. Below walks through a scenario that leverages Azure Functions, Azure Logic Apps and Key Vault audit logs to create a pipeline to send an email when secrets from the vault are retrieved by an app that does match the app id of the web app.
 
 First, you will need to enable logging on your Key Vault. This can be done via the following PowerShell commands (full details can be seen [here](key-vault-logging.md)):
@@ -240,13 +241,15 @@ Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id
 Once this is enabled, then audit logs will start collecting into the designated storage account. These logs will contain events on how and when your Key Vaults are accessed, and by whom. 
 
 > \[AZURE.NOTE\] You can access your logging information at most, 10 minutes after the key vault operation. In most cases, it will be quicker than this.
+> 
+> 
 
 The next step is to [create an Azure Service Bus queue](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md). This will be where key vault audit logs are pushed. Once on the queue, the Logic App will pick them up and act on them. To create a Service Bus is relatively straight-forward and below are the high level steps:
 
 1. Create a Service Bus namespace (if you already have one that you want to use for this then skip to step 2).
 2. Browse to the Service Bus in the portal and select the namespace you want to create the queue in.
 3. Select New and choose Service Bus -> Queue and enter the required details.
-4. Grab the Service Bus connection information by choosing the namespace and clicking _Connection Information_. You will need this information for the next part.
+4. Grab the Service Bus connection information by choosing the namespace and clicking *Connection Information*. You will need this information for the next part.
 
 Next, you will [create an Azure Function](../azure-functions/functions-create-first-azure-function.md) to poll the Key Vault logs within the storage account and pick up new events. This will be a function that is triggered on a schedule.
 
@@ -256,7 +259,7 @@ When the Azure Function is created, navigate to it and choose a timer function a
 
 ![Azure Functions Start Blade](./media/keyvault-keyrotation/Azure_Functions_Start.png)
 
-In the _Develop_ tab, replace the run.csx code with the following:
+In the *Develop* tab, replace the run.csx code with the following:
 
 ```csharp
 #r "Newtonsoft.Json"
@@ -367,14 +370,16 @@ static string GetContainerSasUri(CloudBlockBlob blob)
 }
 ```
 > \[AZURE.NOTE\] Make sure to replace the variables in the code above to point to your storage account where the Key Vault logs are written, to the Service Bus you created earlier and to the specific path to the key vault storage logs.
+> 
+> 
 
-The function picks up the latest log file from the storage account where the Key Vault logs are written, grabs the latest events from that file and pushes them to a Service Bus queue. Since a single file could have multiple events, e.g. over a full hour, then we create a _sync.txt_ file that the function also looks at to determine the time stamp of the last event that was picked up. This will ensure that we don't push the same event multiple times. This _sync.txt_ file simply contains a timestamp for the last encountered event. The logs, when loaded, have to be sorted based on the timestamp to ensure they are ordered correctly.
+The function picks up the latest log file from the storage account where the Key Vault logs are written, grabs the latest events from that file and pushes them to a Service Bus queue. Since a single file could have multiple events, e.g. over a full hour, then we create a *sync.txt* file that the function also looks at to determine the time stamp of the last event that was picked up. This will ensure that we don't push the same event multiple times. This *sync.txt* file simply contains a timestamp for the last encountered event. The logs, when loaded, have to be sorted based on the timestamp to ensure they are ordered correctly.
 
-For this function, we reference a couple of additional libraries that are not available out of the box in Azure Functions. To include these, we need Azure Functions to pull them using nuget. Choose the _View Files_ option 
+For this function, we reference a couple of additional libraries that are not available out of the box in Azure Functions. To include these, we need Azure Functions to pull them using nuget. Choose the *View Files* option 
 
 ![View Files option](./media/keyvault-keyrotation/Azure_Functions_ViewFiles.png)
 
-and add a new file called _project.json_ with following content:
+and add a new file called *project.json* with following content:
 
 ```json
     {
@@ -388,27 +393,26 @@ and add a new file called _project.json_ with following content:
        }
     }
 ```
-Upon _Save_ this will trigger Azure Functions to download the required binaries. 
+Upon *Save* this will trigger Azure Functions to download the required binaries. 
 
-Switch to the **Integrate** tab and give the timer parameter a meaningful name to use within the function. In the code above, it expects the timer to be called _myTimer_. Specify a [CRON expression](../app-service-web/web-sites-create-web-jobs.md#CreateScheduledCRON) as follows: 0 \* \* \* \* \* for the timer which will cause the function to run once a minute. 
+Switch to the **Integrate** tab and give the timer parameter a meaningful name to use within the function. In the code above, it expects the timer to be called *myTimer*. Specify a [CRON expression](../app-service-web/web-sites-create-web-jobs.md#CreateScheduledCRON) as follows: 0 \* \* \* \* \* for the timer which will cause the function to run once a minute. 
 
-In the same **Integrate** tab, add an input which will be of type _Azure Blob Storage_. This will point to the _sync.txt_ file that contains the timestamp of the last event looked at by the function. This will be made available within the function by the parameter name. In the code above, the Azure Blob Storage input expects the parameter name to be _inputBlob_. Choose the storage account where the _sync.txt_ file will reside (it could be the same or a different storage account) and in the path field, provide the path where the file lives, in the format of {container-name}/path/to/sync.txt.
+In the same **Integrate** tab, add an input which will be of type *Azure Blob Storage*. This will point to the *sync.txt* file that contains the timestamp of the last event looked at by the function. This will be made available within the function by the parameter name. In the code above, the Azure Blob Storage input expects the parameter name to be *inputBlob*. Choose the storage account where the *sync.txt* file will reside (it could be the same or a different storage account) and in the path field, provide the path where the file lives, in the format of {container-name}/path/to/sync.txt.
 
-Add an output which will be of type _Azure Blob Storage_ output. This will also point to the _sync.txt_ file you just defined in the input. This will be used by the function to write the timestamp of the last event looked at. The code above expects this paramter to be called _outputBlob_.
+Add an output which will be of type *Azure Blob Storage* output. This will also point to the *sync.txt* file you just defined in the input. This will be used by the function to write the timestamp of the last event looked at. The code above expects this paramter to be called *outputBlob*.
 
-At this point the function is ready. Make sure to switch back to the **Develop** tab and _Save_ the code. Check the output window for any compilation errors and correct those accordingly. If it compiles, then the code should now be running and every minute will check the Key Vault logs and push any new events onto the defined Service Bus queue. You should see logging information write out to the log window everytime the function is triggered.
+At this point the function is ready. Make sure to switch back to the **Develop** tab and *Save* the code. Check the output window for any compilation errors and correct those accordingly. If it compiles, then the code should now be running and every minute will check the Key Vault logs and push any new events onto the defined Service Bus queue. You should see logging information write out to the log window everytime the function is triggered.
 
-###Azure Logic App
-
+### Azure Logic App
 Next we will need to create an Azure Logic App that will pick up the events that the function is pushing to the Service Bus queue, parse the content and send an email based on a condition being matched.
 
 [Create a Logic App](../app-service-logic/app-service-logic-create-a-logic-app.md) by going to New -> Logic App. 
 
-Once the Logic App is created, navigate to it and choose _edit_. Within the Logic App editor, choose the _Service Bus Queue_ managed api and enter your Service Bus credentials to connect it to the queue.
+Once the Logic App is created, navigate to it and choose *edit*. Within the Logic App editor, choose the *Service Bus Queue* managed api and enter your Service Bus credentials to connect it to the queue.
 
 ![Azure Logic App Service Bus](./media/keyvault-keyrotation/Azure_LogicApp_ServiceBus.png)
 
-Next choose to _Add a condition_. In the condition, switch to the _advanced editor_ and enter the following, replacing the APP_ID with the actual APP_ID of your web app:
+Next choose to *Add a condition*. In the condition, switch to the *advanced editor* and enter the following, replacing the APP_ID with the actual APP_ID of your web app:
 
 ```
 @equals('<APP_ID>', json(decodeBase64(triggerBody()['ContentData']))['identity']['claim']['appid'])
@@ -416,10 +420,11 @@ Next choose to _Add a condition_. In the condition, switch to the _advanced edit
 
 This expression essentially will return **false** if the **appid** property from the incoming event (which is the body of the Service Bus message) is not the **appid** of the app. 
 
-Now, create an action under the _If no, do nothing..._ option.
+Now, create an action under the *If no, do nothing...* option.
 
 ![Azure Logic App choose action](./media/keyvault-keyrotation/Azure_LogicApp_Condition.png)
 
-For the action, choose _Office 365 - send email_. Fill out the fields to create an email to send when the defined condition returns false. If you do not have Office 365 you could look at alternatives to achieve the same.
+For the action, choose *Office 365 - send email*. Fill out the fields to create an email to send when the defined condition returns false. If you do not have Office 365 you could look at alternatives to achieve the same.
 
 At this point you have an end to end pipeline that, once a minute, will look for new Key Vault audit logs. Any new logs it finds, it will push them to a Service Bus Queue. The Logic App will be triggered as soon as a new message lands in the queue and if the appid within the event does not match the app id of the calling application then send an email. 
+

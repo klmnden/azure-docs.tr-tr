@@ -1,61 +1,58 @@
-<properties
-    pageTitle="Azure Active Directory B2C: Üçüncü taraf kitaplıklar kullanılarak bir iOS uygulamasından web API'si çağırma | Microsoft Azure"
-    description="Bu makale size OAuth 2.0 taşıyıcı belirteçlerini kullanarak Node.js web API'si çağıran iOS 'yapılacaklar listesi' uygulamasının bir üçüncü taraf kitaplık kullanılarak nasıl oluşturulacağını gösterir"
-    services="active-directory-b2c"
-    documentationCenter="ios"
-    authors="brandwe"
-    manager="mbaldwin"
-    editor=""/>
+---
+title: 'Azure Active Directory B2C: Üçüncü taraf kitaplıklar kullanılarak bir iOS uygulamasından web API''si çağırma | Microsoft Docs'
+description: Bu makale size OAuth 2.0 taşıyıcı belirteçlerini kullanarak Node.js web API'si çağıran iOS 'yapılacaklar listesi' uygulamasının bir üçüncü taraf kitaplık kullanılarak nasıl oluşturulacağını gösterir
+services: active-directory-b2c
+documentationcenter: ios
+author: brandwe
+manager: mbaldwin
+editor: ''
 
-<tags ms.service="active-directory-b2c" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="objectivec" ms.topic="hero-article"
+ms.service: active-directory-b2c
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: objectivec
+ms.topic: hero-article
+ms.date: 07/26/2016
+ms.author: brandwe
 
-    ms.date="07/26/2016"
-    ms.author="brandwe"/>
-
-
+---
 # Azure AD B2C: Üçüncü taraf kitaplık kullanılarak bir iOS uygulamasından web API’si çağırma
-
 <!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->
 
 Microsoft kimlik platformu OAuth2 ve OpenID Connect gibi açık standartlar kullanır. Bunun yapılması geliştiricilerin hizmetlerimizle tümleştirmek istediği herhangi bir kitaplıktan yararlanmasını sağlar. Geliştiricilerin platformumuzu diğer kitaplıklarla birlikte kullanmasına yardımcı olmak amacıyla, üçüncü taraf kitaplıkların Microsoft identity platformuna bağlanmak üzere nasıl yapılandırılacağını gösteren bunun gibi birkaç izlenecek yol oluşturduk. [RFC6749 OAuth2 belirtimi](https://tools.ietf.org/html/rfc6749) uygulayan çoğu kitaplık Microsoft Identity platformuna bağlanabilecektir.
 
-
 OAuth2 veya OpenID Connect kullanmaya yeni başladıysanız bu örnek yapılandırmanın büyük bölümü sizin için çok anlamlı olmayabilir. [burada belgelediğimiz protokolün genel bakışına](active-directory-b2c-reference-protocols.md) kısaca bakmanız önerilir.
 
-> [AZURE.NOTE]
-    Platformumuzun Koşullu Erişim ve Intune ilke yönetimi gibi bu standartlarda bir ifadeye sahip olmayan bazı özellikleri, açık kaynak Microsoft Azure Kimlik Kitaplıkları kullanmanızı gerektirir. 
-   
+> [!NOTE]
+> Platformumuzun Koşullu Erişim ve Intune ilke yönetimi gibi bu standartlarda bir ifadeye sahip olmayan bazı özellikleri, açık kaynak Microsoft Azure Kimlik Kitaplıkları kullanmanızı gerektirir. 
+> 
+> 
+
 B2C platformu tüm Azure Active Directory senaryolarını ve özelliklerini desteklemez.  B2C platformunu kullanmanızın gerekli olup olmadığını belirlemek için [B2C sınırlamaları](active-directory-b2c-limitations.md) hakkında bilgi edinin.
 
-
 ## Azure AD B2C dizini alma
-
 Azure AD B2C'yi kullanabilmek için önce dizin veya kiracı oluşturmanız gerekir. Dizin; tüm kullanıcılarınız, uygulamalarınız, gruplarınız ve daha fazlası için bir kapsayıcıdır. Henüz yoksa devam etmeden önce [bir B2C dizini oluşturun](active-directory-b2c-get-started.md).
 
 ## Uygulama oluşturma
-
 Ardından B2C dizininizde uygulama oluşturmanız gerekir. Bu, uygulamanız ile güvenli bir şekilde iletişim kurması için gereken bilgileri Azure AD'ye verir. Bu durumda, tek bir mantıksal uygulama içerdikleri için hem uygulama hem de web API'si tek bir **Uygulama Kimliği** ile temsil edilir. Bir uygulama oluşturmak için [bu talimatları](active-directory-b2c-app-registration.md) izleyin. Şunları yaptığınızdan emin olun:
 
-- Uygulamaya bir **mobil cihaz** ekleyin.
-- Uygulamanıza atanan **Uygulama Kimliği**'ni kopyalayın. Buna da daha sonra ihtiyacınız olacak.
+* Uygulamaya bir **mobil cihaz** ekleyin.
+* Uygulamanıza atanan **Uygulama Kimliği**'ni kopyalayın. Buna da daha sonra ihtiyacınız olacak.
 
-[AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
+[!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## İlkelerinizi oluşturma
-
 Azure AD B2C'de her kullanıcı deneyimi, bir [ilke](active-directory-b2c-reference-policies.md) ile tanımlanır. Bu uygulama bir kimlik deneyimi içerir: oturum açma ve kaydolma birleşimi. Her tür için [ilke başvurusu makalesinde](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy) tanımlanan şekilde bu ilkeyi oluşturmanız gerekir. İlkeyi oluştururken şunları yaptığınızdan emin olun:
 
-- İlkenizde **Görünen ad** ve kaydolma özniteliklerini seçin.
-- Her ilkede uygulamanın talep ettiği **Görünen ad** ve **Nesne Kimliği** öğelerini seçin. Diğer talepleri de seçebilirsiniz.
-- Oluşturduktan sonra her ilkenin **Adını** kaydedin. `b2c_1_` önekine sahip olmalıdır.  Bu ilke adına daha sonra ihtiyacınız olacaktır.
+* İlkenizde **Görünen ad** ve kaydolma özniteliklerini seçin.
+* Her ilkede uygulamanın talep ettiği **Görünen ad** ve **Nesne Kimliği** öğelerini seçin. Diğer talepleri de seçebilirsiniz.
+* Oluşturduktan sonra her ilkenin **Adını** kaydedin. `b2c_1_` önekine sahip olmalıdır.  Bu ilke adına daha sonra ihtiyacınız olacaktır.
 
-[AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
+[!INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
 İlkelerinizi oluşturduktan sonra uygulamanızı oluşturmaya hazırsınız.
 
-
 ## Kodu indirme
-
 Bu öğretici için kod [GitHub'da](https://github.com/Azure-Samples/active-directory-ios-native-nxoauth2-b2c) korunur.  Takip etmek için [uygulamayı .zip](https://github.com/Azure-Samples/active-directory-ios-native-nxoauth2-b2c)/arşiv/master.zip olarak indirin) veya kopyalayın:
 
 ```
@@ -69,11 +66,9 @@ git clone --branch complete git@github.com:Azure-Samples/active-directory-ios-na
 ```
 
 ## nxoauth2 üçüncü taraf kitaplığını indirin ve bir çalışma alanı başlatın
-
 Bu kılavuzda GitHub’da, Mac OS X ve iOS (Cocoa ve Cocoa touch) için bir OAuth2 kitaplığı olan OAuth2Client’ı kullanacağız. Bu kitaplık OAuth2 belirtimi taslak 10’u temel alır. Yerel uygulama profilini uygular ve son kullanıcı yetkilendirme uç noktasını destekler. Microsoft identity platformu ile tümleştirme için başka bir şey gerekli değildir.
 
 ### Kitaplığınızı CocoaPods kullanarak projenize ekleme
-
 CocoaPods, Xcode projeleri için bir bağımlılık yöneticisidir. Yukarıdaki yükleme adımlarını otomatik olarak yönetir.
 
 ```
@@ -83,11 +78,11 @@ Aşağıdakileri bu podfile dosyaya ekleyin:
 
 ```
  platform :ios, '8.0'
- 
+
  target 'SampleforB2C' do
- 
+
  pod 'NXOAuth2Client'
- 
+
  end
 ```
 
@@ -101,7 +96,6 @@ $ open SampleforB2C.xcworkspace
 ```
 
 ## Projenin yapısı
-
 Projemizin iskeletinde aşağıdaki yapı ayarlanmıştır:
 
 * **Ana Görünüm** ve bir görev bölmesi
@@ -111,11 +105,9 @@ Projemizin iskeletinde aşağıdaki yapı ayarlanmıştır:
 Kimlik doğrulaması eklemek için projedeki çeşitli dosyalara atlanacaktır. Kodun görsel kod gibi diğer kısımları kimlikle ilgili değildir ve sizin için belirtilir.
 
 ## Uygulamanız için `settings.plist` dosyasını oluşturma
-
 Yapılandırma değerlerinin yerleştirileceği merkezi bir konum mevcutsa uygulamanın yapılandırılması daha kolaydır. Ayrıca her bir ayarın uygulamanızda neler yaptığını anlamanıza yardımcı olur. Bu değerleri uygulamaya sağlamanın bir yolu olarak *Özellik Listesi*’nden yararlanılacaktır.
 
 * Uygulama çalışma alanınızdaki `Supporting Files` altında `settings.plist` dosyası oluşturun/açın
-
 * Aşağıdaki değerleri girin (bunları daha sonra ayrıntılı olarak ele alınacaktır)
 
 ```xml
@@ -149,10 +141,9 @@ Yapılandırma değerlerinin yerleştirileceği merkezi bir konum mevcutsa uygul
 
 Şimdi bunlara ayrıntılı olarak bakalım.
 
-
 `authURL`, `loginURL`, `bhh`, `tokenURL` için kiracı adınızı doldurmanız gerektiğini fark edeceksiniz. Bu kiracı adı, size atanan B2C kiracınızın adıdır. Örneğin, `kidventusb2c.onmicrosoft.com`. Açık kaynak Microsoft Azure Kimlik Kitaplıklarını kullanırsanız meta veri uç noktası kullanılarak bu veriler sizin için çekilir. Bu değerleri sizin yerinize ayıklamak için çok çalıştık.
 
-[AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
+[!INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
 `keychain` değeri, NXOAuth2Client kitaplığının belirteçlerinizi depolamak üzere bir anahtarlık oluştururken kullanacağı kapsayıcıdır. Çok sayıda uygulamada SSO edinmek istiyorsanız uygulamalarınızın her birinde aynı anahtarlığı belirtebilir ve bu anahtarlığın XCode yetkilendirmelerinizde kullanılmasını isteyebilirsiniz. Bu konu Apple belgelerinde ele alınmıştır.
 
@@ -165,7 +156,6 @@ Bu değerlerin geri kalanı kitaplığı kullanmak için gereklidir ve değerler
 `settings.plist` dosyası oluşturulmuştur, okunması için kod gereklidir.
 
 ## Ayarları okumak için bir AppData sınıfı oluşturun
-
 Yukarıda oluşturulan `settngs.plist` dosyasını ayrıştıran basit bir dosya oluşturalım ve bu ayarları gelecekte herhangi bir sınıfta kullanılabilir hale getirelim. Bir sınıf tarafından her istendiğinde verilerin yeni bir kopyasını oluşturmak istemediğimizden bir Singleton deseni kullanılacak ve ayarlar için istek yapılan her durumda yalnızca oluşturulan aynı örnek döndürülecektir
 
 * Bir `AppData.h` dosyası oluşturun:
@@ -229,13 +219,10 @@ Yukarıda oluşturulan `settngs.plist` dosyasını ayrıştıran basit bir dosya
 
 Bundan böyle aşağıda göreceğiniz sınıfların herhangi birinde yalnızca `  AppData *data = [AppData getInstance];` çağrısı yaparak verilere ulaşılabilir.
 
-
-
 ## AppDelegate içinde NXOAuth2Client kitaplığınızı ayarlayın
-
 NXOAuthClient kitaplığı bazı değerlerin ayarlanmasını gerektirir. Bu işlem tamamlandıktan sonra REST API’sini çağırmak için elde edilen belirteci kullanabilirsiniz. `AppDelegate` öğesinin uygulamayı yüklediğimiz herhangi bir zaman çağrılacağı bilindiğinden yapılandırma değerlerinin bu dosyaya yerleştirilmesi mantıklıdır.
-* `AppDelegate.m` dosyasını açın
 
+* `AppDelegate.m` dosyasını açın
 * Daha sonra kullanacağımız bazı başlık dosyalarını içeri aktarın.
 
 ```objc
@@ -249,9 +236,7 @@ Bir AccountStore oluşturulması ve ardından `settings.plist` dosyasından okun
 
 Bu noktada B2C hizmetiyle ilgili olarak bu kodu daha anlaşılır hale getirecek bazı bilgileri öğrenmeniz gerekmektedir:
 
-
 1. Azure AD B2C, isteğinize hizmet vermek üzere sorgu parametreleri tarafından sağlanan *ilkeyi* kullanır. Bunun yapılması Azure Active Directory’nin yalnızca uygulamanız için bağımsız bir hizmet olarak görev yapmasını sağlar. Bu ek sorgu parametrelerini sağlamak için özel ilke parametrelerimizle birlikte `kNXOAuth2AccountStoreConfigurationAdditionalAuthenticationParameters:` yöntemini sağlamamız gerekir. 
-
 2. Azure AD B2C, diğer OAuth2 sunucularıyla çok benzer şekilde kapsamları kullanır. Ancak, B2C kaynaklara erişim kadar kullanıcı kimliğini doğrulamayla da ilgili olduğundan, akışın doğru çalışması için bazı kapsamlar kesinlikle gereklidir. Bu, `openid` kapsamıdır. Microsoft identity SDK’ları `openid` kapsamını size otomatik olarak sağlar, bu nedenle SDK yapılandırmasında görmezsiniz. Ancak, bir üçüncü taraf kitaplığı kullandığımız için bu kapsamı belirtmemiz gerekir.
 
 ```objc
@@ -293,7 +278,6 @@ Ardından, bu çağrıyı `didFinishLaunchingWithOptions:` yöntemi altındaki A
 
 
 ## Kimlik doğrulama isteklerini işlemek için kullanılacak bir `LoginViewController` sınıfı oluşturun
-
 Hesapta oturum açmak için bir web görünümü kullanılır. Bunun yapılması kullanıcıdan SMS metin iletisi (yapılandırılmışsa) gibi ek faktörler istememize veya kullanıcıya hata iletileri göndermemize imkan tanır. Burada web görünümü ayarlanacak ve ardından Microsoft Identity Service içindeki WebView’de gerçekleşecek geri çağırmaları işlemek üzere kod yazılacaktır.
 
 * Bir `LoginViewController.h` sınıfı oluşturun
@@ -309,11 +293,12 @@ Hesapta oturum açmak için bir web görünümü kullanılır. Bunun yapılması
 
 Bu yöntemlerin her biri aşağıda oluşturulacaktır.
 
-> [AZURE.NOTE] 
-    `loginView` öğesini film şeridinizin içindeki gerçek web görünümüne bağladığınızdan emin olun. Aksi takdirde kimlik doğrulaması gerektiğinde açılan bir web görünümünüz olmaz.
+> [!NOTE]
+> `loginView` öğesini film şeridinizin içindeki gerçek web görünümüne bağladığınızdan emin olun. Aksi takdirde kimlik doğrulaması gerektiğinde açılan bir web görünümünüz olmaz.
+> 
+> 
 
 * Bir `LoginViewController.m` sınıfı oluşturun
-
 * Kimlik doğrulaması yapılırken taşıma durumuna bazı değişkenler ekleyin
 
 ```objc
@@ -419,8 +404,6 @@ WebView’dan geri gelen redirectURL’yi işleyecek kod gereklidir. Başarısı
 
 Yukarıdaki `AppDelegate` adımında oluşturulan yöntemin aynısı oluşturulur, ancak bu kez hizmetimizde neler olduğunu söylemesi için bazı `NSNotification` öğeleri eklenecektir. Belirteçle birlikte herhangi bir şey değiştiğinde bize bildiren bir gözlemci ayarlanır. Belirteci aldıktan sonra kullanıcı `masterView` hedefine geri gönderilir.
 
-
-
 ```objc
 - (void)setupOAuth2AccountStore {
   [[NSNotificationCenter defaultCenter]
@@ -499,9 +482,7 @@ Kimlik doğrulama isteği aldığımız her durumda çağrılacak bir yöntem ol
 
 Oturum açma için uygulamamızla etkileşim kurmanın temel yolunu oluşturdunuz. Oturum açtıktan sonra, aldığımız belirteçleri kullanmanız gerekir. Bunun için bu kitaplığı kullanarak REST API'lerini çağıracak bazı yardımcı kodlar oluşturulacaktır.
 
-
 ## Bir REST API’sine gönderdiğimiz istekleri işleyen bir `GraphAPICaller` sınıfı oluşturun
-
 Uygulamamızı her yüklediğimizde yüklenen bir yapılandırmamız var. Artık bir belirtecimiz olduğuna göre bununla bir şeyler yapmamız gerekiyor. 
 
 * Bir `GraphAPICaller.h` dosyası oluşturun
@@ -633,21 +614,16 @@ completionBlock:(void (^)(bool, NSError *error))completionBlock {
 ```
 
 ## Örnek uygulamayı çalıştırma
-
 Son olarak Xcode'da uygulamayı oluşturun ve çalıştırın. Uygulamaya kaydolun veya uygulamada oturum açın ve oturum açan bir kullanıcı için görevler oluşturun. Oturumu kapatın, farklı bir kullanıcı olarak yeniden oturum açın ve o kullanıcı için görevler oluşturun.
 
 API, aldığı erişim belirtecinden kullanıcının kimliğini ayıkladığı için görevlerin API üzerinde kullanıcı başına depolanmasına dikkat edin.
 
-
 ## Sonraki adımlar
-
 Artık daha ileri seviyeli B2C konu başlıklarına geçebilirsiniz: Deneyebilecekleriniz:
 
 [Node.js web uygulamasından Node.js web API'si çağırma]()
 
 [B2C uygulaması için kullanıcı deneyimini özelleştirme]()
-
-
 
 <!--HONumber=Oct16_HO1-->
 

@@ -1,31 +1,28 @@
-<properties
-	pageTitle="Azure Active Directory Domain Services: FAQs | Microsoft Azure"
-	description="Frequently asked questions about Azure Active Directory Domain Services"
-	services="active-directory-ds"
-	documentationCenter=""
-	authors="mahesh-unnikrishnan"
-	manager="stevenpo"
-	editor="curtand"/>
+---
+title: 'Azure Active Directory Domain Services: FAQs | Microsoft Docs'
+description: Frequently asked questions about Azure Active Directory Domain Services
+services: active-directory-ds
+documentationcenter: ''
+author: mahesh-unnikrishnan
+manager: stevenpo
+editor: curtand
 
-<tags
-	ms.service="active-directory-ds"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/21/2016"
-	ms.author="maheshu"/>
+ms.service: active-directory-ds
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/21/2016
+ms.author: maheshu
 
+---
 # Azure Active Directory Domain Services preview: FAQs
-
 This page answers frequently asked questions about the Azure Active Directory Domain Services preview. Keep checking back for updates.
 
 ### Troubleshooting guide
 Refer to our [Troubleshooting guide](active-directory-ds-troubleshooting.md) for solutions to common issues encountered when configuring or administering Azure AD Domain Services.
 
-
 ### Configuration
-
 #### Can I create multiple domains for a single Azure AD directory?
 No. You can only create a single domain serviced by Azure AD Domain Services for a single Azure AD directory.  
 
@@ -42,7 +39,6 @@ No. Azure AD Domain Services can be configured only in the [Azure classic portal
 No. The domain provided by Azure AD Domain Services is a managed domain. You do not need to provision, configure, or otherwise manage domain controllers for this domain - these management activities are provided as a service by Microsoft. Therefore, you cannot add additional domain controllers (read-write or read-only) for the managed domain.
 
 ### Administration and Operations
-
 #### Can I connect to the domain controller for my managed domain using Remote Desktop?
 No. You do not have permissions to connect to domain controllers for the managed domain via Remote Desktop. Members of the 'AAD DC Administrators' group can administer the managed domain using AD administration tools such as the Active Directory Administration Center (ADAC) or AD PowerShell. These tools are installed using the 'Remote Server Administration Tools' feature on a Windows server joined to the managed domain.
 
@@ -62,7 +58,6 @@ No. The schema is administered by Microsoft for the managed domain. Schema exten
 Yes. Users that belong to the 'AAD DC Administrators' group are granted 'DNS Administrator' privileges, to modify DNS records in the managed domain. These users can use the DNS Manager console on a machine running Windows Server joined to the managed domain, to manage DNS. To use the DNS Manager console, install 'DNS Server Tools', which is part of the 'Remote Server Administration Tools' optional feature on the server. More information on [utilities for administering, monitoring and troubleshooting DNS](https://technet.microsoft.com/library/cc753579.aspx) is available on TechNet.
 
 ### Billing and availability
-
 #### Is Azure AD Domain Services a paid service?
 The service is available at a special reduced price during the public preview period. Billing commences at full price once the service is generally available (GA). For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/active-directory-ds/).
 
@@ -77,3 +72,4 @@ Refer to our [regions page](active-directory-ds-regions.md) to see a list of the
 
 #### When will Azure AD Domain Services be Generally Available?
 We cannot currently share timelines for when the service reaches general availability status.
+

@@ -1,37 +1,36 @@
-<properties
-    pageTitle="HDFS uyumlu Blob Storage’da veri sorgulama | Microsoft Azure"
-    description="HDInsight HDFS için büyük veri deposu olarak Azure Blob Storage’ı kullanır. Blob Storage’da verileri sorgulamayı ve çözümleme sonuçlarınızı depolamayı öğrenin."
-    keywords="blob depolama,hdfs,yapılandırılmış veriler,yapılandırılmamış veriler"
-    services="hdinsight,storage"
-    documentationCenter=""
-    tags="azure-portal"
-    authors="mumian"
-    manager="jhubbard"
-    editor="cgronlun"/>
+---
+title: HDFS uyumlu Blob Storage’da veri sorgulama | Microsoft Docs
+description: HDInsight HDFS için büyük veri deposu olarak Azure Blob Storage’ı kullanır. Blob Storage’da verileri sorgulamayı ve çözümleme sonuçlarınızı depolamayı öğrenin.
+keywords: blob depolama,hdfs,yapılandırılmış veriler,yapılandırılmamış veriler
+services: hdinsight,storage
+documentationcenter: ''
+tags: azure-portal
+author: mumian
+manager: jhubbard
+editor: cgronlun
 
-<tags
-    ms.service="hdinsight"
-    ms.workload="big-data"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="09/06/2016"
-    ms.author="jgao"/>
+ms.service: hdinsight
+ms.workload: big-data
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 09/06/2016
+ms.author: jgao
 
-
-
+---
 # HDInsight’ta Hadoop ile HDFS uyumlu Azure Blob Storage kullanma
-
 HDInsight ile düşük maliyetli Azure Blob Storage’ı kullanmayı, Azure Storage hesabı ve Blob Storage kapsayıcısı oluşturmayı ve sonra içindeki verileri işlemeyi öğrenin.
 
 Azure Blob Storage HDInsight ile sorunsuz bir şekilde tümleşen, güçlü, genel amaçlı depolama çözümüdür. Hadoop dağıtılmış dosya sistemi (HDFS) arabirimi aracılığıyla, HDInsight’taki bileşenler kümesinin tümü Blob Storage’daki yapılandırılmış veya yapılandırılmamış veriler üzerinde doğrudan çalışabilir.
 
 Verileri Blob Storage’da depolamak, işlem için kullanılan HDInsight kümelerini kullanıcı verilerini kaybetmeden güvenle silmenizi sağlar.
 
-> [AZURE.IMPORTANT] HDInsight yalnızca blok blob'larını destekler. Blob sayfalamayı veya eklemeyi desteklemez.
+> [!IMPORTANT]
+> HDInsight yalnızca blok blob'larını destekler. Blob sayfalamayı veya eklemeyi desteklemez.
+> 
+> 
 
 HDInsight kümesi oluşturma hakkında daha fazla bilgi için bkz. [HDInsight kullanmaya başlama][hdinsight-get-started] veya [HDInsight kümeleri oluşturma][hdinsight-creation].
-
 
 ## HDInsight depolama mimarisi
 Aşağıdaki diyagram, HDInsight depolama mimarisine ilişkin özet görünümünü sağlar:
@@ -46,21 +45,23 @@ Ayrıca, HDInsight Azure Blob Storage’da depolanan verilere erişebilmeyi sağ
 
     wasb[s]://<containername>@<accountname>.blob.core.windows.net/<path>
 
-> [AZURE.NOTE] HDInsight’ın 3.0’dan önceki sürümlerinde `wasb://` yerine `asv://` kullanılmıştır. `asv://` bir hatayla sonuçlanacağı için HDInsight 3.0 veya üzeri kümelerle birlikte kullanılmamalıdır.
+> [!NOTE]
+> HDInsight’ın 3.0’dan önceki sürümlerinde `wasb://` yerine `asv://` kullanılmıştır. `asv://` bir hatayla sonuçlanacağı için HDInsight 3.0 veya üzeri kümelerle birlikte kullanılmamalıdır.
+> 
+> 
 
 Hadoop varsayılan dosya sistemi kavramını destekler. Varsayılan dosya sistemi varsayılan şema ve yetkilisi anlamına gelir. Bu göreceli yolları çözümlemek için de kullanılabilir. HDInsight oluşturma işlemi sırasında, bir Azure Storage hesabı ve bu hesaptan belirli bir Azure Blob Storage kapsayıcısı varsayılan dosya sistemi olarak atanır.
 
 Bu depolama hesabına ek olarak, oluşturma işlemi sırasında veya bir küme oluşturulduktan sonra aynı Azure aboneliğinden veya farklı Azure aboneliklerinden başka depolama hesapları ekleyebilirsiniz. Ek depolama hesapları ekleme hakkında yönergeler için bkz. [HDInsight kümeleri oluşturma][hdinsight-creation].
 
-- **Bir kümeye bağlı depolama hesaplarındaki kapsayıcılar:** Oluşturma sırasında hesap adı ve anahtar kümeyle ilişkilendirildiğinden, bu kapsayıcılardaki blob'lara tam erişiminiz vardır.
-
-- **Bir kümeye bağlı OLMAYAN depolama hesaplarındaki genel kapsayıcılar veya genel blob’lar:** Kapsayıcılardaki blob’lara salt okunur iznine sahipsiniz.
-
-    > [AZURE.NOTE]
-        > Genel kapsayıcılar, bu kapsayıcıda bulunan tüm blob’ların bir listesini ve kapsayıcı meta verilerini almanıza olanak tanır. Genel blob'lar, yalnızca tam URL'yi biliyorsanız blob erişiminize izin verir. Daha fazla bilgi için bkz. <a href="http://msdn.microsoft.com/library/windowsazure/dd179354.aspx">Kapsayıcılara ve blob'lara erişimi kısıtlama</a>.
-
-- **Bir kümeye bağlı OLMAYAN depolama hesaplarındaki özel kapsayıcılar:** WebHCat işleri gönderdiğinizde, depolama hesabını tanımlamadığınız sürece kapsayıcılardaki blob’lara erişemezsiniz. Bu, bu makalenin sonraki bölümlerinde açıklanmıştır.
-
+* **Bir kümeye bağlı depolama hesaplarındaki kapsayıcılar:** Oluşturma sırasında hesap adı ve anahtar kümeyle ilişkilendirildiğinden, bu kapsayıcılardaki blob'lara tam erişiminiz vardır.
+* **Bir kümeye bağlı OLMAYAN depolama hesaplarındaki genel kapsayıcılar veya genel blob’lar:** Kapsayıcılardaki blob’lara salt okunur iznine sahipsiniz.
+  
+  > [!NOTE]
+  > Genel kapsayıcılar, bu kapsayıcıda bulunan tüm blob’ların bir listesini ve kapsayıcı meta verilerini almanıza olanak tanır. Genel blob'lar, yalnızca tam URL'yi biliyorsanız blob erişiminize izin verir. Daha fazla bilgi için bkz. <a href="http://msdn.microsoft.com/library/windowsazure/dd179354.aspx">Kapsayıcılara ve blob'lara erişimi kısıtlama</a>.
+  > 
+  > 
+* **Bir kümeye bağlı OLMAYAN depolama hesaplarındaki özel kapsayıcılar:** WebHCat işleri gönderdiğinizde, depolama hesabını tanımlamadığınız sürece kapsayıcılardaki blob’lara erişemezsiniz. Bu, bu makalenin sonraki bölümlerinde açıklanmıştır.
 
 Oluşturma işleminde tanımlanan depolama hesapları ve bunların anahtarların %HADOOP_HOME%/conf/core-site.xml küme düğümlerinde depolanır. HDInsight’ın varsayılan davranışı core-site.xml dosyasında tanımlanan depolama hesaplarını kullanmaktır. Küme baş düğümü (ana) görüntüsü yeniden oluşturulabildiği veya taşınabildiği ve bu dosyalardaki değişiklikler kaybolacağı için core-site.xml dosyasının düzenlenmesi önerilmez.
 
@@ -68,7 +69,7 @@ Hive, MapReduce, Hadoop akış ve Pig dahil olmak üzere birden çok WebHCat iş
 
 Blob Storage yapılandırılmış ve yapılandırılmamış veriler için kullanılabilir. Blob Storage kapsayıcıları verileri anahtar/değer çiftleri olarak depolar ve dizin hiyerarşisi bulunmaz. Ancak, bir dosyayı dizin yapısında depolanmış gibi göstermek için anahtar adında eğik çizgi karakteri (/) kullanılabilir. Örneğin, bir blob'un anahtarı *input/log1.txt* şeklinde olabilir. Gerçek *giriş* dizini yoktur, ancak anahtar adında eğik çizgi karakteri bulunması nedeniyle, bir dosya yolu görünümüne sahiptir.
 
-###<a id="benefits"></a>Blob Storage’ın avantajları
+### <a id="benefits"></a>Blob Storage’ın avantajları
 İşlem kümelerini ve depolama kaynaklarını yeniden bulmamanın örtülü performans maliyeti, yüksek hızlı ağın işlem düğümlerinin Azure Blob Storage’daki verilere erişimini çok verimli hale getirdiği, Azure bölgesindeki depolama hesabı kaynaklarına yakın şekilde oluşturulmasıyla azaltılabilir.
 
 Verileri HDFS yerine Azure Blob Storage’da depolamanın çeşitli avantajları vardır:
@@ -81,33 +82,34 @@ Verileri HDFS yerine Azure Blob Storage’da depolamanın çeşitli avantajları
 
 Bazı MapReduce işleri ve paketleri gerçekte Azure Blob Storage’da depolamak istemediğiniz ara sonuçlar oluşturabilir. Bu durumda, verileri yerel HDFS’de depolamak üzere seçebilirsiniz. Aslında, HDInsight Hive işleri ve diğer işlemlerdeki bu ara sonuçların bazıları için DFS kullanır.
 
-> [AZURE.NOTE] Çoğu HDFS komutu (örneğin, <b>ls</b>, <b>copyFromLocal</b> ve <b>mkdir</b>) hala beklendiği gibi çalışmaktadır. Yalnızca, <b>fschk</b> ve <b>dfsadmin</b> gibi yerel HDFS uygulamasına özgü komutlar (DFS olarak adlandırılır), Azure Blob Storage’da farklı bir davranış gösterir.
+> [!NOTE]
+> Çoğu HDFS komutu (örneğin, <b>ls</b>, <b>copyFromLocal</b> ve <b>mkdir</b>) hala beklendiği gibi çalışmaktadır. Yalnızca, <b>fschk</b> ve <b>dfsadmin</b> gibi yerel HDFS uygulamasına özgü komutlar (DFS olarak adlandırılır), Azure Blob Storage’da farklı bir davranış gösterir.
+> 
+> 
 
 ## Blob kapsayıcıları oluşturma
-
 Blob'ları kullanmak için önce [Azure Storage hesabı][azure-storage-create] oluşturmanız gerekir. Bunun bir parçası olarak, bu hesabı kullanarak oluşturduğunuz nesneleri depolayacağınız bir Azure bölgesi belirtirsiniz. Küme ve depolama hesabının aynı bölgede barındırılması gerekir. Hive meta depo SQL Server veritabanı ve Oozie meta depo SQL Server veritabanı da aynı bölgede bulunmalıdır.
 
 Nerede olursa olsun, oluşturduğunuz her blob Azure Storage hesabınızdaki bir kapsayıcıya aittir. Bu kapsayıcı HDInsight dışında oluşturulmuş bir blob veya bir HDInsight kümesi için oluşturulan bir kapsayıcı olabilir.
 
-
 Varsayılan Blob kapsayıcısı iş geçmişi ve günlükleri gibi kümeye özel bilgileri depolar. Varsayılan Blob kapsayıcısını birden çok HDInsight kümesiyle paylaşmayın. Bu iş geçmişinin bozulmasına ve kümenin işlememesine neden olabilir. Her küme için farklı bir kapsayıcı kullanmanız ve paylaşılan verileri varsayılan depolama hesabı yerine tüm ilgili kümelerin dağıtımında belirtilen bağlantılı depolama hesabına yerleştirmeniz önerilir. Bağlantılı Depolama hesaplarını yapılandırma hakkında daha fazla bilgi için bkz: [HDInsight kümeleri oluşturma][hdinsight-creation]. Ancak özgün HDInsight kümesi silindikten sonra varsayılan depolama kapsayıcısını yeniden kullanabilirsiniz. HBase kümeleri için, silinmiş bir HBase kümesi tarafından kullanılan varsayılan Blob Storage kapsayıcısını kullanan yeni bir HBase kümesi oluşturarak aslında HBase tablo şemasını ve verileri tutarsınız.
 
-
 ### Azure Portal’ı kullanma
-
 Portal’da HDInsight kümesi oluştururken, varolan bir depolama hesabını kullanma veya yeni bir depolama hesabı oluşturma şeklinde için seçeneğiniz vardır:
 
 ![hdinsight hadoop creation data source](./media/hdinsight-hadoop-use-blob-storage/hdinsight.provision.data.source.png)
 
-###Azure CLI’yı kullanma
-
-[AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
+### Azure CLI’yı kullanma
+[!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
 [Azure CLI yüklenmiş ve yapılandırılmışsa](../xplat-cli-install.md), aşağıdaki komut bir depolama hesabı ve kapsayıcı için kullanılabilir.
 
     azure storage account create <storageaccountname> --type LRS
 
-> [AZURE.NOTE] `--type` parametresi depolama hesabının nasıl çoğaltılacağını gösterir. Daha fazla bilgi için bkz. [Azure Storage çoğaltma](../storage/storage-redundancy.md). ZRS, sayfa blobu, dosya, tablo veya kuyruğu desteklemediğinden, ZRS kullanmayın.
+> [!NOTE]
+> `--type` parametresi depolama hesabının nasıl çoğaltılacağını gösterir. Daha fazla bilgi için bkz. [Azure Storage çoğaltma](../storage/storage-redundancy.md). ZRS, sayfa blobu, dosya, tablo veya kuyruğu desteklemediğinden, ZRS kullanmayın.
+> 
+> 
 
 Depolama hesabının bulunacağı coğrafi bölgeyi belirtmeniz istenir. HDInsight kümenizi oluşturmayı planladığınızla aynı bölgede depolama hesabı oluşturmanız gerekir.
 
@@ -120,34 +122,32 @@ Bir kapsayıcı oluşturmak için aşağıdaki komutu kullanın:
     azure storage container create <containername> --account-name <storageaccountname> --account-key <storageaccountkey>
 
 ### Azure PowerShell’i kullanma
-
 [ Azure PowerShell yüklenmiş ve yapılandırılmışsa][powershell install], bir depolama hesabı ve kapsayıcı oluşturmak için Azure PowerShell isteminde aşağıdakileri kullanabilirsiniz:
 
-[AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
+[!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
     $SubscriptionID = "<Your Azure Subscription ID>"
     $ResourceGroupName = "<New Azure Resource Group Name>"
     $Location = "EAST US 2"
-    
+
     $StorageAccountName = "<New Azure Storage Account Name>"
     $containerName = "<New Azure Blob Container Name>"
-    
+
     Add-AzureRmAccount
     Select-AzureRmSubscription -SubscriptionId $SubscriptionID
-    
+
     # Create resource group
     New-AzureRmResourceGroup -name $ResourceGroupName -Location $Location
-    
+
     # Create default storage account
     New-AzureRmStorageAccount -ResourceGroupName $ResourceGroupName -Name $StorageAccountName -Location $Location -Type Standard_LRS 
-    
+
     # Create default blob containers
     $storageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -StorageAccountName $StorageAccountName)[0].Value
     $destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
     New-AzureStorageContainer -Name $containerName -Context $destContext
 
 ## Blob Storage’da dosyaları adresleme
-
 HDInsight’ta Blob Storage’daki dosyalara erişmek için URI şeması aşağıdaki gibidir:
 
     wasb[s]://<BlobStorageContainerName>@<StorageAccountName>.blob.core.windows.net/<path>
@@ -164,17 +164,21 @@ URI şeması şifrelenmemiş erişim (ile *wasb:* öneki ile) ve SSL şifreli er
     wasbs:///example/jars/hadoop-mapreduce-examples.jar
     /example/jars/hadoop-mapreduce-examples.jar
 
-> [AZURE.NOTE] HDInsight sürüm 2.1 ve 1.6 kümelerinde dosya adı <i>hadoop examples.jar</i> şeklindedir.
-
+> [!NOTE]
+> HDInsight sürüm 2.1 ve 1.6 kümelerinde dosya adı <i>hadoop examples.jar</i> şeklindedir.
+> 
+> 
 
 &lt;Yol&gt; dosya veya dizin HDFS yol adıdır. Azure Blob Storage’daki kapsayıcılar anahtar-değer depoları olduğundan, doğru hiyerarşik dosya sistemi yoktur. Bir blob anahtarındaki bir eğik çizgi karakteri (/) dizin ayırıcı olarak yorumlanır. Örneğin, *hadoop mapreduce examples.jar* için blob adı aşağıdaki gibidir:
 
     example/jars/hadoop-mapreduce-examples.jar
 
-> [AZURE.NOTE] HDInsight dışındaki blob'larla çalışırken, yardımcı programların çoğu WASB biçimini tanımaz ve bunun yerine, `example/jars/hadoop-mapreduce-examples.jar` gibi temel yol biçimi gibi bekler.
+> [!NOTE]
+> HDInsight dışındaki blob'larla çalışırken, yardımcı programların çoğu WASB biçimini tanımaz ve bunun yerine, `example/jars/hadoop-mapreduce-examples.jar` gibi temel yol biçimi gibi bekler.
+> 
+> 
 
 ## Azure CLI kullanarak blob’lara erişim
-
 Blob ile ilgili komutları listelemek için aşağıdaki komutu kullanın:
 
     azure storage blob
@@ -196,8 +200,10 @@ Blob ile ilgili komutları listelemek için aşağıdaki komutu kullanın:
     azure storage blob list <containername> <blobname|prefix> --account-name <storageaccountname> --account-key <storageaccountkey>
 
 ## Azure PowerShell kullanarak blob’lara erişim
-
-> [AZURE.NOTE] Bu bölümdeki komutlar blob'larda depolanan verilere erişmek için PowerShell kullanmaya ilişkin temel bir örnek sağlar. HDInsight ile çalışmak için özelleştirilmiş daha tam özellikli bir örnek için bkz. [HDInsight Araçları](https://github.com/Blackmist/hdinsight-tools).
+> [!NOTE]
+> Bu bölümdeki komutlar blob'larda depolanan verilere erişmek için PowerShell kullanmaya ilişkin temel bir örnek sağlar. HDInsight ile çalışmak için özelleştirilmiş daha tam özellikli bir örnek için bkz. [HDInsight Araçları](https://github.com/Blackmist/hdinsight-tools).
+> 
+> 
 
 Blob ile ilgili cmdlet’leri listelemek için aşağıdaki komutu kullanın:
 
@@ -205,30 +211,28 @@ Blob ile ilgili cmdlet’leri listelemek için aşağıdaki komutu kullanın:
 
 ![Blob’la ilgili PowerShell cmdlet’lerinin listesi.][img-hdi-powershell-blobcommands]
 
-###Dosyaları karşıya yükleme
-
+### Dosyaları karşıya yükleme
 Bkz. [Verileri HDInsight’a yükleme][hdinsight-upload-data]
 
-###Dosyaları indirme
-
+### Dosyaları indirme
 Aşağıdaki betik, blok blobunu geçerli klasöre indirir. Betiği çalıştırmadan önce, dizini yazma izinlerine sahip olduğunuz bir klasör olarak değiştirin.
 
     $resourceGroupName = "<AzureResourceGroupName>"
     $storageAccountName = "<AzureStorageAccountName>"   # The storage account used for the default file system specified at creation.
     $containerName = "<BlobStorageContainerName>"  # The default file system container has the same name as the cluster.
     $blob = "example/data/sample.log" # The name of the blob to be downloaded.
-    
+
     # Use Add-AzureAccount if you haven't connected to your Azure subscription
     Login-AzureRmAccount 
     Select-AzureRmSubscription -SubscriptionID "<Your Azure Subscription ID>"
-    
+
     Write-Host "Create a context object ... " -ForegroundColor Green
     $storageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName)[0].Value
     $storageContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
-    
+
     Write-Host "Download the blob ..." -ForegroundColor Green
     Get-AzureStorageBlobContent -Container $ContainerName -Blob $blob -Context $storageContext -Force
-    
+
     Write-Host "List the downloaded file ..." -ForegroundColor Green
     cat "./$blob"
 
@@ -237,27 +241,23 @@ Kaynak grubu adını ve küme adını vererek, aşağıdaki kodu kullanabilirsin
     $resourceGroupName = "<AzureResourceGroupName>"
     $clusterName = "<HDInsightClusterName>"
     $blob = "example/data/sample.log" # The name of the blob to be downloaded.
-    
+
     $cluster = Get-AzureRmHDInsightCluster -ResourceGroupName $resourceGroupName -ClusterName $clusterName
     $defaultStorageAccount = $cluster.DefaultStorageAccount -replace '.blob.core.windows.net'
     $defaultStorageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccount)[0].Value
     $defaultStorageContainer = $cluster.DefaultStorageContainer
     $storageContext = New-AzureStorageContext -StorageAccountName $defaultStorageAccount -StorageAccountKey $defaultStorageAccountKey 
-    
+
     Write-Host "Download the blob ..." -ForegroundColor Green
     Get-AzureStorageBlobContent -Container $defaultStorageContainer -Blob $blob -Context $storageContext -Force
 
-###Dosyaları silme
-
-
+### Dosyaları silme
     Remove-AzureStorageBlob -Container $containerName -Context $storageContext -blob $blob
 
-###Dosyaları listeleme
-
+### Dosyaları listeleme
     Get-AzureStorageBlob -Container $containerName -Context $storageContext -prefix "example/data/"
 
-###Tanımlanmamış depolama hesabı kullanarak Hive sorgularını çalıştırma
-
+### Tanımlanmamış depolama hesabı kullanarak Hive sorgularını çalıştırma
 Bu örnekte, oluşturma işlemi sırasında tanımlanmamış depolama hesabındaki klasörün nasıl listeleneceği gösterilmektedir.
 $clusterName = "<HDInsightClusterName>"
 
@@ -274,7 +274,6 @@ $clusterName = "<HDInsightClusterName>"
     Invoke-AzureRmHDInsightHiveJob -Defines $defines -Query "dfs -ls wasbs://$undefinedContainer@$undefinedStorageAccount.blob.core.windows.net/;"
 
 ## Sonraki adımlar
-
 Bu makalede, HDInsight ile HDFS uyumlu Azure Blob Storage’ı kullanmayı ve Azure Blob Storage’ın, HDInsight’ın temel bir bileşeni olduğunu öğrendiniz. Bu, Azure Blob Storage ile ölçeklenebilir, uzun vadeli, arşivleme verileri edinme çözümleri oluşturmanıza ve depolanan yapılandırılmış ve yapılandırılmamış verilerdeki bilgilerin kilidini açmak için HDInsight kullanmanıza olanak sağlar.
 
 Daha fazla bilgi için bkz.

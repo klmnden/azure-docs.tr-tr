@@ -1,36 +1,33 @@
-<properties 
-	pageTitle="Streaming logs and console" 
-	description="Streaming logs and console overview" 
-	authors="btardif" 
-	manager="wpickett" 
-	editor="" 
-	services="app-service\web" 
-	documentationCenter=""/>
+---
+title: Streaming logs and console
+description: Streaming logs and console overview
+author: btardif
+manager: wpickett
+editor: ''
+services: app-service\web
+documentationcenter: ''
 
-<tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="07/26/2016" 
-	ms.author="byvinyal"/>
+ms.service: app-service-web
+ms.workload: web
+ms.tgt_pltfrm: na
+ms.devlang: multiple
+ms.topic: article
+ms.date: 07/26/2016
+ms.author: byvinyal
 
-#Streaming Logs and the Console
-
-### Streaming Logs ###
-
+---
+# Streaming Logs and the Console
+### Streaming Logs
 The Microsoft Azure Portal provides an integrated streaming log viewer that 
 lets you view tracing events from your App Service apps in real time.  
 
 Setting this up requires a few simple steps:
 
-- Write traces in your code
-- Enable Application Diagnostics from within the Azure Portal
-- Click on the streaming logs part on the web app's blade
+* Write traces in your code
+* Enable Application Diagnostics from within the Azure Portal
+* Click on the streaming logs part on the web app's blade
 
-### How to write traces in your code ###
-
+### How to write traces in your code
 Writing traces in your code is easy.  In C# it's as easy as writing the following code:
 
 `````````````````````````
@@ -53,12 +50,12 @@ In a node.js app you can write this code to achieve the same result:
 console.log("My trace statement").
 `````````````````````````
 
-### How to enable and view the streaming logs ###
+### How to enable and view the streaming logs
 ![][BrowseSitesScreenshot]
 Diagnostics are enabled on a per web app basis. From within the 
 [portal](https://portal.azure.com) browse to the site you would like to enable 
 this feature for.  
-  
+
 ![][DiagnosticsLogs]
 Then click **(1) Settings** > **(2) Diagnostic Logs** and **(3)turn  On** 
 **Application Logging (Filesystem)** or **Application Logging (blob)** The 
@@ -77,7 +74,7 @@ To view the streaming logs from within the portal click **(1) Tools** >
 **(2) Log Stream**. If your app is actively writing trace statements then you 
 should see them in the **(3)** resulting window in near real time.
 
-## Console ##
+## Console
 The Azure Portal provides console access to your web app environment. You can 
 explore your web app's file system and run powershell/cmd scripts. You are 
 bound by the same permissions set as your running web app code when executing 

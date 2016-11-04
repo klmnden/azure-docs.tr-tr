@@ -1,23 +1,22 @@
-<properties
-   pageTitle="How to get AppSource certified for Azure Active Directory| Microsoft Azure"
-   description="Details on how to get your application AppSource certified for Azure Active Directory."
-   services="active-directory"
-   documentationCenter=""
-   authors="skwan"
-   manager="mbaldwin"
-   editor=""/>
+---
+title: How to get AppSource certified for Azure Active Directory| Microsoft Docs
+description: Details on how to get your application AppSource certified for Azure Active Directory.
+services: active-directory
+documentationcenter: ''
+author: skwan
+manager: mbaldwin
+editor: ''
 
-<tags
-   ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="09/22/2016"
-   ms.author="skwan;bryanla"/>
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 09/22/2016
+ms.author: skwan;bryanla
 
-#How to get AppSource Certified for Azure Active Directory (AD) 
-
+---
+# How to get AppSource Certified for Azure Active Directory (AD)
 To receive AppSource certification for Azure AD, your application must implement the multi-tenant sign in pattern with Azure AD using the OpenID Connect, OAuth 2.0, or SAML 2.0 protocols. 
 
 If you’re not familiar with Azure AD sign-in or multi-tenant application development:

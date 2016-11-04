@@ -1,47 +1,39 @@
-<properties 
-    pageTitle="Java kullanarak isteğe bağlı içerik göndermeye başlama | Microsoft Azure" 
-    description="Kodlama, şifreleme ve kaynakları akışla aktarma gibi genel görevleri gerçekleştirmek üzere Azure Media Services’in nasıl kullanılacağını açıklar." 
-    services="media-services" 
-    documentationCenter="java" 
-    authors="juliako" 
-    manager="erikre" 
-/>
+---
+title: Java kullanarak isteğe bağlı içerik göndermeye başlama | Microsoft Docs
+description: Kodlama, şifreleme ve kaynakları akışla aktarma gibi genel görevleri gerçekleştirmek üzere Azure Media Services’in nasıl kullanılacağını açıklar.
+services: media-services
+documentationcenter: java
+author: juliako
+manager: erikre
 
-<tags 
-    ms.service="media-services" 
-    ms.workload="media" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="get-started-article"
-    ms.date="10/12/2016"   
-    ms.author="juliako"/>
+ms.service: media-services
+ms.workload: media
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 10/12/2016
+ms.author: juliako
 
-
+---
 # <a name="get-started-with-delivering-content-on-demand-using-java"></a>Java kullanarak isteğe bağlı içerik göndermeye başlama
+[!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
-[AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
-
-##<a name="setting-up-an-azure-account-for-media-services"></a>Media Services İçin Bir Azure Hesabı Ayarlama
-
+## <a name="setting-up-an-azure-account-for-media-services"></a>Media Services İçin Bir Azure Hesabı Ayarlama
 Media Services hesabınızı ayarlamak için Azure portal'ı kullanın. [Media Services Hesabı Oluşturma](media-services-portal-create-account.md) konusuna bakın. Azure portal'da hesabınızı oluşturduktan sonra, bilgisayarınızı Media Services geliştirmeye yönelik olarak ayarlamaya hazır olursunuz.
 
-##<a name="setting-up-for-media-services-development"></a>Media Services geliştirmeye yönelik ayarlama
-
+## <a name="setting-up-for-media-services-development"></a>Media Services geliştirmeye yönelik ayarlama
 Bu bölüm, Java için Media Services SDK'sını kullanarak Media Services geliştirmenin genel önkoşullarını içerir.
 
-###<a name="prerequisites"></a>Ön koşullar
+### <a name="prerequisites"></a>Ön koşullar
+* Yeni veya mevcut bir Azure aboneliğinde bir Media Services hesabı. [Media Services Hesabı Oluşturma](media-services-portal-create-account.md) konusuna bakın.
+* [Azure Java Geliştirici Merkezi][Azure Java Geliştirici Merkezi]’nden yüklenebilecek olan Java için Azure Kitaplıkları.
 
--   Yeni veya mevcut bir Azure aboneliğinde bir Media Services hesabı. [Media Services Hesabı Oluşturma](media-services-portal-create-account.md) konusuna bakın.
--   [Azure Java Geliştirici Merkezi][]’nden yüklenebilecek olan Java için Azure Kitaplıkları.
-
-##<a name="how-to:-use-media-services-with-java"></a>Nasıl yapılır: Java ile Media Services’i kullanma
-
+## <a name="how-to:-use-media-services-with-java"></a>Nasıl yapılır: Java ile Media Services’i kullanma
 Aşağıdaki kod bir varlık oluşturma, varlığa bir medya dosyası yükleme, varlığı dönüştürecek bir göreve sahip olan bir işi çalıştırma ve videonuzu akışla aktarmak için bir bulucu oluşturma işlemlerinin nasıl gerçekleştirileceğini gösterir.
 
 Bu kodu kullanmadan önce bir Media Services hesabı ayarlamanız gerekir. Hesap ayarlama hakkında daha fazla bilgi için bkz. [Media Services Hesabı Oluşturma](media-services-portal-create-account.md).
 
 'clientId' ve 'clientSecret' değişkenlerini kendi değerlerinizle değiştirin. Kod ayrıca, yerel olarak saklanan bir dosyaya da dayanır. Kullanılmak üzere kendi dosyanızı sağlamanız gerekir.
-
 
     import java.io.*;
     import java.security.NoSuchAlgorithmException;
@@ -171,7 +163,7 @@ Bu kodu kullanmadan önce bir Media Services hesabı ayarlamanız gerekir. Hesap
     // Retrieve the list of Media Processors that match the name
     ListResult<MediaProcessorInfo> mediaProcessors = mediaService
                               .list(MediaProcessor.list().set("$filter", String.format("Name eq '%s'", preferredEncoder)));
-    
+
               // Use the latest version of the Media Processor
               MediaProcessorInfo mediaProcessor = null;
               for (MediaProcessorInfo info : mediaProcessors) {
@@ -179,37 +171,37 @@ Bu kodu kullanmadan önce bir Media Services hesabı ayarlamanız gerekir. Hesap
                       mediaProcessor = info;
                   }
               }
-    
+
               System.out.println("Using Media Processor: " + mediaProcessor.getName() + " " + mediaProcessor.getVersion());
-    
+
               // Create a task with the specified Media Processor
               String outputAssetName = String.format("%s as %s", assetToEncode.getName(), encodingPreset);
               String taskXml = "<taskBody><inputAsset>JobInputAsset(0)</inputAsset>"
                       + "<outputAsset assetCreationOptions=\"0\"" // AssetCreationOptions.None
                       + " assetName=\"" + outputAssetName + "\">JobOutputAsset(0)</outputAsset></taskBody>";
-    
+
               Task.CreateBatchOperation task = Task.create(mediaProcessor.getId(), taskXml)
                       .setConfiguration(encodingPreset).setName("Encoding");
-    
+
               // Create the Job; this automatically schedules and runs it.
               Job.Creator jobCreator = Job.create()
                       .setName(String.format("Encoding %s to %s", assetToEncode.getName(), encodingPreset))
                       .addInputMediaAsset(assetToEncode.getId()).setPriority(2).addTaskCreator(task);
               JobInfo job = mediaService.create(jobCreator);
-            
+
               String jobId = job.getId();
               System.out.println("Created Job with Id: " + jobId);
-    
+
               // Check to see if the Job has completed
               checkJobStatus(jobId);
               // Done with the Job
-    
+
               // Retrieve the output Asset
               ListResult<AssetInfo> outputAssets = mediaService.list(Asset.list(job.getOutputAssetsLink()));
               return outputAssets.get(0);
           }
-        
-    
+
+
           public static String getStreamingOriginLocator(AssetInfo asset) throws ServiceException {
               // Get the .ISM AssetFile
               ListResult<AssetFileInfo> assetFiles = mediaService.list(AssetFile.list(asset.getAssetFilesLink()));
@@ -220,63 +212,59 @@ Bu kodu kullanmadan önce bir Media Services hesabı ayarlamanız gerekir. Hesap
                       break;
                   }
               }
-    
+
               AccessPolicyInfo originAccessPolicy;
               LocatorInfo originLocator = null;
-    
+
               // Create a 30-day readonly AccessPolicy
               double durationInMinutes = 60 * 24 * 30;
               originAccessPolicy = mediaService.create(
                       AccessPolicy.create("Streaming policy", durationInMinutes, EnumSet.of(AccessPolicyPermission.READ)));
-    
+
               // Create a Locator using the AccessPolicy and Asset
               originLocator = mediaService
                       .create(Locator.create(originAccessPolicy.getId(), asset.getId(), LocatorType.OnDemandOrigin));
-    
+
               // Create a Smooth Streaming base URL
               return originLocator.getPath() + streamingAssetFile.getName() + "/manifest";
           }
-    
+
           private static void checkJobStatus(String jobId) throws InterruptedException, ServiceException {
               boolean done = false;
               JobState jobState = null;
               while (!done) {
                   // Sleep for 5 seconds
                   Thread.sleep(5000);
-                
+
                   // Query the updated Job state
                   jobState = mediaService.get(Job.get(jobId)).getState();
                   System.out.println("Job state: " + jobState);
-    
+
                   if (jobState == JobState.Finished || jobState == JobState.Canceled || jobState == JobState.Error) {
                       done = true;
                   }
               }
           }
-    
+
     }
 
 
-##<a name="media-services-learning-paths"></a>Media Services’i öğrenme yolları
+## <a name="media-services-learning-paths"></a>Media Services’i öğrenme yolları
+[!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
+## <a name="provide-feedback"></a>Geri bildirimde bulunma
+[!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-##<a name="provide-feedback"></a>Geri bildirimde bulunma
-
-[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-##<a name="additional-resources"></a>Ek Kaynaklar
-
-Media Services Javadoc belgeleri için bkz. [Java için Azure Kitaplıkları belgeleri][].
+## <a name="additional-resources"></a>Ek Kaynaklar
+Media Services Javadoc belgeleri için bkz. [Java için Azure Kitaplıkları belgeleri][Java için Azure Kitaplıkları belgeleri].
 
 <!-- URLs. -->
 
-  [Azure Java Geliştirici Merkezi]: http://azure.microsoft.com/develop/java/
-  [Java için Azure Kitaplıkları belgeleri]: http://dl.windowsazure.com/javadoc/
-  [Media Services İstemci Geliştirme]: http://msdn.microsoft.com/library/windowsazure/dn223283.aspx
+[Azure Java Geliştirici Merkezi]: http://azure.microsoft.com/develop/java/
+[Java için Azure Kitaplıkları belgeleri]: http://dl.windowsazure.com/javadoc/
+[Media Services İstemci Geliştirme]: http://msdn.microsoft.com/library/windowsazure/dn223283.aspx
 
- 
+
 
 
 

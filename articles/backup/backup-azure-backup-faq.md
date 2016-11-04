@@ -1,53 +1,52 @@
-<properties
-   pageTitle="Azure Backup ile ilgili SSS | Microsoft Azure"
-   description="Yedekleme hizmeti, yedekleme aracısı, yedekleme ve bekletme, kurtarma, güvenlik ve yedekleme ile olağanüstü durum kurtarma ile ilgili diğer sık sorulan soruların yanıtları."
-   services="backup"
-   documentationCenter=""
-   authors="markgalioto"
-   manager="jwhit"
-   editor=""
-   keywords="yedekleme ve olağanüstü durum kurtarma; backup hizmeti"/>
+---
+title: Azure Backup ile ilgili SSS | Microsoft Docs
+description: Yedekleme hizmeti, yedekleme aracısı, yedekleme ve bekletme, kurtarma, güvenlik ve yedekleme ile olağanüstü durum kurtarma ile ilgili diğer sık sorulan soruların yanıtları.
+services: backup
+documentationcenter: ''
+author: markgalioto
+manager: jwhit
+editor: ''
+keywords: yedekleme ve olağanüstü durum kurtarma; backup hizmeti
 
-<tags
-   ms.service="backup"
-   ms.workload="storage-backup-recovery"
-     ms.tgt_pltfrm="na"
-     ms.devlang="na"
-     ms.topic="get-started-article"
-     ms.date="08/29/2016"
-     ms.author="trinadhk; giridham; arunak; markgal; jimpark;"/>
+ms.service: backup
+ms.workload: storage-backup-recovery
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 08/29/2016
+ms.author: trinadhk; giridham; arunak; markgal; jimpark;
 
-
+---
 # <a name="azure-backup-service--faq"></a>Azure Backup hizmeti - SSS
-
-> [AZURE.SELECTOR]
-- [Klasik mod için Backup ile ilgili SSS](backup-azure-backup-faq.md)
-- [Resource Manager modu için Backup ile ilgili SSS](backup-azure-backup-ibiza-faq.md)
+> [!div class="op_single_selector"]
+> * [Klasik mod için Backup ile ilgili SSS](backup-azure-backup-faq.md)
+> * [Resource Manager modu için Backup ile ilgili SSS](backup-azure-backup-ibiza-faq.md)
+> 
+> 
 
 Bu makale, Azure Backup hizmeti ile ilgili sık sorulan soruların (ve yanıtlarının) listesinden oluşmaktadır. Topluluğumuz, soruları hızlı bir şekilde yanıtlar ve bir sorunun sıklıkla sorulması durumunda söz konusu soruyu bu makaleye ekleriz. Soruların yanıtları genellikle başvuru veya destek bilgileri sağlar. Azure Backup ile ilgili sorularınızı, bu makalenin veya ilgili bir makalenin Disqus bölümünde sorabilirsiniz. Ayrıca Azure Backup hizmeti ile ilgili sorularınızı [tartışma forumunda](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) paylaşabilirsiniz.
-
 
 ## <a name="what-is-the-list-of-supported-operating-systems-from-which-i-can-back-up-to-azure-using-azure-backup?"></a>Azure Backup hizmetini kullanarak Azure'a yedekleme yapabileceğim desteklenen işletim sistemlerinin listesi ne şekildedir? <br/>
 Azure Backup, Azure Backup Sunucusu ve SCDPM kullanarak dosya-klasör yedekleme ve uygulama yedekleme için aşağıdaki listede bulunan işletim sistemlerini destekler. 
 
-| İşletim Sistemi        | Platform           | SKU  |
-| :------------- |-------------| :-----|
-| Windows 8 ve en son SP'ler      | 64 bit | Enterprise, Pro |
-| Windows 7 ve en son SP'ler      | 64 bit | Ultimate, Enterprise, Professional, Home Premium, Home Basic, Starter |
-| Windows 8.1 ve en son SP'ler | 64 bit      |    Enterprise, Pro |
-| Windows 10      | 64 bit | Enterprise, Pro, Home |
-|Windows Server 2012 R2 ve en son SP'ler| 64 bit| Standard, Datacenter, Foundation|
-|Windows Server 2012 ve en son SP'ler|    64 bit| Datacenter, Foundation, Standard|
-|Windows Storage Server 2012 R2 ve en son SP'ler  |64 bit|    Standard, Workgroup|
-|Windows Storage Server 2012 ve en son SP'ler |64 bit |Standard, Workgroup
-|Windows Server 2012 R2 ve en son SP'ler  |64 bit|    Essential|
-|Windows Server 2008 R2 SP1 |64 bit|    Standard, Enterprise, Datacenter, Foundation|
-|Windows Server 2008 SP2    |64 bit|    Standard, Enterprise, Datacenter, Foundation|
+| İşletim Sistemi | Platform | SKU |
+|:--- | --- |:--- |
+| Windows 8 ve en son SP'ler |64 bit |Enterprise, Pro |
+| Windows 7 ve en son SP'ler |64 bit |Ultimate, Enterprise, Professional, Home Premium, Home Basic, Starter |
+| Windows 8.1 ve en son SP'ler |64 bit |Enterprise, Pro |
+| Windows 10 |64 bit |Enterprise, Pro, Home |
+| Windows Server 2012 R2 ve en son SP'ler |64 bit |Standard, Datacenter, Foundation |
+| Windows Server 2012 ve en son SP'ler |64 bit |Datacenter, Foundation, Standard |
+| Windows Storage Server 2012 R2 ve en son SP'ler |64 bit |Standard, Workgroup |
+| Windows Storage Server 2012 ve en son SP'ler |64 bit |Standard, Workgroup |
+| Windows Server 2012 R2 ve en son SP'ler |64 bit |Essential |
+| Windows Server 2008 R2 SP1 |64 bit |Standard, Enterprise, Datacenter, Foundation |
+| Windows Server 2008 SP2 |64 bit |Standard, Enterprise, Datacenter, Foundation |
 
 Azure VM yedeklemesi için,
 
-- **Linux**: Azure Backup, Core OS Linux hariç [Azure tarafından onaylanan bir dağıtım listesini](../virtual-machines/virtual-machines-linux-endorsed-distros.md) destekler.  Sanal makinede VM aracısı kullanılabilir olduğu ve Python desteği bulunduğu sürece diğer Kendi Linux’unu Getir dağıtımları da çalışabilir.
-- **Windows Server**:  Windows Server 2008 R2’den eski sürümler desteklenmez.
+* **Linux**: Azure Backup, Core OS Linux hariç [Azure tarafından onaylanan bir dağıtım listesini](../virtual-machines/virtual-machines-linux-endorsed-distros.md) destekler.  Sanal makinede VM aracısı kullanılabilir olduğu ve Python desteği bulunduğu sürece diğer Kendi Linux’unu Getir dağıtımları da çalışabilir.
+* **Windows Server**:  Windows Server 2008 R2’den eski sürümler desteklenmez.
 
 ## <a name="where-can-i-download-the-latest-azure-backup-agent?"></a>En son Azure Backup aracısını nereden indirebilirim? <br/>
 Windows Server, System Center DPM veya Windows istemcisini yedeklemeye yönelik en son aracıyı [buradan](http://aka.ms/azurebackup_agent) indirebilirsiniz. Bir sanal makineyi yedeklemek istiyorsanız VM Aracısı'nı (otomatik olarak uygun uzantıyı yükler) kullanın. VM Aracısı, Azure galerisinden oluşturulan sanal makineler üzerinde zaten mevcuttur.
@@ -74,26 +73,26 @@ Sunucunun yeni adını Backup kasasına kaydetmeniz gerekir. Yeni bir kayıt olu
 ## <a name="what-types-of-drives-can-i-backup-files-and-folders-from?"></a>Ne tür sürücülerden dosya ve klasör yedekleyebilirim? <br/>
 Aşağıdaki sürücüler/birimler yedeklenemez:
 
-- Çıkarılabilir Medya: Sürücünün yedekleme öğesi kaynağı olarak kullanılabilmesi için sabit olarak bildirilmesi gerekir.
-- Salt Okunur Birimler: Birimin çalışması için birim gölge kopyası hizmetine (VSS) yönelik olarak yazılabilir olması gerekir.
-- Çevrimdışı Birimler: Birimin çalışması için VSS'ye yönelik olarak çevrimiçi olması gerekir.
-- Ağ paylaşımı: Birimin çevrimiçi yedekleme kullanılarak yedeklenebilmesi için sunucuya yönelik olarak yerel olması gerekir.
-- Bitlocker korumalı birimler: Yedeklemenin gerçekleşebilmesi için birimin kilidinin açık olması gerekir.
-- Dosya Sistemi Tanımlaması: NTFS, çevrimiçi yedekleme hizmetinin bu sürümü için desteklenen tek dosya sistemidir.
+* Çıkarılabilir Medya: Sürücünün yedekleme öğesi kaynağı olarak kullanılabilmesi için sabit olarak bildirilmesi gerekir.
+* Salt Okunur Birimler: Birimin çalışması için birim gölge kopyası hizmetine (VSS) yönelik olarak yazılabilir olması gerekir.
+* Çevrimdışı Birimler: Birimin çalışması için VSS'ye yönelik olarak çevrimiçi olması gerekir.
+* Ağ paylaşımı: Birimin çevrimiçi yedekleme kullanılarak yedeklenebilmesi için sunucuya yönelik olarak yerel olması gerekir.
+* Bitlocker korumalı birimler: Yedeklemenin gerçekleşebilmesi için birimin kilidinin açık olması gerekir.
+* Dosya Sistemi Tanımlaması: NTFS, çevrimiçi yedekleme hizmetinin bu sürümü için desteklenen tek dosya sistemidir.
 
 ## <a name="what-file-and-folder-types-can-i-back-up-from-my-server?"></a>Sunucumdan hangi dosya ve klasör hangi türlerini yedekleyebilirim?<br/>
 Aşağıdaki türler desteklenir:
 
-- Şifreli
-- Sıkıştırılmış
-- Seyrek
-- Sıkıştırılmış + Seyrek
-- Sabit Bağlantılar: Desteklenmez, atlanır
-- Yeniden Ayrıştırma Noktası: Desteklenmez, atlanır
-- Şifreli + Sıkıştırılmış: Desteklenmez, atlanır
-- Şifreli + Seyrek: Desteklenmez, atlanır
-- Sıkıştırılmış Akış: Desteklenmez, atlanır
-- Seyrek Akış: Desteklenmez, atlanır
+* Şifreli
+* Sıkıştırılmış
+* Seyrek
+* Sıkıştırılmış + Seyrek
+* Sabit Bağlantılar: Desteklenmez, atlanır
+* Yeniden Ayrıştırma Noktası: Desteklenmez, atlanır
+* Şifreli + Sıkıştırılmış: Desteklenmez, atlanır
+* Şifreli + Seyrek: Desteklenmez, atlanır
+* Sıkıştırılmış Akış: Desteklenmez, atlanır
+* Seyrek Akış: Desteklenmez, atlanır
 
 ## <a name="what's-the-minimum-size-requirement-for-the-cache-folder?"></a>Önbellek klasörü için minimum boyut gereksinimini nedir? <br/>
 Önbellek klasörünün boyutu, yedeklediğiniz veri miktarını belirler. Önbellek klasörü, veri depolama için gerekli olan alanın % 5'ini oluşturmalıdır.
@@ -118,11 +117,11 @@ Bu uyarı, yerel sunucuda depolanan yedekleme zamanlaması ayarları, yedekleme 
 ## <a name="what-firewall-rules-should-be-configured-for-azure-backup?"></a>Azure Backup için hangi güvenlik duvarı kuralları yapılandırılmalıdır? <br/>
 Verilerin şirket içinden Azure'a ve iş yükünden Azure'a sorunsuz şekilde korunması için güvenlik duvarınızın aşağıdaki URL'ler ile iletişim kurmasına izin vermeniz önerilir:
 
-- www.msftncsi.com
-- \*.Microsoft.com
-- \*.WindowsAzure.com
-- \*.microsoftonline.com
-- \*.windows.net
+* www.msftncsi.com
+* \*.Microsoft.com
+* \*.WindowsAzure.com
+* \*.microsoftonline.com
+* \*.windows.net
 
 ## <a name="can-i-install-the-azure-backup-agent-on-an-azure-vm-already-backed-by-the-azure-backup-service-using-the-vm-extension?"></a>Azure Backup aracısını, önceden VM uzantısı kullanılarak Azure Backup hizmeti tarafından yedeklenmiş olan bir Azure VM üzerine yükleyebilir miyim? <br/>
 Kesinlikle. Azure Backup, VM uzantısını kullanan Azure VM'ler için VM düzeyinde yedekleme sağlar. Azure Backup aracısını, bir Konuk Windows işletim sistemine yükleyerek bu konuk işletim sistemi üzerindeki dosya ve klasörleri koruyabilirsiniz.
@@ -133,10 +132,10 @@ Azure Backup aracısını, bir Konuk Windows işletim sistemine yükleyebilir ve
 ## <a name="i-have-installed-azure-backup-agent-to-protect-my-files-and-folders.-can-i-now-install-scdpm-to-work-with-azure-backup-agent-to-protect-on-premises-application/vm-workloads-to-azure?"></a>Dosya ve klasörlerimi korumak için Azure Backup aracısını yükledim. Artık Azure'a yönelik şirket içi uygulama/VM iş yüklerini korumak için Azure Backup aracısıyla çalışmak üzere SCDPM'yi yükleyebilir miyim? <br/>
 Azure Backup'ı SCDPM ile kullanmak için ilk olarak SCDPM'yi ve ancak bundan sonra Azure Backup aracısını yüklemeniz önerilir. Bu, Azure Backup aracısının SCDPM ile tümleştirmesinin sorunsuz şekilde gerçekleştirilmesini sağlar ve dosyaların/klasörlerin, Azure'a yönelik uygulama iş yüklerinin ve VM'lerin doğrudan SCDPM yönetim konsolundan korunmasına olanak tanır. Yukarıda belirtilen amaçlar doğrultusunda Azure Backup'ın yüklenmesinin ardından SCDPM'nin yüklenmesi önerilmez veya desteklenmez.
 
-## <a name="what-is-the-length-of-file-path-that-can-be-specified-as-part-of-azure-backup-policy-using-azure-backup-agent?"></a>Azure Backup aracısını kullanan Azure Yedekleme ilkesinin bir bölümü olarak belirtilebilecek dosya yolunun uzunluğu nedir? <br/>  
+## <a name="what-is-the-length-of-file-path-that-can-be-specified-as-part-of-azure-backup-policy-using-azure-backup-agent?"></a>Azure Backup aracısını kullanan Azure Yedekleme ilkesinin bir bölümü olarak belirtilebilecek dosya yolunun uzunluğu nedir? <br/>
 Azure Backup aracısı NTFS kullanır. [Dosya yolu uzunluğu belirtimi, Windows API ile sınırlıdır](https://msdn.microsoft.com/library/aa365247.aspx#fully_qualified_vs._relative_paths). Windows API tarafından belirtilenlerden daha uzun dosya yollarına sahip olan dosyaların yedeklenmesi için müşteriler yedekleme dosyalarının üst klasörünü veya disk sürücüsünü yedeklemeyi seçebilir.  
 
-## <a name="what-characters-are-allowed-in-file-path-of-azure-backup-policy-using-azure-backup-agent?"></a>Azure Backup aracısını kullanan Azure Yedekleme ilkesinin dosya yolunda hangi karakterlere izin verilir? <br>  
+## <a name="what-characters-are-allowed-in-file-path-of-azure-backup-policy-using-azure-backup-agent?"></a>Azure Backup aracısını kullanan Azure Yedekleme ilkesinin dosya yolunda hangi karakterlere izin verilir? <br>
  Azure Backup aracısı NTFS kullanır. [NTFS destekli karakterleri](https://msdn.microsoft.com/library/aa365247.aspx#naming_conventions) dosya belirtiminin bir parçası olarak etkinleştirir.  
 
 ## <a name="can-i-use-azure-backup-server-to-create-a-bare-metal-recovery-(bmr)-backup-for-a-physical-server?"></a>Bir fiziksel sunucu için Tam Kurtarma (BMR) yedeklemesi oluşturmak üzere Azure Backup Sunucusu'nu kullanabilir miyim? <br/>
@@ -148,23 +147,23 @@ Evet, Backup hizmeti bir PowerShell betiği ile kullanılabilen çeşitli olay t
 ## <a name="is-there-a-limit-on-the-size-of-each-data-source-being-backed-up?"></a>Yedeklenmekte olan her veri kaynağının boyutuna yönelik bir sınır var mıdır? <br/>
 Kasa düzeyinde yedekleyebileceğiniz veri miktarına ilişkin bir sınırlama olmamasına karşın Azure Backup en büyük veri kaynağı boyutuyla ilgili bir kısıtlama uygulamaktadır (tüm uygulamalarda bu limitler çok yüksektir). Ağustos 2015'ten itibaren, desteklenen işletim sistemleri için en büyük veri kaynağı boyutu şu şekildedir:
 
-|S.No | İşletim sistemi |  En büyük veri kaynağı boyutu |
-| :-------------: |:-------------| :-----|
-|1| Windows Server 2012 veya üzeri| 54400 GB|
-|2| Windows 8 veya üzeri| 54400 GB|
-|3| Windows Server 2008, Windows Server 2008 R2 | 1700 GB|
-|4| Windows 7 | 1700 GB|
+| S.No | İşletim sistemi | En büyük veri kaynağı boyutu |
+|:---:|:--- |:--- |
+| 1 |Windows Server 2012 veya üzeri |54400 GB |
+| 2 |Windows 8 veya üzeri |54400 GB |
+| 3 |Windows Server 2008, Windows Server 2008 R2 |1700 GB |
+| 4 |Windows 7 |1700 GB |
 
 Aşağıdaki tabloda, her bir veri kaynağı boyutunun nasıl belirlendiği açıklanmaktadır.
 
-|   Veri kaynağı  |   Ayrıntılar |
-| :-------------: |:-------------|
-|Birim |Bir sunucu veya istemci makinenin tek bir biriminden yedeklenmekte olan verilerin miktarı|
-|Hyper-V sanal makine | Yedeklenmekte olan sanal makinenin tüm VHD'lerine ait verilerin toplamı|
-|Microsoft SQL Server veritabanı | Yedeklenmekte olan tek bir SQL veritabanının boyutu |
-|Microsoft SharePoint |Yedeklenmekte olan bir SharePoint grubu içinde içerik ve yapılandırma veritabanlarının toplamı|
-|Microsoft Exchange |Yedeklenmekte olan bir Exchange sunucusundaki tüm Exchange veritabanlarının toplamı|
-|BMR/Sistem Durumu |Yedeklenmekte olan makinenin BMR'sinin veya sistem durumunun her ayrı kopyası|
+| Veri kaynağı | Ayrıntılar |
+|:---:|:--- |
+| Birim |Bir sunucu veya istemci makinenin tek bir biriminden yedeklenmekte olan verilerin miktarı |
+| Hyper-V sanal makine |Yedeklenmekte olan sanal makinenin tüm VHD'lerine ait verilerin toplamı |
+| Microsoft SQL Server veritabanı |Yedeklenmekte olan tek bir SQL veritabanının boyutu |
+| Microsoft SharePoint |Yedeklenmekte olan bir SharePoint grubu içinde içerik ve yapılandırma veritabanlarının toplamı |
+| Microsoft Exchange |Yedeklenmekte olan bir Exchange sunucusundaki tüm Exchange veritabanlarının toplamı |
+| BMR/Sistem Durumu |Yedeklenmekte olan makinenin BMR'sinin veya sistem durumunun her ayrı kopyası |
 
 ## <a name="are-there-limits-on-the-number-of-times-a-backup-job-can-be-scheduled-per-day?"></a>Bir yedekleme işinin günde kaç kez zamanlanabileceğine yönelik sınırlar var mıdır?<br/>
 Evet, yedekleme işlerini Windows Server veya Windows istemcisi üzerinde günde en fazla üç kez çalıştırabilirsiniz. Yedekleme işlerini System Center DPM üzerinde günde en fazla iki kez çalıştırabilirsiniz. Bir yedekleme işini IaaS VM'ler için günde bir kez çalıştırabilirsiniz.
@@ -200,7 +199,7 @@ Hayır. Kurtarma noktalarına yönelik sınırları kaldırdık. İstediğiniz s
  Azure Backup Aracısı veya SCDPM ya da Azure Backup Sunucusundan yedeklenen tüm veriler aktarılmadan önce sıkıştırılır ve şifrelenir. Sıkıştırma ve şifreleme uygulandıktan sonra yedekleme kasasındaki veriler % 30-40 daha küçük hale gelir.
 
 ## <a name="is-there-a-way-to-adjust-the-amount-of-bandwidth-used-by-the-backup-service?"></a>Backup hizmeti tarafından kullanılan bant genişliği miktarını ayarlamanın bir yolu var mıdır?<br/>
- Evet, bant genişliğini ayarlamak için Backup Aracısı'ndaki **Özellikleri Değiştir** seçeneğini kullanın. Bant genişliği miktarını ve bu bant genişliğini kullanma zamanlarınızı ayarlayın. Daha fazla bilgi için bkz. [Ağ Azaltma](../backup-configure-vault.md#enable-network-throttling).
+ Evet, bant genişliğini ayarlamak için Backup Aracısı'ndaki **Özellikleri Değiştir** seçeneğini kullanın. Bant genişliği miktarını ve bu bant genişliğini kullanma zamanlarınızı ayarlayın. Daha fazla bilgi için bkz. [Ağ Azaltma](backup-configure-vault.md#enable-network-throttling).
 
 ## <a name="my-internet-bandwidth-is-limited-for-the-amount-of-data-i-need-to-back-up.-is-there-a-way-i-can-move-data-to-a-certain-location-with-a-large-network-pipe-and-push-that-data-into-azure?"></a>İnternet bant genişliğim, yedeklemem gereken veri miktarı için sınırlı durumda. Verileri büyük bir ağ kanalı ile belirli bir konuma taşıyıp bu verileri Azure'a gönderebilmemin bir yolu var mıdır? <br/>
 Standart çevrimiçi yedekleme işlemini kullanarak verileri Azure'a yedekleyebilir veya verileri Azure'da blob depolamaya aktarmak için Azure İçeri/Dışarı Aktarma hizmetini kullanabilirsiniz. Yedekleme verilerini Azure depolama alanına almanın başka bir yolu yoktur. Azure İçeri/Dışarı Aktarma hizmetini Azure Backup ile kullanma hakkında bilgi için lütfen [Çevrimdışı Yedekleme iş akışı](backup-azure-backup-import-export.md) makalesine bakın.
@@ -225,43 +224,40 @@ Yedekleme verilerini şifrelemek için kullanılan anahtar yalnızca müşterini
 
 ## <a name="how-do-i-change-the-cache-location-specified-for-the-azure-backup-agent?"></a>Azure Backup aracısı için belirtilen önbellek konumunu nasıl değiştiririm?<br/>
  Önbellek konumunu değiştirmek için aşağıdaki madde listesini sırasıyla izleyin.
-- Yükseltilmiş komut isteminde aşağıdaki komutu çalıştırarak Backup altyapısını durdurun:
 
+* Yükseltilmiş komut isteminde aşağıdaki komutu çalıştırarak Backup altyapısını durdurun:
+  
   ```PS C:\> Net stop obengine```
+* Dosyaları taşımayın. Bunun yerine, önbellek alanı klasörünü yeterli alana sahip farklı bir sürücüye kopyalayın. Yedeklemelerin yeni önbellek alanı ile çalıştığı onaylandıktan sonra özgün önbellek alanı kaldırılabilir.
+* Aşağıdaki kayıt defteri girdilerini yeni önbellek alanı klasörünün yolu ile güncelleştirin.<br/>
 
-- Dosyaları taşımayın. Bunun yerine, önbellek alanı klasörünü yeterli alana sahip farklı bir sürücüye kopyalayın. Yedeklemelerin yeni önbellek alanı ile çalıştığı onaylandıktan sonra özgün önbellek alanı kaldırılabilir.
+| Kayıt defteri yolu | Kayıt Defteri Anahtarı | Değer |
+| --- | --- | --- |
+| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*Yeni önbellek klasörü konumu* |
+| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*Yeni önbellek klasörü konumu* |
 
-- Aşağıdaki kayıt defteri girdilerini yeni önbellek alanı klasörünün yolu ile güncelleştirin.<br/>
-
-|Kayıt defteri yolu | Kayıt Defteri Anahtarı | Değer |
-| ------ | ------- | ------|
-| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` | ScratchLocation | *Yeni önbellek klasörü konumu* |
-| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` | ScratchLocation | *Yeni önbellek klasörü konumu* |
-
-- Yükseltilmiş komut isteminde aşağıdaki komutu çalıştırarak Backup altyapısını yeniden başlatın:
-
+* Yükseltilmiş komut isteminde aşağıdaki komutu çalıştırarak Backup altyapısını yeniden başlatın:
+  
   ```PS C:\> Net start obengine```
-
+  
   Yedekleme oluşturma yeni önbellek konumunda başarıyla tamamlandıktan sonra, özgün önbellek klasörünü kaldırabilirsiniz.
 
 ## <a name="where-can-i-put-the-cache-folder-for-the-azure-backup-agent-to-work-as-expected?"></a>Azure Backup Aracısı'nın beklendiği şekilde çalışması için önbellek klasörünü nereye koyabilirim?<br/>
 Önbellek klasörü için aşağıdaki konumlar önerilmez:
 
-- Ağ paylaşımı veya Çıkarılabilir Medya: Önbellek klasörü, çevrimiçi yedekleme kullanılarak yedeklenmesi gereken sunucu için yerel olmalıdır. Ağ konumlarını veya USB sürücüleri gibi çıkarılabilir medyalar desteklenmez.
-- Çevrimdışı Birimler: Önbellek klasörü, Azure Backup Aracısı kullanılarak gerçekleştirilecek beklenen yedekleme için çevrimiçi olmalıdır.
+* Ağ paylaşımı veya Çıkarılabilir Medya: Önbellek klasörü, çevrimiçi yedekleme kullanılarak yedeklenmesi gereken sunucu için yerel olmalıdır. Ağ konumlarını veya USB sürücüleri gibi çıkarılabilir medyalar desteklenmez.
+* Çevrimdışı Birimler: Önbellek klasörü, Azure Backup Aracısı kullanılarak gerçekleştirilecek beklenen yedekleme için çevrimiçi olmalıdır.
 
 ## <a name="are-there-any-attributes-of-the-cache-folder-that-are-not-supported?"></a>Önbellek klasörünün desteklenmeyen herhangi bir özniteliği var mıdır?<br/>
  Aşağıdaki öznitelikler veya bunların bileşimleri, önbellek klasörü için desteklenmez:
 
-- Şifreli
-- Yinelenenleri kaldırma işlemi uygulanmış
-- Sıkıştırılmış
-- Seyrek
-- Yeniden Ayrıştırma Noktası
+* Şifreli
+* Yinelenenleri kaldırma işlemi uygulanmış
+* Sıkıştırılmış
+* Seyrek
+* Yeniden Ayrıştırma Noktası
 
 Azure Backup aracısının beklenen şekilde çalışması için önbellek klasörünün veya meta veri VHD'sinin yukarıdaki özniteliklere sahip olmaması önerilir.
-
-
 
 <!--HONumber=Oct16_HO3-->
 

@@ -1,26 +1,26 @@
-<properties 
-    pageTitle="Azure RemoteApp nedir? | Microsoft Azure" 
-    description="Azure RemoteApp aracılığıyla uygulama ve kaynakları nasıl herhangi bir cihazla paylaşacağınızı öğrenin." 
-    services="remoteapp" 
-    documentationCenter="" 
-    authors="lizap" 
-    manager="mbaldwin" 
-    editor=""/>
+---
+title: Azure RemoteApp nedir? | Microsoft Docs
+description: Azure RemoteApp aracılığıyla uygulama ve kaynakları nasıl herhangi bir cihazla paylaşacağınızı öğrenin.
+services: remoteapp
+documentationcenter: ''
+author: lizap
+manager: mbaldwin
+editor: ''
 
-<tags 
-    ms.service="remoteapp" 
-    ms.workload="compute" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="get-started-article" 
-    ms.date="08/15/2016" 
-    ms.author="elizapo"/>
+ms.service: remoteapp
+ms.workload: compute
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 08/15/2016
+ms.author: elizapo
 
-
+---
 # Azure RemoteApp nedir?
-
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > Azure RemoteApp kullanımdan kaldırılıyor. Ayrıntılı bilgi için [duyuruyu](https://go.microsoft.com/fwlink/?linkid=821148) okuyun.
+> 
+> 
 
 Azure RemoteApp, Uzak Masaüstü Hizmetleri altyapısının kullanıldığı şirket içi Microsoft RemoteApp işlevlerini Azure’a getirir. Azure RemoteApp birçok farklı kullanıcı cihazından uygulamalara güvenli uzaktan erişim sağlamanıza yardımcı olur. Azure RemoteApp, bulutta kalıcı olmayan Terminal Sunucusu oturumları barındırır ve bunları kullanabilir ve kullanıcılarınızla paylaşabilirsiniz.
 
@@ -37,23 +37,20 @@ Azure RemoteApp [Microsoft Sanal Masaüstü Altyapısı](http://www.microsoft.co
 ## Azure RemoteApp koleksiyonları
 İki tür [Azure RemoteApp koleksiyonu](remoteapp-collections.md) vardır:
 
-
-- **Bulut koleksiyonu**, bulutta barındırılır ve buluttaki programlar için verileri depolar. Kullanıcılar, kendi Microsoft hesapları veya Azure Active Directory ile eşitlenen ya da federasyonla yönetilen kurumsal kimlik bilgilerini kullanarak uygulamalara erişebilir.
-
+* **Bulut koleksiyonu**, bulutta barındırılır ve buluttaki programlar için verileri depolar. Kullanıcılar, kendi Microsoft hesapları veya Azure Active Directory ile eşitlenen ya da federasyonla yönetilen kurumsal kimlik bilgilerini kullanarak uygulamalara erişebilir.
+  
     Paylaşmak istediğiniz uygulama şirketinizin özel ağındaki herhangi bir kaynağa bağlanmayı gerektirmediğinde (örneğin bir VPN aracı üzerinden) bulut koleksiyonunu seçin. Uygulama İnternet, OneDrive veya Azure üzerindeki kaynakları kullanıyorsa, bulut bağlantısı kullanabilirsiniz. Ayrıca bu oluşturulması en hızlı seçenektir.
-
-- **Karma koleksiyon**, Azure bulutunda barındırılır ve burada veri toplar, ancak kullanıcıların yerel ağınızda depolanan veriler ve kaynaklara erişmesine de olanak sağlar. Kullanıcılar, Azure Active Directory ile eşitlenen ya da federasyonla yönetilen kurumsal kimlik bilgilerini kullanarak uygulamalara erişebilir.
-
+* **Karma koleksiyon**, Azure bulutunda barındırılır ve burada veri toplar, ancak kullanıcıların yerel ağınızda depolanan veriler ve kaynaklara erişmesine de olanak sağlar. Kullanıcılar, Azure Active Directory ile eşitlenen ya da federasyonla yönetilen kurumsal kimlik bilgilerini kullanarak uygulamalara erişebilir.
+  
     Şirketinizin özel ağındaki kaynaklara bağlantı gerekiyorsa, karma koleksiyonu seçin. Örneğin, uygulamanın aşağıdakilerden birine erişmesi gerekiyorsa:
-
-    - İntranet üzerinde bulunan dosya sunucuları
-    - Quicken
-    - Bir güvenlik duvarının arkasındaki veritabanları
-
+  
+  * İntranet üzerinde bulunan dosya sunucuları
+  * Quicken
+  * Bir güvenlik duvarının arkasındaki veritabanları
+    
     Bu genellikle, özel ağlarında çok sayıda buluta taşınamaz kaynak bulunan büyük şirketler için yararlıdır.
 
 Farklı koleksiyonlarda ağlar da dahil farklı seçenekler vardır, bu nedenle sizin için [hangi koleksiyonun](remoteapp-collections.md) en iyi çalıştığını belirlemeniz gerekir. 
-
 
 ### Koleksiyonunuzu güncelleştirme
 Karma ve bulut koleksiyonları arasındaki temel farklardan biri yazılım güncelleştirmelerinin işlenme şeklidir. Önceden yüklenmiş Office 365 ProPlus veya Office 2013 görüntüsünü kullanan bulut bağlantısında güncelleştirmeler hakkında endişelenmeniz gerekmez. Hizmet, hem uygulamalar hem de işletim sistemi için kendi bakımını yapar ve düzenli olarak güncelleştirmeleri uygular.
@@ -72,18 +69,16 @@ Azure RemoteApp, Windows ve Windows RT RemoteApp istemci uygulamaları ile Mac, 
 ## Sonraki adımlar
 Başlayın! Deneyin! Bu makaleler Azure RemoteApp kullanmaya başlamanıza yardımcı olur:
 
-- [Azure RemoteApp için nasıl bir koleksiyona ihtiyacınız var?](remoteapp-collections.md)
-- [Azure RemoteApp görüntüsü oluşturma](remoteapp-imageoptions.md)
-- [Azure RemoteApp bulut koleksiyonu oluşturma](remoteapp-create-cloud-deployment.md)
-- [Azure RemoteApp karma koleksiyonu oluşturma](remoteapp-create-hybrid-deployment.md)
-- [Azure RemoteApp’te lisanslama nasıl çalışır?](remoteapp-licensing.md)
-- [Azure RemoteApp’i kullanmak için en iyi uygulamalar](remoteapp-bestpractices.md)
-- [Azure RemoteApp hakkında SSS](remoteapp-faq.md)
- 
+* [Azure RemoteApp için nasıl bir koleksiyona ihtiyacınız var?](remoteapp-collections.md)
+* [Azure RemoteApp görüntüsü oluşturma](remoteapp-imageoptions.md)
+* [Azure RemoteApp bulut koleksiyonu oluşturma](remoteapp-create-cloud-deployment.md)
+* [Azure RemoteApp karma koleksiyonu oluşturma](remoteapp-create-hybrid-deployment.md)
+* [Azure RemoteApp’te lisanslama nasıl çalışır?](remoteapp-licensing.md)
+* [Azure RemoteApp’i kullanmak için en iyi uygulamalar](remoteapp-bestpractices.md)
+* [Azure RemoteApp hakkında SSS](remoteapp-faq.md)
 
-### Yardımımıza katkıda bulunun 
+### Yardımımıza katkıda bulunun
 Bu makaleyi derecelendirmenin ve aşağıda yorum yapmamanın yanı sıra makalede değişiklik de yapabileceğinizi biliyor muydunuz? Eksik bir şeyler mi var? Yanlış bir şeyler mi var? Kafa karıştırıcı bir şeyler mi yazdım? Değişiklik yapmak için yukarı doğru ilerleyin ve **GitHub üzerinde düzenle** veya **Düzenle**’ye tıklayın. Bu değişiklikler incelenmek üzere bize gönderilir ve kabul edildikten sonra değişiklikleriniz ve iyileştirmeleriniz burada görünür.
-
 
 <!--HONumber=Sep16_HO3-->
 

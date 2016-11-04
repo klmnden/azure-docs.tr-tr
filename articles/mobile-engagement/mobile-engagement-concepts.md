@@ -1,24 +1,22 @@
-<properties
-    pageTitle="Mobile Engagement kavramları | Microsoft Azure"
-    description="Azure Mobile Engagement kavramları"
-    services="mobile-engagement"
-    documentationCenter="mobile"
-    authors="piyushjo"
-    manager="dwrede"
-    editor="" />
+---
+title: Mobile Engagement kavramları | Microsoft Docs
+description: Azure Mobile Engagement kavramları
+services: mobile-engagement
+documentationcenter: mobile
+author: piyushjo
+manager: dwrede
+editor: ''
 
-<tags
-    ms.service="mobile-engagement"
-    ms.workload="mobile"
-    ms.tgt_pltfrm="mobile-android"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="08/19/2016"
-    ms.author="piyushjo" />
+ms.service: mobile-engagement
+ms.workload: mobile
+ms.tgt_pltfrm: mobile-android
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 08/19/2016
+ms.author: piyushjo
 
-
+---
 # Azure Mobile Engagement kavramları
-
 Mobile Engagement, desteklenen tüm platformlar için ortak olan birkaç kavram tanımlar. Bu makalede, söz konusu kavramlar kısaca açıklanmaktadır.
 
 Mobile Engagement’la ilgilenmeye yeni başlayanlar için bu makale iyi bir başlangıç noktasıdır. Ayrıca kullandığınız platforma özgü belgeleri de okumaya özen gösterin. Bu belgeler, ek ayrıntılar ve örneklerin yanı sıra olası sınırlamaları sunarak bu makalede açıklanan kavramları netleştirecektir.
@@ -80,13 +78,10 @@ Ekler, JSON nesnelerine benzer şekilde yapılandırılır: bir anahtar/değer �
 Anahtar/değer çiftlerinden oluşan ağacın tamamı bir JSON nesnesi olarak depolanır. Bununla birlikte, Segmentler gibi bazı gelişmiş işlevler tarafından doğrudan erişilebilmesi için anahtarların/değerlerin yalnızca ilk düzeyi parçalanır (örneğin, “content_type” ek anahtarı “bilim kurgu” değerine ayarlanmış olan “content_viewed” olayını geçtiğimiz ay içerisinde en az 10 kez gönderen tüm kullanıcılardan oluşan "Bilim kurgu severler" adlı bir segmenti kolayca tanımlayabilirsiniz). Bu nedenle, yalnızca skaler değerler kullanan anahtar/değer çiftlerinin (dizeler, tarihler, tamsayı veya Boole değerleri gibi) basit listelerinden yapılmış ekler göndermeniz şiddetle önerilir.
 
 ## Sonraki adımlar
-
-- [Azure Mobile Engagement için Windows Evrensel SDK’ya genel bakış](mobile-engagement-windows-store-sdk-overview.md)
-- [Azure Mobile Engagement için Windows Phone Silverlight SDK’sına genel bakış](mobile-engagement-windows-phone-sdk-overview.md)
-- [Azure Mobile Engagement için iOS SDK’sı](mobile-engagement-ios-sdk-overview.md)
-- [Azure Mobile Engagement için Android SDK’sı](mobile-engagement-android-sdk-overview.md)
-
-
+* [Azure Mobile Engagement için Windows Evrensel SDK’ya genel bakış](mobile-engagement-windows-store-sdk-overview.md)
+* [Azure Mobile Engagement için Windows Phone Silverlight SDK’sına genel bakış](mobile-engagement-windows-phone-sdk-overview.md)
+* [Azure Mobile Engagement için iOS SDK’sı](mobile-engagement-ios-sdk-overview.md)
+* [Azure Mobile Engagement için Android SDK’sı](mobile-engagement-android-sdk-overview.md)
 
 <!--HONumber=Sep16_HO3-->
 

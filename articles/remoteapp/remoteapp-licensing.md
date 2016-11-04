@@ -1,26 +1,25 @@
-<properties
-    pageTitle="Azure RemoteApp lisanslama | Microsoft Azure"
-    description="Azure RemoteApp’te lisanslamanın nasıl çalıştığını öğrenin."
-    services="remoteapp"
-    documentationCenter=""
-    authors="lizap"
-    manager="mbaldwin" />
+---
+title: Azure RemoteApp lisanslama | Microsoft Docs
+description: Azure RemoteApp’te lisanslamanın nasıl çalıştığını öğrenin.
+services: remoteapp
+documentationcenter: ''
+author: lizap
+manager: mbaldwin
 
-<tags
-    ms.service="remoteapp"
-    ms.workload="compute"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="08/15/2016"
-    ms.author="elizapo" />
+ms.service: remoteapp
+ms.workload: compute
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 08/15/2016
+ms.author: elizapo
 
-
-
+---
 # Azure RemoteApp’te lisanslama nasıl çalışır?
-
-> [AZURE.IMPORTANT]
+> [!IMPORTANT]
 > Azure RemoteApp kullanımdan kaldırılıyor. Ayrıntılı bilgi için [duyuruyu](https://go.microsoft.com/fwlink/?linkid=821148) okuyun.
+> 
+> 
 
 Azure RemoteApp hizmetinizi ayarladınız, şablonlarınızı oluşturdunuz ve kullanıcılarınıza uygulama yayımlamaya hazırsınız. Ancak hala çözülmesi gereken son bir konu var: lisanslama. RemoteApp ve RemoteApp aracılığıyla paylaştığınız uygulamalar için lisanslama nasıl çalışır?
 
@@ -37,8 +36,6 @@ Diğer uygulamalar için, uygulamayı paylaşmak için lisansa sahip olduğunuzd
 Kulağa mantıklı geliyor, değil mi? Yasal olarak paylaşma hakkınız olan herhangi bir uygulamayı yayımlayabilirsiniz. Programlarınızı paylaşmak için gerçekten yetkili olduğunuzdan emin olmanız gerekir.
 
 Lütfen bir bulut koleksiyonunda CAL veya Toplu Lisans sözleşmesi kullanamayacağınızı unutmayın. Karma koleksiyonunuzda uygulamaları etkinleştirmek için bir Toplu Lisans sözleşmesi *kullanabilirsiniz* (Office hariç). Bunları Toplu Lisans medyasından şablon görüntünüze yüklemeniz yeterlidir. Lisansları bir Uzak Masaüstü ortamında yüklemek için uygulama satıcısından aldığınız bilgiler doğrultusunda hareket edin.
-
-
 
 <!--HONumber=Sep16_HO3-->
 

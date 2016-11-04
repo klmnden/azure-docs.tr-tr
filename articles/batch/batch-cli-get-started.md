@@ -1,40 +1,37 @@
-<properties
-   pageTitle="Azure Batch CLI kullanmaya başlama | Microsoft Azure"
-   description="Azure Batch hizmet kaynaklarını yönetmek üzere Azure CLI’daki Batch komutlarına hızlı bir giriş yapın"
-   services="batch"
-   documentationCenter=""
-   authors="mmacy"
-   manager="timlt"
-   editor=""/>
+---
+title: Azure Batch CLI kullanmaya başlama | Microsoft Docs
+description: Azure Batch hizmet kaynaklarını yönetmek üzere Azure CLI’daki Batch komutlarına hızlı bir giriş yapın
+services: batch
+documentationcenter: ''
+author: mmacy
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="batch"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="multiple"
-   ms.workload="big-compute"
-   ms.date="09/30/2016"
-   ms.author="marsma"/>
+ms.service: batch
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: multiple
+ms.workload: big-compute
+ms.date: 09/30/2016
+ms.author: marsma
 
-
+---
 # Azure Batch CLI kullanmaya başlama
-
 Platformlar arası Azure Komut Satırı Arabirimi (Azure CLI); Linux, Mac ve Windows komut kabuklarında Batch hesaplarınızı ve havuzlar, işler ve görevler gibi kaynakları Kabukları görevler gibi kaynakları yönetmenizi sağlar. Azure Batch CLI ile Batch API'leri, Azure portalı ve Batch PowerShell cmdlet’leri ile gerçekleştirdiğiniz görevlerin çoğunu gerçekleştirebilir ve betik oluşturabilirsiniz.
 
 Bu makale Azure CLI sürüm 0.10.5’i temel alır.
 
 ## Ön koşullar
-
 * [Azure CLI'yı yükleme](../xplat-cli-install.md)
-
 * [Azure CLI’yı Azure aboneliğinize bağlama](../xplat-cli-connect.md)
-
 * **Resource Manager moduna** geçin: `azure config mode arm`
 
->[AZURE.TIP] Hizmet güncelleştirmeleri ve geliştirmelerinden yararlanmak için Azure CLI yüklemenizi sık sık güncelleştirmeniz önerilir.
+> [!TIP]
+> Hizmet güncelleştirmeleri ve geliştirmelerinden yararlanmak için Azure CLI yüklemenizi sık sık güncelleştirmeniz önerilir.
+> 
+> 
 
 ## Komut yardımı
-
 Komuttan sonra tek seçenek olarak `-h` ekleyerek Azure CLI’daki her komut için yardım metni görüntüleyebilirsiniz. Örneğin:
 
 * `azure` komutuyla ilgili yardım almak için şunu girin: `azure -h`
@@ -44,7 +41,6 @@ Komuttan sonra tek seçenek olarak `-h` ekleyerek Azure CLI’daki her komut iç
 Emin olmadığınızda herhangi bir Azure CLI komutuyla ilgili yardım almak için `-h` komut satırı seçeneğini kullanın.
 
 ## Batch hesabı oluşturma
-
 Kullanım:
 
     azure batch account create [options] <name>
@@ -57,10 +53,12 @@ Belirtilen parametrelerle yeni bir Batch hesabı oluşturur. En az bir konum, ka
 
     azure group create --name "resgroup001" --location "West US"
 
-> [AZURE.NOTE] Batch hesabının adı, hesabın oluşturulduğu Azure bölgesinde benzersiz olmalıdır. Bu ad yalnızca küçük alfasayısal karakterler içerebilir ve 3-24 karakter uzunluğunda olmalıdır. Batch hesabı adlarında `-` veya `_` gibi özel karakterler kullanamazsınız.
+> [!NOTE]
+> Batch hesabının adı, hesabın oluşturulduğu Azure bölgesinde benzersiz olmalıdır. Bu ad yalnızca küçük alfasayısal karakterler içerebilir ve 3-24 karakter uzunluğunda olmalıdır. Batch hesabı adlarında `-` veya `_` gibi özel karakterler kullanamazsınız.
+> 
+> 
 
 ### Bağlantılı depolama hesabı (otomatik depolama)
-
 **Genel amaçlı** bir Depolama hesabını (isteğe bağlı olarak) oluşturduğunuz Batch hesabına bağlayabilirsiniz. Batch [uygulama paketleri](batch-application-packages.md) özelliği, [Batch Dosya Kuralları .NET](batch-task-output.md) kitaplığının yaptığı gibi Genel amaçlı bir Storage hesabında blob depolama kullanır. Bu isteğe bağlı özellikler Batch görevlerinizin çalıştırdığı uygulamaları dağıtmanıza ve oluşturduğu verileri kalıcı hale getirmeniz yardımcı olur.
 
 Var olan bir Azure Depolama hesabını yeni oluşturduğunuz bir Batch hesabına bağlamak için `--autostorage-account-id` seçeneğini belirtin. Bu seçenek, depolama hesabının tam kaynak kimliğini gerektirir.
@@ -74,7 +72,6 @@ Ardından `--autostorage-account-id` seçeneği için **Url** değerini kullanı
     azure batch account create --location "West US"  --resource-group "resgroup001" --autostorage-account-id "/subscriptions/8ffffff8-4444-4444-bfbf-8ffffff84444/resourceGroups/resgroup001/providers/Microsoft.Storage/storageAccounts/storageaccount001" "batchaccount001"
 
 ## Batch hesabını silme
-
 Kullanım:
 
     azure batch account delete [options] <name>
@@ -86,11 +83,9 @@ Kullanım:
 Belirtilen Batch hesabını siler. Sorulduğunda hesabı kaldırmak istediğinizi onaylayın (hesap kaldırma işleminin tamamlanması biraz zaman alabilir).
 
 ## Hesap erişim anahtarlarını yönetme
-
 Batch hesabınızda [kaynak oluşturmak ve değiştirmek](#create-and-modify-batch-resources) için bir erişim anahtarı gereklidir.
 
 ### Erişim anahtarlarını listele
-
 Kullanım:
 
     azure batch account keys list [options] <name>
@@ -102,7 +97,6 @@ Kullanım:
 Belirtilen Batch hesabı için hesap anahtarlarını listeler.
 
 ### Yeni erişim anahtarı oluşturma
-
 Kullanım:
 
     azure batch account keys renew [options] --<primary|secondary> <name>
@@ -114,17 +108,17 @@ Kullanım:
 İlgili Batch hesabı için belirtilen hesap anahtarını yeniden oluşturur.
 
 ## Batch kaynaklarını oluşturma ve değiştirme
-
 Havuzlar, işlem düğümleri, işler ve görevler gibi Batch kaynaklarını oluşturmak, okumak, güncelleştirmek ve silmek (CRUD) için Azure CLI kullanabilirsiniz. Bu CRUD işlemleri Batch hesabı adı, erişim anahtarı ve uç nokta bilgilerini gerektirir. Bunları `-a`, `-k` ve `-u` seçenekleriyle birlikte belirtebilir veya CLI’nın otomatik olarak kullandığı [ortam değişkenlerini](#credential-environment-variables) ayarlayabilirsiniz (doldurulmuşsa).
 
 ### Kimlik bilgisi ortam değişkenleri
-
 Yürüttüğünüz her komut için komut satırında `-a`, `-k` ve `-u` seçeneklerini belirtmek yerine `AZURE_BATCH_ACCOUNT`, `AZURE_BATCH_ACCESS_KEY` ve `AZURE_BATCH_ENDPOINT` ortam değişkenlerini ayarlayabilirsiniz. Batch CLI `-a`, `-k` ve `-u` seçeneklerini atlayabilmeniz için bu değişkenleri kullanır (ayarlanmışsa). Bu makalenin geri kalanında bu ortam değişkenlerinin kullanıldığı varsayılmaktadır.
 
->[AZURE.TIP] Anahtarlarınızı `azure batch account keys list` ile listeleyin ve `azure batch account show` ile hesabın uç noktasını görüntüleyin.
+> [!TIP]
+> Anahtarlarınızı `azure batch account keys list` ile listeleyin ve `azure batch account show` ile hesabın uç noktasını görüntüleyin.
+> 
+> 
 
 ### JSON dosyaları
-
 Havuzlar ve işler gib Batch kaynakları oluşturduğunuzda parametrelerini komut satırı seçenekleri olarak geçirmek yerine yeni kaynağın yapılandırmasını içeren bir JSON dosyası belirtebilirsiniz. Örneğin:
 
 `azure batch pool create my_batch_pool.json`
@@ -133,10 +127,12 @@ Yalnızca komut satırı seçeneklerini kullanarak çok sayıda kaynak oluşturm
 
 Kaynak oluşturmak için gereken JSON dosyasını bulmak üzere MSDN üzerindeki [Batch REST API başvurusu][rest_api] belgelerine bakın. Her "*Kaynak türü* ekleme" konusu kaynağı oluşturmaya yönelik örnek JSON dosyasını içerir ve bu dosyayı JSON dosyalarınıza yönelik şablon olarak kullanabilirsiniz. Örneğin, havuz oluşturmaya yönelik JSON dosyası [Hesaba havuz ekleme][rest_add_pool] konusunda bulunabilir.
 
->[AZURE.NOTE] Bir kaynak oluştururken JSON dosyası belirtirseniz komut dosyasında ilgili kaynak için belirttiğiniz diğer tüm parametreler yok sayılır.
+> [!NOTE]
+> Bir kaynak oluştururken JSON dosyası belirtirseniz komut dosyasında ilgili kaynak için belirttiğiniz diğer tüm parametreler yok sayılır.
+> 
+> 
 
 ## Havuz oluşturma
-
 Kullanım:
 
     azure batch pool create [options] [json-file]
@@ -159,10 +155,12 @@ Bir havuzu şununla silin:
 
     azure batch pool delete [pool-id]
 
->[AZURE.TIP] `--image-*` seçeneklerine uygun değerler için [sanal makine görüntüleri listesini](batch-linux-nodes.md#list-of-virtual-machine-images) kontrol edin.
+> [!TIP]
+> `--image-*` seçeneklerine uygun değerler için [sanal makine görüntüleri listesini](batch-linux-nodes.md#list-of-virtual-machine-images) kontrol edin.
+> 
+> 
 
 ## Bir iş oluşturma
-
 Kullanım:
 
     azure batch job create [options] [json-file]
@@ -178,14 +176,12 @@ Bir işi şununla silin:
     azure batch job delete [job-id]
 
 ## Havuzlar, işler, görevler ve diğer kaynakları listeleme
-
 Her Batch kaynak türü, Batch hesabınızı sorgulayan ve bu türdeki kaynakları listeleyen bir `list` komutunu destekler. Örneğin, hesabınızdaki havuzları ve bir işteki görevleri listeleyebilirsiniz:
 
     azure batch pool list
     azure batch task list --job-id "job001"
 
 ### Kaynakları verimli bir şekilde listeleme
-
 Daha hızlı sorgulama için `list` işlemlerine yönelik **select**, **filter** ve **expand** yan tümcesi seçeneklerini belirtebilirsiniz. Batch hizmeti tarafından döndürülen veri miktarını sınırlamak için bu seçenekleri kullanın. Tüm filtreleme sunucu tarafında oluştuğu için yalnızca ilgilendiğiniz veriler kabloya geçer. Liste işlemleri gerçekleştirirken bant genişliğinden (ve böylece zamandan) tasarruf etmek için bu yan tümceleri kullanın.
 
 Örneğin, bu yan tümce yalnızca kimlikleri "renderTask" ile başlayan havuzları döndürür:
@@ -201,7 +197,6 @@ Batch CLI, Batch hizmeti tarafından desteklenen üç yan tümcenin tamamını d
 Üç yan tümceye ilişkin ayrıntılar ve bunlarla liste sorguları gerçekleştirme hakkında bilgi için bkz. [Azure Batch hizmetini verimli bir şekilde sorgulama](batch-efficient-list-queries.md).
 
 ## Uygulama paketi yönetimi
-
 Uygulama paketleri havuzlarınızdaki işlem düğümlerine uygulama dağıtmanın basit bir yolunu sağlar. Azure CLI ile uygulama paketlerini karşıya yükleyebilir, paket sürümlerini yönetebilir ve paketleri silebilirsiniz.
 
 Yeni bir uygulama oluşturmak ve bir paket sürümü eklemek için:
@@ -223,7 +218,6 @@ Uygulamanın **varsayılan sürümünü** ayarlayın:
     azure batch application set "resgroup001" "batchaccount001" "MyTaskApplication" --default-version "1.10-beta3"
 
 ### Uygulama paketi dağıtma
-
 Yeni bir havuz oluşturduğunuzda dağıtım için bir veya daha fazla uygulama paketi belirtebilirsiniz. Havuz oluşturma saatinde bir paket belirttiğinizde düğüm havuza katıldıkça her bir düğüme dağıtılır. Paketler ayrıca bir düğüm yeniden başlatıldığında veya yeniden görüntüsü oluşturulduğunda dağıtılır.
 
 Bir uygulama paketini havuza katıldıklarında havuzun düğümlerine dağıtmak üzere havuz oluştururken `--app-package-ref` seçeneğini belirtin. `--app-package-ref` seçeneği, işlem düğümlerine dağıtılacak uygulama kimliklerinin noktalı virgülle ayrılmış bir listesini kabul eder.
@@ -234,10 +228,12 @@ Bir uygulama paketini havuza katıldıklarında havuzun düğümlerine dağıtma
 
 [Azure Batch uygulama paketleri ile uygulama dağıtımı](batch-application-packages.md) içinde uygulama paketlerine ilişkin daha fazla bilgi bulabilirsiniz.
 
->[AZURE.IMPORTANT] Uygulama paketlerini kullanmak için Batch hesabınıza [bir Azure Depolama hesabı bağlamanız](#linked-storage-account-autostorage) gerekir.
+> [!IMPORTANT]
+> Uygulama paketlerini kullanmak için Batch hesabınıza [bir Azure Depolama hesabı bağlamanız](#linked-storage-account-autostorage) gerekir.
+> 
+> 
 
 ### Bir havuzun uygulama paketlerini güncelleştirme
-
 Var olan bir havuza atanan uygulamaları güncelleştirmek için `azure batch pool set` komutunu `--app-package-ref` seçeneği ile verin:
 
     azure batch pool set --pool-id "pool001" --app-package-ref "MyTaskApplication2"
@@ -246,28 +242,24 @@ Yeni uygulama paketini var olan havuzda zaten olan işlem düğümlerine dağıt
 
     azure batch node reboot --pool-id "pool001" --node-id "tvm-3105992504_1-20160930t164509z"
 
->[AZURE.TIP] `azure batch node list` ile bir havuzdaki düğümlerin listesini, düğüm kimlikleriyle birlikte edinebilirsiniz.
+> [!TIP]
+> `azure batch node list` ile bir havuzdaki düğümlerin listesini, düğüm kimlikleriyle birlikte edinebilirsiniz.
+> 
+> 
 
 Uygulamayı dağıtımdan önce varsayılan bir sürümle yapılandırmış olmanız gerekir (`azure batch application set [options] --default-version <version-id>`).
 
 ## Sorun giderme ipuçları
-
 Bu bölümde Azure CLI ile ilgili sorunları giderirken kullanılacak kaynakları sağlanması amaçlanmıştır. Tüm sorunları çözmesi kesin değildir, ancak nedenleri elemenize yardımcı olabilir ve sizi yardım kaynaklarına yönlendirebilir.
 
 * Herhangi bir CLI komutu için **yardım metni** almak üzere `-h` kullanın
-
 * **Ayrıntılı** komut çıktısını görüntülemek için `-v` ve `-vv` kullanın; `-vv` "fazladan" ayrıntılıdır ve gerçek REST istekleri ile yanıtlarını gösterir. Bu anahtarlar tam hata çıktısını görüntülemek için kullanışlıdır.
-
 * `--json` seçeneği ile **komut çıktısını JSON olarak** görüntüleyebilirsiniz. Örneğin, `azure batch pool show "pool001" --json` seçeneği pool001'in özelliklerini JSON biçiminde gösterir. Bundan sonra bu çıktıyı kopyalayıp bir `--json-file` içinde kullanmak üzere değiştirebilirsiniz (bu makalenin başındaki [JSON dosyaları](#json-files) kısmına bakın).
-
 * [MSDN üzerindeki Batch forumu][batch_forum] çok yararlı bir yardım kaynağıdır ve Batch ekip üyeleri tarafından yakından izlenmektedir. Sorun yaşamanız veya belirli bir işlemle ilgili yardım almak istemeniz durumunda sorularınızı gönderdiğinizden emin olun.
-
 * Şu anda her Batch kaynak işlemi Azure CLI tarafından desteklenmemektedir. Örneğin, şu anda bir havuz için uygulama paketi *sürümü* belirtemezken, yalnızca paket kimliği belirtebilirsiniz. Böyle durumlarda komut satırı seçeneklerini kullanmak yerine komutunuz için bir `--json-file` belirtmeniz gerekebilir. Gelecekteki geliştirmeleri seçmek en son CLI sürümü ile güncel kaldığınızdan emin olun.
 
 ## Sonraki adımlar
-
-*  Bu özelliği kullanarak Batch işlem düğümleri üzerinde yürüttüğünü uygulamaları yönetme ve dağıtma hakkında bilgi almak için bkz. [Azure Batch uygulama paketleriyle uygulama dağıtımı](batch-application-packages.md).
-
+* Bu özelliği kullanarak Batch işlem düğümleri üzerinde yürüttüğünü uygulamaları yönetme ve dağıtma hakkında bilgi almak için bkz. [Azure Batch uygulama paketleriyle uygulama dağıtımı](batch-application-packages.md).
 * Batch’e sorgular için döndürülen bilgi türleri ve öğe sayısını azaltma hakkında bilgi için bkz. [Batch hizmetini etkin bir şekilde sorgulama](batch-efficient-list-queries.md).
 
 [batch_forum]: https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=azurebatch

@@ -1,36 +1,35 @@
-<properties
- pageTitle="IoT Security Best Practices | Microsoft Azure"
- description="Security best practices for securing your IoT infrastructure"
- services="iot-hub"
- documentationCenter=""
- authors="YuriDio"
- manager="timlt"
- editor=""/>
+---
+title: IoT Security Best Practices | Microsoft Docs
+description: Security best practices for securing your IoT infrastructure
+services: iot-hub
+documentationcenter: ''
+author: YuriDio
+manager: timlt
+editor: ''
 
-<tags
- ms.service="iot-hub"
- ms.devlang="na"
- ms.topic="article"
- ms.tgt_pltfrm="na"
- ms.workload="na"
- ms.date="08/02/2016"
- ms.author="yurid"/>
- 
-[AZURE.INCLUDE [iot-security-best-practices](../../includes/iot-security-best-practices.md)]
+ms.service: iot-hub
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 08/02/2016
+ms.author: yurid
+
+---
+[!INCLUDE [iot-security-best-practices](../../includes/iot-security-best-practices.md)]
 
 ## Next steps
-
 To learn more about securing your IoT solution, see:
 
-- [IoT Security Architecture][lnk-security-architecture]
-- [Secure your IoT deployment][lnk-security-deployment]
+* [IoT Security Architecture][lnk-security-architecture]
+* [Secure your IoT deployment][lnk-security-deployment]
 
 To further explore the capabilities of IoT Hub, see:
 
-- [Designing your solution][lnk-design]
-- [Exploring device management using the sample UI][lnk-dmui]
-- [Simulating a device with the Gateway SDK][lnk-gateway]
-- [Using the Azure Portal to manage IoT Hub][lnk-portal]
+* [Designing your solution][lnk-design]
+* [Exploring device management using the sample UI][lnk-dmui]
+* [Simulating a device with the Gateway SDK][lnk-gateway]
+* [Using the Azure Portal to manage IoT Hub][lnk-portal]
 
 [lnk-security-architecture]: iot-hub-security-architecture.md
 [lnk-security-deployment]: iot-hub-security-deployment.md

@@ -1,23 +1,22 @@
 
-<properties
-    pageTitle="Azure AD Connect Health'i AD DS ile Kullanma| Microsoft Azure"
-    description="Bu Azure AD Connect Health sayfasında AD DS’nin nasıl izleneceği ele alınmaktadır."
-    services="active-directory"
-    documentationCenter=""
-    authors="arluca"
-    manager="samueld"
-    editor="curtand"/>
+---
+title: Azure AD Connect Health'i AD DS ile Kullanma| Microsoft Docs
+description: Bu Azure AD Connect Health sayfasında AD DS’nin nasıl izleneceği ele alınmaktadır.
+services: active-directory
+documentationcenter: ''
+author: arluca
+manager: samueld
+editor: curtand
 
-<tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="09/30/2016"
-    ms.author="arluca"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 09/30/2016
+ms.author: arluca
 
-
+---
 # Azure AD Connect Health'i AD DS ile Kullanma
 Aşağıdaki belgeler Azure AD Connect Health ile Active Directory Etki Alanı Hizmetleri’nin izlenmesine özgüdür. AD DS’nin desteklenen sürümleri şunlardır: Windows Server 2008 R2, Windows Server 2012 ve Windows Server 2012 R2.
 
@@ -52,7 +51,6 @@ Bu özellik, izlenen her bir etki alanından sürekli olarak toplanan farklı pe
 Varsayılan olarak, dört performans sayacı önceden seçilmiştir; ancak, filtre komutuna tıklayarak ve istediğiniz performans sayaçlarını seçerek ya da seçimini kaldırarak başkalarını ekleyebilirsiniz. Ayrıca, bir performans sayacı grafiğine çift tıklayarak, izlenen etki alanı denetleyicilerinin her birine ait veri noktalarını içeren yeni bir dikey pencere açabilirsiniz.
 
 ## İlgili bağlantılar
-
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)
 * [Azure AD Connect Health Aracısı Yüklemesi](active-directory-aadconnect-health-agent-install.md)
 * [Azure AD Connect Health İşlemleri](active-directory-aadconnect-health-operations.md)
@@ -60,8 +58,6 @@ Varsayılan olarak, dört performans sayacı önceden seçilmiştir; ancak, filt
 * [Eşitleme için Azure AD Connect Health'i kullanma](active-directory-aadconnect-health-sync.md)
 * [Azure AD Connect Health ile ilgili SSS](active-directory-aadconnect-health-faq.md)
 * [Azure AD Connect Health Sürüm Geçmişi](active-directory-aadconnect-health-version-history.md)
-
-
 
 <!--HONumber=Oct16_HO1-->
 

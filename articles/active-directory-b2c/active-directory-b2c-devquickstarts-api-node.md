@@ -1,29 +1,30 @@
-<properties
-    pageTitle="Azure AD B2C: Node.js kullanarak bir web API'sinin güvenliğini sağlama | Microsoft Azure"
-    description="B2C kiracısından belirteç kabul eden bir Node.js web API'si oluşturma"
-    services="active-directory-b2c"
-    documentationCenter=""
-    authors="brandwe"
-    manager="msmbaldwin"
-    editor=""/>
+---
+title: 'Azure AD B2C: Node.js kullanarak bir web API''sinin güvenliğini sağlama | Microsoft Docs'
+description: B2C kiracısından belirteç kabul eden bir Node.js web API'si oluşturma
+services: active-directory-b2c
+documentationcenter: ''
+author: brandwe
+manager: msmbaldwin
+editor: ''
 
-<tags
-    ms.service="active-directory-b2c"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="javascript"
-    ms.topic="hero-article"
-    ms.date="08/30/2016"
-    ms.author="brandwe"/>
+ms.service: active-directory-b2c
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: javascript
+ms.topic: hero-article
+ms.date: 08/30/2016
+ms.author: brandwe
 
-
+---
 # Azure AD B2C: Node.js kullanarak bir web API'sinin güvenliğini sağlama
-
 <!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->
 
 Azure Active Directory (Azure AD) B2C ile OAuth 2.0 erişim belirteçleri kullanarak web API'si güvenliğini sağlayabilirsiniz. Bu belirteçler, Azure AD B2C kullanan istemci uygulamalarınızın API'ye ilişkin kimlik doğrulaması yapmasına olanak sağlar. Bu makalede kullanıcıların görevleri ekleyip listelemesine imkan tanıyan "yapılacaklar listesi" API’sini oluşturma işlemi gösterilmektedir. Web API’sinin güvenliği Azure AD B2C kullanılarak sağlanır ve yapılacaklar listesini yalnızca kimliği doğrulanmış kullanıcıların yönetmesine izin verilir.
 
-> [AZURE.NOTE]  Bu örnek, [iOS B2C örnek uygulamamızı](active-directory-b2c-devquickstarts-ios.md) kullanarak bağlanmak için yazılmıştır. Öncelikle bu kılavuzu gözden geçirin ve ardından örneği takip edin.
+> [!NOTE]
+> Bu örnek, [iOS B2C örnek uygulamamızı](active-directory-b2c-devquickstarts-ios.md) kullanarak bağlanmak için yazılmıştır. Öncelikle bu kılavuzu gözden geçirin ve ardından örneği takip edin.
+> 
+> 
 
 **Passport**, Node.js için kimlik doğrulama ara yazılımıdır. Esnek ve modüler özellikteki Passport, Express tabanlı veya Restify web uygulamasına sorunsuz bir şekilde yüklenebilir. Bir dizi kapsamlı strateji; bir kullanıcı adı ve parola, Facebook, Twitter ve daha fazlası ile kimlik doğrulamasını destekler. Azure Active Directory (Azure AD) için bir strateji geliştirdik. Bu modülü yükleyin ve ardından Azure AD `passport-azure-ad` eklentisini ekleyin.
 
@@ -33,38 +34,33 @@ Bu örneği uygulamanız için gerekenler şunlardır:
 2. Passport'un `azure-ad-passport` eklentisini kullanmak için uygulamanızı ayarlayın.
 3. "Yapılacaklar listesi" web API'sini çağırmak için bir istemci uygulaması yapılandırın.
 
-
 ## Azure AD B2C dizini alma
-
 Azure AD B2C'yi kullanabilmek için önce dizin veya kiracı oluşturmanız gerekir.  Dizin; tüm kullanıcılar, uygulamalar, gruplar ve daha fazlası için bir kapsayıcıdır.  Henüz yoksa devam etmeden önce [bir B2C dizini oluşturun](active-directory-b2c-get-started.md).
 
 ## Uygulama oluşturma
-
 Daha sonra, B2C dizininizde Azure AD'ye uygulamanız ile güvenli şekilde iletişim kurması için gereken bazı bilgiler sağlayan bir uygulama oluşturmanız gerekir. Bu durumda, tek bir mantıksal uygulama içerdikleri için hem istemci uygulaması hem de web API'si tek bir **Uygulama Kimliği** ile temsil edilir. Bir uygulama oluşturmak için [bu talimatları](active-directory-b2c-app-registration.md) izleyin. Şunları yaptığınızdan emin olun:
 
-- Uygulamaya bir **web uygulaması/web api'si** ekleyin
-- **Yanıt URL'si** olarak `http://localhost/TodoListService` adresini girin. Bu URL, bu kod örneği için varsayılan URL'dir.
-- Uygulamanız için bir **Uygulama gizli anahtarı** oluşturun ve bunu kopyalayın. Bu veriler daha sonra gerekli olacaktır. Kullanmadan önce bu değerin [XML kaçışlı](https://www.w3.org/TR/2006/REC-xml11-20060816/#dt-escape) olması gerektiğini unutmayın.
-- Uygulamanıza atanan **Uygulama Kimliği**'ni kopyalayın. Bu veriler daha sonra gerekli olacaktır.
+* Uygulamaya bir **web uygulaması/web api'si** ekleyin
+* **Yanıt URL'si** olarak `http://localhost/TodoListService` adresini girin. Bu URL, bu kod örneği için varsayılan URL'dir.
+* Uygulamanız için bir **Uygulama gizli anahtarı** oluşturun ve bunu kopyalayın. Bu veriler daha sonra gerekli olacaktır. Kullanmadan önce bu değerin [XML kaçışlı](https://www.w3.org/TR/2006/REC-xml11-20060816/#dt-escape) olması gerektiğini unutmayın.
+* Uygulamanıza atanan **Uygulama Kimliği**'ni kopyalayın. Bu veriler daha sonra gerekli olacaktır.
 
-[AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
+[!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## İlkelerinizi oluşturma
-
 Azure AD B2C'de her kullanıcı deneyimi, bir [ilke](active-directory-b2c-reference-policies.md) ile tanımlanır. Bu uygulama iki kimlik deneyimi içerir: kaydolma ve oturum açma. Her tür için [ilke başvurusu makalesinde](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy) tanımlanan şekilde bir ilke oluşturmanız gerekir.  Üç ilkenizi oluştururken şunları yaptığınızdan emin olun:
 
-- Kaydolma ilkenizde **Görünen adı** ve diğer kaydolma özniteliklerini seçin.
-- Her ilkede uygulamanın talep ettiği **Görünen ad** ve **Nesne Kimliği** öğelerini seçin.  Diğer talepleri de seçebilirsiniz.
-- Oluşturduktan sonra her bir ilkenin **Adını** kaydedin. `b2c_1_` önekine sahip olmalıdır.  Bu ilke adları daha sonra gerekli olacaktır.
+* Kaydolma ilkenizde **Görünen adı** ve diğer kaydolma özniteliklerini seçin.
+* Her ilkede uygulamanın talep ettiği **Görünen ad** ve **Nesne Kimliği** öğelerini seçin.  Diğer talepleri de seçebilirsiniz.
+* Oluşturduktan sonra her bir ilkenin **Adını** kaydedin. `b2c_1_` önekine sahip olmalıdır.  Bu ilke adları daha sonra gerekli olacaktır.
 
-[AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
+[!INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
 Üç ilkenizi oluşturduktan sonra uygulamanızı oluşturmaya hazırsınız.
 
 İlkelerin Azure AD B2C'de nasıl çalıştığını öğrenmeye [.NET web uygulaması ile çalışmaya başlama öğreticisi](active-directory-b2c-devquickstarts-web-dotnet.md) ile başlayın.
 
 ## Kodu indirme
-
 Bu öğretici için kod [GitHub'da korunur](https://github.com/AzureADQuickStarts/B2C-WebAPI-NodeJS). İşlemlere devam ederken örneği oluşturmak için [ bir çatı projesini .zip dosyası olarak indirebilirsiniz](https://github.com/AzureADQuickStarts/B2C-WebAPI-NodeJS/archive/skeleton.zip). Ayrıca çatıyı kopyalayabilirsiniz:
 
 ```
@@ -74,25 +70,24 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebAPI-Nod
 Tamamlanan uygulama aynı zamanda [.zip dosyası olarak](https://github.com/AzureADQuickStarts/B2C-WebAPI-NodeJS/archive/complete.zip) veya aynı deponun `complete` dalı üzerinde de kullanılabilir.
 
 ## Platformunuz için Node.js indirme
-
 Bu örneği başarılı bir şekilde kullanmak için çalışan bir Node.js yüklemesine sahip olmanız gerekir. 
 
 [nodejs.org](http://nodejs.org) adresinden Node.js'yi yükleyin.
 
 ## Platformunuz için MongoDB yükleme
-
 Bu örneği başarılı bir şekilde kullanmak için çalışan bir MongoDB yüklemesine sahip olmanız gerekir. MongoDB, REST API'nizi sunucu örneklerinde kalıcı hale getirmek için kullanılır.
 
 [mongodb.org](http://www.mongodb.org) adresinden MongoDB'yi yükleyin.
 
-> [AZURE.NOTE] Bu kılavuz, MongoDB için bu yazma sırasında `mongodb://localhost` olan varsayılan yükleme ve sunucu uç noktalarını kullandığınızı varsayar.
+> [!NOTE]
+> Bu kılavuz, MongoDB için bu yazma sırasında `mongodb://localhost` olan varsayılan yükleme ve sunucu uç noktalarını kullandığınızı varsayar.
+> 
+> 
 
 ## Restify modüllerini Web API'nize yükleme
-
 REST API'nizi oluşturmak için Restify kullanılır. Restify, Express'ten türetilen minimal ve esnek bir Node.js uygulama çerçevesidir. Connect üstünde REST API'leri oluşturmaya yönelik bir dizi sağlam özelliğe sahiptir.
 
 ### Restify'ı yükleme
-
 Komut satırından dizininizi `azuread` olarak değiştirin. `azuread` dizini mevcut değilse oluşturun.
 
 `cd azuread` veya `mkdir azuread;`
@@ -104,11 +99,9 @@ Aşağıdaki komutu kullanın:
 Bu komut Restify'ı yükler.
 
 #### Hata mı aldınız?
-
 Bazı işletim sistemlerinde `npm` öğesini kullandığınızda `Error: EPERM, chmod '/usr/local/bin/..'` hatasını ve hesabı yönetici olarak çalıştırmanızı isteyen bir istek alabilirsiniz. Bu sorun oluşursa `npm` öğesini daha yüksek bir ayrıcalık düzeyinde çalıştırmak için `sudo` komutunu kullanın.
 
 #### Bir DTrace hatası mı aldınız?
-
 Restify'ı yüklediğinizde şöyle bir metin görebilirsiniz:
 
 ```Shell
@@ -154,7 +147,6 @@ Komut çıktısı şu metne benzer şekilde görünmelidir:
     └── bunyan@0.22.0 (mv@0.0.5)
 
 ## Passport'u web API'nize yükleme
-
 Zaten orada değilse komut satırından dizininizi `azuread` olarak değiştirin.
 
 Aşağıdaki komutu kullanarak Passport’u yükleyin:
@@ -168,10 +160,12 @@ Komut çıktısı şu metne benzer olmalıdır:
     └── pkginfo@0.2.3
 
 ## Passport-azuread'i web API'nize ekleme
-
 Ardından `passport-azuread` öğesini kullanarak Azure AD'yi Passport'a bağlayan bir stratejiler paketi olan OAuth stratejisini ekleyin. REST API'si örneğindeki taşıyıcı belirteçler için bu stratejiyi kullanın.
 
-> [AZURE.NOTE] OAuth2, herhangi bir bilinen belirteç türünün verilebileceği bir altyapı sağlasa da yalnızca belirli belirteç türleri yaygın kullanım elde etmiştir. Uç noktaları korumaya yönelik belirteçler, taşıyıcı belirteçlerdir. Belirteç türleri OAuth2'de en yaygın olarak verilen türlerdir. Birçok uygulama, taşıyıcı belirteçlerin verilen tek belirteç türü olduğunu varsayar.
+> [!NOTE]
+> OAuth2, herhangi bir bilinen belirteç türünün verilebileceği bir altyapı sağlasa da yalnızca belirli belirteç türleri yaygın kullanım elde etmiştir. Uç noktaları korumaya yönelik belirteçler, taşıyıcı belirteçlerdir. Belirteç türleri OAuth2'de en yaygın olarak verilen türlerdir. Birçok uygulama, taşıyıcı belirteçlerin verilen tek belirteç türü olduğunu varsayar.
+> 
+> 
 
 Zaten orada değilse komut satırından dizininizi `azuread` olarak değiştirin.
 
@@ -197,13 +191,11 @@ passport-azure-ad@1.0.0 node_modules/passport-azure-ad
 ``
 
 ## Web API'nize MongoDB modülleri ekleme
-
 Bu örnekte MongoDB veri deponuz olarak kullanılır. Bunun için modelleri ve şemaları yönetmeye yönelik yaygın kullanılan bir eklenti olan Mongoose’u yükleyin.
 
 * `npm install mongoose`
 
 ## Ek modüller yükleme
-
 Ardından, kalan gerekli modüllerini yükleyin.
 
 Zaten orada değilse komut satırından dizininizi `azuread` olarak değiştirin:
@@ -218,9 +210,7 @@ Modülleri `node_modules` dizininize yükleyin:
 * `npm install express`
 * `npm install bunyan`
 
-
 ## Bağımlılıklarınız ile bir server.js dosyası oluşturma
-
 Web API sunucunuz için işlevselliğin büyük bölümü `server.js` dosyası tarafından sağlanır. 
 
 Zaten orada değilse komut satırından dizininizi `azuread` olarak değiştirin:
@@ -249,7 +239,6 @@ var OIDCBearerStrategy = require('passport-azure-ad').BearerStrategy;
 Dosyayı kaydedin. Buna daha sonra geri döneceksiniz.
 
 ## Azure AD ayarlarınızı depolamak için bir config.js dosyası oluşturma
-
 Bu kod dosyası, Azure AD Portal'dan `Passport.js` dosyasına yapılandırma parametrelerini geçirir. Bu yapılandırma değerlerini, kılavuzun ilk bölümünde web API'sini portala eklediğinizde oluşturdunuz. Kodu kopyaladıktan sonra bu parametre değerlerine eklemeniz gerekenler açıklanacaktır.
 
 Zaten orada değilse komut satırından dizininizi `azuread` olarak değiştirin:
@@ -272,10 +261,9 @@ passReqToCallback: false // This is a node.js construct that lets you pass the r
 
 ```
 
-[AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
+[!INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
 ### Gerekli değerler
-
 `clientID`: Web API uygulamanızın istemci kimliği.
 
 `IdentityMetadata`: Burası, `passport-azure-ad` öğesinin kimlik sağlayıcısı için yapılandırma verilerinizi arayacağı yerdir. Ayrıca, JSON web belirteçlerini doğrulamaya yönelik anahtarlar da aranır. 
@@ -286,10 +274,12 @@ passReqToCallback: false // This is a node.js construct that lets you pass the r
 
 `policyName`: Sunucunuza gelen belirteçleri doğrulamak istediğiniz ilke. Bu ilke, oturum açma için istemci uygulamasında kullandığınız aynı ilke olmalıdır.
 
-> [AZURE.NOTE] B2C önizlememiz için istemci ve sunucu kurulumunda aynı ilkeleri kullanın. Bir kılavuzu zaten tamamlayıp bu ilkeleri oluşturduysanız tekrar yapmanıza gerek yoktur. Kılavuzu tamamladığınız için sitede istemci kılavuzlarına yönelik yeni ilkeler ayarlamanıza gerek yoktur.
+> [!NOTE]
+> B2C önizlememiz için istemci ve sunucu kurulumunda aynı ilkeleri kullanın. Bir kılavuzu zaten tamamlayıp bu ilkeleri oluşturduysanız tekrar yapmanıza gerek yoktur. Kılavuzu tamamladığınız için sitede istemci kılavuzlarına yönelik yeni ilkeler ayarlamanıza gerek yoktur.
+> 
+> 
 
 ## Server.js dosyanıza yapılandırma ekleme
-
 Oluşturduğunuz `config.js` dosyasından değerleri okumak için `.config` dosyasını gerekli bir kaynak olarak uygulamanıza ekleyin ve ardından genel değişkenleri `config.js` belgesindekilere ayarlayın.
 
 Zaten orada değilse komut satırından dizininizi `azuread` olarak değiştirin:
@@ -337,7 +327,6 @@ var log = bunyan.createLogger({
 ```
 
 ## Mongoose kullanarak MongoDB model ve şema bilgilerini ekleme
-
 Bu üç dosyayı REST API hizmetinde bir araya getirdiğiniz için erken hazırlık faydalı olur.
 
 Daha önce de belirtildiği gibi bu kılavuz için görevlerinizi depolamak üzere MongoDB'yi kullanın.
@@ -347,7 +336,6 @@ Daha önce de belirtildiği gibi bu kılavuz için görevlerinizi depolamak üze
 Sunucuya hangi MongoDB veritabanını kullanacağınızı bildirdikten sonra sunucu görevleriniz için model ve şema oluşturmak amacıyla birkaç ek kod yazmanız gerekir.
 
 ### Modeli genişletme
-
 Bu şema modeli basittir. Gerektiği şekilde genişletebilirsiniz.
 
 `owner`: Göreve atanan kişi. Bu nesne bir **string**.  
@@ -359,7 +347,6 @@ Bu şema modeli basittir. Gerektiği şekilde genişletebilirsiniz.
 `completed`: Görev tamamlandıysa. Bu nesne bir **Boolean**.
 
 ### Kod içinde şema oluşturma
-
 Zaten orada değilse komut satırından dizininizi `azuread` olarak değiştirin:
 
 `cd azuread`
@@ -392,11 +379,9 @@ var Task = mongoose.model('Task');
 Önce şemayı oluşturun, ardından **yollarınızı** tanımlarken kod genelindeki verilerinizi depolamak için kullanacağınız bir model nesnesi oluşturun.
 
 ## REST API görev sunucunuz için yollar ekleme
-
 Çalışacak bir veritabanı modeliniz olduğuna göre REST API sunucunuz için kullanacağınız yolları ekleyin.
 
 ### Restify'daki yollar hakkında
-
 Yollar Restify'da Express yığınını kullandıklarında çalıştıkları gibi çalışır. Yolları, istemci uygulamalarının çağırmasını beklediğiniz URI'yi kullanarak tanımlarsınız. 
 
 Bir Restify yolu için genel bir desen:
@@ -415,7 +400,6 @@ server.post('/service/:add/:object', createObject); // calls createObject on rou
 Restify ve Express, uygulama türlerini tanımlama ve farklı uç noktalar arasında karmaşık yönlendirme yapma gibi çok daha kapsamlı işlevsellik sağlayabilir. Bu öğreticinin amaçları doğrultusunda bu yolları basit tutacağız.
 
 #### Sunucunuza varsayılan yollar ekleme
-
 Bundan sonra REST API’miz için temel **oluştur** ve **listele** CRUD yollarını ekleyin. Diğer yollar örneğin `complete` dalında bulunabilir.
 
 Zaten orada değilse komut satırından dizininizi `azuread` olarak değiştirin:
@@ -512,7 +496,6 @@ function listTasks(req, res, next) {
 
 
 #### Yollar için hata işleme ekleme
-
 Hata işlemeleri ekleyin; böylece, karşılaştığınız herhangi bir sorunu istemciye anlayabileceği bir şekilde geri iletebilirsiniz.
 
 Aşağıdaki kodu ekleyin:
@@ -555,7 +538,6 @@ util.inherits(TaskNotFoundError, restify.RestError);
 
 
 ## Sunucunuzu oluşturma
-
 Artık veritabanınızı tanımladınız ve yollarınızı yerleştirdiniz. Son olarak yapmanız gereken ise çağrılarınızı yöneten sunucu örneğini eklemektir.
 
 Restify ve Express, bir REST API sunucusu için kapsamlı özelleştirme sağlar ancak burada en temel kurulumu kullanırsınız. 
@@ -609,7 +591,6 @@ server.use(passport.session()); // Provides session support
 
 ```
 ## Yolları sunucuya ekleme (kimlik doğrulaması olmadan)
-
 ```Javascript
 server.get('/api/tasks', passport.authenticate('oauth-bearer', {
     session: false
@@ -682,7 +663,6 @@ server.listen(serverPort, function() {
 ``` 
 
 ## REST API sunucunuza kimlik doğrulaması ekleme
-
 Artık çalışan bir REST API sunucunuz olduğuna göre bunu Azure AD için faydalı hale getirebilirsiniz.
 
 Zaten orada değilse komut satırından dizininizi `azuread` olarak değiştirin:
@@ -690,10 +670,10 @@ Zaten orada değilse komut satırından dizininizi `azuread` olarak değiştirin
 `cd azuread`
 
 ### passport-azure-ad ile birlikte dahil edilen OIDCBearerStrategy'yi kullanma
-
-
-> [AZURE.TIP]
-API'leri yazarken her zaman verileri kullanıcının yanılmayacağı belirteçten benzersiz bir öğeye bağlamanız gerekir. Sunucu, Yapılacaklar öğelerini depoladığında bu da "sahip" alanına girilen belirteçteki (token.oid üzerinde çağrılır) kullanıcının **oid** değerini temel alır. Bu değer kendi ToDo öğesine yalnızca bu kullanıcının erişmesini sağlar. "Sahip" API'sinde kullanıma sunma işlemi gerçekleşmediğinden dış kullanıcı kimlik doğrulaması yapılmış olsa bile başkalarının Yapılacaklar öğelerini isteyebilir.
+> [!TIP]
+> API'leri yazarken her zaman verileri kullanıcının yanılmayacağı belirteçten benzersiz bir öğeye bağlamanız gerekir. Sunucu, Yapılacaklar öğelerini depoladığında bu da "sahip" alanına girilen belirteçteki (token.oid üzerinde çağrılır) kullanıcının **oid** değerini temel alır. Bu değer kendi ToDo öğesine yalnızca bu kullanıcının erişmesini sağlar. "Sahip" API'sinde kullanıma sunma işlemi gerçekleşmediğinden dış kullanıcı kimlik doğrulaması yapılmış olsa bile başkalarının Yapılacaklar öğelerini isteyebilir.
+> 
+> 
 
 Ardından, `passport-azure-ad` ile birlikte sunulan taşıyıcı stratejisi kullanın.
 
@@ -736,13 +716,12 @@ passport.use(oidcStrategy);
 
 Passport tüm stratejileri için aynı deseni kullanır. Bu desene, parametre olarak `token` ve `done` öğelerini barındıran bir `function()` geçirirsiniz. Strateji, tüm işini tamamladıktan sonra size geri gelir. Ardından kullanıcıyı depolayıp belirteci kaydetmeniz gerekir; böylece bunları yeniden istemeniz gerekmez.
 
-> [AZURE.IMPORTANT]
-Yukarıdaki kod, kimlik doğrulaması yapan kullanıcıyı sunucunuza yönlendirir. Bu işlem otomatik kayıt olarak bilinir. Üretim sunucularında kullanıcıların öncelikle bir kayıt sürecinden geçmeden API’ye erişmesine izin vermeyin. Bu işlem genellikle Facebook kullanarak kaydolmanıza izin veren, ancak daha sonra sizden bazı ek bilgileri doldurmanızı isteyen tüketici uygulamalarında gördüğünüz desendir. Bu bir komut satırı programı olmasaydı, döndürülen belirteç nesnesinden e-postayı ayıklayabilir ve daha sonra kullanıcıdan ek bilgileri doldurmasını isteyebilirdik. Bu bir örnek olduğundan bilgiler bellek içi veritabanına eklenir.
-
-
+> [!IMPORTANT]
+> Yukarıdaki kod, kimlik doğrulaması yapan kullanıcıyı sunucunuza yönlendirir. Bu işlem otomatik kayıt olarak bilinir. Üretim sunucularında kullanıcıların öncelikle bir kayıt sürecinden geçmeden API’ye erişmesine izin vermeyin. Bu işlem genellikle Facebook kullanarak kaydolmanıza izin veren, ancak daha sonra sizden bazı ek bilgileri doldurmanızı isteyen tüketici uygulamalarında gördüğünüz desendir. Bu bir komut satırı programı olmasaydı, döndürülen belirteç nesnesinden e-postayı ayıklayabilir ve daha sonra kullanıcıdan ek bilgileri doldurmasını isteyebilirdik. Bu bir örnek olduğundan bilgiler bellek içi veritabanına eklenir.
+> 
+> 
 
 ## Sizi reddettiğini doğrulamak için sunucu uygulamanızı çalıştırın
-
 Artık uç noktalarınızda OAuth2 korumasına sahip olup olmadığınızı görmek için `curl` öğesini kullanabilirsiniz. Döndürülen üst bilgiler doğru yolda olduğunuzu belirtmek için yeterli olmalıdır.
 
 MongoDB örneğinizin çalıştığından emin olun:
@@ -770,18 +749,13 @@ Transfer-Encoding: chunked
 
 401 hatası, aradığınız cevaptır. Bu hata, uç noktayı yetkilendirmek için Passport katmanının yeniden yönlendirme yaptığını belirtir.
 
-
 ## Artık OAuth2 kullanan bir REST API'niz var
-
 Restify ve OAuth kullanarak bir REST API’si uyguladık! Hizmetinizi geliştirmeye ve bu örnek üzerinde oluşturmaya devam edebilmeniz için artık yeterli kodunuz var. OAuth2 uyumlu bir istemci kullanmadan bu sunucu ile çalışabildiğiniz kadar çalıştınız. Sonraki adım için [B2C ile iOS kullanarak bir web API’sine bağlanma](active-directory-b2c-devquickstarts-ios.md) kılavuzu gibi ek yönergeleri kullanın.
 
-
 ## Sonraki adımlar
-
 Artık şunlar gibi daha ileri seviyeli konulara geçebilirsiniz:
 
 [B2C ile iOS kullanarak bir web API'sine bağlanma](active-directory-b2c-devquickstarts-ios.md)
-
 
 <!--HONumber=Sep16_HO3-->
 

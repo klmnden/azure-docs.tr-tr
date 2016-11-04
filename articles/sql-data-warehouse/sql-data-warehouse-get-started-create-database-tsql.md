@@ -1,64 +1,63 @@
-<properties
-   pageTitle="TSQL ile SQL Data Warehouse oluşturma | Microsoft Azure"
-   description="TSQL ile Azure SQL Data Warehouse oluşturmayı öğrenin"
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="lodipalm"
-   manager="barbkess"
-   editor=""
-   tags="azure-sql-data-warehouse"/>
+---
+title: TSQL ile SQL Data Warehouse oluşturma | Microsoft Docs
+description: TSQL ile Azure SQL Data Warehouse oluşturmayı öğrenin
+services: sql-data-warehouse
+documentationcenter: NA
+author: lodipalm
+manager: barbkess
+editor: ''
+tags: azure-sql-data-warehouse
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="hero-article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="08/24/2016"
-   ms.author="lodipalm;barbkess;sonyama"/>
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: hero-article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 08/24/2016
+ms.author: lodipalm;barbkess;sonyama
 
-
+---
 # Transact-SQL (TSQL) kullanarak SQL Data Warehouse oluşturma
-
-> [AZURE.SELECTOR]
-- [Azure Portal](sql-data-warehouse-get-started-provision.md)
-- [TSQL](sql-data-warehouse-get-started-create-database-tsql.md)
-- [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
+> [!div class="op_single_selector"]
+> * [Azure Portal](sql-data-warehouse-get-started-provision.md)
+> * [TSQL](sql-data-warehouse-get-started-create-database-tsql.md)
+> * [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
+> 
+> 
 
 Bu makalede T-SQL ile SQL Veri Ambarı oluşturma işlemi gösterilmektedir.
 
 ## Ön koşullar
-
 Başlamak için gerekli olanlar: 
 
-- **Azure hesabı**: Hesap oluşturmak için [Azure Ücretsiz Deneme][] veya [MSDN Azure Kredileri][] sayfasını ziyaret edin.
-- **Azure SQL server**: Daha fazla bilgi için bkz. [Azure Portal ile Azure SQL Database mantıksal sunucusu oluşturma][] veya [PowerShell ile Azure SQL Database mantıksal sunucusu oluşturma][].
-- **Kaynak grubu**: Azure SQL sunucunuz ile aynı kaynak grubunu kullanın veya [kaynak grubu oluşturma][] işlemine bakın.
-- **T-SQL yürütme ortamı**: T-SQL yürütmek için [Visual Studio][Visual Studio ve SSDT Yükleme], [sqlcmd][] veya [SSMS][] işlemlerini kullanabilirsiniz.
+* **Azure hesabı**: Hesap oluşturmak için [Azure Ücretsiz Deneme][Azure Ücretsiz Deneme] veya [MSDN Azure Kredileri][MSDN Azure Kredileri] sayfasını ziyaret edin.
+* **Azure SQL server**: Daha fazla bilgi için bkz. [Azure Portal ile Azure SQL Database mantıksal sunucusu oluşturma][Azure Portal ile Azure SQL Database mantıksal sunucusu oluşturma] veya [PowerShell ile Azure SQL Database mantıksal sunucusu oluşturma][PowerShell ile Azure SQL Database mantıksal sunucusu oluşturma].
+* **Kaynak grubu**: Azure SQL sunucunuz ile aynı kaynak grubunu kullanın veya [kaynak grubu oluşturma][kaynak grubu oluşturma] işlemine bakın.
+* **T-SQL yürütme ortamı**: T-SQL yürütmek için [Visual Studio][Visual Studio ve SSDT Yükleme], [sqlcmd][sqlcmd] veya [SSMS][SSMS] işlemlerini kullanabilirsiniz.
 
-> [AZURE.NOTE] Bir SQL Veri Ambarı'nın oluşturulması ek hizmet ücretlerinin alınmasına neden olabilir.  Fiyatlandırmayla ilgili ayrıntılı bilgi için bkz. [SQL Data Warehouse fiyatlandırması][].
+> [!NOTE]
+> Bir SQL Veri Ambarı'nın oluşturulması ek hizmet ücretlerinin alınmasına neden olabilir.  Fiyatlandırmayla ilgili ayrıntılı bilgi için bkz. [SQL Data Warehouse fiyatlandırması][SQL Data Warehouse fiyatlandırması].
+> 
+> 
 
 ## Visual Studio ile veritabanı oluşturma
-
-Visual Studio'yu kullanmaya yeni başladıysanız [Azure SQL Veri Ambarı’nı (Visual Studio) Sorgulama][] başlıklı makaleye göz atın.  Başlamak için Visual Studio'da bulunan SQL Server Nesne Gezgini'ni açıp SQL Data Warehouse veritabanınızı barındıracak olan sunucuya bağlanın.  Bağlandıktan sonra **ana** veritabanında aşağıdaki SQL komutunu çalıştırarak bir SQL Data Warehouse oluşturabilirsiniz.  Bu komut, Hizmet Hedefi DW400 olan bir MySqlDwDb veritabanı oluşturur ve veritabanının, maksimum boyutu 10 TB olacak şekilde büyümesine olanak sağlar.
+Visual Studio'yu kullanmaya yeni başladıysanız [Azure SQL Veri Ambarı’nı (Visual Studio) Sorgulama][Azure SQL Veri Ambarı’nı (Visual Studio) Sorgulama] başlıklı makaleye göz atın.  Başlamak için Visual Studio'da bulunan SQL Server Nesne Gezgini'ni açıp SQL Data Warehouse veritabanınızı barındıracak olan sunucuya bağlanın.  Bağlandıktan sonra **ana** veritabanında aşağıdaki SQL komutunu çalıştırarak bir SQL Data Warehouse oluşturabilirsiniz.  Bu komut, Hizmet Hedefi DW400 olan bir MySqlDwDb veritabanı oluşturur ve veritabanının, maksimum boyutu 10 TB olacak şekilde büyümesine olanak sağlar.
 
 ```sql
 CREATE DATABASE MySqlDwDb COLLATE SQL_Latin1_General_CP1_CI_AS (EDITION='datawarehouse', SERVICE_OBJECTIVE = 'DW400', MAXSIZE= 10240 GB);
 ```
 
 ## sqlcmd ile veritabanı oluşturma
-
 Ayrıca komut isteminde aşağıdakini çalıştırarak da sqlcmd üzerinde aynı komutu çalıştırabilirsiniz.
 
 ```sql
 sqlcmd -S <Server Name>.database.windows.net -I -U <User> -P <Password> -Q "CREATE DATABASE MySqlDwDb COLLATE SQL_Latin1_General_CP1_CI_AS (EDITION='datawarehouse', SERVICE_OBJECTIVE = 'DW400', MAXSIZE= 10240 GB)"
 ```
 
-Belirtilmediğinde varsayılan harmanlama COLLATE SQL_Latin1_General_CP1_CI_AS şeklindedir.  `MAXSIZE` boyutu 250 GB ile 240 TB arasında olabilir.  `SERVICE_OBJECTIVE` değeri DW100 ve DW2000 [DWU][] arasında olabilir.  Tüm geçerli değerlerin listesi için [VERİTABANI OLUŞTURMA][] MSDN belgelerine bakın.  Hem MAXSIZE hem de SERVICE_OBJECTIVE öğesi bir [ALTER DATABASE][] T-SQL komutuyla da değiştirilebilir.  Bir veritabanının harmanlaması oluşturulduktan sonra değiştirilemez.   DWU’nun değiştirilmesi hizmetlerin yeniden başlatılmasına ve bunun sonucunda gönderilen sorguların tümünün iptal edilmesine neden olacağı için SERVICE_OBJECTIVE değiştirilirken dikkatli olunması gerekir.  MAXSIZE parametresinin değiştirilmesi basit bir meta veri işlemi olduğundan hizmetler yeniden başlatılmaz.
+Belirtilmediğinde varsayılan harmanlama COLLATE SQL_Latin1_General_CP1_CI_AS şeklindedir.  `MAXSIZE` boyutu 250 GB ile 240 TB arasında olabilir.  `SERVICE_OBJECTIVE` değeri DW100 ve DW2000 [DWU][DWU] arasında olabilir.  Tüm geçerli değerlerin listesi için [VERİTABANI OLUŞTURMA][VERİTABANI OLUŞTURMA] MSDN belgelerine bakın.  Hem MAXSIZE hem de SERVICE_OBJECTIVE öğesi bir [ALTER DATABASE][ALTER DATABASE] T-SQL komutuyla da değiştirilebilir.  Bir veritabanının harmanlaması oluşturulduktan sonra değiştirilemez.   DWU’nun değiştirilmesi hizmetlerin yeniden başlatılmasına ve bunun sonucunda gönderilen sorguların tümünün iptal edilmesine neden olacağı için SERVICE_OBJECTIVE değiştirilirken dikkatli olunması gerekir.  MAXSIZE parametresinin değiştirilmesi basit bir meta veri işlemi olduğundan hizmetler yeniden başlatılmaz.
 
 ## Sonraki adımlar
-
-SQL Data Warehouse'unuz hazırlandıktan sonra [örnek veri yükleyebilir][] veya [geliştirme][], [yükleme][] veya [geçirme][] işlemlerini nasıl gerçekleştirebileceğinizi inceleyebilirsiniz.
+SQL Data Warehouse'unuz hazırlandıktan sonra [örnek veri yükleyebilir][örnek veri yükleyebilir] veya [geliştirme][geliştirme], [yükleme][yükleme] veya [geçirme][geçirme] işlemlerini nasıl gerçekleştirebileceğinizi inceleyebilirsiniz.
 
 <!--Article references-->
 [DWU]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units

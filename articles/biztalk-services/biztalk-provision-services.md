@@ -1,41 +1,39 @@
-<properties
-    pageTitle="Azure portalında Azure BizTalk Services oluşturma | Microsoft Azure"
-    description="Azure portalında Azure BizTalk Services hazırlamayı veya oluşturmayı öğrenin; MABS, WABS"
-    services="biztalk-services"
-    documentationCenter=""
-    authors="MandiOhlinger"
-    manager="erikre"
-    editor=""/>
+---
+title: Azure portalında Azure BizTalk Services oluşturma | Microsoft Docs
+description: Azure portalında Azure BizTalk Services hazırlamayı veya oluşturmayı öğrenin; MABS, WABS
+services: biztalk-services
+documentationcenter: ''
+author: MandiOhlinger
+manager: erikre
+editor: ''
 
-<tags
-    ms.service="biztalk-services"
-    ms.workload="integration"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="hero-article"
-    ms.date="08/15/2016"
-    ms.author="mandia"/>
+ms.service: biztalk-services
+ms.workload: integration
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: hero-article
+ms.date: 08/15/2016
+ms.author: mandia
 
-
-
+---
 # Azure portalını kullanarak BizTalk Services oluşturma
-
 Azure portalında Azure BizTalk Services oluşturma
 
-> [AZURE.TIP] Azure portalında oturum açmak için bir Azure hesabınız ve Azure aboneliğiniz olması gerekir. Hesabınız yoksa birkaç dakika içinde ücretsiz bir deneme sürümü hesabı oluşturabilirsiniz. Bkz. [Azure Ücretsiz Deneme](http://go.microsoft.com/fwlink/p/?LinkID=239738).
+> [!TIP]
+> Azure portalında oturum açmak için bir Azure hesabınız ve Azure aboneliğiniz olması gerekir. Hesabınız yoksa birkaç dakika içinde ücretsiz bir deneme sürümü hesabı oluşturabilirsiniz. Bkz. [Azure Ücretsiz Deneme](http://go.microsoft.com/fwlink/p/?LinkID=239738).
+> 
+> 
 
 ## BizTalk Hizmeti oluşturma
 Seçtiğiniz Sürüm’e bağlı olarak, BizTalk Hizmeti ayarlarının tümü kullanılamayabilir.
 
 1. [Azure portalında](http://go.microsoft.com/fwlink/p/?LinkID=213885) oturum açın.
 2. Alt gezinti bölmesinde **YENİ**’yi seçin:  
-![Yeni düğmesini seçme][NEWButton]
-
+   ![Yeni düğmesini seçme][NEWButton]
 3. **UYGULAMA HİZMETLERİ** > **BIZTALK HİZMETİ** > **ÖZEL OLUŞTUR**’u seçin:  
-![BizTalk Hizmeti’ni seçme ve Özel Oluştur’u seçme][NewBizTalkService]
-
+   ![BizTalk Hizmeti’ni seçme ve Özel Oluştur’u seçme][NewBizTalkService]
 4. BizTalk Hizmeti ayarlarını girin:
-
+   
     <table border="1">
     <tr>
     <td><strong>BizTalk hizmeti adı</strong></td>
@@ -64,10 +62,9 @@ Seçtiğiniz Sürüm’e bağlı olarak, BizTalk Hizmeti ayarlarının tümü ku
     </td>
     </tr>
     </table>
-İLERİ okunu seçin.
-
+   İLERİ okunu seçin.
 5. Storage ve Veritabanı Ayarlarını girin:
-
+   
     <table border="1">
     <tr>
     <td><strong>Depolama hesabını izleme/arşivleme</strong></td>
@@ -78,10 +75,9 @@ Seçtiğiniz Sürüm’e bağlı olarak, BizTalk Hizmeti ayarlarının tümü ku
     <td>Mevcut bir Azure SQL veritabanı kullanıyorsanız, başka bir BizTalk hizmeti tarafından kullanılamaz. Azure SQL Veritabanı Sunucusu oluşturulduğunda oturum açma adı ve parola girilmesi gerekir.<br/><br/><strong>İPUCU</strong> BizTalk hizmetiyle aynı bölgede Veritabanı izleme ve depolama hesabı izleme/arşivleme oluşturun.</td>
     </tr>
     </table>
-İLERİ okunu seçin.
-
+   İLERİ okunu seçin.
 6. Veritabanı ayarlarını girin:
-
+   
     <table border="1">
     <tr>
     <td><strong>Ad</strong></td>
@@ -116,12 +112,10 @@ Tamamlandığında, Azure BizTalk Hizmeti oluşturulmuştur ve uygulamalarınız
 
 BizTalk Hizmeti durumunu bağlı olarak, bazı tamamlanamayan işlemler vardır. Bu işlemlerin bir listesi için [BizTalk Services Durumu Grafiği](biztalk-service-state-chart.md)’ne gidin.
 
-
 ## Hazırlama sonrası adımlar
-
--  [Sertifikayı yerel bir bilgisayara yükleme](#InstallCert)
--  [Üretime hazır sertifikayı ekleme](#AddCert)
--  [Erişim Denetimi ad alanını alma](#ACS)
+* [Sertifikayı yerel bir bilgisayara yükleme](#InstallCert)
+* [Üretime hazır sertifikayı ekleme](#AddCert)
+* [Erişim Denetimi ad alanını alma](#ACS)
 
 #### <a name="InstallCert"></a>Sertifikayı yerel bir bilgisayara yükleme
 BizTalk Hizmeti hazırlamanın bir parçası olarak, otomatik olarak imzalanan ve BizTalk hizmeti aboneliğinizle ilişkili bir sertifika oluşturulur. Bu sertifikayı indirip BizTalk Hizmeti uç noktasına iletileri göndereceğiniz veya BizTalk Hizmeti uygulamalarını dağıtacağınız bilgisayarlara bunu yüklemeniz gerekir.
@@ -130,7 +124,7 @@ BizTalk Hizmeti hazırlamanın bir parçası olarak, otomatik olarak imzalanan v
 2. Sol gezinti bölmesinde **BIZTALK HİZMETLERİ**’ni, sonra da BizTalk Hizmeti aboneliğinizi seçin.
 3. **Pano** sekmesini seçin.
 4. **SSL Sertifikası İndir**’i seçin:  
-![SSL Sertifikası Değiştirme][QuickGlance]
+   ![SSL Sertifikası Değiştirme][QuickGlance]
 5. Sertifikaya çift tıklayın ve sertifikayı yüklemek için sihirbazda ilerleyin. **Güvenilen Kök Sertifika Yetkilileri** deposu altına sertifikayı yüklediğinizden emin olun.
 
 #### <a name="AddCert"></a>Üretime hazır sertifikayı ekleme
@@ -140,12 +134,10 @@ BizTalk Services oluşturulduğunda otomatik olarak oluşturulan otomatik imzal�
 2. BizTalk Hizmet adınızı ekleyen özel SSL sertifikanıza (*CertificateName*.pfx) göz atın, parolayı girin ve ardından onay işaretine tıklayın.
 
 #### <a name="ACS"></a>Erişim Denetimi ad alanını alma
-
 1. [Azure portalında](http://go.microsoft.com/fwlink/p/?LinkID=213885) oturum açın.
 2. Sol gezinti bölmesinde **BIZTALK HİZMETLERİ**’ni, sonra da BizTalk Hizmetini seçin.
 3. Görev çubuğunda **Bağlantı Bilgileri**’ni seçin.  
-![Bağlantı Bilgilerini seçme][ACSConnectInfo]
-
+   ![Bağlantı Bilgilerini seçme][ACSConnectInfo]
 4. Erişim Denetimi değerlerini kopyalayın.
 
 Visual Studio’dan BizTalk Hizmeti projesini dağıttığınızda, Erişim Denetimi ad alanına bunu girin. Erişim Denetimi ad alanı BizTalk Hizmetiniz için otomatik olarak oluşturulur.
@@ -157,13 +149,16 @@ Erişim Denetimi değerleri herhangi bir uygulamayla birlikte kullanılabilir. A
 
 Erişim Denetimi hizmeti kimliği, uygulamaların veya istemcilerin Erişim Denetimi’yle doğrudan kimlik doğrulaması yapmasını ve belirteç almasını sağlayan bir dizi kimlik bilgisidir.
 
-> [AZURE.IMPORTANT] BizTalk Hizmeti varsayılan hizmet kimliği ve **Parola** değeri için **Sahip**’i kullanır. Parola değeri yerine Simetrik Anahtar değeri kullanırsanız aşağıdaki hata oluşabilir.<br/><br/>*Belirtilen kimlik bilgileriyle Erişim Denetimi Yönetim Hizmeti hesabına bağlanılamadı*
+> [!IMPORTANT]
+> BizTalk Hizmeti varsayılan hizmet kimliği ve **Parola** değeri için **Sahip**’i kullanır. Parola değeri yerine Simetrik Anahtar değeri kullanırsanız aşağıdaki hata oluşabilir.<br/><br/>*Belirtilen kimlik bilgileriyle Erişim Denetimi Yönetim Hizmeti hesabına bağlanılamadı*
+> 
+> 
 
 [ACS Ad Alanınızı Yönetme](https://msdn.microsoft.com/library/azure/hh674478.aspx) bazı kılavuzları ve önerileri listeler.
 
 ## Açıklanan gereksinimler
-
 Bu gereksinimler Ücretsiz Sürüm için geçerli değildir.
+
 <table border="1">
 <tr bgcolor="FAF9F9">
         <td><strong>Ne gerekiyor</strong></td>
@@ -246,7 +241,6 @@ BizTalk Hizmeti oluşturulduktan sonra yeni veya farklı bir sertifika eklenebil
 
 
 ## Karma Bağlantılar
-
 Azure BizTalk hizmeti oluşturduğunuzda **Karma Bağlantılar** sekmesi kullanılabilir:
 
 ![Karma Bağlantılar Sekmesi][HybridConnectionTab]
@@ -255,19 +249,17 @@ Karma Bağlantılar Azure web sitesine veya Azure mobil hizmetinden SQL Sunucusu
 
  Karma Bağlantıları oluşturma ve yönetme de dahil, daha fazla bilgi için bkz. [Karma Bağlantılar](integration-hybrid-connection-overview.md).
 
-
 ## Sonraki adımlar
-
 Artık bir BizTalk Hizmeti oluşturuldu, şimdi de kendinizi farklı [BizTalk Services: Pano, İzleyici ve Ölçek sekmeleri](biztalk-dashboard-monitor-scale-tabs.md) ile tanışmaya hazırlayın. BizTalk Hizmeti uygulamalarınız için hazır. Uygulamalar oluşturmaya başlamak için [Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=235197)’a gidin.
 
 ## Ayrıca bkz.
-- [BizTalk Services: Sürümler Grafiği](biztalk-editions-feature-chart.md)<br/>
-- [BizTalk Services: Durum Grafiği](biztalk-service-state-chart.md)<br/>
-- [BizTalk Services: Yedekleme ve Geri Yükleme](biztalk-backup-restore.md)<br/>
-- [BizTalk Services: Azaltma](biztalk-throttling-thresholds.md)<br/>
-- [BizTalk Services: Verenin Adı ve Verenin Anahtarı](biztalk-issuer-name-issuer-key.md)<br/>
-- [Azure BizTalk Services SDK'sını Kullanmaya Nasıl Başlarım](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
-- [Karma Bağlantılar](integration-hybrid-connection-overview.md)
+* [BizTalk Services: Sürümler Grafiği](biztalk-editions-feature-chart.md)<br/>
+* [BizTalk Services: Durum Grafiği](biztalk-service-state-chart.md)<br/>
+* [BizTalk Services: Yedekleme ve Geri Yükleme](biztalk-backup-restore.md)<br/>
+* [BizTalk Services: Azaltma](biztalk-throttling-thresholds.md)<br/>
+* [BizTalk Services: Verenin Adı ve Verenin Anahtarı](biztalk-issuer-name-issuer-key.md)<br/>
+* [Azure BizTalk Services SDK'sını Kullanmaya Nasıl Başlarım](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
+* [Karma Bağlantılar](integration-hybrid-connection-overview.md)
 
 [NewBizTalkService]: ./media/biztalk-provision-services/WABS_NewBizTalkService.png
 [NEWButton]: ./media/biztalk-provision-services/WABS_New.png
