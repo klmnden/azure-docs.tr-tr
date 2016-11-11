@@ -1,38 +1,38 @@
-# Overview
-## [What is Data Catalog?](data-catalog-what-is-data-catalog.md)
-## [Common scenarios](data-catalog-common-scenarios.md)
-## [Supported data sources](data-catalog-dsr.md)
-## [What’s new](data-catalog-whats-new.md)
+# Genel Bakış
+## [Veri Kataloğu nedir?](data-catalog-what-is-data-catalog.md)
+## [Yaygın senaryolar](data-catalog-common-scenarios.md)
+## [Desteklenen veri kaynakları](data-catalog-dsr.md)
+## [Yenilikler](data-catalog-whats-new.md)
 
-# Get Started
-## [Get started with Azure Data Catalog](data-catalog-get-started.md)
-## [Adopting Azure Data Catalog](data-catalog-adopting-data-catalog.md)
-## [Azure Data Catalog prerequisites](data-catalog-prerequisites.md)
-## [Frequently asked questions](data-catalog-frequently-asked-questions.md)
+# Kullanmaya Başlama
+## [Azure Veri Kataloğu ile çalışmaya başlama](data-catalog-get-started.md)
+## [Azure Veri Kataloğu'nu benimseme](data-catalog-adopting-data-catalog.md)
+## [Azure Veri Kataloğu önkoşulları](data-catalog-prerequisites.md)
+## [Sık sorulan sorular](data-catalog-frequently-asked-questions.md)
 
-# How To
-## [Register data sources](data-catalog-how-to-register.md)
-## [Discover data sources](data-catalog-how-to-discover.md)
-## [Annotate data sources](data-catalog-how-to-annotate.md)
-## [Document data sources](data-catalog-how-to-documentation.md)
-## [Connect to data sources](data-catalog-how-to-connect.md)
-## [Work with big data sources](data-catalog-how-to-big-data.md)
-## [Data profile data sources](data-catalog-how-to-data-profile.md)
-## [Manage data assets](data-catalog-how-to-manage.md)
-## [Save searches and pin data assets](data-catalog-how-to-save-pin.md)
-## [Set up the business glossary](data-catalog-how-to-business-glossary.md)
+# Nasıl yapılır?
+## [Veri kaynaklarını kaydetme](data-catalog-how-to-register.md)
+## [Veri kaynaklarını keşfetme](data-catalog-how-to-discover.md)
+## [Veri kaynaklarına açıklama ekleme](data-catalog-how-to-annotate.md)
+## [Veri kaynaklarını belgeleme](data-catalog-how-to-documentation.md)
+## [Veri kaynaklarına bağlanma](data-catalog-how-to-connect.md)
+## [Büyük veri kaynaklarıyla çalışma](data-catalog-how-to-big-data.md)
+## [Veri profili veri kaynakları](data-catalog-how-to-data-profile.md)
+## [Veri varlıklarını yönetme](data-catalog-how-to-manage.md)
+## [Aramaları kaydetme ve veri varlıklarını sabitleme](data-catalog-how-to-save-pin.md)
+## [İş sözlüğünü ayarlama](data-catalog-how-to-business-glossary.md)
 
-## Develop
-### [Developer concepts](data-catalog-developer-concepts.md)
-### [Developer samples](data-catalog-samples.md)
+## Geliştirme
+### [Geliştirici kavramları](data-catalog-developer-concepts.md)
+### [Geliştirici örnekleri](data-catalog-samples.md)
 
-# Reference
-## [Keyboard shortcuts for Azure Data Catalog](data-catalog-keyboard-shortcuts.md)
-## [Terminology](data-catalog-terminology.md)
-## [Release notes](data-catalog-release-notes.md)
+# Başvuru
+## [Azure Veri Kataloğu için klavye kısayolları](data-catalog-keyboard-shortcuts.md)
+## [Terminoloji](data-catalog-terminology.md)
+## [Sürüm notları](data-catalog-release-notes.md)
 
-# Resources
-## [Pricing](https://azure.microsoft.com/pricing/details/data-catalog/)
+# Kaynaklar
+## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/data-catalog/)
 
 <!--HONumber=Nov16_HO2-->
 

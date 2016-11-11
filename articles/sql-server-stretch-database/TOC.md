@@ -1,22 +1,22 @@
-# Overview
-## [What is Stretch Database?](sql-server-stretch-database-overview.md)
-## [How does pricing work?](https://azure.microsoft.com/pricing/details/sql-server-stretch-database/)
-# Get Started
-## [Identify databases and tables](sql-server-stretch-database-identify-databases.md)
-## [Limitations and blocking issues](sql-server-stretch-database-limitations.md)
+# Genel Bakış
+## [Esnetme Veritabanı nedir?](sql-server-stretch-database-overview.md)
+## [Fiyatlandırma nasıl çalışır?](https://azure.microsoft.com/pricing/details/sql-server-stretch-database/)
+# Kullanmaya Başlama
+## [Veritabanlarını ve tabloları belirleme](sql-server-stretch-database-identify-databases.md)
+## [Sınırlamalar ve engelleme sorunları](sql-server-stretch-database-limitations.md)
 
-# How To
-## Enable
-### [Run the wizard](sql-server-stretch-database-wizard.md)
-### [Enable a database](sql-server-stretch-database-enable-database.md)
-### [Enable a table](sql-server-stretch-database-enable-table.md)
-### [Select rows to migrate](sql-server-stretch-database-predicate-function.md)
-## Manage
-### [Monitor data migration](sql-server-stretch-database-monitor.md)
-### [Pause and resume migration](sql-server-stretch-database-pause.md)
-### [Manage and troubleshoot](sql-server-stretch-database-manage.md)
-### [Backup and restore](sql-server-stretch-database-backup.md)
-### [Disable Stretch Database](sql-server-stretch-database-disable.md)
+# Nasıl yapılır?
+## Etkinleştirme
+### [Sihirbazı çalıştırma](sql-server-stretch-database-wizard.md)
+### [Veritabanı etkinleştirme](sql-server-stretch-database-enable-database.md)
+### [Tablo etkinleştirme](sql-server-stretch-database-enable-table.md)
+### [Geçirilecek satırları seçme](sql-server-stretch-database-predicate-function.md)
+## Yönet
+### [Veri geçişini izleme](sql-server-stretch-database-monitor.md)
+### [Geçişi duraklatma ve sürdürme](sql-server-stretch-database-pause.md)
+### [Yönetme ve sorun giderme](sql-server-stretch-database-manage.md)
+### [Yedekleme ve geri yükleme](sql-server-stretch-database-backup.md)
+### [Esnetme Veritabanı’nı devre dışı bırakma](sql-server-stretch-database-disable.md)
 
 
 <!--HONumber=Nov16_HO2-->

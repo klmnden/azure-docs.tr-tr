@@ -1,68 +1,68 @@
-# Overview
-## [What is RemoteApp?](remoteapp-whatis.md)
-## [How does licensing work?](remoteapp-licensing.md)
-## [FAQ](remoteapp-faq.md)
-## [What's new?](remoteapp-whatsnew.md)
-## [What's coming?](remoteapp-roadmap.md)
-## [Azure service limits](../azure-subscription-service-limits.md)
-## Will my app work?
-### [App requirements](remoteapp-appreqs.md)
-### [OneDrive for Business](remoteapp-onedrive.md)
+# Genel Bakış
+## [RemoteApp nedir?](remoteapp-whatis.md)
+## [Lisanslama nasıl çalışır?](remoteapp-licensing.md)
+## [SSS](remoteapp-faq.md)
+## [Yenilikler](remoteapp-whatsnew.md)
+## [Sırada ne var?](remoteapp-roadmap.md)
+## [Azure hizmet sınırlamaları](../azure-subscription-service-limits.md)
+## Uygulamam çalışacak mı?
+### [Uygulama gereksinimleri](remoteapp-appreqs.md)
+### [OneDrive İş](remoteapp-onedrive.md)
 ### [SQL Azure](remoteapp-sql.md)
 ### [Office 365](remoteapp-o365.md)
 ### [Outlook 2013](remoteapp-outlook.md)
-### [Using App-V apps](remoteapp-appv.md)
-### [QuickBooks on Azure RemoteApp](remoteapp-quickbooks.md)
+### [App-V uygulamalarını kullanma](remoteapp-appv.md)
+### [Azure RemoteApp’te QuickBooks](remoteapp-quickbooks.md)
 ### [Microsoft Dynamics AX](https://mbs.microsoft.com/customersource/global/ax/learning/documentation/msdax2012r3azremappprg)
-### [Secure Apps and resources](remoteapp-secure.md)
+### [Uygulama ve kaynakları güvenli hale getirme](remoteapp-secure.md)
 
 
-# Get Started
-## Real world scenarios
-### [Run any app on any device](remoteapp-anyapp.md)
-### [Run Office 365 on any device](remoteapp-tutorial-o365anywhere.md)
+# Kullanmaya Başlama
+## Gerçek hayat senaryoları
+### [Her türden uygulamayı her türlü cihazda çalıştırma](remoteapp-anyapp.md)
+### [Office 365'i her türlü cihazda çalıştırma](remoteapp-tutorial-o365anywhere.md)
 
-# How To
+# Nasıl yapılır?
 
-## Create a RemoteApp collection
-### [Which collection do you need?](remoteapp-collections.md)
-### [Create a cloud collection](remoteapp-create-cloud-deployment.md)
-### [Create a hybrid collection](remoteapp-create-hybrid-deployment.md)
-### [Update your collection](remoteapp-update.md)
-### [Create a RemoteApp image](remoteapp-imageoptions.md)
-### [What is in the template image?](remoteapp-images.md)
-### [Image requirements](remoteapp-imagereqs.md)
-### [Upload an image](remoteapp-uploadimage.md)
-### [Create an image from an Azure VM](remoteapp-image-on-azurevm.md)
-## Configure a Virtual Network
-### [Plan your VNET](remoteapp-planvnet.md)
-### [Port and URL info](remoteapp-ports.md)
-### [Validate your VNET](remoteapp-vnet.md)
-### [Migrate to an Azure VNET](remoteapp-migratevnet.md)
-## Publish applications
-### [How to publish an app](remoteapp-publish.md)
-## Manage users
-### [How to add users](remoteapp-user.md)
-### [Configure Active Directory](remoteapp-ad.md)
-### [Change the Azure AD tenant](remoteapp-changetenant.md)
-### [Office 365 user accounts](remoteapp-o365user.md)
-### [Secure Data](remoteapp-secureaccess.md)
-### [User data](remoteapp-upd.md)
-## Client experience
-### [Supported clients](remoteapp-clients.md)
-### [Configure redirection](remoteapp-redirection.md)
-### [Client best practices](remoteapp-clientbestpractices.md)
-## Automate RemoteApp
-### [RemoteApp PowerShell cmdlets](remoteapp-tutorial-arawithpowershell.md)
-### [Manage RemoteApp with Azure Automation](automation-manage-remote-app.md)
-## Stay current with RemoteApp
-### [Forums](http://feedback.azure.com/forums/247748-azure-remoteapp)
-### [Feedback](http://feedback.azure.com/forums/247748-azure-remoteapp)
-### [Support](https://azure.microsoft.com/support/plans/)
-### [Service status](https://azure.microsoft.com/status/)
-## Troubleshoot
-### [Troubleshoot a hybrid collection](remoteapp-hybridtrouble.md)
-### [Troubleshoot a cloud collection](remoteapp-cloudtrouble.md)
+## RemoteApp koleksiyonu oluşturma
+### [Hangi koleksiyona ihtiyacınız var?](remoteapp-collections.md)
+### [Bulut koleksiyonu oluşturma](remoteapp-create-cloud-deployment.md)
+### [Karma koleksiyon oluşturma](remoteapp-create-hybrid-deployment.md)
+### [Koleksiyonunuzu güncelleştirme](remoteapp-update.md)
+### [RemoteApp görüntüsü oluşturma](remoteapp-imageoptions.md)
+### [Şablon görüntüsünde neler bulunur?](remoteapp-images.md)
+### [Görüntü gereksinimleri](remoteapp-imagereqs.md)
+### [Bir görüntüyü karşıya yükleme](remoteapp-uploadimage.md)
+### [Bir Azure VM'sinden görüntü oluşturma](remoteapp-image-on-azurevm.md)
+## Sanal Ağ yapılandırma
+### [Sanal ağınızı planlama](remoteapp-planvnet.md)
+### [Bağlantı noktası ve URL bilgileri](remoteapp-ports.md)
+### [Sanal ağınızı doğrulama](remoteapp-vnet.md)
+### [Azure sanal ağına geçiş](remoteapp-migratevnet.md)
+## Uygulamaları yayımlama
+### [Uygulama yayımlama](remoteapp-publish.md)
+## Kullanıcıları yönetme
+### [Kullanıcı ekleme](remoteapp-user.md)
+### [Active Directory'yi yapılandırma](remoteapp-ad.md)
+### [Azure AD kiracısını değiştirme](remoteapp-changetenant.md)
+### [Office 365 kullanıcı hesapları](remoteapp-o365user.md)
+### [Verileri Güvenli Hale Getirme](remoteapp-secureaccess.md)
+### [Kullanıcı verileri](remoteapp-upd.md)
+## Müşteri deneyimi
+### [Desteklenen istemciler](remoteapp-clients.md)
+### [Yeniden yönlendirmeyi yapılandırma](remoteapp-redirection.md)
+### [İstemci en iyi uygulamaları](remoteapp-clientbestpractices.md)
+## RemoteApp'i otomatikleştirme
+### [RemoteApp PowerShell cmdlet'leri](remoteapp-tutorial-arawithpowershell.md)
+### [RemoteApp'i Azure Otomasyonu ile yönetme](automation-manage-remote-app.md)
+## RemoteApp ile güncel kalın
+### [Forumlar](http://feedback.azure.com/forums/247748-azure-remoteapp)
+### [Geri Bildirim](http://feedback.azure.com/forums/247748-azure-remoteapp)
+### [Destek](https://azure.microsoft.com/support/plans/)
+### [Hizmet durumu](https://azure.microsoft.com/status/)
+## Sorun giderme
+### [Karma koleksiyonunda sorun giderme](remoteapp-hybridtrouble.md)
+### [Bulut koleksiyonunda sorun giderme](remoteapp-cloudtrouble.md)
 
 
 <!--HONumber=Nov16_HO2-->

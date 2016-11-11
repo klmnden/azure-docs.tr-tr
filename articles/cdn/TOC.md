@@ -1,59 +1,59 @@
-# [Overview](cdn-overview.md)
-## [Azure CDN Best practices](../best-practices-cdn.md?toc=%2fazure%2fcdn%2ftoc.json)
-# Get Started
-## [Using Azure CDN](cdn-create-new-endpoint.md)
-## Get started with Azure CDN development
+# [Genel Bakış](cdn-overview.md)
+## [Azure CDN En İyi Uygulamaları](../best-practices-cdn.md?toc=%2fazure%2fcdn%2ftoc.json)
+# Kullanmaya Başlama
+## [Azure CDN'yi kullanma](cdn-create-new-endpoint.md)
+## Azure CDN ile geliştirmeye başlama
 ### [.NET](cdn-app-dev-net.md)
 ### [Node.js](cdn-app-dev-node.md)
 
-# How To
-## Integrate
-### [Integrate with Web Apps](../app-service-web/cdn-websites-with-cdn.md?toc=%2fazure%2fcdn%2ftoc.json)
-### [Integrate with Cloud Services](cdn-cloud-service-with-cdn.md)
-### [Integrate with Storage](cdn-create-a-storage-account-with-cdn.md)
-### [Cross-origin resource sharing](cdn-cors.md)
+# Nasıl yapılır?
+## Tümleştirme
+### [Web Apps ile tümleştirme](../app-service-web/cdn-websites-with-cdn.md?toc=%2fazure%2fcdn%2ftoc.json)
+### [Cloud Services ile tümleştirme](cdn-cloud-service-with-cdn.md)
+### [Depolama ile tümleştirme](cdn-create-a-storage-account-with-cdn.md)
+### [Çıkış noktaları arası kaynak paylaşma](cdn-cors.md)
 
-## Manage
-### [Manage with PowerShell](cdn-manage-powershell.md)
-### Configure time-to-live
-#### [Web Apps/Cloud Services, ASP.NET, or IIS content](cdn-manage-expiration-of-cloud-service-content.md)
-#### [Storage blob service content](cdn-manage-expiration-of-blob-content.md)
-### [Map a custom domain to CDN](cdn-map-content-to-custom-domain.md)
-### [Restrict access by country](cdn-restrict-access-by-country.md)
-### [Improve performance by compressing files](cdn-improve-performance.md)
-### Cache content by query string
-#### [Standard tier](cdn-query-string.md)
-#### [Premium tier](cdn-query-string-premium.md)
-### [Purge cached assets](cdn-purge-endpoint.md)
-### [Pre-load cached assets](cdn-preload-endpoint.md)
-### [Override behavior with rules](cdn-rules-engine.md)
-### [Get real-time alerts](cdn-real-time-alerts.md)
+## Yönet
+### [PowerShell ile Yönetme](cdn-manage-powershell.md)
+### Yaşam süresi yapılandırma
+#### [Web Apps/Cloud Services, ASP.NET veya IIS içeriği](cdn-manage-expiration-of-cloud-service-content.md)
+#### [Depolama blob hizmeti içeriği](cdn-manage-expiration-of-blob-content.md)
+### [Özel bir etki alanını CDN ile eşleştirme](cdn-map-content-to-custom-domain.md)
+### [Ülkeye göre erişimi kısıtlama](cdn-restrict-access-by-country.md)
+### [Dosyaları sıkıştırarak performansı geliştirme](cdn-improve-performance.md)
+### Sorgu dizesine göre içeriği önbelleğe alma
+#### [Standart katman](cdn-query-string.md)
+#### [Premium katman](cdn-query-string-premium.md)
+### [Önbelleğe alınan varlıkları temizleme](cdn-purge-endpoint.md)
+### [Önbelleğe alınan varlıkları önceden yükleme](cdn-preload-endpoint.md)
+### [Davranışı kurallarla geçersiz kılma](cdn-rules-engine.md)
+### [Gerçek zamanlı uyarılar alma](cdn-real-time-alerts.md)
 
-## Automate
-### [Manage with PowerShell](cdn-manage-powershell.md)
+## Otomatikleştirme
+### [PowerShell ile Yönetme](cdn-manage-powershell.md)
 
-## Analyze
-### [Analyze usage patterns](cdn-analyze-usage-patterns.md)
-### [Generate advanced HTTP reports](cdn-advanced-http-reports.md)
-### [View real-time statistics](cdn-real-time-stats.md)
-### [Analyze edge node performance](cdn-edge-performance.md)
+## Çözümleme
+### [Kullanım biçimlerini çözümleme](cdn-analyze-usage-patterns.md)
+### [Gelişmiş HTTP raporları oluşturma](cdn-advanced-http-reports.md)
+### [Gerçek zamanlı istatistikleri görüntüleme](cdn-real-time-stats.md)
+### [Kenar düğümü performansını çözümleme](cdn-edge-performance.md)
 
-## Develop
-### Get started with Azure CDN development
+## Geliştirme
+### Azure CDN ile geliştirmeye başlama
 #### [.NET](cdn-app-dev-net.md)
 #### [Node.js](cdn-app-dev-node.md)
 
-## Troubleshoot
-### [Troubleshoot 404 status](cdn-troubleshoot-endpoint.md)
-### [Troubleshoot file compression](cdn-troubleshoot-compression.md)
+## Sorun giderme
+### [404 durumu sorunlarını giderme](cdn-troubleshoot-endpoint.md)
+### [Dosya sıkıştırma sorunlarını giderme](cdn-troubleshoot-compression.md)
 
-# Reference
-## [REST API reference](https://msdn.microsoft.com/library/mt634456.aspx)
+# Başvuru
+## [REST API başvurusu](https://msdn.microsoft.com/library/mt634456.aspx)
 
-# Related
+# İlgili
 
-# Resources
-## [Azure CDN POP Locations](cdn-pop-locations.md)
+# Kaynaklar
+## [Azure CDN POP Konumları](cdn-pop-locations.md)
 
 
 <!--HONumber=Nov16_HO2-->
