@@ -1,0 +1,72 @@
+# Genel Bakış
+## [Service Bus Mesajlaşması nedir?](service-bus-queues-topics-subscriptions.md)
+## [Azure Kuyrukları ve Service Bus kuyruklarını karşılaştırması](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
+## [SSS](service-bus-faq.md)
+
+# Kullanmaya Başlama
+## [Ad alanı oluşturma](service-bus-create-namespace-portal.md)
+## Kuyrukları kullanma
+### [.NET](service-bus-dotnet-get-started-with-queues.md)
+### [Java](service-bus-java-how-to-use-queues.md)
+### [Node.js](service-bus-nodejs-how-to-use-queues.md)
+### [PHP](service-bus-php-how-to-use-queues.md)
+### [Python](service-bus-python-how-to-use-queues.md)
+### [Ruby](service-bus-ruby-how-to-use-queues.md)
+### [REST](service-bus-brokered-tutorial-rest.md)
+## Konuları ve abonelikleri kullanma
+### [.NET](service-bus-dotnet-how-to-use-topics-subscriptions.md)
+### [Java](service-bus-java-how-to-use-topics-subscriptions.md)
+### [Node.js](service-bus-nodejs-how-to-use-topics-subscriptions.md)
+### [PHP](service-bus-php-how-to-use-topics-subscriptions.md)
+### [Python](service-bus-python-how-to-use-topics-subscriptions.md)
+### [Ruby](service-bus-ruby-how-to-use-topics-subscriptions.md)
+## [Paylaşılan Erişim İmzaları oluşturma](service-bus-sas-overview.md)
+
+# Nasıl yapılır?
+## Planlama ve tasarım
+### [Performansı iyileştirme](service-bus-performance-improvements.md)
+### [Zaman uyumsuz mesajlaşma ve yüksek kullanılabilirlik](service-bus-async-messaging.md)
+### [Kesintileri ve olağanüstü durumları yönetme](service-bus-outages-disasters.md)
+
+## Geliştirme
+### [Kuyrukları kullanan uygulamalar](service-bus-create-queues.md)
+### [Konular/abonelikler kullanan uygulamalar](service-bus-create-topics-subscriptions.md)
+### [Kimlik doğrulama ve yetkilendirme](service-bus-authentication-and-authorization.md)
+### [Premium mesajlaşma](service-bus-premium-messaging.md)
+### [Bölümlenmiş kuyruklar ve konular](service-bus-partitioning.md)
+### [Teslim edilemeyen iletiler sırası](service-bus-dead-letter-queues.md)
+### [İşlem gerçekleştirme](service-bus-transactions.md)
+### [AMQP geliştirici kılavuzu]
+#### [.NET](service-bus-amqp-dotnet.md)
+#### [Java](service-bus-amqp-java.md)
+#### [PHP](service-bus-amqp-php.md)
+#### [Python](service-bus-amqp-python.md)
+#### [Apache](service-bus-amqp-apache.md)
+### [.NET API ile AMQP kullanma](service-bus-dotnet-advanced-message-queuing.md)
+### [Bölünmüş kuyruklar ve konular ile AMQP kullanma](service-bus-partitioned-queues-and-topics-amqp-overview.md)
+### [Eşleştirilen ad alanları](service-bus-paired-namespaces.md)
+### [Otomatik yönlendirme ile varlıklar arasında zincir oluşturma](service-bus-auto-forwarding.md)
+## Yönet
+### [ARM şablonlarını kullanma](service-bus-resource-manager-overview.md)
+### [Varlıkları sağlamak için PowerShell kullanma](service-bus-powershell-how-to-provision.md)
+
+# Başvuru
+## [Fiyatlandırma ayrıntıları](service-bus-pricing-billing.md)
+## [Örnekler](service-bus-samples.md)
+## [.NET API başvurusu](https://msdn.microsoft.com/library/azure/jj933424)
+## [REST API başvurusu](https://msdn.microsoft.com/library/azure/hh780717)
+## [Özel Durumlar](service-bus-messaging-exceptions.md)
+## [Kotalar](service-bus-quotas.md)
+
+# Kaynaklar
+## [Blog](https://blogs.msdn.microsoft.com/servicebus/)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/servicebus)
+## [MSDN forumları](https://social.msdn.microsoft.com/forums/home?forum=servbus)
+## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/service-bus/)
+## [Öğrenme yolu](https://azure.microsoft.com/documentation/learning-paths/service-bus/)
+## [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer)
+
+
+<!--HONumber=Nov16_HO2-->
+
+
