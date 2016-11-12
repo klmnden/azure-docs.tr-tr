@@ -1,56 +1,56 @@
-# Overview
-## [What is Stream Analytics?](stream-analytics-introduction.md)
-## [Stream Analytics Learning Path](https://azure.microsoft.com/documentation/learning-paths/stream-analytics/)
+# Genel Bakış
+## [Akış Analizi nedir?](stream-analytics-introduction.md)
+## [Akış Analizi Öğrenme Yolu](https://azure.microsoft.com/documentation/learning-paths/stream-analytics/)
 
-# Get started
-## [Process IoT streaming data](stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md)
-## [Real-time fraud detection](stream-analytics-real-time-fraud-detection.md)
+# Başlarken
+## [IoT akış verilerini işleme](stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md)
+## [Gerçek zamanlı sahtekarlık algılama](stream-analytics-real-time-fraud-detection.md)
 
-# How to
+# Nasıl yapılır?
 
-## Streaming solutions
-### [Build an IoT solution](stream-analytics-build-an-iot-solution-using-stream-analytics.md)
-### [Social media analysis](stream-analytics-twitter-sentiment-analysis-trends.md)
-### [Analyze sensor data with Power BI]https://gallery.cortanaanalytics.com/Tutorial/Sensor-Data-Analytics-with-ASA-and-Power-BI-2?fromlegacydomain=1)
-### [Real-time scoring with Machine Learning](stream-analytics-machine-learning-integration-tutorial.md)
-### [Reference architecture: Real-time event processing](stream-analytics-real-time-event-processing-reference-architecture.md)
+## Akış çözümleri
+### [IoT çözümü oluşturma](stream-analytics-build-an-iot-solution-using-stream-analytics.md)
+### [Sosyal medya analizi](stream-analytics-twitter-sentiment-analysis-trends.md)
+### [Power BI ile algılayıcı verilerini analiz etme]https://gallery.cortanaanalytics.com/Tutorial/Sensor-Data-Analytics-with-ASA-and-Power-BI-2?fromlegacydomain=1)
+### [Machine Learning ile gerçek zamanlı puanlama](stream-analytics-machine-learning-integration-tutorial.md)
+### [Başvuru mimarisi: Gerçek zamanlı olay işleme](stream-analytics-real-time-event-processing-reference-architecture.md)
 
-## Develop
-### [Common query patterns](stream-analytics-stream-analytics-query-patterns.md)
-### [Create inputs](stream-analytics-define-inputs.md)
-### [Create outputs](stream-analytics-define-outputs.md)
-### [Use reference data](stream-analytics-use-reference-data.md)
-### [Output to Azure Redis Cache](stream-analytics-functions-redis.md)
-### [Output to Data Lake Store](stream-analytics-data-lake-output.md)
-### [Output to DocumentDB](stream-analytics-documentdb-output.md)
-### [Analyze data with Power BI](stream-analytics-power-bi-dashboard.md)
-### [REST API & Machine Learning integration](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md)
-### [Use the Management .NET SDK](stream-analytics-dotnet-management-sdk.md)
-### [Window functions](stream-analytics-window-functions.md)
+## Geliştirme
+### [Sık sorulan soru yapıları](stream-analytics-stream-analytics-query-patterns.md)
+### [Girdileri oluştur](stream-analytics-define-inputs.md)
+### [Çıktıları oluştur](stream-analytics-define-outputs.md)
+### [Başvuru verilerini kullanma](stream-analytics-use-reference-data.md)
+### [Azure Redis Önbelleği’ne çıktı sağlama](stream-analytics-functions-redis.md)
+### [Data Lake Store’a çıktı sağlama](stream-analytics-data-lake-output.md)
+### [DocumentDB’ye çıktı sağlama](stream-analytics-documentdb-output.md)
+### [Power BI ile veri analizi](stream-analytics-power-bi-dashboard.md)
+### [REST API ve Machine Learning tümleştirmesi](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md)
+### [Yönetim .NET SDK’sini kullanma](stream-analytics-dotnet-management-sdk.md)
+### [Pencere işlevleri](stream-analytics-window-functions.md)
 
-## Manage
-### [Monitor jobs](stream-analytics-monitoring.md)
-### [Monitor jobs programmatically](stream-analytics-monitor-jobs.md)
-### [Monitor jobs with PowerShell](stream-analytics-monitor-and-manage-jobs-use-powershell.md)
-### [Scale to increase throughput](stream-analytics-scale-jobs.md)
-### [Scale for Machine Learning functions](stream-analytics-scale-with-machine-learning-functions.md)
-### [Rotate input & output credentials](stream-analytics-login-credentials-inputs-outputs.md)
+## Yönet
+### [İşleri izleme](stream-analytics-monitoring.md)
+### [Programlama yoluyla işleri izleme](stream-analytics-monitor-jobs.md)
+### [PowerShell ile işleri izleme](stream-analytics-monitor-and-manage-jobs-use-powershell.md)
+### [İşlemeyi artırmak için ölçeklendirme](stream-analytics-scale-jobs.md)
+### [Machine Learning işlevleri ölçeği](stream-analytics-scale-with-machine-learning-functions.md)
+### [Giriş ve çıkış kimlik bilgilerini döndürme](stream-analytics-login-credentials-inputs-outputs.md)
 
-## Automate
-### [One-click PowerShell](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick)
+## Otomatikleştirme
+### [Tek tıklamayla PowerShell](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick)
 
-# Reference
-## [Query language](https://msdn.microsoft.com/library/azure/dn834998)
+# Başvuru
+## [Sorgu dili](https://msdn.microsoft.com/library/azure/dn834998)
 ## [REST API](https://msdn.microsoft.com/library/azure/dn835031)
 ## [PowerShell](https://msdn.microsoft.com/library/azure/mt270341)
 ## [.NET SDK](https://msdn.microsoft.com/library/azure/mt416896)
-## [Compare Storm & Stream Analytics](stream-analytics-comparison-storm.md)
-## [Release notes](stream-analytics-release-notes.md)
-# Resources
-## [MSDN blog](http://blogs.msdn.com/b/streamanalytics/)
-## [MSDN forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+## [Storm ve Akış Analizi Karşılaştırması](stream-analytics-comparison-storm.md)
+## [Sürüm notları](stream-analytics-release-notes.md)
+# Kaynaklar
+## [MSDN blog’u](http://blogs.msdn.com/b/streamanalytics/)
+## [MSDN forumu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-stream-analytics)
-## [Feedback forum](http://feedback.azure.com/forums/270577-azure-stream-analytics)
+## [Geri Bildirim forumu](http://feedback.azure.com/forums/270577-azure-stream-analytics)
 
 
 <!--HONumber=Nov16_HO2-->

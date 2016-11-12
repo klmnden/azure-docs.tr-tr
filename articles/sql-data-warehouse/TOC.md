@@ -1,155 +1,146 @@
-# Overview
+# Genel Bakış
 
-## [What is SQL Data Warehouse?](sql-data-warehouse-overview-what-is.md)
-## [How does pricing work?](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)
-## Learn
+## [SQL Veri Ambarı nedir?](sql-data-warehouse-overview-what-is.md)
+## [Veri ambarı iş yükü](sql-data-warehouse-overview-workload.md)
+## [Dağıtılmış veriler](sql-data-warehouse-distributed-data.md)
 
-### [Data warehouse workload](sql-data-warehouse-overview-workload.md)
-### [Distributed data](sql-data-warehouse-distributed-data.md)
+# Kullanmaya Başlama
 
-# Get Started
+## SQL Data Warehouse oluşturma
+### [Azure Portal](sql-data-warehouse-get-started-provision.md)
+### [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
+### [T-SQL](sql-data-warehouse-get-started-create-database-tsql.md)
+## [En iyi uygulamalar](sql-data-warehouse-best-practices.md)
+## [Yönetme](sql-data-warehouse-overview-manage.md)
+## [Destek alın](sql-data-warehouse-get-started-create-support-ticket.md)
 
-## Create
+# Nasıl yapılır?
 
-### [Create - portal](sql-data-warehouse-get-started-provision.md)
-### [Create - PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
-### [Create - T-SQL](sql-data-warehouse-get-started-create-database-tsql.md)
+## Yedekleme ve geri yükleme
 
-## [Connect](sql-data-warehouse-query-ssms.md)
-## [Best practices](sql-data-warehouse-best-practices.md)
-## [Develop](sql-data-warehouse-overview-develop.md)
-## [Manage](sql-data-warehouse-overview-manage.md)
-## [Get support](sql-data-warehouse-get-started-create-support-ticket.md)
+### [Backup’a Genel Bakış](sql-data-warehouse-backups.md)
+### [Geri Yüklemeye Genel Bakış](sql-data-warehouse-restore-database-overview.md)
+#### [Azure Portal](sql-data-warehouse-restore-database-portal.md)
+#### [PowerShell](sql-data-warehouse-restore-database-powershell.md)
+#### [REST](sql-data-warehouse-restore-database-rest-api.md)
 
-# How To
+## Bağlan
 
-## Backup and restore
+### [Genel Bakış](sql-data-warehouse-connect-overview.md)
+### [Bağlantı dizeleri](sql-data-warehouse-connection-strings.md)
+### Sorgu
+#### [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
+#### [SSMS](sql-data-warehouse-query-ssms.md)
+#### [Visual Studio](sql-data-warehouse-query-visual-studio.md)
+### [Visual Studio yükleme](sql-data-warehouse-install-visual-studio.md)
 
-### [Backup Overview](sql-data-warehouse-backups.md)
-### [Restore Overview](sql-data-warehouse-restore-database-overview.md)
-### [Restore - Portal](sql-data-warehouse-restore-database-portal.md)
-### [Restore - PowerShell](sql-data-warehouse-restore-database-powershell.md)
-### [Restore - REST](sql-data-warehouse-restore-database-rest-api.md)
+## Geliştirme
 
-## Connect
+### [Genel Bakış](sql-data-warehouse-overview-develop.md)
 
-### [Overview](sql-data-warehouse-connect-overview.md)
-### [Connection strings](sql-data-warehouse-connection-strings.md)
-### [Connect - sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
-### [Connect - SSMS](sql-data-warehouse-query-ssms.md)
-### [Connect - Visual Studio](sql-data-warehouse-query-visual-studio.md)
-### [Install Visual Studio](sql-data-warehouse-install-visual-studio.md)
+### Tablolar
 
-## Develop
-
-### [Overview](sql-data-warehouse-overview-develop.md)
-
-### Tables
-
-#### [Overview](sql-data-warehouse-tables-overview.md)
+#### [Genel Bakış](sql-data-warehouse-tables-overview.md)
 #### [CTAS](sql-data-warehouse-develop-ctas.md)
-#### [Data types](sql-data-warehouse-tables-data-types.md)
-#### [Distributed tables](sql-data-warehouse-tables-distribute.md)
-#### [Indexes](sql-data-warehouse-tables-index.md)
-#### [Partitions](sql-data-warehouse-tables-partition.md)
-#### [Statistics](sql-data-warehouse-tables-statistics.md)
-#### [Temporary](sql-data-warehouse-tables-temporary.md)
+#### [Veri türleri](sql-data-warehouse-tables-data-types.md)
+#### [Dağıtılmış tablolar](sql-data-warehouse-tables-distribute.md)
+#### [Dizinler](sql-data-warehouse-tables-index.md)
+#### [Bölümler](sql-data-warehouse-tables-partition.md)
+#### [İstatistikler](sql-data-warehouse-tables-statistics.md)
+#### [Geçici](sql-data-warehouse-tables-temporary.md)
 
-### Queries
+### Sorgular
 
-#### [Dynamic SQL](sql-data-warehouse-develop-dynamic-sql.md)
-#### [Group by options](sql-data-warehouse-develop-group-by-options.md)
-#### [Labels](sql-data-warehouse-develop-label.md)
+#### [Dinamik SQL](sql-data-warehouse-develop-dynamic-sql.md)
+#### [Seçeneklere göre gruplandırma](sql-data-warehouse-develop-group-by-options.md)
+#### [Etiketler](sql-data-warehouse-develop-label.md)
 
-### T-SQL language elements
+### T-SQL dil öğeleri
 
-#### [Loops](sql-data-warehouse-develop-loops.md)
-#### [Stored procedures](sql-data-warehouse-develop-stored-procedures.md)
-#### [Transactions](sql-data-warehouse-develop-transactions.md)
-#### [Transactions Best Practices](sql-data-warehouse-develop-best-practices-transactions.md)
-#### [User-defined schemas](sql-data-warehouse-develop-user-defined-schemas.md)
-#### [Variable assignment](sql-data-warehouse-develop-variable-assignment.md)
-#### [Views](sql-data-warehouse-develop-views.md)
+#### [Döngüler](sql-data-warehouse-develop-loops.md)
+#### [Saklı yordamlar](sql-data-warehouse-develop-stored-procedures.md)
+#### [İşlemler](sql-data-warehouse-develop-transactions.md)
+#### [En iyi İşlem Uygulamaları](sql-data-warehouse-develop-best-practices-transactions.md)
+#### [Kullanıcı tanımlı şemalar](sql-data-warehouse-develop-user-defined-schemas.md)
+#### [Değişken ataması](sql-data-warehouse-develop-variable-assignment.md)
+#### [Görünümler](sql-data-warehouse-develop-views.md)
 
-## Integrate
+## Tümleştirme
 
-### [Overview](sql-data-warehouse-overview-integrate.md)
+### [Genel Bakış](sql-data-warehouse-overview-integrate.md)
 ### [Data Factory](sql-data-warehouse-integrate-azure-data-factory.md)
 ### [Machine Learning](sql-data-warehouse-integrate-azure-machine-learning.md)
-### [Machine Learning tutorial](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
+### [Machine Learning öğreticisi](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 ### [Power BI](sql-data-warehouse-integrate-power-bi.md)
-### [Power BI visualization](sql-data-warehouse-get-started-visualize-with-power-bi.md)
-### [Stream Analytics](sql-data-warehouse-integrate-azure-stream-analytics.md)
+### [Power BI görselleştirme](sql-data-warehouse-get-started-visualize-with-power-bi.md)
+### [Akış Analizi](sql-data-warehouse-integrate-azure-stream-analytics.md)
 
-## Load
+## Yükleme
 
-### [Overview](sql-data-warehouse-overview-load.md)
-### [Sample data](sql-data-warehouse-load-sample-databases.md)
-### [Load - AZCopy](sql-data-warehouse-load-from-sql-server-with-azcopy.md)
-### [Load - bcp](sql-data-warehouse-load-with-bcp.md)
-### [Load - bcp from SQL Server](sql-data-warehouse-load-from-sql-server-with-bcp.md)
-### [Load - Data Factory](sql-data-warehouse-get-started-load-with-azure-data-factory.md)
-### [Load - Data Factory from blob storage](sql-data-warehouse-load-from-azure-blob-storage-with-data-factory.md)
-### [Load - PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)
-### [Load - PolyBase guidance](sql-data-warehouse-load-polybase-guide.md)
-### [Load - PolyBase from blob storage](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
-### [Load - PolyBase from SQL Server](sql-data-warehouse-load-from-sql-server-with-polybase.md)
-### [Load - RedGate](sql-data-warehouse-load-with-redgate.md)
-### [Load - SSIS](sql-data-warehouse-load-from-sql-server-with-integration-services.md)
+### [Genel Bakış](sql-data-warehouse-overview-load.md)
+### [Örnek veriler](sql-data-warehouse-load-sample-databases.md)
+### [AzCopy](sql-data-warehouse-load-from-sql-server-with-azcopy.md)
+### [BCP](sql-data-warehouse-load-with-bcp.md)
+### [SQL Server'dan BCP](sql-data-warehouse-load-from-sql-server-with-bcp.md)
+### [Data Factory](sql-data-warehouse-get-started-load-with-azure-data-factory.md)
+### [Blob depolamadan Data Factory](sql-data-warehouse-load-from-azure-blob-storage-with-data-factory.md)
+### [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)
+### [PolyBase kılavuzu](sql-data-warehouse-load-polybase-guide.md)
+### [Blob depolamadan PolyBase](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
+### [SQL Server’dan PolyBase](sql-data-warehouse-load-from-sql-server-with-polybase.md)
+### [RedGate](sql-data-warehouse-load-with-redgate.md)
+### [SSIS](sql-data-warehouse-load-from-sql-server-with-integration-services.md)
 
-## Migrate
+## Geçiş
 
-### [Overview](sql-data-warehouse-overview-migrate.md)
-### [Migration Utility](sql-data-warehouse-migrate-migration-utility.md)
-### [Migrate schema](sql-data-warehouse-migrate-schema.md)
-### [Migrate code](sql-data-warehouse-migrate-code.md)
-### [Migrate data](sql-data-warehouse-migrate-data.md)
-### [Migrate to premium storage](sql-data-warehouse-migrate-to-premium-storage.md)
+### [Genel Bakış](sql-data-warehouse-overview-migrate.md)
+### [Geçiş Yardımcı Programı](sql-data-warehouse-migrate-migration-utility.md)
+### [Geçiş şeması](sql-data-warehouse-migrate-schema.md)
+### [Geçiş kodu](sql-data-warehouse-migrate-code.md)
+### [Geçiş verileri](sql-data-warehouse-migrate-data.md)
+### [Premium depolamaya geçiş](sql-data-warehouse-migrate-to-premium-storage.md)
 
-## Pause and scale
+## Duraklatma ve ölçeklendirme
 
-### [Overview](sql-data-warehouse-manage-compute-overview.md)
-### [Pause and scale - portal](sql-data-warehouse-manage-compute-portal.md)
-### [Pause and scale - PowerShell](sql-data-warehouse-manage-compute-powershell.md)
-### [Pause and scale - REST API](sql-data-warehouse-manage-compute-rest-api.md)
-### [Pause and scale - T-SQL](sql-data-warehouse-manage-compute-tsql.md)
+### [Genel Bakış](sql-data-warehouse-manage-compute-overview.md)
+### [Azure Portal](sql-data-warehouse-manage-compute-portal.md)
+### [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
+### [REST API](sql-data-warehouse-manage-compute-rest-api.md)
+### [T-SQL](sql-data-warehouse-manage-compute-tsql.md)
 
-## Performance
+## Performans
 
-### [Overview](sql-data-warehouse-overview-manage-user-queries.md)
-### [Queries](sql-data-warehouse-manage-monitor.md)
-### [Workload](sql-data-warehouse-develop-concurrency.md)
-### [Troubleshoot](sql-data-warehouse-troubleshoot.md)
+### [Genel Bakış](sql-data-warehouse-overview-manage-user-queries.md)
+### [Sorgular](sql-data-warehouse-manage-monitor.md)
+### [İş yükü](sql-data-warehouse-develop-concurrency.md)
+### [Sorun giderme](sql-data-warehouse-troubleshoot.md)
 
-## Security
+## Güvenlik
 
-### [Overview](sql-data-warehouse-overview-manage-security.md)
-### [Auditing](sql-data-warehouse-auditing-overview.md)
-### [Auditing for down-level clients](sql-data-warehouse-auditing-downlevel-clients.md)
-### [Authentication](sql-data-warehouse-authentication.md)
-### [Encryption](sql-data-warehouse-encryption-tde.md)
-### [Encryption with T-SQL](sql-data-warehouse-encryption-tde-tsql.md)
-### [Threat detection](sql-data-warehouse-security-threat-detection.md)
+### [Genel Bakış](sql-data-warehouse-overview-manage-security.md)
+### [Denetim](sql-data-warehouse-auditing-overview.md)
+### [Alt düzey istemciler için denetim](sql-data-warehouse-auditing-downlevel-clients.md)
+### [Kimlik doğrulaması](sql-data-warehouse-authentication.md)
+### [Şifreleme](sql-data-warehouse-encryption-tde.md)
+### [T-SQL ile şifreleme](sql-data-warehouse-encryption-tde-tsql.md)
+### [Tehdit algılama](sql-data-warehouse-security-threat-detection.md)
 
-# Reference
+# Başvuru
 
-## [Overview](sql-data-warehouse-overview-reference.md)
-## [Capacity limits](sql-data-warehouse-service-capacity-limits.md)
-## [T-SQL language elements](sql-data-warehouse-reference-tsql-language-elements.md)
-## [T-SQL statements](sql-data-warehouse-reference-tsql-statements.md)
-## [T-SQL system views](sql-data-warehouse-reference-tsql-system-views.md)
-## [PowerShell cmdlets](sql-data-warehouse-reference-powershell-cmdlets.md)
+## [Kapasite sınırları](sql-data-warehouse-service-capacity-limits.md)
+## [T-SQL dil öğeleri](sql-data-warehouse-reference-tsql-language-elements.md)
+## [T-SQL bildirimleri](sql-data-warehouse-reference-tsql-statements.md)
+## [T-SQL sistem görünümleri](sql-data-warehouse-reference-tsql-system-views.md)
+## [PowerShell cmdlet'leri](sql-data-warehouse-reference-powershell-cmdlets.md)
 
-# Resources
+# Kaynaklar
+## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)
+## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw/)
 
-## Partners
-
-### [Business intelligence](sql-data-warehouse-partner-business-intelligence.md)
-### [Data integration](sql-data-warehouse-partner-data-integration.md)
-### [Data management](sql-data-warehouse-partner-data-management.md)
-
-
-
+## İş Ortakları
+### [İş zekası](sql-data-warehouse-partner-business-intelligence.md)
+### [Veri tümleştirmesi](sql-data-warehouse-partner-data-integration.md)
+### [Veri yönetimi](sql-data-warehouse-partner-data-management.md)
 
 
 <!--HONumber=Nov16_HO2-->

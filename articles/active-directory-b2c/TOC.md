@@ -1,59 +1,59 @@
-# Overview
-## [What is Azure AD B2C](https://azure.microsoft.com/services/active-directory-b2c/)
-## [How it works](active-directory-b2c-overview.md)
-## [Types of applications](active-directory-b2c-apps.md)
-## [Production-scale vs preview B2C tenants](active-directory-b2c-reference-tenant-type.md)
+# Genel Bakış
+## [Azure AD B2C nedir?](https://azure.microsoft.com/services/active-directory-b2c/)
+## [Nasıl çalışır?](active-directory-b2c-overview.md)
+## [Uygulama türleri](active-directory-b2c-apps.md)
+## [Üretim ölçeği - B2C kiracılarını önizleme](active-directory-b2c-reference-tenant-type.md)
 
-# Get Started
-## [Create an Azure AD B2C Directory](active-directory-b2c-get-started.md)
-## [Register your application](active-directory-b2c-app-registration.md)
-## Quickstart Guides
-### [Build an iOS app](active-directory-b2c-devquickstarts-ios.md)
-### [Build an Android app](active-directory-b2c-devquickstarts-android.md)
-### [Build a Node.Js Web API](active-directory-b2c-devquickstarts-api-node.md)
-### [Build a .NET Web App](active-directory-b2c-devquickstarts-web-dotnet.md)
-#### [Sign up and sign in on an ASP.NET web app](active-directory-b2c-devquickstarts-web-dotnet-susi.md)
-### [Build a .NET Web API](active-directory-b2c-devquickstarts-api-dotnet.md)
-### [Build a Windows desktop app](active-directory-b2c-devquickstarts-native-dotnet.md)
-### [Call a web API from a .NET web app](active-directory-b2c-devquickstarts-web-api-dotnet.md)
-### [Use the Azure AD Graph API](active-directory-b2c-devquickstarts-graph-dotnet.md)
-### [Add sign-in to a Node.js web app](active-directory-b2c-devquickstarts-web-node.md)
-## [Frequently asked questions](active-directory-b2c-faqs.md)
+# Kullanmaya Başlama
+## [Azure AD B2C dizini oluşturma](active-directory-b2c-get-started.md)
+## [Uygulamanızı kaydetme](active-directory-b2c-app-registration.md)
+## Hızlı Başlangıç Kılavuzları
+### [iOS uygulaması oluşturma](active-directory-b2c-devquickstarts-ios.md)
+### [Android uygulaması oluşturma](active-directory-b2c-devquickstarts-android.md)
+### [Node.Js Web API’si oluşturma](active-directory-b2c-devquickstarts-api-node.md)
+### [.NET Web Uygulaması oluşturma](active-directory-b2c-devquickstarts-web-dotnet.md)
+#### [ASP.NET web uygulamasına kaydolma ve oturum açma](active-directory-b2c-devquickstarts-web-dotnet-susi.md)
+### [.NET Web API’si oluşturma](active-directory-b2c-devquickstarts-api-dotnet.md)
+### [Windows masaüstü uygulaması oluşturma](active-directory-b2c-devquickstarts-native-dotnet.md)
+### [.NET web uygulamasından web API çağırma](active-directory-b2c-devquickstarts-web-api-dotnet.md)
+### [Azure AD Grafik API’sini kullanma](active-directory-b2c-devquickstarts-graph-dotnet.md)
+### [Node.js web uygulamasına oturum açma ekleme](active-directory-b2c-devquickstarts-web-node.md)
+## [Sık sorulan sorular](active-directory-b2c-faqs.md)
 
-# How To
-## Manage
-### [Enable multi-factor authentication](active-directory-b2c-reference-mfa.md)
-### [Set up self-service password reset](active-directory-b2c-reference-sspr.md)
-### [Token, session, and SSO configuration](active-directory-b2c-token-session-sso.md)
-## Develop
-### Sign up and sign in
-#### [Microsoft Account](active-directory-b2c-setup-msa-app.md)
+# Nasıl yapılır?
+## Yönet
+### [Multi-factor authentication’ı etkinleştirme](active-directory-b2c-reference-mfa.md)
+### [Self servis parola sıfırlamayı ayarlama](active-directory-b2c-reference-sspr.md)
+### [Belirteç, oturum ve SSO yapılandırma](active-directory-b2c-token-session-sso.md)
+## Geliştirme
+### Kaydolma ve oturum açma
+#### [Microsoft Hesabı](active-directory-b2c-setup-msa-app.md)
 #### [Facebook](active-directory-b2c-setup-fb-app.md)
 #### [Google+](active-directory-b2c-setup-goog-app.md)
 #### [Amazon](active-directory-b2c-setup-amzn-app.md)
 #### [LinkedIn](active-directory-b2c-setup-li-app.md)
-### [Use custom attributes](active-directory-b2c-reference-custom-attr.md)
-### [OAuth 2.0 authorization code flow](active-directory-b2c-reference-oauth-code.md)
-### [Web sign-in with OpenID Connect](active-directory-b2c-reference-oidc.md)
-### [Customize the user interface](active-directory-b2c-reference-ui-customization.md)
-#### [Helper tool for customization](active-directory-b2c-reference-ui-customization-helper-tool.md)
-## Troubleshoot
-### [Issues when creating a directory](active-directory-b2c-support-create-directory.md)
+### [Özel öznitelikler kullanma](active-directory-b2c-reference-custom-attr.md)
+### [OAuth 2.0 yetkilendirme kod akışı](active-directory-b2c-reference-oauth-code.md)
+### [OpenID Connect ile web oturumu açma](active-directory-b2c-reference-oidc.md)
+### [Kullanıcı arabirimini özelleştirme](active-directory-b2c-reference-ui-customization.md)
+#### [Özelleştirme için yardımcı aracı](active-directory-b2c-reference-ui-customization-helper-tool.md)
+## Sorun giderme
+### [Dizin oluştururken yaşanan sorunlar](active-directory-b2c-support-create-directory.md)
 
-# Reference
-## [Limitations & Restrictions](active-directory-b2c-limitations.md)
-## [Extensible policy framework](active-directory-b2c-reference-policies.md)
-## [Authentication Protocols](active-directory-b2c-reference-protocols.md)
-## [Tokens](active-directory-b2c-reference-tokens.md)
+# Başvuru
+## [Sınırlamalar ve Kısıtlamalar](active-directory-b2c-limitations.md)
+## [Genişletilebilir ilke çerçevesi](active-directory-b2c-reference-policies.md)
+## [Kimlik doğrulama protokolleri](active-directory-b2c-reference-protocols.md)
+## [Belirteçler](active-directory-b2c-reference-tokens.md)
 
-# Related
+# İlgili
 ## [Azure Active Directory](../active-directory/active-directory-whatis.md)
-## [Multi-factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
+## [Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
 
-# Resources
-## [Support](active-directory-b2c-support.md)
-## [Pricing](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
-## [Azure feedback forum](http://feedback.azure.com/forums/169401-azure-active-directory)
+# Kaynaklar
+## [Destek](active-directory-b2c-support.md)
+## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
+## [Azure geri bildirim forumu](http://feedback.azure.com/forums/169401-azure-active-directory)
 
 <!--HONumber=Nov16_HO2-->
 

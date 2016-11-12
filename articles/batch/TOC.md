@@ -1,44 +1,44 @@
-# Overview
-## [Batch basics](batch-technical-overview.md)
-## [Batch feature overview](batch-api-basics.md)
-## [Batch quotas and limits](batch-quota-limit.md)
-# Get Started
-## [Create a Batch account](batch-account-create-portal.md)
-## [Batch .NET tutorial](batch-dotnet-get-started.md)
-## [Batch Python tutorial](batch-python-tutorial.md)
-# How To
-## Develop
-### [Application packages](batch-application-packages.md)
-### [Autoscale compute nodes](batch-automatic-scaling.md)
-### [Concurrent node tasks](batch-parallel-node-tasks.md)
-### [Efficient list queries](batch-efficient-list-queries.md)
-### [Job preparation and completion tasks](batch-job-prep-release.md)
-### [Linux compute nodes](batch-linux-nodes.md)
-### [Manage Batch accounts with Batch Management .NET](batch-management-dotnet.md)
-### [Persist job and task output](batch-task-output.md)
-### [Run MPI jobs in Batch](batch-mpi.md)
-### [Task dependencies](batch-task-dependencies.md)
-### [Visual Studio project templates for Batch](batch-visual-studio-templates.md)
-## Manage
+# Genel Bakış
+## [Batch temel bilgileri](batch-technical-overview.md)
+## [Batch özelliklerine genel bakış](batch-api-basics.md)
+## [Batch kotaları ve sınırlamaları](batch-quota-limit.md)
+# Kullanmaya Başlama
+## [Batch hesabı oluşturma](batch-account-create-portal.md)
+## [Batch .NET öğreticisi](batch-dotnet-get-started.md)
+## [Batch Python öğreticisi](batch-python-tutorial.md)
+# Nasıl yapılır?
+## Geliştirme
+### [Uygulama paketleri](batch-application-packages.md)
+### [İşlem düğümlerini otomatik ölçeklendirme](batch-automatic-scaling.md)
+### [Eşzamanlı düğüm görevleri](batch-parallel-node-tasks.md)
+### [Etkili liste sorguları](batch-efficient-list-queries.md)
+### [İş hazırlığı ve tamamlama görevleri](batch-job-prep-release.md)
+### [Linux işlem düğümleri](batch-linux-nodes.md)
+### [Toplu İşlem Yönetimi .NET ile Batch hesaplarını yönetme](batch-management-dotnet.md)
+### [İş ve görev çıktılarını kalıcı hale getirme](batch-task-output.md)
+### [Batch’de MPI işlerini çalıştırma](batch-mpi.md)
+### [Görev bağımlılıkları](batch-task-dependencies.md)
+### [Batch için Visual Studio proje şablonları](batch-visual-studio-templates.md)
+## Yönet
 ### [Batch CLI](batch-cli-get-started.md)
-### [Batch PowerShell cmdlets](batch-powershell-cmdlets-get-started.md)
-### [Batch diagnostic logs](batch-diagnostics.md)
-# Reference
-## [Batch REST API reference](https://go.microsoft.com/fwlink/p/?linkid=833492)
-## [Batch .NET reference](https://go.microsoft.com/fwlink/p/?linkid=833494)
-## [Batch Python reference](https://go.microsoft.com/fwlink/p/?linkid=833496)
-## [Batch Node.js reference](https://go.microsoft.com/fwlink/p/?linkid=833544)
-## [Batch Java reference](https://go.microsoft.com/fwlink/p/?linkid=833497)
-## [Batch Management .NET reference](https://go.microsoft.com/fwlink/p/?linkid=833498)
-## [Batch PowerShell reference](https://go.microsoft.com/fwlink/p/?linkid=833500)
-# Related
-## [Batch and HPC solutions in the Azure cloud](batch-hpc-solutions.md)
-## [Big Compute in Azure: Technical resources](big-compute-resources.md)
-# Resources
-## [Service Updates](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=))
-## [MSDN Forum](https://social.msdn.microsoft.com/Forums/home?forum=azurebatch)
-## [Batch C# code samples](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
-## [Batch Python code samples](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
+### [Batch PowerShell cmdlet’leri](batch-powershell-cmdlets-get-started.md)
+### [Batch tanılama günlükleri](batch-diagnostics.md)
+# Başvuru
+## [Batch REST API’si Başvurusu](https://go.microsoft.com/fwlink/p/?linkid=833492)
+## [Batch .NET başvurusu](https://go.microsoft.com/fwlink/p/?linkid=833494)
+## [Batch Python başvurusu](https://go.microsoft.com/fwlink/p/?linkid=833496)
+## [Batch Node.js başvurusu](https://go.microsoft.com/fwlink/p/?linkid=833544)
+## [Batch Java başvurusu](https://go.microsoft.com/fwlink/p/?linkid=833497)
+## [Batch Yönetimi .NET başvurusu](https://go.microsoft.com/fwlink/p/?linkid=833498)
+## [Batch PowerShell başvurusu](https://go.microsoft.com/fwlink/p/?linkid=833500)
+# İlgili
+## [Azure bulutta Batch ve HPC çözümleri](batch-hpc-solutions.md)
+## [Azure’da Big Compute: Teknik kaynaklar](big-compute-resources.md)
+# Kaynaklar
+## [Hizmet Güncelleştirmeleri](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=))
+## [MSDN Forumu](https://social.msdn.microsoft.com/Forums/home?forum=azurebatch)
+## [Batch C# kod örnekleri](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
+## [Batch Python kod örnekleri](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
 ## [Batch Shipyard](https://github.com/Azure/batch-shipyard)
 
 

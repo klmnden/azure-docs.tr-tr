@@ -1,67 +1,67 @@
-# Compute
-## [Container Service](/azure/container-service/)
+# İşlem
+## [Kapsayıcı Hizmeti](/azure/container-service/)
 ## [Batch](/azure/batch/)
-## [Cloud Services](/azure/cloud-services/)
-## [Functions](/azure/functions/)
+## [Bulut hizmetleri](/azure/cloud-services/)
+## [İşlevler](/azure/functions/)
 ## [Service Fabric](/azure/service-fabric/)
-## [Virtual Machines](/azure/virtual-machines/)
-### [Linux VMs](/azure/virtual-machines/linux/)
-### [Windows VMs](/azure/virtual-machines/windows/)
-## [Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/)
+## [Sanal Makineler](/azure/virtual-machines/)
+### [Linux VM'leri](/azure/virtual-machines/linux/)
+### [Windows VM’leri](/azure/virtual-machines/windows/)
+## [Sanal Makine Ölçek Kümeleri](/azure/virtual-machine-scale-sets/)
 ## [Resource Manager](/azure/azure-resource-manager/)
-# Data and Databases
+# Veriler ve Veritabanları
 ## [DocumentDB](/azure/documentdb/)
-## [Redis Cache](/azure/redis-cache/)
-## [SQL Data Warehouse](/azure/sql-data-warehouse/)
-## [SQL Database](/azure/sql-database/)
+## [Redis önbelleği](/azure/redis-cache/)
+## [SQL Veri Ambarı](/azure/sql-data-warehouse/)
+## [SQL Veritabanı](/azure/sql-database/)
 ## [SQL Server Stretch DB](/azure/sql-server-stretch-database/)
-# Developer Tools
-## [DevTest Lab](/azure/devtest-lab/)
-## [Best Practices](/azure/guidance/)
-# Enterprise Integration
-## [Biztalk Services](/azure/biztalk-services/)
+# Geliştirici Araçları
+## [Devtest Lab](/azure/devtest-lab/)
+## [En İyi Uygulamalar](/azure/guidance/)
+# Kurumsal Tümleştirme
+## [BizTalk Services](/azure/biztalk-services/)
 ## [Service Bus](/azure/service-bus/)
 ## [Azure Stack](/azure/azure-stack/)
-# Intelligence & Analytics
-## [Cognitive Services](/azure/cognitive-services/)
-## [Data Catalog](/azure/data-catalog/)
+# Zeka ve Analiz
+## [Bilişsel Hizmetler](/azure/cognitive-services/)
+## [Veri Kataloğu](/azure/data-catalog/)
 ## [Data Factory](/azure/data-factory/)
 ## [Data Lake Analytics](/azure/data-lake-analytics/)
 ## [HDInsights](/azure/hdinsights/)
 ## [Machine Learning](/azure/macine-learning/)
 ## [PowerBI Embedded](/azure/powerbi-embedded/)
-## [Stream Analytics](/azure/stream-analytics/)
-# Internet of Things
+## [Akış Analizi](/azure/stream-analytics/)
+# Nesnelerin İnterneti
 ## [Event Hubs](/azure/event-hubs/)
-## [IoT Hub](/azure/iot-hub/)
+## [IoT Hub’ı](/azure/iot-hub/)
 ## [IoT Suite](/azure/iot-suite/)
-# Monitoring & Management
-## [Billing](/azure/billing/)
+# İzleme + Yönetim
+## [Faturalandırma](/azure/billing/)
 ## [Operations Management Suite](/azure/operations-management-suite/)
 ## [Site Recovery](/azure/site-recovery/)
 ## [Application Insights](/azure/application-insights/)
-# Networking
+# Ağ
 ## [Application Gateway](/azure/application-gateway/)
 ## [CDN](/azure/cdn/)
 ## [DNS](/azure/dns/)
 ## [ExpressRoute](/azure/expressroute/)
-## [Load Balancer](/azure/load-balancer/)
+## [Yük Dengeleyici](/azure/load-balancer/)
 ## [Traffic Manager](/azure/traffic-manager/)
-## [Virtual Network](/azure/virtual-network/)
+## [Sanal Ağ](/azure/virtual-network/)
 ## [VPN Gateway](/azure/vpn-gateway/)
-# Security & Identity
-## [Security Center](/azure/security-center/)
+# Güvenlik ve Kimlik
+## [Güvenlik Merkezi](/azure/security-center/)
 ## [Active Directory](/azure/active-directory/)
 ## [Active Directory B2C](/azure/active-directory-b2c/)
 ## [Active Directory Domain Services](/azure/active-directory-domain-services/)
 ## [KeyVault](/azure/key-vault/)
-## [Multifactor Authentication](/azure/multi-factor-authentication/)
-# Storage
+## [Multi-Factor Authentication](/azure/multi-factor-authentication/)
+# Depolama
 ## [Backup](/azure/backup/)
 ## [Data Lake Store](/azure/data-lake-store/)
-## [Storage](/azure/storage/)
+## [Depolama](/azure/storage/)
 ## [StorSimple](/azure/storsimple/)
-# Web + Mobile
+# Web + Mobil
 ## [API Management](/azure/api-management/)
 ## [App Service](/azure/app-service/)
 ## [Logic Apps](/azure/app-service-logic/)
@@ -69,7 +69,7 @@
 ## [Mobile Engagement](/azure/mobile-engagement/)
 ## [Notification Hubs](/azure/notification-hubs/)
 ## [Search](/azure/search/)
-# [Azure Government](/azure/azure-government/)
+# [Azure Devlet Kurumları](/azure/azure-government/)
 
 <!--HONumber=Nov16_HO2-->
 

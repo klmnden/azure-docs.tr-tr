@@ -1,30 +1,30 @@
 
 
-# Overview
-## [What is Scheduler?](scheduler-intro.md)
+# Genel Bakış
+## [Scheduler nedir?](scheduler-intro.md)
 
-# Get started
-## [Create and manage jobs](scheduler-get-started-portal.md)
+# Başlarken
+## [İş oluşturma ve yönetme](scheduler-get-started-portal.md)
 
-# How to
-## Plan and design
-### [Plans and billing](scheduler-plans-billing.md)
-### [Quotas and limits](scheduler-limits-defaults-errors.md)
-### [High-availability and reliability](scheduler-high-availability-reliability.md)
+# Nasıl yapılır?
+## Planlama ve tasarım
+### [Planlar ve faturalandırma](scheduler-plans-billing.md)
+### [Kotalar ve sınırlar](scheduler-limits-defaults-errors.md)
+### [Yüksek düzeyde kullanılabilirlik ve güvenilirlik](scheduler-high-availability-reliability.md)
 
-## Develop
-### [Complex schedules using REST API](scheduler-advanced-complexity.md)
+## Geliştirme
+### [REST API’si kullanan karmaşık zamanlamalar](scheduler-advanced-complexity.md)
 
-## Secure
-### [Outbound authentication](scheduler-outbound-authentication.md)
+## Güvenlik
+### [Giden bağlantı kimlik doğrulaması](scheduler-outbound-authentication.md)
 
-# Reference
-## [Concepts and terminology](scheduler-concepts-terms.md)
+# Başvuru
+## [Kavramlar ve terminoloji](scheduler-concepts-terms.md)
 ## [REST API](https://msdn.microsoft.com/library/azure/mt629143)
-## [PowerShell cmdlets](scheduler-powershell-reference.md)
+## [PowerShell cmdlet'leri](scheduler-powershell-reference.md)
 
-# Resources
-## [Scheduler Videos](https://azure.microsoft.com/documentation/videos/index/?services=scheduler)
+# Kaynaklar
+## [Zamanlayıcı Videoları](https://azure.microsoft.com/documentation/videos/index/?services=scheduler)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-scheduler)
 
 

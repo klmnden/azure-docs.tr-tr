@@ -1,42 +1,42 @@
-# Overview
-## [Hybrid Connections overview](integration-hybrid-connection-overview.md)
+# Genel Bakış
+## [Karma Bağlantılara genel bakış](integration-hybrid-connection-overview.md)
 
-# Get Started
-## [Create BizTalk Services using the Azure portal](biztalk-provision-services.md)
-# How To
+# Kullanmaya Başlama
+## [Azure portalını kullanarak BizTalk Services oluşturma](biztalk-provision-services.md)
+# Nasıl yapılır?
 
-## Plan and design
-### [Editions chart](biztalk-editions-feature-chart.md)
-### [Administration and developer task list](biztalk-services-administration-and-development-task-list.md)
+## Planlama ve tasarım
+### [Sürümler grafiği](biztalk-editions-feature-chart.md)
+### [Yönetici ve geliştirici görev listesi](biztalk-services-administration-and-development-task-list.md)
 
 ## Backup
-### [Backup and restore](biztalk-backup-restore.md)
+### [Yedekleme ve geri yükleme](biztalk-backup-restore.md)
 
-## Configure
-### [BizTalk Services: Throttling](biztalk-throttling-thresholds.md)
-### [Review the Dashboard, Monitor, Scale, Configure, and Hybrid Connection tabs](biztalk-dashboard-monitor-scale-tabs.md)
+## Yapılandırma
+### [BizTalk Services: Azaltma](biztalk-throttling-thresholds.md)
+### [Pano, İzleme, Ölçeklendirme, Yapılandırma ve Karma Bağlantı sekmelerini inceleyin](biztalk-dashboard-monitor-scale-tabs.md)
 
-## Integrate
-### [Create and Manage Hybrid Connections](integration-hybrid-connection-create-manage.md)
+## Tümleştirme
+### [Karma Bağlantıları Oluşturma ve Yönetme](integration-hybrid-connection-create-manage.md)
 
-## Migrate
-### [Migrating BizTalk Server EDI Solutions to BizTalk Services](biztalk-migrating-to-edi-guide.md)
+## Geçiş
+### [BizTalk Server EDI Çözümlerini BizTalk Services’a Geçirme](biztalk-migrating-to-edi-guide.md)
 
-## Monitor
-### [BizTalk Services: Service state chart](biztalk-service-state-chart.md)
+## İzleme
+### [BizTalk Services: Hizmet durumu grafiği](biztalk-service-state-chart.md)
 
-## Secure
-### [Issuer name and issuer key](biztalk-issuer-name-issuer-key.md)
+## Güvenlik
+### [Yayıncı adı ve yayıncı anahtarı](biztalk-issuer-name-issuer-key.md)
 
-## Troubleshoot
-### [Troubleshoot using operation logs](biztalk-troubleshoot-using-ops-logs.md)
+## Sorun giderme
+### [İşlem günlüklerini kullanarak sorun giderme](biztalk-troubleshoot-using-ops-logs.md)
 
-# Reference
+# Başvuru
 
-# Related
+# İlgili
 
-# Resources
-## [Release Notes](biztalk-release-notes.md)
+# Kaynaklar
+## [Sürüm notları](biztalk-release-notes.md)
 
 
 <!--HONumber=Nov16_HO2-->

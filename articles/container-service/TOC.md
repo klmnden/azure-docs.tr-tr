@@ -1,33 +1,33 @@
-# Overview
-## [ACS introduction](container-service-intro.md)
-# Get Started
+# Genel Bakış
+## [ACS’ye giriş](container-service-intro.md)
+# Kullanmaya Başlama
 
-## [Deploy an ACS cluster](container-service-deployment.md)
-## [Connect with an ACS cluster](container-service-connect.md)
-## [Scale an ACS cluster](container-service-scale.md)
+## [ACS kümesi dağıtma](container-service-deployment.md)
+## [ACS kümesine bağlanma](container-service-connect.md)
+## [ACS kümesini ölçeklendirme](container-service-scale.md)
 
-# How To
+# Nasıl yapılır?
 
-## Manage with DC/OS
-### [Container management - DC/OS web UI](container-service-mesos-marathon-ui.md)
-### [Container management - DC/OS REST API](container-service-mesos-marathon-rest.md)
-### [DC/OS Agent pools](container-service-dcos-agents.md)
-### [Enable DC/OS public access](container-service-enable-public-access.md)
-### [Load balance containers in DC/OS](container-service-load-balancing.md)
-### [App/User Specific Orchestrator in DC/OS](container-service-application-specific-marathon.md)
-### [Monitor with Datadog (DC/OS)](container-service-monitoring.md)
-### [Monitor with Sysdig (DC/OS)](container-service-monitoring-sysdig.md)
-## Manage with Docker Swarm
-### [Docker Swarm Overview](container-service-docker-swarm.md)
+## DC/OS ile yönetme
+### [Kapsayıcı yönetimi - DC/OS web UI](container-service-mesos-marathon-ui.md)
+### [Kapsayıcı yönetimi - DC/OS REST API](container-service-mesos-marathon-rest.md)
+### [DC/OS Aracı havuzları](container-service-dcos-agents.md)
+### [DC/OS genel erişimini etkinleştirme](container-service-enable-public-access.md)
+### [DC/OS üzerinde yük dengeleme kapsayıcıları](container-service-load-balancing.md)
+### [DC/OS üzerinde Uygulama veya Kullanıcıya Özel Düzenleyici](container-service-application-specific-marathon.md)
+### [Datadog ile İzleme (DC/OS)](container-service-monitoring.md)
+### [Sysdig ile İzleme (DC/OS)](container-service-monitoring-sysdig.md)
+## Docker Swarm ile yönetme
+### [Docker Swarm’a Genel Bakış](container-service-docker-swarm.md)
 
-# Reference
+# Başvuru
 
 ## [REST API](https://go.microsoft.com/fwlink/p/?linkid=833499)
 
-# Resources
+# Kaynaklar
 
-## [Region availability](https://azure.microsoft.com/regions/services/)
-## [Service Updates](https://azure.microsoft.com/en-us/updates/?product=container-service&updatetype=&platform=)
+## [Bölge kullanılabilirliği](https://azure.microsoft.com/regions/services/)
+## [Hizmet Güncelleştirmeleri](https://azure.microsoft.com/en-us/updates/?product=container-service&updatetype=&platform=)
 
 
 <!--HONumber=Nov16_HO2-->

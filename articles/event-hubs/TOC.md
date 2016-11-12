@@ -1,41 +1,41 @@
-# Overview
+# Genel Bakış
 
-## [What is Event Hubs?](event-hubs-what-is-event-hubs.md)
-## [Event Hubs overview](event-hubs-overview.md)
-## [Event Hubs API overview](event-hubs-api-overview.md)
-## [Authentication and security model overview](event-hubs-authentication-and-security-model-overview.md)
+## [Event Hubs nedir?](event-hubs-what-is-event-hubs.md)
+## [Event Hubs’a genel bakış](event-hubs-overview.md)
+## [Event Hubs API’sine genel bakış](event-hubs-api-overview.md)
+## [Kimlik doğrulama ve güvenlik modeline genel bakış](event-hubs-authentication-and-security-model-overview.md)
 
 
-# Get Started
-## [Get started with Event Hubs](event-hubs-csharp-ephcs-getstarted.md)
-## [Event Hubs programming guide](event-hubs-programming-guide.md)
-## [Event Hubs FAQ](event-hubs-faq.md)
+# Kullanmaya Başlama
+## [Event Hubs kullanmaya başlayın](event-hubs-csharp-ephcs-getstarted.md)
+## [Event Hubs programlama kılavuzu](event-hubs-programming-guide.md)
+## [Event Hubs ile ilgili SSS](event-hubs-faq.md)
 
-# How to
-## Run the samples
-### [Notify users of data received from sensors](event-hubs-sensors-notify-users.md)
-### [Event Hubs sample application](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097)
-### [Scale out Event Processing with Event Hubs sample application](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3)
-## Manage
-### [Event Hubs Archive](event-hubs-archive-overview.md)
-### [Enable Event Hubs Archive using a template](event-hubs-resource-manager-namespace-event-hub-enable-archive.md)
-### [Stream Azure Diagnostics data using Event Hubs](event-hubs-streaming-azure-diags-data.md)
-### [Create and deploy an Event Hub using a Resource Manager template](event-hubs-resource-manager-namespace-event-hub.md)
-### [Use Python to enable Event Hubs Archive](event-hubs-archive-python.md)
+# Nasıl yapılır?
+## Örnekleri çalıştırma
+### [Algılayıcılardan gelen verileri kullanıcılara bildirme](event-hubs-sensors-notify-users.md)
+### [Event Hubs örnek uygulaması](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097)
+### [Event Hubs örnek uygulaması ile Olay İşlemeyi ölçeklendirme](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3)
+## Yönet
+### [Event Hubs Arşivi](event-hubs-archive-overview.md)
+### [Şablon kullanarak Event Hubs Arşivini etkinleştirme](event-hubs-resource-manager-namespace-event-hub-enable-archive.md)
+### [Event Hubs’ı kullanarak Azure Tanılama verilerinin akışını yapma](event-hubs-streaming-azure-diags-data.md)
+### [Resource Manager şablonu kullanarak bir Event Hub’ı oluşturup dağıtma](event-hubs-resource-manager-namespace-event-hub.md)
+### [Python kullanarak Event Hubs Arşivini etkinleştirme](event-hubs-archive-python.md)
 
-# Reference
-## [AMQP1.0 protocol guide](../service-bus-messaging/service-bus-amqp-protocol-guide.md)
-## [Event Hubs REST API reference](https://msdn.microsoft.com/library/azure/dn790674)
-## [Event Hubs .NET API reference](https://msdn.microsoft.com/library/azure/jj933424)
-## [Event Processor Host API reference](https://msdn.microsoft.com/library/microsoft.servicebus.messaging(v=azure.95).aspx)
-## [Quotas and limits](event-hubs-quotas.md)
-## [Event Hubs messaging exceptions](event-hubs-messaging-exceptions.md)
+# Başvuru
+## [AMQP1.0 protokol kılavuzu](../service-bus-messaging/service-bus-amqp-protocol-guide.md)
+## [Event Hubs REST API Başvurusu](https://msdn.microsoft.com/library/azure/dn790674)
+## [Event Hubs .NET API başvurusu](https://msdn.microsoft.com/library/azure/jj933424)
+## [Olay İşlemcisi Konak API başvurusu](https://msdn.microsoft.com/library/microsoft.servicebus.messaging(v=azure.95).aspx)
+## [Kotalar ve sınırlar](event-hubs-quotas.md)
+## [Event Hubs mesajlaşma özel durumları](event-hubs-messaging-exceptions.md)
 
-# Resources
+# Kaynaklar
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-eventhub)
-## [MSDN forums](https://social.msdn.microsoft.com/forums/home?forum=servbus)
-## [Manage Service Bus and Event Hubs resources with the Service Bus Explorer](https://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a)
-## [Event Hubs learning path](https://azure.microsoft.com/documentation/learning-paths/event-hubs/)
+## [MSDN forumları](https://social.msdn.microsoft.com/forums/home?forum=servbus)
+## [Service Bus Explorer ile Service Bus ve Event Hubs kaynaklarını yönetme](https://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a)
+## [Event Hubs öğrenme yolu](https://azure.microsoft.com/documentation/learning-paths/event-hubs/)
 
 
 
