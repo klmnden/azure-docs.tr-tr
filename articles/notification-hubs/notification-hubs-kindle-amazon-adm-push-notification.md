@@ -1,35 +1,39 @@
 ---
-title: Kindle uygulamaları için Azure Notification Hubs'ı kullanmaya başlama | Microsoft Docs
-description: Bu öğreticide, bir Kindle uygulamasına anında iletme bildirimleri göndermek için Azure Notification Hubs'ın nasıl kullanılacağını öğrenirsiniz.
+title: "Kindle uygulamaları için Azure Notification Hubs&quot;ı kullanmaya başlama | Microsoft Belgeleri"
+description: "Bu öğreticide, bir Kindle uygulamasına anında iletme bildirimleri göndermek için Azure Notification Hubs&quot;ın nasıl kullanılacağını öğrenirsiniz."
 services: notification-hubs
-documentationcenter: ''
-author: wesmc7777
+documentationcenter: 
+author: ysxu
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 346fc8e5-294b-4e4f-9f27-7a82d9626e93
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-kindle
 ms.devlang: Java
 ms.topic: hero-article
 ms.date: 06/29/2016
-ms.author: wesmc
+ms.author: yuaxu
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 7206f152ed7270abc62536a9ee164f7227833bcc
+
 
 ---
-# Kindle uygulamaları için Notification Hubs'ı kullanmaya başlama
+# <a name="get-started-with-notification-hubs-for-kindle-apps"></a>Kindle uygulamaları için Notification Hubs'ı kullanmaya başlama
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
-## Genel Bakış
+## <a name="overview"></a>Genel Bakış
 Bu öğretici, bir Kindle uygulamasına anında iletme bildirimleri göndermek için Azure Notification Hubs'ın nasıl kullanılacağını size gösterir.
 Amazon Device Messaging'i (ADM) kullanarak anında iletme bildirimleri alan boş bir Kindle uygulaması oluşturacaksınız.
 
-## Önkoşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bu öğretici için aşağıdakiler gereklidir:
 
 * <a href="http://go.microsoft.com/fwlink/?LinkId=389797">Android sitesi</a>'nden Android SDK'sını alın (Eclipse kullanacağınızı varsayıyoruz).
 * Kindle için geliştirme ortamınızı ayarlamak üzere <a href="https://developer.amazon.com/appsandservices/resources/development-tools/ide-tools/tech-docs/01-setting-up-your-development-environment">Geliştirme Ortamınızı Ayarlama</a>'daki adımları izleyin.
 
-## Geliştirici portalına yeni bir uygulama ekleme
+## <a name="add-a-new-app-to-the-developer-portal"></a>Geliştirici portalına yeni bir uygulama ekleme
 1. Öncelikle, [Amazon geliştirici portalı]'nda bir uygulama oluşturun.
    
     ![][0]
@@ -46,7 +50,7 @@ Bu öğretici için aşağıdakiler gereklidir:
    
     ![][4]
 
-## API Anahtarı oluşturma
+## <a name="create-an-api-key"></a>API Anahtarı oluşturma
 1. Yönetici ayrıcalıklarına sahip bir komut istemi açın.
 2. Android SDK klasörüne gidin.
 3. Aşağıdaki komutu girin:
@@ -58,10 +62,10 @@ Bu öğretici için aşağıdakiler gereklidir:
 5. **MD5** parmak izini kopyalayın.
 6. Geliştirici portalına geri dönün. **Messaging** sekmesinde **Android/Kindle**'a tıklayın, uygulamanız için olan paket adını (örneğin, **com.sample.notificationhubtest**) ve **MD5** değerini girin, ardından **Generate API Key** (API Anahtarı Oluştur) seçeneğine tıklayın.
 
-## Hub'a kimlik bilgileri ekleme
+## <a name="add-credentials-to-the-hub"></a>Hub'a kimlik bilgileri ekleme
 Portalda, bildirim hub'ınızın **Configure** (Yapılandır) sekmesine gizli anahtarı ve istemci kimliğini ekleyin.
 
-## Uygulamanızı ayarlama
+## <a name="set-up-your-application"></a>Uygulamanızı ayarlama
 > [!NOTE]
 > Bir uygulama oluştururken, en az API Düzeyi 17 kullanın.
 > 
@@ -121,7 +125,7 @@ ADM'yi desteklemesi için uygulama bildiriminizi düzenleyin:
             </intent-filter>
         </receiver>
 
-## ADM ileti işleyicinizi oluşturma
+## <a name="create-your-adm-message-handler"></a>ADM ileti işleyicinizi oluşturma
 1. Aşağıdaki şekilde gösterildiği gibi, `com.amazon.device.messaging.ADMMessageHandlerBase` öğesinden devralınan yeni bir sınıf oluşturun ve bunu `MyADMMessageHandler` olarak adlandırın:
    
     ![][6]
@@ -139,7 +143,7 @@ ADM'yi desteklemesi için uygulama bildiriminizi düzenleyin:
         public static final int NOTIFICATION_ID = 1;
         private NotificationManager mNotificationManager;
         NotificationCompat.Builder builder;
-        private static NotificationHub hub;
+          private static NotificationHub hub;
         public static NotificationHub getNotificationHub(Context context) {
             Log.v("com.wa.hellokindlefire", "getNotificationHub");
             if (hub == null) {
@@ -163,22 +167,22 @@ ADM'yi desteklemesi için uygulama bildiriminizi düzenleyin:
             private void sendNotification(String msg) {
                 Context ctx = getApplicationContext();
    
-             mNotificationManager = (NotificationManager)
+                mNotificationManager = (NotificationManager)
                     ctx.getSystemService(Context.NOTIFICATION_SERVICE);
    
             PendingIntent contentIntent = PendingIntent.getActivity(ctx, 0,
-                new Intent(ctx, MainActivity.class), 0);
+                  new Intent(ctx, MainActivity.class), 0);
    
             NotificationCompat.Builder mBuilder =
-                new NotificationCompat.Builder(ctx)
-                .setSmallIcon(R.mipmap.ic_launcher)
-                .setContentTitle("Notification Hub Demo")
-                .setStyle(new NotificationCompat.BigTextStyle()
+                  new NotificationCompat.Builder(ctx)
+                  .setSmallIcon(R.mipmap.ic_launcher)
+                  .setContentTitle("Notification Hub Demo")
+                  .setStyle(new NotificationCompat.BigTextStyle()
                          .bigText(msg))
-                .setContentText(msg);
+                  .setContentText(msg);
    
-            mBuilder.setContentIntent(contentIntent);
-            mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
+             mBuilder.setContentIntent(contentIntent);
+             mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
         }
 4. `OnMessage()` yöntemine aşağıdaki kodu ekleyin:
    
@@ -193,11 +197,11 @@ ADM'yi desteklemesi için uygulama bildiriminizi düzenleyin:
             }
 6. `OnUnregistered` yöntemine aşağıdaki kodu ekleyin:
    
-           try {
-               getNotificationHub(getApplicationContext()).unregister();
-           } catch (Exception e) {
-               Log.e("[your package name]", "Fail onUnregister: " + e.getMessage(), e);
-           }
+         try {
+             getNotificationHub(getApplicationContext()).unregister();
+         } catch (Exception e) {
+             Log.e("[your package name]", "Fail onUnregister: " + e.getMessage(), e);
+         }
 7. `MainActivity` yönteminde aşağıdaki içeri aktarma deyimini ekleyin:
    
         import com.amazon.device.messaging.ADM;
@@ -211,7 +215,7 @@ ADM'yi desteklemesi için uygulama bildiriminizi düzenleyin:
             new AsyncTask() {
                   @Override
                   protected Object doInBackground(Object... params) {
-                     try {                       MyADMMessageHandler.getNotificationHub(getApplicationContext()).register(adm.getRegistrationId());
+                     try {                         MyADMMessageHandler.getNotificationHub(getApplicationContext()).register(adm.getRegistrationId());
                      } catch (Exception e) {
                          Log.e("com.wa.hellokindlefire", "Failed registration with hub", e);
                          return e;
@@ -221,11 +225,11 @@ ADM'yi desteklemesi için uygulama bildiriminizi düzenleyin:
                }.execute(null, null, null);
         }
 
-## Uygulamanıza API anahtarınızı ekleme
+## <a name="add-your-api-key-to-your-app"></a>Uygulamanıza API anahtarınızı ekleme
 1. Eclipse'te, projenizin dizin varlıkları içinde **api_key.txt** adlı yeni bir dosya oluşturun.
 2. Dosyayı açın ve Amazon geliştirici portalında oluşturduğunuz API anahtarını kopyalayın.
 
-## Uygulamayı çalıştırma
+## <a name="run-the-app"></a>Uygulamayı çalıştırma
 1. Öykünücüyü başlatın.
 2. Öykünücüde, üstten çekin ve **Settings** (Ayarlar) seçeneğine tıklayın. Ardından **My account** (Hesabım) seçeneğine tıklayın ve geçerli bir Amazon hesabıyla kaydolun.
 3. Eclipse'te uygulamayı çalıştırın.
@@ -237,7 +241,7 @@ ADM'yi desteklemesi için uygulama bildiriminizi düzenleyin:
 
         adb shell  date -s "yyyymmdd.hhmmss"
 
-## İleti gönderme
+## <a name="send-a-message"></a>İleti gönderme
 .NET kullanarak ileti göndermek için:
 
         static void Main(string[] args)
@@ -264,6 +268,6 @@ ADM'yi desteklemesi için uygulama bildiriminizi düzenleyin:
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

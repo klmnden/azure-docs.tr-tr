@@ -1,12 +1,12 @@
 ---
-title: Get started with Log Analytics | Microsoft Docs
-description: You can get up and running with Log Analytics in the Microsoft Operations Management Suite (OMS) in minutes.
+title: "Log Analytics’i kullanmaya başlama | Microsoft Belgeleri"
+description: "Microsoft Operations Management Suite&quot;te (OMS) Log Analytics&quot;i birkaç dakikada kullanmaya başlayabilirsiniz."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bandersmsft
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: 508716de-72d3-4c06-9218-1ede631f23a6
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,133 +14,140 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/10/2016
 ms.author: banders
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 2f8defce183e61825d9df3397ea1082dbdb4b11a
+
 
 ---
-# Get started with Log Analytics
-You can get up and running with Log Analytics in the Microsoft Operations Management Suite (OMS) in minutes. You have two options when choosing how to create an OMS workspace, which is similar to an account:
+# <a name="get-started-with-log-analytics"></a>Log Analytics'i Kullanmaya Başlama
+Microsoft Operations Management Suite'te (OMS) Log Analytics'i birkaç dakikada kullanmaya başlayabilirsiniz. Hesap oluştururken olduğu gibi, OMS çalışma alanı oluştururken de iki seçeneğiniz vardır:
 
-* Microsoft Operations Management Suite website
-* Microsoft Azure subscription
+* Microsoft Operations Management Suite web sitesi
+* Microsoft Azure aboneliği
 
-You can create an free OMS workspace using the OMS website. Or, you can use a Microsoft Azure subscription to create an OMS workspace. Both workspaces are functionally equivalent, except that a free OMS workspace can only send 500 MB of data daily to the OMS service. If you use an Azure subscription, you can also use that subscription to access other Azure services. Regardless of the method that you use to create the workspace, you'll create the workspace with either a Microsoft account or organizational account.
+OMS web sitesini kullanarak ücretsiz bir OMS çalışma alanı oluşturabilirsiniz. Veya bir OMS çalışma alanı oluşturmak için Microsoft Azure aboneliğini kullanabilirsiniz. Ücretsiz bir OMS çalışma alanının OMS hizmetine günlük olarak en fazla 500 MB veri gönderebilmesi dışında, her iki çalışma alanı da işlevsel olarak eşdeğerdir. Bir Azure aboneliği kullanıyorsanız bu aboneliği aynı zamanda diğer Azure hizmetlerine erişmek için de kullanabilirsiniz. Çalışma alanını oluşturmak için kullandığınız yöntemden bağımsız olarak, çalışma alanını bir Microsoft hesabıyla veya bir kuruluş hesabıyla oluşturursunuz.
 
-Here's a look at the process:
+Bu işlemle ilgili adımlar:
 
-![onboarding diagram](./media/log-analytics-get-started/oms-onboard-diagram.png)
+![Diyagram ekleme](./media/log-analytics-get-started/oms-onboard-diagram.png)
 
-## Log Analytics prerequisites and deployment considerations
-* You need a paid Microsoft Azure subscription to fully use Log Analytics. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) that lets you access any Azure service. Or, you can create a free OMS account at the [Operations Management Suite](http://microsoft.com/oms) website and click **Try for free**.
-* An OMS workspace
-* Each Windows computer that you want to gather data from must run Windows Server 2008 SP1, or above
-* [Firewall](log-analytics-proxy-firewall.md) access to the OMS web service's addresses
-* An [OMS Log Analytics Forwarder](https://blogs.technet.microsoft.com/msoms/2016/03/17/oms-log-analytics-forwarder) (Gateway) server to forward traffic from servers to OMS, if Internet access is not available from computers
-* If you use Operations Manager, Log Analytics supports Operations Manager 2012 SP1 UR6 and above and Operations Manager 2012 R2 UR2 and above. Proxy support was added in Operations Manager 2012 SP1 UR7 and Operations Manager 2012 R2 UR3. Determine how it will be integrated with OMS.
-* Determine if your computers have direct Internet access. If not, they require a gateway server to access the OMS web service sites. All access is via HTTPS.
-* Determine which technologies and servers will send data to OMS. For example, domain controllers, SQL Server, etc.
-* Grant permission to users in OMS and Azure.
-* If you're concerned about data usage, deploy each solution individually and test the performance impact before adding additional solutions.
-* Review your data usage and performance as you add solutions and features to Log Analytics. This includes event collection, log collection, performance data collection, etc. It is better to start with minimal collection until data usage or performance impact has been identified.
-* Verify that Windows agents are not also managed using Operations Manager, otherwise duplicate data will result. This also applies to Azure-based-agents that have Azure Diagnostics enabled.
-* After you install agents, verify that the agent is working properly. If not, check to ensure that Cryptography API: Next Generation (CNG) Key Isolation is not disabled using Group Policy.
-* Some Log Analytics solutions have additional requirements
+## <a name="log-analytics-prerequisites-and-deployment-considerations"></a>Log Analytics önkoşulları ve dağıtım ile ilgili dikkat edilmesi gerekenler
+* Log Analytics'i tam olarak kullanmak için ücretli bir Microsoft Azure aboneliğinizin olması gerekir. Azure aboneliğiniz yoksa istediğiniz Azure hizmetine erişmenizi sağlayan [ücretsiz bir hesap](https://azure.microsoft.com/free/) oluşturun. Alternatif olarak, [Operations Management Suite](http://microsoft.com/oms) web sitesinde ücretsiz bir OMS hesabı oluşturabilir ve **Ücretsiz deneyin**'e tıklayabilirsiniz.
+* OMS çalışma alanı
+* Veri toplamak istediğiniz her Windows bilgisayarının Windows Server 2008 SP1 veya sonraki bir sürümünü çalıştırması gerekir
+* OMS web hizmeti adreslerine yönelik [Güvenlik Duvarı](log-analytics-proxy-firewall.md) erişimi
+* Bilgisayarlarda İnternet erişiminin olmaması durumunda, trafiği sunuculardan OMS'ye iletmek için bir [OMS Log Analytics İleticisi](https://blogs.technet.microsoft.com/msoms/2016/03/17/oms-log-analytics-forwarder) (Ağ Geçidi) sunucusu
+* Operations Manager kullanıyorsanız Log Analytics, Operations Manager 2012 SP1 UR6 ile sonraki bir sürümünü ve Operations Manager 2012 R2 UR2 ile sonraki bir sürümünü destekler. Operations Manager 2012 SP1 UR7 ve Operations Manager 2012 R2 UR3'e ara sunucu desteği eklenmiştir. OMS ile nasıl tümleştirileceğini belirleyin.
+* Bilgisayarlarınızın doğrudan İnternet erişiminin olup olmadığını belirleyin. Doğrudan İnternet erişimi yoksa OMS web hizmeti sitelerine erişim için bir ağ geçidi sunucusu gerekir. Tüm erişim HTTPS üzerinden gerçekleşir.
+* Hangi teknolojilerin ve sunucuların OMS'ye veri göndereceğini belirleyin. Örneğin, etki alanı denetleyicileri, SQL Server vb.
+* OMS ve Azure'daki kullanıcılara izin verin.
+* Veri kullanımı ile ilgili endişeleriniz varsa her bir çözümü ayrı olarak dağıtın ve ek çözümler eklemeden önce performans etkisini test edin.
+* Log Analytics'e çözüm ve özellik eklerken veri kullanımınızı ve performansınızı gözden geçirin. Buna olay koleksiyonu, günlük koleksiyonu, performans verileri koleksiyonu vb. dahildir. Veri kullanımı ve performans etkisi tanımlanana kadar minimal bir koleksiyonla başlamak daha uygundur.
+* Windows aracılarının da Operations Manager kullanılarak yönetilmediğini doğrulayın, aksi halde yinelenen veriler ortaya çıkar. Bu, Azure Tanılama'nın etkin olduğu Azure tabanlı aracılar için de geçerlidir.
+* Aracıları yükledikten sonra, aracının düzgün çalıştığını doğrulayın. Düzgün çalışmıyorsa, Şifreleme API'si: Yeni Nesil (CNG) Anahtar Yalıtımı'nın Grup İlkesi yoluyla devre dışı bırakılmadığından emin olun.
+* Bazı Log Analytics çözümlerinin ek gereksinimleri vardır
 
-## Sign up in 3 steps using the Operations Management Suite
-1. Go to the [Operations Management Suite](http://microsoft.com/oms) website and click **Try for free**. Sign in with your Microsoft account such as Outlook.com, or with an organizational account provided by your company or educational institution to use with Office 365 or other Microsoft services.
-2. Provide a unique workspace name. A workspace is a logical container where your management data is stored. It provides you a way to partition data between different teams in your organization, as the data is exclusive to its workspace. Specify an email address and the region where you want to have your data stored.  
-    ![create workspace and link subscription](./media/log-analytics-get-started/oms-onboard-create-workspace-link01.png)
-3. Next, you can create a new Azure subscription or link to an existing Azure subscription. If you would like to proceed using the Free Trial, click **Not Now**.  
-   ![create workspace and link subscription](./media/log-analytics-get-started/oms-onboard-create-workspace-link02.png)
+## <a name="sign-up-in-3-steps-using-the-operations-management-suite"></a>Operations Management Suite'i kullanarak 3 adımda kaydolma
+1. [Operations Management Suite](http://microsoft.com/oms) web sitesine gidin ve **Ücretsiz deneyin**'e tıklayın. Şirketiniz veya eğitim kurumunuz tarafından Office 365 veya diğer Microsoft hizmetleriyle kullanmanız için sağlanmış olan Outlook.com veya kuruluş hesabı gibi bir Microsoft hesabıyla oturum açın.
+2. Benzersiz bir çalışma alanı adı sağlayın. Çalışma alanı, yönetim verilerinizin depolandığı mantıksal bir kapsayıcıdır. Veriler kendi çalışma alanına özel olduğundan, çalışma alanı; verileri, kuruluşunuzdaki farklı ekipler arasında bölümlendirmenizi sağlar. Verilerinizin depolanmasını istediğiniz bir e-posta adresi ve bölge belirtin.  
+    ![çalışma alanı oluşturma ve aboneliği bağlama](./media/log-analytics-get-started/oms-onboard-create-workspace-link01.png)
+3. Ardından, yeni bir Azure aboneliği oluşturabilir veya mevcut bir Azure aboneliğine bağlanabilirsiniz. Ücretsiz Deneme Sürümünü kullanmaya devam etmek istiyorsanız **Şimdi Değil**'e tıklayın.  
+   ![çalışma alanı oluşturma ve aboneliği bağlama](./media/log-analytics-get-started/oms-onboard-create-workspace-link02.png)
 
-You're ready to get started with the Operations Management Suite portal.
+Operations Management Suite portalı ile çalışmaya hazırsınız.
 
-You can learn more about setting up your workspace and linking existing Azure accounts to workspaces created with the Operations Management Suite at [Manage access to Log Analytics](log-analytics-manage-access.md).
+[Log Analytics'e erişimi yönetme](log-analytics-manage-access.md) bölümünde çalışma alanınızı ayarlama ve mevcut Azure hesaplarını Operations Management Suite ile oluşturulan çalışma alanlarına bağlama konusunda daha fazla bilgi edinebilirsiniz.
 
-## Sign up quickly using Microsoft Azure
-1. Go to the [Azure portal](https://portal.azure.com) and sign in, browse the list of services, and then select **Log Analytics (OMS)**.  
-    ![Azure portal](./media/log-analytics-get-started/oms-onboard-azure-portal.png)
-2. Click **Add**, then select choices for the following items:
-   * **OMS Workspace** name
-   * **Subscription** - If you have multiple subscriptions, choose the one you want to associate with the new workspace.
-   * **Resource group**
-   * **Location**
-   * **Pricing tier**  
-       ![quick create](./media/log-analytics-get-started/oms-onboard-quick-create.png)
-3. Click **Create** and you'll see the workspace details in the Azure portal.       
-    ![workspace details](./media/log-analytics-get-started/oms-onboard-workspace-details.png)         
-4. Click the **OMS Portal** link to open the Operations Management Suite website with your new workspace.
+## <a name="sign-up-quickly-using-microsoft-azure"></a>Microsoft Azure'ı kullanarak hızlı kaydolma
+1. [Azure portalına](https://portal.azure.com) gidin ve oturum açın, hizmetler listesine göz atın ve ardından **Log Analytics (OMS)** seçeneğini belirleyin.  
+    ![Azure Portal](./media/log-analytics-get-started/oms-onboard-azure-portal.png)
+2. **Ekle**'ye tıklayın, ardından şu öğeler için seçim yapın:
+   * **OMS Çalışma Alanı** adı
+   * **Abonelik** - Birden çok aboneliğiniz varsa yeni çalışma alanıyla ilişkilendirmek istediğiniz aboneliği seçin.
+   * **Kaynak grubu**
+   * **Konum**
+   * **Fiyatlandırma katmanı**  
+       ![hızlı oluşturma](./media/log-analytics-get-started/oms-onboard-quick-create.png)
+3. **Oluştur**'a tıklayın, ardından Azure portalındaki çalışma alanı ayrıntılarını göreceksiniz.       
+    ![çalışma alanı ayrıntıları](./media/log-analytics-get-started/oms-onboard-workspace-details.png)         
+4. Yeni çalışma alanınızla Operations Management Suite web sitesini açmak için **OMS Portalı** bağlantısına tıklayın.
 
-You're ready to start using the Operations Management Suite portal.
+Operations Management Suite portalını kullanmaya hazırsınız.
 
-You can learn more about setting up your workspace and linking existing workspaces that you created with the Operations Management Suite to Azure subscriptions at [Manage access to Log Analytics](log-analytics-manage-access.md).
+[Log Analytics'e erişimi yönetme](log-analytics-manage-access.md) bölümünde çalışma alanınızı ayarlama ve Operations Management Suite ile oluşturduğunuz mevcut çalışma alanlarını Azure aboneliklerine bağlama konusunda daha fazla bilgi edinebilirsiniz.
 
-## Get started with the Operations Management Suite portal
-To choose solutions and connect the servers that you want to manage, click the **Settings** tile and follow the steps in this section.  
+## <a name="get-started-with-the-operations-management-suite-portal"></a>Operations Management Suite portalı ile çalışmaya başlama
+Çözümleri seçmek ve yönetmek istediğiniz sunucuları bağlamak için **Ayarlar**'a tıklayın ve bu bölümdeki adımları izleyin.  
 
-![get started](./media/log-analytics-get-started/oms-onboard-get-started.png)  
+![başlarken](./media/log-analytics-get-started/oms-onboard-get-started.png)  
 
-1. **Add Solutions** - View your installed solutions.  
-    ![solutions](./media/log-analytics-get-started/oms-onboard-solutions.png)  
-    Click **Visit the Gallery** to add more solutions.  
-    ![solutions](./media/log-analytics-get-started/oms-onboard-solutions02.png)  
-    Select a solution and then click **Add**.
-2. **Connect a source** - Choose how you would like to connect to your server environment to gather data:
+1. **Çözüm Ekleme** - Yüklü çözümlerinizi görüntüleyin.  
+    ![çözümler](./media/log-analytics-get-started/oms-onboard-solutions.png)  
+    Daha fazla çözüm eklemek için **Galeriyi Ziyaret Edin**’e tıklayın.  
+    ![çözümler](./media/log-analytics-get-started/oms-onboard-solutions02.png)  
+    Bir çözümü seçin ve **Ekle**’ye tıklayın.
+2. **Bir kaynağı bağlama** - Veri toplamak için sunucu ortamınıza nasıl bağlanmak istediğinizi seçin:
    
-   * Connect any Windows Server or client directly by installing an agent.
-   * Connect Linux servers with the OMS Agent for Linux.
-   * Use an Azure storage account configured with the Windows or Linux Azure diagnostic VM extension.
-   * Use System Center Operations Manager to attach your management groups or your entire Operations Manager deployment.
-   * Enable Windows Telemetry to use Upgrade Analytics.
-       ![connected sources](./media/log-analytics-get-started/oms-onboard-data-sources.png)    
-3. **Gather data** Configure at least one data source to populate data to your workspace. When done, click **Save**.    
+   * Aracı yükleyerek herhangi bir Windows Sunucusunu veya istemciyi doğrudan bağlayın.
+   * Linux için OMS Aracısı ile Linux sunucularını bağlayın.
+   * Windows veya Linux Azure Tanılama VM uzantısıyla yapılandırılmış bir Azure depolama hesabı kullanın.
+   * Yönetim gruplarınızı veya tüm Operations Manager dağıtımınızı eklemek için System Center Operations Manager'ı kullanın.
+   * Upgrade Analytics’i kullanmak için Windows Telemetri’yi etkinleştirin.
+       ![bağlı kaynaklar](./media/log-analytics-get-started/oms-onboard-data-sources.png)    
+3. **Veri toplama** Verileri çalışma alanınıza doldurmak için en az bir veri kaynağı yapılandırın. İşiniz bittiğinde **Kaydet**’e tıklayın.    
    
-    ![gather data](./media/log-analytics-get-started/oms-onboard-logs.png)    
+    ![veri toplama](./media/log-analytics-get-started/oms-onboard-logs.png)    
 
-## Optionally, connect servers directly to the Operations Management Suite by installing an agent
-The following example shows you how to install a Windows agent.
+## <a name="optionally-connect-servers-directly-to-the-operations-management-suite-by-installing-an-agent"></a>İsteğe bağlı olarak, aracı yükleyerek sunucuları doğrudan Operations Management Suite'e bağlama
+Aşağıdaki örnekte, bir Windows aracısını nasıl yükleyeceğiniz gösterilmiştir.
 
-1. Click the **Settings** tile, click the **Connected Sources** tab, click a tab for the source type you want to add, and either download an agent or learn about how to enable an agent. For example, click **Download Windows Agent (64-bit)**. For Windows agents, you can only install the agent on Windows Server 2008 SP 1 or later or on Windows 7 SP1 or later.
-2. Install the agent on one or more servers. You can install agents one-by-one, or using a more automated method with a [custom script](log-analytics-windows-agents.md), or you can use an existing software distribution solution that you might have.
-3. After you agree to the license agreement and you choose your installation folder, select **Connect the agent to Azure Log Analytics (OMS)**.   
-    ![agent setup](./media/log-analytics-get-started/oms-onboard-agent.png)
-4. On the next page, you are asked for your Workspace ID and Workspace Key. Your Workspace ID and key are displayed on the screen where you downloaded the agent file.  
-    ![agent keys](./media/log-analytics-get-started/oms-onboard-mma-keys.png)  
+1. **Ayarlar** kutucuğuna tıklayın, **Bağlı Kaynaklar** sekmesine tıklayın, eklemek istediğiniz kaynak türü için bir sekmeye tıklayın ve bir aracıyı indirin veya bir aracıyı nasıl etkinleştireceğinizi öğrenin. Örneğin, **Windows Aracısını İndir (64 bit)** seçeneğine tıklayın. Windows aracılarını yalnızca Windows Server 2008 SP 1 veya sonraki sürümlerine ya da Windows 7 SP1 veya sonraki sürümlerine yükleyebilirsiniz.
+2. Aracıyı bir veya daha fazla sunucuya yükleyin. Aracıları teker teker veya [özel komut dosyası](log-analytics-windows-agents.md) ile daha otomatikleştirilmiş bir yöntem kullanarak yükleyebilir veya sahip olduğunuz mevcut bir yazılım dağıtımı çözümünü kullanabilirsiniz.
+3. Lisans sözleşmesini kabul ettikten ve yükleme klasörünüzü seçtikten sonra, **Aracıyı Azure Log Analytics’e (OMS) bağla**’yı seçin.   
+    ![aracı kurulumu](./media/log-analytics-get-started/oms-onboard-agent.png)
+4. Sonraki sayfada, sizden Çalışma Alanı Kimliğiniz ve Çalışma Alanı Anahtarınız istenir. Çalışma Alanı kimliğiniz ve anahtarınız, aracı dosyasını indirdiğiniz ekranda görüntülenir.  
+    ![aracı anahtarları](./media/log-analytics-get-started/oms-onboard-mma-keys.png)  
    
-    ![attach servers](./media/log-analytics-get-started/oms-onboard-key.png)
-5. During installation, you can click **Advanced** to optionally set up your proxy server and provide authentication information. Click the **Next** button to return to the workspace information screen.
-6. Click **Next** to validate your Workspace ID and Key. If any errors are found, you can click **Back** to make corrections. When your Workspace ID and Key are validated, click **Install** to complete the agent installation.
-7. In Control Panel, click Microsoft Monitoring Agent > Azure Log Analytics (OMS) tab. A green check mark icon will appear when the agents communicate with the Operations Management Suite service. Initially, this takes about 5-10 minutes.
+    ![sunucuları ekleme](./media/log-analytics-get-started/oms-onboard-key.png)
+5. Yükleme sırasında, isteğe bağlı olarak ara sunucunuzu ayarlamak ve kimlik doğrulama bilgilerini sağlamak için **Gelişmiş**'e tıklayabilirsiniz. Çalışma alanı bilgi ekranına geri dönmek için **İleri** düğmesine tıklayın.
+6. Çalışma Alanı Kimliğinizi ve Anahtarınızı doğrulamak için **İleri**'ye tıklayın. Herhangi bir hata bulunması durumunda, düzeltme yapmak için **Geri**'ye tıklayabilirsiniz. Çalışma Alanı Kimliğiniz ve Anahtarınız doğrulandığında, aracı yüklemesini tamamlamak için **Yükle**'ye tıklayın.
+7. Kontrol Paneli’nde Microsoft Monitoring Agent > Azure Log Analytics (OMS) sekmesine tıklayın. Aracılar Operations Management Suite hizmetiyle iletişim kurduğunda yeşil bir onay işareti simgesi görünür. Başlangıçta, bu yaklaşık 5-10 dakika sürer.
 
 > [!NOTE]
-> The capacity management and configuration assessment solutions are not currently supported by servers connected directly to the Operations Management Suite.
+> Kapasite yönetimi ve yapılandırma değerlendirmesi çözümleri şu anda doğrudan Operations Management Suite'e bağlı sunucular tarafından desteklenmemektedir.
 > 
 > 
 
-You can also connect the agent to System Center Operations Manager 2012 SP1 and later. To do so, select **Connect the agent to System Center Operations Manager**. When you choose that option, you send data to the service without requiring additional hardware or load on your management groups.
+Aracıyı aynı zamanda System Center Operations Manager 2012 SP1 ve sonraki bir sürümüne de bağlayabilirsiniz. Bunu yapmak için, **Connect the agent to System Center Operations Manager (Aracıyı System Center Operations Manager'a bağla)** seçeneğini belirleyin. Bu seçeneği belirlediğinizde, yönetim gruplarınızda herhangi bir ek donanım veya yük gerekmeksizin verileri hizmete göndermiş olursunuz.
 
-You can read more about connecting agents to the Operations Management Suite at [Connect Windows computers to Log Analytics](log-analytics-windows-agents.md).
+Aracıları Operations Management Suite'e bağlama konusunda daha fazla bilgi için bkz. [Windows bilgisayarlarını Log Analytics'e bağlama](log-analytics-windows-agents.md).
 
-## Optionally, connect servers using System Center Operations Manager
-1. In the Operations Manager console, select **Administration**.
-2. Expand the **Operational Insights** node and select **Operational Insights Connection**.
+## <a name="optionally-connect-servers-using-system-center-operations-manager"></a>İsteğe bağlı olarak, System Center Operations Manager kullanarak sunucuları bağlama
+1. Operations Manager konsolunda **Yönetim**'i seçin.
+2. **Operasyonel Öngörüler** düğümünü genişletin ve **Operasyonel Öngörüler Bağlantısı**'nı seçin.
    
    > [!NOTE]
-   > Depending on what Update Rollup of SCOM you are using, you may see a node for *System Center Advisor*, *Operational Insights*, or *Operations Management Suite*.
+   > Hangi SCOM Güncelleştirme Paketini kullandığınıza bağlı olarak, *System Center Advisor*, *Operasyonel Öngörüler* veya *Operations Management Suite* için bir düğüm görebilirsiniz.
    > 
    > 
-3. Click the **Register to Operational Insights** link towards the top right and follow the instructions.
-4. After completing the registration wizard, click the **Add a Computer/Group** link.
-5. In the **Computer Search** dialog box you can search for computers or groups monitored by Operations Manager. Select computers or groups to onboard them to Log Analytics, click **Add**, and then click **OK**. You can verify that the OMS service is receiving data by going to the **Usage** tile in the Operations Management Suite portal. Data should appear in about 5-10 minutes.
+3. Sağ üst kısımda yer alan **Operasyonel Öngörülere Kaydol** bağlantısına tıklayın ve yönergeleri uygulayın.
+4. Kayıt sihirbazını tamamladıktan sonra, **Bilgisayar/Grup Ekle** bağlantısına tıklayın.
+5. **Bilgisayar Araması** iletişim kutusunda Operations Manager tarafından izlenen bilgisayarları veya grupları arayabilirsiniz. Log Analytics'e eklemek için bilgisayarları veya grupları seçin, **Ekle**'ye tıklayın ve ardından **Tamam**'a tıklayın. OMS hizmetinin veri aldığını, Operations Management Suite portalındaki **Kullanım** kutucuğuna giderek doğrulayabilirsiniz. Veriler yaklaşık 5-10 dakika içerisinde görünmelidir.
 
-You can read more about connecting Operations Manager to the Operations Management Suite at [Connect Operations Manager to  Log Analytics](log-analytics-om-agents.md).
+Operations Manager'ı Operations Management Suite'e bağlama hakkında daha fazla bilgi için bkz. [Operations Manager'ı Log Analytics'e Bağlama](log-analytics-om-agents.md).
 
-## Optionally, analyze data from cloud services in Microsoft Azure
-With the Operations Management Suite, you can quickly search event and IIS logs for cloud services and virtual machines by enabling diagnostics for Azure Cloud Services. You can also receive additional insights for your Azure virtual machines by installing the Microsoft Monitoring Agent. You can read more about how to configure your Azure environment to use the Operations Management Suite at [Connect Azure storage to Log Analytics](log-analytics-azure-storage.md).
+## <a name="optionally-analyze-data-from-cloud-services-in-microsoft-azure"></a>İsteğe bağlı olarak, Microsoft Azure'da bulut hizmetlerinden veri çözümleme
+Operations Management Suite kullanarak, Azure Bulut Hizmetleri için tanılamayı etkinleştirip bulut hizmetleri ve sanal makinelere ilişkin olay ve IIS günlüklerini hızlıca arayabilirsiniz. Ayrıca Microsoft İzleme Aracısı'nı yükleyerek Azure sanal makineleriniz için ek öngörüler elde edebilirsiniz. Operations Management Suite'i kullanmak için Azure ortamınızı nasıl yapılandırabileceğiniz hakkında daha fazla bilgi için bkz. [Azure depolama alanını Log Analytics'e bağlama](log-analytics-azure-storage.md).
 
-## Next steps
-* [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md) to add functionality and gather data.
-* Get familiar with [log searches](log-analytics-log-searches.md) to view detailed information gathered by solutions.
-* Use [dashboards](log-analytics-dashboards.md) to save and display your own custom searches.
+## <a name="next-steps"></a>Sonraki adımlar
+* İşlev eklemek ve veri toplamak için bkz. [Çözüm Galerisinden Log Analytics çözümleri ekleme](log-analytics-add-solutions.md).
+* Çözümler tarafından toplanan ayrıntılı bilgileri görüntülemek için [günlük aramaları](log-analytics-log-searches.md) hakkında bilgi edinin.
+* Özel aramalarınızı kaydetmek ve görüntülemek için [panolar](log-analytics-dashboards.md)ı kullanın.
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

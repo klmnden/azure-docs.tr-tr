@@ -1,11 +1,16 @@
-## Scenario
-You are creating an internal load balancer according to the following scenario
+## <a name="scenario"></a>Senaryo
 
-![IMAGE DESCRIPTION](./media/load-balancer-get-started-ilb-scenario-include/figure1.png)
+Aşağıdaki senaryoya göre bir iç yük dengeleyici oluşturuyorsunuz
 
-An internal load balancer is configured in a virtual network  
+![GÖRÜNTÜ AÇIKLAMASI](./media/load-balancer-get-started-ilb-scenario-include/figure1.png)
 
-* 2 virtual machines called DB1 and DB2<BR>
-* Endpoints <BR>
-* Internal load balancer<BR>
+Sanal ağ içinde bir iç yük dengeleyici yapılandırılmaktadır
+
+* DB1 ve DB2 adlı 2 sanal makine
+* Uç Noktalar
+* İç yük dengeleyici
+
+
+<!--HONumber=Nov16_HO2-->
+
 

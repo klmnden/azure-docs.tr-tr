@@ -1,12 +1,12 @@
 ---
-title: Linux üzerinde geliştirme ortamınızı ayarlama | Microsoft Docs
-description: Linux üzerinde çalışma zamanını ve SDK'yı yükleyip yerel bir geliştirme kümesi oluşturun. Bu kurulumu tamamladıktan sonra uygulama derlemek için hazır hale gelirsiniz.
+title: "Linux üzerinde geliştirme ortamınızı ayarlama | Microsoft Belgeleri"
+description: "Linux üzerinde çalışma zamanını ve SDK&quot;yı yükleyip yerel bir geliştirme kümesi oluşturun. Bu kurulumu tamamladıktan sonra uygulama derlemek için hazır hale gelirsiniz."
 services: service-fabric
 documentationcenter: .net
 author: seanmck
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: d552c8cd-67d1-45e8-91dc-871853f44fc6
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: get-started-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/26/2016
 ms.author: seanmck
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 567a998102558626df73878865b317b830ba1faa
+
 
 ---
-# Linux üzerinde geliştirme ortamınızı hazırlama
+# <a name="prepare-your-development-environment-on-linux"></a>Linux üzerinde geliştirme ortamınızı hazırlama
 > [!div class="op_single_selector"]
 > -[ Windows](service-fabric-get-started.md)
 > 
@@ -27,13 +31,13 @@ ms.author: seanmck
 
  Linux geliştirme makinenizde [Azure Service Fabric uygulamaları](service-fabric-application-model.md) dağıtıp çalıştırmak için çalışma zamanını ve ortak SDK'yı yükleyin. Ayrıca isteğe bağlı Java ve .NET Core SDK’larını yükleyebilirsiniz.
 
-## Önkoşullar
-### Desteklenen işletim sistemi sürümleri
+## <a name="prerequisites"></a>Önkoşullar
+### <a name="supported-operating-system-versions"></a>Desteklenen işletim sistemi sürümleri
 Geliştirme için şu işletim sistemi sürümleri desteklenir:
 
 * Ubuntu 16.04 (Xenial Xerus)
 
-## Apt kaynaklarınızı güncelleştirme
+## <a name="update-your-apt-sources"></a>Apt kaynaklarınızı güncelleştirme
 SDK ve ilişkili çalışma zamanı paketini apt-get ile yüklemek için öncelikli apt kaynaklarınızı güncelleştirmeniz gerekir.
 
 1. Bir terminal açın.
@@ -53,7 +57,7 @@ SDK ve ilişkili çalışma zamanı paketini apt-get ile yüklemek için önceli
     sudo apt-get update
     ```
 
-## SDK yükleme ve ayarlama
+## <a name="install-and-set-up-the-sdk"></a>SDK yükleme ve ayarlama
 Kaynaklarınız güncelleştirildikten sonra SDK’yı yükleyebilirsiniz.
 
 1. Service Fabric SDK paketini yükleyin. Yüklemeyi onaylamanız ve bir lisans sözleşmesini kabul etmeniz istenir.
@@ -67,7 +71,7 @@ Kaynaklarınız güncelleştirildikten sonra SDK’yı yükleyebilirsiniz.
     sudo /opt/microsoft/sdk/servicefabric/common/sdkcommonsetup.sh
     ```
 
-## Azure platformlar arası CLI’yı ayarlama
+## <a name="set-up-the-azure-crossplatform-cli"></a>Azure platformlar arası CLI’yı ayarlama
 [Azure platformlar arası CLI][azure-xplat-cli-github], kümeler ve uygulamalar dahil Service Fabric varlıklarıyla etkileşime yönelik komutlar içerir. Node.js dosyasını temel aldığı için, aşağıdaki yönergelere geçmeden önce [düğümü yüklediğinizden emin olun][install-node].
 
 1. Github deposunu geliştirme makinenize kopyalayın.
@@ -94,7 +98,7 @@ Kaynaklarınız güncelleştirildikten sonra SDK’yı yükleyebilirsiniz.
     source ~/azure.completion.sh
     ```
 
-## Yerel küme oluşturma
+## <a name="set-up-a-local-cluster"></a>Yerel küme oluşturma
 Her şey başarıyla yüklendiyse yerel bir kümeyi başlatabilmeniz gerekir.
 
 1. Küme kurulum betiğini çalıştırın.
@@ -108,7 +112,7 @@ Her şey başarıyla yüklendiyse yerel bir kümeyi başlatabilmeniz gerekir.
 
 Bu noktada, önceden oluşturulmuş Service Fabric uygulama paketlerini ve yeni paketleri konuk kapsayıcılar veya konuk yürütülebilir öğelere göre dağıtabilirsiniz. Java veya .NET Core SDK’ları kullanarak yeni hizmetler oluşturmak için aşağıdaki isteğe bağlı kurulum adımlarını izleyin.
 
-## Java SDK’sını ve Eclipse Neon eklentisini yükleme (isteğe bağlı)
+## <a name="install-the-java-sdk-and-eclipse-neon-plugin-optional"></a>Java SDK’sını ve Eclipse Neon eklentisini yükleme (isteğe bağlı)
 Java SDK’sı, Java kullanan Service Fabric hizmetleri oluşturmak için gereken kitaplıkları ve şablonları sağlar.
 
 1. Java SDK paketini yükleyin.
@@ -133,7 +137,7 @@ Service Fabric için Eclipse eklentisini Eclipse Neon IDE içinden yükleyebilir
 5. Service Fabric eklentisini seçin ve İleri’ye tıklayın.
 6. Yükleme işlemine devam edin ve son kullanıcı lisans sözleşmesini kabul edin.
 
-## .NET Core SDK'sını yükleme (isteğe bağlı)
+## <a name="install-the-net-core-sdk-optional"></a>.NET Core SDK'sını yükleme (isteğe bağlı)
 .NET Core SDK’sı, platformlar arası .NET Core kullanan Service Fabric hizmetleri oluşturmak için gereken kitaplıkları ve şablonları sağlar.
 
 1. .NET Core SDK paketini yükleyin.
@@ -147,7 +151,7 @@ Service Fabric için Eclipse eklentisini Eclipse Neon IDE içinden yükleyebilir
     sudo /opt/microsoft/sdk/servicefabric/csharp/sdkcsharpsetup.sh
     ```
 
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 * [Linux üzerinde ilk Java uygulamanızı oluşturma](service-fabric-create-your-first-linux-application-with-java.md)
 * [OSX üzerinde geliştirme ortamınızı hazırlama](service-fabric-get-started-mac.md)
 
@@ -164,6 +168,6 @@ Service Fabric için Eclipse eklentisini Eclipse Neon IDE içinden yükleyebilir
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Nov16_HO2-->
 
 

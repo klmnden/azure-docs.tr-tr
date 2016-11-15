@@ -1,11 +1,11 @@
 ---
-title: Azure RemoteApp lisanslama | Microsoft Docs
-description: Azure RemoteApp’te lisanslamanın nasıl çalıştığını öğrenin.
+title: Azure RemoteApp lisanslama | Microsoft Belgeleri
+description: "Azure RemoteApp’te lisanslamanın nasıl çalıştığını öğrenin."
 services: remoteapp
-documentationcenter: ''
+documentationcenter: 
 author: lizap
 manager: mbaldwin
-
+ms.assetid: ff8ebd20-61a1-4f10-87a6-234a170534c9
 ms.service: remoteapp
 ms.workload: compute
 ms.tgt_pltfrm: na
@@ -13,9 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/15/2016
 ms.author: elizapo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: f4429461139a41644f87185bbb06b1f6a8011345
+
 
 ---
-# Azure RemoteApp’te lisanslama nasıl çalışır?
+# <a name="how-does-licensing-work-in-azure-remoteapp"></a>Azure RemoteApp’te lisanslama nasıl çalışır?
 > [!IMPORTANT]
 > Azure RemoteApp kullanımdan kaldırılıyor. Ayrıntılı bilgi için [duyuruyu](https://go.microsoft.com/fwlink/?linkid=821148) okuyun.
 > 
@@ -37,6 +41,9 @@ Kulağa mantıklı geliyor, değil mi? Yasal olarak paylaşma hakkınız olan he
 
 Lütfen bir bulut koleksiyonunda CAL veya Toplu Lisans sözleşmesi kullanamayacağınızı unutmayın. Karma koleksiyonunuzda uygulamaları etkinleştirmek için bir Toplu Lisans sözleşmesi *kullanabilirsiniz* (Office hariç). Bunları Toplu Lisans medyasından şablon görüntünüze yüklemeniz yeterlidir. Lisansları bir Uzak Masaüstü ortamında yüklemek için uygulama satıcısından aldığınız bilgiler doğrultusunda hareket edin.
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

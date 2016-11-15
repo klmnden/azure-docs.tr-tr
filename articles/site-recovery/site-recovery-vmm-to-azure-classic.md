@@ -1,25 +1,29 @@
 ---
-title: VMM bulutlarındaki Hyper-V sanal makinelerini Azure'a çoğaltma | Microsoft Docs
-description: Bu makalede, System Center VMM bulutlarında bulunan Hyper-V ana bilgisayarlarındaki Hyper-V sanal makinelerini Azure'a çoğaltma işlemi açıklanır.
+title: "VMM bulutlarındaki Hyper-V sanal makinelerini Azure&quot;a çoğaltma | Microsoft Belgeleri"
+description: "Bu makalede, System Center VMM bulutlarında bulunan Hyper-V ana bilgisayarlarındaki Hyper-V sanal makinelerini Azure&quot;a çoğaltma işlemi açıklanır."
 services: site-recovery
-documentationcenter: ''
+documentationcenter: 
 author: rayne-wiselman
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: 9d526a1f-0d8e-46ec-83eb-7ea762271db5
 ms.service: site-recovery
 ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 05/06/2016
+ms.date: 11/01/2016
 ms.author: raynew
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 4743f1335856bcfc7a44d76841d3be83693ad063
+
 
 ---
-# VMM bulutlarındaki Hyper-V sanal makinelerini Azure'a çoğaltma
+# <a name="replicate-hyperv-virtual-machines-in-vmm-clouds-to-azure"></a>VMM bulutlarındaki Hyper-V sanal makinelerini Azure'a çoğaltma
 > [!div class="op_single_selector"]
 > * [Azure Portal](site-recovery-vmm-to-azure.md)
-> * [PowerShell - ARM](site-recovery-vmm-to-azure-powershell-resource-manager.md)
+> * [PowerShell - Resource Manager](site-recovery-vmm-to-azure-powershell-resource-manager.md)
 > * [Klasik Portal](site-recovery-vmm-to-azure-classic.md)
 > * [PowerShell - Klasik](site-recovery-deploy-with-powershell.md)
 > 
@@ -27,20 +31,20 @@ ms.author: raynew
 
 Azure Site Recovery hizmeti; çoğaltma, yük devretme ve sanal makineler ile fiziksel sunucuları kurtarma işlemlerini düzenleyerek iş sürekliliği ve olağanüstü durum kurtarma (BCDR) stratejinize katkı sağlar. Makineler, Azure'a veya bir ikincil şirket içi veri merkezine çoğaltılabilir. Hızlı bir genel bakış için [Azure Site Recovery nedir?](site-recovery-overview.md) konusunu okuyun.
 
-## Genel Bakış
+## <a name="overview"></a>Genel Bakış
 Bu makalede, VMM özel bulutlarında bulunan Hyper-V ana bilgisayar sunucularındaki Hyper-V sanal makineleri çoğaltmak için Site Recovery'yi Azure'a dağıtma işlemi açıklanır.
 
 Bu makale, senaryolara ilişkin önkoşulları içerir ve Site Recovery kasası ayarlamayı, kaynak VMM sunucusunda yüklü olan Azure Site Recovery Sağlayıcısı'nı edinmeyi, sunucuyu kasaya kaydetmeyi, bir Azure depolama hesabı eklemeyi, Azure Kurtarma Hizmetleri aracısını Hyper-V ana bilgisayar sunucularına yüklemeyi, tüm korunan sanal makinelere uygulanacak VMM bulutları için koruma ayarlarını yapılandırmayı ve ardından bu korumayı tüm sanal makineler için etkinleştirmeyi gösterir. Her şeyin istendiği gibi çalıştığından emin olmak için yük devretmeyi test ederek işlemi sonlandırın.
 
 Tüm yorumlarınızı ve sorularınızı bu makalenin alt kısmında veya [Azure Kurtarma Hizmetleri Forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)'nda paylaşabilirsiniz.
 
-## Mimari
+## <a name="architecture"></a>Mimari
 ![Mimari](./media/site-recovery-vmm-to-azure-classic/topology.png)
 
 * Azure Site Recovery Sağlayıcısı, Site Recovery dağıtımı sırasında VMM'de yüklüdür ve VMM sunucusu Site Recovery kasasına kayıtlıdır. Çoğaltma düzenlemesini sağlamak için Sağlayıcı, Site Recovery ile iletişim kurar.
 * Azure Kurtarma Hizmetleri aracısı, Site Recovery dağıtımı sırasında Hyper-V ana bilgisayar sunucularında yüklüdür. Bu aracı, Azure depolama alanına yönelik veri çoğaltma işlemini ele alır.
 
-## Azure önkoşulları
+## <a name="azure-prerequisites"></a>Azure önkoşulları
 İşte Azure'da ihtiyaç duyacaklarınız:
 
 | **Önkoşul** | **Ayrıntılar** |
@@ -49,16 +53,16 @@ Tüm yorumlarınızı ve sorularınızı bu makalenin alt kısmında veya [Azure
 | **Azure depolama alanı** |Çoğaltılan verileri depolamak için bir Azure depolama hesabınızın olması gerekir. Çoğaltılan veriler Azure depolama alanında depolanır ve yük devretme durumunda Azure VM'leri çalışmaya başlar. <br/><br/>[Standart coğrafi olarak yedekli depolama hesabınızın](../storage/storage-redundancy.md#geo-redundant-storage) olması gerekir. Bu hesabın Site Recovery ile aynı bölgede olması ve aynı abonelikle ilişkilendirilmiş olması gerekir. Premium depolama hesaplarında çoğaltmanın şu anda desteklenmediğini ve bu hesapların kullanılmaması gerektiğini unutmayın.<br/><br/>Azure depolama alanı [hakkında bilgi edinin](../storage/storage-introduction.md). |
 | **Azure ağı** |Yük devretme gerçekleştiğinde Azure VM'lerinin bağlanabileceği bir Azure sanal ağı gerekir. Azure sanal ağının Site Recovery kasasıyla aynı bölgede olması gerekir. |
 
-## Şirket içi önkoşullar
+## <a name="onpremises-prerequisites"></a>Şirket içi önkoşullar
 İşte şirket içinde ihtiyaç duyacaklarınız:
 
 | **Önkoşul** | **Ayrıntılar** |
 | --- | --- |
 | **VMM** |Bir fiziksel veya sanal bağımsız sunucu olarak veya sanal küme olarak dağıtılmış en az bir VMM sunucusu gerekir. <br/><br/>VMM sunucusunun, en yeni birikmeli güncelleştirmeleri içeren System Center 2012 R2'yi çalıştırması gerekir.<br/><br/>En az bir adet VMM sunucusunda yapılandırılan bulut gerekir.<br/><br/>Korumak istediğiniz kaynak bulutun, bir veya birden fazla VMM ana bilgisayar grubu içermesi gerekir.<br/><br/>VMM bulutlarını ayarlama hakkında daha fazla bilgi edinmek için Keith Mayer'ın blogundaki [Adım adım kılavuz: System Center 2012 SP1 VMM içeren özel bulut oluşturma](http://blogs.technet.com/b/keithmayer/archive/2013/04/18/walkthrough-creating-private-clouds-with-system-center-2012-sp1-virtual-machine-manager-build-your-private-cloud-in-a-month.aspx) |
-| **Hyper-V** |VMM bulutunda bir veya birden çok Hyper-V ana bilgisayar sunucusu veya kümesine sahip olmanız gerekir. Ana bilgisayar sunucusunun bir veya birden çok VM'ye sahip olması gerekir. <br/><br/>Hyper-V sunucusunun Hyper-V rolü içeren Windows Server 2012 R2 sürümünde veya sonraki bir sürümde çalışması ve en son güncelleştirmelerinin yüklenmiş olması gerekir.<br/><br/>Korumak istediğiniz ve VM'leri içeren herhangi bir Hyper-V sunucusunun, VMM bulutunda yer alması gerekir.<br/><br/>Hyper-V'yi bir kümede çalıştırıyorsanız statik IP adresi temelli bir kümeye sahip olmanız durumunda küme aracısının otomatik olarak oluşturulamayacağını unutmayın. Küme aracısını sizin yapılandırmanız gerekir. Aidan Finn'in blog girdisi aracılığıyla [daha fazla bilgi edinin](https://www.petri.com/use-hyper-v-replica-broker-prepare-host-clusters). |
+| **Hyper-V** |VMM bulutunda bir veya birden çok Hyper-V ana bilgisayar sunucusu veya kümesine sahip olmanız gerekir. Ana bilgisayar sunucusunun bir veya birden çok VM'ye sahip olması gerekir. <br/><br/>Hyper-V sunucusunun, Hyper-V rolü içeren **Windows Server 2012 R2** veya **Microsoft Hyper-V Server 2012 R2** sürümünde ya da bunların sonraki sürümlerinde çalıştırılması ve en son güncelleştirmelerinin yüklenmiş olması gerekir.<br/><br/>Korumak istediğiniz ve VM'leri içeren herhangi bir Hyper-V sunucusunun, VMM bulutunda yer alması gerekir.<br/><br/>Hyper-V'yi bir kümede çalıştırıyorsanız statik IP adresi temelli bir kümeye sahip olmanız durumunda küme aracısının otomatik olarak oluşturulamayacağını unutmayın. Küme aracısını sizin yapılandırmanız gerekir. Aidan Finn'in blog girdisi aracılığıyla [daha fazla bilgi edinin](https://www.petri.com/use-hyper-v-replica-broker-prepare-host-clusters). |
 | **Korumalı makineler** |Korumak istediğiniz VM'lerin [Azure gereksinimlerini](site-recovery-best-practices.md#azure-virtual-machine-requirements) karşılaması gerekir. |
 
-## Ağ eşlemesi önkoşulları
+## <a name="network-mapping-prerequisites"></a>Ağ eşlemesi önkoşulları
 Azure'da sanal makineleri koruduğunuzda, ağ eşlemesi kaynak VMM sunucusundaki VM ağlarını hedef Azure ağları ile eşleyerek şu işlemlere olanak sağlar:
 
 * Aynı ağda yük devreden tüm makineler, hangi kurtarma planında yer aldıklarına bakılmaksızın birbiriyle bağlantı kurabilir.
@@ -78,7 +82,7 @@ Aşağıdaki talimatlara göre ağ eşlemesi için hazırlık yapın:
    * [Mantıksal ağlar ayarlayın](https://technet.microsoft.com/library/jj721568.aspx).
    * [VM ağları ayarlayın](https://technet.microsoft.com/library/jj721575.aspx).
 
-## 1. Adım: Site Recovery kasası oluşturma
+## <a name="step-1-create-a-site-recovery-vault"></a>1. Adım: Site Recovery kasası oluşturma
 1. Kaydolmak istediğiniz VMM sunucusundan [Yönetim Portalı](https://portal.azure.com)'nda oturum açın.
 2. **Veri Hizmetleri** > **Kurtarma Hizmetleri** > **Site Recovery Kasası** seçeneklerine tıklayın.
 3. **Yeni Oluştur** > **Hızlı Oluştur**'a tıklayın.
@@ -90,7 +94,7 @@ Aşağıdaki talimatlara göre ağ eşlemesi için hazırlık yapın:
 
 Kasanın başarıyla oluşturulduğunu doğrulamak için durum çubuğunu kontrol edin. Kasa, ana Kurtarma Hizmetleri sayfasında **Etkin** olarak listelenir.
 
-## 2. Adım: Kasa kayıt anahtarı oluşturma
+## <a name="step-2-generate-a-vault-registration-key"></a>2. Adım: Kasa kayıt anahtarı oluşturma
 Kasada bir kayıt anahtarı oluşturun. Azure Site Recovery Sağlayıcısı'nı indirdikten sonra VMM sunucusuna yükleyin, oluşturduğunuz anahtarı kasadaki VMM sunucusuna kaydolmak için kullanacaksınız.
 
 1. **Kurtarma Hizmetleri** sayfasında, Hızlı Başlangıç sayfasını açmak için kasaya tıklayın. Ayrıca, Hızlı Başlangıç sayfasını istediğiniz zaman simgesini kullanarak da açabilirsiniz.
@@ -101,7 +105,7 @@ Kasada bir kayıt anahtarı oluşturun. Azure Site Recovery Sağlayıcısı'nı 
    
     ![Kayıt anahtarı](./media/site-recovery-vmm-to-azure-classic/register-key.png)
 
-## 3. Adım: Azure Site Recovery Sağlayıcısı'nı yükleme
+## <a name="step-3-install-the-azure-site-recovery-provider"></a>3. Adım: Azure Site Recovery Sağlayıcısı'nı yükleme
 1. Sağlayıcı yükleme dosyasının en son sürümünü almak için **Hızlı Başlangıç** > **VMM sunucularını hazırla** kısmından **VMM sunucularında yükleme için Microsoft Azure Site Recovery Sağlayıcısı'nı indir** seçeneğine tıklayın.
 2. Bu dosyayı kaynak VMM sunucusunda çalıştırın.
    
@@ -146,7 +150,7 @@ Kasada bir kayıt anahtarı oluşturun. Azure Site Recovery Sağlayıcısı'nı 
 
 Kayıttan sonra Azure Site Recovery tarafından VMM sunucusundan meta veriler alınır. Sunucu, kasadaki **Sunucular** sayfasında **VMM Sunucuları** sekmesinde görüntülenir.
 
-### Komut satırı yüklemesi
+### <a name="command-line-installation"></a>Komut satırı yüklemesi
 Azure Site Recovery sağlayıcısı, aşağıdaki komut satırını kullanarak da yüklenebilir. Bu yöntem, sağlayıcıyı Windows Server 2012 R2 için Sunucu Çekirdeği'nde yüklerken kullanılabilir.
 
 1. Sağlayıcı yükleme dosyasını ve kayıt anahtarını bir klasöre indirin. Örnek: C:\ASR.
@@ -173,7 +177,7 @@ Parametre konumları aşağıdaki şekildedir:
 * **/proxyUsername**: Ara sunucu kullanıcı adını belirten isteğe bağlı parametre 
 * **/proxyPassword**: Ara sunucu parolasını belirten isteğe bağlı parametre   
 
-## 4. Adım: Azure depolama hesabı oluşturma
+## <a name="step-4-create-an-azure-storage-account"></a>4. Adım: Azure depolama hesabı oluşturma
 1. Azure depolama hesabınız yoksa hesap oluşturmak için **Azure Storage Hesabı Ekle**'ye tıklayın.
 2. Coğrafi çoğaltmanın etkinleştirilmiş olduğu bir hesap oluşturun. Bu hesabın Azure Site Recovery hizmeti ile aynı bölgede olması ve aynı abonelikle ilişkilendirilmiş olması gerekir.
    
@@ -184,7 +188,7 @@ Parametre konumları aşağıdaki şekildedir:
 > 
 > 
 
-## 5. Adım: Azure Kurtarma Hizmetleri Aracısı'nı yükleme
+## <a name="step-5-install-the-azure-recovery-services-agent"></a>5. Adım: Azure Kurtarma Hizmetleri Aracısı'nı yükleme
 VMM bulutundaki tüm Hyper-V ana bilgisayar sunucularına Azure Kurtarma Hizmetleri aracısını yükleyin.
 
 1. Aracı yükleme dosyasının en son sürümünü almak için **Hızlı Başlangıç** > **Azure Kurtarma Hizmetleri Aracısı'nı indir ve ana bilgisayarlara yükle** seçeneklerine tıklayın.
@@ -199,12 +203,12 @@ VMM bulutundaki tüm Hyper-V ana bilgisayar sunucularına Azure Kurtarma Hizmetl
    
     ![MARS Aracısı'nı Kaydetme](./media/site-recovery-vmm-to-azure-classic/agent-register.png)
 
-### Komut satırı yüklemesi
+### <a name="command-line-installation"></a>Komut satırı yüklemesi
 Aşağıdaki komutu kullanarak Microsoft Azure Kurtarma Hizmetleri Aracısı'nı komut satırından da yükleyebilirsiniz:
 
     marsagentinstaller.exe /q /nu
 
-## 6. Adım: Bulut koruma ayarlarını yapılandırma
+## <a name="step-6-configure-cloud-protection-settings"></a>6. Adım: Bulut koruma ayarlarını yapılandırma
 VMM sunucusunu kaydettikten sonra bulut koruma ayarlarını yapılandırabilirsiniz. Sağlayıcı'yı yüklerken **Bulut verilerini kasayla eşitle** seçeneğini etkinleştirdiğinizden VMM sunucusundaki tüm bulutlar kasadaki <b>Korunan Öğeler</b> sekmesinde görünür.
 
 ![Yayımlanan Bulut](./media/site-recovery-vmm-to-azure-classic/clouds-list.png)
@@ -225,7 +229,7 @@ Ayarlar kaydedildikten sonra bir iş oluşturulur ve bu iş **İşler** sekmesin
 
 Bulut ayarları kaydedildikten sonra **Yapılandır** sekmesinden değiştirilebilir. Hedef konumu veya hedef depolama hesabını değiştirmek için bulut yapılandırmasını kaldırıp bulutu yeniden yapılandırmanız gerekir. Depolama hesabını değiştirirseniz bu değişikliğin yalnızca depolama hesabı değiştirildikten sonra koruma işleminin etkinleştirildiği sanal makineler için uygulanacağını unutmayın. Var olan sanal makineler yeni depolama hesabına taşınmaz.
 
-## 7. Adım: Ağ eşlemesini yapılandırma
+## <a name="step-7-configure-network-mapping"></a>7. Adım: Ağ eşlemesini yapılandırma
 Ağ eşlemesine başlamadan önce kaynak VMM sunucusundaki sanal makinelerin bir VM ağına bağlı olduğunu doğrulayın. Ayrıca, bir veya daha fazla Azure sanal ağı oluşturun. Birden çok VM ağının tek bir Azure ağına eşlenebileceğini unutmayın.
 
 1. Hızlı Başlangıç sayfasında **Ağları eşle**'ye tıklayın.
@@ -246,7 +250,7 @@ Hedef ağın birden çok alt ağı varsa ve bu alt ağlardan biri kaynak sanal m
 > 
 > 
 
-## 8. Adım: Sanal makinelere yönelik korumayı etkinleştirme
+## <a name="step-8-enable-protection-for-virtual-machines"></a>8. Adım: Sanal makinelere yönelik korumayı etkinleştirme
 Sunucular, bulutlar ve ağlar doğru şekilde yapılandırıldıktan sonra buluttaki sanal makineler için korumayı etkinleştirebilirsiniz. Şunlara dikkat edin:
 
 * Sanal makinelerin [Azure gereksinimlerini](site-recovery-best-practices.md#azure-virtual-machine-requirements) karşılaması gerekir.
@@ -274,7 +278,7 @@ Sunucular, bulutlar ve ağlar doğru şekilde yapılandırıldıktan sonra bulut
   
   * Kaynak makinedeki ağ bağdaştırıcılarının sayısı, hedef makine boyutu için verilen ağ bağdaştırıcısı sayısına eşitse veya daha azsa hedef makine kaynakla aynı sayıda bağdaştırıcıya sahip olur.
   * Kaynak sanal makinenin bağdaştırıcı sayısı, hedef boyut için izin verilen sayıyı aşarsa maksimum hedef boyutu kullanılır.
-  * Örneğin, kaynak makinenin iki bağdaştırıcısı varsa ve hedef makine boyutu dört adet bağdaştırıcıyı destekliyorsa hedef makinenin iki bağdaştırıcısı olur. Kaynak makinenin iki bağdaştırıcısı varken hedef boyut yalnızca bir bağdaştırıcıyı destekliyorsa hedef makinenin bir bağdaştırıcısı olur.    
+  * Örneğin, kaynak makinenin iki bağdaştırıcısı varsa ve hedef makine boyutu dört adet bağdaştırıcıyı destekliyorsa hedef makinenin iki bağdaştırıcısı olur. Kaynak makinenin iki bağdaştırıcısı varken hedef boyut yalnızca bir bağdaştırıcıyı destekliyorsa hedef makinenin bir bağdaştırıcısı olur.     
 * **Hedef sanal makine ağı** - Sanal makinenin bağlanacağı ağ, kaynak sanal makine ağının ağ eşlemesine göre belirlenir. Kaynak sanal makinenin birden fazla ağ bağdaştırıcısı varsa ve kaynak sağlar hedefte farklı ağlarla eşlendiyse hedef ağlardan birini seçmeniz gerekir.
 * **Her ağ bağdaştırıcısının alt ağı** - Her ağ bağdaştırıcısı için yük devreden sanal makinenin bağlanacağı alt ağı seçebilirsiniz.
 * **Hedef IP adresi** - Kaynak sanal makinenin ağ bağdaştırıcısı statik IP kullanmak üzere yapılandırıldıysa hedef sanal makine için IP adresi sağlayabilirsiniz. Bu özelliği, yük devretme işleminden sonra kaynak sanal makinenin IP adresini korumak için kullanın. IP adresi sağlanmazsa yük devretme sırasında kullanılabilir olan herhangi bir IP adresi ağ bağdaştırıcısına verilir. Hedef IP adresi belirlenmişse ancak Azure'da çalışan başka bir sanal makine tarafından kullanılıyorsa yük devretme başarısız olur.  
@@ -286,7 +290,7 @@ Sunucular, bulutlar ve ağlar doğru şekilde yapılandırıldıktan sonra bulut
 > 
 > 
 
-## Dağıtımı test etme
+## <a name="test-the-deployment"></a>Dağıtımı test etme
 Dağıtımınızı test etmek için tek bir sanal makine için bir yük devretme testi çalıştırabilir veya birden çok sanal makine içeren bir kurtarma planı oluşturup bu plan için yük devretme testi çalıştırabilirsiniz.  
 
 Yük devretme testi, yük devretme işleminizi ve kurtarma mekanizmanızı yalıtılmış bir ortamda benzetimli olarak gerçekleştirir. Şunlara dikkat edin:
@@ -299,7 +303,7 @@ Yük devretme testi, yük devretme işleminizi ve kurtarma mekanizmanızı yalı
 > 
 > 
 
-### Kurtarma planı oluşturma
+### <a name="create-a-recovery-plan"></a>Kurtarma planı oluşturma
 1. **Kurtarma Planları** sekmesinde yeni bir plan ekleyin. Bir ad belirtin, **Kaynak türü** için **VMM** ve **Kaynak** için kaynak VMM sunucusu seçeneklerini belirleyin. Hedef Azure olur.
    
     ![Kurtarma planı oluşturma](./media/site-recovery-vmm-to-azure-classic/recovery-plan1.png)
@@ -312,7 +316,7 @@ Yük devretme testi, yük devretme işleminizi ve kurtarma mekanizmanızı yalı
 
 Bir kurtarma planı oluşturulduktan sonra **Kurtarma Planları** sekmesinde görünür. Ayrıca, yük devretme sırasında eylemleri otomatikleştirmek için kurtarma planına [Azure otomasyonu Runbook'larını](site-recovery-runbook-automation.md) da ekleyebilirsiniz.
 
-### Yük devretme testi çalıştırma
+### <a name="run-a-test-failover"></a>Yük devretme testi çalıştırma
 Azure için yük devretme testi çalıştırmanın iki yöntemi vardır.
 
 * **Azure ağı olmadan yük devretme testi** - Bu türdeki yük devretme testi sanal makinenin Azure'a doğru şekilde alınıp alınmadığını denetler. Yük devretmeden sonra sanal makine herhangi bir Azure ağına bağlanmaz.
@@ -343,9 +347,12 @@ Yük devretme testi çalıştırmak için şunları yapın:
 
 >
 
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 [Kurtarma planlarını ayarlama](site-recovery-create-recovery-plans.md) ve [yük devretme](site-recovery-failover.md) hakkında daha fazla bilgi edinin.
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

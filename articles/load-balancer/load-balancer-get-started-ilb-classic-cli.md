@@ -1,76 +1,80 @@
 ---
-title: Create an internal load balancer using the Azure CLI in the classic deployment model | Microsoft Docs
-description: Learn how to create an internal load balancer using the Azure CLI in the classic deployment model
+title: "Klasik dağıtım modelinde Azure CLI kullanarak iç yük dengeleyici oluşturma | Microsoft Belgeleri"
+description: "Klasik dağıtım modelinde Azure CLI kullanarak iç yük dengeleyici oluşturmayı öğrenin"
 services: load-balancer
 documentationcenter: na
 author: sdwheeler
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-service-management
-
+ms.assetid: becbbbde-a118-4269-9444-d3153f00bf34
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2016
 ms.author: sewhee
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 4364d3bcdffd278bef35b224a8e22062814ca490
+
 
 ---
-# Get started creating an internal load balancer (classic) using the Azure CLI
+# <a name="get-started-creating-an-internal-load-balancer-classic-using-the-azure-cli"></a>Azure CLI kullanarak iç yük dengeleyici (klasik) oluşturmaya başlama
 [!INCLUDE [load-balancer-get-started-ilb-classic-selectors-include.md](../../includes/load-balancer-get-started-ilb-classic-selectors-include.md)]
 
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)]
 
-Learn how to [perform these steps using the Resource Manager model](load-balancer-get-started-ilb-arm-cli.md).
+[Bu adımları Resource Manager modeli kullanarak gerçekleştirmeyi](load-balancer-get-started-ilb-arm-cli.md) öğrenin.
 
 [!INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
-## To create an internal load balancer set for virtual machines
-To create an internal load balancer set and the servers that will send their traffic to it, you must do the following:
+## <a name="to-create-an-internal-load-balancer-set-for-virtual-machines"></a>Sanal makineler için iç yük dengeleyici oluşturma
+İç yük dengeleyici kümesi ve trafiğini bu kümeye gönderecek sunucuları oluşturmak için aşağıdaki adımları uygulamanız gerekir:
 
-1. Create an instance of Internal Load Balancing that will be the endpoint of incoming traffic to be load balanced across the servers of a load-balanced set.
-2. Add endpoints corresponding to the virtual machines that will be receiving the incoming traffic.
-3. Configure the servers that will be sending the traffic to be load balanced to send their traffic to the virtual IP (VIP) address of the Internal Load Balancing instance.
+1. Gelen trafiğin uç noktası olacak ve bu trafiğe yük dengeli bir kümenin sunucularında yük dengelemesi yapacak bir İç Yük Dengeleme örneği oluşturun.
+2. Gelen trafiği alacak sanal makinelere karşılık gelen uç noktalar ekleyin.
+3. Yük dengelemesi yapılacak trafiği gönderecek sunucuları trafiklerini İç Yük Dengeleme örneğinin sanal IP (VIP) adresine gönderecek şekilde yapılandırın.
 
-## Step by step creating an internal load balancer using CLI
-This guide shows how to create an internal load balancer based on the scenario above.
+## <a name="step-by-step-creating-an-internal-load-balancer-using-cli"></a>CLI kullanarak iç yük dengeleyici oluşturma adımları
+Bu kılavuz, yukarıdaki senaryoya göre iç yük dengeleyicinin nasıl oluşturulacağını göstermektedir.
 
-1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](../xplat-cli-install.md) and follow the instructions up to the point where you select your Azure account and subscription.
-2. Run the **azure config mode** command to switch to classic mode, as shown below.
+1. Hiç Azure CLI kullanmadıysanız bkz. [Azure CLI’yi Yükleme ve Yapılandırma](../xplat-cli-install.md); sonra da, Azure hesabınızı ve aboneliğinizi seçtiğiniz noktaya kadar yönergeleri uygulayın.
+2. Klasik moda geçmek için **azure config mode** komutunu aşağıda gösterildiği gibi çalıştırın.
    
         azure config mode asm
    
-    Expected output:
+    Beklenen çıktı:
    
         info:    New mode is asm
 
-## Create endpoint and load balancer set
-The scenario assumes the virtual machines "DB1" and "DB2" in a cloud service called "mytestcloud". Both virtual machines are using a virtual network called my "testvnet" with subnet "subnet-1".
+## <a name="create-endpoint-and-load-balancer-set"></a>Uç nokta ve yük dengeleyici kümesi oluşturma
+Bu senaryo, "mytestcloud" adlı bir bulut hizmetinde çalışan "DB1" ve "DB2" adlı iki sanal makine olduğunu varsaymaktadır. Her iki sanal makine de "subnet-1" alt ağına sahip "testvnet" adlı bir sanal ağ kullanmaktadır.
 
-This guide will create an internal load balancer set using port 1433 as private port and 1433 as local port.
+Bu kılavuzda hem özel hem de yerel bağlantı noktası olarak 1433 numaralı bağlantı noktası kullanılarak bir iç yük dengeleyici kümesi oluşturulmaktadır.
 
-This is a common scenario where you have SQL virtual machines on the back end using an internal load balancer to guarantee the database servers won't be exposed directly using a public IP address.
+Bu, genelde veritabanı sunucularının genel IP adresi kullanarak doğrudan sunulmamasını garanti etmek için arka uçta iç yük dengeleyici kullanan SQL sanal makineleri olduğuna kullanılan bir senaryodur.
 
-### Step 1
-Create an internal load balancer set using `azure network service internal-load-balancer add`.
+### <a name="step-1"></a>1. Adım
+`azure network service internal-load-balancer add` kullanarak iç yük dengeleyici kümesi oluşturun.
 
      azure service internal-load-balancer add -r mytestcloud -n ilbset -t subnet-1 -a 192.168.2.7
 
-Parameters used:
+Kullanılan parametreler:
 
-**-r** - cloud service name<BR>
-**-n** - internal load balancer name<BR>
-**-t** - subnet name ( same subnet by the virtual machines you will add to the internal load balancer)<BR>
-**-a** - (optional) add a static private IP address<BR>
+**-r** - bulut hizmeti adı<BR>
+**-n** - iç yük dengeleyici adı<BR>
+**-t** - alt ağ adı (iç yük dengeleyiciye ekleyeceğiniz sanal makinelerle aynı alt ağ)<BR>
+**-a** - (isteğe bağlı) statik özel IP adresi ekleyin<BR>
 
-Check out `azure service internal-load-balancer --help` for more information.
+Daha fazla bilgi için bkz. `azure service internal-load-balancer --help`.
 
-You can check the internal load balancer properties using the command `azure service internal-load-balancer list` *cloud service name*.
+`azure service internal-load-balancer list` *bulut hizmeti adı* komutunu kullanarak iç yük dengeleyici özelliklerini denetleyebilirsiniz.
 
-Here follows an example of the output:
+Çıktı örneği aşağıda verilmiştir:
 
     azure service internal-load-balancer list my-testcloud
     info:    Executing command service internal-load-balancer list
@@ -81,26 +85,26 @@ Here follows an example of the output:
     info:    service internal-load-balancer list command OK
 
 
-## Step 2
-You configure the internal load balancer set when you add the first endpoint. You will associate the endpoint, virtual machine and probe port to the internal load balancer set in this step.
+## <a name="step-2"></a>2. Adım
+İlk uç noktayı eklediğinizde iç yük dengeleyici kümesini yapılandırırsınız. Bu adımda uç noktası, sanal makine ve araştırma bağlantı noktasını iç yük dengeleyici kümesiyle ilişkilendireceksiniz.
 
     azure vm endpoint create db1 1433 -k 1433 tcp -t 1433 -r tcp -e 300 -f 600 -i ilbset
 
-Parameters used:
+Kullanılan parametreler:
 
-**-k** - local virtual machine port<BR>
-**-t** - probe port<BR>
-**-r** - probe protocol<BR>
-**-e** - probe interval in seconds<BR>
-**-f** - timeout interval in seconds <BR>
-**-i** - internal load balancer name <BR>
+**-k** - yerel sanal makine bağlantı noktası<BR>
+**-t** - araştırma bağlantı noktası<BR>
+**-r** - araştırma protokolü<BR>
+**-e** - araştırma aralığı (saniye)<BR>
+**-f** - zaman aşımı aralığı (saniye) <BR>
+**-i** - iç yük dengeleyici adı <BR>
 
-## Step 3
-Verify the load balancer configuration using `azure vm show` *virtual machine name*
+## <a name="step-3"></a>3. Adım
+`azure vm show` *sanal makine adı* komutunu kullanarak yük dengeleyici yapılandırmasını doğrulayın
 
     azure vm show DB1
 
-The output will be:
+Çıktı şu şekilde olacaktır:
 
         azure vm show DB1
     info:    Executing command vm show
@@ -150,24 +154,30 @@ The output will be:
     info:    vm show command OK
 
 
-## Create a remote desktop endpoint for a virtual machine
-You can create a remote desktop endpoint to forward network traffic from a public port to a local port for a specific virtual machine using `azure vm endpoint create`.
+## <a name="create-a-remote-desktop-endpoint-for-a-virtual-machine"></a>Bir sanal makine için uzak masaüstü uç noktası oluşturma
+`azure vm endpoint create` kullanarak belirli bir sanal makine için genel bağlantı noktasına gelen trafiği yerel bağlantı noktasına yönlendirme amacıyla uzak masaüstü uç noktası oluşturabilirsiniz.
 
     azure vm endpoint create web1 54580 -k 3389
 
 
-## Remove virtual machine from load balancer
-You can remove a virtual machine from an internal load balancer set by deleting the associated endpoint. Once the endpoint is removed, the virtual machine won't belong to the load balancer set anymore.
+## <a name="remove-virtual-machine-from-load-balancer"></a>Sanal makineyi yük dengeleyiciden kaldırma
+İlgili uç noktayı silerek iç yük dengeleyici kümesinde yer alan bir sanal makineyi kaldırabilirsiniz. Uç nokta kaldırıldığında ilgili sanal makine artık yük dengeleyici kümesine ait olmayacaktır.
 
- Using the example above, you can remove the endpoint created for virtual machine "DB1" from internal load balancer "ilbset" by using the command `azure vm endpoint delete`.
+ Yukarıdaki örneği kullanarak "DB1" sanal makinesi için oluşturulan uç noktayı "ilbset" iç yük dengeleyici kümesinden `azure vm endpoint delete` komutuyla kaldırabilirsiniz.
 
     azure vm endpoint delete DB1 tcp-1433-1433
 
 
-Check out `azure vm endpoint --help` for more information.
+Daha fazla bilgi için bkz. `azure vm endpoint --help`.
 
-## Next steps
-[Configure a load balancer distribution mode using source IP affinity](load-balancer-distribution-mode.md)
+## <a name="next-steps"></a>Sonraki adımlar
+[Kaynak IP benzeşimi kullanarak yük dengeleyici dağıtım modunu yapılandırma](load-balancer-distribution-mode.md)
 
-[Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md)
+[Yük dengeleyiciniz için boşta TCP zaman aşımı ayarlarını yapılandırma](load-balancer-tcp-idle-timeout.md)
+
+
+
+
+<!--HONumber=Nov16_HO2-->
+
 

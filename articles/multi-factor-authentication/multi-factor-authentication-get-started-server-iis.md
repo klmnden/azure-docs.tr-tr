@@ -1,12 +1,12 @@
 ---
-title: IIS Kimlik Doğrulaması ve Azure Multi-Factor Authentication Sunucusu
-description: Bu, IIS Kimlik Doğrulaması ve Azure Multi-Factor Authentication Sunucusu’nu dağıtmada yardımcı olacak Azure Multi-factor authentication sayfasıdır.
+title: "IIS Kimlik Doğrulaması ve Azure Multi-Factor Authentication Sunucusu"
+description: "Bu, IIS Kimlik Doğrulaması ve Azure Multi-Factor Authentication Sunucusu’nu dağıtmada yardımcı olacak Azure Multi-factor authentication sayfasıdır."
 services: multi-factor-authentication
-documentationcenter: ''
+documentationcenter: 
 author: kgremban
 manager: femila
 editor: curtand
-
+ms.assetid: d1bf1c8a-2c10-4ae6-9f4b-75f0c3df43eb
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,14 +14,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/04/2016
 ms.author: kgremban
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 138e23a0964c0e540c6b2ddf8891aa9af6782233
+
 
 ---
-# IIS Kimlik Doğrulaması
+# <a name="iis-authentication"></a>IIS Kimlik Doğrulaması
 Azure Multi-Factor Authentication Sunucusu’nun IIS Kimlik Doğrulaması bölümü Microsoft IIS web uygulamaları ile IIS kimlik doğrulamasını etkinleştirmenizi ve yapılandırmanızı sağlar. Azure Multi-Factor Authentication Sunucusu, Azure Multi-Factor Authentication eklemek üzere IIS web sunucusuna yapılan istekleri filtreleyebilecek bir eklenti yükler. IIS eklentisi Form Tabanlı Kimlik Doğrulaması ve Tümleşik Windows HTTP Kimlik Doğrulaması için destek sağlar. Güvenilen IP’ler iç IP adreslerini iki öğeli kimlik doğrulamasından muaf tutmak için de kullanılabilir.
 
 ![IIS Kimlik Doğrulaması](./media/multi-factor-authentication-get-started-server-iis/iis.png)
 
-## Azure Multi-Factor Authentication Sunucusu ile Form Tabanlı IIS Kimlik Doğrulaması kullanma
+## <a name="using-formbased-iis-authentication-with-azure-multifactor-authentication-server"></a>Azure Multi-Factor Authentication Sunucusu ile Form Tabanlı IIS Kimlik Doğrulaması kullanma
 Form tabanlı kimlik doğrulaması kullanan bir IIS web uygulamasını güvenli hale getirmek için, IIS web sunucusuna Azure Multi-Factor Authentication Sunucusu yükleyin ve Sunucu’yu aşağıdaki yordama göre yapılandırın.
 
 1. Azure Multi-Factor Authentication Sunucusu’nda, soldaki menüde IIS Kimlik Doğrulaması simgesine tıklayın.
@@ -39,7 +43,7 @@ Form tabanlı kimlik doğrulaması kullanan bir IIS web uygulamasını güvenli 
 13. URL ve sayfa değişkenleri algılandığında veya girildiğinde, web sitesi verileri Form Tabanlı panelde görüntülenir.
 14. IIS kimlik doğrulaması yapılandırmasını tamamlamak için doğrudan aşağıdaki Azure Multi-Factor Authentication Sunucusu için IIS Eklentilerini Etkinleştirme bölümüne bakın.
 
-## Azure Multi-Factor Authentication Sunucusu ile Tümleşik Windows Kimlik Doğrulaması kullanma
+## <a name="using-integrated-windows-authentication-with-azure-multifactor-authentication-server"></a>Azure Multi-Factor Authentication Sunucusu ile Tümleşik Windows Kimlik Doğrulaması kullanma
 Tümleşik Windows HTTP kimlik doğrulaması kullanan bir IIS web uygulamasını güvenli hale getirmek için, IIS web sunucusuna Azure Multi-Factor Authentication Sunucusu yükleyin ve Sunucu’yu aşağıdaki yordama göre yapılandırın.
 
 1. Azure Multi-Factor Authentication Sunucusu’nda, soldaki menüde IIS Kimlik Doğrulaması simgesine tıklayın.
@@ -52,14 +56,14 @@ Tümleşik Windows HTTP kimlik doğrulaması kullanan bir IIS web uygulamasını
 8. Tamam düğmesine tıklayın.
 9. IIS kimlik doğrulaması yapılandırmasını tamamlamak için doğrudan aşağıdaki [Azure Multi-Factor Authentication Sunucusu için IIS Eklentilerini Etkinleştirme](#enable-iis-plug-ins-for-azure-multi-factor-authentication-server) bölümüne bakın.
 
-## Azure Multi-Factor Authentication Sunucusu için IIS Eklentilerini Etkinleştirme
+## <a name="enable-iis-plugins-for-azure-multifactor-authentication-server"></a>Azure Multi-Factor Authentication Sunucusu için IIS Eklentilerini Etkinleştirme
 Form Tabanlı ya da HTTP kimlik doğrulaması URL’lerini ve ayarlarını yapılandırdığınızda, Azure Multi-Factor Authentication IIS eklentilerinin IIS’de yüklenmesi ve etkinleştirilmesi gerektiği konumları seçmelisiniz. Aşağıdaki yordamı kullanın:
 
 1. IIS 6’da çalıştırılıyorsa, bu site için Azure Multi-Factor Authentication ISAPI filtresi eklentisini etkinleştirmek üzere ISAPI sekmesine tıklayın ve web uygulamasının altında çalıştığı web sitesini seçin (örneğin, Varsayılan Web Sitesi).
 2. IIS 7 veya üst sürümlerinde çalıştırılıyorsa, istenen düzeylerde IIS eklentisini etkinleştirmek için Yerel Modül sekmesine tıklayın ve sunucuyu, web sitelerini ya da uygulamaları seçin.
 3. Ekranın üst kısmındaki IIS kimlik doğrulamasını etkinleştir kutusuna tıklayın. Azure Multi-Factor Authentication artık seçilen IIS uygulamasını güvenli hale getirir. Kullanıcıların sunucuya aktarıldığından emin olun. Bu konumlardan web sitesinde oturum açarken iki öğeli kimliklik doğrulamasının gerekli olmamasını sağlayacak şekilde iç IP adreslerini güvenilir listeye almak istiyorsanız, aşağıda Güvenilen IP’ler bölümüne bakın
 
-## Güvenilen IP'ler
+## <a name="trusted-ips"></a>Güvenilen IP'ler
 Güvenilen IP'ler kullanıcıların belirli IP adresleri veya alt ağlardan kaynaklanan web sitesi istekleri için Azure Multi-Factor Authentication’ı atlamasına olanak tanır. Örneğin, ofisten oturum açarken kullanıcıların Azure Multi-Factor Authentication’dan muaf tutulmasını isteyebilirsiniz. Bunun için ofis alt ağını Güvenilen IP’ler girişi olarak belirtebilirsiniz. Güvenilen IP’leri yapılandırmak için aşağıdaki yordamı kullanın:
 
 1. IIS Kimlik Doğrulaması bölümünde, Güvenilen IP'ler sekmesine tıklayın.
@@ -67,6 +71,9 @@ Güvenilen IP'ler kullanıcıların belirli IP adresleri veya alt ağlardan kayn
 3. Güvenilen IP'leri Ekle iletişim kutusu göründüğünde, Tek bir IP, IP aralığı veya Alt ağ radyo düğmesini seçin.
 4. Güvenilir listesinde olması gereken IP adresini, IP adresleri aralığını ya da alt ağı girin. Bir alt ağ giriyorsanız, uygun Ağ maskesini seçin ve Tamam düğmesine tıklayın. Güvenilir listesi şimdi eklendi.
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

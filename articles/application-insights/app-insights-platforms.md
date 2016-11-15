@@ -1,11 +1,11 @@
 ---
-title: 'Application Insights: diller, platformlar ve tümleştirmeler| Microsoft Docs'
-description: Application Insights için diller, platformları ve tümleştirmeler bulunmaktadır
+title: "Application Insights: Diller, platformlar ve tümleştirmeler| Microsoft Belgeleri"
+description: "Application Insights için diller, platformları ve tümleştirmeler bulunmaktadır"
 services: application-insights
-documentationcenter: ''
+documentationcenter: 
 author: OlegAnaniev-MSFT
 manager: douge
-
+ms.assetid: 974db106-54ff-4318-9f8b-f7b3a869e536
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
@@ -13,12 +13,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/01/2016
 ms.author: awills
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: fa0fe7ee7b0a24b679b86dece2a3294004b57815
+
 
 ---
-# Geliştirici analizleri: diller, platformlar ve tümleştirmeler
+# <a name="developer-analytics-languages-platforms-and-integrations"></a>Geliştirici analizleri: diller, platformlar ve tümleştirmeler
 Bu öğeler, bildiğimiz [Application Insights](app-insights-overview.md) uygulamalardır. Bunlardan bazıları üçüncü taraflar aracılığıyla sunulur.
 
-## Diller
+## <a name="languages"></a>Diller
 * [C#|VB (.NET)](app-insights-asp-net.md)
 * [Java](app-insights-java-get-started.md)
 * [JavaScript web sayfaları](app-insights-web-track-usage.md)
@@ -26,9 +30,9 @@ Bu öğeler, bildiğimiz [Application Insights](app-insights-overview.md) uygula
 * [PHP](https://github.com/Microsoft/ApplicationInsights-PHP)
 * [Python](https://pypi.python.org/pypi/applicationinsights/0.1.0)
 * [Ruby](https://rubygems.org/gems/application_insights)
-* [Diğer](#projects)
+* [Diğer her şey](#projects)
 
-## Platformlar ve altyapıları
+## <a name="platforms-and-frameworks"></a>Platformlar ve altyapıları
 * [Angular](https://www.npmjs.com/package/angular-applicationinsights)
 * [ASP.NET](app-insights-asp-net.md)
 * [ASP.NET - zaten canlı olan uygulamalar için](app-insights-monitor-performance-live-website-now.md)
@@ -36,7 +40,7 @@ Bu öğeler, bildiğimiz [Application Insights](app-insights-overview.md) uygula
 * [Android](https://github.com/Microsoft/ApplicationInsights-Android) (HockeyApp)
 * [Azure web uygulamaları ve VM’ler](app-insights-azure-web-apps.md)
 * [Azure Bulut Hizmetleri](app-insights-cloudservices.md); hem web hem de çalışan rolleri dahil
-* [Microsoft Dynamics için CRM Online](app-insights-sample-mscrm.md)
+* [Microsoft Dynamics’ten CRM Online](app-insights-sample-mscrm.md)
 * [Docker](app-insights-docker.md)
 * [Glimpse](https://azure.microsoft.com/blog/glimpse-application-insights/)
 * [iOS](https://github.com/Microsoft/ApplicationInsights-iOS) (HockeyApp)
@@ -51,15 +55,16 @@ Bu öğeler, bildiğimiz [Application Insights](app-insights-overview.md) uygula
 * [Windows Phone 8 ve 8.1 uygulaması](https://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone/hockeyapp-for-windows-phone-silverlight-apps-80-and-81) (HockeyApp)
 * [Windows Presentation Foundation uygulaması](https://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone/hockeyapp-for-windows-wpf-apps) (HockeyApp)
 * [Windows masaüstü uygulamaları, hizmetleri ve çalışan rolleri](app-insights-windows-desktop.md)
-* [Diğer](#projects)
+* [Diğer her şey](#projects)
 
-## Günlük altyapıları
+## <a name="logging-frameworks"></a>Günlük altyapıları
 * [Log4Net, NLog veya System.Diagnostics.Trace](app-insights-diagnostic-search.md)
 * [Java, Log4J veya Logback](app-insights-java-trace-logs.md)
 * [Semantik Günlük (SLAB)](https://github.com/fidmor89/SLAB_AppInsights); [Semantik Günlük Uygulama Bloğu](https://msdn.microsoft.com/library/dn440729.aspx) ile tümleşir
 * [Bulut tabanlı yük testi](http://blogs.msdn.com/b/visualstudioalm/archive/2015/07/30/getting-application-insights-counters-with-cloud-based-load-testing.aspx)
+* [LogStash eklentisi](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-output-applicationinsights)
 
-## İçerik Yönetim Sistemleri
+## <a name="content-management-systems"></a>İçerik Yönetim Sistemleri
 * [Concrete](https://github.com/fidmor89/appInsights-Concrete)
 * [Drupal](https://github.com/fidmor89/AppInsights-Drupal)
 * [Joomla](https://github.com/fidmor89/AppInsights-Joomla)
@@ -67,14 +72,17 @@ Bu öğeler, bildiğimiz [Application Insights](app-insights-overview.md) uygula
 * [SharePoint](app-insights-sharepoint.md)
 * [WordPress](https://wordpress.org/plugins/application-insights/)
 
-## Dışarı Aktarma ve Veri Analizi
+## <a name="export-and-data-analysis"></a>Dışarı Aktarma ve Veri Analizi
 * [Alooma](https://www.alooma.com/blog/application-insights-amazon-redshift)
 * [Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx)
-* [Stream Analytics](app-insights-export-power-bi.md)
+* [Akış Analizi](app-insights-export-power-bi.md)
 
-## <a name="projects"></a> Kendi SDK’nizi derleme
+## <a name="a-nameprojectsa-build-your-own-sdk"></a><a name="projects"></a>Kendi SDK’nizi derleme
 Diliniz veya platformunuz için henüz bir SDK yoksa, belki de bir tane derlemenin zamanı gelmiştir değil mi? [GitHub’da Application Insights SDK projesi](https://github.com/Microsoft/AppInsights-Home) altında listelenen mevcut SDK kodlarını gözden geçirin.
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

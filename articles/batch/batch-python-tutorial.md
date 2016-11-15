@@ -1,12 +1,12 @@
 ---
-title: Eğitmen - Azure Batch Python istemcisini kullanmaya başlama | Microsoft Docs
-description: Azure Batch’in temel kavramlarını ve basit bir senaryoyla Batch hizmetini geliştirmeyi öğrenin
+title: "Eğitmen - Azure Batch Python istemcisini kullanmaya başlama | Microsoft Belgeleri"
+description: "Azure Batch’in temel kavramlarını ve basit bir senaryoyla Batch hizmetini geliştirmeyi öğrenin"
 services: batch
 documentationcenter: python
 author: mmacy
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 42cae157-d43d-47f8-88f5-486ccfd334f4
 ms.service: batch
 ms.devlang: python
 ms.topic: hero-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-compute
 ms.date: 09/27/2016
 ms.author: marsma
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: c0a778c8dc8786f0c084686b3f8722ff15eed78c
+
 
 ---
-# Azure Batch Python istemcisini kullanmaya başlama
+# <a name="get-started-with-the-azure-batch-python-client"></a>Azure Batch Python istemcisini kullanmaya başlama
 > [!div class="op_single_selector"]
 > * [.NET](batch-dotnet-get-started.md)
 > * [Python](batch-python-tutorial.md)
@@ -27,24 +31,24 @@ Python’da yazılmış küçük bir Batch uygulamasından söz ettiğimizden, [
 
 ![Batch çözümü iş akışı (temel)][11]<br/>
 
-## Ön koşullar
+## <a name="prerequisites"></a>Ön koşullar
 Bu makalede, Python ve Linux alışkanlığına sahip olduğunuz varsayılmaktadır. Azure’ün yanı sıra Batch ve Storage hizmetleri için aşağıda belirtilen hesap oluşturma gerekliliklerini karşılayabildiğiniz de varsayılmaktadır.
 
-### Hesaplar
+### <a name="accounts"></a>Hesaplar
 * **Azure hesabı**: Henüz bir Azure aboneliğiniz yoksa, [ücretsiz Azure hesabı oluşturun][azure_free_account].
 * **Batch hesabı**: Azure aboneliğiniz olduktan sonra, [Azure Batch hesabı oluşturun](batch-account-create-portal.md).
 * **Storage hesabı**: Bkz. [Azure Storage hesapları hakkında](../storage/storage-create-storage-account.md) sayfası, [Storage hesabı oluşturma](../storage/storage-create-storage-account.md#create-a-storage-account) bölümü.
 
-### Kod örneği
+### <a name="code-sample"></a>Kod örneği
 Python eğitmen [kod örneği][github_article_samples], GitHub’daki [azure-batch-samples][github_samples] deposunda bulunan çok sayıda Batch kodu örneğinden biridir. Örneklerin tümünü, depo giriş sayfasındaki **Kopyala veya indir > ZIP’i İndir**’e veya [azure-batch-samples-master.zip][github_samples_zip] doğrudan indirme bağlantısına tıklayarak indirebilirsiniz. ZIP dosyasının içeriğini ayıkladıktan sonra Bu eğitmene yönelik iki betik `article_samples` dizininde yer alır:
 
 `/azure-batch-samples/Python/Batch/article_samples/python_tutorial_client.py`<br/>
 `/azure-batch-samples/Python/Batch/article_samples/python_tutorial_task.py`
 
-### Python ortamı
+### <a name="python-environment"></a>Python ortamı
 *python_tutorial_client.py* örnek betiğini yerel iş istasyonunuzda çalıştırmak için, bir **2.7** veya **3.3+** sürümüyle uyumlu **Python yorumlayıcı** gerekir. Betik Linux ve Windows'da test edilmiştir.
 
-### şifreleme bağımlılıkları
+### <a name="cryptography-dependencies"></a>şifreleme bağımlılıkları
 [Şifreleme][crypto] kitaplığı için `azure-batch` ve `azure-storage` Python paketlerinin gerektirdiği bağımlılıkları yüklemeniz gerekir. Aşağıdaki işlemlerden platformunuz için uygun olan birini gerçekleştirin veya daha fazla bilgi için [şifreleme yüklemesi][crypto_install] ayrıntılarına bakın:
 
 * Ubuntu
@@ -65,7 +69,7 @@ Python eğitmen [kod örneği][github_article_samples], GitHub’daki [azure-bat
 > 
 > 
 
-### Azure paketleri
+### <a name="azure-packages"></a>Azure paketleri
 Ardından, **Azure Batch** ve **Azure Storage** Python paketlerini yükleyin. Bunu, **pip** ve aşağıda bulabileceğiniz *requirements.txt* ile yapabilirsiniz:
 
 `/azure-batch-samples/Python/Batch/requirements.txt`
@@ -84,7 +88,7 @@ Ayrıca, [azure-batch][pypi_batch] ve [azure-storage][pypi_storage] Python paket
 > 
 > 
 
-## Batch Python eğitmen kodu örneği
+## <a name="batch-python-tutorial-code-sample"></a>Batch Python eğitmen kodu örneği
 Batch Python eğitmen kodu örneği, iki Python betiği ve birkaç veri dosyasından oluşur.
 
 * **python_tutorial_client.py**: İşlem düğümlerinde paralel iş yükünü yürütmek için Batch ve Storage hizmetleriyle etkileşime girer (sanal makineler). *python_tutorial_client.py* betikleri yerel iş istasyonunda çalışır.
@@ -100,16 +104,16 @@ Aşağıdaki diyagram, istemci ve görev betikleri tarafından gerçekleştirile
 [**3. Adım.**](#step-3-create-batch-pool) Batch **havuzu** oluşturun.<br/>
   &nbsp;&nbsp;&nbsp;&nbsp;**3a.** **StartTask** havuzu görev betiğini (python_tutorial_task.py), göreve katıldıkları için düğümlere indirir.<br/>
 [**4. Adım.**](#step-4-create-batch-job) Batch **işi** oluşturun.<br/>
-[**5. Adım.**](#step-5-add-tasks-to-job) İşe **görevler** ekleyin.<br/>
+[**5. Adım**](#step-5-add-tasks-to-job) İşe **görevler** ekleyin.<br/>
   &nbsp;&nbsp;&nbsp;&nbsp;**5a.** Görevler, düğümlerde yürütmek üzere zamanlanır.<br/>
     &nbsp;&nbsp;&nbsp;&nbsp;**5b.** Her görev kendi girdi verilerini Azure Storage’dan indirip yürütmeye başlar.<br/>
-[**6. Adım.**](#step-6-monitor-tasks) Görevleri izleyin.<br/>
+[**6. Adım**](#step-6-monitor-tasks) Görevleri izleyin.<br/>
   &nbsp;&nbsp;&nbsp;&nbsp;**6a.** Görevlerin tamamlanmasıyla, kendi çıktı verilerini Azure Storage’a yükler.<br/>
-[**7. Adım.**](#step-7-download-task-output) Storage’dan görev çıktısını indirin.
+[**7. Adım**](#step-7-download-task-output) Storage’dan görev çıktısını indirin.
 
 Yukarıda belirtildiği gibi, her Batch çözümü tam olarak bu adımları gerçekleştirmese ve çok daha fazlasını içerebilse de; bu örnek, Batch çözümünde bulunan ortak işlemleri göstermektedir.
 
-## İstemci komut dosyasını hazırlama
+## <a name="prepare-client-script"></a>İstemci komut dosyasını hazırlama
 Örneği çalıştırmadan önce, Batch ve Storage hesabı kimlik bilgilerinizi *python_tutorial_client.py* öğesine ekleyin. Bu işi henüz yapmadıysanız, en sık kullandığınız düzenleyicide dosyayı açıp aşağıdaki satırları kendi kimlik bilgilerinizle güncelleştirin.
 
 ```python
@@ -130,7 +134,7 @@ storage_account_key  = "";
 Batch ve Storage hesabı kimlik bilgilerinizi [Azure portalındaki][azure_portal] her hizmetin hesap dikey penceresinde bulabilirsiniz:
 
 ![Portalda Batch kimlik bilgileri][9]
-![Portalda Storage kimlik bilgileri][10]<br/>
+![Portalda Depolama kimlik bilgileri][10]<br/>
 
 Aşağıdaki bölümlerde, Batch hizmetindeki iş yükünü işlemek için betikler tarafından kullanılan adımları analiz ediyoruz. Makalenin kalanında işinizi yaparken düzenleyicinizdeki betiklere düzenli olarak başvurmanızı öneriyoruz.
 
@@ -140,8 +144,8 @@ Aşağıdaki bölümlerde, Batch hizmetindeki iş yükünü işlemek için betik
 if __name__ == '__main__':
 ```
 
-## 1. Adım: Storage kapsayıcıları oluşturma
-![Azure Storage’da kapsayıcı oluşturma][1]
+## <a name="step-1-create-storage-containers"></a>1. Adım: Storage kapsayıcıları oluşturma
+![Azure Depolama’da kapsayıcı oluşturma][1]
 <br/>
 
 Azure Storage ilet etkileşimde bulunmak için Batch’te yerleşik destek bulunur. Storage hesabınızdaki kapsayıcılar, Batch hesabınızda çalışan görevler için gerekli dosyaları sağlar. Kapsayıcılar ayrıca görevlerin oluşturduğu çıktı verilerini depolamak için bir yer sağlar. *python_tutorial_client.py* betiğinin yapacağı ilk şey [Azure Blob Storage](../storage/storage-introduction.md#blob-storage)’da üç kapsayıcı oluşturmaktır:
@@ -176,8 +180,8 @@ Kapsayıcılar oluşturulduktan sonra uygulama artık görevler tarafından kull
 > 
 > 
 
-## 2. Adım: Görev betiğini ve veri dosyalarını karşıya yükleme
-![Görev uygulamasını ve girdi dosyalarını (veriler) kapsayıcılara yükleme][2]
+## <a name="step-2-upload-task-script-and-data-files"></a>2. Adım: Görev betiğini ve veri dosyalarını karşıya yükleme
+![Görev uygulamasını ve girdi (veriler) dosyalarını kapsayıcılara yükleme][2]
 <br/>
 
 Dosyayı karşıya yükleme işleminde, *python_tutorial_client.py* önce **uygulama** ve **girdi** dosya yolları koleksiyonunu yerel makinede oldukları gibi tanımlar. Sonra da, bir önceki adımda oluşturduğunuz kapsayıcılara bu dosyaları yükler.
@@ -244,7 +248,7 @@ def upload_file_to_container(block_blob_client, container_name, file_path):
                                     blob_source=sas_url)
 ```
 
-### ResourceFiles
+### <a name="resourcefiles"></a>ResourceFiles
 [ResourceFile][py_resource_file], görev çalıştırılmadan önce işlem düğümüne yüklenecek, Azure Depolama’da yer alan bir dosyaya bağlantısı olan URL’ye sahip Batch’teki görevleri sağlar. [ResourceFile][py_resource_file].**blob_source** özelliği, Azure Storage’da olduğu gibi dosyanın tam URL'sini belirtir. URL’de, dosyaya güvenli erişim sağlayan bir paylaşılan erişim imzası da (SAS) bulunabilir. Batch’teki çoğu görev türünde *ResourceFiles* özelliği vardır; bu özellikte şunlar bulunur:
 
 * [CloudTask][py_task]
@@ -254,7 +258,7 @@ def upload_file_to_container(block_blob_client, container_name, file_path):
 
 Bu örnek JobPreparationTask veya JobReleaseTask görev türlerini kullanmaz; ancak, bununla ilgili daha fazla bilgiyi [Azure Batch işlem düğümlerinde iş hazırlama ve tamamlama görevlerini çalıştırma](batch-job-prep-release.md) makalesinden edinebilirsiniz.
 
-### Paylaşılan erişim imzası (SAS)
+### <a name="shared-access-signature-sas"></a>Paylaşılan erişim imzası (SAS)
 Paylaşılan erişim imzalar, Azure Storage'da kapsayıcılara ve blob’lara güvenli erişim sağlayan dizelerdir. *python_tutorial_client.py* betiği hem blob, hem de kapsayıcı paylaşılan erişim imzalarını kullanır ve Storage hizmetinden bu paylaşılan erişim imzalarının nasıl alındığını gösterir.
 
 * **Blob paylaşılan erişim imzaları**: Havuza ait StartTask, Storage’dan görev betiğini ve girdi veri dosyalarını indirdiğinde blob paylaşılan erişim imzalarını kullanır (bkz. [3. Adım](#step-3-create-batch-pool); aşağıda). *python_tutorial_client.py* betiğindeki `upload_file_to_container` işlevinde her blob'un paylaşılan erişim imzasını alan kod bulunur. Bu işlemi, Storage modülünde [BlockBlobService.make_blob_url][py_make_blob_url] çağırarak gerçekleştirir.
@@ -265,7 +269,7 @@ Paylaşılan erişim imzalar, Azure Storage'da kapsayıcılara ve blob’lara g�
 > 
 > 
 
-## 3. Adım: Batch havuzu oluşturma
+## <a name="step-3-create-batch-pool"></a>3. Adım: Batch havuzu oluşturma
 ![Batch havuzu oluşturma][3]
 <br/>
 
@@ -370,7 +374,7 @@ Yukarıdaki kod parçacığında dikkat çeken bir şey de, StartTask’ın **co
 > 
 > 
 
-## 4. Adım: Batch işi oluşturma
+## <a name="step-4-create-batch-job"></a>4. Adım: Batch işi oluşturma
 ![Batch işi oluşturma][4]<br/>
 
 Batch **işi**, görevler koleksiyonudur ve işlem düğümlerinin bir havuzuyla ilişkilidir. İşteki görevler ilişkili havuzunun işlem düğümlerini yürütür.
@@ -404,7 +408,7 @@ def create_job(batch_service_client, job_id, pool_id):
 
 İş oluşturulduğuna göre, artık çalışmak için görevler eklenir.
 
-## 5. Adım: İşe görev ekleme
+## <a name="step-5-add-tasks-to-job"></a>5. Adım: İşe görev ekleme
 ![İşe görev ekleme][5]<br/>
 *(1) Görevler işe eklenir, (2) görevler düğümlerde çalışmak üzere zamanlanır ve (3) görevler işlemek üzere veri dosyalarını indirir*
 
@@ -477,9 +481,9 @@ blob_client = azureblob.BlockBlobService(account_name=args.storageaccount,
                                          sas_token=args.sastoken)
 ```
 
-## 6. Adım: Görevleri izleme
+## <a name="step-6-monitor-tasks"></a>6. Adım: Görevleri izleme
 ![Görevleri izleme][6]<br/>
-*Betik (1) tamamlama durumu için görevleri izler, (2) görevler de sonuç verilerini Azure Storage’a yükler.*
+*Betik (1) tamamlama durumu için görevleri izler, (2) görevler de sonuç verilerini Azure Depolama’ya yükler*
 
 Görevler bir projeye eklendiğinde, otomatik olarak kuyruğa alınır ve işle ilişkili havuzun içindeki işlem düğümlerinde zamanlanırlar. Belirttiğiniz ayarlar temelinde, Batch tüm kuyruğa alınan, zamanlanan, yeniden denenen ve sizle ilgili diğer görev yönetimi görevlerini işler.
 
@@ -520,7 +524,7 @@ def wait_for_tasks_to_complete(batch_service_client, job_id, timeout):
                        "timeout period of " + str(timeout))
 ```
 
-## 7. Adım: Görev çıktısı indirme
+## <a name="step-7-download-task-output"></a>7. Adım: Görev çıktısı indirme
 ![Storage’dan görev çıktısını indirme][7]<br/>
 
 Artık iş tamamlandı, görevlere ait çıktı Azure Storage’dan indirilebilir. *python_tutorial_client.py* içinde `download_blobs_from_container` çağrısıyla yapılır:
@@ -562,7 +566,7 @@ def download_blobs_from_container(block_blob_client,
 > 
 > 
 
-## 8. Adım: Sil kapsayıcıları
+## <a name="step-8-delete-containers"></a>8. Adım: Sil kapsayıcıları
 Azure Storage’da yer alan veriler için ücretlendirildiğinizden, Batch işleriniz için artık gerekmeyen blobları kaldırmak iyi bir fikirdir. *python_tutorial_client.py* ’de üç[BlockBlobService.delete_container][py_delete_container] çağrısıyla yapılır:
 
 ```
@@ -573,7 +577,7 @@ blob_client.delete_container(input_container_name)
 blob_client.delete_container(output_container_name)
 ```
 
-## 9. Adım: İşi ve havuzu silme
+## <a name="step-9-delete-the-job-and-the-pool"></a>9. Adım: İşi ve havuzu silme
 Son adımda, *python_tutorial_client.py* betiği tarafından oluşturulan işi ve havuzu silmeniz istenir. İşlerin ve görevlerin kendileri için sizden ücret istenmese de, işlem düğümleri için *ücret* istenecektir. Bu nedenle, düğümleri yalnızca gerektiğinde ayırmanız önerilir. Kullanılmayan havuzların silinmesi bakım işleminizin bir parçası olabilir.
 
 BatchServiceClient'ın [JobOperations][py_job] ve [PoolOperations][py_pool] öğelerinin her ikisine de, silmeyi onaylamanız durumunda karşılık gelecek silme yöntemleri vardır:
@@ -592,7 +596,7 @@ if query_yes_no('Delete pool?') == 'yes':
 > 
 > 
 
-## Örnek betiği çalıştırma
+## <a name="run-the-sample-script"></a>Örnek betiği çalıştırma
 Eğitmen [kod örneği][github_article_samples] içindeki *python_tutorial_client.py* betiğini çalıştırdığınızda, konsol çıktısı aşağıdakine benzer. Havuzun işlem düğümleri oluşturulurken, başlatılırken ve havuzun görev başlatma komutları yürütülürken `Monitoring all tasks for 'Completed' state, timeout in 0:20:00...` konumunda duraklama olur. Havuzunuzu, işlem düğümlerinizi, işinizi ve görevlerinizi yürütme sırasında ve sonrasında izlemek için [Azure portalı][azure_portal] kullanın. Uygulamanın oluşturduğu Storage kaynaklarını (kapsayıcılar ve bloblar) görüntülemek için [Azure portalı][azure_portal] veya [Microsoft Azure Storage Gezgini][storage_explorer] birini kullanın.
 
 > [!TIP]
@@ -630,7 +634,7 @@ Delete pool? [Y/n]
 Press ENTER to exit...
 ```
 
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 Farklı işlem senaryolarıyla deneyim kazanmak için *python_tutorial_client.py* ve *python_tutorial_task.py* öğelerinde değişiklik yaparken kendinizi rahat hissedin. Örneğin, uzun soluklu görevlerin benzetimini gerçekleştirmek ve bunları portalda izlemek için *python_tutorial_task.py* öğesine bir yürütme gecikmesi eklemeye çalışın. Daha fazla görev eklemeye veya işlem düğüm sayısını ayarlamaya çalışın. Yürütme süresini hızlandırmak için var olan havuzun kullanımını denetlemek ve izin vermek için mantık ekleyin.
 
 Batch çözümünün temel iş akışı hakkında artık bilginiz olduğuna göre, Batch hizmetinin ek özelliklerinin derinliklerine dalma zamanı gelmiştir.
@@ -705,6 +709,6 @@ Batch çözümünün temel iş akışı hakkında artık bilginiz olduğuna gör
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Nov16_HO2-->
 
 

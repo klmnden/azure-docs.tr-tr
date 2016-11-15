@@ -1,22 +1,26 @@
 ---
-title: Azure portal kullanarak şirket içi kodlayıcılarda canlı akış gerçekleştirme | Microsoft Docs
-description: Bu öğretici, doğrudan teslimat için yapılandırılmış bir Kanal oluşturmaya ilişkin adımları anlatmaktadır.
+title: "Azure portalı kullanarak şirket içi kodlayıcılarda canlı akış gerçekleştirme | Microsoft Belgeleri"
+description: "Bu öğretici, doğrudan teslimat için yapılandırılmış bir Kanal oluşturmaya ilişkin adımları anlatmaktadır."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 6f4acd95-cc64-4dd9-9e2d-8734707de326
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/05/2016
+ms.date: 10/24/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: ec6bb243872b3d4794050f735122f587a299e978
+
 
 ---
-# <a name="how-to-perform-live-streaming-with-on-premise-encoders-using-the-azure-portal"></a>Azure portal kullanarak şirket içi kodlayıcılarda canlı akış gerçekleştirme
+# <a name="how-to-perform-live-streaming-with-onpremise-encoders-using-the-azure-portal"></a>Azure portal kullanarak şirket içi kodlayıcılarda canlı akış gerçekleştirme
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-live-passthrough-get-started.md)
 > * [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
@@ -30,7 +34,7 @@ Bu öğretici, Azure portal kullanarak doğrudan teslimat için yapılandırılm
 Öğreticiyi tamamlamak için aşağıdakiler gereklidir:
 
 * Bir Azure hesabı. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/). 
-* Bir Media Services hesabı. Bir Media Services hesabı oluşturmak için bkz. [Media Services hesabı oluşturma](media-services-portal-create-account.md).
+* Bir Media Services hesabı.    Bir Media Services hesabı oluşturmak için bkz. [Media Services hesabı oluşturma](media-services-portal-create-account.md).
 * Bir Web kamerası. Örneğin, [Telestream Wirecast kodlayıcı](http://www.telestream.net/wirecast/overview.htm).
 
 Aşağıdaki makaleleri gözden geçirmeniz için önerilir:
@@ -39,7 +43,7 @@ Aşağıdaki makaleleri gözden geçirmeniz için önerilir:
 * [Azure Media Services kullanarak Canlı Akış’a genel bakış](media-services-manage-channels-overview.md)
 * [Çoklu bit hızı akışları oluşturan şirket içi kodlayıcılarla canlı akış](media-services-live-streaming-with-onprem-encoders.md)
 
-## <a name="<a-id="scenario"></a>common-live-streaming-scenario"></a><a id="scenario"></a>Ortak canlı akış senaryosu
+## <a name="a-idscenarioacommon-live-streaming-scenario"></a><a id="scenario"></a>Ortak canlı akış senaryosu
 Aşağıdaki adımlar, doğrudan teslimat için yapılandırılan kanalları kullanan ortak canlı akış uygulamaları oluşturmaya dahil olan görevleri açıklamaktadır. Bu öğretici, doğrudan geçiş kanalı ve canlı olayları oluşturmayı ve yönetmeyi gösterir.
 
 1. Bilgisayara bir video kamera bağlayın. Çoklu bit hızlı RTMP ya da Parçalı MP4 akışı çıktısı veren bir şirket içi gerçek zamanlı kodlayıcı çalıştırın ve yapılandırın. Daha fazla bilgi için bkz. [Azure Media Services RTMP Desteği ve Gerçek Zamanlı Kodlayıcılar](http://go.microsoft.com/fwlink/?LinkId=532824).
@@ -97,7 +101,7 @@ Akışa ayrılan birim sayısını oluşturmak ve değiştirmek için, aşağıd
    > 
    > 
 
-## <a name="create-and-start-pass-through-channels-and-events"></a>Geçiş kanalları ve olayları oluşturma ve başlatma
+## <a name="create-and-start-passthrough-channels-and-events"></a>Geçiş kanalları ve olayları oluşturma ve başlatma
 Bir kanal, canlı akıştaki kesimleri yayımlamanızı ve depolamanızı denetlemenizi sağlayan olaylar/programlarla ilişkilidir. Kanallar olayları yönetir. 
 
 Program için kaydedilen içeriği kaç saat tutmak istediğinizi **Arşiv Penceresi** uzunluğunu ayarlayarak belirleyebilirsiniz. Bu değer en az 5 dakika, en çok 25 saat olarak ayarlanabilir. Arşiv penceresi uzunluğu, istemcilerin geçerli canlı konumdan zamanda geri gidebilecekleri en uzun süre miktarını da belirler. Olaylar belirtilen süre miktarında yürütülür, ancak pencere uzunluğunu aşan içerik sürekli olarak iptal edilir. Bu özelliğin bu değeri, istemci bildiriminin ne kadar uzayabileceğini de belirler.
@@ -121,15 +125,16 @@ Bu bölüm bir geçiş kanalı oluşturmak için **Hızlı Oluştur** seçeneği
 
 Geçiş kanalları hakkında daha fazla ayrıntı için bkz. [Çoklu bit hızı akışları oluşturan şirket içi kodlayıcılarla canlı akış](media-services-live-streaming-with-onprem-encoders.md).
 
-1. **Ayarlar** penceresinde, **Canlı Akış**’a tıklayın. 
+1. [Azure portalında](https://portal.azure.com/) Azure Media Services hesabınızı seçin.
+2. **Ayarlar** penceresinde, **Canlı Akış**’a tıklayın. 
    
     ![Başlarken](./media/media-services-portal-passthrough-get-started/media-services-getting-started.png)
    
     **Canlı akış** penceresi görüntülenir.
-2. RTMP alma protokolüyle bir geçiş kanalı oluşturmak için **Hızlı Oluştur**’a tıklayın.
+3. RTMP alma protokolüyle bir geçiş kanalı oluşturmak için **Hızlı Oluştur**’a tıklayın.
    
     **YENİ KANAL OLUŞTUR** penceresi görüntülenir.
-3. Yeni kanala bir ad verin ve **Oluştur**’a tıklayın. 
+4. Yeni kanala bir ad verin ve **Oluştur**’a tıklayın. 
    
     Bunun yapılması RTMP alma protokolüyle bir geçiş kanalı oluşturur.
 
@@ -172,6 +177,9 @@ Media Services öğrenme yollarını gözden geçirin.
 ## <a name="provide-feedback"></a>Geri bildirimde bulunma
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

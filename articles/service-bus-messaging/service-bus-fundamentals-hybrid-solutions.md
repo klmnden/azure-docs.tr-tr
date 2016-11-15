@@ -1,12 +1,12 @@
 ---
-title: Azure Service Bus | Microsoft Docs
-description: Azure uygulamalarını başka bir yazılıma bağlamak için Service Bus kullanımına giriş.
+title: Azure Service Bus | Microsoft Belgeleri
+description: "Azure uygulamalarını başka bir yazılıma bağlamak için Service Bus kullanımına giriş."
 services: service-bus
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 12654cdd-82ab-4b95-b56f-08a5a8bbc6f9
 ms.service: service-bus
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/31/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: c8d8549db680b0189fa94064b930d4f91ff2472b
+
 
 ---
 # <a name="azure-service-bus"></a>Azure Service Bus
@@ -106,7 +110,7 @@ Artık Azure Service Bus hizmeti ile ilgili temel bilgileri edindiğinize göre,
 * [Service Bus kuyruklarını](service-bus-dotnet-get-started-with-queues.md) kullanma
 * [Service Bus konu başlıklarını](service-bus-dotnet-how-to-use-topics-subscriptions.md) kullanma
 * [Service Bus geçişini](../service-bus-relay/service-bus-dotnet-how-to-use-relay.md) kullanma
-* [Service Bus örnekleri](../service-bus/service-bus-samples.md)
+* [Service Bus örnekleri](service-bus-samples.md)
 
 [1]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_01_architecture.png
 [2]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_02_queues.png
@@ -115,6 +119,6 @@ Artık Azure Service Bus hizmeti ile ilgili temel bilgileri edindiğinize göre,
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Karma bulut/şirket içi uygulama (.NET) | Microsoft Docs
-description: Azure Service Bus geçişini kullanarak karma .NET şirket içi/bulut uygulama oluşturmayı öğrenin.
+title: "Karma şirket içi uygulama/bulut uygulaması (.NET) | Microsoft Belgeleri"
+description: "Azure Service Bus geçişini kullanarak karma .NET şirket içi/bulut uygulama oluşturmayı öğrenin."
 services: service-bus
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 9ed02f7c-ebfb-4f39-9c97-b7dc15bcb4c1
 ms.service: service-bus
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -14,16 +14,20 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 09/16/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 3c9d542edf04c119f5d97f80eacdfd0521acd77d
+
 
 ---
-# <a name=".net-on-premises/cloud-hybrid-application-using-azure-service-bus-relay"></a>Azure Service Bus Geçişini kullanan karma .NET şirket içi/bulut uygulama
+# <a name="net-onpremisescloud-hybrid-application-using-azure-service-bus-wcf-relay"></a>Azure Service Bus WCF Geçişini kullanan karma .NET şirket içi uygulama/bulut uygulaması
 ## <a name="introduction"></a>Giriş
 Bu makale, Microsoft Azure ve Visual Studio ile nasıl karma bulut uygulaması derleyeceğinizi açıklar. Öğretici Azure kullanımına ilişkin deneyim sahibi olmadığınızı varsayar. 30 dakikadan kısa sürede, birden çok Azure kaynağını kullanan ve bulutta çalışan bir uygulamaya sahip olacaksınız.
 
 Şunları öğreneceksiniz:
 
 * Bir web çözümünde kullanılması amacıyla web hizmeti oluşturma veya var olan bir web hizmetini uyarlama.
-* Azure uygulaması ve başka bir yerde barındırılan web hizmeti arasında veri paylaşımı için Azure Service Bus Geçişi hizmetini kullanma.
+* Azure uygulaması ve başka bir yerde barındırılan web hizmeti arasında veri paylaşımı için Azure Service Bus WCF Geçişi hizmetini kullanma.
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
@@ -32,7 +36,7 @@ Bu makale, Microsoft Azure ve Visual Studio ile nasıl karma bulut uygulaması d
 
 Çözüm mimarları, ölçek gereksinimlerini daha kolay bir şekilde karşılamak ve işlem maliyetlerini düşürmek için bulutu kullanmaya başlıyor. Bunu yaparken de çözümleri için yapı taşı olarak kullanmak istedikleri var olan hizmet varlıklarının kurumsal güvenlik duvarının içinde ve bulut çözümüyle kolayca erişilemeyecek konumda olduklarını fark ettiler. Birçok dahili hizmet, kurumsal ağ ucunda kolayca kullanıma sunulabilecek şekilde derlenmez veya barındırılmaz.
 
-Service Bus geçişi ise var olan Windows Communication Foundation (WCF) web hizmetlerinin alınmasına yönelik kullanım durumu için tasarlanmıştır. Aynı zamanda, kurumsal ağ altyapısına müdahale eden değişikliklere gerek olmadan bu web hizmetlerinin kurumsal çevre dışında bulunan çözümlere güvenli bir şekilde erişmesini sağlama işlevini de üstlenir. Bu tür Service Bus geçişi hizmetleri, var olan ortamlarında barındırılmaya devam eder ancak bu hizmetler gelen oturumları ve istekleri bulutta barındırılan Service Bus'a devreder. Ayrıca, Service Bus bu hizmetleri [Paylaşılan Erişim İmzası](../service-bus/service-bus-sas-overview.md) (SAS) kimlik doğrulaması kullanarak yetkilendirilmemiş erişime karşı korur.
+Service Bus geçişi ise var olan Windows Communication Foundation (WCF) web hizmetlerinin alınmasına yönelik kullanım durumu için tasarlanmıştır. Aynı zamanda, kurumsal ağ altyapısına müdahale eden değişikliklere gerek olmadan bu web hizmetlerinin kurumsal çevre dışında bulunan çözümlere güvenli bir şekilde erişmesini sağlama işlevini de üstlenir. Bu tür Service Bus geçişi hizmetleri, var olan ortamlarında barındırılmaya devam eder ancak bu hizmetler gelen oturumları ve istekleri bulutta barındırılan Service Bus'a devreder. Ayrıca, Service Bus bu hizmetleri [Paylaşılan Erişim İmzası](../service-bus-messaging/service-bus-sas-overview.md) (SAS) kimlik doğrulaması kullanarak yetkilendirilmemiş erişime karşı korur.
 
 ## <a name="solution-scenario"></a>Çözüm senaryosu
 Bu öğreticide, ürün stoğu sayfasındaki ürünlerin listesini görmenize olanak sağlayan bir ASP.NET web sitesi oluşturacaksınız.
@@ -59,7 +63,7 @@ Azure'da Service Bus özelliklerini kullanmaya başlamak için öncelikle bir hi
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-## <a name="create-an-on-premises-server"></a>Şirket içi sunucu oluşturma
+## <a name="create-an-onpremises-server"></a>Şirket içi sunucu oluşturma
 Öncelikle, bir (sahte) şirket içi ürün kataloğu sistemi derleyeceksiniz. Bu oldukça kolay bir işlemdir. Bu çalışmanın, entegre etmeye çalıştığımız tüm hizmet yüzeyini içeren gerçek bir şirket içi ürün kataloğu sistemini temsil ettiğini düşünebilirsiniz.
 
 Bu proje bir Visual Studio konsol uygulamasıdır ve Service Bus kitaplıkları ile yapılandırma ayarlarını dahil etmek için [Azure Service Bus NuGet paketini](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) kullanır.
@@ -197,14 +201,14 @@ Bu proje bir Visual Studio konsol uygulamasıdır ve Service Bus kitaplıkları 
     
     ```
     <appSettings>
-    <!-- Service Bus specific app settings for messaging connections -->
-    <add key="Microsoft.ServiceBus.ConnectionString"
+       <!-- Service Bus specific app settings for messaging connections -->
+       <add key="Microsoft.ServiceBus.ConnectionString"
            value="Endpoint=sb://yourNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourKey"/>
     </appSettings>
     ```
 14. Uygulamayı derlemek ve o ana kadarki doğruluğunu onaylamak üzere **Derle** menüsünde **Çözümü Derle** seçeneğine tıklayın veya **Ctrl+Shift+B**'ye basın.
 
-## <a name="create-an-asp.net-application"></a>ASP.NET uygulaması oluşturma
+## <a name="create-an-aspnet-application"></a>ASP.NET uygulaması oluşturma
 Bu bölümde, ürün hizmetinizden alınan verileri görüntüleyen basit bir ASP.NET uygulaması oluşturacaksınız.
 
 ### <a name="create-the-project"></a>Proje oluşturma
@@ -234,7 +238,7 @@ Bu bölümde, ürün hizmetinizden alınan verileri görüntüleyen basit bir AS
    
    ```
    // Declare properties for the products inventory.
-   namespace ProductsWeb.Models
+    namespace ProductsWeb.Models
    {
        public class Product
        {
@@ -278,31 +282,31 @@ Bu bölümde, ürün hizmetinizden alınan verileri görüntüleyen basit bir AS
    @model IEnumerable<ProductsWeb.Models.Product>
    
    @{
-           ViewBag.Title = "Index";
+            ViewBag.Title = "Index";
    }
    
    <h2>Prod Inventory</h2>
    
    <table>
-           <tr>
-               <th>
-                   @Html.DisplayNameFor(model => model.Name)
-               </th>
+             <tr>
+                 <th>
+                     @Html.DisplayNameFor(model => model.Name)
+                 </th>
                  <th></th>
-               <th>
-                   @Html.DisplayNameFor(model => model.Quantity)
-               </th>
-           </tr>
+                 <th>
+                     @Html.DisplayNameFor(model => model.Quantity)
+                 </th>
+             </tr>
    
    @foreach (var item in Model) {
-           <tr>
-               <td>
-                   @Html.DisplayFor(modelItem => item.Name)
-               </td>
-               <td>
-                   @Html.DisplayFor(modelItem => item.Quantity)
-               </td>
-           </tr>
+             <tr>
+                 <td>
+                     @Html.DisplayFor(modelItem => item.Name)
+                 </td>
+                 <td>
+                     @Html.DisplayFor(modelItem => item.Quantity)
+                 </td>
+             </tr>
    }
    
    </table>
@@ -469,6 +473,6 @@ Service Bus hakkında daha fazla bilgi edinmek için şu kaynaklara bakın:
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

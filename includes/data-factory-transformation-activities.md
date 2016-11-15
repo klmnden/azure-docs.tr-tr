@@ -17,6 +17,8 @@ Azure Data Factory, işlem hatlarına tek tek veya başka bir etkinlikle zincirl
 > 
 > 
 
-<!--HONumber=Sep16_HO4-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

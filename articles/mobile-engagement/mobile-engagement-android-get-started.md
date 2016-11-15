@@ -1,12 +1,12 @@
 ---
-title: Android Uygulamaları Azure Mobile Engagement kullanmaya başlama
-description: Android uygulamaları için analizler ve anında iletme bildirimleri ile Azure Mobile Engagement kullanmayı öğrenin.
+title: "Android Uygulamaları Azure Mobile Engagement kullanmaya başlama"
+description: "Android uygulamaları için analizler ve anında iletme bildirimleri ile Azure Mobile Engagement kullanmayı öğrenin."
 services: mobile-engagement
 documentationcenter: android
 author: piyushjo
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 3c286c6d-cfef-4e3e-9b2c-715429fe82db
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
@@ -14,15 +14,19 @@ ms.devlang: Java
 ms.topic: hero-article
 ms.date: 08/10/2016
 ms.author: piyushjo;ricksal
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: a4b9ab47969c95aa9940e044b426cf2811e23f61
+
 
 ---
-# Android uygulamaları için Azure Mobile Engagement kullanmaya başlama
+# <a name="get-started-with-azure-mobile-engagement-for-android-apps"></a>Android uygulamaları için Azure Mobile Engagement kullanmaya başlama
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
 Bu konuda, uygulama kullanımınızı anlamak için nasıl Azure Mobile Engagement kullanılacağı ve bir Android uygulamasının segmentli kullanıcılarına nasıl anında iletme bildirimleri gönderileceği gösterilmektedir.
 Bu öğretici, Mobile Engagement kullanarak basit bir yayın senaryosunu gösterir. Öğreticide, temel bilgiler toplayan ve Google Cloud Messaging (GCM) kullanarak anında iletme bildirimleri alan, boş bir Android uygulaması oluşturursunuz.
 
-## Ön koşullar
+## <a name="prerequisites"></a>Ön koşullar
 Bu öğreticiyi tamamlamak için Android Studio tümleşik geliştirme ortamını ve en son Android platformunu içeren [Android Geliştirici Araçları](https://developer.android.com/sdk/index.html) gerekir.
 
 Ayrıca [Mobile Engagement Android SDK](https://aka.ms/vq9mfn) gereklidir.
@@ -32,15 +36,15 @@ Ayrıca [Mobile Engagement Android SDK](https://aka.ms/vq9mfn) gereklidir.
 > 
 > 
 
-## Android uygulamanız için Mobile Engagement kurma
+## <a name="set-up-mobile-engagement-for-your-android-app"></a>Android uygulamanız için Mobile Engagement kurma
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## Uygulamanızı Mobile Engagement arka ucuna bağlama
+## <a name="connect-your-app-to-the-mobile-engagement-backend"></a>Uygulamanızı Mobile Engagement arka ucuna bağlama
 Bu öğreticide, veri toplamak ve anında iletme bildirimi göndermek için gerekli en küçük grup olan bir "temel tümleştirme" gösterilmektedir. Tümleştirmeyi göstermek için Android Studio ile temel bir uygulama oluşturursunuz.
 
 Tümleştirme belgelerinin tamamı [Mobile Engagement Android SDK tümleştirmesi](mobile-engagement-android-sdk-overview.md)’nde bulunabilir.
 
-### Android projesi oluşturma
+### <a name="create-an-android-project"></a>Android projesi oluşturma
 1. **Android Studio**’yu başlatın ve açılır menüde **Yeni bir Android Studio projesi başlat**’ı seçin.
    
     ![][1]
@@ -64,7 +68,7 @@ Tümleştirme belgelerinin tamamı [Mobile Engagement Android SDK tümleştirmes
 
 Şimdi Android Studio, Mobile Engagement’ı tümleştirdiğimiz tanıtım uygulamasını oluşturur.
 
-### SDK kitaplığını projenize ekleme
+### <a name="include-the-sdk-library-in-your-project"></a>SDK kitaplığını projenize ekleme
 1. [Mobile Engagement Android SDK](https://aka.ms/vq9mfn)’yı indirin.
 2. Arşiv dosyasını bilgisayarınızdaki bir klasöre ayıklayın.
 3. Bu SDK'nın geçerli sürümüne ait .jar kitaplığını belirleyin ve Pano’ya kopyalayın.
@@ -77,7 +81,7 @@ Tümleştirme belgelerinin tamamı [Mobile Engagement Android SDK tümleştirmes
    
       ![][8]
 
-### Uygulamanızı Bağlantı Dizesi ile Mobile Engagement arka ucuna bağlama
+### <a name="connect-your-app-to-mobile-engagement-backend-with-the-connection-string"></a>Uygulamanızı Bağlantı Dizesi ile Mobile Engagement arka ucuna bağlama
 1. Aşağıdaki kod satırlarını etkinlik oluşturmaya kopyalayın (uygulamanızın tek bir noktasında yapılmalıdır, bu nokta genellikle ana etkinliktir). Bu örnek uygulama için, src -> main -> java klasörü altında MainActivity dosyasını açın ve aşağıdakileri ekleyin:
    
         EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
@@ -94,7 +98,7 @@ Tümleştirme belgelerinin tamamı [Mobile Engagement Android SDK tümleştirmes
    
         engagementConfiguration.setConnectionString("Endpoint=my-company-name.device.mobileengagement.windows.net;SdkKey=********************;AppId=*********");
 
-### İzinler ve bir hizmet bildirimi ekleme
+### <a name="add-permissions-and-a-service-declaration"></a>İzinler ve bir hizmet bildirimi ekleme
 1. Bu izinleri, projenizin Manifest.xml dosyasında `<application>` etiketinin hemen önüne ya da arkasına ekleyin:
    
         <uses-permission android:name="android.permission.INTERNET"/>
@@ -106,13 +110,13 @@ Tümleştirme belgelerinin tamamı [Mobile Engagement Android SDK tümleştirmes
 2. Aracı hizmetini bildirmek için `<application>` ve `</application>` etiketleri arasına şu kodu ekleyin:
    
         <service
-            android:name="com.microsoft.azure.engagement.service.EngagementService"
-            android:exported="false"
-            android:label="<Your application name>"
-            android:process=":Engagement"/>
+             android:name="com.microsoft.azure.engagement.service.EngagementService"
+             android:exported="false"
+             android:label="<Your application name>"
+             android:process=":Engagement"/>
 3. Yapıştırdığınız kodda, cihazda çalışmakta olan hizmetleri görebileceğiniz **Ayarlar** menüsünde görüntülenen etiketteki `"<Your application name>"` değerini değiştirin. Örneğin bu etikete "Hizmet" sözcüğünü ekleyebilirsiniz.
 
-### Bir ekranı Mobile Engagement’a gönderme
+### <a name="send-a-screen-to-mobile-engagement"></a>Bir ekranı Mobile Engagement’a gönderme
 Veri göndermeye başlamak ve kullanıcıların etkin olduğundan emin olmak için, Mobile Engagement arka ucuna en az bir ekran (Etkinlik) göndermelisiniz.
 
 **MainActivity.java** dosyasına gidip aşağıdakileri ekleyerek **MainActivity** temel sınıfını **EngagementActivity** olarak değiştirin:
@@ -130,14 +134,14 @@ Bu basit örnek senaryo için aşağıdaki satırı açıklama satırı yapın:
 
 Uygulamanızda `ActionBar` öğesini tutmak istiyorsanız [Gelişmiş Android Raporlama](mobile-engagement-android-advanced-reporting.md#modifying-your-codeactivitycode-classes) konusuna bakın.
 
-## Uygulamayı gerçek zamanlı izlemeyle bağlama
+## <a name="connect-app-with-realtime-monitoring"></a>Uygulamayı gerçek zamanlı izlemeyle bağlama
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-## Anında iletme bildirimlerini ve uygulama içi mesajlaşmayı etkinleştirme
+## <a name="enable-push-notifications-and-inapp-messaging"></a>Anında iletme bildirimlerini ve uygulama içi mesajlaşmayı etkinleştirme
 Mobile Engagement, bir kampanya sırasında anında iletme bildirimleri ve uygulama içi mesajlaşma ile kullanıcılarınızla etkileşim kurmanızı ve REACH ile kullanıcılarınıza ulaşmanızı sağlar. Mobile Engagement portalında bu modüle REACH adı verilir.
 Aşağıdaki bölüm, uygulamanızı bu bildirim ve mesajları alacak şekilde ayarlar.
 
-### SDK kaynaklarını projenize kopyalama
+### <a name="copy-sdk-resources-in-your-project"></a>SDK kaynaklarını projenize kopyalama
 1. İndirilen SDK içeriğinize geri gidip **res** klasörünü kopyalayın.
    
     ![][10]
@@ -151,7 +155,7 @@ Aşağıdaki bölüm, uygulamanızı bu bildirim ve mesajları alacak şekilde a
 
 [!INCLUDE [Send notification from portal](../../includes/mobile-engagement-android-send-push-from-portal.md)]
 
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 SDK tümleştirmesi hakkında ayrıntılı bilgi edinmek için [Android SDK](mobile-engagement-android-sdk-overview.md) sayfasına gidin.
 
 <!-- Images. -->
@@ -169,6 +173,6 @@ SDK tümleştirmesi hakkında ayrıntılı bilgi edinmek için [Android SDK](mob
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

@@ -8,17 +8,17 @@ Bu makalede [Azure IoT Ağ Geçidi SDK’sı][lnk-gateway-sdk] mimarisinin temel
 
 Bu kılavuzda aşağıdaki konular ele alınmaktadır:
 
-* **Kavramlar**: Ağ Geçidi SDK’sı ile oluşturduğunuz herhangi bir ağ geçidini oluşturan bileşenlere kavramsal genel bakış.  
+* **Kavramlar**: IoT Ağ Geçidi SDK’sı ile oluşturduğunuz herhangi bir ağ geçidini oluşturan bileşenlere kavramsal genel bakış.  
 * **Hello World örnek mimarisi**: Kavramların Hello World örneğine nasıl uygulandığını ve bileşenlerin birbiriyle ne kadar uyumlu olduğunu açıklar.
 * **Örneği oluşturma**: Örneği oluşturmak için gerekli adımlar.
 * **Örneği çalıştırma**: Örneği çalıştırmak için gerekli adımlar. 
 * **Tipik çıkış**: Örneği çalıştırdığınızda beklenecek çıktı örneği.
 * **Kod parçacıkları**: Hello World örneğinin temel ağ geçidi bileşenlerini nasıl uyguladığını gösteren kod parçacıkları koleksiyonu.
 
-## Ağ Geçidi SDK’sı kavramları
-Örnek kodu incelemeden veya Ağ Geçidi SDK’sını kullanarak kendi alan ağ geçidinizi oluşturmadan önce SDK mimarisini destekleyen temel kavramları anlamanız gerekir.
+## <a name="azure-iot-gateway-sdk-concepts"></a>Azure IoT Ağ Geçidi SDK’sı kavramları
+Örnek kodu incelemeden veya IoT Ağ Geçidi SDK’sını kullanarak kendi alan ağ geçidinizi oluşturmadan önce SDK mimarisini destekleyen temel kavramları anlamanız gerekir.
 
-### Modules
+### <a name="modules"></a>Modüller
 Azure IoT Ağ Geçidi SDK’sı ile *modüller* oluşturup derleyerek bir ağ geçidi oluşturursunuz. Modüller birbirileriyle veri alışverişinde bulunmak için *iletileri* kullanır. Modül bir ileti alır, üzerinde bir işlem yapar, isteğe bağlı olarak onu yeni bir iletiye dönüştürür ve ardından diğer modüllerin işlemesi için yayımlar. Bazı modüller yalnızca yeni iletiler oluşturabilir ve hiçbir zaman gelen iletileri işlemez. Bir modül zinciri, her bir modülün bir noktadaki veriler üzerinde dönüştürme gerçekleştirdiği bir veri işleme işlem hattı oluşturur.
 
 ![Ağ geçidinde Azure IoT Ağ Geçidi SDK’sı ile oluşturulan modül zinciri][1]
@@ -31,19 +31,19 @@ SDK aşağıdakileri içerir:
 
 SDK çeşitli işletim sistemleri ve platformlar üzerinde çalışacak ağ geçitleri derlemenizi sağlayan bir soyut katman sağlar.
 
-![Azure IoT Hub Ağ Geçidi SDK’sı özet katmanı][2]
+![Azure IoT Ağ Geçidi SDK’sı özet katmanı][2]
 
-### İletiler
+### <a name="messages"></a>İletiler
 Birbirlerine ileti gönderen modüllerin düşünülmesi bir ağ geçidinin nasıl çalıştığını kavramsallaştırmanın kolay bir yolu olsa da neler olduğunu doğru şekilde yansıtmaz. Modüller birbirleriyle iletişim kurmak için bir aracı kullanır, aracıya iletiler yayımlar (veri yolu, pubsub veya başka bir mesajlaşma deseni) ve ardından aracının iletiyi kendisine bağlı modüllere yönlendirmesine izin verir.
 
 Bir modül, aracıya ileti yayımlamak için **Broker_Publish** işlevini kullanır. Aracı bir geri çağırma işlevini çağırarak iletileri bir modüle teslim eder. İleti bir dizi anahtar/değer özelliklerinden ve bir bellek bloğu olarak geçirilen içeriklerden oluşur.
 
 ![Azure IoT Ağ Geçidi SDK’sında Aracı’nın rolü][3]
 
-### İleti yönlendirme ve filtreleme
+### <a name="message-routing-and-filtering"></a>İleti yönlendirme ve filtreleme
 İletileri doğru modüllerine yönlendirmenin iki yolu vardır. Aracının her bir modüle ait kaynağı veya havuzu bilmesi için aracıya bir bağlantı kümesi geçirilebilir veya iletinin özellikleri modül tarafından filtrelenebilir. İleti bu amaca yönelikse modül yalnızca iletiye göre davranmalıdır. Bağlantılar ve ileti filtreleri etkin olarak bir ileti işlem hattı oluşturur.
 
-## Hello World örnek mimarisi
+## <a name="hello-world-sample-architecture"></a>Hello World örnek mimarisi
 Hello World örneği önceki bölümde açıklanan kavramları göstermektedir. Hello World örneği iki modülden oluşan bir işlem hattına sahip ağ geçidini kullanır:
 
 * *Hello world* modülü beş saniyede bir ileti oluşturur ve günlükçü modülüne geçirir.
@@ -72,6 +72,6 @@ Yukarıdaki şekilde Hello World örneğinin mimarisi ve örneğin farklı kıs�
 [lnk-helloworld-sample]: https://github.com/Azure/azure-iot-gateway-sdk/tree/master/samples/hello_world
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
 
-<!--HONumber=Oct16_HO1-->
+<!--HONumber=Nov16_HO2-->
 
 

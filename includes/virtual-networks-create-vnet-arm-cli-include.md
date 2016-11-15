@@ -1,4 +1,4 @@
-## Azure CLI kullanarak VNet oluşturma
+## <a name="how-to-create-a-vnet-using-the-azure-cli"></a>Azure CLI kullanarak VNet oluşturma
 Windows, Linux veya OSX çalıştıran herhangi bir bilgisayarın komut isteminden Azure kaynaklarınızı yönetmek için Azure CLI’yi kullanabilirsiniz. Azure CLI’yi kullanarak VNet oluşturmak için aşağıdaki adımları uygulayın.
 
 1. Hiç Azure CLI kullanmadıysanız bkz. [Azure CLI’yi Yükleme ve Yapılandırma](../articles/xplat-cli-install.md); sonra da, Azure hesabınızı ve aboneliğinizi seçtiğiniz noktaya kadar yönergeleri uygulayın.
@@ -9,7 +9,7 @@ Windows, Linux veya OSX çalıştıran herhangi bir bilgisayarın komut istemind
     Yukarıdaki komut için beklenen çıkış buradaki gibidir:
    
         info:    New mode is arm
-3. Gerekirse, yeni bir kaynak grubu oluşturmak için **azure group create** komutunu aşağıda gösterildiği gibi çalıştırın. Komutun çıktısına dikkat edin. Çıktıdan sonra gösterilen listede, kullanılan parametreler açıklanmaktadır. Kaynak grupları hakkında daha fazla bilgi için [Azure Resource Manager’a Genel Bakış](../articles/resource-group-overview.md#resource-groups) sayfasını ziyaret edin.
+3. Gerekirse, yeni bir kaynak grubu oluşturmak için **azure group create** komutunu aşağıda gösterildiği gibi çalıştırın. Komutun çıktısına dikkat edin. Çıktıdan sonra gösterilen listede, kullanılan parametreler açıklanmaktadır. Kaynak grupları hakkında daha fazla bilgi için [Azure Resource Manager’a Genel Bakış](../articles/azure-resource-manager/resource-group-overview.md#resource-groups) sayfasını ziyaret edin.
    
         azure group create -n TestRG -l centralus
    
@@ -100,6 +100,8 @@ Windows, Linux veya OSX çalıştıran herhangi bir bilgisayarın komut istemind
         data:
         info:    network vnet show command OK
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

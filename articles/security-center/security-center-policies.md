@@ -1,12 +1,12 @@
 ---
-title: Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama | Microsoft Docs
-description: Bu belge, Azure Güvenlik Merkezi'nde güvenlik ilkelerini yapılandırmanıza yardımcı olur.
+title: "Azure Güvenlik Merkezi&quot;nde güvenlik ilkelerini ayarlama | Microsoft Belgeleri"
+description: "Bu belge, Azure Güvenlik Merkezi&quot;nde güvenlik ilkelerini yapılandırmanıza yardımcı olur."
 services: security-center
 documentationcenter: na
 author: YuriDio
 manager: swadhwa
-editor: ''
-
+editor: 
+ms.assetid: 3b9e1c15-3cdb-4820-b678-157e455ceeba
 ms.service: security-center
 ms.devlang: na
 ms.topic: hero-article
@@ -14,17 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2016
 ms.author: yurid
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 7fba0338f6a61998b1c103210cd60c1d37eeffd5
+
 
 ---
-# Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama
+# <a name="set-security-policies-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama
 Bu belge, bu görevi gerçekleştirmeye ilişkin gerekli adımlarda size kılavuzluk ederek Güvenlik Merkezi'nde güvenlik ilkelerini yapılandırmanıza yardımcı olur.
 
-## Güvenlik ilkeleri nedir?
+## <a name="what-are-security-policies"></a>Güvenlik ilkeleri nedir?
 Güvenlik ilkeleri, belirtilen abonelik veya kaynak grubundaki kaynaklar için önerilen denetim kümesini tanımlar. Güvenlik Merkezi'nde şirketinizin güvenlik gereksinimlerine veya uygulamaların türüne ya da her abonelikteki verilerin duyarlılığına göre Azure abonelikleriniz veya kaynak grubu için ilkeler tanımlarsınız.
 
 Örneğin, geliştirme veya test için kullanılan kaynaklar, üretim uygulamaları için kullanılan kaynaklardan farklı güvenlik gereksinimlerine sahip olabilir. Benzer şekilde, kişisel bilgiler gibi düzenlenen veriler kullanan uygulamalar daha yüksek bir güvenlik düzeyi gerektirebilir. Azure Güvenlik Merkezi'nde etkinleştirilen güvenlik ilkeleri, olası güvenlik açıklarını tanımlamanıza ve tehdit risklerini azaltmanıza yardımcı olmak için güvenlik önerilerini ve izlemeyi yürütür. Hangi seçeneğin size uygun olduğuna karar vermeye yönelik daha fazla bilgi için [Azure Güvenlik Merkezi Planlama ve İşlemler Kılavuzu](security-center-planning-and-operations-guide.md)’nu okuyun.
 
-## Abonelikler için güvenlik ilkelerini ayarlama
+## <a name="set-security-policies-for-subscriptions"></a>Abonelikler için güvenlik ilkelerini ayarlama
 Her bir abonelik veya kaynak grubu için güvenlik ilkeleri yapılandırabilirsiniz. Güvenlik ilkesini değiştirmek için o aboneliğin sahibi veya katkıda bulunanı olmanız gerekir. Azure portalında oturum açın ve aşağıdaki adımları izleyerek Güvenlik Merkezi'nde güvenlik ilkeleri yapılandırın:
 
 1. Güvenlik Merkezi panosunda **İlke** kutucuğuna tıklayın.
@@ -80,7 +84,7 @@ Her bir seçeneği anlamak için aşağıdaki tabloyu kullanın:
 
 Tüm seçenekleri yapılandırdıktan sonra öneriler içeren **Güvenlik İlkesi** dikey penceresinde **Tamam**'a tıklayın ve ilk ayarları içeren **Güvenlik İlkesi** dikey penceresinde **Kaydet**'e tıklayın.
 
-## Kaynak gruplar için güvenlik ilkelerini ayarlama
+## <a name="set-security-policies-for-resource-groups"></a>Kaynak gruplar için güvenlik ilkelerini ayarlama
 Her kaynak grubu için güvenlik ilkelerinizi yapılandırmak isterseniz izleyeceğiniz adımlar aboneliklere ilişkin güvenlik ilkelerini ayarlamak için kullandığınız adımlara benzerdir. İkisi arasındaki temel fark, abonelik adını genişletmenizin ve benzersiz güvenlik ilkesini yapılandırmak istediğiniz kaynak grubunu seçmenizin gerekmesidir:
 
 ![Kaynak grubu seçimi](./media/security-center-policies/security-center-policies-fig5-ga.png)
@@ -94,7 +98,7 @@ Kaynak grubunu seçtikten sonra **Güvenlik ilkesi** dikey penceresi açılır. 
 > 
 > 
 
-## Ayrıca bkz.
+## <a name="see-also"></a>Ayrıca bkz.
 Bu belgede, Azure Güvenlik Merkezi'nde güvenlik ilkelerinin nasıl yapılandırılacağını öğrendiniz. Azure Güvenlik Merkezi hakkında daha fazla bilgi edinmek için şunlara bakın:
 
 * [Azure Güvenlik Merkezi planlama ve işlemler kılavuzu](security-center-planning-and-operations-guide.md). Azure Güvenlik Merkezi'ni benimsemek için tasarım ile ilgili dikkat edilmesi gerekenleri planlama ve anlama hakkında bilgi edinin.
@@ -104,6 +108,9 @@ Bu belgede, Azure Güvenlik Merkezi'nde güvenlik ilkelerinin nasıl yapılandı
 * [Azure Güvenlik Merkezi SSS](security-center-faq.md). Hizmet kullanımı ile ilgili sık sorulan soruları bulun.
 * [Azure Güvenlik Blogu](http://blogs.msdn.com/b/azuresecurity/). Azure güvenliği ve uyumluluğu ile ilgili blog yazılarını bulun.
 
-<!--HONumber=Sep16_HO4-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

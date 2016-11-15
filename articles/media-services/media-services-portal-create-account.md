@@ -1,22 +1,26 @@
 ---
-title: " Azure portalı ile Azure Media Services hesabı oluşturma | Microsoft Docs"
-description: Bu öğretici, Azure portalıyla bir Azure Media Services hesabı oluşturma adımlarında size kılavuzluk eder.
+title: " Azure portalı ile Azure Media Services hesabı oluşturma | Microsoft Belgeleri"
+description: "Bu öğretici, Azure portalıyla bir Azure Media Services hesabı oluşturma adımlarında size kılavuzluk eder."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: c551e158-aad6-47b4-931e-b46260b3ee4c
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/07/2016
+ms.date: 10/24/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 8e03f7b3d4b9c17b08aca033f44ebfc5f3332eec
+
 
 ---
-# Azure portalı ile Azure Media Services hesabı oluşturma
+# <a name="create-an-azure-media-services-account-using-the-azure-portal"></a>Azure portal ile Azure Media Services hesabı oluşturma
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-create-account.md)
 > * [PowerShell](media-services-manage-with-powershell.md)
@@ -31,7 +35,7 @@ Azure portalı bir Azure Media Services (AMS) hesabını hızlıca oluşturmanı
 
 Bu makalede bazı genel kavramlar ve Azure portalı ile Media Services hesabı oluşturma işlemi açıklanmaktadır.
 
-## Kavramlar
+## <a name="concepts"></a>Kavramlar
 Media Services’e erişim iki ilişkili hesap gerektirir:
 
 * Bir Media Services hesabı. Hesabınız Azure’da mevcut olan bir dizi bulut tabanlı Media Services hizmetine erişmenizi sağlar. Bir Media Services hesabı gerçek medya verilerini depolamaz. Bunun yerine, hesabınızdaki medya içeriği ve medya işleme işleri hakkındaki meta verileri depolar. Hesabı oluşturduğunuz sırada mevcut Media Services bölgelerinden birini seçin. Seçtiğiniz bölge hesabınız için meta veri kayıtlarını saklayan veri merkezidir.
@@ -41,13 +45,14 @@ Media Services’e erişim iki ilişkili hesap gerektirir:
     AMS bundan böyle şu veri merkezlerinde de mevcuttur: Brezilya Güney, Hindistan Batı, Hindistan Güney ve Hindistan Orta. Azure portalını bundan böyle Media Service hesapları oluşturmak ve burada açıklanan çeşitli görevleri gerçekleştirmek için kullanabilirsiniz. Ancak, Live Encoding bu veri merkezlerinde etkin değildir. Ayrıca, bu veri merkezlerinde Kodlamaya Ayrılan Birimlerin tüm türleri kullanılabilir değildir.
   
   * Brezilya Güney: Yalnızca Standart ve Temel Kodlamaya Ayrılan Birimler kullanılabilir.
-  * Hindistan Batı, Hindistan Güney: Ortam dosyaları için depolama blob’ları sağlayın; depolama hesapları Media Services hesabıyla aynı coğrafi bölgede bulunmalıdır. Bir Media Services hesabı oluşturduğunuzda aynı bölgede var olan bir depolama hesabını seçebilir veya aynı bölgede yeni bir depolama hesabı oluşturabilirsiniz. Bir Media Services hesabını silerseniz ilişkili depolama hesabınızdaki blob’lar silinmez.
+  * Batı Hindistan, Güney Hindistan: 
+* Bir Azure depolama hesabı. Depolama hesapları Media Services hesabıyla aynı coğrafi bölgede olmalıdır. Bir Media Services hesabı oluşturduğunuzda aynı bölgede var olan bir depolama hesabını seçebilir veya aynı bölgede yeni bir depolama hesabı oluşturabilirsiniz. Bir Media Services hesabını silerseniz ilişkili depolama hesabınızdaki blob’lar silinmez.
 
-## AMS hesabı oluşturma
+## <a name="create-an-ams-account"></a>AMS hesabı oluşturma
 Bu bölümdeki adımlar bir AMS hesabının nasıl oluşturulacağını gösterir.
 
 1. [Azure portal](https://portal.azure.com/)’da oturum açın.
-2. **+Yeni** > **Medya + CDN** > **Media Services**’e tıklayın.
+2. **+Yeni** > **Web + Mobil** > **Media Services**’e tıklayın.
    
     ![Media Services Oluşturma](./media/media-services-portal-vod-get-started/media-services-new1.png)
 3. **MEDYA HİZMETLERİ HESABI OLUŞTUR**’a gerekli değerleri girin.
@@ -56,7 +61,7 @@ Bu bölümdeki adımlar bir AMS hesabının nasıl oluşturulacağını gösteri
    
    1. **Hesap Adı**’nda, yeni AMS hesabının adını girin. Media Services hesabı adı, boşluk olmadan, tümü küçük harf ve sayılardan oluşmalı ve 3-24 karakter uzunluğunda olmalıdır.
    2. Abonelik’te, erişiminiz bulunan farklı Azure abonelikleri arasından seçim yapın.
-   3. **Kaynak Grubu**’nda yeni veya mevcut bir kaynağı seçin.  Kaynak grubu; yaşam döngüsünü, izinleri ve ilkeleri paylaşan kaynakların bir koleksiyonudur. [Burada](../resource-group-overview.md#resource-groups) daha fazla bilgi edinin.
+   3. **Kaynak Grubu**’nda yeni veya mevcut bir kaynağı seçin.  Kaynak grubu; yaşam döngüsünü, izinleri ve ilkeleri paylaşan kaynakların bir koleksiyonudur. [Burada](../azure-resource-manager/resource-group-overview.md#resource-groups) daha fazla bilgi edinin.
    4. **Konum**’da, Media Services hesabınız için medya ve meta veri kayıtlarını depolamak üzere kullanılacak coğrafi bölgeyi seçin. Bu bölge medyanızı işlemek ve akışını sağlamak için kullanılır. Yalnızca Media Services kullanılabilen bölgeler açılır listede görüntülenir. 
    5. **Depolama Hesabı** alanında, Media Services hesabınızdan gelen medya içeriğine blob depolama sağlamak üzere bir depolama hesabı seçin. Media Services hesabınızla aynı coğrafi bölgede bulunan mevcut bir depolama hesabını seçebilir ya da bir depolama hesabı oluşturabilirsiniz. Aynı bölgede yeni bir depolama hesabı oluşturulur. Depolama hesabı adları için kurallar Media Services hesapları ile aynıdır.
       
@@ -70,7 +75,7 @@ Bu bölümdeki adımlar bir AMS hesabının nasıl oluşturulacağını gösteri
    
     AMS hesabınızı yönetmek için (örneğin, videoları karşıya yüklemek, varlıkları kodlamak, işin ilerleme durumunu izlemek) **Ayarlar** penceresini kullanın.
 
-## Anahtarları Yönet
+## <a name="manage-keys"></a>Anahtarları Yönet
 Media Services hesabına program aracılığıyla erişmek için hesap adına ve birincil anahtara bilgilerine ihtiyacınız vardır.
 
 1. Azure portalda hesabınızı seçin. 
@@ -83,15 +88,18 @@ Media Services hesabına program aracılığıyla erişmek için hesap adına ve
    
     ![Media Services Anahtarları](./media/media-services-portal-vod-get-started/media-services-keys.png)
 
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 Bundan böyle dosyaları AMS hesabınıza yükleyebilirsiniz. Daha fazla bilgi için bkz. [Dosya yükleme](media-services-portal-upload-files.md).
 
-## Media Services’i öğrenme yolları
+## <a name="media-services-learning-paths"></a>Media Services’i öğrenme yolları
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## Geri bildirimde bulunma
+## <a name="provide-feedback"></a>Geri bildirimde bulunma
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -10,6 +10,8 @@ Azure Backup hizmetinde iki tür kasa bulunur: Backup kasası ve Kurtarma Hizmet
 > 
 > 
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

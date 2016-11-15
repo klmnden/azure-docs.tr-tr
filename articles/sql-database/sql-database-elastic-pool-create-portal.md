@@ -1,13 +1,13 @@
 ---
-title: Azure portalıyla yeni bir esnek havuz oluşturma | Microsoft Docs
-description: Birçok veritabanı arasında daha kolay yönetim ve kaynak paylaşımı sağlamak amacıyla SQL veritabanı yapılandırmanıza ölçeklenebilir bir esnek veritabanı havuzu ekleme.
-keywords: ölçeklenebilir veritabanı,veritabanı yapılandırması
+title: "Azure portalı ile yeni bir esnek havuz oluşturma | Microsoft Belgeleri"
+description: "Birçok veritabanı arasında daha kolay yönetim ve kaynak paylaşımı sağlamak amacıyla SQL veritabanı yapılandırmanıza ölçeklenebilir bir esnek veritabanı havuzu ekleme."
+keywords: "ölçeklenebilir veritabanı,veritabanı yapılandırması"
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: ninarn
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: bf12594b-d258-40e6-a9fc-d8a8710c2d65
 ms.service: sql-database
 ms.devlang: NA
 ms.date: 07/20/2016
@@ -15,11 +15,15 @@ ms.author: ninarn
 ms.workload: data-management
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: f83e1aa30cfee86137c13c3a15c0e989558c0df8
+
 
 ---
-# Azure portalıyla yeni bir esnek veritabanı havuzu oluşturma
+# <a name="create-a-new-elastic-database-pool-with-the-azure-portal"></a>Azure portalıyla yeni bir esnek veritabanı havuzu oluşturma
 > [!div class="op_single_selector"]
-> * [Azure portalı](sql-database-elastic-pool-create-portal.md)
+> * [Azure Portal](sql-database-elastic-pool-create-portal.md)
 > * [PowerShell](sql-database-elastic-pool-create-powershell.md)
 > * [C#](sql-database-elastic-pool-create-csharp.md)
 > 
@@ -34,7 +38,7 @@ Bir sunucuya birden fazla havuz ekleyebilirsiniz ancak aynı havuza farklı sunu
 > 
 > 
 
-## 1. Adım: Yeni bir havuz oluşturma
+## <a name="step-1-create-a-new-pool"></a>1. Adım: Yeni bir havuz oluşturma
 Bu makalede, var olan veritabanlarını bir havuza taşımanın en kolay yolu olarak portaldaki mevcut **sunucu** dikey penceresinden yeni bir havuz oluşturma işlemi gösterilmektedir. 
 
 > [!NOTE]
@@ -58,7 +62,7 @@ Bu makalede, var olan veritabanlarını bir havuza taşımanın en kolay yolu ol
     ![Esnek havuzu yapılandırma](./media/sql-database-elastic-pool-create-portal/configure-elastic-pool.png)
 3. Esnek havuz için bir ad belirtin veya varsayılan adı kullanın.
 
-## 2. Adım: Fiyatlandırma katmanı seçme
+## <a name="step-2-choose-a-pricing-tier"></a>2. Adım: Fiyatlandırma katmanı seçme
 Havuzun fiyatlandırma katmanı, havuzdaki esnek veritabanları için kullanılabilen özelliklerin yanı sıra her bir veritabanı için kullanılabilen maksimum eDTU (MAKS eDTU) sayısını ve depolama alanını (GB) belirler. Ayrıntılı bilgi için bkz. Hizmet Katmanları.
 
 Havuz için fiyatlandırma katmanını değiştirmek üzere **Fiyatlandırma katmanı** seçeneğine tıklayın ve ardından istediğiniz fiyatlandırma katmanına tıklayıp **Seç**'e tıklayın.
@@ -70,7 +74,7 @@ Havuz için fiyatlandırma katmanını değiştirmek üzere **Fiyatlandırma kat
 
 ![Fiyatlandırma katmanı seçme](./media/sql-database-elastic-pool-create-portal/pricing-tier.png)
 
-## 3.Adım: Havuzu yapılandırma
+## <a name="step-3-configure-the-pool"></a>3.Adım: Havuzu yapılandırma
 Fiyatlandırma katmanını ayarladıktan sonra, Havuzu yapılandır'a tıklayın. Burada veritabanı ekleyebilir, havuz eDTU'larını ve depolama alanını (havuz GB'ları) ayarlayabilir ve havuzdaki esnek veritabanları için minimum ve maksimum eDTU'ları belirleyebilirsiniz.
 
 1. **Havuzu yapılandır**'a tıklayın.
@@ -86,7 +90,7 @@ Fiyatlandırma katmanını ayarladıktan sonra, Havuzu yapılandır'a tıklayın
 4. Ayarları değiştirdikten sonra **Havuzu Yapılandır** dikey penceresindeki **Seç** düğmesine tıklayın.
 5. Havuzu oluşturmak için **Tamam**'a tıklayın.
 
-## Havuz önerilerini anlama
+## <a name="understand-pool-recommendations"></a>Havuz önerilerini anlama
 SQL Database hizmeti, kullanım geçmişini değerlendirir ve maliyet açısından tek veritabanlarını kullanmaktan daha verimliyse bir veya daha fazla havuzun kullanılmasını önerir. Her bir öneri, havuza en iyi şekilde uyan sunucu veritabanlarının benzersiz bir alt kümesiyle yapılandırılır.
 
 ![önerilen havuz](./media/sql-database-elastic-pool-create-portal/recommended-pool.png)  
@@ -102,17 +106,20 @@ Hizmet, havuz önerisinde bulunurken telemetrinin son 30 gününü dikkate alır
 
 Her bir hizmet katmanındaki tek veritabanının aynı katman havuzlarına taşınmasının maliyet açısından verimliliği ve kaynak ihtiyaçları hizmet tarafından değerlendirilir. Örneğin, bir sunucudaki tüm Standart veritabanları Standart Esnek Havuz'a uygunluk açısından değerlendirilir. Bu, hizmetin bir Standart veritabanının bir Premium havuza taşınması gibi çapraz katmanlı önerilerde bulunmadığı anlamına gelir.
 
-### Dinamik öneriler
+### <a name="dynamic-recommendations"></a>Dinamik öneriler
 Havuza veritabanı eklendikten sonra öneriler, seçtiğiniz veritabanlarının geçmişe yönelik kullanımları göz önünde bulundurularak dinamik olarak oluşturulur. Bu öneriler, **Havuzu yapılandır** dikey penceresinin üst kısmındaki bir öneri başlığının yanı sıra eDTU ve GB kullanım grafiğinde gösterilir. Bu öneriler, belirli veritabanlarınız için iyileştirilmiş bir havuz oluşturma konusunda size yardımcı olmak üzere tasarlanmıştır 
 
 ![dinamik öneriler](./media/sql-database-elastic-pool-create-portal/dynamic-recommendation.png)
 
-## Ek kaynaklar
-* [Portal ile bir SQL Database esnek havuzunu yönetme](sql-database-elastic-pool-manage-portal.md)
-* [PowerShell ile bir SQL Database esnek havuzunu yönetme](sql-database-elastic-pool-manage-powershell.md)
-* [C ile bir SQL Database esnek havuzunu yönetme#](sql-database-elastic-pool-manage-csharp.md)
-* [Azure SQL Database ile ölçek genişletme](sql-database-elastic-scale-introduction.md) 
+## <a name="additional-resources"></a>Ek kaynaklar
+* [Portal ile bir SQL Veritabanı esnek havuzunu yönetme](sql-database-elastic-pool-manage-portal.md)
+* [PowerShell ile bir SQL Veritabanı esnek havuzunu yönetme](sql-database-elastic-pool-manage-powershell.md)
+* [C# ile bir SQL Veritabanı esnek havuzunu yönetme](sql-database-elastic-pool-manage-csharp.md)
+* [Azure SQL Veritabanı ile ölçek genişletme](sql-database-elastic-scale-introduction.md) 
 
-<!--HONumber=Sep16_HO5-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

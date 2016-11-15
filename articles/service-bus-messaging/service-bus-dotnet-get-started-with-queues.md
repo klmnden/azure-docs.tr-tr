@@ -1,12 +1,12 @@
 ---
-title: Service Bus kuyruklarını kullanmaya başlama | Microsoft Docs
-description: Service Bus mesajlaşması için C# konsolu uygulaması yazma
+title: "Service Bus kuyruklarını kullanmaya başlama | Microsoft Belgeleri"
+description: "Service Bus mesajlaşması için C# konsolu uygulaması yazma"
 services: service-bus
 documentationcenter: .net
 author: jtaubensee
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 68a34c00-5600-43f6-bbcc-fea599d500da
 ms.service: service-bus
 ms.devlang: tbd
 ms.topic: hero-article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 08/23/2016
 ms.author: jotaub;sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: c6405a6353cfcc56c79a6f842c6b150d10db75ee
+
 
 ---
 # <a name="get-started-with-service-bus-queues"></a>Service Bus kuyruklarını kullanmaya başlama
@@ -33,17 +37,17 @@ Bu öğreticide aşağıdaki işlemler tamamlanacaktır:
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-## <a name="1.-create-a-namespace-using-the-azure-portal"></a>1. Azure portalı kullanılarak ad alanı oluşturma
+## <a name="1-create-a-namespace-using-the-azure-portal"></a>1. Azure portalı kullanılarak ad alanı oluşturma
 Daha önce oluşturduğunuz bir Service Bus ad alanı varsa [Azure portalını kullanarak kuyruk oluşturma](#2-create-a-queue-using-the-azure-portal) bölümüne atlayın.
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-## <a name="2.-create-a-queue-using-the-azure-portal"></a>2. Azure portalını kullanarak kuyruk oluşturma
+## <a name="2-create-a-queue-using-the-azure-portal"></a>2. Azure portalını kullanarak kuyruk oluşturma
 Daha önce oluşturduğunuz bir Service Bus kuyruğu varsa [Kuyruğa ileti gönderme](#3-send-messages-to-the-queue) bölümüne atlayın.
 
 [!INCLUDE [service-bus-create-queue-portal](../../includes/service-bus-create-queue-portal.md)]
 
-## <a name="3.-send-messages-to-the-queue"></a>3. Kuyruğa ileti gönderme
+## <a name="3-send-messages-to-the-queue"></a>3. Kuyruğa ileti gönderme
 Kuyruğa ileti göndermek için, Visual Studio’yu kullanarak bir C# konsolu uygulaması yazacağız.
 
 ### <a name="create-a-console-application"></a>Konsol uygulaması oluşturma
@@ -99,7 +103,7 @@ Kuyruğa ileti göndermek için, Visual Studio’yu kullanarak bir C# konsolu uy
    
       ![İleti sayısı][queue-message]
 
-## <a name="4.-receive-messages-from-the-queue"></a>4. Kuyruktan ileti alma
+## <a name="4-receive-messages-from-the-queue"></a>4. Kuyruktan ileti alma
 1. Yeni bir konsol uygulaması oluşturun ve Service Bus NuGet paketine, daha önceki gönderme uygulamasına benzer bir başvuru ekleyin.
 2. Aşağıdaki `using` deyimini Program.cs dosyasının üst kısmına ekleyin.
    
@@ -172,6 +176,7 @@ Azure Service Bus mesajlaşmasının daha gelişmiş özelliklerinden bazıları
 [github-samples]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples
 
 
-<!--HONumber=Oct16_HO3-->
+
+<!--HONumber=Nov16_HO2-->
 
 

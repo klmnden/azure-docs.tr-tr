@@ -1,13 +1,13 @@
 ---
-title: Microsoft Azure IoT Paketi’ne genel bakış | Microsoft Docs
-description: Azure IoT Paketi, verileri toplamak, çözümlemek ve depolamak, görselleştirmeler sağlamak ve diğer sistemlerle tümleştirmek için önceden yapılandırılmış nesnelerin internetini nasıl sağladığına genel bakış.
-services: ''
+title: "Microsoft Azure IoT Paketi’ne genel bakış | Microsoft Belgeleri"
+description: "Azure IoT Paketi, verileri toplamak, çözümlemek ve depolamak, görselleştirmeler sağlamak ve diğer sistemlerle tümleştirmek için önceden yapılandırılmış nesnelerin internetini nasıl sağladığına genel bakış."
+services: 
 suite: iot-suite
-documentationcenter: ''
+documentationcenter: 
 author: dominicbetts
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 2d38d08a-4133-4e5c-8b28-f93cadb5df05
 ms.service: iot-suite
 ms.devlang: na
 ms.topic: get-started-article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/09/2016
 ms.author: dobett
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 7b0df1fc79e82a99ea65296a4e09bdb48fde9451
+
 
 ---
-# Azure IoT Paketi nedir?
+# <a name="what-is-azure-iot-suite"></a>Azure IoT Paketi nedir?
 Azure nesnelerin interneti (IoT) hizmetleri çok çeşitli özellikler sunar. Bu kurumsal sınıf hizmetler şunları yapmanızı sağlar:
 
 * Cihazlardan veri toplama
@@ -34,7 +38,7 @@ Aşağıdaki video Azure IoT paketine giriş sağlar:
 > 
 > 
 
-## Azure IoT Paketindeki Azure IoT Hizmetleri
+## <a name="azure-iot-services-in-azure-iot-suite"></a>Azure IoT Paketindeki Azure IoT Hizmetleri
 Önceden yapılandırılmış çözümler genellikle aşağıdaki hizmetleri kullanır:
 
 * Azure IoT paketinin çekirdeği [Azure IoT Hub][lnk-iot-hub] hizmetidir. Bu hizmet cihaz-bulut arası ve bulut-cihaz arası ileti gönderme özellikleri sağlar ve buluta ve diğer temel IoT Paketi hizmetlerine ağ geçidi görevi görür. Hizmet cihazınızdan ölçekte mesajlar almanızı ve cihazlarınıza komutlar göndermenizi sağlar.
@@ -44,10 +48,10 @@ Aşağıdaki video Azure IoT paketine giriş sağlar:
 
 Tipik bir IoT çözüm mimarisine genel bakış için bkz. [Microsoft Azure ve Nesnelerin İnterneti (IoT)][iot-suite-what-is-azure-iot].
 
-## Önceden yapılandırılmış çözümler
+## <a name="preconfigured-solutions"></a>Önceden yapılandırılmış çözümler
 IoT paketi, Azure IoT Paketi’nin mümkün kıldığı *Uzaktan izleme* ve *Tahmine dayalı bakım* gibi yaygın IoT senaryolarını hızlı şekilde kullanmaya başlamanızı ve keşfetmenizi sağlayan önceden yapılandırılmış çözümler sunar. Bu çözümleri Azure aboneliğinize dağıtabilir ve ardından tam, uçtan uca bir IoT senaryosu çalıştırabilirsiniz.
 
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 IoT Paketi’nin yapabileceklerini ve ana bileşenlerini genel hatlarıyla gördüğünüze göre IoT Paketi’ndeki önceden yapılandırılmış çözümler hakkında daha fazla bilgi alabilirsiniz, bkz. [Önceden yapılandırılmış Azure IoT çözümleri nelerdir?][lnk-what-are-preconfig]
 
 [lnk-sdks]: https://azure.microsoft.com/documentation/articles/iot-hub-sdks-summary/
@@ -62,6 +66,6 @@ IoT Paketi’nin yapabileceklerini ve ana bileşenlerini genel hatlarıyla görd
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

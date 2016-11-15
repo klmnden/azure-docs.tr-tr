@@ -9,7 +9,6 @@
 [Azure Portal]: https://portal.azure.com/
 
 
-
-<!--HONumber=sep16_HO1-->
+<!--HONumber=Nov16_HO2-->
 
 

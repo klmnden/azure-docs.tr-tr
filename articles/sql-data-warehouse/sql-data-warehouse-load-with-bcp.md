@@ -1,12 +1,12 @@
 ---
-title: bsp yardımcı programını kullanarak SQL Data Warehouse'a veri yükleme | Microsoft Docs
-description: bcp'nin ne olduğunu ve veri depolama senaryolarında nasıl kullanılacağını öğrenin.
+title: "bcp yardımcı programını kullanarak SQL Veri Ambarı&quot;na veri yükleme | Microsoft Belgeleri"
+description: "bcp&quot;nin ne olduğunu ve veri depolama senaryolarında nasıl kullanılacağını öğrenin."
 services: sql-data-warehouse
 documentationcenter: NA
 author: twounder
 manager: barbkess
-editor: ''
-
+editor: 
+ms.assetid: f9467d11-fcd6-4131-a65a-2022d2c32d24
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: get-started-article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: mausher;barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 5a0519a0fdbfc428530e5b30a3f8e4e8bcdaa50b
+
 
 ---
 # <a name="load-data-with-bcp"></a>BCP ile veri yükleme
@@ -25,7 +29,7 @@ ms.author: mausher;barbkess
 > 
 > 
 
-**[bcp][bcp]**; SQL Server, veri dosyaları ve SQL Data Warehouse arasında veri kopyalamanıza olanak sağlayan bir komut satırı toplu yükleme yardımcı programıdır. Çok sayıda satırı SQL Data Warehouse tablolarına aktarmak veya SQL Server tablolarından veri dosyalarına veri aktarmak için bcp yardımcı programını kullanın. queryout seçeneğiyle kullanılmadığı sürece bcp programını kullanmak için Transact-SQL ile ilgili herhangi bir bilginizin olması gerekmez.
+**[bcp][bcp]**; SQL Server, veri dosyaları ve SQL Veri Ambarı arasında veri kopyalamanıza olanak sağlayan bir komut satırı toplu yükleme yardımcı programıdır. Çok sayıda satırı SQL Data Warehouse tablolarına aktarmak veya SQL Server tablolarından veri dosyalarına veri aktarmak için bcp yardımcı programını kullanın. queryout seçeneğiyle kullanılmadığı sürece bcp programını kullanmak için Transact-SQL ile ilgili herhangi bir bilginizin olması gerekmez.
 
 bcp, nispeten küçük veri kümelerini SQL Data Warehouse veritabanına aktarmanın veya SQL Data Warehouse'dan dışarı aktarmanın hızlı ve kolay bir yoludur. bcp aracılığıyla yükleme/ayıklama işlemi gerçekleştirmek için önerilen tam veri miktarı, Azure veri merkezine yönelik ağ bağlantınıza göre değişir.  Genel olarak, boyut tabloları bcp aracılığıyla kolayca yüklenip ayıklanabilir ancak büyük miktarda veriyi yüklemek veya ayıklamak için bcp'nin kullanılması önerilmez.  SQL Data Warehouse'un yüksek düzeyde paralel işleme mimarisinden faydalanma konusunda daha başarılı olduğundan, büyük miktarlarda veri yükleme ve ayıklama işlemleri için Polybase aracının kullanılması önerilir.
 
@@ -78,7 +82,7 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 ```
 
 > [!NOTE]
-> SQL Data Warehouse'da tablo oluşturma ve WITH yan tümcesinde bulunan seçenekler hakkında daha fazla bilgi için bkz. [Tabloya Genel Bakış][Tabloya Genel Bakış] veya [CREATE TABLE söz dizimi][CREATE TABLE söz dizimi].
+> SQL Veri Ambarı'nda tablo oluşturma ve WITH yan tümcesiyle kullanılabilen seçenekler hakkında daha fazla bilgi için bkz. [Tabloya Genel Bakış][Tabloya Genel Bakış] veya [CREATE TABLE söz dizimi][CREATE TABLE söz dizimi].
 > 
 > 
 
@@ -180,8 +184,8 @@ Yeni dosyayı açarak verilerin düzgün bir şekilde dışarı aktarıldığın
 > 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Yüklemeye genel bakış için bkz. [SQL Data Warehouse'a veri yükleme][].
-Geliştirme ile ilgili daha fazla ipucu için bkz. [SQL Data Warehouse geliştirmeye genel bakış][].
+Yüklemeye genel bakış için bkz. [SQL Veri Ambarı'na veri yükleme][SQL Veri Ambarı'na veri yükleme].
+Geliştirme ile ilgili daha fazla ipucu için bkz. [SQL Veri Ambarı geliştirmeye genel bakış][SQL Veri Ambarı geliştirmeye genel bakış].
 
 <!--Image references-->
 
@@ -201,6 +205,6 @@ Geliştirme ile ilgili daha fazla ipucu için bkz. [SQL Data Warehouse geliştir
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

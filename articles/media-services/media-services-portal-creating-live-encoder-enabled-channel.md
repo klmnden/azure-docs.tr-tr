@@ -1,22 +1,26 @@
 ---
-title: Azure portalı ile çoklu bit hızına sahip akışlar oluşturmak üzere Azure Media Services’i kullanarak canlı akış gerçekleştirme | Microsoft Docs
-description: Bu öğreticide, tek bit hızında bir canlı akışı alıp Azure portalını kullanarak çoklu bit hızında akışa kodlayan bir Kanal oluşturulması adım adım anlatılmaktadır.
+title: "Azure portalı ile çoklu bit hızına sahip akışlar oluşturmak üzere Azure Media Services’ı kullanarak canlı akış gerçekleştirme | Microsoft Belgeleri"
+description: "Bu öğreticide, tek bit hızında bir canlı akışı alıp Azure portalını kullanarak çoklu bit hızında akışa kodlayan bir Kanal oluşturulması adım adım anlatılmaktadır."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: anilmur
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 504f74c2-3103-42a0-897b-9ff52f279e23
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/06/2016
-ms.author: juliako;juliako
+ms.date: 10/24/2016
+ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: d8c63c3b8ff853986129403f83b14575fd63264c
+
 
 ---
-# <a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multi-bitrate-streams-with-the-azure-portal"></a>Azure portalı ile çoklu bit hızına sahip akışlar oluşturmak üzere Azure Media Services’i kullanarak canlı akış gerçekleştirme
+# <a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multibitrate-streams-with-the-azure-portal"></a>Azure portalı ile çoklu bit hızına sahip akışlar oluşturmak üzere Azure Media Services’i kullanarak canlı akış gerçekleştirme
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 > * [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
@@ -72,7 +76,8 @@ Bu öğreticide, Azure portalı aşağıdaki görevleri gerçekleştirmek için 
 ## <a name="prerequisites"></a>Ön koşullar
 Öğreticiyi tamamlamak için aşağıdakiler gereklidir.
 
-* Bu öğreticiyi tamamlamak için bir Azure hesabınızın olması gerekir. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılar için bkz. [Azure Ücretsiz Deneme](https://azure.microsoft.com/pricing/free-trial/).
+* Bu öğreticiyi tamamlamak için bir Azure hesabınızın olması gerekir. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. 
+  Ayrıntılar için bkz. [Azure Ücretsiz Deneme](https://azure.microsoft.com/pricing/free-trial/).
 * Bir Media Services hesabı. Media Services hesabı oluşturma konusunda bilgi edinmek için bkz. [Hesap Oluşturma](media-services-portal-create-account.md).
 * Bir web kamerası ve tek bit hızlı bir canlı akış gönderebilen bir kodlayıcı.
 
@@ -83,7 +88,7 @@ Dinamik paketlemeden yararlanmak için, içeriğinizi teslim etmek istediğiniz 
 
 Akışa ayrılan birim sayısını oluşturmak ve değiştirmek için, aşağıdakileri yapın:
 
-1. [Azure portal](https://portal.azure.com/)’da oturum açın.
+1. [Azure portalında](https://portal.azure.com/) oturum açın ve AMS hesabınızı seçin.
 2. **Ayarlar** penceresinde, **Akış uç noktaları**’na tıklayın. 
 3. Varsayılan akış uç noktasına tıklayın. 
    
@@ -99,7 +104,7 @@ Akışa ayrılan birim sayısını oluşturmak ve değiştirmek için, aşağıd
    > 
 
 ## <a name="create-a-channel"></a>KANAL oluşturma
-1. [Azure portalı](https://portal.azure.com/)’nda Media Services’e ve ardından Media Services hesap adına tıklayın.
+1. [Azure portalında](https://portal.azure.com/), Media Services'i seçin ve ardından Media Services hesabınızın adına tıklayın.
 2. **Canlı Akış**’ı seçin.
 3. **Özel oluştur**’u seçin. Bu seçenek canlı kodlama için etkinleştirilmiş bir kanal oluşturmanızı sağlar.
    
@@ -164,7 +169,7 @@ Olayı durdurduktan ve sildikten sonra dahi, varlığı silmeniz sürece, kullan
 
 Arşivlenen içeriği tutmak istiyor ancak bu içeriğin akış için kullanılmasını istemiyorsanız, akış bulucuyu silin.
 
-### <a name="create/start/stop-events"></a>Olay oluşturma/başlatma/durdurma
+### <a name="createstartstop-events"></a>Olay oluşturma/başlatma/durdurma
 Akışın Kanala akması sağlandıktan sonra bir Varlık, Program ve Akış Bulucu oluşturarak akış olayını başlatabilirsiniz. Bu olay, akışı arşivler ve akışın Akış Uç Noktası aracılığıyla izleyiciler tarafından kullanılabilmesini sağlar. 
 
 Olayı başlatmanın iki yolu vardır: 
@@ -221,6 +226,9 @@ Media Services öğrenme yollarını gözden geçirin.
 ## <a name="provide-feedback"></a>Geri bildirimde bulunma
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

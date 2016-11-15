@@ -1,13 +1,13 @@
 ---
-title: Bir web kancası veya API Azure İşlevi oluşturma | Microsoft Docs
-description: Bir Web Kancası veya API çağrısı ile çağrılan işlev oluşturmak için Azure İşlevlerini kullanın.
+title: "Bir web kancası veya API Azure İşlevi oluşturma | Microsoft Belgeleri"
+description: "Bir Web Kancası veya API çağrısı ile çağrılan işlev oluşturmak için Azure İşlevlerini kullanın."
 services: azure-functions
 documentationcenter: na
 author: ggailey777
 manager: erikre
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: 36ef34b8-3729-4940-86d2-cb8e176fcc06
 ms.service: functions
 ms.devlang: multiple
 ms.topic: get-started-article
@@ -15,20 +15,25 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 08/30/2016
 ms.author: glenga
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 9484a637a1876f2cae644e43986bd5ef3201da1e
+
 
 ---
-# Bir web kancası veya API Azure İşlevi oluşturma
+# <a name="create-a-webhook-or-api-azure-function"></a>Bir web kancası veya API Azure İşlevi oluşturma
 Azure İşlevleri, çeşitli programlama dillerinde uygulanan zamanlanan veya tetiklenen kod birimleri oluşturmanızı sağlayan olay odaklı, isteğe bağlı bir hesaplama deneyimidir. Azure İşlevleri hakkında daha fazla bilgi edinmek için bkz. [Azure İşlevlerine Genel Bakış](functions-overview.md).
 
 Bu konuda bir GitHub web kancası tarafından çağrılan yeni bir Node.js işlevinin nasıl oluşturulacağı gösterilmektedir. Yeni işlev, Azure İşlevleri portalında önceden tanımlanmış bir şablon temel alınarak oluşturulur. Bu adımların portalda nasıl gerçekleştirildiğini görmek için kısa bir video da izleyebilirsiniz.
 
-## Videoyu izleme
+## <a name="watch-the-video"></a>Videoyu izleme
 Aşağıdaki video bu öğreticideki temel adımların nasıl gerçekleştirileceğini gösterir 
 
-[!VIDEO https://channel9.msdn.com/Series/Windows-Azure-Web-Sites-Tutorials/Create-a-Web-Hook-or-API-Azure-Function/player]
+>[!VIDEO https://channel9.msdn.com/Series/Windows-Azure-Web-Sites-Tutorials/Create-a-Web-Hook-or-API-Azure-Function/player]
+>
+>
 
-
-## Şablondan web kancası ile tetiklenen bir işlev oluşturma
+## <a name="create-a-webhooktriggered-function-from-the-template"></a>Şablondan web kancası ile tetiklenen bir işlev oluşturma
 Azure'da işlevlerinizin yürütülmesini bir işlev uygulaması barındırır. Bir işlev oluşturmadan önce etkin bir Azure hesabınız olması gerekir. Bir Azure hesabınız yoksa [ücretsiz hesaplar kullanılabilir](https://azure.microsoft.com/free/). 
 
 1. [Azure İşlevleri portalına](https://functions.azure.com/signin) gidin ve Azure hesabınız ile oturum açın.
@@ -47,7 +52,7 @@ Azure'da işlevlerinizin yürütülmesini bir işlev uygulaması barındırır. 
 
 Ardından, GitHub deponuzda gerçek web kancasını oluşturursunuz.
 
-## Web kancası yapılandırma
+## <a name="configure-the-webhook"></a>Web kancası yapılandırma
 1. GitHub’da sahip olduğunuz bir depoya gidin; buna çatallanmış tüm depolar dahildir.
 2. **Ayarlar** > **Web kancaları ve hizmetler** > **Web kancası ekle** öğesine tıklayın.
    
@@ -59,12 +64,12 @@ Ardından, GitHub deponuzda gerçek web kancasını oluşturursunuz.
 Bu noktada, GitHub web kancası yeni bir sorun açıklaması eklendiğinde işlevinizi tetikleyecek şekilde yapılandırılır.  
 Bundan sonra sınama yapılır.
 
-## İşlevi test etme
+## <a name="test-the-function"></a>İşlevi test etme
 1. GitHub deponuzda **Sorunlar** sekmesini yeni bir tarayıcı penceresinde açın, **Yeni Sorun**’a tıklayın, bir başlık yazın ve ardından **Yeni sorunu gönder**’e tıklayın. Ayrıca var olan bir sorunu açabilirsiniz.
 2. Sorunda bir açıklama yazın ve **Açıklama**’ya tıklayın. Bu noktada, GitHub’daki yeni web kancanıza geri dönebilir ve **Son Teslimatlar** altında bir web kancası isteğinin gönderildiğini ve yanıt gövdesinin `New GitHub comment: <Your issue comment text>` olduğunu görebilirsiniz.
 3. İşlevler portalına geri dönerek günlüklere inin ve işlevin tetiklendiğini ve akış günlüklerine `New GitHub comment: <Your issue comment text>` değerinin yazıldığını görün.
 
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 Azure İşlevleri hakkında daha fazla bilgi edinmek için bu konulara göz atın.
 
 * [Azure İşlevleri geliştirici başvurusu](functions-reference.md)  
@@ -76,6 +81,9 @@ Azure İşlevleri hakkında daha fazla bilgi edinmek için bu konulara göz atı
 
 [!INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
 
-<!--HONumber=Sep16_HO4-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

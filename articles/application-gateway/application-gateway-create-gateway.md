@@ -1,26 +1,28 @@
 ---
-title: Bir uygulama ağ geçidi oluşturma, başlatma veya silme | Microsoft Docs
-description: Bu sayfa bir Azure uygulama ağ geçidi oluşturma, yapılandırma, başlatma ve silme yönergelerini sağlar
+title: "Bir uygulama ağ geçidi oluşturma, başlatma veya silme | Microsoft Belgeleri"
+description: "Bu sayfa bir Azure uygulama ağ geçidi oluşturma, yapılandırma, başlatma ve silme yönergelerini sağlar"
 documentationcenter: na
 services: application-gateway
 author: georgewallace
-manager: jdial
+manager: carmonm
 editor: tysonn
-
+ms.assetid: 577054ca-8368-4fbf-8d53-a813f29dc3bc
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/02/2016
+ms.date: 11/10/2016
 ms.author: gwallace
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 996bac38e6b67cfe7b72e11bf29831b12086bf1b
+
 
 ---
-# Bir uygulama ağ geçidi oluşturun, başlayın veya silin
-Azure Application Gateway, bir katman 7 yük dengeleyicidir. Bulutta veya şirket içinde olmalarından bağımsız olarak, farklı sunucular arasında yük devretme ile HTTP istekleri için performans amaçlı yönlendirme sağlar. Application Gateway şu uygulama teslim özelliklerine sahiptir: HTTP yük dengeleme, tanımlama bilgisi tabanlı oturum benzeşimi ve Güvenli Yuva Katmanı (SSL) yük boşaltma.
-
+# <a name="create-start-or-delete-an-application-gateway"></a>Bir uygulama ağ geçidi oluşturun, başlayın veya silin
 > [!div class="op_single_selector"]
-> * [Azure Portalı](application-gateway-create-gateway-portal.md)
+> * [Azure Portal](application-gateway-create-gateway-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-create-gateway-arm.md)
 > * [Azure Klasik PowerShell](application-gateway-create-gateway.md)
 > * [Azure Resource Manager şablonu](application-gateway-create-gateway-arm-template.md)
@@ -28,15 +30,17 @@ Azure Application Gateway, bir katman 7 yük dengeleyicidir. Bulutta veya şirke
 > 
 > 
 
+Azure Application Gateway, bir katman 7 yük dengeleyicidir. Bulutta veya şirket içinde olmalarından bağımsız olarak, farklı sunucular arasında yük devretme ile HTTP istekleri için performans amaçlı yönlendirme sağlar. Application Gateway; HTTP yük dengeleme, tanımlama bilgisi tabanlı oturum benzeşimi, Güvenli Yuva Katmanı (SSL) boşaltma, özel sistem durumu araştırmaları, çoklu site desteği gibi birçok Application Delivery Controller (ADC) özelliği sunar. Desteklenen özelliklerin tam listesi için bkz. [Application Gateway’e Genel Bakış](application-gateway-introduction.md)
+
 Bu makale, uygulama ağ geçidi oluşturma, yapılandırma, başlatma ve silme adımlarında size eşlik eder.
 
-## Başlamadan önce
+## <a name="before-you-begin"></a>Başlamadan önce
 1. Web Platformu Yükleyicisi’ni kullanarak Azure PowerShell cmdlet’lerin en son sürümünü yükleyin. **İndirmeler sayfası**’ndaki [Windows PowerShell](https://azure.microsoft.com/downloads/) bölümünden en son sürümü indirip yükleyebilirsiniz.
-2. Mevcut bir sanal ağınız varsa var olan boş bir alt ağı seçin ya da var olan sanal ağınızda yalnızca uygulama ağ geçidinin kullanımına yönelik yeni bir alt ağ oluşturun. Uygulama ağ geçidini, uygulama ağ geçidinin arkasına dağıtmak istediğiniz kaynaklardan farklı bir sanal ağa dağıtamazsınız.
+2. Mevcut bir sanal ağınız varsa var olan boş bir alt ağı seçin ya da var olan sanal ağınızda yalnızca uygulama ağ geçidinin kullanımına yönelik yeni bir alt ağ oluşturun. Sanal ağ eşleme kullanılmıyorsa uygulama ağ geçidini, uygulama ağ geçidinin arkasına dağıtmak istediğiniz kaynaklardan farklı bir sanal ağa dağıtamazsınız. Daha fazla bilgi için bkz. [Sanal Ağ Eşleme](../virtual-network/virtual-network-peering-overview.md)
 3. Geçerli bir alt ağla çalışan bir sanal ağa sahip olduğunuzu doğrulayın. Hiçbir sanal makinenin veya bulut dağıtımlarının alt ağı kullanmadığından emin olun. Uygulama ağ geçidi tek başına bir sanal ağ alt ağında olmalıdır.
 4. Uygulama ağ geçidi kullanırken yapılandırdığınız sunucular mevcut olmalıdır veya uç noktaları sanal ağda veya atanan genel bir IP/VIP’de oluşturulmuş olmalıdır.
 
-## Bir uygulama ağ geçidi oluşturmak için ne gereklidir?
+## <a name="what-is-required-to-create-an-application-gateway"></a>Bir uygulama ağ geçidi oluşturmak için ne gereklidir?
 Uygulama ağ geçidi oluşturmak için **New-AzureApplicationGateway** komutunu kullanırken hiçbir yapılandırma bulunmaz ve yeni oluşturulmuş kaynağın XML veya bir yapılandırma nesnesi kullanılarak yapılandırılması gerektir.
 
 Değerler şunlardır:
@@ -47,7 +51,7 @@ Değerler şunlardır:
 * **Dinleyici:** Dinleyicide bir ön uç bağlantı noktası, bir protokol (Http veya Https, bu değerler büyük/küçük harfe duyarlıdır) ve SSL sertifika adı (SSL yük boşaltımı yapılandırılıyorsa) vardır.
 * **Kural:** Kural, dinleyiciyi ve arka uç sunucusu havuzunu bağlar ve belli bir dinleyicide trafik olduğunda trafiğin hangi arka uç sunucu havuzuna yönlendirileceğini belirler.
 
-## Uygulama ağ geçidi oluşturma
+## <a name="create-an-application-gateway"></a>Uygulama ağ geçidi oluşturma
 Bir uygulama ağ geçidi oluşturmak için:
 
 1. Uygulama ağ geçidi kaynağı oluşturun.
@@ -59,34 +63,36 @@ Bir uygulama ağ geçidi oluşturmak için:
 > 
 > 
 
-### Bir uygulama ağ geçidi kaynağı oluşturma
+![Senaryo örneği][scenario]
+
+### <a name="create-an-application-gateway-resource"></a>Bir uygulama ağ geçidi kaynağı oluşturma
 Ağ geçidini oluşturmak için, **New-AzureApplicationGateway** cmdlet’ini kullanın ve değerleri kendinizinkilerle değiştirin. Ağ geçidinin faturalanması bu aşamada başlamaz. Daha sonra ağ geçidi başarıyla başlatıldığında faturalama da başlar. 
 
 Aşağıdaki örnek, "testvnet1" adlı sanal ağı ve "subnet-1" aklı alt ağı kullanarak bir uygulama ağ geçidi oluşturur.
 
-    New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
+```powershell
+New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
+```
 
-    VERBOSE: 4:31:35 PM - Begin Operation: New-AzureApplicationGateway
-    VERBOSE: 4:32:37 PM - Completed Operation: New-AzureApplicationGateway
-    Name       HTTP Status Code     Operation ID                             Error
-    ----       ----------------     ------------                             ----
-    Successful OK                   55ef0460-825d-2981-ad20-b9a8af41b399
-
-
- *Description*, *InstanceCount* ve *GatewaySize* tercihe bağlı parametrelerdir.
+*Description*, *InstanceCount* ve *GatewaySize* tercihe bağlı parametrelerdir.
 
 Ağ geçidinin oluşturulduğunu doğrulamak için **Get-AzureApplicationGateway** cmdlet’ini kullanabilirsiniz.
 
-    Get-AzureApplicationGateway AppGwTest
-    Name          : AppGwTest
-    Description   :
-    VnetName      : testvnet1
-    Subnets       : {Subnet-1}
-    InstanceCount : 2
-    GatewaySize   : Medium
-    State         : Stopped
-    VirtualIPs    : {}
-    DnsName       :
+```powershell
+Get-AzureApplicationGateway AppGwTest
+```
+
+```
+Name          : AppGwTest
+Description   :
+VnetName      : testvnet1
+Subnets       : {Subnet-1}
+InstanceCount : 2
+GatewaySize   : Medium
+State         : Stopped
+VirtualIPs    : {}
+DnsName       :
+```
 
 > [!NOTE]
 > *InstanceCount* için varsayılan değer 2 ile 10 arasıdır. *GatewaySize* için varsayılan değer Medium’dur. Small, Medium ve Large seçenekleri bulunur.
@@ -95,57 +101,59 @@ Ağ geçidinin oluşturulduğunu doğrulamak için **Get-AzureApplicationGateway
 
 Ağ geçidi daha başlatılmadığından dolayı *VirtualIPs* ve *DnsName* boş görünür. Bunlar ağ geçidi çalışma durumuna geçtiğinde oluşturulur.
 
-## Uygulama ağ geçidini yapılandırma
+## <a name="configure-the-application-gateway"></a>Uygulama ağ geçidini yapılandırma
 XML veya bir yapılandırma nesnesi kullanarak uygulama ağ geçidini yapılandırabilirsiniz.
 
-## XML kullanarak uygulama ağ geçidi yapılandırma
+## <a name="configure-the-application-gateway-by-using-xml"></a>XML kullanarak uygulama ağ geçidi yapılandırma
 Aşağıdaki örnekte, tüm uygulama ağ geçidi ayarlarını yapılandırmak için bir XML dosyası kullanır ve bu ayarları uygulama ağ geçidi kaynağına uygularsınız.  
 
-### 1. Adım
+### <a name="step-1"></a>1. Adım
 Aşağıdaki metni Notepad’a kopyalayın.
 
-    <?xml version="1.0" encoding="utf-8"?>
-    <ApplicationGatewayConfiguration xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
-        <FrontendPorts>
-            <FrontendPort>
-                <Name>(name-of-your-frontend-port)</Name>
-                <Port>(port number)</Port>
-            </FrontendPort>
-        </FrontendPorts>
-        <BackendAddressPools>
-            <BackendAddressPool>
-                <Name>(name-of-your-backend-pool)</Name>
-                <IPAddresses>
-                    <IPAddress>(your-IP-address-for-backend-pool)</IPAddress>
-                    <IPAddress>(your-second-IP-address-for-backend-pool)</IPAddress>
-                </IPAddresses>
-            </BackendAddressPool>
-        </BackendAddressPools>
-        <BackendHttpSettingsList>
-            <BackendHttpSettings>
-                <Name>(backend-setting-name-to-configure-rule)</Name>
-                <Port>80</Port>
-                <Protocol>[Http|Https]</Protocol>
-                <CookieBasedAffinity>Enabled</CookieBasedAffinity>
-            </BackendHttpSettings>
-        </BackendHttpSettingsList>
-        <HttpListeners>
-            <HttpListener>
-                <Name>(name-of-the-listener)</Name>
-                <FrontendPort>(name-of-your-frontend-port)</FrontendPort>
-                <Protocol>[Http|Https]</Protocol>
-            </HttpListener>
-        </HttpListeners>
-        <HttpLoadBalancingRules>
-            <HttpLoadBalancingRule>
-                <Name>(name-of-load-balancing-rule)</Name>
-                <Type>basic</Type>
-                <BackendHttpSettings>(backend-setting-name-to-configure-rule)</BackendHttpSettings>
-                <Listener>(name-of-the-listener)</Listener>
-                <BackendAddressPool>(name-of-your-backend-pool)</BackendAddressPool>
-            </HttpLoadBalancingRule>
-        </HttpLoadBalancingRules>
-    </ApplicationGatewayConfiguration>
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<ApplicationGatewayConfiguration xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
+    <FrontendPorts>
+        <FrontendPort>
+            <Name>(name-of-your-frontend-port)</Name>
+            <Port>(port number)</Port>
+        </FrontendPort>
+    </FrontendPorts>
+    <BackendAddressPools>
+        <BackendAddressPool>
+            <Name>(name-of-your-backend-pool)</Name>
+            <IPAddresses>
+                <IPAddress>(your-IP-address-for-backend-pool)</IPAddress>
+                <IPAddress>(your-second-IP-address-for-backend-pool)</IPAddress>
+            </IPAddresses>
+        </BackendAddressPool>
+    </BackendAddressPools>
+    <BackendHttpSettingsList>
+        <BackendHttpSettings>
+            <Name>(backend-setting-name-to-configure-rule)</Name>
+            <Port>80</Port>
+            <Protocol>[Http|Https]</Protocol>
+            <CookieBasedAffinity>Enabled</CookieBasedAffinity>
+        </BackendHttpSettings>
+    </BackendHttpSettingsList>
+    <HttpListeners>
+        <HttpListener>
+            <Name>(name-of-the-listener)</Name>
+            <FrontendPort>(name-of-your-frontend-port)</FrontendPort>
+            <Protocol>[Http|Https]</Protocol>
+        </HttpListener>
+    </HttpListeners>
+    <HttpLoadBalancingRules>
+        <HttpLoadBalancingRule>
+            <Name>(name-of-load-balancing-rule)</Name>
+            <Type>basic</Type>
+            <BackendHttpSettings>(backend-setting-name-to-configure-rule)</BackendHttpSettings>
+            <Listener>(name-of-the-listener)</Listener>
+            <BackendAddressPool>(name-of-your-backend-pool)</BackendAddressPool>
+        </HttpLoadBalancingRule>
+    </HttpLoadBalancingRules>
+</ApplicationGatewayConfiguration>
+```
 
 Parantez içindeki değerleri yapılandırma öğeleri için düzenleyin. Dosyası .xml. uzantısıyla kaydedin.
 
@@ -156,62 +164,59 @@ Parantez içindeki değerleri yapılandırma öğeleri için düzenleyin. Dosyas
 
 Aşağıdaki örnekte uygulama ağ geçidi ayarlamak için yapılandırma dosyası kullanma işlemi gösterilmektedir. Örnek, genel bağlantı noktası 80 üzerinde HTTP trafiğinin yük dengelemesini yapar ve iki IP adresi arasındaki arka uç bağlantı noktası 80’e ağ trafiği gönderir.
 
-    <?xml version="1.0" encoding="utf-8"?>
-    <ApplicationGatewayConfiguration xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
-        <FrontendPorts>
-            <FrontendPort>
-                <Name>FrontendPort1</Name>
-                <Port>80</Port>
-            </FrontendPort>
-        </FrontendPorts>
-        <BackendAddressPools>
-            <BackendAddressPool>
-                <Name>BackendPool1</Name>
-                <IPAddresses>
-                    <IPAddress>10.0.0.1</IPAddress>
-                    <IPAddress>10.0.0.2</IPAddress>
-                </IPAddresses>
-            </BackendAddressPool>
-        </BackendAddressPools>
-        <BackendHttpSettingsList>
-            <BackendHttpSettings>
-                <Name>BackendSetting1</Name>
-                <Port>80</Port>
-                <Protocol>Http</Protocol>
-                <CookieBasedAffinity>Enabled</CookieBasedAffinity>
-            </BackendHttpSettings>
-        </BackendHttpSettingsList>
-        <HttpListeners>
-            <HttpListener>
-                <Name>HTTPListener1</Name>
-                <FrontendPort>FrontendPort1</FrontendPort>
-                <Protocol>Http</Protocol>
-            </HttpListener>
-        </HttpListeners>
-        <HttpLoadBalancingRules>
-            <HttpLoadBalancingRule>
-                <Name>HttpLBRule1</Name>
-                <Type>basic</Type>
-                <BackendHttpSettings>BackendSetting1</BackendHttpSettings>
-                <Listener>HTTPListener1</Listener>
-                <BackendAddressPool>BackendPool1</BackendAddressPool>
-            </HttpLoadBalancingRule>
-        </HttpLoadBalancingRules>
-    </ApplicationGatewayConfiguration>
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<ApplicationGatewayConfiguration xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
+    <FrontendPorts>
+        <FrontendPort>
+            <Name>FrontendPort1</Name>
+            <Port>80</Port>
+        </FrontendPort>
+    </FrontendPorts>
+    <BackendAddressPools>
+        <BackendAddressPool>
+            <Name>BackendPool1</Name>
+            <IPAddresses>
+                <IPAddress>10.0.0.1</IPAddress>
+                <IPAddress>10.0.0.2</IPAddress>
+            </IPAddresses>
+        </BackendAddressPool>
+    </BackendAddressPools>
+    <BackendHttpSettingsList>
+        <BackendHttpSettings>
+            <Name>BackendSetting1</Name>
+            <Port>80</Port>
+            <Protocol>Http</Protocol>
+            <CookieBasedAffinity>Enabled</CookieBasedAffinity>
+        </BackendHttpSettings>
+    </BackendHttpSettingsList>
+    <HttpListeners>
+        <HttpListener>
+            <Name>HTTPListener1</Name>
+            <FrontendPort>FrontendPort1</FrontendPort>
+            <Protocol>Http</Protocol>
+        </HttpListener>
+    </HttpListeners>
+    <HttpLoadBalancingRules>
+        <HttpLoadBalancingRule>
+            <Name>HttpLBRule1</Name>
+            <Type>basic</Type>
+            <BackendHttpSettings>BackendSetting1</BackendHttpSettings>
+            <Listener>HTTPListener1</Listener>
+            <BackendAddressPool>BackendPool1</BackendAddressPool>
+        </HttpLoadBalancingRule>
+    </HttpLoadBalancingRules>
+</ApplicationGatewayConfiguration>
+```
 
-
-### 2. Adım
+### <a name="step-2"></a>2. Adım
 Sonra, uygulama ağ geçidini kurun. **Set-AzureApplicationGatewayConfig** cmdlet’ini bir XML yapılandırma dosyasıyla kullanın.
 
-    Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile "D:\config.xml"
+```powershell
+Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile "D:\config.xml"
+```
 
-    VERBOSE: 7:54:59 PM - Begin Operation: Set-AzureApplicationGatewayConfig
-    VERBOSE: 7:55:32 PM - Completed Operation: Set-AzureApplicationGatewayConfig
-    Name       HTTP Status Code     Operation ID                             Error
-    ----       ----------------     ------------                             ----
-    Successful OK                   9b995a09-66fe-2944-8b67-9bb04fcccb9d
-
-## Bir yapılandırma nesnesi kullanarak uygulama ağ geçidi yapılandırma
+## <a name="configure-the-application-gateway-by-using-a-configuration-object"></a>Bir yapılandırma nesnesi kullanarak uygulama ağ geçidi yapılandırma
 Aşağıdaki örnek yapılandırma nesnesi kullanarak nasıl uygulama ağ geçidi yapılandırılacağını gösterir. Tüm yapılandırma öğeleri ayrı ayrı yapılandırılıp bir uygulama ağ geçidi yapılandırma nesnesine eklenmelidir. Yapılandırma nesnesini oluşturduktan sonra, yapılandırmayı, daha önce oluşturulmuş bir uygulama ağ geçidi kaynağına uygulamak için **Set-AzureApplicationGateway** komutunu kullanın.
 
 > [!NOTE]
@@ -219,102 +224,129 @@ Aşağıdaki örnek yapılandırma nesnesi kullanarak nasıl uygulama ağ geçid
 > 
 > 
 
-### 1. Adım
+### <a name="step-1"></a>1. Adım
 Tüm bireysel yapılandırma öğelerini oluşturun.
 
 Ön uç IP’sini aşağıdaki örnekte gösterildiği gibi oluşturun.
 
-    $fip = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.FrontendIPConfiguration
-    $fip.Name = "fip1"
-    $fip.Type = "Private"
-    $fip.StaticIPAddress = "10.0.0.5"
+```powershell
+$fip = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.FrontendIPConfiguration
+$fip.Name = "fip1"
+$fip.Type = "Private"
+$fip.StaticIPAddress = "10.0.0.5"
+```
 
 Ön uç IP bağlantı noktasını aşağıdaki örnekte gösterildiği gibi oluşturun.
 
-    $fep = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.FrontendPort
-    $fep.Name = "fep1"
-    $fep.Port = 80
+```powershell
+$fep = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.FrontendPort
+$fep.Name = "fep1"
+$fep.Port = 80
+```
 
 Arka uç sunucu havuzunu oluşturun.
 
- Arka uç sunucu havuzuna eklenecek IP adreslerini sonraki örnekte gösterildiği gibi tanımlayın.
+Arka uç sunucu havuzuna eklenecek IP adreslerini sonraki örnekte gösterildiği gibi tanımlayın.
 
-    $servers = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendServerCollection
-    $servers.Add("10.0.0.1")
-    $servers.Add("10.0.0.2")
+```powershell
+$servers = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendServerCollection
+$servers.Add("10.0.0.1")
+$servers.Add("10.0.0.2")
+```
 
- Arka uç havuzu nesnesine değer eklemek için $sunucu nesnesini kullanın ($havuzu).
+Arka uç havuzu nesnesine değer eklemek için $sunucu nesnesini kullanın ($havuzu).
 
-    $pool = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendAddressPool
-    $pool.BackendServers = $servers
-    $pool.Name = "pool1"
+```powershell
+$pool = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendAddressPool
+$pool.BackendServers = $servers
+$pool.Name = "pool1"
+```
 
 Arka uç sunucu havuzu ayarlarını oluşturun.
 
-    $setting = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendHttpSettings
-    $setting.Name = "setting1"
-    $setting.CookieBasedAffinity = "enabled"
-    $setting.Port = 80
-    $setting.Protocol = "http"
+```powershell
+$setting = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendHttpSettings
+$setting.Name = "setting1"
+$setting.CookieBasedAffinity = "enabled"
+$setting.Port = 80
+$setting.Protocol = "http"
+```
 
 Dinleyiciyi oluşturun.
 
-    $listener = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.HttpListener
-    $listener.Name = "listener1"
-    $listener.FrontendPort = "fep1"
-    $listener.FrontendIP = "fip1"
-    $listener.Protocol = "http"
-    $listener.SslCert = ""
+```powershell
+$listener = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.HttpListener
+$listener.Name = "listener1"
+$listener.FrontendPort = "fep1"
+$listener.FrontendIP = "fip1"
+$listener.Protocol = "http"
+$listener.SslCert = ""
+```
 
 Kuralı oluşturun.
 
-    $rule = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.HttpLoadBalancingRule
-    $rule.Name = "rule1"
-    $rule.Type = "basic"
-    $rule.BackendHttpSettings = "setting1"
-    $rule.Listener = "listener1"
-    $rule.BackendAddressPool = "pool1"
+```powershell
+$rule = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.HttpLoadBalancingRule
+$rule.Name = "rule1"
+$rule.Type = "basic"
+$rule.BackendHttpSettings = "setting1"
+$rule.Listener = "listener1"
+$rule.BackendAddressPool = "pool1"
+```
 
-### 2. Adım
+### <a name="step-2"></a>2. Adım
 Tüm bireysel yapılandırma öğelerini bir uygulama ağ geçidi yapılandırma nesnesine atayın ($appgwconfig).
 
 Yapılandırmaya ön uç IP’sini ekleyin.
 
-    $appgwconfig = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.ApplicationGatewayConfiguration
-    $appgwconfig.FrontendIPConfigurations = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.FrontendIPConfiguration]"
-    $appgwconfig.FrontendIPConfigurations.Add($fip)
+```powershell
+$appgwconfig = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.ApplicationGatewayConfiguration
+$appgwconfig.FrontendIPConfigurations = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.FrontendIPConfiguration]"
+$appgwconfig.FrontendIPConfigurations.Add($fip)
+```
 
 Yapılandırmaya ön uç bağlantı noktasını ekleyin.
 
-    $appgwconfig.FrontendPorts = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.FrontendPort]"
-    $appgwconfig.FrontendPorts.Add($fep)
-
+```powershell
+$appgwconfig.FrontendPorts = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.FrontendPort]"
+$appgwconfig.FrontendPorts.Add($fep)
+```
 Yapılandırmaya arka uç sunucu havuzunu ekleyin.
 
-    $appgwconfig.BackendAddressPools = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendAddressPool]"
-    $appgwconfig.BackendAddressPools.Add($pool)  
+```powershell
+$appgwconfig.BackendAddressPools = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendAddressPool]"
+$appgwconfig.BackendAddressPools.Add($pool)
+```
 
 Yapılandırmaya arka uç havuzu ayarlarını ekleyin.
 
-    $appgwconfig.BackendHttpSettingsList = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendHttpSettings]"
-    $appgwconfig.BackendHttpSettingsList.Add($setting)
+```powershell
+$appgwconfig.BackendHttpSettingsList = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendHttpSettings]"
+$appgwconfig.BackendHttpSettingsList.Add($setting)
+```
 
 Yapılandırmaya dinleyiciyi ekleyin.
 
-    $appgwconfig.HttpListeners = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.HttpListener]"
-    $appgwconfig.HttpListeners.Add($listener)
+```powershell
+$appgwconfig.HttpListeners = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.HttpListener]"
+$appgwconfig.HttpListeners.Add($listener)
+```
 
 Yapılandırmaya kuralı ekleyin.
 
-    $appgwconfig.HttpLoadBalancingRules = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.HttpLoadBalancingRule]"
-    $appgwconfig.HttpLoadBalancingRules.Add($rule)
+```powershell
+$appgwconfig.HttpLoadBalancingRules = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.HttpLoadBalancingRule]"
+$appgwconfig.HttpLoadBalancingRules.Add($rule)
+```
 
-### 3. Adım
+### <a name="step-3"></a>3. Adım
 **Set-AzureApplicationGatewayConfig** kullanarak yapılandırma nesnesini uygulama ağ geçidi kaynağına uygulayın.
 
-    Set-AzureApplicationGatewayConfig -Name AppGwTest -Config $appgwconfig
+```powershell
+Set-AzureApplicationGatewayConfig -Name AppGwTest -Config $appgwconfig
+```
 
-## Ağ geçidini başlatma
+## <a name="start-the-gateway"></a>Ağ geçidini başlatma
 Ağ geçidi yapılandırıldıktan sonra başlatmak için **Start-AzureApplicationGateway** cmdlet’ini kullanın. Uygulama ağ geçidinin faturalanması ağ geçidi başarıyla başlatıldıktan sonra başlar.
 
 > [!NOTE]
@@ -322,35 +354,34 @@ Ağ geçidi yapılandırıldıktan sonra başlatmak için **Start-AzureApplicati
 > 
 > 
 
-    Start-AzureApplicationGateway AppGwTest
+```powershell
+Start-AzureApplicationGateway AppGwTest
+```
 
-    VERBOSE: 7:59:16 PM - Begin Operation: Start-AzureApplicationGateway
-    VERBOSE: 8:05:52 PM - Completed Operation: Start-AzureApplicationGateway
-    Name       HTTP Status Code     Operation ID                             Error
-    ----       ----------------     ------------                             ----
-    Successful OK                   fc592db8-4c58-2c8e-9a1d-1c97880f0b9b
-
-## Ağ geçidi durumunu doğrulama
+## <a name="verify-the-gateway-status"></a>Ağ geçidi durumunu doğrulama
 **Get-AzureApplicationGateway** cmdlet’ini kullanarak ağ geçidinin durumunu inceleyin. Bir önceki adımda **Start-AzureApplicationGateway** başarılı olduysa, *State* Running durumunda olmalı, *Vip* ve *DnsName* ise geçerli girdilere sahip olmalıdır.
 
 Aşağıdaki örnek, çalışır durumda ve `http://<generated-dns-name>.cloudapp.net` için atanmış trafiği almaya hazır bir uygulama ağ geçidini gösterir.
 
-    Get-AzureApplicationGateway AppGwTest
+```powershell
+Get-AzureApplicationGateway AppGwTest
+```
 
-    VERBOSE: 8:09:28 PM - Begin Operation: Get-AzureApplicationGateway
-    VERBOSE: 8:09:30 PM - Completed Operation: Get-AzureApplicationGateway
-    Name          : AppGwTest
-    Description   :
-    VnetName      : testvnet1
-    Subnets       : {Subnet-1}
-    InstanceCount : 2
-    GatewaySize   : Medium
-    State         : Running
-    Vip           : 138.91.170.26
-    DnsName       : appgw-1b8402e8-3e0d-428d-b661-289c16c82101.cloudapp.net
+```
+VERBOSE: 8:09:28 PM - Begin Operation: Get-AzureApplicationGateway
+VERBOSE: 8:09:30 PM - Completed Operation: Get-AzureApplicationGateway
+Name          : AppGwTest
+Description   :
+VnetName      : testvnet1
+Subnets       : {Subnet-1}
+InstanceCount : 2
+GatewaySize   : Medium
+State         : Running
+Vip           : 138.91.170.26
+DnsName       : appgw-1b8402e8-3e0d-428d-b661-289c16c82101.cloudapp.net
+```
 
-
-## Uygulama ağ geçidini silme
+## <a name="delete-an-application-gateway"></a>Uygulama ağ geçidini silme
 Uygulama ağ geçidi silmek için:
 
 1. Ağ geçidini durdurmak için **Stop-AzureApplicationGateway** cmdlet’ini kullanın.
@@ -359,34 +390,46 @@ Uygulama ağ geçidi silmek için:
 
 Aşağıdaki örnek ilk satırdaki devamında girdinin bulunduğu **Stop-AzureApplicationGateway** cmdlet’ini gösterir.
 
-    Stop-AzureApplicationGateway AppGwTest
+```powershell
+Stop-AzureApplicationGateway AppGwTest
+```
 
-    VERBOSE: 9:49:34 PM - Begin Operation: Stop-AzureApplicationGateway
-    VERBOSE: 10:10:06 PM - Completed Operation: Stop-AzureApplicationGateway
-    Name       HTTP Status Code     Operation ID                             Error
-    ----       ----------------     ------------                             ----
-    Successful OK                   ce6c6c95-77b4-2118-9d65-e29defadffb8
+```
+VERBOSE: 9:49:34 PM - Begin Operation: Stop-AzureApplicationGateway
+VERBOSE: 10:10:06 PM - Completed Operation: Stop-AzureApplicationGateway
+Name       HTTP Status Code     Operation ID                             Error
+----       ----------------     ------------                             ----
+Successful OK                   ce6c6c95-77b4-2118-9d65-e29defadffb8
+```
 
 Uygulama ağ geçidi durdurulmuş durumda olduğunda hizmeti kaldırmak için **Remove-AzureApplicationGateway** cmdlet’ini kullanın.
 
-    Remove-AzureApplicationGateway AppGwTest
+```powershell
+Remove-AzureApplicationGateway AppGwTest
+```
 
-    VERBOSE: 10:49:34 PM - Begin Operation: Remove-AzureApplicationGateway
-    VERBOSE: 10:50:36 PM - Completed Operation: Remove-AzureApplicationGateway
-    Name       HTTP Status Code     Operation ID                             Error
-    ----       ----------------     ------------                             ----
-    Successful OK                   055f3a96-8681-2094-a304-8d9a11ad8301
+```
+VERBOSE: 10:49:34 PM - Begin Operation: Remove-AzureApplicationGateway
+VERBOSE: 10:50:36 PM - Completed Operation: Remove-AzureApplicationGateway
+Name       HTTP Status Code     Operation ID                             Error
+----       ----------------     ------------                             ----
+Successful OK                   055f3a96-8681-2094-a304-8d9a11ad8301
+```
 
 Hizmetin kaldırıldığını doğrulamak için **Get-AzureApplicationGateway** cmdlet’ini kullanabilirsiniz. Bu adım gerekli değildir.
 
-    Get-AzureApplicationGateway AppGwTest
+```powershell
+Get-AzureApplicationGateway AppGwTest
+```
 
-    VERBOSE: 10:52:46 PM - Begin Operation: Get-AzureApplicationGateway
+```
+VERBOSE: 10:52:46 PM - Begin Operation: Get-AzureApplicationGateway
 
-    Get-AzureApplicationGateway : ResourceNotFound: The gateway does not exist.
-    .....
+Get-AzureApplicationGateway : ResourceNotFound: The gateway does not exist.
+.....
+```
 
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 SSL yük boşaltmayı yapılandırmak istiyorsanız, bkz. [SSL yük boşaltımı için uygulama ağ geçidi yapılandırma](application-gateway-ssl.md).
 
 İç yük dengeleyiciyle kullanacağınız uygulama ağ geçidi yapılandırmak istiyorsanız, bkz. [İç yük dengeleyici (ILB) ile uygulama ağ geçidi oluşturma](application-gateway-ilb.md).
@@ -396,6 +439,10 @@ Yük dengeleme seçenekleri hakkında daha fazla genel bilgi edinmek istiyorsan�
 * [Azure Load Balancer](https://azure.microsoft.com/documentation/services/load-balancer/)
 * [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!--HONumber=Sep16_HO3-->
+[senaryo]: ./media/application-gateway-create-gateway/scenario.png
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

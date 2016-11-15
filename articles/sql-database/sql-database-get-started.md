@@ -1,13 +1,13 @@
 ---
-title: 'SQL Database öğreticisi: SQL veritabanı oluşturma | Microsoft Docs'
-description: SQL Veritabanı mantıksal sunucusu, sunucu güvenlik duvarı kuralı, SQL veritabanı ve örnek veriler oluşturma hakkında bilgi edinin. Ayrıca, istemci araçlarına bağlanma, kullanıcıları yapılandırma ve bir veritabanı güvenlik duvarı kuralı oluşturma hakkında bilgi alın.
-keywords: sql veritabanı öğreticisi, sql veritabanı oluşturma
+title: "SQL Veritabanı eğitmeni: SQL veritabanı oluşturma | Microsoft Belgeleri"
+description: "SQL Veritabanı mantıksal sunucusu, sunucu güvenlik duvarı kuralı, SQL veritabanı ve örnek veriler oluşturma hakkında bilgi edinin. Ayrıca, istemci araçlarına bağlanma, kullanıcıları yapılandırma ve bir veritabanı güvenlik duvarı kuralı oluşturma hakkında bilgi alın."
+keywords: "sql veritabanı öğreticisi, sql veritabanı oluşturma"
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: CarlRabeler
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: aeb8c4c3-6ae2-45f7-b2c3-fa13e3752eed
 ms.service: sql-database
 ms.workload: data-management
 ms.tgt_pltfrm: na
@@ -15,9 +15,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 09/07/2016
 ms.author: carlrab
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 914d5f7e6b8e9165fc8ba9021e1030b865ba5fb2
+
 
 ---
-# SQL Veritabanı öğreticisi: Azure portalını kullanarak dakikalar içinde bir SQL veritabanı oluşturma
+# <a name="sql-database-tutorial-create-a-sql-database-in-minutes-by-using-the-azure-portal"></a>SQL Veritabanı öğreticisi: Azure portalını kullanarak dakikalar içinde bir SQL veritabanı oluşturma
 > [!div class="op_single_selector"]
 > * [Azure Portal](sql-database-get-started.md)
 > * [C#](sql-database-get-started-csharp.md)
@@ -36,7 +40,7 @@ Aynı görevleri [C#](sql-database-get-started-csharp.md) veya [PowerShell](sql-
 
 <a name="create-logical-server-bk"></a>
 
-## İlk Azure SQL veritabanınızı oluşturma
+## <a name="create-your-first-azure-sql-database"></a>İlk Azure SQL veritabanınızı oluşturma
 1. O anda bağlı değilseniz [Azure portal](http://portal.azure.com)’a bağlanın.
 2. **Yeni**'ye ve **Veri + Depolama**'ya tıklayın; ardından, **SQL Veritabanı**'nı bulun.
    
@@ -69,7 +73,7 @@ Aynı görevleri [C#](sql-database-get-started-csharp.md) veya [PowerShell](sql-
 12. **Sunucu yöneticisi oturum açma** altında, bu sunucu için bir yönetici oturum açma kullanıcı adı (örneğin, "yönetici hesabım") sağlayın. Bu oturum açma işlemi, asıl sunucu oturum açma işlemi olarak bilinir. Yeşil onay işareti, geçerli bir ad sağladığınızı gösterir.
     
     ![Yeni SQL veritabanı 10](./media/sql-database-get-started/sql-database-new-database-10.png)
-13. **Parola** ve **Parolayı onayla**'nın altında, asıl sunucu oturum açma hesabı için bir parola (örneğin, "p@ssw0rd1") sağlayın. Yeşil onay işareti, geçerli bir parola sağladığınızı gösterir.
+13. **Parola** ve **Parolayı onayla**'nın altında, asıl sunucu oturum açma hesabı için bir parola (örneğin, "p@ssw0rd1".) sağlayın. Yeşil onay işareti, geçerli bir parola sağladığınızı gösterir.
     
     ![Yeni SQL veritabanı 11](./media/sql-database-get-started/sql-database-new-database-11.png)
 14. **Konum**'un altında, konumunuza uygun bir veri merkezi (örneğin, "Avustralya Doğu") seçin.
@@ -101,7 +105,7 @@ Aynı görevleri [C#](sql-database-get-started-csharp.md) veya [PowerShell](sql-
 
 [!INCLUDE [Create server firewall rule](../../includes/sql-database-create-new-server-firewall-portal.md)]
 
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 Bu SQL Veritabanı öğreticisini tamamladığınıza ve bazı örnek verilerle bir veritabanı oluşturduğunuza göre sık kullandığınız araçları kullanarak araştırmaya hazırsınız.
 
 * Transact-SQL ve SQL Server Management Studio'yu (SSMS) daha önce kullandıysanız [SSMS ile bir SQL veritabanına bağlanma ve veritabanını sorgulama](sql-database-connect-query-ssms.md) işlemini nasıl gerçekleştireceğinizi öğrenin.
@@ -111,9 +115,12 @@ Bu SQL Veritabanı öğreticisini tamamladığınıza ve bazı örnek verilerle 
 * BCP komut satırı aracını kullanarak yeni bir tabloya bir CSV dosyasından bazı veriler yüklemek istiyorsanız bkz. [BCP kullanarak bir CSV dosyasından SQL Veritabanına veri yükleme](sql-database-load-from-csv-with-bcp.md).
 * Azure SQL Veritabanı güvenliğini keşfetmeye başlamak istiyorsanız bkz. [Güvenliğe giriş](sql-database-get-started-security.md)
 
-## Ek kaynaklar
+## <a name="additional-resources"></a>Ek kaynaklar
 [SQL Database nedir?](sql-database-technical-overview.md)
 
-<!---HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

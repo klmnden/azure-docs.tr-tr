@@ -1,30 +1,34 @@
 ---
-title: HDInsight Linux üzerinde bir Spark kümesi oluşturun ve etkileşimli analiz için Jupyter’den Spark SQL kullanın | Microsoft Docs
-description: HDInsight’ta bir Apache Spark kümesini hızlıca oluşturmaya ve ardından etkileşimli sorgular gerçekleştirmek üzere Jupyter not defterlerinden Spark SQL’i kullanmaya ilişkin adım adım yönergeler.
+title: "HDInsight Linux üzerinde bir Spark kümesi oluşturma ve etkileşimli analiz için Jupyter tarafından sağlanan Spark SQL kullanma | Microsoft Belgeleri"
+description: "HDInsight’ta bir Apache Spark kümesini hızlıca oluşturmaya ve ardından etkileşimli sorgular gerçekleştirmek üzere Jupyter not defterlerinden Spark SQL’i kullanmaya ilişkin adım adım yönergeler."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: 91f41e6a-d463-4eb4-83ef-7bbb1f4556cc
 ms.service: hdinsight
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/05/2016
+ms.date: 10/28/2016
 ms.author: nitinme
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 906d78b3177289dc5d2806ec9fbdb868a5bcb6fb
+
 
 ---
-# Başlangıç: HDInsight Linux üzerinde Apache Spark kümesi oluşturma ve Spark SQL kullanarak etkileşimli sorgular gerçekleştirme
+# <a name="get-started-create-apache-spark-cluster-on-hdinsight-linux-and-run-interactive-queries-using-spark-sql"></a>Başlangıç: HDInsight Linux üzerinde Apache Spark kümesi oluşturma ve Spark SQL kullanarak etkileşimli sorgular gerçekleştirme
 HDInsight’ta bir Apache Spark kümesi oluşturmayı ve ardından [Jupyter](https://jupyter.org) not defteri kullanarak Spark kümesi üzerinde Spark SQL etkileşimli sorguları gerçekleştirmeyi öğrenin.
 
    ![HDInsight’ta Apache Spark’ı kullanmaya başlayın](./media/hdinsight-apache-spark-jupyter-spark-sql/hdispark.getstartedflow.png "Get started using Apache Spark in HDInsight tutorial. Steps illustrated: create a storage account; create a cluster; run Spark SQL statements")
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-## Ön koşullar
+## <a name="prerequisites"></a>Ön koşullar
 * **Bir Azure aboneliği**. Bu öğreticiye başlamadan önce bir Azure aboneliğinizin olması gerekir. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **Güvenli Kabuk (SSH) istemcisi**: Linux, Unix ve OS X sistemleri `ssh` komutu ile bir SSH istemcisi sağlar. Windows sistemleri için [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) önerilir.
 * **Secure Shell (SSH) anahtarları (isteğe bağlı)**: Bir parola veya ortak anahtar kullanarak, kümeye bağlanmak için kullanılan SSH hesabını güvenli hale getirebilirsiniz. Parola kullanmak hızlıca başlamanızı sağlar ve bir kümeyi hızlıca oluşturup bazı test işlemleri gerçekleştirmek isterseniz bu seçeneği kullanmanız gerekir. Anahtar kullanmak daha güvenlidir, ancak ek kurulum gerektirir. Bir üretim kümesi oluştururken bu yaklaşımı kullanmak isteyebilirsiniz. Bu makalede parola yaklaşımı kullanılmaktadır. HDInsight ile SSH anahtarları oluşturma ve kullanma hakkında yönergeler için aşağıdaki makalelere bakın:
@@ -37,10 +41,10 @@ HDInsight’ta bir Apache Spark kümesi oluşturmayı ve ardından [Jupyter](htt
 > 
 > 
 
-### Erişim denetimi gereksinimleri
+### <a name="access-control-requirements"></a>Erişim denetimi gereksinimleri
 [!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
-## Spark kümesi oluşturma
+## <a name="create-spark-cluster"></a>Spark kümesi oluşturma
 Bu bölümde Azure resource manager şablonunu kullanarak bir HDInsight sürüm 3.4 kümesi (Spark 1.6.1 sürümü) oluşturursunuz. HDInsight sürümleri ve SLA’ları hakkında bilgi için bkz. [HDInsight bileşen sürümü oluşturma](hdinsight-component-versioning.md). Diğer küme oluşturma yöntemleri için bkz. [HDInsight kümeleri oluşturma](hdinsight-hadoop-provision-linux-clusters.md).
 
 1. Şablonu Azure Portal'da açmak için aşağıdaki görüntüye tıklayın.         
@@ -67,12 +71,16 @@ Bu bölümde Azure resource manager şablonunu kullanarak bir HDInsight sürüm 
      > * [Windows’da HDInsight’ta Linux tabanlı Hadoop ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-windows.md)
      > 
      > 
+
 3. Parametreleri kaydetmek için **Tamam**’a tıklayın.
+
 4. **Özel dağıtım** dikey penceresinde **Kaynak grubu** açılır kutusuna ve ardından **Yeni**’ye tıklayarak yeni bir kaynak grubu oluşturun. Kaynak grubu; küme, bağımlı depolama hesabını ve diğer bağlı kaynağı gruplandıran bir kapsayıcıdır.
+
 5. **Yasal koşullar**’a ve ardından **Oluştur**’a tıklayın.
+
 6. **Oluştur**’a tıklayın. Şablon dağıtımı için Dağıtım gönderme başlıklı yeni bir kutucuk görürsünüz. Kümenin ve SQL veritabanının oluşturulması yaklaşık 20 dakika sürer.
 
-## Jupyter not defteri kullanarak Spark SQL sorguları çalıştırma
+## <a name="run-spark-sql-queries-using-a-jupyter-notebook"></a>Jupyter not defteri kullanarak Spark SQL sorguları çalıştırma
 Bu bölümde, Spark kümesine yönelik Spark SQL sorguları çalıştırmak için Jupyter not defteri kullanırsınız. HDInsight Spark kümeleri Jupyter not defteri ile kullanabileceğiniz iki çekirdek sağlar. Bunlar:
 
 * **PySpark** (Python içinde yazılmış uygulamalar için)
@@ -84,7 +92,7 @@ Bu makalede PySpark çekirdeği kullanılacaktır. [Spark HDInsight kümeleri il
 * SQL veya Hive sorgularınızı önceki kod parçacıkları olmadan doğrudan çalıştırmak için `%%sql` gibi hücre işlevlerini kullanabilirsiniz.
 * SQL veya Hive sorgularının çıktıları otomatik olarak gösterilir.
 
-### PySpark çekirdeği ile Jupyter not defteri oluşturma
+### <a name="create-jupyter-notebook-with-pyspark-kernel"></a>PySpark çekirdeği ile Jupyter not defteri oluşturma
 1. [Azure Portal](https://portal.azure.com/)’daki başlangıç panosunda Spark kümenizin kutucuğuna tıklayın (başlangıç panosuna sabitlediyseniz). Ayrıca **Browse All (Tümüne Gözat)** > **HDInsight Clusters (HDInsight Kümeleri)** altından kümenize gidebilirsiniz.   
 2. Spark kümesi dikey penceresinden **Küme Panosu**’na ve ardından **Jupyter Notebook**’a tıklayın. İstenirse, küme için yönetici kimlik bilgilerini girin.
    
@@ -131,41 +139,41 @@ Bu makalede PySpark çekirdeği kullanılacaktır. [Spark HDInsight kümeleri il
         SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\"
 8. İş başarıyla tamamlandıktan sonra varsayılan olarak aşağıdaki tablo çıktısı görüntülenir.
    
-    ![Sorgu sonucunun tablo çıktısı](./media/hdinsight-apache-spark-jupyter-spark-sql/tabular.output.png "Table output of query result")
+     ![Sorgu sonucunun tablo çıktısı](./media/hdinsight-apache-spark-jupyter-spark-sql/tabular.output.png "Table output of query result")
    
     Sonuçları diğer görselleştirmelerde de görebilirsiniz. Örneğin, aynı çıktı için bir alan grafiği aşağıdaki gibi görünür.
    
     ![Sorgu sonucunun alan grafiği](./media/hdinsight-apache-spark-jupyter-spark-sql/area.output.png "Area graph of query result")
 9. Uygulamayı çalıştırmayı tamamladıktan sonra kaynakları serbest bırakmak için not defterini kapatmanız gerekir. Bunu yapmak için not defterindeki **Dosya** menüsünde **Kapat ve Durdur**’a tıklayın. Bunun yapılması not defterini kapatır.
 
-## Küme silme
+## <a name="delete-the-cluster"></a>Küme silme
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-## Ayrıca bkz.
+## <a name="see-also"></a>Ayrıca bkz.
 * [Genel Bakış: Azure HDInsight’ta Apache Spark](hdinsight-apache-spark-overview.md)
 
-### Senaryolar
+### <a name="scenarios"></a>Senaryolar
 * [BI ile Spark: BI araçlarıyla HDInsight’ta Spark kullanarak etkileşimli veri çözümlemesi gerçekleştirme](hdinsight-apache-spark-use-bi-tools.md)
 * [Machine Learning ile Spark: HVAC verilerini kullanarak bina sıcaklığını çözümlemek için HDInsight’ta Spark kullanma](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 * [Machine Learning ile Spark: Yemek inceleme sonuçlarını tahmin etmek için HDInsight’ta Spark kullanma](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 * [Spark Akış: Gerçek zamanlı akış uygulamaları oluşturmak için HDInsight’ta Spark kullanma](hdinsight-apache-spark-eventhub-streaming.md)
 * [HDInsight’ta Spark kullanarak Web sitesi günlüğü çözümlemesi](hdinsight-apache-spark-custom-library-website-log-analysis.md)
-* [HDInsight’ta Spark’ı kullanarak Application Insight telemetri verilerinin analizi](hdinsight-spark-analyze-application-insight-logs.md)
+* [HDInsight’ta Spark kullanarak Application Insight telemetri verilerinin analizi](hdinsight-spark-analyze-application-insight-logs.md)
 
-### Uygulamaları oluşturma ve çalıştırma
-* [Scala kullanarak bağımsız uygulama oluşturma](hdinsight-apache-spark-create-standalone-application.md)
+### <a name="create-and-run-applications"></a>Uygulamaları oluşturma ve çalıştırma
+* [Scala kullanarak tek başına uygulama oluşturma](hdinsight-apache-spark-create-standalone-application.md)
 * [Livy kullanarak Spark kümesinde işleri uzaktan çalıştırma](hdinsight-apache-spark-livy-rest-interface.md)
 
-### Araçlar ve uzantılar
+### <a name="tools-and-extensions"></a>Araçlar ve uzantılar
 * [Spark Scala uygulamaları oluşturmak ve göndermek amacıyla IntelliJ IDEA için HDInsight Araçları Eklentisi kullanma](hdinsight-apache-spark-intellij-tool-plugin.md)
 * [Spark uygulamalarında uzaktan hata ayıklamak amacıyla IntelliJ IDEA için HDInsight Araçları Eklentisi kullanma](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [HDInsight’ta Spark kümesi ile Zeppelin not defterlerini kullanma](hdinsight-apache-spark-use-zeppelin-notebook.md)
 * [HDInsight için Spark kümesinde Jupyter not defteri için kullanılabilir çekirdekler](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 * [Jupyter not defterleri ile dış paketleri kullanma](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
-* [Jupyter’i bilgisayarınıza yükleyin ve bir HDInsight Spark kümesine bağlanın](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
+* [Jupyter’i bilgisayarınıza yükleme ve bir HDInsight Spark kümesine bağlanma](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 
-### Kaynakları yönetme
-* [Azure HDInsight’ta Apache Spark küme kaynaklarını yönetme](hdinsight-apache-spark-resource-manager.md)
+### <a name="manage-resources"></a>Kaynakları yönetme
+* [Azure HDInsight’ta Apache Spark kümesi kaynaklarını yönetme](hdinsight-apache-spark-resource-manager.md)
 * [HDInsight’ta bir Apache Spark kümesinde çalışan işleri izleme ve hata ayıklama](hdinsight-apache-spark-job-debugging.md)
 
 [hdinsight-versions]: hdinsight-component-versioning.md
@@ -180,6 +188,6 @@ Bu makalede PySpark çekirdeği kullanılacaktır. [Spark HDInsight kümeleri il
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

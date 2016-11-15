@@ -1,44 +1,48 @@
 ---
-title: Create an internal load balancer using PowerShell in the classic deployment model | Microsoft Docs
-description: Learn how to create an internal load balancer using PowerShell in the classic deployment model
+title: "Klasik dağıtım modelinde PowerShell kullanarak iç yük dengeleyici oluşturma | Microsoft Belgeleri"
+description: "Klasik dağıtım modelinde PowerShell kullanarak iç yük dengeleyici oluşturmayı öğrenin"
 services: load-balancer
 documentationcenter: na
 author: sdwheeler
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-service-management
-
+ms.assetid: 3be93168-3787-45a5-a194-9124fe386493
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2016
 ms.author: sewhee
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: ed28a11420d4bcc732801aea8d6217dbf14389d4
+
 
 ---
-# Get started creating an internal load balancer (classic) using PowerShell
+# <a name="get-started-creating-an-internal-load-balancer-classic-using-powershell"></a>PowerShell kullanarak iç yük dengeleyici (klasik) oluşturmaya başlama
 [!INCLUDE [load-balancer-get-started-ilb-classic-selectors-include.md](../../includes/load-balancer-get-started-ilb-classic-selectors-include.md)]
 
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)]
 
-Learn how to [perform these steps using the Resource Manager model](load-balancer-get-started-ilb-arm-ps.md).
+[Bu adımları Resource Manager modeli kullanarak gerçekleştirmeyi](load-balancer-get-started-ilb-arm-ps.md) öğrenin.
 
 [!INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
 [!INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
-## Create an internal load balancer set for virtual machines
-To create an internal load balancer set and the servers that will send their traffic to it, you have to do the following:
+## <a name="create-an-internal-load-balancer-set-for-virtual-machines"></a>Sanal makineler için iç yük dengeleyici oluşturma
+İç yük dengeleyici kümesi ve trafiğini bu kümeye gönderecek sunucuları oluşturmak için aşağıdaki adımları uygulamanız gerekir:
 
-1. Create an instance of Internal Load Balancing that will be the endpoint of incoming traffic to be load balanced across the servers of a load-balanced set.
-2. Add endpoints corresponding to the virtual machines that will be receiving the incoming traffic.
-3. Configure the servers that will be sending the traffic to be load balanced to send their traffic to the virtual IP (VIP) address of the Internal Load Balancing instance.
+1. Gelen trafiğin uç noktası olacak ve bu trafiğe yük dengeli bir kümenin sunucularında yük dengelemesi yapacak bir İç Yük Dengeleme örneği oluşturun.
+2. Gelen trafiği alacak sanal makinelere karşılık gelen uç noktalar ekleyin.
+3. Yük dengelemesi yapılacak trafiği gönderecek sunucuları trafiklerini İç Yük Dengeleme örneğinin sanal IP (VIP) adresine gönderecek şekilde yapılandırın.
 
-### Step 1: Create an Internal Load Balancing instance
-For an existing cloud service or a cloud service deployed under a regional virtual network, you can create an Internal Load Balancing instance with the following Windows PowerShell commands:
+### <a name="step-1-create-an-internal-load-balancing-instance"></a>1. Adım: İç Yük Dengeleme örneği oluşturun
+Mevcut bir bulut hizmeti veya bölgesel sanal ağ üzerine dağıtılmış bulut hizmeti için aşağıdaki Windows PowerShell komutlarını kullanarak İç Yük Dengeleme örneğin oluşturabilirsiniz:
 
     $svc="<Cloud Service Name>"
     $ilb="<Name of your ILB instance>"
@@ -48,10 +52,10 @@ For an existing cloud service or a cloud service deployed under a regional virtu
     Add-AzureInternalLoadBalancer -ServiceName $svc -InternalLoadBalancerName $ilb –SubnetName $subnet –StaticVNetIPAddress $IP
 
 
-Note that this use of the [Add-AzureEndpoint](https://msdn.microsoft.com/library/dn495300.aspx) Windows PowerShell cmdlet uses the DefaultProbe parameter set. For more information on additional parameter sets, see [Add-AzureEndpoint](https://msdn.microsoft.com/library/dn495300.aspx).
+Bu [Add-AzureEndpoint](https://msdn.microsoft.com/library/dn495300.aspx) Windows PowerShell cmdlet örneğinde DefaultProbe parametre kümesi kullanıldığına dikkat edin. Ek parametre kümeleri hakkında daha fazla bilgi için bkz. [Add-AzureEndpoint](https://msdn.microsoft.com/library/dn495300.aspx).
 
-### Step 2: Add endpoints to the Internal Load Balancing instance
-Here is an example:
+### <a name="step-2-add-endpoints-to-the-internal-load-balancing-instance"></a>2. Adım: İç Yük Dengeleme örneğine uç noktaları ekleyin
+Örnek aşağıda verilmiştir:
 
     $svc="mytestcloud"
     $vmname="DB1"
@@ -64,45 +68,45 @@ Here is an example:
     Get-AzureVM –ServiceName $svc –Name $vmname | Add-AzureEndpoint -Name $epname -Lbset $lbsetname -Protocol $prot -LocalPort $locport -PublicPort $pubport –DefaultProbe -InternalLoadBalancerName $ilb | Update-AzureVM
 
 
-### Step 3: Configure your servers to send their traffic to the new Internal Load Balancing endpoint
-You have to  configure the servers whose traffic is going to be load balanced to use the new IP address (the VIP) of the Internal Load Balancing instance. This is the address on which the Internal Load Balancing instance is listening. In most cases, you need to just add or modify a DNS record for the VIP of the Internal Load Balancing instance.
+### <a name="step-3-configure-your-servers-to-send-their-traffic-to-the-new-internal-load-balancing-endpoint"></a>3. Adım: Sunucularınızı trafiklerini yeni İç Yük Dengeleme uç noktasına gönderecek şekilde yapılandırın
+Yük dengelemesi uygulanacak trafiğe sahip sunucuları İç Yük Dengeleme örneğinin yeni IP adresini (VIP) kullanacak şekilde yapılandırmanız gerekir. Bu, İç Yük Dengeleme örneğinin dinlediği adrestir. Çoğu durumda tek yapmanız gereken İç Yük Dengeleme örneği VIP’sinin DNS kaydını yapmak veya değiştirmektir.
 
-If you specified the IP address during the creation of the Internal Load Balancing instance, you already have the VIP. Otherwise, you can see the VIP from the following commands:
+İç Yük Dengeleme örneğini oluştururken IP adresi belirttiyseniz VIP’ye sahipsiniz demektir. Belirtmediyseniz VIP’yi görmek için aşağıdaki komutları kullanabilirsiniz:
 
     $svc="<Cloud Service Name>"
     Get-AzureService -ServiceName $svc | Get-AzureInternalLoadBalancer
 
 
 
-To use these commands, fill in the values and remove the < and >. Here is an example:
+Bu komutları kullanmak için istenen değerleri yazıp < ve > işaretlerini silin. Örnek aşağıda verilmiştir:
 
     $svc="mytestcloud"
     Get-AzureService -ServiceName $svc | Get-AzureInternalLoadBalancer
 
 
-From the display of the Get-AzureInternalLoadBalancer command, note the IP address and make the necessary changes to your servers or DNS records to ensure that traffic gets sent to the VIP.
+Get-AzureInternalLoadBalancer komutu ekranındaki IP adresini not edin ve trafiğin VIP’ye gönderildiğinden emin olmak için sunucularınızda veya DNS kayıtlarınızda gerekli değişiklikleri yapın.
 
 > [!NOTE]
-> The Microsoft Azure platform uses a static, publicly routable IPv4 address for a variety of administrative scenarios. The IP address is 168.63.129.16. This IP address should not be blocked by any firewalls, because it can cause unexpected behavior.
-> With respect to Azure Internal Load Balancing, this IP address is used by monitoring probes from the load balancer to determine the health state for virtual machines in a load balanced set. If a Network Security Group is used to restrict traffic to Azure virtual machines in an internally load-balanced set or is applied to a Virtual Network Subnet, ensure that a Network Security Rule is added to allow traffic from 168.63.129.16.
+> Microsoft Azure platformu, farklı yönetim senaryoları için genel olarak yönlendirilebilen statik bir IPv4 adresi kullanır. IP adresi: 168.63.129.16. Bu IP adresinin güvenlik duvarları tarafından engellenmesi beklenmeyen davranışlara neden olabilir.
+> Azure İç Yük Dengeleme açısından bu IP adresi, araştırmaların yük dengeleyiciden izlenerek yük dengeli kümede yer alan sanal makinelerin durumunun belirlenmesini sağlar. Bir iç yük dengeli kümedeki Azure sanal makinelerine gelen trafiği kısıtlamak için bir Ağ Güvenlik Grubu kullanılması veya Sanal Alt Ağ uygulanması halinde 168.63.129.16 adresinden gelen trafiğe izin verecek şekilde bir Ağ Güvenlik Kuralının uygulandığından emin olun.
 > 
 > 
 
-## Example of internal load balancing
-To step you through the end-to end process of creating a load-balanced set for two example configurations, see the following sections.
+## <a name="example-of-internal-load-balancing"></a>İç yük dengeleme örneği
+İki örnek yapılandırma için yük dengeli küme oluşturmayla ilgili adım adım talimatlar için aşağıdaki bölümlere bakın.
 
-### An Internet facing, multi-tier application
-You want to provide a load balanced database service for  a set of Internet-facing web servers. Both sets of servers are hosted in a single Azure cloud service. Web server traffic to TCP port 1433 must be distributed among two virtual machines in the database tier. Figure 1 shows the configuration.
+### <a name="an-internet-facing-multitier-application"></a>İnternet'e yönelik, çok katmanlı uygulama
+İnternet’e yönelik web sunucusu kümesi için yük dengeli veritabanı hizmeti sunmak istiyorsunuz. İki sunucu kümesi de tek bir Azure bulut hizmetinde. 1433 numaralı TCP bağlantı noktasına gelen web sunucusu trafiğinin veritabanı katmanındaki iki sanal makineye dağıtılması gerekiyor. Yapılandırma Şekil 1’de gösterilmektedir.
 
-![Internal load-balanced set for the database tier](./media/load-balancer-internal-getstarted/IC736321.png)
+![Veritabanı katmanı için iç yük dengeli küme](./media/load-balancer-internal-getstarted/IC736321.png)
 
-The configuration consists of the following:
+Yapılandırma şunları içerir:
 
-* The existing cloud service hosting the virtual machines is named mytestcloud.
-* The two existing database servers are named DB1, DB2.
-* Web servers in the web tier connect to the database servers in the database tier by using the private IP address. Another option is to use your own DNS for the virtual network and manually register an A record for the internal load balancer set.
+* Sanal makineleri barındıran mevcut bulut hizmeti mytestcloud olarak adlandırılmıştır.
+* Mevcut iki veritabanı sunucusu DB1 ve DB2 olarak adlandırılmıştır.
+* Web katmanındaki web sunucuları, veritabanı katmanındaki veritabanı sunucularına özel IP adresini kullanarak bağlanmaktadır. Diğer bir seçenek de sanal ağ için kendi DNS sunucunuzu kullanmak ve iç yük dengeleyici kümesi için A kaydı oluşturmaktır.
 
-The following commands configure a new Internal Load Balancing instance named **ILBset** and add endpoints to the virtual machines corresponding to the two database servers:
+Aşağıdaki komutlar **ILBset** adlı yeni bir İç Yük Dengeleme örneği yapılandırır ve iki veritabanına karşılık gelen sanal makinelere uç noktalar ekler:
 
     $svc="mytestcloud"
     $ilb="ilbset"
@@ -120,47 +124,53 @@ The following commands configure a new Internal Load Balancing instance named **
     Get-AzureVM –ServiceName $svc –Name $vmname | Add-AzureEndpoint -Name $epname -LbSetName $lbsetname -Protocol $prot -LocalPort $locport -PublicPort $pubport –DefaultProbe -InternalLoadBalancerName $ilb | Update-AzureVM
 
 
-## Remove an Internal Load Balancing configuration
-To remove a virtual machine as an endpoint from an internal load balancer instance, use the following commands:
+## <a name="remove-an-internal-load-balancing-configuration"></a>İç Yük Dengeleme yapılandırmasını kaldırma
+Bir sanal makineyi iç yük dengeleme örneğinin uç noktası olmaktan çıkarmak için şu komutları kullanın:
 
     $svc="<Cloud service name>"
     $vmname="<Name of the VM>"
     $epname="<Name of the endpoint>"
     Get-AzureVM -ServiceName $svc -Name $vmname | Remove-AzureEndpoint -Name $epname | Update-AzureVM
 
-To use these commands, fill in the values, removing the < and >.
+Bu komutları kullanmak için istenen değerleri yazıp < ve > işaretlerini silin.
 
-Here is an example:
+Örnek aşağıda verilmiştir:
 
     $svc="mytestcloud"
     $vmname="DB1"
     $epname="TCP-1433-1433"
     Get-AzureVM -ServiceName $svc -Name $vmname | Remove-AzureEndpoint -Name $epname | Update-AzureVM
 
-To remove an internal load balancer instance from a cloud service, use the following commands:
+Bir bulut hizmetindeki iç yük dengeleyici örneğini kaldırmak için şu komutları kullanın:
 
     $svc="<Cloud service name>"
     Remove-AzureInternalLoadBalancer -ServiceName $svc
 
-To use these commands, fill in the value and remove the < and >.
+Bu komutları kullanmak için istenen değerleri yazıp < ve > işaretlerini silin.
 
-Here is an example:
+Örnek aşağıda verilmiştir:
 
     $svc="mytestcloud"
     Remove-AzureInternalLoadBalancer -ServiceName $svc
 
 
 
-## Additional information about internal load balancer cmdlets
-To obtain additional information about Internal Load Balancing cmdlets, run the following commands at a Windows PowerShell prompt:
+## <a name="additional-information-about-internal-load-balancer-cmdlets"></a>İç yük dengeleyici cmdlet'leri hakkında ek bilgi
+İç Yük Dengeleyici cmdlet’leri hakkında ek bilgi almak için Windows PowerShell komut isteminde şu komutları çalıştırın:
 
 * Get-help New-AzureInternalLoadBalancerConfig -full
 * Get-help Add-AzureInternalLoadBalancer -full
 * Get-help Get-AzureInternalLoadbalancer -full
 * Get-help Remove-AzureInternalLoadBalancer -full
 
-## Next steps
-[Configure a load balancer distribution mode using source IP affinity](load-balancer-distribution-mode.md)
+## <a name="next-steps"></a>Sonraki adımlar
+[Kaynak IP benzeşimi kullanarak yük dengeleyici dağıtım modunu yapılandırma](load-balancer-distribution-mode.md)
 
-[Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md)
+[Yük dengeleyiciniz için boşta TCP zaman aşımı ayarlarını yapılandırma](load-balancer-tcp-idle-timeout.md)
+
+
+
+
+<!--HONumber=Nov16_HO2-->
+
 

@@ -1,38 +1,36 @@
 ---
-title: Windows hizmetleri ve çalışan rolleri için Application Insights | Microsoft Docs
-description: Kullanım, kullanılabilirlik ve performansı analiz etmek için Application Insights SDK’sını ASP.NET uygulamanıza el ile ekleyin.
+title: "Windows hizmetleri ve çalışan rolleri için Application Insights | Microsoft Belgeleri"
+description: "Kullanım, kullanılabilirlik ve performansı analiz etmek için Application Insights SDK’sını ASP.NET uygulamanıza el ile ekleyin."
 services: application-insights
 documentationcenter: .net
 author: alancameronwills
 manager: douge
-
+ms.assetid: 106ba99b-b57a-43b8-8866-e02f626c8190
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/30/2016
+ms.date: 11/01/2016
 ms.author: awills
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: aac35e524759d5f4356e9a9e386f658e9003d2ca
+
 
 ---
-# ASP.NET 4 uygulamaları için Application Insights’ı el ile yapılandırma
-*Application Insights önizlemededir.*
-
-[!INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
-
-[Visual Studio Application Insights](app-insights-overview.md)’ı Windows hizmetleri, çalışan rolleri ve diğer ASP.NET uygulamalarını izlemek üzere el ile yapılandırabilirsiniz. Web uygulamaları için el il yapılandırma, Visual Studio’nun sunduğu [otomatik ayarın](app-insights-asp-net.md) bir alternatifidir.
-
-Application Insights canlı uygulamanızdaki sorunları tanılamanıza ve performans ile kullanımı izlemenize yardımcı olur.
+# <a name="manually-configure-application-insights-for-aspnet-4-applications"></a>ASP.NET 4 uygulamaları için Application Insights’ı el ile yapılandırma
+[Application Insights](app-insights-overview.md), web geliştiricilerinin canlı uygulamanızın performansını ve kullanımını izlemesine yönelik genişletilebilir bir araçtır. Bu aracı Windows hizmetleri, çalışan rolleri ve diğer ASP.NET uygulamalarını izlemek üzere el ile yapılandırabilirsiniz. Web uygulamaları için el il yapılandırma, Visual Studio’nun sunduğu [otomatik ayarın](app-insights-asp-net.md) bir alternatifidir.
 
 ![Örnek performans izleme grafikleri](./media/app-insights-windows-services/10-perf.png)
 
-#### Başlamadan önce
+#### <a name="before-you-start"></a>Başlamadan önce
 Gerekenler:
 
 * Bir [Microsoft Azure](http://azure.com) aboneliği. Ekibinizin ve kuruluşunuzun Azure aboneliği varsa, sahibi [Microsoft hesabınızı](http://live.com) kullanarak sizi buna ekleyebilir.
 * Visual Studio 2013 veya üstü.
 
-## <a name="add"></a>1. Application Insights kaynağı oluşturma
+## <a name="a-nameadda1-create-an-application-insights-resource"></a><a name="add"></a>1. Application Insights kaynağı oluşturma
 [Azure portalında](https://portal.azure.com/) oturum açın ve yeni bir Application Insights kaynağı oluşturun. Uygulama türü olarak ASP.NET’i seçin.
 
 ![Yeni, Application Insights öğesine tıklayın](./media/app-insights-windows-services/01-new-asp.png)
@@ -41,14 +39,14 @@ Azure’da [kaynak](app-insights-resources-roles-access-control.md) bir hizmetin
 
 Uygulama türü seçimi, kaynak dikey pencerelerinin varsayılan içeriğini ve [Ölçüm Gezgini](app-insights-metrics-explorer.md) içinde görünen özellikleri belirler.
 
-#### İzleme Anahtarını Kopyalama
+#### <a name="copy-the-instrumentation-key"></a>İzleme Anahtarını Kopyalama
 Kaynağı tanımlayan bu anahtarı kısa bir süre sonra verileri kaynağa yönlendirmek için SDK’ya yükleyeceksiniz.
 
 ![Özellikler'e tıklayın, anahtarı seçin ve ctrl + C tuşlarına basın](./media/app-insights-windows-services/02-props-asp.png)
 
 Yeni bir kaynak oluşturmak üzere az önce uyguladığınız adımlar herhangi bir uygulamada izlemeyi başlatmanın iyi bir yoludur. Şimdi uygulamaya veri gönderebilirsiniz.
 
-## <a name="sdk"></a>2. Uygulamanıza SDK yükleme
+## <a name="a-namesdka2-install-the-sdk-in-your-application"></a><a name="sdk"></a>2. Uygulamanıza SDK yükleme
 Application Insights SDK'sının yüklenmesi ve yapılandırılması üzerinde çalıştığınız platforma bağlı olarak değişir. ASP.NET uygulamaları için kolaydır.
 
 1. Visual Studio'da web uygulaması projenizin NuGet paketlerini düzenleyin.
@@ -62,14 +60,14 @@ Application Insights SDK'sının yüklenmesi ve yapılandırılması üzerinde �
    
     Evet. API’yi yalnızca kendi telemetrinizi göndermek için kullanmak istiyorsanız Çekirdek API’yi (Microsoft.ApplicationInsights) seçin. Windows Server paketi Çekirdek API’nin yanı sıra performans sayacı koleksiyonu ve bağımlılık izlemesi gibi birkaç paketi daha otomatik olarak içerir. 
 
-#### Gelecekteki SDK sürümlerine yükseltmek için
+#### <a name="to-upgrade-to-future-sdk-versions"></a>Gelecekteki SDK sürümlerine yükseltmek için
 SDK’nın yeni sürümü zaman zaman yayınlanmaktadır.
 
 [SDK'nın yeni sürümüne](https://github.com/Microsoft/ApplicationInsights-dotnet-server/releases/) yükseltme yapmak için NuGet paket yöneticisini yeniden açın ve yüklü paketleri filtreleyin. **Microsoft.ApplicationInsights.Web** ve **Yükselt** öğelerini seçin.
 
 ApplicationInsights.config dosyasında herhangi bir özelleştirme yaptıysanız yükseltmeden önce bir kopyasını kaydedin ve daha sonra değişikliklerinizi yeni sürümle birleştirin.
 
-## 3. Telemetri gönderme
+## <a name="3-send-telemetry"></a>3. Telemetri gönderme
 **Yalnızca çekirdek API paketini yüklediyseniz:**
 
 * Koddaki izleme anahtarını ayarlayın, örneğin `main()` içinde: 
@@ -84,14 +82,14 @@ ApplicationInsights.config dosyasında herhangi bir özelleştirme yaptıysanız
     `<InstrumentationKey>` *kopyaladığınız izleme anahtarı* `</InstrumentationKey>`
 * Çözüm Gezgini’nde ApplicationInsights.config dosyası özelliklerinin **Build Action = Content, Copy to Output Directory = Copy** olarak ayarlandığından emin olun.
 
-## <a name="run"></a> Projenizi çalıştırma
+## <a name="a-nameruna-run-your-project"></a><a name="run"></a> Projenizi çalıştırma
 **F5** ile uygulamanızı çalıştırın ve şunu deneyin: birkaç telemetri oluşturmak için farklı sayfalar açın.
 
 Visual Studio'da gönderilmiş etkinliklerin sayısını görürsünüz.
 
 ![Visual Studio’da olay sayımı](./media/app-insights-windows-services/appinsights-09eventcount.png)
 
-## <a name="monitor"></a> Telemetrinizi görüntüleme
+## <a name="a-namemonitora-view-your-telemetry"></a><a name="monitor"></a> Telemetrinizi görüntüleme
 [Azure portal](https://portal.azure.com/)’a geri dönün ve Application Insights kaynağınıza göz atın.
 
 Genel Bakış grafiklerinde veri arayın. İlk olarak yalnızca bir veya iki nokta görürsünüz. Örneğin:
@@ -100,26 +98,26 @@ Genel Bakış grafiklerinde veri arayın. İlk olarak yalnızca bir veya iki nok
 
 Daha ayrıntılı ölçümler görmek için herhangi bir grafiğe tıklayın. [Ölçümler hakkında daha fazla bilgi edinin.](app-insights-web-monitor-performance.md)
 
-#### Veri yok mu?
+#### <a name="no-data"></a>Veri yok mu?
 * Birkaç telemetri oluşturması için farklı sayfaları açarak uygulamayı kullanın.
 * Olayları tek tek görmek için [Ara](app-insights-diagnostic-search.md) kutucuğunu açın. Bazı durumlarda olayların ölçüm ardışık düzenine ulaşması biraz daha uzun sürer.
 * Birkaç saniye bekleyin ve **Yenile**’ye tıklayın. Grafikler kendilerini düzenli olarak yeniler, ancak bazı verilerin görüntülenmesini bekliyorsanız el ile yenileyebilirsiniz.
 * Bkz. [Sorun giderme](app-insights-troubleshoot-faq.md).
 
-## Uygulamanızı yayımlama
+## <a name="publish-your-app"></a>Uygulamanızı yayımlama
 Şimdi uygulamanızı sunucunuza veya Azure’a dağıtın ve verilerin birikmesini izleyin.
 
 ![Visual Studio kullanarak uygulamanızı yayımlama](./media/app-insights-windows-services/15-publish.png)
 
 Hata ayıklama modunda çalıştırdığınızda telemetri ardışık düzen üzerinden gönderilir, böylece görüntülenen verileri saniyeler içinde görebilirsiniz. Uygulamanızı Sürüm yapılandırmasında dağıttığınızda veriler daha yavaş birikir.
 
-#### Sunucunuza yayımladıktan sonra veri yok mu?
+#### <a name="no-data-after-you-publish-to-your-server"></a>Sunucunuza yayımladıktan sonra veri yok mu?
 Sunucunuzun güvenlik duvarında giden trafik için şu bağlantı noktalarını açın:
 
 * `dc.services.visualstudio.com:443`
 * `f5.services.visualstudio.com:443`
 
-#### Derleme sunucunuzda sorun mu yaşıyorsunuz?
+#### <a name="trouble-on-your-build-server"></a>Derleme sunucunuzda sorun mu yaşıyorsunuz?
 Lütfen [bu Sorun Giderme maddesine](app-insights-asp-net-troubleshoot-no-data.md#NuGetBuild) bakın.
 
 > [!NOTE]
@@ -128,9 +126,12 @@ Lütfen [bu Sorun Giderme maddesine](app-insights-asp-net-troubleshoot-no-data.m
 > 
 > 
 
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 * Uygulamanızın 360 derecelik tam görünümünü elde etmek üzere [daha fazla telemetri ekleyin](app-insights-asp-net-more.md).
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

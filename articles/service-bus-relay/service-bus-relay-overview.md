@@ -1,12 +1,12 @@
 ---
-title: Service Bus geçişine genel bakış | Microsoft Docs
-description: Service Bus geçişine genel bakış.
+title: "Service Bus geçişine genel bakış | Microsoft Belgeleri"
+description: "Service Bus geçişine genel bakış."
 services: service-bus
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 1038a2d8-5def-4f48-8703-cb0070fc5f10
 ms.service: service-bus
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,12 +14,16 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 09/01/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 0482096cbec6a5e4b7b13ea662a180cd9b96e85f
+
 
 ---
 # <a name="overview-of-service-bus-relay"></a>Service Bus geçişine genel bakış
 Service Bus'ın temel bir bileşeni, hem Azure veri merkezinde hem de şirket içi kurumsal ortamınızda çalışan karma uygulamalar oluşturmanıza olanak sağlayan merkezi (ancak yüksek düzeyde yük dengeleme olanağı sunan) *geçiş* hizmetidir.  Service Bus geçişi birçok çeşitli aktarım protokolünü ve web hizmeti standartlarını destekler. Bunlar; SOAP, WS-* ve hatta REST'i bile içerir. Geçiş hizmeti karma uygulamalarınızı kolaylaştırma işlemini, güvenlik duvarı bağlantısını açmanıza veya kurumsal ağ altyapısına müdahale eden değişiklikler yapmanıza gerek kalmadan kurumsal işletme ağında bulunan Windows Communication Foundation (WCF) hizmetlerini genel bulutta kullanıma sunmanıza olanak sağlayarak gerçekleştirir. 
 
-![Geçiş Kavramları](./media/service-bus-relay-overview/sb-relay-01.png)
+![WCF Geçişi Kavramları](./media/service-bus-relay-overview/sb-relay-01.png)
 
 Geçiş hizmeti, geleneksel tek yönlü mesajlaşmayı, istek/yanıt mesajlaşmasını ve eşdüzey mesajlaşmayı destekler. Ayrıca, artırılmış uçtan uca verimliliğe yönelik çift yönlü yuva iletişimi ile yayımla ve abone ol senaryolarına olanak sağlamak için internet kapsamında olay dağıtımını destekler. 
 
@@ -30,9 +34,12 @@ WCF "geçiş" bağlamalarının bir paketini kullanarak geçiş hizmeti ile şir
 ## <a name="next-steps"></a>Sonraki adımlar
 Service Bus geçişi hakkındaki ayrıntılar için aşağıdaki konu başlıklarına bakın.
 
-* [Azure Service Bus Mimarisine Genel Bakış](../service-bus/service-bus-fundamentals-hybrid-solutions.md)
-* [Service Bus Geçişi hizmetini kullanma](service-bus-dotnet-how-to-use-relay.md)
+* [Azure Service Bus Mimarisine Genel Bakış](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md)
+* [Service Bus WCF Geçişi hizmetini kullanma](service-bus-dotnet-how-to-use-relay.md)
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

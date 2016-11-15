@@ -1,12 +1,12 @@
 ---
-title: Node.js için Azure IoT Hub'ı kullanmaya başlama | Microsoft Docs
-description: Node.js ile Azure IoT Hub'ı kullanmaya başlama öğreticisi. Bir Nesnelerin İnterneti çözümü uygulamak için Microsoft Azure IoT SDK'ları ile Azure IoT Hub ve Node.js kullanın.
+title: "Node.js için Azure IoT Hub&quot;ı kullanmaya başlama | Microsoft Belgeleri"
+description: "Node.js ile Azure IoT Hub&quot;ı kullanmaya başlama öğreticisi. Bir Nesnelerin İnterneti çözümü uygulamak için Microsoft Azure IoT SDK&quot;ları ile Azure IoT Hub ve Node.js kullanın."
 services: iot-hub
 documentationcenter: nodejs
 author: dominicbetts
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 56618522-9a31-42c6-94bf-55e2233b39ac
 ms.service: iot-hub
 ms.devlang: javascript
 ms.topic: hero-article
@@ -14,16 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/12/2016
 ms.author: dobett
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 7ddd9c1ed88e30eaaa200dc6b83d34746da14aa8
+
 
 ---
-# Node.js için Azure IoT Hub'ı kullanmaya başlayın
+# <a name="get-started-with-azure-iot-hub-for-nodejs"></a>Node.js için Azure IoT Hub'ı kullanmaya başlayın
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
 
 Bu öğreticinin sonunda üç Node.js konsol uygulamanız olacak:
 
 * Bir cihaz kimliği ve sanal cihazınızı bağlamak için ilişkili güvenlik anahtarı oluşturan **CreateDeviceIdentity.js**.
 * Sanal cihazınız tarafından gönderilen telemetriyi gösteren **ReadDeviceToCloudMessages.js**.
-* Daha önce oluşturulan cihaz kimliğiyle IoT hub'ınızı bağlayan ve AMQPS protokolünü kullanarak her saniye bir telemetri iletisi gönderen **SimulatedDevice.js**.
+* Daha önce oluşturulan cihaz kimliğiyle IoT hub'ınıza bağlanan ve AMQP protokolünü kullanarak her saniye bir telemetri iletisi gönderen **SimulatedDevice.js**.
 
 > [!NOTE]
 > [IoT Hub SDK'ları][lnk-hub-sdks] makalesi, cihazlarda çalıştırmak için her iki uygulamayı da derlemek amacıyla kullanabileceğiniz çeşitli SDK'lar ve çözüm arka ucunuz hakkında bilgi sağlar.
@@ -33,13 +37,13 @@ Bu öğreticinin sonunda üç Node.js konsol uygulamanız olacak:
 Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
 * Node.js 0.10.x sürümü veya sonraki bir sürüm.
-* Etkin bir Azure hesabı. (Hesabınız yoksa yalnızca birkaç dakika içinde ücretsiz bir deneme sürümü hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü][lnk-free-trial].)
+* Etkin bir Azure hesabı. (Hesabınız yoksa yalnızca birkaç dakika içinde [ücretsiz hesap][lnk-free-trial] oluşturabilirsiniz.)
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
 IoT Hub’ınızı oluşturdunuz. Bu öğreticinin geri kalanını tamamlamak için gereken IoT Hub ana bilgisayar adına ve IoT Hub bağlantı dizesine sahipsiniz.
 
-## Cihaz kimliği oluşturma
+## <a name="create-a-device-identity"></a>Cihaz kimliği oluşturma
 Bu bölümde, IoT hub'ınızdaki kimlik kayıt defterinde bir cihaz kimliği oluşturan bir Node.js konsol uygulaması oluşturacaksınız. Cihaz kimlik kayıt defterinde girişi olmayan bir cihaz IoT hub'ına bağlanamaz. Daha fazla bilgi için [IoT Hub Geliştirici Kılavuzu][lnk-devguide-identity] konumundaki **Cihaz Kimlik Kayıt Defteri** bölümüne bakın. Bu konsol uygulamasını çalıştırdığınızda, cihazınızın IoT Hub'a cihaz-bulut iletileri gönderdiğinde kendisini tanımlamak için kullanabileceği benzersiz bir cihaz kimliği ve anahtarı oluşturulur.
 
 1. **createdeviceidentity** adlı yeni bir boş klasör oluşturun. Komut isteminizde aşağıdaki komutu kullanarak **createdeviceidentity** klasöründe bir package.json dosyası oluşturun. Tüm varsayılanları kabul edin:
@@ -101,11 +105,11 @@ Bu bölümde, IoT hub'ınızdaki kimlik kayıt defterinde bir cihaz kimliği olu
 > 
 > 
 
-## Cihazdan buluta iletileri alma
-Bu bölümde, IoT Hub'dan cihazdan buluta iletiler okuyan bir Node.js konsol uygulaması oluşturacaksınız. IoT hub'ı, cihaz bulut iletilerini okumanızı sağlamak için [Event Hubs][lnk-event-hubs-overview] ile uyumlu bir uç noktasını kullanıma sunar. Sade ve basit bir anlatım gözetildiği için bu öğretici yüksek işleme dağıtımına uygun olmayan temel bir okuyucu oluşturur. [Cihazdan buluta iletileri işleme][lnk-process-d2c-tutorial] öğreticisi, cihazdan buluta iletilerin ölçekli olarak nasıl işleneceğini gösterir. [Event Hubs ile Çalışmaya Başlama][lnk-eventhubs-tutorial] öğreticisi, Event Hubs'dan alınan iletilerin nasıl işleneceği hakkında daha fazla bilgi sağlar; IoT Hub Event Hubs ile uyumlu uç noktalar için geçerlidir.
+## <a name="receive-devicetocloud-messages"></a>Cihazdan buluta iletileri alma
+Bu bölümde, IoT Hub'dan cihazdan buluta iletiler okuyan bir Node.js konsol uygulaması oluşturacaksınız. IoT hub'ı, cihaz bulut iletilerini okumanızı sağlamak için [Event Hubs][lnk-event-hubs-overview] ile uyumlu bir uç noktasını kullanıma sunar. Sade ve basit bir anlatım gözetildiği için bu öğretici yüksek işleme dağıtımına uygun olmayan temel bir okuyucu oluşturur. [Cihazdan buluta iletileri işleme][lnk-process-d2c-tutorial] öğreticisi, cihazdan buluta iletilerin ölçekli olarak nasıl işleneceğini gösterir. [Event Hubs ile Çalışmaya Başlama][lnk-eventhubs-tutorial] öğreticisi, Event Hubs'dan alınan iletilerin nasıl işleneceği hakkında daha fazla bilgi sağlar; IoT Hub ve Event Hub ile uyumlu uç noktalar için geçerlidir.
 
 > [!NOTE]
-> Cihazdan buluta iletileri okumak için Event Hubs ile uyumlu uç nokta her zaman AMQPS protokolünü kullanır.
+> Cihazdan buluta iletileri okumak için Event Hub ile uyumlu uç nokta her zaman AMQP protokolünü kullanır.
 > 
 > 
 
@@ -164,7 +168,7 @@ Bu bölümde, IoT Hub'dan cihazdan buluta iletiler okuyan bir Node.js konsol uyg
     ```
 8. **ReadDeviceToCloudMessages.js** dosyasını kaydedin ve kapatın.
 
-## Sanal cihaz uygulaması oluşturma
+## <a name="create-a-simulated-device-app"></a>Sanal cihaz uygulaması oluşturma
 Bu bölümde, bir IoT hub'a cihazdan buluta iletiler gönderen bir cihaza benzetim yapan bir Node.js konsol uygulaması oluşturacaksınız.
 
 1. **simulateddevice** adlı yeni bir boş klasör oluşturun. Komut isteminizde aşağıdaki komutu kullanarak **simulateddevice** klasöründe bir package.json dosyası oluşturun. Tüm varsayılanları kabul edin:
@@ -235,7 +239,7 @@ Bu bölümde, bir IoT hub'a cihazdan buluta iletiler gönderen bir cihaza benzet
 > 
 > 
 
-## Uygulamaları çalıştırma
+## <a name="run-the-applications"></a>Uygulamaları çalıştırma
 Şimdi uygulamaları çalıştırmaya hazırsınız.
 
 1. **readdevicetocloudmessages** klasöründeki bir komut isteminde IoT hub'ınızı izlemeye başlamak için aşağıdaki komutu çalıştırın:
@@ -256,14 +260,14 @@ Bu bölümde, bir IoT hub'a cihazdan buluta iletiler gönderen bir cihaza benzet
    
     ![IoT Hub’a gönderilen ileti sayısını gösteren Azure portalı Kullanım kutucuğu][43]
 
-## Sonraki adımlar
-Bu öğreticide, portalda yeni bir IoT hub'ı yapılandırdınız ve ardından hub'ın kimlik kayıt defterinde bir cihaz kimliği oluşturdunuz. Bu cihaz kimliğini, sanal cihaz uygulamasının hub'a cihaz-bulut iletileri göndermesini sağlamak için kullandınız. Hub tarafından alınan iletileri görüntüleyen bir uygulama da oluşturdunuz. 
+## <a name="next-steps"></a>Sonraki adımlar
+Bu öğreticide, Azure portalında yeni bir IoT hub'ı yapılandırdınız ve ardından hub'ın kimlik kayıt defterinde bir cihaz kimliği oluşturdunuz. Bu cihaz kimliğini, sanal cihaz uygulamasının hub'a cihaz-bulut iletileri göndermesini sağlamak için kullandınız. Hub tarafından alınan iletileri görüntüleyen bir uygulama da oluşturdunuz. 
 
 IoT Hub’ı kullanmaya başlamak ve diğer IoT senaryolarını keşfetmek için bkz:
 
 * [Cihazınızı bağlama][lnk-connect-device]
 * [Cihaz yönetimi ile çalışmaya başlama][lnk-device-management]
-* [Ağ Geçidi SDK’sı ile çalışmaya başlama][lnk-gateway-SDK]
+* [IoT Gateway SDK'sını kullanmaya başlama][lnk-gateway-SDK]
 
 IoT çözümünüzün nasıl genişletileceğini ve cihazdan buluta iletilerin doğru ölçekte nasıl işleneceğini öğrenmek için [Cihazdan buluta iletileri işleme][lnk-process-d2c-tutorial] öğreticisine bakın.
 
@@ -292,6 +296,6 @@ IoT çözümünüzün nasıl genişletileceğini ve cihazdan buluta iletilerin d
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

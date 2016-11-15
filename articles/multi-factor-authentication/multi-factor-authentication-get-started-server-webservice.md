@@ -1,12 +1,12 @@
 ---
-title: MFA Sunucusu Mobil Uygulama Web Hizmeti’ni kullanmaya başlama
-description: Azure Multi-Factor Authentication Uygulaması ek bir bant dışı kimlik doğrulama seçeneği sunar.  MFA sunucusunun kullanıcılar için anında iletme bildirimleri kullanmasına olanak tanır.
+title: "MFA Sunucusu Mobil Uygulama Web Hizmeti’ni kullanmaya başlama"
+description: "Azure Multi-Factor Authentication Uygulaması ek bir bant dışı kimlik doğrulama seçeneği sunar.  MFA sunucusunun kullanıcılar için anında iletme bildirimleri kullanmasına olanak tanır."
 services: multi-factor-authentication
-documentationcenter: ''
+documentationcenter: 
 author: kgremban
 manager: femila
 editor: curtland
-
+ms.assetid: 6c8d6fcc-70f4-4da4-9610-c76d66635b8b
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/04/2016
 ms.author: kgremban
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 883b3a27b4b06785068d04a143bae6c33fbed99b
+
 
 ---
-# MFA Sunucusu Mobil Uygulama Web Hizmeti’ni kullanmaya başlama
+# <a name="getting-started-the-mfa-server-mobile-app-web-service"></a>MFA Sunucusu Mobil Uygulama Web Hizmeti’ni kullanmaya başlama
 Azure Multi-Factor Authentication Uygulaması ek bir bant dışı kimlik doğrulama seçeneği sunar. Oturum açma sırasında kullanıcıya otomatik telefon çağrısı veya SMS uygulamak yerine, Azure Multi-Factor Authentication, kullanıcının akıllı telefonu ya da tabletindeki Azure Multi-Factor Authentication Uygulamasına anında iletme bildirimi gönderir. Oturum açmak için kullanıcının uygulamada “Kimliği Doğrula” seçeneğine dokunması (ya da PIN’i girip “Kimliği Doğrula” seçeneğine dokunması ) yeterlidir.
 
 Azure Multi-Factor Authentication Uygulamasını kullanmak için, uygulamanın Mobil Uygulama Web Hizmeti ile başarıyla iletişim kurabilmesini sağlamak amacıyla aşağıdakiler gereklidir:
@@ -40,19 +44,19 @@ Azure Multi-Factor Authentication Sunucusu dışında bir sunucuya kullanıcı p
 3. Azure Multi-Factor Authentication Sunucusu’nda mobil uygulama ayarlarını yapılandırma
 4. Son kullanıcılar için Azure Multi-Factor Authentication uygulamasını etkinleştirme
 
-## Web hizmeti SDK’sını yükleme
+## <a name="install-the-web-service-sdk"></a>Web hizmeti SDK’sını yükleme
 Azure Multi-Factor Authentication Web Hizmeti SDK’sı Azure Multi-Factor Authentication Sunucusu’nda halihazırda yüklü değilse, bu sunucuya gidin ve Azure Multi-Factor Authentication Sunucusu’nu açın. Web Hizmeti SDK’sı simgesine tıklayın, Web Hizmeti SDK’sını yükle düğmesine... tıklayın ve sunulan yönergeleri izleyin. Web Hizmeti SDK’sı bir SSL sertifikası ile güvenli hale getirilmelidir. Kendinden imzalı bir sertifika bu amaç doğrultusunda kabul edilebilir, ancak SSL bağlantısı başlatıldığında bu sertifikaya güvenmesi için, Kullanıcı Portalı web sunucusundaki Yerel Bilgisayar hesabının “Güvenilen Kök Sertifika Yetkilileri” deposuna aktarılmalıdır.
 
 <center>![Kurulum](./media/multi-factor-authentication-get-started-server-webservice/sdk.png)</center>
 
-## Mobil uygulama web hizmetini yükleme
+## <a name="install-the-mobile-app-web-service"></a>Mobil uygulama web hizmetini yükleme
 Mobil uygulama web hizmetini yüklemeden önce aşağıdakilere dikkat edin:
 
 * Azure Multi-Factor Authentication Kullanıcı Portalı İnternet’e yönelik sunucuda zaten yüklüyse, Web Hizmeti SDK’sına ilişkin kullanıcı adı, parola ve URL Kullanıcı Portalı’nın web.config dosyasından kopyalanabilir.
 * İnternet'e yönelik web sunucusunda bir web tarayıcısı açmak ve web.config dosyasına girilen Web hizmeti SDK’sının URL’sine gitmek faydalıdır. Tarayıcı web hizmetine başarıyla gidebilirse, sizden kimlik bilgilerinizi ister. Aynen dosyada göründüğü gibi web.config dosyasına girilen parola girilen kullanıcı adını ve parolayı girin. Sertifika uyarısı ya da hatası görüntülenmediğinden emin olun.
 * Mobil Uygulama Web Hizmeti web sunucusunun önünde ters proxy ya da güvenlik duvarı yer alıyorsa ve SSL boşaltma gerçekleştiriyorsa, Mobil Uygulama Web Hizmeti’nn https yerine http kullanabilmesi için, Mobil Uygulama Web Hizmeti web.config dosyasını düzenleyebilir ve aşağıdaki anahtarı <appSettings> bölümüne ekleyebilirsiniz. Ancak, güvenlik duvarı/ters proxy’ye yönelik Mobil Uygulamadan alınan SSL hala gereklidir. <add key="SSL_REQUIRED" value="false"/>
 
-### Mobil uygulama web hizmetini yüklemek için
+### <a name="to-install-the-mobile-app-web-service"></a>Mobil uygulama web hizmetini yüklemek için
 <ol>
 
 <li>Azure Multi-Factor Authentication Sunucusu’nda Windows Gezgini'ni açın ve Azure Multi-Factor Authentication Sunucusu’nun yüklü olduğu klasöre gidin (örneğin, C:\Program Files\Azure Multi-Factor Authentication). Mobil Uygulama Web Hizmeti’nin yükleneceği sunucu için, uygun şekilde, Azure Multi-Factor AuthenticationPhoneAppWebServiceSetup yükleme dosyasının 32-bit ya da 64-bit sürümünü seçin. Yükleme dosyasını İnternet’e yönelik sunucuya kopyalayın.</li>
@@ -71,10 +75,10 @@ Mobil uygulama web hizmetini yüklemeden önce aşağıdakilere dikkat edin:
 
 <li>Herhangi bir bilgisayarda web tarayıcısını açın ve Mobil Uygulama Web Hizmeti’nin yüklendiği URL'ye gidin (örn. https://www.publicwebsite.com/PA). Sertifika uyarısı ya da hatası görüntülenmediğinden emin olun.</li>
 
-### Azure Multi-Factor Authentication Sunucusu’nda mobil uygulama ayarlarını yapılandırma
+### <a name="configure-the-mobile-app-settings-in-the-azure-multifactor-authentication-server"></a>Azure Multi-Factor Authentication Sunucusu’nda mobil uygulama ayarlarını yapılandırma
 Artık mobil uygulama web hizmeti yüklendiğine göre, portal ile çalışmak için Azure Multi-Factor Authentication Sunucusu’nu yapılandırmalısınız.
 
-#### Azure Multi-Factor Authentication Sunucusu’nda mobil uygulama ayarlarını yapılandırmak için
+#### <a name="to-configure-the-mobile-app-settings-in-the-azure-multifactor-authentication-server"></a>Azure Multi-Factor Authentication Sunucusu’nda mobil uygulama ayarlarını yapılandırmak için
 1. Azure Multi-Factor Authentication Sunucusu’nda Kullanıcı Portalı simgesine tıklayın. Kullanıcıların kendi kimlik doğrulama yöntemlerini denetlemesine izin veriliyorsa, Ayarlar sekmesinde, Kullanıcıların yöntemi seçmesine izin ver altında Mobil Uygulama’yı işaretleyin. Bu özellik etkinleştirilmeden, Mobil Uygulama için etkinleştirme işlemini tamamlamak üzere son kullanıcıların Yardım Masanızla iletişim kurması gerekir.
 2. Kullanıcıların Mobil Uygulama etkinleştirmesine izin ver kutusunu işaretleyin.
 3. Kullanıcı Kaydına İzin Ver kutusunu işaretleyin.
@@ -85,6 +89,6 @@ Artık mobil uygulama web hizmeti yüklendiğine göre, portal ile çalışmak i
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

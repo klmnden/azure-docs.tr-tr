@@ -1,7 +1,7 @@
 <!--author=alkohli last changed: 02/22/2016-->
 
 
-### Cihazı yapılandırmak ve kaydetmek için
+### <a name="to-configure-and-register-the-device"></a>Cihazı yapılandırmak ve kaydetmek için
 1. StorSimple cihazı seri konsolunuzdaki Windows PowerShell arabirimine erişin. Talimatlar için bkz. [Cihaz seri konsoluna bağlanmak için PuTTY kullanma](#use-putty-to-connect-to-the-device-serial-console). **Yordamı hatasız takip ettiğinizden emin olun; aksi taktirde konsola erişemezsiniz.**
 2. Açılan oturumda komut istemi almak için bir kez Enter tuşuna basın. 
 3. Cihazınızda ayarlamak istediğiniz dili seçmeniz istenecektir. Dili belirtip Enter tuşuna basın. 
@@ -63,6 +63,8 @@
        
         Bu hizmet veri yolu tarafından StorSimple Yöneticisi Hizmet - Cihaz iletişimi için hizmet veri yolu tarafından kullanıldığından, 9354 bağlantı noktasının giden iletişim için açık olduğunu doğrulayın.
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

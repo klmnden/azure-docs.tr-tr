@@ -1,13 +1,13 @@
 ---
-title: Azure SQL Database'de veritabanı performansını izleme | Microsoft Docs
-description: Azure araçlarını ve dinamik yönetim görünümlerini kullanarak veritabanınızı izleme seçenekleri hakkında bilgi edinin.
-keywords: veritabanı izleme, bulut veritabanı performansı
+title: "Azure SQL Veritabanı’nda veritabanı performansını izleme | Microsoft Belgeleri"
+description: "Azure araçlarını ve dinamik yönetim görünümlerini kullanarak veritabanınızı izleme seçenekleri hakkında bilgi edinin."
+keywords: "veritabanı izleme, bulut veritabanı performansı"
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: CarlRabeler
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: a2e47475-c955-4a8d-a65c-cbef9a6d9b9f
 ms.service: sql-database
 ms.devlang: na
 ms.topic: get-started-article
@@ -15,12 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 09/27/2016
 ms.author: carlrab
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: f5fa586bd8902af2129a7157f0549c337ae00d00
+
 
 ---
-# Azure SQL Database'de veritabanı performansını izleme
+# <a name="monitoring-database-performance-in-azure-sql-database"></a>Azure SQL Database'de veritabanı performansını izleme
 Azure SQL veritabanı performansını izlemeye, seçtiğiniz veritabanı performans düzeyiyle ilgili kaynak kullanımını izleyerek başlarsınız. İzleme, veritabanınızın gerekenden fazla kapasiteye sahip olup olmadığını veya veritabanınızda kaynak kullanımının üst sınıra ulaşması nedeniyle bir sorun olup olmadığını belirlemenize yardımcı olur. Böylece veritabanınızın performans düzeyinin ve [hizmet katmanının](sql-database-service-tiers.md) ayarlanma zamanının gelip gelmediğine karar verirsiniz. Veritabanınızı [Azure portalında](https://portal.azure.com) bulunan grafik araçlarını veya SQL [dinamik yönetim görünümlerini](https://msdn.microsoft.com/library/ms188754.aspx) kullanarak izleyebilirsiniz.
 
-## Azure portalını kullanarak veritabanlarını izleme
+## <a name="monitor-databases-using-the-azure-portal"></a>Azure portalını kullanarak veritabanlarını izleme
 [Azure portalında](https://portal.azure.com/), tek veritabanlarının kullanımını veritabanınızı seçip **İzleme** grafiğine tıklayarak izleyebilirsiniz. Bu işlem sonrasında bir **Ölçüm** penceresi görüntülenir. **Grafiği düzenle** düğmesine tıklayarak değişiklik yapabilirsiniz. Şu ölçümleri ekleyin:
 
 * CPU yüzdesi
@@ -38,7 +42,7 @@ Performans ölçümlerine ilişkin uyarıları da yapılandırabilirsiniz. **Öl
 
 Performans ölçümleri, daha düşük bir performans düzeyine geçip geçemeyeceğinizi belirlemenize de yardımcı olabilir. Standart S2 veritabanını kullandığınızı ve tüm performans ölçümlerinin, veritabanının belirli bir zaman için ortalama %10'dan daha fazla kullanımda bulunmadığını gösterdiğini varsayın. Bu, veritabanının Standart S1'de de düzgün şekilde çalışabileceğini gösterir. Ancak daha düşük bir performans düzeyine geçmeye karar vermeden önce, ani değişiklik veya dalgalanma gösteren iş yüklerine dikkat edin.
 
-## DMV'leri kullanarak veritabanlarını izleme
+## <a name="monitor-databases-using-dmvs"></a>DMV'leri kullanarak veritabanlarını izleme
 Portalda kullanıma sunulan ölçümler aynı zamanda şu sistem görünümleri aracılığıyla da kullanılabilir: sunucunuzun mantıksal **asıl** veritabanında bulunan [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) ve kullanıcı veritabanında bulunan [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx). Daha uzun bir sürede daha az ayrıntılı veri izlemeniz gerekiyorsa **sys.resource_stats** görünümünü kullanın. Daha küçük bir zaman diliminde daha fazla ayrıntılı veri izlemeniz gerekiyorsa **sys.dm_db_resource_stats** görünümünü kullanın. Daha fazla bilgi için bkz. [Azure SQL Database Performans Rehberi](sql-database-performance-guidance.md#monitoring-resource-use-with-sysresourcestats).
 
 > [!NOTE]
@@ -48,6 +52,9 @@ Portalda kullanıma sunulan ölçümler aynı zamanda şu sistem görünümleri 
 
 Esnek veritabanı havuzları için bu bölümde açıklanan olan tekniklerle havuzda bulunan tek veritabanlarını izleyebilirsiniz. Ancak havuzu bir bütün olarak da izleyebilirsiniz. Bilgi için bkz. [Esnek veritabanı havuzunu izleme ve yönetme](sql-database-elastic-pool-manage-portal.md).
 
-<!--HONumber=Sep16_HO4-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

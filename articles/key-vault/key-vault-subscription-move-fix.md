@@ -1,12 +1,12 @@
 ---
-title: Abonelik taşıma işlemi sonrasında anahtar kasası kiracı kimliğini değiştirme | Microsoft Docs
-description: Abonelik farklı bir kiracıya taşındıktan sonra anahtar kasasına ilişkin kiracı kimliğini nasıl değiştireceğinizi öğrenin
+title: "Abonelik taşıma işlemi sonrasında anahtar kasası kiracı kimliğini değiştirme | Microsoft Belgeleri"
+description: "Abonelik farklı bir kiracıya taşındıktan sonra anahtar kasasına ilişkin kiracı kimliğini nasıl değiştireceğinizi öğrenin"
 services: key-vault
-documentationcenter: ''
+documentationcenter: 
 author: amitbapat
 manager: mbaldwin
 tags: azure-resource-manager
-
+ms.assetid: 46d7bc21-fa79-49e4-8c84-032eef1d813e
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,15 +14,19 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 09/13/2016
 ms.author: ambapat
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: cfb9084d6cf60369a17678129f56960f1f7c793f
+
 
 ---
-# Abonelik taşıma işlemi sonrasında anahtar kasası kiracı kimliğini değiştirme
-### S: Aboneliğim A kiracısından B kiracısına taşındı. Mevcut anahtar kasama ilişkin kiracı kimliğini nasıl değiştirebilir ve B kiracısındaki sorumlular için doğru ACL'leri nasıl belirleyebilirim?
+# <a name="change-a-key-vault-tenant-id-after-a-subscription-move"></a>Abonelik taşıma işlemi sonrasında anahtar kasası kiracı kimliğini değiştirme
+### <a name="q-my-subscription-was-moved-from-tenant-a-to-tenant-b-how-do-i-change-the-tenant-id-for-my-existing-key-vault-and-set-correct-acls-for-principals-in-tenant-b"></a>S: Aboneliğim A kiracısından B kiracısına taşındı. Mevcut anahtar kasama ilişkin kiracı kimliğini nasıl değiştirebilir ve B kiracısındaki sorumlular için doğru ACL'leri nasıl belirleyebilirim?
 Abonelikte yeni bir anahtar kasası oluşturduğunuzda, kasa bu abonelik için varsayılan Azure Active Directory kiracı kimliğine otomatik olarak bağlanır. Tüm erişim ilkesi girdileri de bu kiracı kimliğine bağlanır. Azure aboneliğinizi A kiracısından B kiracısına taşıdığınızda mevcut anahtar kasalarınız, B kiracısındaki sorumlular (kullanıcılar ve uygulamalar) tarafından erişilemez hale gelir. Bu sorunu düzeltmek için şunları yapmanız gerekir:
 
-* Bu abonelikte var olan tüm anahtar kasalarıyla ilişkili kiracı kimliklerini B kiracısı olarak değiştirme
-* Var olan tüm erişim ilkesi girdilerini kaldırma
-* B kiracısı ile ilişkili yeni erişim ilkesi girdileri ekleme.
+* Bu abonelikte var olan tüm anahtar kasalarıyla ilişkili kiracı kimliklerini B kiracısı olarak değiştirin.
+* Mevcut tüm erişim ilkesi girdilerini kaldırın.
+* B kiracısı ile ilişkili yeni erişim ilkesi girdileri ekleyin.
 
 Örneğin, bir abonelikte A kiracısından B kiracısına taşınan 'myvault' adlı bir anahtar kasanız varsa bu anahtar kasası için kiracı kimliğini nasıl değiştireceğiniz ve eski erişim ilkelerini nasıl kaldıracağınız aşağıda gösterilmiştir.
 
@@ -30,13 +34,16 @@ Abonelikte yeni bir anahtar kasası oluşturduğunuzda, kasa bu abonelik için v
 $vaultResourceId = (Get-AzureRmKeyVault -VaultName myvault).ResourceId $vault = Get-AzureRmResource –ResourceId $vaultResourceId -ExpandProperties $vault.Properties.TenantId = (Get-AzureRmContext).Tenant.TenantId $vault.Properties.AccessPolicies = @() Set-AzureRmResource -ResourceId $vaultResourceId -Properties $vault.Properties
 </pre>
 
-Bu kasa, taşıma işlemi öncesinde A kiracısında olduğundan ilk **$vault.Properties.TenantId** değeri A kiracısıyken, **(Get-AzureRmContext).Tenant.TenantId** değeri B kiracısıdır.
+Taşıma işlemi öncesinde bu kasa A kiracısında olduğundan, ilk **$vault.Properties.TenantId** değeri A kiracısıyken **(Get-AzureRmContext).Tenant.TenantId** değeri B kiracısıdır.
 
 Artık kasanız doğru kiracı kimliğiyle ilişkilendirildiğine ve eski erişim ilkesi girdileri kaldırıldığına göre, [Set-AzureRmKeyVaultAccessPolicy](https://msdn.microsoft.com/library/mt603625.aspx) ile yeni erişim ilkesi girdileri belirleyebilirsiniz.
 
-## Sonraki Adımlar
-* Anahtar Kasası ile ilgili sorularınız varsa bkz. [Azure Anahtar Kasası Forumları](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault)
+## <a name="next-steps"></a>Sonraki adımlar
+Azure Anahtar Kasası ile ilgili sorularınız varsa bkz. [Azure Anahtar Kasası Forumları](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault).
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

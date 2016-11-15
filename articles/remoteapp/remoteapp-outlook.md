@@ -1,11 +1,11 @@
 ---
-title: Azure RemoteApp’te Outlook kullanma | Microsoft Docs
-description: Azure RemoteApp’te Outlook’u yapılandırmayı ve kullanmayı öğrenin | Microsoft Azure
+title: "Azure RemoteApp’te Outlook kullanma | Microsoft Belgeleri"
+description: "Azure RemoteApp’te Outlook’u yapılandırmayı ve kullanmayı öğrenin | Microsoft Azure"
 services: remoteapp
-documentationcenter: ''
+documentationcenter: 
 author: pavithir
 manager: mbaldwin
-
+ms.assetid: cb2a498f-9539-4522-a874-542114926a61
 ms.service: remoteapp
 ms.workload: compute
 ms.tgt_pltfrm: na
@@ -13,6 +13,10 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 08/15/2016
 ms.author: elizapo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 1ec1d88b72d2f34dc7515d4387d09a46b4da7184
+
 
 ---
 # <a name="using-microsoft-outlook-in-azure-remoteapp"></a>Azure RemoteApp’te Microsoft Outlook kullanma
@@ -33,6 +37,9 @@ Kullanıcı, hesap kurulumu sırasında veya hesap ayarlarını değiştirerek *
 ## <a name="search"></a>Arama
 Azure RemoteApp’te Outlook arama özelliğini kullanmanın sınırlamaları vardır. Azure RemoteApp kullanıcı oturumlarını yerleştirmek için havuza alınmış sanal makineler kullanır. Arama dizini oluşturma, farklı sanal makineler için farklı olan makine kimliğine bağlıdır. Bir kullanıcının Azure RemoteApp’te oturum açtığı her sefer yeni bir sanal makineye yönlendirilmesi mümkündür. Bu, yerel aramayı etkinleştirdiğimizde, makine kimliği her değiştiğinde dizin oluşturucunun çalışacağı anlamına gelir (kullanıcı farklı sanal makinedeyken).  .OST dosyasının boyutuna bağlı olarak, dizin oluşturucunun diğer uygulamalar için gereken kaynakları tamamlaması ve kullanması uzun sürebilir. Arama yavaş olacağı gibi sonuç da vermeyebilir. Çevrimiçi Mod hesap profilinin kullanılması bunu çözebilir, ancak yerel bir önbelleğin olmaması nedeniyle genel performans etkilenebilir (önbelleğe alınan mod ile çevrimiçi mod arasındaki fark hakkında daha fazla bilgi için yukarıdaki bağlantıya bakın). Ne yazık ki, Outlook 2013’te dizinli/yerel arama devre dışı bırakılamaz ve çevrimiçi arama varsayılan olarak etkinleştirilmez.
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

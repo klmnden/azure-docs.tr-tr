@@ -1,6 +1,6 @@
 <!--author=SharS last changed: 9/17/15-->
 
-#### StorSimple Yayın sürümüne (GA) yeni depolama hesabı eklemek için
+#### <a name="to-add-a-new-storage-account-in-storsimple-release-version-ga"></a>StorSimple Yayın sürümüne (GA) yeni depolama hesabı eklemek için
 1. StorSimple Yöneticisi hizmet giriş sayfasında hizmetinizi seçip çift tıklayın. Böylece **Hızlı Başlangıç** sayfasına gideceksiniz. **Yapılandır** sayfasını seçin.
 2. **Depolama hesabı ekleyin/düzenleyin**’e tıklayın.
 3. **Depolama Hesabı Ekle/Düzenle** iletişim kutusunda şunları yapın:
@@ -14,6 +14,8 @@
       ![Depolama hesabı ekleme](./media/storsimple-configure-new-storage-account/HCS_AddStorageAccount-include.png)
 4. Yeni oluşturulan depolama hesabı **Depolama hesapları** altında, **Yapılandır** sayfasında görüntülenir. Yeni oluşturulan depolama hesabını kaydetmek için **Kaydet**’e tıklayın. Onayınız istendiğinde **Tamam**’a tıklayın.
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

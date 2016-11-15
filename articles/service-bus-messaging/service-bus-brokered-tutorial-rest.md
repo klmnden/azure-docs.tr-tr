@@ -1,12 +1,12 @@
 ---
-title: Service Bus aracılı mesajlaşma REST öğreticisi | Microsoft Docs
-description: Aracılı mesajlaşma REST öğreticisi.
+title: "Service Bus aracılı mesajlaşma REST eğitmeni | Microsoft Belgeleri"
+description: "Aracılı mesajlaşma REST öğreticisi."
 services: service-bus
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 9b7a8147-a1b1-42fc-b30e-f52e79a902b5
 ms.service: service-bus
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/27/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 45b72037e2de01b9201edf3e4ebee7e80d996383
+
 
 ---
 # <a name="service-bus-brokered-messaging-rest-tutorial"></a>Service Bus aracılı mesajlaşma REST öğreticisi
@@ -22,7 +26,7 @@ ms.author: sethm
 Bu öğretici, temel REST tabanlı Azure Service Bus kuyruğunun ve konu başlığının/aboneliğinin nasıl oluşturulacağını gösterir.
 
 ## <a name="create-a-namespace"></a>Ad alanı oluşturma
-İlk adım bir hizmet ad alanı oluşturmak ve [Paylaşılan Erişim İmzası](../service-bus/service-bus-sas-overview.md) (SAS) anahtarı edinmektir. Ad alanı, Service Bus tarafından kullanıma sunulan her uygulama için bir uygulama sınırı sağlar. Hizmet ad alanı oluşturulduğunda sistem tarafından otomatik olarak bir SAS anahtarı oluşturulur. Hizmet ad alanı ve SAS anahtarı birleşimi ile Service Bus hizmetinin bir uygulamaya erişim kimliğini doğrulayan kimlik bilgisi sağlanır.
+İlk adım bir hizmet ad alanı oluşturmak ve [Paylaşılan Erişim İmzası](service-bus-sas-overview.md) (SAS) anahtarı edinmektir. Ad alanı, Service Bus tarafından kullanıma sunulan her uygulama için bir uygulama sınırı sağlar. Hizmet ad alanı oluşturulduğunda sistem tarafından otomatik olarak bir SAS anahtarı oluşturulur. Hizmet ad alanı ve SAS anahtarı birleşimi ile Service Bus hizmetinin bir uygulamaya erişim kimliğini doğrulayan kimlik bilgisi sağlanır.
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
@@ -31,7 +35,7 @@ Service Bus kuyrukları, iletileri; ilk giren ilk çıkar özelliğine sahip bir
 
 Bu öğreticideki kod şunları gerçekleştirir:
 
-* Service Bus ad alanı kaynaklarınıza erişmek için ad alanınızı ve [Paylaşılan Erişim İmzası](../service-bus/service-bus-sas-overview.md) (SAS) anahtarınızı kullanır.
+* Service Bus ad alanı kaynaklarınıza erişmek için ad alanınızı ve [Paylaşılan Erişim İmzası](service-bus-sas-overview.md) (SAS) anahtarınızı kullanır.
 * Bir kuyruk oluşturur, kuyruğa ileti gönderir ve kuyruktaki iletileri okur.
 * Bir konu başlığı ve bu konu başlığına ait bir abonelik oluşturur ve abonelikteki iletileri gönderir ve okur.
 * Service Bus hizmetinden, abonelik kuralları dahil olmak üzere tüm kuyruk, konu başlığı ve abonelik bilgilerini alır.
@@ -139,7 +143,7 @@ Bu hizmet bir REST stili Web hizmeti olduğundan, özel türler bulunmaz; bunun 
 ## <a name="create-management-credentials"></a>Yönetim kimlik bilgileri oluşturma
 Sonraki adım, önceki adımda girdiğiniz SAS anahtarını ve ad alanını işleyen bir yöntem yazmaktır ve bu işlem bir SAS belirteci döndürür. Bu örnek, bir saat için geçerli olan bir SAS belirteci oluşturur.
 
-### <a name="create-a-getsastoken()-method"></a>GetSASToken() yöntemi oluşturma
+### <a name="create-a-getsastoken-method"></a>GetSASToken() yöntemi oluşturma
 `Main()` yönteminden sonra `Program` sınıfında aşağıdaki kodu yapıştırın:
 
 ```
@@ -594,9 +598,12 @@ namespace Microsoft.ServiceBus.Samples
 Daha fazla bilgi edinmek için şu makalelere bakın:
 
 * [Service Bus mesajlaşma hizmetine genel bakış](service-bus-messaging-overview.md)
-* [Azure Service Bus ile ilgili temel bilgiler](../service-bus/service-bus-fundamentals-hybrid-solutions.md)
+* [Azure Service Bus ile ilgili temel bilgiler](service-bus-fundamentals-hybrid-solutions.md)
 * [Service Bus geçişi REST öğreticisi](../service-bus-relay/service-bus-relay-rest-tutorial.md)
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

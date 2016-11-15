@@ -1,13 +1,13 @@
 ---
-title: Bir arada varolabilen Expressroute ve Siteden Siteye VPN bağlantıları yapılandırma | Microsoft Docs
-description: Bu makalede klasik dağıtım modeli için bir arada varolabilen ExpressRoute ve bir Siteden Siteye VPN bağlantısını nasıl yapılandıracağınız anlatılmaktadır.
+title: "Bir arada var olabilen Expressroute ve Siteden Siteye VPN bağlantıları yapılandırma | Microsoft Belgeleri"
+description: "Bu makalede klasik dağıtım modeli için bir arada varolabilen ExpressRoute ve bir Siteden Siteye VPN bağlantısını nasıl yapılandıracağınız anlatılmaktadır."
 documentationcenter: na
 services: expressroute
 author: charwen
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-service-management
-
+ms.assetid: dcf1a5af-a289-466a-b812-0bfedbd2bda0
 ms.service: expressroute
 ms.devlang: na
 ms.topic: get-started-article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: charwen
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: f03701746cb36838c7db7055f5dd98f77e1adfbd
+
 
 ---
-# <a name="configure-expressroute-and-site-to-site-coexisting-connections-for-the-classic-deployment-model"></a>Klasik dağıtım modeli için aynı anda varolabilen ExpressRoute ve Siteden Siteye bağlantılarını yapılandırma
+# <a name="configure-expressroute-and-sitetosite-coexisting-connections-for-the-classic-deployment-model"></a>Klasik dağıtım modeli için aynı anda varolabilen ExpressRoute ve Siteden Siteye bağlantılarını yapılandırma
 > [!div class="op_single_selector"]
 > * [PowerShell - Resource Manager](expressroute-howto-coexist-resource-manager.md)
 > * [PowerShell - Klasik](expressroute-howto-coexist-classic.md)
@@ -45,12 +49,12 @@ Siteden Siteye VPN ve ExpressRoute yapılandırma yeteneğine sahip olmanın çe
 * **İlk olarak ExpressRoute ağ geçidi yapılandırılmalıdır.** Siteden Siteye VPN ağ geçidini ekleyebilmek için önce ExpressRoute ağ geçidini oluşturmanız gerekir.
 
 ## <a name="configuration-designs"></a>Yapılandırma tasarımları
-### <a name="configure-a-site-to-site-vpn-as-a-failover-path-for-expressroute"></a>Siteden siteye VPN’i ExpressRoute için bir yük devretme yolu olarak yapılandırma
+### <a name="configure-a-sitetosite-vpn-as-a-failover-path-for-expressroute"></a>Siteden siteye VPN’i ExpressRoute için bir yük devretme yolu olarak yapılandırma
 Siteden siteye bir VPN bağlantısını ExpressRoute için yedek olarak yapılandırabilirsiniz. Bu yalnızca Azure özel eşleme yoluna bağlı sanal ağlar için geçerlidir. Azure ortak ve Microsoft eşlemeleri aracılığıyla erişilebilen hizmetler için VPN tabanlı yük devretme çözümü yoktur. ExpressRoute bağlantı hattı her zaman birincil bağlantıdır. Veriler yalnızca ExpressRoute bağlantı hattı başarısız olursa, Siteden Siteye VPN üzerinden akar. 
 
 ![Bir arada var olma](media/expressroute-howto-coexist-classic/scenario1.jpg)
 
-### <a name="configure-a-site-to-site-vpn-to-connect-to-sites-not-connected-through-expressroute"></a>ExpressRoute aracılığıyla bağlanılmayan sitelere bağlanmak için Siteden Siteye VPN yapılandırma
+### <a name="configure-a-sitetosite-vpn-to-connect-to-sites-not-connected-through-expressroute"></a>ExpressRoute aracılığıyla bağlanılmayan sitelere bağlanmak için Siteden Siteye VPN yapılandırma
 Ağınızı bazı sitelerin Azure’a Siteden Siteye VPN üzerinden doğrudan ve bazı sitelerin ExpressRoute üzerinden bağlanması için yapılandırabilirsiniz. 
 
 ![Bir arada var olma](media/expressroute-howto-coexist-classic/scenario2.jpg)
@@ -72,7 +76,7 @@ Bir arada var olabilen bağlantılar yapılandırmak için seçebileceğiniz iki
   
     Bu yordamda, bir arada var olabilen bağlantılar oluşturmak, ağ geçidinizi silmenizi ve ardından yeni ağ geçitlerini yapılandırmanızı gerektirir. Bu, ağ geçidiniz ve bağlantıları silip yeniden oluştururken şirket içi ve dışı bağlantılarınız için kapalı kalma süresi yaşayacağınız ancak VM’leriniz veya hizmetlerinizi yeni bir sanal ağa geçirmeniz gerekmeyeceği anlamına gelir. VM'leriniz ve hizmetleriniz bunu yapmak için yapılandırılmışsa, ağ geçidi yapılandırması sırasında yük dengeleyici üzerinden iletişim kurmaya devam eder.
 
-## <a name="new"></a>Yeni bir sanal ağ ve bir arada var olabilen bağlantılar oluşturmak için
+## <a name="a-namenewato-create-a-new-virtual-network-and-coexisting-connections"></a><a name="new"></a>Yeni bir sanal ağ ve bir arada var olabilen bağlantılar oluşturmak için
 Bu yordamda, bir VNet oluşturma ve bir arada var olabilen Siteden Siteye ve ExpressRoute bağlantıları oluşturma adım adım açıklanmıştır.
 
 1. Azure PowerShell cmdlet’lerinin en yeni sürümünü yüklemeniz gerekir. PowerShell cmdlet'lerini yükleme hakkında daha fazla bilgi için bkz. [Azure PowerShell'i yükleme ve yapılandırma](../powershell-install-configure.md). Bu yapılandırma için kullanacağınız cmdlet'lerin tanıdıklarınızdan biraz farklı olabileceğini unutmayın. Bu yönergelerde belirtilen cmdlet'leri kullandığınızdan emin olun. 
@@ -178,7 +182,7 @@ Bu yordamda, bir VNet oluşturma ve bir arada var olabilen Siteden Siteye ve Exp
 
         New-AzureVirtualNetworkGatewayConnection -connectedEntityId <local-network-gateway-id> -gatewayConnectionName Azure2Local -gatewayConnectionType IPsec -sharedKey abc123 -virtualNetworkGatewayId <azure-s2s-vpn-gateway-id>
 
-## <a name="add"></a>Zaten mevcut bir VNet için bir arada var olabilen bağlantılar yapılandırma
+## <a name="a-nameaddato-configure-coexsiting-connections-for-an-already-existing-vnet"></a><a name="add"></a>Zaten mevcut bir VNet için bir arada var olabilen bağlantılar yapılandırma
 Zaten bir sanal ağınız varsa, ağ geçidi alt ağ boyutunu kontrol edin. Ağ geçidi alt ağı /28 veya /29 ise, önce sanal ağ geçidi silmeniz ve ağ geçidi alt ağı boyutunu artırmanız gerekir. Bu bölümdeki adımlar bunu nasıl yapacağınızı gösterir.
 
 Ağ geçidi alt ağı /27 veya daha büyükse ve sanal ağ ExpressRoute üzerinden bağlanıyorsa, aşağıdaki adımları atlayarak önceki bölümdeki ["6. Adım - Siteden Siteye VPN ağ geçidi oluşturma"](#vpngw) bölümüne geçebilirsiniz.
@@ -219,6 +223,9 @@ Ağ geçidi alt ağı /27 veya daha büyükse ve sanal ağ ExpressRoute üzerind
 ## <a name="next-steps"></a>Sonraki adımlar
 ExpressRoute hakkında daha fazla bilgi için bkz. [ExpressRoute hakkında SSS](expressroute-faqs.md).
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

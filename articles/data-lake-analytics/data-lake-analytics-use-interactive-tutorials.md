@@ -1,12 +1,12 @@
 ---
-title: Azure Portal Etkileşimli öğreticilerini kullanarak Data Lake Analytics ve U-SQL öğrenme | Microsoft Docs
-description: 'Data Lake Analytics ve U-SQL öğrenmeye hızlı bir başlangıç yapın. '
+title: "Azure Portal Etkileşimli öğreticilerini kullanarak Data Lake Analytics ve U-SQL öğrenme | Microsoft Belgeleri"
+description: "Data Lake Analytics ve U-SQL öğrenmeye hızlı bir başlangıç yapın. "
 services: data-lake-analytics
-documentationcenter: ''
+documentationcenter: 
 author: edmacauley
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 31399d47-e937-4c43-ab0a-6aea8875378d
 ms.service: data-lake-analytics
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/16/2016
 ms.author: edmaca
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: c2a9bd7f78afc77f72236d0204f39798f0388362
+
 
 ---
-# Azure Data Lake Analytics etkileşimli öğreticilerini kullanma
+# <a name="use-azure-data-lake-analytics-interactive-tutorials"></a>Azure Data Lake Analytics etkileşimli öğreticilerini kullanma
 Azure Portal, Data Lake Analytics ile çalışmaya başlamanız için etkileşimli bir öğretici sağlar. Bu makalede, web sitesi günlüklerini çözümlemeye yönelik öğreticinin nasıl tamamlanacağı gösterilmiştir.
 
 > [!NOTE]
@@ -32,13 +36,13 @@ Diğer öğreticiler için bkz.
 * [.NET SDK'yı kullanarak Data Lake Analytics ile çalışmaya başlama](data-lake-analytics-get-started-net-sdk.md)
 * [Visual Studio için Data Lake Araçları'nı kullanarak U-SQL betikleri geliştirme](data-lake-analytics-data-lake-tools-get-started.md) 
 
-**Ön koşullar**
+**Önkoşullar**
 
 Bu öğreticiye başlamadan önce aşağıdakilere sahip olmanız gerekir:
 
 * **Data Lake Analytics hesabı**.  Bkz. [Azure Portal'ı kullanarak Azure Data Lake Analytics ile çalışmaya başlama](data-lake-analytics-get-started-portal.md).
 
-## Data Lake Analytics hesabı oluşturma
+## <a name="create-data-lake-analytics-account"></a>Data Lake Analytics hesabı oluşturma
 Herhangi bir işi çalıştırmadan önce bir Data Lake Analytics hesabına sahip olmanız gerekir.
 
 Her Data Lake Analytics hesabı, bir [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md) hesabı bağımlılığına sahiptir.  Bu hesap, varsayılan Data Lake Store hesabı olarak adlandırılır.  Data Lake Store hesabını önceden veya Data Lake Analytics hesabınızı oluşturduğunuzda oluşturabilirsiniz. Bu öğreticide, Data Lake Store hesabını Analytics hesabıyla oluşturacaksınız.
@@ -58,14 +62,14 @@ Her Data Lake Analytics hesabı, bir [Azure Data Lake Store](../data-lake-store/
    * **Ad**: Analytics hesabına bir ad verin.
    * **Data Lake Store**: Her Data Lake Analytics hesabı, bağımlı bir Data Lake Store hesabına sahiptir. Data Lake Analytics hesabı ve bağımlı Data Lake Store hesabı aynı Azure veri merkezinde bulunmalıdır. Yeni bir Data Lake Store hesabı oluşturmaya yönelik yönergeyi uygulayın veya var olan bir hesabı seçin.
    * **Abonelik**: Analytics hesabı için kullanılan Azure aboneliğini seçin.
-   * **Kaynak Grubu**. Var olan bir Azure Kaynak Grubu'nu seçin veya yeni bir grup oluşturun. Uygulamalar genellikle web uygulaması, veritabanı, veritabanı sunucusu, depolama alanı ve 3. taraf hizmetleri gibi birçok bileşenden oluşur. Azure Resource Manager (ARM), uygulamanızdaki kaynaklarla Azure Kaynak Grubu şeklinde adlandırılan bir grup olarak çalışmanıza olanak sağlar. Uygulamanıza yönelik tüm kaynakları tek ve eşgüdümlü bir işlemle dağıtabilir, güncelleştirebilir, izleyebilir veya silebilirsiniz. Dağıtım için bir şablon kullanabilirsiniz. Üstelik bu şablon test, hazırlık ve üretim gibi farklı ortamlarda da çalışabilir. Tüm grup için aktarılmış maliyetleri görüntüleyerek kuruluşunuzun fatura işlemlerine açıklık getirebilirsiniz. Daha fazla bilgi için bkz. [Azure Resource Manager'a Genel Bakış](../resource-group-overview.md). 
+   * **Kaynak Grubu**. Var olan bir Azure Kaynak Grubu'nu seçin veya yeni bir grup oluşturun. Uygulamalar genellikle web uygulaması, veritabanı, veritabanı sunucusu, depolama alanı ve 3. taraf hizmetleri gibi birçok bileşenden oluşur. Azure Resource Manager (ARM), uygulamanızdaki kaynaklarla Azure Kaynak Grubu şeklinde adlandırılan bir grup olarak çalışmanıza olanak sağlar. Uygulamanıza yönelik tüm kaynakları tek ve eşgüdümlü bir işlemle dağıtabilir, güncelleştirebilir, izleyebilir veya silebilirsiniz. Dağıtım için bir şablon kullanabilirsiniz. Üstelik bu şablon test, hazırlık ve üretim gibi farklı ortamlarda da çalışabilir. Tüm grup için aktarılmış maliyetleri görüntüleyerek kuruluşunuzun fatura işlemlerine açıklık getirebilirsiniz. Daha fazla bilgi için bkz. [Azure Resource Manager'a Genel Bakış](../azure-resource-manager/resource-group-overview.md). 
    * **Konum**. Data Lake Analytics hesabı için bir Azure veri merkezi seçin. 
 8. **Başlangıç Panosuna Sabitle**'yi seçin. Bu işlem, bu öğreticinin uygulanması için gereklidir.
 9. **Oluştur**’a tıklayın. Bu işlem sizi Başlangıç Panosu'na götürür. Ana sayfaya, "Azure Data Lake Analytics'i dağıtma" etiketine sahip yeni bir kutucuk eklenir. Data Lake Analytics hesabının oluşturulması çok kısa sürer. Hesap oluşturulduğunda, portal, hesabı yeni bir dikey pencerede açar.
    
     ![Azure Data Lake Analytics portalı dikey penceresi](./media/data-lake-analytics-get-started-portal/data-lake-analytics-portal-blade.png)
 
-## Web Sitesi Günlüğü Analizi etkileşimli öğreticisini çalıştırma
+## <a name="run-website-log-analysis-interactive-tutorial"></a>Web Sitesi Günlüğü Analizi etkileşimli öğreticisini çalıştırma
 **Web Sitesi Log Analytics etkileşimli öğreticisini açmak için**
 
 1. Başlangıç Panosu'nu açmak üzere, Portal'da, soldaki menüden **Microsoft Azure**'a tıklayın.
@@ -77,13 +81,16 @@ Her Data Lake Analytics hesabı, bir [Azure Data Lake Store](../data-lake-store/
 5. **Etkileşimli Öğreticiler** dikey penceresinden **Web Sitesi Log Analytics**'e tıklayın. Portal, öğreticiyi yeni bir portal dikey penceresinde açar.
 6. **1 Giriş** seçeneğine tıklayın ve ardından yönergeleri izleyin
 
-## Ayrıca bkz.
+## <a name="see-also"></a>Ayrıca bkz.
 * [Microsoft Azure Data Lake Analytics'e genel bakış](data-lake-analytics-overview.md)
 * [Azure Portal'ı kullanarak Data Lake Analytics ile çalışmaya başlama](data-lake-analytics-get-started-portal.md)
 * [Azure PowerShell'i kullanarak Data Lake Analytics ile çalışmaya başlama](data-lake-analytics-get-started-powershell.md)
 * [Visual Studio için Data Lake Araçları'nı kullanarak U-SQL betikleri geliştirme](data-lake-analytics-data-lake-tools-get-started.md)
 * [Azure Data Lake Analytics'i kullanarak Web sitesi günlüklerini çözümleme](data-lake-analytics-analyze-weblogs.md)
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Azure RemoteApp nedir? | Microsoft Docs
-description: Azure RemoteApp aracılığıyla uygulama ve kaynakları nasıl herhangi bir cihazla paylaşacağınızı öğrenin.
+title: Azure RemoteApp nedir? | Microsoft Belgeleri
+description: "Azure RemoteApp aracılığıyla uygulama ve kaynakları nasıl herhangi bir cihazla paylaşacağınızı öğrenin."
 services: remoteapp
-documentationcenter: ''
+documentationcenter: 
 author: lizap
 manager: mbaldwin
-editor: ''
-
+editor: 
+ms.assetid: d7a8a311-e70a-4463-ac85-c7f62c500921
 ms.service: remoteapp
 ms.workload: compute
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/15/2016
 ms.author: elizapo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 95b4e6914de787bb2c25527ce9635f872b4746a6
+
 
 ---
-# Azure RemoteApp nedir?
+# <a name="what-is-azure-remoteapp"></a>Azure RemoteApp nedir?
 > [!IMPORTANT]
 > Azure RemoteApp kullanımdan kaldırılıyor. Ayrıntılı bilgi için [duyuruyu](https://go.microsoft.com/fwlink/?linkid=821148) okuyun.
 > 
@@ -34,7 +38,7 @@ Azure RemoteApp [Microsoft Sanal Masaüstü Altyapısı](http://www.microsoft.co
 
 **Yeni!** Azure RemoteApp hakkında daha fazla bilgi almak ister misiniz? Veya Azure RemoteApp’i ölçekte doğrulamak için hazır mısınız? Haftalık [uzmanlara sorun web seminerimize](https://azureinfo.microsoft.com/AzureRemoteAppAskTheExperts-Registration-Page.html?ls=Website) katılın.
 
-## Azure RemoteApp koleksiyonları
+## <a name="azure-remoteapp-collections"></a>Azure RemoteApp koleksiyonları
 İki tür [Azure RemoteApp koleksiyonu](remoteapp-collections.md) vardır:
 
 * **Bulut koleksiyonu**, bulutta barındırılır ve buluttaki programlar için verileri depolar. Kullanıcılar, kendi Microsoft hesapları veya Azure Active Directory ile eşitlenen ya da federasyonla yönetilen kurumsal kimlik bilgilerini kullanarak uygulamalara erişebilir.
@@ -52,7 +56,7 @@ Azure RemoteApp [Microsoft Sanal Masaüstü Altyapısı](http://www.microsoft.co
 
 Farklı koleksiyonlarda ağlar da dahil farklı seçenekler vardır, bu nedenle sizin için [hangi koleksiyonun](remoteapp-collections.md) en iyi çalıştığını belirlemeniz gerekir. 
 
-### Koleksiyonunuzu güncelleştirme
+### <a name="updating-your-collection"></a>Koleksiyonunuzu güncelleştirme
 Karma ve bulut koleksiyonları arasındaki temel farklardan biri yazılım güncelleştirmelerinin işlenme şeklidir. Önceden yüklenmiş Office 365 ProPlus veya Office 2013 görüntüsünü kullanan bulut bağlantısında güncelleştirmeler hakkında endişelenmeniz gerekmez. Hizmet, hem uygulamalar hem de işletim sistemi için kendi bakımını yapar ve düzenli olarak güncelleştirmeleri uygular.
 
 Karma koleksiyonlarda ve özel bir şablon görüntüsü kullanan bulut koleksiyonlarında görüntü ve uygulamaların güncelliğini sağlamaktan siz sorumlu olursunuz. Etki alanına katılmış görüntüler için Windows Update, Grup İlkesi veya System Center gibi araçları kullanarak güncelleştirmeleri denetleyebilirsiniz.
@@ -61,12 +65,12 @@ Karma koleksiyonlarda ve özel bir şablon görüntüsü kullanan bulut koleksiy
 
 Daha fazla bilgi için bkz. [Koleksiyonunuzu güncelleştirme](remoteapp-update.md).
 
-## Desteklenen RemoteApp istemcileri
+## <a name="supported-remoteapp-clients"></a>Desteklenen RemoteApp istemcileri
 Azure RemoteApp, Windows ve Windows RT RemoteApp istemci uygulamaları ile Mac, iOS ve Android için Microsoft Uzak Masaüstü uygulamalarında desteklenir. Kullanıcılarınız yeni Azure RemoteApp programlarına erişmek için bu uygulamaları kendi mobil cihazlarında veya bilgisayarlarında kullanabilir.
 
 İstemciler hakkında daha fazla bilgi için bkz. [Azure RemoteApp’te uygulamalarınıza erişme](remoteapp-clients.md).
 
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 Başlayın! Deneyin! Bu makaleler Azure RemoteApp kullanmaya başlamanıza yardımcı olur:
 
 * [Azure RemoteApp için nasıl bir koleksiyona ihtiyacınız var?](remoteapp-collections.md)
@@ -77,9 +81,12 @@ Başlayın! Deneyin! Bu makaleler Azure RemoteApp kullanmaya başlamanıza yard�
 * [Azure RemoteApp’i kullanmak için en iyi uygulamalar](remoteapp-bestpractices.md)
 * [Azure RemoteApp hakkında SSS](remoteapp-faq.md)
 
-### Yardımımıza katkıda bulunun
+### <a name="help-us-help-you"></a>Yardımımıza katkıda bulunun
 Bu makaleyi derecelendirmenin ve aşağıda yorum yapmamanın yanı sıra makalede değişiklik de yapabileceğinizi biliyor muydunuz? Eksik bir şeyler mi var? Yanlış bir şeyler mi var? Kafa karıştırıcı bir şeyler mi yazdım? Değişiklik yapmak için yukarı doğru ilerleyin ve **GitHub üzerinde düzenle** veya **Düzenle**’ye tıklayın. Bu değişiklikler incelenmek üzere bize gönderilir ve kabul edildikten sonra değişiklikleriniz ve iyileştirmeleriniz burada görünür.
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

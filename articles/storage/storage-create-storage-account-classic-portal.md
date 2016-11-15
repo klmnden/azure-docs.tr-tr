@@ -1,27 +1,31 @@
 ---
-title: Klasik Azure Portalı’nda depolama hesabı oluşturma, yönetme veya silme | Microsoft Docs
-description: Azure Portal’da yeni bir depolama hesabı oluşturun, hesap erişim tuşlarınızı yönetin veya bir depolama hesabını silin. Standart ve premium depolama hesapları hakkında bilgi edinin.
+title: "Klasik Azure Portalı’nda depolama hesabı oluşturma, yönetme veya silme | Microsoft Belgeleri"
+description: "Azure Portal’da yeni bir depolama hesabı oluşturun, hesap erişim tuşlarınızı yönetin veya bir depolama hesabını silin. Standart ve premium depolama hesapları hakkında bilgi edinin."
 services: storage
-documentationcenter: ''
+documentationcenter: 
 author: robinsh
 manager: carmonm
 editor: tysonn
-
+ms.assetid: 5e4f4360-3f81-4d63-a0b1-e7771b67af11
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/26/2016
-ms.author: micurd;robinsh
+ms.author: robinsh
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 90e9fcf933173b5609eff70fa1ce4bfa027fee3d
+
 
 ---
-# Azure Storage hesapları hakkında
+# <a name="about-azure-storage-accounts"></a>Azure Storage hesapları hakkında
 [!INCLUDE [storage-selector-portal-create-storage-account](../../includes/storage-selector-portal-create-storage-account.md)]
 
 [!INCLUDE [storage-try-azure-tools](../../includes/storage-try-azure-tools.md)]
 
-## Genel Bakış
+## <a name="overview"></a>Genel Bakış
 Azure Storage hesabı Azure Storage Azure Blob, Kuyruk, Tablo ve Dosya hizmetlere erişmenizi sağlar. Depolama hesabınız Azure Storage veri nesneleriniz için benzersiz ad alanı sağlar. Varsayılan olarak, hesabınızdaki veriler yalnızca siz, yani hesap sahibi tarafından kullanılabilir.
 
 İki tür depolama hesabı vardır:
@@ -29,7 +33,7 @@ Azure Storage hesabı Azure Storage Azure Blob, Kuyruk, Tablo ve Dosya hizmetler
 * Standart depolama hesabı Blob, Tablo, Kuyruk ve File Storage içerir.
 * Bir premium depolama hesabı şu anda yalnızca Azure Virtual Machine disklerini destekler. Premium Storage için ayrıntılı genel bakış için bkz. [Premium Storage: Azure Virtual Machines İş Yükleri için Yüksek Performanslı Depolama](storage-premium-storage.md).
 
-## Depolama hesabı faturalama
+## <a name="storage-account-billing"></a>Depolama hesabı faturalama
 Depolama hesabınıza bağlı olarak Azure Storage kullanımınıza göre faturalandırılırsınız. Depolama maliyetleri dört etkene bağlıdır: depolama kapasitesi, çoğaltma düzeni, depolama işlemleri ve veri çıkışı.
 
 * Depolama kapasitesi, veri depolamak için kullandığınız depolama hesabı payınızın kullandığınız kısmını belirtir. Verinizi depolamanızın maliyeti, depoladığınız veri miktarı ve çoğaltılma şekline bağlıdır.
@@ -46,7 +50,7 @@ Depolama hesabının kapasite ve performans hedefleri hakkında ayrıntılar iç
 > 
 > 
 
-## Depolama hesabı oluşturma
+## <a name="create-a-storage-account"></a>Depolama hesabı oluşturma
 1. [Klasik Azure Portalı](https://manage.windowsazure.com)’nda oturum açın.
 2. Sayfanın altındaki görev çubuğunda **Yeni**’ye tıklayın. **Veri Hizmetleri** | **Depolama**, ve ardından **Hızlı Oluştur**’u seçin.
    
@@ -79,7 +83,7 @@ Depolama hesabının kapasite ve performans hedefleri hakkında ayrıntılar iç
 
 ![StoragePage](./media/storage-create-storage-account-classic-portal/Storage_StoragePage.png)
 
-### Depolama hesabı uç noktaları
+### <a name="storage-account-endpoints"></a>Depolama hesabı uç noktaları
 Azure Storage’da depoladığınız her nesnenin benzersiz bir URL adresi vardır. Depolama hesabı adı o adresin alt etki alanı adını oluşturur. Her hizmete özel alt etki alanı ve etki alanı birleşimi depolama hesabınız için bir *uç nokta* oluşturur.
 
 Örneğin depolama hesabınızın adı *mystorageaccount* ise, depolama hesabınız için varsayılan uç noktalar şunlardır:
@@ -95,7 +99,7 @@ Bir depolama hesabındaki bir nesneye erişmek için gerekli URL, nesnenin depol
 
 Ayrıca depolama hesabınız ile birlikte kullanmak üzere özel bir etki alanı adı yapılandırabilirsiniz. Ayrıntılar için bkz. [Blob Storage uç noktanız için özel bir etki alanı adı yapılandırma](storage-custom-domain-name.md).
 
-### Hizmeti benzeşim grubu ile birlikte bulundurma
+### <a name="service-colocation-with-an-affinity-group"></a>Hizmeti benzeşim grubu ile birlikte bulundurma
 *Benzeşim grubu*, Azure hizmetlerinizi ve VM’lerinizi Azure Storage hesabınızla coğrafi olarak gruplamaktır. Bir benzeşim grubu bilgisayar iş yüklerini aynı veri merkezinde veya hedef kullanıcının hedef kitlesine yakın bir konuma yerleştirerek hizmet performansını iyileştirebilir. Bunun yanında depolama hesabındaki bir veriye aynı benzeşim grubunun bir parçası olan başka bir hizmet eriştiğinde veri çıkışı ücretlendirmesi yapılmaz.
 
 > [!NOTE]
@@ -103,7 +107,7 @@ Ayrıca depolama hesabınız ile birlikte kullanmak üzere özel bir etki alanı
 > 
 > 
 
-## Depolama erişim tuşlarını görüntüleme, kopyalama ve yeniden oluşturma
+## <a name="view-copy-and-regenerate-storage-access-keys"></a>Depolama erişim tuşlarını görüntüleme, kopyalama ve yeniden oluşturma
 Bir depolama hesabı oluşturduğunuzda Azure, depolama hesabına erişim sağlandığında kimlik doğrulama için kullanılan iki adet 512 bit depolama erişim tuşu oluşturur. İki depolama erişim tuşu sağlayarak AAzure Storage izmetinizde herhangi bir kesinti olmadan veya ilgili hizmete erişim sağlamaya gerek kalmadan anahtarları yeniden oluşturmanızı sağlar.
 
 > [!NOTE]
@@ -113,18 +117,18 @@ Bir depolama hesabı oluşturduğunuzda Azure, depolama hesabına erişim sağla
 
 Blob, Tablo ve Kuyruk hizmetlerine erişmek üzere kullanılarak depolama erişim tuşlarını görüntülemek, kopyalamak ve yeniden oluşturmak için [Klasik Azure Portalı](https://manage.windowsazure.com)’nda panoda **Anahtarları Yönet**’i veya **Depolama** sayfasını kullanın.
 
-### Depolama erişim tuşu kopyalama
+### <a name="copy-a-storage-access-key"></a>Depolama erişim tuşu kopyalama
 Bir bağlantı dizesinde kullanmak üzere depolama erişim tuşunu kopyalamak için **Anahtarları Yönet**’i kullanabilirsiniz. Bağlantı dizesi, kimlik doğrulamada kullanılmak üzere depolama hesabı adı ve bir anahtar kullanır. Azure Storage hizmetlerine erişmek için bağlantı dizelerini yapılandırma hakkında daha fazla bilgi için bkz. [Azure Storage Bağlantı Dizelerini Yapılandırma](storage-configure-connection-string.md).
 
 1. [Klasik Azure Portalı](https://manage.windowsazure.com)’nda **Depolama**’ya tıklayın, ardından panoyu açmak için depolama hesabının adına tıklayın.
 2. **Anahtarları Yönet**’i tıklayın.
    
-    **Erişim Tuşlarını Yönet** açılır.
+     **Erişim Tuşlarını Yönet** açılır.
    
     ![Managekeys](./media/storage-create-storage-account-classic-portal/Storage_ManageKeys.png)
 3. Depolama erişim tuşunu kopyalamak için anahtar metnini seçin. Ardından sağ tıklayarak **Kopyala**’ya tıklayın.
 
-### Depolama erişim tuşlarını yeniden oluşturma
+### <a name="regenerate-storage-access-keys"></a>Depolama erişim tuşlarını yeniden oluşturma
 Depolama bağlantılarınızı güvenli tutmaya yardımcı olmak üzere depolama hesabınıza erişim tuşlarını düzenli aralıklarla değiştirmenizi öneririz. Bir erişim tuşunu kullanarak depolama hesabına bağlantıları sağlamak ve diğer anahtarı yeniden oluşturmak üzere kullanmanız için iki erişim tuşu atanır.
 
 > [!WARNING]
@@ -145,7 +149,7 @@ Depolama erişim tuşlarınızı şu şekilde döndürebilirsiniz:
 3. Yeni birincil erişim tuşunu referans olarak kullanmak için bağlantı dizelerini güncelleştirin.
 4. İkincil erişim tuşunu yeniden oluşturun.
 
-## Bir depolama hesabını silme
+## <a name="delete-a-storage-account"></a>Bir depolama hesabını silme
 Artık kullanmadığınız bir depolama hesabını kaldırmak için panoda**Sil** ‘i veya **Yapılandır** sayfasını kullanın. **Sil**, hesaptaki bloblar, tablolar ve kuyruklar dahil olmak üzere tüm depolama hesabının tamamını siler.
 
 > [!WARNING]
@@ -163,11 +167,14 @@ Artık kullanmadığınız bir depolama hesabını kaldırmak için panoda**Sil*
     Panoyu açmak için depolama hesabının adına tıklayın ve ardından **Sil**’e tıklayın.
 3. Depolama hesabını silme isteğinizi onaylamak için **Evet**’e tıklayın.
 
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 * Azure Storage hakkında daha fazla bilgi için bkz. [Azure Storage belgeleri](https://azure.microsoft.com/documentation/services/storage/).
 * [Azure Storage ekip blogunu](http://blogs.msdn.com/b/windowsazurestorage/) ziyaret edin.
 * [AzCopy Komut Satırı Yardımcı Programı ile veri aktarımı](storage-use-azcopy.md)
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,25 +1,29 @@
 ---
-title: Azure Anahtar Kasası kullanmaya başlama | Microsoft Docs
-description: Bu öğreticiyi, Azure'da sağlamlaştırılmış bir kapsayıcı oluşturmak ve Azure'da şifreleme anahtarlarını ve gizli anahtarları depolayıp yönetmek amacıyla Azure Anahtar Kasası kullanmaya başlamanıza yardımcı olması için kullanın.
+title: "Azure Anahtar Kasası’nı kullanmaya başlama | Microsoft Belgeleri"
+description: "Bu öğreticiyi, Azure&quot;da sağlamlaştırılmış bir kapsayıcı oluşturmak ve Azure&quot;da şifreleme anahtarlarını ve gizli anahtarları depolayıp yönetmek amacıyla Azure Anahtar Kasası kullanmaya başlamanıza yardımcı olması için kullanın."
 services: key-vault
-documentationcenter: ''
+documentationcenter: 
 author: cabailey
 manager: mbaldwin
 tags: azure-resource-manager
-
+ms.assetid: 36721e1d-38b8-4a15-ba6f-14ed5be4de79
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 10/10/2016
+ms.date: 10/24/2016
 ms.author: cabailey
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: e30f98d541d0e6a79fab0e9b12619a2072e9ec70
+
 
 ---
-# Azure Anahtar Kasası kullanmaya başlama
+# <a name="get-started-with-azure-key-vault"></a>Azure Anahtar Kasası kullanmaya başlama 
 Azure Anahtar Kasası çoğu bölgede kullanılabilir. Daha fazla bilgi için bkz. [Anahtar Kasası fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/key-vault/).
 
-## Giriş
+## <a name="introduction"></a>Giriş
 Bu öğreticiyi, Azure'da sağlamlaştırılmış bir kapsayıcı (bir kasa) oluşturmak ve Azure'da şifreleme anahtarlarını ve gizli anahtarları depolayıp yönetmek amacıyla Azure Anahtar Kasası ile çalışmaya başlamaya yardımcı olması için kullanın. Bu öğretici, bir Azure uygulamasıyla kullanabileceğiniz anahtar veya parolayı içeren bir kasa oluşturmak için Azure PowerShell kullanma sürecinde size rehberlik eder. Ardından, bu anahtarı veya parolayı bir uygulamanın nasıl kullanacağını gösterir.
 
 **Tahmini tamamlanma süresi:** 20 dakika
@@ -33,7 +37,7 @@ Bu öğreticiyi, Azure'da sağlamlaştırılmış bir kapsayıcı (bir kasa) olu
 
 Azure Anahtar Kasası genel bakış bilgileri için bkz. [Azure Anahtar Kasası nedir?](key-vault-whatis.md)
 
-## Önkoşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bu öğreticiyi tamamlamak için aşağıdakilere sahip olmanız gerekir:
 
 * Bir Microsoft Azure aboneliği. Bir aboneliğiniz yoksa [ücretsiz hesap](https://azure.microsoft.com/pricing/free-trial/) için kaydolabilirsiniz.
@@ -52,15 +56,15 @@ Bu öğreticide gördüğünüz herhangi bir cmdlet hakkında ayrıntılı yard�
 
 Ayrıca, Azure PowerShell'de Azure Resource Manager hakkında bilgi edinmek için aşağıdaki öğreticileri okuyabilirsiniz:
 
-* [Azure PowerShell'i yükleme ve yapılandırma](../powershell-install-configure.md)
-* [Resource Manager ile Azure PowerShell'i kullanma](../powershell-azure-resource-manager.md)
+* [Azure PowerShell’i yükleme ve yapılandırma](../powershell-install-configure.md)
+* [Azure PowerShell’i Resource Manager ile kullanma](../powershell-azure-resource-manager.md)
 
-## <a id="connect"></a>Aboneliklerinize bağlanma
+## <a name="a-idconnectaconnect-to-your-subscriptions"></a><a id="connect"></a>Aboneliklerinize bağlanma
 Bir Azure PowerShell oturumu başlatın ve aşağıdaki komutla Azure hesabınızda oturum açın:  
 
     Login-AzureRmAccount 
 
-Azure Kamu gibi belirli bir Azure örneği kullanıyorsanız bu komutla birlikte -Environment parametresini kullanmayı unutmayın. Örneğin: `Login-AzureRmAccount –Environment (Get-AzureRmEnvironment –Name AzureUSGovernment)`
+Azure Kamu gibi belirli bir Azure örneği kullanıyorsanız bu komutla birlikte -Environment parametresini kullanmayı unutmayın. Örneğin, `Login-AzureRmAccount –Environment (Get-AzureRmEnvironment –Name AzureUSGovernment)`
 
 Açılır tarayıcı penceresinde Azure hesabı kullanıcı adınızı ve parolanızı girin. Azure PowerShell bu hesapla ilişkili tüm abonelikleri alır ve varsayılan olarak birinciyi kullanır.
 
@@ -74,13 +78,13 @@ Ardından, kullanılacak aboneliği belirtmek için şunu yazın:
 
 Azure Power Shell'i yapılandırma hakkında daha fazla bilgi için bkz. [Azure PowerShell'i yükleme ve yapılandırma](../powershell-install-configure.md).
 
-## <a id="resource"></a>Yeni bir kaynak grubu oluşturma
+## <a name="a-idresourceacreate-a-new-resource-group"></a><a id="resource"></a>Yeni bir kaynak grubu oluşturma
 Azure Resource Manager'ı kullandığınızda, tüm ilgili kaynaklar bir kaynak grubu içinde oluşturulur. Bu öğretici için **ContosoResourceGroup** adlı yeni bir kaynak grubu oluşturacağız:
 
     New-AzureRmResourceGroup –Name 'ContosoResourceGroup' –Location 'East Asia'
 
 
-## <a id="vault"></a>Bir anahtar kasası oluşturma
+## <a name="a-idvaultacreate-a-key-vault"></a><a id="vault"></a>Anahtar kasası oluşturma
 Bir anahtar kasası oluşturmak için [New-AzureRmKeyVault](https://msdn.microsoft.com/library/azure/mt603736\(v=azure.300\).aspx) cmdlet'ini kullanın. Bu cmdlet, üç zorunlu parametreye sahiptir: bir **kaynak grubu adı**, bir **anahtar kasası adı** ve **coğrafi konum**.
 
 Örneğin, **ContosoKeyVault** kasa adını, **ContosoResourceGroup** kaynak grubu adını ve **Doğu Asya** konumunu kullanıyorsanız şunu yazın:
@@ -99,7 +103,7 @@ Azure hesabınız artık bu anahtar kasasında herhangi bir işlemi gerçekleşt
 > 
 > 
 
-## <a id="add"></a>Anahtar kasasına bir anahtar veya gizli anahtar ekleme
+## <a name="a-idaddaadd-a-key-or-secret-to-the-key-vault"></a><a id="add"></a>Anahtar kasasına bir anahtar veya gizli anahtar ekleme
 Azure Anahtar Kasası'nın sizin için yazılım korumalı bir anahtar oluşturmasını istiyorsanız [Add-AzureKeyVaultKey](https://msdn.microsoft.com/library/azure/dn868048\(v=azure.300\).aspx) cmdlet'ini kullanın ve aşağıdakini yazın:
 
     $key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey' -Destination 'Software'
@@ -140,7 +144,7 @@ Yeni oluşturduğunuz anahtarı veya gizli anahtarı görüntüleyelim:
 
 Artık anahtar kasanız ve anahtarınız veya gizli anahtarınız uygulamaların kullanması için hazır. Uygulamaları bunları kullanmaları için yetkilendirmeniz gerekir.  
 
-## <a id="register"></a>Bir uygulamayı Azure Active Directory'ye kaydetme
+## <a name="a-idregisteraregister-an-application-with-azure-active-directory"></a><a id="register"></a>Bir uygulamayı Azure Active Directory’ye kaydetme
 Bu adım genellikle ayrı bir bilgisayarda bir geliştirici tarafından yapılır. Azure Anahtar Kasası'na özgü değildir ancak bütünlük açısından buraya dahil edilir.
 
 > [!IMPORTANT]
@@ -165,7 +169,7 @@ Bir uygulamayı Azure Active Directory'ye kaydetmek için:
 9. **Anahtarlar** bölümüne kaydırın, süre seçin ve ardından **KAYDET**'e tıklayın. Sayfa yenilenir ve ardından bir anahtar değeri gösterir. Bu anahtar değeri ve **İSTEMCİ KİMLİĞİ** değeri ile uygulamanızı yapılandırmanız gerekir. (Bu yapılandırma için yönergeler uygulamaya özgü olur.)
 10. Kasanızda izinleri ayarlamak için bir sonraki adımda kullanacağınız istemci kimliği değerini bu sayfadan kopyalayın.
 
-## <a id="authorize"></a>Anahtar veya gizli anahtarı kullanması için uygulamayı yetkilendirme
+## <a name="a-idauthorizeaauthorize-the-application-to-use-the-key-or-secret"></a><a id="authorize"></a>Anahtar veya gizli anahtarı kullanması için uygulamayı yetkilendirme
 Uygulamayı kasadaki anahtar veya gizli anahtara erişmek üzere yetkilendirmek için  [AzureRmKeyVaultAccessPolicy](https://msdn.microsoft.com/library/azure/mt603625\(v=azure.300\).aspx) cmdlet'ini ayarlayın.
 
 Örneğin, kasa adınız **ContosoKeyVault** ise ve yetkilendirmek istediğiniz uygulama 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed istemci kimliğine sahipse ve uygulamaya kasanızdaki anahtarların şifresini çözme ve bunlarla oturum açma yetkisi vermek istiyorsanız şunu çalıştırın:
@@ -176,18 +180,18 @@ Aynı uygulamayı kasanızdaki gizli anahtarları okumak için yetkilendirmek is
 
     Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToSecrets Get
 
-## <a id="HSM"></a>Bir donanım güvenlik modülü (HSM) kullanmak istiyorsanız
+## <a name="a-idhsmaif-you-want-to-use-a-hardware-security-module-hsm"></a><a id="HSM"></a>Bir donanım güvenlik modülü (HSM) kullanmak istiyorsanız
 Ek güvence için HSM sınırını asla terk etmeyen donanım güvenlik modüllerinde (HSM'ler) anahtarları içeri aktarabilir veya oluşturabilirsiniz. HSM'ler, FIPS 140-2 Düzey 2 doğrulanmasına sahiptir. Bu gereksinim sizin için geçerli değilse bu bölümü atlayın ve [Anahtar kasasını ve ilişkili anahtarları ve gizli anahtarları silme](#delete)'ye gidin.
 
-Bu HSM korumalı anahtarları oluşturmak için [HSM korumalı anahtarları destekleyen bir kasa aboneliğine](https://azure.microsoft.com/pricing/free-trial/) sahip olmanız gerekir.  Buna ek olarak, bu işlev Azure Çin için kullanılamıyor.
+Bu HSM korumalı anahtarları oluşturmak için [HSM korumalı anahtarları desteklemek için Azure Anahtar Kasası Premium hizmet katmanını](https://azure.microsoft.com/pricing/free-trial/) kullanmanız gerekir. Ek olarak, bu işlevin Azure Çin'de kullanılamadığını unutmayın.
 
-Kasayı oluşturduğunuzda **-SKU** parametresini ekleyin:
+Anahtar kasasını oluşturduğunuzda **-SKU** parametresini ekleyin:
 
     New-AzureRmKeyVault -VaultName 'ContosoKeyVaultHSM' -ResourceGroupName 'ContosoResourceGroup' -Location 'East Asia' -SKU 'Premium'
 
 
 
-Bu kasaya yazılım korumalı anahtarlar ve HSM korumalı anahtarlar (daha önce gösterildiği gibi) ekleyebilirsiniz. HSM korumalı bir anahtar oluşturmak için **-Destination** parametresini 'HSM' olarak ayarlayın.
+Bu anahtar kasasına yazılım korumalı anahtarlar (daha önce gösterildiği gibi) ve HSM korumalı anahtarlar ekleyebilirsiniz. HSM korumalı bir anahtar oluşturmak için **-Destination** parametresini 'HSM' olarak ayarlayın.
 
     $key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMKey' -Destination 'HSM'
 
@@ -202,7 +206,7 @@ Bir sonraki komut bir "kendi anahtarınızı getirin" (BYOK) paketini içeri akt
 
 Bu BYOK paketini oluşturma hakkında daha ayrıntılı yönergeler için bkz. [Azure Anahtar Kasası için HSM korumalı anahtarlar oluşturma ve aktarma](key-vault-hsm-protected-keys.md).
 
-## <a id="delete"></a>Anahtar kasasını ve ilişkili anahtarları ve gizli anahtarları silme
+## <a name="a-iddeleteadelete-the-key-vault-and-associated-keys-and-secrets"></a><a id="delete"></a>Anahtar kasasını, ilişkili anahtarları ve gizli anahtarları silme
 Anahtar kasasına veya içerdiği anahtar veya gizli anahtara artık ihtiyacınız yoksa anahtar kasasını [Remove-AzureRmKeyVault](https://msdn.microsoft.com/library/azure/mt619485\(v=azure.300\).aspx) cmdlet'ini kullanarak silebilirsiniz.
 
     Remove-AzureRmKeyVault -VaultName 'ContosoKeyVault'
@@ -212,16 +216,16 @@ Alternatif olarak, anahtar kasasını ve bu gruba eklediğiniz herhangi diğer k
     Remove-AzureRmResourceGroup -ResourceGroupName 'ContosoResourceGroup'
 
 
-## <a id="other"></a>Diğer Azure PowerShell Cmdlet'leri
+## <a name="a-idotheraother-azure-powershell-cmdlets"></a><a id="other"></a>Diğer Azure PowerShell Cmdlet’leri
 Azure Anahtar Kasası'nı yönetmede kullanışlı bulabileceğiniz diğer komutlar:
 
-* `$Keys = Get-AzureKeyVaultKey -VaultName 'ContosoKeyVault'`: Bu komut tüm anahtarların ve seçilen özelliklerin tablolu bir görüntüsünü elde eder.
-* `$Keys[0]`: Bu komut belirli anahtar için özelliklerin tam bir listesini görüntüler.
-* `Get-AzureKeyVaultSecret`: Bu komut tüm gizli adların ve seçilen özelliklerin tablolu bir görüntüsünü listeler.
+* `$Keys = Get-AzureKeyVaultKey -VaultName 'ContosoKeyVault'`: Bu komut, tüm anahtarların ve seçilen özelliklerin tablosal bir görüntüsünü alır.
+* `$Keys[0]`: Bu komut, belirtilen anahtar için özelliklerin tam bir listesini görüntüler
+* `Get-AzureKeyVaultSecret`: Bu komut, tüm gizli adların ve seçilen özelliklerin tablosal bir görüntüsünü listeler.
 * `Remove-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey'`: Belirli bir anahtarın nasıl kaldırılacağına örnek verir.
 * `Remove-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'SQLPassword'`: Belirli bir gizli anahtarın nasıl kaldırılacağına örnek verir.
 
-## <a id="next"></a>Sonraki adımlar
+## <a name="a-idnextanext-steps"></a><a id="next"></a>Sonraki adımlar
 Azure Anahtar Kasası'nı bir web uygulamasında kullanan bir izleme öğreticisi için bkz. [Azure Anahtar Kasası'nı bir Web Uygulamasından Kullanma](key-vault-use-from-web-application.md).
 
 Anahtar kasanızın nasıl kullanıldığını görmek için bkz. [Azure Anahtar Kasası Günlüğü](key-vault-logging.md).
@@ -230,6 +234,9 @@ Azure Anahtar Kasası'na yönelik en son Azure PowerShell cmdlet'leri listesi i�
 
 Programlama başvuruları için bkz. [Azure Anahtar Kasası geliştirici kılavuzu](key-vault-developers-guide.md).
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

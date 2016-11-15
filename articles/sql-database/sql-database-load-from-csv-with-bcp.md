@@ -1,12 +1,12 @@
 ---
-title: CSV dosyasından Azure SQL Veritabanına veri yükleme (bcp) | Microsoft Docs
-description: Küçük veri boyutları için Azure SQL Veritabanına veri aktarırken bcp kullanır.
+title: "CSV dosyasından Azure SQL Veritabanı’na veri yükleme (bcp) | Microsoft Belgeleri"
+description: "Küçük veri boyutları için Azure SQL Veritabanına veri aktarırken bcp kullanır."
 services: sql-database
 documentationcenter: NA
 author: CarlRabeler
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 875f9b8d-f1a1-4895-b717-f45570fb7f80
 ms.service: sql-database
 ms.devlang: NA
 ms.topic: get-started-article
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 09/13/2016
 ms.author: carlrab
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 8d6e201ba5fb8283d883272e0cb2b8e7c11f43e5
+
 
 ---
-# CSV dosyasından Azure SQL Data Warehouse'a veri yükleme (düz dosyalar)
+# <a name="load-data-from-csv-into-azure-sql-data-warehouse-flat-files"></a>CSV dosyasından Azure SQL Data Warehouse'a veri yükleme (düz dosyalar)
 Bir CSV dosyasından Azure SQL Database’e veri aktarmak için bcp komut satırı yardımcı programını kullanabilirsiniz.
 
-## Başlamadan önce
-### Önkoşullar
+## <a name="before-you-begin"></a>Başlamadan önce
+### <a name="prerequisites"></a>Önkoşullar
 Bu öğreticide ilerleyebilmeniz için şunlar gereklidir:
 
 * Azure SQL Database mantıksal sunucusu ve veritabanı
@@ -29,10 +33,10 @@ Bu öğreticide ilerleyebilmeniz için şunlar gereklidir:
 
 bcp ve sqlcmd yardımcı programlarını [Microsoft İndirme Merkezi][Microsoft İndirme Merkezi]'nden indirebilirsiniz.
 
-### ASCII veya UTF-16 biçimindeki veriler
+### <a name="data-in-ascii-or-utf16-format"></a>ASCII veya UTF-16 biçimindeki veriler
 UTF-8 biçimi bcp tarafından desteklenmediğinden, bu öğreticiyi kendi verilerinizle deniyorsanız verilerinizin ASCII veya UTF-16 kodlamasını kullanıyor olması gerekir. 
 
-## 1. Hedef tablo oluşturma
+## <a name="1-create-a-destination-table"></a>1. Hedef tablo oluşturma
 SQL Veritabanı'nda bir tabloyu hedef tablo olarak tanımlayın. Tablodaki sütunlar, veri dosyanızın tüm satırlarındaki verilere karşılık gelmelidir.
 
 Tablo oluşturmak için bir komut istemi açın ve sqlcmd.exe dosyasını kullanarak şu komutu çalıştırın:
@@ -50,7 +54,7 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 ```
 
 
-## 2. Kaynak veri dosyası oluşturma
+## <a name="2-create-a-source-data-file"></a>2. Kaynak veri dosyası oluşturma
 Not Defteri'ni açın ve yeni bir metin dosyasına aşağıdaki veri satırlarını kopyalayıp dosyayı yerel geçici dizininize (C:\Temp\DimDate2.txt) kaydedin. Bu veri ASCII biçimindedir.
 
 ```
@@ -74,7 +78,7 @@ Not Defteri'ni açın ve yeni bir metin dosyasına aşağıdaki veri satırları
 bcp <TableName> out C:\Temp\DimDate2_export.txt -S <ServerName> -d <DatabaseName> -U <Username> -P <Password> -q -c -t ','
 ```
 
-## 3. Verileri yükleme
+## <a name="3-load-the-data"></a>3. Verileri yükleme
 Verileri yüklemek için bir komut satırı açın; Sunucu Adı, Veritabanı Adı, Kullanıcı Adı ve Parola alanlarına kendi bilgilerinizi yazarak aşağıdaki komutu çalıştırın.
 
 ```sql
@@ -104,7 +108,7 @@ Sonuçlar şu şekilde görünmelidir:
 | 20151101 |4 |2 |
 | 20151201 |4 |2 |
 
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 Bir SQL Server veritabanına geçiş yapmak için bkz. [SQL Server veritabanı geçişi](sql-database-cloud-migrate.md).
 
 <!--MSDN references-->
@@ -116,6 +120,6 @@ Bir SQL Server veritabanına geçiş yapmak için bkz. [SQL Server veritabanı g
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,4 +1,4 @@
-### Anında İletme Sertifikanıza Mobile Engagement için erişim izni verme
+### <a name="grant-access-to-your-push-certificate-to-mobile-engagement"></a>Anında İletme Sertifikanıza Mobile Engagement için erişim izni verme
 Mobile Engagement’ın sizin adınıza Anında İletme Bildirimleri göndermesine izin vermek için sertifikanıza erişim izni vermeniz gerekir. Bu da, sertifikanız yapılandırıp Mobile Engagement portalına girilerek gerçekleştirilir. [Apple belgeleri](https://developer.apple.com/library/prerelease/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html#//apple_ref/doc/uid/TP40012582-CH26-SW6)’nde açıklandığı gibi p12 sertifikanız olduğundan emin olun
 
 1. Mobile Engagement portalınıza gidin. Doğru yerde olduğunuzdan emin olun ve alttaki **Katıl** düğmesine tıklayın:
@@ -11,7 +11,7 @@ Mobile Engagement’ın sizin adınıza Anında İletme Bildirimleri göndermesi
    
     ![](./media/mobile-engagement-ios-send-push/native-push-settings.png)
 
-## <a id="send"></a>Uygulamanıza bildirim gönderme
+## <a name="a-idsendasend-a-notification-to-your-app"></a><a id="send"></a>Uygulamanıza bildirim gönderme
 Şimdi de, uygulamamıza Anında İletme Bildirimi gönderecek basit bir bildirim kampanyası oluşturacağız:
 
 1. Mobile Engagement portalınızın **erişim** sekmesine gidin.
@@ -40,6 +40,8 @@ Mobile Engagement’ın sizin adınıza Anında İletme Bildirimleri göndermesi
    
     ![](./media/mobile-engagement-ios-send-push/apple-watch.png)
 
-<!--HONumber=Jun16_HO2-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Unity Android dağıtımı için Azure Mobile Engagement kullanmaya başlama
-description: Unity uygulamalarını iOS cihazlarına dağıtmak için Analizler ve Anında İletme Bildirimleri ile Azure Mobile Engagement kullanmayı öğrenin.
+title: "Unity Android dağıtımı için Azure Mobile Engagement kullanmaya başlama"
+description: "Unity uygulamalarını iOS cihazlarına dağıtmak için Analizler ve Anında İletme Bildirimleri ile Azure Mobile Engagement kullanmayı öğrenin."
 services: mobile-engagement
 documentationcenter: unity
 author: piyushjo
-manager: ''
-editor: ''
-
+manager: erikre
+editor: 
+ms.assetid: d5f0ef79-be00-4cec-97a5-a0b2fdaa380e
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-unity-android
@@ -14,9 +14,13 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/19/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: bf0b758159d475b4ed7eadb84227e4824e11ba86
+
 
 ---
-# Unity Android dağıtımı için Azure Mobile Engagement kullanmaya başlama
+# <a name="get-started-with-azure-mobile-engagement-for-unity-android-deployment"></a>Unity Android dağıtımı için Azure Mobile Engagement kullanmaya başlama
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
 Bu konu size uygulama kullanımınızı anlamak için Azure Mobile Engagement kullanmayı ve Android cihazına dağıtırken bir Unity uygulamasının kesimli kullanıcılarına anında iletme bildirimleri göndermeyi gösterir.
@@ -29,15 +33,15 @@ Bu öğretici için aşağıdakiler gereklidir:
 * Google Android SDK
 
 > [!NOTE]
-> Bu öğreticiyi tamamlamak için etkin bir Azure hesabınızın olması gerekir. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılar için bkz. [Azure Ücretsiz Deneme](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-unity-android-get-started).
+> Bu öğreticiyi tamamlamak için etkin bir Azure hesabınızın olması gerekir. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-unity-android-get-started).
 > 
 > 
 
-## <a id="setup-azme"></a>Android uygulamanız için Mobile Engagement kurma
+## <a name="a-idsetupazmeasetup-mobile-engagement-for-your-android-app"></a><a id="setup-azme"></a>Android uygulamanız için Mobile Engagement kurma
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a id="connecting-app"></a>Uygulamanızı Mobile Engagement arka ucuna bağlama
-### Unity paketini içeri aktarma
+## <a name="a-idconnectingappaconnect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Uygulamanızı Mobile Engagement arka ucuna bağlama
+### <a name="import-the-unity-package"></a>Unity paketini içeri aktarma
 1. [Mobile Engagement Unity paketini](https://aka.ms/azmeunitysdk) indirin ve yerel makinenize kaydedin. 
 2. **Varlıklar -> Paketi İçeri Aktar -> Özel Paket**’e gidin ve yukarıdaki adımda indirdiğiniz paketi seçin. 
    
@@ -49,7 +53,7 @@ Bu öğretici için aşağıdakiler gereklidir:
    
     ![][72] 
 
-### EngagementConfiguration’ı güncelleştirme
+### <a name="update-the-engagementconfiguration"></a>EngagementConfiguration’ı güncelleştirme
 1. SDK klasöründe **EngagementConfiguration** betik dosyasını açın ve daha önce Azure portaldan aldığınız bağlantı dizesiyle **ANDROID\_CONNECTION\_STRING**’i güncelleştirin.  
    
     ![][73]
@@ -63,7 +67,7 @@ Bu öğretici için aşağıdakiler gereklidir:
 > 
 > 
 
-### Uygulamayı temel izleme için yapılandırma
+### <a name="configure-the-app-for-basic-tracking"></a>Uygulamayı temel izleme için yapılandırma
 1. Düzenlemek için Player nesnesine ekli olan **PlayerController** betiğini açın. 
 2. Şu deyimi kullanarak aşağıdakileri ekleyin:
    
@@ -73,7 +77,7 @@ Bu öğretici için aşağıdakiler gereklidir:
         EngagementAgent.Initialize();
         EngagementAgent.StartActivity("Home");
 
-### Uygulamayı dağıtma ve çalıştırma
+### <a name="deploy-and-run-the-app"></a>Uygulamayı dağıtma ve çalıştırma
 Bu Unity uygulamasını cihazınıza dağıtmaya çalışmadan önce makinenizde Android SDK yüklü olduğundan emin olun. 
 
 1. Bir Android cihazı makinenize bağlayın. 
@@ -94,13 +98,13 @@ Bu Unity uygulamasını cihazınıza dağıtmaya çalışmadan önce makinenizde
 6. Android paketini depolamak için bir klasör adı sağlamanız istenebilir. 
 7. Her şey yolunda giderse, paket bağlı cihazınıza dağıtılır ve telefonunuzda Unity oyununuzu görmelisiniz. 
 
-## <a id="monitor"></a>Uygulamayı gerçek zamanlı izlemeyle bağlama
+## <a name="a-idmonitoraconnect-app-with-realtime-monitoring"></a><a id="monitor"></a>Uygulamayı gerçek zamanlı izlemeyle bağlama
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-## <a id="integrate-push"></a>Anında iletme bildirimlerini ve uygulama içi mesajlaşmayı etkinleştirme
+## <a name="a-idintegratepushaenable-push-notifications-and-inapp-messaging"></a><a id="integrate-push"></a>Anında iletme bildirimlerini ve uygulama içi mesajlaşmayı etkinleştirme
 [!INCLUDE [Enable Google Cloud Messaging](../../includes/mobile-engagement-enable-google-cloud-messaging.md)]
 
-### EngagementConfiguration’ı güncelleştirme
+### <a name="update-the-engagementconfiguration"></a>EngagementConfiguration’ı güncelleştirme
 1. SDK klasöründe **EngagementConfiguration** betik dosyasını açın ve daha önce Google Cloud Developer portaldan aldığınız **Google Project Number** ile **ANDROID\_GOOGLE\_NUMBER**’i güncelleştirin. Bu bir dize değeridir, bu nedenle çift tırnak içine aldığınızdan emin olun. 
    
     ![][75]
@@ -109,7 +113,7 @@ Bu Unity uygulamasını cihazınıza dağıtmaya çalışmadan önce makinenizde
    
     ![][74]
 
-### Bildirimleri almak üzere uygulamayı yapılandırma
+### <a name="configure-the-app-to-receive-notifications"></a>Bildirimleri almak üzere uygulamayı yapılandırma
 1. Düzenlemek için Player nesnesine ekli olan **PlayerController** betiğini açın. 
 2. Aşağıdakileri `Start()` yöntemine ekleyin.
    
@@ -133,6 +137,6 @@ Bu Unity uygulamasını cihazınıza dağıtmaya çalışmadan önce makinenizde
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

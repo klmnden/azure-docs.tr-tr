@@ -6,12 +6,17 @@ VPN Gateway aşağıdaki SKU’ları kullanabilir:
 * Standart
 * HighPerformance
 
-Bir SKU seçerken, aşağıdaki sınırlamaları göz önünde bulundurun:
+VPN Gateway, UltraPerformance ağ geçidi SKU’sunu kullanmaz. UltraPerformance SKU’su hakkında bilgi edinmek için [ExpressRoute](../articles/expressroute/expressroute-about-virtual-network-gateways.md) belgelerine bakın.
 
-* PolicyBased VPN türü kullanmak istiyorsanız Temel ağ geçidi SKU’su kullanmanız gerekir. PolicyBased VPN'ler (daha önce Statik Yönlendirme olarak biliniyordu), diğer SKU’larda desteklenmez.
+SKU seçerken şunları göz önünde bulundurun:
+
+* PolicyBased VPN türünü kullanmak istiyorsanız Temel SKU'yu kullanmanız gerekir. PolicyBased VPN'ler (daha önce Statik Yönlendirme olarak biliniyordu), diğer SKU’larda desteklenmez.
 * BGP, Temel SKU’da desteklenmez.
 * ExpressRoute-VPN Gateway ağ geçidi bir arada var olabilen yapılandırmaları, temel SKU'da desteklenmez.
+* Etkin-etkin S2S VPN Gateway bağlantıları, yalnızca HighPerformance değerine sahip SKU'larda yapılandırılabilir.
 
-<!--HONumber=Oct16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

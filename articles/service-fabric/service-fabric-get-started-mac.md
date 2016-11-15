@@ -1,12 +1,12 @@
 ---
-title: Mac OS X’te geliştirme ortamınızı ayarlama | Microsoft Docs
-description: Çalışma zamanını, SDK'yı ve araçları yükleyip yerel bir geliştirme kümesi oluşturun. Bu kurulumu tamamladıktan sonra Mac OS X üzerinde uygulama derlemek için hazır hale gelirsiniz.
+title: "Mac OS X’te geliştirme ortamınızı ayarlama | Microsoft Belgeleri"
+description: "Çalışma zamanını, SDK&quot;yı ve araçları yükleyip yerel bir geliştirme kümesi oluşturun. Bu kurulumu tamamladıktan sonra Mac OS X üzerinde uygulama derlemek için hazır hale gelirsiniz."
 services: service-fabric
 documentationcenter: .net
 author: seanmck
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: get-started-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/25/2016
 ms.author: seanmck
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b25afa13010716188eab0623b1d8ea0d525a2b36
+
 
 ---
-# Mac OS X’te geliştirme ortamınızı ayarlama
+# <a name="set-up-your-development-environment-on-mac-os-x"></a>Mac OS X’te geliştirme ortamınızı ayarlama
 > [!div class="op_single_selector"]
 > -[ Windows](service-fabric-get-started.md)
 > 
@@ -27,13 +31,13 @@ ms.author: seanmck
 
 Mac OS X kullanarak Linux kümelerinde çalışacak Service Fabric uygulamaları derleyebilirsiniz. Bu makalede Mac’inizi geliştirme için nasıl ayarlayacağınız ele alınmaktadır.
 
-## Ön koşullar
+## <a name="prerequisites"></a>Ön koşullar
 Service Fabric, OS X üzerinde yerel olarak çalışmaz. Yerel bir Service Fabric kümesini çalıştırmak için Vagrant ve VirtualBox kullanarak önceden yapılandırılmış bir Ubuntu sanal makinesi sağlıyoruz. Başlamadan önce şunlar gereklidir:
 
 * [Vagrant (v1.8.4 veya üzeri)](http://wwww.vagrantup.com/downloads)
 * [VirtualBox](http://www.virtualbox.org/wiki/Downloads)
 
-## Yerel sanal makine oluşturma
+## <a name="create-the-local-vm"></a>Yerel sanal makine oluşturma
 5 düğümlü Service Fabric kümesini içeren yerel bir sanal makine oluşturmak için aşağıdakileri yapın:
 
 1. Vagrantfile deposunu kopyalayın
@@ -67,7 +71,7 @@ Service Fabric, OS X üzerinde yerel olarak çalışmaz. Yerel bir Service Fabri
    
     ![Ana Mac bilgisayarından görüntülenen Service Fabric Explorer][sfx-mac]
 
-## Eclipse Neon için Service Fabric eklentisini yükleme (isteğe bağlı)
+## <a name="install-the-service-fabric-plugin-for-eclipse-neon-optional"></a>Eclipse Neon için Service Fabric eklentisini yükleme (isteğe bağlı)
 Service Fabric, Eclipse Neon IDE için Java hizmetlerini derleyip dağıtmayı kolaylaştırabilen bir eklenti sağlar.
 
 1. Eclipse'te, Buildship 1.0.17 veya sonraki bir sürümün yüklü olduğundan emin olun. **Yardım > Yükleme Ayrıntıları**’nı seçerek yüklü bileşenlerin sürümlerini denetleyebilirsiniz. Buildship’i güncelleştirmek için [buradaki][buildship-update] yönergeleri kullanabilirsiniz.
@@ -79,7 +83,7 @@ Service Fabric, Eclipse Neon IDE için Java hizmetlerini derleyip dağıtmayı k
 5. Service Fabric eklentisini seçin ve İleri’ye tıklayın.
 6. Yükleme işlemine devam edin ve son kullanıcı lisans sözleşmesini kabul edin.
 
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 * [Linux için ilk Service Fabric uygulamanızı oluşturma](service-fabric-create-your-first-linux-application-with-java.md)
 
 <!-- Links -->
@@ -96,6 +100,6 @@ Service Fabric, Eclipse Neon IDE için Java hizmetlerini derleyip dağıtmayı k
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Nov16_HO2-->
 
 

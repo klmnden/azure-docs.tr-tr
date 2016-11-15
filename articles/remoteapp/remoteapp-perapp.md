@@ -1,12 +1,12 @@
 ---
-title: Azure RemoteApp koleksiyonunda (Önizleme) bireysel kullanıcılara uygulama yayımlama | Microsoft Docs
-description: Azure RemoteApp’te, kullanıcılara bağlı olmak yerine, bireysel kullanıcılara uygulama yayımlamayı öğrenin.
+title: "Azure RemoteApp koleksiyonunda (Önizleme) bireysel kullanıcılara uygulama yayımlama | Microsoft Belgeleri"
+description: "Azure RemoteApp’te, kullanıcılara bağlı olmak yerine, bireysel kullanıcılara uygulama yayımlamayı öğrenin."
 services: remoteapp-preview
-documentationcenter: ''
+documentationcenter: 
 author: piotrci
 manager: mbaldwin
-editor: ''
-
+editor: 
+ms.assetid: 1fd0539d-fa65-4ea5-a98e-0be0cf580690
 ms.service: remoteapp
 ms.devlang: na
 ms.topic: hero-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: compute
 ms.date: 08/15/2016
 ms.author: piotrci
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 07cadd332edc4c55d87ca76aabeaba824d1e2673
+
 
 ---
-# Azure RemoteApp koleksiyonunda (Önizleme) bireysel kullanıcılara uygulama yayımlama
+# <a name="publish-applications-to-individual-users-in-an-azure-remoteapp-collection-preview"></a>Azure RemoteApp koleksiyonunda (Önizleme) bireysel kullanıcılara uygulama yayımlama
 > [!IMPORTANT]
 > Azure RemoteApp kullanımdan kaldırılıyor. Ayrıntılı bilgi için [duyuruyu](https://go.microsoft.com/fwlink/?linkid=821148) okuyun.
 > 
@@ -42,7 +46,7 @@ Bu artık Azure RemoteApp’te şu anda sınırlı bir önizleme özelliği olar
    * Bu özellik uygulamalara güvenli kilitleme özelliği sağlamak; yalnızca uygulama akışındaki görünürlüğü sınırlar.
    * Uygulamaları kullanıcılardan yalıtmanız gerekiyorsa, bunun için ayrı koleksiyonlar için kullanmanız gerekecektir.
 
-## Azure RemoteApp PowerShell cmdlet'lerini alma
+## <a name="how-to-get-azure-remoteapp-powershell-cmdlets"></a>Azure RemoteApp PowerShell cmdlet'lerini alma
 Yeni önizleme işlevini denemek için, Azure PowerShell cmdlet'lerini kullanmanız gerekecektir. Şu anda yeni uygulama yayımlama modunu etkinleştirmek için Azure Yönetim portalını kullanmak mümkün değildir.
 
 İlk olarak, [Azure PowerShell modülü](../powershell-install-configure.md) yüklü olduğundan emin olun.
@@ -53,7 +57,7 @@ Daha sonra, PowerShell konsolunu yönetici modunda başlatın ve aşağıdaki cm
 
 Sizden Azure kullanıcı adı ve parola bilgilerini ister. Oturum açıldıktan sonra, Azure aboneliklerinize karşı Azure RemoteApp cmdlet'lerini çalıştırabileceksiniz.
 
-## Bir koleksiyonun hangi modda olduğunu anlama
+## <a name="how-to-check-which-mode-a-collection-is-in"></a>Bir koleksiyonun hangi modda olduğunu anlama
 Aşağıdaki cmdlet'i çalıştırın:
 
         Get-AzureRemoteAppCollection <collectionName>
@@ -65,14 +69,14 @@ AclLevel özelliği aşağıdaki değerlere sahip olabilir:
 * Koleksiyon: özgün yayımlama modu. Tüm kullanıcılar yayımlanan bütün uygulamaları görür.
 * Uygulama: yeni yayımlama modu Kullanıcılar yalnızca kendilerine doğrudan yayımlanan uygulamaları görür.
 
-## Uygulama yayımlama moduna geçiş yapma
+## <a name="how-to-switch-to-application-publishing-mode"></a>Uygulama yayımlama moduna geçiş yapma
 Aşağıdaki cmdlet'i çalıştırın:
 
         Set-AzureRemoteAppCollection -CollectionName -AclLevel Application
 
 Uygulama yayımlama durumu muhafaza edilir: başlangıçta tüm kullanıcılar özgün yayımlanan bütün uygulamaları görür.
 
-## Belirli bir uygulamayı görebilen kullanıcıları listeleme
+## <a name="how-to-list-users-who-can-see-a-specific-application"></a>Belirli bir uygulamayı görebilen kullanıcıları listeleme
 Aşağıdaki cmdlet'i çalıştırın:
 
         Get-AzureRemoteAppUser -CollectionName <collectionName> -Alias <appAlias>
@@ -81,24 +85,27 @@ Bu, uygulamayı görebilen tüm kullanıcıları listeler.
 
 Not: Get-AzureRemoteAppProgram -CollectionName <collectionName>’i çalıştırarak uygulama diğer adlarını (yukarıdaki söz diziminde “app alias” adı verilir) verilir.
 
-## Kullanıcıya bir uygulama atama
+## <a name="how-to-assign-an-application-to-a-user"></a>Kullanıcıya bir uygulama atama
 Aşağıdaki cmdlet'i çalıştırın:
 
         Add-AzureRemoteAppUser -CollectionName <collectionName> -UserUpn <user@domain.com> -Type <OrgId|MicrosoftAccount> -Alias <appAlias>
 
 Kullanıcı artık uygulamayı Azure RemoteApp istemcisinde görür ve uygulamaya bağlanabilir
 
-## Kullanıcıdan bir uygulamayı kaldırma
+## <a name="how-to-remove-an-application-from-a-user"></a>Kullanıcıdan bir uygulamayı kaldırma
 Aşağıdaki cmdlet'i çalıştırın:
 
         Remove-AzureRemoteAppUser -CollectionName <collectionName> -UserUpn <user@domain.com> -Type <OrgId|MicrosoftAccount> -Alias <appAlias>
 
-## Geribildirim sağlama
+## <a name="providing-feedback"></a>Geribildirim sağlama
 Bu önizleme özelliğiyle ilgili teşekkür ver önerileriniz için teşekkür ederiz. Lütfen düşündüklerinizi paylaşmak için [anketi](http://www.instant.ly/s/FDdrb) doldurun.
 
-## Önizleme özelliğini deneme şansınız olmadı mı?
+## <a name="havent-had-a-chance-to-try-the-preview-feature"></a>Önizleme özelliğini deneme şansınız olmadı mı?
 Henüz önizlemeye katılmadıysanız, lütfen erişim isteğinden bulunmak için bu [anketi](http://www.instant.ly/s/AY83p) doldurun.
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

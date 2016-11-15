@@ -1,12 +1,12 @@
 ---
-title: Service Bus aracılı mesajlaşma .NET öğreticisi | Microsoft Docs
-description: Aracılı mesajlaşma .NET öğreticisi.
+title: "Service Bus aracılı mesajlaşma .NET eğitmeni | Microsoft Belgeleri"
+description: "Aracılı mesajlaşma .NET öğreticisi."
 services: service-bus
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 964e019a-8abe-42f3-8314-867010cb2608
 ms.service: service-bus
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,14 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/27/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 3127a84f4d4cd9881de56a6d199cfb1780cd8189
+
 
 ---
-# <a name="service-bus-brokered-messaging-.net-tutorial"></a>Service Bus aracılı mesajlaşma .NET öğreticisi
+# <a name="service-bus-brokered-messaging-net-tutorial"></a>Service Bus aracılı mesajlaşma .NET öğreticisi
 Azure Service Bus iki kapsamlı mesajlaşma çözümü sunar. Bunlardan birincisi, birçok aktarım protokollerini ve SOAP, WS_* ve REST dahil olmak üzere Web hizmeti standartlarını destekleyen, bulutta çalışan merkezi "geçiş" hizmetinin kullanıldığı çözümdür. İstemcinin, şirket içi hizmete doğrudan bağlantısının olmasına veya hizmetin nerede bulunduğunu bilmesine gerek yoktur. Ayrıca şirket içi hizmet için güvenlik duvarında gelen bağlantı noktalarının açık olması gerekmez.
 
 İkinci mesajlaşma çözümü ise "aracılı" mesajlaşma işlevleri sağlar. Bunlar, Service Bus mesajlaşma altyapısını kullanan; yayımlama ve abone olma, geçici ayırma ve yük dengeleme özelliklerini destekleyen zaman uyumsuz veya ayrılmış mesajlaşma özellikleri olarak düşünülebilir. Ayrılmış iletişim birçok avantaj sunar. Örneğin, sunucular ve istemciler gerektiğinde bağlantı kurabilir ve kendi işlemlerini zaman uyumsuz olarak gerçekleştirebilir.
 
-Bu öğretici, Service Bus aracılı mesajlaşmanın temel bileşenlerinden biri olan kuyruklarla ilgili genel bir bakış ve uygulamalı deneyim sağlamak üzere tasarlanmıştır. Bu öğreticide bulunan konu başlıklarını sırasıyla çalıştıktan sonra bir ileti listesi dolduran, kuyruk oluşturan ve iletileri bu kuyruğa gönderen bir uygulamaya sahip olursunuz. Son olarak, uygulama bu kuyruktan iletileri alır ve görüntüler. Ardından, kaynaklarını temizler ve çıkış yapar. Service Bus Geçişi kullanan bir uygulamanın nasıl oluşturulacağını açıklayan ilgili öğretici için bkz. [Service Bus geçişli mesajlaşma öğreticisi](../service-bus-relay/service-bus-relay-tutorial.md).
+Bu öğretici, Service Bus aracılı mesajlaşmanın temel bileşenlerinden biri olan kuyruklarla ilgili genel bir bakış ve uygulamalı deneyim sağlamak üzere tasarlanmıştır. Bu öğreticide bulunan konu başlıklarını sırasıyla çalıştıktan sonra bir ileti listesi dolduran, kuyruk oluşturan ve iletileri bu kuyruğa gönderen bir uygulamaya sahip olursunuz. Son olarak, uygulama bu kuyruktan iletileri alır ve görüntüler. Ardından, kaynaklarını temizler ve çıkış yapar. Service Bus WCF Geçişi kullanan bir uygulamanın nasıl oluşturulacağını açıklayan ilgili eğitmen için bkz. [Service Bus geçişli mesajlaşma eğitmeni](../service-bus-relay/service-bus-relay-tutorial.md).
 
 ## <a name="introduction-and-prerequisites"></a>Giriş ve önkoşullar
 Kuyruklar, bir veya birden çok rakip tüketiciye İlk Giren İlk Çıkar (FIFO) yöntemine göre ileti teslimi sunar. FIFO, genellikle iletilerin sıraya alındığı zamana bağlı bir düzende alıcılar tarafından alınıp işleneceği ve her iletinin tek bir ileti tüketicisi tarafından alınıp işleneceği anlamına gelir. Kuyrukları kullanmanın en büyük avantajlarından biri de uygulama bileşenlerinin *zamana bağlı olarak ayrılmasıdır*. Diğer bir deyişle, iletiler sürekli olarak kuyrukta depolandığından üreticilerin ve tüketicilerin iletileri aynı anda almasına ve göndermesine gerek yoktur. Buna benzer başka bir avantaj ise üreticilerin ve tüketicilerin iletileri farklı hızlarda almasına ve göndermesine olanak sağlayan *yük dengeleme* özelliğidir.
@@ -29,7 +33,7 @@ Kuyruklar, bir veya birden çok rakip tüketiciye İlk Giren İlk Çıkar (FIFO)
 Aşağıda, öğretici başlamadan önce uygulamanız gereken bazı yönetim ve önkoşul adımları yer almaktadır. İlk adımda bir hizmet ad alanı oluşturulur ve paylaşılan erişim imzası (SAS) anahtarı edinilir. Ad alanı, Service Bus tarafından kullanıma sunulan her uygulama için bir uygulama sınırı sağlar. Hizmet ad alanı oluşturulduğunda sistem tarafından otomatik olarak bir SAS anahtarı oluşturulur. Hizmet ad alanı ve SAS anahtarı bileşimi ile kimlik bilgisi oluşur. Service Bus hizmeti, bir uygulamaya yönelik erişim için kimlik doğrulaması yapmak üzere bu kimlik bilgisini kullanır.
 
 ### <a name="create-a-service-namespace-and-obtain-a-sas-key"></a>Hizmet ad alanı oluşturma ve bir SAS anahtarı edinme
-İlk adım bir hizmet ad alanı oluşturmak ve [Paylaşılan Erişim İmzası](../service-bus/service-bus-sas-overview.md) (SAS) anahtarı edinmektir. Ad alanı, Service Bus tarafından kullanıma sunulan her uygulama için bir uygulama sınırı sağlar. Hizmet ad alanı oluşturulduğunda sistem tarafından otomatik olarak bir SAS anahtarı oluşturulur. Hizmet ad alanı ve SAS anahtarı birleşimi ile Service Bus hizmetinin bir uygulamaya erişim kimliğini doğrulayan kimlik bilgisi sağlanır.
+İlk adım bir hizmet ad alanı oluşturmak ve [Paylaşılan Erişim İmzası](service-bus-sas-overview.md) (SAS) anahtarı edinmektir. Ad alanı, Service Bus tarafından kullanıma sunulan her uygulama için bir uygulama sınırı sağlar. Hizmet ad alanı oluşturulduğunda sistem tarafından otomatik olarak bir SAS anahtarı oluşturulur. Hizmet ad alanı ve SAS anahtarı birleşimi ile Service Bus hizmetinin bir uygulamaya erişim kimliğini doğrulayan kimlik bilgisi sağlanır.
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
@@ -84,7 +88,7 @@ Sonraki adımda Visual Studio projesi oluşturulur ve kesin tür belirtilmiş [B
    
     Data.csv dosyasını kaydedip kapatın ve nereye kaydettiğinizi unutmayın.
 7. Çözüm Gezgini'nde projenizin adına (bu örnekte, **QueueSample**) sağ tıkladıktan sonra **Ekle**'ye ve ardından **Var Olan Öğe**'ye tıklayın.
-8. 1. adımda oluşturduğunuz Data.csv dosyasına gözatın. Dosyaya ve ardından **Ekle**'ye tıklayın. Dosya türü listesinde **Tüm Dosyalar(*.*)** seçeneğinin belirlendiğinden emin olun.
+8. 6. adımda oluşturduğunuz Data.csv dosyasına gözatın. Dosyaya ve ardından **Ekle**'ye tıklayın. Dosya türü listesinde **Tüm Dosyalar(*.*)** seçeneğinin belirlendiğinden emin olun.
 
 ### <a name="create-a-method-that-parses-a-list-of-messages"></a>İleti listesini ayrıştıran bir yöntem oluşturma
 1. `Main()` yönteminden önce, `Program` sınıfında iki değişken bildirin: Bunlardan ilki, Data.csv dosyasındaki iletilerin listesini içeren **DataTable** türüdür. Diğeri ise [BrokeredMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx) olarak kesin tür belirtilmiş List nesnesi türünde olmalıdır. İkinci değişken, öğreticide sonraki adımlarda kullanılacak olan aracılı iletilerin listesidir.
@@ -611,14 +615,17 @@ namespace Microsoft.ServiceBus.Samples
 Visual Studio'da **Derle** menüsünde **Çözümü Derle**'ye tıklayın veya **Ctrl + Shift + B**'ye basın. Hatalarla karşılaşırsanız lütfen önceki adımın sonunda sunulan tam örneğe bakarak kodunuzun doğru olduğunu doğrulayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu öğreticiyle birlikte Service Bus aracılı mesajlaşma işlevlerini kullanarak nasıl Service Bus istemci uygulaması ve hizmeti oluşturacağınızı gördünüz. Service Bus [Geçişi](service-bus-messaging-overview.md#Relayed-messaging) işlevinin kullanıldığı benzer bir öğretici için bkz. [Service Bus geçişli mesajlaşma öğreticisi](../service-bus-relay/service-bus-relay-tutorial.md).
+Bu öğreticiyle birlikte Service Bus aracılı mesajlaşma işlevlerini kullanarak nasıl Service Bus istemci uygulaması ve hizmeti oluşturacağınızı gördünüz. Service Bus [WCF Geçişi](service-bus-messaging-overview.md#Relayed-messaging) işlevinin kullanıldığı benzer bir eğitmen için bkz. [Service Bus geçişli mesajlaşma eğitmeni](../service-bus-relay/service-bus-relay-tutorial.md).
 
 [Service Bus](https://azure.microsoft.com/services/service-bus/) hakkında daha fazla bilgi edinmek için aşağıdaki konu başlıklarına bakın.
 
 * [Service Bus mesajlaşma hizmetine genel bakış](service-bus-messaging-overview.md)
-* [Service Bus ile ilgili temel bilgiler](../service-bus/service-bus-fundamentals-hybrid-solutions.md)
-* [Service Bus mimarisi](../service-bus/service-bus-architecture.md)
+* [Service Bus ile ilgili temel bilgiler](service-bus-fundamentals-hybrid-solutions.md)
+* [Service Bus mimarisi](service-bus-architecture.md)
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

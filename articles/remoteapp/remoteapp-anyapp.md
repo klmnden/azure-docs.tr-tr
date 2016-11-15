@@ -1,12 +1,12 @@
 ---
-title: Azure RemoteApp ile herhangi bir cihazda tüm Windows uygulamalarını çalıştırma | Microsoft Docs
-description: Azure RemoteApp kullanarak herhangi bir Windows uygulamasını kullanıcılarınızla nasıl paylaşacağınızı öğrenin.
+title: "Azure RemoteApp ile herhangi bir cihazda tüm Windows uygulamalarını çalıştırma | Microsoft Belgeleri"
+description: "Azure RemoteApp kullanarak herhangi bir Windows uygulamasını kullanıcılarınızla nasıl paylaşacağınızı öğrenin."
 services: remoteapp
-documentationcenter: ''
+documentationcenter: 
 author: lizap
 manager: mbaldwin
-editor: ''
-
+editor: 
+ms.assetid: 961d40ca-9673-4977-aa54-d6b22fc61ce1
 ms.service: remoteapp
 ms.devlang: na
 ms.topic: hero-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: compute
 ms.date: 08/15/2016
 ms.author: elizapo
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: d46e4de6f8e1491671d4d5dfb73bacecefa2b118
+
 
 ---
-# Azure RemoteApp ile herhangi bir cihazda tüm Windows uygulamalarını çalıştırma
+# <a name="run-any-windows-app-on-any-device-with-azure-remoteapp"></a>Azure RemoteApp ile herhangi bir cihazda tüm Windows uygulamalarını çalıştırma
 > [!IMPORTANT]
 > Azure RemoteApp kullanımdan kaldırılıyor. Ayrıntılı bilgi için [duyuruyu](https://go.microsoft.com/fwlink/?linkid=821148) okuyun.
 > 
@@ -33,14 +37,14 @@ Bu makalede, Access’i tüm kullanıcılarımızla paylaşacağız. Ancak, HERH
 Access’in bir veritabanı olduğunu ve bu veritabanının kullanışlı olmasını istediğimizi lütfen unutmayın. Bu nedenle, kullanıcıların Access veri paylaşımına erişimini sağlamak üzere birkaç ek adım gerçekleştireceğiz. Uygulamanız bir veritabanı değilse ya da kullanıcılarınızın bir dosya paylaşımına erişebilmesine ihtiyacınız yoksa, bu öğreticide buna yönelik adımları atlayabilirsiniz.
 
 > [!NOTE]
-> <a name="note"></a>Bu öğreticiyi tamamlamak için bir Azure hesabınızın olması gerekir:
+> <a name="note"></a>Bu eğitmeni tamamlamak için bir Azure hesabınızın olması gerekir:
 > 
 > * [Ücretsiz bir Azure hesabı açabilirsiniz](https://azure.microsoft.com/free/?WT.mc_id=A261C142F): Ücretli Azure hizmetlerini denemek için kullanabileceğiniz krediler alabilir ve hatta kullanıldıktan sonra bile hesabı tutabilir ve Web siteleri gibi ücretsiz Azure hizmetlerini kullanabilirsiniz. Açıkça ayarlarınızı değiştirip ücretlendirme istemediğiniz sürece kredi kartınız asla ücretlendirilmeyecektir.
 > * [MSDN abone avantajlarını etkinleştirebilirsiniz](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): MSDN aboneliğiniz, ücretli Azure hizmetlerinizi kullanabildiğiniz her ay size kredi verir.
 > 
 > 
 
-## RemoteApp’te koleksiyon oluşturma
+## <a name="create-a-collection-in-remoteapp"></a>RemoteApp’te koleksiyon oluşturma
 Önce bir koleksiyon oluşturun. Koleksiyon, uygulama ve kullanıcılarınız için bir kapsayıcı görevi görür. Her koleksiyon bir görüntüyü temel alır. Kendi görüntünüzü oluşturabilir veya aboneliğinizle birlikte sağlanan bir görüntüyü kullanabilirsiniz. Bu öğreticide, paylaşmak istediğimiz uygulamayı içeren Office 2013 deneme sürümü görüntüsünü kullanıyoruz.
 
 1. Azure portalında, sol taraftaki gezinti ağacında RemoteApp’i görene kadar aşağı kaydırın. Bu sayfayı açın.
@@ -57,7 +61,7 @@ Bu, koleksiyonunuzun oluşturulmasını başlatır, ancak işlemin tamamlanması
 
 Artık kullanıcı eklemeye hazırsınız.
 
-## Uygulamayı kullanıcılarıyla paylaşma
+## <a name="share-the-app-with-users"></a>Uygulamayı kullanıcılarıyla paylaşma
 Koleksiyonunuz başarıyla oluşturulduktan sonra sırada, Access’i kullanıcılara yayımlamak ve Access’e erişimi olması gereken kullanıcıları eklemek vardır.
 
 Koleksiyon oluşturulurken Azure RemoteApp düğümünden ayrıldıysanız ilk olarak Azure giriş sayfasından düğüme geri dönün.
@@ -75,7 +79,7 @@ Koleksiyon oluşturulurken Azure RemoteApp düğümünden ayrıldıysanız ilk o
 1. Şimdi, kullanıcılarınıza bu yeni uygulamalardan ve bunlara nasıl erişebileceklerinden bahsetmenin zamanı geldi. Bunu yapmak için kullanıcılarınıza, onları Uzak Masaüstü istemcisi indirme URL'sine yönlendiren bir e-posta gönderin.
    ![RemoteApp için istemci indirme URL'si](./media/remoteapp-anyapp/ra-anyappurl.png)
 
-## Access’e erişimi yapılandırma
+## <a name="configure-access-to-access"></a>Access’e erişimi yapılandırma
 Bazı uygulamaların, RemoteApp aracılığıyla dağıtıldıktan sonra ek yapılandırmaya ihtiyaçları vardır. Özellikle, Access için Azure’da tüm kullanıcıların erişebileceği bir dosya paylaşımı oluşturacağız. (Bunu yapmak istemiyorsanız, kullanıcılarınızın dosya ve bilgilere yerel ağınızda erişimine olanak tanıyan bir [karma koleksiyon](remoteapp-create-hybrid-deployment.md) [bulut koleksiyonumuzun yerine] oluşturabilirsiniz.) Ardından, kullanıcılarımıza bilgisayarlarındaki yerel bir sürücüyü Azure dosya sistemine eşlemelerini söylememiz gerekir.
 
 İlk bölümü yönetici olarak siz gerçekleştirirsiniz. Sonra, kullanıcılarınızın gerçekleştireceği bazı adımlar vardır.
@@ -83,7 +87,7 @@ Bazı uygulamaların, RemoteApp aracılığıyla dağıtıldıktan sonra ek yap�
 1. İlk olarak komut satırı arabirimini (cmd.exe) yayımlayın. **Yayımlama** sekmesinde **cmd**’yi seçip **Publish > Publish program using path** (Yayımla > Yol kullanarak programı yayımla) seçeneğine tıklayın.
 2. Uygulamanın adını ve yolunu girin. Bu konu için, ad olarak "Dosya Gezgini" ve yol olarak "%SYSTEMDRIVE%\windows\explorer.exe" kullanın.
    ![Cmd.exe dosyasını yayımlayın.](./media/remoteapp-anyapp/ra-publishcmd.png)
-3. Şimdi bir Azure [depolama hesabı](../storage/storage-create-storage-account.md) oluşturmanız gerekiyor. Hesabımıza "accessdepolama" adını verdik, yani sizin için anlamlı bir ad seçin. (İskoçyalı filminde söyleneni uyarlarsak, sadece bir tane "accessdepolama" olabilir.) ![Azure depolama hesabımız](./media/remoteapp-anyapp/ra-anyappazurestorage.png)
+3. Şimdi bir Azure [depolama hesabı](../storage/storage-create-storage-account.md) oluşturmanız gerekiyor. Hesabımıza "accessdepolama" adını verdik, yani sizin için anlamlı bir ad seçin. (İskoçyalı filminde söyleneni uyarlarsak sadece bir tane "accessdepolama" olabilir.) ![Azure depolama hesabımız](./media/remoteapp-anyapp/ra-anyappazurestorage.png)
 4. Depolama alanınızın yolunu (uç nokta konumu) alabilmek için şimdi panonuza geri dönün. Buna kısa bir süre sonra ihtiyacınız olacak, bu nedenle, bir yere kopyaladığınızdan emin olun.
    ![Depolama hesabı yolu](./media/remoteapp-anyapp/ra-anyappstoragelocation.png)
 5. Depolama hesabı oluşturulduktan sonra birincil erişim anahtarı gerekir. **Erişim anahtarlarını yönet**’e tıklayın ve birincil erişim anahtarını kopyalayın.
@@ -106,14 +110,14 @@ Bazı uygulamaların, RemoteApp aracılığıyla dağıtıldıktan sonra ek yap�
    
     **/persistent** parametresini evet olarak ayarlarsanız eşlenen sürücü oturumdan oturuma kalıcı olur.
 3. Dosya Gezgini uygulamasını RemoteApp’ten başlatın. Paylaşılan uygulamada kullanmak istediğiniz tüm Access dosyalarını dosya paylaşımına kopyalayın.
-   ![Azure paylaşımına Access dosyası koyma](./media/remoteapp-anyapp/ra-anyappuseraccess.png)
+   ![Azure paylaşımına Access dosyası yerleştirme](./media/remoteapp-anyapp/ra-anyappuseraccess.png)
 4. Son olarak, Access’i açıp yeni paylaştığınız veritabanını açın. Verilerinizi buluttan çalıştırılan Access’te görebilmeniz gerekir.
    ![Buluttan çalıştırılan gerçek bir Access veritabanı](./media/remoteapp-anyapp/ra-anyapprunningaccess.png)
 
 Artık bir RemoteApp istemcisi yüklemek şartıyla Access’i tüm cihazlarınızda kullanabilirsiniz.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 Artık koleksiyon oluşturmayı öğrendiğinize göre [Office 365 kullanan bir koleksiyon](remoteapp-tutorial-o365anywhere.md) oluşturmayı deneyin. İsterseniz, yerel ağınıza erişebilen bir [karma koleksiyon](remoteapp-create-hybrid-deployment.md) da oluşturabilirsiniz.
 
 <!--Image references-->
@@ -121,6 +125,6 @@ Artık koleksiyon oluşturmayı öğrendiğinize göre [Office 365 kullanan bir 
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

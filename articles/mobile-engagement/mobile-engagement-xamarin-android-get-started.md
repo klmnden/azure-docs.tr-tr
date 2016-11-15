@@ -1,12 +1,12 @@
 ---
-title: Xamarin.Android için Azure Mobile Engagement kullanmaya başlama
-description: Xamarin.Android Uygulamaları için Analizler ve Anında İletme Bildirimleri ile Azure Mobile Engagement kullanmayı öğrenin.
+title: "Xamarin.Android için Azure Mobile Engagement kullanmaya başlama"
+description: "Xamarin.Android Uygulamaları için Analizler ve Anında İletme Bildirimleri ile Azure Mobile Engagement kullanmayı öğrenin."
 services: mobile-engagement
 documentationcenter: xamarin
 author: piyushjo
-manager: ''
-editor: ''
-
+manager: erikre
+editor: 
+ms.assetid: fb68cf98-08a2-41b5-8e59-757469de3fe7
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-android
@@ -14,9 +14,13 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 06/16/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 3580bf0712d704e46e785aa95ef0ab6b54f0ba10
+
 
 ---
-# Xamarin.Android Uygulamaları için Azure Mobile Engagement kullanmaya başlama
+# <a name="get-started-with-azure-mobile-engagement-for-xamarinandroid-apps"></a>Xamarin.Android Uygulamaları için Azure Mobile Engagement kullanmaya başlama
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
 Bu konu size uygulama kullanımınızı anlamak için Azure Mobile Engagement kullanmayı ve Xamarin.Android uygulamasının kesimli kullanıcılarına anında iletme bildirimleri göndermeyi gösterir.
@@ -28,19 +32,19 @@ Bu öğretici için aşağıdakiler gereklidir:
 * [Mobile Engagement Xamarin SDK](https://www.nuget.org/packages/Microsoft.Azure.Engagement.Xamarin/)
 
 > [!NOTE]
-> Bu öğreticiyi tamamlamak için etkin bir Azure hesabınızın olması gerekir. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılar için bkz. [Azure Ücretsiz Deneme](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-xamarin-android-get-started).
+> Bu öğreticiyi tamamlamak için etkin bir Azure hesabınızın olması gerekir. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-xamarin-android-get-started).
 > 
 > 
 
-## <a id="setup-azme"></a>Android uygulamanız için Mobile Engagement kurma
+## <a name="a-idsetupazmeasetup-mobile-engagement-for-your-android-app"></a><a id="setup-azme"></a>Android uygulamanız için Mobile Engagement kurma
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a id="connecting-app"></a>Uygulamanızı Mobile Engagement arka ucuna bağlama
+## <a name="a-idconnectingappaconnect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Uygulamanızı Mobile Engagement arka ucuna bağlama
 Bu öğreticide, veri toplamak ve anında iletme bildirimi göndermek için gerekli en küçük grup olan bir "temel tümleştirme" gösterilmektedir. 
 
 Tümleştirmeyi göstermek için Xamarin Studio ile temel bir uygulama oluşturacağız.
 
-### Yeni bir Xamarin.Android projesi oluşturma
+### <a name="create-a-new-xamarinandroid-project"></a>Yeni bir Xamarin.Android projesi oluşturma
 1. **Xamarin Studio**’yu başlatın **Dosya** -> **Yeni** -> **Çözüm**’e gidin. 
    
     ![][1]
@@ -56,7 +60,7 @@ Tümleştirmeyi göstermek için Xamarin Studio ile temel bir uygulama oluştura
 
 Xamarin Studio, Mobile Engagement’ı tümleştireceğimiz uygulamayı oluşturur. 
 
-### Uygulamanızı Mobile Engagement arka ucuna bağlama
+### <a name="connect-your-app-to-mobile-engagement-backend"></a>Uygulamanızı Mobile Engagement arka ucuna bağlama
 1. Çözüm penceresinde **Paketler**’e sağ tıklayın ve **Paketleri Ekle...** öğesini seçin.
    
     ![][5]
@@ -73,7 +77,7 @@ Xamarin Studio, Mobile Engagement’ı tümleştireceğimiz uygulamayı oluştur
         engagementConfiguration.ConnectionString = "YourConnectionStringFromAzurePortal";
         EngagementAgent.Init(engagementConfiguration);
 
-### İzinler ve bir hizmet bildirimi ekleme
+### <a name="add-permissions-and-a-service-declaration"></a>İzinler ve bir hizmet bildirimi ekleme
 1. Özellikleri klasörü altında **Manifest.xml** dosyasını açın. XML kaynağını doğrudan güncelleştirecek şekilde Kaynak sekmesini seçin.
 2. Bu izinleri projenizin Manifest.xml dosyasına (**Özellikler** klasörü altında bulunabilir) `<application>` etiketinin önüne ya da arkasına ekleyin:
    
@@ -86,13 +90,13 @@ Xamarin Studio, Mobile Engagement’ı tümleştireceğimiz uygulamayı oluştur
 3. `<application>` ve `</application>` etiketleri arasına aşağıdakileri ekleyerek aracı hizmetini bildirin:
    
         <service
-            android:name="com.microsoft.azure.engagement.service.EngagementService"
-            android:exported="false"
-            android:label="<Your application name>"
-            android:process=":Engagement"/>
+             android:name="com.microsoft.azure.engagement.service.EngagementService"
+             android:exported="false"
+             android:label="<Your application name>"
+             android:process=":Engagement"/>
 4. Yapıştırdığınız kodda, etiketteki `"<Your application name>"` öğesini değiştirin. Bu etiket, kullanıcıların cihazda çalışan hizmetleri görebileceği **Ayarlar** menüsünde görüntülenir. Örneğin bu etikete "Hizmet" sözcüğünü ekleyebilirsiniz.
 
-### Bir ekranı Mobile Engagement’a gönderme
+### <a name="send-a-screen-to-mobile-engagement"></a>Bir ekranı Mobile Engagement’a gönderme
 Verileri göndermeye başlamak ve kullanıcıların etkin olduğundan emin olmak için, Mobile Engagement arka ucuna en az bir ekran göndermelisiniz. Bunu yapmak için, `MainActivity` öğesinin `Activity` yerine `EngagementActivity` öğesinden devraldığından emin olun.
 
     public class MainActivity : EngagementActivity
@@ -111,10 +115,10 @@ Alternatif olarak, `EngagementActivity` konumundan devralamıyorsanız `.StartAc
                 base.OnPause();            
             }
 
-## <a id="monitor"></a>Uygulamayı gerçek zamanlı izlemeyle bağlama
+## <a name="a-idmonitoraconnect-app-with-realtime-monitoring"></a><a id="monitor"></a>Uygulamayı gerçek zamanlı izlemeyle bağlama
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-## <a id="integrate-push"></a>Anında iletme bildirimlerini ve uygulama içi mesajlaşmayı etkinleştirme
+## <a name="a-idintegratepushaenable-push-notifications-and-inapp-messaging"></a><a id="integrate-push"></a>Anında iletme bildirimlerini ve uygulama içi mesajlaşmayı etkinleştirme
 Mobile Engagement, kampanyalar bağlamında anında iletme bildirimleri ve uygulama içi mesajlaşma ile kullanıcılarınız ve REACH ile etkileşim kurmanızı sağlar. Mobile Engagement portalında bu modüle REACH adı verilir.
 Aşağıdaki bölümler, uygulamanızı bu bildirim ve mesajları alacak şekilde ayarlar.
 
@@ -134,6 +138,6 @@ Aşağıdaki bölümler, uygulamanızı bu bildirim ve mesajları alacak şekild
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

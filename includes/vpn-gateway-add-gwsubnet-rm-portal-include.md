@@ -8,6 +8,8 @@
     ![Alt ağ ekleme](./media/vpn-gateway-add-gwsubnet-rm-portal-include/addgwsubnet300.png "Adding the subnet")
 5. Alt ağ oluşturmak için dikey pencerenin altındaki **Tamam**’a tıklayın.
 
-<!--HONumber=Oct16_HO1-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: ExpressRoute için yönlendirme gereksinimleri | Microsoft Docs
-description: Bu sayfada, ExpressRoute devreleri için yönlendirmeyi yapılandırma ve yönetmeye yönelik ayrıntılı gereksinimler verilmektedir.
+title: "ExpressRoute için yönlendirme gereksinimleri | Microsoft Belgeleri"
+description: "Bu sayfada, ExpressRoute devreleri için yönlendirmeyi yapılandırma ve yönetmeye yönelik ayrıntılı gereksinimler verilmektedir."
 documentationcenter: na
 services: expressroute
 author: osamazia
 manager: ganesr
-editor: ''
-
+editor: 
+ms.assetid: eaaf0393-d384-4496-9a5c-328e94c262a7
 ms.service: expressroute
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/12/2016
 ms.author: osamazia
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: bd7537a81661bc175a770fdbd6388ba07ea912ae
+
 
 ---
 # <a name="expressroute-routing-requirements"></a>ExpressRoute yönlendirme gereksinimleri
@@ -97,7 +101,7 @@ Azure özel eşleme aracılığıyla bize tanıtılan 4000’e kadar ön eki des
 
 Ön ek sayısı bu sınırı aşarsa BGP oturumu düşürülür. Yalnızca özel eşleme bağlantısında varsayılan yollar kabul edilir. Sağlayıcının Azure genel ve Microsoft eşlemesi yollarından varsayılan yolu ve özel IP adreslerini (RFC 1918) filtrelemesi gerekir. 
 
-## <a name="transit-routing-and-cross-region-routing"></a>Geçiş yönlendirme ve çapraz bölge yönlendirme
+## <a name="transit-routing-and-crossregion-routing"></a>Geçiş yönlendirme ve çapraz bölge yönlendirme
 ExpressRoute geçiş yönlendirici olarak yapılandırılamaz. Geçiş yönlendirme hizmetleri için bağlantı sağlayıcınızı kullanmanız gerekir.
 
 ## <a name="advertising-default-routes"></a>Varsayılan yolları tanıtma
@@ -113,7 +117,7 @@ Varsayılan yollar yalnızca Azure özel eşleme oturumlarında kullanılabilir.
 > 
 > 
 
-## <a name="support-for-bgp-communities-(preview)"></a>BGP toplulukları desteği (Önizleme)
+## <a name="support-for-bgp-communities-preview"></a>BGP toplulukları desteği (Önizleme)
 Bu bölüm BGP toplulukların ExpressRoute ile nasıl kullanıldığına genel bir bakış sağlar. Microsoft genel ve Microsoft eşleme yollarındaki rotaları uygun topluluk değerleriyle etiketleyerek tanıtır. Bunu yapmanın gerekçesi ve topluluk değerlerine ilişkin ayrıntılar aşağıda açıklanmıştır. Ancak, Microsoft kendisine tanıtılan rotalara etiketlenmiş hiçbir topluluk değerini kabul etmez.
 
 Microsoft’a ExpressRoute aracılığıyla jeopolitik bir bölgedeki herhangi bir eşleme konumundan bağlanıyorsanız jeopolitik sınır dahilindeki tüm bölgelerde bütün Microsoft bulut hizmetlerine erişiminiz olacaktır. 
@@ -187,6 +191,9 @@ Yukarıdakilerin yanı sıra Microsoft, ön ekleri ait oldukları hizmet göre e
   * [Klasik dağıtım modeli için yönlendirmeyi yapılandırma](expressroute-howto-routing-classic.md) veya [Resource Manager dağıtım modeli için yönlendirmeyi yapılandırma](expressroute-howto-routing-arm.md)
   * [Klasik VNet’i ExpressRoute devresine bağlama](expressroute-howto-linkvnet-classic.md) veya [Resource Manager VNet’i ExpressRoute devresine bağlama](expressroute-howto-linkvnet-arm.md)
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 
