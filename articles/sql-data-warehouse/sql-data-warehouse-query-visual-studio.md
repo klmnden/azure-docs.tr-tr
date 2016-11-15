@@ -1,40 +1,45 @@
 ---
-title: Azure SQL Data Warehouse'u sorgulama (Visual Studio) | Microsoft Docs
-description: Visual Studio ile SQL Data Warehouse'u sorgulayın.
+title: "Azure SQL Veri Ambarı’nı sorgulama (Visual Studio) | Microsoft Belgeleri"
+description: "Visual Studio ile SQL Data Warehouse&quot;u sorgulayın."
 services: sql-data-warehouse
 documentationcenter: NA
-author: sonyam
-manager: barbkess
-editor: ''
-
+author: barbkess
+manager: jhubbard
+editor: 
+ms.assetid: daace889-95e5-4826-b2fc-047eac9d6d95
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 06/16/2016
-ms.author: sonyama;barbkess
+ms.date: 10/31/2016
+ms.author: barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 5e97fefdf3cc13f2fd3e060da901e90ef5ef9a29
+
 
 ---
-# SQL Data Warehouse'u sorgulama (Visual Studio)
+# <a name="query-azure-sql-data-warehouse-visual-studio"></a>Azure SQL Veri Ambarı’nı (Visual Studio) Sorgulama
 > [!div class="op_single_selector"]
 > * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 > * [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 > * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 > * [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
+> * [SSMS](sql-data-warehouse-query-ssms.md)
 > 
 > 
 
 Azure SQL Data Warehouse’u yalnızca birkaç dakika içinde sorgulamak için Visual Studio kullanın. Bu yöntem Visual Studio’daki SQL Server Veri Araçları (SSDT) uzantısını kullanır. 
 
-## Ön koşullar
+## <a name="prerequisites"></a>Ön koşullar
 Bu öğreticiyi kullanmak için şunlar gerekir:
 
-* Var olan bir SQL veri ambarı. Bir tane oluşturmak için bkz. [SQL Data Warehouse oluşturma][SQL Data Warehouse oluşturma].
-* Visual Studio için SSDT. Visual Studio varsa büyük olasılıkla buna da sahip olursunuz. Yükleme yönergeleri ve seçenekleri için bkz. [Visual Studio’yu ve SSDT’yi yükleme][Visual Studio’yu ve SSDT’yi yükleme].
-* Tam SQL server adı. Bunu bulmak için bkz. [SQL Data Warehouse'a bağlanma][SQL Data Warehouse'a bağlanma].
+* Var olan bir SQL veri ambarı. SQL veri ambarı oluşturmak için bkz. [SQL Veri Ambarı oluşturma][SQL Veri Ambarı oluşturma].
+* Visual Studio için SSDT. Visual Studio varsa büyük olasılıkla buna da sahip olursunuz. Yükleme yönergeleri ve seçenekleri için bkz. [Visual Studio ve SSDT’yi yükleme][Visual Studio ve SSDT’yi yükleme].
+* Tam SQL server adı. Adı bulmak için bkz. [SQL Veri Ambarı’na bağlanma][SQL Veri Ambarı’na bağlanma].
 
-## 1. SQL Data Warehouse'unuza bağlanma
+## <a name="1-connect-to-your-sql-data-warehouse"></a>1. SQL Data Warehouse'unuza bağlanma
 1. Visual Studio 2013 veya Visual Studio 2015'i açın.
 2. SQL Server Nesne Gezgini'ni açın. Bunu gerçekleştirmek için **Görünüm** > **SQL Server Nesne Gezgini**'ni seçin.
    
@@ -54,7 +59,7 @@ Bu öğreticiyi kullanmak için şunlar gerekir:
    
     ![AdventureWorksDW'yi araştırma][4]
 
-## 2. Örnek sorgu çalıştırma
+## <a name="2-run-a-sample-query"></a>2. Örnek sorgu çalıştırma
 Artık veritabanınızla bağlantı kurulduğuna göre bir sorgu yazalım.
 
 1. SQL Server Nesne Gezgini'nde veritabanınıza sağ tıklayın.
@@ -73,20 +78,20 @@ Artık veritabanınızla bağlantı kurulduğuna göre bir sorgu yazalım.
    
     ![Sorgu sonuçları][7]
 
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 Artık bağlanıp sorgulama yapabildiğinize göre [PowerBI ile verileri görselleştirmeyi][PowerBI ile verileri görselleştirmeyi] deneyin.
 
-Ortamınızı Azure Active Directory kimlik doğrulaması için yapılandırmak üzere bkz. [SQL Data Warehouse’da kimlik doğrulama][SQL Data Warehouse’da kimlik doğrulama].
+Ortamınızı Azure Active Directory kimlik doğrulaması için yapılandırmak üzere bkz. [SQL Veri Ambarı’nda kimlik doğrulama][SQL Veri Ambarı’nda kimlik doğrulama].
 
 <!--Arcticles-->
-[SQL Data Warehouse'a bağlanma]: sql-data-warehouse-connect-overview.md
-[SQL Data Warehouse oluşturma]: sql-data-warehouse-get-started-provision.md
-[Visual Studio’yu ve SSDT’yi yükleme]: sql-data-warehouse-install-visual-studio.md
-[SQL Data Warehouse’da kimlik doğrulama]: sql-data-warehouse-authentication.md
-[PowerBI ile verileri görselleştirmeyi]: sql-data-warehouse-get-started-visualize-with-power-bi.md  
+[SQL Veri Ambarı'na bağlanma]: sql-data-warehouse-connect-overview.md
+[SQL Veri Ambarı oluşturma]: sql-data-warehouse-get-started-provision.md
+[Visual Studio ve SSDT Yükleme]: sql-data-warehouse-install-visual-studio.md
+[SQL Veri Ambarı’nda kimlik doğrulama]: sql-data-warehouse-authentication.md
+[PowerBI ile verileri görselleştirme]: sql-data-warehouse-get-started-visualize-with-power-bi.md  
 
 <!--Other-->
-[Azure portalına]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com
 
 <!--Image references-->
 
@@ -100,6 +105,6 @@ Ortamınızı Azure Active Directory kimlik doğrulaması için yapılandırmak 
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Nov16_HO2-->
 
 

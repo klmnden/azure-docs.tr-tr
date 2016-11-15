@@ -1,12 +1,12 @@
 ---
-title: Azure Mobile Engagement En İyi Uygulamalarla Başlangıç Kılavuzu
-description: Ekleme için En İyi Uygulamalarla Azure Mobile Engagement Başlangıç Kılavuzu
+title: "Azure Mobile Engagement En İyi Uygulamalarla Başlangıç Kılavuzu"
+description: "Ekleme için En İyi Uygulamalarla Azure Mobile Engagement Başlangıç Kılavuzu"
 services: mobile-engagement
 documentationcenter: mobile
 author: wesmc7777
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: dfce1183-6398-466e-aa7e-ed702fb52818
 ms.service: mobile-engagement
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,10 +14,14 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 10/04/2016
 ms.author: wesmc;ricksal
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 7be266a6f8b3e18f2f6a27908ad75b5c19d3d862
+
 
 ---
-# Azure Mobile Engagement - En İyi Uygulamalarla Başlangıç Kılavuzu
-## Genel Bakış
+# <a name="azure-mobile-engagement-getting-started-guide-with-best-practices"></a>Azure Mobile Engagement - En İyi Uygulamalarla Başlangıç Kılavuzu
+## <a name="overview"></a>Genel Bakış
 **Mobil ekran çok kalabalık bir alandır:** 2013'te yapılan bir çalışma ortalama bir mobil cihazda 27 uygulama yüklü olduğunu ortaya çıkardı. Kullanıcılar yükledikleri uygulamalarda genelde aylık 30 saat vakit harcıyor. Bu sürenin çoğunu sosyal ağlarda ve oyun oynama amacıyla harcanıyor (yaklaşık 20 saat). 2014 yılına gelindiğinde, Android markette kullanıcıların seçebileceği yaklaşık 1,5 milyon uygulama bulunuyordu. Apple mağazası yaklaşık 1,2 milyon uygulama içeriyordu. Geliştiricilerin bu büyüyen pazarda rekabeti devam ederken mobil uygulama kullanımı hala artmaktadır. 
 
 Ortalama bir mobil kullanıcı değişen ilgi alanları ve uygulama içi deneyimlere bağlı olarak yüksek sıklıkta uygulama yüklemekte ve kaldırmaktadır. Bir uygulamanın başarısını belirlemek için uygulamanızı kaç kişinin yüklediğinin ötesindeki şeyleri bilmek önemli hale gelmiştir. Uygulamanızın ne kadar faydalı olduğunu ve kullanım eğiliminin değişip değişmediğini bilmek önemlidir. Aşağıdaki sorular önemli hale gelmiştir:
@@ -37,12 +41,12 @@ Azure Mobile Engagement programı uygulamanızın kullanımına ilişkin ayrınt
 
 Azure Mobile Engagement’tan en iyi şekilde faydalanmak için, iyi tasarlanmış bir katılım planıyla başlamanız gerekir. Planınız kullanıcı tabanınızı kesimlere ayırabilmek üzere size gereken parçalı verileri belirlemenize yardımcı olacaktır. Bu davranışı ya da uygulama için deneyimleri temel alabilir. Planınızın başarılı olması için, uygulamanızın hedeflerini ölçecek KPI’i net şekilde belirlemek en iyi uygulamadır. Tanımlanan net performans göstergeleriyle, KPI’lerinizi çözümlemek ve değerlendirmek için kullanacağınız ayrıntılı verileri toplamak üzere gerekli mantığı uygulamanıza kolayca ekleyebilirsiniz. Bu konu, katılım planınızla kullanacağınız KPI’leri tanımlamaya ilişkin en iyi uygulamadır. 
 
-## 1. Adım: BET modeline uyacak şekilde KPI’inizi tanımlama
+## <a name="step-1-define-your-kpis-to-fit-the-bet-model"></a>1. Adım: BET modeline uyacak şekilde KPI’inizi tanımlama
 KPI’lerin doğru şekilde tanımlanması tamamlanması zor bir görev olabilir. Farklı sektörler için tasarlanan uygulamalar kendi özelliklerine ve hedeflerine sahiptir. Bu durum yaklaşımınızı karmaşık hale getirmeye eğilimlidir. Bundan kaçınmak için, hedefler ve KPI'ler üç ana kategoride sınıflandırılmalıdır: **İş**, **Katılım** ve **Teknik**. Buna **BET modeli** adını veririz.
 
 İyi bir plan genellikle BET modelinin aşağıdaki her bir kategorisindeki başarıları ölçene KPI’lerle hedeflere sahip olur. 
 
-#### İş KPI'leri
+#### <a name="business-kpis"></a>İş KPI'leri
 İş KPI'leri oluşturması en kolay kısımdır. Büyük olasılıkla mobil uygulamanızı planlarken bunu bir biçimde zaten tanımlamıştınız. Bu KPI’ler genellikle uygulamanız için geliri ve yatırım getirisiniz ölçmeye yardımcı olur. Aşağıdaki listede, performans göstergelerinizi tanımlarken size yol gösterebilecek örnek bazı İş KPI’leri verilmiştir:
 
 * Medya İş KPI'leri
@@ -63,9 +67,9 @@ KPI’lerin doğru şekilde tanımlanması tamamlanması zor bir görev olabilir
   * Hesap sayısı
   * Etkinleştirilen özellikler
   * Ziyaret edilen teklif sayfaları
-  * Tıklanan veya etkinleştirilen uyarı sayısı      
+  * Tıklanan veya etkinleştirilen uyarı sayısı       
 
-#### Katılım KPI'leri
+#### <a name="engagement-kpis"></a>Katılım KPI'leri
 Katılım KPI’si kullanıcılarınızın katılımını ölçmeye yönelik bir performans göstergesidir. Bu alandaki eğilimler uygulamanızın elde tutulmasını belirlemeye yardımcı olur. Burada bu tür KPI için bazı örnek performans göstergeleri verilmiştir:
 
 * Son 7 gün içindeki etkin kullanıcı sayısı
@@ -76,7 +80,7 @@ Bazı bariz dış etkenler bu alandaki göstergeleri etkileyebilir. Örneğin, b
 
 Bu kategorideki iyi tanımlanmış KPI'ler uygulamanız ve müşterileriniz arasındaki ilişkiyi ölçmenize yardımcı olmalıdır.
 
-#### Teknik KPI'ler
+#### <a name="technical-kpis"></a>Teknik KPI'ler
 Bu kategorideki performans göstergeleri uygulamanızın doğru mu davrandığı, askıda mı yoksa çökmekte mi olduğunu belirlemenize yardımcı olur. Bu göstergeler uygulamanızın durumunu ölçebilir ve kullanıcıların uygulamayı kullanmasını önleyebilecek kullanılabilirlik sorunlarını belirleyebilir. Bu kategori için toplanan bilgiler, pazarlama ekiplerini ilgilendirebilecek performans bilgilerini de içerebilir. Verileri ayrıca bildirilmeyen hataların belirlenmesine yardımcı olmak üzere BT ve destek ekipleri tarafından sorun giderme için de faydalı olabilir. 
 
 Bazı Teknik KPI örnekleri şunlardır:
@@ -91,7 +95,7 @@ Bazı Teknik KPI örnekleri şunlardır:
 
 Uygulama performansını ölçmeye ve potansiyel hataları bulmaya yardımcı olması için bu KPI’leri tanımlayın. Bu göstergeler müşterilerinize bir düzeltme sağlamak için gereken süreyi azaltmaya yardım etmelidir. Bunlar ayrıca belirli sorunlarla karşılaşan kullanıcı kesimini belirlemenize de yardımcı olabilir. Bu kullanıcı kesimlemesini müşteri memnuniyetini yeniden sağlamaya yardımcı olması amacıyla kullanılabilir düzeltmeler ve potansiyel promosyonlarla ilgili bildirimler göndermek üzere kampanyalar oluşturmakta kullanın. 
 
-#### Playbook Alıştırması 1: KPI panonuzu oluşturma
+#### <a name="playbook-exercise-1-create-your-kpi-dashboard"></a>Playbook Alıştırması 1: KPI panonuzu oluşturma
 Pazarlama stratejinizi tanımlarken, KPI'leriniz her bir ana hedefiniz için bir görünüm sunmalıdır. Bunlar uygulamanızı ve son kullanıcı davranışı izlemek üzere önemli bilgileri toplamanıza olanak tanıyan net tanımlanmış veri noktaları olmalıdır.
 
 Aşağıdaki bilgileri içeren bir KPI panosu oluşturun
@@ -103,7 +107,7 @@ Aşağıdaki bilgileri içeren bir KPI panosu oluşturun
 
 Örnekler ve yönergeler için [Media Playbook Şablonumuzdaki][Media Playbook link] **KPI Builder** çalışma sayfasını kullanabilirsiniz.
 
-## 2. Adım: Katılım Programınız
+## <a name="step-2-your-engagement-program"></a>2. Adım: Katılım Programınız
 Mükemmel bir mobile engagement programı uygulamanız için temel bileşen kabul edilmelidir. Bu kesinlikle, uygulamanızın ilk kullanım günü kullanıcıya yürütülen harika bir karşılama programı içermelidir. Bu, uygulamanızın katılımı ve el de tutulmasında çok olumlu bir etki bırakma eğilimlidir. Çalışmalar, kullanıcıların çoğunluğunun yükledikten birkaç gün sonra uygulamayı kullanmayı bıraktığını göstermektedir. Müşteri uygulamanıza odaklanmaya devam ederken, müşteri beklentisi yönlendirmeli ilgiliyi erkenden karşılamak ya da aşmak için mücadele etmek istersiniz. Müşterilerinize uygulamanızın temel değerini ve avantajlarını sergilediğinizden emin olun. 
 
 ![](./media/mobile-engagement-getting-started-best-practices/unsegmented-push-notifications.png)
@@ -114,43 +118,43 @@ Kullanıcılar etkin şekilde katıldığında, katılım programının uygulama
 
 Örneğin, etkin kullanıcılarınızdan uygulamanızı değerlendirmelerini isteyen bir kampanya düzenleyebilirsiniz. Bu kullanıcı kesimi uygulamanızla ilgili olarak en etkin ve en deneyimli olduğundan, bunlardan en doğru puanı almayı bekleyebilirsiniz. Yüksek uygulama puanı aldığınızda, bu uygulamanızın doğal indirilmesini artırmanın yanı sıra yeni müşteri edinme maliyetlerini azaltmaya da yardımcı olabilir.
 
-#### Katılım Sırası
+#### <a name="engagement-sequence"></a>Katılım Sırası
 Genel bir Katılım programı farklı katılım sıraları içerir. Her bir sıra çeşitli hedeflere ulaşmayı amaçlar.
 
-###### Ömür anında iletme sırası
+###### <a name="life-push-sequence"></a>Ömür anında iletme sırası
 Ömür anında iletme sırasının hedefleri kullanıcının uygulamaya katılımının yaşam döngüsüne bağlı olarak farklıdır. Belirli bir kullanıcı yeni, etkin olmayan veya çok etkin olabilir. Katılım yaşam döngüsünün farklı aşamalarında, kullanıcılar ipuçları ve belgelere bağlantılar biçiminde yeni içeriğinizde faydalanabilir. 
 
 Örneğin yeni bir kullanıcı, uygulamayı ilk başlattığındakine benzer şekilde, uygulama için yol gösterilmesine ya da yeni bir kullanıcı teşvikinden yararlanmaya ihtiyaç duyabilir.
 
-*“Dahil olmanızdan memnunuz!” “İlk ayınızda oturum açmanın ücretsiz olduğunu unutmayın!”*
+*“Dahil olmanızdan memnunuz! İlk ayınızı ücretsiz elde etmek için oturum açmayı unutmayın!"*
 
-###### Davranışsal anında iletme sırası
+###### <a name="behavioral-push-sequence"></a>Davranışsal anında iletme sırası
 Davranışsal iletme sırası, uygulama için toplanan kullanıcı davranışı temelinde kullanımı artırmayı amaçlar.  
 
 Örneğin, fantezi futbol uygulamasının etkin bir kullanıcısı aşağıdaki anında iletme bildirimiyle katılımdan faydalanabilir...
 
-*"John gerçek bir futbol taraftarısın!” NFL bölümümüzde oturum aç ve SuperBowl’a ücretsiz erişim kazan"*
+*"John, tam bir futbol fanatiğisin! NFL bölümümüzde oturum aç ve SuperBowl’a ücretsiz erişim kazan"*
 
-###### Uyarı anında iletme sırası
+###### <a name="alerting-push-sequence"></a>Uyarı anında iletme sırası
 Kullanıcılar kendi ilgi alanlarına odaklanan ilgili haberlerden hoşlanacaktır. Uyarı anında iletme sırası, kullanıcının açık olarak gösterdiği ilgi alanları temelinde uyarıla göndererek katılımı artırır. Bu, kullanıcı uygulamada kendi ilgili alanlarını seçtiğinde belirgin hale gelebilir. Bu ayrıca kullanıcının uygulamayla etkileşimi sırasından toplanan veriler temelinde açıkça belirlenir.
 
 Örneğin, bir E-Ticaret uygulaması kullanıcısı belirli bir marka kahveyi düzenli olarak satın alabilir, siz de bunu iş KPI’si ile yakalamışsınızdır. Aşağıdaki uyarı bu kullanıcının uygulamaya katılımını artırabilir.
 
 *"Merhaba Wes, en sevdiğin kahve markalarından biri Eylül 2015’in ilk haftasında %25 indirimde olacak. Müşterimiz olmandan memnunuz ve sana haber vermek istedik."*
 
-###### Elde tutma anında iletme sırası
+###### <a name="rentention-push-sequence"></a>Elde tutma anında iletme sırası
 Bu sıra düzenli şekilde uygulamaya katılım alışkanlığı sağlamaya yardımcı olmak üzere tekrarlayan anında iletme bildirimleri kullanarak kullanıcıları tutmayı amaçlar. Bu, kullanıcı etkileşimlerden hoşlanırsa, uygulama elde tutmayı artırmaya yardımcı olabilir. 
 
 Örneğin, sporla ilgili bir uygulama kullanıcısı kullanıcının desteklediği takımlar temelinde haftalık olarak aşağıdaki anında iletme bildirimini alabilir:
 
-*“200 puan kazanma şansı için, bu hafta Toronto Blue Jays’e karşı New York Yankees’in kazanıp kazanamayacağına oy verin!”*
+*“200 puan kazanma şansı için, bu hafta Toronto Blue Jays ile New York Yankees arasındaki mücadeleyi kimin kazanacağıyla ilgili olarak oylamaya katılın!”*
 
-#### 3W yaklaşımı
+#### <a name="the-3w-approach"></a>3W yaklaşımı
 Farklı anında iletme sıralarını kullanmak son kullanıcılarla katılımınıza yardımcı olur. Ancak, bildirimlerinizi kişiselleştirmek yine de 3W yaklaşımını kullanmanız gerekir. 3W yaklaşımı her bir bildirim için Kim, Ne ve Ne Zaman sorularıyla ilgilenmelidir. Bu üç sorunu yanıtını tatmin edici şekilde karşıladığınızda, bildirimleriniz katılıma uygun şekilde odaklanmış olur.
 
 ![](./media/mobile-engagement-getting-started-best-practices/who-what-when.png)
 
-###### Kim: İletileri alacak kullanıcı kesimi.
+###### <a name="who-the-user-segment-that-will-receive-messages"></a>Kim: İletileri alacak kullanıcı kesimi.
 Kullanıcılarınıza gönderilen anında iletme bildirimleri çok hassas bir iletişim kanalı olarak düşünülmelidir. Bir kullanıcı kesimine göndermeyi amaçladığınız bildirimlerin bu kullanıcı kesiminin ilgi alanlarına yönelik kapsamının iyi belirlendiğinden emin olun. Yanlış yönlendirilmiş bir bildirimin kullanıcı üzerinde olumsuz etkisi olması büyük olasılıktır. Bu kullanıcıların bildirimi istenmeyen posta olarak değerlendirmesi uygulamanızın kaldırılmasına yol açabilir. 
 
 İletileri alacak kullanıcı kesimlerini tanımlarken belirli teknik ve davranışsal ölçütlerin birleşimini kullanın. Bir kullanıcı kesimini tanımlamanın basit bir örneği aşağıdaki deyime benzer olabilir:
@@ -159,7 +163,7 @@ Kullanıcılarınıza gönderilen anında iletme bildirimleri çok hassas bir il
 
 Bu deyim belirli bir senaryoyu desteklemek üzere toplamanız gereken verileri tanımlamanıza yardımcı olur.
 
-###### Ne: Göndereceğiniz ileti
+###### <a name="what-the-message-that-you-will-send"></a>Ne: Göndereceğiniz ileti
 **Ton**
 
 Katılımlarınızda, kesimlenmiş kullanıcılarınız için uygun olarak bir ton kullanın. Bu, kesinlikle sonu kullanıcılarınızla iletişim kurmanın ve kullanıcının uygulamanıza ilgisini artırmanın iyi bir yoludur. 
@@ -193,7 +197,7 @@ Farklı türler ve Anında iletme bildirimi biçimleri:
 > 
 > 
 
-###### Ne Zaman: Kampanyanızın zamanlaması
+###### <a name="when-the-timing-of-your-campaign"></a>Ne Zaman: Kampanyanızın zamanlaması
 Anında iletme bildirimini tetikleyen bir kampanyayı etkinleştirmek için en iyi zaman hangisidir? Bu el ile mi yoksa otomatik mi olmalı? Bu yinelenmeli mi? En iyi sonuçları elde ederek kullanıcılarla etkileşim için doğru zamanı ve sıklığı belirlemek önemlidir. Her katılım sırası ve senaryosu için, anında iletme bildirimi göndermenin en iyi zamanını belirtmelisiniz. Bazı olası örnekler şunlardır:
 
 ![](./media/mobile-engagement-getting-started-best-practices/campaign-timing-examples.png)
@@ -202,13 +206,13 @@ Günlük olarak birçok bildirim gönderiyorsanız, kullanıcılarınızın gön
 
 Azure Mobile Engagement gönderdiğiniz iletişimlerin istenmeyen posta olarak algılanmasını önlemeye yardımcı olmak için iki yol sunar: İlk olarak,aynı kullanıcıları hedeflemediğinizden emin olmak için ayrıntılı kesimleme kullanın. Bunun yanı sıra, Azure Mobile Engagement bir "kota" özelliği de sağlar. Bu özellik bir kampanya için gönderilen bildirimleri sınırlayabilir. Örneğin, varsayılan kotanın haftada 5 olarak ayarlanması, kampanya kullanıcı kesiminin parçası olarak eklene bir kullanıcının haftada 5 bildirimden fazlasını almaması anlamına gelir.
 
-#### Playbook Alıştırması 2: Kendi katılım programınızı oluşturma
+#### <a name="playbook-exercise-2-create-your-engagement-program"></a>Playbook Alıştırması 2: Kendi katılım programınızı oluşturma
 Hedeflerinizi özetlemeye ve belirli sıraları kullanarak yürütmek istediğiniz kampanyaları tanımlamaya biraz zaman ayırın. Kampanyalarınızdaki bildirimlere 3W yaklaşımı uyguladığınızdan emin olun. 
 
 Örnekler ve yönergeler için [Media Playbook Şablonumuzdaki][Media Playbook link] **Katılım Programı** çalışma sayfasını kullanın.
 
-## 3. Adım: Uygulama Tümleştirmesi
-#### Bir etiket planı oluşturma
+## <a name="step-3-app-integration"></a>3. Adım: Uygulama Tümleştirmesi
+#### <a name="create-a-tag-plan"></a>Bir etiket planı oluşturma
 Azure Mobile Engagement’ı uygulamanıza tümleştirmek için bir etiket planı oluşturmanız gerekir. Etiket planı projenin köşe taşıdır. Bu, pazarlama özellikleri,uygulamanın iş akışı ve KPI’leri ölçmek üzere uygulamada toplanan gerçek etiket verileri arasındaki ilişkiyi tanımlar. Bu, portalda hangi analizleri görebileceğinizi gösterir. Bu ayrıca kullanıcı kesimlerini tanımlamanıza ve son kullanıcılarınızla etkileşim için odaklı anında iletme bildirimleri göndermenize yardımcı olur. Etiketi planını tanımladığınızda, uygulamanıza tümleştirmek üzere kod eklemek Azure Mobile Engagement SDK’yı kullanarak kolaydır.
 
 Bir etiket planı uygulamadaki her şeyi etiketlememelidir. Yalnızca mobile engagement stratejinizin bir parçası olarak etiket verilerini içermelidir. Bu büyük olasılıkla uygulamalar arasında farklı olacaktır. Azure Mobile Engagement tarafından sağlanan [Media Playbook Şablonu][Media Playbook link] belirtilen yöntemle bir etiket planı oluşturmanıza yardımcı olur. **Etiketi Planı** çalışma sayfasını etiketi planınızı oluşturmak için bir kılavuz olarak kullanın.
@@ -221,21 +225,21 @@ Projeyle ilişkili tüm ekiplerle Etiket planının gözden geçirilmesini öner
 
 **İş bildirimi** çalışma sayfası projeye dahil herkes için yardımcı kılavuz olarak kullanılabilir.
 
-#### Veri Türleri
+#### <a name="data-types"></a>Veri Türleri
 Bunlar Azure Mobile Engagement tarafından desteklenen ortak veri türleridir.
 
-###### Cihazlar ve kullanıcılar
+###### <a name="devices-and-users"></a>Cihazlar ve kullanıcılar
 Azure Mobile Engagement, her cihaz için benzersiz bir tanımlayıcı oluşturarak kullanıcıları tanımlar. Bu tanımlayıcıya, cihaz tanımlayıcısı (veya deviceID) adı verilir. Bu, aynı cihazda çalışan tüm uygulamaların aynı cihaz tanımlayıcısını paylaşmaları şeklinde oluşturulur.
 
-###### Oturumlar ve etkinlikler
+###### <a name="sessions-and-activities"></a>Oturumlar ve etkinlikler
 Oturum, kullanıcı tarafından çalıştırılan uygulamanın bir örneğidir. Oturum kullanıcının uygulamayı başlattığı zamandan durdurduğu zamana uzanır.
 
 Etkinlik, bir uygulamanı oturum sırasında yapabileceği şeyler grubunun mantıksal bir gruplamasıdır. Bu, genellikle uygulamada belirli bir ekrandır ancak uygulama mantığı tarafından tanımlanan her şey olabilir. En azından, uygulamanız için her ekranı veya Etkinliği etiketlemelisiniz. Bu, kullanıcı yolunu anlamanıza olanak tanır.
 
-###### Olaylar
+###### <a name="events"></a>Olaylar
 Olaylar kullanıcının uygulamayla etkileşimini bildirmek için kullanılır. Bunlar, içerik paylaşımı ya da bir video yürütme gibi anlık eylemler olabilir. Olayları etiketlemek, size kullanıcıların uygulamayla etkileşimini gösteren veri koleksiyonları sağlar. 
 
-###### İşler
+###### <a name="jobs"></a>İşler
 İşler süresi olan eylemleri bildirmek için kullanılır. Bazı örnekler aşağıdakileri içerir:
 
 * API çağrılarının yürütülmesi
@@ -244,30 +248,30 @@ Olaylar kullanıcının uygulamayla etkileşimini bildirmek için kullanılır. 
 * Satın alma işlemi süresi
 * Video görüntüleme
 
-###### Hatalar
+###### <a name="errors"></a>Hatalar
 Hatalar uygulama tarafından algılanan sorunları bildirmek için kullanılır. Örneğin, yanlış kullanıcı eylemleri veya API çağrısı hataları.
 
-###### Uygulama bilgileri
+###### <a name="application-information"></a>Uygulama bilgileri
 Uygulama bilgileri (Uygulama Bilgisi) kullanıcının uygulamayla olan deneyimine ilişkin verileri etiketlemek için kullanılır. Kullanıcının uygulamayla olan etkileşimiyle oluşturulur. 
 
 Belirtilen uygulama bilgisi anahtarı için, Azure Mobile Engagement yalnızca en son değeri izler (geçmiş yok) Uygulama bilgisi uygulamanızın veya son kullanıcılarınızın durumunu gösterir. Örneğin oturum açma durumu veya kullanıcının sık kullanılan ürün grubu.
 
-###### Çökme verileri
+###### <a name="crash-data"></a>Çökme verileri
 Mobile Engagement SDK’sı tarafından otomatik olarak toplanan çökme verileri, uygulama tarafından işlenmeyen uygulama hatalarını bildirir. Örneğin, meydana gelen işlenmeyen özel durum
 
-###### Ek veriler
+###### <a name="extra-data"></a>Ek veriler
 Parametrelerle geliştirilebilen olaylar, hatalar, etkinlikler ve işler. Bir geliştiricinin uygulamadan alınan belirli veriler olarak sağlayabileceği ek bilgilerdir. Bu ayrıntılı kesimleme tanımlaması için önemlidir. 
 
 Örneğin, bir "makale" etiketi değeri, bu makaleyi görüntüleyenler temelinde son kullanıcıları kesimlemenizi sağlar. Ancak bu yeterli olmayabilir. Bu aynı “makale” etiketine, etkinlikte “news_category” gibi ekstra bilgi eklenirse daha iyi olabilir. Bu kullanıcı için sık kullanılan kategorileri dinamik olarak belirlemekte yararlı olacaktır. 
 
 Ek bilgiler bir anahtar/değer çifti olarak bildirilir. Bu medya uygulaması örneğinde, “news_category” ek bilgileri bu kategori için değer olabilir. Örneğin, "spor", "ekonomi" veya "siyaset".
 
-#### Etiket ve SDK tümleştirmesi
+#### <a name="tag-and-sdk-integration"></a>Etiket ve SDK tümleştirmesi
 Azure Mobile Engagement SDK’sını uygulamanıza tümleştirmenin adım adım yönergeleri için, Azure web sitesinde [Engagement SDK’sı Tümleştirmesi](mobile-engagement-windows-store-integrate-engagement.md) belgelerini izleyin. Bu sayfanın üstündeki bağlantılardan hedef platformunuzu seçin.
 
 Azure Mobile Engagement’ın en üstünde oluşturulan iki uygulama için proje oluşturmanızı öneririz. Biri geliştirme ve test hazırlığı, diğeri de üretim hazırlığı içindir. Kullanıcı kabul testi başarılı olduğunda, BT ekibiniz test hazırlığından üretim hazırlığına geçebilir.
 
-#### Kullanıcı kabul testi (UAT)
+#### <a name="user-acceptance-testing-uat"></a>Kullanıcı kabul testi (UAT)
 Kullanıcı kabul testi (UAT) her şeyin tasarlandığı gibi çalıştığından emin olmayı içerir. İş akışları tamamlanabilir ve etiket planınız temelinde gerekli tüm veriler toplanır:
 
 * Bilgi etiketleme belgelerdeki AZME kavramlarına göre uygulanmalıdır
@@ -281,7 +285,7 @@ Uygulamanıza eklediğiniz tüm bildirim davranışı türlerini baştan sona te
 * Metin/Web görünümleri
 * Gösterge güncelleştirme, Kategoriler
 
-#### Kurulum
+#### <a name="setup"></a>Kurulum
 Azure Mobile Engagement kurulumu çok kolaydır. Kullanıcı arabirimine ilişkin tüm bilgiler Azure Mobile Engagement web sitesinde, [Kullanıcı arabiriminde gezinme](mobile-engagement-user-interface-home.md) başlığında yer alır.
 
 Projenizin kullanıcıları için doğru rolleri ve rol üyeliklerini ayarlayarak başlamanız önerilir. Bu, tüm kullanıcılar için platforma düzgün erişimi yönetmenize yardımcı olur. Rolleriniz şunları içerebilir:
@@ -298,7 +302,7 @@ Daha sonra:
 
 İlk anında iletme bildirimi kampanyanızı nasıl çalıştıracağınız hakkında daha fazla bilgi için [Son kullanıcılarınıza ulaşmak için anında iletileri kullanmaya ve yönetmeye başlama](mobile-engagement-how-tos.md)’yı gözden geçirin.
 
-## Sonuç
+## <a name="conclusion"></a>Sonuç
 Katılım Programları yinelemelidir ve uygulamanız için en çok işe yarayan deneyiminizle kendinizinkini sürekli geliştirmelisiniz. 
 
 Başlangıçta, katılım stratejileriyle deneyim kazanırken bütün bir genel katılım stratejisi oluşturmaya çalışmayın. KPI’lerinizi ve bunları nasıl kullanacağınızı tanımlayarak adım adım bir yaklaşım benimseyin. Katılım stratejisi her uygulama için benzersiz olacaktır.
@@ -310,7 +314,7 @@ Biraz deneyim kazandıktan sonra, katılım programlarınıza aşağıdakileri e
 * Coğrafi konum: Bu, markalar için büyük bir fırsattır. Bu özellik sayesinde doğru yerde ve zamanda ulaşabilirsiniz. Coğrafi konum özelliğini kullanmaya başlamadan önce yeterli son kullanıcı davranışı verisi topladığınızı doğrulamanızı öneririz.
 * Veri gönderimi: Veri gönderimi görünmez bir anında iletimdir. Veri gönderimi sonu kullanıcı davranışı temelinde uygulamanızı özelleştirmenize olanak tanır. Örneğin, bir kullanıcı kesimi genellikle yüksek teknoloji ürünlere başvuruyorsa, uygulama sahibi kendi giriş sayfasını yüksek teknoloji içeriğiyle özelleştirecek bir veri gönderimi gönderebilir.
 
-## Sonraki Adımlar
+## <a name="next-steps"></a>Sonraki Adımlar
 * [Azure Mobile Engagement hesabı oluşturma](mobile-engagement-create.md).
 * Mobile Engagement stratejinizi tanımlama hakkında daha fazla bilgi için [Mobile Engagement stratejinizi tanımlama](mobile-engagement-define-your-mobile-engagement-strategy.md)’yı ziyaret edin
 
@@ -318,10 +322,10 @@ Biraz deneyim kazandıktan sonra, katılım programlarınıza aşağıdakileri e
 
 
 <!--Link references-->
-[Media Playbook link]: https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks
+[Media Playbook bağlantısı]: https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks
 
 
 
-<!--HONumber=Oct16_HO1-->
+<!--HONumber=Nov16_HO2-->
 
 

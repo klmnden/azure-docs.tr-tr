@@ -2,11 +2,11 @@
 title: Manage Azure Stack storage accounts  | Microsoft Docs
 description: Learn how to find, manage, recover and reclaim Azure Stack storage accounts
 services: azure-stack
-documentationcenter: ''
+documentationcenter: 
 author: AniAnirudh
 manager: darmour
-editor: ''
-
+editor: 
+ms.assetid: 627d355b-4812-45cb-bc1e-ce62476dab34
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,12 +14,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/26/2016
 ms.author: anirudha
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 5890fb69668c925b882e722cd43f266af38bbbfd
+
 
 ---
-# Manage Storage Accounts in Azure Stack
+# <a name="manage-storage-accounts-in-azure-stack"></a>Manage Storage Accounts in Azure Stack
 Learn how to manage storage accounts in Azure Stack to find, recover, and reclaim storage capacity based on business needs.
 
-## Find a storage account
+## <a name="find-a-storage-account"></a>Find a storage account
 The list of storage accounts in the region can be viewed in Azure Stack by:
 
 1. In an internet browser, navigate to [https://portal.azurestack.local](https://portal.azurestack.local/).
@@ -56,12 +60,12 @@ You can use free text here to help find the account you are interested in.
 
 ![](media/azure-stack-manage-storage-accounts/image6.png)
 
-## Look at account details
+## <a name="look-at-account-details"></a>Look at account details
 Once you have located the accounts you are interested in viewing, you can click on the particular account to view certain details. A new blade will open with the account details like the type of the account, creation time, location etc.
 
 ![](media/azure-stack-manage-storage-accounts/image7.png)
 
-## Recover a deleted account
+## <a name="recover-a-deleted-account"></a>Recover a deleted account
 You may be in a situation where you would like to recover a deleted account.<br>
 In AzureStack there is a very simple way to do so.
 
@@ -80,7 +84,7 @@ In AzureStack there is a very simple way to do so.
    
    Once the recovered account is successfully synchronized, one can go back to using it.
 
-### Some Gotchas
+### <a name="some-gotchas"></a>Some Gotchas
 * Your deleted account shows state as “out of retention”.
   
   This means that the deleted account has exceeded the retention period and may not be recoverable anymore.
@@ -88,7 +92,7 @@ In AzureStack there is a very simple way to do so.
   
   This could mean that the deleted account has already been garbage collected. In this case it cannot be recovered anymore. See “reclaim capacity” below.
 
-## Set Retention Period
+## <a name="set-retention-period"></a>Set Retention Period
 Retention period setting allows an admin to specify a time period in days (between 0 and 9999 days) during which any deleted account can potentially be recovered. The default retention period is set to 15 days. Setting the value to “0” means that any deleted account will immediately be out of retention and marked for periodic garbage collection.
 
 To change the retention period –
@@ -105,7 +109,7 @@ To change the retention period –
 
 ![](media/azure-stack-manage-storage-accounts/image10.png)
 
-## Reclaim capacity
+## <a name="reclaim-capacity"></a>Reclaim capacity
 One of the side effects of having a retention period is that a deleted account will continue to consume capacity until it comes out of the retention period. Now as an admin you may need a way to reclaim this deleted accounts space even though the retention period has not yet expired. Currently you can use a cmdline to explicitly override the retention period and immediately reclaim capacity. To do so –
 
 1. Assuming you have Azure-PowerShell installed and configured. If not please follow the instructions here: To install the latest Azure PowerShell version and associate it with your Azure subscription, see [How to install and configure Azure PowerShell](http://azure.microsoft.com/documentation/articles/powershell-install-configure/).
@@ -124,6 +128,9 @@ One of the side effects of having a retention period is that a deleted account w
 > 
 > 
 
-<!--HONumber=Sep16_HO5-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

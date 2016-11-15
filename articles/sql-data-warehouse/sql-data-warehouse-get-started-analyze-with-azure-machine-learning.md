@@ -1,27 +1,32 @@
 ---
-title: Azure Machine Learning ile veri çözümleme | Microsoft Docs
-description: Azure SQL Data Warehouse’a depolanmış verilere göre tahmine dayalı bir machine learning modeli oluşturmak için Azure Machine Learning’i kullanın.
+title: "Azure Machine Learning ile veri çözümleme | Microsoft Belgeleri"
+description: "Azure SQL Data Warehouse’a depolanmış verilere göre tahmine dayalı bir machine learning modeli oluşturmak için Azure Machine Learning’i kullanın."
 services: sql-data-warehouse
 documentationcenter: NA
 author: kevinvngo
 manager: barbkess
-editor: ''
-
+editor: 
+ms.assetid: 95635460-150f-4a50-be9c-5ddc5797f8a9
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 09/14/2016
-ms.author: kevin;barbkess;sonyama
+ms.date: 10/31/2016
+ms.author: kevin;barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: edc3a915a59d83718d05ce39a1ce2bcd14333da4
+
 
 ---
-# Azure Machine Learning ile veri çözümleme
+# <a name="analyze-data-with-azure-machine-learning"></a>Azure Machine Learning ile veri çözümleme
 > [!div class="op_single_selector"]
 > * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 > * [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 > * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 > * [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
+> * [SSMS](sql-data-warehouse-query-ssms.md)
 > 
 > 
 
@@ -31,12 +36,12 @@ Bu öğretici Azure SQL Data Warehouse’a depolanmış verilere göre tahmine d
 > 
 > 
 
-## Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bu öğreticide ilerleyebilmeniz için şunlar gereklidir:
 
-* AdventureWorksDW örnek verileri önceden yüklenmiş bir SQL Data Warehouse. Bunu sağlamak için [SQL Data Warehouse Oluşturma][SQL Data Warehouse Oluşturma] bölümüne bakın ve örnek verileri yüklemeyi seçin. Bir veri ambarınız olmasına karşın örnek verileriniz yoksa [örnek verileri elle yükleyebilirsiniz][örnek verileri elle yükleyebilirsiniz].
+* AdventureWorksDW örnek verileri önceden yüklenmiş bir SQL Data Warehouse. Bunu sağlamak için [SQL Veri Ambarı oluşturma][SQL Veri Ambarı oluşturma] bölümüne bakın ve örnek verileri yüklemeyi seçin. Bir veri ambarınız olmasına karşın örnek verileriniz yoksa [örnek verileri elle yükleyebilirsiniz][örnek verileri elle yükleyebilirsiniz].
 
-## 1. Verileri alma
+## <a name="1-get-data"></a>1. Verileri alma
 Veriler AdventureWorksDW veritabanında bulunan dbo.vTargetMail görünümündedir. Bu verileri okumak için:
 
 1. [Azure Machine Learning Studio][Azure Machine Learning Studio]'da oturum açıp denemelerim öğesine tıklayın.
@@ -72,16 +77,16 @@ Deneme tuvalinin altında bulunan **Run (Çalıştır)** düğmesine tıklayarak
 Denemeyi çalıştırma işlemi başarıyla sonlandıktan sonra, Okuyucu modülünün altındaki çıkış bağlantı noktasına tıklayıp içeri aktarılan verileri görmek için **Visualiza (Görselleştir)** seçeneğine tıklayın.
 ![İçeri aktarılan verileri görüntüleme][3]
 
-## 2. Verileri temizleyin
+## <a name="2-clean-the-data"></a>2. Verileri temizleyin
 Verileri temizlemek için modelle ilgili olmayan bazı sütunları kaldırın. Bunu yapmak için:
 
 1. **Project Columns (Proje Sütunları)** modülünü tuvale sürükleyin.
 2. Hangi sütunları kaldırmak istediğinizi belirtmek için Properties (Özellikler) bölmesindeki **Launch column selector (Sütun seçiciyi başlat)** öğesine tıklayın.
-   ![Proje Columns (Proje Sütunları)][4]
+   ![Proje Sütunları][4]
 3. Şu iki sütunu dışlayın: CustomerAlternateKey ve GeographyKey.
    ![Gereksiz sütunları kaldırma][5]
 
-## 3. Modeli oluşturma
+## <a name="3-build-the-model"></a>3. Modeli oluşturma
 Biz verilerin %80'ini Machine Learning modelini eğitmek ve %20'sini de modeli test etmek üzere kullanacak şekilde 80'e 20 oranında böleceğiz. Bu ikili sınıflandırma sorunu için "İki Sınıflı" algoritmalardan yararlanacağız.
 
 1. **Split (Bölme)** modülünü tuvale sürükleyin.
@@ -91,11 +96,11 @@ Biz verilerin %80'ini Machine Learning modelini eğitmek ve %20'sini de modeli t
 4. **Train Model (Model Eğitme)** modülünü tuvale sürükleyip girişleri belirtin. Ardından Properties (Özellikler) bölmesindeki **Launch column selector (Sütun seçiciyi başlat)** öğesine tıklayın.
    * İlk giriş: ML algoritması
    * İkinci giriş: Algoritmayı eğitmeye yönelik veriler.
-     ![Train Model (Model Eğitme) modülünü bağlama][7]
+     ![Model Eğitme modülünü bağlama][7]
 5. Tahminde bulunulacak sütun olarak **BikeBuyer** sütununu seçin.
    ![Tahminde bulunulacak sütunu seçme][8]
 
-## 4. Modeli puanlama
+## <a name="4-score-the-model"></a>4. Modeli puanlama
 Şimdi modelin test verileri üzerindeki işlevini test edeceğiz. Hangisinin daha iyi sonuç verdiğini görmek üzere kendi seçtiğimiz algoritmayla başka bir algoritmayı karşılaştıracağız.
 
 1. **Score Model (Model Puanlama)** modülünü tuvale sürükleyin.
@@ -118,7 +123,7 @@ Test veri kümenize iki sütunun daha eklendiğini göreceksiniz.
 
 BikeBuyer (gerçek) sütununu Puanlanmış Etiketler (tahmin) ile karşılaştırarak modelin ne derece iyi sonuç verdiğini görebilirsiniz. Sonraki adımlarda bu modeli yeni müşteriler için tahminde bulunmak üzere kullanabilir, bir web hizmeti olarak yayımlayabilir veya sonuçları sonradan SQL Data Warehouse'a yazabilirsiniz.
 
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 Tahmine dayalı makine öğrenimi modellerinin oluşturulmasına ilişkin daha fazla bilgi edinmek için bkz. [Azure'da Machine Learning'e giriş][Azure'da Machine Learning'e giriş].
 
 <!--Image references-->
@@ -139,11 +144,11 @@ Tahmine dayalı makine öğrenimi modellerinin oluşturulmasına ilişkin daha f
 <!--Article references-->
 [Azure Machine Learning Studio]:https://studio.azureml.net/
 [Azure'da Machine Learning'e giriş]:https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/
-[örnek verileri elle yükleyebilirsiniz]: sql-data-warehouse-load-sample-databases.md
-[SQL Data Warehouse Oluşturma]: sql-data-warehouse-get-started-provision.md
+[örnek verileri elle yükleme]: sql-data-warehouse-load-sample-databases.md
+[SQL Veri Ambarı oluşturma]: sql-data-warehouse-get-started-provision.md
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

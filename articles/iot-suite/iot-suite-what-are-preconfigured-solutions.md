@@ -1,13 +1,13 @@
 ---
-title: Azure IoT önceden yapılandırılmış çözümleri | Microsoft Docs
-description: Azure IoT önceden yapılandırılmış çözümlerin ve ek kaynaklara bağlantısı olan mimarisinin bir açıklaması.
-services: ''
+title: "Azure IoT önceden yapılandırılmış çözümleri | Microsoft Belgeleri"
+description: "Azure IoT önceden yapılandırılmış çözümlerin ve ek kaynaklara bağlantısı olan mimarisinin bir açıklaması."
+services: 
 suite: iot-suite
-documentationcenter: ''
+documentationcenter: 
 author: dominicbetts
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 59009f37-9ba0-4e17-a189-7ea354a858a2
 ms.service: iot-suite
 ms.devlang: na
 ms.topic: get-started-article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/09/2016
 ms.author: dobett
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 597043b17993ebddc9cf730ddce849e1d6ff3bc9
+
 
 ---
-# Azure IoT Paketi önceden yapılandırılmış çözümleri nelerdir?
+# <a name="what-are-the-azure-iot-suite-preconfigured-solutions"></a>Azure IoT Paketi önceden yapılandırılmış çözümleri nelerdir?
 Azure IoT Paketi önceden yapılandırılmış çözümleri, aboneliği kullanarak Azure’e dağıtabildiğiniz yaygın IoT çözüm modellerinin uygulamalarıdır. Önceden yapılandırılmış çözümleri kullanabilirsiniz:
 
 * Kendi IoT çözümleriniz için bir başlangıç noktası olarak.
@@ -45,14 +49,14 @@ Aşağıdaki tabloda, çözümlerin belirli IoT özelliklerini nasıl karşılad
 * *Kurallar ve eylemler*: Belirli cihazdan buluta verilerde işlem yapmak için çözüm arka ucu kuralları kullanır.
 * *Tahmine dayalı analiz*: Belirli işlemlerin ne zaman gerçekleştirileceğini tahmin etmek için çözüm arka ucu cihazdan buluta verilerine analiz uygular. Örneğin, motor bakımının ne zaman olacağını saptamak için uçak motoru telemetrisinin analiz edilmesi.
 
-## Önceden yapılandırılmış Uzaktan İzleme çözümüne genel bakış
+## <a name="remote-monitoring-preconfigured-solution-overview"></a>Önceden yapılandırılmış Uzaktan İzleme çözümüne genel bakış
 Diğer çözümlerin de paylaştığı çok sayıda ortak tasarım öğesi gösterdiğinden, bu makalede önceden yapılandırılmış uzaktan izleme çözümünü seçtik.
 
 Aşağıdaki diyagram uzaktan izleme çözümünün önemli öğelerin göstermektedir. Aşağıdaki bölümlerde bu öğeler hakkında daha fazla bilgi verilmektedir.
 
 ![Önceden yapılandırılmış Uzaktan İzleme çözümü mimarisi][img-remote-monitoring-arch]
 
-## Cihazlar
+## <a name="devices"></a>Cihazlar
 Önceden yapılandırılmış uzaktan izleme çözümünü dağıttığınızda, dört sanal cihaz bir soğutma cihazının benzetimini yapan çözümde önceden hazırlanır. Bu sanal cihazlarda telemetri yayan yerleşik bir sıcaklık ve nem modeline bulunur. Bu sanal cihazlar, çözüm aracılığıyla uçtan uca veri akışının gösterilmesine, müşteri uygulaması için başlangıç noktası olarak çözümü kullanan bir arka uç geliştiriciyseniz de uygun telemetri kaynağının ve komut hedefinin sağlanmasına katılırlar.
 
 Cihaz önce, önceden yapılandırılmış uzaktan izleme çözümünde IoT Hub'ına bağlandığında, IoT hub'ına gönderilen cihaz bilgileri iletisi cihazın karşılık verebildiği komutların listesini numaralandırır. Önceden yapılandırılmış uzaktan izleme çözümünde komutlar şunlardır: 
@@ -66,14 +70,14 @@ Cihaz önce, önceden yapılandırılmış uzaktan izleme çözümünde IoT Hub'
 
 Aynı telemetriyi yayan ve aynı komutu yanıtlayan çözüme daha fazla sanal cihaz ekleyebilirsiniz. 
 
-## IoT Hub’ı
+## <a name="iot-hub"></a>IoT Hub’ı
 Önceden yapılandırılmış bu çözümde, IoT Hub’ı örneği tipik bir [IoT çözüm mimarisinde][lnk-what-is-azure-iot] *Bulut Ağ Geçidi* ’ne karşılık gelir.
 
 IoT hub’ı telemetriyi tek uç noktada yer alan cihazlardan alır. IoT hub'ı, her cihazın kendisine gönderilen komutları alabildiği cihaza özel uç noktaları da korur.
 
 IoT hub’ı, sunucu tarafı telemetri okuma uç noktasında alınan telemetriyi kullanılabilir hale getirir.
 
-## Azure Stream Analytics
+## <a name="azure-stream-analytics"></a>Azure Stream Analytics
 Önceden yapılandırılmış çözüm, cihazlara ait telemetri akışına filtre uygulamak için üç [Azure Stream Analytics][lnk-asa] (ASA) işini kullanır:
 
 * *DeviceInfo işi* - cihaz kaydına özel iletileri yönlendiren Olay hub’ına verilerin çıktısını alır, cihaz çözüm cihazı kayıt defterine (DocumentDB veritabanı) ilk bağlandığında veya **Cihaz durumunu değiştir** komutuna yanıt olarak gönderilir. 
@@ -82,19 +86,19 @@ IoT hub’ı, sunucu tarafı telemetri okuma uç noktasında alınan telemetriyi
 
 Önceden yapılandırılmış bu çözümde, ASA işleri tipik bir [IoT çözüm mimarisinde][lnk-what-is-azure-iot] **Iot çözümü arka ucu**’nun bir parçasını oluşturur.
 
-## Olay işlemcisi
+## <a name="event-processor"></a>Olay işlemcisi
 Önceden yapılandırılmış bu çözümde, olay işlemcisi tipik bir [IoT çözüm mimarisinde][lnk-what-is-azure-iot] **Iot çözümü arka ucu**’nun bir parçasını oluşturur.
 
 **DeviceInfo** ve **Rules** ASA işleri, diğer arka iç hizmetlerine dağıtılması amacıyla kendi çıktılarını Olay hub’larına gönderir. Çözüm, bu Olay Hub’larından iletileri okumak için [WebJob][lnk-web-job]’da çalışan bir [EventPocessorHost][llnk-event-processor] örneğini kullanır. **EventProcessorHost**, DocumentDB veritabanındaki cihaz verilerini güncelleştirmek için **DeviceInfo** verilerini, Mantıksal uygulamayı çağırmak ve çözüm portalında uyarılar ekranını güncelleştirmek için de **Rules** verilerini kullanır.
 
-## Cihaz kimliği kayıt defteri ve DocumentDB
+## <a name="device-identity-registry-and-documentdb"></a>Cihaz kimliği kayıt defteri ve DocumentDB
 Her IoT hub'ında cihaz anahtarlarını depolayan bir [cihaz kimliği kayıt defteri][lnk-identity-registry] vardır. IoT hub'ı bu bilgileri cihazların kimliğini doğrulamak için kullanır - hub’a bağlanmadan önce cihazların kayıtlı ve geçerli bir anahtara sahip olması gerekir.
 
 Bu çözüm, durumları, destekledikleri komutlar ve diğer meta veriler gibi cihazlar hakkında ek bilgileri depolar. Çözüme özel bu cihaz verilerin depolamak için çözüm DocumentDB veritabanını kullanır; çözüm portalı da görüntülenmeleri ve düzenlenmeleri amacıyla verileri bu DocumentDB veritabanından alır.
 
 Çözüm bu bilgileri, DocumentDB veritabanı içeriğiyle eşitlenmiş cihaz kimliği kayıt defterinde tutmalıdır. **EventProcessorHost**, eşitlemeyi yönetmek için **DeviceInfo** akış analizi işine ait verileri kullanır.
 
-## Çözüm portalı
+## <a name="solution-portal"></a>Çözüm portalı
 ![Çözüm panosu][img-dashboard]
 
 Çözüm portalı, önceden yapılandırılmış çözümün bir parçası olarak buluta dağıtılan web tabanlı bir UI’dir. Şunları yapmanızı sağlar:
@@ -107,7 +111,7 @@ Bu çözüm, durumları, destekledikleri komutlar ve diğer meta veriler gibi ci
 
 Önceden yapılandırılmış bu çözümde, çözüm portalı tipik bir [IoT çözüm mimarisinde][lnk-what-is-azure-iot] **Iot çözümü arka ucu**’nun bir parçasını ve **İşleme ve iş bağlantısı**’nın bir parçasını oluşturur.
 
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 IoT çözümü mimarileri hakkında daha fazla bilgi için bkz. [Microsoft Azure IoT hizmetleri: Başvuru Mimarisi][lnk-refarch].
 
 Önceden yapılandırılmış bir çözümün ne olduğunu öğrendiğinize göre önceden yapılandırılmış *uzaktan izleme* çözümünü dağıtarak başlayabilirsiniz: [Önceden yapılandırılmış çözümleri kullanmaya başlama][Ink-get-started-preconfigured].
@@ -116,15 +120,16 @@ IoT çözümü mimarileri hakkında daha fazla bilgi için bkz. [Microsoft Azure
 [img-dashboard]: ./media/iot-suite-what-are-preconfigured-solutions/dashboard.png
 [lnk-what-is-azure-iot]: iot-suite-what-is-azure-iot.md
 [lnk-asa]: https://azure.microsoft.com/documentation/services/stream-analytics/
-[llnk-event-processor]: ../event-hubs/event-hubs-programming-guide.md#event-processor-host
+[lnk-event-processor]: ../event-hubs/event-hubs-programming-guide.md#event-processor-host
 [lnk-web-job]: ../app-service-web/web-sites-create-web-jobs.md
 [lnk-identity-registry]: ../iot-hub/iot-hub-devguide-identity-registry.md
 [lnk-predictive-maintenance]: iot-suite-predictive-overview.md
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
 [lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
-[Ink-get-started-preconfigured]: iot-suite-getstarted-preconfigured-solutions.md
+[lnk-getstarted-preconfigured]: iot-suite-getstarted-preconfigured-solutions.md
 
 
-<!--HONumber=Oct16_HO1-->
+
+<!--HONumber=Nov16_HO2-->
 
 

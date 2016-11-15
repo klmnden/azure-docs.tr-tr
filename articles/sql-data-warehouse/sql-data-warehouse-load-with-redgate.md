@@ -1,12 +1,12 @@
 ---
-title: SQL Veri Ambarı’na veri yüklemek için Redgate’in Data Platform Studio programını kullanma | Microsoft Docs
-description: Redgate Data Platform Studio’nun veri ambarı senaryoları için nasıl kullanılacağı hakkında bilgi edinin.
+title: "SQL Veri Ambarı’na veri yüklemek için Redgate’in Data Platform Studio programını kullanma | Microsoft Belgeleri"
+description: "Redgate Data Platform Studio’nun veri ambarı senaryoları için nasıl kullanılacağı hakkında bilgi edinin."
 services: sql-data-warehouse
 documentationcenter: NA
 author: twounder
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 670aef98-31f7-4436-86c0-cc989a39fe7f
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: get-started-article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: mausher;barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 804b0ba72ca73da1a076bd4dbca8bbca33cb76b1
+
 
 ---
 # <a name="load-data-with-redgate-data-platform-studio"></a>Redgate Data Platform Studio ile veri yükleme
@@ -126,7 +130,7 @@ Redgate Data Platform Studio hakkında daha fazla bilgi almak için:
 
 Verilerinizi SQL Veri Ambarı’na geçirme ve yüklemenin diğer yollarına genel bakış için bkz.:
 
-* [Çözümünüzü SQL Veri Ambarı’na taşıyın][Çözümünüzü SQL Veri Ambarı’na taşıyın]
+* [Çözümünüzü SQL Veri Ambarı’na geçirme][Çözümünüzü SQL Veri Ambarı’na geçirme]
 * [Azure SQL Veri Ambarı’na veri yükleme](sql-data-warehouse-overview-load.md)
 
 Geliştirme ile ilgili daha fazla ipucu için bkz. [SQL Veri Ambarı geliştirmeye genel bakış](sql-data-warehouse-overview-develop.md).
@@ -149,6 +153,7 @@ Geliştirme ile ilgili daha fazla ipucu için bkz. [SQL Veri Ambarı geliştirme
 [SQL Veri Ambarı geliştirmeye genel bakış]: ./sql-data-warehouse-overview-develop.md
 
 
-<!--HONumber=Oct16_HO3-->
+
+<!--HONumber=Nov16_HO2-->
 
 

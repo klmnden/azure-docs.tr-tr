@@ -1,22 +1,26 @@
 ---
-title: PowerShell kullanarak SQL Data Warehouse oluşturma | Microsoft Docs
-description: PowerShell kullanarak SQL Data Warehouse oluşturma
+title: "PowerShell kullanarak SQL Veri Ambarı oluşturma | Microsoft Belgeleri"
+description: "PowerShell kullanarak SQL Data Warehouse oluşturma"
 services: sql-data-warehouse
 documentationcenter: NA
-author: lodipalm
-manager: barbkess
-editor: ''
-
+author: barbkess
+manager: jhubbard
+editor: 
+ms.assetid: 97434863-7938-4129-8949-5a119f5949e3
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 08/25/2016
-ms.author: lodipalm;barbkess;sonyama
+ms.date: 10/31/2016
+ms.author: barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 3d13d4a0dd1d6e0b7361a57e167b06f0b717bfb4
+
 
 ---
-# PowerShell kullanarak SQL Data Warehouse oluşturma
+# <a name="create-sql-data-warehouse-using-powershell"></a>PowerShell kullanarak SQL Data Warehouse oluşturma
 > [!div class="op_single_selector"]
 > * [Azure Portal](sql-data-warehouse-get-started-provision.md)
 > * [TSQL](sql-data-warehouse-get-started-create-database-tsql.md)
@@ -26,20 +30,20 @@ ms.author: lodipalm;barbkess;sonyama
 
 Bu makalede PowerShell ile SQL Veri Ambarı oluşturma işlemi gösterilmektedir.
 
-## Ön koşullar
+## <a name="prerequisites"></a>Ön koşullar
 Başlamak için gerekli olanlar:
 
 * **Azure hesabı**: Hesap oluşturmak için [Azure Ücretsiz Deneme][Azure Ücretsiz Deneme] veya [MSDN Azure Kredileri][MSDN Azure Kredileri] sayfasını ziyaret edin.
-* **Azure SQL server**: Daha fazla bilgi için bkz. [Azure Portal ile Azure SQL Database mantıksal sunucusu oluşturma][Azure Portal ile Azure SQL Database mantıksal sunucusu oluşturma] veya [PowerShell ile Azure SQL Database mantıksal sunucusu oluşturma][PowerShell ile Azure SQL Database mantıksal sunucusu oluşturma].
-* **Kaynak grubu**: Azure SQL sunucunuz ile aynı kaynak grubunu kullanın veya [kaynak grubu oluşturma][kaynak grubu oluşturma] işlemine bakın.
+* **Azure SQL sunucusu**: Daha fazla ayrıntı için bkz. [Azure Portal ile Azure SQL Veritabanı mantıksal sunucusu oluşturma][Azure Portal ile Azure SQL Veritabanı mantıksal sunucusu oluşturma] veya [PowerShell ile Azure SQL Veritabanı mantıksal sunucusu oluşturma][PowerShell ile Azure SQL Veritabanı mantıksal sunucusu oluşturma].
+* **Kaynak grubu**: Azure SQL sunucunuz ile aynı kaynak grubunu kullanın veya [nasıl kaynak grubu oluşturulacağına][nasıl kaynak grubu oluşturulacağına] bakın.
 * **PowerShell 1.0.3 sürümü veya sonraki bir sürümü**: **Get-Module -ListAvailable -Name Azure** komutunu çalıştırarak sürümünüzü kontrol edebilirsiniz.  [Microsoft Web Platformu Yükleyicisi][Microsoft Web Platformu Yükleyicisi]'nden en son sürümü yükleyebilirsiniz.  En son sürümü yükleme hakkında daha fazla bilgi için bkz. [Azure PowerShell'i yükleme ve yapılandırma][Azure PowerShell'i yükleme ve yapılandırma].
 
 > [!NOTE]
-> Bir SQL Veri Ambarı'nın oluşturulması ek hizmet ücretlerinin alınmasına neden olabilir.  Fiyatlandırmayla ilgili ayrıntılı bilgi için bkz. [SQL Data Warehouse fiyatlandırması][SQL Data Warehouse fiyatlandırması].
+> Bir SQL Veri Ambarı'nın oluşturulması ek hizmet ücretlerinin alınmasına neden olabilir.  Fiyatlandırmayla ilgili ayrıntılı bilgi için bkz. [SQL Veri Ambarı fiyatlandırması][SQL Veri Ambarı fiyatlandırması].
 > 
 > 
 
-## SQL Data Warehouse oluşturma
+## <a name="create-a-sql-data-warehouse"></a>SQL Data Warehouse oluşturma
 1. Windows PowerShell'i açın.
 2. Azure Resource Manager'da oturum açmak için bu cmdlet'i çalıştırın
    
@@ -49,7 +53,7 @@ Başlamak için gerekli olanlar:
 3. Geçerli oturumunuz için kullanmak istediğiniz aboneliği seçin.
    
     ```Powershell
-    Get-AzureRmSubscription -SubscriptionName "MySubscription" | Select-AzureRmSubscription
+    Get-AzureRmSubscription    -SubscriptionName "MySubscription" | Select-AzureRmSubscription
     ```
 4. Veritabanı oluşturun. Bu örnekte "mywesteuroperesgp1" adlı kaynak grubunda bulunan "sqldwserver1" adlı sunucuda, hizmet hedefi düzeyi "DW400" olan "mynewsqldw" adlı bir veritabanı oluşturulmaktadır.
    
@@ -72,10 +76,10 @@ Gerekli Parametreler şunlardır:
 
 Parametre seçenekleri hakkında daha ayrıntılı bilgi için bkz. [New-AzureRmSqlDatabase][New-AzureRmSqlDatabase] ve [Veritabanı Oluşturma (Azure SQL Veri Ambarı)][Veritabanı Oluşturma (Azure SQL Veri Ambarı)].
 
-## Sonraki adımlar
-SQL Data Warehouse'unuzun hazırlanması tamamlandıktan sonra [örnek veri yükleme][örnek veri yükleme] işlemini gerçekleştirmeyi veya [geliştirme][geliştirme], [yükleme][yükleme] veya [geçirme][geçirme] işlemlerinin nasıl gerçekleştirileceğini incelemeyi tercih edebilirsiniz.
+## <a name="next-steps"></a>Sonraki adımlar
+SQL Veri Ambarınız sağlandıktan sonra [örnek veri yüklemeyi][örnek veri yüklemeyi] deneyebilir ya da [geliştirme][geliştirme], [yükleme][yükleme] veya [geçirme][geçirme] işlemlerini nasıl gerçekleştirebileceğinizi inceleyebilirsiniz.
 
-Programlama yoluyla SQL Data Warehouse'u yönetme hakkında daha fazla bilgi edinmek istiyorsanız [PowerShell cmdlet’leri ve REST API’lerinin][PowerShell cmdlet’leri ve REST API’lerinin] kullanımına ilişkin makalemize göz atın.
+Programlama yoluyla SQL Veri Ambarı'nı yönetme hakkında daha fazla bilgi edinmek istiyorsanız [PowerShell cmdlet’leri ve REST API’lerinin][PowerShell cmdlet’leri ve REST API’lerinin] kullanımına ilişkin makalemize göz atın.
 
 <!--Image references-->
 
@@ -85,28 +89,28 @@ Programlama yoluyla SQL Data Warehouse'u yönetme hakkında daha fazla bilgi edi
 [geliştirme]: ./sql-data-warehouse-overview-develop.md
 [yükleme]: ./sql-data-warehouse-load-with-bcp.md
 [örnek veri yükleme]: ./sql-data-warehouse-load-sample-databases.md
-[PowerShell cmdlet’leri ve REST API’lerinin]: ./sql-data-warehouse-reference-powershell-cmdlets.md
+[PowerShell cmdlet’leri ve REST API’leri]: ./sql-data-warehouse-reference-powershell-cmdlets.md
 [güvenlik duvarı kuralları]: ../sql-database-configure-firewall-settings.md
 
-[Azure PowerShell'i yükleme ve yapılandırma]: ../powershell/powershell-install-configure.md
-[Azure Portal'dan SQL Data Warehouse oluşturma]: ./sql-data-warehouse-get-started-provision.md
-[Azure Portal ile Azure SQL Database mantıksal sunucusu oluşturma]: ../sql-database/sql-database-get-started.md#create-an-azure-sql-database-logical-server
-[PowerShell ile Azure SQL Database mantıksal sunucusu oluşturma]: ../sql-database/sql-database-get-started-powershell.md#database-setup-create-a-resource-group-server-and-firewall-rule
+[Azure PowerShell’i yükleme ve yapılandırma]: ../powershell-install-configure.md
+[Azure portalından SQL Veri Ambarı oluşturma]: ./sql-data-warehouse-get-started-provision.md
+[Azure Portal ile Azure SQL Veritabanı mantıksal sunucusu oluşturma]: ../sql-database/sql-database-get-started.md#create-an-azure-sql-database-logical-server
+[PowerShell ile Azure SQL Veritabanı mantıksal sunucusu oluşturma]: ../sql-database/sql-database-get-started-powershell.md#database-setup-create-a-resource-group-server-and-firewall-rule
 [kaynak grubu oluşturma]: ../resource-group-template-deploy-portal.md#create-resource-group
 
-<!--MSDN references--> 
+<!--MSDN references-->
 [MSDN]: https://msdn.microsoft.com/library/azure/dn546722.aspx
 [New-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt619339.aspx
 [Veritabanı Oluşturma (Azure SQL Veri Ambarı)]: https://msdn.microsoft.com/library/mt204021.aspx
 
 <!--Other Web references-->
 [Microsoft Web Platformu Yükleyicisi]: https://aka.ms/webpi-azps
-[SQL Data Warehouse fiyatlandırması]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
+[SQL Veri Ambarı fiyatlandırması]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
 [Azure Ücretsiz Deneme]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
 [MSDN Azure Kredileri]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: SQL Data Warehouse'da PolyBase Öğreticisi | Microsoft Docs
-description: PolyBase'in ne olduğunu ve veri depolama senaryolarında nasıl kullanılacağını öğrenin.
+title: "SQL Veri Ambarı&quot;nda PolyBase Eğitmeni | Microsoft Belgeleri"
+description: "PolyBase&quot;in ne olduğunu ve veri depolama senaryolarında nasıl kullanılacağını öğrenin."
 services: sql-data-warehouse
 documentationcenter: NA
 author: ckarst
 manager: barbkess
-editor: ''
-
+editor: 
+ms.assetid: 0a0103b4-ddd6-4d1e-87be-4965d6e99f3f
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: get-started-article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: cakarst;barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 936bfcb7d4e7d2a901304f31a58b31e6cd14498a
+
 
 ---
 # <a name="load-data-with-polybase-in-sql-data-warehouse"></a>SQL Data Warehouse'da PolyBase ile veri yükleme
@@ -40,7 +44,7 @@ Bu öğreticide ilerleyebilmeniz için, şunlar gereklidir:
 
 * SQL Data Warehouse veritabanı.
 * Standart Yerel Olarak Yedekli Depolama (Standard-LRS), Standart Coğrafi Olarak Yedekli Depolama (Standard-GRS), veya Standart Okuma Erişimli Coğrafi Olarak Yedekli Depolama (Standard-RAGRS) türünde bir Azure depolama hesabı.
-* AzCopy Komut Satırı Yardımcı Programı Microsoft Azure Storage Araçları ile birlikte yüklenen [en güncel AzCopy sürümünü][] indirip yükleyin.
+* AzCopy Komut Satırı Yardımcı Programı Microsoft Azure Depolama Araçları ile birlikte yüklenen [en güncel AzCopy sürümünü][en güncel AzCopy sürümünü] indirip yükleyin.
   
     ![Azure Storage Araçları](./media/sql-data-warehouse-get-started-load-with-polybase/install-azcopy.png)
 
@@ -103,7 +107,7 @@ Verilerinizi Azure blob depolama alanına kopyalamak için şunları yapın:
     .\AzCopy.exe /Source:C:\Temp\ /Dest:<blob service endpoint URL> /datacontainer/datedimension/ /DestKey:<azure_storage_account_key> /Pattern:DimDate2.txt
     ```
 
-Ayrıca bkz. [AzCopy Komut Satırı Yardımcı Programı ile Çalışmaya Başlama][AzCopy Komut Satırı Yardımcı Programı ile Çalışmaya Başlama].
+Ayrıca bkz. [AzCopy Komut Satırı Yardımcı Programını Kullanmaya Başlama][AzCopy Komut Satırı Yardımcı Programını Kullanmaya Başlama].
 
 ### <a name="e-explore-your-blob-storage-container"></a>E. Blob depolama kapsayıcınızı araştırma
 Blob depolama alanına yüklediğiniz dosyayı görmek için şunları yapın:
@@ -123,8 +127,8 @@ PolyBase, Azure blob depolama alanındaki verilere erişmek için dış tablolar
 
 Bu adımdaki örnekte, bir dış tablo oluşturmak için aşağıdaki Transact-SQL deyimleri kullanılmaktadır.
 
-* [Create Master Key (Transact-SQL)][Create Master Key (Transact-SQL)]: Veritabanı kapsamlı kimlik bilgileri anahtarınızı şifrelemek için kullanılır.
-* [Create Database Scoped Credential (Transact-SQL)][Create Database Scoped Credential (Transact-SQL)]: Azure depolama hesabınız için kimlik doğrulama bilgilerinin belirtilmesi için kullanılır.
+* [Create Master Key (Transact-SQL)][Create Master Key (Transact-SQL)]: Veritabanı kapsamlı kimlik bilgilerinizin gizli anahtarını şifrelemek için kullanılır.
+* [Create Database Scoped Credential (Transact-SQL)][Create Database Scoped Credential (Transact-SQL)]: Azure depolama hesabınız için kimlik doğrulama bilgilerinin belirtilmesinde kullanılır.
 * [Create External Data Source (Transact-SQL)][Create External Data Source (Transact-SQL)]: Azure blob depolama alanınızın konumunu belirtmek için kullanılır.
 * [Create External File Format (Transact-SQL)][Create External File Format (Transact-SQL)]: Verilerinizin biçimini belirtmek için kullanılır.
 * [Create External Table (Transact-SQL)][Create External Table (Transact-SQL)]: Tablo tanımını ve verilerin konumunu belirtmek için kullanılır.
@@ -208,7 +212,7 @@ Visual Studio'da bulunan SQL Server Nesne Gezgini'nde dış dosya biçimini, dı
 Dış tablo oluşturulduktan sonra verileri yeni bir tabloya yükleyebilir veya var olan bir tabloya ekleyebilirsiniz.
 
 * Verileri yeni bir tabloya yüklemek için [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)] deyimini çalıştırın. Yeni tablo, sorguda adlandırılan sütunları içerir. Sütunların veri türleri, dış tablo tanımındaki veri türleriyle eşleşir.
-* Verileri, var olan bir tabloya yüklemek için [INSERT...SELECT (Transact-SQL)][INSERT...SELECT (Transact-SQL)] deyimini kullanın.
+* Verileri mevcut bir tabloya yüklemek için [INSERT...SELECT (Transact-SQL)][INSERT...SELECT (Transact-SQL)] deyimini kullanın.
 
 ```sql
 -- Load the data from Azure blob storage to SQL Data Warehouse
@@ -237,7 +241,7 @@ CREATE STATISTICS [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
 Daha fazla bilgi edinmek için bkz. [İstatistikler][İstatistikler].  
 
 ## <a name="next-steps"></a>Sonraki adımlar
-PolyBase kullanan bir çözüm geliştirirken bilmeniz gereken daha fazla bilgi için bkz. [PolyBase kılavuzu][PolyBase kılavuzu].
+PolyBase kullanan bir çözüm geliştirirken bilmeniz gerekenler hakkında daha fazla bilgi için bkz. [PolyBase kılavuzu][PolyBase kılavuzu].
 
 <!--Image references-->
 
@@ -274,6 +278,6 @@ PolyBase kullanan bir çözüm geliştirirken bilmeniz gereken daha fazla bilgi 
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

@@ -2,11 +2,11 @@
 title: Deploy a VM using a password stored in Azure Stack Key Vault | Microsoft Docs
 description: Learn how to deploy a VM using a password stored in Azure Stack Key Vault
 services: azure-stack
-documentationcenter: ''
+documentationcenter: 
 author: rlfmendes
 manager: natmack
-editor: ''
-
+editor: 
+ms.assetid: 23322a49-fb7e-4dc2-8d0e-43de8cd41f80
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,12 +14,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/26/2016
 ms.author: ricardom
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 91077d36cd1355ba1f2c731e200cf717152cdb5b
+
 
 ---
-# Deploy a VM by retrieving the password stored in Key Vault
+# <a name="deploy-a-vm-by-retrieving-the-password-stored-in-key-vault"></a>Deploy a VM by retrieving the password stored in Key Vault
 When you need to pass a secure value (like a password) as a parameter during deployment, you can store that value as a secret in an Azure Stack key vault and reference the value in other Azure Resource Manager templates. You include only a reference to the secret in your template so the secret is never exposed. You do not need to manually enter the value for the secret each time you deploy the resources. You specify which users or service principals can access the secret.
 
-## Reference a secret with static ID
+## <a name="reference-a-secret-with-static-id"></a>Reference a secret with static ID
 You reference the secret from within a parameters file, which passes values to your template. You reference the secret by passing the resource identifier of the key vault and the name of the secret. In this example, the key vault secret must already exist. You use a static value for its resource ID.
 
     "parameters": {
@@ -36,11 +40,14 @@ You reference the secret from within a parameters file, which passes values to y
 > 
 > 
 
-## Next Steps
+## <a name="next-steps"></a>Next Steps
 [Deploy a sample app with Key Vault](azure-stack-kv-sample-app.md)
 
 [Deploy a VM with a Key Vault certificate](azure-stack-kv-push-secret-into-vm.md)
 
-<!--HONumber=Sep16_HO4-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,28 +1,32 @@
 ---
-title: Windows Phone'da Azure Notification Hubs ile anında iletme bildirimleri gönderme | Microsoft Docs
-description: Bu öğreticide, bir Windows Phone 8 veya Windows Phone 8.1 Silverlight uygulamasına anında iletme bildirimleri göndermek için Azure Notification Hubs'ın nasıl kullanılacağını öğrenirsiniz.
+title: "Windows Phone&quot;da Azure Notification Hubs ile anında iletme bildirimleri gönderme | Microsoft Belgeleri"
+description: "Bu öğreticide, bir Windows Phone 8 veya Windows Phone 8.1 Silverlight uygulamasına anında iletme bildirimleri göndermek için Azure Notification Hubs&quot;ın nasıl kullanılacağını öğrenirsiniz."
 services: notification-hubs
 documentationcenter: windows
-keywords: anında iletme bildirimi,anında iletme bildirimi,windows phone anında iletme
-author: wesmc7777
+keywords: "anında iletme bildirimi,anında iletme bildirimi,windows phone anında iletme"
+author: ysxu
 manager: erikre
 editor: erikre
-
+ms.assetid: d872d8dc-4658-4d65-9e71-fa8e34fae96e
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-phone
 ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/03/2016
-ms.author: wesmc
+ms.author: yuaxu
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: f0bfe81f849813d146d644b32490af657b1071b5
+
 
 ---
-# Windows Phone'da Azure Notification Hubs ile anında iletme bildirimleri gönderme
+# <a name="sending-push-notifications-with-azure-notification-hubs-on-windows-phone"></a>Windows Phone'da Azure Notification Hubs ile anında iletme bildirimleri gönderme
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
-## Genel Bakış
+## <a name="overview"></a>Genel Bakış
 > [!NOTE]
-> Bu öğreticiyi tamamlamak için etkin bir Azure hesabınızın olması gerekir. Hesabınız yoksa yalnızca birkaç dakika içinde ücretsiz bir deneme sürümü hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-windows-phone-get-started%2F).
+> Bu öğreticiyi tamamlamak için etkin bir Azure hesabınızın olması gerekir. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-windows-phone-get-started%2F).
 > 
 > 
 
@@ -36,14 +40,14 @@ Bu öğreticide, Microsoft Anında İletme Bildirimi Hizmeti'ni (MPNS) kullanara
 
 Bu öğretici, Notification Hubs kullanımında basit yayın senaryosunu gösterir.
 
-## Önkoşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bu öğretici için aşağıdakiler gereklidir:
 
 * [Windows Phone için Visual Studio 2012 Express] veya sonraki bir sürümü.
 
 Bu öğreticiyi tamamlamak Windows Phone 8 uygulamalarına ilişkin diğer tüm Notification Hubs öğreticileri için önkoşuldur.
 
-## Bildirim hub'ınızı oluşturma
+## <a name="create-your-notification-hub"></a>Bildirim hub'ınızı oluşturma
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
 <ol start="6">
@@ -60,10 +64,10 @@ Hub'ınız şimdi oluşturuldu ve Windows Phone için kimliği doğrulanmamış 
 > 
 > 
 
-## Uygulamanızı bildirim hub'ına bağlama
+## <a name="connecting-your-app-to-the-notification-hub"></a>Uygulamanızı bildirim hub'ına bağlama
 1. Visual Studio'da yeni bir Windows Phone 8 uygulaması oluşturun.
    
-    ![Visual Studio - Yeni Proje - Windows Phone Uygulaması][13]
+       ![Visual Studio - New Project - Windows Phone App][13]
    
     Visual Studio 2013 Güncelleştirme 2 veya sonrasında, bunun yerine Windows Phone Silverlight uygulaması oluşturursunuz.
    
@@ -115,9 +119,9 @@ Hub'ınız şimdi oluşturuldu ve Windows Phone için kimliği doğrulanmamış 
    > 
 6. Çözüm Gezgini'nde **Özellikler**'i genişletin, `WMAppManifest.xml` dosyasını açın, **Özellikler** sekmesine tıklayın ve **ID_CAP_PUSH_NOTIFICATION** özelliğinin işaretlendiğinden emin olun.
    
-    ![Visual Studio - Windows Phone Uygulaması Özellikleri][14]
+       ![Visual Studio - Windows Phone App Capabilities][14]
    
-    Bu, uygulamanızın anında iletme bildirimleri alabilmesini sağlar. Bu olmadan, uygulamaya anında iletme bildirimi göndermek için her türlü girişim başarısız olur.
+       This ensures that your app can receive push notifications. Without it, any attempt to send a push notification to the app will fail.
 7. Uygulamayı çalıştırmak için `F5` tuşuna basın.
    
     Uygulamada bir kayıt iletisi görüntülenir.
@@ -128,7 +132,7 @@ Hub'ınız şimdi oluşturuldu ve Windows Phone için kimliği doğrulanmamış 
    > 
    > 
 
-## Arka ucunuzdan anında iletme bildirimleri gönderme
+## <a name="send-push-notifications-from-your-backend"></a>Arka ucunuzdan anında iletme bildirimleri gönderme
 Notification Hubs'ı kullanarak ortak <a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">REST arabirimi</a> aracılığıyla herhangi bir arka uçtan anında iletme bildirimleri gönderebilirsiniz. Bu öğreticide, bir .NET konsol uygulaması kullanarak anında iletme bildirimleri gönderirsiniz. 
 
 Notification Hubs ile tümleştirilmiş bir ASP.NET WebAPI arka ucundan nasıl anında iletme bildirimleri gönderildiğinin bir örneği için bkz: [Azure Notification Hubs .NET arka ucu ile Kullanıcılara Bildirimde Bulunma](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md).  
@@ -137,7 +141,7 @@ Notification Hubs ile tümleştirilmiş bir ASP.NET WebAPI arka ucundan nasıl a
 
 1. Çözüme sağ tıklayın, **Ekle**'yi ve **Yeni Proje...** seçeneğini belirleyin. Sonra **Visual C#** altında **Windows**'a ve **Konsol Uygulaması**'na tıklayın ve ardından **Tamam**'a tıklayın.
    
-    ![Visual Studio - Yeni Proje - Konsol Uygulaması][6]
+       ![Visual Studio - New Project - Console Application][6]
    
     Bu, çözüme yeni bir Visual C# konsol uygulaması ekler. Bunu ayrı bir çözümde de yapabilirsiniz.
 2. **Araçlar**'a, **Kitaplık Paket Yöneticisi**'ne ve ardından **Paket Yöneticisi Konsolu**'na tıklayın.
@@ -182,7 +186,7 @@ Notification Hubs ile tümleştirilmiş bir ASP.NET WebAPI arka ucundan nasıl a
 
 MSDN'deki [bildirim kataloğu] ve [kutucuk kataloğu] konu başlıklarında tüm olası yükleri bulabilirsiniz.
 
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 Bu basit örnekte, tüm Windows Phone 8 cihazlarınıza anında iletme bildirimleri yayımladınız. 
 
 Belirli kullanıcıları hedeflemek için, [Kullanıcılara anında iletme bildirimleri göndermek için Notification Hubs’ı kullanma] öğreticisine bakın. 
@@ -218,11 +222,11 @@ Kullanıcılarınızı ilgi alanı gruplarına göre segmentlere ayırmak istiyo
 [Son dakika haberleri göndermek için Notification Hubs kullanma]: notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md
 [bildirim kataloğu]: http://msdn.microsoft.com/library/windowsphone/develop/jj662938(v=vs.105).aspx
 [kutucuk kataloğu]: http://msdn.microsoft.com/library/windowsphone/develop/hh202948(v=vs.105).aspx
-[Notification Hubs - Windows Phone Silverlight öğreticisi]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSLPhoneApp
+[Notification Hubs - Windows Phone Silverlight eğiticisi]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSLPhoneApp
 
 
 
 
-<!--HONumber=Oct16_HO1-->
+<!--HONumber=Nov16_HO2-->
 
 
