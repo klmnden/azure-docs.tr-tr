@@ -1,12 +1,12 @@
 ---
-title: Azure CDN kullanma | Microsoft Docs
-description: Bu konu başlığında, Azure için İçerik Teslim Ağı'nın (CDN) nasıl etkinleştirileceği gösterilmektedir. Öğretici, yeni bir CDN profili ve uç noktası oluşturma işlemi boyunca size yol gösterecektir.
+title: Azure CDN kullanma | Microsoft Belgeleri
+description: "Bu konu başlığında, Azure için İçerik Teslim Ağı&quot;nın (CDN) nasıl etkinleştirileceği gösterilmektedir. Öğretici, yeni bir CDN profili ve uç noktası oluşturma işlemi boyunca size yol gösterecektir."
 services: cdn
-documentationcenter: ''
+documentationcenter: 
 author: camsoper
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 4ca51224-5423-419b-98cf-89860ef516d2
 ms.service: cdn
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/28/2016
 ms.author: casoper
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: e5568503541e773fa11bcde530da09befc51b2ad
+
 
 ---
-# Azure CDN'yi kullanma
+# <a name="using-azure-cdn"></a>Azure CDN'yi kullanma
 Bu konu başlığında, yeni bir CDN profili ve uç noktası oluşturarak Azure CDN'yi etkinleştirme işlemi boyunca size yol gösterilecektir.
 
 > [!IMPORTANT]
@@ -24,7 +28,7 @@ Bu konu başlığında, yeni bir CDN profili ve uç noktası oluşturarak Azure 
 > 
 > 
 
-## Yeni bir CDN profili oluşturma
+## <a name="create-a-new-cdn-profile"></a>Yeni bir CDN profili oluşturma
 CDN profili, CDN uç noktaları koleksiyonudur.  Her bir profil, bir veya daha fazla CDN uç noktası içerir.  CDN uç noktalarınızı İnternet etki alanı, web uygulaması veya başka ölçütlere göre düzenlemek için birden çok profil kullanmak isteyebilirsiniz.
 
 > [!NOTE]
@@ -36,7 +40,7 @@ CDN profili, CDN uç noktaları koleksiyonudur.  Her bir profil, bir veya daha f
 
 [!INCLUDE [cdn-create-profile](../../includes/cdn-create-profile.md)]
 
-## Yeni bir CDN uç noktası oluşturma
+## <a name="create-a-new-cdn-endpoint"></a>Yeni bir CDN uç noktası oluşturma
 **Yeni bir CDN uç noktası oluşturmak için**
 
 1. [Azure portalında](https://portal.azure.com), CDN profilinize gidin.  Önceki adımda bunu panoya sabitlemiş olabilirsiniz.  Sabitlemediyseniz bunu bulmak için **Gözat**'a, ardından **CDN profilleri**'ne ve uç noktanızı eklemeyi planladığınız profile tıklayabilirsiniz.
@@ -88,8 +92,8 @@ CDN profili, CDN uç noktaları koleksiyonudur.  Her bir profil, bir veya daha f
     > 
     > 
 
-## Ayrıca Bkz.
-* [İsteklerin önbelleğe alma davranışını sorgu dizeleriyle denetleme](cdn-query-string.md)
+## <a name="see-also"></a>Ayrıca Bkz.
+* [İsteklerin önbelleğe alınma davranışını sorgu dizeleriyle denetleme](cdn-query-string.md)
 * [CDN İçeriğini Özel Etki Alanı ile Eşleme](cdn-map-content-to-custom-domain.md)
 * [Azure CDN uç noktasında varlıkları önceden yükleme](cdn-preload-endpoint.md)
 * [Azure CDN Uç Noktasını Temizleme](cdn-purge-endpoint.md)
@@ -102,6 +106,6 @@ CDN profili, CDN uç noktaları koleksiyonudur.  Her bir profil, bir veya daha f
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

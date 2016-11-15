@@ -15,6 +15,8 @@ içeriği için geçerli değerler:
 
 Mikro sürüm (üçüncü basamak) belirtilmişse göz ardı edilir.
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 
