@@ -1,12 +1,12 @@
 ---
-title: .NET kullanarak Azure Table Storage’ı kullanmaya başlayın | Microsoft Docs
-description: Bir NoSQL veri deposu olan Azure Table Storage kullanarak bulutta yapılandırılmış veri depolayın.
+title: ".NET kullanarak Azure Tablo Depolama’yı kullanmaya başlama | Microsoft Belgeleri"
+description: "Bir NoSQL veri deposu olan Azure Table Storage kullanarak bulutta yapılandırılmış veri depolayın."
 services: storage
 documentationcenter: .net
 author: tamram
 manager: carmonm
 editor: tysonn
-
+ms.assetid: fe46d883-7bed-49dd-980e-5c71df36adb3
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/18/2016
 ms.author: tamram
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 0e6effa1e74a06a99a2a6bea9df3cfc6deedeb0e
+
 
 ---
-# <a name="get-started-with-azure-table-storage-using-.net"></a>.NET kullanarak Azure Table Storage’ı kullanmaya başlayın
+# <a name="get-started-with-azure-table-storage-using-net"></a>.NET kullanarak Azure Table Storage’ı kullanmaya başlayın
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
@@ -51,25 +55,25 @@ Tablo depolama kullanan diğer örnekler için [.NET’te Azure Table Storage Ku
 
 ### <a name="add-namespace-declarations"></a>Ad alanı bildirimleri ekleme
 Aşağıdaki `using` bildirimlerini `program.cs` dosyasının üstüne ekleyin:
-
+```csharp
     using Microsoft.Azure; // Namespace for CloudConfigurationManager
     using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
     using Microsoft.WindowsAzure.Storage.Table; // Namespace for Table storage types
-
+```
 ### <a name="parse-the-connection-string"></a>Bağlantı dizesini ayrıştırma
 [!INCLUDE [storage-cloud-configuration-manager-include](../../includes/storage-cloud-configuration-manager-include.md)]
 
 ### <a name="create-the-table-service-client"></a>Tablo hizmeti istemcisi oluşturma
 **CloudTableClient** sınıfı, Table Storage’da depolanan tabloları ve varlıkları almanızı sağlar. Hizmet istemcisini oluşturma yöntemlerinden biri aşağıda verilmiştir:
-
+```csharp
     // Create the table client.
     CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
-
+```
 Artık Table Storage’dan veri okuyan ve bu depolamaya veri yazan kodu yazmaya hazırsınız.
 
 ## <a name="create-a-table"></a>Bir tablo oluşturma
 Bu örnek, zaten yoksa, nasıl bir tablo oluşturulacağını gösterir:
-
+```csharp
     // Retrieve the storage account from the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -82,11 +86,11 @@ Bu örnek, zaten yoksa, nasıl bir tablo oluşturulacağını gösterir:
 
     // Create the table if it doesn't exist.
     table.CreateIfNotExists();
-
+```
 ## <a name="add-an-entity-to-a-table"></a>Tabloya bir varlık ekleme
 Varlıklar, **TableEntity**’den oluşturulan özel bir sınıf kullanarak C\# nesneleriyle eşlenir. Tabloya bir varlık eklemek için varlığınızın özelliklerini tanımlayan bir sınıf oluşturun. Aşağıdaki kod, sıra anahtarı olarak müşterinin adını, bölüm anahtarı olarak soyadını kullanan bir varlık sınıfı tanımlar. Birlikte, bir varlığın bölüm ve sıra anahtarı varlığı tabloda benzersiz şekilde tanımlar. Aynı bölüm anahtarına sahip varlıklar farklı bölüm anahtarlı varlıklara göre daha hızlı sorgulanabilir ancak farklı bölüm anahtarlarının kullanılması paralel işlemler için daha büyük ölçeklendirme sağlar.  Tablo hizmetinde depolanması gereken tüm özellikler için, özellik hem `get`, hem de `set` kullanıma sunan desteklenen bir türün genel özelliği olmalıdır.
 Bununla birlikte varlık türü parametresiz bir oluşturucu *olmalıdır*.
-
+```csharp
     public class CustomerEntity : TableEntity
     {
         public CustomerEntity(string lastName, string firstName)
@@ -101,9 +105,9 @@ Bununla birlikte varlık türü parametresiz bir oluşturucu *olmalıdır*.
 
         public string PhoneNumber { get; set; }
     }
-
+```
 Varlıklarla ilgili tablo işlemleri daha önce “Bir tablo oluşturma” bölümünde oluşturduğunuz **CloudTable** nesnesi ile gerçekleştirilecektir. Gerçekleştirilecek işlem **TableOperation** nesnesi ile belirtilir.  Aşağıdaki kod örneği **CloudTable** nesnesi ve ardından **CustomerEntity** nesnesinin oluşturulmasını gösterir.  İşlemi hazırlamak için, müşteri varlığını tabloya yerleştirmek üzere bir **TableOperation** nesnesi oluşturulur.  Son olarak işlem **CloudTable.Execute** çağrılarak çalıştırılır.
-
+```csharp
     // Retrieve the storage account from the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
        CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -124,7 +128,7 @@ Varlıklarla ilgili tablo işlemleri daha önce “Bir tablo oluşturma” böl�
 
     // Execute the insert operation.
     table.Execute(insertOperation);
-
+```
 ## <a name="insert-a-batch-of-entities"></a>Toplu işlem varlık yerleştirme
 Bir tabloya tek bir yazma işlemiyle çok sayıda varlık yerleştirebilirsiniz. Toplu işlemler ile ilgili diğer notlar:
 
@@ -135,7 +139,7 @@ Bir tabloya tek bir yazma işlemiyle çok sayıda varlık yerleştirebilirsiniz.
 
 <!-- -->
 Aşağıdaki kod örneği iki varlık nesnesi oluşturur ve **Yerleştirme** yöntemi kullanarak her birini **TableBatchOperation**’a ekler. Ardından, işlemi yürütmek için **CloudTable.Execute** çağrılır.
-
+```csharp
     // Retrieve the storage account from the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -165,11 +169,11 @@ Aşağıdaki kod örneği iki varlık nesnesi oluşturur ve **Yerleştirme** yö
 
     // Execute the batch operation.
     table.ExecuteBatch(batchOperation);
-
+```
 ## <a name="retrieve-all-entities-in-a-partition"></a>Tüm varlıkları bir bölüme alma
 Bir bölümdeki tüm varlıklar için bir tabloyu sorgulamak üzere bir **TableQuery** nesnesi kullanın.
 Aşağıdaki kod örneği, ‘Smith’in bölüm anahtarı olduğu varlıklar için bir filtre belirtir. Bu örnek sorgu sonuçlarındaki her varlığın alanlarını konsola yazdırır.
-
+```csharp
     // Retrieve the storage account from the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -189,10 +193,10 @@ Aşağıdaki kod örneği, ‘Smith’in bölüm anahtarı olduğu varlıklar i�
         Console.WriteLine("{0}, {1}\t{2}\t{3}", entity.PartitionKey, entity.RowKey,
             entity.Email, entity.PhoneNumber);
     }
-
+```
 ## <a name="retrieve-a-range-of-entities-in-a-partition"></a>Bir bölüme bir grup varlık alma
 Bir bölümdeki tüm varlıkları sorgulamak istemiyorsanız bölüm anahtarı filtresi ile bir satır anahtarı filtresini birleştirerek bir aralık belirleyebilirsiniz. Aşağıdaki kod örneği, 'Smith' bölümünde, satır anahtarı (ad) alfabede 'E' harfinden önce gelen bir harfle başlayan tüm varlıkları almak için iki filtre kullanır, ardından sorgu sonuçlarını yazdırır.
-
+```csharp
     // Retrieve the storage account from the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -216,12 +220,12 @@ Bir bölümdeki tüm varlıkları sorgulamak istemiyorsanız bölüm anahtarı f
         Console.WriteLine("{0}, {1}\t{2}\t{3}", entity.PartitionKey, entity.RowKey,
             entity.Email, entity.PhoneNumber);
     }
-
+```
 ## <a name="retrieve-a-single-entity"></a>Tek bir varlık alma
 Tek, belirli bir varlığı almak üzere bir sorgu yazabilirsiniz. Aşağıdaki kod 'Ben Smith' müşterisini belirlemek üzere **TableOperation** kullanır.
 Bu yöntem bir koleksiyon yerine yalnızca bir varlık döndürür ve **TableResult.Result**’ta dönen değer **CustomerEntity** nesnesidir.
 Bir sorguda hem bölüm hem de satır anahtarını belirtmek Tablo hizmetinden tek bir varlık almanın en hızlı yoludur.
-
+```csharp
     // Retrieve the storage account from the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -243,10 +247,10 @@ Bir sorguda hem bölüm hem de satır anahtarını belirtmek Tablo hizmetinden t
        Console.WriteLine(((CustomerEntity)retrievedResult.Result).PhoneNumber);
     else
        Console.WriteLine("The phone number could not be retrieved.");
-
+```
 ## <a name="replace-an-entity"></a>Bir varlığı değiştirme
 Bir varlığı güncelleştirmek için Tablo hizmetinden alın, varlık nesnesini değiştirin ve değişiklikleri Tablo hizmetine geri kaydedin. Aşağıdaki kod mevcut bir müşterinin telefon numarasını değiştirir. **Yerleştir** çağırmak yerine bu kod **Değiştir** kullanır. Bu, sunucu üzerindeki varlık alındığından beri değiştirilmemişse varlığın sunucu üzerinde tamamen değiştirilmesini sağlar, aksi takdirde işlem başarısız olur.  Bu işlem, uygulamanızın başka bir bileşeninin alım ve güncelleştirme arasında gerçekleştirilen bir değişikliğin yanlışlıkla üzerine yazılmasını engellemek üzere başarısız olur.  Bu başarısız işlem, varlığın yeniden alınması, (hala geçerli ise) değişikliklerin yapılması ve yeni bir **Değiştir** işleminin gerçekleştirilmesiyle uygun şekilde ele alınır.  Sonraki bölüm bu davranışı nasıl geçersiz kılacağınızı gösterecektir.
-
+```csharp
     // Retrieve the storage account from the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -282,11 +286,11 @@ Bir varlığı güncelleştirmek için Tablo hizmetinden alın, varlık nesnesin
 
     else
        Console.WriteLine("Entity could not be retrieved.");
-
-## <a name="insert-or-replace-an-entity"></a>Bir varlığı yerleştirme veya değiştirme
+```
+## <a name="insertorreplace-an-entity"></a>Bir varlığı yerleştirme veya değiştirme
 Varlık sunucudan alındığından beri değiştirilmişse, **Değiştir** işlemleri başarısız olacaktır.  Dahası, **Değiştir** işleminin başarılı olması için ilk olarak varlığın sunucudan alınması gerekir.
 Buna karşın bazı durumlarda varlığın sunucuda olup olmadığını ve içinde saklı geçerli değerlerin ilgisiz olup olmadığını bilemeyebilirsiniz. Güncelleştirmeniz tümünün üzerine yazmalıdır.  Bunu gerçekleştirmek için **Yerleştir Veya Değiştir** işlemi kullanmanız gerekir.  Bu işlem, varlık mevcut değilse varlığı yerleştirir, eğer varlık mevcutsa yapılan son güncelleştirmeden bağımsız olarak değiştirir.  Aşağıdaki kod örneğinde Ben Smith için müşteri varlığı hala alınabilir, ancak ardından **Yerleştir Veya Değiştir** ile sunucuya geri kaydedilir.  Varlığa alma ve güncelleştirme işlemleri arasında yapılan tüm güncelleştirmelerin üzerine yazılacaktır.
-
+```csharp
     // Retrieve the storage account from the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -322,10 +326,10 @@ Buna karşın bazı durumlarda varlığın sunucuda olup olmadığını ve için
 
     else
        Console.WriteLine("Entity could not be retrieved.");
-
+```
 ## <a name="query-a-subset-of-entity-properties"></a>Giriş özellikleri alt kümesi sorgulama
 Bir tablo sorgusu, varlığın tüm özellikleri yerine bir varlıktaki birkaç özelliği alabilir. Projeksiyon olarak adlandırılan bu yöntem bant genişliğini azaltır ve özellikle büyük varlıklar için sorgu performansını iyileştirebilir. Aşağıdaki kodda yer alan sorgu yalnızca tablodaki varlıkların e-posta adreslerini döndürür. Bu, **DynamicTableEntity** ve ayrıca **EntityResolver** sorgusu kullanılarak gerçekleştirilir. [Upsert ve Sorgu Projeksiyon Tanıtımı blog yazısı][Upsert ve Sorgu Projeksiyon Tanıtımı blog yazısı] ile projeksiyon hakkında daha fazla bilgi edinebilirsiniz. Projeksiyon yerel depolama öykünücüsünde desteklenmez, bu nedenle bu kod yalnızca Tablo hizmetinde bir hesap kullanırken çalıştırılır.
-
+```csharp
     // Retrieve the storage account from the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -346,10 +350,10 @@ Bir tablo sorgusu, varlığın tüm özellikleri yerine bir varlıktaki birkaç 
     {
         Console.WriteLine(projectedEmail);
     }
-
+```
 ## <a name="delete-an-entity"></a>Bir varlığı silme
 Bir varlığı güncelleştirmek için gösterilen aynı yöntemi kullanarak, bir varlığı aldıktan sonra kolayca silebilirsiniz.  Aşağıdaki kod bir müşteri girişini alır ve siler.
-
+```csharp
     // Retrieve the storage account from the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -382,10 +386,10 @@ Bir varlığı güncelleştirmek için gösterilen aynı yöntemi kullanarak, bi
 
     else
        Console.WriteLine("Could not retrieve the entity.");
-
+```
 ## <a name="delete-a-table"></a>Bir tablo silme
 Son olarak aşağıdaki kod örneği bir depolama hesabından bir tablo siler. Silinen bir tablo, silme işleminin ardından yeniden oluşturma için belirli bir süre kullanılamayacaktır.
-
+```csharp
     // Retrieve the storage account from the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -398,10 +402,10 @@ Son olarak aşağıdaki kod örneği bir depolama hesabından bir tablo siler. S
 
     // Delete the table it if exists.
     table.DeleteIfExists();
-
+```
 ## <a name="retrieve-entities-in-pages-asynchronously"></a>Sayfalarda zaman uyumsuz olarak varlıkları alma
 Çok sayıda varlık okuyorsanız ve tamamının dönmesini beklemek yerine alındıkları gibi varlıkları işlemek/görüntülemek istiyorsanız, bölümlendirilmiş bir sorgu kullanarak varlıkları alabilirsiniz. Bu örnek, geniş bir sonuç kümesinin dönmesini beklerken çalıştırmanın engellenmemesi için Zaman Uyumsuz - Bekleme yöntemi kullanarak sayfalardaki sonuçların nasıl döndürüleceğini gösterir. .NET’te Zaman Uyumsuz-Bekleme yönteminin kullanılması ile ilgili daha fazla ayrıntı için bkz. [Zaman Uyumsuz ve Bekleme ile zaman uyumsuz programlama (C# ve Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx).
-
+```csharp
     // Initialize a default TableQuery to retrieve all the entities in the table.
     TableQuery<CustomerEntity> tableQuery = new TableQuery<CustomerEntity>();
 
@@ -423,7 +427,7 @@ Son olarak aşağıdaki kod örneği bir depolama hesabından bir tablo siler. S
 
     // Loop until a null continuation token is received, indicating the end of the table.
     } while(continuationToken != null);
-
+```
 ## <a name="next-steps"></a>Sonraki adımlar
 Table Storage’ın temellerini öğrendiğinize göre, daha karmaşık depolama görevleri hakkında daha fazla bilgi edinmek için bu bağlantıları takip edin:
 
@@ -456,6 +460,6 @@ Table Storage’ın temellerini öğrendiğinize göre, daha karmaşık depolama
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

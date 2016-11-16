@@ -1,6 +1,6 @@
 <!--author=SharS last changed: 9/17/15-->
 
-#### Seri konsol üzerinden bağlanmak için
+#### <a name="to-connect-through-the-serial-console"></a>Seri konsol üzerinden bağlanmak için
 1. Seri kabloyu cihaza bağlayın (doğrudan veya bir USB seri bağdaştırıcısı aracılığıyla).
 2. **Denetim Masası**’nı açın; sonra da **Cihaz Yöneticisi**'ni açın.
 3. COM bağlantı noktasını aşağıdaki çizimde gösterildiği gibi belirleyin.
@@ -26,6 +26,8 @@
      > 
 7. Seri oturum başlatmak için **Aç**’a tıklayın.
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

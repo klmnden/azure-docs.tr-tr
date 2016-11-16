@@ -1,4 +1,4 @@
-## IoT hub oluşturma
+## <a name="create-an-iot-hub"></a>IoT hub oluşturma
 Bağlanılacak benzetimli cihazınız için IoT Hub oluşturun. Aşağıdaki adımlar, Azure portalını kullanarak bu görevi nasıl tamamlayacağınızı gösterir.
 
 1. [Azure portalı][lnk-portal]’nda oturum açın.
@@ -16,7 +16,7 @@ Bağlanılacak benzetimli cihazınız için IoT Hub oluşturun. Aşağıdaki ad�
 4. IoT hub'ı yapılandırma seçeneklerinizi seçtiğinizde **Oluştur**'a tıklayın.  Azure'un IoT hub'ınızı oluşturması birkaç dakika sürebilir. Durumu denetlemek için Başlangıç Panosu veya Bildirimler panelinde ilerlemeyi izleyebilirsiniz.
    
     ![Yeni IOT hub'ı durumu][3]
-5. IOT hub'ı sorunsuz oluşturulduğunda, yeni IOT hub'ı dikey penceresini açmak için portalınızdaki IOT hub'ına yönelik yeni kutucuğa tıklayın. **Ana bilgisayar adını** not edin ve **Paylaşılan erişim ilkeleri**'ne tıklayın.
+5. IOT hub'ı sorunsuz oluşturulduğunda, yeni IOT hub'ı dikey penceresini açmak için Azure portalındaki IOT hub'ına yönelik yeni kutucuğa tıklayın. **Ana bilgisayar adını** not edin ve **Paylaşılan erişim ilkeleri**'ne tıklayın.
    
     ![Yeni IOT hub'ı dikey penceresi][4]
 6. **Paylaşılan erişim ilkeleri** dikey penceresinde **iothubowner** ilkesine tıklayın, ardından **iothubowner** dikey penceresindeki bağlantı dizesini kopyalayın ve not edin. Daha fazla bilgi için, “Azure IoT Hub Geliştirici Kılavuzu”nda bkz. [Erişim denetimi][lnk-access-control].
@@ -37,6 +37,6 @@ Bağlanılacak benzetimli cihazınız için IoT Hub oluşturun. Aşağıdaki ad�
 [lnk-access-control]: ../articles/iot-hub/iot-hub-devguide-security.md
 
 
-<!--HONumber=Oct16_HO1-->
+<!--HONumber=Nov16_HO2-->
 
 

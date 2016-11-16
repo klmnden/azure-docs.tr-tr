@@ -1,12 +1,12 @@
 ---
-title: Azure Active Directory içinde grupları yönetme | Microsoft Docs
-description: Azure Active Directory kullanarak Azure kullanıcılarını yönetmek üzere gruplar oluşturma ve yönetme.
+title: "Azure Active Directory’de grupları yönetme | Microsoft Belgeleri"
+description: "Azure Active Directory kullanarak Azure kullanıcılarını yönetmek üzere gruplar oluşturma ve yönetme."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: curtand
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: d1f5451c-3807-423c-8bac-2822d27b893f
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,13 +14,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/29/2016
 ms.author: curtand
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: da1841d4ff9e5b4b53f5d766065acc1024d1eb3a
+
 
 ---
-# Azure Active Directory içinde grupları yönetme
+# <a name="managing-groups-in-azure-active-directory"></a>Azure Active Directory içinde grupları yönetme
 > [!div class="op_single_selector"]
-> * [Azure portalı](active-directory-groups-create-azure-portal.md)
-> * [Klasik Azure portalı](active-directory-accessmanagement-manage-groups.md)
-> * [PowerShell](active-directory-accessmanagement-groups-v2-cmdlets.md)
+> * [Azure portal](active-directory-groups-create-azure-portal.md)
+> * [Klasik Azure Portalı](active-directory-accessmanagement-manage-groups.md)
+> * [PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
 > 
 > 
 
@@ -31,7 +35,7 @@ Azure Active Directory'nin (Azure AD) kullanıcı yönetimi özelliklerinden bir
 
 Kaynak sahibi başka birisine ait Azure AD grubundaki bir kaynağa da erişim atayabilir. Bu atama ilgili grubun üyelerinin kaynağa erişmelerine izin verir. Ardından grubun sahibi, grup içerisindeki üyeliği yönetir. Etkili bir biçimde, kaynak sahibi tarafından grubun sahibine kullanıcıları kaynaklarına atama izni verilir.
 
-## Nasıl grup oluşturulur?
+## <a name="how-do-i-create-a-group"></a>Nasıl grup oluşturulur?
 Kuruluşunuzun abone olduğu hizmetlere bağlı olarak aşağıdakilerden birini kullanarak bir grup oluşturabilirsiniz:
 
 * Klasik Azure portalı
@@ -45,7 +49,7 @@ Görevleri Klasik Azure portalında gerçekleştirilen şekilde açıklayacağı
 3. **Grup Ekle**'yi seçin.
 4. **Grup Ekle** penceresinde, adı ve grup açıklamasını belirtin.
 
-## Güvenlik grubuna bireysel kullanıcıları nasıl eklerim veya kaldırırım?
+## <a name="how-do-i-add-or-remove-individual-users-in-a-security-group"></a>Güvenlik grubuna bireysel kullanıcıları nasıl eklerim veya kaldırırım?
 **Gruba bireysel kullanıcı eklemek için**
 
 1. [Klasik Azure portalında](https://manage.windowsazure.com) **Active Directory**'yi seçin ve ardından kuruluşunuza ait dizinin adını seçin.
@@ -62,7 +66,7 @@ Görevleri Klasik Azure portalında gerçekleştirilen şekilde açıklayacağı
 4. **Members (Üyeler)** sekmesini seçip bu gruptan kaldırmak istediğiniz üyenin adını işaretleyin, ardından **Remove (Kaldır)** düğmesine tıklayın.
 5. Bu üyeyi gruptan kaldırmak istediğinizi komut istemcisinde onaylayın.
 
-## Bir grubun üyeliğini dinamik olarak nasıl yönetebilirim?
+## <a name="how-can-i-manage-the-membership-of-a-group-dynamically"></a>Bir grubun üyeliğini dinamik olarak nasıl yönetebilirim?
 Hangi kullanıcıların gruba üye olacağını belirlemek için Azure AD'de basit bir kuralı kolayca ayarlayabilirsiniz . Basit bir kural yalnızca tek bir karşılaştırma yapan kuraldır. Örneğin, bir grup bir SaaS uygulamasına atanırsa iş unvanı "Satış Temsilcisi" olan kullanıcıları eklemeye yönelik bir kural oluşturabilirsiniz. Bu kural daha sonra dizininizde o iş unvanına sahip tüm kullanıcılara bu SaaS uygulaması için erişim verir.
 
 Bir kullanıcının herhangi bir özniteliği değiştiğinde sistem, kullanıcının öznitelik değişikliğinin herhangi bir grup ekleme veya kaldırmayı tetikleyip tetiklemediğini görmek üzere bir dizindeki tüm dinamik grup kurallarını değerlendirir. Bir kullanıcı bir grup üzerindeki kuralı karşılıyorsa bu gruba üye olarak eklenir. Üyesi olduğu grubun kuralını artık karşılamıyorsa bu grubun üyeliğinden çıkarılır.
@@ -77,7 +81,7 @@ Bir kullanıcının herhangi bir özniteliği değiştiğinde sistem, kullanıc�
 > 
 > 
 
-**Bir gruba ilişkin dinamik üyelik etkinleştirmek için**
+**Bir grup için dinamik üyeliği etkinleştirmek üzere**
 
 1. [Klasik Azure portalında](https://manage.windowsazure.com) **Active Directory**'yi seçin ve ardından kuruluşunuza ait dizinin adını seçin.
 2. **Groups (Gruplar)** sekmesini seçip düzenlemek istediğiniz grubu açın.
@@ -88,7 +92,7 @@ Bir kullanıcının herhangi bir özniteliği değiştiğinde sistem, kullanıc�
 
 Dinamik grup üyeliğine ilişkin *gelişmiş* kuralların (birden çok karşılaştırma içeren kurallar) nasıl oluşturulacağı hakkında bilgi edinmek için bkz. [Gelişmiş kurallar oluşturmak için öznitelikleri kullanma](active-directory-accessmanagement-groups-with-advanced-rules.md).
 
-## Ek bilgiler
+## <a name="additional-information"></a>Ek bilgiler
 Bu makalelerde Azure Active Directory ile ilgili ek bilgi sağlanmıştır.
 
 * [Azure Active Directory grupları ile kaynaklara erişimi yönetme](active-directory-manage-groups.md)
@@ -97,6 +101,9 @@ Bu makalelerde Azure Active Directory ile ilgili ek bilgi sağlanmıştır.
 * [Azure Active Directory nedir?](active-directory-whatis.md)
 * [Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](active-directory-aadconnect.md)
 
-<!--HONumber=Oct16_HO1-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

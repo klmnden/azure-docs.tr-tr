@@ -1,12 +1,12 @@
 ---
-title: Web Apps için Azure Mobile Engagement kullanmaya başlama | Microsoft Docs
-description: Web Apps için analizler ve anında iletme bildirimleri ile Azure Mobile Engagement kullanmayı öğrenin.
+title: "Web Apps için Azure Mobile Engagement kullanmaya başlama | Microsoft Belgeleri"
+description: "Web Apps için analizler ve anında iletme bildirimleri ile Azure Mobile Engagement kullanmayı öğrenin."
 services: mobile-engagement
 documentationcenter: Mobile
 author: piyushjo
-manager: ''
-editor: ''
-
+manager: erikre
+editor: 
+ms.assetid: 04afe53a-4caf-4c80-bd75-20cc630cd75c
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: js
 ms.topic: hero-article
 ms.date: 06/01/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 96f4fa714aa5a76f3e7e17c2741b17b626cfe010
+
 
 ---
-# Web Apps için Azure Mobile Engagement kullanmaya başlama
+# <a name="get-started-with-azure-mobile-engagement-for-web-apps"></a>Web Apps için Azure Mobile Engagement kullanmaya başlama
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
 Bu konuda Web Uygulaması kullanımınızı anlamak için Azure Mobile Engagement’ın nasıl kullanılacağı gösterilmektedir.
@@ -29,19 +33,19 @@ Bu öğretici için aşağıdakiler gereklidir:
 Bu Web SDK Önizleme modundadır ve şu anda yalnızca Analizi destekleyip, tarayıcı ya da herhangi bir uygulama içi bildirim göndermeyi henüz desteklememektedir. 
 
 > [!NOTE]
-> Bu öğreticiyi tamamlamak için etkin bir Azure hesabınızın olması gerekir. Hesabınız yoksa yalnızca birkaç dakika içinde ücretsiz bir deneme sürümü hesabı oluşturabilirsiniz. Ayrıntılar için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-web-app-get-started).
+> Bu öğreticiyi tamamlamak için etkin bir Azure hesabınızın olması gerekir. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılar için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-web-app-get-started).
 > 
 > 
 
-## Web uygulamanız için Mobile Engagement ayarlama
+## <a name="setup-mobile-engagement-for-your-web-app"></a>Web uygulamanız için Mobile Engagement ayarlama
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a id="connecting-app"></a>Uygulamanızı Mobile Engagement arka ucuna bağlama
+## <a name="a-idconnectingappaconnect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Uygulamanızı Mobile Engagement arka ucuna bağlama
 Bu öğreticide, veri toplamak için gereken en küçük grup olan bir "temel tümleştirme" gösterilmektedir.
 
 Tümleştirmeyi göstermek üzere Visual Studio ile temel bir web uygulaması oluşturulacaktır; ancak Visual Studio’nun dışında oluşturulmuş herhangi bir web uygulamasının adımlarını da izleyebilirsiniz. 
 
-### Yeni bir Web Uygulaması oluşturma
+### <a name="create-a-new-web-app"></a>Yeni bir Web Uygulaması oluşturma
 Aşağıdaki adımlarda Visual Studio 2015 kullanıldığı varsayılmaktadır ancak Visual Studio'nun önceki sürümleri için de benzer adımlar izlenir. 
 
 1. Visual Studio'yu başlatın ve **Giriş** ekranında **Yeni Proje**’yi seçin.
@@ -50,7 +54,7 @@ Aşağıdaki adımlarda Visual Studio 2015 kullanıldığı varsayılmaktadır a
 
 Azure Mobile Engagement Web SDK’sını tümleştireceğimiz yeni ve boş bir Windows Web Uygulaması projesi oluşturmuş oldunuz.
 
-### Uygulamanızı Mobile Engagement arka ucuna bağlama
+### <a name="connect-your-app-to-mobile-engagement-backend"></a>Uygulamanızı Mobile Engagement arka ucuna bağlama
 1. Çözümünüzde **javascript** adlı yeni bir klasör oluşturun ve **azure-engagement.js** adlı Web SDK JS dosyasını buna ekleyin. 
 2. Aşağıdaki kodla birlikte bu javascript klasörüne **main.js** adlı yeni bir dosya ekleyin. Bağlantı dizesini güncelleştirdiğinizden emin olun. Bu `azureEngagement` nesnesi Web SDK yöntemlerine erişmek için kullanılır. 
    
@@ -61,7 +65,7 @@ Azure Mobile Engagement Web SDK’sını tümleştireceğimiz yeni ve boş bir W
    
     ![Js dosyaları ile Visual Studio][1]
 
-## Gerçek zamanlı izlemeyi etkinleştirme
+## <a name="enable-realtime-monitoring"></a>Gerçek zamanlı izlemeyi etkinleştirme
 Veri göndermeye başlamak ve kullanıcıların etkin olduğundan emin olmak için, Mobile Engagement arka ucuna en az bir Etkinlik göndermelisiniz. Web uygulaması bağlamında etkinlik bir web sayfasıdır. 
 
 1. Çözümünüzde **home.html** adlı yeni bir sayfa oluşturun ve web uygulamanızın başlangıç sayfası olarak ayarlayın. 
@@ -84,12 +88,12 @@ Veri göndermeye başlamak ve kullanıcıların etkin olduğundan emin olmak iç
         </body>
         </html>
 
-## Uygulamayı gerçek zamanlı izlemeyle bağlama
+## <a name="connect-app-with-realtime-monitoring"></a>Uygulamayı gerçek zamanlı izlemeyle bağlama
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-![][2]
+  ![][2]
 
-## Analizi genişletme
+## <a name="extend-analytics"></a>Analizi genişletme
 Analiz için şu anda Web SDK ile birlikte kullanabileceğiniz tüm yöntemler aşağıda verilmiştir:
 
 1. Etkinlikler/Web sayfaları:
@@ -114,6 +118,6 @@ Analiz için şu anda Web SDK ile birlikte kullanabileceğiniz tüm yöntemler a
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

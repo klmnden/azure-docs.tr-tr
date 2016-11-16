@@ -2,7 +2,7 @@
 
 CloudConfigurationManager paketine başvurmak için şu `using` deyimini sınıfınıza ekleyin:
 
-    using Microsoft.Azure;  //Namespace for CloudConfigurationManager
+    using Microsoft.Azure;    //Namespace for CloudConfigurationManager
 
 Burada, yapılandırma dosyasından bir bağlantı dizesi almanın nasıl kullanıldığını gösteren bir örnek bulunmaktadır:
 
@@ -12,6 +12,8 @@ Burada, yapılandırma dosyasından bir bağlantı dizesi almanın nasıl kullan
 
 Azure Yapılandırma Yöneticisi'ni kullanmak isteğe bağlıdır. .NET Framework'ün [ConfigurationManager sınıfı](https://msdn.microsoft.com/library/system.configuration.configurationmanager.aspx) gibi bir API de kullanabilirsiniz.
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

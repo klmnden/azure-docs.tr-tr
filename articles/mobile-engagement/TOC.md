@@ -1,7 +1,6 @@
 # [Genel Bakış](mobile-engagement-overview.md)
 ## [İlgili hizmetlerle karşılaştırma](mobile-engagement-comparison.md)
 ## [Özelliklere genel bakış](mobile-engagement-key-features.md)
-## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/mobile-engagement/)
 
 # Kullanmaya Başlama
 ## [Android](mobile-engagement-android-get-started.md)
@@ -117,28 +116,27 @@
 ### [Hizmet sınırlamaları/kısıtlamalar](../azure-subscription-service-limits.md#mobile-engagement-limits)
 
 # Başvuru
-## [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Engagement)
-## [REST API başvurusu](https://msdn.microsoft.com/en-us/library/azure/mt683754)
-## [REST API Swagger özelliği](https://github.com/Azure/azure-rest-api-specs/blob/master/arm-mobileengagement/2014-12-01/swagger/mobile-engagement.json)
+## [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Engagement)
 ## SDK içeriği
 ### [Android SDK](mobile-engagement-android-sdk-content.md)
 ### [iOS SDK](mobile-engagement-ios-sdk-content.md)
 ### [Windows Evrensel Uygulamaları SDK](mobile-engagement-windows-store-sdk-content.md)
 ### [Windows Phone Silverlight SDK](mobile-engagement-windows-phone-sdk-content.md)
-
-# İlgili
-
-# Kaynaklar
-## [Örnek Tanıtım uygulamaları](mobile-engagement-demo-apps.md)
-## [.NET API Örneği](mobile-engagement-dotnet-sdk-service-api.md)
-## [Videolar ve Güncelleştirmeler](https://azure.microsoft.com/documentation/services/mobile-engagement/)
-## [Hizmet Düzeyi Sözleşmesi (SLA)](https://azure.microsoft.com/support/legal/sla/mobile-engagement/)
 ## Sürüm notları
 ### [Android SDK](mobile-engagement-android-release-notes.md)
 ### [iOS SDK](mobile-engagement-ios-release-notes.md)
 ### [Web SDK](mobile-engagement-web-release-notes.md)
 ### [Windows Evrensel Uygulamaları SDK](mobile-engagement-windows-store-release-notes.md)
 ### [Windows Phone Silverlight SDK](mobile-engagement-windows-phone-release-notes.md)
+
+
+# Kaynaklar
+## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/mobile-engagement/)
+## [Örnek Tanıtım uygulamaları](mobile-engagement-demo-apps.md)
+## [.NET API Örneği](mobile-engagement-dotnet-sdk-service-api.md)
+## [Videolar ve Güncelleştirmeler](https://azure.microsoft.com/documentation/services/mobile-engagement/)
+## [Hizmet Düzeyi Sözleşmesi (SLA)](https://azure.microsoft.com/support/legal/sla/mobile-engagement/)
+
 
 
 

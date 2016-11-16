@@ -1,12 +1,12 @@
 ---
-title: .NET kullanarak Azure Kuyruk depolamaya başlama | Microsoft Docs
-description: Azure Queues, uygulama bileşenleri arasında güvenilir ve zaman uyumsuz mesajlaşma sağlar. Bulut mesajlaşma özelliği uygulama bileşenlerinizin bağımsız olarak ölçeklendirilmesini sağlar.
+title: ".NET kullanarak Azure Kuyruk depolamaya başlama | Microsoft Belgeleri"
+description: "Azure Queues, uygulama bileşenleri arasında güvenilir ve zaman uyumsuz mesajlaşma sağlar. Bulut mesajlaşma özelliği uygulama bileşenlerinizin bağımsız olarak ölçeklendirilmesini sağlar."
 services: storage
 documentationcenter: .net
 author: robinsh
 manager: carmonm
 editor: tysonn
-
+ms.assetid: c0f82537-a613-4f01-b2ed-fc82e5eea2a7
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/12/2016
 ms.author: robinsh
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 18af1ce4f6ebb235e66e17d99dc5ae6156b84a59
 
 ---
-# <a name="get-started-with-azure-queue-storage-using-.net"></a>.NET kullanarak Azure Kuyruk Depolamaya başlayın
+
+# <a name="get-started-with-azure-queue-storage-using-net"></a>.NET kullanarak Azure Kuyruk Depolamaya başlayın
 [!INCLUDE [storage-selector-queue-include](../../includes/storage-selector-queue-include.md)]
 
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
@@ -47,9 +51,11 @@ Bu öğreti, Azure kuyruk depolama kullanarak bazı genel senaryolar için .NET 
 ### <a name="add-namespace-declarations"></a>Ad alanı bildirimleri ekleme
 Aşağıdaki `using` bildirimlerini `program.cs` dosyasının üstüne ekleyin:
 
+```csharp
     using Microsoft.Azure; // Namespace for CloudConfigurationManager
     using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
     using Microsoft.WindowsAzure.Storage.Queue; // Namespace for Queue storage types
+```
 
 ### <a name="parse-the-connection-string"></a>Bağlantı dizesini ayrıştırma
 [!INCLUDE [storage-cloud-configuration-manager-include](../../includes/storage-cloud-configuration-manager-include.md)]
@@ -57,13 +63,16 @@ Aşağıdaki `using` bildirimlerini `program.cs` dosyasının üstüne ekleyin:
 ### <a name="create-the-queue-service-client"></a>Kuyruk hizmeti istemcisi oluşturma
 **CloudQueueClient** sınıfı, Kuyruk depolamada depolanan kuyrukları almanızı sağlar. Hizmet istemcisini oluşturma yöntemlerinden biri aşağıda verilmiştir:
 
+```csharp
     CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
-
+```
+    
 Artık Kuyruk depolamadan veri okuyan ve bu depolamaya veri yazan kodu yazmaya hazırsınız.
 
 ## <a name="create-a-queue"></a>Bir kuyruk oluşturma
 Bu örnek, zaten yoksa, nasıl bir kuyruk oluşturulacağını gösterir:
 
+```csharp
     // Retrieve storage account from connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -76,10 +85,12 @@ Bu örnek, zaten yoksa, nasıl bir kuyruk oluşturulacağını gösterir:
 
     // Create the queue if it doesn't already exist
     queue.CreateIfNotExists();
+```
 
 ## <a name="insert-a-message-into-a-queue"></a>Kuyruğa bir ileti yerleştirme
 Varolan bir sıraya bir ileti yerleştirmek için ilk olarak yeni bir **CloudQueueMessage** oluşturun. Ardından **AddMessage** yöntemini çağırın. **CloudQueueMessage** bir dizeden (UTF-8 biçiminde) veya bir **bayt** dizisinden oluşturulabilir. Burada, bir kuyruk oluşturan (eğer yoksa) ve 'Hello, World' iletisini yerleştiren bir kod yer almaktadır:
 
+```csharp
     // Retrieve storage account from connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -96,10 +107,12 @@ Varolan bir sıraya bir ileti yerleştirmek için ilk olarak yeni bir **CloudQue
     // Create a message and add it to the queue.
     CloudQueueMessage message = new CloudQueueMessage("Hello, World");
     queue.AddMessage(message);
+```
 
 ## <a name="peek-at-the-next-message"></a>Sonraki iletiye gözatın
 **PeekMessage** yöntemini çağırarak iletiyi kuyruktan kaldırmadan kuyruğun önündeki iletiye göz atabilirsiniz.
 
+```csharp
     // Retrieve storage account from connection string
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -115,10 +128,12 @@ Varolan bir sıraya bir ileti yerleştirmek için ilk olarak yeni bir **CloudQue
 
     // Display message.
     Console.WriteLine(peekedMessage.AsString);
+```
 
 ## <a name="change-the-contents-of-a-queued-message"></a>Kuyruğa alınan iletinin içeriğini değiştirme
 Kuyrukta yer alan bir iletinin içeriğini değiştirebilirsiniz. Eğer ileti bir iş görevini temsil ediyorsa, bu özelliği kullanarak iş görevinin durumunu güncelleştirebilirsiniz. Aşağıdaki kod kuyruk iletisini yeni içeriklerle güncelleştirir ve görünürlük zaman aşımını 60 saniye daha uzatır. Bu, ileti ile ilişkili işin durumunu kaydeder ve istemciye ileti üzerinde çalışmaya devam etmesi için bir dakika daha zaman verir. Bir işleme adımı donanım veya yazılım arızasından dolayı başarısız olursa baştan başlamanıza gerek kalmadan kuyruk iletilerindeki çok adımlı iş akışlarını izlemek için bu yöntemi kullanabilirsiniz. Genellikle bir yeniden deneme sayacı tutmanı gerekir ve bir ileti *n* seferden daha fazla yeniden denenirse, silebilirsiniz. Bu, her işlendiğinde bir uygulama hatası tetikleyen bir iletiye karşı koruma sağlar.
 
+```csharp
     // Retrieve storage account from connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -135,10 +150,12 @@ Kuyrukta yer alan bir iletinin içeriğini değiştirebilirsiniz. Eğer ileti bi
     queue.UpdateMessage(message,
         TimeSpan.FromSeconds(60.0),  // Make it visible for another 60 seconds.
         MessageUpdateFields.Content | MessageUpdateFields.Visibility);
+```
 
-## <a name="de-queue-the-next-message"></a>Sonraki iletiyi sıradan çıkarmak
+## <a name="dequeue-the-next-message"></a>Sonraki iletiyi sıradan çıkarmak
 Kodunuz, bir iletiyi bir kuyruktan iki adımda çıkarır. **GetMessage**’ı çağırdığınzda, bir kuyruktaki bir sonraki iletiyi alırsınız. **GetMessage**’dan dönen bir ileti bu kuyruktaki kod okuyan iletilere karşı görünmez olur. Varsayılan olarak bu ileti 30 saniye görünmez kalır. İletiyi kuyruktan kaldırmayı tamamlamak için ayrıca **DeleteMessage**’ı çağırmanız gerekir. Bir iletinin iki adımlı kaldırılma süreci, donanım veya yazılım arızasından dolayı kodunuzun bir iletiyi işleyememesi durumunda kodunuzun başka bir örneğinin aynı iletiyi alıp yeniden denemesini sağlar. Kodunuz ileti işlendikten hemen sonra **DeleteMessage**’ı çağırır.
 
+```csharp
     // Retrieve storage account from connection string
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -154,10 +171,12 @@ Kodunuz, bir iletiyi bir kuyruktan iki adımda çıkarır. **GetMessage**’ı �
 
     //Process the message in less than 30 seconds, and then delete the message
     queue.DeleteMessage(retrievedMessage);
+```
 
-## <a name="use-async-await-pattern-with-common-queue-storage-apis"></a>Genel Kuyruk depolama API’leri ile Zaman Uyumsuz-Bekleme yöntemini kullanma
+## <a name="use-asyncawait-pattern-with-common-queue-storage-apis"></a>Genel Kuyruk depolama API’leri ile Zaman Uyumsuz-Bekleme yöntemini kullanma
 Bu örnek, genel Kuyruk depolama API’leri ile Zaman Uyumsuz-Bekleme yönteminin nasıl kullanılacağını gösterir. Örnek, her yönteme eklenen *Async* soneki ile belirtildiği şekilde kullanılan yöntemlerin her birinin zaman uyumsuz sürümlerini çağırır. Zaman uyumsuz bir yöntem kullanıldığında, zaman uyumsuz-bekleme yöntemi çağrı tamamlanana kadar yerel çalıştırmayı askıya alır. Bu davranış geçerli iş parçacığının başka işler yapmasını sağlar ve böylece performans sorunlarını engellemeye yardımcı olur, uygulamanızın genel yanıt hızını iyileştirir. .NET’te Zaman Uyumsuz-Bekleme yönteminin kullanılması ile ilgili daha fazla ayrıntı için bkz. [Zaman Uyumsuz ve Bekleme (C# ve Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx).
 
+```csharp
     // Create the queue if it doesn't already exist
     if(await queue.CreateIfNotExistsAsync())
     {
@@ -182,11 +201,13 @@ Bu örnek, genel Kuyruk depolama API’leri ile Zaman Uyumsuz-Bekleme yöntemini
     // Async delete the message
     await queue.DeleteMessageAsync(retrievedMessage);
     Console.WriteLine("Deleted message");
-
-## <a name="leverage-additional-options-for-de-queuing-messages"></a>İletilerin kuyruktan çıkarılması için ek seçenekleri kullanma
+```
+    
+## <a name="leverage-additional-options-for-dequeuing-messages"></a>İletilerin kuyruktan çıkarılması için ek seçenekleri kullanma
 İletilerin bir kuyruktan alınma şeklini iki yöntemle özelleştirebilirsiniz.
 İlk olarak toplu iletiler alabilirsiniz (en fazla 32). İkinci olarak daha uzun veya daha kısa bir görünmezlik süresi ayarlayarak kodunuzun her iletiyi tamamen işlemesi için daha az veya daha fazla zaman tanıyabilirsiniz. Aşağıdaki kod örneğinde tek çağrıda 20 ileti almak için **GetMessages** yöntemi kullanılmıştır. Ardından her ileti bir **foreach** döngüsü ile işlenir. Ayrıca her ileti için görünmezlik zaman aşımı beş dakika olarak ayarlanır. 5 dakikalık sürenin tüm iletiler için aynı zamanda başladığını unutmayın, bu nedenle **GetMessages** çağrısından itibaren 5 dakika geçtikten sonra silinmeyen tüm iletiler görünür olacaktır.
 
+```csharp
     // Retrieve storage account from connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -202,10 +223,12 @@ Bu örnek, genel Kuyruk depolama API’leri ile Zaman Uyumsuz-Bekleme yöntemini
         // Process all messages in less than 5 minutes, deleting each message after processing.
         queue.DeleteMessage(message);
     }
+```
 
 ## <a name="get-the-queue-length"></a>Kuyruk uzunluğu alma
 Bir kuyruktaki ileti sayısı ile ilgili bir tahmin alabilirsiniz. **FetchAttributes** yöntemi, ileti sayısı dahil olmak üzere Kuyruk hizmetinden kuyruk özniteliklerini almasını ister. **ApproximateMessageCount** özelliği Kuyruk hizmetini çağırmadan **FetchAttributes** yöntemi tarafından alınan en son değeri döndürür.
 
+```csharp
     // Retrieve storage account from connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -224,10 +247,12 @@ Bir kuyruktaki ileti sayısı ile ilgili bir tahmin alabilirsiniz. **FetchAttrib
 
     // Display number of messages.
     Console.WriteLine("Number of messages in queue: " + cachedMessageCount);
+```
 
 ## <a name="delete-a-queue"></a>Bir kuyruk silme
 Bir kuyruğu ve içinde yer alan tüm iletileri silmek için kuyruk nesnesindeki **Sil** yöntemini çağırın.
 
+```csharp
     // Retrieve storage account from connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -240,6 +265,8 @@ Bir kuyruğu ve içinde yer alan tüm iletileri silmek için kuyruk nesnesindeki
 
     // Delete the queue.
     queue.Delete();
+```
+    
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Kuyruk depolamanın temellerini öğrendiğinize göre, daha karmaşık depolama görevleri hakkında daha fazla bilgi edinmek için bu bağlantıları takip edin:
@@ -263,6 +290,6 @@ Kuyruk depolamanın temellerini öğrendiğinize göre, daha karmaşık depolama
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

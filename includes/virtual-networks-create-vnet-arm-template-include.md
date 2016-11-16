@@ -1,4 +1,4 @@
-## ARM şablonunu indirme ve anlama
+## <a name="download-and-understand-the-arm-template"></a>ARM şablonunu indirme ve anlama
 VNet ve github’a ait iki alt ağı oluşturmak için var olan ARM şablonunu indirebilir, istediğiniz değişiklikleri yapabilir ve yeniden kullanabilirsiniz. Bunun için aşağıdaki adımları uygulayın.
 
 1. [Örnek şablon sayfasına](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets) gidin.
@@ -9,7 +9,7 @@ VNet ve github’a ait iki alt ağı oluşturmak için var olan ARM şablonunu i
    
    | Parametre | Açıklama |
    | --- | --- |
-   | **location** |VNet’in oluşturulacağı Azure bölgesi |
+   | **konum** |VNet’in oluşturulacağı Azure bölgesi |
    | **vnetName** |Yeni VNet'in adı |
    | **addressPrefix** |CIDR biçiminde VNet adres alanı |
    | **subnet1Name** |İlk VNet adı |
@@ -56,6 +56,8 @@ VNet ve github’a ait iki alt ağı oluşturmak için var olan ARM şablonunu i
         }
 11. Dosyayı kaydedin.
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,22 +1,26 @@
 ---
-title: Azure Active Directory Premium ile çalışmaya başlama
-description: Azure Active Directory Premium sürümü için, Toplu Lisanslama web sitesi üzerinden kayıt işleminin nasıl yapıldığını açıklayan bir konu başlığı.
+title: "Azure Active Directory Premium ile çalışmaya başlama"
+description: "Azure Active Directory Premium sürümü için, Toplu Lisanslama web sitesi üzerinden kayıt işleminin nasıl yapıldığını açıklayan bir konu başlığı."
 services: active-directory
-documentationcenter: ''
-author: markusvi
+documentationcenter: 
+author: MarkusVi
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 391764e5-c4eb-4ae6-b8a9-3d09f0de04a6
 ms.service: active-directory
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/16/2016
+ms.date: 10/31/2016
 ms.author: markvi
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 4f5341ecd0256d6268b9247ef5ec391809b7071a
+
 
 ---
-# Azure Active Directory Premium ile çalışmaya başlama
+# <a name="getting-started-with-azure-active-directory-premium"></a>Azure Active Directory Premium ile çalışmaya başlama
 Active Directory Premium'a kaydolmanız için birkaç seçenek sunulmaktadır: 
 
 **Azure veya Office 365** Azure veya Office 365 abonesi olarak, Active Directory Premium'u çevrimiçi satın alabilirsiniz. Ayrıntılı adımlar için bkz. [Azure Active Directory Premium'u satın alma - Mevcut Müşteriler](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-Existing-Customer) veya [Azure Active Directory Premium'u satın alma - Yeni Müşteriler](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-New-Customers).  
@@ -32,10 +36,10 @@ Bu konu başlığında, Toplu Lisanslama programı aracılığıyla satın aldı
 > 
 > 
 
-## 1. Adım: Active Directory Premium'a kaydolma
+## <a name="step-1-sign-up-for-active-directory-premium"></a>1. Adım: Active Directory Premium'a kaydolma
 Kaydolmak için bkz. [Toplu Lisanslama ile satın alma](http://www.microsoft.com/en-us/licensing/how-to-buy/how-to-buy.aspx).
 
-## 2. Adım: Lisans planınızı etkinleştirme
+## <a name="step-2-activate-your-license-plan"></a>2. Adım: Lisans planınızı etkinleştirme
 Bu, Microsoft Enterprise Toplu Lisanslama programı aracılığıyla satın aldığınız ilk lisans planı mı?
 Bu durumda, satın alma işleminiz tamamlandıktan sonra bir onay e-postası alırsınız.
 İlk lisans planınızı etkinleştirmek için bu e-postaya ihtiyacınız vardır.
@@ -58,7 +62,7 @@ Bu dizine yönelik sonraki tüm satın alma işlemlerinde, lisanslar otomatik ol
 
 ![Onay][3]
 
-## 3. Adım: Azure Active Directory erişiminizi etkinleştirme
+## <a name="step-3-activate-your-azure-active-directory-access"></a>3. Adım: Azure Active Directory erişiminizi etkinleştirme
 Microsoft Azure'ı daha önce kullandıysanız [4. Adım](#step-4-assign-license-to-user-accounts)'a geçebilirsiniz. 
 
 Lisanslar, dizininize sağlandığında size bir **Hoş geldiniz e-postası** gönderilir. E-posta, Azure Active Directory Premium veya Enterprise Mobility Suite lisanslarınızı ve özelliklerinizi yönetmeye başlayabileceğinizi onaylar. 
@@ -92,7 +96,7 @@ Bu durumda, Azure erişiminiz Azure Active Directory ile sınırlıdır.
 
 ![Azure özellikleri][8]
 
-## 4. Adım: Kullanıcı hesaplarına lisans atama
+## <a name="step-4-assign-license-to-user-accounts"></a>4. Adım: Kullanıcı hesaplarına lisans atama
 Satın aldığınız planı kullanmaya başlamadan önce, Premium ile sağlanan zengin özellikleri kullanabilmeleri için kuruluşunuzdaki kullanıcı hesaplarına lisansları kendiniz atamanız gerekir. Azure Active Directory Premium özelliklerini kullanabilmeleri için kullanıcılara lisans atamak üzere aşağıdaki adımları uygulayın.
 
 **Kullanıcılara lisans atamak için aşağıdaki adımları uygulayın:**
@@ -106,18 +110,18 @@ Satın aldığınız planı kullanmaya başlamadan önce, Premium ile sağlanan 
    
     ![Lisans atama][11]
 
-### Lisans kısıtlamaları
+### <a name="license-restrictions"></a>Lisans kısıtlamaları
 Bazı lisans planları diğer lisans planlarının alt kümeleri veya üst kümeleridir. Genellikle, bir kullanıcı zaten kendisine atanmış olan bir lisans planına atanamaz. Üst küme olan bir lisans planını atamak istiyorsanız öncelikle alt küme lisans planını kaldırmanız gerekir.
 
-### Lisans gereksinimleri
+### <a name="license-requirements"></a>Lisans gereksinimleri
 Bir kullanıcıya lisans atadığınızda, hesabının özelliklerinde birincil kullanım konumu belirtebilirsiniz. Kullanım konumu belirtilmezse kullanıcıya otomatik olarak kiracının konumu atanır.
 
 ![Kullanıcı konumu][12]
 
 Bir Microsoft bulut hizmeti için hizmetlerin ve özelliklerin kullanılabilirliği ülkeye veya bölgeye göre değişiklik gösterir. Internet protokolü üzerinden ses (VoIP) gibi bir hizmet, bir ülkede veya bölgede kullanılabilirken başka bir ülkede veya bölgede kullanılamıyor olabilir. Bir hizmet kapsamındaki özellikler, belirli ülke veya bölgelerde yasal nedenlerden ötürü kısıtlanmış olabilir. Bir hizmetin veya özelliğin kısıtlamalı veya kısıtlamasız olarak kullanılabilirlik durumunu öğrenmek için hizmetin lisans kısıtlamaları sitesinde ülkenizi veya bölgenizi arayın.
 
-## Sırada ne var?
-* [Oturum Aç ve Erişim Paneli sayfalarınıza şirket markası ekleme](active-directory-add-company-branding.md)
+## <a name="whats-next"></a>Sırada ne var?
+* [Oturum Açma ve Erişim Paneli sayfalarınıza şirket markası ekleme](active-directory-add-company-branding.md)
 * [Erişim ve kullanım raporlarınızı görüntüleme](active-directory-view-access-usage-reports.md)
 
 <!--Image references-->
@@ -136,6 +140,6 @@ Bir Microsoft bulut hizmeti için hizmetlerin ve özelliklerin kullanılabilirli
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

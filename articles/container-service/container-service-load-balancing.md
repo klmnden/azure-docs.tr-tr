@@ -1,14 +1,14 @@
 ---
-title: Azure Container Service kümesinde yük dengeleme kapsayıcıları | Microsoft Docs
-description: Azure Container Service kümesindeki birden çok kapsayıcıda yük dengeleyin.
+title: "Azure Container Service kümesinde yük dengeleme kapsayıcıları | Microsoft Belgeleri"
+description: "Azure Container Service kümesindeki birden çok kapsayıcıda yük dengeleyin."
 services: container-service
-documentationcenter: ''
+documentationcenter: 
 author: rgardler
 manager: timlt
-editor: ''
+editor: 
 tags: acs, azure-container-service
-keywords: Kapsayıcılar, Mikro hizmetler, DC/OS, Azure
-
+keywords: "Kapsayıcılar, Mikro hizmetler, DC/OS, Azure"
+ms.assetid: f0ab5645-2636-42de-b23b-4c3a7e3aa8bb
 ms.service: container-service
 ms.devlang: na
 ms.topic: get-started-article
@@ -16,6 +16,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/11/2016
 ms.author: rogardle
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: cf255856302ad5bdb1f6022d231833610acbcac5
+
 
 ---
 # <a name="load-balance-containers-in-an-azure-container-service-cluster"></a>Bir Azure Container Service kümesindeki yük dengeleme kapsayıcıları
@@ -35,14 +39,14 @@ Marathon Yük Dengeleyici dağıttığınız kapsayıcılara göre kendini dinam
 
 Marathon Yük Dengeleyiciyi yüklemek için DC/OS web kullanıcı arabirimini veya komut satırını kullanabilirsiniz.
 
-### <a name="install-marathon-lb-using-dc/os-web-ui"></a>DC/OS web kullanıcı arabirimi kullanarak Marathon-LB yükleme
+### <a name="install-marathonlb-using-dcos-web-ui"></a>DC/OS web kullanıcı arabirimi kullanarak Marathon-LB yükleme
 1. 'Universe' öğesine tıklayın
 2. 'Marathon LB' araması yapın
 3. Yükle'ye tıklayın
 
 ![DC/OS Web Arabirimi üzerinden marathon-lb yükleme](./media/dcos/marathon-lb-install.png)
 
-### <a name="install-marathon-lb-using-the-dc/os-cli"></a>DC/OS CLI’si kullanarak Marathon-LB yükleme
+### <a name="install-marathonlb-using-the-dcos-cli"></a>DC/OS CLI’si kullanarak Marathon-LB yükleme
 DC/OS CLI’sini yükleyip kümenize bağlanabildiğinizden emin olduktan sonra istemci makineden aşağıdaki komutu çalıştırın:
 
 ```bash
@@ -97,13 +101,13 @@ Marathon-lb paketine sahip olduğumuza göre yük dengeleme işlemi uygulamak is
 
 Marathon'un varsayılan olarak özel kümeye dağıtım yapacağını lütfen unutmayın. Bu, yukarıdaki dağıtıma yalnızca yük dengeleyiciniz aracılığıyla erişilebileceği anlamına gelir; istediğimiz davranış genellikle bu şekildedir.
 
-### <a name="deploy-using-the-dc/os-web-ui"></a>DC/OS web kullanıcı arabirimi kullanarak dağıtma
+### <a name="deploy-using-the-dcos-web-ui"></a>DC/OS web kullanıcı arabirimi kullanarak dağıtma
 1. http://localhost/marathon adresindeki Marathon sayfasını ziyaret edin ([SSH tünelinizi](container-service-connect.md) ayarladıktan ve şuna tıkladıktan sonra: `Create Appliction`
 2. `New Application` iletişim kutusunda sağ üst köşedeki `JSON Mode` öğesine tıklayın
 3. Yukarıdaki JSON’u düzenleyiciye yapıştırın
 4. Şuna tıklayın: `Create Appliction`
 
-### <a name="deploy-using-the-dc/os-cli"></a>DC/OS CLI’si kullanarak dağıtma
+### <a name="deploy-using-the-dcos-cli"></a>DC/OS CLI’si kullanarak dağıtma
 Bu uygulamayı DC/OS CLI ile dağıtmak için yukarıdaki JSON’u `hello-web.json` adlı bir dosyaya kopyalayın ve şu komutu çalıştırın:
 
 ```bash
@@ -129,6 +133,9 @@ Azure lb:8080 -> marathon-lb:1002 -> mycontainer2:33432
 ## <a name="next-steps"></a>Sonraki adımlar
 [marathon-lb](https://dcos.io/docs/1.7/usage/service-discovery/marathon-lb/) hakkında daha fazla bilgi için DC/OS belgelerine bakın.
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

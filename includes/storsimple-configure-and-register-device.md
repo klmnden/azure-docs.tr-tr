@@ -1,7 +1,7 @@
 <!--author=alkohli last changed: 12/01/15-->
 
 
-#### Cihazı yapılandırmak ve kaydetmek için
+#### <a name="to-configure-and-register-the-device"></a>Cihazı yapılandırmak ve kaydetmek için
 1. StorSimple cihazı seri konsolunuzdaki Windows PowerShell arabirimine erişin. Talimatlar için bkz. [Cihaz seri konsoluna bağlanmak için PuTTY kullanma](#use-putty-to-connect-to-the-device-serial-console). **Yordamı hatasız takip ettiğinizden emin olun; aksi taktirde konsola erişemezsiniz.**
 2. Açılan oturumda komut istemi almak için bir kez Enter tuşuna basın. 
 3. Cihazınızda ayarlamak istediğiniz dili seçmeniz istenecektir. Dili belirtip Enter tuşuna basın. 
@@ -30,7 +30,8 @@
      > 
 8. (İsteğe bağlı), web ara sunucusunu yapılandırın. Web ara sunucusunun yapılandırması isteğe bağlı olsa **bir web ara sunucu kullanıyorsanız, burada yalnızca bunu yapılandırabileceğinizi unutmayın**. Daha fazla bilgi için [Cihazınız için web ara sunucusunu yapılandırma](../articles/storsimple/storsimple-configure-web-proxy.md)’ya gidin. Bu adım sırasında sorunlarla karşılaşırsanız, sorun giderme kılavuzluğu için bkz. [Web ara sunucunun yapılandırması sırasında hatalar](../articles/storsimple/storsimple-troubleshoot-deployment.md#errors-during-the-optional-web-proxy-settings).
 
-      > [AZURE.NOTE] Kurulum sihirbazından çıkmak için istediğiniz zaman Ctrl + C tuşlarına basabilirsiniz. Bu komutu bildirmeden önce uyguladığınız ayarlar korunur.
+     > [!NOTE]
+     > Kurulum sihirbazından çıkmak için istediğiniz zaman Ctrl + C tuşlarına basabilirsiniz. Bu komutu bildirmeden önce uyguladığınız ayarlar korunur.
 
 1. Güvenlik nedenleriyle, cihaz yönetici parolasının süresi ilk oturumun ardından dolar; sonraki oturumlar için bunu değiştirmeniz gerekir. İstendiğinde cihaz yöneticisi parolasını verin. Geçerli bir cihaz yöneticisi parolası 8-15 karakter arasında olmalıdır. Parolada küçük harflerin, büyük harflerin, rakamların ve özel karakterlerin bir karışımı bulunur.
 2. StorSimple Snapshot Manager parolası burada da ayarlanır. StorSimple Snapshot Manager çalıştıran Windows konağınızla bir cihazın kimlik doğrulamasını yaptığınızda bu parolayı kullanın. İstendiğinde, 14-15 karakter arası uzunlukta bir parola sağlayın. Parolada aşağıdakilerden üçünün bir birleşimi olmalıdır: küçük harf, büyük harf, rakam ve özel karakter. 
@@ -69,10 +70,12 @@
 
 Cihaz sorunsuz kaydedildikten ve çevrimiçi olmadıktan sonra, ağ bağlantısının sağlıklı olmasını sağlamak için `Test-HcsmConnection -Verbose` komutunu çalıştırabilirsiniz. Bu cmdlet’in ayrıntılı kullanımı için [Test HcsmConnection için cmdlet başvurusu](https://technet.microsoft.com/library/dn715782.aspx)’na gidin.
 
-![Kullanılabilir video](./media/storsimple-configure-and-register-device/Video_icon.png) **Kullanılabilir video**
+![Video var](./media/storsimple-configure-and-register-device/Video_icon.png) **Video var**
 
 StorSimple için Windows PowerShell aracılığıyla cihazınızın nasıl yapılandırılacağını ve kaydedileceğini gösteren bir video izlemek için [buraya](https://azure.microsoft.com/documentation/videos/initialize-the-storsimple-appliance/) tıklayın.
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

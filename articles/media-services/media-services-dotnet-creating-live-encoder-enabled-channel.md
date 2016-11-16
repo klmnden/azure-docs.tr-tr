@@ -1,12 +1,12 @@
 ---
-title: .NET çoklu bit hızına sahip akışlar oluşturmak için Azure Media Services'i kullanarak canlı akış gerçekleştirme | Microsoft Docs
-description: Bu öğreticide, tek bit hızında bir canlı akışı alıp .NET SDK kullanarak çoklu bit hızında akışa kodlayan bir Kanal oluşturulması adım adım anlatılmaktadır.
+title: ".NET ile çoklu bit hızına sahip akışlar oluşturmak için Azure Media Services&quot;ı kullanarak canlı akış gerçekleştirme | Microsoft Belgeleri"
+description: "Bu öğreticide, tek bit hızında bir canlı akışı alıp .NET SDK kullanarak çoklu bit hızında akışa kodlayan bir Kanal oluşturulması adım adım anlatılmaktadır."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: anilmur
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 4df5e690-ff63-47cc-879b-9c57cb8ec240
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/12/2016
 ms.author: juliako;anilmur
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 98498da5a8aaf10e37c355f05d6f6d83fd4df584
+
 
 ---
-# <a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multi-bitrate-streams-with-.net"></a>.NET çoklu bit hızına sahip akışlar oluşturmak üzere Azure Media Services’i kullanarak canlı akış gerçekleştirme
+# <a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multibitrate-streams-with-net"></a>.NET çoklu bit hızına sahip akışlar oluşturmak üzere Azure Media Services’i kullanarak canlı akış gerçekleştirme
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 > * [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
@@ -68,7 +72,7 @@ Kanalınızın canlı akışı düzgün şekilde aldığını doğrulamak için 
 3. Olay için akışı ve arşivlemeyi durdurmak istediğinizde programı durdurun.
 4. Programı silin (ve isteğe bağlı olarak varlığı da silin).
 
-## <a name="what-you'll-learn"></a>Öğrenecekleriniz
+## <a name="what-youll-learn"></a>Öğrenecekleriniz
 Bu konuda, Media Services .NET SDK'sını kullanarak kanallar ve programlarda farklı işlemlerin nasıl yürütüleceği gösterilmektedir. İşlemlerin çoğu uzun süre çalışacağından, uzun süre çalışan işlemleri yöneten .NET API'leri kullanılmaktadır.
 
 Bu konuda aşağıdakilerin nasıl gerçekleştirileceği gösterilmektedir.
@@ -101,7 +105,7 @@ Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hes
 ## <a name="download-sample"></a>Örnek indirme
 [Buradan](https://azure.microsoft.com/documentation/samples/media-services-dotnet-encode-live-stream-with-ams-clear/) bir örnek alarak çalıştırın.
 
-## <a name="set-up-for-development-with-media-services-sdk-for-.net"></a>.NET için Media Services SDK ile geliştirme amaçlı ayarlama
+## <a name="set-up-for-development-with-media-services-sdk-for-net"></a>.NET için Media Services SDK ile geliştirme amaçlı ayarlama
 1. Visual Studio'yu kullanarak bir konsol uygulaması oluşturun.
 2. Media Services NuGet paketini kullanarak .NET için Media Services SDK'sını konsol uygulamanıza ekleyin.
 
@@ -341,7 +345,7 @@ App.config dosyasına appSettings bölümünü ekleyin ve Media Services hesap a
             /// <returns></returns>
             public static ILocator CreateLocatorForAsset(IAsset asset, TimeSpan ArchiveWindowLength)
             {
-                // You cannot create a streaming locator using an AccessPolicy that includes write or delete permissions.            
+                 // You cannot create a streaming locator using an AccessPolicy that includes write or delete permissions.            
                 var locator = _context.Locators.CreateLocator
                     (
                         LocatorType.OnDemandOrigin,
@@ -509,7 +513,7 @@ App.config dosyasına appSettings bölümünü ekleyin ve Media Services hesap a
                     operationId ?? string.Empty);
             }
         }
-    }   
+    }    
 
 
 ## <a name="next-step"></a>Sonraki adım
@@ -520,9 +524,12 @@ Media Services öğrenme yollarını gözden geçirin.
 ## <a name="provide-feedback"></a>Geri bildirimde bulunma
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-### <a name="looking-for-something-else?"></a>Başka bir şey mi arıyorsunuz?
+### <a name="looking-for-something-else"></a>Başka bir şey mi arıyorsunuz?
 Beklediklerinizi bu konuda bulamadıysanız, eksik bir şeyler varsa veya herhangi bir nedenle gereksinimleriniz karşılanmadıysa, lütfen aşağıdaki Disqus yazışmasını kullanarak bize geri bildirimde bulunun.
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

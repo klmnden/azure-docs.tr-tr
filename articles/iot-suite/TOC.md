@@ -2,7 +2,7 @@
 ## [Azure ve IoT](iot-suite-what-is-azure-iot.md)
 ## [IoT Paketi nedir?](iot-suite-overview.md)
 ## [Önceden yapılandırılmış çözümler nelerdir?](iot-suite-what-are-preconfigured-solutions.md)
-## [IoT Paketi öğrenme yolu](https://azure.microsoft.com/documentation/learning-paths/iot-suite/)
+
 
 # Kullanmaya Başlama
 ## [Önceden yapılandırılmış çözümleri kullanmaya başlama](iot-suite-getstarted-preconfigured-solutions.md)
@@ -28,13 +28,14 @@
 ## [Baştan sona güvenlik](securing-iot-ground-up.md)
 
 # İlgili
-## [Akış Analizi](https://azure.microsoft.com/services/stream-analytics/)
-## [Event Hubs](https://azure.microsoft.com/services/event-hubs/)
-## [IoT Hub’ı](https://azure.microsoft.com/services/iot-hub/)
-## [Machine Learning](https://azure.microsoft.com/services/machine-learning/)
+## [Akış Analizi](/azure/stream-analytics/)
+## [Event Hubs](/azure/event-hubs/)
+## [IoT Hub’ı](/azure/iot-hub/)
+## [Machine Learning](/azure/machine-learning/)
 
 # Kaynaklar
 ## [SSS](iot-suite-faq.md)
+## [IoT Paketi öğrenme yolu](https://azure.microsoft.com/documentation/learning-paths/iot-suite/)
 
 
 

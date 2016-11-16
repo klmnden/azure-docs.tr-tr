@@ -1,25 +1,29 @@
 ---
-title: Azure Güvenlik Merkezi Sorun Giderme Kılavuzu | Microsoft Docs
-description: Bu belge Azure Güvenlik Merkezi’ndeki sorunları gidermenize yardımcı olur.
+title: "Azure Güvenlik Merkezi Sorun Giderme Kılavuzu | Microsoft Belgeleri"
+description: "Bu belge Azure Güvenlik Merkezi’ndeki sorunları gidermenize yardımcı olur."
 services: security-center
 documentationcenter: na
 author: YuriDio
 manager: swadhwa
-editor: ''
-
+editor: 
+ms.assetid: 44462de6-2cc5-4672-b1d3-dbb4749a28cd
 ms.service: security-center
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/21/2016
+ms.date: 10/18/2016
 ms.author: yurid
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 0413d5c87d6df4d07b0e3197599aad154b589bb2
+
 
 ---
-# Azure Güvenlik Merkezi Sorun Giderme Kılavuzu
+# <a name="azure-security-center-troubleshooting-guide"></a>Azure Güvenlik Merkezi Sorun Giderme Kılavuzu
 Bu kılavuz, kuruluşları Azure Güvenlik Merkezi'ni kullanmayı planlayan ve Güvenlik Merkezi ile ilgili sorunları gidermeye ihtiyaç duyan bilgi teknolojisi (BT) uzmanları, bilgi güvenlik analizi uzmanları ve bulut yöneticileri içindir.
 
-## Sorun giderme kılavuzu
+## <a name="troubleshooting-guide"></a>Sorun giderme kılavuzu
 Bu kılavuzda Güvenlik Merkezi ile ilgili sorunların nasıl giderildiği açıklanmaktadır. Güvenlik Merkezi’nde yapılan sorun giderme işlemlerinin büyük bölümü, başarısız bileşen için ilk olarak [Denetim Günlüğü](https://azure.microsoft.com/updates/audit-logs-in-azure-preview-portal/) kayıtlarına bakılarak yapılır. Denetim günlükleri ile aşağıdakileri belirleyebilirsiniz:
 
 * Hangi işlemlerin gerçekleştirildiği
@@ -30,7 +34,7 @@ Bu kılavuzda Güvenlik Merkezi ile ilgili sorunların nasıl giderildiği açı
 
 Denetim günlüğü, kaynaklarınız üzerinde gerçekleştirilen tüm yazma işlemlerini (PUT, POST, DELETE) içerir, ancak okuma işlemlerini (GET) içermez.
 
-## Windows’ta izleme aracısı yükleme sorunlarını giderme
+## <a name="troubleshooting-monitoring-agent-installation-in-windows"></a>Windows’ta izleme aracısı yükleme sorunlarını giderme
 Güvenlik Merkezi izleme aracısı, veri toplamayı gerçekleştirmek için kullanılır. Veri toplama etkinleştirildikten ve aracı hedef makineye doğru yüklendikten sonra şu işlemler yürütülmelidir:
 
 * ASMAgentLauncher.exe - Azure İzleme Aracısı 
@@ -50,7 +54,7 @@ Yükleme başarıyla gerçekleştirilirse hedef sanal makinenin Denetim Günlük
 > 
 > 
 
-## Linux’ta izleme aracısı yükleme sorunlarını giderme
+## <a name="troubleshooting-monitoring-agent-installation-in-linux"></a>Linux’ta izleme aracısı yükleme sorunlarını giderme
 Bir Linux sisteminde Sanal Makine Aracısı yükleme sorunlarını giderirken uzantının /var/lib/waagent/ dizinine indirildiğinden emin olmanız gerekir. Yüklendiğini doğrulamak için aşağıdaki komutu çalıştırabilirsiniz:
 
 `cat /var/log/waagent.log` 
@@ -64,12 +68,12 @@ Sorun giderme amacıyla gözden geçirebileceğiniz diğer günlük dosyaları �
 
 `netstat -plantu | grep 29130`
 
-## Microsoft Destek ile iletişim kurma
+## <a name="contacting-microsoft-support"></a>Microsoft Destek ile iletişim kurma
 Bazı sorunlar bu makalede verilen yönergeler kullanılarak tanımlanabilirken, bazılarını Güvenlik Merkezi genel [Forumu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSecurityCenter)’nda da bulabilirsiniz. Ancak daha fazla sorun giderme adımı gerekirse aşağıda gösterildiği gibi Azure Portal’ı kullanarak yeni bir destek isteği açabilirsiniz: 
 
 ![Microsoft Destek](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig2.png)
 
-## Ayrıca bkz.
+## <a name="see-also"></a>Ayrıca bkz.
 Bu belgede, Azure Güvenlik Merkezi'nde güvenlik ilkelerinin nasıl yapılandırılacağını öğrendiniz. Azure Güvenlik Merkezi hakkında daha fazla bilgi edinmek için şunlara bakın:
 
 * [Azure Güvenlik Merkezi Planlama ve İşlemler Kılavuzu](security-center-planning-and-operations-guide.md) - Azure Güvenlik Merkezi'ni benimsemek için tasarım ile ilgili dikkat edilmesi gerekenleri planlama ve anlama hakkında bilgi edinin.
@@ -79,6 +83,9 @@ Bu belgede, Azure Güvenlik Merkezi'nde güvenlik ilkelerinin nasıl yapılandı
 * [Azure Güvenlik Merkezi ile ilgili SSS](security-center-faq.md) - Hizmet kullanımı ile ilgili sık sorulan soruları burada bulabilirsiniz
 * [Azure Güvenlik Blogu](http://blogs.msdn.com/b/azuresecurity/) - Azure güvenliği ve uyumluluğu ile ilgili blog yazılarını bulabilirsiniz
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

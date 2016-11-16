@@ -1,22 +1,26 @@
 ---
-title: Azure API Management performansını artırmak için önbelleğe alma ekleme | Microsoft Docs
-description: API Management hizmeti çağrıları için gecikme, bant genişliği kullanımı ve web hizmeti yüklerini geliştirmeyi öğrenin.
+title: "Azure API Management performansını artırmak için önbelleğe alma ekleme | Microsoft Belgeleri"
+description: "API Management hizmeti çağrıları için gecikme, bant genişliği kullanımı ve web hizmeti yüklerini geliştirmeyi öğrenin."
 services: api-management
-documentationcenter: ''
+documentationcenter: 
 author: steved0x
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 740f6a27-8323-474d-ade2-828ae0c75e7a
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/24/2016
+ms.date: 10/25/2016
 ms.author: sdanie
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: c8cdb37fceb7b598c92b7b3cd41655c87c74e639
+
 
 ---
-# Azure API Management performansını artırmak için önbelleğe alma ekleme
+# <a name="add-caching-to-improve-performance-in-azure-api-management"></a>Azure API Management performansını artırmak için önbelleğe alma ekleme
 API Management işlemleri yanıt önbelleğe alma için yapılandırılabilir. Yanıt önbelleğe alma, çok sık değişmeyen veriler için API gecikmesi, bant genişliği kullanımı ve web hizmeti yükünü önemli ölçüde azaltabilir.
 
 Bu kılavuz size API’nize yanıt önbelleğe alma eklemeyi ve örnek Echo API işlemleri için ilkeleri yapılandırmayı gösterir. Böylece önbelleğe alma eylemini doğrulamak için işlemi geliştirici portalından çağırabilirsiniz.
@@ -26,18 +30,18 @@ Bu kılavuz size API’nize yanıt önbelleğe alma eklemeyi ve örnek Echo API 
 > 
 > 
 
-## Ön koşullar
-Bu kılavuzdaki adımları izlemeden önce, API ve ürün yapılandırılmış bir API Management hizmeti örneğine sahip olmalısınız. Henüz bir API Management hizmeti örneği oluşturmadıysanız, [Azure API Management’i kullanmaya başlama][Azure API Management’i kullanmaya başlama] öğreticisinde [API Management hizmet örneği oluşturma][API Management hizmet örneği oluşturma]’ya bakın.
+## <a name="prerequisites"></a>Ön koşullar
+Bu kılavuzdaki adımları izlemeden önce, API ve ürün yapılandırılmış bir API Management hizmeti örneğine sahip olmalısınız. Henüz bir API Management hizmet örneği oluşturmadıysanız [Azure API Management’i kullanmaya başlama][Azure API Management’i kullanmaya başlama] öğreticisindeki [API Management hizmet örneği oluşturma][API Management hizmet örneği oluşturma] bölümüne bakın.
 
-## <a name="configure-caching"> </a>Önbelleğe almak üzere bir işlem yapılandırma
+## <a name="configure-caching"> </a>Önbelleğe almak için bir işlemi yapılandırma
 Bu adımda, örnek Echo API’sinin **GET Kaynağı (önbelleğe alınmış)** işleminin önbelleğe alma ayarlarını inceleyeceksiniz.
 
 > [!NOTE]
-> Her API Management hizmeti örneği, API Management’i denemek ve hakkında bilgi almak için kullanılabilecek bir Echo API’si ile önceden yapılandırılmış olarak gelir. Daha fazla bilgi için bkz. [Azure API Management’i kullanmaya başlama][Azure API Management’i kullanmaya başlama]
+> Her API Management hizmeti örneği, API Management’i denemek ve hakkında bilgi almak için kullanılabilecek bir Echo API’si ile önceden yapılandırılmış olarak gelir. Daha fazla bilgi için bkz. [Azure API Management’i kullanmaya başlama][Azure API Management’i kullanmaya başlama].
 > 
 > 
 
-Kullanmaya başlamak üzere API Management hizmetiniz için Klasik Azure Portalı'nda **Yönet**’e tıklayın. Bu sizi API Management yayımcı portalına götürür.
+Kullanmaya başlamak için API Management hizmetiniz için Azure Portal'da **Yayımcı portalı**’na tıklayın. Bu sizi API Management yayımcı portalına götürür.
 
 ![Yayımcı portalı][api-management-management-console]
 
@@ -96,7 +100,7 @@ Bu işlem için ilke tanımı, önceki adımda **Önbelleğe alma** sekmesi kull
 > 
 > 
 
-## <a name="test-operation"> </a>Bir işlem çağırma ve önbelleğe almayı test etme
+## <a name="test-operation"> </a>İşlem çağırma ve önbelleğe almayı test etme
 Önbelleğe alma eylemini görmek için, işlemi geliştirici portalından çağırabiliriz. Sağ üstteki menüde **Geliştirici Portalı**’na tıklayın.
 
 ![Geliştirici portalı][api-management-developer-portal-menu]
@@ -134,7 +138,7 @@ Konsol, işlemleri doğrudan geliştirici portalından çağırmanızı sağlar.
 Yanıttaki **sampleheader** değerinin artık **value2** olduğuna dikkat edin. İşlem sonuçları sorgu dizesi tarafından anahtarlandığından, önceki önbelleğe alınan yanıt döndürülmedi.
 
 ## <a name="next-steps"> </a>Sonraki adımlar
-* Önbelleğe alma ilkeleri hakkında daha fazla bilgi için bkz. [API Management ilke başvurusu][API Management ilke başvurusu]’nda [Önbelleğe alma ilkeleri][Önbelleğe alma ilkeleri].
+* Önbelleğe alma ilkeleri hakkında daha fazla bilgi için [API Management ilke başvurusu][API Management ilke başvurusu] içindeki [Önbelleğe alma ilkeleri][Önbelleğe alma ilkeleri] bölümüne bakın .
 * Anahtar kullanım ilkesi ifadeleri hakkında daha fazla bilgi için bkz. [Azure API Management’te özel önbelleğe alma](api-management-sample-cache-by-key.md).
 
 [api-management-management-console]: ./media/api-management-howto-cache/api-management-management-console.png
@@ -149,11 +153,11 @@ Yanıttaki **sampleheader** değerinin artık **value2** olduğuna dikkat edin. 
 [api-management-console]: ./media/api-management-howto-cache/api-management-console.png
 
 
-[API’ye işlem ekleme]: api-management-howto-add-operations.md
+[API'ye işlem ekleme]: api-management-howto-add-operations.md
 [Ürün ekleme ve yayımlama]: api-management-howto-add-products.md
 [İzleme ve analiz]: api-management-monitoring.md
-[Bir ürüne API ekleme]: api-management-howto-add-products.md#add-apis
-[Bir ürün yayımlama]: api-management-howto-add-products.md#publish-product
+[Ürüne API ekleme]: api-management-howto-add-products.md#add-apis
+[Ürün yayımlama]: api-management-howto-add-products.md#publish-product
 [Azure API Management’i kullanmaya başlama]: api-management-get-started.md
 
 [API Management ilke başvurusu]: https://msdn.microsoft.com/library/azure/dn894081.aspx
@@ -161,13 +165,13 @@ Yanıttaki **sampleheader** değerinin artık **value2** olduğuna dikkat edin. 
 
 [API Management hizmet örneği oluşturma]: api-management-get-started.md#create-service-instance
 
-[Önbelleğe almak üzere bir işlem yapılandırma]: #configure-caching
+[Önbelleğe almak üzere bir işlemi yapılandırma]: #configure-caching
 [Önbelleğe alma ilkelerini gözden geçirme]: #caching-policies
-[Bir işlem çağırma ve önbelleğe almayı test etme]: #test-operation
+[İşlem çağırma ve önbelleğe almayı test etme]: #test-operation
 [Sonraki adımlar]: #next-steps
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Nov16_HO2-->
 
 

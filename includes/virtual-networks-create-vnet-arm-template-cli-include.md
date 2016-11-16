@@ -1,4 +1,4 @@
-## Azure CLI kullanarak ARM şablonu dağıtma
+## <a name="deploy-the-arm-template-by-using-the-azure-cli"></a>Azure CLI kullanarak ARM şablonu dağıtma
 Azure CLI kullanarak yüklediğiniz ARM şablonunu dağıtmak için aşağıdaki adımları izleyin.
 
 1. Hiç Azure CLI kullanmadıysanız bkz. [Azure CLI’yi Yükleme ve Yapılandırma](../articles/xplat-cli-install.md); sonra da, Azure hesabınızı ve aboneliğinizi seçtiğiniz noktaya kadar yönergeleri uygulayın.
@@ -9,7 +9,7 @@ Azure CLI kullanarak yüklediğiniz ARM şablonunu dağıtmak için aşağıdaki
     Yukarıdaki komut için beklenen çıkış buradaki gibidir:
    
         info:    New mode is arm
-3. Gerekirse, yeni bir kaynak grubu oluşturmak için **`azure group create`** komutunu aşağıda gösterildiği gibi çalıştırın. Komutun çıktısına dikkat edin. Çıktıdan sonra gösterilen listede, kullanılan parametreler açıklanmaktadır. Kaynak grupları hakkında daha fazla bilgi için [Azure Resource Manager’a Genel Bakış](../articles/resource-group-overview.md) sayfasını ziyaret edin.
+3. Gerekirse, yeni bir kaynak grubu oluşturmak için **`azure group create`** komutunu aşağıda gösterildiği gibi çalıştırın. Komutun çıktısına dikkat edin. Çıktıdan sonra gösterilen listede, kullanılan parametreler açıklanmaktadır. Kaynak grupları hakkında daha fazla bilgi için [Azure Resource Manager’a Genel Bakış](../articles/azure-resource-manager/resource-group-overview.md) sayfasını ziyaret edin.
    
         azure group create -n TestRG -l centralus
    
@@ -85,6 +85,8 @@ Azure CLI kullanarak yüklediğiniz ARM şablonunu dağıtmak için aşağıdaki
         data:
         info:    network vnet show command OK
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

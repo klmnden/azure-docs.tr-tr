@@ -15,26 +15,27 @@
 ### [Veri güvenliği](oms-security-data-security.md)
 
 # Nasıl yapılır?
-## Öngörü ve analiz
+## Çözümleme
 ### [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [İzleme ürünleri karşılaştırma](operations-management-suite-monitoring-product-comparison.md)
 ### [Uyarıları yönetme](operations-management-suite-monitoring-alerts.md)
-## Otomasyon ve denetim
+## Yönet
+### [Planlama ve dağıtım](operations-management-suite-solutions-creating.md)
+### [Otomasyon kaynakları](operations-management-suite-solutions-resources-automation.md)
+### [Görünümler](operations-management-suite-solutions-resources-views.md)
+## Otomatikleştirme
 ### [Azure Otomasyonu’na genel bakış](../automation/automation-intro.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
-## Koruma ve kurtarma
+## Backup
 ### [Backup’a genel bakış](../backup/backup-introduction-to-azure-backup.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [Site Recovery’ye genel bakış](../site-recovery/site-recovery-overview.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
-## Güvenlik ve uyumluluk
+## Güvenlik
 ### [Kaynakları izleme](oms-security-monitoring-resources.md)
 ### [Güvenlik uyarılarını yanıtlama](oms-security-responding-alerts.md)
 ### [Temel değerlendirme](oms-security-baseline.md)
 ### [Kötü amaçlı yazılım değerlendirmesi](../log-analytics/log-analytics-malware.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [Sistem güncelleştirme değerlendirmesi](../log-analytics/log-analytics-system-update.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ## [OMS ile tümleştirme](operations-management-suite-integration.md)
-## Yönetim çözümleri
-### [Planlama ve dağıtım](operations-management-suite-solutions-creating.md)
-### [Otomasyon kaynakları](operations-management-suite-solutions-resources-automation.md)
-### [Görünümler](operations-management-suite-solutions-resources-views.md)
+
 
 # Başvuru
 ## [SDK](operations-management-suite-sdk.md)
@@ -60,6 +61,7 @@
 #### [Güncelleştirme yönetimi](oms-solution-update-management.md)
 ### Güvenlik ve uyumluluk
 #### [Kötü amaçlı yazılımdan koruma değerlendirmesi](../log-analytics/log-analytics-malware.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
+
 
 
 <!--HONumber=Nov16_HO2-->

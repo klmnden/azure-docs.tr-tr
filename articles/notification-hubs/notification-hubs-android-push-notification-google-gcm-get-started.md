@@ -1,26 +1,30 @@
 ---
-title: Azure Notification Hubs ile Android'e anında iletme bildirimleri gönderme | Microsoft Docs
-description: Bu öğreticide, Android cihazlarına anında iletme bildirimleri göndermek için Azure Notification Hubs'ın nasıl kullanılacağını öğrenirsiniz.
+title: "Azure Notification Hubs ile Android&quot;e anında iletme bildirimleri gönderme | Microsoft Belgeleri"
+description: "Bu öğreticide, Android cihazlarına anında iletme bildirimleri göndermek için Azure Notification Hubs&quot;ın nasıl kullanılacağını öğrenirsiniz."
 services: notification-hubs
 documentationcenter: android
-keywords: anında iletme bildirimleri,anında iletme bildirimi,android anında iletme bildirimi
-author: wesmc7777
+keywords: "anında iletme bildirimleri,anında iletme bildirimi,android anında iletme bildirimi"
+author: ysxu
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 8268c6ef-af63-433c-b14e-a20b04a0342a
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: hero-article
 ms.date: 07/05/2016
-ms.author: wesmc
+ms.author: yuaxu
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: f9ce6c56598e2318821c2e81a1bab1b876d6a866
+
 
 ---
-# Azure Notification Hubs ile Android'e anında iletme bildirimleri gönderme
+# <a name="sending-push-notifications-to-android-with-azure-notification-hubs"></a>Azure Notification Hubs ile Android'e anında iletme bildirimleri gönderme
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
-## Genel Bakış
+## <a name="overview"></a>Genel Bakış
 > [!IMPORTANT]
 > Bu konuda Google Cloud Messaging (GCM) ile anında iletme bildirimleri gösterilmektedir. Google Firebase Cloud Messaging (FCM) kullanıyorsanız bkz. [Azure Notification Hubs ve FCM ile Android’e anında iletme bildirimleri gönderme](notification-hubs-android-push-notification-google-fcm-get-started.md).
 > 
@@ -33,9 +37,9 @@ Google Cloud Messaging (GCM) kullanarak anında iletme bildirimleri alan bir And
 
 Bu öğreticinin tamamlanan kodu GitHub'da [buradan](https://github.com/Azure/azure-notificationhubs-samples/tree/master/Android/GetStarted) indirilebilir.
 
-## Ön koşullar
+## <a name="prerequisites"></a>Ön koşullar
 > [!IMPORTANT]
-> Bu öğreticiyi tamamlamak için etkin bir Azure hesabınızın olması gerekir. Hesabınız yoksa yalnızca birkaç dakika içinde ücretsiz bir deneme sürümü hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-android-get-started).
+> Bu öğreticiyi tamamlamak için etkin bir Azure hesabınızın olması gerekir. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-android-get-started).
 > 
 > 
 
@@ -43,10 +47,10 @@ Yukarıda belirtilen etkin bir Azure hesabının yanı sıra, bu öğretici yaln
 
 Bu öğreticiyi tamamlamak Android uygulamalarına ilişkin diğer tüm Notification Hubs öğreticileri için önkoşuldur.
 
-## Google Cloud Messaging'i destekleyen bir proje oluşturma
+## <a name="creating-a-project-that-supports-google-cloud-messaging"></a>Google Cloud Messaging'i destekleyen bir proje oluşturma
 [!INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-google-cloud-messaging.md)]
 
-## Yeni bir bildirim hub'ı yapılandırma
+## <a name="configure-a-new-notification-hub"></a>Yeni bir bildirim hub'ı yapılandırma
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
 &emsp;&emsp;6.   **Ayarlar** dikey penceresinde, **Bildirim Hizmetleri**'ni ve ardından **Google (GCM)** seçeneğini belirleyin. API anahtarını girin ve **Kaydet**'e tıklayın.
@@ -55,20 +59,20 @@ Bu öğreticiyi tamamlamak Android uygulamalarına ilişkin diğer tüm Notifica
 
 Bildirim hub'ınız şimdi GCM ile birlikte çalışmak üzere yapılandırıldı. Ayrıca, uygulamanızı anında iletme bildirimleri alması ve göndermesi amacıyla kaydetmek için bağlantı dizelerine sahipsiniz.
 
-## <a id="connecting-app"></a>Uygulamanızı bildirim hub'ına bağlama
-### Yeni bir Android projesi oluşturma
+## <a name="a-idconnectingappaconnect-your-app-to-the-notification-hub"></a><a id="connecting-app"></a>Uygulamanızı bildirim hub'ına bağlama
+### <a name="create-a-new-android-project"></a>Yeni bir Android projesi oluşturma
 1. Android Studio'da yeni bir Android Studio projesi başlatın.
    
-    ![Android Studio - yeni proje][13]
+       ![Android Studio - new project][13]
 2. **Telefon ve Tablet** form faktörünü ve desteklemek istediğiniz **Minimum SDK**'yı seçin. Ardından **İleri**'ye tıklayın.
    
-    ![Android Studio - proje oluşturma iş akışı][14]
+       ![Android Studio - project creation workflow][14]
 3. Ana etkinlik için **Boş Etkinlik**'i seçin, **İleri**'ye tıklayın ve ardından **Son**'a tıklayın.
 
-### Projeye Google Play hizmetlerini ekleme
+### <a name="add-google-play-services-to-the-project"></a>Projeye Google Play hizmetlerini ekleme
 [!INCLUDE [Add Play Services](../../includes/notification-hubs-android-studio-add-google-play-services.md)]
 
-### Azure Notification Hubs kitaplıkları ekleme
+### <a name="adding-azure-notification-hubs-libraries"></a>Azure Notification Hubs kitaplıkları ekleme
 1. **Uygulamanın** `Build.Gradle` dosyasında **bağımlılıklar** bölümüne aşağıdaki satırları ekleyin.
    
         compile 'com.microsoft.azure:notification-hubs-android-sdk:0.4@aar'
@@ -81,7 +85,7 @@ Bildirim hub'ınız şimdi GCM ile birlikte çalışmak üzere yapılandırıld�
             }
         }
 
-### AndroidManifest.xml'i güncelleştirme
+### <a name="updating-the-androidmanifestxml"></a>AndroidManifest.xml'i güncelleştirme
 1. GCM'yi desteklemek için kodumuza, [Google'ın Örnek Kimliği API'sini](https://developers.google.com/instance-id/) kullanarak [kayıt belirteçleri elde etmek](https://developers.google.com/cloud-messaging/android/client#sample-register) için kullanılan bir Örnek Kimliği dinleme hizmeti eklememiz gereklidir. Bu öğreticide sınıfa `MyInstanceIDService` adını vereceğiz. 
    
     Aşağıdaki hizmet tanımını AndroidManifest.xml dosyasında `<application>` etiketinin içine ekleyin. `<your package>` yer tutucusunu, `AndroidManifest.xml` dosyasının üst kısmında gösterilen asıl paket adınızla değiştirin.
@@ -120,7 +124,7 @@ Bildirim hub'ınız şimdi GCM ile birlikte çalışmak üzere yapılandırıld�
         <permission android:name="<your package>.permission.C2D_MESSAGE" android:protectionLevel="signature" />
         <uses-permission android:name="<your package>.permission.C2D_MESSAGE"/>
 
-### Kod ekleme
+### <a name="adding-code"></a>Kod ekleme
 1. Proje Görünümü'nde **app** > **src** > **main** > **java**'yı genişletin. **Java**'nın altındaki paket klasörünüze sağ tıklayın, **Yeni**'ye tıklayın ve ardından **Java Sınıfı**'na tıklayın. `NotificationSettings` adlı yeni bir sınıf ekleyin. 
    
     ![Android Studio - yeni Java sınıfı][6]
@@ -131,7 +135,7 @@ Bildirim hub'ınız şimdi GCM ile birlikte çalışmak üzere yapılandırıld�
    * **HubListenConnectionString**: Hub'ınız için **DefaultListenAccessSignature** bağlantı dizesi. [Azure Portal]'da hub'ınızın **Ayarlar** dikey penceresinde bulunan **Erişim İlkeleri**'ne tıklayarak bağlantı dizesini kopyalayabilirsiniz.
    * **HubName**: [Azure Portal]'daki hub dikey penceresinde görünen bildirim hub'ınızın adını kullanın.
      
-     `NotificationSettings` kod:
+     `NotificationSettings` kodu:
      
        public class NotificationSettings {
      
@@ -187,7 +191,7 @@ Bildirim hub'ınız şimdi GCM ile birlikte çalışmak üzere yapılandırıld�
             }
    
             @Override
-            protected void onHandleIntent(Intent intent) {      
+            protected void onHandleIntent(Intent intent) {        
                 SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
                 String resultString = null;
                 String regID = null;
@@ -201,7 +205,7 @@ Bildirim hub'ınız şimdi GCM ile birlikte çalışmak üzere yapılandırıld�
                     // Storing the registration id that indicates whether the generated token has been
                     // sent to your server. If it is not stored, send the token to your server,
                     // otherwise your server should have already received the token.
-                    if ((regID=sharedPreferences.getString("registrationID", null)) == null) {      
+                    if ((regID=sharedPreferences.getString("registrationID", null)) == null) {        
                         NotificationHub hub = new NotificationHub(NotificationSettings.HubName,
                                 NotificationSettings.HubListenConnectionString, this);
                         Log.i(TAG, "Attempting to register with NH using token : " + token);
@@ -213,7 +217,7 @@ Bildirim hub'ınız şimdi GCM ile birlikte çalışmak üzere yapılandırıld�
                         // regID = hub.register(token, "tag1", "tag2").getRegistrationId();
    
                         resultString = "Registered Successfully - RegId : " + regID;
-                        Log.i(TAG, resultString);       
+                        Log.i(TAG, resultString);        
                         sharedPreferences.edit().putString("registrationID", regID ).apply();
                     } else {
                         resultString = "Previously Registered Successfully - RegId : " + regID;
@@ -387,14 +391,14 @@ Bildirim hub'ınız şimdi GCM ile birlikte çalışmak üzere yapılandırıld�
         }
 12. Android Studio'nun menü çubuğunda, kodunuzda hiçbir hata bulunmadığından emin olmak için **Oluştur** > **Projeyi Yeniden Oluştur**'a tıklayın.
 
-## Anında iletme bildirimleri gönderme
+## <a name="sending-push-notifications"></a>Anında iletme bildirimleri gönderme
 Uygulamanızda anında iletme bildirimlerini aldığınızı, bunları [Azure Portal] aracılığıyla göndererek test edebilirsiniz; aşağıda gösterildiği gibi hub dikey penceresinin **Sorun Giderme** Bölümü'nü bulun.
 
 ![Azure Notification Hubs - Test Gönderimi](./media/notification-hubs-android-get-started/notification-hubs-test-send.png)
 
 [!INCLUDE [notification-hubs-sending-notifications-from-the-portal](../../includes/notification-hubs-sending-notifications-from-the-portal.md)]
 
-## (İsteğe bağlı) Doğrudan uygulamadan anında iletme bildirimleri gönderme
+## <a name="optional-send-push-notifications-directly-from-the-app"></a>(İsteğe bağlı) Doğrudan uygulamadan anında iletme bildirimleri gönderme
 Normalde bildirimleri bir arka uç sunucusu kullanarak gönderirsiniz. Bazı durumlarda, anında iletme bildirimlerini doğrudan istemci uygulamasından gönderebilmek isteyebilirsiniz. Bu bölüm, [Azure Notification Hubs REST API'si](https://msdn.microsoft.com/library/azure/dn223264.aspx) kullanarak istemciden nasıl bildirim gönderildiğini açıklamaktadır.
 
 1. Android Studio Proje Görünümü'nde, **App** > **src** > **main** > **res** > **layout**'u genişletin. `activity_main.xml` düzen dosyasını açın ve dosyanın metin içeriğini güncelleştirmek için **Metin** sekmesine tıklayın. Bildirim hub'ına anında iletme bildirimi iletileri göndermek için yeni `Button` ve `EditText` denetimlerini ekleyen aşağıdaki kod ile güncelleştirin. Bu kodu en alta, `</RelativeLayout>` öğesinin hemen önüne ekleyin.
@@ -439,7 +443,7 @@ Normalde bildirimleri bir arka uç sunucusu kullanarak gönderirsiniz. Bazı dur
         import android.util.Base64;
         import android.view.View;
         import android.widget.EditText;
-5. `MainActivity.java` dosyanızda aşağıdaki üyeleri `MainActivity` sınıfının üstüne ekleyin.  
+5. `MainActivity.java` dosyanızda aşağıdaki üyeleri `MainActivity` sınıfının üstüne ekleyin.    
    
         private String HubEndpoint = null;
         private String HubSasKeyName = null;
@@ -570,7 +574,7 @@ Normalde bildirimleri bir arka uç sunucusu kullanarak gönderirsiniz. Bazı dur
                             // Example below targets 3 specific tags
                             // Refer to : https://azure.microsoft.com/en-us/documentation/articles/notification-hubs-routing-tag-expressions/
                             // urlConnection.setRequestProperty("ServiceBusNotification-Tags", 
-                            //      "tag1 || tag2 || tag3");
+                            //        "tag1 || tag2 || tag3");
    
                             // Send notification message
                             urlConnection.setFixedLengthStreamingMode(json.length());
@@ -606,24 +610,24 @@ Normalde bildirimleri bir arka uç sunucusu kullanarak gönderirsiniz. Bazı dur
             }.start();
         }
 
-## Uygulamanızı test etme
-#### Öykünücüde anında iletme bildirimleri
+## <a name="testing-your-app"></a>Uygulamanızı test etme
+#### <a name="push-notifications-in-the-emulator"></a>Öykünücüde anında iletme bildirimleri
 Anında iletme bildirimlerini bir öykünücüde test etmek isterseniz öykünücü görüntünüzün, uygulamanız için seçtiğiniz Google API düzeyini desteklediğinden emin olun. Görüntünüz yerel Google API'lerini desteklemiyorsa **HİZMET\_\_KULLANILAMIYOR** özel durumuyla karşılaşırsınız.
 
 Yukarıdakine ek olarak, **Ayarlar** > **Hesaplar**'ın altında çalışan öykünücünüze Google hesabınızı eklediğinizden emin olun. Aksi halde, GCM ile kayıt girişimleriniz **KİMLİK DOĞRULAMASI\_BAŞARISIZ** özel durumuyla sonuçlanabilir.
 
-#### Uygulamayı çalıştırma
+#### <a name="running-the-application"></a>Uygulamayı çalıştırma
 1. Uygulamayı çalıştırın ve kayıt kimliğinin başarılı bir kaydı bildirdiğine dikkat edin.
    
-    ![Android'de test etme - Kanal kaydı][18]
+       ![Testing on Android - Channel registration][18]
 2. Hub'da kayıtlı tüm Android cihazlara gönderilecek bir bildirim iletisi girin.
    
-    ![Andorid'de test etme - bir ileti gönderme][19]
+       ![Testing on Android - sending a message][19]
 3. **Bildirim Gönder**'e basın. Uygulamayı çalıştıran tüm cihazlarda, anında iletme bildirimi iletisiyle birlikte bir `AlertDialog` örneği görünür. Uygulamayı çalıştırmayan ancak anında iletme bildirimleri için daha önce kaydolan cihazlar, Android Bildirim Yöneticisi'nde bir bildirim alır. Bunlar, sol üst köşeden aşağı çekilerek görüntülenebilir.
    
-    ![Android'de test etme - bildirimler][21]
+       ![Testing on Android - notifications][21]
 
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 Sonraki adım olarak [Kullanıcılara anında iletme bildirimleri göndermek için Notification Hubs’ı kullanma] öğreticisini öneririz. Bu, belirli kullanıcıları hedeflemek için etiketler kullanarak ASP.NET arka ucundan nasıl bildirim göndereceğinizi gösterir.
 
 Kullanıcılarınızı ilgi alanı gruplarına göre segmentlere ayırmak istiyorsanız [Son dakika haberleri göndermek için Notification Hubs kullanma] öğreticisine göz atın.
@@ -656,17 +660,17 @@ Notification Hubs hakkında daha fazla genel bilgi edinmek için bkz. [Notificat
 
 
 <!-- URLs. -->
-[Mobile Services'de anında iletme bildirimlerini kullanmaya başlama]: ../mobile-services-javascript-backend-android-get-started-push.md  
+[Mobile Services'ta anında iletme bildirimlerini kullanmaya başlama]: ../mobile-services-javascript-backend-android-get-started-push.md  
 [Mobile Services Android SDK'sı]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
 [Bir kitaplık projesine başvurma]: http://go.microsoft.com/fwlink/?LinkId=389800
 [Klasik Azure Portalı]: https://manage.windowsazure.com/
 [Notification Hubs Kılavuzu]: http://msdn.microsoft.com/library/jj927170.aspx
 [Kullanıcılara anında iletme bildirimleri göndermek için Notification Hubs’ı kullanma]: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
-[Son dakika haberleri göndermek için Notification Hubs kullanma]: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
+[Son dakika haberleri göndermek için Notification Hubs’ı kullanma]: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
 [Azure Portal]: https://portal.azure.com
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Xamarin iOS uygulamaları için Azure App Service Mobile Apps’i Kullanmaya Başlama | Microsoft Docs
-description: Xamarin.iOS geliştirme için Mobile Apps kullanmaya başlamak için bu öğreticiyi izleyin.
+title: "Xamarin iOS uygulamaları için Azure Uygulama Hizmeti Mobile Apps’i Kullanmaya Başlama | Microsoft Belgeleri"
+description: "Xamarin.iOS geliştirme için Mobile Apps kullanmaya başlamak için bu öğreticiyi izleyin."
 services: app-service\mobile
 documentationcenter: xamarin
 author: adrianhall
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: 14428794-52ad-4b51-956c-deb296cafa34
 ms.service: app-service-mobile
 ms.workload: na
 ms.tgt_pltfrm: mobile-xamarin-ios
@@ -14,9 +14,13 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: adrianha
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: cf8f9a06c4d720dade11ea67fc1befe07a56cf85
+
 
 ---
-# <a name="create-a-xamarin.ios-app"></a>Yeni bir Xamarin.iOS uygulaması oluşturma
+# <a name="create-a-xamarinios-app"></a>Yeni bir Xamarin.iOS uygulaması oluşturma
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
 ## <a name="overview"></a>Genel Bakış
@@ -32,7 +36,7 @@ Bu öğreticiyi tamamlamak için aşağıdaki önkoşulları karşılamanız ger
 * Xcode v7.0 veya daha sonraki sürümü ve Xamarin Studio Community yüklü bir Mac. Bkz. [Visual Studio ve Xamarin için kurulum ve yükleme](https://msdn.microsoft.com/library/mt613162.aspx) ve [Mac kullanıcıları için kurulum, yükleme ve doğrulamalar](https://msdn.microsoft.com/library/mt488770.aspx) (MSDN).
 
 > [!NOTE]
-> Azure hesabı için kaydolmadan önce Azure Uygulama Hizmeti’ni kullanmaya başlamak istiyorsanız [Uygulama Hizmeti’ni Deneyin](https://tryappservice.azure.com/?appServiceName=mobile)’e gidin. App Service’de hemen kısa süreli, başlangıç niteliğinde bir mobil uygulama oluşturabilirsiniz. Kredi kartına veya herhangi bir taahhüt verilmesine gerek yoktur.
+> Bir Azure hesabı için kaydolmadan önce Azure App Service’i kullanmaya başlamak istiyorsanız [App Service’i Deneyin](https://tryappservice.azure.com/?appServiceName=mobile)’e gidin. App Service’de hemen kısa süreli, başlangıç niteliğinde bir mobil uygulama oluşturabilirsiniz. Kredi kartına veya herhangi bir taahhüt verilmesine gerek yoktur.
 > 
 > 
 
@@ -48,11 +52,11 @@ Sunucu projesini Node.js veya .NET arka ucunu kullanacak şekilde yapılandırma
 
 [!INCLUDE [app-service-mobile-configure-new-backend](../../includes/app-service-mobile-configure-new-backend.md)]
 
-## <a name="download-and-run-the-xamarin.ios-app"></a>Xamarin iOS uygulamasını indirme ve çalıştırma
-1. Bir tarayıcı penceresine [Azure Portal]’ı açın.
+## <a name="download-and-run-the-xamarinios-app"></a>Xamarin iOS uygulamasını indirme ve çalıştırma
+1. Bir tarayıcı penceresine [Azure portal]’ı açın.
 2. Mobil Uygulamanızın dikey penceresinde, **Kullanmaya Başlama** > **Xamarin.iOS**.’a tıklayın. 3. adımın altında, henüz seçili değilse **Yeni uygulama oluştur**’a tıklayın.  Sonra **İndir** düğmesine tıklayın.
    
-    Mobil arka ucunuza bağlanan istemci uygulaması indirilir. Sıkıştırılmış proje dosyasını yerel bilgisayarınıza kaydedin ve kaydettiğiniz yeri not edin.
+      Mobil arka ucunuza bağlanan istemci uygulaması indirilir. Sıkıştırılmış proje dosyasını yerel bilgisayarınıza kaydedin ve kaydettiğiniz yeri not edin.
 3. İndirdiğiniz projeyi çıkarın ve Xamarin Studio veya Visual Studio'da açın.
    
     ![][9]
@@ -92,6 +96,6 @@ Sunucu projesini Node.js veya .NET arka ucunu kullanacak şekilde yapılandırma
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

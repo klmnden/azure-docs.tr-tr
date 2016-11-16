@@ -1,12 +1,12 @@
 ---
-title: Azure AD Privileged Identity Management ile çalışmaya başlama | Microsoft Docs
-description: Azure portalında Azure Active Directory Privileged Identity Management uygulaması ile ayrıcalıklı kimlikleri nasıl yöneteceğinizi öğrenin.
+title: "Azure AD Privileged Identity Management ile çalışmaya başlama | Microsoft Belgeleri"
+description: "Azure portalında Azure Active Directory Privileged Identity Management uygulaması ile ayrıcalıklı kimlikleri nasıl yöneteceğinizi öğrenin."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: kgremban
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 2299db7d-bee7-40d0-b3c6-8d628ac61071
 ms.service: active-directory
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,14 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/16/2016
 ms.author: kgremban
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: e84b361ec2acb062142d15ff9a6e02aca07d0958
+
 
 ---
-# Azure AD Privileged Identity Management ile çalışmaya başlama
+# <a name="get-started-with-azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management ile çalışmaya başlama
 Azure Active Directory (AD) Privileged Identity Management sayesinde kuruluşunuz içindeki erişimi yönetebilir, denetleyebilir ve izleyebilirsiniz. Azure AD'deki ve Office 365 ya da Microsoft Intune gibi diğer çevrimiçi Microsoft hizmetlerindeki kaynaklara erişim de bu kapsama dahildir.
 
 Bu makalede Azure AD PIM uygulamasını Azure portalı panonuza nasıl ekleyeceğiniz anlatılmaktadır.
 
-## Privileged Identity Management uygulamasını ekleme
+## <a name="add-the-privileged-identity-management-application"></a>Privileged Identity Management uygulamasını ekleme
 Azure AD Privileged Identity Management'ı kullanmadan önce uygulamayı Azure portalı panonuza eklemeniz gerekir.
 
 1. [Azure portalında](https://portal.azure.com/) dizininizin genel yöneticisi olarak oturum açın.
@@ -31,7 +35,7 @@ Azure AD Privileged Identity Management'ı kullanmadan önce uygulamayı Azure p
 
 Dizininizde Azure AD Privileged Identity Management'ı ilk kez siz kullanıyorsanız [güvenlik sihirbazı](active-directory-privileged-identity-management-security-wizard.md) ilk atama deneyiminizde size yol gösterir. Bunun ardından, otomatik olarak dizinin ilk **Güvenlik yöneticisi** ve **Ayrıcalıklı rol yöneticisi** olursunuz. Yalnızca bir ayrıcalıklı rol yöneticisi diğer yöneticiler için erişimi yönetmek üzere bu uygulamaya erişebilir.  
 
-## Görevlerinize gitme
+## <a name="navigate-to-your-tasks"></a>Görevlerinize gitme
 Azure AD Privileged Identity Management ayarlandığında, uygulamayı her açtığınızda gezinti dikey penceresini görürsünüz. Kimlik yönetimi görevlerinizi gerçekleştirmek için bu dikey pencereyi kullanın.
 
 ![PIM için üst düzey görevler - ekran görüntüsü](./media/active-directory-privileged-identity-management-getting-started/pim_tasks.png)
@@ -41,7 +45,7 @@ Azure AD Privileged Identity Management ayarlandığında, uygulamayı her açt�
 * **Ayrıcalıklı erişimi incele** seçeneği (erişimi kendiniz için veya başka bir kullanıcı için inceliyor olmanızdan bağımsız olarak) sizi tamamlamanız gereken beklemedeki erişim incelemelerine götürür. 
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 [Azure AD Privileged Identity Management'a genel bakış](active-directory-privileged-identity-management-configure.md), kuruluşunuzdaki yönetim erişimini nasıl yönetebileceğinize ilişkin daha fazla ayrıntı içerir.
 
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
@@ -52,6 +56,6 @@ Azure AD Privileged Identity Management ayarlandığında, uygulamayı her açt�
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

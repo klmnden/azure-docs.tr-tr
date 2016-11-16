@@ -1,6 +1,6 @@
 <!--author=alkohli last changed: 9/17/15-->
 
-#### En düşük StorSimple cihaz kurulumunu tamamlamak için
+#### <a name="to-complete-the-minimum-storsimple-device-setup"></a>En düşük StorSimple cihaz kurulumunu tamamlamak için
 1. Cihazı seçin ve **Hızlı Başlangıç**’a tıklayın. Cihaz yapılandırma sihirbazını başlatmak için **Cihaz kurulumunu tamamla**’ya tıklayın.
 2. Cihaz yapılandırma sihirbazının **Temel Ayarlar** iletişim kutusunda şunları yapın:
    
@@ -31,6 +31,6 @@
 <!--Link reference-->
 [Test]: https://technet.microsoft.com/library/dn715782(v=wps.630).aspx
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

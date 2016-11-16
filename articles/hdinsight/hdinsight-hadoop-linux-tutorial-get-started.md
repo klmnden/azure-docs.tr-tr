@@ -1,13 +1,13 @@
 ---
-title: 'Linux öğreticisi: Hadoop ve Hive kullanmaya başlama | Microsoft Docs'
-description: HDInsight’ta Hadoop kullanmaya başlamak için bu Linux öğreticisini izleyin. Linux kümeleri hazırlamayı ve Hive ile veri sorgulamayı öğrenin.
+title: "Linux öğreticisi: Hadoop ve Hive kullanmaya başlama | Microsoft Belgeleri"
+description: "HDInsight’ta Hadoop kullanmaya başlamak için bu Linux öğreticisini izleyin. Linux kümeleri hazırlamayı ve Hive ile veri sorgulamayı öğrenin."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: mumian
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: 6a12ed4c-9d49-4990-abf5-0a79fdfca459
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: hero-article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/14/2016
 ms.author: jgao
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 63a4eaf9fbb76480e0617b36d15aebae03ec3da4
+
 
 ---
-# Hadoop öğreticisi: HDInsight’ta Linux tabanlı Hadoop kullanmaya başlama
+# <a name="hadoop-tutorial-get-started-using-linuxbased-hadoop-in-hdinsight"></a>Hadoop öğreticisi: HDInsight’ta Linux tabanlı Hadoop kullanmaya başlama
 > [!div class="op_single_selector"]
 > * [Linux tabanlı](hdinsight-hadoop-linux-tutorial-get-started.md)
 > * [Windows tabanlı](hdinsight-hadoop-tutorial-get-started-windows.md)
@@ -28,15 +32,15 @@ HDInsight’ta Linux tabanlı [Hadoop](http://hadoop.apache.org/) kümeleri olu�
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-## Ön koşullar
+## <a name="prerequisites"></a>Ön koşullar
 Bu öğreticiye başlamadan önce
 
 * **Azure aboneliği** gereklidir. Bir aylık ücretsiz deneme hesabı oluşturmak için [azure.microsoft.com/free](https://azure.microsoft.com/free) adresine gidin.
 
-### Erişim denetimi gereksinimleri
+### <a name="access-control-requirements"></a>Erişim denetimi gereksinimleri
 [!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
-## Küme oluşturma
+## <a name="create-cluster"></a>Küme oluşturma
 Hadoop işlerinin çoğu toplu işlemdir. Bir küme oluşturur, bazı işleri çalıştırır ve kümeyi silersiniz. Bu bölümde, [Azure Resource Manager şablonu](../resource-group-template-deploy.md) kullanarak HDInsight’ta Linux tabanlı bir Hadoop kümesi oluşturacaksınız. Resource Manager şablonu tamamen özelleştirilebilir. HDInsight gibi Azure kaynaklarını oluşturmayı kolaylaştırır. Bu öğreticiyi kullanmak için Resource Manager şablonuyla deneyim sahibi olmak gerekli değildir. Diğer küme oluşturma yöntemleri ve bu öğreticide kullanılan özellikler hakkında bilgi edinmek için bkz. [HDInsight kümeleri oluşturma](hdinsight-hadoop-provision-linux-clusters.md). Bu öğreticide kullanılan Resource Manager şablonu bir ortak blob kapsayıcısında bulunur: [https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-hadoop-cluster-in-hdinsight.json](https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-hadoop-cluster-in-hdinsight.json). 
 
 1. Aşağıdaki resme tıklayarak Azure'da oturum açın ve Azure Portal'da Resource Manager şablonunu açın. 
@@ -63,7 +67,7 @@ Hadoop işlerinin çoğu toplu işlemdir. Bir küme oluşturur, bazı işleri ç
    
    Küme ve varsayılan depolama hesabı olmak üzere iki kaynak listelenir.
 
-## Hive sorguları çalıştırma
+## <a name="run-hive-queries"></a>Hive sorguları çalıştırma
 [Apache Hive](hdinsight-use-hive.md) HDInsight’ta kullanılan en popüler bileşendir. HDInsight’ta Hive işleri çalıştırmanın birçok yolu vardır. Bu öğreticide, bazı Hive işlerini çalıştırmak için portalda Ambari Hive görünümünü kullanırsınız. Hive işlerini göndermenin diğer yöntemleri için bkz. [HDInsight’ta Hive kullanma](hdinsight-use-hive.md).
 
 1. **https://&lt;ClusterName>.azurehdinsight.net** adresine gidin. Burada &lt;ClusterName>, önceki bölümde Ambari’yi açmak için oluşturduğunuz kümedir.
@@ -96,7 +100,7 @@ Hadoop işlerinin çoğu toplu işlemdir. Bir küme oluşturur, bazı işleri ç
 
 Hive işini tamamladıktan sonra, [sonuçları Azure SQL Database’e veya SQL Server veritabanına aktarabilirsiniz](hdinsight-use-sqoop-mac-linux.md), ayrıca [Excel kullanarak sonuçları görselleştirebilirsiniz](hdinsight-connect-excel-power-query.md). HDInsight’ta Hive kullanma hakkında daha fazla bilgi için bkz. [Örnek Apache log4j dosyasını çözümlemek amacıyla HDInsight’ta Hadoop ile Hive ve HiveQL kullanma](hdinsight-use-hive.md).
 
-## Öğreticiyi silme
+## <a name="clean-up-the-tutorial"></a>Öğreticiyi silme
 Öğreticiyi tamamladıktan sonra kümeyi silmek isteyebilirsiniz. HDInsight ile, verileriniz Azure Storage’da depolanır, böylece kullanılmadığında bir kümeyi güvenle silebilirsiniz. Ayrıca, kullanılmıyorken dahi HDInsight kümesi için sizden ücret kesilir. Küme ücretleri depolama ücretlerinin birkaç katı olduğundan, kullanılmadığında kümelerin silinmesi mantıklı olandır. 
 
 > [!NOTE]
@@ -106,11 +110,11 @@ Hive işini tamamladıktan sonra, [sonuçları Azure SQL Database’e veya SQL S
 
 **Küme ve/veya varsayılan depolama hesabını silmek için**
 
-1. [Azure Portal](https://portal.azure.com)’da oturum açın.
+1. [Azure Portal](https://portal.azure.com) oturum açın.
 2. Portal panosunda, bir küme oluştururken kullandığınız kaynak grubu adını içeren kutucuğa tıklayın.
 3. Kümeyi ve varsayılan depolama hesabını içeren kaynak grubunu silmek için kaynak dikey penceresinden **Sil**’e tıklayın; ya da **Kaynaklar** kutucuğunda küme adına tıklayın ve küme dikey penceresinde **Sil**’e tıklayın. Lütfen kaynak grubunun silinmesinin depolama hesabını sileceğini unutmayın. Depolama hesabını tutmak istiyorsanız, yalnızca küme silmeyi seçin.
 
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 Bu öğreticide, Resource Manager şablonu kullanarak Linux tabanlı bir HDInsight kümesi oluşturmayı ve temel Hive sorguları gerçekleştirmeyi öğrendiniz.
 
 HDInsight ile verileri çözümleme hakkında daha fazla bilgi için aşağıdakilere bakın:
@@ -159,6 +163,6 @@ HDInsight kümesi oluşturma ve yönetme hakkında daha fazla bilgi edinmek isti
 
 
 
-<!--HONumber=Sep16_HO5-->
+<!--HONumber=Nov16_HO2-->
 
 

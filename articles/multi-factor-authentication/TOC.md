@@ -38,7 +38,7 @@
 ### [IIS web uygulamaları](multi-factor-authentication-get-started-server-iis.md)
 ### [Uzak Masaüstü Ağ Geçidi](multi-factor-authentication-get-started-server-rdg.md)
 
-## Uygulama geliştirme
+## Geliştirme 
 ### [Özel Uygulamalarda (SDK) oluşturma](multi-factor-authentication-sdk.md)
 
 ## Sorun giderme

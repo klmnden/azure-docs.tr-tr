@@ -1,13 +1,13 @@
 ---
-title: Resource Manager şablonları kullanarak VNet Eşlemesi oluşturma | Microsoft Docs
-description: Resource Manager’da şablonları kullanarak bir sanal ağ eşlemesi oluşturmayı öğrenin.
+title: "Resource Manager şablonları kullanarak Sanal Ağ Eşlemesi oluşturma | Microsoft Belgeleri"
+description: "Resource Manager’da şablonları kullanarak bir sanal ağ eşlemesi oluşturmayı öğrenin."
 services: virtual-network
-documentationcenter: ''
+documentationcenter: 
 author: narayanannamalai
 manager: jefco
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 75f8d10e-23e8-44bd-9972-aab74048cf38
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: hero-article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2016
 ms.author: narayanannamalai;annahar
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 5af02963f139648d9f1b662f2da913ffa0d6f128
+
 
 ---
-# Resource Manager şablonları kullanarak VNet Eşlemesi oluşturma
+# <a name="create-vnet-peering-using-resource-manager-templates"></a>Resource Manager şablonları kullanarak VNet Eşlemesi oluşturma
 [!INCLUDE [virtual-networks-create-vnet-selectors-arm-include](../../includes/virtual-networks-create-vnetpeering-selectors-arm-include.md)]
 
 [!INCLUDE [virtual-networks-create-vnet-intro](../../includes/virtual-networks-create-vnetpeering-intro-include.md)]
@@ -112,28 +116,28 @@ Resource Manager şablonlarını kullanarak VNet eşlemesi oluşturmak için lü
    
     Çıktı şunu gösterir:
    
-        DeploymentName      : VNetPeeringVNet1
-        ResourceGroupName   : VNet101
-        ProvisioningState       : Succeeded
-        Timestamp           : 7/26/2016 9:05:03 AM
+        DeploymentName        : VNetPeeringVNet1
+        ResourceGroupName    : VNet101
+        ProvisioningState        : Succeeded
+        Timestamp            : 7/26/2016 9:05:03 AM
         Mode            : Incremental
         TemplateLink        :
-        Parameters          :
-        Outputs         :
+        Parameters            :
+        Outputs            :
         DeploymentDebugLogLevel : RequestContent, ResponseContent
    
         New-AzureRmResourceGroupDeployment -ResourceGroupName VNet101 -TemplateFile .\VNetPeeringVNet2.json -DeploymentDebugLogLevel all
    
     Çıktı şunu gösterir:
    
-        DeploymentName      : VNetPeeringVNet2
-        ResourceGroupName   : VNet101
-        ProvisioningState       : Succeeded
-        Timestamp           : 7/26/2016 9:07:22 AM
+        DeploymentName        : VNetPeeringVNet2
+        ResourceGroupName    : VNet101
+        ProvisioningState        : Succeeded
+        Timestamp            : 7/26/2016 9:07:22 AM
         Mode            : Incremental
         TemplateLink        :
-        Parameters          :
-        Outputs         :
+        Parameters            :
+        Outputs            :
         DeploymentDebugLogLevel : RequestContent, ResponseContent
 5. Dağıtım tamamlandıktan sonra, eşleme durumunu görüntülemek için aşağıdaki cmdlet'i çalıştırabilirsiniz:
    
@@ -142,15 +146,15 @@ Resource Manager şablonlarını kullanarak VNet eşlemesi oluşturmak için lü
     Çıktı şunu gösterir:
    
         Name            : LinkToVNet2
-        Id              : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/VNet101/providers/Microsoft.Network/virtualNetworks/VNet1/virtualNetworkPeerings/LinkToVNet2
+        Id                : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/VNet101/providers/Microsoft.Network/virtualNetworks/VNet1/virtualNetworkPeerings/LinkToVNet2
         Etag            : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-        ResourceGroupName   : VNet101
-        VirtualNetworkName  : VNet1
-        ProvisioningState       : Succeeded
+        ResourceGroupName    : VNet101
+        VirtualNetworkName    : VNet1
+        ProvisioningState        : Succeeded
         RemoteVirtualNetwork    : {
                                             "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/VNet101/providers/Microsoft.Network/virtualNetworks/VNet2"
                                         }
-        AllowVirtualNetworkAccess   : True
+        AllowVirtualNetworkAccess    : True
         AllowForwardedTraffic            : False
         AllowGatewayTransit              : False
         UseRemoteGateways                : False
@@ -234,7 +238,7 @@ Abonelikler arasında bir VNet eşlemesi oluşturmak için lütfen aşağıdaki 
         ]
         }
    
-    Bu senaryoda eşleme oluşturulduktan sonra farklı aboneliklerde her iki VNet’in herhangi bir sanal makinesinden herhangi bir sanal makinesine bağlantılar başlatabilmeniz gerekir.
+     Bu senaryoda eşleme oluşturulduktan sonra farklı aboneliklerde her iki VNet’in herhangi bir sanal makinesinden herhangi bir sanal makinesine bağlantılar başlatabilmeniz gerekir.
 
 [!INCLUDE [virtual-networks-create-vnet-scenario-transit-include](../../includes/virtual-networks-create-vnetpeering-scenario-transit-include.md)]
 
@@ -305,7 +309,25 @@ Farklı dağıtım modellerinden sanal ağlar arasında bir eşleme oluşturmak 
    
     VNET2 için klasik sanal ağın bulunduğu abonelik kimliğini girdiğinizden ve MyResouceGroup seçeneğini uygun kaynak grubu adıyla değiştirdiğinizden emin olun.
    
-    {  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",  "contentVersion": "1.0.0.0",  "parameters": {  },  "variables": {  },  "resources": [      {      "apiVersion": "2016-06-01",      "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",      "name": "VNET1/LinkToVNET2",      "location": "[resourceGroup().location]",      "properties": {      "allowVirtualNetworkAccess": true,      "allowForwardedTraffic": false,      "allowGatewayTransit": false,      "useRemoteGateways": false,          "remoteVirtualNetwork": {          "id": "[resourceId('Microsoft.ClassicNetwork/virtualNetworks', 'VNET2')]"  }      }      }  ]  }
+    {  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",  "contentVersion": "1.0.0.0",  "parameters": {  },  "variables": {  },  "resources": [
+   
+        {
+        "apiVersion": "2016-06-01",
+        "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
+        "name": "VNET1/LinkToVNET2",
+        "location": "[resourceGroup().location]",
+        "properties": {
+        "allowVirtualNetworkAccess": true,
+        "allowForwardedTraffic": false,
+        "allowGatewayTransit": false,
+        "useRemoteGateways": false,
+            "remoteVirtualNetwork": {
+            "id": "[resourceId('Microsoft.ClassicNetwork/virtualNetworks', 'VNET2')]"
+    }
+   
+        }
+        }
+    ]  }
 2. Şablon dosyasını dağıtmak için aşağıdaki cmdlet'i çalıştırarak dağıtımı oluşturun veya güncelleştirin.
    
         New-AzureRmResourceGroupDeployment -ResourceGroupName MyResourceGroup -TemplateFile .\VnetPeering.json -DeploymentDebugLogLevel all
@@ -349,6 +371,9 @@ Farklı dağıtım modellerinden sanal ağlar arasında bir eşleme oluşturmak 
 
 Klasik bir VNet ile resource manager VNet’i arasında eşleme oluşturulduktan sonra VNET1’deki herhangi bir sanal makine ile VNET2’deki herhangi bir sanal makine arasında her iki yönde bağlantılar başlatabilirsiniz.
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: 'Azure AD Etki Alanı Hizmetleri: Sanal ağ oluşturma veya seçme | Microsoft Docs'
-description: Azure Active Directory Etki Alanı Hizmetleri ile çalışmaya başlama
+title: "Azure AD Etki Alanı Hizmetleri: Sanal ağ oluşturma veya seçme | Microsoft Belgeleri"
+description: "Azure Active Directory Etki Alanı Hizmetleri ile çalışmaya başlama"
 services: active-directory-ds
-documentationcenter: ''
+documentationcenter: 
 author: mahesh-unnikrishnan
 manager: stevenpo
 editor: curtand
-
+ms.assetid: 13ab1608-e3d8-40de-9f7b-9b5b42199af4
 ms.service: active-directory-ds
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,16 +14,20 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/03/2016
 ms.author: maheshu
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 0617dbff2ba281091ba5775e7969edfead4d80c8
+
 
 ---
-# Azure AD Domain Services için bir sanal ağ oluşturma veya seçme
-## Azure sanal ağı seçmeye yönelik yönergeler
+# <a name="create-or-select-a-virtual-network-for-azure-ad-domain-services"></a>Azure AD Domain Services için bir sanal ağ oluşturma veya seçme
+## <a name="guidelines-to-select-an-azure-virtual-network"></a>Azure sanal ağı seçmeye yönelik yönergeler
 > [!NOTE]
 > **Başlamadan önce**: [Azure AD Domain Services için ağ ile ilgili dikkat edilmesi gerekenler](active-directory-ds-networking.md) sayfasına bakın.
 > 
 > 
 
-## Görev 2: Azure sanal ağı oluşturma
+## <a name="task-2-create-an-azure-virtual-network"></a>Görev 2: Azure sanal ağı oluşturma
 Sonraki yapılandırma görevi bir Azure sanal ağı ve onun içinde bir alt ağ oluşturulmasını içerir. Sanal ağınızdaki bu alt ağda Azure AD Etki Alanı Hizmetleri'ni etkinleştirin. Kullanmayı tercih ettiğiniz bir sanal ağınız zaten varsa bu adımı atlayabilirsiniz.
 
 > [!NOTE]
@@ -60,9 +64,12 @@ Azure AD Domain Services'i etkinleştirmek istediğiniz bir Azure sanal ağı ol
 
 <br>
 
-## Görev 3 - Azure AD Etki Alanı Hizmetleri'ni etkinleştirme
+## <a name="task-3-enable-azure-ad-domain-services"></a>Görev 3 - Azure AD Etki Alanı Hizmetleri'ni etkinleştirme
 Sonraki yapılandırma görevi, [Azure AD Etki Alanı Hizmetleri'ni etkinleştirme](active-directory-ds-getting-started-enableaadds.md) olacak.
 
-<!--HONumber=Oct16_HO1-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

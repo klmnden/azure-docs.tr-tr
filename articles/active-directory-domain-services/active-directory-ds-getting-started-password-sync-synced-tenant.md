@@ -1,12 +1,12 @@
 ---
-title: 'Azure AD Etki Alanı Hizmetleri: Parola eşitlemeyi etkinleştirme | Microsoft Docs'
-description: Azure Active Directory Etki Alanı Hizmetleri ile çalışmaya başlama
+title: "Azure AD Etki Alanı Hizmetleri: Parola eşitlemeyi etkinleştirme | Microsoft Belgeleri"
+description: "Azure Active Directory Etki Alanı Hizmetleri ile çalışmaya başlama"
 services: active-directory-ds
-documentationcenter: ''
+documentationcenter: 
 author: mahesh-unnikrishnan
 manager: stevenpo
 editor: curtand
-
+ms.assetid: 8731f2b2-661c-4f3d-adba-2c9e06344537
 ms.service: active-directory-ds
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/20/2016
 ms.author: maheshu
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: e072c3592ec8e62df9064d33df90de67da394671
+
 
 ---
-# Azure AD Domain Services için parola eşitlemeyi etkinleştirme
+# <a name="enable-password-synchronization-to-azure-ad-domain-services"></a>Azure AD Domain Services için parola eşitlemeyi etkinleştirme
 Önceki görevlerde Azure AD kiracınız için Azure AD Etki Alanı Hizmetleri’ni etkinleştirdiniz. Bir sonraki göreviniz, Azure AD Domain Services'de parola eşitlemeyi etkinleştirmektir. Kimlik bilgisi eşitlemesi ayarlandıktan sonra kullanıcılar, şirket kimlik bilgilerini kullanarak yönetilen etki alanında oturum açabilir.
 
 Uygulanan adımlar, kuruluşunuzun yalnızca bulutta yer alan bir Azure AD kiracısına sahip olmasına veya Azure AD Connect yoluyla şirket içi dizininizle eşitlenmek üzere ayarlanmış olmasına göre değişiklik gösterir.
@@ -31,10 +35,10 @@ Uygulanan adımlar, kuruluşunuzun yalnızca bulutta yer alan bir Azure AD kirac
 
 <br>
 
-## Görev 5: Eşitlenmiş Azure AD kiracısı için AAD Etki Alanı Hizmetleri'ne parola eşitlemeyi etkinleştirme
+## <a name="task-5-enable-password-synchronization-to-aad-domain-services-for-a-synced-azure-ad-tenant"></a>Görev 5: Eşitlenmiş Azure AD kiracısı için AAD Etki Alanı Hizmetleri'ne parola eşitlemeyi etkinleştirme
 Eşitlenen bir Azure AD kiracısı, Azure AD Connect kullanarak kuruluşunuzun şirket içi dizini ile eşitlenecek şekilde ayarlanır. Azure AD Connect, varsayılan olarak NTLM ve Kerberos kimlik bilgisi karmalarını Azure AD ile eşitlemez. Azure AD Etki Alanı Hizmetleri’ni kullanmak için, Azure AD Connect’i NTLM ve Kerberos kimlik doğrulamasında gereken kimlik bilgisi karmalarını eşitleyecek şekilde yapılandırmanız gerekir. Aşağıdaki adımlar, gerekli kimlik bilgisi karmalarının Azure AD kiracınız ile eşitlenmesini etkinleştirir.
 
-### Azure AD Connect'i yükleme veya güncelleştirme
+### <a name="install-or-update-azure-ad-connect"></a>Azure AD Connect'i yükleme veya güncelleştirme 
 Etki alanına katılan bir bilgisayara, Azure AD Connect'in önerilen en son sürümünü yükleyin. Azure AD Connect kurulumunun var olan bir örneğine sahipseniz, bu örneği Azure AD Connect’in en yeni sürümünü kullanacak şekilde güncelleştirmelisiniz. Düzeltilmiş olabilecek bilinen sorunlardan/hatalardan kaçınmak için her zaman Azure AD Connect'in en yeni sürümünü kullandığınızdan emin olun.
 
 **[Azure AD Connect'i indirme](http://www.microsoft.com/download/details.aspx?id=47594)**
@@ -48,7 +52,7 @@ Etki alanına katılan bir bilgisayara, Azure AD Connect'in önerilen en son sü
 
 Azure AD Connect'i yükleme talimatları şu makalede bulunabilir - [Azure AD Connect ile çalışmaya başlama](../active-directory/active-directory-aadconnect.md)
 
-### NTLM ve Kerberos kimlik bilgisi karmalarını Azure AD'ye eşitlemeyi etkinleştirme
+### <a name="enable-synchronization-of-ntlm-and-kerberos-credential-hashes-to-azure-ad"></a>NTLM ve Kerberos kimlik bilgisi karmalarını Azure AD'ye eşitlemeyi etkinleştirme
 Tam parola eşitlemesini zorlamak ve tüm şirket içi kullanıcılara ait kimlik bilgisi karmalarının Azure AD kiracınız ile eşitlenmesini sağlamak için her AD ormanında aşağıdaki PowerShell betiğini yürütün. Bu betik, NTLM/Kerberos kimlik doğrulaması için gerekli olan kimlik bilgisi karmalarının Azure AD kiracınız ile eşitlenmesini sağlar.
 
 ```
@@ -69,12 +73,15 @@ Dizininizin boyutuna bağlı olarak (kullanıcıların, grupların vb. sayısı)
 
 <br>
 
-## İlgili İçerik
+## <a name="related-content"></a>İlgili İçerik
 * [Sadece bulutta yer alan Azure AD dizini için AAD Etki Alanı Hizmetleri'ne parola eşitlemeyi etkinleştirme](active-directory-ds-getting-started-password-sync.md)
 * [Azure AD Etki Alanı Hizmetleri tarafından yönetilen etki alanını yönetme](active-directory-ds-admin-guide-administer-domain.md)
 * [Windows sanal makinesini Azure AD Etki Alanı Hizmetleri tarafından yönetilen bir etki alanına katma](active-directory-ds-admin-guide-join-windows-vm.md)
 * [Red Hat Enterprise Linux sanal makinesini Azure AD Etki Alanı Hizmetleri tarafından yönetilen bir etki alanına katma](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: İlk data factory’nizi derleme (Visual Studio) | Microsoft Docs
-description: Bu öğreticide Visual Studio kullanarak örnek bir Azure Data Factory işlem hattı oluşturursunuz.
+title: "İlk data factory’nizi derleme (Visual Studio) | Microsoft Belgeleri"
+description: "Bu öğreticide Visual Studio kullanarak örnek bir Azure Data Factory işlem hattı oluşturursunuz."
 services: data-factory
-documentationcenter: ''
+documentationcenter: 
 author: spelluru
 manager: jhubbard
 editor: monicar
-
+ms.assetid: 7398c0c9-7a03-4628-94b3-f2aaef4a72c5
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/17/2016
 ms.author: spelluru
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: dc46837a2be9047e5bcbd920c2e0119f2c5a5ea6
+
 
 ---
-# <a name="tutorial:-build-your-azure-first-data-factory-using-microsoft-visual-studio"></a>Öğretici: Microsoft Visual Studio kullanarak ilk Azure data factory’nizi derleme
+# <a name="tutorial-build-your-azure-first-data-factory-using-microsoft-visual-studio"></a>Öğretici: Microsoft Visual Studio kullanarak ilk Azure data factory’nizi derleme
 > [!div class="op_single_selector"]
 > * [Genel bakış ve önkoşullar](data-factory-build-your-first-pipeline.md)
 > * [Azure portal](data-factory-build-your-first-pipeline-using-editor.md)
@@ -236,7 +240,7 @@ Bu adımda, **HDInsightHive** etkinliğiyle ilk işlem hattınızı oluşturursu
             }
         }
    
-    JSON parçacığında, HDInsight kümesinde Veri işleyecek Hive’ı kullanan etkinlikten oluşmuş bir işlem hattı oluşturuyorsunuz.
+     JSON parçacığında, HDInsight kümesinde Veri işleyecek Hive’ı kullanan etkinlikten oluşmuş bir işlem hattı oluşturuyorsunuz.
    
     JSON parçacığında, HDInsight kümesinde Veri işleyecek Hive’ı kullanan etkinlikten oluşmuş bir işlem hattı oluşturuyorsunuz.
    
@@ -254,13 +258,13 @@ Bu adımda, **HDInsightHive** etkinliğiyle ilk işlem hattınızı oluşturursu
    > 
 4. **HiveActivity1.json** dosyasını kaydedin.
 
-### <a name="add-partitionweblogs.hql-and-input.log-as-a-dependency"></a>partitionweblogs.hql ve input.log dosyalarını bağımlılık olarak ekleme
+### <a name="add-partitionweblogshql-and-inputlog-as-a-dependency"></a>partitionweblogs.hql ve input.log dosyalarını bağımlılık olarak ekleme
 1. **Çözüm Gezgini** penceresinde **Bağımlılıklar**’a sağ tıklayın, **Ekle**’nin üzerine gelip **Mevcut Öğe**’ye tıklayın.  
 2. **C:\ADFGettingStarted** yoluna gidin ve **partitionweblogs.hql**, **input.log** dosyalarını seçip **Ekle**’ye tıklayın. Bu iki dosyayı [Öğreticiye Genel Bakış](data-factory-build-your-first-pipeline.md)’taki ön koşulların bir parçası olarak oluşturmuştunuz.
 
 Sonraki adımda çözümü yayımladığınızda, **partitionweblogs.hql** dosyası **adfgetstarted** blob kapsayıcısındaki betikler klasörüne yüklenir.   
 
-### <a name="publish/deploy-data-factory-entities"></a>Data Factory varlıklarını yayımlama/dağıtma
+### <a name="publishdeploy-data-factory-entities"></a>Data Factory varlıklarını yayımlama/dağıtma
 1. Çözüm Gezgini’nde projeye sağ tıklayın ve ardından **Yayımla**’ya tıklayın. 
 2. **Microsoft hesabınızda oturum açın** iletişim kutusunu görmezseniz, Azure aboneliğindeki kimlik bilgilerini hesap için girin ve **oturum aç**’a tıklayın.
 3. Aşağıdaki iletişim kutusunu göreceksiniz:
@@ -272,7 +276,8 @@ Sonraki adımda çözümü yayımladığınızda, **partitionweblogs.hql** dosya
    2. Data factory için benzersiz bir **ad** girin. Örneğin: **FirstDataFactoryUsingVS09152016**. Adın genel olarak benzersiz olması gerekir.  
 
         > [AZURE.IMPORTANT] Yayımladığınızda **“FirstDataFactoryUsingVS” data factory adı yok** hatasını alırsanız adı değiştirin (örneğin, yournameFirstDataFactoryUsingVS). Data Factory yapıtlarının adlandırma kuralları için [Data Factory - Adlandırma Kuralları](data-factory-naming-rules.md) konusuna bakın.
-1. **Abonelik** alanı için doğru abonelik seçin.
+3. **Abonelik** alanı için doğru abonelik seçin.
+
 
         > [AZURE.IMPORTANT] Herhangi bir abonelik görmüyorsanız aboneliğin yöneticisi veya ortak yöneticisi olan bir hesapla oturum açtığınızdan emin olun.  
 
@@ -333,7 +338,7 @@ Dikkat edilmesi gereken önemli noktalar şunlardır:
    > 
    > 
    
-    ![Veri kümesi](./media/data-factory-build-your-first-pipeline-using-vs/dataset-slice-ready.png) 
+    ![Veri kümesi](./media/data-factory-build-your-first-pipeline-using-vs/dataset-slice-ready.png)    
 10. Dilim **Hazır** durumunda olduğunda çıktı verileri için blob depolama alanınızın **adfgetstarted** kapsayıcısında **partitioneddata** klasörünü denetleyin.  
     
     ![çıktı verileri](./media/data-factory-build-your-first-pipeline-using-vs/three-ouptut-files.png)
@@ -341,13 +346,13 @@ Dikkat edilmesi gereken önemli noktalar şunlardır:
     
     ![Veri dilimi ayrıntıları](./media/data-factory-build-your-first-pipeline-using-vs/data-slice-details.png)  
 12. Bir etkinlik çalışmasına ilişkin ayrıntıları (bu senaryoda Hive etkinliği) bir **Etkinlik çalışma ayrıntıları** penceresinde görmek için **Etkinlik çalışma listesi** içinden bir etkinlik çalışmasına tıklayın.   
-    ![Etkinlik çalışma ayrıntıları](./media/data-factory-build-your-first-pipeline-using-vs/activity-window-blade.png)  
+    ![Etkinlik çalışma ayrıntıları](./media/data-factory-build-your-first-pipeline-using-vs/activity-window-blade.png)    
     
     Yürütülen Hive sorgusunu ve durum bilgilerini günlük dosyalarında görebilirsiniz. Bu günlükler her türlü sorunu gidermek için kullanışlıdır.  
 
 Bu öğreticide oluşturduğunuz işlem hattını ve veri kümelerini izlemek üzere Azure Portal’ın ilişkin yönergeler için bkz. [Veri kümelerini ve işlem hatlarını izleme](data-factory-monitor-manage-pipelines.md).
 
-### <a name="monitor-pipeline-using-monitor-&-manage-app"></a>İzleme ve Yönetme Uygulamasını kullanarak işlem hattını izleme
+### <a name="monitor-pipeline-using-monitor-manage-app"></a>İzleme ve Yönetme Uygulamasını kullanarak işlem hattını izleme
 İşlem hatlarınızı izlemek için İzleme ve Yönetme uygulamasını da kullanabilirsiniz. Bu uygulamanın kullanımına ilişkin ayrıntılı bilgi için bkz. [İzleme ve Yönetme Uygulamasını kullanarak Azure Data Factory işlem hatlarını izleme ve yönetme](data-factory-monitor-manage-app.md).
 
 1. İzleme ve Yönetme kutucuğuna tıklayın.
@@ -426,11 +431,11 @@ Aşağıdaki adımları uygulayarak her ortam için bir yapılandırma dosyası 
     JSON’un aşağıdaki kodda gösterilen şekilde bir dizi değere sahip bir özelliği varsa:  
    
         "structure": [
-            {
-                "name": "FirstName",
+              {
+                  "name": "FirstName",
                 "type": "String"
-            },
-            {
+              },
+              {
                 "name": "LastName",
                 "type": "String"
             }
@@ -502,6 +507,9 @@ Bu makalede, isteğe bağlı HDInsight kümesinde bir Hive betiği çalıştıra
 | [Veri kümeleri](data-factory-create-datasets.md) |Bu makale, Azure Data Factory’deki veri kümelerini anlamanıza yardımcı olur. |
 | [İzleme Uygulaması kullanılarak işlem hatlarını izleme ve yönetme](data-factory-monitor-manage-app.md) |Bu makalede İzleme ve Yönetim Uygulaması kullanılarak işlem hatlarını izleme, yönetme ve hatalarını ayıklama işlemleri açıklanmaktadır. |
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

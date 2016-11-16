@@ -1,4 +1,4 @@
-## Service Bus konuları ve abonelikleri nelerdir?
+## <a name="what-are-service-bus-topics-and-subscriptions"></a>Service Bus konuları ve abonelikleri nelerdir?
 Service Bus konuları ve abonelikleri *publish/subscribe* mesajlaşma iletişim modelini destekler. Konular ve abonelikler kullanıldığında, dağıtılmış uygulamanın bileşenleri birbirleriyle doğrudan iletişim kurmazlar; bunun yerine bir aracı gibi davranan bir konu aracılığıyla iletileri değiş tokuş eder.
 
 ![TopicConcepts](./media/howto-service-bus-topics/sb-topics-01.png)
@@ -9,12 +9,12 @@ Bir konuya abone olunması, konuya gönderilmiş olan iletilerin kopyaların ala
 
 Service Bus konuları ve abonelikleri, çok sayıda kullanıcıdan ve uygulamadan gelen çok yüksek sayıda iletiyi ölçeklendirmenizi ve işlemenizi sağlar.
 
-## Ad alanı oluşturma
+## <a name="create-a-namespace"></a>Ad alanı oluşturma
 Azure'da Service Bus konularını ve aboneliklerini kullanmaya başlamak için öncelikle bir *hizmet ad alanı* oluşturmanız gerekir. Ad alanı, uygulamanızda bulunan Service Bus kaynaklarını adreslemek için içeriğin kapsamını belirleyen bir kapsayıcı sunar.
 
 Ad alanı oluşturmak için:
 
-1. [Azure Portal][Azure Portal] oturum açın.
+1. [Azure portal][Azure portal] üzerinde oturum açın.
 2. Portalın sol gezinti bölmesinde **Yeni**'ye tıklayın, ardından **Enterprise Integration**'a ve **Service Bus**'a tıklayın.
 3. **Ad alanı oluştur** iletişim kutusunda bir ad alanı adı girin. Adın kullanılabilirliği sistem tarafından hemen denetlenir.
 4. Ad alanı adının kullanılabilir durumda olduğundan emin olduktan sonra fiyatlandırma katmanını (Temel, Standart veya Premium) seçin.
@@ -25,7 +25,7 @@ Ad alanı oluşturmak için:
     ![Ad alanı oluşturma][create-namespace]
 8. **Oluştur** düğmesine tıklayın. Artık sistem ad alanınızı oluşturur ve kullanıma açar. Sistem, hesabınıza yönelik kaynakları sağlarken birkaç dakika beklemeniz gerekebilir.
 
-### Kimlik bilgilerini alın
+### <a name="obtain-the-credentials"></a>Kimlik bilgilerini alın
 1. Ad alanları listesinde, yeni oluşturulan ad alanı adına tıklayın.
 2. **Service Bus ad alanı** dikey penceresinde, **Paylaşılan erişim ilkeleri**'ne tıklayın.
 3. **Paylaşılan erişim ilkeleri** dikey penceresinde, **RootManageSharedAccessKey** öğesine tıklayın.
@@ -35,7 +35,7 @@ Ad alanı oluşturmak için:
    
     ![bağlantı dizesi][connection-string]
 
-[Azure Portal]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com
 [ad alanı oluşturma]: ./media/howto-service-bus-topics/create-namespace.png
 [bağlantı bilgisi]: ./media/howto-service-bus-topics/connection-info.png
 [bağlantı dizesi]: ./media/howto-service-bus-topics/connection-string.png
@@ -43,6 +43,6 @@ Ad alanı oluşturmak için:
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

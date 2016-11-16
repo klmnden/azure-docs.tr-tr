@@ -1,14 +1,14 @@
 ---
-title: Azure Kapsayıcı Hizmeti kümesine bağlanma | Microsoft Docs
-description: SSH tüneli kullanarak Azure Kapsayıcı Hizmeti kümesine bağlanın.
+title: "Azure Container Service kümesine bağlanma | Microsoft Belgeleri"
+description: "SSH tüneli kullanarak Azure Kapsayıcı Hizmeti kümesine bağlanın."
 services: container-service
-documentationcenter: ''
+documentationcenter: 
 author: rgardler
 manager: timlt
-editor: ''
+editor: 
 tags: acs, azure-container-service
-keywords: Docker, Kapsayıcılar, Mikro hizmetler, DC/OS, Azure
-
+keywords: "Docker, Kapsayıcılar, Mikro hizmetler, DC/OS, Azure"
+ms.assetid: ff8d9e32-20d2-4658-829f-590dec89603d
 ms.service: container-service
 ms.devlang: na
 ms.topic: get-started-article
@@ -16,9 +16,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/13/2016
 ms.author: rogardle
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 97f74f845e19ae99cf6c5abbb9f076c7c5171993
+
 
 ---
-# Azure Kapsayıcı Hizmeti kümesine bağlanma
+# <a name="connect-to-an-azure-container-service-cluster"></a>Azure Kapsayıcı Hizmeti kümesine bağlanma
 Azure Container Service tarafından dağıtılan DC/OS ve Docker Swarm kümeleri REST uç noktalarını kullanıma sunar. Ancak, bu uç noktalar dış dünyaya açık değildir. Bu uç noktaları yönetmek için bir Secure Shell (SSH) tüneli oluşturmanız gerekir. SSH tüneli oluşturulduktan sonra küme uç noktalarına karşı komutları çalıştırabilir ve kendi sisteminizdeki bir tarayıcı aracılığıyla küme kullanıcı arabirimini görüntüleyebilirsiniz. Bu belgede size Linux, OS X ve Windows’da bir SSH tüneli oluşturma konusunu adım adım anlatılmaktadır.
 
 > [!NOTE]
@@ -26,7 +30,7 @@ Azure Container Service tarafından dağıtılan DC/OS ve Docker Swarm kümeleri
 > 
 > 
 
-## Linux veya OS X’de SSH tüneli oluşturma
+## <a name="create-an-ssh-tunnel-on-linux-or-os-x"></a>Linux veya OS X’de SSH tüneli oluşturma
 Linux veya OS X’de bir SSH tüneli oluşturduğunuzda yapacağınız ilk şey yük dengeli ana sunucuların genel DNS adını bulmaktır. Bunu yapmak için, her kaynak görüntülenecek şekilde kaynak grubunu genişletin. Ana sunucunun ortak IP adresini bulun ve seçin. Bu, DNS adını içeren ortak IP adresi hakkında bilgiler içeren dikey pencereyi açar. Bu adı daha sonra kullanmak için kaydedin. <br />
 
 ![Genel DNS adı](media/pubdns.png)
@@ -46,7 +50,7 @@ ssh -L PORT:localhost:PORT -f -N [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.az
 > 
 > 
 
-## DC/OS tüneli
+## <a name="dcos-tunnel"></a>DC/OS tüneli
 DC/OS ile ilgili uç noktalara bir tünel açmak için, aşağıdakine benzeyen bir komut yürütün:
 
 ```bash
@@ -61,7 +65,7 @@ sudo ssh -L 80:localhost:80 -f -N azureuser@acsexamplemgmt.japaneast.cloudapp.az
 
 Benzer şekilde, bu tünel üzerinden her uygulama için rest API'lerine ulaşabilirsiniz.
 
-## Swarm tüneli
+## <a name="swarm-tunnel"></a>Swarm tüneli
 Swarm uç noktalarına bir tünel açmak için, aşağıdakine benzeyen bir komut yürütün:
 
 ```bash
@@ -74,7 +78,7 @@ ssh -L 2375:localhost:2375 -f -N azureuser@acsexamplemgmt.japaneast.cloudapp.azu
 export DOCKER_HOST=:2375
 ```
 
-## Windows’da SSH tüneli oluşturma
+## <a name="create-an-ssh-tunnel-on-windows"></a>Windows’da SSH tüneli oluşturma
 Windows’da SSH tünelleri oluşturmak için birden çok seçenek vardır. Bu belgede bunu yapmak için PuTTY’nin nasıl kullanılacağı açıklanmıştır.
 
 PuTTY’yi Windows sisteminize indirin ve uygulamayı çalıştırın.
@@ -113,12 +117,15 @@ DC/OS için tüneli yapılandırdığınızda aşağıdakiler üzerinde ilgili u
 
 Docker Swarm için tüneli yapılandırdığınızda Docker CLI aracılığıyla Swarm kümesine erişebilirsiniz. Önce ` :2375` değeriyle `DOCKER_HOST` adlı bir Windows ortamı değişkeni yapılandırmanız gerekir.
 
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 DC/OS ya da Swarm ile kapsayıcıları dağıtın ve yönetin:
 
 * [Azure Container Service ve DC/OS ile çalışma](container-service-mesos-marathon-rest.md)
 * [Azure Container Service ve Docker Swarm ile çalışma](container-service-docker-swarm.md)
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: VM’leri çalışma saatleri dışında Başlatma/Durdurma [Önizleme] Çözümü | Microsoft Docs
-description: VM Management çözümleri, Azure Resource Manager Sanal Makinelerinizi bir zamanlama dahilinde başlatıp durdurmanın yanı sıra Log Analytics aracılığıyla izler.
+title: "VM’leri çalışma saatleri dışında Başlatma/Durdurma [Önizleme] Çözümü | Microsoft Belgeleri"
+description: "VM Management çözümleri, Azure Resource Manager Sanal Makinelerinizi bir zamanlama dahilinde başlatıp durdurmanın yanı sıra Log Analytics aracılığıyla izler."
 services: automation
-documentationcenter: ''
+documentationcenter: 
 author: MGoedtel
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: 06c27f72-ac4c-4923-90a6-21f46db21883
 ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -14,21 +14,25 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/07/2016
 ms.author: magoedte
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b0fec06e4a167e615381fca17def46923d9f0f1b
+
 
 ---
-# Otomasyon’da VM’leri çalışma saatleri dışında Başlatma/Durdurma [Önizleme] çözümü
+# <a name="startstop-vms-during-offhours-preview-solution-in-automation"></a>Otomasyon’da VM’leri çalışma saatleri dışında Başlatma/Durdurma [Önizleme] çözümü
 VM’leri çalışma saatleri dışında Başlatma/Durdurma [Önizleme] çözümü, Azure Resource Manager sanal makinelerinizi kullanıcının belirlediği bir zamanlamada başlatır ve durdurur. Ayrıca, OMS Log Analytics aracılığıyla, sanal makinelerinizi başlatan ve durduran Otomasyon işlerinin başarı durumu hakkında öngörüler sağlar.  
 
-## Önkoşullar
+## <a name="prerequisites"></a>Önkoşullar
 * Runbook'lar, [Azure Farklı Çalıştır hesabı](automation-sec-configure-azure-runas-account.md) ile çalışır.  Süresi dolabilecek ya da sık değişebilecek olan bir parola yerine sertifika doğrulaması kullandığından Farklı Çalıştır hesabı, tercih edilen kimlik doğrulama yöntemidir.  
 * Bu çözüm, yalnızca Otomasyon hesabı ile aynı abonelikte ve kaynak grubunda yer alan sanal makineleri yönetebilir.  
 * Bu çözüm, yalnızca şu Azure bölgelerine dağıtılır: Avustralya Güneydoğu, Doğu ABD, Güneydoğu Asya ve Batı Avrupa.  VM zamanlamasını yöneten runbook'lar herhangi bir bölgedeki VM'leri hedefleyebilir.  
 * VM runbook'larının başlatılması ve durdurulması tamamlandığında e-posta bildirimleri gönderilebilmesi için iş sınıfı bir Office 365 aboneliği gereklidir.  
 
-## Çözüm bileşenleri
+## <a name="solution-components"></a>Çözüm bileşenleri
 Bu çözüm, içe aktarılıp Otomasyon hesabınıza eklenecek olan aşağıdaki kaynakları içerir.
 
-### Runbook'lar
+### <a name="runbooks"></a>Runbook'lar
 | Runbook | Açıklama |
 | --- | --- |
 | CleanSolution-MS-Mgmt-VM |Bu runbook, çözümü aboneliğinizden silmeye karar verdiğinizde, çözümün içerdiği tüm kaynak ve zamanlamaları kaldırır. |
@@ -38,7 +42,7 @@ Bu çözüm, içe aktarılıp Otomasyon hesabınıza eklenecek olan aşağıdaki
 
 <br>
 
-### Değişkenler
+### <a name="variables"></a>Değişkenler
 | Değişken | Açıklama |
 | --- | --- |
 | **SendMailO365-MS-Mgmt** Runbook | |
@@ -65,24 +69,24 @@ Bu çözüm, içe aktarılıp Otomasyon hesabınıza eklenecek olan aşağıdaki
 
 <br>
 
-### Zamanlamalar
+### <a name="schedules"></a>Zamanlamalar
 | Zamanlama | Açıklama |
 | --- | --- |
 | StartByResourceGroup-Schedule-MS-Mgmt |VM’lerin bu çözüm tarafından yönetilen başlatma işlemlerini yürüten StartByResourceGroup runbook’u için zamanlama belirleyin. |
 | StopByResourceGroup-Schedule-MS-Mgmt |VM’lerin bu çözüm tarafından yönetilen durdurma işlemlerini yürüten StopByResourceGroup runbook’u için zamanlama belirleyin. |
 
-### Kimlik Bilgileri
+### <a name="credentials"></a>Kimlik Bilgileri
 | Kimlik Bilgisi | Açıklama |
 | --- | --- |
 | O365Credential |E-posta göndermek için geçerli bir Office 365 kullanıcı hesabı belirtir.  Yalnızca, SendMailO365-IsSendEmail-MS-Mgmt değişkeni **True** olarak ayarlanırsa gereklidir. |
 
-## Yapılandırma
+## <a name="configuration"></a>Yapılandırma
 VM’leri çalışma saatleri dışında Başlatma/Durdurma [Önizleme] çözümünü Otomasyonu hesabınızı ekleyip ardından çözümü özelleştirmek üzere değişkenlerini yapılandırmak için aşağıdaki adımları uygulayın.
 
 1. Azure portalının ana ekranında **Market** kutucuğunu seçin.  Kutucuk ana ekranınızda sabitlenmiş değilse sol gezinti bölmesinden **Yeni**’yi seçin.  
 2. Market dikey penceresinde arama kutusuna **VM Başlat** yazın ve arama sonuçlarının arasından **VM’leri çalışma saatleri dışında Başlatma/Durdurma [Önizleme]** çözümünü seçin.  
 3. Seçili çözümün **VM’leri çalışma saatleri dışında Başlatma/Durdurma [Önizleme]** dikey penceresinde özet bilgileri gözden geçirin ve **Oluştur**’a tıklayın.  
-4. **Çözüm Ekle** dikey penceresi görünür ve çözümü Otomasyon aboneliğinize aktarmadan önce yapılandırmanız istenir.<br><br> ![VM Management Çözüm Ekle dikey penceresi](media/automation-solution-vm-management/vm-management-solution-add-solution-blade.png)<br><br>
+4. **Çözüm Ekle** dikey penceresi görünür ve çözümü Otomasyon aboneliğinize aktarmadan önce yapılandırmanız istenir.<br><br> ![VM Management Çözüm Ekleme dikey penceresi](media/automation-solution-vm-management/vm-management-solution-add-solution-blade.png)<br><br>
 5. **Çözüm Ekle** dikey penceresinde, **Çalışma alanı**’nı seçin. Burada, Otomasyon hesabının bulunduğu Azure aboneliğine bağlı olan bir OMS çalışma alanı seçmeniz ya da yeni bir OMS çalışma alanı oluşturmanız gerekir.  OMS çalışma alanınız yoksa **Yeni Çalışma Alanı Oluştur**’u seçip **OMS Çalışma Alanı** dikey penceresinde aşağıdakileri yapabilirsiniz: 
    
    * Yeni **OMS Çalışma Alanı** için bir ad belirtin.
@@ -109,19 +113,19 @@ VM’leri çalışma saatleri dışında Başlatma/Durdurma [Önizleme] çözüm
    * Hedef kaynak gruplarındaki VM’lerin başlatılmasına ve durdurulmasına ilişkin yinelenen bir tarih ve saat olan bir **Zamanlama** seçin.  
 9. Çözüm için gereken ilk ayarların yapılandırılmasını tamamlandığınızda **Oluştur**’u seçin.  Tüm ayarlar doğrulanır ve çözümün aboneliğinize dağıtılması denenir.  Bu işlemin tamamlanması birkaç saniye alabilir ve ilerleme durumunu menüdeki **Bildirimler**’in altından izleyebilirsiniz. 
 
-## Toplama sıklığı
+## <a name="collection-frequency"></a>Toplama sıklığı
 Otomasyon iş günlüğü ve iş akışı verileri her beş dakikada bir OMS deposuna alınır.  
 
-## Çözümü kullanma
+## <a name="using-the-solution"></a>Çözümü kullanma
 VM Management çözümünü OMS çalışma alanınıza eklediğinizde, OMS panonuza **StartStopVM Görünümü** kutucuğu eklenir.  Bu kutucuk, çözüme ait başlatılmış ve başarıyla tamamlanmış runbook işlerinin sayısını ve grafik temsilini görüntüler.<br><br> ![VM Management StartStopVM Görünümü Kutucuğu](media/automation-solution-vm-management/vm-management-solution-startstopvm-view-tile.png)  
 
-Otomasyon hesabınızda **Çözümler** kutucuğunu seçip **Çözümler** dikey penceresindeki listeden çözüme ait **Başlat-Durdur-VM[Çalışma Alanı]** seçeneğini belirleyerek çözüme erişebilir ve çözümü yönetebilirsiniz.<br><br> ![Otomasyon Çözümler Listesi](media/automation-solution-vm-management/vm-management-solution-autoaccount-solution-list.png)  
+Otomasyon hesabınızda **Çözümler** kutucuğunu seçip **Çözümler** dikey penceresindeki listeden çözüme ait **Başlat-Durdur-VM[Çalışma Alanı]** seçeneğini belirleyerek çözüme erişebilir ve çözümü yönetebilirsiniz.<br><br> ![Otomasyon Çözümleri Listesi](media/automation-solution-vm-management/vm-management-solution-autoaccount-solution-list.png)  
 
-Çözümün seçilmesi, **Başlat-Durdur-VM[Çalışma Alanı]** çözüm dikey penceresini görüntüler. Bu pencerede, OMS çalışma alanınızda olduğu gibi çözüme ait başlatılmış ve başarıyla tamamlanmış runbook işlerinin sayısını ve grafik temsilini görüntüleyen **StartStopVM** kutucuğu benzeri önemli ayrıntıları gözden geçirebilirsiniz.<br><br> ![Otomasyon VM Çözüm Dikey Penceresi](media/automation-solution-vm-management/vm-management-solution-solution-blade.png)  
+Çözümün seçilmesi, **Başlat-Durdur-VM[Çalışma Alanı]** çözüm dikey penceresini görüntüler. Bu pencerede, OMS çalışma alanınızda olduğu gibi çözüme ait başlatılmış ve başarıyla tamamlanmış runbook işlerinin sayısını ve grafik temsilini görüntüleyen **StartStopVM** kutucuğu benzeri önemli ayrıntıları gözden geçirebilirsiniz.<br><br> ![Otomasyon VM Çözümü Dikey Penceresi](media/automation-solution-vm-management/vm-management-solution-solution-blade.png)  
 
 Burada kendi OMS çalışma alanınızı açabilir ve iş kayıtlarıyla ilgili başka analizler alabilirsiniz.  **Tüm ayarlar**’a tıklamanız ve **Ayarlar** dikey penceresinde **Hızlı Başlangıç**’ı ve **Hızlı Başlangıç** dikey penceresinde **OMS Portalı**’nı seçmeniz yeterlidir.   Böylece, yeni bir sekme veya yeni tarayıcı oturumu açılacak ve Otomasyon hesabınız ile aboneliğinize ilişkin OMS çalışma alanınız sunulacaktır.  
 
-### E-posta bildirimlerini yapılandırma
+### <a name="configuring-email-notifications"></a>E-posta bildirimlerini yapılandırma
 VM runbook'larının başlatılması ve durdurulması tamamlandığında e-posta bildirimlerini etkinleştirmek için, **O365Credential** kimlik bilgisini ve en azından aşağıdaki değişkenleri değiştirmeniz gerekir:
 
 * SendMailO365-IsSendEmail-MS-Mgmt
@@ -142,13 +146,13 @@ Daha önce vurgulanan değişkenleri yapılandırmak için aşağıdaki adımlar
 3. **Varlıklar** dikey penceresinde **Değişkenler** kutucuğunu seçin ve **Değişkenler** dikey penceresinde yukarıda listelenen değişkenleri seçip yukarıdaki [değişken](##variables) bölümünde sağlanan tanımlar uyarınca bunların değerlerini değiştirin.  
 4. Değişkene yapılan değişiklikleri kaydetmek için **Kaydet**’e tıklayın.   
 
-### Başlatma ve kapatma zamanlamasını değiştirme
+### <a name="modifying-the-startup-and-shutdown-schedule"></a>Başlatma ve kapatma zamanlamasını değiştirme
 Bu çözümde başlatma ve kapatma zamanlamasının yönetimi için [Azure Otomasyonu’nda runbook zamanlama](automation-scheduling-a-runbook.md) bölümünde açıklanan adımlar uygulanır.  Zamanlama yapılandırmasını değiştiremeyeceğinizi unutmayın.  Mevcut zamanlamayı devre dışı bırakmanız ve yeni bir zamanlama oluşturup bu zamanlama için geçerli olmasını istediğiniz **StartByResourceGroup-MS-Mgmt-VM** veya **StopByResourceGroup-MS-Mgmt-VM** runbook’una bağlamanız gerekir.   
 
-## Log Analytics kayıtları
+## <a name="log-analytics-records"></a>Log Analytics kayıtları
 Otomasyon, OMS deposunda iki tür kayıt oluşturur.
 
-### İş günlükleri
+### <a name="job-logs"></a>İş günlükleri
 | Özellik | Açıklama |
 | --- | --- |
 | Çağıran |İşlemi başlatandır.  Olası değerler, bir e-posta adresi veya zamanlanan işlere yönelik bir sistemdir. |
@@ -168,7 +172,7 @@ Otomasyon, OMS deposunda iki tür kayıt oluşturur.
 | SubscriptionId |İşin abonelik kimliğini belirtir. |
 | Zaman |Runbook işinin yürütüldüğü tarih ve saat. |
 
-### İş akışları
+### <a name="job-streams"></a>İş akışları
 | Özellik | Açıklama |
 | --- | --- |
 | Çağıran |İşlemi başlatandır.  Olası değerler, bir e-posta adresi veya zamanlanan işlere yönelik bir sistemdir. |
@@ -188,7 +192,7 @@ Otomasyon, OMS deposunda iki tür kayıt oluşturur.
 
 **JobLogs** veya **JobStreams** kategorisinde kayıtlar döndüren bir günlük araması yaptığınızda, arama tarafından döndürülen güncelleştirmeleri özetleyen bir grup kutucuk görüntüleyen **JobLogs** veya **JobStreams** görünümlerini seçebilirsiniz.
 
-## Örnek günlük aramaları
+## <a name="sample-log-searches"></a>Örnek günlük aramaları
 Aşağıdaki tabloda, bu çözüm tarafından toplanan iş kayıtlarına ilişkin örnek günlük aramaları sunulmaktadır. 
 
 | Sorgu | Açıklama |
@@ -197,11 +201,14 @@ Aşağıdaki tabloda, bu çözüm tarafından toplanan iş kayıtlarına ilişki
 | StopVM runbook’una ilişkin başarıyla tamamlanmış işleri bul |Category=JobLogs RunbookName_s="StartByResourceGroup-MS-Mgmt-VM" ResultType=Failed &#124; measure count() by JobId_g |
 | StartVM ve StopVM runbook'ları için zaman içerisinde iş durumunu göster |Category=JobLogs RunbookName_s="StartByResourceGroup-MS-Mgmt-VM" OR "StopByResourceGroup-MS-Mgmt-VM" NOT(ResultType="started") |
 
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 * Farklı arama sorguları oluşturma ve Log Analytics ile Otomasyon iş günlüklerini gözden geçirme hakkında daha fazla bilgi edinmek için bkz. [Log Analytics’te günlük aramaları](../log-analytics/log-analytics-log-searches.md)
 * Runbook yürütme, runbook işlerini izleme ve diğer teknik ayrıntılar hakkında daha fazla bilgi edinmek için bkz. [Runbook işi izleme](automation-runbook-execution.md)
 * OMS Log Analytics ve veri toplama kaynakları hakkında daha fazla bilgi edinmek için bkz. [Log Analytics’te Azure depolama verileri toplamaya genel bakış](../log-analytics/log-analytics-azure-storage.md)
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

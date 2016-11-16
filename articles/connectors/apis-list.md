@@ -1,13 +1,13 @@
 ---
-title: Microsoft Azure Logic Apps’te kullanılan Microsoft tarafından yönetilen bağlayıcıların listesi | Microsoft Docs
-description: Azure App Service’de Logic Apps oluşturmak için kullanabileceğiniz Microsoft tarafından yönetilen bağlayıcıların tam listesini alın.
+title: "Microsoft Azure Logic Apps’te kullanılmak üzere Microsoft tarafından yönetilen bağlayıcıların listesi | Microsoft Belgeleri"
+description: "Azure App Service’de Logic Apps oluşturmak için kullanabileceğiniz Microsoft tarafından yönetilen bağlayıcıların tam listesini alın."
 services: logic-apps
-documentationcenter: ''
+documentationcenter: 
 author: MSFTMAN
 manager: erikre
-editor: ''
+editor: 
 tags: connectors
-
+ms.assetid: f1f1fd50-b7f9-4d13-824a-39678619aa7a
 ms.service: logic-apps
 ms.workload: integration
 ms.tgt_pltfrm: na
@@ -15,12 +15,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/20/2016
 ms.author: deonhe
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: e9134998ba7fadeb6a5e36d37b77fc8d6892c2b8
+
 
 ---
-# Bağlayıcıların listesi
+# <a name="list-of-connectors"></a>Bağlayıcıların listesi
 İş akışlarını hızlı bir şekilde oluşturma hakkında bilgi edinmek için bir bağlayıcı seçin.
 
-## Standart bağlayıcılar
+## <a name="standard-connectors"></a>Standart bağlayıcılar
 | Bağlayıcılar |  |  |  |
 | --- | --- | --- | --- |
 | [![API Icon][API/Web-Appicon]<br/>**API/Web App**][API/Web-Appdoc] |[![API Icon][Azure-Blobicon]<br/>**Azure Blob**][Azure-Blobdoc] |[![API Icon][Azure~Functionsicon]<br/>**Azure<br/>Functions**][Azure~Functionsdoc] |[![API Icon][Boxicon]<br/>**Box**][Boxdoc] |
@@ -42,7 +46,7 @@ ms.author: deonhe
 > 
 > 
 
-## Enterprise Integration Pack (EIP) bağlayıcıları
+## <a name="enterprise-integration-pack-eip-connectors"></a>Enterprise Integration Pack (EIP) bağlayıcıları
 EAI ve EDI içeren B2B senaryolarına yönelik Mantıksal uygulamalar oluşturmak için EIP bağlayıcılarını kullanın.  
 
 | EIP bağlayıcıları |  |  |  |
@@ -52,7 +56,7 @@ EAI ve EDI içeren B2B senaryolarına yönelik Mantıksal uygulamalar oluşturma
 | [![API Icon][x12icon]<br/>**EDIFACT</br>kod çözme**][EDIFACTdecode] |[![API Icon][x12icon]<br/>**EDIFACT</br>kodlama**][EDIFACTencode] | | |
 
 <!-- TODO: Add Functions, App Service, and Nested Workflow Icons -->
-### Bağlayıcılar tetikleyiciler olabilir
+### <a name="connectors-can-be-triggers"></a>Bağlayıcılar tetikleyiciler olabilir
 Bazı bağlayıcılar, belirli olaylar meydana geldiğinde, uygulamanızı bilgilendirebilecek tetikleyiciler sağlar. Örneğin, FTP bağlayıcısı OnUpdatedFile tetikleyicisine sahiptir. Bu tetikleyiciyi dinleyen ve tetikleyici her tetiklendiğinde eyleme geçen bir Mantıksal uygulama, PowerApp ya da Akış oluşturabilirsiniz.
 
 İki tür tetikleyici sunucusu bulunur:  
@@ -60,13 +64,13 @@ Bazı bağlayıcılar, belirli olaylar meydana geldiğinde, uygulamanızı bilgi
 * Yoklama Tetikleyicileri: Bu tetikleyiciler yeni verileri denetlemek için hizmetinizi belirtilen aralıkta yoklar. Yeni veriler kullanılabilir olduğunda, uygulamanızın yeni bir örneği girdi olan verilerle çalışır. Tetikleyici, aynı verinin birden çok kez kullanılmasını önlemek için okunan ve uygulamanıza iletilen verileri temizleyebilir.
 * Anında İletme Tetikleyicileri: Bu tetikleyiciler, uç noktada bir olayın meydana gelmesine ilişkin verileri dinler ve ardından uygulamanızın yeni bir örneğini tetikler. Twitter bağlayıcısı böyle bir örnektir.
 
-### Bağlayıcılar eylemler olabilir
+### <a name="connectors-can-be-actions"></a>Bağlayıcılar eylemler olabilir
 Bağlayıcılar uygulamalarınız içinde eylemler olarak da kullanılabilir. Eylemler, daha sonra uygulamanızın yürütülmesinde kullanılabilecek verilere bakılmasında faydalıdır. Örneğin, sipariş işleme sırasında bir SQL veritabanında müşteri verilerini aramanız gerekebilir. Veya, hedef tablodaki verileri yazmanız, güncelleştirmeniz ya da silmeniz gerekebilir. Bağlayıcılar tarafından sağlanan eylemleri kullanarak bunu yapabilirsiniz. Eylemler Swagger meta verilerde tanımlanan eylemlere eşlenir.
 
-## Sonraki Adımlar
+## <a name="next-steps"></a>Sonraki Adımlar
 * [Şimdi mantıksal uygulama oluşturun](../app-service-logic/app-service-logic-create-a-logic-app.md)  
 * [Özel bir bağlayıcı oluşturun](../app-service-logic/app-service-logic-create-api-app.md)
-* [Mantık uygulamalarınızı izleyin](../app-service-logic/app-service-logic-monitor-your-logic-apps.md)
+* [Mantıksal uygulamalarınızı izleyin](../app-service-logic/app-service-logic-monitor-your-logic-apps.md)
 
 <!--Connectors Documentation-->
 [azure-blobdoc]: ./connectors-create-api-azureblobstorage.md "Blob kapsayıcınızdaki dosyaları yönetmek için Azure blob’a bağlanın."
@@ -196,6 +200,6 @@ Bağlayıcılar uygulamalarınız içinde eylemler olarak da kullanılabilir. Ey
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

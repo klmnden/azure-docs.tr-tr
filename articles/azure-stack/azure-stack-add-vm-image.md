@@ -1,12 +1,12 @@
 ---
 title: Adding a VM image to Azure Stack | Microsoft Docs
-description: Add your organization's custom Windows or Linux VM image for tenants to use
+description: Add your organization&quot;s custom Windows or Linux VM image for tenants to use
 services: azure-stack
-documentationcenter: ''
+documentationcenter: 
 author: mattmcg
 manager: darmour
-editor: ''
-
+editor: 
+ms.assetid: e5a4236b-1b32-4ee6-9aaa-fcde297a020f
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/26/2016
 ms.author: mattmcg
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 4b9b818ddaff4bb968e140a5fa9ec4f8129330cf
+
 
 ---
-# Make a custom virtual machine image available in Azure Stack
+# <a name="make-a-custom-virtual-machine-image-available-in-azure-stack"></a>Make a custom virtual machine image available in Azure Stack
 Azure Stack enables administrators to make VM images, such as their organization’s custom VHD, available to their tenants. Images can be referenced by Azure Resource Manager templates or added to the Azure Marketplace UI with the creation of a Marketplace item. A Windows Server 2012 R2 image is included by default in the Azure Stack Technical Preview.
 
 > [!NOTE]
@@ -24,7 +28,7 @@ Azure Stack enables administrators to make VM images, such as their organization
 > 
 > 
 
-## Add a VM image to Marketplace with PowerShell
+## <a name="add-a-vm-image-to-marketplace-with-powershell"></a>Add a VM image to Marketplace with PowerShell
 If the VM image VHD is available locally on the console VM (or another externally connected device), use the following steps:
 
 1. Prepare a Windows or Linux operating system virtual hard disk image in VHD format (not VHDX).
@@ -61,7 +65,7 @@ The command does the following:
 
 To verify that the command ran successfully, go to Marketplace in the portal, and then verify that the VM image is available in the **Virtual Machines** category.
 
-> ![VM image added successfully](/articles/azure-stack/media/azure-stack-add-vm-image/image5.PNG)
+> ![VM image added successfully](./media/azure-stack-add-vm-image/image5.PNG)
 > 
 > 
 
@@ -83,7 +87,7 @@ Following is a description of the command parameters.
 | **osDiskBlobURI** |Optionally, this script also accepts a Blob storage URI for osDisk. |
 | **dataDiskBlobURIs** |Optionally, this script also accepts an array of Blob storage URIs for adding data disks to the image. |
 
-## Add a VM image through the portal
+## <a name="add-a-vm-image-through-the-portal"></a>Add a VM image through the portal
 > [!NOTE]
 > This method requires creating the Marketplace item separately.
 > 
@@ -99,19 +103,22 @@ Follow the steps from [Upload a Windows VM image to Azure for Resource Manager d
 
 1. To make the blob anonymously accessible, go to the storage account blob container where the VM image VHD was uploaded to **Blob,** and then select **Access Policy**. If you want, you can instead generate a shared access signature for the container and include it as part of the blob URI.
 
-![Navigate to storage account blobs](/articles/azure-stack/media/azure-stack-add-vm-image/image1.png)
+![Navigate to storage account blobs](./media/azure-stack-add-vm-image/image1.png)
 
-![Set blob access to public](/articles/azure-stack/media/azure-stack-add-vm-image/image2.png)
+![Set blob access to public](./media/azure-stack-add-vm-image/image2.png)
 
 1. Sign in to Azure Stack as an administrator. Go to **Region Management**. Then, under **RPs**, select  **Compute Resource Provider** > **VM Images** > **Add.**
    
-   ![Start to add an image](/articles/azure-stack/media/azure-stack-add-vm-image/image3.png)
+   ![Start to add an image](./media/azure-stack-add-vm-image/image3.png)
 2. On the following blade, enter the publisher, offer, SKU, and version of the VM image. These name segments refer to the VM image in Azure Resource Manager templates. Make sure to select the **osType** correctly. For **osDiskBlobURI**, enter the URI where the image was uploaded in step 1. Click **Create** to begin creating the VM Image.
    
-   ![Begin to create the image](/articles/azure-stack/media/azure-stack-add-vm-image/image4.png)
+   ![Begin to create the image](./media/azure-stack-add-vm-image/image4.png)
 3. The VM Image status changes to ‘Succeeded’ when the image is successfully added.
 4. Tenants can deploy the VM Image by specifying the publisher, offer, SKU, and version of the VM image in an Azure Resource Manager template. To make the VM image more readily available for tenant consumption in the UI, it is best to [create a Marketplace item](azure-stack-create-and-publish-marketplace-item.md).
 
-<!--HONumber=Sep16_HO4-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,13 +1,13 @@
 ---
-title: Excel'i SQL Database'e bağlama | Microsoft Docs
-description: Microsoft Excel'i bulut üzerinde Azure SQL veritabanına nasıl bağlayacağınızı öğrenin. Raporlama ve veri araştırması için Excel'e veri aktarın.
+title: "Excel&quot;i SQL Veritabanı&quot;na bağlama | Microsoft Belgeleri"
+description: "Microsoft Excel&quot;i bulut üzerinde Azure SQL veritabanına nasıl bağlayacağınızı öğrenin. Raporlama ve veri araştırması için Excel&quot;e veri aktarın."
 services: sql-database
-keywords: excel’i sql’e bağlama, verileri excel’e aktarma
-documentationcenter: ''
+keywords: "excel’i sql’e bağlama, verileri excel’e aktarma"
+documentationcenter: 
 author: joseidz
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 906924bc-2707-48d3-bac6-397976a0409d
 ms.service: sql-database
 ms.workload: data-management
 ms.tgt_pltfrm: na
@@ -15,9 +15,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/05/2016
 ms.author: joseidz
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 3a0f9501760ba3ea97341d30cd706c971c826430
+
 
 ---
-# SQL Database öğreticisi: Excel'i bir Azure SQL veritabanına bağlama ve rapor oluşturma
+# <a name="sql-database-tutorial-connect-excel-to-an-azure-sql-database-and-create-a-report"></a>SQL Database öğreticisi: Excel'i bir Azure SQL veritabanına bağlama ve rapor oluşturma
 > [!div class="op_single_selector"]
 > * [Visual Studio](sql-database-connect-query.md)
 > * [SSMS](sql-database-connect-query-ssms.md)
@@ -31,7 +35,7 @@ Başlayabilmek için Azure'da bir SQL veritabanınızın olması gerekir. Henüz
 
 Ayrıca, bir Excel kopyanızın olması gerekir. Bu makalede [Microsoft Excel 2016](https://products.office.com/en-US/) kullanılmıştır.
 
-## Excel'i bir SQL veritabanına bağlama ve ODC dosyası oluşturma
+## <a name="connect-excel-to-a-sql-database-and-create-an-odc-file"></a>Excel'i bir SQL veritabanına bağlama ve ODC dosyası oluşturma
 1. Excel'i SQL veritabanına bağlamak için Excel'i açarak yeni bir çalışma kitabı oluşturun veya var olan bir Excel çalışma kitabını açın.
 2. Sayfanın üstündeki menü çubuğunda **Veri** seçeneğine, **Diğer Kaynaklardan** seçeneğine ve ardından **SQL Server'dan** seçeneğine tıklayın.
    
@@ -58,7 +62,7 @@ Ayrıca, bir Excel kopyanızın olması gerekir. Bu makalede [Microsoft Excel 20
    
     **VeriIeri içeri aktar** iletişim kutusu görünür.
 
-## Excel'e veri aktarma ve özet grafik oluşturma
+## <a name="import-the-data-into-excel-and-create-a-pivot-chart"></a>Excel'e veri aktarma ve özet grafik oluşturma
 Artık bağlantıyı kurup verileri ve bağlantı bilgilerini kullanarak dosyayı oluşturduğunuza göre verileri içeri aktarmaya hazırsınız.
 
 1. **Verileri İçeri Aktar** iletişim kutusunda, verilerinizi çalışma sayfasında nasıl sunmak istediğinize ilişkin seçeneğe tıklayın ve ardından **TAMAM**'a tıklayın. Biz **PivotChart** seçeneğini belirledik. Ayrıca, **Yeni çalışma sayfası** oluşturmayı veya **Bu verileri Veri Modeline ekle** seçeneğini belirlemeyi de tercih edebilirsiniz. Veri Modelleri hakkında daha fazla bilgi için bkz. [Excel'de veri modeli oluşturma](https://support.office.com/article/Create-a-Data-Model-in-Excel-87E7A54C-87DC-488E-9410-5C75DBCB0F7B). Daha önceki adımda oluşturduğunuz ODC dosyası hakkındaki bilgilere ulaşmak ve verileri yenileme seçeneklerini belirlemek için Click **Özellikler**'e tıklayın.
@@ -76,11 +80,14 @@ Artık bağlantıyı kurup verileri ve bağlantı bilgilerini kullanarak dosyay�
 > 
 > 
 
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 * Gelişmiş sorgulama ve analiz için [SQL Server Management Studio ile SQL Database'e bağlanma](sql-database-connect-query-ssms.md) işlemini nasıl gerçekleştireceğinizi öğrenin.
 * [Esnek havuzların](sql-database-elastic-pool.md) avantajları hakkında bilgi edinin.
 * [Arka uçta SQL Database'e bağlanan bir web uygulaması oluşturma](../app-service-web/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md) hakkında bilgi edinin.
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

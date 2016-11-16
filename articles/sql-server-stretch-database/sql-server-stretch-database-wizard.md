@@ -1,12 +1,12 @@
 ---
-title: Esnetme İçin Veritabanını Etkinleştirme Sihirbazını çalıştırarak kullanmaya başlama | Microsoft Docs
-description: Esnetme İçin Veritabanını Etkinleştirme Sihirbazını çalıştırarak, bir veritabanının Esnetme Veritabanı için nasıl yapılandırılacağını öğrenin.
+title: "Esnetme için Veritabanını Etkinleştirme Sihirbazını çalıştırarak kullanmaya başlama | Microsoft Belgeleri"
+description: "Esnetme İçin Veritabanını Etkinleştirme Sihirbazını çalıştırarak, bir veritabanının Esnetme Veritabanı için nasıl yapılandırılacağını öğrenin."
 services: sql-server-stretch-database
-documentationcenter: ''
+documentationcenter: 
 author: douglaslMS
-manager: ''
-editor: ''
-
+manager: jhubbard
+editor: 
+ms.assetid: 1189ab95-ba84-459c-bfb1-57cdf36ee111
 ms.service: sql-server-stretch-database
 ms.workload: data-management
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 08/05/2016
 ms.author: douglasl
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 0c171da72bbdbfc8c15c6e39fcc8d5000f6be087
+
 
 ---
-# Esnetme İçin Veritabanını Etkinleştirme Sihirbazını çalıştırarak kullanmaya başlama
+# <a name="get-started-by-running-the-enable-database-for-stretch-wizard"></a>Esnetme İçin Veritabanını Etkinleştirme Sihirbazını çalıştırarak kullanmaya başlama
 Bir veritabanını Esnetme Veritabanı için çalıştırmak üzere, Esnetme İçin Veritabanını Etkinleştirme Sihirbazını çalıştırın.  Bu konu başlığında, sihirbazda girmeniz gereken bilgiler ve yapmanız gereken seçimler açıklanmaktadır.
 
 Esnetme Veritabanı hakkında daha fazla bilgi edinmek için bkz. [Esnetme Veritabanı](sql-server-stretch-database-overview.md).
@@ -26,11 +30,11 @@ Esnetme Veritabanı hakkında daha fazla bilgi edinmek için bkz. [Esnetme Verit
 > 
 > 
 
-## Sihirbazı başlatma
+## <a name="launch-the-wizard"></a>Sihirbazı başlatma
 1. SQL Server Management Studio'daki Nesne Gezgini'nde Esnetmeyi etkinleştirmek istediğiniz veritabanını seçin.
 2. \-Sağ tıklayın, **Görevler**'i ve **Esnet**'i seçin, ardından **Etkinleştir**'i seçerek sihirbazı başlatın.
 
-## <a name="Intro"></a>Giriş
+## <a name="a-nameintroaintroduction"></a><a name="Intro"></a>Giriş
 Sihirbazın amacını ve önkoşullarını gözden geçirin.
 
 Önemli önkoşullar şunlardır:
@@ -41,7 +45,7 @@ Sihirbazın amacını ve önkoşullarını gözden geçirin.
 
 ![Esnetme Veritabanı sihirbazı giriş sayfası][StretchWizardImage1]
 
-## <a name="Tables"></a>Tabloları seçme
+## <a name="a-nametablesaselect-tables"></a><a name="Tables"></a>Tabloları seçme
 Esnetme için etkinleştirmek istediğiniz tabloları seçin.
 
 Sıralanmış listenin üst kısmında çok sayıda satır içeren tablolar görünür. Sihirbaz tabloların listesini göstermeden önce Esnetme Veritabanı tarafından o anda desteklenmeyen veri türleri için analiz eder.
@@ -51,14 +55,14 @@ Sıralanmış listenin üst kısmında çok sayıda satır içeren tablolar gör
 | Sütun | Açıklama |
 | --- | --- |
 | (başlık yok) |Seçilen tabloyu Esnetme için etkinleştirmek üzere bu sütundaki onay kutusunu işaretleyin. |
-| **Ad** |Tablodaki sütunun adını belirtir. |
+| **Adı** |Tablodaki sütunun adını belirtir. |
 | (başlık yok) |Bu sütundaki bir simge, Esnetme için seçili tabloyu etkinleştirmenizi engellemeyen bir uyarıyı temsil edebilir\'. Ayrıca, tablo desteklenmeyen bir veri türü kullandığından Esnetme \- için seçili tabloyu etkinleştirmenizi engelleyen bir engelleme sorununu temsil edebilir. Simgenin üzerine gelerek bir araç ipucunda daha fazla bilgi görüntüleyin. Daha fazla bilgi için bkz. [Esnetme Veritabanı Sınırlamaları](sql-server-stretch-database-limitations.md). |
 | **Esnetilmiş** |Esnetme için tablonun zaten etkin olup olmadığını gösterir. |
-| **Geçiş** |Tablonun tamamını geçirebilir (**Tüm Tablo**) veya tabloda var olan bir sütun üzerinde bir filtre belirtebilirsiniz. Geçirilecek satırları seçmek için farklı bir filtre işlevi kullanmak isterseniz sihirbazdan çıktıktan sonra filtre işlevini belirtmek için ALTER TABLE deyimini çalıştırın. Filtre işlevi hakkında daha fazla bilgi için bkz. [Filtre işlevi kullanarak geçiş yapmak için satır seçme](sql-server-stretch-database-predicate-function.md). İşlevi uygulama hakkında daha fazla bilgi için bkz. [Esnetme Veritabanı'nı bir tablo için etkinleştirme](sql-server-stretch-database-enable-table.md) veya [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx). |
+| **Geçirme** |Tablonun tamamını geçirebilir (**Tüm Tablo**) veya tabloda var olan bir sütun üzerinde bir filtre belirtebilirsiniz. Geçirilecek satırları seçmek için farklı bir filtre işlevi kullanmak isterseniz sihirbazdan çıktıktan sonra filtre işlevini belirtmek için ALTER TABLE deyimini çalıştırın. Filtre işlevi hakkında daha fazla bilgi için bkz. [Filtre işlevi kullanarak geçiş yapmak için satır seçme](sql-server-stretch-database-predicate-function.md). İşlevi uygulama hakkında daha fazla bilgi için bkz. [Esnetme Veritabanı'nı bir tablo için etkinleştirme](sql-server-stretch-database-enable-table.md) veya [ALTER TABLE (Transact-SQL)](https://msdn.microsoft.com/library/ms190273.aspx). |
 | **Satırlar** |Tablodaki satır sayısını belirtir. |
 | **Boyut (KB)** |Tablo boyutunu KB cinsinden belirtir. |
 
-## <a name="Filter"></a>İsteğe bağlı olarak bir satır filtresi belirtin
+## <a name="a-namefilteraoptionally-provide-a-row-filter"></a><a name="Filter"></a>İsteğe bağlı olarak bir satır filtresi belirtin
 Geçirilecek satırları seçmek için filtre işlevi sağlamak isterseniz **Tablo seçin** sayfasında aşağıdaki işlemleri yapın.
 
 1. **Esnetmek istediğiniz tabloları seçin** listesinde, tablonun satırında **Tüm Tablo**'ya tıklayın. **Esnetme için satırları seçin** iletişim kutusu açılır.
@@ -84,7 +88,7 @@ Geçirilecek satırları seçmek için farklı bir filtre işlevi türü sağlam
 * Sihirbazdan çıkın ve ALTER TABLE deyimini çalıştırarak tabloda Esnetmeyi etkinleştirin ve bir filtre işlevi belirtin. Daha fazla bilgi için bkz. [Esnetme Veritabanı'nı bir tablo için etkinleştirme](sql-server-stretch-database-enable-table.md).  
 * Sihirbazdan çıktıktan sonra bir filtre işlevi belirtmek için ALTER TABLE deyimini çalıştırın. Gerekli adımlar için bkz. [Sihirbazı çalıştırdıktan sonra filtre işlevi ekleme](sql-server-stretch-database-predicate-function.md#addafterwiz).
 
-## <a name="Configure"></a>Azure dağıtımını yapılandırma
+## <a name="a-nameconfigureaconfigure-azure-deployment"></a><a name="Configure"></a>Azure dağıtımını yapılandırma
 1. Microsoft Azure'da bir Microsoft hesabı ile oturum açın.
    
    ![Azure'da oturum açma - Esnetme Veritabanı sihirbazı][StretchWizardImage3]
@@ -105,7 +109,7 @@ Geçirilecek satırları seçmek için farklı bir filtre işlevi türü sağlam
      2. İsteğe bağlı olarak, SQL Server'ın uzak Azure sunucusu ile iletişim kurması için birleştirilmiş bir hizmet hesabı kullanın.
      
      ![Yeni Azure sunucusu oluşturma - Esnetme Veritabanı sihirbazı][StretchWizardImage4]
-   * **Var olan sunucu**
+   * **Mevcut sunucu**
      
      1. Mevcut Azure sunucusunu seçin.
      2. Kimlik doğrulama yöntemini seçin.
@@ -115,7 +119,7 @@ Geçirilecek satırları seçmek için farklı bir filtre işlevi türü sağlam
      
      ![Var olan Azure sunucusunu kullanma - Esnetme Veritabanı sihirbazı][StretchWizardImage5]
 
-## <a name="Credentials"></a>Güvenli kimlik bilgileri
+## <a name="a-namecredentialsasecure-credentials"></a><a name="Credentials"></a>Güvenli kimlik bilgileri
 Esnetme Veritabanı'nın uzak veritabanına bağlanırken kullandığı kimlik bilgilerini güvenli hale getirmek için bir veritabanı ana anahtarınızın olması gerekir.  
 
 Bir veritabanı ana anahtarı zaten varsa bunun parolasını girin.  
@@ -128,30 +132,30 @@ Veritabanında mevcut bir ana anahtar yoksa güçlü bir parola girerek veritaba
 
 Veritabanı ana anahtarı hakkında daha fazla bilgi için bkz. [CREATE MASTER KEY (Transact-SQL)](https://msdn.microsoft.com/library/ms174382.aspx) ve [Veritabanı Ana Anahtarı Oluşturma](https://msdn.microsoft.com/library/aa337551.aspx). Sihirbazın oluşturduğu kimlik bilgileri hakkında daha fazla bilgi için bkz. [CREATE DATABASE SCOPED CREDENTIAL (Transact-SQL)](https://msdn.microsoft.com/library/mt270260.aspx).
 
-## <a name="Network"></a>IP adresi seçme
+## <a name="a-namenetworkaselect-ip-address"></a><a name="Network"></a>IP adresi seçme
 Azure’da SQL Server’ın uzak Azure sunucusu ile iletişim kurmasına izin veren bir güvenlik duvarı kuralı oluşturmak için alt ağ IP adresi aralığını (önerilir) veya SQL Server ortak IP adresini kullanın.
 
 Bu sayfada sağladığınız IP adresi veya adresleri, SQL Server tarafından başlatılmış gelen veriler, sorgular ve yönetim işlemlerinin Azure güvenlik duvarından geçmesine izin vermesini Azure sunucusuna bildirir. Sihirbaz SQL Server'daki güvenlik duvarı ayarlarında hiçbir şeyi değiştirmez.
 
 ![Esnetme Veritabanı sihirbazı IP adresi seçme sayfası][StretchWizardImage7]
 
-## <a name="Summary"></a>Özet
+## <a name="a-namesummaryasummary"></a><a name="Summary"></a>Özet
 Sihirbazda girdiğiniz değerler ile belirlediğiniz seçeneklerin yanı sıra Azure’da tahmin edilen maliyetleri gözden geçirin. Ardından Esnetmeyi etkinleştirmek için **Son**'u seçin.
 
 ![Esnetme Veritabanı sihirbazı özet sayfası][StretchWizardImage8]
 
-## <a name="Results"></a>Sonuçlar
+## <a name="a-nameresultsaresults"></a><a name="Results"></a>Sonuçlar
 Sonuçları gözden geçirin.
 
 Veri geçişinin durumunu izlemek için bkz. [Veri geçişini izleme ve sorun giderme (Esnetme Veritabanı)](sql-server-stretch-database-monitor.md).
 
 ![Esnetme Veritabanı sihirbazı sonuç sayfası][StretchWizardImage9]
 
-## <a name="KnownIssues"></a>Sihirbaz sorunlarını giderme
+## <a name="a-nameknownissuesatroubleshooting-the-wizard"></a><a name="KnownIssues"></a>Sihirbaz sorunlarını giderme
 **Esnetme Veritabanı sihirbazı başarısız oldu.**
 Esnetme Veritabanı henüz sunucu düzeyinde etkinleştirilmediyse ve Esnetme Veritabanı'nı etkinleştirmek için gerekli olan sistem yöneticisi izinleri olmadan sihirbazı çalıştırırsanız sihirbaz başarısız olur. Sistem yöneticisinden Esnetme Veritabanı'nı yerel sunucu örneğinde etkinleştirmesini isteyin ve ardından sihirbazı yeniden çalıştırın. Daha fazla bilgi için bkz. [Önkoşul: Esnetme Veritabanı'nı sunucuda etkinleştirme izni](sql-server-stretch-database-enable-database.md#EnableTSQLServer).
 
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 Esnetme Veritabanı için ek tablolar etkinleştirin. Veri geçişini izleyin ve Esnetme etkinleştirilmiş \-veritabanlarını ve tabloları yönetin.
 
 * Ek tablolar etkinleştirmek için [Esnetme Veritabanı'nı bir tablo için etkinleştirin](sql-server-stretch-database-enable-table.md).
@@ -160,7 +164,7 @@ Esnetme Veritabanı için ek tablolar etkinleştirin. Veri geçişini izleyin ve
 * [Esnetme Veritabanı'nı yönetme ve sorun giderme](sql-server-stretch-database-manage.md)
 * [Esnetme özellikli veritabanlarını yedekleme](sql-server-stretch-database-backup.md)
 
-## Ayrıca bkz.
+## <a name="see-also"></a>Ayrıca bkz.
 [Esnetme Veritabanı'nı bir veritabanı için etkinleştirme](sql-server-stretch-database-enable-database.md)
 
 [Esnetme Veritabanı'nı bir tablo için etkinleştirme](sql-server-stretch-database-enable-table.md)
@@ -180,6 +184,6 @@ Esnetme Veritabanı için ek tablolar etkinleştirin. Veri geçişini izleyin ve
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,26 +1,30 @@
 ---
-title: 'Öğretici: .NET API kullanarak Kopyalama Etkinlikli bir işlem hattı oluşturma | Microsoft Docs'
-description: Bu öğreticide, .NET API kullanarak Kopyalama Etkinlikli bir Azure Data Factory işlem hattı oluşturursunuz.
+title: "Öğretici: .NET API kullanarak Kopyalama Etkinlikli bir işlem hattı oluşturma | Microsoft Belgeleri"
+description: "Bu öğreticide, .NET API kullanarak Kopyalama Etkinlikli bir Azure Data Factory işlem hattı oluşturursunuz."
 services: data-factory
-documentationcenter: ''
+documentationcenter: 
 author: spelluru
 manager: jhubbard
 editor: monicar
-
+ms.assetid: 58fc4007-b46d-4c8e-a279-cb9e479b3e2b
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/16/2016
+ms.date: 10/27/2016
 ms.author: spelluru
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 629ff68b11df0d17629ca101e5a80a396cfd0fb9
+
 
 ---
-# Öğretici: .NET API kullanarak Kopyalama Etkinlikli bir işlem hattı oluşturma
+# <a name="tutorial-create-a-pipeline-with-copy-activity-using-net-api"></a>Öğretici: .NET API kullanarak Kopyalama Etkinlikli bir işlem hattı oluşturma
 > [!div class="op_single_selector"]
-> * [Genel bakış ve ön koşullar](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+> * [Genel bakış ve önkoşullar](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Kopyalama Sihirbazı](data-factory-copy-data-wizard-tutorial.md)
-> * [Azure portalı](data-factory-copy-activity-tutorial-using-azure-portal.md)
+> * [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
 > * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 > * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 > * [Azure Resource Manager şablonu](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
@@ -38,13 +42,13 @@ Kopyalama Etkinliği, Azure Data Factory’de veri hareketini gerçekleştirir. 
 > 
 > 
 
-## Önkoşullar
+## <a name="prerequisites"></a>Önkoşullar
 * Öğreticiye genel bir bakış atmak ve **ön koşul** adımlarını tamamlamak için [Öğreticiye Genel Bakış ve Ön Koşullar](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) bölümündeki adımları tamamlayın. 
 * Visual Studio 2012 veya 2013 veya 2015
 * [Azure .NET SDK](http://azure.microsoft.com/downloads/)’yı indirip yükleyin
 * Azure PowerShell. Bilgisayarınıza Azure PowerShell’i yüklemek için [Azure PowerShell’i yükleme ve yapılandırma](../powershell-install-configure.md) makalesindeki yönergeleri izleyin. Azure PowerShell’i kullanarak bir Azure Active Directory uygulaması oluşturursunuz.
 
-### Azure Active Directory’de uygulama oluşturma
+### <a name="create-an-application-in-azure-active-directory"></a>Azure Active Directory’de uygulama oluşturma
 Bir Azure Active Directory uygulaması oluşturun, uygulama için bir hizmet sorumlusu oluşturun ve bunu **Data Factory Katılımcısı** rolüne atayın.  
 
 1. **PowerShell**’i başlatın. 
@@ -95,7 +99,7 @@ Bu adımlardan sonra aşağıdaki dört değere sahip olmanız gerekir:
 * Uygulama Kimliği 
 * Parola (ik komutta belirtilir)   
 
-## Kılavuz
+## <a name="walkthrough"></a>Kılavuz
 1. Visual Studio 2012/2013/2015'i kullanarak bir C# .NET konsol uygulaması oluşturun.
    1. **Visual Studio** 2012/2013/2015’i başlatın.
    2. **Dosya**’ya tıklayın, **Yeni**’nin üzerine gelin ve **Proje**’ye tıklayın.
@@ -105,25 +109,29 @@ Bu adımlardan sonra aşağıdaki dört değere sahip olmanız gerekir:
    6. Konum için **C:\ADFGetStarted** yolunu seçin.
    7. Projeyi oluşturmak için **Tamam**'a tıklayın.
 2. **Araçlar**'a tıklayın, **NuGet Paket Yöneticisi**'nin üzerine gelin ve ardından **Paket Yöneticisi Konsolu**'na tıklayın.
-3. **Paket Yöneticisi Konsolu**’nda aşağıdaki komutları tek tek yürütün. 
-   
-       Install-Package Microsoft.Azure.Management.DataFactories
-       Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213
+3. **Paket Yöneticisi Konsolu**'nda şu adımları uygulayın: 
+   1. Data Factory paketini yüklemek için şu komutu çalıştırın: `Install-Package Microsoft.Azure.Management.DataFactories`        
+   2. Azure Active Directory paketini yüklemek için şu komutu çalıştırın (kodda Active Directory API'sini kullanırsınız): `Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213`
 4. Aşağıdaki **appSetttings** bölümünü **App.config** dosyasına ekleyin. Bu ayarlar **GetAuthorizationHeader** yardımcı yöntemi tarafından kullanılır. 
    
     **&lt;Application ID&gt;**, **&lt;Password&gt;**, **&lt;Subscription ID&gt;** ve **&lt;tenant ID&gt;** değerlerini kendi değerlerinizle değiştirin. 
    
-        <appSettings>
-            <add key="ActiveDirectoryEndpoint" value="https://login.windows.net/" />
-            <add key="ResourceManagerEndpoint" value="https://management.azure.com/" />
-            <add key="WindowsManagementUri" value="https://management.core.windows.net/" />
+        <?xml version="1.0" encoding="utf-8" ?>
+        <configuration>
+            <startup> 
+                <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5.2" />
+            </startup>
+            <appSettings>
+                <add key="ActiveDirectoryEndpoint" value="https://login.windows.net/" />
+                <add key="ResourceManagerEndpoint" value="https://management.azure.com/" />
+                <add key="WindowsManagementUri" value="https://management.core.windows.net/" />
    
-            <!-- Replace the following values with your own -->
-            <add key="ApplicationId" value="<Application ID>" />
-            <add key="Password" value="<Password>" />    
-            <add key="SubscriptionId" value= "Subscription ID" />
-            <add key="ActiveDirectoryTenantId" value="tenant ID" />
-        </appSettings>
+                <add key="ApplicationId" value="your application ID" />
+                <add key="Password" value="Password you used while creating the AAD application" />
+                <add key="SubscriptionId" value= "Subscription ID" />
+                <add key="ActiveDirectoryTenantId" value="Tenant ID" />
+            </appSettings>
+        </configuration>
 5. Aşağıdaki **using** bildirimlerini projedeki kaynak dosyasına (Program.cs) ekleyin.
    
         using System.Threading;
@@ -345,7 +353,7 @@ Bu adımlardan sonra aşağıdaki dört değere sahip olmanız gerekir:
                            },
                        }
                    }
-               }); 
+               });    
 2. Çıktı veri kümesinin veri diliminin durumunu almak için aşağıdaki kodu **Main** yöntemine ekleyin. Bu örnekte beklenen yalnızca bir dilim vardır.   
    
            // Pulling status within a timeout threshold
@@ -453,12 +461,15 @@ Bu adımlardan sonra aşağıdaki dört değere sahip olmanız gerekir:
    * Bağlı hizmet: **LinkedService_AzureStorage** 
    * Veri kümesi: **DatasetBlobSource** ve **DatasetBlobDestination**.
    * İşlem hattı: **PipelineBlobSample** 
-10. **adftutorial** kapsayıcısındaki "**apifactoryoutput**" klasöründe bir çıktı dosyası oluşturulduğunu doğrulayın.
+10. Belirtilen Azure SQL veritabanındaki "**emp**" tablosunda, iki çalışan kaydının oluşturulduğunu doğrulayın.
 
-## Sonraki Adımlar
+## <a name="next-steps"></a>Sonraki Adımlar
 * Bu öğreticide kullandığınız Kopyalama Etkinliği hakkında ayrıntılı bilgi sağlayan [Veri Taşıma Etkinlikleri](data-factory-data-movement-activities.md) makalesini sonuna kadar okuyun.
 * Data Factory .NET SDK hakkında ayrıntılı bilgi için bkz. [Data Factory .NET API Başvurusu](https://msdn.microsoft.com/library/mt415893.aspx). Bu makale, Data Factory .NET API’nin tamamını kapsamaz. 
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

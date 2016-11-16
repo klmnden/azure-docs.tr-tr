@@ -96,8 +96,10 @@
 
 # Kaynaklar
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/documentdb/)
+## [MSDN forumları](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureDocumentDB)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-documentdb)
-## [MSDN Forumları](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureDocumentDB)
+## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=documentdb) 
+## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=documentdb) 
 ## [DocumentDB hakkında soru sorun](documentdb-community.md#contact-the-team)
 ## [Topluluk portalı](documentdb-community.md)
 ## [Etkinlikler ve kayıtlar](documentdb-community.md#events-and-recordings)

@@ -1,22 +1,26 @@
 ---
-title: SQL Server'dan Azure SQL Data Warehouse'a (PolyBase) veri yükleme | Microsoft Docs
-description: SQL Server'dan düz dosyalara veri aktarmak için bcp'yi, Azure blob depolama alanına veri aktarmak için AZCopy'yi ve verileri Azure SQL Data Warehouse'a almak için PolyBase'i kullanın.
+title: "SQL Server&quot;dan Azure SQL Veri Ambarı&quot;na (PolyBase) veri yükleme | Microsoft Belgeleri"
+description: "SQL Server&quot;dan düz dosyalara veri aktarmak için bcp&quot;yi, Azure blob depolama alanına veri aktarmak için AZCopy&quot;yi ve verileri Azure SQL Data Warehouse&quot;a almak için PolyBase&quot;i kullanın."
 services: sql-data-warehouse
 documentationcenter: NA
 author: ckarst
-manager: barbkess
-editor: ''
-
+manager: jhubbard
+editor: 
+ms.assetid: 860c86e0-90f7-492c-9a84-1bdd3d1735cd
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 06/30/2016
-ms.author: cakarst;barbkess;sonyama
+ms.date: 10/31/2016
+ms.author: cakarst;barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 33c100dc471bf76230d068bf52f4a96b6123dab0
+
 
 ---
-# SQL Data Warehouse'da PolyBase ile veri yükleme
+# <a name="load-data-with-polybase-in-sql-data-warehouse"></a>SQL Data Warehouse'da PolyBase ile veri yükleme
 > [!div class="op_single_selector"]
 > * [SSIS](sql-data-warehouse-load-from-sql-server-with-integration-services.md)
 > * [PolyBase](sql-data-warehouse-load-from-sql-server-with-polybase.md)
@@ -34,19 +38,19 @@ Bu öğreticide, AzCopy ve PolyBase kullanarak SQL Data Warehouse'a nasıl veri 
 > 
 > 
 
-## Önkoşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bu öğreticide ilerleyebilmeniz için, şunlar gereklidir:
 
 * SQL Data Warehouse veritabanı.
 * Standart Yerel Olarak Yedekli Depolama (Standard-LRS), Standart Coğrafi Olarak Yedekli Depolama (Standard-GRS), veya Standart Okuma Erişimli Coğrafi Olarak Yedekli Depolama (Standard-RAGRS) türünde bir Azure depolama hesabı.
-* AzCopy Komut Satırı Yardımcı Programı Microsoft Azure Storage Araçları ile birlikte yüklenen [en güncel AzCopy sürümünü][en güncel AzCopy sürümünü] indirip yükleyin.
+* AzCopy Komut Satırı Yardımcı Programı Microsoft Azure Depolama Araçları ile birlikte yüklenen [en güncel AzCopy sürümünü][en güncel AzCopy sürümünü] indirip yükleyin.
   
     ![Azure Storage Araçları](./media/sql-data-warehouse-get-started-load-with-polybase/install-azcopy.png)
 
-## 1. Adım: Azure blob depolama alanına örnek veri ekleme
+## <a name="step-1-add-sample-data-to-azure-blob-storage"></a>1. Adım: Azure blob depolama alanına örnek veri ekleme
 Veri yüklemek için Azure blob depolama alanına birkaç örnek veri eklememiz gerekir. Bu adımda bir Azure Storage blobunu örnek verilerle dolduracağız. Daha sonra PolyBase kullanarak bu örnek verileri SQL Data Warehouse veritabanınıza yükleyeceğiz.
 
-### A. Örnek metin dosyası hazırlama
+### <a name="a-prepare-a-sample-text-file"></a>A. Örnek metin dosyası hazırlama
 Örnek metin dosyası hazırlamak için şunları yapın:
 
 1. Not Defteri'ni açın ve aşağıdaki veri satırlarını yeni bir dosyaya kopyalayın. Bu dosyayı yerel geçici dizininize %temp%\DimDate2.txt olarak kaydedin.
@@ -66,7 +70,7 @@ Veri yüklemek için Azure blob depolama alanına birkaç örnek veri eklememiz 
 20150101,1,3
 ```
 
-### B. Blob hizmeti uç noktanızı bulma
+### <a name="b-find-your-blob-service-endpoint"></a>B. Blob hizmeti uç noktanızı bulma
 Blob hizmeti uç noktanızı bulmak için şunları yapın:
 
 1. Azure Portal'dan **Gözat** > **Storage Hesapları**'nı seçin.
@@ -78,7 +82,7 @@ Blob hizmeti uç noktanızı bulmak için şunları yapın:
    
     ![Blob hizmeti uç noktası](./media/sql-data-warehouse-get-started-load-with-polybase/blob-service.png)
 
-### C. Azure depolama anahtarınızı bulma
+### <a name="c-find-your-azure-storage-key"></a>C. Azure depolama anahtarınızı bulma
 Azure depolama anahtarınızı bulmak için şunları yapın:
 
 1. Azure Portal'dan, **Gözat** > **Storage Hesapları**'nı seçin.
@@ -88,7 +92,7 @@ Azure depolama anahtarınızı bulmak için şunları yapın:
    
     ![Azure depolama anahtarını kopyalama](./media/sql-data-warehouse-get-started-load-with-polybase/access-key.png)
 
-### D. Örnek dosyayı Azure blob depolama alanına kopyalama
+### <a name="d-copy-the-sample-file-to-azure-blob-storage"></a>D. Örnek dosyayı Azure blob depolama alanına kopyalama
 Verilerinizi Azure blob depolama alanına kopyalamak için şunları yapın:
 
 1. Bir komut istemi açın ve dizinleri AzCopy yükleme dizini olarak değiştirin. Bu komut, 64 bit Windows istemcisinde varsayılan yükleme dizinine değiştirme işlemini gerçekleştirir.
@@ -104,7 +108,7 @@ Verilerinizi Azure blob depolama alanına kopyalamak için şunları yapın:
 
 Ayrıca bkz. [AzCopy Komut Satırı Yardımcı Programı ile Çalışmaya Başlama][en güncel AzCopy sürümünü].
 
-### E. Blob depolama kapsayıcınızı araştırma
+### <a name="e-explore-your-blob-storage-container"></a>E. Blob depolama kapsayıcınızı araştırma
 Blob depolama alanına yüklediğiniz dosyayı görmek için şunları yapın:
 
 1. Blob hizmeti dikey pencerenize geri dönün.
@@ -115,15 +119,15 @@ Blob depolama alanına yüklediğiniz dosyayı görmek için şunları yapın:
    
     ![Azure depolama blobunu görüntüleme](./media/sql-data-warehouse-get-started-load-with-polybase/view-blob.png)
 
-## 2. Adım: Örnek veriler için dış tablo oluşturma
+## <a name="step-2-create-an-external-table-for-the-sample-data"></a>2. Adım: Örnek veriler için dış tablo oluşturma
 Bu bölümde örnek verileri tanımlayan bir dış tablo oluşturuyoruz.
 
 PolyBase, Azure blob depolama alanındaki verilere erişmek için dış tabloları kullanır. Veriler SQL Data Warehouse'da depolanmadığı için PolyBase, dış veriler için kimlik doğrulaması gerçekleştirirken veritabanı kapsamlı bir kimlik bilgisi kullanır.
 
 Bu adımdaki örnekte, bir dış tablo oluşturmak için aşağıdaki Transact-SQL deyimleri kullanılmaktadır.
 
-* [Create Master Key (Transact-SQL)][Create Master Key (Transact-SQL)]: Veritabanı kapsamlı kimlik bilgileri anahtarınızı şifrelemek için kullanılır.
-* [Create Database Scoped Credential (Transact-SQL)][Create Database Scoped Credential (Transact-SQL)]: Azure depolama hesabınız için kimlik doğrulama bilgilerinin belirtilmesi için kullanılır.
+* [Create Master Key (Transact-SQL)][Create Master Key (Transact-SQL)]: Veritabanı kapsamlı kimlik bilgilerinizin gizli anahtarını şifrelemek için kullanılır.
+* [Create Database Scoped Credential (Transact-SQL)][Create Database Scoped Credential (Transact-SQL)]: Azure depolama hesabınız için kimlik doğrulama bilgilerinin belirtilmesinde kullanılır.
 * [Create External Data Source (Transact-SQL)][Create External Data Source (Transact-SQL)]: Azure blob depolama alanınızın konumunu belirtmek için kullanılır.
 * [Create External File Format (Transact-SQL)][Create External File Format (Transact-SQL)]: Verilerinizin biçimini belirtmek için kullanılır.
 * [Create External Table (Transact-SQL)][Create External Table (Transact-SQL)]: Tablo tanımını ve verilerin konumunu belirtmek için kullanılır.
@@ -203,11 +207,11 @@ Visual Studio'da bulunan SQL Server Nesne Gezgini'nde dış dosya biçimini, dı
 
 ![Dış tabloyu görüntüleme](./media/sql-data-warehouse-get-started-load-with-polybase/external-table.png)
 
-## 3. Adım: SQL Data Warehouse'a veri yükleme
+## <a name="step-3-load-data-into-sql-data-warehouse"></a>3. Adım: SQL Data Warehouse'a veri yükleme
 Dış tablo oluşturulduktan sonra verileri yeni bir tabloya yükleyebilir veya var olan bir tabloya ekleyebilirsiniz.
 
 * Verileri yeni bir tabloya yüklemek için [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)] deyimini çalıştırın. Yeni tablo, sorguda adlandırılan sütunları içerir. Sütunların veri türleri, dış tablo tanımındaki veri türleriyle eşleşir.
-* Verileri, var olan bir tabloya yüklemek için [INSERT...SELECT (Transact-SQL)][INSERT...SELECT (Transact-SQL)] deyimini kullanın.
+* Verileri mevcut bir tabloya yüklemek için [INSERT...SELECT (Transact-SQL)][INSERT...SELECT (Transact-SQL)] deyimini kullanın.
 
 ```sql
 -- Load the data from Azure blob storage to SQL Data Warehouse
@@ -222,7 +226,7 @@ AS
 SELECT * FROM [dbo].[DimDate2External];
 ```
 
-## 4. Adım: Yeni yüklenmiş verilerinize ilişkin istatistikler oluşturma
+## <a name="step-4-create-statistics-on-your-newly-loaded-data"></a>4. Adım: Yeni yüklenmiş verilerinize ilişkin istatistikler oluşturma
 SQL Data Warehouse, istatistikleri otomatik olarak oluşturup güncelleştirmez. Bu nedenle yüksek sorgu performansı elde etmek için ilk yükleme işleminden sonra her tablonun her sütunu için istatistik oluşturulması önemlidir. Ayrıca veriler üzerinde önemli değişiklikler yapıldıktan sonra istatistiklerin güncelleştirilmesi de önemlidir.
 
 Bu örnekte, yeni DimDate2 tablosuna ilişkin tek sütunlu istatistikler oluşturulmuştur.
@@ -235,18 +239,18 @@ CREATE STATISTICS [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
 
 Daha fazla bilgi edinmek için bkz. [İstatistikler][İstatistikler].  
 
-## Sonraki adımlar
-PolyBase kullanan bir çözüm geliştirirken bilmeniz gereken daha fazla bilgi için bkz. [PolyBase kılavuzu][PolyBase kılavuzu].
+## <a name="next-steps"></a>Sonraki adımlar
+PolyBase kullanan bir çözüm geliştirirken bilmeniz gerekenler hakkında daha fazla bilgi için bkz. [PolyBase kılavuzu][PolyBase kılavuzu].
 
 <!--Image references-->
 
 
 <!--Article references-->
-[SQL Data Warehouse'da PolyBase Öğreticisi]: ./sql-data-warehouse-get-started-load-with-polybase.md
-[bcp ile veri yükleme]: ./sql-data-warehouse-load-with-bcp.md
+[SQL Veri Ambarı'nda PolyBase Öğreticisi]: ./sql-data-warehouse-get-started-load-with-polybase.md
+[Bcp ile veri yükleme]: ./sql-data-warehouse-load-with-bcp.md
 [İstatistikler]: ./sql-data-warehouse-tables-statistics.md
 [PolyBase kılavuzu]: ./sql-data-warehouse-load-polybase-guide.md
-[en güncel AzCopy sürümünü]: ../storage/storage-use-azcopy.md
+[en güncel AzCopy sürümü]: ../storage/storage-use-azcopy.md
 
 <!--External references-->
 [desteklenen kaynak/havuz]: https://msdn.microsoft.com/library/dn894007.aspx
@@ -272,6 +276,6 @@ PolyBase kullanan bir çözüm geliştirirken bilmeniz gereken daha fazla bilgi 
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

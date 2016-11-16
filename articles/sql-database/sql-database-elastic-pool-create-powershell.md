@@ -1,12 +1,12 @@
 ---
-title: PowerShell ile yeni bir esnek veritabanı havuzu oluşturma | Microsoft Docs
-description: Birden fazla veritabanını yönetmek üzere ölçeklenebilir bir esnek veritabanı havuzu oluşturarak Azure SQL Database kaynaklarının ölçeklerini genişletmek üzere PowerShell'i nasıl kullanacağınızı öğrenin.
+title: "PowerShell ile yeni bir esnek veritabanı havuzu oluşturma | Microsoft Belgeleri"
+description: "Birden fazla veritabanını yönetmek üzere ölçeklenebilir bir esnek veritabanı havuzu oluşturarak Azure SQL Database kaynaklarının ölçeklerini genişletmek üzere PowerShell&quot;i nasıl kullanacağınızı öğrenin."
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: srinia
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 37a707ee-9223-43ae-8c35-1ccafde8b83e
 ms.service: sql-database
 ms.devlang: NA
 ms.topic: get-started-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: powershell
 ms.workload: data-management
 ms.date: 05/27/2016
 ms.author: srinia
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: daf8bd6421ae563e542b0874a6e7748a3ca52738
+
 
 ---
-# PowerShell ile yeni bir esnek veritabanı havuzu oluşturma
+# <a name="create-a-new-elastic-database-pool-with-powershell"></a>PowerShell ile yeni bir esnek veritabanı havuzu oluşturma
 > [!div class="op_single_selector"]
 > * [Azure Portal](sql-database-elastic-pool-create-portal.md)
 > * [PowerShell](sql-database-elastic-pool-create-powershell.md)
@@ -35,21 +39,21 @@ Genel hata kodları için bkz. [SQL Database istemci uygulamaları için SQL hat
 
 Azure PowerShell 1.0 sürümünü veya sonraki bir sürümünü çalıştırmanız gerekir. Ayrıntılı bilgi için bkz. [Azure PowerShell'i yükleme ve yapılandırma](../powershell-install-configure.md).
 
-## Yeni bir havuz oluşturma
-[New-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt619378.aspx) cmdlet'i yeni bir havuz oluşturur. Havuz başına eDTU değerlerinin yanı sıra minimum ve maksimum DTU değerleri, hizmet katmanı değerine (temel, standart veya premium) göre kısıtlanır. Bkz. [Esnek havuzlar ve esnek veritabanları için eDTU ve depolama sınırları](sql-database-elastic-pool.md#eDTU-and-storage-limits-for-elastic-pools-and-elastic-databases).
+## <a name="create-a-new-pool"></a>Yeni bir havuz oluşturma
+[New-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt619378\(v=azure.300\).aspx) cmdlet'i yeni bir havuz oluşturur. Havuz başına eDTU değerlerinin yanı sıra minimum ve maksimum DTU değerleri, hizmet katmanı değerine (temel, standart veya premium) göre kısıtlanır. Bkz. [Esnek havuzlar ve esnek veritabanları için eDTU ve depolama sınırları](sql-database-elastic-pool.md#eDTU-and-storage-limits-for-elastic-pools-and-elastic-databases).
 
     New-AzureRmSqlElasticPool -ResourceGroupName "resourcegroup1" -ServerName "server1" -ElasticPoolName "elasticpool1" -Edition "Standard" -Dtu 400 -DatabaseDtuMin 10 -DatabaseDtuMax 100
 
 
-## Havuzda yeni bir esnek veritabanı oluşturma
-[New-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619339.aspx) cmdlet komutunu kullanın ve hedef havuz için **ElasticPoolName** parametresini ayarlayın. Var olan bir veritabanını bir havuza taşımak için bkz. [Veritabanını bir esnek havuza taşıma](sql-database-elastic-pool-manage-powershell.md#Move-a-database-into-an-elastic-pool).
+## <a name="create-a-new-elastic-database-in-a-pool"></a>Havuzda yeni bir esnek veritabanı oluşturma
+[New-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619339\(v=azure.300\).aspx) cmdlet komutunu kullanın ve hedef havuz için **ElasticPoolName** parametresini ayarlayın. Var olan bir veritabanını bir havuza taşımak için bkz. [Veritabanını bir esnek havuza taşıma](sql-database-elastic-pool-manage-powershell.md#Move-a-database-into-an-elastic-pool).
 
     New-AzureRmSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
 
-## Havuz oluşturma ve birden çok veritabanıyla doldurma
+## <a name="create-a-pool-and-populate-it-with-multiple-new-databases"></a>Havuz oluşturma ve birden çok veritabanıyla doldurma
 Bir havuzda çok sayıda veritabanı oluşturma işlemi, tek seferde yalnızca bir veritabanı oluşturan portal veya PowerShell cmdlet'leri kullanılarak gerçekleştirildiğinde uzun sürebilir. Oluşturma işlemini yeni bir havuzda gerçekleşecek şekilde otomatikleştirmek için bkz. [CreateOrUpdateElasticPoolAndPopulate](https://gist.github.com/billgib/d80c7687b17355d3c2ec8042323819ae).   
 
-## Örnek: PowerShell'i kullanarak havuz oluşturma
+## <a name="example-create-a-pool-using-powershell"></a>Örnek: PowerShell'i kullanarak havuz oluşturma
 Bu betik, yeni bir Azure kaynak grubu ve yeni bir sunucu oluşturur. İstendiğinde, yeni sunucu için bir yönetici kullanıcı adı ve parola (Azure kimlik bilgilerinizi değil) sağlayın.
 
     $subscriptionId = '<your Azure subscription id>'
@@ -72,11 +76,14 @@ Bu betik, yeni bir Azure kaynak grubu ve yeni bir sunucu oluşturur. İstendiği
 
 
 
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 * [Havuzunuzu yönetme](sql-database-elastic-pool-manage-powershell.md)
 * [Esnek iş oluşturma](sql-database-elastic-jobs-overview.md): Esnek işler, havuzda bulunan herhangi bir sayıdaki veritabanı için T-SQL betiklerini çalıştırmanızı sağlar.
 * [Azure SQL Database ile ölçek genişletme](sql-database-elastic-scale-introduction.md): Ölçek genişletmek için esnek veritabanı araçlarını kullanın.
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

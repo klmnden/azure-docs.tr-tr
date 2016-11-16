@@ -1,12 +1,12 @@
 ---
-title: Etki alanınızı Azure DNS'ye devretme | Microsoft Docs
-description: Etki alanı temsilcisi seçiminin nasıl değiştirileceğini ve etki alanı barındırma sağlamak üzere Azure DNS ad sunucularının nasıl kullanılacağını anlayın.
+title: "Etki alanınızı Azure DNS&quot;ye devretme | Microsoft Belgeleri"
+description: "Etki alanı temsilcisi seçiminin nasıl değiştirileceğini ve etki alanı barındırma sağlamak üzere Azure DNS ad sunucularının nasıl kullanılacağını anlayın."
 services: dns
 documentationcenter: na
 author: sdwheeler
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: 257da6ec-d6e2-4b6f-ad76-ee2dde4efbcc
 ms.service: dns
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/30/2016
 ms.author: sewhee
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: e3a68b42eecede99206b2d6c6d3a1777ff75de4a
+
 
 ---
-# Azure DNS'ye bir etki alanı devretme
+# <a name="delegate-a-domain-to-azure-dns"></a>Azure DNS'ye bir etki alanı devretme
 Azure DNS, bir DNS bölgesi barındırmanızı ve Azure'de bir etki alanı için DNS kayıtlarını yönetmenizi sağlar. Bir etki alanının DNS sorgularının Azure DNS'ye erişmesi için, etki alanının Azure DNS'ye üst etki alanından devredilmiş olması gerekir. Azure DNS'nin etki alanı kayıt şirketi olmadığını unutmayın. Bu makalede, etki alanı temsilcisi seçmenin nasıl çalıştığı ve etki alanlarının Azure DNS'ye nasıl devredildiği açıklanmaktadır.
 
-## DNS temsilcisi seçme nasıl çalışır?
-### Etki alanları ve bölgeler
+## <a name="how-dns-delegation-works"></a>DNS temsilcisi seçme nasıl çalışır?
+### <a name="domains-and-zones"></a>Etki alanları ve bölgeler
 Etki Alanı Adı Sistemi, bir etki alanları hiyerarşisidir. Hiyerarşi, adı yalnızca "**.**" olan "kök" etki alanından başlar.  Bunun altında "com", "net", "org", "uk" veya "jp" gibi en üst düzey etki alanları bulunur.  Bunların altında "org.uk" veya "co.jp" gibi ikinci düzey etki alanları bulunur.  Etki alanları bu hiyerarşi sıralamasıyla devam eder. DNS hiyerarşisindeki etki alanları, ayrı DNS bölgeleri kullanılarak barındırılır. Bu bölgeler global olarak dağıtılır ve dünya genelindeki DNS ad sunucuları tarafından barındırılır.
 
 **DNS bölgesi**
@@ -36,7 +40,7 @@ Etki alanı kayıt şirketi, İnternet etki alanı adlarını sağlayabilen bir 
 > 
 > 
 
-### Çözümleme ve temsilci seçme
+### <a name="resolution-and-delegation"></a>Çözümleme ve temsilci seçme
 İki tür DNS sunucusu bulunur:
 
 * *Yetkili* DNS sunucusu DNS bölgelerini barındırır. Bu sunucu, yalnızca bu bölgelerdeki kayıtlar için DNS sorgularını yanıtlar.
@@ -61,7 +65,7 @@ Bir üst bölge, bir alt bölgenin ad sunucularına nasıl "işaret eder"? Bunu,
 
 Her temsilci seçimi aslında NS kayıtlarının iki kopyasını içerir, bunlardan biri üst bölgede bulunup alt bölgeyi işaret ederken diğeri de alt bölgede yer alır. "Contoso.com" bölgesi, "contoso.com"a ait NS kayıtlarını içerir ("com"daki NS kayıtlarına ek olarak). Bunlar yetkili NS kayıtları olarak adlandırılır ve alt bölgenin tepesinde durur.
 
-## Azure DNS'ye bir etki alanı devretme
+## <a name="delegating-a-domain-to-azure-dns"></a>Azure DNS'ye bir etki alanı devretme
 Azure DNS'de DNS bölgenizi oluşturduktan sonra, Azure DNS'yi bölgenizin ad çözümlemesinin yetkili kaynağı yapmak için üst bölgedeki NS kayıtlarını ayarlamanız gerekir. Bir kayıt şirketinden satın alınan etki alanları için, kayıt şirketiniz bu NS kayıtlarını ayarlama seçeneğini sunar.
 
 > [!NOTE]
@@ -71,7 +75,7 @@ Azure DNS'de DNS bölgenizi oluşturduktan sonra, Azure DNS'yi bölgenizin ad ç
 
 Örneğin, "contoso.com" etki alanını satın aldığınızı ve Azure DNS'de "contoso.com" adlı bir bölge oluşturduğunuzu varsayalım. Etki alanı sahibi olarak, kayıt şirketiniz size etki alanınız için ad sunucusu adreslerini (yani NS kayıtlarını) yapılandırma seçeneğini sunar. Kayıt şirketi bu NS kayıtlarını üst etki alanında (bu durumda ".com"da) depolar. Ardından, dünya genelindeki istemciler "contoso.com"daki DNS kayıtlarını çözümlemeye çalışırken Azure DNS bölgesindeki etki alanınıza yönlendirilir.
 
-### Ad sunucusu adlarını bulma
+### <a name="finding-the-name-server-names"></a>Ad sunucusu adlarını bulma
 DNS bölgenizi Azure DNS'ye devretmeden önce, bölgenizin ad sunucusu adlarını bilmeniz gerekir. Azure DNS, her bölge oluşturmada bir havuzdan ad sunucuları ayırır.
 
 Azure portalı, bölgenize atanan ad sunucularını görmenin en kolay yoludur.  Bu örnekte, "contoso.net" bölgesine "ns1-01.azure-dns.com", "ns2-01.azure-dns.net", "ns3-01.azure-dns.org" ve "ns4-01.azure-dns.info" ad sunucuları atanmıştır:
@@ -80,7 +84,7 @@ Azure portalı, bölgenize atanan ad sunucularını görmenin en kolay yoludur. 
 
 Azure DNS, atanan ad sunucularını içeren yetkili NS kayıtlarını bölgenizde otomatik olarak oluşturur.  Ad sunucusu adlarını Azure PowerShell veya Azure CLI aracılığıyla görmek için bu kayıtları almanız yeterlidir.
 
-Azure PowerShell'i kullanarak, yetkili NS kayıtları şu şekilde alınabilir. "@" kayıt adının, bölgenin tepesindeki kayıtları ifade etmek için kullanıldığını unutmayın.
+Azure PowerShell'i kullanarak, yetkili NS kayıtları şu şekilde alınabilir. “@” kayıt adının, bölgenin tepesindeki kayıtları ifade etmek için kullanıldığını unutmayın.
 
     PS> $zone = Get-AzureRmDnsZone –Name contoso.net –ResourceGroupName MyResourceGroup
     PS> Get-AzureRmDnsRecordSet –Name “@” –RecordType NS –Zone $zone
@@ -113,14 +117,14 @@ Yetkili NS kayıtlarını almak ve böylelikle bölgenize atanan ad sunucuların
     data:
     info:    network dns record-set show command OK
 
-### Temsilci seçmeyi ayarlama
+### <a name="to-set-up-delegation"></a>Temsilci seçmeyi ayarlama
 Her kayıt şirketi, bir etki alanının ad sunucusu kayıtlarını değiştirmek için kendi DNS yönetim araçlarına sahiptir. Kayıt şirketinin DNS yönetim sayfasında NS kayıtlarını düzenleyin ve NS kayıtlarını Azure DNS'nin oluşturduklarıyla değiştirin.
 
 Bir etki alanını Azure DNS'ye devrederken Azure DNS tarafından sağlanan ad sunucusu adlarını kullanmanız gerekir.  Etki alanınızın adından bağımsız olarak her zaman 4 sunucu adını da kullanmanız gerekir.  Etki alanı temsilcisi, sunucu adının etki alanınızla aynı üst düzey etki alanını kullanmasını gerektirmez.
 
 Azure DNS ad sunucusu IP adresleri gelecekte değişebileceği için, bu IP adreslerine işaret ederken "birleştirici kayıtlar"ı kullanmamanız gerekir. Kendi bölgenizdeki ad sunucusu adlarını kullanan ve bazen "gösterim ad sunucuları" olarak adlandırılan temsilci seçimleri, Azure DNS'de şu anda desteklenmemektedir.
 
-### Ad çözümlemesinin çalıştığını doğrulama
+### <a name="to-verify-name-resolution-is-working"></a>Ad çözümlemesinin çalıştığını doğrulama
 Temsilci seçmeyi tamamladıktan sonra, bölgenizin SOA kaydını (bölge oluşturulduğunda bu da otomatik olarak oluşturulur) sorgulamak için "nslookup" gibi bir araç kullanarak ad çözümlemesinin çalışıp çalışmadığını doğrulayabilirsiniz.
 
 Temsilci seçme doğru şekilde ayarlandığında normal DNS çözümleme işlemi ad sunucularını otomatik olarak bulur, bu nedenle Azure DNS ad sunucularını belirtmek zorunda olmadığınızı unutmayın.
@@ -139,7 +143,7 @@ Temsilci seçme doğru şekilde ayarlandığında normal DNS çözümleme işlem
     expire = 604800 (7 days)
     default TTL = 300 (5 mins)
 
-## Azure DNS'de alt etki alanlarını devretme
+## <a name="delegating-subdomains-in-azure-dns"></a>Azure DNS'de alt etki alanlarını devretme
 Ayrı bir alt bölge kurmak istiyorsanız Azure DNS'de bir alt etki alanını devredebilirsiniz. Örneğin, Azure DNS'de ayarladığınız ve devrettiğiniz "contoso.com" için "partners.contoso.com" olarak ayrı bir alt bölge ayarlamak istediğinizi varsayalım.
 
 Bir alt etki alanının ayarlanmasında normal bir temsilci seçmeye benzer bir süreç izlenmektedir. Tek fark, 3. adımda NS kayıtlarının bir etki alanı kayıt şirketi aracılığıyla değil de Azure DNS'deki "contoso.com" üst bölgesinde oluşturulması gerekmesidir.
@@ -148,28 +152,28 @@ Bir alt etki alanının ayarlanmasında normal bir temsilci seçmeye benzer bir 
 2. Azure DNS'de alt bölgeyi barındıran ad sunucularını almak için, alt bölgedeki yetkili NS kayıtlarını arayın.
 3. Üst bölgeden alt bölgeye işaret eden NS kayıtlarını yapılandırarak alt bölgeyi devredin.
 
-### Bir alt etki alanını devretme
+### <a name="to-delegate-a-subdomain"></a>Bir alt etki alanını devretme
 Aşağıdaki PowerShell örneğinde bunun nasıl çalıştığı gösterilmektedir. Aynı adımlar Azure Portal veya platformlar arası Azure CLI yoluyla gerçekleştirilebilir.
 
-#### 1. Adım Üst ve alt bölgeleri oluşturma
+#### <a name="step-1-create-the-parent-and-child-zones"></a>1. Adım Üst ve alt bölgeleri oluşturma
 Öncelikle, üst ve alt bölgeleri oluşturuyoruz. Bunlar aynı kaynak grubunda veya farklı kaynak gruplarında olabilir.
 
     $parent = New-AzureRmDnsZone -Name contoso.com -ResourceGroupName RG1
     $child = New-AzureRmDnsZone -Name partners.contoso.com -ResourceGroupName RG1
 
-#### 2. Adım NS kayıtlarını alma
+#### <a name="step-2-retrieve-ns-records"></a>2. Adım NS kayıtlarını alma
 Ardından, bir sonraki örnekte gösterildiği gibi alt bölgeden yetkili NS kayıtlarını alıyoruz.  Bu, alt bölgeye atanan ad sunucularını içerir.
 
     $child_ns_recordset = Get-AzureRmDnsRecordSet -Zone $child -Name "@" -RecordType NS
 
-#### 3. Adım Alt bölgeyi devretme
+#### <a name="step-3-delegate-the-child-zone"></a>3. Adım Alt bölgeyi devretme
 Temsilci seçmeyi tamamlamak için üst bölgede karşılık gelen NS kayıt kümesini oluşturun. Üst bölgedeki kayıt kümesi adının alt bölgenin adıyla (bu durumda "partners" ile) eşleştiğine dikkat edin.
 
     $parent_ns_recordset = New-AzureRmDnsRecordSet -Zone $parent -Name "partners" -RecordType NS -Ttl 3600
     $parent_ns_recordset.Records = $child_ns_recordset.Records
     Set-AzureRmDnsRecordSet -RecordSet $parent_ns_recordset
 
-### Ad çözümlemesinin çalıştığını doğrulama
+### <a name="to-verify-name-resolution-is-working"></a>Ad çözümlemesinin çalıştığını doğrulama
 Alt bölgenin SOA kaydına bakarak her şeyin doğru şekilde ayarlandığını doğrulayabilirsiniz.
 
     nslookup –type=SOA partners.contoso.com
@@ -186,11 +190,14 @@ Alt bölgenin SOA kaydına bakarak her şeyin doğru şekilde ayarlandığını 
         expire = 604800 (7 days)
         default TTL = 300 (5 mins)
 
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 [DNS bölgelerini yönetme](dns-operations-dnszones.md)
 
 [DNS kayıtlarını yönetme](dns-operations-recordsets.md)
 
-<!--HONumber=Oct16_HO1-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Azure App Service’teki Azure Redis önbelleği ile oturum durumu
-description: ASP.NET oturum durumu önbelleğe alma işlemini desteklemek için Azure Önbellek Hizmeti’ni nasıl kullanacağınızı öğrenin.
+title: "Azure App Service’teki Azure Redis önbelleği ile oturum durumu"
+description: "ASP.NET oturum durumu önbelleğe alma işlemini desteklemek için Azure Önbellek Hizmeti’ni nasıl kullanacağınızı öğrenin."
 services: app-service\web
 documentationcenter: .net
 author: Rick-Anderson
 manager: wpickett
 editor: none
-
+ms.assetid: 4f98d289-2698-464d-85cd-99ec40fad1f2
 ms.service: app-service-web
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,19 +14,23 @@ ms.devlang: dotnet
 ms.topic: get-started-article
 ms.date: 06/27/2016
 ms.author: riande
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 7ac0fde19d61a9c3a9f54b42982c7096434cb965
+
 
 ---
-# Azure App Service’teki Azure Redis önbelleği ile oturum durumu
+# <a name="session-state-with-azure-redis-cache-in-azure-app-service"></a>Azure App Service’teki Azure Redis önbelleği ile oturum durumu
 Bu konuda, oturum durumu için Azure Redis Önbelleği Hizmeti’ni nasıl kullanacağınız açıklanmaktadır.
 
 ASP.NET web uygulamanız oturum durumu kullanıyorsa, bir dış oturum durumu sağlayıcısı (Redis Önbelleği Hizmeti veya SQL Server oturum durumu sağlayıcısı) yapılandırmanız gerekir. Oturum durumu kullanıyor, ancak dış sağlayıcı kullanmıyorsanız; web uygulamanızın tek bir örneği ile sınırlı kalırsınız. Redis Önbelleği Hizmeti etkinleştirmesi en hızlı ve en kolay hizmettir.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
-## <a id="createcache"></a>Önbelleği Oluşturma
+## <a name="a-idcreatecacheacreate-the-cache"></a><a id="createcache"></a>Önbelleği oluşturma
 Önbelleği oluşturmak için [şu yönergeleri](../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md#create-cache) uygulayın.
 
-## <a id="configureproject"></a>Web uygulamanıza RedisSessionStateProvider NuGet paketi ekleme
+## <a name="a-idconfigureprojectaadd-the-redissessionstateprovider-nuget-package-to-your-web-app"></a><a id="configureproject"></a>Web uygulamanıza RedisSessionStateProvider NuGet paketi ekleme
 NuGet `RedisSessionStateProvider` paketini yükleyin.  Paket yöneticisi konsolundan (**Araçlar** > **NuGet Paketi Yöneticisi** > **Paket Yöneticisi Konsolu**) yüklemek için aşağıdaki komutu kullanın:
 
   `PM> Install-Package Microsoft.Web.RedisSessionStateProvider`
@@ -35,7 +39,7 @@ NuGet `RedisSessionStateProvider` paketini yükleyin.  Paket yöneticisi konsolu
 
 Daha fazla bilgi için bkz. [NuGet RedisSessionStateProvider sayfası](http://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider/) ve [Önbellek istemcisini yapılandırma](../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md#NuGet).
 
-## <a id="configurewebconfig"></a>Web.Config Dosyasını Değiştirme
+## <a name="a-idconfigurewebconfigamodify-the-webconfig-file"></a><a id="configurewebconfig"></a>Web.Config Dosyasını Değiştirme
 NuGet paketi derleme başvuruları için yapmanın yanı sıra, *web.config* dosyasında saplama girdileri ekler. 
 
 1. *web.config* dosyasını açın ve **sessionState** öğesini bulun.
@@ -69,7 +73,7 @@ NuGet paketi derleme başvuruları için yapmanın yanı sıra, *web.config* dos
             </sessionState>;
           </system.web>;
 
-## <a id="usesessionobject"></a> Kodlarda Oturum Nesnesi Kullanma
+## <a name="a-idusesessionobjecta-use-the-session-object-in-code"></a><a id="usesessionobject"></a>Kodlarda Oturum Nesnesi Kullanma
 Son adım, ASP.NET kodunuzda Oturum nesnesi kullanmaya başlamaktır. **Session.Add** yöntemini kullanarak nesneleri oturum durumuna ekleyin. Bu yöntem, öğeleri oturum durumu önbelleğine depolamak için anahtar-değer çiftlerini kullanır.
 
     string strValue = "yourvalue";
@@ -79,17 +83,17 @@ Aşağıdaki kod, oturum durumundan bu değeri alır.
 
     object objValue = Session["yourkey"];
     if (objValue != null)
-       strValue = (string)objValue; 
+       strValue = (string)objValue;    
 
 Web uygulamanızdaki nesneleri önbelleğe almak için Redis Önbelleği’ni de kullanabilirsiniz. Daha fazla bilgi için bkz. [15 dakikada Azure Redis Önbelleği ile MVC film uygulaması](https://azure.microsoft.com/blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/).
-ASP.NET oturum durumu kullanma hakkında daha fazla ayrıntı için bkz. [ASP.NET Oturum Durumuna Genel Bakış][ASP.NET Oturum Durumuna Genel Bakış].
+ASP.NET oturum durumunu kullanma hakkında daha fazla ayrıntı için bkz. [ASP.NET Oturum Durumuna Genel Bakış][ASP.NET Oturum Durumuna Genel Bakış].
 
 > [!NOTE]
-> Azure hesabı için kaydolmadan önce Azure App Service’i kullanmaya başlamak isterseniz, App Service’te hemen kısa süreli bir başlangıç web uygulaması oluşturabileceğiniz [App Service’i Deneyin](http://go.microsoft.com/fwlink/?LinkId=523751) sayfasına gidin. Kredi kartı ve taahhüt gerekmez.
+> Azure hesabı için kaydolmadan önce Azure App Service’i kullanmaya başlamak isterseniz, App Service’de hemen kısa süreli bir başlangıç web uygulaması oluşturabileceğiniz [App Service’i Deneyin](http://go.microsoft.com/fwlink/?LinkId=523751) sayfasına gidin. Kredi kartı ve taahhüt gerekmez.
 > 
 > 
 
-## Yapılan değişiklikler
+## <a name="whats-changed"></a>Yapılan değişiklikler
 * Web Sitelerinden App Service’e kadar değiştirme kılavuzu için bkz. [Azure App Service ve Mevcut Azure Hizmetlerine Etkileri](http://go.microsoft.com/fwlink/?LinkId=529714)
   
   *Gönderen [Rick Anderson](https://twitter.com/RickAndMSFT)*
@@ -104,11 +108,11 @@ ASP.NET oturum durumu kullanma hakkında daha fazla ayrıntı için bkz. [ASP.NE
 [OutputConfig]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_OC_WebConfig.png
 [CacheConfig]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_CacheConfig.png
 [EndpointURL]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_EndpointURL.png
-[ManageKeys]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_ManageAccessKeys.png
+[Managekeys]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_ManageAccessKeys.png
 
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Nov16_HO2-->
 
 

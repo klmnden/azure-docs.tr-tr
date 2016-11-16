@@ -1,17 +1,17 @@
 # Genel Bakış
-## [Resource Manager’a Genel Bakış](resource-group-overview.md)
+## [Resource Manager nedir?](resource-group-overview.md)
 ## [Desteklenen hizmetler, bölgeler ve API sürümleri](../resource-manager-supported-services.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ## [Resource Manager’ı ve Klasik dağıtımı anlama](../resource-manager-deployment-model.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ## [Öngörücü abonelik idaresi](../resource-manager-subscription-governance.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ## [Kuruluşlar için idare örnekleri](../resource-manager-subscription-examples.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-# Kullanmaya Başlama
+# Başlarken
 ## [Şablonu dışarı aktarma](../resource-manager-export-template.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ## [Şablon kılavuzu](../resource-manager-template-walkthrough.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ## [Resource Manager ile Visual Studio](../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ## [Resource Manager ile VS Kodları](../resource-manager-vs-code.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 
 # Nasıl yapılır?
-## Şablonlar
+## Şablon oluşturma
 ### [Şablonlar için en iyi uygulamalar](../resource-manager-template-best-practices.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [Yazma şablonları](../resource-group-authoring-templates.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [Şablon işlevleri](../resource-group-template-functions.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
@@ -52,12 +52,21 @@
 ### [Azure CLI ile dağıtım işlemlerini görüntüleme](../resource-manager-troubleshoot-deployments-cli.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [REST API ile dağıtım işlemlerini görüntüleme](../resource-manager-troubleshoot-deployments-rest.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 # Başvuru
+## [PowerShell cmdlet'leri](/powershell/azureps-cmdlets-docs/)
+## [Azure CLI](/cli/azure)
+## [Java](/java/api)
+## [.NET API’si](/dotnet/api)
 ## [Şablon şemaları](https://github.com/Azure/azure-resource-manager-schemas)
-## [Resource Manager için PowerShell cmdlet'leri](https://msdn.microsoft.com/library/dn757692(v=azure.200).aspx)
-## [Resource Manager için REST API](https://msdn.microsoft.com/en-us/library/azure/dn790568)
-## [Resource Manager için .NET istemci kitaplığı](https://msdn.microsoft.com/en-us/library/azure/mt418626)
+## [Resource Manager için PowerShell cmdlet'leri](/powershell/resourcemanager/azurerm.resources/v3.2.0/azurerm.resources)
+## [Resource Manager için REST API](/rest/api/resources/)
+## [Resource Manager için .NET istemci kitaplığı](/dotnet/api/microsoft.azure.management.resourcemanager)
 ## [İstekleri azaltma](../resource-manager-request-limits.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+## [REST](/rest/api/resources/)
 
+# Kaynaklar
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-resource-manager)
+## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager)
+## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=azure-resource-manager) 
 
 <!--HONumber=Nov16_HO2-->
 

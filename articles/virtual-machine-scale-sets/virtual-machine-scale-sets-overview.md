@@ -1,13 +1,13 @@
 ---
-title: Sanal Makine Ölçek Kümelerine Genel Bakış | Microsoft Docs
-description: Sanal Makine Ölçek Kümeleri hakkında daha fazla bilgi edinin
+title: "Sanal Makine Ölçek Kümelerine Genel Bakış | Microsoft Belgeleri"
+description: "Sanal Makine Ölçek Kümeleri hakkında daha fazla bilgi edinin"
 services: virtual-machine-scale-sets
-documentationcenter: ''
+documentationcenter: 
 author: gbowerman
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
 ms.service: virtual-machine-scale-sets
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,6 +15,10 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/13/2016
 ms.author: guybo
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 7d833b7aaab8680d555f6503ec27994134a2519d
+
 
 ---
 # <a name="virtual-machine-scale-sets-overview"></a>Sanal Makine Ölçek Kümelerine Genel Bakış
@@ -141,6 +145,9 @@ Bu bölümde tipik VM ölçek kümesi senaryolarından bazıları listelenmekted
 
 **C.** Evet. Bir VM ölçek kümesi, 5 FD ve 5 UD’ye sahip örtülü bir kullanılabilirlik kümesidir. VirtualMachineProfile altında herhangi bir yapılandırma yapılması gerekmez. Gelecekteki sürümlerde, VM ölçek kümeleri birden fazla kiracıya yayılabilir, ancak şimdilik bir ölçek kümesi tek bir kullanılabilirlik kümesidir.
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

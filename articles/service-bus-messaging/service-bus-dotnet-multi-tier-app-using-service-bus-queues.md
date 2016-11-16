@@ -1,12 +1,12 @@
 ---
-title: Çok katmanlı .NET uygulaması | Microsoft Docs
-description: Azure'da katmanlar arasında iletişim sağlamak için Service Bus kuyruklarını kullanan çok katmanlı uygulama geliştirmenize yardımcı olan bir .NET öğreticisi.
+title: "Çok katmanlı .NET uygulaması | Microsoft Belgeleri"
+description: "Azure&quot;da katmanlar arasında iletişim sağlamak için Service Bus kuyruklarını kullanan çok katmanlı uygulama geliştirmenize yardımcı olan bir .NET öğreticisi."
 services: service-bus
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 1b8608ca-aa5a-4700-b400-54d65b02615c
 ms.service: service-bus
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: dotnet
 ms.topic: get-started-article
 ms.date: 09/01/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 60ed71eac1a233a08414edb8c89b196401895cd8
+
 
 ---
-# <a name=".net-multi-tier-application-using-azure-service-bus-queues"></a>Azure Service Bus kuyruklarını kullanan çok katmanlı .NET uygulaması
+# <a name="net-multitier-application-using-azure-service-bus-queues"></a>Azure Service Bus kuyruklarını kullanan çok katmanlı .NET uygulaması
 ## <a name="introduction"></a>Giriş
 Visual Studio ve .NET için ücretsiz Azure SDK kullanarak Microsoft Azure'a yönelik geliştirme işlemleri oldukça kolaydır. Bu öğretici, yerel ortamınızda çalışan birden çok Azure kaynağı kullanan bir uygulama oluşturmak için sizi adım adım yönlendirir. Öğreticideki adımlar, Azure kullanma konusunda deneyim sahibi olmadığınızı varsayar.
 
@@ -35,7 +39,7 @@ Aşağıdaki ekran görüntüsünde tamamlanan uygulama gösterilir.
 
 ![][0]
 
-## <a name="scenario-overview:-inter-role-communication"></a>Senaryoya genel bakış: roller arası iletişim
+## <a name="scenario-overview-interrole-communication"></a>Senaryoya genel bakış: roller arası iletişim
 İşlenmek üzere bir sipariş göndermeniz için web rolünde çalışan ön uç kullanıcı arabirimi bileşeninin çalışan rolünde çalışmakta olan orta katman mantığı ile etkileşim içinde olması gerekir. Bu örnekte, katmanlar arasındaki iletişim için Service Bus aracılı mesajlaşma kullanılır.
 
 Web katmanı ve orta katman arasında aracılı mesajlaşmayı kullanma iki bileşeni birbirinden ayırır. Doğrudan mesajlaşmanın aksine (yani TCP veya HTTP), web katmanı orta katmanla doğrudan bağlantı kurmaz. Bunun yerine çalışma birimlerini iletiler şeklinde, orta katman bu birimleri kullanmaya ve işlemeye hazır olana kadar güvende tutan Service Bus hizmetine gönderir.
@@ -363,7 +367,7 @@ Service Bus hakkında daha fazla bilgi edinmek için şu kaynaklara bakın:
 
 Çok katmanlı senaryolar hakkında daha fazla bilgi için bkz.  
 
-* [Depolama Tabloları, Kuyrukları ve Blobları Kullanan .NET Çok Kapsamlı Uygulaması](multitierstorage.md)  
+* [Depolama Tabloları, Kuyrukları ve Blobları Kullanan .NET Çok Kapsamlı Uygulaması][multitierstorage]  
 
 [0]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-01.png
 [1]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-100.png
@@ -406,6 +410,6 @@ Service Bus hakkında daha fazla bilgi edinmek için şu kaynaklara bakın:
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

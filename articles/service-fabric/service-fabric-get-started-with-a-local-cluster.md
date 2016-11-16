@@ -1,12 +1,12 @@
 ---
-title: Yerel kümenizdeki uygulamaları dağıtma ve yükseltme işlemlerine giriş | Microsoft Docs
-description: Yerel bir Service Fabric kümesi ayarlayın, var olan bir uygulamayı bu kümeye dağıtın ve ardından uygulamayı yükseltin.
+title: "Yerel kümenizdeki uygulamaları dağıtma ve yükseltme işlemlerine giriş | Microsoft Belgeleri"
+description: "Yerel bir Service Fabric kümesi ayarlayın, var olan bir uygulamayı bu kümeye dağıtın ve ardından uygulamayı yükseltin."
 services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 60a1f6a5-5478-46c0-80a8-18fe62da17a8
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: get-started-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/09/2016
 ms.author: ryanwi;mikhegn
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 515daddf2c118f26721a557b0caf5d5415cb22c5
+
 
 ---
-# Yerel kümenizdeki uygulamaları dağıtma ve yükseltme işlemlerine giriş
+# <a name="get-started-with-deploying-and-upgrading-applications-on-your-local-cluster"></a>Yerel kümenizdeki uygulamaları dağıtma ve yükseltme işlemlerine giriş
 Azure Service Fabric SDK, yerel bir kümede hızlıca dağıtma ve uygulamaları yönetme işlemlerine başlamak için kullanabileceğiniz eksiksiz bir yerel geliştirme ortamı içerir. Bu makalede, yerel bir küme oluşturup var olan bir uygulamayı kümeye dağıtır, ardından uygulamayı yeni bir sürüme yükseltirsiniz ve tüm bu işlemleri Windows PowerShell'den gerçekleştirirsiniz.
 
 > [!NOTE]
@@ -24,7 +28,7 @@ Azure Service Fabric SDK, yerel bir kümede hızlıca dağıtma ve uygulamaları
 > 
 > 
 
-## Yerel bir küme oluşturma
+## <a name="create-a-local-cluster"></a>Yerel bir küme oluşturma
 Service Fabric kümesi, uygulamaları dağıtabileceğiniz bir dizi donanım kaynağını ifade eder. Genel olarak, bir küme herhangi bir yerden oluşturulabilir ve en az beş olmak üzere yüzlerce makine içerebilir. Ancak Service Fabric SDK yalnızca tek bir makinede çalışabilen küme yapılandırması içerir.
 
 Service Fabric yerel kümesinin bir öykünücü veya benzetici olmadığını anlamak oldukça önemlidir. Çok makineli kümelerde bulunan aynı platform kodunu çalıştırır. Tek fark, normalde beş makineye yayılan platform işlemlerini tek bir makinede çalıştırmasıdır.
@@ -49,7 +53,7 @@ SDK, yerel küme ayarlamak için iki yöntem sunar: Windows PowerShell betiği v
    
     Artık kümenize bir uygulama dağıtmaya hazırsınız.
 
-## Uygulama dağıtma
+## <a name="deploy-an-application"></a>Uygulama dağıtma
 Service Fabric SDK, uygulama oluşturmaya yönelik geliştirici araçları ve zengin bir altyapı dizisi içerir. Visual Studio'da uygulama oluşturmayı öğrenmek isterseniz [Visual Studio'da ilk Service Fabric uygulamanızı oluşturun](service-fabric-create-your-first-application-in-visual-studio.md) konu başlığına bakın.
 
 Bu öğreticide, var olan örnek bir uygulama kullanacağımızdan (WordCount olarak adlandırılır) platformun dağıtım, izleme ve yükseltme gibi yönetim özelliklerine odaklanabiliriz.
@@ -89,7 +93,7 @@ Bu öğreticide, var olan örnek bir uygulama kullanacağımızdan (WordCount ol
    
     Dağıttığımız uygulama ise dört bölümden oluşur. İlk karakteri A ile G arasında olan kelimeler ilk bölümdür. İlk karakteri H ile N arasında yer alan kelimeler de ikinci bölümü oluşturur ve bölümleme bu şekilde devam eder.
 
-## Uygulama bilgilerini ve durumu görüntüleme
+## <a name="view-application-details-and-status"></a>Uygulama bilgilerini ve durumu görüntüleme
 Artık uygulamayı dağıttığımıza göre PowerShell'deki bazı uygulama bilgilerine bakalım.
 
 1. Kümedeki tüm dağıtılan uygulamaları sorgulayın:
@@ -129,7 +133,7 @@ Artık uygulamayı dağıttığımıza göre PowerShell'deki bazı uygulama bilg
    > 
    > 
 
-## Uygulama yükseltme
+## <a name="upgrade-an-application"></a>Uygulama yükseltme
 Service Fabric, kümeye gönderilirken uygulamanın durumunu izleyerek kesinti süresi olmadan gerçekleştirilen yükseltmeler sunar. WordCount uygulamasının basit bir yükseltmesini gerçekleştirelim.
 
 Uygulamanın yeni sürümü artık yalnızca sesli bir harfle başlayan sözcükleri sayar. Yükseltme dağıtılırken uygulamanın davranışında iki değişiklik görürüz. İlk olarak, daha az sözcük sayıldığından sayaç büyümesinin hızı azalacaktır. İkinci ise ilk bölüm iki sesli harf (A ve E) ve diğer tüm bölümler bunlardan yalnızca birini içerebileceğinden ilk bölümün sayacı sonunda diğerlerini geride bırakır.
@@ -162,7 +166,7 @@ Uygulamanın yeni sürümü artık yalnızca sesli bir harfle başlayan sözcük
    
     ![Uygulamanın yeni sürümünü tarayıcıda görüntüleme][deployed-app-ui-v2]
 
-## Temizleme
+## <a name="cleaning-up"></a>Temizleme
 Sonlandırmadan önce yerel kümenin gerçek olduğunu unutmamanız önemlidir. Uygulamalar, sizin tarafınızdan kaldırılıncaya kadar arka planda çalışmaya devam eder.  Uygulamalarınızın niteliğine bağlı olarak, çalışan bir uygulama makinenizde önemli miktarda kaynağı kullanabilir. Uygulamaları ve kümeyi yönetmek için birkaç seçeneğiniz vardır:
 
 1. Tek bir uygulamayı ve onunla ilişkili tüm verileri kaldırmak için aşağıdakini çalıştırın:
@@ -185,7 +189,7 @@ Sonlandırmadan önce yerel kümenin gerçek olduğunu unutmamanız önemlidir. 
 3. Kümeyi kapatıp uygulama verilerini ve izlemelerini tutmak için sistem tepsisi uygulamasında **Yerel Kümeyi Durdur**'a tıklayın.
 4. Kümeyi tamamen silmek için sistem tepsisi uygulamasında **Yerel Kümeyi Kaldır**'a tıklayın. Visual Studio'da F5'e bir sonraki basışınızda bu seçenek başka bir yavaş dağıtımla sonuçlanır. Yerel kümeyi yalnızca bir süre kullanmayı planlamıyorsanız veya kaynaklarınızı geri kazanmanız gerekiyorsa kaldırın.
 
-## 1 Düğümlü ve 5 Düğümlü küme modu
+## <a name="1-node-and-5-node-cluster-mode"></a>1 Düğümlü ve 5 Düğümlü küme modu
 Uygulama geliştirmek üzere yerel küme ile birlikte çalışırken çoğunlukla kendinizi kod yazma, hata ayıklama, kod değiştirme, hata ayıklama, vb. işlemleri yinelerken bulursunuz. Bu işlemi en iyi duruma getirmek için yerel küme iki modda çalışabilir: 1 Düğümlü veya 5 Düğümlü. Her iki küme modunun da faydaları vardır.
 5 Düğümlü küme modu gerçek bir küme ile çalışmanıza olanak tanır. Yük devretme senaryolarını test edebilir, hizmetlerinizin daha fazla örneği ve yinelemeleri ile çalışabilirsiniz.
 1 Düğümlü küme modu Service Fabric çalışma zamanı kullanılarak kodu hızlıca doğrulamanıza yardımcı olmak amacıyla hizmetlerin hızlı dağıtımını ve kaydını yapmak üzere en iyi hale getirilmiştir.
@@ -219,7 +223,7 @@ Service Fabric Yerel Küme Yöneticisini kullanıyorsanız:
 > 
 > 
 
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 * Önceden derlenen bazı uygulamaları dağıtıp geliştirdiğinize göre [Visual Studio'da kendi uygulamanızı derlemeyi deneyebilirsiniz](service-fabric-create-your-first-application-in-visual-studio.md).
 * Bu makalede yer alan yerel kümede gerçekleştirilen eylemlerin tümü [Azure kümesinde](service-fabric-cluster-creation-via-portal.md) de gerçekleştirilebilir.
 * Bu makalede gerçekleştirdiğimiz yükseltme işlemi temel bir işlemdi. Service Fabric yükseltmelerinin gücü ve esnekliği hakkında daha fazla bilgi edinmek için [yükseltme belgelerine](service-fabric-application-upgrade.md) bakın.
@@ -246,6 +250,6 @@ Service Fabric Yerel Küme Yöneticisini kullanıyorsanız:
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

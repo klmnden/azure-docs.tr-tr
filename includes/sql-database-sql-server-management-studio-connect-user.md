@@ -1,4 +1,4 @@
-## Azure SQL Database’e kullanıcı olarak bağlanma
+## <a name="connect-to-azure-sql-database-as-a-user"></a>Azure SQL Database’e kullanıcı olarak bağlanma
 SSMS barındıran Azure SQL Database’e kullanıcı olarak bağlanmak için aşağıdaki adımları kullanın.
 
 1. Windows Arama kutusuna "Microsoft SQL Server Management Studio" yazın ve SSMS’yi başlatmak için masaüstü uygulamasına tıklayın.
@@ -11,7 +11,7 @@ SSMS barındıran Azure SQL Database’e kullanıcı olarak bağlanmak için aş
   * **Kullanıcı adı**: SQL Kimlik Doğrulaması’nı veya Active Directory Parola Kimlik Doğrulaması’nı seçtiyseniz, sunucudaki veritabanına erişimi olan bir kullanıcı adı girin.
   * **Parola**: SQL Kimlik Doğrulaması’nı veya Active Directory Parola Kimlik Doğrulaması’nı seçtiyseniz belirtilen kullanıcı için parola girin.
     
-       ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-sql-server-management-studio-connect-user/connect-user-1.png)
+       ![SQL Server Management Studio: SQL Database sunucusuna bağlanma](./media/sql-database-sql-server-management-studio-connect-user/connect-user-1.png)
 
 1. Bağlanmak istediğiniz veritabanını belirtmek için **Seçenekler**’e tıklayın.
    
@@ -27,9 +27,11 @@ SSMS barındıran Azure SQL Database’e kullanıcı olarak bağlanmak için aş
    
       ![SQL Server Management Studio: SQL Database sunucusuna bağlanma](./media/sql-database-sql-server-management-studio-connect-user/connect-user-5.png)
 
-## Bağlantı hatalarını giderme
+## <a name="troubleshoot-connection-failures"></a>Bağlantı hatalarını giderme
 Bağlantı hatasının en yaygın nedeni sunucu adındaki ( <*sunucuadı*> mantıksal sunucunun adıdır, veritabanının değil), kullanıcı adındaki veya paroladaki hatalardır; bunun yanı sıra sunucuya güvenlik nedenleriyle bağlantılara izin verilmiyordur. 
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

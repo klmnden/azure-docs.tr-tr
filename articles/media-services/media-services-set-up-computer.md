@@ -1,12 +1,12 @@
 ---
-title: Ortamınızı ayarlama | Microsoft Docs
-description: Azure Media Services ile geliştirmek için ortamınızı ayarlayın.
+title: "Ortamınızı ayarlama | Microsoft Belgeleri"
+description: "Azure Media Services ile geliştirmek için ortamınızı ayarlayın."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 0258a633-8b42-4853-acc7-3b5162d1d8cd
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/12/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 88e04780a5255e136de3d18ab946ef2981ecece5
+
 
 ---
 # <a name="set-up-your-environment"></a>Ortamınızı ayarlama
@@ -44,12 +48,15 @@ Azure Media Services’e program aracılığıyla bağlanmak için .NET veya RES
 
 [!INCLUDE [media-services-selector-connect](../../includes/media-services-selector-connect.md)]
 
-## <a name="next-steps:-azure-media-services-learning-paths"></a>Sonraki adımlar: Azure Media Services’i öğrenme yolları
+## <a name="next-steps-azure-media-services-learning-paths"></a>Sonraki adımlar: Azure Media Services’i öğrenme yolları
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Geri bildirimde bulunma
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,6 +1,6 @@
 # Genel Bakış
 ## [Akış Analizi nedir?](stream-analytics-introduction.md)
-## [Akış Analizi Öğrenme Yolu](https://azure.microsoft.com/documentation/learning-paths/stream-analytics/)
+## [Storm ve Akış Analizi Karşılaştırması](stream-analytics-comparison-storm.md)
 
 # Başlarken
 ## [IoT akış verilerini işleme](stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md)
@@ -8,12 +8,12 @@
 
 # Nasıl yapılır?
 
-## Akış çözümleri
-### [IoT çözümü oluşturma](stream-analytics-build-an-iot-solution-using-stream-analytics.md)
-### [Sosyal medya analizi](stream-analytics-twitter-sentiment-analysis-trends.md)
-### [Power BI ile algılayıcı verilerini analiz etme]https://gallery.cortanaanalytics.com/Tutorial/Sensor-Data-Analytics-with-ASA-and-Power-BI-2?fromlegacydomain=1)
+## Akış çözümleri oluşturma
+### [Nesnelerin İnterneti](stream-analytics-build-an-iot-solution-using-stream-analytics.md)
+### [Sosyal medya](stream-analytics-twitter-sentiment-analysis-trends.md)
+### [Power BI ile verileri algılama](https://gallery.cortanaanalytics.com/Tutorial/Sensor-Data-Analytics-with-ASA-and-Power-BI-2?fromlegacydomain=1)
 ### [Machine Learning ile gerçek zamanlı puanlama](stream-analytics-machine-learning-integration-tutorial.md)
-### [Başvuru mimarisi: Gerçek zamanlı olay işleme](stream-analytics-real-time-event-processing-reference-architecture.md)
+### [Gerçek zamanlı olay işleme](stream-analytics-real-time-event-processing-reference-architecture.md)
 
 ## Geliştirme
 ### [Sık sorulan soru yapıları](stream-analytics-stream-analytics-query-patterns.md)
@@ -40,17 +40,21 @@
 ### [Tek tıklamayla PowerShell](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick)
 
 # Başvuru
+## [PowerShell](/powershell/azureps-cmdlets-docs/)
+## [.NET](/dotnet/api/)
 ## [Sorgu dili](https://msdn.microsoft.com/library/azure/dn834998)
-## [REST API](https://msdn.microsoft.com/library/azure/dn835031)
-## [PowerShell](https://msdn.microsoft.com/library/azure/mt270341)
-## [.NET SDK](https://msdn.microsoft.com/library/azure/mt416896)
-## [Storm ve Akış Analizi Karşılaştırması](stream-analytics-comparison-storm.md)
+## [REST](/rest/api/streamanalytics/)
 ## [Sürüm notları](stream-analytics-release-notes.md)
+
 # Kaynaklar
-## [MSDN blog’u](http://blogs.msdn.com/b/streamanalytics/)
-## [MSDN forumu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+## [Öğrenme yolu](https://azure.microsoft.com/documentation/learning-paths/stream-analytics/)
+## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/stream-analytics/)
+## [Blog](http://blogs.msdn.com/b/streamanalytics/)
+## [Forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-stream-analytics)
 ## [Geri Bildirim forumu](http://feedback.azure.com/forums/270577-azure-stream-analytics)
+## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=stream-analytics)
+## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=stream-analytics)
 
 
 <!--HONumber=Nov16_HO2-->

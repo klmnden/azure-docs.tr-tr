@@ -1,4 +1,4 @@
-## Yedekleme ilkesi tanımlama
+## <a name="defining-a-backup-policy"></a>Yedekleme ilkesi tanımlama
 Yedekleme ilkesi veri anlık görüntülerinin ne zaman alınacağının ve bu anlık görüntülerin ne kadar süreyle saklanacağının bir matrisini tanımlar. VM yedeklemesi için bir ilke tanımlandığında, yedekleme işini *günde bir kez* tetikleyebilirsiniz. Yeni bir ilke oluşturduğunuzda bu ilke kasaya uygulanır. Yedekleme İlkesi arabirimi şöyle görünür:
 
 ![Yedekleme ilkesi](./media/backup-create-policy-for-vms/backup-policy.png)
@@ -26,6 +26,8 @@ Yedekleme ilkesi veri anlık görüntülerinin ne zaman alınacağının ve bu a
    
     Yeni ilke hemen kasaya uygulanır.
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

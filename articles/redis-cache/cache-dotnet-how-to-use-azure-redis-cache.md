@@ -1,12 +1,12 @@
 ---
-title: Azure Redis Önbelleğini Kullanma | Microsoft Docs
-description: Azure Redis Önbelleği ile Azure, uygulamalarınızın performansını artırmayı öğrenin
+title: "Azure Redis Önbelleğini Kullanma | Microsoft Belgeleri"
+description: "Azure Redis Önbelleği ile Azure, uygulamalarınızın performansını artırmayı öğrenin"
 services: redis-cache,app-service
-documentationcenter: ''
+documentationcenter: 
 author: steved0x
 manager: douge
-editor: ''
-
+editor: 
+ms.assetid: c502f74c-44de-4087-8303-1b1f43da12d5
 ms.service: cache
 ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
@@ -14,9 +14,13 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/25/2016
 ms.author: sdanie
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 209d4f610f0d5199d9018c506acef3b7328478ef
+
 
 ---
-# Azure Redis Önbelleğini kullanma
+# <a name="how-to-use-azure-redis-cache"></a>Azure Redis Önbelleğini kullanma
 > [!div class="op_single_selector"]
 > * [.NET](cache-dotnet-how-to-use-azure-redis-cache.md)
 > * [ASP.NET](cache-web-app-howto.md)
@@ -40,7 +44,7 @@ Bu kılavuz C\# kodu kullanarak [StackExchange.Redis][StackExchange.Redis] istem
 
 <a name="getting-started-cache-service"></a>
 
-## Azure Redis Önbelleğini kullanmaya başlama
+## <a name="get-started-with-azure-redis-cache"></a>Azure Redis Önbelleğini kullanmaya başlama
 Azure Redis Önbelleğini kullanmaya başlamak kolaydır. Başlamak için, bir önbellek hazırlayın ve yapılandırın. Ardından, önbelleğe erişebilmeleri için önbellek istemcilerini yapılandırın. Önbellek istemcileri yapılandırıldıktan sonra, bunlarla çalışmaya başlayabilirsiniz.
 
 * [Önbelleği oluşturma][Önbelleği oluşturma]
@@ -48,24 +52,24 @@ Azure Redis Önbelleğini kullanmaya başlamak kolaydır. Başlamak için, bir �
 
 <a name="create-cache"></a>
 
-## Bir önbellek oluşturma
+## <a name="create-a-cache"></a>Bir önbellek oluşturma
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
 
-### Oluşturulduktan sonra önbelleğinize erişmek için
+### <a name="to-access-your-cache-after-its-created"></a>Oluşturulduktan sonra önbelleğinize erişmek için
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-browse.md)]
 
 Önbelleğinizi yapılandırma hakkında daha fazla bilgi için, bkz. [Azure Redis Önbelleğini yapılandırma](cache-configure.md).
 
 <a name="NuGet"></a>
 
-## Önbellek istemcilerini yapılandırma
+## <a name="configure-the-cache-clients"></a>Önbellek istemcilerini yapılandırma
 [!INCLUDE [redis-cache-configure](../../includes/redis-cache-configure-stackexchange-redis-nuget.md)]
 
 İstemci projeniz önbelleğe almak üzere yapılandırıldığında, önbelleğinizle çalışmak için aşağıdaki bölümlerde açıklanan teknikleri kullanabilirsiniz.
 
 <a name="working-with-caches"></a>
 
-## Önbelleklerle Çalışma
+## <a name="working-with-caches"></a>Önbelleklerle Çalışma
 Bu bölümdeki adımlar Önbellek ile ortak görevler gerçekleştirmeyi açıklar.
 
 * [Önbelleğe bağlanma][Önbelleğe bağlanma]
@@ -74,7 +78,7 @@ Bu bölümdeki adımlar Önbellek ile ortak görevler gerçekleştirmeyi açıkl
 
 <a name="connect-to-cache"></a>
 
-## Önbelleğe bağlanma
+## <a name="connect-to-the-cache"></a>Önbelleğe bağlanma
 Program aracılığıyla bir önbellekle çalışmak için, önbelleğe başvuru gerekir. Azure Redis Önbelleğine erişmek üzere StackExchange.Redis istemcisini kullanmak istediğiniz bir dosyanın en üstüne aşağıdakileri ekleyin.
 
     using StackExchange.Redis;
@@ -91,7 +95,7 @@ Bir Azure Redis Önbelleğine bağlanmak ve bağlı bir `ConnectionMultiplexer` 
     ConnectionMultiplexer connection = ConnectionMultiplexer.Connect("contoso5.redis.cache.windows.net,abortConnect=false,ssl=true,password=...");
 
 > [!IMPORTANT]
-> Uyarı: Kimlik bilgilerini asla kaynak kodunda depolamayın. Bu örneği basit tutmak için bunları kaynak kodunda gösteriyorum. Kimlik bilgilerini depolamaya hakkında bilgi için, bkz. [Uygulama Dizeleri ve Bağlantı Dizeleri Nasıl Çalışır?][Uygulama Dizeleri ve Bağlantı Dizeleri Nasıl Çalışır?] 
+> Uyarı: Kimlik bilgilerini asla kaynak kodunda depolamayın. Bu örneği basit tutmak için bunları kaynak kodunda gösteriyorum. Kimlik bilgilerini depolama hakkında bilgi için bkz. [Uygulama Dizeleri ve Bağlantı Dizeleri Nasıl Çalışır?][Uygulama Dizeleri ve Bağlantı Dizeleri Nasıl Çalışır?]
 > 
 > 
 
@@ -140,7 +144,7 @@ Artık Azure Redis Önbelleği örneğine bağlanmayı ve önbellek veritabanın
 
 <a name="add-object"></a>
 
-## Önbelleğe nesneler ekleme ve nesneleri önbellekten alma
+## <a name="add-and-retrieve-objects-from-the-cache"></a>Önbelleğe nesneler ekleme ve nesneleri önbellekten alma
 `StringSet` ve `StringGet` yöntemleri.kullanılarak öğeleri bir önbellekte depolanabilir ve önbellekten alınabilir.
 
     // If key1 exists, it is overwritten.
@@ -166,7 +170,7 @@ Bir öğenin önbellekte sona erme tarihini belirtmek için, `StringSet` dizesin
 
     cache.StringSet("key1", "value1", TimeSpan.FromMinutes(90));
 
-## Önbellekte .NET nesneleriyle çalışma
+## <a name="work-with-net-objects-in-the-cache"></a>Önbellekte .NET nesneleriyle çalışma
 Azure Redis Önbelleği temel veri türlerinin yanı sıra .NET nesnelerini de önbelleğe alabilir, ancak bir .NET nesnesini önbelleğe alabilmek için seri hale getirilmesi gerekir. Bu uygulama geliştiricisinin sorumluluğundadır ve geliştiriciye seri hale getirici tercihinde esneklik sağlar.
 
 Nesneleri seri hale getirmenin basit bir yolu [Newtonsoft.Json.NET](https://www.nuget.org/packages/Newtonsoft.Json/8.0.1-beta1)’te `JsonConvert` seri hale getirme yöntemleri kullanmak ve JSON’a ve JSON’dan seri hale getirmektir. Aşağıdaki örnekte bir `Employee` nesnesi örneği kullanılarak al ve ayarla seçeneği gösterilmiştir.
@@ -191,22 +195,22 @@ Nesneleri seri hale getirmenin basit bir yolu [Newtonsoft.Json.NET](https://www.
 
 <a name="next-steps"></a>
 
-## Sonraki Adımlar
+## <a name="next-steps"></a>Sonraki Adımlar
 Artık temel bilgileri öğrendiğinize göre, Azure Redis Önbelleği hakkında daha fazla bilgi edinmek için aşağıdaki bağlantıları izleyin.
 
 * Azure Redis Önbelleği için ASP.NET sağlayıcılarına göz atın.
   * [Azure Redis Oturum Durumu Sağlayıcısı](cache-aspnet-session-state-provider.md)
   * [Azure Redis Önbelleği ASP.NET Çıktı Önbelleği Sağlayıcısı](cache-aspnet-output-cache-provider.md)
 * Önbelleğinizin sistem durumunu [izleyebilmeniz](cache-how-to-monitor.md) için [önbellek tanılamayı etkinleştirin](cache-how-to-monitor.md#enable-cache-diagnostics). Azure Portal’da ölçümleri görüntüleyebilir ve ayrıca istediğiniz araçları kullanarak bunları [indirebilir ve gözden geçirebilirsiniz](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring).
-* [StackExchange.Redis önbellek istemcisi belgeleri][StackExchange.Redis önbellek istemcisi belgeleri]ne bakın.
+* [StackExchange.Redis önbellek istemcisi belgeleri][StackExchange.Redis önbellek istemcisi belgeleri]’ni inceleyin.
   * Azure Redis Önbelleği birçok Redis istemcisinden ve geliştirme dilinden erişilebilir. Daha fazla bilgi için bkz. [http://redis.io/clients][http://redis.io/clients].
 * Azure Redis Önbelleği ayrıca Redsmin ve Redis Desktop Manager gibi üçüncü taraf hizmetler ve araçlarla birlikte kullanılabilir.
   * Redsmin hakkında daha fazla bilgi için bkz. [Azure Redis bağlantı dizesi alma ve Redsmin ile birlikte kullanma][Azure Redis bağlantı dizesi alma ve Redsmin ile birlikte kullanma].
   * Azure Redis Önbelleği’ndeki verilerinize erişin ve bunları [RedisDesktopManager](https://github.com/uglide/RedisDesktopManager) kullanan bir GUI ile inceleyin.
-* [Redis][Redis] belgelerine bakın ve [redis veri türleri][redis veri türleri] hakkında bilgi edinin ve [Redis veri türlerine on beş dakikalık bir giriş][Redis veri türlerine on beş dakikalık bir giriş]e göz atın.
+* [redis][redis] belgelerine bakın ve [redis veri türleri][redis veri türleri] hakkında bilgi edinin ve [Redis veri türlerine on beş dakikalık bir giriş][Redis veri türlerine on beş dakikalık bir giriş]’e göz atın.
 
 <!-- INTRA-TOPIC LINKS -->
-[Sonraki Adımlar]: #next-steps
+[Sonraki adımlar]: #next-steps
 [Azure Redis Önbelleğine giriş (Video)]: #video
 [Azure Redis Önbelleği nedir?]: #what-is
 [Bir Azure Önbelleği oluşturma]: #create-cache
@@ -233,7 +237,7 @@ Artık temel bilgileri öğrendiğinize göre, Azure Redis Önbelleği hakkında
 
 [CacheProperties]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-properties.png
 
-[ManageKeys]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-manage-keys.png
+[Managekeys]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-manage-keys.png
 
 [SessionStateNuGet]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-session-state-provider.png
 
@@ -262,7 +266,7 @@ Artık temel bilgileri öğrendiğinize göre, Azure Redis Önbelleği hakkında
 [Sanal Makine Boyutlarını Yapılandırma]: http://go.microsoft.com/fwlink/?LinkId=164387
 [Azure Önbelleği Kapasite Planlamada Dikkate Alınması Gerekenler]: http://go.microsoft.com/fwlink/?LinkId=320167
 [Azure Önbelleği]: http://go.microsoft.com/fwlink/?LinkId=252658
-[Nasıl yapılır: Bir ASP.NET Sayfasının Önbelleğe Alınabilirliğini Bildirimli Olarak Ayarlama]: http://msdn.microsoft.com/library/zd1ysf1y.aspx
+[Nasıl yapılır: Bir ASP.NET Sayfasının Önbelleğe Alınabilirliğini Bildirimli Olarak]: http://msdn.microsoft.com/library/zd1ysf1y.aspx Ayarlama
 [Nasıl yapılır: Bir Sayfanın Önbelleğe Alınabilirliğini Programlı Olarak Ayarlama]: http://msdn.microsoft.com/library/z852zf6b.aspx
 [Azure Redis Önbelleğinde önbellek yapılandırma]: http://msdn.microsoft.com/library/azure/dn793612.aspx
 
@@ -273,14 +277,14 @@ Artık temel bilgileri öğrendiğinize göre, Azure Redis Önbelleği hakkında
 
 [NuGet Paket Yöneticisini Yükleme]: http://go.microsoft.com/fwlink/?LinkId=240311
 [Önbellek Fiyatlandırma Ayrıntıları]: http://www.windowsazure.com/pricing/details/cache/
-[Azure Portalı]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/
 
 [Azure Redis Önbelleğine Genel Bakış]: http://go.microsoft.com/fwlink/?LinkId=320830
 [Azure Redis Önbelleği]: http://go.microsoft.com/fwlink/?LinkId=398247
 
 [Azure Redis Önbelleğine Geçiş]: http://go.microsoft.com/fwlink/?LinkId=317347
 [Azure Redis Önbelleği Örnekleri]: http://go.microsoft.com/fwlink/?LinkId=320840
-[Azure kaynaklarınızı yönetmek için Kaynak gruplarını kullanma]: http://azure.microsoft.com/documentation/articles/resource-group-overview/
+[Azure kaynaklarınızı yönetmek için Kaynak gruplarını kullanma]: ../azure-resource-manager/resource-group-overview.md
 
 [StackExchange.Redis]: http://github.com/StackExchange/StackExchange.Redis
 [StackExchange.Redis önbellek istemcisi belgeleri]: http://github.com/StackExchange/StackExchange.Redis#documentation
@@ -295,6 +299,6 @@ Artık temel bilgileri öğrendiğinize göre, Azure Redis Önbelleği hakkında
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Nov16_HO2-->
 
 

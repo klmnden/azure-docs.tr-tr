@@ -1,22 +1,26 @@
 ---
-title: .NET kullanarak isteğe bağlı içerik göndermeye başlama | Microsoft Docs
-description: Bu öğreticide, .NET’i kullanarak Azure Media Services ile isteğe bağlı bir içerik teslim uygulaması gerçekleştirilmesinin adımları açıklanmaktadır.
+title: ".NET kullanarak isteğe bağlı içerik göndermeye başlama | Microsoft Belgeleri"
+description: "Bu öğreticide, .NET’i kullanarak Azure Media Services ile isteğe bağlı bir içerik teslim uygulaması gerçekleştirilmesinin adımları açıklanmaktadır."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 388b8928-9aa9-46b1-b60a-a918da75bd7b
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 10/11/2016
+ms.date: 10/17/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 80606d9fd08a4d5b5845af8ed43fdcef050e47e9
+
 
 ---
-# <a name="get-started-with-delivering-content-on-demand-using-.net-sdk"></a>.NET SDK kullanarak isteğe bağlı içerik göndermeye başlama
+# <a name="get-started-with-delivering-content-on-demand-using-net-sdk"></a>.NET SDK kullanarak isteğe bağlı içerik göndermeye başlama
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
 > [!NOTE]
@@ -29,7 +33,7 @@ Bu öğreticide, .NET için Azure Media Services (AMS) SDK’sını kullanarak b
 
 Öğretici, temel Media Services iş akışını ve Media Services geliştirmek için gereken en genel programlama nesnelerini ve görevleri tanıtır. Öğreticiyi tamamladığınızda, yükleyip kodlayarak ardından indirdiğiniz örnek bir medya dosyasını akışla aktarabilecek veya aşamalı olarak indirebileceksiniz.
 
-## <a name="what-you'll-learn"></a>Öğrenecekleriniz
+## <a name="what-youll-learn"></a>Öğrenecekleriniz
 Öğretici, aşağıdaki görevlerin nasıl gerçekleştirileceğini gösterir:
 
 1. Media Services hesabı oluşturma (Azure portal kullanılarak).
@@ -67,7 +71,7 @@ Bu bölümdeki adımlar bir AMS hesabının nasıl oluşturulacağını gösteri
    
    1. **Hesap Adı**’nda, yeni AMS hesabının adını girin. Media Services hesabı adı, boşluk olmadan, tümü küçük harf ve sayılardan oluşmalı ve 3-24 karakter uzunluğunda olmalıdır.
    2. Abonelik’te, erişiminiz bulunan farklı Azure abonelikleri arasından seçim yapın.
-   3. **Kaynak Grubu**’nda yeni veya mevcut bir kaynağı seçin.  Kaynak grubu; yaşam döngüsünü, izinleri ve ilkeleri paylaşan kaynakların bir koleksiyonudur. [Burada](../resource-group-overview.md#resource-groups) daha fazla bilgi edinin.
+   3. **Kaynak Grubu**’nda yeni veya mevcut bir kaynağı seçin.  Kaynak grubu; yaşam döngüsünü, izinleri ve ilkeleri paylaşan kaynakların bir koleksiyonudur. [Burada](../azure-resource-manager/resource-group-overview.md#resource-groups) daha fazla bilgi edinin.
    4. **Konum**’da, Media Services hesabınız için medya ve meta veri kayıtlarını depolamak için kullanılan coğrafi bölgeyi seçin. Bu bölge medyanızı işlemek ve akışını sağlamak için kullanılır. Yalnızca Media Services kullanılabilen bölgeler açılır listede görüntülenir. 
    5. **Depolama Hesabı** alanında, Media Services hesabınızdan gelen medya içeriğine blob depolama sağlamak üzere bir depolama hesabı seçin. Media Services hesabınızla aynı coğrafi bölgede bulunan mevcut bir depolama hesabını seçebilir ya da bir depolama hesabı oluşturabilirsiniz. Aynı bölgede yeni bir depolama hesabı oluşturulur. Depolama hesabı adları için kurallar Media Services hesapları ile aynıdır.
       
@@ -113,7 +117,7 @@ Akışa ayrılan birim sayısını oluşturmak ve değiştirmek için, aşağıd
 1. Visual Studio 2013, Visual Studio 2012 veya Visual Studio 2010 SP1’de yeni bir C# Konsol Uygulaması oluşturun. **Ad**, **Konum** ve **Çözüm adı** değerlerini girip **Tamam**’a tıklayın.
 2. [Windowsazure.mediaservices.extensions](https://www.nuget.org/packages/windowsazure.mediaservices.extensions) NuGet paketini kullanarak **Azure Media Services .NET SDK Uzantıları**’nı yükleyin.  Media Services .NET SDK Uzantıları, kodunuzu basitleştirerek Media Services ile geliştirme yapmayı kolaylaştıran bir dizi genişletme yöntemi ve yardımcı işlevdir. Bu paketin yüklenmesiyle **Media Services .NET SDK** da yüklenir ve diğer tüm gerekli bağımlılıklar eklenir.
 3. System.Configuration bütünleştirilmiş koduna bir başvuru ekleyin. Bu bütünleştirilmiş kod, App.config gibi yapılandırma dosyalarına erişmek için kullanılan **System.Configuration.ConfigurationManager** sınıfını içerir.
-4. App.config dosyasını açın (varsayılan olarak eklenmemişse dosyayı projenize ekleyin) ve dosyaya bir *appSettings* bölümü ekleyin. Aşağıdaki örnekte gösterildiği gibi Azure Media Services hesap adınız ve hesap anahtarınızın değerlerini ayarlayın. Hesap adı ve anahtarı bilgilerini elde etmek için, Klasik Azure Portalı'nı açıp medya hizmetleri hesabınızı seçin ve **ANAHTARLARI YÖNET** düğmesine tıklayın.
+4. App.config dosyasını açın (varsayılan olarak eklenmemişse dosyayı projenize ekleyin) ve dosyaya bir *appSettings* bölümü ekleyin. Aşağıdaki örnekte gösterildiği gibi Azure Media Services hesap adınız ve hesap anahtarınızın değerlerini ayarlayın. Hesap adını ve anahtar bilgilerini almak için [Azure portalına](https://portal.azure.com/) gidin ve AMS hesabınızı seçin. Ardından, **Ayarlar** > **Anahtarlar**'ı seçin. Anahtarları yönet pencerelerinde hesap adı gösterilir ve birincil anahtar ile ikincil anahtar görüntülenir.
    
         <configuration>
         ...
@@ -408,13 +412,13 @@ Videonuzu akışla aktarmak için [Azure Media Services Oynatıcısı](http://am
 
 Aşamalı indirmeyi test etmek için bir tarayıcıya (örneğin Internet Explorer, Chrome veya Safari) bir URL yapıştırın.
 
-## <a name="next-steps:-media-services-learning-paths"></a>Sonraki Adımlar: Media Services’i öğrenme yolları
+## <a name="next-steps-media-services-learning-paths"></a>Sonraki Adımlar: Media Services’i öğrenme yolları
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Geri bildirimde bulunma
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-### <a name="looking-for-something-else?"></a>Başka bir şey mi arıyorsunuz?
+### <a name="looking-for-something-else"></a>Başka bir şey mi arıyorsunuz?
 Beklediklerinizi bu konu başlığında bulamadıysanız, eksik bir şeyler varsa veya herhangi bir nedenle gereksinimleriniz karşılanmadıysa lütfen aşağıdaki Disqus yazışmasını kullanarak bize geri bildirimde bulunun.
 
 <!-- Anchors. -->
@@ -426,6 +430,6 @@ Beklediklerinizi bu konu başlığında bulamadıysanız, eksik bir şeyler vars
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

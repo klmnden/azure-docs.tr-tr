@@ -1,13 +1,13 @@
 ---
-title: Azure Search ile çalışmaya başlama | Microsoft Docs
-description: Bu öğretici yolunu ve DocumentDB örnek verilerini kullanarak ilk Azure Search dizininizi oluşturma hakkında bilgi edinin. Bu işlem, Veri Alma sihirbazını kullanan portal tabanlı ve kodsuz bir alıştırmadır.
+title: "Azure Search kullanmaya başlama | Microsoft Belgeleri"
+description: "Bu öğretici yolunu ve DocumentDB örnek verilerini kullanarak ilk Azure Search dizininizi oluşturma hakkında bilgi edinin. Bu işlem, Veri Alma sihirbazını kullanan portal tabanlı ve kodsuz bir alıştırmadır."
 services: search
-documentationcenter: ''
+documentationcenter: 
 author: HeidiSteen
 manager: jhubbard
-editor: ''
+editor: 
 tags: azure-portal
-
+ms.assetid: 21adc351-69bb-4a39-bc59-598c60c8f958
 ms.service: search
 ms.devlang: na
 ms.workload: search
@@ -15,9 +15,13 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.date: 10/03/2016
 ms.author: heidist
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: dddbcbcd82900d7537c2d60631cc1753554d9486
+
 
 ---
-# Portalda Azure Search ile çalışmaya başlama
+# <a name="get-started-with-azure-search-in-the-portal"></a>Portalda Azure Search ile çalışmaya başlama
 Bu kodsuz giriş, doğrudan portal içinde yerleşik olarak sunulan işlevleri kullanarak Microsoft Azure Search ile çalışmaya başlamanızı sağlar. 
 
 Öğretici, verilerimizi ve yönergelerimizi kullanarak bir [örnek Azure DocumentDB veritabanı](#apdx-sampledata) oluşturmanın kolay olduğunu varsayar ancak bu adımları DocumentDB veya SQL Database'de var olan verilerinize de uyarlayabilirsiniz.
@@ -27,17 +31,17 @@ Bu kodsuz giriş, doğrudan portal içinde yerleşik olarak sunulan işlevleri k
 > 
 > 
 
-## Hizmetinizi bulma
+## <a name="find-your-service"></a>Hizmetinizi bulma
 1. [Azure portalında](https://portal.azure.com) oturum açın.
 2. Azure Search hizmetinizin hizmet panosunu açın. Panoyu bulmanın birkaç yolu burada verilmiştir.
    
    * Harf çubuğunda **Arama hizmetleri**'ne tıklayın. Harf çubuğu, aboneliğinizde sağlanan tüm hizmeti listeler. Bir arama hizmeti tanımlanmışsa listede **Arama hizmetleri**'ni görürsünüz.
    * Harf çubuğunda **Gözat**'a tıklayın ve ardından aboneliklerinizde oluşturulan tüm arama hizmetlerinin bir listesini oluşturmak için arama kutusuna "ara" yazın.
 
-## Alan denetleme
+## <a name="check-for-space"></a>Alan denetleme
 Birçok müşteri ücretsiz hizmetle başlar. Bu sürüm üç dizin, üç veri kaynağı ve üç dizin oluşturucu ile sınırlıdır. Başlamadan önce ek öğeler için yeriniz olduğundan emin olun. Bu kılavuz, nesnelerin her birinden birer tane oluşturur.
 
-## Bir dizin ve yük verileri oluşturma
+## <a name="create-an-index-and-load-data"></a>Bir dizin ve yük verileri oluşturma
 Arama sorguları, belirli arama davranışlarını iyileştirmek için kullanılan aranabilir verileri, meta verileri ve yapıları içeren bir *dizinde* yinelenir. İlk adım olarak, bir dizin tanımlayıp doldurun.
 
 Bir dizin oluşturmanın birkaç yolu vardır. Verileriniz Azure SQL Database, Azure VM'deki SQL Server veya DocumentDB gibi Azure Search'ün gezinebileceği bir depodaysa *dizin oluşturucu* kullanarak dizini çok kolay bir şekilde oluşturup doldurabilirsiniz.
@@ -48,7 +52,7 @@ Devam etmeden önce bu öğreticiyle kullanmak üzere bir [örnek DocumentDB ver
 
 <a id="defineDS"></a>
 
-#### 1. Adım: Veri kaynağını tanımlama
+#### <a name="step-1-define-the-data-source"></a>1. Adım: Veri kaynağını tanımlama
 1. Azure Search hizmeti panonuzda, bir dizini hem oluşturan hem de dolduran bir sihirbazı başlatmak için komut çubuğundaki **Veri içeri aktar** seçeneğine tıklayın.
    
     ![][7]
@@ -61,7 +65,7 @@ Sorguyu atladığımıza dikkat edin. Bunun nedeni, veri kümemize bu sefer değ
 
 Sihirbazın bu adımını tamamlamak için **Tamam**'a tıklayın.
 
-#### 2. Adım: Dizini tanımlama
+#### <a name="step-2-define-the-index"></a>2. Adım: Dizini tanımlama
 Hâlâ sihirbazdayken **Dizin**'e tıklayın ve bir Azure Search dizininin oluşturulması için kullanılan tasarım yüzeyine göz atın. Bir dizin için en az olarak bir ad ve bir alan belge anahtarı olarak işaretlenmiş şekilde bir alanlar koleksiyonu gerekir. Bir DocumentDB veri kümesi kullandığımızdan, alanlar sihirbaz tarafından otomatik olarak algılanır, dizin alanlar ve veri türü atamalarıyla birlikte önceden yüklenir. 
 
   ![][3]
@@ -96,7 +100,7 @@ Bir karşılaştırma noktası olarak, aşağıdaki ekran görüntüsü önceki 
 
 Sihirbazın bu adımını tamamlamak için **Tamam**'a tıklayın.
 
-#### 3. Adım: Dizin oluşturucuyu tanımlama
+#### <a name="step-3-define-the-indexer"></a>3. Adım: Dizin oluşturucuyu tanımlama
 **Veri içeri aktarma** sihirbazından çıkmadan, **Dizin Oluşturucu** > **Ad**'a tıklayın, dizin oluşturucu için bir ad yazın ve diğer tüm değerler için varsayılanları kullanın. Bu nesne, yürütülebilir bir işlemi tanımlar. Oluşturulduktan sonra, bunu yinelenen zamanlamaya koyabilirsiniz ancak şimdilik dizin oluşturucuyu **Tamam**'a tıkladığınızda bir kere ve derhal çalışmak üzere varsayılan seçeneği kullanın. 
 
 Veri içeri aktarma girişlerinizin tümünün doldurulmuş ve kullanıma hazır olması gerekir.
@@ -105,12 +109,12 @@ Veri içeri aktarma girişlerinizin tümünün doldurulmuş ve kullanıma hazır
 
 Sihirbazı çalıştırmak için içeri aktarmayı başlatmak ve sihirbazı kapatmak amacıyla **Tamam**'a tıklayın.
 
-## İlerleme durumunu denetleme
+## <a name="check-progress"></a>İlerleme durumunu denetleme
 İlerleme durumunu denetlemek için hizmet panosuna geri dönün, sayfayı aşağı kaydırın ve dizin oluşturucu listesini açmak için **Dizin Oluşturucular** kutucuğuna çift tıklayın. Listede yeni oluşturduğunuz dizin oluşturucuyu ve Azure Search'te dizine alınan birkaç belgeyle birlikte "devam ediyor" veya başarılı şeklinde gösterilen durumu görmeniz gerekir.
 
   ![][6]
 
-## Dizini sorgulama
+## <a name="query-the-index"></a>Dizini sorgulama
 Artık sorgulamaya hazır bir arama dizininiz var. 
 
 **Arama gezgini**, portalda yerleşik bir sorgu aracıdır. Bir arama girişinin, beklediğiniz veriyi döndürebilmesini sağlamak amacıyla bir arama kutusu sağlar. 
@@ -121,7 +125,7 @@ Artık sorgulamaya hazır bir arama dizininiz var.
 4. Birkaç tam metin arama sorgusu girin. Sorgulanacak sanatçılar, albümler ve türler hakkında bilgi edinmek için joker karakter aramanızın sonuçlarını inceleyebilirsiniz.
 5. Fikir edinmek için [bu makalenin sonunda sağlanan örnekleri](https://msdn.microsoft.com/library/azure/dn798927.aspx) kullanıp dizininizde bulunma olasılığı olan arama dizelerini kullanmak üzere sorgunuzu değiştirerek diğer sorgu söz dizimlerini deneyin.
 
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 Sihirbazı bir kez çalıştırdıktan sonra, geri dönüp bileşenleri tek tek görüntüleyebilir veya değiştirebilirsiniz: dizin, dizin oluşturucu veya veri kaynağı. Alanın veri türünü değiştirme gibi bazı düzenlemelere dizinde izin verilmez ancak çoğu özellik ve ayar değiştirilebilir. Bileşenlerin tek tek görüntülemek için panonuzda **Dizin**, **Dizin Oluşturucu** veya **Veri Kaynakları** kutucuğuna tıklayarak var olan nesnelerin bir listesini görüntüleyin.
 
 Bu makalede değinilen diğer özellikler hakkında daha fazla bilgi edinmek için şu bağlantıları ziyaret edin:
@@ -139,14 +143,14 @@ Azure sanal makinelerinde Azure SQL Database veya SQL Server gibi diğer veri ka
 > 
 > 
 
-## Ek: DocumentDB'de örnek veri oluşturma
+## <a name="appendix-create-sample-data-in-documentdb"></a>Ek: DocumentDB'de örnek veri oluşturma
 Bu bölümde, DocumentDB'de bu öğreticideki görevleri tamamlamak için kullanılabilecek küçük bir veritabanı oluşturulur.
 
 Aşağıdaki yönergeler genel rehberlik sağlar ancak eksiksiz değildir. DocumentDB portalında gezinme veya görevler hakkında daha fazla yardıma ihtiyacınız varsa DocumentDB belgelerine başvurabilirsiniz ancak ihtiyacınız olacak komutların çoğu panonun en üst kısmındaki hizmet komut çubuğunda veya veri tabanı dikey penceresindedir. 
 
   ![][1]
 
-### Bu öğretici için musicstoredb oluşturma
+### <a name="create-musicstoredb-for-this-tutorial"></a>Bu öğretici için musicstoredb oluşturma
 1. Müzik deposu JSON veri dosyalarını içeren bir ZIP dosyasını indirmek için [buraya tıklayın](https://github.com/HeidiSteen/azure-search-get-started-sample-data). Bu veri kümesi için 246 JSON belgesi sağlıyoruz.
 2. DocumentDB'yi aboneliğinize ekleyin ve ardından hizmet panosunu açın.
 3. `musicstoredb` kimliğiyle yeni bir veritabanı oluşturmak için **Veritabanı Ekle**'ye tıklayın. Oluşturulduktan sonra sayfanın daha aşağı kısmındaki veritabanı kutucuğunda görünür.
@@ -177,6 +181,6 @@ Bunu yapmanın kolay bir yolu varsayılan sorguyu kullanmaktır ancak varsayıla
 
 
 
-<!--HONumber=Oct16_HO1-->
+<!--HONumber=Nov16_HO2-->
 
 

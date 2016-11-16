@@ -1,12 +1,12 @@
 ---
-title: Resource Manager şablonları ile VS Code kullanma | Microsoft Docs
-description: Azure Resource Manager şablonları oluşturmak için Visual Studio Code kurulumunu gösterir.
+title: "Resource Manager şablonları ile VS Code kullanma | Microsoft Belgeleri"
+description: "Azure Resource Manager şablonları oluşturmak için Visual Studio Code kurulumunu gösterir."
 services: azure-resource-manager
 documentationcenter: na
 author: cmatskas
 manager: timlt
 editor: tysonn
-
+ms.assetid: 78f2aa22-df1d-41bd-92ec-dabd1175db88
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,14 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2016
 ms.author: chmatsk;tomfitz
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: f839784aaef511c60ec1c3eea0b64bfdd5f67a4f
+
 
 ---
-# Visual Studio Code’da Azure Resource Manager Şablonları ile Çalışma
+# <a name="working-with-azure-resource-manager-templates-in-visual-studio-code"></a>Visual Studio Code’da Azure Resource Manager Şablonları ile Çalışma
 Azure Resource Manager şablonları bir kaynağı ve ilgili bağımlılıkları tanımlayan JSON dosyalarıdır. Bu dosyalar bazen büyük ve karmaşık olabilir, bu nedenle araç desteği önemlidir. Visual Studio Code yeni, basit, açık kaynaklı ve çapraz platformlu bir kod düzenleyicisidir. Resource Manager şablonlarını [yeni bir uzantı](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) ile oluşturup düzenlemeyi destekler. VS Code her yerde çalışır ve aynı zamanda Resource Manager şablonlarınızı dağıtmak istemedikçe İnternet erişimi gerektirmez.
 
 Henüz VS Code’a sahip değilseniz [https://code.visualstudio.com/](https://code.visualstudio.com/) adresinden yükleyebilirsiniz.
 
-## Resource Manager uzantısını yükleme
+## <a name="install-the-resource-manager-extension"></a>Resource Manager uzantısını yükleme
 VS Code’da JSON şablonları ile çalışmak için bir uzantı yüklemeniz gerekir. Aşağıdaki adımlar Resource Manager JSON şablonları için dil desteğini indirip yükler:
 
 1. VS Code’u başlatın 
@@ -33,7 +37,7 @@ VS Code’da JSON şablonları ile çalışmak için bir uzantı yüklemeniz ger
    
    İşlem tamam!
 
-## Resource Manager parçacıklarını ayarlama
+## <a name="set-up-resource-manager-snippets"></a>Resource Manager parçacıklarını ayarlama
 Önceki adımlarda araç desteği yüklendi, ancak şimdi VS Code’un JSON şablon parçacıklarını kullanacak şekilde yapılandırılması gerekmektedir.
 
 1. [azure-xplat-arm-tooling](https://raw.githubusercontent.com/Azure/azure-xplat-arm-tooling/master/VSCode/armsnippets.json) deposundaki dosyanın içeriklerini panonuza kopyalayın.
@@ -51,7 +55,7 @@ VS Code’da JSON şablonları ile çalışmak için bir uzantı yüklemeniz ger
 
 Resource Manager parçacıklarını kullanmaya başlamak için yapmanız gerekenler bunlardır. Daha sonra, bu kurulumu testten geçireceğiz.
 
-## VS Code’da şablon ile çalışma
+## <a name="work-with-template-in-vs-code"></a>VS Code’da şablon ile çalışma
 Bir şablonla çalışmaya başlamanın en kolay yolu [Github](https://github.com/Azure/azure-quickstart-templates) üzerinde mevcut olan Hızlı Başlangıç Şablonlarından birini seçmeniz veya kendi şablonlarınızdan birini kullanmanızdır. Kaynak gruplarınızdan herhangi biri için portal aracılığıyla [bir şablonu dışarı aktarabilirsiniz](resource-manager-export-template.md). 
 
 1. Şablonu bir kaynak grubundan dışarı aktardıysanız ayıklanan dosyaları VS Code’da açın.
@@ -80,10 +84,10 @@ Bir şablonla çalışmaya başlamanın en kolay yolu [Github](https://github.co
    
     ![hata iletisi](./media/resource-manager-vs-code/unrecognized-function.png)
 
-## Yeni kaynaklarınızı dağıtma
+## <a name="deploy-your-new-resources"></a>Yeni kaynaklarınızı dağıtma
 Şablonunuz hazır olduğunda aşağıdaki yönergeleri izleyerek yeni kaynakları dağıtabilirsiniz: 
 
-### Windows
+### <a name="windows"></a>Windows
 1. Bir PowerShell komut istemi açın 
 2. Oturum açmak için şunu yazın: 
    
@@ -98,7 +102,7 @@ Bir şablonla çalışmaya başlamanın en kolay yolu [Github](https://github.co
 4. Parameters.json dosyanızdaki parametreleri güncelleştirin
 5. Şablonunuzu Azure’da dağıtmak için Deploy.ps1 dosyasını çalıştırın
 
-### OSX/Linux
+### <a name="osxlinux"></a>OSX/Linux
 1. Bir terminal penceresi açın 
 2. Oturum açmak için şunu yazın:
    
@@ -111,11 +115,14 @@ Bir şablonla çalışmaya başlamanın en kolay yolu [Github](https://github.co
    
         azure group deployment create -f <PathToTemplate> 
 
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 * Şablonlar hakkında daha fazla bilgi edinmek için bkz. [Azure Resource Manager şablonları yazma](resource-group-authoring-templates.md).
 * Şablon işlevleri hakkında bilgi edinmek için bkz. [Azure Resource Manager şablonu işlevleri](resource-group-template-functions.md).
 * Visual Studio Code ile çalışmaya ilişkin daha fazla örnek için [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) 2015 Connect [tanıtımında](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/) yer alan [Visual Studio Code ile bulut uygulamaları derleme](https://github.com/Microsoft/HealthClinic.biz/wiki/Build-cloud-apps-with-Visual-Studio-Code) bölümüne bakın. HealthClinic.biz tanıtımından daha fazla hızlı başlangıç ipuçları için bkz. [Azure Geliştirici Araçları Hızlı Başlangıç İpuçları](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts).
 
-<!--HONumber=Sep16_HO4-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

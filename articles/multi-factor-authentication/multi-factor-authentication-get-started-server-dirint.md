@@ -1,12 +1,12 @@
 ---
-title: Azure Multi-Factor Authentication ile Active Directory arasında dizin tümleştirme
-description: Bu, dizinleri eşitleyebilmeniz için Azure Multi-Factor Authentication Server ile Active Directory’yi nasıl tümleştireceğinizi açıklayan Azure Multi-factor authentication sayfasıdır.
+title: "Azure Multi-Factor Authentication ile Active Directory arasında dizin tümleştirme"
+description: "Bu, dizinleri eşitleyebilmeniz için Azure Multi-Factor Authentication Server ile Active Directory’yi nasıl tümleştireceğinizi açıklayan Azure Multi-factor authentication sayfasıdır."
 services: multi-factor-authentication
-documentationcenter: ''
+documentationcenter: 
 author: kgremban
 manager: femila
 editor: curtand
-
+ms.assetid: def7a534-cfb2-492a-9124-87fb1148ab1f
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,12 +14,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/04/2016
 ms.author: kgremban
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: da64189de722b5ee3552530bb1276539e5c6c323
+
 
 ---
-# Azure MFA Sunucusu ile Active Directory arasında dizin tümleştirme
+# <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Azure MFA Sunucusu ile Active Directory arasında dizin tümleştirme
 Dizin Tümleştirme bölümü, Active Directory veya başka bir LDAP dizini ile tümleştirmek üzere sunucuyu yapılandırmanızı sağlar.  Dizin şeması ile eşleşmesi için öznitelikleri yapılandırmanıza ve kullanıcıların otomatik eşitlemesini ayarlamanıza olanak tanır.
 
-## Ayarlar
+## <a name="settings"></a>Ayarlar
 Varsayılan olarak, Azure Multi-Factor Authentication Sunucusu kullanıcıları Active Directory'den aktarmak ya da eşitlemek üzere yapılandırılmıştır.  Sekme, varsayılan davranışın üzerine yazmanızı ve farklı bir LDAP dizini, ADAM dizini ya da belirli bir Active Directory etki alanı denetçisine bağlamanızı sağlar.  Ayrıca, LDAP Kimlik Doğrulaması için kullanmak üzere RADIUS hedefi olarak LDAP ya da LDAP Bağlama sunma, IIS Kimlik Doğrulaması için önceden kimlik doğrulaması ya da Kullanıcı Portalı için birincil kimlik doğrulaması sağlar.  Aşağıdaki tabloda tek tek ayarlar açıklanır.
 
 ![Ayarlar](./media/multi-factor-authentication-get-started-server-dirint/dirint.png)
@@ -37,7 +41,7 @@ LDAP yapılandırması ayarları aşağıdaki tabloda açıklanmaktadır.
 | Özellik | Açıklama |
 | --- | --- |
 | Sunucu |LDAP dizinini çalıştıran sunucunun ana bilgisayar adını veya IP adresini girin.  Noktalı virgülle ayrılarak bir yedek sunucu de belirtilebilir. <br>Not: Bağlama Türü SSL olduğunda, genellikle tam bir ana bilgisayar adı gereklidir. |
-| Temel DN |Tüm dizin sorgularının başlatılacağı temel dizin nesnesinin ayırt edici adını girin.  Örneğin, dc=abc,dc=com. |
+| Temel DN	 |Tüm dizin sorgularının başlatılacağı temel dizin nesnesinin ayırt edici adını girin.  Örneğin, dc=abc,dc=com. |
 | Bağlama türü - Sorgular |LDAP dizinini aramak için bağlanırken kullanmak üzere uygun bağlama türünü seçin.  Bu, içeri aktarımlar, eşitleme ve kullanıcı adı çözümleme için kullanılır. <br><br>  Anonim - Adsız bağlantı gerçekleştirilir.  Bağlama DN’si ve Bağlama Parolası kullanılmaz.  Bu yalnızca, LDAP dizini anonim bağlamaya izin verirse ve izinler uygun kayıtların ve özniteliklerin sorgulanmasına izin verirse çalışır.  <br><br> Basit - Bağlama DN’si ve Bağlama Parolası LDAP dizinine bağlanmak için düz metin olarak geçirilir.  Bu yalnızca sunucuya erişilebildiğini ve bağlama hesabının uygun erişime sahip olduğunu doğrulama doğrultusunda test etmek amacıyla kullanılmalıdır.  Bunun yerine, SSL’nin uygun sertifika yüklendikten sonra kullanılması önerilir.  <br><br> SSL - Bağlama DN’si ve Bağlama Parolası LDAP dizinine bağlanmak için SSL kullanarak şifrelenir.  Bu, LDAP dizininin güvendiği bir sertifikanın yerel olarak yüklenmesi gerektirir.  <br><br> Windows - Bağlama Kullanıcı Adı ve Bağlama Parolası bir Active Directory etki alanı denetleyicisine veya ADAM dizinine güvenli bir şekilde bağlanmak için kullanılır.  Bağlama Kullanıcı Adı boş bırakılırsa, oturum açan kullanıcının hesabı bağlamak için kullanılır. |
 | Bağlama türü - Kimlik doğrulamaları |LDAP bağlama kimlik doğrulaması gerçekleştirirken kullanmak üzere uygun bağlama türünü seçin.  Bağlama türü altındaki bağlama türü açıklamalarına bakın - Sorgular  Örneğin, bu SSL bağlama LDAP bağlama kimlik doğrulamaları için kullanılırken, sorgular için Anonim bağlama kullanılmasını sağlar. |
 | Bağlama DN’si veya Bağlama kullanıcı adı |LDAP dizinine bağlanırken kullanmak üzere hesabın kullanıcı kaydı ayırt edici adını girin.<br><br>Bağlama ayırt edici adı yalnızca Bağlama Türü Basit ya da SSL olduğunda kullanılır.  <br><br>Bağlama Türü Windows olduğunda, LDAP dizinine bağlanırken kullanmak üzere Windows hesabı kullanıcı adını girin.  Boş bırakılırsa, oturum açan kullanıcının hesabı bağlamak için kullanılır. |
@@ -45,7 +49,7 @@ LDAP yapılandırması ayarları aşağıdaki tabloda açıklanmaktadır.
 | Sorgu boyutu sınırı |Bir dizin aramasının döndüreceği maksimum kullanıcı sayısı için boyut sınırını belirtin.  Bu sınır LDAP dizinindeki yapılandırmayla eşleşmelidir.  Sayfalamanın desteklenmediği büyük aramalar için, içeri aktarma ve eşitleme işlemleri kullanıcıları toplu olarak almayı dener.  Burada belirtilen boyut sınırı LDAP dizininde yapılandırılan sınırdan daha büyükse, bazı kullanıcılar eksik olabilir. |
 | Test düğmesi |LDAP sunucusuna bağlanmayı test etmek için Test düğmesine tıklayın.  <br><br> Not: LDAP Kullan seçeneğinin bağlama test etmek için seçilmiş olması gerekmez.  Bu, LDAP yapılandırması kullanılmadan önce bağlamanın test edilmesini sağlar. |
 
-## Filtreler
+## <a name="filters"></a>Filtreler
 Filtreler, dizin araması yaparken kayıtları nitelemek üzere ölçüt belirlemenizi sağlar.  Filtre ayarlayarak, eşitlemek istediğiniz nesnelerin kapsamını belirleyebilirsiniz.  
 
 ![Filtreler](./media/multi-factor-authentication-get-started-server-dirint/dirint2.png)
@@ -56,7 +60,7 @@ Azure Multi-Factor Authentication aşağıdaki 3 seçeneğe sahiptir:
 * **Güvenlik grubu filtresi** - Dizin araması yaparken güvenlik grubu kayıtlarını nitelemek için kullanılan filtre ölçütlerini belirtin.  Active Directory ve ADAM için genellikle (&(objectCategory=group)(groupType:1.2.840.113556.1.4.804:=-2147483648)) kullanılır.  Diğer LDAP dizinleri için, her güvenlik grubu nesnesi türünü niteleyen filtre ölçütü dizin şemasına bağlı olarak kullanılmalıdır.  <br>Not: Boş bırakılırsa varsayılan olarak (&(objectCategory=group)(groupType:1.2.840.113556.1.4.804:=-2147483648)) kullanılır.
 * **Kullanıcı filtresi** - Dizin araması yaparken kullanıcı kayıtlarını nitelemek için kullanılan filtre ölçütlerini belirtin.  Active Directory ve ADAM için genellikle (&(objectClass=user)(objectCategory=person)) kullanılır.  Diğer LDAP dizinleri için, dizin şemasına bağlı olarak (objectClass=inetOrgPerson) ya da benzeri kullanılmalıdır. <br>Not: Boş bırakılırsa varsayılan olarak (&(objectCategory=person)(objectClass=user)) kullanılır.
 
-## Öznitelikler
+## <a name="attributes"></a>Öznitelikler
 Öznitelikler, belirli bir dizin için gerektiği şekilde özelleştirilebilir.  Bu, özel öznitelikler eklemenizi ve eşitlemeyi yalnızca size gereken özniteliklere ayarlamanızı sağlar.  Her öznitelik alanı değeri, dizin şemasında tanımlandığı şekilde öznitelik adı olmalıdır.  Daha fazla bilgi için aşağıdaki tabloyu kullanın.
 
 ![Öznitelikler](./media/multi-factor-authentication-get-started-server-dirint/dirint3.png)
@@ -96,7 +100,7 @@ Azure Multi-Factor Authentication aşağıdaki 3 seçeneğe sahiptir:
 
 ![Öznitelikleri Düzenleme](./media/multi-factor-authentication-get-started-server-dirint/dirint4.png)
 
-## Eşitleme
+## <a name="synchronization"></a>Eşitleme
 Eşitleme, Azure Multi-Factor kullanıcı veritabanını Active Directory ya da başka bir Basit Dizin Erişimi Protokolü (LDAP), Basit Dizin Erişimi Protokolü dizinindeki kullanıcılarla eşitlenmiş tutar.  İşlem kullanıcıları el ile Active Directory'den içeri aktarmaya benzer, ancak işlemek üzere Active Directory kullanıcısı ve güvenlik grubu değişikliklerini düzenli aralıklarla yoklar.  Ayrıca, kapsayıcı ya da güvenlik grubundan kaldırılan kullanıcıların devre dışı bırakılmasını ya da kaldırılmasını ve Active Directory’den silinen kullanıcıların kaldırılmasını sağlar.
 
 Multi-Factor Auth ADSync hizmeti, Active Directory’nin düzenli yoklamasını gerçekleştiren bir Windows hizmetidir.  Bu, Azure AD Sync ya da Azure AD Connect ile karıştırılmamalıdır.  Multi-Factor Auth ADSync, aynı kod tabanıyla oluşturulmakla birlikte, Azure Multi-Factor Authentication Sunucusu’na özeldir.  Bu, Durduruldu durumunda iken yüklenir ve çalışmak üzere yapılandırıldığında Multi-Factor Auth Sunucusu hizmeti tarafından başlatılır.  Çok sunuculu Multi-Factor Auth Sunucusu yapılandırmanız varsa, Multi-Factor Auth ADSync yalnızca tek bir sunucuda çalışabilir.
@@ -135,11 +139,14 @@ Yukarı Taşı ve Aşağı Taşı düğmeleri yöneticinin eşitleme öğelerini
 > 
 > 
 
-## Multi-Factor Auth Sunucuları
+## <a name="multifactor-auth-servers"></a>Multi-Factor Auth Sunucuları
 Yedek RADIUS proxy, LDAP proxy olarak hizmet etmesi ya da IIS Kimlik Doğrulaması için ek Multi-Factor Auth Sunucuları kurulabilir. Eşitleme yapılandırması tüm aracılar arasında paylaşılır. Ancak, bu aracılardan yalnızca birinde Multi-Factor Auth Sunucusu hizmeti çalışıyor olabilir. Bu sekme, eşitleme için etkinleştirilmesi gereken Multi-Factor Auth Sunucusu’nu seçmenizi sağlar.
 
 ![Multi-Factor Auth Sunucuları](./media/multi-factor-authentication-get-started-server-dirint/dirint6.png)
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

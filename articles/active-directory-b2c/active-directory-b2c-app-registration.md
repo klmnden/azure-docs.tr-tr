@@ -1,12 +1,12 @@
 ---
-title: 'Azure Active Directory B2C: Uygulama kaydı | Microsoft Docs'
-description: Uygulamanızı Azure Active Directory B2C'ye kaydetme
+title: "Azure Active Directory B2C: Uygulama kaydı | Microsoft Belgeleri"
+description: "Uygulamanızı Azure Active Directory B2C&quot;ye kaydetme"
 services: active-directory-b2c
-documentationcenter: ''
+documentationcenter: 
 author: swkrish
 manager: mbaldwin
 editor: bryanla
-
+ms.assetid: 20e92275-b25d-45dd-9090-181a60c99f69
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,15 +14,19 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/30/2016
 ms.author: swkrish
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 9078d36789c3cc653b298b7a4eaee1cbe888b85f
+
 
 ---
-# Azure Active Directory B2C: Uygulamanızı kaydetme
-## Önkoşul
+# <a name="azure-active-directory-b2c-register-your-application"></a>Azure Active Directory B2C: Uygulamanızı kaydetme
+## <a name="prerequisite"></a>Önkoşul
 Tüketicinin kaydolmasını ve oturum açmasını kabul eden bir uygulama oluşturmak için öncelikle uygulamayı Azure Active Directory B2C kiracısına kaydetmeniz gerekir. [Azure AD B2C kiracısı oluşturma](active-directory-b2c-get-started.md) makalesinde ana hatlarıyla belirtilen adımları izleyerek kendi kiracınızı edinin. Söz konusu makaledeki tüm adımları izledikten sonra B2C özellikleri dikey penceresi Başlangıç panonuza sabitlenir.
 
 [!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
-## B2C özellikleri dikey penceresine gitme
+## <a name="navigate-to-the-b2c-features-blade"></a>B2C özellikleri dikey penceresine gitme
 B2C özellikleri dikey penceresini Başlangıç panonuza sabitlediyseniz dikey pencereyi, B2C kiracısının Genel Yöneticisi olarak [Azure portalında](https://portal.azure.com/) oturum açar açmaz görürsünüz.
 
 Ayrıca dikey pencereye, [Azure portalındaki](https://portal.azure.com/) sol gezinti bölmesinde bulunan **Gözat** ve ardından **Azure AD B2C** seçeneklerine tıklayarak da erişebilirsiniz.
@@ -32,7 +36,7 @@ Ayrıca dikey pencereye, [Azure portalındaki](https://portal.azure.com/) sol ge
 > 
 > 
 
-## Bir uygulamayı kaydetme
+## <a name="register-an-application"></a>Bir uygulamayı kaydetme
 1. Azure portalındaki B2C özellikleri dikey penceresinde **Applications (Uygulamalar)** seçeneğine tıklayın.
 2. Dikey pencerenin en üstündeki **+Add (+Ekle)** seçeneğine tıklayın.
 3. Uygulamanızı tüketicilere tanımlayacak bir **Ad** girin. Örneğin, "Contoso B2C uygulaması"na girebilirsiniz.
@@ -51,11 +55,14 @@ Ayrıca dikey pencereye, [Azure portalındaki](https://portal.azure.com/) sol ge
 > 
 > 
 
-## Hızlı Başlangıç Uygulaması oluşturma
+## <a name="build-a-quick-start-application"></a>Hızlı Başlangıç Uygulaması oluşturma
 Azure AD B2C'ye kayıtlı bir uygulamaya sahip olduğunuza göre başlamak ve çalıştırmak için hızlı başlangıç öğreticilerimizden birini tamamlayabilirsiniz. İşte birkaç öneri:
 
 [!INCLUDE [active-directory-v2-quickstart-table](../../includes/active-directory-b2c-quickstart-table.md)]
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

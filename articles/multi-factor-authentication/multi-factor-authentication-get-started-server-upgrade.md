@@ -1,12 +1,12 @@
 ---
-title: PhoneFactor Aracısı’nı Azure Multi-Factor Authentication Sunucusu’na yükseltme
-description: Bu belgede Azure MFA Sunucusu kullanmaya başlama ve eski phonefactor aracısından yükseltme açıklanır.
+title: "PhoneFactor Aracısı’nı Azure Multi-Factor Authentication Sunucusu’na yükseltme"
+description: "Bu belgede Azure MFA Sunucusu kullanmaya başlama ve eski phonefactor aracısından yükseltme açıklanır."
 services: multi-factor-authentication
-documentationcenter: ''
+documentationcenter: 
 author: kgremban
 manager: femila
 editor: curtland
-
+ms.assetid: 42838ff7-bdf2-4d06-bacc-b3839a00cd76
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,12 +14,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/04/2016
 ms.author: kgremban
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 1cd92121b150461698674b8acd4369d09c9b9920
+
 
 ---
-# PhoneFactor Aracısı’nı Azure Multi-Factor Authentication Sunucusu’na yükseltme
+# <a name="upgrading-the-phonefactor-agent-to-azure-multifactor-authentication-server"></a>PhoneFactor Aracısı’nı Azure Multi-Factor Authentication Sunucusu’na yükseltme
 PhoneFactor Agent v5.x ya da eski bir sürümünden Azure Multi-Factor Authentication Sunucusu’na yükseltmek PhoneFactor Aracısı ve bağlantılı bileşenlerin Multi-Factor Authentication Sunucusu ve bunun bağlı bileşenleri yüklenmeden önce kaldırılmasını gerektirir.
 
-## PhoneFactor Aracısı’nı Azure Multi-Factor Authentication Sunucusu’na yükseltmek için
+## <a name="to-upgrade-the-phonefactor-agent-to-azure-multifactor-authentication-server"></a>PhoneFactor Aracısı’nı Azure Multi-Factor Authentication Sunucusu’na yükseltmek için
 <ol>
 <li>İlk olarak, PhoneFactor veri dosyasını yedekleyin. Varsayılan yükleme konumu C:\Program Files\PhoneFactor\Data\Phonefactor.pfdata şeklindedir.
 
@@ -66,6 +70,6 @@ PhoneFactor Agent v5.x ya da eski bir sürümünden Azure Multi-Factor Authentic
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

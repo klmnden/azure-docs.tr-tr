@@ -1,12 +1,12 @@
 ---
-title: 'Öğretici: Azure Portal ile DevOps | Microsoft Docs'
-description: Azure Portal'daki çeşitli DevOps iş akışları hakkında bilgi edinin.
+title: "Eğitmen: Azure Portal ile DevOps | Microsoft Belgeleri"
+description: "Azure Portal&quot;daki çeşitli DevOps iş akışları hakkında bilgi edinin."
 services: azure-portal
-documentationcenter: ''
+documentationcenter: 
 author: mlearned
 manager: douge
 editor: mlearned
-
+ms.assetid: 4f1c5bc1-c732-4d35-b5df-0fd68e547d38
 ms.service: multiple
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 06/05/2016
 ms.author: mlearned
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: b3ef77cc1b3b13a1603f1ca7c6d4a000b69453e0
+
 
 ---
-# Öğretici: Azure Portal ile DevOps
+# <a name="tutorial-devops-with-the-azure-portal"></a>Öğretici: Azure Portal ile DevOps
 Azure platformu esnek DevOps iş akışları ile doludur. Bu öğreticide Azure Portal’ın çalışan uygulamalar geliştirme, test etme, dağıtma, sorun giderme, izleme ve yönetme özelliklerinden nasıl yararlandığını öğreneceksiniz. Bu öğretici aşağıdakilere odaklanır:
 
 1. Bir web uygulaması oluşturma ve sürekli dağıtımı etkinleştirme
@@ -24,13 +28,13 @@ Azure platformu esnek DevOps iş akışları ile doludur. Bu öğreticide Azure 
 3. Bir uygulamayı izleme ve sorunlarını giderme
 4. Genel uygulama yönetimi görevleri
 
-## Bir web uygulaması oluşturma ve sürekli dağıtımı etkinleştirme
+## <a name="creating-a-web-app-and-enabling-continuous-deployment"></a>Bir web uygulaması oluşturma ve sürekli dağıtımı etkinleştirme
 [Azure Uygulama Hizmeti](https://azure.microsoft.com/services/app-service/) ile bu öğreticinin geri kalanında kullanacağınız bir web uygulaması oluşturun. Başlangıçta kaynak kod deponuzdan çalışan Azure ortamımıza sürekli dağıtımı etkinleştirin.
 
 1. Azure Portal’da oturum açın
 2. **Uygulama Hizmetleri** &gt; **Simge ekle** seçeneğini belirleyin ve bir ad girin, aboneliğinizi seçin ve hizmetin kapsayıcısı olarak görev yapacak yeni bir kaynak grubu oluşturun.
    
-   Kaynak grupları, çözümün [Azure Resource Manager](https://azure.microsoft.com/documentation/articles/resource-group-overview/) aracılığıyla tek bir grup olarak faturalandırma, dağıtımlar ve izleme gibi çeşitli yönlerini yönetmenize imkan tanır.
+   Kaynak grupları, [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) aracılığıyla çözümün faturalama, dağıtım ve izleme gibi çeşitli bölümlerini tek bir grupta yönetmenize olanak tanır.
    
    ![image1][image1]
 3. Birkaç dakika sonra uygulama hizmetiniz oluşturulur. Portalda hizmete ilişkin çeşitli menü seçeneklerini keşfetmek için birkaç dakikanızı ayırın.
@@ -79,7 +83,7 @@ Azure platformu esnek DevOps iş akışları ile doludur. Bu öğreticide Azure 
     
     Azure Portal ile sürekli dağıtımın etkinleştirilmesi kolay bir deneyimdir. Ayrıca daha karmaşık yayın işlem hatları oluşturabilir ve otomatik derleme ile yayın yönetimi sistemlerinden yararlanma dahil olmak üzere var olan kaynak denetimi ve Azure’a dağıtılacak sürekli tümleştirme sistemleri ile diğer birçok tekniği kullanabilirsiniz.
 
-## Uygulama geliştirme ve test etme
+## <a name="develop-and-test-an-app"></a>Uygulama geliştirme ve test etme
 Ardından, kod temelinde bazı değişiklikler yapın ve bu değişiklikleri hızlıca dağıtın. Ayrıca web uygulaması için bazı performans testleri ayarlayacaksınız.
 
 1. Azure Portal'da gezinti bölmesinden Uygulama Hizmetleri’ni seçin ve App Service’inizi bulun.
@@ -145,7 +149,7 @@ Ardından, kod temelinde bazı değişiklikler yapın ve bu değişiklikleri hı
     
     ![image36][image36]
 
-## Bir uygulamayı izleme ve sorunlarını giderme
+## <a name="monitoring-and-troubleshooting-an-app"></a>Bir uygulamayı izleme ve sorunlarını giderme
 Azure, çalışan uygulamaları izleme ve sorunlarını gidermeye yönelik çok sayıda özellik sağlar.
 
 1. Azure Portal’da web uygulamamız için Araçlar’ı seçin.
@@ -176,7 +180,7 @@ Azure, çalışan uygulamaları izleme ve sorunlarını gidermeye yönelik çok 
    ![image44][image44]
 7. Özellikler kategorisine inin ve Tanılama günlükleri’ni seçin.
    
-    ![image45][image45]
+      ![image45][image45]
 8. Günlük kaydına ilişkin çeşitli seçeneklere dikkat edin. Web sunucusu günlüğünü açın ve Kaydet'e tıklayın.
    
    ![image46][image46]
@@ -208,7 +212,7 @@ Azure, çalışan uygulamaları izleme ve sorunlarını gidermeye yönelik çok 
     
     Azure Portal, çalışan uygulamalarımızı izlemeye ve sorunlarını gidermeye yardımcı olmak üzere güçlü ve bilindik araç deneyimleri sağlar. Ayrıca işlemleri geri dönüştürme, çeşitli veri koleksiyonlarını etkinleştirme ve devre dışı bırakma ve hatta Microsoft profesyonel desteği ile tümleştirme gibi görevleri gerçekleştirerek hızlıca önlem alabilirsiniz.
 
-## Genel Uygulama Yönetimi
+## <a name="general-application-management"></a>Genel Uygulama Yönetimi
 Uygulamaları yönetirken çoğunlukla yedekleme stratejilerini yapılandırma, kimlik sağlayıcılarını uygulama ve yönetme ile Rol tabanlı erişim denetimini yapılandırma gibi çok çeşitli etkinlikler gerçekleştirmeniz gerekir. Diğer DevOps deneyimlerinde olduğu gibi Azure platformu da bu görevleri doğrudan portalda tümleştirir.
 
 1. Web Uygulaması veri kaybından koruduğunuzdan emin olmak için yedeklemeleri yapılandırmanız gerekir. Web uygulamanızın Ayarlar alanına gidin.
@@ -254,11 +258,11 @@ Uygulamaları yönetirken çoğunlukla yedekleme stratejilerini yapılandırma, 
     
      ![image69][image69]
 
-## Özet
+## <a name="summary"></a>Özet
 Bu öğretici bir web uygulaması için sürekli dağıtımı hızlıca etkinleştirerek, çeşitli geliştirme ve test etkinlikleri gerçekleştirerek, canlı bir uygulamayı izleyip sorunlarını gidererek ve son olarak olağanüstü durum kurtarma, kimlik ve rol tabanlı erişim denetimi gibi anahtar stratejileri yöneterek Azure platformunun bazı olumlu yönlerini göstermiştir. Azure platformu bu DevOps iş akışları için tümleştirilmiş bir deneyim sağlar ve elinizdeki metnin bağlamını koruyarak verimli bir şekilde çalışabilirsiniz.
 
-## Sonraki adımlar
-* Azure Resource Manager, Azure platformunda DevOps’un etkinleştirilmesi için önemlidir.  Daha fazla bilgi için [Azure Resource Manager’a genel bakış](../resource-group-overview.md) sayfasını ziyaret edin.
+## <a name="next-steps"></a>Sonraki adımlar
+* Azure Resource Manager, Azure platformunda DevOps’un etkinleştirilmesi için önemlidir.  Daha fazla bilgi edinmek için bkz. [Azure Resource Manager'a genel bakış](../azure-resource-manager/resource-group-overview.md).
 * Azure Uygulama Hizmeti dağıtımı hakkında daha fazla bilgi için [Uygulamanızı Azure Uygulama Hizmeti’e dağıtma](../app-service-web/web-sites-deploy.md) sayfasını ziyaret edin
 
 [image1]: ./media/tutorial-azureportal-devops/image1.png
@@ -333,6 +337,6 @@ Bu öğretici bir web uygulaması için sürekli dağıtımı hızlıca etkinle�
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Nov16_HO2-->
 
 

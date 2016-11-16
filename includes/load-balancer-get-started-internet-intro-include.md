@@ -1,8 +1,12 @@
-An Azure load balancer is a Layer-4 (TCP, UDP) load balancer. The load balancer provides high availability by distributing incoming traffic among healthy service instances in cloud services or virtual machines in a load balancer set. Azure Load Balancer can also present those services on multiple ports, multiple IP addresses, or both.
+Azure yük dengeleyici bir Katman 4 (TCP, UDP) yük dengeleyicidir. Yük dengeleyici, gelen trafiği bulut hizmetlerindeki sağlıklı hizmet örnekleri veya bir yük dengeleyici kümesindeki sanal makineler arasında dağıtarak yüksek kullanılabilirlik sağlar. Ayrıca, Azure Load Balancer bu hizmetleri birden çok bağlantı noktasında, birden çok IP adresinde ya da her ikisinde birden sağlayabilir.
 
-You can configure a load balancer to:
+Bir yük dengeleyiciyi aşağıdakileri yapacak şekilde yapılandırabilirsiniz:
 
-* Load balance incoming Internet traffic to virtual machines (VMs). We refer to a load balancer in this scenario as an [Internet-facing load balancer](../articles/load-balancer/load-balancer-internet-overview.md).
-* Load balance traffic between VMs in a virtual network (VNet), between VMs in cloud services, or between on-premises computers and VMs in a cross-premises virtual network. We refer to a load balancer in this scenario as an [internal load balancer (ILB)](../articles/load-balancer/load-balancer-internal-overview.md).
-* Forward external traffic to a specific VM instance.
+* Gelen İnternet trafiği yükünü sanal makineler (VM’ler) arasında dengeleme. Bu senaryodaki bir yük dengeleyiciye [İnternet’e yönelik yük dengeleyici](../articles/load-balancer/load-balancer-internet-overview.md) diyoruz.
+* Trafiği bir sanal ağdaki (VNet) VM’ler arasında, bulut hizmetlerindeki VM’ler arasında veya şirket içi bilgisayarlar ile şirketler arası bir sanal ağdaki VM’ler arasında dengeleme. Bu senaryodaki bir yük dengeleyiciye [iç yük dengeleyici (ILB)](../articles/load-balancer/load-balancer-internal-overview.md) diyoruz.
+* Dış trafiği belirli bir VM örneğine iletme.
+
+
+<!--HONumber=Nov16_HO2-->
+
 

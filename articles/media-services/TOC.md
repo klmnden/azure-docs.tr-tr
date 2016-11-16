@@ -1,16 +1,16 @@
 # [Genel Bakış](media-services-overview.md)
 ## [Kavramlar ](media-services-concepts.md)
-## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/media-services/)
-## [Sürüm notları](media-services-release-notes.md)
+
+
 # Başlarken
 ## [Hesap oluşturma ve yönetme](media-services-portal-create-account.md)
 ## [Geliştirme ortamınızı kurma](media-services-set-up-computer.md)
-## İsteğe bağlı video
+## İsteğe bağlı video gönderme
 ### [Portal](media-services-portal-vod-get-started.md)
 ### [.NET SDK](media-services-dotnet-get-started.md)
 ### [Java](media-services-java-how-to-use.md)
 ### [REST](media-services-rest-get-started.md)
-## Canlı akış
+## Canlı akış gerçekleştirme
 ### [Portal](media-services-portal-live-passthrough-get-started.md)
 ### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
 
@@ -166,12 +166,14 @@
 ###[Yeniden deneme mantığı](media-services-retry-logic-in-dotnet-sdk.md)
 
 # Başvuru
-## [Media Services .NET SDK](media-services-dotnet-how-to-use.md)
-## [Media Services REST API'si](media-services-rest-how-to-use.md)
+## [Sürüm notları](media-services-release-notes.md)
+## [.NET](media-services-dotnet-how-to-use.md)
+## [REST](media-services-rest-how-to-use.md)
 ## [Media Encoder Premium İş Akışı Biçimleri ve Kod Çözücüleri](media-services-premium-workflow-encoder-formats.md)
 ## [Media Encoder Standard Biçimleri ve Kod Çözücüleri](media-services-media-encoder-standard-formats.md)
 
-# İlgili
+# Kaynaklar
+## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/media-services/)
 ## [Azure Media Services Topluluğu](media-services-community.md)
 
 

@@ -1,13 +1,13 @@
 ---
-title: DocumentDB ile Python Flask Web Uygulaması Geliştirme | Microsoft Docs
-description: Azure'da barındırılan bir Python Flask web uygulamasından veri depolamak ve verilere erişmek için DocumentDB kullanma konulu veritabanı öğreticisini inceleyin. Uygulama geliştirme çözümleri bulun.
-keywords: Uygulama geliştirme, veritabanı öğreticisi, python flask, python web uygulaması, python web geliştirme, documentdb, Azure, Microsoft Azure
+title: "DocumentDB ile Python Flask Web Uygulaması Geliştirme | Microsoft Belgeleri"
+description: "Azure&quot;da barındırılan bir Python Flask web uygulamasından veri depolamak ve verilere erişmek için DocumentDB kullanma konulu veritabanı öğreticisini inceleyin. Uygulama geliştirme çözümleri bulun."
+keywords: "Uygulama geliştirme, veritabanı öğreticisi, python flask, python web uygulaması, python web geliştirme, documentdb, Azure, Microsoft Azure"
 services: documentdb
 documentationcenter: python
 author: syamkmsft
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 20ebec18-67c2-4988-a760-be7c30cfb745
 ms.service: documentdb
 ms.workload: data-management
 ms.tgt_pltfrm: na
@@ -15,6 +15,10 @@ ms.devlang: python
 ms.topic: hero-article
 ms.date: 08/25/2016
 ms.author: syamk
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: b55d61071dac6d173f37bdde7f9b60e53ae2485f
+
 
 ---
 # <a name="python-flask-web-application-development-with-documentdb"></a>DocumentDB ile Python Flask Web Uygulaması Geliştirme
@@ -57,7 +61,7 @@ Bu makaledeki yönergeleri izlemeden önce aşağıdakilerin yüklenmiş olduğu
 
 * [Microsoft İndirme Merkezi][3] adresinden Python 2.7 için Microsoft Visual C++ Derleyicisi.
 
-## <a name="step-1:-create-a-documentdb-database-account"></a>1. Adım: DocumentDB veritabanı hesabı oluşturma
+## <a name="step-1-create-a-documentdb-database-account"></a>1. Adım: DocumentDB veritabanı hesabı oluşturma
 Bir DocumentDB hesabı oluşturarak başlayalım. Hesabınız zaten varsa [2. Adım: Yeni bir Python Flask web uygulaması oluşturma](#step-2:-create-a-new-python-flask-web-application) adımına atlayabilirsiniz.
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
@@ -65,7 +69,7 @@ Bir DocumentDB hesabı oluşturarak başlayalım. Hesabınız zaten varsa [2. Ad
 <br/>
 Şimdi en başından başlayarak yeni bir Python Flask web uygulamasının nasıl oluşturulacağını göstereceğiz.
 
-## <a name="step-2:-create-a-new-python-flask-web-application"></a>2. Adım: Yeni bir Python Flask web uygulaması oluşturma
+## <a name="step-2-create-a-new-python-flask-web-application"></a>2. Adım: Yeni bir Python Flask web uygulaması oluşturma
 1. Visual Studio'da, **Dosya** menüsündeki **Yeni** seçeneğine gidin ve ardından **Proje**'ye tıklayın.
    
     **Yeni Proje** iletişim kutusu görünür.
@@ -84,7 +88,7 @@ Bir DocumentDB hesabı oluşturarak başlayalım. Hesabınız zaten varsa [2. Ad
    
     Ortam başarılı bir şekilde yüklendiğinde çıktı penceresi şunu görüntüler: `Successfully installed Flask-0.10.1 Jinja2-2.8 MarkupSafe-0.23 Werkzeug-0.11.5 itsdangerous-0.24 'requirements.txt' was installed successfully.`
 
-## <a name="step-3:-modify-the-python-flask-web-application"></a>3. Adım: Python Flask web uygulamasını değiştirme
+## <a name="step-3-modify-the-python-flask-web-application"></a>3. Adım: Python Flask web uygulamasını değiştirme
 ### <a name="add-the-python-flask-packages-to-your-project"></a>Python Flask paketlerini projenize ekleme.
 Projeniz kurulduktan sonra, pydocumentdb ve DocumentDB için Python paket dahil olmak üzere gerekli Flask paketlerini projenize eklemeniz gerekir.
 
@@ -124,7 +128,7 @@ Her şeyin doğru şekilde yüklendiğinden emin olmamız gerekir.
     ![Bir tarayıcıda görüntülenen boş Python Flask web geliştirme projesi](./media/documentdb-python-application/image12.png)
 3. Visual Studio'da **Shift**+**F5**'e basarak web sitesinin hata ayıklamasını durdurun.
 
-### <a name="create-database,-collection,-and-document-definitions"></a>Veritabanı, koleksiyon ve belge tanımları oluşturma
+### <a name="create-database-collection-and-document-definitions"></a>Veritabanı, koleksiyon ve belge tanımları oluşturma
 Şimdi yeni dosyalar ekleyip diğer dosyaları güncelleştirerek oylama uygulamanızı oluşturalım.
 
 1. Çözüm Gezgini'nde **öğretici** projeye sağ tıklayın, **Ekle**'ye tıklayın ve ardından **Yeni Öğe**'ye tıklayın. **Boş Python Dosyası**'nı seçin ve dosyaya **forms.py** adını verin.  
@@ -142,7 +146,7 @@ class VoteForm(Form):
 ```
 
 
-### <a name="add-the-required-imports-to-views.py"></a>Gerekli içeri aktarmaları views.py'ye ekleme
+### <a name="add-the-required-imports-to-viewspy"></a>Gerekli içeri aktarmaları views.py'ye ekleme
 1. Çözüm Gezgini'nde **öğretici** klasörünü genişletin ve **views.py** dosyasını açın. 
 2. Aşağıdaki içeri aktarma deyimlerini **views.py** dosyasının üstüne ekleyin ve ardından dosyayı kaydedin. Bunlar, DocumentDB'nin PythonSDK'sını ve Flask paketlerini içeri aktarır.
    
@@ -152,7 +156,7 @@ class VoteForm(Form):
     import pydocumentdb.document_client as document_client
     ```
 
-### <a name="create-database,-collection,-and-document"></a>Veritabanı, koleksiyon ve belge oluşturma
+### <a name="create-database-collection-and-document"></a>Veritabanı, koleksiyon ve belge oluşturma
 * Yine **views.py**'de dosyanın sonuna aşağıdaki kodu ekleyin. Böylece form tarafından kullanılan veritabanı oluşturulmuş olur. **views.py**'de var olan hiçbir kodu silmeyin. Yalnızca bunu sona ekleyin.
 
 ```python
@@ -195,7 +199,7 @@ def create():
 > 
 > 
 
-### <a name="read-database,-collection,-document,-and-submit-form"></a>Veritabanı, koleksiyon ve belge okuma ve form gönderme
+### <a name="read-database-collection-document-and-submit-form"></a>Veritabanı, koleksiyon ve belge okuma ve form gönderme
 * Yine **views.py**'de dosyanın sonuna aşağıdaki kodu ekleyin. Böylece form kurma ve veritabanı, koleksiyon ve belge okuma gerçekleşmiş olur. **views.py**'de var olan hiçbir kodu silmeyin. Yalnızca bunu sona ekleyin.
 
 ```python
@@ -310,7 +314,7 @@ def vote():
     {% endblock %}
     ```
 
-### <a name="add-a-configuration-file-and-change-the-\_\_init\_\_.py"></a>Bir yapılandırma dosyası ekleme ve \_\_init\_\_.py'yi değiştirme
+### <a name="add-a-configuration-file-and-change-the-initpy"></a>Bir yapılandırma dosyası ekleme ve \_\_init\_\_.py'yi değiştirme
 1. Çözüm Gezgini'nde **öğretici** projesine sağ tıklayın, **Ekle**'ye tıklayın, **Yeni Öğe**'ye tıklayın, **Boş Python Dosyası**'nı seçin ve ardından dosyaya **config.py** adını verin. Bu yapılandırma dosyası, Flask'taki formlar için gereklidir. Bunu gizli bir anahtar sağlamak için de kullanabilirsiniz. Ancak bu anahtar bu öğretici için gerekli değildir.
 2. Aşağıdaki kodu config.py'ye ekleyin. Bir sonraki adımda **DOCUMENTDB\_HOST** ve **DOCUMENTDB\_KEY** değerlerini değiştirmeniz gerekecektir.
    
@@ -343,7 +347,7 @@ def vote():
    
     ![Visual Studio Çözüm Gezgini penceresinin ekran görüntüsü](./media/documentdb-python-application/image15.png)
 
-## <a name="step-4:-run-your-web-application-locally"></a>4. Adım: Web uygulamanızı yerel olarak çalıştırma
+## <a name="step-4-run-your-web-application-locally"></a>4. Adım: Web uygulamanızı yerel olarak çalıştırma
 1. **Ctrl**+**Shift**+**B** tuşlarına basarak çözümü oluşturun.
 2. Derleme başarılı olduktan sonra, **F5**'e basarak web sitesini başlatın. Ekranınızda şunu göreceksiniz:
    
@@ -359,12 +363,12 @@ def vote():
     ![Oylamanın Sonuçları sayfasını gösteren ekran görüntüsü](./media/documentdb-python-application/image19.png)
 6. Shift + F5'e basarak projenin hata ayıklamasını durdurun.
 
-## <a name="step-5:-deploy-the-web-application-to-azure-websites"></a>5. Adım: Web uygulamasını Azure Web Sitelerine dağıtma
+## <a name="step-5-deploy-the-web-application-to-azure-websites"></a>5. Adım: Web uygulamasını Azure Web Sitelerine dağıtma
 Artık uygulamanın tamamı doğrudan DocumentDB'de çalıştığına göre, bunu Azure Web Sitelerine dağıtacağız.
 
 1. Çözüm Gezgini'nde projeye sağ tıklayın (yerel olarak çalıştırmaya devam etmediğinizden emin olun) ve **Yayımla**'yı seçin.  
    
-    ![Yayımla seçeneği vurgulanmış şekilde Çözüm Gezgini'nde öğreticinin seçili olduğu ekran görüntüsü](./media/documentdb-python-application/image20.png)
+     ![Yayımla seçeneği vurgulanmış şekilde Çözüm Gezgini'nde öğreticinin seçili olduğu ekran görüntüsü](./media/documentdb-python-application/image20.png)
 2. **Web'i Yayımla** penceresinde **Microsoft Azure Web Apps**'i seçin ve **İleri**'ye tıklayın.
    
     ![Microsoft Azure Web Apps vurgulanmış Web'i Yayımla penceresinin ekran görüntüsü](./media/documentdb-python-application/image21.png)
@@ -405,6 +409,6 @@ Ek Python Flask öğreticileri için bkz. [Büyük Flask Öğreticisi, 1. Bölü
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

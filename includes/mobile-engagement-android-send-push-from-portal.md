@@ -1,4 +1,4 @@
-### GCM API Anahtarınıza Mobile Engagement erişimi verin
+### <a name="grant-mobile-engagement-access-to-your-gcm-api-key"></a>GCM API Anahtarınıza Mobile Engagement erişimi verin
 Mobile Engagement’ın sizin adınıza anında iletme bildirimleri göndermesine izin vermek için API Anahtarınıza erişim izni vermeniz gerekir. Bu da, anahtarınızın yapılandırıp Mobile Engagement portalına girilerek gerçekleştirilir.
 
 1. Klasik Azure Portalı’nızdan bu proje için kullanmakta olduğunuz uygulamadan emin olun ve alttaki **Katıl** düğmesine tıklayın:
@@ -14,7 +14,7 @@ Mobile Engagement’ın sizin adınıza anında iletme bildirimleri göndermesin
    
     ![](./media/mobile-engagement-android-send-push/api-key.png)
 
-## <a id="send"></a>Uygulamanıza bildirim gönderme
+## <a name="a-idsendasend-a-notification-to-your-app"></a><a id="send"></a>Uygulamanıza bildirim gönderme
 Şimdi de, uygulamamıza anında iletme bildirimi gönderen basit bir anında iletme bildirimi kampanyası oluşturacağız.
 
 1. Mobile Engagement portalınızın **REACH** sekmesine gidin.
@@ -42,6 +42,8 @@ Mobile Engagement’ın sizin adınıza anında iletme bildirimleri göndermesin
    
     ![](./media/mobile-engagement-android-send-push/campaign-activate.png)
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

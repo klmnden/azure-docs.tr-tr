@@ -1,21 +1,25 @@
 ---
-title: Visual Studio Eğilimlerini Çözümleme | Microsoft Docs
-description: Visual Studio Application Insights telemetri eğilimlerini çözümleyin, görselleştirin ve keşfedin.
+title: "Visual Studio Eğilimlerini Çözümleme | Microsoft Belgeleri"
+description: "Visual Studio Application Insights telemetri eğilimlerini çözümleyin, görselleştirin ve keşfedin."
 services: application-insights
 documentationcenter: .net
 author: numberbycolors
 manager: douge
-
+ms.assetid: 3150c6fc-2691-44f6-a290-fc5cd68e692a
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/08/2016
+ms.date: 10/25/2016
 ms.author: daviste
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 00c697b47ef17c9c575378c7d433b9bf19602749
+
 
 ---
-# Visual Studio Eğilimlerini Çözümleme
+# <a name="analyzing-trends-in-visual-studio"></a>Visual Studio Eğilimlerini Çözümleme
 Application Insights Eğilimleri aracı, uygulamanızın önemli telemetri olaylarının zaman içinde nasıl değiştiğini gösterir ve sorunları ve anormallikleri hızlıca belirlemenize yardımcı olur. Sizi daha ayrıntılı tanılama bilgilerine bağlayan Eğilimler, uygulamanızın performansını geliştirmenize, özel durumların nedenlerini izlemenize ve özel olaylarınıza ilişkin bilgileri açığa çıkarmanıza yardımcı olabilir.
 
 ![Örnek Eğilimler penceresi](./media/app-insights-visual-studio-trends/app-insights-trends-hero-750.png)
@@ -25,7 +29,7 @@ Application Insights Eğilimleri aracı, uygulamanızın önemli telemetri olayl
 > 
 > 
 
-## Application Insights Eğilimleri’ni açma
+## <a name="open-application-insights-trends"></a>Application Insights Eğilimleri’ni açma
 Application Insights Eğilimleri penceresini açmak için:
 
 * Application Insights araç çubuğu düğmesinden **Telemetri Eğilimlerini Keşfet**’i seçin veya
@@ -34,7 +38,7 @@ Application Insights Eğilimleri penceresini açmak için:
 
 Kaynak seçmenizi isteyen bir ileti görebilirsiniz. **Kaynak seç** öğesine tıklayın, bir Azure aboneliği ile oturum açın, ardından listeden telemetri eğilimlerini çözümlemek istediğiniz bir Application Insights kaynağını seçin.
 
-## Eğilim analizi seçme
+## <a name="choose-a-trend-analysis"></a>Eğilim analizi seçme
 ![Eğilim analizi genel türleri menüsü](./media/app-insights-visual-studio-trends/app-insights-trends-1-750.png)
 
 Her biri son 24 saatin verilerini çözümleyen beş genel eğilim analizinden birini seçerek işe başlayın:
@@ -47,7 +51,7 @@ Her biri son 24 saatin verilerini çözümleyen beş genel eğilim analizinden b
 
 Önceden oluşturulmuş bu çözümlemeler Eğilimler penceresinin sol üst köşesindeki **Sık kullanılan telemetri analizi türlerini görüntüleyin** düğmesinden kullanılabilir.
 
-## Uygulamanızdaki eğilimleri görselleştirme
+## <a name="visualize-trends-in-your-application"></a>Uygulamanızdaki eğilimleri görselleştirme
 Application Insights Eğilimleri, uygulamanızın telemetrisinden bir zaman dizisi görselleştirmesi oluşturur. Her bir zaman dizisi görselleştirmesi bir telemetri türünü, ilgili telemetrinin bir özelliğine göre gruplandırarak ve bir zaman aralığı üzerinde gösterir. Örneğin, oluşturuldukları ülkeye göre gruplandırılmış son 24 saatteki sunucu isteklerini görüntülemek isteyebilirsiniz. Bu örnekte görselleştirme üzerindeki her baloncuk bir saat boyunca belirli bir ülke/bölge için yapılan sunucu isteklerinin sayısını gösterir.
 
 Hangi telemetri türlerini görüntüleyeceğinizi ayarlamak için pencerenin üstündeki denetimleri kullanın. İlk olarak ilgilendiğiniz telemetri türlerini seçin:
@@ -69,7 +73,7 @@ Görseldeki baloncuklar arasında gezinmek için:
 > 
 > 
 
-## Filtre
+## <a name="filter"></a>Filtre
 Pencerenin altındaki filtre denetimleri ile daha özel eğilimleri bulun. Bir filtre uygulamak için adına tıklayın. Telemetrinizin belirli bir yönünde gizlenmiş olabilecek eğilimleri bulmak için farklı filtreler arasında hızlıca geçiş yapabilirsiniz. Bir yönde Özel Durum Türü gibi bir filtre uygularsanız, diğer yönlerdeki filtreler grileştirilmiş görünse bile tıklanabilir durumda kalır. Bir filtrenin uygulamasını kaldırmak için filtreye yeniden tıklayın. Aynı yönde birden fazla filtreyi seçmek için Ctrl tuşuna basıp tıklayın.
 
 ![Eğilim filtreleri](./media/app-insights-visual-studio-trends/TrendsFiltering-750.png)
@@ -85,7 +89,7 @@ Bu filtrelerden birini kaldırmak için yöne ilişkin **Seçili filtreleri kald
 
 ![Birden fazla filtre](./media/app-insights-visual-studio-trends/TrendsFiltering2-750.png)
 
-## Anormallikleri bulma
+## <a name="find-anomalies"></a>Anormallikleri bulma
 Eğilimler aracı, aynı zaman dizisindeki diğer baloncuklara kıyasla anormal olan olayların baloncuklarını vurgulayabilir. Görünüm Türü açılır listesinde **Zaman aralığındaki sayımlar (anomalileri vurgula)** veya **Zaman aralığındaki yüzdeler (anomalileri vurgula)** seçeneğini belirleyin. Kırmızı baloncuklar anormaldir. Anomaliler sayıları/yüzdeleri, son iki zaman dilimi (örneğin, son 24 saati görüntülüyorsanız 48 saat) boyunca gerçekleşen sayıların/yüzdelerin standart sapmasının 2.1 katını aşan baloncuklar olarak tanımlanır.
 
 ![Renkli noktalar anomalileri gösterir](./media/app-insights-visual-studio-trends/TrendsAnomalies-750.png)
@@ -95,13 +99,16 @@ Eğilimler aracı, aynı zaman dizisindeki diğer baloncuklara kıyasla anormal 
 > 
 > 
 
-## <a name="next"></a>Sonraki adımlar
+## <a name="a-namenextanext-steps"></a><a name="next"></a>Sonraki adımlar
 |  |  |
 | --- | --- |
 | **[Visual Studio’da Application Insights ile çalışma](app-insights-visual-studio.md)**<br/>Telemetri arayın, CodeLens içindeki verilere bakın ve Application Insights’ı yapılandırın. Hepsi Visual Studio’da. |![Projeye sağ tıklayın ve Application Insights, Ara’yı seçin](./media/app-insights-visual-studio-trends/34.png) |
 | **[Daha fazla veri ekleme](app-insights-asp-net-more.md)**<br/>Kullanımı, kullanılabilirliği, bağımlılıkları, özel durumları izleyin. Günlük altyapılarından izlemeleri tümleştirin. Özel telemetri yazın. |![Visual studio](./media/app-insights-visual-studio-trends/64.png) |
 | **[Application Insights portalıyla çalışma](app-insights-dashboards.md)**<br/>Panolar, güçlü tanılama ve analiz araçları, uyarılar, uygulamanızın canlı bağımlılık haritası ve telemetriyi dışarı aktarma. |![Visual studio](./media/app-insights-visual-studio-trends/62.png) |
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

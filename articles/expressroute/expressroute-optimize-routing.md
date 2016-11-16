@@ -1,12 +1,12 @@
 ---
-title: ExpressRoute yönlendirmeyi en iyi duruma getirme | Microsoft Docs
-description: Bu sayfa, bir müşteri Microsoft ve müşterinin şirket ağı arasında bağlanan birden fazla ExpressRoute bağlantı hattına sahip olduğunda yönlendirmenin nasıl iyileştirileceği hakkında ayrıntılı bilgi sağlar.
+title: "ExpressRoute yönlendirmesini en iyi duruma getirme | Microsoft Belgeleri"
+description: "Bu sayfa, bir müşteri Microsoft ve müşterinin şirket ağı arasında bağlanan birden fazla ExpressRoute bağlantı hattına sahip olduğunda yönlendirmenin nasıl iyileştirileceği hakkında ayrıntılı bilgi sağlar."
 documentationcenter: na
 services: expressroute
 author: charwen
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: fca53249-d9c3-4cff-8916-f8749386a4dd
 ms.service: expressroute
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: charwen
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 26f0992e734f0aae96ac6e8b7040d661d5fb063c
+
 
 ---
 # <a name="optimize-expressroute-routing"></a>ExpressRoute Yönlendirmeyi En iyi Duruma Getirme
@@ -24,7 +28,7 @@ Bir örnekle yönlendirme problemine daha yakından bir bakalım. Biri Los Angel
 
 ![](./media/expressroute-optimize-routing/expressroute-case1-problem.png)
 
-### <a name="solution:-use-bgp-communities"></a>Çözüm: BGP Toplulukları’nı kullanın
+### <a name="solution-use-bgp-communities"></a>Çözüm: BGP Toplulukları’nı kullanın
 Her iki ofis kullanıcıları için yönlendirmeyi en iyi hale getirmek için, hangi önekin Azure Batı ABD ve Azure Doğu ABD olduğunu bilmeniz gerekir. Bu bilgileri [BGP Topluluğu değerlerini](expressroute-routing.md) kullanarak kodlarız. Her bir Azure bölgesine benzersiz bir BGP Topluluğu değeri atadık, örneğin Doğu ABD için "12076:51004", Batı ABD için "12076:51006". Artık hangi önekin hangi Azure bölgesinden olduğunu bildiğinize göre, tercih edilmesi gereken ExpressRoute bağlantı hattını yapılandırabilirsiniz. Yönlendirme bilgilerinin değişimi için BGP kullandığımızdan, yönlendirmeyi etkilemek için BGP'nin Yerel Tercihini kullanabilirsiniz. Bizim örneğimizde, ABD Batı’daki 13.100.0.0/16 için ABD Doğu’dan daha yüksek bir yerel tercih değeri atayabilir ve benzer şekilde, ABD Doğu’daki 23.100.0.0/16 için ABD Batı’dan daha yüksek bir yerel tercih değeri atayabilirsiniz. Bu yapılandırma her iki Microsoft yolunun da kullanılabilir olduğunda, New York’taki kullanıcılarınız ABD Doğu’dan Azure ABD Doğu’ya ExpressRoute bağlantı hattını kullanırken Los Angeles’taki kullanıcılarınızın Azure ABD Batı’ya bağlanması için ABD Batı’daki ExpressRoute bağlantı hattının kullanıldığından emin olacaktır. Her iki tarafta da yönlendirme en iyi duruma getirilmiştir. 
 
 ![](./media/expressroute-optimize-routing/expressroute-case1-solution.png)
@@ -34,7 +38,7 @@ Burada Microsoft bağlantılarının ağınıza ulaşmasına için daha uzun bir
 
 ![](./media/expressroute-optimize-routing/expressroute-case2-problem.png)
 
-### <a name="solution:-use-as-path-prepending"></a>Çözüm: AS YOLU eklenmesini kullanın
+### <a name="solution-use-as-path-prepending"></a>Çözüm: AS YOLU eklenmesini kullanın
 Bu sorunun iki çözümü vardır. Birinci yol Los Angeles ofisiniz için ABD Batı’daki ExpressRoute bağlantı hattındaki 177.2.0.0/31 şirket içi öneki ve New York ofisiniz için ABD Doğu’daki ExpressRoute bağlantı hattındaki 177.2.0.2/31 şirket içi önekini tanıtmanızdır. Sonuç olarak, Microsoft’un ofislerinizin her birine bağlanması için yalnızca bir yol vardır. Belirsizlik olmaz ve yönlendirme en iyi duruma getirilir. Bu tasarımla, yük devretme stratejinizi düşünmeniz gerekir. ExpressRoute aracılığıyla Microsoft yolunun bozuk olması durumunda, Exchange Online’ın yine de şirket içi sunucularına bağlandığından emin olmanız gerekir. 
 
 İkinci çözüm, her iki ExpressRoute bağlantı hattında iki öneki de tanıtmaya devam etmeniz ve buna ek olarak, hangi önekin hangi ofisinize daha yakın olduğu ile ilgili bize ipucu vermenizdir. BGP AS Yolu eklenmesini desteklediğimizden, yönlendirmeyi etkilemek için önekiniz için AS Yolu’nu yapılandırabilirsiniz. Bu örnekte, bu önek (ağımız bu önek yolunun batıdan daha kısa olacağını düşüneceğinden) için hedeflenen trafikte ABD Batı’daki ExpressRoute bağlantı hattını tercih edeceğimizden, ABD Doğu’daki 172.2.0.0/31 AS YOLU’nu uzatabilirsiniz. Benzer şekilde, ABD Doğu ExpressRoute bağlantı hattını tercih edeceğimiz için, ABD Batı’daki 172.2.0.2/31 için AS YOLU’nu uzatabilirsiniz. Her iki ofis için de yönlendirme en iyi duruma getirilmiştir. Bu tasarımla, bir ExpressRoute bağlantı hattı bozuk ise, Exchange Online başka bir ExpressRoute bağlantı hattı ve WAN’ınız aracılığıyla yine de size ulaşabilir. 
@@ -51,6 +55,9 @@ Bu sorunun iki çözümü vardır. Birinci yol Los Angeles ofisiniz için ABD Ba
 > 
 > 
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

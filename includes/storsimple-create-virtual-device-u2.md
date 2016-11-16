@@ -1,4 +1,4 @@
-#### Sanal cihazı oluşturmak için
+#### <a name="to-create-a-virtual-device"></a>Sanal cihazı oluşturmak için
 1. Azure portalında **StorSimple Yöneticisi** hizmetine gidin.
 2. **Cihazlar** sayfasına gidin. **Cihazlar** sayfasının altında **Sanal cihaz oluştur**’a tıklayın.
 3. **Sanal Cihaz Oluştur** iletişim kutusunda aşağıdaki ayrıntıları belirtin.
@@ -26,6 +26,8 @@
       
       ![StorSimple sanal cihaz oluşturma aşaması](./media/storsimple-create-virtual-device-u2/StorSimple_VirtualDeviceCreating1M.png)
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

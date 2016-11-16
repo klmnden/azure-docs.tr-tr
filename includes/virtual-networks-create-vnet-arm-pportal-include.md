@@ -1,4 +1,4 @@
-## Azure portalında VNet oluşturma
+## <a name="how-to-create-a-vnet-in-the-azure-portal"></a>Azure portalında VNet oluşturma
 Azure Preview portalını kullanarak yukarıdaki senaryoya dayanan bir VNet oluşturmak için aşağıdaki adımları uygulayın.
 
 1. Tarayıcıdan http://portal.azure.com adresine gidin ve gerekiyorsa Azure hesabınıza giriş yapın.
@@ -8,7 +8,7 @@ Azure Preview portalını kullanarak yukarıdaki senaryoya dayanan bir VNet olu�
 3. **Sanal ağ oluştur** dikey penceresinde, aşağıdaki şekilde gösterildiği gibi VNet ayarlarını yapılandırın.
    
     ![Sanal ağ oluştur dikey penceresi](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure2.png)
-4. **Kaynak grubu**’na tıklayıp VNet'e eklenecek kaynak grubunu seçin veya VNet’i yeni bir kaynak grubuna eklemek için **Yeni oluştur**’a tıklayın. Aşağıdaki şekil, **TestRG** adlı yeni bir kaynak grubunun kaynak grubu ayarlarını göstermektedir. Kaynak grupları hakkında daha fazla bilgi için [Azure Resource Manager’a Genel Bakış](../articles/resource-group-overview.md#resource-groups) sayfasını ziyaret edin.
+4. **Kaynak grubu**’na tıklayıp VNet'e eklenecek kaynak grubunu seçin veya VNet’i yeni bir kaynak grubuna eklemek için **Yeni oluştur**’a tıklayın. Aşağıdaki şekil, **TestRG** adlı yeni bir kaynak grubunun kaynak grubu ayarlarını göstermektedir. Kaynak grupları hakkında daha fazla bilgi için [Azure Resource Manager’a Genel Bakış](../articles/azure-resource-manager/resource-group-overview.md#resource-groups) sayfasını ziyaret edin.
    
     ![Kaynak grubu](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure3.png)
 5. Gerekiyorsa, VNet’inizle ilgili **Abonelik** ve **Konum** ayarlarını değiştirin. 
@@ -26,6 +26,8 @@ Azure Preview portalını kullanarak yukarıdaki senaryoya dayanan bir VNet olu�
     
     ![VNet’te alt ağlar listesi](./media/virtual-networks-create-vnet-arm-pportal-include/vnet-create-arm-pportal-figure7.png)
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

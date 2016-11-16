@@ -91,8 +91,12 @@
 ### [Data Factory sorunlarını giderme](data-factory-troubleshoot.md)
 ### [Veri Yönetimi Ağ Geçidi’ni kullanarak sorun giderme](data-factory-troubleshoot-gateway-issues.md)
 ### [Azure Resource Manager şablonlarını kullanarak dağıtma](data-factory-how-to-use-resource-manager-templates.md)
-# Başvuru 
+
+# Başvuru
 ## [Azure Data Factory Geliştirici Başvurusu](data-factory-sdks.md)
+## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)
+## [.NET](https://docs.microsoft.com/dotnet/api)
+## [REST](https://docs.microsoft.com/rest/api/datafactory/)
 
 # Kaynaklar:
 ## [Örnek Olay İncelemeleri](data-factory-customer-case-studies.md)
@@ -103,13 +107,6 @@
 ## [MSDN Forumu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataFactory)
 ## [Özellik isteme](https://feedback.azure.com/forums/270578-azure-data-factory)
 ## [Veri Yönetimi Ağ Geçidi için sürüm notları](data-factory-gateway-release-notes.md)
-
-
-
-
-
-
-
 
 
 <!--HONumber=Nov16_HO2-->

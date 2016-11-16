@@ -136,6 +136,9 @@
 # Kaynaklar
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)
 ## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw/)
+## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=sql-data-warehouse)
+## [Forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse)
+## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
 
 ## İş Ortakları
 ### [İş zekası](sql-data-warehouse-partner-business-intelligence.md)

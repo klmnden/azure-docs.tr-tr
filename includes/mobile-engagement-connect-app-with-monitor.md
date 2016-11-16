@@ -9,6 +9,8 @@ Bu bölümde, uygulamanızın Mobile Engagement'ın gerçek zamanlı izleme öze
    
      ![](./media/mobile-engagement-connect-app-with-monitor/monitor.png)
 
-<!--HONumber=Aug16_HO1-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -53,10 +53,10 @@
 # Başvuru
 ## [Fiyatlandırma ayrıntıları](service-bus-pricing-billing.md)
 ## [Örnekler](service-bus-samples.md)
-## [.NET API başvurusu](https://msdn.microsoft.com/library/azure/jj933424)
-## [REST API başvurusu](https://msdn.microsoft.com/library/azure/hh780717)
-## [Özel Durumlar](service-bus-messaging-exceptions.md)
+## [Özel durumlar](service-bus-messaging-exceptions.md)
 ## [Kotalar](service-bus-quotas.md)
+## [.NET](/dotnet/api/)
+## [REST](/rest/api/servicebus/)
 
 # Kaynaklar
 ## [Blog](https://blogs.msdn.microsoft.com/servicebus/)
@@ -65,6 +65,8 @@
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/service-bus/)
 ## [Öğrenme yolu](https://azure.microsoft.com/documentation/learning-paths/service-bus/)
 ## [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer)
+## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=service-bus)
+## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
 
 
 <!--HONumber=Nov16_HO2-->

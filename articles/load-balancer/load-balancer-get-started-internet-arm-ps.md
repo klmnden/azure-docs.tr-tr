@@ -1,138 +1,142 @@
 ---
-title: Create an Internet-facing load balancer in Resource Manager by using PowerShell | Microsoft Docs
-description: Learn how to create an Internet-facing load balancer in Resource Manager by using PowerShell
+title: "PowerShell kullanarak Resource Manager’da İnternet’e yönelik yük dengeleyici oluşturma | Microsoft Belgeleri"
+description: "PowerShell kullanarak Resource Manager’da İnternet’e yönelik yük dengeleyici oluşturmayı öğrenin"
 services: load-balancer
 documentationcenter: na
 author: sdwheeler
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 8257f548-7019-417f-b15f-d004a1eec826
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/31/2016
+ms.date: 10/24/2016
 ms.author: sewhee
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 7b74067b2f174e1242f5eb6c3028af4ef7b2f22e
+
 
 ---
-# <a name="get-started"></a>Creating an Internet-facing load balancer in Resource Manager by using PowerShell
+# <a name="a-namegetstartedacreating-an-internetfacing-load-balancer-in-resource-manager-by-using-powershell"></a><a name="get-started"></a>PowerShell kullanarak Resource Manager’da İnternet’e yönelik yük dengeleyici oluşturma
 [!INCLUDE [load-balancer-get-started-internet-arm-selectors-include.md](../../includes/load-balancer-get-started-internet-arm-selectors-include.md)]
 
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 
-This article covers the Resource Manager deployment model. You can also [learn how to create an Internet-facing load balancer by using the classic deployment model](load-balancer-get-started-internet-classic-cli.md).
+Bu makalede Resource Manager dağıtım modeli anlatılmaktadır. [Klasik dağıtım modelini kullanarak İnternet’e yönelik yük dengeleyici oluşturma](load-balancer-get-started-internet-classic-cli.md) sayfasını da inceleyebilirsiniz.
 
 [!INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
-## Deploying the solution by using Azure PowerShell
-The following procedures show how to create an Internet-facing load balancer by using Azure Resource Manager with PowerShell. With Azure Resource Manager, each resource is created and configured individually, and then put together to create a resource.
+## <a name="deploying-the-solution-by-using-azure-powershell"></a>Çözümü Azure PowerShell kullanarak dağıtma
+Aşağıdaki yordamlarda, Azure Resource Manager ve PowerShell kullanarak İnternet’e yönelik yük dengeleyici oluşturma işlemleri açıklanmaktadır. Azure Resource Manager ile her bir kaynak ayrı ayrı oluşturulup yapılandırıldıktan sonra yük dengeleyici oluşturmak için bir araya getirilir.
 
-You must create and configure the following objects to deploy a load balancer:
+Yük dengeleyici dağıtmak için aşağıdaki nesneleri oluşturmanız ve yapılandırmanız gerekir:
 
-* Front-end IP configuration: contains public IP (PIP) addresses for incoming network traffic.
-* Back-end address pool: contains network interfaces (NICs) for the virtual machines to receive network traffic from the load balancer.
-* Load-balancing rules: contains rules that map a public port on the load balancer to a port in the back-end address pool.
-* Inbound NAT rules: contains rules that map a public port on the load balancer to a port for a specific virtual machine in the back-end address pool.
-* Probes: contains health probes used to check availability of virtual machine instances in the back-end address pool.
+* Ön uç IP yapılandırması: Gelen ağ trafiği için genel IP (PIP) adreslerini içerir.
+* Arka uç adres havuzu: Sanal makinelerin yük dengeleyiciden ağ trafiği alması için ağ arabirimlerini (NIC’ler) içerir.
+* Yük dengeleme kuralları: Yük dengeleyici üzerindeki bir genel bağlantı noktasını arka uç adres havuzundaki bağlantı noktasına eşleyen kuralları içerir.
+* Gelen NAT kuralları: Yük dengeleyici üzerindeki bir genel bağlantı noktasını arka uç adres havuzundaki belirli bir sanal makineye ait bağlantı noktasına eşleyen kuralları içerir.
+* Araştırmalar: Arka uç adres havuzundaki sanal makine örneklerinin kullanılabilirliğini kontrol etmek için kullanılan durum araştırmalarını içerir.
 
-For more information, see [Azure Resource Manager support for Load Balancer](load-balancer-arm.md).
+Daha fazla bilgi için bkz. [Yük Dengeleyici için Azure Resource Manager desteği](load-balancer-arm.md).
 
-## Set up PowerShell to use Resource Manager
-Make sure you have the latest production version of the Azure Resource Manager module for PowerShell:
+## <a name="set-up-powershell-to-use-resource-manager"></a>PowerShell’i Resource Manager’ı kullanacak şekilde ayarlama
+PowerShell için Azure Resource Manager’ın en güncel üretim sürümüne sahip olduğunuzdan emin olun:
 
-1. Sign in to Azure.
-   
+1. Azure'da oturum açın.
+
         Login-AzureRmAccount
-   
-    Enter your credentials when prompted.
-2. Check the subscriptions for the account.
-   
+
+    İstendiğinde kimlik bilgilerinizi girin.
+2. Hesapla ilişkili abonelikleri kontrol edin.
+
         Get-AzureRmSubscription
-3. Choose which of your Azure subscriptions to use.
-   
+3. Hangi Azure aboneliğinizin kullanılacağını seçin.
+
         Select-AzureRmSubscription -SubscriptionId 'GUID of subscription'
-4. Create a resource group. (Skip this step if you're using an existing resource group.)
-   
+4. Bir kaynak grubu oluşturun. (Mevcut bir kaynak grubunu kullanıyorsanız bu adımı atlayın.)
+
         New-AzureRmResourceGroup -Name NRP-RG -location "West US"
 
-## Create a virtual network and a public IP address for the front-end IP pool
-1. Create a subnet and a virtual network.
-   
+## <a name="create-a-virtual-network-and-a-public-ip-address-for-the-frontend-ip-pool"></a>Ön uç IP havuzu için sanal ağ ve genel IP adresi oluşturma
+1. Alt ağ ve sanal ağ oluşturun.
+
         $backendSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name LB-Subnet-BE -AddressPrefix 10.0.2.0/24
         New-AzureRmvirtualNetwork -Name NRPVNet -ResourceGroupName NRP-RG -Location 'West US' -AddressPrefix 10.0.0.0/16 -Subnet $backendSubnet
-2. Create an Azure public IP address resource, named **PublicIP**, to be used by a front-end IP pool with the DNS name **loadbalancernrp.westus.cloudapp.azure.com**. The following command uses the static allocation type.
-   
-        $publicIP = New-AzureRmPublicIpAddress -Name PublicIp -ResourceGroupName NRP-RG -Location 'West US' –AllocationMethod Static -DomainNameLabel loadbalancernrp
-   
-   > [!IMPORTANT]
-   > The load balancer uses the domain label of the public IP as a prefix for its FQDN. This is different from the classic deployment model, which uses the cloud service as the load balancer FQDN.
-   > In this example, the FQDN is **loadbalancernrp.westus.cloudapp.azure.com**.
-   > 
-   > 
+2. **loadbalancernrp.westus.cloudapp.azure.com** DNS adına sahip ön uç IP havuzu tarafından kullanılacak **PublicIP** adlı bir Azure genel IP adresi kaynağı oluşturun. Aşağıdaki komutta statik ayırma türü kullanılmaktadır.
 
-## Create a front-end IP pool and a back-end address pool
-1. Create a front-end IP pool named **LB-Frontend** that uses the **PublicIp** resource.
-   
+        $publicIP = New-AzureRmPublicIpAddress -Name PublicIp -ResourceGroupName NRP-RG -Location 'West US' –AllocationMethod Static -DomainNameLabel loadbalancernrp
+
+   > [!IMPORTANT]
+   > Yük dengeleyici, FQDN ön eki olarak genel IP’nin etki alanı etiketini kullanır. Bu, yük dengeleyici FQDN değeri olarak bulut hizmeti kullanan klasik dağıtım modelinden farklıdır.
+   > Bu örnekte FQDN: **loadbalancernrp.westus.cloudapp.azure.com**.
+   >
+   >
+
+## <a name="create-a-frontend-ip-pool-and-a-backend-address-pool"></a>Ön uç IP havuzu ve arka uç adres havuzu oluşturma
+1. **PublicIp** kaynağını kullanan **LB-Frontend** adlı bir ön uç IP havuzu oluşturun.
+
         $frontendIP = New-AzureRmLoadBalancerFrontendIpConfig -Name LB-Frontend -PublicIpAddress $publicIP
-2. Create a back-end address pool named **LB-backend**.
-   
+2. **LB-backend** adlı bir arka uç adres havuzu oluşturun.
+
         $beaddresspool = New-AzureRmLoadBalancerBackendAddressPoolConfig -Name LB-backend
 
-## Create NAT rules, a load balancer rule, a probe, and a load balancer
-This example creates the following items:
+## <a name="create-nat-rules-a-load-balancer-rule-a-probe-and-a-load-balancer"></a>NAT kuralları, yük dengeleyici kuralı, araştırma ve yük dengeleyici oluşturma
+Bu örnek aşağıdaki nesneleri oluşturur:
 
-* A NAT rule to translate all incoming traffic on port 3441 to port 3389
-* A NAT rule to translate all incoming traffic on port 3442 to port 3389
-* A probe rule to check the health status on a page named **HealthProbe.aspx**
-* A load balancer rule to balance all incoming traffic on port 80 to port 80 on the addresses in the back-end pool
-* A load balancer that uses all these objects
+* 3441 numaralı bağlantı noktasına gelen tüm trafiği 3389 numaralı bağlantı noktasına yönlendiren NAT kuralı
+* 3442 numaralı bağlantı noktasına gelen tüm trafiği 3389 numaralı bağlantı noktasına yönlendiren NAT kuralı
+* **HealthProbe.aspx** adlı sayfanın durumunu denetleyen araştırma kuralı
+* 80 numaralı bağlantı noktasına gelen tüm trafiği arka uç havuzundaki adreslerin 80 numaralı bağlantı noktasıyla dengeleyen yük dengeleyici kuralı
+* Tüm bu nesneleri kullanan yük dengeleyici
 
-Use these steps:
+Şu adımları uygulayın:
 
-1. Create the NAT rules.
-   
+1. NAT kurallarını oluşturun.
+
         $inboundNATRule1= New-AzureRmLoadBalancerInboundNatRuleConfig -Name RDP1 -FrontendIpConfiguration $frontendIP -Protocol TCP -FrontendPort 3441 -BackendPort 3389
-   
+
         $inboundNATRule2= New-AzureRmLoadBalancerInboundNatRuleConfig -Name RDP2 -FrontendIpConfiguration $frontendIP -Protocol TCP -FrontendPort 3442 -BackendPort 3389
-2. Create a health probe. There are two ways to configure a probe:
-   
-    HTTP probe
-   
+2. Durum araştırması oluşturun. Araştırmaları iki şekilde yapılandırabilirsiniz:
+
+    HTTP araştırma
+
         $healthProbe = New-AzureRmLoadBalancerProbeConfig -Name HealthProbe -RequestPath 'HealthProbe.aspx' -Protocol http -Port 80 -IntervalInSeconds 15 -ProbeCount 2
-   
-    TCP probe
-   
+
+    TCP araştırma
+
         $healthProbe = New-AzureRmLoadBalancerProbeConfig -Name HealthProbe -Protocol Tcp -Port 80 -IntervalInSeconds 15 -ProbeCount 2
-3. Create a load balancer rule.
-   
+3. Yük dengeleyici kuralı oluşturun.
+
         $lbrule = New-AzureRmLoadBalancerRuleConfig -Name HTTP -FrontendIpConfiguration $frontendIP -BackendAddressPool  $beAddressPool -Probe $healthProbe -Protocol Tcp -FrontendPort 80 -BackendPort 80
-4. Create the load balancer by using the previously created objects.
-   
+4. Önceden oluşturulan nesneleri kullanarak yük dengeleyiciyi oluşturun.
+
         $NRPLB = New-AzureRmLoadBalancer -ResourceGroupName NRP-RG -Name NRP-LB -Location 'West US' -FrontendIpConfiguration $frontendIP -InboundNatRule $inboundNATRule1,$inboundNatRule2 -LoadBalancingRule $lbrule -BackendAddressPool $beAddressPool -Probe $healthProbe
 
-## Create NICs
-Create network interfaces (or modify existing ones) and then associate them to NAT rules, load balancer rules, and probes:
+## <a name="create-nics"></a>NIC’leri oluşturma
+Ağ arabirimleri oluşturun (veya var olanları düzenleyin) ve bunları NAT kuralları, yük dengeleyici kuralları ve araştırmalarla ilişkilendirin:
 
-1. Get the virtual network and a virtual network subnet, where the NICs need to be created.
-   
+1. NIC’lerin oluşturulacağı sanal ağı ve sanal ağ alt ağını belirleyin.
+
         $vnet = Get-AzureRmVirtualNetwork -Name NRPVNet -ResourceGroupName NRP-RG
         $backendSubnet = Get-AzureRmVirtualNetworkSubnetConfig -Name LB-Subnet-BE -VirtualNetwork $vnet
-2. Create a NIC named **lb-nic1-be**, and associate it with the first NAT rule and the first (and only) back-end address pool.
-   
+2. **lb-nic1-be** adlı bir NIC oluşturup ilk NAT kuralı ve ilk (ve tek) arka uç adres havuzuyla ilişkilendirin.
+
         $backendnic1= New-AzureRmNetworkInterface -ResourceGroupName NRP-RG -Name lb-nic1-be -Location 'West US' -PrivateIpAddress 10.0.2.6 -Subnet $backendSubnet -LoadBalancerBackendAddressPool $nrplb.BackendAddressPools[0] -LoadBalancerInboundNatRule $nrplb.InboundNatRules[0]
-3. Create a NIC named **lb-nic2-be**, and associate it with the second NAT rule and the first (and only) back-end address pool.
-   
+3. **lb-nic2-be** adlı bir NIC oluşturup ikinci NAT kuralı ve ilk (ve tek) arka uç adres havuzuyla ilişkilendirin.
+
         $backendnic2= New-AzureRmNetworkInterface -ResourceGroupName NRP-RG -Name lb-nic2-be -Location 'West US' -PrivateIpAddress 10.0.2.7 -Subnet $backendSubnet -LoadBalancerBackendAddressPool $nrplb.BackendAddressPools[0] -LoadBalancerInboundNatRule $nrplb.InboundNatRules[1]
-4. Check the NICs.
-   
+4. NIC’leri denetleyin.
+
         $backendnic1
-   
-    Expected output:
-   
+
+    Beklenen çıktı:
+
         Name                 : lb-nic1-be
         ResourceGroupName    : NRP-RG
         Location             : westus
@@ -178,58 +182,63 @@ Create network interfaces (or modify existing ones) and then associate them to N
                         }
         EnableIPForwarding   : False
         NetworkSecurityGroup : null
-        Primary              : 
-5. Use the `Add-AzureRmVMNetworkInterface` cmdlet to assign the NICs to different VMs.
+        Primary              :
+5. NIC’leri farklı VM’lere atamak için `Add-AzureRmVMNetworkInterface` cmdlet’ini kullanın.
 
-## Create a virtual machine
-For guidance on creating a virtual machine and assigning a NIC, see option 5 in [Create and preconfigure a Windows virtual machine with Resource Manager and Azure PowerShell](../virtual-machines/virtual-machines-windows-create-powershell.md#Example).
+## <a name="create-a-virtual-machine"></a>Sanal makine oluşturma
+Sanal makine oluşturma ve NIC atama talimatları için bkz. [PowerShell kullanarak Azure VM oluşturma](../virtual-machines/virtual-machines-windows-ps-create.md).
 
-## Add the network interface to the load balancer
-1. Retrieve the load balancer from Azure.
-   
-    Load the load balancer resource into a variable (if you haven't done that yet). The variable is called **$lb**. Use the same names from the load balancer resource that you created earlier.
-   
+## <a name="add-the-network-interface-to-the-load-balancer"></a>Ağ arabirimini yük dengeleyiciye ekleme
+1. Yük dengeleyiciyi Azure’dan alın.
+
+    Yük dengeleyici kaynağını bir değişkene yükleyin (henüz yapmadıysanız). Değişken adı: **$lb**. Daha önce oluşturduğunuz yük dengeleyici kaynağındaki adları kullanın.
+
         $lb= get-azurermloadbalancer –name NRP-LB -resourcegroupname NRP-RG
-2. Load the back-end configuration to a variable.
-   
-        $backend=Get-AzureRmLoadBalancerBackendAddressPoolConfig -name backendpool1 -LoadBalancer $lb
-3. Load the already created network interface into a variable. The variable name is **$nic**. The network interface name is the same one from the earlier example.
-   
-        $nic =get-azurermnetworkinterface –name lb-nic1-be -resourcegroupname NRP-RG
-4. Change the back-end configuration on the network interface.
-   
-        $nic.IpConfigurations[0].LoadBalancerBackendAddressPools=$backend
-5. Save the network interface object.
-   
-        Set-AzureRmNetworkInterface -NetworkInterface $nic
-   
-    After a network interface is added to the load balancer back-end pool, it starts receiving network traffic based on the load-balancing rules for that load balancer resource.
+2. Arka uç yapılandırmasını bir değişkene yükleyin.
 
-## Update an existing load balancer
-1. By using the load balancer from the earlier example, assign a load balancer object to the variable **$slb** by using `Get-AzureLoadBalancer`.
-   
+        $backend=Get-AzureRmLoadBalancerBackendAddressPoolConfig -name backendpool1 -LoadBalancer $lb
+3. Önceden oluşturulan ağ arabirimini bir değişkene yükleyin. Değişken adı: **$nic**. Ağ arabirimi adı önceki örnekle aynıdır.
+
+        $nic =get-azurermnetworkinterface –name lb-nic1-be -resourcegroupname NRP-RG
+4. Ağ arabiriminde arka uç yapılandırmasını değiştirin.
+
+        $nic.IpConfigurations[0].LoadBalancerBackendAddressPools=$backend
+5. Ağ arabirimi nesnesini kaydedin.
+
+        Set-AzureRmNetworkInterface -NetworkInterface $nic
+
+    Yük dengeleyici arka uç havuzuna bir ağ arabirimi eklendikten sonra ilgili yük dengeleyici kaynağı için yük dengeleme kurallarına göre ağ trafiğini almaya başlar.
+
+## <a name="update-an-existing-load-balancer"></a>Mevcut yük dengeleyiciyi güncelleştirme
+1. Önceki örnekte verilen yük dengeleyiciyi kullanarak **$slb** değişkenine `Get-AzureLoadBalancer` aracılığıyla yük dengeleyici nesnesi atayın.
+
         $slb = get-AzureRmLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
-2. In the following example, you add an inbound NAT rule--by using port 81 in the front-end pool and port 8181 for the back-end pool--to an existing load balancer.
-   
+2. Aşağıdaki örnekte mevcut bir yük dengeleyiciye ön uç için 81 numaralı bağlantı noktasını, arka uç havuzu için ise 8181 numaralı arka uç bağlantı noktasını kullanarak yeni bir Gelen NAT kuralı ekleyin.
+
         $slb | Add-AzureRmLoadBalancerInboundNatRuleConfig -Name NewRule -FrontendIpConfiguration $slb.FrontendIpConfigurations[0] -FrontendPort 81  -BackendPort 8181 -Protocol TCP
-3. Save the new configuration by using `Set-AzureLoadBalancer`.
-   
+3. `Set-AzureLoadBalancer` kullanarak yeni yapılandırmayı kaydedin.
+
         $slb | Set-AzureRmLoadBalancer
 
-## Remove a load balancer
-Use the command `Remove-AzureLoadBalancer` to delete a previously created load balancer named **NRP-LB** in a resource group called **NRP-RG**.
+## <a name="remove-a-load-balancer"></a>Yük dengeleyici kaldırma
+**NRP-RG** adlı kaynak grubunda yer alan **NRP-LB** adlı önceden oluşturulmuş yük dengeleyiciyi silmek için `Remove-AzureLoadBalancer` komutunu kullanın.
 
     Remove-AzureRmLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
 
 > [!NOTE]
-> You can use the optional switch **-Force** to avoid the prompt for deletion.
-> 
-> 
+> Silme istemini atlamak için isteğe bağlı **-Force** anahtarını kullanabilirsiniz.
+>
+>
 
-## Next steps
-[Get started configuring an internal load balancer](load-balancer-get-started-ilb-arm-ps.md)
+## <a name="next-steps"></a>Sonraki adımlar
+[Bir iç yük dengeleyici yapılandırmaya başlayın](load-balancer-get-started-ilb-arm-ps.md)
 
-[Configure a load balancer distribution mode](load-balancer-distribution-mode.md)
+[Yük dengeleyici dağıtım modu yapılandırma](load-balancer-distribution-mode.md)
 
-[Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md)
+[Yük dengeleyiciniz için boşta TCP zaman aşımı ayarlarını yapılandırma](load-balancer-tcp-idle-timeout.md)
+
+
+
+<!--HONumber=Nov16_HO2-->
+
 

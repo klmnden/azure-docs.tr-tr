@@ -1,21 +1,20 @@
 # Genel Bakış
 ## [Azure Active Directory nedir?](active-directory-whatis.md)
-## [Hangi sürümü seçmem gerekir?](active-directory-editions.md)
-## [Temel Konular](fundamentals-identity.md)
+## [Sürüm seçin](active-directory-editions.md)
+## [Azure kimlik yönetimi hakkında](fundamentals-identity.md)
 ## [Azure Portalı deneyiminin önizlemesini gerçekleştirme](active-directory-preview-explainer.md)
 
 
 # Başlarken
-## [Azure AD kiracısı edinme](active-directory-howto-tenant.md)
-## [Azure AD Premium](active-directory-get-started-premium.md)
+## [Azure AD kiracısı edinin](active-directory-howto-tenant.md)
+## [Azure AD Premium’a kaydolun](active-directory-get-started-premium.md)
 ## [Azure aboneliklerini ilişkilendirme](active-directory-how-subscriptions-associated-directory.md)
-## [Azure AD lisanslama](active-directory-licensing-what-is.md)
+## [AD lisanslamayı yönetme](active-directory-licensing-what-is.md)
 ## [Kuruluşunuz için Azure’u edinme](sign-up-organization.md)
 ## [SSS](active-directory-faq.md)
 
 
 # Nasıl yapılır?
-
 ## Kullanıcıları yönetme
 ### Kullanıcı ekle
 #### [Azure Portal](active-directory-users-create-azure-portal.md)
@@ -29,30 +28,30 @@
 ### [Kullanıcı profillerini yönetme](active-directory-users-profile-azure-portal.md)
 ### [Parola sıfırlama](active-directory-users-reset-password-azure-portal.md)
 ### [Kullanıcı iş bilgilerini yönetme](active-directory-users-work-info-azure-portal.md)
-### [Paylaşılan hesaplar](active-directory-sharing-accounts.md)
+### [Hesapları paylaşma](active-directory-sharing-accounts.md)
 
-### [Azure AD grupları](active-directory-manage-groups.md)
-#### Grupları yönetme
-##### [Azure Portal](active-directory-groups-create-azure-portal.md)
-##### [Klasik portal](active-directory-accessmanagement-manage-groups.md)
-##### [PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
-#### [Grup üyelerini yönetme](active-directory-groups-members-azure-portal.md)
-#### [Grup sahiplerini yönetme](active-directory-accessmanagement-managing-group-owners.md)
-#### [Grup üyeliğini yönetme](active-directory-groups-membership-azure-portal.md)
-#### [Tüm grupları görüntüleme](active-directory-groups-view-azure-portal.md)
-#### [Adanmış gruplar](active-directory-accessmanagement-dedicated-groups.md)
-#### [SaaS uygulamalarına erişim](active-directory-accessmanagement-group-saasapps.md)
-#### Grup ayarları
-##### [Azure Portal](active-directory-groups-settings-azure-portal.md)
-##### [Cmdlet’ler](active-directory-accessmanagement-groups-settings-cmdlets.md)
-#### Gelişmiş kurallar
-##### [Azure Portal](active-directory-groups-dynamic-membership-azure-portal.md)
-##### [Klasik portal](active-directory-accessmanagement-groups-with-advanced-rules.md)
-#### [Self servis grupları](active-directory-accessmanagement-self-service-group-management.md)
-#### [Sorun giderme](active-directory-accessmanagement-troubleshooting.md)
+## [Grupları ve üyeleri yönetme](active-directory-manage-groups.md)
+### Grupları yönetme
+#### [Azure Portal](active-directory-groups-create-azure-portal.md)
+#### [Klasik portal](active-directory-accessmanagement-manage-groups.md)
+#### [PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
+### [Grup üyelerini yönetme](active-directory-groups-members-azure-portal.md)
+### [Grup sahiplerini yönetme](active-directory-accessmanagement-managing-group-owners.md)
+### [Grup üyeliğini yönetme](active-directory-groups-membership-azure-portal.md)
+### [Tüm grupları görüntüleme](active-directory-groups-view-azure-portal.md)
+### [Adanmış grupları etkinleştirme](active-directory-accessmanagement-dedicated-groups.md)
+### [SaaS uygulamalarına grup erişimi ekleme](active-directory-accessmanagement-group-saasapps.md)
+### Grup ayarlarını yönetme
+#### [Azure portal](active-directory-groups-settings-azure-portal.md)
+#### [Cmdlet’ler](active-directory-accessmanagement-groups-settings-cmdlets.md)
+### Gelişmiş kurallar oluşturma
+#### [Azure Portal](active-directory-groups-dynamic-membership-azure-portal.md)
+#### [Klasik portal](active-directory-accessmanagement-groups-with-advanced-rules.md)
+### [Self servis gruplarını kurma](active-directory-accessmanagement-self-service-group-management.md)
+### [Sorun giderme](active-directory-accessmanagement-troubleshooting.md)
 
 ## [Erişim ve kullanım raporlarını görüntüleme](active-directory-view-access-usage-reports.md)
-### [Azure AD Raporlama](active-directory-reporting-getting-started.md)
+### [Azure AD raporlama](active-directory-reporting-getting-started.md)
 ### [Bilinen ağlar](active-directory-known-networks.md)
 
 ### [Raporlama kılavuzu](active-directory-reporting-guide.md)
@@ -81,18 +80,18 @@
 
 ## [Parolaları yönetme](active-directory-manage-passwords.md)
 ### [Kendi parolanızı güncelleştirme](active-directory-passwords-update-your-own-password.md)
-### [Nasıl çalışır?](active-directory-passwords-how-it-works.md)
-### [İlkeler ve kısıtlamalar](active-directory-passwords-policy.md)
+### [Parola yönetimini anlama](active-directory-passwords-how-it-works.md)
+### [İlkeleri ve kısıtlamaları anlama](active-directory-passwords-policy.md)
 ### Parolaları sıfırla
 #### [Azure Portal](active-directory-users-reset-password-azure-portal.md)
 #### [Klasik portal](active-directory-create-users-reset-password.md)
-### [Süre sonu ilkeleri](active-directory-passwords-set-expiration-policy.md)
-### Parola Yönetimi
+### [Süre sonu ilkeleri ayarlama](active-directory-passwords-set-expiration-policy.md)
+### Parola Yönetimini Etkinleştirme
 #### [Kullanmaya Başlama](active-directory-passwords-getting-started.md)
 #### [Dağıtma](active-directory-passwords-best-practices.md)
-#### [Parola sıfırlama](active-directory-passwords.md)
+#### [Self servis parola sıfırlamayı ayarlama](active-directory-passwords.md)
 #### [Özelleştirme](active-directory-passwords-customize.md)
-#### [Raporlar](active-directory-passwords-get-insights.md)
+#### [Raporları görüntüleme](active-directory-passwords-get-insights.md)
 #### [Daha fazla bilgi](active-directory-passwords-learn-more.md)
 #### [SSS](active-directory-passwords-faq.md)
 #### [Sorun giderme](active-directory-passwords-troubleshoot.md)
@@ -105,27 +104,27 @@
 #### [Kullanmaya başlama](active-directory-conditional-access-azuread-connected-apps.md)
 #### [Desteklenen uygulamalar](active-directory-conditional-access-supported-apps.md)
 #### [Cihaz kaydetme](active-directory-conditional-access-device-registration-overview.md)
-#### [Otomatik kayıt](active-directory-conditional-access-automatic-device-registration.md)
+#### [Otomatik kaydı yönetme](active-directory-conditional-access-automatic-device-registration.md)
 ##### [Kurulum](active-directory-conditional-access-automatic-device-registration-setup.md)
 ##### [Windows 7](active-directory-conditional-access-automatic-device-registration-windows7.md)
 ##### [Windows 8.1](active-directory-conditional-access-automatic-device-registration-windows-8-1.md)
-#### [Doğrulayıcı uygulama](active-directory-conditional-access-azure-authenticator-app.md)
-#### [Cihaz ilkeleri](active-directory-conditional-access-device-policies.md)
-#### [Bağlı uygulamalara erişim](active-directory-conditional-access-policy-connected-applications.md)
+#### [Doğrulayıcı uygulamasını yönetme](active-directory-conditional-access-azure-authenticator-app.md)
+#### [Cihaz ilkelerini anlama](active-directory-conditional-access-device-policies.md)
+#### [Bağlı uygulamalara erişimi ayarlama](active-directory-conditional-access-policy-connected-applications.md)
 #### [Şirket içi dağıtma](active-directory-conditional-access-on-premises-setup.md)
 #### [SSS](active-directory-conditional-faqs.md)
 #### [Sorun giderme](active-directory-conditional-access-device-remediation.md)
 #### [Başvuru](active-directory-conditional-access-technical-reference.md)
 
 ### [Azure AD Join](active-directory-azureadjoin-overview.md)
-#### [Dağıtma](active-directory-azureadjoin-deployment-aadjoindirect.md)
-#### [Cihaz kaydı](active-directory-azureadjoin-setup.md)
+#### [Planlama](active-directory-azureadjoin-deployment-aadjoindirect.md)
+#### [Cihaz kaydı oluşturma](active-directory-azureadjoin-setup.md)
 #### [Yeni cihazları kaydetme](active-directory-azureadjoin-user-frx.md)
-#### [Etki alanına katılma](active-directory-azureadjoin-devices-group-policy.md)
+#### [Dağıtma](active-directory-azureadjoin-devices-group-policy.md)
 #### [Parolasız kimlik doğrulama](active-directory-azureadjoin-passport.md)
-#### [İş İçin Windows Hello](active-directory-azureadjoin-passport-deployment.md)
-#### [Windows 10 kılavuzu](active-directory-azureadjoin-windows10-devices-overview.md)
-#### [Windows 10 cihazları](active-directory-azureadjoin-windows10-devices.md)
+#### [İş İçin Windows Hello’yu etkinleştirme](active-directory-azureadjoin-passport-deployment.md)
+#### [Windows 10 ile tümleştirmeyi anlama](active-directory-azureadjoin-windows10-devices-overview.md)
+#### [Windows 10 cihazları kullanma](active-directory-azureadjoin-windows10-devices.md)
 
 ### Sertifika Tabanlı Kimlik Doğrulaması
 #### [Android](active-directory-certificate-based-authentication-android.md)
@@ -133,13 +132,13 @@
 
 ## Uygulamaları yönetme
 ### [Genel Bakış](active-directory-enable-sso-scenario.md)
-### [Başlangıç kılavuzu](active-directory-integrating-applications-getting-started.md)
+### [Başlarken](active-directory-integrating-applications-getting-started.md)
 
 ### [Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md)
-#### [Kayıt defteri ayarları](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
-#### [Güvenlik ve gizlilik](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
+#### [Kayıt defteri ayarlarını güncelleştirme](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
+#### [Güvenlik ve gizliliği anlama](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
 
-### [Uygulamalarınıza uzaktan erişim](active-directory-application-proxy-get-started.md)
+### [Uygulamalarınıza uzaktan erişim verme](active-directory-application-proxy-get-started.md)
 #### [Uygulama Ara Sunucusu](active-directory-application-proxy-enable.md)
 #### [Uygulamaları yayımlama](active-directory-application-proxy-publish.md)
 #### Ayrı ağlarda yayımlama
@@ -152,25 +151,25 @@
 #### [Koşullu erişim](active-directory-application-proxy-conditional-access.md)
 #### [Sessiz yükleme](active-directory-application-proxy-silent-installation.md)
 #### [Sorun giderme](active-directory-application-proxy-troubleshoot.md)
-### [Uygulamalar için SSO](active-directory-appssoaccess-whatis.md)
+### [Uygulamalar için SSO’yu anlama](active-directory-appssoaccess-whatis.md)
 
 ### SaaS uygulamalarını tümleştirme
 #### [Azure Portal](active-directory-enterprise-apps-manage-sso.md)
 #### [Klasik portal](active-directory-sso-integrate-saas-apps.md)
 
-### Kurumsal uygulamalar
+### Kurumsal uygulamaları yönetme
 #### [Kullanıcıları atama](active-directory-coreapps-assign-user-azure-portal.md)
 #### [Markalamayı özelleştirme](active-directory-coreapps-change-app-logo-user-azure-portal.md)
 #### [Kullanıcılar için oturum açmayı devre dışı bırakma](active-directory-coreapps-disable-app-azure-portal.md)
 #### [Kullanıcıları kaldırma](active-directory-coreapps-remove-assignment-azure-portal.md)
 #### [Tüm uygulamalarımı görüntüleme](active-directory-coreapps-view-azure-portal.md)
-#### [Kullanıcı hesaplarını hazırlama](active-directory-enterprise-apps-manage-provisioning.md)
+#### [Kullanıcı hesabı hazırlamayı yönetme](active-directory-enterprise-apps-manage-provisioning.md)
 
-### Geliştiriciler için kılavuz
+### Geliştirme
 #### [Kullanıcıları atama](active-directory-applications-guiding-developers-assigning-users.md)
 #### [Grupları atama](active-directory-applications-guiding-developers-assigning-groups.md)
 #### [Atama isteme](active-directory-applications-guiding-developers-requiring-user-assignment.md)
-#### [LOB uygulamaları](active-directory-applications-guiding-developers-for-lob-applications.md)
+#### [İş kolu uygulamaları geliştirme](active-directory-applications-guiding-developers-for-lob-applications.md)
 
 ### [Uygulamalara erişimi yönetme](active-directory-managing-access-to-apps.md)
 #### [Self servis erişimi](active-directory-self-service-application-access.md)
@@ -180,7 +179,7 @@
 ### [Belge kitaplığı](active-directory-apps-index.md)
 
 
-## Dizininizi Yönetme
+## Dizininizi yönetme
 ### Özel etki alanı adları
 #### [Genel Bakış](active-directory-add-domain-concepts.md)
 #### Etki alanı adınızı ekleme
@@ -270,19 +269,18 @@
 ### [Sonraki adımlar](active-directory-hybrid-identity-design-considerations-nextsteps.md)
 ### [Araç karşılaştırması](active-directory-hybrid-identity-design-considerations-tools-comparison.md)
 
-## [Geliştirme](./develop/active-directory-how-to-integrate.md)
-
 ## [Azure’a AD FS dağıtma](active-directory-aadconnect-azure-adfs.md)
 ### [Yüksek kullanılabilirlik](active-directory-adfs-in-azure-with-azure-traffic-manager.md)
 ### [Değişiklik imzası karma algoritması](active-directory-federation-sha256-guidance.md)
 
-## [Azure AD sorunlarını giderme](active-directory-troubleshooting.md)
+## [Sorun giderme](active-directory-troubleshooting.md)
 
 
 # Başvuru
-## [Azure AD hizmet sınırlamaları ve kısıtlamaları](active-directory-service-limits-restrictions.md)
-## [Active Directory Kimlik Doğrulama Kitaplığı .NET Başvurusu](https://msdn.microsoft.com/library/azure/microsoft.identitymodel.clients.activedirectory)
-## [Azure Active Directory PowerShell modülü](https://msdn.microsoft.com/library/azure/mt757189.aspx)
+## [PowerShell cmdlet'leri](/powershell/ )
+## [Java API Başvurusu](/java/api)
+## [.NET API’si](https://msdn.microsoft.com/library/azure/microsoft.identitymodel.clients.activedirectory)
+## [Hizmet sınırlamaları ve kısıtlamalar](active-directory-service-limits-restrictions.md)
 
 # İlgili
 ## [Multi-Factor Authentication](/azure/multi-factor-authentication/)
@@ -291,7 +289,12 @@
 ## [Azure AD Privileged Identity Management](./privileged-identity-management/active-directory-securing-privileged-access.md)
 
 # Kaynaklar
-## [Azure Active Directory forumu](https://feedback.azure.com/forums/169401-azure-active-directory)
+## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/active-directory/)
+## [MSDN forumu](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory) 
+## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=active-directory)
+## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=active-directory)
+## [Azure geri bildirim forumu](https://feedback.azure.com/forums/169401-azure-active-directory)
 
 
 <!--HONumber=Nov16_HO2-->

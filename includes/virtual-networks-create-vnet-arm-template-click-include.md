@@ -1,4 +1,4 @@
-## Tıklayarak dağıtma kullanarak ARM şablonu dağıtma
+## <a name="deploy-the-arm-template-by-using-click-to-deploy"></a>Tıklayarak dağıtma kullanarak ARM şablonu dağıtma
 Microsoft tarafından korunan ve topluluğa açık bir github deposuna yüklenmiş ön tanımlı ARM şablonlarını yeniden kullanabilirsiniz. Bu şablonlar github’dan sınırsız dağıtılabilir veya indirilip gereksinimlerinizi karşılayacak biçimde değiştirilebilir. İki alt ağa sahip VNet oluşturan bir şablonu dağıtmak için aşağıdaki adımları uygulayın.
 
 1. Bir tarayıcıdan [https://github.com/Azure/azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates) adresine gidin.
@@ -22,6 +22,8 @@ Microsoft tarafından korunan ve topluluğa açık bir github deposuna yüklenmi
     
      ![Önizleme portalında VNet oluşturma](./media/virtual-networks-create-vnet-arm-template-click-include/figure5.gif)
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

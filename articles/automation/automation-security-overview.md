@@ -1,13 +1,13 @@
 ---
-title: Azure Otomasyonu Güvenliği | Microsoft Docs
-description: Bu makalede, Azure Automation’da Automation Hesapları için uygun Automation güvenliği ve farklı kumluk doğrulasa yöntemlerine genel bakış verilmektedir.
+title: "Azure Automation Güvenliği | Microsoft Belgeleri"
+description: "Bu makalede, Azure Automation’da Automation Hesapları için uygun Automation güvenliği ve farklı kumluk doğrulasa yöntemlerine genel bakış verilmektedir."
 services: automation
-documentationcenter: ''
+documentationcenter: 
 author: MGoedtel
 manager: jwhit
 editor: tysonn
-keywords: otomasyon güvenliği, güvenli otomasyon
-
+keywords: "otomasyon güvenliği, güvenli otomasyon"
+ms.assetid: 4a6bc2f5-c5a2-4dfb-b10d-7950d750dee8
 ms.service: automation
 ms.devlang: na
 ms.topic: get-started-article
@@ -15,13 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/29/2016
 ms.author: magoedte
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 5cd87c888a5e3407da2bad1bc3f2ef10aa75312b
+
 
 ---
-# Azure Otomasyonu güvenliği
+# <a name="azure-automation-security"></a>Azure Otomasyonu güvenliği
 Azure Automation, Azure’deki, şirket içindeki kaynaklara karşı ve Amazon Web Hizmetleri (AWS) gibi diğer bulut sağlayıcılarıyla görevleri otomatikleştirmenizi sağlar.  Runbook'un gerekli işlemlerini gerçekleştirebilmesi için, abonelikte gereken en düşük haklara sahip kaynaklara güvenli erişim izinlerinin olması gerekir.  
 Bu makale, Azure Automation’ın desteklediği çeşitli kimlik doğrulaması senaryolarını kapsamakta ve yönetmeniz gereken ortam veya ortamlar temelinde nasıl başlayacağınızı göstermektedir.  
 
-## Otomasyon Hesabına genel bakış
+## <a name="automation-account-overview"></a>Otomasyon Hesabına genel bakış
 Azure Automation’ı ilk kez başlattığınızda, en az bir Automation hesabı oluşturmanız gerekir. Automation hesapları Automation kaynaklarınızı (runbook'lar, varlıklar, yapılandırmalar) diğer Automation hesaplarında yer alan kaynaklarından yalıtmanızı sağlar. Kaynaklarını ayrı mantıksal ortamlara ayırmak için Automation hesaplarını kullanabilirsiniz. Örneğin, geliştirme için bir hesap, üretim için başka bir hesap ve şirket içi ortamınız için de başka bir hesap kullanabilirsiniz.  Azure Automation hesabı, Azure aboneliğinizde oluşturduğunuz Microsoft hesabı veya hesaplarından farklıdır.
 
 Her Automation hesabı için Automation kaynakları tek bir Azure bölgesiyle ilişkilendirilir, ancak Automation hesapları tüm bölgelerdeki kaynakları yönetebilir. Farklı bölgelerde Automation hesapları oluşturmanın temel nedeni, veri ve kaynakların belirli bir bölgede yalıtılmasını gerektiren ilkelere sahip olmanız olabilir.
@@ -42,17 +46,20 @@ Rol tabanlı erişim denetimi, Azure AD kullanıcı hesabı ve Farklı Çalışt
 
 Veri merkezindeki Karma Runbook Çalışanı’nda veya AWS’deki bilgi işlem hizmetlerine karşı çalışan runbook'lar, genel olarak Azure kaynaklarında kimlik doğrulayan runbook’lar için kullanılan yöntemin aynısını kullanamaz.  Bunun nedeni, bu kaynakların Azure dışında çalışmasıdır; sonuç olarak da, yerel olarak erişecekleri kaynakların kimliğini doğrulamak için Automation’da tanımlanan kendi güvenlik kimlik bilgileri gerekecektir.  
 
-## Kimlik doğrulama yöntemleri
+## <a name="authentication-methods"></a>Kimlik doğrulama yöntemleri
 Aşağıdaki tabloda, Azure Automation tarafından desteklenen her ortamla ilgili farklı kimlik doğrulaması yöntemleri ve runbook’larınızın nasıl ayarlanacağını anlatan makaledeki bilgiler özetlenmiştir.
 
 | Yöntem | Ortam | Makale |
 | --- | --- | --- |
-| Azure AD Kullanıcı Hesabı |Azure Resource Manager ve Azure Hizmet Yönetimi |[Azure AD Kullanıcı hesabıyla Kimlik Doğrulaması Runbook’ları](automation-sec-configure-aduser-account.md) |
-| Azure Farklı Çalıştır Hesabı |Azure Resource Manager |[Azure Farklı Çalıştır hesabıyla Kimlik Doğrulaması Runbook’ları](automation-sec-configure-azure-runas-account.md) |
-| Azure Klasik Farklı Çalıştır Hesabı |Azure Service Management |[Azure Farklı Çalıştır hesabıyla Kimlik Doğrulaması Runbook’ları](automation-sec-configure-azure-runas-account.md) |
-| Windows Kimlik Doğrulaması |Şirket İçi Veri Merkezi |[Karma Runbook Çalışanları için Kimlik Doğrulaması Runbook’ları](automation-hybrid-runbook-worker.md) |
-| AWS Kimlik Bilgileri |Amazon Web Hizmetleri |[Amazon Web Hizmetleri (AWS) ile Kimlik Doğrulaması Runbook'ları](automation-sec-configure-aws-account.md) |
+| Azure AD Kullanıcı Hesabı |Azure Resource Manager ve Azure Hizmet Yönetimi |[Azure AD Kullanıcı hesabıyla Runbook Kimlik Doğrulaması](automation-sec-configure-aduser-account.md) |
+| Azure Farklı Çalıştır Hesabı |Azure Resource Manager |[Azure Farklı Çalıştır hesabıyla Runbook Kimlik Doğrulaması](automation-sec-configure-azure-runas-account.md) |
+| Azure Klasik Farklı Çalıştır Hesabı |Azure Service Management |[Azure Farklı Çalıştır hesabıyla Runbook Kimlik Doğrulaması](automation-sec-configure-azure-runas-account.md) |
+| Windows Kimlik Doğrulaması |Şirket İçi Veri Merkezi |[Karma Runbook Çalışanları için Runbook Kimlik Doğrulaması](automation-hybrid-runbook-worker.md) |
+| AWS Kimlik Bilgileri |Amazon Web Hizmetleri |[Amazon Web Hizmetleri (AWS) ile Runbook Kimlik Doğrulaması](automation-sec-configure-aws-account.md) |
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

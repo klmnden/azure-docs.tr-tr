@@ -1,12 +1,12 @@
 ---
-title: Swift'te iOS için Azure Mobile Engagement ile Çalışmaya Başlama | Microsoft Docs
-description: iOS Uygulamaları için Analizler ve Anında İletme Bildirimleri ile Azure Mobile Engagement kullanmayı öğrenin.
+title: "Swift&quot;te iOS için Azure Mobile Engagement ile Çalışmaya Başlama | Microsoft Belgeleri"
+description: "iOS Uygulamaları için Analizler ve Anında İletme Bildirimleri ile Azure Mobile Engagement kullanmayı öğrenin."
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 196c282d-6f2f-4cbc-aeee-6517c5ad866d
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
@@ -14,9 +14,13 @@ ms.devlang: swift
 ms.topic: hero-article
 ms.date: 09/20/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 1011b9823333e79a52cd2d187df4f8d063b1f799
+
 
 ---
-# Swift’te iOS Uygulamaları için Azure Mobile Engagement Kullanmaya Başlama
+# <a name="get-started-with-azure-mobile-engagement-for-ios-apps-in-swift"></a>Swift’te iOS Uygulamaları için Azure Mobile Engagement Kullanmaya Başlama
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
 Bu konuda, uygulama kullanımınızı anlamak ve bir iOS uygulamasının segmentli kullanıcılarına anında iletme bildirimleri göndermek için nasıl Azure Mobile Engagement kullanılacağı gösterilmektedir.
@@ -36,22 +40,22 @@ Bu öğretici için aşağıdakiler gereklidir:
 Bu öğreticiyi tamamlamak iOS uygulamalarına ilişkin tüm Mobile Engagement öğreticileri için önkoşuldur.
 
 > [!NOTE]
-> Bu öğreticiyi tamamlamak için etkin bir Azure hesabınızın olması gerekir. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılar için bkz. [Azure Ücretsiz Deneme](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-ios-swift-get-started).
+> Bu öğreticiyi tamamlamak için etkin bir Azure hesabınızın olması gerekir. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-ios-swift-get-started).
 > 
 > 
 
-## <a id="setup-azme"></a>iOS uygulamanız için Mobile Engagement kurma
+## <a name="a-idsetupazmeasetup-mobile-engagement-for-your-ios-app"></a><a id="setup-azme"></a>iOS uygulamanız için Mobile Engagement kurma
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a id="connecting-app"></a>Uygulamanızı Mobile Engagement arka ucuna bağlama
+## <a name="a-idconnectingappaconnect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Uygulamanızı Mobile Engagement arka ucuna bağlama
 Bu öğreticide, veri toplamak ve anında iletme bildirimi göndermek için gerekli en küçük grup olan bir "temel tümleştirme" gösterilmektedir. Tümleştirme belgelerinin tamamı [Mobile Engagement iOS SDK tümleştirmesi](mobile-engagement-ios-sdk-overview.md)’nde bulunabilir.
 
 Tümleştirmeyi göstermek için XCode ile temel bir uygulama oluşturacağız:
 
-### Yeni bir iOS projesi oluşturma
+### <a name="create-a-new-ios-project"></a>Yeni bir iOS projesi oluşturma
 [!INCLUDE [Create a new iOS Project](../../includes/mobile-engagement-create-new-ios-app.md)]
 
-### Uygulamanızı Mobile Engagement arka ucuna bağlama
+### <a name="connect-your-app-to-mobile-engagement-backend"></a>Uygulamanızı Mobile Engagement arka ucuna bağlama
 1. [Mobile Engagement iOS SDK]’yı indirin
 2. .tar.gz dosyasını bilgisayarınızdaki bir klasöre ayıklayın
 3. Projeye sağ tıklayıp "Add files to ..." (Dosyaları şuraya ekle) seçeneğine tıklayın.
@@ -87,31 +91,31 @@ Tümleştirmeyi göstermek için XCode ile temel bir uygulama oluşturacağız:
     
         func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool
         {
-            [...]
+              [...]
                 EngagementAgent.init("Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}")
-            [...]
+              [...]
         }
 
-## <a id="monitor"></a>Gerçek zamanlı izlemeyi etkinleştirme
+## <a name="a-idmonitoraenabling-realtime-monitoring"></a><a id="monitor"></a>Gerçek zamanlı izlemeyi etkinleştirme
 Veri göndermeye başlamak ve kullanıcıların etkin olduğundan emin olmak için, Mobile Engagement arka ucuna en az bir ekran (Etkinlik) göndermelisiniz.
 
 1. **ViewController.swift** dosyasını açıp **ViewController** temel sınıfını **EngagementViewController** olarak değiştirin:
    
     `class ViewController : EngagementViewController {`
 
-## <a id="monitor"></a>Uygulamayı gerçek zamanlı izlemeyle bağlama
+## <a name="a-idmonitoraconnect-app-with-realtime-monitoring"></a><a id="monitor"></a>Uygulamayı gerçek zamanlı izlemeyle bağlama
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-## <a id="integrate-push"></a>Anında İletme Bildirimlerini ve uygulama içi mesajlaşmayı etkinleştirme
+## <a name="a-idintegratepushaenabling-push-notifications-and-inapp-messaging"></a><a id="integrate-push"></a>Anında İletme Bildirimlerini ve uygulama içi mesajlaşmayı etkinleştirme
 Mobile Engagement, kampanyalar bağlamında anında iletme bildirimleri ve uygulama içi mesajlaşma aracılığıyla kullanıcılarınız ile etkileşim kurmanızı ve onlara erişmenizi sağlar. Mobile Engagement portalında bu modüle REACH adı verilir.
 Aşağıdaki bölümler, uygulamanızı bu bildirim ve mesajları alacak şekilde ayarlar.
 
-### Sessiz Anında İletme Bildirimlerini almak üzere uygulamanızı etkinleştirme
+### <a name="enable-your-app-to-receive-silent-push-notifications"></a>Sessiz Anında İletme Bildirimlerini almak üzere uygulamanızı etkinleştirme
 [!INCLUDE [mobile-engagement-ios-silent-push](../../includes/mobile-engagement-ios-silent-push.md)]
 
-### Reach kitaplığını projenize ekleyin.
+### <a name="add-the-reach-library-to-your-project"></a>Reach kitaplığını projenize ekleyin.
 1. Projenize sağ tıklayın
-2. Şunu seçin: `Add file to ...`
+2. `Add file to ...` seçeneğini belirleyin
 3. SDK’yı ayıkladığınız klasöre gidin
 4. `EngagementReach` klasörünü seçin
 5. Ekle'ye tıklayın.
@@ -140,7 +144,7 @@ Aşağıdaki bölümler, uygulamanızı bu bildirim ve mesajları alacak şekild
         #import "AEViewControllerUtil.h"
         #import "AEWebAnnouncementJsBridge.h"
 
-### Uygulama Temsilcinizi değiştirme
+### <a name="modify-your-application-delegate"></a>Uygulama Temsilcinizi değiştirme
 1. `didFinishLaunchingWithOptions` içerisinde bir erişim modülü oluşturun ve bu modülü mevcut Engagement başlatma satırınıza geçirin:
    
         func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool 
@@ -151,7 +155,7 @@ Aşağıdaki bölümler, uygulamanızı bu bildirim ve mesajları alacak şekild
             return true
         }
 
-### APNS Anında İletme Bildirimlerini almak üzere uygulamanızı etkinleştirme
+### <a name="enable-your-app-to-receive-apns-push-notifications"></a>APNS Anında İletme Bildirimlerini almak üzere uygulamanızı etkinleştirme
 1. `didFinishLaunchingWithOptions` yöntemine aşağıdaki satırı ekleyin:
    
         if #available(iOS 8.0, *)
@@ -196,6 +200,6 @@ Aşağıdaki bölümler, uygulamanızı bu bildirim ve mesajları alacak şekild
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

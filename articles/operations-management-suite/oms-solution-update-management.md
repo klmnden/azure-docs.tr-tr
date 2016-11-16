@@ -1,242 +1,247 @@
 ---
-title: Update Management solution in OMS | Microsoft Docs
-description: This article is intended to help you understand how to use this solution to manage updates for your Windows and Linux computers.
+title: "OMS’de Güncelleştirme Yönetimi çözümü | Microsoft Belgeleri"
+description: "Bu makale, Windows ve Linux bilgisayarlarınızın güncelleştirmelerini yönetmek için bu çözümün nasıl kullanılacağına yönelik bilgiler verir."
 services: operations-management-suite
-documentationcenter: ''
+documentationcenter: 
 author: MGoedtel
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: e33ce6f9-d9b0-4a03-b94e-8ddedcc595d2
 ms.service: operations-management-suite
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/28/2016
+ms.date: 10/14/2016
 ms.author: magoedte
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 4bd1e84fd9af1273f95f70d941c3a4535984c8a9
+
 
 ---
-# ![Update Management Solution in OMS](./media/oms-solution-update-management/update-management-solution-icon.png) Update Management solution in OMS
-The Update Management solution in OMS allows you to manage updates for your Windows and Linux computers.  You can quickly assess the status of available updates on all agent computers and initiate the process of installing required updates for servers. 
+# <a name="update-management-solution-in-omsmediaomssolutionupdatemanagementupdatemanagementsolutioniconpng-update-management-solution-in-oms"></a>![OMS’de Güncelleştirme Yönetimi Çözümü](./media/oms-solution-update-management/update-management-solution-icon.png) OMS’de Güncelleştirme Yönetimi çözümü
+OMS’de Güncelleştirme Yönetimi çözümü, Windows ve Linux bilgisayarlarınıza yönelik güncelleştirmeleri yönetmenize olanak tanır.  Tüm aracı bilgisayarlardaki kullanılabilir güncelleştirmelerin durumunu hızlıca değerlendirebilir ve sunucular için gerekli güncelleştirmeleri yükleme işlemini başlatabilirsiniz. 
 
-## Prerequisites
-* Windows agents must either be configured to communicate with a Windows Server Update Services (WSUS) server or have access to Microsoft Update.  
+## <a name="prerequisites"></a>Önkoşullar
+* Windows aracıları Windows Server Update Services (WSUS) sunucusuyla iletişim kuracak veya Microsoft Update’e erişecek şekilde yapılandırılmış olmalıdır.  
   
   > [!NOTE]
-  > The Windows agent cannot be managed concurrently by System Center Configuration Manager.  
+  > Windows aracısı System Center Configuration Manager tarafından eşzamanlı olarak yönetilemez.  
   > 
   > 
-* Linux agents must have access to an update repository.  The OMS Agent for Linux can be downloaded from [GitHub](https://github.com/microsoft/oms-agent-for-linux). 
+* Linux aracılarının bir güncelleştirme havuzuna erişimi olmalıdır.  Linux için OMS Aracısı [GitHub](https://github.com/microsoft/oms-agent-for-linux)’dan indirilebilir. 
 
-## Configuration
-Perform the following steps to add the Update Management solution to your OMS workspace and add Linux agents.  Windows agents are added automatically with no additional configuration.
+## <a name="configuration"></a>Yapılandırma
+Güncelleştirme Yönetimi çözümünü OMS çalışma alanınıza eklemek ve Linux aracılarını eklemek için aşağıdaki adımları uygulayın.  Windows aracıları ek bir yapılandırma olmadan otomatik olarak eklenir.
 
-1. Add the Update Management solution to your OMS workspace using the process described in [Add OMS solutions](../log-analytics/log-analytics-add-solutions.md) from the Solutions Gallery.  
-2. In the OMS portal, select **Settings** and then **Connected Sources**.  Note the **Workspace ID** and either the **Primary Key** or **Secondary Key**.
-3. Perform the following steps for each Linux computer.
+1. Çözüm Galerisi’ndeki [OMS çözümü ekleme](../log-analytics/log-analytics-add-solutions.md) bölümünde anlatılan şekilde Güncelleştirme Yönetimi çözümünü OMS çalışma alanına ekleyin.  
+2. OMS portalında **Ayarlar** ve ardından **Bağlı Kaynaklar**’ı seçin.  **Çalışma Alanı Kimliği**’ni ve **Birincil Anahtar** ya da **İkincil Anahtar**’ı not edin.
+3. Her Linux bilgisayar için aşağıdaki adımları gerçekleştirin.
    
-   a.  Install the latest version of the OMS Agent for Linux by running the following commands.  Replace <Workspace ID> with the Workspace ID and <Key> with either the Primary or Secondary Key.
+   a.    Aşağıdaki komutları çalıştırarak Linux için OMS Aracısı’nın en son sürümünü yükleyin.  <Workspace ID> öğesini Çalışma Alanı Kimliği ile, <Key> öğesini ise Birincil Anahtar veya İkincil Anahtar ile değiştirin.
    
-       cd ~
-       wget https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/v1.2.0-75/omsagent-1.2.0-75.universal.x64.sh
-       sudo bash omsagent-1.2.0-75.universal.x64.sh --upgrade -w <Workspace ID> -s <Key>
+     cd ~   wget https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/v1.2.0-75/omsagent-1.2.0-75.universal.x64.sh   sudo bash omsagent-1.2.0-75.universal.x64.sh --upgrade -w <Workspace ID> -s <Key>
    
-    b. To remove the agent, run the following command.
+   b. Aracıyı kaldırmak için aşağıdaki komutu çalıştırın.
    
-       sudo bash omsagent-1.2.0-75.universal.x64.sh --purge
+     sudo bash omsagent-1.2.0-75.universal.x64.sh --purge
 
-## Management packs
-If your System Center Operations Manager management group is connected to your OMS workspace, then the following management packs will be installed in Operations Manager when you add this solution. There is no configuration or maintenance of these management packs required. 
+## <a name="management-packs"></a>Yönetim paketleri
+System Center Operations Manager yönetim grubunuz OMS çalışma alanınıza bağlıysa, bu çözümü eklediğinizde Operation Manager’a aşağıdaki yönetim paketleri yüklenir. Bu yönetim paketleri için bir yapılandırma veya bakım gerekmez. 
 
 * Microsoft System Center Advisor Update Assessment Intelligence Pack (Microsoft.IntelligencePacks.UpdateAssessment)
 * Microsoft.IntelligencePack.UpdateAssessment.Configuration (Microsoft.IntelligencePack.UpdateAssessment.Configuration)
-* Update Deployment MP
+* MP Dağıtımını güncelleştirme
 
-For more information on how solution management packs are updated, see [Connect Operations Manager to Log Analytics](../log-analytics/log-analytics-om-agents.md).
+Çözüm yönetim paketlerini güncelleştirme hakkında daha fazla bilgi için bkz. [Operations Manager'ı Log Analytics’e Bağlama](../log-analytics/log-analytics-om-agents.md).
 
-## Data collection
-### Supported agents
-The following table describes the connected sources that are supported by this solution.
+## <a name="data-collection"></a>Veri toplama
+### <a name="supported-agents"></a>Desteklenen aracılar
+Aşağıdaki tabloda bu çözüm tarafından desteklenen bağlı kaynaklar açıklanmaktadır.
 
-| Connected Source | Supported | Description |
+| Bağlı Kaynak | Destekleniyor | Açıklama |
 | --- | --- | --- |
-| Windows agents |Yes |The solution collects information about system updates from Windows agents and initiates installation of required updates. |
-| Linux agents |Yes |The solution collects information about system updates from Linux agents. |
-| Operations Manager management group |Yes |The solution collects information about system updates from agents in a connected management group.<br>A direct connection from the Operations Manager agent to Log Analytics is not required. Data is forwarded from the management group to the OMS repository. |
-| Azure storage account |No |Azure storage does not include information about system updates. |
+| Windows aracıları |Evet |Çözüm, Windows aracılarından sistem güncelleştirme bilgilerini toplar ve gerekli güncelleştirmelerin yüklemesini başlatır. |
+| Linux aracıları |Evet |Çözüm, Linux aracılarından sistem güncelleştirme bilgilerini toplar. |
+| Operations Manager yönetim grubu |Evet |Çözüm, bağlı bir yönetim grubundaki aracılardan sistem güncelleştirmeleri hakkında bilgi toplar.<br>Operations Manager aracısının doğrudan Log Analytics’e bağlanması gerekmez. Veriler yönetim grubundan OMS deposuna iletilir. |
+| Azure depolama hesabı |Hayır |Azure Storage, sistem güncelleştirmeleri hakkında bilgi içermez. |
 
-### Collection frequency
-For each managed Windows computer, a scan is performed twice per day.  When an update is installed, its information is updated within 15 minutes.  
+### <a name="collection-frequency"></a>Toplama sıklığı
+Yönetilen her Windows bilgisayarı için günde iki kez tarama gerçekleştirilir.  Bir güncelleştirme yüklendiğinde bilgileri 15 dakika içinde güncelleştirilir.  
 
-For each managed Linux computer, a scan is performed every 3 hours.  
+Yönetilen her Linux bilgisayarı için 3 saatte bir tarama gerçekleştirilir.  
 
-## Using the solution
-When you add the Update Management solution to your OMS workspace, the **Update Management** tile will be added to your OMS dashboard. This tile displays a count and graphical representation of the number of computers in your environment currently requiring system updates.<br><br>
-![Update Management Summary Tile](media/oms-solution-update-management/update-management-summary-tile.png)  
+## <a name="using-the-solution"></a>Çözümü kullanma
+Güncelleştirme Yönetimi çözümünü OMS çalışma alanınıza eklediğinizde OMS panonuza **Güncelleştirme Yönetimi** kutucuğu eklenir. Bu kutucukta, ortamınızda o anda sistem güncelleştirmeleri gerektiren bilgisayar sayısının sayı ve grafik halinde bir açıklaması gösterilir.<br><br>
+![Güncelleştirme Yönetimi Özet Kutucuğu](media/oms-solution-update-management/update-management-summary-tile.png)  
 
-## Viewing Update Assessments
-Click on the **Update Management** tile to open the **Update Management** dashboard. The dashboard includes the columns in the following table. Each column lists up to ten items matching that column's criteria for the specified scope and time range. You can run a log search that returns all records by clicking **See all** at the bottom of the column or by clicking the column header.
+## <a name="viewing-update-assessments"></a>Güncelleştirme Değerlendirmelerini görüntüleme
+**Güncelleştirme Yönetimi** kutucuğuna tıklayarak **Güncelleştirme Yönetimi** panosunu açın. Pano aşağıdaki tabloda gösterilen sütunları içerir. Her sütun, sütunun belirtilen kapsam ve zaman aralığına yönelik kriterleriyle eşleşen en fazla on öğe listeler. Sütunun altındaki **Tümünü gör**’e tıklayarak veya sütun başlığına tıklayarak tüm kayıtları döndüren bir günlük araması gerçekleştirebilirsiniz.
 
-| Column | Description |
+| Sütun | Açıklama |
 | --- | --- |
-| **Computers Missing Updates** | |
-| Critical or Security Updates |Lists the top ten computers that are missing updates sorted by the number of updates they're missing. Click on a computer name to run a log search returning all update records for that computer. |
-| Critical or Security Updates older than 30 days |Identifies number of computers that are missing critical or security updates grouped by the length of time since the update was published. Click on one of the entries to run a log search returning all missing and critical updates. |
-| **Required Missing Updates** | |
-| Critical or Security Updates |Lists classifications of updates that computers are missing sorted by the number of computers missing updates in the category. Click a classification to run a log search returning all update records for that classification. |
-| **Update Deployments** | |
-| Update Deployments |Number of currently scheduled update deployments and the duration until the next scheduled run.  Click on the tile to view schedules, currently running, and completed updates or to schedule a new deployment. |
+| **Güncelleştirmelerin Eksik Olduğu Bilgisayarlar** | |
+| Kritik Güncelleştirmeler veya Güvenlik Güncelleştirmeleri |Güncelleştirmeleri eksik olan ilk on bilgisayarı, eksik güncelleştirme sayısına göre sıralar. Bir bilgisayarın tüm güncelleştirme kayıtlarını döndüren günlük araması gerçekleştirmek için bilgisayar adına tıklayın. |
+| 30 günden eski Kritik Güncelleştirmeler veya Güvenlik Güncelleştirmeleri |Kritik güncelleştirmeleri veya güvenlik güncelleştirmeleri eksik bilgisayar sayısını, güncelleştirmenin yayımlandığı tarihten sonra geçen süreye göre gruplandırır. Tüm eksik ve kritik güncelleştirmeleri döndüren bir günlük araması gerçekleştirmek için girişlerden birine tıklayın. |
+| **Eksik Gerekli Güncelleştirmeler** | |
+| Kritik Güncelleştirmeler veya Güvenlik Güncelleştirmeleri |Bilgisayarlarda eksik olan güncelleştirme sınıflarını, ilgili kategorideki güncelleştirmelerin eksik olduğu bilgisayar sayısına göre sıralar. Bir sınıflandırmanın tüm güncelleştirme kayıtlarını döndüren günlük araması gerçekleştirmek için sınıflandırmaya tıklayın. |
+| **Güncelleştirme Dağıtımları** | |
+| Güncelleştirme Dağıtımları |O anda zamanlanmış güncelleştirme dağıtımlarının sayısı ve zamanlanan sonraki çalışmaya kalan süre.  O anda çalışan zamanlamaları ve tamamlanmış güncelleştirmeleri görüntülemek ya da yeni bir dağıtım zamanlamak için kutucuğa tıklayın. |
 
 <br>  
-![Update Management Summary Dashboard](./media/oms-solution-update-management/update-management-deployment-dashboard.png)<br>  
+![Güncelleştirme Yönetimi Özet Panosu](./media/oms-solution-update-management/update-management-deployment-dashboard.png)<br>  
 <br>
-![Update Management Dashboard Computer View](./media/oms-solution-update-management/update-management-assessment-computer-view.png)<br>  
+![Güncelleştirme Yönetimi Panosu Bilgisayar Görünümü](./media/oms-solution-update-management/update-management-assessment-computer-view.png)<br>  
 <br>
-![Update Management Dashboard Package View](./media/oms-solution-update-management/update-management-assessment-package-view.png)<br>  
+![Güncelleştirme Yönetimi Panosu Paket Görünümü](./media/oms-solution-update-management/update-management-assessment-package-view.png)<br>  
 
-## Installing updates
-Once updates have been assessed for all of the computers in your environment, you can have required updates installed by creating an *Update Deployment*.  An Update Deployment is a scheduled installation of required updates for one or more Windows computers.  You specify the date and time for the deployment in addition to a computer or group of computers that should be included.  
+## <a name="installing-updates"></a>Güncelleştirmeleri yükleme
+Güncelleştirmeler ortamınızdaki tüm Windows bilgisayarlar için değerlendirildikten sonra bir *Güncelleştirme Dağıtımı* oluşturarak gerekli güncelleştirmeleri yükleyebilirsiniz.  Güncelleştirme Dağıtımı, bir veya daha fazla Windows bilgisayar için gerekli güncelleştirmelerin zamanlanmış yüklemesidir.  Dağıtımın tarih ve saatine ek olarak, dahil edilmesi gereken bilgisayarı veya bilgisayar grubunu belirtmeniz gerekir.  
 
-Updates are installed by runbooks in Azure Automation.  You cannot currently view these runbooks, and they don’t require any configuration.  When an Update Deployment is created, it creates a schedule in that starts a master update runbook at the specified time for the included computers.  This master runbook starts a child runbook on each Windows agent that performs installation of required updates.  
+Güncelleştirmeler Azure Automation’daki runbook'lar tarafından yüklenir.  Şu anda bu runbook’ları görüntüleyemezsiniz ve runbook’lar için herhangi bir yapılandırma gerekmez.  Bir Güncelleştirme Dağıtımı oluşturulduğunda, dahil edilen bilgisayarlar için belirtilen zamanda ana güncelleştirme runbook’u başlatan bir zamanlama oluşturur.  Bu ana runbook, gerekli güncelleştirmelerin yüklemesini gerçekleştiren her Windows aracısında bir alt runbook başlatır.  
 
-### Viewing update deployments
-Click the **Update Deployment** tile to view the list of existing Update Deployments.  They are grouped by status – **Scheduled**, **Running**, and **Completed**.<br><br> ![Update Deployments Schedule Page](./media/oms-solution-update-management/update-updatedeployment-schedule-page.png)<br>  
+### <a name="viewing-update-deployments"></a>Güncelleştirme dağıtımlarını görüntüleme
+Var olan Güncelleştirme Dağıtımlarının listesini görüntülemek için **Güncelleştirme Dağıtımı** kutucuğuna tıklayın.  Bunlar duruma göre gruplandırılır: **Zamanlanmış**, **Çalışıyor** ve **Tamamlandı**.<br><br> ![Güncelleştirme Dağıtımları Zamanlama Sayfası](./media/oms-solution-update-management/update-updatedeployment-schedule-page.png)<br>  
 
-The properties displayed for each Update Deployment are described in the following table.
+Her Güncelleştirme Dağıtımı için gösterilen özellikler aşağıdaki tabloda açıklanmıştır.
 
-| Property | Description |
+| Özellik | Açıklama |
 | --- | --- |
-| Name |Name of the Update Deployment. |
-| Schedule |Type of schedule.  *OneTime* is currently the only possible value. |
-| Start Time |Date and time that the Update Deployment is scheduled to start. |
-| Duration |Number of minutes the Update Deployment is allowed to run.  If all updates are not installed within this duration, then the remaining updates must wait until the next Update Deployment. |
-| Servers |Number of computers affected by the Update Deployment. |
-| Status |Current status of the Update Deployment.<br><br>Possible values are:<br>-  Not Started<br>- Running<br>- Finished |
+| Adı |Güncelleştirme Dağıtımının adı. |
+| Zamanlama |Zamanlama türü.  *OneTime* şu anda mümkün olan tek değerdir. |
+| Başlangıç Zamanı |Güncelleştirme Dağıtımının başlatılmak üzere zamanlandığı tarih ve saat. |
+| Süre |Güncelleştirme Dağıtımının çalışmasına izin verilen dakika sayısı.  Bu süre içinde tüm güncelleştirmeler yüklenmezse, kalan güncelleştirmeler sonraki Güncelleştirme Dağıtımına kadar beklemelidir. |
+| Sunucular |Güncelleştirme Dağıtımından etkilenen bilgisayar sayısı. |
+| Durum |Güncelleştirme Dağıtımının geçerli durumu.<br><br>Olası değerler şunlardır:<br>-    Başlatılmadı<br>- Çalışıyor<br>- Tamamlandı |
 
-Click on an Update Deployment to view its detail screen which includes the columns in the following table.  These columns will not be populated if the Update Deployment has not yet started.<br>
+Aşağıdaki tabloda gösterilen sütunları içeren ayrıntı ekranını görüntülemek için Güncelleştirme Dağıtımı’na tıklayın.  Güncelleştirme Dağıtımı henüz başlamadıysa bu sütunlar doldurulmaz.<br>
 
-| Column | Description |
+| Sütun | Açıklama |
 | --- | --- |
-| **Computer Results** | |
-| Completed Successfully |Lists the number of computers in the Update Deployment by status.  Click on a status to run a log search returning all update records with that status for the Update Deployment. |
-| Computer Installation Status |Lists the computers involved in the Update Deployment and the percentage of updates that successfully installed. Click on one of the entries to run a log search returning all missing and critical updates. |
-| **Update Instance Results** | |
-| Instance Installation Status |Lists classifications of updates that computers are missing sorted by the number of computers missing updates in the category. Click a computer to run a log search returning all update records for that computer. |
+| **Bilgisayar Sonuçları** | |
+| Başarıyla Tamamlandı |Güncelleştirme Dağıtımındaki bilgisayar sayısını duruma göre listeler.  Güncelleştirme Dağıtımında bir duruma sahip tüm güncelleştirme kayıtlarını döndüren günlük araması gerçekleştirmek için ilgili duruma tıklayın. |
+| Bilgisayar Yükleme Durumu |Güncelleştirme Dağıtımında rol alan bilgisayarları ve başarıyla yüklenen güncelleştirme yüzdesini listeler. Tüm eksik ve kritik güncelleştirmeleri döndüren bir günlük araması gerçekleştirmek için girişlerden birine tıklayın. |
+| **Güncelleştirme Örneği Sonuçları** | |
+| Örnek Yükleme Durumu |Bilgisayarlarda eksik olan güncelleştirme sınıflarını, ilgili kategorideki güncelleştirmelerin eksik olduğu bilgisayar sayısına göre sıralar. Bir bilgisayarın tüm güncelleştirme kayıtlarını döndüren günlük araması gerçekleştirmek için bilgisayara tıklayın. |
 
-<br><br> ![Overview of Update Deployment Results](./media/oms-solution-update-management/update-la-updaterunresults-page.png)
+<br><br> ![Güncelleştirme Dağıtımı Sonuçlarına genel bakış](./media/oms-solution-update-management/update-la-updaterunresults-page.png)
 
-### Creating an Update Deployment
-Create a new Update Deployment by clicking the **Add** button at the top of the screen to open the **New Update Deployment** page.  You must provide values for the properties in the following table.
+### <a name="creating-an-update-deployment"></a>Güncelleştirme Dağıtımı oluşturma
+Yeni bir Güncelleştirme Dağıtımı oluşturmak için ekranın üst kısmındaki **Ekle** düğmesine tıklayarak **Yeni Güncelleştirme Dağıtımı** sayfasını açın.  Aşağıdaki tabloda gösterilen özelliklerin değerlerini belirtmeniz gerekir.
 
-| Property | Description |
+| Özellik | Açıklama |
 | --- | --- |
-| Name |Unique name to identify the update deployment. |
-| Time Zone |Time zone to use for the start time. |
-| Start Time |Date and time to start the update deployment. |
-| Duration |Number of minutes the Update Deployment is allowed to run.  If all updates are not installed within this duration, then the remaining updates must wait until the next Update Deployment. |
-| Computers |Names of computers or computer groups to include in the Update Deployment.  Select one or more entries from the drop down list. |
+| Adı |Güncelleştirme dağıtımını tanımlamak için benzersiz bir ad. |
+| Saat Dilimi |Başlangıç saati için kullanılacak saat dilimi. |
+| Başlangıç Zamanı |Güncelleştirme dağıtımının başlatılacağı tarih ve saat. |
+| Süre |Güncelleştirme Dağıtımının çalışmasına izin verilen dakika sayısı.  Bu süre içinde tüm güncelleştirmeler yüklenmezse, kalan güncelleştirmeler sonraki Güncelleştirme Dağıtımına kadar beklemelidir. |
+| Bilgisayarlar |Güncelleştirme Dağıtımına dahil edilecek bilgisayarların veya bilgisayar gruplarının adları.  Açılır listeden bir veya daha fazla giriş seçin. |
 
-<br><br> ![New Update Deployment Page](./media/oms-solution-update-management/update-newupdaterun-page.png)
+<br><br> ![Yeni Güncelleştirme Dağıtımı Sayfası](./media/oms-solution-update-management/update-newupdaterun-page.png)
 
-### Time range
-By default, the scope of the data analyzed in the Update Management solution is from all connected management groups generated within the last 1 day. 
+### <a name="time-range"></a>Zaman aralığı
+Varsayılan olarak, Güncelleştirme Yönetimi çözümünde analiz edilen verilerin kapsamı son 1 gün içinde oluşturulan tüm bağlı yönetim gruplarından belirlenir. 
 
-To change the time range of the data, select **Data based on** at the top of the dashboard. You can select records created or updated within the last 7 days, 1 day, or 6 hours. Or you can select **Custom** and specify a custom date range.<br><br> ![Custom Time Range Option](./media/oms-solution-update-management/update-la-time-range-scope-databasedon.png)  
+Verileri zaman aralığını değiştirmek için panonun ist kısmındaki **Veri temeli**’ni seçin. Son 7 gün, 1 gün veya 6 saat içinde oluşturulan veya güncelleştirilen kayıtları seçebilirsiniz. Ya da **Özel**’i seçip özel bir tarih aralığı belirtebilirsiniz.<br><br> ![Özel Zaman Aralığı Seçeneği](./media/oms-solution-update-management/update-la-time-range-scope-databasedon.png)  
 
-## Log Analytics records
-The Update Management solution creates two types of records in the OMS repository.
+## <a name="log-analytics-records"></a>Log Analytics kayıtları
+Güncelleştirme Yönetimi çözümü, OMS deposunda iki tür kayıt oluşturur.
 
-### Update records
-A record with a type of **Update** is created for each update that is either installed or needed on each computer. Update records have the properties in the following table.
+### <a name="update-records"></a>Güncelleştirme kayıtları
+Her bilgisayara yüklenen veya gerekli olan her bir güncelleştirme için **Güncelleştirme** türünde bir kayıt oluşturulur. Güncelleştirme kayıtları aşağıdaki tabloda gösterilen özelliklere sahiptir.
 
-| Property | Description |
+| Özellik | Açıklama |
 | --- | --- |
-| Type |*Update* |
-| SourceSystem |The source that approved installation of the update.<br>Possible values are:<br>- Microsoft Update<br>-  Windows Update<br>- SCCM<br>- Linux Servers (Fetched from Package Managers) |
-| Approved |Specifies whether the update has been approved for installation.<br> For Linux servers this is currently optional as patching is not managed by OMS. |
-| Classification for Windows |Classification of the update.<br>Possible values are:<br>- Applications<br>- Critical Updates<br>- Definition Updates<br>- Feature Packs<br>- Security Updates<br>- Service Packs<br>- Update Rollups<br>- Updates |
-| Classification for Linux |Cassification of the update.<br>Possible values are:<br>-Critical Updates<br>- Security Updates<br>- Other Updates |
-| Computer |Name of the computer. |
-| InstallTimeAvailable |Specifies whether the installation time is available from other agents that installed the same update. |
-| InstallTimePredictionSeconds |Estimated installation time in seconds based on other agents that installed the same update. |
-| KBID |ID of the KB article that describes the update. |
-| ManagementGroupName |Name of the management group for SCOM agents.  For other agents, this is AOI-<workspace ID>. |
-| MSRCBulletinID |ID of the Microsoft security bulletin describing the update. |
-| MSRCSeverity |Severity of the Microsoft security bulletin.<br>Possible values are:<br>- Critical<br>- Important<br>- Moderate |
-| Optional |Specifies whether the update is optional. |
-| Product |Name of the product the update is for.  Click **View** to open the article in a browser. |
-| PackageSeverity |The severity of the vulnerability fixed in this update, as reported by the  Linux distro vendors. |
-| PublishDate |Date and time that the update was installed. |
-| RebootBehavior |Specifies if the update forces a reboot.<br>Possible values are:<br>- canrequestreboot<br>- neverreboots |
-| RevisionNumber |Revision number of the update. |
-| SourceComputerId |GUID to uniquely identify the computer. |
-| TimeGenerated |Date and time that the record was last updated. |
-| Title |Title of the update. |
-| UpdateID |GUID to uniquely identify the update. |
-| UpdateState |Specifies whether the update is installed on this computer.<br>Possible values are:<br>- Installed - The update is installed on this computer.<br>- Needed - The update is not installed and is needed on this computer. |
+| Tür |*Güncelleştirme* |
+| SourceSystem |Güncelleştirmenin yüklenmesini onaylayan kaynak.<br>Olası değerler şunlardır:<br>- Microsoft Update<br>-    Windows Update<br>-    SCCM<br>- Linux Sunucuları (Paket Yöneticilerinden getirilir) |
+| Onaylandı |Güncelleştirme yüklemesinin onaylanıp onaylanmadığını belirtir.<br> Düzeltme eki uygulama işlemi OMS tarafından yönetilmediğinden, Linux sunucuları için bu seçenek şu anda isteğe bağlıdır. |
+| Windows Sınıflandırması |Güncelleştirme sınıflandırması.<br>Olası değerler şunlardır:<br>-    Uygulamalar<br>- Kritik Güncelleştirmeler<br>- Tanım Güncelleştirmeleri<br>- Özellik Paketleri<br>- Güvenlik Güncelleştirmeleri<br>- Hizmet Paketleri<br>- Güncelleştirme Paketleri<br>- Güncelleştirmeler |
+| Linux Sınıflandırması |Güncelleştirme sınıflandırması.<br>Olası değerler şunlardır:<br>- Kritik Güncelleştirmeler<br>- Güvenlik Güncelleştirmeleri<br>- Diğer Güncelleştirmeler |
+| Bilgisayar |Bilgisayarın adı. |
+| InstallTimeAvailable |Yükleme zamanına, aynı güncelleştirmenin yüklü olduğu diğer aracılardan ulaşılıp ulaşılamadığını belirtir. |
+| InstallTimePredictionSeconds |Aynı güncelleştirmeyi yükleyen diğer aracılara göre saniye cinsinden tahmini yükleme süresi. |
+| KBID |Güncelleştirmeyi açıklayan KB makalesi kimliği. |
+| ManagementGroupName |SCOM aracıları için yönetim grubunun adı.  Diğer aracılar için bu değer AOI-<workspace ID> şeklindedir. |
+| MSRCBulletinID |Güncelleştirmeyi açıklayan Microsoft güvenlik bülteni kimliği. |
+| MSRCSeverity |Microsoft güvenlik bülteninin önem derecesi.<br>Olası değerler şunlardır:<br>- Kritik<br>- Önemli<br>- Orta |
+| İsteğe bağlı |Güncelleştirmenin isteğe bağlı olup olmadığını belirtir. |
+| Ürün |Güncelleştirmenin ait olduğu ürünün adı.  Makaleyi bir tarayıcıda açmak için **Görüntüle**’ye tıklayın. |
+| PackageSeverity |Bu güncelleştirmede giderilen güvenlik açığının Linux distro satıcıları tarafından bildirilen önem derecesi. |
+| PublishDate |Güncelleştirmenin yüklendiği tarih ve saat. |
+| RebootBehavior |Güncelleştirmenin yeniden başlatmaya zorlayıp zorlamayacağını belirtir.<br>Olası değerler şunlardır:<br>- canrequestreboot<br>- neverreboots |
+| RevisionNumber |Güncelleştirmenin düzeltme sayısı. |
+| SourceComputerId |Bilgisayarı benzersiz olarak tanımlayan GUID. |
+| TimeGenerated |Kaydın son güncelleştirildiği tarih ve saat. |
+| Başlık |Güncelleştirme başlığı. |
+| UpdateID |Güncelleştirmeyi benzersiz olarak tanımlayan GUID. |
+| UpdateState |Güncelleştirmenin bu bilgisayarda yüklü olup olmadığını belirtir.<br>Olası değerler şunlardır:<br>- Yüklü: Güncelleştirme bu bilgisayarda yüklü.<br>- Gerekli - Güncelleştirme yüklü değil ve bu bilgisayarda gerekli. |
 
 <br>
-When you perform any log search that returns records with a type of **Update** you can select the **Updates** view which displays a set of tiles summarizing the updates returned by the search. You can click on the entries in the **Missing and applied updates** and **Required and optional updates** tiles to scope the view to that set of updates. Select the **List** or **Table** view to return the individual records.<br> 
+**Update** türünde kayıtlar döndüren bir günlük araması yaptığınızda, arama tarafından döndürülen güncelleştirmeleri özetleyen bir kutucuk kümesi görüntülemek üzere **Güncelleştirmeler** görünümünü seçebilirsiniz. **Eksik ve uygulanan güncelleştirmeler** ile **Gerekli ve isteğe bağlı güncelleştirmeler** kutucuklarındaki girişlere tıklayarak görünümün kapsamını bu güncelleştirme kümesine ayarlayabilirsiniz. Kayıtları tek tek döndürmek için **Liste** veya **Tablo** görünümünü seçin.<br> 
 
-![Log Search Update View with Record Type Update](./media/oms-solution-update-management/update-la-view-updates.png)  
+![Güncelleştirme Kayıt Türü ile Günlük Arama Güncelleştirme Görünümü](./media/oms-solution-update-management/update-la-view-updates.png)  
 
-In the **Table** view, you can click on the **KBID** for any record to open a browser with the KB article. This allows you to quickly read about the details of the particular update.<br> 
+**Tablo** görünümünde, KB makalesiyle bir tarayıcı açmak üzere herhangi bir kayda ait **KBID** öğesine tıklayabilirsiniz. Bunun yapılması, ilgili güncelleştirmenin ayrıntıları hakkında hızlıca bilgi almanızı sağlar.<br> 
 
-![Log Search Table View With Tiles Record Type Updates](./media/oms-solution-update-management/update-la-view-table.png)
+![Güncelleştirme Kayıt Türü Kutucukları ile Günlük Arama Tablosu](./media/oms-solution-update-management/update-la-view-table.png)
 
-In the **List** view, you click the **View** link next to the KBID to open the KB article.<br>
+**Liste** görünümünde KBID’nin yanındaki **Görünüm** bağlantısına tıklayarak KB makalesini açabilirsiniz.<br>
 
-![Log Search List View With Tiles Record Type Updates](./media/oms-solution-update-management/update-la-view-list.png)
+![Güncelleştirme Kayıt Türü Kutucukları ile Günlük Arama Listesi](./media/oms-solution-update-management/update-la-view-list.png)
 
-### UpdateSummary records
-A record with a type of **UpdateSummary** is created for each Windows agent computer. This record is updated each time the computer is scanned for updates. **UpdateSummary** records have the properties in the following table.
+### <a name="updatesummary-records"></a>UpdateSummary kayıtları
+Her Windows aracı bilgisayarı için **UpdateSummary** türünde bir kayıt oluşturulur. Bilgisayarda yapılan her güncelleştirme taramasında kayıt güncelleştirilir. **UpdateSummary** kayıtları aşağıdaki tabloda gösterilen özelliklere sahiptir.
 
-| Property | Description |
+| Özellik | Açıklama |
 | --- | --- |
-| Type |UpdateSummary |
+| Tür |UpdateSummary |
 | SourceSystem |OpsManager |
-| Computer |Name of the computer. |
-| CriticalUpdatesMissing |Number of critical updates missing on the computer. |
-| ManagementGroupName |Name of the management group for SCOM agents. For other agents, this is AOI-<workspace ID>. |
-| NETRuntimeVersion |Version of the .NET runtime installed on the computer. |
-| OldestMissingSecurityUpdateBucket |Bucket to categorize the time since the oldest missing security update on this computer was published.<br>Possible values are:<br>- Older<br>-  180 days ago<br>- 150 days ago<br>- 120 days ago<br>- 90 days ago<br>- 60 days ago<br>- 30 days go<br>- Recent |
-| OldestMissingSecurityUpdateInDays |Number of days since the oldest missing security update on this computer was published. |
-| OsVersion |Version of the operating system installed on the computer. |
-| OtherUpdatesMissing |Number of other updates missing on the computer. |
-| SecurityUpdatesMissing |Number of security updates missing on the computer. |
-| SourceComputerId |GUID to uniquely identify the computer. |
-| TimeGenerated |Date and time that the record was last updated. |
-| TotalUpdatesMissing |Total number of updates missing on the computer. |
-| WindowsUpdateAgentVersion |Version number of the Windows Update agent on the computer. |
-| WindowsUpdateSetting |Setting for how the computer will install important updates.<br>Possible values are:<br>- Disabled<br>- Notify before installation<br>- Scheduled installation |
-| WSUSServer |URL of WSUS server if the computer is configured to use one. |
+| Bilgisayar |Bilgisayarın adı. |
+| CriticalUpdatesMissing |Bilgisayarda eksik olan kritik güncelleştirme sayısı. |
+| ManagementGroupName |SCOM aracıları için yönetim grubunun adı. Diğer aracılar için bu değer AOI-<workspace ID> şeklindedir. |
+| NETRuntimeVersion |Bilgisayarda yüklü .NET çalışma zamanı sürümü. |
+| OldestMissingSecurityUpdateBucket |Bu bilgisayardaki en eski eksik güvenlik güncelleştirmesinin yayımlanmasından bu yana geçen süreyi kategorilere ayıran demet.<br>Olası değerler şunlardır:<br>- Eski<br>-    180 gün önce<br>- 150 gün önce<br>-    120 gün önce<br>- 90 gün önce<br>- 60 gün önce<br>-    30 gün önce<br>-    En Son |
+| OldestMissingSecurityUpdateInDays |Bu bilgisayardaki en eski eksik güvenlik güncelleştirmesinin yayımlanmasından bu yana geçen gün sayısı. |
+| OsVersion |Bilgisayarda yüklü işletim sistemi sürümü. |
+| OtherUpdatesMissing |Bilgisayarda eksik olan diğer güncelleştirmelerin sayısı. |
+| SecurityUpdatesMissing |Bilgisayarda eksik olan güvenlik güncelleştirmelerinin sayısı. |
+| SourceComputerId |Bilgisayarı benzersiz olarak tanımlayan GUID. |
+| TimeGenerated |Kaydın son güncelleştirildiği tarih ve saat. |
+| TotalUpdatesMissing |Bilgisayarda eksik olan toplam güncelleştirme sayısı. |
+| WindowsUpdateAgentVersion |Bilgisayardaki Windows Update aracısının sürüm numarası. |
+| WindowsUpdateSetting |Bilgisayarın önemli güncelleştirmeleri yükleme yöntemiyle ilgili ayar.<br>Olası değerler şunlardır:<br>- Devre dışı<br>- Yüklemeden önce bildir<br>- Zamanlanmış yükleme |
+| WSUSServer |Bilgisayar, kullanacak için yapılandırılmışsa WSUS sunucusunun URL’si. |
 
-## Sample log searches
-The following table provides sample log searches for update records collected by this solution. 
+## <a name="sample-log-searches"></a>Örnek günlük aramaları
+Aşağıdaki tabloda, bu çözüm tarafından toplanan güncelleştirme kayıtlarına ilişkin örnek günlük aramaları sunulmaktadır. 
 
-| Query | Description |
+| Sorgu | Açıklama |
 | --- | --- |
-| All computers with missing updates |Type=Update UpdateState=Needed Optional=false &#124; select Computer,Title,KBID,Classification,UpdateSeverity,PublishedDate |
-| Missing updates for computer "COMPUTER01.contoso.com" (replace with your own computer name) |Type=Update UpdateState=Needed Optional=false Computer="COMPUTER01.contoso.com" &#124; select Computer,Title,KBID,Product,UpdateSeverity,PublishedDate |
-| All computers with missing critical or security updates |Type=Update UpdateState=Needed Optional=false (Classification="Security Updates" OR Classification="Critical Updates") |
-| Critical or security updates needed by machines where updates are manually applied |Type=Update UpdateState=Needed Optional=false (Classification="Security Updates" OR Classification="Critical Updates") Computer IN {Type=UpdateSummary WindowsUpdateSetting=Manual &#124; Distinct Computer} &#124; Distinct KBID |
-| Error events for machines that have missing critical or security required updates |Type=Event EventLevelName=error Computer IN {Type=Update (Classification="Security Updates" OR Classification="Critical Updates") UpdateState=Needed Optional=false &#124; Distinct Computer} |
-| All computers with missing update rollups |Type=Update Optional=false Classification="Update Rollups" UpdateState=Needed &#124; select Computer,Title,KBID,Classification,UpdateSeverity,PublishedDate |
-| Distinct missing updates across all computers |Type=Update UpdateState=Needed Optional=false &#124; Distinct Title |
-| WSUS computer membership |Type=UpdateSummary &#124; measure count() by WSUSServer |
-| Automatic update configuration |Type=UpdateSummary &#124; measure count() by WindowsUpdateSetting |
-| Computers with automatic update disabled |Type=UpdateSummary WindowsUpdateSetting=Manual |
-| List of all the Linux machines which have a package update available |Type=Update and OSType=Linux and UpdateState!="Not needed" &#124; measure count() by Computer |
-| List of all the Linux machines which have a package update available which addresses Critical or Security vulnerability |Type=Update and OSType=Linux and UpdateState!="Not needed" and (Classification="Critical Updates" OR Classification="Security Updates") &#124; measure count() by Computer |
-| List of all packages that have an update available |Type=Update and OSType=Linux and UpdateState!="Not needed" |
-| List of all packages that have an update available which addresses Critical or Security vulnerability |Type=Update  and OSType=Linux and UpdateState!="Not needed" and (Classification="Critical Updates" OR Classification="Security Updates") |
-| List of all the “Ubuntu” machines with any update available |Type=Update and OSType=Linux and OSName = Ubuntu &#124; measure count() by Computer |
+| Eksik güncelleştirmeleri olan tüm bilgisayarlar |Type=Update UpdateState=Needed Optional=false &#124; select Computer,Title,KBID,Classification,UpdateSeverity,PublishedDate |
+| "COMPUTER01.contoso.com" bilgisayarı için eksik güncelleştirmeler (kendi bilgisayarınızın adıyla değiştirin) |Type=Update UpdateState=Needed Optional=false Computer="COMPUTER01.contoso.com" &#124; select Computer,Title,KBID,Product,UpdateSeverity,PublishedDate |
+| Eksik kritik güncelleştirmeleri veya güvenlik güncelleştirmeleri olan tüm bilgisayarlar |Type=Update UpdateState=Needed Optional=false (Classification="Security Updates" OR Classification="Critical Updates") |
+| Güncelleştirmelerin el ile uygulandığı makinelerde gerekli olan kritik güncelleştirmeler veya güvenlik güncelleştirmeleri |Type=Update UpdateState=Needed Optional=false (Classification="Security Updates" OR Classification="Critical Updates") Computer IN {Type=UpdateSummary WindowsUpdateSetting=Manual &#124; Distinct Computer} &#124; Distinct KBID |
+| Kritik güncelleştirmeleri veya gerekli güvenlik güncelleştirmeleri eksik olan makineler için hata olayları |Type=Event EventLevelName=error Computer IN {Type=Update (Classification="Security Updates" OR Classification="Critical Updates") UpdateState=Needed Optional=false &#124; Distinct Computer} |
+| Eksik güncelleştirme paketleri olan tüm bilgisayarlar |Type=Update Optional=false Classification="Update Rollups" UpdateState=Needed &#124; select Computer,Title,KBID,Classification,UpdateSeverity,PublishedDate |
+| Tüm bilgisayarlardaki ayrı eksik güncelleştirmeler |Type=Update UpdateState=Needed Optional=false &#124; Distinct Title |
+| WSUS bilgisayar üyeliği |Type=UpdateSummary &#124; measure count() by WSUSServer |
+| Otomatik güncelleştirme yapılandırması |Type=UpdateSummary &#124; measure count() by WindowsUpdateSetting |
+| Otomatik güncelleştirmenin devre dışı olduğu bilgisayarlar |Type=UpdateSummary WindowsUpdateSetting=Manual |
+| Paket güncelleştirmesi mevcut olan tüm Linux makinelerinin listesi |Type=Update and OSType=Linux and UpdateState!="Not needed" &#124; measure count() by Computer |
+| Kritik veya Güvenlik türünde güvenlik açığını ele alan paket güncelleştirmesine sahip tüm Linux makinelerinin listesi |Type=Update and OSType=Linux and UpdateState!="Not needed" and (Classification="Critical Updates" OR Classification="Security Updates") &#124; measure count() by Computer |
+| Bir güncelleştirmenin kullanılabilir olduğu tüm paketlerin listesi |Type=Update and OSType=Linux and UpdateState!="Not needed" |
+| Kritik veya Güvenlik türünde güvenlik açığını ele alan güncelleştirmeye sahip tüm paketlerin listesi |Type=Update  and OSType=Linux and UpdateState!="Not needed" and (Classification="Critical Updates" OR Classification="Security Updates") |
+| Herhangi bir güncelleştirmenin mevcut olduğu tüm "Ubuntu" makinelerinin listesi |Type=Update and OSType=Linux and OSName = Ubuntu &#124; measure count() by Computer |
 
-## Next steps
-* Use Log Searches in [Log Analytics](../log-analytics/log-analytics-log-searches.md) to view detailed update data.
-* [Create your own dashboards](../log-analytics/log-analytics-dashboards.md) showing update compliance for your managed computers.
-* [Create alerts](../log-analytics/log-analytics-alerts.md) when critical updates are detected as missing from computers or a computer has automatic updates disabled.  
+## <a name="next-steps"></a>Sonraki adımlar
+* Ayrıntılı güncelleştirme verilerini görüntülemek için [Log Analytics](../log-analytics/log-analytics-log-searches.md)’te Günlük Aramalarını kullanın.
+* Yönetilen bilgisayarlarınızın güncelleştirme uyumluluğunu gösteren [kendi panolarınızı oluşturun](../log-analytics/log-analytics-dashboards.md).
+* Bilgisayardan eksik kritik güncelleştirmeler algılandığında veya bilgisayarda otomatik güncelleştirmeler devre dışı olduğunda [uyarılar oluşturun](../log-analytics/log-analytics-alerts.md).  
 
-<!--HONumber=Sep16_HO5-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

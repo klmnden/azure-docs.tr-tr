@@ -73,6 +73,11 @@
 ## [Klasik Dağıtım Rest](https://msdn.microsoft.com/library/azure/mt163781)
 
 # Kaynaklar
+## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/automation/)  
+## [MSDN forumu](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureautomation)  
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-automation)
+## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=automation) 
+## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=automation) 
 ## [Azure Otomasyonu eğitimi](https://www.microsoftvirtualacademy.com/en-US/training-courses/automating-the-cloud-with-azure-automation-8323)
 ## [Öğrenme yolu](https://azure.microsoft.com/documentation/learning-paths/automation/)
 ## [Otomasyon tanıtım videosu](https://azure.microsoft.com/documentation/videos/azure-automation-101-with-powershell-and-eamon-o-reilly/)

@@ -15,9 +15,10 @@
 
 # Başvuru
 ## [Örnekler](service-bus-relay-samples.md)
-## [.NET API başvurusu](https://msdn.microsoft.com/library/azure/jj933424)
 ## [Özel Durumlar](../service-bus-messaging/service-bus-messaging-exceptions.md?toc=%2fazure%2fservice-bus-relay%2ftoc.json)
 ## [Kotalar](../service-bus-messaging/service-bus-quotas.md?toc=%2fazure%2fservice-bus-relay%2ftoc.json)
+## [.NET](/dotnet/api/)
+## [REST](/rest/api/servicebus/)
 
 # Kaynaklar
 ## [Blog](https://blogs.msdn.microsoft.com/servicebus/)
@@ -25,6 +26,8 @@
 ## [MSDN forumları](https://social.msdn.microsoft.com/forums/home?forum=servbus)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/service-bus/)
 ## [Öğrenme yolu](https://azure.microsoft.com/documentation/learning-paths/service-bus/)
+## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=service-bus)
+## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
 
 
 <!--HONumber=Nov16_HO2-->

@@ -1,11 +1,11 @@
 ---
-title: PowerShell kullanarak Application Insights’a Azure Tanılama verileri gönderme | Microsoft Docs
-description: Application Insights’a kanal oluşturmak için Azure Tanılama’yı yapılandırmayı otomatikleştirme
+title: "Azure’da Application Insights’ı kurmak için PowerShell’i kullanma | Microsoft Belgeleri"
+description: "Application Insights’a kanal oluşturmak için Azure Tanılama’yı yapılandırmayı otomatikleştirme"
 services: application-insights
 documentationcenter: .net
 author: sbtron
 manager: douge
-
+ms.assetid: 4ac803a8-f424-4c0c-b18f-4b9c189a64a5
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
@@ -13,12 +13,39 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/17/2015
 ms.author: awills
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b324d38f1f06f9cfcb15665da3d0e3964555ee54
+
 
 ---
-# PowerShell kullanarak Application Insights’a Azure Tanılama verileri gönderme
+# <a name="using-powershell-to-set-up-application-insights-for-an-azure-web-app"></a>Bir Azure web uygulaması için Application Insights’ı kurmak üzere PowerShell’i kullanma
 [Microsoft Azure](https://azure.com), [Visual Studio Application Insights](app-insights-overview.md)’a [Azure Tanılama verileri gönderecek şekilde yapılandırılabilir.](app-insights-azure-diagnostics.md) Tanılama verileri Azure Cloud Services ve Azure VM’leriyle ilişkilidir. Uygulama içinde Application Insights SDK’sı kullanarak gönderdiğiniz telemetriyi tamamlar. Azure’da yeni kaynaklar oluşturma işlemini otomatikleştirmenin bir parçası olarak tanılamayı PowerShell kullanarak yapılandırabilirsiniz.
 
-## Bulut Hizmeti dağıtımının bir parçası olarak tanılama uzantısını etkinleştirme
+## <a name="azure-template"></a>Azure şablonu
+web uygulaması Azure’deyse ve Azure Resource Manager şablonu kullanarak kaynaklarınızı oluşturuyorsanız, bunu kaynak düğümüne ekleyerek Application Insights’ı yapılandırabilirsiniz:
+
+    {
+      resources: [
+        /* Create Application Insights resource */
+        {
+          "apiVersion": "2015-05-01",
+          "type": "microsoft.insights/components",
+          "name": "nameOfAIAppResource",
+          "location": "centralus",
+          "kind": "web",
+          "properties": { "ApplicationId": "nameOfAIAppResource" },
+          "dependsOn": [
+            "[concat('Microsoft.Web/sites/', myWebAppName)]"
+          ]
+        }
+       ]
+     } 
+
+* `nameOfAIAppResource` - Application Insights kaynağı adı
+* `myWebAppName` - web uygulaması kimliği
+
+## <a name="enable-diagnostics-extension-as-part-of-deploying-a-cloud-service"></a>Bulut Hizmeti dağıtımının bir parçası olarak tanılama uzantısını etkinleştirme
 `New-AzureDeployment` cmdlet’i, bir dizi tanılama yapılandırması içeren `ExtensionConfiguration` parametresine sahiptir. Bunlar, `New-AzureServiceDiagnosticsExtensionConfig` cmdlet’i kullanılarak oluşturulabilir. Örneğin:
 
 ```ps
@@ -54,7 +81,7 @@ ms.author: awills
 
 ``` 
 
-## Mevcut bir Bulut Hizmetinde tanılama uzantısını etkinleştirme
+## <a name="enable-diagnostics-extension-on-an-existing-cloud-service"></a>Mevcut bir Bulut Hizmetinde tanılama uzantısını etkinleştirme
 Mevcut bir hizmet üzerinde `Set-AzureServiceDiagnosticsExtension` kullanma
 
 ```ps
@@ -83,14 +110,14 @@ Mevcut bir hizmet üzerinde `Set-AzureServiceDiagnosticsExtension` kullanma
         -Role "WorkerRole"
 ```
 
-## Güncel tanılama uzantı yapılandırmasını alma
+## <a name="get-current-diagnostics-extension-configuration"></a>Güncel tanılama uzantı yapılandırmasını alma
 ```ps
 
     Get-AzureServiceDiagnosticsExtension -ServiceName "MyService"
 ```
 
 
-## Tanılama uzantısını kaldırma
+## <a name="remove-diagnostics-extension"></a>Tanılama uzantısını kaldırma
 ```ps
 
     Remove-AzureServiceDiagnosticsExtension -ServiceName "MyService"
@@ -106,11 +133,14 @@ Tanılama uzantısını her bir rolden kaldırmak için:
 ```
 
 
-## Ayrıca bkz.
+## <a name="see-also"></a>Ayrıca bkz.
 * [Application Insights’la Azure Cloud Services uygulamalarını izleme](app-insights-cloudservices.md)
 * [Azure Tanılama verilerini Application Insights’a gönderme](app-insights-azure-diagnostics.md)
 * [Yapılandırma uyarılarını otomatik hale getirme](app-insights-powershell-alerts.md)
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

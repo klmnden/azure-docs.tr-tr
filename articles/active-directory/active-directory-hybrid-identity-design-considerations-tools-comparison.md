@@ -1,12 +1,12 @@
 ---
-title: 'Karma Kimlik: Dizin tümleştirme araçları karşılaştırması | Microsoft Docs'
-description: Bu sayfada, dizin tümleştirme için kullanılabilen çeşitli dizin tümleştirme araçlarını karşılaştıran kapsamlı bir tablo sunulmaktadır.
+title: "Karma Kimlik: Dizin tümleştirme araçları karşılaştırması | Microsoft Belgeleri"
+description: "Bu sayfada, dizin tümleştirme için kullanılabilen çeşitli dizin tümleştirme araçlarını karşılaştıran kapsamlı bir tablo sunulmaktadır."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: billmath
 manager: femila
 editor: curtand
-
+ms.assetid: 1e62a4bd-4d55-4609-895e-70131dedbf52
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/08/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 1df15de1c24e80b0692149dfc7cb660f74941886
+
 
 ---
-# Karma Kimlik dizin tümleştirme araçları karşılaştırması
+# <a name="hybrid-identity-directory-integration-tools-comparison"></a>Karma Kimlik dizin tümleştirme araçları karşılaştırması
 Yıllar içinde dizin tümleştirme araçları büyüme ve gelişim göstermiştir.  Bu belgenin amacı, bu araçlara yönelik birleştirilmiş bir görünüm ve her birinin içerdiği özelliklere dair bir karşılaştırma sağlamaya yardımcı olmaktır.
 
 <!-- The hardcoded link is a workaround for campaign ids not working in acom links-->
@@ -34,7 +38,7 @@ Tabloların her biri için aşağıdaki anahtarı kullanın.
 GS = Gelecekteki Sürüm  
 GÖ = Genel Önizleme  
 
-## Şirket İçi - Bulut Eşitlemesi
+## <a name="onpremises-to-cloud-synchronization"></a>Şirket İçi - Bulut Eşitlemesi
 | Özellik | Azure Active Directory Connect | Azure Active Directory Eşitleme Hizmetleri (AAD Eşitleme) | Azure Active Directory Eşitleme Aracı (DirSync) | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
 |:--- |:---:|:---:|:---:|:---:|:---:|
 | Tek şirket içi AD ormanına bağlanma |● |● |● |● |● |
@@ -48,7 +52,7 @@ GÖ = Genel Önizleme
 | Şirket içi İK olanağına (SAP, Oracle eBusiness,PeopleSoft) bağlanma |GS | | |● |● |
 | FIM eşitleme kurallarını ve şirket içi sistemlere hazırlamaya yönelik bağlayıcıları destekler. | | | |● |● |
 
-## Bulut - Şirket İçi Eşitlemesi
+## <a name="cloud-to-onpremises-synchronization"></a>Bulut - Şirket İçi Eşitlemesi
 | Özellik | Azure Active Directory Connect | Azure Active Directory Eşitleme Hizmetleri | Azure Active Directory Eşitleme Aracı (DirSync) | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
 |:--- |:---:|:---:|:---:|:---:|:---:|
 | Cihazlar için geri yazma |● | |● | | |
@@ -56,7 +60,7 @@ GÖ = Genel Önizleme
 | Kullanıcılar ve gruplar nesneleri için geri yazma |● | | | | |
 | Parola geri yazma (self servis parola sıfırlama (SSPR) ve parola değiştirme işleminden) |● |● | | | |
 
-## Kimlik Doğrulama Özelliği Desteği
+## <a name="authentication-feature-support"></a>Kimlik Doğrulama Özelliği Desteği
 | Özellik | Azure Active Directory Connect | Azure Active Directory Eşitleme Hizmetleri | Azure Active Directory Eşitleme Aracı (DirSync) | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
 |:--- |:---:|:---:|:---:|:---:|:---:|
 | Tek şirket içi AD ormanı için Parola Eşitleme |● |● |● | | |
@@ -64,7 +68,7 @@ GÖ = Genel Önizleme
 | Federasyon ile Çoklu Oturum Açma |● |● |● |● |● |
 | Parola geri yazma (SSPR ve parola değiştirme işleminden) |● |● | | | |
 
-## Kurulum ve Yükleme
+## <a name="setup-and-installation"></a>Kurulum ve Yükleme
 | Özellik | Azure Active Directory Connect | Azure Active Directory Eşitleme Hizmetleri | Azure Active Directory Eşitleme Aracı (DirSync) | Microsoft Identity Manager 2016 (MIM) |
 |:--- |:---:|:---:|:---:|:---:|
 | Etki Alanı Denetleyicisi üzerinde yüklemeyi destekler |● |● |● | |
@@ -75,7 +79,7 @@ GÖ = Genel Önizleme
 | Windows Server 2008 ve Windows Server 2008 R2 desteği |● Eşitleme içindir, Federasyon için hayır |● |● |● |
 | Windows Server 2012 ve Windows Server 2012 R2 desteği |● |● |● |● |
 
-## Filtreleme ve Yapılandırma
+## <a name="filtering-and-configuration"></a>Filtreleme ve Yapılandırma
 | Özellik | Azure Active Directory Connect | Azure Active Directory Eşitleme Hizmetleri | Azure Active Directory Eşitleme Aracı (DirSync) | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
 |:--- |:---:|:---:|:---:|:---:|:---:|
 | Etki Alanları ve Kuruluş Birimleri üzerinde filtreleme |● |● |● |● |● |
@@ -85,9 +89,12 @@ GÖ = Genel Önizleme
 | Öznitelik kaldırma işleminin AD'den Azure AD'ye akışına izin ver |● |● | | | |
 | Öznitelik akışları için gelişmiş özelleştirmeye izin ver |● |● | |● |● |
 
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 [Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](active-directory-aadconnect.md) hakkında daha fazla bilgi edinin.
 
-<!--HONumber=Sep16_HO4-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

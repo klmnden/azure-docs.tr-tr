@@ -1,9 +1,13 @@
 ---
 layout: LandingPage
----
-#Event Hubs Documentation
+translationtype: Human Translation
+ms.sourcegitcommit: 69ae7c09af46b933899692e81d60e040a1c02eb5
+ms.openlocfilehash: f7d40ef2fdfbed7ab9be633637aafbfd7963b232
 
-Event Hubs is a highly scalable data ingress service that can ingest millions of events per second so that you can process and analyze the massive amounts of data produced by your connected devices and applications. Event Hubs acts as the "front door" for an event pipeline, and once data is collected into an event hub, it can be transformed and stored using any real-time analytics provider or any batching or storage adapter.
+---
+#<a name="event-hubs-documentation"></a>Event Hubs Belgeleri
+
+Event Hubs, bağlı cihazlarınız ve uygulamalarınız tarafından üretilen oldukça büyük miktardaki verileri işleyip analiz edebilmeniz için saniye başına milyonlarca olayı işleyebilen ileri düzeyde ölçeklenebilir bir veri alım sistemidir. Event Hubs bir olay komut zincirinin "ön kapısı" olarak görev yapar ve veriler bir olay hub’ına toplandıktan sonra herhangi bir gerçek zamanlı analiz sağlayıcısı veya toplu işlem veya depolama bağdaştırıcısı kullanılarak dönüştürülebilir ve depolanabilir.
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -17,7 +21,7 @@ Event Hubs is a highly scalable data ingress service that can ingest millions of
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Learn about Azure Event Hubs</h3>
+                        <h3>Azure Event Hubs hakkında bilgi edinin</h3>
                     </div>
                 </div>
             </div>
@@ -35,7 +39,7 @@ Event Hubs is a highly scalable data ingress service that can ingest millions of
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure Event Hubs Video Library</h3>
+                        <h3>Azure Event Hubs Video Kitaplığı</h3>
                     </div>
                 </div>
             </div>
@@ -53,7 +57,7 @@ Event Hubs is a highly scalable data ingress service that can ingest millions of
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with the Event Hubs programming guide</h3>
+                        <h3>Event Hubs programlama kılavuzu ile çalışmaya başlama</h3>
                     </div>
                 </div>
             </div>
@@ -71,7 +75,7 @@ Event Hubs is a highly scalable data ingress service that can ingest millions of
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with Event Hubs using the Azure portal</h3>
+                        <h3>Azure portalını kullanarak Event Hubs ile çalışmaya başlama</h3>
                     </div>
                 </div>
             </div>
@@ -82,16 +86,16 @@ Event Hubs is a highly scalable data ingress service that can ingest millions of
 
 ---
 
-##Reference
+##<a name="reference"></a>Başvuru
 
-###.NET
-[.NET Managed Reference](/dotnet/api)
+###<a name="net"></a>.NET
+[.NET Yönetilen Başvurusu](/dotnet/api)
 
-###AMQP 
-[AMQP 1.0 protocol guide](/azure/service-bus-messaging/service-bus-amqp-protocol-guide)
+###<a name="amqp"></a>AMQP 
+[AMQP 1.0 protokol kılavuzu](/azure/service-bus-messaging/service-bus-amqp-protocol-guide)
 
-###REST
-[Event Hubs REST API Reference](/rest/api/eventhub)
+###<a name="rest"></a>REST
+[Event Hubs REST API Başvurusu](/rest/api/eventhub)
 
 
 
@@ -99,7 +103,12 @@ Event Hubs is a highly scalable data ingress service that can ingest millions of
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/event-hubs.pdf">
         <div class="img"></div>
         <div class="text">
-            Download Event Hubs Documentation
-        </div>
+Event Hubs Belgelerini İndirme </div>
     </a>
 </div>
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

@@ -1,14 +1,16 @@
-1. In the portal, from **All resources**, click **+Add**. In the **Everything** blade search box, type **Local network gateway**, then click to search. This will return a list. Click **Local network gateway** to open the blade, then click **Create** to open the **Create local network gateway** blade.
+1. Portalda **Tüm kaynaklar** menüsündeki **+Ekle**’ye tıklayın. **Her şey** dikey penceresi arama kutusuna **Yerel ağ geçidi** yazın, ardından aramak için tıklayın. Bunun yapılması bir liste döndürür. **Yerel ağ geçidi**’ne tıklayarak dikey pencereyi açın, ardından **Oluştur**’a tıklayarak **Yerel ağ geçidi oluştur** dikey penceresini açın.
    
-    ![create local network gateway](./media/vpn-gateway-add-lng-rm-portal-include/addlng250.png)
-2. On the **Create local network gateway blade**, specify a **Name** for your local network gateway object.
-3. Specify a valid public **IP address** for the VPN device or virtual network gateway to which you want to connect.<br>If this local network represents an on-premises location, this is the public IP address of the VPN device that you want to connect to. It cannot be behind NAT and has to be reachable by Azure.<br>If this local network represents another VNet, you will specify the public IP address that was assigned to the virtual network gateway for that VNet.<br>
-4. **Address Space** refers to the address ranges for the network that this local network represents. You can add multiple address space ranges. Make sure that the ranges you specify here do not overlap with ranges of other networks that you want to connect to.
-5. For **Subscription**, verify that the correct subscription is showing.
-6. For **Resource Group**, select the resource group that you want to use. You can either create a new resource group, or select one that you have already created.
-7. For **Location**, select the location that this object will be created in. You may want to select the same location that your VNet resides in, but you are not required to do so.
-8. Click **Create** to create the local network gateway.
+    ![yerel ağ geçidi oluşturma](./media/vpn-gateway-add-lng-rm-portal-include/addlng250.png)
+2. **Yerel ağ geçidi oluştur** dikey penceresinde yerel ağ geçidi nesnesi için bir **Ad** belirtin.
+3. Bağlanmak istediğiniz VPN cihazı veya sanal ağ geçidi için geçerli bir genel **IP adresi** belirtin.<br>Söz konusu yerel ağ, şirket içi bir konumu temsil ediyorsa; bu, bağlanmak istediğiniz VPN cihazının genel IP adresidir. NAT’nin ardında olamaz ve Azure tarafından erişilebilir olması gerekir.<br>Bu yerel ağ başka bir VNet'i temsil ediyorsa, o VNet için sanal ağ geçidine atanan genel IP adresini belirtin.<br>
+4. **Adres Alanı**, bu yerel ağın temsil ettiği ağa ilişkin adres aralıkları anlamına gelir. Birden fazla adres alanı aralığı ekleyebilirsiniz. Burada belirttiğiniz aralıkların, bağlanmak istediğiniz diğer ağların aralıklarıyla çakışmadığından emin olun.
+5. **Abonelik** için doğru aboneliğin gösterildiğini doğrulayın.
+6. **Kaynak Grubu** için kullanmak istediğiniz kaynak grubunu seçin. Yeni bir kaynak grubu oluşturabilir veya önceden oluşturduğunuz birini seçebilirsiniz.
+7. **Konum** için, bu nesnenin oluşturulacağı konumu seçin. VNet'inizin bulunduğu konumu seçebilirsiniz ancak bu zorunlu değildir.
+8. Yerel ağ geçidi oluşturmak için **Oluştur**’a tıklayın.
 
-<!--HONumber=Oct16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

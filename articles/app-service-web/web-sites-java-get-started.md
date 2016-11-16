@@ -1,34 +1,38 @@
 ---
-title: Azure App Service’te bir Java web uygulaması oluşturma | Microsoft Docs
-description: Bu öğreticide Azure App Service’e bir Java web uygulamasını nasıl dağıtacağınız gösterilmiştir.
+title: "Azure App Service’te Java web uygulaması oluşturma | Microsoft Belgeleri"
+description: "Bu öğreticide Azure App Service’e bir Java web uygulamasını nasıl dağıtacağınız gösterilmiştir."
 services: app-service\web
 documentationcenter: java
 author: rmcmurray
-manager: wpickett
-editor: ''
-
+manager: erikre
+editor: 
+ms.assetid: d6e73cc3-8b71-4742-a197-3edeabc6a289
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: get-started-article
-ms.date: 08/11/2016
+ms.date: 11/01/2016
 ms.author: robmcm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: acacfbead6cf0d68ccfeb5e818a2b04f2be9b902
+
 
 ---
-# Azure App Service’te bir Java web uygulaması oluşturma
+# <a name="create-a-java-web-app-in-azure-app-service"></a>Azure App Service’te bir Java web uygulaması oluşturma
 [!INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
 
 Bu öğreticide [Azure Portal]’ı ile [Azure App Service’te Java web uygulaması] oluşturma adımları gösterilmiştir. Azure Portal, Azure kaynaklarınızı yönetmek için kullanabileceğiniz bir web arabirimidir.
 
 > [!NOTE]
-> Bu öğreticiyi tamamlamak için Microsoft Azure hesabınızın olması gerekir. Bir hesabınız yoksa, [Visual Studio abone avantajlarınızı etkinleştirebilir ] veya [ücretsiz deneme için kaydolabilirsiniz.]
+> Bu öğreticiyi tamamlamak için Microsoft Azure hesabınızın olması gerekir. Bir hesabınız yoksa, [Visual Studio abone avantajlarınızı etkinleştirebilir ] veya [ücretsiz deneme için kaydolabilirsiniz].
 > 
 > Bir Azure hesabı için kaydolmadan önce Azure App Service’i kullanmaya başlamak istiyorsanız [App Service’i Deneyin]’e gidin. Burada, App Service'te hemen bir kısa süreli başlangıç web uygulaması oluşturabilirsiniz; kredi kartı gerekmez ve hiçbir taahhüt yoktur.
 > 
 > 
 
-## Java uygulaması seçenekleri
+## <a name="java-application-options"></a>Java uygulaması seçenekleri
 Bir App Service web uygulamasında Java uygulaması kurmanın çeşitli yöntemleri vardır. 
 
 1. Bir uygulama oluşturun ve **Uygulama ayarları**’nı yapılandırın.
@@ -48,7 +52,7 @@ Bir App Service web uygulamasında Java uygulaması kurmanın çeşitli yönteml
      
      Bu gibi durumlar için, Azure Portal'ı kullanarak bir uygulama oluşturabilir ve ardından uygun çalışma zamanı dosyalarını el ile belirtebilirsiniz. Bu durumda, dosyalar App Service planınız için depolama alanı kotanızdan sayılacaktır. Daha fazla bilgi için bkz. [Azure’a özel bir Java web uygulaması yükleme].
 
-## <a name="portal"></a> Java web uygulaması oluşturma ve yapılandırma
+## <a name="a-nameportala-create-and-configure-a-java-web-app"></a><a name="portal"></a> Java web uygulaması oluşturma ve yapılandırma
 Bu bölümde bir web uygulaması oluşturma ve portalın **Uygulama ayarları** dikey penceresini kullanarak bunu Java için yapılandırma gösterilir.
 
 1. [Azure Portal]’da oturum açın.
@@ -85,7 +89,7 @@ Bu bölümde bir web uygulaması oluşturma ve portalın **Uygulama ayarları** 
     
     Web sayfası Java tabanlı bir web uygulaması oluşturduğunuzu onaylar.
 
-## <a name="marketplace"></a> Azure Market’teki bir Java şablonunu kullanma
+## <a name="a-namemarketplacea-use-a-java-template-from-the-azure-marketplace"></a><a name="marketplace"></a> Azure Market’teki bir Java şablonunu kullanma
 Bu bölümde bir Java şablonu oluşturmak için Azure Market’i nasıl kullanacağınız gösterilmiştir. Aynı genel akış, Java tabanlı bir mobil veya API uygulaması oluşturmak için de kullanılabilir. 
 
 1. [Azure Portal]’da oturum açın.
@@ -131,7 +135,7 @@ Bu bölümde bir Java şablonu oluşturmak için Azure Market’i nasıl kullana
 
 Artık uygulama kapsayıcısı içeren bir web uygulaması oluşturduğunuza göre, uygulamanızı karşıya yükleme hakkında bilgi için [Sonraki adımlar](#next-steps) bölümüne bakabilirsiniz.
 
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 Bu noktada, Azure App Service'teki web uygulamanızda çalışan bir Java uygulama sunucusuna sahipsiniz. Kendi kodunuzu web uygulamasına dağıtmak için bkz. [Java web uygulamanıza bir uygulama veya web sayfası ekleme].
 
 Azure'da Java uygulamaları geliştirme hakkında daha fazla bilgi için bkz. [Java Geliştirici Merkezi].
@@ -141,8 +145,8 @@ Azure'da Java uygulamaları geliştirme hakkında daha fazla bilgi için bkz. [J
 [Java web uygulamanıza bir uygulama veya web sayfası ekleme]: ./web-sites-java-add-app.md
 [Azure App Service planlarına genel bakış]: ../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md
 [Azure Portal]: https://portal.azure.com/
-[Visual Studio abone avantajlarınızı etkinleştirebilir ]: http://go.microsoft.com/fwlink/?LinkId=623901
-[ücretsiz deneme için kaydolabilirsiniz.]: http://go.microsoft.com/fwlink/?LinkId=623901
+[Visual Studio abone avantajlarınızı etkinleştirebilir]: http://go.microsoft.com/fwlink/?LinkId=623901
+[ücretsiz deneme için kaydolabilirsiniz]: http://go.microsoft.com/fwlink/?LinkId=623901
 [App Service’i Deneyin]: http://go.microsoft.com/fwlink/?LinkId=523751
 [Azure App Service’te Java web uygulaması]: http://go.microsoft.com/fwlink/?LinkId=529714
 [Java Geliştirici Merkezi]: /develop/java/
@@ -165,6 +169,6 @@ Azure'da Java uygulamaları geliştirme hakkında daha fazla bilgi için bkz. [J
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,6 +1,6 @@
 <!--author=SharS last changed: 9/17/15-->
 
-#### Birim kapsayıcısı oluşturmak için
+#### <a name="to-create-a-volume-container"></a>Birim kapsayıcısı oluşturmak için
 1. Cihaz **Hızlı Başlangıç** sayfasında, **Birim kapsayıcısı ekle**’ye tıklayın. **Birim Kapsayıcısı Oluştur** iletişim kutusu görüntülenir.
    
     ![Birim Kapsayıcısı Oluşturma](./media/storsimple-create-volume-container/HCS_CreateVolumeContainerM-include.png)
@@ -16,10 +16,12 @@
    
    Yeni oluşturulan birim kapsayıcı **Birim kapsayıcıları** sayfasında listelenir.
 
-![Kullanılabilir video](./media/storsimple-create-volume-container/Video_icon.png) **Kullanılabilir video**
+![Video var](./media/storsimple-create-volume-container/Video_icon.png) **Video var**
 
 StorSimple çözümünüzde birim kapsayıcısının nasıl oluşturulduğunu gösteren bir video izlemek için [buraya](https://azure.microsoft.com/documentation/videos/create-a-volume-container-in-your-storsimple-solution/) tıklayın.
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

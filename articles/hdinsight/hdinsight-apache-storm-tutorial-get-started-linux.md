@@ -1,13 +1,13 @@
 ---
-title: 'Apache Storm öğreticisi: HDInsight’ta Linux tabanlı Storm kullanmaya başlama | Microsoft Docs'
-description: Linux tabanlı HDInsight’ta Apache Storm ve Storm Starter örneklerini kullanarak büyük veri analizini kullanmaya başlayın. Verileri gerçek zamanlı olarak işlemek için Storm’u nasıl kullanacağınızı öğrenin.
-keywords: apache storm,apache storm öğreticisi,büyük veri analizi,storm başlatıcısı
+title: "Apache Storm öğreticisi: HDInsight’ta Linux tabanlı Storm kullanmaya başlama | Microsoft Belgeleri"
+description: "Linux tabanlı HDInsight’ta Apache Storm ve Storm Starter örneklerini kullanarak büyük veri analizini kullanmaya başlayın. Verileri gerçek zamanlı olarak işlemek için Storm’u nasıl kullanacağınızı öğrenin."
+keywords: "apache storm,apache storm öğreticisi,büyük veri analizi,storm başlatıcısı"
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: d710dcac-35d1-4c27-a8d6-acaf8146b485
 ms.service: hdinsight
 ms.devlang: java
 ms.topic: get-started-article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/12/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 84567b646e9cb5e95b2aaf5c3ce19fc227decc82
+
 
 ---
-# <a name="apache-storm-tutorial:-get-started-with-the-storm-starter-samples-for-big-data-analytics-on-hdinsight"></a>Apache Storm öğreticisi: HDInsight’ta büyük veri analizi için Storm Starter örneklerini kullanmaya başlama
+# <a name="apache-storm-tutorial-get-started-with-the-storm-starter-samples-for-big-data-analytics-on-hdinsight"></a>Apache Storm öğreticisi: HDInsight’ta büyük veri analizi için Storm Starter örneklerini kullanmaya başlama
 Apache Storm, veri akışlarını işlemeye yönelik ölçeklenebilir, hataya dayanıklı, dağıtılmış ve gerçek zamanlı bir işlem sistemidir. Azure HDInsight’ta Storm ile büyük veri analizini gerçek zamanlı olarak gerçekleştiren bulut tabanlı bir Storm kümesi oluşturabilirsiniz.
 
 > [!NOTE]
@@ -66,9 +70,13 @@ Bu bölümde Azure Resource Manager şablonunu kullanarak bir HDInsight sürüm 
      > * [Windows’da HDInsight’ta Linux tabanlı Hadoop ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-windows.md)
      > 
      > 
+
 3. Parametreleri kaydetmek için **Tamam**’a tıklayın.
+
 4. **Özel dağıtım** dikey penceresinde **Kaynak grubu** açılır kutusuna ve ardından **Yeni**’ye tıklayarak yeni bir kaynak grubu oluşturun. Kaynak grubu; küme, bağımlı depolama hesabını ve diğer bağlı kaynağı gruplandıran bir kapsayıcıdır.
+
 5. **Yasal koşullar**’a ve ardından **Oluştur**’a tıklayın.
+
 6. **Oluştur**’a tıklayın. Şablon dağıtımı için Dağıtım gönderme başlıklı yeni bir kutucuk görürsünüz. Kümenin ve SQL Database’in oluşturulması yaklaşık 20 dakika sürer.
 
 ## <a name="run-a-storm-starter-sample-on-hdinsight"></a>HDInsight’ta bir Storm Starter örneği çalıştırma
@@ -169,10 +177,16 @@ Word-count topolojisi için **Topoloji özeti** sayfasına geri dönün ve ardı
 ## <a name="delete-the-cluster"></a>Küme silme
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-## <a name="<a-id="next"></a>next-steps"></a><a id="next"></a>Sonraki adımlar
+## <a name="a-idnextanext-steps"></a><a id="next"></a>Sonraki adımlar
 Bu Apache Storm öğreticisinde HDInsight kümesinde bir Storm oluşturmak ve Storm topolojilerini dağıtmak, izlemek ve yönetmek üzere Storm Panosunu kullanmak için Storm Starter’ı kullandınız. Ardından, [Maven kullanarak Java tabanlı topolojiler geliştirme](hdinsight-storm-develop-java-topology.md) hakkında bilgi edindiniz.
 
 Java tabanlı topolojiler geliştirme hakkında zaten bilgi sahibiyseniz ve mevcut bir topolojiyi HDInsight’a dağıtmak istiyorsanız bkz. [HDInsight’ta Apache Storm topolojilerini dağıtma ve yönetme](hdinsight-storm-deploy-monitor-topology-linux.md).
+
+.NET geliştiricisiyseniz Visual Studio'yu kullanarak C# veya karma C#/Java topolojileri oluşturabilirsiniz. Daha fazla bilgi edinmek için bkz. [Visual Studio için Hadoop araçlarını kullanarak HDInsight'ta Apache Storm için C# topolojileri geliştirme](hdinsight-storm-develop-csharp-visual-studio-topology.md).
+
+HDInsight üzerinde Storm ile kullanılabilecek örnek topolojiler için şu örneklere bakın:
+
+    * [HDInsight üzerinde Storm için örnek topolojiler](hdinsight-storm-example-topology.md)
 
 [apachestorm]: https://storm.incubator.apache.org
 [stormdocs]: http://storm.incubator.apache.org/documentation/Documentation.html
@@ -184,6 +198,6 @@ Java tabanlı topolojiler geliştirme hakkında zaten bilgi sahibiyseniz ve mevc
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

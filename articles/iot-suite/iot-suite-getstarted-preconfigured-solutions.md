@@ -1,13 +1,13 @@
 ---
-title: Önceden yapılandırılmış çözümleri kullanmaya başlama | Microsoft Docs
-description: Önceden yapılandırılmış bir Azure IoT Paketi çözümünün nasıl dağıtılacağını öğrenmek için bu öğreticiyi izleyin.
-services: ''
+title: "Önceden yapılandırılmış çözümleri kullanmaya başlama | Microsoft Belgeleri"
+description: "Önceden yapılandırılmış bir Azure IoT Paketi çözümünün nasıl dağıtılacağını öğrenmek için bu öğreticiyi izleyin."
+services: 
 suite: iot-suite
-documentationcenter: ''
+documentationcenter: 
 author: dominicbetts
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 6ab38d1a-b564-469e-8a87-e597aa51d0f7
 ms.service: iot-suite
 ms.devlang: na
 ms.topic: hero-article
@@ -15,10 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/16/2016
 ms.author: dobett
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 8ec86ebefccaf74c67cb7917ccf7d538bc95ae07
+
 
 ---
-# Öğretici: Önceden yapılandırılmış çözümleri kullanmaya başlama
-## Giriş
+# <a name="tutorial-get-started-with-the-preconfigured-solutions"></a>Öğretici: Önceden yapılandırılmış çözümleri kullanmaya başlama
+## <a name="introduction"></a>Giriş
 Azure IoT Paketi [önceden yapılandırılmış çözümleri][lnk-preconfigured-solutions], ortak IoT iş senaryolarını uygulayan uçtan uca çözümler sunmak için birden çok Azure IoT hizmetini birleştirir. Önceden yapılandırılmış *uzaktan izleme* çözümü cihazlarınıza bağlanır ve cihazları izler. Cihazlarınızdan alınan veri akışını analiz etmek ve işlemleri bu veri akışına otomatik olarak yanıt verecek hale getirerek iş sonuçlarını iyileştirmek için bu çözümü kullanabilirsiniz.
 
 Bu öğretici, önceden yapılandırılmış uzaktan izleme çözümünün nasıl hazırlanacağını gösterir. Ayrıca, uzaktan izleme çözümünün temel özelliklerinde rehberlik sağlar. Bu özelliklerin birçoğuna önceden yapılandırılmış çözüm ile birlikte dağıtılan çözüm panosundan erişebilirsiniz:
@@ -34,7 +38,7 @@ Bu öğreticiyi tamamlamak için etkin bir Azure aboneliğinizin olması gerekir
 
 [!INCLUDE [iot-suite-provision-remote-monitoring](../../includes/iot-suite-provision-remote-monitoring.md)]
 
-## Çözüm panosunu görüntüleme
+## <a name="view-the-solution-dashboard"></a>Çözüm panosunu görüntüleme
 Çözüm panosu, dağıtılan çözümü yönetmenizi sağlar. Örneğin, telemetriyi görüntüleyebilir, cihazları ekleyebilir ve kuralları yapılandırabilirsiniz.
 
 1. Hazırlama tamamlandığında ve önceden yapılandırılmış çözümünüzün kutucuğu **Hazır**'ı gösterdiğinde, uzaktan izleme çözümü portalınızı yeni bir sekmede açmak için **Başlat**'a tıklayın.
@@ -50,7 +54,7 @@ Pano aşağıdaki bilgileri gösterir:
 * **Telemetri Geçmişi** paneli, seçilen yakın gerçek zamanlı cihazdan nem ve sıcaklık telemetrisini çizer ve maksimum, minimum ve ortalama nem gibi toplu verileri görüntüler.
 * **Uyarı Geçmişi** paneli bir telemetri değeri bir eşiği aştığında yeni uyarı etkinliklerini gösterir. Önceden yapılandırılmış çözüm tarafından oluşturulan örneklere ek olarak kendi alarmlarınızı tanımlayabilirsiniz.
 
-## Cihaz listesini görüntüleme
+## <a name="view-the-device-list"></a>Cihaz listesini görüntüleme
 Cihaz listesi, çözümde kayıtlı olan tüm cihazları gösterir. Meta verileri görüntüleyebilir ve düzenleyebilir, cihazları ekleyebilir veya kaldırabilir ve cihazlara komutlar gönderebilirsiniz.
 
 1. Bu çözüm için *cihaz listesini* göstermek üzere sol menüdeki **Cihazlar**'a tıklayın.
@@ -67,7 +71,7 @@ Cihaz listesi, çözümde kayıtlı olan tüm cihazları gösterir. Meta veriler
 * **Cihaz Özelliklerini** bölümü cihazın meta verilerini listeler. Bu meta verilerin bazıları cihazın kendisinden gelir (üretici gibi) ve bazıları da çözüm tarafından oluşturulur (oluşturma tarihi gibi). Cihaz meta verilerini buradan düzenleyebilirsiniz.
 * **Kimlik Doğrulama Anahtarları** bölümü cihazın çözümle kimlik doğrulamada kullanabileceği anahtarları listeler.
 
-## Bir cihaza bir komut gönderme
+## <a name="send-a-command-to-a-device"></a>Bir cihaza bir komut gönderme
 Cihaz ayrıntıları bölmesi, belirli bir cihazın desteklediği komutların tümünü gösterir ve bir cihaza komut göndermenizi sağlar. Bir cihaz ilk kez başlatıldığında, desteklediği komutlar hakkında çözüme bilgi gönderir.
 
 1. Seçilen cihaz için cihaz ayrıntıları bölmesinde **Komutlar**'a tıklayın.
@@ -81,7 +85,7 @@ Cihaz ayrıntıları bölmesi, belirli bir cihazın desteklediği komutların t�
 
 Çözüm, gönderdiği her bir komutun durumunu takip eder. Sonuç başlangıçta **Beklemede**'dir. Cihaz komutu yürüttüğünü raporladığında, sonuç **Başarılı** olarak ayarlanır.
 
-## Yeni bir sanal cihaz ekleme
+## <a name="add-a-new-simulated-device"></a>Yeni bir sanal cihaz ekleme
 Önceden yapılandırılmış çözümü dağıttığınızda cihaz listesinde görebileceğiniz dört örnek cihazı otomatik olarak hazırlarsınız. Bu cihazlar bir Azure WebJob içinde çalışan *sanal cihazlardır*. Sanal cihazlar herhangi bir gerçek ve fiziksel cihaza dağıtmaya gerek olmadan önceden yapılandırılmış çözümü denemenizi kolaylaştırır. Çözüme gerçek bir cihaz bağlamak istemiyorsanız [Cihazınızı önceden yapılandırılmış uzaktan izleme çözümüne bağlama][lnk-connect-rm] öğreticisine bakın.
 
 Aşağıdaki adımlar bir sanal cihazın çözüme nasıl ekleneceğini göstermektedir:
@@ -107,7 +111,7 @@ Aşağıdaki adımlar bir sanal cihazın çözüme nasıl ekleneceğini gösterm
    
     ![Yeni cihazdan telemetri görüntüleme][img-runningnew-2]
 
-## Cihaz meta verilerini düzenleme
+## <a name="edit-the-device-metadata"></a>Cihaz meta verilerini düzenleme
 Bir cihaz çözüme ilk kez bağlandığında çözüme meta verilerini gönderir. Çözüm panosu aracılığıyla cihaz meta verilerini düzenlediğinizde yeni meta veri değerleri cihaza gönderilir ve yeni değerler çözüm DocumentDB veritabanına depolanır. Daha fazla bilgi için bkz. [Cihaz kimliği kayıt defteri ve DocumentDB][lnk-devicemetadata].
 
 1. Cihaz listesine geri gidin.
@@ -121,7 +125,7 @@ Bir cihaz çözüme ilk kez bağlandığında çözüme meta verilerini gönderi
    
     ![Cihaz meta verilerini düzenleme][img-editdevice3]
 
-## Yeni cihaz için bir kural ekleme
+## <a name="add-a-rule-for-the-new-device"></a>Yeni cihaz için bir kural ekleme
 Yeni eklediğiniz yeni cihaz için hiçbir kural bulunmamaktadır. Bu bölümde, yeni cihaz tarafından bildirilen sıcaklık 47 dereceyi aştığında uyarı tetikleyen bir kural ekleyeceksiniz. Başlamadan önce, panoda yeni cihaz için telemetri geçmişinin, cihaz sıcaklığının hiçbir zaman 45 dereceyi aşmadığını gösterdiğine dikkat edin.
 
 1. Cihaz listesine geri gidin.
@@ -151,7 +155,7 @@ Yeni eklediğiniz yeni cihaz için hiçbir kural bulunmamaktadır. Bu bölümde,
 > 
 > 
 
-## Diğer özellikler
+## <a name="other-features"></a>Diğer özellikler
 Çözüm portalını kullanarak model numarası gibi belirli özelliklere sahip cihazları arayabilirsiniz:
 
 ![Cihaz arama][img-search]
@@ -160,7 +164,7 @@ Bir Cihazı devre dışı bırakabilir, devre dışı kaldıktan sonra da kaldı
 
 ![Bir cihazı devre dışı bırakma ve kaldırma][img-disable]
 
-## Arka planda
+## <a name="behind-the-scenes"></a>Arka planda
 Önceden yapılandırılmış bir çözümü dağıttığınızda, dağıtım işlemi seçtiğiniz Azure aboneliğinde birden çok kaynak oluşturur. Bu kaynakları Azure [portalında][lnk-portal] görüntüleyebilirsiniz. Dağıtım işlemi, önceden yapılandırılmış çözümünüz için seçtiğiniz adı temel alan bir ada sahip bir **kaynak grubu** oluşturur:
 
 ![Azure portalında önceden yapılandırılmış çözüm][img-portal]
@@ -180,7 +184,7 @@ Her bir kaynağın ayarlarını, kaynak grubundaki kaynaklar listesinde seçerek
 > 
 > 
 
-## Sonraki Adımlar
+## <a name="next-steps"></a>Sonraki Adımlar
 Çalışan bir önceden yapılandırılmış çözüm dağıttığınıza göre aşağıdaki makaleleri okuyarak IoT Paketi ile çalışmaya başlayabilirsiniz:
 
 * [Önceden yapılandırılmış uzaktan izleme çözümü kılavuzu][lnk-rm-walkthrough]
@@ -225,6 +229,6 @@ Her bir kaynağın ayarlarını, kaynak grubundaki kaynaklar listesinde seçerek
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

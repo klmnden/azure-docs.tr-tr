@@ -1,22 +1,26 @@
 ---
-title: Azure Resource Manager şablonunu dışarı aktarma | Microsoft Docs
-description: Mevcut bir kaynak grubundaki şablonu dışarı aktarmak için Azure Resource Manager’ı kullanın.
+title: "Azure Resource Manager şablonunu dışarı aktarma | Microsoft Belgeleri"
+description: "Mevcut bir kaynak grubundaki şablonu dışarı aktarmak için Azure Resource Manager’ı kullanın."
 services: azure-resource-manager
-documentationcenter: ''
+documentationcenter: 
 author: tfitzmac
 manager: timlt
 editor: tysonn
-
+ms.assetid: 5f5ca940-eef8-4125-b6a0-f44ba04ab5ab
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/03/2016
+ms.date: 10/20/2016
 ms.author: tomfitz
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 18381e2fafb6a1e3883e0dbdf9dcfe5b59a78d32
+
 
 ---
-# Mevcut kaynaklardan Azure Resource Manager şablonunu dışarı aktarma
+# <a name="export-an-azure-resource-manager-template-from-existing-resources"></a>Mevcut kaynaklardan Azure Resource Manager şablonunu dışarı aktarma
 Resource Manager, aboneliğinizde var olan kaynaklardan bir Resource Manager şablonunu dışarı aktarmanızı sağlar. Bu oluşturulan şablonu şablon söz dizimi hakkında bilgi edinmek veya çözümünüzün yeniden dağıtımını gerektiği gibi otomatikleştirmek için kullanabilirsiniz.
 
 Bir şablonu dışarı aktarmak için iki farklı yol vardır:
@@ -24,21 +28,21 @@ Bir şablonu dışarı aktarmak için iki farklı yol vardır:
 * Dağıtım için kullandığınız gerçek şablonu dışarı aktarabilirsiniz. Dışarı aktarılan şablonda, tüm parametreler ve değişkenler özgün şablondaki gibidir. Bu yaklaşım, kaynaklarınızı portal üzerinden dağıttığınızda yararlıdır. Şimdi, bu kaynakları oluşturmak için şablon yapısını nasıl düzenleyeceğinizden bahsedelim.
 * Kaynak grubunun geçerli durumunu temsil eden bir şablonu dışarı aktarabilirsiniz. Dışarı aktarılan şablon, dağıtım için kullandığınız herhangi bir şablonu temel almaz. Bunun yerine, kaynak grubunun anlık görüntüsü olan bir şablon oluşturur. Dışarı aktarılan şablon birçok sabit kodlu değer ve büyük olasılıkla normalde tanımlayacağınızdan daha az sayıda parametre içerir. Bu yaklaşım, kaynak grubunu portal ya da betikler aracılığıyla değiştirdiğinizde yararlı olur. Şimdi kaynak grubunu bir şablon olarak yakalamalısınız.
 
-Bu konuda, iki yaklaşım ortaya koyulmaktadır. [Dışarı aktarılan bir Azure Resource Manager şablonunu özelleştirme](resource-manager-customize-template.md) makalesinde kaynak grubunun geçerli durumundan oluşturulmuş bir şablonu alıp, çözümünüzü yeniden dağıtmak için daha yararlı hale getirme konusuna değinilmektedir.
+Bu konuda, iki yaklaşım ortaya koyulmaktadır.
 
 Bu öğreticide, Azure Portal’da oturum açar, bir depolama hesabı oluşturur ve bu depolama hesabı için şablonu dışarı aktarırsınız. Kaynak grubunu değiştirmek için sanal ağ eklersiniz. Son olarak, geçerli durumunu temsil eden yeni bir şablonu dışarı aktarırsınız. Bu makale basitleştirilmiş bir altyapıya odaklanıyor olsa da, daha karmaşık bir çözüm için şablonu dışarı aktarmak üzere bu aynı adımları kullanabilirsiniz.
 
-## Depolama hesabı oluşturma
-1. [Azure portalda](https://portal.azure.com), **Yeni** > **Veri + Depolama** > **Depolama hesabı**’nı seçin.
+## <a name="create-a-storage-account"></a>Depolama hesabı oluşturma
+1. [Azure portal](https://portal.azure.com)’da, **Yeni** > **Depolama** > **Depolama hesabı**’nı seçin.
    
       ![depolama oluşturma](./media/resource-manager-export-template/create-storage.png)
-2. **storage** adlı, adınızın baş harflerini ve tarihi içeren bir depolama hesabı oluşturun. Depolama hesabı adının Azure’da benzersiz olması gerekir. Başlangıçta zaten kullanımda olan bir adı kullanmaya çalışırsanız, adı değiştirmeyi deneyin. Kaynak grubu için **ExportGroup** kullanın. Diğer özellikler için varsayılan değerleri kullanabilirsiniz. **Oluştur**’u seçin.
+2. **storage** adlı, adınızın baş harflerini ve tarihi içeren bir depolama hesabı oluşturun. Depolama hesabı adının Azure’da benzersiz olması gerekir. Ad zaten kullanılıyorsa adın kullanıldığını belirten bir hata iletisi görürsünüz. Adın bir varyasyonunu deneyin. Kaynak grubu için yeni bir kaynak grubu oluşturun ve bu gruba **ExportGroup** adını verin. Diğer özellikler için varsayılan değerleri kullanabilirsiniz. **Oluştur**’u seçin.
    
       ![depolama için değerler sağlama](./media/resource-manager-export-template/provide-storage-values.png)
 
-Dağıtım tamamlandıktan sonra, aboneliğiniz depolama hesabını içerir.
+Dağıtım birkaç dakika sürebilir. Dağıtım tamamlandıktan sonra, aboneliğiniz depolama hesabını içerir.
 
-## Şablonu dağıtım geçmişinden dışarı aktarma
+## <a name="view-a-template-from-deployment-history"></a>Dağıtım geçmişinden bir şablonu görüntüleme
 1. Yeni kaynak grubunuz için kaynak grubu dikey penceresine gidin. Son dağıtım sonucunun listelendiğini görürsünüz. Bu bağlantıyı seçin.
    
       ![kaynak grubu dikey penceresi](./media/resource-manager-export-template/resource-group-blade.png)
@@ -63,11 +67,52 @@ Dağıtım tamamlandıktan sonra, aboneliğiniz depolama hesabını içerir.
       
       Şimdi şablona dikkat edin. Şablonunuz şuna benzemelidir:
       
-        {     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",     "contentVersion": "1.0.0.0",     "parameters": {       "name": {         "type": "String"       },       "accountType": {         "type": "String"       },       "location": {         "type": "String"       },       "encryptionEnabled": {         "defaultValue": false,         "type": "Bool"       }     },     "resources": [       {         "type": "Microsoft.Storage/storageAccounts",         "sku": {           "name": "[parameters('accountType')]"         },         "kind": "Storage",         "name": "[parameters('name')]",         "apiVersion": "2016-01-01",         "location": "[parameters('location')]",         "properties": {           "encryption": {             "services": {               "blob": {                 "enabled": "[parameters('encryptionEnabled')]"               }             },             "keySource": "Microsoft.Storage"           }         }       }     ]   }
+        {
+      
+          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "parameters": {
+            "name": {
+              "type": "String"
+            },
+            "accountType": {
+              "type": "String"
+            },
+            "location": {
+              "type": "String"
+            },
+            "encryptionEnabled": {
+              "defaultValue": false,
+              "type": "Bool"
+            }
+          },
+          "resources": [
+            {
+              "type": "Microsoft.Storage/storageAccounts",
+              "sku": {
+                "name": "[parameters('accountType')]"
+              },
+              "kind": "Storage",
+              "name": "[parameters('name')]",
+              "apiVersion": "2016-01-01",
+              "location": "[parameters('location')]",
+              "properties": {
+                "encryption": {
+                  "services": {
+                    "blob": {
+                      "enabled": "[parameters('encryptionEnabled')]"
+                    }
+                  },
+                  "keySource": "Microsoft.Storage"
+                }
+              }
+            }
+          ]
+        }
 
 Depolama hesabınızı oluşturmak için kullanılan gerçek şablon budur. Farklı türlerde depolama hesapları dağıtmanızı sağlayan parametreler içerir. Bir şablonun yapısı hakkında daha fazla bilgi edinmek için bkz. [Azure Resource Manager şablonları yazma](resource-group-authoring-templates.md). Bir şablonda kullanabileceğiniz işlevlerin tam listesi için bkz. [Azure Resource Manager şablonu işlevleri](resource-group-template-functions.md).
 
-## Sanal ağ ekleme
+## <a name="add-a-virtual-network"></a>Sanal ağ ekleme
 Önceki bölümde indirdiğiniz şablon, bu özgün dağıtımın altyapısını temsil ediyordu. Ancak bu şablon, dağıtımdan sonra yaptığınız değişiklikleri içermez.
 Bu sorunu anlamak için portal aracılığıyla bir sanal ağ ekleyerek kaynak grubunu değiştirelim.
 
@@ -83,12 +128,10 @@ Bu sorunu anlamak için portal aracılığıyla bir sanal ağ ekleyerek kaynak g
 4. Sanal ağ kaynak grubunuza başarıyla dağıtıldıktan sonra dağıtım geçmişinize tekrar bakın. İki dağıtım göreceksiniz. İkinci dağıtımı görmüyorsanız kaynak grubu dikey pencerenizi kapatıp yeniden açmanız gerekebilir. Daha yeni olan dağıtımı seçin.
    
       ![dağıtım geçmişi](./media/resource-manager-export-template/deployment-history.png)
-5. Bu dağıtım için şablona bakın. Bunun, yalnızca sanal ağı eklemek için yaptığınız değişiklikleri tanımladığına dikkat edin.
+5. Bu dağıtım için şablonu görüntüleyin. Bu şablon, yalnızca sanal ağı tanımlar. Daha önce dağıttığınız depolama hesabını içermez. Artık kaynak grubunuzdaki tüm kaynakları temsil eden bir şablonunuz yoktur.
 
-En iyi yöntem genellikle, çözümünüz için tüm altyapıyı tek bir işlemde dağıtan şablonla çalışmaktır. Bu yaklaşım, dağıtılacak birçok farklı şablonu anımsamaya çalışmaktan daha güvenlidir.
-
-## Şablonu kaynak grubundan dışarı aktarma
-Her bir dağıtım yalnızca kaynak grubunuzda yapmış olduğunuz değişiklikleri gösterir, ancak herhangi bir zamanda, tüm kaynak grubunuzun özniteliklerini göstermek için bir şablonu dışarı aktarabilirsiniz.  
+## <a name="export-the-template-from-resource-group"></a>Şablonu kaynak grubundan dışarı aktarma
+Kaynak grubunuzun geçerli durumunu almak için kaynak grubunun anlık görüntüsünü gösteren bir şablonu dışarı aktarın.  
 
 > [!NOTE]
 > 200’den fazla kaynağı olan bir kaynak grubu için bir şablonu dışarı aktaramazsınız.
@@ -120,12 +163,147 @@ Her bir dağıtım yalnızca kaynak grubunuzda yapmış olduğunuz değişiklikl
         "properties": {
             "accountType": "Standard_RAGRS"
         },
-3. Üzerinde yerel olarak çalışabilmek için şablonu indirin.
+3. Bu şablonla çalışmaya devam etmek için kullanabileceğiniz iki seçenek vardır. Şablonu indirebilir ve JSON düzenleyicisiyle üzerinde yerel olarak çalışabilirsiniz. Alternatif olarak, şablonu kitaplığınıza kaydedip portal aracılığıyla üzerinde çalışabilirsiniz.
+   
+     [VS Code](resource-manager-vs-code.md) veya [Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) gibi bir JSON düzenleyicisini kullanabiliyorsanız, şablonu yerel olarak indirip bu düzenleyiciyi kullanmayı seçebilirsiniz. JSON düzenleyicisi kullanmıyorsanız şablonu portal aracılığıyla düzenlemeyi tercih edebilirsiniz. Bu konu başlığının geri kalanında, şablonu portalda kitaplığınıza kaydettiğiniz varsayılacaktır. Bununla birlikte, ister JSON düzenleyicisiyle yerel olarak çalışın ister portal aracılığıyla çalışın şablon üzerinde aynı söz dizimi değişikliklerini yaparsınız.
+   
+     Yerel olarak çalışmak için **İndir**’i seçin.
    
       ![şablonu indirme](./media/resource-manager-export-template/download-template.png)
-4. Yüklediğiniz .zip dosyasını bulun ve içeriğini çıkarın. İndirilen bu şablonu kullanarak altyapınızı yeniden dağıtabilirsiniz.
+   
+     Portal üzerinden çalışmak için **Kitaplığa ekle**’yi seçin.
+   
+      ![kitaplığa ekleme](./media/resource-manager-export-template/add-to-library.png)
+   
+     Bir şablonu kitaplığa eklerken, şablona bir ad verin ve açıklama yazın. Ardından **Kaydet**’i seçin.
+   
+     ![şablon değerlerini ayarlama](./media/resource-manager-export-template/set-template-values.png)
+4. Kitaplığınıza kaydedilen bir şablonu görüntülemek için **Diğer hizmetler**’i seçin, sonuçları filtrelemek için **Şablonlar** yazın ve **Şablonlar**’ı seçin.
+   
+      ![şablonları bulma](./media/resource-manager-export-template/find-templates.png)
+5. Kaydettiğiniz ada sahip şablonu seçin.
+   
+      ![şablon seçme](./media/resource-manager-export-template/select-library-template.png)
 
-## Dışarı aktarma sorunlarını düzeltme
+## <a name="customize-the-template"></a>Şablonu özelleştirme
+Dışarı aktarılan şablon, her dağıtım için aynı depolama hesabını ve sanal ağı oluşturmak isterseniz düzgün şekilde çalışır. Bununla birlikte Resource Manager, şablonları çok daha fazla esneklikle dağıtabileceğiniz seçenekler sunar. Örneğin, dağıtım sırasında, oluşturulacak depolama hesabı türünü ya da sanal ağ adresi ön eki ve alt ağ ön eki için kullanılacak değerler türünü belirtebilirsiniz.
+
+Bu bölümde, bu kaynakları diğer ortamlara dağıttığınızda şablonu yeniden kullanabilmeniz için, dışarı aktarılan şablona parametreler eklersiniz. Ayrıca, şablonu dağıttığınızda bir hata ile karşılaşma olasılığını azaltmak için şablonunuza bazı özellikler eklersiniz. Artık depolama hesabınız için benzersiz bir ad düşünmeniz gerekmez. Bunun yerine, şablon benzersiz adı kendi oluşturur. Depolama hesabı türü için belirtilebilecek değerleri yalnızca geçerli seçeneklerle kısıtlarsınız.
+
+1. Şablonu özelleştirmek için **Düzenle**’yi seçin.
+   
+     ![şablonu gösterme](./media/resource-manager-export-template/show-template.png)
+2. Şablonu seçin.
+   
+     ![şablonu düzenleme](./media/resource-manager-export-template/edit-template.png)
+3. Dağıtım sırasında belirtmek isteyebileceğiniz değerleri geçirebilmek için **parameters** bölümünü yeni parametre tanımlarıyla değiştirin. **storageAccount_accountType** için **allowedValues** değerlerini not alın. Yanlışlıkla geçersiz bir değer sağlarsanız, dağıtım başlamadan önce bu hata tanınır. Ayrıca, depolama hesabı adı için yalnızca bir ön ek sağladığınızı ve ön ekin 11 karakterle sınırlı olduğuna dikkat edin. Ön eki 11 karakterle sınırlayarak depolama hesabı tam adının maksimum karakter sayısını aşmayacağından emin olabilirsiniz. Ön ek, depolama hesaplarınıza bir adlandırma kuralı uygulamanızı sağlar. Sonraki adımda benzersiz bir ad oluşturmayı göreceksiniz.
+   
+        "parameters": {
+          "storageAccount_prefix": {
+            "type": "string",
+            "maxLength": 11
+          },
+          "storageAccount_accountType": {
+            "defaultValue": "Standard_RAGRS",
+            "type": "string",
+            "allowedValues": [
+              "Standard_LRS",
+              "Standard_ZRS",
+              "Standard_GRS",
+              "Standard_RAGRS",
+              "Premium_LRS"
+            ]
+          },
+          "virtualNetwork_name": {
+            "type": "string"
+          },
+          "addressPrefix": {
+            "defaultValue": "10.0.0.0/16",
+            "type": "string"
+          },
+          "subnetName": {
+            "defaultValue": "subnet-1",
+            "type": "string"
+          },
+          "subnetAddressPrefix": {
+            "defaultValue": "10.0.0.0/24",
+            "type": "string"
+          }
+        },
+4. Şablonunuzdaki **variables** bölümü şu anda boştur. **variables** bölümünde, şablonunuzun geri kalanı için söz dizimini basitleştiren değerler oluşturabilirsiniz. Bu bölümü, yeni bir değişken tanımı ile değiştirin. **storageAccount_name** değişkeni, kaynak grubunun tanımlayıcısına göre oluşturulan benzersiz bir dizeyi parametre ön ekiyle birleştirir. Artık bir parametre değeri sağlarken benzersiz bir ad bulmanıza gerek yoktur.
+   
+        "variables": {
+          "storageAccount_name": "[concat(parameters('storageAccount_prefix'), uniqueString(resourceGroup().id))]"
+        },
+5. Kaynak tanımlarında parametreler ve değişken kullanmak için **resources** bölümünü yeni kaynak tanımlarıyla değiştirin. Kaynak özelliğine atanan değer dışında, kaynak tanımlarında çok az değişiklik gerçekleştiğine dikkat edin. Özellikler, dışarı aktarılan şablondaki özelliklerle aynıdır. Yaptığınız, özellikler sabit kodlanmış değerler yerine parametre değerlerine atamaktır. Kaynakların konumu, **resourceGroup().location** ifadesi aracılığıyla kaynak grubu olarak aynı konumu kullanacak şekilde ayarlanır. Depolama hesabı adı için oluşturduğunuz değişkene **variables** ifadesi aracılığıyla başvurulur.
+   
+        "resources": [
+          {
+            "type": "Microsoft.Network/virtualNetworks",
+            "name": "[parameters('virtualNetwork_name')]",
+            "apiVersion": "2015-06-15",
+            "location": "[resourceGroup().location]",
+            "properties": {
+              "addressSpace": {
+                "addressPrefixes": [
+                  "[parameters('addressPrefix')]"
+                ]
+              },
+              "subnets": [
+                {
+                  "name": "[parameters('subnetName')]",
+                  "properties": {
+                    "addressPrefix": "[parameters('subnetAddressPrefix')]"
+                  }
+                }
+              ]
+            },
+            "dependsOn": []
+          },
+          {
+            "type": "Microsoft.Storage/storageAccounts",
+            "name": "[variables('storageAccount_name')]",
+            "apiVersion": "2015-06-15",
+            "location": "[resourceGroup().location]",
+            "tags": {},
+            "properties": {
+                "accountType": "[parameters('storageAccount_accountType')]"
+            },
+            "dependsOn": []
+          }
+        ]
+6. Şablonu düzenlemeyi tamamladığınızda **Tamam**’ı seçin.
+7. Şablonda yapılan değişiklikleri kaydetmek için **Kaydet**’i seçin.
+   
+     ![şablonu kaydetme](./media/resource-manager-export-template/save-template.png)
+8. Güncelleştirilmiş şablonu dağıtmak için **Dağıt**’ı seçin.
+   
+     ![şablonu dağıtma](./media/resource-manager-export-template/deploy-template.png)
+9. Parametre değerlerini sağlayın ve kaynakların dağıtılacağı yeni bir kaynak grubu seçin.
+
+## <a name="update-the-downloaded-parameters-file"></a>İndirilen parametreler dosyasını güncelleştirme
+İndirilen dosyalarla (portal kitaplığı yerine) çalışıyorsanız indirilen parametre dosyasını güncelleştirmeniz gerekir. Parametre dosyası artık şablonunuzdaki parametrelerle eşleşmez. Bir parametre dosyası kullanmak zorunda değilsiniz. Dosya kullanırsanız, bir ortamı yeniden dağıtırken işiniz kolaylaşabilir. Parametrelerin çoğu için şablonda tanımlanan varsayılan değerleri kullandığınızda parametre dosyanız için yalnızca iki değer gerekir.
+
+parameters.json dosyasının içeriğini aşağıdaki kodla değiştirin:
+
+```
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storageAccount_prefix": {
+      "value": "storage"
+    },
+    "virtualNetwork_name": {
+      "value": "VNET"
+    }
+  }
+}
+```
+
+Güncelleştirilmiş parametre dosyası, yalnızca varsayılan değere sahip olmayan parametreler için değerler sağlar. Varsayılan değerden farklı bir değer istediğinizde diğer parametreler için değerler sağlayabilirsiniz.
+
+## <a name="fix-export-issues"></a>Dışarı aktarma sorunlarını düzeltme
 Şablonu dışarı aktarma işlevini tüm kaynak türleri desteklemez. Resource Manager, hassas verilerin açığa çıkarılmasını önlemek için bazı kaynak türlerini özellikle dışarı aktarmaz. Örneğin, site yapılandırmanızda bir bağlantı dizesi varsa dışarı aktarılmış bir şablonda açıkça gösterilmesini büyük olasılıkla istemezsiniz. Eksik kaynakları şablonunuza el ile ekleyerek bu sorunu çözebilirsiniz.
 
 > [!NOTE]
@@ -133,7 +311,7 @@ Her bir dağıtım yalnızca kaynak grubunuzda yapmış olduğunuz değişiklikl
 > 
 > 
 
-Örneğin, şablonu bir web uygulaması, SQL Veritabanı ve site yapılandırmasında bir bağlantı dizesi içeren bir kaynak grubundan dışarı aktarırsanız aşağıdaki iletiyi görürsünüz.
+Örneğin, şablonu bir web uygulaması, SQL Veritabanı ve site yapılandırmasında bağlantı dizesi içeren bir kaynak grubu için dışarı aktarırsanız aşağıdaki iletiyi görürsünüz:
 
 ![hatayı göster](./media/resource-manager-export-template/show-error.png)
 
@@ -141,9 +319,9 @@ Her bir dağıtım yalnızca kaynak grubunuzda yapmış olduğunuz değişiklikl
 
 ![hatayı göster](./media/resource-manager-export-template/show-error-details.png)
 
-Bu konuda, aşağıdaki yaygın düzeltmelere yer verilmiştir. Bu kaynakları uygulamak için parametreleri şablona eklemeniz gerekir. Daha fazla bilgi için bkz. [Dışarı aktarılan bir şablonu özelleştirme ve yeniden dağıtma](resource-manager-customize-template.md).
+Bu konu başlığında sık kullanılan düzeltmelere yer verilmiştir.
 
-### Bağlantı dizesi
+### <a name="connection-string"></a>Bağlantı dizesi
 Web siteleri kaynağında veritabanına bağlantı dizesi için bir tanım ekleyin:
 
 ```
@@ -169,7 +347,7 @@ Web siteleri kaynağında veritabanına bağlantı dizesi için bir tanım ekley
 }
 ```    
 
-### Web sitesi uzantısı
+### <a name="web-site-extension"></a>Web sitesi uzantısı
 Web sitesi kaynağında yüklenecek kod için bir tanım ekleyin:
 
 ```
@@ -198,10 +376,10 @@ Web sitesi kaynağında yüklenecek kod için bir tanım ekleyin:
 }
 ```
 
-### Sanal makine uzantısı
+### <a name="virtual-machine-extension"></a>Sanal makine uzantısı
 Sanal makine uzantılarının örnekleri için bkz. [Azure Windows VM Uzantısı Yapılandırma Örnekleri](virtual-machines/virtual-machines-windows-extensions-configuration-samples.md).
 
-### Sanal ağ geçidi
+### <a name="virtual-network-gateway"></a>Sanal ağ geçidi
 Bir sanal ağ geçidi kaynak türü ekleyin.
 
 ```
@@ -236,7 +414,7 @@ Bir sanal ağ geçidi kaynak türü ekleyin.
 },
 ```
 
-### Yerel ağ geçidi
+### <a name="local-network-gateway"></a>Yerel ağ geçidi
 Bir yerel ağ geçidi kaynak türü ekleyin.
 
 ```
@@ -253,7 +431,7 @@ Bir yerel ağ geçidi kaynak türü ekleyin.
 }
 ```
 
-### Bağlantı
+### <a name="connection"></a>Bağlantı
 Bir bağlantı kaynak türü ekleyin.
 
 ```
@@ -277,13 +455,16 @@ Bir bağlantı kaynak türü ekleyin.
 ```
 
 
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 Tebrikler! Portalda oluşturduğunuz kaynaklardan bir şablonu dışarı aktarmayı öğrendiniz.
 
-* Bu öğreticinin ikinci bölümünde, daha fazla parametre ekleyerek, indirdiğiniz şablonu özelleştirir ve bir betik ile yeniden dağıtırsınız. Bkz. [Dışarı aktarılan bir şablonu özelleştirme ve yeniden dağıtma](resource-manager-customize-template.md).
+* Bir şablonu [PowerShell](resource-group-template-deploy.md), [Azure CLI](resource-group-template-deploy-cli.md) veya [REST API](resource-group-template-deploy-rest.md) aracılığıyla dağıtabilirsiniz.
 * Bir şablonu PowerShell aracılığıyla nasıl dışarı aktaracağınızı görmek için bkz. [Azure Resource Manager ile Azure PowerShell’i Kullanma](powershell-azure-resource-manager.md).
 * Bir şablonu Azure CLI aracılığıyla nasıl dışarı aktaracağınızı görmek için bkz. [Azure Resource Manager ile Mac, Linux ve Windows için Azure CLI’yi Kullanma](xplat-cli-azure-resource-manager.md).
 
-<!--HONumber=Sep16_HO4-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,5 +1,5 @@
 
-### Temel esnek havuz sınırları
+### <a name="basic-elastic-pool-limits"></a>Temel esnek havuz sınırları
 |  |  |
 | --- |:---:|
 | Havuz başına Maks. eDTU |&nbsp;100 &nbsp;&nbsp;&nbsp; 200 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp;&nbsp;&nbsp; 1200 |
@@ -20,7 +20,7 @@
 
 ** Esnek veritabanı, havuz depolama alanını paylaşır; bu nedenle veritabanı depolama alanı, kalan havuz depolama alanı ve veritabanı başına maks. depolama alanı değerlerinin hangisi daha küçükse bu değerle sınırlıdır
 
-### Standart esnek havuz sınırları
+### <a name="standard-elastic-pool-limits"></a>Standart esnek havuz sınırları
 |  |  |
 | --- |:---:|
 | Havuz başına Maks. eDTU |&nbsp;100 &nbsp;&nbsp;&nbsp; 200 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp;&nbsp;&nbsp; 1200 |
@@ -41,7 +41,7 @@
 
 ** Esnek veritabanı, havuz depolama alanını paylaşır; bu nedenle veritabanı depolama alanı, kalan havuz depolama alanı ve veritabanı başına maks. depolama alanı değerlerinin hangisi daha küçükse bu değerle sınırlıdır
 
-### Premium esnek havuz sınırları
+### <a name="premium-elastic-pool-limits"></a>Premium esnek havuz sınırları
 |  |  |
 | --- |:---:|
 | Havuz başına Maks. eDTU |125 &nbsp;&nbsp;&nbsp; 250 &nbsp;&nbsp;&nbsp; 500 &nbsp;&nbsp;&nbsp; 1000 &nbsp;&nbsp;&nbsp; &nbsp;1500 |
@@ -62,6 +62,8 @@
 
 ** Esnek veritabanı, havuz depolama alanını paylaşır; bu nedenle veritabanı depolama alanı, kalan havuz depolama alanı ve veritabanı başına maks. depolama alanı değerlerinin hangisi daha küçükse bu değerle sınırlıdır
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

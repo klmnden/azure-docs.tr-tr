@@ -1,12 +1,12 @@
 ---
-title: Azure Scheduler nedir? | Microsoft Docs
-description: Azure Scheduler, bulutta çalıştırmak üzere eylemleri bildirimli olarak tanımlamanızı sağlar. Sonra, bu eylemleri otomatik olarak zamanlar ve çalıştırır.
+title: Azure Scheduler nedir? | Microsoft Belgeleri
+description: "Azure Scheduler, bulutta çalıştırmak üzere eylemleri bildirimli olarak tanımlamanızı sağlar. Sonra, bu eylemleri otomatik olarak zamanlar ve çalıştırır."
 services: scheduler
 documentationcenter: .NET
 author: derek1ee
 manager: kevinlam1
-editor: ''
-
+editor: 
+ms.assetid: 52aa6ae1-4c3d-43fb-81b0-6792c84bcfae
 ms.service: scheduler
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/18/2016
 ms.author: deli
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: f2b21e24a5f692fa315db7b58d2d2824f7145729
+
 
 ---
-# Azure Scheduler nedir?
+# <a name="what-is-azure-scheduler"></a>Azure Scheduler nedir?
 Azure Scheduler, bulutta çalıştırmak üzere eylemleri bildirimli olarak tanımlamanızı sağlar. Sonra, bu eylemleri otomatik olarak zamanlar ve çalıştırır.  Scheduler bunu [Azure portal](scheduler-get-started-portal.md), kod, [REST API](https://msdn.microsoft.com/library/mt629143.aspx) ya da Azure PowerShell kullanarak yapar.
 
 Scheduler zamanlanan iş oluşturur, korur ve çağırır.  Scheduler iş yükü barındırmaz ya da kod çalıştırmaz. Yalnızca başka bir yerde (Azure’da, şirket içi ya da başka sağlayıcıda) barındırılan kodu *çağırır*. HTTP, HTTPS, depolama kuyruğu, hizmet veri yolu kuyruğu ya da hizmet veri yolu konusu aracılığıyla çağırır.
@@ -30,10 +34,10 @@ Kendilerini Scheduler kullanımına ödünç veren çeşitli senaryolar vardır.
 
 Scheduler, programlı olarak, betikleri kullanarak ve portalda işler ve [iş koleksiyonları](scheduler-concepts-terms.md) oluşturmanızı, silmenizi, görüntülemenizi ve yönetmenizi sağlar.
 
-## Ayrıca bkz.
+## <a name="see-also"></a>Ayrıca bkz.
  [Azure Scheduler kavramları, terminolojisi ve varlık hiyerarşisi](scheduler-concepts-terms.md)
 
- [Azure portalında Scheduler’ı kullanmaya başlayın](scheduler-get-started-portal.md)
+ [Azure portalında Scheduler’ı kullanmaya başlama](scheduler-get-started-portal.md)
 
  [Azure Scheduler’da planlar ve faturalama](scheduler-plans-billing.md)
 
@@ -49,6 +53,9 @@ Scheduler, programlı olarak, betikleri kullanarak ve portalda işler ve [iş ko
 
  [Azure Scheduler giden bağlantı kimlik doğrulaması](scheduler-outbound-authentication.md)
 
-<!--HONumber=Sep16_HO5-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

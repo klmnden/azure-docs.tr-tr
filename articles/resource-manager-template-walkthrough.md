@@ -1,12 +1,12 @@
 ---
-title: Resource Manager Şablonu Kılavuzu | Microsoft Docs
-description: Temel Azure IaaS mimarisi sağlayan bir kaynak Resource Manager şablonu ile ilgili adım adım yönergeler.
+title: "Resource Manager Şablonu Kılavuzu | Microsoft Belgeleri"
+description: "Temel Azure IaaS mimarisi sağlayan bir kaynak Resource Manager şablonu ile ilgili adım adım yönergeler."
 services: azure-resource-manager
 documentationcenter: na
 author: navalev
-manager: ''
-editor: ''
-
+manager: timlt
+editor: 
+ms.assetid: f1cfd704-f6e1-47d5-8094-b439c279c13f
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/04/2016
 ms.author: navale;tomfitz
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 8dcfe27b87cd76ea7b8f75c3c36f0115131eb6ae
+
 
 ---
-# Resource Manager Şablonu kılavuzu
+# <a name="resource-manager-template-walkthrough"></a>Resource Manager Şablonu kılavuzu
 Bir şablon oluştururken “nasıl başlayacağım?” sorusu ilk akla gelen sorulardan biridir. [Şablon Yazma makalesinde](resource-group-authoring-templates.md#template-format) açıklanan temel yapı izlenerek boş bir şablondan başlanabilir ve ardından kaynaklar ile ilgili parametreler ve değişkenler eklenebilir. Bunun dışında [hızlı başlama galerisi](https://github.com/Azure/azure-quickstart-templates) kullanılarak oluşturulmak istenen senaryolara benzer senaryolar aranması iyi bir alternatif oluşturabilir. Çok sayıda şablonu birleştirebilir veya kendi belirli senaryonuza uyacak mevcut bir senaryoyu düzenleyebilirsiniz. 
 
 Ortak altyapıya bir bakalım.
@@ -36,7 +40,7 @@ Ancak bunların tamamının aynı anda oluşturulması çok karmaşıktır, bu n
 > 
 > 
 
-## Resource Manager şablonu oluşturma
+## <a name="create-the-resource-manager-template"></a>Resource Manager şablonu oluşturma
 Şablon, dağıtacağınız tüm kaynakları tanımlayan bir JSON dosyasıdır. Bunun yanında dağıtım sırasında belirlenen parametreleri, diğer değerler ve ifadelerden oluşturulan değişkenleri ve dağıtım çıktılarını tanımlamanıza izin verir. 
 
 En basit şablonla başlayalım:
@@ -54,7 +58,7 @@ En basit şablonla başlayalım:
 
 Bu dosyayı **azuredeploy.json** olarak kaydedin (json dosyası olduğu sürece şablonu istediğiniz adla kaydedebileceğinizi unutmayın).
 
-## Depolama hesabı oluşturma
+## <a name="create-a-storage-account"></a>Depolama hesabı oluşturma
 **Kaynaklar** bölümünün içinde aşağıda gösterildiği şekilde depolama hesabını tanımlayan bir nesne ekleyin. 
 
 ```json
@@ -89,7 +93,7 @@ Bu özellikler ve değerlerin nereden geldiğini merak ediyor olabilirsiniz. **T
 ```
 Burada depolama hesabının adını içeren tür dizesinin bir parametresini tanımladınız. Bu parametre için değer şablon dağıtımı sırasında sağlanacaktır.
 
-## Şablon dağıtma
+## <a name="deploying-the-template"></a>Şablon dağıtma
 Yeni bir depolama hesabı oluşturmak için tam bir şablonumuz var. Hatırlayacağınız üzere şablon **azuredeploy.json** dosyası olarak kaydedilmişti:
 
 ```json
@@ -125,12 +129,13 @@ Yeni bir depolama hesabı oluşturmak için tam bir şablonumuz var. Hatırlayac
 New-AzureRmResourceGroup -Name ExampleResourceGroup -Location "West Europe"
 
 # deploy the template to the resource group
-New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile azuredeploy.json
+New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
+  -TemplateFile azuredeploy.json
 ```
 
 Veya Azure CLI kullanarak şablonu dağıtmak için şunu kullanın:
 
-```
+```azurecli
 azure group create -n ExampleResourceGroup -l "West Europe"
 
 azure group deployment create -f azuredeploy.json -g ExampleResourceGroup -n ExampleDeployment
@@ -140,7 +145,7 @@ Artık bir depolama hesabı sahibisiniz!
 
 Sonraki adımlar, bu öğretinin başında açıklanan ve mimarinin dağıtılması için gerekli tüm kaynaklarının eklenmesini içermektedir. Bu kaynakları, üzerinde çalıştığınız aynı şablona ekleyeceksiniz.
 
-## Kullanılabilirlik Kümesi
+## <a name="availability-set"></a>Kullanılabilirlik Kümesi
 Depolama hesabının tanımlanmasından sonra sanal makineler için bir kullanılabilirlik kümesi ekleyin. Bu durumda herhangi bir ek özellik gerekli değildir, bu nedenle tanım oldukça basittir. Güncelleme etki alanı sayacı ve hata etki alanı sayacı değerlerini tanımlamak istiyorsanız tüm özellikler bölümü için bkz. [Bir Kullanılabilirlik Kümesi oluşturmak için REST API](https://msdn.microsoft.com/library/azure/mt163607.aspx).
 
 ```json
@@ -163,7 +168,7 @@ Depolama hesabının tanımlanmasından sonra sanal makineler için bir kullanı
 
 Veya, Azure CLI kullanıyorsanız, aşağıdaki komutu çalıştırabilirsiniz:
 
-```
+```azurecli
     azure provider list
 ```
 Bu konuda oluşturma işlemlerini depolama hesapları, sanal makineler ve sanal ağ oluşturma ile gerçekleştireceğiniz için aşağıdakilerle çalışacaksınız:
@@ -180,13 +185,13 @@ Belirli bir sağlayıcı için kaynak türlerini görmek için aşağıdaki Powe
 
 Veya, Azure CLI için aşağıdaki komut kullanılabilir türleri JSON biçiminde döndürecek ve bir dosyaya kaydedecektir.
 
-```
+```azurecli
     azure provider show Microsoft.Compute --json > c:\temp.json
 ```
 
 **Microsoft.Compute** içinde türlerden biri olarak **availabilitySets** görünüyor olmalıdır. Türün tam adı **Microsoft.Compute/availabilitySets**’tir. Şablonunuzda kaynaklar için kaynak türü adını belirleyebilirsiniz.
 
-## Genel IP
+## <a name="public-ip"></a>Genel IP
 Genel bir IP adresi tanımlayın. Ayarlanacak özellikler için tekrar [Genel IP adresleri için REST API](https://msdn.microsoft.com/library/azure/mt163590.aspx)’ye bakın.
 
 ```json
@@ -221,7 +226,7 @@ Azure CLI ile API sürümlerini görmek için daha önce gösterilen aynı **azu
 
 Yeni bir şablon oluştururken en güncel API sürümünü seçin.
 
-## Sanal ağ ve alt ağ
+## <a name="virtual-network-and-subnet"></a>Sanal ağ ve alt ağ
 Bir alt ağ ile bir sanal ağ oluşturun. Ayarlanacak tüm özellikler için [Sanal ağlar için REST API](https://msdn.microsoft.com/library/azure/mt163661.aspx)’ye göz atın.
 
 ```json
@@ -248,7 +253,7 @@ Bir alt ağ ile bir sanal ağ oluşturun. Ayarlanacak tüm özellikler için [Sa
 }
 ```
 
-## Yük dengeleyici
+## <a name="load-balancer"></a>Yük dengeleyici
 Şimdi dışa dönük bir yük dengeleyici oluşturacaksınız. Bu yük dengeleyici genel IP adresini kullandığı için **dependsOn** bölümünde genel IP adresi üzerinde bir bağımlılık belirtmeniz gerekir. Bu, yük dengeleyicinin genel IP adresinin dağıtımı tamamlanmadan dağıtılmayacağı anlamına gelir. Bu bağımlılığı tanımlamadığınızda, Resource Manager kaynakları paralel olarak dağıtmayı deneyeceği ve yük dengeleyiciyi henüz mevcut olmayan genel IP adreslerine ayarlamayı deneyeceği için bir hata alacaksınız. 
 
 Bunun yanında VM’ler içinde bir arka uç adres havuzu, birkaç adet RDP’ye gelen NAT kuralı ve bu kaynak tanımı içinde bağlantı noktası 80 üzerinde bir tcp araştırması ile bir yük dengeleme kuralı oluşturacaksınız  Tüm özellikler için [Yük dengeleyici için REST API](https://msdn.microsoft.com/library/azure/mt163574.aspx)’ye göz atın.
@@ -340,7 +345,7 @@ Bunun yanında VM’ler içinde bir arka uç adres havuzu, birkaç adet RDP’ye
 }
 ```
 
-## Ağ arabirimi
+## <a name="network-interface"></a>Ağ arabirimi
 Her biri bir VM için olmak üzere 2 ağ arabirimi oluşturacaksınız. Ağ arabirimleri için birbirinin kopyası girişleri eklemek yerine kopyalama döngüsü (nicLoop olarak adlandırılır) üzerinde belirtmek üzere [copyIndex () işlevini](resource-group-create-multiple.md) kullanabilir ve `numberOfInstances`değişkenlerde açıklandığı şekilde ağ arabirimi sayısını oluşturabilirsiniz. Ağ arabirimi sanal ağın ve yük dengeleyicinin oluşturulmasına bağlıdır. Yük dengeleyici adres havuzunu ve gelen NAT kurallarını yapılandırmak üzere sanal ağ oluşturulmasında tanımlanan alt ağı ve yük dengeleyici kimliğini kullanır.
 Tüm özellikler için [Ağ arabirimleri için REST API](https://msdn.microsoft.com/library/azure/mt163668.aspx)’ye göz atın.
 
@@ -384,7 +389,7 @@ Tüm özellikler için [Ağ arabirimleri için REST API](https://msdn.microsoft.
 }
 ```
 
-## Sanal makine
+## <a name="virtual-machine"></a>Sanal makine
 [Ağ arabirimleri](#network-interface) oluşturma sırasında yaptığınız gibi copyIndex () işlevini kullanarak 2 sanal makine oluşturacaksınız.
 VM oluşturma depolama hesabı, ağ arabirimi ve kullanılabilirlik kümesine bağlıdır. Bu VM, görüntü yayımlayıcı, teklif, sku ve sürümü tanımlamak için kullanılan `storageProfile` özellik- `imageReference` içinde tanımlanan bir market görüntüsünden oluşturulacaktır. Son olarak VM için tanılamayı etkinleştirmek üzere bir tanılama profili yapılandırılacaktır. 
 
@@ -456,7 +461,7 @@ Bir market görüntüsü için ilgili özellikleri bulmak üzere [Linux sanal ma
 
 Şablonunuz için kaynakları tanımlamayı tamamladınız.
 
-## Parametreler
+## <a name="parameters"></a>Parametreler
 Parametreler bölümünde, şablonu dağıtırken belirlenebilecek değerleri tanımlayın. Yalnızca dağıtım sırasında değişmesi gerektiğini düşündüğünüz değerler için parametre tanımlayın. Dağıtım sırasında sağlanmamışsa, kullanılan bir parametre için bir varsayılan değer sağlayabilirsiniz. Bunun yanında **imageSKU** parametresinde görüntülendiği şekilde izin verilen değerleri tanımlayabilirsiniz.
 
 ```json
@@ -556,7 +561,7 @@ Parametreler bölümünde, şablonu dağıtırken belirlenebilecek değerleri ta
   }
 ```
 
-## Değişkenler
+## <a name="variables"></a>Değişkenler
 Değişkenler bölümünde şablonunuzda birden çok yerde kullanılan değerleri veya diğer ifadeler veya değişkenlerden oluşturulan değerleri tanımlayabilirsiniz. Değişkenler, şablonunuzun söz dizimini basitleştirmek üzere sıkça kullanılır.
 
 ```json
@@ -578,11 +583,15 @@ Değişkenler bölümünde şablonunuzda birden çok yerde kullanılan değerler
 
 Depolama hesabını dağıtırken kullandığınız aynı komutları kullanarak şablonu yeniden dağıtabilirsiniz. Resource Manager mevcut olan ve değiştirilmemiş kaynakların yeniden oluşturulmasını atlayacağı için yeniden dağıtım öncesinde depolama hesabını silmenize gerek yoktur.
 
-## Sonraki adımlar
-* ARM şablonlarının json dosyasından okunmayacak kadar büyümesi mümkün olduğundan, [Azure Resource Manager Şablonu Görselleştirici (ARMViz)](http://armviz.io/#/) ARM şablonlarını görselleştirmek için harika bir araçtır.
+## <a name="next-steps"></a>Sonraki adımlar
+* Resource Manager şablonlarının json dosyasından okunmayacak kadar büyük boyutlu hale gelmesi mümkün olduğundan, [Azure Resource Manager Şablonu Görselleştiricisi](http://armviz.io/#/) Resource Manager şablonlarını görselleştirmek için harika bir araçtır.
 * Bir şablonun yapısı hakkında daha fazla bilgi edinmek için bkz. [Azure Resource Manager şablonları yazma](resource-group-authoring-templates.md).
 * Bir şablonu dağıtmayı öğrenmek için bkz [Azure Resource Manager şablonu ile bir Kaynak Grubu dağıtma](resource-group-template-deploy.md)
+* Dağıtımı otomatik hale getirme hakkında dört bölümlük bir seri için bkz. [Azure Sanal Makinelerine uygulama dağıtımlarını otomatik hale getirme](virtual-machines/virtual-machines-windows-dotnet-core-1-landing.md). Bu seri; uygulama mimarisi, erişim ve güvenlik, kullanılabilirlik ve ölçek ve uygulama dağıtımını kapsar.
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

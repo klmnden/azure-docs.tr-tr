@@ -7,7 +7,7 @@
 2. Listedeki ilk öğeye (`Information Property List`) sağ tıklayın ve yeni bir satır ekleyin
    
     ![](./media/mobile-engagement-ios-silent-push/xcode-plist-add-silent-push1.png)
-3. nYeni satıra şunu girin: `Required background modes`
+3. Yeni satıra `Required background modes` girin
    
     ![](./media/mobile-engagement-ios-silent-push/xcode-plist-add-silent-push2.png)
 4. Satırı genişletmek için sol oka tıklayın
@@ -24,6 +24,8 @@
    
    * **Anında İletme Bildirimleri**’ni Hedefler > Hedef Adınız > Özellikler’de etkinleştirin.
 
-<!--HONumber=Jun16_HO2-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,94 +1,104 @@
 ---
-title: Get started creating an Internal load balancer in Resource Manager using the Azure portal | Microsoft Docs
-description: Learn how to create an Internal load balancer in Resource Manager using the Azure portal
+title: "Azure portalını kullanarak Resource Manager’da iç yük dengeleyici oluşturmaya başlama | Microsoft Belgeleri"
+description: "Azure portalını kullanarak Resource Manager’da iç yük dengeleyici oluşturmayı öğrenin"
 services: load-balancer
 documentationcenter: na
 author: sdwheeler
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-service-management
-
+ms.assetid: 1ac14fb9-8d14-4892-bfe6-8bc74c48ae2c
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/31/2016
+ms.date: 10/24/2016
 ms.author: sewhee
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 616fa3b45f8b6f7f799eeacfb1f609a1031d24f5
+
 
 ---
-# Get started creating an Internal load balancer in the Azure portal
+# <a name="create-an-internal-load-balancer-in-the-azure-portal"></a>Azure portalını kullanarak iç yük dengeleyici oluşturma
 [!INCLUDE [load-balancer-get-started-ilb-arm-selectors-include.md](../../includes/load-balancer-get-started-ilb-arm-selectors-include.md)]
 
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)]
 
-[classic deployment model](load-balancer-get-started-ilb-classic-ps.md).
+[klasik dağıtım modeli](load-balancer-get-started-ilb-classic-ps.md).
 
 [!INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
-## Get started creating an Internal load balancer using Azure portal
-To create an internal load balancer from the Azure portal, follow the steps below.
+## <a name="get-started-creating-an-internal-load-balancer-using-azure-portal"></a>Azure portalını kullanarak iç yük dengeleyici oluşturmaya başlama
+Azure Portalından iç yük dengeleyici oluşturmak için aşağıdaki adımları uygulayın.
 
-1. From a browser, navigate to the [Azure portal](http://portal.azure.com) and, if necessary, sign in with your Azure account.
-2. In the upper left hand side of the screen, click **New** > **Networking** > **Load balancer**.
-3. In the **Create load balancer** blade, type a **Name** for your load balancer.
-4. Under **Scheme**, click **Internal**.
-5. Click **Virtual network**, and then select the virtual network where you want to create the load balancer.
+1. Tarayıcı penceresi açın, [Azure portalına](http://portal.azure.com) gidin ve Azure hesabınızla oturum açın.
+2. Ekranın sol üst kenarından **Yeni** > **Ağ** > **Yük dengeleyici**’yi seçin.
+3. **Yük dengeleyici oluştur** dikey penceresinde yük dengeleyiciniz için bir **Ad** girin.
+4. **Düzen** bölümünde **İç**’e tıklayın.
+5. **Sanal ağ**’a tıklayıp yük dengeleyiciyi oluşturmak istediğiniz sanal ağı seçin.
    
    > [!NOTE]
-   > If you do not see the virtual network you want to use, check the **Location** you are using for the load balancer, and change it accordingly.
+   > Kullanmak istediğiniz sanal ağ listede yoksa, yük dengeleyici için kullandığınız **Konum** bilgisini denetleyin ve gerekli değişiklikleri yapın.
    > 
    > 
-6. Click **Subnet**, and then select the subnet where you want to create the load balancer.
-7. Under **IP address assignment**, click either **Dynamic** or **Static**, depending on whether you want the IP address for the load balancer to be fixed (static) or not.
+6. **Alt ağ**’a tıklayıp ve yük dengeleyiciyi oluşturmak istediğiniz alt ağı seçin.
+7. **IP adresi atama** bölümünde yük dengeleyici IP adresinin sabit (statik) olup olmayacağını belirlemek için **Dinamik** veya **Statik** seçeneğini belirleyin.
    
    > [!NOTE]
-   > If you select to use a static IP address, you will have to provide an address for the load balancer.
+   > Statik IP adresi kullanmayı tercih ederseniz yük dengeleyici için bir adres belirlemeniz gerekir.
    > 
    > 
-8. Under **Resource group** either specify the name of a new resource group for the load balancer, or click **select existing** and select an existing resource group.
-9. Click **Create**.
+8. **Kaynak grubu** altında yük dengeleyici için yeni bir kaynak grubu adı belirleyin veya var olan kaynak gruplarından birini seçmek için **var olanı seç**’e tıklayın.
+9. **Oluştur**’a tıklayın.
 
-## Configure load balancing rules
-After the load balancer creation, navigate to the load balancer resource to configure it.
-You need to configure first a back-end address pool and a probe before configuring a load balancing rule.
+## <a name="configure-load-balancing-rules"></a>Yük dengeleme kurallarını yapılandırma
+Yük dengeleyiciyi oluşturduktan sonra yük dengeleyici kaynağına giderek yapılandırın.
+Yük dengeleme kuralını yapılandırmadan önce arka uç adres havuzu ve araştırma yapılandırmanız gerekir.
 
-### Step 1: Configure a back-end pool
-1. In the Azure portal, click **Browse** > **Load balancers**, and then click the load balancer you created above.
-2. In the **Settings** blade, click **Backend pools**.
-3. In the **Backend address pools** blade, click **Add**.
-4. In the **Add backend pool** blade, type a **Name** for the backend pool, and then click **OK**.
+### <a name="step-1-configure-a-backend-pool"></a>1. Adım: Arka uç havuzu yapılandırma
+1. Azure portalında **Gözat** > **Yük dengeleyiciler**’e ve ardından yukarıda oluşturduğunuz yük dengeleyiciye tıklayın.
+2. **Ayarlar** dikey penceresinde **Arka uç havuzları**’na tıklayın.
+3. **Arka uç adres havuzları** dikey penceresinde **Ekle**’ye tıklayın.
+4. **Arka uç havuzu ekle** dikey penceresinde arka uç havuzu için bir **Ad** girin ve ardından **Tamam**’a tıklayın.
 
-### Step 2: Configure a probe
-1. In the Azure portal, click **Browse** > **Load balancers**, and then click the load balancer you created above.
-2. In the **Settings** blade, click **Probes**.
-3. In the **Probes**  blade, click **Add**.
-4. In the **Add probe** blade, type a **Name** for the probe.
-5. Under **Protocol**, select **HTTP** (for web sites) or **TCP** (for other TCP based applications).
-6. Under **Port**, specify the port to use when accessing the probe.
-7. Under **Path** (for HTTP probes only), specify the path to use as a probe.
-8. Under **Interval** specify how frequently to probe the application.
-9. Under **Unhealthy threshold**, specify how many attempts should fail before the backend VM is marked as unhealthy.
-10. click **OK** to create probe.
+### <a name="step-2-configure-a-probe"></a>2. Adım: Araştırma yapılandırma
+1. Azure portalında **Gözat** > **Yük dengeleyiciler**’e ve ardından yukarıda oluşturduğunuz yük dengeleyiciye tıklayın.
+2. **Ayarlar** dikey penceresinde **Araştırmalar**’a tıklayın.
+3. **Araştırmalar** dikey penceresinde **Ekle**’ye tıklayın.
+4. **Araştırma ekle** dikey penceresinde araştırma için bir **Ad** girin.
+5. **Protokol**’ün altında **HTTP** (web siteleri için) veya **TCP** (diğer TCP tabanlı uygulamalar için) seçin.
+6. **Bağlantı noktası** bölümünde araştırmaya erişirken kullanılacak bağlantı noktasını belirtin.
+7. **Yol**’un altında (yalnızca HTTP araştırmaları için) araştırma olarak kullanılacak yolu belirtin.
+8. **Aralık** bölümünde uygulama araştırma sıklığını belirtin.
+9. **Sağlıksız durum eşiği** bölümünde arka uç sanal makinesi sağlıksız olarak işaretlenmeden önce yapılacak giriş sayısını belirtin.
+10. Araştırmayı oluşturmak için **Tamam**’a tıklayın.
 
-### Step 3: Configure load balancing rules
-1. In the Azure portal, click **Browse** > **Load balancers**, and then click the load balancer you created above.
-2. In the **Settings** blade, click **Load balancing rules**.
-3. In the **Load balancing rules** blade, click **Add**.
-4. In the **Add load balancing rule** blade, type a **Name** for the rule.
-5. Under **Protocol**, select **HTTP** (for web sites) or **TCP** (for other TCP based applications).
-6. Under **Port**, specify the port clients connect to int he load balancer.
-7. Under **Backend port**, specify the port to be used in the backend pool (usually, the load balancer port and the backend port are the same).
-8. Under **Backend pool**, select the backend pool you created above.
-9. Under **Session persistence**, select how you want sessions to persist.
-10. Under **Idle timeout (minutes)**, specify the idle timeout.
-11. Under **Floating IP (direct server return)**, click **Disabled** or **Enabled**.
-12. Click **OK**.
+### <a name="step-3-configure-load-balancing-rules"></a>3. Adım: Yük dengeleme kurallarını yapılandırma
+1. Azure portalında **Gözat** > **Yük dengeleyiciler**’e ve ardından yukarıda oluşturduğunuz yük dengeleyiciye tıklayın.
+2. **Ayarlar** dikey penceresinde **Yük dengeleme kuralları**’na tıklayın.
+3. **Yük dengeleme kuralları** dikey penceresinde **Ekle**’ye tıklayın.
+4. **Yük dengeleme kuralı ekle** dikey penceresinde kural için bir **Ad** girin.
+5. **Protokol**’ün altında **HTTP** (web siteleri için) veya **TCP** (diğer TCP tabanlı uygulamalar için) seçin.
+6. **Bağlantı noktası** bölümünde istemcilerin yük dengeleyiciye bağlanmak için kullanacağı bağlantı noktasını belirtin.
+7. **Arka uç bağlantı noktası** bölümünde arka uç havuzunda kullanılacak bağlantı noktasını belirtin (genelde yük dengeleyici bağlantı noktası ve arka uç bağlantı noktası aynıdır).
+8. **Arka uç havuzu** altında yukarıda oluşturduğunuz arka uç havuzunu seçin.
+9. **Oturum kalıcılığı** bölümünde oturumların ne kadar sürmesini istediğinizi belirtin.
+10. **Boşta kalma zaman aşımı (dakika)** bölümünde boşta kalma zaman aşımını belirtin.
+11. **Kayan IP (doğrudan sunucu dönüşü)** bölümünde **Devre dışı** veya **Etkin**’e tıklayın.
+12. **Tamam** düğmesine tıklayın.
 
-## Next steps
-[Configure a load balancer distribution mode](load-balancer-distribution-mode.md)
+## <a name="next-steps"></a>Sonraki adımlar
+[Yük dengeleyici dağıtım modu yapılandırma](load-balancer-distribution-mode.md)
 
-[Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md)
+[Yük dengeleyiciniz için boşta TCP zaman aşımı ayarlarını yapılandırma](load-balancer-tcp-idle-timeout.md)
+
+
+
+
+<!--HONumber=Nov16_HO2-->
+
 

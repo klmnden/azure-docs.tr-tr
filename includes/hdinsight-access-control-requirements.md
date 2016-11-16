@@ -8,6 +8,8 @@ Erişim yönetimiyle çalışma hakkında daha fazla bilgi için aşağıdaki be
 * [Azure portalında erişim yönetimi ile çalışmaya başlama](../articles/active-directory/role-based-access-control-what-is.md)
 * [Azure abonelik kaynaklarınıza erişimi yönetmek için rol atamalarını kullanın](../articles/active-directory/role-based-access-control-configure.md)
 
-<!--HONumber=Sep16_HO5-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

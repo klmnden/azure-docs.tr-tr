@@ -1,25 +1,29 @@
 ---
-title: Azure Active Directory raporlama - önizleme | Microsoft Docs
-description: Azure Active Directory önizlemesinde kullanılabilen çeşitli raporları listeler
+title: "Azure Active Directory raporlama - önizleme | Microsoft Belgeleri"
+description: "Azure Active Directory önizlemesinde kullanılabilen çeşitli raporları listeler"
 services: active-directory
-documentationcenter: ''
-author: markusvi
+documentationcenter: 
+author: MarkusVi
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 6141a333-38db-478a-927e-526f1e7614f4
 ms.service: active-directory
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/30/2016
+ms.date: 10/31/2016
 ms.author: markvi
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 96784e006b5986cbc6dfd4f264b22bd1d1bf208d
+
 
 ---
-# Azure Active Directory raporlama - önizleme
+# <a name="azure-active-directory-reporting-preview"></a>Azure Active Directory raporlama - önizleme
 > [!div class="op_single_selector"]
-> * [Azure portalı](active-directory-reporting-azure-portal.md)
-> * [Klasik Azure portalı](active-directory-reporting-guide.md)
+> * [Azure Portal](active-directory-reporting-azure-portal.md)
+> * [Klasik Azure Portalı](active-directory-reporting-guide.md)
 > 
 > 
 
@@ -34,8 +38,8 @@ Azure Active Directory önizlemesindeki raporlama ile ortamınızın nasıl çal
 
 Aradığınız verilerin kapsamını bağlı olarak, bu raporlara erişmek için [Azure portal](https://portal.azure.com) hizmetler listesinde **Kullanıcılar ve gruplar** ya da **Kurumsal uygulamalar** seçeneklerine tıklayabilirsiniz.
 
-## Oturum açma etkinlikleri
-### Kullanıcı oturum açma etkinlikleri
+## <a name="signin-activities"></a>Oturum açma etkinlikleri
+### <a name="user-signin-activities"></a>Kullanıcı oturum açma etkinlikleri
 Kullanıcı oturum açma raporu tarafından sağlanan bilgiler sayesinde aşağıdakiler gibi soruların yanıtlarını bulabilirsiniz:
 
 * Belirli bir kullanıcının oturum açma düzeni nedir?
@@ -62,7 +66,7 @@ Oturum açma etkinlikleri listesindeki her satır, seçili oturum açma hakkınd
 * Oturum açmanın IP adresi nedir?
 * Oturum açmanın durumu neydi?
 
-### Yönetilen uygulamaların kullanımı
+### <a name="usage-of-managed-applications"></a>Yönetilen uygulamaların kullanımı
 Oturum açma bilgilerinizin uygulama odaklı bir görünümüyle aşağıdakiler gibi sorular yanıtlanabilir:
 
 * Uygulamalarımı kimler kullanıyor?
@@ -93,17 +97,23 @@ Sütun seçiciyi kullanarak, görüntülenmesini istediğiniz veri alanlarını 
 
 ![Raporlama](./media/active-directory-reporting-azure-portal/column_chooser.png "Reporting")
 
-### Oturum açma işlemlerini filtreleme
-Görüntülenen veri miktarını sınırlamak için, oturum açma işlemlerini zaman aralığına göre filtreleyebilirsiniz.
+### <a name="filtering-signins"></a>Oturum açma işlemlerini filtreleme
+Görüntülenen veri miktarını sınırlamak için, oturum açma işlemlerini aşağıdaki alanları kullanarak filtreleyebilirsiniz:
 
-![Raporlama](./media/active-directory-reporting-azure-portal/927.png "Reporting")
+* Tarih ve saat 
+* Kullanıcı asıl adı
+* Uygulama adı
+* İstemci adı
+* Oturum açma durumu
+
+![Raporlama](./media/active-directory-reporting-azure-portal/293.png "Reporting")
 
 Oturum açma etkinliklerine ait girişleri filtrelemenin başka bir yöntemi de belirli girdiler için arama gerçekleştirmektir.
 Arama yöntemi, oturum açma işlemlerinin kapsamı olarak belirli **kullanıcıları**, **grupları** veya **uygulamaları** seçmenize olanak tanır.
 
 ![Raporlama](./media/active-directory-reporting-azure-portal/84.png "Reporting")
 
-## Denetim günlükleri
+## <a name="audit-logs"></a>Denetim günlükleri
 Azure Active Directory'deki denetim günlükleri uyumluluk amacıyla sistem etkinliklerinin kayıtlarını sağlar.
 
 Azure portalda ilgili etkinlikleri denetlemeye yönelik üç ana kategori vardır:
@@ -126,7 +136,7 @@ Liste görünümünde bir öğeye tıklayarak bu öğe hakkında daha fazla bilg
 
 ![Denetim](./media/active-directory-reporting-azure-portal/873.png "Auditing")
 
-### Kullanıcı ve gruplara yönelik denetim günlükleri
+### <a name="users-and-groups-audit-logs"></a>Kullanıcı ve gruplara yönelik denetim günlükleri
 Kullanıcı ve grup tabanlı denetim raporları ile aşağıdakiler gibi soruların yanıtlarını alabilirsiniz:
 
 * Kullanıcılara hangi tür güncelleştirmeler uygulanmış?
@@ -142,7 +152,7 @@ Yalnızca kullanıcı ve gruplarla ilgili denetim verilerini gözden geçirmek i
 
 ![Denetim](./media/active-directory-reporting-azure-portal/93.png "Auditing")
 
-### Uygulama denetim günlükleri
+### <a name="application-audit-logs"></a>Uygulama denetim günlükleri
 Uygulama tabanlı denetim raporları ile aşağıdakiler gibi soruların yanıtlarını alabilirsiniz:
 
 * Eklenmiş veya güncelleştirilmiş olan uygulamalar hangileridir?
@@ -155,18 +165,44 @@ Yalnızca uygulamalarla ilgili denetim verilerini gözden geçirmek istiyorsanı
 
 ![Denetim](./media/active-directory-reporting-azure-portal/134.png "Auditing")
 
-### Denetim günlüklerini filtreleme
-Görüntülenen veri miktarını sınırlamak için, denetim raporlarını zaman aralığına göre filtreleyebilirsiniz.
+### <a name="filtering-audit-logs"></a>Denetim günlüklerini filtreleme
+Görüntülenen veri miktarını sınırlamak için, oturum açma işlemlerini aşağıdaki alanları kullanarak filtreleyebilirsiniz:
 
-![Denetim](./media/active-directory-reporting-azure-portal/324.png "Auditing")
+* Tarih ve saat
+* Aktörün kullanıcı asıl adı
+* Etkinlik türü
+* Etkinlik
+
+![Denetim](./media/active-directory-reporting-azure-portal/356.png "Auditing")
+
+**Etkinlik Türü** listesinin içeriği bu dikey pencerenin giriş noktasına bağlıdır.  
+Giriş noktanız Azure Active Directory ise, bu liste tüm olası etkinlik türlerini içerir:
+
+* Uygulama 
+* Grup 
+* Kullanıcı
+* Cihaz
+* Dizin
+* İlke
+* Diğer
+
+![Denetim](./media/active-directory-reporting-azure-portal/825.png "Auditing")
+
+Listedeki etkinliklerin kapsamı etkinlik türüne göre belirlenir.
+Örneğin, **Etkinlik Türü** olarak **Grup** seçeneğini belirlediyseniz **Etkinlik** listesi yalnızca grupla ilgili etkinlikleri içerir.   
+
+![Denetim](./media/active-directory-reporting-azure-portal/654.png "Auditing")
 
 Denetim raporlarına ait girişleri filtrelemenin başka bir yöntemi de belirli girdiler için arama gerçekleştirmektir.
 
 ![Denetim](./media/active-directory-reporting-azure-portal/237.png "Auditing")
 
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 Bkz. [Azure Active Directory Raporlama Kılavuzu](active-directory-reporting-guide.md).
 
-<!--HONumber=Oct16_HO1-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

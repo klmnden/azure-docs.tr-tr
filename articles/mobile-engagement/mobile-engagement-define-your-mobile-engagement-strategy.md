@@ -1,12 +1,12 @@
 ---
-title: Mobile Engagement stratejinizi tanımlama | Microsoft Docs
-description: Analizler ve anında iletme bildirimleri ile Mobile Engagement’ı eklemeyi ve iyileştirmeyi öğrenin.
+title: "Mobile Engagement stratejinizi tanımlama | Microsoft Belgeleri"
+description: "Analizler ve anında iletme bildirimleri ile Mobile Engagement’ı eklemeyi ve iyileştirmeyi öğrenin."
 services: mobile-engagement
 documentationcenter: Mobile
 author: piyushjo
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: 7533e318-81b9-4360-aace-b7be8225985b
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/19/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 8cb91a8cdc6d16070034c79515731be7b820d389
+
 
 ---
-# Mobile Engagement stratejinizi tanımlama
+# <a name="define-your-mobile-engagement-strategy"></a>Mobile Engagement stratejinizi tanımlama
 *Uygulamanızı bir nedenle yazdınız: kullanıcılarınız kullansın diye!*
 
 Kullanıcıların hayran kalacağı harika bir uygulama oluşturmak için çok çaba gösterdiğinize inanıyoruz. Büyük olasılıkla, kullanıcı kazanmak için ciddi bir pazarlama yatırımı da yaptınız. Ancak kullanıcı sayısının tavan yaptığı o ilk heyecan verici dönemin ardından kullanıcıların yavaş yavaş uygulamanızı kullanmayı bıraktığını görebilirsiniz. *Azure Mobile Engagement işte bu iş için burada!*: Kullanıcıların uygulamanızı kullanmaya devam etmelerini, böylece sizin de test edip öğrenme yoluyla uygulamayı sürekli geliştirmenizi sağlıyoruz.
@@ -25,7 +29,7 @@ Kullanıcıların elde tutulmasını ve kullanımı geliştirmeye yaklaşımım�
 
 Ancak, bunun için işe *kullanıcılarınızı anlamakla* başlamanız gerekir. Ardından, yaptıklarına veya özelliklerine göre gruplar oluşturun (bunlara segment diyoruz) ve her segment için, o segmentle ilgili iletişimler oluşturun.
 
-## Mobile Engagement hedeflerinize hizmet eder
+## <a name="mobile-engagement-serves-your-objectives"></a>Mobile Engagement hedeflerinize hizmet eder
 *Elde tutma ve kullanım hakkında konuştuk, ancak amacımız nedir?*
 
 Mobile Engagement stratejinizi oluştururken önce uygulamanızın hedeflerine ve ana performans göstergelerine (KPI) bakmak gerekir.
@@ -45,14 +49,14 @@ Kullanım örnekleri ve segmentin tanımlanması, uygulama içinde toplanması g
 
 Tümleştirmeye dayalı şekilde, uygulamalar yayımlandıktan sonra bir pazarlamacı olarak analizlerinizi gerçek zamanlı görebilecek, hedef kitlenizi segmentlere ayırabilecek ve son kullanıcılar ile uygulama içinde veya dışında etkileşim kurmak için akıllı, hedefe yönelik anında iletme bildirimleri göndermeye başlayabileceksiniz.
 
-### Başlamak için kullanım örnekleri
+### <a name="usecases-to-get-started"></a>Başlamak için kullanım örnekleri
 1. Hoş geldiniz stratejisi: Uygulamanın başlatılmasındaki son kullanıcı davranışına dayalı olarak ilk oturumdan 2/5/10/15 gün sonra yeniden etkileşim kurmaya yönelik çeşitli anında iletme bildirimi kampanyaları oluşturun ve ilk kez kullananların elde tutulmasını artırın.
 2. Son kullanıcı davranışından faydalanıp bilgileri yalnızca katılım olasılığı yüksek olan son kullanıcılara göndererek yeni içerik (özellik, makale/video veya ürün) tanıtın.
 3. Uygulamaya not verme: Uygulamanıza mağazada 5 yıldız verme olasılığı en yüksek olan, kullanıcı tabanınızın yüzde 1’inden düşük bir kısmını hedefleyin.
 4. Abonelik artırma: Değerli içerikleri bunları henüz görmemiş olan son kullanıcılara tanıtarak abonelik sayısını artırın.
 5. Öğretici: Herkes için zorunlu öğreticilere son verin. Uygulama içi mükemmel öğreticiler oluşturup, yalnızca kullanıcı uygulamayı kullanmıyormuş gibi görünüyor veya bir özelliği kullanmakta zorluk çekiyorsa uygulama içi iletilerle bu öğreticileri tetiklemek daha iyi bir fikir değil mi?
 
-## Katılım sağlamak için neden analize ihtiyaç var?
+## <a name="why-do-you-need-analytics-to-engage"></a>Katılım sağlamak için neden analize ihtiyaç var?
 Bu noktada fark etmiş olabileceğiniz gibi yalnızca herkese giden bir anında iletme bildirimi kullanmak yeterli değildir. Mobile Engagement’ın temel kavramı, pazarlamacı ve geliştiricilerin doğru son kullanıcıyla, doğru zamanda ve doğru yerde etkileşmesine yardımcı olmaktır. Bu üç ana kavramı bilebilmek için, uygulamanızdan analizler toplayıp bunları kullanarak hedef kitlenizi segmentlere ayırmanız şarttır. Davranış segmentleri diğer veritabanınızdan veya CRM’den ya da çapraz bir kanaldan verilerle tamamlanırsa analiz daha da güç kazanır. Mobile Engagement, her kaynaktan veri almaya olanak sağlar ve bu verileri doğru hedef kitleye seslenmek için kullanır.
 
 Hedef kitlenizle iletişimde konuya en uygun mesajı verebilmek için son kullanıcılarınızın davranışları hakkında bilgi sahibi olmanız ve durumlarını gerçek zamanlı olarak bilmeniz çok önemlidir. Veri toplanması, pazarlamacıların kullanım örneklerini yürütürken önemli noktalara odaklanmasına ve mobil katılım strateji hedeflerine ulaşmasına olanak tanır.  Önceden belirlenen hedeflere ulaşmak için en iyi yöntem, her önüne gelen analizi toplamak yerine, öğrenmek istediklerinize ve kullanım örneklerinize odaklanmanıza olanak tanıyan analizlere yönelmektir. Başlatma, deneme, çözümü test edip kullanmayı öğrenme, akıllı anında iletme bildirimi gönderme ve uygulamayı başarı öyküsü düzeyine taşıyacak şekilde kullanıcıların elde tutulmasını artırma şeklindeki sistemin en iyi yolu budur.
@@ -62,42 +66,42 @@ Hedef kitlenizle iletişimde konuya en uygun mesajı verebilmek için son kullan
 > 
 > 
 
-### Kullanım örnekleri ve en iyi yöntemler
+### <a name="usecases-and-best-practices"></a>Kullanım örnekleri ve en iyi yöntemler
 Aşağıdaki bölümlerde, başlamanıza yardımcı olması için müşterilerimiz aracılığıyla karşılaştığımız bazı önemli kullanım örneklerini kısaca ele alacağız.
 
-#### Medya
+#### <a name="media"></a>Medya
 Son kullanıcı tarafından tüketilen içerik türünü toplayın ve hedef kitleyi bu davranışa göre segmentlere ayırarak belirli içerik türlerini bu içerikle ilgilenme olasılığı en yüksek olan kitleye hedefleyin. Tüm kullanıcı tabanına istenmeyen posta gönderilmesini önler ve elde tutmayı artırır.
 
-#### M-ticaret
+#### <a name="mcommerce"></a>M-ticaret
 Uygulamada en sık ziyaret edilen ürün kategorilerini toplayın ve indirim veya yeni ürün tanıtırken bu kategoride ürün satın alma olasılığı daha yüksek olan son kullanıcıları hedefleyin. Gelirleri artırmayı hedefleyin. Burada da hedefimiz istenmeyen posta göndermemek!
 
-#### Oyun
+#### <a name="gaming"></a>Oyun
 Son kullanıcının oyundaki seviyesini ve belirli bir dönemde harcadığı zamanı toplayarak takılıp kalmış olabilecek ve sonraki seviyeye atlamak için bir ödül teklifini kabul etme olasılığı daha yüksek olan kitleyi hedefleyin.
 
 Bir süredir oynamamış kullanıcılar için bir teşvik içeren belirli olaylar konusunda iletişim kurarak böyle kullanıcıları geri dönmeye özendirin.
 
-#### Perakende
+#### <a name="retail"></a>Perakende
 Hedef kitlenin sevdiği ürünlere veya davranışlarına dayalı olarak tüketme olasılığı yüksek olan ürünleri ya da markaları toplayın ve kitleyi mağazanıza yönlendirerek satın alma gelirlerini artırın.
 
-#### Bankacılık
+#### <a name="banking"></a>Bankacılık
 Uygulamanın ilk başlatılması sırasında bir hesap oluşturan son kullanıcılara ait verileri toplayın. Hedefe yönelik bir anında iletme bildirimi ile bir hoş geldiniz stratejisi kullanıp hesap aboneliklerinin sayısını artırmayı hedefleyin.
 
-### Harika bir etiket planı nasıl oluşturulur?
+### <a name="how-to-create-a-great-tag-plan"></a>Harika bir etiket planı nasıl oluşturulur?
 Etiket planı, kullanıcı davranışlarını anlamak ve kullanıcı tabanını düzgün bir şekilde segmentlere ayırmak için yeterli analize sahip olmak açısından toplanması gereken tüm etiketleri (veri) sağlayan bir çeşit kullanıcı yolu açıklaması veya uygulamanın iş akışı gibi olmalıdır. Bu teknik bir işlem değildir. Bu nedenle, pazarlamacılar Mobile Engagement stratejilerine göre toplamak istedikleri verileri belirtebilir.
 
 Yapılacak minimum işlem, bir uygulamanın en azından tüm ekranlarını (Mobile Engagement’ta *etkinlikler* olarak bilinir) etiketlemektir. Bu, kullanıcı yolunun belirlenmesine yardımcı olur.
 
 Etkinlik, bir düğmeye tıklanması gibi eylem bilgilerini toplayan *olaylar* ekleyebilir. Böylece uygulama içerisindeki etkileşimler toplanabilir. Bu sayede pazarlamacılar, kullanıcıların ziyaret ettiği ekranları ve neler yaptıklarını bilebilirler.
 
-`Jobs` süreli eylemlerdir. Bir kullanıcının hesap oluşturmasının veya oturum açmasının ne kadar sürdüğünü pazarlamacının anlayabilmesi için çok kullanışlıdır. Bir web hizmetini çağırmanın ne kadar sürdüğünü izleyebilmeleri için geliştiricilere de faydalı olabilir.
+`Jobs`süreli eylemlerdir. Bir kullanıcının hesap oluşturmasının veya oturum açmasının ne kadar sürdüğünü pazarlamacının anlayabilmesi için çok kullanışlıdır. Bir web hizmetini çağırmanın ne kadar sürdüğünü izleyebilmeleri için geliştiricilere de faydalı olabilir.
 
-`Errors` kullanıcıların uygulamanızda sorunlar yaşayıp yaşamadığını öğrenmek için de izlenebilir. Örneğin, sık sık bağlantı sorunlarıyla karşılaşılması.
+`Errors`kullanıcıların uygulamanızda sorunlar yaşayıp yaşamadığını öğrenmek için de izlenebilir. Örneğin, sık sık bağlantı sorunlarıyla karşılaşılması.
 
 Bu tür verilerin tümü parametrelerle genişletilerek (Mobile Engagement’ta *ek bilgiler*) uygulamadan dinamik veri toplamanıza olanak sağlanabilir. Bu ayrıntılı segmentlere ayırma için önemlidir. Örneğin, pazarlamacılar kullanıcıyı tükettiği içerik türüne göre bir segmente yerleştirebilir. İçerik türü, etkinlik veya olaya ilişkin dinamik bilgi olacaktır.
 
 *Uygulama bilgileri*, uygulamanın veya kullanıcının durumunu gerçek zamanlı olarak doğrulamanıza olanak tanıyan verilerdir. Bu veriler, aynı zamanda hedef kitle tabanını kategorilere ayırıp hızlı bir şekilde hedeflemeye yardımcı olur. Örneğin, kullanıcının oturum açıp açmadığına ilişkin bir doğru/yanlış durumunu veya kullanıcının abonelik sona erme tarihini kullanabilir.
 
-#### Etiket örneği
+#### <a name="example-of-tags"></a>Etiket örneği
 *Kullanım örneği: Doğru son kullanıcıyı, doğru anında iletme bildirimi içeriğiyle hedeflemek için hedef kitle davranışlarını segmentlere ayırın.*
 
 1. Bir ürün kategorisini tanıtmak üzere anında iletme bildirimi gönderin: Hedef kitleyi belirli bir dönemde x kez ziyaret ettikleri ürün kategorisine veya sepetlerine ekledikleri belirli bir ürüne göre segmentlere ayırmak için davranış verileri toplayın. Toplanan veriler, segmentlere ayırıp doğru hedef kitleye bir anında iletme bildirimi göndermenize olanak tanıyacaktır.
@@ -111,7 +115,7 @@ Bu tür verilerin tümü parametrelerle genişletilerek (Mobile Engagement’ta 
 2. Oturum açma durumuna göre hedef kitleyi segmentlere ayırın. Kullanıcının bağlı olup olmadığını veya hesap oluşturup oluşturmadığını öğrenmek için veri toplayın. Henüz oturum açmamış olan son kullanıcıların hedeflenmesine yardımcı olur ve son kullanıcıyı aranıza katılmaya teşvik eden bir anında iletme bildirimi gönderir.
    ![][2]
 
-### Sonraki adımlar
+### <a name="next-steps"></a>Sonraki adımlar
 * Temel Mobile Engagement kavramları hakkında daha fazla bilgi edinmek için [Mobile Engagement Kavramları] makalesini ziyaret edin.
 * Azure’da yeni bir Mobile Engagement Uygulama Koleksiyonu oluşturmak ve Mobile Engagement portalıyla uygulamalarınızı yönetmeye başlamak için [Mobile Engagement Uygulaması Oluşturma](mobile-engagement-create.md) makalesini ziyaret edin.
 * Ayrıntılı bilgiler için [Best practices](mobile-engagement-getting-started-best-practices.md) (En iyi uygulamalar) makalesini ziyaret edin.
@@ -130,6 +134,6 @@ Bu tür verilerin tümü parametrelerle genişletilerek (Mobile Engagement’ta 
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Nov16_HO2-->
 
 

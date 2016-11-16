@@ -1,16 +1,15 @@
 # Genel Bakış
 ## [Sanal ağlar](virtual-networks-overview.md)
-## [Ağ güvenlik grupları](virtual-networks-nsg.md)
 ## [Kullanıcı tanımlı yollar ve IP iletme](virtual-networks-udr-overview.md)
+## [Sanal ağ eşleme](virtual-network-peering-overview.md)
+## [İş sürekliliği](virtual-network-disaster-recovery-guidance.md)
+## [SSS](virtual-networks-faq.md)
 ## IP adresi
 ### [Resource Manager](virtual-network-ip-addresses-overview-arm.md)
 ### [Klasik](virtual-network-ip-addresses-overview-classic.md)
-## [Sanal ağ eşleme](virtual-network-peering-overview.md)
 ## Sanal makineler
 ### [Ağ arabirimleri](virtual-network-network-interface-overview.md)
 ### [Ad çözümlemesi](virtual-networks-name-resolution-for-vms-and-role-instances.md)
-## [İş sürekliliği](virtual-network-disaster-recovery-guidance.md)
-## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/virtual-network)
 
 # Kullanmaya Başlama
 ## [Sanal ağ oluşturma](virtual-networks-create-vnet-arm-pportal.md)
@@ -32,7 +31,7 @@
 #### [CLI (Klasik)](virtual-networks-create-vnet-classic-cli.md)
 
 ### Ağ güvenlik grupları
-#### [Portal](virtual-networks-create-nsg-arm-portal.md)
+#### [Portal](virtual-networks-create-nsg-arm-pportal.md)
 #### [PowerShell](virtual-networks-create-nsg-arm-ps.md)
 #### [CLI](virtual-networks-create-nsg-arm-cli.md)
 #### [Şablon](virtual-networks-create-nsg-arm-template.md)
@@ -75,7 +74,9 @@
 ##### [PowerShell (Klasik)](virtual-network-deploy-multinic-classic-ps.md)
 ##### [CLI (Klasik)](virtual-network-deploy-multinic-classic-cli.md)
 
-#### [Birden çok IP adresi](virtual-network-multiple-ip-addresses-powershell.md)
+#### Birden çok IP adresi
+##### [Azure Portal](virtual-network-multiple-ip-addresses-portal.md)
+##### [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
 
 ### Bağlantı senaryoları
 #### [Sanal ağdan (VNet) Sanal ağa](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
@@ -92,6 +93,14 @@
 ##### [Güvenlik duvarı ve NSG’ler ile DMZ](virtual-networks-dmz-nsg-fw-asm.md)
 ##### [Güvenlik duvarı, UDR ve NSG’ler ile DMZ](virtual-networks-dmz-nsg-fw-udr-asm.md)
 ##### [Örnek uygulama](virtual-networks-sample-app.md)
+
+## Yapılandırma
+### Hızlandırılmış ağ iletişimi
+#### [Azure Portal](virtual-network-accelerated-networking-portal.md)
+#### [PowerShell](virtual-network-accelerated-networking-powershell.md)
+### Erişim denetimi listeleri
+#### [Klasik portal](virtual-networks-acl.md)
+#### [PowerShell](virtual-networks-acl-powershell.md)
 
 ## Yönet
 ### Ağ güvenlik grupları
@@ -110,22 +119,28 @@
 #### [VM’yi farklı bir alt ağa taşıma](virtual-networks-move-vm-role-to-subnet.md)
 
 # Başvuru
-## [PowerShell cmdlet'leri (Resource Manager)](https://msdn.microsoft.com/library/mt163510(v=azure.300))
-## [PowerShell cmdlet'leri (Klasik)](https://msdn.microsoft.com/library/mt270335(v=azure.300))
-## [API'ler (Resource Manager)](https://msdn.microsoft.com/library/mt163658.aspx)
-## [API’ler (Klasik)](https://msdn.microsoft.com/library/jj157182.aspx)
-## [Ağ blogu](http://azure.microsoft.com/blog/topics/networking)
-## [Sık sorulan sorular](virtual-networks-faq.md)
+## [PowerShell (Resource manager)](https://msdn.microsoft.com/library/mt163510(v=azure.300))
+## [PowerShell (Klasik)](https://msdn.microsoft.com/library/mt270335(v=azure.300))
+## [Azure CLI](/cli/azure/)
+## [Java](/java/api/)
+## [REST (Resource Manager)](https://msdn.microsoft.com/library/mt163658.aspx)
+## [REST (Klasik)](https://msdn.microsoft.com/library/jj157182.aspx)
+
 
 # İlgili
-## [Sanal Makineler](https://azure.microsoft.com/documentation/services/virtual-machines)
-## [Application Gateway](https://azure.microsoft.com/documentation/services/application-gateway)
-## [Azure DNS](https://azure.microsoft.com/documentation/services/dns)
-## [Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager)
-## [Yük Dengeleyici](https://azure.microsoft.com/documentation/services/load-balancer)
-## [VPN Gateway](https://azure.microsoft.com/documentation/services/vpn-gateway)
-## [ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute)
+## [Sanal Makineler](/azure/virtual-machines/)
+## [Application Gateway](/azure/application-gateway/)
+## [Azure DNS](/azure/dns/)
+## [Traffic Manager](/azure/traffic-manager/)
+## [Yük Dengeleyici](/azure/load-balancer/)
+## [VPN Gateway](/azure/vpn-gateway/)
+## [ExpressRoute](/azure/expressroute/)
 
+# Kaynaklar
+## [Ağ blogu](http://azure.microsoft.com/blog/topics/networking)
+## [Ağ forumu](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork)
+## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/virtual-network)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-network)
 
 
 <!--HONumber=Nov16_HO2-->

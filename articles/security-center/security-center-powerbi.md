@@ -1,12 +1,12 @@
 ---
-title: Power BI ile Azure Güvenlik Merkezi verilerinden öngörü edinme | Microsoft Docs
-description: Azure Güvenlik Merkezi Power BI içerik paketi, raporlama işleminiz için oluşturulan veri kümesi tabanlı güvenlik uyarılarının, önerilerin, saldırıya uğrayan kaynakların ve eğilimlerin bulunmasını kolaylaştırır.
+title: "Power BI ile Azure Güvenlik Merkezi verilerinden öngörü edinme | Microsoft Belgeleri"
+description: "Azure Güvenlik Merkezi Power BI içerik paketi, raporlama işleminiz için oluşturulan veri kümesi tabanlı güvenlik uyarılarının, önerilerin, saldırıya uğrayan kaynakların ve eğilimlerin bulunmasını kolaylaştırır."
 services: security-center
 documentationcenter: na
 author: YuriDio
 manager: swadhwa
-editor: ''
-
+editor: 
+ms.assetid: 0ded6bc7-52e8-43b4-8940-0bee137526e3
 ms.service: security-center
 ms.devlang: na
 ms.topic: hero-article
@@ -14,14 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2016
 ms.author: yurid
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: f085631264439062f6fccff4cdae535d7f80bbe3
+
 
 ---
-# Power BI ile Azure Güvenlik Merkezi verilerinden öngörü edinme
+# <a name="get-insights-from-azure-security-center-data-with-power-bi"></a>Power BI ile Azure Güvenlik Merkezi verilerinden öngörü edinme
 Azure Güvenlik Merkezi için [Power BI Panosu](http://aka.ms/azure-security-center-power-bi), önerileri ve güvenlik uyarılarını her yerden (mobil cihazınız dahil) görselleştirmenizi, çözümlemenizi ve filtrelemenizi etkinleştirir. Power BI panosunu, eğilimleri ve saldırı desenlerini göstermek için kullanma - Kaynağa veya IP adresine göre güvenlik uyarılarını ve kaynak ya da yaşa göre adresi olmayan güvenlik risklerini görüntüler. 
 
 Ayrıca, Güvenlik Merkezi önerilerini ve güvenlik uyarılarını, örneğin [Azure Denetim Günlükleri](https://powerbi.microsoft.com/blog/monitor-azure-audit-logs-with-power-bi/) ve [Azure SQL Veritabanı Denetimi](https://powerbi.microsoft.com/blog/monitor-your-azure-sql-database-auditing-activity-with-power-bi/)’nden alınan verileri kullanarak, ilginç bir şekilde diğer verilerle birleştirebilirsiniz. Her ikisi de Power BI Panoları sunar ve bulut kaynaklarınızın güvenlik durumuna ilişkin kolay raporlama için bu verileri Excel’e de aktarabilirsiniz.
 
-## Power BI hizmetine erişmek için Azure Güvenlik Merkezi panosunu kullanma
+## <a name="using-azure-security-center-dashboard-to-access-power-bi"></a>Power BI hizmetine erişmek için Azure Güvenlik Merkezi panosunu kullanma
 Ayrıca, Power BI raporlarına erişmek için Azure Güvenlik Merkezi panosunu da kullanabilirsiniz. Bu görevi gerçekleştirmek için adımları izleyin: 
 
 1. **Azure Güvenlik Merkezi** panosunda **Power BI'da Araştır** düğmesine tıklayın.
@@ -80,7 +84,7 @@ Bu noktada, bu raporun bir kopyasını kaydedebilirsiniz, yazdırabilirsiniz vey
 
 ![Dosya menüsü](./media/security-center-powerbi/security-center-powerbi-fig8.png)
 
-## Power BI hizmetleri ile Azure Güvenlik Merkezi verilerinizi araştırma
+## <a name="exploring-your-azure-security-center-data-with-power-bi-services"></a>Power BI hizmetleri ile Azure Güvenlik Merkezi verilerinizi araştırma
 Power BI'da [Power BI İçerik Paketi Hizmetleri](https://msit.powerbi.com/groups/me/getdata/services)'ne bağlanın ve aşağıdaki adımları gerçekleştirin:
 
 1. **Power BI için İçerik Paketi** penceresinde, aşağıda gösterildiği gibi iki seçenek görürsünüz.
@@ -107,7 +111,7 @@ Power BI'da [Power BI İçerik Paketi Hizmetleri](https://msit.powerbi.com/group
    
     ![İlke Yönetimi panosu](./media/security-center-powerbi/security-center-powerbi-fig1-new9.png)
 
-## Ayrıca bkz.
+## <a name="see-also"></a>Ayrıca bkz.
 Bu belgede, Azure Güvenlik Merkezi'nde Power BI hizmetini nasıl kullanacağınız hakkında bilgi edindiniz. Azure Güvenlik Merkezi hakkında daha fazla bilgi edinmek için şunlara bakın:
 
 * [Azure Güvenlik Merkezi Planlama ve İşlemler Kılavuzu](security-center-planning-and-operations-guide.md) - Azure Güvenlik Merkezi'ni benimsemeyi planlama hakkında bilgi edinin.
@@ -116,6 +120,9 @@ Bu belgede, Azure Güvenlik Merkezi'nde Power BI hizmetini nasıl kullanacağın
 * [Azure Güvenlik Merkezi ile ilgili SSS](security-center-faq.md) - Hizmet kullanımı ile ilgili sık sorulan soruları burada bulabilirsiniz
 * [Azure Güvenlik Blogu](http://blogs.msdn.com/b/azuresecurity/) - Azure güvenliği ve uyumluluğu ile ilgili blog yazılarını bulabilirsiniz
 
-<!--HONumber=Sep16_HO4-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

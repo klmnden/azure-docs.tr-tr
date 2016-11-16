@@ -1,4 +1,4 @@
-## <a name="setupdevenv"></a>Geliştirme ortamını ayarlama
+## <a name="a-namesetupdevenvaset-up-the-development-environment"></a><a name="setupdevenv"></a>Geliştirme ortamını ayarlama
 Başlamak için, [Visual Studio 2015 için Azure SDK](http://go.microsoft.com/fwlink/?linkid=518003) veya [Visual Studio 2013 için Azure SDK](http://go.microsoft.com/fwlink/?LinkID=324322) yükleyerek geliştirme ortamınızı kurun.
 
 Yüklü Visual Studio’nuz yoksa Visual Studio 2015 bağlantısını kullanın; Visual Studio SDK ile birlikte yüklenecektir.
@@ -8,6 +8,8 @@ Yüklü Visual Studio’nuz yoksa Visual Studio 2015 bağlantısını kullanın;
 > 
 > 
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

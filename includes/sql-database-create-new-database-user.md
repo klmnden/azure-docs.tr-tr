@@ -1,6 +1,6 @@
 
 
-## SSMS kullanarak yeni veritabanı kullanıcısı oluşturma
+## <a name="create-new-database-user-using-ssms"></a>SSMS kullanarak yeni veritabanı kullanıcısı oluşturma
 SSMS kullanarak var olan bir veritabanında yeni veritabanı kullanıcısı oluşturmak için aşağıdaki adımları kullanın. 
 
 Bu adımlar SSMS kullanan Nesne Gezgini'nde SQL Database’e bağlı olduğunuzu varsayar ve SQL Database mantıksal sunucunuza ya sunucu düzeyinde sorumlu yönetici olarak ya da yeni kullanıcı oluşturacak izinlere sahip kullanıcı hesabıyla bağlanırlar. 
@@ -18,6 +18,8 @@ Bu adımlar SSMS kullanan Nesne Gezgini'nde SQL Database’e bağlı olduğunuzu
    
      ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-create-new-database-user/sql-database-create-new-database-user-3.png)
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

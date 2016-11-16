@@ -1,37 +1,41 @@
 ---
-title: Get started with Azure Stream Analytics to process data from IoT devices. | Microsoft Docs
-description: IoT sensor tags and data streams with stream analytics and real-time data processing
-keywords: iot solution, get started with iot
+title: "IoT cihazlarından veri işlemek için Azure Stream Analytics&quot;i kullanmaya başlayın. | Microsoft Belgeleri"
+description: "Akış analizi ve gerçek zamanlı veri işleme ile birlikte IoT algılayıcı etiketleri ve veri akışları"
+keywords: "iot çözümü, iot ile çalışmaya başlama"
 services: stream-analytics
-documentationcenter: ''
+documentationcenter: 
 author: jeffstokes72
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 3e829055-75ed-469f-91f5-f0dc95046bdb
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 09/26/2016
+ms.date: 10/19/2016
 ms.author: jeffstok
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 6b6910b4f1b408c4574b1632375764d51c4fab8a
+
 
 ---
-# <a name="get-started-with-azure-stream-analytics-to-process-data-from-iot-devices"></a>Get started with Azure Stream Analytics to process data from IoT devices
-In this tutorial, you will learn how to create stream-processing logic to gather data from Internet of Things (IoT) devices. We will use a real-world, Internet of Things (IoT) use case to demonstrate how to build your solution quickly and economically.
+# <a name="get-started-with-azure-stream-analytics-to-process-data-from-iot-devices"></a>IoT cihazlarından veri işlemek için Azure Stream Analytics'i kullanmaya başlama
+Bu öğreticide, Nesnelerin İnterneti (IoT) cihazlarından veri toplamak üzere akış işleme mantığı oluşturmayı öğreneceksiniz. Çözümünüzü hızlı ve ekonomik bir şekilde nasıl oluşturacağınızı göstermek için gerçek hayattaki bir Nesnelerin İnterneti (IoT) kullanım örneğinden yararlanacağız.
 
-## <a name="prerequisites"></a>Prerequisites
-* [Azure subscription](https://azure.microsoft.com/pricing/free-trial/)
-* Sample query and data files downloadable from [GitHub](https://aka.ms/azure-stream-analytics-get-started-iot)
+## <a name="prerequisites"></a>Önkoşullar
+* [Azure aboneliği](https://azure.microsoft.com/pricing/free-trial/)
+* Örnek sorgu ve veri dosyaları [GitHub](https://aka.ms/azure-stream-analytics-get-started-iot)'dan indirilebilir
 
-## <a name="scenario"></a>Scenario
-Contoso, which is a company in the industrial automation space, has completely automated its manufacturing process. The machinery in this plant has sensors that are capable of emitting streams of data in real time. In this scenario, a production floor manager wants to have real-time insights from the sensor data to look for patterns and take actions on them. We will use the Stream Analytics Query Language (SAQL) over the sensor data to find interesting patterns from the incoming stream of data.
+## <a name="scenario"></a>Senaryo
+Endüstriyel otomasyon alanında faaliyet gösteren Contoso şirketi, üretim süreçlerini tamamen otomatik hale getirmiştir. Bu fabrikada bulunan makineler, gerçek zamanlı olarak veri akışları yayabilen algılayıcılara sahiptir. Bu senaryoda bir üretim katı yöneticisi, algılayıcı verilerinden gerçek zamanlı bilgiler alarak belirli kalıpları aramak ve bunlara yönelik işlemler yapmak istiyor. Gelen veri akışındaki ilginç kalıpları bulmak için algılayıcı verilerinden Akış Analizi Sorgu Dili'ni (SAQL) kullanacağız.
 
-Here data is being generated from a Texas Instruments sensor tag device.
+Burada, veriler bir Texas Instruments algılayıcı etiketi cihazında oluşturulmaktadır.
 
-![Texas Instruments sensor tag](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-01.jpg)
+![Texas Instruments algılayıcı etiketi](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-01.jpg)
 
-The payload of the data is in JSON format and looks like the following:
+Verilerin yükü JSON biçimindedir ve aşağıdaki gibi görünür:
 
     {
         "time": "2016-01-26T20:47:53.0000000",  
@@ -40,73 +44,84 @@ The payload of the data is in JSON format and looks like the following:
         "hmdt": 34  
     }  
 
-In a real-world scenario, you could have hundreds of these sensors generating events as a stream. Ideally, a gateway device would run code to push these events to [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) or [Azure IoT Hubs](https://azure.microsoft.com/services/iot-hub/). Your Stream Analytics job would ingest these events from Event Hubs and run real-time analytics queries against the streams. Then, you could send the results to one of the [supported outputs](stream-analytics-define-outputs.md).
+Gerçek hayattaki bir senaryoda, olayları bir akış şeklinde oluşturan bunun gibi yüzlerce algılayıcınız olabilir. Bir ağ geçidi cihazının bu olayları [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)'a veya [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)'larına göndermek için kod çalıştırması idealdir. Akış Analizi işiniz, bu olayları Event Hubs'dan alır ve akışlara yönelik gerçek zamanlı analiz sorguları çalıştırır. Daha sonra, [desteklenen çıktılardan](stream-analytics-define-outputs.md) birine sonuçları gönderebilirsiniz.
 
-For ease of use, this getting started guide provides a sample data file, which was captured from real sensor tag devices. You can run queries on the sample data and see results. In subsequent tutorials, you will learn how to connect your job to inputs and outputs and deploy them to the Azure service.
+Kullanım kolaylığı için, bu başlangıç kılavuzunda gerçek algılayıcı etiket cihazlarından yakalanan bir örnek veri dosyası sunulmaktadır. Örnek veriler üzerinde sorgu çalıştırabilir ve sonuçları görebilirsiniz. Daha sonraki öğreticilerde, işinizi girişlere ve çıkışlara nasıl bağlayacağınızı ve bunları Azure hizmetine nasıl dağıtacağınızı öğreneceksiniz.
 
-## <a name="create-a-stream-analytics-job"></a>Create a Stream Analytics job
-1. In the [Azure portal](http://manage.windowsazure.com), click **STREAM ANALYTICS**, and then click **NEW** in the lower-left corner of the page to create a new analytics job.
+## <a name="create-a-stream-analytics-job"></a>Akış Analizi işi oluşturma
+1. [Azure portal](http://portal.azure.com)’da, artı işaretine tıklayın ve ardından sağdaki metin penceresine **AKIŞ ANALİZİ** yazın. Ardından sonuçlar listesinde **Akış Analizi işi**’ni seçin.
    
-    ![Create a new Stream Analytics job](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-02.png)
-2. Click **QUICK CREATE**.
-3. For the **REGIONAL MONITORING STORAGE ACCOUNT** setting, click **CREATE NEW STORAGE ACCOUNT**, and give it a unique name. Azure Stream Analytics will use this account to store monitoring information for all your future jobs.
+    ![Yeni bir Akış Analizi işi oluşturma](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-02.png)
+2. Benzersiz bir iş adı girin ve aboneliğin işiniz için doğru olduğundan emin olun. Ardından yeni bir kaynak grubu oluşturun veya aboneliğinizdeki mevcut bir kaynak grubunu seçin.
+3. İşiniz için bir konum seçin. İşleme hızını artırmak ve veri aktarım maliyetlerini azaltmak için kaynak grubu ve hedeflenen depolama hesabıyla aynı konumun seçilmesi önerilir.
+   
+    ![Yeni bir Akış Analizi işi oluşturma ayrıntıları](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-03.png)
    
    > [!NOTE]
-   > You should create this storage account only once per region. This storage will be shared across all Stream Analytics jobs that are created in that region.
+   > Bu depolama hesabını her bölge için yalnızca bir kez oluşturmanız gerekir. Bu depolama birimi, ilgili bölgede oluşturulan tüm Akış Analizi işlerinde paylaşılır.
    > 
    > 
-4. Click **CREATE STREAM ANALYTICS JOB** at the bottom of the page.
+4. Kutuyu işaretleyerek işinizi panonuza yerleştirin ve ardından **OLUŞTUR**’a tıklayın.
    
-    ![Storage account configuration](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-03.jpg)
+    ![iş oluşturma sürüyor](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-03a.png)
+5. Tarayıcı pencerenizin sağ üst köşesinde 'Dağıtım başlatıldı...' ifadesini göreceksiniz. Bu pencere, kısa bir süre sonra aşağıda gösterildiği gibi tamamlandı penceresi olarak değişecektir.
+   
+    ![iş oluşturma sürüyor](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-03b.png)
 
-## <a name="azure-stream-analytics-query"></a>Azure Stream Analytics query
-Click the **QUERY** tab to go to the Query Editor. The **QUERY** tab contains a T-SQL query that performs the transformation over the incoming event data.
+### <a name="create-an-azure-stream-analytics-query"></a>Azure Akış Analizi sorgusu oluşturma
+İşiniz oluşturulduktan sonra, işinizi açıp sorgu oluşturabilirsiniz. İlgili kutucuğa tıklayarak işinize kolayca erişebilirsiniz.
 
-## <a name="archive-your-raw-data"></a>Archive your raw data
-The simplest form of query is a pass-through query that archives all input data to its designated output.
+![İş kutucuğu](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-04.png)
 
-![Archive job query](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-04.png)
+**İş Topolojisi** bölmesinde **SORGU** kutusuna tıklayarak Sorgu Düzenleyicisi'ne gidin. **SORGU** düzenleyicisi, gelen olay verilerinde dönüştürme işlemini gerçekleştiren bir T-SQL sorgusu girmenizi sağlar.
 
-Now, download the sample data file from [GitHub](https://aka.ms/azure-stream-analytics-get-started-iot) to a location on your computer. Paste the query from the PassThrough.txt file. Click the **Test** button, and then select the HelloWorldASA-InputStream.json data file from your downloaded location.
+![Sorgu kutusu](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-05.png)
 
-![Test button in Stream Analytics](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-05.png)
+### <a name="query-archive-your-raw-data"></a>Sorgu: Ham verilerinizi arşivleme
+En basit sorgu biçimi, tüm giriş verilerini belirlenmiş çıkışlarına arşivleyen bir doğrudan sorgudur. Örnek veri dosyasını [GitHub](https://aka.ms/azure-stream-analytics-get-started-iot)'dan bilgisayarınızdaki bir konuma indirin. 
 
-![Test input stream](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-06.png)
+1. PassThrough.txt dosyasından sorguyu yapıştırın. 
+   
+    ![Giriş akışını test etme](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-06.png)
+2. Girişinizin yanındaki üç noktaya tıklayın ve **Örnek verileri dosyadan karşıya yükle** kutusunu seçin.
+   
+    ![Giriş akışını test etme](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-06a.png)
+3. Sağda bir bölme açılır. Bu bölmede, indirdiğiniz konumdan HelloWorldASA InputStream.json veri dosyasını seçin ve bölmenin en altındaki **Tamam**’a tıklayın.
+   
+    ![Giriş akışını test etme](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-06b.png)
+4. Ardından pencerenin sol üst bölümündeki **Test** dişlisine tıklayın ve test sorgunuzu örnek veri kümesine göre işleyin. İşlem tamamlandığında sorgunuzun altında bir sonuç penceresi açılır.
+   
+    ![Test sonuçları](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-07.png)
 
-You can see the results of the query in the browser as shown in the following screenshot.
+### <a name="query-filter-the-data-based-on-a-condition"></a>Sorgu: Verileri bir koşula göre filtreleme
+Sonuçları bir koşula göre filtrelemeyi deneyelim. Yalnızca "sensorA"dan gelen olaylar için sonuçları göstermek istiyoruz. Sorgu, Filtering.txt dosyasında yer alır.
 
-![Test results](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-07.png)
+![Bir veri akışını filtreleme](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-08.png)
 
-## <a name="filter-the-data-based-on-a-condition"></a>Filter the data based on a condition
-Let’s try to filter the results based on a condition. We would like to show results for only those events that come from “sensorA.” The query is in the Filtering.txt file.
+Büyük/küçük harfe duyarlı sorgular bir dize değerini karşılaştırır. Sorguyu yürütmek için **Test** dişlisine yeniden tıklayın. Sorgu 1860 olay içinden 389 satır döndürmelidir.
 
-![Filtering a data stream](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-08.png)
+![Sorgu testine ilişkin ikinci çıktı sonuçları](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-09.png)
 
-Note that the case-sensitive query compares a string value. Click the **Rerun** button to execute the query. The query should return 389 rows out of 1860 events.
+### <a name="query-alert-to-trigger-a-business-workflow"></a>Sorgu: İş akışı tetiklemesi için uyarı
+Şimdi sorgumuzu daha ayrıntılı hale getirelim. Her algılayıcı türü için ortalama sıcaklığı 30 saniyelik aralıklarda izlemek ve yalnızca ortalama sıcaklık 100 derecenin üzerinde olduğu zaman sonuçları görüntülemek istiyoruz. Aşağıdaki sorguyu yazmamız ve sonuçları görmek için **Test** düğmesine tıklamamız gerekiyor. Sorgu ThresholdAlerting.txt dosyasındadır.
 
-![Second output results from query test](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-09.png)
+![30 saniyelik filtre sorgusu](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-10.png)
 
-## <a name="alert-to-trigger-a-business-workflow"></a>Alert to trigger a business workflow
-Let's make our query more detailed. For every type of sensor, we want to monitor average temperature per 30-second window and display results only if the average temperature is above 100 degrees. We will write the following query and then click **Rerun** to see the results. The query is in the ThresholdAlerting.txt file.
+Şimdi sonuçların yalnızca 245 satır içerdiğini ve ortalama sıcaklığın 100 dereceden fazla olduğu algılayıcı adlarını listelediğini göreceksiniz. Bu sorguda olay akışı, 30 saniyelik bir **Atlayan Pencere** üzerinden algılayıcı adı olan **dspl**'ye göre gruplanır. Zamana bağlı sorgular, zamanın nasıl ilerleyeceğini belirtmelidir. **TIMESTAMP BY** yan tümcesini kullanarak, zamanları zamana bağlı tüm hesaplamalarla ilişkilendirmek için **OUTPUTTIME** sütununu belirttik. Ayrıntılı bilgi için [Zaman Yönetimi](https://msdn.microsoft.com/library/azure/mt582045.aspx) ve [Pencereleme işlevleri](https://msdn.microsoft.com/library/azure/dn835019.aspx) hakkındaki MSDN makalelerini okuyun.
 
-![30-second filter query](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-10.png)
+### <a name="query-detect-absence-of-events"></a>Sorgu: Var olmayan olayları algılama
+Eksik giriş olaylarını bulmak için nasıl sorgu yazabiliriz? Bir algılayıcının veri gönderip sonraki bir dakika boyunca hiç olay göndermediği son zamanı bulalım. Sorgu AbsenseOfEvent.txt dosyasındadır.
 
-You should now see results that contain only 245 rows and names of sensors where the average temperate is greater than 100. This query groups the stream of events by **dspl**, which is the sensor name, over a **Tumbling Window** of 30 seconds. Temporal queries must state how we want time to progress. By using the **TIMESTAMP BY** clause, we have specified the **OUTPUTTIME** column to associate times with all temporal calculations. For detailed information, read the MSDN articles about [Time Management](https://msdn.microsoft.com/library/azure/mt582045.aspx) and [Windowing functions](https://msdn.microsoft.com/library/azure/dn835019.aspx).
+![Var olmayan olayları algılama](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-11.png)
 
-![Temp over 100](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-11.png)
+Burada, **LEFT OUTER** deyimini aynı veri akışı üzerinde kullanırız (kendi kendine birleşme). Bir **INNER** birleşimde, yalnızca bir eşleşme bulunduğu zaman bir sonuç döndürülür.  Bir **LEFT OUTER** birleşimde, birleştirmenin sol tarafındaki bir olay eşleşmemişse sağ taraftaki tüm sütunlar için NULL değerine sahip bir satır döndürülür. Bu teknik, var olmayan olayların bulunması için oldukça kullanışlıdır. [JOIN](https://msdn.microsoft.com/library/azure/dn835026.aspx) hakkında daha fazla bilgi edinmek için MSDN belgelerimize bakın.
 
-## <a name="detect-absence-of-events"></a>Detect absence of events
-How can we write a query to find a lack of input events? Let’s find the last time that a sensor sent data and then did not send events for the next minute. The query is in the AbsenseOfEvent.txt file.
+## <a name="conclusion"></a>Sonuç
+Bu öğreticide, farklı Akış Analizi Sorgu Dili sorgularının nasıl yazılacağı ve sonuçların tarayıcıda nasıl görüntüleneceği gösterilecek. Ancak bu sadece bir başlangıçtır. Akış Analizi ile yapabileceğiniz daha birçok şey bulunmaktadır. Akış Analizi birçok giriş ve çıkışı desteklemenin yanı sıra Azure Machine Learning'deki işlevlerden de faydalanır. Bu da onu veri akışlarının analizi için sağlam bir araç haline getirir. [Öğrenme haritamızı](https://azure.microsoft.com/documentation/learning-paths/stream-analytics/) kullanarak Akış Analizi’ni keşfetmeye başlayabilirsiniz. Sorgu yazma hakkında daha fazla bilgi için [ortak sorgu desenleri](stream-analytics-stream-analytics-query-patterns.md) hakkındaki makaleyi okuyun.
 
-![Detect absence of events](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-12.png)
 
-Here we use a **LEFT OUTER** join to the same data stream (self-join). For an **INNER** join, a result is returned only when a match is found.  For a **LEFT OUTER** join, if an event from the left side of the join is unmatched, a row that has NULL for all the columns of the right side is returned. This technique is very useful to find an absence of events. See our MSDN documentation for more information about [JOIN](https://msdn.microsoft.com/library/azure/dn835026.aspx).
 
-![Join results](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-13.png)
 
-## <a name="conclusion"></a>Conclusion
-The purpose of this tutorial is to demonstrate how to write different Stream Analytics Query Language queries and see results in the browser. However, this is just getting started. You can do so much more with Stream Analytics. Stream Analytics supports a variety of inputs and outputs and can even use functions in Azure Machine Learning to make it a robust tool for analyzing data streams. You can start to explore more about Stream Analytics by using our [learning map](https://azure.microsoft.com/documentation/learning-paths/stream-analytics/). For more information about how to write queries, read the article about [common query patterns](stream-analytics-stream-analytics-query-patterns.md).
-
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

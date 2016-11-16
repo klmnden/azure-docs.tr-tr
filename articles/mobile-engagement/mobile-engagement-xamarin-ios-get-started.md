@@ -1,12 +1,12 @@
 ---
-title: Xamarin.iOS için Azure Mobile Engagement kullanmaya başlama
-description: Xamarin.iOS Uygulamaları için Analizler ve Anında İletme Bildirimleri ile Azure Mobile Engagement kullanmayı öğrenin.
+title: "Xamarin.iOS için Azure Mobile Engagement kullanmaya başlama"
+description: "Xamarin.iOS Uygulamaları için Analizler ve Anında İletme Bildirimleri ile Azure Mobile Engagement kullanmayı öğrenin."
 services: mobile-engagement
 documentationcenter: xamarin
 author: piyushjo
-manager: ''
-editor: ''
-
+manager: erikre
+editor: 
+ms.assetid: 0448209e-fff6-47bd-985c-2cf074bac12f
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-ios
@@ -14,9 +14,13 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/19/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 300403fb483818e5eb1851968ef7f36ff0507fb8
+
 
 ---
-# Xamarin.iOS Uygulamaları için Azure Mobile Engagement kullanmaya başlama
+# <a name="get-started-with-azure-mobile-engagement-for-xamarinios-apps"></a>Xamarin.iOS Uygulamaları için Azure Mobile Engagement kullanmaya başlama
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
 Bu konu size uygulama kullanımınızı anlamak ve Xamarin.iOS uygulamasının kesimli kullanıcılarına anında iletme bildirimleri göndermek için Azure Mobile Engagement kullanmayı gösterir.
@@ -28,19 +32,19 @@ Bu öğretici için aşağıdakiler gereklidir:
 * [Mobile Engagement Xamarin SDK](https://www.nuget.org/packages/Microsoft.Azure.Engagement.Xamarin/)
 
 > [!NOTE]
-> Bu öğreticiyi tamamlamak için etkin bir Azure hesabınızın olması gerekir. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılar için bkz. [Azure Ücretsiz Deneme](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-xamarin-ios-get-started).
+> Bu öğreticiyi tamamlamak için etkin bir Azure hesabınızın olması gerekir. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-xamarin-ios-get-started).
 > 
 > 
 
-## <a id="setup-azme"></a>iOS uygulamanız için Mobile Engagement kurma
+## <a name="a-idsetupazmeasetup-mobile-engagement-for-your-ios-app"></a><a id="setup-azme"></a>iOS uygulamanız için Mobile Engagement kurma
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a id="connecting-app"></a>Uygulamanızı Mobile Engagement arka ucuna bağlama
+## <a name="a-idconnectingappaconnect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Uygulamanızı Mobile Engagement arka ucuna bağlama
 Bu öğreticide, veri toplamak ve anında iletme bildirimi göndermek için gerekli en küçük grup olan bir "temel tümleştirme" gösterilmektedir.
 
 Tümleştirmeyi göstermek için Xamarin ile temel bir uygulama oluşturacağız.
 
-### Yeni bir Xamarin.iOS projesi oluşturma
+### <a name="create-a-new-xamarinios-project"></a>Yeni bir Xamarin.iOS projesi oluşturma
 1. Xamarin Studio’yu başlatın. **Dosya** -> **Yeni** -> **Çözüm**’e gidin. 
    
     ![][1]
@@ -61,7 +65,7 @@ Tümleştirmeyi göstermek için Xamarin ile temel bir uygulama oluşturacağız
 
 Xamarin Studio, Mobile Engagement’ı tümleştireceğimiz demo uygulamayı oluşturur. 
 
-### Uygulamanızı Mobile Engagement arka ucuna bağlama
+### <a name="connect-your-app-to-mobile-engagement-backend"></a>Uygulamanızı Mobile Engagement arka ucuna bağlama
 1. Çözüm penceresinde **Paketler**’e sağ tıklayın ve **Paketleri Ekle...** öğesini seçin.
    
     ![][5]
@@ -79,7 +83,7 @@ Xamarin Studio, Mobile Engagement’ı tümleştireceğimiz demo uygulamayı olu
                     };
         EngagementAgent.Init (config);
 
-## <a id="monitor"></a>Gerçek zamanlı izlemeyi etkinleştirme
+## <a name="a-idmonitoraenabling-realtime-monitoring"></a><a id="monitor"></a>Gerçek zamanlı izlemeyi etkinleştirme
 Verileri göndermeye başlamak ve kullanıcıların etkin olduğundan emin olmak için, Mobile Engagement arka ucuna en az bir ekran göndermelisiniz.
 
 1. **ViewController.cs**’yi açın ve şu deyimleri kullanarak aşağıdakileri ekleyin:
@@ -87,18 +91,18 @@ Verileri göndermeye başlamak ve kullanıcıların etkin olduğundan emin olmak
         using Microsoft.Azure.Engagement.Xamarin;
 2. `ViewController` öğesinin `UIViewController` öğesinden devraldığı sınıfı `EngagementViewController` olarak değiştirin. 
 
-## <a id="monitor"></a>Uygulamayı gerçek zamanlı izlemeyle bağlama
+## <a name="a-idmonitoraconnect-app-with-realtime-monitoring"></a><a id="monitor"></a>Uygulamayı gerçek zamanlı izlemeyle bağlama
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-## <a id="integrate-push"></a>Anında iletme bildirimlerini ve uygulama içi mesajlaşmayı etkinleştirme
+## <a name="a-idintegratepushaenable-push-notifications-and-inapp-messaging"></a><a id="integrate-push"></a>Anında iletme bildirimlerini ve uygulama içi mesajlaşmayı etkinleştirme
 Mobile Engagement, kullanıcılarınız ile etkileşim kurmanızı ve onlara kampanyalar bağlamında anında iletme bildirimleri ve uygulama içi mesajlaşma aracılığıyla erişmenizi sağlar. Mobile Engagement portalında bu modüle REACH adı verilir.
 Aşağıdaki bölümler bunları almak için uygulamanızı ayarlar.
 
-### Uygulama Temsilcinizi değiştirme
+### <a name="modify-your-application-delegate"></a>Uygulama Temsilcinizi değiştirme
 1. **AppDelegate.cs**’yi açın ve şu deyimleri kullanarak aşağıdakileri ekleyin:
    
         using System; 
-2. Şimdi, anında iletileri kaydetmek için şunun ardından, `FinishedLaunching` yöntemine aşağıdakileri ekleyin `EngagementAgent.init(...)`
+2. Şimdi anında iletilere kaydolmak için, `FinishedLaunching` yönteminde `EngagementAgent.init(...)` öğesinin ardından aşağıdakileri ekleyin
    
         if (UIDevice.CurrentDevice.CheckSystemVersion(8,0))
         {
@@ -140,7 +144,7 @@ Aşağıdaki bölümler bunları almak için uygulamanızı ayarlar.
     ![][7]
 5. Aynı **Info.plist** dosyasında, **Arka Plan Modlarını Etkinleştir** ve **Uzak Bildirimler** seçeneklerini etkinleştirdiğinizden emin olun. 
    
-    ![][8]
+     ![][8]
 6. Bu yayımlama profiliyle ilişkilendirdiğiniz cihazda uygulamayı çalıştırın. 
 
 [!INCLUDE [mobile-engagement-ios-send-push-push](../../includes/mobile-engagement-ios-send-push.md)]
@@ -157,6 +161,6 @@ Aşağıdaki bölümler bunları almak için uygulamanızı ayarlar.
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

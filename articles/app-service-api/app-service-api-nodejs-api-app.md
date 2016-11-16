@@ -1,12 +1,12 @@
 ---
-title: Azure App Service’deki Node.js API uygulaması | Microsoft Docs
-description: Node.js RESTful API’si oluşturma ve Azure App Service’deki bir API uygulamasına dağıtma hakkında bilgi edinin.
+title: "Azure Uygulama Hizmeti’ndeki Node.js API uygulaması | Microsoft Belgeleri"
+description: "Node.js RESTful API’si oluşturma ve Azure App Service’deki bir API uygulamasına dağıtma hakkında bilgi edinin."
 services: app-service\api
 documentationcenter: node
 author: bradygaster
 manager: wpickett
-editor: ''
-
+editor: 
+ms.assetid: a820e400-06af-4852-8627-12b3db4a8e70
 ms.service: app-service-api
 ms.workload: web
 ms.tgt_pltfrm: na
@@ -14,14 +14,18 @@ ms.devlang: node
 ms.topic: get-started-article
 ms.date: 05/26/2016
 ms.author: rachelap
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: e8a1ac3df5225fdcfe2717c2cf50bfc5b7cfda36
+
 
 ---
-# Node.js RESTful API’si derleme ve Azure’daki bir API uygulamasına dağıtma
+# <a name="build-a-nodejs-restful-api-and-deploy-it-to-an-api-app-in-azure"></a>Node.js RESTful API’si derleme ve Azure’daki bir API uygulamasına dağıtma
 [!INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
 
 Bu öğreticide [Azure App Service](../app-service/app-service-value-prop-what-is.md)’de [Git](http://git-scm.com) kullanarak nasıl basit bir [Node.js](http://nodejs.org) API’si oluşturulacağı ve bir [API uygulamasına](app-service-api-apps-why-best-platform.md) dağıtılacağı gösterilmektedir. Node.js çalıştırabilen herhangi bir işletim sistemi kullanabilirsiniz ve tüm çalışmanızı cmd.exe veya bash gibi komut satırı araçlarını kullanarak yaparsınız.
 
-## Ön koşullar
+## <a name="prerequisites"></a>Ön koşullar
 1. Microsoft Azure hesabı ([buradan ücretsiz bir hesap açın](https://azure.microsoft.com/pricing/free-trial/))
 2. Yüklü [Node.js](http://nodejs.org) (bu örnekte Node.js sürüm 4.2.2’nin yüklü olduğu varsayılır)
 3. Yüklü [Git](https://git-scm.com/)
@@ -29,7 +33,7 @@ Bu öğreticide [Azure App Service](../app-service/app-service-value-prop-what-i
 
 App Service kodunuzun bir API uygulamasına dağıtılması için birçok yolu desteklese de bu öğretici Git yöntemini göstermekte ve Git ile nasıl çalışılacağı konusunda temel bilgiye sahip olduğunuzu varsaymaktadır. Diğer dağıtım yöntemleri hakkında daha fazla bilgi için bkz. [Uygulamanızı Azure App Service’e dağıtma](../app-service-web/web-sites-deploy.md).
 
-## Örnek kodunu alma
+## <a name="get-the-sample-code"></a>Örnek kodunu alma
 1. Node.js ve Git komutları çalıştırabilen bir komut satırı arabirimi açın.
 2. Yerel Git deposu için kullanabileceğiniz bir klasöre gidin ve [örnek kodunu içeren GitHub deposunu](https://github.com/Azure-Samples/app-service-api-node-contact-list) kopyalayın.
    
@@ -37,7 +41,7 @@ App Service kodunuzun bir API uygulamasına dağıtılması için birçok yolu d
    
     Örnek API iki uç nokta sağlar: `/contacts` hedefine yapılan Get isteği bir JSON biçiminde bir ad ve e-posta adresi listesi döndürürken, `/contacts/{id}` yalnızca seçilen kişiyi döndürür.
 
-## Swagger meta verilerine göre Node.js kodu iskelesini kurma (otomatik oluşturma)
+## <a name="scaffold-autogenerate-nodejs-code-based-on-swagger-metadata"></a>Swagger meta verilerine göre Node.js kodu iskelesini kurma (otomatik oluşturma)
 [Swagger](http://swagger.io/) bir RESTful API’sini açıklayan meta verilere yönelik dosya biçimidir. Azure App Service, [Swagger meta verileri için yerleşik desteğe](app-service-api-metadata.md) sahiptir. Öğreticinin bu bölümü, içinde ilk olarak Swagger meta verilerini oluşturduğunuz ve bunları API sunucu kodunun iskelesini kurmak (otomatik oluşturmak) için kullandığınız bir API geliştirme iş akışını modeller. 
 
 > [!NOTE]
@@ -45,14 +49,14 @@ App Service kodunuzun bir API uygulamasına dağıtılması için birçok yolu d
 > 
 > 
 
-### Swaggerize yükleme ve yürütme
+### <a name="install-and-execute-swaggerize"></a>Swaggerize yükleme ve yürütme
 1. **yo** ve **generator-swaggerize** NPM modüllerini genel olarak yüklemek için aşağıdaki komutları yürütün.
    
         npm install -g yo
         npm install -g generator-swaggerize
    
     Swaggerize, Swagger meta veri dosyası tarafından tanımlanan bir API için sunucu kodu oluşturan bir araçtır. Kullanacağınız Swagger dosyasının adı *api.json* ’dur ve kopyaladığınız deponun *start* klasöründe bulunur.
-2. *start* klasörüne gidin ve ardından `yo swaggerize` komutunu yürütün. Swaggerize bir dizi soru sorar.  **Bu projenin adı** alanına "contactlist" yazın, **swagger belgesinin yolu** alanına "api.json" yazın ve **Express, Hapi veya Restify** alanına "express" seçeneğini girin.
+2. *start* klasörüne gidin ve ardından `yo swaggerize` komutunu yürütün. Swaggerize bir dizi soru sorar.  **Bu projenin adı** alanına "ContactList", **swagger belgesinin yolu** alanına "api.json" ve **Express, Hapi veya Restify** alanına "express" yazın.
    
         yo swaggerize
    
@@ -63,8 +67,8 @@ App Service kodunuzun bir API uygulamasına dağıtılması için birçok yolu d
     Swaggerize bir uygulama klasörü oluşturur, işleyicilerin ve yapılandırma dosyalarının iskelesini kurar ve bir **package.json** dosyası oluşturur. Swagger yardım sayfasını oluşturmak için hızlı görünüm altyapısı kullanılır.  
 3. `swaggerize` komutu "beklenmeyen belirteç" veya "geçersiz kaçış dizisi" hatası ile başarısız olursa oluşturulan *package.json* dosyasını düzenleyerek hatanın nedenini düzeltin. `scripts` altındaki `regenerate` satırında satırın aşağıdaki örnekteki gibi görünmesi için *api.json* ’dan önceki ters eğik çizgiyi eğik çizgi olarak değiştirin:
    
-        "regenerate": "yo swaggerize --only=handlers,models,tests --framework express --apiPath config/api.json"
-4. İskele kurulan kodu içeren klasöre gidin (bu örnekte *ContactList* alt klasörü).
+         "regenerate": "yo swaggerize --only=handlers,models,tests --framework express --apiPath config/api.json"
+4. İskele kurulan kodu içeren klasöre gidin (bu örnekte */start/ContactList* alt klasörü).
 5. `npm install` öğesini çalıştırın.
    
         npm install
@@ -79,7 +83,7 @@ App Service kodunuzun bir API uygulamasına dağıtılması için birçok yolu d
    
     ![Swaggerize Ui Yükleme](media/app-service-api-nodejs-api-app/swaggerize-ui-install.png)
 
-### İskelesi kurulan kodu özelleştirme
+### <a name="customize-the-scaffolded-code"></a>İskelesi kurulan kodu özelleştirme
 1. **lib** klasörünü **start** klasöründen iskele kurucu tarafından oluşturulan **ContactList** klasörüne kopyalayın. 
 2. **handlers/contacts.js** dosyasındaki kodu aşağıdaki kodla değiştirin. 
    
@@ -140,7 +144,7 @@ App Service kodunuzun bir API uygulamasına dağıtılması için birçok yolu d
         server.listen(port, function () { // fifth and final change
         });
 
-### Yerel olarak çalışan API ile test etme
+### <a name="test-with-the-api-running-locally"></a>Yerel olarak çalışan API ile test etme
 1. Node.js komut satırı yürütülebilir dosyasını kullanarak sunucuyu etkinleştirin. 
    
         node server.js
@@ -157,7 +161,7 @@ App Service kodunuzun bir API uygulamasına dağıtılması için birçok yolu d
    
     ![Swagger kullanıcı arabirimi](media/app-service-api-nodejs-api-app/swagger-ui.png)
 
-## <a id="createapiapp"></a> Yeni bir API uygulaması oluşturma
+## <a name="a-idcreateapiappa-create-a-new-api-app"></a><a id="createapiapp"></a> Yeni bir API Uygulaması oluşturma
 Bu bölümde Azure portalı kullanarak Azure içinde yeni bir API uygulaması oluşturursunuz. Bu API uygulaması kodunuzu çalıştırmak için Azure tarafından sağlanacak işlem kaynaklarını temsil eder. Sonraki bölümlerde kodunuzu yeni API uygulamasına dağıtacaksınız.
 
 1. [Azure Portal](https://portal.azure.com/)’a göz atın. 
@@ -171,7 +175,7 @@ Bu bölümde Azure portalı kullanarak Azure içinde yeni bir API uygulaması ol
     Başka birinin önceden kullandığı bir adı girerseniz, sağda kırmızı bir ünlem işareti görürsünüz.
 4. **Kaynak Grubu** açılır menüsünde **Yeni**’ye tıklayın ve ardından **Yeni kaynak grubu adı** içinde "NodejsAPIAppGroup" ya da tercih ederseniz başka bir ad girin. 
    
-    [Kaynak grubu](../resource-group-overview.md) API uygulamaları, veritabanları ve sanal makineler gibi Azure kaynakları koleksiyonudur. Bu öğreticide, en iyi uygulama yeni bir kaynak grubu oluşturulmasıdır; böylece, öğretici için oluşturduğunuz Azure kaynaklarını tek bir adımda kolayca silebilirsiniz.
+    [Kaynak grubu](../azure-resource-manager/resource-group-overview.md) API uygulamaları, veritabanları ve sanal makineler gibi Azure kaynakları koleksiyonudur. Bu öğreticide, en iyi uygulama yeni bir kaynak grubu oluşturulmasıdır; böylece, öğretici için oluşturduğunuz Azure kaynaklarını tek bir adımda kolayca silebilirsiniz.
 5. **App Service Planı/Konumu** ve ardından **Yeni Oluştur** öğesine tıklayın.
    
     ![App Service planı oluşturma](./media/app-service-api-nodejs-api-app/newappserviceplan.png)
@@ -189,7 +193,7 @@ Bu bölümde Azure portalı kullanarak Azure içinde yeni bir API uygulaması ol
 9. **App Service Planı** dikey penceresinde **Tamam**’a tıklayın.
 10. **API uygulaması** dikey penceresinde **Oluştur**’a tıklayın.
 
-## Yeni API uygulamanızı Git dağıtımı için ayarlama
+## <a name="set-up-your-new-api-app-for-git-deployment"></a>Yeni API uygulamanızı Git dağıtımı için ayarlama
 İşlemeleri Azure UApp Service’dei bir Git deposuna ileterek kodunuzu API uygulamasına dağıtırsınız. Öğreticinin bu bölümünde Azure’da dağıtım için kullanacağınız kimlik bilgilerini ve Git deposunu oluşturursunuz.  
 
 1. API uygulamanız oluşturulduktan sonra portal giriş sayfasında **App Services > {API uygulamanız}** öğesine tıklayın. 
@@ -217,7 +221,7 @@ Bu bölümde Azure portalı kullanarak Azure içinde yeni bir API uygulaması ol
 
 Yedekleyen bir Git deposu ile birlikte bir API uygulaması oluşturduğunuza göre kodu API uygulamasına dağıtmak için depoya iletebilirsiniz. 
 
-## API kodunuzu Azure’a dağıtma
+## <a name="deploy-your-api-code-to-azure"></a>API kodunuzu Azure’a dağıtma
 Bu bölümde API için sunucu kodunuzu içeren yerel bir Git deposu oluşturursunuz ve ardından kodunuzu bu depodan Azure’da daha önce oluşturduğunuz depoya iletirsiniz.
 
 1. `ContactList` klasörünü yeni yerel Git deposu için kullanabileceğiniz bir konuma kopyalayın. Öğreticinin ilk bölümünü tamamladıysanız `start` klasöründen `ContactList` öğesini kopyalayın; aksi takdirde `end` klasöründen `ContactList` öğesini kopyalayın.
@@ -252,7 +256,7 @@ Bu bölümde API için sunucu kodunuzu içeren yerel bir Git deposu oluşturursu
    
     Dağıtım tamamlandıktan sonra **Dağıtımlar** dikey penceresinde kod değişikliklerinizin API uygulamasına başarıyla dağıtıldığı gösterilir. 
 
-## Azure’da çalışan API ile test etme
+## <a name="test-with-the-api-running-in-azure"></a>Azure’da çalışan API ile test etme
 1. API Uygulaması dikey pencerenizin **Temel Bilgiler** bölümündeki **URL**’yi kopyalayın. 
    
     ![Dağıtım Tamamlandı](media/app-service-api-nodejs-api-app/deployment-completed.png)
@@ -265,9 +269,12 @@ Bu bölümde API için sunucu kodunuzu içeren yerel bir Git deposu oluşturursu
 
 Şu anda kesintisiz teslim yapıldığına göre kod değişiklikleri yapabilir ve bunları Azure Git deponuza işlemeleri ileterek Azure’a dağıtabilirsiniz.
 
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 Bu noktada bir API uygulamasını başarıyla oluşturdunuz ve Node.js API kodunu dağıttınız. Sonraki öğreticide [CORS kullanarak JavaScript istemcilerinden API uygulamalarını kullanma](app-service-api-cors-consume-javascript.md) işlemi gösterilmektedir.
 
-<!--HONumber=Aug16_HO1-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

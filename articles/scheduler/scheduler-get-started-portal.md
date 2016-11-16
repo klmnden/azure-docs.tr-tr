@@ -1,12 +1,12 @@
 ---
-title: Azure portalda Azure Scheduler kullanmaya başlama | Microsoft Docs
-description: Azure portalda Azure Scheduler kullanmaya başlama
+title: "Azure portalında Azure Scheduler’ı kullanmaya başlama | Microsoft Belgeleri"
+description: "Azure portalda Azure Scheduler kullanmaya başlama"
 services: scheduler
 documentationcenter: .NET
 author: derek1ee
 manager: kevinlam1
-editor: ''
-
+editor: 
+ms.assetid: e69542ec-d10f-4f17-9b7a-2ee441ee7d68
 ms.service: scheduler
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
@@ -14,12 +14,16 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/10/2016
 ms.author: deli
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 85e0f59bdaae76f6feb03e66a7bbf96c29b45dec
+
 
 ---
-# Azure portalda Azure Scheduler kullanmaya başlama
+# <a name="get-started-with-azure-scheduler-in-azure-portal"></a>Azure portalda Azure Scheduler kullanmaya başlama
 Azure Scheduler’da zamanlanmış işler oluşturmak kolaydır. Bu öğreticide bir iş oluşturmayı öğreneceksiniz: Ayrıca Scheduler’ın izleme ve yönetim özelliklerini öğreneceksiniz.
 
-## Bir iş oluşturma
+## <a name="create-a-job"></a>Bir iş oluşturma
 1. [Azure portalda](https://portal.azure.com/) oturum açın.  
 2. **+ Yeni**’ye tıklayın arama kutusuna > *Scheduler* yazın > sonuçlarda **Scheduler**’ı seçin > **Oluştur**’a tıklayın.
    
@@ -46,7 +50,7 @@ Azure Scheduler’da zamanlanmış işler oluşturmak kolaydır. Bu öğreticide
       ![][recurrence-schedule]
 6. **Oluştur**'a tıklayın
 
-## İşleri yönetme ve izleme
+## <a name="manage-and-monitor-jobs"></a>İşleri yönetme ve izleme
 Bir işi oluşturulduktan sonra, ana Azure panosunda görünür. İşe tıkladığınızda aşağıdaki sekmeleri içeren yeni bir pencere açılır:
 
 1. Özellikler  
@@ -57,12 +61,12 @@ Bir işi oluşturulduktan sonra, ana Azure panosunda görünür. İşe tıkladı
    
    ![][job-overview]
 
-### Özellikler
+### <a name="properties"></a>Özellikler
 Bu salt okunur özellikler Scheduler işi için yönetim meta verilerini açıklar.
 
    ![][job-properties]
 
-### Eylem ayarları
+### <a name="action-settings"></a>Eylem ayarları
 **İşler** ekranındaki bir işe tıklamak bu işi yapılandırmanıza olanak tanır. Bu, bunları hızlı oluşturma sihirbazında yapılandırmadıysanız, gelişmiş ayarları yapılandırmanızı sağlar.
 
 Tüm eylem türleri için, yeniden deneme ilkesini ve hata eylemini değiştirebilirsiniz.
@@ -75,7 +79,7 @@ Hizmet veri yolu eylemi türleri için, ad alanı, konu/kuyruk yolu, kimlik doğ
 
    ![][job-action-settings]
 
-### Zamanlama
+### <a name="schedule"></a>Zamanlama
 Bu, hızlı oluşturma sihirbazında oluşturduğunuz zamanlamayı değiştirmek istediğinizde, zamanlamayı yeniden yapılandırmanızı sağlar.
 
 Bu, [işinizde karmaşık zamanlamalar ve gelişmiş yineleme](scheduler-advanced-complexity.md) oluşturmak için bir fırsattır
@@ -84,7 +88,7 @@ Başlangıç tarihini ve saatini, yineleme zamanlamasını ve bitiş tarihini ve
 
    ![][job-schedule]
 
-### Geçmiş
+### <a name="history"></a>Geçmiş
 **Geçmişi** sekmesi seçili iş için sistemdeki her iş yürütme için seçilen ölçümleri görüntüler. Bu ölçümler Scheduler sistem durumunuz ile ilgili gerçek zamanlı değerleri belirtir:
 
 1. Durum  
@@ -100,13 +104,13 @@ Her yürütmeye ilişkin tüm yanıtlar dahil **Geçmiş Ayrıntıları**’nı 
 
    ![][job-history-details]
 
-### Kullanıcılar
+### <a name="users"></a>Kullanıcılar
 Azure Rol Tabanlı Erişim Denetimi (RBAC), Azure Scheduler için ayrıntılı erişim yönetimi sağlar. Kullanıcılar sekmesini kullanmayı öğrenmek için, bkz. [Azure Rol Tabanlı Erişim Denetimi](../active-directory/role-based-access-control-configure.md)
 
-## Ayrıca bkz.
+## <a name="see-also"></a>Ayrıca bkz.
  [Scheduler nedir?](scheduler-intro.md)
 
- [Scheduler kavramları ve terminolojisi ve varlık hiyerarşisi](scheduler-concepts-terms.md)
+ [Scheduler kavramları, terminolojisi ve varlık hiyerarşisi](scheduler-concepts-terms.md)
 
  [Azure Scheduler’da planlar ve faturalama](scheduler-plans-billing.md)
 
@@ -151,6 +155,6 @@ Azure Rol Tabanlı Erişim Denetimi (RBAC), Azure Scheduler için ayrıntılı e
 
 
 
-<!--HONumber=Sep16_HO5-->
+<!--HONumber=Nov16_HO2-->
 
 

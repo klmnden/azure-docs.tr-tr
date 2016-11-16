@@ -1,6 +1,6 @@
 <!--author=alkohli last changed: 9/17/15-->
 
-#### StorSimple 8000 Series Update 1.0 sürümünde depolama hesabı eklemek için
+#### <a name="to-add-a-storage-account-in-storsimple-8000-series-update-10"></a>StorSimple 8000 Series Update 1.0 sürümünde depolama hesabı eklemek için
 1. StorSimple Yöneticisi hizmet giriş sayfasında hizmetinizi seçip çift tıklayın. Böylece **Hızlı Başlangıç** sayfasına gideceksiniz. **Yapılandır** sayfasını seçin.
 2. **Depolama hesabı ekleyin/düzenleyin**’e tıklayın.
 3. **Depolama Hesabı Ekle/Düzenle** iletişim kutusunda **Yeni ekle**’ye tıklayın.
@@ -8,25 +8,25 @@
    
    * Bulut hizmeti sağlayıcısı olarak Azure’u seçtiyseniz, Microsoft Azure Storage hesabınız için **Ad** ve birincil **Erişim Tuşu**’nu verin. Azure hesabı için konum otomatik olarak doldurulur.
      
-        ![Add Azure storage account](./media/storsimple-configure-new-storage-account-u1/AddAzureStorageaccount-include.png)
+        ![Azure depolama hesabı ekleme](./media/storsimple-configure-new-storage-account-u1/AddAzureStorageaccount-include.png)
    * Amazon S3 veya Amazon S3-RRS seçtiyseniz, kullanımı kolay bir **Depolama Hesabı adı**, **Erişim Tuşu** ve **Gizli Anahtar** verin. Amazon S3 ve Amazon S3-RRS için şu konumlar desteklenir:
      
-     * US Standard
-     * US West (Oregon)
-     * US West (Northern California)
-     * EU (Ireland)
-     * Asia Pacific (Singapore)
-     * Asia Pacific (Sydney)
-     * Asia Pacific (Tokyo)
-     * South America (Sao Paulo)
+     * ABD Standart
+     * ABD Batı (Oregon)
+     * ABD Batı (Kuzey California)
+     * AB (İrlanda)
+     * Asya Pasifik (Singapur)
+     * Asya Pasifik (Sidney)
+     * Asya Pasifik (Tokyo)
+     * Güney Amerika (Sao Paulo)
        
-       ![Add Amazon storage account](./media/storsimple-configure-new-storage-account-u1/AddAmazonStorageaccount-include.png)
+       ![Amazon depolama hesabı ekleme](./media/storsimple-configure-new-storage-account-u1/AddAmazonStorageaccount-include.png)
    * Bulut hizmeti sağlayıcısı olarak HP seçtiyseniz, kullanımı kolay bir **Depolama Hesabı adı**, **Kiracı Kimliği**, **Kullanıcı Adı** ve **Parola** verin. HP için aşağıdaki konumlar desteklenir:
      
-     * US East
-     * US West
+     * ABD Doğu
+     * ABD Batı
        
-       ![Add HP storage account](./media/storsimple-configure-new-storage-account-u1/AddHPStorageaccount-include.png)
+       ![HP depolama hesabı ekleme](./media/storsimple-configure-new-storage-account-u1/AddHPStorageaccount-include.png)
    * Bulut hizmet sağlayıcısı olarak **Openstack** seçtiyseniz bir **Konak Adı**, **Erişim Tuşu** ve **Gizli Anahtar** verin.
      
      > [!NOTE]
@@ -34,7 +34,7 @@
      > 
      > 
      
-        ![Add Openstack storage account](./media/storsimple-configure-new-storage-account-u1/AddOpenstackStorageaccount-include.png)
+        ![Openstack depolama hesabı ekleme](./media/storsimple-configure-new-storage-account-u1/AddOpenstackStorageaccount-include.png)
 5. Cihazınız ve bulut arasındaki ağ iletişimi için güvenli bir kanal oluşturmak için **SSL Modunu Etkinleştir**’i seçin. Yalnızca özel bir bulutta işlem yapıyorsanız**SSL Modunu Etkinleştir** onay kutusunu temizleyin.
    
    > [!NOTE]
@@ -44,6 +44,8 @@
 6. Onay simgesine tıklayarak ![onay simgesi](./media/storsimple-configure-new-storage-account/HCS_CheckIcon-include.png). Depolama hesabı sorunsuz oluşturulduktan sonra size bildirilecek.
 7. Yeni oluşturulan depolama hesabı **Depolama hesapları** altında, **Yapılandır** sayfasında görüntülenir. Yeni depolama hesabını kaydetmek için **Kaydet**’e tıklayın. Onayınız istendiğinde **Tamam**’a tıklayın.
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

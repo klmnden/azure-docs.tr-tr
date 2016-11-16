@@ -1,12 +1,12 @@
 ---
-title: App Service’de API Apps’i ve ASP.NET’i kullanmaya başlama | Microsoft Docs
-description: Azure App Service’de bir ASP.NET API uygulamasını Visual Studio 2015’i kullanarak oluşturmayı, dağıtmayı ve kullanmayı öğrenin.
+title: "App Service’te API Apps’i ve ASP.NET’i kullanmaya başlama | Microsoft Belgeleri"
+description: "Azure App Service’de bir ASP.NET API uygulamasını Visual Studio 2015’i kullanarak oluşturmayı, dağıtmayı ve kullanmayı öğrenin."
 services: app-service\api
 documentationcenter: .net
 author: tdykstra
 manager: wpickett
-editor: ''
-
+editor: 
+ms.assetid: ddc028b2-cde0-4567-a6ee-32cb264a830a
 ms.service: app-service-api
 ms.workload: na
 ms.tgt_pltfrm: dotnet
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 09/20/2016
 ms.author: rachelap
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 45e8331e0953dd646f132478741394a5b4907a9e
+
 
 ---
-# Azure App Service’de API Apps, ASP.NET ve Swagger kullanmaya başlama
+# <a name="get-started-with-api-apps-aspnet-and-swagger-in-azure-app-service"></a>Azure App Service’de API Apps, ASP.NET ve Swagger kullanmaya başlama
 [!INCLUDE [selector](../../includes/app-service-api-get-started-selector.md)]
 
 Bu, RESTful API’lerini geliştirme ve barındırma için yardımcı olara Azure App Service özelliklerini kullanmayı gösteren öğretici serisinde ilktir.  Bu öğretici, Swagger biçiminde API meta veri desteğini ele alınmaktadır.
@@ -27,7 +31,7 @@ Bu, RESTful API’lerini geliştirme ve barındırma için yardımcı olara Azur
 * Dinamik olarak Swagger API’si meta verileri oluşturmak için Swashbuckle NuGet paketini kullanmak üzere API keşfetmeyi otomatik hale getirmeyi öğrenin.
 * Bir API uygulaması için otomatik olarak istemci kodu oluşturmak üzere Swagger API’si meta verilerini otomatik olarak kullanma.
 
-## Örnek uygulamaya genel bakış
+## <a name="sample-application-overview"></a>Örnek uygulamaya genel bakış
 Bu öğreticide, bir basit bir yapılacaklar listesi örnek uygulaması ile çalışırsınız. Uygulama, tek sayfalı uygulama (SPA) ön ucuna, ASP.NET Web API’si orta katmanına ve ASP.NET Web API’si veri katmanına sahip.
 
 ![API Apps örnek uygulama diyagramı](./media/app-service-api-dotnet-get-started/noauthdiagram.png)
@@ -50,7 +54,7 @@ Bu öğreticiyi tamamladığınızda, App Service API uygulamalarında bulutta �
 
 Serideki sonraki öğretici SPA ön ucunu buluta dağıtır.
 
-## Ön koşullar
+## <a name="prerequisites"></a>Ön koşullar
 * ASP.NET Web API - Öğretici yönergeleri, Visual Studio’da ASP.NET [Web API 2](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api) ile çalışmaya ilişkin temel bilgiye sahip olduğunuzu varsayar.
 * Azure hesabı - [Ücretsiz bir Azure hesabı açabilir](/pricing/free-trial/?WT.mc_id=A261C142F) veya [Visual Studio abonelik avantajlarını etkinleştirebilirsiniz](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
   
@@ -66,19 +70,19 @@ Serideki sonraki öğretici SPA ön ucunu buluta dağıtır.
     > 
     > 
 
-## Örnek uygulamayı indirin:
+## <a name="download-the-sample-application"></a>Örnek uygulamayı indirin:
 1. [Azure-Samples/app-service-api-dotnet-to-do-list](https://github.com/Azure-Samples/app-service-api-dotnet-todo-list) deposunu indirin.
    
     **ZIP’i İndir** düğmesine tıklayabilir ya da depoyu yerel makinenize kopyalayabilirsiniz.
 2. Visual Studio 2015 ya da 2013’te ToDoList çözümünü açın.
    
    1. Her çözüme güvenmeniz gerekir.
-        ![Güvenlik Uyarısı](./media/app-service-api-dotnet-get-started/securitywarning.png)
+         ![Güvenlik Uyarısı](./media/app-service-api-dotnet-get-started/securitywarning.png)
 3. NuGet paketlerini geri yüklemek için çözümü oluşturun (CTRL + SHIFT + B).
    
     Dağıtmadan önce uygulamanın çalışmasını görmek istiyorsanız, yerel olarak çalıştırabilirsiniz. ToDoListDataAPI öğesinin başlangıç projeniz olduğundan emin olun ve çözümü çalıştırın. Tarayıcınızda bir HTTP 403 hatası görmeyi beklemelisiniz.
 
-## Swagger API meta verileri ve kullanıcı arabirimi kullanma
+## <a name="use-swagger-api-metadata-and-ui"></a>Swagger API meta verileri ve kullanıcı arabirimi kullanma
 [Swagger](http://swagger.io/) 2.0 API meta verileri desteği Azure App Service’de yerleşiktir. Her API, API meta verilerini Swagger JSON biçiminde döndüren bir URL uç noktası belirtebilir. Bu uç noktadan döndürülen meta veriler istemci kodu oluşturmak için kullanılabilir.
 
 Bir ASP.NET Web API projesi [Swashbuckle](https://www.nuget.org/packages/Swashbuckle) NuGet paketi kullanarak dinamik olarak Swagger meta verileri oluşturabilir. Swashbuckle NuGet paketi indirdiğiniz ToDoListDataAPI ve ToDoListAPI projelerinde zaten yüklüdür.
@@ -194,7 +198,7 @@ Swashbuckle her ASP.NET Web API projesi ile çalışır. Mevcut bir projeye Swag
 > 
 > 
 
-## <a id="createapiapp"></a> Azure’da API uygulaması oluşturma ve buna kod dağıtma
+## <a name="a-idcreateapiappa-create-an-api-app-in-azure-and-deploy-code-to-it"></a><a id="createapiapp"></a> Azure’da API uygulaması oluşturma ve buna kod dağıtma
 Bu bölümde, Azure’da yeni bir API uygulaması oluşturmak için Visual Studio **Web’i Yayımla** sihirbazına tümleştirilen Azure araçlarını kullanırsınız. Ardından, yeni API uygulamasına ToDoListDataAPI projesini dağıtır ve Swagger kullanıcı arabirimini çalıştırarak API’yi çağırırsınız.
 
 1. **Çözüm Gezgini**’nde ToDoListDataAPI projesine sağ tıklayın ve ardından **Yayımla**’ya tıklayın.
@@ -220,9 +224,9 @@ Bu bölümde, Azure’da yeni bir API uygulaması oluşturmak için Visual Studi
     API uygulamasının URL’si `{API app name}.azurewebsites.net` olacaktır.
 6. **Kaynak Grubu** açılır menüsünde, **Yeni**’ye tıklayın ve ardından isterseniz "ToDoListGroup" ya da başka bir ad girin.
    
-    Kaynak grubu API uygulamaları, veritabanları, sanal makineler ve benzerleri gibi Azure kaynakları koleksiyonudur. Bu öğreticide, en iyi uygulama yeni bir kaynak grubu oluşturulmasıdır; böylece, öğretici için oluşturduğunuz Azure kaynaklarını tek bir adımda kolayca silebilirsiniz.
+    Kaynak grubu API uygulamaları, veritabanları, sanal makineler ve benzerleri gibi Azure kaynakları koleksiyonudur.    Bu öğreticide, en iyi uygulama yeni bir kaynak grubu oluşturulmasıdır; böylece, öğretici için oluşturduğunuz Azure kaynaklarını tek bir adımda kolayca silebilirsiniz.
    
-    Bu kutu mevcut [kaynak grubunu](../resource-group-overview.md) seçmenize ya da aboneliklerinizdeki kaynak grubunda olanlardan farklı bir ad yazarak yeni bir tane oluşturmanıza olanak tanır.
+    Bu kutu mevcut [kaynak grubunu](../azure-resource-manager/resource-group-overview.md) seçmenize ya da aboneliklerinizdeki kaynak grubunda olanlardan farklı bir ad yazarak yeni bir tane oluşturmanıza olanak tanır.
 7. **App Service Planı** açılır menüsünün yanındaki **Yeni** düğmesine tıklayın.
    
     Ekran görüntüsü **API Uygulaması Adı**, **Abonelik** ve **Kaynak Grubu** için örnek değerleri gösterir - sizin değerlerinizi farklı olacaktır.
@@ -298,12 +302,12 @@ Bu bölümde, Azure’da yeni bir API uygulaması oluşturmak için Visual Studi
     
     Kendisi için istemci kodu oluşturmak üzere API uygulamasını seçtiğinizde, Visual Studio meta verileri bu URL’den alır.
 
-## <a id="codegen"></a> Veri katmanı için istemci kodu oluşturma
+## <a name="a-idcodegena-generate-client-code-for-the-data-tier"></a><a id="codegen"></a> Veri katmanı için istemci kodu oluşturma
 Swagger’ı Azure API uygulamalarına tümleştirmenin avantajlarından biri otomatik kod oluşturmadır. Oluşturulan istemci sınıfları API uygulamasını çağıran bir kod yazmayı kolaylaştırır.
 
 ToDoListAPI projesinin oluşturulan istemci kodu zaten vardır, ancak aşağıdaki adımlarda bunu silecek ve kod oluşturmanın nasıl yapıldığını görmek için yeniden oluşturacaksınız.
 
-1. Visual Studio **Çözüm Gezgini**’nde, ToDoListAPI projesinde *ToDoListDataAPI* klasörünü silin. **Dikkat: Yalnızca klasörü silin, ToDoListDataAPI projesini değil.**
+1. Visual Studio **Çözüm Gezgini**’nde, ToDoListAPI projesinde *ToDoListDataAPI* klasörünü silin. **Dikkat: ToDoListDataAPI projesini değil, yalnızca klasörü silin.**
    
     ![Oluşturulan istemci kodunu silme](./media/app-service-api-dotnet-get-started/deletecodegen.png)
    
@@ -369,7 +373,7 @@ ToDoListAPI projesinin oluşturulan istemci kodu zaten vardır, ancak aşağıda
             var client = new ToDoListDataAPI071316(new Uri(ConfigurationManager.AppSettings["toDoListDataAPIURL"]));
 
 
-## Orta katmanı barındırmak için API uygulaması oluşturma
+## <a name="create-an-api-app-to-host-the-middle-tier"></a>Orta katmanı barındırmak için API uygulaması oluşturma
 Daha önce [veri katmanı API uygulaması oluşturdunuz ve kodu buna dağıttınız](#createapiapp).  Şimdi orta katman API uygulaması için aynı yordamı izleyin.
 
 1. **Çözüm Gezgini**’nde, orta katman ToDoListAPI projesine (veri katmanı ToDoListDataAPI değil) sağ tıklayın ve ardından **Yayımla**’ya tıklayın.
@@ -388,7 +392,7 @@ Daha önce [veri katmanı API uygulaması oluşturdunuz ve kodu buna dağıttın
    
    Visual Studio, ToDoListAPI projesini yeni API uygulamasına dağıtır ve API uygulaması URL'sini bir tarayıcı penceresinde açar. "Başarıyla oluşturuldu" sayfası görüntülenir.
 
-## Veri katmanını çağırmak için orta katmanı yapılandırma
+## <a name="configure-the-middle-tier-to-call-the-data-tier"></a>Veri katmanını çağırmak için orta katmanı yapılandırma
 Orta katman API uygulamasını çağırdıysanız, hala Web.config dosyasında bulunan localhost URL’sini kullanarak veri katmanını çağırmaya çalışabilir. Bu bölümde, veri katmanı API uygulaması URL’sini orta katman API uygulamasındaki bir ortam ayarına girersiniz. Orta katman API uygulamasındaki kod veri katmanı URL ayarını aldığında, ortam ayarı Web.config dosyasındakini geçersiz kılar.
 
 1. [Azure portalına](https://portal.azure.com/) gidin ve ardından TodoListAPI (orta katman) projesini barındırmak için oluşturduğunuz **API uygulaması** dikey penceresine gidin.
@@ -405,7 +409,7 @@ Orta katman API uygulamasını çağırdıysanız, hala Web.config dosyasında b
    
     Kod Azure içinde çalıştığında, bu değer Web.config dosyasındaki localhost URL’sini geçersiz kılar.
 
-## Test etme
+## <a name="test"></a>Test etme
 1. Bir tarayıcı penceresinde, ToDoListAPI için oluşturduğunuz yeni orta katman API uygulamasının URL'sine gidin. Buraya portalda API uygulamasının ana dikey penceresindeki URL’ye tıklayarak gidebilirsiniz.
 2. Tarayıcının adres çubuğundaki URL’ye "swagger" ifadesini ekleyin ve ardından Enter tuşuna basın. (URL `http://{apiappname}.azurewebsites.net/swagger` şeklindedir.)
    
@@ -414,7 +418,7 @@ Orta katman API uygulamasını çağırdıysanız, hala Web.config dosyasında b
    
     ![Swagger kullanıcı arabirimi Alma yöntemi](./media/app-service-api-dotnet-get-started/midtierget.png)
 
-## Sorun giderme
+## <a name="troubleshooting"></a>Sorun giderme
 Bu öğreticiyi izlerken bir sorunla karşılaşırsanız, bazı sorun giderme fikirlerini burada bulabilirsiniz.
 
 * [.NET için Azure SDK](http://go.microsoft.com/fwlink/?linkid=518003)’nin en yeni sürümünü kullandığınızdan emin olun.
@@ -424,7 +428,7 @@ Bu öğreticiyi izlerken bir sorunla karşılaşırsanız, bazı sorun giderme f
 
 Azure App Service’de ASP.NET API uygulamanızı çalıştırdıktan sonra, sorun giderme sürecini kolaylaştıracak Visual Studio özellikleri hakkında daha fazla bilgi edinmek isteyebilirsiniz. Günlüğe kaydetme, uzaktan hata ayıklama ve çok daha fazlası hakkında bilgi edinmek için bkz. [Visual Studio’da Azure App Service uygulamalarının sorunlarını giderme](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md).
 
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 Mevcut Web API projelerini API uygulamalarına dağıtmayı, API uygulamaları için istemci kodu oluşturmayı ve .NET istemcilerinden alınan API uygulamalarını kullanmayı gördünüz. Bu serideki sonraki öğretici, [JavaScript istemcilerden alınan API uygulamalarını kullanmak için CORS kullanma](app-service-api-cors-consume-javascript.md)yı gösterir.
 
 İstemci kodu oluşturma hakkında daha fazla bilgi için, GitHub.com’da [Azure/AutoRest](https://github.com/azure/autorest) deposuna bakın. Oluşturulan istemciyi kullanma ile ilgili sorunlarda yardım için, [AutoRest deposunda bir sorun açın](https://github.com/azure/autorest/issues).
@@ -435,6 +439,9 @@ Sıfırdan yeni API uygulaması projeleri oluşturmak istiyorsanız, **Azure API
 
 **Azure API Uygulaması** proje şablonu, **Boş** ASP.NET 4.5.2 şablonu seçmeye, Web API desteği eklemek için onay kutusuna tıklamaya ve Swashbuckle NuGet paketi yüklemeye eşdeğerdir. Ayrıca, şablon yinelenen Swagger işlem kimlikleri oluşturulmasını önlemek için tasarlanmış bazı Swashbuckle yapılandırma kodları ekler. Bir API uygulaması projesi oluşturduktan sonra, bu öğreticide gördüğünüz şekilde bunu bir API uygulamasına dağıtabilirsiniz.
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

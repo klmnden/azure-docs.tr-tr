@@ -2,7 +2,7 @@
 <!--author=SharS last changed: 9/15/15-->
 
 
-#### El ile yedekleme oluşturmak için
+#### <a name="to-create-a-manual-backup"></a>El ile yedekleme oluşturmak için
 1. **Cihazlar** sayfasında **Yedekleme ilkeleri** sekmesine gidin. Bu sekme, yedeklemek istediğiniz birimle ilgili ilke de aralarında olmak üzere yedekleme ilkelerini tablosal biçimde listeler.
 2. Karşılık gelen satırda, ilk sütun dışında herhangi bir yere tıklayarak ilkeyi seçin. Sayfanın alt kısmındaki **Yedek al**'a tıklayın. Düğme, yedekleme seçeneklerini gösterecek şekilde genişletir: Yerel anlık görüntü ve bulut anlık görüntüsü. 
 3. Bu seçeneklerden birini seçtiğinizde onaylamanız istenir. **Evet**’e tıklayın. 
@@ -18,6 +18,8 @@
    
    Yedekleme, yedekleme kataloğunda görüntülenen yedekleme ayarları listesinde görüntülenmelidir.
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

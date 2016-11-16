@@ -22,7 +22,7 @@
 
 * **Dns adı**’na önbellek uç noktası için kullanılacak önbellek adını girin. Önbellek adı 1 - 63 karakter arasında bir dize olması ve yalnızca rakam, harf ve `-` karakterini içermelidir. Önbellek adı `-` karakteriyle başlayamaz veya bitemez ve ardışık `-` karakterler geçerli olmazlar.
 * **Abonelik** için önbelleğe yönelik kullanmak istediğiniz Azure aboneliğini girin. Hesabınızda yalnızca bir abonelik varsa bu otomatik olarak seçilir ve **Abonelik** açılan penceresi görüntülenmez.
-* **Kaynak grubu**’nda önbellek hesabınız için bir kaynak grubu seçin veya oluşturun. Daha fazla bilgi için bkz. [Azure kaynaklarınızı yönetmek için Kaynak gruplarını kullanma](../articles/resource-group-overview.md). 
+* **Kaynak grubu**’nda önbellek hesabınız için bir kaynak grubu seçin veya oluşturun. Daha fazla bilgi için bkz. [Azure kaynaklarınızı yönetmek için Kaynak gruplarını kullanma](../articles/azure-resource-manager/resource-group-overview.md). 
 * Önbelleğin barındırılacağı coğrafi konumu belirtmek için **Konum**’u kullanın. En iyi performans için, Microsoft, önbelleği önbellek istemci uygulamasının olduğu konumda oluşturmanızı kesinlikle önerir.
 * İstediğiniz önbellek boyutunu ve özelliklerini seçmek için **Fiyatlandırma Katmanı**’nı kullanın.
 * **Redis kümesi**, 53 GB'den daha büyük önbellekler oluşturmanızı ve verileri birden çok Redis düğümünde paylaşmanızı sağlar. Daha fazla bilgi için bkz. [Premium Azure Redis Önbelleği için kümeleri yapılandırma](../articles/redis-cache/cache-how-to-premium-clustering.md).
@@ -33,6 +33,8 @@ Yeni önbellek seçenekleri yapılandırıldıktan sonra **Oluştur**’a tıkla
 
 ![Önbellek oluşturuldu](media/redis-cache-create/redis-cache-cache-created.png)
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

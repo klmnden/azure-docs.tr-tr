@@ -1,12 +1,12 @@
 ---
-title: Xamarin.Android uygulamaları için Azure Mobile Apps kullanmaya başlama
-description: Xamarin Android geliştirme için Azure Mobile Apps’i kullanmaya başlamak için bu öğreticiden yararlanın
+title: "Xamarin.Android uygulamaları için Azure Mobile Apps kullanmaya başlama"
+description: "Xamarin Android geliştirme için Azure Mobile Apps’i kullanmaya başlamak için bu öğreticiden yararlanın"
 services: app-service\mobile
 documentationcenter: xamarin
 author: adrianhall
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 81649dd3-544f-40ff-b9b7-60c66d683e60
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-android
@@ -14,9 +14,13 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: adrianha
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: e59a87ec6017061078d5cb5df93207c7f93ec00b
+
 
 ---
-# <a name="create-a-xamarin.android-app"></a>Xamarin.Android Uygulaması oluşturma
+# <a name="create-a-xamarinandroid-app"></a>Xamarin.Android Uygulaması oluşturma
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
 ## <a name="overview"></a>Genel Bakış
@@ -35,7 +39,7 @@ Bu öğreticiyi tamamlamak için aşağıdaki önkoşulları karşılamanız ger
 * Xamarin ile Visual Studio. Yönergeler için bkz. [Visual Studio ve Xamarin için Kurulum ve Yükleme](https://msdn.microsoft.com/library/mt613162.aspx).
 
 > [!NOTE]
-> Azure hesabı için kaydolmadan önce Azure Uygulama Hizmeti’ni kullanmaya başlamak istiyorsanız [Uygulama Hizmeti’ni Deneyin](https://tryappservice.azure.com/?appServiceName=mobile)’e gidin.  App Service’de hemen kısa süreli, başlangıç niteliğinde bir Mobil Uygulama oluşturabilirsiniz. Kredi kartı ve taahhüt gerekmez.
+> Azure hesabı için kaydolmadan önce Azure Uygulama Hizmeti’ni kullanmaya başlamak istiyorsanız [App Service’i Deneyin](https://tryappservice.azure.com/?appServiceName=mobile)’e gidin.  App Service’de hemen kısa süreli, başlangıç niteliğinde bir Mobil Uygulama oluşturabilirsiniz. Kredi kartı ve taahhüt gerekmez.
 > 
 > 
 
@@ -49,10 +53,10 @@ Artık, mobil istemci uygulamalarınız tarafından kullanılabilecek bir Azure 
 ## <a name="configure-the-server-project"></a>Sunucu projesi yapılandırma
 [!INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
-## <a name="download-and-run-the-xamarin.android-app"></a>Xamarin Android uygulamasını indirme ve çalıştırma
+## <a name="download-and-run-the-xamarinandroid-app"></a>Xamarin Android uygulamasını indirme ve çalıştırma
 1. Altında **Xamarin.Android projenizi indirme ve çalıştırma** altında **İndir**’e tıklayın.
    
-    Sıkıştırılmış proje dosyasını yerel bilgisayarınıza kaydedin ve kaydettiğiniz yeri not edin.
+      Sıkıştırılmış proje dosyasını yerel bilgisayarınıza kaydedin ve kaydettiğiniz yeri not edin.
 2. Projeyi oluşturmak ve uygulamayı başlatmak için **F5** tuşuna basın.
 3. Uygulamada, *Öğreticiyi tamamla* gibi anlamlı bir metin yazın ve ardından **Ekle** düğmesine basın.
    
@@ -84,6 +88,6 @@ Artık, mobil istemci uygulamalarınız tarafından kullanılabilecek bir Azure 
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

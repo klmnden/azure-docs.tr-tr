@@ -1,13 +1,13 @@
 ---
-title: Machine Learning Studio'da basit bir deneme | Microsoft Docs
-description: Bu makine öğrenimi öğreticisi kolay bir veri bilimi deneyinde size kılavuzluk etmektedir. Regresyon algoritması kullanarak bir arabanın fiyatını tahmin edeceğiz.
-keywords: deneme,doğrusal regresyon,makine öğrenimi algoritmaları,makine öğrenimi öğreticisi,tahmine dayalı modelleme teknikleri,veri bilimi deneyi
+title: Machine Learning Studio&quot;da basit bir deneme | Microsoft Belgeleri
+description: "Bu makine öğrenimi öğreticisi kolay bir veri bilimi deneyinde size kılavuzluk etmektedir. Regresyon algoritması kullanarak bir arabanın fiyatını tahmin edeceğiz."
+keywords: "deneme,doğrusal regresyon,makine öğrenimi algoritmaları,makine öğrenimi öğreticisi,tahmine dayalı modelleme teknikleri,veri bilimi deneyi"
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: garyericson
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: b6176bb2-3bb6-4ebf-84d1-3598ee6e01c6
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -15,23 +15,27 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 07/14/2016
 ms.author: garye
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 210e19cbc581ce5fc17898abe184b96c48370e7f
+
 
 ---
-# Makine öğrenimi öğreticisi: Azure Machine Learning Studio'da ilk veri bilimi denemenizi oluşturma
+# <a name="machine-learning-tutorial-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>Makine öğrenimi öğreticisi: Azure Machine Learning Studio'da ilk veri bilimi denemenizi oluşturma
 Bu makine öğrenimi öğreticisi kolay bir veri bilimi deneyinde size kılavuzluk etmektedir. Marka ve teknik belirtimler gibi farklı değişkenleri esas alarak otomobil fiyatını tahmin eden bir doğrusal regresyon modeli oluşturacağız. Bunu yapmak için, tahmine dayalı basit bir analiz denemesini geliştirmek ve yinelemek amacıyla Azure Machine Learning Studio'yu kullanacağız.
 
 *Tahmine dayalı analiz* gelecekteki sonuçları tahmin etmek üzere mevcut verileri kullanan bir veri bilimi türüdür. Tahmine dayalı analizin çok basit bir örneği için Yeni Başlayanlar için Veri Bilimi video 4’ü izleyin: [Basit bir model ile yanıtı tahmin etme](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md) (çalışma zamanı: 7:42).
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-## Machine Learning Studio yardımı nasıl çalışır?
+## <a name="how-does-machine-learning-studio-help"></a>Machine Learning Studio yardımı nasıl çalışır?
 Machine Learning Studio tahmine dayalı modelleme teknikleriyle önceden programlanmış sürükle ve bırak modüllerini kullanarak bir deneme oluşturmayı kolaylaştırır. Denemenizi çalıştırmak ve bir yanıtı tahmin etmek için Machine Learning Studio’yu kullanarak *model oluşturun*, *modeli test edin* ve *modeli puanlayıp test edin*.
 
 Machine Learning Studio: [https://studio.azureml.net](https://studio.azureml.net)'e girin. Machine Learning Studio’da daha önce oturum açtıysanız **Burada oturum aç**’a tıklayın. Veya **Kaydol**’a tıklayıp ücretsiz ve ücretli seçenekler arasından seçim yapın.
 
 Machine Learning Studio hakkında daha fazla genel bilgi için bkz. [Machine Learning Studio nedir?](machine-learning-what-is-ml-studio.md)
 
-## Bir deneme oluşturmanın beş adımı
+## <a name="five-steps-to-create-an-experiment"></a>Bir deneme oluşturmanın beş adımı
 Bu makine öğrenimi öğreticisinde, modelinizi oluşturmak, eğitmek ve puanlamak amacıyla Machine Learning Studio'da bir deneme oluşturmak için beş temel adımı izleyeceksiniz.
 
 * Bir model oluşturma
@@ -50,7 +54,7 @@ Bu makine öğrenimi öğreticisinde, modelinizi oluşturmak, eğitmek ve puanla
 [5. Adım: Yeni otomobil fiyatlarını tahmin etme]: #step-5-predict-new-automobile-prices
 
 
-## 1. Adım: Verileri alma
+## <a name="step-1-get-data"></a>1. Adım: Verileri alma
 Machine Learning Studio'da seçebileceğiniz birçok örnek veri kümesi bulunur ve birçok kaynaktan verileri içeri aktarabilirsiniz. Bu örnekte, **Otomobil fiyat verileri (Ham)** adlı dahil edilmiş örnek veri kümesini kullanacağız.
 Bu veri kümesi; marka, model, teknik belirtimler ve fiyat gibi bilgiler dahil olmak üzere birçok ayrı otomobil için giriş içerir.
 
@@ -72,7 +76,7 @@ Veri kümesindeki değişkenler sütun olarak görünür ve her bir otomobil ör
 
 Sağ üst köşedeki "**x**" işaretine tıklayarak görselleştirme penceresini kapatın.
 
-## 2. Adım: Verileri ön işleme
+## <a name="step-2-preprocess-data"></a>2. Adım: Verileri ön işleme
 Genellikle bir veri kümesi analiz edilmeden önce biraz ön işleme gerekir. Çeşitli satırların sütunlarında bulunan eksik değerleri fark etmiş olabilirsiniz. Modelin verileri doğru şekilde analiz edebilmesi için bu eksik değerlerin temizlenmesi gerekir. Örneğimizde eksik değerleri olan satırları kaldıracağız. Ayrıca, **normalleştirilmiş kayıplar** sütununun büyük kısmı eksik değerlere sahiptir; bu nedenle bu sütunu modelin tamamen dışında bırakacağız.
 
 > [!TIP]
@@ -113,7 +117,7 @@ Denemede bu noktaya kadar yalnızca verileri temizledik. Temizlenen veri kümesi
 
 Artık veriler temizlendiğine göre, tahmine dayalı modelde hangi özellikleri kullanacağımızı belirtmeye hazırız.
 
-## 3. Adım: Özellikleri tanımlama
+## <a name="step-3-define-features"></a>3. Adım: Özellikleri tanımlama
 Machine learning'de *özellikler*, ilgilendiğiniz bir şeyin tek tek ölçülebilir özellikleridir. Veri kümemizde her bir satır bir otomobili temsil eder ve her bir sütun da bu otomobilin bir özelliğidir.
 
 Tahmine dayalı bir model oluşturmaya yönelik iyi bir özellikler kümesi bulmak için, deneme ve çözmek istediğiniz sorun hakkında bilgi gerekir. Bazı özellikler, hedefi tahmin etmede diğerlerinden daha uygundur. Ayrıca, bazı özelliklerin diğer özelliklerle güçlü bir bağıntısı vardır (şehir-mpg ile otoban-mpg karşılaştırması gibi); bu nedenle modele çok fazla yeni bilgi eklemezler ve bunlar kaldırılabilir.
@@ -138,7 +142,7 @@ Veri kümemizdeki bir alt özellikler kümesini kullanan bir model oluşturalım
 
 Bu, sonraki adımlarda öğrenme algoritmasında kullanılacak veri kümesini oluşturur. Daha sonra geri dönüp farklı özellikler seçerek yeniden deneyebilirsiniz.
 
-## 4. Adım: Bir öğrenme algoritması seçme ve uygulama
+## <a name="step-4-choose-and-apply-a-learning-algorithm"></a>4. Adım: Bir öğrenme algoritması seçme ve uygulama
 Artık veriler hazır olduğuna göre, tahmine dayalı bir model oluşturmak için eğitim ve test etme gerekir. Modeli eğitmek ve sonra fiyatları tahmin etmeye ne kadar yaklaştığını görmek üzere modeli test etmek için verilerimizi kullanacağız. Şu an için bir modeli neden eğitmemiz ve sonra test etmemiz gerektiğini düşünmeyin.
 
 *Sınıflandırma* ve *regresyon*, denetimli iki makine öğrenimi tekniğidir. Sınıflandırma; renk gibi (kırmızı, mavi veya yeşil) tanımlanmış bir kategori kümesinden yanıt tahmin eder. Bir sayıyı tahmin etmek için regresyon kullanılır.
@@ -165,7 +169,7 @@ Sonuç, tahminde bulunmak amacıyla yeni örnekleri puanlamak için kullanılabi
 
 ![Makine öğrenme algoritmasını uygulama][screen8]
 
-## 5. Adım: Yeni otomobil fiyatlarını tahmin etme
+## <a name="step-5-predict-new-automobile-prices"></a>5. Adım: Yeni otomobil fiyatlarını tahmin etme
 Verilerimizin yüzde 75'ini kullanarak modeli eğittiğimize göre, modelimizin ne kadar iyi işlediğini görmek için verilerimizin diğer yüzde 25'ini puanlama amacıyla kullanabiliriz.
 
 1. [Score Model (Model Puanlama)][score-model] modülünü bulup deneme tuvaline sürükleyin ve sol giriş bağlantı noktasını [Train Model (Model Eğitme)][train-model] modülünün çıkışına bağlayın. Sağ giriş bağlantı noktasını [Split Data (Verileri Ayırma)][split] modülünün test etme verileri çıkışına (sağ bağlantı noktası) bağlayın.  
@@ -191,7 +195,7 @@ Son deneme şu şekilde görünecektir:
 
 ![Machine learning öğreticisi: Tahmine dayalı modelleme teknikleri kullanan doğrusal regresyon denemesini tamamlayın.][screen10]
 
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 Artık ilk makine öğrenimi öğreticinizi tamamladığınıza ve denemenizi kurduğunuza göre, modeli iyileştirmeyi denemek için yineleyebilirsiniz. Örneğin, tahmininizde kullanmak istediğiniz özellikleri değiştirebilirsiniz. Veya [Linear Regression (Doğrusal Regresyon)][linear-regression] algoritmasının özelliklerini değiştirebilir veya tamamen farklı bir algoritma deneyebilirsiniz. Ayrıca, denemenize tek bir seferde birden çok makine öğrenimi algoritması ekleyebilir ve [Evaluate Model (Model Değerlendirme)][evaluate-model] modülünü kullanarak ikisini karşılaştırabilirsiniz.
 
 > [!TIP]
@@ -238,6 +242,6 @@ Modeli oluşturma, eğitme, puanlama ve dağıtma için tahmine dayalı modellem
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

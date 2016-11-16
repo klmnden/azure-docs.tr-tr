@@ -1,13 +1,13 @@
 ---
-title: Windows Sanal Makineler Hakkında| Microsoft Docs
-description: Her iki dağıtım modelini kullanarak Azure’da Windows Sanal Makinelerin temel özelliklerini öğrenin.
+title: "Windows Sanal Makineleri Hakkında| Microsoft Belgeleri"
+description: "Her iki dağıtım modelini kullanarak Azure’da Windows Sanal Makinelerin temel özelliklerini öğrenin."
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: cynthn
 manager: timlt
 editor: tysonn
 tags: azure-resource-manager,azure-service-management
-
+ms.assetid: 316883a8-e526-48f6-a20b-7f1490b24d6c
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -15,9 +15,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/27/2016
 ms.author: cynthn
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b1e422d9d1ae36b8e8a84194020d2eef65b545d0
+
 
 ---
-# Azure’da Windows sanal makineler hakkında
+# <a name="about-windows-virtual-machines-in-azure"></a>Azure’da Windows sanal makineler hakkında
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 Azure Virtual Machines Azure’un sunduğu isteğe bağlı, ölçeklenebilir çeşitli bilgi işlem kaynağı türlerinden biridir. Genellikle, sunulan diğer seçimlere göre bilgi işlem ortamınız üzerinde daha fazla denetime ihtiyacınız varsa, bir sanal makineyi seçersiniz.
@@ -30,11 +34,14 @@ Bu tablo, Azure tarafından sunulan seçimleri karşılaştırmanıza yardımcı
 
 [!INCLUDE [virtual-machines-choose-me-content](../../includes/virtual-machines-choose-me-content.md)]
 
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 Hızlı bir şekilde basit bir sanal makine oluşturarak sanal makineyi deneyin. Yönergeler için bkz. [Azure portalda Windows çalıştıran bir sanal makine oluşturma](virtual-machines-windows-hero-tutorial.md).
 
 Öğretici bir sanal makineyi hızlı bir şekilde oluşturmanıza yardımcı olduğundan, sanal makineler oluşturmak için kullanabileceğiniz çeşitli araçları açıklamak yerine bunu yapmanın tek bir yolunu gösterir. Bu araçların bir özeti ve yönergelere bağlantılar için bkz. [Windows sanal makine oluşturmanın farklı yolları](virtual-machines-windows-creation-choices.md).
 
-<!--HONumber=Sep16_HO4-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,25 +1,29 @@
 ---
-title: SQL Server'dan Azure SQL Data Warehouse'a (PolyBase) veri yükleme | Microsoft Docs
-description: SQL Server'dan düz dosyalara veri aktarmak için bcp'yi, Azure blob depolama alanına veri aktarmak için AZCopy'yi ve verileri Azure SQL Data Warehouse'a almak için PolyBase'i kullanın.
+title: "SQL Server&quot;dan Azure SQL Veri Ambarı&quot;na (PolyBase) veri yükleme | Microsoft Belgeleri"
+description: "SQL Server&quot;dan düz dosyalara veri aktarmak için bcp&quot;yi, Azure blob depolama alanına veri aktarmak için AZCopy&quot;yi ve verileri Azure SQL Data Warehouse&quot;a almak için PolyBase&quot;i kullanın."
 services: sql-data-warehouse
 documentationcenter: NA
 author: ckarst
 manager: barbkess
-editor: ''
-
+editor: 
+ms.assetid: 4d42786a-fb28-43c9-9c3b-72d19c0ecc11
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 06/30/2016
-ms.author: cakarst;barbkess;sonyama
+ms.date: 10/31/2016
+ms.author: cakarst;barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: f3a4ad30d1aa0ec273b6b875b0d2d037005ac159
+
 
 ---
-# SQL Server'dan Azure SQL Data Warehouse'a veri yükleme (AZCopy)
+# <a name="load-data-from-sql-server-into-azure-sql-data-warehouse-azcopy"></a>SQL Server'dan Azure SQL Data Warehouse'a veri yükleme (AZCopy)
 SQL Server'dan Azure blob depolama alanına veri yüklemek için bcp ve AZCopy komut satırı yardımcı programlarını kullanın. Ardından verileri Azure SQL Data Warehouse'a yüklemek için PolyBase'i veya Azure Data Factory'yi kullanın. 
 
-## Önkoşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bu öğreticide ilerleyebilmeniz için şunlar gereklidir:
 
 * SQL Data Warehouse veritabanı
@@ -31,10 +35,10 @@ Bu öğreticide ilerleyebilmeniz için şunlar gereklidir:
 > 
 > 
 
-## SQL Data Warehouse'a veri aktarma
+## <a name="import-data-into-sql-data-warehouse"></a>SQL Data Warehouse'a veri aktarma
 Bu öğreticide, Azure SQL Data Warehouse'da bir tablo oluşturup tabloya veri aktaracaksınız.
 
-### 1. Adım: Azure SQL Data Warehouse'da tablo oluşturma
+### <a name="step-1-create-a-table-in-azure-sql-data-warehouse"></a>1. Adım: Azure SQL Data Warehouse'da tablo oluşturma
 Örneğinizde bir tablo oluşturmak için aşağıdaki sorguyu çalıştırmak üzere bir komut isteminden sqlcmd yardımcı programını kullanın:
 
 ```sql
@@ -54,11 +58,11 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 ```
 
 > [!NOTE]
-> SQL Data Warehouse'da tablo oluşturma ve WITH yan tümcesinde bulunan seçenekler hakkında daha fazla bilgi için bkz. [Tabloya Genel Bakış][Tabloya Genel Bakış] veya [CREATE TABLE söz dizimi][CREATE TABLE söz dizimi].
+> SQL Veri Ambarı'nda tablo oluşturma ve WITH yan tümcesiyle kullanılabilen seçenekler hakkında daha fazla bilgi için bkz. [Tabloya Genel Bakış][Tabloya Genel Bakış] veya [CREATE TABLE söz dizimi][CREATE TABLE söz dizimi].
 > 
 > 
 
-### 2. Adım: Kaynak veri dosyası oluşturma
+### <a name="step-2-create-a-source-data-file"></a>2. Adım: Kaynak veri dosyası oluşturma
 Not Defteri'ni açın ve yeni bir metin dosyasına aşağıdaki veri satırlarını kopyalayıp dosyayı yerel geçici dizininize (C:\Temp\DimDate2.txt) kaydedin.
 
 ```
@@ -81,7 +85,7 @@ Not Defteri'ni açın ve yeni bir metin dosyasına aşağıdaki veri satırları
 > 
 > 
 
-### 3. Adım: Bağlanma ve verileri içeri aktarma
+### <a name="step-3-connect-and-import-the-data"></a>3. Adım: Bağlanma ve verileri içeri aktarma
 bcp ile aşağıdaki komutu kullanıp değerleri uygun şekilde değiştirerek bağlanabilir ve verileri içeri aktarabilirsiniz.
 
 ```sql
@@ -111,7 +115,7 @@ Bu işlem sonrasında şu sonuçların döndürülmesi gerekir:
 | 20151101 |4 |2 |
 | 20151201 |4 |2 |
 
-### 4. Adım: Yeni yüklenmiş verilerinize ilişkin İstatistikler oluşturma
+### <a name="step-4-create-statistics-on-your-newly-loaded-data"></a>4. Adım: Yeni yüklenmiş verilerinize ilişkin İstatistikler oluşturma
 Azure SQL Data Warehouse henüz istatistiklerin otomatik olarak oluşturulup güncelleştirilmesini desteklemiyor. Sorgularınızdan en iyi performansı elde edebilmeniz için ilk yüklemeden veya verilerdeki önemli değişikliklerden sonra her tablonun her sütununa ilişkin istatistiklerin oluşturulması önemlidir. İstatistikler hakkında ayrıntılı bir açıklama için Geliştirme ile ilgili konu başlığı grubunda yer alan [İstatistikler][İstatistikler] bölümüne göz atın. Aşağıda bu örnekte yüklenen tablolar için nasıl istatistik oluşturacağınıza yönelik kısa bir örnek verilmiştir.
 
 Bir sqlcmd isteminden şu CREATE STATISTICS deyimlerini yürütün:
@@ -124,10 +128,10 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 "
 ```
 
-## SQL Data Warehouse'dan veri aktarma
+## <a name="export-data-from-sql-data-warehouse"></a>SQL Data Warehouse'dan veri aktarma
 Bu öğreticide SQL Data Warehouse'da bulunan bir tablodan veri dosyası oluşturacaksınız. Yukarıda oluşturduğumuz verileri DimDate2_export.txt adlı dosyaya aktaracağız.
 
-### 1. Adım: Verileri dışarı aktarma
+### <a name="step-1-export-the-data"></a>1. Adım: Verileri dışarı aktarma
 bcp yardımcı programı ile aşağıdaki komutu kullanıp değerleri uygun şekilde değiştirerek bağlanabilir ve verileri içeri aktarabilirsiniz.
 
 ```sql
@@ -155,16 +159,16 @@ Yeni dosyayı açarak verilerin düzgün bir şekilde dışarı aktarıldığın
 > 
 > 
 
-## Sonraki adımlar
-Yüklemeye genel bakış için bkz. [SQL Data Warehouse'a veri yükleme][SQL Data Warehouse'a veri yükleme].
-Geliştirme ile ilgili daha fazla ipucu için bkz. [SQL Data Warehouse geliştirmeye genel bakış][SQL Data Warehouse geliştirmeye genel bakış].
+## <a name="next-steps"></a>Sonraki adımlar
+Yüklemeye genel bakış için bkz. [SQL Veri Ambarı'na veri yükleme][SQL Veri Ambarı'na veri yükleme].
+Geliştirme ile ilgili daha fazla ipucu için bkz. [SQL Veri Ambarı geliştirmeye genel bakış][SQL Veri Ambarı geliştirmeye genel bakış].
 
 <!--Image references-->
 
 <!--Article references-->
 
-[SQL Data Warehouse'a veri yükleme]: ./sql-data-warehouse-overview-load.md
-[SQL Data Warehouse geliştirmeye genel bakış]: ./sql-data-warehouse-overview-develop.md
+[SQL Veri Ambarı'na veri yükleme]: ./sql-data-warehouse-overview-load.md
+[SQL Veri Ambarı geliştirmeye genel bakış]: ./sql-data-warehouse-overview-develop.md
 [Tabloya Genel Bakış]: ./sql-data-warehouse-tables-overview.md
 [İstatistikler]: ./sql-data-warehouse-tables-statistics.md
 
@@ -177,6 +181,6 @@ Geliştirme ile ilgili daha fazla ipucu için bkz. [SQL Data Warehouse geliştir
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

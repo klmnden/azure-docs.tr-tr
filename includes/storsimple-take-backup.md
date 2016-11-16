@@ -1,6 +1,6 @@
 <!--author=alkohli last changed: 9/17/15-->
 
-### Yedek almak için
+### <a name="to-take-a-backup"></a>Yedek almak için
 1. Cihazın **Hızlı Başlangıç** sayfasında, **Yedekleme ilkesi ekle**’ye tıklayın. Bu, Yedekleme İlkesi Ekleme sihirbazını başlatır. 
 2. **Yedekleme ilkenizi tanımlayın** sayfasında:
    
@@ -24,10 +24,12 @@
 
 Cihaz yapılandırmasını tamamladınız. 
 
-![Kullanılabilir video](./media/storsimple-take-backup/Video_icon.png) **Kullanılabilir video**
+![Video var](./media/storsimple-take-backup/Video_icon.png) **Video var**
 
 Bir StorSimple yedeğinin nasıl alınacağını gösteren bir video izlemek için [buraya](https://azure.microsoft.com/documentation/videos/take-a-storsimple-backup/) tıklayın.
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

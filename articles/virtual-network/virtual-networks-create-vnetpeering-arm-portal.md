@@ -1,13 +1,13 @@
 ---
-title: Azure portalını kullanarak VNet Eşlemesi oluşturma | Microsoft Docs
-description: Resource Manager’da Azure portalını kullanarak bir sanal ağ oluşturmayı öğrenin.
+title: "Azure portalını kullanarak VNet Eşlemesi oluşturma | Microsoft Belgeleri"
+description: "Resource Manager’da Azure portalını kullanarak bir sanal ağ oluşturmayı öğrenin."
 services: virtual-network
-documentationcenter: ''
+documentationcenter: 
 author: NarayanAnnamalai
 manager: jefco
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 026bca75-2946-4c03-b4f6-9f3c5809c69a
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: hero-article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2016
 ms.author: narayanannamalai;annahar
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 688fed72b32767f33010b9e8f17921b16320072d
+
 
 ---
-# Azure portalını kullanarak bir sanal ağ eşlemesi oluşturma
+# <a name="create-a-virtual-network-peering-using-the-azure-portal"></a>Azure portalını kullanarak bir sanal ağ eşlemesi oluşturma
 [!INCLUDE [virtual-networks-create-vnet-selectors-arm-include](../../includes/virtual-networks-create-vnetpeering-selectors-arm-include.md)]
 
 [!INCLUDE [virtual-networks-create-vnet-intro](../../includes/virtual-networks-create-vnetpeering-intro-include.md)]
@@ -62,7 +66,7 @@ Her bağlantı için birkaç özellik yapılandırılabilir:
 | Seçenek | Açıklama | Varsayılan |
 |:--- |:--- |:--- |
 | AllowVirtualNetworkAccess |Eş VNet’in adres alanının Virtual_network Etiketine eklenip eklenmeyeceği |Evet |
-| AllowForwardedTraffic |Eşlenen VNet’ten kaynaklanmayan trafiğin kabul edilmesine veya bırakılmasına izin verir |Hayır |
+| AllowForwardedTraffic |Eşlenen sanal ağdan gelmeyen trafiğin kabul edilip edilmeyeceği |Hayır |
 | AllowGatewayTransit |Eş VNet’in VNet ağ geçidinizi kullanmasına izin verir |Hayır |
 | UseRemoteGateways |Eşinizin VNet ağ geçidini kullanır. Eş VNet için yapılandırılmış bir ağ geçidi olmalı ve AllowGatewayTransit seçilmelidir. Yapılandırılmış bir ağ geçidiniz varsa bu seçeneği kullanamazsınız |Hayır |
 
@@ -90,7 +94,7 @@ VNet eşlemesindeki her bağlantı yukarıdaki özellikleri içerir. Portaldan V
    > 
 6. Portalda UserA olarak oturum açın, VNET3 dikey penceresine gidin, Eşleme’ye tıklayın, ‘Kaynak kimliğimi biliyorum” onay kutusunu işaretleyin ve VNET5 kaynak kimliğini aşağıdaki biçimde yazın.
    
-    /subscriptions/<Subscription- ID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Network/VirtualNetwork/<VNET name>
+    /subscriptions/{SubscriptionID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.Network/VirtualNetwork/{VNETname}
    
     ![Kaynak kimliği](./media/virtual-networks-create-vnetpeering-arm-portal/figure12.png)
 7. Portalda UserB olarak oturum açın ve VNet5 ile VNet3 arasında bir eşleme bağlantısı oluşturmak için yukarıdaki adımı izleyin.
@@ -121,7 +125,7 @@ VNet eşlemesindeki her bağlantı yukarıdaki özellikleri içerir. Portaldan V
    
     ![Eşleme bağlantısını denetleme](./media/virtual-networks-create-vnetpeering-arm-portal/figure19.png)
 
-## VNet Eşlemesini Kaldırma
+## <a name="remove-vnet-peering"></a>VNet Eşlemesini Kaldırma
 1. Tarayıcıdan http://portal.azure.com adresine gidin ve gerekiyorsa Azure hesabınıza giriş yapın.
 2. Sanal ağ dikey penceresine gidin, Eşlemeler’e tıklayın, kaldırmak istediğiniz bağlantıya ve Sil düğmesine tıklayın.
    
@@ -131,6 +135,9 @@ VNet eşlemesindeki her bağlantı yukarıdaki özellikleri içerir. Portaldan V
     ![Delete2](./media/virtual-networks-create-vnetpeering-arm-portal/figure16.png)
 4. Bu durumda eşleme bağlantı durumu Başlatıldı olana kadar bağlantıyı yeniden oluşturamazsınız. VNET eşlemesini yeniden oluşturmadan önce her iki bağlantıyı da kaldırmanız önerilir.
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

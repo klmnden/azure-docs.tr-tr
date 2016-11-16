@@ -1,12 +1,12 @@
 ---
-title: Visual Studio ile Python web ve çalışan rolleri | Microsoft Docs
-description: Web rolleri ve çalışan rolleri dahil olmak üzere Azure Cloud Services oluşturmak üzere Visual Studio için Python Araçları’nı kullanma hakkında genel bilgi edinin.
+title: "Visual Studio ile Python web ve çalışan rolleri | Microsoft Belgeleri"
+description: "Web rolleri ve çalışan rolleri dahil olmak üzere Azure Cloud Services oluşturmak üzere Visual Studio için Python Araçları’nı kullanma hakkında genel bilgi edinin."
 services: cloud-services
 documentationcenter: python
 author: thraka
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 5489405d-6fa9-4b11-a161-609103cbdc18
 ms.service: cloud-services
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: python
 ms.topic: hero-article
 ms.date: 08/03/2016
 ms.author: adegeo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: d951e05a9a0ae59adb64d53726e9898d95424d80
+
 
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Visual Studio için Python web ve çalışan rolleri içeren Python Araçları
@@ -27,7 +31,7 @@ Bu makalede, [Visual Studio için Python Araçları][Visual Studio için Python 
 
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
-## <a name="what-are-python-web-and-worker-roles?"></a>Python web ve çalışan rolleri nelerdir?
+## <a name="what-are-python-web-and-worker-roles"></a>Python web ve çalışan rolleri nelerdir?
 Azure uygulamaları çalıştırmak üzere üç işlem modeli sunar: [Azure App Service için Web Apps][execution model-web sites], [Azure Virtual Machines][execution model-vms], ve [Azure Cloud Services][execution model-cloud services]. Python bu üç modeli de destekler. Web ve çalışan rolleri içeren Cloud Services *Hizmet Olarak Platform (PaaS)* sunar. Web rolü, bir bulut hizmetinde ön uç web uygulamalarını barındırmak için özel Internet Information Services (IIS) web sunucusu sağlar. Çalışan rolü ise kullanıcı etkileşimi ve girişinden bağımsız zaman uyumsuz, uzun çalışan ve kalıcı görevleri çalıştırabilir.
 
 Daha fazla bilgi için bkz. [Bulut Hizmeti nedir?].
@@ -110,7 +114,7 @@ Aşağıdaki betikler Python 3.5 hedeflenerek yazılmıştır. Python 2.x sürü
 </Runtime>
 ```
 
-#### <a name="sample-servicedefinition.csdef"></a>Örnek ServiceDefinition.csdef
+#### <a name="sample-servicedefinitioncsdef"></a>Örnek ServiceDefinition.csdef
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <ServiceDefinition name="AzureCloudServicePython" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition" schemaVersion="2015-04.2.6">
@@ -161,7 +165,7 @@ Aşağıdaki betikler Python 3.5 hedeflenerek yazılmıştır. Python 2.x sürü
 
 Ardından, rolünüzün **./bin** klasöründe **PrepPython.ps1** ve **PipInstaller.ps1** dosyalarını oluşturun.
 
-#### <a name="preppython.ps1"></a>PrepPython.ps1
+#### <a name="preppythonps1"></a>PrepPython.ps1
 Bu betik python yükler. **PYTHON2** ortam değişkeni **açık** olarak ayarlanırsa Python 2.7 yüklenir, aksi takdirde Python 3.5 yüklenir.
 
 ```powershell
@@ -207,7 +211,7 @@ if (-not $is_emulated){
 }
 ```
 
-#### <a name="pipinstaller.ps1"></a>PipInstaller.ps1
+#### <a name="pipinstallerps1"></a>PipInstaller.ps1
 Bu betik pip çağırır ve tüm bağımlılıkları **requirements.txt** dosyasına yükler. **PYTHON2** ortam değişkeni **açık** olarak ayarlanırsa Python 2.7 kullanılır, aksi takdirde Python 3.5 kullanılır.
 
 ```powershell
@@ -235,7 +239,7 @@ if (-not $is_emulated){
 }
 ```
 
-#### <a name="modify-launchworker.ps1"></a>LaunchWorker.ps1’i değiştirme
+#### <a name="modify-launchworkerps1"></a>LaunchWorker.ps1’i değiştirme
 > [!NOTE]
 > Bir **çalışan rolü** projesinde, başlangıç dosyasını yürütmek için **LauncherWorker.ps1** dosyası gereklidir. Bir **web rolü** projesinde ise başlangıç dosyası, bunun yerine proje özelliklerinde tanımlanır.
 > 
@@ -280,7 +284,7 @@ else
 }
 ```
 
-#### <a name="ps.cmd"></a>ps.cmd
+#### <a name="pscmd"></a>ps.cmd
 Visual Studio şablonları **./bin** klasöründe bir **ps.cmd** dosyası oluşturmuş olmalıdır. Bu kabuk betiği yukarıdaki PowerShell sarmalayıcı betiklerini çağırır ve çağrılan PowerShell sarmalayıcısının adına göre günlük kaydı yapar. Bu dosya oluşturulmadıysa içinde olması gerekenler aşağıda verilmiştir. 
 
 ```bat
@@ -319,7 +323,7 @@ Yapılandırma ayarları bittiğinde **Yayımla**’ya tıklayın.
 Dağıtımın tamamlanması birkaç dakika sürer, ardından web ve/veya çalışan rolleri Azure üzerinde çalışır!
 
 ### <a name="investigate-logs"></a>Günlükleri araştırma
-Bulut hizmeti sanal makinesi başlatılıp Python’u yükledikten sonra herhangi bir hata iletisini bulmak için günlüklere bakabilirsiniz. Bu günlükler **C:\Resources\Directory\{role}\LogFiles** klasöründe bulunur. Betiğin Python’un yüklü olup olmadığını algılamaya çalışmasından itibaren **PrepPython.err.txt** dosyasında en az bir hata olur ve **PipInstaller.err.txt** eskimiş bir pip sürümünü şikayet edebilir.
+Bulut hizmeti sanal makinesi başlatılıp Python’u yükledikten sonra herhangi bir hata iletisini bulmak için günlüklere bakabilirsiniz. Bu günlükler **C:\Resources\Directory\\{role}\LogFiles** klasöründe bulunur. Betiğin Python’un yüklü olup olmadığını algılamaya çalışmasından itibaren **PrepPython.err.txt** dosyasında en az bir hata olur ve **PipInstaller.err.txt** eskimiş bir pip sürümünü şikayet edebilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Visual Studio için Python Araçları’ndaki web ve çalışan rolleri ile çalışma hakkında daha ayrıntılı bilgi için PTVS belgelerine bakın:
@@ -328,11 +332,11 @@ Visual Studio için Python Araçları’ndaki web ve çalışan rolleri ile çal
 
 Web ve çalışan rollerinizden Azure Storage veya Service Bus gibi Azure hizmetlerini kullanma hakkında daha ayrıntılı bilgi için aşağıdaki makalelere göz atın.
 
-* [BLOB Hizmeti][BLOB Hizmeti]
+* [Blob Hizmeti][Blob Hizmeti]
 * [Tablo Hizmeti][Tablo Hizmeti]
 * [Kuyruk Hizmeti][Kuyruk Hizmeti]
 * [Service Bus Kuyrukları][Service Bus Kuyrukları]
-* [Service Bus Konu Başlıkları][Service Bus Konu Başlıkları]
+* [Service Bus Konuları][Service Bus Konuları]
 
 <!--Link references-->
 
@@ -346,7 +350,7 @@ Web ve çalışan rollerinizden Azure Storage veya Service Bus gibi Azure hizmet
 [Kuyruk Hizmeti]: ../storage/storage-python-how-to-use-queue-storage.md
 [Tablo Hizmeti]: ../storage/storage-python-how-to-use-table-storage.md
 [Service Bus Kuyrukları]: ../service-bus-messaging/service-bus-python-how-to-use-queues.md
-[Service Bus Konu Başlıkları]: ../service-bus-messaging/service-bus-python-how-to-use-topics-subscriptions.md
+[Service Bus Konuları]: ../service-bus-messaging/service-bus-python-how-to-use-topics-subscriptions.md
 
 
 <!--External Link references-->
@@ -361,6 +365,6 @@ Web ve çalışan rollerinizden Azure Storage veya Service Bus gibi Azure hizmet
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

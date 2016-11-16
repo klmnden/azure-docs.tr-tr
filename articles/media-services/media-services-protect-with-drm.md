@@ -1,12 +1,12 @@
 ---
-title: PlayReady ve/veya Widevine dinamik ortak şifreleme kullanma | Microsoft Docs
-description: Microsoft Azure Media Services, Microsoft PlayReady DRM korumalı MPEG-DASH, Kesintisiz Akış ve Http Canlı Akış (HLS) akışlar sunmanıza olanak sağlar. Ayrıca, Widevine DRM ile şifrelenmiş DASH teslim etmenizi sağlar. Bu konuda, PlayReady ve Widevine DRM ile nasıl dinamik olarak şifreleme yapılacağı gösterilmektedir.
+title: "PlayReady ve/veya Widevine dinamik ortak şifreleme kullanma | Microsoft Belgeleri"
+description: "Microsoft Azure Media Services, Microsoft PlayReady DRM korumalı MPEG-DASH, Kesintisiz Akış ve Http Canlı Akış (HLS) akışlar sunmanıza olanak sağlar. Ayrıca, Widevine DRM ile şifrelenmiş DASH teslim etmenizi sağlar. Bu konuda, PlayReady ve Widevine DRM ile nasıl dinamik olarak şifreleme yapılacağı gösterilmektedir."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 548d1a12-e2cb-45fe-9307-4ec0320567a2
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/27/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 59c0b46015b3d112d17dd79a2a4bfd3b3165dfba
+
 
 ---
-# PlayReady ve/veya Widevine dinamik ortak şifreleme kullanma
+# <a name="using-playready-andor-widevine-dynamic-common-encryption"></a>PlayReady ve/veya Widevine dinamik ortak şifreleme kullanma
 > [!div class="op_single_selector"]
 > * [.NET](media-services-protect-with-drm.md)
 > * [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
@@ -41,10 +45,10 @@ Bu konu, PlayReady ve Widevine benzeri birden çok DRM ile korunan medya teslim 
 > 
 > 
 
-## Örnek indirme
+## <a name="download-sample"></a>Örnek indirme
 Bu makalede açıklanan örneği [buradan](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm) indirebilirsiniz.
 
-## Dinamik Ortak Şifreleme ve DRM Lisans Teslimat Hizmetlerini Yapılandırma
+## <a name="configuring-dynamic-common-encryption-and-drm-license-delivery-services"></a>Dinamik Ortak Şifreleme ve DRM Lisans Teslimat Hizmetlerini Yapılandırma
 Media Services lisans teslimat hizmeti ve dinamik şifreleme kullanarak PlayReady ile varlıklarınızı korurken gerçekleştirmeniz gereken genel adımlar aşağıdadır.
 
 1. Bir varlık oluşturun ve dosyaları varlığa yükleyin.
@@ -68,32 +72,32 @@ Aşağıdaki görüntüde, yukarıda açıklanan iş akışı gösterilmektedir.
 
 Bu konunun geri kalanı, yukarıda açıklanan görevlerin nasıl yerine getirileceğini gösteren ayrıntılı açıklamalar, kod örnekleri ve başka konulara bağlantılar sağlamaktadır.
 
-## Geçerli sınırlamalar
+## <a name="current-limitations"></a>Geçerli sınırlamalar
 Bir varlık teslim ilkesi ekler veya ilkeyi güncelleştirirseniz, ilişkili bulucuyu (varsa) silip yeni bir bulucu oluşturmanız gerekir.
 
 Azure Media Services aracılığıyla Widevine ile şifrelerken sınırlama: Şu anda, birden çok içerik anahtarı desteklenmemektedir.
 
-## Varlık oluşturma ve dosyaları varlığa yükleme
+## <a name="create-an-asset-and-upload-files-into-the-asset"></a>Varlık oluşturma ve dosyaları varlığa yükleme
 Videolarınızı yönetmek, kodlamak ve akışla aktarmak için önce içeriğinizi Microsoft Azure Media Services’e yüklemeniz gerekir. Yüklenmesinin ardından içeriğiniz, sonraki işleme ve akışla aktarma faaliyetleri için güvenli bir şekilde bulutta depolanır.
 
 Ayrıntılı bilgi için bkz. [Media Services hesabına dosya yükleme](media-services-dotnet-upload-files.md).
 
-## Dosyayı içeren varlığı, bit hızı uyarlamalı MP4 kümesine kodlayın.
+## <a name="encode-the-asset-containing-the-file-to-the-adaptive-bitrate-mp4-set"></a>Dosyayı içeren varlığı, bit hızı uyarlamalı MP4 kümesine kodlayın.
 Dinamik şifreleme ile tek ihtiyacınız, bir grup çoklu bit hızlı MP4 dosyası ya da çoklu bit hızlı Kesintisiz Akış kaynak dosyası içeren bir varlık oluşturmaktır. Ardından, bildirimde ve parça isteğindeki belirtilen biçime bağlı olarak, İsteğe Bağlı Akış sunucusu akışı seçtiğiniz protokolde almanızı sağlar. Bunu sonucunda, dosyaları yalnızca tek bir depolama biçiminde depolamanız ve buna göre ödeme yapmanız gerekir. Media Services hizmeti, istemciden gelen isteklere göre uygun yanıtı derler ve sunar. Daha fazla bilgi için [Dinamik Paketlemeye Genel Bakış](media-services-dynamic-packaging-overview.md) konusuna bakın.
 
 Kodlama yönergeleri için bkz. [Medya Kodlayıcı Standart kullanarak bir varlık kodlama](media-services-dotnet-encode-with-media-encoder-standard.md).
 
-## <a id="create_contentkey"></a>Bir içerik anahtarı oluşturup kodlanmış varlıkla ilişkilendirme
+## <a name="a-idcreatecontentkeyacreate-a-content-key-and-associate-it-with-the-encoded-asset"></a><a id="create_contentkey"></a>Bir içerik anahtarı oluşturup kodlanmış varlıkla ilişkilendirme
 Media Services’de, içerik anahtarı bir varlığı şifrelerken kullanmak istediğiniz anahtarı içerir.
 
 Ayrıntılı bilgi için bkz. [İçerik anahtarı oluşturma](media-services-dotnet-create-contentkey.md).
 
-## <a id="configure_key_auth_policy"></a>İçerik anahtarının yetkilendirme ilkesini yapılandırma
+## <a name="a-idconfigurekeyauthpolicyaconfigure-the-content-keys-authorization-policy"></a><a id="configure_key_auth_policy"></a>İçerik anahtarının yetkilendirme ilkesini yapılandırma
 Media Services, anahtar isteğinde bulunan kullanıcıların kimlik doğrulamasını yapmanın birden çok yöntemini destekler. Anahtarın istemciye teslimi için, içerik anahtarı yetkilendirme ilkesinin tarafınızdan yapılandırılması ve istemci (oynatıcı) tarafından karşılanması gerekir. İçerik anahtarı yetkilendirme ilkesinin bir veya daha fazla yetkilendirme kısıtlaması olabilir: açık veya belirteç kısıtlaması.
 
 Ayrıntılı bilgi için bkz. [İçerik Anahtarı Yetkilendirme İlkesini Yapılandırma](media-services-dotnet-configure-content-key-auth-policy.md#playready-dynamic-encryption).
 
-## <a id="configure_asset_delivery_policy"></a>Varlık teslim ilkesini yapılandırma
+## <a name="a-idconfigureassetdeliverypolicyaconfigure-asset-delivery-policy"></a><a id="configure_asset_delivery_policy"></a>Varlık teslim ilkesini yapılandırma
 Varlığınıza ilişkin teslim ilkesini yapılandırın. Varlık teslim ilkesi yapılandırmasının içerdiklerinden bazıları şunlardır:
 
 * DRM lisans edinme URL'si. 
@@ -102,7 +106,7 @@ Varlığınıza ilişkin teslim ilkesini yapılandırın. Varlık teslim ilkesi 
 
 Ayrıntılı bilgi için bkz. [Varlık teslim ilkesini yapılandırma](media-services-rest-configure-asset-delivery-policy.md).
 
-## <a id="create_locator"></a>Akış URL’si almak için bir OnDemand akış bulucusu oluşturma
+## <a name="a-idcreatelocatoracreate-an-ondemand-streaming-locator-in-order-to-get-a-streaming-url"></a><a id="create_locator"></a>Akış URL’si almak için bir OnDemand akış bulucusu oluşturma
 Kesintisiz, DASH veya HLS için kullanıcınıza akış URL'sini sağlamanız gerekir.
 
 > [!NOTE]
@@ -112,7 +116,7 @@ Kesintisiz, DASH veya HLS için kullanıcınıza akış URL'sini sağlamanız ge
 
 Varlık yayımlama ve akış URL'si oluşturma yönergeleri için bkz. [Akış URL'si oluşturma](media-services-deliver-streaming-content.md).
 
-## Test belirteci alma
+## <a name="get-a-test-token"></a>Test belirteci alma
 Anahtar yetkilendirme ilkesi için kullanılan belirteç kısıtlamasına dayalı olarak bir test belirteci alın.
 
     // Deserializes a string containing an Xml representation of a TokenRestrictionTemplate
@@ -129,7 +133,7 @@ Anahtar yetkilendirme ilkesi için kullanılan belirteç kısıtlamasına dayal�
 
 Akışınızı test etmek için [AMS Oynatıcısı](http://amsplayer.azurewebsites.net/azuremediaplayer.html)’nı kullanabilirsiniz.
 
-## <a id="example"></a>Örnek
+## <a name="a-idexampleaexample"></a><a id="example"></a>Örnek
 Aşağıdaki örnek, .Net için Azure Media Services SDK’sı Sürüm 3.5.2’de tanıtılan işlevleri göstermektedir (özellikle, Widevine lisans şablonu tanımlama ve Azure Media Services’den Widevine lisansı isteme yeteneği). Paketi yüklemek için aşağıdaki Nuget paketi komutu kullanıldı:
 
     PM> Install-Package windowsazure.mediaservices -Version 3.5.2
@@ -306,7 +310,7 @@ Aşağıdaki örnek, .Net için Azure Media Services SDK’sı Sürüm 3.5.2’d
 
                     ITask encodeTask = job.Tasks.AddNew("Encoding", latestMediaProcessor, encodingPreset, TaskOptions.None);
                     encodeTask.InputAssets.Add(inputAsset);
-                    encodeTask.OutputAssets.AddNew(String.Format("{0} as {1}", inputAsset.Name, encodingPreset),    AssetCreationOptions.StorageEncrypted);
+                    encodeTask.OutputAssets.AddNew(String.Format("{0} as {1}", inputAsset.Name, encodingPreset),     AssetCreationOptions.StorageEncrypted);
 
                     job.StateChanged += new EventHandler<JobStateChangedEventArgs>(JobStateChanged);
                     job.Submit();
@@ -600,21 +604,24 @@ Aşağıdaki örnek, .Net için Azure Media Services SDK’sı Sürüm 3.5.2’d
         }
 
 
-## Sonraki adım
+## <a name="next-step"></a>Sonraki adım
 Media Services öğrenme yollarını gözden geçirin.
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## Geri bildirimde bulunma
+## <a name="provide-feedback"></a>Geri bildirimde bulunma
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-## Ayrıca bkz.
-[Çoklu DRM ve Erişim Denetimi ile CENC](media-services-cenc-with-multidrm-access-control.md)
+## <a name="see-also"></a>Ayrıca bkz.
+[Çoklu DRM ve Access Control ile CENC](media-services-cenc-with-multidrm-access-control.md)
 
 [AMS ile Widevine paketlemeyi yapılandırma](http://mingfeiy.com/how-to-configure-widevine-packaging-with-azure-media-services)
 
-[Azure Media Services’de Google Widevine lisans teslim hizmetleri ile tanışın](https://azure.microsoft.com/blog/announcing-general-availability-of-google-widevine-license-services/)
+[Azure Media Services’ta Google Widevine lisans teslim hizmetleri ile tanışın](https://azure.microsoft.com/blog/announcing-general-availability-of-google-widevine-license-services/)
 
-<!--HONumber=Sep16_HO5-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

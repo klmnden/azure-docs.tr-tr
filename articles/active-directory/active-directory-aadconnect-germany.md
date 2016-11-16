@@ -1,13 +1,13 @@
 ---
-title: Microsoft Bulut Almanya’da Azure AD Connect
-description: Azure AD Connect, şirket içi dizinlerinizi Azure Active Directory ile tümleştirir. Bu sayede Azure AD ile tümleşik Office 365, Azure ve SaaS uygulamaları için ortak bir kimlik oluşturabilirsiniz.
-keywords: Azure AD Connect’e giriş, Azure AD Connect’e genel bakış, Azure AD Connect nedir, active directory yükleme, Almanya, Black Forest
+title: "Microsoft Bulut Almanya’da Azure AD Connect"
+description: "Azure AD Connect, şirket içi dizinlerinizi Azure Active Directory ile tümleştirir. Bu sayede Azure AD ile tümleşik Office 365, Azure ve SaaS uygulamaları için ortak bir kimlik oluşturabilirsiniz."
+keywords: "Azure AD Connect’e giriş, Azure AD Connect’e genel bakış, Azure AD Connect nedir, active directory yükleme, Almanya, Black Forest"
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: billmath
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 2bcb0caf-5d97-46cb-8c32-bda66cc22dad
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,10 +15,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/08/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 32feb93bf6b6b77d0b14206802c776da3a8eac91
+
 
 ---
-# Microsoft Bulut Almanya’da Azure AD Connect - Genel Önizleme
-## Giriş
+# <a name="azure-ad-connect-in-microsoft-cloud-germany-public-preview"></a>Microsoft Bulut Almanya’da Azure AD Connect - Genel Önizleme
+## <a name="introduction"></a>Giriş
 Azure AD Connect, şirket içi Active Directory’niz ile Azure Active Directory arasında eşitleme sağlar.
 Şu anda [Microsoft Bulut Almanya](https://www.microsoft.com/de-de/cloud/deutschland/default.aspx)’daki senaryoların çoğunun operatör tarafından yürütülmesi gerekmektedir. Microsoft Bulut Almanya’yı kullanırken aşağıdakilerin farkında olmanız gerekir:
 
@@ -33,10 +37,10 @@ Azure AD Connect, şirket içi Active Directory’niz ile Azure Active Directory
   * Otomatik güncelleştirmeler
   * Parola geri yazma
 
-## İndir
+## <a name="download"></a>İndir
 Azure AD Connect’i portalın içerisindeki Azure AD Connect dikey penceresinden indirebilirsiniz.  Azure AD Connect dikey penceresini bulmak için aşağıdaki yönergeleri kullanın.
 
-### Azure AD Connect Dikey Penceresi
+### <a name="the-azure-ad-connect-blade"></a>Azure AD Connect Dikey Penceresi
 Azure portalda oturum açtıktan sonra şunları yapın:
 
 1. Gözat’a gidin
@@ -55,12 +59,15 @@ Aşağıdaki tabloda, dikey pencerede gösterilen özellikler açıklanmaktadır
 | SON EŞİTLEME |Başarılı bir eşitlemenin tamamlandığı en son zaman. |
 | FEDERASYON ETKİ ALANLARI |Şu anda yapılandırılmış durumda olan federasyon etki alanlarının sayısını gösterir. |
 
-## Yükleme
+## <a name="installation"></a>Yükleme
 Azure AD Connect'i yüklemek için [buradaki](active-directory-aadconnect.md#install-azure-ad-connect) belgeleri kullanabilirsiniz.
 
-## Gelişmiş özellikler ve Ek Bilgiler
+## <a name="advanced-features-and-additional-information"></a>Gelişmiş özellikler ve Ek Bilgiler
 Özel ayarlar veya gelişmiş yapılandırmalar hakkında ek bilgiler ya da kılavuzluk edinmek için [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md) (Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme) makalesinden başlayın.  Bu sayfada, bilgiler ve ek rehberlik sağlayan diğer sayfalara bağlantılar bulabilirsiniz.
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

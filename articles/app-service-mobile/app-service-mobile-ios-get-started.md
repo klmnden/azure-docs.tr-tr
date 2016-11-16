@@ -1,12 +1,12 @@
 ---
-title: Azure App Service Mobile Apps’de iOS uygulaması oluşturma | Microsoft Docs
-description: Objective-C ya da Swift’te iOS geliştirme için Azure mobil uygulaması arka uçlarını kullanmaya başlamak için bu öğreticiden yararlanın.
+title: "Azure Uygulama Hizmeti Mobile Apps’de iOS uygulaması oluşturma | Microsoft Belgeleri"
+description: "Objective-C ya da Swift’te iOS geliştirme için Azure mobil uygulaması arka uçlarını kullanmaya başlamak için bu öğreticiden yararlanın."
 services: app-service\mobile
 documentationcenter: ios
-author: yuaxu
+author: ysxu
 manager: yochayk
-editor: ''
-
+editor: 
+ms.assetid: 6461a899-9340-42dd-b118-ffc5ba00e846
 ms.service: app-service-mobile
 ms.workload: na
 ms.tgt_pltfrm: mobile-ios
@@ -14,26 +14,28 @@ ms.devlang: objective-c
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: yuaxu
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 6839bcaca7170aa62773303310b69b2a73b631a6
+
 
 ---
-# iOS uygulaması oluşturma
+# <a name="create-an-ios-app"></a>iOS uygulaması oluşturma
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
-## Genel Bakış
+## <a name="overview"></a>Genel Bakış
 Bu öğreticide, bir iOS uygulamasına bulut tabanlı arka uç hizmeti olan [Azure Mobile Apps](app-service-mobile-value-prop.md)’i nasıl ekleyeceğiniz gösterilmiştir. Önce yeni bir mobil arka uç oluşturacağız. Ardından, Azure’da verileri depolamak için basit bir *Yapılacaklar listesi* iOS uygulaması kullanacağız.
 
 Bu öğreticiyi tamamlamak için bir [Mac bilgisayar](https://azure.microsoft.com/pricing/free-trial/) ve Azure hesabınızın olması gerekir
 
-## Adım I: Yeni bir Azure mobil uygulama arka ucu oluşturma
+## <a name="step-i-create-a-new-azure-mobile-app-backend"></a>Adım I: Yeni bir Azure mobil uygulama arka ucu oluşturma
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-## Adım II: Arka uç projesini yapılandırma
+## <a name="step-ii-configure-the-backend-project"></a>Adım II: Arka uç projesini yapılandırma
 [!INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
-## Adım III: iOS uygulamasını indirme ve çalıştırma
+## <a name="step-iii-download-and-run-the-ios-app"></a>Adım III: iOS uygulamasını indirme ve çalıştırma
 [!INCLUDE [app-service-mobile-ios-run-app](../../includes/app-service-mobile-ios-run-app.md)]
-
-<!-- Images. -->
 
 <!-- URLs -->
 [Azure portal]: https://portal.azure.com/
@@ -42,6 +44,6 @@ Bu öğreticiyi tamamlamak için bir [Mac bilgisayar](https://azure.microsoft.co
 
 
 
-<!--HONumber=Oct16_HO1-->
+<!--HONumber=Nov16_HO2-->
 
 

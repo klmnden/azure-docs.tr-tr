@@ -40,11 +40,11 @@
 ### [Otomasyonu kullanarak yönetme](automation-manage-api-management.md)
 ### [Git kullanarak yapılandırma](api-management-configuration-repository-git.md)
 #Başvuru
-## [Şablonlar](https://msdn.microsoft.com/en-us/library/azure/mt697540)
-## [Hizmet dağıtımı PowerShell cmdlet başvurusu](https://msdn.microsoft.com/en-us/library/azure/mt619282)
+## [Kaynak Yönetimi PowerShell cmdlet'i]/powershell/resourcemanager()
+## [Klasik dağıtım PowerShell cmdlet'i başvurusu](https://msdn.microsoft.com/en-us/library/azure/mt613507)
+## [REST API](/rest/api/apimanagement/)
 ## [İlkeler](https://msdn.microsoft.com/en-us/library/azure/dn894081)
-## [REST API](https://msdn.microsoft.com/en-us/library/azure/dn776326)
-## [Hizmet yönetimi PowerShell cmdlet'i](https://msdn.microsoft.com/en-us/library/azure/mt613507)
+## [Şablonlar](https://msdn.microsoft.com/en-us/library/azure/mt697540)
 #Kaynaklar
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/api-management/)
 ## [Teknik İnceleme: Bulut tabanlı API Management](http://j.mp/ms-apim-whitepaper)

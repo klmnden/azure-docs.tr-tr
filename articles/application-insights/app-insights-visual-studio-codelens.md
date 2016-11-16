@@ -1,21 +1,25 @@
 ---
-title: Visual Studio CodeLens’te Application Insights telemetrisi | Microsoft Docs
-description: Application Insights istek ve özel durum telemetrinize Visual Studio’daki CodeLens ile hızlıca erişin.
+title: "Visual Studio CodeLens’te Application Insights telemetrisi | Microsoft Belgeleri"
+description: "Application Insights istek ve özel durum telemetrinize Visual Studio’daki CodeLens ile hızlıca erişin."
 services: application-insights
 documentationcenter: .net
 author: numberbycolors
 manager: douge
-
+ms.assetid: 93559e44-23cb-4b9d-8425-60f7f0d0a82c
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/30/2016
+ms.date: 11/14/2016
 ms.author: daviste
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: a42d55df223c25a26111bbcc05628ff7f4ff7204
+
 
 ---
-# Visual Studio CodeLens’te Application Insights telemetrisi
+# <a name="application-insights-telemetry-in-visual-studio-codelens"></a>Visual Studio CodeLens’te Application Insights telemetrisi
 Web uygulamanızın kodundaki yöntemlere, çalışma zamanı özel durumları ve istek yanıt süreleri hakkında telemetri ile açıklama eklenebilir. [Visual Studio Application Insights](app-insights-overview.md)’ı uygulamanıza yüklerseniz telemetri Visual Studio [CodeLens](https://msdn.microsoft.com/library/dn269218.aspx) içinde (işlevin başvurulduğu yer sayısı veya düzenleyen kişi gibi yararlı bilgileri görmeye alışkın olduğunuz her bir işlevin üst kısmında) görünür.
 
 ![CodeLens](./media/app-insights-visual-studio-codelens/codelens-overview.png)
@@ -25,7 +29,7 @@ Web uygulamanızın kodundaki yöntemlere, çalışma zamanı özel durumları v
 > 
 > 
 
-## Application Insights verileri nerede bulunur
+## <a name="where-to-find-application-insights-data"></a>Application Insights verileri nerede bulunur
 Application Insights telemetrisini web uygulamanızın ortak istek yöntemlerinin CodeLens göstergeleri içinde arayın. CodeLens göstergeleri yöntemin ve diğer bildirimlerin üstünde C# ve Visual Basic code dillerinde gösterilir. Bir yöntem için Application Insights verileri mevcutsa "100 istek, %1 başarısız" veya "10 özel durum" gibi istek ve özel durum göstergeleri görürsünüz. Daha fazla ayrıntı için bir CodeLens göstergesine tıklayın. 
 
 > [!TIP]
@@ -33,7 +37,7 @@ Application Insights telemetrisini web uygulamanızın ortak istek yöntemlerini
 > 
 > 
 
-## CodeLens’teki özel durumlar
+## <a name="exceptions-in-codelens"></a>CodeLens’teki özel durumlar
 ![TBD](./media/app-insights-visual-studio-codelens/codelens-exceptions.png)
 
 CodeLens özel durum göstergesi, yöntemin sunduğu isteği işlerken son 24 içinde uygulamanızda en sık gerçekleşen 15 özel durumdan birkaç tanesini gösterir.
@@ -55,7 +59,7 @@ Daha fazla ayrıntı için CodeLens özel durum göstergesine tıklayın:
 > 
 > 
 
-## CodeLens’teki istekler
+## <a name="requests-in-codelens"></a>CodeLens’teki istekler
 ![TBD](./media/app-insights-visual-studio-codelens/codelens-requests.png)
 
 CodeLens istek göstergesi son 24 saat içinde bir yöntemin sunduğu HTTP isteklerinin sayısını ve başarısız olan isteklerin yüzdesini gösterir.
@@ -68,13 +72,16 @@ Daha fazla ayrıntı için CodeLens istek göstergesine tıklayın:
 * Son 24 saatte gerçekleşen istek, başarısız istek veya ortalama yanıt sürelerine ilişkin bir eğilim görselini görüntülemek için **Eğilim**’i seçin.
 * CodeLens verilerinin kaynağını değiştirmek için CodeLens ayrıntılı görünümünün sol üst köşesinden Application Insights kaynağının adını seçin.
 
-## <a name="next"></a>Sonraki adımlar
+## <a name="a-namenextanext-steps"></a><a name="next"></a>Sonraki adımlar
 |  |  |
 | --- | --- |
-| **[Visual Studio’da Application Insights ile çalışma](app-insights-visual-studio.md)**<br/>Telemetri arayın, CodeLens içindeki verilere bakın ve Application Insights’ı yapılandırın. Hepsi Visual Studio’da. |![Projeye sağ tıklayın ve Application Insights, Ara’yı seçin](./media/app-insights-visual-studio-trends/34.png) |
-| **[Daha fazla veri ekleme](app-insights-asp-net-more.md)**<br/>Kullanımı, kullanılabilirliği, bağımlılıkları, özel durumları izleyin. Günlük altyapılarından izlemeleri tümleştirin. Özel telemetri yazın. |![Visual studio](./media/app-insights-visual-studio-trends/64.png) |
-| **[Application Insights portalıyla çalışma](app-insights-dashboards.md)**<br/>Panolar, güçlü tanılama ve analiz araçları, uyarılar, uygulamanızın canlı bağımlılık haritası ve telemetriyi dışarı aktarma. |![Visual studio](./media/app-insights-visual-studio-trends/62.png) |
+| **[Visual Studio’da Application Insights ile çalışma](app-insights-visual-studio.md)**<br/>Telemetri arayın, CodeLens içindeki verilere bakın ve Application Insights’ı yapılandırın. Hepsi Visual Studio’da. |![Projeye sağ tıklayın ve Application Insights, Ara’yı seçin](./media/app-insights-visual-studio-codelens/34.png) |
+| **[Daha fazla veri ekleme](app-insights-asp-net-more.md)**<br/>Kullanımı, kullanılabilirliği, bağımlılıkları, özel durumları izleyin. Günlük altyapılarından izlemeleri tümleştirin. Özel telemetri yazın. |![Visual studio](./media/app-insights-visual-studio-codelens/64.png) |
+| **[Application Insights portalıyla çalışma](app-insights-dashboards.md)**<br/>Panolar, güçlü tanılama ve analiz araçları, uyarılar, uygulamanızın canlı bağımlılık haritası ve telemetriyi dışarı aktarma. |![Visual studio](./media/app-insights-visual-studio-codelens/62.png) |
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,63 +1,73 @@
 ---
-title: Azure şablonu kullanarak bir Linux VM oluşturma | Microsoft Docs
-description: Azure Resource Manager şablonu kullanarak Azure’da bir Linux VM oluşturun.
+title: "Azure şablonu kullanarak bir Linux VM oluşturma | Microsoft Belgeleri"
+description: "Azure Resource Manager şablonu kullanarak Azure’da bir Linux VM oluşturun."
 services: virtual-machines-linux
-documentationcenter: ''
+documentationcenter: 
 author: vlivech
 manager: timlt
-editor: ''
+editor: 
 tags: azure-service-management,azure-resource-manager
-
+ms.assetid: 721b8378-9e47-411e-842c-ec3276d3256a
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 08/17/2016
+ms.date: 10/24/2016
 ms.author: v-livech
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: ff7ea65c329a37acf8b2febb52fd140954d81e97
+
 
 ---
-# Bir Azure şablonu kullanarak bir Linux VM oluşturma
-Bu makalede, Azure’da bir Azure Şablonu kullanarak hızlı bir şekilde Linux Sanal Makine dağıtma gösterilir.  Bu makale için bir Azure hesabının ([ücretsiz deneme sürümü edinin](https://azure.microsoft.com/pricing/free-trial/)) yanı sıra, oturum açılmış (`azure login`) ve Resource Manager modunda (`azure config mode arm`) bir [Azure CLI'si](../xplat-cli-install.md) gereklidir.  [Azure portalını](virtual-machines-linux-quick-create-portal.md) veya [Azure CLI'sini](virtual-machines-linux-quick-create-cli.md) kullanarak da Linux VM'yi hızlı bir şekilde dağıtabilirsiniz.
+# <a name="create-a-linux-vm-using-an-azure-template"></a>Bir Azure şablonu kullanarak bir Linux VM oluşturma
+Bu makalede, Azure’da bir Azure Şablonu kullanarak nasıl hızlı bir şekilde Linux Sanal Makine dağıtacağınız gösterilmiştir.  Bu makale için şunlar gereklidir:
 
-## Hızlı Komut Özeti
-```bash
+* bir Azure hesabı ([ücretsiz deneme sürümü edinin](https://azure.microsoft.com/pricing/free-trial/)).
+* `azure login` ile oturum açılmış [Azure CLI'si](../xplat-cli-install.md).
+* Azure CLI'si, `azure config mode arm` Azure Resource Manager modunda *olmalıdır*.
+
+[Azure portal](virtual-machines-linux-quick-create-portal.md)’ı kullanarak da hızlı bir şekilde Linux VM şablonu dağıtabilirsiniz.
+
+## <a name="quick-command-summary"></a>Hızlı Komut Özeti
+```azurecli
 azure group create \
--n quicksecuretemplate \
--l eastus \
---template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json
+    -n myResourceGroup \
+    -l westus \
+    --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json
 ```
 
-## Ayrıntılı Kılavuz
+## <a name="detailed-walkthrough"></a>Ayrıntılı Kılavuz
 Şablonlar, kullanıcı adları ve ana bilgisayar adları gibi çalıştırma sırasında özelleştirmek istediğiniz ayarlarla Azure'da VM'ler oluşturmanızı sağlar. Bu makalede; SSH'ye açık, 22 numaralı bağlantı noktasına sahip bir ağ güvenlik grubu (NSG) ile birlikte Ubuntu VM'yi kullanarak bir Azure şablonu başlatıyoruz.
 
 Azure Resource Manager şablonları, bir defalık basit görevler (örneğin, bu makalede yapıldığı gibi bir Ubuntu VM'nin başlatılması) için kullanılabilen JSON dosyalarıdır.  Azure Şablonları; test, geliştirme veya üretim dağıtım yığını gibi tüm ortamların karmaşık Azure yapılandırmalarını oluşturmak için de kullanılabilir.
 
-## Linux VM’i oluşturma
-Aşağıdaki kod örneği [bu Azure Resource Manager şablonunu](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json) kullanarak bir kaynak grubu oluşturmak ve aynı zamanda bir SSH güvenlikli Linux VM dağıtmak için `azure group create` çağrısının nasıl gerçekleştireceğini açıklar. Örneğinizde ortamınıza özel adları kullanmanız gerektiğini unutmayın. Bu örnekte kaynak grubu adı olarak `quicksecuretemplate`, VM adı olarak `securelinux` ve alt etki alanı adı olarak `quicksecurelinux` kullanılır.
+## <a name="create-the-linux-vm"></a>Linux VM’i oluşturma
+Aşağıdaki kod örneği [bu Azure Resource Manager şablonunu](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json) kullanarak bir kaynak grubu oluşturmak ve aynı zamanda bir SSH güvenlikli Linux VM dağıtmak için `azure group create` çağrısının nasıl gerçekleştireceğini açıklar. Örneğinizde ortamınıza özel adları kullanmanız gerektiğini unutmayın. Bu örnekte, kaynak grubu adı olarak `myResourceGroup`, VM adı olarak ise `myVM` kullanılmıştır.
 
-```bash
+```azurecli
 azure group create \
--n quicksecuretemplate \
--l eastus \
---template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json
+    --name myResourceGroup \
+    --location westus \
+    --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json
 ```
 
-Çıktı
+Çıktı aşağıdaki çıktı bloğu gibi görünmelidir:
 
-```bash
+```azurecli
 info:    Executing command group create
-+ Getting resource group quicksecuretemplate
-+ Creating resource group quicksecuretemplate
-info:    Created resource group quicksecuretemplate
++ Getting resource group myResourceGroup
++ Creating resource group myResourceGroup
+info:    Created resource group myResourceGroup
 info:    Supply values for the following parameters
-sshKeyData: ssh-rsa AAAAB3Nza<..ssh public key text..>VQgwjNjQ== vlivech@azure
+sshKeyData: ssh-rsa AAAAB3Nza<..ssh public key text..>VQgwjNjQ== myAdminUser@myVM
 + Initializing template configurations and parameters
 + Creating a deployment
 info:    Created template deployment "azuredeploy"
-data:    Id:                  /subscriptions/<..subid text..>/resourceGroups/quicksecuretemplate
-data:    Name:                quicksecuretemplate
-data:    Location:            eastus
+data:    Id:                  /subscriptions/<..subid text..>/resourceGroups/myResourceGroup
+data:    Name:                myResourceGroup
+data:    Location:            westus
 data:    Provisioning State:  Succeeded
 data:    Tags: null
 data:
@@ -66,9 +76,12 @@ info:    group create command OK
 
 Bu örnekte, `--template-uri` parametresi kullanılarak bir VM dağıtıldı.  Ayrıca şablon dosyasının yolu ile birlikte `--template-file` parametresini bağımsız değişken şeklinde kullanarak bir şablonu indirebilir, yerel olarak oluşturabilir ve şablonun geçişini sağlayabilirsiniz. Azure CLI sizden şablon için gerekli parametreleri isteyecektir.
 
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 Daha sonra dağıtılacak uygulama altyapılarını keşfetmek için [şablon galerisi](https://azure.microsoft.com/documentation/templates/)nde arama yapın.
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

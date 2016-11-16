@@ -1,34 +1,39 @@
 ---
-title: Azure SQL Data Warehouse sorgulama (sqlcmd)| Microsoft Docs
-description: Azure SQL Data Warehouse’u sqlcmd Komut Satırı Yardımcı Programı ile sorgulama.
+title: "Azure SQL Veri Ambarı’nı sorgulama (sqlcmd)| Microsoft Belgeleri"
+description: "Azure SQL Data Warehouse’u sqlcmd Komut Satırı Yardımcı Programı ile sorgulama."
 services: sql-data-warehouse
 documentationcenter: NA
-author: sonyam
-manager: barbkess
-editor: ''
-
+author: barbkess
+manager: jhubbard
+editor: 
+ms.assetid: 6e2b69e5-4806-4e91-9ea1-e2b63bf28c46
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 09/06/2016
-ms.author: barbkess;sonyama
+ms.date: 10/31/2016
+ms.author: barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 1f2cf8003e46a1df30810a2594bc1d380bc13bcf
+
 
 ---
-# Azure SQL Data Warehouse sorgulama (sqlcmd)
+# <a name="query-azure-sql-data-warehouse-sqlcmd"></a>Azure SQL Data Warehouse sorgulama (sqlcmd)
 > [!div class="op_single_selector"]
 > * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 > * [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 > * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 > * [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
+> * [SSMS](sql-data-warehouse-query-ssms.md)
 > 
 > 
 
 Bu izlenecek yolda Azure SQL Veri Ambarı’nı sorgulamak için [sqlcmd][sqlcmd] komut satırı yardımcı programı kullanılır.  
 
-## 1. Bağlan
-**Sqlcmd** kullanmaya başlamadan önce komut istemini açın ve [sqlcmd][sqlcmd] öğesinden sonra SQL Veri Ambarı veritabanınızın bağlantı dizesini girin. Bağlantı dizesi için aşağıdaki parametreler gereklidir:
+## <a name="1-connect"></a>1. Bağlan
+[Sqlcmd][Sqlcmd] kullanmaya başlamadan önce komut istemini açın ve **sqlcmd** öğesinden sonra SQL Veri Ambarı veritabanınızın bağlantı dizesini girin. Bağlantı dizesi için aşağıdaki parametreler gereklidir:
 
 * **Server (-S):** `<`Sunucu Adı`>`.database.windows.net biçiminde belirtilmiş sunucu
 * **Database (-d):** Veritabanı adı.
@@ -36,7 +41,7 @@ Bu izlenecek yolda Azure SQL Veri Ambarı’nı sorgulamak için [sqlcmd][sqlcmd
 
 SQL Server Kimlik Doğrulamasını kullanmak için kullanıcı adı/parola parametrelerini eklemeniz gerekir:
 
-* **User (-U):** `<`Kullanıcı biçimindeki sunucu kullanıcısı`>`
+* **User (-U):** `<`Kullanıcı`>` biçimindeki sunucu kullanıcısı
 * **Password (-P):** Kullanıcıyla ilişkili parola.
 
 Örneğin, bağlantı dizeniz aşağıdaki gibi görünebilir:
@@ -60,7 +65,7 @@ C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -G -I
 > 
 > 
 
-## 2. Sorgu
+## <a name="2-query"></a>2. Sorgu
 Bağlantının ardından desteklenen herhangi bir Transact-SQL deyimini örnekte yayımlayabilirsiniz.  Bu örnekte sorgular etkileşimli modda gönderilir.
 
 ```sql
@@ -80,7 +85,7 @@ sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@sswor
 "SELECT name FROM sys.tables;" | sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I > .\tables.out
 ```
 
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 Sqlcmd’de kullanılabilen seçenekler hakkında daha fazla bilgi için bkz. [sqlcmd belgeleri][sqlcmd].
 
 <!--Image references-->
@@ -95,6 +100,6 @@ Sqlcmd’de kullanılabilen seçenekler hakkında daha fazla bilgi için bkz. [s
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

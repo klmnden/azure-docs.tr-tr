@@ -41,6 +41,8 @@ Azure portalında, bağlantıya giderek bağlantı durumunu görüntüleyebilirs
    
     ![Bağlantıyı doğrulayın](./media/vpn-gateway-verify-connection-rm-include/connectionsucceeded.png)
 
-<!--HONumber=Oct16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

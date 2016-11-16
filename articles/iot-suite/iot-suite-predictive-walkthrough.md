@@ -1,27 +1,31 @@
 ---
-title: Tahmine dayalı bakımda gezinme | Microsoft Docs
-description: Azure IoT önceden yapılandırılmış tahmine dayalı bakım çözümü gezintisi.
-services: ''
+title: "Tahmine dayalı bakım kılavuzu | Microsoft Belgeleri"
+description: "Azure IoT önceden yapılandırılmış tahmine dayalı bakım çözümü gezintisi."
+services: 
 suite: iot-suite
-documentationcenter: ''
+documentationcenter: 
 author: aguilaaj
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 3c48a716-b805-4c99-8177-414cc4bec3de
 ms.service: iot-suite
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/17/2016
+ms.date: 10/31/2016
 ms.author: araguila
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: ba48381f2c16a56e2e3f187017fbdbae09544e77
+
 
 ---
-# Önceden yapılandırılmış tahmine dayalı bakım çözümünde gezinme
-## Giriş
+# <a name="predictive-maintenance-preconfigured-solution-walkthrough"></a>Önceden yapılandırılmış tahmine dayalı bakım çözümünde gezinme
+## <a name="introduction"></a>Giriş
 IoT Paketi önceden yapılandırılmış tahmine dayalı bakım çözümü, arıza oluştuğu sırada noktayı tahmin eden iş senaryosu için uçtan uca bir çözümüdür. Bu önceden yapılandırılmış çözümü, bakım iyileştirmesi gibi etkinlikler için proaktif olarak kullanabilirsiniz. Çözüm, bir [Azure Machine Learning][lnk_machine_learning] çalışma alanı dahil olmak üzere önemli Azure IoT Paketi hizmetlerini birleştirir. Bu çalışma alanı, bir uçak motorunun Kalan Kullanım Ömrü’nü (RUL) öngörmek için genel bir örnek veri kümesini temel alan denemeler içerir. Bu çözüm, kendinize özel iş gereksinimlerinizi karşılayacak bir çözümü planlamanız ve uygulamanız amacıyla sizin için bir başlangıç noktası olarak IoT iş senaryosunu tam olarak uygular.
 
-## Mantıksal mimari
+## <a name="logical-architecture"></a>Mantıksal mimari
 Aşağıdaki diyagram önceden yapılandırılmış çözümün mantıksal bileşenlerinin ana hatların vermektedir:
 
 ![][img-architecture]
@@ -34,7 +38,7 @@ Yeşil öğe uçak motorunu temsil eden sanal cihazdır. Aşağıdaki bölümde 
 
 Gri öğeler, *cihaz yönetimi* becerilerini uygulayan bileşenleri temsil eder. Önceden yapılandırılmış tahmine dayalı bakım çözümü bu kaynakları hazırlamaz. Cihaz yönetimi hakkında daha fazla bilgi edinmek için [önceden yapılandırılmış uzaktan izleme çözümü][lnk-remote-monitoring] konusuna bakın.
 
-## Sanal cihazlar
+## <a name="simulated-devices"></a>Sanal cihazlar
 Önceden yapılandırılmış çözümde sanal cihaz uçak motorunu temsil eder. Çözüm, tek bir uçakla eşlenen 2 motorla sağlanır. Her motor dört tür telemetri yayar: Algılayıcı 9, Algılayıcı 11, Algılayıcı 14 ve Algılayıcı 15, Machine Learning modelinin bu motorun Kalan Kullanım Ömrü’nü (RUL) hesaplaması için gereken verileri sağlar. Her sanal cihaz IoT Hub'ına şu telemetri iletilerini gönderir:
 
 *Döngü sayısı*. Bir döngü, 2-10 saat arası değişken bir uzunluğa sahip olan ve uçuş sırasında her yarım saatte bir telemetri verilerinin yakalandığı tamamlanmış bir uçuşu temsil eder.
@@ -50,25 +54,25 @@ Sanal cihazlar IoT hub'ından gönderilen şu komutları işleyebilir:
 
 IoT hub'ı cihaz komut bildirim sağlar.
 
-## Azure Stream Analytics işi
+## <a name="azure-stream-analytics-job"></a>Azure Stream Analytics işi
 **İş: Telemetri**, gelen cihaz telemetrisi akışını iki durumu kullanarak çalıştırır. Önce, cihazlardan tüm telemetriyi seçer ve bu verileri web uygulamasında görselleştirildiği yerden blob depolamaya gönderir. İkinci durum, iki dakikalık kayan pencere üzerinde ortalama algılayıcı değerlerini ölçer ve bu verileri Olay hub'ı aracılığıyla **olay işlemcisi**’ne gönderir.
 
-## Olay işlemcisi
+## <a name="event-processor"></a>Olay işlemcisi
 **Olay işlemcisi**, tamamlanan bir döngü için ortalama algılayıcı değerlerini alır. Bu değerleri bir motorun RUL değerini hesaplaması için Machine Learning eğitilmiş modelinin kullanımına sunan bir API’ye geçirir.
 
-## Azure Machine Learning
+## <a name="azure-machine-learning"></a>Azure Machine Learning
 Özgün veri kümesinden modelin oluşturulması hakkında daha fazla bilgi için bkz. [Cortana Intelligence Gallery Tahmine Dayalı Bakım Şablonu][lnk-cortana-analytics].
 
-## Haydi dolaşmaya başlayalım
+## <a name="lets-start-walking"></a>Haydi dolaşmaya başlayalım
 Bu bölümde, çözüm bileşenlerinde gezineceksiniz; burada hedeflenen kullanım örneğini açıklanacak ve örnekler verilecektir.
 
-### Tahmine Dayalı Bakım Panosu
+### <a name="predictive-maintenance-dashboard"></a>Tahmine Dayalı Bakım Panosu
 Web uygulamasındaki bu sayfa PowerBI JavaScript denetimlerini (bkz. [PowerBI-visuals repository][lnk-powerbi]) kullanarak şunları görselleştirir:
 
 * Blob depolamada Stream Analytics işlerine ait çıktı verileri.
 * Uçak motoru başına RUL ve döngüsü sayısı.
 
-### Bulut çözümünün davranışını gözlemleme
+### <a name="observing-the-behavior-of-the-cloud-solution"></a>Bulut çözümünün davranışını gözlemleme
 Azure portalda sağlanan kaynaklarınızı görüntülemek için seçtiğiniz çözüm adına sahip kaynak grubuna gidin.
 
 ![][img-resource-group]
@@ -95,7 +99,7 @@ Benzetim 148 döngü için tam veri kümesinde çalışır, son RUL ve döngü d
 
 Benzetimi istediğiniz an durdurabilirsiniz; ancak, **Benzetimi Başlat**’a tıkladığınızda benzetim veri kümesinin başından başlayarak yeniden oynatılır.
 
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 Şimdi de değiştirmek istediğiniz önceden yapılandırılmış tahmine dayalı bakım çözümünü çalıştırıyorsunuz; bkz.[Önceden yapılandırılmış çözümleri özelleştirme kılavuzu][lnk-customize].
 
  [IoT Paketi - Başlık Altında - Tahmine Dayalı Bakım](http://social.technet.microsoft.com/wiki/contents/articles/33527.iot-suite-under-the-hood-predictive-maintenance.aspx) TechNet blog gönderisi önceden yapılandırılmış tahmine dayalı bakım çözümü hakkında ek ayrıntılar sağlar.
@@ -123,6 +127,6 @@ Benzetimi istediğiniz an durdurabilirsiniz; ancak, **Benzetimi Başlat**’a t�
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

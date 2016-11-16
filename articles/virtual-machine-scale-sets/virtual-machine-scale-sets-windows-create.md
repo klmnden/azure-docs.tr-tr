@@ -1,20 +1,24 @@
 ---
-title: PowerShell kullanarak Sanal Makine Ölçek Kümesi Oluşturma | Microsoft Docs
-description: PowerShell kullanarak Sanal Makine Ölçek Kümesi oluşturma
+title: "PowerShell kullanarak Sanal Makine Ölçek Kümesi Oluşturma | Microsoft Belgeleri"
+description: "PowerShell kullanarak Sanal Makine Ölçek Kümesi oluşturma"
 services: virtual-machine-scale-sets
-documentationcenter: ''
+documentationcenter: 
 author: davidmu1
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 7bb03323-8bcc-4ee4-9a3e-144ca6d644e2
 ms.service: virtual-machine-scale-sets
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/10/2016
+ms.date: 10/18/2016
 ms.author: davidmu
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 6d70338ebf918a3f9178a4f633dd46a607d72b1c
+
 
 ---
 # <a name="create-a-windows-virtual-machine-scale-set-using-azure-powershell"></a>Azure PowerShell kullanarak bir Windows sanal makine ölçek kümesi oluşturma
@@ -22,41 +26,18 @@ Bu adımlar bir Azure sanal makine ölçek kümesi oluşturmaya yönelik boşluk
 
 Bu makaledeki adımların uygulanması yaklaşık 30 dakika sürer.
 
-## <a name="step-1:-install-azure-powershell"></a>1. adım: Azure PowerShell'i yükleme
+## <a name="step-1-install-azure-powershell"></a>1. adım: Azure PowerShell'i yükleme
 Azure PowerShell’in en son sürümünü yükleme, aboneliğinizi seçme ve hesabınızda oturum açma hakkında bilgi almak için bkz. [Azure PowerShell’i yükleme ve yapılandırma](../powershell-install-configure.md).
 
-## <a name="step-2:-create-resources"></a>2. Adım: Kaynak oluşturma
+## <a name="step-2-create-resources"></a>2. Adım: Kaynak oluşturma
 Yeni ölçek kümeniz için gereken kaynakları oluşturun.
 
 ### <a name="resource-group"></a>Kaynak grubu
 Bir kaynak grubunda bir sanal makine ölçek kümesi yer almalıdır.
 
-1. Kullanılabilir konumların ve desteklenen hizmetlerin bir listesini alın:
+1. Kaynak yerleştirebileceğiniz kullanılabilir konumların bir listesini alın:
    
-        Get-AzureLocation | Sort Name | Select Name, AvailableServices
-   
-    Bu örnektekine benzer bir şey görmeniz gerekir:
-   
-        Name                AvailableServices
-        ----                -----------------
-        Australia East      {Compute, Storage, PersistentVMRole, HighMemory}
-        Australia Southeast {Compute, Storage, PersistentVMRole, HighMemory}
-        Brazil South        {Compute, Storage, PersistentVMRole, HighMemory}
-        Central India       {Compute, Storage, PersistentVMRole, HighMemory}
-        Central US          {Compute, Storage, PersistentVMRole, HighMemory}
-        East Asia           {Compute, Storage, PersistentVMRole, HighMemory}
-        East US             {Compute, Storage, PersistentVMRole, HighMemory}
-        East US 2           {Compute, Storage, PersistentVMRole, HighMemory}
-        Japan East          {Compute, Storage, PersistentVMRole, HighMemory}
-        Japan West          {Compute, Storage, PersistentVMRole, HighMemory}
-        North Central US    {Compute, Storage, PersistentVMRole, HighMemory}
-        North Europe        {Compute, Storage, PersistentVMRole, HighMemory}
-        South Central US    {Compute, Storage, PersistentVMRole, HighMemory}
-        South India         {Compute, Storage, PersistentVMRole, HighMemory}
-        Southeast Asia      {Compute, Storage, PersistentVMRole, HighMemory}
-        West Europe         {Compute, Storage, PersistentVMRole, HighMemory}
-        West India          {Compute, Storage, PersistentVMRole, HighMemory}
-        West US             {Compute, Storage, PersistentVMRole, HighMemory}
+        Get-AzureLocation | Sort Name | Select Name
 2. Sizin için en uygun konumu seçin, **$locName** değerini konum adıyla değiştirin ve ardından değişkeni oluşturun:
    
         $locName = "location name from the list, such as Central US"
@@ -132,36 +113,6 @@ Bir kaynak grubunda bir sanal makine ölçek kümesi yer almalıdır.
 4. Sanal ağı oluşturun:
    
         $vnet = New-AzureRmVirtualNetwork -Name $netName -ResourceGroupName $rgName -Location $locName -AddressPrefix 10.0.0.0/16 -Subnet $subnet
-
-### <a name="public-ip-address"></a>Genel IP adresi
-Bir ağ arabiriminin oluşturulabilmesi için genel bir IP adresi oluşturmanız gerekir.
-
-1. **$domName** değerini genel IP adresinizle kullanmak istediğiniz etki alanı ad etiketiyle değiştirin ve ardından değişkeni oluşturun:  
-   
-        $domName = "domain name label"
-   
-    Etiket yalnızca harf, rakam ve tire içerebilir ve son karakterin bir harf veya sayı olması gerekir.
-2. Adın benzersiz olup olmadığını test edin:
-   
-        Test-AzureRmDnsAvailability -DomainQualifiedName $domName -Location $locName
-   
-    Yanıt **True** ise önerdiğiniz ad benzersizdir.
-3. **$pipName** değerini genel IP adresi için kullanmak istediğiniz adla değiştirin ve ardından değişkeni oluşturun. 
-   
-        $pipName = "public ip address name"
-4. Genel IP adresini oluşturun:
-   
-        $pip = New-AzureRmPublicIpAddress -Name $pipName -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic -DomainNameLabel $domName
-
-### <a name="network-interface"></a>Ağ arabirimi
-Artık genel IP adresine sahip olduğunuza göre ağ arabirimini oluşturabilirsiniz.
-
-1. **$nicName** değerini ağ arabirimi için kullanmak istediğiniz adla değiştirin ve ardından değişkeni oluşturun: 
-   
-        $nicName = "network interface name"
-2. Ağ arabirimini oluşturun:
-   
-        $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
 
 ### <a name="configuration-of-the-scale-set"></a>Ölçek kümesinin yapılandırması
 Ölçek kümesi yapılandırması için gereken tüm kaynaklara sahip olduğunuza göre artık ölçek kümesini oluşturabiliriz.  
@@ -253,7 +204,7 @@ Son olarak, ölçek kümesini oluşturabilirsiniz.
         Location              : centralus
         Tags                  :
 
-## <a name="step-3:-explore-resources"></a>3. Adım: Kaynakları keşfetme
+## <a name="step-3-explore-resources"></a>3. Adım: Kaynakları keşfetme
 Oluşturduğunuz sanal makine ölçek kümesini keşfetmek için aşağıdaki kaynakları kullanın:
 
 * Azure portalı - Portal kullanılarak sınırlı miktarda bilgiye ulaşılabilir.
@@ -271,6 +222,9 @@ Oluşturduğunuz sanal makine ölçek kümesini keşfetmek için aşağıdaki ka
 * [Otomatik ölçeklendirme ve sanal makine ölçek kümeleri](virtual-machine-scale-sets-autoscale-overview.md) bölümündeki bilgileri kullanarak ölçek kümenizin otomatik ölçeklendirmesini ayarlamayı düşünün
 * [Sanal Makine Ölçek kümeleri ile dikey otomatik ölçeklendirme](virtual-machine-scale-sets-vertical-scale-reprovision.md) bölümünü gözden geçirerek dikey ölçeklendirme hakkında daha fazla bilgi edinin
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

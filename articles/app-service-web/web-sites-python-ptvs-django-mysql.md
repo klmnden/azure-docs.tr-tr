@@ -1,12 +1,12 @@
 ---
-title: Visual Studio için Python Araçları 2.2 ile Azure’da Django ve MySQL
-description: MySQL veritabanı örneğinde veri depolayan ve bunu Azure App Service Web Apps’e dağıtan bir Django web uygulaması oluşturmak için Visual Studio için Python Araçlarını kullanmayı öğrenin.
+title: "Visual Studio için Python Araçları 2.2 ile Azure’da Django ve MySQL"
+description: "MySQL veritabanı örneğinde veri depolayan ve bunu Azure App Service Web Apps’e dağıtan bir Django web uygulaması oluşturmak için Visual Studio için Python Araçlarını kullanmayı öğrenin."
 services: app-service\web
 documentationcenter: python
 author: huguesv
 manager: wpickett
-editor: ''
-
+editor: 
+ms.assetid: c60a50b5-8b5e-4818-a442-16362273dabb
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
@@ -14,12 +14,16 @@ ms.devlang: python
 ms.topic: get-started-article
 ms.date: 07/07/2016
 ms.author: huvalo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 759441c5d64ee59f13d50eb415fbaa884dd4821a
+
 
 ---
-# Visual Studio için Python Araçları 2.2 ile Azure’da Django ve MySQL
+# <a name="django-and-mysql-on-azure-with-python-tools-22-for-visual-studio"></a>Visual Studio için Python Araçları 2.2 ile Azure’da Django ve MySQL
 [!INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
 
-Bu öğreticide, PTVS örnek şablonlarından birini kullanarak basit yoklamalar web uygulaması oluşturmak için [Visual Studio için Python Araçları]’nı (PTVS) kullanacaksınız. Azure üzerinde barındırılan bir MySQL hizmetini kullanmayı, MySQL kullanmak için web uygulaması yapılandırmayı ve web uygulamasını [Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714)’te yayımlamayı öğreneceksiniz.
+Bu eğitmende, PTVS örnek şablonlarından birini kullanarak basit yoklamalar web uygulaması oluşturmak amacıyla [Visual Studio için Python Araçları](https://www.visualstudio.com/vs/python)’nı kullanacaksınız. Azure üzerinde barındırılan bir MySQL hizmetini kullanmayı, MySQL kullanmak için web uygulaması yapılandırmayı ve web uygulamasını [Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714)’te yayımlamayı öğreneceksiniz.
 
 > [!NOTE]
 > Bu öğreticide yer alan bilgiler aşağıdaki videoda da kullanılabilir:
@@ -30,11 +34,11 @@ Bu öğreticide, PTVS örnek şablonlarından birini kullanarak basit yoklamalar
 
 Azure Table Storage, MySQL ve SQL Database hizmetleriyle Bottle, Flask ve Django web altyapılarını kullanarak PTVS ile Azure Uygulama Hizmeti Web Apps geliştirmeyi kapsayan diğer makaleler için bkz. [Python Geliştirici Merkezi]. Bu makale App Service’e odaklanmakla birlikte, [Azure Cloud Services]’i geliştirirken adımlar benzerdir.
 
-## Ön koşullar
+## <a name="prerequisites"></a>Ön koşullar
 * Visual Studio 2015
 * [Python 2.7 32 bit] veya [Python 3.4 32 bit]
 * [Visual Studio için Python Araçları 2.2]
-* [Visual Studio Örnekleri VSIX için Python Tools 2.2]
+* [Visual Studio Örnekleri VSIX için Python Araçları 2.2]
 * [VS 2015 için Azure SDK Araçları]
 * Django 1.9 veya üzeri
 
@@ -47,7 +51,7 @@ Azure Table Storage, MySQL ve SQL Database hizmetleriyle Bottle, Flask ve Django
 > 
 > 
 
-## Proje oluşturma
+## <a name="create-the-project"></a>Proje oluşturma
 Bu bölümde, örnek şablonu kullanarak bir Visual Studio projesi oluşturacaksınız. Bir sanal ortam oluşturacak ve gerekli paketleri yükleyeceksiniz. Sqlite kullanarak yerel bir veritabanı oluşturacaksınız. Sonra uygulamayı yerel olarak çalışacaksınız.
 
 1. Visual Studio'da, **Dosya**, **Yeni Proje**’yi seçin.
@@ -76,7 +80,7 @@ Bu bölümde, örnek şablonu kullanarak bir Visual Studio projesi oluşturacaks
     
      ![Örnek Yoklamalarda Oy Verme](./media/web-sites-python-ptvs-django-mysql/PollsDjangoSqliteBrowser.png)
 
-## MySQL Veritabanı Oluşturma
+## <a name="create-a-mysql-database"></a>MySQL Veritabanı Oluşturma
 Veritabanı için, Azure’da ClearDB MySQL barındırılan veritabanı oluşturacaksınız.
 
 Alternatif olarak, Azure'da çalışan kendi sanal makinenizi oluşturabilir ve ardından MySQL’i kendiniz yönetebilirsiniz.
@@ -84,12 +88,12 @@ Alternatif olarak, Azure'da çalışan kendi sanal makinenizi oluşturabilir ve 
 Aşağıdaki adımları izleyerek, boş bir plan ile bir veritabanı oluşturabilirsiniz.
 
 1. [Azure Portal]’da oturum açın.
-2. Gezinti bölmesinin üst kısmında, **YENİ**’ye ve ardından **Veri + Depolama** ve de **MySQL Veritabanı**'na tıklayın. 
+2. Gezinti bölmesinin üst kısmında, **YENİ**’ye ve ardından **Veri + Depolama** ve de **MySQL Veritabanı**'na tıklayın.
 3. Yeni bir kaynak grubu oluşturarak yeni MySQL veritabanını yapılandırın ve bunun için uygun bir konum seçin.
 4. MySQL veritabanı oluşturulduktan sonra, veritabanı dikey penceresinde **Özellikler**’e tıklayın.
 5. **CONNECTION STRING** değerini panoya eklemek için kopyala düğmesini kullanın.
 
-## Projeyi Yapılandırma
+## <a name="configure-the-project"></a>Projeyi Yapılandırma
 Bu bölümde, az önce oluşturduğunuz MySQL veritabanını kullanmak için web uygulamamızı yapılandıracaksınız. Ayrıca MySQL veritabanlarını Django ile birlikte kullanmak için gerekli ek Python paketlerini de yükleyeceksiniz. Sonra, web uygulamasını yerel olarak çalıştıracaksınız.
 
 1. Visual Studio'da, *ProjectName* klasöründe **settings.py** dosyasını açın. Geçici olarak bağlantı dizesini düzenleyiciye yapıştırın. Bağlantı dizesi bu biçimdedir:
@@ -117,7 +121,7 @@ Bu bölümde, az önce oluşturduğunuz MySQL veritabanını kullanmak için web
     Bu, önceki bölümde oluşturduğunuz MySQL veritabanı için tablolar oluşturur. Bu makalenin ilk bölümünde oluşturulan sqlite veritabanındaki kullanıcıyla eşleşmesi gerekmeyen bir kullanıcı oluşturmak için istemleri takip edin.
 5. Uygulamayı `F5` ile çalıştırın. **Örnek Yoklamalar Oluştur** seçeneğiyle oluşturulan yoklamalar ve oy vermeyle gönderilen veriler MySQL veritabanında seri hale getirilir.
 
-## Web uygulamasını Azure App Service’te yayımlama
+## <a name="publish-the-web-app-to-azure-app-service"></a>Web uygulamasını Azure App Service’te yayımlama
 Azure .NET SDK’sı web uygulamanızı Azure App Service’te dağıtmanız için kolay bir yol sağlar.
 
 1. **Çözüm Gezgini**’nde, proje düğümüne sağ tıklayın ve **Yayımla**’yı seçin.
@@ -139,7 +143,7 @@ Azure .NET SDK’sı web uygulamanızı Azure App Service’te dağıtmanız iç
    
     Tebrikler! MySQL tabanlı web uygulamanızı başarıyla Azure’da yayımladınız.
 
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 Visual Studio, Django ve MySQL için Python Araçları hakkında daha fazla bilgi için bu bağlantıları izleyin.
 
 * [Visual Studio için Python Araçları Belgeleri]
@@ -154,18 +158,18 @@ Daha fazla bilgi için bkz. [Python Geliştirici Merkezi](/develop/python/).
 <!--Link references-->
 
 [Python Geliştirici Merkezi]: /develop/python/
-[Azure Cloud Services]: ../cloud-services-python-ptvs.md
+[Azure Cloud Services]: ../cloud-services/cloud-services-python-ptvs.md
 
 <!--External Link references-->
 
 [Azure Portal]: https://portal.azure.com
-[Visual Studio için Python Araçları]: http://aka.ms/ptvs
+[Visual Studio için Python Araçları]: https://www.visualstudio.com/vs/python/
 [Visual Studio için Python Araçları 2.2]: http://go.microsoft.com/fwlink/?LinkID=624025
-[Visual Studio Örnekleri VSIX için Python Tools 2.2]: http://go.microsoft.com/fwlink/?LinkID=624025
+[Visual Studio Örnekleri VSIX için Python Araçları 2.2]: http://go.microsoft.com/fwlink/?LinkID=624025
 [VS 2015 için Azure SDK Araçları]: http://go.microsoft.com/fwlink/?LinkId=518003
-[Python 2.7 32 bit]: http://go.microsoft.com/fwlink/?LinkId=517190 
+[Python 2.7 32 bit]: http://go.microsoft.com/fwlink/?LinkId=517190
 [Python 3.4 32 bit]: http://go.microsoft.com/fwlink/?LinkId=517191
-[Visual Studio Belgeleri için Python Araçları]: http://aka.ms/ptvsdocs
+[Visual Studio için Python Araçları Belgeleri]: http://aka.ms/ptvsdocs
 [Microsoft Azure’da Uzaktan Hata Ayıklama]: http://go.microsoft.com/fwlink/?LinkId=624026
 [Web Projeleri]: http://go.microsoft.com/fwlink/?LinkId=624027
 [Bulut Hizmeti Projeleri]: http://go.microsoft.com/fwlink/?LinkId=624028
@@ -175,6 +179,6 @@ Daha fazla bilgi için bkz. [Python Geliştirici Merkezi](/develop/python/).
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Nov16_HO2-->
 
 

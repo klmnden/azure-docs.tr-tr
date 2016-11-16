@@ -1,27 +1,31 @@
 ---
-title: Azure Active Directory ile ilgili SSS | Microsoft Docs
-description: Azure ve Azure Active Directory erişimine, parola yönetimine ve uygulama erişimine ilişkin sorulara yanıtlar sağlayan Azure Active Directory ile ilgili SSS.
+title: Azure Active Directory ile ilgili SSS | Microsoft Belgeleri
+description: "Azure ve Azure Active Directory erişimine, parola yönetimine ve uygulama erişimine ilişkin sorulara yanıtlar sağlayan Azure Active Directory ile ilgili SSS."
 services: active-directory
-documentationcenter: ''
-author: markusvi
+documentationcenter: 
+author: MarkusVi
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: b8207760-9714-4871-93d5-f9893de31c8f
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/16/2016
+ms.date: 10/31/2016
 ms.author: markusvi
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 0f7070d9d691e2471978a2986025ebfdafbeaa7c
+
 
 ---
-# Azure Active Directory ile ilgili SSS
+# <a name="azure-active-directory-faq"></a>Azure Active Directory ile ilgili SSS
 Azure Active Directory kimlik, erişim yönetimi ve güvenliği tüm yönleriyle kapsayan bir Identity as a Service (IDaaS) çözümüdür.
 
 Daha ayrıntılı bilgi için bkz. [Azure Active Directory Nedir?](active-directory-whatis.md).
 
-## Azure ve Azure Active Directory Erişimi
+## <a name="accessing-azure-and-azure-active-directory"></a>Azure ve Azure Active Directory Erişimi
 **S: Klasik Azure portalında (https://manage.windowsazure.com) Azure AD'ye erişmeye çalıştığımda neden "Abonelik bulunamadı" yanıtını alıyorum?**
 
 **Y:** Klasik Azure portalına erişebilmek için tüm kullanıcıların bir Azure aboneliğine yönelik izinlere sahip olması gerekir. Ücretli Office 365'e veya Azure AD'ye sahipseniz bir kerelik etkinleştirme adımı için [http://aka.ms/accessAAD](http://aka.ms/accessAAD) adresine gidin; aksi halde tam [Azure deneme sürümünü](https://azure.microsoft.com/pricing/free-trial/) veya ücretli aboneliği etkinleştirmeniz gerekir. 
@@ -41,7 +45,7 @@ Aslında, Microsoft Çevrimiçi hizmetleri için etkinleştirdiğiniz tüm kulla
 Ayrıca, Azure AD ücretli hizmetleri (ör. Azure AD temel, Premium, EMS vb.), kurumsal ölçekteki kapsamlı yönetim ve güvenlik çözümleri ile Office 365 ve Microsoft Azure gibi diğer Çevrimiçi hizmetler için tamamlayıcı niteliktedir.
 
 - - -
-## Karma Azure AD ile çalışmaya başlama
+## <a name="getting-started-with-hybrid-azure-ad"></a>Karma Azure AD ile çalışmaya başlama
 **S: Şirket içi dizinimi Azure AD'ye nasıl bağlayabilirim?**
 
 **Y:** Şirket içi dizininizi Azure AD'ye bağlamak için **Azure AD Connect**'i kullanabilirsiniz. 
@@ -72,7 +76,7 @@ Daha fazla bilgi için bkz. [Erişim Paneli'ne Giriş](active-directory-saas-acc
 Daha ayrıntılı bilgi için bkz. [Bulutta şirket içi kimlik altyapınızı ve eşitleme hizmetlerinizi izleme](active-directory-aadconnect-health.md).  
 
 - - -
-## Parola yönetimi
+## <a name="password-management"></a>Parola yönetimi
 **S: Azure AD parola geri yazma özelliğini parola eşitleme olmadan kullanabilir miyim? (Başka bir deyişle, Azure AD SSPR'yi parola geri yazma özelliğiyle kullanmak istiyorum ancak parolalarımın bulutta depolanmasını istemiyorum.)**
 
 **Y:** Geri yazmayı etkinleştirmek için AD parolalarınızı Azure AD ile eşitlemeniz gerekmez. Birleştirilmiş bir ortamda Azure AD SSO, kullanıcının kimliğini doğrulamak için şirket içi dizini kullanır. Bu senaryoda, şirket içi parolanın Azure AD'de izlenmesi gerekmez.
@@ -92,7 +96,7 @@ Daha ayrıntılı bilgi için bkz. [Parola Yönetimine Başlarken](active-direct
 Parola ile ilgili daha fazla soru yanıtı için bkz. [Parola Yönetimi ile ilgili Sık Sorulan Sorular](active-directory-passwords-faq.md).
 
 - - -
-## Uygulama erişimi
+## <a name="application-access"></a>Uygulama erişimi
 **S: Azure AD ile önceden tümleştirilmiş olan uygulamaların ve özelliklerinin listesini nereden bulabilirim?**
 
 **Y:** Azure AD, Microsoft'a, uygulama hizmeti sağlayıcılarına veya iş ortaklarına ait 2600'ü aşkın önceden tümleştirilmiş uygulama içerir. Önceden tümleştirilmiş tüm uygulamalar SSO'yu destekler. SSO, uygulamalarınıza erişmek için kurumsal kimlik bilgilerinizi kullanmanıza olanak tanır. Uygulamalardan bazıları aynı zamanda otomatik hazırlama ve sağlamayı kaldırma özelliklerini destekler
@@ -154,6 +158,9 @@ Daha ayrıntılı bilgi için bkz. [Office 365'e ve Azure Active Directory'ye ba
 Daha fazla bilgi için bkz. [Azure Active Directory ile SaaS Uygulamalarına Kullanıcı Hazırlama ve Sağlamayı Kaldırma İşlemlerini Otomatik Hale Getirme](active-directory-saas-app-provisioning.md)
 
 - - -
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

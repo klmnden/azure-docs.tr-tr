@@ -25,6 +25,8 @@ NuGet paketi, StackExchange.Redis önbellek istemcisiyle Azure Redis Önbelleği
 > 
 > 
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -2,16 +2,18 @@ Azure Redis Önbelleği örneğine bağlanmak için önbellek istemcileri için 
 
 ![Redis önbelleği ayarları](media/redis-cache-access-keys/redis-cache-settings.png)
 
-### Konak adı ve bağlantı noktaları
+### <a name="host-name-and-ports"></a>Konak adı ve bağlantı noktaları
 Konak adı ve bağlantı noktalarına erişmek için **Özellikler**’e tıklayın.
 
 ![Redis önbelleği özellikleri](media/redis-cache-access-keys/redis-cache-properties.png)
 
-### Erişim tuşları
+### <a name="access-keys"></a>Erişim tuşları
 Erişim tuşlarını almak için **Erişim anahtarları**’na tıklayın.
 
 ![Redis önbelleği erişim tuşları](media/redis-cache-access-keys/redis-cache-access-keys.png)
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

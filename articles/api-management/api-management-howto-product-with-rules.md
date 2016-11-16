@@ -1,22 +1,26 @@
 ---
-title: API’nizi Azure API Management ile koruma | Microsoft Docs
-description: API’nizi kotalar ve azaltma (hız sınırlama) ilkeleriyle korumayı öğrenin.
+title: "API’nizi Azure API Management ile koruma | Microsoft Belgeleri"
+description: "API’nizi kotalar ve azaltma (hız sınırlama) ilkeleriyle korumayı öğrenin."
 services: api-management
-documentationcenter: ''
+documentationcenter: 
 author: steved0x
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 450dc368-d005-401d-ae64-3e1a2229b12f
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/24/2016
+ms.date: 10/25/2016
 ms.author: sdanie
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 5050b99039da511ed3e6179b5b4ca2d04de527f7
+
 
 ---
-# API’nizi, Azure API Management kullanarak hız sınırlarıyla koruma | Microsoft Azure
+# <a name="protect-your-api-with-rate-limits-using-azure-api-management"></a>API’nizi, Azure API Management kullanarak hız sınırlarıyla koruma | Microsoft Azure
 Bu kılavuz size Azure API Management ile hız sınırı ve kota ilkeleri yapılandırarak arka uç API’niz için koruma eklemenin ne kadar kolay olduğunu gösterir.
 
 Bu öğreticide, geliştiricilerin [Abonelik başına çağrı hızını sınırla](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate) ve [Abonelik başına kullanım kotası ayarla](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota) ilkelerini kullanarak API’nize dakikada en fazla 10 ve haftada maksimum 200 çağrı yapmasını sağlayan “Ücretsiz Deneme” API ürünü oluşturacaksınız. Ardından, API yayımlayacak ve hız sınırı ilkesini test edeceksiniz.
@@ -31,11 +35,11 @@ Bu adımda, abonelik onayı gerektirmeyen bir Ücretsiz Deneme ürünü oluştur
 > 
 > 
 
-Kullanmaya başlamak üzere API Management hizmetiniz için Klasik Azure Portalı'nda **Yönet**’e tıklayın. Bu sizi API Management yayımcı portalına götürür.
+Kullanmaya başlamak için API Management hizmetiniz için Azure Portal'da **Yayımcı portalı**’na tıklayın.
 
 ![Yayımcı portalı][api-management-management-console]
 
-> Henüz bir API Management hizmeti örneği oluşturmadıysanız, [Azure API Management’te ilk API’nizi yönetme][Azure API Management’te ilk API’nizi yönetme] öğreticisinde [API Management hizmet örneği oluşturma][API Management hizmet örneği oluşturma]’ya bakın.
+> Henüz bir API Management hizmet örneği oluşturmadıysanız [Azure API Management’te ilk API’nizi yönetme][Azure API Management’te ilk API’nizi yönetme] öğreticisindeki [API Management hizmet örneği oluşturma][API Management hizmet örneği oluşturma] bölümüne bakın.
 > 
 > 
 
@@ -90,7 +94,7 @@ Soldaki **API Management** menüsünde **Ürünler**’e tıklayın ve ardından
 
 ![Echo API’si ekleme][api-management-add-echo-api]
 
-## <a name="policies"> </a>Çağrı hızı sınırı ve kota ilkelerini yapılandırmak için
+## <a name="policies"> </a>Çağrı hızı sınırını ve kota ilkelerini yapılandırmak için
 Hız sınırları ve kotalar ilke düzenleyicisinde yapılandırılır. Soldaki **API Management** menüsü altında **İlkeler**’e tıklayın. **Ürün** listesinde **Ücretsiz Deneme**’ye tıklayın.
 
 ![Ürün ilkesi][api-management-product-policy]
@@ -174,7 +178,7 @@ Kotalar aralık, bant genişliği ya da hem aralık hem de bant genişliği baş
 
 ![İlkeyi kaydetme][api-management-policy-save]
 
-## <a name="publish-product"> </a> Ürün yayımlamak için
+## <a name="publish-product"> </a> Ürünü yayımlamak için
 Artık API'ler eklendiğine ve ilkeler yapılandırıldığına göre, geliştiriciler tarafından kullanılması için ürünün yayımlanması gerekir. Soldaki **API Management** menüsünde **Ürünler**’e tıklayın ve ardından ürünü yapılandırmak için **Ücretsiz Deneme**’ye tıklayın.
 
 ![Ürünü yapılandırma][api-management-configure-product]
@@ -282,30 +286,30 @@ Dakikada 10 çağrılık hız sınırı ilkesi etkinken, hız sınırı aşılma
 [api-management-subscription-added]: ./media/api-management-howto-product-with-rules/api-management-subscription-added.png
 [api-management-add-subscription-multiple]: ./media/api-management-howto-product-with-rules/api-management-add-subscription-multiple.png
 
-[API’ye işlem ekleme]: api-management-howto-add-operations.md
+[API'ye işlem ekleme]: api-management-howto-add-operations.md
 [Ürün ekleme ve yayımlama]: api-management-howto-add-products.md
 [İzleme ve analiz]: ../api-management-monitoring.md
-[Bir ürüne API ekleme]: api-management-howto-add-products.md#add-apis
-[Bir ürün yayımlama]: api-management-howto-add-products.md#publish-product
+[Ürüne API ekleme]: api-management-howto-add-products.md#add-apis
+[Ürün yayımlama]: api-management-howto-add-products.md#publish-product
 [Azure API Management’te ilk API’nizi yönetme]: api-management-get-started.md
 [Azure API Management’te grupları oluşturma ve kullanma]: api-management-howto-create-groups.md
-[Bir ürüne abone olanları görüntüleme]: api-management-howto-add-products.md#view-subscribers
+[Bir ürünün abonelerini görüntüleme]: api-management-howto-add-products.md#view-subscribers
 [Azure API Management’i kullanmaya başlama]: api-management-get-started.md
 [API Management hizmet örneği oluşturma]: api-management-get-started.md#create-service-instance
 [Sonraki adımlar]: #next-steps
 
 [Ürün oluşturma]: #create-product
 [Çağrı hızı sınırı ve kota ilkeleri yapılandırma]: #policies
-[Ürüne bir API ekleme]: #add-api
-[Ürün yayımlama]: #publish-product
-[Bir geliştirici hesabını ürüne abone yapma]: #subscribe-account
-[Bir işlem çağırma ve hız sınırını test etme]: #test-rate-limit
+[Ürüne API ekleme]: #add-api
+[Ürünü yayımlama]: #publish-product
+[Geliştirici hesabını ürüne abone yapma]: #subscribe-account
+[İşlem çağırma ve hız sınırını test etme]: #test-rate-limit
 
 [Çağrı hızını sınırlama]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
 [Kullanım kotası ayarlama]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Nov16_HO2-->
 
 

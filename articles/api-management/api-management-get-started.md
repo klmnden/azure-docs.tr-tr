@@ -1,22 +1,26 @@
 ---
-title: İlk API’nizi Azure API Management’te Yönetme | Microsoft Docs
-description: API oluşturmayı ve işlemler eklemeyi öğrenin, API Management’i kullanmaya başlayın.
+title: "Azure API Management’ta ilk API’nizi yönetme | Microsoft Belgeleri"
+description: "API oluşturmayı ve işlemler eklemeyi öğrenin, API Management’i kullanmaya başlayın."
 services: api-management
-documentationcenter: ''
+documentationcenter: 
 author: steved0x
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 51b7df8b-1c43-43c6-90c9-0aa24f48206b
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 08/24/2016
+ms.date: 10/25/2016
 ms.author: sdanie
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 587c7346bcb8e6549febd3904c8d0a9e46cbc50a
+
 
 ---
-# İlk API’nizi Azure API Management’te Yönetme
+# <a name="manage-your-first-api-in-azure-api-management"></a>İlk API’nizi Azure API Management’te yönetme
 ## <a name="overview"> </a>Genel Bakış
 Bu kılavuz size Azure API Management’i hızlı bir şekilde nasıl kullanmaya başlayacağınızı ve ilk API çağrınızı yapmayı gösterir.
 
@@ -59,15 +63,13 @@ Sistem aşağıdaki bileşenlerden oluşur:
 > 
 > 
 
-API Management ile çalışmanın ilk adımı bir hizmet örneği oluşturmaktır. [Klasik Azure Portalı][Klasik Azure Portalı]’nda oturum açın ve **Yeni**, **Uygulama Hizmetleri**, **API Management**, **Oluştur**’a tıklayın.
+API Management ile çalışmanın ilk adımı bir hizmet örneği oluşturmaktır. [Azure Portal][Azure Portal]’da oturum açın ve **Yeni**, **Web + Mobil**, **API Management**’a tıklayın.
 
 ![Yeni API Management örneği][api-management-create-instance-menu]
 
-**URL** için, hizmet URL'sini kullanmak için bir benzersiz bir alt etki alanı adı belirtin.
+**Ad** alanında hizmet URL'si için kullanılacak benzersiz bir alt etki alanı adı belirtin.
 
-Hizmet örneğiniz için istediğiniz **Abonelik** ve **Bölge**’yi seçin. Seçimlerinizi yaptıktan sonra **Sonraki** düğmesine tıklayın.
-
-![Yeni API Management hizmeti][api-management-create-instance-step1]
+Hizmet örneğiniz için istediğiniz **Abonelik**, **Kaynak grubu** ve **Konum** seçeneklerini belirleyin.
 
 **Contoso Ltd.**’yi **Kuruluş Adı** olarak girin ve e-posta adresinizi **Yönetici E-postası** alanına girin.
 
@@ -76,22 +78,22 @@ Hizmet örneğiniz için istediğiniz **Abonelik** ve **Bölge**’yi seçin. Se
 > 
 > 
 
-![Yeni API Management hizmeti][api-management-create-instance-step2]
+![Yeni API Management hizmeti][api-management-create-instance-step1]
 
-API Management hizmeti örnekleri üç katmanda kullanılabilir: Geliştirici, Standart ve Premium. Varsayılan olarak, yeni API Management hizmeti örnekleri Geliştirici katmanında oluşturulur. Standart veya Premium katmanı seçmek için **Gelişmiş Ayarlar** onay kutusunu işaretleyin ve çıkan ekranda istediğiniz katmanı seçin.
+API Management hizmeti örnekleri üç katmanda kullanılabilir: Geliştirici, Standart ve Premium.
 
 > [!NOTE]
 > Geliştirici Katmanı; geliştirme, test ve yüksek kullanılabilirliğin gerekli görülmediği pilot API programları içindir. Standart ve Premium katmanlarda, daha fazla trafik işlemek için ayrılmış birim sayınızı ölçeklendirebilirsiniz. Standart ve Premium katmanlar, API Management hizmetinize en fazla işlem gücü ve performans sağlar. Bu öğreticiyi herhangi bir katmanı kullanarak tamamlayabilirsiniz. API Management katmanları hakkında daha fazla bilgi için bkz. [API Management fiyatlandırması][API Management fiyatlandırması].
 > 
 > 
 
-Hizmet örneğinizi oluşturmak için bu onay kutusuna tıklayın.
+Hizmet örneğinizi sağlamaya başlamak için **Oluştur**’a tıklayın.
 
 ![Yeni API Management hizmeti][api-management-instance-created]
 
 Hizmet örneği oluşturulduktan sonra bir API oluşturmak ya da içeri aktarmak sonraki adımdır.
 
-## <a name="create-api"> </a>Bir API’yi içeri aktarma
+## <a name="create-api"> </a>Bir API'yi içeri aktarma
 Bir API, istemci uygulamasından çağrılabilen işlemler grubundan oluşur. API işlemleri mevcut web hizmetlerine taşınır.
 
 API'ler el ile oluşturulabilir (ve API’lere işlem eklenebilir) veya içeri aktarılabilir. Bu öğreticide, Microsoft tarafından sağlanan ve Azure üzerinde barındırılan bir örnek hesaplayıcı web hizmeti için API’yi içeri aktaracağız.
@@ -101,7 +103,7 @@ API'ler el ile oluşturulabilir (ve API’lere işlem eklenebilir) veya içeri a
 > 
 > 
 
-API'ler Klasik Azure Portalı aracılığıyla erişilen yayımcı portalında yapılandırılır. Yayımcı portalına erişmek için API Management hizmetiniz için Klasik Azure Portalı'nda **Yönet**’e tıklayın.
+API’ler yayımcı portalından yapılandırılır. Ulaşmak için hizmet araç çubuğundan **Yayımcı portalı**’na tıklayın.
 
 ![Yayımcı portalı][api-management-management-console]
 
@@ -138,7 +140,7 @@ Bu öğreticide, API içeri aktarılırken Başlangıç ürününe Temel Hesapla
 
 Bir API’ye çağrı yapmak için, geliştiricilerin önce buna erişim imkanı sağlayan bir ürüne abone olması gerekir. Geliştiriciler geliştirici portalında ürünlere abone olabilir ya da yöneticiler geliştiricileri yayım portalında ürünlere abone yapabilir. Öğreticinin önceki adımlarında API Management örneği oluşturduğunuz için siz bir yöneticisiniz, bu nedenle varsayılan olarak her ürüne zaten abone oldunuz.
 
-## <a name="call-operation"> </a>Geliştirici portalından bir işlem çağırma
+## <a name="call-operation"> </a>Geliştirici portalından işlem çağırma
 İşlemler doğrudan bir API’nin işlemlerini görüntülemek ve test etmek için kullanışlı bir yol sağlayan geliştirici portalından çağrılabilir. Bu öğretici adımında, Temel Hesaplayıcı API’sinin **İki tamsayı ekle** işlemini çağıracaksınız. Yayımcı portalının sağ üst kısmında **Geliştirici Portalı**’na tıklayın.
 
 ![Geliştirici portalı][api-management-developer-portal-menu]
@@ -161,7 +163,7 @@ Bir işlem çağrıldıktan sonra, geliştirici portalı **Yanıt durumu**, **Ya
 
 ![Yanıt][api-management-invoke-get-response]
 
-## <a name="view-analytics"> </a>Görünüm analizi
+## <a name="view-analytics">.</a>Analizi görüntüleme
 Temel Hesaplayıcı için analizleri görüntülemek üzere, geliştirici portalının sağ üst kısmındaki menüde **Yönet**’i seçerek yayımcı portalına geri dönün.
 
 ![Yönet][api-management-manage-menu]
@@ -200,12 +202,12 @@ Ayrıntılı ölçümler ve raporlar için soldaki **API Management** menüsünd
 [Azure Ücretsiz Deneme]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=api_management_hero_a
 
 [API Management örneği oluşturma]: #create-service-instance
-[Bir API oluşturma]: #create-api
-[Bir işlem ekleme]: #add-operation
-[Ürüne yeni API ekleme]: #add-api-to-product
-[API’yi içeren ürüne abone olma]: #subscribe
-[Geliştirici Portalı'ndan bir işlem çağırma]: #call-operation
-[Görünüm analizi]: #view-analytics
+[API oluşturma]: #create-api
+[İşlem ekleme]: #add-operation
+[Yeni API'yi ürüne ekleme]: #add-api-to-product
+[API'yi içeren ürüne abone olma]: #subscribe
+[Geliştirici Portalı'ndan işlem çağırma]: #call-operation
+[Analizi görüntüleme]: #view-analytics
 [Sonraki adımlar]: #next-steps
 
 
@@ -216,7 +218,7 @@ Ayrıntılı ölçümler ve raporlar için soldaki **API Management** menüsünd
 [Ürün oluşturma ve yayımlama]: api-management-howto-add-products.md
 [API Management fiyatlandırması]: http://azure.microsoft.com/pricing/details/api-management/
 
-[Klasik Azure Portalı]: https://manage.windowsazure.com/
+[Azure Portal]: https://portal.azure.com/
 
 [api-management-management-console]: ./media/api-management-get-started/api-management-management-console.png
 [api-management-create-instance-menu]: ./media/api-management-get-started/api-management-create-instance-menu.png
@@ -255,6 +257,6 @@ Ayrıntılı ölçümler ve raporlar için soldaki **API Management** menüsünd
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Nov16_HO2-->
 
 

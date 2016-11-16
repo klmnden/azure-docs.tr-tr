@@ -1,12 +1,12 @@
 ---
-title: IoT Hub Ağ Geçidi SDK’sı ile çalışmaya başlama | Microsoft Docs
-description: Bu Azure IoT Hub Ağ Geçidi SDK’sı kılavuzu, Azure IoT Hub Ağ Geçidi SDK’sı kullanırken anlamanız gereken temel kavramları göstermek üzere Linux kullanır.
+title: "IoT Hub Ağ Geçidi SDK’sı ile çalışmaya başlama | Microsoft Belgeleri"
+description: "Bu Azure IoT Ağ Geçidi SDK’sı kılavuzu, Azure IoT Ağ Geçidi SDK’sı kullanırken anlamanız gereken temel kavramları göstermek üzere Linux kullanır."
 services: iot-hub
-documentationcenter: ''
+documentationcenter: 
 author: chipalost
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: cf537bdd-2352-4bb1-96cd-a283fcd3d6cf
 ms.service: iot-hub
 ms.devlang: cpp
 ms.topic: get-started-article
@@ -14,12 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/25/2016
 ms.author: andbuc
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 23176a9251a90a985a5d2fbce23ceeb9d0925234
+
 
 ---
-# IoT Ağ Geçidi SDK’sı (beta) - Linux kullanmaya başlama
+# <a name="azure-iot-gateway-sdk-beta-get-started-using-linux"></a>Azure IoT Ağ Geçidi SDK’sı (beta) - Linux kullanmaya başlama
 [!INCLUDE [iot-hub-gateway-sdk-getstarted-selector](../../includes/iot-hub-gateway-sdk-getstarted-selector.md)]
 
-## Örnek oluşturma
+## <a name="how-to-build-the-sample"></a>Örnek oluşturma
 Başlamadan önce Linux üzerindeki SDK ile çalışacak [geliştirme ortamınızı ayarlamanız][lnk-setupdevbox] gerekir.
 
 1. Bir kabuk açın.
@@ -31,7 +35,7 @@ Başlamadan önce Linux üzerindeki SDK ile çalışacak [geliştirme ortamını
 > 
 > 
 
-## Örneği çalıştırma
+## <a name="how-to-run-the-sample"></a>Örneği çalıştırma
 1. **build.sh** betiği, çıktısını **azure-iot-gateway-sdk** deposu yerel kopyasının **build** klasöründe oluşturur. Buna bu örnekte kullanılan iki modül dahildir.
    
     Build betiği **build/modules/logger/** klasöründeki **liblogger_hl.so** ve **build/modules/hello_world/** klasöründeki **libhello_world_hl.so** dosyasını değiştirir. Aşağıdaki JSON ayarları dosyasında gösterildiği gibi **modül yolu** değeri için bu yolları kullanın.
@@ -46,7 +50,9 @@ Başlamadan önce Linux üzerindeki SDK ile çalışacak [geliştirme ortamını
       [ 
         {
           "module name" : "logger_hl",
-          "module path" : "./build/modules/logger/liblogger_hl.so",
+          "loading args": {
+            "module path" : "./build/modules/logger/liblogger_hl.so"
+          },
           "args" : 
           {
             "filename":"./log.txt"
@@ -54,7 +60,9 @@ Başlamadan önce Linux üzerindeki SDK ile çalışacak [geliştirme ortamını
         },
         {
           "module name" : "hello_world",
-          "module path" : "./build/modules/hello_world/libhello_world_hl.so",
+          "loading args": {
+            "module path" : "./build/modules/hello_world/libhello_world_hl.so"
+          },
           "args" : null
         }
       ],
@@ -81,6 +89,6 @@ Başlamadan önce Linux üzerindeki SDK ile çalışacak [geliştirme ortamını
 
 
 
-<!--HONumber=Oct16_HO1-->
+<!--HONumber=Nov16_HO2-->
 
 

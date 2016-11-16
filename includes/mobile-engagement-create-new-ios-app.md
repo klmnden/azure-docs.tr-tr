@@ -15,6 +15,8 @@
 
 Xcode, Mobile Engagement ile tümleşmemizi sağlayan tanıtım uygulamasını oluşturur.
 
-<!--HONumber=Jun16_HO2-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

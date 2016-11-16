@@ -1,24 +1,28 @@
 ---
-title: Azure App Service’te bir Node.js web uygulaması oluşturma | Microsoft Docs
-description: Azure App Service'te Node.js uygulamasını bir web uygulamasına dağıtmayı öğrenin.
+title: "Azure App Service’te Node.js web uygulaması oluşturma | Microsoft Belgeleri"
+description: "Azure App Service&quot;te Node.js uygulamasını bir web uygulamasına dağıtmayı öğrenin."
 services: app-service\web
 documentationcenter: nodejs
 author: rmcmurray
-manager: wpickett
-editor: ''
-
+manager: erikre
+editor: 
+ms.assetid: 85af23df-54af-4430-8d77-a1f97e2f5b10
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: hero-article
-ms.date: 08/11/2016
+ms.date: 11/01/2016
 ms.author: robmcm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: c63b2b59143b57d6666910e701d8810bd517a42d
+
 
 ---
-# Azure App Service’te bir Node.js web uygulaması oluşturma
+# <a name="create-a-nodejs-web-app-in-azure-app-service"></a>Azure App Service’te bir Node.js web uygulaması oluşturma
 > [!div class="op_single_selector"]
-> * [.NET](web-sites-dotnet-get-started.md)
+> * [.Net](web-sites-dotnet-get-started.md)
 > * [Node.js](web-sites-nodejs-develop-deploy-mac.md)
 > * [Java](web-sites-java-get-started.md)
 > * [PHP - Git](web-sites-php-mysql-deploy-use-git.md)
@@ -47,7 +51,7 @@ Tamamlanan uygulama tarayıcıya kısa bir “hello world” dizesi yazar.
 > 
 > 
 
-## Bir web uygulaması oluşturma ve Git yayımlamayı etkinleştirme
+## <a name="create-a-web-app-and-enable-git-publishing"></a>Bir web uygulaması oluşturma ve Git yayımlamayı etkinleştirme
 Azure App Service’te bir web uygulaması oluşturmak ve Git yayımlamayı etkinleştirmek için bu adımları izleyin. 
 
 [Git](http://git-scm.com/) Azure Web sitenizi dağıtmak için kullanabileceğiniz bir dağıtılmış sürüm denetim sistemidir. Web uygulamanız için yazdığınız kodu yerel bir Git deposunda depolayacak ve kodunuzu uzak depoya ileterek Azure'a dağıtacaksınız. Bu dağıtım yöntemi, bir App Service Web Apps özelliğidir.  
@@ -63,7 +67,7 @@ Azure App Service’te bir web uygulaması oluşturmak ve Git yayımlamayı etki
 5. Bir **Abonelik** seçin.
 6. Bir **Kaynak Grubu** seçin veya yeni bir tane oluşturun.
    
-    Kaynak grupları hakkında daha fazla bilgi için bkz. [Azure Resource Manager’a genel bakış](../resource-group-overview.md).
+    Kaynak grupları hakkında daha fazla bilgi için bkz. [Azure Resource Manager’a genel bakış](../azure-resource-manager/resource-group-overview.md).
 7. Bir **App Service planı/Konum** seçin veya yeni bir tane oluşturun.
    
     App Service planları hakkında daha fazla bilgi için bkz. [Azure App Service planlarına genel bakış](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)
@@ -97,7 +101,7 @@ Azure App Service’te bir web uygulaması oluşturmak ve Git yayımlamayı etki
     
     ![][git-url]
 
-## Uygulamanızı yerel olarak oluşturma ve test etme
+## <a name="build-and-test-your-application-locally"></a>Uygulamanızı yerel olarak oluşturma ve test etme
 Bu bölümde, [nodejs.org] içindeki “Hello World” örneğinin biraz değiştirilmiş bir sürümünü içeren **server.js** dosyası oluşturacaksınız. Kod, bir Azure web uygulamasında çalıştığında dinlenecek bağlantı noktası olarak process.env.PORT ekler.
 
 1. *helloworld* adlı bir dizin oluşturun.
@@ -119,7 +123,7 @@ Bu bölümde, [nodejs.org] içindeki “Hello World” örneğinin biraz değiş
    
     ![“Hello World” iletisini gösteren bir tarayıcı.][helloworld-localhost]
 
-## Uygulamanızı yayımlama
+## <a name="publish-your-application"></a>Uygulamanızı yayımlama
 1. Henüz yapmadıysanız Git’i yükleyin.
    
     Platformunuza ilişkin yükleme yönergeleri için bkz. [Git indirme sayfası](http://git-scm.com/download).
@@ -158,7 +162,7 @@ Bu bölümde, [nodejs.org] içindeki “Hello World” örneğinin biraz değiş
    
     ![Azure'da Hello world](./media/web-sites-nodejs-develop-deploy-mac/helloworldazure.png)
 
-## Uygulamanızdaki değişiklikleri yayımlama
+## <a name="publish-changes-to-your-application"></a>Uygulamanızdaki değişiklikleri yayımlama
 1. **server.js** dosyasını bir metin düzenleyicisinde açın ve 'Hello World\n ifadesini 'Hello Azure\n' ile değiştirin. 
 2. Dosyayı kaydedin.
 3. Komut satırında, dizinleri **helloworld** diziniyle değiştirin ve aşağıdaki komutları çalıştırın.
@@ -172,10 +176,10 @@ Bu bölümde, [nodejs.org] içindeki “Hello World” örneğinin biraz değiş
    
     !['Hello Azure' iletisini gösteren bir web sayfası][helloworld-completed]
 
-## Bir dağıtımı geri alma
+## <a name="roll-back-a-deployment"></a>Bir dağıtımı geri alma
 **Dağıtımlar** dikey penceresinde dağıtım geçmişini görmek için **Web uygulaması** dikey penceresinde **Ayarlar > Sürekli Dağıtım**’a tıklayabilirsiniz. Önceki bir dağıtıma geri almanız gerekiyorsa, bunu seçebilir ve sonra **Dağıtım Ayrıntıları** dikey penceresinde **Yeniden dağıt**’a tıklayabilirsiniz.
 
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 Azure App Service'te Node.js uygulamasını bir web uygulamasına dağıttınız. App Service web uygulamalarının Node.js uygulamalarını nasıl çalıştırdığı hakkında daha fazla bilgi için bkz. [Azure App Service Web Apps: Node.js](http://blogs.msdn.com/b/silverlining/archive/2012/06/14/windows-azure-websites-node-js.aspx) ve [Bir Azure uygulamasında Node.js sürümünü belirtme](../nodejs-specify-node-version-azure-apps.md).
 
 Node.js, uygulamalarınız tarafından kullanılabilecek zengin bir modül ekosistemi sağlar. Web Apps’in modüllerle nasıl çalıştığını öğrenmek için bkz. [Azure uygulamalarıyla Node.js modüllerini kullanma](../nodejs-use-node-modules-azure-apps.md)
@@ -198,6 +202,6 @@ Azure’da Node.js uygulamaları geliştirme hakkında daha fazla bilgi için bk
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Nov16_HO2-->
 
 

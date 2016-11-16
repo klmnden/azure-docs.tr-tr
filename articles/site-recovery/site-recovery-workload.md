@@ -1,12 +1,12 @@
 ---
-title: Azure Site Recovery ile hangi iş yüklerini koruyabilirsiniz?
-description: Azure Site Recovery, şirket içi sanal makinelerin ve fiziksel sunucuların Azure'a veya ikincil bir şirket içi siteye yönelik çoğaltma, yük devretme ve kurtarma işlemlerini koordine ederek iş yüklerinizi ve uygulamalarınızı korur.
+title: "Azure Site Recovery ile hangi iş yüklerini koruyabilirsiniz?"
+description: "Azure Site Recovery, şirket içi sanal makinelerin ve fiziksel sunucuların Azure&quot;a veya ikincil bir şirket içi siteye yönelik çoğaltma, yük devretme ve kurtarma işlemlerini koordine ederek iş yüklerinizi ve uygulamalarınızı korur."
 services: site-recovery
-documentationcenter: ''
+documentationcenter: 
 author: rayne-wiselman
 manager: cfreeman
-editor: ''
-
+editor: 
+ms.assetid: 4953948f-26c0-4699-8fe7-59d3bfc1d3da
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/10/2016
 ms.author: raynew
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: ddeadcf741eb099f7c14a554dd4f31561a408aa1
+
 
 ---
-# <a name="what-workloads-can-you-protect-with-azure-site-recovery?"></a>Azure Site Recovery ile hangi iş yüklerini koruyabilirsiniz?
+# <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Azure Site Recovery ile hangi iş yüklerini koruyabilirsiniz?
 Bu makalede, Azure Site Recovery hizmetiyle çoğaltabileceğiniz iş yükleri ve uygulamalar açıklanmıştır.
 
 Tüm yorumlarınızı ve sorularınızı bu makalenin alt kısmında veya [Azure Kurtarma Hizmetleri Forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)'nda paylaşabilirsiniz.
@@ -28,7 +32,7 @@ Site Recovery, BCDR stratejinize katkıda bulunan bir Azure hizmetidir. Site Rec
 
 Site Recovery; SharePoint, Exchange, Dynamics, SQL Server ve Active Directory dahil olmak üzere Microsoft uygulamalarıyla tümleşik bir şekilde çalışır. Microsoft; Oracle, SAP, IBM ve Red Hat gibi önde gelen satıcılarla da yakın bir şekilde çalışır. Çoğaltma çözümlerini her uygulama için ayrı olarak özelleştirebilirsiniz.
 
-## <a name="why-use-site-recovery-for-application-replication?"></a>Uygulama çoğaltma için neden Site Recovery'yi kullanmam gerekir?
+## <a name="why-use-site-recovery-for-application-replication"></a>Uygulama çoğaltma için neden Site Recovery'yi kullanmam gerekir?
 Site Recovery, uygulama düzeyinde koruma ve kurtarmaya şu yollarla katkıda bulunur:
 
 * Desteklenen makinede çalışan iş yükleri için uygulaması belirsiz çoğaltma.
@@ -129,6 +133,9 @@ SAP'yi koruma hakkında [daha fazla bilgi edinin](http://aka.ms/asr-sap).
 ## <a name="next-steps"></a>Sonraki adımlar
 [Site Recovery dağıtımına hazırlanma](site-recovery-best-practices.md) 
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

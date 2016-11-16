@@ -1,22 +1,26 @@
 ---
-title: Geliştirme ortamınızı ayarlama | Microsoft Docs
-description: Çalışma zamanını, SDK'yı ve araçları yükleyip yerel bir geliştirme kümesi oluşturun. Bu kurulumu tamamladıktan sonra uygulama derlemek için hazır hale gelirsiniz.
+title: "Geliştirme ortamınızı ayarlama | Microsoft Belgeleri"
+description: "Çalışma zamanını, SDK&quot;yı ve araçları yükleyip yerel bir geliştirme kümesi oluşturun. Bu kurulumu tamamladıktan sonra uygulama derlemek için hazır hale gelirsiniz."
 services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: b94e2d2e-435c-474a-ae34-4adecd0e6f8f
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/13/2016
+ms.date: 10/26/2016
 ms.author: ryanwi
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 7ae0fcc689d51479a92c506ea48ab8af2003acfe
+
 
 ---
-# Geliştirme ortamınızı hazırlama
+# <a name="prepare-your-development-environment"></a>Geliştirme ortamınızı hazırlama
 > [!div class="op_single_selector"]
 > -[ Windows](service-fabric-get-started.md)
 > 
@@ -27,8 +31,8 @@ ms.author: ryanwi
 
  Geliştirme makinenizde [Azure Service Fabric uygulamaları][1] derlemek ve çalıştırmak için çalışma zamanını, SDK'yı ve araçları yükleyin. Ayrıca, SDK'da bulunan Windows PowerShell betiklerinin çalıştırılmasını da etkinleştirmeniz gerekir.
 
-## Önkoşullar
-### Desteklenen işletim sistemi sürümleri
+## <a name="prerequisites"></a>Önkoşullar
+### <a name="supported-operating-system-versions"></a>Desteklenen işletim sistemi sürümleri
 Geliştirme için şu işletim sistemi sürümleri desteklenir:
 
 * Windows 7
@@ -41,20 +45,20 @@ Geliştirme için şu işletim sistemi sürümleri desteklenir:
 > 
 > 
 
-## Çalışma zamanını, SDK'yı ve araçları yükleme
+## <a name="install-the-runtime-sdk-and-tools"></a>Çalışma zamanını, SDK'yı ve araçları yükleme
 Web Platformu Yükleyicisi, Service Fabric geliştirmesi için iki yapılandırma seçeneği sunar:
 
 * [Visual Studio 2015 için Service Fabric çalışma zamanı, SDK ve araçları yükleme (Visual Studio 2015 Güncelleştirme 2 veya üzeri bir sürümü gerektirir)][full-bundle-vs2015]
 * [Yalnızca Service Fabric çalışma zamanını ve SDK'yı yükleyin (Visual Studio araçları olmadan) ][core-sdk]
 
-## PowerShell betik yürütmesini etkinleştirme
+## <a name="enable-powershell-script-execution"></a>PowerShell betik yürütmesini etkinleştirme
 Service Fabric, yerel geliştirme merkezi oluşturmak ve Visual Studio'dan uygulamaları dağıtmak için Windows PowerShell betiklerini kullanır. Varsayılan olarak, Windows bu betiklerin çalışmasını engeller. Betikleri etkinleştirmek için PowerShell yürütme ilkenizi değiştirmeniz gerekir. PowerShell'i yönetici olarak açın ve şu komutu girin:
 
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 ```
 
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 Artık geliştirme ortamınızı ayarlamayı tamamladığınıza göre, uygulama derlemeye ve çalıştırmaya başlayın.
 
 * [Visual Studio'da ilk Service Fabric uygulamanızı oluşturma](service-fabric-create-your-first-application-in-visual-studio.md)
@@ -73,6 +77,6 @@ Artık geliştirme ortamınızı ayarlamayı tamamladığınıza göre, uygulama
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Nov16_HO2-->
 
 

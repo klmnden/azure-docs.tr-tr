@@ -1,12 +1,12 @@
 ---
-title: Azure Marketi’nde bir web uygulaması oluşturma | Microsoft Docs
-description: Azure Portal'ı kullanarak Azure Marketi'nde yeni bir WordPress web uygulaması oluşturmayı öğrenin.
+title: "Azure Marketi’nde bir web uygulaması oluşturma | Microsoft Belgeleri"
+description: "Azure Portal&quot;ı kullanarak Azure Marketi&quot;nde yeni bir WordPress web uygulaması oluşturmayı öğrenin."
 services: app-service\web
-documentationcenter: ''
+documentationcenter: 
 author: rmcmurray
 manager: wpickett
-editor: ''
-
+editor: 
+ms.assetid: 972a296d-f927-470b-8534-0f2cb9eac223
 ms.service: app-service-web
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,11 +14,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/20/2016
 ms.author: robmcm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 73fafeff227061feae1fbc0a1c50e5056116e3ea
+
 
 ---
+# <a name="create-a-web-app-from-the-azure-marketplace"></a>Azure Marketi’nde bir web uygulaması oluşturma
 <!-- Note: This article replaces web-sites-php-web-site-gallery.md -->
 
-# Azure Marketi’nde bir web uygulaması oluşturma
 [!INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
 
 Azure Marketi, Microsoft, üçüncü taraf şirketler ve açık kaynak yazılım girişimleri tarafından geliştirilen çok çeşitli popüler web uygulamalarını kullanıma sunar. Örneğin, WordPress, Umbraco CMS, Drupal vb. Bu web uygulamaları birçok popüler uygulamayı temel alarak oluşturulur, bu WordPress örneğinde [PHP], [.NET], [Node.js], [Java] ve [Python] bunlardan yalnızca birkaçıdır. Azure Marketi'nde bir web uygulaması oluşturmak için ihtiyacınız olan tek yazılım [Azure Portal] için kullandığınız tarayıcıdır.
@@ -42,7 +46,7 @@ Bu öğreticide dağıtacağınız WordPress sitesi veritabanı için MySQL kull
 > 
 > 
 
-## Azure Uygulama Hizmeti’nde Web Uygulaması Bulma ve Oluşturma
+## <a name="find-and-create-a-web-app-in-azure-app-service"></a>Azure Uygulama Hizmeti’nde Web Uygulaması Bulma ve Oluşturma
 1. [Azure Portal]’da oturum açın.
 2. **Yeni**’ye tıklayın.
    
@@ -54,7 +58,7 @@ Bu öğreticide dağıtacağınız WordPress sitesi veritabanı için MySQL kull
    
     ![WordPress web uygulaması oluşturma][MarketplaceCreate]
 
-## Yeni Web Uygulaması için Azure Uygulama Hizmeti Ayarlarını Yapılandırma
+## <a name="configure-azure-app-service-settings-for-your-new-web-app"></a>Yeni Web Uygulaması için Azure Uygulama Hizmeti Ayarlarını Yapılandırma
 1. Yeni bir web uygulaması oluşturduktan sonra aşağıdaki adımları tamamlamak için kullanacağınız WordPress ayarları dikey penceresi görüntülenir:
    
     ![WordPress web uygulaması ayarlarını yapılandırma][ConfigStart]
@@ -63,7 +67,7 @@ Bu öğreticide dağıtacağınız WordPress sitesi veritabanı için MySQL kull
     Web uygulamasının URL’si *{ad}*.azurewebsites.net şeklinde olacağından, bu ad azurewebsites.net etki alanında benzersiz olmalıdır. Girdiğiniz ad benzersiz değilse, metin kutusunda kırmızı bir ünlem işareti görüntülenir.
    
     ![WordPress web uygulaması adını yapılandırma][ConfigAppName]
-3. Birden fazla aboneliğiniz varsa, kullanmak istediğinizi seçin. 
+3. Birden fazla aboneliğiniz varsa, kullanmak istediğinizi seçin.
    
     ![Web uygulaması için aboneliği yapılandırma][ConfigSubscription]
 4. Bir **Kaynak Grubu** seçin veya yeni bir tane oluşturun.
@@ -73,7 +77,7 @@ Bu öğreticide dağıtacağınız WordPress sitesi veritabanı için MySQL kull
     ![Web uygulaması için kaynak grubunu yapılandırma][ConfigResourceGroup]
 5. Bir **App Service planı/Konumu** seçin veya yeni bir tane oluşturun.
    
-    App Service planları hakkında daha fazla bilgi için bkz. [Azure App Service planlarına genel bakış][AzureAppServicePlans]. 
+    App Service planları hakkında daha fazla bilgi için bkz. [Azure App Service planlarına genel bakış][AzureAppServicePlans].
    
     ![Web uygulaması için hizmet planını yapılandırma][ConfigServicePlan]
 6. **Veritabanı**’na tıklayın ve ardından **Yeni MySQL Database** dikey penceresinde, MySQL Database’inizi yapılandırmak için gereken değerleri belirtin.
@@ -86,10 +90,10 @@ Bu öğreticide dağıtacağınız WordPress sitesi veritabanı için MySQL kull
    
     d. Bir fiyatlandırma katmanı seçin. Minimum bağlantı ve disk alanıyla ücretsiz olan **Mercury** bu öğretici için uygundur.
    
-    e. **Yeni MySQL Database** dikey penceresinde, yasal koşulları kabul edin ve ardından **Tamam**’a tıklayın. 
+    e. **Yeni MySQL Database** dikey penceresinde, yasal koşulları kabul edin ve ardından **Tamam**’a tıklayın.
    
     ![Web uygulaması için veritabanı ayarlarını yapılandırma][ConfigDatabase]
-7. **WordPress** dikey penceresinde, yasal koşulları kabul edin ve ardından **Oluştur**’a tıklayın. 
+7. **WordPress** dikey penceresinde, yasal koşulları kabul edin ve ardından **Oluştur**’a tıklayın.
    
     ![Web uygulaması ayarlarını tamamlayın ve Tamam'a tıklayın][ConfigFinished]
    
@@ -97,7 +101,7 @@ Bu öğreticide dağıtacağınız WordPress sitesi veritabanı için MySQL kull
    
     ![İlerleme göstergesi][ConfigProgress]
 
-## WordPress web uygulamanızı başlatma ve yönetme
+## <a name="launch-and-manage-your-wordpress-web-app"></a>WordPress web uygulamanızı başlatma ve yönetme
 1. Web uygulaması oluşturma tamamlandığında, Azure Portal’da uygulamayı oluşturduğunuz kaynak grubuna gidin, burada web uygulamasını ve veritabanını görebilirsiniz.
    
     Ampul simgeli ek kaynak, web hizmetiniz için izleme hizmetleri sağlayan [Application Insights][ApplicationInsights]’dır.
@@ -118,12 +122,12 @@ Bu öğreticide dağıtacağınız WordPress sitesi veritabanı için MySQL kull
    
     ![WordPress panonuzu görüntüleme][WordPressDashboard2]
 
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 Bu öğreticide, Azure Marketi'nde örnek bir web uygulaması oluşturmayı dağıtmayı gördünüz.
 
 App Service Web Apps ile çalışma hakkında daha fazla bilgi için sayfanın sol tarafındaki (geniş tarayıcı pencereleri için) veya sayfanın üst kısmındaki (dar tarayıcı pencereleri için) bağlantılara bakın.
 
-Azure’da WordPress web uygulamaları geliştirme hakkında daha fazla bilgi için bkz. [Azure App Service’te WordPress Geliştirme ][WordPressOnAzure]. 
+Azure’da WordPress web uygulamaları geliştirme hakkında daha fazla bilgi için bkz. [Azure App Service’te WordPress Geliştirme ][WordPressOnAzure].
 
 <!-- URL List -->
 
@@ -135,7 +139,7 @@ Azure’da WordPress web uygulamaları geliştirme hakkında daha fazla bilgi i�
 [etkinleştirme]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
 [ücretsiz deneme sürümül]: https://azure.microsoft.com/pricing/free-trial/
 [App Service’i Deneyin]: http://go.microsoft.com/fwlink/?LinkId=523751
-[ResourceGroups]: ../resource-group-overview.md
+[ResourceGroups]: ../azure-resource-manager/resource-group-overview.md
 [AzureAppServicePlans]: ../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md
 [ApplicationInsights]: https://azure.microsoft.com/services/application-insights/
 [Azure Portal]: https://portal.azure.com/
@@ -164,6 +168,6 @@ Azure’da WordPress web uygulamaları geliştirme hakkında daha fazla bilgi i�
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

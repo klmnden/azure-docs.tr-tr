@@ -1,22 +1,26 @@
 ---
-title: Visual Studio'da ilk Service Fabric uygulamanızı oluşturma | Microsoft Docs
-description: Visual Studio'yu kullanarak bir Service Fabric uygulaması oluşturma, dağıtma ve uygulamada hata ayıklama
+title: "Visual Studio&quot;da ilk Service Fabric uygulamanızı oluşturma | Microsoft Belgeleri"
+description: "Visual Studio&quot;yu kullanarak bir Service Fabric uygulaması oluşturma, dağıtma ve uygulamada hata ayıklama"
 services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: c3655b7b-de78-4eac-99eb-012f8e042109
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/28/2016
+ms.date: 10/26/2016
 ms.author: ryanwi
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 037dc010a6dc60eb49ad4fdad2861e8653e36199
+
 
 ---
-# İlk Azure Service Fabric uygulamanızı oluşturma
+# <a name="create-your-first-azure-service-fabric-application"></a>İlk Azure Service Fabric uygulamanızı oluşturma
 > [!div class="op_single_selector"]
 > * [C# - Windows](service-fabric-create-your-first-application-in-visual-studio.md)
 > * [Java - Linux](service-fabric-create-your-first-linux-application-with-java.md)
@@ -26,17 +30,17 @@ ms.author: ryanwi
 
 Service Fabric SDK, Service Fabric uygulamaları oluşturmak, dağıtmak ve bu uygulamalarda hata ayıklamak için şablonlar ve araçlar sağlayan Visual Studio ürününe yönelik bir eklenti içerir. Bu konu başlığı, Visual Studio'da ilk uygulamanızı oluşturma işleminizde size kılavuzluk eder.
 
-## Önkoşullar
+## <a name="prerequisites"></a>Önkoşullar
 Başlamadan önce [geliştirme ortamınızı ayarladığınızdan](service-fabric-get-started.md) emin olun.
 
-## Görüntülü kılavuz
+## <a name="video-walkthrough"></a>Görüntülü kılavuz
 Aşağıdaki video bu öğreticideki adımlarda size kılavuzluk eder:
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Creating-your-first-Service-Fabric-application-in-Visual-Studio/player]
 > 
 > 
 
-## Uygulama oluşturma
+## <a name="create-the-application"></a>Uygulama oluşturma
 Service Fabric uygulaması bir veya birden çok hizmet içerebilir. Bu hizmetlerin her biri uygulamanın işlevselliğini aktarma konusunda belirli bir role sahiptir. Yeni Proje sihirbazını kullanarak ilk hizmet projenizin yanı sıra bir uygulama projesi de oluşturabilirsiniz. Daha sonra ilave hizmetler ekleyebilirsiniz.
 
 1. Visual Studio'yu yönetici olarak başlatın.
@@ -65,13 +69,13 @@ Service Fabric uygulaması bir veya birden çok hizmet içerebilir. Bu hizmetler
      
      Hizmet projesinin içeriklerine genel bakış için bkz. [Reliable Services ile çalışmaya başlama](service-fabric-reliable-services-quick-start.md).
 
-## Uygulamayı dağıtma ve uygulamada hata ayıklama
+## <a name="deploy-and-debug-the-application"></a>Uygulamayı dağıtma ve uygulamada hata ayıklama
 Artık bir uygulamanız olduğuna göre uygulamayı çalıştırmayı deneyin.
 
 1. Hata ayıklama için uygulamayı dağıtmak üzere Visual Studio'da F5'e basın.
    
    > [!NOTE]
-   > Visual Studio geliştirme için yerel bir küme oluşturduğundan, ilk seferde dağıtım biraz zaman alır. Yerel küme, çoklu makine kümesinde derleyeceğiniz platform kodunu yalnızca tek bir makinede çalıştırır. Visual Studio çıktı penceresinde küme oluşturma durumu görüntülenir.
+   > Visual Studio geliştirme için yerel bir küme oluşturduğundan, ilk seferde dağıtım biraz zaman alır. Yerel küme, çoklu makine kümesinde derlediğiniz platform kodunu yalnızca tek bir makinede çalıştırır. Visual Studio çıktı penceresinde küme oluşturma durumu görüntülenir.
    > 
    > 
    
@@ -96,7 +100,7 @@ Artık bir uygulamanız olduğuna göre uygulamayı çalıştırmayı deneyin.
 4. StatefulService'ten (örneğin, MyStatefulService'ten) türetilen hizmet projenizdeki sınıfı bulun ve `RunAsync` yönteminin ilk satırında bir kesme noktası ayarlayın.
    
     ![Durum bilgisi olan hizmetin RunAsync yönteminde kesme noktası ayarlama][7]
-5. Yerel Küme Yöneticisi sistem tepsisine sağ tıklayın ve Service Fabric Explorer'ı başlatmak için **Yerel Kümeyi Yönet**’i seçin.
+5. Yerel Küme Yöneticisi sistem tepsisine sağ tıklayın ve Service Fabric Explorer'ı başlatmak için **Yerel Kümeyi Yönet** seçeneğini belirleyin.
    
     ![Yerel Küme Yöneticisi'nden Service Fabric Explorer'ı başlatma][systray-launch-sfx]
    
@@ -107,24 +111,24 @@ Artık bir uygulamanız olduğuna göre uygulamayı çalıştırmayı deneyin.
     ![Service Fabric Explorer'da bir düğümü durdurma][sfx-stop-node]
    
     Bir düğümde yaptığınız işlem sorunsuz şekilde başka bir düğüme devredildiğinden kısa süre içinde Visual Studio'da kesme noktası isabetini göreceksiniz.
-8. Tanılama Olayları Görüntüleyicisi'ne geri dönün ve iletileri gözlemleyin. Olaylar gerçekte farklı bir düğümden geliyor olsa bile sayacın artmaya devam ettiğini unutmayın.
+8. Tanılama Olayları Görüntüleyicisi'ne geri dönün ve iletileri gözlemleyin. Olaylar farklı bir düğümden geliyor olsa bile sayaç artmaya devam etti.
    
     ![Yük devretme sonrası tanılama olayları görüntüleyicisi][diagnostic-events-viewer-detail-post-failover]
 
-## Küme moduna geçme
-Varsayılan olarak, yerel geliştirme kümesi birden fazla düğüme dağıtılmış hizmetlerin hatalarını ayıklamak için yararlı olan 5 düğümlü bir küme olarak çalışacak şekilde yapılandırılmıştır. Ancak, bir uygulamanın 5 düğümlü dağıtım kümesine dağıtılması biraz zaman alabilir. Uygulamanızı 5 düğüm üzerinde çalıştırmadan kod değişikliklerini hızlıca yinelemek istiyorsanız, geliştirme kümesini 1 Düğümlü moda geçirebilirsiniz. Kodunuzu tek düğümlü bir kümede çalıştırmak için sistem tepsisindeki Yerel Küme Yöneticisi’ne sağ tıklayın ve **Küme Modunu Değiştir -> 1 Düğüm** öğesini seçin.  
+## <a name="switch-cluster-mode"></a>Küme moduna geçme
+Varsayılan olarak, yerel geliştirme kümesi 5 düğümlü bir küme olarak çalışacak şekilde yapılandırılmıştır. Bu, birden fazla düğümde dağıtılmış hizmetlerin hatalarını ayıklamak için faydalıdır. Ancak, bir uygulamanın 5 düğümlü dağıtım kümesine dağıtılması biraz zaman alabilir. Uygulamanızı 5 düğüm üzerinde çalıştırmadan kod değişikliklerini hızlıca yinelemek istiyorsanız, geliştirme kümesini 1 Düğümlü moda geçirebilirsiniz. Kodunuzu tek düğümlü bir kümede çalıştırmak için sistem tepsisindeki Yerel Küme Yöneticisi’ne sağ tıklayın ve **Küme Modunu Değiştir -> 1 Düğüm** öğesini seçin.  
 
 ![Küme moduna geçme][switch-cluster-mode]
 
-Küme modunuzu değiştirdiğinizde geliştirme kümesi sıfırlanır ve sağlanan ya da küme üzerinde çalışan tüm uygulamalar kaldırılır.
+Küme modunu değiştirdiğinizde, geliştirme kümesi sıfırlanır ve kümede sağlanan ya da çalıştırılan tüm uygulamalar kaldırılır.
 
-## Temizleme
+## <a name="cleaning-up"></a>Temizleme
   Sonlandırmadan önce, yerel kümenin büyük ölçüde kaynak kullanımı gerektirdiğini unutmayın. Hata ayıklayıcının durdurulması uygulama örneğinizi ve uygulama türünün kaydını kaldırır. Ancak, küme arka planda çalışmaya devam eder. Kümeyi yönetmek için birkaç seçeneğiniz vardır:
 
 1. Kümeyi kapatıp uygulama verilerini ve izlemelerini tutmak için sistem tepsisi uygulamasında **Yerel Kümeyi Durdur**'a tıklayın.
-2. Kümeyi tamamen silmek için sistem tepsisi uygulamasında **Yerel Kümeyi Kaldır**'a tıklayın. Visual Studio'da F5'e bir sonraki basışınızda bu seçeneğin başka bir yavaş dağıtımla sonuçlanacağını unutmayın. Kümeyi yalnızca bir süre kullanmayı planlamıyorsanız veya kaynaklarınızı geri kazanmanız gerekiyorsa silin.
+2. Kümeyi tamamen silmek için sistem tepsisi uygulamasında **Yerel Kümeyi Kaldır**'a tıklayın. Visual Studio'da F5'e bir sonraki basışınızda bu seçenek başka bir yavaş dağıtımla sonuçlanır. Kümeyi yalnızca bir süre kullanmayı planlamıyorsanız veya kaynaklarınızı geri kazanmanız gerekiyorsa silin.
 
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 * [Azure’da küme](service-fabric-cluster-creation-via-portal.md) veya [Windows’ta tek başına küme](service-fabric-cluster-creation-for-windows-server.md) oluşturma hakkında bilgi edinin.
 * [Reliable Services](service-fabric-reliable-services-quick-start.md) veya [Reliable Actors](service-fabric-reliable-actors-get-started.md) programlama modelini kullanan bir hizmet oluşturmayı deneyin.
 * Hizmetlerinizi bir [web hizmeti ön ucu](service-fabric-add-a-web-frontend.md) ile İnternet’te nasıl gösterebileceğinizi öğrenin.
@@ -147,6 +151,6 @@ Küme modunuzu değiştirdiğinizde geliştirme kümesi sıfırlanır ve sağlan
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

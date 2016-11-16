@@ -1,4 +1,4 @@
-## Normal çıktı
+## <a name="typical-output"></a>Normal çıktı
 Hello World örneği tarafından göre günlük dosyasına yazılmış çıktının bir örneği aşağıda verilmiştir. Yeni Satır ve Sekme karakterleri okunabilirlik için eklenmiştir:
 
 ```
@@ -29,10 +29,10 @@ Hello World örneği tarafından göre günlük dosyasına yazılmış çıktın
 }]
 ```
 
-## Kod parçacıkları
+## <a name="code-snippets"></a>Kod parçacıkları
 Bu bölümde Hello World örneğindeki kodun bazı önemli bölümleri ele alınmaktadır.
 
-### Ağ geçidi oluşturma
+### <a name="gateway-creation"></a>Ağ geçidi oluşturma
 Geliştirici *ağ geçidi işlemini* yazmalıdır. Bu program iç altyapıyı (aracı) oluşturur, modülleri yükler ve her şeyi doğru çalışacak şekilde ayarlar. SDK bir JSON dosyasından ağ geçidini önyüklemenizi sağlayan **Gateway_Create_From_JSON** işlevini sağlar. **Gateway_Create_From_JSON** işlevini kullanmak için yüklenecek modülleri belirten bir JSON dosyası yoluna geçirmeniz gerekir. 
 
 Hello World örneğindeki ağ geçidi işleminin kodunu [main.c][lnk-main-c] dosyasına bulabilirsiniz. Okunaklılık için aşağıdaki kod parçacığında ağ geçidi işlem kodunun kısaltılmış sürümü gösterilmektedir. Bu program bir ağ geçidi oluşturur ve ağ geçidini çıkarmadan önce kullanıcının **ENTER** tuşuna basmasını bekler. 
@@ -77,12 +77,16 @@ Aşağıdaki örnekte Linux üzerinde Hello World örneğini yapılandırmak iç
     [ 
         {
             "module name" : "logger",
-            "module path" : "./modules/logger/liblogger_hl.so",
+            "loading args": {
+              "module path" : "./modules/logger/liblogger_hl.so"
+            },
             "args" : {"filename":"log.txt"}
         },
         {
             "module name" : "hello_world",
-            "module path" : "./modules/hello_world/libhello_world_hl.so",
+            "loading args": {
+              "module path" : "./modules/hello_world/libhello_world_hl.so"
+            },
             "args" : null
         }
     ],
@@ -96,7 +100,7 @@ Aşağıdaki örnekte Linux üzerinde Hello World örneğini yapılandırmak iç
 }
 ```
 
-### Hello World modülü ileti yayımlama
+### <a name="hello-world-module-message-publishing"></a>Hello World modülü ileti yayımlama
 "Hello world" modülü tarafından ileti yayımlamak amacıyla kullanılan kodu ['hello_world.c'][lnk-helloworld-c] dosyasında bulabilirsiniz. Aşağıdaki kod parçacığı ek açıklamalarla birlikte değiştirilmiş bir sürümü göstermektedir ve bazı hata işleme kodları okunaklılık için kaldırılmıştır:
 
 ```
@@ -145,7 +149,7 @@ int helloWorldThread(void *param)
 }
 ```
 
-### Hello World modülü ileti işleme
+### <a name="hello-world-module-message-processing"></a>Hello World modülü ileti işleme
 Diğer modüllerin aracıya yayımladıkları herhangi bir iletiyi Hello World modülünün hiçbir zaman işlemesi gerekmez. Bu özellik Hello World modülünde ileti çağırma uygulamasını işlemsiz bir işlev haline getirir.
 
 ```
@@ -155,7 +159,7 @@ static void HelloWorld_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messag
 }
 ```
 
-### Günlükçü modülü ileti yayımlama ve işleme
+### <a name="logger-module-message-publishing-and-processing"></a>Günlükçü modülü ileti yayımlama ve işleme
 Günlükçü modülü iletileri aracıdan alır ve bir dosyaya yazar. Hiçbir zaman bir ileti yayımlamaz. Bu nedenle, günlükçü modülünün kodu **Broker_Publish** işlevini hiçbir zaman çağırmaz.
 
 [logger.c][lnk-logger-c] dosyasındaki **Logger_Recieve** işlevi, aracının günlükçü modülüne iletileri ulaştırmak üzere çağırdığı geri çağırmadır. Aşağıdaki kod parçacığı ek açıklamalarla birlikte değiştirilmiş bir sürümü göstermektedir ve bazı hata işleme kodları okunaklılık için kaldırılmıştır:
@@ -199,8 +203,8 @@ static void Logger_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHan
 }
 ```
 
-## Sonraki adımlar
-Gateway SDK’sını kullanma hakkında bilgi için aşağıdakilere bakın:
+## <a name="next-steps"></a>Sonraki adımlar
+IoT Gateway SDK’sını kullanma hakkında bilgi için aşağıdakilere bakın:
 
 * [IoT Gateway SDK’sı – Linux][lnk-gateway-simulated] kullanarak sanal bir cihazla cihazdan buluta iletiler gönderir.
 * GitHub üzerinde [Azure IoT Gateway SDK][lnk-gateway-sdk].
@@ -212,6 +216,6 @@ Gateway SDK’sını kullanma hakkında bilgi için aşağıdakilere bakın:
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/
 [lnk-gateway-simulated]: ../articles/iot-hub/iot-hub-linux-gateway-sdk-simulated-device.md
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Nov16_HO2-->
 
 

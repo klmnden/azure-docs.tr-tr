@@ -5,6 +5,8 @@ Notification Hubs’a zaten aşinaysanız, sol gezinti bölmesinden başka bir k
 
 Geri bildiriminizi ciddiye alacağız. Bu konu başlığını tamamlamakta veya bu içeriğin geliştirilmesi için önerilerde bir güçlükle karşılaşırsanız, sayfanın sonundaki geri bildiriminize değer vermekteyiz.
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

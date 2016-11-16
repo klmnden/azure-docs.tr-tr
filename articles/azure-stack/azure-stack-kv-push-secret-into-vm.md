@@ -2,11 +2,11 @@
 title: Deploy a VM with a certificate using Azure Stack Key Vault  | Microsoft Docs
 description: Learn how deploy a VM and inject a certificate from Azure Stack Key Vault
 services: azure-stack
-documentationcenter: ''
+documentationcenter: 
 author: rlfmendes
 manager: natmack
-editor: ''
-
+editor: 
+ms.assetid: 46590eb1-1746-4ecf-a9e5-41609fde8e89
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/26/2016
 ms.author: ricardom
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 0a5bca8564f69434cfb3cbe74021609c6696b46e
+
 
 ---
-# Create VMs and include certificates retrieved from Key Vault
+# <a name="create-vms-and-include-certificates-retrieved-from-key-vault"></a>Create VMs and include certificates retrieved from Key Vault
 In Azure Stack, VMs are deployed through Azure Resource Manager, and you can now store certificates in Azure Stack Key Vault. Then Azure Stack (Microsoft.Compute resource provider to be specific) pushes them into your VMs when the VMs are deployed. Certificates can be used in many scenarios, including SSL, encryption, and certificate based authentication.
 
 By using this method, you can keep the certificate safe. It's now not in the VM image, or in the application's configuration files or some other unsafe location. By setting appropriate access policy for the key vault, you can also control who gets access to your certificate. Another benefit is that you can manage all your certificates in one place in Azure Stack Key Vault.
@@ -28,7 +32,7 @@ Here is a quick overview of the process:
 * Make sure you have turned on the EnabledForDeployment switch.
 * Upload the certificate as a secret.
 
-## Deploying VMs
+## <a name="deploying-vms"></a>Deploying VMs
 This sample script creates a key vault, and then stores a certificate stored in the .pfx file in a local directory, to the key vault as a secret.
 
     $vaultName = "contosovault"
@@ -43,21 +47,7 @@ This sample script creates a key vault, and then stores a certificate stored in 
     $fileContentBytes = get-content \$fileName -Encoding Byte
 
     $fileContentEncoded =
-[System.Convert\]::ToBase64String(\$fileContentBytes)
-    $jsonObject = @"
-    {
-    "data": "\$filecontentencoded",
-    "dataType" :"pfx",
-    "password": "\$certPassword"
-    }
-    @$jsonObjectBytes = [System.Text.Encoding\]::UTF8.GetBytes(\$jsonObject)
-    $jsonEncoded = \[System.Convert\]::ToBase64String(\$jsonObjectBytes)
-    Switch-AzureMode -Name AzureResourceManager
-    New-AzureResourceGroup -Name \$resourceGroup -Location \$location
-    New-AzureKeyVault -VaultName \$vaultName -ResourceGroupName
-    $resourceGroup -Location \$location -sku standard -EnabledForDeployment
-    $secret = ConvertTo-SecureString -String \$jsonEncoded -AsPlainText -Force
-    Set-AzureKeyVaultSecret -VaultName \$vaultName -Name \$secretName -SecretValue \$secret
+[System.Convert\]::ToBase64String(\$fileContentBytes) $jsonObject = @" { "data": "\$filecontentencoded", "dataType" :"pfx", "password": "\$certPassword" } @$jsonObjectBytes = [System.Text.Encoding\]::UTF8.GetBytes(\$jsonObject) $jsonEncoded = \[System.Convert\]::ToBase64String(\$jsonObjectBytes) Switch-AzureMode -Name AzureResourceManager New-AzureResourceGroup -Name \$resourceGroup -Location \$location New-AzureKeyVault -VaultName \$vaultName -ResourceGroupName $resourceGroup -Location \$location -sku standard -EnabledForDeployment $secret = ConvertTo-SecureString -String \$jsonEncoded -AsPlainText -Force Set-AzureKeyVaultSecret -VaultName \$vaultName -Name \$secretName -SecretValue \$secret
 
 The first part of the script reads the .pfx file, and then stores it as a JSON object with the file content base64 encoded. Then the JSON object is also base64 encoded.
 
@@ -132,12 +122,12 @@ Both of these files are .pem formatted.
 
 The application usually finds the certificate by using the thumbprint and doesn't need modification.
 
-## Retiring certificates
+## <a name="retiring-certificates"></a>Retiring certificates
 In the preceding section, we showed you how to push a new certificate to your existing VMs. But your old certificate is still in the VM and cannot be removed. For added security, you can change the attribute for old secret to 'Disabled', so that even if an old template tries to create a VM with this old version of certificate, it will. Here's how you set a specific secret version to be disabled:
 
     Set-AzureKeyVaultSecretAttribute -VaultName contosovault -Name servicecert -Version e3391a126b65414f93f6f9806743a1f7 -Enable 0
 
-## Conclusion
+## <a name="conclusion"></a>Conclusion
 With this new method, the certificate can be kept separate from the VM image or the application payload. So we have removed one point of exposure.
 
 The certificate can also be renewed and uploaded to Key Vault without having to re-build the VM image or the application deployment package. The application still needs to be supplied with the new URI for this new certificate version though.
@@ -146,11 +136,14 @@ By separating the certificate from the VM or the application payload, we have no
 
 As an added benefit, you now have one convenient place in Key Vault to manage all your certificates, including the all the versions that were deployed over time.
 
-## Next Steps
+## <a name="next-steps"></a>Next Steps
 [Deploy a VM with a Key Vault password](azure-stack-kv-deploy-vm-with-secret.md)
 
 [Allow an application to access Key Vault](azure-stack-kv-sample-app.md)
 
-<!--HONumber=Sep16_HO4-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

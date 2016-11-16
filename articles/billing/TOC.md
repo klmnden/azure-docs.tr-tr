@@ -23,16 +23,18 @@
 ### [Profili düzenleme](../billing-how-to-change-azure-account-profile.md)
 ### [Ödeme bilgilerini güncelleştirme](../billing-how-to-change-credit-card.md)
 ### [Office 365 kiracısını bağlama](../billing-add-office-365-tenant-to-azure-subscription.md)
+## Sorun giderme
+### [Kaydolma sorunları](../billing-troubleshoot-azure-sign-up-issues.md)
+### [Reddedilen kart](../billing-credit-card-fails-during-azure-sign-up.md)
+### [Oturum açma sorunları](../billing-cannot-login-subscription.md)
+
 # Başvuru
 ## [API’ye Genel Bakış](../billing-usage-rate-card-overview.md)
 ## [REST API başvurusu](https://msdn.microsoft.com/en-us/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c)
 ## [İş ortağı çözümü: Cloud Cruiser](../billing-usage-rate-card-partner-solution-cloudcruiser.md)
 ## [İş ortağı çözümü: Cloudyn](../billing-usage-rate-card-partner-solution-cloudyn.md)
-# Sorun giderme
-## [Kaydolma sorunları](../billing-troubleshoot-azure-sign-up-issues.md)
-## [Reddedilen kart](../billing-credit-card-fails-during-azure-sign-up.md)
-## [Oturum açma sorunları](../billing-cannot-login-subscription.md)
-# Destek
+
+# Kaynaklar
 ## [Desteğe başvurun](../billing-how-to-create-billing-support-ticket.md)
 
 <!--HONumber=Nov16_HO2-->

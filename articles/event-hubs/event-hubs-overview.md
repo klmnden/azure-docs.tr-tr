@@ -1,12 +1,12 @@
 ---
-title: Azure Event Hubs’a Genel Bakış | Microsoft Docs
-description: Azure Event Hubs’a giriş ve genel bakış.
+title: "Azure Event Hubs’a Genel Bakış | Microsoft Belgeleri"
+description: "Azure Event Hubs’a giriş ve genel bakış."
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: f0e0dd20-f745-49c7-bfca-30ea1c46e873
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/16/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: df9897894a2a2a09735b0947fd335959e81a46cd
+
 
 ---
 # <a name="azure-event-hubs-overview"></a>Azure Event Hubs’a genel bakış
@@ -25,7 +29,7 @@ Azure Event Hubs, düşük gecikme süresi ve yüksek güvenilirlikle bulutta b�
 
 Olay Hub'ı, Service Bus kuyrukları ve konularına benzer şekilde Service Bus ad alanı düzeyinde oluşturulur. Event Hubs birincil API arabirimleri olarak AMQP ve HTTP kullanır. Aşağıdaki diyagramda Event Hubs ile Service Bus arasındaki ilişki gösterilmektedir.
 
-![Event Hubs](./media/event-hubs-overview/IC741188.png)
+![Event Hubs](./media/event-hubs-overview/ehoverview2.png)
 
 ## <a name="conceptual-overview"></a>Kavramsal genel bakış
 Event Hubs bölünmüş bir tüketici modeli aracılığıyla ileti akışı sağlar. Kuyruklar ve konular her bir tüketicinin aynı kuyruk veya kaynaktan okumaya çalıştığı [Yarışan Tüketici](https://msdn.microsoft.com/library/dn568101.aspx) modelini kullanır. Kaynakların bu rekabeti sonuç olarak akış işleme uygulamaları için karmaşıklık ve ölçek sınırlamaları ile sonuçlanır. Event Hubs her bir tüketicinin ileti akışında yalnızca belirli bir alt küme ya da bölümü okuduğu bölünmüş bir tüketici modeli kullanır. Bu model, olay işleme için yatay ölçek sağlar ve kuyruklar ile konularda kullanılamayan diğer akış odaklı özellikleri sunar.
@@ -48,13 +52,13 @@ Event Hubs bağlamında iletiler *olay verileri* olarak adlandırılır. Olay ve
 ## <a name="event-publisher"></a>Olay yayımcısı
 Bir Event Hub'ına olayları ya da verileri gönderen herhangi bir varlık *Olay Yayımcısı* ’dır. Olay yayımcıları olayları HTTPS veya AMQP 1.0 kullanarak yayımlayabilir. Olay yayımcıları kendilerini bir Event Hub'ına tanıtmak için Paylaşılan Erişim İmzası (SAS) belirteci kullanır ve senaryonun gereksinimlerine bağlı olarak benzersiz bir kimliğe sahip olabilir ya da ortak bir SAS belirteci kullanabilir.
 
-SAS ile çalışma hakkında daha fazla bilgi için bkz. [Service Bus ile Paylaşılan Erişim İmzası Kimlik Doğrulaması](../service-bus/service-bus-shared-access-signature-authentication.md).
+SAS ile çalışma hakkında daha fazla bilgi için bkz. [Service Bus ile Paylaşılan Erişim İmzası Kimlik Doğrulaması](../service-bus-messaging/service-bus-shared-access-signature-authentication.md).
 
 ### <a name="common-publisher-tasks"></a>Ortak yayımcı görevleri
 Bu bölümde olay yayımcıları için ortak görevler açıklanmaktadır.
 
 #### <a name="acquire-a-sas-token"></a>SAS belirteci alma
-Paylaşılan Erişim İmzası (SAS), Event Hubs için kimlik doğrulama mekanizmasıdır. Service Bus, ad alanı ve Event Hub'ı düzeyinde SAS ilkeleri sağlar. SAS belirteci bir SAS anahtarından oluşturulur ve belirli bir biçimde kodlanmış bir URL’nin SHA karmasıdır. Service Bus anahtar (ilke) ve belirtecin adını kullanarak karmayı yeniden oluşturabilir ve böylece gönderenin kimliğini doğrular. Normalde, olay yayımcıları için SAS belirteci yalnızca belirli bir Event Hub'ı üzerindeki **gönder** ayrıcalıkları ile oluşturulur. Bu SAS belirteci URL mekanizması, yayımcı ilkesinde sunulan yayımcı kimliğinin temelini oluşturur. SAS ile çalışma hakkında daha fazla bilgi için bkz. [Service Bus ile Paylaşılan Erişim İmzası Kimlik Doğrulaması](../service-bus/service-bus-shared-access-signature-authentication.md).
+Paylaşılan Erişim İmzası (SAS), Event Hubs için kimlik doğrulama mekanizmasıdır. Service Bus, ad alanı ve Event Hub'ı düzeyinde SAS ilkeleri sağlar. SAS belirteci bir SAS anahtarından oluşturulur ve belirli bir biçimde kodlanmış bir URL’nin SHA karmasıdır. Service Bus anahtar (ilke) ve belirtecin adını kullanarak karmayı yeniden oluşturabilir ve böylece gönderenin kimliğini doğrular. Normalde, olay yayımcıları için SAS belirteci yalnızca belirli bir Event Hub'ı üzerindeki **gönder** ayrıcalıkları ile oluşturulur. Bu SAS belirteci URL mekanizması, yayımcı ilkesinde sunulan yayımcı kimliğinin temelini oluşturur. SAS ile çalışma hakkında daha fazla bilgi için bkz. [Service Bus ile Paylaşılan Erişim İmzası Kimlik Doğrulaması](../service-bus-messaging/service-bus-shared-access-signature-authentication.md).
 
 #### <a name="publishing-an-event"></a>Olay yayımlama
 Bir olayı AMQP 1.0 veya HTTPS üzerinden yayımlayabilirsiniz. Service Bus, .NET istemcilerinden bir Event Hub'ına olayları yayımlamak için [EventHubClient](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.eventhubclient.aspx) sınıfını sağlar. Diğer çalışma zamanları ve platformlar için [Apache Qpid](http://qpid.apache.org/) gibi herhangi bir AMQP 1.0 istemcisi kullanabilirsiniz. Olayları ayrı ayrı veya toplu olarak yayımlayabilirsiniz. Tek bir yayın (olay verileri örneği), tek bir olay ya da toplu işlem olmasına bakılmaksızın 256KB sınırlamaya sahiptir. Bundan büyük olayların yayımlanması bir hatayla sonuçlanır. Yayımcıların Event Hub'ındaki bölümleri bilmemesi ve yalnızca bir *bölüm anahtarı* (sonraki bölümde açıklanmıştır) ya da kimliklerini SAS belirteci üzerinden belirtmeleri en iyi yöntemdir.
@@ -115,7 +119,7 @@ Event Hubs işleme kapasitesi, işleme birimleri tarafından denetlenir. İşlem
 * Giriş: Saniye başına 1 MB’a veya saniye başına 1000 olaya kadar.
 * Çıkış: Saniye başına 2 MB’a kadar.
 
-Giriş, satın alınan işleme birimi sayısına göre sağlanan kapasite miktarı ile kısıtlanır. Bu miktarın üzerinde veri gönderilmesi bir "kota aşıldı" özel durumu ile sonuçlanır. Bu miktar saniyede 1 MB veya saniyede 1000 olaydır (hangisi önce gerçekleşirse). Çıkış azaltma özel durumları oluşturmaz, ancak satın alınan işleme birimlerine göre sağlanan veri aktarımı miktarı ile sınırlıdır (bir işleme birimi için saniyede 2 MB). Yayımlama hızı özel durumları alırsanız veya daha yüksek çıkış görmeyi bekliyorsanız Event Hub'ının oluşturulduğu ad alanı için kaç tane işleme birimi satın aldığınızı denetlediğinizden emin olun. Daha fazla işleme birimi edinmek için [Klasik Azure portalı][Klasik Azure portalı]’nın **Ölçek** sekmesinde bulunan **Ad alanları** sayfasındaki ayarı düzenleyebilirsiniz. Ayrıca Azure API'lerini kullanarak bu ayarı değiştirebilirsiniz.
+Giriş, satın alınan işleme birimi sayısına göre sağlanan kapasite miktarı ile kısıtlanır. Bu miktarın üzerinde veri gönderilmesi bir "kota aşıldı" özel durumu ile sonuçlanır. Bu miktar saniyede 1 MB veya saniyede 1000 olaydır (hangisi önce gerçekleşirse). Çıkış azaltma özel durumları oluşturmaz, ancak satın alınan işleme birimlerine göre sağlanan veri aktarımı miktarı ile sınırlıdır (bir işleme birimi için saniyede 2 MB). Yayımlama hızı özel durumları alırsanız veya daha yüksek çıkış görmeyi bekliyorsanız Event Hub'ının oluşturulduğu ad alanı için kaç tane işleme birimi satın aldığınızı denetlediğinizden emin olun. Daha fazla işleme birimi edinmek için [Klasik Azure portalı][Klasik Azure portalı] **Ölçek** sekmesinde bulunan **Ad alanları** sayfasındaki ayarı düzenleyebilirsiniz. Ayrıca Azure API'lerini kullanarak bu ayarı değiştirebilirsiniz.
 
 Bölümler bir veri düzenleme kavramıyken, işleme birimleri tamamen kapasiteyle ilgili bir kavramdır. İşleme birimleri saat başına faturalandırılır ve önceden satın alınır. Satın alındıktan sonra işleme birimleri en az bir saat için faturalandırılır. Bir Event Hubs ad alanı için en fazla 20 işleme birimi satın alınabilir ve bir Azure hesabının sınırı 20 işleme birimidir. Bu işleme birimleri belirli bir ad alanındaki tüm Event Hubs arasında paylaşılır.
 
@@ -130,7 +134,7 @@ Event Hubs, *yayımcı ilkeleri* aracılığıyla olay yayımcıları üzerinde 
 
     //<my namespace>.servicebus.windows.net/<event hub name>/publishers/<my publisher name>
 
-Yayımcı adlarını önceden oluşturmanız gerekli değildir, ancak bunlar bağımsız yayımcı kimlikleri sağlamak amacıyla bir olayı yayımlarken kullanılan SAS belirteci ile eşleşmelidir. SAS hakkında daha fazla bilgi için bkz. [Service Bus ile Paylaşılan Erişim İmzası Kimlik Doğrulaması](../service-bus/service-bus-shared-access-signature-authentication.md). Yayımcı ilkelerini kullanırken **PartitionKey** değeri yayımcı adına ayarlanır. Bu hizmetin düzgün çalışması için bu değerlerin eşleşmesi gerekir.
+Yayımcı adlarını önceden oluşturmanız gerekli değildir, ancak bunlar bağımsız yayımcı kimlikleri sağlamak amacıyla bir olayı yayımlarken kullanılan SAS belirteci ile eşleşmelidir. SAS hakkında daha fazla bilgi için bkz. [Service Bus ile Paylaşılan Erişim İmzası Kimlik Doğrulaması](../service-bus-messaging/service-bus-shared-access-signature-authentication.md). Yayımcı ilkelerini kullanırken **PartitionKey** değeri yayımcı adına ayarlanır. Bu hizmetin düzgün çalışması için bu değerlerin eşleşmesi gerekir.
 
 ## <a name="summary"></a>Özet
 Azure Event Hubs herhangi bir ölçekteki ortak uygulama ve kullanıcı iş akışı için kullanılabilen bir hiper ölçek olayı ve telemetri işlemesi sağlar. Düşük gecikme ile yoğun ölçekte yayımlama-abonelik özellikleri sağlayabilen Event Hubs, Büyük Veriler için "kestirme yol" olarak görev yapar. Yayımcıya dayalı kimlik ve iptal listeleri ile bu özellikler yaygın Nesnelerin İnterneti senaryolarına genişletilmektedir. Event Hubs uygulamaları geliştirme hakkında daha fazla bilgi için bkz. [Event Hubs programlama kılavuzu](event-hubs-programming-guide.md).
@@ -143,10 +147,10 @@ Event Hubs kavramlarını öğrendiğinize göre aşağıdaki senaryolara geçeb
 
 [Klasik Azure portalı]: http://manage.windowsazure.com
 [Event Hubs öğreticisi]: event-hubs-csharp-ephcs-getstarted.md
-[Event Hubs kullanan örnek uygulama]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-286fd097
+[Event Hubs kullanan bir örnek uygulamanın]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-286fd097
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

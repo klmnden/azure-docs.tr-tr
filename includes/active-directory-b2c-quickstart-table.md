@@ -6,6 +6,8 @@
 | [.NET Web Uygulamasından Web API Çağırma](../articles/active-directory-b2c/active-directory-b2c-devquickstarts-web-api-dotnet.md) | | |
 | [ASP.NET Core uygulamasına Kaydolma ve Oturum Açma ekleme](https://github.com/azure-samples/active-directory-dotnet-webapp-openidconnect-aspnetcore-b2c) | | |
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

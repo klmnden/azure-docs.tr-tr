@@ -1,13 +1,13 @@
 ---
-title: Azure Machine Learning Studio nedir? | Microsoft Docs
-description: Kullanıma hazır bir algoritmalar ve modüller kitaplığından hızla model oluşturmaya yönelik bir sürükle ve bırak aracı olan Azure ML Studio'ya genel bakış.
+title: Azure Machine Learning Studio nedir? | Microsoft Belgeleri
+description: "Kullanıma hazır bir algoritmalar ve modüller kitaplığından hızla model oluşturmaya yönelik bir sürükle ve bırak aracı olan Azure ML Studio&quot;ya genel bakış."
 keywords: azure machine learning,azure ml, ml studio
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: garyericson
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: e65c8fe1-7991-4a2a-86ef-fd80a7a06269
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -15,16 +15,20 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/09/2016
 ms.author: garye
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 2a5bcc177d298aecd9fd474bd15fc0331b26e887
+
 
 ---
-# Azure Machine Learning Studio nedir?
+# <a name="what-is-azure-machine-learning-studio"></a>Azure Machine Learning Studio nedir?
 Microsoft Azure Machine Learning Studio, verilerinizde tahmine dayalı analiz çözümleri oluşturma, test etme ve dağıtma amacıyla kullanabileceğiniz bir işbirliğine dayalı sürükle ve bırak aracıdır. Machine Learning Studio, modelleri özel uygulamalar veya Excel gibi BI araçları tarafından kolayca kullanılabilen web hizmetleri olarak yayımlar.
 
 Machine Learning Studio, verilerinizin veri bilimi, tahmine dayalı analiz ve bulut kaynakları ile buluştuğu yerdir.
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-## Machine Learning Studio etkileşimli çalışma alanı
+## <a name="the-machine-learning-studio-interactive-workspace"></a>Machine Learning Studio etkileşimli çalışma alanı
 Tahmine dayalı bir analiz modeli geliştirmek için, genellikle bir veya daha çok kaynaktan veri kullanır, çeşitli veri işleme ve istatistik işlevleri aracılığıyla bu verileri dönüştürüp analiz eder ve bir sonuç kümesi oluşturursunuz. Bir modelin bu şekilde geliştirilmesi yinelemeli bir işlemdir. Çeşitli işlevleri ve bunların parametrelerini değiştirirken, eğitilmiş ve verimli bir model elde ettiğinizi düşüneceğiniz ana kadar sonuçlarınız yakınsanır.
 
 **Azure Machine Learning Studio**, tahmine dayalı bir analiz modelini kolayca oluşturma, test etme ve yineleme amacıyla etkileşimli ve görsel bir çalışma alanı sunar. ***Veri kümelerini*** ve analiz ***modüllerini*** etkileşimli bir tuvale sürükleyip bırakır ve bunları birbirine bağlayarak Machine Learning Studio'da çalıştıracağınız bir ***deneme*** oluşturursunuz. Model tasarımınızı yinelemek için, denemeyi düzenleyin, isterseniz bir kopyasını kaydedin ve yeniden çalıştırın. Hazır olduğunuzda, ***eğitim denemenizi*** bir ***tahmine dayalı denemeye*** dönüştürebilir ve ardından modelinize başkaları tarafından erişilebilmesi için bunu bir ***web hizmeti*** olarak yayımlayabilirsiniz.
@@ -38,12 +42,12 @@ Programlama gerekmez; tahmine dayalı analiz modelinizi oluşturmak için veri k
 
 ![Azure ML Studio diyagramı: Deneme oluşturma, birçok kaynak için veri okuma, puanlanmış veri yazma, model yazma.][ml-studio-overview]
 
-## Machine Learning Studio ile çalışmaya başlama
+## <a name="get-started-with-machine-learning-studio"></a>Machine Learning Studio ile çalışmaya başlama
 [Machine Learning Studio](https://studio.azureml.net)'ya ilk girişinizde **Giriş** sayfasını görürsünüz. Buradan belgeleri, videoları, web seminerlerini görüntüleyebilir ve diğer değerli kaynakları bulabilirsiniz.
 
 Üst kısımda üç sekme bulunur: **Giriş** (başladığınız yer) **Studio** ve **Galeri**.
 
-### Studio
+### <a name="studio"></a>Studio
 **Studio** sekmesine tıkladığınızda Microsoft hesabınızı veya iş ya da okul hesabınızı kullanarak oturum açmanız istenir. Oturum açtıktan sonra, solda şu sekmeleri görürsünüz:
 
 * **PROJELER** - Tek bir projeyi temsil eden denemeler, veri kümeleri, not defterleri ve diğer kaynakların koleksiyonu
@@ -54,12 +58,12 @@ Programlama gerekmez; tahmine dayalı analiz modelinizi oluşturmak için veri k
 * **EĞİTİLMİŞ MODELLER** - Denemelerde eğittiğiniz ve Studio'da kaydettiğiniz modeller
 * **AYARLAR** - Hesabınızı ve kaynaklarınızı yapılandırmak için kullanabileceğiniz ayarlar koleksiyonu.
 
-### Galeri
+### <a name="gallery"></a>Galeri
 **Galeri** sekmesine tıkladığınızda Cortana Intelligence Galerisi'nde gidersiniz. Galeri, bir veri bilimcileri ve geliştiricileri topluluğunun Cortana Intelligence Suite bileşenleri kullanılarak oluşturduğu çözümleri paylaşabileceği bir yerdir.
 
 Galeri hakkında daha fazla bilgi için bkz. [Cortana Intelligence Galerisi'nde çözüm paylaşma ve keşfetme](machine-learning-gallery-how-to-use-contribute-publish.md).
 
-## Deneme bileşenleri
+## <a name="components-of-an-experiment"></a>Deneme bileşenleri
 Bir deneme, tahmine dayalı bir modeli oluşturmak için birlikte bağladığınız analitik modüllere veri sağlayan veri kümelerinden oluşur. Geçerli bir deneme özellikle şu özelliklere sahiptir:
 
 * Denemenin en az bir veri kümesi ve bir modülü vardır
@@ -74,7 +78,7 @@ Basit bir deneme oluşturma örneği için bkz. [Azure Machine Learning Studio'd
 
 Tahmine dayalı bir analiz çözümünün daha kapsamlı bir kılavuzu için bkz. [Azure Machine Learning ile tahmine dayalı bir analiz çözümü geliştirme](machine-learning-walkthrough-develop-predictive-solution.md).
 
-### Veri kümeleri
+### <a name="datasets"></a>Veri kümeleri
 Bir veri kümesi, model oluşturma işleminde kullanılabilmesi için Machine Learning Studio'ya yüklenen verilerdir. Machine Learning Studio'da deneme yapabileceğiniz birçok örnek veri kümesi bulunur ve ihtiyaç duyarsanız daha çok veri kümesi yükleyebilirsiniz. Dahil olan veri kümelerine aşağıda birkaç örnek verilmiştir:
 
 * **Çeşitli otomobiller için MPG verileri** - Otomobiller için silindir, beygir gücü, vb. sayısına göre tanımlanan galon başına mil (MPG) değerleri.
@@ -85,7 +89,7 @@ Bir deneme oluştururken, tuval solundaki kullanılabilir veri kümesi listesind
 
 Machine Learning Studio'ya dahil olan örnek veri kümelerinin listesi için bkz. [Azure Machine Learning Studio'daki örnek veri kümelerini kullanma](machine-learning-use-sample-datasets.md).
 
-### Modüller
+### <a name="modules"></a>Modüller
 Bir modül, verilerinizde gerçekleştirebileceğiniz bir algoritmadır. Machine Learning Studio, veri alım işlevlerinden eğitim, puanlama ve doğrulama işlemlerine kadar değişiklik gösteren birçok modüle sahiptir. Dahil olan modüllere aşağıda birkaç örnek verilmiştir:
 
 * [ARFF'ye Dönüştürme][convert-to-arff] - Seri hale getirilmiş .NET veri kümesini Öznitelik-İlişki Dosyası Biçimi'ne (ARFF) dönüştürür.
@@ -99,7 +103,7 @@ Bir modül, modülün iç algoritmalarını yapılandırmak için kullanabilece�
 
 Kullanılabilen büyük makine öğrenimi algoritma kitaplığında gezinme konusunda biraz yardım için bkz. [Microsoft Azure Machine Learning'de algoritma seçme](machine-learning-algorithm-choice.md)
 
-## Tahmine dayalı analiz web hizmetini dağıtma
+## <a name="deploying-a-predictive-analytics-web-service"></a>Tahmine dayalı analiz web hizmetini dağıtma
 Tahmine dayalı analiz modeliniz hazır olduktan sonra, bunu doğrudan Machine Learning Studio'dan bir web hizmeti olarak dağıtabilirsiniz. Bu işlem hakkında daha ayrıntılı bilgi için bkz. [Bir Azure Machine Learning web hizmetini dağıtma](machine-learning-publish-a-machine-learning-web-service.md).
 
 [ml-studio-overview]:./media/machine-learning-what-is-ml-studio/azure-ml-studio-diagram.jpg
@@ -112,6 +116,6 @@ Tahmine dayalı analiz modeliniz hazır olduktan sonra, bunu doğrudan Machine L
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

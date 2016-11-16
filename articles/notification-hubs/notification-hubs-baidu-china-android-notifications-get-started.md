@@ -1,111 +1,115 @@
 ---
-title: Baidu kullanarak Azure Notification Hubs ile çalışmaya başlama | Microsoft Docs
-description: Bu öğreticide, Baidu kullanarak Android cihazlarına anında iletme bildirimleri göndermek için Azure Notification Hubs'ın nasıl kullanılacağını öğrenirsiniz.
+title: "Baidu kullanarak Azure Notification Hubs ile çalışmaya başlama | Microsoft Belgeleri"
+description: "Bu öğreticide, Baidu kullanarak Android cihazlarına anında iletme bildirimleri göndermek için Azure Notification Hubs&quot;ın nasıl kullanılacağını öğrenirsiniz."
 services: notification-hubs
 documentationcenter: android
-author: wesmc7777
+author: ysxu
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: 23bde1ea-f978-43b2-9eeb-bfd7b9edc4c1
 ms.service: notification-hubs
 ms.devlang: java
 ms.topic: hero-article
 ms.tgt_pltfrm: mobile-baidu
 ms.workload: mobile
 ms.date: 08/19/2016
-ms.author: wesmc
+ms.author: yuaxu
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 9e6af9016318f9e31a143c6cf1329a7ab2c8acd6
+
 
 ---
-# Baidu kullanarak Azure Notification Hubs ile çalışmaya başlama
+# <a name="get-started-with-notification-hubs-using-baidu"></a>Baidu kullanarak Azure Notification Hubs ile çalışmaya başlama
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
-## Genel Bakış
+## <a name="overview"></a>Genel Bakış
 Baidu bulut anında iletme, mobil cihazlara anında iletme bildirimleri göndermede kullanabileceğiniz bir Çin bulut hizmetidir. Farklı uygulama mağazalarının ve anında iletme hizmetlerinin varlığı ve de genellikle GCM'ye (Google Cloud Messaging) bağlı olmayan Android cihazlarının kullanılabilirliği nedeniyle, bu hizmet özellikle Android'e anında iletme bildirimleri göndermenin karmaşık olduğu Çin'de kullanışlıdır.
 
-## Önkoşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bu öğretici için aşağıdakiler gereklidir:
 
-* <a href="http://go.microsoft.com/fwlink/?LinkId=389797">Android sitesinden indirebileceğiniz Android SDK'sı (Eclipse kullanacağınızı varsayıyoruz)</a>
+* <a href="http://go.microsoft.com/fwlink/?LinkId=389797">Android sitesinden</a> indirebileceğiniz Android SDK'sı (Eclipse kullanacağınız varsayılır)
 * [Mobile Services Android SDK'sı]
-* [Baidu Anında İletme Android SDK’sını]
+* [Baidu Anında İletme Android SDK’sı]
 
 > [!NOTE]
-> Bu öğreticiyi tamamlamak için etkin bir Azure hesabınızın olması gerekir. Hesabınız yoksa yalnızca birkaç dakika içinde ücretsiz bir deneme sürümü hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-baidu-get-started%2F).
+> Bu öğreticiyi tamamlamak için etkin bir Azure hesabınızın olması gerekir. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-baidu-get-started%2F).
 > 
 > 
 
-## Bir Baidu hesabı oluşturma
+## <a name="create-a-baidu-account"></a>Bir Baidu hesabı oluşturma
 Baidu kullanmak için bir Baidu hesabınızın olması gerekir. Zaten varsa [Baidu portalında] oturum açın ve sonraki adıma atlayın. Aksi halde, bir Baidu hesabının nasıl oluşturulacağı hakkında aşağıdaki yönergelere bakın.  
 
 1. [Baidu portalında] gidin ve **登录** (**Oturum Açma**) bağlantısına tıklayın. Hesap kayıt işlemini başlatmak için **立即注册** seçeneğine tıklayın.
    
-    ![][1]
+       ![][1]
 2. Gerekli ayrıntıları girin (telefon/e-posta adresi, parola ve doğrulama kodu) ve **Kaydol**'a tıklayın.
    
-    ![][2]
+       ![][2]
 3. Girdiğiniz e-posta adresine, Baidu hesabınızı etkinleştirmek için bir bağlantıya sahip bir e-posta gönderilir.
    
-    ![][3]
+       ![][3]
 4. E-posta hesabınızda oturum açın, Baidu etkinleştirme e-postasını açın ve Baidu hesabınızı etkinleştirmek için etkinleştirme bağlantısına tıklayın.
    
-    ![][4]
+       ![][4]
 
 Baidu hesabınızı etkinleştirdikten sonra, [Baidu portalında] oturum açın.
 
-## Bir Baidu geliştiricisi olarak kaydolma
+## <a name="register-as-a-baidu-developer"></a>Bir Baidu geliştiricisi olarak kaydolma
 1. [Baidu portalında] oturum açtıktan sonra, **更多>>** (**daha fazlası**) öğesine tıklayın.
    
-    ![][5]
+      ![][5]
 2. **站长与开发者服务 (Web Uzmanı ve Geliştirici Hizmetleri)** bölümde aşağı kaydırın ve **百度开放云平台** (**Baidu açık bulut platformu**) öğesine tıklayın.
    
-    ![][6]
+      ![][6]
 3. Sonraki sayfada sağ üst köşedeki **开发者服务** (**Geliştirici Hizmetleri**) öğesine tıklayın.
    
-    ![][7]
+      ![][7]
 4. Sonraki sayfada sağ üst köşedeki menüden **注册开发者** (**Kayıtlı Geliştiriciler**) öğesine tıklayın.
    
-    ![][8]
+      ![][8]
 5. Bir doğrulama kısa mesajı almak için adınızı, açıklamayı ve cep telefonu numarasını girin ve ardından **送验证码** (**Doğrulama Kodu Gönder**) öğesine tıklayın. Uluslararası telefon numaraları için ülke kodunu parantez içine almanız gerektiğini unutmayın. Örneğin, bir Amerika Birleşik Devletleri numarası için bu **(1) 1234567890** şeklinde olacaktır.
    
-    ![][9]
+      ![][9]
 6. Ardından, aşağıdaki örnekte gösterildiği gibi bir doğrulama numarasına sahip bir kısa mesaj almanız gerekir:
    
-    ![][10]
+      ![][10]
 7. İletideki doğrulama numarasını **验证码** (**Doğrulama kodu**) konumuna girin.
 8. Son olarak, Baidu sözleşmesini kabul edip **提交** (**Gönder**) öğesine tıklayarak geliştirici kaydını tamamlayın. Kayıt başarılı bir şekilde tamamlandığında aşağıdaki sayfayı görürsünüz:
    
-    ![][11]
+      ![][11]
 
-## Bir Baidu bulut anında iletme projesi oluşturma
+## <a name="create-a-baidu-cloud-push-project"></a>Bir Baidu bulut anında iletme projesi oluşturma
 Bir Baidu bulut anında iletme projesi oluşturduğunuzda, uygulama kimliğinizi, API anahtarınızı ve gizli anahtarınızı alırsınız.
 
 1. [Baidu portalında] oturum açtıktan sonra, **更多>>** (**daha fazlası**) öğesine tıklayın.
    
-    ![][5]
+      ![][5]
 2. **站长与开发者服务** (**Web Uzmanı ve Geliştirici Hizmetleri**) bölümde aşağı kaydırın ve **百度开放云平台** (**Baidu açık bulut platformu**) öğesine tıklayın.
    
-    ![][6]
+      ![][6]
 3. Sonraki sayfada sağ üst köşedeki **开发者服务** (**Geliştirici Hizmetleri**) öğesine tıklayın.
    
-    ![][7]
+      ![][7]
 4. Sonraki sayfada **云服务** (**Cloud Services**) bölümünden **云推送** (**Bulut Anında İletme**) öğesine tıklayın.
    
-    ![][12]
+      ![][12]
 5. Kayıtlı bir geliştirici olduğunuzda, en üstteki menüde **管理控制台** (**Yönetim Konsolu**) öğesini görürsünüz. **开发者服务管理** (**Geliştirici Hizmeti Yönetimi**) öğesine tıklayın.
    
-    ![][13]
+      ![][13]
 6. Sonraki sayfada **创建工程** (**Proje Oluşturma**) öğesine tıklayın.
    
-    ![][14]
+      ![][14]
 7. Bir uygulama adı girin ve **创建** (**Oluştur**) öğesine tıklayın.
    
-    ![][15]
+      ![][15]
 8. Bir Baidu bulut anında iletme projesinin başarılı bir şekilde oluşturulmasından sonra, **Uygulama Kimliği**, **API Anahtarı** ve **Gizli Anahtar** içeren bir sayfa görürsünüz. Daha sonra kullanacağımız API anahtarı ve gizli anahtarı not edin.
    
-    ![][16]
+      ![][16]
 9. Sol bölmedeki **云推送** (**Bulut Anında İletme**) öğesine tıklayarak projeyi anında iletme bildirimleri için yapılandırın.
    
-    ![][31]
+      ![][31]
 10. Sonraki sayfada **推送设置** (**Anında İletme ayarları**) düğmesine tıklayın.
     
     ![][32]  
@@ -115,29 +119,29 @@ Bir Baidu bulut anında iletme projesi oluşturduğunuzda, uygulama kimliğinizi
 
 **保存成功！** (**Başarıyla kaydedildi!**) iletisini görürsünüz.
 
-## Bildirim hub'ınızı yapılandırma
+## <a name="configure-your-notification-hub"></a>Bildirim hub'ınızı yapılandırma
 1. [Klasik Azure Portalı]'nda oturum açın ve ardından ekranın alt kısmındaki **+YENİ**'ye tıklayın.
 2. **Uygulama Hizmetleri**'ne tıklayın, **Service Bus**'a tıklayın, **Notification Hub**'a tıklayın ve ardından **Hızlı Oluştur**'a tıklayın.
 3. **Notification Hub**'ınız için bir ad sağlayın, bu bildirim hub'ının oluşturulacağı **Bölge** ve **Ad Alanı**'nı seçin ve ardından **Yeni bir Notification Hub Oluştur**'a tıklayın.  
    
-    ![][17]
+      ![][17]
 4. Bildirim hub'ınızı oluşturduğunuz ad alanına tıklayın ve ardından üst kısımdaki **Notification Hubs**'a tıklayın.
    
-    ![][18]
+      ![][18]
 5. Oluşturduğunuz bildirim hub'ını seçin ve ardından, üstteki menüden **Yapılandır**'a tıklayın.
    
-    ![][19]
+      ![][19]
 6. **Baidu bildirim ayarları** bölümüne doğru aşağı kaydırın ve Baidu bulut anında iletme projeniz için önceden Baidu konsolundan elde ettiğiniz API anahtarını ve gizli anahtarı girin. **Kaydet** düğmesine tıklayın.
    
-    ![][20]
+      ![][20]
 7. Bildirim hub'ı için en üstteki **Pano** sekmesine tıklayın ve ardından **Bağlantı Dizesini Görüntüle**'ye tıklayın.
    
-    ![][21]
+      ![][21]
 8. **Erişim bağlantı bilgileri** penceresinde **DefaultListenSharedAccessSignature** ve **DefaultFullSharedAccessSignature**'ı not edin.
    
     ![][22]
 
-## Uygulamanızı bildirim hub'ına bağlama
+## <a name="connect-your-app-to-the-notification-hub"></a>Uygulamanızı bildirim hub'ına bağlama
 1. Eclipse ADT'de yeni bir Android projesi (**Dosya** > **Yeni** > **Android Uygulama Projesi**) oluşturun.
    
     ![][23]
@@ -259,7 +263,7 @@ Bir Baidu bulut anında iletme projesi oluşturduğunuzda, uygulama kimliğinizi
                 mUserId = userId;
     
                 try {
-                 if (hub == null) {
+                    if (hub == null) {
                         hub = new NotificationHub(
                                 ConfigurationSettings.NotificationHubName,
                                 ConfigurationSettings.NotificationHubConnectionString,
@@ -280,10 +284,10 @@ Bir Baidu bulut anında iletme projesi oluşturduğunuzda, uygulama kimliğinizi
                      try {
                          hub.registerBaidu(mUserId, mChannelId);
                          Log.i(TAG, "Registered with Notification Hub - '"
-                                + ConfigurationSettings.NotificationHubName + "'"
-                                + " with UserId - '"
-                                + mUserId + "' and Channel Id - '"
-                                + mChannelId + "'");
+                                 + ConfigurationSettings.NotificationHubName + "'"
+                                 + " with UserId - '"
+                                 + mUserId + "' and Channel Id - '"
+                                 + mChannelId + "'");
                      } catch (Exception e) {
                          Log.e(TAG, e.getMessage());
                      }
@@ -349,7 +353,7 @@ Bir Baidu bulut anında iletme projesi oluşturduğunuzda, uygulama kimliğinizi
             import com.baidu.android.pushservice.PushConstants;
             import com.baidu.android.pushservice.PushManager;
 
-## Uygulamanıza bildirimler gönderme
+## <a name="send-notifications-to-your-app"></a>Uygulamanıza bildirimler gönderme
 Aşağıdaki ekranda gösterildiği [Azure Portal](https://portal.azure.com/)'da bildirim hub’ındaki **Test Gönderimi** düğmesini kullanarak uygulamanızda bildirim almayı hızlıca test edebilirsiniz.
 
 ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-test-send-wns.png)
@@ -361,10 +365,10 @@ Bu öğreticide konuyu basit bir şekilde işleyeceğiz ve yalnızca bir arka u�
 * **REST Arabirimi**: [REST arabirimini](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx) kullanarak herhangi bir arka uç platformunda bildirimi destekleyebilirsiniz.
 * **Microsoft Azure Notification Hubs .NET SDK'sı**: Visual Studio için Nuget Paket Yöneticisi'nde [Install-Package Microsoft.Azure.NotificationHubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/) komutunu çalıştırın.
 * **Node.js**: [Node.js'den Notification Hubs'ı kullanma](notification-hubs-nodejs-push-notification-tutorial.md).
-* **Azure Mobile Services**: Notification Hubs ile tümleştirilmiş Azure Mobile Services arka ucundan nasıl bildirim gönderildiğinin bir örneği için bkz. [Mobile Services uygulamanıza anında iletme bildirimleri ekleme](../mobile-services/mobile-services-javascript-backend-windows-universal-dotnet-get-started-push.md).
+* **Mobile Apps**: Notification Hubs ile tümleştirilmiş Azure Uygulama Hizmeti Mobile Apps arka ucundan nasıl bildirim gönderildiğinin bir örneği için bkz. [Mobil uygulamalarınıza anında iletme bildirimleri ekleme](../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md).
 * **Java/PHP**: REST API'ler kullanarak nasıl bildirim gönderildiğinin bir örneği için bkz. "Java/PHP'den Notification Hubs'ı kullanma"([Java](notification-hubs-java-push-notification-tutorial.md) | [PHP](notification-hubs-php-push-notification-tutorial.md)).
 
-## (İsteğe bağlı) Bir .NET konsol uygulamasından bildirim gönderme
+## <a name="optional-send-notifications-from-a-net-console-app"></a>(İsteğe bağlı) Bir .NET konsol uygulamasından bildirim gönderme
 Bu bölümde, bir .NET konsol uygulaması kullanarak bildirim göndermeyi göstereceğiz.
 
 1. Yeni bir Visual C# konsol uygulaması oluşturun:
@@ -393,7 +397,7 @@ Bu bölümde, bir .NET konsol uygulaması kullanarak bildirim göndermeyi göste
          SendNotificationAsync();
          Console.ReadLine();
 
-## Uygulamanızı test etme
+## <a name="test-your-app"></a>Uygulamanızı test etme
 Bu uygulamayı gerçek bir telefonla test etmek için telefonu bir USB kablosu kullanarak bilgisayarınıza bağlamanız yeterlidir. Böylece uygulamanız iliştirilmiş telefona yüklenir.
 
 Bu uygulamayı öykünücüyle test etmek için, Eclipse üst araç çubuğunda **Çalıştır**'a tıklayın ve ardından uygulamanızı seçin. Bu, öykünücüyü başlatır ve ardından uygulamayı yükleyip çalıştırır.
@@ -439,12 +443,12 @@ Bir test bildirimi göndermek için, Klasik Azure Portalı'nın hata ayıklama s
 
 <!-- URLs. -->
 [Mobile Services Android SDK'sı]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
-[Baidu Anında İletme Android SDK’sını]: http://developer.baidu.com/wiki/index.php?title=docs/cplat/push/sdk/clientsdk
+[Baidu Anında İletme Android SDK’sı]: http://developer.baidu.com/wiki/index.php?title=docs/cplat/push/sdk/clientsdk
 [Klasik Azure Portalı]: https://manage.windowsazure.com/
-[Baidu portalında]: http://www.baidu.com/
+[Baidu portalı]: http://www.baidu.com/
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

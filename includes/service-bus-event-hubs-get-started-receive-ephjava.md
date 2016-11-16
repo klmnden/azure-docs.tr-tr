@@ -1,10 +1,10 @@
-## Java’da EventProcessorHost bulunan iletiler alma
+## <a name="receive-messages-with-eventprocessorhost-in-java"></a>Java’da EventProcessorHost bulunan iletiler alma
 EventProcessorHost, Event Hubs’a ait kalıcı denetim noktalarını ve paralel alımları yöneterek bu Event Hubs’a ait alma olaylarını basitleştiren bir Java sınıfıdır. EventProcessorHost’u kullanarak, farklı düğümlerde barındırıldığında bile birden çok alıcı arasında olayları bölebilirsiniz. Bu örnek, tek alıcı için EventProcessorHost’un nasıl kullanıldığını göstermektedir.
 
-### Depolama hesabı oluşturma
-EventProcessorHost’u kullanmak için [Azure Storage hesabınız][Azure Storage hesabınız] olmalıdır:
+### <a name="create-a-storage-account"></a>Depolama hesabı oluşturma
+EventProcessorHost’u kullanmak için [Azure Depolama hesabınız][Azure Depolama hesabınız] olmalıdır:
 
-1. [Klasik Azure portalı][Klasik Azure portalı]’nda oturum açın ve ekranın altındaki **YENİ**’ye tıklayın.
+1. [Klasik Azure portalı][Klasik Azure portalı] üzerinde oturum açın ve ekranın altındaki **YENİ**’ye tıklayın.
 2. **Veri Hizmetleri**’ne, **Depolama**’ya ve **Hızlı Oluştur**’a sırasıyla tıklayıp depolama hesabınız için bir ad yazın. İstediğiniz bölgeyi seçin ve **Depolama Hesabı Oluştur**’a tıklayın.
    
     ![][11]
@@ -14,7 +14,7 @@ EventProcessorHost’u kullanmak için [Azure Storage hesabınız][Azure Storage
    
     Birincil erişim tuşunu daha sonra bu öğreticide kullanmak üzere kopyalayın.
 
-### EventProcessor Ana Bilgisayarını kullanarak Java projesi oluşturma
+### <a name="create-a-java-project-using-the-eventprocessor-host"></a>EventProcessor Ana Bilgisayarını kullanarak Java projesi oluşturma
 Event Hubs için Java istemci kitaplığı [Maven Central Repository][Maven Package] içindeki Maven projelerinde kullanılabilir ve Maven proje dosyanızda aşağıdaki bağımlılık bildirimi kullanılarak başvurulabilir:    
 
 ``` XML
@@ -184,8 +184,8 @@ Derleme ortamlarının farklı türleri için JAR dosyalarının en son sürüm�
 > 
 
 <!-- Links -->
-[Event Hubs’a genel bakış]: event-hubs-overview.md
-[Azure Storage hesabınız]: ../storage/storage-create-storage-account.md
+[Event Hubs’a genel bakış]: ../articles/event-hubs/event-hubs-overview.md
+[Azure Depolama hesabınız]: ../articles/storage/storage-create-storage-account.md
 [Klasik Azure portalı]: http://manage.windowsazure.com
 [Maven Package]: https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs-eph%22
 
@@ -195,6 +195,6 @@ Derleme ortamlarının farklı türleri için JAR dosyalarının en son sürüm�
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,13 +1,13 @@
 ---
-title: Azure Traffic Manager ile Azure’da yüksek kullanılabilirliğe sahip çapraz coğrafi AD FS dağıtımı | Microsoft Docs
-description: Bu belgede AD FS’yi yüksek kullanılabilirlik için Azure’a dağıtma hakkında bilgi edineceksiniz.
-keywords: Azure traffic manager ile Ad fs, Azure Traffic Manager ile adfs, coğrafi, çoklu veri merkezi, coğrafi veri merkezleri, çoklu coğrafi veri merkezleri, azure’da AD FS dağıtma, azure adfs dağıtma, azure adfs, azure ad fs, adfs dağıtma, ad fs dağıtma, azure’da adfs, azure’da adfs dağıtma, azure’da AD FS dağıtma, adfs azure, AD FS’ye giriş, Azure, Azure’da AD FS, iaas, ADFS, adfs’yi azure’a taşıma
+title: "Azure Traffic Manager ile Azure’da yüksek kullanılabilirliğe sahip çapraz coğrafi AD FS dağıtımı | Microsoft Belgeleri"
+description: "Bu belgede AD FS’yi yüksek kullanılabilirlik için Azure’a dağıtma hakkında bilgi edineceksiniz."
+keywords: "Azure traffic manager ile Ad fs, Azure Traffic Manager ile adfs, coğrafi, çoklu veri merkezi, coğrafi veri merkezleri, çoklu coğrafi veri merkezleri, azure’da AD FS dağıtma, azure adfs dağıtma, azure adfs, azure ad fs, adfs dağıtma, ad fs dağıtma, azure’da adfs, azure’da adfs dağıtma, azure’da AD FS dağıtma, adfs azure, AD FS’ye giriş, Azure, Azure’da AD FS, iaas, ADFS, adfs’yi azure’a taşıma"
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: anandyadavmsft
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: a14bc870-9fad-45ed-acd5-a90ccd432e54
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,9 +15,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/01/2016
 ms.author: anandy;billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 74f34f72f434c201c48dfcb5fdc72766e6be481a
+
 
 ---
-# Azure Traffic Manager ile Azure’da yüksek kullanılabilirliğe sahip çapraz coğrafi AD FS dağıtımı
+# <a name="high-availability-crossgeographic-ad-fs-deployment-in-azure-with-azure-traffic-manager"></a>Azure Traffic Manager ile Azure’da yüksek kullanılabilirliğe sahip çapraz coğrafi AD FS dağıtımı
 [Azure’da AD FS dağıtımı](active-directory-aadconnect-azure-adfs.md), kuruluşunuz için basit bir AD FS altyapısını Azure’da nasıl dağıtabileceğinize ilişkin adım adım yönergeler sağlar. Bu makale Azure’da [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) kullanılarak AD FS’nin çapraz coğrafi dağıtımını oluşturmaya ilişkin sıradaki adımları sunmaktadır. Azure Traffic Manager, altyapının farklı ihtiyaçlarına uygun olarak kullanılabilen çeşitli yönlendirme yöntemlerinden yararlanarak kuruluşunuz için coğrafi olarak yayılmış yüksek kullanılabilirliğe sahip ve yüksek performanslı bir AD FS altyapısı oluşturmaya yardımcı olur.
 
 Çapraz coğrafi yüksek kullanılabilirliğe sahip AD FS altyapısı şunları sağlar:
@@ -25,7 +29,7 @@ ms.author: anandy;billmath
 * **Tek hata noktasının ortadan kaldırılması:** Azure Traffic Manager’ın yük devretme özellikleriyle dünyanın bir yerindeki veri merkezlerinden birisi arızalandığında bile yüksek kullanılabilirliğe sahip bir AD FS altyapısı elde edebilirsiniz
 * **Daha iyi performans:** Kullanıcıların daha hızlı kimlik doğrulaması yapmasına yardımcı olabilecek yüksek performanslı bir AD FS altyapısı sağlamak üzere bu makalede önerilen dağıtımı kullanabilirsiniz. 
 
-## Tasarım ilkeleri
+## <a name="design-principles"></a>Tasarım ilkeleri
 ![Genel tasarım](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/blockdiagram.png)
 
 Temel tasarım ilkeleri Azure’da AD FS dağıtımı adlı makaledeki Tasarım ilkelerinde listelenenlerle aynıdır. Yukarıdaki diyagramda başka bir coğrafi bölgeye temel dağıtımın basit genişletilmesi gösterilmektedir. Dağıtımınızı yeni bir coğrafi bölgeye genişletirken göz önünde bulundurmanız gereken bazı noktalar aşağıda verilmiştir
@@ -38,16 +42,16 @@ Temel tasarım ilkeleri Azure’da AD FS dağıtımı adlı makaledeki Tasarım 
 * **Azure Traffic Manager:** Microsoft Azure Traffic Manager dünyanın dört bir yanındaki farklı veri merkezlerinde çalışan hizmet uç noktalarınıza kullanıcı trafiğinin dağıtılmasını denetler. Azure Traffic Manager, DNS düzeyinde çalışır. Son kullanıcı trafiğini küresel ölçekte dağıtılmış uç noktalarına yönlendirmek için DNS yanıtları kullanır. İstemciler daha sonra bu uç noktalara doğrudan bağlanır. Performans, Ağırlıklı ve Öncelik şeklindeki farklı yönlendirme seçenekleriyle kuruluşunuzun gereksinimlerine en uygun yönlendirme seçeneğini kolayca belirleyebilirsiniz. 
 * **İki bölge arasında sanal ağdan sanal ağa bağlantı:** Sanal ağların kendileri arasında bağlantı kurmanız gerekmez. Her sanal ağın etki alanı denetleyicilerine erişiminin olması ve içinde AD FS ve WAP sunucusunun olması nedeniyle farklı bölgelerdeki sanal ağlar arasında herhangi bir bağlantı olmadan çalışabilir. 
 
-## Azure Traffic Manager’ı tümleştirme adımları
-### Yeni coğrafi bölgede AD FS dağıtımı
+## <a name="steps-to-integrate-azure-traffic-manager"></a>Azure Traffic Manager’ı tümleştirme adımları
+### <a name="deploy-ad-fs-in-the-new-geographical-region"></a>Yeni coğrafi bölgede AD FS dağıtımı
 Aynı topolojiyi yeni coğrafi bölgeye dağıtmak için [Azure’da AD FS dağıtımı](active-directory-aadconnect-azure-adfs.md) içindeki adım ve yönergeleri izleyin.
 
-### İnternet'e Yönelik (ortak) Yük Dengeleyicilerin genel IP adresleri için DNS etiketleri
+### <a name="dns-labels-for-public-ip-addresses-of-the-internet-facing-public-load-balancers"></a>İnternet'e Yönelik (ortak) Yük Dengeleyicilerin genel IP adresleri için DNS etiketleri
 Yukarıda belirtildiği gibi Azure Traffic Manager uç nokta olarak yalnızca DNS etiketlerine başvurabilir ve bu nedenle Dış Yük Dengeleyicilerin genel IP adresleri için DNS etiketleri oluşturulması önemlidir. Aşağıdaki ekran görüntüsü, ortak IP adresi için DNS etiketinizin nasıl yapılandırılacağını göstermektedir. 
 
 ![DNS Etiketi](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/eastfabstsdnslabel.png)
 
-### Azure Traffic Manager’ı dağıtma
+### <a name="deploying-azure-traffic-manager"></a>Azure Traffic Manager’ı dağıtma
 Bir traffic manager profili oluşturmak için aşağıdaki adımları izleyin. Daha fazla bilgi için [Azure Traffic Manager profilini yönetme](../traffic-manager/traffic-manager-manage-profiles.md) bölümüne de bakabilirsiniz.
 
 1. **Traffic Manager profili oluşturun:** Traffic manager profilinize benzersiz bir ad verin. Bu profil adı, DNS adının bir parçasıdır ve Traffic Manager etki alanı ad etiketinin ön eki olarak görev yapar. Ad / ön ek, traffic manager için bir DNS etiketi oluşturmak üzere .trafficmanager.net ifadesine eklenir. Aşağıdaki ekran görüntüsünde mysts olarak ayarlanan traffic manager DNS ön ekini gösterilmektedir ve elde edilen DNS etiketi mysts.trafficmanager.net şeklinde olacaktır. 
@@ -90,16 +94,17 @@ Bir traffic manager profili oluşturmak için aşağıdaki adımları izleyin. D
    
     <code>fs.fabidentity.com IN CNAME mysts.trafficmanager.net</code>
 
-## Yönlendirme AD FS oturum açmayı sınama
-### Yönlendirme testi
+## <a name="test-the-routing-and-ad-fs-signin"></a>Yönlendirme AD FS oturum açmayı sınama
+### <a name="routing-test"></a>Yönlendirme testi
 Federasyon hizmeti DNS adına her bir bölgedeki bir makineden ping gönderilmesi son derece basit bir yönlendirme testidir. Seçilen yönlendirme yöntemine bağlı olarak gerçekte ping gönderilen uç nokta ping ekranında yansıtılır. Örneğin, performans yönlendirmeyi seçtiyseniz istemcinin bölgesine en yakın uç noktaya ulaşılır. Biri Güneydoğu Asya bölgesi ve diğeri Batı ABD olmak üzere iki farklı bölge istemci makinesinden gönderilen iki ping’in ekran görüntüsü aşağıda verilmiştir. 
 
 ![Yönlendirme testi](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/pingtest.png)
 
-### AD FS oturum açma testi
+### <a name="ad-fs-signin-test"></a>AD FS oturum açma testi
 AD FS’yi test etmenin en kolay yolu IdpInitiatedSignon.aspx sayfasının kullanılmasıdır. Bunu yapabilmek için AD FS özelliklerinde IdpInitiatedSignOn seçeneğinin etkinleştirilmesi gerekir. AD FS kurulumunuzu doğrulamak için aşağıdaki adımları izleyin
 
-1. AD FS sunucusunda PowerShell ile aşağıdaki cmdlet’i çalıştırarak etkinleştirin. Set-AdfsProperties -EnableIdPInitiatedSignonPage $true
+1. AD FS sunucusunda PowerShell ile aşağıdaki cmdlet’i çalıştırarak etkinleştirin. 
+   Set-AdfsProperties -EnableIdPInitiatedSignonPage $true
 2. Herhangi bir dış makineden https://<yourfederationservicedns>/adfs/ls/IdpInitiatedSignon.aspx sayfasına erişin
 3. AD FS sayfasını aşağıdaki gibi görmeniz gerekir:
    
@@ -109,15 +114,18 @@ AD FS’yi test etmenin en kolay yolu IdpInitiatedSignon.aspx sayfasının kulla
    
     ![ADFS testi - kimlik doğrulama başarılı](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/adfstest2.png)
 
-## İlgili bağlantılar
+## <a name="related-links"></a>İlgili bağlantılar
 * [Azure’da temel AD FS dağıtımı](active-directory-aadconnect-azure-adfs.md)
 * [Microsoft Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md)
 * [Traffic Manager trafik yönlendirme yöntemleri](../traffic-manager/traffic-manager-routing-methods.md)
 
-## Sonraki adımlar
-* [Bir Azure Traffic Manager profilini yönetme](../traffic-manager/traffic-manager-manage-profiles.md)
+## <a name="next-steps"></a>Sonraki adımlar
+* [Azure Traffic Manager profilini yönetme](../traffic-manager/traffic-manager-manage-profiles.md)
 * [Uç noktaları ekleme, devre dışı bırakma, etkinleştirme veya silme](../traffic-manager/traffic-manager-endpoints.md) 
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

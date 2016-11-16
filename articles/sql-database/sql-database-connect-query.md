@@ -1,13 +1,13 @@
 ---
-title: C# sorgusu ile SQL Database'e Bağlanma | Microsoft Docs
-description: Sorgu çalıştırmak ve SQL veritabanına bağlanmak için C# dilinde bir program yazın. IP adresleri, bağlantı dizeleri, güvenli oturum açma ve ücretsiz Visual Studio hakkında bilgiler.
+title: "C# sorgusu ile SQL Veritabanı&quot;na Bağlanma | Microsoft Belgeleri"
+description: "Sorgu çalıştırmak ve SQL veritabanına bağlanmak için C# dilinde bir program yazın. IP adresleri, bağlantı dizeleri, güvenli oturum açma ve ücretsiz Visual Studio hakkında bilgiler."
 services: sql-database
-keywords: c# veritabanı sorgusu, c# sorgusu, veritabanına bağlanma, SQL C#
-documentationcenter: ''
+keywords: "c# veritabanı sorgusu, c# sorgusu, veritabanına bağlanma, SQL C#"
+documentationcenter: 
 author: stevestein
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 676bd799-a571-4bb8-848b-fb1720007866
 ms.service: sql-database
 ms.workload: data-management
 ms.tgt_pltfrm: na
@@ -15,9 +15,13 @@ ms.devlang: dotnet
 ms.topic: get-started-article
 ms.date: 08/17/2016
 ms.author: stevestein
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 333babec567a4700ca0882c883e4460442d844e1
+
 
 ---
-# Visual Studio ile SQL Database'e bağlanma
+# <a name="connect-to-a-sql-database-with-visual-studio"></a>Visual Studio ile SQL Database'e bağlanma
 > [!div class="op_single_selector"]
 > * [Visual Studio](sql-database-connect-query.md)
 > * [SSMS](sql-database-connect-query-ssms.md)
@@ -27,7 +31,7 @@ ms.author: stevestein
 
 Visual Studio'da bir Azure SQL veritabanına nasıl bağlanacağınızı öğrenin. 
 
-## Ön koşullar
+## <a name="prerequisites"></a>Ön koşullar
 Visual Studio'yu kullanarak bir SQL veritabanına bağlanmak için şunlara sahip olmanız gerekir: 
 
 * Bağlanmak için bir SQL veritabanı. Bu makalede **AdventureWorks** örnek veritabanı kullanılmıştır. AdventureWorks örnek veritabanını almak için bkz. [Demo veritabanı oluşturma](sql-database-get-started.md).
@@ -36,7 +40,7 @@ Visual Studio'yu kullanarak bir SQL veritabanına bağlanmak için şunlara sahi
   * [Visual Studio Community, indir](http://www.visualstudio.com/products/visual-studio-community-vs)
   * [Ücretsiz Visual Studio için daha fazla seçenek](http://www.visualstudio.com/products/free-developer-offers-vs.aspx)
 
-## Azure portalından Visual Studio'yu açma
+## <a name="open-visual-studio-from-the-azure-portal"></a>Azure portalından Visual Studio'yu açma
 1. [Azure Portal](https://portal.azure.com/)’da oturum açın.
 2. **Diğer Hizmetler** > **SQL veritabanları** seçeneğine tıklayın
 3. *AdventureWorks* veritabanını bulup tıklayarak **AdventureWorks** veritabanı dikey penceresini açın.
@@ -56,7 +60,7 @@ Visual Studio'yu kullanarak bir SQL veritabanına bağlanmak için şunlara sahi
    
     ![Yeni sorgu. SQL Database sunucusuna bağlanma: SQL Server Management Studio](./media/sql-database-connect-query/sql-server-object-explorer.png)
 
-## Örnek sorgu çalıştırma
+## <a name="run-a-sample-query"></a>Örnek sorgu çalıştırma
 Artık veritabanına bağlı olduğumuza göre, basit bir sorgunun nasıl çalıştırılacağına ilişkin aşağıdaki adımlara göz atabiliriz:
 
 1. Veritabanına sağ tıklayın ve **Yeni Sorgu**'yu seçin.
@@ -75,10 +79,13 @@ Artık veritabanına bağlı olduğumuza göre, basit bir sorgunun nasıl çalı
    
     ![Başarılı. SQL Database sunucusuna bağlanma: SVisual Studio](./media/sql-database-connect-query/run-query.png)
 
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 * Visual Studio'da SQL veritabanlarının açılması için SQL Server Veri Araçları kullanılır. Daha ayrıntılı bilgi için bkz. [SQL Server Veri Araçları](https://msdn.microsoft.com/library/hh272686.aspx).
 * Bir SQL veritabanına kod kullanarak bağlanmak için bkz. [.NET (C#) kullanarak SQL Veritabanı'na bağlanma](sql-database-develop-dotnet-simple.md).
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

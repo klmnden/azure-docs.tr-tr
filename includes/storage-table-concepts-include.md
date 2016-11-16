@@ -1,4 +1,4 @@
-## Tablo Hizmeti nedir
+## <a name="what-is-the-table-service"></a>Tablo Hizmeti nedir
 Azure Table Storage hizmeti büyük miktarlarda yapısal veriyi depolar. Bu hizmet, Azure bulutunun içinden ve dışından gelen kimliği doğrulanmış çağrıları kabul eden bir NoSQL olmayan veri deposudur. Azure tabloları, yapılandırılmış ve ilişkisel olmayan verilerin depolanması için idealdir. Tablo hizmetinin genel kullanımları şunları içerir:
 
 * Web ölçekli uygulamalara hizmet verebilen yapılandırılmış verilerin TB depolaması
@@ -8,7 +8,7 @@ Azure Table Storage hizmeti büyük miktarlarda yapısal veriyi depolar. Bu hizm
 
 Yapılandırılmış ve ilişkisel olmayan verilerin büyük kümelerini depolamak ve sorgulamak için Tablo hizmetini kullanabilirsiniz; tablolara talep arttıkça da ölçekleneceklerdir.
 
-## Tablo Hizmeti Kavramları
+## <a name="table-service-concepts"></a>Tablo Hizmeti Kavramları
 Tablo hizmetinde şu bileşenler bulunur:
 
 ![Table1][Table1]
@@ -28,7 +28,6 @@ Tabloları ve özellikleri adlandırma hakkında daha fazla bilgi için bkz. [Ta
 [OData.org]: http://www.odata.org/
 
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Nov16_HO2-->
 
 

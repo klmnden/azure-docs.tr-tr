@@ -1,28 +1,32 @@
 ---
-title: API Management’ta geliştirici portalını özelleştirme | Microsoft Docs
-description: Azure API Management’ta geliştirici portalını özelleştirmeyi öğrenin.
+title: "API Management’ta geliştirici portalını özelleştirme | Microsoft Belgeleri"
+description: "Azure API Management’ta geliştirici portalını özelleştirmeyi öğrenin."
 services: api-management
-documentationcenter: ''
+documentationcenter: 
 author: steved0x
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 186128fe-41c0-4efb-9efe-2478ad4d103f
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/24/2016
+ms.date: 10/25/2016
 ms.author: sdanie
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 398b845a6549341d6afba101acec9eefd146d810
+
 
 ---
-# Azure API Management’ta geliştirici portalını özelleştirme
+# <a name="customize-the-developer-portal-in-azure-api-management"></a>Azure API Management’ta geliştirici portalını özelleştirme
 Bu kılavuz, markanızla tutarlılık için Azure API Management’ta geliştirici portalının görünümünü nasıl değiştireceğinizi gösterir.
 
 ## <a name="change-page-headers"> </a>Sayfa üst bilgisindeki metin veya logoyu değiştirme
 Portal özelleştirmenin temel özelliklerinden biri tüm sayfaların üst kısmındaki metni şirketinizin adı veya logosu ile değiştirmektir.
 
-Geliştirici portalındaki içerik, Klasik Azure Portalı ile erişilen yayımcı portalı aracılığıyla değiştirilir. API yayımcı portalına erişmek isterseniz API Management hizmetiniz için Klasik Azure Portalı'nda **Yönet**’e tıklayın.
+Geliştirici portalındaki içerik, Azure Portal ile erişilen yayımcı portalı aracılığıyla değiştirilir. Ulaşmak için API Management örneğinizin hizmet araç çubuğundan **Yayımcı portalı**’na tıklayın.
 
 ![Yayımcı portalı][api-management-management-console]
 
@@ -49,13 +53,13 @@ Stil kurallarını düzenlemenin iki ana modu vardır: **Tüm kuralları düzenl
 
 Bu bölümde, yalnızca üst bilgilerin stilini değiştirmek istiyoruz. Stil düzenleyicisi araç çubuğunda **Öğe seç**’e ve ardından **Özelleştirilecek öğeyi seçin**’e tıklayın. Fareyle üzerine geldiğiniz öğeler vurgulanır ve tıkladığınızda hangi öğe stillerini düzenlemeye başlayacağınızı gösterir. Fareyi üst bilgide şirket adını gösteren metnin üzerine getirin (önceki bölümde yer alan yönergeleri izlediyseniz "Fabrikam Geliştirici Portalı") ve metni tıklayın. Stil düzenleyicisinde, adlandırılmış ve kategorilere ayrılmış bir grup stil kuralı görüntülenir.
 
-Her kural seçilen öğenin bir stil özelliğini temsil eder. Örneğin, yukarıda seçilen üst bilgi metni için, metin boyutu @font-size-h1 içinde iken, alternatiflerle birlikte yazı tipi adı @headings-font-family içindedir.
+Her kural seçilen öğenin bir stil özelliğini temsil eder. Örneğin, yukarıda seçilen üst bilgi metni için metin boyutu @font-size-h1 biçimindeyken, alternatiflerle birlikte yazı tipinin adı @headings-font-family. biçimindedir
 
 > [Önyükleme][Önyükleme] yapmayı biliyorsanız, bu kurallar aslında geliştirici portalı tarafından kullanılan önyükleme temasının [LESS değişkenleridir][LESS değişkenleridir].
 > 
 > 
 
-Şimdi üst bilgi metninin rengini değiştirelim. **@headings-color** alanını seçin ve **#000000** yazın. Bu, siyah renk için onaltılı koddur. Bunu yaparken, metin kutusunun sonunda kare şeklinde bir renk göstergesi görürsünüz. Bu göstergeye tıklarsanız, bir renk seçici renk seçmenizi sağlar.
+Şimdi üst bilgi metninin rengini değiştirelim. **@headings-color** alanındaki girişi seçin ve **#000000** yazın. Bu, siyah renk için onaltılı koddur. Bunu yaparken, metin kutusunun sonunda kare şeklinde bir renk göstergesi görürsünüz. Bu göstergeye tıklarsanız, bir renk seçici renk seçmenizi sağlar.
 
 ![Renk seçici][api-management-customization-toolbar-color-picker]
 
@@ -85,7 +89,7 @@ Geliştirici portalının giriş sayfasında ne göründüğünü düzenlemek i�
 
 [Sayfa üst bilgisindeki metni/logoyu değiştirme]: #change-page-headers
 [Üst bilgilerin stilini değiştirme]: #change-headers-styling
-[Bir sayfanın içeriğini düzenleme]: #edit-page-contents
+[Sayfanın içeriğini düzenleme]: #edit-page-contents
 [Sonraki adımlar]: #next-steps
 
 [Klasik Azure Portalı]: https://manage.windowsazure.com/
@@ -103,6 +107,6 @@ Geliştirici portalının giriş sayfasında ne göründüğünü düzenlemek i�
 
 
 
-<!--HONumber=ago16_HO5-->
+<!--HONumber=Nov16_HO2-->
 
 

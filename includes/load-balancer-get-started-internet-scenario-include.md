@@ -1,8 +1,12 @@
-The following tasks will be done in this scenario:
+Bu senaryoda aşağıdaki görevler gerçekleştirilecek:
 
-* Create a load balancer that receives network traffic on port 80 and send load-balanced traffic to virtual machines "web1" and "web2"
-* Create NAT rules for remote desktop access/SSH for virtual machines behind the load balancer
-* Create health probes
+* 80 bağlantı noktasında ağ trafiği alan ve "web1" ve "web2" sanal makinelerine yükü dengelenmiş trafik gönderen bir yük dengeleyici oluşturma
+* Uzak masaüstü erişimi için NAT kuralları/yük dengeleyicinin arkasındaki sanal makineler için SSH oluşturma
+* Sistem durumu araştırmaları oluşturma
 
-![Load balancer scenario](./media/load-balancer-get-started-internet-scenario-include/scenario-classic.png)
+![Yük dengeleyici senaryosu](./media/load-balancer-get-started-internet-scenario-include/scenario-classic.png)
+
+
+<!--HONumber=Nov16_HO2-->
+
 

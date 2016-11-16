@@ -1,13 +1,13 @@
 ---
-title: .NET SDK kullanarak Azure Search'te karşıya veri yükleme | Microsoft Docs
-description: .NET SDK kullanarak Azure Search'te bir dizine nasıl veri yükleneceğini öğrenin.
+title: ".NET SDK kullanarak Azure Search&quot;te karşıya veri yükleme | Microsoft Belgeleri"
+description: ".NET SDK kullanarak Azure Search&quot;te bir dizine nasıl veri yükleneceğini öğrenin."
 services: search
-documentationcenter: ''
+documentationcenter: 
 author: brjohnstmsft
-manager: ''
-editor: ''
-tags: ''
-
+manager: jhubbard
+editor: 
+tags: 
+ms.assetid: 0e0e7e7b-7178-4c26-95c6-2fd1e8015aca
 ms.service: search
 ms.devlang: dotnet
 ms.workload: search
@@ -15,9 +15,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 08/29/2016
 ms.author: brjohnst
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: a63d71de584b526972ff86ba8cb47664e66e22da
+
 
 ---
-# .NET SDK kullanarak Azure Search'e veri yükleme
+# <a name="upload-data-to-azure-search-using-the-net-sdk"></a>.NET SDK kullanarak Azure Search'e veri yükleme
 > [!div class="op_single_selector"]
 > * [Genel Bakış](search-what-is-data-import.md)
 > * [.NET](search-import-data-dotnet.md)
@@ -37,7 +41,7 @@ Bu makaledeki örnek kodun tamamının C# dilinde yazıldığını unutmayın. T
 2. Eklenecek, değiştirilecek veya silinecek belgeleri içeren bir `IndexBatch` oluşturun.
 3. Arama dizininize `IndexBatch` göndermek için `SearchIndexClient` öğenizin `Documents.Index` yöntemini çağırın.
 
-## I. SearchIndexClient sınıfının bir örneğini oluşturma
+## <a name="i-create-an-instance-of-the-searchindexclient-class"></a>I. SearchIndexClient sınıfının bir örneğini oluşturma
 Azure Search .NET SDK'sını kullanarak dizininize veri aktarmak için `SearchIndexClient` sınıfının bir örneğini oluşturmanız gerekir. Bu örneği kendiniz oluşturulabilirsiniz ancak bunun `Indexes.GetClient` yöntemini çağırmak için bir `SearchServiceClient` örneğine zaten sahipseniz daha kolay olur. Örneğin, `serviceClient` adlı bir `SearchServiceClient` öğesinden "hotels" adlı bir dizin için şu şekilde bir `SearchIndexClient` elde edebilirsiniz:
 
 ```csharp
@@ -45,13 +49,13 @@ SearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
 ```
 
 > [!NOTE]
-> Genel bir arama uygulamasında, dizin yönetimi ve popülasyon, arama sorgularından ayrı bir bileşen tarafından işlenir. `Indexes.GetClient` başka bir `SearchCredentials` sağlama zahmetini ortadan kaldırdığı için bir dizini doldurmada kullanışlıdır. Yeni `SearchIndexClient` için `SearchServiceClient` oluşturmak üzere kullandığınız yönetici anahtarını geçirerek bunu yapar. Ancak uygulamanızın sorguları yürüten bölümünde, bir yönetici anahtarı yerine sorgu anahtarında geçirebilmeniz için doğrudan `SearchIndexClient` oluşturmak daha iyi olur. Bu, [en az ayrıcalık ilkesiyle](https://en.wikipedia.org/wiki/Principle_of_least_privilege) tutarlıdır ve uygulamanızı daha güvenli hale getirmenize yardımcı olur. [MSDN'deki Azure Search REST API'si başvurusunda](https://msdn.microsoft.com/library/azure/dn798935.aspx) yönetici anahtarları ve sorgu anahtarları hakkında daha fazla bilgi edinebilirsiniz.
+> Genel bir arama uygulamasında, dizin yönetimi ve popülasyon, arama sorgularından ayrı bir bileşen tarafından işlenir. `Indexes.GetClient`, başka bir `SearchCredentials` sağlamanızı gerektirmediğinden, dizini doldurmak için uygundur. Yeni `SearchIndexClient` için `SearchServiceClient` oluşturmak üzere kullandığınız yönetici anahtarını geçirerek bunu yapar. Ancak uygulamanızın sorguları yürüten bölümünde, bir yönetici anahtarı yerine sorgu anahtarında geçirebilmeniz için doğrudan `SearchIndexClient` oluşturmak daha iyi olur. Bu, [en az ayrıcalık ilkesiyle](https://en.wikipedia.org/wiki/Principle_of_least_privilege) tutarlıdır ve uygulamanızı daha güvenli hale getirmenize yardımcı olur. [MSDN'deki Azure Search REST API'si başvurusunda](https://msdn.microsoft.com/library/azure/dn798935.aspx) yönetici anahtarları ve sorgu anahtarları hakkında daha fazla bilgi edinebilirsiniz.
 > 
 > 
 
-`SearchIndexClient` bir `Documents` özelliğine sahiptir. Bu özellik, belgeleri dizininize eklemek, bunları değiştirmek, silmek veya sorgulamak için ihtiyacınız olan tüm yöntemleri sağlar.
+`SearchIndexClient`, `Documents` özelliğine sahiptir. Bu özellik, belgeleri dizininize eklemek, bunları değiştirmek, silmek veya sorgulamak için ihtiyacınız olan tüm yöntemleri sağlar.
 
-## II. Hangi dizin oluşturma eyleminin kullanılacağına karar verme
+## <a name="ii-decide-which-indexing-action-to-use"></a>II. Hangi dizin oluşturma eyleminin kullanılacağına karar verme
 .NET SDK kullanarak veri içeri aktarmak için verilerinizi bir `IndexBatch` nesnesine paketlemeniz gerekir. Bir `IndexBatch`, her birinde bir belge ve söz konusu belgede hangi eylemin (karşıya yükleme, birleştirme, silme, vb.) gerçekleştirileceğini Azure Search'e söyleyen bir özellik bulunan `IndexAction` nesneleri koleksiyonunu kapsar. Yukarıdaki eylemlerden hangisini seçtiğinize bağlı olarak, her bir belgeye yalnızca belirli alanlar dahil edilmelidir:
 
 | Eylem | Açıklama | Her bir belge için gerekli alanlar | Notlar |
@@ -63,7 +67,7 @@ SearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
 
 Bir sonraki bölümde gösterildiği üzere, `IndexBatch` ve `IndexAction` sınıflarının çeşitli statik yöntemleriyle hangi eylemi kullanmak istediğinizi belirtebilirsiniz.
 
-## III. IndexBatch'inizi oluşturma
+## <a name="iii-construct-your-indexbatch"></a>III. IndexBatch'inizi oluşturma
 Artık belgelerinizde hangi eylemleri gerçekleştireceğinizi bildiğinize göre, `IndexBatch` oluşturmaya hazırsınız. Aşağıdaki örnek, bir toplu işlemin birkaç farklı eylemle nasıl oluşturulacağını gösterir. Örneğimizde "hotels" dizinindeki bir belgeyle eşlenen `Hotel` adlı özel bir sınıf kullandığımıza dikkat edin.
 
 ```csharp
@@ -126,7 +130,7 @@ Ayrıca, tek bir dizin oluşturma isteğine yalnızca en fazla 1000 belge dahil 
 > 
 > 
 
-## IV. Dizine veri aktarma
+## <a name="iv-import-data-to-the-index"></a>IV. Dizine veri aktarma
 Artık başlatılan bir `IndexBatch` nesneniz olduğuna göre `SearchIndexClient` nesneniz üzerinden `Documents.Index` çağrısı yaparak bunu dizininize gönderebilirsiniz. Aşağıdaki örnekte, nasıl `Index` çağrılacağının yanı sıra gerçekleştirmeniz gereken bazı ek adımlar gösterilmektedir:
 
 ```csharp
@@ -148,13 +152,13 @@ Console.WriteLine("Waiting for documents to be indexed...\n");
 Thread.Sleep(2000);
 ```
 
-`Index` yöntemine çağrının başında ve sonunda yer alan `try`/`catch` öğesine dikkat edin. Catch bloğu, dizin oluşturma için önemli bir hata durumunu işler. Azure Search hizmetiniz toplu işlemdeki belgelerin bazılarına dizin oluşturmada başarısız olursa `Documents.Index` tarafından bir `IndexBatchException` oluşturulur. Bu durum, hizmetiniz ağır yük altındayken belgelere dizin oluşturuyorsanız oluşabilir. **Bu durumu açık bir şekilde kodunuzda işlemenizi kesinlikle öneririz.** Başarısız olan belgelere dizin oluşturmayı geciktirip sonra yeniden deneyebilir veya günlük tutup örneğin devam ettiği şekilde devam edebilir veya uygulamanızın veri tutarlılığı gereksinimlerine bağlı olarak başka bir şey yapabilirsiniz.
+`try`/`catch` öğesinin, `Index` yöntemine yönelik çağrıyı çevrelediğine dikkat edin. Catch bloğu, dizin oluşturma için önemli bir hata durumunu işler. Azure Search hizmetiniz toplu işlemdeki belgelerin bazılarına dizin oluşturmada başarısız olursa `Documents.Index` tarafından bir `IndexBatchException` oluşturulur. Bu durum, hizmetiniz ağır yük altındayken belgelere dizin oluşturuyorsanız oluşabilir. **Bu durumu, kodunuzda açık şekilde işlemenizi kesinlikle öneririz.** Başarısız olan belgelere dizin oluşturmayı geciktirip sonra yeniden deneyebilir veya günlük tutup örneğin devam ettiği şekilde devam edebilir veya uygulamanızın veri tutarlılığı gereksinimlerine bağlı olarak başka bir şey yapabilirsiniz.
 
 Son olarak, yukarıdaki örnekteki kod iki saniye gecikir. Azure Search hizmetinizde dizin oluşturma uyumsuz şekilde meydana gelir; bu nedenle belgelerin aramada kullanılabilir olduğundan emin olmak için örnek uygulamanızın kısa bir süre beklemesi gerekir. Bu gibi gecikmeler genellikle yalnızca gösterilerde, testlerde ve örnek uygulamalarda gereklidir.
 
 <a name="HotelClass"></a>
 
-### .NET SDK belgeleri nasıl işler?
+### <a name="how-the-net-sdk-handles-documents"></a>.NET SDK belgeleri nasıl işler?
 Azure Search .NET SDK'sının `Hotel` gibi kullanıcı tanımlı bir sınıfın örneklerini dizine nasıl yükleyebildiğini merak ediyor olabilirsiniz. Bu sorunun yanıtlanmasına yardımcı olmak için [.NET SDK kullanarak Azure Search dizini oluşturma](search-create-index-dotnet.md#DefineIndex)'da tanımlanan dizin şemasıyla eşlenen `Hotel` sınıfına bakalım:
 
 ```csharp
@@ -206,7 +210,7 @@ Kendi sınıflarınızı belge olarak kullanabilme iki yönde de işe yarar: [So
 > 
 > 
 
-**Veri türleri hakkında önemli bir not**
+**Veri türleri ile ilgili önemli bir not**
 
 Bir Azure Search dizinine eşlemek için yeni model sınıflarınızı tasarlarken, `bool` ve `int` gibi değer türü özelliklerinin boş değer atanabilir (örneğin, `bool` yerine `bool?`) şeklinde bildirilmesini öneririz. Boş değer atanamayan bir özellik kullanırsanız buna karşılık gelen alan için dizininizdeki hiçbir belgenin boş bir değer içermediğini **garanti etmeniz** gerekir. Bunu zorlamanıza ne SDK ne de Azure Search hizmeti yardımcı olur.
 
@@ -216,9 +220,12 @@ Bu yalnızca kuramsal bir sorun değildir: Var olan `DataType.Int32` türünde b
 
 Bu nedenle, en iyi uygulama olarak model sınıflarınızda boş değer atanabilir türler kullanmanızı öneririz.
 
-## Sonraki
+## <a name="next"></a>Sonraki
 Azure Search dizininizi doldurduktan sonra, belgeleri aramak için sorgu göndermeye başlamaya hazır olursunuz. Ayrıntılı bilgi için bkz. [Azure Search Dizininizi Sorgulama](search-query-overview.md).
 
-<!--HONumber=ago16_HO5-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

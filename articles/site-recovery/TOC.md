@@ -48,6 +48,10 @@
 ### [VMware VM’lerini ve fiziksel sunucuları ilk durumuna geri döndürme](site-recovery-failback-azure-to-vmware.md)
 ## [İzleme ve sorun giderme](site-recovery-monitoring-and-troubleshooting.md)
 
+# Başvuru
+## [PowerShell](/powershell/azureps-cmdlets-docs/)
+## [PowerShell klasik](/powershell/servicemanagement/)
+
 # İlgili
 ## [Azure Otomasyonu](/azure/automation/)
 
@@ -56,6 +60,7 @@
 ## [Forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hypervrecovmgr)
 ## [Blog](http://azure.microsoft.com/blog/tag/azure-site-recovery/)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/site-recovery/)
+## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=site-recovery)
 
 
 <!--HONumber=Nov16_HO2-->

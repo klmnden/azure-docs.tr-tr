@@ -1,12 +1,12 @@
 ---
-title: Windows Phone Silverlight uygulamaları için Azure Mobile Engagement kullanmaya başlama
-description: Windows Phone Silverlight uygulamaları için analizler ve anında iletme bildirimleri ile Azure Mobile Engagement kullanmayı öğrenin.
+title: "Windows Phone Silverlight uygulamaları için Azure Mobile Engagement kullanmaya başlama"
+description: "Windows Phone Silverlight uygulamaları için analizler ve anında iletme bildirimleri ile Azure Mobile Engagement kullanmayı öğrenin."
 services: mobile-engagement
 documentationcenter: windows
 author: piyushjo
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: aa34692f-87f7-47c6-a20c-a1972750bc25
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-phone
@@ -14,9 +14,13 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/19/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: fc6f97db04ae9dc547beb5a1fa3ee0c8c61885a6
+
 
 ---
-# Windows Phone Silverlight uygulamaları için Azure Mobile Engagement kullanmaya başlama
+# <a name="get-started-with-azure-mobile-engagement-for-windows-phone-silverlight-apps"></a>Windows Phone Silverlight uygulamaları için Azure Mobile Engagement kullanmaya başlama
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
 Bu konuda, uygulama kullanımınızı anlamak ve bir Windows Phone Silverlight uygulamasının segmentli kullanıcılarına anında iletme bildirimleri göndermek için nasıl Azure Mobile Engagement kullanılacağı gösterilmektedir.
@@ -33,19 +37,19 @@ Bu öğretici için aşağıdakiler gereklidir:
 * [MicrosoftAzure.MobileEngagement] Nuget paketi
 
 > [!NOTE]
-> Bu öğreticiyi tamamlamak için etkin bir Azure hesabınızın olması gerekir. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılar için bkz. [Azure Ücretsiz Deneme](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-windows-phone-get-started).
+> Bu öğreticiyi tamamlamak için etkin bir Azure hesabınızın olması gerekir. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-windows-phone-get-started).
 > 
 > 
 
-## <a id="setup-azme"></a>Windows Phone uygulamanız için Mobile Engagement kurma
+## <a name="a-idsetupazmeasetup-mobile-engagement-for-your-windows-phone-app"></a><a id="setup-azme"></a>Windows Phone uygulamanıza Mobile Engagement’i kurma
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a id="connecting-app"></a>Uygulamanızı Mobile Engagement arka ucuna bağlama
+## <a name="a-idconnectingappaconnect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Uygulamanızı Mobile Engagement arka ucuna bağlama
 Bu öğreticide, veri toplamak ve anında iletme bildirimi göndermek için gerekli en küçük grup olan bir "temel tümleştirme" gösterilmektedir. Tümleştirme belgelerinin tamamı [Mobile Engagement Windows Phone SDK tümleştirmesi](mobile-engagement-windows-phone-sdk-overview.md) makalesinde bulunabilir.
 
 Tümleştirmeyi göstermek için Visual Studio ile temel bir uygulama oluşturacağız.
 
-### Yeni bir Windows Phone Silverlight projesi oluşturma
+### <a name="create-a-new-windows-phone-silverlight-project"></a>Yeni bir Windows Phone Silverlight projesi oluşturma
 Aşağıdaki adımlarda Visual Studio 2015 kullanıldığı varsayılmaktadır ancak Visual Studio'nun önceki sürümleri için de benzer adımlar izlenir. 
 
 1. Visual Studio'yu başlatın ve **Giriş** ekranında **Yeni Proje**’yi seçin.
@@ -56,7 +60,7 @@ Aşağıdaki adımlarda Visual Studio 2015 kullanıldığı varsayılmaktadır a
 
 Azure Mobile Engagement SDK’sını tümleştireceğimiz yeni bir Windows Phone Silverlight uygulaması oluşturmuş oldunuz.
 
-### Uygulamanızı Mobile Engagement arka ucuna bağlama
+### <a name="connect-your-app-to-the-mobile-engagement-backend"></a>Uygulamanızı Mobile Engagement arka ucuna bağlama
 1. [MicrosoftAzure.MobileEngagement] nuget paketini projenize yükleyin.
 2. `WMAppManifest.xml` dosyasını (Özellikler klasörünün altındadır) açıp `<Capabilities />` etiketinde aşağıdakilerin bildirildiğinden emin olun (bildirilmemişlerse bunları ekleyin):
    
@@ -87,7 +91,7 @@ Azure Mobile Engagement SDK’sını tümleştireceğimiz yeni bir Windows Phone
                EngagementAgent.Instance.OnActivated(e);
             }
 
-## <a id="monitor"></a>Gerçek zamanlı izlemeyi etkinleştirme
+## <a name="a-idmonitoraenable-realtime-monitoring"></a><a id="monitor"></a>Gerçek zamanlı izlemeyi etkinleştirme
 Veri göndermeye başlamak ve kullanıcıların etkin olduğundan emin olmak için, Mobile Engagement arka ucuna en az bir ekran (Etkinlik) göndermelisiniz.
 
 1. MainPage.xaml.cs dosyasında, `using` deyimini ekleyin:
@@ -100,18 +104,18 @@ Veri göndermeye başlamak ve kullanıcıların etkin olduğundan emin olmak iç
    
     a. Ad alanı bildirimlerinize aşağıdakini ekleyin:
    
-         xmlns:engagement="clr-namespace:Microsoft.Azure.Engagement;assembly=Microsoft.Azure.Engagement.EngagementAgent.WP"
+            xmlns:engagement="clr-namespace:Microsoft.Azure.Engagement;assembly=Microsoft.Azure.Engagement.EngagementAgent.WP"
    
     b. XML etiket adında `phone:PhoneApplicationPage` yerine `engagement:EngagementPage` koyun.
 
-## <a id="monitor"></a>Uygulamayı gerçek zamanlı izlemeyle bağlama
+## <a name="a-idmonitoraconnect-app-with-realtime-monitoring"></a><a id="monitor"></a>Uygulamayı gerçek zamanlı izlemeyle bağlama
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-## <a id="integrate-push"></a>Anında iletme bildirimlerini ve uygulama içi mesajlaşmayı etkinleştirme
+## <a name="a-idintegratepushaenable-push-notifications-and-inapp-messaging"></a><a id="integrate-push"></a>Anında iletme bildirimlerini ve uygulama içi mesajlaşmayı etkinleştirme
 Mobile Engagement, kampanyalar bağlamında Anında İletme Bildirimleri ve uygulama içi Mesajlaşma aracılığıyla kullanıcılarınız ile etkileşim kurmanızı ve onlara erişmenizi sağlar. Mobile Engagement portalında bu modüle REACH adı verilir.
 Aşağıdaki bölümler bunları almak için uygulamanızı ayarlar.
 
-### MPNS Anında İletme Bildirimlerini almak üzere uygulamanızı etkinleştirme
+### <a name="enable-your-app-to-receive-mpns-push-notifications"></a>MPNS Anında İletme Bildirimlerini almak üzere uygulamanızı etkinleştirme
 `WMAppManifest.xml` dosyanıza yeni Capabilities (Özellikler) ekleyin:
 
         ID_CAP_PUSH_NOTIFICATION
@@ -119,7 +123,7 @@ Aşağıdaki bölümler bunları almak için uygulamanızı ayarlar.
 
    ![][5]
 
-### REACH SDK'sını başlatma
+### <a name="initialize-the-reach-sdk"></a>REACH SDK'sını başlatma
 1. `App.xaml.cs` dosyasındaki **Application_Launching** işlevinde, aracı başlatmadan hemen sonra `EngagementReach.Instance.Init();` öğesini çağırın:
    
         private void Application_Launching(object sender, LaunchingEventArgs e)
@@ -137,7 +141,7 @@ Aşağıdaki bölümler bunları almak için uygulamanızı ayarlar.
 
 İşinizi tamamlandı. Şimdi bu temel tümleştirmeyi doğru bir şekilde gerçekleştirdiğinizi onaylayacağız.
 
-## <a id="send"></a>Uygulamanıza bildirim gönderme
+## <a name="a-idsendasend-a-notification-to-your-app"></a><a id="send"></a>Uygulamanıza bildirim gönderme
 [!INCLUDE [Create Windows Push campaign](../../includes/mobile-engagement-windows-push-campaign.md)]
 
 Şimdi cihazınızda, uygulama açıksa bir uygulama içi bildirim, aksi takdirde aşağıdaki gibi bir bildirim görmeniz gerekir: 
@@ -157,6 +161,6 @@ Aşağıdaki bölümler bunları almak için uygulamanızı ayarlar.
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

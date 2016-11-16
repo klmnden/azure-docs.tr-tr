@@ -43,27 +43,27 @@
 
 
 # Başvuru
-## [API’ler-Resource Manager](https://msdn.microsoft.com/library/azure/mt586720)
-## [API’ler-Hizmet Yönetimi](https://msdn.microsoft.com/library/azure/dn606310)
-## [PowerShell Cmdlet'leri-Resource Manager](https://msdn.microsoft.com/library/azure/mt163510(v=azure.300))
-## [PowerShell Cmdlet'leri-Hizmet Yönetimi](https://msdn.microsoft.com/library/azure/dn683813)
+
+## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)
 ## [Yönlendirici yapılandırması ayarlama örnekleri](expressroute-config-samples-routing.md)
 ## [NAT için yönlendirici yapılandırma örnekleri](expressroute-config-samples-nat.md)
+## [REST](https://msdn.microsoft.com/library/azure/mt586720)
+## [Klasik REST](https://msdn.microsoft.com/library/azure/dn606310)
 
-# İlgili 
-## [Sanal Ağ](../virtual-network/index.md)
-## [VPN Gateway](../vpn-gateway/index.md)
-## [Sanal Makineler](../virtual-machines/index.md)
-## [Yük Dengeleyici](../load-balancer/index.md)
-## [Traffic Manager](../traffic-manager/index.md)
+# İlgili
+## [Sanal Ağ](/azure/virtual-network/)
+## [VPN Gateway](/azure/vpn-gateway/)
+## [Sanal Makineler](/azure/virtual-machines/)
+## [Yük Dengeleyici](/azure/load-balancer/)
+## [Traffic Manager](/azure/traffic-manager/)
 
 # Kaynaklar
+## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/expressroute/)
 ## [Ağ Blogu](https://azure.microsoft.com/blog/topics/networking/)
 ## [Örnek Olay İncelemeleri](https://customers.microsoft.com/Pages/advancedsearch.aspx?mrmcproducts=More%20Products)
-## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/expressroute/)
 ## [SLA](https://azure.microsoft.com/support/legal/sla/)
 ## [Abonelik ve Hizmet Sınırlamaları](../azure-subscription-service-limits.md)
-## Videolar
+## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=expressroute) 
 ### [ExpressRoute bağlantı hattı oluşturma](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit/)
 ### [Bağlantı hattınız için Özel Eşleme ayarlama](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit/)
 ### [Bağlantı hattınız için Genel Eşleme ayarlama](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit/)
@@ -73,6 +73,7 @@
 ### [Bir sanal ağ geçidini bağlantı hattına bağlama](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit/)
 ### [Bağlanılabilirlik için ağ altyapınızı geliştirme](https://go.microsoft.com/fwlink/p/?LinkId=615124)
 ### [Karma ortaklıklar: Şirket içi senaryoları etkinleştirme](https://go.microsoft.com/fwlink/p/?LinkId=615125)
+## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=expressroute) 
 
 <!--HONumber=Nov16_HO2-->
 

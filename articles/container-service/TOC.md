@@ -1,6 +1,6 @@
 # Genel Bakış
-## [ACS’ye giriş](container-service-intro.md)
-# Kullanmaya Başlama
+## [Azure Container Service nedir?](container-service-intro.md)
+# Başlarken
 
 ## [ACS kümesi dağıtma](container-service-deployment.md)
 ## [ACS kümesine bağlanma](container-service-connect.md)
@@ -21,12 +21,11 @@
 ### [Docker Swarm’a Genel Bakış](container-service-docker-swarm.md)
 
 # Başvuru
-
-## [REST API](https://go.microsoft.com/fwlink/p/?linkid=833499)
+## [REST API](https://docs.microsoft.com/rest/api/compute/containerservices/)
 
 # Kaynaklar
-
 ## [Bölge kullanılabilirliği](https://azure.microsoft.com/regions/services/)
+## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/container-service/)
 ## [Hizmet Güncelleştirmeleri](https://azure.microsoft.com/en-us/updates/?product=container-service&updatetype=&platform=)
 
 

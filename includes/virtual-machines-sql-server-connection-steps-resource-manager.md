@@ -1,4 +1,4 @@
-### Genel IP adresi için DNS etiketi yapılandırma
+### <a name="configure-a-dns-label-for-the-public-ip-address"></a>Genel IP adresi için DNS etiketi yapılandırma
 SQL Server Veritabanı Altyapısına İnternet'ten bağlanmak için önce genel IP adresi için bir DNS etiketi yapılandırın.
 
 > [!NOTE]
@@ -17,7 +17,7 @@ DNS etiketi oluşturmak için önce portalda **Virtual Machines**’i seçin. Ö
    
     ![dns etiketi](./media/virtual-machines-sql-server-connection-steps/rm-dns-label.png)
 
-### Başka bir bilgisayardan Veritabanı Altyapısına bağlanma
+### <a name="connect-to-the-database-engine-from-another-computer"></a>Başka bir bilgisayardan Veritabanı Altyapısına bağlanma
 1. İnternet'e bağlı bir bilgisayarda SQL Server Management Studio’yu (SSMS) açın.
 2. **Sunucuya Bağlan** veya **Veritabanı Altyapısına Bağlan** iletişim kutusunda **Sunucu adı** değerini düzenleyin. Sanal makinenin tam DNS adını girin (önceki görevde saptanmıştır).
 3. **Kimlik Doğrulaması** kutusunda **SQL Server Kimlik Doğrulaması**’nı seçin.
@@ -27,6 +27,8 @@ DNS etiketi oluşturmak için önce portalda **Virtual Machines**’i seçin. Ö
    
     ![ssms bağlanma](./media/virtual-machines-sql-server-connection-steps/rm-ssms-connect.png)
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

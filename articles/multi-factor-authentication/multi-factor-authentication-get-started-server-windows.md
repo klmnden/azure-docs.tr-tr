@@ -1,12 +1,12 @@
 ---
-title: Windows Kimlik Doğrulaması ve Azure Multi-Factor Authentication Sunucusu
-description: Bu, Windows Kimlik Doğrulaması ve Azure Multi-Factor Authentication Sunucusu’nu dağıtmada yardımcı olacak Azure Multi-factor authentication sayfasıdır.
+title: "Windows Kimlik Doğrulaması ve Azure Multi-Factor Authentication Sunucusu"
+description: "Bu, Windows Kimlik Doğrulaması ve Azure Multi-Factor Authentication Sunucusu’nu dağıtmada yardımcı olacak Azure Multi-factor authentication sayfasıdır."
 services: multi-factor-authentication
-documentationcenter: ''
+documentationcenter: 
 author: kgremban
 manager: femila
 editor: curtand
-
+ms.assetid: 19a4043f-c4ce-43c0-80e7-2548ee92cb74
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/04/2016
 ms.author: kgremban
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 1952e103c574f83c2c6285e32c59144816749348
+
 
 ---
-# Windows Kimlik Doğrulaması ve Azure Multi-Factor Authentication Sunucusu
+# <a name="windows-authentication-and-azure-multifactor-authentication-server"></a>Windows Kimlik Doğrulaması ve Azure Multi-Factor Authentication Sunucusu
 Windows Kimlik Doğrulaması bölümü yöneticinin bir ya da daha fazla uygulama için Windows kimlik doğrulamasını etkinleştirmesini ve yapılandırmasını sağlar.  Aşağıda Windows Kimlik Doğrulaması’nı ayarlamadan önce göz önünde bulundurulacakların bir listesi verilmiştir.
 
 * Terminal Hizmetleri için Azure Multi-Factor Authentication’ın etkin olması için yeniden başlatma gereklidir.
@@ -28,7 +32,7 @@ Windows Kimlik Doğrulaması bölümü yöneticinin bir ya da daha fazla uygulam
 > 
 > 
 
-## Bir uygulamayı Windows Kimlik Doğrulaması ile güvenli hale getirmek için aşağıdaki yordamı kullanın.
+## <a name="to-secure-an-application-with-windows-authentication-use-the-following-procedure"></a>Bir uygulamayı Windows Kimlik Doğrulaması ile güvenli hale getirmek için aşağıdaki yordamı kullanın.
 1. Azure Multi-Factor Authentication Sunucusu’nda Windows Kimlik Doğrulaması simgesine tıklayın.
    ![Windows Kimlik Doğrulaması](./media/multi-factor-authentication-get-started-server-windows/windowsauth.png)
 2. Windows kimlik doğrulamasını etkinleştir onay kutusunu işaretleyin. Varsayılan olarak, bu kutu işaretlenmemiştir.
@@ -42,6 +46,9 @@ Windows Kimlik Doğrulaması bölümü yöneticinin bir ya da daha fazla uygulam
 10. Bir alt ağ gösterimini kullanarak IP aralığı belirtmek istiyorsanız, alt ağı seçin. Alt ağın başlangıç IP’sini girin ve açılır listede uygun ağ maskesini seçin.
 11. Tamam düğmesine tıklayın.
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

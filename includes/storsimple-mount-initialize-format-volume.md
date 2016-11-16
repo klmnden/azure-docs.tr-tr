@@ -1,6 +1,6 @@
 <!--author=SharS last changed: 9/17/15-->
 
-#### Birimi bağlamak, başlatmak ve biçimlendirmek için
+#### <a name="to-mount-initialize-and-format-a-volume"></a>Birimi bağlamak, başlatmak ve biçimlendirmek için
 1. Microsoft iSCSI başlatıcısını başlatın.
 2. **iSCSI Başlatıcısı Özellikleri** penceresinin **Keşif** sekmesinde, **Portal Bul**’a tıklayın.
 3. **Hedef Portal Bul** iletişim kutusuna iSCSI etkin ağ arabiriminin IP adresini girin ve ardından **Tamam**’a tıklayın. 
@@ -19,7 +19,7 @@
     3. 64 KB ayırma birimi boyutu belirtin. Bu ayırma birimi boyutu, StorSimple çözümde kullanılan yinelenenleri kaldırma algoritmalarıyla iyi çalışır.
     4. Hızlı biçimlendirme gerçekleştirin.
 
-![Kullanılabilir video](./media/storsimple-mount-initialize-format-volume/Video_icon.png) **Kullanılabilir video**
+![Video var](./media/storsimple-mount-initialize-format-volume/Video_icon.png) **Video var**
 
 Bir StorSimple biriminin nasıl bağlandığını, başlatıldığını ve biçimlendirildiğini gösteren bir video izlemek için [buraya](https://azure.microsoft.com/documentation/videos/mount-initialize-and-format-a-storsimple-volume/) tıklayın.
 
@@ -27,6 +27,6 @@ Bir StorSimple biriminin nasıl bağlandığını, başlatıldığını ve biçi
 [1]: https://technet.microsoft.com/library/ee338480(WS.10).aspx
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 
