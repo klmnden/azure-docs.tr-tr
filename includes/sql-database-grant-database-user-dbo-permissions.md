@@ -1,6 +1,6 @@
 
 
-## Yeni veritabanı kullanıcı db_owner izinlerini verin
+## <a name="grant-new-database-user-dbowner-permissions"></a>Yeni veritabanı kullanıcı db_owner izinlerini verin
 Varolan bir veritabanı kullanıcı db_owner izinleri vermek için aşağıdaki adımları kullanın
 
 Bu adımlar SSMS’deki Nesne Gezgini'nde SQL Database’e bağlı olduğunuzu varsayar ve SQL Database mantıksal sunucunuza ya sunucu düzeyinde sorumlu yönetici olarak ya da kullanıcı izinleri verecek izinlere sahip kullanıcı hesabıyla bağlanırlar. 
@@ -18,6 +18,8 @@ Bu adımlar SSMS’deki Nesne Gezgini'nde SQL Database’e bağlı olduğunuzu v
    
      ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-grant-database-user-dbo-permissions/sql-database-grant-database-user-dbo-permissions-1.png)
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

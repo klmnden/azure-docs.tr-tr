@@ -1,33 +1,37 @@
 ---
-title: Docker Swarm ile Azure Kapsayıcı Hizmeti kapsayıcı yönetimi | Microsoft Docs
-description: Azure Kapsayıcı Hizmetinde kapsayıcıları bir Docker Swarm’a dağıtma
+title: "Docker Swarm ile Azure Container Service kapsayıcı yönetimi | Microsoft Belgeleri"
+description: "Azure Kapsayıcı Hizmetinde kapsayıcıları bir Docker Swarm’a dağıtma"
 services: container-service
-documentationcenter: ''
+documentationcenter: 
 author: neilpeterson
 manager: timlt
-editor: ''
+editor: 
 tags: acs, azure-container-service
-keywords: Docker, Kapsayıcılar, Mikro hizmetler, Mesos, Azure
-
+keywords: "Docker, Kapsayıcılar, Mikro hizmetler, Mesos, Azure"
+ms.assetid: af8f6fb2-13dc-429c-b82a-24a741168d42
 ms.service: container-service
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/13/2016
-ms.author: nepeters
+ms.author: timlt
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 99953be1a9d99cc1fdd5cd46522ccd262c09e25b
+
 
 ---
-# Docker Swarm ile kapsayıcı yönetimi
+# <a name="container-management-with-docker-swarm"></a>Docker Swarm ile kapsayıcı yönetimi
 Docker Swarm, havuza alınmış Docker ana bilgisayarları grubuna kapsayıcılı iş yükleri dağıtmak için bir ortam sağlar. Docker Swarm yerel Docker API’sini kullanır. Docker Swarm kapsayıcılarında iş akışının yönetilmesi tek kapsayıcılı ana bilgisayardakiyle neredeyse aynıdır. Bu belge Docker Swarm’ın Azure Kapsayıcı Hizmeti örneğine kapsayıcılı iş yüklerini dağıtmaya ilişkin basit örnekler sağlar. Docker Swarm hakkında daha fazla ayrıntılı belgeler için bkz. [Docker.com’da Docker Swarm ](https://docs.docker.com/swarm/).
 
 Bu belgedeki alıştırmalar için ön koşullar:
 
-[Azure Kapsayıcı Hizmeti’nde bir Swarm kümesi oluşturma](container-service-deployment.md)
+[Azure Container Service'te Swarm kümesi oluşturma](container-service-deployment.md)
 
-[Azure Kapsayıcı Hizmeti’nde bir Swarm kümesine bağlanma](container-service-connect.md)
+[Azure Container Service'teki Swarm kümesine bağlanma](container-service-connect.md)
 
-## Yeni bir kapsayıcı dağıtma
+## <a name="deploy-a-new-container"></a>Yeni bir kapsayıcı dağıtma
 Docker Swarm’da yeni bir kapsayıcı oluşturmak için `docker run` komutunu kullanın (yukarıdaki önkoşullara uygun olarak SSH tünelini ana sunuculara açtığınızdan emin olun). Bu örnek `yeasy/simple-web` görüntüsünden bir kapsayıcı oluşturur:
 
 ```bash
@@ -51,7 +55,7 @@ Artık Swarm aracı yük dengeleyicinin genel DNS adı aracılığıyla bu kapsa
 
 Varsayılan olarak Yük Dengeleyicinin 80, 8080 ve 443 bağlantı noktaları açıktır. Başka bir bağlantı noktasında bağlanmak istiyorsanız Aracı Havuzu için Azure Load Balancer üzerinde ilgili bağlantı noktasını açmanız gerekir.
 
-## Birden çok kapsayıcı dağıtma
+## <a name="deploy-multiple-containers"></a>Birden çok kapsayıcı dağıtma
 Birden çok kapsayıcı başlatıldığında ‘docker çalışmasını’ birden çok kez yürüterek kapsayıcıların hangi ana bilgisayarlar üzerinde çalıştığını görmek için `docker ps` komutunu kullanabilirsiniz. Aşağıdaki örnekte üç kapsayıcı üç Swarm aracısında eşit olarak yayılır:  
 
 ```bash
@@ -63,7 +67,7 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 4298d397b9ab        yeasy/simple-web    "/bin/sh -c 'python i"   2 minutes ago       Up 2 minutes        10.0.0.5:80->80/tcp   swarm-agent-34A73819-1/happy_allen
 ```  
 
-## Docker Compose kullanarak kapsayıcıları dağıtma
+## <a name="deploy-containers-by-using-docker-compose"></a>Docker Compose kullanarak kapsayıcıları dağıtma
 Birden çok kapsayıcının dağıtımını ve yapılandırmasını otomatik hale getirmek için Docker Compose’u kullanabilirsiniz. Bunu yapmak için, bir Secure Shell (SSH) tüneli oluşturulduğundan ve DOCKER_HOST değişkeninin ayarlandığından emin olun (yukarıdaki önkoşullara bakın).
 
 Yerel sisteminizde docker-compose.yml dosyası oluşturun. Bunu yapmak için, bu [örneği](https://raw.githubusercontent.com/rgardler/AzureDevTestDeploy/master/docker-compose.yml) kullanın.
@@ -109,9 +113,12 @@ caf185d221b7        adtd/web:0.1        "apache2-foreground"   2 minutes ago    
 
 Doğal olarak, yalnızca `compose.yml` dosyanızda tanımlanan kapsayıcıları incelemek için `docker-compose ps` kullanabilirsiniz.
 
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 [Docker Swarm hakkında daha fazla bilgi edinme](https://docs.docker.com/swarm/)
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

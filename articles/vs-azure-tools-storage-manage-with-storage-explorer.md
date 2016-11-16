@@ -1,12 +1,12 @@
 ---
-title: Depolama Gezgini ile çalışmaya başlama (Önizleme) | Microsoft Docs
-description: Depolama Gezgini (Önizleme) ile Azure Storage kaynaklarını yönetme
+title: "Depolama Gezgini ile çalışmaya başlama (Önizleme) | Microsoft Belgeleri"
+description: "Depolama Gezgini (Önizleme) ile Azure Storage kaynaklarını yönetme"
 services: storage
 documentationcenter: na
 author: TomArcher
 manager: douge
-editor: ''
-
+editor: 
+ms.assetid: 1ed0f096-494d-49c4-ab71-f4164ee19ec8
 ms.service: storage
 ms.devlang: multiple
 ms.topic: get-started-article
@@ -14,18 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/17/2016
 ms.author: tarcher
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: d5c003c9240d8625d2921666e1361ce0512138bb
+
 
 ---
-# Depolama Gezgini ile çalışmaya başlama (Önizleme)
-## Genel Bakış
+# <a name="getting-started-with-storage-explorer-preview"></a>Depolama Gezgini ile çalışmaya başlama (Önizleme)
+## <a name="overview"></a>Genel Bakış
 Microsoft Azure Depolama Gezgini (Önizleme) Windows, OS X ve Linux’ta Azure Depolama ile kolayca çalışmanızı sağlayan bir tek başına uygulamadır. Bu makalede Azure Storage hesaplarınızı bağlama ve yönetme ile ilgili çeşitli yöntemler öğreneceksiniz.
 
 ![Microsoft Azure Depolama Gezgini (Önizleme)][15]
 
-## Ön koşullar
-* [Depolama Gezgini (önizleme) indirip yüklemek](http://www.storageexplorer.com)
+## <a name="prerequisites"></a>Önkoşullar
+* [Depolama Gezgini (önizleme) indirip yükleme](http://www.storageexplorer.com)
 
-## Bir depolama hesabı veya hizmetine bağlanmak
+## <a name="connect-to-a-storage-account-or-service"></a>Bir depolama hesabı veya hizmetine bağlanmak
 Depolama Gezgini (Önizleme) depolama hesaplarına bağlamak için çok bir yol sağlar. Buna, Azure aboneliklerinizle ilişkilendirilen depolama hesaplarınızı bağlama, diğer Azure aboneliklerinden paylaşılan depolama hesapları ve hizmetlerine bağlanma ve hatta Azure Storage Öykünücüsü kullanarak yerel depolamaya bağlanma ve yönetme dahildir.
 
 * [Bir Azure aboneliğine bağlanma](#connect-to-an-azure-subscription) - Azure aboneliğinize ait depolama kaynaklarını yönetin.
@@ -34,7 +38,7 @@ Depolama Gezgini (Önizleme) depolama hesaplarına bağlamak için çok bir yol 
 * [SAS kullanarak depolama hesabı ekleme](#attach-storage-account-using-sas) -SAS kullanarak başka bir Azure aboneliğine ait depolama kaynaklarını yönetme.
 * [SAS kullanarak hizmet ekleme](#attach-service-using-sas) -SAS kullanarak başka bir Azure aboneliğine ait belirli bir depolama hizmetini (blob kapsayıcısı, kuyruk veya tablo) yönetme.
 
-## Bir Azure aboneliğine Bağlanma
+## <a name="connect-to-an-azure-subscription"></a>Bir Azure aboneliğine Bağlanma
 > [!NOTE]
 > Bir Azure hesabınız yoksa, [ücretsiz deneme için kaydolabilir](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) veya [Visual Studio abone avantajlarınızı etkinleştirebilirsiniz](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 > 
@@ -53,7 +57,7 @@ Depolama Gezgini (Önizleme) depolama hesaplarına bağlamak için çok bir yol 
    
     ![Seçili Azure abonelikleri][4]
 
-## Yerel geliştirme deposu ile çalışma
+## <a name="work-with-local-development-storage"></a>Yerel geliştirme deposu ile çalışma
 Depolama Gezgini (Önizleme) Azure Storage Öykünücüsü kullanarak yerel depolama karşı çalışmanıza olanak tanır. Bu, (depolama hesabı Azure Storage Öykünücüsü tarafından öykündüğü için) depolama hesabını Azure’ye dağıtmadan hesaba karşı kod yazıp test edebilmenizi sağlar.
 
 > [!NOTE]
@@ -69,15 +73,15 @@ Depolama Gezgini (Önizleme) Azure Storage Öykünücüsü kullanarak yerel depo
     ![Azure Storage Öykünücüsünü İndirme istemi][22]
 3. Öykünücü yüklendikten sonra yerel bloblar, kuyruklar ve tablolar oluşturup bunlarla çalışabileceksiniz. Her depolama hesabı türü ile çalışmayı öğrenmek için aşağıdaki ilgili bağlantıyı seçin:
    
-   * [Azure Blob Storage kaynaklarını yönetme](vs-azure-tools-storage-explorer-blobs.md)
+   * [Azure blob depolama kaynaklarını yönetme](vs-azure-tools-storage-explorer-blobs.md)
    * Azure dosya paylaşımı depolama kaynaklarını yönetme - *Çok yakında*
    * Azure kuyruk depolama kaynaklarını yönetmek - *Çok yakında*
    * Azure Table Storage kaynaklarını yönetmek - *Çok yakında*
 
-## Harici bir depolama hesabı ekleme veya ayırma
+## <a name="attach-or-detach-an-external-storage-account"></a>Harici bir depolama hesabı ekleme veya ayırma
 Depolama Gezgini (Önizleme) depolama hesaplarının kolayca paylaşılabilmesi için harici depolama hesapları ekleme özelliği sağlar. Bu bölümde harici depolama hesaplarının nasıl ekleneceği (ve ayrılacağı) açıklanmaktadır.
 
-### Depolama hesabının kimlik bilgilerini alma
+### <a name="get-the-storage-account-credentials"></a>Depolama hesabının kimlik bilgilerini alma
 Harici bir depolama hesabını paylaşmak için ilgili hesabın sahibi ilk olarak hesabın kimlik bilgilerini, yeni hesap adını ve anahtarını almalıdır, ardından bu bilgileri ilgili (harici) hesabı eklemek isteyen kişiyle paylaşmalıdır. Depolama hesabı kimlik bilgileri aşağıdaki adımları izleyerek Azure portal’ı üzerinden edinilebilir: 
 
 1. [Azure Portal](https://portal.azure.com)’ında oturum açın.
@@ -91,7 +95,7 @@ Harici bir depolama hesabını paylaşmak için ilgili hesabın sahibi ilk olara
    
    ![Erişim tuşları][6]
 
-### Harici bir depolama hesabı ekleme
+### <a name="attach-to-an-external-storage-account"></a>Harici bir depolama hesabı ekleme
 Bir dış depolama hesabına bağlanmak için hesabın adı ve anahtarı gereklidir. *Depolama hesabı kimlik bilgilerini alma* bölümünde bu değerlerin Azure portalından nasıl alınacağı açıklanmaktadır. Ancak, portalda hesap anahtarı "anahtar 1" olarak adlandırılmaktadır; bu nedenle Storage Explorer (Önizleme) bir hesap anahtarı istediğinde "anahtar 1" değerini girmeniz (veya yapıştırmanız) gerekir. 
 
 1. Storage Explorer’da (Önizleme) **Azure Storage’a bağlan**’ı seçin.
@@ -108,13 +112,13 @@ Bir dış depolama hesabına bağlanmak için hesabın adı ve anahtarı gerekli
    
    ![Harici depolama hesabına bağlanma sonucu][9]
 
-### Harici bir depolama hesabı ayırma
+### <a name="detach-from-an-external-storage-account"></a>Harici bir depolama hesabı ayırma
 1. Ayırmak istediğiniz harici depolama hesabına sağ tıklayın ve içerik menüsünden **Ayır**’ı seçin.
    
    ![Depolama alanından ayırma seçeneği][10]
 2. Onaylama ileti kutusu göründüğünde harici depolama hesabından ayrılmayı onaylamak üzere **Evet**’i seçin.
 
-## SAS kullanarak depolama hesabı ekleme
+## <a name="attach-storage-account-using-sas"></a>SAS kullanarak depolama hesabı ekleme
 [SAS (Paylaşılan Erişim İmzası)](storage/storage-dotnet-shared-access-signature-part-1.md), Azure aboneliği yöneticilerine Azure abonelik kimlik bilgilerini girmeden geçici olarak bir depolama hesabına erişme olanağı sağlar. 
 
 Bunu açıklamak üzere; KullanıcıA’nın bir Azure aboneliği yöneticisi olduğunu düşünelim, ve KullanıcıA KullanıcıB’nin belirli bir süre çeşitli izinlerle bir depolama hesabına erişmesine izin vermek istiyor:
@@ -123,7 +127,7 @@ Bunu açıklamak üzere; KullanıcıA’nın bir Azure aboneliği yöneticisi ol
 2. KullanıcıA SAS’ı örneğimizde depolama hesabına erişmek isteyen kişiyle, KullanıcıB ile paylaşıyor.  
 3. KullanıcıB, sağlanan SAS’ı kullanarak KullanıcıA’ya ait hesabı eklemek için Depolama Gezgini’ni (Önizleme) kullanır. 
 
-### Paylaşmak istediğiniz hesap için bir SAS alma
+### <a name="get-a-sas-for-the-account-you-want-to-share"></a>Paylaşmak istediğiniz hesap için bir SAS alma
 1. Storage Explorer’da (Önizleme) paylaşmak istediğiniz depolama hesabına sağ tıklayın ve içerik menüsünden **Paylaşılan Erişim İmzası Al**’ı seçin.
    
    ![SAS alma içerik menüsü seçeneği][13]
@@ -132,7 +136,7 @@ Bunu açıklamak üzere; KullanıcıA’nın bir Azure aboneliği yöneticisi ol
     ![SAS alma iletişim kutusu][14]
 3. SAS’ı görüntüleyen ikinci bir **Paylaşılan Erişim İmzası** iletişim kutusu görünecektir. Panoya kopyalamak için **Bağlantı Dizesi**’nin yanındaki **Kopyala**’yı seçin. İletişim kutusunu kapatmak için **Kapat**’ı seçin.
 
-### SAS kullanarak paylaşılan hesaba ekleme
+### <a name="attach-to-the-shared-account-using-the-sas"></a>SAS kullanarak paylaşılan hesaba ekleme
 1. Storage Explorer’da (Önizleme) **Azure Storage’a bağlan**’ı seçin.
    
    ![Azure Storage’a bağlanma seçeneği][23]
@@ -144,10 +148,10 @@ Bunu açıklamak üzere; KullanıcıA’nın bir Azure aboneliği yöneticisi ol
    
    ![SAS kullanarak hesaba ekleme sonucu][17]
 
-## SAS kullanarak hizmet ekleme
+## <a name="attach-service-using-sas"></a>SAS kullanarak hizmet ekleme
 [SAS kullanarak depolama hesabı ekleme](#attach-storage-account-using-sas) bölümünde Azure abonelik yöneticisinin depolama hesabı için bir SAS oluşturarak (ve paylaşarak) nasıl geçici erişim sağlayacağı açıklanır. Benzer şekilde bir depolama hesabının içinde belirli bir hizmet için (blob kapsayıcısı, kuyruk veya tablo) bir SAS oluşturulabilir.  
 
-### Paylaşmak istediğiniz hizmet için bir SAS oluşturma
+### <a name="generate-a-sas-for-the-service-you-want-to-share"></a>Paylaşmak istediğiniz hizmet için bir SAS oluşturma
 Bu bağlamda bir hizmet, bir blob kapsayıcısı, sıra veya tablo olabilir. Aşağıdaki bölümlerde listelenen hizmet için nasıl SAS oluşturulacağı açıklanmıştır:
 
 * [Blob kapsayıcısı için SAS alma](vs-azure-tools-storage-explorer-blobs.md#get-the-sas-for-a-blob-container)
@@ -155,7 +159,7 @@ Bu bağlamda bir hizmet, bir blob kapsayıcısı, sıra veya tablo olabilir. Aş
 * Bir kuyruk için SAS alma - *Çok yakında*
 * Bir tablo için SAS alma - *Çok yakında*
 
-### SAS kullanarak paylaşılan hesap hizmetine ekleme
+### <a name="attach-to-the-shared-account-service-using-the-sas"></a>SAS kullanarak paylaşılan hesap hizmetine ekleme
 1. Storage Explorer’da (Önizleme) **Azure Storage’a bağlan**’ı seçin.
    
    ![Azure Storage’a bağlanma seçeneği][23]
@@ -167,7 +171,7 @@ Bu bağlamda bir hizmet, bir blob kapsayıcısı, sıra veya tablo olabilir. Aş
    
    ![SAS kullanarak paylaşılan hizmete ekleme sonucu][20]
 
-## Depolama hesapları arama
+## <a name="search-for-storage-accounts"></a>Depolama hesapları arama
 Depolama hesaplarından oluşan uzun bir listeniz varsa, sol bölmenin üzerindeki arama kutusunu kullanmak belirli bir depolama hesabını bulmak için hızlı bir yöntemdir. 
 
 Arama kutusuna yazarken sol bölmede yalnızca o noktaya kadar girdiğiniz arama değeriyle eşleşen depolama hesapları görüntülenecektir. Aşağıdaki ekran görüntüsünde, aranan tüm depolama hesapları arasından “tarcher” metnini içeren depolama hesabı adlarının görüntülendiği bir örnek yer almaktadır.
@@ -176,8 +180,8 @@ Arama kutusuna yazarken sol bölmede yalnızca o noktaya kadar girdiğiniz arama
 
 Aramayı temizlemek için arama kutusundaki **x** düğmesini seçin.
 
-## Sonraki adımlar
-* [Depolama Gezgini (Önizleme) ile Azure Blob Storage kaynaklarını yönetme](vs-azure-tools-storage-explorer-blobs.md)
+## <a name="next-steps"></a>Sonraki adımlar
+* [Depolama Gezgini (Önizleme) ile Azure blob depolama kaynaklarını yönetme](vs-azure-tools-storage-explorer-blobs.md)
 
 [0]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/settings-icon.png
 [1]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/add-account-link.png
@@ -202,6 +206,6 @@ Aramayı temizlemek için arama kutusundaki **x** düğmesini seçin.
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

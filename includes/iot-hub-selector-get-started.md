@@ -5,7 +5,7 @@
 > 
 > 
 
-## Giriş
+## <a name="introduction"></a>Giriş
 Azure IoT Hub, milyonlarca Nesnelerin İnterneti (IoT) cihazı ile bir çözüm arka ucu arasında güvenilir ve güvenli çift yönlü iletişimler sağlayan tam olarak yönetilen bir hizmettir. IoT projelerinin karşılaştığı en büyük zorluklardan biri, cihazların güvenilir ve güvenli bir şekilde çözüm arka ucuna bağlanmasıdır. Bu zorluğu ele almak için IoT Hub:
 
 * Cihazdan buluta ve buluttan cihaza hiper ölçekli güvenilir mesajlaşma olanağı sunar.
@@ -18,6 +18,8 @@ Bu öğretici şunların nasıl yapıldığını gösterir:
 * IoT hub'ınızda bir cihaz kimliği oluşturma.
 * Bulut arka ucunuza telemetri gönderen ve bulut arka ucunuzdan komutları alan sanal bir cihaz oluşturma.
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

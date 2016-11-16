@@ -1,8 +1,7 @@
-|  | **Klasik Dağıtım** | **Resource Manager Dağıtımı** |
-| --- | --- | --- |
-| **Klasik Portal** |[Makale*](../articles/vpn-gateway/vpn-gateway-site-to-site-create.md) |Desteklenmiyor |
-| **Azure Portal** |Destekleniyor** |[Makale](../articles/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) |
-| **PowerShell** |[Makale+](../articles/vpn-gateway/vpn-gateway-multi-site.md) |[Makale](../articles/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md) |
+| **Dağıtım Modeli/Yöntemi** | **Azure Portal** | **Klasik Portal** | **PowerShell** |
+| --- | --- | --- | --- |
+| **Resource Manager** |[Makale](../articles/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) |Desteklenmiyor |[Makale](../articles/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md) |
+| **Klasik** |Destekleniyor** |[Makale*](../articles/vpn-gateway/vpn-gateway-site-to-site-create.md) |[Makale+](../articles/vpn-gateway/vpn-gateway-multi-site.md) |
 
 (*) klasik portalın yalnızca tek S2S VPN bağlantısının oluşturulmasını destekleyebildiğini gösterir.
 
@@ -10,6 +9,8 @@
 
 (+) bu makalenin çok siteli bağlantılar için yazıldığını gösterir.
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

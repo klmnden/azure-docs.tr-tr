@@ -1,12 +1,12 @@
 ---
-title: C# Dilinde Event Hubs Kullanmaya Başlayın | Microsoft Docs
-description: Azure Event Hubs’ı kullanmaya başlamak, olayları C# dilinde gönderip EventProcessorHost kullanarak Java dilinde almak için bu öğreticiyi izleyin.
+title: "C# Dilinde Event Hubs Kullanmaya Başlayın | Microsoft Belgeleri"
+description: "Azure Event Hubs’ı kullanmaya başlamak, olayları C# dilinde gönderip EventProcessorHost kullanarak Java dilinde almak için bu öğreticiyi izleyin."
 services: event-hubs
-documentationcenter: ''
+documentationcenter: 
 author: jtaubensee
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 059fb733-a397-400e-8e43-0c7ea5930b8b
 ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 09/27/2016
 ms.author: jotaub;sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 51d880650ab8059f3346b5c1272c232b49be33e9
+
 
 ---
 # <a name="get-started-with-event-hubs"></a>Event Hubs kullanmaya başlayın
@@ -48,7 +52,7 @@ Bu öğreticiyi tamamlamak için şunlar gerekir:
 ## <a name="next-steps"></a>Sonraki adımlar
 Event Hub'ı oluşturan ve veri gönderip alan çalışan bir uygulama oluşturduğunuza göre aşağıdaki senaryolara geçebilirsiniz:
 
-* [Event Hubs kullanan bir örnek uygulamanın][] tamamı.
+* Eksiksiz bir [Event Hubs kullanan örnek uygulama][Event Hubs kullanan örnek uygulama].
 * [Event Hubs ile Olay İşleme Ölçeğini Artırma][Event Hubs ile Olay İşleme Ölçeğini Artırma] örneği.
 * [Event Hubs’a genel bakış][Event Hubs’a genel bakış]
 
@@ -60,10 +64,10 @@ Event Hub'ı oluşturan ve veri gönderip alan çalışan bir uygulama oluşturd
 [Klasik Azure portalı]: https://manage.windowsazure.com/
 [Event Hubs’a genel bakış]: event-hubs-overview.md
 [Event Hubs kullanan örnek uygulama]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
-[Event Hubs ile Olay İşleme ölçeğini artırma]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
+[Event Hubs ile Olay İşleme Ölçeğini Artırma]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,23 +1,27 @@
 ---
-title: Azure’da Active Directory Federasyon Hizmetleri | Microsoft Docs
-description: Bu belgede AD FS’yi yüksek kullanılabilirlik için Azure’a dağıtma hakkında bilgi edineceksiniz.
-keywords: azure’da AD FS dağıtma, azure adfs dağıtma, azure adfs, azure ad fs, adfs dağıtma, ad fs dağıtma, azure’da adfs, azure’da adfs dağıtma, azure’da AD FS dağıtma, adfs azure, AD FS’ye giriş, Azure, Azure’da AD FS, iaas, ADFS, adfs’yi azure’a taşıma
+title: "Azure’da Active Directory Federasyon Hizmetleri | Microsoft Belgeleri"
+description: "Bu belgede AD FS’yi yüksek kullanılabilirlik için Azure’a dağıtma hakkında bilgi edineceksiniz."
+keywords: "azure’da AD FS dağıtma, azure adfs dağıtma, azure adfs, azure ad fs, adfs dağıtma, ad fs dağıtma, azure’da adfs, azure’da adfs dağıtma, azure’da AD FS dağıtma, adfs azure, AD FS’ye giriş, Azure, Azure’da AD FS, iaas, ADFS, adfs’yi azure’a taşıma"
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: anandyadavmsft
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 692a188c-badc-44aa-ba86-71c0e8074510
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/13/2016
+ms.date: 10/03/2016
 ms.author: anandy;billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 8ed71ccd07385eb74f7afecf04590c2c00372c34
+
 
 ---
-# Azure’da AD FS dağıtımı
+# <a name="ad-fs-deployment-in-azure"></a>Azure’da AD FS dağıtımı
 AD FS basitleştirilmiş, güvenli kimlik federasyonu ve Web’de çoklu oturum açma (SSO) özellikleri sağlar. Azure AD veya O365 ile federasyon, kullanıcıların şirket içi kimlik bilgilerini kullanarak kimlik doğrulaması yapmasını ve buluttaki tüm kaynaklara erişmesini sağlar. Sonuç olarak, hem şirket içindeki hem de buluttaki kaynaklara erişimi sağlamak için yüksek oranda kullanılabilir bir AD FS altyapısına sahip olunması önemlidir. AD FS'nin Azure’da dağıtılması en az çaba ile yüksek kullanılabilirlik elde etmeye yardımcı olabilir.
 AD FS'yi Azure’da dağıtmanın çeşitli avantajları vardır ve birkaç tanesi aşağıda listelenmiştir:
 
@@ -26,7 +30,7 @@ AD FS'yi Azure’da dağıtmanın çeşitli avantajları vardır ve birkaç tane
 * **Çapraz Coğrafi Yedeklilik** – Azure Coğrafi Yedeklilik ile altyapınızın dünya çapında yüksek oranda kullanılabilir olduğundan emin olabilirsiniz
 * **Kolay Yönetim** – Azure portalındaki oldukça basit yönetim seçenekleri ile altyapınızın yönetimi çok kolay ve zahmetsizdir 
 
-## Tasarım ilkeleri
+## <a name="design-principles"></a>Tasarım ilkeleri
 ![Dağıtım tasarımı](./media/active-directory-aadconnect-azure-adfs/deployment.png)
 
 Yukarıdaki diyagramda AD FS altyapınızı Azure’a dağıtmaya başlamak için önerilen temel topoloji gösterilmektedir. Topolojinin çeşitli bileşenlerinin ardında yatan ilkeler aşağıda listelenmiştir:
@@ -39,10 +43,10 @@ Yukarıdaki diyagramda AD FS altyapınızı Azure’a dağıtmaya başlamak içi
 * **Depolama Hesapları**: İki depolama hesabınızın olması önerilir. Tek bir depolama hesabına sahip olunması tek bir hata noktası oluşturulmasına yol açabilir ve depolama hesabının arıza yaptığı nadir senaryolarda dağıtımın kullanılamaz hale gelmesine neden olabilir. İki depolama hesabı her bir hata satırı için bir depolama hesabını ilişkilendirmenize yardımcı olur.
 * **Ağ ayrımı**: Web Uygulaması Proxy sunucuları ayrı bir DMZ ağına dağıtılmalıdır. Bir sanal ağı iki alt ağa bölebilir ve ardından Web Uygulaması Proxy sunucularını yalıtılmış bir alt ağa dağıtabilirsiniz. Her bir alt ağın ağ güvenlik grubu ayarlarını yapılandırabilir ve yalnızca iki alt ağ arasında gerekli iletişime izin verebilirsiniz. Aşağıda her dağıtım senaryosu için daha fazla bilgi verilmiştir
 
-## Azure’a AD FS dağıtma adımları
+## <a name="steps-to-deploy-ad-fs-in-azure"></a>Azure’a AD FS dağıtma adımları
 Bu bölümde belirtilen adımlar aşağıda gösterilen AD FS altyapısını Azure’a dağıtmaya ilişkin yönergeleri ana hatlarıyla vermektedir.
 
-### 1. Ağı dağıtma
+### <a name="1-deploying-the-network"></a>1. Ağı dağıtma
 Yukarıda özetlendiği gibi tek bir sanal ağda iki alt ağ oluşturabilir veya birbirinden tamamen farklı iki sanal ağ (VNet) oluşturabilirsiniz. Bu makalede tek bir sanal ağın dağıtımına ve bu sanal ağı iki alt ağa bölmeye odaklanılacaktır. İki ayrı VNet iletişim için VNet'ten VNet’e ağ geçidi gerektirdiğinden bu yaklaşım şu anda daha kolay bir yaklaşımdır.
 
 **1.1 Sanal ağ oluşturma**
@@ -94,12 +98,12 @@ Etki alanı denetleyicisini (DC) Azure’a dağıtmak için şirket içine bağl
 ExpressRoute kullanılması önerilir. ExpressRoute, Azure veri merkezleri ile şirketinizde veya bir birlikte bulundurma ortamında bulunan altyapı arasında özel bağlantılar oluşturmanızı sağlar. ExpressRoute bağlantıları ortak İnternet üzerinden geçmemektedir. Bunlar İnternet üzerindeki sıradan bağlantılara göre daha fazla güvenilirlik, yüksek hız, düşük gecikme ve yüksek güvenlik sağlar.
 ExpressRoute kullanılması önerilse de kuruluşunuz için en uygun olan bağlantı yöntemini seçebilirsiniz. ExpressRoute ve ExpressRoute kullanan çeşitli bağlantı seçenekleri hakkında daha fazla bilgi için [ExpressRoute teknik genel bakış](https://aka.ms/Azure/ExpressRoute) makalesini okuyun.
 
-### 2. Depolama hesabı oluşturma
-Yüksek kullanılabilirliği sürdürmek ve tek bir depolama hesabına bağımlılığı önlemek için iki depolama hesabı oluşturabilirsiniz. Her bir kullanılabilirlik kümesindeki makineleri iki gruba ayırın ve ardından her grubu ayrı bir depolama hesabına atayın. Yalnızca depolama alanının gerçek kullanımı faturalandırılır.
+### <a name="2-create-storage-accounts"></a>2. Depolama hesabı oluşturma
+Yüksek kullanılabilirliği sürdürmek ve tek bir depolama hesabına bağımlılığı önlemek için iki depolama hesabı oluşturabilirsiniz. Her bir kullanılabilirlik kümesindeki makineleri iki gruba ayırın ve ardından her grubu ayrı bir depolama hesabına atayın.
 
 ![Depolama hesabı oluşturma](./media/active-directory-aadconnect-azure-adfs/storageaccount1.png)
 
-### 3. Kullanılabilirlik kümeleri oluşturma
+### <a name="3-create-availability-sets"></a>3. Kullanılabilirlik kümeleri oluşturma
 Her rol (DC/AD FS ve WAP) için her biri en az 2 makine içeren kullanılabilirlik kümeleri oluşturun. Bunun yapılması her rol için daha yüksek kullanılabilirlik elde edilmesine yardımcı olur. Kullanılabilirlik kümeleri oluşturulurken aşağıdakilere karar vermek önemlidir:
 
 * **Hata Etki Alanları**: Aynı hata etki alanındaki sanal makineler aynı güç kaynağı ve fiziksel ağ anahtarını paylaşır. En az 2 hata etki alanı önerilir. Varsayılan değer 3’tür ve bu dağıtımda olduğu gibi bırakılabilir
@@ -114,7 +118,7 @@ Aşağıdaki kullanılabilirlik kümelerini oluşturun
 | contosodcset |DC/ADFS |3 |5 |
 | contosowapset |WAP |3 |5 |
 
-### 4.  Sanal makineleri dağıtma
+### <a name="4-deploy-virtual-machines"></a>4.    Sanal makineleri dağıtma
 Sonraki adım altyapınızdaki farklı rolleri barındıran sanal makinelerin dağıtılmasıdır. Her kullanılabilirlik kümesinde en az iki makine olması önerilir. Temel dağıtım için altı sanal makine oluşturun.
 
 | Makine | Rol | Alt ağ | Kullanılabilirlik kümesi | Depolama hesabı | IP Adresi |
@@ -130,7 +134,7 @@ Dağıtım tamamlandıktan sonra sanal makine bölmeniz aşağıdaki gibi görü
 
 ![Dağıtılmış Sanal Makineler](./media/active-directory-aadconnect-azure-adfs/virtualmachinesdeployed_noadfs.png)
 
-### 5. Etki alanı denetleyicisi / AD FS sunucularını yapılandırma
+### <a name="5-configuring-the-domain-controller-ad-fs-servers"></a>5. Etki alanı denetleyicisi / AD FS sunucularını yapılandırma
  Gelen bir isteğin kimliğini doğrulamak için AD FS’nin etki alanı denetleyicisiyle iletişim kurması gerekir. Kimlik doğrulaması amacıyla Azure’dan şirket içi DC’ye maliyetli bir yolculuk yapmak yerine etki alanı denetleyicisinin bir çoğaltmasının Azure’a dağıtılması önerilir. Yüksek kullanılabilirlik elde etmek için en az 2 etki alanı denetleyicisinden oluşan bir kullanılabilirlik kümesi oluşturmanız önerilir.
 
 | Etki alanı denetleyicisi | Rol | Depolama hesabı |
@@ -141,8 +145,8 @@ Dağıtım tamamlandıktan sonra sanal makine bölmeniz aşağıdaki gibi görü
 * İki sunucuyu DNS ile çoğaltma etki alanı denetleyicileri olarak yükseltme
 * Sunucu yöneticisi aracılığıyla AD FS rolünü yükleyerek AD FS sunucularını yapılandırın.
 
-### 6.   İç Yük Dengeleyici’yi (ILB) Dağıtma
-**6.1.  ILB oluşturma**
+### <a name="6-deploying-internal-load-balancer-ilb"></a>6.    İç Yük Dengeleyici’yi (ILB) Dağıtma
+**6.1.    ILB oluşturma**
 
 Bir ILB dağıtmak için Azure portalında Yük Dengeleyiciler’i seçin ve ekle (+) öğesine tıklayın.
 
@@ -167,7 +171,7 @@ Oluştur’a tıklayıp ILB’yi dağıttıktan sonra yük dengeleyiciler listes
 
 Sonraki adım arka uç havuzunun ve arka uç araştırmasının yapılandırılmasıdır.
 
-**6.2.  ILB arka uç havuzunu yapılandırma**
+**6.2.    ILB arka uç havuzunu yapılandırma**
 
 Yeni oluşturulan ILB’yi Yük Dengeleyiciler panelinden seçin. Ayarlar paneli açılır. 
 
@@ -178,7 +182,7 @@ Yeni oluşturulan ILB’yi Yük Dengeleyiciler panelinden seçin. Ayarlar paneli
 
 ![ILB arka uç havuzunu yapılandırma](./media/active-directory-aadconnect-azure-adfs/ilbdeployment3.png)
 
-**6.3.  Araştırmayı yapılandırma**
+**6.3.    Araştırmayı yapılandırma**
 
 ILB ayarları panelinde Araştırmalar’ı seçin.
 
@@ -187,7 +191,7 @@ ILB ayarları panelinde Araştırmalar’ı seçin.
 
 ![ILB araştırmasını yapılandırma](./media/active-directory-aadconnect-azure-adfs/ilbdeployment4.png)
 
-**6.4.  Yük dengeleme kuralları oluşturma**
+**6.4.    Yük dengeleme kuralları oluşturma**
 
 Trafiği etkin bir şekilde dengelemek için ILB’nin yük dengeleme kuralları ile yapılandırılması gerekir. Bir yük dengeleme kuralı oluşturmak için 
 
@@ -197,23 +201,23 @@ Trafiği etkin bir şekilde dengelemek için ILB’nin yük dengeleme kuralları
 
 ![ILB dengeleme kurallarını yapılandırma](./media/active-directory-aadconnect-azure-adfs/ilbdeployment5.png)
 
-**6.5.  ILB ile DNS güncelleme**
+**6.5.    ILB ile DNS güncelleme**
 
 DNS sunucunuza gidin ve ILB için bir CNAME oluşturun. CNAME, ILB’nin IP adresini işaret eden IP adresine sahip federasyon hizmetine yönelik olmalıdır. Örneğin, ILB DIP adresi 10.3.0.8 ve yüklü federasyon hizmeti fs.contoso.com ise 10.3.0.8’i işaret eden fs.contoso.com için bir CNAME oluşturun.
 Bunun yapılması fs.contoso.com ile ilgili tüm iletişimlerin ILB’de sona ermesini ve uygun şekilde yönlendirilmesini sağlar.
 
-### 7.   Web Uygulaması Proxy sunucusunu yapılandırma
-**7.1.  Web Uygulaması Proxy sunucularını AD FS sunucularına ulaşacak şekilde yapılandırma**
+### <a name="7-configuring-the-web-application-proxy-server"></a>7.    Web Uygulaması Proxy sunucusunu yapılandırma
+**7.1.    Web Uygulaması Proxy sunucularını AD FS sunucularına ulaşacak şekilde yapılandırma**
 
 Web Uygulaması Proxy sunucularının ILB’nin arkasında AD FS sunucularına ulaşabildiğinden emin olmak için %systemroot%\system32\drivers\etc\hosts dizininde ILB için bir kayıt oluşturun. Ayırt edici ad (DN) federasyon hizmetinin adı olmalıdır, örneğin fs.contoso.com. IP girişi ise ILB'nin IP adresi olmalıdır (örnekte olduğu gibi 10.3.0.8).
 
-**7.2.  Web Uygulaması Proxy rolünü yükleme**
+**7.2.    Web Uygulaması Proxy rolünü yükleme**
 
 Web Uygulaması Proxy sunucularının ILB’nin arkasındaki AD FS sunucularına ulaşabildiğinden emin olmak için sonraki adımda Web Uygulaması Proxy sunucularını yükleyebilirsiniz. Web Uygulaması Proxy sunucuları etki alanına katılmaz. Uzaktan Erişim rolünü seçerek Web Uygulaması Proxy rollerini iki Web Uygulaması Proxy sunucusuna yükleyin. Sunucu yöneticisi WAP yüklemesini tamamlamak için size yol gösterecektir.
 WAP dağıtımı hakkında daha fazla bilgi için [Web Uygulaması Proxy Sunucusunu Yükleme ve Yapılandırma](https://technet.microsoft.com/library/dn383662.aspx) makalesini okuyun.
 
-### 8.   İnternet’e Yönelik (Ortak) Yük Dengeleyiciyi dağıtma
-**8.1.  İnternet’e Yönelik (Genel) Yük Dengeleyici oluşturma**
+### <a name="8-deploying-the-internet-facing-public-load-balancer"></a>8.    İnternet’e Yönelik (Ortak) Yük Dengeleyiciyi dağıtma
+**8.1.    İnternet’e Yönelik (Genel) Yük Dengeleyici oluşturma**
 
 Azure portalında Yük dengeleyiciler’i seçin ve ardından Ekle’ye tıklayın. Yük dengeleyici oluşturma panelinde aşağıdaki bilgileri girin
 
@@ -227,7 +231,7 @@ Dağıtımdan sonra yük dengeleyici, Yük dengeleyiciler listesinde görünür.
 
 ![Yük dengeleyici listesi](./media/active-directory-aadconnect-azure-adfs/elbdeployment2.png)
 
-**8.2.  Genel IP’ye bir DNS etiketi atama**
+**8.2.    Genel IP’ye bir DNS etiketi atama**
 
 Paneli yapılandırma için açmak üzere Yük dengeleyiciler panelinde yeni oluşturulan yük dengeleyici girişine tıklayın. DNS etiketini genel IP için yapılandırmak üzere aşağıdaki adımları izleyin:
 
@@ -239,45 +243,46 @@ Paneli yapılandırma için açmak üzere Yük dengeleyiciler panelinde yeni olu
 
 ![İnternet'e yönelik yük dengeleyiciyi yapılandırma (DNS)](./media/active-directory-aadconnect-azure-adfs/elbdeployment4.png)
 
-**8.3.  İnternet’e Yönelik (Genel) Yük Dengeleyici için arka uç havuzunu yapılandırma** 
+**8.3.    İnternet’e Yönelik (Genel) Yük Dengeleyici için arka uç havuzunu yapılandırma** 
 
 İnternet’e Yönelik (Genel) Yük Dengeleyicinin arka uç havuzunu WAP sunucularının kullanılabilirlik kümesi olarak yapılandırmak için dahili yük dengeleyici oluşturma ile aynı adımları izleyin. Örneğin, contosowapset.
 
 ![İnternet’e Yönelik Yük Dengeleyicinin arka uç havuzunu yapılandırma](./media/active-directory-aadconnect-azure-adfs/elbdeployment5.png)
 
-**8.4.  Araştırmayı yapılandırma**
+**8.4.    Araştırmayı yapılandırma**
 
 WAP sunucularının arka uç havuzuna ait araştırmayı yapılandırmak için dahili yük dengeleyiciyi yapılandırma adımlarının aynısını izleyin.
 
 ![İnternet'e Yönelik Yük Dengeleyici araştırmasını yapılandırma](./media/active-directory-aadconnect-azure-adfs/elbdeployment6.png)
 
-**8.5.  Yük dengeleme kuralları oluşturma**
+**8.5.    Yük dengeleme kuralları oluşturma**
 
 TCP 443 yük dengeleme kuralını yapılandırmak için ILB’deki adımların aynısını izleyin.
 
 ![İnternet’e Yönelik Yük Dengeleyicinin dengeleme kurallarını yapılandırma](./media/active-directory-aadconnect-azure-adfs/elbdeployment7.png)
 
-### 9.   Ağ güvenliğini sağlama
-**9.1.  Dahili alt ağ güvenliğini sağlama**
+### <a name="9-securing-the-network"></a>9.    Ağ güvenliğini sağlama
+**9.1.    Dahili alt ağ güvenliğini sağlama**
 
 Genel olarak, dahili alt ağınızın güvenliğini verimli bir şekilde sağlamak için aşağıdaki kuralları uygulamanız gerekir (aşağıda listelenen sırayla)
 
 | Kural | Açıklama | Akış |
 |:--- |:--- |:---:|
 | AllowHTTPSFromDMZ |DMZ’den HTTPS iletişimine izin ver |Gelen |
-| DenyAllFromDMZ |Bu kural DMZ’den dahili alt ağa giden tüm trafiği engeller. AllowHTTPSFromDMZ kuralı HTTPS iletişiminin devam etmesini ve diğer her şeyin bu kural tarafından engellenmesini sağlamakla zaten ilgilenmektedir |Gelen |
 | DenyInternetOutbound |İnternet erişimi yok |Giden |
+
+![INT access rules (inbound)](./media/active-directory-aadconnect-azure-adfs/nsg_int.png)
 
 [comment]: <> (![INT access rules (inbound)](./media/active-directory-aadconnect-azure-adfs/nsgintinbound.png)) [comment]: <> (![INT access rules (outbound)](./media/active-directory-aadconnect-azure-adfs/nsgintoutbound.png))
 
-**9.2.  DMZ alt ağ güvenliğini sağlama**
+**9.2.    DMZ alt ağ güvenliğini sağlama**
 
 | Kural | Açıklama | Akış |
 |:--- |:--- |:---:|
-| AllowHttpsFromVirtualNetwork |Sanal ağdan HTTPS’ye izin verir |Gelen |
-| AllowHTTPSInternet |İnternet’ten DMZ’ye HTTPS’ye izin verir |Gelen |
-| DenyingressexceptHTTPS |İnternet'ten gelen HTTPS dışında her şeyi engeller |Gelen |
-| DenyOutToInternet |HTTPS dışında İnternet’e giden her şey engellenir |Giden |
+| AllowHTTPSFromInternet |İnternet’ten DMZ’ye HTTPS’ye izin verir |Gelen |
+| DenyInternetOutbound |HTTPS dışında İnternet’e giden her şey engellenir |Giden |
+
+![EXT access rules (inbound)](./media/active-directory-aadconnect-azure-adfs/nsg_dmz.png)
 
 [comment]: <> (![EXT access rules (inbound)](./media/active-directory-aadconnect-azure-adfs/nsgdmzinbound.png)) [comment]: <> (![EXT access rules (outbound)](./media/active-directory-aadconnect-azure-adfs/nsgdmzoutbound.png))
 
@@ -286,7 +291,7 @@ Genel olarak, dahili alt ağınızın güvenliğini verimli bir şekilde sağlam
 > 
 > 
 
-### 10.  AD FS oturum açmayı test etme
+### <a name="10-test-the-ad-fs-signin"></a>10.    AD FS oturum açmayı test etme
 AD FS’yi test etmenin en kolay yolu IdpInitiatedSignon.aspx sayfasının kullanılmasıdır. Bunu yapabilmek için AD FS özelliklerinde IdpInitiatedSignOn seçeneğinin etkinleştirilmesi gerekir. AD FS kurulumunuzu doğrulamak için aşağıdaki adımları izleyin
 
 1. AD FS sunucusunda PowerShell ile aşağıdaki cmdlet’i çalıştırarak etkinleştirin.
@@ -300,20 +305,58 @@ Oturum açma başarılı olduğunda aşağıdaki gibi bir başarı iletisi göst
 
 ![Test başarılı](./media/active-directory-aadconnect-azure-adfs/test2.png)
 
-## Ek kaynaklar
+## <a name="template-for-deploying-ad-fs-in-azure"></a>Azure'da AD FS dağıtma şablonu
+Şablon, Etki Alanı Denetleyicileri, AD FS ve WAP'nin her biri için ikişer tane olmak üzere 6 makine kurulumu dağıtır.
+
+[Azure Dağıtım Şablonu'nda AD FS](https://github.com/paulomarquesc/adfs-6vms-regular-template-based)
+
+Bu şablonu dağıtırken var olan bir sanal ağı kullanabilir veya yeni bir sanal ağ oluşturabilirsiniz. Dağıtımı özelleştirmek için kullanabileceğiniz çeşitli parametreler, parametrenin dağıtım işlemindeki kullanım tanımı ile birlikte aşağıda listelenmektedir. 
+
+| Parametre | Açıklama |
+|:--- |:--- |
+| Konum |Kaynakların dağıtılacağı bölge, ör. Doğu ABD. |
+| StorageAccountType |Oluşturulan Depolama Hesabının türü |
+| VirtualNetworkUsage |Var olan sanal ağın kullanılıp kullanılmayacağını veya yeni bir sanal ağın oluşturulup oluşturulmayacağını belirtir |
+| VirtualNetworkName |Oluşturulacak Sanal Ağın adı (hem var olan hem de yeni sanal ağ kullanımında zorunludur) |
+| VirtualNetworkResourceGroupName |Var olan sanal ağın bulunduğu kaynak grubunun adını belirtir. Var olan bir sanal ağ kullanılırken bu, dağıtımın var olan sanal ağın kimliğini bulabilmesi için zorunlu bir parametre olur |
+| VirtualNetworkAddressRange |Yeni sanal ağın adres aralığı (yeni bir sanal ağ oluşturuyorsanız zorunludur) |
+| InternalSubnetName |İç alt ağın adı; her iki sanal ağ kullanım seçeneğinde de (yeni veya var olan) zorunludur |
+| InternalSubnetAddressRange |Etki Alanı Denetleyicilerini ve AD FS sunucularını içeren iç alt ağın adres aralığı. (Yeni bir sanal ağ oluşturuyorsanız zorunludur). |
+| DMZSubnetAddressRange |Windows uygulaması ara sunucularını içeren DMZ alt ağının adres aralığı, yeni bir sanal ağ oluşturuyorsanız zorunludur. |
+| DMZSubnetName |İç alt ağın adı; her iki sanal ağ kullanım seçeneğinde de (yeni veya var olan) zorunludur. |
+| ADDC01NICIPAddress |İlk Etki Alanı Denetleyicisinin iç IP adresi; bu IP adresi, statik olarak DC'ye atanır ve İç alt ağ içinde geçerli bir IP adresi olmalıdır |
+| ADDC02NICIPAddress |İkinci Etki Alanı Denetleyicisinin iç IP adresi; bu IP adresi, statik olarak DC'ye atanır ve İç alt ağ içinde geçerli bir IP adresi olmalıdır |
+| ADFS01NICIPAddress |İlk AD FS sunucusunun iç IP adresi; bu IP adresi, statik olarak AD FS sunucusuna atanır ve İç alt ağ içinde geçerli bir IP adresi olmalıdır |
+| ADFS02NICIPAddress |İkinci AD FS sunucusunun iç IP adresi; bu IP adresi, statik olarak AD FS sunucusuna atanır ve İç alt ağ içinde geçerli bir IP adresi olmalıdır |
+| WAP01NICIPAddress |İlk WAP sunucusunun iç IP adresi; bu IP adresi, statik olarak WAP sunucusuna atanır ve DMZ alt ağı içinde geçerli bir IP adresi olmalıdır |
+| WAP02NICIPAddress |İkinci WAP sunucusunun iç IP adresi; bu IP adresi, statik olarak WAP sunucusuna atanır ve DMZ alt ağı içinde geçerli bir IP adresi olmalıdır |
+| ADFSLoadBalancerPrivateIPAddress |AD FS yük dengeleyicisinin iç IP adresi; bu IP adresi, statik olarak yük dengeleyiciye atanır ve İç alt ağ içinde geçerli bir IP adresi olmalıdır |
+| ADDCVMNamePrefix |Etki Alanı Denetleyicileri için Sanal Makine adı ön eki |
+| ADFSVMNamePrefix |AD FS sunucuları için Sanal Makine adı ön eki |
+| WAPVMNamePrefix |WAP sunucuları için Sanal Makine adı ön eki |
+| ADDCVMSize |Etki Alanı Denetleyicilerinin sanal makine boyutu |
+| ADFSVMSize |AD FS sunucularının sanal makine boyutu |
+| WAPVMSize |WAP sunucularının sanal makine boyutu |
+| AdminUserName |Sanal makinelerin yerel Yöneticisinin adı |
+| AdminPassword |Sanal makinelerin yerel Yönetici hesabının parolası |
+
+## <a name="additional-resources"></a>Ek kaynaklar
 * [Kullanılabilirlik Kümeleri](https://aka.ms/Azure/Availability) 
 * [Azure Load Balancer](https://aka.ms/Azure/ILB)
-* [İç Yük Dengeleyici](https://aka.ms/Azure/ILB/Internal)
+* [İç yük dengeleyici](https://aka.ms/Azure/ILB/Internal)
 * [İnternet'e Yönelik Yük Dengeleyici](https://aka.ms/Azure/ILB/Internet)
-* [Depolama Hesapları](https://aka.ms/Azure/Storage)
+* [Depolama hesapları](https://aka.ms/Azure/Storage)
 * [Azure Sanal Ağları](https://aka.ms/Azure/VNet)
 * [AD FS ve Web Uygulaması Proxy Bağlantıları](http://aka.ms/ADFSLinks) 
 
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 * [Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](active-directory-aadconnect.md)
 * [Azure AD Connect kullanarak AD FS’yi yapılandırma ve yönetme](active-directory-aadconnectfed-whatis.md)
 * [Azure Traffic Manager ile Azure’da yüksek kullanılabilirliğe sahip çapraz coğrafi AD FS dağıtımı](active-directory-adfs-in-azure-with-azure-traffic-manager.md)
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

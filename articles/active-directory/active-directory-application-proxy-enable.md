@@ -1,12 +1,12 @@
 ---
-title: Azure AD Uygulama Ara Sunucusunu Etkinleştirme | Microsoft Docs
-description: Klasik Azure portalındaki Uygulama Ara Sunucusunu kapatıp ters ara sunucuya ilişkin Bağlayıcıları yükleyin.
+title: "Azure AD Uygulama Ara Sunucusunu Etkinleştirme | Microsoft Belgeleri"
+description: "Klasik Azure portalındaki Uygulama Ara Sunucusunu kapatıp ters ara sunucuya ilişkin Bağlayıcıları yükleyin."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: kgremban
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: c7186f98-dd80-4910-92a4-a7b8ff6272b9
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,14 +14,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/19/2016
 ms.author: kgremban
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: d0a5cfe8fe9782cc9b75392d6f21965430ee2347
+
 
 ---
-# Azure portalında Uygulama Ara Sunucusunu etkinleştirme
+# <a name="enable-application-proxy-in-the-azure-portal"></a>Azure portalında Uygulama Ara Sunucusunu etkinleştirme
 Bu makale, Azure AD'deki bulut dizininiz için Microsoft Azure AD Uygulama Ara Sunucusunu etkinleştirme adımlarında size kılavuzluk eder.
 
 Uygulama Ara Sunucusu ile neler yapabileceğinizi öğrenmek istiyorsanız [Şirket içi uygulamalara güvenli uzaktan erişim sağlama](active-directory-application-proxy-get-started.md) hakkında daha fazla bilgi edinin.
 
-## Uygulama Ara Sunucusu önkoşulları
+## <a name="application-proxy-prerequisites"></a>Uygulama Ara Sunucusu önkoşulları
 Uygulama Ara Sunucusu hizmetlerini etkinleştirip kullanabilmeniz için şunlara sahip olmanız gerekir:
 
 * [Microsoft Azure AD temel veya premium aboneliği](active-directory-editions.md) ve genel yöneticisi olduğunuz bir Azure AD dizini.
@@ -30,21 +34,21 @@ Uygulama Ara Sunucusu hizmetlerini etkinleştirip kullanabilmeniz için şunlara
   * Yayımladığınız uygulamalarda çoklu oturum açma için bu makinenin yayımlamakta olduğunuz uygulamalarla aynı AD etki alanına katılmış olması gerekir.
 * Yolda bir güvenlik duvarı varsa Bağlayıcının, Uygulama Ara Sunucusuna HTTPS (TCP) istekleri yapabilmesi için güvenlik duvarının açık olduğundan emin olun. Bağlayıcı, bu bağlantı noktalarını üst düzey etki alanlarının bir parçası olan şu alt etki alanlarıyla birlikte kullanır: msappproxy.net ve servicebus.windows.net. Aşağıdaki bağlantı noktalarının **giden** trafiğine açtığınızdan emin olun:
   
-      | Bağlantı Noktası Numarası | Açıklama |
-      | --- | --- |
-      | 80 | Güvenlik doğrulaması için giden HTTP trafiğini etkinleştirin. |
-      | 443 | Azure AD'ye yönelik kullanıcı kimlik doğrulamasını etkinleştirin (Yalnızca Bağlayıcı kayıt işlemi için gereklidir) |
-      | 10100–10120 | Ara sunucuya geri gönderilen LOB HTTP yanıtlarını etkinleştirin |
-      | 9352, 5671 | Gelen istekler için Azure hizmetiyle Bağlayıcı arasındaki iletişimi etkinleştirin. |
-      | 9350 | İsteğe bağlı olarak, gelen istekler konusunda daha iyi performans sağlamak için kullanılır |
-      | 8080 | Bağlayıcı önyükleme sırasını ve Bağlayıcı otomatik güncelleştirmesini etkinleştirin |
-      | 9090 | Bağlayıcı kaydını etkinleştirin (Yalnızca Bağlayıcı kayıt işlemi için gereklidir) |
-      | 9091 | Bağlayıcı güven sertifikası için otomatik yenilemeyi etkinleştirin |
+  | Bağlantı Noktası Numarası | Açıklama |
+  | --- | --- |
+  | 80 |Güvenlik doğrulaması için giden HTTP trafiğini etkinleştirin. |
+  | 443 |Azure AD'ye yönelik kullanıcı kimlik doğrulamasını etkinleştirin (Yalnızca Bağlayıcı kayıt işlemi için gereklidir) |
+  | 10100–10120 |Ara sunucuya geri gönderilen LOB HTTP yanıtlarını etkinleştirin |
+  | 9352, 5671 |Gelen istekler için Azure hizmetiyle Bağlayıcı arasındaki iletişimi etkinleştirin. |
+  | 9350 |İsteğe bağlı olarak, gelen istekler konusunda daha iyi performans sağlamak için kullanılır |
+  | 8080 |Bağlayıcı önyükleme sırasını ve Bağlayıcı otomatik güncelleştirmesini etkinleştirin |
+  | 9090 |Bağlayıcı kaydını etkinleştirin (Yalnızca Bağlayıcı kayıt işlemi için gereklidir) |
+  | 9091 |Bağlayıcı güven sertifikası için otomatik yenilemeyi etkinleştirin |
   
     Güvenlik duvarınız kaynak kullanıcılar için trafiği zorunlu kılarsa Ağ Hizmeti olarak çalışan Windows hizmetlerinden gelen trafik için bu bağlantı noktalarını açın. Ayrıca, NT Authority\System için bağlantı noktası 8080'i etkinleştirdiğinizden emin olun.
 * Kuruluşunuz İnternet'e bağlanmak için proxy sunucuları kullanıyorsa bunları yapılandırma ile ilgili ayrıntılar için [Var olan şirket içi proxy sunucuları ile çalışma](https://blogs.technet.microsoft.com/applicationproxyblog/2016/03/07/working-with-existing-on-prem-proxy-servers-configuration-considerations-for-your-connectors/) blog gönderisine bakın.
 
-## 1. Adım: Azure AD'de Uygulama Ara Sunucusunu etkinleştirme
+## <a name="step-1-enable-application-proxy-in-azure-ad"></a>1. Adım: Azure AD'de Uygulama Ara Sunucusunu etkinleştirme
 1. [Klasik Azure portalında](https://manage.windowsazure.com/) yönetici olarak oturum açın.
 2. Active Directory'ye gidip Uygulama Ara Sunucusunu etkinleştirmek istediğiniz dizini seçin.
    
@@ -55,7 +59,7 @@ Uygulama Ara Sunucusu hizmetlerini etkinleştirip kullanabilmeniz için şunlara
     ![Uygulama Ara Sunucusunu etkinleştirme](./media/active-directory-application-proxy-enable/app_proxy_enable.png)
 5. **Download now (Şimdi indir)** seçeneğini belirleyin. **Azure AD Uygulama Proxy Bağlayıcısı İndirme** sayfasına yönlendirileceksiniz. Lisans koşullarını okuyup kabul edin ve bağlayıcıya ait Windows Installer dosyasını (.exe) kaydetmek için **İndir**'e tıklayın.
 
-## 2. Adım: Bağlayıcıyı yükleme ve kaydetme
+## <a name="step-2-install-and-register-the-connector"></a>2. Adım: Bağlayıcıyı yükleme ve kaydetme
 1. Önkoşullara göre hazırladığınız sunucuda **AADApplicationProxyConnectorInstaller.exe** öğesini çalıştırın.
 2. Yüklemek için sihirbazdaki yönergeleri uygulayın.
 3. Yükleme sırasında bağlayıcıyı Azure AD kiracınızın Uygulama Proxy Sunucusuna kaydetmeniz istenir.
@@ -67,7 +71,8 @@ Uygulama Ara Sunucusu hizmetlerini etkinleştirip kullanabilmeniz için şunlara
 4. Yükleme tamamlandığında sunucunuza iki yeni hizmet eklenir:
    
    * **Microsoft AAD Application Proxy Connector** bağlantıyı etkinleştirir
-   * **Microsoft AAD Application Proxy Connector Updater**, bağlayıcının yeni sürümlerini düzenli aralıklarla denetleyen ve bağlayıcıyı gereken şekilde güncelleştiren otomatik bir güncelleştirme hizmetidir.
+     
+     * **Microsoft AAD Application Proxy Connector Updater**, bağlayıcının yeni sürümlerini düzenli aralıklarla denetleyen ve bağlayıcıyı gereken şekilde güncelleştiren otomatik bir güncelleştirme hizmetidir.
      
      ![Uygulama Ara Sunucusu Bağlayıcısı hizmetleri - ekran görüntüsü](./media/active-directory-application-proxy-enable/app_proxy_services.png)
 5. Yükleme penceresinde **Son**'a tıklayın.
@@ -76,11 +81,14 @@ Yüksek düzeyde kullanılabilirlik sağlamak için en az iki bağlayıcı dağ�
 
 Bağlayıcıyı kaldırmak isterseniz hem Bağlayıcı hizmetini hem de Updater hizmetini kaldırın. Hizmeti tam olarak kaldırmak için bilgisayarınızı yeniden başlatın.
 
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 Artık [Uygulama Ara Sunucusu ile uygulamaları yayımlamaya](active-directory-application-proxy-publish.md) hazırsınız.
 
 Ayrı ağlarda veya farklı konumlarda uygulamalarınız varsa farklı bağlayıcıları mantıksal birimler halinde düzenlemek için bağlayıcı gruplarını kullanabilirsiniz. [Uygulama Proxy bağlayıcıları ile çalışma](active-directory-application-proxy-connectors.md) hakkında daha fazla bilgi edinin.
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,22 +1,26 @@
 ---
-title: Beş dakika içinde Azure’a ilk web uygulamanızı dağıtın | Microsoft Docs
-description: Örnek bir uygulama dağıtarak App Service'te web uygulamaları çalıştırmanın ne kadar kolay olduğunu öğrenin. Hızlı bir şekilde gerçek geliştirmeler yapmaya başlayın ve sonuçlarını anında görün.
+title: "Beş dakika içinde Azure’a ilk web uygulamanızı dağıtın | Microsoft Belgeleri"
+description: "Örnek bir uygulama dağıtarak App Service&quot;te web uygulamaları çalıştırmanın ne kadar kolay olduğunu öğrenin. Hızlı bir şekilde gerçek geliştirmeler yapmaya başlayın ve sonuçlarını anında görün."
 services: app-service\web
-documentationcenter: ''
+documentationcenter: 
 author: cephalin
 manager: wpickett
-editor: ''
-
+editor: 
+ms.assetid: 65c9bdd9-8763-4c56-8e15-f790992e951e
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 09/09/2016
+ms.date: 10/13/2016
 ms.author: cephalin
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: de79988cd481b412b8c505d38727a7c93d0c6e1c
+
 
 ---
-# Beş dakika içinde Azure’a ilk web uygulamanızı dağıtın
+# <a name="deploy-your-first-web-app-to-azure-in-five-minutes"></a>Beş dakika içinde Azure’a ilk web uygulamanızı dağıtın
 Bu öğretici ilk web uygulamanızı [App Service](../app-service/app-service-value-prop-what-is.md)’e dağıtmanıza yardımcı olur.
 Web uygulamaları, [mobil uygulama arka uçları](/documentation/learning-paths/appservice-mobileapps/) ve [API Apps](../app-service-api/app-service-api-apps-why-best-platform.md) oluşturmak için App Service kullanabilirsiniz.
 
@@ -27,64 +31,44 @@ Yapacaklarınız:
 * Kodunuzun üretim ortamında dinamik bir şekilde çalıştığını görün.
 * Web uygulamanızı [Git yürütmelerini gönderdiğiniz](https://git-scm.com/docs/git-push) şekilde güncelleştirin.
 
-## Ön koşullar
 > [!INCLUDE [app-service-linux](../../includes/app-service-linux.md)]
 > 
 > 
 
-* [Git’i yükleyin](http://www.git-scm.com/downloads). Yeni bir Windows komut isteminden, PowerShell penceresinden, Linux kabuğundan veya OS X terminalinden `git --version` öğesini çalıştırarak yüklemenizin başarılı olduğunu doğrulayın.
-* Bir Microsoft Azure hesabı edinin. Bir hesabınız yoksa, [ücretsiz deneme için kaydolabilir](/pricing/free-trial/?WT.mc_id=A261C142F) veya [Visual Studio abone avantajlarınızı etkinleştirebilirsiniz.](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)
+## <a name="prerequisites"></a>Önkoşullar
+* [Git](http://www.git-scm.com/downloads).
+* [Azure CLI](../xplat-cli-install.md).
+* Bir Microsoft Azure hesabı. Bir hesabınız yoksa, [ücretsiz deneme için kaydolabilir](/pricing/free-trial/?WT.mc_id=A261C142F) veya [Visual Studio abone avantajlarınızı etkinleştirebilirsiniz.](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)
 
 > [!NOTE]
 > Azure hesabınız olmadan [App Service'i Deneyebilirsiniz](http://go.microsoft.com/fwlink/?LinkId=523751). Başlangıç uygulaması oluşturun ve bir saate kadar üzerinde çalışın; kredi kartı veya taahhüt gerekmez.
 > 
 > 
 
-<a name="create"></a>
+## <a name="deploy-a-web-app"></a>Bir web uygulaması dağıtma
+Azure App Service’e bir web uygulaması dağıtalım.
 
-## Web uygulaması oluşturma
-1. Azure hesabınızla [Azure portalında](https://portal.azure.com) oturum açın.
-2. Sol menüden **Yeni** > **Web + Mobil** > **Web Uygulaması**'na tıklayın.
+1. Yeni bir Windows komut istemi, PowerShell penceresi, Linux kabuğu veya OS X terminali açın. Makinenizde Git ve Azure CLI’nın yüklü olduğunu doğrulamak için `git --version` ve `azure --version` çalıştırın.
    
-    ![Azure’da ilk web uygulamanızı oluşturmaya başlayın](./media/app-service-web-get-started/create-web-app-portal.png)
-3. Uygulama oluşturma dikey penceresinde yeni uygulamanız için şu ayarları kullanın:
+    ![Azure’da ilk web uygulamanız için CLI araçlarının test yüklemesi](./media/app-service-web-get-started/1-test-tools.png)
    
-   * **Uygulama adı**: Benzersiz bir ad yazın.
-   * **Kaynak grubu**: **Yeni Oluştur**'u seçin ve kaynak grubuna bir ad verin.
-   * **App Service planı/Konumu**: Yapılandırmak için üzerine tıklayın, ardından App Service planının adını, konumunu ve fiyatlandırma katmanını ayarlamak için **Yeni Oluştur**'a tıklayın. **Ücretsiz** fiyatlandırma katmanını dilediğiniz gibi kullanın.
-     
-     İşlemleri tamamladığınızda uygulama oluşturma dikey pencereniz şu şekilde görünür:
-     
-     ![Azure’da ilk web uygulamanızı yapılandırın](./media/app-service-web-get-started/create-web-app-settings.png)
-4. Alttaki **Oluştur** düğmesine tıklayın. İlerlemeyi görmek için üstteki **Bildirim** simgesine tıklayabilirsiniz.
+    Araçları yüklemediyseniz, indirme bağlantıları için bkz. [Ön koşullar](#Prerequisites).
+2. Azure’da aşağıdaki gibi oturum açın:
    
-    ![Azure’daki ilk web uygulamanız için uygulama oluşturma bildirimi](./media/app-service-web-get-started/create-web-app-started.png)
-5. Dağıtım tamamlandığında bu bildirim iletisini görürsünüz. Dağıtımınızın dikey penceresini açmak için iletiye tıklayın.
+        azure login
    
-    ![Azure’daki ilk web uygulamanız için dağıtım tamamlandı iletisi](./media/app-service-web-get-started/create-web-app-finished.png)
-6. Yeni web uygulamanızın dikey penceresini açmak için, **Dağıtım başarılı oldu** dikey penceresindeki **Kaynak** bağlantısına tıklayın.
+    Oturum açma işlemine devam etmek için yardım iletisini izleyin.
    
-    ![Azure’daki ilk web uygulamanız için kaynak bağlantısı](./media/app-service-web-get-started/create-web-app-resource.png)
-
-## Kodu, web uygulamanıza dağıtın
-Şimdi, Git kullanarak Azure'a birkaç kod dağıtalım.
-
-1. Web uygulaması dikey penceresinde, aşağı kaydırarak veya aratarak **Dağıtım seçenekleri**ni bulun ve üzerine tıklayın. 
+    ![İlk web uygulamanızı oluşturmak için Azure’da oturum açma](./media/app-service-web-get-started/3-azure-login.png)
+3. Azure CLI’yi ASM moduna alın ve Uygulama Hizmeti için dağıtım kullanıcısını ayarlayın. Kodu daha sonra bu kimlik bilgilerini kullanarak dağıtacaksınız.
    
-    ![Azure'daki ilk web uygulamanız için dağıtım seçenekleri](./media/app-service-web-get-started/deploy-web-app-deployment-options.png)
-2. **Kaynak Seç** > **Yerel Git Deposu** > **Tamam**'a tıklayın.
-3. Web uygulaması dikey penceresine dönüp **Dağıtım kimlik bilgileri**'ne tıklayın.
-4. Dağıtım kimlik bilgilerinizi ayarlayın ve **Kaydet**'e tıklayın.
-5. Web uygulaması dikey penceresine dönüp aşağı kaydırarak veya aratarak **Özellikler**'i bulun ve üzerine tıklayın. **Git URL'sinin** yanındaki **Kopyala** düğmesine tıklayın.
-   
-    ![Azure’daki ilk web uygulamanız için özellikler dikey penceresi](./media/app-service-web-get-started/deploy-web-app-properties.png)
-   
-    Artık kodunuzu Git ile dağıtmaya hazırsınız.
-6. Komut satırı terminalinizde, çalışma dizinine (`CD`) geçip örnek uygulamayı şu şekilde kopyalayın:
+        azure config mode asm
+        azure site deployment user set --username <username> --pass <password>
+4. Çalışan bir dizine (`CD`) geçin ve örnek uygulamayı şu şekilde kopyalayın:
    
         git clone <github_sample_url>
    
-    ![Azure’da ilk web uygulamanız için uygulama örnek kodunu kopyalama](./media/app-service-web-get-started/html-git-clone.png)
+    ![Azure’da ilk web uygulamanız için uygulama örnek kodunu kopyalama](./media/app-service-web-get-started/2-clone-sample.png)
    
     *&lt;github_sample_url>* için, tercih ettiğiniz altyapıya bağlı olarak aşağıdaki URL’lerden birini kullanın:
    
@@ -94,30 +78,40 @@ Yapacaklarınız:
    * Node.js (Express): [https://github.com/Azure-Samples/app-service-web-nodejs-get-started.git](https://github.com/Azure-Samples/app-service-web-nodejs-get-started.git)
    * Java: [https://github.com/Azure-Samples/app-service-web-java-get-started.git](https://github.com/Azure-Samples/app-service-web-java-get-started.git)
    * Python (Django): [https://github.com/Azure-Samples/app-service-web-python-get-started.git](https://github.com/Azure-Samples/app-service-web-python-get-started.git)
-7. Örnek uygulamanızın deposuna geçin. Örneğin, 
+5. Örnek uygulamanızın deposuna geçin. Örnek:
    
         cd app-service-web-html-get-started
-8. Birkaç adım önce Portaldan kopyaladığınız Git URL'sini kullanarak Git uzak komutunu Azure uygulamanız için yapılandırın.
+6. Azure’da Uygulama Hizmeti uygulama kaynağını benzersiz uygulama adıyla ve daha önce yapılandırdığınız dağıtım kullanıcısıyla oluşturun. Sorulduğunda tercih edilen bölgenin numarasını belirtin.
    
-        git remote add azure <giturlfromportal>
-9. Örnek kodunuzu, Git ile herhangi bir kodu gönderir gibi Azure uygulamanıza dağıtın:
+        azure site create <app_name> --git --gitusername <username>
+   
+    ![Azure’da ilk web uygulamanız için Azure kaynağını oluşturma](./media/app-service-web-get-started/4-create-site.png)
+   
+    Uygulamanız artık Azure’da oluşturulmuştur. Ayrıca geçerli dizininiz Git ile başlatılmıştır ve yeni App Service uygulamasına Git remote olarak bağlanmıştır.
+    Varsayılan HTML sayfasını görmek için uygulama URL’sine göz atabilirsiniz (http://&lt;uygulama_adı>.azurewebsites.net), ancak şimdi kodlarınızı buraya yerleştirmeye bakalım.
+7. Örnek kodunuzu, Git ile herhangi bir kodu gönderir gibi Azure uygulamanıza dağıtın. İstendiğinde önceden yapılandırdığınız parolayı kullanın.
    
         git push azure master
    
-    ![Azure’da ilk web uygulamanıza kod gönderme](./media/app-service-web-get-started/html-git-push.png)    
+    ![Azure’da ilk web uygulamanıza kod gönderme](./media/app-service-web-get-started/5-push-code.png)
    
-    Dil altyapılarından birini kullandıysanız farklı bir çıktı göreceksiniz. Bunun nedeni `git push` Azure’a kod yerleştirmekle kalmaz, aynı zamanda dağıtım altyapısında dağıtım görevlerini tetikler. Proje (depo) kökünde package.json (Node.js) veya requirements.txt (Python) dosyaları bulunuyorsa ya da ASP.NET projenizde packages.config dosyası bulunuyorsa, dağıtım betiği sizin için gerekli paketleri geri yükler. Bununla birlikte PHP uygulamanızda composer.json dosyalarını otomatik olarak işlemek için [Composer uzantısını etkinleştirebilirsiniz](web-sites-php-mysql-deploy-use-git.md#composer).
+    Dil altyapılarından birini kullandıysanız farklı bir çıktı göreceksiniz. `git push` Azure’a kod yerleştirmekle kalmaz, aynı zamanda dağıtım altyapısında dağıtım görevlerini tetikler. Proje (depo) kökünde package.json (Node.js) veya requirements.txt (Python) dosyaları bulunuyorsa ya da ASP.NET projenizde packages.config dosyası bulunuyorsa, dağıtım betiği sizin için gerekli paketleri geri yükler. Bununla birlikte PHP uygulamanızda composer.json dosyalarını otomatik olarak işlemek için [Composer uzantısını etkinleştirebilirsiniz](web-sites-php-mysql-deploy-use-git.md#composer).
 
-İşte bu kadar! Kodunuz artık Azure'da dinamik bir şekilde çalışıyor. Kodunuzun nasıl çalıştığını görmek için tarayıcınızda http://*&lt;uygulamaadı >*.azurewebsites.net sayfasına gidin. 
+Tebrikler, Azure App Service’ize uygulamanızı dağıttınız.
 
-## Uygulamanızda güncelleştirmeler yapma
+## <a name="see-your-app-running-live"></a>Uygulamanızı çalışırken görme
+Azure’da uygulamanızı çalışırken görmek için deponuzun herhangi bir dizininden bu komutu çalıştırın:
+
+    azure site browse
+
+## <a name="make-updates-to-your-app"></a>Uygulamanızda güncelleştirmeler yapma
 Artık canlı sitede bir güncelleştirme yapmak için projenizin (depo) kökünden gönderme yapmak üzere Git’i kullanabilirsiniz. Kodunuzu ilk kez dağıtırken de bu yolu izlersiniz. Örneğin yerel olarak test ettiğiniz yeni bir değişikliği her göndermek istediğinizde tek yapmanız gereken projenizin (depo) kökünden aşağıdaki komutları çalıştırmaktır:
 
     git add .
     git commit -m "<your_message>"
     git push azure master
 
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 Dil altyapınız için tercih edilen geliştirme ve dağıtım adımlarını bulun:
 
 > [!div class="op_single_selector"]
@@ -134,6 +128,9 @@ Veya ilk web uygulamanızla daha fazlasını yapın. Örnek:
 * [Kodunuzu Azure'a dağıtmanın diğer yollarını](web-sites-deploy.md) deneyin. Örneğin, GitHub depolarınızın birinden dağıtım yapmak için **Dağıtım seçenekleri**'nde **Yerel Git Deposu** yerine **GitHub**'ı seçmeniz yeterlidir.
 * Azure uygulamanızı bir sonraki seviyeye taşıyın. Kullanıcılarınızın kimliklerini doğrulayın. Talebe göre ölçeklendirin. Performans uyarıları ayarlayın. Tümünü birkaç tıklamayla gerçekleştirin. Bkz. [İlk web uygulamanıza işlevsellik ekleme](app-service-web-get-started-2.md).
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

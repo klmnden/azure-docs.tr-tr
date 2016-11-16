@@ -1,6 +1,6 @@
 <!--author=alkohli last changed: 9/17/15-->
 
-#### StorSimple hizmet kayıt anahtarını almak için
+#### <a name="to-get-the-storsimple-service-registration-key"></a>StorSimple hizmet kayıt anahtarını almak için
 1. **StorSimple Yöneticisi hizmeti** sayfasında oluşturduğunuz hizmete tıklayın. Böylece **Hızlı Başlangıç** sayfasına gideceksiniz. (Hızlı başlangıç simgesine ![StorSimple Hızlı Başlangıç simgesi ](./media/storsimple-get-service-registration-key/HCS_QuickStartIcon-include.png) tıklayarak her istediğinizde **Hızlı Başlangıç** sayfasına erişebilirsiniz.)
    
      ![StorSimple Hızlı Başlangıç sayfası](./media/storsimple-get-service-registration-key/HCS_ServiceQuickStart-include.png)
@@ -16,10 +16,12 @@
 > 
 > 
 
-![Kullanılabilir video](./media/storsimple-get-service-registration-key/Video_icon.png) **Kullanılabilir video**
+![Video var](./media/storsimple-get-service-registration-key/Video_icon.png) **Video var**
 
 Hizmet kayıt anahtarının nasıl alındığını anlatan bir videoyu izlemek için [buraya](https://azure.microsoft.com/documentation/videos/get-the-service-registration-key/) tıklayın.
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

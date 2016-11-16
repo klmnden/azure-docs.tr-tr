@@ -1,12 +1,12 @@
 ---
-title: ASP.NET uygulamasını Visual Studio’yu kullanarak Azure App Service’e dağıtma | Microsoft Docs
-description: Azure App Service’te bir ASP.NET web projesini Visual Studio’yu kullanarak yeni bir web uygulamasına dağıtmayı öğrenin.
+title: "ASP.NET uygulamasını Visual Studio’yu kullanarak Azure Uygulama Hizmeti’ne dağıtma | Microsoft Belgeleri"
+description: "Azure App Service’te bir ASP.NET web projesini Visual Studio’yu kullanarak yeni bir web uygulamasına dağıtmayı öğrenin."
 services: app-service\web
 documentationcenter: .net
 author: tdykstra
 manager: wpickett
-editor: ''
-
+editor: 
+ms.assetid: 69759e3c-384c-4afb-9278-db6724f6cb74
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
@@ -14,12 +14,16 @@ ms.devlang: dotnet
 ms.topic: get-started-article
 ms.date: 07/22/2016
 ms.author: rachelap
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 4f6bb074a607bd8a6bd201d71973993759860937
+
 
 ---
-# ASP.NET web uygulamasını Visual Studio’yu kullanarak Azure App Service’e dağıtma
+# <a name="deploy-an-aspnet-web-app-to-azure-app-service-using-visual-studio"></a>ASP.NET web uygulamasını Visual Studio’yu kullanarak Azure App Service’e dağıtma
 [!INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
 
-## Genel Bakış
+## <a name="overview"></a>Genel Bakış
 Bu öğreticide, ASP.NET web uygulamasının Visual Studio 2015 kullanılarak [Azure App Service’teki bir web uygulamasına](app-service-web-overview.md) nasıl dağıtılacağı gösterilmektedir.
 
 Bu öğretici, Azure kullanma deneyimi olmayan bir ASP.NET geliştiricisi olduğunuzu varsayar. İşiniz bittiğinde, bulutta çalışır hale gelecek basit bir web uygulamanız olur.
@@ -39,13 +43,13 @@ Bu bir başlangıç öğreticisi olduğundan, veritabanı kullanmayan ve kimlik 
 
 .NET için Azure SDK yüklemek için gereken süre dışında, bu öğreticinin tamamlanması 10-15 dakika sürer.
 
-## Ön koşullar
+## <a name="prerequisites"></a>Ön koşullar
 * Bu öğretici, ASP.NET ve Visual Studio hakkında deneyimli olduğunuzu varsayar. Genel bir bilgi gerekirse, bkz. [ASP.NET MVC 5’i Kullanmaya Başlama](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started)
 * Bir Azure hesabınız olmalıdır. [Ücretsiz bir Azure hesabı açabilir](/pricing/free-trial/?WT.mc_id=A261C142F) veya [Visual Studio abonelik avantajlarını etkinleştirebilirsiniz](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). 
   
     Bir Azure hesabı için kaydolmadan önce Azure App Service’i kullanmaya başlamak istiyorsanız [App Service’i Deneyin](http://go.microsoft.com/fwlink/?LinkId=523751)’e gidin. Burada, App Service’te kısa süreli bir başlangıç web uygulaması oluşturabilirsiniz; kredi kartı gerekmez ve hiçbir taahhüt yoktur.
 
-## <a name="setupdevenv"></a>Geliştirme ortamını ayarlama
+## <a name="a-namesetupdevenvaset-up-the-development-environment"></a><a name="setupdevenv"></a>Geliştirme ortamını ayarlama
 Bu öğretici, [.NET için Azure SDK](../dotnet-sdk.md) 2.9 veya sonraki bir sürümünü içeren Visual Studio 2015 için hazırlanmıştır. 
 
 * [Visual Studio 2015 için en son Azure SDK’sını indirin](http://go.microsoft.com/fwlink/?linkid=518003). Visual Studio 2015’iniz yoksa, SDK sizin yerinize yükler.
@@ -57,7 +61,7 @@ Bu öğretici, [.NET için Azure SDK](../dotnet-sdk.md) 2.9 veya sonraki bir sü
 
 Visual Studio 2013’ünüz varsa ve bunu kullanmayı tercih ederseniz, [Visual Studio 2013 için en son Azure SDK'sını indirebilirsiniz](http://go.microsoft.com/fwlink/?LinkID=324322). Bazı ekranlar gösterilenlerden farklı görünebilir.
 
-## Yeni bir web projesi yapılandırma
+## <a name="configure-a-new-web-project"></a>Yeni bir web projesi yapılandırma
 Sonraki adımınız, Visual Studio’da bir web projesi ve Azure App Service’te bir web uygulaması oluşturmaktır. Öğreticinin bu bölümünde, yeni web projesini yapılandırın. 
 
 1. Visual Studio 2015’i açın.
@@ -85,7 +89,7 @@ Sonraki adımınız, Visual Studio’da bir web projesi ve Azure App Service’t
     Bu ayarlar, Visual Studio’yu web projeniz için bir Azure web uygulaması oluşturmak üzere yönlendirir.
 10. **Tamam**’a tıklayın.
 
-## Yeni bir web uygulaması için Azure kaynaklarını yapılandırma
+## <a name="configure-azure-resources-for-a-new-web-app"></a>Yeni bir web uygulaması için Azure kaynaklarını yapılandırma
 Artık oluşturmak istediğiniz Azure kaynakları için Visual Studio’da işlem yapmaya başlayabilirsiniz.
 
 1. **App Service Oluştur** iletişim kutusunda **Hesap ekle**’ye tıklayın ve ardından Azure aboneliğinizi yönetmek üzere kullandığınız hesabın kimliği ve parolası ile Azure’da oturum açın.
@@ -104,7 +108,7 @@ Artık oluşturmak istediğiniz Azure kaynakları için Visual Studio’da işle
    
     ![App Service iletişim kutusu oluşturma](./media/web-sites-dotnet-get-started/rgcreate.png)
    
-    Kaynak grubu web uygulamaları, veritabanları ve sanal makineler gibi Azure kaynakları koleksiyonudur. Bir öğreticide, en iyi uygulama yeni bir kaynak grubu oluşturmaktır. Bu sayede, öğretici için oluşturduğunuz Azure kaynaklarını tek bir adımda kolayca silebilirsiniz. Daha fazla bilgi için bkz. [Azure Resource Manager’a genel bakış](../resource-group-overview.md).
+    Kaynak grubu web uygulamaları, veritabanları ve sanal makineler gibi Azure kaynakları koleksiyonudur. Bir öğreticide, en iyi uygulama yeni bir kaynak grubu oluşturmaktır. Bu sayede, öğretici için oluşturduğunuz Azure kaynaklarını tek bir adımda kolayca silebilirsiniz. Daha fazla bilgi için bkz. [Azure Resource Manager’a genel bakış](../azure-resource-manager/resource-group-overview.md).
 4. **App Service Planı** açılır menüsünün yanındaki **Yeni** düğmesine tıklayın.
    
     ![App Service iletişim kutusu oluşturma](./media/web-sites-dotnet-get-started/createasplan.png)
@@ -124,7 +128,7 @@ Artık oluşturmak istediğiniz Azure kaynakları için Visual Studio’da işle
 8. **App Service Planı Yapılandır** iletişim kutusunda **Tamam**’a tıklayın.
 9. **App Service Oluştur** iletişim kutusunda **Oluştur**’a tıklayın.
 
-## Visual Studio projeyi ve web uygulamasını oluşturur
+## <a name="visual-studio-creates-the-project-and-web-app"></a>Visual Studio projeyi ve web uygulamasını oluşturur
 Kısa bir süre içinde (genellikle bir dakikadan az) Visual Studio web projesini ve web uygulamasını oluşturur.  
 
  **Çözüm Gezgini** penceresi, yeni projedeki dosyaları ve klasörleri gösterir.
@@ -139,7 +143,7 @@ Kısa bir süre içinde (genellikle bir dakikadan az) Visual Studio web projesin
 
 ![Cloud Explorer’da oluşturulan web uygulaması](./media/web-sites-dotnet-get-started/siteinse.png)
 
-## Web projesini Azure web uygulamasında dağıtma
+## <a name="deploy-the-web-project-to-the-azure-web-app"></a>Web projesini Azure web uygulamasında dağıtma
 Bu bölümde, web projesini web uygulamasına dağıtırsınız.
 
 1. **Çözüm Gezgini**’nde, projeye sağ tıklayın ve **Yayımla**’yı seçin.
@@ -179,14 +183,14 @@ Bu bölümde, web projesini web uygulamasına dağıtırsınız.
    > 
    > 
 
-## Sorun giderme
+## <a name="troubleshooting"></a>Sorun giderme
 Bu öğreticide ilerlerken bir sorunla karşılaşırsanız, .NET için Azure SDK’nın en son sürümünü kullandığınızdan emin olun. Bunu yapmanın en kolay yolu [Visual Studio 2015 için Azure SDK’yı indirmektir](http://go.microsoft.com/fwlink/?linkid=518003). Geçerli sürüm yüklüyse, Web Platformu Yükleyicisi yükleme yapılmasına gerek olmadığını belirtir.
 
 Kurumsal bir ağda bulunuyorsanız ve Azure App Service’e bir güvenlik duvarı aracılığıyla dağıtmaya çalışıyorsanız, 443 ve 8172 numaralı bağlantı noktalarının Web Dağıtımı için açık olduklarından emin olun. Bu bağlantı noktalarını açamıyorsanız, diğer dağıtım seçenekleri aşağıdaki Sonraki adımlar bölümüne bakın.
 
 Azure App Service’te ASP.NET web uygulamanızı çalıştırdıktan sonra, sorun giderme sürecini kolaylaştıracak Visual Studio özellikler hakkında daha fazla bilgi edinmek isteyebilirsiniz. Günlüğe kaydetme, uzaktan hata ayıklama ve çok daha fazlası hakkında bilgi edinmek için bkz. [Visual Studio’daki Azure Web Apps sorunlarını giderme](web-sites-dotnet-troubleshoot-visual-studio.md).
 
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 Bu öğreticide, basit bir web uygulaması oluşturmayı ve bunu Azure web uygulamasında dağıtmayı öğrendiniz. Azure App Service hakkında daha fazla bilgi edinmek için şu konulara ve kaynaklara göz atabilirsiniz:
 
 * [Azure portalında](https://portal.azure.com/) web uygulamanızı izleme ve yönetme. 
@@ -205,13 +209,16 @@ Bu öğreticide, basit bir web uygulaması oluşturmayı ve bunu Azure web uygul
   
     SSL’yi ve kendi etki alanınızı (örneğin, contoso.azurewebsites.net yerine www.contoso.com) kullanma hakkında daha fazla bilgi edinmek için aşağıdaki kaynaklara göz atın:
   
-  * [Azure App Service’te özel etki alanı adı yapılandırma](web-sites-custom-domain-name.md)
+  * [Azure App Service'te özel etki alanı adını yapılandırma](web-sites-custom-domain-name.md)
   * [Azure web sitesi için HTTPS'yi etkinleştirme](web-sites-configure-ssl-certificate.md)
 * İşiniz bittiğinde, web uygulamanızı ve ilgili Azure kaynaklarını içeren kaynak grubunu silin.
   
     Azure portalında kaynak gruplarıyla çalışma hakkında bilgi edinmek için bkz. [Resource Manager şablonları ve Azure portalı ile kaynakları dağıtma ve yönetme](../resource-group-template-deploy-portal.md).   
 * App Service’te ASP.NET Web Uygulaması oluşturmaya yönelik daha fazla örnek için [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) 2015 Connect [tanıtımı](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/) içindeki [Azure Uygulama Hizmeti’nde ASP.NET web uygulaması oluşturma ve dağıtma](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-an-ASP.NET-web-app-in-Azure-App-Service) ile [Azure Uygulama Hizmeti’nde mobil uygulama oluşturma ve dağıtma](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-a-mobile-app-in-Azure-App-Service) bölümlerine bakın. HealthClinic.biz tanıtımından daha fazla hızlı başlangıç ipuçları için bkz. [Azure Geliştirici Araçları Hızlı Başlangıç İpuçları](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts).
 
-<!--HONumber=Aug16_HO1-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

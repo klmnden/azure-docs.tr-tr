@@ -1,12 +1,12 @@
 ---
-title: Oturum açma ve Erişim Paneli sayfalarınıza şirket markası ekleme
-description: Azure oturum açma sayfasına ve erişim paneli sayfasına nasıl şirket markası ekleyeceğiniz hakkında bilgi edinin
+title: "Oturum açma ve Erişim Paneli sayfalarınıza şirket markası ekleme"
+description: "Azure oturum açma sayfasına ve erişim paneli sayfasına nasıl şirket markası ekleyeceğiniz hakkında bilgi edinin"
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: curtand
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: f74621b4-4ef0-4899-8c0e-0c20347a8c31
 ms.service: active-directory
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/30/2016
 ms.author: curtand
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: d173847a9d96e5524eae5283fb63857f02e39f10
+
 
 ---
-# Oturum açma ve Erişim Paneli sayfalarınıza şirket markası ekleme
+# <a name="add-company-branding-to-your-signin-and-access-panel-pages"></a>Oturum açma ve Erişim Paneli sayfalarınıza şirket markası ekleme
 Birçok şirket, karışıklığı önlemek için yönettikleri hizmetlerde ve web sitelerinde tutarlı bir genel görünüm uygulamak ister. Azure Active Directory, aşağıdaki web sayfalarının görünümünü şirket logonuzla ve özel renk düzenleriyle özelleştirmenize olanak tanıyarak size bu özelliği sunar:
 
 * **Oturum açma sayfası:** Office 365'te veya Azure AD'yi kimlik sağlayıcınız olarak kullanan diğer web tabanlı uygulamalarda oturum açtığınızda görüntülenen sayfadır. Ana Bölge Bulma işlemi sırasında veya kimlik bilgilerinizi girerken bu sayfa ile karşılaşırsınız. Ana Bölge Bulma işlemi, sistemin federasyon kullanıcılarını kendi şirket içi STS'lerine (örneğin, AD FS) yönlendirmesini sağlar.
@@ -30,7 +34,7 @@ Bu konu başlığında, oturum açma sayfasını ve erişim paneli sayfasını n
 > 
 > 
 
-## Oturum açma sayfasını özelleştirme
+## <a name="customizing-the-signin-page"></a>Oturum açma sayfasını özelleştirme
 Genel olarak, bulut uygulamalarınıza ve kuruluşunuzun abonesi olduğu hizmetlere tarayıcı tabanlı olarak erişmeniz gerekiyorsa oturum açma sayfasını kullanırsınız.
 
 Oturum açma sayfanızda değişiklikler yaptıysanız bu değişikliklerin görünmesi bir saate kadar sürebilir.
@@ -73,7 +77,7 @@ Tarayıcı yukarı doğru yeniden boyutlandırıldıktan sonra şu şekilde gör
 
 ![][7]
 
-## Sayfadaki hangi öğeleri özelleştirebilirim?
+## <a name="what-elements-on-the-page-can-i-customize"></a>Sayfadaki hangi öğeleri özelleştirebilirim?
 Oturum açma sayfasında şu öğeleri özelleştirebilirsiniz:
 
 ![][5]
@@ -108,14 +112,14 @@ Ayrıca bu sayfadaki tüm öğeleri yerelleştirebilirsiniz. Özelleştirme öğ
 * Tüm kültürler için kullanılabilecek "varsayılan" bir Büyük Çizim oluşturup İngilizce ve Fransızca için belirli sürümler oluşturabilirsiniz. Tarayıcılarınızı bu iki dilden birine ayarladığınızda belirlenen görüntü görünür, varsayılan çizim ise diğer tüm dillerde görünür.
 * Kuruluşunuz için farklı logolar (örneğin, Japonca veya İbranice sürümler) yapılandırabilirsiniz.
 
-## Erişim paneli sayfa özelleştirmesi
+## <a name="access-panel-page-customization"></a>Erişim paneli sayfa özelleştirmesi
 Erişim Paneli sayfası, yöneticiniz tarafından erişim hakkı verilen bulut uygulamalarına hızlı erişim için kullanabileceğiniz bir portal sayfasıdır. Uygulamalarınız, bu sayfada tıklanabilir uygulama kutucukları olarak görünür.
 
 Aşağıdaki anlık görüntüde, özelleştirme işlemi uygulanan bir erişim paneli sayfası gösterilmektedir.
 
 ![][8]
 
-## Dizininizi şirket markasıyla yapılandırma
+## <a name="configure-your-directory-with-company-branding"></a>Dizininizi şirket markasıyla yapılandırma
 Klasik Azure portalında her dizin için özelleştirilebilir öğelere ilişkin bir varsayılan küme yapılandırabilirsiniz. Yönetici, varsayılanlar kaydedildikten sonra farklı diller/yerel ayarlar için her öğenin yerelleştirilmiş sürümlerini ekleyebilir. Tüm özelleştirilebilir öğeler isteğe bağlıdır.
 
 Örneğin, Büyük Çizim yerine varsayılan Başlık Logosunu yapılandırırsanız logonuz oturum açma sayfasının sağ üst köşesinde görüntülenir. Ancak sitenin varsayılan çizimi görüntülenir.
@@ -149,7 +153,7 @@ Oturum açma sayfası markasında yaptığınız yeni değişikliğin görünmes
 5. **Add branding for a specific language (Belirli bir dil için marka ekle)** düğmesine tıklayın.
 6. Logoyu özelleştirmek istediğiniz dili seçip **Next (İleri)** düğmesine tıklayın.
 7. Yalnızca dile özgü geçersiz kılma işlemlerini yapılandırmak istediğiniz öğeleri düzenleyin. Tüm alanlar isteğe bağlıdır. Bir alan boş bırakılırsa özel varsayılan değer (veya özel varsayılan yapılandırılmadıysa Microsoft varsayılanı) görüntülenir.
-8. **Save (Kaydet)** düğmesine tıklayın.
+8. **Kaydet** düğmesine tıklayın.
 
 **Dizininizden şirket markası kaldırmak için şu adımları uygulayın:**
 
@@ -173,7 +177,7 @@ Oturum açma sayfası markasında yaptığınız yeni değişikliğin görünmes
 8. Gerekirse **Customize Branding (Markayı Özelleştir)** seçeneğine yeniden tıklayın ve kaldırılması gereken tüm dile özgü markalar için bu adımları tekrar edin.
     **Customize Branding (Markayı Özelleştir)** seçeneğine tıkladığınızda **Customize Default Branding (Varsayılan Markayı Özelleştir)** formunda yapılandırılmış bir ayar görmüyorsanız tüm marka ayarları kaldırılmıştır.
 
-## Test ve örnekler
+## <a name="testing-and-examples"></a>Test ve örnekler
 Üretim ortamınızda değişiklik yapmadan önce bir kiracı ile deneme yapmanızı öneririz.
 
 **Markanızın uygulanıp uygulanmadığını doğrulamak için:**
@@ -190,7 +194,7 @@ Etkili özelleştirme kümeleri oluşturmanıza yardımcı olmak üzere şu iki 
 
 Dile özgü ayarları test etmek için web tarayıcınızda varsayılan dil tercihlerini değiştirerek özelleştirme sırasında belirlediğiniz dili ayarlamanız gerekir. Internet Explorer'da bu yapılandırmayı **İnternet Seçenekleri** menüsünden gerçekleştirebilirsiniz.
 
-## Özelleştirilebilir öğeler
+## <a name="customizable-elements"></a>Özelleştirilebilir öğeler
 Azure AD'deki bazı özelleştirilebilir öğelerin birden çok kullanım durumu vardır. Şirket logolarını her dizin için bir kere yapılandırabilirsiniz ve bu logolar hem oturum açma sayfasında hem de Erişim Paneli sayfasında kullanılabilir. Bazı özelleştirilebilir öğeler yalnızca oturum açma sayfasına özgüdür. Aşağıdaki tabloda farklı özelleştirilebilir öğelerle ilgili ayrıntılar verilmiştir.
 
 | Ad | Açıklama | Kısıtlamalar | Öneriler |
@@ -199,11 +203,11 @@ Azure AD'deki bazı özelleştirilebilir öğelerin birden çok kullanım durumu
 | Kutucuk Logosu |(şu anda oturum açma sayfasında kullanılmıyor) Gelecekte bu metin, farklı deneyim alanlarındaki genel "iş veya okul hesabı" piktogramını değiştirmek için kullanılabilir. |<p>JPG veya PNG</p><p>120 x 120 piksel</p><p>10 KB</p> |<p>Bu görüntü % 50 olarak yeniden boyutlandırılabileceği için (küçük metin olmaksızın) basit olmasını sağlayın |
 | </p> | | | |
 | Oturum Açma Sayfası Kullanıcı Adı Etiketi |(şu anda oturum açma sayfasında kullanılmıyor) Gelecekte bu metin, farklı deneyim alanlarındaki genel "iş veya okul hesabı" dizesini değiştirmek için kullanılabilir. Bunu "Contoso hesabı" veya "Contoso kimliği" olarak ayarlayabilirsiniz. |<p>Maksimum 50 karakterlik Unicode metni</p><p>Yalnızca düz metin (bağlantılar veya HTML etiketleri olmadan)</p> |<p>Kısa ve basit tutun</p><p>Kullanıcılarınıza, sağlamış olduğunuz iş veya okul hesaplarını genel olarak nasıl adlandırdıklarını sorun.</p> |
-| Oturum Açma Sayfası Metni |Bu "ortak" metin, oturum açma sayfası formunun altında görünür; ek yönergeler için veya yardım ya da desteğin nereden alınabileceğiyle ilgili bilgi vermek için kullanılabilir. |<p>Maksimum 256 karakterlik Unicode metni</p><p>Yalnızca düz metin (bağlantılar veya HTML etiketleri olmadan)</p> |250 karakterin altında tutun (yaklaşık 3 metin satırı) |
+| Oturum Açma Sayfası Metni |Bu "ortak" metin, oturum açma sayfası formunun altında görünür; ek yönergeler için veya yardım ya da desteğin nereden alınabileceğiyle ilgili bilgi vermek için kullanılabilir. |<p>Maksimum 256 karakterlik Unicode metni</p><p>Yalnızca düz metin (bağlantılar veya HTML etiketleri olmadan)</p> |250 karakterin altında tutun (yaklaşık 3 metin satırı)  |
 | Oturum Açma Sayfası Çizimi |Çizim, oturum açma sayfasında oturum açma sayfası formunun solunda görüntülenen büyük görüntüdür. |<p>JPG veya PNG</p><p>1420 x 1200</p><p>500 KB</p> |<p>1420 x 1200 piksel</p><p>Önemli: Olabildiğince küçük tutun; 200 KB'ın altında olması idealdir. Bu görüntü, çok büyük olduğu için önbelleğe alınmadığında Oturum Açma sayfasının performansı etkilenir</p><p>Bu görüntü genellikle, farklı ekran oranları uyum sağlayacak şekilde kırpılır. Tarayıcı küçüldükçe yeniden boyutlandırma işlemi yukarı doğru sağ/alt köşeden sol/üst köşeye doğru gerçekleştiği için, birincil görsel öğeleri sol üst köşede (RTL dilleri için sağ üstte) tutun.</p> |
 | Oturum Açma Sayfası Arka Plan Rengi |Oturum açma sayfası arka plan rengi, oturum açma sayfası formunun solundaki alanda kullanılır. |Arka plan rengi, onaltılık biçimde bir RGB rengi olmalıdır (örnek: #FFFFFF) |<p>Düşük bant genişliğine sahip bağlantılarda büyük Çizim yerine arka plan rengi gösterilebilir.</p><p>Başlık logosunun birincil rengini seçmenizi öneririz</p> |
 
-## Sonraki Adımlar
+## <a name="next-steps"></a>Sonraki Adımlar
 * [Azure Active Directory Premium ile çalışmaya başlama](active-directory-get-started-premium.md)
 * [Erişim ve kullanım raporlarınızı görüntüleme](active-directory-view-access-usage-reports.md)
 
@@ -220,6 +224,6 @@ Azure AD'deki bazı özelleştirilebilir öğelerin birden çok kullanım durumu
 
 
 
-<!--HONumber=Sep16_HO5-->
+<!--HONumber=Nov16_HO2-->
 
 

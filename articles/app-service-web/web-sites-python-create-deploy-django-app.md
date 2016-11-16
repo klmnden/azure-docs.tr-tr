@@ -1,13 +1,13 @@
 ---
-title: Azure’da Django ile web uygulamaları oluşturma
-description: Azure App Service Web Apps’te bir Python web uygulaması çalıştırmayı gösteren bir öğretici.
+title: "Azure’da Django ile web uygulamaları oluşturma"
+description: "Azure App Service Web Apps’te bir Python web uygulaması çalıştırmayı gösteren bir öğretici."
 services: app-service\web
 documentationcenter: python
 tags: python
 author: huguesv
 manager: wpickett
-editor: ''
-
+editor: 
+ms.assetid: 9be1a05a-9460-49ae-94fb-9798f82c11cf
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
@@ -15,9 +15,13 @@ ms.devlang: python
 ms.topic: hero-article
 ms.date: 02/19/2016
 ms.author: huvalo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 7fbe958a20099f829f2c4c38344969372217e634
+
 
 ---
-# Azure’da Django ile web uygulamaları oluşturma
+# <a name="creating-web-apps-with-django-in-azure"></a>Azure’da Django ile web uygulamaları oluşturma
 Bu öğretici, çalışan, [Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714)’te Python çalıştırmaya nasıl başlayacağınızı açıklar. Web Apps sınırlı ücretsiz barındırma ve hızlı dağıtım sağlar ve Python’u kullanmanıza olanak tanır! Uygulamanız büyüdükçe, ücretli barındırmaya geçebilir ve aynı zamanda tüm diğer Azure hizmetleriyle tümleştirebilirsiniz.
 
 Django web altyapısını kullanarak bir uygulama oluşturacaksınız (bu öğreticinin diğer sürümleri için bkz. [Flask](web-sites-python-create-deploy-flask-app.md) ve [Bottle](web-sites-python-create-deploy-bottle-app.md)). Azure Marketi'nde bir web uygulaması oluşturacak, Git dağıtımı ayarlayacak ve depoyu yerel olarak kopyalayacaksınız. Sonra, uygulamayı yerel olarak çalıştıracak, değişiklikler yapacak, yürütecek ve bunları Azure'a ileteceksiniz. Öğretici, Windows veya Mac/Linux’ta bunun nasıl yapıldığını gösterir.
@@ -29,7 +33,7 @@ Django web altyapısını kullanarak bir uygulama oluşturacaksınız (bu öğre
 > 
 > 
 
-## Ön koşullar
+## <a name="prerequisites"></a>Ön koşullar
 * Windows, Mac veya Linux
 * Python 2.7 ya da 3.4
 * setuptools, pip, virtualenv (yalnızca Python 2.7)
@@ -38,17 +42,17 @@ Django web altyapısını kullanarak bir uygulama oluşturacaksınız (bu öğre
 
 **Not**: TFS yayımlama şu anda Python projeleri için desteklenmiyor.
 
-### Windows
+### <a name="windows"></a>Windows
 Python 2.7 ya da 3.4 yüklü (32 bit) değilse, Web Platformu Yükleyicisi'ni kullanarak [Python 2.7 için Azure SDK] veya [Python 3.4 için Azure SDK]’yı yüklemenizi öneririz. Bu, Python’un 32 bit sürümünü, setuptools, PIP, virtualenv vb.yükler (32 bit Python, Azure ana makinelerde yüklü olandır). Alternatif olarak, Python’u [python.org] adresinden edinebilirsiniz.
 
 Git için, [Windows için Git] veya [Windows için GitHub]’ı öneririz. Visual Studio kullanıyorsanız, tümleşik Git desteğini kullanabilirsiniz.
 
 Ayrıca [Visual Studio için Python Araçları 2.2]’yi yüklemenizi öneririz  Bu isteğe bağlıdır, ancak ücretsiz Visual Studio Community 2013 veya Web için Visual Studio Express 2013 içeren [Visual Studio] varsa, bu size mükemmel bir Python IDE verir.
 
-### Mac/Linux
+### <a name="maclinux"></a>Mac/Linux
 Python ve Git sizde zaten yüklü olmalıdır, ancak Python 2.7 veya 3.4 olduğundan emin olun.
 
-## Portalda Web Uygulaması Oluşturma
+## <a name="web-app-creation-on-portal"></a>Portalda Web Uygulaması Oluşturma
 Uygulamanızı oluşturmanın ilk adımı, [Azure Portal](https://portal.azure.com) aracılığıyla web uygulaması oluşturmaktır.
 
 1. Azure Portal’da oturum açın ve sol alt köşede **NEW** düğmesine tıklayın.
@@ -57,8 +61,8 @@ Uygulamanızı oluşturmanın ilk adımı, [Azure Portal](https://portal.azure.c
 4. Yeni bir App Service planı ve bunun için yeni bir kaynak grubu oluşturma şeklinde, yeni Django uygulamasını yapılandırın. Sonra, **Oluştur**’a tıklayın.
 5. Yeni oluşturulan web uygulamanız için, [Azure Uygulama Hizmeti’nde Yerel Git Dağıtımı](app-service-deploy-local-git.md) başlığındaki yönergeleri izleyerek Git yayımlamayı yapılandırın.
 
-## Uygulamaya Genel Bakış
-### Git deposu içeriği
+## <a name="application-overview"></a>Uygulamaya Genel Bakış
+### <a name="git-repository-contents"></a>Git deposu içeriği
 Burada, sonraki bölümde kopyalayacağımız, ilk Git deposunda bulacağınız dosyalara bir genel bakış yer alır.
 
     \app\__init__.py
@@ -108,13 +112,13 @@ Bu uygulamaya dış paketler gerekir. Dağıtım betiği pip bu dosyada listelen
 
 IIS yapılandırma dosyaları. Dağıtım betiği, uygun web.x.y.config’i kullanır ve bunu web.config olarak kopyalar.
 
-### İsteğe bağlı dosyalar - Dağıtımı özelleştirme
+### <a name="optional-files-customizing-deployment"></a>İsteğe bağlı dosyalar - Dağıtımı özelleştirme
 [!INCLUDE [web-sites-python-django-customizing-deployment](../../includes/web-sites-python-django-customizing-deployment.md)]
 
-### İsteğe bağlı dosyalar - Python çalışma zamanı
+### <a name="optional-files-python-runtime"></a>İsteğe bağlı dosyalar - Python çalışma zamanı
 [!INCLUDE [web-sites-python-customizing-runtime](../../includes/web-sites-python-customizing-runtime.md)]
 
-### Sunucu üzerindeki ek dosyalar
+### <a name="additional-files-on-server"></a>Sunucu üzerindeki ek dosyalar
 Bazı dosyalar sunucuda yer alır ancak git deposuna eklenmez. Bunlar dağıtım betiği tarafından oluşturulur.
 
     \web.config
@@ -131,15 +135,15 @@ Sonraki 3 bölümde farklı 3 ortamda web uygulaması geliştirmeye devam etme a
 * Windows, komut satırı ile
 * Mac/Linux, komut satırı ile
 
-## Web uygulaması geliştirme - Windows - Visual Studio için Python Araçları
-### Depoyu kopyalama
+## <a name="web-app-development-windows-python-tools-for-visual-studio"></a>Web uygulaması geliştirme - Windows - Visual Studio için Python Araçları
+### <a name="clone-the-repository"></a>Depoyu kopyalama
 İlk olarak, Azure Portal'da sağlanan URL'yi kullanarak depoyu kopyalayın. Daha fazla bilgi için bkz. [Azure Uygulama Hizmeti’nde Yerel Git Dağıtımı](app-service-deploy-local-git.md).
 
 Depo kök dizininde bulunan çözüm dosyasını (.sln) açın.
 
 ![](./media/web-sites-python-create-deploy-django-app/ptvs-solution-django.png)
 
-### Sanal ortamı oluşturun.
+### <a name="create-virtual-environment"></a>Sanal ortamı oluşturun.
 Şimdi, yerel geliştirme için sanal bir ortam oluşturacağız. Sağ **Python Ortamları**’na sağ tıklayın **Sanal Ortam Ekle...** seçeneğini seçin.
 
 * Ortam adının `env` olduğundan emin olun.
@@ -150,7 +154,7 @@ Depo kök dizininde bulunan çözüm dosyasını (.sln) açın.
 
 **Oluştur**’a tıklayın. Bu, sanal ortamı oluşturur ve requirements.txt içinde listelenen bağımlılıkları yükler.
 
-### Süper kullanıcı oluşturma
+### <a name="create-a-superuser"></a>Süper kullanıcı oluşturma
 Uygulamayla birlikte gelen veritabanında tanımlı bir süper kullanıcı yoktur. Uygulamadaki oturum açma işlevini ya da Django yönetim arabirimini (etkinleştirmeye karar verirseniz) kullanmak için, bir süper kullanıcı oluşturmanız gerekir.
 
 Proje klasörünüzdeki komut satırından bunu çalıştırın:
@@ -159,21 +163,21 @@ Proje klasörünüzdeki komut satırından bunu çalıştırın:
 
 Kullanıcı adı, parola vb. ayarlamak için yönergeleri izleyin.
 
-### Geliştirme sunucusu kullanarak çalıştırma
+### <a name="run-using-development-server"></a>Geliştirme sunucusu kullanarak çalıştırma
 Hata ayıklamayı başlatmak için F5 tuşuna basın, böylece web tarayıcınız yerel olarak çalışan sayfaya otomatik olarak açılır.
 
 ![](./media/web-sites-python-create-deploy-django-app/windows-browser-django.png)
 
 Kaynaklarda kesme noktalarını ayarlayabilir, gözcü pencerelerini kullanabilirsiniz vb. Çeşitli özellikler hakkında daha fazla bilgi için bkz. [Visual Studio Belgeleri için Python Araçları].
 
-### Değişiklik yapma
+### <a name="make-changes"></a>Değişiklik yapma
 Şimdi uygulama kaynakları ve/veya şablonlarında değişiklikler yapmayı deneyebilirsiniz.
 
 Değişikliklerinizi test ettikten sonra bunları Git deposuna kaydedin:
 
 ![](./media/web-sites-python-create-deploy-django-app/ptvs-commit-django.png)
 
-### Daha fazla paket yükleme
+### <a name="install-more-packages"></a>Daha fazla paket yükleme
 Uygulamanızın Python ve Django ötesinde bağımlılıkları olabilir.
 
 Pip kullanarak ek paketleri yükleyebilirsiniz. Bir paketi yüklemek için, sanal ortamda sağ tıklayıp **Python Paketini Yükle**’yi seçin.
@@ -186,7 +190,7 @@ Sanal ortamda sağ tıklayıp **requirements.txt oluştur**’u seçerek require
 
 Ardından, requirements.txt dosyasındaki değişiklikleri Git deposuna uygulayın.
 
-### Azure’a dağıtma
+### <a name="deploy-to-azure"></a>Azure’a dağıtma
 Bir dağıtımı tetiklemek için tıklatın **Eşitle** veya **İlet**’e tıklayın. Eşitleme, iletme ve çekme işlemini yapar.
 
 ![](./media/web-sites-python-create-deploy-django-app/ptvs-git-push.png)
@@ -197,15 +201,15 @@ Visual Studio dağıtımın ilerleme durumunu göstermez. Çıktıyı gözden ge
 
 Yaptığınız değişiklikleri görmek için Azure URL'sine gidin.
 
-## Web uygulaması geliştirme - Windows - komut satırı
-### Depoyu kopyalama
+## <a name="web-app-development-windows-command-line"></a>Web uygulaması geliştirme - Windows - komut satırı
+### <a name="clone-the-repository"></a>Depoyu kopyalama
 İlk olarak, Azure Portal'da sağlanan URL'yi kullanarak depoyu kopyalayın ve uzak olarak Azure deposunu ekleyin. Daha fazla bilgi için bkz. [Azure Uygulama Hizmeti’nde Yerel Git Dağıtımı](app-service-deploy-local-git.md).
 
     git clone <repo-url>
     cd <repo-folder>
     git remote add azure <repo-url>
 
-### Sanal ortamı oluşturun.
+### <a name="create-virtual-environment"></a>Sanal ortamı oluşturun.
 Geliştirme amacına yönelik yeni bir sanal ortam oluşturacağız (bunu depoya eklemeyin). Uygulama üzerinde çalışan her geliştiricinin yerel olarak kendininkini oluşturacağı şekilde, Python’daki sanal ortamlar yeniden yerleştirilebilir değildir.
 
 Web uygulamanız için seçilen Python ile aynı sürümü kullandığınızdan emin olun (runtime.txt içinde veya Azure Portal’da uygulamanızın Uygulama Ayarları dikey penceresinde).
@@ -222,7 +226,7 @@ Uygulamanız için gereken herhangi bir dış paketi yükleyin. Sanal ortamını
 
     env\scripts\pip install -r requirements.txt
 
-### Süper kullanıcı oluşturma
+### <a name="create-a-superuser"></a>Süper kullanıcı oluşturma
 Uygulamayla birlikte gelen veritabanında tanımlı bir süper kullanıcı yoktur. Uygulamadaki oturum açma işlevini ya da Django yönetim arabirimini (etkinleştirmeye karar verirseniz) kullanmak için, bir süper kullanıcı oluşturmanız gerekir.
 
 Proje klasörünüzdeki komut satırından bunu çalıştırın:
@@ -231,7 +235,7 @@ Proje klasörünüzdeki komut satırından bunu çalıştırın:
 
 Kullanıcı adı, parola vb. ayarlamak için yönergeleri izleyin.
 
-### Geliştirme sunucusu kullanarak çalıştırma
+### <a name="run-using-development-server"></a>Geliştirme sunucusu kullanarak çalıştırma
 Aşağıdaki komutla bir geliştirme sunucusu altında uygulamayı başlatabilirsiniz:
 
     env\scripts\python manage.py runserver
@@ -244,7 +248,7 @@ Sonra, bu URL için web tarayıcınızı açın.
 
 ![](./media/web-sites-python-create-deploy-django-app/windows-browser-django.png)
 
-### Değişiklik yapma
+### <a name="make-changes"></a>Değişiklik yapma
 Şimdi uygulama kaynakları ve/veya şablonlarında değişiklikler yapmayı deneyebilirsiniz.
 
 Değişikliklerinizi test ettikten sonra bunları Git deposuna kaydedin:
@@ -252,7 +256,7 @@ Değişikliklerinizi test ettikten sonra bunları Git deposuna kaydedin:
     git add <modified-file>
     git commit -m "<commit-comment>"
 
-### Daha fazla paket yükleme
+### <a name="install-more-packages"></a>Daha fazla paket yükleme
 Uygulamanızın Python ve Django ötesinde bağımlılıkları olabilir.
 
 Pip kullanarak ek paketleri yükleyebilirsiniz. Örneğin, size Azure Storage, Service Bus ve diğer Azure hizmetleri için erişim imkanı sağlayan, Python için Azure SDK'yı yüklemek için aşağıdakileri yazın:
@@ -268,7 +272,7 @@ Değişiklikleri uygulayın:
     git add requirements.txt
     git commit -m "Added azure package"
 
-### Azure’a dağıtma
+### <a name="deploy-to-azure"></a>Azure’a dağıtma
 Bir dağıtımı tetiklemek için, değişiklikleri Azure’a gönderin:
 
     git push azure master
@@ -277,15 +281,15 @@ Sanal ortam oluşturma, paketleri yükleme, web.config oluşturma dahil dağıt�
 
 Yaptığınız değişiklikleri görmek için Azure URL'sine gidin.
 
-## Web uygulaması geliştirme - Mac/Linux - komut satırı
-### Depoyu kopyalama
+## <a name="web-app-development-maclinux-command-line"></a>Web uygulaması geliştirme - Mac/Linux - komut satırı
+### <a name="clone-the-repository"></a>Depoyu kopyalama
 İlk olarak, Azure Portal'da sağlanan URL'yi kullanarak depoyu kopyalayın ve uzak olarak Azure deposunu ekleyin. Daha fazla bilgi için bkz. [Azure Uygulama Hizmeti’nde Yerel Git Dağıtımı](app-service-deploy-local-git.md).
 
     git clone <repo-url>
     cd <repo-folder>
     git remote add azure <repo-url>
 
-### Sanal ortamı oluşturun.
+### <a name="create-virtual-environment"></a>Sanal ortamı oluşturun.
 Geliştirme amacına yönelik yeni bir sanal ortam oluşturacağız (bunu depoya eklemeyin). Uygulama üzerinde çalışan her geliştiricinin yerel olarak kendininkini oluşturacağı şekilde, Python’daki sanal ortamlar yeniden yerleştirilebilir değildir.
 
 Web uygulamanız için seçilen Python ile aynı sürümü kullandığınızdan emin olun (runtime.txt içinde veya Azure Portal’da uygulamanızın Uygulama Ayarları dikey penceresinde).
@@ -306,7 +310,7 @@ Uygulamanız için gereken herhangi bir dış paketi yükleyin. Sanal ortamını
 
     env/bin/pip install -r requirements.txt
 
-### Süper kullanıcı oluşturma
+### <a name="create-a-superuser"></a>Süper kullanıcı oluşturma
 Uygulamayla birlikte gelen veritabanında tanımlı bir süper kullanıcı yoktur. Uygulamadaki oturum açma işlevini ya da Django yönetim arabirimini (etkinleştirmeye karar verirseniz) kullanmak için, bir süper kullanıcı oluşturmanız gerekir.
 
 Proje klasörünüzdeki komut satırından bunu çalıştırın:
@@ -315,7 +319,7 @@ Proje klasörünüzdeki komut satırından bunu çalıştırın:
 
 Kullanıcı adı, parola vb. ayarlamak için yönergeleri izleyin.
 
-### Geliştirme sunucusu kullanarak çalıştırma
+### <a name="run-using-development-server"></a>Geliştirme sunucusu kullanarak çalıştırma
 Aşağıdaki komutla bir geliştirme sunucusu altında uygulamayı başlatabilirsiniz:
 
     env/bin/python manage.py runserver
@@ -328,7 +332,7 @@ Sonra, bu URL için web tarayıcınızı açın.
 
 ![](./media/web-sites-python-create-deploy-django-app/mac-browser-django.png)
 
-### Değişiklik yapma
+### <a name="make-changes"></a>Değişiklik yapma
 Şimdi uygulama kaynakları ve/veya şablonlarında değişiklikler yapmayı deneyebilirsiniz.
 
 Değişikliklerinizi test ettikten sonra bunları Git deposuna kaydedin:
@@ -336,7 +340,7 @@ Değişikliklerinizi test ettikten sonra bunları Git deposuna kaydedin:
     git add <modified-file>
     git commit -m "<commit-comment>"
 
-### Daha fazla paket yükleme
+### <a name="install-more-packages"></a>Daha fazla paket yükleme
 Uygulamanızın Python ve Django ötesinde bağımlılıkları olabilir.
 
 Pip kullanarak ek paketleri yükleyebilirsiniz. Örneğin, size Azure Storage, Service Bus ve diğer Azure hizmetleri için erişim imkanı sağlayan, Python için Azure SDK'yı yüklemek için aşağıdakileri yazın:
@@ -352,7 +356,7 @@ Değişiklikleri uygulayın:
     git add requirements.txt
     git commit -m "Added azure package"
 
-### Azure’a dağıtma
+### <a name="deploy-to-azure"></a>Azure’a dağıtma
 Bir dağıtımı tetiklemek için, değişiklikleri Azure’a gönderin:
 
     git push azure master
@@ -361,13 +365,13 @@ Sanal ortam oluşturma, paketleri yükleme, web.config oluşturma dahil dağıt�
 
 Yaptığınız değişiklikleri görmek için Azure URL'sine gidin.
 
-## Sorun giderme - Paket Yükleme
+## <a name="troubleshooting-package-installation"></a>Sorun giderme - Paket Yükleme
 [!INCLUDE [web-sites-python-troubleshooting-package-installation](../../includes/web-sites-python-troubleshooting-package-installation.md)]
 
-## Sorun giderme - Sanal Ortam
+## <a name="troubleshooting-virtual-environment"></a>Sorun giderme - Sanal Ortam
 [!INCLUDE [web-sites-python-troubleshooting-virtual-environment](../../includes/web-sites-python-troubleshooting-virtual-environment.md)]
 
-## Sorun giderme - Statik Dosyalar
+## <a name="troubleshooting-static-files"></a>Sorun giderme - Statik Dosyalar
 Django statik dosyaları toplama kavramına sahiptir. Bu, tüm statik dosyaları özgün konumlarından alır ve tek bir klasöre kopyalar. Bu uygulama için, bunlar `/static` klasörüne kopyalanır.
 
 Statik dosyalar farklı Django “uygulamalarından” gelebileceğinden bu yapılır. Örneğin, Django yönetim arabirimlerindeki statik dosyalar sanal ortamdaki bir Django kitaplığı alt klasöründe yer alır. Bu uygulama tarafından tanımlanan statik dosyalar `/app/static` içinde bulunur. Daha fazla Django “uygulamaları” kullandıkça, birden fazla yerde bulunan statik dosyalarınız olur.
@@ -388,7 +392,7 @@ Toplamayı yerel makinenizde el ile yapmanız gerekir:
 
 Sonra, `.gitignore` içindeki `\static` klasörünü kaldırmanız ve Git deposuna eklemeniz gerekir.
 
-## Sorun giderme - Ayarlar
+## <a name="troubleshooting-settings"></a>Sorun giderme - Ayarlar
 Uygulama için çeşitli ayarlar`DjangoWebProject/settings.py` içinde değiştirilebilir.
 
 Geliştiriciye kolaylık sağlamak için hata ayıklama modu etkindir. Bunun olumlu bir yan etkisi, yerle olarak çalıştırırken, statik dosyaları toplamak zorunda kalmadan, resimleri ve diğer statik içeriği görebilecek olmanızdır.
@@ -413,21 +417,21 @@ Uygulamada, hata ayıklama ile yayımlama modu arasında geçiş yapma ve ana bi
 
 Azure Portal aracılığıyla, **CONFIGURE** sayfasında, **uygulaması ayarları** bölümünde ortam değişkenlerini ayarlayabilirsiniz.  Bu, kaynaklarda (bağlantı dizeleri, parolalar vb.) görünmesini istemeyebileceğini ya da Azure ile yerel makineniz arasında farklı ayarlamak isteyeceğiniz değerler için faydalı olabilir. `settings.py` içinde, `os.getenv` kullanarak ortam değişkenlerini sorgulayabilirsiniz.
 
-## Bir Veritabanını Kullanma
+## <a name="using-a-database"></a>Bir Veritabanını Kullanma
 Uygulama ile birlikte gelen veritabanı bir sqlite veritabanıdır. Neredeyse hiçbir kurulum gerektirmediğinden, geliştirme için kullanmak üzere kullanışlı ve faydalıdır. Veritabanı proje klasöründeki db.sqlite3 dosyasında depolanır.
 
 Azure Django uygulamasından kullanımı kolay olan veritabanı hizmetleri sağlar. Django uygulamasından [SQL Database] ve [MySQL] kullanma öğreticileri, veritabanı hizmeti oluşturmak, `DjangoWebProject/settings.py` içinde veritabanı ayarlarını değiştirmek için gerekli adımları ve yükleme için gerekli kitaplıkları gösterir.
 
 Elbette, kendi veritabanı sunucularınızı yönetmek isterseniz, bunu Windows veya Linux Azure üzerinde çalışan sanal makineleri kullanarak yapabilirsiniz.
 
-## Django Yönetim Arabirimi
+## <a name="django-admin-interface"></a>Django Yönetim Arabirimi
 Modellerinizi oluşturmaya başladıktan sonra, veritabanını bazı verilerle doldurmak istersiniz. Etkileşimli olarak içerik ekleme ve düzenleme işlemi yapmanın kolay bir yolu Django yönetim arabirimini kullanmaktır.
 
 Yönetim arabirimi kodu, uygulama kaynaklarında açıklanmıştır ve kolayca etkinleştirebileceğiniz şekilde açıkça işaretlenmiştir.
 
 Etkinleştirildikten sonra, veritabanını eşitleyin, uygulamayı çalıştırın ve `/admin` konumuna gidin.
 
-## Sonraki Adımlar
+## <a name="next-steps"></a>Sonraki Adımlar
 Visual Studio için Django ve Python Araçları hakkında daha fazla bilgi için bu bağlantıları izleyin.
 
 * [Django Belgeleri]
@@ -436,16 +440,16 @@ Visual Studio için Django ve Python Araçları hakkında daha fazla bilgi için
 SQL Database’i ve MySQL’i kullanma hakkında bilgi için:
 
 * [Visual Studio için Python Araçları ile Azure’da Django ve MySQL]
-* [Visual Studio için Python Araçları ile Azure’da Django ve SQL Database]
+* [Visual Studio için Python Araçları ile Azure’da Django ve SQL Veritabanı]
 
 Daha fazla bilgi için bkz. [Python Geliştirici Merkezi](/develop/python/).
 
-## Yapılan değişiklikler
+## <a name="whats-changed"></a>Yapılan değişiklikler
 * Web Sitelerinden App Service’e kadar değiştirme kılavuzu için bkz. [Azure App Service ve Mevcut Azure Hizmetlerine Etkileri](http://go.microsoft.com/fwlink/?LinkId=529714)
 
 <!--Link references-->
 [Visual Studio için Python Araçları ile Azure’da Django ve MySQL]: web-sites-python-ptvs-django-mysql.md
-[Visual Studio için Python Araçları ile Azure’da Django ve SQL Database]: web-sites-python-ptvs-django-sql.md
+[Visual Studio için Python Araçları ile Azure’da Django ve SQL Veritabanı]: web-sites-python-ptvs-django-sql.md
 [SQL Database]: web-sites-python-ptvs-django-sql.md
 [MySQL]: web-sites-python-ptvs-django-mysql.md
 
@@ -463,6 +467,6 @@ Daha fazla bilgi için bkz. [Python Geliştirici Merkezi](/develop/python/).
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Nov16_HO2-->
 
 

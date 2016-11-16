@@ -1,13 +1,13 @@
 ---
-title: Bir ExpressRoute bağlantı hattı için yönlendirmeyi yapılandırma | Microsoft Docs
-description: Bu makalede, bir ExpressRoute bağlantı hattı için özel, ortak ve Microsoft eşlemesinin nasıl oluşturulduğu ve sağlandığı adım adım anlatılmaktadır. Bu makalede ayrıca bağlantı hattınızın durumunu denetleme, bağlantı hattını güncelleştirme veya silme işlemlerinin nasıl yapıldığı da anlatılmaktadır.
+title: "Bir ExpressRoute bağlantı hattı için yönlendirmeyi yapılandırma | Microsoft Belgeleri"
+description: "Bu makalede, bir ExpressRoute bağlantı hattı için özel, ortak ve Microsoft eşlemesinin nasıl oluşturulduğu ve sağlandığı adım adım anlatılmaktadır. Bu makalede ayrıca bağlantı hattınızın durumunu denetleme, bağlantı hattını güncelleştirme veya silme işlemlerinin nasıl yapıldığı da anlatılmaktadır."
 documentationcenter: na
 services: expressroute
 author: ganesr
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 0a036d51-77ae-4fee-9ddb-35f040fbdcdf
 ms.service: expressroute
 ms.devlang: na
 ms.topic: hero-article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/05/2016
 ms.author: ganesr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 45c0646f6eb1067f49bc185f1592cd1c94fc9470
+
 
 ---
-# Bir ExpressRoute bağlantı hattı için yönlendirmeyi oluşturma ve değiştirme
+# <a name="create-and-modify-routing-for-an-expressroute-circuit"></a>Bir ExpressRoute bağlantı hattı için yönlendirmeyi oluşturma ve değiştirme
 > [!div class="op_single_selector"]
 > [Azure Portalı - Resource Manager](expressroute-howto-routing-portal-resource-manager.md)
 > [PowerShell - Resource Manager](expressroute-howto-routing-arm.md)
@@ -31,7 +35,7 @@ Bu makalede, bir ExpressRoute bağlantı hattı için PowerShell ve Azure Resour
 
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
-## Yapılandırma önkoşulları
+## <a name="configuration-prerequisites"></a>Yapılandırma önkoşulları
 * Azure PowerShell modüllerinin en yeni sürümleri, sürüm 1.0 veya üzeri gerekir. 
 * Yapılandırmaya başlamadan önce [önkoşullar](expressroute-prerequisites.md) sayfasını, [yönlendirme gereksinimleri](expressroute-routing.md) sayfasını ve [iş akışları](expressroute-workflows.md) sayfasını gözden geçirdiğinizden emin olun.
 * Etkin bir ExpressRoute bağlantı hattınızın olması gerekir. Devam etmeden önce [ExpressRoute bağlantı hattı oluşturma](expressroute-howto-circuit-arm.md) yönergelerini izleyin ve bağlantı sağlayıcınızın bağlantı hattını etkinleştirmesini isteyin. Aşağıda açıklanan cmdlet’leri çalıştırmanız için ExpressRoute bağlantı hattının sağlanmış ve etkin durumda olması gerekir.
@@ -45,13 +49,13 @@ Bu yönergeler yalnızca Katman 2 bağlantı hizmetleri sunan hizmet sağlayıc�
 
 Bir ExpressRoute bağlantı hattı için bir, iki veya üç eşlemenin tamamını (Azure özel, Azure ortak ve Microsoft) yapılandırabilirsiniz. Eşlemeleri seçtiğiniz herhangi bir sırayla yapılandırabilirsiniz. Ancak, her eşlemenin yapılandırmasını birer birer tamamladığınızdan emin olmanız gerekir. 
 
-## Azure özel eşlemesi
+## <a name="azure-private-peering"></a>Azure özel eşlemesi
 Bu bölümde bir ExpressRoute bağlantı hattı için Azure özel eşleme yapılandırmasını oluşturma, alma, güncelleştirme ve silme hakkında yönergeler açıklanmaktadır. 
 
-### Azure özel eşlemesi oluşturmak için
+### <a name="to-create-azure-private-peering"></a>Azure özel eşlemesi oluşturmak için
 1. ExpressRoute için PowerShell modülünü içeri aktarın.
    
-    ExpressRoute cmdlet’lerini kullanmaya başlamak için [PowerShell Galerisi](http://www.powershellgallery.com/)’nden en yeni PowerShell yükleyicisini yüklemeniz ve Azure Resource Manager modüllerini PowerShell oturumuna aktarmanız gerekir. PowerShell'i Yönetici olarak çalıştırmanız gerekir.
+     ExpressRoute cmdlet’lerini kullanmaya başlamak için [PowerShell Galerisi](http://www.powershellgallery.com/)’nden en yeni PowerShell yükleyicisini yüklemeniz ve Azure Resource Manager modüllerini PowerShell oturumuna aktarmanız gerekir. PowerShell'i Yönetici olarak çalıştırmanız gerekir.
    
         Install-Module AzureRM
    
@@ -133,15 +137,15 @@ Bu bölümde bir ExpressRoute bağlantı hattı için Azure özel eşleme yapıl
      > 
      > 
 
-### Azure özel eşleme ayrıntılarını görüntülemek için
+### <a name="to-view-azure-private-peering-details"></a>Azure özel eşleme ayrıntılarını görüntülemek için
 Aşağıdaki cmdlet'i kullanarak yapılandırma ayrıntılarını alabilirsiniz
 
         $ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
-        Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -Circuit $ckt   
+        Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -Circuit $ckt    
 
 
-### Azure özel eşleme yapılandırmasını güncelleştirmek için
+### <a name="to-update-azure-private-peering-configuration"></a>Azure özel eşleme yapılandırmasını güncelleştirmek için
 Aşağıdaki cmdlet'i kullanarak yapılandırmanın herhangi bir bölümünü güncelleştirebilirsiniz. Aşağıdaki örnekte, bağlantı hattının VLAN kimliği 100'den 500’e güncelleştiriliyor.
 
     Set-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "10.0.0.0/30" -SecondaryPeerAddressPrefix "10.0.0.4/30" -VlanId 200
@@ -149,7 +153,7 @@ Aşağıdaki cmdlet'i kullanarak yapılandırmanın herhangi bir bölümünü g�
     Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
 
-### Azure özel eşlemesini silmek için
+### <a name="to-delete-azure-private-peering"></a>Azure özel eşlemesini silmek için
 Aşağıdaki cmdlet'i çalıştırarak eşleme yapılandırmanızı kaldırabilirsiniz.
 
 > [!WARNING]
@@ -162,13 +166,13 @@ Aşağıdaki cmdlet'i çalıştırarak eşleme yapılandırmanızı kaldırabili
 
 
 
-## Azure ortak eşleme
+## <a name="azure-public-peering"></a>Azure ortak eşleme
 Bu bölümde bir ExpressRoute bağlantı hattı için Azure ortak eşleme yapılandırmasını oluşturma, alma, güncelleştirme ve silme hakkında yönergeler açıklanmaktadır.
 
-### Azure ortak eşlemesi oluşturmak için
+### <a name="to-create-azure-public-peering"></a>Azure ortak eşlemesi oluşturmak için
 1. ExpressRoute için PowerShell modülünü içeri aktarın.
    
-    ExpressRoute cmdlet’lerini kullanmaya başlamak için [PowerShell Galerisi](http://www.powershellgallery.com/)’nden en yeni PowerShell yükleyicisini yüklemeniz ve Azure Resource Manager modüllerini PowerShell oturumuna aktarmanız gerekir. PowerShell'i Yönetici olarak çalıştırmanız gerekir.
+     ExpressRoute cmdlet’lerini kullanmaya başlamak için [PowerShell Galerisi](http://www.powershellgallery.com/)’nden en yeni PowerShell yükleyicisini yüklemeniz ve Azure Resource Manager modüllerini PowerShell oturumuna aktarmanız gerekir. PowerShell'i Yönetici olarak çalıştırmanız gerekir.
    
         Install-Module AzureRM
    
@@ -222,7 +226,7 @@ Bu bölümde bir ExpressRoute bağlantı hattı için Azure ortak eşleme yapıl
                                              "BandwidthInMbps": 200
                                            }
         ServiceKey                       : **************************************
-        Peerings                         : []   
+        Peerings                         : []    
 4. Bağlantı hattı için Azure ortak eşlemesini yapılandırın.
    
     Devam etmeden önce aşağıdaki bilgilere sahip olduğunuzdan emin olun.
@@ -247,7 +251,7 @@ Bu bölümde bir ExpressRoute bağlantı hattı için Azure ortak eşleme yapıl
 
     >[AZURE.IMPORTANT] AS numaranızı müşteri ASN’si değil eşleme ASN’si olarak belirttiğinizden emin olun.
 
-### Azure ortak eşleme ayrıntılarını görüntülemek için
+### <a name="to-view-azure-public-peering-details"></a>Azure ortak eşleme ayrıntılarını görüntülemek için
 Aşağıdaki cmdlet'i kullanarak yapılandırma ayrıntılarını alabilirsiniz
 
         $ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
@@ -255,7 +259,7 @@ Aşağıdaki cmdlet'i kullanarak yapılandırma ayrıntılarını alabilirsiniz
         Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -Circuit $ckt
 
 
-### Azure ortak eşleme yapılandırmasını güncelleştirmek için
+### <a name="to-update-azure-public-peering-configuration"></a>Azure ortak eşleme yapılandırmasını güncelleştirmek için
 Aşağıdaki cmdlet'i kullanarak yapılandırmanın herhangi bir bölümünü güncelleştirebilirsiniz
 
     Set-AzureRmExpressRouteCircuitPeeringConfig  -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt -PeeringType MicrosoftPeering -PeerASN 100 -PrimaryPeerAddressPrefix "123.0.0.0/30" -SecondaryPeerAddressPrefix "123.0.0.4/30" -VlanId 600 
@@ -264,19 +268,19 @@ Aşağıdaki cmdlet'i kullanarak yapılandırmanın herhangi bir bölümünü g�
 
 Yukarıdaki örnekte, bağlantı hattının VLAN kimliği 200'den 600’e güncelleştiriliyor.
 
-### Azure ortak eşlemesini silmek için
+### <a name="to-delete-azure-public-peering"></a>Azure ortak eşlemesini silmek için
 Aşağıdaki cmdlet'i çalıştırarak eşleme yapılandırmanızı kaldırabilirsiniz
 
     Remove-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt
     Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
-## Microsoft eşlemesi
+## <a name="microsoft-peering"></a>Microsoft eşlemesi
 Bu bölümde bir ExpressRoute bağlantı hattı için Microsoft eşleme yapılandırmasını oluşturma, alma, güncelleştirme ve silme hakkında yönergeler açıklanmaktadır. 
 
-### Microsoft eşlemesi oluşturmak için
+### <a name="to-create-microsoft-peering"></a>Microsoft eşlemesi oluşturmak için
 1. ExpressRoute için PowerShell modülünü içeri aktarın.
    
-    ExpressRoute cmdlet’lerini kullanmaya başlamak için [PowerShell Galerisi](http://www.powershellgallery.com/)’nden en yeni PowerShell yükleyicisini yüklemeniz ve Azure Resource Manager modüllerini PowerShell oturumuna aktarmanız gerekir. PowerShell'i Yönetici olarak çalıştırmanız gerekir.
+     ExpressRoute cmdlet’lerini kullanmaya başlamak için [PowerShell Galerisi](http://www.powershellgallery.com/)’nden en yeni PowerShell yükleyicisini yüklemeniz ve Azure Resource Manager modüllerini PowerShell oturumuna aktarmanız gerekir. PowerShell'i Yönetici olarak çalıştırmanız gerekir.
    
         Install-Module AzureRM
    
@@ -330,7 +334,7 @@ Bu bölümde bir ExpressRoute bağlantı hattı için Microsoft eşleme yapılan
                                              "BandwidthInMbps": 200
                                            }
         ServiceKey                       : **************************************
-        Peerings                         : []   
+        Peerings                         : []    
 4. Bağlantı hattı için Microsoft eşlemesini yapılandırın.
    
     Devam etmeden önce aşağıdaki bilgilere sahip olduğunuzdan emin olun.
@@ -350,7 +354,7 @@ Bu bölümde bir ExpressRoute bağlantı hattı için Microsoft eşleme yapılan
      
        Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
-### Microsoft eşlemesi ayrıntılarını almak için
+### <a name="to-get-microsoft-peering-details"></a>Microsoft eşlemesi ayrıntılarını almak için
 Aşağıdaki cmdlet'i kullanarak yapılandırma ayrıntılarını alabilirsiniz.
 
         $ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
@@ -358,7 +362,7 @@ Aşağıdaki cmdlet'i kullanarak yapılandırma ayrıntılarını alabilirsiniz.
         Get-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt
 
 
-### Microsoft eşlemesi yapılandırmasını güncelleştirmek için
+### <a name="to-update-microsoft-peering-configuration"></a>Microsoft eşlemesi yapılandırmasını güncelleştirmek için
 Aşağıdaki cmdlet'i kullanarak yapılandırmanın herhangi bir bölümünü güncelleştirebilirsiniz.
 
         Set-AzureRmExpressRouteCircuitPeeringConfig  -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt -PeeringType MicrosoftPeering -PeerASN 100 -PrimaryPeerAddressPrefix "123.0.0.0/30" -SecondaryPeerAddressPrefix "123.0.0.4/30" -VlanId 300 -MicrosoftConfigAdvertisedPublicPrefixes "124.1.0.0/24" -MicrosoftConfigCustomerAsn 23 -MicrosoftConfigRoutingRegistryName "ARIN"
@@ -366,20 +370,23 @@ Aşağıdaki cmdlet'i kullanarak yapılandırmanın herhangi bir bölümünü g�
         Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
 
-### Microsoft eşlemesini silmek için
+### <a name="to-delete-microsoft-peering"></a>Microsoft eşlemesini silmek için
 Aşağıdaki cmdlet'i çalıştırarak eşleme yapılandırmanızı kaldırabilirsiniz.
 
     Remove-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt
 
     Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 Sonraki adım, [ExpressRoute bağlantı hattına bir VNet bağlama](expressroute-howto-linkvnet-arm.md).
 
 * ExpressRoute iş akışları hakkında daha fazla bilgi için bkz. [ExpressRoute iş akışları](expressroute-workflows.md).
 * Bağlantı hattı eşlemesi hakkında daha fazla bilgi için bkz. [ExpressRoute bağlantı hattı ve yönlendirme etki alanları](expressroute-circuit-peerings.md).
 * Sanal ağlarla çalışma hakkında daha fazla bilgi için bkz. [Sanal ağa genel bakış](../virtual-network/virtual-networks-overview.md).
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

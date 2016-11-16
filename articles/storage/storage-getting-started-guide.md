@@ -1,28 +1,32 @@
 ---
-title: Beş dakikada Azure Storage’a başlayın | Microsoft Docs
-description: Azure Storage Hızlı Başlangıç, Visual Studio ve Azure Storage öykünücüsü kullanarak Microsoft Azure Blob’ları, Tablo ve Kuyruklarını hızla kullanmaya başlayın. İlk Azure Storage uygulamanızı beş dakikada çalıştırın.
+title: "Beş dakikada Azure Depolama’yı kullanmaya başlama | Microsoft Belgeleri"
+description: "Azure Storage Hızlı Başlangıç, Visual Studio ve Azure Storage öykünücüsü kullanarak Microsoft Azure Blob’ları, Tablo ve Kuyruklarını hızla kullanmaya başlayın. İlk Azure Storage uygulamanızı beş dakikada çalıştırın."
 services: storage
 documentationcenter: .net
 author: tamram
 manager: carmonm
 editor: tysonn
-
+ms.assetid: 582f76f8-c814-4a69-8a5c-1fd0e0d5d8f2
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
-ms.date: 09/20/2016
-ms.author: dineshm;tamram
+ms.date: 10/18/2016
+ms.author: tamram
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 369e45ed8303735976813c1224ce74842f886536
+
 
 ---
-# Beş dakikada Azure Storage’a başlayın
-## Genel Bakış
+# <a name="get-started-with-azure-storage-in-five-minutes"></a>Beş dakikada Azure Storage’a başlayın
+## <a name="overview"></a>Genel Bakış
 Azure Storage ile geliştirmeye başlamak kolaydır. Bu öğretici bir Azure Storage uygulamasını nasıl hızla çalıştırabileceğinizi gösterir. .NET için Azure SDK ile birlikte gelen Hızlı Başlangıç şablonlarını kullanacaksınız. Bu Hızlı Başlangıçlar Azure Storage ile bazı temel programlama senaryolarını gösteren çalıştırılmaya hazır kodlar içerir.
 
 Kodlara başlamadan önce Azure Storage hakkında daha fazla bilgi edinmek için bkz. [Sonraki Adımlar](#next-steps).
 
-## Ön koşullar
+## <a name="prerequisites"></a>Ön koşullar
 Başlamadan önce aşağıdaki ön koşulları yerine getirmeniz gerekir:
 
 1. Bir uygulama derlemek ve oluşturmak için bilgisayarınızda [Visual Studio](https://www.visualstudio.com/)’nun bir sürümünün yüklü olması gerekir.
@@ -35,7 +39,7 @@ Başlamadan önce aşağıdaki ön koşulları yerine getirmeniz gerekir:
    * Bir Azure aboneliği edinmek için bkz. [Ücretiz Deneme](https://azure.microsoft.com/pricing/free-trial/), [Satın Alma Seçenekleri](https://azure.microsoft.com/pricing/purchase-options/) ve [Üye Teklifleri](https://azure.microsoft.com/pricing/member-offers/) (MSDN, Microsoft İş Ortağı Ağı, BizSpark ve diğer Microsoft programları üyeleri).
    * Azure’da bir depolama hesabı oluşturmak için bkz. [Depolama hesabı oluşturma](storage-create-storage-account.md#create-a-storage-account).
 
-## İlk Azure Storage uygulamanızı bulutta Azure Storage’a karşı çalıştırma
+## <a name="run-your-first-azure-storage-application-against-azure-storage-in-the-cloud"></a>İlk Azure Storage uygulamanızı bulutta Azure Storage’a karşı çalıştırma
 Hesabınızı edindikten sonra Visual Studio’da Azure Hızlı Başlangıç örnek projelerinden birini kullanarak basit bir Azure Storage uygulaması oluşturabilirsiniz. Bu öğreti şu Azure Storage örnek projelerine odaklanır : **Azure Storage: Blob’lar**, **Azure Storage: Dosyalar**, **Azure Storage: Kuyruklar** ve **Azure Storage: Tablolar**:
 
 1. Visual Studio’yu çalıştırın.
@@ -62,7 +66,7 @@ Ardından örnek uygulamayı çalıştırın:
 4. **Yapı** menüsünde **Yapı Çözümü**’ne tıklayın.
 5. **Hata Ayıklama** menüsünde **F11**’e basarak adım adım çözümü çalıştırın veya **F5**’e basarak çözümü çalıştırın.
 
-## İlk Azure Storage uygulamanızı Azure Storage Öykünücüsüne karşı çalıştırma
+## <a name="run-your-first-azure-storage-application-locally-against-the-azure-storage-emulator"></a>İlk Azure Storage uygulamanızı Azure Storage Öykünücüsüne karşı çalıştırma
 [Azure Storage Öykünücüsü](storage-use-emulator.md) geliştirme amaçlı olarak Azure Blob, Kuyruk ve Tablo hizmetlerine öykünen yerel bir ortam sağlar. Bir Azure aboneliği veya depolama hesabı oluşturmadan ve herhangi bir masraf yapmadan depolama uygulamanızı yerel olarak test etmek üzere depolama öykünücüsünü kullanabilirsiniz.
 
 Denemek için Visual Studio’da Azure Hızlı Başlangıç örnek projelerinden birini kullanarak basit bir Azure Storage uygulaması oluşturalım. Bu öğretici **Azure Blob Storage**, **Azure Table Storage** ve **Azure Kuyruk Depolama** örnek projelerine odaklanır:
@@ -87,24 +91,24 @@ Ardından Azure Storage Öykünücüsünde örnek uygulamayı çalıştırın:
 2. Visual Studio’da **Yapı** menüsünde **Yapı Çözümü**’ne tıklayın.
 3. **Hata Ayıklama** menüsünde **F11**’e basarak adım adım çözümü çalıştırın veya **F5**’e basarak çözümü başından sonuna kadar çalıştırın.
 
-## Sonraki Adımlar
+## <a name="next-steps"></a>Sonraki Adımlar
 Azure Storage ile ilgili daha fazla bilgi edinmek için şu kaynaklara bakın:
 
-* [Microsoft Azure Storage’a Giriş](storage-introduction.md)
-* [Azure Storage Explorer kullanmaya başlama](../vs-azure-tools-storage-manage-with-storage-explorer.md)
-* [.NET kullanarak Azure Blob Storage’ı kullanmaya başlayın](storage-dotnet-how-to-use-blobs.md)
-* [.NET kullanarak Azure Table Storage’ı kullanmaya başlayın](storage-dotnet-how-to-use-tables.md)
-* [.NET kullanarak Azure Kuyruk Depolamaya başlayın](storage-dotnet-how-to-use-queues.md)
-* [.NET kullanarak Azure File Storage’ı kullanmaya başlayın](storage-dotnet-how-to-use-files.md)
+* [Microsoft Azure Depolama'ya Giriş](storage-introduction.md)
+* [Azure Depolama Gezgini ile çalışmaya başlama](../vs-azure-tools-storage-manage-with-storage-explorer.md)
+* [.NET kullanarak Azure Blob Depolama ile çalışmaya başlama](storage-dotnet-how-to-use-blobs.md)
+* [.NET kullanarak Azure Tablo Depolama ile çalışmaya başlama](storage-dotnet-how-to-use-tables.md)
+* [.NET kullanarak Azure Kuyruk Depolama ile çalışmaya başlama](storage-dotnet-how-to-use-queues.md)
+* [Windows'da Azure Dosya Depolama ile çalışmaya başlama](storage-dotnet-how-to-use-files.md)
 * [AzCopy Komut Satırı Yardımcı Programı ile veri aktarımı](storage-use-azcopy.md)
-* [Azure Storage Belgeleri](https://azure.microsoft.com/documentation/services/storage/)
-* [.NET için Microsoft Azure Storage İstemci Kitaplığı](https://msdn.microsoft.com/library/azure/dn261237.aspx)
-* [Azure Storage Hizmetleri REST API’si](https://msdn.microsoft.com/library/azure/dd179355.aspx)
+* [Azure Depolama Belgeleri](https://azure.microsoft.com/documentation/services/storage/)
+* [.NET için Microsoft Azure Depolama İstemcisi Kitaplığı](https://msdn.microsoft.com/library/azure/dn261237.aspx)
+* [Azure Depolama Hizmetleri REST API'si](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 
 [Image1]: ./media/storage-getting-started-guide/QuickStart.png
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

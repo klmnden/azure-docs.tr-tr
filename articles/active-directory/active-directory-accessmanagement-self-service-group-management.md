@@ -1,22 +1,26 @@
 ---
-title: Self servis uygulamaya erişim yönetimi için Azure Active Directory'yi ayarlama | Microsoft Docs
-description: Self servis grup yönetimi, kullanıcıların Azure Active Directory'de güvenlik grupları veya Office 365 grupları oluşturup bunları yönetmelerine olanak sağlamanın yanı sıra kullanıcılara güvenlik grubu veya Office 365 grup üyeliği isteme olanağı sunar
+title: "Self servis uygulamaya erişim yönetimi için Azure Active Directory&quot;yi ayarlama | Microsoft Belgeleri"
+description: "Self servis grup yönetimi, kullanıcıların Azure Active Directory&quot;de güvenlik grupları veya Office 365 grupları oluşturup bunları yönetmelerine olanak sağlamanın yanı sıra kullanıcılara güvenlik grubu veya Office 365 grup üyeliği isteme olanağı sunar"
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: curtand
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 904d5c70-c34a-46c4-a9a7-d1efecf4821c
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/10/2016
+ms.date: 11/01/2016
 ms.author: curtand
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 255670335151443445e5ea4a87614b904915e76f
+
 
 ---
-# Self servis grup yönetimi için Azure Active Directory'yi ayarlama
+# <a name="setting-up-azure-active-directory-for-selfservice-group-management"></a>Self servis grup yönetimi için Azure Active Directory'yi ayarlama
 Self servis grup yönetimi kullanıcıların Azure Active Directory’de (Azure AD) güvenlik gruplarını veya Office 365 gruplarını oluşturup yönetmesine imkan tanır. Kullanıcılar ayrıca güvenlik grubu veya Office 365 grubu üyelikleri ister ve grubun sahibi üyeliği onaylayabilir ya da reddedebilir. Bu şekilde grup üyeliği günlük denetimi o üyeliğe ilişkin iş bağlamını bilen kişilere atanabilir. Self servis grup yönetimi özellikleri yalnızca güvenlik grupları ve Office 365 grupları için kullanılabilir, ancak posta etkin güvenlik grupları veya dağıtım listeleri için kullanılamaz.
 
 Self servis grup yönetimi, şu anda iki temel senaryo içerir: temsilcili grup yönetimi ve self servis grup yönetimi.
@@ -26,7 +30,7 @@ Self servis grup yönetimi, şu anda iki temel senaryo içerir: temsilcili grup 
 * **Self servis grup yönetimi**
    SharePoint Online siteleri olup onları ayrı şekilde ayarlayan iki kullanıcı bu senaryoya örnek olarak verilebilir. Bunlar birbirlerinin ekiplerine siteleri için erişim vermek ister. Bunun için Azure AD'de bir grup oluşturabilirler ve her biri SharePoint Online'da kendi sitelerine erişim sunmak üzere bu grubu seçerler. Birisi erişim istediğinde Erişim Paneli'nden ister ve onayın ardından otomatik olarak iki SharePoint Online sitesine de erişim sağlanır. Daha sonra bu kişilerden biri, siteye erişen herkesin belirli bir SaaS uygulamasına da erişmesi gerektiğine karar verir. SaaS uygulamasının yöneticisi uygulamanın erişim haklarını SharePoint Online sitesine ekleyebilir. Daha sonra onaylanan tüm istekler, iki SharePoint Online sitesine ve bu SaaS uygulamasına erişim sağlar.
 
-## Bir grubu, son kullanıcı self servisi için kullanıma sunma
+## <a name="making-a-group-available-for-end-user-selfservice"></a>Bir grubu, son kullanıcı self servisi için kullanıma sunma
 1. [Klasik Azure portalı](https://manage.windowsazure.com)’nda Azure AD dizininizi açın.
 2. **Yapılandır** sekmesinde **Grup yönetimi temsilcisi** seçeneğini Etkin olarak ayarlayın.
 3. **Kullanıcılar güvenlik grupları oluşturabilir** veya **Kullanıcılar Office grupları oluşturabilir** ayarını Etkin olarak belirleyin.
@@ -37,7 +41,7 @@ Kullanıcılarınız için self servis grup yönetimi ile ilgili daha ayrıntıl
 
 Ayrıca **Güvenlik grupları için self servis kullanabilen grup** kutusunu kullanarak, üyeleri self servis kullanabilen bir grup için özel bir ad belirtebilirsiniz.
 
-## Ek bilgiler
+## <a name="additional-information"></a>Ek bilgiler
 Bu makalelerde Azure Active Directory ile ilgili ek bilgi sağlanmıştır.
 
 * [Azure Active Directory grupları ile kaynaklara erişimi yönetme](active-directory-manage-groups.md)
@@ -46,6 +50,9 @@ Bu makalelerde Azure Active Directory ile ilgili ek bilgi sağlanmıştır.
 * [Azure Active Directory nedir?](active-directory-whatis.md)
 * [Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](active-directory-aadconnect.md)
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

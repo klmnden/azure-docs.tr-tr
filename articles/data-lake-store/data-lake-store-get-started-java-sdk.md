@@ -1,22 +1,26 @@
 ---
-title: Uygulama geliştirmek için Data Lake Store Java SDK'yı kullanma | Microsoft Docs
-description: Uygulama geliştirmek için Azure Data Lake Store Java SDK'yı kullanma
+title: "Uygulama geliştirmek için Data Lake Store Java SDK&quot;sını kullanma | Microsoft Belgeleri"
+description: "Uygulama geliştirmek için Azure Data Lake Store Java SDK&quot;yı kullanma"
 services: data-lake-store
-documentationcenter: ''
+documentationcenter: 
 author: nitinme
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: d10e09db-5232-4e84-bb50-52efc2c21887
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/13/2016
+ms.date: 10/17/2016
 ms.author: nitinme
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 255e8def5179e544a4fb919774f3b18148566898
+
 
 ---
-# Java'yı kullanarak Azure Data Lake Store ile çalışmaya başlama
+# <a name="get-started-with-azure-data-lake-store-using-java"></a>Java'yı kullanarak Azure Data Lake Store ile çalışmaya başlama
 > [!div class="op_single_selector"]
 > * [Portal](data-lake-store-get-started-portal.md)
 > * [PowerShell](data-lake-store-get-started-powershell.md)
@@ -28,250 +32,122 @@ ms.author: nitinme
 > 
 > 
 
-Azure Data Lake hesabı oluşturmak ve klasör oluşturma, veri dosyalarını karşıya yükleme ve indirme, hesabınızı silme gibi temel işlemleri gerçekleştirmek için Azure Data Lake Store Java SDK'nın nasıl kullanılacağını öğrenin. Data Lake hakkında daha fazla bilgi için bkz. [Azure Data Lake Store](data-lake-store-overview.md).
+Klasör oluşturma, veri dosyalarını karşıya yükleme ve indirme gibi temel işlemleri gerçekleştirmek için Azure Data Lake Store Java SDK’sını kullanma hakkında bilgi edinin. Data Lake hakkında daha fazla bilgi için bkz. [Azure Data Lake Store](data-lake-store-overview.md).
 
-## Azure Data Lake Store Java SDK
-Aşağıdaki bağlantılar, Data Lake Store için Java SDK'ya ve Java SDK başvurusuna yönelik indirme konumunu sağlar. Bu öğretici için SDK'yı indirmeniz veya başvuru belgesini izlemeniz gerekmez. Bu bağlantılar yalnızca size bilgi vermek üzere sağlanmıştır.
+Azure Data Lake Store için Java SDK API belgelerine, [Azure Data Lake Store Java API belgelerinden](https://azure.github.io/azure-data-lake-store-java/javadoc/) erişebilirsiniz.
 
-* Data Lake Store için Java SDK'ya yönelik kaynak kodu [GitHub](https://github.com/Azure/azure-sdk-for-java) üzerinde mevcuttur.
-* Data Lake Store için Java SDK Başvurusu, [https://azure.github.io/azure-sdk-for-java/](https://azure.github.io/azure-sdk-for-java/) adresinde mevcuttur.
+## <a name="prerequisites"></a>Önkoşullar
+* Java Development Kit (Java sürüm 1.7 veya üzerini kullanan JDK 7 ya da üzeri)
+* Azure Data Lake Store hesabı. [Azure Portal'ı kullanarak Azure Data Lake Store ile çalışmaya başlama](data-lake-store-get-started-portal.md) bölümündeki yönergeleri uygulayın.
+* [Maven](https://maven.apache.org/install.html). Bu eğiticide, yapı ve proje bağımlılıkları için Maven kullanılır. Maven veya Gradle gibi bir yapı sistemi olmadan derleme yapmak mümkün olsa da bu sistemler bağımlılıkların yönetilmesini çok daha kolay hale getirir.
+* (İsteğe bağlı) [IntelliJ IDEA](https://www.jetbrains.com/idea/download/), [Eclipse](https://www.eclipse.org/downloads/) vb. bir IDE.
 
-## Ön koşullar
-* Java Geliştirme Seti (JDK) 8 (Java sürüm 1.8'i kullanır).
-* IntelliJ veya başka bir uygun Java geliştirme ortamı. Bu isteğe bağlı olsa da önerilir. Aşağıdaki yönergelerde IntelliJ kullanılmıştır.
-* **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü edinme](https://azure.microsoft.com/pricing/free-trial/).
-* **Azure Active Directory Uygulaması oluşturma**. Azure Active Directory'yi kullanarak kimlik doğrulaması gerçekleştirmenin iki yolu vardır: **Etkileşimli** ve **etkileşimli olmayan**. Kimlik doğrulamasını nasıl gerçekleştirmek istediğinize bağlı olarak farklı önkoşullar mevcuttur.
-  
-  * **Etkileşimli kimlik doğrulaması için** - Azure Active Directory'de bir **Yerel İstemci uygulaması** oluşturmanız gerekir. Uygulamayı oluşturduktan sonra uygulamayla ilgili aşağıdaki değerleri alın.
-    
-    * Uygulama için **istemci kimliği** ve **yeniden yönlendirme URI'si** bilgilerini alın
-    * Yetki verilmiş izinleri ayarlayın
-  * **Etkileşimli olmayan kimlik doğrulaması için** (bu makalede kullanılan) - Azure Active Directory'de bir **Web uygulaması** oluşturmanız gerekir. Uygulamayı oluşturduktan sonra uygulamayla ilgili aşağıdaki değerleri alın.
-    
-    * Uygulama için **istemci kimliği**, **gizli anahtar** ve **yeniden yönlendirme URI'si** bilgilerini alın
-    * Yetki verilmiş izinleri ayarlayın
-    * Azure Active Directory uygulamasını bir role atayın. Rol, Azure Active Directory uygulamasına izin vermek istediğiniz kapsam düzeyinde olabilir. Örneğin, uygulamayı abonelik düzeyinde veya kaynak grubu düzeyinde atayabilirsiniz.
-    
-    Bu değerleri almaya, izinleri ayarlamaya ve rolleri atamaya yönelik yönergeler için bkz. [Portalı kullanarak Active Directory uygulaması ve hizmet sorumlusu oluşturma](../resource-group-create-service-principal-portal.md).
+## <a name="how-do-i-authenticate-using-azure-active-directory"></a>Azure Active Directory'yi kullanarak nasıl kimlik doğrulaması gerçekleştiririm?
+Bu eğiticide, Azure Active Directory belirteci (hizmetten hizmete kimlik doğrulama) almak için Azure AD uygulamasının istemci gizli anahtarını kullanırız. Bu belirteci kullanarak işlem dosyasını ve dizin işlemlerini gerçekleştirmek için Data Lake Store istemci nesnesi oluştururuz. İstemci gizli anahtarı kullanarak Azure Data Lake Store’da kimlik doğrulamaya ilişkin yönergeler için aşağıdaki üst düzey adımları gerçekleştiririz:
 
-## Azure Active Directory'yi kullanarak nasıl kimlik doğrulaması gerçekleştiririm?
-Aşağıdaki kod parçacığı, uygulamanın kendi kimlik bilgilerini sağladığı **etkileşimli olmayan** kimlik doğrulaması için kod sağlar.
+1. Azure AD web uygulaması oluşturma
+2. Azure AD web uygulaması için istemci kimliğini, istemci gizli anahtarını ve belirteç uç noktasını alın.
+3. Oluşturduğunuz Java uygulamasından erişmek istediğiniz Data Lake Store dosyasında/klasöründe Azure AD web uygulaması için erişimi yapılandırın.
 
-Bu öğreticinin çalışması için, uygulamaya Azure'da kaynak oluşturmak üzere izin vermeniz gerekir. Bu öğreticinin amaçları doğrultusunda, bu uygulamaya Azure aboneliğinizdeki yeni, kullanılmamış ve boş bir kaynak grubu üzerinde Katılımcı izinleri vermeniz **önemle önerilir**.
+Bu adımların nasıl gerçekleştirileceğine ilişkin yönergeler için bkz. [Active Directory uygulaması oluşturma](data-lake-store-authenticate-using-active-directory.md#create-an-active-directory-application).
 
-## Java uygulaması oluşturma
-1. IntelliJ hizmetini açın ve **Komut Satırı Uygulaması** şablonunu kullanarak yeni bir Java projesi oluşturun. Projeyi oluşturmak için sihirbazı tamamlayın.
-2. **Dosya** -> **Proje Yapısı** -> **Modüller** (Proje Ayarları altında) -> **Bağımlılıklar** -> **+** -> **Kitaplık** -> **Maven’den**’i açın.
-3. Aşağıdaki Maven paketlerini bulun ve projenize ekleyin:
-   
-   * com.microsoft.azure:azure-mgmt-datalake-store:1.0.0-beta1.2
-   * com.microsoft.azure:azure-mgmt-datalake-store-uploader:1.0.0-beta1.2
-   * com.microsoft.azure:azure-client-authentication:1.0.0-beta2
-4. Sol bölmeden, **src**, **main (ana)**, **java**, **\<(package name) paket adı>** konumuna gidin ve ardından **Main.java** dosyasını açıp var olan kod bloğunu aşağıdaki kodla değiştirin. Ayrıca, **localFolderPath**, **DATA-LAKE-STORE-NAME**, **RESOURCE-GROUP-NAME** gibi kod parçacığında çağrılan parametrelerin değerlerini sağlayın ve **CLIENT-ID**, **CLIENT-SECRET**, **TENANT-ID** ve **SUBSCRIPTION-ID** yer tutucularını aboneliğiniz ve aboneliğinizin Azure Active Directory’si ile ilgili bilgilerle değiştirin. Bu bilgileri nasıl bulacağınız konusunda bilgi edinmek için bkz. [Azure hizmet sorumluları oluşturma kılavuzu](../resource-group-authenticate-service-principal.md).
-   
-    Bu kod, Data Lake Store hesabı oluşturma, depoda dosya oluşturma, dosyaları birleştirme, dosya indirme ve son olarak hesabı silme işlemini içerir.
-   
-        package com.company;
-   
-        import com.microsoft.azure.CloudException;
-        import com.microsoft.azure.credentials.ApplicationTokenCredentials;
-        import com.microsoft.azure.management.datalake.store.implementation.DataLakeStoreAccountManagementClientImpl;
-        import com.microsoft.azure.management.datalake.store.implementation.DataLakeStoreFileSystemManagementClientImpl;
-        import com.microsoft.azure.management.datalake.store.models.*;
-        import com.microsoft.azure.management.datalake.store.uploader.*;
-        import com.microsoft.rest.credentials.ServiceClientCredentials;
-        import java.io.*;
-        import java.nio.charset.Charset;
-        import java.util.ArrayList;
-        import java.util.List;
-   
-        public class Main {
-            final static String ADLS_ACCOUNT_NAME = <DATA-LAKE-STORE-NAME>;
-            final static String RESOURCE_GROUP_NAME = "<RESOURCE-GROUP-NAME>";
-            final static String LOCATION = "East US 2";
-            final static String TENANT_ID = "<TENANT-ID>";
-            final static String SUBSCRIPTION_ID =  "<SUBSCRIPTION-ID>";
-            final static String CLIENT_ID = "<CLIENT-ID>";
-            final static String CLIENT_SECRET = "<CLIENT-SECRET>"; // TODO: For production scenarios, we recommend that you replace this line with a more secure way of acquiring the application client secret, rather than hard-coding it in the source code.
-   
-            private static DataLakeStoreAccountManagementClientImpl _adlsClient;
-            private static DataLakeStoreFileSystemManagementClientImpl _adlsFileSystemClient;
-   
-            public static void main(String[] args) throws Exception {
-                String localFolderPath = "C:\\local_path\\"; // TODO: Change this to any unused, new, empty folder on your local machine.
-   
-                // Authenticate
-                ApplicationTokenCredentials creds = new ApplicationTokenCredentials(CLIENT_ID, TENANT_ID, CLIENT_SECRET, null);
-                SetupClients(creds);
-   
-                // Create Data Lake Store account
-                WaitForNewline("Authenticated.", "Creating NEW account.");
-                CreateAccount();
-                WaitForNewline("Account created.", "Displaying account(s).");
-   
-                // List Data Lake Store accounts that this app can access
-                System.out.println(String.format("All ADL Store accounts that this app can access in subscription %s:", SUBSCRIPTION_ID));
-                List<DataLakeStoreAccount> adlsListResult = _adlsClient.accounts().list().getBody();
-                for (DataLakeStoreAccount acct : adlsListResult) {
-                    System.out.println(acct.name());
-                }
-                WaitForNewline("Account(s) displayed.", "Uploading file.");
-   
-                // Upload a file to Data Lake Store: file1.csv
-                UploadFile(localFolderPath + "file1.csv", "/file1.csv");
-                WaitForNewline("File uploaded.", "Appending newline.");
-   
-                // Append newline to file1.csv
-                AppendToFile("/file1.csv", "\r\n");
-                WaitForNewline("Newline appended.", "Creating file.");
-   
-                // Create a new file in Data Lake Store: file2.csv
-                CreateFile("/file2.csv", "456,def", true);
-                WaitForNewline("File created.", "Concatenating files.");
-   
-                // Concatenate two files in Data Lake Store
-                List<String> srcFilePaths = new ArrayList<String>();
-                srcFilePaths.add("/file1.csv");
-                srcFilePaths.add("/file2.csv");
-                ConcatenateFiles(srcFilePaths, "/input.csv");
-                WaitForNewline("Files concatenated.", "Downloading file.");
-   
-                // Download file from Data Lake Store
-                DownloadFile("/input.csv", localFolderPath + "input.csv");
-                WaitForNewline("File downloaded.", "Deleting file.");
-   
-                // Delete file from Data Lake Store
-                DeleteFile("/input.csv");
-                WaitForNewline("File deleted.", "Deleting account.");
-   
-                // Delete account
-                DeleteAccount();
-                WaitForNewline("Account deleted.", "DONE.");
-            }
-   
-            //Set up clients
-            public static void SetupClients(ServiceClientCredentials creds)
-            {
-                _adlsClient = new DataLakeStoreAccountManagementClientImpl(creds);
-                _adlsFileSystemClient = new DataLakeStoreFileSystemManagementClientImpl(creds);
-                _adlsClient.withSubscriptionId(SUBSCRIPTION_ID);
-            }
-   
-            // Helper function to show status and wait for user input
-            public static void WaitForNewline(String reason, String nextAction)
-            {
-                if (nextAction == null)
-                    nextAction = "";
-                if (!nextAction.isEmpty())
-                {
-                    System.out.println(reason + "\r\nPress ENTER to continue...");
-                    try{System.in.read();}
-                    catch(Exception e){}
-                    System.out.println(nextAction);
-                }
-                else
-                {
-                    System.out.println(reason + "\r\nPress ENTER to continue...");
-                    try{System.in.read();}
-                    catch(Exception e){}
-                }
-            }
-   
-            // Create Data Lake Store account
-            public static void CreateAccount() throws InterruptedException, CloudException, IOException {
-                DataLakeStoreAccount adlsParameters = new DataLakeStoreAccount();
-                adlsParameters.withLocation(LOCATION);
-   
-                _adlsClient.accounts().create(RESOURCE_GROUP_NAME, ADLS_ACCOUNT_NAME, adlsParameters);
-            }
-   
-            // Create file
-            public static void CreateFile(String path) throws IOException, AdlsErrorException {
-                _adlsFileSystemClient.fileSystems().create(ADLS_ACCOUNT_NAME, path);
-            }
-   
-            // Create file with contents
-            public static void CreateFile(String path, String contents, boolean force) throws IOException, AdlsErrorException {
-                byte[] bytesContents = contents.getBytes();
-   
-                _adlsFileSystemClient.fileSystems().create(ADLS_ACCOUNT_NAME, path, bytesContents, force);
-            }
-   
-            // Append to file
-            public static void AppendToFile(String path, String contents) throws IOException, AdlsErrorException {
-                byte[] bytesContents = contents.getBytes();
-   
-                _adlsFileSystemClient.fileSystems().append(ADLS_ACCOUNT_NAME, path, bytesContents);
-            }
-   
-            // Concatenate files
-            public static void ConcatenateFiles(List<String> srcFilePaths, String destFilePath) throws IOException, AdlsErrorException {
-                _adlsFileSystemClient.fileSystems().concat(ADLS_ACCOUNT_NAME, destFilePath, srcFilePaths);
-            }
-   
-            // Delete concatenated file
-            public static void DeleteFile(String filePath) throws IOException, AdlsErrorException {
-                _adlsFileSystemClient.fileSystems().delete(ADLS_ACCOUNT_NAME, filePath);
-            }
-   
-            // Get file or directory info
-            public static FileStatusProperties GetItemInfo(String path) throws IOException, AdlsErrorException {
-                return _adlsFileSystemClient.fileSystems().getFileStatus(ADLS_ACCOUNT_NAME, path).getBody().fileStatus();
-            }
-   
-            // List files and directories
-            public static List<FileStatusProperties> ListItems(String directoryPath) throws IOException, AdlsErrorException {
-                return _adlsFileSystemClient.fileSystems().listFileStatus(ADLS_ACCOUNT_NAME, directoryPath).getBody().fileStatuses().fileStatus();
-            }
-   
-            // Upload file
-            public static void UploadFile(String srcPath, String destPath) throws Exception {
-                UploadParameters parameters = new UploadParameters(srcPath, destPath, ADLS_ACCOUNT_NAME);
-                FrontEndAdapter frontend = new DataLakeStoreFrontEndAdapterImpl(ADLS_ACCOUNT_NAME, _adlsFileSystemClient);
-                DataLakeStoreUploader uploader = new DataLakeStoreUploader(parameters, frontend);
-                uploader.execute();
-            }
-   
-            // Download file
-            public static void DownloadFile(String srcPath, String destPath) throws IOException, AdlsErrorException {
-                InputStream stream = _adlsFileSystemClient.fileSystems().open(ADLS_ACCOUNT_NAME, srcPath).getBody();
-   
-                PrintWriter pWriter = new PrintWriter(destPath, Charset.defaultCharset().name());
-   
-                String fileContents = "";
-                if (stream != null) {
-                    Writer writer = new StringWriter();
-   
-                    char[] buffer = new char[1024];
-                    try {
-                        Reader reader = new BufferedReader(
-                                new InputStreamReader(stream, "UTF-8"));
-                        int n;
-                        while ((n = reader.read(buffer)) != -1) {
-                            writer.write(buffer, 0, n);
-                        }
-                    } finally {
-                        stream.close();
-                    }
-                    fileContents =  writer.toString();
-                }
-   
-                pWriter.println(fileContents);
-                pWriter.close();
-            }
-   
-            // Delete account
-            public static void DeleteAccount() throws InterruptedException, CloudException, IOException {
-                _adlsClient.accounts().delete(RESOURCE_GROUP_NAME, ADLS_ACCOUNT_NAME);
-            }
-        }
-5. Uygulamayı çalıştırın. Uygulamayı çalıştırmak ve tamamlamak için istemleri izleyin.
+Azure Active Directory, belirteç almak için başka seçenekler de sunar. Tarayıcınızda çalışan bir uygulama, masaüstü uygulaması olarak dağıtılan bir uygulama ya da şirket içinde veya Azure sanal makinesinde çalışan sunucu uygulaması gibi farklı kimlik doğrulama mekanizmaları arasından senaryonuza en uygun olanını seçebilirsiniz. Parolalar, sertifikalar, 2 öğeli kimlik doğrulaması vb. farklı kimlik bilgileri arasından da seçim yapabilirsiniz. Ayrıca Azure Active Directory, şirket içi Active Directory kullanıcılarınızı bulutla eşitlemenize olanak tanır. Ayrıntılar için bkz. [Azure Active Directory için Kimlik Doğrulama Senaryoları](../active-directory/active-directory-authentication-scenarios.md). 
 
-## Sonraki adımlar
+## <a name="create-a-java-application"></a>Java uygulaması oluşturma
+[GitHub’da](https://azure.microsoft.com/documentation/samples/data-lake-store-java-upload-download-get-started/) bulunan kod örneği, depoda dosya oluşturma, dosyaları birleştirme, dosya indirme ve depodaki bazı dosyaları silme işlemlerinde size yol gösterir. Makalenin bu bölümü, kodun ana bölümlerinde sizi yönlendirir.
+
+1. Komut satırından [mvn archetype](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html) veya bir IDE kullanarak Maven projesi oluşturun. IntelliJ kullanarak Java projesi oluşturma yönergeleri için [buraya](https://www.jetbrains.com/help/idea/2016.1/creating-and-running-your-first-java-application.html) bakın. Eclipse kullanarak proje oluşturma yönergeleri için [buraya](http://help.eclipse.org/mars/index.jsp?topic=%2Forg.eclipse.jdt.doc.user%2FgettingStarted%2Fqs-3.htm) bakın. 
+2. Maven **pom.xml** dosyanıza aşağıdaki bağımlılıkları ekleyin. Metnin şu kod parçacığını **\</version>** etiketi ile **\</project>** etiketi arasına ekleyin:
+   
+        <dependencies>
+          <dependency>
+            <groupId>com.microsoft.azure</groupId>
+            <artifactId>azure-data-lake-store-sdk</artifactId>
+            <version>2.0.4-SNAPSHOT</version>
+          </dependency>
+          <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-nop</artifactId>
+            <version>1.7.21</version>
+          </dependency>
+        </dependencies>
+   
+    İlk bağımlılık, maven deposundan Data Lake Store SDK’sını (`azure-datalake-store`) kullanmaktır. İkinci bağımlılık (`slf4j-nop`), bu uygulama için hangi günlük altyapısının kullanılacağını belirtmektir. Data Lake Store SDK’sı; log4j, Java günlük kaydı, logback gibi birçok popüler günlük altyapısından birini seçmenizi veya günlük kaydı seçmemenizi sağlayan [slf4j](http://www.slf4j.org/) günlük cephesini kullanır. Bu örnekte, günlük kaydını devre dışı bırakacak ve dolayısıyla **slf4j-nop** bağlamasını kullanacağız. Uygulamanızda diğer günlük seçeneklerini kullanmak için [buraya](http://www.slf4j.org/manual.html#projectDep) bakın.
+
+### <a name="add-the-application-code"></a>Uygulama kodunu ekleme
+Kodun üç ana bölümü vardır.
+
+1. Azure Active Directory belirtecini edinme
+2. Data Lake Store istemcisi oluşturmak için belirteci kullanın.
+3. İşlemleri gerçekleştirmek için Data Lake Store istemcisini kullanın.
+
+#### <a name="step-1-obtain-an-azure-active-directory-token"></a>1. Adım: Azure Active Directory belirteci edinin.
+Data Lake Store SDK’sı, Data Lake Store hesabıyla iletişim kurmak için gereken güvenlik belirteçlerini edinmenizi sağlayacak kullanışlı yöntemler sunar. Bununla birlikte, SDK yalnızca bu yöntemlerin kullanılmasını zorunlu kılmaz. [Azure Active Directory SDK’sını](https://github.com/AzureAD/azure-activedirectory-library-for-java) veya kendi özel kodunuzu kullanma gibi diğer belirteç edinme yöntemlerinden yararlanabilirsiniz.
+
+Daha önce oluşturduğunuz Active Directory Web uygulaması için belirteci edinmek üzere Data Lake Store SDK’sını kullanmak için `AzureADAuthenticator` sınıfındaki statik yöntemleri kullanın. **BURAYI DOLDURUN** alanını, Azure Active Directory Web uygulaması için gerçek değerlerle değiştirin.
+
+    private static String clientId = "FILL-IN-HERE";
+    private static String authTokenEndpoint = "FILL-IN-HERE";
+    private static String clientKey = "FILL-IN-HERE";
+
+    AzureADToken token = AzureADAuthenticator.getTokenUsingClientCreds(authTokenEndpoint, clientId, clientKey);
+
+#### <a name="step-2-create-an-azure-data-lake-store-client-adlstoreclient-object"></a>2. Adım: Azure Data Lake Store istemci (ADLStoreClient) nesnesi oluşturma
+[ADLStoreClient](https://azure.github.io/azure-data-lake-store-java/javadoc/) nesnesi oluşturmak için Data Lake Store hesap adını ve son adımda oluşturduğunuz Azure Active Directory belirtecini belirtmeniz gerekir. Data Lake Store hesap adının tam etki alanı adı olması gerektiğini unutmayın. Örneğin, **BURAYI DOLDURUN** alanını **mydatalakestore.azuredatalakestore.net** gibi bir etki alanı adı değiştirin.
+
+    private static String accountFQDN = "FILL-IN-HERE";  // full account FQDN, not just the account name
+    ADLStoreClient client = ADLStoreClient.createClient(accountFQDN, token);
+
+### <a name="step-3-use-the-adlstoreclient-to-perform-file-and-directory-operations"></a>3. Adım: Dosya ve dizin işlemlerini gerçekleştirmek için ADLStoreClient’ı kullanın
+Aşağıdaki kod, bazı yaygın işlemlerin kod parçacıklarını içerir. Diğer işlemleri görmek için **ADLStoreClient** nesnesinin tüm [Data Lake Store Java SDK API belgelerine](https://azure.github.io/azure-data-lake-store-java/javadoc/) bakabilirsiniz.
+
+Dosyalar, standart Java akışları kullanılarak okunur ve yazılır. Bu, standart Java işlevlerinden (ör. biçimlendirilmiş çıkış için Yazdırma akışları ya da en üstteki ek işlevler için herhangi bir sıkıştırma veya şifreleme akışı vb.) yararlanmak için Java akışlarından herhangi birini Data Lake Store akışlarının üzerine katmanlayabilirsiniz.
+
+    // set file permission
+    client.setPermission(filename, "744");
+
+    // append to file
+    stream = client.getAppendStream(filename);
+    stream.write(getSampleContent());
+    stream.close();
+
+    // Read File
+    InputStream in = client.getReadStream(filename);
+    byte[] b = new byte[64000];
+    while (in.read(b) != -1) {
+        System.out.write(b);
+    }
+    in.close();
+
+    // concatenate the two files into one
+    List<String> fileList = Arrays.asList("/a/b/c.txt", "/a/b/d.txt");
+    client.concatenateFiles("/a/b/f.txt", fileList);
+
+    //rename the file
+    client.rename("/a/b/f.txt", "/a/b/g.txt");
+
+    // list directory contents
+    List<DirectoryEntry> list = client.enumerateDirectory("/a/b", 2000);
+    System.out.println("Directory listing for directory /a/b:");
+    for (DirectoryEntry entry : list) {
+        printDirectoryInfo(entry);
+    }
+
+    // delete directory along with all the subdirectories and files in it
+    client.deleteRecursive("/a");
+
+#### <a name="step-4-build-and-run-the-application"></a>4. Adım: Uygulamayı derleme ve çalıştırma
+1. Bir IDE içinden çalıştırmak için **Çalıştır** düğmesini bulup basın. Maven’den çalıştırmak [exec: exec](http://www.mojohaus.org/exec-maven-plugin/exec-mojo.html)’i kullanın.
+2. Komut satırından çalıştırabileceğiniz tek başına bir jar oluşturmak için jar’ı [Maven derleme eklentisini](http://maven.apache.org/plugins/maven-assembly-plugin/usage.html) kullanarak dahil edilen tüm bağımlılıklarla birlikte derleyin. [Github’daki örnek kaynak kodda](https://github.com/Azure-Samples/data-lake-store-java-upload-download-get-started/blob/master/pom.xml) bulunan pom.xml, bunun nasıl yapılacağını gösteren bir örnek içerir.
+
+## <a name="next-steps"></a>Sonraki adımlar
 * [Data Lake Store'da verilerin güvenliğini sağlama](data-lake-store-secure-data.md)
 * [Azure Data Lake Analytics'i Data Lake Store ile kullanma](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Azure HDInsight'ı Data Lake Store ile kullanma](data-lake-store-hdinsight-hadoop-use-portal.md)
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Azure AD B2C | Microsoft Docs
-description: Azure Active Directory B2C’de oluşturabileceğiniz uygulama türleri.
+title: Azure AD B2C | Microsoft Belgeleri
+description: "Azure Active Directory B2C’de oluşturabileceğiniz uygulama türleri."
 services: active-directory-b2c
-documentationcenter: ''
+documentationcenter: 
 author: dstrockis
-manager: msmbaldwin
-editor: ''
-
+manager: mbaldwin
+editor: 
+ms.assetid: bb9d4abe-0db7-4bd9-b0c4-2f43b2c9cf33
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,12 +14,16 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 07/22/2016
 ms.author: dastrock
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 4d36102549550515e516522ecbd964cc7bd1b4d4
+
 
 ---
-# Azure Active Directory B2C: Uygulama türleri
+# <a name="azure-active-directory-b2c-types-of-applications"></a>Azure Active Directory B2C: Uygulama türleri
 Azure Active Directory (Azure AD) B2C, çeşitli modern uygulama mimarilerine yönelik kimlik doğrulamasını destekler. Bunların tümü [OAuth 2.0](active-directory-b2c-reference-protocols.md) veya [OpenID Connect](active-directory-b2c-reference-protocols.md) endüstri standardı protokollerine dayalıdır. Bu belgede kısaca, tercih ettiğiniz dilden veya platformdan bağımsız olarak oluşturabileceğiniz uygulama türleri açıklanmaktadır. [Uygulama oluşturmaya başlamadan](active-directory-b2c-overview.md#getting-started) önce üst düzey senaryoları anlamanıza da yardımcı olur.
 
-## Temel bilgiler
+## <a name="the-basics"></a>Temel bilgiler
 Azure AD B2C'yi kullanan her uygulamanın [Azure Portal](https://portal.azure.com/) aracılığıyla [B2C dizininizde](active-directory-b2c-get-started.md) kayıtlı olması gerekir. Uygulama kayıt işlemi birkaç değer toplayarak uygulamanıza atar:
 
 * Uygulamanızı benzersiz olarak tanımlayan bir **Uygulama Kimliği**.
@@ -47,7 +51,7 @@ Her uygulamanın v2.0 uç noktası ile etkileşimini benzer bir üst düzey dese
 <!-- TODO: Need a page for libraries to link to -->
 Bu adımlar, oluşturduğunuz uygulama türüne göre biraz değişebilir. Açık kaynak kitaplıkları sizin için ayrıntıları ele alabilir.
 
-## Web uygulamaları
+## <a name="web-apps"></a>Web uygulamaları
 Azure AD B2C, bir sunucuda barındırılan ve tarayıcı aracılığıyla erişilen web uygulamalarında (.NET, PHP, Java, Ruby, Python ve Node.js dahil) tüm kullanıcı deneyimleri için [OpenID Connect](active-directory-b2c-reference-protocols.md)'i destekler. Buna oturum açma, kaydolma ve profil yönetimi dahildir. OpenID Connect'e ilişkin Azure AD B2C uygulamasında web uygulamanız, Azure AD'ye kimlik doğrulaması istekleri sağlayarak bu kullanıcı deneyimlerini başlatır. İstek sonucu `id_token` şeklindedir. Bu güvenlik belirteci, kullanıcının kimliğini temsil eder. Ayrıca kullanıcı hakkındaki bilgileri talep biçiminde sağlar:
 
 ```
@@ -77,7 +81,7 @@ Bir web sunucusu uygulamasının, oturum açmayı kolaylaştırmanın yanı sır
 
 <!--, and in our [WebApp-WebAPI Getting started topic](active-directory-b2c-devquickstarts-web-api-dotnet.md).-->
 
-## Web API'leri
+## <a name="web-apis"></a>Web API'leri
 Uygulamanızın RESTful web API'si gibi web hizmetlerini güvence altına almak için Azure AD B2C'yi kullanabilirsiniz. Web API’leri belirteçleri kullanarak gelen HTTP isteklerinin kimliğini doğrulama yoluyla verilerinin güvenliğini sağlamak üzere OAuth 2.0 kullanabilir. Web API'si çağıranı, HTTP isteğinin yetkilendirme üst bilgisine bir belirteç ekler:
 
 ```
@@ -103,7 +107,7 @@ Yetkilendirme kodları, yenileme belirteçleri ve belirteç alma adımları hakk
 
 Azure AD B2C'yi kullanarak bir web API'sini nasıl güvence altına alacağınızı öğrenmek için [Başlarken bölümümüzdeki](active-directory-b2c-overview.md#getting-started) web API'si eğitimlerine bakın.
 
-## Mobil ve yerel uygulamalar
+## <a name="mobile-and-native-apps"></a>Mobil ve yerel uygulamalar
 Mobil ve masaüstü uygulamaları gibi cihazlara yüklenen uygulamaların çoğunlukla kullanıcılar adına arka uç hizmetlerine veya web API'lerine erişmesi gerekir. Azure AD B2C'yi ve [OAuth 2.0 yetkilendirme kodu akışını](active-directory-b2c-reference-oauth-code.md) kullanarak yerel uygulamalarınıza özelleştirilmiş kimlik yönetimi deneyimleri ekleyebilir ve arka uç hizmetlerini güvenle çağırabilirsiniz.  
 
 Bu akışta uygulama, [ilkeleri](active-directory-b2c-reference-policies.md) yürütür ve kullanıcı ilkeyi tamamladıktan sonra Azure AD'den bir `authorization_code` alır. `authorization_code`, uygulamanın o anda oturum açmış olan kullanıcı adına arka uç hizmetlerini çağırma iznini temsil eder. Uygulama daha sonra `id_token` ve `refresh_token` için arka planda `authorization_code` öğesini değiştirebilir.  Uygulama, HTTP isteklerinde arka uç web API'si için kimlik doğrulaması yapma amacıyla `id_token` öğesini kullanabilir. Ayrıca eskisinin süresi dolduğunda yeni bir `id_token` almak için `refresh_token` öğesini kullanabilir.
@@ -115,22 +119,25 @@ Bu akışta uygulama, [ilkeleri](active-directory-b2c-reference-policies.md) yü
 
 ![Yerel Uygulama Kulvarları Görüntüsü](./media/active-directory-b2c-apps/native.png)
 
-## Geçerli sınırlamalar
+## <a name="current-limitations"></a>Geçerli sınırlamalar
 Azure AD B2C şu anda aşağıdaki uygulama türlerini desteklememektedir, ancak desteklemesi planlanmaktadır. Azure AD B2C ile ilişkili ek sınırlamalar ve kısıtlamalar, [Sınırlamalar ve kısıtlamalar](active-directory-b2c-limitations.md) başlığı altında açıklanmaktadır.
 
-### Tek sayfa uygulamaları (JavaScript)
+### <a name="single-page-apps-javascript"></a>Tek sayfa uygulamaları (JavaScript)
 Birçok modern uygulamanın, JavaScript'te öncelikli olarak yazılmış tek sayfa uygulaması ön ucu vardır. Bunlar sıklıkla AngularJS, Ember.js veya Durandal gibi bir altyapı kullanır. Genel olarak kullanılabilir olan Azure AD hizmeti OAuth 2.0 örtük akışını kullanarak bu uygulamaları destekler. Ancak bu akış Azure AD B2C'de henüz kullanılamamaktadır.
 
-### Daemon'lar/sunucu tarafı uygulamalar
+### <a name="daemonsserverside-apps"></a>Daemon'lar/sunucu tarafı uygulamalar
 Uzun süre çalışan işlemler içeren veya kullanıcı olmadan çalışan uygulamalar da web API'leri gibi güvenli kaynaklara erişme yöntemi gerektirir. Bu uygulamalar, uygulamanın kimliğini (bir kullanıcının devredilmiş kimliği yerine) ve OAuth 2.0 istemci kimlik bilgileri akışını kullanarak kimlik doğrulaması yapabilir ve belirteç alabilir.
 
 Bu akış şu anda Azure AD B2C tarafından desteklenmemektedir. Bu uygulamalar ancak etkileşimli kullanıcı akışı gerçekleştikten sonra belirteç alabilir.
 
-### Web API'si zincirleri (temsili akış)
+### <a name="web-api-chains-onbehalfof-flow"></a>Web API'si zincirleri (temsili akış)
 Çoğu mimari başka bir aşağı akış web API'si çağırmayı gerektiren bir web API'si içerir; her iki API de Azure AD B2C tarafından güvence altına alınır. Bu senaryo, Web API'si arka ucuna sahip yerel istemcilerde yaygındır. Bu, ardından Azure AD Grafik API'si gibi bir Microsoft çevrimiçi hizmetini çağırır.
 
 Bu zincirli web API'si senaryosu, temsili akış olarak da bilinen OAuth 2.0 JWT taşıyıcı kimlik bilgisi yetkisi kullanılarak desteklenebilir.  Ancak temsili akış şu anda Azure AD B2C’de uygulanmamıştır.
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

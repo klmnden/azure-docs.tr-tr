@@ -1,13 +1,13 @@
 ---
-title: Azure Active Directory B2B işbirliği önizlemesini kullanmaya yönelik ayrıntılı kılavuz | Microsoft Docs
-description: Azure Active Directory B2B işbirliği, iş ortaklarının kurumsal uygulamalarınıza seçmeli olarak erişmelerini mümkün kılarak şirketler arası ilişkilerinizi destekler.
+title: "Azure Active Directory B2B işbirliği önizlemesini kullanmaya yönelik ayrıntılı kılavuz | Microsoft Belgeleri"
+description: "Azure Active Directory B2B işbirliği, iş ortaklarının kurumsal uygulamalarınıza seçmeli olarak erişmelerini mümkün kılarak şirketler arası ilişkilerinizi destekler."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: viv-liu
 manager: cliffdi
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: 7ae68208-63c1-4128-8e44-43a4f56d34dc
 ms.service: active-directory
 ms.devlang: NA
 ms.topic: get-started-article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/09/2016
 ms.author: viviali
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: f2e38a5b8b541f3e1797cfdb700fd4c7107657b9
+
 
 ---
-# Azure AD B2B işbirliği önizlemesi: Ayrıntılı kılavuz
+# <a name="azure-ad-b2b-collaboration-preview-detailed-walkthrough"></a>Azure AD B2B işbirliği önizlemesi: Ayrıntılı kılavuz
 Bu kılavuz, Azure AD B2B işbirliğini kullanmaya yönelik bilgileri ana hatlarıyla sunar. Contoso'nun BT yöneticisi olarak uygulamaları, üç iş ortağı şirketin çalışanlarıyla paylaşmak istiyoruz. İş ortağı şirketlerinden hiçbirinin Azure AD'ye sahip olması gerekmez.
 
 * Simple Partner Org'dan Alice
@@ -26,7 +30,7 @@ Bu kılavuz, Azure AD B2B işbirliğini kullanmaya yönelik bilgileri ana hatlar
 
 İş ortağı kullanıcılara davet gönderildikten sonra Azure portalı üzerinden uygulamalara ve grup üyeliğine erişim elde etmek için bunları Azure AD'de yapılandırabiliriz. Alice'i ekleyerek başlayalım.
 
-## Alice'i Contoso dizinine ekleme
+## <a name="adding-alice-to-the-contoso-directory"></a>Alice'i Contoso dizinine ekleme
 1. Yalnızca Alice'in **Email**, **DisplayName** ve **InviteContactUsUrl** bilgilerini doldurarak gösterilen üst bilgilerle bir .csv dosyası oluşturun. **DisplayName**, davette ve aynı zamanda Contoso Azure AD dizininde görüntülenen addır. **InviteContactUsUrl**, Alice'in Contoso ile iletişim kurma yöntemidir. Aşağıdaki örnekte InviteContactUsUrl, Contoso'nun LinkedIn profilini belirtir. .csv dosyasının ilk satırındaki etiketleri, tam olarak [CSV dosya biçimi başvurusu](active-directory-b2b-references-csv-file-format.md) kapsamında belirtilen şekilde yazmak son derece önemlidir.  
    ![Alice için örnek CSV dosyası](./media/active-directory-b2b-detailed-walkthrough/AliceCSV.png)
 2. Azure portalında Contoso dizinine (Active Directory > Contoso > Kullanıcılar > Kullanıcı Ekle) bir kullanıcı ekleyin. "Kullanıcı Türü" açılan listesinde "İş ortağı şirketlerdeki kullanıcılar" seçeneğini belirleyin. .csv dosyasını karşıya yükleyin. Karşıya yüklemeden önce .csv dosyasının kapalı olduğundan emin olun.  
@@ -42,7 +46,7 @@ Bu kılavuz, Azure AD B2B işbirliğini kullanmaya yönelik bilgileri ana hatlar
 
 Bu yordam, B2B işbirliğinin en basit biçimini sunar. Contoso Azure AD dizininde bir kullanıcı olarak Alice'e Azure portalı üzerinden uygulamalara ve gruplara erişim hakkı verilebilir. Şimdi Moodle ve Salesforce uygulamalarına erişmesi gereken Bob'ı ekleyelim.
 
-## Bob'ı Contoso dizinine ekleme ve Bob'a uygulamalara erişim hakkı verme
+## <a name="adding-bob-to-the-contoso-directory-and-granting-access-to-apps"></a>Bob'ı Contoso dizinine ekleme ve Bob'a uygulamalara erişim hakkı verme
 1. Moodle ve Salesforce uygulama kimliklerini bulmak için Azure AD Modülü'nün yüklü olduğu Windows PowerShell'i kullanın. Kimlikler cmdlet kullanılarak alınabilir: `Get-MsolServicePrincipal | fl DisplayName, AppPrincipalId` Bu, Contoso ve AppPrincialIds kapsamındaki tüm kullanılabilir uygulamalar listesini getirir.  
    ![Bob için kimlikleri alma](./media/active-directory-b2b-detailed-walkthrough/BobPowerShell.png)
 2. Bob'ın Email, DisplayName, **InviteAppID**, **InviteAppResources** ve InviteContactUsUrl bilgilerini içeren bir .csv dosyası oluşturun. **InviteAppResources** alanını, bir boşluk bırakarak PowerShell'den bulunan Moodle ve Salesforce uygulamalarına ait AppPrincipalId bilgileri ile doldurun. **InviteAppId** alanını, e-posta ve oturum açma sayfalarında Moodle logosunu belirtmek için Moodle'a ait aynı AppPrincipalId bilgisi ile doldurun.  
@@ -55,7 +59,7 @@ Bu yordam, B2B işbirliğinin en basit biçimini sunar. Contoso Azure AD dizinin
 
 Sırada hem uygulamalara hem de Contoso dizinindeki grup üyeliğine erişmesi gereken Carol var.
 
-## Carol'ı Contoso dizinine ekleme, Carol'a uygulamalara erişim hakkı ve grup üyeliği verme
+## <a name="adding-carol-to-the-contoso-directory-granting-access-to-apps-and-giving-group-membership"></a>Carol'ı Contoso dizinine ekleme, Carol'a uygulamalara erişim hakkı ve grup üyeliği verme
 1. Contoso'da uygulama kimlikleri ve grup kimliklerini bulmak için Azure AD Modülü'nün yüklü olduğu Windows PowerShell'i kullanın.
    
    * Bob için olduğu gibi cmdlet `Get-MsolServicePrincipal | fl DisplayName, AppPrincipalId` kullanarak AppPrincipalId alma
@@ -71,7 +75,7 @@ Sırada hem uygulamalara hem de Contoso dizinindeki grup üyeliğine erişmesi g
 Azure AD B2B işbirliği kapsamında iş ortağı kuruluşlardan kullanıcı ekleme ile ilgili tüm bilgiler verilmiştir. Bu kılavuzda, üç ayrı .csv dosyası kullanarak Alice, Bob ve Carol adında üç kullanıcının Contoso dizinine nasıl ekleneceği gösterilmiştir. Bu işlem, ayrı .csv dosyalarını tek bir dosya halinde sıkıştırarak daha kolay hale getirilebilir.  
 ![Alice, Bob ve Carol için örnek CSV dosyası](./media/active-directory-b2b-detailed-walkthrough/CombinedCSV.png)
 
-## İlgili makaleler
+## <a name="related-articles"></a>İlgili makaleler
 Azure AD B2B işbirliği ile ilgili diğer makalelerimize göz atın:
 
 * [Azure AD B2B işbirliği nedir?](active-directory-b2b-what-is-azure-ad-b2b.md)
@@ -82,6 +86,9 @@ Azure AD B2B işbirliği ile ilgili diğer makalelerimize göz atın:
 * [Geçerli önizleme sınırlamaları](active-directory-b2b-current-preview-limitations.md)
 * [Azure Active Directory'de Uygulama Yönetimi için Makale Dizini](active-directory-apps-index.md)
 
-<!--HONumber=ago16_HO5-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

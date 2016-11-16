@@ -25,7 +25,7 @@ Dağıtım üzerinde daha fazla denetim için aşağıdaki dosyaları oluşturar
     \.deployment
     \deploy.cmd
 
-bu dosyaları oluşturmak için [Azure komut satırı arabirimi][Azure komut satırı arabirimi]’ni kullanabilirsiniz.  Bu komutu proje klasörünüzden kullanın:
+Dosyaları oluşturmak için [Azure komut satırı arabirimi][Azure komut satırı arabirimi]’ni kullanabilirsiniz.  Bu komutu proje klasörünüzden kullanın:
 
     azure site deploymentscript --python
 
@@ -34,6 +34,6 @@ Bu dosyalar olmadığında, Azure geçici bir dağıtım betiği oluşturur ve b
 [Azure komut satırı arabirimi]: http://azure.microsoft.com/downloads/
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

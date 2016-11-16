@@ -1,13 +1,13 @@
 ---
-title: Kullanıcılarınız için Azure AD'ye Katılımı ayarlama | Microsoft Docs
-description: Yöneticilerin, şirket içi dizin ve cihaz kaydı için Azure AD Katılımını nasıl ayarlayacakları açıklanmaktadır.
+title: "Kullanıcılarınız için Azure AD&quot;ye Katılımı ayarlama | Microsoft Belgeleri"
+description: "Yöneticilerin, şirket içi dizin ve cihaz kaydı için Azure AD Katılımını nasıl ayarlayacakları açıklanmaktadır."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: femila
 manager: swadhwa
-editor: ''
+editor: 
 tags: azure-classic-portal
-
+ms.assetid: bfc5d415-c918-4d8b-afee-b3f41cc28469
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,16 +15,20 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/27/2016
 ms.author: femila
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: aaa52cdecc09adb3b7ca53e0c0283d4203b21810
+
 
 ---
-# Kuruluşunuzda Azure AD'ye Katılımı ayarlama
+# <a name="setting-up-azure-ad-join-in-your-organization"></a>Kuruluşunuzda Azure AD'ye Katılımı ayarlama
 Azure Active Directory Katılımını (Azure AD Katılımı) ayarlamadan önce kullanıcıların şirket içi dizinini buluta eşitlemeniz veya Azure AD'de yönetilen hesaplar oluşturmanız gerekir.
 
 Şirket içi kullanıcılarınızı Azure AD'ye eşitlemeye ilişkin ayrıntılı yönergeler için bkz. [Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](active-directory-aadconnect.md).
 
 Azure AD'de el ile kullanıcı oluşturmak ve yönetmek için bkz. [Azure AD'de kullanıcı yönetimi](https://msdn.microsoft.com/library/azure/hh967609.aspx).
 
-## Cihaz kaydı oluşturma
+## <a name="set-up-device-registration"></a>Cihaz kaydı oluşturma
 1. Azure portalında yönetici olarak oturum açın.
 2. Sol bölmede **Active Directory**'yi seçin.
 3. **Directory (Dizin)** sekmesinde dizininizi seçin.
@@ -36,7 +40,7 @@ Azure AD'de el ile kullanıcı oluşturmak ve yönetmek için bkz. [Azure AD'de 
    * **USERS MAY AZURE AD JOIN DEVICES (KULLANICILAR AZURE AD'YE CİHAZ KATABİLİR)**: Cihazlarını Azure AD'ye ekleme izni olan kullanıcıları ve grupları seçin.
    * **ADDITIONAL ADMINISTRATORS ON AZURE AD JOINED DEVICES (AZURE AD'YE KATILAN CİHAZLAR İÇİN EK YÖNETİCİLER)**: Azure AD Premium veya Enterprise Mobility Suite (EMS) ile hangi kullanıcılara cihaz için yerel yönetici haklarının verileceğini belirleyebilirsiniz. Varsayılan olarak genel yöneticilere ve cihaz sahiplerine yerel yönetici hakları verilir.
 
-<center>![Cihaz kaydı oluşturma](./media/active-directory-azureadjoin/active-directory-aadjoin-configure-devices.png) </center>
+<center>![Cihaz kaydı ayarlama](./media/active-directory-azureadjoin/active-directory-aadjoin-configure-devices.png) </center>
 
 Kullanıcılarınız için Azure AD'ye Katılımı ayarladığınızda kurumsal veya kişisel cihazları üzerinden Azure AD'ye bağlanabilirler.
 
@@ -46,13 +50,16 @@ Kullanıcılarınızın Azure AD Katılımını ayarlamalarını sağlamak üzer
 * Kullanıcılar, şirketlerine ait bir cihazı şirket içi Active Directory'deki etki alanına ekler ve ardından cihazı Azure AD'ye genişletir.
 * Kullanıcılar, kişisel bir cihazdan Windows'a iş veya okul hesabı ekler.
 
-## Ek bilgiler
+## <a name="additional-information"></a>Ek bilgiler
 * [Kurumlar için Windows 10: Cihazları iş için kullanmanın yolları](active-directory-azureadjoin-windows10-devices-overview.md)
 * [Azure Active Directory Join ile bulut işlevlerini Windows 10 cihazlarına genişletme](active-directory-azureadjoin-user-upgrade.md)
 * [Azure AD Katılımı kullanım senaryoları hakkında bilgi edinin](active-directory-azureadjoin-deployment-aadjoindirect.md)
-* [Windows 10 deneyiminden faydalanmak için, etki alanına katılan cihazları Azure AD'ye bağlama](active-directory-azureadjoin-devices-group-policy.md)
-* [Azure AD'ye Katılımı ayarlama](active-directory-azureadjoin-setup.md)
+* [Windows 10 deneyiminden faydalanmak için etki alanına katılan cihazları Azure AD'ye bağlama](active-directory-azureadjoin-devices-group-policy.md)
+* [Azure AD'ye Katılım ayarlama](active-directory-azureadjoin-setup.md)
 
-<!--HONumber=Sep16_HO4-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

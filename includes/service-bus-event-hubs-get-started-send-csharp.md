@@ -1,4 +1,4 @@
-## Event Hubs’a ileti gönderme
+## <a name="send-messages-to-event-hubs"></a>Event Hubs’a ileti gönderme
 Bu bölümde, Olay Hub'ınıza olayları gönderen Windows konsol uygulamasını yazacaksınız.
 
 1. Visual Studio'da, **Konsol Uygulaması** proje şablonunu kullanarak yeni Visual C# Masaüstü Uygulaması projesi oluşturun. Projeyi **Gönderen** için bir ad verin.
@@ -58,6 +58,8 @@ Bu bölümde, Olay Hub'ınıza olayları gönderen Windows konsol uygulamasını
     SendingRandomMessages();
     ```
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

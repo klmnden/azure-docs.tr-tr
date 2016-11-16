@@ -1,12 +1,12 @@
 ---
-title: Platformlar arası komut satırı arabirimini kullanarak Data Lake Store ile çalışmaya başlama | Microsoft Docs
-description: Bir Data Lake Store hesabı oluşturmak ve temel işlemleri gerçekleştirmek için Azure platformlar arası komut satırını kullanma
+title: "Platformlar arası komut satırı arabirimini kullanarak Data Lake Store ile çalışmaya başlama | Microsoft Belgeleri"
+description: "Bir Data Lake Store hesabı oluşturmak ve temel işlemleri gerçekleştirmek için Azure platformlar arası komut satırını kullanma"
 services: data-lake-store
-documentationcenter: ''
+documentationcenter: 
 author: nitinme
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 380788f3-041d-4ae5-b6be-37ca74ca333d
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/27/2016
 ms.author: nitinme
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b4b2449f00e298385579c4d7b229ceea18dcc598
+
 
 ---
-# Azure Komut Satırı'nı kullanarak Azure Data Lake Store ile çalışmaya başlama
+# <a name="get-started-with-azure-data-lake-store-using-azure-command-line"></a>Azure Komut Satırı'nı kullanarak Azure Data Lake Store ile çalışmaya başlama
 > [!div class="op_single_selector"]
 > * [Portal](data-lake-store-get-started-portal.md)
 > * [PowerShell](data-lake-store-get-started-powershell.md)
@@ -32,16 +36,16 @@ Azure Data Lake Store hesabı oluşturmak ve klasör oluşturma, veri dosyaları
 
 Azure CLI, Node.js içinde uygulanmıştır. Windows, Mac ve Linux da dahil olmak üzere, Node.js'yi destekleyen herhangi bir platformda kullanılabilir. Azure CLI açık kaynaktır. Kaynak kodu, GitHub üzerinde <a href= "https://github.com/azure/azure-xplat-cli">https://github.com/azure/azure-xplat-cli</a> adresinde yönetilir. Bu makalede yalnızca Azure CLI'nın Data Lake Store ile kullanımı ele alınmaktadır. Azure CLI'nın kullanımı hakkında genel bir kılavuz için bkz. [Azure CLI'yı kullanma][azure-command-line-tools].
 
-## Ön koşullar
+## <a name="prerequisites"></a>Ön koşullar
 Bu makaleye başlamadan önce aşağıdakilere sahip olmanız ve aşağıdaki işlemleri yapmış olmanız gerekir:
 
 * **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü edinme](https://azure.microsoft.com/pricing/free-trial/).
 * **Azure CLI** - Yükleme ve yapılandırma bilgileri için bkz. [Azure CLI'yı yükleme ve yapılandırma](../xplat-cli-install.md). CLI'yı yükledikten sonra bilgisayarınızı yeniden başlattığınızdan emin olun.
 
-## Kimlik Doğrulaması
+## <a name="authentication"></a>Kimlik Doğrulaması
 Bu makalede Data Lake Store için son kullanıcı olarak oturum açtığınız daha basit bir kimlik doğrulama yaklaşımı kullanılmaktadır. Data Lake Store hesabına ve dosya sistemine erişim düzeyi bu durumda oturum açmış kullanıcının erişim düzeyine göre yönetilir. Ancak, Data Lake Store kimlik doğrulaması için **son kullanıcı kimlik doğrulaması** veya **hizmetten hizmete kimlik doğrulama** şeklinde diğer yaklaşımlar da mevcuttur. Kimlik doğrulaması hakkında yönergeler ve daha fazla bilgi için bkz. [Azure Active Directory kullanarak Data Lake Store kimlik doğrulaması yapma](data-lake-store-authenticate-using-active-directory.md).
 
-## Azure aboneliğinizde oturum açma
+## <a name="login-to-your-azure-subscription"></a>Azure aboneliğinizde oturum açma
 1. [Azure Komut Satırı Arabirimi'nden (Azure CLI) bir Azure aboneliğine bağlanma](../xplat-cli-connect.md) konusunda belgelenen adımları izleyin ve `azure login` yöntemini kullanarak aboneliğinze bağlanın.
 2. `azure account list` komutunu kullanarak hesabınızla ilişkili abonelikleri listeleyin.
    
@@ -56,7 +60,7 @@ Bu makalede Data Lake Store için son kullanıcı olarak oturum açtığınız d
    
         azure account set Azure-sub-2
 
-## Azure Data Lake Store hesabı oluşturma
+## <a name="create-an-azure-data-lake-store-account"></a>Azure Data Lake Store hesabı oluşturma
 Bir komut istemi, kabuk veya terminal oturumu açın ve aşağıdaki komutları çalıştırın.
 
 1. Şu komutu kullanarak Azure Resource Manager moduna geçin:
@@ -71,7 +75,7 @@ Bir komut istemi, kabuk veya terminal oturumu açın ve aşağıdaki komutları 
    
         azure datalake store account create <dataLakeStoreAccountName> <location> <resourceGroup>
 
-## Data Lake Store ürününüzde klasör oluşturma
+## <a name="create-folders-in-your-data-lake-store"></a>Data Lake Store ürününüzde klasör oluşturma
 Veri depolamak ve yönetmek için Azure Data Lake Store hesabınızın altında klasör oluşturabilirsiniz. Data Lake Store'un kökünde "mynewfolder" adlı bir klasör oluşturmak için aşağıdaki komutu kullanın.
 
     azure datalake store filesystem create <dataLakeStoreAccountName> <path> --folder
@@ -80,19 +84,19 @@ Veri depolamak ve yönetmek için Azure Data Lake Store hesabınızın altında 
 
     azure datalake store filesystem create mynewdatalakestore /mynewfolder --folder
 
-## Data Lake Store ürününüze veri yükleme
+## <a name="upload-data-to-your-data-lake-store"></a>Data Lake Store ürününüze veri yükleme
 Verilerinizi Data Lake Store'a doğrudan kök düzeyinde veya hesap içinde oluşturduğunuz bir klasöre yüklenecek şekilde yükleyebilirsiniz. Aşağıdaki kod parçacıkları, birtakım örnek verilerin önceki bölümde oluşturduğunuz klasöre (**mynewfolder**) nasıl yükleneceğini göstermektedir.
 
-Karşıya yüklenecek örnek veri arıyorsanız [Azure Data Lake Git Deposu](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData)'ndan **Ambulance Data** klasörünü alabilirsiniz. Dosyayı indirin ve bilgisayarınız üzerinde C:\sampledata gibi yerel bir dizinde depolayın\.
+Karşıya yüklenecek örnek veri arıyorsanız [Azure Data Lake Git Deposu](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData)'ndan **Ambulance Data** klasörünü alabilirsiniz. Dosyayı indirin ve bilgisayarınız üzerinde C:\sampledata\. gibi yerel bir dizinde depolayın
 
     azure datalake store filesystem import <dataLakeStoreAccountName> "<source path>" "<destination path>"
 
-Örnek:
+Örneğin:
 
     azure datalake store filesystem import mynewdatalakestore "C:\SampleData\AmbulanceData\vehicle1_09142014.csv" "/mynewfolder/vehicle1_09142014.csv"
 
 
-## Data Lake Store'da dosyaları listeleme
+## <a name="list-files-in-data-lake-store"></a>Data Lake Store'da dosyaları listeleme
 Bir Data Lake Store hesabındaki dosyaları listelemek için aşağıdaki komutu kullanın.
 
     azure datalake store filesystem list <dataLakeStoreAccountName> <path>
@@ -117,7 +121,7 @@ Bunun çıktısının aşağıdakine benzer olması gerekir:
     data:    ------------------------------------------------------------------------------------
     info:    datalake store filesystem list command OK
 
-## Data Lake Store'unuzda verileri yeniden adlandırma, indirme ve silme
+## <a name="rename-download-and-delete-data-from-your-data-lake-store"></a>Data Lake Store'unuzda verileri yeniden adlandırma, indirme ve silme
 * **Bir dosyayı yeniden adlandırmak için** aşağıdaki komutu kullanın:
   
         azure datalake store filesystem move <dataLakeStoreAccountName> <path/old_file_name> <path/new_file_name>
@@ -142,7 +146,7 @@ Bunun çıktısının aşağıdakine benzer olması gerekir:
   
     İstendiğinde, öğeyi silmek için **Y** yazın.
 
-## Data Lake Store'daki bir klasör için erişim denetimi listesini görüntüleme
+## <a name="view-the-access-control-list-for-a-folder-in-data-lake-store"></a>Data Lake Store'daki bir klasör için erişim denetimi listesini görüntüleme
 Bir Data Lake Store klasörü üzerindeki ACL'leri görüntülemek için aşağıdaki komutu kullanın. Geçerli sürümde, ACL'ler yalnızca Data Lake Store'un kökünde ayarlanabilir. Bu nedenle, yol parametresi her zaman kök (/) olur.
 
     azure datalake store permissions show <dataLakeStoreName> <path>
@@ -152,7 +156,7 @@ Bir Data Lake Store klasörü üzerindeki ACL'leri görüntülemek için aşağ�
     azure datalake store permissions show mynewdatalakestore /
 
 
-## Data Lake Store hesabınızı silme
+## <a name="delete-your-data-lake-store-account"></a>Data Lake Store hesabınızı silme
 Bir Data Lake Store hesabını silmek için aşağıdaki komutu kullanın.
 
     azure datalake store account delete <dataLakeStoreAccountName>
@@ -163,7 +167,7 @@ Bir Data Lake Store hesabını silmek için aşağıdaki komutu kullanın.
 
 İstendiğinde, hesabı silmek için **Y** yazın.
 
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 * [Data Lake Store'da verilerin güvenliğini sağlama](data-lake-store-secure-data.md)
 * [Azure Data Lake Analytics'i Data Lake Store ile kullanma](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Azure HDInsight'ı Data Lake Store ile kullanma](data-lake-store-hdinsight-hadoop-use-portal.md)
@@ -172,6 +176,6 @@ Bir Data Lake Store hesabını silmek için aşağıdaki komutu kullanın.
 
 
 
-<!--HONumber=Sep16_HO5-->
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,11 +1,11 @@
 <a name="tellmevm"></a>
 
-## Bana sanal makineleri anlat
+## <a name="tell-me-about-virtual-machines"></a>Bana sanal makineleri anlat
 Azure Virtual Machines, bulutta sanal makineler oluşturmanızı ve kullanmanızı sağlar. *Hizmet olarak altyapı (IaaS)* olarak bilineni sağlayarak, sanal makine teknolojisi çeşitli şekillerde kullanılabilir. Bazı örnekler şunlardır:
 
 * **Geliştirme ve test için sanal makineler (VM).** Bir uygulamayı kodlamak ve test etmek için gereken belirli yapılandırmalarla bir bilgisayarı oluşturmanın hızlı, kolay yolunu sunduklarından, geliştirme grupları yaygın olarak VM’leri kullanır. Azure Virtual Machines, bu VM’leri oluşturmanın, bunları kullanmanın ve artık gerekmediğinde de silmenin basit ve ekonomik bir yolunu sağlıyor.
-* **Uygulamaların bulutta çalıştırılması.** Bazı uygulamaları genel bulut ortamında çalıştırmanın ekonomik mantığı vardır. Bir örnek, isteğe bağlı büyük depoları olan bir uygulamadır. Zamanın çoğunda donanım verimli kullanılamadığından en yüksek talebi işlemek için kendi veri merkezinizi yeterli donanımla donatmış olabilirsiniz. Bu uygulamanın Azure’da çalıştırılması, yalnızca gerektiğinde VM’ler için fazladan ödeme yapmanızı, gerekmediğinde de bunları kapatmanızı sağlar. Bunun yerine, hızlı ve hiçbir taahhüdü olmadan isteği bağlı bilgi işlem kaynaklarına ihtiyaç duyan başlangıç düzeyinde biri olduğunuzu varsayalım. Bir kez daha, Azure doğru seçim olabilir.
-* **Kendi veri merkezinizin genel buluta genişletilmesi.** Azure Virtual Network kullandığınızda, kuruluşunuz kendi şirket içi ağınıza uzantısı olan sanal ağ (VNET) oluşturabilir ve VM’leri bu VNET'e ekleyebilir. Böylece, Azure VM’de [SharePoint](../articles/virtual-machines/virtual-machines-windows-sharepoint-farm.md), [SQL Server](../articles/virtual-machines/virtual-machines-windows-sql-server-iaas-overview.md) ve diğerlerinin çalıştırılması sağlanır. Bu yaklaşım dağıtmak için daha kolay veya bunları kendi veri merkezinizdeki VM’lerde çalıştırmasından daha ucuz olabilir.   
+* **Uygulamaları bulutta çalıştırma.** Bazı uygulamaları genel bulut ortamında çalıştırmanın ekonomik mantığı vardır. Bir örnek, isteğe bağlı büyük depoları olan bir uygulamadır. Zamanın çoğunda donanım verimli kullanılamadığından en yüksek talebi işlemek için kendi veri merkezinizi yeterli donanımla donatmış olabilirsiniz. Bu uygulamanın Azure’da çalıştırılması, yalnızca gerektiğinde VM’ler için fazladan ödeme yapmanızı, gerekmediğinde de bunları kapatmanızı sağlar. Bunun yerine, hızlı ve hiçbir taahhüdü olmadan isteği bağlı bilgi işlem kaynaklarına ihtiyaç duyan başlangıç düzeyinde biri olduğunuzu varsayalım. Bir kez daha, Azure doğru seçim olabilir.
+* **Kendi veri merkezinizi genel buluta genişletme.** Azure Virtual Network kullandığınızda, kuruluşunuz kendi şirket içi ağınıza uzantısı olan sanal ağ (VNET) oluşturabilir ve VM’leri bu VNET'e ekleyebilir. Böylece, Azure VM’de [SharePoint](../articles/virtual-machines/virtual-machines-windows-sharepoint-farm.md), [SQL Server](../articles/virtual-machines/virtual-machines-windows-sql-server-iaas-overview.md) ve diğerlerinin çalıştırılması sağlanır. Bu yaklaşım dağıtmak için daha kolay veya bunları kendi veri merkezinizdeki VM’lerde çalıştırmasından daha ucuz olabilir.   
 * **Olağanüstü durum kurtarma.** Nadiren kullanılan yedek veri merkezi için sürekli ödeme yapmak yerine, IaaS temelli olağanüstü durum kurtarması, gereken bilgi işlem kaynakları için yalnızca gerçekten gerek duyduğunuzda ödeme yapmanızı sağlar.  Örneğin, birincil veri merkezinizde arıza olursa, temel uygulamaları çalıştırmak için Azure üzerinde çalışan VM’leri oluşturabilir, artık gerekmediklerinde de .unları kapatabilirsiniz.
 
 Diğer sanal makineler gibi Azure’daki VM’de de bir işletim sistemi, depolama ve ağ özellikleri vardır, çok çeşitli uygulamaları çalıştırabilir. Azure veya ortaklarından biri tarafından sağlanan bir görüntüyü kullanabilir; isterseniz de kendinize ait olanlardan birini kullanın. Çeşitli sürümlerin, basımların ve yapılandırmaların bulunduğu örnekler:
@@ -21,7 +21,7 @@ Sanal makineler, kendi işletim sistemlerini (OS) ve verilerini depolamak için 
 <a name="fig_createvms"></a>
 ![vm_diagram](./media/virtual-machines-choose-me-content/diagram.png)
 
-**Şekil: Azure Virtual Machines, Hizmet olarak altyapı sağlar.**
+**Şekil: Azure Sanal Makineler, Hizmet Olarak Altyapı sağlar.**
 
 VM’ler tarayıcı tabanlı bir portal, betik oluşturma desteğine sahip komut satırı araçları kullanılarak veya doğrudan REST API aracılığıyla yönetilebilir. RightScale ve ScaleXtreme gibi Microsoft ortakları da REST API ile ilgili yönetim hizmetleri sağlar. 
 
@@ -37,6 +37,8 @@ VM’ler için dikkate alınması gereken diğer avantajlar şunlardır:
 
 **Dayanıklılık** --Çalışan her sanal makineyi barındıran fiziksel donanımı Azure izler. VM çalıştıran fiziksel sunucu arızalınırsa, Azure bunu fark eder, VM’yi yeni donanıma taşır ve VM’yi yeniden başlatır. Bu işleme bazen hizmet onarma denir. Azure, Blob Storage’da VHD'lerin yedek kopyasını tutarak sanal makinenin verilerini de korur. 
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

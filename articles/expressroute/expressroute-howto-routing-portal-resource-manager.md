@@ -1,13 +1,13 @@
 ---
-title: Azure Portalını kullanarak ExpressRoute bağlantı hattı için yönlendirmeyi yapılandırma | Microsoft Docs
-description: Bu makalede, bir ExpressRoute bağlantı hattı için özel, ortak ve Microsoft eşlemesinin nasıl oluşturulduğu ve sağlandığı adım adım anlatılmaktadır. Bu makalede ayrıca bağlantı hattınızın durumunu denetleme, bağlantı hattını güncelleştirme veya silme işlemlerinin nasıl yapıldığı da anlatılmaktadır.
+title: "Azure Portal’ı kullanarak ExpressRoute bağlantı hattı için yönlendirmeyi yapılandırma | Microsoft Belgeleri"
+description: "Bu makalede, bir ExpressRoute bağlantı hattı için özel, ortak ve Microsoft eşlemesinin nasıl oluşturulduğu ve sağlandığı adım adım anlatılmaktadır. Bu makalede ayrıca bağlantı hattınızın durumunu denetleme, bağlantı hattını güncelleştirme veya silme işlemlerinin nasıl yapıldığı da anlatılmaktadır."
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 8c2a7ed2-ae5c-4e49-81f6-77cf9f2b2ac9
 ms.service: expressroute
 ms.devlang: na
 ms.topic: hero-article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: cherylmc
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 1d78bdb6cbb9870298b050207fd1fa9c5e71d674
+
 
 ---
-# Bir ExpressRoute bağlantı hattı için yönlendirmeyi oluşturma ve değiştirme
+# <a name="create-and-modify-routing-for-an-expressroute-circuit"></a>Bir ExpressRoute bağlantı hattı için yönlendirmeyi oluşturma ve değiştirme
 > [!div class="op_single_selector"]
 > [Azure Portalı - Resource Manager](expressroute-howto-routing-portal-resource-manager.md)
 > [PowerShell - Resource Manager](expressroute-howto-routing-arm.md)
@@ -31,7 +35,7 @@ Bu makalede, bir ExpressRoute bağlantı hattı için Azure portalı ve Resource
 
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
-## Yapılandırma önkoşulları
+## <a name="configuration-prerequisites"></a>Yapılandırma önkoşulları
 * Yapılandırmaya başlamadan önce [önkoşullar](expressroute-prerequisites.md) sayfasını, [yönlendirme gereksinimleri](expressroute-routing.md) sayfasını ve [iş akışları](expressroute-workflows.md) sayfasını gözden geçirdiğinizden emin olun.
 * Etkin bir ExpressRoute bağlantı hattınızın olması gerekir. Devam etmeden önce [ExpressRoute bağlantı hattı oluşturma](expressroute-howto-circuit-arm.md) yönergelerini izleyin ve bağlantı sağlayıcınızın bağlantı hattını etkinleştirmesini isteyin. Aşağıda açıklanan cmdlet’leri çalıştırmanız için ExpressRoute bağlantı hattının sağlanmış ve etkin durumda olması gerekir.
 
@@ -44,10 +48,10 @@ Bu yönergeler yalnızca Katman 2 bağlantı hizmetleri sunan hizmet sağlayıc�
 
 Bir ExpressRoute bağlantı hattı için bir, iki veya üç eşlemenin tamamını (Azure özel, Azure ortak ve Microsoft) yapılandırabilirsiniz. Eşlemeleri seçtiğiniz herhangi bir sırayla yapılandırabilirsiniz. Ancak, her eşlemenin yapılandırmasını birer birer tamamladığınızdan emin olmanız gerekir. 
 
-## Azure özel eşlemesi
+## <a name="azure-private-peering"></a>Azure özel eşlemesi
 Bu bölümde bir ExpressRoute bağlantı hattı için Azure özel eşleme yapılandırmasını oluşturma, alma, güncelleştirme ve silme hakkında yönergeler açıklanmaktadır. 
 
-### Azure özel eşlemesi oluşturmak için
+### <a name="to-create-azure-private-peering"></a>Azure özel eşlemesi oluşturmak için
 1. ExpressRoute bağlantı hattını yapılandırın. Devam etmeden önce bağlantı sağlayıcı tarafından bağlantı hattının tam olarak sağlandığından emin olun.
    
     ![](./media/expressroute-howto-routing-portal-resource-manager/listprovisioned.png)
@@ -68,25 +72,25 @@ Bu bölümde bir ExpressRoute bağlantı hattı için Azure özel eşleme yapıl
    
     ![](./media/expressroute-howto-routing-portal-resource-manager/rprivate3.png)
 
-### Azure özel eşleme ayrıntılarını görüntülemek için
+### <a name="to-view-azure-private-peering-details"></a>Azure özel eşleme ayrıntılarını görüntülemek için
 Eşlemeyi seçerek Azure özel eşleme özelliklerini görüntüleyebilirsiniz.
 
 ![](./media/expressroute-howto-routing-portal-resource-manager/rprivate3.png)
 
-### Azure özel eşleme yapılandırmasını güncelleştirmek için
+### <a name="to-update-azure-private-peering-configuration"></a>Azure özel eşleme yapılandırmasını güncelleştirmek için
 Eşleme için satırı seçebilir ve eşleme özelliklerini değiştirebilirsiniz. 
 
 ![](./media/expressroute-howto-routing-portal-resource-manager/rprivate2.png)
 
-### Azure özel eşlemeyi silmek için
+### <a name="to-delete-azure-private-peering"></a>Azure özel eşlemeyi silmek için
 Aşağıda gösterilen silme simgesini seçerek eşleme yapılandırmanızı kaldırabilirsiniz.
 
 ![](./media/expressroute-howto-routing-portal-resource-manager/rprivate4.png)
 
-## Azure ortak eşleme
+## <a name="azure-public-peering"></a>Azure ortak eşleme
 Bu bölümde bir ExpressRoute bağlantı hattı için Azure ortak eşleme yapılandırmasını oluşturma, alma, güncelleştirme ve silme hakkında yönergeler açıklanmaktadır. 
 
-### Azure ortak eşlemesi oluşturmak için
+### <a name="to-create-azure-public-peering"></a>Azure ortak eşlemesi oluşturmak için
 1. ExpressRoute bağlantı hattını yapılandırın. Daha ileriye devam etmeden önce bağlantı sağlayıcı tarafından bağlantı hattının tam olarak sağlandığından emin olun.
    
     ![](./media/expressroute-howto-routing-portal-resource-manager/listprovisioned.png)
@@ -108,25 +112,25 @@ Bu bölümde bir ExpressRoute bağlantı hattı için Azure ortak eşleme yapıl
    
     ![](./media/expressroute-howto-routing-portal-resource-manager/rpublic3.png)
 
-### Azure ortak eşleme ayrıntılarını görüntülemek için
+### <a name="to-view-azure-public-peering-details"></a>Azure ortak eşleme ayrıntılarını görüntülemek için
 Eşlemeyi seçerek Azure ortak eşleme özelliklerini görüntüleyebilirsiniz.
 
 ![](./media/expressroute-howto-routing-portal-resource-manager/rpublic3.png)
 
-### Azure ortak eşleme yapılandırmasını güncelleştirmek için
+### <a name="to-update-azure-public-peering-configuration"></a>Azure ortak eşleme yapılandırmasını güncelleştirmek için
 Eşleme için satırı seçebilir ve eşleme özelliklerini değiştirebilirsiniz. 
 
 ![](./media/expressroute-howto-routing-portal-resource-manager/rpublic2.png)
 
-### Azure ortak eşlemesini silmek için
+### <a name="to-delete-azure-public-peering"></a>Azure ortak eşlemesini silmek için
 Aşağıda gösterilen silme simgesini seçerek eşleme yapılandırmanızı kaldırabilirsiniz.
 
 ![](./media/expressroute-howto-routing-portal-resource-manager/rpublic4.png)
 
-## Microsoft eşlemesi
+## <a name="microsoft-peering"></a>Microsoft eşlemesi
 Bu bölümde bir ExpressRoute bağlantı hattı için Microsoft eşleme yapılandırmasını oluşturma, alma, güncelleştirme ve silme hakkında yönergeler açıklanmaktadır. 
 
-### Microsoft eşlemesi oluşturmak için
+### <a name="to-create-microsoft-peering"></a>Microsoft eşlemesi oluşturmak için
 1. ExpressRoute bağlantı hattını yapılandırın. Daha ileriye devam etmeden önce bağlantı sağlayıcı tarafından bağlantı hattının tam olarak sağlandığından emin olun.
    
     ![](./media/expressroute-howto-routing-portal-resource-manager/listprovisioned.png)
@@ -148,11 +152,11 @@ Bu bölümde bir ExpressRoute bağlantı hattı için Microsoft eşleme yapılan
    ![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft2.png)
 5. Tüm parametreleri belirledikten sonra yapılandırmayı kaydedin. 
    
-    Bağlantı hattınız bir doğrulama gerekli durumuna geçerse, ön eklerin sahipliğine ait kanıtı destek ekibimize göstermek için bir destek bileti açmanız gerekir.  
+    Bağlantı hattınız bir doğrulama gerekli durumuna geçerse, ön eklerin sahipliğine ait kanıtı destek ekibimize göstermek için bir destek bileti açmanız gerekir.    
    
     ![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft5.png)
 
-    Aşağıda gösterildiği gibi destek biletini doğrudan portal üzerinden açabilirsiniz   
+    Aşağıda gösterildiği gibi destek biletini doğrudan portal üzerinden açabilirsiniz     
 
     ![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft6.png)
 
@@ -161,28 +165,31 @@ Bu bölümde bir ExpressRoute bağlantı hattı için Microsoft eşleme yapılan
    
     ![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft7.png)
 
-### Microsoft eşleme ayrıntılarını görüntülemek için
+### <a name="to-view-microsoft-peering-details"></a>Microsoft eşleme ayrıntılarını görüntülemek için
 Eşlemeyi seçerek Azure ortak eşleme özelliklerini görüntüleyebilirsiniz.
 
 ![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft3.png)
 
-### Microsoft eşlemesi yapılandırmasını güncelleştirmek için
+### <a name="to-update-microsoft-peering-configuration"></a>Microsoft eşlemesi yapılandırmasını güncelleştirmek için
 Eşleme için satırı seçebilir ve eşleme özelliklerini değiştirebilirsiniz. 
 
 ![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft7.png)
 
-### Microsoft eşlemesini silmek için
+### <a name="to-delete-microsoft-peering"></a>Microsoft eşlemesini silmek için
 Aşağıda gösterilen silme simgesini seçerek eşleme yapılandırmanızı kaldırabilirsiniz.
 
 ![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft4.png)
 
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 Sonraki adım, [ExpressRoute bağlantı hattına bir VNet bağlama](expressroute-howto-linkvnet-arm.md).
 
 * ExpressRoute iş akışları hakkında daha fazla bilgi için bkz. [ExpressRoute iş akışları](expressroute-workflows.md).
 * Bağlantı hattı eşlemesi hakkında daha fazla bilgi için bkz. [ExpressRoute bağlantı hattı ve yönlendirme etki alanları](expressroute-circuit-peerings.md).
 * Sanal ağlarla çalışma hakkında daha fazla bilgi için bkz. [Sanal ağa genel bakış](../virtual-network/virtual-networks-overview.md).
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

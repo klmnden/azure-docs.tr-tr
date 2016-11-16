@@ -1,22 +1,26 @@
 ---
-title: İlk Java web uygulamanızı beş dakikada Azure'da dağıtma | Microsoft Docs
-description: Örnek bir uygulama dağıtarak App Service'te web uygulamaları çalıştırmanın ne kadar kolay olduğunu öğrenin. Hızlı bir şekilde gerçek geliştirmeler yapmaya başlayın ve sonuçlarını anında görün.
+title: "İlk Java web uygulamanızı beş dakikada Azure&quot;da dağıtma | Microsoft Belgeleri"
+description: "Örnek bir uygulama dağıtarak App Service&quot;te web uygulamaları çalıştırmanın ne kadar kolay olduğunu öğrenin. Hızlı bir şekilde gerçek geliştirmeler yapmaya başlayın ve sonuçlarını anında görün."
 services: app-service\web
-documentationcenter: ''
+documentationcenter: 
 author: cephalin
 manager: wpickett
-editor: ''
-
+editor: 
+ms.assetid: 8bacfe3e-7f0b-4394-959a-a88618cb31e1
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 09/16/2016
+ms.date: 10/13/2016
 ms.author: cephalin
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 9c59def4fd3fbc9d94d922bc2e7a7c077a465b21
+
 
 ---
-# İlk Java web uygulamanızı beş dakikada Azure'da dağıtın
+# <a name="deploy-your-first-java-web-app-to-azure-in-five-minutes"></a>İlk Java web uygulamanızı beş dakikada Azure'da dağıtın
 Bu öğretici, [Azure Uygulama Hizmeti](../app-service/app-service-value-prop-what-is.md)’nde basit bir Java web uygulaması dağıtmanıza yardımcı olur.
 Web uygulamaları, [mobil uygulama arka uçları](/documentation/learning-paths/appservice-mobileapps/) ve [API Apps](../app-service-api/app-service-api-apps-why-best-platform.md) oluşturmak için App Service kullanabilirsiniz.
 
@@ -26,7 +30,7 @@ Yapacaklarınız:
 * Örnek bir Java uygulaması dağıtın.
 * Kodunuzun üretim ortamında dinamik bir şekilde çalıştığını görün.
 
-## Önkoşullar
+## <a name="prerequisites"></a>Önkoşullar
 * [FileZilla](https://filezilla-project.org/) gibi bir FTP/FTPS istemcisi edinin.
 * Bir Microsoft Azure hesabı edinin. Bir hesabınız yoksa, [ücretsiz deneme için kaydolabilir](/pricing/free-trial/?WT.mc_id=A261C142F) veya [Visual Studio abone avantajlarınızı etkinleştirebilirsiniz.](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)
 
@@ -37,7 +41,7 @@ Yapacaklarınız:
 
 <a name="create"></a>
 
-## Web uygulaması oluşturma
+## <a name="create-a-web-app"></a>Web uygulaması oluşturma
 1. Azure hesabınızla [Azure portalında](https://portal.azure.com) oturum açın.
 2. Sol menüden **Yeni** > **Web + Mobil** > **Web Uygulaması**'na tıklayın.
    
@@ -61,7 +65,7 @@ Yapacaklarınız:
    
     ![](./media/app-service-web-get-started-languages/create-web-app-resource.png)
 
-## Bir Java uygulamasını web uygulamanızda dağıtma
+## <a name="deploy-a-java-app-to-your-web-app"></a>Bir Java uygulamasını web uygulamanızda dağıtma
 Şimdi, FTPS kullanarak bir Java uygulamasını Azure’da dağıtalım.
 
 1. Web uygulaması dikey penceresinde aşağı kaydırarak veya arayarak **Uygulama ayarlarını** bulun ve üzerine tıklayın. 
@@ -100,19 +104,22 @@ Yapacaklarınız:
 
 İşte bu kadar! Java uygulamanız artık Azure'da çalışıyor. Kodunuzun nasıl çalıştığını görmek için tarayıcınızda http://*&lt;uygulamaadı >*.azurewebsites.net sayfasına gidin. 
 
-## Uygulamanızda güncelleştirmeler yapma
+## <a name="make-updates-to-your-app"></a>Uygulamanızda güncelleştirmeler yapma
 Bir güncelleştirme yapmanız gerektiğinde, yeni WAR dosyasını FTP/FTPS istemcinizle aynı uzak dizine yüklemeniz yeterlidir.
 
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 [Azure Market’te şablondan Java web uygulaması oluşturma](web-sites-java-get-started.md#marketplace). Tamamen özelleştirilebilen kendi Tomcat kapsayıcınıza sahip olabilir ve alışık olduğunuz Yönetici Kullanıcı Arabiriminden yararlanabilirsiniz. 
 
 Doğrudan [IntelliJ](app-service-web-debug-java-web-app-in-intellij.md) veya [Eclipse](app-service-web-debug-java-web-app-in-eclipse.md) içinden Azure web uygulamanızda hata ayıklayın.
 
 Veya ilk web uygulamanızla daha fazlasını yapın. Örnek:
 
-* [Kodunuzu Azure'a dağıtmanın diğer yollarını](web-sites-deploy.md) deneyin. Örneğin, GitHub depolarınızın birinden dağıtım yapmak için **Dağıtım seçenekleri**'nde **Yerel Git Deposu** yerine **GitHub**'ı seçmeniz yeterlidir.
+* [Kodunuzu Azure'a dağıtmanın diğer yollarını](web-sites-deploy.md) deneyin. 
 * Azure uygulamanızı bir sonraki seviyeye taşıyın. Kullanıcılarınızın kimliklerini doğrulayın. Talebe göre ölçeklendirin. Performans uyarıları ayarlayın. Tümünü birkaç tıklamayla gerçekleştirin. Bkz. [İlk web uygulamanıza işlevsellik ekleme](app-service-web-get-started-2.md).
 
-<!--HONumber=Oct16_HO1-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

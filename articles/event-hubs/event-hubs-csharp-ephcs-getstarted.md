@@ -1,12 +1,12 @@
 ---
-title: C# Dilinde Event Hubs Kullanmaya Başlayın | Microsoft Docs
-description: Azure Event Hubs’ı C# ve EventProcessorHost ile kullanmaya başlamak için bu öğreticiyi izleyin.
+title: "C# Dilinde Event Hubs Kullanmaya Başlayın | Microsoft Belgeleri"
+description: "Azure Event Hubs’ı C# ve EventProcessorHost ile kullanmaya başlamak için bu öğreticiyi izleyin."
 services: event-hubs
-documentationcenter: ''
+documentationcenter: 
 author: jtaubensee
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 2ec2378a-34f7-44c3-b976-cc444c98c338
 ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 09/02/2016
 ms.author: jotaub;sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 35a7e4693ef979dfb947714f2fe5ce5599991189
+
 
 ---
 # <a name="get-started-with-event-hubs"></a>Event Hubs kullanmaya başlayın
@@ -22,7 +26,7 @@ ms.author: jotaub;sethm
 ## <a name="introduction"></a>Giriş
 Event Hubs bağlı cihaz ve uygulamalardan büyük miktarlarda olay verileri (telemetri) işleyen bir hizmettir. Verileri Event Hubs’a topladıktan sonra bir depolama kümesi kullanarak depolayabilir veya gerçek zamanlı bir analiz sağlayıcısı kullanarak dönüştürebilirsiniz. Bu büyük ölçekli olay toplama ve işleme özelliği, Nesnelerin İnterneti (IoT) gibi modern uygulama mimarilerinin temel bir bileşenidir.
 
-Bu öğretici, klasik Azure portalının bir Event Hub'ı oluşturmak için nasıl kullanılacağını gösterir. Ayrıca C# dilinde yazılmış bir konsol uygulaması kullanarak iletilerin bir Event Hub'ına toplanması ve C# [Olay İşleyicisi Konağı][] kitaplığı kullanılarak bunların paralel olarak alınması gösterilmektedir.
+Bu öğretici, klasik Azure portalının bir Event Hub'ı oluşturmak için nasıl kullanılacağını gösterir. Ayrıca C# dilinde yazılmış bir konsol uygulaması kullanarak iletilerin bir Event Hub'ına toplanması ve C# [Olay İşleyicisi Konağı][Olay İşleyicisi Konağı] kitaplığı kullanılarak bunların paralel olarak alınması gösterilmektedir.
 
 Bu öğreticiyi tamamlamak için şunlar gerekir:
 
@@ -61,7 +65,7 @@ Bu öğreticiyi tamamlamak için şunlar gerekir:
 ## <a name="next-steps"></a>Sonraki adımlar
 Event Hub'ı oluşturan ve veri gönderip alan çalışan bir uygulama oluşturduğunuza göre aşağıdaki senaryolara geçebilirsiniz:
 
-* [Event Hubs kullanan bir örnek uygulamanın][] tamamı.
+* Eksiksiz bir [Event Hubs kullanan örnek uygulama][Event Hubs kullanan örnek uygulama].
 * [Event Hubs ile Olay İşleme Ölçeğini Artırma][Event Hubs ile Olay İşleme Ölçeğini Artırma] örneği.
 * [Event Hubs’a genel bakış][Event Hubs’a genel bakış]
 
@@ -73,15 +77,15 @@ Event Hub'ı oluşturan ve veri gönderip alan çalışan bir uygulama oluşturd
 
 <!-- Links -->
 [Klasik Azure portalı]: https://manage.windowsazure.com/
-[Olay İşlemcisi Konağı]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
+[Olay İşleyicisi Konağı]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [Event Hubs’a genel bakış]: event-hubs-overview.md
 [Event Hubs kullanan örnek uygulama]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
-[Event Hubs ile Olay İşleme ölçeğini artırma]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
+[Event Hubs ile Olay İşleme Ölçeğini Artırma]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
 [kuyruğa alınan mesajlaşma çözümü]: ../service-bus-messaging/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
 
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

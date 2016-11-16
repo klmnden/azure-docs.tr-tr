@@ -1,4 +1,4 @@
-## Blob Storage nedir?
+## <a name="what-is-blob-storage"></a>Blob Storage nedir?
 Azure Blob Storage; HTTP veya HTTPS aracılığıyla dünyanın her yerinde erişilebilen metin veya ikili veriler gibi büyük miktarda yapılandırılmamış nesne verilerinin depolanması için bir hizmettir. Verileri genel olarak herkese açık kullanıma sunmak veya uygulama verilerini özel olarak depolamak için Blob Storage’ı kullanabilirsiniz.
 
 Blob Storage’ın yaygın kullanımları şunlardır:
@@ -9,7 +9,7 @@ Blob Storage’ın yaygın kullanımları şunlardır:
 * Yedekleme ve geri yükleme, olağanüstü durum kurtarma ve arşivleme için verilerin depolanması
 * Şirket içi veya Azure barındırılan hizmetle analiz için verilerin depolanması
 
-## Blob hizmeti kavramları
+## <a name="blob-service-concepts"></a>Blob hizmeti kavramları
 Blob hizmetinde şu bileşenler bulunur:
 
 ![Blob1][Blob1]
@@ -27,7 +27,6 @@ Blob hizmetinde şu bileşenler bulunur:
 [Blob1]: ./media/storage-blob-concepts-include/blob1.jpg
 
 
-
-<!--HONumber=sep16_HO2-->
+<!--HONumber=Nov16_HO2-->
 
 

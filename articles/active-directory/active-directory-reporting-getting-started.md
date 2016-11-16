@@ -1,12 +1,12 @@
 ---
-title: 'Azure Active Directory Raporlama: Başlarken | Microsoft Docs'
-description: Azure Active Directory raporlamada kullanılabilen çeşitli raporları listeler
+title: "Azure Active Directory Raporlama: Başlarken | Microsoft Belgeleri"
+description: "Azure Active Directory raporlamada kullanılabilen çeşitli raporları listeler"
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: dhanyahk
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 7ac99919-8df5-4424-9298-fc7c025ba949
 ms.service: active-directory
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/07/2016
 ms.author: dhanyahk
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 6ce0e0ce9004e1b331328fca5830f01b6ce6af6c
+
 
 ---
-# Azure Active Directory Raporlama ile çalışmaya başlama
-## Nedir?
+# <a name="getting-started-with-azure-active-directory-reporting"></a>Azure Active Directory Raporlama ile çalışmaya başlama
+## <a name="what-it-is"></a>Nedir?
 Azure Active Directory (Azure AD), dizininize yönelik güvenlik, etkinlik ve denetim raporlarını içerir. Kapsama dahil olan raporların listesi şu şekildedir:
 
-### Güvenlik raporları
+### <a name="security-reports"></a>Güvenlik raporları
 * Bilinmeyen kaynaklardan gerçekleştirilen oturum açma işlemleri
 * Birden çok hatadan sonra gerçekleştirilen oturum açma işlemleri
 * Birden çok coğrafyadan gerçekleştirilen oturum açma işlemleri
@@ -29,7 +33,7 @@ Azure Active Directory (Azure AD), dizininize yönelik güvenlik, etkinlik ve de
 * Muhtemelen virüs bulaşmış cihazlardan gerçekleştirilen oturum açma işlemleri
 * Anormal oturum açma etkinliği gösteren kullanıcılar
 
-### Etkinlik raporları
+### <a name="activity-reports"></a>Etkinlik raporları
 * Uygulama kullanımı: özet
 * Uygulama kullanımı: ayrıntılı
 * Uygulama panosu
@@ -40,7 +44,7 @@ Azure Active Directory (Azure AD), dizininize yönelik güvenlik, etkinlik ve de
 * Parola Sıfırlama Kayıt Etkinlik Raporu
 * Parola sıfırlama etkinliği
 
-### Denetim raporları
+### <a name="audit-reports"></a>Denetim raporları
 * Dizin denetimi raporu
 
 > [!TIP]
@@ -48,15 +52,15 @@ Azure Active Directory (Azure AD), dizininize yönelik güvenlik, etkinlik ve de
 > 
 > 
 
-## Nasıl çalışır?
-### Raporlama işlem hattı
+## <a name="how-it-works"></a>Nasıl çalışır?
+### <a name="reporting-pipeline"></a>Raporlama işlem hattı
 Raporlama işlem hattı üç ana adımdan oluşur. Bir kullanıcı her oturum açtığında veya kimlik doğrulama işlemi gerçekleştirildiğinde aşağıdakiler gerçekleşir:
 
 * İlk olarak, kullanıcının kimliği doğrulanır (başarıyla veya başarısız şekilde) ve sonuç Azure Active Directory hizmeti veritabanlarında depolanır.
 * Düzenli aralıklarla, en yeni oturum açma işlemlerinin tümü işlenir. Bu noktada, güvenlik ve anormal etkinlik algoritmalarımız en yeni oturum açma işlemlerinin tümünde şüpheli etkinlik araması gerçekleştirmektedir.
 * İşleme aşamasının ardından raporlar yazılır, önbelleğe alınır ve klasik Azure portalında sunulur.
 
-### Rapor oluşturma süreleri
+### <a name="report-generation-times"></a>Rapor oluşturma süreleri
 Azure AD platformu tarafından işlenen kimlik doğrulama ve oturum açma işlemlerinin çok fazla olması nedeniyle, işlenen en yeni oturum açma işlemleri ortalama olarak bir saat öncesine aittir. Nadir durumlarda, en yeni oturum açma işlemlerinin işlenmesi 8 saate kadar sürebilir.
 
 En son işlenen oturum açma işlemini, her bir raporun üst kısmındaki yardım metnini inceleyerek bulabilirsiniz.
@@ -68,23 +72,23 @@ En son işlenen oturum açma işlemini, her bir raporun üst kısmındaki yardı
 > 
 > 
 
-## Başlarken
-### Klasik Azure portalında oturum açma
+## <a name="getting-started"></a>Başlarken
+### <a name="sign-into-the-azure-classic-portal"></a>Klasik Azure portalında oturum açma
 Öncelikle [klasik Azure portalında](https://manage.windowsazure.com) genel yönetici veya uyumluluk yöneticisi olarak oturum açmanız gerekir. Ayrıca bir Azure aboneliği hizmet yöneticisi veya ortak yöneticisi olmanız veya "Azure AD Erişimi" Azure aboneliğini kullanıyor olmanız gerekir.
 
-### Raporlara gitme
+### <a name="navigate-to-reports"></a>Raporlara gitme
 Raporları görüntülemek için dizininizin üst kısmındaki Raporlar sekmesine gidin.
 
 Raporları ilk kez görüntülüyorsanız raporları görüntüleyebilmek için ilk olarak bir iletişim kutusunu kabul etmeniz gerekir. Bu işlem, bazı ülkelerde özel bilgi olarak kabul edilebilecek olan bu verilerin kuruluşunuzdaki yöneticiler tarafından görüntülenmesinin kabul edilebilir olduğundan emin olmak amacıyla gerçekleştirilir.
 
 ![İletişim kutusu](./media/active-directory-reporting-getting-started/dialogBox.png)
 
-### Raporların her birini araştırma
+### <a name="explore-each-report"></a>Raporların her birini araştırma
 Toplanmakta olan verileri ve işlenen oturum açma işlemlerini görmek için her rapora gidin. [Tüm raporların listesini burada](active-directory-reporting-guide.md) bulabilirsiniz.
 
 ![Tüm raporlar](./media/active-directory-reporting-getting-started/reportsMain.png)
 
-### Raporları CSV olarak indirme
+### <a name="download-the-reports-as-csv"></a>Raporları CSV olarak indirme
 Raporların her biri CSV (virgülle ayrılmış değer) dosyası olarak indirilebilir. Verilerinizi daha ayrıntılı olarak çözümlemek için bu dosyaları Excel, PowerBI veya üçüncü taraf analiz programlarında kullanabilirsiniz.
 
 Herhangi bir raporu CSV olarak indirmek için rapora gidin ve alt taraftaki "İndir" düğmesine tıklayın.
@@ -96,8 +100,8 @@ Herhangi bir raporu CSV olarak indirmek için rapora gidin ve alt taraftaki "İn
 > 
 > 
 
-## Sonraki adımlar
-### Anormal oturum açma etkinliği için uyarıları özelleştirme
+## <a name="next-steps"></a>Sonraki adımlar
+### <a name="customize-alerts-for-anomalous-sign-in-activity"></a>Anormal oturum açma etkinliği için uyarıları özelleştirme
 Dizininizin "Yapılandır" sekmesine gidin.
 
 Sayfayı kaydırarak "Bildirimler" bölümüne gidin.
@@ -106,10 +110,10 @@ Sayfayı kaydırarak "Bildirimler" bölümüne gidin.
 
 ![Bildirimler bölümü](./media/active-directory-reporting-getting-started/notificationsSection.png)
 
-### Azure AD Raporlama API'si ile tümleştirme
+### <a name="integrate-with-the-azure-ad-reporting-api"></a>Azure AD Raporlama API'si ile tümleştirme
 Bkz. [Raporlama API'si ile çalışmaya başlama](active-directory-reporting-api-getting-started.md).
 
-### Multi-Factor Authentication'ı kullanıcılar üzerinde uygulama
+### <a name="engage-multifactor-authentication-on-users"></a>Multi-Factor Authentication'ı kullanıcılar üzerinde uygulama
 Rapordaki bir kullanıcıyı seçin.
 
 Ekranın alt kısmındaki "MFA'yı etkinleştir" düğmesine tıklayın.
@@ -121,21 +125,24 @@ Ekranın alt kısmındaki "MFA'yı etkinleştir" düğmesine tıklayın.
 > 
 > 
 
-## Daha fazla bilgi edinin
-### Denetim olayları
+## <a name="learn-more"></a>Daha fazla bilgi edinin
+### <a name="audit-events"></a>Denetim olayları
 [Azure Active Directory Raporlama Denetim Olayları](active-directory-reporting-audit-events.md) içinde hangi olayların dizinde denetlendiği konusunda bilgi edinin.
 
-### API Tümleştirme
+### <a name="api-integration"></a>API Tümleştirme
 Bkz. [Raporlama API'si ile çalışmaya başlama](active-directory-reporting-api-getting-started.md) ve [API başvuru belgeleri](https://msdn.microsoft.com/library/azure/mt126081.aspx).
 
-### İletişim
-Geri bildirim, yardım veya sormak istediğiniz sorular için [aadreportinghelp@microsoft.com](mailto:aadreportinghelp@microsoft.com) adresine e-posta gönderin.
+### <a name="get-in-touch"></a>İletişim
+Geri bildirim, yardım veya her türlü sorularınız için [aadreportinghelp@microsoft.com](mailto:aadreportinghelp@microsoft.com) adresine e-posta gönderin.
 
 > [!TIP]
 > Azure AD Raporlama ile ilgili daha fazla belge için [Erişim ve kullanım raporlarınızı görüntüleme](active-directory-view-access-usage-reports.md) bölümüne bakın.
 > 
 > 
 
-<!--HONumber=Sep16_HO4-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

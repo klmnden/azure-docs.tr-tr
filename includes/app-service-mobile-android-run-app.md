@@ -4,12 +4,11 @@
 3. Projeyi oluşturmak için **’Uygulamayı’ çalıştır** düğmesine basın ve uygulamayı Android benzeticisinde başlatın.
 4. Uygulamada, *Öğreticiyi tamamla* gibi anlamlı bir metin yazın ve ardından ‘Ekle’ düğmesine basın. Böylece, daha önce dağıttığınız Azure arka ucuna bir POST isteği gönderilir. Arka uç, verileri istekten TodoItem SQL tablosuna ekler ve yeni depolanan öğeler hakkındaki bilgileri mobil uygulamaya döndürür. Mobil uygulama bu verileri listede görüntüler. 
    
-    ![](./media/mobile-services-android-get-started/mobile-quickstart-startup-android.png)
+    ![](./media/app-service-mobile-android-quickstart/mobile-quickstart-startup-android.png)
 
 [Azure Portal]: https://portal.azure.com/
 
 
-
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Nov16_HO2-->
 
 

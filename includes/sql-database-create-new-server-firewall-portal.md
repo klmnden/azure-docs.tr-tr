@@ -9,22 +9,22 @@ articles/sql-database/sql-database-get-started-tutorial.md
 articles/sql-database/sql-database-configure-firewall-settings
 
 -->
-## Yeni bir Azure SQL sunucu düzeyinde güvenlik duvarı oluşturma
+## <a name="create-a-new-azure-sql-serverlevel-firewall"></a>Yeni bir Azure SQL sunucu düzeyinde güvenlik duvarı oluşturma
 Tek bir IP adresinden (istemci bilgisayarınız) veya bir IP adresi aralığının tamamından SQL Veritabanı mantıksal sunucusuna bağlantılara izin veren sunucu düzeyinde güvenlik duvarı kuralı oluşturmak için Azure portalında aşağıdaki adımları kullanın.
 
 1. O anda bağlı değilseniz [Azure portal](http://portal.azure.com)’a bağlanın.
 2. Varsayılan dikey penceresinde **SQL sunucuları**’na tıklayın.
    
-    ![Yeni sunucu güvenlik duvarı](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-1.png)
+      ![Yeni sunucu güvenlik duvarı](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-1.png)
 3. **SQL sunucuları** dikey penceresinde güvenlik duvarı kuralının oluşturulacağı SQL sunucusuna tıklayın.
    
-    ![Yeni sunucu güvenlik duvarı](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-2.png)
+     ![Yeni sunucu güvenlik duvarı](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-2.png)
 4. Sunucunuz özelliklerini gözden geçirin.
    
-    ![Yeni sunucu güvenlik duvarı](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-3.png)
+     ![Yeni sunucu güvenlik duvarı](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-3.png)
 5. **Ayarlar** dikey penceresinde **Güvenlik Duvarı**’na tıklayın.
    
-    ![Yeni sunucu güvenlik duvarı](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-4.png)
+     ![Yeni sunucu güvenlik duvarı](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-4.png)
    
    > [!NOTE]
    > Sunucu düzeyi **Güvenlik duvarı ayarları** dikey penceresine **Veritabanı** dikey penceresi araç çubuğundan da erişebilirsiniz.
@@ -45,6 +45,8 @@ Tek bir IP adresinden (istemci bilgisayarınız) veya bir IP adresi aralığın�
    > 
    > 
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

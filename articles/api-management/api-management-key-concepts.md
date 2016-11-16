@@ -1,22 +1,26 @@
 ---
-title: API Management temel kavramları
-description: API'ler, ürünler, roller, gruplar ve diğer API Management temel kavramları hakkında bilgi edinin.
+title: "API Management temel kavramları"
+description: "API&quot;ler, ürünler, roller, gruplar ve diğer API Management temel kavramları hakkında bilgi edinin."
 services: api-management
-documentationcenter: ''
+documentationcenter: 
 author: steved0x
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: e71da405-835a-48f3-956f-45c1a85698d7
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 08/09/2016
+ms.date: 10/25/2016
 ms.author: sdanie
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: dcff834c9d4aff82e8319e6c23a74c2e49902a8c
+
 
 ---
-# API Management nedir?
+# <a name="what-is-api-management"></a>API Management nedir?
 API Management, kuruluşların kendi veri ve hizmet potansiyellerini ortaya çıkarmak üzere API’leri dış, iş ortağı ve iç geliştiricilere yayımlamalarına yardımcı olur. Her yerdeki işletmeler, bir dijital platform olarak işlemlerini genişletmek, yeni kanallar oluşturmak, yeni müşteriler bulmak ve mevcut müşterilerle daha derin etkileşimi yürütmeyi amaçlar. API Management; geliştirici katılımı, iş öngörüleri, analizler, güvenlik ve koruma aracılığıyla başarılı bir API programı yürütmeye ilişkin temel yetkinlikler sağlar.
 
 Azure API Management’e genel bakış için aşağıdaki videoyu izleyin ve erişim denetimi, hız sınırlaması, izleme, olay günlüğüne kaydetme ve yanıt önbelleğe alma gibi birçok özelliği minimum çabayla API’nize eklemek için API Management’i kullanmayı öğrenin.
@@ -75,7 +79,7 @@ Geliştiriciler API Management hizmet örneğindeki kullanıcı hesaplarını te
 
 Bir ürüne abone olan geliştiricilere ürün için birincil ve ikincil anahtar verilir. Bu anahtar ürün API’lerine çağrılar yapılırken kullanılır.
 
-Daha fazla bilgi için bkz. [Geliştirici oluşturma ve davet etme][Geliştirici oluşturma ve davet etme] ve [Grupları geliştiricilerle ilişkilendirme][Grupları geliştiricilerle ilişkilendirme].
+Daha fazla bilgi edinmek için bkz. [Geliştirici oluşturma ve davet etme][Geliştirici oluşturma ve davet etme] ve [Grupları geliştiricilerle ilişkilendirme][Grupları geliştiricilerle ilişkilendirme].
 
 ## <a name="policies"> </a> İlkeler
 İlkeler, yayımcının API’nin davranışını yapılandırma yoluyla değiştirmesini sağlayan güçlü API Management özellikleridir. İlkeler, bir API isteği veya yanıtı üzerinde sırayla yürütülen deyimlerin bir koleksiyonudur. Sık kullanılan deyimler, XML’den JSON’a biçim dönüştürmeyi ve bir geliştiriciden gelen çağrıların sayısını sınırlamak üzere çağrı hızını sınırlamayı ve çeşitli ilkeleri içerir.
@@ -97,7 +101,7 @@ Geliştirici portalı, geliştiricilerin API’leriniz hakkında bilgi alabilece
 
 Özel içerik ekleyerek, stilleri özelleştirerek ve marka bilgilerinizi ekleyerek, geliştirici portalınızın genel görünümünü özelleştirebilirsiniz.
 
-## API Management ve API ekonomisi
+## <a name="api-management-and-the-api-economy"></a>API Management ve API ekonomisi
 API Management hakkında daha fazla bilgi için Microsoft Ignite 2015 konferansına ait aşağıdaki sunuyu izleyin.
 
 > [!VIDEO https://channel9.msdn.com/Events/Ignite/2015/BRK3708/player]
@@ -128,6 +132,6 @@ API Management hakkında daha fazla bilgi için Microsoft Ignite 2015 konferans�
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

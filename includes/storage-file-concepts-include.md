@@ -1,4 +1,4 @@
-## Azure File Storage nedir?
+## <a name="what-is-azure-file-storage"></a>Azure File Storage nedir?
 File Storage standart SMB 2.1 veya SMB 3.0 protokolünü kullanan uygulamalar için paylaşılan depolama alanı sağlar. Microsoft Azure Virtual Machines ve Cloud Services bağlı paylaşımlar üzerinden uygulama bileşenleri arasında dosya verileri paylaşabilir ve şirket içi uygulamalar, File Storage API’si üzerinden dosya verilerine erişebilir.
 
 Azure Virtual Machines veya Cloud Services’ta çalışan uygulamalar, bir masaüstü uygulamasının tipik bir SMB paylaşımına bağlandığı şekilde buluta, dosya verilerine erişmek amacıyla File Storage paylaşımı bağlayabilir. Ardından herhangi bir sayıda Azure sanal makinesi veya rolü eş zamanlı olarak File Storage paylaşımını bağlayıp buna erişim sağlayabilir.
@@ -12,7 +12,7 @@ File Storage’ın yaygın kullanımları şunlardır:
 * Paylaşılan konumda günlükler, ölçümler ve kilitlenme dökümleri gibi tanılama verilerinin depolanması 
 * Azure Virtual Machines veya Cloud Services’ın geliştirilmesi ya da yönetilmesi için gereken araçların ve yardımcı programların depolanması
 
-## File Storage kavramları
+## <a name="file-storage-concepts"></a>File Storage kavramları
 File Storage’da şu bileşenler bulunur:
 
 ![files-concepts][files-concepts]
@@ -33,6 +33,6 @@ Dosya paylaşımlarının, dizinlerin ve dosyaların adlandırılması hakkında
 
 [files-concepts]: ./media/storage-file-concepts-include/files-concepts.png
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

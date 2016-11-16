@@ -1,14 +1,13 @@
 ---
-title: DC/OS CLI’yi yükleme | Microsoft Docs
-description: DC/OS CLI’yi yükleyin.
+title: "DC/OS CLI’yi yükleme | Microsoft Belgeleri"
+description: "DC/OS CLI’yi yükleyin."
 services: container-service
-documentationcenter: ''
+documentationcenter: 
 author: rgardler
 manager: timlt
-editor: ''
+editor: 
 tags: acs, azure-container-service
-keywords: Kapsayıcılar, Mikro hizmetler, DC/OS, Azure
-
+keywords: "Kapsayıcılar, Mikro hizmetler, DC/OS, Azure"
 ms.service: container-service
 ms.devlang: na
 ms.topic: get-started-article
@@ -16,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/10/2016
 ms.author: rogardle
+translationtype: Human Translation
+ms.sourcegitcommit: e664ce9426a2852a35dfdade5d41a9ce8b37a3b7
+ms.openlocfilehash: a8ea47f158c0d666340815d2e039995c7483257f
+
 
 ---
 > [!NOTE]
@@ -50,6 +53,6 @@ dcos --help
 ```
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

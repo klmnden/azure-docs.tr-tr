@@ -1,24 +1,27 @@
 ---
-title: Application Gateway Web Uygulaması Güvenlik Duvarı| Microsoft Docs
-description: Bu sayfada Application Gateway Web Uygulaması Güvenlik Duvarı işlevselliğine genel bir bakış sunulmaktadır.
+title: "Application Gateway için Web Uygulaması Güvenlik Duvarı&quot;na (WAF) Giriş | Microsoft Belgeleri"
+description: "Bu sayfada Application Gateway için Web Uygulaması Güvenlik Duvarı (WAF) ile ilgili genel bir bakış sağlanmaktadır "
 documentationcenter: na
 services: application-gateway
 author: amsriva
 manager: rossort
 editor: amsriva
-
+ms.assetid: 04b362bc-6653-4765-86f6-55ee8ec2a0ff
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/26/2016
+ms.date: 11/10/2016
 ms.author: amsriva
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 69dd0b2d33c93edfa3073ce297d9a3ff948a037e
+
 
 ---
-# <a name="application-gateway-web-application-firewall-(preview)"></a>Application Gateway Web Uygulaması Güvenlik Duvarı (önizleme)
-Web uygulamaları, bilinen yaygın güvenlik açıklarından yararlanan kötü amaçlı saldırıların giderek daha fazla hedefi olmaktadır. Bu açıklardan yararlanma örnekleri arasında SQL ekleme saldırıları, siteler arası komut dosyası saldırıları yaygındır.
-Uygulama kodunda bu tür saldırıların önlenmesi zor olabilir ve uygulama topolojisinin birden fazla katmanında ayrıntılı bakım, düzeltme eki uygulama ve izleme işlemleri gerektirebilir. Merkezi bir web saldırısından korunma, güvenlik yönetimini çok daha kolay getirir ve izinsiz girişlere karşı uygulamaya yönelik daha iyi güvence sağlar. Bir WAF çözümü, web uygulamalarının her birinin güvenliğini sağlamaya göre, bilinen bir güvenlik açığına merkezi bir konumda düzeltme eki uygulayarak, güvenlik tehdidine daha hızlı tepki verebilir.
+# <a name="application-gateway-web-application-firewall-preview"></a>Application Gateway Web Uygulaması Güvenlik Duvarı (önizleme)
+Web uygulaması güvenlik duvarı (WAF), standart Application Delivery Control (ADC) işlevleri için Application Gateway'den faydalanan web uygulamalarını koruyan bir Azure Application Gateway özelliğidir. Web uygulaması güvenlik duvarı bunu, uygulamaları OWASP tarafından sunulan en yaygın 10 web güvenlik açığının çoğuna karşı koruyarak gerçekleştirir. Web uygulamaları, bilinen yaygın güvenlik açıklarından yararlanan kötü amaçlı saldırıların giderek daha fazla hedefi olmaktadır. Bu açıklardan yararlanma örnekleri arasında SQL ekleme saldırıları, siteler arası komut dosyası saldırıları yaygındır. Uygulama kodunda bu tür saldırıların önlenmesi zor olabilir ve uygulama topolojisinin birden fazla katmanında ayrıntılı bakım, düzeltme eki uygulama ve izleme işlemleri gerektirebilir. Web saldırılarına karşı korunacak merkezi bir web uygulaması, güvenlik yönetimini çok daha kolay hale getirir ve yetkisiz erişim tehditlerine karşı uygulamayı daha güvende tutar. Bir WAF çözümü, bilinen bir güvenlik açığına merkezi bir konumda düzeltme eki uygulayarak güvenlik tehdidine karşı, web uygulamalarının her birinin güvenliğini sağlamaya göre daha hızlı tepki verebilir. Var olan uygulama ağ geçitleri, web uygulaması güvenlik duvarı bulunan bir uygulama ağ geçidine kolaylıkla dönüştürülebilir.
 
 ![imageURLroute](./media/application-gateway-webapplicationfirewall-overview/WAF1.png)
 
@@ -54,23 +57,25 @@ Application Gateway WAF, algıladığı her tehdit için ayrıntılı raporlar s
 
 ![imageURLroute](./media/application-gateway-webapplicationfirewall-overview/waf2.png)
 
-    {
-        "resourceId": "/SUBSCRIPTIONS/<subscriptionId>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/<applicationGatewayName>",
-        "operationName": "ApplicationGatewayFirewall",
-        "time": "2016-09-20T00:40:04.9138513Z",
-        "category": "ApplicationGatewayFirewallLog",
-        "properties":     {
-            "instanceId":"ApplicationGatewayRole_IN_0",
-            "clientIp":"108.41.16.164",
-            "clientPort":1815,
-            "requestUri":"/wavsep/active/RXSS-Detection-Evaluation-POST/",
-            "ruleId":"OWASP_973336",
-            "message":"XSS Filter - Category 1: Script Tag Vector",
-            "action":"Logged",
-            "site":"Global",
-            "message":"XSS Filter - Category 1: Script Tag Vector",
-            "details":{"message":" Warning. Pattern match "(?i)(<script","file":"/owasp_crs/base_rules/modsecurity_crs_41_xss_attacks.conf","line":"14"}}
-    }
+```json
+{
+    "resourceId": "/SUBSCRIPTIONS/<subscriptionId>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/<applicationGatewayName>",
+    "operationName": "ApplicationGatewayFirewall",
+    "time": "2016-09-20T00:40:04.9138513Z",
+    "category": "ApplicationGatewayFirewallLog",
+    "properties":     {
+        "instanceId":"ApplicationGatewayRole_IN_0",
+        "clientIp":"108.41.16.164",
+        "clientPort":1815,
+        "requestUri":"/wavsep/active/RXSS-Detection-Evaluation-POST/",
+        "ruleId":"OWASP_973336",
+        "message":"XSS Filter - Category 1: Script Tag Vector",
+        "action":"Logged",
+        "site":"Global",
+        "message":"XSS Filter - Category 1: Script Tag Vector",
+        "details":{"message":" Warning. Pattern match "(?i)(<script","file":"/owasp_crs/base_rules/modsecurity_crs_41_xss_attacks.conf","line":"14"}}
+}
+```
 
 ## <a name="application-gateway-waf-sku-pricing"></a>Application Gateway WAF SKU fiyatlandırması
 Önizleme sırasında Application Gateway WAF kullanımına yönelik ek bir ücret yoktur. Var olan Temel SKU ücretlerini ödemeye devam edersiniz. WAF SKU ücretleri GA zamanında duyurulacaktır. Application Gateway’i WAF SKU’suna dağıtmayı seçen müşteriler için WAF SKU fiyatlandırması yalnızca GA duyurusundan sonra tahakkuk etmeye başlar.
@@ -78,6 +83,9 @@ Application Gateway WAF, algıladığı her tehdit için ayrıntılı raporlar s
 ## <a name="next-steps"></a>Sonraki adımlar
 WAF özellikleri hakkında daha bilgi edindikten sonra lütfen [Application Gateway üzerinde Web Uygulaması Güvenlik Duvarı’nı yapılandırma](application-gateway-web-application-firewall-portal.md) sayfasını ziyaret edin.
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

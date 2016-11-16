@@ -1,4 +1,5 @@
 ## <a name="load-balancer-differences"></a>Load Balancer farklılıkları
+
 Microsoft Azure’u kullanarak ağ trafiğini dağıtmak için farklı seçenekler bulunur. Bu seçenekler birbirlerinden farklı şekilde çalışır, farklı özelliklere sahiptir ve farklı senaryoları destekler. Birbirlerinden ayrı olarak veya birleştirilerek kullanılabilirler.
 
 * **Azure Load Balancer**, aktarım katmanında (OSI ağ başvurusu yığınında Katman 4) çalışır. Aynı Azure veri merkezinde çalışan uygulama örnekleri arasında trafiğin ağ düzeyinde dağıtılmasını sağlar.
@@ -26,6 +27,7 @@ Azure Load Balancer ve Application Gateway, ağ trafiğini uç noktalara yönlen
 | Sistem durumu araştırmaları |Varsayılan: araştırma aralığı - 15 saniye Yönlendirme dışına çıkarma: Arka arkaya 2 hata. Kullanıcı tanımlı araştırmaları destekler |Boşta araştırma aralığı 30 saniye. Arka arkaya 5 canlı trafik hatasından veya boşta modunda tek bir araştırma hatasından sonra çıkarılır. Kullanıcı tanımlı araştırmaları destekler |
 | SSL aktarma |Desteklenmiyor |Destekleniyor |
 
-<!--HONumber=Oct16_HO3-->
+
+<!--HONumber=Nov16_HO2-->
 
 

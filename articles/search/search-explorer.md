@@ -1,10 +1,11 @@
 ---
-title: Azure Portal'ı kullanarak Azure Search Dizininizi sorgulama | Microsoft Docs
-description: Azure Portal'ın Arama Gezgini'ninde arama sorgusu gönderin.
+title: "Azure Portal&quot;ı kullanarak Azure Search Dizininizi sorgulama | Microsoft Belgeleri"
+description: "Azure Portal&quot;ın Arama Gezgini&quot;ninde arama sorgusu gönderin."
 services: search
-documentationcenter: ''
+manager: jhubbard
+documentationcenter: 
 author: ashmaka
-
+ms.assetid: 8e524188-73a7-44db-9e64-ae8bf66b05d3
 ms.service: search
 ms.devlang: NA
 ms.workload: search
@@ -12,9 +13,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 08/29/2016
 ms.author: ashmaka
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: a23372112e17703a3399e1bdc9eaf73b85a1f80d
+
 
 ---
-# Azure Portal'ı kullanarak Azure Search dizininizi sorgulama
+# <a name="query-your-azure-search-index-using-the-azure-portal"></a>Azure Portal'ı kullanarak Azure Search dizininizi sorgulama
 > [!div class="op_single_selector"]
 > * [Genel Bakış](search-query-overview.md)
 > * [Portal](search-explorer.md)
@@ -27,19 +32,19 @@ Bu kılavuz, Azure Portal'da Azure Search dizininizi nasıl sorgulayacağınız�
 
 Bu kılavuzda başlamadan önce, [Azure Search dizini oluşturmuş](search-what-is-an-index.md) ve [bunu verilerle doldurmuş](search-what-is-data-import.md) olmanız gerekir.
 
-## I. Azure Search dikey pencerenize gitme
+## <a name="i-go-to-your-azure-search-blade"></a>I. Azure Search dikey pencerenize gitme
 1. [Azure Portal](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)'ın sol tarafındaki menüde "Tüm kaynaklar"a tıklama
 2. Azure Search hizmetinizi seçme
 
-## II. Aramak istediğiniz dizini seçme
+## <a name="ii-select-the-index-you-would-like-to-search"></a>II. Aramak istediğiniz dizini seçme
 1. "Dizinler" kutucuğunda aramak istediğiniz dizini seçin.
 
 ![](./media/search-explorer/pick-index.png)
 
-## III. "Arama Gezgini" kutucuğuna tıklama
+## <a name="iii-click-on-the-search-explorer-tile"></a>III. "Arama Gezgini" kutucuğuna tıklama
 ![](./media/search-explorer/search-explorer-tile.png)
 
-## III. Aramayı başlatma
+## <a name="iii-start-searching"></a>III. Aramayı başlatma
 1. Azure Search dizininizi aramak için "*Sorgu dizesi*" alanına yazmaya başlayın ve ardından "**Ara**"'ya basın.
    
    * Arama Gezgini'ni kullanırken bir [sorgu parametreleri](https://msdn.microsoft.com/library/dn798927.aspx)'den herhangi birini belirtebilirsiniz
@@ -48,6 +53,9 @@ Bu kılavuzda başlamadan önce, [Azure Search dizini oluşturmuş](search-what-
 
 ![](./media/search-explorer/search-bar.png)
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

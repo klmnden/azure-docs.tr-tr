@@ -1,12 +1,12 @@
 ---
-title: Azure portalında Rol Tabanlı Erişim denetimini kullanma | Microsoft Docs
-description: Azure Portal'da Rol Tabanlı Erişim Denetimi ile erişim yönetimine başlayın. Kaynaklarınıza izinler atamak için rol atamalarını kullanın.
+title: "Azure portalında Rol Tabanlı Erişim Denetimini kullanma | Microsoft Belgeleri"
+description: "Azure Portal&quot;da Rol Tabanlı Erişim Denetimi ile erişim yönetimine başlayın. Kaynaklarınıza izinler atamak için rol atamalarını kullanın."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: kgremban
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 8078f366-a2c4-4fbb-a44b-fc39fd89df81
 ms.service: active-directory
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,18 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/10/2016
 ms.author: kgremban
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b930fe0a4a47cffebb579be43a77e87548549cfd
+
 
 ---
-# Azure abonelik kaynaklarınıza erişimi yönetmek için rol atamalarını kullanın
+# <a name="use-role-assignments-to-manage-access-to-your-azure-subscription-resources"></a>Azure abonelik kaynaklarınıza erişimi yönetmek için rol atamalarını kullanın
 > [!div class="op_single_selector"]
 > * [Kullanıcı veya gruba göre erişimi yönetme](role-based-access-control-manage-assignments.md)
-> * [Kaynaklara göre erişimi yönetme](role-based-access-control-configure.md)
+> * [Kaynağa göre erişimi yönetme](role-based-access-control-configure.md)
 > 
 > 
 
 Azure Rol Tabanlı Erişim Denetimi (RBAC), Azure için ayrıntılı erişim yönetimi sağlar. RBAC kullanarak, yalnızca kullanıcıların işlerini yapmak için gereksinim duyduğu erişim miktarını verebilirsiniz. Bu makale, Azure portalında RBAC ile çalışmaya başlamanıza yardımcı olur. RBAC'nin erişimi yönetmenize nasıl yardımcı olduğu konusunda daha fazla bilgi isterseniz bkz. [Rol Tabanlı Erişim Denetimi Nedir?](role-based-access-control-what-is.md).
 
-## Erişimi görüntüleme
+## <a name="view-access"></a>Erişimi görüntüleme
 Kimin bir kaynağa, kaynak grubuna veya aboneliğe erişimi olduğunu [Azure portal](https://portal.azure.com)'da ana dikey penceresinde görebilirsiniz. Örneğin, kimin kaynak gruplarımızdan birine erişimi olduğunu görmek istiyoruz:
 
 1. Soldaki gezinti çubuğunda **Kaynak grupları** seçeneğini belirleyin.  
@@ -43,7 +47,7 @@ Bazı kullanıcıların **Atanmış**, diğerlerinin **Devralınmış** erişime
 > 
 > 
 
-## Erişim Ekleme
+## <a name="add-access"></a>Erişim Ekleme
 Rol atamasının kapsamı olan kaynak, kaynak grubu veya abonelik içinden erişim verebilirsiniz.
 
 1. Erişim denetimi dikey penceresinde **Ekle**’yi seçin.  
@@ -56,7 +60,7 @@ Rol atamasının kapsamı olan kaynak, kaynak grubu veya abonelik içinden eriş
 
 Bir rol ataması başarıyla eklendikten sonra **Kullanıcılar** dikey penceresinde görüntülenir.
 
-## Erişimi Kaldırma
+## <a name="remove-access"></a>Erişimi Kaldırma
 1. Erişim denetimi dikey penceresinde rol atamasını seçin.
 2. Atama ayrıntıları dikey penceresinde **Kaldır**'ı seçin.  
 3. Kaldırmayı onaylamak için **Evet**'i seçin.  
@@ -66,18 +70,21 @@ Devralınmış atamalar kaldırılamaz. Aşağıdaki görüntüde kaldır düğm
 
 ![Kullanıcılar dikey penceresi - devralınmış erişim kaldır düğmesini devre dışı bırakır ekran görüntüsü](./media/role-based-access-control-configure/remove-access2.png)
 
-## Erişimi yönetmeye yönelik diğer araçlar
+## <a name="other-tools-to-manage-access"></a>Erişimi yönetmeye yönelik diğer araçlar
 Azure portal dışındaki araçlarda Azure RBAC komutları ile roller atayabilir ve erişimi yönetebilirsiniz.  Önkoşullar hakkında daha fazla bilgi edinmek ve Azure RBAC komutlarını kullanmaya başlamak için bağlantıları izleyin.
 
 * [Azure PowerShell](role-based-access-control-manage-access-powershell.md)
 * [Azure Komut Satırı Arabirimi](role-based-access-control-manage-access-azure-cli.md)
 * [REST API](role-based-access-control-manage-access-rest.md)
 
-## Sonraki Adımlar
+## <a name="next-steps"></a>Sonraki Adımlar
 * [Erişim değişiklik geçmişi raporu oluşturma](role-based-access-control-access-change-history-report.md)
 * Bkz. [RBAC yerleşik rolleri](role-based-access-built-in-roles.md)
 * Kendiniz için [Azure RBAC'de özel roller](role-based-access-control-custom-roles.md) tanımlama
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

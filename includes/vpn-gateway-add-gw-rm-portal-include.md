@@ -18,6 +18,8 @@
     ![Sanal ağ geçidi dağıtma](./media/vpn-gateway-add-gw-rm-portal-include/deployvnetgw150.png "Deploying Virtual network gateway")
 15. Ağ geçidi oluşturulduktan sonra, portalda sanal ağa bakarak bu ağ geçidine atanmış IP adresini görüntüleyebilirsiniz. Ağ geçidi bağlı bir cihaz gibi görüntülenir. Daha fazla bilgi görüntülemek için bağlı cihaza (sanal ağ geçidiniz) tıklayabilirsiniz.
 
-<!--HONumber=Oct16_HO1-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

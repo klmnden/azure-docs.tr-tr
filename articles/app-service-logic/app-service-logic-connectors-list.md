@@ -1,12 +1,12 @@
 ---
-title: Kullanılabilir Bağlayıcılar ve API Apps listesi | Microsoft Docs
-description: Azure App Service’deki Bağlayıcılar ve API Apps hakkında bilgi alın
+title: "Kullanılabilir Bağlayıcılar ve API Apps listesi | Microsoft Belgeleri"
+description: "Azure App Service’deki Bağlayıcılar ve API Apps hakkında bilgi alın"
 services: logic-apps
-documentationcenter: ''
+documentationcenter: 
 author: MandiOhlinger
 manager: erikre
 editor: cgronlun
-
+ms.assetid: 984a425d-ba64-48cc-90dc-bb624411e0f0
 ms.service: logic-apps
 ms.workload: integration
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/01/2016
 ms.author: mandia
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 6028fc53661978f63bbac89be6214ffebdc22405
+
 
 ---
-# Logic Apps içinde kullanılacak Bağlayıcılar ve API Apps listesi
+# <a name="list-of-connectors-and-api-apps-to-use-in-your-logic-apps"></a>Logic Apps içinde kullanılacak Bağlayıcılar ve API Apps listesi
 > [!NOTE]
 > Makalenin bu sürümü Logic Apps 2014-12-01-önizleme şema sürümü için geçerlidir. Logic Apps Genel Kullanılabilirlik (GA) sürümü için bkz. [Yeni Bağlayıcılar Listesi](../connectors/apis-list.md).
 > 
@@ -31,7 +35,7 @@ Fiyatlandırma bilgileri ve her bir Hizmet Katmanına dahil olanların listesi i
 > 
 > 
 
-## Çekirdek Bağlayıcılar
+## <a name="core-connectors"></a>Çekirdek Bağlayıcılar
 Aşağıdaki tabloda Microsoft tarafından oluşturulan ve Çekirdek Bağlayıcılar olarak kullanılabilen tüm mevcut bağlayıcılar ve API Apps listelenmiştir:
 
 | Ad | Açıklama |
@@ -40,7 +44,7 @@ Aşağıdaki tabloda Microsoft tarafından oluşturulan ve Çekirdek Bağlayıc�
 | [HTTP](app-service-logic-connector-http.md) |HTTP Dinleyicisi, HTTP sunucusu gibi davranan ve gelen HTTP ya da HTTPS isteklerini dinleyen bir uç nokta açar. HTTP eylemi bir API Uygulaması gerektirmez ve Logic Apps içinde yerel olarak desteklenir. |
 | [Slack](app-service-logic-connector-slack.md) |Slack’e bağlanın ve Slack kanallarında iletiler yayınlayın. |
 
-## Enterprise Integration Bağlayıcıları
+## <a name="enterprise-integration-connectors"></a>Enterprise Integration Bağlayıcıları
 Aşağıdaki tabloda Microsoft tarafından oluşturulan ve Enterprise Integration Bağlayıcıları olarak kullanılabilen tüm mevcut Bağlayıcılar ve API Uygulamaları listelenmiştir:
 
 | Ad | Açıklama |
@@ -53,25 +57,28 @@ Aşağıdaki tabloda Microsoft tarafından oluşturulan ve Enterprise Integratio
 | [Microsoft SQL Server](app-service-logic-connector-sql.md) |Şirket içi SQL Server veya bir Azure SQL veritabanına bağlanır. SQL veritabanı tablosunda girdiler oluşturabilir, güncelleştirebilir, alabilir ve silebilirsiniz. |
 | MQ |Şirket içinde ve Windows işletim sistemi çalıştıran bir Azure sanal makinesinde IBM WebSphere MQ Server sürüm 8’e bağlanır. Şirket içinde kullanılırken VPN veya Azure ExpressRoute kullanılabilir. Bağlayıcı ayrıca MQ için Microsoft Client içerir.<br/><br/>Tetikleyici yoktur. Eylem yoktur.<br/><br/>**Not** Şu anda Logic Apps ile kullanılamamaktadır. |
 
-## Tetikleyici Olarak Bağlayıcılar
+## <a name="connectors-as-triggers"></a>Tetikleyici Olarak Bağlayıcılar
 Logic Apps için tetikleyiciler birkaç bağlayıcı tarafından sağlanır. Bu tetikleyicilerin iki türü vardır:
 
 1. Yoklama Tetikleyicileri: Bu tetikleyiciler yeni verileri denetlemek için hizmetinizi belirtilen aralıkta yoklar. Yeni veriler kullanılabilir olduğunda, uygulamanızın yeni bir örneği girdi olarak verilerle çalışır. Aynı verinin birden çok kez kullanılmasını önlemek için, tetikleyici okunan ve Mantıksal Uygulama’ya geçirilen verileri temizleyebilir. Dosya, SQL ve Azure Storage bu tür bağlayıcıların örnekleridir.
 2. Anında İletme Tetikleyicileri: Bu tetikleyiciler uç noktada bir olayın meydana gelmesine ilişkin verileri dinler. Ardından, yeni bir Mantıksal Uygulama örneğini tetikler. HTTP Dinleyicisi ve Twitter bu tür bağlayıcıların örnekleridir.
 
-## Eylem Olarak Bağlayıcılar
+## <a name="connectors-as-actions"></a>Eylem Olarak Bağlayıcılar
 Bağlayıcılar Mantıksal Uygulama içinde eylem olarak da kullanılabilir. Eylemler, daha sonra yürütmede kullanılabilecek Mantıksal Uygulama verilerini ararken kullanışlıdır. Örneğin, bir siparişi işlerken bir müşteri hakkında daha fazla bilgi almak üzere SQL veritabanındaki verileri aramanız gerekebilir. Veya, bir hedefteki verileri yazmanız, güncelleştirmeniz ya da silmeniz gerekebilir. Bağlayıcılar tarafından sağlanan eylemleri kullanarak bunu yapabilirsiniz. Eylemler API Apps’teki işlemlerle eşlenir (Swagger meta verileri ile tanımlanan şekilde).
 
-## Kendi Bağlayıcılarınızı ve API Uygulamalarınızı oluşturma
-[Bağlayıcılar ve API Apps Referansı](http://aka.ms/appservicesconnectorreference)  
-[Azure App Service API uygulaması tetikleyicileri](../app-service-api/app-service-api-dotnet-triggers.md)  
-[Mantıksal Uygulama Referansı](https://msdn.microsoft.com/library/azure/dn948510.aspx)
+## <a name="create-your-own-connectors-and-api-apps"></a>Kendi Bağlayıcılarınızı ve API Uygulamalarınızı oluşturma
+[Bağlayıcılar ve API Apps Başvurusu](http://aka.ms/appservicesconnectorreference)  
+[Azure Uygulama Hizmeti API uygulaması tetikleyicileri](../app-service-api/app-service-api-dotnet-triggers.md)  
+[Mantıksal Uygulama Başvurusu](https://msdn.microsoft.com/library/azure/dn948510.aspx)
 
-## Bağlayıcılar ve API Apps hakkında daha fazla bilgi
+## <a name="more-on-connectors-and-api-apps"></a>Bağlayıcılar ve API Apps hakkında daha fazla bilgi
 [Bağlayıcılar ve BizTalk API Apps nedir?](app-service-logic-what-are-biztalk-api-apps.md)  
-[Azure App Service içinde Karma Bağlantı Yöneticisi](app-service-logic-hybrid-connection-manager.md)  
+[Azure Uygulama Hizmeti içinde Karma Bağlantı Yöneticisi](app-service-logic-hybrid-connection-manager.md)  
 [Yerleşik API Uygulamalarınızı ve Bağlayıcılarınızı Yönetme ve İzleme](app-service-logic-monitor-your-connectors.md)
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,6 +1,6 @@
 <!--author=alkohli last changed: 08/16/2016-->
 
-#### Birim oluşturmak için
+#### <a name="to-create-a-volume"></a>Birim oluşturmak için
 1. Cihaz **Hızlı Başlangıç** sayfasında **Birim ekle**’ye tıklayarak Birim ekleme sihirbazını başlatın.
 2. Birim ekleme sihirbazının **Temel Ayarlar**’ı altında:
    
@@ -39,6 +39,8 @@
       ![Birim ekle](./media/storsimple-create-volume-u2/AddVolumeAdditionalSettings1.png)
 4. Onay simgesine tıklayarak ![onay simgesi](./media/storsimple-create-volume-u2/HCS_CheckIcon-include.png). Belirtilen ayarlarla bir birim oluşturulur.
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

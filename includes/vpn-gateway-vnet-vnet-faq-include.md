@@ -10,6 +10,8 @@
 * Sanal Ağdan Sanal Ağa trafiği akışı, İnternet üzerinden değil Microsoft Network üzerinden sağlanır.
 * Aynı bölge içerisinde Sanal Ağdan Sanal Ağa trafiği her iki yön için de ücretsizdir, çapraz bölge Sanal Ağdan Sanal Ağa çıkış trafiği ise kaynak bölgelerine bağlı giden Sanal Ağlar arası veri aktarım hızına bağlı olarak ücretlendirilir.  Ayrıntılar için lütfen [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/vpn-gateway/)nı inceleyin.
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

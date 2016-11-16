@@ -1,7 +1,7 @@
 <!--author=alkohli last changed:01/14/2016-->
 
 
-#### Yeni hizmet oluşturmak için
+#### <a name="to-create-a-new-service"></a>Yeni hizmet oluşturmak için
 1. Microsoft hesabı kimlik bilgilerini kullanarak Klasik Azure portalında şu URL ile oturum açın: [https://manage.windowsazure.com/](https://manage.windowsazure.com/).
 2. Klasik Azure portalında **Yeni** > **Veri Hizmetleri** > **StorSimple Yöneticisi** > **Hızlı Oluştur**’a tıklayın.
 3. Görüntülenen formda şunları yapın:
@@ -21,10 +21,12 @@
    
    ![Hizmet oluşturma](./media/storsimple-create-new-service/HCS_StorSimpleManagerServicePage-include.png)
 
-![Kullanılabilir video](./media/storsimple-create-new-service/Video_icon.png) **Kullanılabilir video**
+![Video var](./media/storsimple-create-new-service/Video_icon.png) **Video var**
 
 Yeni bir StorSimple Yöneticisi hizmetinin nasıl oluşturulduğunu gösteren bir video izlemek için [buraya](https://azure.microsoft.com/documentation/videos/create-a-storsimple-manager-service/) tıklayın.
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

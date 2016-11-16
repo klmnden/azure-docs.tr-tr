@@ -1,12 +1,12 @@
 ---
-title: 'Öğretici: Resource Manager Şablonu kullanarak bir işlem hattı oluşturma | Microsoft Docs'
-description: Bu öğreticide, Azure Resource Manager şablonu kullanarak Kopyalama Etkinliği ile bir Azure Data Factory işlem hattı oluşturursunuz.
+title: "Öğretici: Resource Manager Şablonu kullanarak bir işlem hattı oluşturma | Microsoft Belgeleri"
+description: "Bu öğreticide, Azure Resource Manager şablonu kullanarak Kopyalama Etkinliği ile bir Azure Data Factory işlem hattı oluşturursunuz."
 services: data-factory
-documentationcenter: ''
+documentationcenter: 
 author: spelluru
 manager: jhubbard
 editor: monicar
-
+ms.assetid: 1274e11a-e004-4df5-af07-850b2de7c15e
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/10/2016
 ms.author: spelluru
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 535eb3c22dad35da3c1dbc10be5a7c11c6bb8d00
+
 
 ---
-# <a name="tutorial:-create-a-pipeline-with-copy-activity-using-azure-resource-manager-template"></a>Öğretici: Azure Resource Manager şablonu kullanarak Kopyalama Etkinliği ile işlem hattı oluşturma
+# <a name="tutorial-create-a-pipeline-with-copy-activity-using-azure-resource-manager-template"></a>Öğretici: Azure Resource Manager şablonu kullanarak Kopyalama Etkinliği ile işlem hattı oluşturma
 > [!div class="op_single_selector"]
 > * [Genel bakış ve önkoşullar](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Kopyalama Sihirbazı](data-factory-copy-data-wizard-tutorial.md)
@@ -276,9 +280,9 @@ Azure Resource Manager şablonuna yönelik parametreleri içeren **ADFCopyTutori
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
         "contentVersion": "1.0.0.0",
         "parameters": { 
-            "storageAccountName": { "value": "<Name of the Azure storage account>"  },
+            "storageAccountName": {    "value": "<Name of the Azure storage account>"    },
             "storageAccountKey": {
-                "value": "<Key for the Azure storage account>"
+                     "value": "<Key for the Azure storage account>"
             },
             "sourceBlobContainer": { "value": "adftutorial" },
             "sourceBlobName": { "value": "emp.txt" },
@@ -386,11 +390,11 @@ Bu bölümde Azure SQL sunucu adı, veritabanı adı, kullanıcı adı ve kullan
         ],
         "apiVersion": "2015-10-01",
         "properties": {
-            "type": "AzureSqlDatabase",
-            "description": "Azure SQL linked service",
-            "typeProperties": {
+              "type": "AzureSqlDatabase",
+              "description": "Azure SQL linked service",
+              "typeProperties": {
                 "connectionString": "[concat('Server=tcp:',parameters('sqlServerName'),'.database.windows.net,1433;Database=', parameters('databaseName'), ';User ID=',parameters('sqlServerUserName'),';Password=',parameters('sqlServerPassword'),';Trusted_Connection=False;Encrypt=True;Connection Timeout=30')]"
-            }
+              }
         }
     }
 
@@ -409,30 +413,30 @@ Blob kapsayıcı, klasör ve girdi verilerini içeren dosyanın adını belirtir
         "apiVersion": "2015-10-01",
         "properties": {
             "type": "AzureBlob",
-            "linkedServiceName": "[variables('azureStorageLinkedServiceName')]",
+              "linkedServiceName": "[variables('azureStorageLinkedServiceName')]",
             "structure": [
             {
-                "name": "Column0",
-                "type": "String"
+                  "name": "Column0",
+                  "type": "String"
             },
             {
-                "name": "Column1",
-                "type": "String"
+                  "name": "Column1",
+                  "type": "String"
             }
-            ],
-            "typeProperties": {
+              ],
+              "typeProperties": {
                 "folderPath": "[concat(parameters('sourceBlobContainer'), '/')]",
                 "fileName": "[parameters('sourceBlobName')]",
                 "format": {
-                    "type": "TextFormat",
-                    "columnDelimiter": ","
+                      "type": "TextFormat",
+                      "columnDelimiter": ","
                 }
-            },
-            "availability": {
+              },
+              "availability": {
                 "frequency": "Day",
                 "interval": 1
-            },
-            "external": true
+              },
+              "external": true
         }
     }
 
@@ -444,29 +448,29 @@ Azure SQL veritabanında Azure Blob depolama biriminden kopyalanan verileri tuta
         "name": "[variables('sqlOutputDatasetName')]",
         "dependsOn": [
             "[variables('dataFactoryName')]",
-            "[variables('azureSqlLinkedServiceName')]"
+              "[variables('azureSqlLinkedServiceName')]"
         ],
         "apiVersion": "2015-10-01",
         "properties": {
-            "type": "AzureSqlTable",
-            "linkedServiceName": "[variables('azureSqlLinkedServiceName')]",
-            "structure": [
+              "type": "AzureSqlTable",
+              "linkedServiceName": "[variables('azureSqlLinkedServiceName')]",
+              "structure": [
             {
-                "name": "FirstName",
-                "type": "String"
+                  "name": "FirstName",
+                  "type": "String"
             },
             {
-                "name": "LastName",
-                "type": "String"
+                  "name": "LastName",
+                  "type": "String"
             }
-            ],
-            "typeProperties": {
+              ],
+              "typeProperties": {
                 "tableName": "[parameters('targetSQLTable')]"
-            },
-            "availability": {
+              },
+              "availability": {
                 "frequency": "Day",
                 "interval": 1
-            }
+              }
         }
     }
 
@@ -478,51 +482,51 @@ Verileri Azure blob veri kümesinden Azure SQL veri kümesine kopyalayan bir iş
         "name": "[variables('pipelineName')]",
         "dependsOn": [
             "[variables('dataFactoryName')]",
-            "[variables('azureStorageLinkedServiceName')]",
-            "[variables('azureSqlLinkedServiceName')]",
-            "[variables('blobInputDatasetName')]",
-            "[variables('sqlOutputDatasetName')]"
+              "[variables('azureStorageLinkedServiceName')]",
+              "[variables('azureSqlLinkedServiceName')]",
+              "[variables('blobInputDatasetName')]",
+              "[variables('sqlOutputDatasetName')]"
         ],
         "apiVersion": "2015-10-01",
         "properties": {
-            "activities": [
+              "activities": [
             {
-                "name": "CopyFromAzureBlobToAzureSQL",
-                "description": "Copy data frm Azure blob to Azure SQL",
-                "type": "Copy",
-                "inputs": [
+                  "name": "CopyFromAzureBlobToAzureSQL",
+                  "description": "Copy data frm Azure blob to Azure SQL",
+                  "type": "Copy",
+                  "inputs": [
                 {
-                    "name": "[variables('blobInputDatasetName')]"
+                      "name": "[variables('blobInputDatasetName')]"
                 }
-                ],
-                "outputs": [
+                  ],
+                  "outputs": [
                 {
-                    "name": "[variables('sqlOutputDatasetName')]"
+                      "name": "[variables('sqlOutputDatasetName')]"
                 }
-                ],
-                "typeProperties": {
+                  ],
+                  "typeProperties": {
                     "source": {
-                        "type": "BlobSource"
+                          "type": "BlobSource"
                     },
                     "sink": {
-                        "type": "SqlSink",
-                        "sqlWriterCleanupScript": "$$Text.Format('DELETE FROM {0}', 'emp')"
+                          "type": "SqlSink",
+                          "sqlWriterCleanupScript": "$$Text.Format('DELETE FROM {0}', 'emp')"
                     },
                     "translator": {
-                        "type": "TabularTranslator",
-                        "columnMappings": "Column0:FirstName,Column1:LastName"
+                          "type": "TabularTranslator",
+                          "columnMappings": "Column0:FirstName,Column1:LastName"
                     }
-                },
-                "Policy": {
+                  },
+                  "Policy": {
                     "concurrency": 1,
                     "executionPriorityOrder": "NewestFirst",
                     "retry": 3,
                     "timeout": "01:00:00"
-                }
+                  }
             }
-            ],
-            "start": "2016-10-02T00:00:00Z",
-            "end": "2016-10-03T00:00:00Z"
+              ],
+              "start": "2016-10-02T00:00:00Z",
+              "end": "2016-10-03T00:00:00Z"
         }
     }
 
@@ -541,6 +545,9 @@ Birinci komut geliştirme ortamına, ikinci komut test ortamına ve üçüncü k
 
 Ayrıca tekrarlanan görevleri gerçekleştirmek için şablonu yeniden kullanabilirsiniz. Örneğin, aynı mantığı uygulamasına karşın her veri fabrikasının farklı Azure depolama ve Azure SQL Veritabanı hesaplarını kullandığı bir veya daha fazla işlem hattı ile çok sayıda veri fabrikası oluşturmanız gerekir. Bu senaryoda, aynı şablonu veri fabrikaları oluşturmaya yönelik farklı parametre dosyaları ile aynı ortamda (geliştirme, test veya üretim) kullanırsınız.   
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

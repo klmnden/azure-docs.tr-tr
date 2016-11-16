@@ -1,20 +1,24 @@
 ---
-title: DocumentDB kullanarak Java uygulaması geliştirme öğreticisi | Microsoft Docs
-description: Bu Java web uygulaması öğreticisi, Azure Web Siteleri'nde barındırılan bir Java uygulamasında verileri depolamak ve bunlara erişmek için Azure DocumentDB hizmetinin nasıl kullanılacağını size gösterir.
-keywords: Uygulama geliştirme, veritabanı öğreticisi, java uygulaması, java web uygulaması öğreticisi, documentdb, Azure, Microsoft Azure
+title: "DocumentDB kullanarak Java uygulaması geliştirme öğreticisi | Microsoft Belgeleri"
+description: "Bu Java web uygulaması öğreticisi, Azure Web Siteleri&quot;nde barındırılan bir Java uygulamasında verileri depolamak ve bunlara erişmek için Azure DocumentDB hizmetinin nasıl kullanılacağını size gösterir."
+keywords: "Uygulama geliştirme, veritabanı öğreticisi, java uygulaması, java web uygulaması öğreticisi, documentdb, Azure, Microsoft Azure"
 services: documentdb
 documentationcenter: java
 author: dennyglee
 manager: jhubbard
 editor: mimig
-
+ms.assetid: 0867a4a2-4bf5-4898-a1f4-44e3868f8725
 ms.service: documentdb
 ms.devlang: java
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 08/24/2016
+ms.date: 11/02/2016
 ms.author: denlee
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 24fa3533be1ce4659e65d924417cb715579b4851
+
 
 ---
 # <a name="build-a-java-web-application-using-documentdb"></a>DocumentDB kullanarak bir Java web uygulaması oluşturma
@@ -40,7 +44,7 @@ Bu Java uygulaması öğreticisi görevleri oluşturmanızı, almanızı ve aşa
 > 
 > 
 
-## <a name="<a-id="prerequisites"></a>prerequisites-for-this-java-web-application-tutorial"></a><a id="Prerequisites"></a>Bu Java web uygulaması öğreticisi için önkoşullar
+## <a name="a-idprerequisitesaprerequisites-for-this-java-web-application-tutorial"></a><a id="Prerequisites"></a>Bu Java web uygulaması öğreticisi için önkoşullar
 Bu uygulama geliştirme öğreticisine başlamadan önce aşağıdakilere sahip olmanız gerekir:
 
 * Etkin bir Azure hesabı. Hesabınız yoksa yalnızca birkaç dakika içinde ücretsiz bir deneme sürümü hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/).
@@ -50,14 +54,14 @@ Bu uygulama geliştirme öğreticisine başlamadan önce aşağıdakilere sahip 
 
 Bu araçları ilk kez yüklüyorsanız coreservlets.com adresindeki [Öğretici: TomCat7'yi yükleme ve Eclipse ile kullanma](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html) makalesinin Hızlı Başlangıç bölümünde yükleme işlem için bir adım adım kılavuz mevcuttur.
 
-## <a name="<a-id="createdb"></a>step-1:-create-a-documentdb-database-account"></a><a id="CreateDB"></a>1. Adım: DocumentDB veritabanı hesabı oluşturma
+## <a name="a-idcreatedbastep-1-create-a-documentdb-database-account"></a><a id="CreateDB"></a>1. Adım: DocumentDB veritabanı hesabı oluşturma
 Bir DocumentDB hesabı oluşturarak başlayalım. Hesabınız zaten varsa [2. Adım: Java JSP uygulaması oluşturma](#CreateJSP) adımına atlayabilirsiniz.
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
 [!INCLUDE [documentdb-keys](../../includes/documentdb-keys.md)]
 
-## <a name="<a-id="createjsp"></a>step-2:-create-the-java-jsp-application"></a><a id="CreateJSP"></a>2. Adım: Java JSP uygulaması oluşturma
+## <a name="a-idcreatejspastep-2-create-the-java-jsp-application"></a><a id="CreateJSP"></a>2. Adım: Java JSP uygulaması oluşturma
 JSP uygulaması oluşturmak için:
 
 1. İlk olarak, bir Java projesi oluşturarak başlayacağız. Eclipse'i başlatın, ardından **Dosya**'ya tıklayın, **Yeni**'ye tıklayın ve ardından **Dinamik Web Projesi**'ne tıklayın. Kullanılabilir bir proje olarak **Dinamik Web Projesi**'ni listelenmiş şekilde görmüyorsanız şunu yapın: **Dosya**'ya tıklayın, **Yeni**'ye tıklayın, **Proje**… seçeneğine tıklayın, **Web**'i genişletin, **Dinamik Web Projesi**'ne tıklayın ve **İleri**'ye tıklayın.
@@ -75,11 +79,11 @@ JSP uygulaması oluşturmak için:
             <% out.println("Hello World!"); %>
         </body>
 7. index.jsp dosyasını kaydedin.
-8. 1. adımda bir hedef çalışma zamanı ayarlarsanız **Proje**'ye ve ardından **Çalıştır**'a tıklayıp JSP uygulamanızı yerel olarak çalıştırabilirsiniz:
-      
-      ![Hello World - Java Uygulaması Öğreticisi](./media/documentdb-java-application/image12.png)
+8. 2. adımda bir hedef çalışma zamanı ayarlarsanız **Proje**'ye ve ardından **Çalıştır**'a tıklayıp JSP uygulamanızı yerel olarak çalıştırabilirsiniz:
+   
+    ![Hello World - Java Uygulaması Öğreticisi](./media/documentdb-java-application/image12.png)
 
-## <a name="<a-id="installsdk"></a>step-3:-install-the-documentdb-java-sdk"></a><a id="InstallSDK"></a>3. Adım: DocumentDB Java SDK'sını yükleme
+## <a name="a-idinstallsdkastep-3-install-the-documentdb-java-sdk"></a><a id="InstallSDK"></a>3. Adım: DocumentDB Java SDK'sını yükleme
 [Apache Maven](http://maven.apache.org/), DocumentDB Java SDK'sını ve bağımlılıklarını çekmenin en kolay yolunu sağlar.
 
 Bunu yapmak için aşağıdaki adımları tamamlayarak projenizi bir Maven projesine dönüştürmeniz gerekir:
@@ -101,12 +105,12 @@ Bunu yapmak için aşağıdaki adımları tamamlayarak projenizi bir Maven proje
         <dependency>
             <groupId>com.microsoft.azure</groupId>
             <artifactId>azure-documentdb</artifactId>
-            <version>1.5.1</version>
+            <version>1.9.1</version>
         </dependency>
 6. **Tamam**'a tıkladığınızda Maven DocumentDB Java SDK'sını yükler.
 7. Pom.xml dosyasını kaydedin.
 
-## <a name="<a-id="useservice"></a>step-4:-using-the-documentdb-service-in-a-java-application"></a><a id="UseService"></a>4. Adım: DocumentDB hizmetini bir Java uygulamasında kullanma
+## <a name="a-iduseserviceastep-4-using-the-documentdb-service-in-a-java-application"></a><a id="UseService"></a>4. Adım: DocumentDB hizmetini bir Java uygulamasında kullanma
 1. İlk olarak, TodoItem nesnesini tanımlayalım:
    
         @Data
@@ -124,14 +128,10 @@ Bunu yapmak için aşağıdaki adımları tamamlayarak projenizi bir Maven proje
         private static final String HOST = "[YOUR_ENDPOINT_HERE]";
         private static final String MASTER_KEY = "[YOUR_KEY_HERE]";
    
-        private static DocumentClient documentClient;
+        private static DocumentClient documentClient = new DocumentClient(HOST, MASTER_KEY,
+                        ConnectionPolicy.GetDefault(), ConsistencyLevel.Session);
    
         public static DocumentClient getDocumentClient() {
-            if (documentClient == null) {
-                documentClient = new DocumentClient(HOST, MASTER_KEY,
-                        ConnectionPolicy.GetDefault(), ConsistencyLevel.Session);
-            }
-   
             return documentClient;
         }
 3. Şimdi Yapılacaklar öğelerimizi DocumentDB'de kalıcı hale getirmeyi özetlemek için bir Veri Erişim Nesnesi (DAO) oluşturalım.
@@ -344,7 +344,7 @@ Bunu yapmak için aşağıdaki adımları tamamlayarak projenizi bir Maven proje
             return true;
         }
 
-## <a name="<a-id="wire"></a>step-5:-wiring-the-rest-of-the-of-java-application-development-project-together"></a><a id="Wire"></a>5. Adım: Java uygulaması geliştirme projesinin geriye kalan kısmını bağlama
+## <a name="a-idwireastep-5-wiring-the-rest-of-the-of-java-application-development-project-together"></a><a id="Wire"></a>5. Adım: Java uygulaması geliştirme projesinin geriye kalan kısmını bağlama
 Artık eğlenceli kısımları tamamladığımıza göre, geriye sadece hızlı bir kullanıcı arabirimi oluşturmak ve bunu DAO'muza bağlamak kaldı.
 
 1. İlk olarak, DAO'muzu çağırmak için bir denetleyici oluşturmakla başlayalım:
@@ -715,7 +715,7 @@ Artık eğlenceli kısımları tamamladığımıza göre, geriye sadece hızlı 
 5. Harika! Şimdi geriye yalnızca uygulamayı test etmek kaldı. Uygulamayı yerel olarak çalıştırın, ardından öğe adı ve kategoriyi doldurarak ve **Görev Ekle**'ye tıklayarak birkaç Yapılacaklar öğesi ekleyin.
 6. Öğe göründükten sonra, onay kutusundaki işareti değiştirip **Görevleri Güncelleştir**'e tıklayarak öğeyi tamamlandı veya tamamlanmadı olarak güncelleştirebilirsiniz.
 
-## <a name="<a-id="deploy"></a>step-6:-deploy-your-java-application-to-azure-websites"></a><a id="Deploy"></a>6. Adım: Java uygulamanızı Azure Web Siteleri'ne dağıtma
+## <a name="a-iddeployastep-6-deploy-your-java-application-to-azure-websites"></a><a id="Deploy"></a>6. Adım: Java uygulamanızı Azure Web Siteleri'ne dağıtma
 Azure Web Siteleri Java Uygulamalarını dağıtmayı, uygulamanızı bir WAR dosyası olarak dışarı aktarmak ve kaynak denetimi (ör. GIT) veya FTP aracılığıyla karşıya yüklemek kadar basit hale getirir.
 
 1. Uygulamanızı bir WAR olarak dışarı aktarmak için **Proje Gezgini**'nde projenize sağ tıklayın, **Dışarı Aktar**'a tıklayın ve ardından **WAR Dosyası**'na tıklayın.
@@ -729,7 +729,7 @@ Azure Web Siteleri Java Uygulamalarını dağıtmayı, uygulamanızı bir WAR do
     WAR dosyası webapps dizinine yüklendikten sonra, çalışma zamanı ortamı bunu eklemiş olduğunuzu algılar ve otomatik olarak yükler.
 4. Tamamlanmış ürününüzü görmek için http://\_SİTENİZİN\_ADI.azurewebsites.net/azure-documentdb-java-sample/ adresine gidin ve görevlerinizi eklemeye başlayın!
 
-## <a name="<a-id="getproject"></a>get-the-project-from-github"></a><a id="GetProject"></a>Projeyi GitHub'dan alma
+## <a name="a-idgetprojectaget-the-project-from-github"></a><a id="GetProject"></a>Projeyi GitHub'dan alma
 Bu öğreticideki tüm örnekler GitHub'daki [todo](https://github.com/Azure-Samples/documentdb-java-todo-app) projesinde bulunur. todo projesini Eclipse'e aktarmak için [Önkoşullar](#Prerequisites) bölümünde listelenen yazılım ve kaynaklara sahip olduğunuzdan emin olun ve ardından aşağıdakileri yapın:
 
 1. [Proje Lombok](http://projectlombok.org/)'u yükleyin. Lombok projede oluşturucular, alıcılar ve ayarlayıcılar oluşturmak için kullanılır. Lombok.jar dosyasını indirdikten sonra, yüklemek için buna çift tıklayın veya komut satırından yükleyin.
@@ -759,6 +759,6 @@ Bu öğreticideki tüm örnekler GitHub'daki [todo](https://github.com/Azure-Sam
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

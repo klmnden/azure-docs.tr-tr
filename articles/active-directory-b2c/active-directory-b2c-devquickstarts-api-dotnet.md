@@ -1,12 +1,12 @@
 ---
-title: Azure AD B2C | Microsoft Docs
-description: Kimlik doğrulaması için OAuth 2.0 erişim belirteçleri ile güvenliği sağlanan Azure Active Directory B2C kullanarak .NET Web API'si oluşturma.
+title: Azure AD B2C | Microsoft Belgeleri
+description: "Kimlik doğrulaması için OAuth 2.0 erişim belirteçleri ile güvenliği sağlanan Azure Active Directory B2C kullanarak .NET Web API&quot;si oluşturma."
 services: active-directory-b2c
 documentationcenter: .net
 author: dstrockis
-manager: msmbaldwin
-editor: ''
-
+manager: mbaldwin
+editor: 
+ms.assetid: 7146ed7f-2eb5-49e9-8d8b-ea1a895e1966
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,17 +14,21 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 07/22/2016
 ms.author: dastrock
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 370978187cffa2e5a9544bf99e6a15e13f97ac53
+
 
 ---
-# Azure Active Directory B2C: .NET web API'si oluşturma
+# <a name="azure-active-directory-b2c-build-a-net-web-api"></a>Azure Active Directory B2C: .NET web API'si oluşturma
 <!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->
 
 Azure Active Directory (Azure AD) B2C ile OAuth 2.0 erişim belirteçleri kullanarak web API'si güvenliğini sağlayabilirsiniz. Bu belirteçler, Azure AD B2C kullanan istemci uygulamalarınızın API'ye ilişkin kimlik doğrulaması yapmasına olanak sağlar. Bu makalede kullanıcıların CRUD görevlerini gerçekleştirmesine imkan tanıyan bir .NET Model-View-Controller (MVC) "yapılacaklar listesi" API’sini oluşturma işlemi gösterilmektedir. Web API’sinin güvenliği Azure AD B2C kullanılarak sağlanır ve yapılacaklar listesini yalnızca kimliği doğrulanmış kullanıcıların yönetmesine izin verilir.
 
-## Azure AD B2C dizini oluşturma
+## <a name="create-an-azure-ad-b2c-directory"></a>Azure AD B2C dizini oluşturma
 Azure AD B2C'yi kullanabilmek için önce dizin veya kiracı oluşturmanız gerekir. Dizin; tüm kullanıcılarınız, uygulamalarınız, gruplarınız ve daha fazlası için bir kapsayıcıdır. Henüz yoksa devam etmeden önce bu kılavuzda [bir B2C dizini oluşturun](active-directory-b2c-get-started.md).
 
-## Uygulama oluşturma
+## <a name="create-an-application"></a>Uygulama oluşturma
 Ardından B2C dizininizde uygulama oluşturmanız gerekir. Bu, uygulamanız ile güvenli şekilde iletişim kurması için gereken bilgileri Azure AD'ye verir. Bir uygulama oluşturmak için [bu talimatları](active-directory-b2c-app-registration.md) izleyin. Şunları yaptığınızdan emin olun:
 
 * Uygulamaya bir **web uygulaması** veya **web API'si** ekleyin.
@@ -33,7 +37,7 @@ Ardından B2C dizininizde uygulama oluşturmanız gerekir. Bu, uygulamanız ile 
   
   [!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
-## İlkelerinizi oluşturma
+## <a name="create-your-policies"></a>İlkelerinizi oluşturma
 Azure AD B2C'de her kullanıcı deneyimi, bir [ilke](active-directory-b2c-reference-policies.md) ile tanımlanır. Bu kod örneğindeki istemci, üç kimlik deneyimi içerir: Kaydolma, oturum açma ve profil düzenleme. Her bir tür için [ilke başvurusu makalesinde](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy) tanımlanan şekilde bir ilke oluşturmanız gerekecektir. Üç ilkenizi oluştururken şunları yaptığınızdan emin olun:
 
 * Kimlik sağlayıcılar dikey penceresinde **Kullanıcı Kimliği ile kayıt** veya **E-posta ile kayıt** yöntemini seçin.
@@ -45,7 +49,7 @@ Azure AD B2C'de her kullanıcı deneyimi, bir [ilke](active-directory-b2c-refere
 
 Üç ilkenizi başarıyla oluşturduktan sonra uygulamanızı oluşturmaya hazırsınız.
 
-## Kodu indirme
+## <a name="download-the-code"></a>Kodu indirme
 Bu öğretici için kod [GitHub'da korunur](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet). İşlemlere devam ederken örneği oluşturmak için [ bir çatı projesini .zip dosyası olarak indirebilirsiniz](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet/archive/skeleton.zip). Ayrıca çatıyı kopyalayabilirsiniz:
 
 ```
@@ -54,9 +58,9 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebAPI-Dot
 
 Tamamlanan uygulama aynı zamanda [.zip dosyası olarak](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet/archive/complete.zip) veya aynı deponun `complete` dalı üzerinde de kullanılabilir.
 
-Örnek kodu indirdikten sonra başlamak için Visual Studio .sln dosyasını açın. Çözüm dosyası iki proje içerir: `TaskWebApp` ve `TaskService`. `TaskWebApp` kullanıcı ile etkileşime giren bir MVC web uygulamasıdır. `TaskService` her kullanıcının yapılacaklar listesini depolayan arka uç uygulamasının web API'sidir.
+Örnek kodu indirdikten sonra başlamak için Visual Studio .sln dosyasını açın. Çözüm dosyası iki proje içerir: `TaskWebApp` ve `TaskService`. `TaskWebApp`, kullanıcının etkileşime geçtiği bir MVC web uygulamasıdır. `TaskService`, uygulamanın, her kullanıcının yapılacaklar listesini depolayan arka uç web API'sidir.
 
-## Görev web uygulamasını yapılandırma
+## <a name="configure-the-task-web-app"></a>Görev web uygulamasını yapılandırma
 Bir kullanıcı `TaskWebApp` ile etkileşime girdiğinde istemci Azure AD'ye istekler gönderir ve `TaskService` web API'sini çağırmak için kullanılabilen belirteçleri geri alır. Kullanıcıyla oturum açmak ve belirteçleri almak için uygulamanız hakkında bazı bilgiler ile `TaskWebApp` sağlamanız gerekir. `TaskWebApp` projesi içinde proje kökündeki `web.config` dosyasını açın ve `<appSettings>` bölümündeki değerleri değiştirin.  `AadInstance`, `RedirectUri`, ve `TaskServiceUrl` değerlerini olduğu gibi bırakabilirsiniz.
 
 ```
@@ -78,10 +82,10 @@ Bir kullanıcı `TaskWebApp` ile etkileşime girdiğinde istemci Azure AD'ye ist
 
 Bu makale `TaskWebApp` istemcisinin derlenmesini kapsamaz.  Azure AD B2C kullanarak bir web uygulaması derlemeyi öğrenmek için bkz. [.NET web uygulaması öğreticisi](active-directory-b2c-devquickstarts-web-dotnet.md).
 
-## API güvenliğini sağlama
+## <a name="secure-the-api"></a>API güvenliğini sağlama
 Kullanıcılar adına API çağıran bir istemciniz olduğunda `TaskService` güvenliğini OAuth 2.0 taşıyıcı belirteçlerini kullanarak sağlayabilirsiniz. API'niz .NET (OWIN) kitaplığı için Microsoft'un Açık Web Arabirimi'ni kullanarak belirteçleri kabul edebilir ve doğrulayabilir.
 
-### OWIN yükleme
+### <a name="install-owin"></a>OWIN yükleme
 OWIN OAuth kimlik doğrulaması işlem hattı yükleyerek çalışmaya başlayın:
 
 ```
@@ -90,7 +94,7 @@ PM> Install-Package Microsoft.Owin.Security.Jwt -ProjectName TaskService
 PM> Install-Package Microsoft.Owin.Host.SystemWeb -ProjectName TaskService
 ```
 
-### B2C bilgilerinizi girme
+### <a name="enter-your-b2c-details"></a>B2C bilgilerinizi girme
 `TaskService` projesi kökündeki `web.config` dosyasını açın ve `<appSettings>` bölümündeki değerleri değiştirin: API ve OWIN kitaplığı boyunca bu değerler kullanılır.  `AadInstance` değerini değiştirmeden bırakabilirsiniz.
 
 ```
@@ -108,7 +112,7 @@ PM> Install-Package Microsoft.Owin.Host.SystemWeb -ProjectName TaskService
   </appSettings>
 ```
 
-### OWIN başlangıç sınıfı ekleme
+### <a name="add-an-owin-startup-class"></a>OWIN başlangıç sınıfı ekleme
 `Startup.cs` adlı `TaskService` projesine OWIN başlangıç sınıfı ekleyin.  Projeye sağ tıklayın, **Ekle**'yi ve **Yeni Öğe**'yi seçin, ardından OWIN'i aratın.
 
 ```C#
@@ -125,7 +129,7 @@ public partial class Startup
 }
 ```
 
-### OAuth 2.0 kimlik doğrulamasını yapılandırma
+### <a name="configure-oauth-20-authentication"></a>OAuth 2.0 kimlik doğrulamasını yapılandırma
 `App_Start\Startup.Auth.cs` dosyasını açın ve `ConfigureAuth(...)` yöntemini uygulayın:
 
 ```C#
@@ -166,7 +170,7 @@ public partial class Startup
 }
 ```
 
-### Görev denetleyicisinin güvenliğini sağlama
+### <a name="secure-the-task-controller"></a>Görev denetleyicisinin güvenliğini sağlama
 Uygulama OAuth 2.0 kimlik doğrulaması kullanacak şekilde yapılandırıldıktan sonra görev denetleyicisine `[Authorize]` etiketi ekleyerek web API'nizin güvenliğini sağlayabilirsiniz. Bu, tüm yapılacaklar listesi işlemelerinin yapıldığı denetleyicidir, yani tüm denetleyicinin sınıf düzeyinde güvenliğini sağlamanız gerekir. Ayrıca daha ayrıntılı denetim için bireysel işlemlere `[Authorize]` etiketi ekleyebilirsiniz.
 
 ```C#
@@ -179,8 +183,8 @@ public class TasksController : ApiController
 }
 ```
 
-### Belirteçten kullanıcı bilgilerini alma
-`TasksController` görevleri, her görevin göreve "sahip olan" kullanıcı ile ilişkilendirildiği bir veritabanında depolar. Sahip, kullanıcının **nesne kimliği** ile tanımlanır. (Tüm ilkelerinize uygulama talebi olarak nesne kimliği eklemeniz gerekmesinin nedeni budur.)
+### <a name="get-user-information-from-the-token"></a>Belirteçten kullanıcı bilgilerini alma
+`TasksController`, görevleri, her görevin göreve "sahip olan" kullanıcı ile ilişkilendirildiği bir veritabanında depolar. Sahip, kullanıcının **nesne kimliği** ile tanımlanır. (Tüm ilkelerinize uygulama talebi olarak nesne kimliği eklemeniz gerekmesinin nedeni budur.)
 
 ```C#
 // Controllers\TasksController.cs
@@ -193,10 +197,10 @@ public IEnumerable<Models.Task> Get()
 }
 ```
 
-## Örnek uygulamayı çalıştırma
+## <a name="run-the-sample-app"></a>Örnek uygulamayı çalıştırma
 Son olarak hem `TaskWebApp` hem de `TaskService` öğesini oluşturup çalıştırın. Bir e-posta adresi veya kullanıcı adı kullanarak uygulamaya kaydolun. Kullanıcının yapılacaklar listesinde bazı görevler oluşturun ve istemciyi durdurmanız ve yeniden başlatmanız sonrasında bile API içinde nasıl kalıcı olduğuna dikkat edin.
 
-## İlkelerinizi düzenleme
+## <a name="edit-your-policies"></a>İlkelerinizi düzenleme
 Azure AD B2C kullanarak API güvenliğini sağladıktan sonra uygulamanızın ilkelerini deneyebilir ve API üzerindeki etkileri (veya eksiklikleri) görüntüleyebilirsiniz. Ayrıca ilkelerdeki uygulama talepleri denetleyebilir ve web API'sinde kullanılabilen kullanıcı bilgilerini değiştirebilirsiniz. Eklediğiniz tüm talepler bu makalede daha önce açıklandığı gibi `ClaimsPrincipal` nesnesindeki .NET MVC web API'nizde kullanılabilir olacaktır.
 
 <!--
@@ -213,6 +217,6 @@ You can now move onto more advanced B2C topics. You may try:
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

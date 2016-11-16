@@ -9,6 +9,8 @@ Geri bildirim sağlamak ve Azure Media Services’ı geliştirme hakkında öner
 * [REST API ve platform](https://feedback.azure.com/forums/169396-media-services/category/144423-rest-api-and-platform/)
 * [VoD akışı](https://feedback.azure.com/forums/169396-media-services/category/144429-vod-streaming/)
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

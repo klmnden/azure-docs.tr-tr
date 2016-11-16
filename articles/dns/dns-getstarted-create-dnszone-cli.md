@@ -1,12 +1,12 @@
 ---
-title: CLI kullanarak bir DNS bölgesi oluşturma | Microsoft Docs
-description: CLI'yi kullanarak DNS etki alanınızı barındırmaya başlamak üzere Azure DNS için DNS bölgelerinin adım adım nasıl oluşturulacağını öğrenin
+title: "CLI kullanarak bir DNS bölgesi oluşturma | Microsoft Belgeleri"
+description: "CLI&quot;yi kullanarak DNS etki alanınızı barındırmaya başlamak üzere Azure DNS için DNS bölgelerinin adım adım nasıl oluşturulacağını öğrenin"
 services: dns
 documentationcenter: na
 author: sdwheeler
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: 1514426a-133c-491a-aa27-ee0962cea9dc
 ms.service: dns
 ms.devlang: na
 ms.topic: hero-article
@@ -14,11 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2016
 ms.author: sewhee
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: e2b93d8788f8f36ff6bc04a33d1f35a86cd49973
+
 
 ---
-# CLI kullanarak bir Azure DNS bölgesi oluşturma
+# <a name="create-an-azure-dns-zone-using-cli"></a>CLI kullanarak bir Azure DNS bölgesi oluşturma
 > [!div class="op_single_selector"]
-> * [Azure Portalı](dns-getstarted-create-dnszone-portal.md)
+> * [Azure Portal](dns-getstarted-create-dnszone-portal.md)
 > * [PowerShell](dns-getstarted-create-dnszone.md)
 > * [Azure CLI](dns-getstarted-create-dnszone-cli.md)
 > 
@@ -28,33 +32,33 @@ Bu makale, CLI kullanarak bir DNS bölgesi oluşturma adımları boyunca size yo
 
 [!INCLUDE [dns-create-zone-about](../../includes/dns-create-zone-about-include.md)]
 
-## Başlamadan önce
+## <a name="before-you-begin"></a>Başlamadan önce
 Bu yönergelerde Microsoft Azure CLI kullanılmaktadır. Azure DNS komutlarını kullanmak için en son Azure CLI (0.9.8 veya üstü) sürümüne güncelleştirdiğinizden emin olun. Şu anda bilgisayarınızda hangi Azure CLI sürümünün yüklü olduğunu denetlemek için `azure -v` yazın.
 
-## 1. Adım - Azure CLI'yı ayarlama
-### 1. Azure CLI'yı yükleme
+## <a name="step-1-set-up-azure-cli"></a>1. Adım - Azure CLI'yı ayarlama
+### <a name="1-install-azure-cli"></a>1. Azure CLI'yı yükleme
 Windows, Linux veya Mac için Azure CLI'yı yükleyebilirsiniz. Azure CLI'yı kullanarak Azure DNS'yi yönetmeniz için öncelikle aşağıdaki adımların tamamlanması gerekir. Daha fazla bilgi için bkz. [Azure CLI'yı yükleme](../xplat-cli-install.md). DNS komutları için Azure CLI 0.9.8 veya sonraki bir sürümü gerekir.
 
 CLI'deki tüm ağ sağlayıcı komutları aşağıdaki komut kullanılarak bulunabilir:
 
     azure network
 
-### 2. CLI moduna geçme
+### <a name="2-switch-cli-mode"></a>2. CLI moduna geçme
 Azure DNS, Azure Resource Manager'ı kullanır. ARM komutlarını kullanmak için CLI moduna geçtiğinizden emin olun.
 
     azure config mode arm
 
-### 3. Azure hesabınızda oturum açma
+### <a name="3-sign-in-to-your-azure-account"></a>3. Azure hesabınızda oturum açma
 Kimlik bilgilerinizle kimliğinizi doğrulamanız istenir. Yalnızca ORGID hesaplarını kullanabileceğinizi göz önünde bulundurun.
 
     azure login -u "username"
 
-### 4. Aboneliği seçme
+### <a name="4-select-the-subscription"></a>4. Aboneliği seçme
 Hangi Azure aboneliğinizin kullanılacağını seçin.
 
     azure account set "subscription name"
 
-### 5. Kaynak grubu oluşturma
+### <a name="5-create-a-resource-group"></a>5. Kaynak grubu oluşturma
 Azure Resource Manager, tüm kaynak gruplarının bir konum belirtmesini gerektirir. Bu, kaynak grubunda kaynaklar için varsayılan konum olarak kullanılır. Ancak tüm DNS kaynakları bölgesel değil de global olduğundan, kaynak grubu konumu seçiminin Azure DNS üzerinde hiçbir etkisi yoktur.
 
 Var olan bir kaynak grubunu kullanıyorsanız bu adımı atlayabilirsiniz.
@@ -62,32 +66,32 @@ Var olan bir kaynak grubunu kullanıyorsanız bu adımı atlayabilirsiniz.
     azure group create -n myresourcegroup --location "West US"
 
 
-### 6. Kaydolma
+### <a name="6-register"></a>6. Kaydolma
 Azure DNS hizmeti, Microsoft.Network kaynak sağlayıcısı tarafından yönetilir. Azure DNS'yi kullanmadan önce, Azure aboneliğinizin bu kaynak sağlayıcısını kullanmak için kayıtlı olması gerekir. Bu, her bir abonelik için tek seferlik bir işlemdir.
 
     azure provider register --namespace Microsoft.Network
 
 
-## 2. Adım - Bir DNS bölgesi oluşturma
+## <a name="step-2-create-a-dns-zone"></a>2. Adım - Bir DNS bölgesi oluşturma
 DNS bölgesi, `azure network dns zone create` komutu kullanılarak oluşturulur. İsteğe bağlı olarak bir DNS bölgesini etiketlerle birlikte oluşturabilirsiniz. Etiketler, bir ad-değer çifti listesidir ve Azure Resource Manager tarafından faturalama veya gruplandırma amaçları için kaynakları etiketlemek üzere kullanılır. Etiketler hakkında daha fazla bilgi için bkz. [Etiketleri kullanarak Azure kaynaklarınızı düzenleme](../resource-group-using-tags.md).
 
 Azure DNS'de bölge adları, sonlandıran **"."** işareti olmadan belirtilmelidir. Örneğin, "**contoso.com.**" yerine "**contoso.com**" kullanılmalıdır.
 
-### Bir DNS bölgesi oluşturmak için
+### <a name="to-create-a-dns-zone"></a>Bir DNS bölgesi oluşturmak için
 Aşağıdaki örnek, *MyResourceGroup* adlı kaynak grubunda *contoso.com* adlı bir DNS bölgesi oluşturur.
 
 Değerleri kendinizinkilerle değiştirerek DNS bölgenizi oluşturmak için örneği kullanın.
 
     azure network dns zone create myresourcegroup contoso.com
 
-### Bir DNS bölgesi ve etiketler oluşturma.
+### <a name="to-create-a-dns-zone-and-tags"></a>Bir DNS bölgesi ve etiketler oluşturma.
 Azure DNS CLI'si, isteğe bağlı *-Tag* parametresi kullanılarak belirtilen DNS bölgelerinin etiketlerini destekler. Aşağıdaki örnek, project = demo ve env = test şeklindeki iki etiketle bir DNS bölgesinin nasıl oluşturulacağını gösterir.
 
 Değerleri kendinizinkilerle değiştirerek bir DNS bölgesi ve etiket oluşturmak için aşağıdaki örneği kullanın.
 
     azure network dns zone create myresourcegroup contoso.com -t "project=demo";"env=test"
 
-## Kayıtları görüntüleme
+## <a name="view-records"></a>Kayıtları görüntüleme
 Bir DNS bölgesinin oluşturulması aşağıdaki DNS kayıtlarını da oluşturur:
 
 * "Yetki Başlangıcı" (SOA) kaydı. Bu, her DNS bölgesinin kökünde bulunur.
@@ -138,7 +142,7 @@ Bölge ile oluşturulan NS kayıtlarını görüntülemek için aşağıdaki kom
 > 
 > 
 
-## Test etme
+## <a name="test"></a>Test etme
 DNS bölgenizi test etmek için nslookup, DIG veya `Resolve-DnsName` PowerShell cmdlet gibi DNS araçlarını kullanabilirsiniz.
 
 Azure DNS'de yeni bölgeyi kullanmak için etki alanınızı henüz devretmediyseniz DNS sorgusunu bölgenizin ad sunucularından birine doğrudan yönlendirmeniz gerekir. Bölgenizin ad sunucuları, yukarıda "azure network dns record-set show" olarak listelenip NS kayıtlarında verilir. Aşağıdaki komutta bölgeniz için doğru değerleri değiştirdiğinizden emin olun.
@@ -148,17 +152,17 @@ Aşağıdaki örnek, DNS bölgesi için atanmış ad sunucularını kullanarak d
      <<>> DiG 9.10.2-P2 <<>> @ns1-05.azure-dns.com contoso.com
     (1 server found)
     global options: +cmd
-    Got answer:
+     Got answer:
     ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 60963
-    flags: qr aa rd; QUERY: 1, ANSWER: 0, AUTHORITY: 1, ADDITIONAL: 1
-    WARNING: recursion requested but not available
+     flags: qr aa rd; QUERY: 1, ANSWER: 0, AUTHORITY: 1, ADDITIONAL: 1
+     WARNING: recursion requested but not available
 
-    OPT PSEUDOSECTION:
-    EDNS: version: 0, flags:; udp: 4000
-    QUESTION SECTION:
+     OPT PSEUDOSECTION:
+     EDNS: version: 0, flags:; udp: 4000
+      QUESTION SECTION:
     contoso.com.                        IN      A
 
-    AUTHORITY SECTION:
+     AUTHORITY SECTION:
     contoso.com.         300     IN      SOA     edge1.azuredns-cloud.net.
     msnhst.microsoft.com. 6 900 300 604800 300
 
@@ -167,9 +171,12 @@ Aşağıdaki örnek, DNS bölgesi için atanmış ad sunucularını kullanarak d
     WHEN: Tue Jul 21 16:04:51 Pacific Daylight Time 2015
     MSG SIZE  rcvd: 120
 
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 Bir DNS bölgesi oluşturduktan sonra, İnternet etki alanınız için ad çözümlemesini başlatmak amacıyla [kayıt kümeleri ve kayıtlar](dns-getstarted-create-recordset-cli.md) oluşturun.
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

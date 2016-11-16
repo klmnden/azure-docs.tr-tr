@@ -1,12 +1,12 @@
 ---
-title: Asimetrik Yönlendirme | Microsoft Docs
-description: Bu makalede, bir hedefe birden çok bağlantı içeren bir ağda asimetrik yönlendirme konusunda karşılaşılabilecek sorunlarla ilgili yol gösterilmektedir.
+title: "Asimetrik Yönlendirme | Microsoft Belgeleri"
+description: "Bu makalede, bir hedefe birden çok bağlantı içeren bir ağda asimetrik yönlendirme konusunda karşılaşılabilecek sorunlarla ilgili yol gösterilmektedir."
 documentationcenter: na
 services: expressroute
 author: osamazia
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: a754bff9-95c9-44b5-9796-377fc21e8322
 ms.service: expressroute
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: osamazia
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: cebf1a1712b6ba7f1f6125369703694ba19d0244
+
 
 ---
 # <a name="asymmetric-routing-with-multiple-network-paths"></a>Birden çok ağ yoluyla Asimetrik yönlendirme
@@ -60,7 +64,7 @@ Genel IP adreslerinizin uygun geniş alan ağı (WAN) bağlantılarına tanıtı
 
 Kimlik doğrulaması için ExpressRoute’u kullanmak istiyorsanız AD FS genel IP adreslerini ExpressRoute üzerinden NAT olmadan tanıttığınızdan emin olun. Bu şekilde, Microsoft'tan kaynaklanan ve şirket içi bir AD FS sunucusuna giden trafik ExpressRoute üzerinden gider. Müşteriden Microsoft’a giden dönüş trafiği, İnternet üzerinden tercih edilen yol olduğundan ExpressRoute’u kullanır.
 
-### <a name="source-based-nat"></a>Kaynak tabanlı NAT
+### <a name="sourcebased-nat"></a>Kaynak tabanlı NAT
 Asimetrik yönlendirme sorunlarını çözmenin bir başka yolu da SNAT kullanmaktır. Örneğin, şirket içi bir Basit Posta Aktarım Protokolü (SMTP) sunucusunun genel IP adresini ExpressRoute üzerinden tanıtmadınız, çünkü bu tür iletişimler için İnternet’i kullanmayı amaçlıyorsunuz. Microsoft’tan kaynaklanıp daha sonra şirket içi SMTP sunucunuza giden bir istek İnternet’ten gönderilir. Gelen isteğe SNAT uygulayarak bir dahili IP adresine yönlendirirsiniz. SMTP sunucusundan kaynaklanan ters yöndeki trafik, ExpressRoute üzerinden gitmek yerine NAT için kullandığınız uç güvenlik duvarına gider. Dönüş trafiği İnternet üzerinden gider.
 
 ![Kaynak tabanlı NAT ağ yapılandırması](./media/expressroute-asymmetric-routing/AsymmetricRouting2.png)
@@ -68,6 +72,9 @@ Asimetrik yönlendirme sorunlarını çözmenin bir başka yolu da SNAT kullanma
 ## <a name="asymmetric-routing-detection"></a>Asimetrik yönlendirmenin algılanması
 Traceroute, ağ trafiğinizin beklenen yoldan gittiğinden emin olmanın en iyi yoludur. Şirket içi SMTP sunucunuzdan Microsoft’a giden trafiğin İnternet yolunu tercih etmesini bekliyorsanız, beklenen traceroute SMTP sunucusundan Office 365’e gider. Sonuç, ağınızdan çıkan trafiğin ExpressRoute’a değil, gerçekten de İnternet’e gittiğini doğrular.
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -10,7 +10,7 @@
    * **Ad**: *Uygulama koleksiyonunuzun* adı 
    * **Platformlar**: Açılacak Platformlar dikey penceresinde uygulamanızın hedef platformlarını seçin. Örneğin hem iOS hem de Android için bir uygulama istiyorsanız her iki platformu seçin; bu uygulama koleksiyonu altında iki uygulama oluşturulur. 
      
-     ![](./media/mobile-engagement-create-app-in-portal-new/choose-platform.png)
+      ![](./media/mobile-engagement-create-app-in-portal-new/choose-platform.png)
    * **Abonelik**: Azure aboneliğini seçin. 
    * **Kaynak grubu**: Bu Azure kaynağını istediğiniz Azure Kaynak grubunu seçin (Mobile Engagement Uygulama Koleksiyonu). Yeni bir tane oluşturmayı seçebilirsiniz.  
    * **Konum**: Bu uygulama koleksiyonu ve uygulamaya ilişkin verilerin depolanacağı bölge.
@@ -30,6 +30,8 @@
    
     ![](./media/mobile-engagement-create-app-in-portal-new/app-connection-info.png)
 
-<!--HONumber=Oct16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

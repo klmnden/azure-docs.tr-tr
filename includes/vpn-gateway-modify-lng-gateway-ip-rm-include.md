@@ -1,6 +1,6 @@
 Ağ geçidi IP adresini değiştirmek için `New-AzureRmVirtualNetworkGatewayConnection` cmdlet'ini kullanın. Yerel ağ geçidinin adını mevcut ad ile aynı şekilde tuttuğunuz sürece ayarlar mevcut ayarların üzerine yazılır. Bu noktada, "Set" cmdlet'i ağ geçidi IP adresinin değiştirilmesini desteklemez.
 
-### <a name="gwipnoconnection"></a>Ağ geçidi bağlantısı olmadan ağ geçidi IP adresini değiştirme
+### <a name="a-namegwipnoconnectionahow-to-modify-the-gateway-ip-address-no-gateway-connection"></a><a name="gwipnoconnection"></a>Ağ geçidi bağlantısı olmadan ağ geçidi IP adresini değiştirme
 Henüz bağlantısı olmayan yerel ağ geçidiniz için ağ geçidi IP adresini güncelleştirmek üzere aşağıdaki örneği kullanın. Aynı zamanda adres ön eklerini de güncelleştirebilirsiniz. Belirttiğiniz ayarlar, mevcut ayarların üzerine yazılır. Yerel ağ geçidinizin mevcut adını kullandığınızdan emin olun. Aksi halde mevcut olanın üzerine yazmaz ve yeni bir yerel ağ geçidi oluşturursunuz.
 
 Aşağıdaki örneği kullanarak değerleri kendi değerlerinizle değiştirin.
@@ -10,7 +10,7 @@ Aşağıdaki örneği kullanarak değerleri kendi değerlerinizle değiştirin.
     -GatewayIpAddress "5.4.3.2" -ResourceGroupName MyRGName
 
 
-### <a name="gwipwithconnection"></a>Mevcut ağ geçidi bağlantısını kullanarak ağ geçidi IP adresini değiştirme
+### <a name="a-namegwipwithconnectionahow-to-modify-the-gateway-ip-address-existing-gateway-connection"></a><a name="gwipwithconnection"></a>Mevcut ağ geçidi bağlantısını kullanarak ağ geçidi IP adresini değiştirme
 Zaten bir ağ geçidi bağlantısı varsa öncelikle bu bağlantıyı kaldırmanız gerekir. Ardından ağ geçidi IP adresini değiştirebilir ve yeni bir bağlantı oluşturabilirsiniz. Bunun sonucunda, VPN bağlantınızda bazı kesintiler oluşacaktır.
 
 > [!IMPORTANT]
@@ -42,6 +42,8 @@ Zaten bir ağ geçidi bağlantısı varsa öncelikle bu bağlantıyı kaldırman
         -LocalNetworkGateway2 $local `
         -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

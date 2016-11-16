@@ -1,24 +1,28 @@
 ---
-title: StorSimple cihazınızı dağıtma (Güncelleştirme 2) | Microsoft Docs
-description: StorSimple Güncelleştirme 2 cihazını ve hizmetini dağıtmak için adımları ve en iyi yöntemleri açıklar.
+title: "StorSimple cihazınızı dağıtma (Güncelleştirme 2) | Microsoft Belgeleri"
+description: "StorSimple Güncelleştirme 2 cihazını ve hizmetini dağıtmak için adımları ve en iyi yöntemleri açıklar."
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: 7dff0612-617b-4fc8-a3fe-994c24bc7c51
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/11/2016
+ms.date: 10/24/2016
 ms.author: alkohli
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 636b4ca48d242edfad2770a29f73f7a76edca034
+
 
 ---
-# <a name="deploy-your-on-premises-storsimple-device-(update-2)"></a>Şirket içi StorSimple cihazınızı dağıtma (Güncelleştirme 2)
+# <a name="deploy-your-onpremises-storsimple-device-update-2"></a>Şirket içi StorSimple cihazınızı dağıtma (Güncelleştirme 2)
 > [!div class="op_single_selector"]
-> * [Güncelleştirme 2](storsimple-deployment-walkthrough-u2.md)
+> * [Güncelleştirme 2 ve sonrası](storsimple-deployment-walkthrough-u2.md)
 > * [Güncelleştirme 1](storsimple-deployment-walkthrough-u1.md)
 > * [GA Sürümü](storsimple-deployment-walkthrough.md)
 > 
@@ -91,10 +95,10 @@ Başlamadan önce aşağıdakilerden emin olun:
 
 * Veri merkezi güvenlik duvarınızdaki bağlantı noktaları iSCSI ve bulut trafiğine izin vermek için [StorSimple cihazınız için ağ gereksinimleri](storsimple-system-requirements.md#networking-requirements-for-your-storsimple-device) bölümünde belirtildiği şekilde açık.
 
-## <a name="step-by-step-deployment"></a>Adım adım dağıtım
+## <a name="stepbystep-deployment"></a>Adım adım dağıtım
 StorSimple cihazınızı veri merkezinde dağıtmak için aşağıdaki adım adım yönergeleri kullanın.
 
-## <a name="step-1:-create-a-new-service"></a>1. Adım: Yeni bir hizmet oluşturun
+## <a name="step-1-create-a-new-service"></a>1. Adım: Yeni bir hizmet oluşturun
 Bir StorSimple Yöneticisi hizmeti birden çok StorSimple cihazını yönetebilir. StorSimple Yöneticisi hizmetinin yeni bir örneğini oluşturmak için aşağıdaki adımları gerçekleştirin.
 
 [!INCLUDE [storsimple-create-new-service](../../includes/storsimple-create-new-service.md)]
@@ -107,19 +111,19 @@ Bir StorSimple Yöneticisi hizmeti birden çok StorSimple cihazını yönetebili
 > 
 > 
 
-## <a name="step-2:-get-the-service-registration-key"></a>2. Adım: Hizmet kayıt anahtarını alın
+## <a name="step-2-get-the-service-registration-key"></a>2. Adım: Hizmet kayıt anahtarını alın
 StorSimple Yöneticisi hizmeti çalışır duruma geldikten sonra, hizmet kayıt anahtarını almanız gerekir. Bu anahtar StorSimple cihazınızı kaydetmek ve hizmete bağlamak için kullanılır.
 
 Yönetim Portalı’nda aşağıdaki adımları gerçekleştirin.
 
 [!INCLUDE [storsimple-get-service-registration-key](../../includes/storsimple-get-service-registration-key.md)]
 
-## <a name="step-3:-configure-and-register-the-device-through-windows-powershell-for-storsimple"></a>3. Adım: StorSimple için Windows PowerShell üzerinden cihazı yapılandırın ve kaydedin
+## <a name="step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple"></a>3. Adım: StorSimple için Windows PowerShell üzerinden cihazı yapılandırın ve kaydedin
 Aşağıdaki yordamda açıklandığı gibi StorSimple cihazınızın ilk kurulumu tamamlamak üzere StorSimple için Windows PowerShell kullanın. Bu adımı tamamlamak için bir terminal öykünme yazılımı kullanmanız gerekir. Daha fazla bilgi için bkz. [Cihaz seri konsoluna bağlanmak için PuTTY kullanma](#use-putty-to-connect-to-the-device-serial-console).
 
 [!INCLUDE [storsimple-configure-and-register-device-u1](../../includes/storsimple-configure-and-register-device-u1.md)]
 
-## <a name="step-4:-complete-minimum-device-setup"></a>4. Adım: Minimum cihaz kurulumunu tamamlayın
+## <a name="step-4-complete-minimum-device-setup"></a>4. Adım: Minimum cihaz kurulumunu tamamlayın
 StorSimple cihazınız için en düşük cihaz yapılandırması için aşağıdakileri yapmanız gerekir: 
 
 * İkincil DNS sunucusunu ayarlayın.
@@ -130,14 +134,14 @@ En düşük cihaz kurulumunu tamamlamak için Yönetim Portalı’nda aşağıda
 
 [!INCLUDE [storsimple-complete-minimum-device-setup](../../includes/storsimple-complete-minimum-device-setup-u1.md)]
 
-## <a name="step-5:-create-a-volume-container"></a>5. Adım: Birim kapsayıcısı oluşturun
+## <a name="step-5-create-a-volume-container"></a>5. Adım: Birim kapsayıcısı oluşturun
 Birim kapsayıcısı, kapsadığı tüm birimler için depolama hesabı, bant genişliği ve şifreleme ayarlarını içerir. StorSimple cihazınızda birimleri sağlamaya başlamadan önce bir birim kapsayıcısı oluşturmanız gerekir. 
 
 Birim kapsayıcısı oluşturmak için Yönetim Portalı’nda aşağıdaki adımları gerçekleştirin.
 
 [!INCLUDE [storsimple-create-volume-container](../../includes/storsimple-create-volume-container.md)]
 
-## <a name="step-6:-create-a-volume"></a>6. Adım: Birim oluşturun
+## <a name="step-6-create-a-volume"></a>6. Adım: Birim oluşturun
 Bir birim kapsayıcısı oluşturduktan sonra, sunucularınız için StorSimple cihazında bir depolama birimi sağlayabilirsiniz. Birim oluşturmak için Yönetim Portalı’nda aşağıdaki adımları gerçekleştirin.
 
 > [!IMPORTANT]
@@ -147,7 +151,7 @@ Bir birim kapsayıcısı oluşturduktan sonra, sunucularınız için StorSimple 
 
 [!INCLUDE [storsimple-create-volume](../../includes/storsimple-create-volume-u2.md)]
 
-## <a name="step-7:-mount,-initialize,-and-format-a-volume"></a>7. Adım: Bir birimi bağlayın, başlatın ve biçimlendirin
+## <a name="step-7-mount-initialize-and-format-a-volume"></a>7. Adım: Bir birimi bağlayın, başlatın ve biçimlendirin
 Aşağıdaki adımlar, Windows Server konağınızda gerçekleştirilir. 
 
 > [!IMPORTANT]
@@ -161,7 +165,7 @@ MPIO yapılandırmamaya karar verirseniz, bir Windows Server konağında StorSim
 
 [!INCLUDE [storsimple-mount-initialize-format-volume](../../includes/storsimple-mount-initialize-format-volume.md)]
 
-## <a name="step-8:-take-a-backup"></a>8. Adım: Yedekleyin
+## <a name="step-8-take-a-backup"></a>8. Adım: Yedekleyin
 Yedeklemeler, birimlerin zaman noktası korumasını sağlar ve geri yükleme sürelerini azaltırken kurtarılabilirliği iyileştirir. StorSimple cihazınızda iki tür yedekleme oluşturabilirsiniz: yerel anlık görüntüler ve bulut anlık görüntüleri. Bu yedekleme türlerinin her biri **Zamanlanmış** veya **El ile** olabilir. 
 
 Zamanlanmış yedekleme oluşturmak için Yönetim Portalı’nda aşağıdaki adımları gerçekleştirin.
@@ -217,6 +221,9 @@ StorSimple cihazınızda tek bir birim için bir isteğe bağlı el ile yedeklem
 * [Sanal cihaz](storsimple-virtual-device-u2.md) yapılandırın.
 * StorSimple cihazınızı yönetmek için [StorSimple Yöneticisi hizmetini](storsimple-manager-service-administration.md) kullanın.
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

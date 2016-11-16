@@ -1,6 +1,6 @@
 <!--author=SharS last changed: 02/04/2016-->
 
-#### Birim oluşturmak için
+#### <a name="to-create-a-volume"></a>Birim oluşturmak için
 1. Cihaz **Hızlı Başlangıç** sayfasında, **Birim ekle**’ye tıklayın. Bu, Birim ekleme sihirbazını başlatır.
 2. Birim ekleme sihirbazının **Temel Ayarlar**’ı altında şunları yapın:
    
@@ -24,12 +24,14 @@
       > 
       
         ![Birim ekle](./media/storsimple-create-volume/AddVolume2-include.png)
-4. Onay simgesine tıklayın ![onay simgesi](./media/storsimple-create-volume/HCS_CheckIcon-include.png). Belirtilen ayarlarla bir birim oluşturulacaktır.
+4. Onay simgesine tıklayarak ![onay simgesi](./media/storsimple-create-volume/HCS_CheckIcon-include.png). Belirtilen ayarlarla bir birim oluşturulacaktır.
 
-![Kullanılabilir video](./media/storsimple-create-volume/Video_icon.png) **Kullanılabilir video**
+![Video var](./media/storsimple-create-volume/Video_icon.png) **Video var**
 
 Bir StorSimple biriminin nasıl oluşturulduğunu gösteren bir video izlemek için [buraya](https://azure.microsoft.com/documentation/videos/create-a-storsimple-volume/) tıklayın.
 
-<!--HONumber=Jun16_HO2-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

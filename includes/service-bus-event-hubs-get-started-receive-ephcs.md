@@ -1,9 +1,9 @@
-## EventProcessorHost bulunan iletiler alma
+## <a name="receive-messages-with-eventprocessorhost"></a>EventProcessorHost bulunan iletiler alma
 [EventProcessorHost][EventProcessorHost], Event Hubs’a ait kalıcı denetim noktalarını ve paralel alımları yöneterek bu Event Hubs’a ait alma olaylarını basitleştiren bir .NET sınıfıdır. [EventProcessorHost][EventProcessorHost]’u kullanarak, farklı düğümlerde barındırıldığında bile birden çok alıcı arasında olayları bölebilirsiniz. Bu örnek, tek alıcı için [EventProcessorHost][EventProcessorHost]’un nasıl kullanıldığını göstermektedir. [Ölçeği genişletilmiş olay işleme][Ölçeği genişletilmiş olay işleme] örneği birden çok alıcıyla [EventProcessorHost][EventProcessorHost]’un nasıl kullanılacağını göstermektedir.
 
-[EventProcessorHost][EventProcessorHost]'u kullanabilmeniz için bir [Azure Depolama hesabınızın][Azure Depolama hesabınızın] olması gerekir:
+[EventProcessorHost][EventProcessorHost]’u kullanmak için [Azure Depolama hesabınız][Azure Depolama hesabınız] olmalıdır:
 
-1. [Azure portal][Azure portal]’da oturum açın ve ekranın sol üst köşesindeki **Yeni**’ye tıklayın.
+1. [Azure portal][Azure portal] üzerinde oturum açın ve ekranın sol üst köşesindeki **Yeni**’ye tıklayın.
 2. **Veri + Depolama** ve ardından **Depolama hesabı**’na tıklayın.
    
     ![](./media/service-bus-event-hubs-getstarted-receive-ephcs/create-storage1.png)
@@ -114,13 +114,13 @@
 > 
 
 <!-- Links -->
-[Event Hubs’a Genel Bakış]: event-hubs-overview.md
-[Event Hubs Programlama Kılavuzu]: event-hubs-programming-guide.md
+[Event Hubs’a Genel Bakış]: ../articles/event-hubs/event-hubs-overview.md
+[Event Hubs Programlama Kılavuzu]: ../articles/event-hubs/event-hubs-programming-guide.md
 [Ölçeği genişletilmiş olay işleme]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
-[Azure Depolama hesabınızın]: ../storage/storage-create-storage-account.md
+[Azure Depolama hesabınız]: ../articles/storage/storage-create-storage-account.md
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
 [Azure portal]: https://portal.azure.com
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

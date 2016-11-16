@@ -1,4 +1,4 @@
-1. [Azure Portal][Azure Portal] oturum açın.
+1. [Azure portal][Azure portal] üzerinde oturum açın.
 2. Portalın sol gezinti bölmesinde **Yeni**'ye tıklayın, ardından **Enterprise Integration**'a ve **Service Bus**'a tıklayın.
 3. **Ad alanı oluştur** iletişim kutusunda bir ad alanı adı girin. Adın kullanılabilirliği sistem tarafından hemen denetlenir.
 4. Ad alanı adının kullanılabilir durumda olduğundan emin olduktan sonra fiyatlandırma katmanını (Temel, Standart veya Premium) seçin.
@@ -9,7 +9,7 @@
     ![Ad alanı oluşturma][create-namespace]
 8. **Oluştur**’a tıklayın. Artık sistem ad alanınızı oluşturur ve kullanıma açar. Sistem, hesabınıza yönelik kaynakları sağlarken birkaç dakika beklemeniz gerekebilir.
 
-### Yönetim kimlik bilgilerini alma
+### <a name="obtain-the-management-credentials"></a>Yönetim kimlik bilgilerini alma
 1. Ad alanları listesinde, yeni oluşturulan ad alanı adına tıklayın.
 2. Ad alanı dikey penceresinde, **Paylaşılan erişim ilkeleri**'ne tıklayın.
 3. **Paylaşılan erişim ilkeleri** dikey penceresinde, **RootManageSharedAccessKey** öğesine tıklayın.
@@ -26,8 +26,8 @@
 [bağlantı dizesi]: ./media/service-bus-create-namespace-portal/connection-string.png
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
-[Azure Portal]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

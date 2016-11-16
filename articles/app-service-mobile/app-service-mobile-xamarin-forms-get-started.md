@@ -1,12 +1,12 @@
 ---
-title: Xamarin.Forms ile Mobile Apps’i kullanmaya başlama
-description: Xamarin.Forms geliştirme için Azure Mobile Apps kullanmaya başlamak için bu öğreticiyi izleyin.
+title: "Xamarin.Forms ile Mobile Apps’i kullanmaya başlama"
+description: "Xamarin.Forms geliştirme için Azure Mobile Apps kullanmaya başlamak için bu öğreticiyi izleyin."
 services: app-service\mobile
 documentationcenter: xamarin
 author: adrianhall
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 5e692220-cc89-4548-96c8-35259722acf5
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin
@@ -14,17 +14,21 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: adrianha
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 6a48181c6c22e6042dd8ef39c12415979e384f8b
+
 
 ---
-# Xamarin.Forms uygulaması oluşturma
+# <a name="create-a-xamarinforms-app"></a>Xamarin.Forms uygulaması oluşturma
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
-## Genel Bakış
+## <a name="overview"></a>Genel Bakış
 Bu öğreticide, bir Xamarin.Forms mobil uygulamasına Azure Mobil Uygulaması arka ucunu kullanarak bulut tabanlı arka uç hizmetini nasıl ekleyeceğiniz gösterilir. Yeni bir Mobil Uygulama arka ucu ve uygulama verilerini Azure’da depolayan basit bir *Yapılacaklar listesi* Xamarin.Forms uygulaması oluşturacaksınız.
 
 Bu öğreticiyi tamamlamak Xamarin.Forms uygulamalarına ilişkin tüm Mobile Apps öğreticileri için ön koşuldur.
 
-## Ön koşullar
+## <a name="prerequisites"></a>Ön koşullar
 Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
 * Etkin bir Azure hesabı. Bir hesabınız yoksa, Azure deneme sürümünü kaydolabilir ve deneme süresi bittikten sonra dahi kullanmaya devam edebileceğiniz 10 ücretsiz Mobil Uygulama edinebilirsiniz. Ayrıntılar için bkz. [Azure Ücretsiz Deneme](https://azure.microsoft.com/pricing/free-trial/).
@@ -36,19 +40,19 @@ Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 > 
 > 
 
-## Yeni bir Azure Mobil Uygulama arka ucu oluşturma
+## <a name="create-a-new-azure-mobile-app-backend"></a>Yeni bir Azure Mobil Uygulama arka ucu oluşturma
 Yeni Mobil Uygulama arka ucu oluşturmak için bu adımları izleyin.
 
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
 Artık, mobil istemci uygulamalarınız tarafından kullanılabilecek bir Azure Mobil Uygulama arka ucu sağladınız. Sonra, basit bir "yapılacaklar listesi" arka ucu için bir sunucu projesi indirecek ve Azure’a yayımlayacaksınız.
 
-## Sunucu projesi yapılandırma
+## <a name="configure-the-server-project"></a>Sunucu projesi yapılandırma
 Node.js veya .NET arka ucu kullanmak için sunucu projesi yapılandırmak üzere aşağıdaki adımları izleyin.
 
 [!INCLUDE [app-service-mobile-configure-new-backend](../../includes/app-service-mobile-configure-new-backend.md)]
 
-## Xamarin.Forms çözümünü indirme ve çalıştırma
+## <a name="download-and-run-the-xamarinforms-solution"></a>Xamarin.Forms çözümünü indirme ve çalıştırma
 Burada birkaç seçeneğiniz vardır. Çözümü bir Mac’e indirebilir ve Xamarin Studio’da açabilir ya da çözümü bir Windows bilgisayara indirebilir ve ağ ile bağlı bir Mac kullanarak iOS uygulaması oluşturmak için açabilirsiniz. Xamarin kurulum senaryoları hakkında daha ayrıntılı yönergeler gerekiyorsa bkz. [Visual Studio ve Xamarin için kurulum ve yükleme](https://msdn.microsoft.com/library/mt613162.aspx).
 
 Şimdi devam edelim:
@@ -63,14 +67,14 @@ Burada birkaç seçeneğiniz vardır. Çözümü bir Mac’e indirebilir ve Xama
    
    ![][8]
 
-## (İsteğe bağlı) iOS projesi çalıştırma
+## <a name="optional-run-the-ios-project"></a>(İsteğe bağlı) iOS projesi çalıştırma
 Bu bölüm iOS cihazları için Xamarin iOS projesi çalıştırmaya yöneliktir. iOS cihazlarıyla çalışmıyorsanız, bu bölümü atlayabilirsiniz.
 
-#### Xamarin Studio’da
+#### <a name="in-xamarin-studio"></a>Xamarin Studio’da
 1. iOS projesine sağ tıklayın ve ardından **Başlangıç Projesi Olarak Ayarla**’ya tıklayın.
 2. **Çalıştır** menüsünde, **Hata Ayıklamayı Başlat**’a tıklayarak projeyi oluşturun ve uygulamayı iPhone öykünücüsünde başlatın.
 
-#### Visual Studio’da
+#### <a name="in-visual-studio"></a>Visual Studio’da
 1. iOS projesine sağ tıklayın ve ardından **Başlangıç Projesi Olarak Ayarla**’ya tıklayın.
 2. **Yapı** menüsünde, **Yapılandırma Yöneticisi**’ne tıklayın.
 3. **Yapılandırma Yöneticisi** iletişim kutusunda, iOS projesine ait **Yapı** ve **Dağıt** onay kutularını seçin.
@@ -92,14 +96,14 @@ Bu, Azure üzerinde barındırılan yeni mobil uygulama arka ucuna bir POST iste
 > 
 > 
 
-## (İsteğe bağlı) Android projesi çalıştırma
+## <a name="optional-run-the-android-project"></a>(İsteğe bağlı) Android projesi çalıştırma
 Bu bölüm Android cihazları için Xamarin Android projesi çalıştırmaya yöneliktir. Android cihazlarıyla çalışmıyorsanız, bu bölümü atlayabilirsiniz.
 
-#### Xamarin Studio’da
+#### <a name="in-xamarin-studio"></a>Xamarin Studio’da
 1. Android projesine sağ tıklayın ve ardından **Başlangıç Projesi Olarak Ayarla**’ya tıklayın.
 2. **Çalıştır** menüsünde, **Hata Ayıklamayı Başlat**’a tıklayarak projeyi oluşturun ve uygulamayı Android öykünücüsünde başlatın.
 
-#### Visual Studio’da
+#### <a name="in-visual-studio"></a>Visual Studio’da
 1. Android (Droid) projesine sağ tıklayın ve ardından **Başlangıç Projesi Olarak Ayarla**’ya tıklayın.
 2. **Yapı** menüsünde, **Yapılandırma Yöneticisi**’ne tıklayın.
 3. **Yapılandırma Yöneticisi** iletişim kutusunda, Android projesine ait **Yapı** ve **Dağıt** onay kutularını seçin.
@@ -121,10 +125,10 @@ Bu, Azure üzerinde barındırılan yeni mobil uygulama arka ucuna bir POST iste
 > 
 > 
 
-## (İsteğe bağlı) Windows projesi çalıştırma
+## <a name="optional-run-the-windows-project"></a>(İsteğe bağlı) Windows projesi çalıştırma
 Bu bölüm Windows cihazları için Xamarin WinApp projesi çalıştırmaya yöneliktir. Windows cihazlarıyla çalışmıyorsanız, bu bölümü atlayabilirsiniz.
 
-#### Visual Studio’da
+#### <a name="in-visual-studio"></a>Visual Studio’da
 1. Windows projelerinden birine sağ tıklayın ve ardından **Başlangıç Projesi Olarak Ayarla**’ya tıklayın.
 2. **Yapı** menüsünde, **Yapılandırma Yöneticisi**’ne tıklayın.
 3. **Yapılandırma Yöneticisi** iletişim kutusunda, seçtiğiniz Windows projesine ait **Yapı** ve **Dağıt** onay kutularını seçin.
@@ -146,18 +150,18 @@ Bu, Azure üzerinde barındırılan yeni mobil uygulama arka ucuna bir POST iste
 > 
 > 
 
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 * [Uygulamanıza kimlik doğrulaması ekleme](app-service-mobile-xamarin-forms-get-started-users.md)  
   Uygulamanızdaki kullanıcıların kimliklerini bir kimlik sağlayıcısı ile nasıl doğrulayacağınızı öğrenin.
 * [Uygulamanıza anında iletme bildirimleri ekleme](app-service-mobile-xamarin-forms-get-started-push.md)  
   Uygulamanıza anında iletme bildirimleri desteği eklemeyi ve anında iletme bildirimleri göndermek için Azure Notification Hubs’ı kullanmak üzere Mobile App arka ucunuzu yapılandırmayı öğrenin.
 * [Uygulamanız için çevrimdışı eşitlemeyi etkinleştirme](app-service-mobile-xamarin-forms-get-started-offline-data.md)  
   Mobil Uygulama arka ucu kullanarak uygulamanıza çevrimdışı destek eklemeyi öğrenin. Çevrimdışı eşitleme son kullanıcıların, ağ bağlantısı yokken dahi, mobil uygulama ile etkileşim kurmalarına &mdash;veri görüntüleme, ekleme ya da değiştirme&mdash; olanak tanır.
-* [Azure Mobile Apps için yönetilen istemci kullanma](app-service-mobile-dotnet-how-to-use-client-library.md)  
+* [Azure Mobile Apps için yönetilen istemciyi kullanma](app-service-mobile-dotnet-how-to-use-client-library.md)  
   Xamarin uygulamanızda yönetilen istemci SDK’sıyla çalışmayı öğrenin. 
 
 <!-- Anchors. -->
-[Mobil uygulama arka ucu kullanmaya başlama]:#getting-started
+[Mobil uygulama arka uçları kullanmaya başlama]:#getting-started
 [Yeni bir mobil uygulama arka ucu oluşturma]:#create-new-service
 [Sonraki Adımlar]:#next-steps
 
@@ -179,6 +183,6 @@ Bu, Azure üzerinde barındırılan yeni mobil uygulama arka ucuna bir POST iste
 
 
 
-<!--HONumber=Oct16_HO1-->
+<!--HONumber=Nov16_HO2-->
 
 

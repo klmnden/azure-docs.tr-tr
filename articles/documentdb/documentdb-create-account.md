@@ -1,25 +1,29 @@
 ---
-title: DocumentDB hesabı oluşturma| Microsoft Docs
-description: Azure DocumentDB ile bir NoSQL veritabanı oluşturun. DocumentDB hesabı oluşturmak ve üstün hızlı, küresel ölçekli NoSQL veritabanınızı oluşturmaya başlamak için bu yönergeleri uygulayın.
-keywords: veritabanı oluşturma
+title: "DocumentDB hesabı oluşturma| Microsoft Belgeleri"
+description: "Azure DocumentDB ile bir NoSQL veritabanı oluşturun. DocumentDB hesabı oluşturmak ve üstün hızlı, küresel ölçekli NoSQL veritabanınızı oluşturmaya başlamak için bu yönergeleri uygulayın."
+keywords: "veritabanı oluşturma"
 services: documentdb
-documentationcenter: ''
+documentationcenter: 
 author: mimig1
 manager: jhubbard
 editor: monicar
-
+ms.assetid: 0e7f8488-7bb7-463e-b6fd-3ae91a02c03a
 ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/12/2016
+ms.date: 10/17/2016
 ms.author: mimig
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b512a8d3f9b02ec2ec079486e04951ce02ba48c1
+
 
 ---
-# Azure portalını kullanarak DocumentDB NoSQL hesabı oluşturma
+# <a name="how-to-create-a-documentdb-nosql-account-using-the-azure-portal"></a>Azure portalını kullanarak DocumentDB NoSQL hesabı oluşturma
 > [!div class="op_single_selector"]
-> * [Azure portalı](documentdb-create-account.md)
+> * [Azure Portal](documentdb-create-account.md)
 > * [Azure CLI'si ve Azure Resource Manager](documentdb-automation-resource-manager-cli.md)
 > 
 > 
@@ -33,8 +37,8 @@ Azure portalını, Azure Resource Manager şablonlarını veya Azure komut satı
 
 DocumentDB'yi ilk kez mi kullanıyorsunuz? Çevrimiçi portalda en yaygın görevleri nasıl tamamlayacağınızı görmek için Scott Hanselman tarafından hazırlanan [bu](https://azure.microsoft.com/documentation/videos/create-documentdb-on-azure/) dört dakikalık videoyu izleyin.
 
-1. [Azure portalında](https://portal.azure.com/) oturum açın.
-2. Atlama Çubuğunda **Yeni**'ye, **Veri + Depolama**'ya ve ardından **DocumentDB (NoSQL)** öğesine tıklayın.
+1. [Azure Portal](https://portal.azure.com/) oturum açın.
+2. Atlama Çubuğunda **Yeni**'ye, **Veritabanları**'na ve ardından **DocumentDB (NoSQL)** öğesine tıklayın. 
    
    ![Diğer Hizmetler ve DocumentDB (NoSQL) seçeneklerinin gösterildiği Azure portalı ekran görüntüsü](./media/documentdb-create-account/create-nosql-db-databases-json-tutorial-1.png)  
 3. **Yeni hesap** dikey penceresinde, DocumentDB hesabı için istenen yapılandırmayı belirtin.
@@ -65,26 +69,29 @@ DocumentDB'yi ilk kez mi kullanıyorsunuz? Çevrimiçi portalda en yaygın göre
 [documentdb-manage]:../articles/documentdb/documentdb-manage.md
 
 
-## Sonraki adımlar
-Artık bir DocumentDB hesabınız var. Bir sonraki adımda DocumentDB veritabanı oluşturacağız. 
+## <a name="next-steps"></a>Sonraki adımlar
+Artık bir DocumentDB hesabınız var. Bir sonraki adımda DocumentDB koleksiyonu ve veritabanı oluşturacağız. 
 
-Şunlardan birini kullanarak yeni bir veritabanı oluşturabilirsiniz:
+Şunlardan birini kullanarak yeni bir koleksiyon ve veritabanı oluşturabilirsiniz:
 
-* Azure portalı (bkz. [Azure portalını kullanarak DocumentDB veritabanı oluşturma](documentdb-create-database.md)).
+* Azure portalı (bkz. [Azure portalını kullanarak DocumentDB koleksiyonu oluşturma](documentdb-create-collection.md)).
 * [.NET](documentdb-get-started.md), [.NET MVC](documentdb-dotnet-application.md), [Java](documentdb-java-application.md), [Node.js](documentdb-nodejs-application.md) veya [Python](documentdb-python-application.md) örnek verilerini içeren geniş kapsamlı öğreticiler.
 * GitHub'da bulunan [.NET](documentdb-dotnet-samples.md#database-examples), [Node.js](documentdb-nodejs-samples.md#database-examples) veya [Python](documentdb-python-samples.md#database-examples) örnek kodu.
 * [.NET](documentdb-sdk-dotnet.md), [Node.js](documentdb-sdk-node.md), [Java](documentdb-sdk-java.md), [Python](documentdb-sdk-python.md) ve [REST](https://msdn.microsoft.com/library/azure/mt489072.aspx) SDK'ları.
 
-Veritabanınızı oluşturduktan sonra, veritabanına [bir veya daha fazla koleksiyon eklemeniz](documentdb-create-collection.md) ve ardından koleksiyonlara [belge eklemeniz](documentdb-view-json-document-explorer.md) gerekir.
+Veritabanınızı ve koleksiyonunuzu oluşturduktan sonra, koleksiyonlara [belge eklemeniz](documentdb-view-json-document-explorer.md) gerekir.
 
 Koleksiyonda belge yükledikten sonra, [DocumentDB SQL](documentdb-sql-query.md)'i kullanarak belgelerinizde [sorgu yürütebilirsiniz](documentdb-sql-query.md#executing-queries). Portaldaki [Sorgu Gezgini](documentdb-query-collections-query-explorer.md)'ni, [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx)'yi veya [SDK](documentdb-sdk-dotnet.md)'lardan birini kullanarak sorgu yürütebilirsiniz.
 
-### Daha fazla bilgi edinin
+### <a name="learn-more"></a>Daha fazla bilgi edinin
 DocumentDB hakkında daha fazla bilgi edinmek için şu kaynakları keşfedin:
 
 * [DocumentDB için öğrenme yolu](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 * [DocumentDB hiyerarşik kaynak modeli ve kavramları](documentdb-resources.md)
 
-<!--HONumber=Oct16_HO1-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

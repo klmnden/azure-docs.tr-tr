@@ -1,36 +1,40 @@
 ---
-title: Xamarin.Android uygulamaları için Notification Hubs'ı kullanmaya başlama | Microsoft Docs
-description: Bu öğreticide, bir Xamarin Android uygulamasına anında iletme bildirimleri göndermek için Azure Notification Hubs'ın nasıl kullanılacağını öğrenirsiniz.
-author: wesmc7777
+title: "Xamarin.Android uygulamaları için Notification Hubs&quot;ı kullanmaya başlama | Microsoft Belgeleri"
+description: "Bu öğreticide, bir Xamarin Android uygulamasına anında iletme bildirimleri göndermek için Azure Notification Hubs&quot;ın nasıl kullanılacağını öğrenirsiniz."
+author: ysxu
 manager: erikre
-editor: ''
+editor: 
 services: notification-hubs
 documentationcenter: xamarin
-
+ms.assetid: 0be600fe-d5f3-43a5-9e5e-3135c9743e54
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 06/29/2016
-ms.author: wesmc
+ms.author: yuaxu
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 5137e0f33497dfe7ee815bb4bc30929364f6df72
+
 
 ---
-# Android için Xamarin ile Notification Hubs'ı kullanmaya başlama
+# <a name="get-started-with-notification-hubs-with-xamarin-for-android"></a>Android için Xamarin ile Notification Hubs'ı kullanmaya başlama
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
-## Genel Bakış
+## <a name="overview"></a>Genel Bakış
 Bu öğretici, bir Xamarin.Android uygulamasına anında iletme bildirimleri göndermek için Azure Notification Hubs'ın nasıl kullanılacağını size gösterir.
 Google Cloud Messaging (GCM) kullanarak anında iletme bildirimleri alan boş bir Xamarin.Android uygulaması oluşturacaksınız. İşiniz bittiğinde, uygulamanızı çalıştıran tüm cihazlara anında iletme bildirimleri yayımlamak için bildirim hub'ınızı kullanabileceksiniz. Tamamlanan kodu [NotificationHubs uygulaması][GitHub] örneğinde bulabilirsiniz.
 
 Bu öğretici Notification Hubs kullanımında basit yayın senaryosunu gösterir.
 
-## Başlamadan önce
+## <a name="before-you-begin"></a>Başlamadan önce
 [!INCLUDE [notification-hubs-hero-slug](../../includes/notification-hubs-hero-slug.md)]
 
 Bu öğreticinin tamamlanan kodu GitHub'da [buradan](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/Xamarin/GetStartedXamarinAndroid) bulunabilir.
 
-## Önkoşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bu öğretici için aşağıdakiler gereklidir:
 
 * Windows'ta Xamarin ile Visual Studio veya Mac OS X'te Xamarin Studio. Tam yükleme yönergeleri [Visual Studio ve Xamarin için Kurulum ve Yükleme](https://msdn.microsoft.com/library/mt613162.aspx) sayfasında bulunabilir.
@@ -41,14 +45,14 @@ Bu öğretici için aşağıdakiler gereklidir:
 Bu öğreticiyi tamamlamak Xamarin.Android uygulamalarına ilişkin diğer tüm Notification Hubs öğreticileri için önkoşuldur.
 
 > [!IMPORTANT]
-> Bu öğreticiyi tamamlamak için etkin bir Azure hesabınızın olması gerekir. Hesabınız yoksa yalnızca birkaç dakika içinde ücretsiz bir deneme sürümü hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A9C9624B5&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fpartner-xamarin-notification-hubs-android-get-started%2F).
+> Bu öğreticiyi tamamlamak için etkin bir Azure hesabınızın olması gerekir. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A9C9624B5&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fpartner-xamarin-notification-hubs-android-get-started%2F).
 > 
 > 
 
-## Google Cloud Messaging'i etkinleştirme
+## <a name="enable-google-cloud-messaging"></a>Google Cloud Messaging'i etkinleştirme
 [!INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-google-cloud-messaging.md)]
 
-## Bildirim hub'ınızı yapılandırma
+## <a name="configure-your-notification-hub"></a>Bildirim hub'ınızı yapılandırma
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
 <ol start="7">
@@ -60,14 +64,14 @@ Bu öğreticiyi tamamlamak Xamarin.Android uygulamalarına ilişkin diğer tüm 
 
 Bildirim hub'ınız şimdi GCM ile birlikte çalışmak üzere yapılandırıldı. Ayrıca, uygulamanızı anında iletme bildirimleri alması ve anında iletme bildirimlerini göndermesi amacıyla kaydetmenizi sağlayan bağlantı dizelerine sahipsiniz.
 
-## Uygulamanızı bildirim hub'ına bağlama
-### Yeni bir proje oluşturma
+## <a name="connect-your-app-to-the-notification-hub"></a>Uygulamanızı bildirim hub'ına bağlama
+### <a name="create-a-new-project"></a>Yeni bir proje oluşturma
 1. Xamarin Studio'da **New Solution**'a (Yeni Çözüm), **Android App **'e (Android Uygulaması) ve **Next**'e (İleri) tıklayın.
    
-    ![](./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-create-xamarin-android-project1.png)
+       ![](./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-create-xamarin-android-project1.png)
 2. **App Name**'i (Uygulama Adı) ve **Identifier**'ı (Tanımlayıcı) girin. Desteklemek istediğiniz **Target Plaforms**'a (Hedef Platformlar) tıklayın. Ardından, **Next** (İleri) ve **Create** (Oluştur) seçeneklerine tıklayın.
    
-    ![](./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-create-xamarin-android-project2.png)
+       ![](./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-create-xamarin-android-project2.png)
 
     Bu, yeni bir Android projesi oluşturur.
 
@@ -80,20 +84,20 @@ Bildirim hub'ınız şimdi GCM ile birlikte çalışmak üzere yapılandırıld�
    > 
    > 
    
-    ![](./media/partner-xamarin-notification-hubs-android-get-started/notification-hub--xamarin-android-app-options.png)
+       ![](./media/partner-xamarin-notification-hubs-android-get-started/notification-hub--xamarin-android-app-options.png)
 2. İsteğe bağlı olarak, **Minimum Android version**'ı (Minimum Android sürümü) başka bir API Düzeyine ayarlayın.
 3. İsteğe bağlı olarak, **Target Android version**'ı (Hedef Android sürümü) hedeflemek istediğiniz başka bir API sürümüne ayarlayın (API düzeyi 8 veya üzeri olmalıdır).
 
 **Tamam**'a tıklayın ve Project Options (Proje Seçenekleri) iletişim kutusunu kapatın.
 
-### Projenize gerekli bileşenleri ekleme
+### <a name="add-the-required-components-to-your-project"></a>Projenize gerekli bileşenleri ekleme
 Xamarin Bileşen Deposu'nda bulunan Google Cloud Messaging İstemcisi, Xamarin.Android'de anında iletme bildirimlerini destekleme işlemini basitleştirir.
 
 1. Xamarin.Android uygulamasındaki Components (Bileşenler) klasörüne sağ tıklayın ve **Get More Components** (Daha Fazla Bileşen Al) seçeneğini belirleyin.
 2. **Azure Mesajlaşma** bileşeni için arama yapın ve bunu projeye ekleyin.
 3. **Google Cloud Messaging İstemcisi** bileşeni için arama yapın ve bunu projeye ekleyin.
 
-### Projenizdeki bildirim hub'larını ayarlama
+### <a name="set-up-notification-hubs-in-your-project"></a>Projenizdeki bildirim hub'larını ayarlama
 1. Android uygulamanız ve bildirim hub'ınız için aşağıdaki bilgileri toplayın:
    
    * **GoogleProjectNumber**: Google Developer Portal'daki uygulamanıza genel bakış bölümünden bu Proje Numarası değerini alın. Daha önce portalda uygulamayı oluştururken bu değeri not etmiştiniz.
@@ -102,8 +106,7 @@ Xamarin Bileşen Deposu'nda bulunan Google Cloud Messaging İstemcisi, Xamarin.A
      
      Xamarin projeniz için bir **Constants.cs** sınıfı oluşturun ve bu sınıfta aşağıdaki sabit değerleri tanımlayın. Yer tutucuları değerleriniz ile değiştirin.
      
-       public static class Constants
-       {
+       public static class Constants   {
      
            public const string SenderID = "<GoogleProjectNumber>"; // Google API Project Number
            public const string ListenConnectionString = "<Listen connection string>";
@@ -194,7 +197,7 @@ Xamarin Bileşen Deposu'nda bulunan Google Cloud Messaging İstemcisi, Xamarin.A
              private NotificationHub Hub { get; set; }
     
              public PushHandlerService() : base(Constants.SenderID)
-             {
+                {
                  Log.Info(MyBroadcastReceiver.TAG, "PushHandlerService() constructor");
              }
          }
@@ -327,7 +330,7 @@ Xamarin Bileşen Deposu'nda bulunan Google Cloud Messaging İstemcisi, Xamarin.A
             Log.Error(MyBroadcastReceiver.TAG, "GCM Error: " + errorId);
         }
 
-## Uygulamanızı öykünücüde çalıştırma
+## <a name="run-your-app-in-the-emulator"></a>Uygulamanızı öykünücüde çalıştırma
 Bu uygulamayı öykünücüde çalıştırırsanız Google API'lerini destekleyen bir Android Sanal Cihaz ( AVD) kullandığınızdan emin olun.
 
 > [!IMPORTANT]
@@ -340,15 +343,15 @@ Bu uygulamayı öykünücüde çalıştırırsanız Google API'lerini destekleye
 
 1. **Tools**'da (Araçlar), **Open Android Emulator Manager** (Android Öykünücüsü Yöneticisini Aç) seçeneğine tıklayın, cihazınızı açın ve ardından **Edit** (Düzenle) seçeneğine tıklayın.
    
-    ![][18]
+       ![][18]
 2. **Target** (Hedef) içinde **Google APIs** (Google API'leri) seçeneğini belirleyin ve ardından **Tamam**'a tıklayın.
    
-    ![][19]
+       ![][19]
 3. Üst araç çubuğunda **Run**'a (Çalıştır) tıklayın ve ardından uygulamanızı seçin. Bu, öykünücüyü başlatır ve uygulamayı çalıştırır.
    
    Uygulama GCM'den *registrationId* öğesini alır ve bildirim hub'ına kaydeder.
 
-## Arka ucunuzdan bildirim gönderme
+## <a name="send-notifications-from-your-backend"></a>Arka ucunuzdan bildirim gönderme
 Aşağıdaki ekranda gösterildiği gibi, bildirim hub'ındaki hata ayıklama sekmesi aracılığıyla [Klasik Azure Portalı]'nda bildirim göndererek uygulamanızda bildirim almayı test edebilirsiniz.
 
 ![][30]
@@ -363,12 +366,12 @@ Burada, bildirim göndermek için gözden geçirmek isteyebileceğiniz diğer ba
 
 Öğreticinin sonraki alt bölümlerinde, .NET konsol uygulaması kullanarak ve bir node betiği aracılığıyla mobil hizmet kullanarak bildirim gönderirsiniz.
 
-#### (İsteğe bağlı) .NET uygulaması kullanarak bildirim gönderme
+#### <a name="optional-send-notifications-by-using-a-net-app"></a>(İsteğe bağlı) .NET uygulaması kullanarak bildirim gönderme
 Bu bölümde, .NET konsol uygulaması kullanarak bildirim göndereceğiz
 
 1. Yeni bir Visual C# konsol uygulaması oluşturun:
    
-    ![][20]
+       ![][20]
 2. Visual Studio'da **Araçlar**'a, **NuGet Paket Yöneticisi**'ne ve ardından **Paket Yöneticisi Konsolu**'na tıklayın.
    
     Bu, Visual Studio'da Paket Yöneticisi Konsolu'nu görüntüler.
@@ -395,17 +398,17 @@ Bu bölümde, .NET konsol uygulaması kullanarak bildirim göndereceğiz
          Console.ReadLine();
 7. Uygulamayı çalıştırmak için F5 tuşuna basın. Uygulamada bir bildirim almanız gerekir.
    
-    ![][21]
+       ![][21]
 
-#### (İsteğe bağlı) Mobil hizmet kullanarak bildirim gönderme
+#### <a name="optional-send-notifications-by-using-a-mobile-service"></a>(İsteğe bağlı) Mobil hizmet kullanarak bildirim gönderme
 1. [Mobile Services'i kullanmaya başlama]'yı izleyin.
 2. [Klasik Azure Portalı]'nda oturum açın ve mobil hizmetinizi seçin.
 3. Üst kısımdaki **Scheduler** sekmesini seçin.
    
-    ![][22]
+       ![][22]
 4. Yeni bir zamanlanan iş oluşturun, ad ekleyin ve **İsteğe bağlı**'yı seçin.
    
-    ![][23]
+       ![][23]
 5. İş oluşturulduğunda iş adına tıklayın. Ardından, üst çubukta **Betik** sekmesine tıklayın.
 6. Zamanlayıcı işlevinizin içine aşağıdaki betiği ekleyin. Yer tutucularını daha önce edindiğiniz bildirim hub'ı adınız ve *DefaultFullSharedAccessSignature* bağlantı dizeniz ile değiştirdiğinizden emin olun. **Kaydet** düğmesine tıklayın.
    
@@ -425,7 +428,7 @@ Bu bölümde, .NET konsol uygulaması kullanarak bildirim göndereceğiz
         );
 7. Alt çubukta **Bir Kez Çalıştır**'a tıklayın. Bir bildirim almanız gerekir.
 
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 Bu basit örnekte, tüm Android cihazlarınıza bildirimler yayımladınız. Belirli kullanıcıları hedeflemek için, [Kullanıcılara anında iletme bildirimleri göndermek için Notification Hubs’ı kullanma] öğreticisine bakın. Kullanıcılarınızı ilgi alanı gruplarına göre segmentlere ayırmak istiyorsanız [Son dakika haberleri göndermek için Notification Hubs kullanma]'yı okuyabilirsiniz. [Notification Hubs Kılavuzu] ve [Android İçin Notification Hubs'ı Kullanma]'da Notification Hubs'ı kullanma hakkında daha fazla bilgi edinin.
 
 <!-- Anchors. -->
@@ -476,6 +479,6 @@ Bu basit örnekte, tüm Android cihazlarınıza bildirimler yayımladınız. Bel
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Nov16_HO2-->
 
 

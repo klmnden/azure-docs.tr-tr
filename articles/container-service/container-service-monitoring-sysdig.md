@@ -1,14 +1,14 @@
 ---
-title: Sysdig ile bir Azure Container Service kümesini izleme | Microsoft Docs
-description: Sysdig ile bir Azure Container Service kümesini izleyin.
+title: "Sysdig ile bir Azure Container Service kümesini izleme | Microsoft Belgeleri"
+description: "Sysdig ile bir Azure Container Service kümesini izleyin."
 services: container-service
-documentationcenter: ''
+documentationcenter: 
 author: rbitia
 manager: timlt
-editor: ''
+editor: 
 tags: acs, azure-container-service
-keywords: Kapsayıcılar, DC/OS, Azure
-
+keywords: "Kapsayıcılar, DC/OS, Azure"
+ms.assetid: 91d9a28a-3a52-4194-879e-30f2fa3d946b
 ms.service: container-service
 ms.devlang: na
 ms.topic: get-started-article
@@ -16,20 +16,24 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2016
 ms.author: t-ribhat
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 4407bc49bf11cada012015f340a9995a26374d00
+
 
 ---
-# Sysdig ile bir Azure Container Service kümesini izleme
+# <a name="monitor-an-azure-container-service-cluster-with-sysdig"></a>Sysdig ile bir Azure Container Service kümesini izleme
 Bu makalede, Azure Container Service kümenizdeki tüm aracı düğümlere Sysdig aracıları dağıtılır. Bu yapılandırma için bir Sysdig hesabınızın olması gerekir. 
 
-## Ön koşullar
+## <a name="prerequisites"></a>Ön koşullar
 Azure Container Service tarafından yapılandırılmış bir kümeyi [dağıtın](container-service-deployment.md) ve [bağlayın](container-service-connect.md). [Marathon Kullanıcı Arabirimi](container-service-mesos-marathon-ui.md)’ni keşfedin. Bir Sysdig bulut hesabı ayarlamak için [http://app.sysdigcloud.com](http://app.sysdigcloud.com) adresine gidin. 
 
-## Sysdig
+## <a name="sysdig"></a>Sysdig
 Sysdig, kümenizdeki kapsayıcıları izlemenize olanak tanıyan bir izleme hizmetidir. Sysdig, sorun gidermeye yardımcı olmasıyla bilinir, ayrıca CPU, Ağ, Bellek ve G/Ç izlemede kullandığınız temel ölçümleri de içerir. Sysdig, üzerinde en fazla çalıştığınız veya en fazla bellek ve CPU kullanan kapsayıcıları görmenizi kolaylaştırır. Bu görünüm, şu anda beta sürümünde olan “Genel Bakış” bölümünde yer alır. 
 
 ![Sysdig Kullanıcı Arabirimi](./media/container-service-monitoring-sysdig/sysdig6.png) 
 
-## Marathon ile bir Sysdig dağıtımı yapılandırma
+## <a name="configure-a-sysdig-deployment-with-marathon"></a>Marathon ile bir Sysdig dağıtımı yapılandırma
 Bu adımlarda Sysdig uygulamalarını Marathon ile yapılandırma ve kümenize dağıtma konuları açıklanmaktadır. 
 
 [http://localhost:80/](http://localhost:80/) ile DC/OS kullanıcı arabiriminize erişin. Önce DC/OS arabiriminde sol altta bulunan “Evren”e gidin ve “Sysdig”i aratın.
@@ -50,6 +54,9 @@ Kümeye yeni bir düğüm eklendiğinde Sysdig’in bu yeni düğüme otomatik o
 
 Paketi yükledikten sonra Sysdig kullanıcı arabirimine geri dönün. Buradan kümeniz içindeki kapsayıcılar için farklı ölçümlerin nasıl kullanıldığını keşfedebilirsiniz. 
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

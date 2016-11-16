@@ -1,4 +1,4 @@
-### Temel hizmet katmanı
+### <a name="basic-service-tier"></a>Temel hizmet katmanı
 |  |  |
 | --- | --- |
 | Maks. DTU |5 |
@@ -10,7 +10,7 @@
 | belirli bir noktaya geri yükleme |Son 7 güne ilişkin herhangi bir nokta |
 | Olağanüstü durum kurtarma |Etkin Coğrafi Çoğaltma |
 
-### Standart hizmet katmanı
+### <a name="standard-service-tier"></a>Standart hizmet katmanı
 |  |  |
 | --- |:---:|
 | **S0** &nbsp;&nbsp;&nbsp;&nbsp; **S1** &nbsp;&nbsp;&nbsp;&nbsp; **S2** &nbsp;&nbsp;&nbsp; **S3** | |
@@ -23,7 +23,7 @@
 | belirli bir noktaya geri yükleme |Son 35 güne ilişkin herhangi bir nokta |
 | Olağanüstü durum kurtarma |Etkin Coğrafi Çoğaltma |
 
-### Premium hizmet katmanı
+### <a name="premium-service-tier"></a>Premium hizmet katmanı
 |  |  |
 | --- |:---:|
 | **P1** &nbsp;&nbsp;&nbsp;&nbsp; **P2** &nbsp;&nbsp;&nbsp;&nbsp; **P4** &nbsp;&nbsp;&nbsp; **P6/P3** &nbsp;&nbsp; **P11** &nbsp;&nbsp; **P15** | |
@@ -36,6 +36,8 @@
 | belirli bir noktaya geri yükleme |Son 35 güne ilişkin herhangi bir nokta |
 | Olağanüstü durum kurtarma |Etkin Coğrafi Çoğaltma |
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

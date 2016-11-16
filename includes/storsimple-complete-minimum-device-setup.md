@@ -1,6 +1,6 @@
 <!--author=alkohli last changed: 9/17/15-->
 
-#### En düşük StorSimple cihaz kurulumunu tamamlamak için
+#### <a name="to-complete-the-minimum-storsimple-device-setup"></a>En düşük StorSimple cihaz kurulumunu tamamlamak için
 1. **Cihazlar** sayfasında cihazı seçin, belirli cihaz sayfasına gitmek için cihaz adına bitişik oka tıklayın. 
    
     ![Çevrimiçi cihazın yer aldığı cihazlar sayfası](./media/storsimple-complete-minimum-device-setup/HCS_DevicesPageM-include.png) 
@@ -19,8 +19,7 @@
 4. Ok simgesine tıklayın. ![StorSimple ok simgesi](./media/storsimple-complete-minimum-device-setup/HCS_ArrowIcon-include.png)
 5. **Ağ Arabirimleri** sayfasında, Denetleyici 0 ve Denetleyici 1 için sabit IP adreslerini verin. DATA 0 arabirimi IPv4 için yapılandırılmışsa sabit IP adreslerinin IPv4 biçiminde verilmesi gerekir. IPv6 yapılandırması için bir önek sağladıysanız bu alanlar otomatik olarak sabit IP adresleriyle doldurulur.
 
-    > [AZURE.NOTE] 
-    > 
+    > [!NOTE] 
     > - Denetleyici sabit IP adreslerinin, cihaz IP adresinin erişebildiği alt ağda boş IP’ler olması gerekir.
     > - Denetleyicinin sabit IP adresleri cihaz güncelleştirmelerine hizmet etmesi için kullanılır; bu nedenle de sabit IP'ler yönlendirilebilir ve İnternet'e bağlanabilir olmalıdırlar.
 
@@ -34,10 +33,12 @@
    > 
    > 
 
-![Kullanılabilir video](./media/storsimple-complete-minimum-device-setup/Video_icon.png) **Kullanılabilir video**
+![Video var](./media/storsimple-complete-minimum-device-setup/Video_icon.png) **Video var**
 
 En düşük cihaz kurulumunun nasıl tamamlandığını gösteren bir videoyu izlemek için [buraya](https://azure.microsoft.com/documentation/videos/minimum-storsimple-device-setup/) tıklayın.
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

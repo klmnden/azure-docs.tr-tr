@@ -1,41 +1,46 @@
 ---
-title: CLI'yi kullanarak Azure'da Linux VM'si oluşturma | Microsoft Docs
-description: CLI'yi kullanarak Azure'da Linux VM'si oluşturun.
+title: "CLI&quot;yi kullanarak Azure&quot;da Linux VM&quot;si oluşturma | Microsoft Belgeleri"
+description: "CLI&quot;yi kullanarak Azure&quot;da Linux VM&quot;si oluşturun."
 services: virtual-machines-linux
-documentationcenter: ''
+documentationcenter: 
 author: vlivech
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: facb1115-2b4e-4ef3-9905-330e42beb686
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/08/2016
+ms.date: 10/27/2016
 ms.author: v-livech
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: fd75ab9a37dfc75679427a16c3ecb36adb1c9925
+
 
 ---
-# CLI'yi kullanarak Azure'da Linux VM'si oluşturma
+# <a name="create-a-linux-vm-on-azure-by-using-the-cli"></a>CLI'yi kullanarak Azure'da Linux VM'si oluşturma
 Bu makalede, Azure komut satırı arabiriminde (CLI) `azure vm quick-create` komutunu kullanarak Azure'da bir Linux sanal makinesini (VM) hızlı bir şekilde nasıl dağıtacağınız gösterilmektedir. `quick-create` komutu, bir kavramı hızlıca prototipleştirmek veya sınamak için kullanabileceğiniz temel, güvenli bir altyapı içine VM dağıtır. Bu makale için şunlar gereklidir:
 
 * bir Azure hesabı ([ücretsiz deneme sürümü edinin](https://azure.microsoft.com/pricing/free-trial/)).
-* oturum açmak için [Azure CLI'si](../xplat-cli-install.md) `azure login`
-* Azure CLI'si, Azure Resource Manager modunda *olmalıdır* `azure config mode arm`
+* `azure login` ile oturum açılmış [Azure CLI'si](../xplat-cli-install.md).
+* Azure CLI'si, `azure config mode arm` Azure Resource Manager modunda *olmalıdır*.
 
 [Azure portalını](virtual-machines-linux-quick-create-portal.md) kullanarak da hızlıca bir Linux VM'si dağıtabilirsiniz.
 
-## Hızlı komutlar
+## <a name="quick-commands"></a>Hızlı komutlar
 Aşağıdaki örnekte, bir CoreOS VM'sinin nasıl dağıtılacağı ve Secure Shell (SSH) anahtarının nasıl ekleneceği gösterilmektedir. (Bağımsız değişkenleriniz farklı olabilir):
 
-```bash
-azure vm quick-create -M ~/.ssh/azure_id_rsa.pub -Q CoreOS
+```azurecli
+azure vm quick-create -M ~/.ssh/id_rsa.pub -Q CoreOS
 ```
 
-Aşağıdaki bölümlerde Ubuntu Server 14.04 LTS, Linux dağıtımı olarak kullanılarak komut ve komut gereksinimleri açıklanmaktadır.  
+## <a name="detailed-walkthrough"></a>Ayrıntılı kılavuz
+Aşağıdaki kılavuzda bir UbuntuLTS sanal makinesinin dağıtımı, her adımın sonuçlarına ilişkin açıklamalarla birlikte adım adım gösterilmektedir.
 
-## VM hızlı oluşturma diğer adları
-En yaygın işletim sistemi dağıtımlarıyla eşlenmiş Azure CLI'si diğer adlarını kullanmak, dağıtım seçmenin hızlı bir yoludur. Aşağıdaki tabloda diğer adlar listelenmektedir (Azure CLI'sinin 0.10 sürümünden itibaren). `quick-create` kullanan tüm dağıtımlar, daha hızlı sağlama ve daha yüksek performanslı disk erişimi sunan katı hal sürücüsü (SSD) tarafından desteklenen VM'leri varsayılan olarak kullanır. (Bu diğer adlar, Azure'da bulunan dağıtımların çok küçük bir bölümünü temsil eder. [Görüntü arayarak](virtual-machines-linux-cli-ps-findimage.md) Azure Marketi'nde daha fazla görüntü bulun veya [kendi özel görüntünüzü karşıya yükleyin](virtual-machines-linux-create-upload-generic.md).)
+## <a name="vm-quickcreate-aliases"></a>VM hızlı oluşturma diğer adları
+En yaygın işletim sistemi dağıtımlarıyla eşlenmiş Azure CLI'si diğer adlarını kullanmak, dağıtım seçmenin hızlı bir yoludur. Aşağıdaki tabloda diğer adlar listelenmektedir (Azure CLI'sinin 0.10 sürümünden itibaren). `quick-create` kullanan tüm dağıtımlar, daha hızlı sağlama ve daha yüksek performanslı disk erişimi sunan katı hal sürücüsü (SSD) tarafından desteklenen VM'leri varsayılan olarak kullanır. (Bu diğer adlar, Azure'da bulunan dağıtımların çok küçük bir bölümünü temsil eder. [PowerShell’de](virtual-machines-linux-cli-ps-findimage.md) ya da [web üzerinde](https://azure.microsoft.com/marketplace/virtual-machines/) görüntü arayarak Azure Marketi'nde daha fazla görüntü bulun veya [kendi özel görüntünüzü karşıya yükleyin](virtual-machines-linux-create-upload-generic.md).)
 
 | Diğer ad | Yayımcı | Sunduğu | SKU | Sürüm |
 |:--- |:--- |:--- |:--- |:--- |
@@ -48,7 +53,6 @@ En yaygın işletim sistemi dağıtımlarıyla eşlenmiş Azure CLI'si diğer ad
 
 Aşağıdaki bölümlerde, Ubuntu 14.04.4 LTS Server'ı dağıtmak üzere **ImageURN** seçeneği (`-Q`) için `UbuntuLTS` diğer adı kullanılmaktadır.
 
-## Ayrıntılı kılavuz
 Önceki `quick-create` örneğinde, SSH parolaları devre dışı bırakılarak karşıya yüklenecek SSH ortak anahtarını tanımlamak üzere yalnızca `-M` bayrağı çağrılmıştır, bu nedenle sizden aşağıdaki bağımsız değişkenler istenir:
 
 * kaynak grup adı (ilk Azure kaynak grubunuz için genellikle herhangi bir dize olabilir)
@@ -59,23 +63,23 @@ Aşağıdaki bölümlerde, Ubuntu 14.04.4 LTS Server'ı dağıtmak üzere **Imag
 
 Daha fazla istemin gerekli olmaması için aşağıdaki örnekte tüm değerler belirtilmiştir. ssh-rsa biçiminde ortak anahtar dosyası olarak `~/.ssh/id_rsa.pub` dosyanız olduğu sürece bu dosyayı kullanabilirsiniz:
 
-```bash
+```azurecli
 azure vm quick-create \
--g exampleResourceGroup \
--n exampleVMName \
--l westus \
--y Linux \
--u exampleAdminUser \
--M ~/.ssh/id_rsa.pub \
--Q UbuntuLTS
+  --resource-group myResourceGroup \
+  --name myVM \
+  --location westus \
+  --os-type Linux \
+  --admin-username myAdminUser \
+  --ssh-public-file ~/.ssh/id_rsa.pub \
+  --image-urn UbuntuLTS
 ```
 
 Çıktı aşağıdaki çıktı bloğu gibi görünmelidir:
 
-```bash
+```azurecli
 info:    Executing command vm quick-create
 + Listing virtual machine sizes available in the location "westus"
-+ Looking up the VM "exampleVMName"
++ Looking up the VM "myVM"
 info:    Verifying the public key SSH file: /Users/ahmet/.ssh/id_rsa.pub
 info:    Using the VM Size "Standard_DS1"
 info:    The [OS, Data] Disk or image configuration requires storage account
@@ -95,8 +99,8 @@ info:    PublicIP with given name "examp-westu-1633070839-pip" not found, creati
 + Creating NIC "examp-westu-1633070839-nic"
 + Looking up the NIC "examp-westu-1633070839-nic"
 + Looking up the storage account clisto1710997031examplev
-+ Creating VM "exampleVMName"
-+ Looking up the VM "exampleVMName"
++ Creating VM "myVM"
++ Looking up the VM "myVM"
 + Looking up the NIC "examp-westu-1633070839-nic"
 + Looking up the public ip "examp-westu-1633070839-pip"
 data:    Id                              :/subscriptions/2<--snip-->d/resourceGroups/exampleResourceGroup/providers/Microsoft.Compute/virtualMachines/exampleVMName
@@ -124,8 +128,8 @@ data:        Vhd:
 data:          Uri                       :https://cli16330708391032639673.blob.core.windows.net/vhds/clic7fadb847357e9cf-os-1473374894359.vhd
 data:
 data:    OS Profile:
-data:      Computer Name                 :exampleVMName
-data:      User Name                     :exampleAdminUser
+data:      Computer Name                 :myVM
+data:      User Name                     :myAdminUser
 data:      Linux Configuration:
 data:        Disable Password Auth       :true
 data:
@@ -148,10 +152,11 @@ data:      Diagnostics Instance View:
 info:    vm quick-create command OK
 ```
 
+## <a name="log-in-to-the-new-vm"></a>Yeni sanal makinede oturum açma
 Çıktıda listelenen genel IP adresini kullanarak VM'inizde oturum açın. Listelenen tam etki alanı adını (FQDN) da kullanabilirsiniz:
 
 ```bash
-ssh -i ~/.ssh/id_rsa.pub exampleAdminUser@138.91.247.29
+ssh -i ~/.ssh/id_rsa.pub ahmet@138.91.247.29
 ```
 
 Oturum açma işlemi aşağıdaki çıktı bloğuna benzer şekilde görünmelidir:
@@ -185,10 +190,10 @@ individual files in /usr/share/doc/*/copyright.
 Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
 applicable law.
 
-exampleAdminUser@exampleVMName:~$
+myAdminUser@myVM:~$
 ```
 
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 `azure vm quick-create` komutu, bir Bash kabuğunda oturum açıp çalışmaya başlamanız için VM dağıtmanın hızlı bir yoludur. Ancak `vm quick-create` kullanarak kapsamlı bir denetim gerçekleştiremez ve daha karmaşık bir ortam oluşturamazsınız.  Altyapınız için özelleştirilmiş bir Linux VM'si dağıtmak üzere şu makalelerden herhangi birine bakın:
 
 * [Belirli bir dağıtımı oluşturmak için Azure Resource Manager şablonu kullanma](virtual-machines-linux-cli-deploy-templates.md)
@@ -197,6 +202,9 @@ exampleAdminUser@exampleVMName:~$
 
 [Docker konağı olarak hızlı şekilde bir Linux VM'si oluşturmak için çeşitli komutlara sahip `docker-machine` Azure sürücüsünü](virtual-machines-linux-docker-machine.md) de kullanabilirsiniz.
 
-<!--HONumber=Sep16_HO5-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

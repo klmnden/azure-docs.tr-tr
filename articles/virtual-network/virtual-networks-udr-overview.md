@@ -1,12 +1,12 @@
 ---
-title: Kullanıcı Tanımlı Yollar ve IP İletimi nedir?
-description: Azure'da trafiği ağ sanal gereçlerine iletmek için Kullanıcı Tanımlı Yolları (UDR) ve IP İletimini nasıl kullanacağınızı öğrenin.
+title: "Kullanıcı Tanımlı Yollar ve IP İletimi nedir?"
+description: "Azure&quot;da trafiği ağ sanal gereçlerine iletmek için Kullanıcı Tanımlı Yolları (UDR) ve IP İletimini nasıl kullanacağınızı öğrenin."
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: carmonm
 editor: tysonn
-
+ms.assetid: c39076c4-11b7-4b46-a904-817503c4b486
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 7ae1803a299a5fb569ea0ca8a1ce68c33df1a769
+
 
 ---
-# Kullanıcı Tanımlı Yollar ve IP İletimi nedir?
+# <a name="what-are-user-defined-routes-and-ip-forwarding"></a>Kullanıcı Tanımlı Yollar ve IP İletimi nedir?
 Azure'da bir sanal ağa (VNet) sanal makineler (VM'ler) eklediğiniz zaman, VM'lerin birbirleri ile ağ üzerinde otomatik olarak iletişim kurabildiklerini fark edersiniz. VM'ler farklı alt ağlarda bulunsa bile bir ağ geçidini belirtmenize gerek yoktur. Aynı şey VM'lerden genel İnternet'e giden iletişimlerde ve hatta Azure'dan kendi veri merkezinize karma bir bağlantı bulunduğunda şirket içi ağınıza giden iletişimlerde de geçerlidir.
 
 Bu iletişim akışının mümkün olmasını sağlayan şey, Azure'ın IP trafiğinin nasıl akacağını belirlemek için kullandığı bir dizi sistem yoludur. Sistem yolları aşağıdaki senaryolarda iletişim akışını denetler:
@@ -42,14 +46,14 @@ Aşağıdaki şekilde, bir alt ağdan başka bir alt ağa gönderilen paketleri 
 > 
 > 
 
-## Yol kaynağı
+## <a name="route-resource"></a>Yol kaynağı
 Paketler, fiziksel ağdaki her düğümde tanımlanan bir yol tablosu temel alınarak bir TCP/IP ağı üzerinden yönlendirilir. Yol tablosu, hedef IP adresine göre paketlerin nereye iletileceğine karar veren bir tekil yollar koleksiyonudur. Bir yol aşağıdakilerden oluşur:
 
 | Özellik | Açıklama | Kısıtlamalar | Dikkat edilmesi gerekenler |
 | --- | --- | --- | --- |
 | Adres Ön Eki |Yolun uygulandığı hedef CIDR'si, ör. 10.1.0.0/16. |Genel İnternet, Azure sanal ağı veya şirket içi veri merkezi üzerindeki adresleri temsil eden geçerli bir CIDR aralığı olmalıdır. |**Adres ön ekinin** **Nexthop adresini** içermediğinden emin olun, aksi halde kaynaktan bir sonraki atlamaya giden paketleriniz hedefe hiç varmadan bir döngüye girer. |
 | Sonraki atlama türü |Paketin gönderilmesi gereken Azure atlama türü. |Aşağıdaki değerlerden biri olmalıdır: <br/> **Sanal Ağ**. Yerel sanal ağı temsil eder. Örneğin, aynı sanal ağ içinde 10.1.0.0/16 ve 10.2.0.0/16 şeklinde iki alt ağınız varsa yol tablosundaki her alt ağ yolunun bir sonraki atlama değeri *Sanal Ağ* olur. <br/> **Sanal Ağ Geçidi**. Azure S2S VPN Gateway'i temsil eder. <br/> **İnternet**. Azure Altyapısı tarafından sağlanan varsayılan İnternet ağ geçidini temsil eder. <br/> **Sanal Gereç**. Azure sanal ağınıza eklediğiniz sanal gereci temsil eder. <br/> **None**. Bir kara deliği temsil eder. Bir kara deliğe iletilen paketler aktarılmaz. |Paketlerin belirli bir hedefe akmasını durdurmak için bir **None** türünü kullanmayı değerlendirin. |
-| Sonraki atlama adresi |Sonraki atlama adresi, paketlerin iletilmesi gereken IP adresini içerir. Yalnızca sonraki atlama türünün *Sanal Gereç* olduğu yollarda sonraki atlama değerlerine izin verilir. |Erişilebilir bir IP adresi olmalıdır. |IP adresi bir VM'yi temsil ediyorsa Azure'da VM için [IP iletimini](#IP-forwarding) etkinleştirdiğinizden emin olun. |
+| Sonraki atlama adresi |Sonraki atlama adresi, paketlerin iletilmesi gereken IP adresini içerir. Yalnızca sonraki atlama türünün *Sanal Gereç* olduğu yollarda sonraki atlama değerlerine izin verilir. |Kullanıcı Tanımlı Yolun uygulandığı Sanal Ağ içerisinde erişilebilir bir IP adresi olmalıdır. |IP adresi bir VM'yi temsil ediyorsa Azure'da VM için [IP iletimini](#IP-forwarding) etkinleştirdiğinizden emin olun. |
 
 Azure PowerShell’de "NextHopType" değerlerinin bazıları farklı adlara sahiptir:
 
@@ -59,14 +63,14 @@ Azure PowerShell’de "NextHopType" değerlerinin bazıları farklı adlara sahi
 * İnternet, İnternet’tir
 * None, None şeklindedir
 
-### Sistem Yolları
+### <a name="system-routes"></a>Sistem Yolları
 Bir sanal ağda oluşturulan her alt ağ, aşağıdaki sistem yolu kurallarını içeren bir yol tablosu ile otomatik olarak ilişkilendirilir:
 
 * **Yerel Sanal Ağ Kuralı**: Bu kural bir sanal ağdaki her alt ağ için otomatik olarak oluşturulur. Sanal ağ içindeki VM'ler arasında doğrudan bir bağlantı olduğunu ve ara sonraki atlama bulunmadığını belirtir.
 * **Şirket İçi Kuralı**: Bu kural şirket içi adres aralığına giden tüm trafiğe uygulanır ve sonraki atlama hedefi olarak VPN ağ geçidini kullanır.
-* **İnternet Kuralı**: Bu kural genel İnternet'e giden tüm trafiği işler ve İnternet'e giden tüm trafik için sonraki atlama olarak internet ağ geçidi altyapısını kullanır.
+* **İnternet Kuralı**: Bu kural, genel İnternet'e (adres ön eki: 0.0.0.0/0) giden tüm trafiği işler ve İnternet'e giden tüm trafik için sonraki durak olarak İnternet ağ geçidi altyapısını kullanır.
 
-### Kullanıcı Tanımlı Yollar
+### <a name="user-defined-routes"></a>Kullanıcı Tanımlı Yollar
 Çoğu ortam için ihtiyaç duyacağınız tek şey, Azure'da zaten tanımlanmış olan sistem yollarıdır. Ancak belirli durumlarda bir yol tablosu oluşturmanız ve bir veya daha fazla yol eklemeniz gerekebilir, örneğin:
 
 * Şirket içi ağınız yoluyla İnternet'e zorlamalı tünel uygulama.
@@ -87,7 +91,7 @@ Kullanıcı tanımlı yolların nasıl oluşturulacağını öğrenmek için bkz
 > 
 > 
 
-### BGP Yolları
+### <a name="bgp-routes"></a>BGP Yolları
 Şirket içi ağınız ve Azure arasında bir ExpressRoute bağlantınız varsa BGP'yi etkinleştirerek şirket içi ağınızdan Azure'a giden yollar yayabilirsiniz. Bu BGP yolları, her Azure alt ağında yer alan sistem yollarıyla ve kullanıcı tanımlı yollarla aynı şekilde kullanılır. Daha fazla bilgi için bkz. [ExpressRoute'a Giriş](../expressroute/expressroute-introduction.md).
 
 > [!IMPORTANT]
@@ -95,15 +99,18 @@ Kullanıcı tanımlı yolların nasıl oluşturulacağını öğrenmek için bkz
 > 
 > 
 
-## IP İletimi
+## <a name="ip-forwarding"></a>IP İletimi
 Yukarıda açıklanan şekilde, kullanıcı tanımlı bir yol oluşturmanın temel nedenlerinden biri trafiği bir sanal gerece iletmektir. Sanal gereç, güvenlik duvarı veya NAT cihazı gibi ağ trafiğini işlemek için kullanılan bir uygulamayı çalıştıran bir VM'den fazlası değildir.
 
 Bu sanal gereç VM'si, kendisine yönelik olmayan gelen trafiği alabilmelidir. Bir VM'nin başka hedeflere yönelik trafiği alabilmesine izin vermek için VM'de IP İletimini etkinleştirmeniz gerekir. Bu ayar konuk işletim sisteminin değil, Azure'ın bir ayarıdır.
 
-## Sonraki Adımlar
+## <a name="next-steps"></a>Sonraki Adımlar
 * [Resource Manager dağıtım modelinde yollar oluşturmayı](virtual-network-create-udr-arm-template.md) ve bunları alt ağlar ile ilişkilendirmeyi öğrenin. 
 * [Klasik dağıtım modelinde yollar oluşturmayı](virtual-network-create-udr-classic-ps.md) ve bunları alt ağlar ile ilişkilendirmeyi öğrenin.
 
-<!--HONumber=Aug16_HO4-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 
