@@ -35,7 +35,7 @@
 ### [API Apps için kimlik doğrulaması ve yetkilendirme](app-service-api-authentication.md)
 
 ### [Azure App Service için En İyi Uygulamalar](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
-### [Azure App Service ve mevcut Azure hizmetleri](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
+### [Azure Uygulama Hizmeti ve mevcut Azure hizmetleri](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ### [App Service planlarının ayrıntıları](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ### [Yüksek yoğunluklu barındırma](../app-service/app-service-high-density-hosting.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ### [Azure App Service’ta Web İşleri kullanımı](../app-service/app-service-webjobs-readme.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
@@ -49,7 +49,7 @@
 
 ### Web Jobs
 #### [Azure Web İşleri SDK’sı nedir?](../app-service-web/websites-dotnet-webjobs-sdk.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
-#### [Azure App Service’ta .NET Web İşi oluşturma](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
+#### [Azure Uygulama Hizmeti’nde .NET Web İşi oluşturma](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 #### [WebJobs SDK ile Azure blob depolama kullanımı](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 #### [Web İşleri SDK’sı ile Azure kuyruk depolama kullanımı](../app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 #### [Web İşleri SDK’sı ile Azure Service Bus kullanımı](../app-service-web/websites-dotnet-webjobs-sdk-service-bus.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
@@ -66,7 +66,7 @@
 ### [Sürekli dağıtım](../app-service-web/app-service-continuous-deployment.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ### [Hazırlık ortamları](../app-service-web/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ### [Yerel Git dağıtımı](../app-service-web/app-service-deploy-local-git.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
-### [Visual Studio kullanarak Web İşleri dağıtma](../app-service-web/websites-dotnet-deploy-webjobs.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
+### [Visual Studio kullanarak Web İşleri’ni dağıtma](../app-service-web/websites-dotnet-deploy-webjobs.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 
 ## [Ölçeklendirme](../app-service/app-service-scale-readme.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ### [Bir uygulamanın ölçeğini artırma](../app-service-web/web-sites-scale.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
@@ -99,7 +99,7 @@
 #### [ExpressRoute ile ağ yapılandırma ayrıntıları](../app-service-web/app-service-app-service-environment-network-configuration-expressroute.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 
 ## [Güvenlik](../app-service/app-service-security-readme.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
-### [Azure App Service’ta bir uygulamanın güvenliğini sağlama](../app-service-web/web-sites-security.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
+### [Azure Uygulama Hizmeti’nde bir uygulamanın güvenliğini sağlama](../app-service-web/web-sites-security.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ### [Kimlik doğrulama ve yetkilendirme](../app-service/app-service-authentication-overview.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ### [Hizmet sorumlusu kimlik doğrulaması](app-service-api-dotnet-service-principal-auth.md)
 ### [Kullanıcı kimlik doğrulaması](app-service-api-dotnet-user-principal-auth.md)
@@ -135,7 +135,7 @@
 ### [Azure Resource Manager dağıtımı](../app-service-web/app-service-deploy-complex-application-predictably.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 #### [Web + GitHub ](../app-service-web/app-service-web-arm-from-github-provision.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 #### [Web + SQL ](../app-service-web/app-service-web-arm-with-sql-database-provision.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
-#### [Özel konak adı ve SSL sertifikası ile MSDeploy](../app-service-web/app-service-web-arm-with-msdeploy-provision.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
+#### [Özel ana bilgisayar adı ve SSL sertifikası kullanan MSDeploy](../app-service-web/app-service-web-arm-with-msdeploy-provision.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ### PowerShell
 #### [Otomatik yedekleme ve geri yükleme](../app-service/app-service-powershell-backup.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 #### [Uygulama kopyalama](../app-service-web/app-service-web-app-cloning.md?toc=%2fazure%2fapp-service-api%2ftoc.json)

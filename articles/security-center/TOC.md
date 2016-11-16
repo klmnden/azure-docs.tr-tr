@@ -1,17 +1,14 @@
 # Genel Bakış
 ## [Azure Güvenlik Merkezi nedir?](security-center-intro.md)
-## [Hizmete genel bakış](https://azure.microsoft.com/services/security-center/)
-## [Fiyatlandırma](security-center-pricing.md)
-## [SSS](security-center-faq.md)
 ## [Power BI ile öngörüler elde edin](security-center-powerbi.md)
 ## [Veri güvenliği](security-center-data-security.md)
-## Genel senaryolar
+## Senaryolar
 ### [Olay yanıtı](security-center-incident-response.md)
 
 # Başlarken
 ## [Hızlı başlangıç](security-center-get-started.md)
 ## [Planlama ve işlemler](security-center-planning-and-operations-guide.md)
-## [Güvenlik Merkezi ve SQL Veritabanı](security-center-sql-database.md)
+## [SSS](security-center-faq.md)
 
 # Nasıl yapılır?
 
@@ -59,10 +56,14 @@
 ## [REST API](https://msdn.microsoft.com/en-US/library/mt704034(Azure.100).aspx)
 
 # İlgili
-## [Azure Güvenlik Bilgileri](../security/azure-security-getting-started.md)
+## [Azure Güvenlik](/azure/security/)
 
 # Kaynaklar
 ## [Azure Güvenlik, Gizlilik ve Uyumluluk blogu](http://blogs.msdn.com/b/azuresecurity/)
+## [Fiyatlandırma](security-center-pricing.md)
+## [Hizmete genel bakış](https://azure.microsoft.com/services/security-center/)
+## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=security-center)
+## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=security-center)
 
 
 <!--HONumber=Nov16_HO2-->

@@ -64,6 +64,12 @@
 ### [Karma koleksiyonunda sorun giderme](remoteapp-hybridtrouble.md)
 ### [Bulut koleksiyonunda sorun giderme](remoteapp-cloudtrouble.md)
 
+# Kaynaklar
+## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=remoteapp)
+## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/remoteapp/)
+## [Forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureRemoteApp)
+## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=remoteapp)
+
 
 <!--HONumber=Nov16_HO2-->
 

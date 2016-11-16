@@ -30,9 +30,11 @@
 ## [Azure Veri Kataloğu için klavye kısayolları](data-catalog-keyboard-shortcuts.md)
 ## [Terminoloji](data-catalog-terminology.md)
 ## [Sürüm notları](data-catalog-release-notes.md)
+## [REST](https://docs.microsoft.com/rest/api/datacatalog/)
 
 # Kaynaklar
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/data-catalog/)
+
 
 <!--HONumber=Nov16_HO2-->
 

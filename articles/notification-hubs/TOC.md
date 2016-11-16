@@ -1,5 +1,6 @@
-# [Genel Bakış](notification-hubs-push-notification-overview.md)
-# Kullanmaya Başlama
+# Genel Bakış
+## [Azure Notification Hubs nedir?](notification-hubs-push-notification-overview.md)
+# Başlarken
 ## [Android (FCM)](notification-hubs-android-push-notification-google-fcm-get-started.md)
 ## [Baidu](notification-hubs-baidu-china-android-notifications-get-started.md)
 ## [Chrome](notification-hubs-chrome-push-notifications-get-started.md)
@@ -9,9 +10,9 @@
 ## [Windows Phone](notification-hubs-windows-mobile-push-notifications-mpns.md)
 ## [Xamarin.Android](xamarin-notification-hubs-push-notifications-android-gcm.md)
 ## [Xamarin.iOS](xamarin-notification-hubs-ios-push-notification-apns-get-started.md)
+## [Sık Sorulan Sorular](notification-hubs-push-notification-faq.md)
 
 # Nasıl yapılır?
-
 ## Planlama ve tasarım
 ### [Kurumsal gönderme mimari kılavuzu](notification-hubs-enterprise-push-notification-architecture.md)
 
@@ -50,22 +51,24 @@
 #### [iOS](notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md)
 #### [Windows](notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md)
 
-
-
 ## Otomatikleştirme
 ### [PowerShell kullanarak Notification Hubs’ı Dağıtma ve Yönetme](notification-hubs-deploy-and-manage-powershell.md)
 ### [Planlanmış bildirimler gönderme](notification-hubs-send-push-notifications-scheduled.md)
-
 
 ## Sorun giderme
 ### [Tanılama yönergeleri](notification-hubs-push-notification-fixer.md)
 
 # Başvuru
-
-# İlgili
+## [PowerShell cmdlet'leri](/powershell/resourcemanager/)
+## [.NET](/dotnet/api/)
+## [REST](/rest/api/notificationhubs/)
 
 # Kaynaklar
-## [Sık Sorulan Sorular](notification-hubs-push-notification-faq.md)
+## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/notification-hubs/)
+## [MSDN forumu](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=notificationhubs)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-notificationhub)
+## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=notification-hubs)
+## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=notification-hubs)
 
 
 <!--HONumber=Nov16_HO2-->

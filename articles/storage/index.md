@@ -1,9 +1,13 @@
 ---
 layout: LandingPage
----
-#Storage Documentation
+translationtype: Human Translation
+ms.sourcegitcommit: 4d6fd9344eaee31de4ee1e614ae558ce159c9245
+ms.openlocfilehash: 34ead7be5278478047f8c6e56c56dfb977ca1d7c
 
-Azure Storage is the cloud storage solution for modern applications that rely on durability, availability, and scalability to meet the needs of their customers.  It is highly scalable, elastic, globally accessible, and automatically load-balances your data based on traffic.  Azure Storage provides the following four services to meet application needs:  Blob storage, Table storage, Queue storage, and File storage.
+---
+#<a name="storage-documentation"></a>Depolama Belgeleri
+
+Azure Storage, müşterilerin ihtiyaçlarını karşılamak üzere sağlamlık, kullanılabilirlik ve ölçeklenebilirliğe dayanan modern uygulamalara yönelik bulut depolama çözümüdür.  Yüksek düzeyde ölçeklenebilir, esnek ve genel olarak erişilebilirdir. Ayrıca trafiğe göre verilerinizde otomatik olarak yük dengeleme yapar.  Azure Depolama, uygulama ihtiyaçlarınızı karşılamak için şu dört hizmeti sunar: Blob depolama, Tablo depolama, Kuyruk depolama ve Dosya depolama.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -17,7 +21,7 @@ Azure Storage is the cloud storage solution for modern applications that rely on
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Learn about Azure Storage</h3>
+                        <h3>Azure Depolama hakkında bilgi edinin</h3>
                     </div>
                 </div>
             </div>
@@ -35,7 +39,7 @@ Azure Storage is the cloud storage solution for modern applications that rely on
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure Storage Video Library</h3>
+                        <h3>Azure Depolama Video Kitaplığı</h3>
                     </div>
                 </div>
             </div>
@@ -53,7 +57,7 @@ Azure Storage is the cloud storage solution for modern applications that rely on
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with Storage</h3>
+                        <h3>Depolama’yı kullanmaya başlama</h3>
                     </div>
                 </div>
             </div>
@@ -71,7 +75,7 @@ Azure Storage is the cloud storage solution for modern applications that rely on
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a Storage account</h3>
+                        <h3>Depolama hesabı oluşturma</h3>
                     </div>
                 </div>
             </div>
@@ -82,23 +86,23 @@ Azure Storage is the cloud storage solution for modern applications that rely on
 
 ---
 
-##Reference
+##<a name="reference"></a>Başvuru
 
-###PowerShell
+###<a name="powershell"></a>PowerShell
 [Azure PowerShell](/powershell/azureps-cmdlets-docs)
 
-###Azure CLI 
-[Storage using Azure CLI Reference](/cli/azure/storage)
+###<a name="azure-cli"></a>Azure CLI 
+[Azure CLI Kullanarak Depolama Başvurusu](/cli/azure/storage)
 
-###Java 
-[Storage in Java Reference](/java/api/)
+###<a name="java"></a>Java 
+[Java’da Depolama Başvurusu](/java/api/)
 
-###.NET 
-[Storage Managed Reference API](https://msdn.microsoft.com/library/azure/mt347887) 
+###<a name="net"></a>.NET 
+[Depolama Yönetilen Başvuru API’si](https://msdn.microsoft.com/library/azure/mt347887) 
 
-###REST 
-[Storage REST API Reference](/rest/api/storageservices) 
-[Storage Resource Provider REST API Reference](/rest/api/storagerp)  
+###<a name="rest"></a>REST 
+[Depolama REST API’si Başvurusu](/rest/api/storageservices) 
+[Depolama Kaynak Sağlayıcısı REST API’si Başvurusu](/rest/api/storagerp)  
 
 
 
@@ -108,7 +112,12 @@ Azure Storage is the cloud storage solution for modern applications that rely on
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/storage.pdf">
         <div class="img"></div>
         <div class="text">
-            Download Storage Documentation
-        </div>
+Depolama Belgelerini İndirme </div>
     </a>
 </div>
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

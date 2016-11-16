@@ -26,11 +26,12 @@
 ### [Otomatik ölçeklendirme sorunlarını giderme](virtual-machine-scale-sets-troubleshoot.md)
 
 # Başvuru
+## [PowerShell](/powershell/azureps-cmdlets-docs/)
 ## [Azure CLI](../virtual-machines/azure-cli-arm-commands.md)
-## [Ölçek kümesi REST API’si](/rest/api/compute/virtualmachinescalesets)
-## [Ölçek kümesi VM’leri REST API’si](/rest/api/compute/virtualmachinescalesetvms)
-## [Azure PowerShell](/powershell/resourcemanager/)
-## [Azure şablonları](https://azure.microsoft.com/documentation/templates/?term=vmss)
+## [REST](/rest/api/compute/)
+
+# Kaynaklar
+## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/)
 
 
 <!--HONumber=Nov16_HO2-->

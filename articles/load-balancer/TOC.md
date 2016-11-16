@@ -32,18 +32,25 @@
 ## [Bulut hizmeti için birden çok VIP yapılandırma](load-balancer-multivip.md)
 ## [Azure Load Balancer için günlük analizi](load-balancer-monitor-log.md)
 ## [Linux VM’leri için DHCPv6’yı yapılandırma](load-balancer-ipv6-for-linux.md)
+
 # Başvuru
+## [PowerShell](https://go.microsoft.com/fwlink/p/?LinkId=536407)
+## [.NET](https://docs.microsoft.com/dotnet/api/)
 ## [Resource Manager API'si](https://go.microsoft.com/fwlink/p/?LinkId=536405)
-## [Resource Manager PowerShell CmdLet'leri](https://go.microsoft.com/fwlink/p/?LinkId=536407)
 ## [Ağ Kaynaklarını Kullanma](https://go.microsoft.com/fwlink/p/?LinkId=536403)
+
 # İlgili
-## [Application Gateway](https://azure.microsoft.com/documentation/services/application-gateway/)
-## [Express Route](https://azure.microsoft.com/documentation/services/expressroute/)
-## [Sanal Ağ](https://azure.microsoft.com/documentation/services/virtual-network/)
-## [VPN Gateway](https://azure.microsoft.com/documentation/services/vpn-gateway/)
-## [Sanal Makine](https://azure.microsoft.com/documentation/services/virtual-machines/)
-## [Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
-## [DNS](https://azure.microsoft.com/documentation/services/dns/)
+## [Application Gateway](/azure/application-gateway/)
+## [Express Route](/azure/expressroute/)
+## [Sanal Ağ](/azure/virtual-network/)
+## [VPN Gateway](/azure/vpn-gateway/)
+## [Sanal Makine](/azure/virtual-machines/)
+## [Traffic Manager](/azure/traffic-manager/)
+## [DNS](/azure/dns/)
+
+# Kaynaklar
+## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/load-balancer/) 
+## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=load-balancer) 
 
 
 <!--HONumber=Nov16_HO2-->

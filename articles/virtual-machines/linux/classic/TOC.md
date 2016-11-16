@@ -5,7 +5,6 @@
 ## [SSS](../../virtual-machines-linux-classic-faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 
 # [Başlarken](../../virtual-machines-linux-opensource-links.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
-## [Ücretsiz hesap](https://azure.microsoft.com/pricing/free-trial/)
 ## [Portal ile Linux VM oluşturma](../../virtual-machines-linux-classic-createportal.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 ## [Azure CLI'yı yükleme](../../../xplat-cli-install.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 ## [SSH anahtarları oluşturma](../../virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
@@ -22,22 +21,22 @@
 ### [Linux parola veya anahtarlarını sıfırlama, SSH düzeltme ve diskleri denetleme](../../virtual-machines-linux-classic-reset-access.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 ### [CLI kullanarak bir Docker konağı oluşturma](../../virtual-machines-linux-classic-cli-use-docker.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 ### [Portal kullanarak bir Docker konağı oluşturma](../../virtual-machines-linux-classic-portal-use-docker.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
-### [Swarm ile Docker’ı kullanma](../../virtual-machines-linux-docker-swarm.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+### [Swarm ile Docker'ı kullanma](../../virtual-machines-linux-docker-swarm.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 
-## Depolama
+## Depolama'yı kullanma
 ### [Veri diski ekleme](../../virtual-machines-linux-classic-attach-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 ### [Veri diski çıkarma](../../virtual-machines-linux-classic-detach-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 
 ## Ağ
 ### [Bağlantı noktalarını VM’nize açma](../../virtual-machines-linux-classic-setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
-### [VM’leri sanal ağ veya bulut hizmeti ile bağlama](../../virtual-machines-linux-classic-connect-vms.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+### [VM'leri sanal ağ veya bulut hizmeti ile bağlama](../../virtual-machines-linux-classic-connect-vms.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 
-## Görüntüler
-### [VHD oluşturma ve yükleme](../../virtual-machines-linux-classic-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+## Görüntüleri dağıtma
+### [VHD oluşturma ve karşıya yükleme](../../virtual-machines-linux-classic-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 ### [FreeBSD VHD’si oluşturma ve yükleme](../../virtual-machines-linux-classic-freebsd-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 ### [Oracle VM görüntüsü listesi](../../virtual-machines-linux-classic-oracle-images.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 
-## İş yükleri
+## İş yüklerini yönetme
 ### [SAP](../../virtual-machines-linux-classic-sap-get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 ### MySQL ve MariaDB
 #### [MariaDB küme öğreticisi](../../virtual-machines-linux-classic-mariadb-mysql-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
@@ -45,7 +44,7 @@
 #### [MySQL’i kümelemek için yük dengeli kümeler kullanma](../../virtual-machines-linux-classic-mysql-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 #### [MySQL performansını iyileştirme](../../virtual-machines-linux-classic-optimize-mysql.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 
-## Uygulamalar
+## Uygulamaları çalıştırma
 ### [Rails web uygulamasında Ruby](virtual-machines-linux-classic-ruby-rails-web-app.md)
 ### [Cassandra ve Node.js istemcisi](../../virtual-machines-linux-classic-cassandra-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 ### [LAMP yığını](../../virtual-machines-linux-classic-lamp-script.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
@@ -56,29 +55,32 @@
 ### [Jenkins ile Azure bağımlı eklentisini kullanma](../../virtual-machines-azure-slave-plugin-for-jenkins.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 
 ## HPC Pack
-### [MPI uygulamalarını çalıştırmak için kullanılan HPC Pack içeren Windows RDMA kümesi](../../virtual-machines-linux-classic-hpcpack-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
-### [HPC Pack IaaS dağıtım betiği içeren Windows yüksek performanslı bilgi işlem (HPC) kümesi](../../virtual-machines-linux-classic-hpcpack-cluster-starccm.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+### [Windows RDMA cluster to run MPI uygulamalarını çalıştırmaya yönelik Windows RDMA kümesi](../../virtual-machines-linux-classic-hpcpack-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+### [HPC Pack IaaS dağıtım betiğini içeren Windows HPC kümesi](../../virtual-machines-linux-classic-hpcpack-cluster-starccm.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 ### [İşlem düğümlerinin sayısını ve kullanılabilirliğini yönetme](../../virtual-machines-linux-classic-hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
-### [HPC Pack kümesine isteğe bağlı düğümler ekleme](../../virtual-machines-linux-classic-hpcpack-cluster-openfoam.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
-### [HPC Pack küme kaynaklarını otomatik olarak büyütme ve küçültme](../../virtual-machines-linux-classic-hpcpack-cluster-namd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+### [İsteğe bağlı düğümleri ekleme](../../virtual-machines-linux-classic-hpcpack-cluster-openfoam.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+### [Kaynakları otomatik olarak ölçeklendirme](../../virtual-machines-linux-classic-hpcpack-cluster-namd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 
 ## Sorun giderme
 ### [VM dağıtımları](../../virtual-machines-linux-classic-troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 ### [VM’yi yeniden başlatma veya yeniden boyutlandırma](../../virtual-machines-linux-classic-restart-resize-error-troubleshooting.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 
 # Başvuru
-## [Azure CLI](https://docs.microsoft.com/cli/azure/vm)
-## [Java SDK](https://azure.microsoft.com/develop/java/)
-## [Node.js SDK’sı](https://azure.microsoft.com/develop/nodejs/)
-## [Python SDK'sı](https://azure.microsoft.com/develop/python/)
-## [İşlem REST API’si](https://docs.microsoft.com/rest/azure/api/compute/2016-03-30#Virtual-Machines)
-## [Ağ REST API’si](https://docs.microsoft.com/rest/azure/api/network/2016-09-01#)
-## [Depolama REST API’si ](https://docs.microsoft.com/rest/azure/api/storage/2016-01-01)
+## [Azure CLI](/cli/azure/vm)
+## [Java](/java/api/)
+## [Resource Manager şablonları yazma](../../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Topluluk şablonları](https://azure.microsoft.com/documentation/templates/)
+## [İşlem REST](/rest/api/compute/)
+## [Ağ REST](/rest/api/)
+## [Depolama REST](/rest/api/storageservices/)
+
 
 # Kaynaklar
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux)
 ## [Bölgesel kullanılabilirlik](https://azure.microsoft.com/regions/services/)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-machine)
+## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines)
+
 
 <!--HONumber=Nov16_HO2-->
 

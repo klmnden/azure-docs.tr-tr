@@ -1,7 +1,7 @@
 # Genel Bakış
-## [Batch temel bilgileri](batch-technical-overview.md)
-## [Batch özelliklerine genel bakış](batch-api-basics.md)
-## [Batch kotaları ve sınırlamaları](batch-quota-limit.md)
+## [Azure Batch nedir?](batch-technical-overview.md)
+## [Özelliklere genel bakış](batch-api-basics.md)
+## [Kotalar ve sınırlar](batch-quota-limit.md)
 # Kullanmaya Başlama
 ## [Batch hesabı oluşturma](batch-account-create-portal.md)
 ## [Batch .NET öğreticisi](batch-dotnet-get-started.md)
@@ -20,26 +20,32 @@
 ### [Görev bağımlılıkları](batch-task-dependencies.md)
 ### [Batch için Visual Studio proje şablonları](batch-visual-studio-templates.md)
 ## Yönet
-### [Batch CLI](batch-cli-get-started.md)
 ### [Batch PowerShell cmdlet’leri](batch-powershell-cmdlets-get-started.md)
+### [Azure CLI](batch-cli-get-started.md)
 ### [Batch tanılama günlükleri](batch-diagnostics.md)
+
 # Başvuru
-## [Batch REST API’si Başvurusu](https://go.microsoft.com/fwlink/p/?linkid=833492)
-## [Batch .NET başvurusu](https://go.microsoft.com/fwlink/p/?linkid=833494)
-## [Batch Python başvurusu](https://go.microsoft.com/fwlink/p/?linkid=833496)
-## [Batch Node.js başvurusu](https://go.microsoft.com/fwlink/p/?linkid=833544)
-## [Batch Java başvurusu](https://go.microsoft.com/fwlink/p/?linkid=833497)
-## [Batch Yönetimi .NET başvurusu](https://go.microsoft.com/fwlink/p/?linkid=833498)
-## [Batch PowerShell başvurusu](https://go.microsoft.com/fwlink/p/?linkid=833500)
+## [PowerShell cmdlet'leri](https://docs.microsoft.com/en-us/powershell/azureps-cmdlets-docs/)
+## [Java](https://docs.microsoft.com/java/api)
+## [.NET API’si](https://docs.microsoft.com/dotnet/api)
+## [Python SDK'sı](https://go.microsoft.com/fwlink/p/?linkid=833496)
+## [Node.js](https://go.microsoft.com/fwlink/p/?linkid=833544)
+## [REST](https://docs.microsoft.com/rest/api/batchservice/)
+
 # İlgili
+## [Batch Shipyard](https://github.com/Azure/batch-shipyard)
 ## [Azure bulutta Batch ve HPC çözümleri](batch-hpc-solutions.md)
-## [Azure’da Big Compute: Teknik kaynaklar](big-compute-resources.md)
+## [Azure’da Big Compute: teknik kaynaklar](big-compute-resources.md)
+
 # Kaynaklar
-## [Hizmet Güncelleştirmeleri](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=))
-## [MSDN Forumu](https://social.msdn.microsoft.com/Forums/home?forum=azurebatch)
+## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/batch/)
+## [MSDN forumu](https://social.msdn.microsoft.com/Forums/en-us/home?forum=azurebatch)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-batch)
+## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=batch)
+## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)
 ## [Batch C# kod örnekleri](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
 ## [Batch Python kod örnekleri](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
-## [Batch Shipyard](https://github.com/Azure/batch-shipyard)
+
 
 
 <!--HONumber=Nov16_HO2-->

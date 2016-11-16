@@ -1,12 +1,13 @@
 # Genel Bakış
 ## [Log Analytics nedir?](log-analytics-overview.md)
 ## [Veri güvenliği](log-analytics-security.md)
-## [Log Analytics SSS](log-analytics-faq.md)
+
 # Kullanmaya Başlama
 ## [Log Analytics’e kaydolma](log-analytics-get-started.md)
 ## [Erişimi yönetme](log-analytics-manage-access.md)
 ## [Proxy ve güvenlik duvarı](log-analytics-proxy-firewall.md)
 ## [Kullanım verileri](log-analytics-usage.md)
+## [Log Analytics SSS](log-analytics-faq.md)
 
 # Nasıl yapılır?
 ## Tümleştirme
@@ -48,7 +49,6 @@
 #### [SQL Değerlendirmesi](log-analytics-sql-assessment.md)
 #### [Surface Hub](log-analytics-surface-hubs.md)
 #### [Sistem Güncelleştirme Değerlendirmesi](log-analytics-system-update.md)
-#### [Upgrade Analytics](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics)
 #### [VMware](log-analytics-vmware.md)
 #### [Kablo Verileri](log-analytics-wire-data.md)
 ## Çözümleme
@@ -60,9 +60,9 @@
 ### [PowerShell cmdlet'leri](log-analytics-powershell-workspace-configuration.md)
 ### [Log Arama API’si](log-analytics-log-search-api.md)
 ### [Uyarı API’si](log-analytics-api-alerts.md)
-# Başvuru
-# İlgili
+
 # Kaynaklar
+## [Upgrade Analytics](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics)
 
 
 

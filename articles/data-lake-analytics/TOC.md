@@ -2,9 +2,9 @@
 ## [Data Lake Analytics nedir?](data-lake-analytics-overview.md)
 
 # Başlarken
-## [Portal’ı kullanma](data-lake-analytics-get-started-portal.md)
+## [Portalı kullanma](data-lake-analytics-get-started-portal.md)
 ## [PowerShell’i kullanma](data-lake-analytics-get-started-powershell.md)
-## [.NET SDK’sını kullanma](data-lake-analytics-get-started-net-sdk.md)
+## [.NET SDK’yı kullanma](data-lake-analytics-get-started-net-sdk.md)
 ## [Java SDK kullanma](data-lake-analytics-get-started-java-sdk.md)
 ## [Visual Studio’yu kullanma](data-lake-analytics-data-lake-tools-get-started.md)
 ## [CLI kullanma](data-lake-analytics-get-started-cli.md)
@@ -37,11 +37,13 @@
 ### [Köşe Yürütme Görünümünü Kullanma](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
 
 # Başvuru
-## [.NET SDK](https://msdn.microsoft.com/library/azure/mt572197(Azure.100).aspx)
-## [PowerShell cmdlet'leri](https://msdn.microsoft.com/library/azure/mt607124.aspx)
-## [U-SQL Dil Başvurusu](https://msdn.microsoft.com/library/azure/mt591959(Azure.100).aspx)
-## [Node.js](https://www.npmjs.com/package/azure-arm-datalake-analytics)
 
+## [PowerShell](/powershell/resourcemanager/)
+## [Java](/java/api/)
+## [.NET](https://docs.microsoft.com/dotnet/api)
+## [U-SQL](https://msdn.microsoft.com/library/azure/mt591959(Azure.100))
+## [Node.js](https://www.npmjs.com/package/azure-arm-datalake-analytics)
+## [REST](/rest/api/datalakeanalytics/)
 
 # Kaynaklar
 ## [MSDN Forumu](https://social.msdn.microsoft.com/Forums/home?forum=AzureDataLake)

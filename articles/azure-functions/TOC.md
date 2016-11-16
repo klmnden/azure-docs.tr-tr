@@ -1,6 +1,6 @@
-# [Genel Bakış](functions-overview.md)
-
-# Kullanmaya Başlama
+# Genel Bakış
+## [Azure İşlevleri nedir?](functions-overview.md)
+# Başlarken
 ## [İlk uygulamanızı oluşturma](functions-create-first-azure-function.md)
 ## [Web kancası işlevi oluşturma](functions-create-a-web-hook-or-api-function.md)
 ## [Azure bağlantılı işlev oluşturma](functions-create-an-azure-connected-function.md)
@@ -38,10 +38,14 @@
 ## Dağıtma
 ### [Azure İşlevleri için sürekli dağıtım](functions-continuous-deployment.md)
 
+# Başvuru
+## [.NET API'si](https://msdn.microsoft.com/library/azure/dn961176.aspx)
 
 # Kaynaklar
-## [Hizmet Güncelleştirmeleri](https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform=)
-## [MSDN Forumu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureFunctions)
+## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/functions/)  
+## [MSDN forumu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureFunctions)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-functions)
+## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform=)
 
 
 <!--HONumber=Nov16_HO2-->

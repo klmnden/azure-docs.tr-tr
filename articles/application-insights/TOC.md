@@ -128,27 +128,31 @@
 ### [Java](app-insights-java-troubleshoot.md)
 
 # Başvuru
-
+## [Java](http://dl.windowsazure.com/applicationinsights/javadoc/)
+## [.NET API’si](https://docs.microsoft.com/dotnet/api)
+## [JavaScript API’si](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
 ## [Analizler](app-insights-analytics-reference.md)
 ## [Örnekleme](app-insights-sampling.md)
 ## [IP adresleri](app-insights-ip-addresses.md)
 ## [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)
 ## [Veri Modelini Dışarı Aktarma](app-insights-export-data-model.md)
-## [REST API](https://dev.applicationinsights.io/)
-## [JavaScript API’si](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
-## [Java SDK API’si](http://dl.windowsazure.com/applicationinsights/javadoc/)
 ## [Azure Uç Nokta İzleme’den Kullanılabilirlik testlerine geçiş](app-insights-migrate-azure-endpoint-tests.md)
 ## [Geliştirici analizleri: diller, platformlar ve tümleştirmeler](app-insights-platforms.md)
 ### [Örnekler ve yönergeler](app-insights-code-samples.md)
-
 #### [Kılavuz: Microsoft Dynamics CRM Online için Telemetri Etkinleştirme](app-insights-sample-mscrm.md)
 #### [Kılavuz: Akış Analizi kullanarak SQL’e aktarma](app-insights-code-sample-export-sql-stream-analytics.md)
 #### [Kod örneği: Dış aktarılan verileri ayrıştırma](app-insights-code-sample-export-telemetry-sql-database.md)
 ## [Windows Phone ve Mağazası için Application Insights SDK Sürüm Notları](app-insights-release-notes-windows.md)
 ## [Geliştirici Analizi Araçları Sürüm Notları](app-insights-release-notes-vsix.md)
 ## [SDK Sürüm Notları - Application Insights](app-insights-release-notes.md)
+## [REST API](https://dev.applicationinsights.io/)
 
 # Kaynaklar
+## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/application-insights/)  
+## [MSDN forumu](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=ApplicationInsights)  
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/az-application-insights)
+## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=application-insights) 
+## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/en-us/updates/?product=application-insights) 
 ## [Destek](app-insights-get-dev-support.md)
 
 

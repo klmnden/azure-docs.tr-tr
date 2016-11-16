@@ -35,7 +35,7 @@
 ### [Data Lake Store'da verilerin güvenliğini sağlama](data-lake-store-secure-data.md)
 ### [Hizmetten hizmete kimlik doğrulaması](data-lake-store-authenticate-using-active-directory.md)
 ### [Son kullanıcı kimlik doğrulaması](data-lake-store-end-user-authenticate-using-active-directory.md)
- 
+
 ## Azure Hizmetleri ile tümleştirme
 ### [Data Lake Analytics ile kullanma](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 ### [Portalı kullanarak Data Lake Store ile HDInsight kümesi oluşturma](data-lake-store-hdinsight-hadoop-use-portal.md)
@@ -51,14 +51,11 @@
 ### [Tanılama günlüklerine erişim](data-lake-store-diagnostic-logs.md)
 
 # Başvuru
-## [.NET SDK](https://msdn.microsoft.com/library/azure/mt581387.aspx)
-## [Java SDK](https://azure.github.io/azure-data-lake-store-java/javadoc/)
-## [PowerShell cmdlet'leri](https://msdn.microsoft.com/library/azure/mt607120.aspx)
-## [REST API](https://msdn.microsoft.com/library/azure/mt693424.aspx)
+## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)
+## [Java](https://azure.github.io/azure-data-lake-store-java/javadoc/)
+## [.NET](https://docs.microsoft.com/dotnet/api)
 ## [Node.js](https://www.npmjs.com/package/azure-arm-datalake-store)
-
-# İlgili
-## [Cortana Intelligence Suite](https://www.microsoft.com/en-us/cloud-platform/what-is-cortana-intelligence-suite)
+## [REST](https://docs.microsoft.com/en-us/rest/api/datalakestore/)
 
 # Kaynaklar
 ## [MSDN Forumu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake)

@@ -55,6 +55,9 @@
 ## Geliştirme
 ### [İlk web uygulamanıza işlevsellik ekleme](app-service-web-get-started-2.md)
 ### [Web uygulaması oluşturma](app-service-linux-how-to-create-a-web-app.md)
+### [App Service başvurusu](app-service-changes-existing-services.md)
+### [Azure Portal](app-service-web-app-azure-portal.md)
+### [Web İşleri SDK’sı](websites-dotnet-webjobs-sdk-get-started.md)
 
 ### ASP.NET uygulamaları
 #### [İlk .NET web uygulamanızı Azure'da beş dakikada dağıtma](app-service-web-get-started-dotnet.md)
@@ -243,9 +246,10 @@
 ### [Web uygulaması performans sorunlarını giderme](app-service-web-troubleshoot-performance-degradation.md)
 
 # Başvuru
-## [App Service başvurusu](app-service-changes-existing-services.md)
-## [Azure Portal](app-service-web-app-azure-portal.md)
-## [Web İşleri SDK’sı](websites-dotnet-webjobs-sdk-get-started.md)
+## [Azure CLI](/cli/azure/)
+## [Java](/java/api/)
+## [.NET](/dotnet/api)
+## [REST](/rest/api/appservice)
 
 # İlgili
 ## [.NET için Azure SDK sürüm notları](azure-sdk-dotnet-release-notes.md)

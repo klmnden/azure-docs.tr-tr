@@ -55,14 +55,18 @@
 ### [Çok dilli arama](search-language-support.md)
 
 # Başvuru
-## [.NET SDK](https://msdn.microsoft.com/library/azure/dn951165)
-## [Hizmet REST API'si](https://msdn.microsoft.com/library/azure/dn798935)
-## [Hizmet REST API’si (Önizleme sürümü)](search-api-2015-02-28-preview.md)
-## [Yönetim REST API'si](https://msdn.microsoft.com/library/azure/dn832684)
 ## [API sürümleri](search-api-versions.md)
+## [Java](/java/api/)
+## [.NET](/dotnet/api/)
 ## [Lucene sorgu söz dizimi](https://msdn.microsoft.com/library/azure/mt589323)
 ## [Basit sorgu söz dizimi](https://msdn.microsoft.com/library/azure/dn798920)
+## [Hizmet REST](/rest/api/searchservice/)
+## [Hizmet REST (Önizleme)](search-api-2015-02-28-preview.md)
+## [Yönetim REST](/rest/api/searchmanagement/)
+
 # Kaynaklar
+## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=search)
+## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/search/)
 ## Tanıtım siteleri
 ### [İş listeleri uygulaması](http://aka.ms/azjobsdemo)
 ### [Canlı tanıtım uygulamaları](https://searchsamples.azurewebsites.net/)
@@ -73,7 +77,7 @@
 ## İş ortağı ve topluluk
 ### [İlişkisel verileri modelleme](http://blogs.technet.com/b/onsearch/archive/2015/09/08/modeling-the-adventureworks-inventory-database-for-azure-search.aspx)
 ### [Çok düzeyli model oluşturma](http://blogs.technet.com/b/onsearch/archive/2015/09/09/multi-level-taxonomy-facets-in-azure-search.aspx)
-### [MSDN Forumları](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureSearch)
+### [Forum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureSearch)
 ### [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-search)
 ### [Azure Search Github](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
 
