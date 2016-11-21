@@ -48,9 +48,12 @@
   - name: "Application Insights"
     tocHref: /azure/application-insights/
     topicHref: /azure/application-insights/app-insights-overview
-  - name: "Automation"
+  - name: "Otomasyon"
     tocHref: /azure/automation/
     topicHref: /azure/automation/automation-intro
+  - name: "Container Kayıt Defteri"
+    tocHref: /azure/container-registry/
+    topicHref: /azure/container-registry/container-registry-info
   - name: "İşlevler"
     tocHref: /azure/azure-functions/
     topicHref: /azure/azure-functions/functions-overview
