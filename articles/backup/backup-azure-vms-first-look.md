@@ -47,7 +47,7 @@ Bir VM'yi yedeklemek için beş ana adım gerçekleştirilir:
 >
 >
 
-## <a name="step-1-create-a-backup-vault-for-a-vm"></a>1. Adım - Bir VM için yedekleme kasası oluşturma
+## <a name="step-1---create-a-backup-vault-for-a-vm"></a>1. Adım - Bir VM için yedekleme kasası oluşturma
 Yedekleme kasası, zaman içinde oluşturulan tüm yedeklemeleri ve kurtarma noktalarını depolayan bir varlıktır. Yedekleme kasası, yedeklenmekte olan sanal makinelere uygulanan yedekleme ilkelerini de içerir.
 
 1. [Klasik Azure portalında](http://manage.windowsazure.com/) oturum açın.
@@ -86,7 +86,7 @@ Yedekleme kasası, zaman içinde oluşturulan tüm yedeklemeleri ve kurtarma nok
 
 Kasanız için depolama seçeneğini belirledikten sonra, VM'yi kasa ile ilişkilendirmek için hazır duruma gelirsiniz. İlişkilendirmeyi başlatmak için Azure sanal makinelerini bulun ve kaydedin.
 
-## <a name="step-2-discover-and-register-azure-virtual-machines"></a>2. Adım - Azure sanal makinelerini bulma ve kaydetme
+## <a name="step-2---discover-and-register-azure-virtual-machines"></a>2. Adım - Azure sanal makinelerini bulma ve kaydetme
 VM'yi bir kasaya kaydetmeden önce yeni VM'leri tanımlamak için bulma işlemini çalıştırın. Bu, bulut hizmeti adı ve bölge gibi ek bilgilerle birlikte, abonelikteki sanal makinelerin listesini döndürür.
 
 1. [Klasik Azure portalında](http://manage.windowsazure.com/) oturum açın
@@ -133,12 +133,12 @@ VM'yi bir kasaya kaydetmeden önce yeni VM'leri tanımlamak için bulma işlemin
 
     ![Kayıt durumu 2](./media/backup-azure-vms/register-status02.png)
 
-## <a name="step-3-install-the-vm-agent-on-the-virtual-machine"></a>3. Adım - VM Aracısı'nı sanal makineye yükleme
+## <a name="step-3---install-the-vm-agent-on-the-virtual-machine"></a>3. Adım - VM Aracısı'nı sanal makineye yükleme
 Backup uzantısının çalışması için Azure VM Aracısı'nın Azure sanal makinesine yüklenmesi gerekir. VM'niz Azure galerisinden oluşturulmuşsa VM Aracısı VM üzerinde zaten mevcuttur. [VM'lerinizi koruma](backup-azure-vms-first-look.md#step-4---create-the-backup-policy) adımına atlayabilirsiniz.
 
 VM'nizin bir şirket içi veri merkezinden geçişi sağlandıysa VM için VM Aracısı büyük olasılıkla yüklü değildir. VM'yi koruma aşamasına geçmeden önce sanal makine üzerinde VM Aracısı'nı yüklemeniz gerekir. VM Aracısı'nı yükleme konusunda ayrıntılı adımlar için bkz. [VM'leri Yedekleme makalesinin VM Aracısı bölümü](backup-azure-vms-prepare.md#vm-agent).
 
-## <a name="step-4-create-the-backup-policy"></a>4. Adım - Yedekleme ilkesini oluşturma
+## <a name="step-4---create-the-backup-policy"></a>4. Adım - Yedekleme ilkesini oluşturma
 İlk yedekleme işini tetiklemeden önce, yedekleme anlık görüntülerinin alınma zamanlamasını ayarlayın. Yedekleme anlık görüntülerinin alınma zamanlaması ve bu anlık görüntülerin tutulma süresinin uzunluğu, yedekleme ilkesini oluşturur. Bekletme bilgileri, Üst öğe-orta öğe-alt öğe rotasyon düzenini temel alır.
 
 1. Klasik Azure portalında **Kurtarma Hizmetleri**'nin altındaki yedekleme kasasına gidin ve **Kayıtlı Öğeler**'e tıklayın.
@@ -175,7 +175,7 @@ VM'nizin bir şirket içi veri merkezinden geçişi sağlandıysa VM için VM Ar
 
     İlkeyi belirlediğinize göre, artık sonraki adıma geçebilir ve ilk yedeklemeyi çalıştırabilirsiniz.
 
-## <a name="step-5-initial-backup"></a>5. Adım - İlk yedekleme
+## <a name="step-5---initial-backup"></a>5. Adım - İlk yedekleme
 Bir sanal makine bir ilke ile koruma altına alındıktan sonra, bu ilişkiyi **Korumalı Öğeler** sekmesinde görüntüleyebilirsiniz. İlk yedekleme gerçekleşene kadar, **Koruma Durumu** **Korumalı - (ilk yedekleme bekleniyor)** olarak gösterilir. Varsayılan olarak, ilk zamanlanmış yedekleme *ilk yedekleme* olacaktır.
 
 ![Yedekleme beklemede](./media/backup-azure-vms-first-look/protection-pending-border.png)
