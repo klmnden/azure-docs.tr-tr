@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 09/26/2016
 ms.author: mattmcg
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 040727e39aecfeeda37dfb8879a13dcae3096e27
+ms.sourcegitcommit: a849e2e866a5b30aac70ab0eb1ed8fcf472a5886
+ms.openlocfilehash: 5ceed7110ed6fe3a6e4c3902aff71fb4a2e35ba3
 
 
 ---
-# <a name="set-quotas-in-azure-stack"></a>Set quotas in Azure Stack
+# <a name="set-and-view-quotas-in-azure-stack"></a>Set and view quotas in Azure Stack
 Quotas define the limits of resources that a tenant subscription can provision or consume. For example, a quota might allow a tenant to create up to five VMs. To add a service to a plan, the administrator must configure the quota settings for that service.
 
 Quotas are configurable per service and per location, enabling administrators to provide granular control over the resource consumption. Administrators can create one or more quota resources and associate them with plans, which means they can provide differentiated offerings for their services. Quotas for a given service can be created from the **Resource Provider** administration blade for that service.
@@ -83,9 +83,12 @@ A tenant that subscribes to an offer that contains multiple plans can use all re
 | Max NICs |100 |The maximum number of network interfaces that a subscription can create in this location. |
 | Max network security groups |50 |The maximum number of network security groups that a subscription can create in this location. |
 
+##<a name="view-an-existing-quota"></a>View an existing quota
+To view an existing quota, click on **More services**>**Resource Providers** and select the service with which the quota you want to view is assocatied. Next, click on **Quotas**, and select the Quota you want to view.
+   > ![Viewing an existing quota](./media/azure-stack-setting-quota/ExistingQuota.PNG)
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

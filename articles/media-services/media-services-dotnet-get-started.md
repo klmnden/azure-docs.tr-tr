@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 10/17/2016
+ms.date: 11/07/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 80606d9fd08a4d5b5845af8ed43fdcef050e47e9
+ms.sourcegitcommit: 0d9d87d0dc26d2fcaa3886a9f8c0849b71b26847
+ms.openlocfilehash: 61ea806ec3ad620d454e2de0910fa2b49de66493
 
 
 ---
@@ -114,10 +114,17 @@ Akışa ayrılan birim sayısını oluşturmak ve değiştirmek için, aşağıd
    > 
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Visual Studio projesi oluşturup yapılandırma
+
 1. Visual Studio 2013, Visual Studio 2012 veya Visual Studio 2010 SP1’de yeni bir C# Konsol Uygulaması oluşturun. **Ad**, **Konum** ve **Çözüm adı** değerlerini girip **Tamam**’a tıklayın.
 2. [Windowsazure.mediaservices.extensions](https://www.nuget.org/packages/windowsazure.mediaservices.extensions) NuGet paketini kullanarak **Azure Media Services .NET SDK Uzantıları**’nı yükleyin.  Media Services .NET SDK Uzantıları, kodunuzu basitleştirerek Media Services ile geliştirme yapmayı kolaylaştıran bir dizi genişletme yöntemi ve yardımcı işlevdir. Bu paketin yüklenmesiyle **Media Services .NET SDK** da yüklenir ve diğer tüm gerekli bağımlılıklar eklenir.
+
+    NuGet kullanarak başvuru eklemek için şunları yapın: Çözüm Gezgini’nde proje adının üzerine sağ tıklayın ve **NuGet paketlerini yönet**’i seçin. Ardından **windowsazure.mediaservices.extensions** aratın ve **Yükle**’ye tıklayın.
+
 3. System.Configuration bütünleştirilmiş koduna bir başvuru ekleyin. Bu bütünleştirilmiş kod, App.config gibi yapılandırma dosyalarına erişmek için kullanılan **System.Configuration.ConfigurationManager** sınıfını içerir.
-4. App.config dosyasını açın (varsayılan olarak eklenmemişse dosyayı projenize ekleyin) ve dosyaya bir *appSettings* bölümü ekleyin. Aşağıdaki örnekte gösterildiği gibi Azure Media Services hesap adınız ve hesap anahtarınızın değerlerini ayarlayın. Hesap adını ve anahtar bilgilerini almak için [Azure portalına](https://portal.azure.com/) gidin ve AMS hesabınızı seçin. Ardından, **Ayarlar** > **Anahtarlar**'ı seçin. Anahtarları yönet pencerelerinde hesap adı gösterilir ve birincil anahtar ile ikincil anahtar görüntülenir.
+
+    Başvuru eklemek için şunları yapın:Çözüm Gezgini’nde proje adının üzerine sağ tıklayın ve **Başvuru** > **Ekle...** öğesini seçip arama kutusuna configuration yazın. 
+
+4. App.config dosyasını açın (varsayılan olarak eklenmemişse dosyayı projenize ekleyin) ve dosyaya bir *appSettings* bölümü ekleyin. Aşağıdaki örnekte gösterildiği gibi Azure Media Services hesap adınız ve hesap anahtarınızın değerlerini ayarlayın. Hesap adını ve anahtar bilgilerini almak için [Azure portalına](https://portal.azure.com/) gidin ve AMS hesabınızı seçin. Ardından, **Ayarlar** > **Anahtarlar**'ı seçin. Anahtarları yönet pencerelerinde hesap adı gösterilir ve birincil anahtar ile ikincil anahtar görüntülenir. Hesap adı ve birincil anahtar değerlerini kopyalayın.
    
         <configuration>
         ...
@@ -141,11 +148,16 @@ Akışa ayrılan birim sayısını oluşturmak ve değiştirmek için, aşağıd
 6. Proje dizini altında yeni bir klasör oluşturun ve kodlayıp akışla aktarmak veya aşamalı indirmek istediğiniz bir .mp4 veya .wmv dosyasını buraya kopyalayın. Bu örnekte "C:\VideoFiles" yolu kullanılmaktadır.
 
 ## <a name="connect-to-the-media-services-account"></a>Media Services hesabına bağlanma
+
 .NET ile Media Services’i kullanırken, Media Services programlama görevlerinin çoğu için **CloudMediaContext** sınıfını kullanmalısınız: Media Services hesabına bağlanma; şu nesneleri oluşturma, güncelleştirme, silme ve bunlara erişme: varlıklar, varlık dosyaları, işler, erişim ilkeleri, bulucular vb.
 
 Varsayılan Program sınıfının üzerine aşağıdaki kodu yazın. Kod, bağlantı değerlerinin App.config dosyasından nasıl okunacağını ve Media Services’e bağlanmak amacıyla **CloudMediaContext** nesnesinin nasıl oluşturulacağını gösterir. Media Services’e bağlanma hakkında daha fazla bilgi için bkz. [.NET için Media Services SDK’sı ile Media Services’e bağlanma](http://msdn.microsoft.com/library/azure/jj129571.aspx).
 
+
  **Ana** işlev, bu bölümün sonraki kısımlarında açıklanacak olan yöntemleri çağırır.
+
+> [!NOTE]
+> Tüm işlevler için tanım ekleyene kadar derleme hatası alırsınız.
 
     class Program
     {
@@ -193,8 +205,10 @@ Varsayılan Program sınıfının üzerine aşağıdaki kodu yazın. Kod, bağla
                 Console.ReadLine();
             }
         }
+    }
 
 ## <a name="create-a-new-asset-and-upload-a-video-file"></a>Yeni varlık oluşturma ve video dosyası yükleme
+
 Media Services’de, dijital dosyalar bir varlığa yüklenir (veya alınır). **Varlık** varlığı video, ses, görüntüler, küçük resim koleksiyonları, metin parçaları ve kapalı açıklamalı alt yazı dosyaları (ve bu dosyalar hakkındaki meta veriler) içerebilir.  Dosyalar yüklendiğinde, içeriğiniz sonraki işleme ve akışla aktarma faaliyetleri için güvenli bir şekilde bulutta depolanmış olur. Varlık içindeki dosyalara **Varlık Dosyaları** adı verilir.
 
 Aşağıda tanımlanan **UploadFile** yöntemi, **CreateFromFile** yöntemini (.NET SDK Uzantılarında tanımlanmıştır) çağırır. **CreateFromFile**, belirtilen kaynak dosyasının yüklendiği yeni bir varlık oluşturur.
@@ -281,7 +295,8 @@ Program sınıfına aşağıdaki yöntemi ekleyin.
     }
 
 ## <a name="publish-the-asset-and-get-urls-for-streaming-and-progressive-download"></a>Varlığı yayımlayıp akış ve aşamalı indirme URL’lerini alma
-Bir varlığı akışla aktarmak veya indirmek için söz konusu varlığı önce bir bulucu oluşturarak “yayımlamak” gerekir. Bulucular varlıkta bulunan dosyalara erişim imkanı sağlar. Media Services, iki tür bulucuyu destekler: Medyayı akışla aktarmak (örneğin MPEG DASH, HLS veya Kesintisiz Akış) için kullanılan OnDemandOrigin bulucuları ve medya dosyalarını indirmek için kullanılan Erişim İmzası (SAS) bulucuları.
+
+Bir varlığı akışla aktarmak veya indirmek için söz konusu varlığı önce bir bulucu oluşturarak “yayımlamak” gerekir. Bulucular varlıkta bulunan dosyalara erişim imkanı sağlar. Media Services, iki tür bulucuyu destekler: Medyayı akışla aktarmak (örneğin MPEG DASH, HLS veya Kesintisiz Akış) için kullanılan OnDemandOrigin bulucuları ve medya dosyalarını indirmek için kullanılan Erişim İmzası (SAS) bulucuları (SAS bulucuları hakkında daha fazla bilgi için [bu](http://southworks.com/blog/2015/05/27/reusing-azure-media-services-locators-to-avoid-facing-the-5-shared-access-policy-limitation/) blog sayfasına bakın).
 
 Bulucuları oluşturduktan sonra, dosyalarınızı akışla aktarmak veya indirmek için kullanılan URL'leri oluşturabilirsiniz.
 

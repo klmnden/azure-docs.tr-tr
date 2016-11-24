@@ -12,23 +12,24 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 10/17/2016
+ms.date: 10/27/2016
 ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: 6ff31940f3a4e7557e0caf3d9d3740590be3bc04
-ms.openlocfilehash: 12f5a22fa65d84682e5792bcbe88b67986540498
-
+ms.sourcegitcommit: fc2f30569acc49dd383ba230271989eca8a14423
+ms.openlocfilehash: d78ceb2b616b5c574bede1e2df21c3415a9d757a
 
 ---
+
 # <a name="use-fiddler-to-evaluate-and-test-azure-search-rest-apis"></a>Azure Search REST API'lerini değerlendirmek ve test etmek için Fiddler'ı kullanma
 > [!div class="op_single_selector"]
+>
 > * [Genel Bakış](search-query-overview.md)
 > * [Arama Gezgini](search-explorer.md)
 > * [Fiddler](search-fiddler.md)
 > * [.NET](search-query-dotnet.md)
 > * [REST](search-query-rest-api.md)
-> 
-> 
+>
+>
 
 Bu makale, [Telerik'ten ücretsiz indirme](http://www.telerik.com/fiddler) yoluyla erişilebilen Fiddler'ın, kod yazmaya gerek olmaksızın Azure Search REST API'sini kullanarak HTTP istekleri göndermek ve yanıtları görüntülemek için nasıl kullanıldığını açıklar. Azure Search; Microsoft Azure'da barındırılan, .NET ve REST API'ler aracılığıyla kolayca programlanabilen ve tamamen yönetilen bir bulut arama hizmetidir. Azure Search hizmeti REST API'leri [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx)'de açıklanmaktadır.
 
@@ -39,26 +40,26 @@ Bu adımları tamamlamak için Azure Search hizmeti ve `api-key` gerekir. Kullan
 ## <a name="create-an-index"></a>Dizin oluşturma
 1. Fiddler'ı başlatın. **Dosya** menüsünde, geçerli görevle ilişkisi olmayan yabancı HTTP etkinliğini gizlemek için **Trafiği Yakala**'yı devre dışı bırakın.
 2. **Oluşturucu** sekmesinde, aşağıdaki ekran görüntüsü gibi görünen bir istek düzenleyin.
-   
+
       ![][1]
 3. **PUT**'u seçin.
 4. Hizmet URL'sini, istek özniteliklerini ve api sürümünü belirten bir URL girin. Dikkate alınması gereken birkaç işaretçi:
-   
+
    * HTTPS'yi önek olarak kullanın.
    * İstek özniteliği "indexes/hotels"dir. Bu, Search'e "oteller" adlı bir dizin oluşturmasını belirtir.
-   * API sürümü küçük harfle yazılır, "?api-version=2015-02-28" olarak belirtilir. Azure Search düzenli olarak güncelleştirme dağıttığından, API sürümleri önemlidir. Nadir durumlarda, hizmet güncelleştirmesi API'de bozucu bir değişikliğe neden olabilir. Bu nedenle Azure Search, her bir istek için api sürümünü gerekli kılar. Böylece, hangisinin kullanıldığına ilişkin tam denetiminiz olur.
-     
+   * API sürümü küçük harfle yazılır, "?api-version=2016-09-01" olarak belirtilir. Azure Search düzenli olarak güncelleştirme dağıttığından, API sürümleri önemlidir. Nadir durumlarda, hizmet güncelleştirmesi API'de bozucu bir değişikliğe neden olabilir. Bu nedenle Azure Search, her bir istek için api sürümünü gerekli kılar. Böylece, hangisinin kullanıldığına ilişkin tam denetiminiz olur.
+
      Tam URL aşağıdaki örneğe benzemelidir.
-     
-             https://my-app.search.windows.net/indexes/hotels?api-version=2015-02-28
+
+             https://my-app.search.windows.net/indexes/hotels?api-version=2016-09-01
 5. Ana bilgisayarı ve api anahtarını hizmetiniz için geçerli olan değerlerle değiştirerek istek üst bilgisini belirtin.
-   
+
          User-Agent: Fiddler
          host: my-app.search.windows.net
          content-type: application/json
          api-key: 1111222233334444
 6. İstek Gövdesine dizin tanımını oluşturan alanları yapıştırın.
-   
+
           {
          "name": "hotels",  
          "fields": [
@@ -87,17 +88,17 @@ HTTP 504 yanıtı alırsanız HTTPS'yi belirten URL'yi doğrulayın. HTTP 400 ve
    ![][2]
 
 1. **POST**'u seçin.
-2. HTTPS ile başlayan, sırasıyla hizmet URL'niz ve "/indexes/<'indexname'>/docs/index?api-version=2015-02-28" ile devam eden bir URL girin. Tam URL aşağıdaki örneğe benzemelidir.
-   
-         https://my-app.search.windows.net/indexes/hotels/docs/index?api-version=2015-02-28
+2. HTTPS ile başlayan, sırasıyla hizmet URL'niz ve "/indexes/<'indexname'>/docs/index?api-version=2016-09-01" ile devam eden bir URL girin. Tam URL aşağıdaki örneğe benzemelidir.
+
+         https://my-app.search.windows.net/indexes/hotels/docs/index?api-version=2016-09-01
 3. İstek Üst Bilgisi önceki ile aynı olmalıdır. Ana bilgisayarı ve api anahtarını hizmetiniz için geçerli olan değerlerle değiştirdiğinizi unutmayın.
-   
+
          User-Agent: Fiddler
          host: my-app.search.windows.net
          content-type: application/json
          api-key: 1111222233334444
 4. İstek Gövdesi, oteller dizinine eklenecek dört belge içerir.
-   
+
          {
          "value": [
          {
@@ -169,12 +170,12 @@ Birkaç saniye içinde, oturum listesinde bir HTTP 200 yanıtı görmeniz gereki
 
 1. **GET**'i seçin.
 2. HTTPS ile başlayan, sırasıyla hizmet URL'niz, "/indexes/<'indexname'>/docs?" ve sorgu parametreleri ile devam eden bir URL girin. Örnek olarak, örnek ana bilgisayar adını hizmetiniz için geçerli olan bir tane ile değiştirerek aşağıdaki URL'yi kullanın.
-   
-         https://my-app.search.windows.net/indexes/hotels/docs?search=motel&facet=category&facet=rating,values:1|2|3|4|5&api-version=2015-02-28
-   
+
+         https://my-app.search.windows.net/indexes/hotels/docs?search=motel&facet=category&facet=rating,values:1|2|3|4|5&api-version=2016-09-01
+
    Bu sorgu "motel" terimini arar ve derecelendirmeler için model kategorileri alır.
 3. İstek Üst Bilgisi önceki ile aynı olmalıdır. Ana bilgisayarı ve api anahtarını hizmetiniz için geçerli olan değerlerle değiştirdiğinizi unutmayın.
-   
+
          User-Agent: Fiddler
          host: my-app.search.windows.net
          content-type: application/json
@@ -188,11 +189,11 @@ Aşağıdaki örnek sorgu MSDN'de [Search Dizin işlemi (Azure Search API)](http
 
 **Boşluklar değiştirilmeden önce:**
 
-        GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2015-02-28
+        GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2016-09-01
 
 **Boşluklar + ile değiştirildikten sonra:**
 
-        GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate+desc&api-version=2015-02-28
+        GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate+desc&api-version=2016-09-01
 
 ## <a name="query-the-system"></a>Sistemi sorgulama
 Ayrıca, belge sayısını ve depolama tüketimini almak için sistemi sorgulayabilirsiniz. **Oluşturucu** sekmesinde isteğiniz aşağıdakine benzer görünür ve yanıt, belge sayısı ve kullanılan alan için bir sayı döndürür.
@@ -200,11 +201,11 @@ Ayrıca, belge sayısını ve depolama tüketimini almak için sistemi sorgulaya
  ![][5]
 
 1. **GET**'i seçin.
-2. Hizmet URL'nizi içeren ve ardından "/indexes/hotels/stats?api-version=2015-02-28" ile devam eden bir URL girin:
-   
-         https://my-app.search.windows.net/indexes/hotels/stats?api-version=2015-02-28
+2. Hizmet URL'nizi içeren ve ardından "/indexes/hotels/stats?api-version=2016-09-01" ile devam eden bir URL girin:
+
+         https://my-app.search.windows.net/indexes/hotels/stats?api-version=2016-09-01
 3. Ana bilgisayarı ve api anahtarını hizmetiniz için geçerli olan değerlerle değiştirerek istek üst bilgisini belirtin.
-   
+
          User-Agent: Fiddler
          host: my-app.search.windows.net
          content-type: application/json
@@ -225,6 +226,6 @@ Azure Search hizmetini kod içermeyen bir yaklaşımla yönetmek ve kullanmak i�
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

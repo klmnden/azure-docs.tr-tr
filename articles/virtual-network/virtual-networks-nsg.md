@@ -1,6 +1,6 @@
 ---
-title: "Ağ Güvenlik Grubu (NSG) nedir?"
-description: "Ağ Güvenlik Gruplarını (NSG&quot;ler) kullanarak Azure&quot;daki dağıtılmış güvenlik duvarı hakkında, ayrıca sanal ağlarınızdaki (VNet&quot;ler) trafiği yalıtmak ve denetlemek için NSG&quot;lerin nasıl kullanılacağı konusunda bilgi edinin."
+title: "Ağ Güvenlik Grupları | Microsoft Belgeleri"
+description: "Azure&quot;daki dağıtılmış güvenlik duvarını kullanan sanal ağlarınızdaki trafik akışını yalıtmak ve denetlemek için Ağ Güvenlik Gruplarının nasıl kullanılacağı konusunda bilgi edinin."
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -15,13 +15,17 @@ ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 92ba745915c4b496ac6b0ff3b3e25f6611f5707c
+ms.sourcegitcommit: c3b96b583260bc8975082b952929d524e4040730
+ms.openlocfilehash: ba8bfc32b6662f629fc2203f605f8d9f51b3b559
 
 
 ---
-# <a name="what-is-a-network-security-group-nsg"></a>Ağ Güvenlik Grubu (NSG) nedir?
-Ağ güvenlik grubu (NSG), bir Virtual Network üzerindeki VM örneklerinize ağ trafiğinin gitmesine izin veren veya reddeden Erişim Denetimi Listesi (ACL) kurallarının bir listesini içerir. NSG'ler alt ağlarla veya bu alt ağların içindeki tekil VM örnekleriyle ilişkili olabilir. Bir NSG bir alt ağ ile ilişkili olduğunda, ACL kuralları bu alt ağdaki tüm VM örnekleri için geçerli olur. Ayrıca, bir NSG doğrudan tekil bir VM ile ilişkilendirildiği zaman bu VM'ye giden trafik daha da kısıtlanabilir.
+# <a name="network-security-groups"></a>Ağ güvenlik grupları
+
+Ağ güvenlik grubu (NSG), bir Sanal Ağ üzerindeki VM örneklerinize ağ trafiğinin gitmesine izin veren veya trafiği reddeden erişim denetimi listesi (ACL) kurallarının bir listesini içerir. NSG'ler alt ağlarla veya bu alt ağların içindeki tekil VM örnekleriyle ilişkili olabilir. Bir NSG bir alt ağ ile ilişkili olduğunda, ACL kuralları bu alt ağdaki tüm VM örnekleri için geçerli olur. Ayrıca, bir NSG doğrudan tekil bir VM ile ilişkilendirildiği zaman bu VM'ye giden trafik daha da kısıtlanabilir.
+
+> [!NOTE]
+> Azure’da kaynak oluşturmak ve bunlarla çalışmak için iki farklı dağıtım modeli vardır:  [Resource Manager ve klasik](../resource-manager-deployment-model.md). Bu makale her iki modelin de nasıl kullanıldığını kapsıyor olsa da, Microsoft en yeni dağıtımların Resource Manager modelini kullanmasını önermektedir.
 
 ## <a name="nsg-resource"></a>NSG kaynağı
 NSG'ler aşağıdaki özellikleri içerir.
@@ -36,10 +40,9 @@ NSG'ler aşağıdaki özellikleri içerir.
 > [!NOTE]
 > Uç nokta tabanlı ACL'ler ve ağ güvenlik grupları, aynı VM örneğinde desteklenmez. Bir NSG'yi kullanmak istiyorsanız ve bir uç nokta ACL'si zaten kullanılıyorsa öncelikle uç nokta ACL'sini kaldırın. Bunun nasıl yapılacağı hakkında bilgi için bkz. [Uç Noktalar için Access Control Listelerini (ACL'ler) PowerShell kullanarak yönetme](virtual-networks-acl-powershell.md).
 > 
-> 
 
 ### <a name="nsg-rules"></a>NSG kuralları
-NSG kuralları aşağıdaki özellikleri içerir.
+NSG kuralları aşağıdaki özellikleri içerir:
 
 | Özellik | Açıklama | Kısıtlamalar | Dikkat edilmesi gerekenler |
 | --- | --- | --- | --- |
@@ -90,37 +93,27 @@ Aşağıdaki varsayılan kurallarda da gösterildiği üzere, kaynağı bir sana
 ## <a name="associating-nsgs"></a>NSG'leri ilişkilendirme
 Bir NSG'yi kullandığınız dağıtım modeline bağlı olarak VM'lerle, NIC'lerle ve alt ağlara ilişkilendirebilirsiniz.
 
-[!INCLUDE [learn-about-deployment-models-both-include.md](../../includes/learn-about-deployment-models-both-include.md)]
-
 * **NSG'yi, VM ile ilişkilendirme (yalnızca klasik dağıtımlar).** Bir NSG'yi bir VM ile ilişkilendirdiğinizde, NSG'deki ağ erişim kuralları VM'ye gelen ve giden tüm trafiğe uygulanır. 
 * **NSG'yi, NIC ile ilişkilendirme (yalnızca Resource Manager dağıtımları).** Bir NSG'yi bir NIC ile ilişkilendirdiğinizde, NSG'deki ağ erişim kuralları yalnızca bu NIC'ye uygulanır. Yani birden çok NIC'nin bulunduğu bir VM'de, bir NSG tek bir NIC'ye uygulandığı zaman diğer NIC'lere giden trafiği etkilemez. 
 * **Bir NSG'yi bir alt ağ ile ilişkilendirme (tüm dağıtımlar)**. Bir NSG'yi bir alt ağ ile ilişkilendirdiğinizde, NSG'deki ağ erişim kuralları alt ağdaki tüm IaaS ve PaaS kaynaklarına uygulanır. 
 
 Farklı NSG'leri bir VM ile (veya dağıtım modeline bağlı olarak NIC ile) ve NIC'nin veya VM'nin bağlı olduğu ağ ile ilişkilendirebilirsiniz. Bu durumda, her NSG'deki öncelik temel alınarak, tüm ağ erişim kuralları aşağıdaki sırayla trafiğe uygulanır:
 
-* **Gelen trafik**
-  
-  1. NSG alt ağa uygulanır. 
-     
-     Alt ağ NSG'sinde trafiği reddetmeye yönelik bir eşleştirme kuralı varsa paket buraya bırakılır.
-  2. NSG, NIC'ye (Resource Manager) veya VM'ye (klasik) uygulanır. 
-     
-     VM\NIC NSG'sinde trafiği reddetmeye yönelik bir eşleştirme kuralı varsa alt ağ NSG'sinde trafiğe izin vermeye yönelik bir eşleştirme kuralı olsa da paket VM\NIC'ye bırakılır.
-* **Giden trafik**
-  
-  1. NSG, NIC'ye (Resource Manager) veya VM'ye (klasik) uygulanır. 
-     
-     VM\NIC NSG'sinde trafiği reddetmeye yönelik bir eşleştirme kuralı varsa paket buraya bırakılır.
-  2. NSG alt ağa uygulanır.
-     
-     Alt ağ NSG'sinde trafiği reddetmeye yönelik bir eşleştirme kuralı varsa VM\NIC NSG'sinde trafiğe izin vermeye yönelik bir eşleştirme kuralı olsa da paket buraya bırakılır.
-     
-      ![NSG ACL'leri](./media/virtual-network-nsg-overview/figure2.png)
+- **Gelen trafik**
+
+  1. **NSG alt ağa uygulandı:** Alt ağ NSG'sinde trafiği reddetmeye yönelik bir eşleştirme kuralı varsa paket bırakılır.
+
+  2. **NSG, NIC’ye uygulandı** (Resource Manager) veya VM (klasik): VM\NIC NSG'sinde trafiği reddetmeye yönelik bir eşleştirme kuralı varsa alt ağ NSG'sinde trafiğe izin vermeye yönelik bir eşleştirme kuralı olsa da paket VM\NIC'ye bırakılır.
+
+- **Giden trafik**
+
+  1. **NSG, NIC’ye uygulandı** (Resource Manager) veya VM (klasik): VM\NIC NSG’sinde trafiği reddetmeye yönelik bir eşleştirme kuralı varsa, paket bırakılır.
+
+  2. **NSG alt ağa uygulandı:** Alt ağ NSG'sinde trafiği reddetmeye yönelik bir eşleştirme kuralı varsa VM\NIC NSG'sinde trafiğe izin vermeye yönelik bir eşleştirme kuralı olsa da paket buraya bırakılır.
 
 > [!NOTE]
 > Tek bir NSG'yi yalnızca bir alt ağ, VM veya NIC ile ilişkilendirebilseniz de aynı NSG'yi istediğiniz kadar fazla kaynak ile ilişkilendirebilirsiniz.
-> 
-> 
+>
 
 ## <a name="implementation"></a>Uygulama
 Aşağıda listelenen farklı araçları kullanarak klasik veya Resource Manager dağıtım modellerinde NSG'leri uygulayabilirsiniz.
@@ -133,12 +126,14 @@ Aşağıda listelenen farklı araçları kullanarak klasik veya Resource Manager
 | Azure CLI |[![Yes][green]](virtual-networks-create-nsg-classic-cli.md) |[![Yes][green]](virtual-networks-create-nsg-arm-cli.md) |
 | ARM şablonu |![Hayır](./media/virtual-network-nsg-overview/red.png) |[![Yes][green]](virtual-networks-create-nsg-arm-template.md) |
 
-| **Anahtar** | ![Yes](./media/virtual-network-nsg-overview/green.png) Destekleniyor. | ![Hayır](./media/virtual-network-nsg-overview/red.png) Desteklenmiyor. |
-| --- | --- | --- |
-|  | | |
+**Anahtar**
+
+![Yes](./media/virtual-network-nsg-overview/green.png) Destekleniyor.
+
+![Hayır](./media/virtual-network-nsg-overview/red.png) Desteklenmiyor.
 
 ## <a name="planning"></a>Planlama
-NSG'leri uygulamadan önce aşağıdaki soruları yanıtlamanız gerekir:    
+NSG'leri uygulamadan önce aşağıdaki soruları yanıtlamanız gerekir:
 
 1. Hangi tür kaynaklara gelen veya giden trafiği filtrelemek istiyorsunuz (aynı VM'de bulunan NIC'ler, VM'ler veya aynı alt ağa bağlı olan bulut hizmetleri ya da uygulama hizmeti ortamları gibi diğer kaynaklar, farklı alt ağlara bağlı olan kaynaklar arasındaki veri trafiği)?
 2. Gelen/giden trafiği filtrelemek istediğiniz kaynaklar var olan sanal ağlardaki alt ağlara mı bağlı yoksa yeni sanal ağlara veya alt ağlara mı bağlanacak?
@@ -276,6 +271,6 @@ Yukarıdaki NSG'lerden bazılarının tekil NIC'lerle ilişkilendirilmesi gerekt
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

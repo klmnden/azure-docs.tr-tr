@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 10/05/2016
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 94250becb238adad7983d4b45939eb988411fca3
+ms.sourcegitcommit: 5614c39d914d5ae6fde2de9c0d9941e7b93fc10f
+ms.openlocfilehash: ef9a7da86e7528d3052f89dbe1eaac6fbb90527c
 
 
 ---
@@ -94,7 +94,7 @@ Site Recovery’nin Azure portalında veya klasik Azure portalında (gelişmiş)
 * Azure portalında yeniden çalışma hakkında [daha fazla bilgi edinin](site-recovery-failback-azure-to-vmware.md).
 * Klasik portalda yeniden çalışma hakkında [daha fazla bilgi edinin](site-recovery-failback-azure-to-vmware-classic.md).
 
-## <a name="replicate-to-azure-hyperv-vms-not-managed-by-vmm"></a>Azure’a çoğaltma: VMM tarafından yönetilmeyen Hyper-V sanal makineleri
+## <a name="replicate-to-azure-hyper-v-vms-not-managed-by-vmm"></a>Azure’a çoğaltma: VMM tarafından yönetilmeyen Hyper-V sanal makineleri
 System Center VMM tarafından yönetilmeyen Hyper-V sanal makinelerini Site Recovery ile Azure’a aşağıdaki gibi çoğaltabilirsiniz:
 
 * **Azure portalını kullanarak**-Azure portalında Site Recovery dağıttığınızda sanal makineleri klasik depolama alanına veya Resource Manager’a devredebilirsiniz. [Daha fazla bilgi edinin](site-recovery-hyper-v-site-to-azure.md).
@@ -120,7 +120,7 @@ Her iki dağıtım mimarisi de aşağıdakiler dışında benzerdir:
 * Azure portalı dağıtımının gereksinimleri hakkında [daha fazla bilgi edinin](site-recovery-hyper-v-site-to-azure.md#azure-prerequisites).
 * Klasik portal dağıtımının gereksinimleri hakkında [daha fazla bilgi edinin](site-recovery-hyper-v-site-to-azure-classic.md#azure-prerequisites).
 
-## <a name="replicate-to-azure-hyperv-vms-managed-by-vmm"></a>Azure’a çoğaltma: VMM tarafından yönetilen Hyper-V sanal makineleri
+## <a name="replicate-to-azure-hyper-v-vms-managed-by-vmm"></a>Azure’a çoğaltma: VMM tarafından yönetilen Hyper-V sanal makineleri
 VMM bulutlarındaki Hyper-V sanal makinelerini Site Recovery ile Azure’a aşağıdaki gibi çoğaltabilirsiniz:
 
 * **Azure portalını kullanarak**-Azure portalında Site Recovery dağıttığınızda sanal makineleri klasik depolama alanına veya Resource Manager’a devredebilirsiniz. [Daha fazla bilgi edinin](site-recovery-vmm-to-azure.md).
@@ -144,8 +144,8 @@ Her iki dağıtım mimarisi de aşağıdakiler dışında benzerdir:
 
 ![VMM'den Azure'a](./media/site-recovery-components/arch-onprem-onprem-azure-vmm.png)
 
-* Azure portalı dağıtımının gereksinimleri hakkında [daha fazla bilgi edinin](site-recovery-vmm-to-azure.md#azure-requirements).
-* Klasik portal dağıtımının gereksinimleri hakkında [daha fazla bilgi edinin](site-recovery-vmm-to-azure-classic.md#before-you-start).
+* Azure portalı dağıtımının gereksinimleri hakkında [daha fazla bilgi edinin](site-recovery-vmm-to-azure.md#azure-prerequisites).
+* Klasik portal dağıtımının gereksinimleri hakkında [daha fazla bilgi edinin](site-recovery-vmm-to-azure-classic.md).
 
 ## <a name="replicate-to-a-secondary-site-vmware-virtual-machines-or-physical-servers"></a>İkincil siteye çoğaltma: VMware sanal makineleri veya fiziksel sunucular
 VMware sanal makinelerini veya fiziksel sunucuları ikincil bir siteye çoğaltmak için Azure Site Recovery aboneliğine dahil olan InMage Scout hizmetini indirirsiniz. Bu hizmet Azure portalından veya klasik Azure portalından indirilebilir.
@@ -167,7 +167,7 @@ Her sitede bileşen sunucularını (yapılandırma, işlem, ana hedef) ayarlayı
 
 ![VMware'den VMware'e](./media/site-recovery-components/vmware-to-vmware.png)
 
-## <a name="replicate-to-a-secondary-site-hyperv-vms-managed-by-vmm"></a>İkincil siteye çoğaltma: VMM tarafından yönetilen Hyper-V sanal makineleri
+## <a name="replicate-to-a-secondary-site-hyper-v-vms-managed-by-vmm"></a>İkincil siteye çoğaltma: VMM tarafından yönetilen Hyper-V sanal makineleri
 System Center VMM tarafından yönetilen Hyper-V sanal makinelerini Site Recovery ile ikincil veri merkezine aşağıdaki gibi çoğaltabilirsiniz:
 
 * **Azure portalını kullanarak**-Site Recovery’i Azure portalında dağıttığınızda. [Daha fazla bilgi edinin](site-recovery-hyper-v-site-to-azure.md).
@@ -193,7 +193,7 @@ Her iki dağıtım mimarisi de aşağıdakiler dışında benzerdir:
 * Azure portalındaki dağıtım gereksinimleri hakkında [daha fazla bilgi edinin](site-recovery-vmm-to-vmm.md#azure-prerequisites).
 * * Klasik Azure portalındaki dağıtım gereksinimleri hakkında [daha fazla bilgi edinin](site-recovery-vmm-to-vmm-classic.md#before-you-start).
 
-## <a name="replicate-to-a-secondary-site-with-san-replication-hyperv-vms-managed-by-vmm"></a>SAN çoğaltması ile ikincil siteye çoğaltma: VMM tarafından yönetilen Hyper-V sanal makineleri
+## <a name="replicate-to-a-secondary-site-with-san-replication-hyper-v-vms-managed-by-vmm"></a>SAN çoğaltması ile ikincil siteye çoğaltma: VMM tarafından yönetilen Hyper-V sanal makineleri
 VMM bulutlarında yönetilen Hyper-V sanal makinelerini SAN çoğaltması ile klasik Azure portalını kullanarak çoğaltabilirsiniz. Bu senaryo yeni Azure portalında şu anda desteklenmemektedir.
 
 Bu senaryoda, Site Recovery dağıtımı sırasında VMM sunucularına Azure Site Recovery Sağlayıcısı'nı yüklersiniz. Sağlayıcı, internet üzerinden Site Recovery hizmetiyle gerçekleştirilen çoğaltma işlemini düzenler ve yönetir. Veriler, zaman uyumlu SAN çoğaltması kullanılarak birincil ve ikincil depolama dizileri arasında çoğaltılır.
@@ -213,8 +213,8 @@ Bu senaryoda, Site Recovery dağıtımı sırasında VMM sunucularına Azure Sit
 
 Dağıtım gereksinimleri hakkında [daha fazla bilgi edinin](site-recovery-vmm-san.md#before-you-start).
 
-### <a name="onpremises"></a>Şirket içi
-## <a name="hyperv-protection-lifecycle"></a>Hyper-V koruması yaşam döngüsü
+### <a name="on-premises"></a>Şirket içi
+## <a name="hyper-v-protection-lifecycle"></a>Hyper-V koruması yaşam döngüsü
 Bu iş akışı, Hyper-V sanal makineleri üzerinde gerçekleşen koruma, çoğaltma ve yük devretme işlemlerinin süreçlerini gösterir.
 
 1. **Korumayı etkinleştirme**: Site Recovery kasasını oluşturup, VMM bulutu veya Hyper-V sitesi için çoğaltma ayarlarını yapılandırırsınız ve VM'ler için korumayı etkinleştirirsiniz. **Korumayı Etkinleştir** olarak adlandırılan bir iş başlatılır ve **İşler** sekmesinden izlenebilir. İş, makinenin önkoşullarla uyumlu olup olmadığını denetler ve ardından daha önce yapılandırdığınız ayarlarla Azure'a çoğaltma işlemini ayarlayan [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx) yöntemini çağırır. Ayrıca, **Korumayı Etkinleştir** işi tam bir VM çoğaltmasını başlatmak için [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx) yöntemini de çağırır.
@@ -229,7 +229,6 @@ Bu iş akışı, Hyper-V sanal makineleri üzerinde gerçekleşen koruma, çoğa
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Dağıtım için hazırlanma](site-recovery-best-practices.md)
-
 
 
 

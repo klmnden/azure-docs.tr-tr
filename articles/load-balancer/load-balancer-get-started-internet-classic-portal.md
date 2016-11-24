@@ -1,60 +1,75 @@
-
 ---
-title: Get started creating an Internet facing load balancer in classic deployment model using the Azure classic portal | Microsoft Docs
-description: Learn how to create an Internet facing load balancer in classic deployment model using the Azure classic portal
+title: "Klasik Azure portalını kullanarak klasik dağıtımda İnternet’e yönelik yük dengeleyici oluşturmaya başlayın | Microsoft Belgeleri"
+description: "Klasik Azure portalını kullanarak klasik dağıtımda İnternet’e yönelik yük dengeleyici oluşturmayı öğrenin"
 services: load-balancer
 documentationcenter: na
 author: sdwheeler
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-service-management
-
+ms.assetid: fa3e93c0-968a-472d-a17c-65665c050db2
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/31/2016
 ms.author: sewhee
+translationtype: Human Translation
+ms.sourcegitcommit: 7d8eb43fea032eb5aa72f448a7c1022be62a7b81
+ms.openlocfilehash: bf71746d3c23fd69902f1a7af6cbab2ad1a65df4
 
 ---
-# Get started creating an Internet facing load balancer (classic) in the Azure classic portal
-[!INCLUDE [load-balancer-get-started-internet-classic-selectors-include.md](../../includes/load-balancer-get-started-internet-classic-selectors-include.md)]
+
+# <a name="get-started-creating-an-internet-facing-load-balancer-classic-in-the-azure-classic-portal"></a>Klasik Azure portalında İnternet’e yönelik yük dengeleyici (klasik) oluşturmaya başlama
+
+> [!div class="op_single_selector"]
+> * [Klasik Azure portalı](../load-balancer/load-balancer-get-started-internet-classic-portal.md)
+> * [PowerShell](../load-balancer/load-balancer-get-started-internet-classic-ps.md)
+> * [Azure CLI](../load-balancer/load-balancer-get-started-internet-classic-cli.md)
+> * [Azure Cloud Services](../load-balancer/load-balancer-get-started-internet-classic-cloud.md)
 
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
-[!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
-
-This article covers the classic deployment model. You can also [Learn how to create an Internet facing load balancer using Azure Resource Manager](load-balancer-get-started-internet-arm-ps.md).
+> [!IMPORTANT]
+> Azure kaynaklarıyla çalışmadan önce Azure’da şu anda iki dağıtım modeli olduğunu anlamak önemlidir: Azure Resource Manager ve klasik. Azure kaynaklarıyla çalışmadan önce [dağıtım modellerini ve araçlarlarını](../azure-classic-rm.md) iyice anladığınızdan emin olun. Bu makalenin en üstündeki sekmelere tıklayarak farklı araçlarla ilgili belgeleri görüntüleyebilirsiniz. Bu makale, klasik dağıtım modelini kapsamaktadır. [Azure Resource Manager kullanarak İnternet’e yönelik yük dengeleyici oluşturma](load-balancer-get-started-internet-arm-ps.md) sayfasını da inceleyebilirsiniz.
 
 [!INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
-## Set up an Internet-facing load balancer for virtual machines
-In order to load balance network traffic from the Internet across the virtual machines of a cloud service, you must create a load-balanced set. This procedure assumes that you have already created the virtual machines and that they are all within the same cloud service.
+## <a name="set-up-an-internet-facing-load-balancer-for-virtual-machines"></a>Sanal makineler için İnternet’e yönelik yük dengeleyici kurma
 
-**To configure a load-balanced set for virtual machines**
+İnternet’ten gelen ağ trafiğine bir bulut hizmetindeki sanal makinelerde yük dengeleme gerçekleştirmek için yük dengeli küme oluşturmanız gerekir. Bu yordam, sanal makineleri önceden oluşturduğunuzu ve tümünün aynı bulut hizmetinde olduğunu varsaymaktadır.
 
-1. In the Azure classic portal, click **Virtual Machines**, and then click the name of a virtual machine in the load-balanced set.
-2. Click **Endpoints**, and then click **Add**.
-3. On the **Add an endpoint to a virtual machine** page, click the right arrow.
-4. On the **Specify the details of the endpoint** page:
-   
-   * In **Name**, type a name for the endpoint or select the name from the list of predefined endpoints for common protocols.
-   * In **Protocol**, select the protocol required by the type of endpoint, either TCP or UDP, as needed.
-   * In **Public Port and Private Port**, type the port numbers that you want the virtual machine to use, as needed. You can use the private port and firewall rules on the virtual machine to redirect traffic in a way that is appropriate for your application. The private port can be the same as the public port. For example, for an endpoint for web (HTTP) traffic, you could assign port 80 to both the public and private port.
-5. Select **Create a load-balanced set**, and then click the right arrow.
-6. On the **Configure the load-balanced set** page, type a name for the load-balanced set, and then assign the values for probe behavior of the Azure Load Balancer. The Load Balancer uses probes to determine if the virtual machines in the load-balanced set are available to receive incoming traffic.
-7. Click the check mark to create the load-balanced endpoint. You will see **Yes** in the **Load-balanced set name** column of the **Endpoints** page for the virtual machine.
-8. In the portal, click **Virtual Machines**, click the name of an additional virtual machine in the load-balanced set, click **Endpoints**, and then click **Add**.
-9. On the **Add an endpoint to a virtual machine** page, click **Add endpoint to an existing load-balanced set**, select the name of the load-balanced set, and then click the right arrow.
-10. On the **Specify the details of the endpoint** page, type a name for the endpoint, and then click the check mark.
+**Sanal makineler için yük dengeli küme yapılandırma**
 
-For the additional virtual machines in the load-balanced set, repeat steps 8-10.
+1. Klasik Azure portalında **Sanal Makineler**’e ve ardından yük dengeli kümedeki bir sanal makinenin adına tıklayın.
+2. **Uç noktaları**’na ve ardından **Ekle**’ye tıklayın.
+3. **Sanal makineye bir uç nokta ekleyin** sayfasında sağ oka tıklayın.
+4. **Uç nokta ayrıntılarını belirtin** sayfasında:
 
-## Next steps
-[Get started configuring an internal load balancer](load-balancer-get-started-ilb-arm-ps.md)
+   * **Ad** alanına uç nokta için bir ad yazın veya sık kullanılan protokoller için önceden tanımlı uç nokta listesinden bir ad seçin.
+   * **Protokol** alanında uç nokta türüne göre gerekli olan TCP veya UDP protokolünü seçin.
+   * **Genel Bağlantı Noktası ve Özel Bağlantı Noktası** alanlarına sanal makinenin kullanmasını istediğiniz bağlantı noktası numaralarını yazın. Trafiği uygulamanız için gereken şekilde yönlendirmek üzere sanal makinede özel bağlantı noktası ve güvenlik duvarı kuralları kullanabilirsiniz. Özel bağlantı noktası ile genel bağlantı noktası aynı olabilir. Örneğin, web (HTTP) trafiği uç noktası için 80 numaralı bağlantı noktasını hem genel hem de özel bağlantı noktası olarak atayabilirsiniz.
 
-[Configure a load balancer distribution mode](load-balancer-distribution-mode.md)
+5. **Yük dengeli küme oluştur**’u seçip sağ oka tıklayın.
+6. **Yük dengeli kümeyi yapılandır** sayfasında yük dengeli küme için bir ad girin ve Azure Load Balancer’ın araştırma davranışı değerini belirleyin. Azure Load Balancer, yük dengeli kümedeki sanal makinelerin gelen trafiği almaya uygun olup olmadığını belirlemek için araştırmaları kullanır.
+7. Yük dengeli uç nokta oluşturmak için onay işaretine tıklayın. Sanal makineye ait **Uç noktaları** sayfasının **Yük dengeli küme adı** sütununda **Evet** görüntülenir.
+8. Portalda **Sanal Makineler**’e tıklayın, yük dengeli kümedeki diğer sanal makinelerden birinin adına tıklayın, **Uç noktalar**’a tıklayın ve ardından **Ekle**’ye tıklayın.
+9. **Sanal makineye bir uç nokta ekleyin** sayfasında **Var olan yük dengeli kümeye uç nokta ekleyin**’e tıklayın, yük dengeli kümenin adını seçin ve sağ oka tıklayın.
+10. **Uç nokta ayrıntılarını belirtin** sayfasında uç noktası için bir ad girin ve onay işaretine tıklayın.
 
-[Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md)
+Yük dengeli kümedeki diğer sanal makineler için 8-10 arası adımları tekrarlayın.
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+[Bir iç yük dengeleyici yapılandırmaya başlayın](load-balancer-get-started-ilb-arm-ps.md)
+
+[Yük dengeleyici dağıtım modu yapılandırma](load-balancer-distribution-mode.md)
+
+[Yük dengeleyiciniz için boşta TCP zaman aşımı ayarlarını yapılandırma](load-balancer-tcp-idle-timeout.md)
+
+
+
+<!--HONumber=Nov16_HO2-->
+
 

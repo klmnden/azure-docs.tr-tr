@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 06/01/2016
 ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 96f4fa714aa5a76f3e7e17c2741b17b626cfe010
+ms.sourcegitcommit: 555342e88c912a3f43c578a40dc34933996ade4c
+ms.openlocfilehash: ef75623a0b8c2a4d38f527a26cbc2cf070765302
 
 
 ---
@@ -40,7 +40,7 @@ Bu Web SDK Önizleme modundadır ve şu anda yalnızca Analizi destekleyip, tara
 ## <a name="setup-mobile-engagement-for-your-web-app"></a>Web uygulamanız için Mobile Engagement ayarlama
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a name="a-idconnectingappaconnect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Uygulamanızı Mobile Engagement arka ucuna bağlama
+## <a name="a-idconnecting-appaconnect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Uygulamanızı Mobile Engagement arka ucuna bağlama
 Bu öğreticide, veri toplamak için gereken en küçük grup olan bir "temel tümleştirme" gösterilmektedir.
 
 Tümleştirmeyi göstermek üzere Visual Studio ile temel bir web uygulaması oluşturulacaktır; ancak Visual Studio’nun dışında oluşturulmuş herhangi bir web uygulamasının adımlarını da izleyebilirsiniz. 
@@ -65,7 +65,7 @@ Azure Mobile Engagement Web SDK’sını tümleştireceğimiz yeni ve boş bir W
    
     ![Js dosyaları ile Visual Studio][1]
 
-## <a name="enable-realtime-monitoring"></a>Gerçek zamanlı izlemeyi etkinleştirme
+## <a name="enable-real-time-monitoring"></a>Gerçek zamanlı izlemeyi etkinleştirme
 Veri göndermeye başlamak ve kullanıcıların etkin olduğundan emin olmak için, Mobile Engagement arka ucuna en az bir Etkinlik göndermelisiniz. Web uygulaması bağlamında etkinlik bir web sayfasıdır. 
 
 1. Çözümünüzde **home.html** adlı yeni bir sayfa oluşturun ve web uygulamanızın başlangıç sayfası olarak ayarlayın. 
@@ -88,7 +88,7 @@ Veri göndermeye başlamak ve kullanıcıların etkin olduğundan emin olmak iç
         </body>
         </html>
 
-## <a name="connect-app-with-realtime-monitoring"></a>Uygulamayı gerçek zamanlı izlemeyle bağlama
+## <a name="connect-app-with-real-time-monitoring"></a>Uygulamayı gerçek zamanlı izlemeyle bağlama
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
   ![][2]

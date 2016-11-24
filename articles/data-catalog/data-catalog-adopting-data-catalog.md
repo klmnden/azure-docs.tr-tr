@@ -16,8 +16,8 @@ ms.workload: data-catalog
 ms.date: 10/11/2016
 ms.author: maroche
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6299c6eaab1e62281e23d2dd43c14fbb9769a316
+ms.sourcegitcommit: c2350ae447ccebf1a6b85a563e7fa1d7c12b16d7
+ms.openlocfilehash: 4c6a07c4b3597e357c520bcafde501bc0850e685
 
 
 ---
@@ -102,8 +102,8 @@ Ekibin dengeli bir sunuma sahip olabilmesi için ilk projeniz, veri üreten ve v
 
 **Azure Veri Kataloğu**'nun çözdüğü iş sorunlarından biri, **Veri Üreticileri**'nin **Veri Tüketicileri**’ne bağlanmasıdır. Bunu, kurumsal veri kaynakları hakkındaki bilgiler için merkezi bir depo görevi görerek gerçekleştirir. David, Veri Kataloğu'nu kullanarak Adventure Works ve SQL Server veri kaynaklarını kaydeder. Bu veri kaynağını bulan herhangi bir kullanıcı, kitle kaynak olanağını kullanarak verilere ilişkin görüşlerini paylaşabilir ve bulduğu verileri kullanabilir. Örneğin, Nancy katalogda arama yaparak veri kaynaklarını bulur ve verilerle ilgili uzman bilgilerini paylaşır.  Böylece kuruluş bünyesindeki diğer kişiler yalnızca katalogda arama yaparak paylaşılan bilgilerden faydalanabilir.
 
-* Veri kaynaklarını kaydetme hakkında daha fazla bilgi için bkz. [Veri kaynaklarını kaydetme](data-catalog-get-started.md#exercise-2-registering-data-sources).
-* Veri kaynaklarını bulma hakkında daha fazla bilgi için bkz. [Veri kaynaklarını arama](data-catalog-get-started.md#exercise-3-discovering-registered-data-assets).
+* Veri kaynaklarını kaydetme hakkında daha fazla bilgi için bkz. [Veri kaynaklarını kaydetme](data-catalog-get-started.md).
+* Veri kaynaklarını bulma hakkında daha fazla bilgi için bkz. [Veri kaynaklarını arama](data-catalog-get-started.md).
 
 ### <a name="start-small-and-focused"></a>Küçük ve odaklı bir başlangıç
 Çoğu kurumsal pilot projede, iş kullanıcılarının Veri Kataloğu'nun değerini hızlı bir şekilde görebilmesi için, kataloğu yüksek değere sahip çekirdek veri kaynaklarıyla doldurmanız gerekir. BT, pilot ekibinizin ilgisini çekecek genel veri kaynaklarını tanımlamak için iyi bir başlangıç noktasıdır. SQL Server gibi desteklenen veri kaynakları için **Azure Veri Kataloğu** veri kaynağı kayıt aracının kullanılmasını öneririz. Veri kaynağı kayıt aracıyla, SQL Server ve Oracle veritabanları ve SQL Server Reporting Services raporları da dahil olmak üzere çok çeşitli veri kaynaklarını kaydedebilirsiniz. Geçerli veri kaynaklarının tam listesi için bkz. [Azure Veri Kataloğu desteklenen veri kaynakları](data-catalog-dsr.md).
@@ -123,8 +123,8 @@ Nancy'nin ekibi ayrıca, pilot projenin bir parçası olarak, David ve iş arkad
 
 > [!NOTE]
 > Bir Excel çalışma kitabının Veri Kataloğu'na geçişini sağlamak için **Azure Veri Kataloğu** API'sini kullanan bir örnek araç geliştirdik. Veri Kataloğu API'si ve örnek araç hakkında daha fazla bilgi için [Geçici çalışma kitabı kod örneğini indirebilir](https://azure.microsoft.com/documentation/samples/data-catalog-dotnet-excel-register-data-assets/) ve [Azure Veri Kataloğu REST API'si](https://msdn.microsoft.com/library/azure/mt267593.aspx) belgelerine başvurabilirsiniz.
-> 
-> 
+>
+>
 
 Pilot proje kullanıma alındığında, Veri Kataloğu benimseme planınızı yürütmenin zamanı gelmiştir.
 
@@ -142,9 +142,9 @@ Aşağıda başlamanıza yardımcı olacak birkaç ipucu verilmiştir:
 Pilot ekibiniz Veri Kataloğu'nu kullanmaya başlamadan önce, pilot projeye yönelik beklentileri görüşmek ve ilk eğitimi sağlamak için bir başlangıç toplantısı zamanlayın.
 
 ### <a name="set-expectations"></a>Beklentileri belirleme
-Beklenti ve hedeflerin belirlenmesi, iş kullanıcılarının belirli sonuçlara odaklanmasına olanak tanır. Projenin planlandığı gibi ilerlemesi için düzenli (pilot projenin kapsamına ve süresine bağlı olarak günlük veya haftalık) ev ödevleri atayın. Veri Kataloğu'nun en değerli özelliklerinden biri, veri varlıklarına yönelik kitle kaynak kullanımıdır; böylece iş kullanıcıları, kurumsal verilere ait bilgilerden faydalanabilir. Her bir pilot ekip üyesinin kullandığı veri kaynaklarından en az bir tanesini kaydetmesi veya buna açıklama eklemesi iyi bir ev ödevidir. Bkz. [Veri kaynağını kaydetme](data-catalog-get-started.md#exercise-2-registering-data-sources) ve [Veri kaynaklarına açıklama ekleme](data-catalog-get-started.md#exercise-4-annotating-registered-data-sources).
+Beklenti ve hedeflerin belirlenmesi, iş kullanıcılarının belirli sonuçlara odaklanmasına olanak tanır. Projenin planlandığı gibi ilerlemesi için düzenli (pilot projenin kapsamına ve süresine bağlı olarak günlük veya haftalık) ev ödevleri atayın. Veri Kataloğu'nun en değerli özelliklerinden biri, veri varlıklarına yönelik kitle kaynak kullanımıdır; böylece iş kullanıcıları, kurumsal verilere ait bilgilerden faydalanabilir. Her bir pilot ekip üyesinin kullandığı veri kaynaklarından en az bir tanesini kaydetmesi veya buna açıklama eklemesi iyi bir ev ödevidir. Bkz. [Veri kaynağını kaydetme](data-catalog-get-started.md) ve [Veri kaynaklarına açıklama ekleme](data-catalog-get-started.md).
 
-Bazı ek açıklamaları gözden geçirmek için ekiple düzenli aralıklarla toplanın. Veri kaynakları ile ilgili etkili ek açıklamalar, Veri Kataloğu'nun başarıyla benimsenmesinde temel rol oynar; bunun nedeni, söz konusu ek açıklamaların merkezi bir konumda anlamlı veri kaynağı öngörüleri sağlamasıdır. Etkili ek açıklamalar olmadan, veri kaynakları ile ilgili bilgiler kuruluş geneline dağılmış halde kalır. Bkz. [Veri kaynaklarına açıklama ekleme](data-catalog-get-started.md#exercise-4-annotating-registered-data-sources).
+Bazı ek açıklamaları gözden geçirmek için ekiple düzenli aralıklarla toplanın. Veri kaynakları ile ilgili etkili ek açıklamalar, Veri Kataloğu'nun başarıyla benimsenmesinde temel rol oynar; bunun nedeni, söz konusu ek açıklamaların merkezi bir konumda anlamlı veri kaynağı öngörüleri sağlamasıdır. Etkili ek açıklamalar olmadan, veri kaynakları ile ilgili bilgiler kuruluş geneline dağılmış halde kalır. Bkz. [Veri kaynaklarına açıklama ekleme](data-catalog-get-started.md).
 
 Elbette projeyi test edecek nihai unsur, kullanıcıların kullanmaya ihtiyaç duydukları veri kaynaklarını bulma ve anlama başarısıdır. Pilot kullanıcılar, günlük işleri için kullandıkları veri kaynaklarının ilgili olduğundan emin olmak için kataloğu düzenli olarak test etmelidir. Gerekli bir veri kaynağı eksik olduğunda veya bu veri kaynağına düzgün olmayan bir şekilde açıklama eklendiğinde bu, ek veri kaynaklarının kaydedilmesine veya ilave ek açıklamaların sağlanmasına yönelik bir hatırlatma işlevi görecektir. Bu uygulama, pilot girişime değer kazandırmanın yanı sıra pilot projenin tamamlanmasının ardından diğer ekiplere devredilecek etkili alışkanlıkların oluşturulmasını sağlar.
 
@@ -162,11 +162,10 @@ Bu makalede, kuruluşunuzda **Azure Veri Kataloğu** ile çalışmaya başlama k
 * [Azure Veri Kataloğu ürün sayfası](https://azure.microsoft.com/services/data-catalog/)
 * [Azure Veri Kataloğu belgeleri](https://azure.microsoft.com/documentation/services/data-catalog/)
 * [Azure Veri Kataloğu genel senaryoları](data-catalog-common-scenarios.md)
-* [Veri kaynaklarını kaydetme](data-catalog-get-started.md#exercise-2-registering-data-sources)
-* [Veri kaynaklarını arama](data-catalog-get-started.md#exercise-3-discovering-registered-data-assets)
-* [Veri kaynaklarına açıklama ekleme](data-catalog-get-started.md#exercise-4-annotating-registered-data-sources)
-* [Kitle kaynak meta verileri](data-catalog-get-started.md#exercise-5-crowdsourcing-metadata)
-
+* [Veri kaynaklarını kaydetme](data-catalog-get-started.md)
+* [Veri kaynaklarını arama](data-catalog-get-started.md)
+* [Veri kaynaklarına açıklama ekleme](data-catalog-get-started.md)
+* [Kitle kaynak meta verileri](data-catalog-get-started.md)
 
 
 

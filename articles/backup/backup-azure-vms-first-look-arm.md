@@ -13,11 +13,11 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 10/13/2016
+ms.date: 11/10/2016
 ms.author: markgal; jimpark
 translationtype: Human Translation
-ms.sourcegitcommit: e29891dc03f8a864ecacc893fd1cc0d3cc1436cb
-ms.openlocfilehash: 3fe4d985c62b8476bd3b3f923fa17e7f364f9352
+ms.sourcegitcommit: 85b291e3916d1274fefc71bc0c1f12cac2920bb4
+ms.openlocfilehash: 77b4f6e5ee18cb3772487820bc72d7794f82162f
 
 
 ---
@@ -45,6 +45,36 @@ Premium depolama VM'lerini koruma ile ilgili daha fazla bilgi için bkz. [Premiu
 
 [!INCLUDE [learn-about-Azure-Backup-deployment-models](../../includes/backup-deployment-models.md)]
 
+Korumak istediğiniz VM sayısına bağlı olarak farklı başlangıç noktalarından başlayabilirsiniz; birden çok sanal makineyi tek bir işlemde yedeklemek için Kurtarma Hizmetleri kasasına gidip yedeklemeyi kasa panosundan başlatın. Tek bir VM’niz varsa ve bunu yedeklemek istiyorsanız, yedekleme işlemini doğrudan VM yönetimi dikey penceresinden gerçekleştirebilirsiniz.
+
+## <a name="configure-backup-from-vm-management-blade"></a>VM yönetimi dikey penceresinden Yedeklemeyi yapılandırma
+1. [Azure Portal](https://portal.azure.com/) oturum açın.
+2. Hub menüsünde **Diğer Hizmetler**’e tıklayıp kaynak listesine **Sanal makineler** yazın.  Sanal makinelerin listesi görünür. Sanal makine listesinden yedeklemek istediğiniz bir sanal makine seçin. Bunu yaptığınızda sanal makine yönetimi dikey penceresi açılır. 
+ ![VM Yönetimi dikey penceresi](./media/backup-azure-vms-first-look-arm/vm-management-blade.png)
+ 
+3. VM yönetimi dikey penceresinde Ayarlar’ın sol alt tarafında bunulan "Yedekle" seçeneğine tıklayın.
+![VM yönetimi dikey penceresindeki Yedekle seçeneği](./media/backup-azure-vms-first-look-arm/backup-option-vm-management-blade.png)
+
+4. Bunu yaptığınızda Yedeklemeyi Etkinleştirme dikey penceresi açılır. Bu dikey pencere iki giriş bekler: VM’lerin yedeklerini depolamak için kullanılan bir Azure Backup kaynağı olan Kurtarma Hizmetleri kasası veya yedeklemelerin zamanlamasını ve yedek kopyaların ne kadar tutulacağını belirten bir yedekleme ilkesi. Bu dikey pencere varsayılan seçeneklerle sunulur. Bu seçenekleri yedekleme gereksinimlerine uygun olarak özelleştirebilirsiniz. 
+![Yedekleme Sihirbazını Etkinleştirme](./media/backup-azure-vms-first-look-arm/vm-blade-enable-backup.png)
+
+5. Kurtarma Hizmetleri kasası için mevcut bir kasayı seçebilir veya yeni bir Kasa oluşturabilirsiniz. Yeni bir kasa oluşturuyorsanız bu kasa sanal makineyle aynı Kaynak Grubu’nda oluşturulur ve kasanın konumu sanal makineyle aynıdır. Farklı değerlerle bir Kurtarma Hizmetleri kasası oluşturmak istiyorsanız 3. Adım’daki Yedekle seçeneğine tıklamadan önce [bir kurtarma hizmetleri kasası oluşturun](backup-azure-vms-first-look-arm.md#create-a-recovery-services-vault-for-a-vm) ve bu dikey pencerede o kasayı seçin. 
+
+6. Yedekleme ilkesi dikey penceresinde, kasaya uygulamak istediğiniz yedekleme ilkesini seçin ve **Tamam**'a tıklayın.
+    ![Yedekleme ilkesini seçme](./media/backup-azure-vms-first-look-arm/setting-rs-backup-policy-new.png)
+
+    Varsayılan ilkenin ayrıntıları, ayrıntılar içinde listelenir. Yeni bir ilke oluşturmak istiyorsanız açılan menüden **Yeni Oluştur**'u seçin. Açılır menü anlık görüntünün alınma zamanını değiştirme seçeneği de sağlar. Bir yedekleme ilkesi tanımlamaya yönelik yönergeler için bkz. [Yedekleme ilkesi tanımlama](backup-azure-vms-first-look-arm.md#defining-a-backup-policy). **Tamam**'a tıkladığınızda yedekleme ilkesi sanal makineyle ilişkilendirilir.
+    
+7. Sanal makinede Yedekleme yapılandırmak için "Yedeklemeyi Etkinleştir"e tıklayın. Bunu yaptığınızda bir dağıtım tetiklenir. 
+![Yedeklemeyi Etkinleştir düğmesi](./media/backup-azure-vms-first-look-arm/vm-management-blade-enable-backup-button.png)
+
+8. Yapılandırmanın ilerleme durumunu bildirimler aracılığıyla izleyebilirsiniz. 
+![Yedeklemeyi Etkinleştirme bildirimi](./media/backup-azure-vms-first-look-arm/vm-management-blade-enable-backup-notification.png)
+
+9. Yedekleme yapılandırmaya yönelik dağıtım tamamlandıktan sonra VM yönetimi dikey penceresindeki “yedekle” seçeneğine tıklarsanız, yedeklenen VM’ye karşılık gelen Yedekleme Öğesi dikey penceresine götürülürsünüz.
+![VM Yedekleme Öğesi Görünümğ](./media/backup-azure-vms-first-look-arm/backup-item-view.png)
+
+## <a name="configure-backup-from-recovery-services-vault-view"></a>Kurtarma Hizmetleri kasasından Yedekleme Yapılandırma Görünümü
 Tamamlayacağınız gelişmiş adımlar aşağıda verilmiştir.  
 
 1. Bir VM için kurtarma hizmetleri kasası oluşturun.
@@ -187,16 +217,16 @@ Sanal makine üzerinde bir yedekleme ilkesinin dağıtılmış olması, verileri
 [!INCLUDE [backup-create-backup-policy-for-vm](../../includes/backup-create-backup-policy-for-vm.md)]
 
 ## <a name="install-the-vm-agent-on-the-virtual-machine"></a>VM Aracısı'nı sanal makineye yükleme
-Bu bilgiler, gerekmesi halinde kullanılabilmesi için sağlanmıştır. Backup uzantısının çalışması için Azure VM Aracısı'nın Azure sanal makinesine yüklenmesi gerekir. Ancak VM'niz Azure galerisinden oluşturulmuşsa VM Aracısı, sanal makine üzerinde zaten mevcuttur. Şirket içi veri merkezlerinden geçişi sağlanan VM'lerde VM Aracısı yüklü olmaz. Böyle bir durumda, VM Aracısı'nın yüklenmesi gerekir. Azure VM'yi yedekleme konusunda sorun yaşarsanız Azure VM Aracısı'nın sanal makineye doğru şekilde yüklenip yüklenmediğini kontrol edin (aşağıdaki tabloya bakın). Özel bir VM oluşturuyorsanız sanal makine sağlanmadan önce [**VM Aracısı'nı yükle** onay kutusunun seçili olduğundan emin olun](../virtual-machines/virtual-machines-windows-classic-agents-and-extensions.md).
+Bu bilgiler, gerekmesi halinde kullanılabilmesi için sağlanmıştır. Backup uzantısının çalışması için Azure VM Aracısı'nın Azure sanal makinesine yüklenmesi gerekir. Ancak VM'niz Azure galerisinden oluşturulmuşsa VM Aracısı, sanal makine üzerinde zaten mevcuttur. Şirket içi veri merkezlerinden geçişi sağlanan VM'lerde VM Aracısı yüklü olmaz. Böyle bir durumda, VM Aracısı'nın yüklenmesi gerekir. Azure VM'yi yedekleme konusunda sorun yaşarsanız Azure VM Aracısı'nın sanal makineye doğru şekilde yüklenip yüklenmediğini kontrol edin (aşağıdaki tabloya bakın). Özel bir VM oluşturuyorsanız sanal makine sağlanmadan önce [**VM Aracısı'nı yükle** onay kutusunun seçili olduğundan emin olun](../virtual-machines/virtual-machines-windows-classic-agents-and-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
-[VM Aracısı](https://go.microsoft.com/fwLink/?LinkID=390493&clcid=0x409) ve [nasıl yükleneceği](../virtual-machines/virtual-machines-windows-classic-manage-extensions.md) konusunda bilgi edinin.
+[VM Aracısı](https://go.microsoft.com/fwLink/?LinkID=390493&clcid=0x409) ve [nasıl yükleneceği](../virtual-machines/virtual-machines-windows-classic-manage-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) konusunda bilgi edinin.
 
 Aşağıdaki tabloda, Windows ve Linux VM'ler için VM Aracısı ile ilgili ek bilgiler sağlanmıştır.
 
 | **İşlem** | **Windows** | **Linux** |
 | --- | --- | --- |
 | VM Aracısı'nı yükleme |<li>[Aracı MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) dosyasını indirip yükleyin. Yüklemeyi tamamlamak için Yönetici ayrıcalıklarına sahip olmanız gerekir. <li>Aracının yüklü olduğunu belirtmek üzere [VM özelliğini güncelleştirin](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx). |<li> En son [Linux aracısını](https://github.com/Azure/WALinuxAgent) GitHub'dan yükleyin. Yüklemeyi tamamlamak için Yönetici ayrıcalıklarına sahip olmanız gerekir. <li> Aracının yüklü olduğunu belirtmek üzere [VM özelliğini güncelleştirin](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx). |
-| VM Aracısı'nı güncelleştirme |VM Aracısı'nı güncelleştirmek için [VM Aracısı ikili dosyalarının](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) yeniden yüklenmesi yeterlidir. <br>VM aracısı güncelleştirilirken herhangi bir yedekleme işleminin çalıştırılmadığından emin olun. |[Linux VM Aracısı'nı güncelleştirme](../virtual-machines/virtual-machines-linux-update-agent.md) ile ilgili yönergeleri uygulayın. <br>VM Aracısı güncelleştirilirken herhangi bir yedekleme işleminin çalıştırılmadığından emin olun. |
+| VM Aracısı'nı güncelleştirme |VM Aracısı'nı güncelleştirmek için [VM Aracısı ikili dosyalarının](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) yeniden yüklenmesi yeterlidir. <br>VM aracısı güncelleştirilirken herhangi bir yedekleme işleminin çalıştırılmadığından emin olun. |[Linux VM Aracısı'nı güncelleştirme](../virtual-machines/virtual-machines-linux-update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ile ilgili yönergeleri uygulayın. <br>VM Aracısı güncelleştirilirken herhangi bir yedekleme işleminin çalıştırılmadığından emin olun. |
 | VM Aracısı yüklemesini doğrulama |<li>Azure VM'de *C:\WindowsAzure\Packages* klasörüne gidin. <li>Mevcut WaAppAgent.exe dosyasını bulmanız gerekir.<li> Dosyaya sağ tıklayın, **Özellikler**'e gidin ve ardından **Ayrıntılar** sekmesini seçin. Ürün Sürümü alanı 2.6.1198.718 veya üzeri olmalıdır. |Yok |
 
 ### <a name="backup-extension"></a>Backup uzantısı

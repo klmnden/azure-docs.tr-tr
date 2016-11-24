@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 10/18/2016
 ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0e6effa1e74a06a99a2a6bea9df3cfc6deedeb0e
+ms.sourcegitcommit: ee390dcdeefbc1ed87317ae2e167b3c054911723
+ms.openlocfilehash: a8149b38872a8d5b5a5e30280712ca38d983f80c
 
 
 ---
@@ -287,7 +287,7 @@ Bir varlığı güncelleştirmek için Tablo hizmetinden alın, varlık nesnesin
     else
        Console.WriteLine("Entity could not be retrieved.");
 ```
-## <a name="insertorreplace-an-entity"></a>Bir varlığı yerleştirme veya değiştirme
+## <a name="insert-or-replace-an-entity"></a>Bir varlığı yerleştirme veya değiştirme
 Varlık sunucudan alındığından beri değiştirilmişse, **Değiştir** işlemleri başarısız olacaktır.  Dahası, **Değiştir** işleminin başarılı olması için ilk olarak varlığın sunucudan alınması gerekir.
 Buna karşın bazı durumlarda varlığın sunucuda olup olmadığını ve içinde saklı geçerli değerlerin ilgisiz olup olmadığını bilemeyebilirsiniz. Güncelleştirmeniz tümünün üzerine yazmalıdır.  Bunu gerçekleştirmek için **Yerleştir Veya Değiştir** işlemi kullanmanız gerekir.  Bu işlem, varlık mevcut değilse varlığı yerleştirir, eğer varlık mevcutsa yapılan son güncelleştirmeden bağımsız olarak değiştirir.  Aşağıdaki kod örneğinde Ben Smith için müşteri varlığı hala alınabilir, ancak ardından **Yerleştir Veya Değiştir** ile sunucuya geri kaydedilir.  Varlığa alma ve güncelleştirme işlemleri arasında yapılan tüm güncelleştirmelerin üzerine yazılacaktır.
 ```csharp

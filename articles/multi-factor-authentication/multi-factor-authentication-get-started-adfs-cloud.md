@@ -15,18 +15,18 @@ ms.topic: get-started-article
 ms.date: 10/14/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 20aefd2c94bca03653f11a91c5ade173cb6da9bf
+ms.sourcegitcommit: 830eb6627cae71f358b9790791b1d86f7c82c566
+ms.openlocfilehash: 4a2d271be7fbd0d27163ead8f8eb2c05a43f7fbc
 
 
 ---
-# <a name="securing-cloud-resources-with-azure-multifactor-authentication-and-ad-fs"></a>Azure Multi-Factor Authentication ve AD FS ile bulut kaynaklarını güvenli hale getirme
+# <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Azure Multi-Factor Authentication ve AD FS ile bulut kaynaklarını güvenli hale getirme
 Kuruluşunuz Azure Active Directory ile birleştiriliyorsa, Azure AD’nin erişebildiği kaynakları güvenli hale getirmek için Azure Multi-Factor Authentication ya da Active Directory Federasyon Hizmetleri’ni kullanın. Azure Active Directory kaynaklarını Azure Multi-Factor Authentication ya da Active Directory Federasyon Hizmetleri ile güvenli hale getirmek için aşağıdaki yordamları kullanın.
 
 ## <a name="secure-azure-ad-resources-using-ad-fs"></a>AD FS kullanarak Azure AD kaynaklarını güvenli hale getirme
 Bulut kaynağınızı güvenli hale getirmek için önce kullanıcılar için bir hesabı etkinleştirmeniz, ardından talep kuralı ayarlamanız gerekir. İlerlemek için bu yordamı izleyin:
 
-1. Bir hesabı etkinleştirmek üzere [Kullanıcılar için çok faktörlü kimlik doğrulamasını etkinleştirme](multi-factor-authentication-get-started-cloud.md#turn-on-multi-factor-authentication-for-users) bölümünde açıklanan adımları kullanın.
+1. Bir hesabı etkinleştirmek üzere [Kullanıcılar için çok faktörlü kimlik doğrulamasını etkinleştirme](multi-factor-authentication-get-started-cloud.md#turn-on-two-step-verification-for-users) bölümünde açıklanan adımları kullanın.
 2. AD FS Yönetim Konsolu'nu başlatın.
    ![Bulut](./media/multi-factor-authentication-get-started-adfs-cloud/adfs1.png)
 3. **Bağlı Olan Taraf Güvenleri**’ne gidin ve Bağlı Olan Taraf Güveni’ne sağ tıklayın. **Talep Kurallarını Düzenle...** seçeneğini belirleyin.
@@ -34,13 +34,13 @@ Bulut kaynağınızı güvenli hale getirmek için önce kullanıcılar için bi
 5. Açılır menüde **Talepleri Özel Bir Kural Kullanarak Gönder**’i seçip **İleri**’ye tıklayın.
 6. Talep kuralı için bir ad girin.
 7. Özel kural: altında aşağıdaki metni ekleyin:
-   
+
     ```
     => issue(Type = "http://schemas.microsoft.com/claims/authnmethodsreferences", Value = "http://schemas.microsoft.com/claims/multipleauthn");
     ```
-   
+
     Karşılık gelen talep:
-   
+
     ```
     <saml:Attribute AttributeName="authnmethodsreferences" AttributeNamespace="http://schemas.microsoft.com/claims">
     <saml:AttributeValue>http://schemas.microsoft.com/claims/multipleauthn</saml:AttributeValue>
@@ -74,7 +74,7 @@ Yapmamız gereken ilk şey, AD FS taleplerini yapılandırmaktır. Biri Kurumsal
 10. Dönüştürme Kuralı Ekleme Sihirbazı’nda, açılır menüden **Talepleri Özel Bir Kural Kullanarak Gönder**’i seçin ve **İleri**’ye tıklayın.
 11. Talep kuralı adı: altındaki kutuya *Kullanıcıların Oturumlarını Açık Tut* ifadesini girin.
 12. Özel kural kutusuna şunu girin:
-    
+
         c:[Type == "http://schemas.microsoft.com/2014/03/psso"]
             => issue(claim = c);
     ![Bulut](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip5.png)
@@ -83,7 +83,7 @@ Yapmamız gereken ilk şey, AD FS taleplerini yapılandırmaktır. Biri Kurumsal
 15. **Tamam**’a tıklayın.
 16. AD FS Yönetimi'ni kapatın.
 
-### <a name="configure-azure-multifactor-authentication-trusted-ips-with-federated-users"></a>Azure Multi-Factor Authentication Güvenilen IP’leri Federasyon Kullanıcıları ile Yapılandırma
+### <a name="configure-azure-multi-factor-authentication-trusted-ips-with-federated-users"></a>Azure Multi-Factor Authentication Güvenilen IP’leri Federasyon Kullanıcıları ile Yapılandırma
 Talepler yapıldığına göre, artık güvenilen IP’leri yapılandırabiliriz.
 
 1. [Klasik Azure portalında](https://manage.windowsazure.com) oturum açın.
@@ -97,7 +97,6 @@ Talepler yapıldığına göre, artık güvenilen IP’leri yapılandırabiliriz
 8. Güncelleştirmeler uygulandıktan sonra **Kapat**'a tıklayın.
 
 Bu kadar! Bu noktada, birleştirilmiş Office 365 kullanıcıları yalnızca talep kurumsal intranet dışından kaynaklandığı zaman MFA kullanmalıdır.
-
 
 
 

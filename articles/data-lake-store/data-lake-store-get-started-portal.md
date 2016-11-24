@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/02/2016
+ms.date: 11/15/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 658671199cf3454428cc7102566093f7c2b42ae8
+ms.sourcegitcommit: 408a5fb25ef7b285a76e8f5b65890dc625574437
+ms.openlocfilehash: fba738575ee9a60cc930adfb68b7c34323bbe747
 
 
 ---
@@ -58,8 +58,8 @@ Data Lake Store ile çalışmaya başlamak için aşağıdaki videoları izleyin
    * **Konum**: Data Lake Store hesabını oluşturmak istediğiniz konumu seçin.
    * **Şifreleme Ayarları**. Data Lake Store hesabınızı şifrelemek isteyip istemediğinizi seçebilirsiniz. Şifrelemeyi seçerseniz hesabınızdaki verilerin şifrelenmesi için kullanmak istediğiniz ana şifreleme anahtarını nasıl yönetmek istediğinizi de belirtebilirsiniz.
      
-     * (Varsayılan) Şifreleme kullanmamak için açılır menüden **Şifrelemeyi etkinleştirme**’yi seçin.
-     * (İsteğe bağlı) Şifreleme anahtarlarınızın Azure Data Lake Store tarafından yönetilmesini istiyorsanız **Azure Data Lake tarafından yönetilen anahtarlar kullan**’ı seçin.
+     * (İsteğe bağlı) Şifreleme kullanmamak için açılır menüden **Şifrelemeyi etkinleştirme**’yi seçin.
+     * (Varsayılan) Şifreleme anahtarlarınızın Azure Data Lake Store tarafından yönetilmesini istiyorsanız **Azure Data Lake tarafından yönetilen anahtarlar kullan**’ı seçin.
        
          ![Data Lake Store şifrelemesi](./media/data-lake-store-get-started-portal/adls-encryption-1.png "Data Lake Store encryption")
      * (İsteğe bağlı) Azure Anahtar Kasası’nda bulunan kendi anahtarlarınızı kullanmak istiyorsanız **Azure Anahtar Kasası’ndan anahtar seç**’i belirleyin. Anahtar Kasası hesabınız yoksa, bu seçeneği kullanarak Anahtar Kasası hesabı ve anahtarları da oluşturabilirsiniz.
@@ -136,6 +136,6 @@ Bir Azure Data Lake Store hesabını silmek için, Data Lake Store dikey pencere
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

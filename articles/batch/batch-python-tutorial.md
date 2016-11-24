@@ -15,8 +15,8 @@ ms.workload: big-compute
 ms.date: 09/27/2016
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: c0a778c8dc8786f0c084686b3f8722ff15eed78c
+ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
+ms.openlocfilehash: a72a726b9c5ac2b3698d79aff00591c444c26594
 
 
 ---
@@ -362,7 +362,7 @@ Havuz oluşturduğunuzda, havuz için bazı özellikler belirten bir [PoolAddPar
 * Havuza ait **Kimlik** (*kimlik* - gerekli)<p/>Batch’deki çoğu varlık gibi, yeni havuzunuzda da, Batch hesabınızın içinde benzersiz bir kimlik olmalıdır. Kodunuz kendi kimliğini kullanarak bu havuza başvurur ve Azure [portalında][azure_portal] havuzu nasıl tanımladıysanız öyledir.
 * **İşlem düğümleri sayısı** (*target_dedicated* - gerekli)<p/>Bu özellik, havuzda kaç VM dağıtılması gerektiğini belirtir. Tüm Batch hesaplarının, bir Batch hesabında bir dizi **çekirdekle** (bu nedenle de işlem düğümleriyle) sınırlanan varsayılan bir **kotasının** olduğunu unutmamak önemlidir. [Kota artırma](batch-quota-limit.md#increase-a-quota) (Batch hesabınızdaki en yüksek çekirdek sayısı gibi) hakkında varsayılan kotalar ve yönergeleri [Azure Batch hizmeti için kotalar ve sınırlar](batch-quota-limit.md)’da bulabilirsiniz. Kendinizi "Neden havuzum X düğümden fazlasına ulaşamıyor?" sorusunu sorarken bulursanız nedeni çekirdek kotası olabilir.
 * Düğümler için **işletim sistemi** (*virtual_machine_configuration* **veya** *cloud_service_configuration* - gerekli)<p/>*python_tutorial_client.py* öğesinde [VirtualMachineConfiguration][py_vm_config] kullanarak Linux için havuz oluşturuyoruz. `common.helpers` içindeki `select_latest_verified_vm_image_with_node_agent_sku` işlevi [Azure Sanal Makineler Marketi][vm_marketplace] görüntüleriyle çalışmayı kolaylaştırır. Market görüntülerini kullanma hakkında daha fazla bilgi için bkz. [Azure Batch havuzlarında Linux işlem düğümlerini hazırlama](batch-linux-nodes.md).
-* **İşlem düğümlerinin boyutu** (*vm_size* - gerekli)<p/>[VirtualMachineConfiguration][py_vm_config] için Linux düğümleri belirlediğimizden, bir VM boyutunu (bu örnekte `STANDARD_A1`) [Azure’de sanal makine boyutları](../virtual-machines/virtual-machines-linux-sizes.md)’nda belirttik. Bir kez daha, daha fazla bilgi için bkz. [Azure Batch havuzlarında Linux işlem düğümlerini hazırlama](batch-linux-nodes.md).
+* **İşlem düğümlerinin boyutu** (*vm_size* - gerekli)<p/>[VirtualMachineConfiguration][py_vm_config] için Linux düğümleri belirlediğimizden, bir VM boyutunu (bu örnekte `STANDARD_A1`) [Azure’de sanal makine boyutları](../virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)’nda belirttik. Bir kez daha, daha fazla bilgi için bkz. [Azure Batch havuzlarında Linux işlem düğümlerini hazırlama](batch-linux-nodes.md).
 * **Görev Başlat** (*start_task* - gerekli değil)<p/>Yukarıdaki fiziksel düğüm özellikleriyle birlikte, havuz için ayrıca bir [StartTask][py_starttask] belirtebilirsiniz (gerekli değildir). StartTask, her düğümü havuza katıldığında ve her yeniden başlatıldığında yürütecektir. StartTask, özellikle görevlerinizin çalıştırdığı uygulamaları yükleme gibi işlerin yürütülmesi için, işlem düğümlerinin hazırlanmasında yararlıdır.<p/>Bu örnek uygulamasında StartTask, Storage’dan indirilen dosyaları (StartTask’ın **resource_files** özelliği kullanılarak belirtilir), StartTask *çalışma dizininden*, erişilebilir düğümdeki tüm görevlerin çalıştığı *paylaşılan* dizine kopyalar. Aslında, `python_tutorial_task.py` uygulamasını, düğüm havuza katılmış olduğundan her düğüme kopyalar; bu nedenle düğümde çalışan görevler buna erişebilir.
 
 `wrap_commands_in_shell` yardımcı işlevi çağrısını fark edebilirsiniz. Bu işlev ayrı komutların koleksiyonunu alır ve görevin komut satırı özelliğine uygun tek bir komut satırı oluşturur.

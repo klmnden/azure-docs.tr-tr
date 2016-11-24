@@ -16,8 +16,8 @@ ms.workload: NA
 ms.date: 09/06/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 91942517a481a252d631af15e532389256b64108
+ms.sourcegitcommit: 5a101aa78dbac4f1a0edb7f414b44c14db392652
+ms.openlocfilehash: e062d55e990faeb0776f643b297788afd87ac1e3
 
 
 ---
@@ -32,7 +32,7 @@ DTU, tek başına bir Azure SQL veritabanı için [tek başına bir veritabanı 
 Uygulamanızda çok az (genellikle ortalama dört saniyenin altında) kesinti ile dilediğiniz zaman [hizmet katmanlarını değiştirebilirsiniz](sql-database-scale-up.md). Veritabanı oluşturabilmek ve tek veritabanı performansını isteğe göre yükseltip düşürebilmek, özellikle kullanım biçimlerinin nispeten tahmin edilebilir olduğu durumlarda birçok işletme ve uygulama için yeterlidir. Ancak tahmin edilemeyen kullanım biçimlerine sahipseniz bu durum maliyetlerin ve iş modelinizin yönetimini zorlaştırabilir. Bu senaryoda, belirli bir sayıda eDTU bulunduran esnek bir havuz kullanılmaktadır.
 
 ## <a name="what-are-elastic-database-transaction-units-edtus"></a>Esnek Veritabanı İşlem Birimleri (eDTU'lar) nedir?
-eDTU, Azure SQL sunucusundaki bir grup veritabanı arasında paylaşılan bir kaynak (DTU) kümesine yönelik bir ölçü birimidir. Bu tür kaynak kümelerine [esnek havuz](sql-database-elastic-pool.png) adı verilir. Esnek havuzlar, son derece farklı ve öngörülemeyen kullanım düzenlerine sahip birden çok veritabanına ilişkin performans hedeflerini yönetmek için basit ve uygun maliyetli bir çözüm sağlar. Daha fazla bilgi edinmek için bkz. [esnek havuzlar ve hizmet katmanları](sql-database-service-tiers.md#elastic-pool-service-tiers-and-performance-in-edtus).
+eDTU, Azure SQL sunucusundaki bir grup veritabanı arasında paylaşılan bir kaynak (DTU) kümesine yönelik bir ölçü birimidir. Bu tür kaynak kümelerine [esnek havuz](sql-database-elastic-pool.md) adı verilir. Esnek havuzlar, son derece farklı ve öngörülemeyen kullanım düzenlerine sahip birden çok veritabanına ilişkin performans hedeflerini yönetmek için basit ve uygun maliyetli bir çözüm sağlar. Daha fazla bilgi edinmek için bkz. [esnek havuzlar ve hizmet katmanları](sql-database-service-tiers.md#elastic-pool-service-tiers-and-performance-in-edtus).
 
 ![SQL Veritabanı'na Giriş: Katmana ve düzeye göre eDTU’lar](./media/sql-database-what-is-a-dtu/sqldb_elastic_pools.png)
 
@@ -54,7 +54,6 @@ Performans düzeyleri, veritabanı iş yükünüzü seçilen hizmet katmanı/per
 * CPU, bellek, veri G/Ç ve işlem günlüğü G/Ç kaynakları dışındaki kaynaklara yönelik sınırlar hakkında bilgi edinmek için bkz. [Azure SQL Database resource limits](sql-database-resource-limits.md) (Azure SQL Veritabanı kaynak sınırları).
 * DTU tüketiminizi anlamak için bkz. [SQL Veritabanı Sorgu Performansı Öngörüleri](sql-database-query-performance.md).
 * DTU karışımını belirlemek için kullanılan OLTP kıyaslama iş yükünün arkasındaki metodolojiyi anlamak için bkz. [SQL Database benchmark overview](sql-database-benchmark-overview.md) (SQL Veritabanı kıyaslamaya genel bakış).
-
 
 
 

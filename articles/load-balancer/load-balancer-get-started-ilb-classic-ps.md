@@ -16,25 +16,29 @@ ms.workload: infrastructure-services
 ms.date: 02/09/2016
 ms.author: sewhee
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: ed28a11420d4bcc732801aea8d6217dbf14389d4
-
+ms.sourcegitcommit: cf1eafc7bca5bddeb32f1e1e05e660d6877ed805
+ms.openlocfilehash: 7268ab93a131096f8ae18bff6a1550b59cb18a2b
 
 ---
+
 # <a name="get-started-creating-an-internal-load-balancer-classic-using-powershell"></a>PowerShell kullanarak iç yük dengeleyici (klasik) oluşturmaya başlama
-[!INCLUDE [load-balancer-get-started-ilb-classic-selectors-include.md](../../includes/load-balancer-get-started-ilb-classic-selectors-include.md)]
+
+> [!div class="op_single_selector"]
+> * [PowerShell](../load-balancer/load-balancer-get-started-ilb-classic-ps.md)
+> * [Azure CLI](../load-balancer/load-balancer-get-started-ilb-classic-cli.md)
+> * [Bulut hizmetleri](../load-balancer/load-balancer-get-started-ilb-classic-cloud.md)
 
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
-[!INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)]
-
-[Bu adımları Resource Manager modeli kullanarak gerçekleştirmeyi](load-balancer-get-started-ilb-arm-ps.md) öğrenin.
+> [!IMPORTANT]
+> Azure’da kaynak oluşturmak ve bunlarla çalışmak için iki farklı dağıtım modeli vardır:  [Resource Manager ve klasik](../resource-manager-deployment-model.md).  Bu makale klasik dağıtım modelini incelemektedir. Microsoft, yeni dağıtımların çoğunun Resource Manager modelini kullanmasını önerir. [Bu adımları Resource Manager modeli kullanarak gerçekleştirmeyi](load-balancer-get-started-ilb-arm-ps.md) öğrenin.
 
 [!INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
 [!INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
 ## <a name="create-an-internal-load-balancer-set-for-virtual-machines"></a>Sanal makineler için iç yük dengeleyici oluşturma
+
 İç yük dengeleyici kümesi ve trafiğini bu kümeye gönderecek sunucuları oluşturmak için aşağıdaki adımları uygulamanız gerekir:
 
 1. Gelen trafiğin uç noktası olacak ve bu trafiğe yük dengeli bir kümenin sunucularında yük dengelemesi yapacak bir İç Yük Dengeleme örneği oluşturun.
@@ -42,60 +46,66 @@ ms.openlocfilehash: ed28a11420d4bcc732801aea8d6217dbf14389d4
 3. Yük dengelemesi yapılacak trafiği gönderecek sunucuları trafiklerini İç Yük Dengeleme örneğinin sanal IP (VIP) adresine gönderecek şekilde yapılandırın.
 
 ### <a name="step-1-create-an-internal-load-balancing-instance"></a>1. Adım: İç Yük Dengeleme örneği oluşturun
+
 Mevcut bir bulut hizmeti veya bölgesel sanal ağ üzerine dağıtılmış bulut hizmeti için aşağıdaki Windows PowerShell komutlarını kullanarak İç Yük Dengeleme örneğin oluşturabilirsiniz:
 
-    $svc="<Cloud Service Name>"
-    $ilb="<Name of your ILB instance>"
-    $subnet="<Name of the subnet within your virtual network>"
-    $IP="<The IPv4 address to use on the subnet-optional>"
+```powershell
+$svc="<Cloud Service Name>"
+$ilb="<Name of your ILB instance>"
+$subnet="<Name of the subnet within your virtual network>"
+$IP="<The IPv4 address to use on the subnet-optional>"
 
-    Add-AzureInternalLoadBalancer -ServiceName $svc -InternalLoadBalancerName $ilb –SubnetName $subnet –StaticVNetIPAddress $IP
-
+Add-AzureInternalLoadBalancer -ServiceName $svc -InternalLoadBalancerName $ilb –SubnetName $subnet –StaticVNetIPAddress $IP
+```
 
 Bu [Add-AzureEndpoint](https://msdn.microsoft.com/library/dn495300.aspx) Windows PowerShell cmdlet örneğinde DefaultProbe parametre kümesi kullanıldığına dikkat edin. Ek parametre kümeleri hakkında daha fazla bilgi için bkz. [Add-AzureEndpoint](https://msdn.microsoft.com/library/dn495300.aspx).
 
 ### <a name="step-2-add-endpoints-to-the-internal-load-balancing-instance"></a>2. Adım: İç Yük Dengeleme örneğine uç noktaları ekleyin
+
 Örnek aşağıda verilmiştir:
 
-    $svc="mytestcloud"
-    $vmname="DB1"
-    $epname="TCP-1433-1433"
-    $lbsetname="lbset"
-    $prot="tcp"
-    $locport=1433
-    $pubport=1433
-    $ilb="ilbset"
-    Get-AzureVM –ServiceName $svc –Name $vmname | Add-AzureEndpoint -Name $epname -Lbset $lbsetname -Protocol $prot -LocalPort $locport -PublicPort $pubport –DefaultProbe -InternalLoadBalancerName $ilb | Update-AzureVM
-
+```powershell
+$svc="mytestcloud"
+$vmname="DB1"
+$epname="TCP-1433-1433"
+$lbsetname="lbset"
+$prot="tcp"
+$locport=1433
+$pubport=1433
+$ilb="ilbset"
+Get-AzureVM –ServiceName $svc –Name $vmname | Add-AzureEndpoint -Name $epname -Lbset $lbsetname -Protocol $prot -LocalPort $locport -PublicPort $pubport –DefaultProbe -InternalLoadBalancerName $ilb | Update-AzureVM
+```
 
 ### <a name="step-3-configure-your-servers-to-send-their-traffic-to-the-new-internal-load-balancing-endpoint"></a>3. Adım: Sunucularınızı trafiklerini yeni İç Yük Dengeleme uç noktasına gönderecek şekilde yapılandırın
+
 Yük dengelemesi uygulanacak trafiğe sahip sunucuları İç Yük Dengeleme örneğinin yeni IP adresini (VIP) kullanacak şekilde yapılandırmanız gerekir. Bu, İç Yük Dengeleme örneğinin dinlediği adrestir. Çoğu durumda tek yapmanız gereken İç Yük Dengeleme örneği VIP’sinin DNS kaydını yapmak veya değiştirmektir.
 
 İç Yük Dengeleme örneğini oluştururken IP adresi belirttiyseniz VIP’ye sahipsiniz demektir. Belirtmediyseniz VIP’yi görmek için aşağıdaki komutları kullanabilirsiniz:
 
-    $svc="<Cloud Service Name>"
-    Get-AzureService -ServiceName $svc | Get-AzureInternalLoadBalancer
-
-
+```powershell
+$svc="<Cloud Service Name>"
+Get-AzureService -ServiceName $svc | Get-AzureInternalLoadBalancer
+```
 
 Bu komutları kullanmak için istenen değerleri yazıp < ve > işaretlerini silin. Örnek aşağıda verilmiştir:
 
-    $svc="mytestcloud"
-    Get-AzureService -ServiceName $svc | Get-AzureInternalLoadBalancer
-
+```powershell
+$svc="mytestcloud"
+Get-AzureService -ServiceName $svc | Get-AzureInternalLoadBalancer
+```
 
 Get-AzureInternalLoadBalancer komutu ekranındaki IP adresini not edin ve trafiğin VIP’ye gönderildiğinden emin olmak için sunucularınızda veya DNS kayıtlarınızda gerekli değişiklikleri yapın.
 
 > [!NOTE]
 > Microsoft Azure platformu, farklı yönetim senaryoları için genel olarak yönlendirilebilen statik bir IPv4 adresi kullanır. IP adresi: 168.63.129.16. Bu IP adresinin güvenlik duvarları tarafından engellenmesi beklenmeyen davranışlara neden olabilir.
 > Azure İç Yük Dengeleme açısından bu IP adresi, araştırmaların yük dengeleyiciden izlenerek yük dengeli kümede yer alan sanal makinelerin durumunun belirlenmesini sağlar. Bir iç yük dengeli kümedeki Azure sanal makinelerine gelen trafiği kısıtlamak için bir Ağ Güvenlik Grubu kullanılması veya Sanal Alt Ağ uygulanması halinde 168.63.129.16 adresinden gelen trafiğe izin verecek şekilde bir Ağ Güvenlik Kuralının uygulandığından emin olun.
-> 
-> 
 
 ## <a name="example-of-internal-load-balancing"></a>İç yük dengeleme örneği
+
 İki örnek yapılandırma için yük dengeli küme oluşturmayla ilgili adım adım talimatlar için aşağıdaki bölümlere bakın.
 
-### <a name="an-internet-facing-multitier-application"></a>İnternet'e yönelik, çok katmanlı uygulama
+### <a name="an-internet-facing-multi-tier-application"></a>İnternet'e yönelik, çok katmanlı uygulama
+
 İnternet’e yönelik web sunucusu kümesi için yük dengeli veritabanı hizmeti sunmak istiyorsunuz. İki sunucu kümesi de tek bir Azure bulut hizmetinde. 1433 numaralı TCP bağlantı noktasına gelen web sunucusu trafiğinin veritabanı katmanındaki iki sanal makineye dağıtılması gerekiyor. Yapılandırma Şekil 1’de gösterilmektedir.
 
 ![Veritabanı katmanı için iç yük dengeli küme](./media/load-balancer-internal-getstarted/IC736321.png)
@@ -108,62 +118,74 @@ Yapılandırma şunları içerir:
 
 Aşağıdaki komutlar **ILBset** adlı yeni bir İç Yük Dengeleme örneği yapılandırır ve iki veritabanına karşılık gelen sanal makinelere uç noktalar ekler:
 
-    $svc="mytestcloud"
-    $ilb="ilbset"
-    Add-AzureInternalLoadBalancer -ServiceName $svc -InternalLoadBalancerName $ilb
-    $prot="tcp"
-    $locport=1433
-    $pubport=1433
-    $epname="TCP-1433-1433"
-    $lbsetname="lbset"
-    $vmname="DB1"
-    Get-AzureVM –ServiceName $svc –Name $vmname | Add-AzureEndpoint -Name $epname -LbSetName $lbsetname -Protocol $prot -LocalPort $locport -PublicPort $pubport –DefaultProbe -InternalLoadBalancerName $ilb | Update-AzureVM
+```powershell
+$svc="mytestcloud"
+$ilb="ilbset"
+Add-AzureInternalLoadBalancer -ServiceName $svc -InternalLoadBalancerName $ilb
+$prot="tcp"
+$locport=1433
+$pubport=1433
+$epname="TCP-1433-1433"
+$lbsetname="lbset"
+$vmname="DB1"
+Get-AzureVM –ServiceName $svc –Name $vmname | Add-AzureEndpoint -Name $epname -LbSetName $lbsetname -Protocol $prot -LocalPort $locport -PublicPort $pubport –DefaultProbe -InternalLoadBalancerName $ilb | Update-AzureVM
 
-    $epname="TCP-1433-1433-2"
-    $vmname="DB2"
-    Get-AzureVM –ServiceName $svc –Name $vmname | Add-AzureEndpoint -Name $epname -LbSetName $lbsetname -Protocol $prot -LocalPort $locport -PublicPort $pubport –DefaultProbe -InternalLoadBalancerName $ilb | Update-AzureVM
-
+$epname="TCP-1433-1433-2"
+$vmname="DB2"
+Get-AzureVM –ServiceName $svc –Name $vmname | Add-AzureEndpoint -Name $epname -LbSetName $lbsetname -Protocol $prot -LocalPort $locport -PublicPort $pubport –DefaultProbe -InternalLoadBalancerName $ilb | Update-AzureVM
+```
 
 ## <a name="remove-an-internal-load-balancing-configuration"></a>İç Yük Dengeleme yapılandırmasını kaldırma
+
 Bir sanal makineyi iç yük dengeleme örneğinin uç noktası olmaktan çıkarmak için şu komutları kullanın:
 
-    $svc="<Cloud service name>"
-    $vmname="<Name of the VM>"
-    $epname="<Name of the endpoint>"
-    Get-AzureVM -ServiceName $svc -Name $vmname | Remove-AzureEndpoint -Name $epname | Update-AzureVM
+```powershell
+$svc="<Cloud service name>"
+$vmname="<Name of the VM>"
+$epname="<Name of the endpoint>"
+Get-AzureVM -ServiceName $svc -Name $vmname | Remove-AzureEndpoint -Name $epname | Update-AzureVM
+```
 
 Bu komutları kullanmak için istenen değerleri yazıp < ve > işaretlerini silin.
 
 Örnek aşağıda verilmiştir:
 
-    $svc="mytestcloud"
-    $vmname="DB1"
-    $epname="TCP-1433-1433"
-    Get-AzureVM -ServiceName $svc -Name $vmname | Remove-AzureEndpoint -Name $epname | Update-AzureVM
+```powershell
+$svc="mytestcloud"
+$vmname="DB1"
+$epname="TCP-1433-1433"
+Get-AzureVM -ServiceName $svc -Name $vmname | Remove-AzureEndpoint -Name $epname | Update-AzureVM
+```
 
 Bir bulut hizmetindeki iç yük dengeleyici örneğini kaldırmak için şu komutları kullanın:
 
-    $svc="<Cloud service name>"
-    Remove-AzureInternalLoadBalancer -ServiceName $svc
+```powershell
+$svc="<Cloud service name>"
+Remove-AzureInternalLoadBalancer -ServiceName $svc
+```
 
 Bu komutları kullanmak için istenen değerleri yazıp < ve > işaretlerini silin.
 
 Örnek aşağıda verilmiştir:
 
-    $svc="mytestcloud"
-    Remove-AzureInternalLoadBalancer -ServiceName $svc
-
-
+```powershell
+$svc="mytestcloud"
+Remove-AzureInternalLoadBalancer -ServiceName $svc
+```
 
 ## <a name="additional-information-about-internal-load-balancer-cmdlets"></a>İç yük dengeleyici cmdlet'leri hakkında ek bilgi
+
 İç Yük Dengeleyici cmdlet’leri hakkında ek bilgi almak için Windows PowerShell komut isteminde şu komutları çalıştırın:
 
-* Get-help New-AzureInternalLoadBalancerConfig -full
-* Get-help Add-AzureInternalLoadBalancer -full
-* Get-help Get-AzureInternalLoadbalancer -full
-* Get-help Remove-AzureInternalLoadBalancer -full
+```powershell
+Get-Help New-AzureInternalLoadBalancerConfig -full
+Get-Help Add-AzureInternalLoadBalancer -full
+Get-Help Get-AzureInternalLoadbalancer -full
+Get-Help Remove-AzureInternalLoadBalancer -full
+```
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 [Kaynak IP benzeşimi kullanarak yük dengeleyici dağıtım modunu yapılandırma](load-balancer-distribution-mode.md)
 
 [Yük dengeleyiciniz için boşta TCP zaman aşımı ayarlarını yapılandırma](load-balancer-tcp-idle-timeout.md)
@@ -171,6 +193,6 @@ Bu komutları kullanmak için istenen değerleri yazıp < ve > işaretlerini sil
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

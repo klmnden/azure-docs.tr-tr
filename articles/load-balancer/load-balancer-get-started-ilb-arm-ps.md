@@ -5,7 +5,6 @@ services: load-balancer
 documentationcenter: na
 author: sdwheeler
 manager: carmonm
-editor: 
 tags: azure-resource-manager
 ms.assetid: c6c98981-df9d-4dd7-a94b-cc7d1dc99369
 ms.service: load-balancer
@@ -16,20 +15,23 @@ ms.workload: infrastructure-services
 ms.date: 10/24/2016
 ms.author: sewhee
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 02d32ef115a6c2d9b0bb891231f3b45051ef0675
-
+ms.sourcegitcommit: 1a1c3c15c51b1e441f21158510e92cc8de057352
+ms.openlocfilehash: b9a8b333d688730b5a7773940201178876988ae4
 
 ---
-# <a name="create-an-internal-load-balancer-using-powershell"></a>PowerShell kullanarak iç yük dengeleyici oluşturma
-[!INCLUDE [load-balancer-get-started-ilb-arm-selectors-include.md](../../includes/load-balancer-get-started-ilb-arm-selectors-include.md)]
 
-<BR>
+# <a name="create-an-internal-load-balancer-using-powershell"></a>PowerShell kullanarak iç yük dengeleyici oluşturma
+
+> [!div class="op_single_selector"]
+> * [Azure Portal](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
+> * [PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)
+> * [Azure CLI](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
+> * [Şablon](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
+
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
-[!INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)]
-
-[klasik dağıtım modeli](load-balancer-get-started-ilb-classic-ps.md).
+> [!NOTE]
+> Azure’da kaynak oluşturmak ve bunlarla çalışmak için iki farklı dağıtım modeli vardır:  [Resource Manager ve klasik](../resource-manager-deployment-model.md).  Bu makale, Microsoft’un çoğu yeni dağıtım için [klasik dağıtım modeli](load-balancer-get-started-ilb-classic-ps.md) yerine önerdiği Resource Manager dağıtım modelini açıklamaktadır.
 
 [!INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
@@ -50,71 +52,96 @@ Azure Resource Manager içindeki yük dengeleyici bileşenleri hakkında daha fa
 Aşağıdaki adımlarda iki sanal makine arasında yük dengeleyici yapılandırma işlemleri açıklanmaktadır.
 
 ## <a name="setup-powershell-to-use-resource-manager"></a>PowerShell’i Resource Manager’ı kullanacak şekilde ayarlama
+
 PowerShell Azure modülünün son üretim sürümüne sahip olduğunuzdan ve PowerShell ayarlarının Azure aboneliğinize doğrudan erişecek şekilde yapıldığından emin olun.
 
 ### <a name="step-1"></a>1. Adım
-        Login-AzureRmAccount
+
+```powershell
+Login-AzureRmAccount
+```
 
 ### <a name="step-2"></a>2. Adım
+
 Hesapla ilişkili abonelikleri kontrol etme
 
-        Get-AzureRmSubscription
+```powershell
+Get-AzureRmSubscription
+```
 
-Kimlik bilgilerinizle kimliğinizi doğrulamanız istenir.<BR>
+Kimlik bilgilerinizle kimliğinizi doğrulamanız istenir.
 
 ### <a name="step-3"></a>3. Adım
-Hangi Azure aboneliğinizin kullanılacağını seçin. <BR>
 
-        Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+Hangi Azure aboneliğinizin kullanılacağını seçin.
+
+```powershell
+Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+```
 
 ### <a name="create-resource-group-for-load-balancer"></a>Yük dengeleyici için Kaynak Grubu oluşturma
-### <a name="step-4"></a>4. Adım
+
 Yeni bir kaynak grubu oluşturma (mevcut bir kaynak grubu kullanıyorsanız bu adımı atlayın)
 
-        New-AzureRmResourceGroup -Name NRP-RG -location "West US"
+```powershell
+New-AzureRmResourceGroup -Name NRP-RG -location "West US"
+```
 
 Azure Resource Manager, tüm kaynak gruplarının bir konum belirtmesini gerektirir. Bu, kaynak grubunda kaynaklar için varsayılan konum olarak kullanılır. Tüm yük dengeleyici oluşturma komutlarının aynı kaynak grubunu kullanacağından emin olun.
 
 Yukarıdaki örnekte, "NRP-RG" adlı "Batı ABD" konumlu bir kaynak grubu oluşturduk.
 
 ## <a name="create-virtual-network-and-a-private-ip-address-for-front-end-ip-pool"></a>Ön uç IP havuzu için Sanal Ağ ve özel IP adresi oluşturma
-### <a name="step-1"></a>1. Adım
+
 Sanal ağ için bir alt ağ oluşturur ve $backendSubnet değişkenine atar
 
-    $backendSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name LB-Subnet-BE -AddressPrefix 10.0.2.0/24
+```powershell
+$backendSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name LB-Subnet-BE -AddressPrefix 10.0.2.0/24
+```
 
 Sanal ağ oluşturma:
 
-    $vnet= New-AzureRmVirtualNetwork -Name NRPVNet -ResourceGroupName NRP-RG -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $backendSubnet
+```powershell
+$vnet= New-AzureRmVirtualNetwork -Name NRPVNet -ResourceGroupName NRP-RG -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $backendSubnet
+```
 
 Sanal ağı oluşturur ve lb-subnet-be alt ağını NRPVNet sanal ağına ekler ve $vnet değişkenine atar
 
 ## <a name="create-front-end-ip-pool-and-backend-address-pool"></a>Ön uç IP havuzu ve arka uç adres havuzu oluşturma
+
 Gelen yük dengeleyici ağı trafiği için ön uç IP havuzu ve yük dengeli trafiği almak için arka uç adres havuzu kurma.
 
 ### <a name="step-1"></a>1. Adım
+
 Gelen ağ trafiği uç noktası olacak 10.0.2.0/24 alt ağı için 10.0.2.5 özel IP adresini kullanan ön uç IP havuzu oluşturma.
 
-    $frontendIP = New-AzureRmLoadBalancerFrontendIpConfig -Name LB-Frontend -PrivateIpAddress 10.0.2.5 -SubnetId $vnet.subnets[0].Id
+```powershell
+$frontendIP = New-AzureRmLoadBalancerFrontendIpConfig -Name LB-Frontend -PrivateIpAddress 10.0.2.5 -SubnetId $vnet.subnets[0].Id
+```
 
 ### <a name="step-2"></a>2. Adım
+
 Ön uç IP havuzundan gelen trafiği almak için kullanılacak arka uç adres havuzu kurma:
 
-    $beaddresspool= New-AzureRmLoadBalancerBackendAddressPoolConfig -Name "LB-backend"
-
+```powershell
+$beaddresspool= New-AzureRmLoadBalancerBackendAddressPoolConfig -Name "LB-backend"
+```
 
 ## <a name="create-lb-rules-nat-rules-probe-and-load-balancer"></a>LB kuralları, NAT kuralları, araştırma ve yük dengeleyici oluşturma
+
 Ön uç IP havuzunu ve arka uç adres havuzunu oluşturduktan sonra yük dengeleyici kaynağına ait olacak kuralları oluşturmanız gerekir:
 
 ### <a name="step-1"></a>1. Adım
-    $inboundNATRule1= New-AzureRmLoadBalancerInboundNatRuleConfig -Name "RDP1" -FrontendIpConfiguration $frontendIP -Protocol TCP -FrontendPort 3441 -BackendPort 3389
 
-    $inboundNATRule2= New-AzureRmLoadBalancerInboundNatRuleConfig -Name "RDP2" -FrontendIpConfiguration $frontendIP -Protocol TCP -FrontendPort 3442 -BackendPort 3389
+```powershell
+$inboundNATRule1= New-AzureRmLoadBalancerInboundNatRuleConfig -Name "RDP1" -FrontendIpConfiguration $frontendIP -Protocol TCP -FrontendPort 3441 -BackendPort 3389
 
-    $healthProbe = New-AzureRmLoadBalancerProbeConfig -Name "HealthProbe" -RequestPath "HealthProbe.aspx" -Protocol http -Port 80 -IntervalInSeconds 15 -ProbeCount 2
+$inboundNATRule2= New-AzureRmLoadBalancerInboundNatRuleConfig -Name "RDP2" -FrontendIpConfiguration $frontendIP -Protocol TCP -FrontendPort 3442 -BackendPort 3389
 
-     $lbrule = New-AzureRmLoadBalancerRuleConfig -Name "HTTP" -FrontendIpConfiguration $frontendIP -BackendAddressPool $beAddressPool -Probe $healthProbe -Protocol Tcp -FrontendPort 80 -BackendPort 80
+$healthProbe = New-AzureRmLoadBalancerProbeConfig -Name "HealthProbe" -RequestPath "HealthProbe.aspx" -Protocol http -Port 80 -IntervalInSeconds 15 -ProbeCount 2
 
+$lbrule = New-AzureRmLoadBalancerRuleConfig -Name "HTTP" -FrontendIpConfiguration $frontendIP -BackendAddressPool $beAddressPool -Probe $healthProbe -Protocol Tcp -FrontendPort 80 -BackendPort 80
+```
 
 Yukarıdaki örnek aşağıdaki öğeleri oluşturur:
 
@@ -124,32 +151,42 @@ Yukarıdaki örnek aşağıdaki öğeleri oluşturur:
 * "HealthProbe.aspx" yolu için sistem durumunu kontrol edecek bir araştırma kuralı
 
 ### <a name="step-2"></a>2. Adım
+
 Tüm nesneleri (NAT kuralları, Yük dengeleyici kuralları, araştırma yapılandırmaları) ekleyerek yük dengeleyiciyi oluşturma:
 
-    $NRPLB = New-AzureRmLoadBalancer -ResourceGroupName "NRP-RG" -Name "NRP-LB" -Location "West US" -FrontendIpConfiguration $frontendIP -InboundNatRule $inboundNATRule1,$inboundNatRule2 -LoadBalancingRule $lbrule -BackendAddressPool $beAddressPool -Probe $healthProbe
-
+```powershell
+$NRPLB = New-AzureRmLoadBalancer -ResourceGroupName "NRP-RG" -Name "NRP-LB" -Location "West US" -FrontendIpConfiguration $frontendIP -InboundNatRule $inboundNATRule1,$inboundNatRule2 -LoadBalancingRule $lbrule -BackendAddressPool $beAddressPool -Probe $healthProbe
+```
 
 ## <a name="create-network-interfaces"></a>Ağ arabirimlerini oluşturma
+
 İç yük dengeleyiciyi oluşturduktan sonra gelen yük dengeli ağ trafiğini alacak olan ağ arabirimlerini, NAT kurallarını ve araştırmayı tanımlamanız gerekir. Bu durumda ağ arabirimi ayrı olarak yapılandırılabilir ve daha sonra bir sanal makineye atanabilir.
 
 ### <a name="step-1"></a>1. Adım
+
 Ağ arabirimlerini oluşturmak için kaynak sanal ağını ve alt ağını edinme:
 
-    $vnet = Get-AzureRmVirtualNetwork -Name NRPVNet -ResourceGroupName NRP-RG
+```powershell
+$vnet = Get-AzureRmVirtualNetwork -Name NRPVNet -ResourceGroupName NRP-RG
 
-    $backendSubnet = Get-AzureRmVirtualNetworkSubnetConfig -Name LB-Subnet-BE -VirtualNetwork $vnet
-
+$backendSubnet = Get-AzureRmVirtualNetworkSubnetConfig -Name LB-Subnet-BE -VirtualNetwork $vnet
+```
 
 Bu adımda yük dengeleyici arka uç havuzuna ait olacak ağ birimi oluşturulur ve bu ağ arabirimi için ilk RDP NAT kuralıyla ilişkilendirilir:
 
-    $backendnic1= New-AzureRmNetworkInterface -ResourceGroupName "NRP-RG" -Name lb-nic1-be -Location "West US" -PrivateIpAddress 10.0.2.6 -Subnet $backendSubnet -LoadBalancerBackendAddressPool $nrplb.BackendAddressPools[0] -LoadBalancerInboundNatRule $nrplb.InboundNatRules[0]
+```powershell
+$backendnic1= New-AzureRmNetworkInterface -ResourceGroupName "NRP-RG" -Name lb-nic1-be -Location "West US" -PrivateIpAddress 10.0.2.6 -Subnet $backendSubnet -LoadBalancerBackendAddressPool $nrplb.BackendAddressPools[0] -LoadBalancerInboundNatRule $nrplb.InboundNatRules[0]
+```
 
 ### <a name="step-2"></a>2. Adım
+
 LB-Nic2-BE adında ikinci bir ağ arabirimi oluşturma:
 
 Bu adımda ikinci bir ağ arabirimi oluşturulur, aynı yük dengeleyici arka uç havuzuna atanır ve RDP için oluşturulan ikinci NAT kuralıyla ilişkilendirilir:
 
-     $backendnic2= New-AzureRmNetworkInterface -ResourceGroupName "NRP-RG" -Name lb-nic2-be -Location "West US" -PrivateIpAddress 10.0.2.7 -Subnet $backendSubnet -LoadBalancerBackendAddressPool $nrplb.BackendAddressPools[0] -LoadBalancerInboundNatRule $nrplb.InboundNatRules[1]
+```powershell
+$backendnic2= New-AzureRmNetworkInterface -ResourceGroupName "NRP-RG" -Name lb-nic2-be -Location "West US" -PrivateIpAddress 10.0.2.7 -Subnet $backendSubnet -LoadBalancerBackendAddressPool $nrplb.BackendAddressPools[0] -LoadBalancerInboundNatRule $nrplb.InboundNatRules[1]
+```
 
 Sonuç şunu verecektir:
 
@@ -202,74 +239,101 @@ Beklenen çıktı:
 
 
 ### <a name="step-3"></a>3. Adım
+
 NIC’i bir sanal makineye atamak için Add-AzureRmVMNetworkInterface komutunu kullanın.
 
-Sanal makine oluşturma ve bir NIC’e atama ile ilgili adım adım talimatları şu belgede bulabilirsiniz: [PowerShell kullanarak Azure VM oluşturma](../virtual-machines/virtual-machines-windows-ps-create.md).
+Sanal makine oluşturma ve bir NIC’e atama ile ilgili adım adım talimatları şu belgede bulabilirsiniz: [PowerShell kullanarak Azure VM oluşturma](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json).
+
+## <a name="add-the-network-interface"></a>Ağ arabirimini ekleme
 
 Önceden oluşturulan bir sanal makineniz varsa aşağıdaki adımları uygulayarak ağ arabirimini etkileyebilirsiniz:
 
-#### <a name="step-1"></a>1. Adım
+### <a name="step-1"></a>1. Adım
+
 Yük dengeleyici kaynağını bir değişkene yükleyin (henüz yapmadıysanız). Kullanılan değişken $lb olarak adlandırılır ve yukarıda oluşturulan yük dengeleyici kaynağıyla aynı adları kullanır.
 
-    $lb= Get-AzureRmLoadBalancer –name NRP-LB -resourcegroupname NRP-RG
+```powershell
+$lb = Get-AzureRmLoadBalancer –name NRP-LB -resourcegroupname NRP-RG
+```
 
-#### <a name="step-2"></a>2. Adım
+### <a name="step-2"></a>2. Adım
+
 Arka uç yapılandırmasını bir değişkene yükleyin.
 
-    $backend= Get-AzureRmLoadBalancerBackendAddressPoolConfig -name backendpool1 -LoadBalancer $lb
+```powershell
+$backend = Get-AzureRmLoadBalancerBackendAddressPoolConfig -name backendpool1 -LoadBalancer $lb
+```
 
-#### <a name="step-3"></a>3. Adım
+### <a name="step-3"></a>3. Adım
+
 Önceden oluşturulan ağ arabirimini bir değişkene yükleyin. $nic değişken adı kullanılır. Kullanılan ağ arabirimi adı yukarıdaki örnekle aynıdır.
 
-    $nic=Get-AzureRmNetworkInterface –name lb-nic1-be -resourcegroupname NRP-RG
+```powershell
+$nic = Get-AzureRmNetworkInterface –name lb-nic1-be -resourcegroupname NRP-RG
+```
 
-#### <a name="step-4"></a>4. Adım
+### <a name="step-4"></a>4. Adım
+
 Ağ arabiriminde arka uç yapılandırmasını değiştirin.
 
-    $nic.IpConfigurations[0].LoadBalancerBackendAddressPools=$backend
+```powershell
+$nic.IpConfigurations[0].LoadBalancerBackendAddressPools=$backend
+```
 
-#### <a name="step-5"></a>5. Adım
+### <a name="step-5"></a>5. Adım
+
 Ağ arabirimi nesnesini kaydedin.
 
-    Set-AzureRmNetworkInterface -NetworkInterface $nic
+```powershell
+Set-AzureRmNetworkInterface -NetworkInterface $nic
+```
 
 Yük dengeleyici arka uç havuzuna bir ağ arabirimi eklendikten sonra ilgili yük dengeleyici kaynağı için yük dengeleme kurallarına göre ağ trafiğini almaya başlar.
 
 ## <a name="update-an-existing-load-balancer"></a>Mevcut yük dengeleyiciyi güncelleştirme
+
 ### <a name="step-1"></a>1. Adım
 Yukarıdaki örnekte verilen yük dengeleyiciyi kullanarak yük dengeleyici nesnesini $slb değişkenine Get-AzureRmLoadBalancer ile atayın
 
-    $slb=get-azureRmLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
+```powershell
+$slb = Get-AzureRmLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
+```
 
 ### <a name="step-2"></a>2. Adım
+
 Aşağıdaki örnekte mevcut bir yük dengeleyiciye ön uç için 81 numaralı bağlantı noktasını, arka uç havuzu için ise 8181 numaralı arka uç bağlantı noktasını kullanarak yeni bir Gelen NAT kuralı ekleyeceksiniz
 
-    $slb | Add-AzureRmLoadBalancerInboundNatRuleConfig -Name NewRule -FrontendIpConfiguration $slb.FrontendIpConfigurations[0] -FrontendPort 81  -BackendPort 8181 -Protocol Tcp
-
+```powershell
+$slb | Add-AzureRmLoadBalancerInboundNatRuleConfig -Name NewRule -FrontendIpConfiguration $slb.FrontendIpConfigurations[0] -FrontendPort 81  -BackendPort 8181 -Protocol Tcp
+```
 
 ### <a name="step-3"></a>3. Adım
+
 Yeni yapılandırmayı Set-AzureLoadBalancer kullanarak kaydedin
 
-    $slb | Set-AzureRmLoadBalancer
+```powershell
+$slb | Set-AzureRmLoadBalancer
+```
 
 ## <a name="remove-a-load-balancer"></a>Yük dengeleyici kaldırma
+
 “NRP-RG” adlı kaynak grubunda yer alan “NRP-LB” adlı önceden oluşturulmuş yük dengeleyiciyi silmek için Remove-AzureRmLoadBalancer komutunu kullanın
 
-    Remove-AzureRmLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
+```powershell
+Remove-AzureRmLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
+```
 
 > [!NOTE]
 > Silme istemini atlamak için isteğe bağlı -Force anahtarını kullanabilirsiniz.
-> 
-> 
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 [Yük dengeleyici dağıtım modu yapılandırma](load-balancer-distribution-mode.md)
 
 [Yük dengeleyiciniz için boşta TCP zaman aşımı ayarlarını yapılandırma](load-balancer-tcp-idle-timeout.md)
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

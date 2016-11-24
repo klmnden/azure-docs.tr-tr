@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/09/2016
+ms.date: 11/16/2016
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 597043b17993ebddc9cf730ddce849e1d6ff3bc9
+ms.sourcegitcommit: 1a6dd35278f0a4a4f972642c40a0976986dd79ae
+ms.openlocfilehash: 25be292144e31c6f34ff1e015362aee31e242619
 
 
 ---
@@ -32,7 +32,7 @@ Azure IoT Paketi önceden yapılandırılmış çözümleri, aboneliği kullanar
 Azure’de çözümleri dağıtmanın ve çalıştırmanın yanı sıra, tam kaynak kodunu indirebilir, sonra da size özel IoT gereksinimlerini karşılaması için bunu özelleştirebilir ve uzatabilirsiniz.
 
 > [!NOTE]
-> Önceden yapılandırılmış çözümlerden birini dağıtmak için [Microsoft Azure IOT Paketi][lnk-azureiotsuite] sayfasını ziyaret edin. [Önceden yapılandırılmış IoT çözümlerine giriş][Ink-get-started-preconfigured] makalesi çözümlerden birinin dağıtılması ve çalıştırılması hakkında daha fazla bilgi sağlamaktadır.
+> Önceden yapılandırılmış çözümlerden birini dağıtmak için [Microsoft Azure IOT Paketi][lnk-azureiotsuite] sayfasını ziyaret edin. [Önceden yapılandırılmış IoT çözümlerine giriş][lnk-getstarted-preconfigured] makalesi çözümlerden birinin dağıtılması ve çalıştırılması hakkında daha fazla bilgi sağlamaktadır.
 > 
 > 
 
@@ -40,7 +40,7 @@ Aşağıdaki tabloda, çözümlerin belirli IoT özelliklerini nasıl karşılad
 
 | Çözüm | Veri Alımı | Cihaz Kimliği | Komut ve Denetim | Kurallar ve Eylemler | Tahmine Dayalı Analiz |
 | --- | --- | --- | --- | --- | --- |
-| [Uzaktan izleme][Ink-get-started-preconfigured] |Evet |Evet |Evet |Evet |- |
+| [Uzaktan izleme][lnk-getstarted-preconfigured] |Evet |Evet |Evet |Evet |- |
 | [Tahmine dayalı bakım][lnk-predictive-maintenance] |Evet |Evet |Evet |Evet |Evet |
 
 * *Veri alımı*: Bulut ölçeğinde veri girişi.
@@ -66,7 +66,7 @@ Cihaz önce, önceden yapılandırılmış uzaktan izleme çözümünde IoT Hub'
 * *Telemetriyi Durdur*: Cihaza telemetri göndermeyi durdurması talimatı verir.
 * *Sıcaklık Ayar Noktasını Değiştir*: Cihazın gönderdiği benzetimli sıcaklık telemetri değerlerini denetler. Arka uç mantığının test edilmesi için yararlıdır.
 * *Telemetriyi Tanıla*: Cihazın dış sıcaklığı telemetri olarak gönderip göndermediğini denetler.
-* *Cihaz Durumunu Değiştir*.: Cihaz durumu meta veri özelliğini cihaz raporlarına ait olarak ayarlar. Arka uç mantığının test edilmesi için yararlıdır.
+* *Cihaz Durumunu Değiştir*: Cihaz durumu meta veri özelliğini cihaz raporlarına ait olarak ayarlar. Arka uç mantığının test edilmesi için yararlıdır.
 
 Aynı telemetriyi yayan ve aynı komutu yanıtlayan çözüme daha fazla sanal cihaz ekleyebilirsiniz. 
 
@@ -89,7 +89,7 @@ IoT hub’ı, sunucu tarafı telemetri okuma uç noktasında alınan telemetriyi
 ## <a name="event-processor"></a>Olay işlemcisi
 Önceden yapılandırılmış bu çözümde, olay işlemcisi tipik bir [IoT çözüm mimarisinde][lnk-what-is-azure-iot] **Iot çözümü arka ucu**’nun bir parçasını oluşturur.
 
-**DeviceInfo** ve **Rules** ASA işleri, diğer arka iç hizmetlerine dağıtılması amacıyla kendi çıktılarını Olay hub’larına gönderir. Çözüm, bu Olay Hub’larından iletileri okumak için [WebJob][lnk-web-job]’da çalışan bir [EventPocessorHost][llnk-event-processor] örneğini kullanır. **EventProcessorHost**, DocumentDB veritabanındaki cihaz verilerini güncelleştirmek için **DeviceInfo** verilerini, Mantıksal uygulamayı çağırmak ve çözüm portalında uyarılar ekranını güncelleştirmek için de **Rules** verilerini kullanır.
+**DeviceInfo** ve **Rules** ASA işleri, diğer arka iç hizmetlerine dağıtılması amacıyla kendi çıktılarını Olay hub’larına gönderir. Çözüm, bu Olay Hub’larından iletileri okumak için [WebJob][lnk-web-job]’da çalışan bir [EventPocessorHost][lnk-event-processor] örneğini kullanır. **EventProcessorHost**, DocumentDB veritabanındaki cihaz verilerini güncelleştirmek için **DeviceInfo** verilerini, Mantıksal uygulamayı çağırmak ve çözüm portalında uyarılar ekranını güncelleştirmek için de **Rules** verilerini kullanır.
 
 ## <a name="device-identity-registry-and-documentdb"></a>Cihaz kimliği kayıt defteri ve DocumentDB
 Her IoT hub'ında cihaz anahtarlarını depolayan bir [cihaz kimliği kayıt defteri][lnk-identity-registry] vardır. IoT hub'ı bu bilgileri cihazların kimliğini doğrulamak için kullanır - hub’a bağlanmadan önce cihazların kayıtlı ve geçerli bir anahtara sahip olması gerekir.
@@ -114,7 +114,7 @@ Bu çözüm, durumları, destekledikleri komutlar ve diğer meta veriler gibi ci
 ## <a name="next-steps"></a>Sonraki adımlar
 IoT çözümü mimarileri hakkında daha fazla bilgi için bkz. [Microsoft Azure IoT hizmetleri: Başvuru Mimarisi][lnk-refarch].
 
-Önceden yapılandırılmış bir çözümün ne olduğunu öğrendiğinize göre önceden yapılandırılmış *uzaktan izleme* çözümünü dağıtarak başlayabilirsiniz: [Önceden yapılandırılmış çözümleri kullanmaya başlama][Ink-get-started-preconfigured].
+Önceden yapılandırılmış bir çözümün ne olduğunu öğrendiğinize göre önceden yapılandırılmış *uzaktan izleme* çözümünü dağıtarak başlayabilirsiniz: [Önceden yapılandırılmış çözümleri kullanmaya başlama][lnk-getstarted-preconfigured].
 
 [img-remote-monitoring-arch]: ./media/iot-suite-what-are-preconfigured-solutions/remote-monitoring-arch1.png
 [img-dashboard]: ./media/iot-suite-what-are-preconfigured-solutions/dashboard.png
@@ -130,6 +130,6 @@ IoT çözümü mimarileri hakkında daha fazla bilgi için bkz. [Microsoft Azure
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

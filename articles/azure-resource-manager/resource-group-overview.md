@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/01/2016
+ms.date: 11/14/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c122d9ecb4f43c4288cc00c24eca499ac6bb51dc
+ms.sourcegitcommit: 9c9b36f380064ceb07802dde768725ac5870049b
+ms.openlocfilehash: fe0e4e2d1884df89a6608faecfa35696ead6c11f
 
 
 ---
@@ -153,13 +153,13 @@ Katmanlarınızın farklı yaşam döngülerine sahip olacağını düşünüyor
 
 Şablonlarınızı tasarlama hakkında daha fazla öneri için bkz. [Azure Resource Manager şablonlarını tasarlama düzenleri](../best-practices-resource-manager-design-templates.md). İç içe geçmiş şablonlar hakkında daha fazla bilgi için bkz. [Azure Resource Manager ile bağlı şablonları kullanma](../resource-group-linked-templates.md).
 
-Dağıtımı otomatik hale getirme hakkında dört bölümlük bir seri için bkz. [Azure Sanal Makinelerine uygulama dağıtımlarını otomatik hale getirme](../virtual-machines/virtual-machines-windows-dotnet-core-1-landing.md). Bu seri; uygulama mimarisi, erişim ve güvenlik, kullanılabilirlik ve ölçek ve uygulama dağıtımını kapsar.
+Dağıtımı otomatik hale getirme hakkında dört bölümlük bir seri için bkz. [Azure Sanal Makinelerine uygulama dağıtımlarını otomatik hale getirme](../virtual-machines/virtual-machines-windows-dotnet-core-1-landing.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Bu seri; uygulama mimarisi, erişim ve güvenlik, kullanılabilirlik ve ölçek ve uygulama dağıtımını kapsar.
 
 Azure Resource Manager kaynakların doğru sırada oluşturulmasını sağlamak için bağımlılıkları analiz eder. Bir kaynak başka bir kaynaktaki değere bağımlıysa (diskler için depolama hesabına ihtiyaç duyan bir sanal makine gibi) bir bağımlılık ayarlayın. Daha fazla bilgi için bkz. [Azure Resource Manager’da bağımlılıkları tanımlama](../resource-group-define-dependencies.md).
 
 Ayrıca, şablonu altyapıda yapılan güncelleştirmeler için kullanabilirsiniz. Örneğin, çözümünüze bir kaynak ekleyebilir ve zaten dağıtılmış kaynaklar için yapılandırma kuralları ekleyebilirsiniz. Şablon zaten var olan bir kaynak için bir kaynak oluşturulmasını belirtiyorsa, Azure Resource Manager yeni bir varlık oluşturmak yerine bir güncelleştirme gerçekleştirir. Azure Resource Manager varlığı yeni oluşturulacak kaynak ile aynı duruma gelecek şekilde güncelleştirir.  
 
-Resource Manager, kurulumun içermediği belirli bir yazılımı yükleme gibi ek işlemlere ihtiyaç duymanız halinde size uzantılar sunar. Zaten DSC, Chef veya Puppet gibi bir yapılandırma yönetim hizmeti kullanıyorsanız, uzantıları kullanarak bu hizmetle çalışmaya devam edebilirsiniz. Sanal makine uzantıları hakkında daha fazla bilgi için bkz. [Sanal makine uzantıları ve özellikleri hakkında](../virtual-machines/virtual-machines-windows-extensions-features.md). 
+Resource Manager, kurulumun içermediği belirli bir yazılımı yükleme gibi ek işlemlere ihtiyaç duymanız halinde size uzantılar sunar. Zaten DSC, Chef veya Puppet gibi bir yapılandırma yönetim hizmeti kullanıyorsanız, uzantıları kullanarak bu hizmetle çalışmaya devam edebilirsiniz. Sanal makine uzantıları hakkında daha fazla bilgi için bkz. [Sanal makine uzantıları ve özellikleri hakkında](../virtual-machines/virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 
 Son olarak, uygulamanızın kaynak kodunun bir parçası haline gelir. Bunu kaynak kod deponuza dahil edebilir ve uygulamanız geliştikçe buna göre güncelleştirebilirsiniz. Visual Studio üzerinden şablonu düzenleyebilirsiniz.
 
@@ -276,7 +276,7 @@ Açık Kaynak SDK depolarımız aşağıda verilmiştir. Geri bildirimler, sorun
 [.NET](https://github.com/Azure/azure-sdk-for-net) | [Java](https://github.com/Azure/azure-sdk-for-java) | [Node.js](https://github.com/Azure/azure-sdk-for-node) | [PHP](https://github.com/Azure/azure-sdk-for-php) | [Python](https://github.com/Azure/azure-sdk-for-python) | [Ruby](https://github.com/Azure/azure-sdk-ruby)
 
 > [!NOTE]
-> SDK gerekli işlevleri sağlamıyorsa doğrudan [Azure REST API'sine](https://msdn.microsoft.com/library/azure/dn790568.aspx) de çağrı yapabilirsiniz.
+> SDK gerekli işlevleri sağlamıyorsa doğrudan [Azure REST API'sine](https://docs.microsoft.com/rest/api/resources/) de çağrı yapabilirsiniz.
 > 
 > 
 
@@ -315,13 +315,13 @@ Bu örneklere ek olarak galeri örnekleri arasında arama yapabilirsiniz.
 
 Bu genel bakışın sunulduğu videoya şuradan ulaşabilirsiniz:
 
-[!VIDEO https://channel9.msdn.com/Blogs/Azure-Documentation-Shorts/Azure-Resource-Manager-Overview/player]
+>[!VIDEO https://channel9.msdn.com/Blogs/Azure-Documentation-Shorts/Azure-Resource-Manager-Overview/player]
 
 
-[powershellref]: https://msdn.microsoft.com/library/azure/dn757692(v=azure.200).aspx
+[powershellref]: https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.2.0/azurerm.resources
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

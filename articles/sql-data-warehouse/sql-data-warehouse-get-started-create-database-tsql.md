@@ -16,23 +16,23 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 443e74834a7181560e812ce31db460ef2c4ff911
+ms.sourcegitcommit: 5a101aa78dbac4f1a0edb7f414b44c14db392652
+ms.openlocfilehash: bbfce3f3cf329792f270632e2244e33e3fafb7ef
 
 
 ---
-# <a name="create-a-sql-data-warehouse-database-by-using-transactsql-tsql"></a>Transact-SQL (TSQL) kullanarak SQL Data Warehouse oluşturma
+# <a name="create-a-sql-data-warehouse-database-by-using-transact-sql-tsql"></a>Transact-SQL (TSQL) kullanarak SQL Data Warehouse oluşturma
 > [!div class="op_single_selector"]
 > * [Azure Portal](sql-data-warehouse-get-started-provision.md)
 > * [TSQL](sql-data-warehouse-get-started-create-database-tsql.md)
 > * [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
-> 
-> 
+>
+>
 
 Bu makalede T-SQL ile SQL Veri Ambarı oluşturma işlemi gösterilmektedir.
 
 ## <a name="prerequisites"></a>Ön koşullar
-Başlamak için gerekli olanlar: 
+Başlamak için gerekli olanlar:
 
 * **Azure hesabı**: Hesap oluşturmak için [Azure Ücretsiz Deneme][Azure Ücretsiz Deneme] veya [MSDN Azure Kredileri][MSDN Azure Kredileri] sayfasını ziyaret edin.
 * **Azure SQL sunucusu**: Daha fazla ayrıntı için bkz. [Azure Portal ile Azure SQL Veritabanı mantıksal sunucusu oluşturma][Azure Portal ile Azure SQL Veritabanı mantıksal sunucusu oluşturma] veya [PowerShell ile Azure SQL Veritabanı mantıksal sunucusu oluşturma][PowerShell ile Azure SQL Veritabanı mantıksal sunucusu oluşturma].
@@ -41,8 +41,8 @@ Başlamak için gerekli olanlar:
 
 > [!NOTE]
 > Bir SQL Veri Ambarı'nın oluşturulması ek hizmet ücretlerinin alınmasına neden olabilir.  Fiyatlandırmayla ilgili ayrıntılı bilgi için bkz. [SQL Veri Ambarı fiyatlandırması][SQL Veri Ambarı fiyatlandırması].
-> 
-> 
+>
+>
 
 ## <a name="create-a-database-with-visual-studio"></a>Visual Studio ile veritabanı oluşturma
 Visual Studio'yu kullanmaya yeni başladıysanız [Azure SQL Veri Ambarı’nı (Visual Studio) Sorgulama][Azure SQL Veri Ambarı’nı (Visual Studio) Sorgulama] başlıklı makaleye göz atın.  Başlamak için Visual Studio'da bulunan SQL Server Nesne Gezgini'ni açıp SQL Data Warehouse veritabanınızı barındıracak olan sunucuya bağlanın.  Bağlandıktan sonra **ana** veritabanında aşağıdaki SQL komutunu çalıştırarak bir SQL Data Warehouse oluşturabilirsiniz.  Bu komut, Hizmet Hedefi DW400 olan bir MySqlDwDb veritabanı oluşturur ve veritabanının, maksimum boyutu 10 TB olacak şekilde büyümesine olanak sağlar.
@@ -70,14 +70,14 @@ SQL Veri Ambarınız sağlandıktan sonra [örnek veri yükleyebilir][örnek ver
 [geçirme]: sql-data-warehouse-overview-migrate.md
 [geliştirme]: sql-data-warehouse-overview-develop.md
 [yükleme]: sql-data-warehouse-overview-load.md
-[örnek verileri yükleme]: sql-data-warehouse-load-sample-databases.md
-[Azure Portal ile Azure SQL Veritabanı mantıksal sunucusu oluşturma]: ../sql-database/sql-database-get-started.md#create-an-azure-sql-database-logical-server
+[örnek veri yükleyebilir]: sql-data-warehouse-load-sample-databases.md
+[Azure Portal ile Azure SQL Veritabanı mantıksal sunucusu oluşturma]: ../sql-database/sql-database-get-started.md#create-logical-server-bk
 [PowerShell ile Azure SQL Veritabanı mantıksal sunucusu oluşturma]: ../sql-database/sql-database-get-started-powershell.md#database-setup-create-a-resource-group-server-and-firewall-rule
-[kaynak grubu oluşturma]: ../resource-group-template-deploy-portal.md#create-resource-group
-[Visual Studio ve SSDT Yükleme]: sql-data-warehouse-install-visual-studio.md
+[nasıl kaynak grubu oluşturulacağına]: ../resource-group-template-deploy-portal.md#create-resource-group
+[Visual Studio ve SSDT’yi yükleme]: sql-data-warehouse-install-visual-studio.md
 [sqlcmd]: sql-data-warehouse-get-started-connect-sqlcmd.md
 
-<!--MSDN references--> 
+<!--MSDN references-->
 [CREATE DATABASE]: https://msdn.microsoft.com/library/mt204021.aspx
 [ALTER DATABASE]: https://msdn.microsoft.com/library/mt204042.aspx
 [SSMS]: https://msdn.microsoft.com/library/mt238290.aspx

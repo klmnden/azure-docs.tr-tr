@@ -65,7 +65,7 @@ JSON ayarlar dosyası yüklenecek modüllerin bir listesini içerir. Her modül�
 JSON dosyası ayrıca aracıya geçirilecek modüller arasındaki bağlantıları içerir. Bir bağlantı iki özelliğe sahiptir:
 
 * **kaynak**: `modules` bölümünden bir modül adı veya "\*".
-* **havuz**: `modules` bölümünden bir modül adı
+* **havuz**: `modules` bölümünden bir modül adı.
 
 Her bağlantı bir ileti yolu ve yönü tanımlar. `source` modülünden gelen iletiler `sink` modülüne teslim edilmelidir. Herhangi bir modülden gelen iletilerin `sink` tarafından alınacağını belirtmek üzere `source` ayarı "\*" olarak belirlenebilir.
 
@@ -216,6 +216,6 @@ IoT Gateway SDK’sını kullanma hakkında bilgi için aşağıdakilere bakın:
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/
 [lnk-gateway-simulated]: ../articles/iot-hub/iot-hub-linux-gateway-sdk-simulated-device.md
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

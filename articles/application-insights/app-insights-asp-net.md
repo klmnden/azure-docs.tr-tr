@@ -14,13 +14,13 @@ ms.topic: get-started-article
 ms.date: 10/13/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b6e5898d94a43b6859ce354f154bdb25948f7686
+ms.sourcegitcommit: dea21a59b189d1d3d474cbc5e67f64df485a1981
+ms.openlocfilehash: a97e20b208d92e03bd4458605aaa48ef7c389e32
 
 
 ---
 # <a name="set-up-application-insights-for-aspnet"></a>ASP.NET için Application Insights’ı ayarlama
-[Visual Studio Application Insights](app-insights-overview.md), [performans sorunlarını ve özel durumlarını saptayıp tanılamanıza](app-insights-detect-triage-diagnose.md) ve [uygulamanızın nasıl kullanıldığını keşfetmenize](app-insights-overview-usage.md) yardımcı olmak amacıyla canlı uygulamanızı izler.  Azure web uygulamalarının yanı sıra şirket içi kendi IIS sunucularınızda veya bulut VM’lerinde ler barındırılan uygulamalar için çalışır.
+[Azure Application Insights](app-insights-overview.md), [performans sorunlarını ve özel durumlarını saptayıp tanılamanıza](app-insights-detect-triage-diagnose.md) ve [uygulamanızın nasıl kullanıldığını keşfetmenize](app-insights-overview-usage.md) yardımcı olmak amacıyla canlı uygulamanızı izler.  Azure web uygulamalarının yanı sıra şirket içi kendi IIS sunucularınızda veya bulut VM’lerinde ler barındırılan uygulamalar için çalışır.
 
 ## <a name="before-you-start"></a>Başlamadan önce
 Gerekenler:
@@ -113,7 +113,7 @@ Sonuçta komut şu üçünü yapar:
 ApplicationInsights.config dosyasında herhangi bir özelleştirme yaptıysanız yükseltmeden önce bir kopyasını kaydedin ve daha sonra değişikliklerinizi yeni sürümle birleştirin.
 
 ## <a name="add-more-telemetry"></a>Daha fazla telemetri ekleme
-### <a name="web-pages-and-singlepage-apps"></a>Web sayfaları ve tek sayfalık uygulamalar
+### <a name="web-pages-and-single-page-apps"></a>Web sayfaları ve tek sayfalık uygulamalar
 1. Sayfa görüntülemeleri, yükleme süreleri, tarayıcı özel durumları, AJAX çağrı performansı, kullanıcı ve oturum sayıları hakkında veri içeren Tarayıcı ve Kullanım dikey pencerelerini açmak için web sayfalarına [JavaScript kod parçacığını ekleyin](app-insights-javascript.md).
 2. Kullanıcı eylemlerini saymak, zamanlamak veya ölçmek için [özel olaylar kodlayın](app-insights-api-custom-events-metrics.md).
 
@@ -175,6 +175,6 @@ Visual Studio Team Services’ı kullanıyorsanız yeni bir sürüm yayımladı�
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -13,16 +13,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 08/10/2016
+ms.date: 11/08/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 9ecbee74bc0559aa632304b0a0428abb36606597
+ms.sourcegitcommit: c7d253dfca8f399527d193f14af12c166157d39d
+ms.openlocfilehash: eaadd5c8d30a522fc05d214620600331d7485485
 
 
 ---
 # <a name="sql-database-options-and-performance-understand-whats-available-in-each-service-tier"></a>SQL Database seçenekleri ve performansı: Her hizmet katmanında nelerin kullanılabildiğini anlama
-[Azure SQL Veritabanı](sql-database-technical-overview.md), farklı iş yüklerini işlemek üzere birden çok performans düzeyine sahip üç hizmet katmanı sunar. Her performans düzeyi, gittikçe artan bir işleme hacmi sağlamak üzere tasarlanmış bir şekilde bir önceki düzeye göre daha fazla sayıda kaynak sağlar. Her veritabanını, kendi [hizmet katmanı](sql-database-service-tiers.md#standalone-database-service-tiers-and-performance-levels) içinde, kendine ait performans düzeyinde yönetebilirsiniz. Birden çok veritabanını, paylaşılan bir grup kaynakla bir [esnek havuz](sql-database-service-tiers.md#elastic-pool-service-tiers-and-performance-in-edtus) içinde de yönetebilirsiniz. Tek başına veritabanlarının kullanılabileceği kaynaklar, Veritabanı İşlem Birimleri (DTU'lar) ve esnek havuzlar için esnek DTU'lar, yani eDTU'lar cinsinden ifade edilir. DTU'lar ve eDTU'lar hakkında daha fazla bilgi edinmek için bkz. [DTU nedir?](sql-database-what-is-a-dtu.md). 
+[Azure SQL Veritabanı](sql-database-technical-overview.md), farklı iş yüklerini işlemek üzere birden çok performans düzeyine sahip üç hizmet katmanı sunar. Yüksek performans düzeyi, gittikçe artan bir işleme hacmi sağlamak üzere tasarlanmış bir şekilde bir önceki düzeye göre daha fazla sayıda kaynak sağlar. Hizmet katmanlarını ve performans düzeylerini dinamik olarak değiştirebilirsiniz. Ayrıntılı bilgi için bkz. [Veritabanı Hizmet Katmanlarını ve Performans Düzeylerini Değiştirme](sql-database-scale-up.md).
+
+Her veritabanını, kendi [hizmet katmanı](sql-database-service-tiers.md#standalone-database-service-tiers-and-performance-levels) içinde, kendine ait performans düzeyinde yönetebilirsiniz. Birden çok veritabanını, paylaşılan bir grup kaynakla bir [esnek havuz](sql-database-service-tiers.md#elastic-pool-service-tiers-and-performance-in-edtus) içinde de yönetebilirsiniz. Tek başına veritabanlarının kullanılabileceği kaynaklar, Veritabanı İşlem Birimleri (DTU'lar) ve esnek havuzlar için esnek DTU'lar, yani eDTU'lar cinsinden ifade edilir. DTU'lar ve eDTU'lar hakkında daha fazla bilgi edinmek için bkz. [DTU nedir?](sql-database-what-is-a-dtu.md). 
 
 Her iki durumda da **Temel**, **Standart** ve **Premium** hizmet katmanları mevcuttur. Bu katmanlardaki veritabanı seçenekleri tek başına veritabanları ve esnek havuzlar için benzerlik gösterir ancak esnek havuzlar için dikkat edilmesi gereken bazı noktalar söz konusudur. Bu makalede, tek başına veritabanları ve esnek havuzlar için hizmet katmanlarına yönelik ayrıntılı bilgi verilmiştir.
 

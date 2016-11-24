@@ -16,12 +16,12 @@ ms.topic: get-started-article
 ms.date: 10/21/2016
 ms.author: trinadhk; giridham; arunak; markgal; jimpark;
 translationtype: Human Translation
-ms.sourcegitcommit: e29891dc03f8a864ecacc893fd1cc0d3cc1436cb
-ms.openlocfilehash: f85b3210fc1bdab65da29c3355ed3e1eb35da2ab
+ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
+ms.openlocfilehash: adee77b102d9c9326dad864f6f2f906f7b8acd0b
 
 
 ---
-# <a name="azure-backup-service-faq"></a>Azure Backup hizmeti - SSS
+# <a name="azure-backup-service--faq"></a>Azure Backup hizmeti - SSS
 Bu makale, Azure Backup hizmeti ile ilgili sık sorulan soruların (ve yanıtlarının) listesinden oluşmaktadır. Topluluğumuz, soruları hızlı bir şekilde yanıtlar ve bir sorunun sıklıkla sorulması durumunda söz konusu soruyu bu makaleye ekleriz. Soruların yanıtları genellikle başvuru veya destek bilgileri sağlar. Azure Backup ile ilgili sorularınızı, bu makalenin veya ilgili bir makalenin Disqus bölümünde sorabilirsiniz. Ayrıca Azure Backup hizmeti ile ilgili sorularınızı [tartışma forumunda](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) paylaşabilirsiniz.
 
 ## <a name="what-is-the-list-of-supported-operating-systems-from-which-i-can-back-up-to-azure-using-azure-backup-br"></a>Azure Backup hizmetini kullanarak Azure'a yedekleme yapabileceğim desteklenen işletim sistemlerinin listesi ne şekildedir? <br/>
@@ -43,7 +43,7 @@ Azure Backup, Azure Backup Sunucusu ve SCDPM kullanarak dosya-klasör yedekleme 
 
 Azure VM yedeklemesi için,
 
-* **Linux**: Azure Backup, Core OS Linux hariç [Azure tarafından onaylanan bir dağıtım listesini](../virtual-machines/virtual-machines-linux-endorsed-distros.md) destekler.  Sanal makinede VM aracısı kullanılabilir olduğu ve Python desteği bulunduğu sürece diğer Kendi Linux’unu Getir dağıtımları da çalışabilir.
+* **Linux**: Azure Backup, Core OS Linux hariç [Azure tarafından onaylanan bir dağıtım listesini](../virtual-machines/virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) destekler.  Sanal makinede VM aracısı kullanılabilir olduğu ve Python desteği bulunduğu sürece diğer Kendi Linux’unu Getir dağıtımları da çalışabilir.
 * **Windows Server**:  Windows Server 2008 R2’den eski sürümler desteklenmez.
 
 ## <a name="where-can-i-download-the-latest-azure-backup-agent-br"></a>En son Azure Backup aracısını nereden indirebilirim? <br/>
@@ -127,7 +127,7 @@ Kesinlikle. Azure Backup, VM uzantısını kullanan Azure VM'ler için VM düzey
 ## <a name="can-i-install-the-azure-backup-agent-on-an-azure-vm-to-back-up-files-and-folders-present-on-temporary-storage-provided-by-the-azure-vm-br"></a>Azure Backup aracısını bir Azure VM'ye yükleyerek mevcut dosya ve klasörleri Azure VM tarafından sağlanan geçici depolama alanına yedekleyebilir miyim? <br/>
 Azure Backup aracısını, bir Konuk Windows işletim sistemine yükleyebilir ve dosya ve klasörleri geçici depolama alanına yedekleyebilirsiniz. Ancak geçici depolama verileri silindikten sonra yedeklemelerin başarısız olacağını lütfen unutmayın. Ayrıca, geçici depolama verilerinin silinmiş olması durumunda, yalnızca geçici olmayan depolama alanına geri yükleme gerçekleştirebilirsiniz.
 
-## <a name="i-have-installed-azure-backup-agent-to-protect-my-files-and-folders-can-i-now-install-scdpm-to-work-with-azure-backup-agent-to-protect-onpremises-applicationvm-workloads-to-azure-br"></a>Dosya ve klasörlerimi korumak için Azure Backup aracısını yükledim. Artık Azure'a yönelik şirket içi uygulama/VM iş yüklerini korumak için Azure Backup aracısıyla çalışmak üzere SCDPM'yi yükleyebilir miyim? <br/>
+## <a name="i-have-installed-azure-backup-agent-to-protect-my-files-and-folders-can-i-now-install-scdpm-to-work-with-azure-backup-agent-to-protect-on-premises-applicationvm-workloads-to-azure-br"></a>Dosya ve klasörlerimi korumak için Azure Backup aracısını yükledim. Artık Azure'a yönelik şirket içi uygulama/VM iş yüklerini korumak için Azure Backup aracısıyla çalışmak üzere SCDPM'yi yükleyebilir miyim? <br/>
 Azure Backup'ı SCDPM ile kullanmak için ilk olarak SCDPM'yi ve ancak bundan sonra Azure Backup aracısını yüklemeniz önerilir. Bu, Azure Backup aracısının SCDPM ile tümleştirmesinin sorunsuz şekilde gerçekleştirilmesini sağlar ve dosyaların/klasörlerin, Azure'a yönelik uygulama iş yüklerinin ve VM'lerin doğrudan SCDPM yönetim konsolundan korunmasına olanak tanır. Yukarıda belirtilen amaçlar doğrultusunda Azure Backup'ın yüklenmesinin ardından SCDPM'nin yüklenmesi önerilmez veya desteklenmez.
 
 ## <a name="what-is-the-length-of-file-path-that-can-be-specified-as-part-of-azure-backup-policy-using-azure-backup-agent-br"></a>Azure Backup aracısını kullanan Azure Yedekleme ilkesinin bir bölümü olarak belirtilebilecek dosya yolunun uzunluğu nedir? <br/>
@@ -240,13 +240,13 @@ Yedekleme verilerini şifrelemek için kullanılan anahtar yalnızca müşterini
 
   Yedekleme oluşturma yeni önbellek konumunda başarıyla tamamlandıktan sonra, özgün önbellek klasörünü kaldırabilirsiniz.
 
-## <a name="where-can-i-put-the-cachefolder-for-the-azure-backup-agent-to-work-as-expectedbr"></a>Azure Backup Aracısı'nın beklendiği şekilde çalışması için önbellek klasörünü nereye koyabilirim?<br/>
+## <a name="where-can-i-put-the-cache-folder-for-the-azure-backup-agent-to-work-as-expectedbr"></a>Azure Backup Aracısı'nın beklendiği şekilde çalışması için önbellek klasörünü nereye koyabilirim?<br/>
 Önbellek klasörü için aşağıdaki konumlar önerilmez:
 
 * Ağ paylaşımı veya Çıkarılabilir Medya: Önbellek klasörü, çevrimiçi yedekleme kullanılarak yedeklenmesi gereken sunucu için yerel olmalıdır. Ağ konumlarını veya USB sürücüleri gibi çıkarılabilir medyalar desteklenmez.
 * Çevrimdışı Birimler: Önbellek klasörü, Azure Backup Aracısı kullanılarak gerçekleştirilecek beklenen yedekleme için çevrimiçi olmalıdır.
 
-## <a name="are-there-any-attributes-of-the-cachefolder-that-are-not-supportedbr"></a>Önbellek klasörünün desteklenmeyen herhangi bir özniteliği var mıdır?<br/>
+## <a name="are-there-any-attributes-of-the-cache-folder-that-are-not-supportedbr"></a>Önbellek klasörünün desteklenmeyen herhangi bir özniteliği var mıdır?<br/>
  Aşağıdaki öznitelikler veya bunların bileşimleri, önbellek klasörü için desteklenmez:
 
 * Şifreli
