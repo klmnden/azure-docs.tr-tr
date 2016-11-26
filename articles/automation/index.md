@@ -1,13 +1,13 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: d6f53d51a2ceb6d499209b874c79d3d3ccb1758f
-ms.openlocfilehash: b36299b17809bafb0956818d346063e89b86b7c6
+ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
+ms.openlocfilehash: a561ca44e25eb1fe229397aca2cdb049e9c0575c
 
 ---
 # <a name="automation-documentation"></a>Otomasyon Belgeleri
 
-Azure Otomasyonu; kullanıcılara, bir bulut ortamında sık olarak gerçekleştirilen el ile, uzun süreli, hatasız ve sık tekrarlanan görevleri otomatik hale getirmek için bir yol sunar. Bu zamandan tasarruf sağlar ve normal yönetim görevlerinin güvenilirliğini artırır ve hatta bunları düzenli aralıklarla otomatik olarak gerçekleştirilecek şekilde zamanlar.
+Azure Otomasyonu; kullanıcılara, bir bulut ortamında sık olarak, el ile, uzun süreli, hataya açık ve tekrarlanan biçimde gerçekleştirilen görevleri otomatik hale getirmek için bir yol sunar. Bu zamandan tasarruf sağlar ve normal yönetim görevlerinin güvenilirliğini artırır ve hatta bunları düzenli aralıklarla otomatik olarak gerçekleştirilecek şekilde zamanlar.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -125,14 +125,50 @@ Azure Otomasyonu; kullanıcılara, bir bulut ortamında sık olarak gerçekleşt
 
 ## <a name="reference"></a>Başvuru
 
-### <a name="powershell"></a>PowerShell
-[Azure PowerShell Başvurusu](/powershell/azureps-cmdlets-docs)
-
-### <a name="net"></a>.NET
-[Azure Tarafından Yönetilen Başvuru API'si](/dotnet/api)
-
-### <a name="rest"></a>REST
-[Otomasyon REST API Başvurusu](https://msdn.microsoft.com/en-us/library/azure/mt662285)
+<ul class="panelContent cardsW">
+    <li>
+        <a href="/powershell/azureps-cmdlets-docs">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>PowerShell</h3>
+                        <p>Azure PowerShell Başvurusu</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+     <li>
+        <a href="/dotnet/api">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>.NET</h3>
+                        <p>Azure Yönetilen Başvuru API'si</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+     <li>
+        <a href="https://msdn.microsoft.com/en-us/library/azure/mt662285">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>Otomasyon REST API Başvurusu</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    </ul>
 
 
 <div class="downloadHolder">
@@ -145,6 +181,6 @@ Otomasyon Belgelerini indirme </div>
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

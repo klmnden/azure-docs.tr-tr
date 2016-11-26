@@ -24,22 +24,22 @@
 ### [Python kullanarak Event Hubs Arşivini etkinleştirme](event-hubs-archive-python.md)
 
 # Başvuru
-## [AMQP1.0 protokol kılavuzu](../service-bus-messaging/service-bus-amqp-protocol-guide.md)
-## [Event Hubs REST API Başvurusu](https://msdn.microsoft.com/library/azure/dn790674)
-## [Event Hubs .NET API başvurusu](https://msdn.microsoft.com/library/azure/jj933424)
-## [Olay İşlemcisi Konak API başvurusu](https://msdn.microsoft.com/library/microsoft.servicebus.messaging(v=azure.95).aspx)
 ## [Kotalar ve sınırlar](event-hubs-quotas.md)
-## [Event Hubs mesajlaşma özel durumları](event-hubs-messaging-exceptions.md)
+## [Mesajlaşma özel durumları](event-hubs-messaging-exceptions.md)
+## [Java](/java/api)
+## [.NET](/dotnet/api)
+## [AMQP1.0 protokol kılavuzu](../service-bus-messaging/service-bus-amqp-protocol-guide.md)
+## [REST](/rest/api/eventhub)
 
 # Kaynaklar
+## [Fiyatlandırma](https://azure.microsoft.com/en-us/pricing/details/event-hubs/)
+## [Öğrenme yolu](https://azure.microsoft.com/documentation/learning-paths/event-hubs/)
+## [Service Bus Explorer](https://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a)
+## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=event-hubs)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-eventhub)
-## [MSDN forumları](https://social.msdn.microsoft.com/forums/home?forum=servbus)
-## [Service Bus Explorer ile Service Bus ve Event Hubs kaynaklarını yönetme](https://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a)
-## [Event Hubs öğrenme yolu](https://azure.microsoft.com/documentation/learning-paths/event-hubs/)
+## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=event-hubs)
 
 
-
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

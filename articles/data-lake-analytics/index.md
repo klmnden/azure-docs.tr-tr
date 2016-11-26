@@ -1,9 +1,13 @@
 ---
 layout: LandingPage
----
-# Data Lake Analytics Documentation
+translationtype: Human Translation
+ms.sourcegitcommit: 98fdd8ee3dc1b90aae349652e471a218ef44a44e
+ms.openlocfilehash: aff52fe8a31d7ef9fe30f271a2885dca1cd9a861
 
-Azure Data Lake Analytics is a new service, built to make big data analytics easy. This service lets you focus on writing, running and managing jobs, rather than operating distributed infrastructure. Instead of deploying, configuring and tuning hardware, you write queries to transform your data and extract valuable insights. The analytics service can handle jobs of any scale instantly by simply setting the dial for how much power you need. You only pay for your job when it is running making it cost-effective. The analytics service supports Azure Active Directory letting you simply manage access and roles, integrated with your on-premises identity system. It also includes U-SQL, a language that unifies the benefits of SQL with the expressive power of user code. U-SQL’s scalable distributed runtime enables you to efficiently analyze data in the store and across SQL Servers in Azure, Azure SQL Database and Azure SQL Data Warehouse.
+---
+# <a name="data-lake-analytics-documentation"></a>Data Lake Analytics Belgeleri
+
+Azure Data Lake Analytics, büyük veri analizini kolaylaştırmak için oluşturulmuş yeni bir hizmettir. Bu arabirim, dağıtılan altyapıyı işletmek yerine, iş yazma, çalıştırma ve yönetme işlemlerine odaklanmanıza olanak tanır. Donanım dağıtma, yapılandırma ve ayarlama işlemleri yerine, verilerinizi dönüştürmek ve değerli öngörüleri ayıklamak için sorgular yazarsınız. Analytics hizmeti, ihtiyaç duyduğunuz düzeyde güç sağlayarak her ölçekten işlerle kullanılabilir. Yalnızca işiniz çalıştırıldığında ücret ödersiniz; bu da hizmeti uygun maliyetli kılar. Analytics hizmeti, Azure Active Directory'yi destekler ve bu sayede, şirketi içi kimlik sisteminizle tümleşik şekilde erişimi ve rolleri yönetmenize olanak tanır. Ayrıca, SQL'in avantajlarını kullanıcı kodunun ifade gücüyle birleştiren bir dil olan U-SQL'yi de içerir. U-SQL'nin ölçeklenebilir dağıtılmış çalışma zamanı, depodaki ve Azure içindeki SQL Server'lar, Azure SQL Database ve Azure SQL Data Warehouse genelindeki verileri etkin bir şekilde çözümlemenize olanak tanır.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -17,7 +21,7 @@ Azure Data Lake Analytics is a new service, built to make big data analytics eas
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Learn about Data Lake Analytics</h3>
+                        <h3>Data Lake Analytics hakkında bilgi edinin</h3>
                     </div>
                 </div>
             </div>
@@ -35,7 +39,7 @@ Azure Data Lake Analytics is a new service, built to make big data analytics eas
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure Data Lake Analytics Video Library</h3>
+                        <h3>Azure Data Lake Analytics Video Kitaplığı</h3>
                     </div>
                 </div>
             </div>
@@ -53,7 +57,7 @@ Azure Data Lake Analytics is a new service, built to make big data analytics eas
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with Azure Data Lake Analytics using Azure portal</h3>
+                        <h3>Azure portalı kullanarak Azure Data Lake Analytics ile çalışmaya başlama</h3>
                     </div>
                 </div>
             </div>
@@ -71,7 +75,7 @@ Azure Data Lake Analytics is a new service, built to make big data analytics eas
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with Azure Data Lake Analytics using Azure PowerShell</h3>
+                        <h3>Azure PowerShell'i kullanarak Azure Data Lake Analytics ile çalışmaya başlama</h3>
                     </div>
                 </div>
             </div>
@@ -89,7 +93,7 @@ Azure Data Lake Analytics is a new service, built to make big data analytics eas
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with Azure Data Lake Analytics using .NET SDK</h3>
+                        <h3>.NET SDK'yı kullanarak Azure Data Lake Analytics ile çalışmaya başlama</h3>
                     </div>
                 </div>
             </div>
@@ -107,7 +111,7 @@ Azure Data Lake Analytics is a new service, built to make big data analytics eas
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with Azure Data Lake Analytics using Java SDK</h3>
+                        <h3>Java SDK'yı kullanarak Azure Data Lake Analytics ile çalışmaya başlama</h3>
                     </div>
                 </div>
             </div>
@@ -125,7 +129,7 @@ Azure Data Lake Analytics is a new service, built to make big data analytics eas
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create U-SQL scripts using Data Lake Tools for Visual Studio</h3>
+                        <h3>Visual Studio için Data Lake Araçları'nı kullanarak U-SQL betikleri oluşturma</h3>
                     </div>
                 </div>
             </div>
@@ -143,7 +147,7 @@ Azure Data Lake Analytics is a new service, built to make big data analytics eas
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with Azure Data Lake Analytics using Azure CLI</h3>
+                        <h3>Azure CLI kullanarak Azure Data Lake Analytics ile çalışmaya başlama</h3>
                     </div>
                 </div>
             </div>
@@ -161,7 +165,7 @@ Azure Data Lake Analytics is a new service, built to make big data analytics eas
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with Azure Data Lake Analytics using REST APIs</h3>
+                        <h3>REST API’lerini kullanarak Azure Data Lake Analytics ile çalışmaya başlama | Azure</h3>
                     </div>
                 </div>
             </div>
@@ -172,19 +176,69 @@ Azure Data Lake Analytics is a new service, built to make big data analytics eas
 
 ---
 
-## Reference
+## <a name="reference"></a>Başvuru
 
-### PowerShell
-[Data Lake Analytics Resource Manager PowerShell Cmdlets](/powershell/resourcemanager/)
+<ul class="panelContent cardsW">
+    <li>
+        <a href="/powershell/resourcemanager/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>PowerShell</h3>
+                        <p>Data Lake Analytics Resource Manager PowerShell Cmdlet’leri</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
-### Java
-[Data Lake Analytics Java API Reference](/java/api/)
+    <li>
+        <a href="/java/api/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Java</h3>
+                        <p>Data Lake Analytics Java API Başvurusu</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
-### .NET
-[Data Lake Analytics Managed Reference](/dotnet/api)
+    <li>
+        <a href="/dotnet/api">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>.NET</h3>
+                        <p>Data Lake Analytics Yönetilen Başvurusu</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
-### REST
-[Data Lake Analytics REST API Reference](/rest/api/datalakeanalytics/)
+    <li>
+        <a href="/rest/api/datalakeanalytics/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>Data Lake Analytics REST API Başvurusu</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+</ul>
 
 ---
 
@@ -192,7 +246,12 @@ Azure Data Lake Analytics is a new service, built to make big data analytics eas
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/data-lake-analytics.pdf">
         <div class="img"></div>
         <div class="text">
-            Download Data Lake Analytics Documentation
-        </div>
+Data Lake Analytics Belgelerini indirin </div>
     </a>
 </div>
+
+
+
+<!--HONumber=Nov16_HO4-->
+
+

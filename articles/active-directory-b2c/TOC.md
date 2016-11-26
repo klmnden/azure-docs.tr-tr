@@ -1,6 +1,5 @@
 # Genel Bakış
-## [Azure AD B2C nedir?](https://azure.microsoft.com/services/active-directory-b2c/)
-## [Nasıl çalışır?](active-directory-b2c-overview.md)
+## [Genel Bakış](active-directory-b2c-overview.md)
 ## [Uygulama türleri](active-directory-b2c-apps.md)
 ## [Üretim ölçeği - B2C kiracılarını önizleme](active-directory-b2c-reference-tenant-type.md)
 
@@ -51,10 +50,12 @@
 ## [Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
 
 # Kaynaklar
-## [Destek](active-directory-b2c-support.md)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
 ## [Azure geri bildirim forumu](http://feedback.azure.com/forums/169401-azure-active-directory)
+## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=active-directory-b2c) 
+## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=active-directory-b2c)
+## [Destek](active-directory-b2c-support.md)
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

@@ -27,6 +27,7 @@
 ### [Çoklu müşteri mimarisi için tasarım desenleri](search-modeling-multitenant-saas-applications.md)
 ## Geliştirme
 ### [SDK’yı yükseltme](search-dotnet-sdk-migration.md)
+### [REST API’yi yükseltme](search-api-migration.md)
 ### [Karmaşık veri türlerini modelleme](search-howto-complex-data-types.md)
 ## Yönet
 ### Azure Search Yönetimi
@@ -37,12 +38,14 @@
 ### [Arama trafiği analizi](search-traffic-analytics.md)
 ### [Performans ve iyileştirme](search-performance-optimization.md)
 ## Veri yükleme
-### [Dizin veri kaynakları](search-indexer-overview.md)
-#### [Blob Depolama](search-howto-indexing-azure-blob-storage.md)
-#### [Azure Tabloları](search-howto-indexing-azure-tables.md)
-#### [SQL Veritabanı](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-#### [CSV blobları](search-howto-index-csv-blobs.md)
-### [SQL Server Azure VM Bağlantısı yapılandırma](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
+### [Dizin Oluşturucu’ya genel bakış](search-indexer-overview.md)
+### [Azure Blob Depolama dizin oluşturucu](search-howto-indexing-azure-blob-storage.md)
+### [Azure Tablo Depolama dizin oluşturucu](search-howto-indexing-azure-tables.md)
+### [Azure SQL dizin oluşturucu](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
+### [Azure DocumentDB dizin oluşturucu](../documentdb/documentdb-search-indexer.md?toc=%2fazure%2fsearch%2ftoc.json)
+### [CSV bloblarını dizine ekleme](search-howto-index-csv-blobs.md)
+### [JSON bloblarını dizine ekleme](search-howto-index-json-blobs.md)
+### [Azure sanal makinesinde dizin oluşturucu SQL Server bağlantılarını yapılandırma](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
 ### [Dizin oluşturucularda alan eşlemeleri](search-indexer-field-mappings.md)
 ##  Tasarım arama deneyimi
 ### [Lucene sözdizimi sorgu örnekleri](search-query-lucene-examples.md)
@@ -56,13 +59,13 @@
 
 # Başvuru
 ## [API sürümleri](search-api-versions.md)
-## [Java](/java/api/)
-## [.NET](/dotnet/api/)
-## [Lucene sorgu söz dizimi](https://msdn.microsoft.com/library/azure/mt589323)
-## [Basit sorgu söz dizimi](https://msdn.microsoft.com/library/azure/dn798920)
+## [Hizmet .NET](/dotnet/api/microsoft.azure.search)
+## [Yönetim .NET](/dotnet/api/microsoft.azure.management.search)
 ## [Hizmet REST](/rest/api/searchservice/)
 ## [Hizmet REST (Önizleme)](search-api-2015-02-28-preview.md)
 ## [Yönetim REST](/rest/api/searchmanagement/)
+## [Lucene sorgu söz dizimi](https://msdn.microsoft.com/library/azure/mt589323)
+## [Basit sorgu söz dizimi](https://msdn.microsoft.com/library/azure/dn798920)
 
 # Kaynaklar
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=search)
@@ -82,6 +85,6 @@
 ### [Azure Search Github](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

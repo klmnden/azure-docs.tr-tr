@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 4d6fd9344eaee31de4ee1e614ae558ce159c9245
-ms.openlocfilehash: 926beb8579ccdb1b0ed502ecb1892063ba976025
+ms.sourcegitcommit: 9a3c37b481761af546060e36b4a51e7d96dd4646
+ms.openlocfilehash: 7814791b5308152fa2b7d6d640401079b1a46107
 
 ---
 #<a name="load-balancer-documentation"></a>Yük Dengeleyici Belgeleri
@@ -86,23 +86,84 @@ Azure Load Balancer, uygulamalarınıza yüksek düzeyde kullanılabilirlik ve a
 
 ---
 
-##<a name="reference"></a>Başvuru
+## <a name="reference"></a>Başvuru
 
-###<a name="powershell"></a>PowerShell
-[Load Balancer PowerShell başvurusu](/powershell/azureps-cmdlets-doc)
+<ul class="panelContent cardsW">
+    <li>
+        <a href="/powershell/azureps-cmdlets-docs">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>PowerShell</h3>
+                        <p>Load Balancer PowerShell Başvurusu</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
-###<a name="azure-cli"></a>Azure CLI
-[Load Balancer Azure CLI] (/cli/azure/network/lb)
+<li>
+        <a href="/cli/azure/network/lb">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Azure CLI</h3>
+                        <p>Load Balancer Azure CLI</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
-###<a name="net"></a>.NET
-[.NET API Başvurusu](/dotnet/api)
+<li>
+        <a href="/dotnet/api">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>.NET</h3>
+                        <p>.NET API Başvurusu</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
-###<a name="java"></a>Java
-[Java API Başvurusu](/java/api)
+<li>
+        <a href="/java/api">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Java</h3>
+                        <p>Java API Başvurusu</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
-###<a name="rest"></a>REST
-[Yük Dengeleyici REST API Başvurusu](https://msdn.microsoft.com/library/azure/mt163651.aspx)
-
+    <li>
+        <a href="https://msdn.microsoft.com/library/azure/mt163651.aspx">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>Yük Dengeleyici REST API Başvurusu</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+</ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/load-balancer.pdf">
@@ -114,6 +175,6 @@ Yük Dengeleyici Belgelerini İndirme </div>
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

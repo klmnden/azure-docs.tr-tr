@@ -5,8 +5,9 @@
 
 # Başlarken
 ## [İş oluşturma ve yönetme](scheduler-get-started-portal.md)
+## [Kavramlar ve terminoloji](scheduler-concepts-terms.md)
 
-# Nasıl yapılır?
+# Nasıl yapılır
 ## Planlama ve tasarım
 ### [Planlar ve faturalandırma](scheduler-plans-billing.md)
 ### [Kotalar ve sınırlar](scheduler-limits-defaults-errors.md)
@@ -14,7 +15,7 @@
 
 ## Geliştirme
 ### [REST API’si kullanan karmaşık zamanlamalar](scheduler-advanced-complexity.md)
-### [Kavramlar ve terminoloji](scheduler-concepts-terms.md)
+
 
 ## Güvenlik
 ### [Giden bağlantı kimlik doğrulaması](scheduler-outbound-authentication.md)
@@ -25,13 +26,16 @@
 ## [REST](/rest/api/scheduler/)
 
 # Kaynaklar
-## [Forum](https://social.msdn.microsoft.com/Forums/home?forum=azurescheduler)
-## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=scheduler)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/scheduler/)
+## [MSDN forumu](https://social.msdn.microsoft.com/Forums/home?forum=azurescheduler)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-scheduler)
 ## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=scheduler)
+## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=scheduler)
 
 
-<!--HONumber=Nov16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO4-->
 
 

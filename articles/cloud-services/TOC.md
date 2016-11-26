@@ -98,9 +98,9 @@
 ### [Cloud Services ile ilgili SSS](cloud-services-faq.md)
 
 # Başvuru
-## [.NET](https://msdn.microsoft.com/library)
 ## [.csdef XMLSchema](https://msdn.microsoft.com/library/azure/ee758711)
 ## [.cscfg XMLSchema](https://msdn.microsoft.com/library/azure/ee758710)
+## [REST](https://msdn.microsoft.com/library/azure/ee460812)
 ## [Konuk işletim sistemi düzeltme ekleri](cloud-services-guestos-msrc-releases.md)
 ## Konuk işletim sistemini kullanımdan kaldırma
 ### [Kullanımdan kaldırma ilkesi](cloud-services-guestos-retirement-policy.md)
@@ -116,6 +116,6 @@
 ## [Öğrenme yolu](https://azure.microsoft.com/documentation/learning-paths/cloud-services/)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

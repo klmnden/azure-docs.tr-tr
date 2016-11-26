@@ -17,11 +17,12 @@
 ## [SSS](../virtual-machines-linux-faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 # Başlarken
-## [Portalı kullanarak VM oluşturma](../virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+## [Portal ile VM oluşturma](../virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Linux ve Mac’te SSH anahtarları oluşturma](../virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [VM oluşturmak için farklı yöntemler](../virtual-machines-linux-creation-choices.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Azure CLI'yı yükleme](../../xplat-cli-install.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-## [CLI kullanarak VM oluşturma](../virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+## [Azure CLI 2.0 (Preview) ile VM oluşturma](../virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+## [Azure CLI ile VM oluşturma](../virtual-machines-linux-quick-create-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Şablon kılavuzu](../../resource-manager-template-walkthrough.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Karmaşık VM şablonları oluşturma ve dağıtma](../virtual-machines-linux-dotnet-core-1-landing.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Uygulama mimarisi](../virtual-machines-linux-dotnet-core-2-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -107,7 +108,6 @@
 
 ## [Otomatikleştirme](../virtual-machines-linux-extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Özel Betik uzantısı](../virtual-machines-linux-extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-### [VM Erişimi uzantısı](../virtual-machines-linux-using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [VM’nizi izleme](../virtual-machines-linux-vm-monitoring.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Şablonlardaki uzantılar](../virtual-machines-linux-extensions-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Yapılandırma örnekleri](../virtual-machines-linux-extensions-configuration-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -160,15 +160,20 @@
 ### [Ayırma hataları ile ilgili sorunları giderme](../virtual-machines-linux-allocation-failure.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Dağıtım sorunlarını giderme](../virtual-machines-linux-troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [VM’i yeni bir Azure düğümüne yeniden dağıtın](../virtual-machines-linux-redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### VM sorunlarını gidermek için sanal sabit disk takma
+#### [Azure CLI](../virtual-machines-linux-troubleshoot-recovery-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 
+#### [Azure portal](../virtual-machines-linux-troubleshoot-recovery-disks-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 # Başvuru
+## [PowerShell](/powershell/azureps-cmdlets-docs)
 ## [Azure CLI](/cli/azure/vm)
-## [Java](/java/api/)
+## [Java](/java/api)
+## [.NET](/dotnet/api/microsoft.azure.management.compute)
 ## [Resource Manager şablonları yazma](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-## [Topluluk şablonları](https://azure.microsoft.com/documentation/templates/)
-## [İşlem REST](/rest/api/compute/)
-## [Ağ REST](/rest/api/)
-## [Depolama REST](/rest/api/storageservices/)
+## [Topluluk şablonları](https://azure.microsoft.com/documentation/templates)
+## [İşlem REST](/rest/api/compute)
+## [Ağ REST](/rest/api)
+## [Depolama REST](/rest/api/storageservices)
 
 
 
@@ -179,6 +184,6 @@
 ## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

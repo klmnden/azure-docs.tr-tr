@@ -13,12 +13,13 @@
 ### [CLI](dns-getstarted-create-recordset-cli.md)
 
 ## [Etki alanınızı Azure DNS'e atama](dns-domain-delegation.md)
+## [Bir web uygulaması için özel DNS kayıtları oluşturma](dns-web-sites-custom-domain.md)
 
-# Nasıl yapılır?
+# Nasıl yapılır
 
 ## DNS bölgelerini yönetme
 ### [PowerShell](dns-operations-dnszones.md)
-### [CLI](dns-operations-dnszones.md)
+### [CLI](dns-operations-dnszones-cli.md)
 
 ## [DNS kayıtlarını yönetme](dns-operations-recordsets-portal.md)
 ### [PowerShell](dns-operations-recordsets.md)
@@ -29,12 +30,12 @@
 ### [PowerShell](dns-reverse-dns-record-operations-classic-ps.md)
 
 ## [DNS bölge dosyasını içeri ve dışarı aktarma](dns-import-export.md)
-## [Diğer Azure hizmetleri ile Azure DNS kullanma](dns-for-azure-services.md)
+## [Diğer Azure hizmetleri ile tümleştirme](dns-for-azure-services.md)
 ## [DNS bölgeleri ve kayıtlarını koruma](dns-protect-zones-recordsets.md)
 ## [.NET SDK ile DNS işlemlerini otomatikleştirme](dns-sdk.md)
 
 # Başvuru
-## [PowerShell](/powershell/azureps-cmdlets-docs/)
+## [PowerShell](/powershell/azureps-cmdlets-docs)
 ## [REST API'ler](/rest/api/dns/)
 
 # İlgili
@@ -46,11 +47,12 @@
 ## [Web uygulamaları](/azure/app-service-web/)
 
 # Kaynaklar
-## [Ağ blogu](http://azure.microsoft.com/blog/topics/networking)
-## [Ağ forumu](https://social.msdn.microsoft.com/Forums/home?forum=WAVirtualMachinesVirtualNetwork)
+## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=dns)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/dns/)
+## [MSDN forumu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
+## [Ağ blogu](http://azure.microsoft.com/blog/topics/networking)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

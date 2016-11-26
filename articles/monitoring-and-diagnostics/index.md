@@ -1,10 +1,14 @@
 ---
-Layout: LandingPage
+layout: LandingPage
+translationtype: Human Translation
+ms.sourcegitcommit: 086574639b31ee82ab72efbc93d58af735524a1b
+ms.openlocfilehash: b03565feb98f18d2a90d72e154901baf0dd89df0
+
 ---
 
-#Monitoring and Diagnostics Documentation
+# <a name="monitoring-and-diagnostics-documentation"></a>İzleme ve Tanılama Belgeleri
 
-Monitoring and Diagnostics is a distributed systems platform that makes it easy to package, deploy, and manage scalable and reliable microservices and addresses the significant challenges in developing and managing cloud applications.  Monitoring and Diagnostics represents the next-generation middleware platform for building and managing these enterprise-class, Tier-1 cloud-scale applications.
+İzleme ve Tanılama; ölçeklenebilir ve güvenilir mikro hizmetleri paketlemeyi, dağıtmayı ve yönetmeyi kolaylaştırmanın yanı sıra, bulut uygulamalarını geliştirme ve yönetme sürecinde karşılaşılan başlıca sorunların giderilmesini de sağlayan bir dağıtılmış sistemler platformudur.  İzleme ve Tanılama, 1. katman bulut ölçeğindeki bu kurumsal sınıf uygulamaları oluşturmak ve yönetmek için tasarlanan yeni nesil bir ara yazılım platformudur.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -18,7 +22,7 @@ Monitoring and Diagnostics is a distributed systems platform that makes it easy 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Learn about Azure Monitoring and diagnostics</h3>
+                        <h3>Azure İzleme ve tanılama hakkında bilgi edinin</h3>
                     </div>
                 </div>
             </div>
@@ -36,7 +40,7 @@ Monitoring and Diagnostics is a distributed systems platform that makes it easy 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create alerts for Azure Services using Azure Portal</h3>
+                        <h3>Azure Portal’ı kullanarak Azure Hizmetleri için uyarı oluşturma</h3>
                     </div>
                 </div>
             </div>
@@ -54,7 +58,7 @@ Monitoring and Diagnostics is a distributed systems platform that makes it easy 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create alerts for Azure Services using cross-platform CLI</h3>
+                        <h3>Platformlar arası CLI’yı kullanarak Azure Hizmetleri için uyarı oluşturma</h3>
                     </div>
                 </div>
             </div>
@@ -72,7 +76,7 @@ Monitoring and Diagnostics is a distributed systems platform that makes it easy 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create alerts for Azure Services using PowerShell</h3>
+                        <h3>PowerShell’i kullanarak Azure Hizmetleri için uyarı oluşturma</h3>
                     </div>
                 </div>
             </div>
@@ -90,7 +94,7 @@ Monitoring and Diagnostics is a distributed systems platform that makes it easy 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a metric alert with a Resource Manager template</h3>
+                        <h3>Resource Manager şablonu ile ölçüm uyarısı oluşturma</h3>
                     </div>
                 </div>
             </div>
@@ -101,25 +105,76 @@ Monitoring and Diagnostics is a distributed systems platform that makes it easy 
 
 ---
 
-##Reference
+## <a name="reference"></a>Başvuru
 
-###PowerShell
-[Monitoring and Diagnostics PowerShell Cmdlet](https://msdn.microsoft.com/library/azure/mt282452#40v=azure.200#41)
-
-###Azure CLI
-[Monitoring and Diagnostics Azure CLI](/cli/azure)
-
-###.NET
-[Monitoring and Diagnostics Managed Reference](https://msdn.microsoft.com/library/azure/mt416943)
-
-###REST
-[Monitoring and Diagnostics REST API Reference](/rest/api/monitor)
+<ul class="panelContent cardsW">
+    <li>
+        <a href="https://msdn.microsoft.com/library/azure/mt282452#40v=azure.200#41">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>PowerShell</h3>
+                        <p>İzleme ve Tanılama PowerShell Cmdlet'i</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/cli/azure">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Azure CLI</h3>
+                        <p>İzleme ve Tanılama Azure CLI’si</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="https://msdn.microsoft.com/library/azure/mt416943">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>.NET</h3>
+                        <p>İzleme ve Tanılama Yönetilen Başvurusu</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="https://msdn.microsoft.com/library/azure/dn931943">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>İzleme ve Tanılama REST API Başvurusu</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+<ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/monitoring-and-diagnostics.pdf">
         <div class="img"></div>
         <div class="text">
-            Download Monitoring and Diagnostics Documentation
-        </div>
+İzleme ve Tanılama Belgelerini indirin </div>
     </a>
 </div>
+
+
+<!--HONumber=Nov16_HO4-->
+
+

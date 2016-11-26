@@ -53,7 +53,7 @@
 # Başvuru
 ## [Fiyatlandırma ayrıntıları](service-bus-pricing-billing.md)
 ## [Örnekler](service-bus-samples.md)
-## [Özel durumlar](service-bus-messaging-exceptions.md)
+## [Özel Durumlar](service-bus-messaging-exceptions.md)
 ## [Kotalar](service-bus-quotas.md)
 ## [.NET](/dotnet/api/)
 ## [REST](/rest/api/servicebus/)
@@ -69,6 +69,6 @@
 ## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

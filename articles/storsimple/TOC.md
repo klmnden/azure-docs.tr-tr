@@ -1,7 +1,4 @@
-# StorSimple'a Genel Bakış
-
 # StorSimple Sanal Dizisi
-
 ## Genel Bakış
 ### [Çözüm nedir?](storsimple-ova-overview.md)
 
@@ -54,6 +51,7 @@
 ### Yükleme
 #### [Güvenliği inceleme](storsimple-safety.md)
 #### [8100 için açma, raflama ve kablolama](storsimple-8100-hardware-installation.md)
+
 #### [8600 için açma, raflama ve kablolama](storsimple-8600-hardware-installation.md)
 #### [10 GbE ağ arabirimleri için desteklenen donanımlar](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
 
@@ -63,6 +61,7 @@
 ##### [Azure’da fiziksel cihaz - Güncelleştirme 1](storsimple-deployment-walkthrough-u1.md)
 ##### [Azure’da fiziksel cihaz - GA](storsimple-deployment-walkthrough.md)
 #### [Kamu Portalı'nda fiziksel cihaz - geçerli](storsimple-deployment-walkthrough-gov-u2.md)
+##### [Kamu Portalı'nda fiziksel cihaz - geçerli](storsimple-deployment-walkthrough-gov.md)
 #### [Azure’da sanal cihaz](storsimple-virtual-device-u2.md)
 #### [StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md)
 #### [SharePoint için StorSimple Bağdaştırıcısı](storsimple-adapter-for-sharepoint.md)
@@ -139,7 +138,7 @@
 ##### [Destek paketi oluşturma](storsimple-create-manage-support-package.md)
 
 ### Geçiş
-#### [5000-7000 serisinden](https://gallery.technet.microsoft.com/Azure-StorSimple-50007000-19253270)
+#### [5000-7000 serisinden](https://gallery.technet.microsoft.com/Azure-StorSimple-50007000-c1a0460b)
 #### [Diğer depolama cihazlarından](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf)
 
 ### Güncelleştirme
@@ -160,22 +159,26 @@
 ### [Güncelleştirme 0.1](storsimple-july-2014-release-notes.md)
 
 ## Başvuru
-### [PowerShell](/powershell/servicemanagement/)
+### [Azure PowerShell](/powershell/servicemanagement)
+### [StorSimple cmdlet’leri için Windows PowerShell] (https://technet.microsoft.com/library/dn688168.aspx)
 
 # İlgili
 ## [StorSimple 5000-7000 Series](http://onlinehelp.storsimple.com)
 
 # Kaynaklar
-## [Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=StorSimple)
+## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/storsimple/)
+## [MSDN forumu](https://social.msdn.microsoft.com/Forums/azure/home?forum=StorSimple)
+## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=storsimple)
+## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=storsimple)
 ## [Pazarlama blogu](http://blogs.technet.com/b/cis/)
 ## [Pazarlama blogu](https://www.microsoft.com/server-cloud/products/storsimple/explore.aspx)
 ## [Destek blogu](http://blogs.msdn.com/b/storsimple/)
 ## [Üçüncü taraf bildirimleri](http://download.microsoft.com/download/2/0/0/2003271D-69D5-4143-85A2-F1D8EA058F52/StorSimple TPNs.zip)
-## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=storsimple)
-## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/storsimple/)
-## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=storsimple)
 
 
-<!--HONumber=Nov16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO4-->
 
 

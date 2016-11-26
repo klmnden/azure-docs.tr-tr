@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 29794682e0258a6d30c9b2ac96b6e58272bc3f48
-ms.openlocfilehash: af563864a5f76452ea2d28c548731c025f5f8390
+ms.sourcegitcommit: 87316969b7849396c6542decde3257774c35c454
+ms.openlocfilehash: dc15cd4e497135ea9ce07d671020af6df49ad3f6
 
 ---
 #<a name="azure-functions-documentation"></a>Azure İşlevleri Belgeleri
@@ -28,7 +28,7 @@ Azure İşlevleri, küçük kod parçalarını ("işlevleri") bulutta kolayca ç
         </div>
         </a>
     </li>
-   
+
    <li>
         <a href="/azure/azure-functions/functions-create-first-azure-function">
         <div class="cardSize">
@@ -54,11 +54,11 @@ Azure İşlevleri, küçük kod parçalarını ("işlevleri") bulutta kolayca ç
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Web kancası işlevi oluşturma</h3>
+                        <h3>Bir web kancası işlevini kullanmaya başlama</h3>
                     </div>
                 </div>
             </div>
@@ -72,11 +72,11 @@ Azure İşlevleri, küçük kod parçalarını ("işlevleri") bulutta kolayca ç
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure bağlantılı işlev oluşturma</h3>
+                        <h3>Azure bağlantılı işlev oluşturmaya başlama</h3>
                     </div>
                 </div>
             </div>
@@ -90,11 +90,11 @@ Azure İşlevleri, küçük kod parçalarını ("işlevleri") bulutta kolayca ç
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Olay işleme işlevi oluşturma</h3>
+                        <h3>Olay işleme işlevi oluşturmaya başlama</h3>
                     </div>
                 </div>
             </div>
@@ -104,18 +104,6 @@ Azure İşlevleri, küçük kod parçalarını ("işlevleri") bulutta kolayca ç
 </ul>
 
 ---
-
-##<a name="reference"></a>Başvuru
-
-### <a name="c35"></a>C&#35;
-[C# Geliştirici Başvurusu](/azure/azure-functions/functions-reference-csharp)
-
-### <a name="f35"></a>F&#35;
-[F# Geliştirici Başvurusu](/azure/azure-functions/functions-reference-fsharp)
-
-### <a name="nodejs"></a>Node.js
-[Node.js Geliştirici Başvurusu](/azure/azure-functions/functions-reference-node)
-
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/azure-functions.pdf">
@@ -127,6 +115,6 @@ Azure İşlevleri Belgelerini İndirme </div>
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

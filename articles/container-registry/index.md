@@ -1,46 +1,28 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 448cccdf35510db9bac9cdb5648739b18302c90b
-ms.openlocfilehash: 146078c8caf1bcd757d3e19aae5860aba9049ab9
+ms.sourcegitcommit: 42be91bb4ddf87671ed9c3c5b2e5e640b0c5b059
+ms.openlocfilehash: fe9ee140084f0ab659e9db519098bbeb03305470
 
 ---
-#<a name="expressroute-documentation"></a>ExpressRoute Belgeleri
 
-Azure ExpressRoute, bağlantı sağlayıcı tarafından kolaylaştırılan adanmış özel bağlantı üzerinden şirket içi ağlarınızı Microsoft bulutuna genişletmenizi sağlar. Ortak yerleşim tesisinde bağlantı sağlayıcısı üzerinden herhangi bir ağdan herhangi bir ağa (IP VP), noktadan noktaya Ethernet ağı veya sanal çapraz bağlantısından bağlantı olabilir. 
+# <a name="azure-container-registry-documentation"></a>Azure Container Registry Belgeleri
 
+Azure Container Registry (önizleme), kapsayıcı görüntülerini barındırmaya yönelik özel bir kayıt defteridir. Azure Container Registry’yi kullanarak, tüm kapsayıcı dağıtımı türleri için Docker ile biçimlendirilmiş görüntüleri depolayabilirsiniz. Azure Container Registry, Azure Container Service’te barındırılan Docker Swarm, DC/OS ve Kubernetes gibi düzenleyicilerle sorunsuzca tümleştirilir. 
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/expressroute/expressroute-introduction">
+        <a href="/azure/container-registry/container-registry-intro">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/expressroute.svg" alt="" />
+                            <img src="./media/index/container-registry.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>ExpressRoute Hakkında Bilgi Edinin</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-     <li>
-        <a href="https://azure.microsoft.com/documentation/videos/index/?services=expressroute">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/video-library.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Azure ExpressRoute Video Kitaplığı</h3>
+                        <h3>Azure Container Registry hakkında bilgi edinin</h3>
                     </div>
                 </div>
             </div>
@@ -48,17 +30,35 @@ Azure ExpressRoute, bağlantı sağlayıcı tarafından kolaylaştırılan adanm
         </a>
     </li>
     <li>
-        <a href="/azure/expressroute/expressroute-prerequisites">
+        <a href="/azure/container-registry/container-registry-get-started-portal">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
+                            <img src="./media/index/portal.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>ExpressRoute'u kullanmaya başlama</h3>
+                        <h3>Portal ile kayıt defteri oluşturmaya başlama</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/azure/container-registry/container-registry-get-started-azure-cli">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="./media/index/cli.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>CLI ile kayıt defteri oluşturmaya başlama</h3>
                     </div>
                 </div>
             </div>
@@ -66,35 +66,32 @@ Azure ExpressRoute, bağlantı sağlayıcı tarafından kolaylaştırılan adanm
         </a>
     </li>
 </ul>
-
----
 
 ## <a name="reference"></a>Başvuru
 
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
+        <a href="/cli/azure/acr">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Azure PowerShell başvurusu</p>
+                        <h3>CLI</h3>
+                        <p>CLI Başvurusu</p>
                     </div>
                 </div>
             </div>
         </div>
         </a>
     </li>
-
-<li>
-        <a href="https://msdn.microsoft.com/library/mt586720">
+    <li>
+        <a href="/rest/api/containerregistry">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>ExpressRoute REST API Başvurusu</p>
+                        <p>REST API Başvurusu</p>
                     </div>
                 </div>
             </div>
@@ -102,14 +99,6 @@ Azure ExpressRoute, bağlantı sağlayıcı tarafından kolaylaştırılan adanm
         </a>
     </li>
 </ul>
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/expressroute.pdf">
-        <div class="img"></div>
-        <div class="text">
-ExpressRoute Belgelerini indirin </div>
-    </a>
-</div>
 
 
 

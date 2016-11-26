@@ -28,10 +28,9 @@
 
 ### [Genel Bakış](sql-data-warehouse-connect-overview.md)
 ### [Bağlantı dizeleri](sql-data-warehouse-connection-strings.md)
-### Sorgu
-#### [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
-#### [SSMS](sql-data-warehouse-query-ssms.md)
-#### [Visual Studio](sql-data-warehouse-query-visual-studio.md)
+### [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
+### [SSMS](sql-data-warehouse-query-ssms.md)
+### [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 ### [Visual Studio yükleme](sql-data-warehouse-install-visual-studio.md)
 
 ## Geliştirme
@@ -82,8 +81,7 @@
 ### [AzCopy](sql-data-warehouse-load-from-sql-server-with-azcopy.md)
 ### [BCP](sql-data-warehouse-load-with-bcp.md)
 ### [SQL Server'dan BCP](sql-data-warehouse-load-from-sql-server-with-bcp.md)
-### [Data Factory](sql-data-warehouse-get-started-load-with-azure-data-factory.md)
-### [Blob depolamadan Data Factory](sql-data-warehouse-load-from-azure-blob-storage-with-data-factory.md)
+### [Data Factory](sql-data-warehouse-load-with-data-factory.md)
 ### [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)
 ### [PolyBase kılavuzu](sql-data-warehouse-load-polybase-guide.md)
 ### [Blob depolamadan PolyBase](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
@@ -111,6 +109,7 @@
 ## Performans
 
 ### [Genel Bakış](sql-data-warehouse-overview-manage-user-queries.md)
+### [Columnstore sıkıştırması](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)
 ### [Sorgular](sql-data-warehouse-manage-monitor.md)
 ### [İş yükü](sql-data-warehouse-develop-concurrency.md)
 ### [Sorun giderme](sql-data-warehouse-troubleshoot.md)
@@ -146,6 +145,6 @@
 ### [Veri yönetimi](sql-data-warehouse-partner-data-management.md)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 
