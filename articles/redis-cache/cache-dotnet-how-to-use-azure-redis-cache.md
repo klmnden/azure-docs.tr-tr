@@ -210,7 +210,7 @@ Artık temel bilgileri öğrendiğinize göre, Azure Redis Önbelleği hakkında
 * [redis][redis] belgelerine bakın ve [redis veri türleri][redis veri türleri] hakkında bilgi edinin ve [Redis veri türlerine on beş dakikalık bir giriş][Redis veri türlerine on beş dakikalık bir giriş]’e göz atın.
 
 <!-- INTRA-TOPIC LINKS -->
-[Sonraki adımlar]: #next-steps
+[Sonraki Adımlar]: #next-steps
 [Azure Redis Önbelleğine giriş (Video)]: #video
 [Azure Redis Önbelleği nedir?]: #what-is
 [Bir Azure Önbelleği oluşturma]: #create-cache
@@ -266,7 +266,7 @@ Artık temel bilgileri öğrendiğinize göre, Azure Redis Önbelleği hakkında
 [Sanal Makine Boyutlarını Yapılandırma]: http://go.microsoft.com/fwlink/?LinkId=164387
 [Azure Önbelleği Kapasite Planlamada Dikkate Alınması Gerekenler]: http://go.microsoft.com/fwlink/?LinkId=320167
 [Azure Önbelleği]: http://go.microsoft.com/fwlink/?LinkId=252658
-[Nasıl yapılır: Bir ASP.NET Sayfasının Önbelleğe Alınabilirliğini Bildirimli Olarak]: http://msdn.microsoft.com/library/zd1ysf1y.aspx Ayarlama
+[Nasıl yapılır: Bir ASP.NET Sayfasının Önbelleğe Alınabilirliğini Bildirimli Olarak Ayarlama]: http://msdn.microsoft.com/library/zd1ysf1y.aspx
 [Nasıl yapılır: Bir Sayfanın Önbelleğe Alınabilirliğini Programlı Olarak Ayarlama]: http://msdn.microsoft.com/library/z852zf6b.aspx
 [Azure Redis Önbelleğinde önbellek yapılandırma]: http://msdn.microsoft.com/library/azure/dn793612.aspx
 
