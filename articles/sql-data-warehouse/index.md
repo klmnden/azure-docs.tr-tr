@@ -47,7 +47,7 @@ Azure SQL Veri Ambarı SQL Server ilişkisel veritabanıyla Azure bulut ölçeğ
         </a>
     </li>
      <li>
-        <a href="/azure/SQL-Data-WArehouse/sql-data-warehouse-get-started-provision/">
+        <a href="/azure/sql-data-WArehouse/sql-data-warehouse-get-started-provision">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
