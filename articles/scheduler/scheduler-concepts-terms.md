@@ -176,7 +176,7 @@ Scheduler işi başarısız olursa, eylemin yeniden denenip denenmeyeceğini ve 
 
 Bir yeniden deneme ilkesi ayarlamak için iki ek ayar belirtilebilir: yeniden deneme aralığı (**retryInterval**) ve yeniden deneme sayısı (**retryCount**).
 
-**retryInterval** nesnesi ile belirtilen yeniden deneme aralığı, yeniden denemeler arasındaki aralıktır. Varsayılan değer 30 saniye, minimum yapılandırılabilir değeri 15 saniye, ve maksimum değeri 18 aydır. Ücretsiz iş koleksiyonlarındaki işleri 1 saat şeklinde minimum yapılandırabilir değere sahiptir.  ISO 8601 biçiminde tanımlıdır. Benzer şekilde, yeniden deneme sayısı değeri **retryCount** nesnesiyle belirtilir; bu yeniden denemeye çalışılacak sayıdır. Varsayılan değeri 4’tür ve maksimum değeri 20'dir\.. **retryInterval** ve **retryCount** nesneleri isteğe bağlıdır. **retryType** **sabit** olara ayarlanır ve açık şekilde bir değer belirtilmezse, bunlar belirtilen varsayılan değerlerdir.
+**retryInterval** nesnesi ile belirtilen yeniden deneme aralığı, yeniden denemeler arasındaki aralıktır. Varsayılan değer 30 saniye, minimum yapılandırılabilir değeri 15 saniye, ve maksimum değeri 18 aydır. Ücretsiz iş koleksiyonlarındaki işleri 1 saat şeklinde minimum yapılandırabilir değere sahiptir.  ISO 8601 biçiminde tanımlıdır. Benzer şekilde, yeniden deneme sayısı değeri **retryCount** nesnesiyle belirtilir; bu yeniden denemeye çalışılacak sayıdır. Varsayılan değeri 4’tür ve maksimum değeri 20'dir\. **retryInterval** ve **retryCount** nesneleri isteğe bağlıdır. **retryType** **sabit** olara ayarlanır ve açık şekilde bir değer belirtilmezse, bunlar belirtilen varsayılan değerlerdir.
 
 ## <a name="see-also"></a>Ayrıca bkz.
  [Scheduler nedir?](scheduler-intro.md)
