@@ -21,7 +21,7 @@
 ## [Örnekler](service-bus-relay-samples.md)
 ## [Karma Bağlantılar .NET API’si](/dotnet/api/microsoft.servicebus)
 ## [WCF Geçişi .NET API’si](/dotnet/api/microsoft.servicebus)
-
+## [Bağlantı noktası ayarları](service-bus-relay-port-settings.md)
 
 # Kaynaklar
 ## [Blog](https://blogs.msdn.microsoft.com/servicebus/)
@@ -33,6 +33,6 @@
 ## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Nov16_HO5-->
 
 

@@ -111,7 +111,7 @@
 ### Öğrenin
 #### [Genel Bakış](sql-database-business-continuity.md)
 #### [Veritabanı yedeklemeleri](sql-database-automated-backups.md)
-#### [Uzun vadeli elde tutma](sql-database-long-term-retention.md) 
+#### [Uzun vadeli bekletme](sql-database-long-term-retention.md)
 #### [Yedeklemeleri kullanarak veritabanı kurtarma](sql-database-recovery-using-backups.md)
 #### [Olağanüstü durum kurtarma için kimlik doğrulama gereksinimleri](sql-database-geo-replication-security-config.md)
 #### [İş sürekliliği tasarım senaryoları](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
@@ -358,8 +358,6 @@
 ## [BCP](https://msdn.microsoft.com/library/ms162802.aspx)
 ## [SQLCMD](https://msdn.microsoft.com/library/ms162773.aspx)
 ## [SqlPackage](https://msdn.microsoft.com/hh550080.aspx)
-
-
 
 
 <!--HONumber=Nov16_HO4-->

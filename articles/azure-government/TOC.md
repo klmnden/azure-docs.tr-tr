@@ -16,6 +16,7 @@
 ### [Market](documentation-government-manage-marketplace.md)
 ### [İş ortakları için market](documentation-government-manage-marketplace-partners.md)
 ### [Resource Manager](documentation-government-manage-azure-resource-manager.md)
+### [Operations Management Suite](documentation-government-manage-oms.md)
 ### [Abonelik](documentation-government-manage-subscriptions.md)
 
 # Başvuru

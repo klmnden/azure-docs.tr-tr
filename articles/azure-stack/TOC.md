@@ -79,7 +79,6 @@
 
 # Sorun giderme
 ## [Azure Stack sorunlarını giderme](azure-stack-troubleshooting.md)
-## [Web Apps Kaynak Sağlayıcısı](azure-stack-webapps-troubleshoot-known-issues.md)
 
 # Kaynaklar
 ## [Araçlar](azure-stack-tools-paas-services.md)

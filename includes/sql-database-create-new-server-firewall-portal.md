@@ -2,35 +2,32 @@
 <!--
 includes/sql-database-create-new-server-firewall-portal.md
 
-Latest Freshness check:  2016-08-01 , rickbyh.
+Latest Freshness check:  2016-11-28 , rickbyh.
 
 As of circa 2016-04-11, the following topics might include this include:
 articles/sql-database/sql-database-get-started-tutorial.md
 articles/sql-database/sql-database-configure-firewall-settings
 
 -->
-## <a name="create-a-new-azure-sql-serverlevel-firewall"></a>Yeni bir Azure SQL sunucu düzeyinde güvenlik duvarı oluşturma
+## <a name="create-a-new-azure-sql-server-level-firewall"></a>Yeni bir Azure SQL sunucu düzeyinde güvenlik duvarı oluşturma
 Tek bir IP adresinden (istemci bilgisayarınız) veya bir IP adresi aralığının tamamından SQL Veritabanı mantıksal sunucusuna bağlantılara izin veren sunucu düzeyinde güvenlik duvarı kuralı oluşturmak için Azure portalında aşağıdaki adımları kullanın.
 
 1. O anda bağlı değilseniz [Azure portal](http://portal.azure.com)’a bağlanın.
 2. Varsayılan dikey penceresinde **SQL sunucuları**’na tıklayın.
    
       ![Yeni sunucu güvenlik duvarı](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-1.png)
-3. **SQL sunucuları** dikey penceresinde güvenlik duvarı kuralının oluşturulacağı SQL sunucusuna tıklayın.
+3. **SQL sunucuları** dikey penceresinde güvenlik duvarı kuralının oluşturulacağı sunucuya tıklayın.
    
      ![Yeni sunucu güvenlik duvarı](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-2.png)
-4. Sunucunuz özelliklerini gözden geçirin.
+4. Sunucunuzun özelliklerini gözden geçirin ve **Güvenlik Duvarı**’na tıklayın.
    
      ![Yeni sunucu güvenlik duvarı](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-3.png)
-5. **Ayarlar** dikey penceresinde **Güvenlik Duvarı**’na tıklayın.
-   
-     ![Yeni sunucu güvenlik duvarı](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-4.png)
    
    > [!NOTE]
    > Sunucu düzeyi **Güvenlik duvarı ayarları** dikey penceresine **Veritabanı** dikey penceresi araç çubuğundan da erişebilirsiniz.
-   > 
-   > 
-6. Azure’un, istemcinizin IP adresi için bir kural oluşturmasını sağlamak için **İstemci IP’si ekle**’ye tıklayın.
+    
+    
+6. Azure’un IP adresinizi kural kutularına doldurması için **İstemci IP adresi ekle**’ye tıklayın.
    
       ![Yeni sunucu güvenlik duvarı](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-5.png)
 7. İsteğe bağlı olarak, bir IP adresi aralığına erişime izin vermek için güvenlik duvarı adresini düzenlemek üzere eklenen IP adresine tıklayın.
@@ -47,6 +44,6 @@ Tek bir IP adresinden (istemci bilgisayarınız) veya bir IP adresi aralığın�
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO5-->
 
 

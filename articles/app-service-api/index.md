@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 84efac2879c77ea2ba71127db8a05970649f6863
-ms.openlocfilehash: 078421d67ae2b2f0854b6f31bb97d146224ef685
+ms.sourcegitcommit: 2169b6e72c82ad4d9bf4b443d681c22c770229d5
+ms.openlocfilehash: 48b251543871b3ac3a7aad89bc025feabb83e242
 
 
 ---
@@ -58,7 +58,7 @@ API Apps, Azure App Service tarafından sunulan dört uygulama türünden biridi
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure App Service’de API Apps, ASP.NET ve Swagger kullanmaya başlama</h3>
+                        <h3>Azure App Service’te API Apps, ASP.NET ve Swagger kullanmaya başlama</h3>
                     </div>
                 </div>
             </div>
@@ -133,6 +133,6 @@ Mobile Apps Belgelerini indirin </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Nov16_HO5-->
 
 

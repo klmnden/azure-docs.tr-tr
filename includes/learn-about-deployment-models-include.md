@@ -1,7 +1,7 @@
 > [!IMPORTANT]
-> Azure kaynaklarıyla çalışmadan önce dağıtım modelleri hakkında bilgi edinin: [Resource Manager, klasik](../articles/resource-manager-deployment-model.md).
+> Azure kaynaklarıyla çalışmadan önce dağıtım modelleri hakkında bilgi edinin: [Resource Manager, klasik](../articles/azure-resource-manager/resource-manager-deployment-model.md).
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO5-->
 
 

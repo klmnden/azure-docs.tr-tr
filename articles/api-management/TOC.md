@@ -13,7 +13,7 @@
 ### [Bir API tanımını içeri aktarma](api-management-howto-import-api.md)
 ## Arka uç güvenliğini sağlama
 ### [AAD ile Web API arka ucunu koruma](api-management-howto-protect-backend-with-aad.md)
-### [VPN veya ExpressRoute aracılığıyla bağlanma](api-management-howto-setup-vpn.md)
+### [Sanal ağa bağlanma](api-management-using-with-vnet.md)
 ### [Karşılıklı Sertifika kimlik doğrulaması](api-management-howto-mutual-certificates.md)
 ## İlkeleri yapılandırma
 ### [Özel önbelleğe alma](api-management-sample-cache-by-key.md)
@@ -63,6 +63,6 @@
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Nov16_HO5-->
 
 

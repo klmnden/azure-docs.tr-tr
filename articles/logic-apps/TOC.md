@@ -30,7 +30,6 @@
 
 
 ## Enterprise Integration Pack’i (EIP) kullanma
-### [Enterprise Integration Pack](../app-service-logic/app-service-logic-enterprise-integration-overview.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Tümleştirme hesaplarına genel bakış](../app-service-logic/app-service-logic-enterprise-integration-create-integration-account.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Sözleşmeler](../app-service-logic/app-service-logic-enterprise-integration-agreements.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [B2B işleme](../app-service-logic/app-service-logic-enterprise-integration-b2b.md?toc=%2fazure%2flogic-apps%2ftoc.json)
@@ -87,10 +86,9 @@
 
 # Kaynaklar
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/logic-apps/)  
-## [MSDN forumu](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azurelogicapps) 
+## [MSDN forumu](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azurelogicapps)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-logic-apps)
-## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=logic-apps) 
-
+## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=logic-apps)
 
 
 <!--HONumber=Nov16_HO4-->

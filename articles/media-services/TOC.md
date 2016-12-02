@@ -1,7 +1,6 @@
 # [Genel Bakış](media-services-overview.md)
 ## [Kavramlar ](media-services-concepts.md)
 
-
 # Başlarken
 ## [Hesap oluşturma ve yönetme](media-services-portal-create-account.md)
 ## [Geliştirme ortamınızı kurma](media-services-set-up-computer.md)
@@ -16,71 +15,94 @@
 
 # Nasıl yapılır?
 ## Yönet
-### [Portaldaki akış uç noktalarını yönetme](media-services-portal-manage-streaming-endpoints.md)
+### Hesapları yönetme
+#### [PowerShell](media-services-manage-with-powershell.md)
+#### [REST](/rest/api/media/mediaservice)
 ### Varlıkları yönetme
 #### [.NET](media-services-dotnet-manage-entities.md)
 #### [REST](media-services-rest-manage-entities.md)
-### [Hesapları PowerShell ile yönetme](media-services-manage-with-powershell.md)
-### [Videoları Media Encoder Standard ile kırpma](media-services-crop-video.md)
-### [Nasıl Yapılır?: Depolama Erişim Anahtarlarını Değiştirdikten Sonra Media Services’ı Güncelleştirme](media-services-roll-storage-access-keys.md)
-### [Kotalar ve sınırlamalar](media-services-quotas-and-limitations.md)
-### Filtreler
-#### [Azure Media Services .NET SDK ile Filtre Oluşturma](media-services-dotnet-dynamic-manifest.md)
-#### [Media Encoder Standard kullanarak bir varlığı kodlama](media-services-rest-encode-asset.md)
 ### Program aracılığıyla bağlanma
 #### [.NET](media-services-dotnet-connect-programmatically.md)
 #### [REST](media-services-rest-connect-programmatically.md)
+### [Portaldaki akış uç noktalarını yönetme](media-services-portal-manage-streaming-endpoints.md)
+### [Nasıl Yapılır?: Depolama Erişim Anahtarlarını Değiştirdikten Sonra Media Services’ı Güncelleştirme](media-services-roll-storage-access-keys.md)
+### [Kotalar ve sınırlamalar](media-services-quotas-and-limitations.md)
 
 ## İçerik yükleme
 ### Bir hesaba dosya yükleme
-#### [Portal ](media-services-portal-upload-files.md)
+#### [Portal](media-services-portal-upload-files.md)
 #### [.NET](media-services-dotnet-upload-files.md)
 #### [REST](media-services-rest-upload-files.md)
 ### [Mevcut blobları kopyalama](media-services-copying-existing-blob.md)
 
-## Kodlama
-### [İçerik](media-services-encode-asset.md)
-#### Media Encoder Standard kullanarak bir varlığı kodlama
+## [İçerik kodlama](media-services-encode-asset.md)
+### [Kodlayıcıları karşılaştır](media-services-compare-encoders.md)
+### [Hata kodları](media-services-encoding-error-codes.md)
+### Media Encoder Standard (MES)
+#### [Media Encoder Standard Biçimleri ve Kod Çözücüleri](media-services-media-encoder-standard-formats.md)
+#### MES Şemaları
+##### [Media Encoder Standard şeması](media-services-mes-schema.md)
+##### [Giriş meta verileri](media-services-input-metadata-schema.md)
+##### [Çıkış meta verileri](media-services-output-metadata-schema.md)
+#### MES Ön ayarları 
+##### [H264 Çoklu Bit Hızı 1080p Ses 5.1](media-services-mes-preset-H264-Multiple-Bitrate-1080p-Audio-5.1.md)
+##### [H264 Çoklu Bit Hızı 1080p](media-services-mes-preset-H264-Multiple-Bitrate-1080p.md)
+##### [H264 Çoklu Bit Hızı 16x9 SD Ses 5.1](media-services-mes-preset-H264-Multiple-Bitrate-16x9-SD-Audio-5.1.md)
+##### [H264 Çoklu Bit Hızı 16x9 SD](media-services-mes-preset-H264-Multiple-Bitrate-16x9-SD.md)
+##### [iOS için H264 Çoklu Bit Hızı 16x9](media-services-mes-preset-H264-Multiple-Bitrate-16x9-for-iOS.md)
+##### [H264 Çoklu Bit Hızı 4K Ses 5.1](media-services-mes-preset-H264-Multiple-Bitrate-4K-Audio-5.1.md)
+##### [H264 Çoklu Bit Hızı 4K](media-services-mes-preset-H264-Multiple-Bitrate-4K.md)
+##### [H264 Çoklu Bit Hızı 4x3 SD Ses 5.1](media-services-mes-preset-H264-Multiple-Bitrate-4x3-SD-Audio-5.1.md)
+##### [H264 Çoklu Bit Hızı 4x3 SD](media-services-mes-preset-H264-Multiple-Bitrate-4x3-SD.md)
+##### [iOS için H264 Çoklu Bit Hızı 4x3](media-services-mes-preset-H264-Multiple-Bitrate-4x3-for-iOS.md)
+##### [H264 Çoklu Bit Hızı 720p Ses 5.1](media-services-mes-preset-H264-Multiple-Bitrate-720p-Audio-5.1.md)
+##### [H264 Çoklu Bit Hızı 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md)
+##### [H264 Tekli Bit Hızı 1080p Ses 5.1](media-services-mes-preset-H264-Single-Bitrate-1080p-Audio-5.1.md)
+##### [H264 Tekli Bit Hızı 1080p](media-services-mes-preset-H264-Single-Bitrate-1080p.md)
+##### [H264 Tekli Bit Hızı 16x9 SD Ses 5.1](media-services-mes-preset-H264-Single-Bitrate-16x9-SD-Audio-5.1.md)
+##### [H264 Tekli Bit Hızı 16x9 SD](media-services-mes-preset-H264-Single-Bitrate-16x9-SD.md)
+##### [H264 Tekli Bit Hızı 4K Ses 5.1](media-services-mes-preset-H264-Single-Bitrate-4K-Audio-5.1.md)
+##### [H264 Tekli Bit Hızı 4K](media-services-mes-preset-H264-Single-Bitrate-4K.md)
+##### [H264 Tekli Bit Hızı 4x3 SD Ses 5.1](media-services-mes-preset-H264-Single-Bitrate-4x3-SD-Audio-5.1.md)
+##### [H264 Tekli Bit Hızı 4x3 SD](media-services-mes-preset-H264-Single-Bitrate-4x3-SD.md)
+##### [H264 Tekli Bit Hızı 720p Ses 5.1](media-services-mes-preset-H264-Single-Bitrate-720p-Audio-5.1.md)
+##### [H264 Tekli Bit Hızı 720p](media-services-mes-preset-H264-Single-Bitrate-720p.md)
+##### [Android için H264 Tekli Bit Hızı 720p](media-services-mes-preset-H264-Single-Bitrate-720p-for-Android.md)
+##### [Android için H264 Tekli Bit Hızı Yüksek Kaliteli SD](media-services-mes-preset-H264-Single-Bitrate-High-Quality-SD-for-Android.md)
+##### [Android için H264 Tekli Bit Hızı Düşük Kaliteli SD](media-services-mes-preset-H264-Single-Bitrate-Low-Quality-SD-for-Android.md)
+#### Media Encoder Standard ile kodlama
 ##### [Portal](media-services-portal-encode.md)
 ##### [.NET](media-services-dotnet-encode-with-media-encoder-standard.md)
-#### [.NET ile Media Encoder Standard kullanarak küçük resim oluşturma](media-services-dotnet-generate-thumbnail-with-mes.md)
-#### [Gelişmiş kodlama](media-services-advanced-encoding-with-mes.md)
+##### [REST](media-services-rest-encode-asset.md)
+#### [MES ile gelişmiş kodlama](media-services-advanced-encoding-with-mes.md)
+##### [.NET ile Media Encoder Standard kullanarak küçük resim oluşturma](media-services-dotnet-generate-thumbnail-with-mes.md)
+##### [Videoları Media Encoder Standard ile kırpma](media-services-crop-video.md)
+### Media Encoder Premium İş Akışı
+#### [Media Encoder Premium İş Akışı Biçimleri ve Kod Çözücüleri](media-services-premium-workflow-encoder-formats.md)
+#### Media Encoder Premium İş Akışı ile kodlama
 ##### [Media Encoder Premium İş Akışı](media-services-encode-with-premium-workflow.md)
 ##### [Media Encoder Premium İş Akışı öğreticileri](media-services-media-encoder-premium-workflow-tutorials.md)
 ##### [İş Akışı Tasarımcısı ile Gelişmiş Kodlama İş Akışları Oluşturma](media-services-workflow-designer.md)
 ##### [Birden fazla giriş ile premium iş akışı](media-services-media-encoder-premium-workflow-multiplefilesinput.md)
-
-#### Şemalar 
-#####[Media Encoder Standard](media-services-mes-schema.md)
-#####[Giriş meta verileri](media-services-input-metadata-schema.md)
-#####[Çıkış meta verileri](media-services-output-metadata-schema.md)
-
-#### Eski kodlayıcılar
-##### [Azure Media Packager’ı kullanma](media-services-static-packaging.md)
-
-### [Canlı akışlar](media-services-manage-channels-overview.md)
-#### [Şirket içi kodlayıcılar](media-services-live-streaming-with-onprem-encoders.md)
-#### Şirket içi kodlayıcı öğreticileri
-##### [Portal](media-services-portal-live-passthrough-get-started.md)
-##### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
-#### [Bulut kodlayıcıyla canlı akış](media-services-manage-live-encoder-enabled-channels.md)
-#### Bulut kodlayıcı öğreticileri
-##### [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
-##### [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
-#### [Şirket içi kodlayıcıları bulut kodlayıcıyla kullanılmak üzere yapılandırma](media-services-live-encoders-overview.md)
-#### [Uzun süren işlemleri çözme](media-services-dotnet-long-operations.md)
-#### [Bölünmüş MP4 canlı içe alma belirtimi](media-services-fmp4-live-ingest-overview.md)
-#### [Dinamik paketleme](media-services-dynamic-packaging-overview.md)
-
-### Medya İşleme
+### Medya işlemcileri
 #### [.NET](media-services-get-media-processor.md)
 #### [REST](media-services-rest-get-media-processor.md)
+### Kullanım Dışı
+#### [Statik paketleme ve şifreleme](media-services-static-packaging.md)
 
-### Kodlayıcıları tek bit hızı canlı akışı için yapılandırma
+## [Canlı akış](media-services-manage-channels-overview.md)
+### [Şirket içi kodlayıcılar](media-services-live-streaming-with-onprem-encoders.md)
+### [Bulut kodlayıcıyla canlı akış](media-services-manage-live-encoder-enabled-channels.md)
+### Bulut kodlayıcı öğreticileri
+#### [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
+#### [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
+### [Şirket içi kodlayıcıları bulut kodlayıcıyla kullanılmak üzere yapılandırma](media-services-live-encoders-overview.md)
 #### [Elemental Live kodlayıcı](media-services-configure-elemental-live-encoder.md)
 #### [FMLE kodlayıcı](media-services-configure-fmle-live-encoder.md)
 #### [NewTek TriCaster kodlayıcı](media-services-configure-tricaster-live-encoder.md)
 #### [Wirecast kodlayıcı](media-services-configure-wirecast-live-encoder.md)
+### [Uzun süren işlemleri çözme](media-services-dotnet-long-operations.md)
+### [Bölünmüş MP4 canlı içe alma belirtimi](media-services-fmp4-live-ingest-overview.md)
 
 ## [Koruma](media-services-content-protection-overview.md)
 ### [Portalda içerik korumayı yapılandırma](media-services-portal-protect-content.md)
@@ -106,14 +128,20 @@
 #### [REST](media-services-rest-configure-content-key-auth-policy.md)
 
 ## [Çözümleme](media-services-analytics-overview.md)
+### [Portalı kullanarak medya çözümleme](media-services-portal-analyze.md)
 ### [Indexer 2 ile işleme](media-services-process-content-with-indexer2.md)
 ### [Indexer ile işleme](media-services-index-content.md)
 ### [Hyperlapse ile işleme](media-services-hyperlapse-content.md)
 ### [Face Detector ile işleme](media-services-face-and-emotion-detection.md)
 ### [Motion Detector ile işleme](media-services-motion-detection.md)
 ### [Face Redaction ile işleme](media-services-face-redaction.md)
+#### [Face Redaction kılavuzu](media-services-redactor-walkthrough.md)
 ### [Video Thumbnails ile işleme](media-services-video-summarization.md)
 ### [OCR ile işleme](media-services-video-optical-character-recognition.md)
+
+## [Telemetri yapılandırma](media-services-telemetry-overview.md)
+###[.NET](media-services-dotnet-telemetry.md)
+###[REST](media-services-rest-telemetry.md)
 
 ## Ölçek
 ### [Medya İşleme](media-services-scale-media-processing-overview.md)
@@ -124,6 +152,7 @@
 #### [Portal](media-services-portal-scale-streaming-endpoints.md)
 
 ## [İçerik teslim etme](media-services-deliver-content-overview.md)
+### [Dinamik paketleme](media-services-dynamic-packaging-overview.md)
 ### [Filtrelere ve dinamik bildirimlere genel bakış](media-services-dynamic-manifest-overview.md)
 ### Filtre oluşturma
 #### [.NET](media-services-dotnet-dynamic-manifest.md)
@@ -162,30 +191,20 @@
 ## Sorun giderme
 ### [Sık sorulan sorular](media-services-frequently-asked-questions.md)
 ### [Canlı akış sorun giderme kılavuzu](media-services-troubleshooting-live-streaming.md)
-###[Hata kodları](media-services-error-codes.md)
-###[Yeniden deneme mantığı](media-services-retry-logic-in-dotnet-sdk.md)
+### [Hata kodları](media-services-error-codes.md)
+### [Yeniden deneme mantığı](media-services-retry-logic-in-dotnet-sdk.md)
 
 # Başvuru
 ## [Sürüm notları](media-services-release-notes.md)
 ## [.NET](media-services-dotnet-how-to-use.md)
 ## [REST](media-services-rest-how-to-use.md)
-## [Media Encoder Premium İş Akışı Biçimleri ve Kod Çözücüleri](media-services-premium-workflow-encoder-formats.md)
-## [Media Encoder Standard Biçimleri ve Kod Çözücüleri](media-services-media-encoder-standard-formats.md)
 
 # Kaynaklar
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/media-services/)
 ## [Azure Media Services Topluluğu](media-services-community.md)
+## [Videolar](https://azure.microsoft.com/resources/videos/index/?services=media-services)
 
 
-
-
-
-
-
-
-
-
-
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Nov16_HO5-->
 
 
