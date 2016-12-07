@@ -1,6 +1,5 @@
 # Genel Bakış
-## [Azure AD Etki Alanı Hizmetleri nedir?](https://azure.microsoft.com/services/active-directory-ds/)
-## [Nasıl çalışır?](active-directory-ds-overview.md)
+## [Azure AD Etki Alanı Hizmetleri nedir?](active-directory-ds-overview.md)
 ## [Bu sizin için geçerli mi?](active-directory-ds-comparison.md)
 ## [Özellikler](active-directory-ds-features.md)
 ## [Senaryolar](active-directory-ds-scenarios.md)
@@ -36,9 +35,11 @@
 
 # Kaynaklar 
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/active-directory-ds/)
-## [Bizimle iletişim kurun](active-directory-ds-contact-us.md)
 ## [Azure geri bildirim forumu](https://feedback.azure.com/forums/169401-azure-active-directory)
+## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=active-directory-ds)
+## [Bizimle iletişim kurun](active-directory-ds-contact-us.md)
 
-<!--HONumber=Nov16_HO2-->
+
+<!--HONumber=Nov16_HO4-->
 
 

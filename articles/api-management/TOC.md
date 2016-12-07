@@ -13,7 +13,7 @@
 ### [Bir API tanımını içeri aktarma](api-management-howto-import-api.md)
 ## Arka uç güvenliğini sağlama
 ### [AAD ile Web API arka ucunu koruma](api-management-howto-protect-backend-with-aad.md)
-### [VPN veya ExpressRoute aracılığıyla bağlanma](api-management-howto-setup-vpn.md)
+### [Sanal ağa bağlanma](api-management-using-with-vnet.md)
 ### [Karşılıklı Sertifika kimlik doğrulaması](api-management-howto-mutual-certificates.md)
 ## İlkeleri yapılandırma
 ### [Özel önbelleğe alma](api-management-sample-cache-by-key.md)
@@ -34,19 +34,23 @@
 ### [Grupları yönetme](api-management-howto-create-groups.md)
 ### [Birden çok Azure bölgesine dağıtma](api-management-howto-deploy-multi-region.md)
 ### [Olayları Azure Event Hubs’a kaydetme](api-management-howto-log-event-hubs.md)
-### [Yedekleme/geri yükleme kullanarak DR'yi kurma](api-management-howto-disaster-recovery-backup-restore.md)
+### [Yedekleme/geri yükleme kullanarak DR'yi ayarlama](api-management-howto-disaster-recovery-backup-restore.md)
 ### [API Denetçisi ile çağrıları izleme](api-management-howto-api-inspector.md)
 ### [Kullanıcı hesaplarını yönetme](api-management-howto-create-or-invite-developers.md)
 ### [Otomasyonu kullanarak yönetme](automation-manage-api-management.md)
 ### [Git kullanarak yapılandırma](api-management-configuration-repository-git.md)
 #Başvuru
-## [Kaynak Yönetimi PowerShell cmdlet'i]/powershell/resourcemanager()
-## [Klasik dağıtım PowerShell cmdlet'i başvurusu](https://msdn.microsoft.com/en-us/library/azure/mt613507)
-## [REST API](/rest/api/apimanagement/)
-## [İlkeler](https://msdn.microsoft.com/en-us/library/azure/dn894081)
-## [Şablonlar](https://msdn.microsoft.com/en-us/library/azure/mt697540)
+## [PowerShell](/powershell/azureps-cmdlets-docs)
+## [Klasik PowerShell](https://msdn.microsoft.com/library/azure/mt613507)
+## [REST](/rest/api/apimanagement/)
+## [İlkeler](https://msdn.microsoft.com/library/azure/dn894081)
+## [Şablonlar](https://msdn.microsoft.com/library/azure/mt697540)
 #Kaynaklar
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/api-management/)
+## [MSDN forumu](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureapimgmt)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-api-management)
+## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=api-management) 
+## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=api-management)
 ## [Teknik İnceleme: Bulut tabanlı API Management](http://j.mp/ms-apim-whitepaper)
 ## [API tasarım kılavuzu](../best-practices-api-design.md?toc=%2fazure%2fapi-management%2ftoc.json)
 ## [API uygulama kılavuzu](../best-practices-api-implementation.md?toc=%2fazure%2fapi-management%2ftoc.json)
@@ -59,6 +63,6 @@
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO5-->
 
 

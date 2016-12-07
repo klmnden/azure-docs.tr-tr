@@ -1,7 +1,4 @@
-# StorSimple'a Genel Bakış
-
 # StorSimple Sanal Dizisi
-
 ## Genel Bakış
 ### [Çözüm nedir?](storsimple-ova-overview.md)
 
@@ -10,16 +7,41 @@
 #### [Gereksinimleri inceleme](storsimple-ova-system-requirements.md)
 #### [Sınırları anlama](storsimple-ova-limits.md)
 #### [En iyi uygulamaları inceleme](storsimple-ova-best-practices.md)
-### Dağıtma
+
+### Dağıt (Azure portalı)
+#### [Dağıtmaya hazırlanma](storsimple-virtual-array-deploy1-portal-prep.md)
+##### [StorSimple Yöneticisi hizmetini dağıtma](storsimple-virtual-array-manage-service.md)
+#### [Hyper-V’de sağlama](storsimple-virtual-array-deploy2-provision-hyperv.md)
+#### [VMware’de sağlama](storsimple-virtual-array-deploy2-provision-vmware.md)
+#### [Dosya sunucusu olarak ayarlama](storsimple-virtual-array-deploy3-fs-setup.md)
+#### [iSCSI sunucusu olarak ayarlama](storsimple-virtual-array-deploy3-iscsi-setup.md)
+
+### Dağıt (Klasik portal)
 #### [Dağıtmaya hazırlanma](storsimple-ova-deploy1-portal-prep.md)
-#### [StorSimple Yöneticisi hizmetini dağıtma](storsimple-ova-manage-service.md)
+##### [StorSimple Yöneticisi hizmetini dağıtma](storsimple-ova-manage-service.md)
 #### [Hyper-V’de sağlama](storsimple-ova-deploy2-provision-hyperv.md)
 #### [VMware’de sağlama](storsimple-ova-deploy2-provision-vmware.md)
 #### [Dosya sunucusu olarak ayarlama](storsimple-ova-deploy3-fs-setup.md)
 #### [iSCSI sunucusu olarak ayarlama](storsimple-ova-deploy3-iscsi-setup.md)
 
 ## Nasıl yapılır?
-### [Azure portalı aracılığıyla yönetme](storsimple-ova-manager-service-administration.md)
+### [Azure portalı aracılığıyla yönetme](storsimple-virtual-array-manager-service-administration.md)
+#### [En son güncelleştirmeyi yükleme](storsimple-virtual-array-install-update.md)
+#### [Yedek oluşturma ve yedekleri yönetme](storsimple-virtual-array-backup.md)
+#### [Yedeklerden kopyalama](storsimple-virtual-array-clone.md)
+#### [Yük Devretme ve DR](storsimple-virtual-array-failover-dr.md)
+#### [Devre dışı bırakma ve silme](storsimple-virtual-array-deactivate-and-delete-device.md)
+#### [Paylaşımları yönetme](storsimple-virtual-array-manage-shares.md)
+#### [Birimleri yönetme](storsimple-virtual-array-manage-volumes.md)
+#### [Hizmet özetini görüntüle](storsimple-virtual-array-service-summary.md)
+#### [Cihaz özetini görüntüle](storsimple-virtual-array-device-summary.md)
+#### [Depolama hesaplarını yönetme](storsimple-virtual-array-manage-storage-accounts.md)
+#### [ACR’leri yönetme](storsimple-virtual-array-manage-acrs.md)
+#### [İşleri yönetme](storsimple-virtual-array-manage-jobs.md)
+#### [Cihaz parolasını değiştirme](storsimple-virtual-array-change-device-admin-password.md)
+#### [Windows Server ana bilgisayarında MPIO yapılandırma](storsimple-virtual-array-configure-mpio-windows-server.md)
+
+### [Klasik Azure portalı ile yönetme](storsimple-ova-manager-service-administration.md)
 #### [En son güncelleştirmeyi yükleme](storsimple-ova-install-update-01.md)
 #### [Yedek oluşturma ve yedekleri yönetme](storsimple-ova-backup.md)
 #### [Yedeklerden geri yükleme](storsimple-ova-restore.md)
@@ -54,6 +76,7 @@
 ### Yükleme
 #### [Güvenliği inceleme](storsimple-safety.md)
 #### [8100 için açma, raflama ve kablolama](storsimple-8100-hardware-installation.md)
+
 #### [8600 için açma, raflama ve kablolama](storsimple-8600-hardware-installation.md)
 #### [10 GbE ağ arabirimleri için desteklenen donanımlar](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
 
@@ -63,6 +86,7 @@
 ##### [Azure’da fiziksel cihaz - Güncelleştirme 1](storsimple-deployment-walkthrough-u1.md)
 ##### [Azure’da fiziksel cihaz - GA](storsimple-deployment-walkthrough.md)
 #### [Kamu Portalı'nda fiziksel cihaz - geçerli](storsimple-deployment-walkthrough-gov-u2.md)
+##### [Kamu Portalı'nda fiziksel cihaz - Güncelleştirme 1](storsimple-deployment-walkthrough-gov.md)
 #### [Azure’da sanal cihaz](storsimple-virtual-device-u2.md)
 #### [StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md)
 #### [SharePoint için StorSimple Bağdaştırıcısı](storsimple-adapter-for-sharepoint.md)
@@ -114,9 +138,11 @@
 ##### [StorSimple Snapshot Manager’da MMC eylemlerini yönetme](storsimple-snapshot-manager-mmc-menu.md)
 
 ### Çözüm oluşturma
-#### [Dağıtılmış küresel ad alanı](https://www.microsoft.com/download/details.aspx?id=45507)
 #### [Dosya Sunucusu DR’sini Azure’a otomatikleştirme](storsimple-disaster-recovery-using-azure-site-recovery.md)
 #### [Express Route ile StorSimple](https://gallery.technet.microsoft.com/STORESIMPLE-CONFIGURATION-86c04c3b/view/Discussions#content)
+#### [VMware ile StorSimple](https://gallery.technet.microsoft.com/VMWARE-DEPLOYMENT-WITH-2921b463)
+#### [Hyper-V ile StorSimple](https://gallery.technet.microsoft.com/Deploy-Hyper-V-with-Azure-0d1c6df6)
+#### [Dağıtılmış küresel ad alanı](https://www.microsoft.com/download/details.aspx?id=45507)
 
 ### İzleme
 #### [Hizmet panosunu kullanma](storsimple-service-dashboard.md)
@@ -139,7 +165,7 @@
 ##### [Destek paketi oluşturma](storsimple-create-manage-support-package.md)
 
 ### Geçiş
-#### [5000-7000 serisinden](https://gallery.technet.microsoft.com/Azure-StorSimple-50007000-19253270)
+#### [5000-7000 serisinden](https://gallery.technet.microsoft.com/Azure-StorSimple-50007000-c1a0460b)
 #### [Diğer depolama cihazlarından](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf)
 
 ### Güncelleştirme
@@ -160,22 +186,37 @@
 ### [Güncelleştirme 0.1](storsimple-july-2014-release-notes.md)
 
 ## Başvuru
-### [PowerShell](/powershell/servicemanagement/)
+### [Azure PowerShell](/powershell/servicemanagement)
+### [StorSimple cmdlet’leri için Windows PowerShell](https://technet.microsoft.com/library/dn688168.aspx)
+
+# StorSimple Veri Yöneticisi (Özel önizleme)
+
+## Genel Bakış
+### [Çözüm nedir?](storsimple-data-manager-overview.md)
+
+## Başlarken
+### [StorSimple Veri Yöneticisi’ni kullanma](storsimple-data-manager-ui.md)
+
+## Nasıl yapılır
+### [Verileri dönüştürmek için .NET kullanma](storsimple-data-manager-dotnet-jobs.md)
 
 # İlgili
 ## [StorSimple 5000-7000 Series](http://onlinehelp.storsimple.com)
 
 # Kaynaklar
-## [Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=StorSimple)
+## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/storsimple/)
+## [MSDN forumu](https://social.msdn.microsoft.com/Forums/azure/home?forum=StorSimple)
+## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=storsimple)
+## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=storsimple)
 ## [Pazarlama blogu](http://blogs.technet.com/b/cis/)
 ## [Pazarlama blogu](https://www.microsoft.com/server-cloud/products/storsimple/explore.aspx)
 ## [Destek blogu](http://blogs.msdn.com/b/storsimple/)
 ## [Üçüncü taraf bildirimleri](http://download.microsoft.com/download/2/0/0/2003271D-69D5-4143-85A2-F1D8EA058F52/StorSimple TPNs.zip)
-## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=storsimple)
-## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/storsimple/)
-## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=storsimple)
 
 
-<!--HONumber=Nov16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO5-->
 
 

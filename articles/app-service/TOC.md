@@ -46,9 +46,9 @@
 #### [Azure Web İşleri SDK’sı nedir?](../app-service-web/websites-dotnet-webjobs-sdk.md?toc=%2fazure%2fapp-service%2ftoc.json)
 #### [Azure Uygulama Hizmeti’nde .NET Web İşi oluşturma](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json)
 #### [WebJobs SDK ile Azure blob depolama kullanımı](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md?toc=%2fazure%2fapp-service%2ftoc.json)
-#### [Azure Kuyruk Depolama’yı Web İşleri SDK’sı ile kullanma](../app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md?toc=%2fazure%2fapp-service%2ftoc.json)
-#### [Azure Service Bus’ı Web İşleri SDK’sı ile kullanma](../app-service-web/websites-dotnet-webjobs-sdk-service-bus.md?toc=%2fazure%2fapp-service%2ftoc.json)
-#### [Azure Tablo Depolama’yı Web İşleri SDK’sı ile kullanma](../app-service-web/websites-dotnet-webjobs-sdk-storage-tables-how-to.md?toc=%2fazure%2fapp-service%2ftoc.json)
+#### [Web İşleri SDK’sı ile Azure kuyruk depolama kullanımı](../app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md?toc=%2fazure%2fapp-service%2ftoc.json)
+#### [Web İşleri SDK’sı ile Azure Service Bus kullanımı](../app-service-web/websites-dotnet-webjobs-sdk-service-bus.md?toc=%2fazure%2fapp-service%2ftoc.json)
+#### [Web İşleri SDK’sı ile Azure tablo depolama kullanımı](../app-service-web/websites-dotnet-webjobs-sdk-storage-tables-how-to.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
 ### App Service Ortamı
 #### [App Service Ortamında bir web uygulaması oluşturma](../app-service-web/app-service-web-how-to-create-a-web-app-in-an-ase.md?toc=%2fazure%2fapp-service%2ftoc.json)
@@ -76,7 +76,7 @@
 #### [Özel etki alanı satın alma ve yapılandırma](../app-service-web/custom-dns-web-site-buydomains-web-app.md?toc=%2fazure%2fapp-service%2ftoc.json)
 #### [Kendi özel etki alanınızı eşleme](../app-service-web/web-sites-custom-domain-name.md?toc=%2fazure%2fapp-service%2ftoc.json)
 #### [GoDaddy etki alanlarını yapılandırma](../app-service-web/web-sites-godaddy-custom-domain-name.md?toc=%2fazure%2fapp-service%2ftoc.json)
-#### [Traffic Manager hizmetini kullanan özel etki alanları](../app-service-web/web-sites-traffic-manager-custom-domain-name.md?toc=%2fazure%2fapp-service%2ftoc.json)
+#### [Traffic Manager ile özel etki alanları](../app-service-web/web-sites-traffic-manager-custom-domain-name.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
 ### [Mevcut bir uygulamayı kopyalama](../app-service-web/app-service-web-app-cloning-portal.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Şirket içi bağlantılar](../app-service-web/web-sites-hybrid-connection-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json)
@@ -84,7 +84,7 @@
 ### [Gelişmiş yapılandırma](../app-service-web/web-sites-transform-extend.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Kaynak grupları](../app-service-web/app-service-move-resources.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Web İşleri](app-service-webjobs-readme.md)
-#### [Web İşleri ile Arka plan görevleri çalıştırma](../app-service-web/web-sites-create-web-jobs.md?toc=%2fazure%2fapp-service%2ftoc.json)
+#### [Web İşleri ile arka plan görevleri çalıştırma](../app-service-web/web-sites-create-web-jobs.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
 ### [App Service Ortamı](app-service-app-service-environments-readme.md)
 #### [Yapılandırma](../app-service-web/app-service-web-configure-an-app-service-environment.md?toc=%2fazure%2fapp-service%2ftoc.json)
@@ -159,6 +159,6 @@
 ## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=app-service) 
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=app-service) 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

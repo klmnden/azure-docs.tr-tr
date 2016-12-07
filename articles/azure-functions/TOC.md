@@ -8,7 +8,7 @@
 # Nasıl yapılır?
 ## Planlama ve tasarım
 ### [Flow, Logic Apps, Azure İşlevleri ve Web İşleri arasında seçim yapma](functions-compare-logic-apps-ms-flow-webjobs.md)
-### [Tüketim ve App Service planı arasında seçim yapma](functions-scale.md)
+### [Barındırma planları arasında seçim yapma](functions-scale.md)
 
 ## Geliştirme
 ### [İşlev uygulamaları geliştirme](functions-reference.md)
@@ -21,7 +21,7 @@
 #### [Mobile Apps bağlamaları](functions-bindings-mobile-apps.md)
 #### [Notification Hub’ı çıkışı bağlama](functions-bindings-notification-hubs.md)
 #### [Kuyruklar ve konular için Service Bus tetikleyicileri ve bağlamaları](functions-bindings-service-bus.md)
-#### Depolama
+#### Depolama bağlamaları
 ##### [Blob bağlamaları](functions-bindings-storage-blob.md)
 ##### [Kuyruk bağlamaları](functions-bindings-storage-queue.md)
 ##### [Tablo bağlamaları](functions-bindings-storage-table.md)
@@ -30,6 +30,7 @@
 ### [Azure Portalında işlev oluşturma](functions-create-first-azure-function-azure-portal.md)
 ### [Azure İşlevlerini test etme](functions-test-a-function.md)
 ### [Yerel olarak geliştirme ve hata ayıklama](functions-run-local.md)
+### [Azure İşlevleri için en iyi uygulamalar](functions-best-practices.md)
 ### [Planlı temizleme görevini gerçekleştirmek için Azure İşlevleri’ni kullanma](functions-scenario-database-table-cleanup.md)
 
 ## Yönet
@@ -38,8 +39,8 @@
 ## Dağıtma
 ### [Azure İşlevleri için sürekli dağıtım](functions-continuous-deployment.md)
 
-# Başvuru
-## [.NET API'si](https://msdn.microsoft.com/library/azure/dn961176.aspx)
+## İzleme
+### [Azure İşlevlerini izleme](functions-monitoring.md)
 
 # Kaynaklar
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/functions/)  
@@ -48,6 +49,6 @@
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform=)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

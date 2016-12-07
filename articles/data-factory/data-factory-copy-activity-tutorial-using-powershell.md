@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 09/16/2016
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 3247a5004198eedcf40cb3aa38de767a08e545a8
+ms.sourcegitcommit: a4121f8857fa9eaeb1cf1bca70e29666f6a04f63
+ms.openlocfilehash: 457a5c758923a0741ab0baeebd2f22c43930f71d
 
 
 ---
@@ -121,16 +121,23 @@ Bu adımda, iki bağlı hizmet oluşturursunuz: **StorageLinkedService** ve **Az
 2. **Azure PowerShell**’de **ADFGetStartedPSH** klasörüne geçin. 
 3. Bağlı hizmet oluşturmak için **New-AzureRmDataFactoryLinkedService** cmdlet’ini kullanabilirsiniz. Bu öğreticide kullandığınız bu cmdlet ve diğer Data Factory cmdlet’lerini **ResourceGroupName** ve **DataFactoryName** parametreleri için değerleri geçirmeniz gerekir. Alternatif olarak, DataFactory nesnesini almak ve cmdlet’i her çalıştırdığınızda ResourceGroupName ve DataFactoryName yazmadan nesneyi geçirmek için **Get-AzureRmDataFactory** kullanabilirsiniz. **Get-AzureRmDataFactory** cmdlet’inin çıktısını **$df** değişkenine atamak için aşağıdaki komutu çalıştırın: 
    
-     $df=Get-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name ADFTutorialDataFactoryPSH
+```   
+$df=Get-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name ADFTutorialDataFactoryPSH
+```
+
 4. Şimdi de, **StorageLinkedService** bağlı hizmetini oluşturmak için **New-AzureRmDataFactoryLinkedService** cmdlet’ini kullanın. 
    
-     New-AzureRmDataFactoryLinkedService $df -File .\StorageLinkedService.json
+```
+New-AzureRmDataFactoryLinkedService $df -File .\StorageLinkedService.json
+```
+
+**Get-AzureRmDataFactory** cmdlet’ini çalıştırmadıysanız ve çıktıyı **$df** değişkenine atamadıysanız, ResourceGroupName ve DataFactoryName parametreleri için değerleri aşağıdaki gibi belirtmeniz gerekir.   
    
-   **Get-AzureRmDataFactory** cmdlet’ini çalıştırmadıysanız ve çıktıyı **$df** değişkenine atamadıysanız, ResourceGroupName ve DataFactoryName parametreleri için değerleri aşağıdaki gibi belirtmeniz gerekir.   
-   
-     New-AzureRmDataFactoryLinkedService -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactoryPSH -File .\StorageLinkedService.json
-   
-   Öğreticinin ortasında Azure PowerShell’i kapatırsanız, öğreticiyi tamamlamak için Azure PowerShell’i sonraki başlatışınızda Get-AzureRmDataFactory cmdlet’ini çalıştırmanız gerekir.
+```
+New-AzureRmDataFactoryLinkedService -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactoryPSH -File .\StorageLinkedService.json
+```
+
+Öğreticinin ortasında Azure PowerShell’i kapatırsanız, öğreticiyi tamamlamak için Azure PowerShell’i sonraki başlatışınızda Get-AzureRmDataFactory cmdlet’ini çalıştırmanız gerekir.
 
 ### <a name="create-a-linked-service-for-an-azure-sql-database"></a>Azure SQL Database için bağlı hizmet oluşturma
 1. Aşağıdaki içerikle AzureSqlLinkedService.json adlı bir JSON dosyası oluşturun:
@@ -148,8 +155,10 @@ Bu adımda, iki bağlı hizmet oluşturursunuz: **StorageLinkedService** ve **Az
    **servername**, **databasename**, **username@servername** ve **password** sözcüklerini Azure SQL sunucunuzun, veritabanınızın, kullanıcı hesabınızın adlarıyla ve parolasıyla değiştirin.
 2. Bağlı hizmet oluşturmak için şu komutu çalıştırın: 
    
-     New-AzureRmDataFactoryLinkedService $df -File .\AzureSqlLinkedService.json
-   
+```
+New-AzureRmDataFactoryLinkedService $df -File .\AzureSqlLinkedService.json
+```
+
    **Azure hizmetlerine erişime izin ver** ayarının Azure SQL sunucusunda AÇIK olduğunu onaylayın. Doğrulayıp etkinleştirmek için aşağıdaki adımları uygulayın:
    
    1. Soldaki **GÖZAT** hub’ına ve **SQL sunucuları**’na tıklayın.
@@ -257,10 +266,12 @@ Tablo dikdörtgen bir veri kümesidir ve bir şeması vardır. Bu adımda, **Sto
              { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } } 
          ],
    
-   JSON özellikleri hakkında ayrıntılı bilgi için bkz. [JSON Betik Oluşturma Başvurusu](http://go.microsoft.com/fwlink/?LinkId=516971).
+   JSON özellikleri hakkında ayrıntılı bilgi için bkz. [JSON Betik Oluşturma Başvurusu](data-factory-data-movement-activities.md).
 2. Data Factory veri kümesi oluşturmak için şu komutu çalıştırın:
    
-     New-AzureRmDataFactoryDataset $df -File .\EmpBlobTable.json
+```  
+New-AzureRmDataFactoryDataset $df -File .\EmpBlobTable.json
+```
 
 ### <a name="create-output-dataset"></a>Çıktı veri kümesi oluşturma
 Bu adımda **EmpSQLTable** adlı bir çıktı veri kümesi oluşturursunuz. Bu veri kümesi, **AzureSqlLinkedService** ile temsil edilen Azure SQL veritabanında bir SQL tablosunu (**emp**) işaret eder. İşlem hattı verileri girdi blob’undan **emp** tablosuna kopyalar. 
@@ -300,8 +311,10 @@ Bu adımda **EmpSQLTable** adlı bir çıktı veri kümesi oluşturursunuz. Bu v
    * Veritabanındaki emp tablosunda üç sütun vardır: **ID**, **FirstName** ve **LastName**. ID bir kimlik sütunu olduğundan, burada yalnızca **FirstName** ve **LastName** değerlerini belirtmeniz gerekir.
    * **availability** **hourly** olarak ayarlanmıştır (**frequency** **hour**, **interval** de **1** olarak ayarlanmıştır).  Data Factory hizmeti Azure SQL veritabanındaki **emp** tablosunda her saat bir çıktı veri dilimi oluşturur.
 2. Data Factory veri kümesi oluşturmak için şu komutu çalıştırın: 
-   
-     New-AzureRmDataFactoryDataset $df -File .\EmpSQLTable.json
+
+```   
+New-AzureRmDataFactoryDataset $df -File .\EmpSQLTable.json
+```
 
 ## <a name="create-pipeline"></a>İşlem hattı oluşturma
 Su adımda, girdi olarak **EmpTableFromBlob**, çıktı olarak da **EmpSQLTable** kullanan bir **Kopyalama Etkinliği**’ne sahip işlem hattı oluşturacaksınız.
@@ -362,10 +375,12 @@ Su adımda, girdi olarak **EmpTableFromBlob**, çıktı olarak da **EmpSQLTable*
    
    Örnekte, her veri dilimi saatlik oluşturulduğundan 24 veri dilimi vardır.
    
-   JSON özellikleri hakkında ayrıntılı bilgi için bkz. [JSON Betik Oluşturma Başvurusu](http://go.microsoft.com/fwlink/?LinkId=516971).
+   JSON özellikleri hakkında ayrıntılı bilgi için bkz. [JSON Betik Oluşturma Başvurusu](data-factory-data-movement-activities.md).
 2. Data Factory tablosu oluşturmak için şu komutu çalıştırın: 
-   
-     New-AzureRmDataFactoryPipeline $df -File .\ADFTutorialPipeline.json
+
+```   
+New-AzureRmDataFactoryPipeline $df -File .\ADFTutorialPipeline.json
+```
 
 **Tebrikler!** Başarılı bir şekilde Azure data factory, bağlı hizmetler, tablolar ve işlem hattı oluşturdunuz, işlem hattını zamanladınız.
 
@@ -373,26 +388,61 @@ Su adımda, girdi olarak **EmpTableFromBlob**, çıktı olarak da **EmpSQLTable*
 Bu adımda, Azure data factory’de neler olduğunu izlemek için Azure PowerShell kullanırsınız.
 
 1. **Get-AzureRmDataFactory** komutunu çalıştırın ve çıktıyı $df değişkenine atayın.
-   
-     $df=Get-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name ADFTutorialDataFactoryPSH
+
+```  
+$df=Get-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name ADFTutorialDataFactoryPSH
+```
+
 2. İşlem hattının çıktı tablosu olan **EmpSQLTable** tablosunun tüm dilimleri hakkında bilgi almak için **Get-AzureRmDataFactorySlice** komutunu çalıştırın.  
-   
-     Get-AzureRmDataFactorySlice $df -DatasetName EmpSQLTable -StartDateTime 2016-08-09T00:00:00
-   
+
+```   
+Get-AzureRmDataFactorySlice $df -DatasetName EmpSQLTable -StartDateTime 2016-08-09T00:00:00
+```
+
    **StartDateTime** parametresinin year, month ve date bölümünü geçerli yıl, ay ve tarihle değiştirin. Bu ayar JSON işlem hattının **Başlat** değeriyle eşleşmelidir. 
    
    24 dilim görmeniz gerekir, geçerli günün saat 12 AM’den başlayıp ertesi günün 12 AM’inde biten her biri bir saati belirten dilimlerdir. 
    
    **Örnek çıktı:**
-   
-     ResourceGroupName : ADFTutorialResourceGroup   DataFactoryName   : ADFTutorialDataFactoryPSH   TableName         : EmpSQLTable   Start             : 8/9/2016 12:00:00 AM   End               : 8/9/2016 1:00:00 AM   RetryCount        : 0   Status            : Waiting   LatencyStatus     :   LongRetryCount    : 0
+
+```   
+     ResourceGroupName : ADFTutorialResourceGroup
+     DataFactoryName   : ADFTutorialDataFactoryPSH
+     TableName         : EmpSQLTable
+     Start             : 8/9/2016 12:00:00 AM
+     End               : 8/9/2016 1:00:00 AM
+     RetryCount        : 0
+     Status            : Waiting
+     LatencyStatus     :
+     LongRetryCount    : 0
+```
 3. **Belirli** bir dilimle ilgili etkinlik çalıştırmalarının ayrıntılarını almak için **Get-AzureRmDataFactoryRun** komutunu çalıştırın. **StartDateTime** parametresinin değerini, çıktıya ait dilimin **Başlat** zamanıyla eşleşecek şekilde değiştirin. **StartDateTime** değeri [ISO biçiminde](http://en.wikipedia.org/wiki/ISO_8601) olmalıdır. 
-   
-     Get-AzureRmDataFactoryRun $df -DatasetName EmpSQLTable -StartDateTime 2016-08-09T00:00:00
-   
+
+```  
+Get-AzureRmDataFactoryRun $df -DatasetName EmpSQLTable -StartDateTime 2016-08-09T00:00:00
+```
+
    Aşağıda örnek çıktıya benzer bir çıktı görmeniz gerekir:
-   
-     Id                  : 3404c187-c889-4f88-933b-2a2f5cd84e90_635614488000000000_635614524000000000_EmpSQLTable   ResourceGroupName   : ADFTutorialResourceGroup   DataFactoryName     : ADFTutorialDataFactoryPSH   TableName           : EmpSQLTable   ProcessingStartTime : 8/9/2016 11:03:28 PM   ProcessingEndTime   : 8/9/2016 11:04:36 PM   PercentComplete     : 100   DataSliceStart      : 8/9/2016 10:00:00 PM   DataSliceEnd        : 8/9/2016 11:00:00 PM   Status              : Succeeded   Timestamp           : 8/9/2016 11:03:28 PM   RetryAttempt        : 0   Properties          : {}   ErrorMessage        :   ActivityName        : CopyFromBlobToSQL   PipelineName        : ADFTutorialPipeline   Type                : Copy
+
+```   
+     Id                  : 3404c187-c889-4f88-933b-2a2f5cd84e90_635614488000000000_635614524000000000_EmpSQLTable
+     ResourceGroupName   : ADFTutorialResourceGroup
+     DataFactoryName     : ADFTutorialDataFactoryPSH
+     TableName           : EmpSQLTable
+     ProcessingStartTime : 8/9/2016 11:03:28 PM
+     ProcessingEndTime   : 8/9/2016 11:04:36 PM
+     PercentComplete     : 100
+     DataSliceStart      : 8/9/2016 10:00:00 PM
+     DataSliceEnd        : 8/9/2016 11:00:00 PM
+     Status              : Succeeded
+     Timestamp           : 8/9/2016 11:03:28 PM
+     RetryAttempt        : 0
+     Properties          : {}
+     ErrorMessage        :
+     ActivityName        : CopyFromBlobToSQL
+     PipelineName        : ADFTutorialPipeline
+     Type                : Copy
+```
 
 Data Factory cmdlet’leri hakkında kapsamlı bilgi için bkz. [Data Factory Cmdlet Başvurusu][cmdlet-reference]. 
 

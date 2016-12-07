@@ -13,7 +13,7 @@
 
 # Kullanmaya Başlama
 ## [Sanal ağ oluşturma](virtual-networks-create-vnet-arm-pportal.md)
-## [VM’yi sanal ağa dağıtma](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
+## [VM’yi sanal ağa dağıtma](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 
 # Nasıl yapılır?
 ## Planlama ve tasarım
@@ -143,6 +143,6 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-network)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

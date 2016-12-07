@@ -1,24 +1,27 @@
 # Genel Bakış
-## [Geçiş Nedir?](service-bus-relay-overview.md)
-## [SSS](../service-bus-messaging/service-bus-faq.md?toc=%2fazure%2fservice-bus-relay%2ftoc.json)
+## [Geçiş Nedir?](relay-what-is-it.md)
+## [SSS](relay-faq.md)
 
 # Kullanmaya Başlama
-## [Geçiş nasıl kullanılır?](service-bus-dotnet-how-to-use-relay.md)
+## [Ad alanı oluşturma](relay-create-namespace-portal.md)
+## [Karma Bağlantılar’ı kullanmaya başlama](relay-hybrid-connections-dotnet-get-started.md)
+## [WCF Geçişi’ni kullanmaya başlama](service-bus-dotnet-how-to-use-relay.md)
 ## [Paylaşılan erişim imzaları (SAS)](../service-bus-messaging/service-bus-sas-overview.md?toc=%2fazure%2fservice-bus-relay%2ftoc.json)
-## [Service Bus Geçişi’ni kullanan karma uygulamalar oluşturma](service-bus-dotnet-hybrid-app-using-service-bus-relay.md)
-## [Geçiş .NET öğreticisi](service-bus-relay-tutorial.md)
-## [Geçiş REST öğreticisi](service-bus-relay-rest-tutorial.md)
+## [WCF Geçişi karma öğreticisi](service-bus-dotnet-hybrid-app-using-service-bus-relay.md)
+## [WCF Geçişi .NET öğreticisi](service-bus-relay-tutorial.md)
+## [WCF Geçişi REST öğreticisi](service-bus-relay-rest-tutorial.md)
 
-# Nasıl yapılır?
+# Nasıl yapılır
 ## [Kimlik doğrulama ve yetkilendirme](../service-bus-messaging/service-bus-authentication-and-authorization.md?toc=%2fazure%2fservice-bus-relay%2ftoc.json)
 ## [Kesintiler ve olağanüstü durumlar için planlama](../service-bus-messaging/service-bus-outages-disasters.md?toc=%2fazure%2fservice-bus-relay%2ftoc.json)
+## [Karma Bağlantılar protokolü](relay-hybrid-connections-protocol.md)
+## [Sık karşılaşılan özel durumlar](relay-exceptions.md)
 
 # Başvuru
 ## [Örnekler](service-bus-relay-samples.md)
-## [Özel Durumlar](../service-bus-messaging/service-bus-messaging-exceptions.md?toc=%2fazure%2fservice-bus-relay%2ftoc.json)
-## [Kotalar](../service-bus-messaging/service-bus-quotas.md?toc=%2fazure%2fservice-bus-relay%2ftoc.json)
-## [.NET](/dotnet/api/)
-## [REST](/rest/api/servicebus/)
+## [Karma Bağlantılar .NET API’si](/dotnet/api/microsoft.servicebus)
+## [WCF Geçişi .NET API’si](/dotnet/api/microsoft.servicebus)
+## [Bağlantı noktası ayarları](service-bus-relay-port-settings.md)
 
 # Kaynaklar
 ## [Blog](https://blogs.msdn.microsoft.com/servicebus/)
@@ -30,6 +33,6 @@
 ## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO5-->
 
 

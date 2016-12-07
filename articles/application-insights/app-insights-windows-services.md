@@ -14,8 +14,8 @@ ms.topic: get-started-article
 ms.date: 11/01/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: aac35e524759d5f4356e9a9e386f658e9003d2ca
+ms.sourcegitcommit: 7a9c40081f52b2ffe918f4612f790f7fd08acc5a
+ms.openlocfilehash: 926f77b6674a0dba92e160435e4cce7bb0de160d
 
 
 ---
@@ -82,6 +82,8 @@ ApplicationInsights.config dosyasında herhangi bir özelleştirme yaptıysanız
     `<InstrumentationKey>` *kopyaladığınız izleme anahtarı* `</InstrumentationKey>`
 * Çözüm Gezgini’nde ApplicationInsights.config dosyası özelliklerinin **Build Action = Content, Copy to Output Directory = Copy** olarak ayarlandığından emin olun.
 
+[Farklı derleme yapılandırmalarında anahtarı değiştirmek istiyorsanız](app-insights-separate-resources.md) kodda izleme anahtarı belirlemeniz faydalı olacaktır. Kodda anahtarı ayarladıysanız `.config` dosyasında ayarlamanız gerekmez.
+
 ## <a name="a-nameruna-run-your-project"></a><a name="run"></a> Projenizi çalıştırma
 **F5** ile uygulamanızı çalıştırın ve şunu deneyin: birkaç telemetri oluşturmak için farklı sayfalar açın.
 
@@ -132,6 +134,6 @@ Lütfen [bu Sorun Giderme maddesine](app-insights-asp-net-troubleshoot-no-data.m
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

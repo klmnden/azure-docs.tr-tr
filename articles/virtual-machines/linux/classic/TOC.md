@@ -66,22 +66,23 @@
 ### [VM’yi yeniden başlatma veya yeniden boyutlandırma](../../virtual-machines-linux-classic-restart-resize-error-troubleshooting.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 
 # Başvuru
+## [PowerShell](/powershell/azureps-cmdlets-docs)
 ## [Azure CLI](/cli/azure/vm)
-## [Java](/java/api/)
+## [Java](/java/api)
 ## [Resource Manager şablonları yazma](../../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-## [Topluluk şablonları](https://azure.microsoft.com/documentation/templates/)
-## [İşlem REST](/rest/api/compute/)
-## [Ağ REST](/rest/api/)
-## [Depolama REST](/rest/api/storageservices/)
+## [Topluluk şablonları](https://azure.microsoft.com/documentation/templates)
+## [İşlem REST](/rest/api/compute)
+## [Ağ REST](/rest/api)
+## [Depolama REST](/rest/api/storageservices)
 
 
 # Kaynaklar
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux)
-## [Bölgesel kullanılabilirlik](https://azure.microsoft.com/regions/services/)
+## [Bölgesel kullanılabilirlik](https://azure.microsoft.com/regions/services)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-machine)
 ## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

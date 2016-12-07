@@ -2,15 +2,14 @@
 ## [Veri Kataloğu nedir?](data-catalog-what-is-data-catalog.md)
 ## [Yaygın senaryolar](data-catalog-common-scenarios.md)
 ## [Desteklenen veri kaynakları](data-catalog-dsr.md)
-## [Yenilikler](data-catalog-whats-new.md)
 
 # Kullanmaya Başlama
 ## [Azure Veri Kataloğu ile çalışmaya başlama](data-catalog-get-started.md)
 ## [Azure Veri Kataloğu'nu benimseme](data-catalog-adopting-data-catalog.md)
-## [Azure Veri Kataloğu önkoşulları](data-catalog-prerequisites.md)
-## [Sık sorulan sorular](data-catalog-frequently-asked-questions.md)
+## [Önkoşullar](data-catalog-prerequisites.md)
+## [SSS](data-catalog-frequently-asked-questions.md)
 
-# Nasıl yapılır?
+# Nasıl yapılır
 ## [Veri kaynaklarını kaydetme](data-catalog-how-to-register.md)
 ## [Veri kaynaklarını keşfetme](data-catalog-how-to-discover.md)
 ## [Veri kaynaklarına açıklama ekleme](data-catalog-how-to-annotate.md)
@@ -30,12 +29,16 @@
 ## [Azure Veri Kataloğu için klavye kısayolları](data-catalog-keyboard-shortcuts.md)
 ## [Terminoloji](data-catalog-terminology.md)
 ## [Sürüm notları](data-catalog-release-notes.md)
-## [REST](https://docs.microsoft.com/rest/api/datacatalog/)
+## [REST](/rest/api/datacatalog/)
 
 # Kaynaklar
+## [Sürüm notları](data-catalog-whats-new.md)
+## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=data-catalog)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/data-catalog/)
+## [MSDN forumu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azuredatacatalog)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-catalog)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

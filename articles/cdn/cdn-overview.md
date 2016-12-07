@@ -3,8 +3,8 @@ title: "Azure CDN’ye Genel Bakış | Microsoft Belgeleri"
 description: "Azure İçerik Teslim Ağı&quot;nın (CDN) ne olduğunu, blobları ve statik içeriği önbelleğe alarak yüksek bant genişliği içeriği teslimi gerçekleştirmek üzere nasıl kullanılacağını öğrenin."
 services: cdn
 documentationcenter: 
-author: camsoper
-manager: erikre
+author: lichard
+manager: akucer
 editor: 
 ms.assetid: 866e0c30-1f33-43a5-91f0-d22f033b16c6
 ms.service: cdn
@@ -13,10 +13,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 09/30/2016
-ms.author: casoper
+ms.author: rli
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 838a9ca3b77d5cd152ad2b8a54387149eafb6202
+ms.sourcegitcommit: 9a96e297711a949ac6bc464ad9154b4ad924666d
+ms.openlocfilehash: d6f56ed485eedd1e8250448c2c0794a066b11dc4
 
 
 ---
@@ -57,7 +57,7 @@ Web sitesi varlıklarını önbelleğe almak için CDN kullanmanın avantajları
 | IPv4/IPv6 ikili yığını |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Özel etki alanı adı desteği](cdn-map-content-to-custom-domain.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Sorgu dizesini önbelleğe alma](cdn-query-string.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| [Coğrafi filtreleme](cdn-restrict-access-by-country.md) | |**&#x2713;** |**&#x2713;** |
+| [Coğrafi filtreleme](cdn-restrict-access-by-country.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Hızlı temizleme](cdn-purge-endpoint.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Varlık önceden yükleme](cdn-preload-endpoint.md) | |**&#x2713;** |**&#x2713;** |
 | [Temel analiz](cdn-analyze-usage-patterns.md) | |**&#x2713;** |**&#x2713;** |
@@ -69,6 +69,8 @@ Web sitesi varlıklarını önbelleğe almak için CDN kullanmanın avantajları
 | Önbellek/üstbilgi ayarları ([kurallar altyapısı](cdn-rules-engine.md) kullanılarak) | | |**&#x2713;** |
 | URL yeniden yönlendirme/yeniden yazma ([kurallar altyapısı](cdn-rules-engine.md) kullanılarak) | | |**&#x2713;** |
 | Mobil cihaz kuralları ([kurallar altyapısı](cdn-rules-engine.md) kullanılarak) | | |**&#x2713;** |
+| [Belirteç kimlik doğrulaması](cdn-token-auth.md)|  |  |**&#x2713;**| 
+
 
 > [!TIP]
 > Azure CDN'de görmek istediğiniz bir özellik mi var?  [Bize geri bildirim sağlayın](https://feedback.azure.com/forums/169397-cdn)! 
@@ -89,6 +91,6 @@ Fiyatlandırma bilgileri için bkz. [CDN Fiyatlandırması](https://azure.micros
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

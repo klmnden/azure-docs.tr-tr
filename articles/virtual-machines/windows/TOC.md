@@ -31,7 +31,7 @@
 ### [Uygulama dağıtımı](../virtual-machines-windows-dotnet-core-5-app-deployment.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 # Nasıl yapılır?
-## Depolama alanını kullanma
+## Depolama'yı kullanma
 ### [Veri diski ekleme](../virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Veri diski çıkarma](../virtual-machines-windows-detach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [İşletim sistemi sürücüsünü genişletme](../virtual-machines-windows-expand-os-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -176,13 +176,15 @@
 ### [VM’yi yeniden dağıtma](../virtual-machines-windows-redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 # Başvuru
+## [PowerShell](/powershell/azureps-cmdlets-docs)
 ## [Azure CLI](/cli/azure/vm)
-## [Java](/java/api/)
+## [Java](/java/api)
+## [.NET](/dotnet/api/microsoft.azure.management.compute)
 ## [Resource Manager şablonları yazma](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-## [Topluluk şablonları](https://azure.microsoft.com/documentation/templates/)
-## [İşlem REST](/rest/api/compute/)
-## [Ağ REST](/rest/api/)
-## [Depolama REST](/rest/api/storageservices/)
+## [Topluluk şablonları](https://azure.microsoft.com/documentation/templates)
+## [İşlem REST](/rest/api/compute)
+## [Ağ REST](/rest/api)
+## [Depolama REST](/rest/api/storageservices)
 
 # Kaynaklar
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/#Windows)
@@ -191,6 +193,6 @@
 ## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

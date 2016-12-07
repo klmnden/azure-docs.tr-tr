@@ -1,11 +1,9 @@
 # Genel Bakış
 ## [ExpressRoute nedir?](expressroute-introduction.md)
+## [ExpressRoute ile ilgili SSS](expressroute-faqs.md)
 ## [Konumlar ve iş ortakları](expressroute-locations.md)
-## [Bağlantı hatlarını klasikten Resource Manager’a taşıma](expressroute-move.md)
-## En İyi Uygulamalar
-### [Ağ güvenliği ve bulut hizmetlerine yönelik en iyi uygulamalar](../best-practices-network-security.md)
-### [Asimetrik yönlendirme](expressroute-asymmetric-routing.md)
-
+### [Konuma göre sağlayıcılar](expressroute-locations-providers.md)
+### [Sağlayıcıya göre konumlar](expressroute-locations.md)
 
 # Kullanmaya Başlama
 ## [Bağlantı hatları ve etki alanlarının yönlendirilmesi](expressroute-circuit-peerings.md)
@@ -15,27 +13,36 @@
 ## [Yönlendirmeyi iyileştirme](expressroute-optimize-routing.md)
 ## [NAT gereksinimleri](expressroute-nat.md)
 ## [QoS gereksinimleri](expressroute-qos.md)
+## [Bağlantı hatlarını klasikten Resource Manager’a taşıma](expressroute-move.md)
 ## [ExpressRoute için sanal ağ geçitleri hakkında](expressroute-about-virtual-network-gateways.md)
-## [ExpressRoute ile ilgili SSS](expressroute-faqs.md)
 
-# Nasıl yapılır?
+# Nasıl yapılır
 ## Bağlantı hattı oluşturma ve değiştirme
-### [Azure portal’ı kullanarak bağlantı hattı oluşturma ve değiştirme](expressroute-howto-circuit-portal-resource-manager.md)
-### [PowerShell kullanarak bağlantı hattı oluşturma ve değiştirme](expressroute-howto-circuit-arm.md)
-### [PowerShell kullanarak bağlantı hattı oluşturma ve değiştirme (Klasik)](expressroute-howto-circuit-classic.md)
+### [Azure portal](expressroute-howto-circuit-portal-resource-manager.md)
+### [PowerShell](expressroute-howto-circuit-arm.md)
+### [PowerShell (Klasik)](expressroute-howto-circuit-classic.md)
 ## Yönlendirme yapılandırması oluşturma ve değiştirme
-### [Azure portal’ı kullanarak yönlendirme yapılandırması oluşturma ve değiştirme](expressroute-howto-routing-portal-resource-manager.md)
-### [PowerShell kullanarak yönlendirme yapılandırması oluşturma ve değiştirme](expressroute-howto-routing-arm.md)
-### [PowerShell kullanarak yönlendirme yapılandırması oluşturma ve değiştirme (Klasik)](expressroute-howto-routing-classic.md)
+### [Azure Portal](expressroute-howto-routing-portal-resource-manager.md)
+### [PowerShell](expressroute-howto-routing-arm.md)
+### [PowerShell (Klasik)](expressroute-howto-routing-classic.md)
 ## ExpressRoute bağlantı hattına bir sanal ağı bağlama
-### [Azure portal’ı kullanarak ExpressRoute bağlantı hattına bir sanal ağı bağlama](expressroute-howto-linkvnet-portal-resource-manager.md)
-### [PowerShell’i kullanarak ExpressRoute bağlantı hattına bir sanal ağı bağlama](expressroute-howto-linkvnet-arm.md)
-### [PowerShell’i kullanarak ExpressRoute bağlantı hattına bir sanal ağı bağlama (Klasik)](expressroute-howto-linkvnet-classic.md)
+### [Azure Portal](expressroute-howto-linkvnet-portal-resource-manager.md)
+### [PowerShell](expressroute-howto-linkvnet-arm.md)
+### [PowerShell (Klasik)](expressroute-howto-linkvnet-classic.md)
 ## ExpressRoute için sanal ağ geçidi yapılandırma
-### [PowerShell’i kullanarak ExpressRoute için sanal ağ geçidi yapılandırma](expressroute-howto-add-gateway-resource-manager.md)
-### [PowerShell’i kullanarak ExpressRoute için sanal ağ geçidi yapılandırma (Klasik)](expressroute-howto-add-gateway-classic.md)
-## [Siteden Siteye ve ExpressRoute eşzamanlı bağlantıları oluşturma](expressroute-howto-coexist-classic.md)
+### [PowerShell](expressroute-howto-add-gateway-resource-manager.md)
+### [PowerShell (Klasik)](expressroute-howto-add-gateway-classic.md)
+## Konumdan Konuma VPN Gateway ve ExpressRoute eşzamanlı bağlantıları oluşturma
+### [PowerShell](expressroute-howto-coexist-resource-manager.md)
+### [PowerShell (Klasik)](expressroute-howto-coexist-classic.md)
 ## [Bir bağlantı hattını klasikten Resource Manager’a taşıma](expressroute-howto-move-arm.md)
+## ExpressRoute için yönlendirici yapılandırma
+### [Yönlendirici yapılandırması ayarlama örnekleri](expressroute-config-samples-routing.md)
+### [NAT için yönlendirici yapılandırma örnekleri](expressroute-config-samples-nat.md)
+
+## En İyi Uygulamalar
+### [Ağ güvenliği ve bulut hizmetlerine yönelik en iyi uygulamalar](../best-practices-network-security.md)
+### [Asimetrik yönlendirme](expressroute-asymmetric-routing.md)
 
 ## Sorun giderme
 ### [ARP tablolarını alma](expressroute-troubleshooting-arp-resource-manager.md)
@@ -43,12 +50,9 @@
 
 
 # Başvuru
-
-## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)
-## [Yönlendirici yapılandırması ayarlama örnekleri](expressroute-config-samples-routing.md)
-## [NAT için yönlendirici yapılandırma örnekleri](expressroute-config-samples-nat.md)
-## [REST](https://msdn.microsoft.com/library/azure/mt586720)
-## [Klasik REST](https://msdn.microsoft.com/library/azure/dn606310)
+## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
+## [REST (resource manager)](https://msdn.microsoft.com/library/azure/mt586720)
+## [REST (klasik)](https://msdn.microsoft.com/library/azure/dn606310)
 
 # İlgili
 ## [Sanal Ağ](/azure/virtual-network/)
@@ -63,7 +67,7 @@
 ## [Örnek Olay İncelemeleri](https://customers.microsoft.com/Pages/advancedsearch.aspx?mrmcproducts=More%20Products)
 ## [SLA](https://azure.microsoft.com/support/legal/sla/)
 ## [Abonelik ve Hizmet Sınırlamaları](../azure-subscription-service-limits.md)
-## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=expressroute) 
+## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=expressroute)
 ### [ExpressRoute bağlantı hattı oluşturma](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit/)
 ### [Bağlantı hattınız için Özel Eşleme ayarlama](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit/)
 ### [Bağlantı hattınız için Genel Eşleme ayarlama](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit/)
@@ -73,8 +77,9 @@
 ### [Bir sanal ağ geçidini bağlantı hattına bağlama](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit/)
 ### [Bağlanılabilirlik için ağ altyapınızı geliştirme](https://go.microsoft.com/fwlink/p/?LinkId=615124)
 ### [Karma ortaklıklar: Şirket içi senaryoları etkinleştirme](https://go.microsoft.com/fwlink/p/?LinkId=615125)
-## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=expressroute) 
+## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=expressroute)
 
-<!--HONumber=Nov16_HO2-->
+
+<!--HONumber=Nov16_HO4-->
 
 

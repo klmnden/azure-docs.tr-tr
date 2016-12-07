@@ -1,44 +1,61 @@
 ---
-title: Network interfaces | Microsoft Docs
-description: Learn about Azure network interfaces in Azure Resource Manager.
+title: "Ağ arabirimleri | Microsoft Belgeleri"
+description: "Azure Resource Manager’daki Azure ağ arabirimleri hakkında bilgi edinin."
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: f58b503f-18bf-4377-aa63-22fc8a96e4be
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: jdial
+translationtype: Human Translation
+ms.sourcegitcommit: 6e96471c4f61e1ebe15c23f87ac646001d8e30ee
+ms.openlocfilehash: 586877781f4b74c49936a8129db49a67018bab65
+
 
 ---
-# Network interfaces
-A network interface (NIC) is the interconnection between a Virtual Machine (VM) and the underlying software network. This article explains what a network interface is and how it's used in the Azure Resource Manager deployment model.
+# <a name="network-interfaces"></a>Ağ arabirimleri
+Ağ arabirimi (NIC), bir Sanal Makine (VM) ile onun yazılım altyapısı arasındaki çift yönlü bağlantıdır. Bu makalede bir ağ arabiriminin ne olduğu ve Azure Resource Manager dağıtım modelinde nasıl kullanıldığı açıklanmıştır.
 
-Microsoft recommends deploying new resources using the Resource Manager deployment model, but you can also deploy VMs with network connectivity in the [classic](virtual-network-ip-addresses-overview-classic.md) deployment model. If you're familiar with the classic model, there are important differences in VM networking in the Resource Manager deployment model. Learn more about the differences by reading the [Virtual machine networking - Classic](virtual-network-ip-addresses-overview-classic.md#differences-between-resource-manager-and-classic-deployments) article.
+Microsoft yeni kaynakların Resource Manager dağıtım modeli kullanılarak dağıtılmasını önerir, ancak ağ bağlantısı [klasik](virtual-network-ip-addresses-overview-classic.md) dağıtım modelinde olan VM’ler de dağıtabilirsiniz. Klasik model hakkında bilgi sahibiyseniz, Resource Manager dağıtım modelindeki VM ağ bağlantısında önemli farklar vardır. [Sanal makine ağ bağlantısı - Klasik](virtual-network-ip-addresses-overview-classic.md#differences-between-resource-manager-and-classic-deployments) makalesini okuyarak farklar hakkında daha fazla bilgi edinin.
 
-In Azure, a network interface:
+Azure’daki bir ağ arabirimi:
 
-1. Is a resource that can be created, deleted, and has its own configurable settings.
-2. Must be connected to one subnet in one Azure Virtual Network (VNet) when it's created. If you're not familiar with VNets, learn more about them by reading the [Virtual network overview](virtual-networks-overview.md) article. The NIC must be connected to a VNet that exists in the same Azure [location](https://azure.microsoft.com/regions) and [subscription](../azure-glossary-cloud-terminology.md#subscription) as the NIC. After a NIC is created, you can change the subnet it's connected to, but you cannot change the VNet it's connected to.
-3. Has a name assigned to it that cannot be changed after the NIC is created. The name must be unique within an Azure [resource group](../resource-group-overview.md#resource-groups), but doesn't have to be unique within the subscription, the Azure location it's created in, or the VNet it's connected to. Several NICs are typically created within an Azure subscription. It's recommended that you devise a naming convention that makes managing multiple NICs easier than using default names. See the [Recommended naming conventions for Azure resources](../guidance/guidance-naming-conventions.md) article for suggestions.
-4. May be attached to a VM, but can only be attached to a single VM that exists in the same location as the NIC.
-5. Has a MAC address, which is persisted with the NIC for as long as it remains attached to a VM. The MAC address is persisted whether the VM is restarted (from within the operating system) or stopped (de-allocated) and started using the Azure Portal, Azure PowerShell, or the Azure Command-Line Interface. If it's detached from a VM and attached to a different VM, the NIC receives a different MAC address. If the NIC is deleted, the MAC address is assigned to other NICs.
-6. Must have one primary **private** *IPv4* static or dynamic IP address assigned to it.
-7. May have one public IP address resource associated to it.
-8. Supports accelerated networking with single-root I/O virtualization (SR-IOV) for specific VM sizes running specific versions of the Microsoft Windows Server operating system. To learn more about this PREVIEW feature, read the [Accelerated networking for a virtual machine](virtual-network-accelerated-networking-powershell.md) article.
-9. Can receive traffic not destined to private IP addresses assigned to it if IP forwarding is enabled for the NIC. If a VM is running firewall software for example, it routes packets not destined for its own IP addresses. The VM must still run software capable of routing or forwarding traffic, but to do so, IP forwarding must be enabled for a NIC.
-10. Is often created in the same resource group as the VM it's attached to or the same VNet that it's connected to, though it isn't required to be.
+1. Oluşturulabilen, silinebilen ve kendi yapılandırılabilir ayarlarına sahip olan bir kaynaktır.
+2. Oluşturulduğunda Azure Sanal Ağı’ndaki (VNet) bir alt ağa bağlanmalıdır. VNet’ler konusunda bilgi sahibi değilseniz [Sanal ağa genel bakış](virtual-networks-overview.md) makalesini okuyarak bunlar hakkında daha fazla bilgi edinin. NIC’nin NIC ile aynı Azure [konumunda](https://azure.microsoft.com/regions) ve [aboneliğinde](../azure-glossary-cloud-terminology.md#subscription) bulunan bir VNet’e bağlanması gerekir. Bir NIC oluşturulduktan sonra NIC’nin bağlı olduğu alt ağ değiştirebilir, ancak bağlı olduğu VNet’i değiştiremezsiniz.
+3. Kendisine bir ad atandığından, NIC oluşturulduktan sonra değiştirilemez. Adın bir Azure [kaynak grubunda](../azure-resource-manager/resource-group-overview.md#resource-groups) benzersiz olması gerekir, ancak abonelikte, oluşturulduğu Azure konumunda ya da bağlı olduğu VNet’te benzersiz olması gerekmez. Bir Azure aboneliğinde genellikle birkaç NIC oluşturulur. Birden çok NIC’nin yönetilmesini varsayılan adların kullanılmasına göre daha kolay hale getiren bir adlandırma kuralı bulmanız önerilir. Öneriler için bkz. [Azure kaynakları için önerilen adlandırma kuralları](../guidance/guidance-naming-conventions.md).
+4. Bir VM’ye bağlı olabilir, ancak yalnızca NIC ile aynı konumdaki tek bir VM’ye bağlanabilir.
+5. Bir MAC adresi vardır ve NIC bir VM’ye bağlı kaldığı sürece bu adres kalıcıdır. Azure Portal, Azure PowerShell veya Azure Komut Satırı Arabirimi kullanılarak VM yeniden başlatıldığında veya durdurulup (serbest bırakılıp) başlatıldığında MAC adresi değişmez. NIC bir VM’den ayrılıp farklı bir VM’ye bağlanırsa başka bir MAC adresi alır. NIC silinirse MAC adresi diğer NIC’lere atanır.
+6. Bir **birincil** *IPv4* statik veya dinamik IP adresi atanmış olmalıdır.
+7. Kaynakla ilişkili bir genel IP adresi kaynağı olabilir.
+8. Microsoft Windows Server işletim sisteminin belirli sürümlerini çalıştıran belirli VM boyutları için tek köklü G/Ç sanallaştırması (SR-IOV) ile hızlandırılmış ağı destekler. Bu ÖNİZLEME özelliği hakkında daha fazla bilgi edinmek için [Sanal makine için hızlandırılmış ağ](virtual-network-accelerated-networking-powershell.md) makalesini okuyun.
+9. NIC için IP iletme etkinleştirilmişse kendisine atanan özel IP adreslerine yönelik olmayan trafiği alabilir. Örneğin, bir VM güvenlik duvarı yazılımı çalıştırıyorsa kendi IP adreslerine yönelik olmayan paketleri yönlendirir. VM’nin yine de trafiği yönlendirebilen veya iletebilen yazılımlar çalıştırması gerekir, ancak bunu yapabilmesi, bir NIC için IP iletiminin etkin olmasını gerektirir.
+10. Genellikle bağlı olduğu VM veya VNet ile aynı kaynak grubunda oluşturulur, ancak bu gerekli değildir.
 
-Multiple NICs can be attached to the same VM, provided the VM size supports it. To learn more about which VM sizes support multiple NIC, read the [Windows Server VM sizes](../virtual-machines/virtual-machines-windows-sizes.md) or [Linux VM sizes](../virtual-machines/virtual-machines-linux-sizes.md) articles.
+## <a name="vms-with-multiple-network-interfaces"></a>Birden çok ağ arabirimine sahip VM’ler
+Bir VM’ye birden çok NIC bağlanabilir, ancak bunu yaparken aşağıdakilere dikkat edin:  
 
-## Next steps
-* Learn how to create a VM with a single NIC by reading the [Create a VM](../virtual-machines/virtual-machines-windows-hero-tutorial.md) article.
-* Learn how to create a VM with multiple NICs by reading the [Deploy a VM with multiple NIC](virtual-network-deploy-multinic-arm-ps.md) article.
-* Learn how to create a NIC with multiple IP configurations by reading the [Multiple IP addresses for Azure virtual machines](virtual-network-multiple-ip-addresses-powershell.md) article.
+* VM boyutu birden çok NIC’yi desteklemelidir. Hangi VM boyutlarının birden çok NIC’yi desteklediği hakkında daha fazla bilgi edinmek için [Windows Server VM boyutları](../virtual-machines/virtual-machines-windows-sizes.md) veya [Linux VM boyutları](../virtual-machines/virtual-machines-linux-sizes.md) makalesini okuyun.
+* VM en az NIC ile oluşturulmalıdır. VM boyutu birden çok NIC’yi desteklemesine rağmen VM yalnızca bir NIC ile oluşturulursa, VM oluşturulduktan sonra VM’ye ek NIC bağlayamazsınız. VM en az iki NIC ile oluşturulduğu ve VM boyutu ikiden fazla NIC’yi desteklediği sürece, VM oluşturulduktan sonra VM’ye ek NIC’ler bağlayabilirsiniz.  
+* VM’ye bağlı en az üç NIC varsa ikincil NIC’leri VM’den ayırabilirsiniz (birincil NIC ayrılamaz). VM’ye bağlı iki veya daha az NIC varsa NIC’leri ayıramazsınız.  
+* VM içindeki NIC’lerin sıralaması rastgele olur ve Azure altyapı güncelleştirmeleri arasında da farklılık gösterebilir. Ancak, IP adresleri ve onlara karşılık gelen ethernet MAC adresleri aynı kalır. Örneğin, işletim sisteminin Azure NIC1’i Eth1 olarak tanımladığını varsayalım. Eth1’in IP adresi 10.1.0.100, MAC adresi 00-0D-3A-B0-39-0D olsun. Bir Azure altyapı güncelleştirmesi ve yeniden başlatma işleminden sonra işletim sistemi Azure NIC1’i Eth2 olarak tanımlamaya başlayabilir, ancak IP ve MAC adresleri, Azure NIC1’in işletim sistemi tarafından Eth1 olarak tanımlandığında olduğu gibi kalır. Bir yeniden başlatma işlemi müşteri tarafından başlatıldıysa işletim sistemi içinde NIC sıralaması aynı kalır.  
+* VM bir [kullanılabilirlik kümesinin](../azure-glossary-cloud-terminology.md#availability-set) üyesiyse, kullanılabilirlik kümesindeki VM’lerin tamamı tek NIC veya birden çok NIC içermelidir. VM’ler birden çok NIC içeriyorsa, her bir VM’nin ikiden fazla NIC’si olduğu sürece her birinin sahip olduğu NIC sayısı aynı olmak zorunda değildir.
+
+## <a name="next-steps"></a>Sonraki adımlar
+* [VM oluşturma](../virtual-machines/virtual-machines-windows-hero-tutorial.md) makalesini okuyarak tek NIC’li VM oluşturmayı öğrenin.
+* [Birden çok NIC’li VM dağıtma](virtual-network-deploy-multinic-arm-ps.md) makalesini okuyarak birden çok NIC içeren bir VM oluşturmayı öğrenin.
+* [Azure sanal makineleri için birden çok IP adresi](virtual-network-multiple-ip-addresses-powershell.md) makalesini okuyarak birden çok IP yapılandırması içeren bir NIC oluşturmayı öğrenin.
+
+
+
+
+<!--HONumber=Nov16_HO3-->
+
 

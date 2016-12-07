@@ -1,6 +1,6 @@
 ---
-title: "Azure SQL Veri Ambarı’nı sorgulama (sqlcmd)| Microsoft Belgeleri"
-description: "Azure SQL Data Warehouse’u sqlcmd Komut Satırı Yardımcı Programı ile sorgulama."
+title: "Azure SQL Veri Ambarı&quot;na Bağlanma sqlcmd | Microsoft Belgeleri"
+description: "Bir Azure SQL Veri Ambarı’na bağlanmak ve sorgu göndermek için [sqlcmd][sqlcmd] komut satırı yardımcı programını kullanın."
 services: sql-data-warehouse
 documentationcenter: NA
 author: barbkess
@@ -15,12 +15,12 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1f2cf8003e46a1df30810a2594bc1d380bc13bcf
+ms.sourcegitcommit: 77474214c6fafe7f591030d30f6a46c66fbc5c09
+ms.openlocfilehash: 1cd3bd8cab4e74da820f844d2ba96243cc6ccdcd
 
 
 ---
-# <a name="query-azure-sql-data-warehouse-sqlcmd"></a>Azure SQL Data Warehouse sorgulama (sqlcmd)
+# <a name="connect-to-sql-data-warehouse-with-sqlcmd"></a>sqlcmd ile SQL Data Warehouse'a bağlanma
 > [!div class="op_single_selector"]
 > * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 > * [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
@@ -30,10 +30,10 @@ ms.openlocfilehash: 1f2cf8003e46a1df30810a2594bc1d380bc13bcf
 > 
 > 
 
-Bu izlenecek yolda Azure SQL Veri Ambarı’nı sorgulamak için [sqlcmd][sqlcmd] komut satırı yardımcı programı kullanılır.  
+Bir Azure SQL Veri Ambarı’na bağlanmak ve sorgu göndermek için [sqlcmd][sqlcmd] komut satırı yardımcı programını kullanın.  
 
 ## <a name="1-connect"></a>1. Bağlan
-[Sqlcmd][Sqlcmd] kullanmaya başlamadan önce komut istemini açın ve **sqlcmd** öğesinden sonra SQL Veri Ambarı veritabanınızın bağlantı dizesini girin. Bağlantı dizesi için aşağıdaki parametreler gereklidir:
+[sqlcmd][sqlcmd] kullanmaya başlamadan önce komut istemini açın ve **sqlcmd** öğesinden sonra SQL Veri Ambarı veritabanınızın bağlantı dizesini girin. Bağlantı dizesi için aşağıdaki parametreler gereklidir:
 
 * **Server (-S):** `<`Sunucu Adı`>`.database.windows.net biçiminde belirtilmiş sunucu
 * **Database (-d):** Veritabanı adı.
@@ -100,6 +100,6 @@ Sqlcmd’de kullanılabilen seçenekler hakkında daha fazla bilgi için bkz. [s
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

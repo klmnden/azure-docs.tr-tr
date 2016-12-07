@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 09/06/2016
+ms.date: 11/16/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: aaef478107d9c9771a1dc799a101ff9a41f821c6
+ms.sourcegitcommit: 22156a9f3c5a57e10cad96661f50531b309c3a04
+ms.openlocfilehash: a25d394e83d7945f0ea50de1fc65a68a96190a34
 
 
 ---
@@ -31,7 +31,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 Örnek olarak Windows Server 2012 R2 Datacenter görüntüsü kullanıyoruz, ancak bu Azure’un sunduğu birçok görüntüden sadece biridir. Görüntü seçenekleriniz aboneliğinize göre değişir. Örneğin, bazı masaüstü görüntüleri [MSDN aboneleri](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) tarafından kullanılabilir.
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
-2. Hub menüsünde, **Yeni** > **Sanal Makineler** > **Windows Server 2012 R2 Datacenter**’a tıklayın.
+2. Hub menüsünde, **Yeni** > **bilgi İşlem** > **Windows Server 2012 R2 Datacenter**’a tıklayın.
    
     ![Portalda kullanılabilecek Azure VM görüntülerini gösteren ekran görüntüsü](./media/virtual-machines-windows-hero-tutorial/marketplace-new.png)
 3. **Windows Server 2012 R2 Datacenter** dikey penceresindeki **Dağıtım modeli seçin** menüsünde **Resource Manager**’ın seçili olduğunu doğrulayın. **Oluştur**’a tıklayın.
@@ -49,7 +49,7 @@ Görüntüyü seçtikten sonra varsayılan ayarları kullanabilir ve hızlı bir
 4. İşiniz bittiğinde, sonraki bölüme geçmek için **Tamam**’a tıklayın. 
    
     ![Bir Azure VM’yi yapılandırmak için **Temel Bilgiler** dikey penceresindeki ayarları gösteren ekran görüntüsü](./media/virtual-machines-windows-hero-tutorial/basics-blade.png)
-5. Bir VM [boyutu](virtual-machines-windows-sizes.md) seçin ve ardından devam etmek için **Seç**’e tıklayın. 
+5. Bir VM [boyutu](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) seçin ve ardından devam etmek için **Seç**’e tıklayın. 
    
     ![Seçebileceğiniz Azure VM boyutlarını gösteren Boyut dikey penceresi ekran görüntüsü](./media/virtual-machines-windows-hero-tutorial/size-blade.png)
 6. **Ayarlar** dikey penceresinde depolama ve ağ seçeneklerini değiştirebilirsiniz. Bu öğretici için varsayılan ayarları kabul edin. Bunu destekleyen bir sanal makine boyutu seçtiyseniz, **Disk türü** altında **Premium (SSD)**’yi seçerek Azure Premium Depolama’yı deneyebilirsiniz. Değişiklikleriniz bittiğinde **Tamam**’a tıklayın.
@@ -76,7 +76,7 @@ Görüntüyü seçtikten sonra varsayılan ayarları kullanabilir ve hızlı bir
    
    ![VM kimliğini doğrulamaya ilişkin iletiyi gösteren ekran görüntüsü](./media/virtual-machines-windows-hero-tutorial/cert-warning.png)
 
-Bağlanmayı denediğinizde sorun yaşıyorsanız, bkz. [Windows tabanlı Azure Virtual Machine’e Uzak Masaüstü Bağlantı Sorunlarını Giderme](virtual-machines-windows-troubleshoot-rdp-connection.md).
+Bağlanmayı denediğinizde sorun yaşıyorsanız, bkz. [Windows tabanlı Azure Virtual Machine’e Uzak Masaüstü Bağlantı Sorunlarını Giderme](virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 Artık başka bir sunucuyla yaptığınız gibi sanal makine ile çalışabilirsiniz.
 
@@ -88,13 +88,13 @@ Gerçekte kullanmadığınız durumda ücret ödememeniz için VM’yi durdurmak
 Tekrar kullanmaya hazır olduğunuzda VM’yi yeniden başlatmak için **Başlat** düğmesine tıklamanız yeterlidir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Yeni VM’nizi [IIS yükleyerek](virtual-machines-windows-hero-role.md) deneyebilirsiniz. Bu öğretici ayrıca bir ağ güvenlik grubu (NSG) kullanarak gelen web trafiğinde bağlantı noktası 80’i açmayı gösterir. 
-* Ayrıca [Windows PowerShell kullanarak bir VM oluşturabilir](virtual-machines-windows-ps-create.md) veya Azure CLI kullanarak [Linux sanal makinesi oluşturabilirsiniz](virtual-machines-linux-quick-create-cli.md).
-* Otomatik dağıtımlarla ilgileniyorsanız bkz. [Resource Manager şablonu kullanarak Windows sanal makine oluşturma](virtual-machines-windows-ps-template.md).
+* Yeni VM’nizi [IIS yükleyerek](virtual-machines-windows-hero-role.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) deneyebilirsiniz. Bu öğretici ayrıca bir ağ güvenlik grubu (NSG) kullanarak gelen web trafiğinde bağlantı noktası 80’i açmayı gösterir. 
+* Ayrıca [Windows PowerShell kullanarak bir VM oluşturabilir](virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) veya Azure CLI kullanarak [Linux sanal makinesi oluşturabilirsiniz](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* Otomatik dağıtımlarla ilgileniyorsanız bkz. [Resource Manager şablonu kullanarak Windows sanal makine oluşturma](virtual-machines-windows-ps-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

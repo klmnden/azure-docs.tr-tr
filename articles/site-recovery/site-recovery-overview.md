@@ -15,8 +15,8 @@ ms.workload: storage-backup-recovery
 ms.date: 10/30/2016
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 64d085bff08d9a824204851d32504fac3e79024c
+ms.sourcegitcommit: 7455d6f99ed8ceb401224f98105f7b651f55c724
+ms.openlocfilehash: 98bf94960c39565243995a1c4dd45787478b8f40
 
 
 ---
@@ -30,7 +30,7 @@ Site Recovery, şirket içi sanal makinelerin ve fiziksel sunucuların çoğaltm
 Birincil sitede kesinti olması durumunda, uygulamaları ve iş yüklerini erişilebilir ve kullanılabilir durumda tutmak için ikincil siteye yük devredebilirsiniz. Normal çalışma koşullarına dönüldüğünde de yükü birincil konuma geri alabilirsiniz.
 
 ## <a name="site-recovery-in-the-azure-portal"></a>Azure portalında Site Recovery
-Azure’da kaynak oluşturmak ve bunlarla çalışmak için iki farklı [dağıtım modeli](../resource-manager-deployment-model.md) vardır. Azure Resource Manager modeli ve klasik hizmet yönetimi modeli. Azure’da ayrıca iki portal bulunur. [Klasik Azure Portalı](https://manage.windowsazure.com/) ve [Azure portalı](https://portal.azure.com).
+Azure’da kaynak oluşturmak ve bunlarla çalışmak için iki farklı [dağıtım modeli](../azure-resource-manager/resource-manager-deployment-model.md) vardır. Azure Resource Manager modeli ve klasik hizmet yönetimi modeli. Azure’da ayrıca iki portal bulunur. [Klasik Azure Portalı](https://manage.windowsazure.com/) ve [Azure portalı](https://portal.azure.com).
 
 * Site Recovery, hem klasik portalda hem de Azure portalında dağıtılabilir.
 * Klasik Azure portalında, klasik hizmet yönetim modeliyle Site Recovery’yi destekleyebilirsiniz.
@@ -79,6 +79,6 @@ Site Recovery uygulamayla tutarlı çoğaltma sağladığından, iş yükleri ve
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

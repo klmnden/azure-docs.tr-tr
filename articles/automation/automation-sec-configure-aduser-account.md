@@ -1,6 +1,6 @@
 ---
 title: "Azure AD Kullanıcı Hesabı Yapılandırma | Microsoft Belgeleri"
-description: "Bu makale, ARM ve ASM’ye karşı kimlik doğrulamak için Azure Automation’da runbook’lar için Azure AD Kullanıcı kimlik bilgilerinin yapılandırılması açıklanmaktadır."
+description: "Bu makale, kimlik doğrulamak için Azure Otomasyonu’nda runbook’lar için Azure AD Kullanıcı kimlik bilgilerinin yapılandırılması açıklanmaktadır."
 services: automation
 documentationcenter: 
 author: MGoedtel
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/12/2016
+ms.date: 11/14/2016
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 00b217a4cddac0a893564db27ffb4f460973c246
-ms.openlocfilehash: db4eb96b3354d83864a7869c1fd08e9bb2884a1f
+ms.sourcegitcommit: 0078d544d5c30e31874d75fece62ca560d2aa2d6
+ms.openlocfilehash: 0544d4df8f50db2182375aec8ec2a0a9d47ed644
 
 
 ---
 # <a name="authenticate-runbooks-with-azure-service-management-and-resource-manager"></a>Azure Hizmet Yönetimi ve Resource Manager ile Runbook'ların kimliklerini doğrulama
-Bu makalede, Azure Hizmet Yönetimi (ASM) veya Azure Resource Manager (ARM) kaynaklarına karşı çalışan Azure Automation runbook’ları için bir Azure AD Kullanıcı hesabını yapılandıracak gerçekleştirmeniz gereken adımlar açıklanmaktadır.  ARM tabanlı runbook'larınız için kimlik doğrulamasının desteklenmesi amacıyla bu devam ederken önerilen yöntem yeni Azure Farklı Çalıştır hesabının kullanılmasıdır.       
+Bu makalede, Azure Hizmet Yönetimi veya Azure Resource Manager kaynaklarına karşı çalışan Azure Otomasyonu runbook’ları için bir Azure AD Kullanıcı hesabını yapılandıracak gerçekleştirmeniz gereken adımlar açıklanmaktadır.  Azure Resource Manager tabanlı runbook'larınız için kimlik doğrulamasının desteklenmesi amacıyla bu devam ederken önerilen yöntem yeni Azure Farklı Çalıştır hesabının kullanılmasıdır.       
 
 ## <a name="create-a-new-azure-active-directory-user"></a>Yeni bir Azure Active Directory kullanıcısı oluşturma
 1. Klasik Azure Portalı’nda, yönetmek istediğiniz Azure aboneliği için hizmet yöneticisi olarak oturum açın.
@@ -39,12 +39,12 @@ Bu makalede, Azure Hizmet Yönetimi (ASM) veya Azure Resource Manager (ARM) kayn
 12. Azure oturumunu kapatın ve yeni oluşturduğunuz hesapla oturum açın. Kullanıcı parolasını değiştirmeniz istenecektir.
 
 ## <a name="create-an-automation-account-in-azure-classic-portal"></a>Klasik Azure Portalı'nda Automation hesabı oluşturma
-Bu bölümde, ASM ve ARM modunda kaynakları yöneten runbook’larınızla kullanılacak Azure Portal’daki yeni Azure Automation hesabını oluşturmak için şu adımları gerçekleştireceksiniz.  
+Bu bölümde, Azure Service Manager ve Azure Resource Manager modunda kaynakları yöneten runbook’larınızla kullanılacak Azure Portal’daki yeni Azure Otomasyonu hesabını oluşturmak için şu adımları gerçekleştireceksiniz.  
 
 > [!NOTE]
 > Klasik Azure Portalı’yla oluşturulan Automation hesapları hem Klasik Azure Portalı, hem de Azure Portal veya cmdlet’ler grubu tarafından yönetilebilir. Hesap oluşturulduktan sonra, nasıl oluşturduğunuz veya hesaptaki kaynakları nasıl yönelttiğiniz fark etmez. Klasik Azure Portalı’nı kullanmaya devam etmeyi planlıyorsanız, Automation hesaplarını oluşturmak için Azure Portal yerine bunu kullanmalısınız.
->
->
+> 
+> 
 
 1. Klasik Azure Portalı’nda, yönetmek istediğiniz Azure aboneliği için hizmet yöneticisi olarak oturum açın.
 2. **Automation**’ı seçin.
@@ -60,7 +60,7 @@ Bu bölümde, ASM ve ARM modunda kaynakları yöneten runbook’larınızla kull
 12. Aşağıdaki **Kimlik Bilgisi Tanımla** sayfasında, daha önce oluşturulan AD kullanıcı hesabının kullanıcı adını **Kullanıcı Adı** alanına, parolayı **Parola** ve **Parolayı Onayla** alanlarına yazın. Değişikliklerinizi kaydetmek için **Tamam**’a tıklayın.
 
 ## <a name="create-an-automation-account-in-the-azure-portal"></a>Azure Portal'da Automation hesabı oluşturma
-Bu bölümde, ARM modunda kaynakları yöneten runbook’larınızla kullanılacak Azure Portal’daki yeni Azure Automation hesabını oluşturmak için şu adımları gerçekleştireceksiniz.  
+Bu bölümde, Azure Resource Manager modunda kaynakları yöneten runbook’larınızla kullanılacak Azure Portal’daki yeni Azure Otomasyonu hesabını oluşturmak için şu adımları gerçekleştireceksiniz.  
 
 1. Azure Portalı’nda, yönetmek istediğiniz Azure aboneliği için hizmet yöneticisi olarak oturum açın.
 2. **Automation Hesapları**’nı seçin.
@@ -68,12 +68,12 @@ Bu bölümde, ARM modunda kaynakları yöneten runbook’larınızla kullanılac
 4. **Automation Hesabı Ekle** dikey penceresinde, **Ad** kutusuna, yeni Automation hesabınız için bir ad yazın.
 5. Birden fazla aboneliğiniz varsa, yeni hesap için, mevcut veya yeni **Kaynak grubu** ve Azure veri merkezi **konumu** ile birlikte bir tane belirtin.
 6. **Azure Farklı Çalıştır hesabı oluştur** seçeneği için **Hayır** değerini seçin ve **Oluştur** düğmesine tıklayın.  
-
+   
    > [!NOTE]
-   > **Hayır** seçeneğini belirleyerek Farklı Çalıştır hesabı oluşturmamayı seçerseniz, **Automation Hesabı Ekle** dikey penceresinde bir uyarı iletisi görürsünüz.  Hesap oluşturulup abonelikteki **Katılımcı** rolüne atandığı sırada, abonelikler dizini hizmetinizde karşılık gelen bir kimlik doğrulaması kimliği olmaz, bu nedenle de aboneliğinizde kaynaklara erişim de olmaz.  ARM kaynaklarına karşı kimlik doğrulama ve görev gerçekleştirme becerisinden bu hesaba başvuran runbook’ları koruyacaktır.
-   >
-   >
-
+   > **Hayır** seçeneğini belirleyerek Farklı Çalıştır hesabı oluşturmamayı seçerseniz, **Automation Hesabı Ekle** dikey penceresinde bir uyarı iletisi görürsünüz.  Hesap oluşturulup abonelikteki **Katılımcı** rolüne atandığı sırada, abonelikler dizini hizmetinizde karşılık gelen bir kimlik doğrulaması kimliği olmaz, bu nedenle de aboneliğinizde kaynaklara erişim de olmaz.  Azure Resource Manager kaynaklarına karşı kimlik doğrulama ve görev gerçekleştirme becerisinden bu hesaba başvuran runbook’ları koruyacaktır.
+   > 
+   > 
+   
     ![Automation Hesabı Uyarısı ekleme](media/automation-sec-configure-azure-runas-account/add-automation-acct-properties-error.png)
 7. Azure Automation hesabını oluşturduğu sırada menünün **Bildirimler** öğesi altında ilerleme durumunu izleyebilirsiniz.
 
@@ -93,6 +93,7 @@ Runbook uygulamanızdaki her [kontrol noktası](http://technet.microsoft.com/lib
 
 
 
-<!--HONumber=Nov16_HO2-->
+
+<!--HONumber=Nov16_HO3-->
 
 

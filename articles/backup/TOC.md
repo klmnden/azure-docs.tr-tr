@@ -1,11 +1,11 @@
 # Genel Bakış
 ## [Azure Backup nedir?](backup-introduction-to-azure-backup.md)
 # Başlarken
-## [SSS](backup-azure-backup-faq.md)
 ## [Dosya ve klasörleri yedekleme](backup-try-azure-backup-in-10-mins.md)
 ## [Azure sanal makinelerini yedekleme](backup-azure-vms-first-look.md)
 ## [Azure VM'lerini koruma](backup-azure-vms-first-look-arm.md)
-# Nasıl yapılır?
+## [SSS](backup-azure-backup-faq.md)
+# Nasıl yapılır
 ## PowerShell'i kullanarak Yedeklemeyi Otomatikleştirme
 ### [Azure portalındaki Azure VM'leri](backup-azure-vms-automation.md)
 ### [Klasik portaldaki Azure VM'leri](backup-azure-vms-classic-automation.md)
@@ -52,7 +52,13 @@
 ### [Azure VM Yedeklemesi başarısız oluyor: Anlık görüntü durumu için VM aracısı ile iletişim kurulamadı - Anlık görüntü VM alt görevi zaman aşımına uğradı](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md)
 ### [Azure Backup'ta dosya ve klasörlerin yavaş yedeklenmesi](backup-azure-troubleshoot-slow-backup-performance-issue.md)
 
+# Kaynaklar
+## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/backup/)
+## [MSDN forumu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazureonlinebackup) 
+## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=backup) 
+## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=backup)
 
-<!--HONumber=Nov16_HO2-->
+
+<!--HONumber=Nov16_HO4-->
 
 

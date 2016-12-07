@@ -153,6 +153,7 @@
 ### [Şirket içi bağlantılar](web-sites-hybrid-connection-get-started.md)
 ### [Azure Sanal Ağ](web-sites-integrate-with-vnet.md)
 ### [Gelişmiş yapılandırma](web-sites-transform-extend.md)
+### [Linux’ta App Service için kapsayıcı yapılandırma](app-service-linux-using-custom-docker-image.md)
 ### [Kaynak grupları](app-service-move-resources.md)
 ### [WordPress'i Çoklu Siteye dönüştürme](web-sites-php-convert-wordpress-multisite.md) 
 
@@ -265,6 +266,6 @@
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

@@ -40,7 +40,7 @@
 ### [Tek tıklamayla PowerShell](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick)
 
 # Başvuru
-## [PowerShell](/powershell/azureps-cmdlets-docs/)
+## [PowerShell](/powershell/azureps-cmdlets-docs)
 ## [.NET](/dotnet/api/)
 ## [Sorgu dili](https://msdn.microsoft.com/library/azure/dn834998)
 ## [REST](/rest/api/streamanalytics/)
@@ -57,6 +57,6 @@
 ## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=stream-analytics)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

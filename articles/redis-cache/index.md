@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: cd96f7ea32696ea920cd1622ae6d08692b4f8f4c
-ms.openlocfilehash: a244eaf8dff788354caab1c327a22cb5c5b423cf
+ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
+ms.openlocfilehash: 1253538f479de3dc4200956f85229ee4892cf9a7
 
 ---
 #<a name="redis-cache-documentation"></a>Redis Önbelleği Belgeleri
@@ -52,7 +52,7 @@ Azure Redis Önbelleği, popüler açık kaynak Redis Önbelleği'ni temel alır
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/nodejs.svg" alt="" />
+                            <img src="media/index/dotnet.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -64,7 +64,7 @@ Azure Redis Önbelleği, popüler açık kaynak Redis Önbelleği'ni temel alır
         </a>
     </li>
     <li>
-        <a href="/azure/redis-cache/cache-dotnet-how-to-use-azure-redis-cache">
+        <a href="/azure/redis-cache/cache-web-app-howto">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -139,22 +139,80 @@ Azure Redis Önbelleği, popüler açık kaynak Redis Önbelleği'ni temel alır
 
 ---
 
-##<a name="reference"></a>Başvuru
+## <a name="reference"></a>Başvuru
 
-###<a name="powershell"></a>PowerShell
-[Azure PowerShell başvurusu](/powershell/azureps-cmdlets-docs)
-
-###<a name="azure-cli"></a>Azure CLI
-[Azure CLI ile Redis Önbelleği](/cli/azure/redis) 
-
-###<a name="net"></a>.NET 
-[Redis Önbelleği Tarafından Yönetilen Başvuru API'si](/dotnet/api/) 
-
-###<a name="java"></a>Java 
-[Azure Java SDK](/java/api/)
-
-###<a name="rest"></a>REST 
-[Redis Önbelleği REST API Başvurusu](/rest/api/)  
+<ul class="panelContent cardsW">
+    <li>
+        <a href="/powershell/azureps-cmdlets-docs">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>PowerShell</h3>
+                        <p>Azure PowerShell başvurusu</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/cli/azure/redis">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Azure CLI</h3>
+                        <p>Azure CLI ile Redis Önbelleği</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/dotnet/api/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>.NET</h3>
+                        <p>Redis Önbelleği Yönetilen Başvuru API’si</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/java/api/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Java</h3>
+                        <p>Azure Java SDK</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/rest/api/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>Redis Önbelleği REST API Başvurusu</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+<ul>
 
 
 <div class="downloadHolder">
@@ -167,6 +225,6 @@ Redis Önbelleği Belgelerini İndirme </div>
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

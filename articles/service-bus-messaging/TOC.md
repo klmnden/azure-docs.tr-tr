@@ -47,16 +47,20 @@
 ### [Eşleştirilen ad alanları](service-bus-paired-namespaces.md)
 ### [Otomatik yönlendirme ile varlıklar arasında zincir oluşturma](service-bus-auto-forwarding.md)
 ## Yönet
-### [ARM şablonlarını kullanma](service-bus-resource-manager-overview.md)
+### [Azure Resource Manager şablonlarını kullanma](service-bus-resource-manager-overview.md)
 ### [Varlıkları sağlamak için PowerShell kullanma](service-bus-powershell-how-to-provision.md)
 
 # Başvuru
 ## [Fiyatlandırma ayrıntıları](service-bus-pricing-billing.md)
 ## [Örnekler](service-bus-samples.md)
-## [Özel durumlar](service-bus-messaging-exceptions.md)
+## [Özel Durumlar](service-bus-messaging-exceptions.md)
 ## [Kotalar](service-bus-quotas.md)
 ## [.NET](/dotnet/api/)
 ## [REST](/rest/api/servicebus/)
+## [SQLFilter söz dizimi](service-bus-messaging-sql-filter.md)
+## [SQLRuleAction söz dizimi](service-bus-messaging-sql-rule-action.md)
+## [AMQP1.0 protokol kılavuzu](service-bus-amqp-protocol-guide.md)
+### [AMQP 1.0 istek-yanıt tabanlı işlemler](service-bus-amqp-request-response.md)
 
 # Kaynaklar
 ## [Blog](https://blogs.msdn.microsoft.com/servicebus/)
@@ -69,6 +73,6 @@
 ## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO5-->
 
 

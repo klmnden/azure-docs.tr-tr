@@ -9,6 +9,7 @@
 ### [Veri güvenliği ve şifreleme için en iyi uygulamalar](azure-security-data-encryption-best-practices.md)
 ### [Depolama alanı güvenliği kılavuzu](../storage/storage-security-guide.md?toc=%2fazure%2fsecurity%2ftoc.json)
 ## [İşlem güvenliği](security-virtual-machines-overview.md)
+### [IaaS iş yükleri için en iyi uygulamalar](azure-security-iaas.md)
 ### [Microsoft Kötü Amaçlı Yazılımdan Koruma](azure-security-antimalware.md)
 ### [Disk şifrelemesi](azure-security-disk-encryption.md)
 ### [Azure VM’yi şifreleme](../security-center/security-center-disk-encryption.md?toc=%2fazure%2fsecurity%2ftoc.json)
@@ -51,6 +52,6 @@
 ## [Sanal Akademi’den güvenlik kursları](security-microsoft-virtual-academy.md)
 ## [Channel 9’da güvenlik videoları](security-channel-nine.md)
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

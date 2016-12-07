@@ -28,11 +28,13 @@
 ### [Görüntülerle formülleri karşılaştırma](devtest-lab-comparing-vm-base-image-types.md)
 
 # Kaynaklar
-## [Hizmet Güncelleştirmeleri](https://azure.microsoft.com/en-us/updates/?product=devtest-lab&updatetype=&platform=)
+## [Hizmet Güncelleştirmeleri](https://azure.microsoft.com/updates/?product=devtest-lab)
+## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/devtest-lab/)
 ## [MSDN Forumu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDevTestLabs)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-devtest-labs)
+## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=devtest-lab)
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

@@ -2,7 +2,7 @@
 ## [Site Recovery nedir?](site-recovery-overview.md)
 ## [Site Recovery nasıl çalışır?](site-recovery-components.md)
 ## [Hangi iş yüklerini korur?](site-recovery-workload.md)
-## [Desteklenen işletim sistemleri nelerdir?](site-recovery-support-matrix.md)
+## [Site Recovery destek matrisi](site-recovery-support-matrix.md)
 ## [SSS](site-recovery-faq.md)
 ## [Tanıtımı izleyin](https://www.youtube.com/watch?v=eOOwMQPBKfM)
 
@@ -49,7 +49,7 @@
 ## [İzleme ve sorun giderme](site-recovery-monitoring-and-troubleshooting.md)
 
 # Başvuru
-## [PowerShell](/powershell/azureps-cmdlets-docs/)
+## [PowerShell](/powershell/azureps-cmdlets-docs)
 ## [PowerShell klasik](/powershell/servicemanagement/)
 
 # İlgili
@@ -63,6 +63,6 @@
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=site-recovery)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

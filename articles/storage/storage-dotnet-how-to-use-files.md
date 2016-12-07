@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 10/18/2016
 ms.author: minet
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: af7b1c3d302282920ce9b347a7686903d1c6fe03
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: bf8acbd37f717c0e055facde781966665ca67d2d
 
 
 ---
@@ -210,8 +210,8 @@ Bir istemci File Storage’a eriştiğinde, kullanılan SMB sürümü işletim s
 ### <a name="mount-the-file-share-from-an-azure-virtual-machine-running-windows"></a>Windows çalıştıran Azure sanal makinesinden dosya paylaşımını bağlama
 Azure dosya paylaşımının nasıl bağlandığını göstermek üzere Windows çalıştıran bir Azure Virtual Machine oluşturacak ve paylaşımı bağlamak için buna uzaktan bağlanacaksınız.
 
-1. İlk olarak, [Azure Portal’da Windows sanal makinesi oluşturma](../virtual-machines/virtual-machines-windows-hero-tutorial.md) sayfasındaki yönergeleri izleyerek yeni bir AAzure Virtual Machine luşturun.
-2. Daha sonra, [Azure Portal’ıkullanarak Windows sanal makinesinde oturum açma](../virtual-machines/virtual-machines-windows-connect-logon.md) sayfasındaki yönergeleri izleyerek sanal makineye uzaktan bağlanın.
+1. İlk olarak, [Azure Portal’da Windows sanal makinesi oluşturma](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) sayfasındaki yönergeleri izleyerek yeni bir AAzure Virtual Machine luşturun.
+2. Daha sonra, [Azure Portal’ıkullanarak Windows sanal makinesinde oturum açma](../virtual-machines/virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) sayfasındaki yönergeleri izleyerek sanal makineye uzaktan bağlanın.
 3. Sanal makinede bir PowerShell penceresi açın.
 
 ### <a name="persist-your-storage-account-credentials-for-the-virtual-machine"></a>Sanal makine için depolama hesabı kimlik bilgilerinizi kalıcı yapma
@@ -242,7 +242,7 @@ Artık başka bir sürücüyle yaptığınız gibi sanal makineden File Storage 
 
 Azure bulut hizmetindeki çalışan bir rolle uzaktan bağlantı kurarak bu rolden de dosya paylaşımını bağlayabilirsiniz.
 
-### <a name="mount-the-file-share-from-an-onpremises-client-running-windows"></a>Windows çalıştıran şirket içi bir istemciden dosya paylaşımını bağlama
+### <a name="mount-the-file-share-from-an-on-premises-client-running-windows"></a>Windows çalıştıran şirket içi bir istemciden dosya paylaşımını bağlama
 Şirket için bir istemciden dosya paylaşımını bağlamak için, öncelikle şu adımları uygulamanız gerekir:
 
 * Windows’un SMB 3.0’ı destekleyen bir sürümünü yükleyin. Windows, şirket içi istemcileriniz ile buluttaki Azure dosya paylaşımı arasında güvenli şekilde veri aktarmak için SMB 3.0 şifreleme özelliğinden yararlanır.

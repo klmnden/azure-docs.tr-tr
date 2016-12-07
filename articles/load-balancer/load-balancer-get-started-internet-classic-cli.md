@@ -3,9 +3,8 @@ title: "Azure CLI kullanarak klasik dağıtımda İnternet’e yönelik yük den
 description: "Azure CLI kullanarak klasik dağıtımda İnternet’e yönelik yük dengeleyici oluşturmayı öğrenin"
 services: load-balancer
 documentationcenter: na
-author: sdwheeler
-manager: carmonm
-editor: 
+author: kumudd
+manager: timlt
 tags: azure-service-management
 ms.assetid: e433a824-4a8a-44d2-8765-a74f52d4e584
 ms.service: load-balancer
@@ -14,61 +13,71 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2016
-ms.author: sewhee
+ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e8a346c1b2d430eceb4aa1b8bc94fbbe89394556
-
+ms.sourcegitcommit: cf1eafc7bca5bddeb32f1e1e05e660d6877ed805
+ms.openlocfilehash: 337399d1f832830665be92a97a8458b7a959845b
 
 ---
+
 # <a name="get-started-creating-an-internet-facing-load-balancer-classic-in-the-azure-cli"></a>Azure CLI’de İnternet’e yönelik yük dengeleyici (klasik) oluşturmaya başlama
-[!INCLUDE [load-balancer-get-started-internet-classic-selectors-include.md](../../includes/load-balancer-get-started-internet-classic-selectors-include.md)]
+
+> [!div class="op_single_selector"]
+> * [Klasik Azure Portalı](../load-balancer/load-balancer-get-started-internet-classic-portal.md)
+> * [PowerShell](../load-balancer/load-balancer-get-started-internet-classic-ps.md)
+> * [Azure CLI](../load-balancer/load-balancer-get-started-internet-classic-cli.md)
+> * [Azure Cloud Services](../load-balancer/load-balancer-get-started-internet-classic-cloud.md)
 
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
-[!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
-
-Bu makale, klasik dağıtım modelini kapsamaktadır. [Azure Resource Manager kullanarak İnternet’e yönelik yük dengeleyici oluşturma](load-balancer-get-started-internet-arm-ps.md) sayfasını da inceleyebilirsiniz.
+> [!IMPORTANT]
+> Azure kaynaklarıyla çalışmadan önce Azure’da şu anda iki dağıtım modeli olduğunu anlamak önemlidir: Azure Resource Manager ve klasik. Azure kaynaklarıyla çalışmadan önce [dağıtım modellerini ve araçlarlarını](../azure-classic-rm.md) iyice anladığınızdan emin olun. Bu makalenin en üstündeki sekmelere tıklayarak farklı araçlarla ilgili belgeleri görüntüleyebilirsiniz. Bu makale, klasik dağıtım modelini kapsamaktadır. [Azure Resource Manager kullanarak İnternet’e yönelik yük dengeleyici oluşturma](load-balancer-get-started-internet-arm-ps.md) sayfasını da inceleyebilirsiniz.
 
 [!INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
 ## <a name="step-by-step-creating-an-internet-facing-load-balancer-using-cli"></a>CLI kullanarak İnternet’e yönelik yük dengeleyici oluşturma adımları
+
 Bu kılavuz, yukarıdaki senaryoya göre İnternet’e yönelik yük dengeleyicinin nasıl oluşturulacağını göstermektedir.
 
 1. Hiç Azure CLI kullanmadıysanız bkz. [Azure CLI’yi Yükleme ve Yapılandırma](../xplat-cli-install.md); sonra da, Azure hesabınızı ve aboneliğinizi seçtiğiniz noktaya kadar yönergeleri uygulayın.
 2. Klasik moda geçmek için **azure config mode** komutunu aşağıda gösterildiği gibi çalıştırın.
-   
-        azure config mode asm
-   
+
+    ```azurecli
+    azure config mode asm
+    ```
+
     Beklenen çıktı:
-   
+
         info:    New mode is asm
 
 ## <a name="create-endpoint-and-load-balancer-set"></a>Uç nokta ve yük dengeleyici kümesi oluşturma
+
 Bu senaryoda "web1" ve "web2" adlı sanal makinelerin oluşturulduğu varsayılmaktadır.
 Bu kılavuzda hem genel hem de yerel bağlantı noktası olarak 80 numaralı bağlantı noktası kullanılarak bir yük dengeleyici kümesi oluşturulmaktadır. 80 numaralı bağlantı noktasında da bir araştırma bağlantı noktası yapılandırılmakta ve yük dengeleyici kümesi "lbset" olarak adlandırılmaktadır.
 
 ### <a name="step-1"></a>1. Adım
+
 `azure network vm endpoint create` kullanarak "web1" adlı sanal makine için ilk uç noktayı ve yük dengeleyici kümesini oluşturun.
 
-    azure vm endpoint create web1 80 -k 80 -o tcp -t 80 -b lbset
-
-Kullanılan parametreler:
-
-**-k** - yerel sanal makine bağlantı noktası<br>
-**-o** - protokol<BR>
-**-t** - araştırma bağlantı noktası<BR>
-**-b** - yük dengeleyici adı<BR>
+```azurecli
+azure vm endpoint create web1 80 --local-port 80 --protocol tcp --probe-port 80 --load-balanced-set-name lbset
+```
 
 ## <a name="step-2"></a>2. Adım
+
 Yük dengeleyici kümesine "web2" adlı ikinci bir sanal makine ekleyin.
 
-    azure vm endpoint create web2 80 -k 80 -o tcp -t 80 -b lbset
+```azurecli
+azure vm endpoint create web2 80 --local-port 80 --protocol tcp --probe-port 80 --load-balanced-set-name lbset
+```
 
 ## <a name="step-3"></a>3. Adım
+
 `azure vm show` komutunu kullanarak yük dengeleyici yapılandırmasını doğrulayın.
 
-    azure vm show web1
+```azurecli
+azure vm show web1
+```
 
 Çıktı şu şekilde olacaktır:
 
@@ -115,25 +124,28 @@ Yük dengeleyici kümesine "web2" adlı ikinci bir sanal makine ekleyin.
     info:    vm show command OK
 
 ## <a name="create-a-remote-desktop-endpoint-for-a-virtual-machine"></a>Bir sanal makine için uzak masaüstü uç noktası oluşturma
+
 `azure vm endpoint create` kullanarak belirli bir sanal makine için genel bağlantı noktasına gelen trafiği yerel bağlantı noktasına yönlendirme amacıyla uzak masaüstü uç noktası oluşturabilirsiniz.
 
-    azure vm endpoint create web1 54580 -k 3389
-
+```azurecli
+azure vm endpoint create web1 54580 -k 3389
+```
 
 ## <a name="remove-virtual-machine-from-load-balancer"></a>Sanal makineyi yük dengeleyiciden kaldırma
+
 Yük dengeleyici kümesiyle ilişkilendirilmiş uç noktayı sanal makineden silmeniz gerekir. Uç nokta kaldırıldığında ilgili sanal makine artık yük dengeleyici kümesine ait olmayacaktır.
 
- Yukarıdaki örneği kullanarak "web1" sanal makinesi için oluşturulan uç noktayı "lbset" yük dengeleyiciden `azure vm endpoint delete` komutuyla kaldırabilirsiniz.
+Yukarıdaki örneği kullanarak "web1" sanal makinesi için oluşturulan uç noktayı "lbset" yük dengeleyiciden `azure vm endpoint delete` komutuyla kaldırabilirsiniz.
 
-    azure vm endpoint delete web1 tcp-80-80
-
+```azurecli
+azure vm endpoint delete web1 tcp-80-80
+```
 
 > [!NOTE]
 > `azure vm endpoint --help` komutunu kullanarak diğer uç nokta yönetim seçeneklerini keşfedebilirsiniz
-> 
-> 
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 [Bir iç yük dengeleyici yapılandırmaya başlayın](load-balancer-get-started-ilb-arm-ps.md)
 
 [Yük dengeleyici dağıtım modu yapılandırma](load-balancer-distribution-mode.md)
@@ -142,7 +154,6 @@ Yük dengeleyici kümesiyle ilişkilendirilmiş uç noktayı sanal makineden sil
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

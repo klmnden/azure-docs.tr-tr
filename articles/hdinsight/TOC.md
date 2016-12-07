@@ -6,14 +6,16 @@
 ## [HBase](hdinsight-hbase-overview.md)
 ## [Apache Storm](hdinsight-storm-overview.md)
 ## [Etki alanına katılmış HDInsight önizlemesi](hdinsight-domain-joined-introduction.md)
+## [Kafka önizlemesi](hdinsight-apache-kafka-introduction.md)
 
 # Kullanmaya Başlama
 ## [Hadoop’u kullanmaya başlama](hdinsight-hadoop-linux-tutorial-get-started.md)
 ## [Etkileşimli Hive önizlemesini kullanmaya başlama](hdinsight-hadoop-use-interactive-hive.md)
-## [R Server önizlemesini kullanmaya başlama](hdinsight-hadoop-r-server-get-started.md)
+## [R Server’ı kullanmaya başlama](hdinsight-hadoop-r-server-get-started.md)
 ## [Spark’ı kullanmaya başlama](hdinsight-apache-spark-jupyter-spark-sql.md)
 ## [HBase ve NoSQL’i kullanmaya başlama](hdinsight-hbase-tutorial-get-started-linux.md)
 ## [Storm’u kullanmaya başlama](hdinsight-apache-storm-tutorial-get-started-linux.md)
+## [Kafka önizlemesini kullanmaya başlama](hdinsight-apache-kafka-get-started.md)
 ## [Hadoop korumalı alanı](hdinsight-hadoop-emulator-get-started.md)
 ## [Hortonworks Korumalı Alanı ile Data Lake Araçları](hdinsight-hadoop-emulator-visual-studio.md)
 ## [Visual Studio Araçları](hdinsight-hadoop-visual-studio-tools-get-started.md)
@@ -47,11 +49,12 @@
 ### [Pig ile DataFu kullanma](hdinsight-hadoop-use-pig-datafu-udf.md)
 ### [İsteğe bağlı kümeler](hdinsight-hadoop-create-linux-clusters-adf.md)
 ### [Hadoop işlerini gönderme](hdinsight-submit-hadoop-jobs-programmatically.md)
-## R Server önizlemesini kullanma
+## R Server’ı kullanma
 ### [Depolama seçenekleri](hdinsight-hadoop-r-server-storage.md)
 ### [RStudio’yu yükleme](hdinsight-hadoop-r-server-install-r-studio.md)
 ### [İşlem bağlamları](hdinsight-hadoop-r-server-compute-contexts.md)
 ## Bellek içi işleme için Spark’ı kullanma
+### [Data Lake Store ile](hdinsight-apache-spark-use-with-data-lake-store.md)
 ### [BI araçları ile](hdinsight-apache-spark-use-bi-tools.md)
 ### [Tek başına uygulama](hdinsight-apache-spark-create-standalone-application.md)
 ### [Akış olaylarını işleme](hdinsight-apache-spark-eventhub-streaming.md)
@@ -94,6 +97,10 @@
 ### [Yapılandırma](hdinsight-domain-joined-configure.md)
 ### [Yönetme](hdinsight-domain-joined-manage.md)
 ### [Hive ilkelerini yapılandırma](hdinsight-domain-joined-run-hive.md)
+## Kafka önizlemesini kullanma
+### [Kafka verilerini çoğaltma](hdinsight-apache-kafka-mirroring.md)
+### [Spark ile kullanma](hdinsight-apache-spark-with-kafka.md)
+### [Storm ile kullanma](hdinsight-apache-storm-with-kafka.md)
 ## Geliştirme
 ### [Java MapReduce programları geliştirme](hdinsight-develop-deploy-java-mapreduce-linux.md)
 ### [Scalding MapReduce işlerini geliştirme](hdinsight-hadoop-mapreduce-scalding.md)
@@ -174,12 +181,12 @@
 #### [Hive sorgu performansı](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/)
 
 # Başvuru
-## [REST API başvurusu](https://msdn.microsoft.com/library/mt622197.aspx)
-## [Uzak işler için Spark REST API’si](https://msdn.microsoft.com/library/mt613023.aspx)
-## [PowerShell cmdlet'leri](https://msdn.microsoft.com/library/mt438705.aspx)
+## [PowerShell cmdlet'leri](/powershell/resourcemanager/azurerm.hdinsight/v2.2.0/azurerm.hdinsight)
 ## [Hadoop için .NET SDK](https://msdn.microsoft.com/library/mt271028.aspx)
 ## [HBase için .NET SDK](https://www.nuget.org/packages/Microsoft.HBase.Client/)
 ## [Avro için .NET kitaplığı](https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library)
+## [REST API başvurusu](/rest/api/hdinsight/)
+## [Uzak işler için Spark REST API’si](/rest/api/hdinsightspark/)
 
 # İlgili
 ## Windows kümeleri
@@ -217,6 +224,6 @@
 ## [Öğrenme yolu](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

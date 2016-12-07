@@ -12,20 +12,20 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 06/10/2016
+ms.date: 11/16/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: e7d3c82e235d691c4ab329be3b168dcccc19774f
-ms.openlocfilehash: a3fc284a436173f1a1debc205a83d55cc1869b32
+ms.sourcegitcommit: 79a3ba8f0daee5c20f7a05e20e473cfbea384acc
+ms.openlocfilehash: cf9176b65297f98bd23ffdce0142da8c0706e987
 
 
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Azure Cloud Services ve ASP.NET kullanmaya başlama
+
 > [!div class="op_single_selector"]
-> * [Node.js](cloud-services-nodejs-develop-deploy-app.md)
 > * [.NET](cloud-services-dotnet-get-started.md)
->
->
+> * [Node.js](cloud-services-nodejs-develop-deploy-app.md)
+> * [Python](cloud-services-python-ptvs.md)
 
 ## <a name="overview"></a>Genel Bakış
 Bu öğreticide ASP.NET MVC ön ucuyla çok katmanlı bir .NET uygulaması oluşturma ve bir [Azure bulut hizmetine](cloud-services-choose-me.md) dağıtma işlemi gösterilmektedir. Uygulama [Azure SQL Database](http://msdn.microsoft.com/library/azure/ee336279), [Azure Blob hizmeti](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) ve [Azure Queue hizmeti](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) kullanır. MSDN Kod Galerisi’nden [Visual Studio projesini](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) indirebilirsiniz.
@@ -415,7 +415,7 @@ Aşağıdaki bölümlerde Azure ortamı, blob'ları ve kuyrukları ile çalışm
 * [EF 6 ve MVC 5 kullanmaya başlama](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc)
 * [.NET 4.5’te zaman uyumsuz programlamaya giriş](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices#async).
 
-### <a name="contosoadscommon-adcs"></a>ContosoAdsCommon - Ad.cs
+### <a name="contosoadscommon---adcs"></a>ContosoAdsCommon - Ad.cs
 Ad.cs dosyası reklam kategorileri için bir numaralandırma ve reklam bilgileri için bir POCO varlık sınıfı tanımlar.
 
 ```csharp
@@ -459,7 +459,7 @@ public class Ad
 }
 ```
 
-### <a name="contosoadscommon-contosoadscontextcs"></a>ContosoAdsCommon - ContosoAdsContext.cs
+### <a name="contosoadscommon---contosoadscontextcs"></a>ContosoAdsCommon - ContosoAdsContext.cs
 ContosoAdsContext sınıfı Reklam sınıfının Entity Framework tarafından bir SQL veritabanına depolanacak olan Db koleksiyonunda kullanıldığını belirtir.
 
 ```csharp
@@ -478,7 +478,7 @@ public class ContosoAdsContext : DbContext
 
 Sınıfın iki oluşturucusu vardır. Birincisi web projesi tarafından kullanılır ve Web.config dosyasına depolanan bir bağlantı dizesinin adını belirtir. İkinci oluşturucu, gerçek bağlantı dizesine geçmenizi sağlar. Bu bir Web.config dosyasına sahip olmadığından çalışan rolü projesi için gereklidir. Bu bağlantı dizesinin nereye depolandığını daha önce gördünüz ve kodun DbContext sınıfını başlattığında bağlantı dizesini nasıl aldığını daha sonra göreceksiniz.
 
-### <a name="contosoadsweb-globalasaxcs"></a>ContosoAdsWeb - Global.asax.cs
+### <a name="contosoadsweb---globalasaxcs"></a>ContosoAdsWeb - Global.asax.cs
 `Application_Start` yönteminden çağrılan kod, henüz yoksa bir *görüntüler* blob kapsayıcısı ve bir *görüntüler* kuyruğu oluşturur. Bunun yapılması yeni bir depolama hesabını başlattığınız veya depolama öykünücüsünü yeni bir bilgisayarda kullanmaya başladığınız her durumda gerekli blob kapsayıcısının ve kuyruğun otomatik olarak oluşturulmasını sağlar.
 
 Kod *.cscfg* dosyasından depolama bağlantı dizesini kullanarak depolama hesabına erişim elde eder.
@@ -511,10 +511,10 @@ var imagesQueue = queueClient.GetQueueReference("images");
 imagesQueue.CreateIfNotExists();
 ```
 
-### <a name="contosoadsweb-layoutcshtml"></a>ContosoAdsWeb - \_Layout.cshtml
+### <a name="contosoadsweb---layoutcshtml"></a>ContosoAdsWeb - \_Layout.cshtml
 *_Layout.cshtml* dosyası üst bilgi ve alt bilgide uygulama adını ayarlar ve bir "Reklamlar" menü girişi oluşturur.
 
-### <a name="contosoadsweb-viewshomeindexcshtml"></a>ContosoAdsWeb - Görünümler\Giriş\Dizin.cshtml
+### <a name="contosoadsweb---viewshomeindexcshtml"></a>ContosoAdsWeb - Görünümler\Giriş\Dizin.cshtml
 *Görünümler\Giriş\Dizin.cshtml* dosyası, giriş sayfasında kategori bağlantılarını gösterir. Bağlantılar `Category` numaralandırmasının bir sorgu dizesi değişkeni içindeki tamsayı değerini Reklam Dizini sayfasına geçirir.
 
 ```razor
@@ -524,7 +524,7 @@ imagesQueue.CreateIfNotExists();
 <li>@Html.ActionLink("All", "Index", "Ad", null, null)</li>
 ```
 
-### <a name="contosoadsweb-adcontrollercs"></a>ContosoAdsWeb - AdController.cs
+### <a name="contosoadsweb---adcontrollercs"></a>ContosoAdsWeb - AdController.cs
 *AdController.cs* dosyasında oluşturucu, blob’lar ve kuyruklarla çalışmaya yönelik bir API sağlayan Azure Storage İstemci Kitaplığı nesneleri oluşturmak için `InitializeStorage` yöntemini çağırır.
 
 Ardından kod daha önce gördüğünüz gibi *görüntüler* blob kapsayıcısı için *Global.asax.cs* içinde bir başvuru edinir. Bunu yaparken bir web uygulaması için uygun bir varsayılan [yeniden deneme ilkesi](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling) ayarlar. Varsayılan üstel geri alma yeniden deneme ilkesi, web uygulamasını geçici bir hata için tekrarlanan yeniden denemelerde bir dakikadan uzun süre askıya alabilir. Burada belirtilen yeniden deneme ilkesi 3 denemeye kadar her denemeden sonra en fazla 3 saniye bekler.
@@ -621,7 +621,7 @@ private static async Task DeleteAdBlobAsync(Uri blobUri)
 }
 ```
 
-### <a name="contosoadsweb-viewsadindexcshtml-and-detailscshtml"></a>ContosoAdsWeb - Views\Ad\Index.cshtml ve Details.cshtml
+### <a name="contosoadsweb---viewsadindexcshtml-and-detailscshtml"></a>ContosoAdsWeb - Views\Ad\Index.cshtml ve Details.cshtml
 *Index.cshtml* dosyası küçük resimleri diğer reklam verileriyle birlikte gösterir.
 
 ```razor
@@ -634,7 +634,7 @@ private static async Task DeleteAdBlobAsync(Uri blobUri)
 <img src="@Html.Raw(Model.ImageURL)" />
 ```
 
-### <a name="contosoadsweb-viewsadcreatecshtml-and-editcshtml"></a>ContosoAdsWeb - Views\Ad\Create.cshtml ve Edit.cshtml
+### <a name="contosoadsweb---viewsadcreatecshtml-and-editcshtml"></a>ContosoAdsWeb - Views\Ad\Create.cshtml ve Edit.cshtml
 *Create.cshtml* ve *Edit.cshtml* dosyaları denetleyicinin `HttpPostedFileBase` nesnesi almasını sağlayan form kodlamasını belirtir.
 
 ```razor
@@ -647,7 +647,7 @@ Bir `<input>` öğesi tarayıcıya bir dosya seçme iletişim kutusu açmasını
 <input type="file" name="imageFile" accept="image/*" class="form-control fileupload" />
 ```
 
-### <a name="contosoadsworker-workerrolecs-onstart-method"></a>ContosoAdsWorker - WorkerRole.cs - OnStart yöntemi
+### <a name="contosoadsworker---workerrolecs---onstart-method"></a>ContosoAdsWorker - WorkerRole.cs - OnStart yöntemi
 Azure çalışan rolü ortamı, çalışan rolü başlatılırken `WorkerRole` sınıfındaki `OnStart` yöntemini, `OnStart` yöntemi tamamlandığında ise `Run` yöntemini çağırır.
 
 `OnStart` yöntemi *.cscfg* dosyasından veritabanı bağlantı dizesini alır ve Entity Framework DbContext sınıfına geçirir. Varsayılan olarak SQLClient sağlayıcısı kullanılır, bu nedenle sağlayıcının belirtilmesi gerekli değildir.
@@ -659,7 +659,7 @@ db = new ContosoAdsContext(dbConnString);
 
 Bundan sonra yöntem depolama hesabı için bir başvuru alır ve yoksa blob kapsayıcısı ve kuyruk oluşturur. Bunun kodu, web rolü `Application_Start` yönteminde daha önce gördüğünüzle aynıdır.
 
-### <a name="contosoadsworker-workerrolecs-run-method"></a>ContosoAdsWorker - WorkerRole.cs - Run yöntemi
+### <a name="contosoadsworker---workerrolecs---run-method"></a>ContosoAdsWorker - WorkerRole.cs - Run yöntemi
 `OnStart` yöntemi başlatma işini tamamladığında `Run` yöntemi çağrılır. Yöntem yeni bir kuyruk iletisi bekleyen ve ulaşan iletileri işleyen sonsuz bir döngü yürütür.
 
 ```csharp
@@ -777,6 +777,6 @@ Daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

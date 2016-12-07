@@ -8,31 +8,31 @@
 # Nasıl yapılır?
 ## Planlama ve tasarım
 ### [Yönetici ve geliştirici görev listesi](biztalk-services-administration-and-development-task-list.md)
-
 ## [Yedekleme ve geri yükleme](biztalk-backup-restore.md)
-
 ## Yapılandırma
 ### [Azaltma](biztalk-throttling-thresholds.md)
 ### [Hizmet ayarları ve izleme](biztalk-dashboard-monitor-scale-tabs.md)
-
 ## Tümleştirme
 ### [Karma Bağlantılar](integration-hybrid-connection-create-manage.md)
-
 ## Geçiş
 ### [BizTalk Server EDI Çözümlerini BizTalk Services’a](biztalk-migrating-to-edi-guide.md)
-
 ## İzleme
 ### [Hizmet durumlarına bağımlı görevler](biztalk-service-state-chart.md)
-
 ## Güvenlik
 ### [Erişim denetimi](biztalk-issuer-name-issuer-key.md)
-
 ## [Sorun giderme](biztalk-troubleshoot-using-ops-logs.md)
 
 # Başvuru
 ## [Sürüm notları](biztalk-release-notes.md)
 
+# Kaynaklar
+## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=biztalk-services)
+## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/biztalk-services/)
+## [MSDN Forumu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurebiztalksvcs)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/biztalk-services)
+## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=biztalk-services)
 
-<!--HONumber=Nov16_HO2-->
+
+<!--HONumber=Nov16_HO4-->
 
 

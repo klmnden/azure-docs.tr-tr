@@ -104,6 +104,6 @@ Olay gerçekleşmeden önce bir ekibin toplanması kuruluşunuz için çok önem
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!----HONumber=Nov16_HO2-->
 
 

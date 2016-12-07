@@ -11,28 +11,29 @@ ms.devlang: na
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 08/29/2016
+ms.date: 10/27/2016
 ms.author: ashmaka
 translationtype: Human Translation
-ms.sourcegitcommit: 6ff31940f3a4e7557e0caf3d9d3740590be3bc04
-ms.openlocfilehash: ab769e5cd6abe27d6793d1aad816c4f4d10ff078
-
+ms.sourcegitcommit: fc2f30569acc49dd383ba230271989eca8a14423
+ms.openlocfilehash: c8e745f7e1385c5ca569a9b8fbc3f5db070f102e
 
 ---
+
 # <a name="query-your-azure-search-index-using-the-rest-api"></a>REST API kullanarak Azure Search dizininizi sorgulama
 > [!div class="op_single_selector"]
+>
 > * [Genel Bakış](search-query-overview.md)
 > * [Portal](search-explorer.md)
 > * [.NET](search-query-dotnet.md)
 > * [REST](search-query-rest-api.md)
-> 
-> 
+>
+>
 
 Bu makale, [Azure Search REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx)'sini kullanarak bir dizinin nasıl sorgulanacağını gösterir.
 
 Bu kılavuzda başlamadan önce, [Azure Search dizini oluşturmuş](search-what-is-an-index.md) ve [bunu verilerle doldurmuş](search-what-is-data-import.md) olmanız gerekir.
 
-## <a name="i-identify-your-azure-search-services-query-apikey"></a>I. Azure Search hizmet sorgunuzun api anahtarını tanımlama
+## <a name="i-identify-your-azure-search-services-query-api-key"></a>I. Azure Search hizmet sorgunuzun api anahtarını tanımlama
 Azure Search REST API'sine karşı tüm arama işlemlerinin önemli bir bileşeni, sağladığınız hizmet için oluşturulan *api anahtarıdır*. İstek başına geçerli bir anahtara sahip olmak, isteği gönderen uygulama ve bunu işleyen hizmet arasında güven oluşturur.
 
 1. Hizmetinizin api anahtarlarını bulmak için [Azure Portal](https://portal.azure.com/)'da oturum açmanız gerekir
@@ -49,9 +50,9 @@ Bir dizini sorgulama amacıyla, sorgu anahtarlarınızdan birini kullanabilirsin
 ## <a name="ii-formulate-your-query"></a>II. Sorgunuzu düzenleme
 [REST API kullanarak dizininizi aramanın](https://msdn.microsoft.com/library/azure/dn798927.aspx) iki yolu bulunur. Bu yollardan biri, sorgu parametrelerinizin istek gövdesindeki bir JSON nesnesinde tanımlanacağı bir HTTP POST isteği göndermektir. Diğer yol ise sorgu parametrelerinizin istek URL'si içinde tanımlanacağı bir HTTP GET isteği göndermektir. POST'un sorgu parametrelerinin boyutu açısından GET'ten daha [esnek sınırlara](https://msdn.microsoft.com/library/azure/dn798927.aspx) sahip olduğuna dikkat edin. Bu nedenle, GET'i kullanmanın daha kullanışlı olduğu özel durumlar olmadığı sürece POST kullanmanızı öneririz.
 
-POST ve GET için *hizmet adınızı*, *dizin adını* ve uygun *API sürümünü* (bu belgenin yayımlandığı sırada geçerli API sürümü `2015-02-28`) istek URL'sinde sağlamanız gerekir. GET için sorgu parametrelerini URL'nin sonundaki *sorgu dizesine* sağlarsınız. URL biçimi için aşağıya bakın:
+POST ve GET için *hizmet adınızı*, *dizin adını* ve uygun *API sürümünü* (bu belgenin yayımlandığı sırada geçerli API sürümü `2016-09-01`) istek URL'sinde sağlamanız gerekir. GET için sorgu parametrelerini URL'nin sonundaki *sorgu dizesine* sağlarsınız. URL biçimi için aşağıya bakın:
 
-    https://[service name].search.windows.net/indexes/[index name]/docs?[query string]&api-version=2015-02-28
+    https://[service name].search.windows.net/indexes/[index name]/docs?[query string]&api-version=2016-09-01
 
 POST için biçim aynıdır ancak sorgu dizesi parametrelerinde yalnızca api sürümü olur.
 
@@ -61,9 +62,9 @@ Burada "hotels" adlı bir dizinde birkaç örnek sorgu verilmiştir. Bu sorgular
 Tüm dizinde "budget" terimi araması yapın ve yalnızca `hotelName` alanını döndürün:
 
 ```
-GET https://[service name].search.windows.net/indexes/hotels/docs?search=budget&$select=hotelName&api-version=2015-02-28
+GET https://[service name].search.windows.net/indexes/hotels/docs?search=budget&$select=hotelName&api-version=2016-09-01
 
-POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2015-02-28
+POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2016-09-01
 {
     "search": "budget",
     "select": "hotelName"
@@ -73,9 +74,9 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
 Geceliği 150 dolardan ucuz oteller bulmak için dizinde bir filtre uygulayıp `hotelId` ve `description` sonuçlarını döndürün:
 
 ```
-GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$filter=baseRate lt 150&$select=hotelId,description&api-version=2015-02-28
+GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$filter=baseRate lt 150&$select=hotelId,description&api-version=2016-09-01
 
-POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2015-02-28
+POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2016-09-01
 {
     "search": "*",
     "filter": "baseRate lt 150",
@@ -86,9 +87,9 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
 Tüm dizinde arama yapın, belirli bir alana göre (`lastRenovationDate`) azalan sıralamada sıralama yapın, ilk iki sonucu alın ve yalnızca `hotelName` ve `lastRenovationDate` öğesinin gösterilmesini sağlayın:
 
 ```
-GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$top=2&$orderby=lastRenovationDate desc&$select=hotelName,lastRenovationDate&api-version=2015-02-28
+GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$top=2&$orderby=lastRenovationDate desc&$select=hotelName,lastRenovationDate&api-version=2016-09-01
 
-POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2015-02-28
+POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2016-09-01
 {
     "search": "*",
     "orderby": "lastRenovationDate desc",
@@ -110,7 +111,7 @@ GET için iki, POST için ise üç istek üst bilgisi tanımlamanız gerekir:
 "Motel" terimini arayan basit bir sorgu kullanarak Azure Search REST API'sini kullanıp "hotels" dizininde arama yapmaya yönelik bir HTTP GET isteği için aşağıya bakın:
 
 ```
-GET https://[service name].search.windows.net/indexes/hotels/docs?search=motel&api-version=2015-02-28
+GET https://[service name].search.windows.net/indexes/hotels/docs?search=motel&api-version=2016-09-01
 Accept: application/json
 api-key: [query key]
 ```
@@ -118,7 +119,7 @@ api-key: [query key]
 Aşağıda bu sefer HTTP POST kullanılmış şekilde aynı örnek sorgu verilmiştir:
 
 ```
-POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2015-02-28
+POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2016-09-01
 Content-Type: application/json
 Accept: application/json
 api-key: [query key]
@@ -165,7 +166,6 @@ Daha fazla bilgi edinmek için lütfen [Search Belgeleri](https://msdn.microsoft
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -15,7 +15,7 @@ ms.workload: infrastructure-services
 ms.date: 10/24/2016
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.sourcegitcommit: 4f14a461b842649de977d2c4c80edfc197e15657
 ms.openlocfilehash: 14274c7d94213681b3779b97a44296e6eaf90be9
 
 
@@ -27,22 +27,22 @@ OMS, değerli hizmetleri tek başına sunabildiği gibi, mevcut yönetim yatır�
 
 Aşağıdaki bölümlerde OMS'nin fayda sağladığı farklı alanların ve bunları uygulayan hizmetlerin ayrıntılı bir açıklaması verilmektedir.  Her birine ilişkin belgeleri ayrıntılı olarak gözden geçirmeden önce farklı OMS bileşenlerine genel bakış için OMS mimarisine bakabilirsiniz.
 
-## <a name="insight-and-analyticsmediaoperationsmanagementsuiteoverviewiconinsightanalyticspng-insight-and-analytics"></a>![Insight and Analytics](media/operations-management-suite-overview/icon-insight-analytics.png) Insight and Analytics
+## <a name="insight-and-analyticsmediaoperations-management-suite-overviewicon-insight-analyticspng-insight-and-analytics"></a>![Insight and Analytics](media/operations-management-suite-overview/icon-insight-analytics.png) Insight and Analytics
 [Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics), işletim sistemleri ve uygulamalar tarafından oluşturulan günlük ve performans verilerini toplamanıza, bunlar arasında bağıntı kurmanıza, bu veriler üzerinde arama ve işlem yapmanıza yardımcı olur. Fiziksel konumlarından bağımsız olarak tüm iş yükleriniz ve sunucularınız üzerindeki milyonlarca kaydı kolayca çözümleyebilmeniz için tümleşik arama işlevini ve özel panoları kullanarak size gerçek zamanlı operasyonel öngörüler sunar.
 
 Log Analytics'e, toplanacak verileri ve verilerin çözümlemesine yönelik mantığı tanımlayan çözümleri kolayca ekleyebilirsiniz.  Çözümler en az yapılandırmayla veya hiç yapılandırma olmadan aracılara otomatik olarak sunulan ek işlevler içerebilir.  Ayrı çözümler tarafından sağlanan çözümleme araçlarını kullanabilmenin yanı sıra, sistemler ile uygulamalar arasında veri bağıntısı kurmak için veri kümesi genelinde özel aramalar gerçekleştirebilirsiniz.  
 
-## <a name="automation-controlmediaoperationsmanagementsuiteoverviewiconautomationcontrolpng-automation-control"></a>![Otomasyon ve Denetim](media/operations-management-suite-overview/icon-automation-control.png) Otomasyon ve Denetim
+## <a name="automation-controlmediaoperations-management-suite-overviewicon-automation-controlpng-automation-control"></a>![Otomasyon ve Denetim](media/operations-management-suite-overview/icon-automation-control.png) Otomasyon ve Denetim
 Azure Otomasyonu, Azure bulutunda çalışan PowerShell tabanlı [runbook'lar](../automation/automation-runbook-types.md) ile yönetim işlemlerini otomatikleştirir.  Runbook'lar, Amazon Web Services (AWS) gibi diğer bulutlardaki kaynaklar da dahil olmak üzere PowerShell ile yönetilebilen ürünlere veya hizmetlere erişebilir.  Runbook'lar yerel kaynakların yönetilmesi için yerel veri merkezinizdeki bir sunucuda da yürütülebilir.
 
 Azure Otomasyonu, [PowerShell DSC](../automation/automation-dsc-overview.md) ile yapılandırma yönetimi sağlar.  DSC kaynakları oluşturabilir, Azure'da barındırılan DSC kaynaklarını yönetebilir ve bunların yapılandırmasını tanımlamak ve otomatik olarak zorunlu kılmak için bu kaynakları bulut sistemlerine ve şirket içi sistemlere uygulayabilirsiniz.
 
-## <a name="protection-and-recoverymediaoperationsmanagementsuiteoverviewiconprotectionrecoverypng-protection-and-disaster-recovery"></a>![Koruma ve Kurtarma](media/operations-management-suite-overview/icon-protection-recovery.png) Koruma ve Olağanüstü Durum Kurtarma
+## <a name="protection-and-recoverymediaoperations-management-suite-overviewicon-protection-recoverypng-protection-and-disaster-recovery"></a>![Koruma ve Kurtarma](media/operations-management-suite-overview/icon-protection-recovery.png) Koruma ve Olağanüstü Durum Kurtarma
 [Azure Backup](http://azure.microsoft.com/documentation/services/backup), uygulama verilerinizi korur ve herhangi bir sermaye yatırımı olmadan en düşük işletim giderleriyle yıllar boyunca saklar.  SQL Server ve SharePoint gibi uygulama iş yüklerinin yanı sıra fiziksel ve sanal Windows sunucularındaki verileri yedekleyebilir.  Bu ayrıca yedeklilik ve uzun vadeli depolama açısından, korumalı verilerin Azure'a yönelik olarak çoğaltılması için System Center Data Protection Manager (DPM) tarafından da kullanılabilir.
 
 [Azure Site Recovery](http://azure.microsoft.com/documentation/services/site-recovery); çoğaltma, yük devretme ve şirket içi Hyper-V sanal makinelerini, VMware sanal makinelerini, fiziksel Windows/Linux sunucularını kurtarma işlemlerini düzenleyerek iş sürekliliği ve olağanüstü durum kurtarma (BCDR) stratejinize katkı sağlar. Makineleri ikincil bir veri merkezine yönelik olarak çoğaltabilir veya Azure'a yönelik çoğaltarak veri merkezinizi genişletebilirsiniz. Site Recovery aynı zamanda iş yükleri için basit bir yük devretme ve kurtarma işlevi sunar. SQL Server AlwaysOn gibi olağanüstü durum kurtarma mekanizmaları ile tümleştirilir ve birden çok makinede katmanlı halde bulunan iş yüklerine yönelik kolay bir yük devretme işlemi için kurtarma planları sağlar.
 
-## <a name="oms-security-and-compliancemediaoperationsmanagementsuiteoverviewiconsecuritycompliancepng-security-and-compliance"></a>![OMS Güvenlik ve Uyumluluk](media/operations-management-suite-overview/icon-security-compliance.png) Güvenlik ve Uyumluluk
+## <a name="oms-security-and-compliancemediaoperations-management-suite-overviewicon-security-compliancepng-security-and-compliance"></a>![OMS Güvenlik ve Uyumluluk](media/operations-management-suite-overview/icon-security-compliance.png) Güvenlik ve Uyumluluk
 Güvenlik ve Uyumluluk, altyapınıza ilişkin güvenlik risklerini belirlemenize, değerlendirmenize ve azaltmanıza yardımcı olur.  Bu OMS özellikleri Log Analytics'te, ortamınızda güvenlik sürekliliğinin sağlanması konusunda size yardımcı olmak üzere aracı sistemlerindeki günlük verilerini ve günlük yapılandırmasını çözümleyen birden çok çözüm aracılığıyla uygulanır.
 
 * [Güvenlik ve Denetim çözümü](oms-security-getting-started.md) top, şüpheli etkinlikleri belirlemek için yönetilen sistemlerdeki güvenlik olaylarını toplar ve çözümler.
@@ -58,6 +58,6 @@ Güvenlik ve Uyumluluk, altyapınıza ilişkin güvenlik risklerini belirlemeniz
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

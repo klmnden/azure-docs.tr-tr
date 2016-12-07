@@ -67,23 +67,24 @@
 ### [Runbook işi askıya alındı](automation-troubleshooting-hrw-runbook-terminates-suspended.md)
 
 # Başvuru
+## [PowerShell](/powershell/azureps-cmdlets-docs)
+## [Klasik PowerShell](/powershell/servicemanagement)
+## [.NET](/dotnet/api)
+## [REST](https://msdn.microsoft.com/library/azure/mt662285.aspx)
+## [Klasik REST](https://msdn.microsoft.com/library/azure/mt163781)
 ## [Sürüm notları](https://azure.microsoft.com/updates/?product=automation)
-## [PowerShell cmdlet'leri](https://msdn.microsoft.com/library/azure/dn690262)
-## [Resource Manager REST API'leri](https://msdn.microsoft.com/library/azure/mt662285.aspx)
-## [Klasik Dağıtım Rest](https://msdn.microsoft.com/library/azure/mt163781)
 
 # Kaynaklar
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/automation/)  
 ## [MSDN forumu](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureautomation)  
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-automation)
-## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=automation) 
-## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=automation) 
-## [Azure Otomasyonu eğitimi](https://www.microsoftvirtualacademy.com/en-US/training-courses/automating-the-cloud-with-azure-automation-8323)
+## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=automation)
+## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=automation)
+## [Azure Otomasyonu eğitimi](https://mva.microsoft.com/en-US/training-courses/automating-the-cloud-with-azure-automation-8323?l=C6mIpCay_4804984382)
 ## [Öğrenme yolu](https://azure.microsoft.com/documentation/learning-paths/automation/)
 ## [Otomasyon tanıtım videosu](https://azure.microsoft.com/documentation/videos/azure-automation-101-with-powershell-and-eamon-o-reilly/)
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

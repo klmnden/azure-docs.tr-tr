@@ -22,7 +22,7 @@
 ### [Etkinlikleri ve denetim günlüklerini görüntüleme](../monitoring-and-diagnostics/insights-debugging-with-events.md)
 ### [Uyarı bildirimleri alma](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
 
-# Başvuru
+# İlgili
 ## [Azure Resource Manager şablonu işlevleri](../resource-group-template-functions.md)
 ## [Otomatik ölçeklendirme için en iyi yöntemler](../monitoring-and-diagnostics/insights-autoscale-best-practices.md)
 ## [Otomatik ölçeklendirme için genel ölçümler](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md)
@@ -32,10 +32,16 @@
 ## [Azure Insights PowerShell hızlı başlangıç örnekleri](../monitoring-and-diagnostics/insights-powershell-samples.md)
 ## [Azure Insights CLI hızlı başlangıç örnekleri](../monitoring-and-diagnostics/insights-cli-samples.md)
 
+# Kaynaklar
+## [MSDN forumu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazuremanagement) 
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-management-portal)
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO4-->
 
 

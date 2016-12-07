@@ -1,6 +1,6 @@
 # Genel Bakış
 ## [Mesajlaşma](../service-bus-messaging/service-bus-queues-topics-subscriptions.md)
-## [Geçiş](../service-bus-relay/service-bus-relay-overview.md)
+## [Geçiş](../service-bus-relay/relay-what-is-it.md)
 # Başvuru
 ## [PowerShell Resource Manager Cmdlet'leri](/powershell/resourcemanager)
 ## [Service Bus Yönetilen Başvuru API’si](/dotnet/api/) 
@@ -15,6 +15,6 @@
 ## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

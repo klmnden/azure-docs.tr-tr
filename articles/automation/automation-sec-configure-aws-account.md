@@ -13,11 +13,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/12/2016
+ms.date: 11/11/2016
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 00b217a4cddac0a893564db27ffb4f460973c246
-ms.openlocfilehash: eee65672b3a9615afe2850b0cbc6daa275fc04ec
+ms.sourcegitcommit: 843f0862f9e4d8dc1d40e110710e48ad66716168
+ms.openlocfilehash: fe590e7fc551c175d2f41f5b98e1558a756df806
 
 
 ---
@@ -32,7 +32,7 @@ AWS kullanarak kimlik doğrulamak için, Azure Automation’dan çalışan runbo
 ## <a name="configure-automation-account"></a>Automation hesabı yapılandırma
 Azure Automation için, AWS ile iletişim kurmak amacıyla önce AWS kimlik bilgilerinizi almanız ve bunları Azure Automation’da varlıklar olarak depolamanız gerekir.  Erişim Anahtarı oluşturmak için [AWS Hesabınız için Erişim Anahtarlarını Yönetme](http://docs.aws.amazon.com/general/latest/gr/managing-aws-access-keys.html) AWS belgesinde belgelenen aşağıdaki adımları uygulayın ve **Erişim Anahtarı Kimliği** ve **Gizli Erişim Anahtarı**’nı kopyalayın (isteğe bağlı olarak, anahtar dosyanızı güvenli bir yerde saklamak için indirin).
 
-AWS güvenlik anahtarlarınızı oluşturup kopyaladıktan sonra, bunları güvenli bir şekilde depolamak ve runbook’larınızla bunlara başvurmak için Azure Automation hesabıyla bir Kimlik Bilgisi hesabı oluşturmanız gerekir.  [Azure Automation’da kimlik bilgisi varlıkları](automation-credentials.md#creating-a-new-credential-asset) makalesinin **Yeni kimlik bilgileri varlığı oluşturma** bölümündeki adımları izleyin ve şu bilgileri girin:
+AWS güvenlik anahtarlarınızı oluşturup kopyaladıktan sonra, bunları güvenli bir şekilde depolamak ve runbook’larınızla bunlara başvurmak için Azure Automation hesabıyla bir Kimlik Bilgisi hesabı oluşturmanız gerekir.  [Azure Automation’da kimlik bilgisi varlıkları](automation-credentials.md) makalesinin **Yeni kimlik bilgileri varlığı oluşturma** bölümündeki adımları izleyin ve şu bilgileri girin:
 
 1. **Ad** kutusuna **AWScred** veya adlandırma standartlarınıza uygun bir değer girin.  
 2. **Kullanıcı adı** kutusuna kendinize ait **Erişim Kimliği**’ni yazın; **Gizli Erişim Anahtar**’ını da **Parola** ve **Parolayı Onayla** kutusuna girin.   
@@ -42,6 +42,7 @@ AWS güvenlik anahtarlarınızı oluşturup kopyaladıktan sonra, bunları güve
 
 
 
-<!--HONumber=Nov16_HO2-->
+
+<!--HONumber=Nov16_HO3-->
 
 

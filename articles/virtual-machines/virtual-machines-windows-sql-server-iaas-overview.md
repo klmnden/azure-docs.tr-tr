@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 10/19/2016
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: fcc2883ae52bb3d4be098ce741bbf5f5047777d2
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: 63ae1f48bcc384eff27a6fa8642f7a214bc7493f
 
 
 ---
@@ -25,7 +25,7 @@ ms.openlocfilehash: fcc2883ae52bb3d4be098ce741bbf5f5047777d2
 Bu konu başlığı, Azure sanal makinelerinde (VM’ler) SQL Server çalıştırmaya yönelik seçeneklerle birlikte [portal görüntülerinin bağlantılarını](#option-1-create-a-sql-vm-with-per-minute-licensing) ve [sık gerçekleştirilen görevlerin](#manage-your-sql-vm) genel açıklamasını içermektedir.
 
 > [!NOTE]
-> SQL Server’ı zaten biliyor ve yalnızca bir SQL Server sanal makinesinin nasıl dağıtılacağını görmek istiyorsanız bkz. [Azure portal’da bir SQL Server VM’si sağlama](virtual-machines-windows-portal-sql-server-provision.md).
+> SQL Server’ı zaten biliyor ve yalnızca bir SQL Server sanal makinesinin nasıl dağıtılacağını görmek istiyorsanız bkz. [Azure portal’da bir SQL Server VM’si sağlama](virtual-machines-windows-portal-sql-server-provision.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 > 
 > 
 
@@ -66,9 +66,9 @@ Azure VM’lerinde çalışan SQL Server, ilişkisel verilerinizi Azure’da dep
 ## <a name="create-a-new-sql-vm"></a>Yeni bir SQL sanal makinesi oluşturma
 Aşağıdaki bölümlerde SQL Server sanal makine galeri görüntüleri için Azure portalının doğrudan bağlantıları verilmektedir. Seçtiğiniz görüntüye bağlı olarak, SQL Server lisans maliyetlerini dakika başına temelde ödeyebilir veya kendi lisansınızı getirebilirsiniz (KLG).
 
-Bu işleme ilişkin adım adım yönergeler, [Azure portal'da SQL Server sanal makine hazırlama](virtual-machines-windows-portal-sql-server-provision.md) adlı öğreticide mevcuttur. Ayrıca,uygun makine boyutunu seçmeyi ve sağlama işlemi sırasında kullanılabilir diğer seçenekleri açıklayan [ SQL Server VM’ler için performans en iyi uygulamaları](virtual-machines-windows-sql-performance.md)’nı gözden geçirin.
+Bu işleme ilişkin adım adım yönergeler, [Azure portal'da SQL Server sanal makine hazırlama](virtual-machines-windows-portal-sql-server-provision.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) adlı öğreticide mevcuttur. Ayrıca,uygun makine boyutunu seçmeyi ve sağlama işlemi sırasında kullanılabilir diğer seçenekleri açıklayan [ SQL Server VM’ler için performans en iyi uygulamaları](virtual-machines-windows-sql-performance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)’nı gözden geçirin.
 
-## <a name="option-1-create-a-sql-vm-with-perminute-licensing"></a>Seçenek 1: Dakika başına lisanslama ile SQL sanal makinesi oluşturma
+## <a name="option-1-create-a-sql-vm-with-per-minute-licensing"></a>Seçenek 1: Dakika başına lisanslama ile SQL sanal makinesi oluşturma
 Aşağıdaki tabloda sanal makine galerisindeki kullanılabilir SQL Server görüntülerinin bir matrisi verilmektedir. Belirtilen sürüm, yayın ve işletim sisteminizle yeni bir SQL VM oluşturmaya başlamak için bağlantılardan birine tıklayın.
 
 | Sürüm | İşletim Sistemi | Sürüm |
@@ -100,21 +100,21 @@ Ayrıca kendi lisansınızı getirebilirsiniz (KLG). Bu senaryoda, SQL Server Li
 SQL Server sanal makinenizi sağladıktan sonra isteğe bağlı birkaç yönetim görevi vardır. Birçok yönden, SQL Server’ı tam olarak şirket içi SQL Server örneğindeki gibi yapılandırır ve yönetirsiniz. Ancak bazı görevler Azure’a özgüdür. Aşağıdaki bölümlerde daha fazla bilgi için bağlantılar ile birlikte bu alanlardan bazıları vurgulanmaktır.
 
 ### <a name="connect-to-the-vm"></a>VM’ye bağlanma
-SQL Server VM’nize SQL Server Management Studio (SSMS) gibi araçlar üzerinden bağlanmak başlıca yönetim adımlarından biridir. Yeni SQL Server VM’ye bağlanma hakkındaki yönergeler için bkz. [Azure’da SQL Server Sanal Makinesine bağlanma](virtual-machines-windows-sql-connect.md).
+SQL Server VM’nize SQL Server Management Studio (SSMS) gibi araçlar üzerinden bağlanmak başlıca yönetim adımlarından biridir. Yeni SQL Server VM’ye bağlanma hakkındaki yönergeler için bkz. [Azure’da SQL Server Sanal Makinesine bağlanma](virtual-machines-windows-sql-connect.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ### <a name="migrate-your-data"></a>Verilerinizi geçirme
-Varolan bir veritabanınız varsa, bunu yeni sağlanan SQL VM'ye taşımak istersiniz. Geçiş seçenekleri ve kılavuzların listesi için bkz. [Azure VM’de bir Veritabanını SQL Server’a Geçirme](virtual-machines-windows-migrate-sql.md).
+Varolan bir veritabanınız varsa, bunu yeni sağlanan SQL VM'ye taşımak istersiniz. Geçiş seçenekleri ve kılavuzların listesi için bkz. [Azure VM’de bir Veritabanını SQL Server’a Geçirme](virtual-machines-windows-migrate-sql.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ### <a name="configure-high-availability"></a>Yüksek kullanılabilirliği yapılandırma
-Size yüksek kullanılabilirlik gerekiyorsa, SQL Server Kullanılabilirlik gruplarını yapılandırmayı dikkate alın. Bu, bir sanal ağda birden fazla Azure VM’yi içerir. Azure portal bu yapılandırmayı sizin için ayarlayan bir şablona sahiptir. Daha fazla bilgi için bkz. [Azure Resource Manager sanal makinelerde AlwaysOn Kullanılabilirlik grubu yapılandırma](virtual-machines-windows-portal-sql-alwayson-availability-groups.md). Kullanılabilirlik Grubunuzu ve ilgili dinleyiciyi el ile yapılandırmak istiyorsanız, bkz. [Azure VM’de AlwaysOn Kullanılabilirlik Grupları yapılandırma](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md).
+Size yüksek kullanılabilirlik gerekiyorsa, SQL Server Kullanılabilirlik gruplarını yapılandırmayı dikkate alın. Bu, bir sanal ağda birden fazla Azure VM’yi içerir. Azure portal bu yapılandırmayı sizin için ayarlayan bir şablona sahiptir. Daha fazla bilgi için bkz. [Azure Resource Manager sanal makinelerde AlwaysOn Kullanılabilirlik grubu yapılandırma](virtual-machines-windows-portal-sql-alwayson-availability-groups.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Kullanılabilirlik Grubunuzu ve ilgili dinleyiciyi el ile yapılandırmak istiyorsanız, bkz. [Azure VM’de AlwaysOn Kullanılabilirlik Grupları yapılandırma](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-Diğer yüksek kullanılabilirlik dikkate alınacak noktaları için bkz. [Azure Virtual Machines’de SQL Server için Yüksek Kullanılabilirlik ve Olağanüstü Durum Kurtarma](virtual-machines-windows-sql-high-availability-dr.md).
+Diğer yüksek kullanılabilirlik dikkate alınacak noktaları için bkz. [Azure Virtual Machines’de SQL Server için Yüksek Kullanılabilirlik ve Olağanüstü Durum Kurtarma](virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ### <a name="back-up-your-data"></a>Verilerinizi yedekleme
-Azure sanal makineleri, blob depolama biriminde düzenli olarak veritabanınızın yedeklerini oluşturan [Otomatik Yedekleme](virtual-machines-windows-sql-automated-backup.md) özelliğinden yararlanabilir. Bu tekniği el ile de kullanabilirsiniz. Daha fazla bilgi için. bkz. [SQL Server Yedekleme ve Geri Yükleme için Azure Storage’ı Kullanma](virtual-machines-windows-use-storage-sql-server-backup-restore.md). Tüm yedekleme ve geri yükleme seçeneklerine genel bakış için bkz. [Azure Virtual Machines’de SQL Server için Yedekleme ve geri Yükleme](virtual-machines-windows-sql-backup-recovery.md).
+Azure sanal makineleri, blob depolama biriminde düzenli olarak veritabanınızın yedeklerini oluşturan [Otomatik Yedekleme](virtual-machines-windows-sql-automated-backup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) özelliğinden yararlanabilir. Bu tekniği el ile de kullanabilirsiniz. Daha fazla bilgi için. bkz. [SQL Server Yedekleme ve Geri Yükleme için Azure Storage’ı Kullanma](virtual-machines-windows-use-storage-sql-server-backup-restore.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Tüm yedekleme ve geri yükleme seçeneklerine genel bakış için bkz. [Azure Virtual Machines’de SQL Server için Yedekleme ve geri Yükleme](virtual-machines-windows-sql-backup-recovery.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ### <a name="automate-updates"></a>Otomatik güncelleştirmeler
-Azure sanal makineleri önemli Windows ve SQL Server güncelleştirmelerini otomatik olarak yüklemek için bir bakım penceresi zamanlamak üzere [Otomatik Düzeltme Eki Uygulama](virtual-machines-windows-sql-automated-patching.md) özelliğini kullanabilir.
+Azure sanal makineleri önemli Windows ve SQL Server güncelleştirmelerini otomatik olarak yüklemek için bir bakım penceresi zamanlamak üzere [Otomatik Düzeltme Eki Uygulama](virtual-machines-windows-sql-automated-patching.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) özelliğini kullanabilir.
 
 ### <a name="customer-experience-improvement-program-ceip"></a>Müşteri deneyimini geliştirme programı (CEIP)
 Müşteri Deneyimini Geliştirme Programı (CEIP) varsayılan olarak etkindir. Bu, SQL Server’ın geliştirilmesine yardımcı olmak için Microsoft’a düzenli olarak raporlar gönderir. CEIP’i hazırladıktan sonra devre dışı bırakmak istemiyorsanız CEIP için herhangi bir yönetim görevi gerekmez. VM’ye uzak masaüstüyle bağlanarak CEIP özelleştirebilir ya da devre dışı bırakabilirsiniz. Ardından **SQL Server Hata ve Kullanım Raporlama** yardımcı programını çalıştırın. Raporlamayı devre dışı bırakmak için yönergeleri izleyin. 
@@ -124,7 +124,7 @@ Daha fazla bilgi için [Lisans Koşullarını kabul etme](https://msdn.microsoft
 ## <a name="next-steps"></a>Sonraki adımlar
 Azure Virtual Machines’de SQL Server için.[Öğrenme Yolunu keşfedin](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/).
 
-Başka sorunuz mu var? Önce, bkz. [Azure Virtual Machines’de SQL Server Kullanmaya Başlama SSS](virtual-machines-windows-sql-server-iaas-faq.md). Ayrıca sorularınızı ve yorumlarınızı, Microsoft ve toplulukla etkileşim kurmak amacıyla bir SQL VM konusunun alt kısmına da ekleyebilirsiniz.
+Başka sorunuz mu var? Önce, bkz. [Azure Virtual Machines’de SQL Server Kullanmaya Başlama SSS](virtual-machines-windows-sql-server-iaas-faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Ayrıca sorularınızı ve yorumlarınızı, Microsoft ve toplulukla etkileşim kurmak amacıyla bir SQL VM konusunun alt kısmına da ekleyebilirsiniz.
 
 
 

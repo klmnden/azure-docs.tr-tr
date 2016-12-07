@@ -1,6 +1,6 @@
 # Genel Bakış
 ## [Application Insights nedir?](app-insights-overview.md)
-## [Nasıl çalışır?](app-insights-detect-triage-diagnose.md)
+## [devOps döngüsünde performans izleme](app-insights-detect-triage-diagnose.md)
 
 # Başlarken
 ## Azure izleme
@@ -62,9 +62,9 @@
 #### [Kullanılabilirlik](app-insights-monitor-web-app-availability.md)
 #### [Ölçüm Uyarıları](app-insights-alerts.md)
 
-### [Akıllı algılama](app-insights-proactive-diagnostics.md)
-#### [Hata algılama](app-insights-proactive-failure-diagnostics.md)
-#### [Anormallik algılama](app-insights-proactive-performance-diagnostics.md)
+### [Akıllı Algılama](app-insights-proactive-diagnostics.md)
+#### [Hata anormallikleri](app-insights-proactive-failure-diagnostics.md)
+#### [Performans anormallikleri](app-insights-proactive-performance-diagnostics.md)
 
 ## Çözümleme
 
@@ -128,14 +128,14 @@
 ### [Java](app-insights-java-troubleshoot.md)
 
 # Başvuru
-## [Java](http://dl.windowsazure.com/applicationinsights/javadoc/)
+## [Java API’si](http://dl.windowsazure.com/applicationinsights/javadoc/)
 ## [.NET API’si](https://docs.microsoft.com/dotnet/api)
 ## [JavaScript API’si](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
-## [Analizler](app-insights-analytics-reference.md)
+## [Analytics başvurusu](app-insights-analytics-reference.md)
 ## [Örnekleme](app-insights-sampling.md)
 ## [IP adresleri](app-insights-ip-addresses.md)
 ## [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)
-## [Veri Modelini Dışarı Aktarma](app-insights-export-data-model.md)
+## [Veri modelini dışarı aktarma](app-insights-export-data-model.md)
 ## [Azure Uç Nokta İzleme’den Kullanılabilirlik testlerine geçiş](app-insights-migrate-azure-endpoint-tests.md)
 ## [Geliştirici analizleri: diller, platformlar ve tümleştirmeler](app-insights-platforms.md)
 ### [Örnekler ve yönergeler](app-insights-code-samples.md)
@@ -145,7 +145,7 @@
 ## [Windows Phone ve Mağazası için Application Insights SDK Sürüm Notları](app-insights-release-notes-windows.md)
 ## [Geliştirici Analizi Araçları Sürüm Notları](app-insights-release-notes-vsix.md)
 ## [SDK Sürüm Notları - Application Insights](app-insights-release-notes.md)
-## [REST API](https://dev.applicationinsights.io/)
+## [Veri erişimi REST API'si](https://dev.applicationinsights.io/)
 
 # Kaynaklar
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/application-insights/)  
@@ -157,6 +157,6 @@
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

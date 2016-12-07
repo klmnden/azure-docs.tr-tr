@@ -18,6 +18,7 @@
 #### [Azure depolama alanı](log-analytics-azure-storage.md)
 #### [Operations Manager](log-analytics-om-agents.md)
 #### [Configuration Manager](log-analytics-sccm.md)
+#### [OMS Ağ Geçidi](log-analytics-oms-gateway.md)
 ### Veri Kaynakları
 #### [Veri kaynaklarına genel bakış](log-analytics-data-sources.md)
 #### [Windows olayları](log-analytics-data-sources-windows-events.md)
@@ -38,7 +39,6 @@
 #### [Uyarı yönetimi](log-analytics-solution-alert-management.md)
 #### [Kapasite Yönetimi](log-analytics-capacity.md)
 #### [Değişiklik İzleme](log-analytics-change-tracking.md)
-#### [Yapılandırma Değerlendirmesi](log-analytics-configuration-assessment.md)
 #### [Kapsayıcılar](log-analytics-containers.md)
 #### [Anahtar Kasası](log-analytics-azure-key-vault.md)
 #### [Kötü Amaçlı Yazılım Değerlendirmesi](log-analytics-malware.md)
@@ -48,9 +48,9 @@
 #### [Service Fabric](log-analytics-service-fabric.md)
 #### [SQL Değerlendirmesi](log-analytics-sql-assessment.md)
 #### [Surface Hub](log-analytics-surface-hubs.md)
-#### [Sistem Güncelleştirme Değerlendirmesi](log-analytics-system-update.md)
 #### [VMware](log-analytics-vmware.md)
 #### [Kablo Verileri](log-analytics-wire-data.md)
+#### [SCOM Değerlendirmesi](log-analytics-scom-assessment.md)
 ## Çözümleme
 ### [Panolar](log-analytics-dashboards.md)
 ### [Görünüm Tasarımcısı](log-analytics-view-designer.md)
@@ -63,11 +63,10 @@
 
 # Kaynaklar
 ## [Upgrade Analytics](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics)
+## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/log-analytics/)
+## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=log-analytics)
 
 
-
-
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

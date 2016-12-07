@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 09/16/2016
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e3c045d652c04a8a03525753d9c18c3017c04f08
+ms.sourcegitcommit: 7b55f6730c6a2bf8637f312c452fe552f82dbaeb
+ms.openlocfilehash: 69b333b0c43d2e3e4d62168650123322a79579ba
 
 
 ---
@@ -84,7 +84,7 @@ Curl.exe’nin bulunduğu klasörde aşağıdaki JSON dosyalarını oluşturun.
 
 ### <a name="azurestoragelinkedservicejson"></a>azurestoragelinkedservice.json
 > [!IMPORTANT]
-> **accountname** ve **accountkey** sözcüklerini Azure depolama hesabınızın adı ve anahtarıyla değiştirin. Depolama erişim anahtarınızı nasıl alacağınız hakkında bilgi için bkz. [Depolama erişim anahtarlarını görüntüleme, kopyalama ve yeniden oluşturma](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
+> **accountname** ve **accountkey** sözcüklerini Azure depolama hesabınızın adı ve anahtarıyla değiştirin. Depolama erişim anahtarınızı nasıl alacağınız hakkında bilgi için bkz. [Depolama erişim anahtarlarını görüntüleme, kopyalama ve yeniden oluşturma](../storage/storage-create-storage-account.md#manage-your-storage-access-keys).
 > 
 > 
 
@@ -272,7 +272,7 @@ Başlangıç ve bitiş tarih saatleri [ISO biçiminde](http://en.wikipedia.org/w
 Örnekte, her veri dilimi saatlik oluşturulduğundan 24 veri dilimi vardır.
 
 > [!NOTE]
-> Önceki örnekte kullanılan JSON özellikleri hakkında ayrıntılı bilgi için bkz. [İşlem Hattı Anatomisi](data-factory-create-pipelines.md#anatomy-of-a-pipeline).
+> Önceki örnekte kullanılan JSON özellikleri hakkında ayrıntılı bilgi için bkz. [İşlem Hattı Anatomisi](data-factory-create-pipelines.md).
 > 
 > 
 

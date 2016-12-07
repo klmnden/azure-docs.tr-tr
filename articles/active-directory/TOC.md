@@ -12,9 +12,9 @@
 ## [AD lisanslamayı yönetme](active-directory-licensing-what-is.md)
 ## [Kuruluşunuz için Azure’u edinme](sign-up-organization.md)
 ## [SSS](active-directory-faq.md)
+## [SaaS uygulama öğreticileri](active-directory-saas-tutorial-list.md)
 
-
-# Nasıl yapılır?
+# Nasıl yapılır
 ## Kullanıcıları yönetme
 ### Kullanıcı ekle
 #### [Azure Portal](active-directory-users-create-azure-portal.md)
@@ -279,7 +279,7 @@
 # Başvuru
 ## [PowerShell cmdlet'leri](/powershell/ )
 ## [Java API Başvurusu](/java/api)
-## [.NET API’si](https://msdn.microsoft.com/library/azure/microsoft.identitymodel.clients.activedirectory)
+## [.NET API’si](/active-directory/adal/microsoft.identitymodel.clients.activedirectory)
 ## [Hizmet sınırlamaları ve kısıtlamalar](active-directory-service-limits-restrictions.md)
 
 # İlgili
@@ -291,12 +291,12 @@
 # Kaynaklar
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/active-directory/)
 ## [MSDN forumu](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory) 
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory)
 ## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=active-directory)
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=active-directory)
 ## [Azure geri bildirim forumu](https://feedback.azure.com/forums/169401-azure-active-directory)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

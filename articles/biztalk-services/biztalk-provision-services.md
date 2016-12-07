@@ -15,13 +15,12 @@ ms.topic: hero-article
 ms.date: 11/07/2016
 ms.author: mandia
 translationtype: Human Translation
-ms.sourcegitcommit: 71f9dd111ebdbe885f33d162b2ea320dfaa167bb
-ms.openlocfilehash: a2e289de2719be64a9468cb9b24ff4101b2e93db
+ms.sourcegitcommit: 9cf1faabe3ea12af0ee5fd8a825975e30947b03a
+ms.openlocfilehash: 12606d312ba95d9ef73e988fa4677a8314f9a579
 
 
 ---
 # <a name="create-biztalk-services-using-the-azure-portal"></a>Azure portalını kullanarak BizTalk Services oluşturma
-Azure portalında Azure BizTalk Services oluşturma
 
 > [!TIP]
 > Azure portalında oturum açmak için bir Azure hesabınız ve Azure aboneliğiniz olması gerekir. Hesabınız yoksa birkaç dakika içinde ücretsiz bir deneme sürümü hesabı oluşturabilirsiniz. Bkz. [Azure Ücretsiz Deneme](http://go.microsoft.com/fwlink/p/?LinkID=239738).
@@ -116,7 +115,7 @@ Tamamlandığında, Azure BizTalk Hizmeti oluşturulmuştur ve uygulamalarınız
 
 BizTalk Hizmeti durumunu bağlı olarak, bazı tamamlanamayan işlemler vardır. Bu işlemlerin bir listesi için [BizTalk Services Durumu Grafiği](biztalk-service-state-chart.md)’ne gidin.
 
-## <a name="postprovisioning-steps"></a>Hazırlama sonrası adımlar
+## <a name="post-provisioning-steps"></a>Hazırlama sonrası adımlar
 * [Sertifikayı yerel bir bilgisayara yükleme](#InstallCert)
 * [Üretime hazır sertifikayı ekleme](#AddCert)
 * [Access Control ad alanını alma](#ACS)
@@ -131,7 +130,7 @@ BizTalk Hizmeti hazırlamanın bir parçası olarak, otomatik olarak imzalanan v
    ![SSL Sertifikasını Değiştirme][QuickGlance]
 5. Sertifikaya çift tıklayın ve sertifikayı yüklemek için sihirbazda ilerleyin. **Güvenilen Kök Sertifika Yetkilileri** deposu altına sertifikayı yüklediğinizden emin olun.
 
-#### <a name="a-nameaddcertaadd-a-productionready-certificate"></a><a name="AddCert"></a>Üretime hazır sertifikayı ekleme
+#### <a name="a-nameaddcertaadd-a-production-ready-certificate"></a><a name="AddCert"></a>Üretime hazır sertifikayı ekleme
 BizTalk Services oluşturulduğunda otomatik olarak oluşturulan otomatik imzalı sertifika yalnızca geliştirme ortamlarında kullanılmak üzere tasarlanmıştır. Üretim senaryoları için üretime hazır sertifikayla değiştirin.
 
 1. **Pano** sekmesinde **SSL Sertifikasını Güncelleştir**’i seçin.
@@ -275,6 +274,6 @@ Artık bir BizTalk Hizmeti oluşturuldu, şimdi de kendinizi farklı [BizTalk Se
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

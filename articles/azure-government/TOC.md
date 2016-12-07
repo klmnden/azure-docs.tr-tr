@@ -1,11 +1,11 @@
 # Genel Bakış
-## [Azure Government nedir?](../azure-government-overview.md?toc=%@Fazure%2fazure-government%2ftoc.json)
+## [Azure Government nedir?](../azure-government-overview.md?toc=%2fazure%2fazure-government%2ftoc.json)
 ## [ITAR](documentation-government-overview-itar.md)
 ## [Adalet ve Kamu Güvenliği](documentation-government-overview-jps.md)
 ## [Savunma Bakanlığı](documentation-government-overview-dod.md)
 
 # Kullanmaya Başlama
-## [Geliştirici kılavuzu](../azure-government-developer-guide.md?toc=%@Fazure%2fazure-government%2ftoc.json)
+## [Geliştirici kılavuzu](../azure-government-developer-guide.md?toc=%2fazure%2fazure-government%2ftoc.json)
 
 # Nasıl yapılır?
 ## Planlama
@@ -15,10 +15,11 @@
 ### [Görüntüler](../azure-government-image-gallery.md?toc=%2fazure%2fazure-government%2ftoc.json)
 ### [Market](documentation-government-manage-marketplace.md)
 ### [İş ortakları için market](documentation-government-manage-marketplace-partners.md)
+### [Resource Manager](documentation-government-manage-azure-resource-manager.md)
+### [Operations Management Suite](documentation-government-manage-oms.md)
 ### [Abonelik](documentation-government-manage-subscriptions.md)
 
 # Başvuru
-## [Resource Manager](documentation-government-manage-azure-resource-manager.md)
 ## [Hizmetler](documentation-government-services.md)
 ### [İşlem](documentation-government-compute.md)
 ### [Depolama](documentation-government-services-storage.md)
@@ -28,10 +29,10 @@
 ### [İzleme ve yönetim](documentation-government-services-monitoringandmanagement.md)
 
 # Kaynaklar
-## [Deneme](https://azuregov.microsoft.com/trial/azuregovtrial)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/)
+## [Deneme](https://azuregov.microsoft.com/trial/azuregovtrial)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

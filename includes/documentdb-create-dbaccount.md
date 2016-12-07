@@ -1,5 +1,5 @@
 1. [Azure Portal](https://portal.azure.com/) oturum açın.
-2. Atlama Çubuğunda **Yeni**'ye, **Veri + Depolama**'ya ve ardından **DocumentDB (NoSQL)** öğesine tıklayın.
+2. Atlama Çubuğunda **Yeni**'ye, **Veritabanları**'na ve ardından **NoSQL (DocumentDB)** öğesine tıklayın.
    
    ![Diğer Hizmetler ve DocumentDB (NoSQL) seçeneklerinin gösterildiği Azure portalı ekran görüntüsü](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-1.png)  
 3. **Yeni hesap** dikey penceresinde, DocumentDB hesabı için istenen yapılandırmayı belirtin.
@@ -16,11 +16,11 @@
    ![Hızlı bir şekilde veritabanı oluşturma - DocumentDB hesabının oluşturulduğunu gösteren Bildirimler hub'ı ekran görüntüsü](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-4.png)  
    
    ![DocumentDB hesabının başarılı bir şekilde oluşturulduğunu ve bir kaynak grubuna dağıtıldığını gösteren Bildirimler hub'ı ekran görüntüsü - Çevrimiçi veritabanı oluşturucu bildirimi](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-5.png)
-5. DocumentDB hesabı oluşturulduktan sonra, varsayılan ayarlarla birlikte kullanıma hazırdır. DocumentDB hesabının varsayılan tutarlılığı **Oturum** olarak ayarlandı.  Kaynak menüsünde **Varsayılan Tutarlılık** seçeneğine tıklayarak varsayılan tutarlılık ayarını belirleyebilirsiniz. DocumentDB tarafından sunulan tutarlılık düzeyleri hakkında daha fazla bilgi edinmek için bkz. [DocumentDB'deki tutarlılık düzeyleri](../articles/documentdb/documentdb-consistency-levels.md).
-   
-   ![Kaynak Grubu dikey penceresinin ekran görüntüsü - uygulama geliştirmesini başlatma](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-6.png)  
-   
-   ![Tutarlılık Düzeyi dikey penceresinin ekran görüntüsü - Oturum Tutarlılığı](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-7.png)  
+5. DocumentDB hesabı oluşturulduktan sonra, varsayılan ayarlarla birlikte kullanıma hazırdır. Varsayılan ayarları gözden geçirmek için atlama çubuğunda **NoSQL (DocumentDB)** simgesine tıklayın, yeni hesabınızı seçin ve Kaynak Menüsünde **Varsayılan Tutarlılık** öğesine tıklayın.
+
+   ![Azure DocumentDB veritabanı hesabınızı Azure portalında nasıl açacağınızı gösteren ekran görüntüsü](./media/documentdb-create-dbaccount/azure-documentdb-database-open-account-portal.png)  
+
+   DocumentDB hesabının varsayılan tutarlılığı **Oturum** olarak ayarlandı.  Kaynak menüsünde **Varsayılan Tutarlılık** seçeneğine tıklayarak varsayılan tutarlılık ayarını belirleyebilirsiniz. DocumentDB tarafından sunulan tutarlılık düzeyleri hakkında daha fazla bilgi edinmek için bkz. [DocumentDB'deki tutarlılık düzeyleri](../articles/documentdb/documentdb-consistency-levels.md).
 
 [Nasıl yapılır: DocumentDB hesabı oluşturma]: #Howto
 [Sonraki adımlar]: #NextSteps

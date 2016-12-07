@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 10/17/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 487a006050bdb77f03db19b87a98dd3f4c64a738
+ms.sourcegitcommit: f6fa6511c8d54e191de27fda73aad9feb734191f
+ms.openlocfilehash: 1065ad38f5c3627e4afd441fcd4540db01632373
 
 
 ---
-# <a name="configure-a-pointtosite-connection-to-a-vnet-using-the-classic-portal"></a>Klasik portalı kullanarak bir Sanal Ağa Noktadan Siteye bir bağlantı yapılandırma
+# <a name="configure-a-point-to-site-connection-to-a-vnet-using-the-classic-portal"></a>Klasik portalı kullanarak bir Sanal Ağa Noktadan Siteye bir bağlantı yapılandırma
 > [!div class="op_single_selector"]
 > * [Resource Manager - Azure Portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
@@ -55,9 +55,9 @@ Noktadan Siteye bağlantı yapılandırması 4 bölüme ayrılmıştır. Bu böl
 * **3. Bölüm** İstemci sertifikalarınızı dışarı aktarın ve yükleyin.
 * **4. Bölüm** VPN istemcinizi yapılandırın.
 
-## <a name="a-namevnetvpnasection-1-create-a-virtual-network-and-a-vpn-gateway"></a><a name="vnetvpn"></a>1. Bölüm - Sanal ağ ve VPN ağ geçidi oluşturma
+## <a name="a-namevnetvpnasection-1---create-a-virtual-network-and-a-vpn-gateway"></a><a name="vnetvpn"></a>1. Bölüm - Sanal ağ ve VPN ağ geçidi oluşturma
 ### <a name="part-1-create-a-virtual-network"></a>1. Kısım: Sanal ağ oluşturma
-1. [Klasik Azure portalında](https://manage.windowsazure.com/) oturum açın. Buradaki adımlarda Azure portalı değil, klasik portal kullanılmaktadır. Şu anda Azure portalını kullanarak bir P2S bağlantısı oluşturamazsınız.
+1. [Klasik Azure portalında](https://manage.windowsazure.com) oturum açın. Buradaki adımlarda Azure portalı değil, klasik portal kullanılmaktadır. Şu anda Azure portalını kullanarak bir P2S bağlantısı oluşturamazsınız.
 2. Ekranın sol alt köşesinde **Yeni**’ye tıklayın. Gezinme bölmesinde **Ağ Hizmetleri**’ne, sonra da **Virtual Network**’a tıklayın. Yapılandırma sihirbazını başlatmak için **Özel Oluştur**’a tıklayın.
 3. **Sanal Ağ Ayrıntıları** sayfasında aşağıdaki bilgileri girin ve sağ alt köşedeki ileri okuna tıklayın.
    
@@ -86,7 +86,7 @@ Ağ geçidi türü, dinamik şeklinde yapılandırılmalıdır. Statik yönlendi
 1. Klasik Azure portalındaki **Ağlar** sayfasında, oluşturduğunuz sanal ağa tıklayın ve **Pano** sayfasına gidin.
 2. **Pano** sayfasının alt kısmında yer alan **Ağ Geçidi Oluştur**’a tıklayın. **"VNet1" sanal ağınız için bir ağ geçidi oluşturmak ister misiniz?** şeklinde bir ileti göreceksiniz. Ağ geçidini oluşturmaya başlamak için **Evet**’e tıklayın. Ağ geçidinin oluşturulması yaklaşık 15 dakika sürebilir.
 
-## <a name="a-namegenerateasection-2-generate-and-upload-certificates"></a><a name="generate"></a>2. Bölüm - Sertifika oluşturma ve karşıya yükleme
+## <a name="a-namegenerateasection-2---generate-and-upload-certificates"></a><a name="generate"></a>2. Bölüm - Sertifika oluşturma ve karşıya yükleme
 Noktadan Siteye VPN’lerde VPN istemcilerinin kimlik doğrulamasını yapmak için sertifikalar kullanılır. Kurumsal bir sertifika çözümü tarafından oluşturulan bir kök sertifika veya otomatik olarak imzalanan sertifika kullanabilirsiniz. Azure’a en çok 20 kök sertifikası yükleyebilirsiniz. .cer dosyası karşıya yüklendiğinde Azure, bu dosyada yer alan bilgileri kullanarak istemci sertifikası yüklü olan istemcilerin kimliklerini doğrulayabilir. İstemci sertifikası, .cer dosyasının temsil ettiği aynı sertifikadan oluşturulmuş olmalıdır.
 
 Bu bölümde şunları yapacaksınız:
@@ -112,14 +112,14 @@ Bir sonraki adımda istemci sertifikalarını oluşturacaksınız. Bağlanacak h
 * Kurumsal bir sertifika çözümü kullanıyorsanız NetBIOS "ETKİALANI\kullanıcıadı" biçimini kullanmak yerine, yaygın olarak kullanılan 'name@yourdomain.com', ad değer biçimiyle bir istemci sertifikası oluşturun. 
 * Otomatik olarak imzalanan sertifika kullanıyorsanız istemci sertifikası oluşturmak için bkz. [Noktadan Siteye yapılandırmaları için otomatik olarak imzalanan kök sertifikalar ile çalışma](vpn-gateway-certificates-point-to-site.md).
 
-## <a name="a-nameinstallclientcertasection-3-export-and-install-the-client-certificate"></a><a name="installclientcert"></a>3. Bölüm - İstemci sertifikasını dışarı aktarma ve yükleme
+## <a name="a-nameinstallclientcertasection-3---export-and-install-the-client-certificate"></a><a name="installclientcert"></a>3. Bölüm - İstemci sertifikasını dışarı aktarma ve yükleme
 Sanal ağa bağlamak istediğiniz her bilgisayara bir istemci sertifikası yükleyin. Kimlik doğrulaması için istemci sertifikası gereklidir. İstemci sertifikası yükleme işlemini otomatik hale getirebilir veya elle yapabilirsiniz. Aşağıda, istemci sertifikasını dışarı aktarma ve elle yükleme işlemleri adım adım açıklanmıştır.
 
 1. İstemci sertifikasını dışarı aktarmak için *certmgr.msc* kullanabilirsiniz. Dışarı aktarmak istediğiniz istemci sertifikasına sağ tıklayın, **tüm görevler**’e ve ardından **dışarı aktar**’a tıklayın.
 2. Özel anahtara sahip istemci sertifikasını dışarı aktarın. Bu bir *.pfx* dosyasıdır. Bu sertifika için ayarladığınız parolayı (anahtar) kaydettiğinizden ya da unutmayacağınızdan emin olun.
 3. *.pfx* dosyasını istemci bilgisayara kopyalayın. İstemci bilgisayarda *.pfx* dosyasına çift tıklayarak yükleme işlemini gerçekleştirin. İstendiğinde parolayı girin. Yükleme konumunu değiştirmeyin.
 
-## <a name="a-namevpnclientconfigasection-4-configure-your-vpn-client"></a><a name="vpnclientconfig"></a>4. Bölüm - VPN istemcinizi yapılandırma
+## <a name="a-namevpnclientconfigasection-4---configure-your-vpn-client"></a><a name="vpnclientconfig"></a>4. Bölüm - VPN istemcinizi yapılandırma
 Sanal ağa bağlanmak için bir VPN istemcisi de yapılandırmanız gerekir. İstemcinin bağlanması için bir istemci sertifikasına ve uygun VPN istemcisi yapılandırmasına gerek vardır. Bir VPN istemcisi yapılandırmak için aşağıdaki adımları sırayla uygulayın.
 
 ### <a name="part-1-create-the-vpn-client-configuration-package"></a>1. Kısım: VPN istemcisi yapılandırma paketini oluşturma
@@ -164,13 +164,14 @@ Sanal ağa bağlanmak için bir VPN istemcisi de yapılandırmanız gerekir. İs
         NetBIOS over Tcpip..............: Enabled
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Sanal ağınıza, sanal makineler ekleyebilirsiniz. Bkz. [Özel bir sanal makine oluşturma](../virtual-machines/virtual-machines-windows-classic-createportal.md).
 
-Sanal Ağlar hakkında daha fazla bilgi edinmek için [Sanal Ağ Belgeleri](https://azure.microsoft.com/documentation/services/virtual-network/) sayfasına bakın.
+Bağlantınız tamamlandıktan sonra sanal ağlarınıza sanal makineler ekleyebilirsiniz. Daha fazla bilgi için bkz. [Sanal Makineler](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
+
+Sanal Ağlar hakkında daha fazla bilgi edinmek için [Sanal Ağ Belgeleri](/azure/virtual-network) sayfasına bakın.
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,10 +1,14 @@
 ---
 layout: LandingPage
+translationtype: Human Translation
+ms.sourcegitcommit: 2169b6e72c82ad4d9bf4b443d681c22c770229d5
+ms.openlocfilehash: 48b251543871b3ac3a7aad89bc025feabb83e242
+
 
 ---
-# App Service - API Apps Documentation
+# <a name="app-service---api-apps-documentation"></a>App Service - API Apps Belgeleri
 
-Azure App Service is a cloud service that's designed to solve the practical problems that engineers face today. API apps in Azure App Service offer features that make it easier to develop, host, and consume APIs in the cloud and on-premises. With API apps, you get enterprise grade security, simple access control, hybrid connectivity, automatic SDK generation, and seamless integration with Logic Apps. Azure App Service is a fully managed platform for web, mobile, and integration scenarios. API Apps is one of four app types offered by Azure App Service.
+API Apps, Azure App Service tarafından sunulan dört uygulama türünden biridir. Azure App Service’teki API uygulamaları, API’leri bulutta ve şirket içinde geliştirmeye, barındırmaya ve kullanmaya yönelik zengin özellikler sunar. Azure App Service; web, mobil ve tümleştirme senaryoları için tam yönetilen bir platformdur.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -18,7 +22,7 @@ Azure App Service is a cloud service that's designed to solve the practical prob
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Learn about API Apps</h3>
+                        <h3>API Apps hakkında bilgi edinin</h3>
                     </div>
                 </div>
             </div>
@@ -36,7 +40,7 @@ Azure App Service is a cloud service that's designed to solve the practical prob
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>App Service Video Library</h3>
+                        <h3>App Service Video Kitaplığı</h3>
                     </div>
                 </div>
             </div>
@@ -54,7 +58,7 @@ Azure App Service is a cloud service that's designed to solve the practical prob
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with API Apps, ASP.NET adn Swagger in Azure App Service</h3>
+                        <h3>Azure App Service’te API Apps, ASP.NET ve Swagger kullanmaya başlama</h3>
                     </div>
                 </div>
             </div>
@@ -72,7 +76,7 @@ Azure App Service is a cloud service that's designed to solve the practical prob
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a Java API app in Azure App Service</h3>
+                        <h3>Azure App Service içinde Java API uygulaması oluşturmaya başlama</h3>
                     </div>
                 </div>
             </div>
@@ -90,7 +94,7 @@ Azure App Service is a cloud service that's designed to solve the practical prob
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a Node.js API</h3>
+                        <h3>Node.js API oluşturmaya başlama</h3>
                     </div>
                 </div>
             </div>
@@ -108,7 +112,7 @@ Azure App Service is a cloud service that's designed to solve the practical prob
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create an API app from JavaScript using CORS</h3>
+                        <h3>CORS kullanarak JavaScript’ten bir API uygulaması oluşturmaya başlama</h3>
                     </div>
                 </div>
             </div>
@@ -123,7 +127,12 @@ Azure App Service is a cloud service that's designed to solve the practical prob
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/app-service-api.pdf">
         <div class="img"></div>
         <div class="text">
-            Download Mobile Apps Documentation
-        </div>
+Mobile Apps Belgelerini indirin </div>
     </a>
 </div>
+
+
+
+<!--HONumber=Nov16_HO5-->
+
+

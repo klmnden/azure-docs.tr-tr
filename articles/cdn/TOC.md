@@ -1,5 +1,6 @@
 # [Genel Bakış](cdn-overview.md)
 ## [Azure CDN nedir?](../best-practices-cdn.md?toc=%2fazure%2fcdn%2ftoc.json)
+
 # Başlarken
 ## [Azure CDN'yi etkinleştirme](cdn-create-new-endpoint.md)
 
@@ -23,6 +24,8 @@
 #### [Premium katman](cdn-query-string-premium.md)
 ### [Önbelleğe alınan varlıkları temizleme](cdn-purge-endpoint.md)
 ### [Önbelleğe alınan varlıkları önceden yükleme](cdn-preload-endpoint.md)
+### [Belirteç kimlik doğrulaması](cdn-token-auth.md)
+### [Kaynakları izleme](cdn-resource-health.md)
 ### [Davranışı kurallarla geçersiz kılma](cdn-rules-engine.md)
 ### [Gerçek zamanlı uyarılar alma](cdn-real-time-alerts.md)
 
@@ -41,19 +44,19 @@
 ### [Dosya sıkıştırma](cdn-troubleshoot-compression.md)
 
 # Başvuru
-## [PowerShell cmdlet'leri](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)
-## [.NET API'si](https://docs.microsoft.com/dotnet/api)
+## [PowerShell](/powershell/azureps-cmdlets-docs)
+## [.NET](/dotnet/api/)
 ## [Azure CDN POP Konumları](cdn-pop-locations.md)
-## [REST](https://msdn.microsoft.com/library/mt634456.aspx)
+## [REST](/rest/api/cdn/)
 
 # Kaynaklar
-## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/cdn/)
-## [MSDN forumu](https://social.msdn.microsoft.com/forums/home?forum=azurecdn)
-## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=cdn)
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=cdn)
+## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/cdn/)
+## [MSDN forumu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecdn)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-cdn)
+## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=cdn)
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

@@ -1,34 +1,34 @@
 # Genel Bakış
 ## [DocumentDB nedir?](documentdb-introduction.md)
 ## [Temel kavramlar](documentdb-resources.md)
-## [Depolama ve performans](documentdb-manage.md)
-## [Bölümleme ve ölçeklendirme](documentdb-partition-data.md)
 ## [Genel dağıtım](documentdb-distribute-data-globally.md)
-## [Tutarlılık](documentdb-consistency-levels.md)
-## [SQL sorgusu](documentdb-sql-query.md)
-## [NoSQL ile SQL karşılaştırması](documentdb-nosql-vs-sql.md)
 ## Senaryolar
 ### [Genel kullanım örnekleri](documentdb-use-cases.md)
 ### [DocumentDB ile iletişim](documentdb-social-media-apps.md)
-### [Çok kiracılı](http://blogs.msdn.com/b/documentdb/archive/2014/12/03/scaling-a-multi-tenant-application-with-azure-documentdb.aspx)
-
 
 # Kullanmaya Başlama
 ## İlk uygulamanızı yazma
 ### [.NET konsol uygulaması](documentdb-get-started.md)
+### [.NET Core konsol uygulaması](documentdb-dotnetcore-get-started.md)
 ### [Node.js konsol uygulaması](documentdb-nodejs-get-started.md)
+### [C++ konsol uygulaması](documentdb-cpp-get-started.md)
 ## Web uygulaması oluşturma
 ### [.NET web uygulaması](documentdb-dotnet-application.md)
 ### [Node.js web uygulaması](documentdb-nodejs-application.md)
 ### [Java web uygulaması](documentdb-java-application.md)
 ### [Python Flask web uygulaması](documentdb-python-application.md)
+## [Yerel Olarak Geliştirme](documentdb-nosql-local-emulator.md)
 ## [SSS](documentdb-faq.md)
 
+# Nasıl yapılır
 
+## Planlama
+### [Depolama ve performans](documentdb-manage.md)
+### [Bölümleme ve ölçeklendirme](documentdb-partition-data.md)
+### [Tutarlılık](documentdb-consistency-levels.md)
+### [NoSQL ile SQL karşılaştırması](documentdb-nosql-vs-sql.md)
 
-# Nasıl yapılır?
-
-## Yönet 
+## Yönet
 ### [Verilerinizi içeri aktarma](documentdb-import-data.md)
 ### [Veri modeli oluşturma](documentdb-modeling-data.md)
 ### [Jeo-uzamsal veriler kullanma](documentdb-geospatial.md)
@@ -46,17 +46,18 @@
 ### [Hesaba fazla yükleme](documentdb-supercharge-your-account.md)
 
 ## Geliştirme
+### [SQL sorgusu](documentdb-sql-query.md)
 ### [Saklı yordamlar, tetikleyiciler ve UDF'ler](documentdb-programming.md)
 ### [Performansı test etme](documentdb-performance-testing.md)
 ### [Performans ipuçları](documentdb-performance-tips.md)
 ### MongoDB geliştiricileri için DocumentDB
-#### [MongoDB için protokol desteği nedir?](documentdb-protocol-mongodb.md)
+#### [MongoDB için protokol desteği](documentdb-protocol-mongodb.md)
 #### [Hesap oluşturma](documentdb-create-mongodb-account.md)
 #### [Hesabınıza bağlanma](documentdb-connect-mongodb-account.md)
 #### [MongoChef kullanma](documentdb-mongodb-mongochef.md)
 #### [Protokol desteği örnekleri](documentdb-mongodb-samples.md)
 
-## Portalı kullanma 
+## Portalı kullanma
 ### [Veritabanı hesabı oluşturma](documentdb-create-account.md)
 ### [Koleksiyon oluşturma](documentdb-create-collection.md)
 ### [Genel çoğaltma ekleme](documentdb-portal-global-replication.md)
@@ -75,34 +76,33 @@
 ### [Hadoop ile verileri çözümleme](documentdb-run-hadoop-with-hdinsight.md)
 ### [Azure Search ile Tümleştirme](documentdb-search-indexer.md)
 ### [Azure Data Factory ile veri taşıma](../data-factory/data-factory-azure-documentdb-connector.md)
-### [Azure Akış Analizi ile verileri gerçek zamanlı olarak çözümleme](../stream-analytics/stream-analytics-define-outputs.md#documentdb.md)
+### [Azure Akış Analizi ile verileri gerçek zamanlı olarak çözümleme](../stream-analytics/stream-analytics-define-outputs.md#documentdb)
 ### [Logic Apps ile ilgili bildirimleri alma](documentdb-change-notification.md)
 ### [Gerçek zamanlı sensör verisi işleme](../hdinsight/hdinsight-storm-iot-eventhub-documentdb.md)
 ### [Power BI ile verilerinizi görselleştirme](documentdb-powerbi-visualize.md)
 
 
 # Başvuru
-## [.NET SDK](documentdb-sdk-dotnet.md)
-## [.NET örnekleri](documentdb-dotnet-samples.md)
 ## [Java SDK](documentdb-sdk-java.md)
+## [.NET SDK](documentdb-sdk-dotnet.md)
+## [.NET Core SDK](documentdb-sdk-dotnet-core.md)
+## [.NET örnekleri](documentdb-dotnet-samples.md)
 ## [Node.js SDK’sı](documentdb-sdk-node.md)
 ## [Node.js örnekleri](documentdb-nodejs-samples.md)
-## [Python](documentdb-sdk-python.md)
+## [Python SDK'sı](documentdb-sdk-python.md)
 ## [Python örnekleri](documentdb-python-samples.md)
-## [REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) 
 ## [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 ## [SQL dil bilgisi kopya kağıdı](documentdb-sql-query-cheat-sheet.md)
-
+## [REST](/rest/api/documentdb/)
+## [REST Kaynak Sağlayıcısı](/rest/api/documentdbresourceprovider/)
 
 # Kaynaklar
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/documentdb/)
-## [MSDN forumları](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureDocumentDB)
+## [MSDN forumu](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureDocumentDB)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-documentdb)
-## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=documentdb) 
-## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=documentdb) 
-## [DocumentDB hakkında soru sorun](documentdb-community.md#contact-the-team)
+## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=documentdb)
+## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=documentdb)
 ## [Topluluk portalı](documentdb-community.md)
-## [Etkinlikler ve kayıtlar](documentdb-community.md#events-and-recordings)
 ## [Sorgu Oyun Alanı](https://www.documentdb.com/sql/demo)
 ## [Şemadan bağımsız dizinleme sayfası](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)
 ## [Beyzbol örneği ile açıklanan veri tutarlılığı](http://research.microsoft.com/apps/pubs/default.aspx?id=206913)
@@ -110,23 +110,6 @@
 ## [Öğrenme yolu](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

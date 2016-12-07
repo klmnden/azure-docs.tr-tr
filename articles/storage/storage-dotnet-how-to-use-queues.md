@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 10/12/2016
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 18af1ce4f6ebb235e66e17d99dc5ae6156b84a59
+ms.sourcegitcommit: 1c6ccbeef1fb40ce4f7242bb2cc4ee958659bd3c
+ms.openlocfilehash: 02ad118a175b66b3958adb413f5f48ef156695ef
 
 ---
 
@@ -152,7 +152,7 @@ Kuyrukta yer alan bir iletinin içeriğini değiştirebilirsiniz. Eğer ileti bi
         MessageUpdateFields.Content | MessageUpdateFields.Visibility);
 ```
 
-## <a name="dequeue-the-next-message"></a>Sonraki iletiyi sıradan çıkarmak
+## <a name="de-queue-the-next-message"></a>Sonraki iletiyi sıradan çıkarmak
 Kodunuz, bir iletiyi bir kuyruktan iki adımda çıkarır. **GetMessage**’ı çağırdığınzda, bir kuyruktaki bir sonraki iletiyi alırsınız. **GetMessage**’dan dönen bir ileti bu kuyruktaki kod okuyan iletilere karşı görünmez olur. Varsayılan olarak bu ileti 30 saniye görünmez kalır. İletiyi kuyruktan kaldırmayı tamamlamak için ayrıca **DeleteMessage**’ı çağırmanız gerekir. Bir iletinin iki adımlı kaldırılma süreci, donanım veya yazılım arızasından dolayı kodunuzun bir iletiyi işleyememesi durumunda kodunuzun başka bir örneğinin aynı iletiyi alıp yeniden denemesini sağlar. Kodunuz ileti işlendikten hemen sonra **DeleteMessage**’ı çağırır.
 
 ```csharp
@@ -173,7 +173,7 @@ Kodunuz, bir iletiyi bir kuyruktan iki adımda çıkarır. **GetMessage**’ı �
     queue.DeleteMessage(retrievedMessage);
 ```
 
-## <a name="use-asyncawait-pattern-with-common-queue-storage-apis"></a>Genel Kuyruk depolama API’leri ile Zaman Uyumsuz-Bekleme yöntemini kullanma
+## <a name="use-async-await-pattern-with-common-queue-storage-apis"></a>Genel Kuyruk depolama API’leri ile Zaman Uyumsuz-Bekleme yöntemini kullanma
 Bu örnek, genel Kuyruk depolama API’leri ile Zaman Uyumsuz-Bekleme yönteminin nasıl kullanılacağını gösterir. Örnek, her yönteme eklenen *Async* soneki ile belirtildiği şekilde kullanılan yöntemlerin her birinin zaman uyumsuz sürümlerini çağırır. Zaman uyumsuz bir yöntem kullanıldığında, zaman uyumsuz-bekleme yöntemi çağrı tamamlanana kadar yerel çalıştırmayı askıya alır. Bu davranış geçerli iş parçacığının başka işler yapmasını sağlar ve böylece performans sorunlarını engellemeye yardımcı olur, uygulamanızın genel yanıt hızını iyileştirir. .NET’te Zaman Uyumsuz-Bekleme yönteminin kullanılması ile ilgili daha fazla ayrıntı için bkz. [Zaman Uyumsuz ve Bekleme (C# ve Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx).
 
 ```csharp
@@ -203,7 +203,7 @@ Bu örnek, genel Kuyruk depolama API’leri ile Zaman Uyumsuz-Bekleme yöntemini
     Console.WriteLine("Deleted message");
 ```
     
-## <a name="leverage-additional-options-for-dequeuing-messages"></a>İletilerin kuyruktan çıkarılması için ek seçenekleri kullanma
+## <a name="leverage-additional-options-for-de-queuing-messages"></a>İletilerin kuyruktan çıkarılması için ek seçenekleri kullanma
 İletilerin bir kuyruktan alınma şeklini iki yöntemle özelleştirebilirsiniz.
 İlk olarak toplu iletiler alabilirsiniz (en fazla 32). İkinci olarak daha uzun veya daha kısa bir görünmezlik süresi ayarlayarak kodunuzun her iletiyi tamamen işlemesi için daha az veya daha fazla zaman tanıyabilirsiniz. Aşağıdaki kod örneğinde tek çağrıda 20 ileti almak için **GetMessages** yöntemi kullanılmıştır. Ardından her ileti bir **foreach** döngüsü ile işlenir. Ayrıca her ileti için görünmezlik zaman aşımı beş dakika olarak ayarlanır. 5 dakikalık sürenin tüm iletiler için aynı zamanda başladığını unutmayın, bu nedenle **GetMessages** çağrısından itibaren 5 dakika geçtikten sonra silinmeyen tüm iletiler görünür olacaktır.
 

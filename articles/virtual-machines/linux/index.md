@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 8125aca5030c869476499a07b17c8e21fcb76ef6
-ms.openlocfilehash: e5640566e8781441713ca5491abee1d9334b3970
+ms.sourcegitcommit: c5ed66f3a060dcd1bac9c04c70c493dcebcf9df8
+ms.openlocfilehash: 7b5078165e008819baed1c1e38d1c1a677648955
 
 ---
 #<a name="linux-virtual-machine-documentation"></a>Linux Sanal Makine Belgeleri
@@ -11,7 +11,43 @@ Azure Sanal Makinelerini kullanarak, Azure’un işlem, ağ ve depolama altyapı
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/virtual-machines/virtual-machines-linux-azure-overview">
+        <a href="/azure/virtual-machines/virtual-machines-linux-quick-create-cli?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/cli.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Azure CLI 2.0 (Önizleme) kullanarak Linux VM oluşturma</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/azure/virtual-machines/virtual-machines-linux-quick-create-portal?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/portal.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Portalı kullanarak VM oluşturma</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/azure/virtual-machines/virtual-machines-linux-azure-overview?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -46,18 +82,21 @@ Azure Sanal Makinelerini kullanarak, Azure’un işlem, ağ ve depolama altyapı
         </div>
         </a>
     </li>
+</ul>
+
+---
+
+##<a name="reference"></a>Başvuru
+
+<ul class="panelContent cardsW">
     <li>
-        <a href="/azure/virtual-machines/virtual-machines-linux-quick-create-portal">
+        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/portal.svg" alt="" />
-                        </div>
-                    </div>
                     <div class="cardText">
-                        <h3>Portalı kullanarak VM oluşturma</h3>
+                        <h3>PowerShell</h3>
+                        <p>PowerShell Cmdlet'leri</p>
                     </div>
                 </div>
             </div>
@@ -65,17 +104,13 @@ Azure Sanal Makinelerini kullanarak, Azure’un işlem, ağ ve depolama altyapı
         </a>
     </li>
     <li>
-        <a href="/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys">
+        <a href="/cli/azure/install-az-cli2">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
-                        </div>
-                    </div>
                     <div class="cardText">
-                        <h3>Linux ve Mac’de Linux VM’ler için Azure’da SSH anahtarları oluşturma</h3>
+                        <h3>Azure CLI</h3>
+                        <p>Azure CLI'yı yükleme</p>
                     </div>
                 </div>
             </div>
@@ -83,17 +118,13 @@ Azure Sanal Makinelerini kullanarak, Azure’un işlem, ağ ve depolama altyapı
         </a>
     </li>
     <li>
-        <a href="/azure/xplat-cli-install">
+        <a href="/dotnet/api">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/cli.svg" alt="" />
-                        </div>
-                    </div>
                     <div class="cardText">
-                        <h3>Azure CLI'yı yükleme</h3>
+                        <h3>.NET</h3>
+                        <p>.NET Yönetilen Başvuru API'si</p>
                     </div>
                 </div>
             </div>
@@ -101,17 +132,55 @@ Azure Sanal Makinelerini kullanarak, Azure’un işlem, ağ ve depolama altyapı
         </a>
     </li>
     <li>
-        <a href="/azure/virtual-machines/virtual-machines-linux-quick-create-cli">
+        <a href="/java/api">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/cli.svg" alt="" />
-                        </div>
-                    </div>
                     <div class="cardText">
-                        <h3>CLI'yi kullanarak Azure'da Linux VM'si oluşturma</h3>
+                        <h3>Java SDK</h3>
+                        <p>Java API Başvurusu</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/rest/api/compute">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST (İşlem)</h3>
+                        <p>İşlem REST API Başvurusu</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="https://msdn.microsoft.com/library/mt163658">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST (Ağ)</h3>
+                        <p>Ağ REST API Başvurusu</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/rest/api/storage">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST (Depolama)</h3>
+                        <p>Depolama REST API Başvurusu</p>
                     </div>
                 </div>
             </div>
@@ -119,28 +188,7 @@ Azure Sanal Makinelerini kullanarak, Azure’un işlem, ağ ve depolama altyapı
         </a>
     </li>
 </ul>
-
----
-
-##<a name="reference"></a>Başvuru
-
-###<a name="azure-cli"></a>Azure CLI
-[Azure CLI](/cli/azure/vm)
-
-###<a name="net"></a>.NET
-[Yönetilen Başvuru API’si Başvurusu](/dotnet/api/)
-
-###<a name="java-sdk"></a>Java SDK
-[Java](/java/api/)
-
-###<a name="rest-compute"></a>REST (İşlem)
-[İşlem REST API’si Başvurusu](/rest/api/compute)
-
-###<a name="rest-network"></a>REST (Ağ)
-[Ağ REST API’si Başvurusu](https://msdn.microsoft.com/library/mt163658.aspx)
-
-###<a name="rest-storage"></a>REST (Depolama)
-[Depolama REST API’si Başvurusu](https://msdn.microsoft.com/library/azure/dd179355.aspx)
+    
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/virtual-machines/linux.pdf">
@@ -152,6 +200,6 @@ Linux Sanal Makine Belgelerini indirin </div>
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

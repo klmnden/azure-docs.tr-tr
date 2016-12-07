@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 80001fda921c4504237b1c5e3812a84924814dfd
-ms.openlocfilehash: c0c908d2597c6570511d6a15ea3f1f48b2dab6c8
+ms.sourcegitcommit: a7f5894e445cad808f38195838376c620a6b5944
+ms.openlocfilehash: 87fab3c99228f127326609a3e614020a982192f0
 
 ---
 #<a name="documentdb-documentation"></a>DocumentDB Belgeleri
@@ -71,11 +71,11 @@ Azure DocumentDB; hızlı ve tahmin edilebilir performans, yüksek kullanılabil
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/article.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>.NET'i kullanarak DocumentDB ile çalışmaya başlama</h3>
+                        <h3>.NET kullanarak DocumentDB ile çalışmaya başlama</h3>
                     </div>
                 </div>
             </div>
@@ -89,11 +89,11 @@ Azure DocumentDB; hızlı ve tahmin edilebilir performans, yüksek kullanılabil
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/article.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>ASP.NET MVC'yi kullanarak DocumentDB ile çalışmaya başlama</h3>
+                        <h3>ASP.NET MVC kullanarak DocumentDB’yle çalışmaya başlama</h3>
                     </div>
                 </div>
             </div>
@@ -107,11 +107,11 @@ Azure DocumentDB; hızlı ve tahmin edilebilir performans, yüksek kullanılabil
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/article.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Node.js'yi kullanarak DocumentDB ile çalışmaya başlama</h3>
+                        <h3>Node.js kullanarak DocumentDB ile çalışmaya başlama</h3>
                     </div>
                 </div>
             </div>
@@ -125,11 +125,11 @@ Azure DocumentDB; hızlı ve tahmin edilebilir performans, yüksek kullanılabil
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/article.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Node.js Express'i kullanarak DocumentDB ile çalışmaya başlama</h3>
+                        <h3>Node.js Express kullanarak DocumentDB’yle çalışmaya başlama</h3>
                     </div>
                 </div>
             </div>
@@ -143,11 +143,11 @@ Azure DocumentDB; hızlı ve tahmin edilebilir performans, yüksek kullanılabil
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/article.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Java JSP uygulaması kullanarak DocumentDB ile çalışmaya başlama</h3>
+                        <h3>Java JSP uygulaması kullanarak DocumentDB’yle çalışmaya başlama</h3>
                     </div>
                 </div>
             </div>
@@ -161,11 +161,11 @@ Azure DocumentDB; hızlı ve tahmin edilebilir performans, yüksek kullanılabil
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/article.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Python Flask Web uygulaması kullanarak DocumentDB ile çalışmaya başlama</h3>
+                        <h3>Python Flask Web uygulaması kullanarak DocumentDB’yle çalışmaya başlama</h3>
                     </div>
                 </div>
             </div>
@@ -176,18 +176,29 @@ Azure DocumentDB; hızlı ve tahmin edilebilir performans, yüksek kullanılabil
 
 ---
 
-##<a name="reference"></a>Başvuru
-
-###<a name="net"></a>.NET
-[.NET Tarafından Yönetilen Başvuru](/dotnet/api)
+## <a name="reference"></a>Başvuru
 
 ### <a name="java"></a>Java
-[Java SDK Başvurusu](/java/api)
+[Java SDK Başvurusu](http://azure.github.io/azure-documentdb-java)
 
-###<a name="rest"></a>REST
-[DocumentDB REST API Başvurusu](https://msdn.microsoft.com/library/azure/dn781481)
+### <a name="net"></a>.NET
+[.NET Tarafından Yönetilen Başvuru](https://msdn.microsoft.com/library/azure/dn948556)
 
+### <a name="node"></a>Node
+[Node SDK Başvurusu](http://azure.github.io/azure-documentdb-node/DocumentClient)
 
+### <a name="python"></a>Python
+[Python Başvurusu](http://azure.github.io/azure-documentdb-python/api/pydocumentdb)
+
+### <a name="sql"></a>SQL
+[SQL Başvurusu](https://msdn.microsoft.com/library/azure/dn782250)
+
+### <a name="rest"></a>REST
+[REST API başvurusu](/rest/api/documentdb)
+
+[Kaynak sağlayıcısı API Başvurusu](/rest/api/documentdbresourceprovider)
+
+---
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/documentdb.pdf">
@@ -199,6 +210,6 @@ DocumentDB Belgelerini İndirme </div>
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

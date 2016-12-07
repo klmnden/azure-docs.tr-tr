@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 11/01/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: acacfbead6cf0d68ccfeb5e818a2b04f2be9b902
+ms.sourcegitcommit: 0b7c4c95328eb3ca573694b8eca0b0abda646fc5
+ms.openlocfilehash: a8fcbf069d1d06249b27687c3dd9f993dc40d40d
 
 
 ---
@@ -26,7 +26,7 @@ ms.openlocfilehash: acacfbead6cf0d68ccfeb5e818a2b04f2be9b902
 Bu öğreticide [Azure Portal]’ı ile [Azure App Service’te Java web uygulaması] oluşturma adımları gösterilmiştir. Azure Portal, Azure kaynaklarınızı yönetmek için kullanabileceğiniz bir web arabirimidir.
 
 > [!NOTE]
-> Bu öğreticiyi tamamlamak için Microsoft Azure hesabınızın olması gerekir. Bir hesabınız yoksa, [Visual Studio abone avantajlarınızı etkinleştirebilir ] veya [ücretsiz deneme için kaydolabilirsiniz].
+> Bu öğreticiyi tamamlamak için Microsoft Azure hesabınızın olması gerekir. Bir hesabınız yoksa, [Visual Studio abone avantajlarınızı etkinleştirebilir] veya [ücretsiz deneme için kaydolabilirsiniz].
 > 
 > Bir Azure hesabı için kaydolmadan önce Azure App Service’i kullanmaya başlamak istiyorsanız [App Service’i Deneyin]’e gidin. Burada, App Service'te hemen bir kısa süreli başlangıç web uygulaması oluşturabilirsiniz; kredi kartı gerekmez ve hiçbir taahhüt yoktur.
 > 
@@ -64,7 +64,7 @@ Bu bölümde bir web uygulaması oluşturma ve portalın **Uygulama ayarları** 
     Web uygulamasının URL’si {ad}.azurewebsites.net şeklinde olacağından, bu ad azurewebsites.net etki alanında benzersiz olmalıdır. Girdiğiniz ad benzersiz değilse, metin kutusunda kırmızı bir ünlem işareti gösterilir.
 4. Bir **Kaynak Grubu** seçin veya yeni bir tane oluşturun.
    
-    Kaynak grupları hakkında daha fazla bilgi için bkz. [Azure kaynaklarınızı yönetmek için Azure Portal’ı kullanma].
+    Kaynak grupları hakkında daha fazla bilgi için bkz. [Resource Manager'a genel bakış].
 5. Bir **App Service planı/Konum** seçin veya yeni bir tane oluşturun.
    
     App Service planları hakkında daha fazla bilgi için bkz. [Azure App Service planlarına genel bakış].
@@ -111,7 +111,7 @@ Bu bölümde bir Java şablonu oluşturmak için Azure Market’i nasıl kullana
     Web uygulamasının URL’si {ad}.azurewebsites.net şeklinde olacağından, bu ad azurewebsites.net etki alanında benzersiz olmalıdır. Girdiğiniz ad benzersiz değilse, metin kutusunda kırmızı bir ünlem işareti gösterilir.
 8. Bir **Kaynak Grubu** seçin veya yeni bir tane oluşturun.
    
-    Kaynak grupları hakkında daha fazla bilgi için bkz. [Azure kaynaklarınızı yönetmek için Azure Portal’ı kullanma].
+    Kaynak grupları hakkında daha fazla bilgi için bkz. [Resource Manager'a genel bakış].
 9. Bir **App Service planı/Konum** seçin veya yeni bir tane oluşturun.
    
     App Service planları hakkında daha fazla bilgi için bkz. [Azure App Service planlarına genel bakış].
@@ -150,7 +150,7 @@ Azure'da Java uygulamaları geliştirme hakkında daha fazla bilgi için bkz. [J
 [App Service’i Deneyin]: http://go.microsoft.com/fwlink/?LinkId=523751
 [Azure App Service’te Java web uygulaması]: http://go.microsoft.com/fwlink/?LinkId=529714
 [Java Geliştirici Merkezi]: /develop/java/
-[Azure kaynaklarınızı yönetmek için Azure Portal’ı kullanma]: ../azure-portal/resource-group-portal.md
+[Resource Manager'a genel bakış]: ../azure-resource-manager/resource-group-overview.md
 [Azure’a özel bir Java web uygulaması yükleme]: ./web-sites-java-custom-upload.md
 
 <!-- IMG List -->
@@ -169,6 +169,6 @@ Azure'da Java uygulamaları geliştirme hakkında daha fazla bilgi için bkz. [J
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 
