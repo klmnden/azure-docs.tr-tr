@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 07/26/2016
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d5b24b28f82c53b880e025dc43169aaad49e8434
+ms.sourcegitcommit: 7455d6f99ed8ceb401224f98105f7b651f55c724
+ms.openlocfilehash: fd5ca2dfb12b7527f49d32d9642a91df9e590b14
 
 
 ---
@@ -68,7 +68,7 @@ Ayrıca depolama hesabınız ile birlikte kullanmak üzere özel bir etki alanı
    > Depolama hesabınızın adının Azure içinde benzersiz olması gerekir. Seçtiğiniz depolama hesabı adı alınmışsa Azure portal bunun zaten kullanımda olduğunu bildirecektir.
    > 
    > 
-4. Kullanılacak dağıtım modelini belirtin: **Resource Manager** veya **Klasik**. Önerilen dağıtım modeli **Resource Manager**’dır. Daha fazla bilgi için bkz. [Resource Manager dağıtımını ve klasik dağıtımı anlama](../resource-manager-deployment-model.md).
+4. Kullanılacak dağıtım modelini belirtin: **Resource Manager** veya **Klasik**. Önerilen dağıtım modeli **Resource Manager**’dır. Daha fazla bilgi için bkz. [Resource Manager dağıtımını ve klasik dağıtımı anlama](../azure-resource-manager/resource-manager-deployment-model.md).
    
    > [!NOTE]
    > Blob Storage hesapları yalnızca Resource Manager dağıtım modeli kullanılarak oluşturulabilir.
@@ -162,6 +162,6 @@ Daha fazla bilgi edinmek için bkz. [Azure Virtual Machines belgeleri](http://az
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 09/15/2016
 ms.author: markgal; jimpark
 translationtype: Human Translation
-ms.sourcegitcommit: 9eddde0df61ac7dde9b24f973e7eec786cd48f24
-ms.openlocfilehash: b8f62d1fab4b9132f35e2fab632968cf001c832d
+ms.sourcegitcommit: d883cdc007beaf17118c6b6ddbc8345c3bfb5ef2
+ms.openlocfilehash: 895eeb27b6050897575c5d6f20f16ea3f99fdcf3
 
 
 ---
@@ -43,7 +43,7 @@ Bir VM'yi yedeklemek için beş ana adım gerçekleştirilir:
 ![VM yedekleme işleminin üst düzey görünümü](./media/backup-azure-vms-first-look/backupazurevm-classic.png)
 
 > [!NOTE]
-> Azure'da kaynak oluşturmaya ve kaynaklarla çalışmaya yönelik iki dağıtım modeli mevcuttur: [Resource Manager ve Klasik](../resource-manager-deployment-model.md). Bu öğretici, Klasik Azure portalında oluşturulabilen VM'lerle kullanıma yöneliktir. Azure Backup hizmeti Resource Manager temelli sanal makineleri destekler. Sanal makineleri bir kurtarma hizmetleri kasasına yedekleme hakkında bilgi için bkz. [İlk bakış: Sanal makineleri bir kurtarma hizmetleri kasasıyla koruma](backup-azure-vms-first-look-arm.md).
+> Azure'da kaynak oluşturmaya ve kaynaklarla çalışmaya yönelik iki dağıtım modeli mevcuttur: [Resource Manager ve Klasik](../azure-resource-manager/resource-manager-deployment-model.md). Bu öğretici, Klasik Azure portalında oluşturulabilen VM'lerle kullanıma yöneliktir. Azure Backup hizmeti Resource Manager temelli sanal makineleri destekler. Sanal makineleri bir kurtarma hizmetleri kasasına yedekleme hakkında bilgi için bkz. [İlk bakış: Sanal makineleri bir kurtarma hizmetleri kasasıyla koruma](backup-azure-vms-first-look-arm.md).
 >
 >
 
@@ -211,6 +211,6 @@ Sorularınız varsa veya dahil edilmesini istediğiniz herhangi bir özellik var
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

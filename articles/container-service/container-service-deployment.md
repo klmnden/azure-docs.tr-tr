@@ -7,7 +7,7 @@ author: rgardler
 manager: timlt
 editor: 
 tags: acs, azure-container-service
-keywords: "Docker, Kapsayıcılar, Mikro hizmetler, Mesos, Azure"
+keywords: "Docker, Kapsayıcılar, Mikro hizmetler, Mesos, Azure, dcos, swarm, kubernetes, azure container service, acs"
 ms.assetid: 696a736f-9299-4613-88c6-7177089cfc23
 ms.service: container-service
 ms.devlang: na
@@ -17,13 +17,13 @@ ms.workload: na
 ms.date: 09/13/2016
 ms.author: rogardle
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c8c06906a5f99890295ff2b2433ff6f7e02dece5
+ms.sourcegitcommit: a7d957fd4be4c823077b1220dfb8ed91070a0e97
+ms.openlocfilehash: d056b9489eba1f97e8fb87f231b03d104c4cab66
 
 
 ---
 # <a name="deploy-an-azure-container-service-cluster"></a>Azure Kapsayıcı Hizmeti kümesini dağıtma
-Azure Kapsayıcı Hizmeti popüler açık kaynak kapsayıcı kümeleme ve düzenleme çözümlerinin hızlı dağıtımını sağlar. Azure Kapsayıcı Hizmeti’ni kullanarak, Azure Resource Manager şablonları ya da Azure portal ile DC/OS ve Docker Swarm kümeleri dağıtabilirsiniz. Bu kümeleri, Azure Sanal Makine Ölçekleme Kümeleri kullanarak dağıtabilirsiniz, böylece kümeler Azure ağ ve depolama sunumlarından yararlanabilir. Azure Kapsayıcı Hizmeti’ne erişmek için bir Azure aboneliği gerekir. Bir aboneliğiniz yoksa, [ücretsiz deneme için kaydolabilirsiniz](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935).
+Azure Kapsayıcı Hizmeti popüler açık kaynak kapsayıcı kümeleme ve düzenleme çözümlerinin hızlı dağıtımını sağlar. Azure Container Service’i kullanarak, Azure Resource Manager şablonları ya da Azure portal ile DC/OS, Kubernetes ve Docker Swarm kümeleri dağıtabilirsiniz. Bu kümeleri, Azure Sanal Makine Ölçekleme Kümeleri kullanarak dağıtabilirsiniz, böylece kümeler Azure ağ ve depolama sunumlarından yararlanabilir. Azure Kapsayıcı Hizmeti’ne erişmek için bir Azure aboneliği gerekir. Bir aboneliğiniz yoksa, [ücretsiz deneme için kaydolabilirsiniz](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935).
 
 Bu belge size [Azure portal](#creating-a-service-using-the-azure-portal), [Azure komut satırı arabirimi (CLI)](#creating-a-service-using-the-azure-cli) ve [Azure PowerShell modülü](#creating-a-service-using-powershell) kullanarak Azure Kapsayıcı Hizmeti kümesi dağıtmayı adım adım gösterir.  
 
@@ -52,15 +52,21 @@ Orchestration türünü seçin. Seçenekler şunlardır:
 
 * **DC/OS**: DC/OS kümesi dağıtır.
 * **Swarm** Docker Swarm kümesi dağıtır.
+* **Kubernetes**: Bir Kubernetes kümesi dağıtır.
 
 Devam etmeye hazır olduğunuzda **Tamam**’a tıklayın.
 
-![Dağıtım oluşturma 4](media/acs-portal4.png)  <br />
+![Dağıtım oluşturma 4](media/acs-portal4-new.png)  <br />
+
+Açılır menüden **Kubernetes** seçilirse Hizmet sorumlusu istemci kimliği ve hizmet sorumlusu istemci parolasını girmeniz gerekir.
+Hizmet sorumlusu oluşturma hakkında daha fazla bilgi edinmek için [bu](https://github.com/Azure/acs-engine/blob/master/docs/serviceprincipal.md) sayfayı ziyaret edin 
+
+![Dağıtım oluşturma 4,5](media/acs-portal10.PNG)  <br />
 
 Aşağıdaki bilgileri girin:
 
-* **Ana sunucu sayısı**: Kümedeki ana sunucu sayısı.
-* **Aracı sayısı**: Docker Swarm için bu, aracı ölçek grubundaki başlangıç aracıları sayısıdır. DC/OS için bu, özel ölçek grubundaki başlangıç aracıları sayısıdır. Ayrıca, önceden belirlenen sayıda aracı içeren bir ortak ölçek kümesi oluşturulur. Bu ortak ölçek kümesindeki aracıların sayısı, kümede kaç tane ana sunucu oluşturulduğuna göre belirlenir; bir ana sunucu için bir ortak aracı ve üç ya da beş ana sunucu için iki ortak sunucu.
+* **Ana sunucu sayısı**: Kümedeki ana sunucu sayısı. 'Kubernetes'i seçtiyseniz, ana sayısı varsayılan değer olan 1 olarak ayarlanır
+* **Aracı sayısı**: Docker Swarm ve Kubernetes için bu, aracı ölçek grubundaki aracıların başlangıçtaki sayısıdır. DC/OS için bu, özel ölçek grubundaki başlangıç aracıları sayısıdır. Ayrıca, önceden belirlenen sayıda aracı içeren bir ortak ölçek kümesi oluşturulur. Bu ortak ölçek kümesindeki aracıların sayısı, kümede kaç tane ana sunucu oluşturulduğuna göre belirlenir; bir ana sunucu için bir ortak aracı ve üç ya da beş ana sunucu için iki ortak sunucu.
 * **Aracı sanal makine boyutu**: Aracı sanal makinelerinin boyutudur.
 * **DNS öneki**: Hizmet için tam uygun etki alanı adlarının temel parçalarına önek olarak eklemek için kullanılacak world benzersiz adıdır.
 
@@ -85,10 +91,11 @@ Dağıtım tamamlandığında, Azure Kapsayıcı Hizmeti kümesi kullanım için
 ## <a name="create-a-service-by-using-the-azure-cli"></a>Azure CLI kullanarak bir hizmet oluşturma
 Komut satırını kullanarak Azure Kapsayıcı Hizmeti’nin bir örneğini oluşturmak için bir Azure aboneliği gerekir. Bir aboneliğiniz yoksa, [ücretsiz deneme için kaydolabilirsiniz](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935). Ayrıca Azure CLI [yüklemiş](../xplat-cli-install.md) ve [yapılandırmış](../xplat-cli-connect.md) olmanız gerekir.
 
-DC/OS veya Docker Swarm kümesi dağıtmak için GitHub’da aşağıdaki şablonlardan birini seçin. Bu şablonların her ikisinin de, varsayılan orchestrator seçimi dışında, aynı olduğunu unutmayın.
+DC/OS veya Docker Swarm veya Kubernetes kümesi dağıtmak için GitHub’da aşağıdaki şablonlardan birini seçin. 
 
 * [DC/OS şablonu](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos)
 * [Swarm şablonu](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
+* [Kubernetes şablonu](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-kubernetes)
 
 Sonra, Azure CLI’nın bir Azure aboneliğine bağlı olduğundan emin olun. Aşağıdaki komutu kullanarak bunu yapabilirsiniz:
 
@@ -140,10 +147,11 @@ azure group deployment create RESOURCE_GROUP DEPLOYMENT_NAME --template-uri TEMP
 ## <a name="create-a-service-by-using-powershell"></a>PowerShell kullanarak bir hizmet oluşturma
 PowerShell ile de bir Azure Kapsayıcı Hizmeti kümesi dağıtabilirsiniz. Bu belge [Azure PowerShell modülü](https://azure.microsoft.com/blog/azps-1-0/) sürüm 1.0’ı temel alır.
 
-DC/OS veya Docker Swarm kümesi dağıtmak için aşağıdaki şablonlardan birini seçin. Bu şablonların her ikisinin de, varsayılan orchestrator seçimi dışında, aynı olduğunu unutmayın.
+DC/OS veya Docker Swarm veya Kubernetes kümesi dağıtmak için aşağıdaki şablonlardan birini seçin. Bu şablonların her ikisinin de, varsayılan orchestrator seçimi dışında, aynı olduğunu unutmayın.
 
 * [DC/OS şablonu](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos)
 * [Swarm şablonu](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
+* [Kubernetes şablonu](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-kubernetes)
 
 Azure aboneliğinizde küme oluşturmadan önce, PowerShell oturumunuz için Azure’da oturum açıldığını doğrulayın. Bunu `Get-AzureRMSubscription` komutuyla yapabilirsiniz.
 
@@ -184,10 +192,11 @@ Artık çalışan bir kümeniz olduğuna göre, bağlantı ve yönetim ayrıntı
 * [Azure Container Service kümesine bağlanma](container-service-connect.md)
 * [Azure Container Service ve DC/OS ile çalışma](container-service-mesos-marathon-rest.md)
 * [Azure Container Service ve Docker Swarm ile çalışma](container-service-docker-swarm.md)
+* [Azure Container Service ve Kubernetes ile çalışma](container-service-kubernetes-walkthrough.md)
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO5-->
 
 

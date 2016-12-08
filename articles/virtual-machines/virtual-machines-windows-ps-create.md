@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 10/21/2016
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6a78e83d84df9bdd4fedd9c90aa02dc26e9d94c9
+ms.sourcegitcommit: edeee13457c1098eb1b44efaa97e9a84d29e88e7
+ms.openlocfilehash: 12903dc79ac6349da9f4897cdb0db5cb62f67b22
 
 
 ---
@@ -114,7 +114,7 @@ Tüm parçaları yerinde olduğuna göre, şimdi sanal makine oluşturma vakti.
     $myVm = New-AzureRmVMConfig -VMName "myVM" -VMSize "Standard_DS1_v2"
     ```
    
-    Sanal makine için kullanılabilir boyutların listesi için bkz. [Azure’da sanal makineler için boyutlar](virtual-machines-windows-sizes.md)
+    Sanal makine için kullanılabilir boyutların listesi için bkz. [Azure’da sanal makineler için boyutlar](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 3. VM için işletim sistemi ayarlarını yapılandırın. Bu komut; bilgisayar adını, işletim sistemi türünü ve VM için hesap kimlik bilgilerini ayarlar.
    
     ```powershell
@@ -128,13 +128,13 @@ Tüm parçaları yerinde olduğuna göre, şimdi sanal makine oluşturma vakti.
         -Offer "WindowsServer" -Skus "2012-R2-Datacenter" -Version "latest"
     ```
    
-    Kullanılacak görüntüleri seçme hakkında daha fazla bilgi için bkz. [PowerShell veya CLI ile Azure’da Windows sanal makine görüntülerine erişme ve bu görüntüleri seçme](virtual-machines-windows-cli-ps-findimage.md).
+    Kullanılacak görüntüleri seçme hakkında daha fazla bilgi için bkz. [PowerShell veya CLI ile Azure’da Windows sanal makine görüntülerine erişme ve bu görüntüleri seçme](virtual-machines-windows-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 5. Oluşturduğunuz ağ arabirimini yapılandırmaya ekleyin.
    
     ```powershell
     $myVM = Add-AzureRmVMNetworkInterface -VM $myVM -Id $myNIC.Id
     ```
-6. VM sabit diskinin konumunu ve adını tanımlayın. Sanal sabit disk dosyası, bir kapsayıcıda depolanır. Bu komut, oluşturduğunuz depolama hesabındaki **vhds/WindowsVMosDisk.vhd** adlı kapsayıcıda diski oluşturur.
+6. VM sabit diskinin konumunu ve adını tanımlayın. Sanal sabit disk dosyası, bir kapsayıcıda depolanır. Bu komut, oluşturduğunuz depolama hesabındaki **vhds/myOsDisk1.vhd** adlı kapsayıcıda diski oluşturur.
    
     ```powershell
     $blobPath = "vhds/myOsDisk1.vhd"
@@ -143,7 +143,7 @@ Tüm parçaları yerinde olduğuna göre, şimdi sanal makine oluşturma vakti.
 7. İşletim sistemi disk bilgilerini VM yapılandırmasına ekleyin. **$diskName** değerini işletim sistemi diski adıyla değiştirin. Değişkeni oluşturun ve yapılandırmaya disk bilgilerini ekleyin.
    
     ```powershell
-    $vm = Set-AzureRmVMOSDisk -VM $myVM -Name "myOsDisk1" -VhdUri $osDiskUri -CreateOption fromImage
+    $myVM = Set-AzureRmVMOSDisk -VM $myVM -Name "myOsDisk1" -VhdUri $osDiskUri -CreateOption fromImage
     ```
 8. Son olarak, sanal makineyi oluşturun.
    
@@ -153,12 +153,12 @@ Tüm parçaları yerinde olduğuna göre, şimdi sanal makine oluşturma vakti.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 * Dağıtım ile ilgili sorunlar varsa, bir sonraki adım [Azure portalındaki kaynak grubu dağıtımı sorunlarını giderme](../resource-manager-troubleshoot-deployments-portal.md)’ye bakmak için olacaktır
-* [Azure Resource Manager ve PowerShell kullanarak sanal makineleri yönetme](virtual-machines-windows-ps-manage.md) gözden geçirerek, oluşturduğunuz sanal makineyi yönetmeyi öğrenin.
-* [Bir Resource Manager şablonu ile Windows sanal makine oluşturma](virtual-machines-windows-ps-template.md)’daki bilgileri kullanarak sanal makine oluşturmak için şablon kullanma avantajından yararlanın
+* [Azure Resource Manager ve PowerShell kullanarak sanal makineleri yönetme](virtual-machines-windows-ps-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) gözden geçirerek, oluşturduğunuz sanal makineyi yönetmeyi öğrenin.
+* [Bir Resource Manager şablonu ile Windows sanal makine oluşturma](virtual-machines-windows-ps-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)’daki bilgileri kullanarak sanal makine oluşturmak için şablon kullanma avantajından yararlanın
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO5-->
 
 

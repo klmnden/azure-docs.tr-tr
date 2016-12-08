@@ -14,8 +14,8 @@ ms.workload: big-data
 ms.date: 11/15/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: e94b11ab62afbea9381772a2bdb668fdc514d609
-ms.openlocfilehash: 2da23d881a23cc0fc23b63a7b9e06d9af9a755eb
+ms.sourcegitcommit: 5618650671badfc54860c3ad8af5d1e727d3d8c9
+ms.openlocfilehash: 40ccfc59cccd86a7634ec89656571b3cd23566b4
 
 
 ---
@@ -41,11 +41,12 @@ Bu öğreticiye başlamadan önce aşağıdaki öğelere sahip olmanız gerekir:
 
 Data Lake Store ile Python kullanarak çalışabilmeniz için üç modül yüklemeniz gerekir.
 
-Azure modüllerine Active Directory, vb.’ye yönelik diğer Azure modüllerine ek olarak Azure Data Lake Store hesabı yönetim işlemleri de dahildir. Azure-datalake-store modülü Azure Data Lake Store dosya sistemi işlemlerini içerir. Azure-datalake-analytics modülü Azure Data Lake Analytics işlemlerini içerir. Modülleri yüklemek için aşağıdaki komutları kullanın.
+Azure-mgmt-datalake-store modülü, Azure Data Lake Store hesap yönetim işlemlerini içerir. Azure-mgmt-resource modülü; Active Directory vb. için diğer Azure modüllerini içerir. Azure-datalake-store modülü Azure Data Lake Store dosya sistemi işlemlerini içerir. Azure-datalake-analytics modülü Azure Data Lake Analytics işlemlerini içerir. Modülleri yüklemek için aşağıdaki komutları kullanın.
 
-    pip install azure
+    pip install azure-mgmt-resource
+    pip install azure-mgmt-datalake-store
+    pip install azure-mgmt-datalake-analytics
     pip install azure-datalake-store
-    pip install azure-datalake-analytics
 
 ## <a name="create-a-python-application"></a>Python uygulaması oluşturma
 
@@ -91,7 +92,7 @@ Kimlik doğrulaması gerçekleştirmek için aşağıdaki yöntemlerden birini k
 
 ### <a name="end-user-authentication-for-account-management"></a>Hesap yönetimi için son kullanıcı kimlik doğrulaması
 
-Hesap yönetimi işlemleri (Data Lake Store hesabı oluşturma/silme, vb.) gerçekleştirmek üzere Azure AD kimlik doğrulaması gerçekleştirmek için bu yöntemi kullanın. Bir Azure AD kullanıcısının kullanıcı adını ve parolasını sağlamalısınız. Kullanıcı hesabı çok faktörlü kimlik doğrulaması kullanacak şekilde yapılandırılmış olamaz ve bir Microsoft hesabı / Live ID (örneğin, @outlook.com, ve @live.com.) olamaz
+Hesap yönetimi işlemleri (Data Lake Store hesabı oluşturma/silme, vb.) gerçekleştirmek üzere Azure AD kimlik doğrulaması gerçekleştirmek için bu yöntemi kullanın. Bir Azure AD kullanıcısının kullanıcı adını ve parolasını sağlamalısınız. Kullanıcı hesabı, çok faktörlü kimlik doğrulaması kullanacak şekilde yapılandırılamaz ve bir Microsoft hesabı / Live ID (örneğin, @outlook.com, ve @live.com.) olamaz
 
     user = input('Enter the user to authenticate with that has permission to subscription: ')
     password = getpass.getpass()
@@ -208,6 +209,6 @@ Data Lake Analytics işleri, U-SQL dilinde yazılır. U-SQL hakkında daha fazla
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

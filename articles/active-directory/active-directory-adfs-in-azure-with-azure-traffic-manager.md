@@ -16,12 +16,12 @@ ms.topic: get-started-article
 ms.date: 09/01/2016
 ms.author: anandy;billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 74f34f72f434c201c48dfcb5fdc72766e6be481a
+ms.sourcegitcommit: 3170abb4f9bd7f7996b1c0dd2e20f648ea1b9fe5
+ms.openlocfilehash: e2125c56a958e8ed6b02ec7e92dd7cf4dcf326f3
 
 
 ---
-# <a name="high-availability-crossgeographic-ad-fs-deployment-in-azure-with-azure-traffic-manager"></a>Azure Traffic Manager ile Azure’da yüksek kullanılabilirliğe sahip çapraz coğrafi AD FS dağıtımı
+# <a name="high-availability-cross-geographic-ad-fs-deployment-in-azure-with-azure-traffic-manager"></a>Azure Traffic Manager ile Azure’da yüksek kullanılabilirliğe sahip çapraz coğrafi AD FS dağıtımı
 [Azure’da AD FS dağıtımı](active-directory-aadconnect-azure-adfs.md), kuruluşunuz için basit bir AD FS altyapısını Azure’da nasıl dağıtabileceğinize ilişkin adım adım yönergeler sağlar. Bu makale Azure’da [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) kullanılarak AD FS’nin çapraz coğrafi dağıtımını oluşturmaya ilişkin sıradaki adımları sunmaktadır. Azure Traffic Manager, altyapının farklı ihtiyaçlarına uygun olarak kullanılabilen çeşitli yönlendirme yöntemlerinden yararlanarak kuruluşunuz için coğrafi olarak yayılmış yüksek kullanılabilirliğe sahip ve yüksek performanslı bir AD FS altyapısı oluşturmaya yardımcı olur.
 
 Çapraz coğrafi yüksek kullanılabilirliğe sahip AD FS altyapısı şunları sağlar:
@@ -76,7 +76,7 @@ Bir traffic manager profili oluşturmak için aşağıdaki adımları izleyin. D
    
    **Hedef kaynak türü:** Bu özelliğin değeri olarak Genel IP adresi seçin. 
    
-   **Hedef kaynak:** Bu özellik, aboneliğiniz altında kullanılabilen farklı DNS etiketleri arasından seçim yapma imkanı sunar. DNS etiketini seçin.
+   **Hedef kaynak:** Bu özellik, aboneliğiniz altında kullanılabilen farklı DNS etiketleri arasından seçim yapma imkanı sunar. Yapılandırmakta olduğunuz uç noktaya karşılık gelen DNS etiketini seçin.
    
    Azure Traffic Manager’ın trafiği yönlendirmesini istediğiniz her coğrafi bölge için uç nokta ekleyin.
    Daha fazla bilgi ve traffic manager’da uç nokta ekleme / yapılandırma ile ilgili ayrıntılı adımlar için [Uç nokta ekleme, devre dışı bırakma, etkinleştirme veya silme](../traffic-manager/traffic-manager-endpoints.md)
@@ -94,13 +94,13 @@ Bir traffic manager profili oluşturmak için aşağıdaki adımları izleyin. D
    
     <code>fs.fabidentity.com IN CNAME mysts.trafficmanager.net</code>
 
-## <a name="test-the-routing-and-ad-fs-signin"></a>Yönlendirme AD FS oturum açmayı sınama
+## <a name="test-the-routing-and-ad-fs-sign-in"></a>Yönlendirme AD FS oturum açmayı sınama
 ### <a name="routing-test"></a>Yönlendirme testi
 Federasyon hizmeti DNS adına her bir bölgedeki bir makineden ping gönderilmesi son derece basit bir yönlendirme testidir. Seçilen yönlendirme yöntemine bağlı olarak gerçekte ping gönderilen uç nokta ping ekranında yansıtılır. Örneğin, performans yönlendirmeyi seçtiyseniz istemcinin bölgesine en yakın uç noktaya ulaşılır. Biri Güneydoğu Asya bölgesi ve diğeri Batı ABD olmak üzere iki farklı bölge istemci makinesinden gönderilen iki ping’in ekran görüntüsü aşağıda verilmiştir. 
 
 ![Yönlendirme testi](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/pingtest.png)
 
-### <a name="ad-fs-signin-test"></a>AD FS oturum açma testi
+### <a name="ad-fs-sign-in-test"></a>AD FS oturum açma testi
 AD FS’yi test etmenin en kolay yolu IdpInitiatedSignon.aspx sayfasının kullanılmasıdır. Bunu yapabilmek için AD FS özelliklerinde IdpInitiatedSignOn seçeneğinin etkinleştirilmesi gerekir. AD FS kurulumunuzu doğrulamak için aşağıdaki adımları izleyin
 
 1. AD FS sunucusunda PowerShell ile aşağıdaki cmdlet’i çalıştırarak etkinleştirin. 
@@ -126,6 +126,6 @@ AD FS’yi test etmenin en kolay yolu IdpInitiatedSignon.aspx sayfasının kulla
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

@@ -13,15 +13,15 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/19/2016
+ms.date: 11/23/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ecac06a51bee157d88634a13c5749dc16f4b505a
+ms.sourcegitcommit: 2c7b46521c5da3290af244652b5ac20d4c309d5d
+ms.openlocfilehash: 5ec4b260ce82ec78b614ae442d3f14063ce590b5
 
 
 ---
-# <a name="hbase-tutorial-get-started-using-apache-hbase-with-linuxbased-hadoop-in-hdinsight"></a>HBase öğreticisi: HDInsight’ta Linux tabanlı Hadoop ile Apache HBase kullanmaya başlayın
+# <a name="hbase-tutorial-get-started-using-apache-hbase-with-linux-based-hadoop-in-hdinsight"></a>HBase öğreticisi: HDInsight’ta Linux tabanlı Hadoop ile Apache HBase kullanmaya başlayın
 [!INCLUDE [hbase-selector](../../includes/hdinsight-hbase-selector.md)]
 
 HDInsight’ta HBase kümesi oluşturma, HBase tabloları oluşturma ve tabloları Hive kullanarak sorgulama hakkında bilgi edinin. Genel HBase bilgileri için bkz. [HDInsight HBase’e genel bakış][hdinsight-hbase-overview].
@@ -74,7 +74,7 @@ HBase kümelerine bağlanmak ve HBase Kabuğu kullanarak HBase tabloları oluşt
 
 Bir BigTable uygulaması olan HBase’de aynı veriler şu şekilde görünür:
 
-![HDInsight HBase büyük tablo verileri][img-hbase-sample-data-bigtable]
+![HDInsight HBase BigTable verileri][img-hbase-sample-data-bigtable]
 
 Bir sonraki yordamı tamamladıktan sonra bunlar daha anlamlı olacaktır.  
 
@@ -95,7 +95,7 @@ Bir sonraki yordamı tamamladıktan sonra bunlar daha anlamlı olacaktır.
         put 'Contacts', '1000', 'Office:Address', '1111 San Gabriel Dr.'
         scan 'Contacts'
    
-    ![hdinsight hadoop hbase shell][img-hbase-shell]
+    ![HDInsight Hadoop HBase kabuğu][img-hbase-shell]
 4. Tek bir satır alın
    
         get 'Contacts', '1000'
@@ -113,16 +113,16 @@ HBase’de verileri tablolara yüklemek için bazı yöntemler vardır.  Daha fa
 
 Örnek veri dosyası genel blob kapsayıcısına (*wasbs://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt*) yüklenmiştir.  Veri dosyasının içeriği şudur:
 
-    8396    Calvin Raji        230-555-0191    230-555-0191    5415 San Gabriel Dr.
-    16600    Karen Wu        646-555-0113    230-555-0192    9265 La Paz
-    4324    Karl Xie        508-555-0163    230-555-0193    4912 La Vuelta
-    16891    Jonn Jackson    674-555-0110    230-555-0194    40 Ellis St.
+    8396    Calvin Raji      230-555-0191    230-555-0191    5415 San Gabriel Dr.
+    16600   Karen Wu         646-555-0113    230-555-0192    9265 La Paz
+    4324    Karl Xie         508-555-0163    230-555-0193    4912 La Vuelta
+    16891   Jonn Jackson     674-555-0110    230-555-0194    40 Ellis St.
     3273    Miguel Miller    397-555-0155    230-555-0195    6696 Anchor Drive
-    3588    Osa Agbonile    592-555-0152    230-555-0196    1873 Lion Circle
-    10272    Julia Lee        870-555-0110    230-555-0197    3148 Rose Street
-    4868    Jose Hayes        599-555-0171    230-555-0198    793 Crawford Street
-    4761    Caleb Alexander    670-555-0141    230-555-0199    4775 Kentucky Dr.
-    16443    Terry Chander    998-555-0171    230-555-0200    771 Northridge Drive
+    3588    Osa Agbonile     592-555-0152    230-555-0196    1873 Lion Circle
+    10272   Julia Lee        870-555-0110    230-555-0197    3148 Rose Street
+    4868    Jose Hayes       599-555-0171    230-555-0198    793 Crawford Street
+    4761    Caleb Alexander  670-555-0141    230-555-0199    4775 Kentucky Dr.
+    16443   Terry Chander    998-555-0171    230-555-0200    771 Northridge Drive
 
 Bir metin dosyası oluşturabilir ve isterseniz dosyayı kendi depolama hesabınıza yükleyebilirsiniz. Yönergeler için bkz. [HDInsight’ta Hadoop işleri için verileri karşıya yükleme][hdinsight-upload-data].
 
@@ -142,11 +142,19 @@ Bir metin dosyası oluşturabilir ve isterseniz dosyayı kendi depolama hesabın
 ## <a name="use-hive-to-query-hbase"></a>Hive kullanarak HBase sorgulama
 Hive kullanarak HBase tablolarındaki verileri sorgulayabilirsiniz. Bu bölüm HBase tablosuyla eşlenen bir Hive tablosu oluşturur ve HBase tablosunda verileri sorgulamak için kullanır.
 
+> [!NOTE]
+> Hive ve HBase aynı sanal ağ içindeki farklı kümelerdeyse, Hive kabuğunu çağırırken zookeper çekirdeği geçirmeniz gerekir:
+>
+>       hive --hiveconf hbase.zookeeper.quorum=zk0-xxxx.xxxxxxxxxxxxxxxxxxxxxxx.cx.internal.cloudapp.net,zk1-xxxx.xxxxxxxxxxxxxxxxxxxxxxx.cx.internal.cloudapp.net,zk2-xxxx.xxxxxxxxxxxxxxxxxxxxxxx.cx.internal.cloudapp.net --hiveconf zookeeper.znode.parent=/hbase-unsecure  
+>
+>
+
 1. **PuTTY** uygulamasını açın ve kümeye bağlanın.  Önceki yordamda bulunan yönergelere bakın.
 2. Hive kabuğunu açın.
    
        hive
-3. HBase tablosuyla eşlenen bir Hive Tablosu oluşturmak için aşağıdaki HiveQL betiğini çalıştırın. Bu deyimi çalıştırmadan önce HBase kabuğunu kullanarak bu öğreticinin daha önceki bölümlerinde başvurulan örnek tablosunu oluşturduğunuzdan emin olun.
+       
+3. HBase tablosuyla eşlenen bir Hive tablosu oluşturmak için aşağıdaki HiveQL betiğini çalıştırın. Bu deyimi çalıştırmadan önce HBase kabuğunu kullanarak bu öğreticinin daha önceki bölümlerinde başvurulan örnek tablosunu oluşturduğunuzdan emin olun.
    
         CREATE EXTERNAL TABLE hbasecontacts(rowkey STRING, name STRING, homephone STRING, officephone STRING, officeaddress STRING)
         STORED BY 'org.apache.hadoop.hive.hbase.HBaseStorageHandler'
@@ -183,7 +191,7 @@ Hive kullanarak HBase tablolarındaki verileri sorgulayabilirsiniz. Bu bölüm H
    
         curl -u <UserName>:<Password> \
         -G https://<ClusterName>.azurehdinsight.net/hbaserest/
-3. İki sütun ailesi ile yeni bir HBase tablosu oluşturmak için aşağıdaki komutu kullanın:
+3. İki sütunlu aileler içeren yeni bir HBase tablosu oluşturmak için aşağıdaki komutu kullanın:
    
         curl -u <UserName>:<Password> \
         -X PUT "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/schema" \
@@ -221,53 +229,21 @@ HBase Rest hakkında daha fazla bilgi için bkz. [Apache HBase Başvuru Kılavuz
 ## <a name="check-cluster-status"></a>Küme durumunu denetleme
 HDInsight içinde HBase, kümelerin izlenmesi için bir Web Kullanıcı Arabirimi ile birlikte gönderilir. Web Kullanıcı Arabirimini kullanarak istatistikler veya bölgeler hakkında bilgi isteyebilirsiniz.
 
-SSH web istekleri gibi yerel istekler için HDInsight kümesine tünel oluşturmak üzere de kullanılabilir. Daha sonra, istek HDInsight kümesi baş düğümünde oluşturulmuş gibi istenen kaynağa iletilir. Daha fazla bilgi için bkz. [Windows’dan HDInsight’ta Linux tabanlı Hadoop ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-windows.md#tunnel).
+**HBase Master Kullanıcı Arabirimi’ne erişmek için**
 
-**Bir SSH tünel oluşturma oturumu oluşturmak için**
+1. https://&lt;Kumeadi>.azurehdinsight.net adresinden Ambari Web Kullanıcı Arabirimini açın.
+2. Soldaki menüden **HBase**’e tıklayın.
+3. Sayfanın üstündeki **Hızlı bağlantılar**’a tıklayın, etkin Zookeeper düğümü bağlantısının üzerine gelin ve **HBase Master Kullanıcı Arabirimi**’ne tıklayın.  Kullanıcı arabirimi başka bir tarayıcı sekmesinde açılır:
 
-1. **PuTTY**’yi açın.  
-2. Oluşturma işleminde kullanıcı hesabınızı oluştururken bir SSH anahtarı sağladıysanız, küme kimlik doğrulaması yapılırken özel anahtarı seçmek amacıyla aşağıdaki adımı gerçekleştirmelisiniz.
-   
-    **Kategori**’de **Bağlantı**’yı genişletin, **SSH**’yi genişletin ve **Kimlik Doğrulaması**’nı seçin. Son olarak, **Gözat**’a tıklayın ve özel anahtarınızı içeren .ppk dosyasını seçin.
-3. **Kategori**’de **Oturum**’a tıklayın.
-4. PuTTY oturum ekranınızın Temel seçeneklerinden aşağıdaki değerleri girin:
-   
-   * **Ana Bilgisayar Adı**: Ana bilgisayar adı (veya IP adresi) alanındaki HDInsight sunucusu SSH adresidir. SSH adresi kümenizin adıdır, bu durumda **-ssh.azurehdinsight.net**. Örneğin, *mycluster-ssh.azurehdinsight.net*.
-   * **Bağlantı noktası**: 22. Birincil baş düğümdeki SSH bağlantı noktası 22'dir.  
-5. İletişim kutusunun solundaki **Kategori** bölümünde **Bağlantı**’yı genişletin, **SSH**’yi genişletin ve ardından **Tüneller**’e tıklayın.
-6. SSH bağlantı noktası iletme biçimini denetleyen Seçenekler bölümünde aşağıdaki bilgileri sağlayın:
-   
-   * **Kaynak bağlantı noktası** - İletmek istediğiniz istemci üzerindeki bağlantı noktası. Örneğin, 9876.
-   * **Dinamik** - Dinamik SOCKS proxy yönlendirmesini etkinleştirir.
-7. Ayarları eklemek için **Ekle**’ye tıklayın.
-8. Bir SSH bağlantısı açmak için iletişim kutusunun altındaki **Aç** seçeneğine tıklayın.
-9. İstendiğinde, bir SSH hesabı kullanarak sunucuda oturum açın. Bunun yapılması bir SSH oturumu oluşturur ve tüneli etkinleştirir.
+  ![HDInsight HBase HMaster Kullanıcı Arabirimi](./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-hmaster-ui.png)
 
-**Ambari kullanarak zookeepers FQDN’sini bulmak için**
+  HBase Master Kullanıcı Arabirimi aşağıdaki bölümleri içerir:
 
-1. https://<ClusterName>.azurehdinsight.net/ adresine göz atın.
-2. Küme kullanıcı hesabı kimlik bilgilerinizi iki kez girin.
-3. Sol menüden **zookeeper** seçeneğine tıklayın.
-4. Özet listesindeki üç **ZooKeeper Sunucusu** bağlantısından birine tıklayın.
-5. **Ana Bilgisayar Adı**’nı kopyalayın. Örneğin, zk0-CLUSTERNAME.xxxxxxxxxxxxxxxxxxxx.cx.internal.cloudapp.net.
-
-**Bir istemci programını (Firefox) yapılandırmak ve küme durumunu denetlemek için**
-
-1. Firefox’u açın.
-2. **Menü Aç** düğmesine tıklayın.
-3. **Seçenekler**’e tıklayın.
-4. **Gelişmiş**, **Ağ** ve ardından **Ayarlar**’a tıklayın.
-5. **El ile proxy yapılandırması** öğesini seçin.
-6. Aşağıdaki değerleri girin:
-   
-   * **Socks Ana Bilgisayarı**: localhost
-   * **Bağlantı noktası**: Putty SSH tünel oluşturma işleminde yapılandırdığınız aynı bağlantı noktasını kullanın.  Örneğin, 9876.
-   * **SOCKS v5**: (seçili)
-   * **Uzak DNS**: (seçili)
-7. Değişiklikleri kaydetmek için **Tamam**’a tıklayın.
-8. http://&lt;The FQDN of a ZooKeeper>:60010/master-status adresine göz atın.
-
-Yüksek kullanılabilirlik kümesinde Web Kullanıcı Arabirimini barındıran ve o anda etkin olan HBase ana düğümünün bağlantısını bulabilirsiniz.
+  - Bölge sunucuları
+  - Yedekleme yöneticileri
+  - Tablolar
+  - Görevler
+  - Yazılım öznitelikleri
 
 ## <a name="delete-the-cluster"></a>Küme silme
 Tutarsızlıkları önlemek için kümeyi silmeden önce HBase tablolarını devre dışı bırakmanız önerilir.
@@ -310,6 +286,6 @@ Daha fazla bilgi için bkz:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

@@ -30,9 +30,9 @@ IoT projelerinin karşılaştığı en büyük zorluklardan biri de, cihazların
 * Mülkiyete ait, özel veya sektöre özgü uygulama protokolleri kullanması gerekebilir.
 * Büyük bir popüler donanım ve yazılım platformu kümesi kullanılarak oluşturulabilir.
 
-Yukarıdaki gereksinimlere ek olarak, tüm IoT çözümlerinin ölçek, güvenlik ve güvenilirlik de sunması gerekir. Elde edilen bağlantı gereksinimleri kümesi, web kapsayıcıları ve mesajlaşma aracıları gibi geleneksel teknolojiler kullanıldığında uygulaması zor ve zaman alıcı olabilir. Azure IoT Hub'ı ve IoT Cihazı SDK'ları bu gereksinimleri karşılayan çözümlerin uygulanmasını kolaylaştırır.
+Yukarıdaki gereksinimlere ek olarak, tüm IoT çözümlerinin ölçek, güvenlik ve güvenilirlik de sunması gerekir. Elde edilen bağlantı gereksinimleri kümesi, web kapsayıcıları ve mesajlaşma aracıları gibi geleneksel teknolojiler kullanıldığında uygulaması zor ve zaman alıcı olabilir. Azure IoT Hub ve IoT cihaz SDK'ları bu gereksinimleri karşılayan çözümlerin uygulanmasını kolaylaştırır.
 
-Cihaz doğrudan bir bulut ağ geçidi uç noktasıyla iletişim kurabilir veya cihaz bulut ağ geçidinin desteklediği iletişim protokollerinin hiçbirini kullanamıyorsa bir ara ağ geçidiyle bağlanabilir. Örneğin, [Azure IOT protokol ağ geçidi][lnk-protocol-gateway], cihazlar IOT Hub'ın desteklediği protokollerden herhangi birini kullanamıyorsa protokol çevirisi gerçekleştirebilir.
+Cihaz doğrudan bir bulut ağ geçidi uç noktasıyla iletişim kurabilir veya cihaz bulut ağ geçidinin desteklediği iletişim protokollerinin hiçbirini kullanamıyorsa bir ara ağ geçidiyle bağlanabilir. Örneğin, cihazlar IoT Hub'ın desteklediği protokollerden herhangi birini kullanamıyorsa [Azure IoT protokol ağ geçidi][lnk-protocol-gateway] tarafından protokol çevirisi gerçekleştirilebilir.
 
 ### <a name="data-processing-and-analytics"></a>Veri işleme ve analizi
 Bulutta IoT çözüm arka ucu, telemetri filtreleme ve yığma ve bunu diğer hizmetlere yönlendirme gibi veri işlemenin büyük kısmının gerçekleştiği yerdedir. IoT çözüm arka ucu:
@@ -55,11 +55,11 @@ Sunu ve iş bağlantı katmanı son kullanıcıların IoT çözümü ve cihazlar
 [img-dashboard]: ./media/iot-azure-and-iot/iot-suite.png
 
 [lnk-machinelearning]: http://azure.microsoft.com/documentation/services/machine-learning/
-[Azure IoT Paketi]: http://azure.microsoft.com/solutions/iot
+[Azure IoT Suite]: http://azure.microsoft.com/solutions/iot
 [lnk-protocol-gateway]:  ../articles/iot-hub/iot-hub-protocol-gateway.md
 [lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO5-->
 
 

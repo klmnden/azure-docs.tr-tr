@@ -1,13 +1,13 @@
 ---
 title: "Service Bus mesajlaşma hizmetine genel bakış | Microsoft Belgeleri"
 description: "Service Bus Mesajlaşma hizmeti: bulutta esnek veri teslimatı"
-services: service-bus
+services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
 editor: 
 ms.assetid: f99766cb-8f4b-4baf-b061-4b1e2ae570e4
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 09/27/2016
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a1a0ac3fd09cccaffe65aff1350d5ea01174780d
+ms.sourcegitcommit: 9ace119de3676bcda45d524961ebea27ab093415
+ms.openlocfilehash: d48b460e1e1c12eb2df21e7feab149df9890374a
 
 
 ---
@@ -56,6 +56,6 @@ Service Bus mesajlaşma hizmeti hakkında daha fazla bilgi edinmek için aşağ�
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

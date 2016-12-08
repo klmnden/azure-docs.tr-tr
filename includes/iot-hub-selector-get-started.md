@@ -16,10 +16,10 @@ Bu öğretici şunların nasıl yapıldığını gösterir:
 
 * IoT hub'ı oluşturmak için Azure portalını kullanma.
 * IoT hub'ınızda bir cihaz kimliği oluşturma.
-* Bulut arka ucunuza telemetri gönderen ve bulut arka ucunuzdan komutları alan sanal bir cihaz oluşturma.
+* Bulut arka ucunuza telemetri gönderen ve bulut arka ucunuzdan komutları alan sanal bir cihaz uygulaması oluşturma.
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO5-->
 
 

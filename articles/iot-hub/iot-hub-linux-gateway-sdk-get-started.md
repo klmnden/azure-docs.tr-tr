@@ -12,15 +12,15 @@ ms.devlang: cpp
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/25/2016
+ms.date: 11/23/2016
 ms.author: andbuc
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 23176a9251a90a985a5d2fbce23ceeb9d0925234
+ms.sourcegitcommit: a76320718f0cefa015728cb79df944e0d34bbf74
+ms.openlocfilehash: cbb909adc2d29f9b80a4c97d06176fe74b64a75a
 
 
 ---
-# <a name="azure-iot-gateway-sdk-beta-get-started-using-linux"></a>Azure IoT Ağ Geçidi SDK’sı (beta) - Linux kullanmaya başlama
+# <a name="azure-iot-gateway-sdk---get-started-using-linux"></a>Azure IoT Ağ Geçidi SDK’sı - Linux kullanmaya başlama
 [!INCLUDE [iot-hub-gateway-sdk-getstarted-selector](../../includes/iot-hub-gateway-sdk-getstarted-selector.md)]
 
 ## <a name="how-to-build-the-sample"></a>Örnek oluşturma
@@ -38,45 +38,48 @@ Başlamadan önce Linux üzerindeki SDK ile çalışacak [geliştirme ortamını
 ## <a name="how-to-run-the-sample"></a>Örneği çalıştırma
 1. **build.sh** betiği, çıktısını **azure-iot-gateway-sdk** deposu yerel kopyasının **build** klasöründe oluşturur. Buna bu örnekte kullanılan iki modül dahildir.
    
-    Build betiği **build/modules/logger/** klasöründeki **liblogger_hl.so** ve **build/modules/hello_world/** klasöründeki **libhello_world_hl.so** dosyasını değiştirir. Aşağıdaki JSON ayarları dosyasında gösterildiği gibi **modül yolu** değeri için bu yolları kullanın.
-2. **samples/hello_world/src** klasöründeki **hello_world_lin.json** dosyası örneği çalıştırmak için kullanabileceğiniz Linux’a yönelik bir örnek JSON ayarları dosyasıdır. Aşağıdaki örnekte gösterilen örnek JSON ayarları, örneği **azure-iot-gateway-sdk** deposu yerel kopyasının kökünden çalıştıracağınızı varsayar.
-3. **logger_hl** modülü için **args** bölümünde **filename** değerini günlük verilerini içerecek dosyanın adına ve yoluna ayarlayın.
-   
-    Bu dosya, örneği çalıştıracağınız klasöre **log.txt** dosyasını yazacak Linux’a yönelik bir JSON ayarları dosyasının örneğidir.
+    Build betiği **build/modules/logger/** klasöründeki **liblogger.so** ve **build/modules/hello_world/** klasöründeki **libhello_world.so** dosyasını değiştirir. Aşağıdaki JSON ayarları dosyasında gösterildiği gibi **modül yolu** değeri için bu yolları kullanın.
+2. hello_world_sample işlemi, JSON yapılandırma dosyasını yolunu komut satırı bağımsız değişkeni olarak kullanır. Örnek JSON dosyası **azure-iot-gateway-sdk/samples/hello_world/src/hello_world_win.json** adresinde deponun bir parçası olarak verilmiş ve aşağı kopyalanmıştır. Build betiğini, modülleri veya örnek yürütülebilir dosyaları başka yere taşıyarak değiştirmediğiniz sürece mevcut haliyle çalışacaktır.
+
+   > [!NOTE]
+   > Modül yolları, geçerli çalışma dizinine göre belirlenmiştir ve hello_world_sample yürütülebilir dosyasının bulunduğu değil çalıştırıldığı dizini temel alır. Örnek JSON yapılandırma dosyası varsayılan olarak “log.txt” dosyasını geçerli çalışma dizininize yazar.
    
     ```
     {
-      "modules" :
-      [ 
-        {
-          "module name" : "logger_hl",
-          "loading args": {
-            "module path" : "./build/modules/logger/liblogger_hl.so"
-          },
-          "args" : 
-          {
-            "filename":"./log.txt"
-          }
-        },
-        {
-          "module name" : "hello_world",
-          "loading args": {
-            "module path" : "./build/modules/hello_world/libhello_world_hl.so"
-          },
-          "args" : null
-        }
-      ],
-      "links" :
-      [
-        {
-          "source": "hello_world",
-          "sink": "logger_hl"
-        }
-      ]
+        "modules" :
+        [
+            {
+              "name" : "logger",
+              "loader": {
+                "name": "native",
+                "entrypoint": {
+                  "module.path": "./modules/logger/liblogger.so"
+                }
+              },
+              "args" : {"filename":"log.txt"}
+            },
+            {
+                "name" : "hello_world",
+              "loader": {
+                "name": "native",
+                "entrypoint": {
+                  "module.path": "./modules/hello_world/libhello_world.so"
+                }
+              },
+                "args" : null
+            }
+        ],
+        "links": 
+        [
+            {
+                "source": "hello_world",
+                "sink": "logger"
+            }
+        ]
     }
     ```
-4. Kabuğunuzda **azure-iot-gateway-sdk** klasörüne gidin.
-5. Şu komutu çalıştırın:
+3. **azure-iot-gateway-sdk** klasörüne gidin.
+4. Şu komutu çalıştırın:
    
    ```
    ./build/samples/hello_world/hello_world_sample ./samples/hello_world/src/hello_world_lin.json
@@ -89,6 +92,6 @@ Başlamadan önce Linux üzerindeki SDK ile çalışacak [geliştirme ortamını
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
-ms.date: 10/18/2016
+ms.date: 11/17/2016
 ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 369e45ed8303735976813c1224ce74842f886536
+ms.sourcegitcommit: 1a6d1497dee72a49705e15bd2907a42f744bd3b5
+ms.openlocfilehash: 8b32412b2dcfb20f3cb1f858fa4ae4230d72c7cd
 
 
 ---
@@ -47,10 +47,9 @@ Hesabınızı edindikten sonra Visual Studio’da Azure Hızlı Başlangıç ör
 3. **Yeni Proje** iletişim kutusundan **Yüklenen** > **Şablonlar** > **Visual C#** > **Bulut** > **QuickStarts** > **Veri Hizmetleri**’ne tıklayın.
     a. Aşağıdaki şablonlardan birini seçin: **Azure Storage: Blob’lar**, **Azure Storage: Dosyalar**, **Azure Storage: Kuyruklar** veya **Azure Storage: Tablolar**.
     b. Hedef altyapı olarak **.NET Framework 4.5**’in seçildiğinden emin olun.
-   
-   * 3.c. Aşağıda gösterildiği şekilde projeniz için bir ad belirleyin ve yeni Visual Studio çözümünü oluşturun:
+    c. Aşağıda gösterildiği şekilde projeniz için bir ad belirleyin ve yeni Visual Studio çözümünü oluşturun:
      
-     ![Azure Hızlı Başlangıçlar][Image1]
+    ![Azure Hızlı Başlangıçlar][Image1]
 
 Uygulamayı çalıştırmadan önce kaynak kodunu incelemek isteyebilirsiniz. Kodu incelemek için Visual Studio’da **Görüntüle** menüsünde **Çözüm Gezgini**’ni seçin. Ardından Program.cs dosyasına çift tıklayın.
 
@@ -59,7 +58,10 @@ Ardından örnek uygulamayı çalıştırın:
 1. Visual Studio’da **Görünüm** menüsünde **Çözüm Gezgini**’ni seçin. App.config dosyasını açın ve Azure Storage öykünücüsü için bağlantı dizesine açıklama yerleştirin.
    
    `<!--<add key="StorageConnectionString" value = "UseDevelopmentStorage=true;"/>-->`
-2. Azure Storage Hizmeti için bağlantı dizesinin açıklamasını kaldırın ve App.config dosyasında depolama hesabı adı ile erişim tuşunu sağlayın: `<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]"`
+
+2. Azure Storage Hizmeti için bağlantı dizesinin açıklamasını kaldırın ve App.config dosyasında depolama hesabı adı ile erişim anahtarını sağlayın:
+   
+   `<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]"`
    
    Depolama hesabı erişim tuşunuzı almak için bkz. [Depolama erişim tuşlarınızı yönetme](storage-create-storage-account.md#manage-your-storage-access-keys).
 3. App.config dosyasında depolama hesap adı ve erişim tuşunu sağladıktan sonra **Dosya** menüsünde, **Tümünü Kaydet**’e tıklayarak tüm proje dosyalarını kaydedin.
@@ -79,6 +81,7 @@ Denemek için Visual Studio’da Azure Hızlı Başlangıç örnek projelerinden
     c. Aşağıda gösterildiği şekilde projeniz için bir ad belirleyin ve yeni Visual Studio çözümünü oluşturun:
    
     ![Azure Hızlı Başlangıçlar][Image1]
+
 4. Visual Studio’da **Görünüm** menüsünde **Çözüm Gezgini**’ni seçin. Zaten bir eklediyseniz App.config dosyası ve yorum, Azure Storage hesabı bağlantı dizesi kullanıma açar. Ardından bağlantı dizesi için Azure Storage öykünücüsü açıklamadan çıkarın:
    
    `<add key="StorageConnectionString" value = "UseDevelopmentStorage=true;"/>`
@@ -109,6 +112,6 @@ Azure Storage ile ilgili daha fazla bilgi edinmek için şu kaynaklara bakın:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

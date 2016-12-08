@@ -53,14 +53,46 @@ int main(int argc, char** argv)
         Gateway_LL_Destroy(gateway);
     }
     return 0;
-}
+} 
 ```
 
-JSON ayarlar dosyası yüklenecek modüllerin bir listesini içerir. Her modülü aşağıdakileri belirtmelidir:
+JSON ayarlar dosyası, yüklenecek modüllerin ve modüller arası bağlantıların bir listesini içerir.
+Her modülü aşağıdakileri belirtmelidir:
 
-* **module_name**: modül için benzersiz bir ad.
-* **module_path**: modülü içeren kitaplığın yolu. Linux için bu bir .so dosyası, Windows'ta ise bir .dll dosyasıdır.
+* **name**: Modül için benzersiz bir ad.
+* **loader**: İstenen modülün nasıl yükleneceğini bilen bir yükleyici.  Yükleyiciler, farklı türlerdeki modüllerin yüklenmesi için bir uzantı noktasıdır. Yerel olarak C, Node.js, Java ve .Net dillerinde yazılan modüllerle kullanıma yönelik yükleyiciler sağlıyoruz. Hello World örneğindeki tüm modüller C dilinde yazılan dinamik kitaplıklar olduğundan, bu örnek yalnızca "yerel" yükleyiciyi kullanır. Farklı dillerde yazılan modülleri kullanma hakkında daha fazla bilgi için lütfen [Node](https://github.com/Azure/azure-iot-gateway-sdk/blob/develop/samples/nodejs_simple_sample/), [Java](https://github.com/Azure/azure-iot-gateway-sdk/tree/develop/samples/java_sample) veya [.Net](https://github.com/Azure/azure-iot-gateway-sdk/tree/develop/samples/dotnet_binding_sample) örneklerine başvurun.
+    * **name**: Modülü yüklemek için kullanılan yükleyicinin adı.  
+    * **entrypoint**: Modülü içeren kitaplığın yolu. Linux için bu bir .so dosyası, Windows'ta ise bir .dll dosyasıdır. Bu giriş noktasının kullanılan yükleyici türüne özel olduğunu unutmayın. Örneğin, Node.js yükleyicisinin giriş noktası bir .js dosyasıdır; Java yükleyicisinin giriş noktası bir sınıf yolu + sınıf adıdır ve .Net yükleyicisinin giriş noktası bir derleme adı + sınıf adıdır.
+
 * **args**: modül için gereken tüm yapılandırma bilgileri.
+
+Aşağıdaki kod, Linux’ta Hello World örneğinin tüm modüllerini bildirmek için kullanılan JSON’u göstermektedir. Bir modülün herhangi bir bağımsız değişken gerektirip gerektirmediği modülün tasarımına bağlıdır. Bu örnekte günlükçü modülü, çıkış dosyasının yolu olan bir bağımsız değişkeni alır ve Hello World modülü herhangi bir bağımsız değişken almaz.
+
+```
+"modules" :
+[
+    {
+        "name" : "logger",
+        "loader": {
+          "name": "native",
+          "entrypoint": {
+            "module.path": "./modules/logger/liblogger.so"
+        }
+        },
+        "args" : {"filename":"log.txt"}
+    },
+    {
+        "name" : "hello_world",
+        "loader": {
+          "name": "native",
+          "entrypoint": {
+            "module.path": "./modules/hello_world/libhello_world.so"
+        }
+        },
+        "args" : null
+    }
+]
+```
 
 JSON dosyası ayrıca aracıya geçirilecek modüller arasındaki bağlantıları içerir. Bir bağlantı iki özelliğe sahiptir:
 
@@ -69,35 +101,16 @@ JSON dosyası ayrıca aracıya geçirilecek modüller arasındaki bağlantılar�
 
 Her bağlantı bir ileti yolu ve yönü tanımlar. `source` modülünden gelen iletiler `sink` modülüne teslim edilmelidir. Herhangi bir modülden gelen iletilerin `sink` tarafından alınacağını belirtmek üzere `source` ayarı "\*" olarak belirlenebilir.
 
-Aşağıdaki örnekte Linux üzerinde Hello World örneğini yapılandırmak için kullanılan JSON ayarlar dosyası gösterilmektedir. `hello_world` modülü tarafından üretilen her ileti `logger` modülü tarafından kullanılır. Bir modülün bağımsız değişken gerektirip gerektirmediği modülün tasarımına bağlıdır. Bu örnekte günlükçü modülü, çıktı dosyasının yolu olan bir bağımsız değişkeni alır ve Hello World modülü herhangi bir bağımsız değişken almaz:
+Aşağıdaki kod, Linux’ta Hello World örneğinde kullanılan modüller arasında bağlantı yapılandırmak için kullanılan JSON’u göstermektedir. `hello_world` modülü tarafından üretilen her ileti `logger` modülü tarafından kullanılır.
 
 ```
-{
-    "modules" :
-    [ 
-        {
-            "module name" : "logger",
-            "loading args": {
-              "module path" : "./modules/logger/liblogger_hl.so"
-            },
-            "args" : {"filename":"log.txt"}
-        },
-        {
-            "module name" : "hello_world",
-            "loading args": {
-              "module path" : "./modules/hello_world/libhello_world_hl.so"
-            },
-            "args" : null
-        }
-    ],
-    "links" :
-    [
-        {
-            "source" : "hello_world",
-            "sink" : "logger"
-        }
-    ]
-}
+"links": 
+[
+    {
+        "source": "hello_world",
+        "sink": "logger"
+    }
+]
 ```
 
 ### <a name="hello-world-module-message-publishing"></a>Hello World modülü ileti yayımlama
@@ -216,6 +229,6 @@ IoT Gateway SDK’sını kullanma hakkında bilgi için aşağıdakilere bakın:
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/
 [lnk-gateway-simulated]: ../articles/iot-hub/iot-hub-linux-gateway-sdk-simulated-device.md
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

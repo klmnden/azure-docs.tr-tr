@@ -1,22 +1,22 @@
 ---
 title: "Azure geçiş nedir? | Microsoft Belgeleri"
 description: "Azure Geçiş’e Genel Bakış"
-services: service-bus
+services: service-bus-relay
 documentationcenter: .net
 author: banisadr
 manager: timlt
 editor: 
 ms.assetid: 1e3e971d-2a24-4f96-a88a-ce3ea2b1a1cd
-ms.service: service-bus
+ms.service: service-bus-relay
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: get-started-article
-ms.date: 10/28/2016
-ms.author: babanisa
+ms.date: 11/16/2016
+ms.author: babanisa,sethm
 translationtype: Human Translation
-ms.sourcegitcommit: dc81f26a64b376eb34894268ea0b17152647ed79
-ms.openlocfilehash: c4c01d1a7a82fe9d696223a5abc05f559ead0f6a
+ms.sourcegitcommit: 8ba8baa1b6500b3300e0bfc1c6b9f00f214f0179
+ms.openlocfilehash: 4329e0f99828f5a0651e6b03be0813d9e68debaa
 
 
 ---
@@ -31,8 +31,8 @@ Geçiş tarafından sağlanan önemli özellik öğeleri, TCP gibi azaltma, uç 
 
 Azure Geçiş iki özelliğe sahiptir:
 
-1. [Karma Bağlantılar](#hybrid-connections) - Açık standart Web Yuvaları’nı kullanarak çok platformlu senaryolarını etkinleştirir.
-2. [WCF Geçişleri](#wcf-relays) - Windows Communication Foundation’ı (WCF) kullanarak uzak yordam çağrılarını etkinleştirir.
+1. [Karma Bağlantılar](#hybrid-connections) - Çok platformlu senaryoları etkinleştiren açık standart web yuvalarını kullanır.
+2. [WCF Geçişleri](#wcf-relays) - Windows Communication Foundation’ı (WCF) kullanarak uzak yordam çağrılarını etkinleştirir. WCF Geçişi, birçok müşterinin WCF programlama modelleriyle zaten kullanıyor olabileceği eski Geçiş teklifidir.
 
 Hem Karma Bağlantılar hem de WCF Geçişleri bir kurumsal kuruluş ağı içinde bulunan varlıklara güvenli bağlantı olanağı sağlar. Hangisinin diğerine tercih edileceği, aşağıdaki tabloda açıklandığı gibi özel gereksinimlerinize bağlıdır:
 
@@ -40,7 +40,7 @@ Hem Karma Bağlantılar hem de WCF Geçişleri bir kurumsal kuruluş ağı için
 | --- |:---:|:---:|
 | **WCF** |x | |
 | **.NET Core** | |x |
-| **.NET Framework** |x |x |
+| **.NET Framework** |x |
 | **JavaScript/NodeJS*** | |x |
 | **Java*** | |x |
 | **Standart Tabanlı Açık Protokol** | |x |
@@ -49,15 +49,13 @@ Hem Karma Bağlantılar hem de WCF Geçişleri bir kurumsal kuruluş ağı için
 *Genel Erişilebilirlik tarihinde
 
 ## <a name="hybrid-connections"></a>Karma Bağlantılar
-Azure Geçiş Karma Bağlantılar özelliği, yaygın olarak kullanılan web tarayıcılarındaki WebSocket API’yi açıkça içeren temel bir WebSocket özelliğine sahip tüm platform ve dillerde uygulanabilen mevcut Geçiş özelliklerinin güvenli, açık yordam kullanılarak evrim geçirmiş bir halidir. Karma Bağlantılar HTTP ve WebSocket’ları temel alır.
+[Azure Geçiş Karma Bağlantılar](relay-hybrid-connections-protocol.md) özelliği, yaygın olarak kullanılan web tarayıcılarındaki WebSocket API’yi açıkça içeren temel bir WebSocket özelliğine sahip tüm platform ve dillerde uygulanabilen mevcut Geçiş özelliklerinin güvenli, açık yordam kullanılarak evrim geçirmiş bir halidir. Karma Bağlantılar HTTP ve WebSocket’ları temel alır.
 
 ## <a name="wcf-relays"></a>WCF Geçişleri
 WCF Geçişi tam .NET Framework (NETFX) ve WCF için çalışır. Geçiş hizmeti ile şirket içi hizmetiniz arasındaki bağlantıyı bir WCF "geçiş" bağlamaları paketi kullanarak başlatırsınız. Arka planda ise geçiş bağlamaları, bulutta Service Bus ile tümleşen WCF kanalı bileşenlerini oluşturmak üzere tasarlanan yeni aktarım bağlama öğeleriyle eşleşir.
 
 ## <a name="service-history"></a>Hizmet geçmişi
 Karma Bağlantılar, Azure Service Bus WCF Geçişi üzerinde oluşturulan eski ve aynı ada sahip “BizTalk Services” özelliğini tamamlar. Yeni Karma Bağlantılar özelliği mevcut WCF Geçişi özelliğini tamamlar ve bu iki hizmet özelliği şimdilik Geçiş hizmetinde beraber bulunacak; ortak bir ağ geçidine sahip bu iki özellik, diğer açılardan farklı olan uygulamalardır.
-
-WCF Geçişi, birçok müşterinin WCF programlama modelleriyle zaten kullanıyor olabileceği eski Geçiş teklifidir.
 
 ## <a name="next-steps"></a>Sonraki adımlar:
 * [Geçiş hakkında SSS](relay-faq.md)
@@ -68,6 +66,6 @@ WCF Geçişi, birçok müşterinin WCF programlama modelleriyle zaten kullanıyo
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,13 +1,13 @@
 ---
 title: ".NET içeren Service Bus konu başlıklarını kullanma | Microsoft Belgeleri"
 description: "Azure&quot;da .NET içeren Service Bus konu başlıklarını ve abonelikleri kullanmayı öğrenin. Kod örnekleri .NET uygulamalarına yönelik yazılır."
-services: service-bus
+services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
 editor: 
 ms.assetid: 31d0bc29-6524-4b1b-9c7f-aa15d5a9d3b4
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 09/16/2016
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b90d2b49807b39bb7a71315877a8e84550efc9cc
+ms.sourcegitcommit: 9ace119de3676bcda45d524961ebea27ab093415
+ms.openlocfilehash: 71d0049c831b9bbcdef548bc129d6e15256a25b4
 
 
 ---
@@ -51,7 +51,7 @@ Service Bus, uç noktaları ve kimlik bilgilerini depolamak için bir bağlantı
 Her iki durumda da, bağlantı dizenizi bu makalenin sonraki bölümlerinde açıklanan `CloudConfigurationManager.GetSetting` yöntemini kullanarak alabilirsiniz.
 
 ### <a name="configure-your-connection-string"></a>Bağlantı dizenizi yapılandırma
-Hizmet yapılandırma mekanizması, uygulamanızı yeniden dağıtmanıza gerek kalmadan [Azure portalı][Azure portalı] aracılığıyla yapılandırma ayarlarınızı dinamik olarak değiştirmenize olanak sağlar. Örneğin, bir sonraki örnekte gösterildiği gibi hizmet tanımı (**.csdef**) dosyanıza bir `Setting` etiketi ekleyin.
+Hizmet yapılandırma mekanizması, uygulamanızı yeniden dağıtmanıza gerek kalmadan [Azure Portal][Azure Portal] aracılığıyla yapılandırma ayarlarınızı dinamik olarak değiştirmenize olanak sağlar. Örneğin, bir sonraki örnekte gösterildiği gibi hizmet tanımı (**.csdef**) dosyanıza bir `Setting` etiketi ekleyin.
 
 ```
 <ServiceDefinition name="Azure1">
@@ -94,7 +94,7 @@ Web sitelerini veya Virtual Machines hizmetini kullanırken, .NET yapılandırma
 </configuration>
 ```
 
-Daha önce açıklandığı gibi [Azure portalı][Azure portalı] üzerinden aldığınız SAS adını ve anahtar değerlerini kullanın.
+Daha önce açıklandığı gibi [Azure Portal][Azure Portal] üzerinden aldığınız SAS adını ve anahtar değerlerini kullanın.
 
 ## <a name="create-a-topic"></a>Konu başlığı oluşturma
 [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) sınıfını kullanarak Service Bus konu başlıklarına ve aboneliklerine yönelik yönetim işlemlerini gerçekleştirebilirsiniz. Bu sınıfın sağladığı yöntemlerle konu oluşturabilir, konu başlıklarını numaralandırabilir ve silebilirsiniz.
@@ -308,7 +308,7 @@ namespaceManager.DeleteSubscription("TestTopic", "HighMessages");
 Artık Service Bus konu başlıklarına ve aboneliklerine ilişkin temel bilgileri öğrendiniz, daha fazla bilgi edinmek için aşağıdaki bağlantıları izleyin.
 
 * [Kuyruklar, konu başlıkları ve abonelikler][Kuyruklar, konu başlıkları ve abonelikler].
-* [Konu başlığı filtreleri örneği][Konu filtreleri örneği]
+* [Konu başlığı filtreleri örneği][Konu başlığı filtreleri örneği]
 * [SqlFilter][SqlFilter] için API başvurusu.
 * Service Bus kuyruğundan ileti alıp gönderen, çalışan bir uygulama oluşturun: [Service Bus aracılı mesajlaşma .NET eğitmeni][Service Bus aracılı mesajlaşma .NET eğitmeni].
 * Service Bus örnekleri: [Azure örneklerinden][Azure örneklerinden] indirin veya [genel bakışı](service-bus-samples.md) gözden geçirin.
@@ -321,11 +321,11 @@ Artık Service Bus konu başlıklarına ve aboneliklerine ilişkin temel bilgile
 [Konu başlığı filtreleri örneği]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/TopicFilters
 [SqlFilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx
 [SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
-[Service Bus aracılı mesajlaşma .NET öğreticisi]: service-bus-brokered-tutorial-dotnet.md
-[Azure örnekleri]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
+[Service Bus aracılı mesajlaşma .NET eğitmeni]: service-bus-brokered-tutorial-dotnet.md
+[Azure örneklerinden]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

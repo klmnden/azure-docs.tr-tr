@@ -1,7 +1,7 @@
 ## <a name="create-an-iot-hub"></a>IoT hub oluşturma
-Bağlanılacak benzetimli cihazınız için IoT Hub oluşturun. Aşağıdaki adımlar, Azure portalını kullanarak bu görevi nasıl tamamlayacağınızı gösterir.
+Bağlanılacak sanal cihaz uygulamanız için bir IoT Hub oluşturun. Aşağıdaki adımlar, Azure portalını kullanarak bu görevi nasıl tamamlayacağınızı gösterir.
 
-1. [Azure portalı][lnk-portal]’nda oturum açın.
+1. [Azure portalında][lnk-portal] oturum açın.
 2. Atlama çubuğunda **Yeni** > **Nesnelerin İnterneti** > **Azure IoT Hub**’a tıklayın.
    
     ![Azure portalı Atlama Çubuğu][1]
@@ -10,7 +10,7 @@ Bağlanılacak benzetimli cihazınız için IoT Hub oluşturun. Aşağıdaki ad�
     ![IOT hub'ı dikey penceresi][2]
    
    * **Ad** kutusunda IoT hub'ınız için bir ad girin. **Ad** geçerli ve kullanılabilirse **Ad** kutusunun yanında yeşil bir onay işareti görünür.
-   * Bir [Fiyatlandırma ve ölçek katmanı][lnk-pricing] seçin. Bu öğretici için belirli bir katman gerekmez. Bu öğretici için ücretsiz F1 katmanını kullanın.
+   * Bir [fiyatlandırma ve ölçek katmanı][lnk-pricing] seçin. Bu öğretici için belirli bir katman gerekmez. Bu öğretici için ücretsiz F1 katmanını kullanın.
    * **Kaynak grubunda** yeni bir kaynak grubu oluşturun veya var olan bir kaynak grubunu seçin. Daha fazla bilgi için bkz. [Azure kaynaklarınızı yönetmek için kaynak gruplarını kullanma][lnk-resource-groups].
    * **Konum**'da IoT hub'ınızı barındıracak konumu seçin. Bu öğretici için en yakın konumunuzu seçin.
 4. IoT hub'ı yapılandırma seçeneklerinizi seçtiğinizde **Oluştur**'a tıklayın.  Azure'un IoT hub'ınızı oluşturması birkaç dakika sürebilir. Durumu denetlemek için Başlangıç Panosu veya Bildirimler panelinde ilerlemeyi izleyebilirsiniz.
@@ -19,7 +19,7 @@ Bağlanılacak benzetimli cihazınız için IoT Hub oluşturun. Aşağıdaki ad�
 5. IOT hub'ı sorunsuz oluşturulduğunda, yeni IOT hub'ı dikey penceresini açmak için Azure portalındaki IOT hub'ına yönelik yeni kutucuğa tıklayın. **Ana bilgisayar adını** not edin ve **Paylaşılan erişim ilkeleri**'ne tıklayın.
    
     ![Yeni IOT hub'ı dikey penceresi][4]
-6. **Paylaşılan erişim ilkeleri** dikey penceresinde **iothubowner** ilkesine tıklayın, ardından **iothubowner** dikey penceresindeki bağlantı dizesini kopyalayın ve not edin. Daha fazla bilgi için, “Azure IoT Hub Geliştirici Kılavuzu”nda bkz. [Erişim denetimi][lnk-access-control].
+6. **Paylaşılan erişim ilkeleri** dikey penceresinde **iothubowner** ilkesine tıklayın, ardından **iothubowner** dikey penceresindeki bağlantı dizesini kopyalayın ve not edin. Daha fazla bilgi için “Azure IoT Hub geliştirici kılavuzu”nun [Erişim denetimi][lnk-access-control] bölümüne bakın.
    
     ![Paylaşılan erişim ilkeleri dikey penceresi][5]
 
@@ -37,6 +37,6 @@ Bağlanılacak benzetimli cihazınız için IoT Hub oluşturun. Aşağıdaki ad�
 [lnk-access-control]: ../articles/iot-hub/iot-hub-devguide-security.md
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO5-->
 
 
