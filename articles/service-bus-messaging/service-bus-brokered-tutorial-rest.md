@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/27/2016
+ms.date: 12/12/2016
 ms.author: sethm
 translationtype: Human Translation
 ms.sourcegitcommit: 9ace119de3676bcda45d524961ebea27ab093415
@@ -50,7 +50,7 @@ Bu hizmet bir REST stili Web hizmeti olduğundan, özel türler bulunmaz; bunun 
 2. Yeni bir konsol uygulama projesi oluşturun. **Dosya** menüsüne tıklayın ve **Yeni** seçeneği belirleyin, ardından **Proje**'ye tıklayın. **Yeni proje** iletişim kutusunda, **Visual C#** öğesine tıklayıp (**Visual C#** görüntülenmiyorsa **Diğer Diller** kısmına bakın), **Konsol Uygulaması** şablonunu seçin, ardından **Microsoft.ServiceBus.Samples** olarak adlandırın. Varsayılan Konum'u kullanın. Projeyi oluşturmak için **Tamam**'a tıklayın.
 3. Program.cs içinde `using` deyimlerinizin aşağıdaki gibi göründüğünden emin olun:
    
-    ```
+    ```csharp
     using System;
     using System.Globalization;
     using System.IO;
@@ -62,7 +62,7 @@ Bu hizmet bir REST stili Web hizmeti olduğundan, özel türler bulunmaz; bunun 
 4. Gerekirse, program ad alanını Visual Studio varsayılanından `Microsoft.ServiceBus.Samples` olacak şekilde yeniden adlandırın.
 5. `Program` sınıfında, aşağıdaki genel değişkenleri ekleyin:
    
-    ```
+    ```csharp
     static string serviceNamespace;
     static string baseAddress;
     static string token;
@@ -70,7 +70,7 @@ Bu hizmet bir REST stili Web hizmeti olduğundan, özel türler bulunmaz; bunun 
     ```
 6. `Main()` kısmında, aşağıdaki kodu yapıştırın:
    
-    ```
+    ```csharp
     Console.Write("Enter your service namespace: ");
     serviceNamespace = Console.ReadLine();
    
@@ -146,7 +146,7 @@ Sonraki adım, önceki adımda girdiğiniz SAS anahtarını ve ad alanını işl
 ### <a name="create-a-getsastoken-method"></a>GetSASToken() yöntemi oluşturma
 `Main()` yönteminden sonra `Program` sınıfında aşağıdaki kodu yapıştırın:
 
-```
+```csharp
 private static string GetSASToken(string SASKeyName, string SASKeyValue)
 {
   TimeSpan fromEpochStart = DateTime.UtcNow - new DateTime(1970, 1, 1);
@@ -165,7 +165,7 @@ Sonraki adım, bir kuyruk oluşturmak için REST stili HTTP PUT komutunu kullana
 
 Önceki adımda eklediğiniz `GetSASToken()` kodundan hemen sonra aşağıdaki kodu yapıştırın:
 
-```
+```csharp
 // Uses HTTP PUT to create the queue
 private static string CreateQueue(string queueName, string token)
 {
@@ -193,7 +193,7 @@ Bu adımda, önceki adımda oluşturduğunuz kuyruğa ileti göndermek için RES
 
 1. Önceki adımda eklediğiniz `CreateQueue()` kodundan hemen sonra aşağıdaki kodu yapıştırın:
    
-    ```
+    ```csharp
     // Sends a message to the "queueName" queue, given the name and the value to enqueue
     // Uses an HTTP POST request.
     private static void SendMessage(string queueName, string body)
@@ -208,7 +208,7 @@ Bu adımda, önceki adımda oluşturduğunuz kuyruğa ileti göndermek için RES
     ```
 2. Standart aracılı ileti özellikleri bir `BrokerProperties` HTTP üst bilgisinde yer alır. Aracı özellikleri JSON formatında seri haline getirilmelidir. 30 saniyelik **TimeToLive** değeri belirtmek ve iletiye "M1" ileti etiketi eklemek için önceki örnekte gösterilen `webClient.UploadData()` çağrısının hemen öncesine aşağıdaki kodu ekleyin:
    
-    ```
+    ```csharp
     // Add brokered message properties "TimeToLive" and "Label"
     webClient.Headers.Add("BrokerProperties", "{ \"TimeToLive\":30, \"Label\":\"M1\"}");
     ```
@@ -216,7 +216,7 @@ Bu adımda, önceki adımda oluşturduğunuz kuyruğa ileti göndermek için RES
     Aracılı ileti özelliklerinin eklenmiş olduğunu ve sonra da ekleneceğini unutmayın. Bu nedenle gönderme isteği, isteğin parçası olan tüm aracılı ileti özelliklerini destekleyen bir API sürümü belirtmelidir. Belirtilen API sürümü bir aracılı ileti özelliğini desteklemiyorsa bu özellik yoksayılır.
 3. Özel ileti özellikleri bir anahtar-değer çiftleri kümesi olarak tanımlanır. Her bir özel özellik kendi TPPT üst bilgisinde depolanır. "Öncelik" ve "Müşteri" özel özelliklerini eklemek için önceki örnekte gösterilen `webClient.UploadData()` çağrısından hemen önce aşağıdaki kodu ekleyin:
    
-    ```
+    ```csharp
     // Add custom properties "Priority" and "Customer".
     webClient.Headers.Add("Priority", "High");
     webClient.Headers.Add("Customer", "12345");
@@ -227,7 +227,7 @@ Bir sonraki adım, kuyruktan ileti almak ve silmek için REST stili HTTP DELETE 
 
 Önceki adımda eklediğiniz `SendMessage()` kodundan hemen sonra aşağıdaki kodu yapıştırın:
 
-```
+```csharp
 // Receives and deletes the next message from the given resource (queue, topic, or subscription)
 // using the resourceName and an HTTP DELETE request
 private static string ReceiveAndDeleteMessage(string resourceName)
@@ -251,7 +251,7 @@ Sonraki adım, bir konu başlığı oluşturmak için REST stili HTTP PUT komutu
 ### <a name="create-a-topic"></a>Konu başlığı oluşturma
 Önceki adımda eklediğiniz `ReceiveAndDeleteMessage()` kodundan hemen sonra aşağıdaki kodu yapıştırın:
 
-```
+```csharp
 // Using an HTTP PUT request.
 private static string CreateTopic(string topicName)
 {
@@ -276,7 +276,7 @@ private static string CreateTopic(string topicName)
 ### <a name="create-a-subscription"></a>Abonelik oluşturma
 Aşağıdaki kod, önceki adımda oluşturduğunuz konu başlığına bir abonelik oluşturur. `CreateTopic()` tanımından hemen sonra aşağıdaki kodu ekleyin:
 
-```
+```csharp
 private static string CreateSubscription(string topicName, string subscriptionName)
 {
     var subscriptionAddress = baseAddress + topicName + "/Subscriptions/" + subscriptionName;
@@ -303,7 +303,7 @@ Bu adımda, ileti özelliklerini alan kodu eklersiniz ve ardından önceki adım
 ### <a name="retrieve-an-atom-feed-with-the-specified-resources"></a>Belirtilen kaynakları içeren Atom akışı alma
 Önceki adımda eklediğiniz `CreateSubscription()` yönteminden hemen sonra aşağıdaki kodu ekleyin:
 
-```
+```csharp
 private static string GetResources(string resourceAddress)
 {
     string fullAddress = baseAddress + resourceAddress;
@@ -317,7 +317,7 @@ private static string GetResources(string resourceAddress)
 ### <a name="delete-messaging-entities"></a>Mesajlaşma varlıklarını silme
 Önceki adımda eklediğiniz kodun hemen ardından aşağıdaki kodu ekleyin:
 
-```
+```csharp
 private static string DeleteResource(string resourceName)
 {
     string fullAddress = baseAddress + resourceName;
@@ -333,7 +333,7 @@ private static string DeleteResource(string resourceName)
 ### <a name="format-the-atom-feed"></a>Atom akışı biçimlendirme
 `GetResources()` yöntemi, daha okunur olması için alınan Atom akışını yeniden biçimlendiren `FormatXml()` yöntemine yönelik bir çağrı içerir. Aşağıda verilenler `FormatXml()` kodunun açıklamasıdır; önceki bölümde eklediğiniz `DeleteResource()` kodundan hemen sonra bu kodu ekleyin:
 
-```
+```csharp
 // Formats the XML string to be more human-readable; intended for display purposes
 private static string FormatXml(string inputXml)
 {
@@ -360,7 +360,7 @@ Herhangi bir hata yoksa uygulamayı çalıştırmak için F5'e basın. İstendi�
 ### <a name="example"></a>Örnek
 Öğreticideki adımların tümü uygulandıktan sonra görüneceğinden, aşağıdaki örnek eksiksiz koddur.
 
-```
+```csharp
 using System;
 using System.Globalization;
 using System.IO;
