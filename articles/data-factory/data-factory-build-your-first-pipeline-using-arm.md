@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 10/12/2016
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 14a4d55409e9fd6b840f4c856110ae150499bb6f
+ms.sourcegitcommit: c1551b250ace3aa6775932c441fcfe28431f8f57
+ms.openlocfilehash: 6e29f5b26a06a83bd7f996169f2e53815e24a8e5
 
 
 ---
@@ -35,7 +35,7 @@ Bu makalede Azure Resource Manager şablonu kullanarak ilk Azure veri fabrikanı
 
 ## <a name="prerequisites"></a>Önkoşullar
 * [Öğreticiye Genel Bakış](data-factory-build-your-first-pipeline.md) makalesinin tamamını okuyun ve **ön koşul** adımlarını tamamlayın.
-* Bilgisayarınıza Azure PowerShell’in en son sürümünü yüklemek için [Azure PowerShell’i yükleme ve yapılandırma](../powershell-install-configure.md) makalesindeki yönergeleri izleyin.
+* Bilgisayarınıza Azure PowerShell’in en son sürümünü yüklemek için [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azureps-cmdlets-docs) makalesindeki yönergeleri izleyin.
 * Azure Resource Manager şablonları hakkında bilgi için bkz. [Azure Resource Manager Şablonları Yazma](../resource-group-authoring-templates.md). 
 
 ## <a name="in-this-tutorial"></a>Bu öğreticide
@@ -379,7 +379,7 @@ Bu bölümde Azure depolama hesabınızın adını ve anahtarını belirtirsiniz
 
 **ConnectionString**, storageAccountName ve storageAccountKey parametrelerini kullanır. Bu parametrelerin değerleri bir yapılandırma dosyası kullanılarak geçirilir. Tanım ayrıca şu değişkenleri kullanır: şablonda tanımlanan azureStroageLinkedService ve dataFactoryName. 
 
-#### <a name="hdinsight-ondemand-linked-service"></a>İsteğe bağlı HDInsight bağlantılı hizmeti
+#### <a name="hdinsight-on-demand-linked-service"></a>İsteğe bağlı HDInsight bağlantılı hizmeti
 İsteğe bağlı bir HDInsight bağlı hizmetini tanımlamak için kullanılan JSON özellikleri hakkında ayrıntılar için [İşlem bağlı hizmetleri](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) makalesine bakın.  
 
       {
@@ -591,6 +591,6 @@ Bu şablon GatewayUsingArmDF adlı bir veri fabrikasını GatewayUsingARM adlı 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 06/27/2016
 ms.author: douglasl
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2fcea994b3de924f1170dae2d7a0a3b6d4786538
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: f63900b0a4f32e1bc5a88c068091916bd96aafb8
 
 
 ---
@@ -28,13 +28,13 @@ Yalnızca Esnetme Veritabanını hemen kullanmaya başlamak istiyorsanız bkz. [
 ## <a name="what-are-the-benefits-of-stretch-database"></a>Esnetme Veritabanı'nın yararları nelerdir?
 Esnetme Veritabanı aşağıdaki faydaları sağlar:
 
-### <a name="provides-costeffective-availability-for-cold-data"></a>Soğuk veriler için uygun\-maliyetli kullanılabilirlik sağlar
+### <a name="provides-cost-effective-availability-for-cold-data"></a>Soğuk veriler için uygun\-maliyetli kullanılabilirlik sağlar
 SQL Server Esnetme Veritabanı ile sıcak ve soğuk işlem verilerini SQL Server'dan Microsoft Azure'a dinamik olarak esnetin. Genel soğuk veri depolamadan farklı olarak, verileriniz her zaman çevrimiçidir ve sorgulama için kullanılabilir. Müşteri Siparişi Geçmişi gibi büyük tablolar için aşırı masraf yapmadan daha uzun süreli veri bekletme zaman çizelgeleri sağlayabilirsiniz. Pahalı şirket içi depolama için ölçeklendirmek yerine, Azure'ın düşük maliyetinden yararlanın. Fiyatlandırma katmanınızı seçin ve Azure Portal'da ayarları yapılandırarak maliyetler üzerinde kontrolünüzü koruyun. İhtiyaca göre ölçeği artırın veya azaltın. Ayrıntılı bilgi için [SQL Server Esnetme Veritabanı Fiyatlandırma](https://azure.microsoft.com/pricing/details/sql-server-stretch-database/) sayfasını ziyaret edin.
 
 ### <a name="doesnt-require-changes-to-queries-or-applications"></a>Sorgu veya uygulamalarda değişiklik yapılmasını gerektirmez
 Şirket\-içi veya buluta esnetilmiş olmasından bağımsız olarak, SQL Server verilerinize sorunsuz şekilde erişin.  Verilerin nerede depolanacağını belirleyen ilkeyi ayarladığınızda, SQL Server arka planda veri hareketlerini işler. Tüm tablo her zaman için çevrimiçi ve sorgulanabilirdir. Aynı zamanda Esnetme Veritabanı var olan sorgularda veya uygulamalarda herhangi bir değişiklik gerektirmez, verilerin konumu uygulama için tamamen saydamdır.
 
-### <a name="streamlines-onpremises-data-maintenance"></a>Şirket\-içi veri bakımını modern hale getirir
+### <a name="streamlines-on-premises-data-maintenance"></a>Şirket\-içi veri bakımını modern hale getirir
 Verileriniz için şirket\-içi bakım ve depolama ihtiyacını azaltır. Şirket içi verilerinizin yedekleri bakım süresi içinde daha hızlı çalışır ve tamamlanır. Verilerinizin bulut bölümünün yedekleri otomatik olarak çalışır. Şirket içi depolama gereksinimleriniz önemli ölçüde azalır. Azure depolama, şirket içi SSD'ye ekleme yapmaya göre %80 daha ucuz olabilir.
 
 ### <a name="keeps-your-data-secure-even-during-migration"></a>Geçiş sırasında bile verilerinizi güvende tutar
@@ -84,6 +84,6 @@ Esnetme Veritabanı için veritabanlarını ve tabloları tanımlamak üzere SQL
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

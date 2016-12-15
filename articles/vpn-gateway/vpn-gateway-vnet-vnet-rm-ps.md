@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 08/31/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 7834aefeb9eb007ffa9daf708250c9f06ec05e67
-ms.openlocfilehash: 60cda42f7c11be8f3f014e1f59173f9243ba611b
+ms.sourcegitcommit: 3fe204c09eebf7d254a1bf2bb130e2d3498b6b45
+ms.openlocfilehash: 0f0b2df109d8326e5d15d4955ab4547c90df545b
 
 
 ---
@@ -74,7 +74,7 @@ Bu makaledeki adımlar her bölümün başında bildirilen değişkenleri kullan
 ![v2v diyagramı](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
 
 ### <a name="before-you-begin"></a>Başlamadan önce
-Başlamadan önce Azure Resource Manager PowerShell cmdlet’lerini yüklemeniz gerekir. PowerShell cmdlet'lerini yükleme hakkında daha fazla bilgi için bkz. [Azure PowerShell'i yükleme ve yapılandırma](../powershell-install-configure.md).
+Başlamadan önce Azure Resource Manager PowerShell cmdlet’lerini yüklemeniz gerekir. PowerShell cmdlet'lerini yükleme hakkında daha fazla bilgi için bkz. [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azureps-cmdlets-docs).
 
 ### <a name="a-namestep1astep-1---plan-your-ip-address-ranges"></a><a name="Step1"></a>1. adım -, IP adres aralıklarını planlama
 Aşağıdaki adımlarda kendi ağ geçidi alt ağları ve yapılandırmalarıyla birlikte iki sanal ağ oluşturulur. Daha sonra iki sanal ağ arasında bir VPN bağlantısı oluşturulur. Ağ yapılandırmanız için IP adres aralıklarını planlamanız önemlidir. Sanal ağ aralıklarınızın ya da yerel ağ aralıklarınızın hiçbir şekilde çakışmadığından emin olmalısınız.
@@ -434,6 +434,6 @@ Bu örnekte ağ geçitleri farklı aboneliklerde olduğundan bu adımı [1. Abon
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

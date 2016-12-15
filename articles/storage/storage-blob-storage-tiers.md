@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 10/18/2016
 ms.author: mihauss
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 31af2d1ade0c24a8d76e98d95fda287320552eea
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 998e95611bca6778de601239bcf9c81246dead83
 
 
 ---
@@ -248,7 +248,7 @@ Blob depolama hesaplarına ilişkin işlem maliyetlerini tahmin etmek için, far
 
 Genel amaçlı depolama hesaplarının işlem maliyetlerini tahmin etmek için işlemden/API’den bağımsız olarak tüm işlemleri toplamanız gerekir.
 
-##### <a name="data-access-and-georeplication-data-transfer-costs"></a>Veri erişimi ve coğrafi çoğaltma veri aktarımı maliyetleri
+##### <a name="data-access-and-geo-replication-data-transfer-costs"></a>Veri erişimi ve coğrafi çoğaltma veri aktarımı maliyetleri
 Storage Analytics bir depolama hesabından okunan ve depolama hesabına yazılan veri miktarını belirtmese de, işlem ölçümleri tablosuna bakılarak bu değer kabaca tahmin edilebilir.
 İşlem ölçüm tablosundaki bir API’nin tüm girişleri için *'TotalIngress'* toplamı, ilgili API’nin toplam giriş verileri miktarını bayt cinsinden belirtir.
 Benzer şekilde, *'TotalEgress'* toplamı toplam çıkış verileri miktarını bayt cinsinden belirtir.
@@ -345,6 +345,6 @@ Daha fazla bilgi için,bkz. [Azure Blob Storage’ı kullanmaya başlayın](stor
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

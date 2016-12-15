@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 09/27/2016
 ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 51d880650ab8059f3346b5c1272c232b49be33e9
+ms.sourcegitcommit: c9aa7cebab12eafe71476ee45ef578d3201e69e5
+ms.openlocfilehash: e7c38aa5a778d5e8a653e753e5794d7c7da31dc1
 
 
 ---
@@ -26,7 +26,7 @@ ms.openlocfilehash: 51d880650ab8059f3346b5c1272c232b49be33e9
 ## <a name="introduction"></a>Giriş
 Event Hubs bağlı cihaz ve uygulamalardan büyük miktarlarda olay verileri (telemetri) işleyen bir hizmettir. Verileri Event Hubs’a topladıktan sonra bir depolama kümesi kullanarak depolayabilir veya gerçek zamanlı bir analiz sağlayıcısı kullanarak dönüştürebilirsiniz. Bu büyük ölçekli olay toplama ve işleme özelliği, Nesnelerin İnterneti (IoT) gibi modern uygulama mimarilerinin temel bir bileşenidir.
 
-Bu öğretici, klasik Azure portalının bir Event Hub'ı oluşturmak için nasıl kullanılacağını gösterir. Ayrıca C# dilinde yazılmış bir konsol uygulaması kullanarak iletilerin bir Event Hub'ına toplanması ve Java Olay İşleyicisi Konağı kitaplığı kullanılarak bunların paralel olarak alınması gösterilmektedir.
+Bu öğretici, Azure portalının bir Olay Hub'ı oluşturmak için nasıl kullanılacağını gösterir. Ayrıca C# dilinde yazılmış bir konsol uygulaması kullanarak iletilerin bir Event Hub'ına toplanması ve Java Olay İşleyicisi Konağı kitaplığı kullanılarak bunların paralel olarak alınması gösterilmektedir.
 
 Bu öğreticiyi tamamlamak için şunlar gerekir:
 
@@ -52,22 +52,22 @@ Bu öğreticiyi tamamlamak için şunlar gerekir:
 ## <a name="next-steps"></a>Sonraki adımlar
 Event Hub'ı oluşturan ve veri gönderip alan çalışan bir uygulama oluşturduğunuza göre aşağıdaki senaryolara geçebilirsiniz:
 
-* Eksiksiz bir [Event Hubs kullanan örnek uygulama][Event Hubs kullanan örnek uygulama].
-* [Event Hubs ile Olay İşleme Ölçeğini Artırma][Event Hubs ile Olay İşleme Ölçeğini Artırma] örneği.
-* [Event Hubs’a genel bakış][Event Hubs’a genel bakış]
+* [Event Hubs kullanan bir örnek uygulamanın][sample application that uses Event Hubs] tamamı.
+* [Event Hubs ile Olay İşleme Ölçeğini Artırma][Scale out Event Processing with Event Hubs] örneği.
+* [Event Hubs'a genel bakış][Event Hubs overview]
 
 <!-- Images. -->
 [21]: ./media/event-hubs-csharp-ephjava-getstarted/ephjava.png
 [22]: ./media/event-hubs-csharp-ephjava-getstarted/cs-send.png
 
 <!-- Links -->
-[Klasik Azure portalı]: https://manage.windowsazure.com/
-[Event Hubs’a genel bakış]: event-hubs-overview.md
-[Event Hubs kullanan örnek uygulama]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
-[Event Hubs ile Olay İşleme Ölçeğini Artırma]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
+[Azure classic portal]: https://manage.windowsazure.com/
+[Event Hubs overview]: event-hubs-overview.md
+[sample application that uses Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
+[Scale out Event Processing with Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

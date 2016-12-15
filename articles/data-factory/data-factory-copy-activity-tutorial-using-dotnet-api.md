@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 10/27/2016
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 629ff68b11df0d17629ca101e5a80a396cfd0fb9
+ms.sourcegitcommit: d2d3f414d0e9fcc392d21327ef630f96c832c99c
+ms.openlocfilehash: 19d1cc75d61a3897c916180afa395bade43d47ec
 
 
 ---
@@ -30,74 +30,69 @@ ms.openlocfilehash: 629ff68b11df0d17629ca101e5a80a396cfd0fb9
 > * [Azure Resource Manager şablonu](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
 > * [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
 > * [.NET API’si](data-factory-copy-activity-tutorial-using-dotnet-api.md)
-> 
-> 
 
 Bu öğretici, .NET API kullanarak bir Azure veri fabrikası oluşturmayı ve izlemeyi gösterir. Veri fabrikasındaki işlem hattı, Azure Blob Depolama’dan Azure SQL veritabanı’na veri kopyalamak için bir Kopyalama Etkinliği kullanır.
 
-Kopyalama Etkinliği, Azure Data Factory’de veri hareketini gerçekleştirir. Etkinlik, çeşitli veri depolama alanları arasında güvenli, güvenilir ve ölçeklenebilir bir yolla veri kopyalayabilen genel olarak kullanılabilir bir hizmet tarafından desteklenir. Kopyalama etkinliği hakkında ayrıntılı bilgi için [Veri Taşıma Etkinlikleri](data-factory-data-movement-activities.md) makalesine bakın.   
+Kopyalama Etkinliği, Azure Data Factory’de veri hareketini gerçekleştirir. Etkinlik, çeşitli veri depolama alanları arasında güvenli, güvenilir ve ölçeklenebilir bir yolla veri kopyalayabilen genel olarak kullanılabilir bir hizmet tarafından desteklenir. Kopyalama etkinliği hakkında ayrıntılı bilgi için [Veri Taşıma Etkinlikleri](data-factory-data-movement-activities.md) makalesine bakın.
 
 > [!NOTE]
-> Bu makale, Data Factory .NET API’nin tamamını kapsamaz. Data Factory .NET SDK hakkında ayrıntılı bilgi için bkz. [Data Factory .NET API Başvurusu](https://msdn.microsoft.com/library/mt415893.aspx). 
-> 
-> 
+> Bu makale, Data Factory .NET API’nin tamamını kapsamaz. Data Factory .NET SDK hakkında ayrıntılı bilgi için bkz. [Data Factory .NET API Başvurusu](https://msdn.microsoft.com/library/mt415893.aspx).
 
 ## <a name="prerequisites"></a>Önkoşullar
-* Öğreticiye genel bir bakış atmak ve **ön koşul** adımlarını tamamlamak için [Öğreticiye Genel Bakış ve Ön Koşullar](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) bölümündeki adımları tamamlayın. 
+* Öğreticiye genel bir bakış atmak ve **ön koşul** adımlarını tamamlamak için [Öğreticiye Genel Bakış ve Ön Koşullar](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) bölümündeki adımları tamamlayın.
 * Visual Studio 2012 veya 2013 veya 2015
 * [Azure .NET SDK](http://azure.microsoft.com/downloads/)’yı indirip yükleyin
-* Azure PowerShell. Bilgisayarınıza Azure PowerShell’i yüklemek için [Azure PowerShell’i yükleme ve yapılandırma](../powershell-install-configure.md) makalesindeki yönergeleri izleyin. Azure PowerShell’i kullanarak bir Azure Active Directory uygulaması oluşturursunuz.
+* Azure PowerShell. Bilgisayarınıza Azure PowerShell’i yüklemek için [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azureps-cmdlets-docs) makalesindeki yönergeleri izleyin. Azure PowerShell’i kullanarak bir Azure Active Directory uygulaması oluşturursunuz.
 
 ### <a name="create-an-application-in-azure-active-directory"></a>Azure Active Directory’de uygulama oluşturma
-Bir Azure Active Directory uygulaması oluşturun, uygulama için bir hizmet sorumlusu oluşturun ve bunu **Data Factory Katılımcısı** rolüne atayın.  
+Bir Azure Active Directory uygulaması oluşturun, uygulama için bir hizmet sorumlusu oluşturun ve bunu **Data Factory Katılımcısı** rolüne atayın.
 
-1. **PowerShell**’i başlatın. 
+1. **PowerShell**’i başlatın.
 2. Aşağıdaki komutu çalıştırın ve Azure portalda oturum açmak için kullandığınız kullanıcı adı ve parolayı girin.
-   
-        Login-AzureRmAccount   
+
+        Login-AzureRmAccount
 3. Bu hesapla ilgili tüm abonelikleri görmek için aşağıdaki komutu çalıştırın.
-   
-        Get-AzureRmSubscription 
-4. Çalışmak isteğiniz aboneliği seçmek için aşağıdaki komutu çalıştırın. **&lt;NameOfAzureSubscription**&gt; değerini Azure aboneliğinizin adıyla değiştirin. 
-   
+
+        Get-AzureRmSubscription
+4. Çalışmak isteğiniz aboneliği seçmek için aşağıdaki komutu çalıştırın. **&lt;NameOfAzureSubscription**&gt; değerini Azure aboneliğinizin adıyla değiştirin.
+
         Get-AzureRmSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzureRmContext
-   
+
    > [!IMPORTANT]
-   > Bu komutun çıktısından **SubscriptionId** ve **TenantId** değerlerin not alın. 
-   > 
-   > 
-5. PowerShell’de aşağıdaki komutu çalıştırarak **ADFTutorialResourceGroup** adlı bir Azure kaynak grubu oluşturun.  
-   
+   > Bu komutun çıktısından **SubscriptionId** ve **TenantId** değerlerin not alın.
+
+5. PowerShell’de aşağıdaki komutu çalıştırarak **ADFTutorialResourceGroup** adlı bir Azure kaynak grubu oluşturun.
+
         New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
-   
-    Kaynak grubu zaten varsa bunun güncelleştirileceğini mi (Y) yoksa (N) olarak tutulacağını mı belirtirsiniz. 
-   
+
+    Kaynak grubu zaten varsa bunun güncelleştirileceğini mi (Y) yoksa (N) olarak tutulacağını mı belirtirsiniz.
+
     Farklı bir kaynak grubu kullanıyorsanız, bu öğreticide kullanılan ADFTutorialResourceGroup yerine kaynak grubunuzun adını kullanmanız gerekir.
-6. Bir Azure Active Directory uygulaması oluşturun. 
-   
+6. Bir Azure Active Directory uygulaması oluşturun.
+
         $azureAdApplication = New-AzureRmADApplication -DisplayName "ADFCopyTutotiralApp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.adfcopytutorialapp.org/example" -Password "Pass@word1"
-   
-    Aşağıdaki hatayı alırsanız farklı bir URL belirtip komutu yeniden çalıştırın. 
-   
+
+    Aşağıdaki hatayı alırsanız farklı bir URL belirtip komutu yeniden çalıştırın.
+
         Another object with the same value for property identifierUris already exists.
-7. AD hizmet sorumlusunu oluşturun. 
-   
+7. AD hizmet sorumlusunu oluşturun.
+
         New-AzureRmADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
-8. Hizmet sorumlusunu **Data Factory Katılımcısı** rolüne ekleyin. 
-   
+8. Hizmet sorumlusunu **Data Factory Katılımcısı** rolüne ekleyin.
+
         New-AzureRmRoleAssignment -RoleDefinitionName "Data Factory Contributor" -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
 9. Uygulama kimliğini alın.
-   
+
         $azureAdApplication
-   
+
     Uygulama kimliğini (çıktıdaki **applicationID** değeri) not alın.
 
-Bu adımlardan sonra aşağıdaki dört değere sahip olmanız gerekir: 
+Bu adımlardan sonra aşağıdaki dört değere sahip olmanız gerekir:
 
 * Kiracı Kimliği
 * Abonelik Kimliği
-* Uygulama Kimliği 
-* Parola (ik komutta belirtilir)   
+* Uygulama Kimliği
+* Parola (ik komutta belirtilir)
 
 ## <a name="walkthrough"></a>Kılavuz
 1. Visual Studio 2012/2013/2015'i kullanarak bir C# .NET konsol uygulaması oluşturun.
@@ -109,367 +104,391 @@ Bu adımlardan sonra aşağıdaki dört değere sahip olmanız gerekir:
    6. Konum için **C:\ADFGetStarted** yolunu seçin.
    7. Projeyi oluşturmak için **Tamam**'a tıklayın.
 2. **Araçlar**'a tıklayın, **NuGet Paket Yöneticisi**'nin üzerine gelin ve ardından **Paket Yöneticisi Konsolu**'na tıklayın.
-3. **Paket Yöneticisi Konsolu**'nda şu adımları uygulayın: 
-   1. Data Factory paketini yüklemek için şu komutu çalıştırın: `Install-Package Microsoft.Azure.Management.DataFactories`        
+3. **Paket Yöneticisi Konsolu**'nda şu adımları uygulayın:
+   1. Data Factory paketini yüklemek için şu komutu çalıştırın: `Install-Package Microsoft.Azure.Management.DataFactories`
    2. Azure Active Directory paketini yüklemek için şu komutu çalıştırın (kodda Active Directory API'sini kullanırsınız): `Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213`
-4. Aşağıdaki **appSetttings** bölümünü **App.config** dosyasına ekleyin. Bu ayarlar **GetAuthorizationHeader** yardımcı yöntemi tarafından kullanılır. 
-   
-    **&lt;Application ID&gt;**, **&lt;Password&gt;**, **&lt;Subscription ID&gt;** ve **&lt;tenant ID&gt;** değerlerini kendi değerlerinizle değiştirin. 
-   
-        <?xml version="1.0" encoding="utf-8" ?>
-        <configuration>
-            <startup> 
-                <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5.2" />
-            </startup>
-            <appSettings>
-                <add key="ActiveDirectoryEndpoint" value="https://login.windows.net/" />
-                <add key="ResourceManagerEndpoint" value="https://management.azure.com/" />
-                <add key="WindowsManagementUri" value="https://management.core.windows.net/" />
-   
-                <add key="ApplicationId" value="your application ID" />
-                <add key="Password" value="Password you used while creating the AAD application" />
-                <add key="SubscriptionId" value= "Subscription ID" />
-                <add key="ActiveDirectoryTenantId" value="Tenant ID" />
-            </appSettings>
-        </configuration>
+4. Aşağıdaki **appSetttings** bölümünü **App.config** dosyasına ekleyin. Bu ayarlar **GetAuthorizationHeader** yardımcı yöntemi tarafından kullanılır.
+
+    **&lt;Application ID&gt;**, **&lt;Password&gt;**, **&lt;Subscription ID&gt;** ve **&lt;tenant ID&gt;** değerlerini kendi değerlerinizle değiştirin.
+
+    ```xml
+    <?xml version="1.0" encoding="utf-8" ?>
+    <configuration>
+        <startup>
+            <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5.2" />
+        </startup>
+        <appSettings>
+            <add key="ActiveDirectoryEndpoint" value="https://login.windows.net/" />
+            <add key="ResourceManagerEndpoint" value="https://management.azure.com/" />
+            <add key="WindowsManagementUri" value="https://management.core.windows.net/" />
+
+            <add key="ApplicationId" value="your application ID" />
+            <add key="Password" value="Password you used while creating the AAD application" />
+            <add key="SubscriptionId" value= "Subscription ID" />
+            <add key="ActiveDirectoryTenantId" value="Tenant ID" />
+        </appSettings>
+    </configuration>
+    ```
+
 5. Aşağıdaki **using** bildirimlerini projedeki kaynak dosyasına (Program.cs) ekleyin.
-   
-        using System.Threading;
-        using System.Configuration;
-        using System.Collections.ObjectModel;
-   
-        using Microsoft.Azure.Management.DataFactories;
-        using Microsoft.Azure.Management.DataFactories.Models;
-        using Microsoft.Azure.Management.DataFactories.Common.Models;
-   
-        using Microsoft.IdentityModel.Clients.ActiveDirectory;
-        using Microsoft.Azure;
-6. **DataPipelineManagementClient** sınıfının bir örneğini oluşturan aşağıdaki kodu **Main** yöntemine ekleyin. Bir veri fabrikası, bağlı hizmet, girdi ve çıktı veri kümeleri ve işlem hattı oluşturmak için bu nesneyi kullanırsınız. Çalışma zamanında bir veri kümesinin dilimlerini izlemek için de bu nesneyi kullanırsınız.    
-   
-            // create data factory management client
-            string resourceGroupName = "ADFTutorialResourceGroup";
-            string dataFactoryName = "APITutorialFactory";
-   
-            TokenCloudCredentials aadTokenCredentials =
-                new TokenCloudCredentials(
-                    ConfigurationManager.AppSettings["SubscriptionId"],
-                    GetAuthorizationHeader());
-   
-            Uri resourceManagerUri = new Uri(ConfigurationManager.AppSettings["ResourceManagerEndpoint"]);
-   
-            DataFactoryManagementClient client = new DataFactoryManagementClient(aadTokenCredentials, resourceManagerUri);
-   
+
+    ```csharp
+    using System.Threading;
+    using System.Configuration;
+    using System.Collections.ObjectModel;
+
+    using Microsoft.Azure.Management.DataFactories;
+    using Microsoft.Azure.Management.DataFactories.Models;
+    using Microsoft.Azure.Management.DataFactories.Common.Models;
+
+    using Microsoft.IdentityModel.Clients.ActiveDirectory;
+    using Microsoft.Azure;
+    ```
+
+6. **DataPipelineManagementClient** sınıfının bir örneğini oluşturan aşağıdaki kodu **Main** yöntemine ekleyin. Bir veri fabrikası, bağlı hizmet, girdi ve çıktı veri kümeleri ve işlem hattı oluşturmak için bu nesneyi kullanırsınız. Çalışma zamanında bir veri kümesinin dilimlerini izlemek için de bu nesneyi kullanırsınız.
+
+    ```csharp
+    // create data factory management client
+    string resourceGroupName = "ADFTutorialResourceGroup";
+    string dataFactoryName = "APITutorialFactory";
+
+    TokenCloudCredentials aadTokenCredentials =
+        new TokenCloudCredentials(
+            ConfigurationManager.AppSettings["SubscriptionId"],
+            GetAuthorizationHeader());
+
+    Uri resourceManagerUri = new Uri(ConfigurationManager.AppSettings["ResourceManagerEndpoint"]);
+
+    DataFactoryManagementClient client = new DataFactoryManagementClient(aadTokenCredentials, resourceManagerUri);
+    ```
+
    > [!IMPORTANT]
-   > **resourceGroupName** değerini Azure kaynak grubunuzun adıyla değiştirin. 
-   > 
-   > Veri fabrikasının adını (**dataFactoryName**) benzersiz olacak şekilde güncelleştirin. Veri fabrikasının adı genel olarak benzersiz olmalıdır. Data Factory yapıtlarının adlandırma kuralları için [Data Factory - Adlandırma Kuralları](data-factory-naming-rules.md) konusuna bakın. 
-   > 
-   > 
+   > **resourceGroupName** değerini Azure kaynak grubunuzun adıyla değiştirin.
+   >
+   > Veri fabrikasının adını (**dataFactoryName**) benzersiz olacak şekilde güncelleştirin. Veri fabrikasının adı genel olarak benzersiz olmalıdır. Data Factory yapıtlarının adlandırma kuralları için [Data Factory - Adlandırma Kuralları](data-factory-naming-rules.md) konusuna bakın.
+
 7. Bir **veri fabrikası** oluşturan aşağıdaki kodu **Main** yöntemine ekleyin.
-   
-            // create a data factory
-            Console.WriteLine("Creating a data factory");
-            client.DataFactories.CreateOrUpdate(resourceGroupName,
-                new DataFactoryCreateOrUpdateParameters()
-                {
-                    DataFactory = new DataFactory()
-                    {
-                        Name = dataFactoryName,
-                        Location = "westus",
-                        Properties = new DataFactoryProperties() { }
-                    }
-                }
-            );
-8. Bir **Azure Depolama bağlı hizmeti** oluşturan aşağıdaki kodu **Main** yöntemine ekleyin. 
-   
-   > [!IMPORTANT]
-   > **storageaccountname** ve **accountkey** sözcüklerini Azure Depolama hesabınızın adı ve anahtarıyla değiştirin. 
-   > 
-   > 
-   
-            // create a linked service for input data store: Azure Storage
-            Console.WriteLine("Creating Azure Storage linked service");
-            client.LinkedServices.CreateOrUpdate(resourceGroupName, dataFactoryName,
-                new LinkedServiceCreateOrUpdateParameters()
-                {
-                    LinkedService = new LinkedService()
-                    {
-                        Name = "AzureStorageLinkedService",
-                        Properties = new LinkedServiceProperties
-                        (
-                            new AzureStorageLinkedService("DefaultEndpointsProtocol=https;AccountName=<storageaccountname>;AccountKey=<accountkey>")
-                        )
-                    }
-                }
-            );
-9. Bir **Azure SQL bağlı hizmeti** oluşturan aşağıdaki kodu **Main** yöntemine ekleyin.
-   
-   > [!IMPORTANT]
-   > **servername**, **databasename**, **username** ve **password** sözcüklerini Azure SQL sunucunuzun, veritabanınızın, kullanıcınızın adlarıyla ve parolasıyla değiştirin.  
-   > 
-   > 
-   
-            // create a linked service for output data store: Azure SQL Database
-            Console.WriteLine("Creating Azure SQL Database linked service");
-            client.LinkedServices.CreateOrUpdate(resourceGroupName, dataFactoryName,
-                new LinkedServiceCreateOrUpdateParameters()
-                {
-                    LinkedService = new LinkedService()
-                    {
-                        Name = "AzureSqlLinkedService",
-                        Properties = new LinkedServiceProperties
-                        (
-                            new AzureSqlDatabaseLinkedService("Data Source=tcp:<servername>.database.windows.net,1433;Initial Catalog=<databasename>;User ID=<username>;Password=<password>;Integrated Security=False;Encrypt=True;Connect Timeout=30")
-                        )
-                    }
-                }
-            );
-10. **Girdi ve çıktı veri kümeleri** oluşturan aşağıdaki kodu **Main** yöntemine ekleyin. 
-    
-            // create input and output datasets
-            Console.WriteLine("Creating input and output datasets");
-            string Dataset_Source = "DatasetBlobSource";
-            string Dataset_Destination = "DatasetAzureSqlDestination";
-    
-            Console.WriteLine("Creating input dataset of type: Azure Blob");
-            client.Datasets.CreateOrUpdate(resourceGroupName, dataFactoryName,
 
-            new DatasetCreateOrUpdateParameters()
+    ```csharp
+    // create a data factory
+    Console.WriteLine("Creating a data factory");
+    client.DataFactories.CreateOrUpdate(resourceGroupName,
+        new DataFactoryCreateOrUpdateParameters()
+        {
+            DataFactory = new DataFactory()
             {
-                Dataset = new Dataset()
-                {
-                    Name = Dataset_Source,
-                    Properties = new DatasetProperties()
-                    {
-                        Structure = new List<DataElement>()
-                        {
-                            new DataElement() { Name = "FirstName", Type = "String" },
-                            new DataElement() { Name = "LastName", Type = "String" }
-                        },
-                        LinkedServiceName = "AzureStorageLinkedService",
-                        TypeProperties = new AzureBlobDataset()
-                        {
-                            FolderPath = "adftutorial/",
-                            FileName = "emp.txt"
-                        },
-                        External = true,
-                        Availability = new Availability()
-                        {
-                            Frequency = SchedulePeriod.Hour,
-                            Interval = 1,
-                        },
+                Name = dataFactoryName,
+                Location = "westus",
+                Properties = new DataFactoryProperties() { }
+            }
+        }
+    );
+    ```
 
-                        Policy = new Policy()
+8. Bir **Azure Depolama bağlı hizmeti** oluşturan aşağıdaki kodu **Main** yöntemine ekleyin.
+
+   > [!IMPORTANT]
+   > **storageaccountname** ve **accountkey** sözcüklerini Azure Depolama hesabınızın adı ve anahtarıyla değiştirin.
+
+    ```csharp
+    // create a linked service for input data store: Azure Storage
+    Console.WriteLine("Creating Azure Storage linked service");
+    client.LinkedServices.CreateOrUpdate(resourceGroupName, dataFactoryName,
+        new LinkedServiceCreateOrUpdateParameters()
+        {
+            LinkedService = new LinkedService()
+            {
+                Name = "AzureStorageLinkedService",
+                Properties = new LinkedServiceProperties
+                (
+                    new AzureStorageLinkedService("DefaultEndpointsProtocol=https;AccountName=<storageaccountname>;AccountKey=<accountkey>")
+                )
+            }
+        }
+    );
+    ```
+
+9. Bir **Azure SQL bağlı hizmeti** oluşturan aşağıdaki kodu **Main** yöntemine ekleyin.
+
+   > [!IMPORTANT]
+   > **servername**, **databasename**, **username** ve **password** sözcüklerini Azure SQL sunucunuzun, veritabanınızın, kullanıcınızın adlarıyla ve parolasıyla değiştirin.
+
+    ```csharp
+    // create a linked service for output data store: Azure SQL Database
+    Console.WriteLine("Creating Azure SQL Database linked service");
+    client.LinkedServices.CreateOrUpdate(resourceGroupName, dataFactoryName,
+        new LinkedServiceCreateOrUpdateParameters()
+        {
+            LinkedService = new LinkedService()
+            {
+                Name = "AzureSqlLinkedService",
+                Properties = new LinkedServiceProperties
+                (
+                    new AzureSqlDatabaseLinkedService("Data Source=tcp:<servername>.database.windows.net,1433;Initial Catalog=<databasename>;User ID=<username>;Password=<password>;Integrated Security=False;Encrypt=True;Connect Timeout=30")
+                )
+            }
+        }
+    );
+    ```
+
+10. **Girdi ve çıktı veri kümeleri** oluşturan aşağıdaki kodu **Main** yöntemine ekleyin.
+
+    ```csharp
+    // create input and output datasets
+    Console.WriteLine("Creating input and output datasets");
+    string Dataset_Source = "DatasetBlobSource";
+    string Dataset_Destination = "DatasetAzureSqlDestination";
+
+    Console.WriteLine("Creating input dataset of type: Azure Blob");
+    client.Datasets.CreateOrUpdate(resourceGroupName, dataFactoryName,
+
+    new DatasetCreateOrUpdateParameters()
+    {
+        Dataset = new Dataset()
+        {
+            Name = Dataset_Source,
+            Properties = new DatasetProperties()
+            {
+                Structure = new List<DataElement>()
+                {
+                    new DataElement() { Name = "FirstName", Type = "String" },
+                    new DataElement() { Name = "LastName", Type = "String" }
+                },
+                LinkedServiceName = "AzureStorageLinkedService",
+                TypeProperties = new AzureBlobDataset()
+                {
+                    FolderPath = "adftutorial/",
+                    FileName = "emp.txt"
+                },
+                External = true,
+                Availability = new Availability()
+                {
+                    Frequency = SchedulePeriod.Hour,
+                    Interval = 1,
+                },
+
+                Policy = new Policy()
+                {
+                    Validation = new ValidationPolicy()
+                    {
+                        MinimumRows = 1
+                    }
+                }
+            }
+        }
+    });
+
+    Console.WriteLine("Creating output dataset of type: Azure SQL");
+    client.Datasets.CreateOrUpdate(resourceGroupName, dataFactoryName,
+        new DatasetCreateOrUpdateParameters()
+        {
+            Dataset = new Dataset()
+            {
+                Name = Dataset_Destination,
+                Properties = new DatasetProperties()
+                {
+                    Structure = new List<DataElement>()
+                    {
+                        new DataElement() { Name = "FirstName", Type = "String" },
+                        new DataElement() { Name = "LastName", Type = "String" }
+                    },
+                    LinkedServiceName = "AzureSqlLinkedService",
+                    TypeProperties = new AzureSqlTableDataset()
+                    {
+                        TableName = "emp"
+                    },
+
+                    Availability = new Availability()
+                    {
+                        Frequency = SchedulePeriod.Hour,
+                        Interval = 1,
+                    },
+                }
+            }
+        });
+    ```
+
+11. **Bir işlem hattı oluşturan ve işlem hattını etkinleştiren** aşağıdaki kodu **Main** yöntemine ekleyin. Bu işlem hattının **BlobSource**’u bir kaynak olarak, **BlobSink**’i ise bir havuz olarak alan bir **CopyActivity** etkinliği vardır.
+
+    ```csharp
+    // create a pipeline
+    Console.WriteLine("Creating a pipeline");
+    DateTime PipelineActivePeriodStartTime = new DateTime(2016, 8, 9, 0, 0, 0, 0, DateTimeKind.Utc);
+    DateTime PipelineActivePeriodEndTime = PipelineActivePeriodStartTime.AddMinutes(60);
+    string PipelineName = "ADFTutorialPipeline";
+
+    client.Pipelines.CreateOrUpdate(resourceGroupName, dataFactoryName,
+        new PipelineCreateOrUpdateParameters()
+        {
+            Pipeline = new Pipeline()
+            {
+                Name = PipelineName,
+                Properties = new PipelineProperties()
+                {
+                    Description = "Demo Pipeline for data transfer between blobs",
+
+            // Initial value for pipeline's active period. With this, you won't need to set slice status
+            Start = PipelineActivePeriodStartTime,
+                    End = PipelineActivePeriodEndTime,
+
+                    Activities = new List<Activity>()
+                    {
+                        new Activity()
                         {
-                            Validation = new ValidationPolicy()
+                            Name = "BlobToAzureSql",
+                            Inputs = new List<ActivityInput>()
                             {
-                                MinimumRows = 1
+                                new ActivityInput() {
+                                    Name = Dataset_Source
+                                }
+                            },
+                            Outputs = new List<ActivityOutput>()
+                            {
+                                new ActivityOutput()
+                                {
+                                    Name = Dataset_Destination
+                                }
+                            },
+                            TypeProperties = new CopyActivity()
+                            {
+                                Source = new BlobSource(),
+                                Sink = new BlobSink()
+                                {
+                                    WriteBatchSize = 10000,
+                                    WriteBatchTimeout = TimeSpan.FromMinutes(10)
+                                }
                             }
                         }
-                    }
+                    },
                 }
+            }
+        });
+    ```
+
+12. Çıktı veri kümesinin veri diliminin durumunu almak için aşağıdaki kodu **Main** yöntemine ekleyin. Bu örnekte beklenen yalnızca bir dilim vardır.
+
+    ```csharp
+    // Pulling status within a timeout threshold
+    DateTime start = DateTime.Now;
+    bool done = false;
+
+    while (DateTime.Now - start < TimeSpan.FromMinutes(5) && !done)
+    {
+        Console.WriteLine("Pulling the slice status");
+        // wait before the next status check
+        Thread.Sleep(1000 * 12);
+
+        var datalistResponse = client.DataSlices.List(resourceGroupName, dataFactoryName, Dataset_Destination,
+            new DataSliceListParameters()
+            {
+                DataSliceRangeStartTime = PipelineActivePeriodStartTime.ConvertToISO8601DateTimeString(),
+                DataSliceRangeEndTime = PipelineActivePeriodEndTime.ConvertToISO8601DateTimeString()
             });
 
+        foreach (DataSlice slice in datalistResponse.DataSlices)
+        {
+            if (slice.State == DataSliceState.Failed || slice.State == DataSliceState.Ready)
+            {
+                Console.WriteLine("Slice execution is done with status: {0}", slice.State);
+                done = true;
+                break;
+            }
+            else
+            {
+                Console.WriteLine("Slice status is: {0}", slice.State);
+            }
+        }
+    }
+    ```
 
-            Console.WriteLine("Creating output dataset of type: Azure SQL");
-            client.Datasets.CreateOrUpdate(resourceGroupName, dataFactoryName,
-                new DatasetCreateOrUpdateParameters()
-                {
-                    Dataset = new Dataset()
-                    {
-                        Name = Dataset_Destination,
-                        Properties = new DatasetProperties()
-                        {
-                            Structure = new List<DataElement>()
-                            {
-                                new DataElement() { Name = "FirstName", Type = "String" },
-                                new DataElement() { Name = "LastName", Type = "String" }
-                            },
-                            LinkedServiceName = "AzureSqlLinkedService",
-                            TypeProperties = new AzureSqlTableDataset()
-                            {
-                                TableName = "emp"
-                            },
+13. Bir veri diliminin çalıştırma ayrıntılarını almak için aşağıdaki kodu **Main** yöntemine ekleyin.
 
-                            Availability = new Availability()
-                            {
-                                Frequency = SchedulePeriod.Hour,
-                                Interval = 1,
-                            },
-                        }
-                    }
-                });
+    ```csharp
+    Console.WriteLine("Getting run details of a data slice");
 
-1. **Bir işlem hattı oluşturan ve işlem hattını etkinleştiren** aşağıdaki kodu **Main** yöntemine ekleyin. Bu işlem hattının **BlobSource**’u bir kaynak olarak, **BlobSink**’i ise bir havuz olarak alan bir **CopyActivity** etkinliği vardır.
-   
-           // create a pipeline
-           Console.WriteLine("Creating a pipeline");
-           DateTime PipelineActivePeriodStartTime = new DateTime(2016, 8, 9, 0, 0, 0, 0, DateTimeKind.Utc);
-           DateTime PipelineActivePeriodEndTime = PipelineActivePeriodStartTime.AddMinutes(60);
-           string PipelineName = "ADFTutorialPipeline";
-   
-           client.Pipelines.CreateOrUpdate(resourceGroupName, dataFactoryName,
-               new PipelineCreateOrUpdateParameters()
-               {
-                   Pipeline = new Pipeline()
-                   {
-                       Name = PipelineName,
-                       Properties = new PipelineProperties()
-                       {
-                           Description = "Demo Pipeline for data transfer between blobs",
-   
-                   // Initial value for pipeline's active period. With this, you won't need to set slice status
-                   Start = PipelineActivePeriodStartTime,
-                           End = PipelineActivePeriodEndTime,
-   
-                           Activities = new List<Activity>()
-                           {
-                               new Activity()
-                               {
-                                   Name = "BlobToAzureSql",
-                                   Inputs = new List<ActivityInput>()
-                                   {
-                                       new ActivityInput() {
-                                           Name = Dataset_Source
-                                       }
-                                   },
-                                   Outputs = new List<ActivityOutput>()
-                                   {
-                                       new ActivityOutput()
-                                       {
-                                           Name = Dataset_Destination
-                                       }
-                                   },
-                                   TypeProperties = new CopyActivity()
-                                   {
-                                       Source = new BlobSource(),
-                                       Sink = new BlobSink()
-                                       {
-                                           WriteBatchSize = 10000,
-                                           WriteBatchTimeout = TimeSpan.FromMinutes(10)
-                                       }
-                                   }
-                               }
-                           },
-                       }
-                   }
-               });    
-2. Çıktı veri kümesinin veri diliminin durumunu almak için aşağıdaki kodu **Main** yöntemine ekleyin. Bu örnekte beklenen yalnızca bir dilim vardır.   
-   
-           // Pulling status within a timeout threshold
-           DateTime start = DateTime.Now;
-           bool done = false;
-   
-           while (DateTime.Now - start < TimeSpan.FromMinutes(5) && !done)
-           {
-               Console.WriteLine("Pulling the slice status");
-               // wait before the next status check
-               Thread.Sleep(1000 * 12);
-   
-               var datalistResponse = client.DataSlices.List(resourceGroupName, dataFactoryName, Dataset_Destination,
-                   new DataSliceListParameters()
-                   {
-                       DataSliceRangeStartTime = PipelineActivePeriodStartTime.ConvertToISO8601DateTimeString(),
-                       DataSliceRangeEndTime = PipelineActivePeriodEndTime.ConvertToISO8601DateTimeString()
-                   });
-   
-               foreach (DataSlice slice in datalistResponse.DataSlices)
-               {
-                   if (slice.State == DataSliceState.Failed || slice.State == DataSliceState.Ready)
-                   {
-                       Console.WriteLine("Slice execution is done with status: {0}", slice.State);
-                       done = true;
-                       break;
-                   }
-                   else
-                   {
-                       Console.WriteLine("Slice status is: {0}", slice.State);
-                   }
-               }
-           }
-3. Bir veri diliminin çalıştırma ayrıntılarını almak için aşağıdaki kodu **Main** yöntemine ekleyin.
-   
-           Console.WriteLine("Getting run details of a data slice");
-   
-           // give it a few minutes for the output slice to be ready
-           Console.WriteLine("\nGive it a few minutes for the output slice to be ready and press any key.");
-           Console.ReadKey();
-   
-           var datasliceRunListResponse = client.DataSliceRuns.List(
-                   resourceGroupName,
-                   dataFactoryName,
-                   Dataset_Destination,
-                   new DataSliceRunListParameters()
-                   {
-                       DataSliceStartTime = PipelineActivePeriodStartTime.ConvertToISO8601DateTimeString()
-                   }
-               );
-   
-           foreach (DataSliceRun run in datasliceRunListResponse.DataSliceRuns)
-           {
-               Console.WriteLine("Status: \t\t{0}", run.Status);
-               Console.WriteLine("DataSliceStart: \t{0}", run.DataSliceStart);
-               Console.WriteLine("DataSliceEnd: \t\t{0}", run.DataSliceEnd);
-               Console.WriteLine("ActivityId: \t\t{0}", run.ActivityName);
-               Console.WriteLine("ProcessingStartTime: \t{0}", run.ProcessingStartTime);
-               Console.WriteLine("ProcessingEndTime: \t{0}", run.ProcessingEndTime);
-               Console.WriteLine("ErrorMessage: \t{0}", run.ErrorMessage);
-           }
-   
-           Console.WriteLine("\nPress any key to exit.");
-           Console.ReadKey();
-4. **Main** yöntemi tarafından kullanılan aşağıdaki yardımcı yöntemini **Program** sınıfına ekleyin.  
-   
-       public static string GetAuthorizationHeader()
-       {
-           AuthenticationResult result = null;
-           var thread = new Thread(() =>
-           {
-               try
-               {
-                   var context = new AuthenticationContext(ConfigurationManager.AppSettings["ActiveDirectoryEndpoint"] + ConfigurationManager.AppSettings["ActiveDirectoryTenantId"]);
-   
-                   ClientCredential credential = new ClientCredential(ConfigurationManager.AppSettings["ApplicationId"], ConfigurationManager.AppSettings["Password"]);
-                   result = context.AcquireToken(resource: ConfigurationManager.AppSettings["WindowsManagementUri"], clientCredential: credential);
-               }
-               catch (Exception threadEx)
-               {
-                   Console.WriteLine(threadEx.Message);
-               }
-           });
-   
-           thread.SetApartmentState(ApartmentState.STA);
-           thread.Name = "AcquireTokenThread";
-           thread.Start();
-           thread.Join();
-   
-           if (result != null)
-           {
-               return result.AccessToken;
-           }
-   
-           throw new InvalidOperationException("Failed to acquire token");
-       }  
-5. Çözüm Gezgini’nde projeyi (**DataFactoryAPITestApp**) genişletin, **Başvurular**’a sağ tıklayın ve **Başvuru Ekle**’ye tıklayın. "**System.Configuration**" derlemesinin onay kutusunu işaretleyip **Tamam**’a tıklayın. 
-6. Konsol uygulamasını derleyin. Menüde **Derle**’ye tıklayın ve **Çözümü Derle**’ye tıklayın. 
-7. Azure blob depolamanızdaki **adftutorial** kapsayıcısında en az bir dosya olduğunu onaylayın. Aksi takdirde, Not Defteri’nde aşağıdaki içeriklerle **Emp.txt** dosyası oluşturun ve dosyayı adftutorial kapsayıcısına yükleyin.
-   
-       John, Doe
-       Jane, Doe
-8. Menüden **Hata Ayıkla** -> **Hata Ayıklamayı Başlat**’a tıklayarak örneği çalıştırın. **Getting run details of a data slice** iletisini gördüğünüzde birkaç dakika bekleyin ve **ENTER** tuşuna basın. 
-9. Azure portalı kullanarak **APITutorialFactory** veri fabrikasının aşağıdaki yapıtlarla birlikte oluşturulduğunu doğrulayın: 
-   * Bağlı hizmet: **LinkedService_AzureStorage** 
+    // give it a few minutes for the output slice to be ready
+    Console.WriteLine("\nGive it a few minutes for the output slice to be ready and press any key.");
+    Console.ReadKey();
+
+    var datasliceRunListResponse = client.DataSliceRuns.List(
+            resourceGroupName,
+            dataFactoryName,
+            Dataset_Destination,
+            new DataSliceRunListParameters()
+            {
+                DataSliceStartTime = PipelineActivePeriodStartTime.ConvertToISO8601DateTimeString()
+            }
+        );
+
+    foreach (DataSliceRun run in datasliceRunListResponse.DataSliceRuns)
+    {
+        Console.WriteLine("Status: \t\t{0}", run.Status);
+        Console.WriteLine("DataSliceStart: \t{0}", run.DataSliceStart);
+        Console.WriteLine("DataSliceEnd: \t\t{0}", run.DataSliceEnd);
+        Console.WriteLine("ActivityId: \t\t{0}", run.ActivityName);
+        Console.WriteLine("ProcessingStartTime: \t{0}", run.ProcessingStartTime);
+        Console.WriteLine("ProcessingEndTime: \t{0}", run.ProcessingEndTime);
+        Console.WriteLine("ErrorMessage: \t{0}", run.ErrorMessage);
+    }
+
+    Console.WriteLine("\nPress any key to exit.");
+    Console.ReadKey();
+    ```
+
+14. **Main** yöntemi tarafından kullanılan aşağıdaki yardımcı yöntemini **Program** sınıfına ekleyin.
+
+    ```csharp
+    public static string GetAuthorizationHeader()
+    {
+        AuthenticationResult result = null;
+        var thread = new Thread(() =>
+        {
+            try
+            {
+                var context = new AuthenticationContext(ConfigurationManager.AppSettings["ActiveDirectoryEndpoint"] + ConfigurationManager.AppSettings["ActiveDirectoryTenantId"]);
+
+                ClientCredential credential = new ClientCredential(ConfigurationManager.AppSettings["ApplicationId"], ConfigurationManager.AppSettings["Password"]);
+                result = context.AcquireToken(resource: ConfigurationManager.AppSettings["WindowsManagementUri"], clientCredential: credential);
+            }
+            catch (Exception threadEx)
+            {
+                Console.WriteLine(threadEx.Message);
+            }
+        });
+
+        thread.SetApartmentState(ApartmentState.STA);
+        thread.Name = "AcquireTokenThread";
+        thread.Start();
+        thread.Join();
+
+        if (result != null)
+        {
+            return result.AccessToken;
+        }
+
+        throw new InvalidOperationException("Failed to acquire token");
+    }
+    ```
+
+15. Çözüm Gezgini’nde projeyi (**DataFactoryAPITestApp**) genişletin, **Başvurular**’a sağ tıklayın ve **Başvuru Ekle**’ye tıklayın. "**System.Configuration**" derlemesinin onay kutusunu işaretleyip **Tamam**’a tıklayın.
+16. Konsol uygulamasını derleyin. Menüde **Derle**’ye tıklayın ve **Çözümü Derle**’ye tıklayın.
+17. Azure blob depolamanızdaki **adftutorial** kapsayıcısında en az bir dosya olduğunu onaylayın. Aksi takdirde, Not Defteri’nde aşağıdaki içeriklerle **Emp.txt** dosyası oluşturun ve dosyayı adftutorial kapsayıcısına yükleyin.
+
+       Ahmet, Öztürk    Pınar, Karaca
+18. Menüden **Hata Ayıkla** -> **Hata Ayıklamayı Başlat**’a tıklayarak örneği çalıştırın. **Getting run details of a data slice** iletisini gördüğünüzde birkaç dakika bekleyin ve **ENTER** tuşuna basın.
+19. Azure portalı kullanarak **APITutorialFactory** veri fabrikasının aşağıdaki yapıtlarla birlikte oluşturulduğunu doğrulayın:
+   * Bağlı hizmet: **LinkedService_AzureStorage**
    * Veri kümesi: **DatasetBlobSource** ve **DatasetBlobDestination**.
-   * İşlem hattı: **PipelineBlobSample** 
-10. Belirtilen Azure SQL veritabanındaki "**emp**" tablosunda, iki çalışan kaydının oluşturulduğunu doğrulayın.
+   * İşlem hattı: **PipelineBlobSample**
+20. Belirtilen Azure SQL veritabanındaki "**emp**" tablosunda, iki çalışan kaydının oluşturulduğunu doğrulayın.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 * Bu öğreticide kullandığınız Kopyalama Etkinliği hakkında ayrıntılı bilgi sağlayan [Veri Taşıma Etkinlikleri](data-factory-data-movement-activities.md) makalesini sonuna kadar okuyun.
-* Data Factory .NET SDK hakkında ayrıntılı bilgi için bkz. [Data Factory .NET API Başvurusu](https://msdn.microsoft.com/library/mt415893.aspx). Bu makale, Data Factory .NET API’nin tamamını kapsamaz. 
+* Data Factory .NET SDK hakkında ayrıntılı bilgi için bkz. [Data Factory .NET API Başvurusu](https://msdn.microsoft.com/library/mt415893.aspx). Bu makale, Data Factory .NET API’nin tamamını kapsamaz.
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

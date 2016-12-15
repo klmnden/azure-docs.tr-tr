@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 10/10/2016
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 535eb3c22dad35da3c1dbc10be5a7c11c6bb8d00
+ms.sourcegitcommit: c1551b250ace3aa6775932c441fcfe28431f8f57
+ms.openlocfilehash: 42a1e634ef2c832fd0213fdae12f74db7eb264f5
 
 
 ---
@@ -37,7 +37,7 @@ Bu öğretici, Azure Resource Manager şablonu kullanarak bir Azure veri fabrika
 
 ## <a name="prerequisites"></a>Önkoşullar
 * [Öğreticiye Genel Bakış ve Ön Koşullar](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) bölümünü inceleyin ve **ön koşul** adımlarını tamamlayın.
-* Bilgisayarınıza Azure PowerShell’in en son sürümünü yüklemek için [Azure PowerShell’i yükleme ve yapılandırma](../powershell-install-configure.md) makalesindeki yönergeleri izleyin. Bu öğreticide PowerShell’i kullanarak Data Factory varlıklarını dağıtırsınız. 
+* Bilgisayarınıza Azure PowerShell’in en son sürümünü yüklemek için [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azureps-cmdlets-docs) makalesindeki yönergeleri izleyin. Bu öğreticide PowerShell’i kullanarak Data Factory varlıklarını dağıtırsınız. 
 * (isteğe bağlı) Azure Resource Manager şablonları hakkında bilgi için bkz. [Azure Resource Manager Şablonları Yazma](../resource-group-authoring-templates.md).
 
 ## <a name="in-this-tutorial"></a>Bu öğreticide
@@ -548,6 +548,6 @@ Ayrıca tekrarlanan görevleri gerçekleştirmek için şablonu yeniden kullanab
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 09/20/2016
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 4ddc691f4f3d53dbff2e55b7a97446427b93a8a4
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: bdd7d3d6e532efe7c3ed8225dd29a895725f2ff9
 
 
 ---
@@ -171,7 +171,7 @@ Bu uyarı bu saldırıyı başlatmak için kullanılan kaynağı, saldırıya u�
 
 [AZURE.NOTE] Dinamik IP adresleri gizlilik amacıyla bu ekran görüntüsünden kaldırılmıştır.
 
-### <a name="possible-outgoing-denialofservice-attack-detected"></a>Olası giden hizmet reddi saldırısı algılandı
+### <a name="possible-outgoing-denial-of-service-attack-detected"></a>Olası giden hizmet reddi saldırısı algılandı
 Bir sanal makineden kaynaklanan anormal ağ trafiği, Güvenlik Merkezi’nin olası bir hizmet reddi saldırı türü tetiklemesine yol açabilir.
 
 İşte bu tür bir uyarı örneği:
@@ -214,6 +214,6 @@ Bu belgede Güvenlik Merkezi’ndeki farklı güvenlik uyarısı türleri hakkı
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

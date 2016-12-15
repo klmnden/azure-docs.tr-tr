@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 08/17/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 68f3736069a153e6de9a7ba5f11708a4eb648dbf
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 8a3f389250920dcdb49a5f88812d2e3b88bfd6c6
 
 
 ---
-# <a name="deploy-your-onpremises-storsimple-device-update-1"></a>Şirket içi StorSimple cihazınızı dağıtma (Güncelleştirme 1)
+# <a name="deploy-your-on-premises-storsimple-device-update-1"></a>Şirket içi StorSimple cihazınızı dağıtma (Güncelleştirme 1)
 > [!div class="op_single_selector"]
 > * [Güncelleştirme 2](storsimple-deployment-walkthrough-u2.md)
 > * [Güncelleştirme 1](storsimple-deployment-walkthrough-u1.md)
@@ -131,7 +131,7 @@ Başlamadan önce aşağıdakilerden emin olun:
 
 * Veri merkezi güvenlik duvarınızdaki bağlantı noktaları iSCSI ve bulut trafiğine izin vermek için [StorSimple cihazınız için ağ gereksinimleri](storsimple-system-requirements.md#networking-requirements-for-your-storsimple-device) bölümünde belirtildiği şekilde açık.
 
-## <a name="stepbystep-deployment"></a>Adım adım dağıtım
+## <a name="step-by-step-deployment"></a>Adım adım dağıtım
 StorSimple cihazınızı veri merkezinde dağıtmak için aşağıdaki adım adım yönergeleri kullanın.
 
 ## <a name="step-1-create-a-new-service"></a>1. Adım: Yeni bir hizmet oluşturun
@@ -270,6 +270,6 @@ Bir Linux konağına bağlı bir StorSimple cihazına yönelik MPIO yükleme yö
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

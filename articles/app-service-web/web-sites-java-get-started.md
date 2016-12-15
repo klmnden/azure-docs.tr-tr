@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 11/01/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 0b7c4c95328eb3ca573694b8eca0b0abda646fc5
-ms.openlocfilehash: a8fcbf069d1d06249b27687c3dd9f993dc40d40d
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: e2785d007aa30d3ef70ce2ca6049cdd4e9733099
 
 
 ---
@@ -37,7 +37,7 @@ Bir App Service web uygulamasında Java uygulaması kurmanın çeşitli yönteml
 
 1. Bir uygulama oluşturun ve **Uygulama ayarları**’nı yapılandırın.
    
-    App Service, varsayılan yapılandırmayla çeşitli Tomcat ve Jetty sürümleri sağlar. Barındıracağınız uygulama yerleşik sürümlerden biriyle birlikte çalışacaksa, bu web kapsayıcısı ayarlama yöntemi en kolayıdır ve web kapsayıcısına bir war dosyası yüklemek istediğinizde mükemmeldir. Bu yöntem için, Azure Portal'da bir uygulama oluşturun ve Java sürümünüzle birlikte istediğiniz Java web kapsayıcısını seçmek için uygulamanızın **Uygulama ayarları** dikey penceresine gidin. Bu yöntemi kullandığınızda, Java ve web kapsayıcınız Program Dosyaları’ndan çalıştırılır. Diğer yöntemler web kapsayıcısını ve potansiyel olarak JVM’yi disk alanınıza yerleştirir. Bu modeli kullandığınızda, dosya sisteminin bu bölümündeki dosyaları düzenleme erişiminiz olmaz. Bu, *server.xml* dosyasını yapılandırma veya kitaplık dosyalarını */lib* klasörüne yerleştirme gibi işlemleri yapmayacağınız anlamına gelir. Daha fazla bilgi için, bu öğreticinin ilerleyen bölümlerindeki [ Java web uygulaması oluşturma ve yapılandırma](#appsettings) bölümüne bakın.
+    App Service, varsayılan yapılandırmayla çeşitli Tomcat ve Jetty sürümleri sağlar. Barındıracağınız uygulama yerleşik sürümlerden biriyle birlikte çalışacaksa, bu web kapsayıcısı ayarlama yöntemi en kolayıdır ve web kapsayıcısına bir war dosyası yüklemek istediğinizde mükemmeldir. Bu yöntem için, Azure Portal'da bir uygulama oluşturun ve Java sürümünüzle birlikte istediğiniz Java web kapsayıcısını seçmek için uygulamanızın **Uygulama ayarları** dikey penceresine gidin. Bu yöntemi kullandığınızda, Java ve web kapsayıcınız Program Dosyaları’ndan çalıştırılır. Diğer yöntemler web kapsayıcısını ve potansiyel olarak JVM’yi disk alanınıza yerleştirir. Bu modeli kullandığınızda, dosya sisteminin bu bölümündeki dosyaları düzenleme erişiminiz olmaz. Bu, *server.xml* dosyasını yapılandırma veya kitaplık dosyalarını */lib* klasörüne yerleştirme gibi işlemleri yapmayacağınız anlamına gelir. Daha fazla bilgi için, bu öğreticinin ilerleyen bölümlerindeki [ Java web uygulaması oluşturma ve yapılandırma](#portal) bölümüne bakın.
 2. Azure Market’teki bir şablonu kullanma
    
     Azure Market, Tomcat veya Jetty web kapsayıcılarıyla Java web uygulamalarını otomatik olarak oluşturan şablonları içerir. Şablonların oluşturduğu web kapsayıcısı yapılandırılabilir. Daha fazla bilgi için, bu öğreticinin [Azure Market’teki bir Java şablonunu kullanma](#marketplace) bölümüne bakın.
@@ -169,6 +169,6 @@ Azure'da Java uygulamaları geliştirme hakkında daha fazla bilgi için bkz. [J
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

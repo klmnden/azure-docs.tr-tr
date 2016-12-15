@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 11/16/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 35b0d0e7dd73852900384c34b8b842754434cc93
-ms.openlocfilehash: 4fbdb64918a642dbe899ab8b606fbf58e1fb94d3
+ms.sourcegitcommit: 5d3bcc3c1434b16279778573ccf3034f9ac28a4d
+ms.openlocfilehash: 40ae0d242968db83c4d4d04452fbfd93559af31e
 
 
 ---
@@ -33,7 +33,7 @@ StorSimple sanal cihazı, standart 8010 (önceden 1100 olarak biliniyordu) ve pr
 | **Azure VM** |Standard_A3 (4 çekirdek, 7 GB bellek) |Standard_DS3 (4 çekirdek, 14 GB bellek) |
 | **Sürüm uyumluluğu** |Güncelleştirme 2 ya da üst sürümü öncesini çalıştıran sürümler |Güncelleştirme 2 ya da üst sürümünü çalıştıran sürümler |
 | **Bölge kullanılabilirliği** |Tüm Azure bölgeleri |Premium Storage destekleyen Azure bölgeleri<br></br>Bölgelerin bir listesi için bkz. [8020 için desteklenen bölgeler](#supported-regions-for-8020) |
-| **Depolama türü** |Yerel diskler için Azure Standard Storage kullanır.<br></br> [Standart Depolama hesabı oluşturmayı](../storage/storage-create-storage-account.md) öğrenin. |Yerel diskler için Azure Premium Depolama kullanır<sup>2</sup> <br></br>[Premium Storage hesabı oluşturmayı](../storage/storage-premium-storage.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk) öğrenin. |
+| **Depolama türü** |Yerel diskler için Azure Standard Storage kullanır.<br></br> [Standart Depolama hesabı oluşturmayı](../storage/storage-create-storage-account.md) öğrenin. |Yerel diskler için Azure Premium Depolama kullanır<sup>2</sup> <br></br>[Premium Storage hesabı oluşturmayı](../storage/storage-premium-storage.md#quick-start-create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk) öğrenin. |
 | **İş yükü kılavuzu** |Yedeklerden dosya alma öğe düzeyi |Bulut geliştirme ve test senaryoları, düşük gecikme, daha yüksek performans iş yükleri <br></br>Olağanüstü durum kurtarma için ikincil cihaz |
 
 <sup>1</sup> *Önceden 1100 olarak biliniyordu*.
@@ -41,7 +41,7 @@ StorSimple sanal cihazı, standart 8010 (önceden 1100 olarak biliniyordu) ve pr
 <sup>2</sup> *Hem 8010 hem de 8020 bulut katmanı için Azure Standart Depolama kullanır. Tek fark cihazdaki yerel katmandadır*.
 
 #### <a name="supported-regions-for-8020"></a>8020 için desteklenen bölgeler
-8020 için şu anda desteklenen Premium Storage bölgeleri aşağıdaki tabloda verilmiştir. Premium Storage daha fazla bölgede kullanılabilir oldukça liste sürekli güncelleştirilecektir. 
+8020 için şu anda desteklenen Premium Storage bölgeleri aşağıdaki tabloda verilmiştir. Premium Storage daha fazla bölgede kullanılabilir oldukça liste sürekli güncelleştirilecektir.
 
 | S. no. | Şu anda desteklenmediği bölgeler |
 | --- | --- |
@@ -68,7 +68,7 @@ Bu makalede, Azure’da bir StorSimple sanal cihazı dağıtma işlemi adım ad�
 * Sanal cihaza bağlanma
 * Sanal cihazla çalışmayı öğrenme.
 
-Bu öğretici Güncelleştirme 2 ve üst sürümünü çalıştıran tüm StorSimple sanal cihazları için geçerlidir. 
+Bu öğretici Güncelleştirme 2 ve üst sürümünü çalıştıran tüm StorSimple sanal cihazları için geçerlidir.
 
 ## <a name="how-the-virtual-device-differs-from-the-physical-device"></a>Sanal cihazın fiziksel cihazdan farkı
 StorSimple sanal cihazı, Microsoft Azure Sanal Makinesi’nde tek düğümde çalışan StorSimple’ın yalnızca yazılım olan bir sürümüdür. Sanal cihaz, fiziksel cihazınızın kullanılamadığı kurtarma senaryolarını destekler ve yedekler, şirket içi olağanüstü durum kurtarma ve bulut geliştirme ve test senaryolarından öğe düzeyinde alma için uygundur.
@@ -91,9 +91,9 @@ Sanal cihaz sağlamadan önce, Azure ortamınızda aşağıdaki hazırlıkları 
 
 * Sanal cihaz için, [Azure üzerinde bir sanal ağ yapılandırın](../virtual-network/virtual-networks-create-vnet-classic-portal.md). Premium Storage kullanıyorsanız, Premium Storage’ı destekleyen bir Azure bölgesinde sanal ağ oluşturmanız gerekir. Daha fazla bilgi için bkz. [8020 için şu anda desteklenen Premium Depolama bölgeleri](#supported-regions-for-8020).
 * Kendi DNS sunucu adınızı belirtmek yerine Azure tarafından sağlanan varsayılan DNS sunucusunu kullanmanız önerilir. DNS sunucusu adınız geçerli değilse veya DNS sunucusu IP adreslerini doğru çözümleyemiyorsa, sanal cihaz oluşturma başarısız olur.
-* Noktadan siteye ve siteden siteye isteğe bağlıdır, ancak gerekli değildir. İsterseniz, daha gelişmiş senaryolar için bu seçenekleri yapılandırabilirsiniz. 
+* Noktadan siteye ve siteden siteye isteğe bağlıdır, ancak gerekli değildir. İsterseniz, daha gelişmiş senaryolar için bu seçenekleri yapılandırabilirsiniz.
 * Sanal cihaz tarafından sunulan birimleri kullanabileceğiniz sanal ağda [Azure Sanal Makineleri](../virtual-machines/virtual-machines-linux-about.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (barındırma sunucuları) oluşturabilirsiniz. Bu sunucular aşağıdaki gereksinimleri karşılamalıdır:                             
-  
+
   * iSCSI Initiator yazılımı yüklü Windows veya Linux sanal makineleri olmalıdır.
   * Sanal cihazla aynı sanal ağda çalışıyor olmalıdır.
   * Sanal cihazın iç IP adresi üzerinden sanal cihazın iSCSI hedefine bağlanabilir olmalıdır.
@@ -103,7 +103,7 @@ Sanal cihaz sağlamadan önce, Azure ortamınızda aşağıdaki hazırlıkları 
 Sanal cihaz oluşturmadan önce, Azure StorSimple hizmetinize aşağıdaki güncelleştirmeleri uygulayın:
 
 * Sanal cihazınız için barındırma sunucuları olacak sanal makineler için [erişim denetimi kayıtları](storsimple-manage-acrs.md) ekleyin.
-* Sanal cihazla aynı bölgede bir [depolama hesabı](storsimple-manage-storage-accounts.md#add-a-storage-account) kullanın. Farklı bölgelerdeki Depolama hesapları performansın düşmesine neden olabilir. Sanal cihazla Standart veya Premium Storage hesabı kullanabilirsiniz. [Standard Storage hesabı]((../storage/storage-create-storage-account.md) ya da [Premium Storage hesabı](../storage/storage-premium-storage.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk) oluşturma hakkında daha fazla bilgi
+* Sanal cihazla aynı bölgede bir [depolama hesabı](storsimple-manage-storage-accounts.md#add-a-storage-account) kullanın. Farklı bölgelerdeki Depolama hesapları performansın düşmesine neden olabilir. Sanal cihazla Standart veya Premium Storage hesabı kullanabilirsiniz. [Standard Storage hesabı]((../storage/storage-create-storage-account.md) ya da [Premium Storage hesabı](../storage/storage-premium-storage.md#quick-start-create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk) oluşturma hakkında daha fazla bilgi
 * Verileriniz için oluşturduğunuzdan sanal cihaz oluşturma için farklı bir depolama hesabı kullanın. Aynı depolama hesabı kullanmak performansın düşmesine neden olabilir.
 
 Başlamadan önce aşağıdaki bilgilere sahip olduğunuzdan emin olun:
@@ -112,9 +112,9 @@ Başlamadan önce aşağıdaki bilgilere sahip olduğunuzdan emin olun:
 * Fiziksel cihazınızdan alınan veri şifreleme anahtarının bir kopyası.
 
 ## <a name="create-and-configure-the-virtual-device"></a>Sanal cihaz oluşturma ve yapılandırma
-Bu yordamları gerçekleştirmeden önce, [sanal cihaz önkoşullarını](#prerequisites-for-the-virtual-device) karşıladığınızdan emin olun. 
+Bu yordamları gerçekleştirmeden önce, [sanal cihaz önkoşullarını](#prerequisites-for-the-virtual-device) karşıladığınızdan emin olun.
 
-Sanal ağ oluşturduktan, StorSimple Yöneticisi hizmeti yapılandırdıktan ve fiziksel StorSimple cihazınızı hizmete kaydettikten sonra, StorSimple sanal cihazı oluşturmak amacıyla aşağıdaki adımları kullanabilirsiniz. 
+Sanal ağ oluşturduktan, StorSimple Yöneticisi hizmeti yapılandırdıktan ve fiziksel StorSimple cihazınızı hizmete kaydettikten sonra, StorSimple sanal cihazı oluşturmak amacıyla aşağıdaki adımları kullanabilirsiniz.
 
 ### <a name="step-1-create-a-virtual-device"></a>1. Adım: Sanal cihaz oluşturma
 StorSimple sanal cihazı oluşturmak için aşağıdaki adımları gerçekleştirin.
@@ -144,8 +144,8 @@ StorSimple Snapshot Manager yazılımı Windows ana bilgisayarınıza bulunur ve
 
 > [!NOTE]
 > Sanal cihaz için, Windows ana bilgisayarınız bir Azure sanal makinesidir.
-> 
-> 
+>
+>
 
 StorSimple Snapshot Manager’da bir cihazı yapılandırma sırasında, depolama cihazınızın kimlik doğrulaması için StorSimple cihazı IP adresi ve parolasını sağlamanız istenir. Ayrıntılı adımlar için [StorSimple Snapshot Manager parolasını yapılandırma](storsimple-change-passwords.md#change-the-storsimple-snapshot-manager-password)’ya gidin.
 
@@ -167,13 +167,13 @@ StorSimple cihaz yapılandırma sayfasında uzaktan yönetimi etkinleştirdikten
 
 > [!WARNING]
 > **Gelişmiş güvenlik için, uç noktalara bağlanırken HTTPS kullanmanız ve ardından PowerShell uzak oturumunuz tamamladıktan sonra uç noktaları silmeniz önerilir.**
-> 
-> 
+>
+>
 
 Sanal cihazınızı için uzaktan iletişim ayarlamak amacıyla [StorSimple cihazınıza uzaktan bağlanma](storsimple-remote-connect.md) yordamlarını izlemelisiniz.
 
 ## <a name="connect-directly-to-the-virtual-device"></a>Sanal cihaza doğrudan bağlanma
-Sanal cihaza doğrudan da bağlanabilirsiniz. Sanal cihaza sanal ağ dışındaki veya Microsoft Azure ortamı dışındaki başka bir bilgisayardan doğrudan bağlanmak istiyorsanız, aşağıdaki yordamda açıklandığı şekilde ek uç noktalar oluşturmanız gerekir. 
+Sanal cihaza doğrudan da bağlanabilirsiniz. Sanal cihaza sanal ağ dışındaki veya Microsoft Azure ortamı dışındaki başka bir bilgisayardan doğrudan bağlanmak istiyorsanız, aşağıdaki yordamda açıklandığı şekilde ek uç noktalar oluşturmanız gerekir.
 
 Sanal cihazda ortak uç nokta oluşturmak için aşağıdaki adımları gerçekleştirin.
 
@@ -227,8 +227,8 @@ Olağanüstü Durum Kurtarma (DR), StorSimple sanal cihazın tasarlanma ana sena
 > [!NOTE]
 > * Sanal cihazı DR için ikincil cihaz olarak kullanırken, 8010’nun 30 TB Standard Storage ve 8020’nin 64 TB Premium Storage içerdiğini unutmayın. Daha yüksek kapasiteli 8020 sanal cihazı bir DR senaryosuna daha uygun olabilir.
 > * Güncelleştirme 2 çalıştıran bir cihazdan Güncelleştirme 1 yazılımı öncesini çalıştıran bir cihaza yük devredemez ya da kopyalama yapamazsınız. Ancak Güncelleştirme 2 çalıştıran bir cihazdan Güncelleştirme 1 (1.1 veya 1.2) çalıştıran bir cihaza yük devredebilirsiniz.
-> 
-> 
+>
+>
 
 Adım adım bir yordam için [sanal bir cihaza yük devretme](storsimple-device-failover-disaster-recovery.md#fail-over-to-a-storsimple-virtual-device)’ye gidin.
 
@@ -245,21 +245,20 @@ Sanal cihazı siler veya kapatırsanız, StorSimple Yönetici hizmetinin Cihazla
 Sanal cihaz oluştururken İnternet bağlantısı yoksa oluşturma adımı başarısız olur. Hatanın İnternet bağlantısından kaynaklanması durumunda sorun gidermek için klasik Azure portalında aşağıdaki adımları gerçekleştirin:
 
 1. Azure’da bir Windows server 2012 sanal makinesi oluşturun. Bu sanal makine, sanal cihazınızla aynı depolama hesabı, sanal ağ ve alt ağı kullanmalıdır. Azure’da aynı depolama hesabını, sanal ağı ve alt ağı kullanan bir Windows Server ana bilgisayarınız varsa, İnternet bağlantısı sorunlarını gidermek için onu da kullanabilirsiniz.
-2. Önceki adımda oluşturduğunuz sanal makinede uzaktan oturum açın. 
+2. Önceki adımda oluşturduğunuz sanal makinede uzaktan oturum açın.
 3. Sanal makinenin içinde bir komut penceresi açın (Win + R ve ardından `cmd` yazın).
 4. Komut isteminde aşağıdaki cmd’yi çalıştırın.
-   
+
     `nslookup windows.net`
-5. `nslookup` başarısız olursa İnternet bağlantısı sorunu sanal cihazın StorSimple Yöneticisi hizmetine kaydedilmesini önlüyordur. 
+5. `nslookup` başarısız olursa İnternet bağlantısı sorunu sanal cihazın StorSimple Yöneticisi hizmetine kaydedilmesini önlüyordur.
 6. Sanal cihazın "windows.net" gibi Azure sitelerine erişebildiğinden emin olmak için sanal ağınızda gerekli değişiklikleri yapın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Sanal cihazı yönetmek için StorSimple Yöneticisi hizmetini kullanma](storsimple-manager-service-administration.md)yı öğrenin.
-* [Bir yedeklemek kümesinden StorSimple birimini geri yükleme](storsimple-restore-from-backup-set.md)yi öğrenin. 
+* [Bir yedeklemek kümesinden StorSimple birimini geri yükleme](storsimple-restore-from-backup-set.md)yi öğrenin.
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

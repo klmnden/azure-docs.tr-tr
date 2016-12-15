@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/04/2016
+ms.date: 12/06/2016
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: eedb788b2a174d01a2ef661cf4093ff938649bce
+ms.sourcegitcommit: d5674c6b903aac74260f1dc0ca549ddcf87d183d
+ms.openlocfilehash: 0baacb37e4c5b21860bf9ec2fbbd2eb7c067beb6
 
 
 ---
-# <a name="integrating-your-onpremises-identities-with-azure-active-directory"></a>Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme
+# <a name="integrating-your-on-premises-identities-with-azure-active-directory"></a>Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme
 Azure AD Connect, şirket içi dizinlerinizi Azure Active Directory ile tümleştirir. Bu sayede kullanıcılarınıza Azure AD ile tümleşik Office 365, Azure ve SaaS uygulamaları için ortak bir kimlik sağlayabilirsiniz. Planlama, dağıtım ve işlem adımları sırasında sizi yönlendirmesi için bu konu başlığından faydalanabilirsiniz. Bu alanla ilgili konu başlıklarına yönelik bağlantılar mevcuttur.
 
 > [!IMPORTANT]
@@ -62,24 +62,24 @@ Azure AD Connect'i [Microsoft İndirme Merkezi](http://go.microsoft.com/fwlink/?
 [Yüklemeden sonra](active-directory-aadconnect-whats-next.md), programın beklendiği gibi çalıştığını doğrulamanız ve kullanıcılara lisans atamanız gerekir.
 
 ### <a name="next-steps-to-install-azure-ad-connect"></a>Azure AD Connect'i Yüklemek için sonraki adımlar
-| Konu başlığı |
-| --- | --- |
-| Azure AD Connect'i indirme |
-| Hızlı ayarları kullanarak yükleme |
-| Özelleştirilmiş ayarları kullanarak yükleme |
-| DirSync'ten yükseltme |
-| Yükleme işleminden sonra |
+|Konu | Bağlantı 
+|--- | ---
+|Azure AD Connect'i indirme | [Azure AD Connect’i indirme](http://go.microsoft.com/fwlink/?LinkId=615771)
+|Hızlı ayarları kullanarak yükleme | [Azure AD Connect’i hızlı yükleme](./connect/active-directory-aadconnect-get-started-express.md)
+|Özelleştirilmiş ayarları kullanarak yükleme | [Azure AD Connect özel yüklemesi](./connect/active-directory-aadconnect-get-started-custom.md)
+|DirSync'ten yükseltme | [Azure AD eşitleme aracından (DirSync) yükseltme](./connect/active-directory-aadconnect-dirsync-upgrade-get-started.md)
+|Yükleme işleminden sonra | [Yüklemeyi doğrulama ve lisansları atama](active-directory-aadconnect-whats-next.md)
 
 ### <a name="learn-more-about-install-azure-ad-connect"></a>Azure AD Connect'i yükleme hakkında daha fazla bilgi edinin
 [İşletimsel](active-directory-aadconnectsync-operations.md) sorunlara karşı hazırlıksız olmak istemezsiniz. [Olağanüstü bir durumla](active-directory-aadconnectsync-operations.md#disaster-recovery) karşılaştığınızda kolayca üstesinden gelebilmek için yedekte bir sunucu bulundurmak isteyebilirsiniz. Sık sık yapılandırma değişiklikleri yapmayı düşünüyorsanız [hazırlama modu](active-directory-aadconnectsync-operations.md#staging-mode) sunucusunu göz önünde bulundurmanız gerekir.
 
-| Konu başlığı |
-| --- | --- |
-| Desteklenen topolojiler |
-| Tasarım kavramları |
-| Yükleme için kullanılan hesaplar |
-| İşletimsel planlama |
-| Kullanıcı oturumu açma seçenekleri |
+Konu başlığı |  
+--------- | ---------
+Desteklenen topolojiler | [Azure AD Connect için topolojiler](active-directory-aadconnect-topologies.md)
+Tasarım kavramları | [Azure AD Connect tasarım kavramları](active-directory-aadconnect-design-concepts.md)
+Yükleme için kullanılan hesaplar | [Azure AD Connect kimlik bilgileri ve izinleri hakkında daha fazla bilgi](./connect/active-directory-aadconnect-accounts-permissions.md)
+İşletimsel planlama | [Azure AD Connect Eşitleme: İşletimsel görevler ve önemli noktalar](active-directory-aadconnectsync-operations.md)
+Kullanıcı oturumu açma seçenekleri | [Azure AD Connect kullanıcı oturumu açma seçenekleri](active-directory-aadconnect-user-signin.md)
 
 ## <a name="configure-sync-features"></a>Eşitleme özelliklerini yapılandırma
 Azure AD Connect, isteğe bağlı olarak açabileceğiniz veya varsayılan olarak etkin olan çeşitli özellikler sunar. Bazı özellikler için bazen belirli senaryo ve topolojilerde daha fazla yapılandırma gerekebilir.
@@ -97,14 +97,7 @@ Azure AD Connect, isteğe bağlı olarak açabileceğiniz veya varsayılan olara
 [Otomatik yükseltme](active-directory-aadconnect-feature-automatic-upgrade.md), hızlı ayar yüklemeleri için varsayılan olarak etkindir ve her zaman Azure AD Connect'in güncel olan en son sürümüne sahip olmanızı sağlar.
 
 ### <a name="next-steps-to-configure-sync-features"></a>Eşitleme özelliklerini yapılandırmak için sonraki adımlar
-| Konu başlığı |
-| --- | --- |
-| Filtrelemeyi yapılandırma |
-| Parola eşitleme |
-| Parola geri yazma |
-| Cihaz geri yazma |
-| Yanlışlıkla silmeleri engelleme |
-| Otomatik yükseltme |
+Filtrelemeyi yapılandırma | [Azure AD Connect eşitleme: Filtrelemeyi yapılandırma](active-directory-aadconnectsync-configure-filtering.md) Parola eşitleme | [Azure AD Connect eşitleme: Parola eşitlemesi uygulama](active-directory-aadconnectsync-implement-password-synchronization.md) Parola geri yazma | [Parola yönetimini kullanmaya bağlama](active-directory-passwords-getting-started.md) Cihaza geri yazma | [Azure AD Connect'te cihaza geri yazmayı etkinleştirme](active-directory-aadconnect-feature-device-writeback.md) Yanlışlıkla silmeleri engelleme | [Azure AD Connect eşitleme: Yanlışlıkla silmeleri engelleme](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md) Otomatik yükseltme | [Azure AD Connect: Otomatik yükseltme](active-directory-aadconnect-feature-automatic-upgrade.md)
 
 ## <a name="customize-azure-ad-connect-sync"></a>Azure AD Connect Eşitleme'yi özelleştirme
 Azure AD Connect Eşitleme, çoğu müşteri tarafından birçok topoloji ile kullanılmak üzere tasarlanmış varsayılan bir yapılandırmaya sahiptir. Ancak her zaman varsayılan yapılandırmanın işe yaramadığı ve ayarlanması gereken durumlarla karşılaşırsınız. Bu bölümde ve bağlantılı konu başlıklarında açıklandığı üzere, bu gibi değişiklikler desteklenmektedir.
@@ -116,14 +109,14 @@ Daha önce bir eşitleme topolojisi kullanmadıysanız [teknik kavramlarda](acti
 Eşitlemedeki yapılandırma modeli, [bildirim temelli hazırlama](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) olarak adlandırılır. Gelişmiş öznitelik akışları, öznitelik dönüşümlerini ifade etmek için [işlevleri](active-directory-aadconnectsync-functions-reference.md) kullanır. Azure AD Connect ile birlikte sunulan araçları kullanarak tüm yapılandırmayı inceleyebilirsiniz. Yapılandırma değişiklikleri yapmanız gerekirse [en iyi yöntemleri](active-directory-aadconnectsync-best-practices-changing-default-configuration.md) uyguladığınızdan emin olun , böylece yeni sürümleri daha kolay şekilde benimseyebilirsiniz.
 
 ### <a name="next-steps-to-customize-azure-ad-connect-sync"></a>Azure AD Connect Eşitleme'yi özelleştirmek için sonraki adımlar
-| Konu başlığı |
-| --- | --- |
-| Tüm Azure AD Connect Eşitleme makaleleri |
-| Teknik kavramlar |
-| Varsayılan yapılandırmayı anlama |
-| Kullanıcıları ve kişileri anlama |
-| Bildirim temelli hazırlama |
-| Varsayılan yapılandırmayı değiştirme |
+Konu başlığı |  
+--------- | ---------
+Tüm Azure AD Connect Eşitleme makaleleri | [Azure AD Connect eşitleme](active-directory-aadconnectsync-whatis.md)
+Teknik kavramlar | [Azure AD Connect eşitleme: Teknik Kavramlar](active-directory-aadconnectsync-technical-concepts.md)
+Varsayılan yapılandırmayı anlama | [Azure AD Connect eşitleme: Varsayılan yapılandırmayı anlama](active-directory-aadconnectsync-understanding-default-configuration.md)
+Kullanıcıları ve kişileri anlama | [Azure AD Connect eşitleme: Kullanıcıları ve Kişileri Anlama](active-directory-aadconnectsync-understanding-users-and-contacts.md)
+Bildirim temelli hazırlama | [Azure AD Connect eşitleme: Bildirim Temelli Sağlama İfadelerini Anlama](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md)
+Varsayılan yapılandırmayı değiştirme | [Varsayılan yapılandırmanın değiştirilmesine ilişkin önerilen yöntemler](active-directory-aadconnectsync-best-practices-changing-default-configuration.md)
 
 ## <a name="configure-federation-features"></a>Federasyon özelliklerini yapılandırma
 ADFS, [birden çok etki alanını](active-directory-aadconnect-multiple-domains.md) destekleyecek şekilde yapılandırılabilir. Örneğin, federasyon için kullanmanız gereken birden çok üst etki alanınız olabilir.
@@ -131,22 +124,24 @@ ADFS, [birden çok etki alanını](active-directory-aadconnect-multiple-domains.
 ADFS sunucunuz sertifikaları Azure AD'den otomatik olarak güncelleştirecek şekilde yapılandırılmadıysa veya ADFS dışında bir çözüm kullanıyorsanız [sertifikaları güncelleştirmeniz](active-directory-aadconnect-o365-certs.md) gerektiğinde size bildirilir.
 
 ### <a name="next-steps-to-configure-federation-features"></a>Federasyon özelliklerini yapılandırmak için sonraki adımlar
-| Konu |
-| --- | --- |
-| Tüm AD FS makaleleri |
-| Alt etki alanları bulunan ADFS'yi yapılandırma |
-| AD FS grubunu yönetme |
-| Federasyon sertifikalarını el ile güncelleştirme |
+
+Konu |  
+--------- | ---------
+Tüm AD FS makaleleri | [Azure AD Connect ve federasyon](active-directory-aadconnectfed-whatis.md)
+Alt etki alanları bulunan ADFS'yi yapılandırma | [Azure AD ile Federasyon için Çoklu Etki Alanı Desteği](active-directory-aadconnect-multiple-domains.md)
+AD FS grubunu yönetme | [Azure AD Connect ile AD FS yönetimi ve özelleştirmesi](active-directory-aadconnect-federation-management.md)
+Federasyon sertifikalarını el ile güncelleştirme | [Office 365 ve Azure AD için Federasyon Sertifikalarını Yenileme](active-directory-aadconnect-o365-certs.md)
 
 ## <a name="more-information-and-references"></a>Daha fazla bilgi ve referans
-| Konu başlığı |
-| --- | --- |
-| Sürüm geçmişi |
-| DirSync, Azure AD Eşitleme ve Azure AD Connect Karşılaştırması |
-| Azure AD için ADFS dışı uyumluluk listesi |
-| Eşitlenen öznitelikler |
-| Azure AD Connect Health'i kullanarak izleme |
-| Sık Sorulan Sorular |
+
+Konu başlığı |  
+--------- | ---------
+Sürüm geçmişi | [Sürüm geçmişi](active-directory-aadconnect-version-history.md)
+DirSync, Azure AD Eşitleme ve Azure AD Connect Karşılaştırması | [Dizin tümleştirmesi araçlarının karşılaştırılması](active-directory-hybrid-identity-design-considerations-tools-comparison.md)
+Azure AD için ADFS dışı uyumluluk listesi | [Azure AD federasyonu uyumluluk listesi](active-directory-aadconnect-federation-compatibility.md)
+Eşitlenen öznitelikler | [Eşitlenen öznitelikler](active-directory-aadconnectsync-attributes-synchronized.md)
+Azure AD Connect Health'i kullanarak izleme | [Azure AD Connect Health](active-directory-aadconnect-health.md)
+Sık Sorulan Sorular | [Azure AD Connect ile ilgili SSS](active-directory-aadconnect-faq.md)
 
 **Ek Kaynaklar**
 
@@ -159,6 +154,6 @@ ADFS sunucunuz sertifikaları Azure AD'den otomatik olarak güncelleştirecek ş
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 08/04/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 883b3a27b4b06785068d04a143bae6c33fbed99b
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 0374fea21dbecabc0008cf6cd9096cd8c2d3f206
 
 
 ---
@@ -75,10 +75,10 @@ Mobil uygulama web hizmetini yüklemeden önce aşağıdakilere dikkat edin:
 
 <li>Herhangi bir bilgisayarda web tarayıcısını açın ve Mobil Uygulama Web Hizmeti’nin yüklendiği URL'ye gidin (örn. https://www.publicwebsite.com/PA). Sertifika uyarısı ya da hatası görüntülenmediğinden emin olun.</li>
 
-### <a name="configure-the-mobile-app-settings-in-the-azure-multifactor-authentication-server"></a>Azure Multi-Factor Authentication Sunucusu’nda mobil uygulama ayarlarını yapılandırma
+### <a name="configure-the-mobile-app-settings-in-the-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication Sunucusu’nda mobil uygulama ayarlarını yapılandırma
 Artık mobil uygulama web hizmeti yüklendiğine göre, portal ile çalışmak için Azure Multi-Factor Authentication Sunucusu’nu yapılandırmalısınız.
 
-#### <a name="to-configure-the-mobile-app-settings-in-the-azure-multifactor-authentication-server"></a>Azure Multi-Factor Authentication Sunucusu’nda mobil uygulama ayarlarını yapılandırmak için
+#### <a name="to-configure-the-mobile-app-settings-in-the-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication Sunucusu’nda mobil uygulama ayarlarını yapılandırmak için
 1. Azure Multi-Factor Authentication Sunucusu’nda Kullanıcı Portalı simgesine tıklayın. Kullanıcıların kendi kimlik doğrulama yöntemlerini denetlemesine izin veriliyorsa, Ayarlar sekmesinde, Kullanıcıların yöntemi seçmesine izin ver altında Mobil Uygulama’yı işaretleyin. Bu özellik etkinleştirilmeden, Mobil Uygulama için etkinleştirme işlemini tamamlamak üzere son kullanıcıların Yardım Masanızla iletişim kurması gerekir.
 2. Kullanıcıların Mobil Uygulama etkinleştirmesine izin ver kutusunu işaretleyin.
 3. Kullanıcı Kaydına İzin Ver kutusunu işaretleyin.
@@ -89,6 +89,6 @@ Artık mobil uygulama web hizmeti yüklendiğine göre, portal ile çalışmak i
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

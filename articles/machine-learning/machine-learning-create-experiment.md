@@ -16,8 +16,8 @@ ms.topic: hero-article
 ms.date: 11/21/2016
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 60e47e8fd0933ecd25b3bca6085edcd5785dc580
-ms.openlocfilehash: 69561ef82ce6d63bd8a90c871b5bc0cfe03e86ae
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: dd3e982ba908e542ce0b536699e37e2bc95e6706
 
 
 ---
@@ -131,7 +131,7 @@ Genellikle bir veri kümesi analiz edilmeden önce biraz ön işleme gerekir. Ö
 
 Önce **normalized-losses** sütununu tamamen kaldıran bir modül ekleyecek ve ardından eksik veriler içeren satırları kaldıran diğer bir modülü ekleyeceğiz.
 
-1. [Select Columns in Dataset (Veri Kümesinde Sütun Seçme)][select-columns] modülünü bulmak için modül paletinin en üst kısmındaki Arama kutusuna **sütun seçme** yazın, ardından bunu deneme tuvaline sürükleyin. Bu modül, modele hangi veri sütunlarını dahil etmek veya dışarıda bırakmak istediğimizi seçmemizi sağlar.
+1. [Veri Kümesindeki Sütunları Seçme][select-columns] modülünü bulmak için modül paletinin en üst kısmındaki Arama kutusuna **sütun seçme** yazın, ardından bunu deneme tuvaline sürükleyin. Bu modül, modele hangi veri sütunlarını dahil etmek veya dışarıda bırakmak istediğimizi seçmemizi sağlar.
 
 2. **Otomobil fiyat verileri (Ham)** veri kümesinin çıkış bağlantı noktasını [Veri Kümesindeki Sütunları Seçme][select-columns] modülündeki giriş bağlantı noktasına bağlayın.
 
@@ -139,10 +139,10 @@ Genellikle bir veri kümesi analiz edilmeden önce biraz ön işleme gerekir. Ö
     <br/>
     ***"Veri Kümesindeki Sütunları Seçme" modülünü deneme tuvaline ekleyin ve bağlayın***
 
-3. [Select Columns in Dataset (Veri Kümesinde Sütun Seçme)][select-columns] modülüne tıklayın ve **Properties (Özellikler)** bölmesinde **Launch column selector (Sütun seçiciyi başlat)** seçeneğine tıklayın.
+3. [Select Columns in Dataset (Veri Kümesinde Sütun Seçme)][select-columns] modülüne tıklayın ve **Özellikler** bölmesinde **Sütun seçiciyi başlat** seçeneğine tıklayın.
 
     - Sol tarafta **Kurallar ile**’ye tıklayın
-    - **Şununla Başla** altında **Tüm sütunlar**’a tıklayın. Bu, [Select Columns in Dataset (Veri Kümesinde Sütun Seçme)][select-columns] modülünü tüm sütunlardan geçmeye yönlendirir (dışarıda bırakacağımız sütunlar hariç).
+    - **Şununla Başla** altında **Tüm sütunlar**’a tıklayın. Bu, [Veri Kümesindeki Sütunları Seçme][select-columns] modülünü tüm sütunlardan geçmeye yönlendirir (dışarıda bırakacağımız sütunlar hariç).
     - Açılan menülerden **Hariç Tut** ve **sütun adlarını** seçerek metin kutusuna tıklayın. Sütun listesi görüntülenir. **Normalleştirilmiş kayıplar**’ı seçin; böylece metin kutusuna eklenir.
     - Sütun seçiciyi kapatmak için onay işareti (Tamam) düğmesine tıklayın (sağ alt köşede).
 
@@ -157,13 +157,13 @@ Genellikle bir veri kümesi analiz edilmeden önce biraz ön işleme gerekir. Ö
     ***Özellikler bölmesinde "normalized-losses" sütununun hariç tutulduğu gösterilir***
 
     > [!TIP]
-    > Modüle çift tıklayıp metin girerek bir modüle yorum ekleyebilirsiniz. Bu, modülün denemenizde ne işe yaradığını bir bakışta görmenize yardımcı olabilir. Bu durumda, [Select Columns in Dataset (Veri Kümesinde Sütun Seçme)][select-columns] modülüne çift tıklayın ve "Normalleştirilmiş kayıpları dışarıda bırak" yorumunu yazın.
+    > Modüle çift tıklayıp metin girerek bir modüle yorum ekleyebilirsiniz. Bu, modülün denemenizde ne işe yaradığını bir bakışta görmenize yardımcı olabilir. Bu durumda, [Veri Kümesindeki Sütunları Seçme][select-columns] modülüne çift tıklayın ve "Normalleştirilmiş kayıpları dışarıda bırak" yorumunu yazın.
 
     ![Açıklama eklemek için bir modüle çift tıklayın][add-comment]
     <br/>
     ***Açıklama eklemek için bir modüle çift tıklayın***
 
-3. [Clean Missing Data (Eksik Verileri Temizleme)][clean-missing-data] modülünü deneme tuvaline sürükleyin ve bunu [Select Columns in Dataset (Veri Kümesinde Sütun Seçme)][select-columns] modülüne bağlayın. **Özellikler** bölmesinde, **Temizleme modu** altında **Tüm satırı kaldır**’ı seçin. Bu [Eksik Verileri Temizleme][clean-missing-data] öğesini eksi değer içeren satırları kaldırarak verileri temizlemesi için yönlendirir. Modüle çift tıklayın ve "Eksik değerli satırları kaldır" yorumunu yazın.
+3. [Eksik Verileri Temizleme][clean-missing-data] modülünü deneme tuvaline sürükleyin ve bunu [Veri Kümesindeki Sütunları Seçme][select-columns] modülüne bağlayın. **Özellikler** bölmesinde, **Temizleme modu** altında **Tüm satırı kaldır**’ı seçin. Bu [Eksik Verileri Temizleme][clean-missing-data] öğesini eksi değer içeren satırları kaldırarak verileri temizlemesi için yönlendirir. Modüle çift tıklayın ve "Eksik değerli satırları kaldır" yorumunu yazın.
 
     !["Eksik Verileri Temizleme" için temizleme modunu "Tüm satırı kaldır" olarak ayarlayın][set-remove-entire-row]
     <br/>
@@ -178,9 +178,9 @@ Genellikle bir veri kümesi analiz edilmeden önce biraz ön işleme gerekir. Ö
 ***Çalıştırdıktan sonra, deneme aşağıdakine benzer görünmelidir***
 
 > [!TIP]
-> Denemeyi neden şimdi çalıştırdık? Deneme çalıştırılarak, verilerimizin sütun tanımları [Veri Kümesindeki Sütunları Seç][select-columns] modülü ve [Eksik Verileri Temizle][clean-missing-data] modülü aracılığıyla veri kümesinden geçer. Bu, [Eksik Verileri Temizleme][clean-missing-data] öğesine bağladığımız modüllerin de aynı bilgilere sahip olacağı anlamına gelir.
+> Denemeyi neden şimdi çalıştırdık? Deneme çalıştırılarak, verilerimizin sütun tanımları [Veri Kümesindeki Sütunları Seçme][select-columns] modülü ve [Eksik Verileri Temizleme][clean-missing-data] modülü aracılığıyla veri kümesinden geçer. Bu, [Eksik Verileri Temizleme][clean-missing-data] öğesine bağladığımız modüllerin de aynı bilgilere sahip olacağı anlamına gelir.
 
-Denemede bu noktaya kadar yalnızca verileri temizledik. Temizlenen veri kümesini görüntülemek istiyorsanız [Clean Missing Data (Eksik Verileri Temizleme)][clean-missing-data] modülünün sol çıkış bağlantı noktasına tıklayın ve **Görselleştir**'i seçin. **Normalleştirilmiş kayıplar** sütununun artık dahil olmadığına ve eksik değerlerin yok olduğuna dikkat edin.
+Denemede bu noktaya kadar yalnızca verileri temizledik. Temizlenen veri kümesini görüntülemek istiyorsanız [Eksik Verileri Temizleme][clean-missing-data] modülünün sol çıkış bağlantı noktasına tıklayın ve **Görselleştir**'i seçin. **Normalleştirilmiş kayıplar** sütununun artık dahil olmadığına ve eksik değerlerin yok olduğuna dikkat edin.
 
 Artık veriler temizlendiğine göre, tahmine dayalı modelde hangi özellikleri kullanacağımızı belirtmeye hazırız.
 
@@ -233,9 +233,9 @@ Modele fiyatı da içeren bir veri kümesi vererek modeli eğitiriz. Model veril
 
 Verilerimizi modeli eğitmek ve verileri ayrı eğitim ve test kümelerine ayırarak modeli test etmek için kullanırız.
 
-1. [Split Data (Verileri Ayırma)][split] modülünü seçip deneme tuvaline sürükleyin ve bunu son [Select Columns in Dataset (Veri Kümesinde Sütun Seçme)][select-columns] modülüne bağlayın.
+1. [Verileri Bölme][split] modülünü seçip deneme tuvaline sürükleyin ve bunu son [Veri Kümesindeki Sütunları Seçme][select-columns] modülüne bağlayın.
 
-2. Seçmek için [Verileri Bölme][split] nodülüne tıklayın. **İlk çıkış veri kümesinde satır kesiri**’ni bulun (tuvalin sağ tarafında **Özellikler** bölmesinde) ve 0,75 olarak ayarlayın. Bu şekilde, modeli eğitmek için verilerin yüzde 75'ini kullanıp test etmek için yüzde 25'ini ayıracağız (daha sonra farklı oranlarla deneme yapabilirsiniz).
+2. Seçmek için [Verileri Bölme][split] modülüne tıklayın. **İlk çıkış veri kümesinde satır kesiri**’ni bulun (tuvalin sağ tarafında **Özellikler** bölmesinde) ve 0,75 olarak ayarlayın. Bu şekilde, modeli eğitmek için verilerin yüzde 75'ini kullanıp test etmek için yüzde 25'ini ayıracağız (daha sonra farklı oranlarla deneme yapabilirsiniz).
 
     !["Verileri Bölme" modülünün bölüm kesirini 0,75 olarak ayarlayın][set-split-data-percentage]
     <br/>
@@ -244,18 +244,18 @@ Verilerimizi modeli eğitmek ve verileri ayrı eğitim ve test kümelerine ayır
     > [!TIP]
     > **Rastgele doldurma** parametresini değiştirerek eğitim ve test etme için farklı rastgele örnekler oluşturabilirsiniz. Bu parametre, sözde rastgele sayı üreticisinin doldurulmasını denetler.
 
-2. Denemeyi çalıştırın. Deneme çalıştırıldığında [Select Columns in Dataset (Veri Kümesinde Sütun Seçme)][select-columns] ve [Split Data (Verileri Ayırma)][split] modüllerinin sütun tanımlarını sonra ekleyeceğimiz modüllere geçirmesine olanak sağlanır.  
+2. Denemeyi çalıştırın. Deneme çalıştırıldığında [Veri Kümesindeki Sütunları Seçme][select-columns] ve [Verileri Bölme][split] modüllerinin sütun tanımlarını sonra ekleyeceğimiz modüllere geçirmesine olanak sağlanır.  
 
-3. Öğrenme algoritmasını seçmek için, tuvalin solundaki modül paletindeki **Machine Learning** kategorisini genişletin ve ardından **Modeli Başlat**'ı genişletin. Böylece makine öğrenimi algoritmalarını başlatmak için kullanılabilecek çeşitli modül kategorileri görüntülenir. Bu deneme için, **Regresyon** kategorisinin altında [Linear Regression (Doğrusal Regresyon)][linear-regression] modülünü seçin ve bunu deneme tuvaline sürükleyin.
+3. Öğrenme algoritmasını seçmek için, tuvalin solundaki modül paletindeki **Machine Learning** kategorisini genişletin ve ardından **Modeli Başlat**'ı genişletin. Böylece makine öğrenimi algoritmalarını başlatmak için kullanılabilecek çeşitli modül kategorileri görüntülenir. Bu deneme için, **Regresyon** kategorisinin altında [Doğrusal Regresyon][linear-regression] modülünü seçin ve bunu deneme tuvaline sürükleyin.
 (Modülü bulmak için palet Arama kutusuna “doğrusal regresyon” da yazabilirsiniz.)
 
-4. [Train Model (Model Eğitme)][train-model] modülünü bulup deneme tuvaline sürükleyin. [Çizgisel Regresyon][linear-regression] modülünün çıkışını [Modeli Eğitme][train-model] modülünün sol girişine bağlayın ve [Verileri Bölme][split] modülünün eğitim verileri çıkışını (sol bağlantı noktası) [Modeli Eğitme][train-model] modülünün sağ girişine bağlayın.
+4. [Modeli Eğitme][train-model] modülünü bulup deneme tuvaline sürükleyin. [Doğrusal Regresyon][linear-regression] modülünün çıkışını [Modeli Eğitme][train-model] modülünün sol girişine bağlayın ve [Verileri Bölme][split] modülünün eğitim verileri çıkışını (sol bağlantı noktası) [Modeli Eğitme][train-model] modülünün sağ girişine bağlayın.
 
     !["Modeli Eğitme" modülünü "Çizgisel Regresyon" ve "Verileri Bölme" modüllerine bağlayın][connect-train-model]
     <br/>
     ***"Modeli Eğitme" modülünü "Çizgisel Regresyon" ve "Verileri Bölme" modüllerine bağlayın***
 
-5. [Train Model (Model Eğitme)][train-model] modülüne tıklayın, **Properties (Özellikler)** bölmesinde **Launch column selector (Sütun seçiciyi başlat)** seçeneğine tıklayın ve ardından **fiyat** sütununu seçin. Bu, modelimizin tahmin edeceği değerdir.
+5. [Modeli Eğitme][train-model] modülüne tıklayın, **Özellikler** bölmesinde **Sütun seçiciyi başlat** seçeneğine tıklayın ve ardından **fiyat** sütununu seçin. Bu, modelimizin tahmin edeceği değerdir.
 
     Sütun seçicide **fiyat** sütununu **Kullanılabilir sütunlar** listesinden **Seçili sütunlar** listesine taşıyarak seçersiniz.
 
@@ -275,7 +275,7 @@ Verilerimizi modeli eğitmek ve verileri ayrı eğitim ve test kümelerine ayır
 
 Verilerimizin yüzde 75'ini kullanarak modeli eğittiğimize göre, modelimizin ne kadar iyi işlediğini görmek için verilerimizin diğer yüzde 25'ini puanlama amacıyla kullanabiliriz.
 
-1. [Score Model (Model Puanlama)][score-model] modülünü bulup deneme tuvaline sürükleyin. [Modeli Eğitme][train-model] modülünün çıkışını [Model Puanlama][score-model] modülünün sol giriş bağlantı noktasına bağlayın. [Verileri Bölme][split] modülünün test verileri çıkışını (sağ bağlantı noktası) [Model Puanlama][score-model] modülünün sağ giriş bağlantı noktasına bağlayın.
+1. [Model Puanlama][score-model] modülünü bulup deneme tuvaline sürükleyin. [Modeli Eğitme][train-model] modülünün çıkışını [Model Puanlama][score-model] modülünün sol giriş bağlantı noktasına bağlayın. [Verileri Bölme][split] modülünün test verileri çıkışını (sağ bağlantı noktası) [Model Puanlama][score-model] modülünün sağ giriş bağlantı noktasına bağlayın.
 
     !["Model Puanlama" modülünü "Modeli Eğitme" ve "Verileri Bölme" modüllerine bağlayın][connect-score-model]
     <br/>
@@ -294,7 +294,7 @@ Verilerimizin yüzde 75'ini kullanarak modeli eğittiğimize göre, modelimizin 
 
 4. Denemeyi çalıştırın.
 
-[Evaluate Model (Model Değerlendirme)][evaluate-model] modülünden çıkışı görüntülemek için, çıkış bağlantı noktasına tıklayın ve ardından **Görselleştir**'i seçin.
+[Model Değerlendirme][evaluate-model] modülünden çıkışı görüntülemek için, çıkış bağlantı noktasına tıklayın ve ardından **Görselleştir**'i seçin.
 
 ![Deneme için değerlendirme sonuçları][evaluation-results]
 <br/>
@@ -322,7 +322,7 @@ Son deneme şuna benzer şekilde görünecektir:
 
 Artık ilk makine öğrenimi öğreticinizi tamamladığınıza ve denemenizi kurduğunuza göre, modeli iyileştirmeye devam edebilir ve ardından tahmine dayalı web hizmeti olarak dağıtabilirsiniz.
 
-- **Modeli geliştirmek için yineleme** - Örneğin, tahmininizde kullandığınız özellikleri değiştirebilirsiniz. Veya [Linear Regression (Doğrusal Regresyon)][linear-regression] algoritmasının özelliklerini değiştirebilir veya tamamen farklı bir algoritma deneyebilirsiniz. Ayrıca, denemenize tek bir seferde birden çok makine öğrenimi algoritması ekleyebilir ve [Evaluate Model (Model Değerlendirme)][evaluate-model] modülünü kullanarak ikisini karşılaştırabilirsiniz.
+- **Modeli geliştirmek için yineleme** - Örneğin, tahmininizde kullandığınız özellikleri değiştirebilirsiniz. Veya [Doğrusal Regresyon][linear-regression] algoritmasının özelliklerini değiştirebilir veya tamamen farklı bir algoritma deneyebilirsiniz. Ayrıca, denemenize tek bir seferde birden çok makine öğrenimi algoritması ekleyebilir ve [Model Değerlendirme][evaluate-model] modülünü kullanarak ikisini karşılaştırabilirsiniz.
 Tek bir denemede birden çok modeli karşılaştırma örneği için [Cortana Intelligence Galerisi](https://gallery.cortanaintelligence.com)’nde [Regresörleri Karşılaştırma](https://gallery.cortanaintelligence.com/Experiment/Compare-Regressors-5)’ya bakın.
 
     > [!TIP]
@@ -377,6 +377,6 @@ Daha fazla bilgi almak ister misiniz? Modeli oluşturma, eğitme, puanlama ve da
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

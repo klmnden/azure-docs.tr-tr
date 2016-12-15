@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: richcar
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8f2c2253132d2c0ca8eefd975af2ac23f196afd0
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 26c9420c9b8ba1aff6b016c01b8ed51853c91506
 
 
 ---
@@ -38,7 +38,7 @@ Microsoft, CSP’lere kendi hizmet yönetim sistemlerinizle programlı tümleşt
 ## <a name="microsoft-azure-resource-management"></a>Microsoft Azure kaynak yönetimi
 Müşterinizle aranızdaki sözleşmeye bağlı olarak aboneliğin nasıl yönetileceği belirlenir. CSP, kaynakların oluşturulmasını ve bakımını doğrudan yönetebilir veya müşteri, Microsoft Azure aboneliğinin kontrolünü sağlayarak Azure kaynaklarını gereksinim duydukları gibi oluşturabilir. Müşteriniz, Microsoft Azure aboneliklerinde kaynak oluşturmayı yönetirse şu iki modelden birini kullanır: “Aracılı Bağlantı” modeli veya “Doğrudan Bağlantı” modeli. Bu modeller aşağıdaki bölümlerde ayrıntılı olarak açıklanmıştır.  
 
-### <a name="connectthrough-model"></a>Aracılı bağlantı modeli
+### <a name="connect-through-model"></a>Aracılı bağlantı modeli
 ![alternatif metin](./media/expressroute-for-cloud-solution-providers/connect-through.png)  
 
 Aracılı bağlantı modelinde CSP, veri merkeziniz ile müşterinizin Azure aboneliği arasında doğrudan bir bağlantı oluşturur. Bu doğrudan bağlantı, ExpressRoute kullanılarak oluşturulur ve ağınızı Azure’a bağlar. Ardından, müşteriniz ağınıza bağlanır. Bu senaryo, müşterinin Azure hizmetlerine ulaşmak için CSP ağından geçmesini gerektirir. 
@@ -49,7 +49,7 @@ CSP tarafından yönetilen Azure hizmetlerinde CSP’nin daha önce oluşturulmu
 
 ![alternatif metin](./media/expressroute-for-cloud-solution-providers/connect-through-model.png)
 
-### <a name="connectto-model"></a>Doğrudan bağlantı modeli
+### <a name="connect-to-model"></a>Doğrudan bağlantı modeli
 ![alternatif metin](./media/expressroute-for-cloud-solution-providers/connect-to.png)
 
 Doğrudan bağlantı modelinde hizmet sağlayıcısı, müşterinin veri merkezi ile müşterinin (müşteri) ağı üzerinden ExpressRoute kullanılarak CSP tarafından sağlanan Azure abonelikleri arasında doğrudan bir bağlantı oluşturur.
@@ -82,10 +82,10 @@ ExpressRoute, yüksek hızlı bağlantıların daha iyi kullanımı için birden
 ## <a name="configuring-expressroute"></a>ExpressRoute’u yapılandırma
 ExpressRoute, tek bir ExpressRoute bağlantı hattı üzerinden üç tür trafiği ([yönlendirme etki alanları](#ExpressRoute-routing-domains)) destekleyecek şekilde yapılandırılabilir. Bu trafik; Microsoft eşliği, Azure genel eşliği ve özel eşliği olarak ayrılır. Tek bir ExpressRoute bağlantı hattı üzerinden gönderilmek üzere trafik türlerinden birini veya hepsini seçebilirsiniz veya ExpressRoute bağlantı hattının boyutuna ve müşteriniz tarafından gerekli görülen yalıtıma bağlı olarak birden çok ExpressRoute bağlantı hattı kullanabilirsiniz. Müşterinizin güvenlik yaklaşımı, genel ve özel trafiğin aynı bağlantı hattı üzerinden çapraz geçiş yapmalarına izin vermeyebilir.
 
-### <a name="connectthrough-model"></a>Aracılı bağlantı modeli
+### <a name="connect-through-model"></a>Aracılı bağlantı modeli
 Aracılı bağlantı yapılandırmasında, tüm ağ desteklerinin müşterinizin veri merkezi kaynaklarını Azure’de barındırılan aboneliklere bağlamasından sorumlu olacaksınız.  Azure özelliklerini kullanmak isteyen müşterilerinizin her birinin kendi ExpressRoute bağlantısına ihtiyacı olacak ve bu bağlantılar tarafınızdan yönetilecek. Müşterinin ExpressRoute bağlantı hattını edinmede yararlanacağı aynı yöntemleri kullanacaksınız.  Bağlantı hattı hazırlama ve bağlantı hattı durumları için [ExpressRoute iş akışları](expressroute-workflows.md) makalesinde özetlenen aynı adımları izleyeceksiniz. Daha sonra Sınır Ağ Geçidi (BGP) protokolü yollarını yapılandırarak şirket içi ağ ve Azure sanal ağı arasındaki trafiği kontrol edeceksiniz. 
 
-### <a name="connectto-model"></a>Doğrudan bağlantı modeli
+### <a name="connect-to-model"></a>Doğrudan bağlantı modeli
 Doğrudan bağlantı yapılandırmasında müşterinizin Azure ile zaten bir bağlantısı vardır ya da müşteriniz, sizin veri merkezinizden değil, kendi veri merkezinden Azure’a ExpressRoute İnternet servis sağlayıcısına bir bağlantı oluşturacaktır.  Hazırlama sürecine başlamak için müşteriniz, yukarıda, Aracılı Bağlantı modeli bölümünde belirtilen adımları takip edecektir.  Bağlantı hattı kurulduktan sonra müşterinizin, kendi ağınıza ve Azure sanal ağına bağlanabilmek için şirket içi yönlendiricileri yapılandırması gerekecektir.
 
 Yolların kendi veri merkez(ler)inizdeki kaynakların, kendi veri merkezinizdeki müşteri kaynaklarıyla ya da Azure’de barındırılan kaynaklarla iletişim kurabilmesi için bağlantıyı kurma ve yolları yapılandırma sürecinde yardımcı olabilirsiniz. 
@@ -116,7 +116,7 @@ Varsayılan rota tablosu aşağıdaki rotaları içerir:
 
 ![alternatif metin](./media/expressroute-for-cloud-solution-providers/default-routing.png)  
 
-### <a name="userdefined-routing-udr"></a>Kullanıcı tanımlı yönlendirme (UDR)
+### <a name="user-defined-routing-udr"></a>Kullanıcı tanımlı yönlendirme (UDR)
 Kullanıcı tanımlı yollar, sanal ağda veya diğer önceden tanımlanmış ağ geçitlerinde (ExpressRoute; İnternet veya VPN) tanımlanmış alt ağdan diğer alt ağlara giden trafik akışının kontrolüne olanak tanır.  Varsayılan sistem yönlendirme tablosu, varsayılan sistem yönlendirme tablosunu özel yollarla değiştiren kullanıcı tanımlı yönlendirme tablosu ile değiştirilebilir. Kullanıcı tanımlı yönlendirme ile müşteriler güvenlik duvarları gibi uygulamalara veya izinsiz giriş algılama gereçlerine belirli yollar oluşturabilir veya belirli alt ağlara kullanıcı tanımlı yolu barındıran alt ağdan erişimi engeller. Kullanıcı Tanımlı Yollara genel bir bakış için [buraya](../virtual-network/virtual-networks-udr-overview.md) göz atın. 
 
 ## <a name="security"></a>Güvenlik
@@ -141,6 +141,6 @@ Aşağıdaki bağlantılarda ek bilgiler bulunabilir:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

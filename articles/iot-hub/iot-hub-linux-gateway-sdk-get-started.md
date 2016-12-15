@@ -1,6 +1,6 @@
 ---
-title: "IoT Hub Ağ Geçidi SDK’sı ile çalışmaya başlama | Microsoft Belgeleri"
-description: "Bu Azure IoT Ağ Geçidi SDK’sı kılavuzu, Azure IoT Ağ Geçidi SDK’sı kullanırken anlamanız gereken temel kavramları göstermek üzere Linux kullanır."
+title: "Azure IoT Ağ Geçidi SDK&quot;sı (Linux) ile çalışmaya başlama | Microsoft Belgeleri"
+description: "Linux makine üzerinde ağ geçidi oluşturmanın yanı sıra modüller ve JSON yapılandırma dosyaları gibi temel Azure IoT Ağ Geçidi SDK&quot;sı kavramları hakkında bilgi edinin."
 services: iot-hub
 documentationcenter: 
 author: chipalost
@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 11/23/2016
 ms.author: andbuc
 translationtype: Human Translation
-ms.sourcegitcommit: a76320718f0cefa015728cb79df944e0d34bbf74
-ms.openlocfilehash: cbb909adc2d29f9b80a4c97d06176fe74b64a75a
+ms.sourcegitcommit: 6b41567f7b43fd6a56da1f571e007d31cef97b92
+ms.openlocfilehash: 68965a1157b31d75595e546b2b227844ddff2eb9
 
 
 ---
-# <a name="azure-iot-gateway-sdk---get-started-using-linux"></a>Azure IoT Ağ Geçidi SDK’sı - Linux kullanmaya başlama
+# <a name="get-started-with-the-azure-iot-gateway-sdk-linux"></a>Azure IoT Ağ Geçidi SDK'sı (Linux) ile çalışmaya başlama
 [!INCLUDE [iot-hub-gateway-sdk-getstarted-selector](../../includes/iot-hub-gateway-sdk-getstarted-selector.md)]
 
 ## <a name="how-to-build-the-sample"></a>Örnek oluşturma
@@ -28,7 +28,7 @@ Başlamadan önce Linux üzerindeki SDK ile çalışacak [geliştirme ortamını
 
 1. Bir kabuk açın.
 2. **azure-iot-gateway-sdk** deposunun yerel kopyasındaki kök klasöre gidin.
-3. **tools/build.sh** betiğini çalıştırın. Bu betik **cmake** yardımcı programını kullanarak **azure-iot-gateway-sdk** deposu yerel kopyasının kök klasöründe **build** adlı bir klasör ve bir derleme görevleri dosyası oluşturur. Betik daha sonra çözümü oluşturur ve testleri çalıştırır.
+3. **tools/build.sh --skip-unittests** betiğini çalıştırın. Bu betik **cmake** yardımcı programını kullanarak **azure-iot-gateway-sdk** deposu yerel kopyasının kök klasöründe **build** adlı bir klasör ve bir derleme görevleri dosyası oluşturur. Betik daha sonra çözümü derler ve birim testlerini atlar. Derleme yapmak ve birim testlerini çalıştırmak istiyorsanız **--skip-unittests** parametresini kaldırın.
 
 > [!NOTE]
 > **build.sh** betiğini her çalıştırdığınızda betik **azure-iot-gateway-sdk** deposu yerel kopyasının kök klasöründe bulunan **build** klasörünü siler ve yeniden oluşturur.
@@ -78,11 +78,11 @@ Başlamadan önce Linux üzerindeki SDK ile çalışacak [geliştirme ortamını
         ]
     }
     ```
-3. **azure-iot-gateway-sdk** klasörüne gidin.
+3. **azure-iot-gateway-sdk/build** klasörüne gidin.
 4. Şu komutu çalıştırın:
    
    ```
-   ./build/samples/hello_world/hello_world_sample ./samples/hello_world/src/hello_world_lin.json
+   ./samples/hello_world/hello_world_sample ./../samples/hello_world/src/hello_world_lin.json
    ``` 
 
 [!INCLUDE [iot-hub-gateway-sdk-getstarted-code](../../includes/iot-hub-gateway-sdk-getstarted-code.md)]
@@ -92,6 +92,6 @@ Başlamadan önce Linux üzerindeki SDK ile çalışacak [geliştirme ortamını
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

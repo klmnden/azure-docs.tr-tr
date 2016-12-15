@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 08/04/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1952e103c574f83c2c6285e32c59144816749348
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 84b6df0b45548d3797528c3723f02bd1a124454f
 
 
 ---
-# <a name="windows-authentication-and-azure-multifactor-authentication-server"></a>Windows Kimlik Doğrulaması ve Azure Multi-Factor Authentication Sunucusu
+# <a name="windows-authentication-and-azure-multi-factor-authentication-server"></a>Windows Kimlik Doğrulaması ve Azure Multi-Factor Authentication Sunucusu
 Windows Kimlik Doğrulaması bölümü yöneticinin bir ya da daha fazla uygulama için Windows kimlik doğrulamasını etkinleştirmesini ve yapılandırmasını sağlar.  Aşağıda Windows Kimlik Doğrulaması’nı ayarlamadan önce göz önünde bulundurulacakların bir listesi verilmiştir.
 
 * Terminal Hizmetleri için Azure Multi-Factor Authentication’ın etkin olması için yeniden başlatma gereklidir.
@@ -49,6 +49,6 @@ Windows Kimlik Doğrulaması bölümü yöneticinin bir ya da daha fazla uygulam
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

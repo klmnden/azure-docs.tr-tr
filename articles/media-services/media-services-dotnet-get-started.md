@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 11/07/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 0d9d87d0dc26d2fcaa3886a9f8c0849b71b26847
-ms.openlocfilehash: 61ea806ec3ad620d454e2de0910fa2b49de66493
+ms.sourcegitcommit: 4fc33ba185122496661f7bc49d14f7522d6ee522
+ms.openlocfilehash: 645fa2574efb9501da173f8ac8aea146d1e79ff8
 
 
 ---
@@ -24,7 +24,7 @@ ms.openlocfilehash: 61ea806ec3ad620d454e2de0910fa2b49de66493
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
 > [!NOTE]
-> Bu öğreticiyi tamamlamak için bir Azure hesabınızın olması gerekir. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](/pricing/free-trial/?WT.mc_id=A261C142F). 
+> Bu öğreticiyi tamamlamak için bir Azure hesabınızın olması gerekir. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F). 
 > 
 > 
 
@@ -50,7 +50,7 @@ Bu öğreticide, .NET için Azure Media Services (AMS) SDK’sını kullanarak b
 
 * Bu öğreticiyi tamamlamak için bir Azure hesabınızın olması gerekir. 
   
-    Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](/pricing/free-trial/?WT.mc_id=A261C142F). Ücretli Azure hizmetlerini denemek için kullanabileceğiniz krediler alırsınız. Krediler bitmiş olsa bile hesabı sürdürebilir ve Azure App Service’deki Web Apps özelliği gibi ücretsiz Azure hizmetlerinden faydalanabilirsiniz.
+    Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F). Ücretli Azure hizmetlerini denemek için kullanabileceğiniz krediler alırsınız. Krediler bitmiş olsa bile hesabı sürdürebilir ve Azure App Service’deki Web Apps özelliği gibi ücretsiz Azure hizmetlerinden faydalanabilirsiniz.
 * İşletim sistemleri: Windows 8 veya sonraki sürümü, Windows 2008 R2, Windows 7.
 * .NET framework 4.0 veya sonraki sürümü
 * Visual Studio 2010 SP1 (Professional, Premium, Ultimate veya Express) veya sonraki sürümleri.
@@ -440,11 +440,11 @@ Beklediklerinizi bu konu başlığında bulamadıysanız, eksik bir şeyler vars
 
 
 <!-- URLs. -->
-[Web Platformu Yükleyicisi]: http://go.microsoft.com/fwlink/?linkid=255386
+[Web Platform Installer]: http://go.microsoft.com/fwlink/?linkid=255386
 [Portal]: http://manage.windowsazure.com/
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

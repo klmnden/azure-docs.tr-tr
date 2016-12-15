@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/19/2016
+ms.date: 12/06/2016
 ms.author: osamazia
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7d7516dd2fa2ddc23d381ade52c53115a8af7231
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 111975ba10aaafb97673f4e8b813ba3523b76ffb
 
 
 ---
@@ -101,7 +101,7 @@ Azure özel eşleme aracılığıyla bize tanıtılan 4000’e kadar ön eki des
 
 Ön ek sayısı bu sınırı aşarsa BGP oturumu düşürülür. Yalnızca özel eşleme bağlantısında varsayılan yollar kabul edilir. Sağlayıcının Azure genel ve Microsoft eşlemesi yollarından varsayılan yolu ve özel IP adreslerini (RFC 1918) filtrelemesi gerekir. 
 
-## <a name="transit-routing-and-crossregion-routing"></a>Geçiş yönlendirme ve çapraz bölge yönlendirme
+## <a name="transit-routing-and-cross-region-routing"></a>Geçiş yönlendirme ve çapraz bölge yönlendirme
 ExpressRoute geçiş yönlendirici olarak yapılandırılamaz. Geçiş yönlendirme hizmetleri için bağlantı sağlayıcınızı kullanmanız gerekir.
 
 ## <a name="advertising-default-routes"></a>Varsayılan yolları tanıtma
@@ -130,37 +130,39 @@ Bir jeopolitik bölge için birden fazla ExpressRoute devresi satın alabilirsin
 
 Microsoft ortak eşleme ve Microsoft eşlemesi aracılığıyla tanıtılan ön eklere, ön eklerin barındırıldığı bölgeyi belirten uygun BGP topluluk değerlerini etiketler. [Müşteriler için en iyi yönlendirmeyi](expressroute-optimize-routing.md) sunmak üzere uygun yönlendirme kararlarını almak için topluluk değerlerini kullanabilirsiniz.
 
-| **Jeopolitik Bölge** | **Microsoft Azure bölgesi** | **BGP topluluk değeri** |
-| --- | --- | --- |
-| **Kuzey Amerika** | | |
-| Doğu ABD |12076:51004 | |
-| Doğu ABD 2 |12076:51005 | |
-| Batı ABD |12076:51006 | |
-| Batı ABD 2 |12076:51026 | |
-| Batı Orta ABD |12076:51027 | |
-| Orta Kuzey ABD |12076:51007 | |
-| Orta Güney ABD |12076:51008 | |
-| Orta ABD |12076:51009 | |
-| Orta Kanada |12076:51020 | |
-| Doğu Kanada |12076:51021 | |
-| **Güney Amerika** | | |
-| Güney Brezilya |12076:51014 | |
-| **Avrupa** | | |
-| Kuzey Avrupa |12076:51003 | |
-| Batı Avrupa |12076:51002 | |
-| **Asya Pasifik** | | |
-| Doğu Asya |12076:51010 | |
-| Güneydoğu Asya |12076:51011 | |
-| **Japonya** | | |
-| Japonya Doğu |12076:51012 | |
-| Japonya Batı |12076:51013 | |
-| **Avustralya** | | |
-| Avustralya Doğu |12076:51015 | |
-| Avustralya Güneydoğu |12076:51016 | |
-| **Hindistan** | | |
-| Hindistan Güney |12076:51019 | |
-| Hindistan Batı |12076:51018 | |
-| Hindistan Orta |12076:51017 | |
+| **Microsoft Azure bölgesi** | **BGP topluluk değeri** |
+| --- | --- |
+| **Kuzey Amerika** | |
+| Doğu ABD |12076:51004 |
+| Doğu ABD 2 |12076:51005 |
+| Batı ABD |12076:51006 |
+| Batı ABD 2 |12076:51026 |
+| Batı Orta ABD |12076:51027 |
+| Orta Kuzey ABD |12076:51007 |
+| Orta Güney ABD |12076:51008 |
+| Orta ABD |12076:51009 |
+| Orta Kanada |12076:51020 |
+| Doğu Kanada |12076:51021 |
+| **Güney Amerika** | |
+| Güney Brezilya |12076:51014 |
+| **Avrupa** | |
+| Kuzey Avrupa |12076:51003 |
+| Batı Avrupa |12076:51002 |
+| Birleşik Krallık Güney | 12076:51024 |
+| Birleşik Krallık Batı | 12076:51025 |
+| **Asya Pasifik** | |
+| Doğu Asya |12076:51010 |
+| Güneydoğu Asya |12076:51011 |
+| **Japonya** | |
+| Japonya Doğu |12076:51012 |
+| Japonya Batı |12076:51013 |
+| **Avustralya** | |
+| Avustralya Doğu |12076:51015 |
+| Avustralya Güneydoğu |12076:51016 |
+| **Hindistan** | |
+| Hindistan Güney |12076:51019 |
+| Hindistan Batı |12076:51018 |
+| Hindistan Orta |12076:51017 |
 
 Microsoft tarafından tanıtılan tüm yollar uygun topluluk değeriyle etiketlenecektir. 
 
@@ -173,16 +175,32 @@ Yukarıdakilerin yanı sıra Microsoft, ön ekleri ait oldukları hizmet göre e
 
 | **Hizmet** | **BGP topluluk değeri** |
 | --- | --- |
-| **Exchange** |12076:5010 |
-| **SharePoint** |12076:5020 |
-| **Skype Kurumsal** |12076:5030 |
-| **CRM Online** |12076:5040 |
-| **Diğer Office 365 Hizmetleri** |12076:5100 |
+| Exchange Online |12076:5010 |
+| SharePoint Online |12076:5020 |
+| Skype Kurumsal Çevrimiçi Sürüm |12076:5030 |
+| CRM Online |12076:5040 |
+| Diğer Office 365 Çevrimiçi hizmetleri |12076:5100 |
 
 > [!NOTE]
 > Microsoft, Microsoft'a tanıtılan yollar üzerinde ayarladığınız hiçbir BGP topluluk değerini dikkate almaz.
 > 
 > 
+
+| **Ulusal Bulutlar Azure Bölgesi**| **BGP topluluk değeri** |
+| --- | --- |
+| **ABD Devleti** |  |
+| ABD Devleti Iowa | 12076:51109 |
+| ABD Devleti Virginia | 12076:51105 |
+
+
+| **Ulusal Bulutlardaki Hizmet** | **BGP topluluk değeri** |
+| --- | --- |
+| **ABD Devleti** |  |
+| Exchange Online |12076:5110 |
+| SharePoint Online |12076:5120 |
+| Skype Kurumsal Çevrimiçi Sürüm |12076:5130 |
+| CRM Online |12076:5140 |
+| Diğer Office 365 Çevrimiçi hizmetleri |12076:5200 |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * ExpressRoute bağlantınızı yapılandırın.
@@ -194,6 +212,6 @@ Yukarıdakilerin yanı sıra Microsoft, ön ekleri ait oldukları hizmet göre e
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -13,10 +13,10 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/12/2016
-ms.author: osamazia
+ms.author: osamam
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: bd7537a81661bc175a770fdbd6388ba07ea912ae
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 5e3c65d9ada5c75e0ddef3b3778a79ca77aa07d8
 
 
 ---
@@ -101,7 +101,7 @@ Azure özel eşleme aracılığıyla bize tanıtılan 4000’e kadar ön eki des
 
 Ön ek sayısı bu sınırı aşarsa BGP oturumu düşürülür. Yalnızca özel eşleme bağlantısında varsayılan yollar kabul edilir. Sağlayıcının Azure genel ve Microsoft eşlemesi yollarından varsayılan yolu ve özel IP adreslerini (RFC 1918) filtrelemesi gerekir. 
 
-## <a name="transit-routing-and-crossregion-routing"></a>Geçiş yönlendirme ve çapraz bölge yönlendirme
+## <a name="transit-routing-and-cross-region-routing"></a>Geçiş yönlendirme ve çapraz bölge yönlendirme
 ExpressRoute geçiş yönlendirici olarak yapılandırılamaz. Geçiş yönlendirme hizmetleri için bağlantı sağlayıcınızı kullanmanız gerekir.
 
 ## <a name="advertising-default-routes"></a>Varsayılan yolları tanıtma
@@ -194,6 +194,6 @@ Yukarıdakilerin yanı sıra Microsoft, ön ekleri ait oldukları hizmet göre e
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

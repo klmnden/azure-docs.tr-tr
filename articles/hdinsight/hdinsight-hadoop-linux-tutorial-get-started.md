@@ -13,22 +13,22 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/14/2016
+ms.date: 11/30/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 63a4eaf9fbb76480e0617b36d15aebae03ec3da4
+ms.sourcegitcommit: f9b191a68fe19f30aa157fd01f33afb0a4f1e279
+ms.openlocfilehash: 5e32b6fc0c87195fc82eedb00ffc7082b73007a0
 
 
 ---
-# <a name="hadoop-tutorial-get-started-using-linuxbased-hadoop-in-hdinsight"></a>Hadoop öğreticisi: HDInsight’ta Linux tabanlı Hadoop kullanmaya başlama
+# <a name="hadoop-tutorial-get-started-using-linux-based-hadoop-in-hdinsight"></a>Hadoop öğreticisi: HDInsight’ta Linux tabanlı Hadoop kullanmaya başlama
 > [!div class="op_single_selector"]
 > * [Linux tabanlı](hdinsight-hadoop-linux-tutorial-get-started.md)
 > * [Windows tabanlı](hdinsight-hadoop-tutorial-get-started-windows.md)
 > 
 > 
 
-HDInsight’ta Linux tabanlı [Hadoop](http://hadoop.apache.org/) kümeleri oluşturmayı ve HDInsight’ta Hive işleri çalıştırmayı öğrenin. [Apache Hive](https://hive.apache.org/) Hadoop ekosistemindeki en popüler bileşendir. HDInsight şu anda 4 farklı küme türü ile gelir: [Hadoop](hdinsight-hadoop-introduction.md), [Spark](hdinsight-apache-spark-overview.md), [HBase](hdinsight-hbase-overview.md) ve [Storm](hdinsight-storm-overview.md).  Her küme türü farklı bir bileşen kümesini destekler. 4 küme türü de Hive’ı destekler. HDInsight’ta desteklenen bileşenlerin listesi için bkz. [HDInsight tarafından sağlanan Hadoop küme sürümlerindeki yenilikler nelerdir?](hdinsight-component-versioning.md)  
+HDInsight’ta Linux tabanlı [Hadoop](http://hadoop.apache.org/) kümeleri oluşturmayı ve HDInsight’ta Hive işleri çalıştırmayı öğrenin. [Apache Hive](https://hive.apache.org/) Hadoop ekosistemindeki en popüler bileşendir. HDInsight şu anda altı farklı küme türüyle sağlanmaktadır: [Hadoop](hdinsight-hadoop-introduction.md), [Spark](hdinsight-apache-spark-overview.md), [HBase](hdinsight-hbase-overview.md), [Storm](hdinsight-storm-overview.md), [Interactive Hive (Önizleme)](hdinsight-hadoop-use-interactive-hive.md) ve [R server](hdinsight-hadoop-r-server-overview.md).  Her küme türü farklı bir bileşen kümesini destekler. Altı küme türünün tamamı Hive’ı destekler. HDInsight’ta desteklenen bileşenlerin listesi için bkz. [HDInsight tarafından sağlanan Hadoop küme sürümlerindeki yenilikler nelerdir?](hdinsight-component-versioning.md)  
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -41,36 +41,48 @@ Bu öğreticiye başlamadan önce
 [!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
 ## <a name="create-cluster"></a>Küme oluşturma
-Hadoop işlerinin çoğu toplu işlemdir. Bir küme oluşturur, bazı işleri çalıştırır ve kümeyi silersiniz. Bu bölümde, [Azure Resource Manager şablonu](../resource-group-template-deploy.md) kullanarak HDInsight’ta Linux tabanlı bir Hadoop kümesi oluşturacaksınız. Resource Manager şablonu tamamen özelleştirilebilir. HDInsight gibi Azure kaynaklarını oluşturmayı kolaylaştırır. Bu öğreticiyi kullanmak için Resource Manager şablonuyla deneyim sahibi olmak gerekli değildir. Diğer küme oluşturma yöntemleri ve bu öğreticide kullanılan özellikler hakkında bilgi edinmek için bkz. [HDInsight kümeleri oluşturma](hdinsight-hadoop-provision-linux-clusters.md). Bu öğreticide kullanılan Resource Manager şablonu bir ortak blob kapsayıcısında bulunur: [https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-hadoop-cluster-in-hdinsight.json](https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-hadoop-cluster-in-hdinsight.json). 
 
-1. Aşağıdaki resme tıklayarak Azure'da oturum açın ve Azure Portal'da Resource Manager şablonunu açın. 
+Hadoop işlerinin çoğu toplu işlemdir. Bir küme oluşturur, bazı işleri çalıştırır ve kümeyi silersiniz. Bu bölümde, [Azure Resource Manager şablonu](../resource-group-template-deploy.md) kullanarak HDInsight’ta Linux tabanlı bir Hadoop kümesi oluşturacaksınız. Resource Manager şablonu tamamen özelleştirilebilir. HDInsight gibi Azure kaynaklarını oluşturmayı kolaylaştırır. Bu öğreticiyi kullanmak için Resource Manager şablonuyla deneyim sahibi olmak gerekli değildir. Diğer küme oluşturma yöntemleri ve bu öğreticide kullanılan özellikler hakkında bilgi edinmek için bkz. [HDInsight kümeleri oluşturma](hdinsight-hadoop-provision-linux-clusters.md). Küme oluşturma seçeneklerinizi belirlemek için sayfanın üst kısmındaki seçiciyi kullanın.
+
+Bu öğreticide kullanılan Resource Manager şablonu bir ortak blob kapsayıcısında bulunur: [https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-hadoop-cluster-in-hdinsight.json](https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-hadoop-cluster-in-hdinsight.json). 
+
+1. Aşağıdaki resme tıklayarak Azure'da oturum açın ve Azure portalında Resource Manager şablonunu açın. 
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hadoop-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
-2. **Parametreler** dikey penceresinde aşağıdakileri girin:
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hadoop-cluster-in-hdinsight.json" target="_blank"><img src="./media/hdinsight-hadoop-linux-tutorial-get-started/deploy-to-azure.png" alt="Deploy to Azure"></a>
+2. Aşağıdaki değerleri yazın veya seçin:
    
     ![HDInsight Linux kullanmaya başlama portalda Resource Manager şablonu](./media/hdinsight-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-arm-template-on-portal.png).
    
-   * **ClusterName**: Oluşturacağınız Hadoop kümesi için bir ad girin.
-   * **Küme oturum açma adı ve parolası**: Varsayılan oturum açma adı **admin** şeklindedir.
-   * **SSH kullanıcı adı ve parolası**: Varsayılan kullanıcı adı **sshuser** şeklindedir.  Bunu yeniden adlandırabilirsiniz. 
+    * **Abonelik**: Azure aboneliğinizi seçin.
+    * **Kaynak grubu**: Yeni bir kaynak grubu oluşturun veya mevcut bir kaynak grubunu seçin.  Kaynak grubu, Azure bileşenleri için bir kapsayıcıdır.  Bu durumda, kaynak grubu HDInsight kümesini ve bağımlı Azure Depolama hesabını içermektedir. 
+    * **Konum**: Kümenizi oluşturmak istediğiniz bir Azure konumu seçin.  Daha iyi performans için kendinize yakın bir konum seçin. 
+    * **ClusterName**: Oluşturacağınız Hadoop kümesi için bir ad girin.
+    * **Küme oturum açma adı ve parolası**: Varsayılan oturum açma adı **admin** şeklindedir.
+    * **SSH kullanıcı adı ve parolası**: Varsayılan kullanıcı adı **sshuser** şeklindedir.  Bunu yeniden adlandırabilirsiniz. 
      
-     Bu öğreticiyi izlemek için diğer parametreler isteğe bağlıdır. Bunları olduğu gibi bırakabilirsiniz. 
-     
+    Şablondaki bazı özellikler sabit kodlanmış olabilir.  Bu değerleri şablondan yapılandırabilirsiniz.
+
+    * **Konum**: Hem küme konumu hem de bağımlı depolama hesabı kaynak grubu olarak aynı konumu kullanır.
+    * **Küme sürümü**: 3.4
+    * **İşletim Sistemi Türü**: Linux
+    * **Küme türü**: Hadoop
+    * **Çalışan düğümü sayısı**: 2
+
      Her kümenin bir Azure Blob Storage hesabı bağımlılığı vardır. Bu genellikle varsayılan depolama hesabı olarak ifade edilir. HDInsight kümesi ve kümenin varsayılan depolama hesabının aynı Azure bölgesinde bulunması gerekir. Kümeleri silmek depolama hesabını silmez. Şablonda, varsayılan depolama hesabı adı, "depo" ifadesi eklenmiş küme adı olarak tanımlanır. 
-3. Parametreleri kaydetmek için **Tamam**’a tıklayın.
-4. **Özel dağıtım** dikey penceresinde, **Yeni kaynak grubu adı**’nı girerek yeni kaynak grubu oluşturun.  Kaynak grubu; küme, bağımlı depolama hesabı ve diğer depolama hesaplarını gruplandıran bir kapsayıcıdır. Kaynak grubu konumu küme konumundan farklı olabilir.
-5. **Yasal koşullar**’a ve ardından **Oluştur**’a tıklayın.
-6. **Panoya sabitle** onay kutusunun seçili olduğundan emin olun ve ardından **Oluştur**’a tıklayın. **Şablon Dağıtımı’nı dağıtma** başlıklı yeni bir kutucuk görürsünüz. Bir küme oluşturmak yaklaşık 20 dakika sürer. 
-7. Küme oluşturulduktan sonra, kutucuğun açıklamalı alt yazısı belirttiğiniz kaynak grubu adıyla değişir. Ve portal otomatik olarak küme ve küme ayarlarını içeren iki dikey pencere açar. 
+
+3. **Yukarıdaki hüküm ve koşulları kabul ediyorum**’u ve **Panoya sabitle**’yi seçip **Satın al**’a tıklayın. Portal panosunda **Şablon Dağıtımı’nı dağıtma** başlıklı yeni bir kutucuk görürsünüz. Bir küme oluşturmak yaklaşık 20 dakika sürer. Küme oluşturulduktan sonra, kutucuğun açıklamalı alt yazısı belirttiğiniz kaynak grubu adıyla değişir. Portal otomatik olarak kaynak grubunu yeni bir dikey pencerede açar. Hem kümenin hem de varsayılan depolamanın listelendiğini görebilirsiniz.
    
-   ![HDInsight Linux kullanmaya başlama küme ayarları](./media/hdinsight-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-cluster-settings.png).
-   
-   Küme ve varsayılan depolama hesabı olmak üzere iki kaynak listelenir.
+    ![HDInsight Linux kullanmaya başlama kaynak grubu](./media/hdinsight-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-resource-group.png).
+
+4. Kümeyi yeni bir dikey pencerede açmak için küme adına tıklayın.
+
+   ![HDInsight Linux kullanmaya başlama küme ayarları](./media/hdinsight-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-cluster-settings.png)
+
 
 ## <a name="run-hive-queries"></a>Hive sorguları çalıştırma
 [Apache Hive](hdinsight-use-hive.md) HDInsight’ta kullanılan en popüler bileşendir. HDInsight’ta Hive işleri çalıştırmanın birçok yolu vardır. Bu öğreticide, bazı Hive işlerini çalıştırmak için portalda Ambari Hive görünümünü kullanırsınız. Hive işlerini göndermenin diğer yöntemleri için bkz. [HDInsight’ta Hive kullanma](hdinsight-use-hive.md).
 
-1. **https://&lt;ClusterName>.azurehdinsight.net** adresine gidin. Burada &lt;ClusterName>, önceki bölümde Ambari’yi açmak için oluşturduğunuz kümedir.
+1. Bir önceki ekran görüntüsünden **Küme Panosu**’na ve ardından **HDInsight Küme Panosu**’na tıklayın.  Ayrıca, **https://&lt;ClusterName>.azurehdinsight.net** adresine de gidebilirsiniz. Burada &lt;ClusterName>, önceki bölümde Ambari’yi açmak için oluşturduğunuz kümedir.
 2. Önceki bölümde belirttiğiniz Hadoop kullanıcı adını ve parolayı girin. Varsayılan kullanıcı adı **admin** şeklindedir.
 3. Aşağıdaki ekran görüntüsünde gösterildiği gibi **Hive Görünümü**’nü açın:
    
@@ -127,7 +139,7 @@ HDInsight ile verileri çözümleme hakkında daha fazla bilgi için aşağıdak
 Kendi verilerinizle çalışmaya başlamaya hazırsanız ve HDInsight’ın verileri nasıl depoladı veya verileri HDInsight’a alma hakkında daha fazla bilgi edinmek istiyorsanız, aşağıdakilere bakın:
 
 * HDInsight Azure Blob Storage’ı nasıl kullandığı hakkında daha fazla bilgi için bkz. [HDInsight ile Azure Blob Storage’ı kullanma](hdinsight-hadoop-use-blob-storage.md).
-* HDInsight’a verileri yükleme hakkında daha fazla bilgi için bkz. [Verileri HDInsight’a yükleme][hdinsight-upload-data].
+* HDInsight’a veril yükleme hakkında daha fazla bilgi için bkz. [Verileri HDInsight’a yükleme][hdinsight-upload-data].
 
 HDInsight kümesi oluşturma ve yönetme hakkında daha fazla bilgi edinmek istiyorsanız, aşağıdakilere bakın:
 
@@ -149,8 +161,8 @@ HDInsight kümesi oluşturma ve yönetme hakkında daha fazla bilgi edinmek isti
 [hdinsight-use-pig]: hdinsight-use-pig.md
 
 [powershell-download]: http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409
-[powershell-install-configure]: powershell-install-configure.md
-[powershell-open]: powershell-install-configure.md#Install
+[powershell-install-configure]: /powershell/azureps-cmdlets-docs
+[powershell-open]: /powershell/azureps-cmdlets-docs#Install
 
 [img-hdi-dashboard]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.dashboard.png
 [img-hdi-dashboard-query-select]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.dashboard.query.select.png
@@ -163,6 +175,6 @@ HDInsight kümesi oluşturma ve yönetme hakkında daha fazla bilgi edinmek isti
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

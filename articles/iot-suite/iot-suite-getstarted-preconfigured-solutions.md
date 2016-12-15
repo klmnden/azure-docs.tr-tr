@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/16/2016
+ms.date: 11/16/2016
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8ec86ebefccaf74c67cb7917ccf7d538bc95ae07
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: f86a70a5207f19063e9992325c8f8d696ca7823e
 
 
 ---
@@ -151,7 +151,7 @@ Yeni eklediğiniz yeni cihaz için hiçbir kural bulunmamaktadır. Bu bölümde,
     ![Cihaz eylemlerini listeleme][img-actions]
 
 > [!NOTE]
-> Bir kurala yanıt olarak bir e-posta iletisi veya SMS gönderebilen veya bir [Mantıksal Uygulama][lnk-logic-apps] aracılığıyla bir iş kolu sistemiyle tümleşebilen eylemler tanımlamak mümkündür. Daha fazla bilgi için bkz. [Mantıksal Uygulamanızı önceden yapılandırılmış Azure IoT Paketi Uzaktan İzleme çözümüne bağlama][lnk-logicapptutorial].
+> Bir kurala yanıt olarak bir e-posta iletisi veya SMS gönderebilen veya bir [Mantıksal Uygulama][lnk-logic-apps] aracılığıyla bir iş kolu sistemiyle tümleştirilebilen eylemler tanımlanabilir. Daha fazla bilgi için bkz. [Mantıksal Uygulamanızı önceden yapılandırılmış Azure IoT Paketi Uzaktan İzleme çözümüne bağlama][lnk-logicapptutorial].
 > 
 > 
 
@@ -180,14 +180,14 @@ Her bir kaynağın ayarlarını, kaynak grubundaki kaynaklar listesinde seçerek
 İşiniz bittiğinde önceden yapılandırılmış çözümü [azureiotsuite.com][lnk-azureiotsuite] sitesindeki Azure aboneliğinizden silebilirsiniz. Bu site, önceden yapılandırılmış çözümü oluşturduğunuzda sağlanan tüm kaynakları kolayca silmenize imkan tanır.
 
 > [!NOTE]
-> Önceden yapılandırılmış çözümle ilgili her şeyi sildiğinizden emin olmak için bu öğeleri [azureiotsuite.com][lnk-azureiotsuite] sitesinde silin. Yalnızca portaldaki kaynak grubunu silmekle kalmayın.
+> Önceden yapılandırılmış çözümle ilgili her şeyi sildiğinizden emin olmak için bu öğeleri [azureiotsuite.com][lnk-azureiotsuite] sitesinde silin; kaynak grubunu portaldan silmeyin.
 > 
 > 
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 Çalışan bir önceden yapılandırılmış çözüm dağıttığınıza göre aşağıdaki makaleleri okuyarak IoT Paketi ile çalışmaya başlayabilirsiniz:
 
-* [Önceden yapılandırılmış uzaktan izleme çözümü kılavuzu][lnk-rm-walkthrough]
+* [Uzaktan izleme önceden yapılandırılmış çözüm kılavuzu][lnk-rm-walkthrough]
 * [Cihazınızı önceden yapılandırılmış uzaktan izleme çözümüne bağlama][lnk-connect-rm]
 * [azureiotsuite.com sitesindeki izinler][lnk-permissions]
 
@@ -229,6 +229,6 @@ Her bir kaynağın ayarlarını, kaynak grubundaki kaynaklar listesinde seçerek
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

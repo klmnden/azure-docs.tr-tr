@@ -1,25 +1,30 @@
 ---
-title: 'SQL Database''i deneme: C# kullanarak SQL veritabanı oluşturma | Microsoft Docs'
-description: SQL ve C# uygulamalarını geliştirmek için SQL Database kullanmayı deneyin ve .NET için SQL Database Kitaplığı'nı kullanarak C# ile bir Azure SQL Database oluşturun.
+title: "SQL Veritabanı&quot;nı deneme: C# kullanarak SQL veritabanı oluşturma | Microsoft Belgeleri"
+description: "SQL ve C# uygulamalarını geliştirmek için SQL Database kullanmayı deneyin ve .NET için SQL Database Kitaplığı&quot;nı kullanarak C# ile bir Azure SQL Database oluşturun."
 keywords: sql deneme, sql c#
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: stevestein
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: cfff2299-a474-4054-8d99-759af1ae5188
 ms.service: sql-database
+ms.custom: overview
 ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: csharp
 ms.workload: data-management
 ms.date: 10/04/2016
 ms.author: sstein
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 82b042fa17af4bc93989a4f12982530f44755280
+
 
 ---
-# SQL Database'i deneme: C# kullanarak .NET için SQL Database Kitaplığı ile bir SQL veritabanı oluşturma
+# <a name="try-sql-database-use-c-to-create-a-sql-database-with-the-sql-database-library-for-net"></a>SQL Database'i deneme: C# kullanarak .NET için SQL Database Kitaplığı ile bir SQL veritabanı oluşturma
 > [!div class="op_single_selector"]
-> * [Azure portalı](sql-database-get-started.md)
+> * [Azure portal](sql-database-get-started.md)
 > * [C#](sql-database-get-started-csharp.md)
 > * [PowerShell](sql-database-get-started-powershell.md)
 > 
@@ -27,10 +32,10 @@ ms.author: sstein
 
 [.NET için Microsoft Azure SQL Yönetim Kitaplığı](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql) ile bir Azure SQL veritabanı oluşturmak üzere C# dilini nasıl kullanacağınızı öğrenin. Bu makalede SQL ve C# ile tek bir veritabanını oluşturma işlemi açıklanmaktadır. Esnek veritabanı havuzu oluşturmak için bkz. [Esnek veritabanı havuzu oluşturma](sql-database-elastic-pool-create-csharp.md).
 
-.NET için Azure SQL Veritabanı Yönetim Kitaplığı [Resource Manager tabanlı SQL Veritabanı REST API'sini](https://msdn.microsoft.com/library/azure/mt163571.aspx) sarmalayan [Azure Resource Manager](../resource-group-overview.md) tabanlı bir API sağlar.
+.NET için Azure SQL Veritabanı Yönetim Kitaplığı [Resource Manager tabanlı SQL Veritabanı REST API'sini](https://msdn.microsoft.com/library/azure/mt163571.aspx) sarmalayan [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) tabanlı bir API sağlar.
 
 > [!NOTE]
-> SQL Veritabanı’nın pek çok yeni özelliği, yalnızca [Azure Resource Manager dağıtım modeli](../resource-group-overview.md) kullanıldığında desteklenir. Bu nedenle .NET için her zaman en son **Azure SQL Veritabanı Yönetim Kitaplığını ([docs](https://msdn.microsoft.com/library/azure/mt349017.aspx) | [NuGet Paketi](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql)) kullanmanız gerekir**. Eski [klasik dağıtım modeli tabanlı kitaplıklar](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Sql), yalnızca geriye dönük uyumluluk için desteklenir. Bu nedenle daha yeni Resource Manager tabanlı kitaplıkları kullanmanızı öneririz.
+> SQL Veritabanı’nın pek çok yeni özelliği, yalnızca [Azure Resource Manager dağıtım modeli](../azure-resource-manager/resource-group-overview.md) kullanıldığında desteklenir. Bu nedenle .NET için her zaman en son **Azure SQL Veritabanı Yönetim Kitaplığını ([docs](https://msdn.microsoft.com/library/azure/mt349017.aspx) | [NuGet Paketi](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql)) kullanmanız gerekir**. Eski [klasik dağıtım modeli tabanlı kitaplıklar](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Sql), yalnızca geriye dönük uyumluluk için desteklenir. Bu nedenle daha yeni Resource Manager tabanlı kitaplıkları kullanmanızı öneririz.
 > 
 > 
 
@@ -44,7 +49,7 @@ Bu makaledeki adımları tamamlayabilmeniz için şunlar gereklidir:
 > 
 > 
 
-## Bir konsol uygulaması oluşturun ve gerekli kitaplıkları yükleyin
+## <a name="create-a-console-app-and-install-the-required-libraries"></a>Bir konsol uygulaması oluşturun ve gerekli kitaplıkları yükleyin
 1. Visual Studio’yu çalıştırın.
 2. **Dosya** > **Yeni** > **Proje**’ye tıklayın.
 3. Bir C# **Konsol Uygulaması** oluşturun ve şu şekilde adlandırın: *SqlDbConsoleApp*
@@ -61,7 +66,7 @@ C# ile bir SQL veritabanı oluşturmak için gerekli yönetim kitaplıklarını 
 > 
 > 
 
-## Bir SQL Veritabanı sunucusu, güvenlik duvarı kuralı ve SQL veritabanı oluşturma - C# örneği
+## <a name="create-a-sql-database-server-firewall-rule-and-sql-database---c-example"></a>Bir SQL Veritabanı sunucusu, güvenlik duvarı kuralı ve SQL veritabanı oluşturma - C# örneği
 Aşağıdaki örnekte bir kaynak grubu, sunucu güvenlik duvarı kuralı ve bir SQL veritabanı oluşturulmuştur. `_subscriptionId, _tenantId, _applicationId, and _applicationSecret` değişkenlerini almak için bkz. [Kaynaklara erişmek için hizmet sorumlusu oluşturma](#create-a-service-principal-to-access-resources).
 
 **Program.cs** dosyasının içeriğini aşağıdakilerle değiştirin ve `{variables}` öğesini uygulama değerlerinizle güncelleştirin (`{}` öğesini dahil etmeyin).
@@ -223,7 +228,7 @@ Aşağıdaki örnekte bir kaynak grubu, sunucu güvenlik duvarı kuralı ve bir 
 
 
 
-## Kaynaklara erişmek için hizmet sorumlusu oluşturma
+## <a name="create-a-service-principal-to-access-resources"></a>Kaynaklara erişmek için hizmet sorumlusu oluşturma
 Aşağıdaki PowerShell betiği Active Directory (AD) uygulamasını ve C# uygulamamızda kimlik doğrulamak için gereken hizmet sorumlusunu oluşturur. Betik önceki C# örneği için gereken değerleri çıkarır. Ayrıntılı bilgi için bkz. [Kaynaklara erişmek üzere hizmet sorumlusu oluşturmak için Azure PowerShell kullanma](../resource-group-authenticate-service-principal.md).
 
     # Sign in to Azure.
@@ -266,13 +271,13 @@ Aşağıdaki PowerShell betiği Active Directory (AD) uygulamasını ve C# uygul
 
 
 
-## Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 SQL Database'i ve C# ile bir veritabanını ayarlamayı denediğinize göre şu makaleler için hazırsınız:
 
-* [SQL Server Management Studio ile SQL Database'e bağlanma ve bir örnek T-SQL sorgusu gerçekleştirme](sql-database-connect-query-ssms.md)
+* [SQL Server Management Studio ile SQL Veritabanı’na bağlanma ve bir örnek T-SQL sorgusu gerçekleştirme](sql-database-connect-query-ssms.md)
 
-## Ek Kaynaklar
-* [SQL Database](https://azure.microsoft.com/documentation/services/sql-database/)
+## <a name="additional-resources"></a>Ek Kaynaklar
+* [SQL Veritabanı](https://azure.microsoft.com/documentation/services/sql-database/)
 * [Veritabanı Sınıfı](https://msdn.microsoft.com/library/azure/microsoft.azure.management.sql.models.database.aspx)
 
 <!--Image references-->
@@ -288,6 +293,6 @@ SQL Database'i ve C# ile bir veritabanını ayarlamayı denediğinize göre şu 
 
 
 
-<!--HONumber=Oct16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

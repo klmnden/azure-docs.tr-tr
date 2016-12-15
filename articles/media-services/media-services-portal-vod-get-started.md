@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 08/30/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 25d8b204f328514ebcfc69228dcbf9342bdf205b
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 473ca94a4b081aee69fa06718790acd61a8b51b3
 
 
 ---
@@ -221,6 +221,6 @@ Media Services öğrenme yollarını gözden geçirin.
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

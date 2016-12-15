@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 10/11/2016
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 425729dde12d8477b7b8ecd6394b31b7c5a5e92b
+ms.sourcegitcommit: 4fc33ba185122496661f7bc49d14f7522d6ee522
+ms.openlocfilehash: 11b65d8f82a6440ec02582827696dba34f1e626c
 
 
 ---
@@ -50,8 +50,8 @@ Bu öğreticiyi tamamlamak için aşağıdaki ön koşullara sahip olmanız gere
 ### <a name="azure-account"></a>Azure hesabı
 Öğreticiyi tamamlamak için bir Azure hesabınızın olması gerekir. Şunları yapabilirsiniz:
 
-* [Ücretsiz bir Azure hesabı açın](/pricing/free-trial/?WT.mc_id=redis_cache_hero). Ücretli Azure hizmetlerini denemek için kullanabileceğiniz krediler alırsınız. Krediler bitmiş olsa bile hesabı sürdürebilir ve ücretsiz Azure hizmet ve özelliklerinden faydalanabilirsiniz.
-* [Visual Studio abone avantajları etkinleştirin](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=redis_cache_hero). MSDN aboneliğiniz, ücretli Azure hizmetlerinizi kullanabildiğiniz her ay size kredi verir.
+* [Ücretsiz bir Azure hesabı açın](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero). Ücretli Azure hizmetlerini denemek için kullanabileceğiniz krediler alırsınız. Krediler bitmiş olsa bile hesabı sürdürebilir ve ücretsiz Azure hizmet ve özelliklerinden faydalanabilirsiniz.
+* [Visual Studio abone avantajları etkinleştirin](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=redis_cache_hero). MSDN aboneliğiniz, ücretli Azure hizmetlerinizi kullanabildiğiniz her ay size kredi verir.
 
 ### <a name="visual-studio-2015-with-the-azure-sdk-for-net"></a>.NET için Windows Azure SDK içeren Visual Studio 2015
 Bu öğretici, [.NET için Azure SDK](../dotnet-sdk.md) 2.8.2 veya sonraki bir sürümünü içeren Visual Studio 2015 için hazırlanmıştır. [Visual Studio 2015 için en son Azure SDK’sını buradan indirin](http://go.microsoft.com/fwlink/?linkid=518003). Visual Studio’nuz yoksa, SDK ile otomatik olarak yüklenir.
@@ -808,6 +808,6 @@ Kullanılacak önbelleği seçtikten veya oluşturduktan sonra, Azure portalınd
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

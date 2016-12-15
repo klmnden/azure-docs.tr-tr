@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 08/30/2016
+ms.date: 11/29/2016
 ms.author: glenga
 translationtype: Human Translation
-ms.sourcegitcommit: 47a89987b65b442c7b489984a4fc139eb1b82758
-ms.openlocfilehash: 8efde94c5771212b4549f10882a4e55739231d61
+ms.sourcegitcommit: 44e397c7521ba8f0ba11893c364f51177561bee4
+ms.openlocfilehash: a74fc30480068788f33df092594119253df9487b
 
 
 ---
@@ -34,7 +34,7 @@ Aşağıdaki video, bu öğreticideki temel adımların nasıl gerçekleştirile
 >
 
 ## <a name="create-a-webhook-triggered-function-from-the-template"></a>Şablondan web kancası ile tetiklenen bir işlev oluşturma
-Azure'da işlevlerinizin yürütülmesini bir işlev uygulaması barındırır. Bir işlev oluşturmadan önce etkin bir Azure hesabınız olması gerekir. Bir Azure hesabınız yoksa [ücretsiz hesaplar kullanılabilir](https://azure.microsoft.com/free/). 
+Azure'da işlevlerinizin yürütülmesini bir işlev uygulaması barındırır. Azure hesabınız yoksa [İşlevleri Deneme](https://functions.azure.com/try) deneyimini inceleyin veya [ücretsiz Azure hesabı oluşturun](https://azure.microsoft.com/free/). 
 
 1. [Azure İşlevleri portalına](https://functions.azure.com/signin) gidin ve Azure hesabınız ile oturum açın.
 
@@ -50,9 +50,12 @@ Azure'da işlevlerinizin yürütülmesini bir işlev uygulaması barındırır. 
 
 1. **İşlev URL’si** ve **GitHub Gizli Anahtarı** değerlerini kopyalayın. GitHub’da web kancasını oluşturmak için bunlara ihtiyacınız olacaktır. 
 
-2. **Çalıştır** öğesine inin, İstek gövdesindeki sorun açıklamasının önceden tanımlanmış JSON gövdesini not edin, ardından **Çalıştır**’a tıklayın. 
+2. **Test**'e tıklayın, **İstek gövdesindeki** sorun açıklamasının önceden tanımlanmış JSON gövdesini not edin, ardından **Çalıştır**'a tıklayın. 
+
+    ![Web kancası işlevini portalda test etme](./media/functions-create-a-web-hook-or-api-function/functions-test-webhook-in-portal.png)
    
-    Beklenen bir gövde JSON verisi belirtip **Çalıştır** düğmesine tıklayarak **Geliştir** sekmesinde yeni bir şablon temelli işlevi her zaman test edebilirsiniz. Bu durumda, şablonun sorun açıklaması için önceden tanımlanmış bir gövdesi olur. 
+    > [!NOTE]
+    > Beklenen bir gövde JSON verisi belirtip **Çalıştır** düğmesine tıklayarak **Geliştir** sekmesinde yeni bir şablon temelli işlevi her zaman test edebilirsiniz. Bu durumda, şablonun sorun açıklaması için önceden tanımlanmış bir gövdesi olur. 
 
 Ardından, GitHub deponuzda gerçek web kancasını oluşturursunuz.
 
@@ -91,6 +94,6 @@ Azure İşlevleri hakkında daha fazla bilgi edinmek için bu konulara göz atı
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

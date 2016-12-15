@@ -22,11 +22,11 @@
 
    DocumentDB hesabının varsayılan tutarlılığı **Oturum** olarak ayarlandı.  Kaynak menüsünde **Varsayılan Tutarlılık** seçeneğine tıklayarak varsayılan tutarlılık ayarını belirleyebilirsiniz. DocumentDB tarafından sunulan tutarlılık düzeyleri hakkında daha fazla bilgi edinmek için bkz. [DocumentDB'deki tutarlılık düzeyleri](../articles/documentdb/documentdb-consistency-levels.md).
 
-[Nasıl yapılır: DocumentDB hesabı oluşturma]: #Howto
-[Sonraki adımlar]: #NextSteps
+[How to: Create a DocumentDB account]: #Howto
+[Next steps]: #NextSteps
 [documentdb-manage]:../articles/documentdb/documentdb-manage.md
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -14,8 +14,8 @@ ms.tgt_pltfrm: na
 ms.date: 08/29/2016
 ms.author: brjohnst
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: f85c3a0d3bb9fb61802ba3ce070ead2e650a29cc
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: d638e79517053fa758d9695c297ef09f4d9a806d
 
 
 ---
@@ -34,7 +34,7 @@ Bu kılavuzda başlamadan önce, [Azure Search dizini oluşturmuş](search-what-
 
 Bu makaledeki örnek kodun tamamının C# dilinde yazıldığını unutmayın. Tam kaynak kodunu [GitHub](http://aka.ms/search-dotnet-howto)'da bulabilirsiniz.
 
-## <a name="i-identify-your-azure-search-services-query-apikey"></a>I. Azure Search hizmet sorgunuzun api anahtarını tanımlama
+## <a name="i-identify-your-azure-search-services-query-api-key"></a>I. Azure Search hizmet sorgunuzun api anahtarını tanımlama
 Artık bir Azure Search dizini oluşturduğunuza göre, .NET SDK kullanarak sorgu göndermeye neredeyse hazırsınız. Öncelikle, sağladığınız arama hizmeti için oluşturulan sorgu api anahtarlarından birini edinmeniz gerekir. .NET SDK, hizmetinize yönelik her istek için bu api anahtarını gönderir. İstek başına geçerli bir anahtara sahip olmak, isteği gönderen uygulama ve bunu işleyen hizmet arasında güven oluşturur.
 
 1. Hizmetinizin api anahtarlarını bulmak için [Azure Portal](https://portal.azure.com/)'da oturum açmanız gerekir
@@ -170,6 +170,6 @@ Yukarıdaki örnek kod, arama sonuçlarını çıkarmak için konsolu kullanır.
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

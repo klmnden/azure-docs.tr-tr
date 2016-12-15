@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/22/2016
+ms.date: 12/05/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 5081c38bae56cf6f2ed260eabb895453d7603cfd
-ms.openlocfilehash: b982274cc7dcf1ffbe1dd4c3d7f833f97704d931
+ms.sourcegitcommit: e4aa6b13e3f1060d97cfea70761ad2f1c109b0c0
+ms.openlocfilehash: 5a197d1444c75d9f6f8d7540ca3117d894d5836f
 
 
 ---
@@ -85,12 +85,12 @@ Coğrafi bölgeler arasındaki bağlantı standart ExpressRoute SKU’da destekl
 | **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Destekleniyor |Destekleniyor |Amsterdam, Chicago, Dallas, Las Vegas+, Londra, Seattle, Silikon Vadisi, Washington DC |
 | **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Destekleniyor |Destekleniyor |Dallas, Hong Kong, Las Vegas, Los Angeles, Melbourne, New York, Seattle, Singapur, Sidney, Toronto, Washington DC |
 | **MTN** |Destekleniyor |Destekleniyor |Londra |
-| **Yeni Nesil Veriler** |Çok Yakında |Çok Yakında |Newport(Galler)+ |
+| **Yeni Nesil Veriler** |Destekleniyor |Çok Yakında |Newport(Galler) |
 | **NEXTDC** |Destekleniyor |Destekleniyor |Melbourne, Sidney |
 | **NTT Communications** |Destekleniyor |Destekleniyor |Londra, Los Angeles, Osaka, Singapur, Tokyo, Washington DC |
 | **[Orange](http://www.orange-business.com/en/products/business-vpn-galerie)** |Destekleniyor |Destekleniyor |Amsterdam, Hong Kong, Londra, Silikon Vadisi, Singapur, Sidney, Washington DC |
 | **PCCW Global Limited** |Destekleniyor |Destekleniyor |Hong Kong |
-| **SIFY** |Destekleniyor |Destekleniyor |Chennai |
+| **[SIFY](http://telecom.sify.com/azure-expressroute.html)** |Destekleniyor |Destekleniyor |Chennai |
 | **[SingTel](http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** |Destekleniyor |Destekleniyor |Singapur |
 | **Softbank** |Destekleniyor |Destekleniyor |Osaka, Tokyo |
 | **[Tata Communications](http://www.tatacommunications.com/lp/izo/azure/azure_index.html)** |Destekleniyor |Destekleniyor |Amsterdam, Chennai, Hong Kong, Londra, Mumbai, Silikon Vadisi, Singapur, Washington DC |
@@ -173,6 +173,6 @@ Bağlantı sağlayıcınız önceki bölümlerde listelenmemişse hala bağlant�
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

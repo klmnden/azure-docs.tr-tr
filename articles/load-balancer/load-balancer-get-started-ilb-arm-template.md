@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 10/24/2016
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 8827793d771a2982a3dccb5d5d1674af0cd472ce
-ms.openlocfilehash: 64d728540f3682bfeaf87364b80b972108071735
+ms.sourcegitcommit: c40545833da86426d3e71955b8eb8627db3c1e4b
+ms.openlocfilehash: 03fdb734fee778ac5dbee4fb8417cb68c5267173
 
 ---
 
@@ -43,7 +43,7 @@ Genel depoda yer alan örnek şablonda, yukarıdaki senaryoyu oluşturmak için 
 
 PowerShell kullanarak yüklediğiniz şablonu dağıtmak için aşağıdaki adımları izleyin.
 
-1. Daha önce Azure PowerShell kullanmadıysanız, [Azure PowerShell’i Yükleme ve Yapılandırma](../powershell-install-configure.md) sayfasına gidin ve Azure’da oturum açıp aboneliğinizi seçmek için talimatları sonuna kadar uygulayın.
+1. Daha önce Azure PowerShell kullanmadıysanız, [Azure PowerShell’i Yükleme ve Yapılandırma](/powershell/azureps-cmdlets-docs) sayfasına gidin ve Azure’da oturum açıp aboneliğinizi seçmek için talimatları sonuna kadar uygulayın.
 2. Parametre dosyasını yerel diskinize indirin.
 3. Dosyayı düzenleyin ve kaydedin.
 4. Şablonu kullanarak kaynak grubu oluşturmak için **New-AzureRmResourceGroupDeployment** cmdlet’ini çalıştırın.
@@ -85,6 +85,6 @@ Azure CLI’yi kullanarak şablonu dağıtmak için aşağıdaki adımları uygu
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

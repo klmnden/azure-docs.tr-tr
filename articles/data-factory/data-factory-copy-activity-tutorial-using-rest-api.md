@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 09/16/2016
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 7b55f6730c6a2bf8637f312c452fe552f82dbaeb
-ms.openlocfilehash: 69b333b0c43d2e3e4d62168650123322a79579ba
+ms.sourcegitcommit: c1551b250ace3aa6775932c441fcfe28431f8f57
+ms.openlocfilehash: 6bb9415180f7235b7521d5a4dc9d8a6f0e060756
 
 
 ---
@@ -48,7 +48,7 @@ Bu öğretici, REST API kullanarak bir Azure veri fabrikası oluşturmayı ve iz
   2. **İstemci kimliği** ve **gizli anahtarı** alın. 
   3. **İstemci kimliğini** alın. 
   4. **ADFCopyTutorialApp** uygulamasını **Data Factory Katılımcısı** rolüne atayın.  
-* [Azure PowerShell](../powershell-install-configure.md)'i yükleyin.  
+* [Azure PowerShell](/powershell/azureps-cmdlets-docs)'i yükleyin.  
 * **PowerShell**’i başlatın ve aşağıdaki komutu çalıştırın. Bu öğreticide sonuna kadar Azure PowerShell’i açık tutun. Kapatıp yeniden açarsanız komutları yeniden çalıştırmanız gerekir.
   
   1. Aşağıdaki komutu çalıştırın ve Azure portalda oturum açmak için kullandığınız kullanıcı adı ve parolayı girin.
@@ -402,7 +402,7 @@ Bu öğreticide kullanılacak Azure blob depolama ve Azure SQL veritabanını ha
 
         CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID); 
 
-    Bilgisayarınızda SQL Server 2014 yüklüyse: Azure SQL sunucunuza bağlanmak ve SQL betiğini çalıştırmak için [2. Adım: SQL Server Management Studio kullanarak, Yönetilen Azure SQL Database’in SQL Database’ine Bağlanma][sql-management-studio] makalesindeki yönergeleri uygulayın.
+    Bilgisayarınızda SQL Server 2014 yüklüyse: Azure SQL sunucunuza bağlanmak ve SQL betiğini çalıştırmak için [2. Adım: SQL Server Management Studio kullanarak, Yönetilen Azure SQL Veritabanı'nın SQL Veritabanı'na Bağlanma][sql-management-studio] makalesindeki yönergeleri uygulayın.
 
     İstemcinizin Azure SQL sunucusuna erişim izni yoksa, makinenizden (IP adresi) erişim izni vermek için Azure SQL sunucunuzun güvenlik duvarını yapılandırmanız gerekir. Azure SQL sunucunuzun güvenlik duvarını yapılandırmaya yönelik adımlar için [bu makaleye](../sql-database/sql-database-configure-firewall-settings.md) bakın.
 
@@ -495,7 +495,7 @@ Bu öğreticide bir Azure blob’undan Azure SQL veritabanına veri kopyalamak i
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 [azure-portal]: http://portal.azure.com
-[download-azure-powershell]: ../powershell-install-configure.md
+[download-azure-powershell]: /powershell/azureps-cmdlets-docs
 [data-factory-introduction]: data-factory-introduction.md
 
 [image-data-factory-get-started-storage-explorer]: ./media/data-factory-copy-activity-tutorial-using-powershell/getstarted-storage-explorer.png
@@ -504,6 +504,6 @@ Bu öğreticide bir Azure blob’undan Azure SQL veritabanına veri kopyalamak i
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -3,7 +3,7 @@ title: "Azure Batch PowerShell kullanmaya başlama | Microsoft Belgeleri"
 description: "Azure Batchhizmetini yönetmek için kullanabileceğiniz Azure PowerShell cmdlet’lerine bir giriş gerçekleştirin."
 services: batch
 documentationcenter: 
-author: mmacy
+author: tamram
 manager: timlt
 editor: 
 ms.assetid: f9ad62c5-27bf-4e6b-a5bf-c5f5914e6199
@@ -13,10 +13,10 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: powershell
 ms.workload: big-compute
 ms.date: 10/20/2016
-ms.author: marsma
+ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 9aa49ecfa151b8ab56c0560db47c3b0eb80647a2
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 1ea51f4053ba0d4e08628d29eca7cb7c82a26d61
 
 
 ---
@@ -30,7 +30,7 @@ Bu makale, Azure PowerShell 3.0.0 sürümündeki cmdlet’leri temel almaktadır
 ## <a name="prerequisites"></a>Önkoşullar
 Batch kaynaklarınızı yönetmek üzere Azure PowerShell’i kullanmak için aşağıdaki işlemleri gerçekleştirin.
 
-* [Azure PowerShell'i yükleme ve yapılandırma](../powershell-install-configure.md)
+* [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azureps-cmdlets-docs)
 * Aboneliğinize bağlanmak için **Login-AzureRmAccount** cmdlet’ini çalıştırın (Azure Batch cmdlet’leri, Azure Resource Manager modülüyle birlikte verilir):
   
     `Login-AzureRmAccount`
@@ -240,6 +240,6 @@ Batch hizmetinde havuzun özelliklerini güncelleştirmiş oldunuz. Bununla birl
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

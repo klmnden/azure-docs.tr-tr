@@ -1,6 +1,6 @@
 ---
-title: "Java için Azure IoT Hub ile çalışmaya başlama | Microsoft Belgeleri"
-description: "Java ile Azure IoT Hub&quot;ı kullanmaya başlama öğreticisi. Nesnelerin İnterneti çözümü uygulamak içi,n Azure IoT SDK&quot;ları ile birlikte Azure IoT Hub ve Java kullanın."
+title: "Azure IoT Hub&quot;ı (Java) kullanmaya başlama | Microsoft Belgeleri"
+description: "Java için Azure IoT SDK&quot;larını kullanarak bir cihazdan bir Azure IoT hub&quot;ına cihazdan buluta iletiler gönderme. İleti göndermek için bir sanal cihaz uygulaması, cihazınızı kimlik kayıt defterine kaydetmek için bir hizmet uygulaması ve cihazdan buluta gönderilen iletileri IoT hub&quot;ından okumak için bir hizmet uygulaması oluşturmanız gerekir."
 services: iot-hub
 documentationcenter: java
 author: dominicbetts
@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 11/23/2016
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: ce514e19370d2b42fb16b4e96b66f212d5fa999c
-ms.openlocfilehash: ae4727b27281be62a79f9387715eccd6b61e8e12
+ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
+ms.openlocfilehash: 4054831b19b91145788a0d1b4dbb09d4795df459
 
 
 ---
-# <a name="get-started-with-azure-iot-hub-for-java"></a>Java için Azure IoT Hub ile çalışmaya başlama
+# <a name="get-started-with-azure-iot-hub-java"></a>Azure IoT Hub'ı (Java) kullanmaya başlama
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
 
 Bu öğreticinin sonunda üç Java konsol uygulamanız olur:
@@ -46,7 +46,7 @@ Son adım olarak **Birincil anahtar** değerini not edin ve ardından **Mesajla�
 
 ![Azure portalı IoT Hub Mesajlaşma dikey penceresi][6]
 
-Artık IoT hub'ınızı oluşturdunuz ve bu öğreticiyi tamamlamak için ihtiyacınız olan IoT Hub konak adına, IoT Hub bağlantı dizesine, IoT Hub Birincil Anahtarına, Event Hub ile uyumlu ada ve Event Hub ile uyumlu uç noktasına sahipsiniz.
+Artık IoT hub'ınızı oluşturdunuz ve bu öğreticiyi tamamlamak için ihtiyacınız olan IoT Hub konak adına, IoT Hub bağlantı dizesine, IoT Hub Birincil Anahtarına, Olay Hub’ı ile uyumlu ada ve Olay Hub’ı ile uyumlu uç noktasına sahipsiniz.
 
 ## <a name="create-a-device-identity"></a>Cihaz kimliği oluşturma
 Bu bölümde, IoT hub'ınızdaki kimlik kayıt defterinde cihaz kimliği oluşturan bir Java konsol uygulaması oluşturursunuz. Kimlik kayıt defterinde girişi olmayan bir cihaz IoT hub'ına bağlanamaz. Daha fazla bilgi için [IoT Hub Geliştirici Kılavuzu][lnk-devguide-identity]'nun **Kimlik Kayıt Defteri** bölümüne bakın. Bu konsol uygulamasını çalıştırdığınızda, cihazınızın IoT Hub'a cihaz-bulut iletileri gönderdiğinde kendisini tanımlamak için kullanabileceği benzersiz bir cihaz kimliği ve anahtarı oluşturulur.
@@ -90,7 +90,7 @@ Bu bölümde, IoT hub'ınızdaki kimlik kayıt defterinde cihaz kimliği oluştu
     ```
     public static void main( String[] args ) throws IOException, URISyntaxException, Exception
     ```
-9. Aşağıdaki kodu **main** yönteminin gövdesi olarak ekleyin. Bu kod, IoT Hub kimlik kayıt defterinizde zaten yoksa *javadevice* adlı bir cihaz oluşturur. Ardından, daha sonra ihtiyacınız olacak cihaz kimliğini ve anahtarını görüntüler:
+9. Aşağıdaki kodu **main** yönteminin gövdesi olarak ekleyin. Bu kod, IoT Hub kimlik kayıt defterinizde zaten yoksa *javadevice* adlı bir cihaz oluşturur. Ardından, daha sonra ihtiyaç duyacağınız cihaz kimliğini ve anahtarını görüntüler:
    
     ```
     RegistryManager registryManager = RegistryManager.createFromConnectionString(connectionString);
@@ -105,7 +105,7 @@ Bu bölümde, IoT hub'ınızdaki kimlik kayıt defterinde cihaz kimliği oluştu
         iotf.printStackTrace();
       }
     }
-    System.out.println("Device id: " + device.getDeviceId());
+    System.out.println("Device ID: " + device.getDeviceId());
     System.out.println("Device key: " + device.getPrimaryKey());
     ```
 10. App.java dosyasını kaydedin ve kapatın.
@@ -122,7 +122,7 @@ Bu bölümde, IoT hub'ınızdaki kimlik kayıt defterinde cihaz kimliği oluştu
 13. **Cihaz kimliği** ve **Cihaz anahtarını** not edin. İleride IoT Hub'a bir cihaz olarak bağlanan bir uygulama oluşturduğunuzda bu değerlere ihtiyacınız olur.
 
 > [!NOTE]
-> IoT Hub kimlik kayıt defteri, yalnızca IoT hub'ına güvenli erişim sağlamak amacıyla cihaz kimliklerini depolar. Güvenlik kimlik bilgileri olarak kullanılmak üzere cihaz kimliklerini ve anahtarlarını ve tek bir cihaza erişimi devre dışı bırakmak için kullanabileceğiniz etkin/devre dışı bayrağını depolar. Uygulamanızın cihaza özgü diğer meta verileri depolaması gerekiyorsa uygulamaya özgü bir depo kullanmalıdır. Daha fazla bilgi için bkz. [IoT Hub Geliştirici Kılavuzu][lnk-devguide-identity].
+> IoT Hub kimlik kayıt defteri, yalnızca IoT hub'ına güvenli erişim sağlamak amacıyla cihaz kimliklerini depolar. Güvenlik kimlik bilgileri olarak kullanılmak üzere cihaz kimliklerini ve anahtarlarını ve tek bir cihaza erişimi devre dışı bırakmak için kullanabileceğiniz etkin/devre dışı bayrağını depolar. Uygulamanızın cihaza özgü diğer meta verileri depolaması gerekiyorsa uygulamaya özgü bir depo kullanmalıdır. Daha fazla bilgi için bkz. [IoT Hub geliştirici kılavuzu][lnk-devguide-identity].
 > 
 > 
 
@@ -425,14 +425,14 @@ Bu bölümde, IoT Hub'a cihazdan buluta iletiler gönderen bir cihaza benzetim y
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
     ```
    
-    ![Cihazdan buluta iletileri izlemeye yönelik Java IoT Hub hizmeti istemci uygulaması][7]
+    ![Cihazdan buluta iletileri izlemeye yönelik Java IoT Hub hizmet uygulaması][7]
 2. simulated-device klasöründeki bir komut isteminde IoT hub'ınıza telemetri verileri göndermeye başlamak için aşağıdaki komutu çalıştırın:
    
     ```
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App" 
     ```
    
-    ![Cihazdan buluta iletileri göndermeye yönelik Java IoT Hub cihazı istemci uygulaması][8]
+    ![Cihazdan buluta iletileri göndermeye yönelik Java IoT Hub cihaz uygulaması][8]
 3. [Azure portalındaki][lnk-portal] **Kullanım** kutucuğu, IoT hub'ına gönderilen ileti sayısını gösterir:
    
     ![IoT Hub’a gönderilen ileti sayısını gösteren Azure portalı Kullanım kutucuğu][43]
@@ -474,6 +474,6 @@ IoT çözümünüzün nasıl genişletileceğini ve cihazdan buluta iletilerin d
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

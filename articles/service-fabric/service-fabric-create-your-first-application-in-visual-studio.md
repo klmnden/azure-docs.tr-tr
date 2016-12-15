@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 10/26/2016
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 037dc010a6dc60eb49ad4fdad2861e8653e36199
+ms.sourcegitcommit: e8b2379c750047bf2a4c7342815b5c3aab3883c6
+ms.openlocfilehash: a101ad134e15a0da5e6d3fd5cbf4ca051da34e86
 
 
 ---
@@ -64,7 +64,7 @@ Service Fabric uygulaması bir veya birden çok hizmet içerebilir. Bu hizmetler
     Uygulama projesi doğrudan kod içermez. Bunun yerine, bir dizi hizmet projesine başvuru sağlar. Ayrıca, bunlardan farklı olarak üç tür içerik daha barındırır:
    
    * **Yayımlama profilleri**: Farklı ortamlar için araç kullanımı tercihlerini yönetmek için kullanılır.
-   * **Betikler**: Uygulamanızı dağıtmak/yükseltmek için bir PowerShell betiği içerir. Visual Studio, Visual Studio tarafından sunulan sahne arkası betiği kullanır. Bu betik komut satırından doğrudan da çağrılabilir.
+   * **Betikler**: Uygulamanızı dağıtmak/yükseltmek için bir PowerShell betiği içerir. Visual Studio sahne arkası betiği kullanır. Bu betik komut satırından doğrudan da çağrılabilir.
    * **Uygulama tanımı**: *ApplicationPackageRoot* altındaki uygulama bildirimini içerir. İlişkili uygulama parametre dosyaları, uygulamayı tanımlayan ve belirli bir ortam için özel olarak yapılandırmanıza imkan tanıyan *ApplicationParameters* altında bulunur.
      
      Hizmet projesinin içeriklerine genel bakış için bkz. [Reliable Services ile çalışmaya başlama](service-fabric-reliable-services-quick-start.md).
@@ -151,6 +151,6 @@ Küme modunu değiştirdiğinizde, geliştirme kümesi sıfırlanır ve kümede 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

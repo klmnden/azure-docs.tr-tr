@@ -13,11 +13,11 @@ ms.devlang: java
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 11/02/2016
+ms.date: 11/16/2016
 ms.author: denlee
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 24fa3533be1ce4659e65d924417cb715579b4851
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: d8abb90b19fd3b79324209a2418c414e3b6bb301
 
 
 ---
@@ -47,7 +47,11 @@ Bu Java uygulaması öğreticisi görevleri oluşturmanızı, almanızı ve aşa
 ## <a name="a-idprerequisitesaprerequisites-for-this-java-web-application-tutorial"></a><a id="Prerequisites"></a>Bu Java web uygulaması öğreticisi için önkoşullar
 Bu uygulama geliştirme öğreticisine başlamadan önce aşağıdakilere sahip olmanız gerekir:
 
-* Etkin bir Azure hesabı. Hesabınız yoksa yalnızca birkaç dakika içinde ücretsiz bir deneme sürümü hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/).
+* Etkin bir Azure hesabı. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılar için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/)
+
+    OR
+
+    Yerel bir [Azure DocumentDB Öykünücüsü](documentdb-nosql-local-emulator.md) yüklemesi.
 * [Java Geliştirme Seti (JDK) 7 +](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
 * [Java EE Geliştiricileri için Eclipse IDE.](http://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/lunasr1)
 * [Java çalışma zamanı ortamı (ör. Tomcat veya Jetty) etkin bir Azure Web Sitesi.](../app-service-web/web-sites-java-get-started.md)
@@ -55,7 +59,7 @@ Bu uygulama geliştirme öğreticisine başlamadan önce aşağıdakilere sahip 
 Bu araçları ilk kez yüklüyorsanız coreservlets.com adresindeki [Öğretici: TomCat7'yi yükleme ve Eclipse ile kullanma](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html) makalesinin Hızlı Başlangıç bölümünde yükleme işlem için bir adım adım kılavuz mevcuttur.
 
 ## <a name="a-idcreatedbastep-1-create-a-documentdb-database-account"></a><a id="CreateDB"></a>1. Adım: DocumentDB veritabanı hesabı oluşturma
-Bir DocumentDB hesabı oluşturarak başlayalım. Hesabınız zaten varsa [2. Adım: Java JSP uygulaması oluşturma](#CreateJSP) adımına atlayabilirsiniz.
+Bir DocumentDB hesabı oluşturarak başlayalım. Zaten bir hesabınız varsa veya bu öğretici için DocumentDB Öykünücüsü’nü kullanıyorsanız [2. Adım: Java JSP uygulaması oluşturma](#CreateJSP) adımına atlayabilirsiniz.
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
@@ -759,6 +763,6 @@ Bu öğreticideki tüm örnekler GitHub'daki [todo](https://github.com/Azure-Sam
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

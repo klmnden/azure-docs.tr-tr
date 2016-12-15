@@ -1,7 +1,7 @@
 Lütfen daha önce [burada][namespace-how-to] gösterildiği gibi bir Service Bus ad alanı oluşturduğunuzdan emin olun.
 
 1. [Azure portalında][azure-portal] oturum açın.
-2. Portalın sol gezinti bölmesinde **Service Bus** hizmetine tıklayın.
+2. Portalın sol tarafındaki gezinme bölmesinde **Service Bus**'a tıklayın (**Service Bus** yoksa **Diğer hizmetler**'e tıklayın).
 3. Kuyrukta oluşturmak istediğiniz ad alanını seçin. Bu durumda **nstest1** değerini kullanacaksınız.
    
     ![Kuyruk oluşturma][createqueue1]
@@ -21,6 +21,6 @@ Lütfen daha önce [burada][namespace-how-to] gösterildiği gibi bir Service Bu
 [azure-portal]: https://portal.azure.com
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 10/18/2016
 ms.author: minet
 translationtype: Human Translation
-ms.sourcegitcommit: bc97472a07ac4c27c60fbe2cb803f2360a3362c4
-ms.openlocfilehash: af8f20beb8899ff1df733d1a4c544c75c6889ea6
+ms.sourcegitcommit: 550db52c2b77ad651b4edad2922faf0f951df617
+ms.openlocfilehash: b4f13f1b5469ea3d3b2ab69e6435d3e7beb6ace8
 
 
 ---
@@ -118,7 +118,7 @@ File Storage artık tüm depolama hesaplarında desteklenir. Bu sayede, ister me
 Alternatif olarak, dosya paylaşımları oluşturma ve yönetmek için Azure PowerShell’i de kullanabilirsiniz.
 
 ### <a name="install-the-powershell-cmdlets-for-azure-storage"></a>Azure Storage için PowerShell cmdlet’leri yükleme
-PowerShell’i kullanmaya hazırlamak için Azure PowerShell cmdlet’lerini indirin ve yükleyin. Yükleme noktası ve yükleme yönergeleri için bkz. [Azure PowerShell’i yükleme ve yapılandırma](../powershell-install-configure.md).
+PowerShell’i kullanmaya hazırlamak için Azure PowerShell cmdlet’lerini indirin ve yükleyin. Yükleme noktası ve yükleme yönergeleri için bkz. [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azureps-cmdlets-docs).
 
 > [!NOTE]
 > En güncel Azure PowerShell modülünü indirmeniz ve yüklemeniz veya yükseltmeniz önerilir.
@@ -669,6 +669,6 @@ Azure File Storage hakkında daha fazla bilgi edinmek için şu bağlantılara g
 * [Microsoft Azure Dosyaları ile kalıcı bağlantılar](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -15,8 +15,8 @@ ms.workload: identity
 ms.date: 10/24/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 46661a5cbe1a31aa8541cfc38c8f5fe519c0f6e4
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 3e587c9422e008a7b3c46e34fed4d0f1b2a8189c
 
 
 ---
@@ -33,17 +33,17 @@ Bir hizmet olarak kimlik yönetimi (IDMaaS) platformu olan Azure Active Director
 ## <a name="getting-started"></a>Başlarken
 Bu öğreticiler birden çok platform için uyarlanabilir ve Azure Active Directory'yi geliştirmeye hızla başlamanıza yardımcı olabilir. Önkoşul olarak, [bir Azure Active Directory kiracısı edinmeniz](active-directory-howto-tenant.md) gerekir.
 
-### <a name="mobile-and-pc-application-quickstart-guides"></a>Mobil ve PC uygulaması hızlı başlangıç kılavuzları
+### <a name="mobile-and-pc-application-quick-start-guides"></a>Mobil ve PC uygulaması hızlı başlangıç kılavuzları
 | [![iOS](./media/active-directory-developers-guide/ios.png)](active-directory-devquickstarts-ios.md) | [![Android](./media/active-directory-developers-guide/android.png)](active-directory-devquickstarts-android.md) | [![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-dotnet.md) | [![Windows Evrensel](./media/active-directory-developers-guide/windows.png)](active-directory-devquickstarts-windowsstore.md) | [![Xamarin](./media/active-directory-developers-guide/xamarin.png)](active-directory-devquickstarts-xamarin.md) | [![Cordova](./media/active-directory-developers-guide/cordova.png)](active-directory-devquickstarts-cordova.md) | [![OAuth 2.0](./media/active-directory-developers-guide/oauth-2.png)](active-directory-protocols-oauth-code.md) |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | [iOS](active-directory-devquickstarts-ios.md) |[Android](active-directory-devquickstarts-android.md) |[.NET](active-directory-devquickstarts-dotnet.md) |[Windows Evrensel](active-directory-devquickstarts-windowsstore.md) |[Xamarin](active-directory-devquickstarts-xamarin.md) |[Cordova](active-directory-devquickstarts-cordova.md) |[Doğrudan OAuth 2.0 ile tümleştirme](active-directory-protocols-oauth-code.md) |
 
-### <a name="web-application-quickstart-guides"></a>Web uygulaması hızlı başlangıç kılavuzları
+### <a name="web-application-quick-start-guides"></a>Web uygulaması hızlı başlangıç kılavuzları
 | [![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-webapp-dotnet.md) | [![Java](./media/active-directory-developers-guide/java.png)](active-directory-devquickstarts-webapp-java.md) | [![AngularJS](./media/active-directory-developers-guide/angularjs.png)](active-directory-devquickstarts-angular.md) | [![JavaScript](./media/active-directory-developers-guide/javascript.png)](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) | [![Node.js](./media/active-directory-developers-guide/nodejs.png)](active-directory-devquickstarts-openidconnect-nodejs.md) | [![OpenID Connect](./media/active-directory-developers-guide/openid-connect.png)](active-directory-protocols-openid-connect-code.md) |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 | [.NET](active-directory-devquickstarts-webapp-dotnet.md) |[Java](active-directory-devquickstarts-webapp-java.md) |[AngularJS](active-directory-devquickstarts-angular.md) |[JavaScript](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) |[Node.js](active-directory-devquickstarts-openidconnect-nodejs.md) |[Doğrudan OpenID Connect ile tümleştirme](active-directory-protocols-openid-connect-code.md) |
 
-### <a name="web-api-quickstart-guides"></a>Web API'si hızlı başlangıç kılavuzları
+### <a name="web-api-quick-start-guides"></a>Web API'si hızlı başlangıç kılavuzları
 | [![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-webapi-dotnet.md) | [![Node.js](./media/active-directory-developers-guide/nodejs.png)](active-directory-devquickstarts-webapi-nodejs.md) |
 |:---:|:---:|
 | [.NET](active-directory-devquickstarts-webapi-dotnet.md) |[Node.js](active-directory-devquickstarts-webapi-nodejs.md) |
@@ -53,7 +53,7 @@ Bu öğreticiler birden çok platform için uyarlanabilir ve Azure Active Direct
 |:---:|
 | [Grafik API'si](active-directory-graph-api-quickstart.md) |
 
-## <a name="howtos"></a>Nasıl yapılır makaleleri
+## <a name="how-tos"></a>Nasıl yapılır makaleleri
 Bu makalelerde Azure Active Directory kullanılarak belirli görevlerin nasıl gerçekleştirileceği açıklanmaktadır:
 
 * [Azure AD kiracısı edinin](active-directory-howto-tenant.md)
@@ -116,7 +116,7 @@ Azure Active Directory kullanılarak uygulamaların geliştirilmesini açıklaya
 * [Bulut Kimliği](http://www.cloudidentity.net): Azure Active Directory'nin ana proje yöneticilerinden birinin hizmet olarak kimlik yönetimi hakkındaki düşünceleri.  
 * [Twitter'da Azure Active Directory](https://twitter.com/azuread): 140 veya daha az karakterli Azure Active Directory duyuruları.
 
-## <a name="windows-server-onpremises-development"></a>Windows Server şirket içi geliştirme
+## <a name="windows-server-on-premises-development"></a>Windows Server şirket içi geliştirme
 Windows Server kullanımı ve Active Directory Federasyon Hizmetleri (AD FS) geliştirmesiyle ilgili yönergeler için şunlara göz atın:
 
 * [Geliştiriciler için AD FS Senaryoları](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-scenarios-for-developers): Desteklenen kimlik doğrulaması/yetkilendirme senaryolarıyla ilgili ayrıntıların yanı sıra AD FS bileşenleri ve bunların çalışma şekillerine ilişkin genel bir bakış sağlar.
@@ -125,6 +125,6 @@ Windows Server kullanımı ve Active Directory Federasyon Hizmetleri (AD FS) gel
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

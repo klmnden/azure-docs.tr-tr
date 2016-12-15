@@ -15,8 +15,8 @@ ms.workload: identity
 ms.date: 11/09/2016
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a0bbac5caae5c66fd8ccccb60faa43608ffa8b27
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: b2985119b60bf11bf1ce1b951c40f8b87351e749
 
 
 ---
@@ -25,7 +25,7 @@ Bu makalede klasik Azure portalı kullanılarak bir Office 365 aboneliği için 
 
 Azure aboneliğini tamamladığınızda, klasik Azure portalında oturum açabilir ve Azure hizmetlerine erişebilirsiniz. Office 365 kullanıcılarınızın kimliğini doğrulayan dizini yönetmek için Active Directory uzantısına tıklayın.
 
-Zaten bir Azure aboneliğiniz varsa ek dizin yönetme işlemi de son derece basittir. Örneğin, Michael Smith, Contoso.com için bir Office 365 aboneliğine sahip olabilir. Ayrıca, msmith@hotmail.com. şeklindeki Microsoft hesabını kullanarak kaydolduğu bir Azure aboneliği de mevcuttur. Buörnekte iki dizin yönetiyor.
+Zaten bir Azure aboneliğiniz varsa ek dizin yönetme işlemi de son derece basittir. Örneğin, Michael Smith, Contoso.com için bir Office 365 aboneliğine sahip olabilir. Ayrıca, msmith@hotmail.com. şeklindeki Microsoft hesabını kullanarak kaydolduğu bir Azure aboneliği de mevcuttur. Bu örnekte iki dizin yönetiyor.
 
 | Abonelik | Office 365 | Azure |
 | --- | --- | --- |
@@ -68,6 +68,6 @@ Abonelikler ve dizinler arasındaki ilişki hakkında daha fazla bilgi için bkz
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

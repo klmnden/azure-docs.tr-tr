@@ -13,11 +13,11 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: hero-article
-ms.date: 08/25/2016
+ms.date: 11/16/2016
 ms.author: syamk
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b55d61071dac6d173f37bdde7f9b60e53ae2485f
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 8dc246755c90686f890d2ac9df05b3a8b2a9341f
 
 
 ---
@@ -47,10 +47,14 @@ Bu öğreticiyi izleyerek, bir yoklama için oy kullanmanıza olanak tanıyan ba
 Bu makaledeki yönergeleri izlemeden önce aşağıdakilerin yüklenmiş olduğundan emin olmanız gerekir:
 
 * Etkin bir Azure hesabı. Hesabınız yoksa yalnızca birkaç dakika içinde ücretsiz bir deneme sürümü hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/).
+ 
+    OR 
+
+    Yerel bir [Azure DocumentDB Öykünücüsü](documentdb-nosql-local-emulator.md) yüklemesi.
 * [Visual Studio 2013](http://www.visualstudio.com/) veya sonraki bir sürümü ya da ücretsiz sürüm olan [Visual Studio Express](). Bu öğreticideki yönergeler özellikle Visual Studio 2015 için yazılmıştır. 
 * [GitHub](http://microsoft.github.io/PTVS/)'dan Visual Studio için Python Araçları. Bu öğreticide, VS 2015 için Python Araçları kullanır. 
 * Visual Studio için Azure Python SDK 2.4 veya sonraki bir sürüm [azure.com](https://azure.microsoft.com/downloads/) adresinde bulunabilir. Python 2.7 için Microsoft Azure SDK'yı kullandık.
-* [Python.org][2] adresinden Python 2.7. Biz, Python 2.7.11 sürümünü kullandık. 
+* [python.org][2] adresinden Python 2.7. Biz, Python 2.7.11 sürümünü kullandık. 
 
 > [!IMPORTANT]
 > Python 2.7'yi ilk kez yüklüyorsanız Python 2.7.11'i Özelleştirme ekranında **Yola python.exe'yi ekle** seçeneğini belirlediğinizden emin olun.
@@ -59,10 +63,10 @@ Bu makaledeki yönergeleri izlemeden önce aşağıdakilerin yüklenmiş olduğu
 > 
 > 
 
-* [Microsoft İndirme Merkezi][3] adresinden Python 2.7 için Microsoft Visual C++ Derleyicisi.
+* [Microsoft İndirme Merkezi][3]'nden Python 2.7 için Microsoft Visual C++ Derleyicisi.
 
 ## <a name="step-1-create-a-documentdb-database-account"></a>1. Adım: DocumentDB veritabanı hesabı oluşturma
-Bir DocumentDB hesabı oluşturarak başlayalım. Hesabınız zaten varsa [2. Adım: Yeni bir Python Flask web uygulaması oluşturma](#step-2:-create-a-new-python-flask-web-application) adımına atlayabilirsiniz.
+Bir DocumentDB hesabı oluşturarak başlayalım. Zaten bir hesabınız varsa veya bu öğretici için DocumentDB Öykünücüsü’nü kullanıyorsanız [2. Adım: Yeni bir Python Flask web uygulaması oluşturma](#step-2:-create-a-new-python-flask-web-application) adımına atlayabilirsiniz.
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
@@ -404,11 +408,11 @@ Ek Python Flask öğreticileri için bkz. [Büyük Flask Öğreticisi, 1. Bölü
 [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
 [2]: https://www.python.org/downloads/windows/
 [3]: https://www.microsoft.com/download/details.aspx?id=44266
-[Microsoft Web Platformu Yükleyicisi]: http://www.microsoft.com/web/downloads/platform.aspx
+[Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
 [Azure portal]: http://portal.azure.com
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

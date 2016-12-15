@@ -15,12 +15,12 @@ ms.workload: mobile
 ms.date: 10/04/2016
 ms.author: wesmc;ricksal
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7be266a6f8b3e18f2f6a27908ad75b5c19d3d862
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 0cb54f6c4b84597fbc21fa691f88f6f7a37beedd
 
 
 ---
-# <a name="azure-mobile-engagement-getting-started-guide-with-best-practices"></a>Azure Mobile Engagement - En İyi Uygulamalarla Başlangıç Kılavuzu
+# <a name="azure-mobile-engagement---getting-started-guide-with-best-practices"></a>Azure Mobile Engagement - En İyi Uygulamalarla Başlangıç Kılavuzu
 ## <a name="overview"></a>Genel Bakış
 **Mobil ekran çok kalabalık bir alandır:** 2013'te yapılan bir çalışma ortalama bir mobil cihazda 27 uygulama yüklü olduğunu ortaya çıkardı. Kullanıcılar yükledikleri uygulamalarda genelde aylık 30 saat vakit harcıyor. Bu sürenin çoğunu sosyal ağlarda ve oyun oynama amacıyla harcanıyor (yaklaşık 20 saat). 2014 yılına gelindiğinde, Android markette kullanıcıların seçebileceği yaklaşık 1,5 milyon uygulama bulunuyordu. Apple mağazası yaklaşık 1,2 milyon uygulama içeriyordu. Geliştiricilerin bu büyüyen pazarda rekabeti devam ederken mobil uygulama kullanımı hala artmaktadır. 
 
@@ -322,10 +322,10 @@ Biraz deneyim kazandıktan sonra, katılım programlarınıza aşağıdakileri e
 
 
 <!--Link references-->
-[Media Playbook bağlantısı]: https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks
+[Media Playbook link]: https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

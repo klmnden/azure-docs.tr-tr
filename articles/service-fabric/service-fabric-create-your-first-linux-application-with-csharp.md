@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 10/04/2016
 ms.author: subramar
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9486fcb56b05b22120aef5a8373c6558b2d88d6c
+ms.sourcegitcommit: f31c8ab3d2b4fd871c92ac0e7d04bc8d5ab86830
+ms.openlocfilehash: 046cc1286d894e28ed4d560c7c0b815f582e1e77
 
 
 ---
@@ -50,7 +50,7 @@ Service Fabric uygulaması bir veya birden çok hizmet içerebilir. Bu hizmetler
 ## <a name="build-the-application"></a>Uygulama oluşturma
 Service Fabric Yeoman şablonları, uygulamayı terminalden oluşturmak (uygulama klasörüne gittikten sonra) için kullanabileceğiniz bir yapı betiği içerir.
 
-  ```bash
+  ```sh
  cd myapp 
  ./build.sh 
   ```
@@ -60,7 +60,7 @@ Uygulama oluşturulduktan sonra Azure CLI kullanarak yerel kümeye dağıtabilir
 
 1. Yerel Service Fabric kümesine bağlanın.
    
-    ```bash
+    ```sh
     azure servicefabric cluster connect
     ```
 2. Uygulama paketini kümenin görüntü deposuna kopyalamak, uygulama türünü kaydetmek ve uygulamanın bir örneğini oluşturmak için şablonda verilen yükleme betiğini kullanın.
@@ -83,7 +83,18 @@ Actor projeleri kendi başına bir işlem yapamaz. Bunlar başka bir hizmet veya
 2. Service Fabric Explorer’da actor hizmetinin birincil çoğaltmasını barındıran düğümü bulun. Aşağıdaki ekran görüntüsünde düğüm 3’tür.
    
     ![Service Fabric Explorer’da birincil çoğaltmayı bulma][sfx-primary]
-3. Önceki adımda bulduğunuz düğüme tıklayın, ardından Eylemler menüsünden **Devre dışı bırak (yeniden başlat)** öğesini seçin. Bu eylem, yerel kümenizdeki beş düğümden birini yeniden başlatır. Böylece başka bir düğümde çalışan ikincil bir çoğaltmaya yük devretmesi için zorlanır. Bu eylemi gerçekleştirirken, test istemcisinden gelen çıkışa dikkat edin ve sayacın yük devretmeye rağmen artmaya devam ettiğini unutmayın.
+3. Önceki adımda bulduğunuz düğüme tıklayın, ardından Eylemler menüsünden **Devre dışı bırak (yeniden başlat)** öğesini seçin. Bu eylem, yerel kümenizdeki bir düğümü yeniden başlatır. Böylece başka bir düğümde çalışan ikincil bir çoğaltmaya yük devretmesi için zorlanır. Bu eylemi gerçekleştirirken, test istemcisinden gelen çıkışa dikkat edin ve sayacın yük devretmeye rağmen artmaya devam ettiğini unutmayın.
+
+
+
+## <a name="adding-more-services-to-an-existing-application"></a>Mevcut bir uygulamaya daha fazla hizmet ekleme
+
+`yo` kullanılarak oluşturulmuş bir uygulamaya başka bir hizmet eklemek için aşağıdaki adımları uygulayın: 
+1. Dizini mevcut uygulamanın kök dizinine değiştirin.  Örneğin Yeoman tarafından oluşturulan uygulama `MyApplication` ise `cd ~/YeomanSamples/MyApplication` olacaktır.
+2. `yo azuresfcsharp:AddService` öğesini çalıştırın
+
+
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Reliable Actors hakkında daha fazla bilgi edinin](service-fabric-reliable-actors-introduction.md)
@@ -95,6 +106,6 @@ Actor projeleri kendi başına bir işlem yapamaz. Bunlar başka bir hizmet veya
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

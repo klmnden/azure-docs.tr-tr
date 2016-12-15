@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 08/25/2016
+ms.date: 11/16/2016
 ms.author: syamk
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: af5563f875c532c0b902685219818b1cd0945a66
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: a896240331d901ae839c2489c6266daac2780899
 
 
 ---
@@ -44,14 +44,18 @@ Bu adım adım kılavuz, Azure tarafından sağlanan DocumentDB hizmetinin, Azur
 ## <a name="a-nametoc395637760aprerequisites-for-this-database-tutorial"></a><a name="_Toc395637760"></a>Bu veritabanı öğreticisi için önkoşullar
 Bu makaledeki yönergeleri uygulamadan önce aşağıdakilere sahip olduğunuzdan emin olmanız gerekir:
 
-* Etkin bir Azure hesabı. Hesabınız yoksa yalnızca birkaç dakika içinde ücretsiz bir deneme sürümü hesabı oluşturabilirsiniz. Ayrıntılar için bkz. [Azure Ücretsiz Deneme](https://azure.microsoft.com/pricing/free-trial/).
+* Etkin bir Azure hesabı. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılar için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/) 
+
+    OR
+
+    Yerel bir [Azure DocumentDB Öykünücüsü](documentdb-nosql-local-emulator.md) yüklemesi.
 * [Visual Studio 2015](http://www.visualstudio.com/) veya Visual Studio 2013 Güncelleştirme 4 ya da üzeri. Visual Studio 2013 kullanıyorsanız C# 6.0 desteği eklemek için [Microsoft.Net.Compilers nuget paketi](https://www.nuget.org/packages/Microsoft.Net.Compilers/) yüklemeniz gerekir. 
-* [Microsoft Web Platformu Yükleyicisi][Microsoft Web Platformu Yükleyicisi] aracılığıyla kullanılabilen .NET için Azure SDK'sı 2.5.1 veya sonraki bir sürümü.
+* [Microsoft Web Platformu Yükleyicisi][Microsoft Web Platform Installer] aracılığıyla kullanılabilen .NET için Azure SDK'sı 2.5.1 veya sonraki bir sürümü.
 
 Bu makaledeki tüm ekran görüntüleri, Güncelleştirme 4 uygulanmış Visual Studio 2013 ve .NET için Azure SDK'sı 2.5.1 sürümü kullanılarak alınmıştır. Sisteminiz farklı sürümlerle yapılandırılmışsa ekranlarınızın ve seçeneklerinizin tamamen eşleşmeme olasılığı bulunur ancak yukarıdaki önkoşulları karşılarsanız bu çözümün çalışması gerekir.
 
 ## <a name="a-nametoc395637761astep-1-create-a-documentdb-database-account"></a><a name="_Toc395637761"></a>1. Adım: DocumentDB veritabanı hesabı oluşturma
-Bir DocumentDB hesabı oluşturarak başlayalım. Hesabınız zaten varsa [Yeni bir ASP.NET MVC uygulaması oluşturma](#_Toc395637762) adımına atlayabilirsiniz.
+Bir DocumentDB hesabı oluşturarak başlayalım. Zaten bir hesabınız varsa veya bu öğretici için DocumentDB Öykünücüsü’nü kullanıyorsanız [Yeni bir ASP.NET MVC uygulaması oluşturma](#_Toc395637762) adımına atlayabilirsiniz.
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
@@ -78,6 +82,9 @@ Artık bir hesabınız olduğuna göre yeni ASP.NET projemizi oluşturalım.
 5. Şablonlar bölmesinde **MVC**'yi seçin.
 6. Uygulamanızı Azure'da barındırmayı düşünüyorsanız Azure'ın uygulamayı barındırmasını sağlamak için sağ alt kısımdaki **Bulutta barındır**'ı seçin. Bulutta barındırmayı ve bir Azure Web Sitesi'nde barındırılan uygulamayı çalıştırmayı seçtik. Bu seçeneğin belirlenmesi, bir Azure Web Sitesi'ni sizin için önceden sağlar ve çalışan uygulamanın son halini dağıtma zamanı geldiğinde işleri çok daha kolaylaştırır. Bunu başka bir yerde barındırmak istiyorsanız veya Azure'ı önceden yapılandırmak istemiyorsanız **Bulutta barındır**'ı temizlemeniz yeterlidir.
 7. **Tamam**'a tıklayarak Visual Studio'nun boş ASP.NET MVC şablonu çevresinde iskele oluşturmasını sağlayın. 
+
+    "İsteğiniz işlenirken bir hata oluştu" hatasını alıyorsanız [Sorun giderme](#troubleshooting) bölümüne bakın.
+
 8. Bunu bulutta barındırmayı seçerseniz Azure hesabınızda oturum açmanızı ve yeni web siteniz için bazı değerler sağlamanızı isteyen en az bir ek ekran görürsünüz. Tüm ek değerleri sağlayın ve devam edin. 
    
       Burada bir Azure SQL Database Sunucusu kullanmadığımız için "Veritabanı sunucusu" seçeneğini belirlemedim, Azure Portal'da daha sonra yeni bir Azure DocumentDB hesabını oluşturacağız.
@@ -423,9 +430,9 @@ DocumentDB'deki kaydı kalıcı hale getirmek için DocumentDBRepository ve Item
    
     Bu kod DocumentDBRepository'ye çağrı yapar ve yeni todo öğesini veritabanında kalıcı hale getirmek için CreateItemAsync yöntemini kullanır. 
    
-    **Güvenlik Notu**: **ValidateAntiForgeryToken** özniteliği burada bu uygulamayı siteler arası istek sahteciliği saldırılarına karşı korunmaya yardımcı olmak için kullanılır. Bu özniteliği eklemek tek başına yeterli değildir, görünümlerinizin de bu sahteciliği karşı önleme belirteci ile çalışması gerekir. Bu konu hakkında daha fazla bilgi ve bunu doğru uygulamaya yönelik örnekler için lütfen bkz. [Siteler Arası İstek Sahteciliğini Önleme][Siteler Arası İstek Sahteciliğini Önleme]. [GitHub][GitHub]'da sağlanan kaynak kodu tam uygulamayı içerir.
+    **Güvenlik Notu**: **ValidateAntiForgeryToken** özniteliği burada bu uygulamayı siteler arası istek sahteciliği saldırılarına karşı korunmaya yardımcı olmak için kullanılır. Bu özniteliği eklemek tek başına yeterli değildir, görünümlerinizin de bu sahteciliği karşı önleme belirteci ile çalışması gerekir. Bu konu hakkında daha fazla bilgi ve bunu doğru uygulamaya yönelik örnekler için lütfen bkz. [Siteler Arası İstek Sahteciliğini Önleme][Preventing Cross-Site Request Forgery]. [GitHub][GitHub]'da sağlanan kaynak kodu tam uygulamayı içerir.
    
-    **Güvenlik Notu**: Aşırı gönderim saldırılarına karşı korunmaya yardımcı olmak için yöntem parametresinde **Bind** özniteliğini de kullanırız. Daha ayrıntılı bilgi için lütfen bkz. [ASP.NET MVC'de Temel CRUD İşlemleri][ASP.NET MVC'de Temel CRUD İşlemleri].
+    **Güvenlik Notu**: Aşırı gönderim saldırılarına karşı korunmaya yardımcı olmak için yöntem parametresinde **Bind** özniteliğini de kullanırız. Daha ayrıntılı bilgi için lütfen bkz. [ASP.NET MVC'de Temel CRUD İşlemleri][Basic CRUD Operations in ASP.NET MVC].
 
 Veritabanımıza yeni Öğeler eklemek için gereken kod burada son bulur.
 
@@ -536,20 +543,39 @@ Artık uygulamanın tamamı DocumentDB ile doğru şekilde çalıştığına gö
 
 Visual Studio birkaç saniye içinde web uygulamanızı yayımlamayı bitirecek ve eserinizi Azure'da çalışırken görebileceğiniz bir tarayıcıyı başlatacak!
 
+## <a name="a-nametroubleshootingatroubleshooting"></a><a name="Troubleshooting"></a>Sorun giderme
+
+Web uygulamasını dağıtmaya çalışırken "İsteğiniz işlenirken bir hata oluştu" hatasını alıyorsanız aşağıdaki adımları uygulayın: 
+
+1. Hata iletisini iptal edin ve **Microsoft Azure Web Apps** öğesini tekrar seçin. 
+2. Oturum açın ve ardından **Yeni**’yi seçerek yeni bir web uygulaması oluşturun. 
+3. **Microsoft Azure’da Web Uygulaması Oluştur** ekranında aşağıdaki adımları uygulayın: 
+    
+    - Web Uygulaması adı: "todo-net-app"
+    - App Service planı: "todo-net-app" adlı yeni bir plan oluşturun
+    - Kaynak grubu: "todo-net-app" adlı yeni bir grup oluşturun
+    - Bölge: Uygulamanızın kullanıcılarına en yakın bölgeyi seçin
+    - Veritabanı sunucusu: Veritabanı yok’a ve ardından **Oluştur**’a tıklayın. 
+
+4. "todo-net-app * ekranı"nda **Bağlantıyı Doğrula**’ya tıklayın. Bağlantı doğrulandıktan sonra **Yayımla*’ya tıklayın*. 
+    
+    Bu adımın ardından uygulama tarayıcınızda görüntülenir.
+
+
 ## <a name="a-nametoc395637775anext-steps"></a><a name="_Toc395637775"></a>Sonraki adımlar
 Tebrikler! Azure DocumentDB kullanarak ilk ASP.NET MVC web uygulamanızı oluşturdunuz ve bunu Azure Web Siteleri'ne yayımladınız. Bu öğreticide bulunmayan ayrıntı ve silme işlevleri dahil olmak üzere, tüm uygulamanın kaynak kodu [GitHub][GitHub]'dan indirilebilir veya kopyalanabilir. Uygulamanıza bunları eklemek isterseniz kodu alın ve bu uygulamaya ekleyin.
 
-Uygulamanıza ilave işlevler eklemek için [DocumentDB .NET Kitaplığı](https://msdn.microsoft.com/library/azure/dn948556.aspx)'ndaki mevcut API'lere başvurun ve [GitHub][GitHub]'daki DocumentDB .NET Kitaplığı'na katkıda bulunmaktan çekinmeyin. 
+Uygulamanıza işlev eklemek için [DocumentDB .NET Kitaplığı](https://msdn.microsoft.com/library/azure/dn948556.aspx)'ndaki mevcut API'lere başvurun. [GitHub][GitHub]'daki DocumentDB .NET Kitaplığı'na istediğiniz zaman katkıda bulunabilirsiniz. 
 
 [\*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError
 [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
-[Microsoft Web Platformu Yükleyicisi]: http://www.microsoft.com/web/downloads/platform.aspx
-[Siteler Arası İstek Sahteciliğini Önleme]: http://go.microsoft.com/fwlink/?LinkID=517254
-[ASP.NET MVC'de Temel CRUD İşlemleri]: http://go.microsoft.com/fwlink/?LinkId=317598
+[Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
+[Preventing Cross-Site Request Forgery]: http://go.microsoft.com/fwlink/?LinkID=517254
+[Basic CRUD Operations in ASP.NET MVC]: http://go.microsoft.com/fwlink/?LinkId=317598
 [GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

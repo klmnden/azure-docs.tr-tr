@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 06/05/2016
 ms.author: mlearned
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b3ef77cc1b3b13a1603f1ca7c6d4a000b69453e0
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 6a03b96b3f06d9c8cdb820e6c7835f728a28cc99
 
 
 ---
@@ -337,6 +337,6 @@ Bu öğretici bir web uygulaması için sürekli dağıtımı hızlıca etkinle�
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

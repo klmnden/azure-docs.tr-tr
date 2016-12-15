@@ -12,11 +12,11 @@ ms.devlang: tbd
 ms.topic: hero-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 08/23/2016
+ms.date: 11/30/2016
 ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 9ace119de3676bcda45d524961ebea27ab093415
-ms.openlocfilehash: 6f138d547a356e47e6e195c236e69ad3ffcc2cc5
+ms.sourcegitcommit: 560e73eb7129e665d254c3e93b08f29cfb6b1aa9
+ms.openlocfilehash: d80bedba1909de671ef96ac5372d9ff15a90764e
 
 
 ---
@@ -51,7 +51,8 @@ Daha önce oluşturduğunuz bir Service Bus kuyruğu varsa [Kuyruğa ileti gönd
 Kuyruğa ileti göndermek için, Visual Studio’yu kullanarak bir C# konsolu uygulaması yazacağız.
 
 ### <a name="create-a-console-application"></a>Konsol uygulaması oluşturma
-1. Visual Studio'yu başlatın ve yeni bir Konsol uygulaması oluşturun.
+
+- Visual Studio'yu başlatın ve yeni bir Konsol uygulaması oluşturun.
 
 ### <a name="add-the-service-bus-nuget-package"></a>Service Bus NuGet paketi ekleme
 1. Yeni oluşturulan projeye sağ tıklayın ve **NuGet Paketlerini Yönet**’i seçin.
@@ -62,12 +63,12 @@ Kuyruğa ileti göndermek için, Visual Studio’yu kullanarak bir C# konsolu uy
 ### <a name="write-some-code-to-send-a-message-to-the-queue"></a>Kuyruğa ileti göndermek için kod yazma
 1. Aşağıdaki deyimi Program.cs dosyasının üst kısmına ekleyin.
    
-    ```
+    ```csharp
     using Microsoft.ServiceBus.Messaging;
     ```
 2. Aşağıdaki kodu `Main` yöntemine ekleyin, **connectionString** değişkenini ad alanı oluşturulurken el edilen bağlantı dizesi olarak ayarlayın ve **queueName** değişkenini kuyruk oluşturulurken kullanılan kuyruk adı olarak ayarlayın.
    
-    ```
+    ```csharp
     var connectionString = "<Your connection string>";
     var queueName = "<Your queue name>";
    
@@ -78,7 +79,7 @@ Kuyruğa ileti göndermek için, Visual Studio’yu kullanarak bir C# konsolu uy
    
     Program.cs dosyanız aşağıdaki gibi görünmelidir.
    
-    ```
+    ```csharp
     using System;
     using Microsoft.ServiceBus.Messaging;
    
@@ -107,12 +108,12 @@ Kuyruğa ileti göndermek için, Visual Studio’yu kullanarak bir C# konsolu uy
 1. Yeni bir konsol uygulaması oluşturun ve Service Bus NuGet paketine, daha önceki gönderme uygulamasına benzer bir başvuru ekleyin.
 2. Aşağıdaki `using` deyimini Program.cs dosyasının üst kısmına ekleyin.
    
-    ```
+    ```csharp
     using Microsoft.ServiceBus.Messaging;
     ```
 3. Aşağıdaki kodu `Main` yöntemine ekleyin, **connectionString** değişkenini ad alanı oluşturulurken el edilen bağlantı dizesi olarak ayarlayın ve **queueName** değişkenini kuyruk oluşturulurken kullandığınız kuyruk adı olarak ayarlayın.
    
-    ```
+    ```csharp
     var connectionString = "";
     var queueName = "samplequeue";
    
@@ -129,7 +130,7 @@ Kuyruğa ileti göndermek için, Visual Studio’yu kullanarak bir C# konsolu uy
    
     Program.cs dosyanız aşağıdaki gibi görünmelidir:
    
-    ```
+    ```csharp
     using System;
     using Microsoft.ServiceBus.Messaging;
    
@@ -162,7 +163,7 @@ Kuyruğa ileti göndermek için, Visual Studio’yu kullanarak bir C# konsolu uy
 Tebrikler! Bir kuyruk oluşturdunuz, ileti gönderdiniz ve ileti aldınız.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Azure Service Bus mesajlaşmasının daha gelişmiş özelliklerinden bazılarını gösteren [örnekleri içeren GitHub depomuza](https://github.com/Azure-Samples/azure-servicebus-messaging-samples) göz atın.
+Azure Service Bus Mesajlaşması'nın daha gelişmiş özelliklerinden bazılarını gösteren [örnekleri içeren GitHub depomuza](https://github.com/Azure-Samples/azure-servicebus-messaging-samples) göz atın.
 
 <!--Image references-->
 
@@ -177,6 +178,6 @@ Azure Service Bus mesajlaşmasının daha gelişmiş özelliklerinden bazıları
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 08/04/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1c57047f9a7eefcc0c4dbf08e705c3193e89f9a7
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 0cafcd1d21e12a3e8dfd020d1e59ee99d8c4d370
 
 
 ---
-# <a name="ldap-authentication-and-azure-multifactor-authentication-server"></a>LDAP Kimlik Doğrulaması ve Azure Multi-Factor Authentication Sunucusu
+# <a name="ldap-authentication-and-azure-multi-factor-authentication-server"></a>LDAP Kimlik Doğrulaması ve Azure Multi-Factor Authentication Sunucusu
 Varsayılan olarak, Azure Multi-Factor Authentication Sunucusu kullanıcıları Active Directory'den aktarmak ya da eşitlemek üzere yapılandırılmıştır. Ancak, ADAM dizini veya belirli Active Directory etki alanı denetleyicisi gibi farklı LDAP dizinlerini bağlamak için yapılandırılabilir. LDAP aracılığıyla bir dizine bağlanmak üzere yapılandırıldığında, Azure Multi-Factor Authentication Sunucusu kimlik doğrulaması gerçekleştirmek için bir LDAP proxy görevi görecek şekilde yapılandırılabilir. Ayrıca, IIS kimlik doğrulaması kullanırken ön kimlik doğrulaması için ya da Azure Multi-Factor Authentication Kullanıcı Portalı’nda birincil kimlik doğrulaması için LDAP Bağlama’nın RADIUS hedefi olarak kullanılmasına izin verir.
 
 Azure Multi-Factor Authentication’ı LDAP proxy olarak kullanırken, multi-factor authentication eklemek amacıyla Azure Multi-Factor Authentication Sunucusu LDAP istemcisi (örneğin, VPN gereci, uygulaması) ile LDAP dizini arasına eklenir. Azure Multi-Factor Authentication özelliğinin çalışması için, Azure Multi-Factor Authentication doğrulama sunucusunun istemci sunucular ve LDAP dizini ile iletişim kurmak için yapılandırılmış olması gerekir. Bu yapılandırmada, Azure Multi-Factor Authentication Sunucusu istemci sunucularından uygulamalarından gelen LDAP isteklerini kabul eder ve bunları birincil kimlik bilgilerini doğrulamak amacıyla hedef LDAP dizini sunucusuna iletir. LDAP dizininden alınan yanıt birincil kimlik bilgilerinin geçerli olduğunu gösteriyorsa, Azure Multi-Factor Authentication iki öğeli kimlik doğrulaması gerçekleştirir ve LDAP istemcisine geri yanıt gönderir. Yalnızca LDAP sunucusu için kimlik doğrulaması ve multi-factor authentication başarılı olursa, tüm kimlik doğrulama işlemi başarılı olur.
@@ -61,6 +61,6 @@ LDAP istemcisini yapılandırmak için yönergeleri kullanın:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

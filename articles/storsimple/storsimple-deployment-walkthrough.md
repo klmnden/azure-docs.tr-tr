@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 08/17/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d9e5f3b177f6b91abe48d3bb6d49a2d3195e6f79
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: a14be6bf8135cdfc7e5b9eb3b6d7af3bdd4561a7
 
 
 ---
-# <a name="deploy-your-onpremises-storsimple-device"></a>Şirket içi StorSimple cihazınızı dağıtma
+# <a name="deploy-your-on-premises-storsimple-device"></a>Şirket içi StorSimple cihazınızı dağıtma
 > [!div class="op_single_selector"]
 > * [Güncelleştirme 2](storsimple-deployment-walkthrough-u2.md)
 > * [Güncelleştirme 1](storsimple-deployment-walkthrough-u1.md)
@@ -146,7 +146,7 @@ Başlamadan önce aşağıdakilerden emin olun:
 |  | | |
 | **Kayıt** |Giden TCP bağlantı noktası 443, 80 ve 9354’ün açık olup olmadığını denetleyin. |`Test-NetConnection -Port   443 -InformationLevel Detailed`</br>[Test-NetConnection cmdlet’i hakkında daha fazla bilgi](https://technet.microsoft.com/library/dn372891.aspx) |
 
-## <a name="stepbystep-deployment"></a>Adım adım dağıtım
+## <a name="step-by-step-deployment"></a>Adım adım dağıtım
 StorSimple cihazınızı veri merkezinde dağıtmak için aşağıdaki adım adım yönergeleri kullanın.
 
 ## <a name="step-1-create-a-new-service"></a>1. Adım: Yeni bir hizmet oluşturun
@@ -286,6 +286,6 @@ StorSimple cihazınızda tek bir birim için bir isteğe bağlı el ile yedeklem
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -16,13 +16,13 @@ ms.workload: na
 ms.date: 10/31/2016
 ms.author: araguila
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2d44af03b8e16a2bd936fc805ed4f0c4e6c5fbfc
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 32da7abc3263e1d76f3f08ccae7ce159ead58bee
 
 
 ---
 # <a name="predictive-maintenance-preconfigured-solution-overview"></a>Önceden yapılandırılmış tahmine dayalı bakım çözümüne genel bakış
-Önceden yapılandırılmış *tahmine dayalı bakım* çözümü [önceden yapılandırılmış çözümlerden][lnk_preconfigured_solutions] biridir; [Microsoft Azure IOT Paketi][lnk_iot_suite]’nin bir parçası olarak yayımlanmıştır. Bu çözüm, gerçek zamanlı cihaz telemetri koleksiyonunu [Azure Machine Learning][lnk_machine_learning] kullanılarak oluşturulan tahmine dayalı modelle tümleştirir.
+Önceden yapılandırılmış *tahmine dayalı bakım* çözümü [önceden yapılandırılmış çözümlerden][lnk_preconfigured_solutions] biridir; [Microsoft Azure IoT Paketi][lnk_iot_suite]'nin bir parçası olarak yayımlanmıştır. Bu çözüm, gerçek zamanlı cihaz telemetri koleksiyonunu [Azure Machine Learning][lnk_machine_learning] kullanılarak oluşturulan tahmine dayalı modelle tümleştirir.
 
 Azure IoT Paketi’yle, kurumlar varlıklara hızlı ve kolay bağlanıp bunları izleyebilir ve verileri gerçek zamanlı analiz edebilirler. Önceden yapılandırılmış tahmine dayalı bakım çözümü bu verileri alır, verimlilikleri yönetebilen ve gelir akışlarını geliştiren yeni zekaya sahip işler sağlamak için panolar ve görselleştirmeleri kullanır.
 
@@ -38,7 +38,7 @@ Fabrikam uçağının motorları, uçuş sırasında motor koşullarını izleye
 
 Fabrikam, maliyet düşürmek amacıyla bakımın gerektiği noktayı tahmin ederek çalışmasını en iyi hale getirebilir. Bakım düzenleyicileri, belirli bir konumda uçağın durdurulmasıyla örtüşen ve planı bozmadan ve uçağın hizmet dışı kalacağı yeterli süreyi sağlayan bakımı planlamak için zamanlayıcılarla çalışırlar. Fabrikam teknisyenleri uygun şekilde zamanlayabilir; uçağın bekleme süresi olmadan verimli bir şekilde servise girmesini sağlar. Stok denetimi yöneticileri bakım planlarını alır; bu nedenle, sipariş sürecini ve yedek parça stoğunu en iyi hale getirebilirler. Bunların tümü, bir yandan da yolcuların ve personelin güvenliğini sağlayarak Fabrikam’ın uçağın yerdeki süresini en aza indirmesini ve çalıştırma maliyetini düşürmesini sağlar.
 
-[Azure IoT Paketi][lnk_iot_suite]’nin, müşterilerin gerçekleştirmeleri gereken tahmine dayalı bakım potansiyeli becerilerini nasıl sağladığını anlamak için lütfen bu [bilgi görselini][lnk_infographic] gözden geçirin.
+[Azure IoT Paketi][lnk_iot_suite]'nin, müşterilerin gerçekleştirmeleri gereken tahmine dayalı bakım potansiyeli becerilerini nasıl sağladığını anlamak için lütfen bu [bilgi görselini][lnk_infographic] gözden geçirin.
 
 ## <a name="how-the-predictive-maintenance-solution-is-built"></a>Tahmine dayalı bakım çözümünü yapılandırma
 Çözüm, IoT Paketi hizmetleriyle toplanan cihaz telemetrisinden bu becerileri göstermek için şablon olarak kullanılabilen mevcut Azure Machine Learning modelini geliştirir. Microsoft, uçak motorunun bir [gerileme modelini][lnk_regression_model] oluşturmuştur ve şablonun tamamını, verileri<sup>\[1\]</sup> ve modelin nasıl kullanılacağını gösteren adım adım yönergeleri yayımlamıştır.
@@ -50,7 +50,7 @@ Azure IOT önceden yapılandırılmış tahmine dayalı bakım çözümü bu şa
 ## <a name="next-steps"></a>Sonraki adımlar
 Azure IoT’nin tahmine dayalı bakım senaryolarını etkinleştirmesi hakkında daha fazla bilgi için [Nesnelerin İnterneti’nden değer yakalama][lnk_capture_value] makalesini okuyun.
 
-Tahmine dayalı önceden yapılandırılmış çözümün bir [adım adım kılavuzunu][lnk-predictive-walkthrough] edinin.
+Tahmine dayalı önceden yapılandırılmış çözümün [adım adım kılavuzunu][lnk-predictive-walkthrough] inceleyin.
 
 [lnk-predictive-walkthrough]: iot-suite-predictive-walkthrough.md
 [lnk_preconfigured_solutions]: iot-suite-what-are-preconfigured-solutions.md
@@ -62,14 +62,14 @@ Tahmine dayalı önceden yapılandırılmış çözümün bir [adım adım kıla
 
 Önceden yapılandırılmış IoT Suite çözümlerinin diğer özelliklerinden bazılarını da keşfedebilirsiniz:
 
-* [IoT Paketi hakkında sık sorulan sorular][lnk-faq]
-* [Her yönüyle IoT güvenliği][lnk-security-groundup]
+* [IoT Paketi için sık sorulan sorular][lnk-faq]
+* [Baştan sona IoT güvenliği][lnk-security-groundup]
 
 [lnk-faq]: iot-suite-faq.md
 [lnk-security-groundup]: securing-iot-ground-up.md
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

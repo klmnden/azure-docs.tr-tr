@@ -1,128 +1,139 @@
 ---
-title: When should an elastic database pool be used?
-description: An elastic database pool is a collection of available resources that are shared by a group of elastic databases. This document provides guidance to help assess the suitability of using an elastic database pool for a group of databases.
+title: "Elastik veritabanı havuzu ne zaman kullanılmalıdır?"
+description: "Elastik veritabanı havuzu, bir elastik veritabanı grubu tarafından paylaşılan kullanılabilir kaynaklar koleksiyonudur. Bu belgede bir veritabanı grubu için elastik veritabanı havuzu kullanmanın uygunluğunu değerlendirmeye yardımcı olan yönergeler verilmektedir."
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: stevestein
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 3d3941d5-276c-4fd2-9cc1-9fe8b1e4c96c
 ms.service: sql-database
+ms.custom: sharded databases pool; app development
 ms.devlang: NA
 ms.date: 08/08/2016
 ms.author: sstein
 ms.workload: data-management
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: NA
+translationtype: Human Translation
+ms.sourcegitcommit: 867f06c1fae3715ab03ae4a3ff4ec381603e32f7
+ms.openlocfilehash: 408cf315f8b44c9ebf852c3ccbf2ed93c70ef22f
+
 
 ---
-# When should an elastic database pool be used?
-Assess whether using an elastic database pool is cost efficient based on database usage patterns and pricing differences between an elastic database pool and single databases. Additional guidance is also provided to assist in determining the current pool size required for an existing set of SQL databases.  
+# <a name="when-should-an-elastic-database-pool-be-used"></a>Elastik veritabanı havuzu ne zaman kullanılmalıdır?
+Elastik veritabanı havuzu kullanımının uygun maliyetli olup olmadığını değerlendirmek için veritabanı kullanım modellerini ve elastik veritabanı havuzu ile tek veritabanları arasındaki fiyatlandırma farklarını göz önünde bulundurun. Var olan bir SQL veritabanı kümesi için gereken geçerli havuz boyutunu belirlemeye yardımcı olmak üzere ek yönergeler de verilmektedir.  
 
-* For an overview of pools, see [SQL Database elastic database pools](sql-database-elastic-pool.md).
+* Havuzlara genel bakış için bkz. [SQL Veritabanı elastik veritabanı havuzları](sql-database-elastic-pool.md).
 
 > [!NOTE]
-> Elastic pools are generally available (GA) in all Azure regions except North Central US and West India where it is currently in preview.  GA of elastic pools in these regions will be provided as soon as possible.
+> Esnek havuzlar şu anda önizleme aşamasında oldukları Batı Hindistan dışında tüm Azure bölgelerinde genel olarak kullanılabilir (GA) durumdadır.  Bu bölgedeki elastik havuzların genel kullanım durumları en kısa sürede bildirilecektir.
 > 
 > 
 
-## Elastic database pools
-SaaS developers build applications on top of large scale data-tiers consisting of multiple databases. A common application pattern is to provision a single database for each customer. But different customers often have varying and unpredictable usage patterns, and it is difficult to predict the resource requirements of each individual database user. So the developer may overprovision resources at considerable expense to ensure favorable throughput and response times for all databases. Or, the developer can spend less and risk a poor performance experience for their customers. To learn more about design patterns for SaaS applications using elastic pools, see [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md).
+## <a name="elastic-database-pools"></a>Esnek veritabanı havuzları
+SaaS geliştiricileri, birden fazla veritabanından oluşan büyük ölçekli veri katmanlarının üzerinde uygulamalar oluşturur. Her müşteri için tek veritabanı sağlanması yaygın bir uygulama modelidir. Ancak, farklı müşteriler genellikle değişen ve tahmin edilemeyen kullanım modellerine sahiptir ve her veritabanı kullanıcısının kaynak gereksinimlerini tahmin etmek zordur. Bu nedenle geliştirici, tüm veritabanları için üretilen işi ve yanıt sürelerini iyileştirmek amacıyla yüksek maliyetler karşılığında kaynakları fazladan sağlayabilir. Veya geliştirici daha az harcama yapıp müşterileri için performans deneyimini riske atabilir. Esnek havuzları kullanan SaaS uygulamalarının tasarım desenleri hakkında daha fazla bilgi edinmek için bkz. [Azure SQL Database kullanan Çok Kiracılı SaaS Uygulamaları için Tasarım Desenleri](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
-Elastic pools in Azure SQL Database enable SaaS developers to optimize the price performance for a group of databases within a prescribed budget while delivering performance elasticity for each database. Pools enable the developer to purchase elastic Database Transaction Units (eDTUs) for a pool shared by multiple databases to accommodate unpredictable periods of usage by individual databases. The eDTU requirement for a pool is determined by the aggregate utilization of its databases. The amount of eDTUs available to the pool is controlled by the developer budget. Pools make it easy for the developer to reason over the impact of budget on performance and vice versa for their pool. The developer simply adds databases to the pool, sets the minimum and maximum eDTUs  for the databases, and then sets the eDTU of the pool based on their budget. A developer can use pools  to seamlessly grow their service from a lean startup to a mature business at ever-increasing scale.  
+Azure SQL Veritabanındaki elastik havuzlar, SaaS geliştiricilerinin bir veritabanı grubuna ait fiyat performansını belirtilen bütçe dahilinde iyileştirmesini ve aynı zamanda her veritabanı için performans Elastikliği sunmasını sağlar. Havuzlar, geliştiricinin tek veritabanları tarafından öngörülemez süreler boyunca kullanımı sağlamak amacıyla birden fazla veritabanı tarafından paylaşılan bir havuz için elastik Veritabanı İşlem Birimleri (eDTU) satın almasına olanak tanır. Bir havuza yönelik eDTU gereksinimi, veritabanlarının toplam kullanımına göre belirlenir. Havuz için kullanılabilen eDTU miktarı, geliştirici bütçesine göre denetlenir. Havuzlar, geliştiricinin havuz için performans üzerindeki bütçe etkisini ve bütçe üzerindeki performans etkisini değerlendirmesini kolaylaştırır. Geliştirici, veritabanlarını havuza ekler, veritabanları için en düşük ve en yüksek eDTU’ları ayarlar ve ardından bütçeyi temel alarak havuzun eDTU değerini ayarlar. Geliştirici, hizmetini zayıf bir başlangıçtan sürekli artan ölçekte olgun bir işletmeye sorunsuzca büyütmek için havuzları kullanabilir.  
 
-## When to consider a pool
-Pools are well suited for a large number of databases with specific utilization patterns. For a given database, this pattern is characterized by low average utilization with relatively infrequent utilization spikes.
+## <a name="when-to-consider-a-pool"></a>Ne zaman havuz düşünülmelidir
+Havuzlar, belirli kullanım düzenlerine sahip çok sayıda veritabanı bulunan durumlar için çok uygundur. Söz konusu kullanım düzeni, belirli bir veritabanı için ortalama düşük düzeyde kullanım ile nispeten nadir zamanlarda kullanımın ani olarak artması şeklindedir.
 
-The more databases you can add to a pool the greater your savings become. Depending on your application utilization pattern, it is possible to see savings with as few as two S3 databases.  
+Bir havuza ekleyebileceğiniz veritabanı sayısı arttıkça, tasarruflarınız artar. Uygulama kullanım modelinize bağlı olarak, yalnızca iki S3 veritabanı ile tasarruf edildiğini görmek mümkündür.  
 
-The following sections help you understand how to assess if your specific collection of databases will benefit from being in a pool. The examples use Standard pools but the same principles also apply to Basic and Premium pools.
+Aşağıdaki bölümler veritabanı koleksiyonunuzun bir havuzda olmasının yararlarını nasıl değerlendireceğini anlamanıza yardımcı olur. Örneklerde Standart havuzlar kullanılmaktadır, ancak aynı ilkeler Temel ve Premium havuzlar için de geçerlidir.
 
-### Assessing database utilization patterns
-The following figure shows an example of a database that spends much time idle, but also periodically spikes with activity. This is a utilization pattern that is well suited for a pool:
+### <a name="assessing-database-utilization-patterns"></a>Veritabanı kullanım modellerini değerlendirme
+Aşağıdaki şekilde zamanın büyük bölümünü boşta geçiren, ancak düzenli olarak ani etkinlikler sergileyen bir veritabanı örneğini göstermektedir. Bu model bir havuz için uygun olan kullanım modelidir:
 
-   ![a single database suitable for a pool](./media/sql-database-elastic-pool-guidance/one-database.png)
+   ![havuz için uygun bir tek veritabanı](./media/sql-database-elastic-pool-guidance/one-database.png)
 
-For the five-minute period illustrated above, DB1 peaks up to 90 DTUs, but its overall average usage is less than five DTUs. An S3 performance level is required to run this workload in a single database, but this leaves most of the resources unused during periods of low activity.
+Yukarıda gösterilen beş dakikalık süre boyunca Veritabanı1, 90 DTU’ya kadar yükselir, ancak genel ortalama kullanım beş DTU’dan azdır. Bu iş yükünü tek veritabanında çalıştırmak için S3 performans düzeyi gereklidir, ancak bu düzey düşük etkinlik dönemlerinde kaynakların çoğunu kullanılmamış halde bırakır.
 
-A pool allows these unused DTUs to be shared across multiple databases, and so reduces the total amount of DTUs needed and overall cost.
+Havuz bu kullanılmayan DTU’ların birden fazla veritabanında paylaşılmasına olanak tanır ve böylece gereken toplam DTU miktarı ile genel maliyeti azaltır.
 
-Building on the previous example, suppose there are additional databases with similar utilization patterns as DB1. In the next two figures below, the utilization of four databases and 20 databases are layered onto the same graph to illustrate the non-overlapping nature of their utilization over time:
+Önceki örnekten devam ederek, Veritabanı1 ile benzer kullanım modellerine sahip ek veritabanları olduğunu varsayalım. Aşağıdaki ilk iki şekilde, kullanımın zaman içinde örtüşmeyen niteliğini göstermek üzere dört veritabanı ile 20 veritabanının kullanımı aynı grafiğe yerleştirilmiştir:
 
-   ![four databases with a utilization pattern suitable for a pool](./media/sql-database-elastic-pool-guidance/four-databases.png)
+   ![bir havuz için uygun kullanım modeli ile dört veritabanı](./media/sql-database-elastic-pool-guidance/four-databases.png)
 
-   ![twenty databases with a utilization pattern suitable for a pool](./media/sql-database-elastic-pool-guidance/twenty-databases.png)
+   ![bir havuz için uygun kullanım modeli ile yirmi veritabanı](./media/sql-database-elastic-pool-guidance/twenty-databases.png)
 
-The aggregate DTU utilization across all 20 databases is illustrated by the black line in the above figure. This shows that the aggregate DTU utilization never exceeds 100 DTUs, and indicates that the 20 databases can share 100 eDTUs over this time period. This results in a 20x reduction in DTUs and a 13x price reduction compared to placing each of the databases in S3 performance levels for single databases.
+20 veritabanının tamamındaki toplam DTU kullanımı, yukarıdaki şekilde siyah çizgi ile gösterilmiştir. Bu şekil, toplam DTU kullanımının 100 DTU’yu hiçbir zaman aşmadığını ve 20 veritabanının bu süre boyunca 100 eDTU’yu paylaşabileceğini gösterir. Bu durum, tek veritabanları için S3 performans düzeylerindeki veritabanlarının her birini yerleştirmeye kıyasla DTU sayısında 20 kat azalmaya ve 13 kat fiyat azalmasına yol açar.
 
-This example is ideal for the following reasons:
+Bu örnek aşağıdaki nedenlerle idealdir:
 
-* There are large differences between peak utilization and average utilization per database.  
-* The peak utilization for each database occurs at different points in time.
-* eDTUs are shared between a large number of databases.
+* Bir veritabanındaki en yüksek kullanım ile ortalama kullanım arasında büyük farklar mevcuttur.  
+* Bir veritabanının en yüksek kullanımı zamanın farklı noktalarında gerçekleşir.
+* eDTU’lar çok sayıda veritabanı arasında paylaşılır.
 
-The price of a pool is a function of the pool eDTUs. While the eDTU unit price for a pool is 1.5x greater than the DTU unit price for a single database, **pool eDTUs can be shared by many databases and so in many cases fewer total eDTUs are needed**. These distinctions in pricing and eDTU sharing are the basis of the price savings potential that pools can provide.  
+Bir havuzun fiyatı, havuz eDTU'larının bir işlevidir. Bir havuzun eDTU birim fiyatı, tek veritabanının DTU birim fiyatından 1,5 kat fazlayken, **havuz eDTU’ları çok sayıda veritabanı tarafından paylaşılabilir ve bu nedenle birçok durumda toplam eDTU sayısı gereklidir**. Fiyatlandırma ve eDTU paylaşımındaki bu farklılıklar, havuzların sağlayabileceği tasarruf potansiyelinin temelini oluşturur.  
 
-The following rules of thumb related to database count and database utilization help to ensure that a pool delivers reduced cost compared to using performance levels for single databases.
+Veritabanı sayısı ve veritabanı kullanımıyla ilgili aşağıdaki temel kurallar, bir havuzun tek veritabanları için kullanılan performans düzeylerine kıyasla daha az maliyet doğurmasını sağlar.
 
-### Minimum number of databases
-If the sum of the DTUs of performance levels for single databases is more than 1.5x the eDTUs needed for the pool, then an elastic pool is more cost effective. For available sizes, see [eDTU and storage limits for elastic database pools and elastic databases](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases).
+### <a name="minimum-number-of-databases"></a>En az veritabanı sayısı
+Tek veritabanı performans düzeyi DTU’larının toplamı, havuz için gerekli eDTU’lardan 1,5 kat fazla ise esne havuz daha uygun maliyetlidir. Kullanılabilir boyutlar için bkz. [Elastik veritabanı havuzları ve elastik veritabanları için eDTU ve depolama limitleri](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases).
 
-***Example***<br>
-At least two S3 databases or at least 15 S0 databases are needed for a 100 eDTU pool to be more cost-effective than using performance levels for single databases.
+***Örnek***<br>
+100 eDTU havuzun tek veritabanı performans düzeylerini kullanmaya kıyasla daha uygun maliyetli olması için en az iki S3 veritabanı veya en az 15 adet S0 veritabanı gereklidir.
 
-### Maximum number of concurrently peaking databases
-By sharing eDTUs, not all databases in a pool can simultaneously use eDTUs up to the limit available when using performance levels for single databases. The fewer databases that concurrently peak, the  lower the pool eDTU can be set and the more cost-effective the pool becomes. In general, not more than 2/3 (or 67%) of the databases in the pool should simultaneously peak to their eDTU limit.
+### <a name="maximum-number-of-concurrently-peaking-databases"></a>Eşzamanlı olarak en üst seviyeye çıkan en fazla veritabanı sayısı
+Bir havuzdaki tüm veritabanları, eDTU’ları paylaşarak, tek veritabanı performans düzeylerini kullanırken mevcut olan sınıra kadar eDTU’ları eşzamanlı olarak kullanamaz. Eşzamanlı olarak en üst seviyeye çıkan veritabanı sayısı azaldıkça, havuz eDTU’sunun ayarlanabileceği düzey azalır ve havuz daha uygun maliyetli hale gelir. Genel olarak, havuzdaki veritabanlarının en fazla 2/3’ü (veya %67’si) eDTU sınırına eşzamanlı olarak ulaşmalıdır.
 
-***Example***<br>
-To reduce costs for three S3 databases in a 200 eDTU pool, at most two of these databases can simultaneously peak in their utilization.  Otherwise, if more than two of these four S3 databases simultaneously peak, the pool would have to be sized to more than 200 eDTUs.  And if the pool is resized to more than 200 eDTUs, more S3 databases would need to be added to the pool to keep costs lower than performance levels for single databases.  
+***Örnek***<br>
+200 eDTU içeren bir havuzdaki üç S3 veritabanının maliyetlerini azaltmak için, bu veritabanlarının en fazla iki tanesi kullanım sırasında en üst seviyeye çıkabilir.  Aksi takdirde, bu dört S3 veritabanının ikiden fazlası eşzamanlı olarak en üst seviyeye çıkarsa, havuzun boyutu 200 eDTU’dan fazla olmak zorundadır.  Havuz 200 eDTU’dan fazlasına yeniden boyutlandırılırsa, maliyetin tek veritabanı performans düzeylerinden düşük tutulması için havuza daha fazla S3 veritabanının eklenmesi gerekir.  
 
-Note this example does not consider utilization of other databases in the pool. If all databases have some utilization at any given point in time, then less than 2/3 (or 67%) of the databases can peak simultaneously.
+Bu örnek, havuzdaki diğer veritabanlarının kullanımını dikkate almaz. Herhangi bir zamanda tüm veritabanlarının kullanımı aynı olursa, veritabanlarının 2/3’ünden (veya %67) daha azı eşzamanlı olarak en üst seviyeye çıkabilir.
 
-### DTU utilization per database
-A large difference between the peak and average utilization of a database indicates prolonged periods of low utilization and short periods of high utilization. This utilization pattern is ideal for sharing resources across databases. A database should be considered for a pool when its peak utilization is about 1.5 times greater than its average utilization.
+### <a name="dtu-utilization-per-database"></a>Veritabanı başına DTU kullanımı
+Bir veritabanının en yüksek ile ortalama kullanımı arasında büyük bir fark olması, uzun süreli düşük kullanımı ve kısa süreli yüksek kullanımı ifade eder. Bu kullanım modeli, veritabanları arasında kaynakların paylaşılması için idealdir. Bir veritabanının en yüksek kullanımı ortalama kullanımından 1,5 kat fazla olduğunda, veritabanı havuz için düşünülmelidir.
 
-***Example***<br>
-An S3 database that peaks to 100 DTUs and on average uses 67 DTUs or less is a good candidate for sharing eDTUs in a pool.  Alternatively, an S1 database that peaks to 20 DTUs and on average uses 13 DTUs or less is a good candidate for a pool.
+***Örnek***<br>
+En yüksek kullanımı 100 DTU’ya varan ve ortalama olarak en fazla 67 DTU kullanan bir S3 veritabanı, bir havuzda eDTU paylaşmak için iyi bir adaydır.  Alternatif olarak, en yüksek kullanımı 20 DTU’ya varan ve ortalama olarak en fazla 13 DTU kullanan bir S1 veritabanı da havuz için iyi bir adaydır.
 
-## Sizing an elastic pool
-The best size for a pool depends on the aggregate eDTUs and storage resources needed for all databases in the pool. This involves determining the larger of the following:
+## <a name="sizing-an-elastic-pool"></a>Elastik havuzunu boyutlandırma
+Bir havuz için en iyi boyut, havuzdaki tüm veritabanları için gereken toplam eDTU ve depolama kaynağı sayısına bağlıdır. Buna aşağıdakilerin belirlenmesi dahildir:
 
-* Maximum DTUs utilized by all databases in the pool.
-* Maximum storage bytes utilized by all databases in the pool.
+* Havuzdaki tüm veritabanları tarafından kullanılan en fazla DTU sayısı.
+* Havuzdaki tüm veritabanları tarafından kullanılan en fazla depolama baytı sayısı.
 
-For available sizes, see [eDTU and storage limits for elastic database pools and elastic databases](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases).
+Kullanılabilir boyutlar için bkz. [Elastik veritabanı havuzları ve elastik veritabanları için eDTU ve depolama limitleri](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases).
 
-SQL Database automatically evaluates the historical resource usage of databases in an existing SQL Database server and recommends the appropriate pool configuration in the Azure portal. In addition to the recommendations, a built-in experience estimates the eDTU usage for a custom group of databases on the server. This enables you to do a "what-if" analysis by interactively adding databases to the pool and removing them to get resource usage analysis and sizing advice before committing your changes. For a how-to, see [Monitor, manage, and size an elastic pool](sql-database-elastic-pool-manage-portal.md).
+SQL Veritabanı, mevcut bir SQL Veritabanı sunucusundaki veritabanlarının geçmiş kaynak kullanımını otomatik olarak değerlendirir ve Azure portalda uygun havuz yapılandırmasını önerir. Önerilere ek olarak, yerleşik deneyim sunucu üzerindeki özel bir veritabanı grubu için eDTU kullanımını tahmin eder. Bu deneyim, havuza veritabanlarını etkileşimli bir şekilde ekleyerek ve değişiklikleri uygulamadan önce kaynak kullanım analizi ile boyutlandırma önerisini almak üzere veritabanlarını kaldırarak "durum" çözümlemesi yapmanıza olanak tanır. Nasıl yapılır konuları için bkz. [Elastik havuzlarını izleme, yönetme ve boyutlandırma](sql-database-elastic-pool-manage-portal.md).
 
-For more flexible resource usage assessments that allow ad hoc sizing estimates for servers earlier than V12, as well as sizing estimates for databases in different servers, see the [Powershell script for identifying databases suitable for an elastic database pool](sql-database-elastic-pool-database-assessment-powershell.md).
+V12’den önceki sunucular için geçici boyutlandırma tahminlerinin yanı sıra farklı sunuculardaki veritabanlarına yönelik boyutlandırma tahminleri sağlayan daha esnek kaynak kullanım değerlendirmeleri için bkz. [Elastik veritabanı havuzu için uygun veritabanlarını tanımlamaya yönelik Powershell betiği](sql-database-elastic-pool-database-assessment-powershell.md).
 
-| Capability | Portal experience | PowerShell script |
+| Özellik | Portal deneyimi | PowerShell betiği |
 |:--- |:--- |:--- |
-| Granularity |15 seconds |15 seconds |
-| Considers pricing differences between a pool and performance levels for single databases |Yes |No |
-| Allows customizing the list of the databases analyzed |Yes |Yes |
-| Allows customizing the period of time used in the analysis |No |Yes |
-| Allows customizing the list of databases analyzed across different servers |No |Yes |
-| Allows customizing the list of databases analyzed on v11 servers |No |Yes |
+| Ayrıntı düzeyi |15 saniye |15 saniye |
+| Bir havuz ile tek veritabanı performans düzeyleri arasındaki fiyat farklılıklarını göz önünde bulundurur |Evet |Hayır |
+| Analiz edilen veritabanları listesinin özelleştirilmesine olanak tanır |Evet |Evet |
+| Analizde kullanılan sürenin özelleştirilmesine olanak tanır |Hayır |Evet |
+| Farklı sunucular arasında analiz edilen veritabanları listesinin özelleştirilmesine olanak tanır |Hayır |Evet |
+| v11 sunucularında analiz edilen veritabanları listesinin özelleştirilmesine olanak tanır |Hayır |Evet |
 
-In cases where you can't use tooling, the following step-by-step can help you estimate whether a pool is more cost-effective than single databases:
+Araçları kullanamadığınız durumlarda aşağıdaki adım adım yönergeler bir havuzun tek veritabanlarından daha uygun maliyetli olup olmadığını tahmin etmenize yardımcı olabilir:
 
-1. Estimate the eDTUs needed for the pool as follows:
+1. Havuz için gereken eDTU sayısını aşağıdaki gibi tahmin edebilirsiniz:
    
-   MAX(<*Total number of DBs* X *average DTU utilization per DB*>,<br>
-   <*Number of concurrently peaking DBs* X *Peak DTU utilization per DB*)
-2. Estimate the storage space needed for the pool by adding the number of bytes needed for all the databases in the pool.  Then determine the eDTU pool size that provides this amount of storage.  For pool storage limits based on eDTU pool size, see [eDTU and storage limits for elastic database pools and elastic databases](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases).
-3. Take the larger of the eDTU estimates from Step 1 and Step 2.
-4. See the [SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/) and find the smallest eDTU pool size that is greater than the estimate from Step 3.
-5. Compare the pool price from Step 5 to the price of using the appropriate performance levels for single databases.
+   MAKS(<*Toplam veritabanı sayısı* X *Veritabanı başına ortalama DTU kullanımı*>,<br>
+   <*Eşzamanlı olarak en üst seviyeye çıkan veritabanı sayısı* X *Veritabanı başına en yüksek DTU kullanımı*)
+2. Havuzdaki tüm veritabanları için gereken bayt sayısını ekleyerek havuz için gereken depolama alanını tahmin edin.  Ardından, bu depolama miktarını sağlayan eDTU havuz boyutunu belirleyin.  eDTU havuz boyutunu temel alan havuz depolama limitleri için bkz. [Elastik veritabanı havuzları ve elastik veritabanları için eDTU ve depolama limitleri](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases).
+3. 1. ve 2. Adımlardaki eDTU tahminlerinin büyük olanlarını alın.
+4. [SQL Veritabanı fiyatlandırma sayfasına](https://azure.microsoft.com/pricing/details/sql-database/) bakın ve 3. Adımdaki tahminden büyük olan en küçük eDTU havuz boyutunu bulun.
+5. 5. Adımdaki havuz fiyatını, tek veritabanları için uygun performans düzeylerini kullanma fiyatıyla karşılaştırın.
 
-## Summary
-Not all single databases are optimum candidates for pools. Databases with usage patterns that are characterized by low average utilization and relatively infrequent utilization spikes are excellent candidates. Application usage patterns are dynamic, so use the information and tools described in this article to make an initial assessment to see if a pool is a good choice for some or all of your databases. This article is just a starting point to help with your decision as to whether or not an elastic pool is a good fit. Remember that you should continually monitor historical resource usage and constantly reassess the performance levels of all of your databases. Keep in mind that you can easily move databases in and out of elastic pools, and if you have a very large number of databases you can have multiple pools of varying sizes that you can divide your databases into.
+## <a name="summary"></a>Özet
+Bütün tek veritabanları havuzlar için uygun adaylar değildir. Düşük ortalama kullanım ve oldukça nadir kullanım yükseltmeleri ile nitelenen kullanım modellerine sahip veritabanları mükemmel adaylardır. Uygulama kullanım modelleri dinamik olduğu için, bir havuzun bazı veya tüm veritabanlarınıza yönelik iyi bir seçenek olup olmadığını görmek üzere ilk değerlendirmeyi yapmak için bu makalede açıklanan bilgi ve araçları kullanın. Bu makale, elastik bir havuzun uygun olup olmadığıyla ilgili karar vermenize yardımcı olmaya yönelik bir başlangıç noktasıdır. Geçmiş kaynak kullanımını sürekli olarak izlemeniz ve tüm veritabanlarınızın performans düzeylerini sürekli olarak yeniden değerlendirmeniz gerektiğini unutmayın. Veritabanlarını elastik havuzların içine ve dışına kolayca taşıyabilirsiniz ve çok sayıda veritabanınız varsa veritabanlarınızı çeşitli boyutlardaki birden fazla havuza bölebilirsiniz.
 
-## Next steps
-* [Create an elastic database pool](sql-database-elastic-pool-create-portal.md)
-* [Monitor, manage, and size an elastic database pool](sql-database-elastic-pool-manage-portal.md)
-* [SQL Database options and performance: understand what's available in each service tier](sql-database-service-tiers.md)
-* [PowerShell script for identifying databases suitable for an elastic database pool](sql-database-elastic-pool-database-assessment-powershell.md)
+## <a name="next-steps"></a>Sonraki adımlar
+* [Elastik veritabanı havuzu oluşturma](sql-database-elastic-pool-create-portal.md)
+* [Elastik veritabanı havuzlarını izleme, yönetme ve boyutlandırma](sql-database-elastic-pool-manage-portal.md)
+* [SQL Veritabanı seçenekleri ve performansı: Her hizmet katmanında nelerin kullanılabildiğini anlama](sql-database-service-tiers.md)
+* [Elastik veritabanı havuzu için uygun veritabanlarını tanımlamaya yönelik PowerShell betiği](sql-database-elastic-pool-database-assessment-powershell.md)
+
+
+
+
+<!--HONumber=Dec16_HO1-->
+
 

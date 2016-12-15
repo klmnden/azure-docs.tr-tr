@@ -1,92 +1,112 @@
 ---
-title: What is an Azure elastic pool? | Microsoft Docs
-description: Manage hundreds or thousands of databases using a pool. One price for a set of performance units can be distributed over the pool. Move databases in or out at will.
-keywords: elastic database,sql databases
+title: Azure elastik havuzu nedir? | Microsoft Belgeleri
+description: "Yüzlerce veya binlerce veritabanının bir havuz kullanarak yönetin. Havuz üzerindeki bir dizi performans birimi için tek fiyat dağıtılabilir. Veritabanlarını istediğiniz zaman içeri veya dışarı taşıyın."
+keywords: "Elastik veritabanı,sql veritabanları"
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: CarlRabeler
 manager: jhubbard
-editor: cgronlun
-
+editor: 
+ms.assetid: b46e7fdc-2238-4b3b-a944-8ab36c5bdb8e
 ms.service: sql-database
+ms.custom: sharded databases pool
 ms.devlang: NA
-ms.date: 07/12/2016
+ms.date: 12/06/2016
 ms.author: CarlRabeler
 ms.workload: data-management
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: NA
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 829229542c05477d427b15a9d862f414d9c730d6
+
 
 ---
-# What is an Azure elastic pool?
-SQL DB elastic pools provide a simple cost effective solution to manage the performance goals for multiple databases that have widely varying and unpredictable usage patterns.
+# <a name="what-is-an-azure-elastic-pool"></a>Azure elastik havuzu nedir?
+SQL Veritabanı Elastik havuzları, son derece farklı ve öngörülemeyen kullanım düzenlerine sahip birden çok veritabanına ilişkin performans hedeflerini yönetmek için basit ve uygun maliyetli bir çözüm sağlar.
 
 > [!NOTE]
-> Elastic pools are generally available (GA) in all Azure regions except West India where it is currently in preview.  GA of elastic pools in this region will occur as soon as possible.
-> 
-> 
+> Esnek havuzlar şu anda önizleme aşamasında oldukları Batı Hindistan dışında tüm Azure bölgelerinde genel olarak kullanılabilir (GA) durumdadır.  Bu bölgede esnek havuz GA’sı olabildiğince çabuk ortaya çıkar.
+>
+>
 
-## How it works
-A common SaaS application pattern is the single-tenant database model: each customer is given their own database. Each customer (database) has unpredictable resource requirements for memory, IO, and CPU. With these peaks and valleys of demand, how do you allocate resources efficiently and cost-effectively? Traditionally, you had two options: (1) over-provision resources based on peak usage and over pay, or (2) under-provision to save cost, at the expense of performance and customer satisfaction during peaks. Elastic pools solve this problem by ensuring that databases get the performance resources they need and when they need it. They provide a simple resource allocation mechanism within a predictable budget. To learn more about design patterns for SaaS applications using elastic pools, see [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md).
+## <a name="how-it-works"></a>Nasıl çalışır?
+Yaygın bir SaaS uygulama modeli ise tek kiracılı veritabanı modelidir: her müşteriye kendi veritabanı verilir. Her müşteri (veritabanı) bellek, G/Ç ve CPU için öngörülemeyen kaynak gereksinimlerine sahiptir. Talepteki bu iniş çıkışlarla birlikte kaynakları verimli ve uygun maliyetli bir şekilde nasıl ayırabilirsiniz? Geleneksel olarak iki seçeneğiniz vardır: (1) en yüksek kullanımı temel alarak kaynakları fazladan sağlama ve fazla ödeme yapma ya da (2) en yüksek kullanım dönemlerinde performans ve müşteri memnuniyetini riske atarak maliyetten tasarruf etmek için eksik sağlama. Elastik havuzlar, veritabanlarının gerektiğinde gerekli olan performans kaynaklarını almasını sağlayarak bu sorunu çözmektedir. Bunlar, tahmin edilebilir bir bütçe içinde basit bir kaynak ayırma mekanizması sağlar. Esnek havuzları kullanan SaaS uygulamalarının tasarım desenleri hakkında daha fazla bilgi edinmek için bkz. [Azure SQL Database kullanan Çok Kiracılı SaaS Uygulamaları için Tasarım Desenleri](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Elastic-databases-helps-SaaS-developers-tame-explosive-growth/player]
-> 
-> 
+> [!VİDEO https://channel9.msdn.com/Blogs/Windows-Azure/Elastic-databases-helps-SaaS-developers-tame-explosive-growth/player]
+>
+>
 
-In SQL Database, the relative measure of a database's ability to handle resource demands is expressed in Database Transaction Units (DTUs) for single databases and elastic DTUs (eDTUs) for elastic databases in an elastic pool. See the [Introduction to SQL Database](sql-database-technical-overview.md#understand-dtus) to learn more about DTUs and eDTUs.
+SQL Veritabanında bir veritabanının kaynak taleplerini ele alma becerisinin göreli ölçümü, tek veritabanları için Veritabanı İşlem Birimleri (DTU), elastik bir havuzdaki elastik veritabanları içinse elastikDTU (eDTU) olarak ifade edilir. DTU ve eDTU’lar hakkında daha fazla bilgi için bkz. [SQL Veritabanına Giriş](sql-database-technical-overview.md).
 
-A pool is given a set number of eDTUs, for a set price. Within the pool, individual databases are given the flexibility to auto-scale within set parameters. Under heavy load, a database can consume more eDTUs to meet demand. Databases under light loads consume less, and databases under no load consume no eDTUs. Provisioning resources for the entire pool rather than for single databases simplifies your management tasks. Plus you have a predictable budget for the pool.
+Havuza belirli bir fiyat karşılığında, belirli bir sayıda eDTU verilir. Havuz içerisinde tek tek veritabanlarına belirli parametreler içinde otomatik olarak ölçeklendirme esnekliği tanınır. Veritabanı, yoğun bir yük altındayken talebi karşılamak üzere daha fazla eDTU kullanabilir. Yükü az olan veritabanları daha az eDTU kullanır ve yükü bulunmayan veritabanları eDTU kullanmaz. Tek tek veritabanları yerine tüm havuz için kaynak sağlamak, yönetim görevlerinizi basitleştirir. Ayrıca, havuza yönelik bütçeniz tahmin edilebilir bir hale gelir.
 
-Additional eDTUs can be added to an existing pool with no database downtime or no impact on the databases in the elastic pool. Similarly, if extra eDTUs are no longer needed they can be removed from an existing pool at any point in time.
+Mevcut bir havuza, veritabanı kapalı kalma süresi veya esnek havuzdaki veritabanları üzerinde herhangi bir etkisi olmadan ek eDTU’lar eklenebilir. Benzer şekilde, ek eDTU’lara artık ihtiyaç yoksa bunlar mevcut bir havuzdan ne zaman isterseniz kaldırılabilir.
 
-And you can add or subtract databases to the pool. If a database is predictably under-utilizing resources, move it out.
+Ayrıca havuza veritabanları ekleyebilir veya havuzdan veritabanları kaldırabilirsiniz. Bir veritabanı kaynakları tahmin edilebilir bir şekilde normalden az kullanıyorsa bu veritabanını havuzdan çıkarın.
 
-## Which databases go in a pool?
-![SQL databases sharing eDTUs in an elastic database pool.][1]
+## <a name="which-databases-go-in-a-pool"></a>Hangi veritabanları havuza eklenir?
+![Bir elastik veritabanı havuzunda eDTU’ları paylaşan SQL veritabanları.][1]
 
-Databases that are great candidates for elastic pools typically have periods of activity and other periods of inactivity. In the example above you see the activity of a single database, 4 databases, and finally an elastic pool with 20 databases. Databases with varying activity over time are great candidates for elastic pools because they are not all active at the same time and can share eDTUs. Not all databases fit this pattern. Databases that have a more constant resource demand are better suited to the Basic, Standard, and Premium service tiers where resources are individually assigned.
+Elastik havuzlar için mükemmel adaylar olan veritabanlarında, genellikle etkin ve pasif dönemler olur. Yukarıdaki dönemde tek veritabanının, 4 veritabanının ve son olarak 20 veritabanı içeren bir elastik havuzun etkinliği gösterilmektedir. Zaman içinde etkinlik düzeyi değişen veritabanları her zaman etkin olmadığı ve eDTU’ları paylaşabildiği için elastik havuzlara yönelik mükemmel adaylardır. Tüm veritabanları bu modele uymaz. Daha sabit bir kaynak talebine sahip veritabanları, kaynakların tek tek atandığı Temel, Standart ve Premium hizmet katmanlarına daha uygundur.
 
-[Price and performance considerations for an elastic pool](sql-database-elastic-pool-guidance.md).
+[Elastik havuzlar için fiyat ve performans ile ilgili dikkat edilmesi gerekenler](sql-database-elastic-pool-guidance.md).
 
-## eDTU and storage limits for elastic pools and elastic databases.
+## <a name="edtu-and-storage-limits-for-elastic-pools-and-elastic-databases"></a>Elastik havuzlar ve elastik veritabanları için eDTU ve depolama limitleri
+
+Aşağıdaki tabloda Temel, Standart ve Premium esnek veritabanı havuzlarının özellikleri açıklanmaktadır.
+
 [!INCLUDE [SQL DB service tiers table for elastic databases](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
 
-If all DTUs of an elastic pool are used, then each database in the pool receives an equal amount of resources to process queries.  The SQL Database service provides resource sharing fairness between databases by ensuring equal slices of compute time. Elastic pool resource sharing fairness is in addition to any amount of resource otherwise guaranteed to each database when the DTU min per database is set to a non-zero value.
+Bir elastik havuzun tüm DTU’ları kullanılırsa, sorguları işlemek üzere havuzdaki her bir veritabanı eşit miktarda kaynak alır.  SQL Veritabanı hizmeti, eşit dilimlerde işlem süresi sunarak veritabanları arasında kaynak paylaşım eşitliğini sağlar. Elastik havuz kaynak paylaşımı eşitliği, veritabanı başına DTU dakikası sıfır olmayan bir değere ayarlandığında her bir veritabanı için garanti edilen herhangi bir kaynak miktarına ek niteliktedir.
 
-## Elastic pool and elastic database properties
-### Limits for elastic pools
-| Property | Description |
+## <a name="elastic-pool-and-elastic-database-properties"></a>Elastik havuz ve elastik veritabanı özellikleri
+
+Aşağıdaki tablolarda elastik havuzlara ve elastik veritabanlarına ilişkin limitler açıklanmıştır.
+
+### <a name="limits-for-elastic-pools"></a>Elastik havuzlar için limitler
+| Özellik | Açıklama |
 |:--- |:--- |
-| Service tier |Basic, Standard, or Premium. The service tier determines the range in performance and storage limits that can be configured as well as business continuity choices. Every database within a pool has the same service tier as the pool. “Service tier” is also referred to as “edition.” |
-| eDTUs per pool |The maximum number of eDTUs that can be shared by databases in the pool. The total eDTUs used by databases in the pool cannot exceed this limit at the same point in time. |
-| Max storage per pool (GB) |The maximum amount of storage in GBs that can be shared by databases in the pool. The total storage used by databases in the pool cannot exceed this limit. This limit is determined by the eDTUs per pool. If this limit is exceeded, all databases become read-only. |
-| Max number of databases per pool |The maximum number of databases allowed per pool. |
-| Max concurrent workers per pool |The maximum number of concurrent workers (requests) available for all databases in the pool. |
-| Max concurrent logins per pool |The maximum number of concurrent logins for all databases in the pool. |
-| Max concurrent sessions per pool |The maximum number of sessions available for all databases in the pool. |
+| Hizmet katmanı |Temel, Standart veya Premium. Hizmet katmanı, yapılandırılabilen performans ve depolama limitlerinin yanı sıra iş sürekliliği seçeneklerinin aralığını belirler. Bir havuzdaki her veritabanı, havuzla aynı hizmet katmanına sahiptir. “Hizmet katmanı”, “sürüm” olarak da adlandırılır. |
+| Havuz başına eDTU |Havuzdaki veritabanları tarafından paylaşılabilen en fazla eDTU sayısı. Havuzdaki veritabanları tarafından kullanılan toplam eDTU sayısı, zaman içindeki aynı noktada bu sınırı aşamaz. |
+| Havuz başına maks. depolama alanı (GB) |Havuzdaki veritabanları tarafından paylaşılabilen GB cinsinden en büyük depolama miktarı. Havuzdaki veritabanları tarafından kullanılan toplam depolama alanı bu sınırı aşamaz. Bu sınır, havuz başına eDTU sayısına göre belirlenir. Bu sınır aşılırsa tüm veritabanları salt okunur hale gelir. |
+| Havuz başına maks. veritabanı sayısı |Havuz başına izin verilen en fazla veritabanı sayısı. |
+| Havuz başına maks. eş zamanlı çalışan |Havuzdaki tüm veritabanları için kullanılabilen en fazla eşzamanlı çalışan (istek) sayısı. |
+| Havuz başına maks. eş zamanlı oturum |Havuzdaki tüm veritabanları için en fazla eşzamanlı oturum açma sayısı. |
+| Havuz başına maks. eş zamanlı oturum |Havuzdaki tüm veritabanları için kullanılabilen en fazla oturum sayısı. |
 
-### Limits for elastic databases
-| Property | Description |
+### <a name="limits-for-elastic-databases"></a>Elastik veritabanları için limitler
+| Özellik | Açıklama |
 |:--- |:--- |
-| Max eDTUs per database |The maximum number of eDTUs that any database in the pool may use, if available based on utilization by other databases in the pool.  Max eDTU per database is not a resource guarantee for a database.  This setting is a global setting that applies to all databases in the pool. Set max eDTUs per database high enough to handle peaks in database utilization. Some degree of overcommitting is expected since the pool generally assumes hot and cold usage patterns for databases where all databases are not simultaneously peaking. For example, suppose the peak utilization per database is 20 eDTUs and only 20% of the 100 databases in the pool are peak at the same time.  If the eDTU max per database is set to 20 eDTUs, then it is reasonable to overcommit the pool by 5 times, and set the eDTUs per pool to 400. |
-| Min eDTUs per database |The minimum number of eDTUs that any database in the pool is guaranteed.  This setting is a global setting that applies to all databases in the pool. The min eDTU per database may be set to 0, and is also the default value. This property is set to anywhere between 0 and the average eDTU utilization per database. The product of the number of databases in the pool and the min eDTUs per database cannot exceed the eDTUs per pool.  For example, if a pool has 20 databases and the eDTU min per database set to 10 eDTUs, then the eDTUs per pool must be at least as large as 200 eDTUs. |
-| Max storage per database (GB) |The maximum storage for a database in a pool. Elastic databases share pool storage, so database storage is limited to the smaller of remaining pool storage and max storage per database. |
+| Veritabanı başına Maks. eDTU |Havuzdaki diğer veritabanlarının kullanımına göre mevcutsa, havuzdaki herhangi bir veritabanının kullanabileceği en fazla eDTU sayısı.  Veritabanı başına en fazla eDTU, veritabanı için kaynak garantisi anlamına gelmez.  Bu ayar havuzdaki tüm veritabanları için geçerli olan genel bir ayardır. Veritabanı kullanımının en üst seviyeye çıktığı durumlarla baş edebilmek için veritabanı başına en fazla eDTU sayısını yeterince yüksek bir değere ayarlayın. Havuz genellikle tüm veritabanlarının eşzamanlı olarak en üst kullanım seviyesine çıkmadığı sıcak ve soğuk kullanım modellerini varsaydığından, bir miktar aşırı ayırma beklenir. Örneğin, veritabanı başına en yüksek kullanımın 20 eDTU olduğunu ve havuzdaki 100 veritabanının yalnızca %20’sinin aynı anda en yüksek seviyeye çıktığını varsayalım.  Veritabanı başına en fazla eDTU değeri 20 eDTU’ya ayarlanırsa, havuzun 5 kat fazla kullanılması ve havuz başına eDTU sayısının 400’e ayarlanması makuldür. |
+| Veritabanı başına Min. eDTU |Havuzdaki herhangi bir veritabanının kullanabileceği en az eDTU sayısı garanti edilir.  Bu ayar havuzdaki tüm veritabanları için geçerli olan genel bir ayardır. Veritabanı başına en az eDTU sayısı 0’a ayarlanabilir; bu değer aynı zamanda varsayılan değerdir. Bu özellik, 0 ile veritabanı başına ortalama eDTU kullanımı arasında bir değere ayarlanır. Havuzdaki veritabanı sayısının veritabanı başına en az eDTU sayısıyla çarpımı, havuz başına eDTU sayısını aşamaz.  Örneğin, bir havuzda 20 veritabanı varsa ve veritabanı başına en az eDTU sayısı 10 eDTU’ya ayarlanırsa, havuzdaki eDTU sayısı en az 200 eDTU olmalıdır. |
+| Veritabanı başına maks. depolama alanı (GB) |Bir havuzdaki veritabanı için en fazla depolama alanı. Elastik veritabanları, havuz depolama alanını paylaşır; bu nedenle veritabanı depolama alanı, kalan havuz depolama alanı ve veritabanı başına maks. depolama alanı değerlerinin hangisi daha küçükse bu değerle sınırlıdır |
 
-## Elastic database jobs
-With a pool, management tasks are simplified by running scripts in **[elastic jobs](sql-database-elastic-jobs-overview.md)**. An elastic database job eliminates most of tedium associated with large numbers of databases. To begin, see [Getting started with Elastic Database jobs](sql-database-elastic-jobs-getting-started.md).
+## <a name="elastic-database-jobs"></a>Esnek veritabanı işleri
+Bir havuz kullanılarak **[esnek işlerde](sql-database-elastic-jobs-overview.md)** betik çalıştırma yoluyla yönetim görevleri kolaylaştırılır. Elastik veritabanı, çok sayıda veritabanından kaynaklanan sorunların çoğunu ortadan kaldırır. Başlamak için bkz. [Elastik Veritabanı işleriyle çalışmaya başlama](sql-database-elastic-jobs-getting-started.md).
 
-For more information about other tools, see the [Elastic database tools learning map](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/).
+Diğer elastik veritabanı araçları hakkında daha fazla bilgi için bkz. [Azure SQL Veritabanı ile ölçek genişletme](sql-database-elastic-scale-introduction.md).
 
-## Business continuity features for databases in a pool
-Elastic databases generally support the same [business continuity features](sql-database-business-continuity.md) that are available to single databases in V12 servers.
+## <a name="business-continuity-features-for-databases-in-a-pool"></a>Bir havuzdaki veritabanları için iş sürekliliği özellikleri
+Elastik veritabanları genellikle V12 sunucularındaki tek veritabanları için kullanılabilen [iş sürekliliği özelliklerinin](sql-database-business-continuity.md) aynılarını destekler.
 
-### Point in time restore
-Point-in-time-restore uses automatic database backups to recover a database in a pool to a specific point in time. See [Point-In-Time Restore](sql-database-recovery-using-backups.md#point-in-time-restore)
+### <a name="point-in-time-restore"></a>Belirli bir noktaya geri yükleme
+Belirli bir noktaya geri yükleme işlemi, bir havuzdaki veritabanını zamandaki belirli bir noktaya geri yüklemek için otomatik veritabanı yedeklemelerini kullanır. Bkz. [Belirli Bir Noktaya Geri Yükleme](sql-database-recovery-using-backups.md#point-in-time-restore)
 
-### Geo-Restore
-Geo-Restore provides the default recovery option when a database is unavailable because of an incident in the region where the database is hosted. See [Restore an Azure SQL Database or failover to a secondary](sql-database-disaster-recovery.md) 
+### <a name="geo-restore"></a>Coğrafi Geri Yükleme
+Coğrafi Geri Yükleme, bir veritabanı barındırıldığı bölgedeki bir olay nedeniyle kullanılamaz olduğunda varsayılan kurtarma seçeneğini sağlar. Bkz. [Bir Azure SQL Veritabanını geri yükleme veya ikincil veritabanına yük devretme](sql-database-disaster-recovery.md)
 
-### Active Geo-Replication
-For applications that have more aggressive recovery requirements than Geo-Restore can offer, configure Active Geo-Replication using the [Azure portal](sql-database-geo-replication-portal.md), [PowerShell](sql-database-geo-replication-powershell.md), or [Transact-SQL](sql-database-geo-replication-transact-sql.md).
+### <a name="active-geo-replication"></a>Etkin Coğrafi Çoğaltma
+Coğrafi Geri Yüklemenin sunabileceğinden daha agresif kurtarma gereksinimleri olan uygulamalar için [Azure portalını](sql-database-geo-replication-portal.md), [PowerShell’i](sql-database-geo-replication-powershell.md) veya [Transact-SQL’i](sql-database-geo-replication-transact-sql.md) kullanarak Etkin Coğrafi Çoğaltma özelliğini yapılandırın.
+
+## <a name="additional-resources"></a>Ek kaynaklar
+* [Elastik veritabanı özellikleriyle ilgili Microsoft Virtual Academy video dersi](https://mva.microsoft.com/en-US/training-courses/elastic-database-capabilities-with-azure-sql-db-16554)
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-pool/databases.png
+
+
+
+<!--HONumber=Dec16_HO1-->
+
+

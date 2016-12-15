@@ -9,6 +9,7 @@ manager: jhubbard
 editor: CarlRabeler
 ms.assetid: 89e3e9ce-2eeb-4949-b40f-6fc3bf520538
 ms.service: sql-database
+ms.custom: overview
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
@@ -16,8 +17,8 @@ ms.workload: NA
 ms.date: 09/06/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 5a101aa78dbac4f1a0edb7f414b44c14db392652
-ms.openlocfilehash: e062d55e990faeb0776f643b297788afd87ac1e3
+ms.sourcegitcommit: 4edae4ef772dc68b1f0efa9e758f26277dd35c44
+ms.openlocfilehash: bbc9bef4039b5c898c44a0e39b78b7b28c225c32
 
 
 ---
@@ -25,14 +26,14 @@ ms.openlocfilehash: e062d55e990faeb0776f643b297788afd87ac1e3
 Bu makalede, Veritabanı İşlem Birimleri (DTU'lar) ve esnek Veritabanı İşlem Birimlerinin (eDTU'lar) yanı sıra maksimum DTU veya eDTU sayısına ulaşıldığında ne olacağı açıklanmaktadır.  
 
 ## <a name="what-are-database-transaction-units-dtus"></a>Veritabanı İşlem Birimleri (DTU'lar) nedir?
-DTU, tek başına bir Azure SQL veritabanı için [tek başına bir veritabanı hizmet katmanı](sql-database-service-tiers.md#standalone-database-service-tiers-and-performance-levels) içinde belirli bir performans düzeyinde kullanılabilir olması garantilenen kaynaklara yönelik bir ölçü birimidir. DTU, gerçek OLTP iş yüklerine örnek olmak üzere tasarlanmış bir OLTP kıyaslama iş yükü tarafından belirlenen bir oranda CPU, bellek, veri G/Ç ve işlem günlüğü G/Ç karışımından oluşan bir ölçüdür. Veritabanının performans düzeyini artırarak DTU'ları iki katına çıkarmak, söz konusu veritabanının kullanabileceği kaynakları iki katına çıkarmaya eşittir. Örneğin, 1750 DTU’ya sahip Premium P11 veritabanı 5 DTU’ya sahip Temel veritabanına göre 350 kat daha fazla DTU işlem gücü sağlıyor. DTU karışımını belirlemek için kullanılan OLTP kıyaslama iş yükünün arkasındaki metodolojiyi anlamak için bkz. [SQL Database benchmark overview](sql-database-benchmark-overview.md) (SQL Veritabanı kıyaslamaya genel bakış).
+DTU, tek başına bir Azure SQL veritabanı için [tek başına bir veritabanı hizmet katmanı](sql-database-service-tiers.md#single-database-service-tiers-and-performance-levels) içinde belirli bir performans düzeyinde kullanılabilir olması garantilenen kaynaklara yönelik bir ölçü birimidir. DTU, gerçek OLTP iş yüklerine örnek olmak üzere tasarlanmış bir OLTP kıyaslama iş yükü tarafından belirlenen bir oranda CPU, bellek, veri G/Ç ve işlem günlüğü G/Ç karışımından oluşan bir ölçüdür. Veritabanının performans düzeyini artırarak DTU'ları iki katına çıkarmak, söz konusu veritabanının kullanabileceği kaynakları iki katına çıkarmaya eşittir. Örneğin, 1750 DTU’ya sahip Premium P11 veritabanı 5 DTU’ya sahip Temel veritabanına göre 350 kat daha fazla DTU işlem gücü sağlıyor. DTU karışımını belirlemek için kullanılan OLTP kıyaslama iş yükünün arkasındaki metodolojiyi anlamak için bkz. [SQL Database benchmark overview](sql-database-benchmark-overview.md) (SQL Veritabanı kıyaslamaya genel bakış).
 
 ![SQL Veritabanı'na Giriş: Katmana ve düzeye göre tek veritabanı DTU’ları](./media/sql-database-what-is-a-dtu/single_db_dtus.png)
 
 Uygulamanızda çok az (genellikle ortalama dört saniyenin altında) kesinti ile dilediğiniz zaman [hizmet katmanlarını değiştirebilirsiniz](sql-database-scale-up.md). Veritabanı oluşturabilmek ve tek veritabanı performansını isteğe göre yükseltip düşürebilmek, özellikle kullanım biçimlerinin nispeten tahmin edilebilir olduğu durumlarda birçok işletme ve uygulama için yeterlidir. Ancak tahmin edilemeyen kullanım biçimlerine sahipseniz bu durum maliyetlerin ve iş modelinizin yönetimini zorlaştırabilir. Bu senaryoda, belirli bir sayıda eDTU bulunduran esnek bir havuz kullanılmaktadır.
 
 ## <a name="what-are-elastic-database-transaction-units-edtus"></a>Esnek Veritabanı İşlem Birimleri (eDTU'lar) nedir?
-eDTU, Azure SQL sunucusundaki bir grup veritabanı arasında paylaşılan bir kaynak (DTU) kümesine yönelik bir ölçü birimidir. Bu tür kaynak kümelerine [esnek havuz](sql-database-elastic-pool.md) adı verilir. Esnek havuzlar, son derece farklı ve öngörülemeyen kullanım düzenlerine sahip birden çok veritabanına ilişkin performans hedeflerini yönetmek için basit ve uygun maliyetli bir çözüm sağlar. Daha fazla bilgi edinmek için bkz. [esnek havuzlar ve hizmet katmanları](sql-database-service-tiers.md#elastic-pool-service-tiers-and-performance-in-edtus).
+eDTU, Azure SQL sunucusundaki bir grup veritabanı arasında paylaşılan bir kaynak (DTU) kümesine yönelik bir ölçü birimidir. Bu tür kaynak kümelerine [esnek havuz](sql-database-elastic-pool.md) adı verilir. Esnek havuzlar, son derece farklı ve öngörülemeyen kullanım düzenlerine sahip birden çok veritabanına ilişkin performans hedeflerini yönetmek için basit ve uygun maliyetli bir çözüm sağlar. Daha fazla bilgi edinmek için bkz. [esnek havuzlar ve hizmet katmanları](sql-database-service-tiers.md#elastic-database-pool-service-tiers-and-performance-in-edtus).
 
 ![SQL Veritabanı'na Giriş: Katmana ve düzeye göre eDTU’lar](./media/sql-database-what-is-a-dtu/sqldb_elastic_pools.png)
 
@@ -57,6 +58,6 @@ Performans düzeyleri, veritabanı iş yükünüzü seçilen hizmet katmanı/per
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

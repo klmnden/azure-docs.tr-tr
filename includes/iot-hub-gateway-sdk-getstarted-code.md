@@ -60,9 +60,9 @@ JSON ayarlar dosyası, yüklenecek modüllerin ve modüller arası bağlantılar
 Her modülü aşağıdakileri belirtmelidir:
 
 * **name**: Modül için benzersiz bir ad.
-* **loader**: İstenen modülün nasıl yükleneceğini bilen bir yükleyici.  Yükleyiciler, farklı türlerdeki modüllerin yüklenmesi için bir uzantı noktasıdır. Yerel olarak C, Node.js, Java ve .Net dillerinde yazılan modüllerle kullanıma yönelik yükleyiciler sağlıyoruz. Hello World örneğindeki tüm modüller C dilinde yazılan dinamik kitaplıklar olduğundan, bu örnek yalnızca "yerel" yükleyiciyi kullanır. Farklı dillerde yazılan modülleri kullanma hakkında daha fazla bilgi için lütfen [Node](https://github.com/Azure/azure-iot-gateway-sdk/blob/develop/samples/nodejs_simple_sample/), [Java](https://github.com/Azure/azure-iot-gateway-sdk/tree/develop/samples/java_sample) veya [.Net](https://github.com/Azure/azure-iot-gateway-sdk/tree/develop/samples/dotnet_binding_sample) örneklerine başvurun.
+* **loader**: İstenen modülün nasıl yükleneceğini bilen bir yükleyici.  Yükleyiciler, farklı türlerdeki modüllerin yüklenmesi için bir uzantı noktasıdır. Yerel olarak C, Node.js, Java ve .NET dillerinde yazılan modüllerle kullanıma yönelik yükleyiciler sağlıyoruz. Hello World örneğindeki tüm modüller C dilinde yazılan dinamik kitaplıklar olduğundan, bu örnek yalnızca "yerel" yükleyiciyi kullanır. Farklı dillerde yazılan modülleri kullanma hakkında daha fazla bilgi için lütfen [Node.js](https://github.com/Azure/azure-iot-gateway-sdk/blob/develop/samples/nodejs_simple_sample/), [Java](https://github.com/Azure/azure-iot-gateway-sdk/tree/develop/samples/java_sample) veya [.NET](https://github.com/Azure/azure-iot-gateway-sdk/tree/develop/samples/dotnet_binding_sample) örneklerine başvurun.
     * **name**: Modülü yüklemek için kullanılan yükleyicinin adı.  
-    * **entrypoint**: Modülü içeren kitaplığın yolu. Linux için bu bir .so dosyası, Windows'ta ise bir .dll dosyasıdır. Bu giriş noktasının kullanılan yükleyici türüne özel olduğunu unutmayın. Örneğin, Node.js yükleyicisinin giriş noktası bir .js dosyasıdır; Java yükleyicisinin giriş noktası bir sınıf yolu + sınıf adıdır ve .Net yükleyicisinin giriş noktası bir derleme adı + sınıf adıdır.
+    * **entrypoint**: Modülü içeren kitaplığın yolu. Linux için bu bir .so dosyası, Windows'ta ise bir .dll dosyasıdır. Bu giriş noktasının kullanılan yükleyici türüne özel olduğunu unutmayın. Örneğin, Node.js yükleyicisinin giriş noktası bir .js dosyasıdır; Java yükleyicisinin giriş noktası bir sınıf yolu + sınıf adıdır ve .NET yükleyicisinin giriş noktası bir derleme adı + sınıf adıdır.
 
 * **args**: modül için gereken tüm yapılandırma bilgileri.
 
@@ -220,7 +220,7 @@ static void Logger_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHan
 IoT Gateway SDK’sını kullanma hakkında bilgi için aşağıdakilere bakın:
 
 * [IoT Gateway SDK’sı – Linux][lnk-gateway-simulated] kullanarak sanal bir cihazla cihazdan buluta iletiler gönderir.
-* GitHub üzerinde [Azure IoT Gateway SDK][lnk-gateway-sdk].
+* GitHub'da [Azure IoT Ağ Geçidi SDK'sı][lnk-gateway-sdk].
 
 <!-- Links -->
 [lnk-main-c]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/samples/hello_world/src/main.c
@@ -229,6 +229,6 @@ IoT Gateway SDK’sını kullanma hakkında bilgi için aşağıdakilere bakın:
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/
 [lnk-gateway-simulated]: ../articles/iot-hub/iot-hub-linux-gateway-sdk-simulated-device.md
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

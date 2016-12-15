@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 11/20/2016
 ms.author: cfowler;mahender;glenga
 translationtype: Human Translation
-ms.sourcegitcommit: 31d7a8d1abb59e096a657c4a74743adfc0d137b6
-ms.openlocfilehash: 01c1e7b58a7dce3c640ac151b3ac708ce2b7d913
+ms.sourcegitcommit: 30cc3b8749d5b36b89b242e2691003cc6f67f7d2
+ms.openlocfilehash: 00359057d702c556cd8beb91cf17ccf41c96f601
 
 
 ---
@@ -70,10 +70,10 @@ Azure İşlevleri, çeşitli Azure ve üçüncü taraf hizmetleri ile tümleşti
 ## <a name="a-namepricingahow-much-does-functions-cost"></a><a name="pricing"></a>İşlevlerin maliyeti ne kadardır?
 Azure İşlevlerinin iki tür fiyatlandırma planı bulunur; ihtiyaçlarınızı en iyi şekilde karşılayanı seçin: 
 
-* **Tüketim planı** - İşleviniz çalıştığında Azure tüm gerekli bilgi işlem kaynaklarını sağlar. Kaynak yönetimi hakkında endişelenmenize gerek yoktur ve yalnızca kodunuzun çalıştığı süre için ödeme yaparsınız. Fiyatlandırma ayrıntılarının tümü [İşlevler Fiyatlandırma sayfasında](/pricing/details/functions) bulunur. 
-* **App Service planı** - İşlevlerinizi web, mobil ve API uygulamalarınız gibi çalıştırın. Diğer uygulamalarınız için App Service'i zaten kullanıyor olmanız halinde işlevlerinizi hiçbir ek ücret ödemeden aynı planda çalıştırabilirsiniz. Ayrıntıların tümü [App Service Fiyatlandırma sayfasında](/pricing/details/app-service/) bulunur.
+* **Tüketim planı** - İşleviniz çalıştığında Azure tüm gerekli bilgi işlem kaynaklarını sağlar. Kaynak yönetimi hakkında endişelenmenize gerek yoktur ve yalnızca kodunuzun çalıştığı süre için ödeme yaparsınız. 
+* **App Service planı** - İşlevlerinizi web, mobil ve API uygulamalarınız gibi çalıştırın. Diğer uygulamalarınız için App Service'i zaten kullanıyor olmanız halinde işlevlerinizi hiçbir ek ücret ödemeden aynı planda çalıştırabilirsiniz. 
 
-İşlevlerinizi ölçeklendirme hakkında daha fazla bilgi için bkz. [Azure İşlevlerini ölçeklendirme](functions-scale.md)
+Fiyatlandırma ayrıntılarının tümü [İşlevler Fiyatlandırma sayfasında](https://azure.microsoft.com/pricing/details/functions/) bulunur. İşlevlerinizi ölçeklendirme hakkında daha fazla bilgi için bkz. [Azure İşlevlerini ölçeklendirme](functions-scale.md)
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 * [İlk Azure İşlevinizi oluşturma](functions-create-first-azure-function.md)  
@@ -90,6 +90,6 @@ Azure İşlevlerinin iki tür fiyatlandırma planı bulunur; ihtiyaçlarınızı
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 11/17/2016
 ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 1a6d1497dee72a49705e15bd2907a42f744bd3b5
-ms.openlocfilehash: 3149797c078764fa54c488e8498790ea91d1a1b1
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: ac0044da9cf804dabd9d71e3380782120728a55a
 
 
 ---
@@ -200,7 +200,7 @@ Azure Storage kaynakları HTTP/HTTPS isteği yapabilen her dil ile erişilebilir
 * [Azure Depolama İstemcisi Araçları](storage-explorers.md)
 * [Azure SDK'ları ve Araçları](https://azure.microsoft.com/tools/)
 * [Azure Depolama Öykünücüsü](http://www.microsoft.com/download/details.aspx?id=43709)
-* [Azure PowerShell](../powershell-install-configure.md)
+* [Azure PowerShell](/powershell/azureps-cmdlets-docs)
 * [AzCopy Komut Satırı Yardımcı Programı](http://aka.ms/downloadazcopy)
 
 ## <a name="next-steps"></a>Sonraki Adımlar
@@ -252,6 +252,6 @@ Azure Storage hakkında daha fazla bilgi için şu kaynakları araştırın:
 * [Beş dakikada Azure Storage’ı kullanmaya başlayın](storage-getting-started-guide.md)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 01/04/2016
 ms.author: piyushjo;matt-gibbs
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 58d8043e09cb04ef2cdf4f5c005d549a6cb6f73c
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 957dcdd3cef2939ef913eead7ebf332f9b797860
 
 
 ---
@@ -30,10 +30,10 @@ Azure Mobile Engagement, uygulama kullanımı hakkında veriye dayalı öngörü
 
 Azure Mobile Engagement ile uygulama yayımcıları ve pazarlama uzmanları, uygulama kullanıcılarını daha iyi anlayıp onlarla daha başarılı etkileşimler kurabilir.
 
-## <a name="realtime-actionable-analytics-to-maximize-return-on-investment"></a>Yatırım getirisini en üst düzeye çıkarmak için gerçek zamanlı eyleme dönüştürülebilir analiz
+## <a name="real-time-actionable-analytics-to-maximize-return-on-investment"></a>Yatırım getirisini en üst düzeye çıkarmak için gerçek zamanlı eyleme dönüştürülebilir analiz
 `big data` toplama ile gerçek zamanlı ileti işlemeyi birleştirerek kullanıcı davranışları ve demografisine göre etkileşim senaryoları tetikleyin. Mobile Engagement, özel iş ihtiyaçlarınıza ilişkin neredeyse tüm sorulara yanıt verebilir. Örneğin, ana performans göstergelerini (KPI) ölçmek, bir kullanıcı huni yolundaki kullanım performansı sorunlarını hızlı bir şekilde bulmak ve düzeltmek, kullanıcıların elde tutulmasını ve sürekliliğini izlemek ve bunu kullanarak hangi kampanyaların en yüksek yatırım getirisi sağladığını belirlemek üzere özel panolar oluşturabilirsiniz. Mobile Engagement'ın 360 derecelik kullanıcı yolu görünümü, kullanıcı deneyimini kolayca ve sürekli olarak geliştirmenize ve iyileştirmenize olanak tanır, böylece elde tutma oranları yükselir ve uygulama kullanımının kalitesi artar.
 
-## <a name="valueadded-push-and-communications-platform"></a>Değer katan anında iletme ve iletişim platformu
+## <a name="value-added-push-and-communications-platform"></a>Değer katan anında iletme ve iletişim platformu
 Mobile Engagement, uygulama içi mesajlaşma özellikleri sağlar ve Google'a ait GCM, Apple’a ait APNS ve Microsoft MPNS gibi yerel anında iletme bildirimi ağ geçitleri ile sorunsuzca çalışır. Bunların da ötesine geçerek, kullanıcı davranışlarını analiz edip belirlediği benzersiz müşteri segmentleriyle size hedefe yönelik kampanyalar oluşturma gücünü verir.
 
 Uygulama geliştiriciler, bu sayede müşterilerine rahatsız edici olmayan ve son derece etkili bir şekilde ulaşabilmenin avantajından yararlanır.
@@ -47,13 +47,13 @@ Microsoft, gizliliğin korunması konusunda her zaman kararlı olmuştur ve bu k
 ### <a name="next-steps"></a>Sonraki Adımlar:
 [Kendi Mobile Engagement programınızı oluşturmaya yönelik en iyi uygulamalar ve süreç](mobile-engagement-getting-started-best-practices.md)
 
-[Başlarken](/documentation/services/mobile-engagement/)
+[Başlarken](/index.md)
 
 [Kaynak koduyla birlikte tanıtım uygulamalarını indirme](https://aka.ms/azmedemoapps)
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

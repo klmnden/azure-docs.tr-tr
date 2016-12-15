@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 08/25/2016
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 209d4f610f0d5199d9018c506acef3b7328478ef
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: aeac4f6ae98ec453127459f9af467458ef2dbd98
 
 
 ---
@@ -38,17 +38,17 @@ Microsoft Azure Redis Önbelleği aşağıdaki katmanlarda kullanılabilir:
 * **Standart** – İki düğümlü Birincil/Çoğaltma. 53 GB'a kadar birden çok boyut. %99,9SLA.
 * **Premium** – İki düğümlü Birincil/Çoğaltma, En fazla 10 parça. 6 GB ila 530 GB birden çok boyut (daha fazlası için bizimle iletişime geçin). [Redis kümesi](cache-how-to-premium-clustering.md), [Redis kalıcılığı](cache-how-to-premium-persistence.md), and [Azure Virtual Network](cache-how-to-premium-vnet.md) dahil tüm Standart katman özellikleri ve fazlası. %99,9SLA.
 
-Her katman özellikler ve fiyatlandırma açısından farklıdır. Fiyatlandırma hakkında daha fazla bilgi için bkz. [Önbellek Fiyatlandırma Ayrıntıları][Önbellek Fiyatlandırma Ayrıntıları].
+Her katman özellikler ve fiyatlandırma açısından farklıdır. Fiyatlandırma hakkında daha fazla bilgi için bkz. [Önbellek Fiyatlandırma Ayrıntıları][Cache Pricing Details].
 
-Bu kılavuz C\# kodu kullanarak [StackExchange.Redis][StackExchange.Redis] istemcisi kullanmayı gösterir. Ele alınan senaryolar **bir önbellek oluşturma ve yapılandırma **, **önbellek istemcilerini yapılandırma** ve **önbelleğe nesne ekleme ve nesneleri önbellekten kaldırma** konularını içerir. Azure Redis Önbelleğini kullanma hakkında daha fazla bilgi için bkz [Sonraki Adımlar][Sonraki Adımlar] bölümü. Redis Önbelleği ile ASP.NET MVC web uygulaması oluşturmaya ilişkin adım bir öğretici için, bkz. [Redis Önbelleği ile Web Uygulaması Oluşturma](cache-web-app-howto.md)
+Bu kılavuz C\# kodu kullanarak [StackExchange.Redis][StackExchange.Redis] istemcisi kullanmayı gösterir. Ele alınan senaryolar **bir önbellek oluşturma ve yapılandırma **, **önbellek istemcilerini yapılandırma** ve **önbelleğe nesne ekleme ve nesneleri önbellekten kaldırma** konularını içerir. Azure Redis Önbelleğini kullanma hakkında daha fazla bilgi için bkz [Sonraki Adımlar][Next Steps] bölümü. Redis Önbelleği ile ASP.NET MVC web uygulaması oluşturmaya ilişkin adım bir öğretici için, bkz. [Redis Önbelleği ile Web Uygulaması Oluşturma](cache-web-app-howto.md)
 
 <a name="getting-started-cache-service"></a>
 
 ## <a name="get-started-with-azure-redis-cache"></a>Azure Redis Önbelleğini kullanmaya başlama
 Azure Redis Önbelleğini kullanmaya başlamak kolaydır. Başlamak için, bir önbellek hazırlayın ve yapılandırın. Ardından, önbelleğe erişebilmeleri için önbellek istemcilerini yapılandırın. Önbellek istemcileri yapılandırıldıktan sonra, bunlarla çalışmaya başlayabilirsiniz.
 
-* [Önbelleği oluşturma][Önbelleği oluşturma]
-* [Önbellek istemcilerini yapılandırma][Önbellek istemcilerini yapılandırma]
+* [Önbelleği oluşturma][Create the cache]
+* [Önbellek istemcilerini yapılandırma][Configure the cache clients]
 
 <a name="create-cache"></a>
 
@@ -72,8 +72,8 @@ Azure Redis Önbelleğini kullanmaya başlamak kolaydır. Başlamak için, bir �
 ## <a name="working-with-caches"></a>Önbelleklerle Çalışma
 Bu bölümdeki adımlar Önbellek ile ortak görevler gerçekleştirmeyi açıklar.
 
-* [Önbelleğe bağlanma][Önbelleğe bağlanma]
-* [Önbelleğe nesneler ekleme ve nesneleri önbellekten alma][Önbelleğe nesneler ekleme ve nesneleri önbellekten alma]
+* [Önbelleğe bağlanma][Connect to the cache]
+* [Önbelleğe nesneler ekleme ve nesneleri önbellekten alma][Add and retrieve objects from the cache]
 * [Önbellekte .NET nesneleriyle çalışma](#work-with-net-objects-in-the-cache)
 
 <a name="connect-to-cache"></a>
@@ -95,7 +95,7 @@ Bir Azure Redis Önbelleğine bağlanmak ve bağlı bir `ConnectionMultiplexer` 
     ConnectionMultiplexer connection = ConnectionMultiplexer.Connect("contoso5.redis.cache.windows.net,abortConnect=false,ssl=true,password=...");
 
 > [!IMPORTANT]
-> Uyarı: Kimlik bilgilerini asla kaynak kodunda depolamayın. Bu örneği basit tutmak için bunları kaynak kodunda gösteriyorum. Kimlik bilgilerini depolama hakkında bilgi için bkz. [Uygulama Dizeleri ve Bağlantı Dizeleri Nasıl Çalışır?][Uygulama Dizeleri ve Bağlantı Dizeleri Nasıl Çalışır?]
+> Uyarı: Kimlik bilgilerini asla kaynak kodunda depolamayın. Bu örneği basit tutmak için bunları kaynak kodunda gösteriyorum. Kimlik bilgilerini depolamaya hakkında bilgi için, bkz. [Uygulama Dizeleri ve Bağlantı Dizeleri Nasıl Çalışır?][How Application Strings and Connection Strings Work]
 > 
 > 
 
@@ -121,7 +121,7 @@ Uygulamanızda bir `ConnectionMultiplexer` örneği paylaşmaya ilişkin bir yak
         }
     }
 
-Gelişmiş bağlantı yapılandırma seçenekleri hakkında daha fazla bilgi için bkz:.[StackExchange.Redis yapılandırma modeli][StackExchange.Redis yapılandırma modeli].
+Gelişmiş bağlantı yapılandırma seçenekleri hakkında daha fazla bilgi için bkz:.[StackExchange.Redis yapılandırma modeli][StackExchange.Redis configuration model].
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
 
@@ -202,30 +202,30 @@ Artık temel bilgileri öğrendiğinize göre, Azure Redis Önbelleği hakkında
   * [Azure Redis Oturum Durumu Sağlayıcısı](cache-aspnet-session-state-provider.md)
   * [Azure Redis Önbelleği ASP.NET Çıktı Önbelleği Sağlayıcısı](cache-aspnet-output-cache-provider.md)
 * Önbelleğinizin sistem durumunu [izleyebilmeniz](cache-how-to-monitor.md) için [önbellek tanılamayı etkinleştirin](cache-how-to-monitor.md#enable-cache-diagnostics). Azure Portal’da ölçümleri görüntüleyebilir ve ayrıca istediğiniz araçları kullanarak bunları [indirebilir ve gözden geçirebilirsiniz](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring).
-* [StackExchange.Redis önbellek istemcisi belgeleri][StackExchange.Redis önbellek istemcisi belgeleri]’ni inceleyin.
+* [StackExchange.Redis önbellek istemcisi belgelerine][StackExchange.Redis cache client documentation] bakın.
   * Azure Redis Önbelleği birçok Redis istemcisinden ve geliştirme dilinden erişilebilir. Daha fazla bilgi için bkz. [http://redis.io/clients][http://redis.io/clients].
 * Azure Redis Önbelleği ayrıca Redsmin ve Redis Desktop Manager gibi üçüncü taraf hizmetler ve araçlarla birlikte kullanılabilir.
-  * Redsmin hakkında daha fazla bilgi için bkz. [Azure Redis bağlantı dizesi alma ve Redsmin ile birlikte kullanma][Azure Redis bağlantı dizesi alma ve Redsmin ile birlikte kullanma].
+  * Redsmin hakkında daha fazla bilgi için bkz. [Azure Redis bağlantı dizesi alma ve Redsmin ile birlikte kullanma][How to retrieve an Azure Redis connection string and use it with Redsmin].
   * Azure Redis Önbelleği’ndeki verilerinize erişin ve bunları [RedisDesktopManager](https://github.com/uglide/RedisDesktopManager) kullanan bir GUI ile inceleyin.
-* [redis][redis] belgelerine bakın ve [redis veri türleri][redis veri türleri] hakkında bilgi edinin ve [Redis veri türlerine on beş dakikalık bir giriş][Redis veri türlerine on beş dakikalık bir giriş]’e göz atın.
+* [redis][redis] belgelerine bakın ve [redis veri türleri][redis data types] hakkında bilgi edinin ve [Redis veri türlerine on beş dakikalık bir giriş][a fifteen minute introduction to Redis data types] sayfasına göz atın.
 
 <!-- INTRA-TOPIC LINKS -->
-[Sonraki Adımlar]: #next-steps
-[Azure Redis Önbelleğine giriş (Video)]: #video
-[Azure Redis Önbelleği nedir?]: #what-is
-[Bir Azure Önbelleği oluşturma]: #create-cache
-[Bana uygun önbelleğe alma türü hangisidir?]: #choosing-cache
-[Visual Studio Projenizi Azure Önbelleğe Almayı Kullanmak Üzere Hazırlama]: #prepare-vs
-[Uygulamanızı Önbelleğe Almayı Kullanmak Üzere Yapılandırma]: #configure-app
-[Azure Redis Önbelleğini kullanmaya başlama]: #getting-started-cache-service
-[Önbelleği oluşturma]: #create-cache
-[Önbelleği yapılandırma]: #enable-caching
-[Önbellek istemcilerini yapılandırma]: #NuGet
-[Önbelleklerle Çalışma]: #working-with-caches
-[Önbelleğe bağlanma]: #connect-to-cache
-[Önbelleğe nesneler ekleme ve nesneleri önbellekten alma]: #add-object
-[Bir nesnenin sona erme tarihini önbellekte belirtme]: #specify-expiration
-[Önbellekte ASP.NET oturumu durumu depolama]: #store-session
+[Next Steps]: #next-steps
+[Introduction to Azure Redis Cache (Video)]: #video
+[What is Azure Redis Cache?]: #what-is
+[Create an Azure Cache]: #create-cache
+[Which type of caching is right for me?]: #choosing-cache
+[Prepare Your Visual Studio Project to Use Azure Caching]: #prepare-vs
+[Configure Your Application to Use Caching]: #configure-app
+[Get Started with Azure Redis Cache]: #getting-started-cache-service
+[Create the cache]: #create-cache
+[Configure the cache]: #enable-caching
+[Configure the cache clients]: #NuGet
+[Working with Caches]: #working-with-caches
+[Connect to the cache]: #connect-to-cache
+[Add and retrieve objects from the cache]: #add-object
+[Specify the expiration of an object in the cache]: #specify-expiration
+[Store ASP.NET session state in the cache]: #store-session
 
 
 <!-- IMAGES -->
@@ -237,7 +237,7 @@ Artık temel bilgileri öğrendiğinize göre, Azure Redis Önbelleği hakkında
 
 [CacheProperties]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-properties.png
 
-[Managekeys]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-manage-keys.png
+[ManageKeys]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-manage-keys.png
 
 [SessionStateNuGet]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-session-state-provider.png
 
@@ -253,52 +253,52 @@ Artık temel bilgileri öğrendiğinize göre, Azure Redis Önbelleği hakkında
 
 <!-- LINKS -->
 [http://redis.io/clients]: http://redis.io/clients
-[Azure Redis Önbelleği için diğer dillerde geliştirme]: http://msdn.microsoft.com/library/azure/dn690470.aspx
-[Azure Redis bağlantı dizesi alma ve Redsmin ile birlikte kullanma]: https://redsmin.uservoice.com/knowledgebase/articles/485711-how-to-connect-redsmin-to-azure-redis-cache
-[Azure Redis Oturum Durumu Sağlayıcısı]: http://go.microsoft.com/fwlink/?LinkId=398249
-[Nasıl yapılır: Programlama ile Önbellek İstemcisi yapılandırma]: http://msdn.microsoft.com/library/windowsazure/gg618003.aspx
-[Azure Önbelleği için Oturum Durumu Sağlayıcısı]: http://go.microsoft.com/fwlink/?LinkId=320835
-[Azure AppFabric Cache: Oturum Durumunu Önbelleğe Alma]: http://www.microsoft.com/showcase/details.aspx?uuid=87c833e9-97a9-42b2-8bb1-7601f9b5ca20
-[Azure Önbelleği için Çıktı Önbelleği]: http://go.microsoft.com/fwlink/?LinkId=320837
-[Azure Paylaşılan Önbellek]: http://msdn.microsoft.com/library/windowsazure/gg278356.aspx
-[Ekip Blogu]: http://blogs.msdn.com/b/windowsazure/
-[Azure Önbelleği]: http://www.microsoft.com/showcase/Search.aspx?phrase=azure+caching
-[Sanal Makine Boyutlarını Yapılandırma]: http://go.microsoft.com/fwlink/?LinkId=164387
-[Azure Önbelleği Kapasite Planlamada Dikkate Alınması Gerekenler]: http://go.microsoft.com/fwlink/?LinkId=320167
-[Azure Önbelleği]: http://go.microsoft.com/fwlink/?LinkId=252658
-[Nasıl yapılır: Bir ASP.NET Sayfasının Önbelleğe Alınabilirliğini Bildirimli Olarak Ayarlama]: http://msdn.microsoft.com/library/zd1ysf1y.aspx
-[Nasıl yapılır: Bir Sayfanın Önbelleğe Alınabilirliğini Programlı Olarak Ayarlama]: http://msdn.microsoft.com/library/z852zf6b.aspx
-[Azure Redis Önbelleğinde önbellek yapılandırma]: http://msdn.microsoft.com/library/azure/dn793612.aspx
+[Develop in other languages for Azure Redis Cache]: http://msdn.microsoft.com/library/azure/dn690470.aspx
+[How to retrieve an Azure Redis connection string and use it with Redsmin]: https://redsmin.uservoice.com/knowledgebase/articles/485711-how-to-connect-redsmin-to-azure-redis-cache
+[Azure Redis Session State Provider]: http://go.microsoft.com/fwlink/?LinkId=398249
+[How to: Configure a Cache Client Programmatically]: http://msdn.microsoft.com/library/windowsazure/gg618003.aspx
+[Session State Provider for Azure Cache]: http://go.microsoft.com/fwlink/?LinkId=320835
+[Azure AppFabric Cache: Caching Session State]: http://www.microsoft.com/showcase/details.aspx?uuid=87c833e9-97a9-42b2-8bb1-7601f9b5ca20
+[Output Cache Provider for Azure Cache]: http://go.microsoft.com/fwlink/?LinkId=320837
+[Azure Shared Caching]: http://msdn.microsoft.com/library/windowsazure/gg278356.aspx
+[Team Blog]: http://blogs.msdn.com/b/windowsazure/
+[Azure Caching]: http://www.microsoft.com/showcase/Search.aspx?phrase=azure+caching
+[How to Configure Virtual Machine Sizes]: http://go.microsoft.com/fwlink/?LinkId=164387
+[Azure Caching Capacity Planning Considerations]: http://go.microsoft.com/fwlink/?LinkId=320167
+[Azure Caching]: http://go.microsoft.com/fwlink/?LinkId=252658
+[How to: Set the Cacheability of an ASP.NET Page Declaratively]: http://msdn.microsoft.com/library/zd1ysf1y.aspx
+[How to: Set a Page's Cacheability Programmatically]: http://msdn.microsoft.com/library/z852zf6b.aspx
+[Configure a cache in Azure Redis Cache]: http://msdn.microsoft.com/library/azure/dn793612.aspx
 
-[StackExchange.Redis yapılandırma modeli]: http://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Configuration.md
+[StackExchange.Redis configuration model]: http://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Configuration.md
 
-[Önbellekte .NET nesneleriyle çalışma]: http://msdn.microsoft.com/library/dn690521.aspx#Objects
+[Work with .NET objects in the cache]: http://msdn.microsoft.com/library/dn690521.aspx#Objects
 
 
-[NuGet Paket Yöneticisini Yükleme]: http://go.microsoft.com/fwlink/?LinkId=240311
-[Önbellek Fiyatlandırma Ayrıntıları]: http://www.windowsazure.com/pricing/details/cache/
+[NuGet Package Manager Installation]: http://go.microsoft.com/fwlink/?LinkId=240311
+[Cache Pricing Details]: http://www.windowsazure.com/pricing/details/cache/
 [Azure Portal]: https://portal.azure.com/
 
-[Azure Redis Önbelleğine Genel Bakış]: http://go.microsoft.com/fwlink/?LinkId=320830
-[Azure Redis Önbelleği]: http://go.microsoft.com/fwlink/?LinkId=398247
+[Overview of Azure Redis Cache]: http://go.microsoft.com/fwlink/?LinkId=320830
+[Azure Redis Cache]: http://go.microsoft.com/fwlink/?LinkId=398247
 
-[Azure Redis Önbelleğine Geçiş]: http://go.microsoft.com/fwlink/?LinkId=317347
-[Azure Redis Önbelleği Örnekleri]: http://go.microsoft.com/fwlink/?LinkId=320840
-[Azure kaynaklarınızı yönetmek için Kaynak gruplarını kullanma]: ../azure-resource-manager/resource-group-overview.md
+[Migrate to Azure Redis Cache]: http://go.microsoft.com/fwlink/?LinkId=317347
+[Azure Redis Cache Samples]: http://go.microsoft.com/fwlink/?LinkId=320840
+[Using Resource groups to manage your Azure resources]: ../azure-resource-manager/resource-group-overview.md
 
 [StackExchange.Redis]: http://github.com/StackExchange/StackExchange.Redis
-[StackExchange.Redis önbellek istemcisi belgeleri]: http://github.com/StackExchange/StackExchange.Redis#documentation
+[StackExchange.Redis cache client documentation]: http://github.com/StackExchange/StackExchange.Redis#documentation
 
 [Redis]: http://redis.io/documentation
-[Redis veri türleri]: http://redis.io/topics/data-types
-[Redis veri türlerine on beş dakikalık bir giriş]: http://redis.io/topics/data-types-intro
+[Redis data types]: http://redis.io/topics/data-types
+[a fifteen minute introduction to Redis data types]: http://redis.io/topics/data-types-intro
 
-[Uygulama Dizeleri ve Bağlantı Dizeleri Nasıl Çalışır?]: http://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/
-
-
+[How Application Strings and Connection Strings Work]: http://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/
 
 
 
-<!--HONumber=Nov16_HO2-->
+
+
+<!--HONumber=Dec16_HO1-->
 
 

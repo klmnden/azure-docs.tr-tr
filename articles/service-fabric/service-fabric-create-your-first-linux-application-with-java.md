@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 10/04/2016
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 288d504b44fd7588a03a31171da1bfb332e2429f
+ms.sourcegitcommit: 4450ad62a9b05ac4c963ae3271590f9431b782ed
+ms.openlocfilehash: 87f5ac490f113a7c0144b20563a4f8f4bbcc6b21
 
 
 ---
@@ -28,17 +28,20 @@ ms.openlocfilehash: 288d504b44fd7588a03a31171da1bfb332e2429f
 > 
 > 
 
-Service Fabric, Linux üzerinde hem .NET Core hem de Java dillerinde hizmet oluşturmaya yönelik SDK’lar sağlar. Bu öğreticide Linux için uygulama oluşturma ve Java kullanarak hizmet oluşturma konuları ele alınacaktır.
+Service Fabric, Linux üzerinde hem .NET Core hem de Java dillerinde hizmet oluşturmaya yönelik SDK’lar sağlar. Bu öğreticide Linux için bir uygulama ve Java kullanarak bir hizmet oluşturacağız.  Aşağıdaki Microsoft Virtual Academy videosunda da Linux üzerinde Java uygulaması oluşturma işlemleri anlatılmaktadır:  
+<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=DOX8K86yC_206218965">  
+<img src="./media/service-fabric-create-your-first-linux-application-with-java/LinuxVid.png" WIDTH="360" HEIGHT="244">  
+</a></center>
 
 ## <a name="prerequisites"></a>Ön koşullar
 Başlamadan önce [Linux geliştirme ortamınızı ayarladığınızdan](service-fabric-get-started-linux.md) emin olun. Mac OS X kullanıyorsanız, [Vagrant kullanarak bir sanal makinede Linux one-box ortamı ayarlayabilirsiniz](service-fabric-get-started-mac.md).
 
 ## <a name="create-the-application"></a>Uygulama oluşturma
-Service Fabric uygulaması bir veya birden çok hizmet içerebilir. Bu hizmetlerin her biri uygulamanın işlevselliğini aktarma konusunda belirli bir role sahiptir. Linux için Service Fabric SDK’sı ilk hizmetinizi oluşturmayı ve daha sonra daha fazlasını eklemenizi kolaylaştıran bir [Yeoman](http://yeoman.io/) oluşturucu içerir. Yeoman kullanarak tek bir hizmetle yeni bir uygulama oluşturalım.
+Service Fabric uygulaması bir veya birden çok hizmet içerebilir. Bu hizmetlerin her biri uygulamanın işlevselliğini aktarma konusunda belirli bir role sahiptir. Linux için Service Fabric SDK’sı ilk hizmetinizi oluşturmayı ve daha sonra daha fazlasını eklemenizi kolaylaştıran bir [Yeoman](http://yeoman.io/) oluşturucu içerir. Tek bir hizmetle uygulama oluşturmak için Yeoman’ı kullanalım.
 
 1. Bir terminal içinde **yo azuresfjava** yazın.
 2. Uygulamanızı adlandırın.
-3. Birinci hizmetinizin türünü seçin ve adlandırın. Bu öğretici için Reliable Actor Hizmetini seçeceğiz.
+3. Birinci hizmetinizin türünü seçin ve adlandırın. Bu öğreticinin amaçları doğrultusunda, Reliable Actor Hizmetini seçiyoruz.
    
    ![Java için Service Fabric Yeoman oluşturucusu][sf-yeoman]
 
@@ -86,7 +89,7 @@ Actor projeleri kendi başına bir işlem yapamaz. Bunlar başka bir hizmet veya
 3. Önceki adımda bulduğunuz düğüme tıklayın, ardından Eylemler menüsünden **Devre dışı bırak (yeniden başlat)** öğesini seçin. Bunun yapılması yerel kümenizdeki beş düğümden birini yeniden başlatır ve başka bir düğümde çalışan ikincil çoğaltmalardan birine yük devretmeye zorlar. Bunu yaparken test istemcisinin çıktısına dikkat edin ve yük devretmeye rağmen sayacın artmaya devam ettiğini gözlemleyin.
 
 ## <a name="build-and-deploy-an-application-with-the-eclipse-neon-plugin"></a>Eclipse Neon eklentisiyle uygulama oluşturma ve dağıtma
-Eclipse Neon Hizmet Eklentisini yüklediyseniz Service Fabric uygulamaları oluşturmak, derlemek ve Java ile derlenmiş uygulamaları dağıtmak için bu eklentiyi kullanabilirsiniz.  Eclipse’i yüklerken, **Java geliştiricileri için Eclipse IDE**’yi seçin.
+Eclipse Neon için [Service Fabric Eklentisini](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-linux#install-the-java-sdk-and-eclipse-neon-plugin-optional) yüklediyseniz Service Fabric uygulamaları oluşturmak, derlemek ve Java ile derlenmiş uygulamaları dağıtmak için bu eklentiyi kullanabilirsiniz.  Eclipse’i yüklerken, **Java geliştiricileri için Eclipse IDE**’yi seçin.
 
 ### <a name="create-the-application"></a>Uygulama oluşturma
 Service Fabric eklentisi Eclipse genişletilebilirliği ile kullanılabilir.
@@ -98,13 +101,22 @@ Service Fabric eklentisi Eclipse genişletilebilirliği ile kullanılabilir.
 3. Service Fabric projeleriyle Eclipse kullanımını iyileştiren Service Fabric perspektifinin kullanıldığını onaylamanız istenir. 'Evet' öğesini seçin.
 
 ### <a name="deploy-the-application"></a>Uygulamayı dağıtma
-Service Fabric şablonları, Eclipse ile tetikleyebileceğiniz uygulama oluşturma ve dağıtmaya yönelik bir dizi Gradle görevi içerir.
+Service Fabric şablonları, Eclipse ile tetikleyebileceğiniz uygulama oluşturma ve dağıtmaya yönelik bir dizi Gradle görevi içerir. 
 
 1. **Çalıştır > Yapılandırmaları Çalıştır**’ı seçin.
-2. **Gradle Projesi**’ni genişletin ve **ServiceFabricDeployer**’ı seçin.
-3. **Çalıştır**’a tıklayın.
+2. **yerel** veya **bulut** seçeneğini belirtin. Varsayılan olarak **yerel** seçilidir. Uzak bir kümeye dağıtmak için **bulut** seçeneğini belirleyin.
+3. Duruma göre `local.json` veya `cloud.json` öğesine düzenleyerek yayımlama profillerine doğru bilgilerin eklendiğinden emin olun.
+4. **Çalıştır**’a tıklayın.
 
-Uygulamanız birkaç dakika içinde oluşturulup dağıtılır. Durumunu Service Fabric Explorer’dan izleyebilirsiniz.
+Uygulamanız birkaç dakika içinde oluşturulur ve dağıtılır. Durumunu Service Fabric Explorer’dan izleyebilirsiniz.
+
+
+## <a name="adding-more-services-to-an-existing-application"></a>Mevcut bir uygulamaya daha fazla hizmet ekleme
+
+`yo` kullanılarak oluşturulmuş bir uygulamaya başka bir hizmet eklemek için aşağıdaki adımları uygulayın: 
+1. Dizini mevcut uygulamanın kök dizinine değiştirin.  Örneğin Yeoman tarafından oluşturulan uygulama `MyApplication` ise `cd ~/YeomanSamples/MyApplication` olacaktır.
+2. `yo azuresfjava:AddService` öğesini çalıştırın
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Reliable Actors hakkında daha fazla bilgi edinin](service-fabric-reliable-actors-introduction.md)
@@ -117,6 +129,6 @@ Uygulamanız birkaç dakika içinde oluşturulup dağıtılır. Durumunu Service
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

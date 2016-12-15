@@ -15,8 +15,8 @@ ms.workload: tbd
 ms.date: 08/24/2016
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 907f75dc02bff7e25712a564410c1974e22f0d99
+ms.sourcegitcommit: 408026a8e75272cea92ad62e3a75aabaadf98351
+ms.openlocfilehash: 00c4d2e31391297955ecba891e919bda65ddaf8e
 
 
 ---
@@ -45,7 +45,7 @@ Bu öğreticide Jedis kullanılmıştır, ancak [http://redis.io/clients](http:/
 ## <a name="retrieve-the-host-name-and-access-keys"></a>Ana bilgisayar adını ve erişim anahtarlarını alma
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
 
-## <a name="enable-the-nonssl-endpoint"></a>SSL olmayan uç noktayı etkinleştirme
+## <a name="enable-the-non-ssl-endpoint"></a>SSL olmayan uç noktayı etkinleştirme
 Bazı Redis istemcileri SSL’yi desteklemez ve varsayılan olarak [SSL olmayan bağlantı noktası yeni Azure Redis Önbelleği örnekleri için devre dışıdır](cache-configure.md#access-ports). Bu yazma sırasında, [Jedis](https://github.com/xetorthio/jedis) istemcisi SSL’yi desteklemez. 
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-non-ssl-port.md)]
@@ -64,8 +64,8 @@ Bazı Redis istemcileri SSL’yi desteklemez ve varsayılan olarak [SSL olmayan 
         JedisShardInfo shardInfo = new JedisShardInfo("<name>.redis.cache.windows.net", 6379);
         shardInfo.setPassword("<key>"); /* Use your access key. */
         Jedis jedis = new Jedis(shardInfo);
-         jedis.set("foo", "bar");
-         String value = jedis.get("foo");
+        jedis.set("foo", "bar");
+        String value = jedis.get("foo");
       }
     }
 
@@ -77,6 +77,6 @@ Bazı Redis istemcileri SSL’yi desteklemez ve varsayılan olarak [SSL olmayan 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO5-->
 
 

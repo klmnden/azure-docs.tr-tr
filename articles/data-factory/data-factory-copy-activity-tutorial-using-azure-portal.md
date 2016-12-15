@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/16/2016
+ms.date: 12/06/2016
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 7b55f6730c6a2bf8637f312c452fe552f82dbaeb
-ms.openlocfilehash: 53a78b389868f25c290268731f285b7d997a44a6
+ms.sourcegitcommit: 3205077236dd44253b3fa36d6eace36fb307871e
+ms.openlocfilehash: 2fe52756ea5522e0d9d763afc1c89d45bf830877
 
 
 ---
@@ -68,8 +68,8 @@ Bu adımda **ADFTutorialDataFactory** adlı bir Azure data factory oluşturmak i
    2. Azure **aboneliğinizi** seçin.
    3. Kaynak Grubu için aşağıdaki adımlardan birini uygulayın:
       
-      1. **Var olanı kullan**’ı seçin ve ardından açılır listeden var olan bir kaynak grubu belirleyin. 
-      2. **Yeni oluştur**’u seçin ve bir kaynak grubunun adını girin.   
+      - **Var olanı kullan**’ı seçin ve ardından açılır listeden var olan bir kaynak grubu belirleyin. 
+      - **Yeni oluştur**’u seçin ve bir kaynak grubunun adını girin.   
          
           Bu öğreticideki adımlardan bazıları kaynak grubu için şu adı kullandığınızı varsayar: **ADFTutorialResourceGroup**. Kaynak grupları hakkında daha fazla bilgi için bkz. [Azure kaynaklarınızı yönetmek için kaynak gruplarını kullanma](../azure-resource-manager/resource-group-overview.md).  
    4. Data factory için **konum** seçin. Açılır listede yalnızca Data Factory hizmeti tarafından desteklenen bölgeler gösterilmektedir.
@@ -407,6 +407,6 @@ Bu öğreticide Azure blob’undan Azure SQL veritabanına veri kopyalamak üzer
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

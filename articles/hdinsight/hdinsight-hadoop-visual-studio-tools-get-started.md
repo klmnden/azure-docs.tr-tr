@@ -17,8 +17,8 @@ ms.workload: big-data
 ms.date: 11/02/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8bd214c166190248662634d488d8e7b1427b5738
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 1fd0451809c8afca5c330229390ec691f4a25eb5
 
 
 ---
@@ -72,7 +72,7 @@ Visual Studio için Data Lake Araçları, HDInsight kümelerinizi bağlamanıza,
    > 
    > 
 4. Azure aboneliği kimlik bilgilerinizi girin ve ardından **Oturum Aç**’a tıklayın. Bu sadece, daha önce bu istasyonunda Visual Studio’dan Azure aboneliğinize bağlanmadıysanız gerekir.
-5. Sunucu Gezgini’nde, varolan HDInsight kümelerinin listesini görürsünüz. Kümeniz yoksa Azure portalı, Azure PowerShell veya HDInsight SDK’yı kullanarak bir küme oluşturabilirsiniz. Daha fazla bilgi için bkz. [HDInsight kümeleri oluşturma][hdinsight-create-clusters].
+5. Sunucu Gezgini’nde, varolan HDInsight kümelerinin listesini görürsünüz. Kümeniz yoksa Azure portalı, Azure PowerShell veya HDInsight SDK’yı kullanarak bir küme oluşturabilirsiniz. Daha fazla bilgi için bkz. [HDInsight kümesi oluşturma][hdinsight-create-clusters].
    
    ![Visual Studio için Data Lake Araçları Sunucu Gezgini küme listesi][5]
 6. HDInsight kümesini genişletin. **Hive Veritabanları**, varsayılan depolama hesabı, bağlantılı depolama hesapları ve **Hadoop Hizmeti günlüğünü** görürsünüz. Varlıkları daha da genişletebilirsiniz.
@@ -213,7 +213,7 @@ Sorguları HiveServer2 aracılığıyla yürütmenin birçok performans avantaj�
 | Pencereyi kapatma |HiveServer2 aracılığıyla yürütme işlemi "zaman uyumlu" bir yöntem olduğundan, pencereleri açık tutmalısınız; pencereler kapatılırsa, sorgu yürütme işlemi iptal edilir. |WebHCat aracılığıyla yürütme işlemi "zaman uyumsuz" bir yöntemdir, bu nedenle sorguyu WebHCat aracılığıyla gönderebilir ve Visual Studio’yu kapatabilirsiniz. İstediğiniz zaman geri dönüp sonuçlara bakabilirsiniz. |
 
 ### <a name="tez-hive-job-performance-graph"></a>Tez Hive işi performans grafiği
-Data Lake Araçları, Tez yürütme altyapısı tarafından çalıştırılan Hive işleri için performans grafikleri göstermeyi destekler. Tez etkinleştirme hakkında daha fazla bilgi için bkz. [HDInsight’ta Hive kullanma][hdinsight.hive]. Visual Studio'da bir Hive işi gönderdikten sonra, iş tamamlandığında Visual Studio size grafiği gösterir.  En son iş durumunu almak için **Yenile** düğmesine tıklamanız gerekebilir.
+Data Lake Araçları, Tez yürütme altyapısı tarafından çalıştırılan Hive işleri için performans grafikleri göstermeyi destekler. Tez etkinleştirme hakkında daha fazla bilgi için bkz. [HDInsight'ta Hive kullanma][hdinsight.hive]. Visual Studio'da bir Hive işi gönderdikten sonra, iş tamamlandığında Visual Studio size grafiği gösterir.  En son iş durumunu almak için **Yenile** düğmesine tıklamanız gerekebilir.
 
 > [!NOTE]
 > Bu özellik yalnızca HDInsight kümesini 3.2.4.593 sürümünün üstü için geçerlidir ve sadece tamamlanan işler için kullanılabilir (işinizi WebHCat aracılığıyla gönderdiyseniz, bu grafik sorgunuzu ne zaman yürüttüğünüzü HiveServer2 aracılığıyla gösterir). Bu, hem Windows hem de Linux tabanlı kümelerde çalışır.
@@ -240,17 +240,17 @@ Visual Studio için Data Lake Araçları, Pig betikleri oluşturmayı ve HDInsig
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu makalede, Data Lake (HDInsight) Araçları paketini kullanarak Visual Studio’dan HDInsight kümelerine bağlanmayı ve Hive sorgusu çalıştırmayı öğrendiniz. Daha fazla bilgi için bkz.
 
-* [HDInsight’ta Hadoop Hive kullanma ][hdinsight.hive]
-* [HDInsight’ta Hadoop kullanmaya başlama][hdinsight.get.started].
-* [HDInsight’ta Hadoop işleri gönderme][hdinsight.submit.jobs]
-* [Twitter verilerini HDInsight’ta Hadoop ile çözümleme][hdinsight.analyze.twitter.data]
+* [HDInsight'ta Hadoop Hive kullanma][hdinsight.hive]
+* [HDInsight'ta Hadoop kullanmaya başlama][hdinsight.get.started]
+* [HDInsight'ta Hadoop işlerini gönderme][hdinsight.submit.jobs]
+* [HDInsight'ta Hadoop ile Twitter verilerini çözümleme][hdinsight.analyze.twitter.data]
 
 <!--Anchors-->
-[Yükleme]: #installation
-[Azure aboneliğinize bağlanma]: #connect-to-your-azure-subscription
-[Bağlı kaynaklara gitme]: #navigate-the-linked-resources
-[Hive sorguları çalıştırma]: #run-hive-queries
-[Sonraki adımlar]: #next-steps
+[Installation]: #installation
+[Connect to your Azure subscription]: #connect-to-your-azure-subscription
+[Navigate the linked resources]: #navigate-the-linked-resources
+[Run Hive queries]: #run-hive-queries
+[Next steps]: #next-steps
 
 <!--Image references-->
 [1]: ./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.wpi.png
@@ -281,6 +281,6 @@ Bu makalede, Data Lake (HDInsight) Araçları paketini kullanarak Visual Studio�
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

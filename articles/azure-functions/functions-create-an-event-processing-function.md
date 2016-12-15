@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 09/25/2016
 ms.author: glenga
 translationtype: Human Translation
-ms.sourcegitcommit: ae5837b4fce52aad4c8b39434c27c450aafc1310
-ms.openlocfilehash: 466f2e03407a1633c40e96a366f782bf877c0c26
+ms.sourcegitcommit: 44e397c7521ba8f0ba11893c364f51177561bee4
+ms.openlocfilehash: df3d303ee10fcc982552ea9756eb59198c87b650
 
 
 ---
@@ -27,7 +27,7 @@ Azure İşlevleri, çeşitli programlama dillerinde uygulanan zamanlanan veya te
 Bu konuda bir depolama kuyruğuna iletiler eklemek amacıyla bir olay zamanlayıcısını temel alarak çalışan yeni bir C# işlevi oluşturma işlemi gösterilmektedir. 
 
 ## <a name="prerequisites"></a>Ön koşullar
-Bir işlev oluşturmadan önce etkin bir Azure hesabınız olması gerekir. Bir Azure hesabınız yoksa [ücretsiz hesaplar kullanılabilir](https://azure.microsoft.com/free/).
+Azure'da işlevlerinizin yürütülmesini bir işlev uygulaması barındırır. Azure hesabınız yoksa [İşlevleri Deneme](https://functions.azure.com/try) deneyimini inceleyin veya [ücretsiz Azure hesabı oluşturun](https://azure.microsoft.com/free/). 
 
 ## <a name="create-a-timer-triggered-function-from-the-template"></a>Şablondan zamanlayıcı ile tetiklenen bir işlev oluşturma
 Azure'da işlevlerinizin yürütülmesini bir işlev uygulaması barındırır. Bir işlev oluşturmadan önce etkin bir Azure hesabınız olması gerekir. Bir Azure hesabınız yoksa [ücretsiz hesaplar kullanılabilir](https://azure.microsoft.com/free/). 
@@ -79,6 +79,6 @@ Azure İşlevleri hakkında daha fazla bilgi edinmek için bu konulara göz atı
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

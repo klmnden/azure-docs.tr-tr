@@ -18,7 +18,7 @@ Aşağıdaki diyagram tipik bir IoT çözüm mimarisini göstermektedir. Belirli
 > 
 
 ### <a name="device-connectivity"></a>Cihaz bağlantısı
-Bu IoT çözüm mimarisinde cihazlar pompa istasyonuna ait sensör okumaları gibi telemetriyi depolanması ve işlenmesi amacıyla bulut uç noktasına gönderir. Tahmine dayalı bakım senaryosunda arka uç, belirli bir pompanın ne zaman bakıma gerek duyacağını saptamak için sensör verilerinin akışını kullanabilir. Cihazlar, bulut uç noktasına ait iletileri okuyarak buluttan cihaza komutları da alıp yanıtlayabilir. Örneğin, tahmine dayalı bakım senaryosunda çözüm arka ucu, ulaşır ulaşmaz bakım mühendisinin başladığından emin olmak için bakımın başlamasından hemen önce akışların yeniden yönlendirilmesini başlatmak amacıyla pompa istasyonundaki diğer pompalara da komut gönderebilir.
+Bu IoT çözüm mimarisinde cihazlar pompa istasyonuna ait sensör okumaları gibi telemetriyi depolanması ve işlenmesi amacıyla bulut uç noktasına gönderir. Tahmine dayalı bakım senaryosunda çözüm arka ucu, belirli bir pompanın ne zaman bakıma gerek duyacağını saptamak için sensör verilerinin akışını kullanabilir. Cihazlar, bulut uç noktasına ait iletileri okuyarak buluttan cihaza iletileri de alıp yanıtlayabilir. Örneğin, tahmine dayalı bakım senaryosunda çözüm arka ucu, ulaşır ulaşmaz bakım mühendisinin başladığından emin olmak için bakımın başlamasından hemen önce akışların yeniden yönlendirilmesini başlatmak amacıyla pompa istasyonundaki diğer pompalara da ileti gönderebilir.
 
 IoT projelerinin karşılaştığı en büyük zorluklardan biri de, cihazların güvenle ve güvenilir olarak çözüm arka uçlarına nasıl bağlanacaklarıdır. IoT cihazlarında, tarayıcılar ve mobil uygulamalar gibi diğer istemcilerle karşılaştırıldığında farklı özellikler bulunur. IoT cihazları:
 
@@ -42,9 +42,9 @@ Bulutta IoT çözüm arka ucu, telemetri filtreleme ve yığma ve bunu diğer hi
 * Cihazları hazırlamanızı ve hangi cihazların altyapıya bağlanmasına izin verildiğini denetlemenizi sağlayan cihaz kaydı becerileri sağlar.
 * Cihazlarınızın durumunu izlemenizi ve etkinliklerini takip etmenizi sağlar.
 
-Tahmine dayalı bakım senaryosunda, çözüm arka ucu geçmiş telemetri verilerini depolar. Arka uç, bu verileri belirli bir pompada bakım zamanının geldiğini belirten desenleri görmek amacıyla kullanabilir.
+Tahmine dayalı bakım senaryosunda, çözüm arka ucu geçmiş telemetri verilerini depolar. Çözüm arka ucu, bu verileri belirli bir pompada bakım zamanının geldiğini belirten desenleri görmek amacıyla kullanabilir.
 
-IOT çözümlerinde otomatik geri bildirim döngüleri bulunabilir. Örneğin, arka uçtaki analitik bir modül, belirli bir cihazdaki sıcaklığın normal çalışma seviyesinin üzerinde olduğunu telemetriden tanımlayabilir. Ardından çözüm cihaza, doğru işlemi yapması için talimat veren bir komut gönderebilir.
+IOT çözümlerinde otomatik geri bildirim döngüleri bulunabilir. Örneğin, çözüm arka ucundaki analitik bir modül, belirli bir cihazdaki sıcaklığın normal çalışma seviyesinin üzerinde olduğunu telemetriden tanımlayabilir. Ardından çözüm cihaza, doğru işlemi yapması için talimat veren bir komut gönderebilir.
 
 ### <a name="presentation-and-business-connectivity"></a>Sunu ve iş bağlantısı
 Sunu ve iş bağlantı katmanı son kullanıcıların IoT çözümü ve cihazlarla etkileşime geçmesini sağlar. Kullanıcıların kendi cihazlarından toplanan verileri görüntülemelerini ve çözümlemelerini sağlar. Bu görünümler panolar veya hem geçmiş verileri, hem de yakın gerçek zamanlı verileri görüntüleyebilen BI raporu biçiminde olabilir. Örneğin, bir kullanıcı belirli bir pompa istasyonunun durumunu denetleyebilir ve sistem tarafından gerçekleştirilen tüm uyarıları görebilir. Bu katman, kurumsal iş süreçlerine veya iş akışlarına bağlanmak üzere var olan iş kolu uygulamalarına sahip IoT çözüm arka ucunun tümleştirilmesini de sağlar. Örneğin, tahmine dayalı bakım çözümü, çözüm bir pompaya bakım gerektiğini tanımladığında mühendisin pompayı ziyaretini ayarlayan zamanlama sistemiyle tümleştirilebilir.
@@ -60,6 +60,6 @@ Sunu ve iş bağlantı katmanı son kullanıcıların IoT çözümü ve cihazlar
 [lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

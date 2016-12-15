@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 09/26/2016
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: 7e33e00a676f4aa7143cede3380adb58ba1d11e4
-ms.openlocfilehash: c27b92d4a1a1bd96ad0bdc46363b8066abc72edd
+ms.sourcegitcommit: ff2e3c27f9fc02ebe30380798be00211113208e3
+ms.openlocfilehash: 4f3c0cee8fe686c5355ce460064a7188d35f3e44
 
 
 ---
@@ -69,6 +69,7 @@ Kaynaklarınız güncelleştirildikten sonra SDK’yı yükleyebilirsiniz.
     ```bash
     sudo /opt/microsoft/sdk/servicefabric/common/sdkcommonsetup.sh
     ```
+
 
 ## <a name="set-up-the-azure-cross-platform-cli"></a>Azure platformlar arası CLI’yı ayarlama
 [Azure platformlar arası CLI][azure-xplat-cli-github], kümeler ve uygulamalar dahil Service Fabric varlıklarıyla etkileşime yönelik komutlar içerir. Node.js dosyasını temel aldığı için, aşağıdaki yönergelere geçmeden önce [düğümü yüklediğinizden emin olun][install-node].
@@ -127,7 +128,7 @@ Java SDK’sı, Java kullanan Service Fabric hizmetleri oluşturmak için gereke
 
 Service Fabric için Eclipse eklentisini Eclipse Neon IDE içinden yükleyebilirsiniz.
 
-1. Eclipse'te, Buildship 1.0.17 veya sonraki bir sürümün yüklü olduğundan emin olun. **Yardım > Yükleme Ayrıntıları**’nı seçerek yüklü bileşenlerin sürümlerini denetleyebilirsiniz. Buildship’i güncelleştirmek için [buradaki][buildship-update] yönergeleri kullanabilirsiniz.
+1. Eclipse'te, Buildship 1.0.17 veya sonraki bir sürümün yüklü olduğundan emin olun. **Yardım > Yükleme Ayrıntıları**’nı seçerek yüklü bileşenlerin sürümlerini denetleyebilirsiniz. Buildship'i güncelleştirmek için [buradaki][buildship-update] yönergeleri kullanabilirsiniz.
 2. Service Fabric eklentisini yüklemek için **Yardım > Yeni Yazılım Yükle...** öğesini seçin
 3. "Birlikte çalış" metin kutusuna şunu girin: http://dl.windowsazure.com/eclipse/servicefabric
 4. Ekle'ye tıklayın.
@@ -149,6 +150,16 @@ Service Fabric için Eclipse eklentisini Eclipse Neon IDE içinden yükleyebilir
     ```bash
     sudo /opt/microsoft/sdk/servicefabric/csharp/sdkcsharpsetup.sh
     ```
+## <a name="updating-the-sdk-and-runtime"></a>SDK ve çalışma zamanını güncelleştirme
+
+SDK ve çalışma zamanının son sürümüne güncelleştirmek için aşağıdaki adımları uygulayın (güncelleştirmek veya yüklemek istemediğiniz SDK'ları listeden kaldırın):
+
+    ```bash
+    sudo apt-get update
+    sudo apt-get install servicefabric, servicefabricsdkcommon, servicefabricsdkcsharp, servicefabricsdkjava
+    ```
+
+CLI'yı güncelleştirmek için CLI'yı kopyaladığınız dizine gidin ve `git pull` komutunu çalıştırarak güncelleştirmeyi başlatın. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Linux üzerinde ilk Java uygulamanızı oluşturma](service-fabric-create-your-first-linux-application-with-java.md)
@@ -167,6 +178,6 @@ Service Fabric için Eclipse eklentisini Eclipse Neon IDE içinden yükleyebilir
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

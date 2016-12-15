@@ -1,6 +1,6 @@
 ---
-title: "Node.js için Azure IoT Hub&quot;ı kullanmaya başlama | Microsoft Belgeleri"
-description: "Node.js ile Azure IoT Hub&quot;ı kullanmaya başlama öğreticisi. Nesnelerin İnterneti çözümü uygulamak için, Azure IoT SDK&quot;ları ile birlikte Azure IoT Hub ve Node.js kullanın."
+title: "Azure IoT Hub&quot;ı (Node) kullanmaya başlama | Microsoft Belgeleri"
+description: "Node.js için Azure IoT SDK&quot;larını kullanarak bir cihazdan bir Azure IoT hub&quot;ına cihazdan buluta iletiler gönderme. İleti göndermek için bir sanal cihaz uygulaması, cihazınızı kimlik kayıt defterine kaydetmek için bir hizmet uygulaması ve cihazdan buluta gönderilen iletileri IoT hub&quot;ından okumak için bir hizmet uygulaması oluşturmanız gerekir."
 services: iot-hub
 documentationcenter: nodejs
 author: dominicbetts
@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 09/12/2016
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 00746fa67292fa6858980e364c88921d60b29460
-ms.openlocfilehash: 91794776d0faf9dd5b7385e00ca907f13b493908
+ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
+ms.openlocfilehash: 6a4275b7fb7501fec4e98f87b09e20b2114b556b
 
 
 ---
-# <a name="get-started-with-azure-iot-hub-for-nodejs"></a>Node.js için Azure IoT Hub'ı kullanmaya başlayın
+# <a name="get-started-with-azure-iot-hub-node"></a>Azure IoT Hub'ı (Node) kullanmaya başlama
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
 
 Bu öğreticinin sonunda üç Node.js konsol uygulamanız olacak:
@@ -44,7 +44,7 @@ Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 IoT Hub’ınızı oluşturdunuz. Bu öğreticinin geri kalanını tamamlamak için gereken IoT Hub ana bilgisayar adına ve IoT Hub bağlantı dizesine sahipsiniz.
 
 ## <a name="create-a-device-identity"></a>Cihaz kimliği oluşturma
-Bu bölümde, IoT hub'ınızdaki kimlik kayıt defterinde bir cihaz kimliği oluşturan bir Node.js konsol uygulaması oluşturacaksınız. Kimlik kayıt defterinde girişi olmayan bir cihaz IoT hub'ına bağlanamaz. Daha fazla bilgi için [IoT Hub Geliştirici Kılavuzu][lnk-devguide-identity]'nun **Kimlik Kayıt Defteri** bölümüne bakın. Bu konsol uygulamasını çalıştırdığınızda, cihazınızın IoT Hub'a cihaz-bulut iletileri gönderdiğinde kendisini tanımlamak için kullanabileceği benzersiz bir cihaz kimliği ve anahtarı oluşturulur.
+Bu bölümde, IoT hub'ınızdaki kimlik kayıt defterinde bir cihaz kimliği oluşturan bir Node.js konsol uygulaması oluşturacaksınız. Kimlik kayıt defterinde girişi olmayan bir cihaz IoT hub'ına bağlanamaz. Daha fazla bilgi için [IoT Hub geliştirici kılavuzunun][lnk-devguide-identity] **Kimlik Kayıt Defteri** bölümüne bakın. Bu konsol uygulamasını çalıştırdığınızda, cihazınızın IoT Hub'a cihaz-bulut iletileri gönderdiğinde kendisini tanımlamak için kullanabileceği benzersiz bir cihaz kimliği ve anahtarı oluşturulur.
 
 1. **createdeviceidentity** adlı yeni bir boş klasör oluşturun. Komut isteminizde aşağıdaki komutu kullanarak **createdeviceidentity** klasöründe bir package.json dosyası oluşturun. Tüm varsayılanları kabul edin:
    
@@ -64,7 +64,7 @@ Bu bölümde, IoT hub'ınızdaki kimlik kayıt defterinde bir cihaz kimliği olu
    
     var iothub = require('azure-iothub');
     ```
-5. Aşağıdaki kodu **CreateDeviceIdentity.js** dosyasına ekleyin ve yer tutucu değerini önceki bölümde oluşturduğunuz IoT hub'ının bağlantı dizesiyle değiştirin: 
+5. Aşağıdaki kodu **CreateDeviceIdentity.js** dosyasına ekleyin ve yer tutucu değerini önceki bölümde oluşturduğunuz hub'ın IoT Hub'ı bağlantı dizesiyle değiştirin: 
    
     ```
     var connectionString = '{iothub connection string}';
@@ -87,7 +87,7 @@ Bu bölümde, IoT hub'ınızdaki kimlik kayıt defterinde bir cihaz kimliği olu
    
     function printDeviceInfo(err, deviceInfo, res) {
       if (deviceInfo) {
-        console.log('Device id: ' + deviceInfo.deviceId);
+        console.log('Device ID: ' + deviceInfo.deviceId);
         console.log('Device key: ' + deviceInfo.authentication.symmetricKey.primaryKey);
       }
     }
@@ -101,7 +101,7 @@ Bu bölümde, IoT hub'ınızdaki kimlik kayıt defterinde bir cihaz kimliği olu
 9. **Cihaz kimliği** ve **Cihaz anahtarını** not edin. İleride IoT Hub'a bir cihaz olarak bağlanan bir uygulama oluşturduğunuzda bu değerlere ihtiyacınız olur.
 
 > [!NOTE]
-> IoT Hub kimlik kayıt defteri, yalnızca IoT hub'ına güvenli erişim sağlamak amacıyla cihaz kimliklerini depolar. Güvenlik kimlik bilgileri olarak kullanılmak üzere cihaz kimliklerini ve anahtarlarını ve tek bir cihaza erişimi devre dışı bırakmak için kullanabileceğiniz etkin/devre dışı bayrağını depolar. Uygulamanızın cihaza özgü diğer meta verileri depolaması gerekiyorsa uygulamaya özgü bir depo kullanması gerekir. Daha fazla bilgi için bkz. [IoT Hub Geliştirici Kılavuzu][lnk-devguide-identity].
+> IoT Hub kimlik kayıt defteri, yalnızca IoT hub'ına güvenli erişim sağlamak amacıyla cihaz kimliklerini depolar. Güvenlik kimlik bilgileri olarak kullanılmak üzere cihaz kimliklerini ve anahtarlarını ve tek bir cihaza erişimi devre dışı bırakmak için kullanabileceğiniz etkin/devre dışı bayrağını depolar. Uygulamanızın cihaza özgü diğer meta verileri depolaması gerekiyorsa uygulamaya özgü bir depo kullanması gerekir. Daha fazla bilgi için bkz. [IoT Hub geliştirici kılavuzu][lnk-devguide-identity].
 > 
 > 
 
@@ -131,7 +131,7 @@ Bu bölümde, IoT Hub'dan cihazdan buluta iletiler okuyan bir Node.js konsol uyg
    
     var EventHubClient = require('azure-event-hubs').Client;
     ```
-5. Aşağıdaki değişken bildirimini ekleyin ve yer tutucu değerini IoT hub bağlantı dizenizle değiştirin:
+5. Aşağıdaki değişken bildirimini ekleyin ve yer tutucu değerini hub'ınızın IoT Hub'ı bağlantı dizesiyle değiştirin:
    
     ```
     var connectionString = '{iothub connection string}';
@@ -190,7 +190,7 @@ Bu bölümde, bir IoT hub'a cihazdan buluta iletiler gönderen bir cihaza benzet
     var clientFromConnectionString = require('azure-iot-device-amqp').clientFromConnectionString;
     var Message = require('azure-iot-device').Message;
     ```
-5. Bir **connectionString** değişkeni ekleyin ve bir cihaz istemcisi oluşturmak için bunu kullanın. **{youriothostname}** yerine, *IoT Hub oluşturma* bölümünde oluşturduğunuz IoT hub'ın adını girin. **{yourdevicekey}** yerine, *Cihaz kimliği oluşturma* bölümünde oluşturduğunuz cihaz anahtarı değerini girin:
+5. Bir **connectionString** değişkeni ekleyin ve bir **İstemci** örneği oluşturmak için bunu kullanın. **{youriothostname}** yerine, *IoT Hub oluşturma* bölümünde oluşturduğunuz IoT hub'ın adını girin. **{yourdevicekey}** yerine, *Cihaz kimliği oluşturma* bölümünde oluşturduğunuz cihaz anahtarı değerini girin:
    
     ```
     var connectionString = 'HostName={youriothostname};DeviceId=myFirstNodeDevice;SharedAccessKey={yourdevicekey}';
@@ -248,14 +248,14 @@ Bu bölümde, bir IoT hub'a cihazdan buluta iletiler gönderen bir cihaza benzet
     node ReadDeviceToCloudMessages.js 
     ```
    
-    ![Cihazdan buluta iletileri izlemeye yönelik Node.js IoT Hub hizmeti istemci uygulaması][7]
+    ![Cihazdan buluta iletileri izlemeye yönelik Node.js IoT Hub hizmet uygulaması][7]
 2. **simulateddevice** klasöründeki bir komut isteminde IoT hub'ınıza telemetri verileri göndermeye başlamak için aşağıdaki komutu çalıştırın:
    
     ```
     node SimulatedDevice.js
     ```
    
-    ![Cihazdan buluta iletileri göndermeye yönelik Node.js IoT Hub cihazı istemci uygulaması][8]
+    ![Cihazdan buluta iletileri göndermeye yönelik Node.js IoT Hub cihaz uygulaması][8]
 3. [Azure portalındaki][lnk-portal] **Kullanım** kutucuğu, IoT hub'ına gönderilen ileti sayısını gösterir:
    
     ![IoT Hub’a gönderilen ileti sayısını gösteren Azure portalı Kullanım kutucuğu][43]
@@ -296,6 +296,6 @@ IoT çözümünüzün nasıl genişletileceğini ve cihazdan buluta iletilerin d
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

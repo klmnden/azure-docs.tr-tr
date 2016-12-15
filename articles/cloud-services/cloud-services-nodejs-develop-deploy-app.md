@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 11/01/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 9ad2f55c7db53459c17299ba5015783781c7cd63
-ms.openlocfilehash: 5a6b743d69e1716ae3f48ddf0dfcb0f042133f5c
+ms.sourcegitcommit: d2d3f414d0e9fcc392d21327ef630f96c832c99c
+ms.openlocfilehash: d8108368a157ed05c4fe0defbcef8372e205f6f8
 
 
 ---
@@ -28,8 +28,6 @@ Cloud Services ve Azure Websites ile Virtual machines hizmetlerine benzerlikleri
 
 > [!TIP]
 > Basit bir web sitesi tasarlamak mı istiyorsunuz? Senaryonuz yalnızca basit bir web sitesi ön ucu içeriyorsa, [basit bir web uygulaması kullanmayı] düşünün. Web uygulamanız büyüdükçe ve gereksinimleriniz değiştikçe kolayca Cloud Services’e yükseltebilirsiniz.
->
->
 
 Bu öğreticiyi izleyerek bir web rolünün içinde barındırılan basit bir web uygulaması oluşturacaksınız. Uygulamanızı yerel olarak test etmek ve ardından PowerShell komut satırı araçlarını kullanarak dağıtmak için işlem öykünücüsünü kullanacaksınız.
 
@@ -40,8 +38,6 @@ Uygulama basit bir "hello world" uygulamasıdır:
 ## <a name="prerequisites"></a>Ön koşullar
 > [!NOTE]
 > Bu öğretici Windows gerektiren Azure PowerShell’i kullanır.
->
->
 
 * [Azure PowerShell]'i yükleyip yapılandırın.
 * [.NET 2.7 için Azure SDK’sını] indirip yükleyin. Yükleme kurulumunda şunları seçin:
@@ -75,8 +71,6 @@ Temel Node.js iskelesiyle birlikte yeni bir Azure Cloud Service projesi oluştur
 
    > [!NOTE]
    > Bir rol adı belirtmezseniz varsayılan ad kullanılır. Birinci cmdlet parametresi olarak bir ad sağlayabilirsiniz: `Add-AzureNodeWebRole MyRole`
-   >
-   >
 
 Node.js uygulaması web rolünün dizininde (varsayılan olarak **WebRole1**) bulunan **server.js** dosyasında tanımlanır. Kod aşağıdaki gibidir:
 
@@ -90,7 +84,9 @@ Node.js uygulaması web rolünün dizininde (varsayılan olarak **WebRole1**) bu
 Bu kod temelde [nodejs.org] web sitesindeki "Hello World" örneğiyle aynıdır, ancak bulut ortamı tarafından atanan bağlantı noktası numarasını kullanır.
 
 ## <a name="deploy-the-application-to-azure"></a>Uygulamayı Azure’a dağıtma
-    [AZURE.INCLUDE [create-account-note](../../includes/create-account-note.md)]
+
+> [!NOTE]
+> Bu öğreticiyi tamamlamak için bir Azure hesabınızın olması gerekir. [MSDN abone avantajınızı etkinleştirebilir](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) ya da [ücretsiz hesap için kaydolabilirsiniz](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF).
 
 ### <a name="download-the-azure-publishing-settings"></a>Azure yayımlama ayarlarını indirme
 Uygulamanızı Azure’a dağıtmak için öncelikle Azure aboneliğinizin yayımlama ayarlarını indirmeniz gerekir.
@@ -106,12 +102,13 @@ Uygulamanızı Azure’a dağıtmak için öncelikle Azure aboneliğinizin yayı
 
        Import-AzurePublishSettingsFile [path to file]
 
-    > [AZURE.NOTE] Yayımlama ayarlarını indirdikten sonra, başka bir kişinin hesabınıza erişmesine imkan tanıyabilecek bilgiler içerdiğinden indirdiğiniz .publishSettings dosyasını silmeyi düşünün.
+    > [!NOTE]
+    > Yayımlama ayarlarını indirdikten sonra, başka bir kişinin hesabınıza erişmesine imkan tanıyabilecek bilgiler içerdiğinden indirdiğiniz .publishSettings dosyasını silmeyi düşünün.
 
 ### <a name="publish-the-application"></a>Uygulamayı yayımlama
 Yayımlamak için aşağıdaki komutu çalıştırın:
 
-      $ServiceName = "NodeHelloWorld" + $(Get-Date -Format ('ddhhmm'))   
+      $ServiceName = "NodeHelloWorld" + $(Get-Date -Format ('ddhhmm'))
     Publish-AzureServiceProject -ServiceName $ServiceName  -Location "East US" -Launch
 
 * **-ServiceName** dağıtımın adını belirtir. Bu bir benzersiz ad olmalıdır, aksi takdirde yayımlama işlemi başarısız olur. **Get-Date** komutu, adı benzersiz hale getirmesi gereken bir tarih/saat dizesine eklenir.
@@ -124,8 +121,6 @@ Yayımlama başarılı olduktan sonra aşağıdakine benzer bir yanıt görürs�
 
 > [!NOTE]
 > Uygulamanın dağıtılması ve ilk kez yayımlandığında kullanılabilir olması birkaç dakika sürebilir.
->
->
 
 Dağıtım tamamlandıktan sonra bir tarayıcı penceresi açın ve bulut hizmetine gidin.
 
@@ -162,8 +157,6 @@ Uygulamanızı dağıttıktan sonra ek maliyetlerden kaçınmak için devre dı�
 
    > [!NOTE]
    > Hizmetin silinmesi, hizmet ilk kez yayımlandığında oluşturulan depolama hesabını silmez ve kullanılan depolama alanı için faturalandırılmaya devam edersiniz. Depolama alanı başka bir işlem tarafından kullanılmıyorsa silmek isteyebilirsiniz.
-   >
-   >
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Daha fazla bilgi için bkz. [Node.js Geliştirici Merkezi].
@@ -172,25 +165,25 @@ Daha fazla bilgi için bkz. [Node.js Geliştirici Merkezi].
 
 [Azure Websites, Cloud Services ve Virtual Machines karşılaştırması]: ../app-service-web/choose-web-site-cloud-service-vm.md
 [basit bir web uygulaması kullanmayı]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
-[Azure PowerShell]: ../powershell-install-configure.md
+[Azure PowerShell]: /powershell/azureps-cmdlets-docs
 [.NET 2.7 için Azure SDK’sını]: http://www.microsoft.com/en-us/download/details.aspx?id=48178
-[PowerShell’i bağlayın]: ../powershell-install-configure.md#step-3-connect
+[PowerShell’i bağlayın]: /powershell/azureps-cmdlets-docs#step-3-connect
 [nodejs.org]: http://nodejs.org/
 [Azure için Barındırılan Hizmet Oluşturmaya Genel Bakış]: https://azure.microsoft.com/documentation/services/cloud-services/
 [Node.js Geliştirici Merkezi]: https://azure.microsoft.com/develop/nodejs/
 
 <!-- IMG List -->
 
-[New-AzureService helloworld komutunun sonucu]: ./media/cloud-services-nodejs-develop-deploy-app/node9.png
-[Add-AzureNodeWebRole komutunun çıktısı]: ./media/cloud-services-nodejs-develop-deploy-app/node11.png
-[Merhaba Dünya web sayfasını görüntüleyen bir web tarayıcısı]: ./media/cloud-services-nodejs-develop-deploy-app/node14.png
-[Publish-AzureService komutunun çıktısı]: ./media/cloud-services-nodejs-develop-deploy-app/node19.png
-[Merhaba Dünya sayfasını görüntüleyen bir pencere; URL, sayfanın Azure'da barındırıldığını belirtiyor.]: ./media/cloud-services-nodejs-develop-deploy-app/node21.png
-[Stop-AzureService komutunun durumu]: ./media/cloud-services-nodejs-develop-deploy-app/node48.png
-[Remove-AzureService komutunun durumu]: ./media/cloud-services-nodejs-develop-deploy-app/node49.png
+[The result of the New-AzureService helloworld command]: ./media/cloud-services-nodejs-develop-deploy-app/node9.png
+[The output of the Add-AzureNodeWebRole command]: ./media/cloud-services-nodejs-develop-deploy-app/node11.png
+[A web browser displaying the Hello World web page]: ./media/cloud-services-nodejs-develop-deploy-app/node14.png
+[The output of the Publish-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node19.png
+[A browser window displaying the hello world page; the URL indicates the page is hosted on Azure.]: ./media/cloud-services-nodejs-develop-deploy-app/node21.png
+[The status of the Stop-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node48.png
+[The status of the Remove-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node49.png
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

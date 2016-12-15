@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 10/17/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: f6fa6511c8d54e191de27fda73aad9feb734191f
-ms.openlocfilehash: cf946c491bc9868b9d79d09c1d019e894ecc39ff
+ms.sourcegitcommit: 3fe204c09eebf7d254a1bf2bb130e2d3498b6b45
+ms.openlocfilehash: 41bba6660c52d4aa7d10d846ad65e1f6aa5e582c
 
 
 ---
@@ -69,7 +69,7 @@ Bu yapılandırma için aşağıdaki değerler kullanılır. Değişkenler makal
 
 ## <a name="before-beginning"></a>Başlamadan önce
 * Azure aboneliğiniz olduğunu doğrulayın. Henüz Azure aboneliğiniz yoksa [MSDN abonelik avantajlarınızı](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) etkinleştirebilir veya [ücretsiz bir hesap](https://azure.microsoft.com/pricing/free-trial) için kaydolabilirsiniz.
-* Azure Resource Manager PowerShell cmdlet'lerinin en son sürümünü yükleyin. PowerShell cmdlet'lerini yükleme hakkında daha fazla bilgi için bkz. [Azure PowerShell'i yükleme ve yapılandırma](../powershell-install-configure.md). Bu yapılandırma için PowerShell ile çalışırken yönetici olarak işlem yaptığınızdan emin olun. 
+* Azure Resource Manager PowerShell cmdlet'lerinin en son sürümünü yükleyin. PowerShell cmdlet'lerini yükleme hakkında daha fazla bilgi için bkz. [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azureps-cmdlets-docs). Bu yapılandırma için PowerShell ile çalışırken yönetici olarak işlem yaptığınızdan emin olun. 
 
 ## <a name="a-namedeclareapart-1---log-in-and-set-variables"></a><a name="declare"></a>1. Bölüm - Oturum açma ve değişkenleri ayarlama
 Bu bölümde oturum açıp bu yapılandırma için kullanılan değerleri bildirirsiniz. Belirtilen değerler örnek betiklerde kullanılır. Değerleri, ortamınızı yansıtacak şekilde değiştirin. Veya, bildirilen değerleri kullanın ve bir alıştırma olarak adımları uygulayın.
@@ -268,7 +268,7 @@ Genellikle ekip ve kuruluş düzeylerinde erişimi yönetmek için kök sertifik
 1. İptal edilecek istemci sertifikasının parmak izini alın.
    
         $RevokedClientCert1 = "ClientCert1"
-        $RevokedThumbprint1 = "‎ef2af033d0686820f5a3c74804d167b88b69982f"
+        $RevokedThumbprint1 = "?ef2af033d0686820f5a3c74804d167b88b69982f"
 2. Parmak izini, iptal edilen parmak izi listesine ekleyin.
    
         Add-AzureRmVpnClientRevokedCertificate -VpnClientRevokedCertificateName $RevokedClientCert1 `
@@ -294,6 +294,6 @@ Bağlantınız tamamlandıktan sonra sanal ağlarınıza sanal makineler ekleyeb
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

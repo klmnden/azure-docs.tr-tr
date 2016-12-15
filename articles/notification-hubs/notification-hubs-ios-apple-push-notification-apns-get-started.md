@@ -16,8 +16,8 @@ ms.topic: hero-article
 ms.date: 10/03/2016
 ms.author: yuaxu
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 968e24b0441575be7ef17aac8ffaddb8fd16d3c6
+ms.sourcegitcommit: e17f0e050530a64fdf569176abc5cf3ae88da516
+ms.openlocfilehash: ab0777f859e80afcd61e371056b44d018c7b7ab9
 
 
 ---
@@ -70,24 +70,26 @@ Bu bölüm, yeni bir bildirim hub'ı oluşturma ve oluşturduğunuz **.p12** an�
 <p><b>Korumalı Alan</b> modu geliştirme içindir, bu nedenle bu seçeneği belirlediğinizden emin olun. <b>Üretim</b> seçeneğini yalnızca uygulamanızı mağazadan satın alan kullanıcılara anında iletme bildirimleri göndermek istiyorsanız kullanın.</p>
 </li>
 </ol>
-&emsp;&emsp;![Azure Portal'da APNS'yi yapılandırma](./media/notification-hubs-ios-get-started/notification-hubs-apple-config.png)
+&emsp;&emsp;&emsp;&emsp;![Azure portalında APNS'yi yapılandırma](./media/notification-hubs-ios-get-started/notification-hubs-apple-config.png)
 
-&emsp;&emsp;![Azure Portal'da APNS sertifikası yapılandırma](./media/notification-hubs-ios-get-started/notification-hubs-apple-config-cert.png)
+&emsp;&emsp;&emsp;&emsp;![Azure Portal'da APNS sertifikası yapılandırma](./media/notification-hubs-ios-get-started/notification-hubs-apple-config-cert.png)
 
 Bildirim hub'ınız şimdi APNS ile birlikte çalışmak üzere yapılandırıldı. Ayrıca uygulamanızı kaydetmenizi ve anlık iletme bildirimleri göndermenizi sağlayan bağlantı dizelerine sahipsiniz.
 
 ## <a name="connect-your-ios-app-to-notification-hubs"></a>iOS uygulamanızı Notification Hubs'a bağlama
 1. Xcode'da yeni bir iOS projesi oluşturun ve **Single View Application** (Tek Görünüm Uygulaması) şablonunu seçin.
    
-       ![Xcode - Single View Application][8]
+    ![Xcode - Single View Application (Tek Görünüm Uygulaması)][8]
+    
 2. Yeni projeniz için seçenekleri ayarlarken, daha önce Apple Developer portalında paket kimliğini açarken kullandığınız **Product Name** (Ürün Adı) ve **Organization Identifier**'nı (Kuruluş Tanımlayıcısı) kullandığınızdan emin olun.
    
     ![Xcode - proje seçenekleri][11]
+    
 3. **Targets** (Hedefler) altında projenizin adına tıklayın, **Build Settings** (Derleme Ayarları) sekmesine tıklayın ve **Code Signing Identity**'yi (Kod İmzalama Kimliği) genişletin. Ardından **Debug** (Hata Ayıklama) altında kod imzalama kimliğinizi ayarlayın. **Levels**'i (Düzeyler) **Basic**'ten (Temel) **All**'a (Tüm) geçirin ve **Provisioning Profile**'ı (Hazırlama Profili) daha önce oluşturduğunuz hazırlama profiline ayarlayın.
    
     Xcode'da oluşturduğunuz yeni hazırlama profilini göremiyorsanız imzalama kimliğiniz için profilleri yenilemeyi deneyin. Menü çubuğunda **Xcode**'a tıklayın, **Preferences**'a (Tercihler) tıklayın, **Account** (Hesap) sekmesine tıklayın, **View Details** (Ayrıntıları Görüntüle) düğmesine tıklayın, imzalama kimliğinize tıklayın ve ardından sağ alt köşedeki yenile düğmesine tıklayın.
    
-       ![Xcode - provisioning profile][9]
+    ![Xcode - hazırlama profili][9]
 4. [Mobile Services iOS SDK'sı sürüm 1.2.4]'ü indirin ve dosyanın sıkıştırmasını açın. Xcode'da projenize sağ tıklayın ve **WindowsAzureMessaging.framework** klasörünü Xcode projenize eklemek için **Add Files to** (Dosyaları Şuraya Ekle) seçeneğine tıklayın. **Copy items if needed** (Gerekirse öğeleri kopyala) seçeneğini belirleyin ve ardından **Add** (Ekle) seçeneğine tıklayın.
    
    > [!NOTE]
@@ -95,7 +97,7 @@ Bildirim hub'ınız şimdi APNS ile birlikte çalışmak üzere yapılandırıld
    > 
    > 
    
-       ![Unzip Azure SDK][10]
+    ![Azure SDK'nın sıkıştırmasını açma][10]
 5. Projenize `HubInfo.h` adlı yeni bir üst bilgi dosyası ekleyin. Bu dosya, bildirim hub'ınız için sabitleri tutar.  Aşağıdaki tanımları ekleyin ve dize sabiti yer tutucularını, daha önce not ettiğiniz *hub adınız* ve *DefaultListenSharedAccessSignature* ile değiştirin.
    
         #ifndef HubInfo_h
@@ -463,26 +465,26 @@ Notification Hubs hakkında genel bilgi için bkz. [Notification Hubs Kılavuzu]
 
 <!-- URLs. -->
 [Mobile Services iOS SDK'sı sürüm 1.2.4]: http://aka.ms/kymw2g
-[Mobile Services iOS SDK'sı]: http://go.microsoft.com/fwLink/?LinkID=266533
-[Uygulama sayfası gönderme]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[Uygulamalarım]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Windows için Live SDK]: http://go.microsoft.com/fwlink/p/?LinkId=262253
+[Mobile Services iOS SDK]: http://go.microsoft.com/fwLink/?LinkID=266533
+[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
+[Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 
-[Mobile Services'i kullanmaya başlama]: /develop/mobile/tutorials/get-started-ios
-[Klasik Azure Portalı]: https://manage.windowsazure.com/
+[Get started with Mobile Services]: /develop/mobile/tutorials/get-started-ios
+[Azure Classic Portal]: https://manage.windowsazure.com/
 [Notification Hubs Kılavuzu]: http://msdn.microsoft.com/library/jj927170.aspx
 [Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
-[iOS Hazırlama Portalı]: http://go.microsoft.com/fwlink/p/?LinkId=272456
+[iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 
-[Mobile Services'de anında iletme bildirimlerini kullanmaya başlama]: ../mobile-services-javascript-backend-ios-get-started-push.md
+[Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-ios-get-started-push.md
 [Azure Notification Hubs .NET arka ucu ile iOS için Kullanıcılara Bildirme]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
 [Son dakika haberleri göndermek için Notification Hubs kullanma]: notification-hubs-ios-xplat-segmented-apns-push-notification.md
 
-[Yerel ve Anında İletme Bildirimi Programlama Kılavuzu]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
+[Local and Push Notification Programming Guide]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 [Azure Portal]: https://portal.azure.com
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

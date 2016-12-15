@@ -17,12 +17,12 @@ ms.topic: get-started-article
 ms.date: 09/06/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7baf1aa756221df62a36cd975ffb92fc8cd27232
+ms.sourcegitcommit: 0587dfcd6079fc8df91bad5a5f902391d3657a6b
+ms.openlocfilehash: 74416d2740c4eaa49d508468df68fdb786ea2902
 
 
 ---
-# <a name="use-hdfscompatible-azure-blob-storage-with-hadoop-in-hdinsight"></a>HDInsight’ta Hadoop ile HDFS uyumlu Azure Blob Storage kullanma
+# <a name="use-hdfs-compatible-azure-blob-storage-with-hadoop-in-hdinsight"></a>HDInsight’ta Hadoop ile HDFS uyumlu Azure Blob Storage kullanma
 HDInsight ile düşük maliyetli Azure Blob Storage’ı kullanmayı, Azure Storage hesabı ve Blob Storage kapsayıcısı oluşturmayı ve sonra içindeki verileri işlemeyi öğrenin.
 
 Azure Blob Storage HDInsight ile sorunsuz bir şekilde tümleşen, güçlü, genel amaçlı depolama çözümüdür. Hadoop dağıtılmış dosya sistemi (HDFS) arabirimi aracılığıyla, HDInsight’taki bileşenler kümesinin tümü Blob Storage’daki yapılandırılmış veya yapılandırılmamış veriler üzerinde doğrudan çalışabilir.
@@ -78,7 +78,7 @@ Blob Storage yapılandırılmış ve yapılandırılmamış veriler için kullan
 
 Verileri HDFS yerine Azure Blob Storage’da depolamanın çeşitli avantajları vardır:
 
-* **Verileri yeniden kullanma ve paylaşma:** HDFS’deki veriler işlem kümesi içinde bulunur. Yalnızca işlem kümesi erişimi olan uygulamalar HDFS API'lerini kullanarak verileri kullanabilir. Azure Blob Storage’da bulunan verilere HDFS API’si aracılığıyla veya [Blob Storage REST API'leri][blob-storage-restAPI] aracılığıyla erişilir. Bu nedenle, daha büyük uygulama kümeleri (diğer HDInsight kümeleri dahil olmak üzere) ve araçları veri üretmek ve kullanmak için kullanılabilir.
+* **Verileri yeniden kullanma ve paylaşma:** HDFS’deki veriler işlem kümesi içinde bulunur. Yalnızca işlem kümesi erişimi olan uygulamalar HDFS API'lerini kullanarak verileri kullanabilir. Azure Blob Depolama'da bulunan verilere HDFS API'si aracılığıyla veya [Blob Depolama REST API'leri][blob-storage-restAPI] aracılığıyla erişilir. Bu nedenle, daha büyük uygulama kümeleri (diğer HDInsight kümeleri dahil olmak üzere) ve araçları veri üretmek ve kullanmak için kullanılabilir.
 * **Veri arşivleme:**Verileri Azure Blob Storage’da depolamak, hesaplama için kullanılan HDInsight kümelerinin kullanıcı verilerini kaybetmeden güvenle silinmesini sağlar.
 * **Veri depolama maliyeti:** Verileri DFS uzun süreli depolamak verileri Azure Blob Storage’da depolamaktan daha maliyetlidir; çünkü işlem kümesinin maliyeti Azure Blob Storage kapsayıcısının maliyetinden daha fazladır. Ayrıca, verilerin her işlem kümesi oluşturmada yeniden yüklenmesi gerekmediğinden, veri yükleme maliyetlerinden de tasarruf edersiniz.
 * **Esnek ölçeklendirme:** HDFS size ölçeklendirilmiş dosya sistemi sağlamakla birlikte, ölçek, kümeniz için oluşturduğunuz düğüm sayısı tarafından belirlenir. Ölçeği değiştirmek, Azure Blob Storage’da otomatik olarak aldığınız esnek ölçeklendirme özelliklere bağlı kalmaktan daha karmaşık bir işlem haline gelebilir.
@@ -92,7 +92,7 @@ Bazı MapReduce işleri ve paketleri gerçekte Azure Blob Storage’da depolamak
 > 
 
 ## <a name="create-blob-containers"></a>Blob kapsayıcıları oluşturma
-Blob'ları kullanmak için önce [Azure Storage hesabı][azure-storage-create] oluşturmanız gerekir. Bunun bir parçası olarak, bu hesabı kullanarak oluşturduğunuz nesneleri depolayacağınız bir Azure bölgesi belirtirsiniz. Küme ve depolama hesabının aynı bölgede barındırılması gerekir. Hive meta depo SQL Server veritabanı ve Oozie meta depo SQL Server veritabanı da aynı bölgede bulunmalıdır.
+Blob'ları kullanmak için önce bir [Azure depolama hesabı][azure-storage-create] oluşturursunuz. Bunun bir parçası olarak, bu hesabı kullanarak oluşturduğunuz nesneleri depolayacağınız bir Azure bölgesi belirtirsiniz. Küme ve depolama hesabının aynı bölgede barındırılması gerekir. Hive meta depo SQL Server veritabanı ve Oozie meta depo SQL Server veritabanı da aynı bölgede bulunmalıdır.
 
 Nerede olursa olsun, oluşturduğunuz her blob Azure Storage hesabınızdaki bir kapsayıcıya aittir. Bu kapsayıcı HDInsight dışında oluşturulmuş bir blob veya bir HDInsight kümesi için oluşturulan bir kapsayıcı olabilir.
 
@@ -126,7 +126,7 @@ Bir kapsayıcı oluşturmak için aşağıdaki komutu kullanın:
     azure storage container create <containername> --account-name <storageaccountname> --account-key <storageaccountkey>
 
 ### <a name="using-azure-powershell"></a>Azure PowerShell’i kullanma
-[ Azure PowerShell yüklenmiş ve yapılandırılmışsa][powershell-install], bir depolama hesabı ve kapsayıcı oluşturmak için Azure PowerShell isteminde aşağıdakileri kullanabilirsiniz:
+[Azure PowerShell yüklenmiş ve yapılandırılmışsa][powershell-install], bir depolama hesabı ve kapsayıcı oluşturmak için Azure PowerShell isteminde aşağıdakileri kullanabilirsiniz:
 
 [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
@@ -216,7 +216,7 @@ Blob ile ilgili cmdlet’leri listelemek için aşağıdaki komutu kullanın:
 ![Blob’la ilgili PowerShell cmdlet’lerinin listesi.][img-hdi-powershell-blobcommands]
 
 ### <a name="upload-files"></a>Dosyaları karşıya yükleme
-Bkz. [Verileri HDInsight’a yükleme][hdinsight-upload-data]
+Bkz. [HDInsight'a veri yükleme][hdinsight-upload-data].
 
 ### <a name="download-files"></a>Dosyaları indirme
 Aşağıdaki betik, blok blobunu geçerli klasöre indirir. Betiği çalıştırmadan önce, dizini yazma izinlerine sahip olduğunuz bir klasör olarak değiştirin.
@@ -282,14 +282,14 @@ Bu makalede, HDInsight ile HDFS uyumlu Azure Blob Storage’ı kullanmayı ve Az
 
 Daha fazla bilgi için bkz.
 
-* [Azure HDInsight kullanmaya başlama][hdinsight-get-started]
-* [Verileri HDInsight’a yükleme][hdinsight-upload-data]
-* [HDInsight ile Hive kullanma ][hdinsight-use-hive]
-* [HDInsight ile Pig kullanma ][hdinsight-use-pig]
-* [HDInsight ile verilere erişimi kısıtlamak için Azure Storage Paylaşılan Erişim İmzaları kullanma][hdinsight-use-sas]
+* [Azure HDInsight'ı Kullanmaya Başlama][hdinsight-get-started]
+* [HDInsight'a veri yükleme][hdinsight-upload-data]
+* [HDInsight ile Hive kullanma][hdinsight-use-hive]
+* [HDInsight ile Pig kullanma][hdinsight-use-pig]
+* [HDInsight ile verilere erişimi kısıtlamak için Azure Depolama Paylaşılan Erişim İmzaları kullanma][hdinsight-use-sas]
 
 [hdinsight-use-sas]: hdinsight-storage-sharedaccesssignature-permissions.md
-[powershell-install]: ../powershell-install-configure.md
+[powershell-install]: /powershell/azureps-cmdlets-docs
 [hdinsight-creation]: hdinsight-provision-clusters.md
 [hdinsight-get-started]: hdinsight-hadoop-tutorial-get-started-windows.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
@@ -305,6 +305,6 @@ Daha fazla bilgi için bkz.
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

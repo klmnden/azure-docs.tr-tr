@@ -16,13 +16,13 @@ ms.workload: infrastructure-services
 ms.date: 09/12/2016
 ms.author: magoedte;sngun
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 9fff24dfd2b20a785c6046b6c9700b583c309de4
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 17c7e410a9c5b69ab450eb3affd192f1e3cb6e76
 
 
 ---
-# <a name="rolebased-access-control-in-azure-automation"></a>Azure Automation’da Rol Tabanlı Erişim Denetimi
-## <a name="rolebased-access-control"></a>Rol tabanlı erişim denetimi
+# <a name="role-based-access-control-in-azure-automation"></a>Azure Automation’da Rol Tabanlı Erişim Denetimi
+## <a name="role-based-access-control"></a>Rol tabanlı erişim denetimi
 Rol tabanlı erişim denetimi (RBAC), Azure kaynakları için erişim yönetimi sağlar. [RBAC](../active-directory/role-based-access-control-configure.md) kullanarak, ekibiniz içinde görevleri ayırabilir, bu işlere gerek duyan kişilere, gruplara ve uygulamalara da sadece erişim miktarını verebilirsiniz. Kullanıcılara rol tabanlı erişim Azure portalı, Azure Komut Satırı araçları ve Azure Management API’leri kullanılarak verilebilir.
 
 ## <a name="rbac-in-automation-accounts"></a>Automation Hesaplarında RBAC
@@ -233,6 +233,6 @@ Yukarıdaki örneklerde **oturum açma adını**, **abonelik kimliğini**, **kay
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

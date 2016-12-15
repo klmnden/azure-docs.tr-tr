@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 11/28/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: eb618aea1ee5aba24cebd4d8518e9c7f546f5f4f
-ms.openlocfilehash: ae1e750a5f97325df064a02ed156610b4576f1d3
+ms.sourcegitcommit: bd4d6f59ac4fbaa9bd0cb6a33a697cac0d13eb8c
+ms.openlocfilehash: 7a86469a9513869362eb37b21b155889dcee7942
 
 
 ---
@@ -76,7 +76,7 @@ Coğrafi bölgeler arasındaki bağlantı standart ExpressRoute SKU’da destekl
 | **Los Angeles** |CoreSite, Equinix, Megaport, NTT, Zayo Group |
 | **Melbourne** |AARNet, Equinix, Megaport, NEXTDC, Telstra Corporation |
 | **New York** |Equinix, Megaport, Zayo Group |
-| **Newport(Galler)+** |Yeni Nesil Veriler+ |
+| **Newport(Galler)** |Next Generation Data |
 | **Montreal** |Cologix+ |
 | **Mumbai** |Tata Communications |
 | **Osaka** |Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, Softbank |
@@ -158,6 +158,6 @@ Bağlantı sağlayıcınız önceki bölümlerde listelenmemişse hala bağlant�
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

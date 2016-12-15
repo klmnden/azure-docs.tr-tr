@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 3b3e0fd5342c4729d6ffee4858089099b31404a8
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 57b95d5018fa197096992f7cd255a54501875dea
 
 
 ---
@@ -40,13 +40,13 @@ Daha fazla ayrıntı için bkz. [ExpressRoute SSS](expressroute-faqs.md).
 ## <a name="a-namehowtoconnectahow-can-i-connect-my-network-to-microsoft-using-expressroute"></a><a name="howtoconnect"></a>Ağımı ExpressRoute kullanarak Microsoft’a nasıl bağlayabilirim?
 Şirket içi ağlarınız ve Microsoft bulutu arasında üç farklı yolla bağlantı oluşturabilirsiniz:
 
-### <a name="colocated-at-a-cloud-exchange"></a>Bulut değişiminde ortak yerleşim
+### <a name="co-located-at-a-cloud-exchange"></a>Bulut değişiminde ortak yerleşim
 Bulut değişimine sahip bir tesiste ortak yerleşime sahipseniz ortak yerleşim sağlayıcının Ethernet değişimi üzerinden sanal çapraz bağlantıları Microsoft ağına sıralayabilirsiniz. Ortak yerleşim sağlayıcıları, ortak yerleşim tesisi ve Microsoft bulutu altyapısı arasında Katman 2 çapraz bağlantıları veya yönetilen Katman 3 çapraz bağlantılarını sağlayabilir. 
 
-### <a name="pointtopoint-ethernet-connections"></a>Noktadan noktaya Ethernet bağlantıları
+### <a name="point-to-point-ethernet-connections"></a>Noktadan noktaya Ethernet bağlantıları
 Noktadan noktaya Ethernet bağlantıları üzerinden şirket içi veri merkezleri/ofislerinizi Microsoft bulutuna bağlayabilirsiniz. Noktadan noktaya Ethernet sağlayıcıları, siteniz ve Microsoft bulutu arasında Katman 2 bağlantıları veya yönetilen Katman 3 bağlantılarını sağlayabilir.
 
-### <a name="anytoany-ipvpn-networks"></a>Herhangi bir ağdan herhangi bir (IPVPN) ağa
+### <a name="any-to-any-ipvpn-networks"></a>Herhangi bir ağdan herhangi bir (IPVPN) ağa
 WAN’ınızı Microsoft bulutu ile tümleştirebilirsiniz. IPVPN sağlayıcıları (genellikle MPLS VPN) şubeleriniz ve veri merkezleriniz arasında herhangi bir yerden herhangi bir yere bağlantı sunabilir. Herhangi diğer bir şube gibi görünmesi sağlamak için Microsoft bulutu ile WAN’ınız birbirine bağlanabilir.  WAN sağlayıcıları genel olarak yönetilen Katman 3 bağlantısı sağlar. ExpressRoute yetenekleri ve özellikleri yukarıdaki tüm bağlantı modelleri arasında aynıdır. 
 
 Bağlantı sağlayıcıları bir veya daha fazla bağlantı modeli sunabilir. Sizin için en iyi modeli seçmek için bağlantı sağlayıcınız ile çalışabilirsiniz.
@@ -78,7 +78,7 @@ ExpressRoute üzerinde desteklenen hizmetlerin detaylı listesi için [ExpressRo
 
 Örneğin, Microsoft’a Amsterdam’da ExpressRoute aracılığıyla bağlandıysanız Kuzey Avrupa ve Batı Avrupa’da barındırılan tüm Microsoft bulut hizmetlerine erişiminiz olur. Jeopolitik bölgeler, ilişkili Microsoft bulut bölgeleri ve karşılık gelen ExpressRoute eşleme konumlarına genel bakış için [ExpressRoute iş ortakları ve eşleme konumları](expressroute-locations.md) makalesine bakın.
 
-### <a name="global-connectivity-with-expressroute-premium-addon"></a>ExpressRoute premium eklentisine ile genel bağlantı
+### <a name="global-connectivity-with-expressroute-premium-add-on"></a>ExpressRoute premium eklentisine ile genel bağlantı
 Coğrafi sınırlar arasındaki bağlantıyı genişletmek için ExpressRoute premium eklenti özelliğini etkinleştirebilirsiniz. Örneğin, Microsoft’a Amsterdam’da ExpressRoute aracılığıyla bağlanırsanız dünyadaki tüm bölgelerde (ulusal bulutlar dışında) barındırılan tüm Microsoft bulut hizmetlerine erişiminiz olur. Güney Amerika ve Avustralya’da dağıtılan hizmetlere Kuzey ve Batı Avrupa bölgeleriyle aynı şekilde erişebilirsiniz.
 
 ### <a name="rich-connectivity-partner-ecosystem"></a>Zengin bağlantı iş ortağı ekosistemi
@@ -125,6 +125,6 @@ Size en uygun faturalama modelini seçin. Aşağıda listelenen faturalama model
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

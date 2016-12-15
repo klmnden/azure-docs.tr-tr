@@ -4,7 +4,7 @@
 > 
 > 
 
-Bu makalede [Azure IoT Ağ Geçidi SDK’sı][lnk-gateway-sdk] mimarisinin temel bileşenlerini göstermek üzere [Hello World örnek kodunun][lnk-helloworld-sample] ayrıntılı bilgileri verilmektedir. Örnek, "hello world" iletisini her beş saniyede bir dosyaya kaydeden basit bir ağ geçidi oluşturmak üzere IoT Hub Ağ Geçidi SDK’sını kullanır.
+Bu makalede [Azure IoT Ağ Geçidi SDK'sı][lnk-gateway-sdk] mimarisinin temel bileşenlerini göstermek üzere [Hello World örnek kodunun][lnk-helloworld-sample] ayrıntılı bilgileri verilmektedir. Örnek, "hello world" iletisini her beş saniyede bir dosyaya kaydeden basit bir ağ geçidi oluşturmak üzere Azure IoT Ağ Geçidi SDK'sını kullanır.
 
 Bu kılavuzda aşağıdaki konular ele alınmaktadır:
 
@@ -72,6 +72,6 @@ Yukarıdaki şekilde Hello World örneğinin mimarisi ve örneğin farklı kıs�
 [lnk-helloworld-sample]: https://github.com/Azure/azure-iot-gateway-sdk/tree/master/samples/hello_world
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

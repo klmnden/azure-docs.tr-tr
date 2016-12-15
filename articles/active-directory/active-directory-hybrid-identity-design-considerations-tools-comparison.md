@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 08/08/2016
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1df15de1c24e80b0692149dfc7cb660f74941886
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 2fb248f3e71b248ce0b5ae02ebeff291bbd28dce
 
 
 ---
@@ -38,7 +38,7 @@ Tabloların her biri için aşağıdaki anahtarı kullanın.
 GS = Gelecekteki Sürüm  
 GÖ = Genel Önizleme  
 
-## <a name="onpremises-to-cloud-synchronization"></a>Şirket İçi - Bulut Eşitlemesi
+## <a name="on-premises-to-cloud-synchronization"></a>Şirket İçi - Bulut Eşitlemesi
 | Özellik | Azure Active Directory Connect | Azure Active Directory Eşitleme Hizmetleri (AAD Eşitleme) | Azure Active Directory Eşitleme Aracı (DirSync) | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
 |:--- |:---:|:---:|:---:|:---:|:---:|
 | Tek şirket içi AD ormanına bağlanma |● |● |● |● |● |
@@ -52,7 +52,7 @@ GÖ = Genel Önizleme
 | Şirket içi İK olanağına (SAP, Oracle eBusiness,PeopleSoft) bağlanma |GS | | |● |● |
 | FIM eşitleme kurallarını ve şirket içi sistemlere hazırlamaya yönelik bağlayıcıları destekler. | | | |● |● |
 
-## <a name="cloud-to-onpremises-synchronization"></a>Bulut - Şirket İçi Eşitlemesi
+## <a name="cloud-to-on-premises-synchronization"></a>Bulut - Şirket İçi Eşitlemesi
 | Özellik | Azure Active Directory Connect | Azure Active Directory Eşitleme Hizmetleri | Azure Active Directory Eşitleme Aracı (DirSync) | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
 |:--- |:---:|:---:|:---:|:---:|:---:|
 | Cihazlar için geri yazma |● | |● | | |
@@ -68,7 +68,7 @@ GÖ = Genel Önizleme
 | Federasyon ile Çoklu Oturum Açma |● |● |● |● |● |
 | Parola geri yazma (SSPR ve parola değiştirme işleminden) |● |● | | | |
 
-## <a name="setup-and-installation"></a>Kurulum ve Yükleme
+## <a name="set-up-and-installation"></a>Kurulum ve Yükleme
 | Özellik | Azure Active Directory Connect | Azure Active Directory Eşitleme Hizmetleri | Azure Active Directory Eşitleme Aracı (DirSync) | Microsoft Identity Manager 2016 (MIM) |
 |:--- |:---:|:---:|:---:|:---:|
 | Etki Alanı Denetleyicisi üzerinde yüklemeyi destekler |● |● |● | |
@@ -95,6 +95,6 @@ GÖ = Genel Önizleme
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

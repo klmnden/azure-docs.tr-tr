@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 11/02/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c90fe9e9f088e8af80b5d9dcf7ab5b970034122f
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: a1d30c77dd29a134017be7deec6bb50991e6a698
 
 
 ---
@@ -42,10 +42,10 @@ Data Lake Store içinde depolanan veriler, MapReduce veya Hive gibi Hadoop anali
 ### <a name="unlimited-storage-petabyte-files"></a>Sınırsız depolama, petabayt boyutlu dosyalar
 Azure Data Lake Store, sınırsız depolama sağlar ve analiz için çeşitli verilerin depolanmasına uygundur. Hesap boyutları, dosya boyutları veya bir veri gölü içinde depolanabilen veri miktarı için herhangi bir sınırlama uygulamaz. Ayrı dosyalar kilobayttan petabayta kadar uzanan boyutlarda olabilir ve bu da herhangi bir tür verinin depolanması için harika bir seçim olmasını sağlar. Birden çok kopya oluşturularak veriler sağlam bir şekilde depolanır ve verilerin data lake içinde depolanmasına yönelik bir süre sınırı mevcut değildir.
 
-### <a name="performancetuned-for-big-data-analytics"></a>Büyük veri analizi için performans ayarı yapılmıştır
+### <a name="performance-tuned-for-big-data-analytics"></a>Büyük veri analizi için performans ayarı yapılmıştır
 Azure Data Lake Store, büyük miktarlarda verilerin sorgulanması ve çözümlenmesi için çok büyük verim gerektiren büyük ölçekli analitik sistemlerin çalıştırılması için geliştirilmiştir. Veri gölü, bir dosyanın parçalarını birkaç ayrı depolama sunucusu üzerinde dağıtır. Bu, veri analizinin gerçekleştirilmesi için dosyanın paralel olarak okunması sırasında okuma verimini artırır.
 
-### <a name="enterpriseready-highlyavailable-and-secure"></a>Kurumsal kullanıma hazırdır: Yüksek kullanılabilirliğe sahip ve güvenlidir
+### <a name="enterprise-ready-highly-available-and-secure"></a>Kurumsal kullanıma hazırdır: Yüksek kullanılabilirliğe sahip ve güvenlidir
 Azure Data Lake Store, endüstri standardı kullanılabilirlik ve güvenilirlik sağlar. Veri varlıklarınız, herhangi bir beklenmeyen arızaya karşı koruma sağlamak üzere yedekli kopyaların oluşturulmasıyla sağlam bir şekilde depolanır. Kuruluşlar Azure Data Lake'i kendi çözümlerinde, var olan bir veri platformunun önemli bir parçası olarak kullanabilir.
 
 Data Lake Store ayrıca, depolanan veriler için kurumsal düzeyde güvenlik sağlar. Daha fazla bilgi için bkz. [Azure Data Lake Store'da verilerin güvenliğini sağlama](#DataLakeStoreSecurity).
@@ -105,6 +105,6 @@ Azure Portal'ı kullanarak Data Lake Store sağlamaya yönelik bilgiler için bk
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

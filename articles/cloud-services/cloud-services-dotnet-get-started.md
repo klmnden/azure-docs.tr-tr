@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 11/16/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 9ad2f55c7db53459c17299ba5015783781c7cd63
-ms.openlocfilehash: 81fd8f40d8f939e68fbe2cf9ef7b413073a8c363
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 02474f8ab77763be1b40da95f5d7cd935ba7f121
 
 
 ---
@@ -48,7 +48,7 @@ Bu öğreticide bir Azure bulut hizmetinde hem ön ucun hem de arka ucun nasıl 
 ## <a name="prerequisites"></a>Ön koşullar
 Öğretici *web rolü* ve *çalışan rolü* terminolojisi gibi [Azure bulut hizmetleri hakkında temel kavramları](cloud-services-choose-me.md) anladığınızı varsayar.  Ayrıca Visual Studio’da [ASP.NET MVC](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) veya [Web Forms](http://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview) projeleri ile nasıl çalışılacağını bildiğinizi varsayar. Örnek uygulama MVC kullanır, ancak öğreticinin büyük bölümü Web Forms için de geçerlidir.
 
-Uygulamayı bir Azure aboneliği olmadan yerel olarak çalıştırabilirsiniz, ancak uygulamayı buluta dağıtmak için bir abonelik gerekecektir. Bir hesabınız yoksa, [MSDN abone avantajlarınızı etkinleştirebilir](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668) veya [ücretsiz deneme için kaydolabilirsiniz.](/pricing/free-trial/?WT.mc_id=A55E3C668)
+Uygulamayı bir Azure aboneliği olmadan yerel olarak çalıştırabilirsiniz, ancak uygulamayı buluta dağıtmak için bir abonelik gerekecektir. Bir hesabınız yoksa, [MSDN abone avantajlarınızı etkinleştirebilir](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668) veya [ücretsiz deneme için kaydolabilirsiniz.](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A55E3C668)
 
 Öğretici yönergeleri aşağıdaki ürünlerden biri ile çalışır:
 
@@ -772,6 +772,6 @@ Daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

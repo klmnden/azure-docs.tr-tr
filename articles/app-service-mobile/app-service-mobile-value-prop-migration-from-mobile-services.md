@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 10/01/2016
 ms.author: adrianha
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a63d15e7b7954fa63d04facc7d440092e24459da
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: f3b75c10ed0012d682562eb943cb67fc8176ddbb
 
 
 ---
@@ -44,7 +44,7 @@ Mevcut Mobil Hizmetiniz güvendedir ve desteklenmeye devam edecektir. Ancak *Azu
 * (.NET için) MVC dahil, ASP.NET’in her özelliğinden yararlanın
 * (Node.js için) Ortak MVC kitaplıkları dahil, Düğüm ekosisteminin tüm saf JavaScript kitaplığından yararlanın.
 
-## <a name="access-onpremises-data-using-vnet"></a>VNet kullanarak şirket içi verilere erişin
+## <a name="access-on-premises-data-using-vnet"></a>VNet kullanarak şirket içi verilere erişin
 Günümüzde Mobile Services ile şirket için kaynaklara erişim için Karma Bağlantıları halihazırda kullanabilirsiniz. Ancak bir VPN çözümünün tercih edildiği durumlar vardır. *Azure App Service* ile Mobil Uygulama arka uç kodunuz için Azure VNet kullanabilirsiniz.
 
 ## <a name="use-your-favorite-backend-language"></a>Sık kullanılan arka uç dilinizi kullanın
@@ -67,6 +67,6 @@ Bu [öğreticiyi](app-service-mobile-migrating-from-mobile-services.md) izleyere
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

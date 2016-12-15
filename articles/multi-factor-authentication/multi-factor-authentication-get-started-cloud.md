@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 10/17/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d7d909184eb129e46ffc350505101e68c1426c46
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: c6fe00b72d95a3eb40d91f6f7989b7163518c46f
 
 
 ---
-# <a name="getting-started-with-azure-multifactor-authentication-in-the-cloud"></a>Bulutta Azure Multi-Factor Authentication kullanmaya başlama
+# <a name="getting-started-with-azure-multi-factor-authentication-in-the-cloud"></a>Bulutta Azure Multi-Factor Authentication kullanmaya başlama
 Bu makalede bulutta Azure Multi-Factor Authentication kullanmaya nasıl başlayacağınız gösterilmektedir.
 
 > [!NOTE]
@@ -41,12 +41,12 @@ Aşağıdaki ön koşullar, kullanıcılarınız için Azure Multi-Factor Authen
 > 
 > 
 
-## <a name="turn-on-twostep-verification-for-users"></a>Kullanıcılar için iki aşamalı doğrulamayı açma
+## <a name="turn-on-two-step-verification-for-users"></a>Kullanıcılar için iki aşamalı doğrulamayı açma
 Bir kullanıcıdan iki aşamalı doğrulama istemeye başlamak için kullanıcının devre dışı olan durumunu etkin olarak değiştirin.  Kullanıcı durumları hakkında daha fazla bilgi için bkz. [ Azure Multi-Factor Authentication’da kullanıcı durumları](multi-factor-authentication-get-started-user-states.md)
 
 Kullanıcılarınız için MFA'yı etkinleştirmek üzere aşağıdaki yordamı kullanın.
 
-### <a name="to-turn-on-multifactor-authentication"></a>Multi-factor authentication’ı açmak için
+### <a name="to-turn-on-multi-factor-authentication"></a>Multi-factor authentication’ı açmak için
 1. [Klasik Azure portalında](https://manage.windowsazure.com) yönetici olarak oturum açın.
 2. Solda, **Active Directory**'ye tıklayın.
 3. Dizin altında etkinleştirmek istediğiniz kullanıcının dizinini seçin.
@@ -66,8 +66,8 @@ Kullanıcılarınız için MFA'yı etkinleştirmek üzere aşağıdaki yordamı 
 
 Kullanıcılarınızı etkinleştirdikten sonra, e-posta ile bildirimde bulunmanız gerekir. Kullanıcılardan sonraki oturum açma girişimleri sırasında iki aşamalı doğrulamaya kaydolmaları istenecektir. İki aşamalı doğrulamayı kullanmaya başlayan kullanıcıların tarayıcı harici uygulamaların devre dışı kalmaması için uygulama parolaları oluşturmaları da gerekecektir.
 
-## <a name="use-powershell-to-automate-turning-on-twostep-verification"></a>İki aşamalı doğrulamayı açmak için PowerShell kullanma
-[Azure AD PowerShell](../powershell-install-configure.md) kullanarak [durumu](multi-factor-authentication-whats-next.md) değiştirmek için aşağıdakileri kullanabilirsiniz.  Aşağıdaki durumlardan birine eşit olacak şekilde `$st.State` öğesini değiştirebilirsiniz:
+## <a name="use-powershell-to-automate-turning-on-two-step-verification"></a>İki aşamalı doğrulamayı açmak için PowerShell kullanma
+[Azure AD PowerShell](/powershell/azureps-cmdlets-docs) kullanarak [durumu](multi-factor-authentication-whats-next.md) değiştirmek için aşağıdakileri kullanabilirsiniz.  Aşağıdaki durumlardan birine eşit olacak şekilde `$st.State` öğesini değiştirebilirsiniz:
 
 * Etkin
 * Uygulandı
@@ -107,6 +107,6 @@ Bulutta Azure Multi-Factor Authentication özelliğini ayarladığınıza göre,
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

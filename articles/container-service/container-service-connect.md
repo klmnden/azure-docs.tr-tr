@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 09/13/2016
 ms.author: rogardle
 translationtype: Human Translation
-ms.sourcegitcommit: a4882b6fcd75ecaa826cdda3e25ee690b85a0670
-ms.openlocfilehash: 34450e25941e0be97b72c1ba30ee348d73f4bc67
+ms.sourcegitcommit: 319978579ae6ad868030d2ec99bce6e6aaa22299
+ms.openlocfilehash: 24a8b9c4e78971199236553802a71134bd12829c
 
 
 ---
@@ -51,13 +51,19 @@ scp azureuser@<master-dns-name>:.kube/config $HOME/.kube/config
 
 Windows kullanıyorsanız, Windows üzerinde çalışan Ubuntu’da Bash kabuğunu veya Putty 'pscp' aracını kullanmanız gerekir.
 
-`kubectl` komut satırı aracını yapılandırdıktan sonra, bunu,
+`kubectl` yapılandırmasını tamamladıktan sonra test etmek için kümenizdeki düğümleri listeleyebilirsiniz:
 
 ```console
 kubectl get nodes
 ```
 
-kümenizdeki düğümleri gösterecek şekilde yapılandırabilirsiniz.
+Son olarak Kubernetes Panosu'nu görüntüleyebilirsiniz. Öncelikle şunu yürütün:
+
+```console
+kubectl proxy
+```
+
+Kubernetes UI sayfasına şu adresten ulaşabilirsiniz: http://localhost:8001/ui
 
 Ayrıntılı yönergeler için bkz. [Kubernetes için hızlı başlangıç kılavuzu](http://kubernetes.io/docs/user-guide/quick-start/)
 
@@ -166,6 +172,6 @@ DC/OS ya da Swarm ile kapsayıcıları dağıtın ve yönetin:
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -16,18 +16,18 @@ ms.workload: big-data
 ms.date: 10/31/2016
 ms.author: saurinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 40b0d0660f4693d5ebedf847734ffe037c4ec7ca
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: ff45fa2abc0f77f133491e9ee9695c69a79eea33
 
 
 ---
-# <a name="an-introduction-to-domainjoined-hdinsight-clusters-preview"></a>Etki alanına katılmış HDInsight kümelerine giriş (Önizleme)
+# <a name="an-introduction-to-domain-joined-hdinsight-clusters-preview"></a>Etki alanına katılmış HDInsight kümelerine giriş (Önizleme)
 Azure HDInsight şimdiye kadar yalnızca tek bir kullanıcının yerel yönetici olmasını destekliyordu. Bu durum küçük çaplı uygulama ekipleri veya departmanları için idealdi. Hadoop tabanlı iş yükleri kurumsal sektörde daha popüler hale geldikçe Active Directory tabanlı kimlik doğrulaması, çoklu kullanıcı desteği ve rol tabanlı erişim gibi kurumsal düzey özellikler daha önemli hale geldi. Etki alanına katılmış HDInsight kümeleri kullanarak Active Directory etki alanına katılmış HDInsight kümesi oluşturabilir ve kuruluşunuzdan HDInsight kümesinde oturum açmak için Azure Active Directory üzerinden kimlik doğrulaması yapılacak kullanıcıların listesi yapılandırabilirsiniz. Kuruluş dışından kullanıcılar HDInsight kümesinde oturum açamaz veya bu kümeye erişemez. Kuruluş yöneticisi [Apache Ranger](http://hortonworks.com/apache/ranger/)’ı kullanarak Hive güvenliği için rol tabanlı erişim denetimi yapılandırarak verilere erişimi ihtiyaca göre sınırlandırabilir. Son olarak yönetici çalışanlara göre veri erişimi ve erişim denetim ilkelerinde yapılan değişiklikler için denetim gerçekleştirebilir, bu sayede kurumsal kaynakların yüksek düzeyde yönetilebilir olmasını sağlayabilir.
 
 > [!NOTE]
-> Bu önizlemede açıklanan yeni özellikler yalnızca Hive iş yükü için Linux tabanlı HDInsight kümeleriyle kullanılabilir. HBase, Spark, Storm ve Kafka gibi diğer iş yükleri sonraki sürümlerde etkinleştirilecektir. 
-> 
-> 
+> Bu önizlemede açıklanan yeni özellikler yalnızca Hive iş yükü için Linux tabanlı HDInsight kümeleriyle kullanılabilir. HBase, Spark, Storm ve Kafka gibi diğer iş yükleri sonraki sürümlerde etkinleştirilecektir.
+>
+>
 
 ## <a name="benefits"></a>Avantajlar
 Kuruluş Güvenliği dört ana katmandan oluşur: Çevre Güvenliği, Kimlik Doğrulaması, Yetkilendirme ve Şifreleme.
@@ -53,11 +53,10 @@ Verilerin korunması kuruluş güvenliğini sağlamak ve uyum gereksinimlerini k
 * Etki alanına katılmış HDInsight kümesini yapılandırmak için bkz. [Etki alanına katılmış HDInsight kümelerini yapılandırma](hdinsight-domain-joined-configure.md).
 * Etki alanına katılmış HDInsight kümesini yönetmek için bkz. [Etki alanına katılmış HDInsight kümelerini yönetme](hdinsight-domain-joined-manage.md).
 * Hive ilkelerini yapılandırmak ve Hive sorgularını çalıştırmak için bkz. [Etki alanına katılmış HDInsight kümeleri için Hive ilkelerini yapılandırma](hdinsight-domain-joined-run-hive.md).
-* Etki alanına katılmış HDInsight kümelerinde SSH kullanarak Hive sorguları çalıştırmak için bkz. [Linux, Unix ya da OS X’te HDInsight’ta Linux tabanlı Hadoop ile SSH’yi kullanma](hdinsight-hadoop-linux-use-ssh-unix.md#connect-to-a-domain-joined-hdinsight-cluster).
+* Etki alanına katılmış HDInsight kümelerinde SSH kullanarak Hive sorguları çalıştırmak için bkz. [Linux, Unix ya da OS X’te HDInsight’ta Linux tabanlı Hadoop ile SSH’yi kullanma](hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

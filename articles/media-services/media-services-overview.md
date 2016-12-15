@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 10/12/2016
 ms.author: juliako;anilmur
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2a4395385ab0e6e71e5139883a544add0a081cf2
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 1a680f20bc9ceee8efd943cd71312372fe56a878
 
 
 ---
@@ -62,12 +62,12 @@ Azure Media Services kavramları hakkında bilgi edinmek için bkz. [Kavramlar](
 
 Azure Media Services ana bileşenlerinin tümünü tanıtan bir dizi nasıl yapılır makalesi için bkz. [Azure Media Services Adım Adım öğreticileri](https://docs.com/fukushima-shigeyuki/3439/english-azure-media-services-step-by-step-series). Bu makale dizisi, kavramlara çok iyi bir genel bakış sunar ve AMSE aracını kullanarak AMS görevlerini gösterir. AMSE aracının bir Windows aracı olduğunu unutmayın. Bu araç, [.NET için AMS SDK](https://github.com/Azure/azure-sdk-for-media-services), [Java için Azure SDK](https://github.com/Azure/azure-sdk-for-java) veya [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php) ile programlama aracılığıyla elde edebileceğiniz görevlerin çoğunu destekler.
 
-## <a name="a-idvodscenariosadelivering-media-ondemand-with-azure-media-services-common-scenarios-and-tasks"></a><a id="vod_scenarios"></a>Azure Media Services ile İsteğe Bağlı Medya Teslimi: yaygın senaryolar ve görevler
+## <a name="a-idvodscenariosadelivering-media-on-demand-with-azure-media-services-common-scenarios-and-tasks"></a><a id="vod_scenarios"></a>Azure Media Services ile İsteğe Bağlı Medya Teslimi: yaygın senaryolar ve görevler
 Bu bölümde, yaygın senaryolar açıklanmakta ve ilgili konulara bağlantılar sağlanmaktadır. Aşağıdaki diyagramda, Media Services platformunun isteğe bağlı içerik tesliminde rol oynayan başlıca parçaları gösterilmektedir. 
 
 ![VoD iş akışı](./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png)
 
-### <a name="protect-content-in-storage-and-deliver-streaming-media-in-the-clear-nonencrypted"></a>Depolama alanında içeriği koruma ve akan medyayı temiz olarak (şifrelenmemiş) teslim etme
+### <a name="protect-content-in-storage-and-deliver-streaming-media-in-the-clear-non-encrypted"></a>Depolama alanında içeriği koruma ve akan medyayı temiz olarak (şifrelenmemiş) teslim etme
 1. Yüksek kaliteli bir ara dosyayı bir varlığa yükleyin.
    
     İçeriğinizi yükleme sırasında ve depolama alanında beklerken korumak için depolama şifrelemesi seçeneğini uygulamanız önerilir.
@@ -142,13 +142,13 @@ Azure Media Services’de **Kanallar**, **Programlar** ve **Akış Uç Noktalar�
 * Şirket içi bir gerçek zamanlı kodlayıcı, çoklu bit hızına sahip **RTMP** veya **Kesintisiz Akışı** (parçalanmış MP4) **doğrudan geçiş** teslimi için yapılandırılmış Kanala gönderir. **Doğrudan geçiş** teslimi, alınan akışların herhangi başka bir işlemeye uğramadan **Kanallardan** geçmesidir. Çoklu bit hızlı Kesintisiz Akış çıktısı sağlayan şu gerçek zamanlı kodlayıcıları kullanabilirsiniz: Elemental, Envivio, Cisco.  Şu gerçek zamanlı kodlayıcılar RTMP çıktısı sağlar: Adobe Flash Live, Telestream Wirecast ve Tricaster kod dönüştürücüleri.  Gerçek zamanlı bir kodlayıcı, gerçek zamanlı kodlama için etkinleştirilmemiş bir kanala tek bit hızlı bir akış da gönderebilir, ancak bu işlem önerilmez. İstendiğinde, Media Services akışı müşterilere teslim eder.
 
 > [!NOTE]
-> Uzun bir dönem içerisinde birden çok etkinlik gerçekleştirecekseniz ve zaten şirket içi kodlayıcılara yatırım yaptıysanız, doğrudan geçiş yöntemini kullanmak canlı akış yapmanın en ekonomik yoludur. [Fiyatlandırma](/pricing/details/media-services/) detaylarına bakın.
+> Uzun bir dönem içerisinde birden çok etkinlik gerçekleştirecekseniz ve zaten şirket içi kodlayıcılara yatırım yaptıysanız, doğrudan geçiş yöntemini kullanmak canlı akış yapmanın en ekonomik yoludur. [Fiyatlandırma](https://azure.microsoft.com/pricing/details/media-services/) detaylarına bakın.
 > 
 > 
 
 * Şirket içi gerçek zamanlı bir kodlayıcı, Media Services ile şu biçimlerden birinde gerçek zamanlı kodlama gerçekleştirmek için etkinleştirilmiş Kanala tek bit hızlı bir akış gönderir: RTP (MPEG-TS), RTMP veya Kesintisiz Akış (Parçalanmış MP4). Ardından Kanal, gelen tek bit hızlı akışın çoklu bit hızlı (uyarlamalı) bir video akışına gerçek zamanlı kodlanmasını gerçekleştirir. İstendiğinde, Media Services akışı müşterilere teslim eder.
 
-### <a name="working-with-channels-that-receive-multibitrate-live-stream-from-onpremises-encoders-passthrough"></a>Şirket içi kodlayıcılardan çoklu bit hızlı canlı akış alan Kanallar ile çalışma (doğrudan geçiş)
+### <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders-pass-through"></a>Şirket içi kodlayıcılardan çoklu bit hızlı canlı akış alan Kanallar ile çalışma (doğrudan geçiş)
 Aşağıdaki diyagramda, AMS platformunun **doğrudan geçiş** iş akışında rol oynayan başlıca parçaları gösterilmektedir.
 
 ![Canlı iş akışı][live-overview2]
@@ -201,6 +201,6 @@ Daha fazla bilgi için bkz. [Microsoft Azure SLA](https://azure.microsoft.com/su
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

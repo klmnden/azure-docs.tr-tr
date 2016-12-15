@@ -1,6 +1,6 @@
 ---
 title: "Azure IoT Hub&quot;a genel bakış | Microsoft Belgeleri"
-description: "Azure IoT Hub hizmetine genel bakış: iot hub&quot;ı, cihaz bağlantısı, nesnelerin interneti iletişim düzenleri ve hizmet destekli iletişim düzeni nedir?"
+description: "Azure IoT Hub hizmetine genel bakış: IoT Hub, cihaz bağlantısı, nesnelerin interneti iletişim düzenleri, ağ geçitleri ve hizmet destekli iletişim düzeni nedir?"
 services: iot-hub
 documentationcenter: 
 author: dominicbetts
@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 11/23/2016
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 00746fa67292fa6858980e364c88921d60b29460
-ms.openlocfilehash: b00aab7ea1eac8d34b9b535db2056c7b0ec41354
+ms.sourcegitcommit: e223d0613cd48994315451da87e6b7066585bdb6
+ms.openlocfilehash: 42774f83dc4c53dc8f090acb922b5aae6e8b4bed
 
 
 ---
@@ -77,7 +77,7 @@ Bir çözümde hem protokol hem de alan geçitleri olabilir.
 Azure IoT Hub, cihazlarınız ve çözüm arka ucunuz arasındaki etkileşimlere aracılık etmek için [hizmet destekli iletişim][lnk-service-assisted-pattern] deseni uygular. Hizmet destekli iletişimin amacı, IoT Hub gibi bir denetim sistemi ile güvenilmeyen fiziksel alanlarda dağıtılan özel amaçlı cihazlar arasında güvenilir ve çift yönlü iletişim yolları oluşturmaktır. Desen aşağıdaki ilkeleri oluşturur:
 
 * Güvenlik diğer tüm işlevlerden önceliklidir.
-* Cihazlar istenmemiş ağ bilgilerini kabul etmez. Bir cihaz tüm bağlantıları kurar ve yalnızca giden bağlantı şeklinde yönlendirir. Bir cihazın arka uçtan bir komut alması için, işlenmeyi bekleyen herhangi bir komut olup olmadığını denetlemek üzere cihazın düzenli olarak bağlantı başlatması gerekir.
+* Cihazlar istenmemiş ağ bilgilerini kabul etmez. Bir cihaz tüm bağlantıları kurar ve yalnızca giden bağlantı şeklinde yönlendirir. Bir cihazın çözüm arka ucundan bir komut alması için, işlenmeyi bekleyen herhangi bir komut olup olmadığını denetlemek üzere cihazın düzenli olarak bağlantı başlatması gerekir.
 * Cihazlar, eşlendikleri hizmetlerden yalnızca IoT Hub gibi iyi bilinenlere bağlanmalı veya yönlendirme oluşturmalıdır.
 * Cihaz ile hizmet veya cihaz ile ağ geçidi arasındaki iletişim yolunun güvenliği, uygulama protokol katmanında sağlanır.
 * Sistem düzeyinde yetkilendirme ve kimlik doğrulama cihaz başına kimliği temel alır. Bunlar erişim kimlik bilgilerini ve izinleri neredeyse anında iptal edilebilir hale getirir.
@@ -91,7 +91,7 @@ IoT Hub, ExpressRoute'un ortak eşleme yolundan desteklenmez.
 ## <a name="next-steps"></a>Sonraki adımlar
 Cihazlarınızı uzaktan yönetmeniz, yapılandırmanız ve güncelleştirmeniz için Azure IoT Hub’ın standartlara dayalı cihaz yönetimini nasıl etkinleştirdiği hakkında bilgi almak üzere bkz. [IoT Hub’ı ile cihaz yönetimine genel bakış][lnk-device-management].
 
-İstemci uygulamalarını çok sayıda cihaz donanımı platformunda ve işletim sisteminde uygulamak için Azure IoT cihaz SDK'larını kullanabilirsiniz. Cihaz SDK'ları, bir IoT hub'ına telemetri gönderme ve buluttan cihaza komutlarını alma işlemlerini gerçekleştiren kitaplıkları içerir. Cihaz SDK'larını kullandığınızda, IoT Hub ile iletişim kurmak için çeşitli ağ protokolleri arasından seçim yapabilirsiniz. Daha fazla bilgi için bkz. [Cihaz SDK'ları hakkında bilgi][lnk-device-sdks].
+İstemci uygulamalarını çok sayıda cihaz donanımı platformunda ve işletim sisteminde uygulamak için Azure IoT cihaz SDK'larını kullanabilirsiniz. Cihaz SDK'ları, bir IoT hub'ına telemetri gönderme ve buluttan cihaza iletilerini alma işlemlerini gerçekleştiren kitaplıkları içerir. Cihaz SDK'larını kullandığınızda, IoT Hub ile iletişim kurmak için çeşitli ağ protokolleri arasından seçim yapabilirsiniz. Daha fazla bilgi için bkz. [Cihaz SDK'ları hakkında bilgi][lnk-device-sdks].
 
 Bazı kodları yazmaya ve bazı örnekleri çalıştırmaya başlamak için [IoT Hub ile çalışmaya başlama][lnk-get-started] öğreticisine bakın.
 
@@ -121,6 +121,6 @@ Bazı kodları yazmaya ve bazı örnekleri çalıştırmaya başlamak için [IoT
 [lnk-security-ground-up]: iot-hub-security-ground-up.md
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

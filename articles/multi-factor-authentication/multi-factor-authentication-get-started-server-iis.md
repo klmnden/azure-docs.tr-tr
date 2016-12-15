@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 08/04/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 138e23a0964c0e540c6b2ddf8891aa9af6782233
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 35f58e8664c47c4e7a86c27e90813ad7be3cea04
 
 
 ---
@@ -25,7 +25,7 @@ Azure Multi-Factor Authentication Sunucusu’nun IIS Kimlik Doğrulaması bölü
 
 ![IIS Kimlik Doğrulaması](./media/multi-factor-authentication-get-started-server-iis/iis.png)
 
-## <a name="using-formbased-iis-authentication-with-azure-multifactor-authentication-server"></a>Azure Multi-Factor Authentication Sunucusu ile Form Tabanlı IIS Kimlik Doğrulaması kullanma
+## <a name="using-form-based-iis-authentication-with-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication Sunucusu ile Form Tabanlı IIS Kimlik Doğrulaması kullanma
 Form tabanlı kimlik doğrulaması kullanan bir IIS web uygulamasını güvenli hale getirmek için, IIS web sunucusuna Azure Multi-Factor Authentication Sunucusu yükleyin ve Sunucu’yu aşağıdaki yordama göre yapılandırın.
 
 1. Azure Multi-Factor Authentication Sunucusu’nda, soldaki menüde IIS Kimlik Doğrulaması simgesine tıklayın.
@@ -43,7 +43,7 @@ Form tabanlı kimlik doğrulaması kullanan bir IIS web uygulamasını güvenli 
 13. URL ve sayfa değişkenleri algılandığında veya girildiğinde, web sitesi verileri Form Tabanlı panelde görüntülenir.
 14. IIS kimlik doğrulaması yapılandırmasını tamamlamak için doğrudan aşağıdaki Azure Multi-Factor Authentication Sunucusu için IIS Eklentilerini Etkinleştirme bölümüne bakın.
 
-## <a name="using-integrated-windows-authentication-with-azure-multifactor-authentication-server"></a>Azure Multi-Factor Authentication Sunucusu ile Tümleşik Windows Kimlik Doğrulaması kullanma
+## <a name="using-integrated-windows-authentication-with-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication Sunucusu ile Tümleşik Windows Kimlik Doğrulaması kullanma
 Tümleşik Windows HTTP kimlik doğrulaması kullanan bir IIS web uygulamasını güvenli hale getirmek için, IIS web sunucusuna Azure Multi-Factor Authentication Sunucusu yükleyin ve Sunucu’yu aşağıdaki yordama göre yapılandırın.
 
 1. Azure Multi-Factor Authentication Sunucusu’nda, soldaki menüde IIS Kimlik Doğrulaması simgesine tıklayın.
@@ -56,7 +56,7 @@ Tümleşik Windows HTTP kimlik doğrulaması kullanan bir IIS web uygulamasını
 8. Tamam düğmesine tıklayın.
 9. IIS kimlik doğrulaması yapılandırmasını tamamlamak için doğrudan aşağıdaki [Azure Multi-Factor Authentication Sunucusu için IIS Eklentilerini Etkinleştirme](#enable-iis-plug-ins-for-azure-multi-factor-authentication-server) bölümüne bakın.
 
-## <a name="enable-iis-plugins-for-azure-multifactor-authentication-server"></a>Azure Multi-Factor Authentication Sunucusu için IIS Eklentilerini Etkinleştirme
+## <a name="enable-iis-plug-ins-for-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication Sunucusu için IIS Eklentilerini Etkinleştirme
 Form Tabanlı ya da HTTP kimlik doğrulaması URL’lerini ve ayarlarını yapılandırdığınızda, Azure Multi-Factor Authentication IIS eklentilerinin IIS’de yüklenmesi ve etkinleştirilmesi gerektiği konumları seçmelisiniz. Aşağıdaki yordamı kullanın:
 
 1. IIS 6’da çalıştırılıyorsa, bu site için Azure Multi-Factor Authentication ISAPI filtresi eklentisini etkinleştirmek üzere ISAPI sekmesine tıklayın ve web uygulamasının altında çalıştığı web sitesini seçin (örneğin, Varsayılan Web Sitesi).
@@ -74,6 +74,6 @@ Güvenilen IP'ler kullanıcıların belirli IP adresleri veya alt ağlardan kayn
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

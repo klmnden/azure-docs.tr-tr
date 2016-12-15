@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 08/31/2016
 ms.author: cabailey
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 51833ae656f4c5275b0bd922d21288901cd1f4b3
+ms.sourcegitcommit: c40545833da86426d3e71955b8eb8627db3c1e4b
+ms.openlocfilehash: 50a85747a3414e180bcd9129899fef7ffdaebc8d
 
 
 ---
@@ -48,7 +48,7 @@ Azure Anahtar Kasası genel bakış bilgileri için bkz. [Azure Anahtar Kasası 
 Bu öğreticiyi tamamlamak için aşağıdakilere sahip olmanız gerekir:
 
 * Kullanmakta olduğunuz var olan bir anahtar kasası.  
-* Azure PowerShell'in, **en az 1.0.1 sürümü**. Azure PowerShell'i yüklemek ve Azure aboneliğinizle ilişkilendirmek için bkz. [Azure PowerShell'i yükleme ve yapılandırma](../powershell-install-configure.md). Azure PowerShell'i zaten yüklediyseniz ve sürümünü bilmiyorsanız Azure PowerShell konsolunda `(Get-Module azure -ListAvailable).Version` yazın.  
+* Azure PowerShell'in, **en az 1.0.1 sürümü**. Azure PowerShell'i yüklemek ve Azure aboneliğinizle ilişkilendirmek için bkz. [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azureps-cmdlets-docs). Azure PowerShell'i zaten yüklediyseniz ve sürümünü bilmiyorsanız Azure PowerShell konsolunda `(Get-Module azure -ListAvailable).Version` yazın.  
 * Anahtar Kasası günlükleriniz için Azure'da yeterli depolama.
 
 ## <a name="a-idconnectaconnect-to-your-subscriptions"></a><a id="connect"></a>Aboneliklerinize bağlanma
@@ -66,7 +66,7 @@ Ardından, günlüğünü tutacağınız anahtar kasasıyla ilişkili aboneliği
 
     Set-AzureRmContext -SubscriptionId <subscription ID>
 
-Azure Power Shell'i yapılandırma hakkında daha fazla bilgi için bkz. [Azure PowerShell'i yükleme ve yapılandırma](../powershell-install-configure.md).
+Azure Power Shell'i yapılandırma hakkında daha fazla bilgi için bkz. [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azureps-cmdlets-docs).
 
 ## <a name="a-idstorageacreate-a-new-storage-account-for-your-logs"></a><a id="storage"></a>Günlükleriniz için yeni bir depolama hesabı oluşturma
 Günlükleriniz için var olan depolama hesabını kullanabiliyor olsanız da, Anahtar Kasası günlüklerine özgü yeni bir depolama hesabı oluşturacağız. Bunu daha sonra belirtmemiz gerektiğinde kolaylık sağlamak için ayrıntıları **sa** adlı bir değişkende depolayacağız.
@@ -266,6 +266,6 @@ Azure Anahtar Kasası ile anahtar döndürme ve günlük denetimine ilişkin bir
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

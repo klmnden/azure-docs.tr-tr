@@ -4,7 +4,7 @@ description: "Azure Portal’da yeni bir depolama hesabı oluşturun, hesap eri�
 services: storage
 documentationcenter: 
 author: robinsh
-manager: carmonm
+manager: timlt
 editor: tysonn
 ms.assetid: 5e4f4360-3f81-4d63-a0b1-e7771b67af11
 ms.service: storage
@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/26/2016
+ms.date: 12/08/2016
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 90e9fcf933173b5609eff70fa1ce4bfa027fee3d
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 879e199f0c712a46b89a686d6a3dd8dd877821e4
 
 
 ---
@@ -99,7 +99,7 @@ Bir depolama hesabındaki bir nesneye erişmek için gerekli URL, nesnenin depol
 
 Ayrıca depolama hesabınız ile birlikte kullanmak üzere özel bir etki alanı adı yapılandırabilirsiniz. Ayrıntılar için bkz. [Blob Storage uç noktanız için özel bir etki alanı adı yapılandırma](storage-custom-domain-name.md).
 
-### <a name="service-colocation-with-an-affinity-group"></a>Hizmeti benzeşim grubu ile birlikte bulundurma
+### <a name="service-co-location-with-an-affinity-group"></a>Hizmeti benzeşim grubu ile birlikte bulundurma
 *Benzeşim grubu*, Azure hizmetlerinizi ve VM’lerinizi Azure Storage hesabınızla coğrafi olarak gruplamaktır. Bir benzeşim grubu bilgisayar iş yüklerini aynı veri merkezinde veya hedef kullanıcının hedef kitlesine yakın bir konuma yerleştirerek hizmet performansını iyileştirebilir. Bunun yanında depolama hesabındaki bir veriye aynı benzeşim grubunun bir parçası olan başka bir hizmet eriştiğinde veri çıkışı ücretlendirmesi yapılmaz.
 
 > [!NOTE]
@@ -175,6 +175,6 @@ Artık kullanmadığınız bir depolama hesabını kaldırmak için panoda**Sil*
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

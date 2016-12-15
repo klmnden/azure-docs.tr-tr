@@ -15,14 +15,15 @@ ms.topic: hero-article
 ms.date: 11/02/2016
 ms.author: aasthan
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8770e89cd54dae23ba05fb53382f7d89d19b029a
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 31368661906bc8ca0f8ac1d3329bb053d41a94d7
 
 
 ---
 # <a name="nosql-c-tutorial-documentdb-c-console-application"></a>NoSQL C++ öğreticisi: DocumentDB C++ konsol uygulaması
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
+> * [.NET Core](documentdb-dotnetcore-get-started.md)
 > * [Node.js](documentdb-nodejs-get-started.md)
 > * [C++](documentdb-cpp-get-started.md)
 > 
@@ -216,7 +217,7 @@ Veritabanını ve tüm alt kaynaklarını kaldırmak için aşağıdaki kod par�
 ## <a name="a-idrunastep-11-run-your-c-application-all-together"></a><a id="Run"></a>11. Adım: C++ uygulamanızı hep birlikte çalıştırın!
 Farklı DocumentDB kaynaklarını oluşturmak, sorgulamak, değiştirmek ve silmek için kod ekledik.  Şimdi de bu farklı işlevlere hellodocumentdb.cpp’deki ana işlevimizden çağrıların yanı sıra bazı tanılama iletileri ekleyerek bağlantıları tamamlayalım.
 
-Bunu, uygulamanızın ana işlevini aşağıdaki kodla değiştirerek gerçekleştirebilirsiniz. Bu işlem 3. adımda koda kopyaladığınız account_configuration_uri ve primary_key you değerlerinin üzerine yazacağından, bu satırı kaydedin veya değerleri yeniden portaldan kopyalayın. 
+Bunu, uygulamanızın ana işlevini aşağıdaki kodla değiştirerek gerçekleştirebilirsiniz. Bu işlem 3. adımda koda kopyaladığınız account_configuration_uri ve primary_key değerlerinin üzerine yazacağından, bu satırı kaydedin veya değerleri yeniden portaldan kopyalayın. 
 
     int main() {
         try {
@@ -292,6 +293,6 @@ Bu makaledeki tüm örnekleri içeren GetStarted çözümünü derlemek için a�
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: kevin;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: edc3a915a59d83718d05ce39a1ce2bcd14333da4
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 42d71bf43070e08ae287a7b251c5bb94a6a80548
 
 
 ---
@@ -39,12 +39,12 @@ Bu öğretici Azure SQL Data Warehouse’a depolanmış verilere göre tahmine d
 ## <a name="prerequisites"></a>Önkoşullar
 Bu öğreticide ilerleyebilmeniz için şunlar gereklidir:
 
-* AdventureWorksDW örnek verileri önceden yüklenmiş bir SQL Data Warehouse. Bunu sağlamak için [SQL Veri Ambarı oluşturma][SQL Veri Ambarı oluşturma] bölümüne bakın ve örnek verileri yüklemeyi seçin. Bir veri ambarınız olmasına karşın örnek verileriniz yoksa [örnek verileri elle yükleyebilirsiniz][örnek verileri elle yükleyebilirsiniz].
+* AdventureWorksDW örnek verileri önceden yüklenmiş bir SQL Data Warehouse. Bunu sağlamak için [SQL Veri Ambarı Oluşturma][Create a SQL Data Warehouse] bölümüne bakın ve örnek verileri yüklemeyi seçin. Bir veri ambarınız olmasına karşın örnek verileriniz yoksa [örnek verileri elle yükleyebilirsiniz][load sample data manually].
 
 ## <a name="1-get-data"></a>1. Verileri alma
 Veriler AdventureWorksDW veritabanında bulunan dbo.vTargetMail görünümündedir. Bu verileri okumak için:
 
-1. [Azure Machine Learning Studio][Azure Machine Learning Studio]'da oturum açıp denemelerim öğesine tıklayın.
+1. [Azure Machine Learning Studio][Azure Machine Learning studio]'da oturum açıp denemelerim seçeneğine tıklayın.
 2. **+NEW (+YENİ)** düğmesine tıklayıp **Blank Experiment (Boş Deneme)** öğesini seçin.
 3. Denemeniz için bir ad girin: Hedeflenen Pazarlama.
 4. Modüller bölmesindeki **Reader (Okuyucu)** modülünü tuvale sürükleyin.
@@ -124,7 +124,7 @@ Test veri kümenize iki sütunun daha eklendiğini göreceksiniz.
 BikeBuyer (gerçek) sütununu Puanlanmış Etiketler (tahmin) ile karşılaştırarak modelin ne derece iyi sonuç verdiğini görebilirsiniz. Sonraki adımlarda bu modeli yeni müşteriler için tahminde bulunmak üzere kullanabilir, bir web hizmeti olarak yayımlayabilir veya sonuçları sonradan SQL Data Warehouse'a yazabilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Tahmine dayalı makine öğrenimi modellerinin oluşturulmasına ilişkin daha fazla bilgi edinmek için bkz. [Azure'da Machine Learning'e giriş][Azure'da Machine Learning'e giriş].
+Tahmine dayalı makine öğrenimi modellerinin oluşturulmasına ilişkin daha fazla bilgi edinmek için bkz. [Azure'da Machine Learning'e giriş][Introduction to Machine Learning on Azure].
 
 <!--Image references-->
 [1]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img1_reader.png
@@ -142,13 +142,13 @@ Tahmine dayalı makine öğrenimi modellerinin oluşturulmasına ilişkin daha f
 
 
 <!--Article references-->
-[Azure Machine Learning Studio]:https://studio.azureml.net/
-[Azure'da Machine Learning'e giriş]:https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/
-[örnek verileri elle yükleme]: sql-data-warehouse-load-sample-databases.md
-[SQL Veri Ambarı oluşturma]: sql-data-warehouse-get-started-provision.md
+[Azure Machine Learning studio]:https://studio.azureml.net/
+[Introduction to Machine Learning on Azure]:https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/
+[load sample data manually]: sql-data-warehouse-load-sample-databases.md
+[Create a SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

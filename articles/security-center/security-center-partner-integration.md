@@ -12,11 +12,11 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2016
+ms.date: 12/01/2016
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 0c946ce6a96f2e3644b9890dad5d60a35ad4bcb7
-ms.openlocfilehash: 10184c52d532eb56e66212fafdea3d059b0c43e3
+ms.sourcegitcommit: 5001cd47b6ee51967d1286414ccefedd8e7e7813
+ms.openlocfilehash: 095b5c9d1a888a4061450234f80c52c5834fbf53
 
 
 ---
@@ -45,23 +45,19 @@ Zamanla, Güvenlik Merkezi bu mevcut kategorilerdeki ortakların sayısını gen
 
 ## <a name="how-to-deploy-a-partner-solution"></a>Bir iş ortağı çözümü nasıl dağıtılır?
 
-Zaten Güvenlik Merkezi’nde dağıtılmış olan iş ortağı çözümlerine Güvenlik Merkezi panosundaki İş ortağı çözümü kutucuğundan kolayca erişilebilir:
+Azure ortamınızın yapılandırmasına ve tanımladığınız güvenlik ilkesine bağlı olarak Güvenlik Merkezi, bir iş ortağı çözümünün dağıtılmasını önerebilir. Bu öneri, iş ortağı çözümü seçme ve yükleme işleminde size yardımcı olacaktır. Bu noktada, genel dağıtım deneyimi çözüm türüne ve iş ortağına göre farklılık gösterebilir. Daha fazla bilgi için aşağıdaki bağlantıları inceleyin:
+
+- [Web uygulaması güvenlik duvarı ekleme](security-center-add-web-application-firewall.md)
+- [Yeni Nesil Güvenlik Duvarı ekleme](security-center-add-next-generation-firewall.md)
+- [Endpoint Protection’ı yükleyin](security-center-install-endpoint-protection.md)
+- [Güvenlik açığı değerlendirmesi yüklü değil](security-center-vulnerability-assessment-recommendations.md)
+
+## <a name="how-to-manage-partner-solutions"></a>İş ortağı çözümlerimi nasıl yönetebilirim?
+
+Bir iş ortağı çözümü dağıtıldıktan sonra, ana Güvenlik Merkezi panosundaki İş ortağı çözümü kutucuğundan çözümün durumu hakkında bilgi alabilir ve temel yönetim görevlerini gerçekleştirebilirsiniz. Güvenlik Merkezi'nde iş ortağı çözümlerini yönetme hakkında daha fazla bilgi edinmek için [Azure Güvenlik Merkezi ile İş ortağı çözümlerini izleme](security-center-partner-solutions.md) konusunu okuyun.
 
 ![İş Ortağı Tümleştirmesi](./media/security-center-partner-integration/security-center-partner-integration-fig1.png)
 
-Bir Güvenlik Merkezi önerisini temel alarak yeni bir iş ortağı çözümü dağıtmak için aşağıdaki adımları uygulayın:
-
-> [!NOTE]
-> Aşağıdaki örnekte verilen adımlar, bir web uygulaması güvenlik duvarıyla korumak istediğiniz bir iş yükünüz olduğunu varsayar.
-
-1. Güvenlik Merkezi panosunda **Öneriler** kutucuğuna tıklayın.
-2. **Öneriler** dikey penceresinde **Yeni web uygulaması güvenlik duvarı ekle**’ye tıklayın.
-3. **Web uygulaması güvenlik duvarı ekle** dikey penceresi altından uygulama adına tıklayın.
-4. **Web Uygulaması Güvenlik Duvarı ekle** dikey penceresinde **Yeni Oluştur**’a tıklayın.
-5. **Yeni Web Uygulaması Güvenlik Duvarı oluştur** dikey penceresinde web uygulaması güvenlik duvarı özelliği sunan geçerli iş ortaklarının listesi gösterilir.
-6. Uygun iş ortağı çözümünü seçin ve adımları izleyin (bu adımlar iş ortağına göre değişiklik gösterir).
-
-Bu noktada, genel dağıtım deneyimi iş ortağına göre farklılık gösterebilir. Güvenlik Merkezi’nde iş ortağı çözümlerini yönetme hakkında daha fazla bilgi edinmek için Azure Güvenlik Merkezi ile [İş ortağı çözümlerini izleme](security-center-partner-solutions.md) konusunu okuyun.
 
 ## <a name="see-also"></a>Ayrıca bkz.
 Bu belgede, Azure Güvenlik Merkezi'nde iş ortağı çözümünün nasıl tümleştirileceğini öğrendiniz. Güvenlik Merkezi hakkında daha fazla bilgi edinmek için şunlara bakın:
@@ -76,6 +72,6 @@ Bu belgede, Azure Güvenlik Merkezi'nde iş ortağı çözümünün nasıl tüml
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

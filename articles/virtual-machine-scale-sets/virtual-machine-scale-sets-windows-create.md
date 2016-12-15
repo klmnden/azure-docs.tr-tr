@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 10/18/2016
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 6d70338ebf918a3f9178a4f633dd46a607d72b1c
+ms.sourcegitcommit: 550db52c2b77ad651b4edad2922faf0f951df617
+ms.openlocfilehash: 5abaa31828e624f77b6a9efb4496327977b483e4
 
 
 ---
@@ -27,7 +27,7 @@ Bu adımlar bir Azure sanal makine ölçek kümesi oluşturmaya yönelik boşluk
 Bu makaledeki adımların uygulanması yaklaşık 30 dakika sürer.
 
 ## <a name="step-1-install-azure-powershell"></a>1. adım: Azure PowerShell'i yükleme
-Azure PowerShell’in en son sürümünü yükleme, aboneliğinizi seçme ve hesabınızda oturum açma hakkında bilgi almak için bkz. [Azure PowerShell’i yükleme ve yapılandırma](../powershell-install-configure.md).
+Azure PowerShell’in en son sürümünü yükleme, aboneliğinizi seçme ve hesabınızda oturum açma hakkında bilgi almak için bkz. [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azureps-cmdlets-docs).
 
 ## <a name="step-2-create-resources"></a>2. Adım: Kaynak oluşturma
 Yeni ölçek kümeniz için gereken kaynakları oluşturun.
@@ -130,7 +130,7 @@ Bir kaynak grubunda bir sanal makine ölçek kümesi yer almalıdır.
    
         $vmss = New-AzureRmVmssConfig -Location $locName -SkuCapacity 3 -SkuName "Standard_A0" -UpgradePolicyMode "manual"
    
-    Bu örnekte üç sanal makine ile oluşturulan bir ölçek kümesi gösterilmektedir. Ölçek kümelerinin kapasitesi hakkında daha fazla bilgi için bkz. [Sanal Makine Ölçek Kümelerine Genel Bakış](virtual-machine-scale-sets-overview.md). Bu adım ayrıca kümedeki sanal makinelerin boyutunu ayarlamayı (SkuName olarak adlandırılır) içerir. İhtiyaçlarınıza uygun bir boyut bulmak için [Sanal makine boyutları](../virtual-machines/virtual-machines-windows-sizes.md) bölümüne bakın.
+    Bu örnekte üç sanal makine ile oluşturulan bir ölçek kümesi gösterilmektedir. Ölçek kümelerinin kapasitesi hakkında daha fazla bilgi için bkz. [Sanal Makine Ölçek Kümelerine Genel Bakış](virtual-machine-scale-sets-overview.md). Bu adım ayrıca kümedeki sanal makinelerin boyutunu ayarlamayı (SkuName olarak adlandırılır) içerir. İhtiyaçlarınıza uygun bir boyut bulmak için [Sanal makine boyutları](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) bölümüne bakın.
 5. Ağ arabirimi yapılandırmasını ölçek kümesi yapılandırmasına ekleyin:
    
         Add-AzureRmVmssNetworkInterfaceConfiguration -VirtualMachineScaleSet $vmss -Name $vmssConfig -Primary $true -IPConfiguration $ipConfig
@@ -172,7 +172,7 @@ Bir kaynak grubunda bir sanal makine ölçek kümesi yer almalıdır.
         $imageOffer = "WindowsServer"
         $imageSku = "2012-R2-Datacenter"
    
-    Kullanılacak diğer görüntüler hakkında bilgi almak için [Windows PowerShell ve Azure CLI ile Azure sanal makine görüntülerinde gezinme ve seçme](../virtual-machines/virtual-machines-windows-cli-ps-findimage.md).
+    Kullanılacak diğer görüntüler hakkında bilgi almak için [Windows PowerShell ve Azure CLI ile Azure sanal makine görüntülerinde gezinme ve seçme](../virtual-machines/virtual-machines-windows-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 3. **$vhdContainers** değerini, "https://mystorage.blob.core.windows.net/vhds" gibi sanal sabit disklerin depolandığı yolları içeren bir listeyle değiştirin ve ardından değişkeni oluşturun:
    
         $vhdContainers = @("https://myst1.blob.core.windows.net/vhds","https://myst2.blob.core.windows.net/vhds","https://myst3.blob.core.windows.net/vhds")
@@ -225,6 +225,6 @@ Oluşturduğunuz sanal makine ölçek kümesini keşfetmek için aşağıdaki ka
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 
