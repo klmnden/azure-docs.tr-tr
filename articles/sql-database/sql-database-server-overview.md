@@ -8,7 +8,7 @@ manager: jhubbard
 editor: 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: overview
+ms.custom: servers
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
