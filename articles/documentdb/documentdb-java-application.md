@@ -457,7 +457,7 @@ Artık eğlenceli kısımları tamamladığımıza göre, geriye sadece hızlı 
             }
         }
 3. Kullanıcıya gösterilecek bir Web Kullanıcı Arabirimine ihtiyacımız olacak. Daha önce oluşturduğumuz index.jsp'yi yeniden yazalım:
-   
+    ```html
         <html>
         <head>
           <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -544,6 +544,7 @@ Artık eğlenceli kısımları tamamladığımıza göre, geriye sadece hızlı 
           <script src="assets/todo.js"></script>
         </body>
         </html>
+    ```
 4. Son olarak, web kullanıcı arabirimi ile servlet'i birbirine bağlamak için biraz istemci tarafı Javascript'i yazın:
    
         var todoApp = {

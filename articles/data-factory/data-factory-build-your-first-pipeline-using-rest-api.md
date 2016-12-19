@@ -48,7 +48,9 @@ Bu makalede, ilk Azure data factory’nizi oluşturmak için Data Factory REST A
   3. Kullanmak istediğiniz aboneliği seçmek için **Get-AzureRmSubscription - SubscriptionName NameOfAzureSubscription | Set-AzureRmContext** komutunu çalıştırın. **NameOfAzureSubscription** değerini Azure aboneliğinizin adıyla değiştirin.
 * PowerShell’de aşağıdaki komutu çalıştırarak **ADFTutorialResourceGroup** adlı bir Azure kaynak grubu oluşturun:
 
-       New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
+    ```PowerShell
+    New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
+    ```
 
    Bu öğreticideki adımlardan bazıları ADFTutorialResourceGroup adlı kaynak grubunu kullandığınızı varsayar. Farklı bir kaynak grubu kullanıyorsanız, bu öğreticide kullanılan ADFTutorialResourceGroup yerine kaynak grubunuzun adını kullanmanız gerekir.
 
@@ -61,10 +63,12 @@ Curl.exe’nin bulunduğu klasörde aşağıdaki JSON dosyalarını oluşturun.
 >
 >
 
-    {
-        "name": "FirstDataFactoryREST",
-        "location": "WestUS"
-    }
+```JSON
+{
+    "name": "FirstDataFactoryREST",
+    "location": "WestUS"
+}
+```
 
 ### <a name="azurestoragelinkedservicejson"></a>azurestoragelinkedservice.json
 > [!IMPORTANT]
@@ -72,30 +76,34 @@ Curl.exe’nin bulunduğu klasörde aşağıdaki JSON dosyalarını oluşturun.
 >
 >
 
-    {
-        "name": "AzureStorageLinkedService",
-        "properties": {
-            "type": "AzureStorage",
-            "typeProperties": {
-                "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
-            }
+```JSON
+{
+    "name": "AzureStorageLinkedService",
+    "properties": {
+        "type": "AzureStorage",
+        "typeProperties": {
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
         }
     }
-
+}
+```
 
 ### <a name="hdinsightondemandlinkedservicejson"></a>hdinsightondemandlinkedservice.JSON
-    {
-        "name": "HDInsightOnDemandLinkedService",
-        "properties": {
-            "type": "HDInsightOnDemand",
-            "typeProperties": {
-                "version": "3.2",
-                "clusterSize": 1,
-                "timeToLive": "00:30:00",
-                "linkedServiceName": "AzureStorageLinkedService"
-            }
+
+```JSON
+{
+    "name": "HDInsightOnDemandLinkedService",
+    "properties": {
+        "type": "HDInsightOnDemand",
+        "typeProperties": {
+            "version": "3.2",
+            "clusterSize": 1,
+            "timeToLive": "00:30:00",
+            "linkedServiceName": "AzureStorageLinkedService"
         }
     }
+}
+```
 
 Aşağıdaki tabloda, kod parçacığında kullanılan JSON özellikleri için açıklamalar verilmektedir:
 
@@ -117,28 +125,30 @@ Aşağıdaki noktalara dikkat edin:
 Ayrıntılar için bkz. [İsteğe Bağlı HDInsight Bağlı Hizmeti](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service).
 
 ### <a name="inputdatasetjson"></a>inputdataset.json
-    {
-        "name": "AzureBlobInput",
-        "properties": {
-            "type": "AzureBlob",
-            "linkedServiceName": "AzureStorageLinkedService",
-            "typeProperties": {
-                "fileName": "input.log",
-                "folderPath": "adfgetstarted/inputdata",
-                "format": {
-                    "type": "TextFormat",
-                    "columnDelimiter": ","
-                }
-            },
-            "availability": {
-                "frequency": "Month",
-                "interval": 1
-            },
-            "external": true,
-            "policy": {}
-        }
-    }
 
+```JSON
+{
+    "name": "AzureBlobInput",
+    "properties": {
+        "type": "AzureBlob",
+        "linkedServiceName": "AzureStorageLinkedService",
+        "typeProperties": {
+            "fileName": "input.log",
+            "folderPath": "adfgetstarted/inputdata",
+            "format": {
+                "type": "TextFormat",
+                "columnDelimiter": ","
+            }
+        },
+        "availability": {
+            "frequency": "Month",
+            "interval": 1
+        },
+        "external": true,
+        "policy": {}
+    }
+}
+```
 
 Bu JSON, işlem hattındaki bir etkinliğin girdi verilerini temsil eden **AzureBlobInput** adlı veri kümesini tanımlamaktadır. Ek olarak, girdi verilerinin **adfgetstarted** adlı blob kapsayıcısında ve **inputdata** adlı klasörde bulunduğunu belirtir.
 
@@ -155,24 +165,27 @@ Aşağıdaki tabloda, kod parçacığında kullanılan JSON özellikleri için a
 | external |bu özellik, girdi verileri Data Factory hizmetiyle oluşturulmadıysa true olarak ayarlanır. |
 
 ### <a name="outputdatasetjson"></a>outputdataset.json
-    {
-        "name": "AzureBlobOutput",
-        "properties": {
-            "type": "AzureBlob",
-            "linkedServiceName": "AzureStorageLinkedService",
-            "typeProperties": {
-                "folderPath": "adfgetstarted/partitioneddata",
-                "format": {
-                    "type": "TextFormat",
-                    "columnDelimiter": ","
-                }
-            },
-            "availability": {
-                "frequency": "Month",
-                "interval": 1
+
+```JSON
+{
+    "name": "AzureBlobOutput",
+    "properties": {
+        "type": "AzureBlob",
+        "linkedServiceName": "AzureStorageLinkedService",
+        "typeProperties": {
+            "folderPath": "adfgetstarted/partitioneddata",
+            "format": {
+                "type": "TextFormat",
+                "columnDelimiter": ","
             }
+        },
+        "availability": {
+            "frequency": "Month",
+            "interval": 1
         }
     }
+}
+```
 
 Bu JSON, işlem hattındaki bir etkinliğin çıktı verilerini temsil eden **AzureBlobOutput** adlı veri kümesini tanımlamaktadır. Ek olarak, sonuçların **adfgetstarted** adlı blob kapsayıcısında ve **partitioneddata** adlı klasörde depolandığını belirtir. Burada, **availability** bölümü çıktı veri kümesinin aylık tabanda oluşturulduğunu belirtiyor.
 
@@ -182,42 +195,44 @@ Bu JSON, işlem hattındaki bir etkinliğin çıktı verilerini temsil eden **Az
 >
 >
 
-    {
-        "name": "MyFirstPipeline",
-        "properties": {
-            "description": "My first Azure Data Factory pipeline",
-            "activities": [{
-                "type": "HDInsightHive",
-                "typeProperties": {
-                    "scriptPath": "adfgetstarted/script/partitionweblogs.hql",
-                    "scriptLinkedService": "AzureStorageLinkedService",
-                    "defines": {
-                        "inputtable": "wasb://adfgetstarted@<stroageaccountname>.blob.core.windows.net/inputdata",
-                        "partitionedtable": "wasb://adfgetstarted@<stroageaccountname>t.blob.core.windows.net/partitioneddata"
-                    }
-                },
-                "inputs": [{
-                    "name": "AzureBlobInput"
-                }],
-                "outputs": [{
-                    "name": "AzureBlobOutput"
-                }],
-                "policy": {
-                    "concurrency": 1,
-                    "retry": 3
-                },
-                "scheduler": {
-                    "frequency": "Month",
-                    "interval": 1
-                },
-                "name": "RunSampleHiveActivity",
-                "linkedServiceName": "HDInsightOnDemandLinkedService"
+```JSON
+{
+    "name": "MyFirstPipeline",
+    "properties": {
+        "description": "My first Azure Data Factory pipeline",
+        "activities": [{
+            "type": "HDInsightHive",
+            "typeProperties": {
+                "scriptPath": "adfgetstarted/script/partitionweblogs.hql",
+                "scriptLinkedService": "AzureStorageLinkedService",
+                "defines": {
+                    "inputtable": "wasb://adfgetstarted@<stroageaccountname>.blob.core.windows.net/inputdata",
+                    "partitionedtable": "wasb://adfgetstarted@<stroageaccountname>t.blob.core.windows.net/partitioneddata"
+                }
+            },
+            "inputs": [{
+                "name": "AzureBlobInput"
             }],
-            "start": "2016-07-10T00:00:00Z",
-            "end": "2016-07-11T00:00:00Z",
-            "isPaused": false
-        }
+            "outputs": [{
+                "name": "AzureBlobOutput"
+            }],
+            "policy": {
+                "concurrency": 1,
+                "retry": 3
+            },
+            "scheduler": {
+                "frequency": "Month",
+                "interval": 1
+            },
+            "name": "RunSampleHiveActivity",
+            "linkedServiceName": "HDInsightOnDemandLinkedService"
+        }],
+        "start": "2016-07-10T00:00:00Z",
+        "end": "2016-07-11T00:00:00Z",
+        "isPaused": false
     }
+}
+```
 
 JSON parçacığında, HDInsight kümesinde veri işlemek için Hive’ı kullanan tek bir etkinlikten oluşan bir işlem hattı oluşturuyorsunuz.
 
@@ -242,23 +257,26 @@ Azure PowerShell’de değerleri kendi değerlerinizle değiştirdikten sonra a�
 >
 >
 
-    $client_id = "<client ID of application in AAD>"
-    $client_secret = "<client key of application in AAD>"
-    $tenant = "<Azure tenant ID>";
-    $subscription_id="<Azure subscription ID>";
+```PowerShell
+$client_id = "<client ID of application in AAD>"
+$client_secret = "<client key of application in AAD>"
+$tenant = "<Azure tenant ID>";
+$subscription_id="<Azure subscription ID>";
 
-    $rg = "ADFTutorialResourceGroup"
-    $adf = "FirstDataFactoryREST"
-
+$rg = "ADFTutorialResourceGroup"
+$adf = "FirstDataFactoryREST"
+```
 
 
 ## <a name="authenticate-with-aad"></a>AAD ile kimlik doğrulama
-    $cmd = { .\curl.exe -X POST https://login.microsoftonline.com/$tenant/oauth2/token  -F grant_type=client_credentials  -F resource=https://management.core.windows.net/ -F client_id=$client_id -F client_secret=$client_secret };
-    $responseToken = Invoke-Command -scriptblock $cmd;
-    $accessToken = (ConvertFrom-Json $responseToken).access_token;
 
-    (ConvertFrom-Json $responseToken)
+```PowerShell
+$cmd = { .\curl.exe -X POST https://login.microsoftonline.com/$tenant/oauth2/token  -F grant_type=client_credentials  -F resource=https://management.core.windows.net/ -F client_id=$client_id -F client_secret=$client_secret };
+$responseToken = Invoke-Command -scriptblock $cmd;
+$accessToken = (ConvertFrom-Json $responseToken).access_token;
 
+(ConvertFrom-Json $responseToken)
+```
 
 
 ## <a name="create-data-factory"></a>Veri fabrikası oluşturma
@@ -268,13 +286,19 @@ Bu adımda, **FirstDataFactoryREST** adlı bir Azure Data Factory oluşturursunu
 
     Burada belirttiğiniz veri fabrikasının (ADFCopyTutorialDF) adının **datafactory.json**’da belirtilen adla eşleştiğini doğrulayın.
 
-        $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data “@datafactory.json” https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/FirstDataFactoryREST?api-version=2015-10-01};
+    ```PowerShell
+    $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data “@datafactory.json” https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/FirstDataFactoryREST?api-version=2015-10-01};
+    ```
 2. **Invoke-Command** komutunu kullanarak komutu çalıştırın.
 
-        $results = Invoke-Command -scriptblock $cmd;
+    ```PowerShell
+    $results = Invoke-Command -scriptblock $cmd;
+    ```
 3. Sonuçlara bakın. Veri fabrikası başarıyla oluşturulduysa, **results** bölümünde veri fabrikasının JSON’unu görürsünüz; aksi takdirde bir hata iletisi görürsünüz.
 
-        Write-Host $results
+    ```PowerShell
+    Write-Host $results
+    ```
 
 Aşağıdaki noktalara dikkat edin:
 
@@ -288,11 +312,14 @@ Aşağıdaki noktalara dikkat edin:
 
   * Azure PowerShell’de Data Factory sağlayıcısını kaydetmek için aşağıdaki komutu çalıştırın:
 
-          Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
+    ```PowerShell
+    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
+    ```
 
       Data Factory sağlayıcısının kayıtlı olduğunu onaylamak için aşağıdaki komutu çalıştırabilirsiniz:
-
-          Get-AzureRmResourceProvider
+    ```PowerShell
+    Get-AzureRmResourceProvider
+    ```
   * Azure aboneliğini kullanarak [Azure portalında](https://portal.azure.com) oturum açın ve Data Factory dikey penceresine gidin (ya da) Azure portalında bir data factory oluşturun. Bu eylem sağlayıcıyı sizin için otomatik olarak kaydeder.
 
 İşlem hattı oluşturmadan önce, öncelikle birkaç Data Factory varlığı oluşturmanız gerekir. Veri depolarını/işlemlerini veri deponuza bağlamak için önce bağlı hizmetleri oluşturun ve bağlı veri depolarında veriyi tanıtmak için girdi ve çıktı veri kümelerini tanımlayın.
@@ -305,26 +332,38 @@ Bu adımda, Azure Depolama hesabınızı veri fabrikanıza bağlarsınız. Bu ö
 
 1. Komutu **cmd** adlı değişkene atayın.
 
-        $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data “@azurestoragelinkedservice.json” https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/linkedservices/AzureStorageLinkedService?api-version=2015-10-01};
+    ```PowerShell
+    $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data “@azurestoragelinkedservice.json” https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/linkedservices/AzureStorageLinkedService?api-version=2015-10-01};
+    ```
 2. **Invoke-Command** komutunu kullanarak komutu çalıştırın.
 
-        $results = Invoke-Command -scriptblock $cmd;
+    ```PowerShell
+    $results = Invoke-Command -scriptblock $cmd;
+    ```
 3. Sonuçlara bakın. Bağlı hizmet başarıyla oluşturulduysa, **results** bölümünde bağlı hizmetin JSON’unu görürsünüz; aksi takdirde bir hata iletisi görürsünüz.
 
-        Write-Host $results
+    ```PowerShell
+    Write-Host $results
+    ```
 
 ### <a name="create-azure-hdinsight-linked-service"></a>Azure HDInsight bağlı hizmeti oluşturma
 Bu adımda, isteğe bağlı HDInsight kümesini data factory’nize bağlarsınız. HDInsight kümesi çalışma zamanında otomatik olarak oluşturulur ve işlenmesi bittiğinde ve belirtilen sürede boşta kalırsa silinir. İsteğe bağlı HDInsight kümesi yerine kendi HDInsight kümenizi kullanabilirsiniz. Ayrıntılar için bkz. [İşlem Bağlı Hizmetleri](data-factory-compute-linked-services.md).
 
 1. Komutu **cmd** adlı değişkene atayın.
 
-        $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@hdinsightondemandlinkedservice.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/linkedservices/hdinsightondemandlinkedservice?api-version=2015-10-01};
+    ```PowerShell
+    $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@hdinsightondemandlinkedservice.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/linkedservices/hdinsightondemandlinkedservice?api-version=2015-10-01};
+    ```
 2. **Invoke-Command** komutunu kullanarak komutu çalıştırın.
 
-        $results = Invoke-Command -scriptblock $cmd;
+    ```PowerShell
+    $results = Invoke-Command -scriptblock $cmd;
+    ```
 3. Sonuçlara bakın. Bağlı hizmet başarıyla oluşturulduysa, **results** bölümünde bağlı hizmetin JSON’unu görürsünüz; aksi takdirde bir hata iletisi görürsünüz.
 
-        Write-Host $results
+    ```PowerShell
+    Write-Host $results
+    ```
 
 ## <a name="create-datasets"></a>Veri kümeleri oluşturma
 Bu adımda, Hive işlenmesi için girdi ve çıktı verilerini temsil edecek veri kümeleri oluşturursunuz. Bu veri kümeleri, bu öğreticide daha önce oluşturduğunuz **StorageLinkedService** öğesine başvurur. Bağlı hizmet Azure Storage hesabını belirtirken, veri kümeleri de girdi ve çıktı verilerini tutan depolama biriminde kapsayıcı, klasör, dosya adı belirtir.
@@ -334,26 +373,38 @@ Bu adımda, Azure Blob depolamada depolanan girdi verilerini göstermek için gi
 
 1. Komutu **cmd** adlı değişkene atayın.
 
-        $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@inputdataset.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datasets/AzureBlobInput?api-version=2015-10-01};
+    ```PowerShell
+    $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@inputdataset.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datasets/AzureBlobInput?api-version=2015-10-01};
+    ```
 2. **Invoke-Command** komutunu kullanarak komutu çalıştırın.
 
-        $results = Invoke-Command -scriptblock $cmd;
+    ```PowerShell
+    $results = Invoke-Command -scriptblock $cmd;
+    ```
 3. Sonuçlara bakın. Veri kümesi başarıyla oluşturulduysa, **results** bölümünde veri kümesinin JSON’unu görürsünüz; aksi takdirde bir hata iletisi görürsünüz.
 
-        Write-Host $results
+    ```PowerShell
+    Write-Host $results
+    ```
 
 ### <a name="create-output-dataset"></a>Çıktı veri kümesi oluşturma
 Bu adımda, Azure Blob depolamada depolanan çıktı verilerini göstermek için çıktı veri kümesini oluşturursunuz.
 
 1. Komutu **cmd** adlı değişkene atayın.
 
-        $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@outputdataset.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datasets/AzureBlobOutput?api-version=2015-10-01};
+    ```PowerShell
+    $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@outputdataset.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datasets/AzureBlobOutput?api-version=2015-10-01};
+    ```
 2. **Invoke-Command** komutunu kullanarak komutu çalıştırın.
 
-        $results = Invoke-Command -scriptblock $cmd;
+    ```PowerShell
+    $results = Invoke-Command -scriptblock $cmd;
+    ```
 3. Sonuçlara bakın. Veri kümesi başarıyla oluşturulduysa, **results** bölümünde veri kümesinin JSON’unu görürsünüz; aksi takdirde bir hata iletisi görürsünüz.
 
-        Write-Host $results
+    ```PowerShell
+    Write-Host $results
+    ```
 
 ## <a name="create-pipeline"></a>İşlem hattı oluşturma
 Bu adımda, **HDInsightHive** etkinliğiyle ilk işlem hattınızı oluşturursunuz. Girdi diliminin ayda bir (frequency: Month, interval: 1) kullanılabilir, çıktı dilimi ayda bir oluşturulur ve etkinlik zamanlayıcı özelliği de ayda bir olacak şekilde ayarlanır. Çıktı veri kümesi ve etkinlik zamanlayıcı ayarlarının eşleşmesi gerekir. Şu anda, çıktı veri kümesi zamanlamayı yönetendir; bu nedenle etkinlik hiçbir çıktı oluşturmasa bile sizin bir çıktı veri kümesi oluşturmanız gerekir. Etkinlik herhangi bir girdi almazsa, girdi veri kümesi oluşturma işlemini atlayabilirsiniz.
@@ -362,30 +413,37 @@ Azure blob depolamada **adfgetstarted/inputdata** klasöründeki **input.log** d
 
 1. Komutu **cmd** adlı değişkene atayın.
 
-        $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@pipeline.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datapipelines/MyFirstPipeline?api-version=2015-10-01};
+    ```PowerShell
+    $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@pipeline.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datapipelines/MyFirstPipeline?api-version=2015-10-01};
+    ```
 2. **Invoke-Command** komutunu kullanarak komutu çalıştırın.
 
-        $results = Invoke-Command -scriptblock $cmd;
+    ```PowerShell
+    $results = Invoke-Command -scriptblock $cmd;
+    ```
 3. Sonuçlara bakın. Veri kümesi başarıyla oluşturulduysa, **results** bölümünde veri kümesinin JSON’unu görürsünüz; aksi takdirde bir hata iletisi görürsünüz.
 
-        Write-Host $results
+    ```PowerShell
+    Write-Host $results
+    ```
 4. Tebrikler, Azure PowerShell kullanarak ilk işlem hattınızı başarıyla oluşturdunuz.
 
 ## <a name="monitor-pipeline"></a>İşlem hattını izleme
 Bu adımda, Data Factory REST API’sini kullanarak işlem hattı tarafından üretilmekte olan dilimleri izlersiniz.
 
-    $ds ="AzureBlobOutput"
+```PowerShell
+$ds ="AzureBlobOutput"
 
-    $cmd = {.\curl.exe -X GET -H "Authorization: Bearer $accessToken" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datasets/$ds/slices?start=1970-01-01T00%3a00%3a00.0000000Z"&"end=2016-08-12T00%3a00%3a00.0000000Z"&"api-version=2015-10-01};
+$cmd = {.\curl.exe -X GET -H "Authorization: Bearer $accessToken" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datasets/$ds/slices?start=1970-01-01T00%3a00%3a00.0000000Z"&"end=2016-08-12T00%3a00%3a00.0000000Z"&"api-version=2015-10-01};
 
-    $results2 = Invoke-Command -scriptblock $cmd;
+$results2 = Invoke-Command -scriptblock $cmd;
 
-    IF ((ConvertFrom-Json $results2).value -ne $NULL) {
-        ConvertFrom-Json $results2 | Select-Object -Expand value | Format-Table
-    } else {
-            (convertFrom-Json $results2).RemoteException
-    }
-
+IF ((ConvertFrom-Json $results2).value -ne $NULL) {
+    ConvertFrom-Json $results2 | Select-Object -Expand value | Format-Table
+} else {
+        (convertFrom-Json $results2).RemoteException
+}
+```
 
 > [!IMPORTANT]
 > İsteğe bağlı HDInsight kümesinin oluşturulması genellikle biraz zaman alır (yaklaşık 20 dakika). Bu nedenle, işlem hattının dilimi işlemesi için **yaklaşık 30 dakika** bekleyin.
