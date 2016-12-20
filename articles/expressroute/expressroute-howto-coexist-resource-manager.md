@@ -14,14 +14,14 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
-ms.author: charleywen
+ms.author: charwen
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 44f6761b3c3680af923f2a3b16671ca19672e281
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 68ad5679a2a6fcb7cfca25410af3f2f113490bdc
 
 
 ---
-# <a name="configure-expressroute-and-sitetosite-coexisting-connections-for-the-resource-manager-deployment-model"></a>Resource Manager dağıtım modeli için aynı anda var olabilen ExpressRoute ve Siteden Siteye bağlantılarını yapılandırma
+# <a name="configure-expressroute-and-site-to-site-coexisting-connections-for-the-resource-manager-deployment-model"></a>Resource Manager dağıtım modeli için aynı anda var olabilen ExpressRoute ve Siteden Siteye bağlantılarını yapılandırma
 > [!div class="op_single_selector"]
 > * [PowerShell - Resource Manager](expressroute-howto-coexist-resource-manager.md)
 > * [PowerShell - Klasik](expressroute-howto-coexist-classic.md)
@@ -47,7 +47,7 @@ Siteden Siteye VPN ve ExpressRoute yapılandırma yeteneğine sahip olmanın çe
 * **İlk olarak ExpressRoute ağ geçidi yapılandırılmalıdır.** Siteden Siteye VPN ağ geçidini ekleyebilmek için önce ExpressRoute ağ geçidini oluşturmanız gerekir.
 
 ## <a name="configuration-designs"></a>Yapılandırma tasarımları
-### <a name="configure-a-sitetosite-vpn-as-a-failover-path-for-expressroute"></a>Siteden siteye VPN’i ExpressRoute için bir yük devretme yolu olarak yapılandırma
+### <a name="configure-a-site-to-site-vpn-as-a-failover-path-for-expressroute"></a>Siteden siteye VPN’i ExpressRoute için bir yük devretme yolu olarak yapılandırma
 Siteden siteye bir VPN bağlantısını ExpressRoute için yedek olarak yapılandırabilirsiniz. Bu yalnızca Azure özel eşleme yoluna bağlı sanal ağlar için geçerlidir. Azure ortak ve Microsoft eşlemeleri aracılığıyla erişilebilen hizmetler için VPN tabanlı yük devretme çözümü yoktur. ExpressRoute bağlantı hattı her zaman birincil bağlantıdır. Veriler yalnızca ExpressRoute bağlantı hattı başarısız olursa, Siteden Siteye VPN üzerinden akar.
 
 > [!NOTE]
@@ -57,7 +57,7 @@ Siteden siteye bir VPN bağlantısını ExpressRoute için yedek olarak yapılan
 
 ![Bir arada var olma](media/expressroute-howto-coexist-resource-manager/scenario1.jpg)
 
-### <a name="configure-a-sitetosite-vpn-to-connect-to-sites-not-connected-through-expressroute"></a>ExpressRoute aracılığıyla bağlanılmayan sitelere bağlanmak için Siteden Siteye VPN yapılandırma
+### <a name="configure-a-site-to-site-vpn-to-connect-to-sites-not-connected-through-expressroute"></a>ExpressRoute aracılığıyla bağlanılmayan sitelere bağlanmak için Siteden Siteye VPN yapılandırma
 Ağınızı bazı sitelerin Azure’a Siteden Siteye VPN üzerinden doğrudan ve bazı sitelerin ExpressRoute üzerinden bağlanması için yapılandırabilirsiniz. 
 
 ![Bir arada var olma](media/expressroute-howto-coexist-resource-manager/scenario2.jpg)
@@ -82,7 +82,7 @@ Bir arada var olabilen bağlantılar yapılandırmak için seçebileceğiniz iki
 ## <a name="a-namenewato-create-a-new-virtual-network-and-coexisting-connections"></a><a name="new"></a>Yeni bir sanal ağ ve bir arada var olabilen bağlantılar oluşturmak için
 Bu yordamda, bir VNet oluşturma ve bir arada var olabilen Siteden Siteye ve ExpressRoute bağlantıları oluşturma adım adım açıklanmıştır.
 
-1. Azure PowerShell cmdlet’lerinin en yeni sürümünü yüklemeniz gerekir. PowerShell cmdlet'lerini yükleme hakkında daha fazla bilgi için bkz. [Azure PowerShell'i yükleme ve yapılandırma](../powershell-install-configure.md). Bu yapılandırma için kullanacağınız cmdlet'lerin tanıdıklarınızdan biraz farklı olabileceğini unutmayın. Bu yönergelerde belirtilen cmdlet'leri kullandığınızdan emin olun.
+1. Azure PowerShell cmdlet’lerinin en yeni sürümünü yüklemeniz gerekir. PowerShell cmdlet'lerini yükleme hakkında daha fazla bilgi için bkz. [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azureps-cmdlets-docs). Bu yapılandırma için kullanacağınız cmdlet'lerin tanıdıklarınızdan biraz farklı olabileceğini unutmayın. Bu yönergelerde belirtilen cmdlet'leri kullandığınızdan emin olun.
 2. Hesabınızda oturum açın ve ortamı ayarlayın.
    
         login-AzureRmAccount
@@ -160,7 +160,7 @@ Ağ geçidi alt ağı /27 veya daha büyükse ve sanal ağ ExpressRoute üzerind
 > 
 > 
 
-1. Azure PowerShell cmdlet’lerinin en yeni sürümünü yüklemeniz gerekir. PowerShell cmdlet'lerini yükleme hakkında daha fazla bilgi için bkz. [Azure PowerShell'i yükleme ve yapılandırma](../powershell-install-configure.md). Bu yapılandırma için kullanacağınız cmdlet'lerin tanıdıklarınızdan biraz farklı olabileceğini unutmayın. Bu yönergelerde belirtilen cmdlet'leri kullandığınızdan emin olun. 
+1. Azure PowerShell cmdlet’lerinin en yeni sürümünü yüklemeniz gerekir. PowerShell cmdlet'lerini yükleme hakkında daha fazla bilgi için bkz. [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azureps-cmdlets-docs). Bu yapılandırma için kullanacağınız cmdlet'lerin tanıdıklarınızdan biraz farklı olabileceğini unutmayın. Bu yönergelerde belirtilen cmdlet'leri kullandığınızdan emin olun. 
 2. Mevcut ExpressRoute veya Siteden Siteye VPN ağ geçidini silin. 
    
         Remove-AzureRmVirtualNetworkGateway -Name <yourgatewayname> -ResourceGroupName <yourresourcegroup>
@@ -183,7 +183,7 @@ Ağ geçidi alt ağı /27 veya daha büyükse ve sanal ağ ExpressRoute üzerind
         $vnet = Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 5. Bu noktada, hiçbir ağ geçidi olmayan bir VNet’e sahip olursunuz. Yeni ağ geçitleri oluşturmak ve bağlantılarınızı tamamlamak için, önceki adım kümesinde bulabileceğiniz [4. Adım - Bir ExpressRoute ağ geçidi oluşturma](#gw) bölümüyle devam edebilirsiniz.
 
-## <a name="to-add-pointtosite-configuration-to-the-vpn-gateway"></a>VPN ağ geçidine noktadan siteye yapılandırması eklemek için
+## <a name="to-add-point-to-site-configuration-to-the-vpn-gateway"></a>VPN ağ geçidine noktadan siteye yapılandırması eklemek için
 Bir arada var olan kurulumda VPN ağ geçidinize Noktadan Siteye yapılandırması eklemek için aşağıdaki adımları izleyebilirsiniz.
 
 1. VPN İstemcisi adres havuzunu ekleyin. 
@@ -212,6 +212,6 @@ ExpressRoute hakkında daha fazla bilgi için, bkz. [ExpressRoute SSS](expressro
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

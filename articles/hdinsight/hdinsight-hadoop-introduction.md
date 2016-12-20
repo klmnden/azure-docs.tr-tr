@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 10/21/2016
 ms.author: cgronlun
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: cefda0778fed4ab8d502955dd8eae4bdac70a48e
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 66200ad8688928c368146a177130f6e2fad4849b
 
 
 ---
@@ -74,7 +74,7 @@ Aşağıdaki bileşenler ve yardımcı programları HDInsight kümelerine dahil 
 * **[ZooKeeper](#zookeeper)**: Dağıtılmış sistemlerdeki süreçlerin koordinasyonu.
 
 > [!NOTE]
-> Belirli bileşenler ve sürüm bilgileri hakkında bilgi için bkz. [HDInsight’ta Hadoop bileşenleri, sürümleri ve hizmet teklifleri][component-versioning]
+> Belirli bileşenler ve sürüm bilgileri hakkında bilgi için bkz. [HDInsight'ta Hadoop bileşenleri, sürümleri ve hizmet teklifleri][component-versioning]
 > 
 > 
 
@@ -148,7 +148,7 @@ Bu JVM tabanlı diller HDInsight kümelerinde desteklenir:
 * Jython (Java için Python)
 * Scala
 
-### <a name="hadoopspecific-languages"></a>Hadoop’a özgü diller
+### <a name="hadoop-specific-languages"></a>Hadoop’a özgü diller
 HDInsight kümeleri, Hadoop ekosistemine özgü aşağıdaki dilleri destekler:
 
 * Pig işleri için Pig Latin
@@ -158,21 +158,21 @@ HDInsight kümeleri, Hadoop ekosistemine özgü aşağıdaki dilleri destekler:
 Azure bulut ekosisteminin bir parçası olarak, HDInsight’ta Hadoop birçok avantaj sunar, bunlar:
 
 * Otomatik Hadoop kümeleri hazırlama. HDInsight kümelerini oluşturmak Hadoop kümelerinin el ile yapılandırmaktan çok daha kolaydır. Ayrıntılar için bkz. [HDInsight Hadoop kümeleri hazırlama](hdinsight-hadoop-provision-linux-clusters.md).
-* Resim durumu Hadoop bileşenleri. Ayrıntılar için bkz. [HDInsight’ta Hadoop bileşenleri, sürümleri ve hizmet teklifleri][component-versioning].
+* Resim durumu Hadoop bileşenleri. Ayrıntılar için bkz. [HDInsight'ta Hadoop bileşenleri, sürümleri ve hizmet teklifleri][component-versioning].
 * Yüksek küme kullanılabilirliği ve güvenilirliği. Bkz. [HDInsight’ta Hadoop kümelerinin kullanılabilirliği ve güvenilirliğin](hdinsight-high-availability-linux.md).
 * Hadoop uyumlu bir seçenek olan Azure Blob Storage ile verimli ve ekonomik veri depolama. Ayrıntılar için bkz. [HDInsight’ta Hadoop ile Azure Blob Storage kullanma](hdinsight-hadoop-use-blob-storage.md).
 * [Web apps](https://azure.microsoft.com/documentation/services/app-service/web/) ve [SQL Database](https://azure.microsoft.com/documentation/services/sql-database/) dahil diğer Azure hizmetleriyle tümleştirme.
-* HDInsight kümelerini çalıştırmak için ek sanal makine boyutları ve türleri. Ayrıntılar için bkz. [HDInsight’ta Hadoop bileşenleri, sürümleri ve hizmet teklifleri][component-versioning].
+* HDInsight kümelerini çalıştırmak için ek sanal makine boyutları ve türleri. Ayrıntılar için bkz. [HDInsight'ta Hadoop bileşenleri, sürümleri ve hizmet teklifleri][component-versioning].
 * Küme ölçeklendirme. Küme ölçeklendirme, silmenize ya da yeniden oluşturmanıza gerek kalmadan, çalışan bir HDInsight kümesine ait düğümlerin sayısını değiştirmenizi sağlar.
 * Virtual Network desteği. HDInsight kümeleri, bulut kaynaklarının yalıtımını ya da bulut kaynaklarını veri merkezinizdekilere bağlayan hibrit senaryoları desteklemek için Azure Virtual Network ile birlikte kullanılabilir.
 * Düşük giriş maliyeti. [Ücretsiz deneme sürümü](https://azure.microsoft.com/free/) başlatın ya da [HDInsight fiyatlandırma ayrıntılarını](https://azure.microsoft.com/pricing/details/hdinsight/) inceleyin.
 
-HDInsight’ta Hadoop’un avantajları hakkında daha fazla bilgi için bkz. [HDInsight için Azure özellikleri sayfası ][pazarlama sayfası].
+HDInsight'ta Hadoop'un avantajları hakkında daha fazla bilgi için bkz. [HDInsight için Azure özellikleri sayfası ][marketing-page].
 
 ## <a name="hdinsight-standard-and-hdinsight-premium"></a>HDInsight Standart ve HDInsight Premium
 HDInsight, Standart ve Premium olmak üzere, iki kategoride büyük veri bulutu teklifleri sunar. HDInsight Standart, kuruluşların kendi büyük veri iş yüklerini çalıştırmak için kullanabileceği kurumsal ölçekte küme sağlar. HDInsight Premium, bunun üzerine kurulur ve HDInsight kümesi için gelişmiş bir çözümsel ve güvenlik özellikleri sağlar. Daha fazla bilgi için bkz. [Azure HDInsight Premium](hdinsight-component-versioning.md#hdinsight-standard-and-hdinsight-premium)
 
-## <a name="a-idresourcesaresources-for-learning-more-about-bigdata-analysis-hadoop-and-hdinsight"></a><a id="resources"></a>Büyük veri analizi, Hadoop ve HDInsight hakkında daha fazla bilgi için kaynaklar
+## <a name="a-idresourcesaresources-for-learning-more-about-big-data-analysis-hadoop-and-hdinsight"></a><a id="resources"></a>Büyük veri analizi, Hadoop ve HDInsight hakkında daha fazla bilgi için kaynaklar
 Bu, bulutta Hadoop ve büyük verileri çözümlemeye ilişkin girişi aşağıdaki kaynaklarla geliştirin.
 
 ### <a name="hadoop-documentation-for-hdinsight"></a>HDInsight için Hadoop belgeleri
@@ -198,12 +198,12 @@ Bu BI araçları, büyük veri çözümlemede size yardımcı olabilir:
 * [SQL Server Analysis Services](http://msdn.microsoft.com/library/hh231701.aspx).
 * [SQL Server Reporting Services](http://msdn.microsoft.com/library/ms159106.aspx).
 
-[pazarlama sayfası]: https://azure.microsoft.com/services/hdinsight/
+[marketing-page]: https://azure.microsoft.com/services/hdinsight/
 [component-versioning]: hdinsight-component-versioning.md
 [zookeeper]: http://zookeeper.apache.org/
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

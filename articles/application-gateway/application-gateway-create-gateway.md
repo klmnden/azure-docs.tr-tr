@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/10/2016
+ms.date: 11/16/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 3a8e5583f213c6d35f8e41dd31fe2ccad7389977
-ms.openlocfilehash: a6e14765fb1820ac24c18f7cc2634b41cbade21e
+ms.sourcegitcommit: ee8cfffdbf054b4251ed269745f6b9ee5a5e6c64
+ms.openlocfilehash: 2a06e9c7bb6b9f2aacc1544ba4b85a90bb57f01c
 
 
 ---
 # <a name="create-start-or-delete-an-application-gateway"></a>Bir uygulama ağ geçidi oluşturun, başlayın veya silin
+
 > [!div class="op_single_selector"]
 > * [Azure Portal](application-gateway-create-gateway-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-create-gateway-arm.md)
@@ -35,13 +36,14 @@ Azure Application Gateway, bir katman 7 yük dengeleyicidir. Bulutta veya şirke
 Bu makale, uygulama ağ geçidi oluşturma, yapılandırma, başlatma ve silme adımlarında size eşlik eder.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
+
 1. Web Platformu Yükleyicisi’ni kullanarak Azure PowerShell cmdlet’lerin en son sürümünü yükleyin. **İndirmeler sayfası**’ndaki [Windows PowerShell](https://azure.microsoft.com/downloads/) bölümünden en son sürümü indirip yükleyebilirsiniz.
 2. Mevcut bir sanal ağınız varsa var olan boş bir alt ağı seçin ya da var olan sanal ağınızda yalnızca uygulama ağ geçidinin kullanımına yönelik yeni bir alt ağ oluşturun. Sanal ağ eşleme kullanılmıyorsa uygulama ağ geçidini, uygulama ağ geçidinin arkasına dağıtmak istediğiniz kaynaklardan farklı bir sanal ağa dağıtamazsınız. Daha fazla bilgi için bkz. [Sanal Ağ Eşleme](../virtual-network/virtual-network-peering-overview.md)
 3. Geçerli bir alt ağla çalışan bir sanal ağa sahip olduğunuzu doğrulayın. Hiçbir sanal makinenin veya bulut dağıtımlarının alt ağı kullanmadığından emin olun. Uygulama ağ geçidi tek başına bir sanal ağ alt ağında olmalıdır.
 4. Uygulama ağ geçidi kullanırken yapılandırdığınız sunucular mevcut olmalıdır veya uç noktaları sanal ağda veya atanan genel bir IP/VIP’de oluşturulmuş olmalıdır.
 
 ## <a name="what-is-required-to-create-an-application-gateway"></a>Bir uygulama ağ geçidi oluşturmak için ne gereklidir?
-Uygulama ağ geçidi oluşturmak için **New-AzureApplicationGateway** komutunu kullanırken hiçbir yapılandırma bulunmaz ve yeni oluşturulmuş kaynağın XML veya bir yapılandırma nesnesi kullanılarak yapılandırılması gerektir.
+Uygulama ağ geçidini oluşturmak için `New-AzureApplicationGateway` komutunu kullanırsanız, bu noktada yapılandırma ayarlanmaz ve yeni oluşturulmuş kaynak, XML veya bir yapılandırma nesnesi kullanılarak yapılandırılır.
 
 Değerler şunlardır:
 
@@ -52,6 +54,7 @@ Değerler şunlardır:
 * **Kural:** Kural, dinleyiciyi ve arka uç sunucusu havuzunu bağlar ve belli bir dinleyicide trafik olduğunda trafiğin hangi arka uç sunucu havuzuna yönlendirileceğini belirler.
 
 ## <a name="create-an-application-gateway"></a>Uygulama ağ geçidi oluşturma
+
 Bir uygulama ağ geçidi oluşturmak için:
 
 1. Uygulama ağ geçidi kaynağı oluşturun.
@@ -66,7 +69,8 @@ Bir uygulama ağ geçidi oluşturmak için:
 ![Senaryo örneği][scenario]
 
 ### <a name="create-an-application-gateway-resource"></a>Bir uygulama ağ geçidi kaynağı oluşturma
-Ağ geçidini oluşturmak için, **New-AzureApplicationGateway** cmdlet’ini kullanın ve değerleri kendinizinkilerle değiştirin. Ağ geçidinin faturalanması bu aşamada başlamaz. Daha sonra ağ geçidi başarıyla başlatıldığında faturalama da başlar. 
+
+Ağ geçidini oluşturmak için, `New-AzureApplicationGateway` cmdlet’ini kullanın ve değerleri kendi değerlerinizle değiştirin. Ağ geçidinin faturalanması bu aşamada başlamaz. Daha sonra ağ geçidi başarıyla başlatıldığında faturalama da başlar. 
 
 Aşağıdaki örnek, "testvnet1" adlı sanal ağı ve "subnet-1" aklı alt ağı kullanarak bir uygulama ağ geçidi oluşturur.
 
@@ -76,7 +80,7 @@ New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subn
 
 *Description*, *InstanceCount* ve *GatewaySize* tercihe bağlı parametrelerdir.
 
-Ağ geçidinin oluşturulduğunu doğrulamak için **Get-AzureApplicationGateway** cmdlet’ini kullanabilirsiniz.
+Ağ geçidinin oluşturulduğunu doğrulamak için `Get-AzureApplicationGateway` cmdlet’ini kullanabilirsiniz.
 
 ```powershell
 Get-AzureApplicationGateway AppGwTest
@@ -102,12 +106,15 @@ DnsName       :
 Ağ geçidi daha başlatılmadığından dolayı *VirtualIPs* ve *DnsName* boş görünür. Bunlar ağ geçidi çalışma durumuna geçtiğinde oluşturulur.
 
 ## <a name="configure-the-application-gateway"></a>Uygulama ağ geçidini yapılandırma
+
 XML veya bir yapılandırma nesnesi kullanarak uygulama ağ geçidini yapılandırabilirsiniz.
 
 ## <a name="configure-the-application-gateway-by-using-xml"></a>XML kullanarak uygulama ağ geçidi yapılandırma
+
 Aşağıdaki örnekte, tüm uygulama ağ geçidi ayarlarını yapılandırmak için bir XML dosyası kullanır ve bu ayarları uygulama ağ geçidi kaynağına uygularsınız.  
 
 ### <a name="step-1"></a>1. Adım
+
 Aşağıdaki metni Notepad’a kopyalayın.
 
 ```xml
@@ -210,21 +217,24 @@ Aşağıdaki örnekte uygulama ağ geçidi ayarlamak için yapılandırma dosyas
 ```
 
 ### <a name="step-2"></a>2. Adım
-Sonra, uygulama ağ geçidini kurun. **Set-AzureApplicationGatewayConfig** cmdlet’ini bir XML yapılandırma dosyasıyla kullanın.
+
+Sonra, uygulama ağ geçidini kurun. `Set-AzureApplicationGatewayConfig` cmdlet’ini, yapılandırma XML dosyasıyla kullanın.
 
 ```powershell
 Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile "D:\config.xml"
 ```
 
 ## <a name="configure-the-application-gateway-by-using-a-configuration-object"></a>Bir yapılandırma nesnesi kullanarak uygulama ağ geçidi yapılandırma
-Aşağıdaki örnek yapılandırma nesnesi kullanarak nasıl uygulama ağ geçidi yapılandırılacağını gösterir. Tüm yapılandırma öğeleri ayrı ayrı yapılandırılıp bir uygulama ağ geçidi yapılandırma nesnesine eklenmelidir. Yapılandırma nesnesini oluşturduktan sonra, yapılandırmayı, daha önce oluşturulmuş bir uygulama ağ geçidi kaynağına uygulamak için **Set-AzureApplicationGateway** komutunu kullanın.
+
+Aşağıdaki örnek yapılandırma nesnesi kullanarak nasıl uygulama ağ geçidi yapılandırılacağını gösterir. Tüm yapılandırma öğeleri ayrı ayrı yapılandırılıp bir uygulama ağ geçidi yapılandırma nesnesine eklenmelidir. Yapılandırma nesnesini oluşturduktan sonra, yapılandırmayı daha önce oluşturulmuş bir uygulama ağ geçidi kaynağına uygulamak için `Set-AzureApplicationGateway` komutunu kullanın.
 
 > [!NOTE]
-> Her yapılandırma nesnesine değer atamadan önce, PowerShell’in depolama için ne tür bir nesneyi kullanacağını belirtmeniz gerekir. Bireysel öğeleri oluşturan ilk satır hangi Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model(nesne adı) öğesinin kullanılacağını tanımlar.
+> Her yapılandırma nesnesine değer atamadan önce, PowerShell’in depolama için ne tür bir nesneyi kullanacağını belirtmeniz gerekir. Bireysel öğeleri oluşturan ilk satır hangi **Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model(nesne adı)** öğelerinin kullanılacağını tanımlar.
 > 
 > 
 
 ### <a name="step-1"></a>1. Adım
+
 Tüm bireysel yapılandırma öğelerini oluşturun.
 
 Ön uç IP’sini aşağıdaki örnekte gösterildiği gibi oluşturun.
@@ -295,6 +305,7 @@ $rule.BackendAddressPool = "pool1"
 ```
 
 ### <a name="step-2"></a>2. Adım
+
 Tüm bireysel yapılandırma öğelerini bir uygulama ağ geçidi yapılandırma nesnesine atayın ($appgwconfig).
 
 Yapılandırmaya ön uç IP’sini ekleyin.
@@ -340,17 +351,18 @@ $appgwconfig.HttpLoadBalancingRules.Add($rule)
 ```
 
 ### <a name="step-3"></a>3. Adım
-**Set-AzureApplicationGatewayConfig** kullanarak yapılandırma nesnesini uygulama ağ geçidi kaynağına uygulayın.
+`Set-AzureApplicationGatewayConfig` kullanarak, yapılandırma nesnesini uygulama ağ geçidi kaynağına uygulayın.
 
 ```powershell
 Set-AzureApplicationGatewayConfig -Name AppGwTest -Config $appgwconfig
 ```
 
 ## <a name="start-the-gateway"></a>Ağ geçidini başlatma
-Ağ geçidi yapılandırıldıktan sonra başlatmak için **Start-AzureApplicationGateway** cmdlet’ini kullanın. Uygulama ağ geçidinin faturalanması ağ geçidi başarıyla başlatıldıktan sonra başlar.
+
+Ağ geçidi yapılandırıldıktan sonra, ağ geçidini başlatmak için `Start-AzureApplicationGateway` cmdlet’ini kullanın. Uygulama ağ geçidinin faturalanması ağ geçidi başarıyla başlatıldıktan sonra başlar.
 
 > [!NOTE]
-> **Start-AzureApplicationGateway** cmdlet’in bitmesi 15-20 dakika sürebilir.
+> `Start-AzureApplicationGateway` cmdlet’inin tamamlanması 15-20 dakika sürebilir.
 > 
 > 
 
@@ -359,7 +371,8 @@ Start-AzureApplicationGateway AppGwTest
 ```
 
 ## <a name="verify-the-gateway-status"></a>Ağ geçidi durumunu doğrulama
-**Get-AzureApplicationGateway** cmdlet’ini kullanarak ağ geçidinin durumunu inceleyin. Bir önceki adımda **Start-AzureApplicationGateway** başarılı olduysa, *State* Running durumunda olmalı, *Vip* ve *DnsName* ise geçerli girdilere sahip olmalıdır.
+
+Ağ geçidinin durumunu denetlemek için `Get-AzureApplicationGateway` cmdlet’ini kullanın. Bir önceki adımda `Start-AzureApplicationGateway` başarılı olduysa, *State* Running durumunda olmalı, *Vip* ve *DnsName* ise geçerli girdilere sahip olmalıdır.
 
 Aşağıdaki örnek, çalışır durumda ve `http://<generated-dns-name>.cloudapp.net` için atanmış trafiği almaya hazır bir uygulama ağ geçidini gösterir.
 
@@ -382,13 +395,14 @@ DnsName       : appgw-1b8402e8-3e0d-428d-b661-289c16c82101.cloudapp.net
 ```
 
 ## <a name="delete-an-application-gateway"></a>Uygulama ağ geçidini silme
+
 Uygulama ağ geçidi silmek için:
 
-1. Ağ geçidini durdurmak için **Stop-AzureApplicationGateway** cmdlet’ini kullanın.
-2. Ağ geçidini kaldırmak için **Remove-AzureApplicationGateway** cmdlet’ini kullanın.
-3. Ağ geçidinin **Get-AzureApplicationGateway** cmdlet’i kullanılarak kaldırıldığını doğrulayın.
+1. Ağ geçidini durdurmak için `Stop-AzureApplicationGateway` cmdlet’ini kullanın.
+2. Ağ geçidini kaldırmak için `Remove-AzureApplicationGateway` cmdlet’ini kullanın.
+3. Ağ geçidinin kaldırıldığını doğrulamak için `Get-AzureApplicationGateway` cmdlet’ini kullanın.
 
-Aşağıdaki örnek ilk satırdaki devamında girdinin bulunduğu **Stop-AzureApplicationGateway** cmdlet’ini gösterir.
+Aşağıdaki örnek, ilk satırda, devamında çıktının bulunduğu `Stop-AzureApplicationGateway` cmdlet’ini gösterir.
 
 ```powershell
 Stop-AzureApplicationGateway AppGwTest
@@ -402,7 +416,7 @@ Name       HTTP Status Code     Operation ID                             Error
 Successful OK                   ce6c6c95-77b4-2118-9d65-e29defadffb8
 ```
 
-Uygulama ağ geçidi durdurulmuş durumda olduğunda hizmeti kaldırmak için **Remove-AzureApplicationGateway** cmdlet’ini kullanın.
+Uygulama ağ geçidi durdurulmuş konumda olduğunda, hizmeti kaldırmak için `Remove-AzureApplicationGateway` cmdlet’ini kullanın.
 
 ```powershell
 Remove-AzureApplicationGateway AppGwTest
@@ -416,7 +430,7 @@ Name       HTTP Status Code     Operation ID                             Error
 Successful OK                   055f3a96-8681-2094-a304-8d9a11ad8301
 ```
 
-Hizmetin kaldırıldığını doğrulamak için **Get-AzureApplicationGateway** cmdlet’ini kullanabilirsiniz. Bu adım gerekli değildir.
+Hizmetin kaldırıldığını doğrulamak için `Get-AzureApplicationGateway` cmdlet’ini kullanabilirsiniz. Bu adım gerekli değildir.
 
 ```powershell
 Get-AzureApplicationGateway AppGwTest
@@ -430,6 +444,7 @@ Get-AzureApplicationGateway : ResourceNotFound: The gateway does not exist.
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 SSL yük boşaltmayı yapılandırmak istiyorsanız, bkz. [SSL yük boşaltımı için uygulama ağ geçidi yapılandırma](application-gateway-ssl.md).
 
 İç yük dengeleyiciyle kullanacağınız uygulama ağ geçidi yapılandırmak istiyorsanız, bkz. [İç yük dengeleyici (ILB) ile uygulama ağ geçidi oluşturma](application-gateway-ilb.md).
@@ -443,6 +458,6 @@ Yük dengeleme seçenekleri hakkında daha fazla genel bilgi edinmek istiyorsan�
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

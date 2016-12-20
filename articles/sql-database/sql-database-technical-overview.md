@@ -9,6 +9,7 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: c561f600-a292-4e3b-b1d4-8ab89b81db48
 ms.service: sql-database
+ms.custom: overview
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
@@ -16,8 +17,8 @@ ms.workload: data-management
 ms.date: 11/08/2016
 ms.author: shkurhek
 translationtype: Human Translation
-ms.sourcegitcommit: 9fc8295aaa68a0d41a34f714b34642585b13b67d
-ms.openlocfilehash: 37da0020c8fc51a422ce6c70fed26329863a90f0
+ms.sourcegitcommit: 1c603d37735bbbfdfaaf4a191e2ad1ce6ff5b2b7
+ms.openlocfilehash: 67f3e923680a9a2f399c0839d2ec11ef4615da00
 
 
 ---
@@ -37,12 +38,12 @@ Veritabanı oluşturabilmek ve tek veritabanı performansını isteğe göre yü
 
 SQL Database'deki [esnek havuzlar](sql-database-elastic-pool.md) bu sorunu çözer. Esnek havuzların işleyiş mantığı gayet basittir. Bir havuzun performansını önceden belirleyin ve tek veritabanı performansı yerine havuzun toplu performansı için ödeme yapın. Veritabanı performansını yükseltmenize veya düşürmenize gerek yok. Havuz içindeki *esnek veritabanı* adı verilen veritabanları, talebi karşılamak üzere ölçeği otomatik olarak artırır veya azaltır. Esnek veritabanları havuzu kullanır ancak havuz sınırlarını aşmaz, böylece veritabanı kullanımınız tahmin edilebilir olmasa bile maliyetleriniz için durum tam tersidir. Ayrıca kontrolü sizin elinizde olan bir bütçe dahilinde [havuza veritabanı ekleme ve havuzdan veritabanı kaldırma](sql-database-elastic-pool-manage-portal.md) işlemlerini gerçekleştirebilir ve uygulamanızı birkaç veritabanından tutun binlerce veritabanına ölçeklendirebilirsiniz. Esnek havuzları kullanan SaaS uygulamalarının tasarım desenleri hakkında daha fazla bilgi edinmek için bkz. [Azure SQL Database kullanan Çok Kiracılı SaaS Uygulamaları için Tasarım Desenleri](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
-Tek veya esnek... Hangisini seçerseniz seçin değişiklik yapmakta özgürsünüz. Yenilikçi tasarımlar oluşturmak için, tek veritabanlarını esnek veritabanı havuzlarıyla bir araya getirebilir; tek veritabanlarının ve havuzların hizmet katmanlarını değiştirebilirsiniz. Ayrıca Azure'ın benzersiz gücü ve erişim özellikleri sayesinde benzersiz ve modern uygulama tasarımı ihtiyaçlarınızı karşılamak, maliyet ve kaynak verimliliği sağlamak ve yeni iş fırsatlarını yakalamak amacıyla Azure hizmetlerini SQL Database ile birleştirebilir ve eşleştirebilirsiniz.
+Tek veya esnek... Hangisini seçerseniz seçin değişiklik yapmakta özgürsünüz. Tek veritabanlarını esnek veritabanı havuzlarıyla bir araya getirebilir; tek veritabanlarının ve havuzların hizmet katmanlarını hızla ve kolaylıkla kendi durumunuza uyarlamak üzere değiştirebilirsiniz. Ayrıca Azure'ın benzersiz gücü ve erişim özellikleri sayesinde benzersiz uygulama tasarımı ihtiyaçlarınızı karşılamak, maliyet ve kaynak verimliliği sağlamak ve yeni iş fırsatlarını yakalamak amacıyla diğer Azure hizmetlerini SQL Veritabanı ile birleştirebilir ve eşleştirebilirsiniz.
 
-Peki veritabanlarının ve veritabanı havuzlarının performanslarını nasıl karşılaştırabilirsiniz? Performansı yükseltmeye veya düşürmeye karar vereceğiniz doğru zamanı nasıl belirlersiniz? Bu sorunun cevabı, tek veritabanları için Veritabanı İşlem Birimleri (DTU'lar); esnek veritabanları ve veritabanı havuzları için ise esnek Veritabanı İşlem Birimleridir (eDTU'lar). Ayrıntılı bilgi için bkz. [SQL Database seçenekleri ve performansı: Her hizmet katmanında nelerin kullanılabildiğini anlama](sql-database-service-tiers.md).
+Peki veritabanlarının ve veritabanı havuzlarının performanslarını nasıl karşılaştırabilirsiniz? Performansı yükseltmeye veya düşürmeye karar vereceğiniz doğru zamanı nasıl belirlersiniz? Bunları yapmak için, yerleşik olarak bulunan performans izleme ve uyarı araçlarının yanı sıra, tek veritabanlarında Veritabanı İşlem Birimleri (DTU) ile, esnek veritabanlarında ise esnek DTU’lar (eDTU) ile ölçülen performans değerlendirmelerinden yararlanabilirsiniz. Tüm bunlar, ölçeği mevcut ihtiyaçlarınıza göre veya projenin performans gereksinimlerine göre artırmanın ya da azaltmanın etkilerini hızlıca değerlendirmenize olanak tanır. Ayrıntılı bilgi için bkz. [SQL Database seçenekleri ve performansı: Her hizmet katmanında nelerin kullanılabildiğini anlama](sql-database-service-tiers.md).
 
 ## <a name="keep-your-app-and-business-running"></a>Uygulamanızın ve işinizin hiç kesintiye uğramamasını sağlayın
-Azure'ın Microsoft yönetimindeki veri merkezlerinin küresel bir ağı tarafından desteklenen ve endüstri lideri niteliğinde %99,99'luk bir kullanılabilirlik oranı sunan hizmet düzeyi sözleşmesi [(SLA)](http://azure.microsoft.com/support/legal/sla/), uygulamanızın 7/24 kesintiye uğramamasına yardımcı olur. SQL veritabanları sayesinde tasarlamanız, satın almanız, oluşturmanız ve yönetmeniz gerekmeksizin yerleşik veri koruması ve hataya dayanıklılık olanaklarından yararlanırsınız. Yine de iş gereksinimlerinize bağlı olarak, uygulamanızın ve işinizin olağanüstü bir durumda, bir hata ile karşılaşıldığında veya başka bir durumda hızlıca kurtarılabileceğinden emin olmak için ek koruma katmanları talep edebilirsiniz. SQL Database'deki her hizmet katmanı, uygulamanızı ve işinizi oluşturup çalışır halde kalmasını sağlamanız amacıyla kullanabileceğiniz farklı özellik seçenekleri sunar. Bir veritabanını daha önceki bir durumuna (35 güne kadar) geri döndürmek üzere belirli bir noktaya geri yükleme işlemini gerçekleştirebilirsiniz. Ayrıca, veritabanlarınızı barındıran veri merkezinde bir kesinti oluşursa farklı bir bölgedeki veritabanı çoğaltmalarına yük devretme işlemi gerçekleştirebilirsiniz. Çoğaltmaları, yükseltme ya da farklı bölgelere yeniden konumlandırma işlemleri için de kullanabilirsiniz.
+Azure'ın Microsoft yönetimindeki veri merkezlerinin küresel bir ağı tarafından desteklenen ve endüstri lideri niteliğinde %99,99'luk bir kullanılabilirlik oranı sunan hizmet düzeyi sözleşmesi [(SLA)](http://azure.microsoft.com/support/legal/sla/), uygulamanızın 7/24 kesintiye uğramamasına yardımcı olur. SQL veritabanları sayesinde satın almanız, tasarlamanız, oluşturmanız ve yönetmeniz gerekmeksizin; yerleşik güvenlik, hataya dayanıklılık ve veri koruması olanaklarından yararlanırsınız. Yine de iş gereksinimlerinize bağlı olarak, uygulamanızın ve işinizin olağanüstü bir durumda, bir hata ile karşılaşıldığında veya başka bir kesinti durumunda hızlıca kurtarılabileceğinden emin olmak için ek koruma katmanlarına ihtiyaç duyabilirsiniz. SQL Database'deki her hizmet katmanı, uygulamanızı ve işinizi oluşturup çalışır halde kalmasını sağlamanız amacıyla kullanabileceğiniz kapsamlı bir iş sürekliliği özellikleri ve seçenekleri kümesi sunar. Bir veritabanını daha önceki bir durumuna (35 güne kadar) geri döndürmek üzere belirli bir noktaya geri yükleme işlemini gerçekleştirebilirsiniz. Ayrıca, veritabanlarınızı barındıran veri merkezinde bir kesinti oluşursa, son yedeklemelerin coğrafi olarak yedekli kopyalarından veritabanlarını geri yükleyebilir veya farklı bir bölgedeki veritabanı çoğaltmalarına yük devretme işlemi gerçekleştirebilirsiniz. Yükseltme ya da farklı bölgelere yeniden konumlandırma işlemleri için çoğaltmaları da kullanabilirsiniz.
 
 ![SQL Database Coğrafi Çoğaltma](./media/sql-database-technical-overview/azure_sqldb_map.png)
 
@@ -59,11 +60,9 @@ SQL Database'e giriş niteliğindeki makaleyi okuduğunuza ve "SQL Database Nedi
 * [İlk veritabanınızı oluşturarak](sql-database-get-started.md) başlayın.
 * [SSMS ile bağlanma ve sorgu yürütme](sql-database-connect-query-ssms.md)
 * C#, Java, Node.js, PHP, Python veya Ruby kullanarak ilk uygulamanızı oluşturma: [SQL Database ve SQL Server için bağlantı kitaplıkları](sql-database-libraries.md)
-* [Azure SQL Database hizmeti hakkındaki tüm konu başlıklarının](sql-database-index-all-articles.md) ve açıklamaların bulunduğu dizini inceleyin.
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO5-->
 
 

@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 08/27/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 14de66f6035d8cd0579351d64b85bd7e1c8f2ab2
+ms.sourcegitcommit: 4edd2696c9a5709ded6e2a3e352090775335f0d2
+ms.openlocfilehash: be48f1f0b9c3c749c13fd89f63d41fbaff6a62ee
 
 
 ---
@@ -51,7 +51,7 @@ CORS’yi Azure portalında veya [Azure Resource Manager](../azure-resource-mana
    **Kaydet**’e tıkladıktan sonra, API uygulaması belirtilen URL’lerden JavaScript çağrılarını kabul eder.
 
 #### <a name="configure-cors-by-using-azure-resource-manager-tools"></a>Azure Resource Manager araçlarını kullanarak CORS’yi yapılandırın
-CORS’yi [Azure PowerShell](../powershell-install-configure.md) ve [Azure CLI](../xplat-cli-install.md) gibi komut satırı araçlarında [Azure Resource Manager şablonlarını](../resource-group-authoring-templates.md) kullanarak da yapılandırabilirsiniz. 
+CORS’yi [Azure PowerShell](/powershell/azureps-cmdlets-docs) ve [Azure CLI](../xplat-cli-install.md) gibi komut satırı araçlarında [Azure Resource Manager şablonlarını](../resource-group-authoring-templates.md) kullanarak da yapılandırabilirsiniz. 
 
 CORS özelliğini ayarlayan bir Azure Resource Manager şablonu örneği için, [bu öğreticinin örnek uygulamasının deposundaki azuredeploy.json dosyasını](https://github.com/azure-samples/app-service-api-dotnet-todo-list/blob/master/azuredeploy.json) açın. Aşağıdaki gibi görünen şablon bölümünü bulun:
 
@@ -61,7 +61,7 @@ CORS özelliğini ayarlayan bir Azure Resource Manager şablonu örneği için, 
             ]
         }
 
-## <a name="a-idtutorialstarta-continuing-the-net-gettingstarted-tutorial"></a><a id="tutorialstart"></a> .NET’i kullanmaya başlama eğiticisinin devamı
+## <a name="a-idtutorialstarta-continuing-the-net-getting-started-tutorial"></a><a id="tutorialstart"></a> .NET’i kullanmaya başlama eğiticisinin devamı
 API uygulamaları için Node.js ve Java kullanmaya başlama serisini takip ediyorsanız, kullanmaya başlama serisini tamamladınız. API Apps hakkında daha fazla bilgi edinmenizi sağlayacak öneriler için [Sonraki adımlar](#next-steps) bölümüne geçin.
 
 Bu makalenin sonraki bölümleri .NET kullanmaya başlarken serisinin devamıdır ve [ilk öğreticiyi](app-service-api-dotnet-get-started.md) tamamladığınız varsayılır.
@@ -252,6 +252,6 @@ Bu makalede, istemci JavaScript kodunun farklı bir etki alanındaki bir API’y
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -13,11 +13,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/26/2016
-ms.author: omark
+ms.date: 12/02/2016
+ms.author: byvinyal
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 042da7ac46fd20bd0e9af33f449f8ea4a6a42089
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: f361e9c815ae20874fc2e40e39d2c20a415d58f2
 
 
 ---
@@ -36,33 +36,53 @@ Aşağıdaki 4 dakikalık video, App Service’in daha önceki Azure teklifleriy
 App Service’in temel özelliklerinden bazıları şunlardır:
 
 * **Birden çok dil ve çerçeve** - App Service ASP.NET, Node.js, Java, PHP ve Python için birinci sınıf destek sunar. Ayrıca, App Service sanal makineleri üzerinde [Windows PowerShell ve diğer betikleri veya yürütülebilir dosyaları](../app-service-web/web-sites-create-web-jobs.md) çalıştırabilirsiniz.
-* **DevOps iyileştirmesi** - Visual Studio Team Services, GitHub veya BitBucket ile [sürekli tümleştirme ve dağıtım](../app-service-web/app-service-continuous-deployment.md) ayarlayın. [Test ve hazırlık ortamları](../app-service-web/web-sites-staged-publishing.md) aracılığıyla güncelleştirmeleri yükseltin. [A/B testi](../app-service-web/app-service-web-test-in-production-get-start.md) gerçekleştirin. [Azure PowerShell](../powershell-install-configure.md) veya [platformlar arası komut satırı arabirimi (CLI)](../xplat-cli-install.md) kullanarak uygulamalarınızı App Service’de yönetin.
+* **DevOps iyileştirmesi** - Visual Studio Team Services, GitHub veya BitBucket ile [sürekli tümleştirme ve dağıtım](../app-service-web/app-service-continuous-deployment.md) ayarlayın. [Test ve hazırlık ortamları](../app-service-web/web-sites-staged-publishing.md) aracılığıyla güncelleştirmeleri yükseltin. [A/B testi](../app-service-web/app-service-web-test-in-production-get-start.md) gerçekleştirin. [Azure PowerShell](/powershell/azureps-cmdlets-docs) veya [platformlar arası komut satırı arabirimi (CLI)](../xplat-cli-install.md) kullanarak uygulamalarınızı App Service’de yönetin.
 * **Yüksek kullanılabilirlik ile küresel ölçeklendirme** - El ile veya otomatik olarak ölçek [artırabilir](../app-service-web/web-sites-scale.md) veya [genişletebilirsiniz](../monitoring-and-diagnostics/insights-how-to-scale.md). Uygulamalarınızı Microsoft'un küresel veri merkezi altyapılarının herhangi bir yerinde barındırın. App Service [SLA](https://azure.microsoft.com/support/legal/sla/app-service/)’sı yüksek kullanılabilirlik taahhüt eder.
 * **SaaS platformları ve şirket için veri bağlantıları** - Kurumsal sistemler (SAP, Siebel ve Oracle gibi), SaaS hizmetleri (Salesforce ve Office 365 gibi) ve İnternet hizmetleri (Facebook ve Twitter gibi) için 50’den fazla [bağlayıcı](../connectors/apis-list.md) arasından seçim yapın. [Karma Bağlantılar](../biztalk-services/integration-hybrid-connection-overview.md)’ı ve [Azure Sanal Ağlar](../app-service-web/web-sites-integrate-with-vnet.md)’ı kullanarak şirket içi verilere erişin.
 * **Güvenlik ve uyumluluk** - App Service [ISO, SOC ve PCI uyumludur](https://www.microsoft.com/TrustCenter/).
-* **Uygulama şablonları** - WordPress, Joomla ve Drupal gibi popüler açık kaynaklı yazılımları bir sihirbaz ile yüklemenize olanak tanıyan [Azure Marketi](https://azure.microsoft.com/marketplace/)’ndeki kapsamlı uygulama şablonu listesinden seçiminizi yapın.
+* **Uygulama şablonları** - WordPress, Joomla ve Drupal gibi popüler açık kaynaklı yazılımları bir sihirbaz ile yüklemenize olanak tanıyan [Azure Marketi](https://azure.microsoft.com/marketplace/)’ndeki kapsamlı şablon listesinden seçiminizi yapın.
 * **Visual Studio tümleştirmesi** -Visual Studio’daki ayrılmış araçlar oluşturma, dağıtma ve hata ayıklama işlemlerini kolaylaştırır.
 
 ## <a name="app-types-in-app-service"></a>App Service’deki uygulama türleri
-App Service, her birinin belirli türde iş yükü barındırması amaçlanan birkaç *uygulama türü* sunar:
+App Service, her birinin belirli bir iş yükü barındırması amaçlanan birkaç *uygulama türü* sunar:
 
 * [**Web Apps**](../app-service-web/app-service-web-overview.md) - Web sitelerini ve web uygulamalarını barındırmaya yöneliktir.
 * [**Mobile Apps**](../app-service-mobile/app-service-mobile-value-prop.md) Mobil uygulama arka uçlarını barındırmaya yöneliktir.
 * [**API Apps**](../app-service-api/app-service-api-apps-why-best-platform.md) - RESTful API'lerini barındırmaya yöneliktir.
 * [**Logic Apps**](../app-service-logic/app-service-logic-what-are-logic-apps.md) - İş süreçlerini otomatikleştirmeye ve sistemler ile verileri kod yazmadan bulut üzerinde tümleştirmeye yöneliktir.
 
-Buradaki *uygulama* sözcüğü bir iş yükünü çalıştırmaya ayrılmış barındırma kaynaklarını ifade eder. “Web uygulaması” örnek olarak alındığında, web uygulamasını tarayıcıya işlev kazandıran işlem kaynaklar ve uygulama kodu bütünü olarak düşünmeye büyük olasılıkla alışkınsınız. Ancak, App Service’deki *web uygulamaları*, uygulama kodunuzun barındırılması için Azure tarafından sağlanan işlem kaynaklarıdır. Uygulamanız, bir web ön ucundan ve bir RESTful API'si arka ucundan oluşuyorsa web uygulamasına dağıtım yapabileceğiniz gibi ön uç kodunuzu bir web uygulamasına, arka uç kodunuzu ise bir API uygulamasına da dağıtabilirsiniz. Uygulamanız farklı türlerde birden fazla App Service uygulamasından oluşabilir.
+Buradaki *uygulama* sözcüğü bir iş yükünü çalıştırmaya ayrılmış barındırma kaynaklarını ifade eder. “Web uygulaması” örnek olarak alındığında, web uygulamasını tarayıcıya işlev kazandıran işlem kaynaklar ve uygulama kodu bütünü olarak düşünmeye büyük olasılıkla alışkınsınız. Ancak, App Service’deki *web uygulamaları*, uygulama kodunuzun barındırılması için Azure tarafından sağlanan işlem kaynaklarıdır. 
 
-## <a name="app-service-plans"></a>App Service Planları
-[App Service Planları](azure-web-sites-web-hosting-plans-in-depth-overview.md) uygulamanızın üzerinde çalıştığı işlem kaynaklarının türünü belirtir. Az trafik yükü bekliyorsanız paylaşılan VM'ler (**Ücretsiz** ve **Paylaşılan** fiyatlandırma katmanları) kullanabilirsiniz. Daha fazla yükler için çeşitli boyutlardaki adanmış VM'ler (**Temel**, **Standart** ve **Premium** katmanları) arasından seçim yapabilirsiniz. Birden fazla App Service uygulaması aynı planı paylaşabilir ve birlikte, plandaki fiyatlandırma katmanlarının ölçeğini artırıp azaltabilir.
+Uygulamanız farklı türlerde birden fazla App Service uygulamasından oluşabilir. Örneğin, uygulamanız bir web ön ucu ve bir RESTful API arka ucundan oluşuyorsa şunları yapabilirsiniz:
+
+- İkisini de (ön uç ve api) tek bir web uygulamasına dağıtma  
+- Ön uç kodunuzu bir web uygulamasına, arka uç kodunuzu bir API uygulamasına dağıtma. 
+
+
+
+## <a name="app-service-plans"></a>App Service planları
+[App Service planları](azure-web-sites-web-hosting-plans-in-depth-overview.md), uygulamalarınızı barındırmak için kullanılan fiziksel kaynak bileşimini temsil eder.
+
+App Service planları şunları tanımlar:
+
+- **Bölge** (Batı ABD, Doğu ABD vb.)
+- **Ölçek sayısı** (bir, iki, üç örnek, vb.)
+- **Örnek boyutu** (Küçük, Orta, Büyük)
+- **SKU** (Ücretsiz, Paylaşılan, Temel, Standart, Premium)
+
+Bir **App Service planına** atanan tüm uygulamalar plan tarafından tanımlanan kaynakları paylaşarak birden çok uygulamayı barındırırken maliyetten tasarruf etmenize imkan sağlar.
+
+Bu sırada **App Service planınızı** **Ücretsiz** ve **Paylaşılan** SKU’larından **Temel**, **Standart** ve **Premium** SKU’larına ölçeklendirerek daha fazla kaynak ve özelliğe erişebilirsiniz. App Service Planınız **Temel** veya üzeri olarak ayarlandığında, VM’lerin **boyutunu** ve ölçek sayısını da denetleyebilirsiniz.
+
+App Service planının **SKU** ve **Ölçek** değeri, planda barındırılan uygulama sayısını değil planın maliyetini belirler. 
 
 Daha fazla ölçeklenebilirlik ve ağ yalıtımını gerekiyorsa uygulamalarınızı bir [App Service Ortamı](../app-service-web/app-service-app-service-environment-intro.md) içinde çalıştırabilirsiniz.
 
 ## <a name="pricing"></a>Fiyatlandırma
 App Service’in maliyeti hakkında bilgi için bkz. [App Service Fiyatlandırması](https://azure.microsoft.com/pricing/details/app-service/).
 
-## <a name="testdrive-app-service"></a>App Service'i Deneyin
-[Örnek bir web uygulaması, mobil uygulama veya mantıksal uygulama oluşturun](http://go.microsoft.com/fwlink/?LinkId=523751) ve herhangi bir kredi kartına gerek olmadan, taahhüt vermeden veya sorun yaşamadan uygulamanızı 1 saat boyunca deneyin.
+## <a name="test-drive-app-service"></a>App Service'i Deneyin
+Herhangi bir kredi kartına gerek olmadan, taahhüt vermeden veya sorun yaşamadan [örnek bir web uygulaması, mobil uygulama veya mantıksal uygulama oluşturun](http://go.microsoft.com/fwlink/?LinkId=523751) ve uygulamanızı 1 saat boyunca deneyin.
 
 Ya da bir [ücretsiz Azure hesabı](https://azure.microsoft.com/pricing/free-trial/) açıp, kullanmaya başlama öğreticilerimizden birini deneyin:
 
@@ -74,6 +94,6 @@ Ya da bir [ücretsiz Azure hesabı](https://azure.microsoft.com/pricing/free-tri
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -1,13 +1,13 @@
 ---
 title: "Service Bus aracılı mesajlaşma .NET eğitmeni | Microsoft Belgeleri"
 description: "Aracılı mesajlaşma .NET öğreticisi."
-services: service-bus
+services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
 editor: 
 ms.assetid: 964e019a-8abe-42f3-8314-867010cb2608
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 09/27/2016
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 3127a84f4d4cd9881de56a6d199cfb1780cd8189
+ms.sourcegitcommit: 9ace119de3676bcda45d524961ebea27ab093415
+ms.openlocfilehash: d888a16d538491535aad8effed53a5e98aa01359
 
 
 ---
@@ -43,19 +43,19 @@ Sonraki adımda Visual Studio projesi oluşturulur ve kesin tür belirtilmiş [B
 1. Başlat menüsünde programa sağ tıklayıp Visual Studio'yu yönetici olarak açın ve **Yönetici olarak çalıştır**'a tıklayın.
 2. Yeni bir konsol uygulama projesi oluşturun. **Dosya** menüsüne tıklayın, **Yeni** seçeneği belirleyin ve ardından **Proje**'ye tıklayın. **Yeni Proje** iletişim kutusunda, **Visual C#** öğesine (**Visual C#** görüntülenmiyorsa **Diğer Diller** kısmına bakın) tıklayın, ardından **Konsol Uygulaması** şablonuna tıklayıp **QueueSample** olarak adlandırın. Varsayılan **Konum**'u kullanın. Projeyi oluşturmak için **Tamam**'a tıklayın.
 3. Service Bus kitaplıklarını projenize eklemek için NuGet paket yöneticisini kullanın:
-   
+
    1. Çözüm Gezgini'nde **QueueSample** projesine sağ tıklayın ve ardından **NuGet Paketlerini Yönet**'e tıklayın.
    2. **Nuget Paketlerini Yönet** iletişim kutusunda, **Gözat** sekmesine tıklayın ve **Azure Service Bus** hizmetini aratıp **Yükle**'ye tıklayın.
       <br />
 4. Çözüm Gezgini'nde, Program.cs dosyasına çift tıklayarak dosyayı Visual Studio düzenleyicisinde açın. `QueueSample` olan varsayılan ad alanı adını `Microsoft.ServiceBus.Samples` olarak değiştirin.
-   
+
     ```
     Microsoft.ServiceBus.Samples
     {
         ...
     ```
 5. `using` deyimlerini aşağıdaki kodda gösterildiği şekilde değiştirin.
-   
+
     ```
     using System;
     using System.Collections.Generic;
@@ -66,7 +66,7 @@ Sonraki adımda Visual Studio projesi oluşturulur ve kesin tür belirtilmiş [B
     using Microsoft.ServiceBus.Messaging;
     ```
 6. Data.csv adlı bir metin dosyası oluşturun ve aşağıdaki virgülle ayrılmış metni kopyalayın.
-   
+
     ```
     IssueID,IssueTitle,CustomerID,CategoryID,SupportPackage,Priority,Severity,Resolved
     1,Package lost,1,1,Basic,5,1,FALSE
@@ -85,25 +85,25 @@ Sonraki adımda Visual Studio projesi oluşturulur ve kesin tür belirtilmiş [B
     14,Package damaged,6,7,Premium,5,5,FALSE
     15,Product defective,6,2,Premium,5,5,FALSE
     ```
-   
+
     Data.csv dosyasını kaydedip kapatın ve nereye kaydettiğinizi unutmayın.
 7. Çözüm Gezgini'nde projenizin adına (bu örnekte, **QueueSample**) sağ tıkladıktan sonra **Ekle**'ye ve ardından **Var Olan Öğe**'ye tıklayın.
 8. 6. adımda oluşturduğunuz Data.csv dosyasına gözatın. Dosyaya ve ardından **Ekle**'ye tıklayın. Dosya türü listesinde **Tüm Dosyalar(*.*)** seçeneğinin belirlendiğinden emin olun.
 
 ### <a name="create-a-method-that-parses-a-list-of-messages"></a>İleti listesini ayrıştıran bir yöntem oluşturma
 1. `Main()` yönteminden önce, `Program` sınıfında iki değişken bildirin: Bunlardan ilki, Data.csv dosyasındaki iletilerin listesini içeren **DataTable** türüdür. Diğeri ise [BrokeredMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx) olarak kesin tür belirtilmiş List nesnesi türünde olmalıdır. İkinci değişken, öğreticide sonraki adımlarda kullanılacak olan aracılı iletilerin listesidir.
-   
+
     ```
     namespace Microsoft.ServiceBus.Samples
     {
         class Program
         {
-   
+
             private static DataTable issues;
             private static List<BrokeredMessage> MessageList;
     ```
 2. `Main()` dışında, Data.csv dosyasındaki ileti listesini ayrıştırıp iletileri burada gösterildiği şekilde bir [DataTable](https://msdn.microsoft.com/library/azure/system.data.datatable.aspx) tablosuna yükleyen bir `ParseCSV()` yöntemi tanımlayın. Yöntem bir **DataTable** nesnesi döndürür.
-   
+
     ```
     static DataTable ParseCSVFile()
     {
@@ -115,14 +115,14 @@ Sonraki adımda Visual Studio projesi oluşturulur ve kesin tür belirtilmiş [B
             {
                 string line;
                 string[] row;
-   
+
                 // create the columns
                 line = readFile.ReadLine();
                 foreach (string columnTitle in line.Split(','))
                 {
                     tableIssues.Columns.Add(columnTitle);
                 }
-   
+
                 while ((line = readFile.ReadLine()) != null)
                 {
                     row = line.Split(',');
@@ -134,31 +134,31 @@ Sonraki adımda Visual Studio projesi oluşturulur ve kesin tür belirtilmiş [B
         {
             Console.WriteLine("Error:" + e.ToString());
         }
-   
+
         return tableIssues;
     }
     ```
 3. `Main()` yöntemine, `ParseCSVFile()` yöntemini çağıran bir deyim ekleyin:
-   
+
     ```
     public static void Main(string[] args)
     {
-   
+
         // Populate test data
         issues = ParseCSVFile();
-   
+
     }
     ```
 
 ### <a name="create-a-method-that-loads-the-list-of-messages"></a>İleti listesini yükleyen bir yöntem oluşturma
-1. `Main()` dışında, `ParseCSVFile()` tarafından döndürülen **DataTable** nesnesini alan ve tabloyu kesin tür belirtilmiş aracılı ileti listesine yükleyen bir `GenerateMessages()` yöntemi tanımlayın. Ardından, yöntem aşağıdaki örnekte olduğu gibi **List** nesnesini döndürür. 
-   
+1. `Main()` dışında, `ParseCSVFile()` tarafından döndürülen **DataTable** nesnesini alan ve tabloyu kesin tür belirtilmiş aracılı ileti listesine yükleyen bir `GenerateMessages()` yöntemi tanımlayın. Ardından, yöntem aşağıdaki örnekte olduğu gibi **List** nesnesini döndürür.
+
     ```
     static List<BrokeredMessage> GenerateMessages(DataTable issues)
     {
         // Instantiate the brokered list object
         List<BrokeredMessage> result = new List<BrokeredMessage>();
-   
+
         // Iterate through the table and create a brokered message for each row
         foreach (DataRow item in issues.Rows)
         {
@@ -173,11 +173,11 @@ Sonraki adımda Visual Studio projesi oluşturulur ve kesin tür belirtilmiş [B
     }
     ```
 2. `Main()` içinde, `ParseCSVFile()` öğesine yapılan çağrının hemen ardından, bağımsız değişken olarak `ParseCSVFile()` öğesinden edinilen dönüş değerini kullanarak `GenerateMessages()` yöntemini çağırmak üzere bir deyim ekleyin:
-   
+
     ```
     public static void Main(string[] args)
     {
-   
+
         // Populate test data
         issues = ParseCSVFile();
         MessageList = GenerateMessages(issues);
@@ -186,46 +186,46 @@ Sonraki adımda Visual Studio projesi oluşturulur ve kesin tür belirtilmiş [B
 
 ### <a name="obtain-user-credentials"></a>Kullanıcı kimlik bilgilerini alma
 1. İlk olarak, bu değerleri tutmak için üç genel dize değişkeni oluşturun. Önceki değişkenleri bildirdikten hemen sonra bu değişkenleri bildirin. Örnek:
-   
+
     ```
     namespace Microsoft.ServiceBus.Samples
     {
         public class Program
         {
-   
+
             private static DataTable issues;
-            private static List<BrokeredMessage> MessageList; 
-   
+            private static List<BrokeredMessage> MessageList;
+
             // Add these variables
             private static string ServiceNamespace;
             private static string sasKeyName = "RootManageSharedAccessKey";
             private static string sasKeyValue;
             …
     ```
-2. Ardından, hizmet ad alanını ve SAS anahtarını kabul edip depolayan bir işlev oluşturun. Bu yöntemi `Main()` dışına ekleyin. Örneğin: 
-   
+2. Ardından, hizmet ad alanını ve SAS anahtarını kabul edip depolayan bir işlev oluşturun. Bu yöntemi `Main()` dışına ekleyin. Örneğin:
+
     ```
     static void CollectUserInput()
     {
         // User service namespace
         Console.Write("Please enter the namespace to use: ");
         ServiceNamespace = Console.ReadLine();
-   
+
         // Issuer key
         Console.Write("Enter the SAS key to use: ");
         sasKeyValue = Console.ReadLine();
     }
     ```
 3. `Main()` içinde, `GenerateMessages()` öğesine yapılan çağrının hemen ardından, `CollectUserInput()` yöntemini çağıran bir deyim ekleyin:
-   
+
     ```
     public static void Main(string[] args)
     {
-   
+
         // Populate test data
         issues = ParseCSVFile();
         MessageList = GenerateMessages(issues);
-   
+
         // Collect user input
         CollectUserInput();
     }
@@ -238,7 +238,7 @@ Visual Studio'daki **Derle** menüsünde çalışmanızın o ana kadarki doğrul
 Bu adımda, paylaşılan erişim imzası (SAS) kimlik bilgilerini oluşturmak üzere kullanacağınız yönetim işlemlerini tanımlayın. Uygulamanızın yetkilendirilmesi için bu kimlik bilgileri kullanılır.
 
 1. Bu öğretici, daha anlaşılır olması için tüm kuyruk işlemlerini ayrı yöntemlerde bulundurur. `Main()` yönteminin ardından, `Program` sınıfında zaman uyumsuz bir `Queue()` yöntemi oluşturun. Örneğin:
-   
+
     ```
     public static void Main(string[] args)
     {
@@ -249,7 +249,7 @@ Bu adımda, paylaşılan erişim imzası (SAS) kimlik bilgilerini oluşturmak ü
     }
     ```
 2. Bir sonraki adımda [TokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.aspx) nesnesi kullanılarak bir SAS kimlik bilgisi oluşturulur. Oluşturma yöntemi, SAS anahtar adını ve `CollectUserInput()` yönteminde alınan değeri kullanır. `Queue()` yöntemine aşağıdaki kodu ekleyin:
-   
+
     ```
     static async Task Queue()
     {
@@ -258,7 +258,7 @@ Bu adımda, paylaşılan erişim imzası (SAS) kimlik bilgilerini oluşturmak ü
     }
     ```
 3. Önceki adımda bağımsız değişken olarak alınan yönetim kimlik bilgilerini ve ad alanı adını içeren bir URI'ye sahip yeni bir ad alanı yönetim nesnesi oluşturun. Önceki adımda eklenen kodun hemen ardından bu kodu ekleyin. `<yourNamespace>` öğesini hizmet ad alanınızın adıyla değiştirdiğinizden emin olun:
-   
+
     ```
     NamespaceManager namespaceClient = new NamespaceManager(ServiceBusEnvironment.CreateServiceUri("sb", "<yourNamespace>", string.Empty), credentials);
     ```
@@ -375,29 +375,29 @@ Bu adımda, bir kuyruk oluşturun ve ardından bu aracılı iletiler listesinde 
 
 ### <a name="create-queue-and-send-messages-to-the-queue"></a>Kuyruk oluşturma ve kuyruğa ileti gönderme
 1. İlk olarak kuyruğu oluşturun. Örneğin, bunu `myQueue` olarak adlandırın ve son adımda `Queue()` yöntemine eklediğiniz yönetim işlemlerinin hemen ardından belirtin:
-   
+
     ```
     QueueDescription myQueue;
-   
+
     if (namespaceClient.QueueExists("IssueTrackingQueue"))
     {
         namespaceClient.DeleteQueue("IssueTrackingQueue");
     }
-   
+
     myQueue = namespaceClient.CreateQueue("IssueTrackingQueue");
     ```
 2. `Queue()` yönteminde bağımsız değişken olarak, Service Bus URI'si yeni oluşturulmuş bir mesajlaşma fabrikası nesnesi oluşturun. Son adımda eklediğiniz yönetim işlemlerinin hemen ardından aşağıdaki kodu ekleyin. `<yourNamespace>` öğesini hizmet ad alanınızın adıyla değiştirdiğinizden emin olun:
-   
+
     ```
     MessagingFactory factory = MessagingFactory.Create(ServiceBusEnvironment.CreateServiceUri("sb", "<yourNamespace>", string.Empty), credentials);
     ```
 3. Ardından, [QueueClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx) sınıfını kullanarak kuyruk nesnesi oluşturun. Son adımda eklediğiniz kodun hemen ardından aşağıdaki kodu ekleyin:
-   
+
     ```
     QueueClient myQueueClient = factory.CreateQueueClient("IssueTrackingQueue");
     ```
 4. Ardından, önceden oluşturduğunuz aracılı ileti listesinde döngüye giren kodu ekleyin. Böylece her ileti kuyruğa gönderilir. Bir önceki adımla yer alan `CreateQueueClient()` bildiriminden hemen sonra aşağıdaki kodu ekleyin.
-   
+
     ```
     // Send messages
     Console.WriteLine("Now sending messages to the queue.");
@@ -615,7 +615,7 @@ namespace Microsoft.ServiceBus.Samples
 Visual Studio'da **Derle** menüsünde **Çözümü Derle**'ye tıklayın veya **Ctrl + Shift + B**'ye basın. Hatalarla karşılaşırsanız lütfen önceki adımın sonunda sunulan tam örneğe bakarak kodunuzun doğru olduğunu doğrulayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu öğreticiyle birlikte Service Bus aracılı mesajlaşma işlevlerini kullanarak nasıl Service Bus istemci uygulaması ve hizmeti oluşturacağınızı gördünüz. Service Bus [WCF Geçişi](service-bus-messaging-overview.md#Relayed-messaging) işlevinin kullanıldığı benzer bir eğitmen için bkz. [Service Bus geçişli mesajlaşma eğitmeni](../service-bus-relay/service-bus-relay-tutorial.md).
+Bu öğreticiyle birlikte Service Bus aracılı mesajlaşma işlevlerini kullanarak nasıl Service Bus istemci uygulaması ve hizmeti oluşturacağınızı gördünüz. Service Bus [WCF Geçişi](service-bus-messaging-overview.md#service-bus-relay) işlevinin kullanıldığı benzer bir eğitmen için bkz. [Service Bus geçişli mesajlaşma eğitmeni](../service-bus-relay/service-bus-relay-tutorial.md).
 
 [Service Bus](https://azure.microsoft.com/services/service-bus/) hakkında daha fazla bilgi edinmek için aşağıdaki konu başlıklarına bakın.
 
@@ -625,7 +625,6 @@ Bu öğreticiyle birlikte Service Bus aracılı mesajlaşma işlevlerini kullana
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

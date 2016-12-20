@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 08/15/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e031f196e2f86b887c24ba300eac7ab8a8902036
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: b8ec2b5df0ae4656630364c5930029e46ee62dbd
 
 
 ---
-# <a name="radius-authentication-and-azure-multifactor-authentication-server"></a>RADIUS Kimlik Doğrulaması ve Azure Multi-Factor Authentication Sunucusu
+# <a name="radius-authentication-and-azure-multi-factor-authentication-server"></a>RADIUS Kimlik Doğrulaması ve Azure Multi-Factor Authentication Sunucusu
 RADIUS Kimlik Doğrulaması bölümü Azure Multi-Factor Authentication Sunucusu için RADIUS kimlik doğrulamasını etkinleştirmenizi ve yapılandırmanızı sağlar. RADIUS, kimlik doğrulama isteklerini kabul etmek ve bu istekleri işlemek için standart bir protokoldür. Azure Multi-Factor Authentication Sunucusu RADIUS sunucusu olarak hareket eder ve Azure Multi-Factor Authentication eklemek amacıyla RADIUS istemciniz (örneğin, VPN gereci) ile Active Directory (AD), LDAP dizini ya da başka bir RADIUS sunucusu olabilecek kimlik doğrulama hedefiniz arasına eklenir. Azure Multi-Factor Authentication’ın çalışması için Azure Multi-Factor Authentication Sunucusu’nu, hem istemci sunucuları hem de kimlik doğrulama hedefi ile iletişim kurabileceği şekilde yapılandırmalısınız. Azure Multi-Factor Authentication Sunucusu, RADIUS istemcisinden gelen istekleri kabul eder, kimlik bilgilerini kimlik doğrulama hedefine göre doğrular, Azure Multi-Factor Authentication ekler ve RADIUS istemcisine geri yanıt gönderir. Yalnızca birincil kimlik doğrulaması ve Azure Multi-Factor Authentication başarılı olursa, tüm kimlik doğrulama işlemi başarılı olur.
 
 > [!NOTE]
@@ -48,7 +48,7 @@ RADIUS kimlik doğrulamasını yapılandırmak için, bir Windows sunucusuna Azu
 11.  Azure Multi-Factor Authentication Sunucusu, Active Directory ortamında etki alanına katılmış bir sunucuda yüklüyse, Windows etki alanını seçin.
 12. Kullanıcılara LDAP dizinine göre kimlik doğrulaması yapılması gerekiyorsa, LDAP bağlamayı seçin. LDAP bağlamayı kullanırken, Sunucu’nun dizininize bağlanabilmesi için Dizin Tümleştirme simgesine tıklamalı ve Ayarlar sekmesinde LDAP yapılandırmasını düzenlemeniz gerekir. LDAP yapılandırma yönergeleri LDAP Proxy yapılandırma kılavuzunda bulunabilir.
 13. Kullanıcılara başka bir RADIUS sunucusuna göre kimlik doğrulaması yapılması gerekiyorsa, RADIUS sunucularını seçin.
-14. Sunucu’nun RADIUS isteklerini sunacağı sunucu yapılandırmak için Ekle düğmesine... tıklayın.
+14. Sunucunun RADIUS isteklerini sunacağı sunucuyu yapılandırmak için Ekle düğmesine tıklayın.
 15. RADIUS Sunucusu Ekle iletişim kutusuna RADIUS sunucusu IP adresini ve bir paylaşılan gizlilik girin. Paylaşılan gizliliğin Azure Multi-Factor Authentication Sunucusu’nda ve RADIUS sunucusunda aynı olması gerekir. RADIUS sunucusu tarafından farklı bağlantı noktaları kullanılıyorsa, Kimlik Doğrulama bağlantı noktasını ve Hesap bağlantı noktasını değiştirin.
 16. Tamam düğmesine tıklayın.
 17. Azure Multi-Factor Authentication Sunucusu’ndan buna gönderilen erişim isteklerini işleyecek şekilde, Azure Multi-Factor Authentication Sunucusu’nu başka bir RADIUS sunucusuna RADIUS istemcisi olarak eklemelisiniz. Azure Multi-Factor Authentication Sunucusu’nda yapılandırılanla aynı paylaşılan gizliliği kullanmalısınız.
@@ -64,6 +64,6 @@ RADIUS istemcisini yapılandırmak için yönergeleri kullanın:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

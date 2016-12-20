@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 10/24/2016
 ms.author: cabailey
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e30f98d541d0e6a79fab0e9b12619a2072e9ec70
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 115a718977906b3e647b628017f7ab46a588d7f2
 
 
 ---
@@ -41,7 +41,7 @@ Azure Anahtar Kasası genel bakış bilgileri için bkz. [Azure Anahtar Kasası 
 Bu öğreticiyi tamamlamak için aşağıdakilere sahip olmanız gerekir:
 
 * Bir Microsoft Azure aboneliği. Bir aboneliğiniz yoksa [ücretsiz hesap](https://azure.microsoft.com/pricing/free-trial/) için kaydolabilirsiniz.
-* Azure PowerShell'in, **en az 1.1.0 sürümü**. Azure PowerShell'i yüklemek ve Azure aboneliğinizle ilişkilendirmek için bkz. [Azure PowerShell'i yükleme ve yapılandırma](../powershell-install-configure.md). Azure PowerShell'i zaten yüklediyseniz ve sürümünü bilmiyorsanız Azure PowerShell konsolunda `(Get-Module azure -ListAvailable).Version` yazın. Azure PowerShell'in 0.9.8 - 0.9.1 sürümleri arasında bir sürümü yüklüyse bazı küçük değişikliklerle bu öğreticiyi kullanmaya devam edebilirsiniz. Örneğin, `Switch-AzureMode AzureResourceManager` komutunu kullanmanız gerekir ve bazı Azure Anahtar Kasası komutları değişmiştir. 0.9.1 - 0.9.8 arasındaki sürümlere yönelik Anahtar Kasası cmdlet listesi için bkz. [Azure Anahtar Kasası Cmdlet'leri](https://msdn.microsoft.com/library/azure/dn868052\(v=azure.98\).aspx). 
+* Azure PowerShell'in, **en az 1.1.0 sürümü**. Azure PowerShell'i yüklemek ve Azure aboneliğinizle ilişkilendirmek için bkz. [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azureps-cmdlets-docs). Azure PowerShell'i zaten yüklediyseniz ve sürümünü bilmiyorsanız Azure PowerShell konsolunda `(Get-Module azure -ListAvailable).Version` yazın. Azure PowerShell'in 0.9.8 - 0.9.1 sürümleri arasında bir sürümü yüklüyse bazı küçük değişikliklerle bu öğreticiyi kullanmaya devam edebilirsiniz. Örneğin, `Switch-AzureMode AzureResourceManager` komutunu kullanmanız gerekir ve bazı Azure Anahtar Kasası komutları değişmiştir. 0.9.1 - 0.9.8 arasındaki sürümlere yönelik Anahtar Kasası cmdlet listesi için bkz. [Azure Anahtar Kasası Cmdlet'leri](https://msdn.microsoft.com/library/azure/dn868052\(v=azure.98\).aspx). 
 * Bu öğreticide oluşturduğunuz anahtarı veya parolayı kullanmak üzere yapılandırılacak bir uygulama. [Microsoft Yükleme Merkezi](http://www.microsoft.com/en-us/download/details.aspx?id=45343)'nde örnek bir uygulama kullanılabilir. Yönergeler için beraberinde gelen Benioku dosyasına bakın.
 
 Bu öğretici Azure PowerShell'e yeni başlayanlar için tasarlanmıştır ancak modüller, cmdlet'ler ve oturumlar gibi temel kavramları anladığınız varsayılır. Daha fazla bilgi için bkz. [Windows Power Shell ile Çalışmaya Başlama](https://technet.microsoft.com/library/hh857337.aspx)
@@ -56,7 +56,7 @@ Bu öğreticide gördüğünüz herhangi bir cmdlet hakkında ayrıntılı yard�
 
 Ayrıca, Azure PowerShell'de Azure Resource Manager hakkında bilgi edinmek için aşağıdaki öğreticileri okuyabilirsiniz:
 
-* [Azure PowerShell’i yükleme ve yapılandırma](../powershell-install-configure.md)
+* [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azureps-cmdlets-docs)
 * [Azure PowerShell’i Resource Manager ile kullanma](../powershell-azure-resource-manager.md)
 
 ## <a name="a-idconnectaconnect-to-your-subscriptions"></a><a id="connect"></a>Aboneliklerinize bağlanma
@@ -76,7 +76,7 @@ Ardından, kullanılacak aboneliği belirtmek için şunu yazın:
 
     Set-AzureRmContext -SubscriptionId <subscription ID>
 
-Azure Power Shell'i yapılandırma hakkında daha fazla bilgi için bkz. [Azure PowerShell'i yükleme ve yapılandırma](../powershell-install-configure.md).
+Azure Power Shell'i yapılandırma hakkında daha fazla bilgi için bkz. [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azureps-cmdlets-docs).
 
 ## <a name="a-idresourceacreate-a-new-resource-group"></a><a id="resource"></a>Yeni bir kaynak grubu oluşturma
 Azure Resource Manager'ı kullandığınızda, tüm ilgili kaynaklar bir kaynak grubu içinde oluşturulur. Bu öğretici için **ContosoResourceGroup** adlı yeni bir kaynak grubu oluşturacağız:
@@ -237,6 +237,6 @@ Programlama başvuruları için bkz. [Azure Anahtar Kasası geliştirici kılavu
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

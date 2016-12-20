@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 09/30/2016
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d173847a9d96e5524eae5283fb63857f02e39f10
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 98c8352152b6cd1817d32c6418597c566d94d44f
 
 
 ---
-# <a name="add-company-branding-to-your-signin-and-access-panel-pages"></a>Oturum açma ve Erişim Paneli sayfalarınıza şirket markası ekleme
+# <a name="add-company-branding-to-your-sign-in-and-access-panel-pages"></a>Oturum açma ve Erişim Paneli sayfalarınıza şirket markası ekleme
 Birçok şirket, karışıklığı önlemek için yönettikleri hizmetlerde ve web sitelerinde tutarlı bir genel görünüm uygulamak ister. Azure Active Directory, aşağıdaki web sayfalarının görünümünü şirket logonuzla ve özel renk düzenleriyle özelleştirmenize olanak tanıyarak size bu özelliği sunar:
 
 * **Oturum açma sayfası:** Office 365'te veya Azure AD'yi kimlik sağlayıcınız olarak kullanan diğer web tabanlı uygulamalarda oturum açtığınızda görüntülenen sayfadır. Ana Bölge Bulma işlemi sırasında veya kimlik bilgilerinizi girerken bu sayfa ile karşılaşırsınız. Ana Bölge Bulma işlemi, sistemin federasyon kullanıcılarını kendi şirket içi STS'lerine (örneğin, AD FS) yönlendirmesini sağlar.
@@ -34,7 +34,7 @@ Bu konu başlığında, oturum açma sayfasını ve erişim paneli sayfasını n
 > 
 > 
 
-## <a name="customizing-the-signin-page"></a>Oturum açma sayfasını özelleştirme
+## <a name="customizing-the-sign-in-page"></a>Oturum açma sayfasını özelleştirme
 Genel olarak, bulut uygulamalarınıza ve kuruluşunuzun abonesi olduğu hizmetlere tarayıcı tabanlı olarak erişmeniz gerekiyorsa oturum açma sayfasını kullanırsınız.
 
 Oturum açma sayfanızda değişiklikler yaptıysanız bu değişikliklerin görünmesi bir saate kadar sürebilir.
@@ -224,6 +224,6 @@ Azure AD'deki bazı özelleştirilebilir öğelerin birden çok kullanım durumu
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

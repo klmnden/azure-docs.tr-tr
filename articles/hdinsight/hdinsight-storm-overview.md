@@ -16,12 +16,12 @@ ms.workload: big-data
 ms.date: 10/11/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e2fa11046adf828497b142e1043ac1c2a15443ef
+ms.sourcegitcommit: 0587dfcd6079fc8df91bad5a5f902391d3657a6b
+ms.openlocfilehash: e0353fe07c98060c88f8fefdcc3c1052437f23ab
 
 
 ---
-# <a name="introduction-to-apache-storm-on-hdinsight-realtime-analytics-for-hadoop"></a>HDInsight üzerinde Apache Storm’a giriş: Hadoop için gerçek zamanlı analiz
+# <a name="introduction-to-apache-storm-on-hdinsight-real-time-analytics-for-hadoop"></a>HDInsight üzerinde Apache Storm’a giriş: Hadoop için gerçek zamanlı analiz
 HDInsight üzerinde Apache Storm, [Apache Hadoop](http://hadoop.apache.org) kullanarak Azure ortamında dağıtılmış, gerçek zamanlı analiz çözümleri oluşturmanıza imkan tanır.
 
 ## <a name="what-is-apache-storm"></a>Apache Storm nedir?
@@ -53,7 +53,7 @@ Storm kullanmaya başlamak için bkz. [HDInsight Üzerinde Storm ile çalışmay
 HDInsight kümesinde dakikalar için yeni bir Storm sağlayabilirsiniz. Küme adı, boyutu, yönetici hesabı ve depolama hesabı belirtin. Azure, örnek topolojileri ve web yönetimi panosu ile birlikte kümeyi oluşturur.
 
 > [!NOTE]
-> Storm kümelerini ayrıca [Azure CLI](../xplat-cli-install.md) veya [Azure PowerShell](../powershell-install-configure.md) kullanarak da sağlayabilirsiniz.
+> Storm kümelerini ayrıca [Azure CLI](../xplat-cli-install.md) veya [Azure PowerShell](/powershell/azureps-cmdlets-docs) kullanarak da sağlayabilirsiniz.
 > 
 > 
 
@@ -107,7 +107,7 @@ Oluşturma sırasında kümedeki düğüm sayısını belirtebilseniz de, iş y�
 ### <a name="support"></a>Destek
 HDInsight üzerinde Storm 7 gün 24 saat kurumsal düzeyde tam destek ile birlikte gelir. HDInsight üzerinde Storm ayrıca %99,9 SLA’ya sahiptir. Diğer bir deyişle kümenin, sürenin en az %99,9’unda dış bağlantıya sahip olacağı garanti edilir.
 
-## <a name="common-use-cases-for-realtime-analytics"></a>Gerçek zamanlı analiz için ortak kullanım durumları
+## <a name="common-use-cases-for-real-time-analytics"></a>Gerçek zamanlı analiz için ortak kullanım durumları
 HDInsight üzerinde Apache storm kullanabileceğiniz bazı yaygın senaryolar aşağıda verilmiştir. Gerçek senaryolar hakkında daha fazla bilgi için [Şirketler Storm’u nasıl kullanıyor?](https://storm.apache.org/documentation/Powered-By.html) sayfasını okuyun.
 
 * Nesnelerin İnterneti (IoT)
@@ -196,7 +196,7 @@ Günlüğün nasıl yapılandırılacağını gösteren örnek bir topoloji içi
 ## <a name="next-steps"></a>Sonraki adımlar
 HDInsight’ta Apache Storm ile gerçek zamanlı analiz çözümleri hakkında daha fazla bilgi edinin:
 
-* [HDInsight üzerinde Storm Kullanmaya Başlama][gettingstarted]
+* [HDInsight'ta Storm'u kullanmaya başlama][gettingstarted]
 * [HDInsight üzerinde Storm için örnek topolojiler](hdinsight-storm-example-topology.md)
 
 [stormtrident]: https://storm.apache.org/documentation/Trident-API-Overview.html
@@ -206,6 +206,6 @@ HDInsight’ta Apache Storm ile gerçek zamanlı analiz çözümleri hakkında d
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

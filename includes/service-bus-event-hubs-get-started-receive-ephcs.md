@@ -1,9 +1,9 @@
 ## <a name="receive-messages-with-eventprocessorhost"></a>EventProcessorHost bulunan iletiler alma
-[EventProcessorHost][EventProcessorHost], Event Hubs’a ait kalıcı denetim noktalarını ve paralel alımları yöneterek bu Event Hubs’a ait alma olaylarını basitleştiren bir .NET sınıfıdır. [EventProcessorHost][EventProcessorHost]’u kullanarak, farklı düğümlerde barındırıldığında bile birden çok alıcı arasında olayları bölebilirsiniz. Bu örnek, tek alıcı için [EventProcessorHost][EventProcessorHost]’un nasıl kullanıldığını göstermektedir. [Ölçeği genişletilmiş olay işleme][Ölçeği genişletilmiş olay işleme] örneği birden çok alıcıyla [EventProcessorHost][EventProcessorHost]’un nasıl kullanılacağını göstermektedir.
+[EventProcessorHost][EventProcessorHost], Event Hubs'a ait kalıcı denetim noktalarını ve paralel alımları yöneterek bu Event Hubs'a ait alma olaylarını basitleştiren bir .NET sınıfıdır. [EventProcessorHost][EventProcessorHost] kullanarak, farklı düğümlerde barındırıldığında bile birden çok alıcı arasında olayları bölebilirsiniz. Bu örnek, tek alıcı için [EventProcessorHost][EventProcessorHost]'un nasıl kullanıldığını göstermektedir. [Ölçeği genişletilmiş olay işleme][Scaled out event processing] örneği birden çok alıcıyla [EventProcessorHost][EventProcessorHost]'un nasıl kullanılacağını göstermektedir.
 
-[EventProcessorHost][EventProcessorHost]’u kullanmak için [Azure Depolama hesabınız][Azure Depolama hesabınız] olmalıdır:
+[EventProcessorHost][EventProcessorHost]'u kullanabilmeniz için bir [Azure Depolama hesabınızın][Azure Storage account] olması gerekir:
 
-1. [Azure portal][Azure portal] üzerinde oturum açın ve ekranın sol üst köşesindeki **Yeni**’ye tıklayın.
+1. [Azure portalında][Azure portal] oturum açın ve ekranın sol üst köşesindeki **Yeni**'ye tıklayın.
 2. **Veri + Depolama** ve ardından **Depolama hesabı**’na tıklayın.
    
     ![](./media/service-bus-event-hubs-getstarted-receive-ephcs/create-storage1.png)
@@ -28,14 +28,14 @@
     ![](./media/service-bus-event-hubs-getstarted-receive-ephcs/create-receiver-csharp2.png)
 10. Aşağıdaki deyimleri SimpleEventProcessor.cs dosyasının en üstüne ekleyin:
     
-     ```
+     ```csharp
      using Microsoft.ServiceBus.Messaging;
      using System.Diagnostics;
      ```
     
      Sonra da, aşağıdaki kodu sınıfın gövdesi yerine geçirin:
     
-     ```
+     ```csharp
      class SimpleEventProcessor : IEventProcessor
      {
          Stopwatch checkpointStopWatch;
@@ -80,13 +80,13 @@
      Olay Hub’ından alınan olayları işlemek için bu sınıf **EventProcessorHost** tarafından çağrılır. `SimpleEventProcessor` sınıfının, **EventProcessorHost** bağlamında düzenli olarak denetim noktası yöntemini çağırmak için bir kronometre kullandığını unutmayın. Alıcı yeniden başlatılırsa, çalışmayı sürdürmek için beş dakikadan fazla kaybedilmemesi sağlanır.
 11. **Program** sınıfında aşağıdaki `using` deyimini dosyanın üst kısmına ekleyin:
     
-     ```
+     ```csharp
      using Microsoft.ServiceBus.Messaging;
      ```
     
      Ardından, `Program` sınıfındaki `Main` yöntemini aşağıdaki kodla değiştirin; bu kodda Olay Hub'ı adı ve daha önce kaydettiğiniz ad alanı düzeyinde bağlantı dizesi ve önceki bölümlerde kopyaladığınız depolama hesabı ve anahtarı değişecektir. 
     
-     ```
+     ```csharp
      static void Main(string[] args)
      {
        string eventHubConnectionString = "{Event Hub connection string}";
@@ -109,18 +109,18 @@
      ```
 
 > [!NOTE]
-> Bu öğretici, [EventProcessorHost][EventProcessorHost]’un tek bir örneğini kullanır. Verimliliği artırmak için, birden çok [EventProcessorHost][EventProcessorHost] örneğinin [Ölçeği genişletilmiş olay işleme][Ölçeği genişletilmiş olay işleme] örneğinde gösterildiği gibi çalıştırmanız önerilir. Bu gibi durumlarda, alınan olayların yükünü dengelemek üzere çeşitli örnekler otomatik olarak birbiriyle koordine olur. Birden çok alıcının her birinin *tüm* olayları işlemesini istiyorsanız **ConsumerGroup** kavramını kullanmalısınız. Olaylar farklı makinelerden alındığında, dağıtıldıkları makineleri (veya rolleri) temel alan [EventProcessorHost][EventProcessorHost] örnekleri için ad belirtmek yararlı olabilir. Bu konular hakkında daha fazla bilgi için bkz. [Event Hubs’a Genel Bakış][Event Hubs’a Genel Bakış] ve [Event Hubs Programlama Kılavuzu][Event Hubs Programlama Kılavuzu] konuları.
+> Bu öğretici, [EventProcessorHost][EventProcessorHost]'un tek bir örneğini kullanır. Verimliliği artırmak için, birden çok [EventProcessorHost][EventProcessorHost] örneğinin [Ölçeği genişletilmiş olay işleme][Scaled out event processing] örneğinde gösterildiği gibi çalıştırmanız önerilir. Bu gibi durumlarda, alınan olayların yükünü dengelemek üzere çeşitli örnekler otomatik olarak birbiriyle koordine olur. Birden çok alıcının her birinin *tüm* olayları işlemesini istiyorsanız **ConsumerGroup** kavramını kullanmalısınız. Olaylar farklı makinelerden alındığında, dağıtıldıkları makineleri (veya rolleri) temel alan [EventProcessorHost][EventProcessorHost] örnekleri için ad belirtmek yararlı olabilir. Bu konular hakkında daha fazla bilgi için [Event Hubs'a Genel Bakış][Event Hubs Overview] ve [Event Hubs Programlama Kılavuzu][Event Hubs Programming Guide] konu başlıklarına bakın.
 > 
 > 
 
 <!-- Links -->
-[Event Hubs’a Genel Bakış]: ../articles/event-hubs/event-hubs-overview.md
-[Event Hubs Programlama Kılavuzu]: ../articles/event-hubs/event-hubs-programming-guide.md
-[Ölçeği genişletilmiş olay işleme]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
-[Azure Depolama hesabınız]: ../articles/storage/storage-create-storage-account.md
-[EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
+[Event Hubs Overview]: ../articles/event-hubs/event-hubs-overview.md
+[Event Hubs Programming Guide]: ../articles/event-hubs/event-hubs-programming-guide.md
+[Scaled out event processing]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
+[Azure Storage account]: ../articles/storage/storage-create-storage-account.md
+[EventProcessorHost]: /dotnet/api/microsoft.servicebus.messaging.eventprocessorhost
 [Azure portal]: https://portal.azure.com
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

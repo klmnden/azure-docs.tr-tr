@@ -17,12 +17,58 @@ ms.workload: na
 ms.date: 09/13/2016
 ms.author: rogardle
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 97f74f845e19ae99cf6c5abbb9f076c7c5171993
+ms.sourcegitcommit: 319978579ae6ad868030d2ec99bce6e6aaa22299
+ms.openlocfilehash: 24a8b9c4e78971199236553802a71134bd12829c
 
 
 ---
 # <a name="connect-to-an-azure-container-service-cluster"></a>Azure Kapsayıcı Hizmeti kümesine bağlanma
+Azure Container Service tarafından dağıtılan DC/OS, Kubernetes ve Docker Swarm kümeleri, REST uç noktalarını kullanıma sunar.  Kubernetes için, bu uç nokta İnternet’te güvenli bir şekilde kullanıma sunulmuştur ve bu uç noktaya İnternet bağlantısı olan herhangi bir makineden doğrudan erişilebilir. DC/OS ve Docker Swarm için, REST uç noktasını güvenli bir şekilde bağlamak için bir SSH tüneli oluşturmanız gerekir. Bu bağlantıların her biri aşağıda açıklanmıştır.
+
+## <a name="connecting-to-a-kubernetes-cluster"></a>Kubernetes kümesine bağlanma.
+Kubernetes kümesine bağlanmak için, `kubectl` komut satırı aracının yüklü olması gerekir.  Bu aracı yüklemenin en kolay yolu, Azure 2.0 `az` komut satırı aracını kullanmaktır.
+
+```console
+az acs kubernetes install cli [--install-location=/some/directory]
+```
+
+Alternatif olarak, istemciyi doğrudan [sürümler sayfasından](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG.md#downloads-for-v146) indirebilirsiniz
+
+`kubectl` komut satırı aracını yükledikten sonra, küme kimlik bilgilerini makinenize kopyalamanız gerekir.  Bunu yapmanın en kolay yolu, yine `az` komut satırı aracını kullanmaktır:
+
+```console
+az acs kubernetes get-credentials --dns-prefix=<some-prefix> --location=<some-location>
+```
+
+Bu işlem, küme bilgilerini, `kubectl` komut satırı aracının bulunmasını beklediği `$HOME/.kube/config` dizinine indirir.
+
+Alternatif olarak, `scp` komutunu kullanarak, ana VM’deki dosyayı `$HOME/.kube/config` dizininden yerel makinenize güvenli bir şekilde kopyalayabilirsiniz.
+
+```console
+mkdir $HOME/.kube/config
+scp azureuser@<master-dns-name>:.kube/config $HOME/.kube/config
+```
+
+Windows kullanıyorsanız, Windows üzerinde çalışan Ubuntu’da Bash kabuğunu veya Putty 'pscp' aracını kullanmanız gerekir.
+
+`kubectl` yapılandırmasını tamamladıktan sonra test etmek için kümenizdeki düğümleri listeleyebilirsiniz:
+
+```console
+kubectl get nodes
+```
+
+Son olarak Kubernetes Panosu'nu görüntüleyebilirsiniz. Öncelikle şunu yürütün:
+
+```console
+kubectl proxy
+```
+
+Kubernetes UI sayfasına şu adresten ulaşabilirsiniz: http://localhost:8001/ui
+
+Ayrıntılı yönergeler için bkz. [Kubernetes için hızlı başlangıç kılavuzu](http://kubernetes.io/docs/user-guide/quick-start/)
+
+## <a name="connecting-to-a-dcos-or-swarm-cluster"></a>DC/OS veya Swarm kümesine bağlanma
+
 Azure Container Service tarafından dağıtılan DC/OS ve Docker Swarm kümeleri REST uç noktalarını kullanıma sunar. Ancak, bu uç noktalar dış dünyaya açık değildir. Bu uç noktaları yönetmek için bir Secure Shell (SSH) tüneli oluşturmanız gerekir. SSH tüneli oluşturulduktan sonra küme uç noktalarına karşı komutları çalıştırabilir ve kendi sisteminizdeki bir tarayıcı aracılığıyla küme kullanıcı arabirimini görüntüleyebilirsiniz. Bu belgede size Linux, OS X ve Windows’da bir SSH tüneli oluşturma konusunu adım adım anlatılmaktadır.
 
 > [!NOTE]
@@ -126,6 +172,6 @@ DC/OS ya da Swarm ile kapsayıcıları dağıtın ve yönetin:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

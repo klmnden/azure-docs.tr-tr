@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 10/07/2016
 ms.author: ambapat
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5d58210a155666642cec8c180249c4e43b69fb9c
+ms.sourcegitcommit: c40545833da86426d3e71955b8eb8627db3c1e4b
+ms.openlocfilehash: fd93a6634175df47cd3ef871b01d08e9f5fea27b
 
 
 ---
@@ -71,8 +71,8 @@ Yönetim düzlemi ve veri düzlemi erişim denetimleri birbirinden bağımsız o
 ## <a name="management-plane-access-control"></a>Yönetim düzlemi erişim denetimi
 Yönetim düzlemi, anahtar kasasını etkileyen işlemlerden oluşur. Örneğin, bir anahtar kasası oluşturabilir veya silebilirsiniz. Bir abonelikteki kasaların listesini alabilirsiniz. Anahtar kasası özelliklerini alabilir (SKU, etiketler gibi) ve kasadaki anahtarlara ve parolalara erişebilen kullanıcıları ve uygulamaları denetleyen anahtar kasası erişim ilkelerini ayarlayabilirsiniz. Yönetim düzlemi erişim denetimi, RBAC kullanır. Önceki bölümde yer alan tabloda, yönetim düzlemi üzerinden gerçekleştirilebilecek anahtar kasası işlemlerinin tam listesini görebilirsiniz. 
 
-### <a name="rolebased-access-control-rbac"></a>Rol Tabanlı Access Control (RBAC)
-Her Azure aboneliği bir Azure Active Directory’ye sahiptir. Bu dizindeki kullanıcılara, gruplara ve uygulamalara, Azure aboneliğinde Azure Resource Manager dağıtım modelini kullanan kaynakları yönetmek üzere erişim verilebilir. Bu erişim denetimi türü, Rol Tabanlı Access Control (RBAC) olarak adlandırılır. Bu erişimi yönetmek için [Azure portalı](https://portal.azure.com/), [Azure CLI araçları](../xplat-cli-install.md), [PowerShell](../powershell-install-configure.md) veya [Azure Resource Manager REST API'lerini](https://msdn.microsoft.com/library/azure/dn906885.aspx) kullanabilirsiniz.
+### <a name="role-based-access-control-rbac"></a>Rol Tabanlı Access Control (RBAC)
+Her Azure aboneliği bir Azure Active Directory’ye sahiptir. Bu dizindeki kullanıcılara, gruplara ve uygulamalara, Azure aboneliğinde Azure Resource Manager dağıtım modelini kullanan kaynakları yönetmek üzere erişim verilebilir. Bu erişim denetimi türü, Rol Tabanlı Access Control (RBAC) olarak adlandırılır. Bu erişimi yönetmek için [Azure portalı](https://portal.azure.com/), [Azure CLI araçları](../xplat-cli-install.md), [PowerShell](/powershell/azureps-cmdlets-docs) veya [Azure Resource Manager REST API'lerini](https://msdn.microsoft.com/library/azure/dn906885.aspx) kullanabilirsiniz.
 
 Azure Resource Manager modeliyle, bir kaynak grubunda anahtar kasanızı oluşturur ve Azure Active Directory’yi kullanarak bu anahtar kasasının yönetim düzlemine erişimi denetlersiniz. Örneğin, kullanıcılara veya bir gruba, belirli bir kaynak grubunun içindeki anahtar kasalarını yönetme olanağı verebilirsiniz.
 
@@ -89,7 +89,7 @@ Anahtar kasası veri düzlemi, bir anahtar kasasındaki anahtarlar, parolalar ve
 Veri düzlemi erişimi, bir anahtar kasasına ilişkin erişim ilkeleri ayarlanarak verilir. Bir kullanıcı, grup veya uygulamanın bir anahtar kasasına ait erişim ilkelerini ayarlayabilmesi için, ilgili anahtar kasasının yönetim düzleminde Katkıda Bulunan izinlerine (RBAC) sahip olması gerekir. Bir kullanıcı, grup veya uygulamaya, bir anahtar kasasındaki anahtarlar veya parolalar için belirli işlemleri gerçekleştirmek üzere erişim verilebilir. bir anahtar kasası için en fazla 16 erişim ilkesi girişine yönelik anahtar kasası desteği. Bir Azure Active Directory güvenlik grubu oluşturun ve bir anahtar kasasındaki birkaç kullanıcıya veri düzlemi erişimi vermek amacıyla ilgili gruba kullanıcılar ekleyin.
 
 ### <a name="key-vault-access-policies"></a>anahtar kasası Erişim İlkeleri
-Anahtar kasası erişim ilkeleri anahtarlara, parolalara ve sertifikalara ayrı ayrı izinler verir. Örneğin, bir kullanıcıya parolalar için herhangi bir izin vermeden yalnızca anahtarlar için erişim verebilirsiniz. Ancak, anahtar, parola veya sertifikalara erişim izni kasa düzeyinde verilir. Diğer bir deyişle, anahtar kasası erişim ilkesi nesne düzeyinde izinleri desteklemez. Bir anahtar kasasının erişim ilkelerini ayarlamak için [Azure portalı](https://portal.azure.com/), [Azure CLI araçları](../xplat-cli-install.md), [PowerShell](../powershell-install-configure.md) veya [anahtar kasası Yönetim REST API’lerini](https://msdn.microsoft.com/library/azure/mt620024.aspx) kullanabilirsiniz.
+Anahtar kasası erişim ilkeleri anahtarlara, parolalara ve sertifikalara ayrı ayrı izinler verir. Örneğin, bir kullanıcıya parolalar için herhangi bir izin vermeden yalnızca anahtarlar için erişim verebilirsiniz. Ancak, anahtar, parola veya sertifikalara erişim izni kasa düzeyinde verilir. Diğer bir deyişle, anahtar kasası erişim ilkesi nesne düzeyinde izinleri desteklemez. Bir anahtar kasasının erişim ilkelerini ayarlamak için [Azure portalı](https://portal.azure.com/), [Azure CLI araçları](../xplat-cli-install.md), [PowerShell](/powershell/azureps-cmdlets-docs) veya [anahtar kasası Yönetim REST API’lerini](https://msdn.microsoft.com/library/azure/mt620024.aspx) kullanabilirsiniz.
 
 > [!IMPORTANT]
 > Anahtar kasası erişim ilkelerinin kasa düzeyinde geçerli olduğunu unutmayın. Örneğin, bir kullanıcıya anahtar oluşturma ve silme izni verildiğinde kullanıcı bu işlemleri ilgili anahtar kasasındaki tüm anahtarlar üzerinde gerçekleştirebilir.
@@ -210,7 +210,7 @@ Bu örnekte basit bir senaryo gösterilmektedir. Gerçek yaşam senaryoları dah
 * [RBAC: Yerleşik Roller](../active-directory/role-based-access-built-in-roles.md)
   
   Bu makalede RBAC’de kullanılabilen tüm yerleşik roller ayrıntılı olarak açıklanmaktadır.
-* [Resource Manager dağıtımını ve klasik dağıtımı anlama](../resource-manager-deployment-model.md)
+* [Resource Manager dağıtımını ve klasik dağıtımı anlama](../azure-resource-manager/resource-manager-deployment-model.md)
   
   Bu makalede Resource Manager dağıtımı ve klasik dağıtım modelleri açıklanmakta ve Resource Manager ile kaynak gruplarını kullanmanın avantajları anlatılmaktadır
 * [Rol Tabanlı Erişim Denetimini Azure PowerShell ile Yönetme](../active-directory/role-based-access-control-manage-access-powershell.md)
@@ -253,6 +253,6 @@ Anahtar kasası ile ilgili sorularınız varsa bkz. [Azure Anahtar Kasası Forum
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

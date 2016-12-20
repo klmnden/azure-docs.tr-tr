@@ -4,12 +4,20 @@ Daha önce yapmadıysanız [Azure aboneliği ücretsiz deneme sürümünü](http
 azure config mode arm
 ```
 
-Şimdi `azure vmss quick-create` komutunu kullanarak ölçek kümenizi oluşturabilirsiniz. Aşağıdaki örnek, `myResourceGroup` adlı kaynak grubunun içinde 5 VM örneğine sahip `myVMSS` adlı ölçek kümesi oluşturur:
+Şimdi `azure vmss quick-create` komutunu kullanarak ölçek kümenizi oluşturabilirsiniz. Aşağıdaki örnek, `myResourceGroup` adlı kaynak grubunun içinde 5 VM örneğine sahip `myVMSS` adlı Linux ölçek kümesi oluşturur:
 
 ```azurecli
 azure vmss quick-create -n myVMSS -g myResourceGroup -l westus \
     -u ops -p P@ssw0rd! \
-    -C 5 -Q Canonical:UbuntuServer:14.04.4-LTS:latest
+    -C 5 -Q Canonical:UbuntuServer:16.04.0-LTS:latest
+```
+
+Aşağıdaki örnek aynı yapılandırmayla bir Windows ölçek kümesi oluşturur:
+
+```azurecli
+azure vmss quick-create -n myVMSS -g myResourceGroup -l westus \
+    -u ops -p P@ssw0rd! \
+    -C 5 -Q MicrosoftWindowsServer:WindowsServer:2016-Datacenter:latest
 ```
 
 Konum veya görüntü urn’sini özelleştirmek istiyorsanız `azure location list` ve `azure vm image {list-publishers|list-offers|list-skus|list|show}` komutlarına bakın.
@@ -56,6 +64,6 @@ FQDN=${split_line[3]}
 ssh -p 50000 negat@$FQDN
 ```
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

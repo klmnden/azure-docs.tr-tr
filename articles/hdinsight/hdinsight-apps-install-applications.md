@@ -13,25 +13,23 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/14/2016
+ms.date: 11/23/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b53d8c78817e94ec30bd7cb3becf0c7d4accbd23
+ms.sourcegitcommit: 71aef298af187cd4c370edf9fedc42e75ec10c41
+ms.openlocfilehash: 57fbf532c64621ef7d171fc5092708737cd36c33
 
 
 ---
 # <a name="install-hdinsight-applications"></a>HDInsight uygulamaları yükleme
 HDInsight uygulaması kullanıcıların Linux tabanlı HDInsight kümesine yükleyebileceği bir uygulamadır. Bu uygulamalar Microsoft veya bağımsız yazılım satıcıları (ISV) tarafından ya da sizin tarafınızdan geliştirilebilir. Bu makalede yayımlanmış bir uygulamanın nasıl yükleneceğini öğreneceksiniz. Kendi uygulamanızı yüklemek için bkz. [Özel HDInsight uygulamaları yükleme](hdinsight-apps-install-custom-applications.md). 
 
-Şu anda yayımlanmış tek bir uygulama vardır:
+Şu anda, yayımlanmış üç uygulama vardır:
 
 * **Datameer**: [Datameer](http://www.datameer.com/documentation/display/DAS50/Home?ls=Partners&lsd=Microsoft&c=Partners&cd=Microsoft), analiz uzmanlarına Büyük Veri üzerinde sonuçları bulma, çözümleme ve görselleştirme için etkileşimli bir yol sunar. Yeni ilişkileri keşfetmek ve ihtiyaç duyduğunuz yanıtları almak için ek veri kaynaklarını kolayca alın.
+* **HDnsight için Akış Kümeleri Veri Toplayıcısı**, tam özellikli bir tümleşik geliştirme ortamı (IDE) sağlar. Bu ortam, akış ve toplu işlem verileri arasında ağ oluşturan “herhangi birinden herhangi birine” alma işlem hatlarını tasarlamanıza, test etmenize, dağıtmanıza ve yönetmenize olanak tanır. Üstelik hiçbiri için özel kod yazmanız gerekmez. 
+* **HDInsight için Cask CDAP 3.5**, büyük veriler için veri uygulamaları ve veri göllerinin üretim süresini %80 azaltan ilk birleşik tümleştirme platformunu sağlar. Bu uygulama yalnızca Standart HBase 3.4 kümelerini destekler.
 
-> [!NOTE]
-> Datameer şu anda yalnızca Azure HDInsight sürüm 3.2 kümelerinde desteklenmektedir.
-> 
-> 
 
 Bu makalede verilen yönergeler Azure portalı kullanmaktadır. Ayrıca portaldan Azure Resouce Manager şablonunu dışarı aktarabilir veya satıcılardan Resouce Manager şablonunun bir kopyasını edinebilir ve Azure PowerShell ile Azure CLI kullanarak şablonu dağıtabilirsiniz.  Bkz. [HDInsight’ta Resource Manager şablonları kullanarak Linux tabanlı Hadoop kümeleri oluşturma](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
@@ -46,14 +44,14 @@ Aşağıdaki yordamda var olan bir HDInsight kümesine HDInsight uygulamaların�
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 2. Soldaki menüde **HDInsight Kümeleri**’ne tıklayın.  Bu seçeneği görmüyorsanız **Gözat**’a ve ardından **HDInsight Kümeleri**’ne tıklayın.
 3. Bir HDInsight kümesine tıklayın.  Henüz yoksa öncelikle bir tane oluşturmanız gerekir.  bkz. [Küme oluşturma](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster).
-4. **Ayarlar** dikey penceresinde **Genel** kategorisi altındaki **Uygulamalar**’a tıklayın. **Yüklü Uygulamalar** dikey penceresinde tüm yüklü uygulamalar listelenir. 
+4. **Yapılandırmalar** kategorisinden **Uygulamalar**‘a tıklayın. Yüklü uygulamalar varsa bunların listesini görebilirsiniz.
    
     ![hdinsight uygulamaları portal menüsü](./media/hdinsight-apps-install-applications/hdinsight-apps-portal-menu.png)
 5. Dikey pencere menüsünden **Ekle**’ye tıklayın. 
    
     ![hdinsight uygulamaları yüklü uygulamalar](./media/hdinsight-apps-install-applications/hdinsight-apps-installed-apps.png)
    
-    Var olan HDInsight uygulamalarının bir listesini görürsünüz.
+    Mevcut HDInsight uygulamalarının listesini görebilirsiniz.
    
     ![hdinsight uygulamaları kullanılabilir uygulamalar](./media/hdinsight-apps-install-applications/hdinsight-apps-list.png)
 6. Uygulamalardan birine tıklayın, yasal koşulları kabul edin ve ardından **Seç**’e tıklayın.
@@ -120,6 +118,6 @@ Bkz. [Yükleme sorunlarını giderme](hdinsight-apps-install-custom-applications
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

@@ -16,8 +16,8 @@ ms.tgt_pltfrm: na
 ms.date: 08/29/2016
 ms.author: brjohnst
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a63d71de584b526972ff86ba8cb47664e66e22da
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 1934fa46b38f36033c427a6ac061db94f4dc760b
 
 
 ---
@@ -226,6 +226,6 @@ Azure Search dizininizi doldurduktan sonra, belgeleri aramak için sorgu gönder
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

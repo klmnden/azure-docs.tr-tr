@@ -12,15 +12,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/14/2016
+ms.date: 12/06/2016
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 4bd1e84fd9af1273f95f70d941c3a4535984c8a9
+ms.sourcegitcommit: 705bbd78970c6e3c20ef7214704194f722da09a6
+ms.openlocfilehash: 0f00d5a3b8116864d9e66c18d535f319b31b9f9c
 
 
 ---
-# <a name="update-management-solution-in-omsmediaomssolutionupdatemanagementupdatemanagementsolutioniconpng-update-management-solution-in-oms"></a>![OMS’de Güncelleştirme Yönetimi Çözümü](./media/oms-solution-update-management/update-management-solution-icon.png) OMS’de Güncelleştirme Yönetimi çözümü
+# <a name="update-management-solution-in-oms"></a>OMS’de Güncelleştirme Yönetimi çözümü
 OMS’de Güncelleştirme Yönetimi çözümü, Windows ve Linux bilgisayarlarınıza yönelik güncelleştirmeleri yönetmenize olanak tanır.  Tüm aracı bilgisayarlardaki kullanılabilir güncelleştirmelerin durumunu hızlıca değerlendirebilir ve sunucular için gerekli güncelleştirmeleri yükleme işlemini başlatabilirsiniz. 
 
 ## <a name="prerequisites"></a>Önkoşullar
@@ -33,7 +33,10 @@ OMS’de Güncelleştirme Yönetimi çözümü, Windows ve Linux bilgisayarları
 * Linux aracılarının bir güncelleştirme havuzuna erişimi olmalıdır.  Linux için OMS Aracısı [GitHub](https://github.com/microsoft/oms-agent-for-linux)’dan indirilebilir. 
 
 ## <a name="configuration"></a>Yapılandırma
-Güncelleştirme Yönetimi çözümünü OMS çalışma alanınıza eklemek ve Linux aracılarını eklemek için aşağıdaki adımları uygulayın.  Windows aracıları ek bir yapılandırma olmadan otomatik olarak eklenir.
+Güncelleştirme Yönetimi çözümünü OMS çalışma alanınıza eklemek ve Linux aracılarını eklemek için aşağıdaki adımları uygulayın. Windows aracıları ek bir yapılandırma olmadan otomatik olarak eklenir.
+
+> [!NOTE]
+> Şimdilik, bu çözümü etkinleştirmeniz durumunda çözümün bir parçası olan runbook’ların desteklenmesi amacıyla OMS çalışma alanınıza bağlı tüm Windows bilgisayarları otomatik olarak bir Karma Runbook Çalışanı olarak yapılandırılır.  Ancak, Otomasyon hesabınızda oluşturduğunuz herhangi bir Karma Çalışanı grubuna kaydedilmez ve kendi runbook’larınızı çalıştırmak için bir Karma Çalışanı grubuna ekleyemezsiniz.  Bir Windows bilgisayarı zaten bir Karma Runbook Çalışanı olarak belirlendi ve OMS çalışma alanına bağlandıysa, runbook’larınızın beklendiği gibi çalışmamasını engellemek için çözüm eklemeden önce bilgisayarı OMS çalışma alanından kaldırmanız gerekir.  
 
 1. Çözüm Galerisi’ndeki [OMS çözümü ekleme](../log-analytics/log-analytics-add-solutions.md) bölümünde anlatılan şekilde Güncelleştirme Yönetimi çözümünü OMS çalışma alanına ekleyin.  
 2. OMS portalında **Ayarlar** ve ardından **Bağlı Kaynaklar**’ı seçin.  **Çalışma Alanı Kimliği**’ni ve **Birincil Anahtar** ya da **İkincil Anahtar**’ı not edin.
@@ -41,11 +44,13 @@ Güncelleştirme Yönetimi çözümünü OMS çalışma alanınıza eklemek ve L
    
    a.    Aşağıdaki komutları çalıştırarak Linux için OMS Aracısı’nın en son sürümünü yükleyin.  <Workspace ID> öğesini Çalışma Alanı Kimliği ile, <Key> öğesini ise Birincil Anahtar veya İkincil Anahtar ile değiştirin.
    
-     cd ~   wget https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/v1.2.0-75/omsagent-1.2.0-75.universal.x64.sh   sudo bash omsagent-1.2.0-75.universal.x64.sh --upgrade -w <Workspace ID> -s <Key>
-   
+        cd ~
+        wget https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/v1.2.0-75/omsagent-1.2.0-75.universal.x64.sh  
+        sudo bash omsagent-1.2.0-75.universal.x64.sh --upgrade -w <Workspace ID> -s <Key>
+
    b. Aracıyı kaldırmak için aşağıdaki komutu çalıştırın.
    
-     sudo bash omsagent-1.2.0-75.universal.x64.sh --purge
+        sudo bash omsagent-1.2.0-75.universal.x64.sh --purge
 
 ## <a name="management-packs"></a>Yönetim paketleri
 System Center Operations Manager yönetim grubunuz OMS çalışma alanınıza bağlıysa, bu çözümü eklediğinizde Operation Manager’a aşağıdaki yönetim paketleri yüklenir. Bu yönetim paketleri için bir yapılandırma veya bakım gerekmez. 
@@ -143,7 +148,7 @@ Yeni bir Güncelleştirme Dağıtımı oluşturmak için ekranın üst kısmınd
 ### <a name="time-range"></a>Zaman aralığı
 Varsayılan olarak, Güncelleştirme Yönetimi çözümünde analiz edilen verilerin kapsamı son 1 gün içinde oluşturulan tüm bağlı yönetim gruplarından belirlenir. 
 
-Verileri zaman aralığını değiştirmek için panonun ist kısmındaki **Veri temeli**’ni seçin. Son 7 gün, 1 gün veya 6 saat içinde oluşturulan veya güncelleştirilen kayıtları seçebilirsiniz. Ya da **Özel**’i seçip özel bir tarih aralığı belirtebilirsiniz.<br><br> ![Özel Zaman Aralığı Seçeneği](./media/oms-solution-update-management/update-la-time-range-scope-databasedon.png)  
+Verileri zaman aralığını değiştirmek için panonun üst kısmındaki **Veri temeli**’ni seçin. Son 7 gün, 1 gün veya 6 saat içinde oluşturulan veya güncelleştirilen kayıtları seçebilirsiniz. Ya da **Özel**’i seçip özel bir tarih aralığı belirtebilirsiniz.<br><br> ![Özel Zaman Aralığı Seçeneği](./media/oms-solution-update-management/update-la-time-range-scope-databasedon.png)  
 
 ## <a name="log-analytics-records"></a>Log Analytics kayıtları
 Güncelleştirme Yönetimi çözümü, OMS deposunda iki tür kayıt oluşturur.
@@ -242,6 +247,6 @@ Aşağıdaki tabloda, bu çözüm tarafından toplanan güncelleştirme kayıtla
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

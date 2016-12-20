@@ -15,15 +15,15 @@ ms.workload: big-data
 ms.date: 11/02/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 84d644e07036f511e685b0fd020cdf8c310fd969
+ms.sourcegitcommit: f426cf4b91941f19714c33abc21ef0c777f5b233
+ms.openlocfilehash: 38f3ca24b7fa136bdb4b64b6cae77078b7ea3c97
 
 
 ---
 # <a name="frequently-asked-questions-for-azure-data-lake-store"></a>Azure Data Lake Store için sık sorulan sorular
 Bu makalede Azure Data Lake Store ile ilgili SSS hakkında bilgi edineceksiniz.
 
-## <a name="how-do-i-handle-disaster-recovery-and-data-corruption-for-my-azure-data-lake-store-account"></a>Azure Data Lake Store hesabım için olağanüstü durum kurtarma ve veri bozulması sorunlarını nasıl çözebilirim?
+## <a name="how-can-i-further-protect-my-data-from-region-wide-disasters-or-accidental-deletions"></a>Verilerimi bölge çapındaki afetlerden veya yanlışlıkla silinmekten nasıl daha iyi koruyabilirim?
 Azure Data Lake Store hesabınızdaki veriler, otomatik çoğaltmalar sayesinde bir bölge içindeki geçici donanım hatalarına karşı dayanıklıdır. Dayanıklılık ve yüksek kullanılabilirlik sağlayan bu olanak, Azure Data Lake Store SLA’sını da karşılar. Verilerinizi nadiren gerçekleşen bölge çapında kesintilerden ya da yanlışlıkla silinmekten daha iyi korumanız için bazı yönergeler aşağıda verilmiştir.
 
 ### <a name="disaster-recovery-guidance"></a>Olağanüstü durum kurtarma kılavuzu
@@ -52,6 +52,6 @@ Kurumlar, bir dosyanın kim tarafından silinmiş veya güncelleştirilmiş olab
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO5-->
 
 

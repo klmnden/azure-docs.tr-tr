@@ -59,7 +59,7 @@ Bu öğreticiyi tamamlamak Android uygulamalarına ilişkin diğer tüm Notifica
 
 Bildirim hub'ınız şimdi GCM ile birlikte çalışmak üzere yapılandırıldı. Ayrıca, uygulamanızı anında iletme bildirimleri alması ve göndermesi amacıyla kaydetmek için bağlantı dizelerine sahipsiniz.
 
-## <a name="a-idconnectingappaconnect-your-app-to-the-notification-hub"></a><a id="connecting-app"></a>Uygulamanızı bildirim hub'ına bağlama
+## <a name="a-idconnecting-appaconnect-your-app-to-the-notification-hub"></a><a id="connecting-app"></a>Uygulamanızı bildirim hub'ına bağlama
 ### <a name="create-a-new-android-project"></a>Yeni bir Android projesi oluşturma
 1. Android Studio'da yeni bir Android Studio projesi başlatın.
    
@@ -666,7 +666,7 @@ Notification Hubs hakkında daha fazla genel bilgi edinmek için bkz. [Notificat
 [Klasik Azure Portalı]: https://manage.windowsazure.com/
 [Notification Hubs Kılavuzu]: http://msdn.microsoft.com/library/jj927170.aspx
 [Kullanıcılara anında iletme bildirimleri göndermek için Notification Hubs’ı kullanma]: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
-[Son dakika haberleri göndermek için Notification Hubs’ı kullanma]: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
+[Son dakika haberleri göndermek için Notification Hubs kullanma]: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
 [Azure Portal]: https://portal.azure.com
 
 

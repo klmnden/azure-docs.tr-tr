@@ -1,4 +1,5 @@
 ---
+redirect_url: /azure/sql-data-warehouse/sql-data-warehouse-load-with-data-factory
 title: "Azure Data Factory ile veri yükleme | Microsoft Belgeleri"
 description: "Azure Data Factory ile veri yüklemeyi öğrenin"
 services: sql-data-warehouse
@@ -16,8 +17,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: mausher;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 960225117a1c9b0802004455353fb9015a80b07b
+ms.sourcegitcommit: 3d41671920d40335e3e0931599a434f9d5f58bba
+ms.openlocfilehash: 0fcbd492f1f26efb67dec90a5ba25ba27172065c
 
 
 ---
@@ -64,7 +65,7 @@ Her şey hazırsa Azure Depolama Blobunuza örnek veri kopyalamaya başlayabilir
 ## <a name="step-2-connect-resources-to-azure-data-factory"></a>2. Adım: Kaynakları Azure Data Factory'ye bağlama
 Verileri aldığınıza göre verileri Azure Blob depolama alanından SQL Data Warehouse'a taşımak üzere Azure Data Factory işlem hattını oluşturabiliriz.
 
-Başlamak için [Azure portalını][Azure portalını] açıp sol taraftaki menüden veri fabrikanızı seçin.
+Başlamak için [Azure Portal][Azure Portal] açıp sol taraftaki menüden veri fabrikanızı seçin.
 
 ### <a name="step-21-create-linked-service"></a>2.1. Adım: Bağlı Hizmet oluşturma
 Azure depolama hesabınızı ve SQL Data Warehouse'unuzu veri fabrikanıza bağlayın.  
@@ -210,26 +211,26 @@ Bu konu başlıklarında Azure Data Factory hakkında ayrıntılı bilgi sağlan
 [AZCopy belgeleri]: ../storage/storage-use-azcopy.md
 [Azure SQL Veri Ambarı Bağlayıcısı]: ../data-factory/data-factory-azure-sql-data-warehouse-connector.md
 [BCP]: sql-data-warehouse-load-with-bcp.md
-[SQL Veri Ambarı oluşturma]: sql-data-warehouse-get-started-provision.md
+[SQL Data Warehouse oluşturma]: sql-data-warehouse-get-started-provision.md
 [Depolama hesabı oluşturma]: ../storage/storage-create-storage-account.md#create-a-storage-account
 [Data Factory]: sql-data-warehouse-get-started-load-with-azure-data-factory.md
-[Azure Data Factory (Data Factory Editor) ile çalışmaya başlama]: ../data-factory/data-factory-build-your-first-pipeline-using-editor.md
+[Azure Data Factory’yi kullanmaya başlama (Data Factory Düzenleyicisi)]: ../data-factory/data-factory-build-your-first-pipeline-using-editor.md
 [Azure Data Factory'ye giriş]: ../data-factory/data-factory-introduction.md
-[SQL Veri Ambarı'na örnek veri yükleme]: sql-data-warehouse-load-sample-databases.md
-[Azure Data Factory kullanarak Azure SQL Veri Ambarı’na\Ambarı’ndan veri taşıma]: ../data-factory/data-factory-azure-sql-data-warehouse-connector.md
+[SQL Data Warehouse'a örnek veri yükleme]: sql-data-warehouse-load-sample-databases.md
+[Azure Data Factory kullanarak Azure'a/Azure'dan veri taşıma]: ../data-factory/data-factory-azure-sql-data-warehouse-connector.md
 [PolyBase]: sql-data-warehouse-get-started-load-with-polybase.md
-[Öğretici: Azure Depolama Blobundan Azure SQL Veritabanı'na veri kopyalama]: ../data-factory/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
-[Öğretici: Azure Data Factory ile çalışmaya başlama]: ../data-factory/data-factory-build-your-first-pipeline.md
+[Eğitmen: Azure Depolama Blobu’ndan Azure SQL Veritabanı'na veri kopyalama]: ../data-factory/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
+[Eğitmen: Azure Data Factory ile çalışmaya başlama]: ../data-factory/data-factory-build-your-first-pipeline.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
 [Azure Data Factory öğrenme yolu]: https://azure.microsoft.com/documentation/learning-paths/data-factory
-[Azure portal]: https://portal.azure.com
-[Örnek veri indirin]: https://migrhoststorage.blob.core.windows.net/adfsample/FactInternetSales.csv
+[Azure Portal]: https://portal.azure.com
+[Örnek verileri indirme]: https://migrhoststorage.blob.core.windows.net/adfsample/FactInternetSales.csv
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

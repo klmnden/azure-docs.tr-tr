@@ -3,8 +3,8 @@ title: "Azure CLI kullanarak Resource Manager’da İnternet’e yönelik yük d
 description: "Azure CLI kullanarak Resource Manager’da İnternet’e yönelik yük dengeleyici oluşturmayı öğrenin"
 services: load-balancer
 documentationcenter: na
-author: sdwheeler
-manager: carmonm
+author: kumudd
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: a8bcdd88-f94c-4537-8143-c710eaa86818
@@ -14,15 +14,19 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/24/2016
-ms.author: sewhee
+ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 86220eabc2625bf8bf1e4d6fac9c0ae41adc962c
+ms.sourcegitcommit: f3e06e802e8a5b98afc96747dee0db4173da40f0
+ms.openlocfilehash: 9129a1941b138e6f3e9b2d0359015a20fd819565
 
 ---
-# <a name="creating-an-internal-load-balancer-using-the-azure-cli"></a>Azure CLI kullanarak iç yük dengeleyici oluşturma
+# <a name="creating-an-internet-load-balancer-using-the-azure-cli"></a>Azure CLI kullanarak internet yük dengeleyici oluşturma
 
-[!INCLUDE [load-balancer-get-started-internet-arm-selectors-include.md](../../includes/load-balancer-get-started-internet-arm-selectors-include.md)]
+> [!div class="op_single_selector"]
+> * [Portal](../load-balancer/load-balancer-get-started-internet-portal.md)
+> * [PowerShell](../load-balancer/load-balancer-get-started-internet-arm-ps.md)
+> * [Azure CLI](../load-balancer/load-balancer-get-started-internet-arm-cli.md)
+> * [Şablon](../load-balancer/load-balancer-get-started-internet-arm-template.md)
 
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
@@ -59,7 +63,7 @@ Daha fazla bilgi için bkz. [Yük Dengeleyici için Azure Resource Manager deste
 
         info:    New mode is arm
 
-## <a name="create-a-virtual-network-and-a-public-ip-address-for-the-frontend-ip-pool"></a>Ön uç IP havuzu için sanal ağ ve genel IP adresi oluşturma
+## <a name="create-a-virtual-network-and-a-public-ip-address-for-the-front-end-ip-pool"></a>Ön uç IP havuzu için sanal ağ ve genel IP adresi oluşturma
 
 1. Doğu ABD konumunda *NRPVnet* adında ve *NRPRG* adlı kaynak grubunu kullana bir sanal ağ (VNet) oluşturun.
 
@@ -91,7 +95,7 @@ Aşağıdaki komut *Doğu ABD* Azure konumundaki *NRPRG* adlı kaynak grubunda *
     azure network lb create NRPRG NRPlb eastus
     ```
 
-## <a name="create-a-frontend-ip-pool-and-a-backend-address-pool"></a>Ön uç IP havuzu ve arka uç adres havuzu oluşturma
+## <a name="create-a-front-end-ip-pool-and-a-backend-address-pool"></a>Ön uç IP havuzu ve arka uç adres havuzu oluşturma
 Bu örnekte yük dengeleyicide gelen ağ trafiğini alan ön uç IP havuzunun ve ön uç havuzun yük dengeli ağ trafiğini gönderdiği arka uç IP havuzunun nasıl oluşturulacağı gösterilmektedir.
 
 1. Önceki adımda oluşturulan genel IP’yi ve yük dengeleyiciyi ilişkilendirerek bir ön uç IP havuzu oluşturun.
@@ -307,6 +311,6 @@ azure network lb delete --resource-group nrprg --name nrplb
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

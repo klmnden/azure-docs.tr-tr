@@ -70,7 +70,7 @@ Bu öğreticinin tamamlanan kodu GitHub'da [buradan](https://github.com/Azure/az
 
 Bildirim hub'ınız şimdi Firebase Cloud Messaging ile birlikte çalışmak üzere yapılandırıldı. Uygulamanızı anında iletme bildirimleri alması ve göndermesi amacıyla kaydetmek için bağlantı dizelerine sahipsiniz.
 
-## <a name="a-idconnectingappaconnect-your-app-to-the-notification-hub"></a><a id="connecting-app"></a>Uygulamanızı bildirim hub'ına bağlama
+## <a name="a-idconnecting-appaconnect-your-app-to-the-notification-hub"></a><a id="connecting-app"></a>Uygulamanızı bildirim hub'ına bağlama
 ### <a name="add-google-play-services-to-the-project"></a>Projeye Google Play hizmetlerini ekleme
 [!INCLUDE [Add Play Services](../../includes/notification-hubs-android-studio-add-google-play-services.md)]
 
@@ -675,7 +675,7 @@ Notification Hubs hakkında daha fazla genel bilgi edinmek için bkz. [Notificat
 [Klasik Azure Portalı]: https://manage.windowsazure.com/
 [Notification Hubs Kılavuzu]: notification-hubs-push-notification-overview.md
 [Kullanıcılara anında iletme bildirimleri göndermek için Notification Hubs’ı kullanma]: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
-[Son dakika haberleri göndermek için Notification Hubs’ı kullanma]: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
+[Son dakika haberleri göndermek için Notification Hubs kullanma]: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
 [Azure Portal]: https://portal.azure.com
 
 

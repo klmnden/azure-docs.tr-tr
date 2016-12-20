@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/13/2016
+ms.date: 12/01/2016
 ms.author: yushwang;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 019395d76a1e2d8e75b4ac1474abe45ce1b8aeb1
+ms.sourcegitcommit: d85451d84f605f8472da66574cfec3ba212884ea
+ms.openlocfilehash: f7ecd6b2e590122c4794cd0a81754da9398ba320
 
 
 ---
-# <a name="about-vpn-devices-for-sitetosite-vpn-gateway-connections"></a>Siteden siteye VPN Gateway bağlantıları için VPN cihazları hakkında
-Siteden Siteye (S2S) VPN bağlantısı yapılandırmak için bir VPN cihazı gereklidir. Siteden siteye bağlantılar karma çözüm oluşturmak amacıyla ya da şirket içi ağınız ile sanal ağınız arasında güvenli bir bağlantı istediğinizde kullanılabilir. Bu makalede uyumlu VPN cihazları ve yapılandırma parametreleri açıklanır. 
+# <a name="about-vpn-devices-for-site-to-site-vpn-gateway-connections"></a>Siteden siteye VPN Gateway bağlantıları için VPN cihazları hakkında
+Siteden Siteye (S2S) VPN bağlantısı yapılandırmak için bir VPN cihazı gereklidir. Siteden siteye bağlantılar karma çözüm oluşturmak amacıyla ya da şirket içi ağınız ile sanal ağınız arasında güvenli bir bağlantı istediğinizde kullanılabilir. Bu makalede uyumlu VPN cihazları ve yapılandırma parametreleri açıklanır.
 
 > [!NOTE]
 > Siteden Siteye bağlantı yapılandırırken, VPN cihazınız için genel kullanıma yönelik bir IPv4 IP adresi gereklidir.                                                                                                                                                                               
-> 
-> 
+>
+>
 
 Cihazınız [Doğrulanan VPN cihazları](#devicetable) tablosunda görünmüyorsa, bu makaledeki [Doğrulanmayan VPN cihazları](#additionaldevices) bölümüne bakın. Cihazınızın Azure ile çalışması hala mümkün olabilir. VPN cihaz desteği için lütfen cihaz üreticinize başvurun.
 
@@ -36,49 +36,49 @@ Cihazınız [Doğrulanan VPN cihazları](#devicetable) tablosunda görünmüyors
 * Statik ve dinamik yönlendirme terimlerinde bir değişiklik meydana gelmiştir. Büyük ihtimalle iki terimle de karşılaşacaksınız. İşlev değişikliği değil yalnızca ad değişikliği söz konusudur.
   * Statik Yönlendirme = PolicyBased
   * Dinamik Yönlendirme = RouteBased
-* Yüksek Performanslı VPN ağ geçidi ve RouteBased VPN ağ geçidi özellikleri aksi belirtilmedikçe aynıdır. Örneğin, RouteBased VPN ağ geçitleri ile uyumlu doğrulanmış VPN cihazları, Azure Yüksek Performanslı VPN ağ geçidi ile de uyumludur. 
+* Yüksek Performanslı VPN ağ geçidi ve RouteBased VPN ağ geçidi özellikleri aksi belirtilmedikçe aynıdır. Örneğin, RouteBased VPN ağ geçitleri ile uyumlu doğrulanmış VPN cihazları, Azure Yüksek Performanslı VPN ağ geçidi ile de uyumludur.
 
 ## <a name="a-namedevicetableavalidated-vpn-devices"></a><a name="devicetable"></a>Doğrulanan VPN cihazları
-Cihaz satıcılarıyla işbirliğiyle bir grup standart VPN cihazının doğruladık. Aşağıdaki listede bulunan cihaz ailelerinde yer alan tüm cihazlar, Azure VPN ağ geçitleriyle birlikte kullanılabilir. Yapılandırmak istediğiniz çözüm için oluşturmanız gereken ağ geçidinin türünü doğrulamak için bkz. [VPN Gateway Hakkında](vpn-gateway-about-vpngateways.md). 
+Cihaz satıcılarıyla işbirliğiyle bir grup standart VPN cihazının doğruladık. Aşağıdaki listede bulunan cihaz ailelerinde yer alan tüm cihazlar, Azure VPN ağ geçitleriyle birlikte kullanılabilir. Yapılandırmak istediğiniz çözüm için oluşturmanız gereken ağ geçidinin türünü doğrulamak için bkz. [VPN Gateway Hakkında](vpn-gateway-about-vpngateways.md).
 
 VPN cihazınızı yapılandırma konusunda yardım almak için, uygun cihaz ailesine karşılık gelen bağlantılara başvurun. VPN cihaz desteği için lütfen cihaz üreticinize başvurun.
 
 | **Satıcı** | **Cihaz ailesi** | **En düşük işletim sistemi sürümü** | **PolicyBased** | **RouteBased** |
 | --- | --- | --- | --- | --- |
 | Allied Telesis |AR Serisi VPN Yönlendiricileri |2.9.2 |Çok yakında |Uyumlu değil |
-| Barracuda Networks, Inc. |Barracuda NextGen Firewall F-serisi |PolicyBased: 5.4.3, RouteBased: 6.2.0 |[Yapılandırma yönergeleri](https://techlib.barracuda.com/NGF/AzurePolicyBasedVPNGW) |[Yapılandırma yönergeleri](https://techlib.barracuda.com/NGF/AzureRouteBasedVPNGW) |
+| Barracuda Networks, Inc. |Barracuda NextGen Firewall F-serisi |PolicyBased: 5.4.3<br>RouteBased: 6.2.0 |[Yapılandırma yönergeleri](https://techlib.barracuda.com/NGF/AzurePolicyBasedVPNGW) |[Yapılandırma yönergeleri](https://techlib.barracuda.com/NGF/AzureRouteBasedVPNGW) |
 | Barracuda Networks, Inc. |Barracuda NextGen Firewall X-serisi |Barracuda Güvenlik Duvarı 6.5  |[Barracuda Güvenlik Duvarı](https://techlib.barracuda.com/BFW/ConfigAzureVPNGateway) |Uyumlu değil |
 | Brocade |Vyatta 5400 vRouter |Sanal Yönlendirici 6.6R3 GA |[Yapılandırma yönergeleri](http://www1.brocade.com/downloads/documents/html_product_manuals/vyatta/vyatta_5400_manual/wwhelp/wwhimpl/js/html/wwhelp.htm#href=VPN_Site-to-Site%20IPsec%20VPN/Preface.1.1.html) |Uyumlu değil |
-| Denetim Noktası |Güvenlik Ağ Geçidi |R75.40, R75.40VS |[Yapılandırma yönergeleri](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |[Yapılandırma yönergeleri](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |
+| Denetim Noktası |Güvenlik Ağ Geçidi |R75.40<br>R75.40VS |[Yapılandırma yönergeleri](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |[Yapılandırma yönergeleri](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |
 | Cisco |ASA |8.3 |[Cisco örnekleri](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASA) |Uyumlu değil |
-| Cisco |ASR |IOS 15.1 (PolicyBased), IOS 15.2 (RouteBased) |[Cisco örnekleri](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) |[Cisco örnekleri](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) |
-| Cisco |ISR |IOS 15.0 (PolicyBased), IOS 15.1 (RouteBased*) |[Cisco örnekleri](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |[Cisco örnekleri*](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |
+| Cisco |ASR |PolicyBased: IOS 15.1<br>RouteBased: IOS 15.2 |[Cisco örnekleri](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) |[Cisco örnekleri](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) |
+| Cisco |ISR |PolicyBased: IOS 15.0<br>RouteBased*: IOS 15.1 |[Cisco örnekleri](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |[Cisco örnekleri*](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |
 | Citrix |NetScaler MPX, SDX, VPX |10.1 ve sonraki sürümleri |[Tümleştirme yönergeleri](https://docs.citrix.com/en-us/netscaler/11-1/system/cloudbridge-connector-introduction/cloudbridge-connector-azure.html) |Uyumlu değil |
-| Dell SonicWALL |TZ Serisi, NSA Serisi, SuperMassive Serisi, E-Class NSA Serisi |SonicOS 5.8.x, [SonicOS 5.9.x](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide/supported-platforms?ParentProduct=850), [SonicOS 6.x](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide/supported-platforms?ParentProduct=646) |[Yönergeler - SonicOS 6.2](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646) [Yönergeler - SonicOS 5.9](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850) |[Yönergeler - SonicOS 6.2](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646) [Yönergeler - SonicOS 5.9](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850) |
+| Dell SonicWALL |TZ Series, NSA Series<br>SuperMassive Series<br>E-Class NSA Series |SonicOS 5.8.x<br>[SonicOS 5.9.x](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide/supported-platforms?ParentProduct=850)<br>[SonicOS 6.x](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide/supported-platforms?ParentProduct=646) |[SonicOS 6.2 için yapılandırma kılavuzu](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646)<br>[SonicOS 5.9 için yapılandırma kılavuzu](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850) |[SonicOS 6.2 için yapılandırma kılavuzu](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646)<br>[SonicOS 5.9 için yapılandırma kılavuzu](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850) |
 | F5 |BIG-IP serisi |12.0 |[Yapılandırma yönergeleri](https://devcentral.f5.com/articles/connecting-to-windows-azure-with-the-big-ip) |[Yapılandırma yönergeleri](https://devcentral.f5.com/articles/big-ip-to-azure-dynamic-ipsec-tunneling) |
-| Fortinet |FortiGate |FortiOS 5.2.7 |[Yapılandırma yönergeleri](http://docs.fortinet.com/d/fortigate-configuring-ipsec-vpn-between-a-fortigate-and-microsoft-azure) |[Yapılandırma yönergeleri](http://docs.fortinet.com/d/fortigate-configuring-ipsec-vpn-between-a-fortigate-and-microsoft-azure) |
-| Internet Initiative Japan (IIJ) |SEIL Serisi |SEIL/X 4.60, SEIL/B1 4.60, SEIL/x86 3.20 |[Yapılandırma yönergeleri](http://www.iij.ad.jp/biz/seil/ConfigAzureSEILVPN.pdf) |Uyumlu değil |
-| Juniper |SRX |JunOS 10.2 (PolicyBased), JunOS 11.4 (RouteBased) |[Juniper örnekleri](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SRX) |[Juniper örnekleri](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SRX) |
-| Juniper |J-Serisi |JunOS 10.4r9 (PolicyBased), JunOS 11.4 (RouteBased) |[Juniper örnekleri](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/JSeries) |[Juniper örnekleri](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/JSeries) |
-| Juniper |ISG |ScreenOS 6.3 (PolicyBased ve RouteBased) |[Juniper örnekleri](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/ISG) |[Juniper örnekleri](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/ISG) |
-| Juniper |SSG |ScreenOS 6.2 (PolicyBased ve RouteBased) |[Juniper örnekleri](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SSG) |[Juniper örnekleri](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SSG) |
+| Fortinet |FortiGate |FortiOS 5.4.x |[Yapılandırma yönergeleri](http://cookbook.fortinet.com/ipsec-vpn-microsoft-azure-54) |[Yapılandırma yönergeleri](http://cookbook.fortinet.com/ipsec-vpn-microsoft-azure-54) |
+| Internet Initiative Japan (IIJ) |SEIL Serisi |SEIL/X 4.60<br>SEIL/B1 4.60<br>SEIL/x86 3.20 |[Yapılandırma yönergeleri](http://www.iij.ad.jp/biz/seil/ConfigAzureSEILVPN.pdf) |Uyumlu değil |
+| Juniper |SRX |PolicyBased: JunOS 10.2<br>Routebased: JunOS 11.4 |[Juniper örnekleri](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SRX) |[Juniper örnekleri](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SRX) |
+| Juniper |J-Serisi |PolicyBased: JunOS 10.4r9<br>RouteBased: JunOS 11.4 |[Juniper örnekleri](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/JSeries) |[Juniper örnekleri](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/JSeries) |
+| Juniper |ISG |ScreenOS 6.3 |[Juniper örnekleri](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/ISG) |[Juniper örnekleri](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/ISG) |
+| Juniper |SSG |ScreenOS 6.2 |[Juniper örnekleri](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SSG) |[Juniper örnekleri](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SSG) |
 | Microsoft |Yönlendirme ve Uzaktan Erişim Hizmeti |Windows Server 2012 |Uyumlu değil |[Microsoft örnekleri](http://go.microsoft.com/fwlink/p/?LinkId=717761) |
 | Open Systems AG |Mission Control Security Ağ Geçidi |Yok |[Yükleme kılavuzu](https://www.open.ch/_pdf/Azure/AzureVPNSetup_Installation_Guide.pdf) |[Yükleme kılavuzu](https://www.open.ch/_pdf/Azure/AzureVPNSetup_Installation_Guide.pdf) |
 | Openswan |Openswan |2.6.32 |(Çok yakında) |Uyumlu değil |
-| Palo Alto Networks |PAN-OS çalıştıran tüm cihazlar |PAN-OS 6.1.5 veya üzeri (PolicyBased), PAN-OS 7.0.5 veya üzeri (RouteBased) |[Yapılandırma yönergeleri](https://live.paloaltonetworks.com/t5/Configuration-Articles/How-to-Configure-VPN-Tunnel-Between-a-Palo-Alto-Networks/ta-p/59065) |[Yapılandırma yönergeleri](https://live.paloaltonetworks.com/t5/Integration-Articles/Configuring-IKEv2-VPN-for-Microsoft-Azure-Environment/ta-p/60340) |
-| Watchguard |Tümü |Fireware XTM v11.x |[Yapılandırma yönergeleri](http://customers.watchguard.com/articles/Article/Configure-a-VPN-connection-to-a-Windows-Azure-virtual-network/) |Uyumlu değil |
+| Palo Alto Networks |PAN-OS çalıştıran tüm cihazlar |PAN-OS<br>PolicyBased: 6.1.5 veya üzeri<br>RouteBased: 7.0.5 veya üzeri |[Yapılandırma yönergeleri](https://live.paloaltonetworks.com/t5/Configuration-Articles/How-to-Configure-VPN-Tunnel-Between-a-Palo-Alto-Networks/ta-p/59065) |[Yapılandırma yönergeleri](https://live.paloaltonetworks.com/t5/Integration-Articles/Configuring-IKEv2-VPN-for-Microsoft-Azure-Environment/ta-p/60340) |
+| Watchguard |Tümü |Fireware XTM<br> PolicyBased: v11.11.x<br>RouteBased: v11.12.x |[Yapılandırma yönergeleri](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA2F00000000LI7KAM&lang=en_US) |[Yapılandırma yönergeleri](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA22A000000XZogSAG&lang=en_US)|
 
 (*) ISR 7200 Serisi yönlendiriciler yalnızca PolicyBased VPN'leri destekler.
 
-## <a name="a-nameadditionaldevicesanonvalidated-vpn-devices"></a><a name="additionaldevices"></a>Doğrulanmayan VPN cihazları
-Cihazınızı, Doğrulanan VPN cihazları tablosunda görmüyor olsanız bile cihaz yine de Siteden Siteye bir bağlantı ile çalışabilir. VPN cihazınızın [VPN Gateway’ler hakkında](vpn-gateway-about-vpngateways.md#gateway-requirements) makalesinin Gateway Gereksinimleri bölümünde belirtilen minimum gereksinimleri karşıladığını doğrulayın. Minimum gereksinimleri karşılayan cihazların da VPN gateway’ler ile sorunsuz çalışması gerekir. Ek destek ve yapılandırma yönergeleri için cihaz üreticinize başvurun.
+## <a name="a-nameadditionaldevicesanon-validated-vpn-devices"></a><a name="additionaldevices"></a>Doğrulanmayan VPN cihazları
+Cihazınızı, Doğrulanan VPN cihazları tablosunda görmüyor olsanız bile cihaz yine de Siteden Siteye bir bağlantı ile çalışabilir. VPN cihazınızın [VPN Gateway Hakkında](vpn-gateway-about-vpngateways.md) makalesinin Gateway Gereksinimleri bölümünde belirtilen minimum gereksinimleri karşıladığını doğrulayın. Minimum gereksinimleri karşılayan cihazların da VPN gateway’ler ile sorunsuz çalışması gerekir. Ek destek ve yapılandırma yönergeleri için cihaz üreticinize başvurun.
 
 ## <a name="editing-device-configuration-samples"></a>Cihaz yapılandırma örneklerini düzenleme
-Sağlanan VPN cihazı yapılandırma örneğini indirdikten sonra, ortamınıza ilişkin ayarları yansıtacak şekilde bazı değerleri değiştirmeniz gerekir. 
+Sağlanan VPN cihazı yapılandırma örneğini indirdikten sonra, ortamınıza ilişkin ayarları yansıtacak şekilde bazı değerleri değiştirmeniz gerekir.
 
 **Bir örneği düzenlemek için:**
 
-1. Not Defteri'ni kullanarak örneği açın. 
+1. Not Defteri'ni kullanarak örneği açın.
 2. Tüm <*text*> dizelerini arayın ve ortamınızla ilgili değerlerle değiştirin. < and > eklediğinizden emin olun. Bir ad belirtildiğinde, seçtiğiniz adın benzersiz olması gerekir. Bir komut çalışmazsa, lütfen cihazınızın üretici belgelerine başvurun.
 
 | **Örnek metin** | **Şununla değiştirin:** |
@@ -98,8 +98,8 @@ Sağlanan VPN cihazı yapılandırma örneğini indirdikten sonra, ortamınıza 
 ## <a name="ipsec-parameters"></a>IPsec Parameters
 > [!NOTE]
 > Aşağıdaki tabloda listelenen değerler Azure VPN Gateway tarafından desteklense de şu anda Azure VPN Gateway'den belirli bir birleşim belirtemez ya da seçemezsiniz. Tüm kısıtlamaları şirket içi VPN cihazında belirtmeniz gerekir. Ayrıca, MSS’i 1350’de sıkıştırmanız gerekir.
-> 
-> 
+>
+>
 
 ### <a name="ike-phase-1-setup"></a>IKE Aşama 1 kurulumu
 | **Özellik** | **PolicyBased** | **RouteBased ve Standart ya da Yüksek Performanslı VPN ağ geçidi** |
@@ -153,7 +153,6 @@ Aşağıdaki tabloda IPsec SA Şifreleme ve Kimlik Doğrulama Teklifleri listele
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

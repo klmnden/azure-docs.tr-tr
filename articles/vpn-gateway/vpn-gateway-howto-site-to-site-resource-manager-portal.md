@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 10/14/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 95268d0197f9c79b1650165056cbf4b3e79f12ec
+ms.sourcegitcommit: d269d9a76ff4ccd973eee70d2d5b54a7262383ef
+ms.openlocfilehash: f0491df77418c4d7c79beff87302b64ddc3fa9be
 
 
 ---
-# <a name="create-a-vnet-with-a-sitetosite-connection-using-the-azure-portal"></a>Azure portalını kullanarak Siteden Siteye bağlantı ile VNet oluşturma
+# <a name="create-a-vnet-with-a-site-to-site-connection-using-the-azure-portal"></a>Azure portalını kullanarak Siteden Siteye bağlantı ile VNet oluşturma
 > [!div class="op_single_selector"]
 > * [Resource Manager - Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
@@ -33,7 +33,7 @@ Bu makale, Azure Resource Manager dağıtım modelini ve Azure portal’ı kulla
 
 ![Diyagram](./media/vpn-gateway-howto-site-to-site-resource-manager-portal/s2srmportal.png)
 
-### <a name="deployment-models-and-methods-for-sitetosite-connections"></a>Konumdan Konuma bağlantılar için dağıtım modelleri ve yöntemleri
+### <a name="deployment-models-and-methods-for-site-to-site-connections"></a>Konumdan Konuma bağlantılar için dağıtım modelleri ve yöntemleri
 [!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
 
 Aşağıdaki tabloda, şu anda Siteden Siteye yapılandırmalar için kullanılabilen dağıtım modelleri ve yöntemleri gösterilmektedir. Yapılandırma adımlarını içeren bir makale olduğunda, bu tablodan makaleye yönelik doğrudan bağlantı oluştururuz.
@@ -48,7 +48,7 @@ Yapılandırmanıza başlamadan önce aşağıdaki öğelerin bulunduğunu doğr
 
 * Uyumlu bir VPN cihazı ve bu cihazı yapılandırabilecek biri. Bkz. [VPN Cihazları Hakkında](vpn-gateway-about-vpn-devices.md). VPN cihazınızı yapılandırma konusuyla veya şirket içi ağ yapılandırmanızdaki IP adresi aralıklarıyla ilgili fazla bilginiz yoksa size bu ayrıntıları sağlayabilecek biriyle çalışmanız gerekir.
 * VPN cihazınız için dışarıya yönelik genel bir IP adresi. Bu IP adresi bir NAT’nin arkasında olamaz.
-* Azure aboneliği. Henüz Azure aboneliğiniz yoksa [MSDN abonelik avantajlarınızı](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) etkinleştirebilir veya [ücretsiz bir hesap](http://azure.microsoft.com/pricing/free-trial/) için kaydolabilirsiniz.
+* Azure aboneliği. Henüz Azure aboneliğiniz yoksa [MSDN abonelik avantajlarınızı](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) etkinleştirebilir veya [ücretsiz bir hesap](http://azure.microsoft.com/pricing/free-trial) için kaydolabilirsiniz.
 
 ### <a name="a-namevaluesasample-configuration-values-for-this-exercise"></a><a name="values"></a>Bu alıştırma için örnek yapılandırma değerleri
 Bu adımları bir alıştırma olarak kullanırken, şu örnek yapılandırma değerlerini kullanabilirsiniz:
@@ -110,7 +110,7 @@ Bu yapılandırmayı bir alıştırma olarak oluşturuyorsanız [örnek yapılan
 ## <a name="a-namevpndevicea7-configure-your-vpn-device"></a><a name="VPNDevice"></a>7. VPN cihazınızı yapılandırma
 [!INCLUDE [vpn-gateway-configure-vpn-device-rm](../../includes/vpn-gateway-configure-vpn-device-rm-include.md)]
 
-## <a name="a-namecreateconnectiona8-create-a-sitetosite-vpn-connection"></a><a name="CreateConnection"></a>8. Siteden Siteye bağlantı kurma
+## <a name="a-namecreateconnectiona8-create-a-site-to-site-vpn-connection"></a><a name="CreateConnection"></a>8. Siteden Siteye bağlantı kurma
 Sanal ağ geçidiniz ile VPN cihazınız arasında Siteden Siteye VPN bağlantısı oluşturun. Değerlerin kendinizinkilerle değiştirildiğinden emin olun. Paylaşılan anahtar, VPN cihazınızın yapılandırması için kullandığınız değerin aynısı olmalıdır. 
 
 Bu bölüme başlamadan önce sanal ağa ait ağ geçidi ve yerel ağa ait ağ geçidinizin oluşturulmasının tamamlandığından emin olun. Bu yapılandırmayı bir alıştırma olarak oluşturuyorsanız bağlantınızı oluştururken bu [değerlere](#values) başvurun.
@@ -124,12 +124,12 @@ VPN bağlantınızı portaldan veya PowerShell kullanarak doğrulayabilirsiniz.
 [!INCLUDE [vpn-gateway-verify-connection-rm](../../includes/vpn-gateway-verify-connection-rm-include.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Bağlantınız tamamlandıktan sonra sanal ağlarınıza sanal makineler ekleyebilirsiniz. Daha fazla bilgi için bkz. sanal makineleri [öğrenme yolu](https://azure.microsoft.com/documentation/learning-paths/virtual-machines).
-* BGP hakkında bilgi edinmek için [BGP’ye Genel Bakış](vpn-gateway-bgp-overview.md) ve [BGP’yi yapılandırma](vpn-gateway-bgp-resource-manager-ps.md) makalelerine bakın.
+*  Bağlantınız tamamlandıktan sonra sanal ağlarınıza sanal makineler ekleyebilirsiniz. Daha fazla bilgi için bkz. [Sanal Makineler](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
+*  BGP hakkında bilgi edinmek için [BGP’ye Genel Bakış](vpn-gateway-bgp-overview.md) ve [BGP’yi yapılandırma](vpn-gateway-bgp-resource-manager-ps.md) makalelerine bakın.
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

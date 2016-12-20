@@ -1,13 +1,13 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 448cccdf35510db9bac9cdb5648739b18302c90b
-ms.openlocfilehash: 146078c8caf1bcd757d3e19aae5860aba9049ab9
+ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
+ms.openlocfilehash: 551759d87b6c697aa1f28810fe32815aec66f269
 
 ---
 #<a name="expressroute-documentation"></a>ExpressRoute Belgeleri
 
-Azure ExpressRoute, bağlantı sağlayıcı tarafından kolaylaştırılan adanmış özel bağlantı üzerinden şirket içi ağlarınızı Microsoft bulutuna genişletmenizi sağlar. Ortak yerleşim tesisinde bağlantı sağlayıcısı üzerinden herhangi bir ağdan herhangi bir ağa (IP VP), noktadan noktaya Ethernet ağı veya sanal çapraz bağlantısından bağlantı olabilir. 
+Azure ExpressRoute, bağlantı sağlayıcı tarafından kolaylaştırılan adanmış özel bağlantı üzerinden şirket içi ağlarınızı Microsoft bulutuna genişletmenizi sağlar. Ortak yerleşim tesisinde bağlantı sağlayıcısı üzerinden herhangi bir ağdan herhangi bir ağa (IP VPN), noktadan noktaya Ethernet ağı veya sanal çapraz bağlantısından bağlantı olabilir. 
 
 
 <ul class="panelContent cardsFTitle">
@@ -69,37 +69,32 @@ Azure ExpressRoute, bağlantı sağlayıcı tarafından kolaylaştırılan adanm
 
 ---
 
-## <a name="reference"></a>Başvuru
-
+<h2>Başvuru</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Azure PowerShell başvurusu</p>
+                        <h3>Komut Satırı</h3>
+                        <p><a href="/powershell/azureps-cmdlets-docs">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-
-<li>
-        <a href="https://msdn.microsoft.com/library/mt586720">
+    <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>ExpressRoute REST API Başvurusu</p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/mt586720">REST API Başvurusu</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/dn606310">Klasik REST API Başvurusu</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
 
@@ -113,6 +108,6 @@ ExpressRoute Belgelerini indirin </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

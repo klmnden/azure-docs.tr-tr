@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 08/15/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: ee868c5ba1a8429a733633edbc7efaa74e512135
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 3b14925f41138904aa10a172f83dffa3c6662700
 
 
 ---
-# <a name="remote-desktop-gateway-and-azure-multifactor-authentication-server-using-radius"></a>RADIUS kullanan Uzak Masaüstü Ağ Geçidi ve Azure Multi-Factor Authentication Sunucusu
+# <a name="remote-desktop-gateway-and-azure-multi-factor-authentication-server-using-radius"></a>RADIUS kullanan Uzak Masaüstü Ağ Geçidi ve Azure Multi-Factor Authentication Sunucusu
 Çoğu durumda, Uzak Masaüstü Ağ Geçidi kullanıcıların kimliklerini doğrulamak yerel NPS kullanır. Bu belge, Uzak Masaüstü Ağ Geçidi’ndeki RADIUS isteğini (yerel NPS üzerinden) Multi-Factor Authentication Sunucusu’na yönlendirmeyi açıklar.
 
 Multi-Factor Authentication Sunucusu, daha sonra RADIUS isteğini Uzak Masaüstü Ağ Geçidi Sunucusu’ndaki NPS’ye sunacağı ayrı bir sunucuya yüklenmelidir. NPS kullanıcı adı ve parolayı doğruladıktan sonra, ağ geçidine bir sonuç döndürmeden önce kimlik doğrulamasının ikinci öğesini uygulayan Multi-Factor Authentication Sunucusu’na bir yanıt döndürür.
@@ -36,7 +36,7 @@ RD Ağ Geçidi, Azure Multi-Factor Authentication’a RADIUS isteği göndermek 
 3. Sol gezinme bölmesindeki İlkeler bölümünü genişletin ve Bağlantı İsteği İlkeleri’ne tıklayın. Bu, RD Ağ Geçidi yapılandırıldığında oluşturulmuş, TS AĞ GEÇİDİ KİMLİK DOĞRULAMASI İLKESİ adlı bir Bağlantı İsteği İlkesi içermelidir. Bu ilke RADIUS isteklerini Multi-Factor Authentication Sunucusu’na iletir.
 4. Yeni bir tane oluşturmak için bu ilkeyi kopyalayın. Yeni ilkede, Azure Multi-Factor Authentication Sunucusu RADIUS istemcisi için yukarıda 2. adımda ayarladığınız Kolay adla eşleşen bir İstemci Kolay Adı koşulu ekleyin. Kimlik Doğrulama Sağlayıcısı’nı Yerel Bilgisayar olarak değiştirin. Bu ilke, Azure Multi-Factor Authentication Sunucusu’ndan bir RADIUS isteği alındığında, döngü koşuluna neden olacak şekilde RADIUS isteğini Azure Multi-Factor Authentication Sunucusu’na geri göndermek yerine, kimlik doğrulamasının yerel olarak gerçekleştirilmesini sağlar. Döngü koşulunu önlemek için, bu yeni ilke Multi-Factor Authentication Sunucusu’na ileten özgün ilkenin ÜZERİNDE sıralanmalıdır.
 
-## <a name="configure-azure-multifactor-authentication"></a>Azure Multi-Factor Authentication’ı yapılandırma
+## <a name="configure-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication’ı yapılandırma
 - - -
 Azure Multi-Factor Authentication Sunucusu, RD Ağ Geçidi ile NPS arasında bir RADIUS proxy olarak yapılandırılmıştır.  RD AĞ Geçidi sunucusundan ayrı bir etki alanına katılmış sunucuya yüklenmelidir. Azure Multi-Factor Authentication Sunucusu’nu yapılandırmak için aşağıdaki yordamı uygulayın.
 
@@ -50,6 +50,6 @@ Azure Multi-Factor Authentication Sunucusu, RD Ağ Geçidi ile NPS arasında bir
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

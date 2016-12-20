@@ -12,11 +12,11 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: big-compute
-ms.date: 07/27/2016
+ms.date: 11/17/2016
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 87f8b1651ea429663c621a64d7f668a175fa675f
+ms.sourcegitcommit: 088d3d55a437165607e73ac2d6a3abe27e9b2639
+ms.openlocfilehash: 755fafcbc01e1da89d7ef3fa99b92da60c95bf8c
 
 
 ---
@@ -65,7 +65,7 @@ Kümelenmiş işlem kaynaklarının yönetilmesine ve bunları işleri çalışt
 * **Küme yöneticisi** - Sağlamalar, yayımlar ve yönetici işlem kaynakları (veya işlem düğümleri). Küme yöneticisi, işletim sistemi görüntülerinin ve uygulamaların işlem düğümlerine yüklenmesini otomatikleştirebilir, işlem kaynaklarını istek üzerine zamanlayabilir ve düğümlerin performansını izleyebilir.
 * **İş zamanlayıcı** - Bir uygulamanın gereksinim duyduğu kaynakları (örneğin, işlemci veya bellek) ve çalışacağı koşulları belirtir. İş zamanlayıcı bir iş kuyruğu tutar ve atanan öncelik veya başka özelliklere göre kaynakları ayırır.
 
-Windows tabanlı ve Linux tabanlı kümeler için kümeleme ve iş zamanlama araçları Azure’e de geçirilebilir. Örneğin, Windows ve Linux HPC iş yükleri için Microsoft'un ücretsiz işlem kümesi çözümü olan [Microsoft HPC Paketi](https://technet.microsoft.com/library/cc514029), Azure'da çalışma için çeşitli seçenekler sunmaktadır. Ayrıca Torque ve SLURM gibi açık kaynaklı araçlar çalıştırmak için Linux kümeleri oluşturabilirsiniz. Ek olarak [TIBCO DataSynapse GridServer](http://www.tibco.com/company/news/releases/2016/tibco-to-accelerate-cloud-adoption-of-banking-and-capital-markets-customers-via-microsoft-collaboration), [IBM Platform Symphony](http://www-01.ibm.com/support/docview.wss?uid=isg3T1023592) ve [Univa Grid Engine](http://www.univa.com/products/grid-engine) gibi ticari kılavuz çözümlerini Azure’a getirebilirsiniz.
+Windows tabanlı ve Linux tabanlı kümeler için kümeleme ve iş zamanlama araçları Azure’e de geçirilebilir. Örneğin, Windows ve Linux HPC iş yükleri için Microsoft'un ücretsiz işlem kümesi çözümü olan [Microsoft HPC Paketi](https://technet.microsoft.com/library/cc514029), Azure'da çalışma için çeşitli seçenekler sunmaktadır. Ayrıca Torque ve SLURM gibi açık kaynaklı araçlar çalıştırmak için Linux kümeleri oluşturabilirsiniz. Ek olarak [TIBCO DataSynapse GridServer](https://azure.microsoft.com/blog/tibco-datasynapse-comes-to-the-azure-marketplace/), [IBM Spectrum Symphony ve Symphony LSF](https://azure.microsoft.com/blog/ibm-and-microsoft-azure-support-spectrum-symphony-and-spectrum-lsf/) ve [Univa Grid Engine](http://www.univa.com/products/grid-engine) gibi ticari kılavuz çözümlerini Azure’a getirebilirsiniz.
 
 Aşağıdaki bölümlerde gösterildiği gibi, geleneksel küme yönetim araçları olmadan (ya da buna ek olarak) işlem kaynaklarını ve zamanlama işlerini yönetmek için de Azure hizmetlerinden yararlanabilirsiniz.
 
@@ -90,7 +90,7 @@ Big Compute çözümleri ve iş akışları için birleştirebildiğiniz hesapla
 Azure işlem hizmetleri Big Compute çözümünün çekirdeğidir ve farklı işlem hizmetleri farklı senaryolar için avantaj sunarlar. Temel düzeyde, bu hizmetler, Azure’ün Windows Server Hyper-V teknolojisini kullanarak sağladığı sanal makine tabanlı işlem örneklerini çalıştırmak için uygulamaların farklı modlarını sağlar. Bu örnekler standart ve özel Linux ve Windows işletim sistemlerinin ve araçlarını çalıştırabilir. Azure, CPU çekirdekleri, bellek, disk kapasitesi ve diğer özelliklerin farklı yapılandırmalarıyla size [örnek boyutları](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) seçimi sağlar. Gereksinimlerinize bağlı olarak örnekleri binlerce çekirdeğe ölçeklendirip, daha az kaynak gerektiğinde de ölçeklendirmeyi azaltın.
 
 > [!NOTE]
-> Düşük gecikme süresi ve yüksek işleme uygulama ağı gereken paralel MPI uygulamaları da dahil, HPC iş yüklerinin performansını ve ölçeklenebilirliğini artırmak için Azure işlem yoğunluklu örneklerinden yararlanın. Bkz. [H serisi ve işlem yoğunluklu A serisi sanal makineler hakkında](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).  
+> HPC iş yüklerinin performansını ve ölçeklenebilirliğini geliştirmek için [H serisi gibi yoğun işlem gücü kullanımlı Azure örneklerinden](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) yararlanın. Bu örnekler, düşük gecikme ve yüksek üretimli bir uygulama ağı gerektiren paralel MPI uygulamalarını da destekler. Ayrıca, Azure’daki işlem ve görselleştirme senaryolarını genişletmek için NVIDIA GPU içeren [N serisi](https://azure.microsoft.com/blog/azure-n-series-general-availability-on-december-1/) VM’ler de kullanılabilir.  
 > 
 > 
 
@@ -124,7 +124,7 @@ Big Compute çözümünüze, şirket içi veya başka ortamlardaki kaynaklara ba
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Çözümünüzü derlemek için teknik kılavuz arıyorsanız bkz. [Batch ve HPC için Teknik Kaynaklar](big-compute-resources.md).
-* Azure seçeneklerinizi Cycle Computing ve UberCloud dahil olmak üzere iş ortaklarınızla tartışın.
+* Azure seçeneklerinizi Cycle Computing, Rescale ve UberCloud dahil olmak üzere iş ortaklarınızla tartışın.
 * [Towers Watson](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18222), [Altair](https://azure.microsoft.com/blog/availability-of-altair-radioss-rdma-on-microsoft-azure/), [ANSYS](https://azure.microsoft.com/blog/ansys-cfd-and-microsoft-azure-perform-the-best-hpc-scalability-in-the-cloud/) ve [d3VIEW](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=22088) tarafından sağlanan Azure Big Compute çözümleri hakkında okuyun.
 * Son duyurular için bkz. [Microsoft HPC ve Batch ekip blogu](http://blogs.technet.com/b/windowshpc/) ve [Azure blogu](https://azure.microsoft.com/blog/tag/hpc/).
 
@@ -137,6 +137,6 @@ Big Compute çözümünüze, şirket içi veya başka ortamlardaki kaynaklara ba
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

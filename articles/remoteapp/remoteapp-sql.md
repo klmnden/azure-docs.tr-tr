@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: compute
-ms.date: 08/15/2016
-ms.author: elizapo
+ms.date: 11/23/2016
+ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: cfd3da08a8c8674e686ae2933db331809fb0e34d
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 52edc23e0f677567beeb33c47b14f6ea66989890
 
 
 ---
@@ -44,9 +44,9 @@ Windows uygulamanızı Azure RemoteApp’te barındırma Aşağıda çok üst d�
 ## <a name="app-and-sql-configuration-considerations"></a>Uygulama ve SQL yapılandırmada dikkat edilmesi gerekenler
 RemoteApp ile Azure SQL kullanırken dikkate alınması gereken birkaç nokta vardır:
 
-[Azure SQL veritabanı güvenlik duvarı yapılandırmayı](../sql-database/sql-database-firewall-configure.md) öğrenin. Makaleden bir alıntı, “Başlangıçta, Azure SQL Database sunucusuna tüm erişiminiz güvenlik duvarı tarafından engellenir” demektedir. Azure SQL Database sunucunuzu kullanmaya başlamak için, Klasik Portal’a gitmeli ve Azure SQL Database sunucunuza erişiminizi etkinleştirecek olan bir ya da daha fazla sunucu düzeyi güvenlik duvarı kuralını belirlemelisiniz. İnternet’ten gelen hangi IP adresi aralıklarının izinli olduğuna ve Azure uygulamalarının Azure SSQL Database unucunuza bağlanmaya çalışıp çalışamayacaklarına ilişkin güvenlik duvarı kurallarını belirleyin.”
+[Azure SQL veritabanı güvenlik duvarı yapılandırmayı](../sql-database/sql-database-firewall-configure.md) öğrenin. Makaleden bir alıntı, "Başlangıçta, Azure SQL Veritabanı sunucusuna tüm erişiminiz güvenlik duvarı tarafından engellenir demektedir. Azure SQL Database sunucunuzu kullanmaya başlamak için, Klasik Portal’a gitmeli ve Azure SQL Database sunucunuza erişiminizi etkinleştirecek olan bir ya da daha fazla sunucu düzeyi güvenlik duvarı kuralını belirlemelisiniz. İnternet'ten gelen hangi IP adresi aralıklarına izin verileceğine ve Azure uygulamalarının Azure SQL Veritabanı sunucunuza bağlanmaya çalışıp çalışamayacağına ilişkin güvenlik duvarı kurallarını belirleyin."
 
-Ayrıca, bir bilgisayar İnternet'ten, veritabanı sunucunuza bağlanmaya çalıştığında, güvenlik duvarı, isteğin kaynak IP adresini tam sunucu düzeyi ve (gerekliyse) veritabanı düzeyi güvenlik duvarı kurallarına karşı denetler. “İstek IP adresi sunucu düzeyi güvenlik duvarı kurallarında belirtilen aralıklardan biri içinde ise, Azure SSQL Database sunucunuza erişim izni verilir.” Dolayısıyla, yalnızca IP adresi kaynaklarını değil IP Aralıklarını da kullanabiliriz.
+Ayrıca, bir bilgisayar İnternet'ten, veritabanı sunucunuza bağlanmaya çalıştığında, güvenlik duvarı, isteğin kaynak IP adresini tam sunucu düzeyi ve (gerekliyse) veritabanı düzeyi güvenlik duvarı kurallarına karşı denetler. "İstek IP adresi sunucu düzeyinde güvenlik duvarı kurallarında belirtilen aralıklardan biri içinde ise, Azure SQL Veritabanı sunucunuza erişim izni verilir." Dolayısıyla, yalnızca IP adresi kaynaklarını değil IP Aralıklarını da kullanabiliriz.
 
 IP aralığını belirtmek için, [Nasıl yapılır: Azure Portal’ı kullanarak SQL Database güvenlik duvarı ayarlarını yapılandırma](../sql-database/sql-database-configure-firewall-settings.md) adım adım yönergelerini izleyin. SQL Güvenlik Duvarı kurallarını yapılandırırken, lütfen Azure RemoteApp koleksiyonu için belirtilen alt ağın IP aralığını belirtin. Bu, dinamik olarak atanan IP Adresleri olmasına rağmen, ARA sunucularının SQL DB’ye bağlanmasına izin vermelidir.
 
@@ -60,6 +60,6 @@ Azure’da ya da şirket içinde barındırılan bir SQL veritabanına bağlanan
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

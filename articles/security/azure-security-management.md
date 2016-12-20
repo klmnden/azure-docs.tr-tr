@@ -1,6 +1,6 @@
 ---
 title: "Azure’da Güvenlik Yönetimi | Microsoft Belgeleri"
-description: " Bu makalede bulut hizmetleri, Sanal Makineler ve özel uygulamalar dahil Microsoft Azure ortamlarını yönetirken uzaktan yönetim güvenliğini geliştirme adımları açıklanmaktadır."
+description: "Bu makalede bulut hizmetleri, Sanal Makineler ve özel uygulamalar dahil, Microsoft Azure ortamlarını yönetirken uzaktan yönetim güvenliğini geliştirme adımları açıklanmaktadır."
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/25/2016
+ms.date: 11/21/2016
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 83d13b9b104ae19c6d49103d6a2ffdc6e57dd956
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: b1f757678c9a88bd834482d67bf098279c463bfb
 
 
 ---
@@ -70,19 +70,19 @@ Azure, Azure bulut hizmetlerini ve sanal makineleri yöneten yöneticilere yard�
 * Web yönetim portalı.
 * Ağ paketi filtreleme.
 
-İstemci tarafı güvenlik yapılandırması ve yönetim ağ geçidinin veri merkezi dağıtımının birlikteliğiyle, bulut uygulamalarına ve verilerine yönetici erişimini kısıtlamak ve izlemek mümkündür.
+İstemci tarafı güvenlik yapılandırması ve yönetim ağ geçidinin veri merkezi dağıtımı ile, bulut uygulamalarına ve verilerine yönetici erişimini kısıtlamak ve izlemek mümkündür.
 
 > [!NOTE]
 > Bu makaledeki bazı öneriler artan veri, ağ ya da işlem kaynağı kullanımına neden olabilir ve lisans ya da abonelik maliyetlerinizi artırabilir.
-> 
-> 
+>
+>
 
 ## <a name="hardened-workstation-for-management"></a>Yönetim için sağlamlaştırılmış iş istasyonu
 Bir iş istasyonunu sağlamlaştırmanın amacı, potansiyel saldırı yüzeyini mümkün olduğunca küçülterek çalışması için gerekli olan en kritik işlevler haricindekileri ortadan kaldırmaktır. Sistem sağlamlaştırma, yüklü hizmetlerin ve uygulamaların sayısını en aza indirme, uygulama yürütmeyi sınırlama, ağ erişimini yalnızca gerekli olanla kısıtlama ve sistemi her zaman güncel tutmayı içerir. Ayrıca, yönetim için sağlamlaştırılmış bir iş istasyonu kullanmak yönetim araçlarını ve etkinlikleri diğer son kullanıcı görevlerinden ayırır.
 
 Şirket içi kurumsal ortam ile, ayrılmış yönetim ağları, kart erişimli sunucu odaları ve ağın korumalı bölgelerinde çalışan iş istasyonları aracılığıyla fiziksel altyapınızın saldırı yüzeyini sınırlayabilirsiniz. Bulut ya da karma BT modelinde, güvenli yönetim hizmetleri hakkında dikkatli olmak BT kaynaklarına fiziksel erişim eksiği nedeniyle daha karmaşık olabilir. Koruma çözümleri uygulamak dikkatli yazılım yapılandırma, güvenlik odaklı işlemler ve kapsamlı ilkeler gerektirir.
 
-Bulut yönetimi ve ayrıca uygulama geliştirme için kilitli bir iş istasyonunda en az ayrıcalıklı minimuma indirilmiş yazılım ayak izi kullanmak, uzaktan yönetim ve geliştirme ortamlarını standart hale getirerek güvenlik olayları riskini azaltabilir. Sağlamlaştırılmış bir istasyonu yapılandırması kötü amaçlı yazılımlar ve açıklar tarafından kullanılan birçok ortak yolu kapatarak kritik bulut kaynaklarını yönetmek için kullanılan hesapların tehlikeye düşmesini engellemeye yardımcı olabilir. Özellikle, e-posta ve İnternet’e gözatma dahil istemci sistemi davranışlarını denetlemek ve yalıtmak ve tehditleri azaltmak için [Windows AppLocker](http://technet.microsoft.com/library/dd759117.aspx) ve Hyper-V teknolojisi kullanabilirsiniz.
+Bulut yönetimi ve ayrıca uygulama geliştirme için kilitli bir iş istasyonunda en az ayrıcalıklı, en aza indirilmiş yazılım ayak izi kullanmak, uzaktan yönetim ve geliştirme ortamlarını standart hale getirerek güvenlik olayları riskini azaltabilir. Sağlamlaştırılmış bir istasyonu yapılandırması kötü amaçlı yazılımlar ve açıklar tarafından kullanılan birçok ortak yolu kapatarak kritik bulut kaynaklarını yönetmek için kullanılan hesapların tehlikeye düşmesini engellemeye yardımcı olabilir. Özellikle, e-posta ve İnternet’e gözatma dahil istemci sistemi davranışlarını denetlemek ve yalıtmak ve tehditleri azaltmak için [Windows AppLocker](http://technet.microsoft.com/library/dd759117.aspx) ve Hyper-V teknolojisi kullanabilirsiniz.
 
 Sağlamlaştırılmış bir iş istasyonunda, yönetici standart kullanıcı hesabı çalıştırır (yönetici düzeyi yürütmeyi engelleyen) ve ilişkili uygulamalar bir izin listesi tarafından denetlenir. Sağlamlaştırılmış bir iş istasyonunun temel öğeleri aşağıdaki gibidir:
 
@@ -92,7 +92,7 @@ Sağlamlaştırılmış bir iş istasyonunda, yönetici standart kullanıcı hes
 * Yürütme kısıtlama. Yalnızca yürütmek üzere yönetime gerekli olarak önceden tanımlanmış yürütülebilir dosyalar kümesine izin verin (“varsayılan ret” olarak bilinir). Varsayılan olarak, açıkça izin verilenler listesinde tanımlı olmadığı sürece kullanıcılara herhangi bir programı çalıştırma izni reddedilmelidir.
 * En düşük öncelik. Yönetim iş istasyonu kullanıcıları yerel makinenin kendisinde yönetim ayrıcalıklarına sahip olmamalıdır. Bu şekilde, sistem yapılandırmasını veya sistem dosyalarını, kasıtlı veya kasıtsız olarak değiştiremezler.
 
-Bunların tümünü, Active Directory Etki Alanı Hizmetleri’nde (AD DS) [Grup İlkesi Nesneleri](https://www.microsoft.com/download/details.aspx?id=2612) (GPO) kullanarak ve bunları tüm yönetim hesaplarınıza (yerel) yönetim etki alanınız aracılığıyla uygulayarak uygulayabilirsiniz.
+Bunların tümünü, Active Directory Domain Services’da (AD DS) [Grup İlkesi Nesneleri](https://www.microsoft.com/download/details.aspx?id=2612) (GPO) kullanarak ve bunları tüm yönetim hesaplarınıza (yerel) yönetim etki alanınız aracılığıyla uygulayarak gerçekleştirebilirsiniz.
 
 ### <a name="managing-services-applications-and-data"></a>Hizmetleri, uygulamaları ve verileri yönetme
 Azure bulut hizmetleri yapılandırması Azure portal ya da SMAPI üzerinden, Windows PowerShell komut satırı arabirimi veya bu RESTful arabirimlerinden yararlanan özel olarak geliştirilmiş uygulama aracılığıyla gerçekleştirilir. Bu mekanizmaları kullanan hizmetler Azure Active Directory (Azure AD), Azure Storage, Azure Websites ve Azure Virtual Network’ü içerir.
@@ -106,28 +106,28 @@ Tüm yönetim erişimini merkezileştirmek ve izlemeyi ve günlüğe kaydetmeyi 
 
 Uzak Masaüstü Ağ geçidi, güvenlik gereksinimlerini uygulayan ilke tabanlı bir RDP proxy hizmetidir. Windows Server Network Access Protection ile RD Ağ Geçidi uygulamak yalnızca Active Directory Etki Alanı Hizmetleri (AD DS) Grup İlkesi Nesneleri (GPO'lar) tarafından oluşturulan belirli güvenlik durumu ölçütlerini karşılayan istemcilerin bağlanabilmesinin sağlanmasına yardımcı olur. Buna ek olarak:
 
-* Azure yönetim portalına erişime izin verilen tek ana bilgisayar olacak şekilde RD Ağ Geçidi’nde [Azure yönetim sertifikası](http://msdn.microsoft.com/library/azure/gg551722.aspx) sağlayın.
+* Azure portalına erişimine izin verilen tek ana bilgisayar olacak şekilde, RD Ağ Geçidi’nde [Azure yönetim sertifikası](http://msdn.microsoft.com/library/azure/gg551722.aspx) sağlayın.
 * RD Ağ Geçidi’ni yönetici iş istasyonları olarak aynı [yönetim etki alanına](http://technet.microsoft.com/library/bb727085.aspx) ekleyin. Bu, Azure AD’ye tek yön trust sahibi olan bir etki alanında siteden siteye IPsec VPN ya da ExpressRoute kullanırken ya da şirket için AD DS örneği ve Azure AD’niz arasında kimlik bilgilerini birleştirirken gereklidir.
-* RD Ağ Geçidi’nin istemci makinesi adının geçerli (etki alanına katılmış) ve Azure yönetim portalına erişimine izin verilmiş olduğunu doğrulamasına izin vermek için [istemci bağlantısı yetkilendirme ilkesi](http://technet.microsoft.com/library/cc753324.aspx) yapılandırın.
+* RD Ağ Geçidi’nin istemci makinesi adının geçerli (etki alanına katılmış) ve Azure portalına erişimine izin verilmiş olduğunu doğrulamasına izin vermek için, bir [istemci bağlantısı yetkilendirme ilkesi](http://technet.microsoft.com/library/cc753324.aspx) yapılandırın.
 * Yönetim trafiğini ileri gizli dinleme ve belirteç hırsızlığından korumak üzere [Azure VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/) için IPsec kullanın ya da [Azure ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/) aracılığıyla yalıtılmış bir İnternet bağlantısını dikkate alın.
 * RD Ağ Geçidi üzerinden oturum açan yöneticiler için multi-factor authentication ([Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md) aracılığıyla) ya da akıllı kart kimlik doğrulamasını etkinleştirin.
 * İzin verilen yönetim uç noktalarının sayısını en aza indirmek için Azure’da [IP adresi kısıtlamaları](http://azure.microsoft.com/blog/2013/08/27/confirming-dynamic-ip-address-restrictions-in-windows-azure-web-sites/) ya da [Ağ Güvenlik Grupları](../virtual-network/virtual-networks-nsg.md) yapılandırın.
 
 ## <a name="security-guidelines"></a>Güvenlik yönergeleri
-Genel olarak, bulutla kullanım amacıyla yönetici iş istasyonlarının güvenliğini sağlamaya yardımcı olmak şirket için iş istasyonları için kullanılan uygulamalara çok benzerdir. Örneğin, minimum yapı ve kısıtlayıcı izinler. Bulut yönetiminin bazı benzersiz yönleri uzaktan ya da bant dışı kurumsal yönetime daha yakındır. Bunlar kimlik bilgilerini, gelişmiş güvenlikli uzaktan erişimin ve tehdit algılama ve yanıtın denetlenmesini içerir.
+Genel olarak, bulutla kullanıma yönelik olarak yönetici iş istasyonlarının güvenliğini sağlamaya yardımcı olmak, şirket içi iş istasyonları için kullanılan uygulamalara benzerdir. Örneğin, en aza indirilmiş yapı ve kısıtlayıcı izinler. Bulut yönetiminin bazı benzersiz yönleri uzaktan ya da bant dışı kurumsal yönetime daha yakındır. Bunlar kimlik bilgilerini, gelişmiş güvenlikli uzaktan erişimin ve tehdit algılama ve yanıtın denetlenmesini içerir.
 
 ### <a name="authentication"></a>Kimlik Doğrulaması
-Yönetim araçlarına ve denetim erişim isteklerine erişim için kaynak IP adreslerini sınırlamak amacıyla Azure oturum açma kısıtlamalarını kullanabilirsiniz. Azure’un yönetim istemcilerini (iş istasyonları ve/veya uygulamalar) tanımlamasına yardımcı olmak için, SSL sertifikalarına ek olarak istemci tarafı yönetim sertifikalarının yüklenmesini gerekli kılmak için SMAPI (Windows PowerShell cmdlet’leri gibi müşteri tarafından geliştirilen araçlar aracılığıyla) ve Azure yönetim portalını yapılandırabilirsiniz. Yönetici erişiminin multi-factor authentication gerektirmesine de öneriyoruz.
+Yönetim araçlarına ve denetim erişim isteklerine erişim için kaynak IP adreslerini sınırlamak amacıyla Azure oturum açma kısıtlamalarını kullanabilirsiniz. Azure’un yönetim istemcilerini (iş istasyonları ve/veya uygulamalar) tanımlamasına yardımcı olmak için, SSL sertifikalarının yanı sıra, istemci tarafı yönetim sertifikalarının yüklenmesini gerekli kılmaya yönelik olarak SMAPI (Windows PowerShell cmdlet’leri gibi müşteri tarafından geliştirilen araçlar aracılığıyla) ve Azure portalını yapılandırabilirsiniz. Yönetici erişiminin multi-factor authentication gerektirmesine de öneriyoruz.
 
 Azure’a dağıttığınız bazı uygulamalar veya hizmetler hem son kullanıcı hem de yönetici erişimi için kendi kimlik doğrulama mekanizmalarına sahip olabilirken, diğerleri Azure AD’den faydalanabilir. Kimlik bilgilerini Active Directory Federasyon Hizmetleri (AD FS) aracılığıyla birleştirip birleştirmemenize bağlı olarak, dizin eşitlemeyi kullanmak veya bulutta yalnızca kullanıcı hesaplarını tutmak, [Microsoft Identity Manager](https://technet.microsoft.com/library/mt218776.aspx) (Azure AD Premium’un parçası) kullanmak kaynaklar arasında kimlik yaşam döngülerini yönetmenize yardımcı olur.
 
 ### <a name="connectivity"></a>Bağlantı
-Azure sanal ağlarınıza güvenli istemci bağlantılarına yardımcı olmak için çeşitli mekanizmalar kullanılabilir. Bu mekanizmaların ikisi,endüstri standardı IPsec (S2S) kullanım sağlayan [siteden siteye VPN](https://channel9.msdn.com/series/Azure-Site-to-Site-VPN) (S2S) ve [noktadan siteye VPN](../vpn-gateway/vpn-gateway-point-to-site-create.md) (P2S) ya da şifreleme ve tünel oluşturma için [Güvenli Yuva Tünel Protokolü](https://technet.microsoft.com/magazine/2007.06.cableguy.aspx)’dür. (SSTP) (P2S). Azure, Azure yönetim portalı gibi genel kullanıma yönelik Azure hizmetleri yönetimine bağlandığında, Azure Güvenli Bağlantılı Metin Aktarım Protokolü (HTTPS) gerektirir.
+Azure sanal ağlarınıza güvenli istemci bağlantılarına yardımcı olmak için çeşitli mekanizmalar kullanılabilir. Bu mekanizmaların ikisi,endüstri standardı IPsec (S2S) kullanım sağlayan [siteden siteye VPN](https://channel9.msdn.com/series/Azure-Site-to-Site-VPN) (S2S) ve [noktadan siteye VPN](../vpn-gateway/vpn-gateway-point-to-site-create.md) (P2S) ya da şifreleme ve tünel oluşturma için [Güvenli Yuva Tünel Protokolü](https://technet.microsoft.com/magazine/2007.06.cableguy.aspx)’dür. (SSTP) (P2S). Azure, Azure portalı gibi genel kullanıma yönelik Azure hizmetleri yönetimine bağlandığında, Azure Güvenli Köprü Metni Aktarım Protokolü (HTTPS) gerektirir.
 
 Azure’a RD ağ geçidi üzerinden bağlanmayan sağlamlaştırılmış bir iş istasyonu Azure Virtual Network’e ilk bağlantıyı oluşturmak için SSTP tabanlı noktadan siteye VPN kullanmalı ve ardından VPN tünelinden ayrı sanal makinelere RDP bağlantısı oluşturmalıdır.
 
 ### <a name="management-auditing-vs-policy-enforcement"></a>Yönetim denetimi ilke uygulama karşılaştırması
-Genellikle, güvenli yönetim işlemlerine yardımcı olan iki yaklaşım vardır: denetim ve ilke uygulama. İkisini de uygulamak kapsamlı denetimler sağlar ancak her durumda mümkün olmayabilir. Ayrıca, her ikisi de özellikle hem kişiler hem de sistem yapılarındaki güven düzeyiyle ilgili olduğundan, güvenlik yönetimiyle ilgili farklı düzeylerde risk, maliyet ve çaba söz konusudur.
+Genellikle, güvenli yönetim işlemlerine yardımcı olan iki yaklaşım vardır: denetim ve ilke uygulama. İkisini de uygulamak kapsamlı denetimler sağlasa da bu, her durumda mümkün olmayabilir. Ayrıca, her ikisi de özellikle hem kişiler hem de sistem yapılarındaki güven düzeyiyle ilgili olduğundan, güvenlik yönetimiyle ilgili farklı düzeylerde risk, maliyet ve çaba söz konusudur.
 
 İzleme, günlüğe kaydetme ve denetim yönetim etkinliklerini takip etme ve anlamaya ilişkin bir temel sunar ancak, oluşturulan veri miktarı nedeniyle tüm eylemlerin her ayrıntısının denetlenmesi uygulanabilir olmayabilir. Ancak, yönetim ilkelerinin verimliliğini denetlemek en iyi uygulamadır.
 
@@ -139,13 +139,13 @@ Sağlamlaştırılmış iş istasyonu için üç temel yapılandırma öneririz.
 | Yapılandırma | Avantajlar | Simgeler |
 | --- | --- | --- |
 | Tek başına sağlamlaştırılmış iş istasyonu |Sıkı denetlenen iş istasyonu |ayrılmış masaüstü bilgisayarlar için daha yüksek maliyet |
-| Azaltılmış uygulama açıkları riski |Artan yönetim çabası | |
-| Net görev ayrımları | | |
-| Sanal makine olarak kurumsal PC |Sınırlı donanım maliyetleri | |
-| Rol ve uygulamaların ayrımı | | |
+| - | Azaltılmış uygulama açıkları riski |Artan yönetim çabası |
+| - | Net görev ayrımları | - |
+| Sanal makine olarak kurumsal PC |Sınırlı donanım maliyetleri | - |
+| - | Rol ve uygulamaların ayrımı | - |
 | BitLocker Sürücü Şifrelemesi ile Windows to go |Çoğu PC ile uyumluluk |Varlık izleme |
-| Düşük maliyet ve taşınabilirlik | | |
-| Yalıtılmış yönetim ortamı | | |
+| - | Düşük maliyet ve taşınabilirlik | - |
+| - | Yalıtılmış yönetim ortamı |- |
 
 Sağlamlaştırılmış is istasyonunun, ana bilgisayar işletim sistemi ile donanım arasında bir şey olmadan, konuk değil ana bilgisayar olması önemlidir. “Temiz kaynak ilkesi”ni (“güvenli kaynak” olarak da bilinir) izleme ana bilgisayarın en fazla sağlamlaştırılmış olması gereken olduğu anlamına gelir. Aksi takdirde, sağlamlaştırılmış iş istasyonu (konuk) üzerinde barındırıldığı sistemde saldırılara maruz kalır.
 
@@ -153,7 +153,7 @@ Gerekli görevler için özel yerel AD DS GPO’larıyla, seçilen Azure ve bulu
 
 Şirket içi altyapısı bulunmaya BT ortamları için (örneği, tüm sunucular bulutta olduğundan GPO’lar için yerel bir AD DS örneğine erişimi olmayan), [Microsoft Intune](https://technet.microsoft.com/library/jj676587.aspx) gibi bir hizmet iş istasyonu dağıtmayı ve bakımını kolay hale getirebilir.
 
-### <a name="standalone-hardened-workstation-for-management"></a>Yönetim için tek başına sağlamlaştırılmış iş istasyonu
+### <a name="stand-alone-hardened-workstation-for-management"></a>Yönetim için tek başına sağlamlaştırılmış iş istasyonu
 Tek başına sağlamlaştırılmış iş istasyonu ile, yöneticiler yönetim görevleri için kullandıkları bir PC ya da dizüstü bilgisayara ve yönetim dışı görevler için kullandıkları ayrı PC ya da dizüstü bilgisayara sahiptir. Azure hizmetlerinizi yönetmeye ayrılmış bir iş istasyonu diğer uygulamaların yüklenmesini gerektirmez. Ayrıca, [Güvenilir Platform Modülü 	](https://technet.microsoft.com/library/cc766159) (TPM) ya da benzer bir donanın düzeyi şifreleme teknolojisi cihaz kimlik doğrulamasına ve belirli saldırıların önlenmesine yardımcı olur. TPM ayrıca [BitLocker Sürücü Şifrelemesi](https://technet.microsoft.com/library/cc732774.aspx) kullanarak sistem sürücüsünün tam birim korumasını destekler.
 
 (Aşağıda gösterilen) tek başına sağlamlaştırılmış iş istasyonu senaryosunda, Windows Güvenlik Duvarı (veya Microsoft dışı istemci güvenlik duvarı) RDP gibi, gelen bağlantıları engellemek üzere yapılandırılmıştır. Yönetici sağlamlaştırılmış iş istasyonunda oturum açabilir ve VPN Azure Sanal Ağı ile VPN bağlantısı oluşturduktan sonra Azure’a bağlanan bir RDP oturumu başlatabilir, kurumsal PC’de oturum açamaz ve sağlamlaştırılmış iş istasyonunun kendisine bağlanmak için RDP kullanamaz.
@@ -176,7 +176,7 @@ Aşağıdaki çizimde, taşınabilir görüntü yalnızca Azure’a bağlanmak i
 
 ![][4]
 
-USB flash sürücülerin ortalama bir masaüstü bilgisayara göre daha kolay kaybolduğuna dikkat etmek önemlidir. Birimin tamamını, güçlü bir parola ile şifrelemek için BitLocker kullanmak bir saldırganın zararlı amaçlar için sürücü görüntüsü kullanabilme olasılığını düşürür. Ayrıca, USB flash sürücü kaybolursa, hızlı parola sıfırlama ile iptal etme ve [yeni bir yönetim sertifikası verme](https://technet.microsoft.com/library/hh831574.aspx) tehlikeye maruz kalmayı azaltabilir. Yönetim denetim günlüklerinin, istemcide değil, Azure’da bulunması da potansiyel veri kayıplarını azaltır.
+USB flash sürücülerin ortalama bir masaüstü bilgisayara göre daha kolay kaybolduğuna dikkat etmek önemlidir. Birimin tamamını, güçlü bir parola ile şifrelemek için BitLocker kullanmak, bir saldırganın zararlı amaçlar için sürücü görüntüsü kullanabilme olasılığını düşürür. Ayrıca, USB flash sürücü kaybolursa, hızlı parola sıfırlama ile iptal etme ve [yeni bir yönetim sertifikası verme](https://technet.microsoft.com/library/hh831574.aspx) tehlikeye maruz kalmayı azaltabilir. Yönetim denetim günlüklerinin, istemcide değil, Azure’da bulunması da potansiyel veri kayıplarını azaltır.
 
 ## <a name="best-practices"></a>En iyi uygulamalar
 Azure’da uygulama ve veri yönetirken aşağıdaki ek yönergeleri dikkate alın.
@@ -187,14 +187,14 @@ Bir iş istasyonu kilitlenmiş olduğu için diğer genel güvenlik gereksinimle
 | Yapmayın | Yapın |
 | --- | --- |
 | Yönetici erişimine ilişkin kimlik bilgilerini veya diğer parolaları (ör. SSL veya yönetim sertifikaları) e-posta ile göndermeyin |Hesap adlarını ve parolaları sesli olarak ileterek gizliliği koruyun (ancak bunları sesli posta olarak depolamayın), istemci/sunucu sertifikalarının uzaktan yüklemesini gerçekleştirin (şifreli oturum yoluyla), korumalı ağ paylaşımından indirin ya da taşınabilir medya kullanarak el ile dağıtın. |
-| Yaşam döngüsü yönetimi sertifikanızı proaktif olarak yönetin. | |
+| - | Yaşam döngüsü yönetimi sertifikanızı proaktif olarak yönetin. |
 | Hesap parolalarını şifrelenmemiş ya da karma olmayan uygulama depolama biriminde depolamayın (örneğin, elektronik tablolarda, SharePoint sitelerinde ya da dosya paylaşımlarında). |Güvenlik yönetim ilkeleri ve sistem sağlamlaştırma ilkeleri oluşturun ve bunları geliştirme ortamınıza uygulayın. |
-| Azure SSL/TLS sitelerine uygun erişim sağlamak için [Enhanced Mitigation Experience Toolkit 5.5](https://technet.microsoft.com/security/jj653751) sertifikası sabitleme kuralları kullanın. | |
+| - | Azure SSL/TLS sitelerine uygun erişim sağlamak için [Enhanced Mitigation Experience Toolkit 5.5](https://technet.microsoft.com/security/jj653751) sertifikası sabitleme kuralları kullanın. |
 | Hesapları ve parolaları yöneticiler arasında paylaşmayın veya parolaları birden fazla kullanıcı hesabında ya da hizmette yeniden kullanmayın, özellikle sosyal medya ve diğer yönetim dışı etkinlikler için olanları. |Azure aboneliğinizi yönetmek üzere, kişisel e-postalar için kullanılmayan bir hesap olarak, ayrılmış bir Microsoft hesabı oluşturun. |
 | Yapılandırma dosyalarını e-posta ile göndermeyin. |Yapılandırma dosyaları ve profilleri, e-posta gibi kolayca tehlikeye girebilecek bir mekanizmadan değil, güvenilir bir kaynaktan yüklenmelidir (örneğin, şifrelenmiş bir USB flash sürücü). |
 | Zayıf veya basit oturum açma parolaları kullanmayın. |Güçlü parola ilkeleri, sona erme döngüleri (ilk kullanımda değiştirme), konsol zaman aşımları ve otomatik hesap kilitlemeleri uygulayın. Parola kasa erişimi için multi-factor authentication ile istemci parola yönetimi sistemi kullanın. |
-| Yönetim bağlantı noktalarını İnternet’e sunmayın. |Yönetim erişimini kısıtlamak için Azure bağlantı noktalarını ve IP adreslerini kilitleyin. Daha fazla bilgi edinmek için [Azure Ağ Güvenliği](http://download.microsoft.com/download/4/3/9/43902EC9-410E-4875-8800-0788BE146A3D/Windows%20Azure%20Network%20Security%20Whitepaper%20-%20FINAL.docx) raporuna bakın. |
-| Tüm yönetim bağlantıları için güvenlik duvarları, VPN’ler ve NAP kullanın. | |
+| Yönetim bağlantı noktalarını İnternet’e sunmayın. |Yönetim erişimini kısıtlamak için Azure bağlantı noktalarını ve IP adreslerini kilitleyin. Daha fazla bilgi edinmek için [Azure Ağ Güvenliği](http://download.microsoft.com/download/4/3/9/43902EC9-410E-4875-8800-0788BE146A3D/Windows%20Azure%20Network%20Security%20Whitepaper%20-%20FINAL.docx) teknik incelemesine bakın. |
+| - | Tüm yönetim bağlantıları için güvenlik duvarları, VPN’ler ve NAP kullanın. |
 
 ## <a name="azure-operations"></a>Azure işlemleri
 Microsoft’un Azure işlemleri çerçevesinde, Azure’un üretim sistemlerine erişimi olan işlem mühendisleri ve destek personeli iç kurumsal ağ erişimi ve uygulamaları için (e-posta, intranet gibi) kendilerine sağlanan [sanal makineler ile sağlamlaştırılmış iş istasyonu bilgisayarları](#stand-alone-hardened-workstation-for-management) kullanır. Tüm yönetim iş istasyonu bilgisayarlarında TPM’ler bulunur, ana bilgisayar önyükleme sürücüsü BitLocker ile şifrelenmiştir ve bunlar Microsoft’un birincil kurumsal etki alanındaki özel bir kurumsal birimde (OU) birleştirilmiştir.
@@ -204,17 +204,17 @@ Sistem sağlamlaştırma merkezileştirilmiş yazılım güncelleştirme ile Gru
 Ayrıca, Azure’un üretim ağına bağlanmak için Microsoft ağında iki öğeli kimlik doğrulama gerektiren ayrılmış jump-box’lar kullanılır.
 
 ## <a name="azure-security-checklist"></a>Azure güvenlik denetim listesi
-Sağlamlaştırılmış bir iş istasyonunda yöneticilerin gerçekleştirebileceği görev sayısını en aza indirmek geliştirme ve yönetim ortamınızdaki saldırı yüzeyini en aza indirmenize yardımcı olacaktır. Sağlamlaştırılmış iş istasyonunuzu korumaya yardımcı olması için aşağıdaki teknolojileri kullanın:
+Sağlamlaştırılmış bir iş istasyonunda yöneticilerin gerçekleştirebileceği görev sayısını en aza indirmek, geliştirme ve yönetim ortamınızdaki saldırı yüzeyini en aza indirmenize yardımcı olur. Sağlamlaştırılmış iş istasyonunuzu korumaya yardımcı olması için aşağıdaki teknolojileri kullanın:
 
 * IE sağlamlaştırma. Internet Explorer tarayıcı (bu bağlamda herhangi bir web tarayıcısı) dış sunucularla olan yoğun etkileşimleri nedeniyle zararlı bir kod için temel giriş noktasıdır. İstemci ilkelerinizi inceleyin ve korumalı modda çalışma, eklentileri devre dışı bırakma, dosya yüklemelerini devre dışı bırakma ve [Microsoft SmartScreen](https://technet.microsoft.com/library/jj618329.aspx) filtrelemesi seçeneklerini kullanın. Güvenlik uyarılarının göründüğünden emin olun. İnternet bölgelerinden faydalanın ve makul sağlamlaştırma yapılandırdığınız güveniliri siteler için bir listesini oluşturun. Tüm diğer siteleri ve ActiveX ve Java gibi tarayıcı içi kodları engelleyin.
 * Standart kullanıcı. Standart kullanıcı olarak çalıştırmanın getirdiği bir çok avantaj vardır; bunlardan en büyüğü kötü amaçlı yazılımı aracılığıyla yönetici kimlik bilgilerinin çalınmasının daha zor olmasıdır. Buna ek olarak, standart kullanıcı hesabının kök işletim sisteminde yükseltilmiş ayrıcalıkları yoktur ve birçok yapılandırma seçeneği ve API’leri varsayılan olarak kilitlidir.
 * AppLocker. Kullanıcıların çalıştırabileceği programları ve betikleri kısıtlamak için [AppLocker](http://technet.microsoft.com/library/ee619725.aspx) kullanabilirsiniz. AppLocker’ı denetim veya zorlama modunda çalıştırabilirsiniz. Varsayılan olarak, AppLocker istemcideki tüm kodları çalıştırmak üzere yönetici belirtecine sahip olan kullanıcıların bunu yapmasını mümkün kılan izin vermek kuralına sahiptir. Bu kural yöneticilerin kendilerini içeriye kilitlemelerini önlemek içindir ve yalnızca yükseltilmiş belirteçler için geçerlidir. Ayrıca Windows Server [çekirdek güvenlik](http://technet.microsoft.com/library/dd348705.aspx) parçası olarak Kod Bütünlüğü’ne bakın.
 * Kod imzalama. Yöneticiler tarafından kullanılan tüm araçlar ve betiklerde kod imzalama uygulama kilitleme ilkeleri dağıtmak için yönetilebilir bir mekanizma sağlar. Karmalar koddaki hızlı değişimlerde ölçeklenmez ve dosya yolları yüksek düzeyde güvenlik sağlamaz. AppLocker kurallarını yalnızca özel imzalı kod ve betiklerin [yürütülmesine](http://technet.microsoft.com/library/hh849812.aspx) izin veren PowerShell [yürütme ilkesi](http://technet.microsoft.com/library/ee176961.aspx) ile birleştirmelisiniz.
-* Grup İlkesi. Yönetim (ve tüm başkalarından gelen erişimi engellemek) için kullanılan tüm etki alanı iş istasyonlarının yanı sıra bu istasyonlarında kimlik doğrulaması yapılan kullanıcı hesaplarına uygulanan genel yönetim ilkesi oluşturun.
+* Grup İlkesi. Yönetim (ve diğer tüm kişilerden gelen erişimi engellemek) için kullanılan tüm etki alanı iş istasyonlarının yanı sıra, bu istasyonlarında kimlik doğrulaması yapılan kullanıcı hesaplarına uygulanan genel bir yönetim ilkesi oluşturun.
 * Gelişmiş güvenlik sağlama. Kurcalanmaya karşı korumaya yardımcı olmak için taban çizgisi sağlamlaştırılmış iş istasyonunu görüntünüzü koruyun. Görüntüler, sanal makineler ve betikleri depolamak için şifreleme ve yalıtma gibi güvenlik önlemleri kullanın ve erişimi kısıtlayın (ya da denetlenebilir iade etme/kullanıma alma işlemi kullanın).
 * Düzeltme eki uygulama. Tutarlı yapıyı koruyun (ya da geliştirme işlemleri ve diğer yönetim görevleri için ayrı görüntülere sahip olun), değişiklikler ve kötü amaçlı yazılımlara karşı düzenli tarama yapın, yapıyı güncel tutun ve makineleri yalnızca gerektiğinden etkinleştirin.
 * Şifreleme. Daha güvenli bir şekilde etkin [Şifreleme Dosya Sistemi](https://technet.microsoft.com/library/cc700811.aspx) (EFS) ve BitLocker için yönetim iş istasyonlarının TPM içerdiğinden emin olun. Windows To Go kullanıyorsanız, yalnızca şifrelenmiş USB anahtarlarını BitLocker ile birlikte kullanın.
-* İdare. Dosya paylaşımı gibi, tüm yöneticilerin Windows arabirimleri için AD DS GPO’ları kullanın. Yönetim iş istasyonlarını denetim, izleme ve günlüğe kaydetme işlemlerine dahil edin. Tüm yönetici ve geliştirici erişimini ve kullanımını izleyin.
+* İdare. Tüm yöneticilerin Windows arabirimleri için (dosya paylaşımı gibi) AD DS GPO’larını kullanın. Yönetim iş istasyonlarını denetim, izleme ve günlüğe kaydetme işlemlerine dahil edin. Tüm yönetici ve geliştirici erişimini ve kullanımını izleyin.
 
 ## <a name="summary"></a>Özet
 Azure bulut hizmetlerinizi, Sanal Makinelerinizi ve uygulamalarınızı yönetmek için sağlamlaştırılmış iş istasyonları kullanmak kritik önemdeki BT altyapısını uzaktan yönetmenin getirebileceği çok sayıda riskten ve tehditten kaçınmanıza yardımcı olabilir. Azure ve Windows iletişimleri, kimlik doğrulamayı ve istemci davranışını korumaya ve denetlemeye yardımcı olması için uygulayabileceğiniz mekanizmalar sağlar.
@@ -235,6 +235,6 @@ Azure ve ilgili Microsoft hizmetlerinin yanı sıra bu belgede başvurulan belir
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

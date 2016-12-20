@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 08/17/2016
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1e7529de2968b2745b42001cc16b54d70b2a5b86
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 32afda1861c2c558f8bb9ffedf897cd8d1df0b5c
 
 
 ---
@@ -137,7 +137,7 @@ Devam etmeden önce lütfen şunları doğrulayın:
 
 1. Windows 7 çalıştırıyorsanız [Windows Management Framework (WMF) 4.0](https://www.microsoft.com/download/details.aspx?id=40855) uygulamasını indirdiğinizi ve yüklediğinizi.   
     Windows Server 2012 R2, Windows Server 2012, Windows 2008 R2, Windows 8.1, ve Windows 7 SP1 çalıştırıyorsanız [Windows Management Framework 5.0](https://www.microsoft.com/download/details.aspx?id=50395) uygulamasının yüklemeye hazır olduğunu.
-2. Azure PowerShell 1.0. Bu sürüm ve nasıl yükleneceği hakkında daha fazla bilgi için bkz. [Azure PowerShell'i yükleme ve yapılandırma](../powershell-install-configure.md).
+2. Azure PowerShell 1.0. Bu sürüm ve nasıl yükleneceği hakkında daha fazla bilgi için bkz. [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azureps-cmdlets-docs).
 3. Bir otomasyon hesabı oluşturduğunuzu.  Bu hesaba aşağıdaki komut dosyasında yer alan –AutomationAccountName ve -ApplicationDisplayName parametre değeri olarak başvurulacaktır.
 
 Komut dosyaları için gerekli parametreler olan *SubscriptionID*, *ResourceGroup* ve *AutomationAccountName* değerlerini almak için Azure portalında **Otomasyon hesabı** dikey penceresinden Otomasyon hesabınızı seçin ve **Tüm ayarlar** seçeneğini belirleyin.  **Tüm ayarlar** dikey penceresindeki **Hesap Ayarları** altında **Özellikler**’i seçin.  **Özellikler** dikey penceresinde bu değerleri fark edebilirsiniz.<br> ![Otomasyon Hesabı özellikleri](media/automation-sec-configure-azure-runas-account/automation-account-properties.png)  
@@ -394,6 +394,6 @@ Runbook’larınızla klasik kaynakları yönetecek Klasik Farklı Çalıştır 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

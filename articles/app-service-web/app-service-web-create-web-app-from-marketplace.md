@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 09/20/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 73fafeff227061feae1fbc0a1c50e5056116e3ea
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 00c4336bd5cef4ddc0b92127d0945d39291b9c7f
 
 
 ---
@@ -40,7 +40,7 @@ Bu öğreticinin amacı doğrultusunda, Azure Marketi'nden bir WordPress blog si
 Bu öğreticide dağıtacağınız WordPress sitesi veritabanı için MySQL kullanır. Bunun yerine veritabanı için SQL Database’i kullanmak istiyorsanız, yine Azure Marketi’nde bulunan [Proje Nami]’ye bakın.
 
 > [!NOTE]
-> Bu öğreticiyi tamamlamak için Microsoft Azure hesabınızın olması gerekir. Bir hesabınız yoksa, şunları yapabilirsiniz [Visual Studio abone avantajlarınızı etkinleştirebilir][etkinleştirme] veya [ücretsiz deneme için kaydolabilirsiniz][ücretsiz deneme sürümül].
+> Bu öğreticiyi tamamlamak için Microsoft Azure hesabınızın olması gerekir. Bir hesabınız yoksa, [Visual Studio abone avantajlarınızı etkinleştirebilir][activate] veya [ücretsiz deneme için kaydolabilirsiniz][free trial].
 > 
 > Bir Azure hesabı için kaydolmadan önce Azure App Service’i kullanmaya başlamak istiyorsanız [App Service’i Deneyin]’e gidin. Burada, App Service’te hemen bir kısa süreli başlangıç web uygulaması oluşturabilirsiniz; kredi kartı gerekmez ve hiçbir taahhüt yoktur
 > 
@@ -72,10 +72,10 @@ Bu öğreticide dağıtacağınız WordPress sitesi veritabanı için MySQL kull
     ![Web uygulaması için aboneliği yapılandırma][ConfigSubscription]
 4. Bir **Kaynak Grubu** seçin veya yeni bir tane oluşturun.
    
-    Kaynak grupları hakkında daha fazla bilgi için bkz. [Azure Resource Manager’a genel bakış][ResourceGroups].
+    Kaynak grupları hakkında daha fazla bilgi için bkz. [Azure Resource Manager'a genel bakış][ResourceGroups].
    
     ![Web uygulaması için kaynak grubunu yapılandırma][ConfigResourceGroup]
-5. Bir **App Service planı/Konumu** seçin veya yeni bir tane oluşturun.
+5. Bir **App Service planı/Konum** seçin veya yeni bir tane oluşturun.
    
     App Service planları hakkında daha fazla bilgi için bkz. [Azure App Service planlarına genel bakış][AzureAppServicePlans].
    
@@ -104,7 +104,7 @@ Bu öğreticide dağıtacağınız WordPress sitesi veritabanı için MySQL kull
 ## <a name="launch-and-manage-your-wordpress-web-app"></a>WordPress web uygulamanızı başlatma ve yönetme
 1. Web uygulaması oluşturma tamamlandığında, Azure Portal’da uygulamayı oluşturduğunuz kaynak grubuna gidin, burada web uygulamasını ve veritabanını görebilirsiniz.
    
-    Ampul simgeli ek kaynak, web hizmetiniz için izleme hizmetleri sağlayan [Application Insights][ApplicationInsights]’dır.
+    Ampul simgeli ek kaynak, web hizmetiniz için izleme hizmetleri sağlayan [Application Insights][ApplicationInsights] hizmetidir.
 2. **Kaynak grubu** dikey penceresinde, web uygulaması satırına tıklayın.
    
     ![WordPress web uygulamanızı seçin][WordPressSelect]
@@ -127,7 +127,7 @@ Bu öğreticide, Azure Marketi'nde örnek bir web uygulaması oluşturmayı dağ
 
 App Service Web Apps ile çalışma hakkında daha fazla bilgi için sayfanın sol tarafındaki (geniş tarayıcı pencereleri için) veya sayfanın üst kısmındaki (dar tarayıcı pencereleri için) bağlantılara bakın.
 
-Azure’da WordPress web uygulamaları geliştirme hakkında daha fazla bilgi için bkz. [Azure App Service’te WordPress Geliştirme ][WordPressOnAzure].
+Azure'da WordPress web uygulamaları geliştirme hakkında daha fazla bilgi için bkz. [Azure App Service'te WordPress Geliştirme][WordPressOnAzure].
 
 <!-- URL List -->
 
@@ -136,8 +136,8 @@ Azure’da WordPress web uygulamaları geliştirme hakkında daha fazla bilgi i�
 [Node.js]: https://azure.microsoft.com/develop/nodejs/
 [Java]: https://azure.microsoft.com/develop/java/
 [Python]: https://azure.microsoft.com/develop/python/
-[etkinleştirme]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
-[ücretsiz deneme sürümül]: https://azure.microsoft.com/pricing/free-trial/
+[activate]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
+[free trial]: https://azure.microsoft.com/pricing/free-trial/
 [App Service’i Deneyin]: http://go.microsoft.com/fwlink/?LinkId=523751
 [ResourceGroups]: ../azure-resource-manager/resource-group-overview.md
 [AzureAppServicePlans]: ../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md
@@ -168,6 +168,6 @@ Azure’da WordPress web uygulamaları geliştirme hakkında daha fazla bilgi i�
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

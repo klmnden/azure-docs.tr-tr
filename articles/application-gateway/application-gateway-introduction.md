@@ -12,21 +12,24 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/25/2016
+ms.date: 11/16/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: a7cf17e7c84ca6ec69b8a88b78bb0bbc91db0b5b
-ms.openlocfilehash: b365a44d59b7d6f4d0f1eec42aa02a565412b18e
+ms.sourcegitcommit: 93dab7804e03ba55ed17c3160420f2aec029c9ef
+ms.openlocfilehash: e3d36b50ed1253e40dc7a40f0611b840bb5498be
 
 
 ---
 # <a name="application-gateway-overview"></a>Application Gateway’e genel bakış
+
 ## <a name="what-is-application-gateway"></a>Application Gateway Nedir?
+
 Microsoft Azure Application Gateway, uygulamanız için çeşitli 7. katman yük dengeleme özellikleri sağlayan Application Delivery Controller'ı (ADC) bir hizmet olarak sunar. Müşterilere, yoğun CPU kullanan SSL sonlandırması yükünü Application Gateway'e boşaltarak web grubu üretkenliğini iyileştirme olanağı tanır. Ayrıca, gelen trafiğin dönüşümlü dağıtımı, tanımlama bilgisi tabanlı oturum benzeşimi, URL yolu tabanlı yönlendirme ve tek bir Application Gateway arkasında birden fazla web sitesi barındırma da dahil olmak üzere diğer 7. Katman yönlendirme özelliklerini sağlar. Application Gateway, uygulamanızı OWASP tarafından sunulan en yaygın 10 web güvenlik açığının çoğuna karşı koruyan bir web uygulaması güvenlik duvarına (WAF) da sahiptir. Application Gateway; İnternet'e yönelik ağ geçidi, yalnızca dahili ağ geçidi veya bu ikisinin bir birleşimi olarak yapılandırılabilir. Application Gateway tamamen Azure tarafından yönetilir, ölçeklenebilir ve yüksek oranda kullanılabilir. Daha iyi yönetilebilirlik için zengin tanılama ve günlüğe kaydetme özellikleri sağlar. Application Gateway, sanal makineler, bulut hizmetleri ve dahili veya harici web uygulamalarıyla çalışır.
 
 Application Gateway, uygulamanız için adanmış bir sanal gereç olup ölçeklenebilirlik ve yüksek kullanılabilirlik sağlamak üzere birden fazla çalışan örneğinden oluşur. Uygulama ağ geçidi oluşturduğunuzda, bir uç nokta (ortak VIP veya dahili ILB IP), giriş ağ trafiği için ilişkilendirilir ve kullanılır. Bu VIP veya ILB IP, aktarım düzeyinde (TCP/UDP) çalışan ve tüm gelen ağ trafiğinin yükünü Application Gateway'in çalışan örneklerinde dengeleyen Azure Load Balancer tarafından sağlanır. Ardından Application Gateway, HTTP/HTTPS trafiğini, yapılandırmasına göre (sanal makine, bulut hizmeti, iç veya dış IP adresi) yönlendirir. SLA ve fiyatlandırma için [SLA](https://azure.microsoft.com/support/legal/sla/) ve [Fiyatlandırma](https://azure.microsoft.com/pricing/details/application-gateway/) sayfalarına bakın.
 
 ## <a name="features"></a>Özellikler
+
 Application Gateway şu anda aşağıdaki özelliklerle birlikte 7. katman uygulama teslimini destekler:
 
 * **[Web Uygulaması Güvenlik Duvarı (Önizleme)](application-gateway-webapplicationfirewall-overview.md)** - Azure Application Gateway içindeki web uygulaması güvenlik duvarı (WAF), web uygulamalarını SQL eklemesi, siteler arası komut dosyası saldırıları ve oturum ele geçirmeleri gibi yaygın web tabanlı saldırılardan korur.
@@ -41,6 +44,7 @@ Application Gateway şu anda aşağıdaki özelliklerle birlikte 7. katman uygul
 * **[Gelişmiş tanılama](application-gateway-diagnostics.md)** - Application gateway tam tanılama ve erişim günlükleri sağlar. Güvenlik duvarı günlükleri, WAF’nin etkin olduğu application gateway kaynakları için kullanılabilir.
 
 ## <a name="benefits"></a>Avantajlar
+
 Application Gateway aşağıdakiler için yararlıdır:
 
 * Aynı kullanıcı/istemci oturumunun aynı arka uç sanal makinesine ulaşmaya yönelik isteklerini gerektiren uygulamalar. Bu uygulamaların örnekleri alışveriş sepeti uygulamaları ve web posta sunucularıdır.
@@ -56,11 +60,12 @@ Azure tarafından yönetilen bir hizmet olan Application Gateway yük dengelemes
 [!INCLUDE [load-balancer-compare-tm-ag-lb-include.md](../../includes/load-balancer-compare-tm-ag-lb-include.md)]
 
 ## <a name="gateway-sizes-and-instances"></a>Ağ geçidi boyutları ve örnekleri
-Application Gateway şu anda üç büyüklükte sunulmaktadır: Küçük, Orta ve Büyük. Küçük örnek boyutları, geliştirme ve test senaryolarına yöneliktir.
 
-Application Gateway için şu anda iki sku mevcuttur: WAF ve Standart.
+Application Gateway şu anda üç büyüklükte sunulmaktadır: **Kısa**, **Orta** ve **Uzun**. Küçük örnek boyutları, geliştirme ve test senaryolarına yöneliktir.
 
-Bir abonelik için en fazla 50 uygulama ağ geçidi oluşturabilirsiniz ve her uygulama ağ geçidi en fazla 10 örnek içerebilir. Her uygulama ağ geçidi 20 http dinleyicisinden oluşabilir. Uygulama ağ geçidi sınırlarının tam listesi için bkz. [Azure aboneliği ve hizmet sınırları, kotaları ve kısıtlamaları](../azure-subscription-service-limits.md).
+Application Gateway için şu anda iki SKU sunulmaktadır: **WAF** ve **Standart**.
+
+Bir abonelik için en fazla 50 uygulama ağ geçidi oluşturabilirsiniz ve her uygulama ağ geçidi en fazla 10 örnek içerebilir. Her uygulama ağ geçidi 20 http dinleyicisinden oluşabilir. Application Gateway limitlerinin tam listesi için bkz. [Application Gateway hizmet limitleri](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits).
 
 Aşağıdaki tabloda her bir uygulama ağ geçidi örneği için ortalama performans verimliliği gösterilmiştir:
 
@@ -75,20 +80,23 @@ Aşağıdaki tabloda her bir uygulama ağ geçidi örneği için ortalama perfor
 >
 
 ## <a name="health-monitoring"></a>Sistem durumunu izleme
+
 Azure Application Gateway, temel veya özel sistem durumu araştırmaları aracılığıyla arka uç örneklerinin sistem durumunu otomatik olarak izler. Sistem durumu araştırmalarını kullanan bu işlem yalnızca sağlıklı konakların trafiğe yanıt vermesini sağlar. Daha fazla bilgi için bkz. [Application Gateway sistem durumunu izlemeye genel bakış](application-gateway-probe-overview.md).
 
 ## <a name="configuring-and-managing"></a>Yapılandırma ve yönetme
+
 Uygulama ağ geçidi, uç noktası için bir genel IP, özel IP veya yapılandırıldığında her ikisine birden sahip olabilir. Application Gateway, kendi alt ağındaki bir sanal ağ içinde yapılandırılır. Uygulama ağ geçidi için oluşturulan veya kullanılan alt ağ başka türde kaynaklar içeremez; alt ağda kaynak olarak yalnızca diğer uygulama ağ geçitleri kullanılabilir. Arka uç kaynaklarınızın güvenliğini sağlamak için, arka uç sunucuları uygulama ağ geçidiyle aynı sanal ağdaki farklı bir alt ağ içinde yer alabilir. Bu ek alt ağ, arka uç uygulamaları için gerekli değildir; uygulama ağ geçidi ip adresine ulaşabildiği sürece arka uç sunucuları için ADC özellikleri sağlayabilir.
 
 REST API’leri, PowerShell cmdlet’leri, Azure CLI veya [Azure portalını](https://portal.azure.com/) kullanarak bir uygulama ağ geçidi oluşturup yönetebilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 Application Gateway hakkında bilgi aldıktan sonra [bir uygulama ağ geçidi oluşturabilir](application-gateway-create-gateway-portal.md) veya HTTPS bağlantılarının yük dengelemesini yapmak üzere [bir uygulama ağ geçidi SSL yük boşaltması oluşturabilirsiniz](application-gateway-ssl-arm.md).
 
 URL tabanlı içerik yönlendirmeyi kullanarak bir uygulama ağ geçidi oluşturma hakkında daha fazla bilgi almak için [URL tabanlı yönlendirme kullanarak uygulama ağ geçidi oluşturma](application-gateway-create-url-route-arm-ps.md) bölümüne gidin.
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

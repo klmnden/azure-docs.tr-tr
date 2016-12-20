@@ -17,7 +17,7 @@ EventProcessorHost’u kullanmak için [Azure Depolama hesabınız][Azure Depola
 ### <a name="create-a-java-project-using-the-eventprocessor-host"></a>EventProcessor Ana Bilgisayarını kullanarak Java projesi oluşturma
 Event Hubs için Java istemci kitaplığı [Maven Central Repository][Maven Package] içindeki Maven projelerinde kullanılabilir ve Maven proje dosyanızda aşağıdaki bağımlılık bildirimi kullanılarak başvurulabilir:    
 
-``` XML
+```XML
 <dependency>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>azure-eventhubs</artifactId>
@@ -34,7 +34,7 @@ Derleme ortamlarının farklı türleri için JAR dosyalarının en son sürüm�
 
 1. Aşağıdaki örnek için önce en sevdiğiniz Java geliştirme ortamında bir konsol/kabuk uygulaması için yeni bir Maven projesi oluşturun. Bu sınıf ```ErrorNotificationHandler``` olarak adlandırılır.     
    
-    ``` Java
+    ```Java
     import java.util.function.Consumer;
     import com.microsoft.azure.eventprocessorhost.ExceptionReceivedEventArgs;
    
@@ -167,7 +167,7 @@ Derleme ortamlarının farklı türleri için JAR dosyalarının en son sürüm�
     ```
 4. Aşağıdaki alanları Event Hub ve depolama hesabı oluştururken kullandığınız değerlerle değiştirin.
    
-    ``` Java
+    ```Java
     final String namespaceName = "----ServiceBusNamespaceName-----";
     final String eventHubName = "----EventHubName-----";
    
@@ -195,6 +195,6 @@ Derleme ortamlarının farklı türleri için JAR dosyalarının en son sürüm�
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

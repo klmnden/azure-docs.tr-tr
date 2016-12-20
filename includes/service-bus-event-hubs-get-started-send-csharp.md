@@ -12,19 +12,19 @@ Bu bölümde, Olay Hub'ınıza olayları gönderen Windows konsol uygulamasını
     Visual Studio, [Azure Service Bus kitaplığı NuGet paketini](https://www.nuget.org/packages/WindowsAzure.ServiceBus) indirir, yükler ve ona bir başvuru ekler.
 4. Aşağıdaki `using` deyimlerini **Program.cs** dosyasının üst kısmına ekleyin:
    
-    ```
+    ```csharp
     using System.Threading;
     using Microsoft.ServiceBus.Messaging;
     ```
 5. Aşağıdaki alanları **Program** sınıfına ekleyin; bu işlemi yaparken yer tutucu değerlerini önceki bölümde oluşturduğunuz Olay Hub’ı adıyla ve daha önce kaydettiğiniz ad alanı düzeyinde bağlantı dizesiyle değiştirin.
    
-    ```
+    ```csharp
     static string eventHubName = "{Event Hub name}";
     static string connectionString = "{send connection string}";
     ```
 6. **Program** sınıfına aşağıdaki yöntemi ekleyin:
    
-    ```
+    ```csharp
     static void SendingRandomMessages()
     {
         var eventHubClient = EventHubClient.CreateFromConnectionString(connectionString, eventHubName);
@@ -51,7 +51,7 @@ Bu bölümde, Olay Hub'ınıza olayları gönderen Windows konsol uygulamasını
     Bu yöntem, olayları 200 ms'lik bir gecikmeyle sürekli olarak Olay Hub'ınıza gönderir.
 7. Son olarak, **Main** yöntemine aşağıdaki satırları ekleyin:
    
-    ```
+    ```csharp
     Console.WriteLine("Press Ctrl-C to stop the sender process");
     Console.WriteLine("Press Enter to start now");
     Console.ReadLine();
@@ -60,6 +60,6 @@ Bu bölümde, Olay Hub'ınıza olayları gönderen Windows konsol uygulamasını
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

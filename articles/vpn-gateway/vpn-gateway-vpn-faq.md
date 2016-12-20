@@ -15,15 +15,15 @@ ms.workload: infrastructure-services
 ms.date: 03/10/2016
 ms.author: yushwang
 translationtype: Human Translation
-ms.sourcegitcommit: d653865993d75cf926151a14cc4f059e4eaba035
-ms.openlocfilehash: f0e7c08a0783452665028ea3479c14b02a27258f
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: e7d0fa43001268fc4747bbf40d3dc209aa037a67
 
 
 ---
 # <a name="vpn-gateway-faq"></a>VPN Gateway SSS
 ## <a name="connecting-to-virtual-networks"></a>Sanal ağlara bağlama
 ### <a name="can-i-connect-virtual-networks-in-different-azure-regions"></a>Farklı Azure bölgelerinde sanal ağlara bağlanabilir miyim?
-Evet. Aslında, hiçbir bölge kısıtlaması yoktur. Bir sanal ağ aynı bölgedeki veya farklı bir Azure bölgesindeki başka bir sanal ağa bağlanabilir.
+Evet. Aslında, hiçbir bölge kısıtlaması yoktur. Bir sanal ağ aynı bölgedeki veya farklı bir Azure bölgesindeki başka bir sanal ağa bağlanabilir. 
 
 ### <a name="can-i-connect-virtual-networks-in-different-subscriptions"></a>Farklı aboneliklerle sanal ağlara bağlanabilir miyim?
 Evet.
@@ -216,6 +216,6 @@ Ek sanal ağ ek bilgilerini [Virtual Network SSS](../virtual-network/virtual-net
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

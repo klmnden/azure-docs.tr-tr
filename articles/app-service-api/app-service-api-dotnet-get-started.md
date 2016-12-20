@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 09/20/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 45e8331e0953dd646f132478741394a5b4907a9e
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: d72cf46c4a93d805ac9586696a6b41d81af733fd
 
 
 ---
@@ -56,7 +56,7 @@ Serideki sonraki öğretici SPA ön ucunu buluta dağıtır.
 
 ## <a name="prerequisites"></a>Ön koşullar
 * ASP.NET Web API - Öğretici yönergeleri, Visual Studio’da ASP.NET [Web API 2](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api) ile çalışmaya ilişkin temel bilgiye sahip olduğunuzu varsayar.
-* Azure hesabı - [Ücretsiz bir Azure hesabı açabilir](/pricing/free-trial/?WT.mc_id=A261C142F) veya [Visual Studio abonelik avantajlarını etkinleştirebilirsiniz](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
+* Azure hesabı - [Ücretsiz bir Azure hesabı açabilir](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) veya [Visual Studio abonelik avantajlarını etkinleştirebilirsiniz](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
   
     Bir Azure hesabı için kaydolmadan önce Azure App Service’i kullanmaya başlamak istiyorsanız [App Service’i Deneyin](http://go.microsoft.com/fwlink/?LinkId=523751)’e gidin. Burada, Uygulama Hizmetleri’nde hemen bir kısa süreli başlangıç uygulaması oluşturabilirsiniz; **kredi kartı gerekmez** ve hiçbir taahhüt yoktur.
 * [.NET için Azure SDK](https://azure.microsoft.com/downloads/archive-net-downloads/) ile Visual Studio 2015 - Halihazırda yoksa SDK, Visual Studio 2015’i otomatik olarak yükler.
@@ -442,6 +442,6 @@ Sıfırdan yeni API uygulaması projeleri oluşturmak istiyorsanız, **Azure API
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

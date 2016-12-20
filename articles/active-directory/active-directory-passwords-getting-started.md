@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 10/05/2016
 ms.author: asteen
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 77ca34a56a827e8a69ab9a2b60d14cc7c7a71bfc
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 93e02bc36c0502623316d6b896dd802ac8bdc284
 
 
 ---
@@ -126,7 +126,7 @@ Parola sıfırlama için hangi verilerin kullanıldığı ve bu verilere yöneli
 ### <a name="step-3-reset-your-azure-ad-password-as-a-user"></a>3. Adım: Kullanıcı olarak Azure AD parolanızı sıfırlama
 Artık bir kullanıcı sıfırlama ilkesi yapılandırdığınıza ve kullanıcınız için kişi ayrıntılarını belirttiğinize göre bu kullanıcı, self servis parola sıfırlama işlemi gerçekleştirebilir.
 
-#### <a name="to-perform-a-selfservice-password-reset"></a>Self servis parola sıfırlama işlemini gerçekleştirmek için
+#### <a name="to-perform-a-self-service-password-reset"></a>Self servis parola sıfırlama işlemini gerçekleştirmek için
 1. [**portal.microsoftonline.com**](http://portal.microsoftonline.com) gibi bir siteye giderseniz aşağıdakine benzer bir oturum açma ekranı görürsünüz.  Parola sıfırlama kullanıcı arabirimini test etmek için **Hesabınıza erişemiyor musunuz?** bağlantısına tıklayın.
    
    ![][011]
@@ -365,6 +365,6 @@ Aşağıda, tüm Azure AD Parola Sıfırlama belge sayfalarının bağlantılar�
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

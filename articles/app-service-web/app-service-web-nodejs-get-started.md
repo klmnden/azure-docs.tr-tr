@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 07/01/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5c61d7a04d7d3e7f82ca8636dcd5d222e1a37a96
+ms.sourcegitcommit: 2050bda9c1a4390232d32370863e8d6a62ed5c2b
+ms.openlocfilehash: 66f1a0987960c9251922f1d22ed647d10bb0d10e
 
 
 ---
@@ -91,6 +91,7 @@ Bu öğreticide cmd.exe veya bash gibi bir komut satırı ortamında basit bir [
 8. Yaptığınız değişiklikleri kaydedin, uygulamanızı Azure’a dağıtmak için git’i kullanın:
    
         git add .
+        git add -f config
         git commit -m "{your commit message}"
         git push azure master
    
@@ -117,7 +118,7 @@ Azure App Service Node.js uygulamalarını çalıştırmak için [iisnode] kulla
   * Node-Inspector ile hata ayıklamak için, Web.config’i uygulamanızı hazırlamak üzere özelleştirin.
 
 ## <a name="use-a-nodejs-framework"></a>Node.js altyapısı kullanma
-Uygulama geliştirmek için [Sails.js][SAILSJS] veya [MEAN.js][MEANJS] gibi popüler bir Node.js altyapısı kullanıyorsanız, bunları App Service’e dağıtabilirsiniz. Popüler Node.js altyapıları kendi özel quirk’lerine sahiptir ve bunların paket bağımlılıkları sürekli güncelleştirilmektedir. Bununla birlikte, uygulamanızda neler olduğunu bilmeniz ve uygun değişiklikleri yapabilmeniz için, App Service stdout ve stderr günlüklerini kullanımınıza sunar. Daha fazla bilgi için bkz. [iisnode’dan stdout ve stderr günlüklerini alma](#iisnodelog).
+Uygulama geliştirmek için [Sails.js][SAILSJS] veya [MEAN.js][MEANJS] gibi popüler bir Node.js altyapısı kullanıyorsanız, bunları App Service'e dağıtabilirsiniz. Popüler Node.js altyapıları kendi özel quirk’lerine sahiptir ve bunların paket bağımlılıkları sürekli güncelleştirilmektedir. Bununla birlikte, uygulamanızda neler olduğunu bilmeniz ve uygun değişiklikleri yapabilmeniz için, App Service stdout ve stderr günlüklerini kullanımınıza sunar. Daha fazla bilgi için bkz. [iisnode’dan stdout ve stderr günlüklerini alma](#iisnodelog).
 
 Aşağıdaki öğreticiler App Service’te belirli bir altyapıyla nasıl çalışacağınızı gösterir:
 
@@ -186,7 +187,7 @@ iisnode günlüklerini okumak için aşağıdaki adımları izleyin.
    
     ![iisnode günlük dosyasını inceleme][iislog-kudu-console-read]
 
-## <a name="debug-your-app-with-nodeinspector"></a>Node-Inspector ile uygulamanızın hatalarını ayıklama
+## <a name="debug-your-app-with-node-inspector"></a>Node-Inspector ile uygulamanızın hatalarını ayıklama
 Node.js uygulamalarınızın hatalarını ayıklamak için Node-Inspector kullanıyorsanız, bunu dinamik App Service uygulamanız için kullanabilirsiniz. Node-Inspector App Service için iisnode yüklemesinde önceden yüklenir. Ve Git aracılığıyla dağıtırsanız, Kudu’da otomatik olarak oluşturulan Web.config zaten Node-Inspector’ı etkinleştirmek için gereken tüm yapılandırmaları içerir.
 
 Node-Inspector’ı etkinleştirmek için aşağıdaki adımları izleyin:
@@ -235,7 +236,7 @@ Node-Inspector’ı etkinleştirmek için aşağıdaki adımları izleyin:
 [Node.js]: http://nodejs.org
 [SAILSJS]: http://sailsjs.org/
 [ücretsiz deneme için kaydolabilir]: http://go.microsoft.com/fwlink/?LinkId=623901
-[web uygulaması]: ./app-service-web-overview.md
+[web app]: ./app-service-web-overview.md
 [Yeoman]: http://yeoman.io/
 
 <!-- IMG List -->
@@ -247,6 +248,6 @@ Node-Inspector’ı etkinleştirmek için aşağıdaki adımları izleyin:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

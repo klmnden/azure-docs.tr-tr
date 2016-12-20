@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 10/03/2016
 ms.author: anandy;billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8ed71ccd07385eb74f7afecf04590c2c00372c34
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 02d271e43c369e2aa6d716fc24a78cc9f4045c7c
 
 
 ---
@@ -291,7 +291,7 @@ Genel olarak, dahili alt ağınızın güvenliğini verimli bir şekilde sağlam
 > 
 > 
 
-### <a name="10-test-the-ad-fs-signin"></a>10.    AD FS oturum açmayı test etme
+### <a name="10-test-the-ad-fs-sign-in"></a>10.    AD FS oturum açmayı test etme
 AD FS’yi test etmenin en kolay yolu IdpInitiatedSignon.aspx sayfasının kullanılmasıdır. Bunu yapabilmek için AD FS özelliklerinde IdpInitiatedSignOn seçeneğinin etkinleştirilmesi gerekir. AD FS kurulumunuzu doğrulamak için aşağıdaki adımları izleyin
 
 1. AD FS sunucusunda PowerShell ile aşağıdaki cmdlet’i çalıştırarak etkinleştirin.
@@ -357,6 +357,6 @@ Bu şablonu dağıtırken var olan bir sanal ağı kullanabilir veya yeni bir sa
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

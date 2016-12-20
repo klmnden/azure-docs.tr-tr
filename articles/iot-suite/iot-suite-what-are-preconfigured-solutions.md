@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/16/2016
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 1a6dd35278f0a4a4f972642c40a0976986dd79ae
-ms.openlocfilehash: 25be292144e31c6f34ff1e015362aee31e242619
+ms.sourcegitcommit: 7c289437beca78dacc7d3136680c54dde01f3798
+ms.openlocfilehash: fb4b12543ac4910ea9c4789f4ebe5ef0ca5997ae
 
 
 ---
@@ -32,7 +32,7 @@ Azure IoT Paketi önceden yapılandırılmış çözümleri, aboneliği kullanar
 Azure’de çözümleri dağıtmanın ve çalıştırmanın yanı sıra, tam kaynak kodunu indirebilir, sonra da size özel IoT gereksinimlerini karşılaması için bunu özelleştirebilir ve uzatabilirsiniz.
 
 > [!NOTE]
-> Önceden yapılandırılmış çözümlerden birini dağıtmak için [Microsoft Azure IOT Paketi][lnk-azureiotsuite] sayfasını ziyaret edin. [Önceden yapılandırılmış IoT çözümlerine giriş][lnk-getstarted-preconfigured] makalesi çözümlerden birinin dağıtılması ve çalıştırılması hakkında daha fazla bilgi sağlamaktadır.
+> Önceden yapılandırılmış çözümlerden birini dağıtmak için [Microsoft Azure IoT Paketi][lnk-azureiotsuite] sayfasını ziyaret edin. [IoT önceden yapılandırılmış çözümlerine giriş][lnk-getstarted-preconfigured] makalesi çözümlerden birinin dağıtılması ve çalıştırılması hakkında daha fazla bilgi sağlamaktadır.
 > 
 > 
 
@@ -71,25 +71,25 @@ Cihaz önce, önceden yapılandırılmış uzaktan izleme çözümünde IoT Hub'
 Aynı telemetriyi yayan ve aynı komutu yanıtlayan çözüme daha fazla sanal cihaz ekleyebilirsiniz. 
 
 ## <a name="iot-hub"></a>IoT Hub’ı
-Önceden yapılandırılmış bu çözümde, IoT Hub’ı örneği tipik bir [IoT çözüm mimarisinde][lnk-what-is-azure-iot] *Bulut Ağ Geçidi* ’ne karşılık gelir.
+Önceden yapılandırılmış bu çözümde, IoT Hub'ı örneği tipik bir [IoT çözüm mimarisinde][lnk-what-is-azure-iot] *Bulut Ağ Geçidi*'ne karşılık gelir.
 
 IoT hub’ı telemetriyi tek uç noktada yer alan cihazlardan alır. IoT hub'ı, her cihazın kendisine gönderilen komutları alabildiği cihaza özel uç noktaları da korur.
 
 IoT hub’ı, sunucu tarafı telemetri okuma uç noktasında alınan telemetriyi kullanılabilir hale getirir.
 
 ## <a name="azure-stream-analytics"></a>Azure Stream Analytics
-Önceden yapılandırılmış çözüm, cihazlara ait telemetri akışına filtre uygulamak için üç [Azure Stream Analytics][lnk-asa] (ASA) işini kullanır:
+Önceden yapılandırılmış çözüm, cihazlara ait telemetri akışına filtre uygulamak için üç [Azure Akış Analizi][lnk-asa] (ASA) işini kullanır:
 
 * *DeviceInfo işi* - cihaz kaydına özel iletileri yönlendiren Olay hub’ına verilerin çıktısını alır, cihaz çözüm cihazı kayıt defterine (DocumentDB veritabanı) ilk bağlandığında veya **Cihaz durumunu değiştir** komutuna yanıt olarak gönderilir. 
 * *Telemetry işi* - ham telemetrenin tümünü soğuk depolama için Azure blob depolamaya gönderir ve çözüm panosunda görüntülenen telemetri toplamalarını hesaplar.
 * *Rules işi* - kural eşiklerini aşan değerlerle ilgili telemetri akışına filtre uygular ve verilerin çıktısını bir Olay hub’ına alır. Bir kural başlatıldığında, çözüm portalı panosu görünümü bu olayı alarm geçmişi tablosunun yeni bir satırı olarak görüntüler ve çözüm portalında Kurallar ve Eylemler görünümlerinde tanımlanan ayarlar tabanında eylemi tetikler.
 
-Önceden yapılandırılmış bu çözümde, ASA işleri tipik bir [IoT çözüm mimarisinde][lnk-what-is-azure-iot] **Iot çözümü arka ucu**’nun bir parçasını oluşturur.
+Önceden yapılandırılmış bu çözümde, ASA işleri tipik bir [IoT çözüm mimarisinde][lnk-what-is-azure-iot] **Iot çözümü arka ucunun** bir parçasını oluşturur.
 
 ## <a name="event-processor"></a>Olay işlemcisi
-Önceden yapılandırılmış bu çözümde, olay işlemcisi tipik bir [IoT çözüm mimarisinde][lnk-what-is-azure-iot] **Iot çözümü arka ucu**’nun bir parçasını oluşturur.
+Önceden yapılandırılmış bu çözümde, olay işlemcisi tipik bir [IoT çözüm mimarisinde][lnk-what-is-azure-iot] **Iot çözümü arka ucunun** bir parçasını oluşturur.
 
-**DeviceInfo** ve **Rules** ASA işleri, diğer arka iç hizmetlerine dağıtılması amacıyla kendi çıktılarını Olay hub’larına gönderir. Çözüm, bu Olay Hub’larından iletileri okumak için [WebJob][lnk-web-job]’da çalışan bir [EventPocessorHost][lnk-event-processor] örneğini kullanır. **EventProcessorHost**, DocumentDB veritabanındaki cihaz verilerini güncelleştirmek için **DeviceInfo** verilerini, Mantıksal uygulamayı çağırmak ve çözüm portalında uyarılar ekranını güncelleştirmek için de **Rules** verilerini kullanır.
+**DeviceInfo** ve **Rules** ASA işleri, diğer arka iç hizmetlerine dağıtılması amacıyla kendi çıktılarını Olay hub’larına gönderir. Çözüm, bu Olay Hub’larından iletileri okumak için [WebJob][lnk-web-job]'da çalışan bir [EventProcessorHost][lnk-event-processor] örneğini kullanır. **EventProcessorHost**, DocumentDB veritabanındaki cihaz verilerini güncelleştirmek için **DeviceInfo** verilerini, Mantıksal uygulamayı çağırmak ve çözüm portalında uyarılar ekranını güncelleştirmek için de **Rules** verilerini kullanır.
 
 ## <a name="device-identity-registry-and-documentdb"></a>Cihaz kimliği kayıt defteri ve DocumentDB
 Her IoT hub'ında cihaz anahtarlarını depolayan bir [cihaz kimliği kayıt defteri][lnk-identity-registry] vardır. IoT hub'ı bu bilgileri cihazların kimliğini doğrulamak için kullanır - hub’a bağlanmadan önce cihazların kayıtlı ve geçerli bir anahtara sahip olması gerekir.
@@ -109,7 +109,7 @@ Bu çözüm, durumları, destekledikleri komutlar ve diğer meta veriler gibi ci
 * Komutları belirli cihazlara gönderme.
 * Kuralları ve eylemleri yönetme.
 
-Önceden yapılandırılmış bu çözümde, çözüm portalı tipik bir [IoT çözüm mimarisinde][lnk-what-is-azure-iot] **Iot çözümü arka ucu**’nun bir parçasını ve **İşleme ve iş bağlantısı**’nın bir parçasını oluşturur.
+Önceden yapılandırılmış bu çözümde, çözüm portalı tipik bir [IoT çözüm mimarisinde][lnk-what-is-azure-iot] **Iot çözümü arka ucunun** bir parçasını ve **İşleme ve iş bağlantısının** bir parçasını oluşturur.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 IoT çözümü mimarileri hakkında daha fazla bilgi için bkz. [Microsoft Azure IoT hizmetleri: Başvuru Mimarisi][lnk-refarch].
@@ -130,6 +130,6 @@ IoT çözümü mimarileri hakkında daha fazla bilgi için bkz. [Microsoft Azure
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

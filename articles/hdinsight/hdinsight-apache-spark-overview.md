@@ -16,15 +16,15 @@ ms.topic: get-started-article
 ms.date: 08/25/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f7dafd3808b688cf1a7aff43ab996fb8e3d48cb9
+ms.sourcegitcommit: 8131002ba48a85b5116f13aa72d713526b56ac0a
+ms.openlocfilehash: 20ca7cad38537be3f7f8dce9f9ac24ce82f85e79
 
 
 ---
 # <a name="overview-apache-spark-on-hdinsight-linux"></a>Genel Bakış: HDInsight’ta Apache Spark Linux
 <a href="http://spark.apache.org/" target="_blank">Apache Spark</a>, Büyük veri analizi uygulamalarının performansını artırmak üzere bellek içi işlemeyi destekleyen açık kaynaklı bir paralel işleme altyapısıdır. Spark işleme altyapısı hız, kullanım kolaylığı, gelişmiş analizler için oluşturulmuştur. Spark'ın bellek içi hesaplama özellikleri onu, machine learning ve grafik hesaplamalarında yinelemeli algoritmalar için iyi bir seçim haline getirir. Azure'da depolanan mevcut verilerinizi Spark aracılığıyla kolayca işleyebileceğiniz şekilde Spark Azure Blob Storage (WASB) ile de uyumludur.
 
-HDInsight’ta Spark kümesi oluşturduğunuzda, Spark yüklenmiş ve yapılandırılmış olarak Azure işlem kaynakları oluşturursunuz. HDInsight’ta Spark kümesi oluşturmak yalnızca yaklaşık on dakika sürer. İşlenecek veriler Azure Blob Storage’da depolanır. Bkz. [HDInsight ile Azure Blob Storage’ı kullanma][hdinsight-storage].
+HDInsight’ta Spark kümesi oluşturduğunuzda, Spark yüklenmiş ve yapılandırılmış olarak Azure işlem kaynakları oluşturursunuz. HDInsight’ta Spark kümesi oluşturmak yalnızca yaklaşık on dakika sürer. İşlenecek veriler Azure Blob Storage’da depolanır. Bkz. [HDInsight ile Azure Blob Depolama'yı kullanma][hdinsight-storage].
 
 ![Azure HDInsight’ta Apache Spark](./media/hdinsight-apache-spark-overview/hdispark.architecture.png "Apache Spark on Azure HDInsight")
 
@@ -41,7 +41,7 @@ Azure HDInsight tam olarak yönetilen bir Spark hizmeti sunar. HDInsight’ta Sp
 | Özellik | Açıklama |
 | --- | --- |
 | Kümeleri oluşturma kolaylığı |Azure Yönetim Portalı, Azure PowerShell veya HDInsight .NET SDK kullanarak dakikalar içinde HDInsight’ta yeni bir Spark kümesi oluşturabilirsiniz. Bkz. [HDInsight’ta Spark kümesi kullanmaya başlama](hdinsight-apache-spark-jupyter-spark-sql.md) |
-| Kullanım kolaylığı |HDInsight’ta Spark kümeleri, önceden yapılandırılmış Jupyter not defterlerini içerir. Etkileşimli veri işleme ve görselleştirme için bunları kullanabilirsiniz. URL'ler https://CLUSTERNAME.azurehdinsight.net/jupyter şeklindedir. **CLUSTERNAME** değerini Spark HDInsight kümenizin adıyla değiştirin. |
+| Kullanım kolaylığı |HDInsight’ta Spark kümeleri, önceden yapılandırılmış Jupyter not defterlerini içerir. Etkileşimli veri işleme ve görselleştirme için bunları kullanabilirsiniz. Jupyter notebook URL'si: https://CLUSTERNAME.azurehdinsight.net/jupyter. **CLUSTERNAME** değerini Spark HDInsight kümenizin adıyla değiştirin. |
 | REST API'leri |HDInsight’ta Spark, çalışan işleri uzaktan göndermek ve izlemek için, Spark iş sunucusu tabanlı bir REST API’si olan [Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server) içerir. |
 | Azure Data Lake Store desteği |HDInsight’ta Spark, ek depolama alanı olarak Azure Data Lake Store kullanacak şekilde yapılandırılabilir. Data Lake Store hakkında daha fazla bilgi için bkz. [Azure Data Lake Store’a Genel Bakış](../data-lake-store/data-lake-store-overview.md). |
 | Azure hizmetleriyle tümleştirme |HDInsight’ta Spark Azure Event Hubs’a bir bağlayıcı ile gelir. Müşteriler, zaten Spark’ın parçası olarak kullanılabilir olan [Kafka](http://kafka.apache.org/)’nın yanı sıra, Event Hubs’ı kullanarak akış uygulamaları oluşturabilirsiniz. |
@@ -69,12 +69,12 @@ HDInsight’ta Apache Spark verileri Azure Blob’larında depolar. İş uzmanla
 
 Apache Spark, Spark üzerinde kurulu bir machine learning kitaplığı olan [MLlib](http://spark.apache.org/mllib/) ile birlikte gelir. Buna ek olarak, HDInsight’ta Spark machine learning için çeşitli paketler içeren bir Python dağıtımı olan Anaconda’yı içerir. Bunu Jupyter not defterleri için yerleşik destekle birleştirin, artık machine learning uygulamaları oluşturmak için birinci sınıf ortama sahipsiniz.  
 
-### <a name="streaming-and-realtime-data-analysis"></a>Akış ve gerçek zamanlı veri çözümleme
+### <a name="streaming-and-real-time-data-analysis"></a>Akış ve gerçek zamanlı veri çözümleme
 [Öğreticiye bakın](hdinsight-apache-spark-eventhub-streaming.md)
 
 Gerçek zamanlı verileri çözümleme, verileri yerleşimi boyunca işleyerek veri öngörüleri için süreyi azaltmaktan gerçek akışlı bir çözüm oluşturmaya değişen senaryolar için kullanılır. HDInsight’ta Spark gerçek zamanlı analiz çözümleri oluşturmak için zengin destek sunar. Spark, Kafka, Flume, Twitter, ZeroMQ veya TCP yuvaları gibi pek çok kaynaktan veri almak için halihazırda bağlayıcılara sahip olmakla birlikte,HDInsight’ta Spark Azure Event Hubs’tan veri almak için birinci sınıf destek eklemektedir. Event Hubs Azure’da en yaygın şekilde kullanılan sıraya alma hizmetidir. Event Hubs için sahip olduğu sıra dışı destek HDInsight’ta Spark’ı gerçek zamanlı çözümlemeler işlem hattı oluşturmak için ideal bir platform haline getirir.
 
-## <a name="a-namenextstepsawhat-components-are-included-as-part-of-a-spark-cluster"></a><a name="next-steps"></a>Spark kümesinin birer parçası olarak hangi bileşenler dahildir?
+## <a name="a-namenext-stepsawhat-components-are-included-as-part-of-a-spark-cluster"></a><a name="next-steps"></a>Spark kümesinin birer parçası olarak hangi bileşenler dahildir?
 HDInsight’ta Spark, kümelerinde varsayılan olarak bulunan aşağıdaki bileşenleri içerir.
 
 * [Spark Core](https://spark.apache.org/docs/1.5.1/). Spark Core, Spark SQL, Spark akış API’leri, GraphX ve MLlib’i içerir.
@@ -115,6 +115,6 @@ HDInsight Linux’ta Spark kümesi oluşturma ile başlayın. Bkz. [Hızlı Baş
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO5-->
 
 

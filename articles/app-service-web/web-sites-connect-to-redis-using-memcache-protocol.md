@@ -15,13 +15,13 @@ ms.workload: na
 ms.date: 02/29/2016
 ms.author: cfowler
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: f0321c71655f1b023862aeeef4615544135adb5a
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: d8a177074d6b7671fe04081c5547665ec892f244
 
 
 ---
 # <a name="connect-a-web-app-in-azure-app-service-to-redis-cache-via-the-memcache-protocol"></a>Azure App Service’te Memcache protokolü aracılığıyla bir web uygulamasını Redis Önbelleği’ne bağlama
-Bu makalede, [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)’te [Memcache][13] protokolünü kullanarak bir WordPress web uygulamasını [Azure Redis Önbelleği][12]’ne nasıl bağlayacağınızı öğreneceksiniz.  Bellek içi önbelleğe alma işlemi için Memcached sunucusu kullanan mevcut bir web uygulamanız varsa, bu web uygulamasını Azure App Service’e taşıyabilir ve uygulama kodlarınızda çok az değişiklikle veya hiç değişiklik yapmadan Microsoft Azure’daki birinci taraf önbelleğe alma çözümünü kullanabilirsiniz. Ayrıca, Memcache uzmanlığınızdan yararlanarak bir yandan Azure Redis Önbelleği’ni kullanarak Azure App Service’te bellek içi önbelleğe alma işlemi için son derece ölçeklenebilir, dağıtılmış uygulamalar oluşturabilir, diğer yandan NET, PHP, Node.js, Java ve Python gibi popüler uygulama çerçevelerini kullanabilirsiniz.  
+Bu makalede, [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)'te [Memcache][13] protokolünü kullanarak bir WordPress web uygulamasını [Azure Redis Önbelleği][12]'ne nasıl bağlayacağınızı öğreneceksiniz. Bellek içi önbelleğe alma işlemi için Memcached sunucusu kullanan mevcut bir web uygulamanız varsa, bu web uygulamasını Azure App Service’e taşıyabilir ve uygulama kodlarınızda çok az değişiklikle veya hiç değişiklik yapmadan Microsoft Azure’daki birinci taraf önbelleğe alma çözümünü kullanabilirsiniz. Ayrıca, Memcache uzmanlığınızdan yararlanarak bir yandan Azure Redis Önbelleği’ni kullanarak Azure App Service’te bellek içi önbelleğe alma işlemi için son derece ölçeklenebilir, dağıtılmış uygulamalar oluşturabilir, diğer yandan NET, PHP, Node.js, Java ve Python gibi popüler uygulama çerçevelerini kullanabilirsiniz.  
 
 App Service Web Apps, Azure Redis Önbelleği’ne gelen önbelleğe alma çağrıları için bir Memcache ara sunucusu olarak görev yapan yerel bir Memcached sunucusu olan Web Apps Memcache dolgusu ile bu uygulama senaryosuna olanak sağlar. Bu, Memcache protokolünü kullanarak iletişim kuran tüm uygulamaların Redis Önbelleği ile verileri önbelleğe almasını sağlar. Bu Memcache dolgusu protokol düzeyinde çalışır. Bu nedenle, Memcache protokolünü kullanarak iletişim kurdukları sürece tüm uygulamalar veya uygulama çerçeveleri tarafından kullanılabilir.
 
@@ -32,13 +32,13 @@ Web Apps Memcache dolgusu, Memcache protokolünü kullanarak iletişim kurmalar�
 
 Aşağıdaki makalelerde açıklanan adımları izleyin:
 
-* [Azure Redis Önbelleği Hizmeti’nin bir örneğini sağlama][0]
-* [Azure’da Ölçeklenebilir WordPress sitesi dağıtma][1]
+* [Azure Redis Önbelleği Hizmeti'nin bir örneğini sağlama][0]
+* [Azure'da Ölçeklenebilir WordPress sitesi dağıtma][1]
 
 Ölçeklenebilir WordPress sitesini dağıttıktan ve Redis Önbelleği örneği sağladıktan sonra, Azure App Service Web Apps’de Memcache dolgusunu etkinleştirme işlemiyle devam edebilirsiniz.
 
 ## <a name="enable-the-web-apps-memcache-shim"></a>Web Apps Memcache dolgusunu etkinleştirme
-Memcache dolgusunu yapılandırmak için üç uygulama ayarı oluşturmanız gerekir. Bu işlemi, [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715), [klasik portal][3], [Azure PowerShell Cmdlet’leri][5] veya [Azure Komut Satırı Arabirimi][5] gibi birçok farklı yöntemle gerçekleştirebilirsiniz. Bu gönderinin amacı doğrultusunda, uygulama ayarlarını belirlemek üzere [Azure Portal][4]’ı kullanacağım. Aşağıdaki değerler, Redis Önbelleği örneğinizin **Ayarlar** dikey penceresinden alınabilir.
+Memcache dolgusunu yapılandırmak için üç uygulama ayarı oluşturmanız gerekir. Bu işlemi, [Azure portalı](http://go.microsoft.com/fwlink/?LinkId=529715), [klasik portal][3], [Azure PowerShell Cmdlet'leri][5] veya [Azure Komut Satırı Arabirimi][5] gibi birçok farklı yöntemle gerçekleştirebilirsiniz. Bu gönderinin amacı doğrultusunda, uygulama ayarlarını belirlemek üzere [Azure portalını][4] kullanacağım. Aşağıdaki değerler, Redis Önbelleği örneğinizin **Ayarlar** dikey penceresinden alınabilir.
 
 ![Azure Redis Önbelleği Ayarları Dikey Penceresi](./media/web-sites-connect-to-redis-using-memcache-protocol/1-azure-redis-cache-settings.png)
 
@@ -71,7 +71,7 @@ Bu üç (3) uygulama ayarını ekledikten sonra **Kaydet**’e tıklayın.
 Uygulamanın Memcache protokolü ile iletişim kurması için WordPress sitenizin dil çerçevesi olan PHP’ye Memcache uzantısını yüklemeniz gerekir.
 
 ### <a name="download-the-phpmemcache-extension"></a>php_memcache Uzantısını İndirme
-[PECL][6]’ye göz atın. Önbelleğe alma kategorisi altında [memcache][7] seçeneğine tıklayın. İndirilenler sütununun altında DLL bağlantısına tıklayın.
+[PECL][6]'ye göz atın. Önbelleğe alma kategorisi altında [memcache][7] seçeneğine tıklayın. İndirilenler sütununun altında DLL bağlantısına tıklayın.
 
 ![PHP PECL Web Sitesi](./media/web-sites-connect-to-redis-using-memcache-protocol/7-php-pecl-website.png)
 
@@ -111,7 +111,7 @@ Listede **Memcached Nesne Önbelleği**’ni bulun ve **Şimdi Yükle**’ye tı
 
 ### <a name="enable-the-memcache-wordpress-plugin"></a>Memcache WordPress eklentisini etkinleştirme
 > [!NOTE]
-> Visual Studio Team Services’ı yüklemek için bu blog’daki [Web Apps’de Site Uzantısı’nı etkinleştirme][8] bölümünde bulunan yönergeleri izleyin.
+> Visual Studio Team Services'ı yüklemek için bu blog'daki [Web Apps'de Site Uzantısı'nı etkinleştirme][8] bölümünde bulunan yönergeleri izleyin.
 > 
 > 
 
@@ -136,7 +136,7 @@ Sonraki adım, nesne önbelleği eklentisini etkinleştirmektir. Memcache Nesne 
 ## <a name="verify-the-memcache-object-cache-plugin-is-functioning"></a>Memcache Nesne Önbelleği uzantısının çalıştığını doğrulama
 Web Apps Memcache dolgusunu etkinleştirmek üzere uygulanması gereken tüm adımlar tamamlandı. Yapılması gereken tek şey verilerin Redis Önbelleği örneğinizi doldurduğunu doğrulamaktır.
 
-### <a name="enable-the-nonssl-port-support-in-azure-redis-cache"></a>Azure Redis Önbelleği’nde SSL olmayan bağlantı noktası desteğini etkinleştirme
+### <a name="enable-the-non-ssl-port-support-in-azure-redis-cache"></a>Azure Redis Önbelleği’nde SSL olmayan bağlantı noktası desteğini etkinleştirme
 > [!NOTE]
 > Bu makale yazıldığı sırada, Redis CLI SSL bağlantısını desteklemiyordu. Bu nedenle, aşağıdaki adımlar gereklidir.
 > 
@@ -158,7 +158,7 @@ SSL OLMAYAN bağlantı noktasının şimdi ayarlandığını görürsünüz. **K
 
 ![Azure Redis Önbelleği Redis Erişim Portalı SSL Olmayan](./media/web-sites-connect-to-redis-using-memcache-protocol/18-azure-redis-cache-access-port-non-ssl.png)
 
-### <a name="connect-to-azure-redis-cache-from-rediscli"></a>redis-cli arabiriminde Azure Redis Önbelleği’ne bağlanma
+### <a name="connect-to-azure-redis-cache-from-redis-cli"></a>redis-cli arabiriminde Azure Redis Önbelleği’ne bağlanma
 > [!NOTE]
 > Bu adım için redis’in geliştirme makinenizde yerel olarak yüklendiği varsayılır. [Bu yönergeleri kullanarak Redis’i yerel olarak yükleme][9].
 > 
@@ -177,10 +177,10 @@ redis-cli –h <hostname-for-redis-cache> –a <primary-key-for-redis-cache> –
 Anahtarların listelenmesi çağrısı bir değer döndürmelidir. Döndürmezse, web uygulamasına gidin ve yeniden deneyin.
 
 ## <a name="conclusion"></a>Sonuç
-Tebrikler! WordPress uygulamasında artık işlemenin artırılmasına yardımcı olmak üzere merkezi bir bellek içi önbellek bulunur. Web Apps Memcache Dolgusu’nun programlama dili veya uygulama çerçevesinden bağımsız olarak Memcache istemcisi ile kullanılabileceğini unutmayın. Web Apps Memcache dolgusu hakkında geri bildirimlerinizi veya sorularınızı [MSDN Forumları][10]’na veya [Stackoverflow][11]’na gönderin.
+Tebrikler! WordPress uygulamasında artık işlemenin artırılmasına yardımcı olmak üzere merkezi bir bellek içi önbellek bulunur. Web Apps Memcache Dolgusu’nun programlama dili veya uygulama çerçevesinden bağımsız olarak Memcache istemcisi ile kullanılabileceğini unutmayın. Web Apps Memcache dolgusu hakkında geri bildirimlerinizi veya sorularınızı [MSDN Forumları][10]'na veya [Stackoverflow][11]'na gönderin.
 
 > [!NOTE]
-> Azure hesabı için kaydolmadan önce Azure App Service’i kullanmaya başlamak isterseniz, App Service’de hemen kısa süreli bir başlangıç web uygulaması oluşturabileceğiniz [App Service’i Deneyin](http://go.microsoft.com/fwlink/?LinkId=523751) sayfasına gidin. Kredi kartı ve taahhüt gerekmez.
+> Azure hesabı için kaydolmadan önce Azure App Service’i kullanmaya başlamak isterseniz, App Service’te hemen kısa süreli bir başlangıç web uygulaması oluşturabileceğiniz [App Service’i Deneyin](http://go.microsoft.com/fwlink/?LinkId=523751) sayfasına gidin. Kredi kartı ve taahhüt gerekmez.
 > 
 > 
 
@@ -191,7 +191,7 @@ Tebrikler! WordPress uygulamasında artık işlemenin artırılmasına yardımc�
 [1]: http://bit.ly/1t0KxBQ
 [2]: http://manage.windowsazure.com
 [3]: http://portal.azure.com
-[4]: ../powershell-install-configure.md
+[4]: /powershell/azureps-cmdlets-docs
 [5]: /downloads
 [6]: http://pecl.php.net
 [7]: http://pecl.php.net/package/memcache
@@ -204,6 +204,6 @@ Tebrikler! WordPress uygulamasında artık işlemenin artırılmasına yardımc�
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

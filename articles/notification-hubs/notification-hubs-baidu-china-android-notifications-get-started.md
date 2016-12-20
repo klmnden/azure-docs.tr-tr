@@ -15,8 +15,8 @@ ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: yuaxu
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 9e6af9016318f9e31a143c6cf1329a7ab2c8acd6
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: ec2a69ff5a7f1f3a954eae70f1cd776242b0b7f4
 
 
 ---
@@ -31,7 +31,7 @@ Bu öğretici için aşağıdakiler gereklidir:
 
 * <a href="http://go.microsoft.com/fwlink/?LinkId=389797">Android sitesinden</a> indirebileceğiniz Android SDK'sı (Eclipse kullanacağınız varsayılır)
 * [Mobile Services Android SDK'sı]
-* [Baidu Anında İletme Android SDK’sı]
+* [Baidu Anında İletme Android SDK’sını]
 
 > [!NOTE]
 > Bu öğreticiyi tamamlamak için etkin bir Azure hesabınızın olması gerekir. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-baidu-get-started%2F).
@@ -443,12 +443,12 @@ Bir test bildirimi göndermek için, Klasik Azure Portalı'nın hata ayıklama s
 
 <!-- URLs. -->
 [Mobile Services Android SDK'sı]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
-[Baidu Anında İletme Android SDK’sı]: http://developer.baidu.com/wiki/index.php?title=docs/cplat/push/sdk/clientsdk
+[Baidu Anında İletme Android SDK’sını]: http://developer.baidu.com/wiki/index.php?title=docs/cplat/push/sdk/clientsdk
 [Klasik Azure Portalı]: https://manage.windowsazure.com/
-[Baidu portalı]: http://www.baidu.com/
+[Baidu portalında]: http://www.baidu.com/
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

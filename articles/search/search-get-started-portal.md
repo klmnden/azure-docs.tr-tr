@@ -16,8 +16,8 @@ ms.tgt_pltfrm: na
 ms.date: 10/03/2016
 ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: dddbcbcd82900d7537c2d60631cc1753554d9486
+ms.sourcegitcommit: 4fc33ba185122496661f7bc49d14f7522d6ee522
+ms.openlocfilehash: 02623fc3d663a674e2184380915d651dff5760bc
 
 
 ---
@@ -27,7 +27,7 @@ Bu kodsuz giriş, doğrudan portal içinde yerleşik olarak sunulan işlevleri k
 Öğretici, verilerimizi ve yönergelerimizi kullanarak bir [örnek Azure DocumentDB veritabanı](#apdx-sampledata) oluşturmanın kolay olduğunu varsayar ancak bu adımları DocumentDB veya SQL Database'de var olan verilerinize de uyarlayabilirsiniz.
 
 > [!NOTE]
-> Bu Başlarken öğreticisi için bir [Azure aboneliği](/pricing/free-trial/?WT.mc_id=A261C142F) ve [Azure Search hizmeti](search-create-service-portal.md) gerekir. 
+> Bu Başlarken öğreticisi için bir [Azure aboneliği](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) ve [Azure Search hizmeti](search-create-service-portal.md) gerekir. 
 > 
 > 
 
@@ -181,6 +181,6 @@ Bunu yapmanın kolay bir yolu varsayılan sorguyu kullanmaktır ancak varsayıla
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

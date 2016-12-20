@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 10/31/2016
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 96784e006b5986cbc6dfd4f264b22bd1d1bf208d
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: e082470c8ad3ee02c528a4ca6e3326e5be4752a3
 
 
 ---
-# <a name="azure-active-directory-reporting-preview"></a>Azure Active Directory raporlama - önizleme
+# <a name="azure-active-directory-reporting---preview"></a>Azure Active Directory raporlama - önizleme
 > [!div class="op_single_selector"]
 > * [Azure Portal](active-directory-reporting-azure-portal.md)
 > * [Klasik Azure Portalı](active-directory-reporting-guide.md)
@@ -38,8 +38,8 @@ Azure Active Directory önizlemesindeki raporlama ile ortamınızın nasıl çal
 
 Aradığınız verilerin kapsamını bağlı olarak, bu raporlara erişmek için [Azure portal](https://portal.azure.com) hizmetler listesinde **Kullanıcılar ve gruplar** ya da **Kurumsal uygulamalar** seçeneklerine tıklayabilirsiniz.
 
-## <a name="signin-activities"></a>Oturum açma etkinlikleri
-### <a name="user-signin-activities"></a>Kullanıcı oturum açma etkinlikleri
+## <a name="sign-in-activities"></a>Oturum açma etkinlikleri
+### <a name="user-sign-in-activities"></a>Kullanıcı oturum açma etkinlikleri
 Kullanıcı oturum açma raporu tarafından sağlanan bilgiler sayesinde aşağıdakiler gibi soruların yanıtlarını bulabilirsiniz:
 
 * Belirli bir kullanıcının oturum açma düzeni nedir?
@@ -97,7 +97,7 @@ Sütun seçiciyi kullanarak, görüntülenmesini istediğiniz veri alanlarını 
 
 ![Raporlama](./media/active-directory-reporting-azure-portal/column_chooser.png "Reporting")
 
-### <a name="filtering-signins"></a>Oturum açma işlemlerini filtreleme
+### <a name="filtering-sign-ins"></a>Oturum açma işlemlerini filtreleme
 Görüntülenen veri miktarını sınırlamak için, oturum açma işlemlerini aşağıdaki alanları kullanarak filtreleyebilirsiniz:
 
 * Tarih ve saat 
@@ -203,6 +203,6 @@ Bkz. [Azure Active Directory Raporlama Kılavuzu](active-directory-reporting-gui
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

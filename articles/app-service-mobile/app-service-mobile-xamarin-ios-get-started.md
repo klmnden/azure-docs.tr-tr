@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: adrianha
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: cf8f9a06c4d720dade11ea67fc1befe07a56cf85
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 5dc9822072417b41856a7d4015c54b8573e56587
 
 
 ---
@@ -81,9 +81,9 @@ Sunucu projesini Node.js veya .NET arka ucunu kullanacak şekilde yapılandırma
 * [Azure Mobile Apps için yönetilen istemciyi kullanma](app-service-mobile-dotnet-how-to-use-client-library.md)
 
 <!-- Anchors. -->
-[Mobil uygulama arka uçları kullanmaya başlama]:#getting-started
-[Yeni bir mobil uygulama arka ucu oluşturma]:#create-new-service
-[Sonraki Adımlar]:#next-steps
+[Getting started with mobile app backends]:#getting-started
+[Create a new mobile app backend]:#create-new-service
+[Next Steps]:#next-steps
 
 <!-- Images. -->
 [6]: ./media/app-service-mobile-xamarin-ios-get-started/xamarin-ios-quickstart.png
@@ -96,6 +96,6 @@ Sunucu projesini Node.js veya .NET arka ucunu kullanacak şekilde yapılandırma
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 08/19/2016
 ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8cb91a8cdc6d16070034c79515731be7b820d389
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: e3d6caee50a57648f4f775029a2e381cee0f1e72
 
 
 ---
@@ -49,7 +49,7 @@ Kullanım örnekleri ve segmentin tanımlanması, uygulama içinde toplanması g
 
 Tümleştirmeye dayalı şekilde, uygulamalar yayımlandıktan sonra bir pazarlamacı olarak analizlerinizi gerçek zamanlı görebilecek, hedef kitlenizi segmentlere ayırabilecek ve son kullanıcılar ile uygulama içinde veya dışında etkileşim kurmak için akıllı, hedefe yönelik anında iletme bildirimleri göndermeye başlayabileceksiniz.
 
-### <a name="usecases-to-get-started"></a>Başlamak için kullanım örnekleri
+### <a name="use-cases-to-get-started"></a>Başlamak için kullanım örnekleri
 1. Hoş geldiniz stratejisi: Uygulamanın başlatılmasındaki son kullanıcı davranışına dayalı olarak ilk oturumdan 2/5/10/15 gün sonra yeniden etkileşim kurmaya yönelik çeşitli anında iletme bildirimi kampanyaları oluşturun ve ilk kez kullananların elde tutulmasını artırın.
 2. Son kullanıcı davranışından faydalanıp bilgileri yalnızca katılım olasılığı yüksek olan son kullanıcılara göndererek yeni içerik (özellik, makale/video veya ürün) tanıtın.
 3. Uygulamaya not verme: Uygulamanıza mağazada 5 yıldız verme olasılığı en yüksek olan, kullanıcı tabanınızın yüzde 1’inden düşük bir kısmını hedefleyin.
@@ -66,13 +66,13 @@ Hedef kitlenizle iletişimde konuya en uygun mesajı verebilmek için son kullan
 > 
 > 
 
-### <a name="usecases-and-best-practices"></a>Kullanım örnekleri ve en iyi yöntemler
+### <a name="use-cases-and-best-practices"></a>Kullanım örnekleri ve en iyi yöntemler
 Aşağıdaki bölümlerde, başlamanıza yardımcı olması için müşterilerimiz aracılığıyla karşılaştığımız bazı önemli kullanım örneklerini kısaca ele alacağız.
 
 #### <a name="media"></a>Medya
 Son kullanıcı tarafından tüketilen içerik türünü toplayın ve hedef kitleyi bu davranışa göre segmentlere ayırarak belirli içerik türlerini bu içerikle ilgilenme olasılığı en yüksek olan kitleye hedefleyin. Tüm kullanıcı tabanına istenmeyen posta gönderilmesini önler ve elde tutmayı artırır.
 
-#### <a name="mcommerce"></a>M-ticaret
+#### <a name="m-commerce"></a>M-ticaret
 Uygulamada en sık ziyaret edilen ürün kategorilerini toplayın ve indirim veya yeni ürün tanıtırken bu kategoride ürün satın alma olasılığı daha yüksek olan son kullanıcıları hedefleyin. Gelirleri artırmayı hedefleyin. Burada da hedefimiz istenmeyen posta göndermemek!
 
 #### <a name="gaming"></a>Oyun
@@ -134,6 +134,6 @@ Bu tür verilerin tümü parametrelerle genişletilerek (Mobile Engagement’ta 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

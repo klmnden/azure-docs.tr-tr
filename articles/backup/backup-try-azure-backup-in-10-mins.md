@@ -16,8 +16,8 @@ ms.topic: hero-article
 ms.date: 09/27/2016
 ms.author: markgal;
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 900967975694a688b6d5054cb351746819b65f16
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 8ac37244d1e691a2f075116f3d78b89923cfb845
 
 
 ---
@@ -78,7 +78,7 @@ Bir Kurtarma Hizmetleri kasasını ilk oluşturduğunuzda depolamanın nasıl ç
 
 Kasa oluşturduğunuza göre, artık Microsoft Azure Kurtarma Hizmetleri aracısını ve kasa kimlik bilgilerini indirerek, dosya ve klasörleri yedeklemeye yönelik altyapınızı hazırlayabilirsiniz.
 
-## <a name="step-3-download-files"></a>3. Adım - Dosyaları indirme
+## <a name="step-3---download-files"></a>3. Adım - Dosyaları indirme
 1. Kurtarma Hizmetleri kasası panosunda **Ayarlar**'a tıklayın.
    
     ![Yedekleme hedefi dikey penceresini açma](./media/backup-try-azure-backup-in-10-mins/settings-button.png)
@@ -102,7 +102,7 @@ Kasa oluşturduğunuza göre, artık Microsoft Azure Kurtarma Hizmetleri aracıs
    
     ![altyapıyı hazırlama](./media/backup-try-azure-backup-in-10-mins/prepare-infrastructure-download.png)
 
-## <a name="step-4-install-and-register-the-agent"></a>4. Adım: Aracıyı yükleme ve kaydetme
+## <a name="step-4--install-and-register-the-agent"></a>4. Adım: Aracıyı yükleme ve kaydetme
 > [!NOTE]
 > Azure portal üzerinden yedeklemeyi etkinleştirme olanağı yakında sunulacaktır. Şu an için, dosya ve klasörlerinizi yedeklemek üzere Microsoft Azure Kurtarma Hizmetleri Aracısı'nı şirket içi olarak kullanabilirsiniz.
 > 
@@ -184,6 +184,6 @@ Sorularınız varsa veya dahil edilmesini istediğiniz herhangi bir özellik var
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

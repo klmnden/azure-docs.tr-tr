@@ -1,6 +1,6 @@
 ## <a name="create-an-event-hub"></a>Event Hub'ı oluşturma
 1. [Azure portal][Azure portal] üzerinde oturum açın ve ekranın sol üst köşesindeki **Yeni**’ye tıklayın.
-2. **Veri + Analiz**’e, ardından **Event Hubs**’a tıklayın.
+2. **Nesnelerin İnterneti**’ne ve ardından **Event Hubs**’a tıklayın.
    
     ![](./media/event-hubs-create-event-hub/create-event-hub9.png)
 3. **Ad alanı oluştur** dikey penceresine bir ad alanı adı girin. Adın kullanılabilirliği sistem tarafından hemen denetlenir.
@@ -34,6 +34,6 @@ Olay Hub'ınız artık oluşturuldu; şimdi olayları alıp göndermek için ger
 
 [Azure portal]: https://portal.azure.com/
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

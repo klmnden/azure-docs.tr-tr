@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 05/27/2016
 ms.author: tomsh
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 65d586405bc79ccf0d5e27c09d750818e5f3dd24
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 83e277fe261338aed960dea8e2ab15cbff3c895e
 
 
 ---
@@ -47,7 +47,7 @@ Azure Virtual Machines için önkoşulları ayarlamak ve şifrelemeyi yapıland�
 > 
 
 ## <a name="install-and-configure-azure-powershell"></a>Azure PowerShell'i yükleyip yapılandırma
-Bilgisayarınızda Azure PowerShell 1.2.1 sürümü veya üstünün yüklü olması gerekir. [Azure PowerShell'i yükleme ve yapılandırma](../powershell-install-configure.md) makalesi, bilgisayarınızın Azure PowerShell ile çalışmasını sağlamak için ihtiyacınız olan tüm adımları içerir. En kolay yaklaşım, bu makalede değinilen Web PI kurulumu yaklaşımını kullanmaktır. Azure PowerShell önceden yüklü olsa bile, Azure PowerShell'in en son sürümüne sahip olmak için Web PI yaklaşımını kullanarak yeniden yükleyin.
+Bilgisayarınızda Azure PowerShell 1.2.1 sürümü veya üstünün yüklü olması gerekir. [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azureps-cmdlets-docs) makalesi, bilgisayarınızın Azure PowerShell ile çalışmasını sağlamak için ihtiyacınız olan tüm adımları içerir. En kolay yaklaşım, bu makalede değinilen Web PI kurulumu yaklaşımını kullanmaktır. Azure PowerShell önceden yüklü olsa bile, Azure PowerShell'in en son sürümüne sahip olmak için Web PI yaklaşımını kullanarak yeniden yükleyin.
 
 ## <a name="obtain-and-run-the-azure-disk-encryption-prerequisites-configuration-script"></a>Azure disk şifrelemesi önkoşulları yapılandırma betiğini elde edip çalıştırma
 Azure Disk Şifrelemesi Önkoşulları Yapılandırma Betiği, Azure Virtual Machines'inizi şifrelemek için gereken tüm önkoşulları ayarlar.
@@ -182,6 +182,6 @@ Bu belgede bir Azure Sanal Makine'nin nasıl şifreleneceğini öğrendiniz. Azu
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

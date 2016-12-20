@@ -15,10 +15,32 @@
 ## Önleme
 ### [Güvenlik ilkeleri ayarlama](security-center-policies.md)
 ### [Güvenlik önerileri uygulama](security-center-recommendations.md)
+
 ### [Uygulama önerileri](security-center-application-recommendations.md)
+#### [Web uygulaması güvenlik duvarı ekleme](security-center-add-web-application-firewall.md)
+
 ### [Ağ önerileri](security-center-network-recommendations.md)
+#### [Yeni nesil güvenlik duvarı ekleme](security-center-add-next-generation-firewall.md)
+#### [Ağ Güvenlik Gruplarını Etkinleştirme](security-center-enable-network-security-groups.md)
+#### [İnternet’e yönelik uç noktalarla erişimi sınırlama](security-center-restrict-access-through-internet-facing-endpoints.md)
+
 ### [SQL hizmet önerileri](security-center-sql-service-recommendations.md)
+#### [SQL veritabanlarında denetimi etkinleştirme](security-center-enable-auditing-on-sql-databases.md)
+#### [SQL sunucularında denetimi etkinleştirme](security-center-enable-auditing-on-sql-servers.md)
+#### [Saydam Veri Şifrelemesini Etkinleştirme](security-center-enable-transparent-data-encryption.md)
+
 ### [Sanal makine önerileri](security-center-virtual-machine-recommendations.md)
+#### [Disk şifrelemesi uygulayın](security-center-apply-disk-encryption.md)
+#### [Sistem güncelleştirmelerini uygulayın](security-center-apply-system-updates.md)
+#### [Veri toplamayı etkinleştirme](security-center-enable-data-collection.md)
+#### [VM Aracısını etkinleştirin](security-center-enable-vm-agent.md)
+#### [Endpoint Protection’ı yükleyin](security-center-install-endpoint-protection.md)
+#### [Güvenlik ilgili kişi bilgilerini belirtin](security-center-provide-security-contact-details.md)
+#### [İşletim sistemi güvenlik açıklarını düzeltin](security-center-remediate-os-vulnerabilities.md)
+#### [Endpoint Protection sistem durumu uyarılarını çözümleme](security-center-resolve-endpoint-protection-health-alerts.md)
+#### [İşletim sistemi sürümünü güncelleştirme](security-center-update-os-version.md)
+#### [Güvenlik açığı değerlendirmesi yüklü değil](security-center-vulnerability-assessment-recommendations.md)
+
 ### [Güvenlik durumunu izleme](security-center-monitoring.md)
 ### [İş ortağı çözümlerini izleme](security-center-partner-solutions.md)
 
@@ -27,33 +49,14 @@
 ### [Güvenlik uyarılarını yönetme](security-center-managing-and-responding-alerts.md)
 ### [Güvenlik olaylarını yönetme](security-center-incident.md)
 ### [Azure günlük tümleştirmesi](security-center-integrating-alerts-with-log-integration.md)
-### [Güvenlik açığı değerlendirmesi](security-center-vulnerability-assessment-recommendations.md)
 ### [Güvenlik uyarısı türleri](security-center-alerts-type.md)
 ### [Tehdit zekası raporu](security-center-threat-report.md)
-
-### Güvenlik uyarılarını yönetme
-#### [Yeni nesil güvenlik duvarı ekleme](security-center-add-next-generation-firewall.md)
-#### [Web uygulaması güvenlik duvarı ekleme](security-center-add-web-application-firewall.md)
-#### [Disk şifrelemesi uygulayın](security-center-apply-disk-encryption.md)
-#### [Sistem güncelleştirmelerini uygulayın](security-center-apply-system-updates.md)
-#### [SQL veritabanlarında denetimi etkinleştirme](security-center-enable-auditing-on-sql-databases.md)
-#### [SQL sunucularında denetimi etkinleştirme](security-center-enable-auditing-on-sql-servers.md)
-#### [Veri toplamayı etkinleştirme](security-center-enable-data-collection.md)
-#### [Ağ Güvenlik Gruplarını Etkinleştirme](security-center-enable-network-security-groups.md)
-#### [Saydam Veri Şifrelemesini Etkinleştirme](security-center-enable-transparent-data-encryption.md)
-#### [VM Aracısını etkinleştirin](security-center-enable-vm-agent.md)
-#### [Endpoint Protection’ı yükleyin](security-center-install-endpoint-protection.md)
-#### [Güvenlik ilgili kişi bilgilerini belirtin](security-center-provide-security-contact-details.md)
-#### [İşletim sistemi güvenlik açıklarını düzeltin](security-center-remediate-os-vulnerabilities.md)
-#### [Endpoint Protection sistem durumu uyarılarını çözümleme](security-center-resolve-endpoint-protection-health-alerts.md)
-#### [İnternet’e yönelik uç noktalarla erişimi sınırlama](security-center-restrict-access-through-internet-facing-endpoints.md)
-#### [İşletim sistemi sürümünü güncelleştirme](security-center-update-os-version.md)
 
 ## Sorun giderme
 ### [Sorun giderme kılavuzu](security-center-troubleshooting-guide.md)
 
 # Başvuru
-## [REST API](https://msdn.microsoft.com/en-US/library/mt704034(Azure.100).aspx)
+## [REST](https://msdn.microsoft.com/en-US/library/mt704034(Azure.100).aspx)
 
 # İlgili
 ## [Azure Güvenlik](/azure/security/)
@@ -66,6 +69,6 @@
 ## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=security-center)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

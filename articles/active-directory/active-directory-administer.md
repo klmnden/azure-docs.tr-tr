@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 10/10/2016
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 20f38ef90d9f3793c0bb0814e6fd5d67aa550209
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 001ffc0f9c7465552392a9848ef1487a4c0eafce
 
 
 ---
@@ -66,7 +66,7 @@ Henüz bir Microsoft bulut hizmeti aboneliğiniz yoksa kaydolmak için aşağıd
 * [Office 365](http://products.office.com/business/compare-office-365-for-business-plans/)
 * [Microsoft Intune](https://account.manage.microsoft.com/Signup/MainSignUp.aspx?OfferId=40BE278A-DFD1-470a-9EF7-9F2596EA7FF9&ali=1)
 
-### <a name="manage-an-azureprovisioned-default-directory"></a>Azure tarafından sağlanan Varsayılan dizini yönetme
+### <a name="manage-an-azure-provisioned-default-directory"></a>Azure tarafından sağlanan Varsayılan dizini yönetme
 Şu anda Azure'a kaydolduğunuzda otomatik olarak bir dizin oluşturulur ve aboneliğiniz bu dizin ile ilişkilendirilir. Ancak Azure'a ilk olarak Ekim 2013'ten önce kaydolduysanız otomatik olarak oluşturulmuş bir dizininiz yoktur. Bu durumda Azure, Varsayılan bir dizin sağlayarak hesabınızın "açığını kapatmış" olabilir. Dolayısıyla aboneliğiniz bu Varsayılan dizin ile ilişkilendirilmiştir.
 
 Dizin açıkları, Azure güvenlik modelinde yapılan genel iyileştirmenin bir parçası olarak Ekim 2013'te kapatıldı. Bu, tüm Azure müşterilerine kuruluşa özgü kimlik özelliklerinin sunulmasına yardımcı olmanın yanı sıra dizindeki bir kullanıcı bağlamında tüm Azure kaynaklarına erişilmesini sağlar. Azure'ı dizin olmadan kullanamazsınız. Bu nedenle 7 Temmuz 2013'ten önce kaydolan ancak dizini olmayan her kullanıcının bir dizin oluşturması gerekti. Zaten bir dizin oluşturduysanız aboneliğinizi bu dizinle ilişkilendirilmiştir.
@@ -150,6 +150,6 @@ Azure AD, bir dizinin silinmesi için belirli koşulların sağlanmasını gerek
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

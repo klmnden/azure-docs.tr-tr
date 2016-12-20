@@ -1,26 +1,30 @@
 ---
-title: 'Öğretici: Kopyalama Sihirbazı''nı kullanarak bir işlem hattı oluşturma | Microsoft Docs'
-description: Bu öğreticide, Data Factory ile desteklenen Kopyalama Sihirbazı’nı kullanarak Kopyalama Etkinlikli bir Azure Data Factory işlem hattı oluşturursunuz
+title: "Öğretici: Kopyalama Sihirbazı&quot;nı kullanarak bir işlem hattı oluşturma | Microsoft Belgeleri"
+description: "Bu öğreticide, Data Factory ile desteklenen Kopyalama Sihirbazı’nı kullanarak Kopyalama Etkinlikli bir Azure Data Factory işlem hattı oluşturursunuz"
 services: data-factory
-documentationcenter: ''
+documentationcenter: 
 author: spelluru
 manager: jhubbard
 editor: monicar
-
+ms.assetid: b87afb8e-53b7-4e1b-905b-0343dd096198
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/16/2016
+ms.date: 12/06/2016
 ms.author: spelluru
+translationtype: Human Translation
+ms.sourcegitcommit: 3205077236dd44253b3fa36d6eace36fb307871e
+ms.openlocfilehash: 11754bbe534638d8321f509d7d82e025c667176c
+
 
 ---
-# Öğretici: Data Factory Kopyalama Sihirbazı kullanarak Kopyalama Etkinliği ile işlem hattı oluşturma
+# <a name="tutorial-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard"></a>Öğretici: Data Factory Kopyalama Sihirbazı kullanarak Kopyalama Etkinliği ile işlem hattı oluşturma
 > [!div class="op_single_selector"]
-> * [Genel bakış ve ön koşullar](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+> * [Genel bakış ve önkoşullar](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Kopyalama Sihirbazı](data-factory-copy-data-wizard-tutorial.md)
-> * [Azure portalı](data-factory-copy-activity-tutorial-using-azure-portal.md)
+> * [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
 > * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 > * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 > * [Azure Resource Manager şablonu](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
@@ -36,7 +40,7 @@ Azure Data Factory **Kopyalama Sihirbazı**, veri alma/taşıma senaryosu uygula
 > 
 > 
 
-## Veri fabrikası oluşturma
+## <a name="create-data-factory"></a>Veri fabrikası oluşturma
 Bu adımda **ADFTutorialDataFactory** adlı bir Azure data factory oluşturmak için Azure Portal’ı kullanırsınız.
 
 1. [Azure portalında](https://portal.azure.com) oturum açtıktan sonra sol üst köşesdeki **+ YENİ** öğesine ve ardından **Intelligence + analytics** ve **Data Factory** öğelerine tıklayın. 
@@ -53,21 +57,23 @@ Bu adımda **ADFTutorialDataFactory** adlı bir Azure data factory oluşturmak i
       > Data factory adı gelecekte bir DNS adı olarak kaydedilmiş olabilir; bu nedenle herkese görünür hale gelmiştir.
       > 
       > 
-3. Azure **aboneliğinizi** seçin.
-4. Kaynak Grubu için aşağıdaki adımlardan birini uygulayın: 1. Var olan bir kaynak grubu seçmek için **Var olanı kullan**’ı seçin.
-5. Bir kaynak grubunun adını girmek için **Yeni oluştur**’u seçin.
-   
-            Some of the steps in this tutorial assume that you use the name: **ADFTutorialResourceGroup** for the resource group. To learn about resource groups, see [Using resource groups to manage your Azure resources](../resource-group-overview.md).
-   1. Veri fabrikası için bir **konum** seçin.
-   2. Dikey pencerenin alt kısmındaki **Panoya sabitle** onay kutusunu seçin.  
-   3. **Oluştur**’ tıklayın.
+   2. Azure **aboneliğinizi** seçin.
+   3. Kaynak Grubu için aşağıdaki adımlardan birini uygulayın: 
       
-       ![Yeni veri fabrikası dikey penceresi](media/data-factory-copy-data-wizard-tutorial/new-data-factory-blade.png)          
-6. Oluşturma işlemi tamamlandıktan sonra, aşağıdaki görüntüde gösterildiği gibi **Data Factory** dikey penceresini görürsünüz:
+      - Var olan bir kaynak grubu seçmek için **Var olanı kullan**’ı seçin.
+      - Bir kaynak grubunun adını girmek için **Yeni oluştur**’u seçin.
+         
+          Bu öğreticideki adımlardan bazıları kaynak grubu için şu adı kullandığınızı varsayar: **ADFTutorialResourceGroup**. Kaynak grupları hakkında daha fazla bilgi için bkz. [Azure kaynaklarınızı yönetmek için kaynak gruplarını kullanma](../azure-resource-manager/resource-group-overview.md).
+   4. Veri fabrikası için bir **konum** seçin.
+   5. Dikey pencerenin alt kısmındaki **Panoya sabitle** onay kutusunu seçin.  
+   6. **Oluştur**’ tıklayın.
+      
+       ![Yeni veri fabrikası dikey penceresi](media/data-factory-copy-data-wizard-tutorial/new-data-factory-blade.png)            
+3. Oluşturma işlemi tamamlandıktan sonra, aşağıdaki görüntüde gösterildiği gibi **Data Factory** dikey penceresini görürsünüz:
    
    ![Data factory giriş sayfası](./media/data-factory-copy-data-wizard-tutorial/getstarted-data-factory-home-page.png)
 
-## Kopyalama Sihirbazı’nı başlatma ve kullanma
+## <a name="launch-copy-wizard"></a>Kopyalama Sihirbazı'nı başlatma
 1. Data Factory giriş sayfasında **Veri kopyala** kutucuğuna tıklayarak **Kopyalama Sihirbazı**’nı başlatın. 
    
    > [!NOTE]
@@ -132,7 +138,7 @@ Bu adımda **ADFTutorialDataFactory** adlı bir Azure data factory oluşturmak i
     
     ![Kopyalama Aracı - performans ayarları](./media/data-factory-copy-data-wizard-tutorial/summary-page.png)
 
-## Uygulama İzleme ve Yönetmeyi başlatma
+## <a name="launch-monitor-and-manage-application"></a>Uygulama İzleme ve Yönetmeyi başlatma
 1. **Dağıtım** sayfasında, şu bağlantıya tıklayın: `Click here to monitor copy pipeline`.
    
    ![Kopyalama Aracı - Dağıtım başarılı](./media/data-factory-copy-data-wizard-tutorial/copy-tool-deployment-succeeded.png)  
@@ -145,7 +151,7 @@ Bu adımda **ADFTutorialDataFactory** adlı bir Azure data factory oluşturmak i
    > 
    > 
 
-## Ayrıca Bkz.
+## <a name="see-also"></a>Ayrıca Bkz.
 | Konu | Açıklama |
 |:--- |:--- |
 | [Veri Taşıma Etkinlikleri](data-factory-data-movement-activities.md) |Bu makalede, öğreticide kullandığınız Kopyalama Etkinliği hakkında ayrıntılı bilgi sağlanmaktadır. |
@@ -154,6 +160,9 @@ Bu adımda **ADFTutorialDataFactory** adlı bir Azure data factory oluşturmak i
 | [Veri kümeleri](data-factory-create-datasets.md) |Bu makale, Azure Data Factory’deki veri kümelerini anlamanıza yardımcı olur. |
 | [İzleme Uygulaması kullanılarak işlem hatlarını izleme ve yönetme](data-factory-monitor-manage-app.md) |Bu makalede İzleme ve Yönetim Uygulaması kullanılarak işlem hatlarını izleme, yönetme ve hatalarını ayıklama işlemleri açıklanmaktadır. |
 
-<!--HONumber=Oct16_HO3-->
+
+
+
+<!--HONumber=Dec16_HO1-->
 
 

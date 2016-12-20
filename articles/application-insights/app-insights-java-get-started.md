@@ -1,9 +1,9 @@
 ---
-title: "Application Insights ile java web uygulaması analizi | Microsoft Belgeleri"
-description: "Application Insights ile Java Web sitenizin performansını ve kullanımını izleyin. "
+title: "Azure Application Insights ile Java web uygulaması analizi | Microsoft Belgeleri"
+description: "Application Insights ile Java web uygulamaları için Uygulama Performansı İzleme. "
 services: application-insights
 documentationcenter: java
-author: alancameronwills
+author: harelbr
 manager: douge
 ms.assetid: 051d4285-f38a-45d8-ad8a-45c3be828d91
 ms.service: application-insights
@@ -11,16 +11,16 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/17/2016
+ms.date: 12/02/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: cc0167ef78eb3ca84e959599473af5935e5da0d0
+ms.sourcegitcommit: 75b651bd3e77ac19e22dcc3442870469fe2aaca1
+ms.openlocfilehash: f7dc72299665a5324de7b9320eb9876c61ced123
 
 
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Java web projesinde Application Insights ile başlarken
-*Application Insights Önizlemededir.*
+
 
 [Application Insights](https://azure.microsoft.com/services/application-insights/), web geliştiricileri için canlı uygulamanızın performansını ve kullanımını anlamanıza yardımcı olan genişletilebilir bir analiz hizmetidir. [Performans sorunlarını ve özel durumlarını algılamak ve tanılamak](app-insights-detect-triage-diagnose.md) için bunu kullanın; uygulamanızla kullanıcıların ne yaptığını izlemek için de [kod yazın][api].
 
@@ -31,7 +31,7 @@ Application Insights; Linux, Unix veya Windows üzerinde çalışan Java uygulam
 Gerekenler:
 
 * Oracle JRE 1.6 veya sonraki sürümleri ya da Zulu JRE 1.6 veya sonraki sürümleri
-* Bir [Microsoft Azure](https://azure.microsoft.com/) aboneliği. ([Ücretsiz deneme sürümüyle](https://azure.microsoft.com/pricing/free-trial/) başlayabilirsiniz.)
+* Bir [Microsoft Azure](https://azure.microsoft.com/) aboneliği.
 
 *Zaten canlı olan bir web uygulaması varsa, [web sunucusuna çalışma zamanında SDK eklemek](app-insights-java-live.md) için alternatif bir yordam izleyebilirsiniz. Bu alternatif yordam, kodun yeniden derlenmesini engellese de, kullanıcı etkinliğini izlemek için kod yazma seçeneğini elde etmezsiniz.*
 
@@ -48,7 +48,7 @@ Gerekenler:
 *Projeniz için uygun yolu seçin.*
 
 #### <a name="if-youre-using-eclipse-to-create-a-maven-or-dynamic-web-project-"></a>Maven veya Dinamik Web projesi oluşturmak için Eclipse kullanıyorsanız...
-[Java eklentisi için Application Insights SDK’sı][eclipse] kullanın.
+[Java eklentisi için Application Insights SDK'sı][eclipse] kullanın.
 
 #### <a name="if-youre-using-maven"></a>Maven kullanıyorsanız...
 Projenizi derleme için zaten Maven kullanmak üzere ayarlanmışsa aşağıdaki kodu pom.xml dosyanızla birleştirin.
@@ -182,7 +182,7 @@ En doğru sonuçlar almak için önce filtrenin tüm diğer filtrelerle eşlenme
     </filter-mapping>
 
 #### <a name="if-youre-using-spring-web-mvc-31-or-later"></a>Spring Web MVC 3.1 veya sonraki sürümleri kullanıyorsanız
-Bu öğeleri Application Insights paketini içerecek şekilde düzenleyin:
+Bu öğeleri *-servlet.xml içinde Application Insights paketini içerecek şekilde düzenleyin:
 
     <context:component-scan base-package=" com.springapp.mvc, com.microsoft.applicationinsights.web.spring"/>
 
@@ -244,11 +244,15 @@ Artık uygulamanızı sunucuya yayımlayın, herkesin kullanmasını sağlayın 
   
   * dc.services.visualstudio.com:443
   * f5.services.visualstudio.com:443
+
+* Giden trafiğin güvenlik duvarından geçirilmesi gerekiyorsa, `http.proxyHost` ve `http.proxyPort` sistem özelliklerini tanımlayın. 
+
 * Windows sunucularda yüklenecekler:
   
   * [Microsoft Visual C++ Yeniden Dağıtılabilir](http://www.microsoft.com/download/details.aspx?id=40784)
     
     (Bu bileşen, performans sayaçlarını etkinleştirir.)
+
 
 ## <a name="exceptions-and-request-failures"></a>Özel durumlar ve istek hataları
 İşlenmeyen özel durumlar otomatik olarak toplanır:
@@ -309,7 +313,7 @@ Her [Windows performans sayacı](https://msdn.microsoft.com/library/windows/desk
 * counterName – Performans sayacının adı.
 * instanceName – Performans sayacı kategorisi örneğinin adı veya kategoride tek örnek varsa boş bir dize (""). categoryName adı Process olursa ve uygulamanızın çalıştığı geçerli JVM işleminden performans sayacını toplamak istiyorsanız `"__SELF__"` öğesini belirtin.
 
-Özel ölçümleriniz [Ölçüm Gezgini][metrics]’nde olduğundan performans sayaçlarınız görünürdür.
+Özel ölçümleriniz [Ölçüm Gezgini][metrics]'nde olduğundan performans sayaçlarınız görünürdür.
 
 ![](./media/app-insights-java-get-started/12-custom-perfs.png)
 
@@ -320,19 +324,19 @@ Her [Windows performans sayacı](https://msdn.microsoft.com/library/windows/desk
 Tamam, web sunucunuzdan telemetri gönderiyorsunuz. Uygulamanızın 360 derecelik tam görünümünü almak için izlemeye katabileceğiniz birkaç şey daha vardır:
 
 * Sayfa görünümlerini ve kullanıcı ölçümlerini izlemek için [web sayfalarınıza telemetri ekleyin][usage].
-* Uygulamanızın canlı ve duyarlı kaldığından emin olmak için [web testleri oluşturma][availability].
+* Uygulamanızın canlı ve duyarlı kaldığından emin olmak için [web testleri oluşturun][availability].
 
 ## <a name="capture-log-traces"></a>Günlük izlemelerini yakalama
-Log4J, Logback veya diğer günlük altyapılarına ait günlükleri ayrıntılı incelemek için Application Insights’ı kullanabilirsiniz. Günlükleri HTTP istekleri ve başka telemetriyle ilişkilendirebilirsiniz. [Nasıl yapılacağını öğrenin][javalogs].
+Log4J, Logback veya diğer günlük altyapılarına ait günlükleri ayrıntılı incelemek için Application Insights’ı kullanabilirsiniz. Günlükleri HTTP istekleri ve başka telemetriyle ilişkilendirebilirsiniz. [Nasıl olduğunu öğrenin][javalogs].
 
 ## <a name="send-your-own-telemetry"></a>Kendi telemetrinizi gönderme
 Artık SDK'yı da yüklediğinize göre, kendi telemetrinizi göndermek için API'yi kullanabilirsiniz.
 
-* Uygulamanızla kullanıcıların ne yaptıklarını öğrenmek için [Özel olayları ve ölçümleri izleyin]api].
+* Uygulamanızla kullanıcıların ne yaptıklarını öğrenmek için [Özel olayları ve ölçümleri izleyin][api].
 * Sorunların tanımlanması için [Olayları ve günlükleri arayın][diagnostic].
 
 ## <a name="availability-web-tests"></a>Kullanılabilirlik web testleri
-Kullanıma hazır ve düzgün yanıt verdiğini denetlemek için Application Insights belirli aralıklarla web sitenizi test edebilir. [ayarlamak için][availability], Web testleri’ne tıklayın.
+Kullanıma hazır ve düzgün yanıt verdiğini denetlemek için Application Insights belirli aralıklarla web sitenizi test edebilir. [Ayarlamak için][availability], Web testleri'ne tıklayın.
 
 ![Web testleri’ne ve ardından Web testi ekle’ye tıklayın](./media/app-insights-java-get-started/31-config-web-test.png)
 
@@ -367,6 +371,6 @@ Yanıt süreleri grafiklerine ek olarak, siteniz devre dışı kalırsa e-posta 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

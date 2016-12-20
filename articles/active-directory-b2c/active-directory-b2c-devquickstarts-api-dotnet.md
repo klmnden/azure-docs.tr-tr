@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 07/22/2016
 ms.author: dastrock
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 370978187cffa2e5a9544bf99e6a15e13f97ac53
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 1062af9abfd167dd251621a43943dea399aed027
 
 
 ---
@@ -34,11 +34,11 @@ Ardından B2C dizininizde uygulama oluşturmanız gerekir. Bu, uygulamanız ile 
 * Uygulamaya bir **web uygulaması** veya **web API'si** ekleyin.
 * `https://localhost:44316/`Web uygulaması için **yeniden yönlendirme tekdüzen kaynak tanımlayıcısını** kullanın. Bu konum bu kod örneği için web uygulaması sunucusunun varsayılan konumudur.
 * Uygulamanıza atanan **uygulama kimliğini** kopyalayın. Buna daha sonra ihtiyacınız olacak.
-  
+
   [!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## <a name="create-your-policies"></a>İlkelerinizi oluşturma
-Azure AD B2C'de her kullanıcı deneyimi, bir [ilke](active-directory-b2c-reference-policies.md) ile tanımlanır. Bu kod örneğindeki istemci, üç kimlik deneyimi içerir: Kaydolma, oturum açma ve profil düzenleme. Her bir tür için [ilke başvurusu makalesinde](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy) tanımlanan şekilde bir ilke oluşturmanız gerekecektir. Üç ilkenizi oluştururken şunları yaptığınızdan emin olun:
+Azure AD B2C'de her kullanıcı deneyimi, bir [ilke](active-directory-b2c-reference-policies.md) ile tanımlanır. Bu kod örneğindeki istemci, üç kimlik deneyimi içerir: Kaydolma, oturum açma ve profil düzenleme. Her bir tür için [ilke başvurusu makalesinde](active-directory-b2c-reference-policies.md#create-a-sign-up-policy) tanımlanan şekilde bir ilke oluşturmanız gerekecektir. Üç ilkenizi oluştururken şunları yaptığınızdan emin olun:
 
 * Kimlik sağlayıcılar dikey penceresinde **Kullanıcı Kimliği ile kayıt** veya **E-posta ile kayıt** yöntemini seçin.
 * Kaydolma ilkenizde, **Görünen ad** ve diğer kaydolma özniteliklerini seçin.
@@ -217,6 +217,6 @@ You can now move onto more advanced B2C topics. You may try:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

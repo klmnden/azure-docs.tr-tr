@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 11/01/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c63b2b59143b57d6666910e701d8810bd517a42d
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 2537b0c4dcc71d02d25959a0b21d96bce7deaac6
 
 
 ---
@@ -45,7 +45,7 @@ Tamamlanan uygulama tarayıcıya kısa bir “hello world” dizesi yazar.
 Öğreticiler ve daha karmaşık Node.js uygulamaları içeren örnek kod veya Azure'da Node.js kullanma hakkındaki diğer konular için bkz. [Node.js Geliştirici Merkezi](/develop/nodejs/).
 
 > [!NOTE]
-> Bu öğreticiyi tamamlamak için Microsoft Azure hesabınızın olması gerekir. Bir hesabınız yoksa, [Visual Studio abone avantajlarınızı etkinleştirebilir ](/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) veya [ücretsiz deneme için kaydolabilirsiniz.](/en-us/pricing/free-trial/?WT.mc_id=A261C142F)
+> Bu öğreticiyi tamamlamak için Microsoft Azure hesabınızın olması gerekir. Bir hesabınız yoksa, [Visual Studio abone avantajlarınızı etkinleştirebilir](/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) veya [ücretsiz deneme için kaydolabilirsiniz](/en-us/pricing/free-trial/?WT.mc_id=A261C142F).
 > 
 > Bir Azure hesabı için kaydolmadan önce Azure App Service’i kullanmaya başlamak istiyorsanız [App Service’i Deneyin](http://go.microsoft.com/fwlink/?LinkId=523751)’e gidin. Burada, App Service'te hemen bir kısa süreli başlangıç web uygulaması oluşturabilirsiniz; kredi kartı gerekmez ve hiçbir taahhüt yoktur.
 > 
@@ -186,7 +186,7 @@ Node.js, uygulamalarınız tarafından kullanılabilecek zengin bir modül ekosi
 
 Azure’a dağıtılan uygulamanızda sorunlarla karşılaşırsanız, sorunu tanılama hakkında bilgi için bkz. [Azure App Service’teki bir Node.js uygulamasında hata ayıklama](web-sites-nodejs-debug.md).
 
-Bu makalede bir web uygulaması oluşturmak için Azure Portal kullanılmıştır. Aynı işlemleri gerçekleştirmek için [Azure Komut Satırı Arabirimi](../xplat-cli-install.md) veya [Azure PowerShell](../powershell-install-configure.md)’i kullanabilirsiniz.
+Bu makalede bir web uygulaması oluşturmak için Azure Portal kullanılmıştır. Aynı işlemleri gerçekleştirmek için [Azure Komut Satırı Arabirimi](../xplat-cli-install.md) veya [Azure PowerShell](/powershell/azureps-cmdlets-docs)’i kullanabilirsiniz.
 
 Azure’da Node.js uygulamaları geliştirme hakkında daha fazla bilgi için bkz. [Node.js Geliştirici Merkezi](/develop/nodejs/).
 
@@ -202,6 +202,6 @@ Azure’da Node.js uygulamaları geliştirme hakkında daha fazla bilgi için bk
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

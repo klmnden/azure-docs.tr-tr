@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 11/14/2016
 ms.author: stevelas
 translationtype: Human Translation
-ms.sourcegitcommit: 597d27932e1faf82498d5a9eb458a08a4b72a1d1
-ms.openlocfilehash: dadb65611489bf57781e223290c13bb52d59a944
+ms.sourcegitcommit: 806ffa8ce0c434d2a6cc1c7ec3a6e89be9145679
+ms.openlocfilehash: 6661766d71d56e49b8840aeb250c105e132b9b04
 
 ---
 # <a name="what-is-azure-container-registry"></a>Azure Container Kayıt Defteri nedir?
@@ -56,7 +56,7 @@ Azure kapsayıcısı kayıt defterinden çeşitli dağıtım hedeflerine görün
 * [DC/OS](https://docs.mesosphere.com/), [Docker Swarm](https://docs.docker.com/swarm/) ve [Kubernetes](http://kubernetes.io/docs/) dahil olmak üzere konak kümeleri arasında kapsayıcı haline getirilmiş uygulamaları yöneten **ölçeklenebilir düzenleme sistemleri** .
 * [Container Service](../container-service/index.md), [App Service](/app-service/index.md), [Batch](../batch/index.md) ve [Service Fabric](../service-fabric/index.md) dahil olmak üzere uygun ölçekte uygulama oluşturulmasını ve çalıştırılmasını destekleyen **Azure hizmetleri**. 
 
-Geliştiriciler bir kapsayıcı geliştirme iş akışı kapsamında bir kapsayıcı kayıt defterine de öğe itebilir. Örneğin, [Visual Studio Team Services](https://www.visualstudio.com/docs/overview) veya [Jenkins](https://jenkins.io/) gibi bir sürekli tümleştirme ve geliştirme aracından bir kapsayıcı kayıt defterini hedeflenebilir.
+Geliştiriciler bir kapsayıcı geliştirme iş akışı kapsamında bir kapsayıcı kayıt defterine de öğe itebilir. Örneğin, [Visual Studio Team Services](https://www.visualstudio.com/docs/overview) veya [Jenkins](https://jenkins.io/) gibi bir sürekli tümleştirme ve dağıtım aracından bir kapsayıcı kayıt defteri hedeflenebilir.
 
 
 
@@ -66,10 +66,11 @@ Geliştiriciler bir kapsayıcı geliştirme iş akışı kapsamında bir kapsay�
 * [Azure portalını kullanarak kapsayıcı kayıt defteri oluşturma](container-registry-get-started-portal.md)
 * [Azure CLI’yı kullanarak kapsayıcı kayıt defteri oluşturma](container-registry-get-started-azure-cli.md)
 * [Docker CLI’yı kullanarak ilk görüntünüzü itme](container-registry-get-started-docker-cli.md)
-* Azure’da bir Docker özel kayıt defterine sahip olmak (genel bir uç noktası olmadan) istiyorsanız bkz. [Azure’da Kendi Özel Docker Kayıt Defterinizi Dağıtma](../virtual-machines/virtual-machines-linux-docker-registry-in-blob-storage.md).
+* Visual Studio Team Services, Azure Container Service ve Azure Container Kayıt Defteri’ni kullanarak sürekli tümleştirme ve dağıtım iş akışı oluşturmak için [bu öğreticiye](../container-service/container-service-setup-ci-cd.md) bakın.
+* Azure’da kendi Docker özel kayıt defterinizi ayarlamak (genel bir uç noktası olmadan) istiyorsanız bkz. [Azure’da Kendi Özel Docker Kayıt Defterinizi Dağıtma](../virtual-machines/virtual-machines-linux-docker-registry-in-blob-storage.md).
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

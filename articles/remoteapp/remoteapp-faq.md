@@ -3,7 +3,7 @@ title: Azure RemoteApp ile ilgili SSS | Microsoft Belgeleri
 description: "Azure RemoteApp hakkında en sık sorulan soruların yanıtlarını öğrenin."
 services: remoteapp
 documentationcenter: 
-author: lizap
+author: msmbaldwin
 manager: swadhwa
 editor: 
 ms.assetid: bad66603-91f9-437f-8a70-236405d2a27f
@@ -12,11 +12,11 @@ ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/15/2016
-ms.author: elizapo
+ms.date: 11/23/2016
+ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f3a2927164a01dd4b76e264cd1b7152f170f79cb
+ms.sourcegitcommit: fcc53e4073a6957fae263cfb5d38023ed9710d21
+ms.openlocfilehash: 31df73e3fc4142ba8c3634ac9d2b6fea4cc1b2d9
 
 
 ---
@@ -45,7 +45,7 @@ Gerekli bilgileri bulamıyorsanız veya burada ele alınmayan başka bir sorunuz
 * **RemoteApp’in maliyeti ne kadar?** [Azure RemoteApp Fiyatlandırma Ayrıntıları](https://azure.microsoft.com/pricing/details/remoteapp/) makalesini inceleyin.
 * **Bir tür koleksiyonun maliyeti bir başkasına göre daha mı yüksek?** Evet, koleksiyon gereksinimlerinize bağlı olarak daha yüksek olabilir. Karma koleksiyon için Azure RemoteApp’ten şirket içi ağınıza bağlantı gerekir. Mevcut bir VNET/Hızlı Rota kullanıyorsanız ek bir maliyet yoktur. Ancak, yeni Azure VNET ve bir ağ geçidi veya ExpressRoute kullanıyorsanız, [VPN ağ geçidi](https://azure.microsoft.com/pricing/details/vpn-gateway) veya [ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute/) ücretlendirilir. Bu maliyet (bağlantılarda ayrıntılı), aylık Azure RemoteApp maliyetinin en üstündedir.
 
-## <a name="collections-whats-supported-which-should-you-use-and-others"></a>Koleksiyonlar - ne desteklenir, hangisini kullanmalısınız ve diğerleri
+## <a name="collections---whats-supported-which-should-you-use-and-others"></a>Koleksiyonlar - ne desteklenir, hangisini kullanmalısınız ve diğerleri
 * **Özel iş kolu (LOB) uygulamaları destekleniyor mu?** Evet. Azure RemoteApp’te özel bir uygulama kullanmak için [özel şablon görüntüsü](remoteapp-create-custom-image.md) oluşturun ve bunu RemoteApp koleksiyonuna yükleyin.
 * **Özel LOB uygulamam Azure RemoteApp’te çalışacak mı?** Bunu anlamanın en iyi yolu test etmektir. [RD Uyumluluk Merkezi](http://www.rdcompatibility.com/compatibility/default.aspx) sayfasını inceleyin.
 * **Kuruluşum için hangi dağıtım yöntemi (bulut veya karma) en iyisidir?** Karma koleksiyonlar, çoklu oturum açma (SSO) ve güvenli şirket içi ağ bağlantısıyla tam tümleştirme isterseniz en eksiksiz deneyimi sağlar. Bulut koleksiyonları, birden çok kimlik doğrulaması yöntemi kullanılarak dağıtımınızın yalıtması için çevik ve kolay bir yol sağlar. [Dağıtım seçenekleri](remoteapp-whatis.md) hakkında daha fazlasını okuyun.
@@ -69,7 +69,7 @@ Gerekli bilgileri bulamıyorsanız veya burada ele alınmayan başka bir sorunuz
 
 * **Azure Active Directory hesabımın erişimini neden veremiyorum?** Azure Active Directory kullanıcıları, aboneliğinizle ilişkili dizine ait olmalıdır. Portalın Ayarlar sekmesinde bu dizini görüntüleyebilir veya değiştirebilirsiniz. Daha fazla bilgi için bkz. [RemoteApp tarafından kullanılan Azure Active Directory kiracısını değiştirme](remoteapp-changetenant.md).
 
-## <a name="clients-what-device-can-i-use-to-access-azure-remoteapp"></a>İstemciler - Azure RemoteApp’e erişmek için hangi cihazı kullanabilirim?
+## <a name="clients---what-device-can-i-use-to-access-azure-remoteapp"></a>İstemciler - Azure RemoteApp’e erişmek için hangi cihazı kullanabilirim?
 [Azure RemoteApp’te uygulamalarınıza erişme](remoteapp-clients.md) konusunda farklı istemcilerin yüklenmesiyle ilgili adımların da yer aldığı yararlı istemci bilgilerini bulabilirsiniz.
 
 * **İstemci uygulamaları hangi cihazları ve işletim sistemlerini destekler?**
@@ -126,6 +126,6 @@ Bu makaleyi derecelendirmenin ve aşağıda yorum yapmamanın yanı sıra makale
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

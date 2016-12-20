@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 10/19/2016
+ms.date: 12/01/2016
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 63ae1f48bcc384eff27a6fa8642f7a214bc7493f
+ms.sourcegitcommit: bef7de37e358b49c77a4774e3e90a5e1de273310
+ms.openlocfilehash: 5c9cbe96b92546e802190879919602da8687542f
 
 
 ---
@@ -82,7 +82,7 @@ Aşağıdaki tabloda sanal makine galerisindeki kullanılabilir SQL Server gör�
 | **SQL 2008 R2 SP3** |Windows Server 2008 R2 |[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2008R2SP3EnterpriseWindowsServer2008R2), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2008R2SP3StandardWindowsServer2008R2), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2008R2SP3WebWindowsServer2008R2) |
 | **SQL 2008 R2 SP3** |Windows Server 2012 |[Express](https://portal.azure.com/#create/Microsoft.SQLServer2008R2SP3ExpressWindowsServer2012) |
 
-## <a name="option-2-create-a-sql-vm-with-an-existing-license"></a>Seçenek 2: Var olan bir lisans ile SQL sanal makinesi oluşturma
+## <a name="a-idbyola-option-2-create-a-sql-vm-with-an-existing-license"></a><a id="BYOL"></a> Seçenek 2: Var olan bir lisans ile SQL sanal makinesi oluşturma
 Ayrıca kendi lisansınızı getirebilirsiniz (KLG). Bu senaryoda, SQL Server Lisans için hiçbir ek bir ücret olmadan yalnızca VM için ödeme yaparsınız. Kendi lisansınızı kullanmak için, aşağıdaki SQL Server sürümleri, yayınları ve işletim sistemleri matrisini kullanın. Portalda, bu görüntü adlarına **{KLG}** ön eki getirilir.
 
 | Sürüm | İşletim sistemi | Sürüm |
@@ -94,7 +94,9 @@ Ayrıca kendi lisansınızı getirebilirsiniz (KLG). Bu senaryoda, SQL Server Li
 > [!IMPORTANT]
 > KLG VM görüntülerini kullanmak için, [Azure’da Yazılım Güvencesi ile Lisans Taşınabilirliği](https://azure.microsoft.com/pricing/license-mobility/) içeren bir Kuruluş Sözleşmeniz olmalıdır. Ayrıca, kullanmak istediğiniz SQL Server sürümü/yayını için geçerli bir lisans da gerekir. VM’nizi sağladıktan sonra **10** gün içinde [gerekli KLG bilgilerini Microsoft’a vermelisiniz.](http://d36cz9buwru1tt.cloudfront.net/License_Mobility_Customer_Verification_Guide.pdf)
 > 
-> 
+
+> [!NOTE]
+> Dakika başına ödemeli SQL Server VM'nin lisanslama modelini kendi lisansınızı kullanacak şekilde değiştirmezsiniz. Bu durumda yeni bir KLG VM oluşturmanız ve veritabanlarınızı yeni VM'ye geçirmeniz gerekir. 
 
 ## <a name="manage-your-sql-vm"></a>SQL VM’nizi yönetme
 SQL Server sanal makinenizi sağladıktan sonra isteğe bağlı birkaç yönetim görevi vardır. Birçok yönden, SQL Server’ı tam olarak şirket içi SQL Server örneğindeki gibi yapılandırır ve yönetirsiniz. Ancak bazı görevler Azure’a özgüdür. Aşağıdaki bölümlerde daha fazla bilgi için bağlantılar ile birlikte bu alanlardan bazıları vurgulanmaktır.
@@ -129,6 +131,6 @@ Başka sorunuz mu var? Önce, bkz. [Azure Virtual Machines’de SQL Server Kulla
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

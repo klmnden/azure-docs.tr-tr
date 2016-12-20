@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/27/2016
+ms.date: 11/21/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6001c89804f7443e21e6e2eeecf3f1d3b682be9a
+ms.sourcegitcommit: c157da7bf53e2d0762624e8e71e56e956db04a24
+ms.openlocfilehash: 57af74321c453733daadc1b295dd3df95d0fd052
 
 
 ---
@@ -29,7 +29,8 @@ ms.openlocfilehash: 6001c89804f7443e21e6e2eeecf3f1d3b682be9a
 > * [REST API](data-lake-store-get-started-rest-api.md)
 > * [Azure CLI](data-lake-store-get-started-cli.md)
 > * [Node.js](data-lake-store-manage-use-nodejs.md)
-> 
+> * [Python](data-lake-store-get-started-python.md)
+>
 > 
 
 Bu makalede, Azure Data Lake Store üzerinde hesap yönetimi ve dosya sistemi işlemleri gerçekleştirmek üzere WebHDFS REST API'lerini ve Data Lake Store REST API'lerini nasıl kullanacağınızı öğreneceksiniz. Azure Data Lake Store, hesap yönetimi işlemleri için kendi REST API'lerini kullanıma sunar. Ancak Data Lake Store, HDFS ve Hadoop ekosistemi ile uyumlu olması nedeniyle, dosya sistemi işlemleri için WebHDFS REST API'lerini kullanarak destek sağlar.
@@ -47,7 +48,7 @@ Bu makalede, Azure Data Lake Store üzerinde hesap yönetimi ve dosya sistemi i�
 ## <a name="how-do-i-authenticate-using-azure-active-directory"></a>Azure Active Directory'yi kullanarak nasıl kimlik doğrulaması gerçekleştiririm?
 Azure Active Directory'yi kullanarak kimlik doğrulaması gerçekleştirmek üzere iki yaklaşımdan faydalanabilirsiniz:
 
-### <a name="enduser-authentication-interactive"></a>Son kullanıcı kimlik doğrulaması (etkileşimli)
+### <a name="end-user-authentication-interactive"></a>Son kullanıcı kimlik doğrulaması (etkileşimli)
 Bu senaryoda, uygulama kullanıcıdan oturum açmasını ister ve tüm işlemler, kullanıcı bağlamında gerçekleştirilir. Etkileşimli kimlik doğrulaması için aşağıdaki adımları gerçekleştirin.
 
 1. Uygulamanızı kullanarak kullanıcıyı şu URL'ye yönlendirin:
@@ -88,7 +89,7 @@ Bu senaryoda, uygulama kullanıcıdan oturum açmasını ister ve tüm işlemler
 
 Etkileşimli kullanıcı kimlik doğrulaması hakkında daha fazla bilgi için bkz. [Yetki kodu izin akışı](https://msdn.microsoft.com/library/azure/dn645542.aspx).
 
-### <a name="servicetoservice-authentication-noninteractive"></a>Hizmetten hizmete kimlik doğrulaması (etkileşimli olmayan)
+### <a name="service-to-service-authentication-non-interactive"></a>Hizmetten hizmete kimlik doğrulaması (etkileşimli olmayan)
 Bu senaryoda uygulama, işlemleri gerçekleştirmek için kendi kimlik bilgilerini sağlar. Bunun için aşağıda gösterilene benzer bir POST isteği yayımlamanız gerekir. 
 
     curl -X POST https://login.microsoftonline.com/<TENANT-ID>/oauth2/token  \
@@ -263,6 +264,6 @@ Aşağıdaki gibi bir çıktı görmeniz gerekir:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

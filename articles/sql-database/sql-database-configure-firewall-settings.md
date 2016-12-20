@@ -1,71 +1,69 @@
 ---
-title: Configure an SQL Database server-level firewall rule | Microsoft Docs
-description: Learn how to configure the firewall for IP addresses that access Azure SQL server.
+title: "SQL Veritabanı sunucu düzeyinde güvenlik duvarı kuralı yapılandırma | Microsoft Belgeleri"
+description: "Güvenlik duvarının Azure SQL Server’a erişen IP adresleri için nasıl yapılandırılacağını öğrenin."
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: BYHAM
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: c3b206b5-af6e-41af-8306-db12ecfc1b5d
 ms.service: sql-database
+ms.custom: authentication and authorization
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: article
-ms.date: 08/30/2016
+ms.topic: get-started-article
+ms.date: 11/28/2016
 ms.author: rickbyh;carlrab
+translationtype: Human Translation
+ms.sourcegitcommit: 867f06c1fae3715ab03ae4a3ff4ec381603e32f7
+ms.openlocfilehash: 1479595fb7de2e0a37520c7d323624142e624af1
+
 
 ---
-# Configure an Azure SQL Database server-level firewall rule using the Azure Portal
+# <a name="create-and-manage-azure-sql-database-server-level-firewall-rules-using-the-azure-portal"></a>Azure portalını kullanarak Azure SQL Veritabanı sunucu düzeyinde güvenlik duvarı kuralları oluşturma ve yönetme
 > [!div class="op_single_selector"]
-> * [Overview](sql-database-firewall-configure.md)
+> * [Genel Bakış](sql-database-firewall-configure.md)
 > * [Azure Portal](sql-database-configure-firewall-settings.md)
 > * [TSQL](sql-database-configure-firewall-settings-tsql.md)
 > * [PowerShell](sql-database-configure-firewall-settings-powershell.md)
 > * [REST API](sql-database-configure-firewall-settings-rest.md)
 > 
-> 
 
-Azure SQL server uses firewall rules to allow connections to your servers and databases. You can define server-level and database-level firewall settings for the master or a user database in your Azure SQL server logical server to selectively allow access to the database. This topic discusses server-level firewall rules.
+Sunucu düzeyinde güvenlik duvarı kuralları, yöneticilerin belirtilen bir IP adresinden ya da IP adresi aralığından bir SQL Veritabanı sunucusuna erişmesine imkan tanır. Aynı erişim gereksinimlerine sahip birçok veritabanınız varsa ve her veritabanını ayrı ayrı yapılandırmaya zaman harcamak istemiyorsanız sunucu düzeyinde güvenlik duvarı kurallarını kullanıcılar için de kullanabilirsiniz. Microsoft, güvenliği artırmak ve veritabanınızı daha taşınabilir hale getirmek açısından, mümkün olan durumlarda veritabanı düzeyinde güvenlik duvarı kurallarının kullanılmasını önerir. SQL Veritabanı güvenlik duvarlarına genel bir bakış için bkz. [SQL Veritabanı güvenlik duvarı kurallarına genel ](sql-database-firewall-configure.md).
 
-> [!IMPORTANT]
-> To allow applications from Azure to connect to your Azure SQL server, Azure connections must be enabled. To understand how the firewall rules work, see [How to configure an Azure SQL server firewall \- overview](sql-database-firewall-configure.md). If you are making connections inside the Azure cloud boundary, you may have to open some additional TCP ports. For more information, see the **V12 of SQL Database: Outside vs inside** section of [Ports beyond 1433 for ADO.NET 4.5 and SQL Database V12](sql-database-develop-direct-route-ports-adonet-v12.md)
-> 
-> 
+> [!Note]
+> İş sürekliliği bağlamında taşınabilir veritabanları hakkında bilgi edinmek için bkz. [Olağanüstü durum kurtarma için kimlik doğrulama gereksinimleri](sql-database-geo-replication-security-config.md).
+>
 
-**Recommendation:** Use server-level firewall rules for administrators and when you have many databases that have the same access requirements, and you don't want to spend time configuring each database individually. Microsoft recommends using database-level firewall rules whenever possible, to enhance security and to make your database more portable.
+[!INCLUDE [Create SQL Database firewall rule](../../includes/sql-database-create-new-server-firewall-portal.md)]
 
-[!INCLUDE [Create SQL Database database](../../includes/sql-database-create-new-server-firewall-portal.md)]
+## <a name="manage-existing-server-level-firewall-rules-through-the-azure-portal"></a>Azure portalı aracılığıyla mevcut sunucu düzeyinde güvenlik duvarı kurallarını yönetme
+Sunucu düzeyinde güvenlik duvarı kurallarını yönetmek için gereken adımları yineleyin.
 
-## Manage existing server-level firewall rules through the Azure portal
-Repeat the steps to manage the server-level firewall rules.
+* Kullanmakta olduğunuz bilgisayarı eklemek için İstemci IP’si ekle’ye tıklayın.
+* Daha fazla IP adresi eklemek için Kural Adı, Başlangıç IP Adresi ve Bitiş IP Adresi’ni yazın.
+* Mevcut bir kuralı değiştirmek için kuraldaki alanlardan dilediğinize tıklayıp değiştirin.
+* Mevcut bir kuralı silmek için kuralın üstüne gelip satırın sonunda X işareti görünene kadar bekleyin. Kuralı kaldırmak için X işaretine tıklayın.
 
-* To add the current computer, click Add client IP.
-* To add additional IP addresses, type in the Rule Name, Start IP Address, and End IP Address.
-* To modify an existing rule, click any of the fields in the rule and modify.
-* To delete an existing rule, hover over the rule until the X appears at the end of the row. Click X to remove the rule.
+Değişiklikleri kaydetmek için **Kaydet**’e tıklayın.
 
-Click **Save** to save the changes.
+## <a name="next-steps"></a>Sonraki adımlar
 
-## Next steps
-For a how to article on how to use Transact-SQL to create server-level and database-level firewall rules, see [Configure Azure SQL Database server-level and database-level firewall rules using T-SQL](sql-database-configure-firewall-settings-tsql.md). 
+- Bir başlangıç öğreticisi için bkz. [SQL Veritabanı öğreticisi: Sunucu, sunucu düzeyinde güvenlik duvarı kuralı, örnek veritabanı, veritabanı düzeyinde güvenlik duvarı oluşturma ve SQL Server’a bağlanma](sql-database-get-started.md).
+- Güvenliğe giriş konulu bir öğretici için bkz. [Güvenliğe giriş](sql-database-get-started-security.md)
+- Açık kaynak veya üçüncü taraf uygulamalardan bir Azure SQL veritabanına bağlanma konusunda yardım için bkz. [SQL Veritabanına yönelik istemci hızlı başlatma kod örnekleri](https://msdn.microsoft.com/library/azure/ee336282.aspx).
+- Veritabanlarına bağlanabilen ek kullanıcıların nasıl oluşturulduğunu öğrenmek için bkz. [SQL Veritabanı Kimlik Doğrulaması ve Yetkilendirme: Erişim Verme](https://msdn.microsoft.com/library/azure/ee336235.aspx).
 
-For how to articles on creating server-level firewall rules using other methods, see: 
+## <a name="additional-resources"></a>Ek kaynaklar
+* [Veritabanınızı güvenli hale getirme](sql-database-security.md)   
+* [SQL Server Veritabanı Altyapısı ve Azure SQL Veritabanı için Güvenlik Merkezi](https://msdn.microsoft.com/library/bb510589)   
 
-* [Configure Azure SQL Database server-level firewall rules using PowerShell](sql-database-configure-firewall-settings-powershell.md)
-* [Configure Azure SQL Database server-level firewall rules using the REST API](sql-database-configure-firewall-settings-rest.md)
 
-For a tutorial on creating a database, see [Create a SQL database in minutes using the Azure portal](sql-database-get-started.md).
-For help in connecting to an Azure SQL database from open source or third-party applications, see [Client quick-start code samples to SQL Database](https://msdn.microsoft.com/library/azure/ee336282.aspx).
-To understand how to navigate to databases, see [Manage database access and login security](https://msdn.microsoft.com/library/azure/ee336235.aspx).
 
-## Additional resources
-* [Securing your database](sql-database-security.md)
-* [Security Center for SQL Server Database Engine and Azure SQL Database](https://msdn.microsoft.com/library/bb510589)
 
-<!--Image references-->
-[1]: ./media/sql-database-configure-firewall-settings/AzurePortalBrowseForFirewall.png
-[2]: ./media/sql-database-configure-firewall-settings/AzurePortalFirewallSettings.png
-<!--anchors-->
+
+
+<!--HONumber=Dec16_HO1-->
 
 

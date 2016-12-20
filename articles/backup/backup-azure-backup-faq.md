@@ -13,11 +13,11 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/21/2016
+ms.date: 11/16/2016
 ms.author: trinadhk; giridham; arunak; markgal; jimpark;
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: adee77b102d9c9326dad864f6f2f906f7b8acd0b
+ms.sourcegitcommit: be06f1eca1848ff6d00661cfc1166797649a98a4
+ms.openlocfilehash: cb45e7113073d19c1dc3e305d7b69373bd38d84f
 
 
 ---
@@ -25,7 +25,7 @@ ms.openlocfilehash: adee77b102d9c9326dad864f6f2f906f7b8acd0b
 Bu makale, Azure Backup hizmeti ile ilgili sık sorulan soruların (ve yanıtlarının) listesinden oluşmaktadır. Topluluğumuz, soruları hızlı bir şekilde yanıtlar ve bir sorunun sıklıkla sorulması durumunda söz konusu soruyu bu makaleye ekleriz. Soruların yanıtları genellikle başvuru veya destek bilgileri sağlar. Azure Backup ile ilgili sorularınızı, bu makalenin veya ilgili bir makalenin Disqus bölümünde sorabilirsiniz. Ayrıca Azure Backup hizmeti ile ilgili sorularınızı [tartışma forumunda](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) paylaşabilirsiniz.
 
 ## <a name="what-is-the-list-of-supported-operating-systems-from-which-i-can-back-up-to-azure-using-azure-backup-br"></a>Azure Backup hizmetini kullanarak Azure'a yedekleme yapabileceğim desteklenen işletim sistemlerinin listesi ne şekildedir? <br/>
-Azure Backup, Azure Backup Sunucusu ve SCDPM kullanarak dosya-klasör yedekleme ve uygulama yedekleme için aşağıdaki listede bulunan işletim sistemlerini destekler.
+Azure Backup, Azure Backup Sunucusu ve SCDPM kullanılarak korunan dosya ve klasörlerin yanı sıra iş yükü uygulamalarının yedeklenmesi için aşağıdaki listede yer alan işletim sistemlerini destekler.
 
 | İşletim Sistemi | Platform | SKU |
 |:--- | --- |:--- |
@@ -43,7 +43,7 @@ Azure Backup, Azure Backup Sunucusu ve SCDPM kullanarak dosya-klasör yedekleme 
 
 Azure VM yedeklemesi için,
 
-* **Linux**: Azure Backup, Core OS Linux hariç [Azure tarafından onaylanan bir dağıtım listesini](../virtual-machines/virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) destekler.  Sanal makinede VM aracısı kullanılabilir olduğu ve Python desteği bulunduğu sürece diğer Kendi Linux’unu Getir dağıtımları da çalışabilir.
+* **Linux**: Azure Backup, [Azure tarafından onaylanan bir dağıtım listesini](../virtual-machines/virtual-machines-linux-endorsed-distros.md) (CoreOS Linux hariç) destekler.  Sanal makinede VM aracısı kullanılabilir olduğu ve Python desteği bulunduğu sürece diğer Kendi Linux’unu Getir dağıtımları da çalışabilir.
 * **Windows Server**:  Windows Server 2008 R2’den eski sürümler desteklenmez.
 
 ## <a name="where-can-i-download-the-latest-azure-backup-agent-br"></a>En son Azure Backup aracısını nereden indirebilirim? <br/>
@@ -59,14 +59,14 @@ Evet, kasa kimlik bilgilerinin süresi 48 saat sonra dolar. Dosyanın süresi do
 Evet. Eylül 2016’den itibaren abonelik başına 25 yedekleme kasası oluşturabilirsiniz. Her abonelikte, Azure Backup hizmetinin desteklenen her bir bölgesi için en fazla 25 Kurtarma Hizmetleri kasası oluşturabilirsiniz. Daha fazla kasaya ihtiyacınız varsa yeni bir abonelik oluşturun.
 
 ## <a name="are-there-any-limits-on-the-number-of-serversmachines-that-can-be-registered-against-each-vault-br"></a>Her bir kasa için kaydedilebilen sunucu/makine sayısına yönelik herhangi bir sınır var mıdır? <br/>
-Evet, kasa başına en fazla 50 makine kaydedebilirsiniz. Azure IaaS sanal makineleri için sınır, kasa başına 200 VM'dir. Daha fazla makine kaydetmeniz gerekirse yeni bir kasa oluşturun.
+Evet, kasa başına en fazla 50 makine kaydedebilirsiniz. Azure IaaS sanal makineleri için sınır, kasa başına 200 VM'dir. Daha fazla makine kaydetmeniz gerekirse başka bir kasa oluşturun.
 
 ## <a name="how-do-i-register-my-server-to-another-datacenterbr"></a>Sunucumu başka bir veri merkezine nasıl kaydederim?<br/>
 Yedekleme verileri, kasanın kayıtlı olduğu veri merkezine gönderilir. Veri merkezini değiştirmenin en kolay yolu, aracıyı kaldırmak ve aracıyı yeniden yükleyip istenilen veri merkezine ait yeni bir kasa kaydetmektir.
 
 ## <a name="what-happens-if-i-rename-a-windows-server-that-is-backing-up-data-to-azurebr"></a>Azure'a veri yedekleyen bir Windows sunucusunu yeniden adlandırırsam ne olur?<br/>
 Bir sunucuyu yeniden adlandırdığınızda, geçerli olarak yapılandırılmış olan tüm yedeklemeler durdurulur.
-Sunucunun yeni adını Backup kasasına kaydetmeniz gerekir. Yeni bir kayıt oluşturduğunuzda, ilk yedekleme işlemi artımlı yedekleme değil, tam yedekleme olur. Daha önce eski sunucu adıyla kasaya yedeklenen verileri kurtarmanız gerekiyorsa **Veri Kurtarma** sihirbazındaki [**Başka bir sunucu**](backup-azure-restore-windows-server.md#recover-to-an-alternate-machine) seçeneğini kullanarak verileri kurtarabilirsiniz.
+Sunucunun yeni adını Backup kasasına kaydedin. Yeni adı kasaya kaydettiğinizde, ilk yedekleme işlemi *tam* yedekleme olur. Daha önce eski sunucu adıyla kasaya yedeklenen verileri kurtarmanız gerekiyorsa **Veri Kurtarma** sihirbazındaki [**Başka bir sunucu**](backup-azure-restore-windows-server.md#recover-to-an-alternate-machine) seçeneğini kullanarak verileri kurtarabilirsiniz.
 
 ## <a name="what-types-of-drives-can-i-backup-files-and-folders-from-br"></a>Ne tür sürücülerden dosya ve klasör yedekleyebilirim? <br/>
 Aşağıdaki sürücüler/birimler yedeklenemez:
@@ -105,9 +105,9 @@ Hayır. Kasa abonelik düzeyinde oluşturulur ve oluşturulduktan sonra başka b
 Evet. Aracı hizmeti, yedekleme işlemini hazırlarken yinelenenleri kaldırma işlemi uygulanmış verileri normal verilere dönüştürür. Ardından verileri yedekleme için en iyi duruma getirir, verileri şifreler ve daha sonra, şifreli verileri çevrimiçi yedekleme hizmetine gönderir.
 
 ## <a name="if-i-cancel-a-backup-job-once-it-has-started-is-the-transferred-backup-data-deleted-br"></a>Bir yedekleme işini başlatıldıktan sonra iptal edersem aktarılan yedekleme verileri silinir mi? <br/>
-Hayır. Yedekleme kasası, iptal noktasına kadar aktarılmış olan yedeklenmiş verileri depolar. Azure Backup, yedekleme işlemi sırasında yedekleme verilerine zaman zaman denetim noktaları eklemek üzere bir denetim noktası mekanizması kullanır. Yedekleme verilerinde denetim noktaları bulunduğundan, sonraki yedekleme işlemi dosyaların bütünlüğünü doğrulayabilir. Tetiklenen sonraki yedekleme, daha önce yedeklenmiş olan veriler üzerinde artımlı olarak gerçekleşecektir. Artımlı yedekleme, bant genişliğinin daha iyi kullanılmasını sağlar; böylece aynı verileri tekrar tekrar aktarmanız gerekmez.
+Hayır. İşlemin iptal edildiği andan önce kasaya aktarılan tüm veriler kasada kalır. Azure Backup, yedekleme işlemi sırasında yedekleme verilerine zaman zaman denetim noktaları eklemek üzere bir denetim noktası mekanizması kullanır. Yedekleme verilerinde denetim noktaları bulunduğundan, sonraki yedekleme işlemi dosyaların bütünlüğünü doğrulayabilir. Bir sonraki yedekleme işi, daha önce yedeklenen verilerin üzerine artımlı olarak gerçekleşir. Artımlı yedekleme işlemlerinin yalnızca yeni veya değiştirilmiş verileri aktarması, bant genişliğinin daha iyi kullanılması anlamına gelir.
 
-Azure VM yedeklemesinde iş iptal edildikten sonra aktarılan veriler göz ardı edilir ve yeni yedekleme artımlı verileri önceki başarılı yedekleme işinden aktarır.
+Bir Azure VM’ye yönelik bir yedekleme işini iptal ederseniz aktarılan tüm veriler yoksayılır. Bir sonraki yedekleme işi, son başarılı yedekleme işinden artımlı verileri aktarır.
 
 ## <a name="why-am-i-seeing-the-warning-azure-backups-have-not-been-configured-for-this-server-even-though-i-had-scheduled-regular-backups-previously-br"></a>Daha önce düzenli yedeklemeler zamanlamış olmama karşın neden "Azure Yedeklemeleri bu sunucu için yapılandırılmamış" uyarısını görüyorum? <br/>
 Bu uyarı, yerel sunucuda depolanan yedekleme zamanlaması ayarları, yedekleme kasasında depolanan ayarlarla aynı olmadığında oluşur. Sunucu ya da ayarlar bilinen bir iyi duruma getirilerek kurtarıldığında, yedekleme zamanlamaları eşitlemesini kaybedebilir. Bu uyarıyı alırsanız [yedekleme ilkesini yeniden yapılandırın](backup-azure-manage-windows-server.md) ve ardından yerel sunucuyu Azure ile yeniden eşitlemek için **Run Back Up Now (Yedeklemeyi Şimdi Çalıştır)** işlemini uygulayın.
@@ -122,16 +122,16 @@ Verilerin şirket içinden Azure'a ve iş yükünden Azure'a sorunsuz şekilde k
 * \*.windows.net
 
 ## <a name="can-i-install-the-azure-backup-agent-on-an-azure-vm-already-backed-by-the-azure-backup-service-using-the-vm-extension-br"></a>Azure Backup aracısını, önceden VM uzantısı kullanılarak Azure Backup hizmeti tarafından yedeklenmiş olan bir Azure VM üzerine yükleyebilir miyim? <br/>
-Kesinlikle. Azure Backup, VM uzantısını kullanan Azure VM'ler için VM düzeyinde yedekleme sağlar. Azure Backup aracısını, bir Konuk Windows işletim sistemine yükleyerek bu konuk işletim sistemi üzerindeki dosya ve klasörleri koruyabilirsiniz.
+Kesinlikle. Azure Backup, VM uzantısını kullanan Azure VM'ler için VM düzeyinde yedekleme sağlar. Konuk Windows işletim sistemi üzerindeki dosya ve klasörleri korumak için Azure Backup aracısını bu konuk işletim sistemine yükleyin.
 
 ## <a name="can-i-install-the-azure-backup-agent-on-an-azure-vm-to-back-up-files-and-folders-present-on-temporary-storage-provided-by-the-azure-vm-br"></a>Azure Backup aracısını bir Azure VM'ye yükleyerek mevcut dosya ve klasörleri Azure VM tarafından sağlanan geçici depolama alanına yedekleyebilir miyim? <br/>
-Azure Backup aracısını, bir Konuk Windows işletim sistemine yükleyebilir ve dosya ve klasörleri geçici depolama alanına yedekleyebilirsiniz. Ancak geçici depolama verileri silindikten sonra yedeklemelerin başarısız olacağını lütfen unutmayın. Ayrıca, geçici depolama verilerinin silinmiş olması durumunda, yalnızca geçici olmayan depolama alanına geri yükleme gerçekleştirebilirsiniz.
+Evet. Azure Backup aracısını Konuk Windows işletim sistemine yükleyin ve dosya ve klasörleri geçici depolama alanına yedekleyin. Ancak, geçici depolama verileri silindikten sonra yedeklemelerin başarısız olacağını unutmayın. Ayrıca, geçici depolama verilerinin silinmiş olması durumunda, yalnızca geçici olmayan depolama alanına geri yükleme gerçekleştirebilirsiniz.
 
 ## <a name="i-have-installed-azure-backup-agent-to-protect-my-files-and-folders-can-i-now-install-scdpm-to-work-with-azure-backup-agent-to-protect-on-premises-applicationvm-workloads-to-azure-br"></a>Dosya ve klasörlerimi korumak için Azure Backup aracısını yükledim. Artık Azure'a yönelik şirket içi uygulama/VM iş yüklerini korumak için Azure Backup aracısıyla çalışmak üzere SCDPM'yi yükleyebilir miyim? <br/>
-Azure Backup'ı SCDPM ile kullanmak için ilk olarak SCDPM'yi ve ancak bundan sonra Azure Backup aracısını yüklemeniz önerilir. Bu, Azure Backup aracısının SCDPM ile tümleştirmesinin sorunsuz şekilde gerçekleştirilmesini sağlar ve dosyaların/klasörlerin, Azure'a yönelik uygulama iş yüklerinin ve VM'lerin doğrudan SCDPM yönetim konsolundan korunmasına olanak tanır. Yukarıda belirtilen amaçlar doğrultusunda Azure Backup'ın yüklenmesinin ardından SCDPM'nin yüklenmesi önerilmez veya desteklenmez.
+Azure Backup’ı System Center Data Protection Manager (DPM) ile birlikte kullanmak için önce DPM’yi, ardından Azure Backup aracısını yükleyin. Azure Backup bileşenlerinin bu sırada yüklenmesi, Azure Backup aracısının DPM ile çalışmasını sağlar. Azure Backup aracısının DPM yüklenmeden önce yüklenmesi önerilmez veya desteklenmez.
 
 ## <a name="what-is-the-length-of-file-path-that-can-be-specified-as-part-of-azure-backup-policy-using-azure-backup-agent-br"></a>Azure Backup aracısını kullanan Azure Yedekleme ilkesinin bir bölümü olarak belirtilebilecek dosya yolunun uzunluğu nedir? <br/>
-Azure Backup aracısı NTFS kullanır. [Dosya yolu uzunluğu belirtimi, Windows API ile sınırlıdır](https://msdn.microsoft.com/library/aa365247.aspx#fully_qualified_vs._relative_paths). Windows API tarafından belirtilenlerden daha uzun dosya yollarına sahip olan dosyaların yedeklenmesi için müşteriler yedekleme dosyalarının üst klasörünü veya disk sürücüsünü yedeklemeyi seçebilir.  
+Azure Backup aracısı NTFS kullanır. [Dosya yolu uzunluğu belirtimi, Windows API ile sınırlıdır](https://msdn.microsoft.com/library/aa365247.aspx#fully_qualified_vs._relative_paths). Windows API tarafından izin verilenden daha uzun dosya yollarına sahip dosyaları yedeklerken, yedekleme dosyalarının üst klasörünü veya disk sürücüsünü yedeklemeyi seçebilirsiniz.  
 
 ## <a name="what-characters-are-allowed-in-file-path-of-azure-backup-policy-using-azure-backup-agent-br"></a>Azure Backup aracısını kullanan Azure Yedekleme ilkesinin dosya yolunda hangi karakterlere izin verilir? <br>
  Azure Backup aracısı NTFS kullanır. [NTFS destekli karakterleri](https://msdn.microsoft.com/library/aa365247.aspx#naming_conventions) dosya belirtiminin bir parçası olarak etkinleştirir.  
@@ -143,12 +143,12 @@ Evet.
 Evet, Backup hizmeti bir PowerShell betiği ile kullanılabilen çeşitli olay tabanlı uyarılara sahiptir. Tam açıklama için bkz. [Bildirimleri yapılandırma](backup-azure-monitor-vms.md#configure-notifications)
 
 ## <a name="is-there-a-limit-on-the-size-of-each-data-source-being-backed-up-br"></a>Yedeklenmekte olan her veri kaynağının boyutuna yönelik bir sınır var mıdır? <br/>
-Kasa düzeyinde yedekleyebileceğiniz veri miktarına ilişkin bir sınırlama olmamasına karşın Azure Backup en büyük veri kaynağı boyutuyla ilgili bir kısıtlama uygulamaktadır (tüm uygulamalarda bu limitler çok yüksektir). Ağustos 2015'ten itibaren, desteklenen işletim sistemleri için en büyük veri kaynağı boyutu şu şekildedir:
+Bir kasaya yedekleyebileceğiniz veri miktarı konusunda sınır yoktur. Azure Backup, veri kaynağı için en fazla boyut kısıtlaması uygular ancak limitler oldukça yüksektir. Ağustos 2015 itibarıyla, desteklenen işletim sistemlerinde veri kaynağı için boyut üst sınırı şu şekildedir:
 
 | S.No | İşletim sistemi | En büyük veri kaynağı boyutu |
 |:---:|:--- |:--- |
-| 1 |Windows Server 2012 veya üzeri |54400 GB |
-| 2 |Windows 8 veya üzeri |54400 GB |
+| 1 |Windows Server 2012 veya üzeri |54.400 GB |
+| 2 |Windows 8 veya üzeri |54.400 GB |
 | 3 |Windows Server 2008, Windows Server 2008 R2 |1700 GB |
 | 4 |Windows 7 |1700 GB |
 
@@ -197,7 +197,7 @@ Hayır. Kurtarma noktalarına yönelik sınırları kaldırdık. İstediğiniz s
  Azure Backup Aracısı veya SCDPM ya da Azure Backup Sunucusundan yedeklenen tüm veriler aktarılmadan önce sıkıştırılır ve şifrelenir. Sıkıştırma ve şifreleme uygulandıktan sonra yedekleme kasasındaki veriler % 30-40 daha küçük hale gelir.
 
 ## <a name="is-there-a-way-to-adjust-the-amount-of-bandwidth-used-by-the-backup-servicebr"></a>Backup hizmeti tarafından kullanılan bant genişliği miktarını ayarlamanın bir yolu var mıdır?<br/>
- Evet, bant genişliğini ayarlamak için Backup Aracısı'ndaki **Özellikleri Değiştir** seçeneğini kullanın. Bant genişliği miktarını ve bu bant genişliğini kullanma zamanlarınızı ayarlayın. Daha fazla bilgi edinmek için [Resource Manager dağıtım modelini kullanarak Windows Server veya istemcisini Azure’a yedekleme](backup-configure-vault.md) konusunun **Ağ kapasitesi azaltmayı etkinleştirme (isteğe bağlı)** bölümüne bakın.
+ Evet, bant genişliğini ayarlamak için Backup Aracısı'ndaki **Özellikleri Değiştir** seçeneğini kullanın. Bant genişliği miktarını ve bu bant genişliğini kullanma zamanlarınızı ayarlayabilirsiniz. Adım adım yönergeler için, “Resource Manager dağıtım modelini kullanarak Windows Server’ı veya bir istemciyi Azure’a yedekleme” (“Back up a Windows Server or client to Azure using the Resource Manager deployment model”) makalesindeki **[Ağ kapasitesi azaltmayı etkinleştirme (Enable network throttling)](backup-configure-vault.md#enable-network-throttling)** bölümüne bakın.
 
 ## <a name="my-internet-bandwidth-is-limited-for-the-amount-of-data-i-need-to-back-up-is-there-a-way-i-can-move-data-to-a-certain-location-with-a-large-network-pipe-and-push-that-data-into-azure-br"></a>İnternet bant genişliğim, yedeklemem gereken veri miktarı için sınırlı durumda. Verileri büyük bir ağ kanalı ile belirli bir konuma taşıyıp bu verileri Azure'a gönderebilmemin bir yolu var mıdır? <br/>
 Standart çevrimiçi yedekleme işlemini kullanarak verileri Azure'a yedekleyebilir veya verileri Azure'da blob depolamaya aktarmak için Azure İçeri/Dışarı Aktarma hizmetini kullanabilirsiniz. Yedekleme verilerini Azure depolama alanına almanın başka bir yolu yoktur. Azure İçeri/Dışarı Aktarma hizmetini Azure Backup ile kullanma hakkında bilgi için lütfen [Çevrimdışı Yedekleme iş akışı](backup-azure-backup-import-export.md) makalesine bakın.
@@ -212,7 +212,7 @@ Azure Backup ile gerçekleştirilen kurtarma işlemlerinin sayısına yönelik b
 Evet. Veriler AES256 kullanılarak şirket içi sunucu/istemci/SCDPM makinesi üzerinde şifrelenir ve güvenli bir HTTPS bağlantısı üzerinden gönderilir.
 
 ## <a name="is-the-backup-data-on-azure-encrypted-as-wellbr"></a>Azure üzerindeki yedekleme verileri de şifreli midir?<br/>
- Evet. Azure'a gönderilen veriler (bekleyen) şifreli olarak kalır. Microsoft herhangi bir noktada yedekleme verilerinin şifresini çözmez. Azure Backup, Azure VM yedeklemesi için sanal makinenin şifrelemesini kullanır; örneğin, sanal makineniz Azure Disk Şifrelemesi veya başka bir şifreleme teknolojisi kullanılarak şifreleniyorsa Azure Backup verilerinizin güvenliğini sağlamak için bu şifrelemeyi kullanır.
+ Evet. Azure'a gönderilen veriler (bekleyen) şifreli olarak kalır. Microsoft herhangi bir noktada yedekleme verilerinin şifresini çözmez. Azure Backup bir Azure VM’yi yedeklerken sanal makinenin şifrelemesini kullanır. Örneğin, VM’niz Azure Disk Şifrelemesi veya başka bir şifreleme teknolojisi kullanılarak şifrelendiyse, Azure Backup verilerinizi korumak için bu şifrelemeyi kullanır.
 
 ## <a name="what-is-the-minimum-length-of-encryption-key-used-to-encrypt-backup-data-br"></a>Yedekleme verilerini şifrelemek için kullanılan şifreleme anahtarının minimum uzunluğu nedir? <br/>
  Şifreleme anahtarı en az 16 karakterden oluşmalıdır.
@@ -255,10 +255,26 @@ Yedekleme verilerini şifrelemek için kullanılan anahtar yalnızca müşterini
 * Seyrek
 * Yeniden Ayrıştırma Noktası
 
-Azure Backup aracısının beklenen şekilde çalışması için önbellek klasörünün veya meta veri VHD'sinin yukarıdaki özniteliklere sahip olmaması önerilir.
+Önbellek klasörü ve meta veri VHD’si, Azure Backup aracısı için gerekli özniteliklere sahip değildir.
+
+## <a name="recovery-services-vaults-are-resource-manager-based-are-backup-vaults-classic-mode-still-supported-br"></a>Kurtarma Hizmetleri kasaları Resource Manager tabanlıdır. Backup kasaları (Klasik mod) hala destekleniyor mu? <br/>
+Evet, Yedekleme kasaları hâlâ destekleniyor. [Klasik portalda](https://manage.windowsazure.com) Backup kasaları oluşturun. [Azure portalında](https://portal.azure.com) Kurtarma Hizmetleri kasaları oluşturun. Ancak gelecekteki tüm geliştirmeler yalnızca Kurtarma Hizmetleri kasasında kullanılabileceği için, kurtarma hizmetleri kasası oluşturmanızı öneririz.
+
+## <a name="can-i-migrate-a-backup-vault-to-a-recovery-services-vault-br"></a>Bir Backup kasasının Kurtarma Hizmetleri kasasına geçişini sağlayabilir miyim? <br/>
+Ne yazık ki hayır, şu an için bir Backup kasasının içeriğinin Kurtarma Hizmetleri kasasına geçişini sağlayamazsınız. Bu işlevi eklemeye yönelik çalışmalarımız devam ediyor ancak işlev şu anda kullanılamıyor.
+
+## <a name="do-recovery-services-vaults-support-classic-vms-or-resource-manager-based-vms-br"></a>Kurtarma Hizmetleri kasaları, klasik VM’leri mi Resource Manager tabanlı VM’leri mi destekler? <br/>
+Kurtarma Hizmetleri kasaları iki modeli de destekler.  Klasik portalda oluşturulan bir klasik VM’yi ya da Azure portalında oluşturulan bir Resource Manager VM’sini bir Kurtarma Hizmetleri kasasına yedekleyebilirsiniz.
+
+## <a name="i-have-backed-up-my-classic-vms-in-a-backup-vault-can-i-migrate-my-vms-from-classic-mode-to-resource-manager-mode-and-protect-them-in-a-recovery-services-vault"></a>Klasik VM’lerimi bir yedekleme kasasına yedekledim. VM’lerimi klasik moddan Resource Manager moduna geçirip bunları bir Kurtarma Hizmetleri kasasında koruyabilir miyim?
+Bir VM’yi klasikten Resource Manager moduna taşıdığınızda yedekleme kasasındaki klasik VM kurtarma noktaları, Kurtarma Hizmetleri kasasına otomatik olarak geçirilmez. VM yedeklerinizi aktarmak için bu adımları izleyin:
+
+1. Yedekleme kasasında **Korunan Öğeler** sekmesine gidin ve VM’yi seçin. [Korumayı Durdur](backup-azure-manage-vms-classic.md#stop-protecting-virtual-machines)’a tıklayın. *İlişkili yedekleme verilerini sil* seçeneğini **işaretlenmemiş** olarak bırakın.
+2. Sanal makineyi, klasik moddan Resource Manager moduna geçirin. Sanal makine için karşılık gelen depolama ve ağın da Resource Manager moduna geçirildiğinden emin olun.
+3. Bir Kurtarma Hizmetleri kasası oluşturun ve kasa panosunun üstündeki **Yedekle** eylemini kullanarak, geçirilen sanal makinede yedeklemeyi yapılandırın. Bir VM’yi Kurtarma Hizmetleri kasasına yedekleme hakkında ayrıntılı bilgi için [Azure VM’leri bir Kurtarma Hizmetleri kasasıyla koruma](backup-azure-vms-first-look-arm.md) başlıklı makaleye bakın.
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

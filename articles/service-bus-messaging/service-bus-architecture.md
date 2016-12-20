@@ -1,27 +1,27 @@
 ---
 title: Service Bus mimarisi | Microsoft Belgeleri
 description: "Azure Service Bus hizmetinin ileti ve geçiş işleme mimarisini açıklar."
-services: service-bus
+services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
 editor: 
 ms.assetid: baf94c2d-0e58-4d5d-a588-767f996ccf7f
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/11/2016
+ms.date: 11/30/2016
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3c69783341eaed67ac29ab63d2127a4038bc0f6d
+ms.sourcegitcommit: 0b1f6f7ec47e47f39407cdbfd5efef2a18944ecc
+ms.openlocfilehash: 6a2e59f9366e411d322b8560f03b115638619966
 
 
 ---
 # <a name="service-bus-architecture"></a>Service Bus mimarisi
-Bu makale Azure Service Bus hizmetinin ileti ve geçiş işleme mimarisini açıklar.
+Bu makale, Azure Service Bus hizmetinin ileti işleme mimarisini açıklar.
 
 ## <a name="service-bus-scale-units"></a>Service Bus ölçek birimleri
 Service Bus, *ölçek birimleri* tarafından düzenlenir. Ölçek birimi, bir dağıtım birimidir ve hizmeti çalıştırmak için gerekli tüm bileşenleri içerir. Her bölge, bir veya daha fazla Service Bus ölçek birimi dağıtır.
@@ -49,7 +49,7 @@ Geçiş bağlantısı kurulduğunda istemciler, randevu için kullanılan ağ ge
 ![Gelen WCF Geçiş İsteklerinin işlenmesi](./media/service-bus-architecture/IC690645.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Service Bus mimarisine ilişkin genel bir bakış edindiğinize göre, aşağıdaki bağlantıları ziyaret edebilirsiniz:
+Service Bus mimarisine ilişkin genel bir bakış edindiğinize göre, daha fazla bilgi için aşağıdaki bağlantıları ziyaret edebilirsiniz:
 
 * [Service Bus mesajlaşma hizmetine genel bakış](service-bus-messaging-overview.md)
 * [Service Bus ile ilgili temel bilgiler](service-bus-fundamentals-hybrid-solutions.md)
@@ -58,6 +58,6 @@ Service Bus mimarisine ilişkin genel bir bakış edindiğinize göre, aşağıd
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

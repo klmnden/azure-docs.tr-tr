@@ -15,6 +15,7 @@
 ## [Spark’ı kullanmaya başlama](hdinsight-apache-spark-jupyter-spark-sql.md)
 ## [HBase ve NoSQL’i kullanmaya başlama](hdinsight-hbase-tutorial-get-started-linux.md)
 ## [Storm’u kullanmaya başlama](hdinsight-apache-storm-tutorial-get-started-linux.md)
+## [Etkileşimli Hive önizlemesini kullanmaya başlama](hdinsight-hadoop-use-interactive-hive.md)
 ## [Kafka önizlemesini kullanmaya başlama](hdinsight-apache-kafka-get-started.md)
 ## [Hadoop korumalı alanı](hdinsight-hadoop-emulator-get-started.md)
 ## [Hortonworks Korumalı Alanı ile Data Lake Araçları](hdinsight-hadoop-emulator-visual-studio.md)
@@ -181,12 +182,12 @@
 #### [Hive sorgu performansı](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/)
 
 # Başvuru
-## [PowerShell cmdlet'leri](/powershell/resourcemanager/azurerm.hdinsight/v2.2.0/azurerm.hdinsight)
-## [Hadoop için .NET SDK](https://msdn.microsoft.com/library/mt271028.aspx)
-## [HBase için .NET SDK](https://www.nuget.org/packages/Microsoft.HBase.Client/)
-## [Avro için .NET kitaplığı](https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library)
-## [REST API başvurusu](/rest/api/hdinsight/)
-## [Uzak işler için Spark REST API’si](/rest/api/hdinsightspark/)
+## [PowerShell](/powershell/resourcemanager/azurerm.hdinsight/v2.3.0/azurerm.hdinsight)
+## [.NET (Hadoop)](https://msdn.microsoft.com/library/mt271028.aspx)
+## [.NET (HBase)](https://www.nuget.org/packages/Microsoft.HBase.Client/)
+## [.NET (Avro)](https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library)
+## [REST](/rest/api/hdinsight/)
+## [REST (Spark)](/rest/api/hdinsightspark/)
 
 # İlgili
 ## Windows kümeleri
@@ -224,6 +225,6 @@
 ## [Öğrenme yolu](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

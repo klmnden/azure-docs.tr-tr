@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: compute
-ms.date: 08/15/2016
+ms.date: 11/23/2016
 ms.author: piotrci
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 07cadd332edc4c55d87ca76aabeaba824d1e2673
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 6dcadbfb99d4d111ab9ddde9d74db65b5542a8f5
 
 
 ---
@@ -26,9 +26,9 @@ ms.openlocfilehash: 07cadd332edc4c55d87ca76aabeaba824d1e2673
 > 
 > 
 
-Bu makale Azure RemoteApp koleksiyonunda (Önizleme) bireysel kullanıcılara uygulama yayımlama | Microsoft Azure Bu, Azure RemoteApp’in yeni bir işlevidir; şu anda “özel önizleme”dedir ve yalnızca değerlendirme amacıyla önceden seçilen kullanıcılar tarafından kullanılabilir.
+Bu makale Azure RemoteApp koleksiyonunda (Önizleme) bireysel kullanıcılara uygulama yayımlama | Microsoft Azure Bu, Azure RemoteApp'in yeni bir işlevidir; şu anda özel önizlemededir ve yalnızca değerlendirme amacıyla önceden seçilen kullanıcılar tarafından kullanılabilir.
 
-Başlangıçta Azure RemoteApp yalnızca uygulama “yayımlama” için tek yönlü etkinleştirilmiştir: yönetim görüntüden uygulama yayımlayabilir ve bunlar koleksiyondaki tüm kullanıcılara görünür olur.
+Başlangıçta Azure RemoteApp yalnızca uygulama yayımlama için tek yönlü etkinleştirilmiştir. Yönetim görüntüden uygulama yayımlayabilir ve bunlar koleksiyondaki tüm kullanıcılara görünür olur.
 
 Genel senaryo yönetim maliyetlerini azaltmak için tek bir görüntüde birden çok uygulama içerir ve bir koleksiyon dağıtır. Çoğu kez tüm uygulamalar bütün kullanıcılarla ilgili değildir; yöneticiler kendi uygulama akışlarında gereksiz uygulama görmemeleri için uygulamalarını bireysel kullanıcılara yayımlamak isteyebilir.
 
@@ -36,8 +36,8 @@ Bu artık Azure RemoteApp’te şu anda sınırlı bir önizleme özelliği olar
 
 1. Bir koleksiyon iki moddan birini ayarlanabilir:
    
-   * özgün “koleksiyon modu” bir koleksiyondaki tüm kullanıcıların yayımlanan tüm uygulamaları görebildikleri moddur. Bu varsayılan moddur.
-   * yeni "uygulama modu" kullanıcıların yalnızca özel olarak kendilerine atanmış uygulamaları görebildikleri moddur.
+   * özgün koleksiyon modu bir koleksiyondaki tüm kullanıcıların yayımlanan tüm uygulamaları görebildikleri moddur. Bu varsayılan moddur.
+   * yeni uygulama modu kullanıcıların yalnızca özel olarak kendilerine atanmış uygulamaları görebildikleri moddur.
 2. Şu anda uygulama modu yalnızca Azure RemoteApp PowerShell cmdlet'leri kullanarak etkinleştirilebilir.
    
    * Uygulama modu ayarlandığında, koleksiyondaki atama Azure portal aracılığıyla yönetilemez. Kullanıcı ataması PowerShell cmdlet’leri aracılığıyla yönetilmelidir.
@@ -49,7 +49,7 @@ Bu artık Azure RemoteApp’te şu anda sınırlı bir önizleme özelliği olar
 ## <a name="how-to-get-azure-remoteapp-powershell-cmdlets"></a>Azure RemoteApp PowerShell cmdlet'lerini alma
 Yeni önizleme işlevini denemek için, Azure PowerShell cmdlet'lerini kullanmanız gerekecektir. Şu anda yeni uygulama yayımlama modunu etkinleştirmek için Azure Yönetim portalını kullanmak mümkün değildir.
 
-İlk olarak, [Azure PowerShell modülü](../powershell-install-configure.md) yüklü olduğundan emin olun.
+İlk olarak, [Azure PowerShell modülü](/powershell/azureps-cmdlets-docs) yüklü olduğundan emin olun.
 
 Daha sonra, PowerShell konsolunu yönetici modunda başlatın ve aşağıdaki cmdlet'i çalıştırın:
 
@@ -106,6 +106,6 @@ Henüz önizlemeye katılmadıysanız, lütfen erişim isteğinden bulunmak içi
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

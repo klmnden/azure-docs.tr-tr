@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/06/2016
+ms.date: 12/02/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c73d85497e936b0bfb9a0ee97e0172a70e1706ae
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 9637a4dfeaf3d3f95ccdb4bbc5d1f96ec08b6dad
 
 
 ---
@@ -110,11 +110,11 @@ Data Lake Store hesabının **Veri Gezgini** dikey penceresinde **Erişim**’e 
 
 ![Data Lake Store ACL’leri](./media/data-lake-store-access-control/data-lake-store-show-acls-1.png)
 
-Bundan sonra **Erişim** dikey penceresinde **Basit Görünüm**’e tıklayarak daha basit bir görünüm görün.
+Bu dikey pencerede, en üstteki bölüm sahip olduğunuz izinlere genel bir bakış sunar (ekran görüntüsündeki kullanıcı Bob’dur). Bunun altında erişim izinleri gösterilir.
 
 ![Data Lake Store ACL’leri](./media/data-lake-store-access-control/data-lake-store-show-acls-simple-view.png)
 
-Daha gelişmiş görünümü görmek için **Gelişmiş Görünüm**’e tıklayın.
+Varsayılan ACL’ler, Maske ve Süper kullanıcı kavramlarının gösterildiği daha gelişmiş görünümü görmek için **Gelişmiş**’e tıklayın.
 
 ![Data Lake Store ACL’leri](./media/data-lake-store-access-control/data-lake-store-show-acls-advance-view.png)
 
@@ -133,6 +133,10 @@ Azure’da bir Data Lake Store hesabının birkaç Azure rolü vardır:
 * Etc.
 
 Bir Data Lake Store hesabında **Sahipler** rolündeki herkes otomatik olarak o hesabın süper kullanıcısıdır. Azure Rol Tabanlı Erişim Denetimi (RBAC) hakkında daha fazla bilgi almak için bkz. [Rol tabanlı erişim denetimi](../active-directory/role-based-access-control-configure.md).
+
+Süper kullanıcı izinlerine sahip özel bir RBAC Rolü oluşturmak istiyorsanız. Aşağıdaki izinlere sahip olması gerekir:
+* Microsoft.DataLakeStore/accounts/Superuser/action
+* Microsoft.Authorization/roleAssignments/write
 
 ## <a name="the-owning-user"></a>Sahip olan kullanıcı
 Öğeyi oluşturan kullanıcı otomatik olarak öğenin sahibi olan kullanıcıdır. Sahip olan kullanıcı şunları yapabilir:
@@ -244,7 +248,11 @@ Hayır. ACL’ler üzerinden erişim denetimi Data Lake Store hesabı için her 
 ### <a name="what-permissions-are-required-to-recursively-delete-a-folder-and-its-contents"></a>Bir klasörü ve içindekileri yinelemeli olarak silmek için hangi izinler gereklidir?
 * Üst klasör **Yazma + Yürütme** izinlerine sahip olmalıdır.
 * Silinecek klasör ve içindeki her klasör **Okuma + Yazma + Yürütme** izinlerini gerektirir.
-  >[AZURE.NOTE] Klasörlerdeki dosyaların silinmesi bu dosyalar üzerinde Yazma iznini gerektirmez. Ayrıca, "/" Kök klasörü **hiçbir zaman** silinemez.
+
+> [!NOTE] 
+> Klasörlerdeki dosyaların silinmesi bu dosyalar üzerinde Yazma iznini gerektirmez. Ayrıca, "/" Kök klasörü **hiçbir zaman** silinemez.
+>
+>
 
 ### <a name="who-is-set-as-the-owner-of-a-file-or-folder"></a>Bir dosyanın veya klasörün sahibi olarak kim ayarlanır?
 Bir dosyayı veya klasörü oluşturan kişi bunların sahibi olur.
@@ -254,6 +262,12 @@ Yeni dosya veya klasörün oluşturulduğu üst klasörün sahibi olan gruptan k
 
 ### <a name="i-am-the-owning-user-of-a-file-but-i-dont-have-the-rwx-permissions-i-need-what-do-i-do"></a>Bir dosyanın sahibiyim, ancak gereken RWX izinlerine sahip değilim. Ne yapmalıyım?
 Sahip olan kullanıcı kendisine gerekli olan her türlü RWX iznii vermek için dosyanın izinlerini değiştirebilir.
+
+### <a name="when-i-look-at-acls-in-the-azure-portal-i-see-user-names-but-through-apis-i-see-guids-why-is-that"></a>Azure portalında ACL’lere baktığımda kullanıcı adlarını görüyorum, ancak API’lere baktığımda GUID’leri görüyorum, bunun nedeni nedir?
+ACL’lerdeki girişler, Azure Active Directory’de (AAD) kullanıcılara karşılık gelen GUID’ler olarak depolanır. API’ler GUID’leri olduğu gibi döndürür. Azure porta,lı mümkün olduğunda GUID’leri kolay adlara çevirerek ACL’lerin daha kolay kullanılmasını sağlamaya çalışır. 
+
+### <a name="why-do-i-sometimes-see-guids-in-the-acls-when-using-the-portal"></a>Portalı kullanırken neden bazen ACL’lerde GUID’leri görüyorum?
+Kullanıcı artık AAD’de mevcut değilse bir GUID gösterilir. Bu genellikle, kullanıcı şirketten ayrıldığında veya AAD’de kullanıcının hesabı silindiğinde gerçekleşir.
 
 ### <a name="does-data-lake-store-support-inheritance-of-acls"></a>Data Lake Store ACL’lerin devralınmasını destekler mi?
 Hayır.
@@ -282,6 +296,6 @@ Hayır.
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

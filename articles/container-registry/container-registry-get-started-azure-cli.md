@@ -96,12 +96,12 @@ az acr credential show -n myRegistry
 
 ### <a name="enable-admin-user-for-an-existing-registry"></a>Mevcut bir kayıt defteri için yönetici kullanıcıyı etkinleştirme
 ```azurecli
-az acr update -n myRegistry --enable-admin
+az acr update -n myRegistry --admin-enabled true
 ```
 
 ### <a name="disable-admin-user-for-an-existing-registry"></a>Mevcut bir kayıt defteri için yönetici kullanıcıyı devre dışı bırakma
 ```azurecli
-az acr update -n myRegistry --disable-admin
+az acr update -n myRegistry --admin-enabled false
 ```
 
 ## <a name="list-images-and-tags"></a>Görüntüleri ve etiketleri listeleme

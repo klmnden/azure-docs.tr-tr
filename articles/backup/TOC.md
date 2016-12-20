@@ -52,6 +52,10 @@
 ### [Azure VM Yedeklemesi başarısız oluyor: Anlık görüntü durumu için VM aracısı ile iletişim kurulamadı - Anlık görüntü VM alt görevi zaman aşımına uğradı](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md)
 ### [Azure Backup'ta dosya ve klasörlerin yavaş yedeklenmesi](backup-azure-troubleshoot-slow-backup-performance-issue.md)
 
+# Başvuru
+## [PowerShell](/powershell/resourcemanager/azurerm.recoveryservices.backup/v2.3.0/azurerm.recoveryservices.backup)
+## [.NET](/dotnet/api/microsoft.azure.management.recoveryservices.backup)
+
 # Kaynaklar
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/backup/)
 ## [MSDN forumu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazureonlinebackup) 
@@ -59,6 +63,6 @@
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=backup)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

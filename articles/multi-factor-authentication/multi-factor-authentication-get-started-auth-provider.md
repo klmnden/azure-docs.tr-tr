@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 10/14/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 5fa7882653d6a41376cffb0eaca78c8d05044dc2
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: b3dadee1ea8d1ff4a0164a90eb617f9d276b6670
 
 
 ---
-# <a name="getting-started-with-an-azure-multifactor-auth-provider"></a>Azure Multi-Factor Auth Sağlayıcısını kullanmaya başlama
+# <a name="getting-started-with-an-azure-multi-factor-auth-provider"></a>Azure Multi-Factor Auth Sağlayıcısını kullanmaya başlama
 İki adımlı doğrulama, Azure Active Directory’ye sahip genel yöneticiler ve Office 365 kullanıcıları için varsayılan olarak kullanılabilir durumdadır. Ancak, [gelişmiş özelliklerden](multi-factor-authentication-whats-next.md) yararlanmak isterseniz Azure Multi-Factor Authentication’ın (MFA) tam sürümünü satın almanız gerekir.
 
 > [!NOTE]
@@ -35,7 +35,7 @@ SDK’yı indirmek için Azure Multi-Factor Auth sağlayıcısı gerekir.
 > 
 > 
 
-## <a name="to-create-a-multifactor-auth-provider"></a>Multi-Factor Auth Sağlayıcısı oluşturmak için
+## <a name="to-create-a-multi-factor-auth-provider"></a>Multi-Factor Auth Sağlayıcısı oluşturmak için
 Azure Multi-Factor Auth Sağlayıcısı oluşturmak için aşağıdaki adımları kullanın.
 
 1. [Klasik Azure portalında](https://manage.windowsazure.com) yönetici olarak oturum açın.
@@ -64,6 +64,6 @@ Azure Multi-Factor Auth Sağlayıcısı oluşturmak için aşağıdaki adımlar�
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

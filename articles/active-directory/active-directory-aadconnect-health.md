@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 10/18/2016
 ms.author: vakarand
 translationtype: Human Translation
-ms.sourcegitcommit: 87c73981c74fc763fd1aec6c283e934c77008441
-ms.openlocfilehash: 5a7a740ddac54e9b908d17e64b4590aecdc34956
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: aaab182844b685469cff6a5b692d735482a33952
 
 
 ---
-# <a name="monitor-your-onpremises-identity-infrastructure-and-synchronization-services-in-the-cloud"></a>Buluttaki şirket içi kimlik altyapınızı ve eşitleme hizmetlerini izleyin
+# <a name="monitor-your-on-premises-identity-infrastructure-and-synchronization-services-in-the-cloud"></a>Buluttaki şirket içi kimlik altyapınızı ve eşitleme hizmetlerini izleyin
 Azure AD Connect Health, şirket içi kimlik altyapınızı ve eşitleme hizmetlerini izlemenize ve daha iyi kavramanıza yardımcı olur.  AD FS sunucuları, Azure AD Connect sunucuları (diğer adıyla eşitleme altyapısı), Active Directory etki alanı denetleyicileri vb. gibi anahtar kimlik bileşenlerinizi izleme işlevleri sağlayarak Office 365 ve Microsoft Online Services ile güvenilir bir bağlantı sürdürmenizi sağlar. Aynı zamanda, bu bileşenlere ait önemli veri noktalarını kolayca erişilebilir hale getirir. Böylece, bilgiye dayalı kararlar almak için kullanım bilgilerini ve diğer önemli öngörüleri almayı kolaylaştırır.
 
 Bilgiler, [Azure AD Connect Health Portalı](https://aka.ms/aadconnecthealth)'nda size sunulur. Azure AD Connect Health portalını kullanarak uyarıları, performans izlemeyi, kullanım analizini ve daha fazlasını görüntüleyebilirsiniz. Azure AD Connect Health, tüm anahtar kimlik bileşenleriniz için aynı yerde tek sistem durumu odağı sağlar.
@@ -32,7 +32,7 @@ Azure AD Connect Health'e ilişkin gelecekte yapılacak olan güncelleştirmeler
 ## <a name="why-use-azure-ad-connect-health"></a>Azure AD Connect Health neden kullanılır?
 Şirket içi dizinlerinizin Azure AD ile tümleştirilmesi, kullanıcılarınızın hem bulut kaynaklarına hem de şirket içi kaynaklara erişmesi için ortak bir kimlik oluşturarak daha üretken olmalarını sağlar. Ancak kullanıcıların herhangi bir cihazdan şirket içi ve buluttaki kaynaklara güvenilir bir şekilde erişmeleri için bu ortamın sağlıklı olup olmadığından emin olma testleri de bu tümleştirmeyle ortaya çıkar. Azure AD Connect Health, Office 365 veya diğer Azure AD uygulamalarına erişmek için kullanılan şirket içi kimlik altyapınızı izlemeniz ve altyapınıza ilişkin öngörüler elde etmeniz için bulut tabanlı kolay bir yaklaşım sağlar. Her bir şirket içi kimlik sunucunuza bir aracı yüklemek kadar basittir.
 
-## <a name="azure-ad-connect-health-for-ad-fsactivedirectoryaadconnecthealthadfsmd"></a>[AD FS için Azure AD Connect Health](active-directory-aadconnect-health-adfs.md)
+## <a name="azure-ad-connect-health-for-ad-fsactive-directory-aadconnect-health-adfsmd"></a>[AD FS için Azure AD Connect Health](active-directory-aadconnect-health-adfs.md)
 AD FS'ye ilişkin Azure AD Connect Health, Windows Server 2008 R2 üzerinde AD FS 2.0'ı, Windows Server 2012 ve Windows Server 2012R2'de AD FS'yi destekler. Ayrıca, extranet erişimi için kimlik doğrulaması desteği sağlayan AD FS ve Web Uygulaması Ara Sunucularının izlenmesini de destekler. Kolay ve düşük maliyetli durum aracısı kurulumu ile AD FS için Azure AD Connect Health şu önemli özellikleri sağlar:
 
 * AD FS ve AD FS Ara sunucularının sağlıklı olup olmadıklarını öğrenmek için uyarılarla izleme
@@ -47,7 +47,7 @@ Aşağıdaki video, AD FS için Azure AD Connect Health hakkında genel bakış 
 >
 >
 
-## <a name="azure-ad-connect-health-for-syncactivedirectoryaadconnecthealthsyncmd"></a>[Eşitleme için Azure AD Connect Health](active-directory-aadconnect-health-sync.md)
+## <a name="azure-ad-connect-health-for-syncactive-directory-aadconnect-health-syncmd"></a>[Eşitleme için Azure AD Connect Health](active-directory-aadconnect-health-sync.md)
 Eşitleme için Azure AD Connect Health, şirket içi Active Directory'niz ve Azure Active Directory'niz arasında oluşan eşitlemeleri izler ve haklarında bilgi verir. Eşitlemeye ilişkin Azure AD Connect Health aşağıdaki temel işlevler kümesini sağlar:
 
 * Azure AD Connect sunucularının (diğer adıyla Eşitleme Altyapısının) sağlıklı olup olmadığını öğrenmek için uyarılarla izleme
@@ -62,7 +62,7 @@ Aşağıdaki video, Eşitleme için Azure AD Connect Health ile ilgili genel bak
 >
 >
 
-## <a name="azure-ad-connect-health-for-ad-ds-previewactivedirectoryaadconnecthealthaddsmd"></a>[AD DS için Azure AD Connect Health (önizleme)](active-directory-aadconnect-health-adds.md)
+## <a name="azure-ad-connect-health-for-ad-ds-previewactive-directory-aadconnect-health-addsmd"></a>[AD DS için Azure AD Connect Health (önizleme)](active-directory-aadconnect-health-adds.md)
 AD DS için Azure AD Connect Health, Windows Server 2008 R2, Windows Server 2012 ve Windows Server 2012 R2'de yüklü Etki Alanı Denetleyicileri için izleme olanağı sağlar. Kolay ve düşük maliyetli durum aracısı kurulumu, size şirket içi AD DS ortamınızı doğrudan buluttan izleme olanağı sağlar. AD DS için Azure AD Connect Health aşağıdaki temel işlevler kümesini sağlar:
 
 * Etki alanı denetleyicilerinin iyi durum olmadığı zamanları algılayan, kritik uyarılara ilişkin e-posta bildirimleri ile birlikte izleme uyarıları.
@@ -121,6 +121,6 @@ Azure AD Connect Health portalı; uyarıları, performans izlemeyi ve kullanım 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

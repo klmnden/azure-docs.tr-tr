@@ -8,15 +8,16 @@ manager: swadhwa
 editor: 
 ms.assetid: 754796ef-a43e-468a-86c9-04a2eda55b5b
 ms.service: operations-management-suite
+ms.custom: oms-security
 ms.topic: get-started-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2016
+ms.date: 12/01/2016
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: fe043cd4438612ada9a31ae895aae75b913b0a37
+ms.sourcegitcommit: 5001cd47b6ee51967d1286414ccefedd8e7e7813
+ms.openlocfilehash: 888b9786de8302ccd2e11f271aa417bcbcc2620b
 
 
 ---
@@ -148,7 +149,7 @@ Bu seçeneğin ana amacı, IT'nin ortamındaki olası tehditleri ve bu tehditler
 
 ![Tehdit Bilgisi](./media/oms-security-getting-started/oms-getting-started-fig12.png)
 
-Bu seçenek bir olay yanıtı araştırması sırasında değerlendirme gerçekleştirmek ve saldırı hakkında daha fazla bilgi elde etmek için de kullanılabilir.
+Bu seçenek bir [olay yanıtı araştırması](https://blogs.msdn.microsoft.com/azuresecurity/2016/11/30/investigating-suspicious-activity-in-a-hybrid-cloud-with-oms-security/) sırasında değerlendirme gerçekleştirmek ve saldırı hakkında daha fazla bilgi elde etmek için de kullanılabilir.
 
 > [!NOTE]
 > OMS'nin Olay Yanıtı için nasıl kullanılabileceği hakkında daha fazla bilgi için [Olay Yanıtı için Azure Güvenlik Merkezi'nden ve Operations Management Suite'ten Yararlanma](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703) videosunu izleyin.
@@ -186,6 +187,6 @@ Bu belgede size OMS Güvenlik ve Denetim çözümü tanıtılmaktadır. OMS Güv
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 
