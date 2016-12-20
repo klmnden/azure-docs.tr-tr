@@ -18,6 +18,7 @@
 ### [Java web uygulaması](documentdb-java-application.md)
 ### [Python Flask web uygulaması](documentdb-python-application.md)
 ## [Yerel Olarak Geliştirme](documentdb-nosql-local-emulator.md)
+### [Öykünücü Sertifikalarını Dışarı Aktarma](documentdb-nosql-local-emulator-export-ssl-certificates.md)
 ## [SSS](documentdb-faq.md)
 
 # Nasıl yapılır
@@ -41,13 +42,17 @@
 ### [Kaynak kotaları](documentdb-limits.md)
 ### [Kotaları artırma](documentdb-increase-limits.md)
 ### [İstek birimleri](documentdb-request-units.md)
-### [Azure CLI'si ve Azure Resource Manager](documentdb-automation-resource-manager-cli.md)
+### Azure CLI
+#### [Hesap oluşturma](documentdb-automation-resource-manager-cli.md)
+#### [Bölge ekleme veya kaldırma](documentdb-automation-region-management.md)
+### [Azure PowerShell](documentdb-manage-account-with-powershell.md)
 ### [Güvenlik duvarı desteği](documentdb-firewall-support.md)
 ### [Hesaba fazla yükleme](documentdb-supercharge-your-account.md)
 
 ## Geliştirme
 ### [SQL sorgusu](documentdb-sql-query.md)
 ### [Saklı yordamlar, tetikleyiciler ve UDF'ler](documentdb-programming.md)
+### [Değişiklik akışı ile değişiklikleri izleme](documentdb-change-feed.md)
 ### [Performansı test etme](documentdb-performance-testing.md)
 ### [Performans ipuçları](documentdb-performance-tips.md)
 ### MongoDB geliştiricileri için DocumentDB
@@ -83,18 +88,20 @@
 
 
 # Başvuru
-## [Java SDK](documentdb-sdk-java.md)
-## [.NET SDK](documentdb-sdk-dotnet.md)
-## [.NET Core SDK](documentdb-sdk-dotnet-core.md)
-## [.NET örnekleri](documentdb-dotnet-samples.md)
-## [Node.js SDK’sı](documentdb-sdk-node.md)
-## [Node.js örnekleri](documentdb-nodejs-samples.md)
-## [Python SDK'sı](documentdb-sdk-python.md)
-## [Python örnekleri](documentdb-python-samples.md)
-## [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
-## [SQL dil bilgisi kopya kağıdı](documentdb-sql-query-cheat-sheet.md)
+## [Java](documentdb-sdk-java.md)
+## [.NET](documentdb-sdk-dotnet.md)
+## [.NET Core](documentdb-sdk-dotnet-core.md)
+## [Node.js](documentdb-sdk-node.md)
+## [Python](documentdb-sdk-python.md)
 ## [REST](/rest/api/documentdb/)
 ## [REST Kaynak Sağlayıcısı](/rest/api/documentdbresourceprovider/)
+
+# İlgili
+## [.NET örnekleri](documentdb-dotnet-samples.md)
+## [Node.js örnekleri](documentdb-nodejs-samples.md)
+## [Python örnekleri](documentdb-python-samples.md)
+## [SQL Söz Dizimi](https://msdn.microsoft.com/library/azure/dn782250.aspx)
+## [SQL dil bilgisi kopya kağıdı](documentdb-sql-query-cheat-sheet.md)
 
 # Kaynaklar
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/documentdb/)
@@ -110,6 +117,6 @@
 ## [Öğrenme yolu](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

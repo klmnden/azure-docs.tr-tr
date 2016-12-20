@@ -22,6 +22,7 @@
 ## Güvenlik
 ### [Azure SQL Veritabanı için Azure Güvenlik Merkezi](https://azure.microsoft.com/documentation/articles/security-center-sql-database/)
 ### [SQL Güvenlik Merkezi](https://msdn.microsoft.com/library/azure/bb510589)
+
 # Kullanmaya Başlama
 ## Veritabanları ve sunucular
 ### Tek veritabanları
@@ -189,6 +190,7 @@
 #### [Azure portalını kullanarak yükseltme](sql-database-upgrade-server-portal.md)
 #### [PowerShell’i kullanarak yükseltme](sql-database-upgrade-server-powershell.md)
 #### [Fiyatlandırma katmanı önerileri](sql-database-service-tier-advisor.md)
+
 # Nasıl yapılır
 ## Oluşturma ve yönetme
 ### Sunucular ve veritabanları
@@ -315,7 +317,6 @@
 #### [Azure Portal](sql-database-geo-replication-failover-portal.md)
 #### [PowerShell](sql-database-geo-replication-failover-powershell.md)
 #### [T-SQL](sql-database-geo-replication-failover-transact-sql.md)
-
 ## Sorun giderme
 ### [Bağlantı sorunları](sql-database-troubleshoot-common-connection-issues.md)
 ### [Geçici bağlantı hatası](sql-database-troubleshoot-connection.md)
@@ -325,26 +326,26 @@
 
 
 # Başvuru
-## [PowerShell](/powershell/azureps-cmdlets-docs/)
-## [PowerShell klasik](/powershell/servicemanagement/)
-## [Java](/java/api/)
-## [.NET](/dotnet/api/)
+## [PowerShell](/powershell/resourcemanager/azurerm.sql/v2.3.0/azurerm.sql)
+## [PowerShell (Esnek DB)](/powershell/elasticdatabasejobs/v0.8.33/elasticdatabasejobs)
+## [.NET](https:dotnet/api/microsoft.azure.management.sql.models)
+## [Java](/java/api/com.microsoft.azure.management.sql)
+## [Node.js](https://msdn.microsoft.com/library/mt652093.aspx)
+## [Python](https://msdn.microsoft.com/library/mt652092.aspx)
+## [Ruby](https://msdn.microsoft.com/library/mt691981.aspx)
+## [PHP](https://msdn.microsoft.com/library/dn865013.aspx)
 ## [T-SQL](https://msdn.microsoft.com/library/azure/bb510741.aspx)
-## [Azure SQL Veritabanı Cmdlet’leri](/powershell/resourcemanager/AzureRM.Sql/v1.0.12/AzureRM.Sql)
-## [SQL Server Cmdlet'leri](https://msdn.microsoft.com/library/mt740629.aspx)
 ## [REST](/rest/api/sql/)
 
+# İlgili
 ## SQL Veritabanı Yönetim Kitaplığı
-### [SQL Veritabanı Yönetim Kitaplığı Başvurusu](https://msdn.microsoft.com/library/azure/mt349017.aspx)
 ### [SQL Veritabanı Yönetim Kitaplığı paketi](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql)
 ## [SQL Server Sürücüleri](https://msdn.microsoft.com/library/mt654049.aspx)
 ### [ADO.NET](https://msdn.microsoft.com/library/mt657768.aspx)
 ### [JDBC](https://msdn.microsoft.com/library/mt484311.aspx)
-### [Node.js](https://msdn.microsoft.com/library/mt652093.aspx)
+
 ### [ODBC](https://msdn.microsoft.com/library/mt654048.aspx)
-### [PHP](https://msdn.microsoft.com/library/dn865013.aspx)
-### [Python](https://msdn.microsoft.com/library/mt652092.aspx)
-### [Ruby](https://msdn.microsoft.com/library/mt691981.aspx)
+
 
 # Kaynaklar
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/sql-database/)
@@ -360,6 +361,6 @@
 ## [SqlPackage](https://msdn.microsoft.com/hh550080.aspx)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

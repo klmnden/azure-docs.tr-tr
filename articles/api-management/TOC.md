@@ -39,13 +39,16 @@
 ### [Kullanıcı hesaplarını yönetme](api-management-howto-create-or-invite-developers.md)
 ### [Otomasyonu kullanarak yönetme](automation-manage-api-management.md)
 ### [Git kullanarak yapılandırma](api-management-configuration-repository-git.md)
-#Başvuru
+
+# Başvuru
 ## [PowerShell](/powershell/azureps-cmdlets-docs)
-## [Klasik PowerShell](https://msdn.microsoft.com/library/azure/mt613507)
 ## [REST](/rest/api/apimanagement/)
+## [REST (özgün)](/rest/api/apimanagement/ApiManagementREST/API-Management-REST)
+
+
+# Kaynaklar
 ## [İlkeler](https://msdn.microsoft.com/library/azure/dn894081)
 ## [Şablonlar](https://msdn.microsoft.com/library/azure/mt697540)
-#Kaynaklar
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/api-management/)
 ## [MSDN forumu](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureapimgmt)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-api-management)
@@ -63,6 +66,6 @@
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO2-->
 
 

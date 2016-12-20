@@ -138,6 +138,9 @@
 ##### [StorSimple Snapshot Manager’da MMC eylemlerini yönetme](storsimple-snapshot-manager-mmc-menu.md)
 
 ### Çözüm oluşturma
+#### [Veeam ile StorSimple](storsimple-configure-backup-target-veeam.md)
+#### [Veritas Backup Exec ile StorSimple](storsimple-configure-backup-target-using-backup-exec.md)
+#### [Veritas NetBackup ile StorSimple](storsimple-configure-backuptarget-netbackup.md)
 #### [Dosya Sunucusu DR’sini Azure’a otomatikleştirme](storsimple-disaster-recovery-using-azure-site-recovery.md)
 #### [Express Route ile StorSimple](https://gallery.technet.microsoft.com/STORESIMPLE-CONFIGURATION-86c04c3b/view/Discussions#content)
 #### [VMware ile StorSimple](https://gallery.technet.microsoft.com/VMWARE-DEPLOYMENT-WITH-2921b463)
@@ -217,6 +220,6 @@
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO2-->
 
 
