@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/09/2016
+ms.date: 12/12/2016
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2a5bcc177d298aecd9fd474bd15fc0331b26e887
+ms.sourcegitcommit: 9e738c4e5f43ae6c939f7c6da90c258498943e73
+ms.openlocfilehash: b8115f1fb72b0ba89fd0c8afa3358878a0fab92b
 
 
 ---
@@ -33,25 +33,30 @@ Tahmine dayalı bir analiz modeli geliştirmek için, genellikle bir veya daha �
 
 **Azure Machine Learning Studio**, tahmine dayalı bir analiz modelini kolayca oluşturma, test etme ve yineleme amacıyla etkileşimli ve görsel bir çalışma alanı sunar. ***Veri kümelerini*** ve analiz ***modüllerini*** etkileşimli bir tuvale sürükleyip bırakır ve bunları birbirine bağlayarak Machine Learning Studio'da çalıştıracağınız bir ***deneme*** oluşturursunuz. Model tasarımınızı yinelemek için, denemeyi düzenleyin, isterseniz bir kopyasını kaydedin ve yeniden çalıştırın. Hazır olduğunuzda, ***eğitim denemenizi*** bir ***tahmine dayalı denemeye*** dönüştürebilir ve ardından modelinize başkaları tarafından erişilebilmesi için bunu bir ***web hizmeti*** olarak yayımlayabilirsiniz.
 
+Programlama gerekmez; tahmine dayalı analiz modelinizi oluşturmak için veri kümelerini ve modülleri görsel olarak bağlamanız yeterlidir.
+
 > [!TIP]
 > Machine Learning Studio'nun işlevlerine genel bir bakış sağlayan bir diyagram indirmek ve yazdırmak için bkz. [Azure Machine Learning Studio'nun işlevlerine genel bakış diyagramı](machine-learning-studio-overview-diagram.md).
 > 
 > 
-
-Programlama gerekmez; tahmine dayalı analiz modelinizi oluşturmak için veri kümelerini ve modülleri görsel olarak bağlamanız yeterlidir.
 
 ![Azure ML Studio diyagramı: Deneme oluşturma, birçok kaynak için veri okuma, puanlanmış veri yazma, model yazma.][ml-studio-overview]
 
 ## <a name="get-started-with-machine-learning-studio"></a>Machine Learning Studio ile çalışmaya başlama
 [Machine Learning Studio](https://studio.azureml.net)'ya ilk girişinizde **Giriş** sayfasını görürsünüz. Buradan belgeleri, videoları, web seminerlerini görüntüleyebilir ve diğer değerli kaynakları bulabilirsiniz.
 
-Üst kısımda üç sekme bulunur: **Giriş** (başladığınız yer) **Studio** ve **Galeri**.
+Sol üst menüye tıkladığınızda ![Menü](media/machine-learning-what-is-ml-studio/menu.png) birkaç seçenek göreceksiniz.
 
-### <a name="studio"></a>Studio
-**Studio** sekmesine tıkladığınızda Microsoft hesabınızı veya iş ya da okul hesabınızı kullanarak oturum açmanız istenir. Oturum açtıktan sonra, solda şu sekmeleri görürsünüz:
+### <a name="cortana-intelligence"></a>Cortana Intelligence
+**Cortana Intelligence**'a tıkladığınızda [Cortana Intelligence Suite](https://www.microsoft.com/cloud-platform/cortana-intelligence-suite)'in ana sayfası açılır. Cortana Intelligence Suite, verilerinizi akıllı eylemlere dönüştüren büyük veri ve gelişmiş analiz özellikleri sunan, tam yönetilen bir çözümdür. Müşteri hikayeleri dahil olmak üzere tüm belgeleri görüntülemek için Suite ana sayfasını ziyaret edin.
+
+### <a name="azure-machine-learning"></a>Azure Machine Learning
+Burada iki seçenek vardır: Başladığınız sayfa olan **Ana Sayfa** ve **Studio**.
+
+**Studio**'ya tıkladığınızda **Azure Machine Learning Studio** sayfası açılır. Öncelikle Microsoft hesabınızı veya iş ya da okul hesabınızı kullanarak oturum açmanız istenir. Oturum açtıktan sonra, solda şu sekmeleri görürsünüz:
 
 * **PROJELER** - Tek bir projeyi temsil eden denemeler, veri kümeleri, not defterleri ve diğer kaynakların koleksiyonu
-* **DENEMELER** - Taslak olarak oluşturulan, çalıştırılan ve kaydedilen denemeler
+* **DENEMELER** - Oluşturup çalıştırdığınız veya taslak olarak kaydettiğiniz denemeler
 * **WEB HİZMETLERİ** - Denemelerinizden dağıttığınız web hizmetleri
 * **NOT DEFTERLERİ** - Oluşturduğunuz Jupyter not defterleri
 * **VERİ KÜMELERİ** - Studio'ya yüklediğiniz veri kümeleri
@@ -59,7 +64,7 @@ Programlama gerekmez; tahmine dayalı analiz modelinizi oluşturmak için veri k
 * **AYARLAR** - Hesabınızı ve kaynaklarınızı yapılandırmak için kullanabileceğiniz ayarlar koleksiyonu.
 
 ### <a name="gallery"></a>Galeri
-**Galeri** sekmesine tıkladığınızda Cortana Intelligence Galerisi'nde gidersiniz. Galeri, bir veri bilimcileri ve geliştiricileri topluluğunun Cortana Intelligence Suite bileşenleri kullanılarak oluşturduğu çözümleri paylaşabileceği bir yerdir.
+**Galeri** sekmesine tıkladığınızda **[Cortana Intelligence Galerisi](http://gallery.cortanaintelligence.com/)** açılır. Galeri, bir veri bilimcileri ve geliştiricileri topluluğunun Cortana Intelligence Suite bileşenleri kullanılarak oluşturduğu çözümleri paylaştığı yerdir.
 
 Galeri hakkında daha fazla bilgi için bkz. [Cortana Intelligence Galerisi'nde çözüm paylaşma ve keşfetme](machine-learning-gallery-how-to-use-contribute-publish.md).
 
@@ -94,8 +99,8 @@ Bir modül, verilerinizde gerçekleştirebileceğiniz bir algoritmadır. Machine
 
 * [ARFF'ye Dönüştürme][convert-to-arff] - Seri hale getirilmiş .NET veri kümesini Öznitelik-İlişki Dosyası Biçimi'ne (ARFF) dönüştürür.
 * [Basit İstatistikleri Hesaplama][elementary-statistics] - Ortalama, standart sapma vb. basit istatistikleri hesaplar.
-* [Linear Regression (Doğrusal Regresyon)][linear-regression] - Çevrimiçi bir gradyan düşüşü tabanlı doğrusal regresyon modeli oluşturur.
-* [Score Model (Model Puanlama)][score-model] - Eğitilmiş bir sınıflandırma veya regresyon modelini puanlar.
+* [Doğrusal Regresyon][linear-regression] - Çevrimiçi bir gradyan düşüşü tabanlı doğrusal regresyon modeli oluşturur.
+* [Model Puanlama][score-model] - Eğitilmiş bir sınıflandırma veya regresyon modelini puanlar.
 
 Bir deneme oluştururken, tuvalin solundaki kullanılabilir modül listesinden seçebilirsiniz.  
 
@@ -116,6 +121,6 @@ Tahmine dayalı analiz modeliniz hazır olduktan sonra, bunu doğrudan Machine L
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

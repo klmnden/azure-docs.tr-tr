@@ -1,6 +1,6 @@
 ---
-title: "PowerShell ile yeni bir esnek veritabanı havuzu oluşturma | Microsoft Belgeleri"
-description: "Birden fazla veritabanını yönetmek üzere ölçeklenebilir bir esnek veritabanı havuzu oluşturarak Azure SQL Database kaynaklarının ölçeklerini genişletmek üzere PowerShell&quot;i nasıl kullanacağınızı öğrenin."
+title: "PowerShell ile yeni bir elastik havuz oluşturma | Microsoft Belgeleri"
+description: "Birden fazla veritabanını yönetmek üzere ölçeklenebilir bir elastik havuz oluşturarak Azure SQL Veritabanı kaynaklarının ölçeklerini genişletmek üzere PowerShell&quot;i nasıl kullanacağınızı öğrenin."
 services: sql-database
 documentationcenter: 
 author: srinia
@@ -8,28 +8,28 @@ manager: jhubbard
 editor: 
 ms.assetid: 37a707ee-9223-43ae-8c35-1ccafde8b83e
 ms.service: sql-database
-ms.custom: sharded databases pool
+ms.custom: multiple databases
 ms.devlang: NA
-ms.topic: hero-article
+ms.topic: get-started-article
 ms.tgt_pltfrm: powershell
 ms.workload: data-management
 ms.date: 05/27/2016
 ms.author: srinia
 translationtype: Human Translation
-ms.sourcegitcommit: a877c17a503e58c49ae781aed61ed120d069c737
-ms.openlocfilehash: 19ea620789b31ee68d8e34acd161eeb820947b23
+ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
+ms.openlocfilehash: 8bf8f24db6b543ec1161cf499e6fc116514f85cb
 
 
 ---
-# <a name="create-a-new-elastic-database-pool-with-powershell"></a>PowerShell ile yeni bir esnek veritabanı havuzu oluşturma
+# <a name="create-a-new-elastic-pool-with-powershell"></a>PowerShell ile yeni bir elastik havuz oluşturma
 > [!div class="op_single_selector"]
-> * [Azure Portal](sql-database-elastic-pool-create-portal.md)
+> * [Azure portal](sql-database-elastic-pool-create-portal.md)
 > * [PowerShell](sql-database-elastic-pool-create-powershell.md)
 > * [C#](sql-database-elastic-pool-create-csharp.md)
 >
 >
 
-PowerShell cmdlet'lerini kullanarak [esnek veritabanı havuzu](sql-database-elastic-pool.md) oluşturmayı öğrenin.
+PowerShell cmdlet'lerini kullanarak [elastik havuz](sql-database-elastic-pool.md) oluşturmayı öğrenin.
 
 Genel hata kodları için bkz. [SQL Database istemci uygulamaları için SQL hata kodları: Veritabanı bağlantı hatası ve diğer sorunlar](sql-database-develop-error-messages.md).
 
@@ -84,6 +84,6 @@ Bu betik, yeni bir Azure kaynak grubu ve yeni bir sunucu oluşturur. İstendiği
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

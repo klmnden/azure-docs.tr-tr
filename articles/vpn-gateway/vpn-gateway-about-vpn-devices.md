@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/01/2016
+ms.date: 12/12/2016
 ms.author: yushwang;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: d85451d84f605f8472da66574cfec3ba212884ea
-ms.openlocfilehash: f7ecd6b2e590122c4794cd0a81754da9398ba320
+ms.sourcegitcommit: bbaf89bca07fd2d4c4a12403d2daa8323f4d7be5
+ms.openlocfilehash: 12e7768665b8d360fe7241c9879bd1f7bfc63664
 
 
 ---
@@ -66,7 +66,7 @@ VPN cihazınızı yapılandırma konusunda yardım almak için, uygun cihaz aile
 | Open Systems AG |Mission Control Security Ağ Geçidi |Yok |[Yükleme kılavuzu](https://www.open.ch/_pdf/Azure/AzureVPNSetup_Installation_Guide.pdf) |[Yükleme kılavuzu](https://www.open.ch/_pdf/Azure/AzureVPNSetup_Installation_Guide.pdf) |
 | Openswan |Openswan |2.6.32 |(Çok yakında) |Uyumlu değil |
 | Palo Alto Networks |PAN-OS çalıştıran tüm cihazlar |PAN-OS<br>PolicyBased: 6.1.5 veya üzeri<br>RouteBased: 7.0.5 veya üzeri |[Yapılandırma yönergeleri](https://live.paloaltonetworks.com/t5/Configuration-Articles/How-to-Configure-VPN-Tunnel-Between-a-Palo-Alto-Networks/ta-p/59065) |[Yapılandırma yönergeleri](https://live.paloaltonetworks.com/t5/Integration-Articles/Configuring-IKEv2-VPN-for-Microsoft-Azure-Environment/ta-p/60340) |
-| Watchguard |Tümü |Fireware XTM<br> PolicyBased: v11.11.x<br>RouteBased: v11.12.x |[Yapılandırma yönergeleri](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA2F00000000LI7KAM&lang=en_US) |[Yapılandırma yönergeleri](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA22A000000XZogSAG&lang=en_US)|
+| WatchGuard |Tümü |Fireware XTM<br> PolicyBased: v11.11.x<br>RouteBased: v11.12.x |[Yapılandırma yönergeleri](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA2F00000000LI7KAM&lang=en_US) |[Yapılandırma yönergeleri](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA22A000000XZogSAG&lang=en_US)|
 
 (*) ISR 7200 Serisi yönlendiriciler yalnızca PolicyBased VPN'leri destekler.
 
@@ -153,6 +153,6 @@ Aşağıdaki tabloda IPsec SA Şifreleme ve Kimlik Doğrulama Teklifleri listele
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 
