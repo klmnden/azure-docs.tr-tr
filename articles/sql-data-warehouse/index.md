@@ -1,14 +1,15 @@
 ---
 layout: LandingPage
+description: "SQL Server’ı yüksek düzeyde paralel işleme ile birleştiren SQL Veri Ambarı’nı nasıl kullanacağınızı öğrenin. Belgelerde verileri nasıl yükleyeceğiniz, çözümleyeceğiniz, yöneteceğiniz ve dışarı aktaracağınız açıklanmıştır."
 translationtype: Human Translation
-ms.sourcegitcommit: 511d15cc48b17bd65bedc2c1cd9602d868ffa724
-ms.openlocfilehash: 6c949e62406f2d9029c00e87dfc3ca5530a5497f
+ms.sourcegitcommit: 2570909cb1cbd88a03ffb3cee82825e9e277f634
+ms.openlocfilehash: c445bb63fec439f9330b0c74346eabcfad3971da
 
 ---
 
 # <a name="sql-data-warehouse-documentation"></a>SQL Veri Ambarı Belgeleri
 
-Azure SQL Veri Ambarı SQL Server ilişkisel veritabanıyla Azure bulut ölçeğini genişletme işlevlerini birleştirir.  Yüksek düzeyde paralel işleme (MPP) mimarimizin üzerine kurulu olan SQL Data Warehouse, kuruluşunuzun iş yükünü işleyebilir.
+SQL Server ilişkisel veritabanını yüksek düzeyde paralel işleme ile birleştiren SQL Veri Ambarı’nı nasıl kullanacağınızı öğrenin. Öğreticilerde ve diğer belgelerd,e ambara veri yükleme ve yüklenen verileri çözümleme, yönetme ve dışarı aktarma ile ilgili bilgiler sağlanmıştır.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -54,7 +55,8 @@ Azure SQL Veri Ambarı SQL Server ilişkisel veritabanıyla Azure bulut ölçeğ
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/portal.svg" alt="" />
+
+<img src="media/index/portal.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -75,7 +77,8 @@ Azure SQL Veri Ambarı SQL Server ilişkisel veritabanıyla Azure bulut ölçeğ
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
-                    <div class="Command-Line</h3>
+                    <div class="cardText">
+                        <h3>Komut Satırı</h3>
                         <p><a href="/azure/sql-data-warehouse/sql-data-warehouse-reference-powershell-cmdlets">PowerShell cmdlet'leri</a></p>
                     </div>
                 </div>
@@ -109,6 +112,6 @@ SQL Veri Ambarı Belgelerini İndirme </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

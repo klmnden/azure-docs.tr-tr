@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "HDInsight&quot;ta Hadoop’u öğrenin. Belgelerde Hadoop, Spark, HBase, R-Server ve daha fazlasını kullanarak büyük verileri işleme, çözümleme ve verilerden öngörü edinme konularında bilgi sağlanmıştır."
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: 1513c4d2b658efff20095a293cec2a9687ebeabf
+ms.sourcegitcommit: a2902740659bb6d6246d1e44023bd27fa38aff91
+ms.openlocfilehash: 5cf7e165b9cd31fcf5bd03d03b6e1eb3d9cd46c7
 
 ---
 #<a name="azure-hdinsight-documentation"></a>Azure HDInsight Belgeleri
 
-Azure HDInsight, bulut tarafından desteklenen bir Apache Hadoop uygulamasıdır.  Azure HDInsight, Hortonworks Data Platform (HDP) dağıtımından elde edilen Hadoop bileşenlerinin bulutta kullanılmasını sağlamanın yanı sıra, güvenilirlik ve kullanılabilirlik özelliğine sahip yönetilen kümeler dağıtır ve sağlar.  Azure HDInsight; Apache Hadoop, Spark, HBase ve Storm için küme yapılandırmaları sağlar.  Betik eylemleri içeren özel kümeleri de kullanabilirsiniz.  
+Hadoop’u bulutta HDInsight üzerinde kullanarak akışı veya geçmiş verileri nasıl çözümleyebileceğinizi öğrenin. Öğreticilerde ve diğer belgelerde, küme oluşturma; büyük verileri işleme ve çözümleme; Hadoop, Spark, HBase, R-Server, Storm ve Hadoop ekosistemindeki diğer teknolojilerle çözüm geliştirme konularında bilgiler sağlanmıştır.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -122,64 +123,47 @@ Azure HDInsight, bulut tarafından desteklenen bir Apache Hadoop uygulamasıdır
 </ul>
 
 ---
-
-## <a name="reference"></a>Başvuru
-
+ 
+<h2>Başvuru</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Azure PowerShell Başvurusu</p>
+                        <h3>Komut Satırı</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.hdinsight/v2.3.0/azurerm.hdinsight">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-
- <li>
-        <a href="/rest/api/hdinsight">
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Diller</h3>
+                        <p><a href="https://msdn.microsoft.com/library/mt271028.aspx">.NET (Hadoop)</a></p>
+                        <p><a href="https://www.nuget.org/packages/Microsoft.HBase.Client/">.NET (HBase)</a></p>
+                        <p><a href="https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library">.NET (Avro)</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>HDInsight REST API Başvurusu</p>
+                        <p><a href="/rest/api/hdinsight/">REST API</a></p>
+                        <p><a href="/rest/api/hdinsightspark/">REST API (Spark)</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
-         <a href="/rest/api/hdinsightspark">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <p>HDInsight için Spark REST API Başvurusu</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-
-    <li>
-        <a href="https://msdn.microsoft.com/library/azure/mt271028">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>HDInsight Yönetilen Başvurusu</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
     </li>
 </ul>
 
@@ -193,6 +177,6 @@ HDInsight Belgelerini İndirme </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

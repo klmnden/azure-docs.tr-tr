@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Uygulamaların ağ performansı için Load Balancer’ı nasıl kullanacağınızı öğrenin. Sanal makineler ve bulut kaynaklarına yönelik trafiğin yanı sıra şirket içi ve şirket dışı sanal ağlardaki trafiği yönetin."
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: 8b95ce7f93293a25db4df5858209902ba6347591
+ms.sourcegitcommit: e62704476642d8a519b7bd8b9b101b47ab42e08c
+ms.openlocfilehash: 476eb9f4934d35a808fdd70b6443822eb0a7cfa7
 
 ---
 #<a name="load-balancer-documentation"></a>Yük Dengeleyici Belgeleri
 
-Azure Load Balancer, uygulamalarınıza yüksek düzeyde kullanılabilirlik ve ağ performansı sağlar.  Load Balancer; sanal makinelere gelen İnternet trafiği, bulut kaynakları arasındaki trafik, sahalar arası sanal ağdaki trafik veya belirli bir sanal makineden giden trafik için yük dengeleme yapılacak şekilde yapılandırılabilir.
+Load Balancer’ı uygulamalarınıza yüksek düzeyde kullanılabilirlik ve ağ performansı sağlayacak biçimde yapılandırmayı öğrenin. Belgelerde sanal makinelere ve bulut kaynaklarına yönelik ya da bunlardan gelen trafiğin yanı sıra şirket içi ve şirket dışı sanal ağlardaki trafiğin yükünü nasıl dengeleyebileceğiniz açıklanmıştır.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -141,6 +142,6 @@ Yük Dengeleyici Belgelerini İndirme </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

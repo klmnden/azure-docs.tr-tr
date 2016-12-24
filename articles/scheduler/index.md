@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Scheduler hizmetini kullanarak yinelenen uygulama eylemleri ve düzenli bakım gibi işler zamanlama ve bunları çağırma hakkında bilgi edinin. Öğreticiler, API başvuruları ve daha fazlası."
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: 4d856b71ced1f1b9c6c1469bee4f23b84865c7d1
+ms.sourcegitcommit: ac4d47ff2e86906252ab93407eb6a4112d102523
+ms.openlocfilehash: 0afe27b9b7ec834ab8a2b944a164d31b7708eafe
 
 ---
 # <a name="scheduler-documentation"></a>Scheduler Belgeleri
 
-Azure Scheduler, bulutta çalıştırmak üzere eylemleri bildirimli olarak tanımlamanızı sağlar.  Sonra, bu eylemleri otomatik olarak zamanlar ve çalıştırır.  Scheduler daha sonra iş yürütme sonuçları geçmişini bir kişi tarafından incelenebilecek şekilde korur.
+Scheduler hizmetini kullanarak bulutta yinelenen işler zamanlama ve bunları otomatik olarak çağırma hakkında bilgi edinin. Öğreticiler, API başvuruları ve diğer belgeler, yinelenen uygulama eylemleri ve düzenli bakım gibi yinelenen işler zamanlama ve bunları izleme ile ilgili bilgiler içerir.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -29,7 +30,7 @@ Azure Scheduler, bulutta çalıştırmak üzere eylemleri bildirimli olarak tan�
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=scheduler">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=scheduler">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -68,52 +69,33 @@ Azure Scheduler, bulutta çalıştırmak üzere eylemleri bildirimli olarak tan�
 
 ---
 
-## <a name="reference"></a>Başvuru
-
+<h2>Başvuru</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="https://msdn.microsoft.com/en-us/library/mt490138(v=azure.200).aspx">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Azure Scheduler PowerShell Cmdlet’leri</p>
+                        <h3>Komut Satırı</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.scheduler/v0.11.1/azurerm.scheduler">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/dotnet/api">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Scheduler Yönetilen Başvurusu</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/rest/api/scheduler/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Scheduler REST API Başvurusu</p>
+                        <p><a href="/rest/api/scheduler">REST API Başvurusu</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-<ul>
+</ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/scheduler.pdf">
@@ -124,6 +106,7 @@ Scheduler Belgelerini indirin </div>
 </div>
 
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Dec16_HO3-->
 
 

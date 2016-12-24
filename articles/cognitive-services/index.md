@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Uygulamalarınıza görüntü tanıma, konuşma tanıma ve dil analizi gibi akıllı özellikleri nasıl ekleyebileceğinizi öğrenin. Hızlı başlangıç kılavuzları ve API başvuruları edinin."
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: b266164f44b36fbfbe3b8a662653a978877643fc
+ms.sourcegitcommit: d08cbd179ffb64630a37dd04e33ae50dfda3c615
+ms.openlocfilehash: 9e31044fb3be93befb18939210e0bc703462fbd6
 
 ---
 #<a name="cognitive-services-documentation"></a>Bilişsel Hizmetler Belgeleri
 
-Bilişsel Hizmetler (Önizleme) uygulamalarınızda doğal ve bağlamsal etkileşimi etkinleştirmek için kullanılan bir dizi API’den oluşur.  Bilişsel Hizmetler Dil, Konuşma, Görüntü, Arama ve Bilgi API'leri sunar.
+Bilişsel Hizmetler’i kullanarak uygulamalarınızda doğal ve bağlamsal etkileşimleri nasıl etkinleştirebileceğinizi öğrenin. Hızlı başlangıç öğreticileri ve API başvuruları metin, konuşma ve arama için yapay zeka özellikleri eklemenize yardımcı olur. 
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -68,52 +69,31 @@ Bilişsel Hizmetler (Önizleme) uygulamalarınızda doğal ve bağlamsal etkile�
 
 ---
 
-## <a name="reference"></a>Başvuru
-
+<h2>Başvuru</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Azure PowerShell Başvurusu</p>
+                        <h3>Komut Satırı</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.cognitiveservices/v0.4.1/azurerm.cognitiveservices">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-
     <li>
-        <a href="https://msdn.microsoft.com/library/azure/mt416943">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Bilişsel Hizmetler Yönetilen Başvurusu</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-
-    <li>
-        <a href="/rest/api/cognitiveservices">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Bilişsel Hizmetler REST API Başvurusu</p>
+                        <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/">REST API Başvurusu</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
 
@@ -127,6 +107,6 @@ Bilişsel Hizmetler Belgelerini indirin </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

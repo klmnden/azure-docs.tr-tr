@@ -8,6 +8,7 @@
 # Başlarken
 ## [Hızlı başlangıç](security-center-get-started.md)
 ## [Planlama ve işlemler](security-center-planning-and-operations-guide.md)
+## [İzinler](security-center-permissions.md)
 ## [SSS](security-center-faq.md)
 
 # Nasıl yapılır?
@@ -69,6 +70,6 @@
 ## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=security-center)
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

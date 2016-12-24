@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Bulut sanal ağları ile şirket içi ağlar arasındaki ya da farklı bulut sanal ağları arasındaki trafiği yönetmek üzere sanal özel ağ (VPN) geçitleri yapılandırmayı öğrenin."
 translationtype: Human Translation
-ms.sourcegitcommit: dca0fb0b2de4943b9a031d2759756654a0c7280f
-ms.openlocfilehash: 6a72b28f95338ebe04e764d7f83e8db3e3e91b78
+ms.sourcegitcommit: a826f96cd679bb26b8a6cf9bb6bf55e93ba4e346
+ms.openlocfilehash: 99843baf9989378aa3d4ff6325a399dae0b632b6
 
 ---
 #<a name="vpn-gateway-documentation"></a>VPN Gateway Belgeleri
 
-Azure VPN Gateway, Azure sanal ağları ile şirket içi konumlar ve ayrıca Azure içindeki sanal ağlar arasında (Sanal Ağdan Sanal Ağa) ağ trafiği göndermek için kullanılan bir sanal özel ağ (VPN) geçididir.  
+Sanal bir özel ağ geçidi olan VPN Gateway’i nasıl yapılandıracağınızı öğrenin. Belgelerde, Azure sanal ağları ile şirket içi ağlar arasında ya da diğer Azure sanal ağları arasında ağ trafiği gönderme işleminin nasıl yapılacağı gösterilmiştir.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -122,78 +123,33 @@ Azure VPN Gateway, Azure sanal ağları ile şirket içi konumlar ve ayrıca Azu
  
 ---
 
-## <a name="reference"></a>Başvuru
-
+<h2>Başvuru</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>PowerShell Başvurusu</p>
+                        <h3>Komut Satırı</h3>
+                        <p><a href="https://msdn.microsoft.com/library/mt163510(v=azure.300)">PowerShell (Resource Manager)</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/mt270335(v=azure.300)">PowerShell (Klasik)</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/cli/azure/network/vpn-gateway">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Azure CLI</h3>
-                        <p>Azure CLI ile VPN Gateway</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/dotnet/api">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>.NET Yönetilen Başvurusu</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/java/api">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Java</h3>
-                        <p>Java SDK Başvurusu</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="https://msdn.microsoft.com/library/mt163859">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>VPN Gateway REST API Başvurusu</p>
+                        <p><a href="https://msdn.microsoft.com/library/mt163859">REST (Resource Manager)</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/jj154113">REST (Klasik)</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
 
@@ -207,6 +163,6 @@ Azure VPN Gateway Belgelerini indirin </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 
