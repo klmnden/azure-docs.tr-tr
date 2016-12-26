@@ -1,5 +1,5 @@
 ---
-title: "SQL Veritabanı eğitmeni: SQL veritabanı oluşturma | Microsoft Belgeleri"
+title: "SQL Veritabanı öğreticisi: Sunucu, sunucu düzeyinde güvenlik duvarı kuralı, örnek veritabanı, veritabanı düzeyinde güvenlik duvarı oluşturma ve SQL Server Management Studio ile bağlanma | Microsoft Docs"
 description: "SQL Veritabanı mantıksal sunucusu, sunucu güvenlik duvarı kuralı, SQL veritabanı ve örnek veriler oluşturma hakkında bilgi edinin. Ayrıca, istemci araçlarına bağlanma, kullanıcıları yapılandırma ve bir veritabanı güvenlik duvarı kuralı oluşturma hakkında bilgi alın."
 keywords: "sql veritabanı öğreticisi, sql veritabanı oluşturma"
 services: sql-database
@@ -9,118 +9,303 @@ manager: jhubbard
 editor: 
 ms.assetid: aeb8c4c3-6ae2-45f7-b2c3-fa13e3752eed
 ms.service: sql-database
+ms.custom: single databases
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 09/07/2016
+ms.date: 11/23/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 914d5f7e6b8e9165fc8ba9021e1030b865ba5fb2
+ms.sourcegitcommit: c2252fc81f97019391ca2ba957f8402c4e97a9c2
+ms.openlocfilehash: f9b17c1cc77918fb1989b94b5bb359a697ceea7c
 
 
 ---
-# <a name="sql-database-tutorial-create-a-sql-database-in-minutes-by-using-the-azure-portal"></a>SQL Veritabanı öğreticisi: Azure portalını kullanarak dakikalar içinde bir SQL veritabanı oluşturma
-> [!div class="op_single_selector"]
-> * [Azure Portal](sql-database-get-started.md)
-> * [C#](sql-database-get-started-csharp.md)
-> * [PowerShell](sql-database-get-started-powershell.md)
-> 
-> 
+# <a name="get-started-with-azure-sql-database-servers-databases-and-firewall-rules-by-using-the-azure-portal-and-sql-server-management-studio"></a>Azure portalı ve SQL Server Management Studio aracılığıyla Azure SQL Veritabanı sunucularını, veritabanlarını ve güvenlik duvarı kurallarını kullanmaya başlama
 
-Bu öğreticide, Azure portalını kullanarak şu işlemleri gerçekleştirmeyi öğreneceksiniz:
+Bu kullanmaya başlama öğreticisinde, Azure portalını kullanarak şu işlemleri gerçekleştirmeyi öğreneceksiniz:
 
-* Örnek verilerle bir Azure SQL veritabanı oluşturun.
-* Tek bir IP adresi veya bir IP adresi aralığı için sunucu düzeyinde bir güvenlik duvarı kuralı oluşturma.
+* Yeni bir Azure kaynak grubu oluşturma
+* Azure SQL mantıksal sunucusu oluşturma
+* Azure SQL mantıksal sunucusu özelliklerini görüntüleme
+* Sunucu düzeyinde bir güvenlik duvarı kuralı oluşturma
+* Adventure Works LT örnek veritabanını tek veritabanı olarak oluşturma
+* Azure’da Adventure Works LT örnek veritabanı özelliklerini görüntüleme
 
-Aynı görevleri [C#](sql-database-get-started-csharp.md) veya [PowerShell](sql-database-get-started-powershell.md) kullanarak gerçekleştirebilirsiniz.
+Bu öğreticide, SQL Server Management Studio’nun en son sürümünü kullanarak aynı zamanda şu işlemleri yapmayı da öğreneceksiniz:
 
-[!INCLUDE [Login](../../includes/azure-getting-started-portal-login.md)]
+* Mantıksal sunucuya ve asıl veritabanına bağlanma
+* Asıl veritabanını sorgulama
+* Örnek veritabanına bağlanma
+* Örnek veritabanını sorgulama
+
+Bu öğreticiyi tamamladığınızda; Azure kaynak grubu içinde çalışan ve mantıksal sunucuya bağlı bir örnek veritabanınız ve bir de boş veritabanınız olur. Ayrıca, sunucu düzeyindeki sorumlunun, sunucuda belirtilen IP adresinden (veya IP adresi aralığından) oturum açabilmesini sağlamak için yapılandırılmış bir sunucu düzeyinde güvenlik duvarı kuralına da sahip olacaksınız. 
+
+**Tahmini süre**: Bu öğretici yaklaşık 30 dakika sürer (önkoşulları karşıladığınız varsayılarak).
+
+## <a name="prerequisites"></a>Ön koşullar
+
+* Bir Azure hesabınız olmalıdır. [Ücretsiz bir Azure hesabı açabilir](/pricing/free-trial/?WT.mc_id=A261C142F) veya [Visual Studio abonelik avantajlarını etkinleştirebilirsiniz](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). 
+
+* Azure portalına, abonelik sahibi veya katkıda bulunan rolü üyesi olan bir hesap kullanarak bağlanabiliyor olmanız gerekir. Rol tabanlı erişim denetimi (RBAC) ile ilgili daha fazla bilgi için bkz. [Azure portalında erişim yönetimini kullanmaya başlama](../active-directory/role-based-access-control-what-is.md).
+
+> [!TIP]
+> Aynı görevleri, [C#](sql-database-get-started-csharp.md) veya [PowerShell](sql-database-get-started-powershell.md) aracılığıyla kullanmaya başlama öğreticilerinde de gerçekleştirebilirsiniz.
+>
+
+### <a name="sign-in-by-using-your-existing-account"></a>Var olan hesabınızı kullanarak oturum açın
+[Var olan aboneliğinizi](https://account.windowsazure.com/Home/Index) kullanarak Azure portala bağlanmak için aşağıdaki adımları uygulayın.
+
+1. Tercih ettiğiniz tarayıcınızı açın ve [Azure portal](https://portal.azure.com/)’a bağlanın.
+2. [Azure Portal](https://portal.azure.com/) oturum açın.
+3. **Oturum açma** sayfasında aboneliğinize ait kimlik bilgilerini sağlayın.
+   
+   ![Oturum aç](./media/sql-database-get-started/login.png)
+
 
 <a name="create-logical-server-bk"></a>
 
-## <a name="create-your-first-azure-sql-database"></a>İlk Azure SQL veritabanınızı oluşturma
-1. O anda bağlı değilseniz [Azure portal](http://portal.azure.com)’a bağlanın.
-2. **Yeni**'ye ve **Veri + Depolama**'ya tıklayın; ardından, **SQL Veritabanı**'nı bulun.
-   
-    ![Yeni SQL veritabanı 1](./media/sql-database-get-started/sql-database-new-database-1.png)
-3. SQL Veritabanı dikey penceresini açmak için **SQL Veritabanı**'na tıklayın. Bu dikey penceredeki içerik, abonelik sayınıza ve var olan nesne (örneğin, var olan sunucular) sayınıza göre değişir.
-   
-    ![Yeni SQL veritabanı 2](./media/sql-database-get-started/sql-database-new-database-2.png)
-4. **Veritabanı adı** metin kutusunda, ilk veritabanınız için bir ad (örneğin, "veritabanım") sağlayın. Yeşil onay işareti, geçerli bir ad sağladığınızı gösterir.
-   
-    ![Yeni SQL veritabanı 3](./media/sql-database-get-started/sql-database-new-database-3.png)
-5. Birden çok aboneliğiniz varsa bir abonelik seçin.
-6. **Kaynak grubu** altındaki **Yeni oluştur** seçeneğine tıklayıp ilk kaynak grubunuz için bir ad (örneğin, "kaynak grubum") sağlayın. Yeşil onay işareti, geçerli bir ad sağladığınızı gösterir.
-   
-    ![Yeni SQL veritabanı 4](./media/sql-database-get-started/sql-database-new-database-4.png)
-7. **Kaynak seç** altındaki **Örnek**'e tıklayın ve ardından **Örnek seç** altındaki **AdventureWorksLT [V12]** öğesine tıklayın.
-   
-    ![Yeni SQL veritabanı 5](./media/sql-database-get-started/sql-database-new-database-5.png)
-8. **Sunucu** altındaki **Gerekli ayarları yapılandır**'a tıklayın.
-   
-    ![Yeni SQL veritabanı 6](./media/sql-database-get-started/sql-database-new-database-6.png)
-9. Sunucu dikey penceresinde, **Yeni sunucu oluştur**'a tıklayın. Sunucu nesnesinde bir Azure SQL veritabanı oluşturulur. Bu, yeni bir sunucu veya var olan bir sunucu olabilir.
-   
-    ![Yeni SQL veritabanı 7](./media/sql-database-get-started/sql-database-new-database-7.png)
-10. Yeni sunucunuz için sağlamanız gereken bilgileri öğrenmek üzere **Yeni sunucu** dikey penceresini inceleyin.
-    
-    ![Yeni SQL veritabanı 8](./media/sql-database-get-started/sql-database-new-database-8.png)
-11. **Sunucu adı** metin kutusunda, ilk sunucunuz için bir ad (örneğin, "yeni sunucu nesnem") sağlayın. Yeşil onay işareti, geçerli bir ad sağladığınızı gösterir.
-    
-    ![Yeni SQL veritabanı 9](./media/sql-database-get-started/sql-database-new-database-9.png)
-12. **Sunucu yöneticisi oturum açma** altında, bu sunucu için bir yönetici oturum açma kullanıcı adı (örneğin, "yönetici hesabım") sağlayın. Bu oturum açma işlemi, asıl sunucu oturum açma işlemi olarak bilinir. Yeşil onay işareti, geçerli bir ad sağladığınızı gösterir.
-    
-    ![Yeni SQL veritabanı 10](./media/sql-database-get-started/sql-database-new-database-10.png)
-13. **Parola** ve **Parolayı onayla**'nın altında, asıl sunucu oturum açma hesabı için bir parola (örneğin, "p@ssw0rd1".) sağlayın. Yeşil onay işareti, geçerli bir parola sağladığınızı gösterir.
-    
-    ![Yeni SQL veritabanı 11](./media/sql-database-get-started/sql-database-new-database-11.png)
-14. **Konum**'un altında, konumunuza uygun bir veri merkezi (örneğin, "Avustralya Doğu") seçin.
-    
-    ![Yeni SQL veritabanı 12](./media/sql-database-get-started/sql-database-new-database-12.png)
-15. **V12 sunucusu oluştur (Son güncelleştirme) seçeneğinin altında, yalnızca Azure SQL sunucusunun geçerli sürümünü oluşturma seçeneğinizin olduğuna dikkat edin.
-    
-    ![Yeni SQL veritabanı 13](./media/sql-database-get-started/sql-database-new-database-13.png)
-16. **Azure hizmetlerinin sunucuya erişmesine izin ver** seçeneği için onay kutusunun varsayılan olarak seçili olduğuna ve bu seçimin burada değiştirilemeyeceğine dikkat edin. Bu gelişmiş bir seçenektir. Çoğu senaryo için gerekli olmasa da sunucu güvenlik duvarı ayarlarına giderek ilgili ayarı bu sunucu nesnesi için değiştirebilirsiniz.
-    
-    ![Yeni SQL veritabanı 14](./media/sql-database-get-started/sql-database-new-database-14.png)
-17. Yeni sunucu dikey penceresinde, seçimlerinizi gözden geçirin ve ardından yeni veritabanınız için bu sunucuyu belirlemek üzere **Seç**'e tıklayın.
-    
-    ![Yeni SQL veritabanı 15](./media/sql-database-get-started/sql-database-new-database-15.png)
-18. SQL Veritabanı dikey penceresindeki **Fiyatlandırma katmanı** seçeneğinin altında, ilk veritabanınız için en uygun maliyetli fiyatlandırma katmanını seçmek üzere **S2 Standard (S2 Standart)** seçeneğine ve ardından **Temel**'e tıklayın. Fiyatlandırma katmanını daha sonra istediğiniz zaman değiştirebilirsiniz.
-    
-    ![Yeni SQL veritabanı 16](./media/sql-database-get-started/sql-database-new-database-16.png)
-19. SQL Veritabanı dikey penceresinde, seçimlerinizi gözden geçirin ve ardından ilk sunucunuzu ve veritabanınızı oluşturmak için **Oluştur**'a tıklayın. Sağladığınız değerler doğrulandı ve dağıtım başlıyor.
-    
-    ![Yeni SQL veritabanı 17](./media/sql-database-get-started/sql-database-new-database-17.png)
-20. Dağıtımınızın durumunu denetlemek için Portal araç çubuğunda **Bildirimler** öğesine tıklayın.
-    
-    ![Yeni SQL veritabanı 18](./media/sql-database-get-started/sql-database-new-database-18.png)
+## <a name="create-a-new-logical-sql-server-in-the-azure-portal"></a>Azure portalında yeni bir mantıksal SQL sunucusu oluşturma
 
-> [!IMPORTANT]
-> Dağıtım tamamlandığında, Azure'da yeni Azure SQL sunucunuz ve veritabanınız oluşturulur. SQL Veritabanı güvenlik duvarını Azure dışındaki bağlantılara açmak için bir sunucu güvenlik duvarı kuralı oluşturana kadar, SQL Server araçlarını kullanarak yeni sunucunuza ve veritabanınıza bağlanamazsınız.
-> 
-> 
+1. **Yeni**’ye tıklayıp **sql sunucusu** yazın ve sonra **ENTER**’a basın.
 
-[!INCLUDE [Create server firewall rule](../../includes/sql-database-create-new-server-firewall-portal.md)]
+    ![mantıksal sql sunucusu](./media/sql-database-get-started/logical-sql-server.png)
+2. **SQL sunucusu (mantıksal sunucu)** seçeneğine tıklayın.
+   
+    ![oluştur-mantıksal sql sunucusu](./media/sql-database-get-started/create-logical-sql-server.png)
+3. Yeni SQL Sunucusu (mantıksal sunucu) dikey penceresini açmak için **Oluştur**’a tıklayın.
+
+    ![yeni-mantıksal sql sunucusu](./media/sql-database-get-started/new-logical-sql-server.png)
+3. Sunucu adı metin kutusunda, yeni mantıksal sunucu için geçerli bir ad belirtin. Yeşil onay işareti, geçerli bir ad sağladığınızı gösterir.
+    
+    ![yeni sunucu adı](./media/sql-database-get-started/new-server-name.png)
+
+    > [!IMPORTANT]
+    > Yeni sunucunuzun tam adı <sunucu_adınız>.database.windows.net olacaktır.
+    >
+    
+4. Sunucu yöneticisi oturum açma adı metin kutusunda, bu sunucuda SQL kimlik doğrulaması oturum açma işlemi için kullanılacak olan kullanıcı adını belirtin. Bu oturum açma işlemi, asıl sunucu oturum açma işlemi olarak bilinir. Yeşil onay işareti, geçerli bir ad sağladığınızı gösterir.
+    
+    ![SQL yöneticisi oturum açma adı](./media/sql-database-get-started/sql-admin-login.png)
+5. **Parola** ve **Parolayı onaylayın** metin kutularında, sunucu sorumlusu oturum açma hesabı için parola belirtin. Yeşil onay işareti, geçerli bir parola sağladığınızı gösterir.
+    
+    ![SQL yönetici parolası](./media/sql-database-get-started/sql-admin-password.png)
+6. İçinde nesne oluşturma izniniz olan bir abonelik seçin.
+
+    ![aboneliği](./media/sql-database-get-started/subscription.png)
+7. Kaynak grubu metin kutusunda **Yeni oluştur**’u seçin ve sonra kaynak grubu metin kutusunda yeni kaynak grubu için geçerli bir isim belirtin (daha önce oluşturduğunuz bir kaynak grubu varsa, bu kaynak grubunu da kullanabilirsiniz). Yeşil onay işareti, geçerli bir ad sağladığınızı gösterir.
+
+    ![yeni kaynak grubu](./media/sql-database-get-started/new-resource-group.png)
+
+8. **Konum** metin kutusunda, konumunuza uygun bir veri merkezi (örneğin, "Avustralya Doğu") seçin.
+    
+    ![sunucu konumu](./media/sql-database-get-started/server-location.png)
+    
+    > [!TIP]
+    > **Azure hizmetlerinin sunucuya erişmesine izin ver** onay kutusu bu dikey pencerede değiştirilemez. Bu ayarı, sunucu güvenlik duvarı dikey penceresinde değiştirebilirsiniz. Daha fazla bilgi için bkz. [Güvenliğe giriş](sql-database-get-started-security.md).
+    >
+    
+9. **Oluştur**’a tıklayın.
+
+    ![oluştur düğmesi](./media/sql-database-get-started/create.png)
+
+## <a name="view-the-logical-sql-server-properties-in-the-azure-portal"></a>Azure portalında mantıksal SQL sunucusu özelliklerini görüntüleme
+
+1. Azure portalında **Diğer hizmetler**’e tıklayın.
+
+    ![diğer hizmetler](./media/sql-database-get-started/more-services.png)
+2. Filtre metin kutusunda, **SQL** yazın ve Azure içinde SQL sunucularını sık kullanılan olarak belirtmek için, SQL sunucuları seçeneğinin yanındaki yıldıza tıklayın. 
+
+    ![sık kullanılan olarak ayarla](./media/sql-database-get-started/favorite.png)
+3. Varsayılan dikey pencerede, Azure aboneliğinizde SQL sunucularının listesini açmak için **SQL sunucuları**’na tıklayın. 
+
+    ![yeni sql sunucusu](./media/sql-database-get-started/new-sql-server.png)
+
+4. Azure portalında özelliklerini görüntülemek için yeni SQL sunucunuza tıklayın. Sonraki öğreticiler bu dikey penceredeki seçenekleri anlamanıza yardımcı olur.
+
+    ![sql sunucusu dikey penceresi](./media/sql-database-get-started/sql-server-blade.png)
+5. Mantıksal SQL sunucusunun çeşitli özelliklerini görüntülemek için Ayarlar’ın altındaki **Özellikler**’e tıklayın.
+
+    ![sql sunucusu özellikleri](./media/sql-database-get-started/sql-server-properties.png)
+6. Bu öğreticinin devamında kullanmak üzere, tam sunucu adını panonuza kopyalayın.
+
+    ![sql sunucusu tam adı](./media/sql-database-get-started/sql-server-full-name.png)
+
+## <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>Azure portalında sunucu düzeyinde bir güvenlik duvarı kuralı oluşturma
+
+1. SQL sunucusu dikey penceresinde, Ayarlar’ın altında; SQL sunucusunun Güvenlik Duvarı dikey penceresini açmak için **Güvenlik Duvarı**’na tıklayın.
+
+    ![sql sunucusu güvenlik duvarı](./media/sql-database-get-started/sql-server-firewall.png)
+
+2. Görüntülenen istemci IP adresini gözden geçirin ve bunun sizin IP adresiniz olduğunu, tercih ettiğiniz bir tarayıcıyı kullanarak (“IP adresim nedir” sorusuyla) İnternet üzerinden doğrulayın. IP adresleri bazen çeşitli nedenlerle eşleşmez.
+
+    ![IP adresiniz](./media/sql-database-get-started/your-ip-address.png)
+
+3. IP adreslerinin eşleştiğini varsayarak, araç çubuğundaki **İstemci IP’si ekle**’ye tıklayın.
+
+    ![istemci IP’si ekle](./media/sql-database-get-started/add-client-ip.png)
+
+    > [!NOTE]
+    > Sunucudaki SQL Veritabanı güvenlik duvarını, tek bir IP adresi veya bir adresler aralığının tamamı üzerinde açabilirsiniz. Güvenlik duvarını açmak SQL yönetici ve kullanıcılarının; sunucuda, geçerli kimlik bilgilerine sahip oldukları herhangi bir veritabanında oturum açmasını sağlar.
+    >
+
+4. Sunucu düzeyinde güvenlik duvarı kuralını kaydetmek için, araç çubuğunda **Kaydet**’e ve sonra **Tamam**’a tıklayın.
+
+    ![istemci IP’si ekle](./media/sql-database-get-started/save-firewall-rule.png)
+
+## <a name="connect-to-sql-server-using-sql-server-management-studio-ssms"></a>SQL sunucusuna, SQL Server Management Studio (SSMS) kullanarak bağlanma
+
+1. Eğer henüz yapmadıysanız, [Download SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) (SQL Server Management Studio’yu İndir) sayfasından SSMS’in en son sürümünü indirin ve yükleyin. SSMS'nin son sürümü, güncel kalabilmek için indirebileceğiniz yeni bir sürüm olduğunda size bir istem gönderir.
+
+2. Yükledikten sonra, Windows arama kutusuna **Microsoft SQL Server Management Studio** yazın ve SSMS’yi açmak için **Enter**’a basın:
+
+    ![SQL Server Management Studio](./media/sql-database-get-started/ssms.png)
+3. Sunucuya Bağlan iletişim kutusunda; SQL Server Kimlik Doğrulaması’nı kullanarak, SQL sunucunuza bağlanmak için gereken bilgileri girin.
+
+    ![sunucuya bağlan](./media/sql-database-get-started/connect-to-server.png)
+4. **Bağlan**'a tıklayın.
+
+    ![sunucuya bağlanıldı](./media/sql-database-get-started/connected-to-server.png)
+5. Asıl veritabanındaki nesneleri görüntülemek için Nesne Gezgini’nde; **Veritabanları**, **Sistem Veritabanları** ve **asıl** seçeneklerini genişletin.
+
+    ![asıl veritabanı](./media/sql-database-get-started/master-database.png)
+6. **Asıl** seçeneğine sağ tıkladıktan sonra **Yeni Sorgu**’ya tıklayın.
+
+    ![asıl veritabanını sorgula](./media/sql-database-get-started/query-master-database.png)
+
+8. Sorgu penceresine aşağıdaki sorguyu yazın:
+
+   ```select * from sys.objects```
+
+9.  Araç çubuğunda, asıl veritabanındaki tüm sistem nesnelerinin listesini döndürmek için **Yürüt**’e tıklayın.
+
+    ![asıl veritabanı sistem nesnelerini sorgula](./media/sql-database-get-started/query-master-database-system-objects.png)
+
+    > [!NOTE]
+    > SQL güvenliğini keşfetmek için bkz. [SQL güvenliğine giriş](sql-database-get-started-security.md)
+    >
+
+## <a name="create-new-database-in-the-azure-portal-using-adventure-works-lt-sample"></a>Adventure Works LT örneğini kullanarak Azure portalında yeni veritabanı oluşturma
+
+1. Azure portalında, varsayılan dikey penceredeki **SQL veritabanı**’na tıklayın.
+
+    ![sql veritabanları](./media/sql-database-get-started/new-sql-database.png)
+2. SQL veritabanları dikey penceresindeki **Ekle**’ye tıklayın.
+
+    ![sql veritabanı ekle](./media/sql-database-get-started/add-sql-database.png)
+3. SQL Veritabanı dikey penceresinde sizin için tamamlanan bilgileri gözden geçirin.
+
+    ![sql veritabanı dikey penceresi](./media/sql-database-get-started/sql-database-blade.png)
+4. Geçerli bir etki alanı adı belirtin.
+
+    ![sql veritabanı adı](./media/sql-database-get-started/sql-database-name.png)
+5. Kaynak seçin’in altında **Örnek**’e tıkladıktan sonra Örnek seçin’in altında **AdventureWorksLT [V12]**’ye tıklayın.
+   
+    ![adventure works lt](./media/sql-database-get-started/adventureworkslt.png)
+6. Sunucu altında, sunucu yöneticisi oturum açma kullanıcı adını ve parolasını belirtin.
+
+    ![sunucu kimlik bilgileri](./media/sql-database-get-started/server-credentials.png)
+
+    > [!NOTE]
+    > Veritabanları, sunuculara tek veritabanı olarak eklenebileceği gibi (varsayılan) elastik havuzlara da eklenebilir. Elastik havuzlar hakkında daha fazla bilgi için bkz. [Elastik havuzlar](sql-database-elastic-pool.md).
+    >
+
+7. Fiyatlandırma katmanı altında, fiyatlandırma katmanını **Temel** olarak değiştirin (isterseniz daha sonra fiyatlandırma katmanını artırabilirsiniz ancak öğrenme amacıyla en düşük maliyetli katmanı kullanmanızı öneririz).
+
+    ![fiyatlandırma katmanı](./media/sql-database-get-started/pricing-tier.png)
+8. **Oluştur**’a tıklayın.
+
+    ![oluştur düğmesi](./media/sql-database-get-started/create.png)
+
+## <a name="view-database-properties-in-the-azure-portal"></a>Azure portalında veritabanı özelliklerini görüntüleme
+
+1. SQL veritabanı dikey penceresinde, özelliklerini Azure portalında görüntülemek için yeni veritabanınıza tıklayın. Sonraki öğreticiler bu dikey penceredeki seçenekleri anlamanıza yardımcı olur. 
+
+    ![yeni örnek veritabanı dikey penceresi](./media/sql-database-get-started/new-sample-db-blade.png)
+2. Veritabanınız hakkındaki ek bilgileri görüntülemek için **Özellikler**’e tıklayın.
+
+    ![yeni örnek veritabanı özellikleri](./media/sql-database-get-started/new-sample-db-properties.png)
+
+3. **Veritabanı bağlantı dizelerini göster**’e tıklayın.
+
+    ![yeni örnek veritabanı bağlantı dizeleri](./media/sql-database-get-started/new-sample-db-connection-strings.png)
+4. **Genel Bakış**’a tıkladıktan sonra, Temel Bileşenler bölmesinde sunucu adınıza tıklayın.
+    
+    ![yeni örnek veritabanı temel bileşenler bölmesi](./media/sql-database-get-started/new-sample-db-essentials-pane.png)
+5. Sunucunuzun Temel Bileşenler bölmesinde, yeni eklenen veritabanınızı görebilirsiniz.
+
+    ![sunucu temel bileşenleri bölmesindeki yeni örnek veritabanı](./media/sql-database-get-started/new-sample-db-server-essentials-pane.png)
+
+## <a name="connect-and-query-sample-database-using-sql-server-management-studio"></a>SQL Server Management Studio kullanarak örnek veritabanına bağlanma ve veritabanını sorgulama
+
+1. SQL Server Management Studio’ya geçiş yapın ve örnek veritabanını görüntülemek için, Nesne Gezgini’nde **Veritabanları**’na tıkladıktan sonra araç çubuğundaki **Yenile**’ye tıklayın.
+
+    ![ssms ile yeni örnek veritabanı](./media/sql-database-get-started/new-sample-db-ssms.png)
+2. Nesne Gezgini’nde, nesnelerini görüntülemek için yeni veritabanınızı genişletin.
+
+    ![ssms ile yeni örnek veritabanı nesneleri](./media/sql-database-get-started/new-sample-db-objects-ssms.png)
+3. Örnek veritabanınıza sağ tıkladıktan sonra **Yeni Sorgu**’ya tıklayın.
+
+    ![ssms ile yeni örnek veritabanı sorgusu](./media/sql-database-get-started/new-sample-db-query-ssms.png)
+4. Sorgu penceresine aşağıdaki sorguyu yazın:
+
+   ```select * from sys.objects```
+   
+9.  Araç çubuğunda, örnek veritabanındaki tüm sistem nesnelerinin listesini döndürmek için **Yürüt**’e tıklayın.
+
+    ![ssms ile yeni örnek veritabanında sistem nesneleri sorgusu](./media/sql-database-get-started/new-sample-db-query-objects-ssms.png)
+
+## <a name="create-a-new-blank-database-using-sql-server-management-studio"></a>SQL Server Management Studio kullanarak yeni bir boş veritabanı oluşturma
+
+1. Nesne Gezgini’nde **Veritabanları**’na sağ tıklayın ve sonra **Yeni veritabanı**’na tıklayın.
+
+    ![ssms ile yeni bir boş veritabanı](./media/sql-database-get-started/new-blank-database-ssms.png)
+
+    > [!NOTE]
+    > Ayrıca, SSMS’nin sizin için Transact-SQL kullanarak bir veritabanı oluşturma betiği oluşturmasını sağlayabilirsiniz.
+    >
+
+2. Yeni Veritabanı iletişim kutusunda, Veritabanı adı metin kutusunda bir veritabanı adı belirtin. 
+
+    ![ssms ile yeni boş veritabanının adı](./media/sql-database-get-started/new-blank-database-name-ssms.png)
+
+3. Yeni Veritabanı iletişim kutusunda, **Seçenekler**’e tıkladıktan sonra, Sürüm’ü **Temel** olarak değiştirin.
+
+    ![ssms ile yeni boş veritabanı seçenekleri](./media/sql-database-get-started/new-blank-database-options-ssms.png)
+
+    > [!TIP]
+    > Bu iletişim kutusunda Azure SQL Veritabanı için değiştirebileceğiniz diğer seçenekleri gözden geçirin. Bu seçenekler hakkında daha fazla bilgi için bkz. [Veritabanı Oluşturma](https://msdn.microsoft.com/library/dn268335.aspx).
+    >
+
+4. Boş veritabanını oluşturmak için **Tamam**’a tıklayın.
+5. Tamamlandığında, yeni oluşturulan boş veritabanını görüntülemek için Nesne Gezgini’ndeki Veritabanı düğümünü yenileyin. 
+
+    ![nesne gezgini içinde yeni boş veritabanı](./media/sql-database-get-started/new-blank-database-object-explorer.png)
+
+> [!TIP]
+> Öğrenirken, kullanmadığınız veritabanlarını silerek maliyet tasarrufu yapabilirsiniz. Temel sürüm veritabanlarını yedi gün içinde geri yükleyebilirsiniz. Ancak sunucuyu silmeyin. Bunu yapmanız durumunda, sunucuyu ve silinen veritabanlarının hiçbirini kurtaramazsınız.
+>
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu SQL Veritabanı öğreticisini tamamladığınıza ve bazı örnek verilerle bir veritabanı oluşturduğunuza göre sık kullandığınız araçları kullanarak araştırmaya hazırsınız.
+Bu öğreticiyi tamamladığınıza göre; bu öğreticide öğrendiklerinizi geliştirecek ek öğreticilerden birini keşfetmek isteyebilirsiniz. 
 
-* Transact-SQL ve SQL Server Management Studio'yu (SSMS) daha önce kullandıysanız [SSMS ile bir SQL veritabanına bağlanma ve veritabanını sorgulama](sql-database-connect-query-ssms.md) işlemini nasıl gerçekleştireceğinizi öğrenin.
+* Azure SQL Veritabanı güvenliğini keşfetmeye başlamak isterseniz bkz. [Güvenliğe giriş](sql-database-get-started-security.md).
 * Excel kullanmayı biliyorsanız [Excel ile Azure’da SQL veritabanına bağlanma](sql-database-connect-excel.md) işlemini nasıl gerçekleştireceğinizi öğrenin.
 * Kodlamaya başlamak için hazırsanız [SQL Veritabanı ve SQL Server için bağlantı kitaplıkları](sql-database-libraries.md) konu başlığına göz atarak programlama dilinizi belirleyin.
-* Şirket içi SQL Server veritabanlarınızı Azure'a taşımak istiyorsanız daha fazla bilgi edinmek için bkz. [Bir veritabanını SQL Veritabanı’na geçirme](sql-database-cloud-migrate.md).
+* Şirket içi SQL Server veritabanlarınızı Azure’a taşımak istiyorsanız, bkz. [Bir veritabanını SQL Veritabanı’na geçirme](sql-database-cloud-migrate.md).
 * BCP komut satırı aracını kullanarak yeni bir tabloya bir CSV dosyasından bazı veriler yüklemek istiyorsanız bkz. [BCP kullanarak bir CSV dosyasından SQL Veritabanına veri yükleme](sql-database-load-from-csv-with-bcp.md).
-* Azure SQL Veritabanı güvenliğini keşfetmeye başlamak istiyorsanız bkz. [Güvenliğe giriş](sql-database-get-started-security.md)
+* Tabloları ve diğer nesneleri oluşturmaya başlamak istiyorsanız, [Tablo oluşturma](https://msdn.microsoft.com/library/ms365315.aspx) içindeki “Tablo oluşturmak için” konusuna bakın.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
-[SQL Database nedir?](sql-database-technical-overview.md)
+
+- Teknik bir genel bakış için bkz. [SQL Veritabanı nedir?](sql-database-technical-overview.md)
+- Fiyatlandırma bilgileri için bkz. [Azure SQL Veritabanı fiyatlandırması](https://azure.microsoft.com/pricing/details/sql-database/).
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

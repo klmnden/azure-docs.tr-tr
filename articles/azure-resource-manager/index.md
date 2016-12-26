@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Resource Manager’ı kullanarak çözüm kaynaklarını bir grup olarak dağıtma ve yönetme; tutarlı ve tekrarlanabilir kaynak dağıtımı için şablonlar oluşturma hakkında bilgi edinin."
 translationtype: Human Translation
-ms.sourcegitcommit: 54d90fa8d337b95a8bb03938ae6f3ce7c4e2de85
-ms.openlocfilehash: 09984e30d9fe02624f13d195b452ccd2d202d8c5
+ms.sourcegitcommit: 0c80499b4b27b7c21473e0ed6468441fa26e965d
+ms.openlocfilehash: f687fd5682a912cf02efec097c6df4a0c1604938
 
 ---
 #<a name="azure-resource-manager-documentation"></a>Azure Resource Manager Belgeleri
 
-Uygulamanızın altyapısı genellikle bir sanal makine, depolama hesabı, sanal ağ veya web uygulaması, veritabanı, veritabanı sunucusu ya da 3. taraf hizmetler gibi birçok bileşenden meydana gelir.  Bu bileşenleri ayrı varlıklar olarak değerlendirmez, bunun yerine bunları tek bir varlığın ilgili ve birbirine bağımlı parçaları olarak kabul edersiniz. Bunları gruplar halinde dağıtmak, yönetmek ve izlemek isteyebilirsiniz. Azure Resource Manager, çözümünüzdeki kaynaklar ile gruplar halinde çalışmanıza olanak sağlar. Çözümünüzdeki tüm kaynakları tek ve eşgüdümlü bir işlemle dağıtabilir, güncelleştirebilir veya silebilirsiniz. Dağıtım için bir şablon kullanabilirsiniz. Üstelik bu şablon test, hazırlık ve üretim gibi farklı ortamlarda da çalışabilir. Resource Manager kaynaklarınızı dağıttıktan sonra yönetmenize yardımcı olmak için güvenlik, denetleme ve etiketleme özellikleri sunar
+Resource Manager’ı kullanarak çözüm kaynaklarını bir grup olarak dağıtma, izleme ve yönetme hakkında bilgi edinin. Öğreticiler, API başvuruları ve diğer belgeler, kaynak grupları ayarlamanın yanı sıra tutarlı ve tekrarlanabilir dağıtım için şablonlar oluşturma ile ilgili bilgiler içerir.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -29,7 +30,7 @@ Uygulamanızın altyapısı genellikle bir sanal makine, depolama hesabı, sanal
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=azure-resource-manager">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -103,109 +104,50 @@ Uygulamanızın altyapısı genellikle bir sanal makine, depolama hesabı, sanal
 </ul>
 
 ---
-
-## <a name="reference"></a>Başvuru
-
+ 
+<h2>Başvuru</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>PowerShell cmdlet'leri</p>
+                        <h3>Komut Satırı</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.resources/v3.2.0/azurerm.resources">PowerShell</a></p>
+                        <p><a href="/cli/azure/resource">Azure CLI</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-     <li>
-        <a href="/cli/azure">
+    <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Azure CLI</h3>
-                        <p>Azure CLI</p>
+                        <h3>Diller</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.management.resourcemanager">.NET</a></p>
+                        <p><a href="/java/api/com.microsoft.azure.management.resources">Java</a></p>
+                        <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagement.html">Python</a></p>
+                        <p><a href="https://github.com/Azure/azure-resource-manager-schemas">Şablon şemaları</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/samples/resource-manager-dotnet-resources-and-groups/">
+    <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>.NET ile Azure kaynaklarını ve kaynak gruplarını yönetme</p>
+                        <h3>REST</h3>
+                        <p><a href="/rest/api/resources/">REST API</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/samples/resources-java-manage-resource/">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Java</h3>
-                        <p>Kaynaklar’ı kullanmaya başlama - Kaynak Yönetme - Java’da</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/samples/resource-manager-node-resources-and-groups/">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Node.js</h3>
-                        <p>Node.js ile Azure kaynaklarını ve kaynak gruplarını yönetme</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/samples/resource-manager-python-resources-and-groups/">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Python</h3>
-                        <p>Python ile Azure kaynaklarını ve kaynak gruplarını yönetme</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/samples/resource-manager-ruby-resources-and-groups/">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Ruby</h3>
-                        <p>Ruby ile Azure kaynaklarını ve kaynak gruplarını yönetme</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    </ul>
+</ul>
 
 ---
 <div class="downloadHolder">
@@ -217,6 +159,7 @@ Azure Resource Manager Belgelerini İndirme </div>
 </div>
 
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Dec16_HO3-->
 
 

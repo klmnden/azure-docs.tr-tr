@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "BizTalk Services’ı kullanarak SAP, Oracle EBS, SQL Server ve PeopleSoft için buluttan şirket içine tümleştirme ve iş kolu uygulaması tümleştirme olanakları sağlama hakkında bilgi edinin."
 translationtype: Human Translation
-ms.sourcegitcommit: 329bf8f57270c901d54f27a2159287e08e4c355a
-ms.openlocfilehash: dfde406339068f9261fccb87039d18a0dfdedeff
+ms.sourcegitcommit: 74eb1a0a0f532ffe23fdfac0d8b25ee9434175a1
+ms.openlocfilehash: 754a932b8d98bbae8f7e24daab073cbec1d4d16e
 
 ---
 # <a name="biztalk-services-documentation"></a>BizTalk Services Belgeleri
 
-BizTalk Services SAP, Oracle EBS, SQL Server ve PeopleSoft için buluttan şirket içine tümleştirme ve iş kolu uygulama tümleştirmesi sağlar. Herhangi bir HTTP, FTP, SFTP veya REST veri kaynağına bağlanmanıza olanak tanır. Service Bus kuyrukları, Konular, SQL Veritabanı ve Blob depolama gibi çeşitli Azure yapıtlarını kullanarak iletileri yönlendirebilirsiniz.   
+BizTalk Services’ı kullanarak SAP, Oracle EBS, SQL Server ve PeopleSoft için buluttan şirket içine tümleştirme ve iş kolu uygulaması tümleştirme olanakları sağlama hakkında bilgi edinin. Öğreticilerde ve diğer belgelerde, kurumsal ağ ile bulutu nasıl tümleştirebileceğiniz açıklanmıştır.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -77,6 +78,7 @@ BizTalk Services Belgelerini indirin </div>
 </div>
 
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Dec16_HO3-->
 
 

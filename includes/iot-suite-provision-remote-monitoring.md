@@ -1,9 +1,9 @@
 ## <a name="provision-the-solution"></a>Çözüm sağlama
-1. Azure hesabı kimlik bilgilerinizi kullanarak [azureiotsuite.com][lnk-azureiotsuite] adresinde oturum açın ve yeni bir çözüm oluşturmak için **+** seçeneğine tıklayın.
+1. Azure hesabı kimlik bilgilerinizi kullanarak [azureiotsuite.com][lnk-azureiotsuite] adresinde oturum açın ve çözüm oluşturmak için **+** seçeneğine tıklayın.
 2. **Uzaktan izleme** kutucuğunda **Seç**'e tıklayın.
 3. Önceden yapılandırılmış uzaktan izleme çözümünüz için bir **Çözüm adı** girin.
 4. Çözümü sağlamak için kullanmak istediğiniz **Bölge** ve **Abonelik** seçimini yapın.
-5. Hazırlama işlemini başlatmak için **Çözümü Oluştur**'a tıklayın. İşlemin çalışması genellikle birkaç dakika sürer.
+5. Hazırlama işlemini başlatmak için **Çözümü Oluştur**'a tıklayın. Bu işlemin çalışması genellikle birkaç dakika sürer.
 
 ### <a name="wait-for-the-provisioning-process-to-complete"></a>Hazırlama işleminin tamamlanmasını bekleme
 1. Çözümünüzün **Hazırlama** durumuna sahip olan kutucuğuna tıklayın.
@@ -12,7 +12,7 @@
 4. Kutucuğa tıkladığınızda sağ bölmede çözümünüzün ayrıntılarını görürsünüz.
 
 > [!NOTE]
-> Önceden yapılandırılmış çözümün dağıtılmasında sorunlarla karşılaşıyorsanız bkz. [Azureiotsuite.com sitesindeki izinler][lnk-permissions] ve [SSS][lnk-faq]. Sorunlar devam ederse lütfen [portalda][lnk-portal] bir hizmet bileti oluşturun.
+> Önceden yapılandırılmış çözümün dağıtımında sorunlarla karşılaşıyorsanız bkz. [Azureiotsuite.com sitesindeki izinler][lnk-permissions] ve [SSS][lnk-faq]. Sorunlar devam ederse [portalda][lnk-portal] bir hizmet bileti oluşturun.
 > 
 > 
 
@@ -23,6 +23,6 @@ Görmeyi beklediğiniz ancak çözümünüz için listelenmemiş ayrıntılar m�
 [lnk-portal]: http://portal.azure.com/
 [lnk-faq]: ../articles/iot-suite/iot-suite-faq.md
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Özel bir altyapı gerekmeksizin görevleri arka planda veya bir zamanlamaya göre çalıştırmak için tercih ettiğiniz dilde işlev geliştirme ve dağıtma hakkında bilgi edinin."
 translationtype: Human Translation
-ms.sourcegitcommit: 87316969b7849396c6542decde3257774c35c454
-ms.openlocfilehash: dc15cd4e497135ea9ce07d671020af6df49ad3f6
+ms.sourcegitcommit: 76fed1f753b910007be4d9bb16630483aa225760
+ms.openlocfilehash: 91deffe385997c3e658a7fbfe194c9c2b762df58
 
 ---
 #<a name="azure-functions-documentation"></a>Azure İşlevleri Belgeleri
 
-Azure İşlevleri, küçük kod parçalarını ("işlevleri") bulutta kolayca çalıştırmaya yönelik bir çözümdür. Tüm uygulama veya bunu çalıştıracak altyapı hakkında endişelenmeden elinizdeki sorun için ihtiyacınız olan kodu yazabilirsiniz. Dilerseniz C#, F#, Node.js, Python veya PHP gibi istediğiniz dilde de geliştirme yapabilirsiniz.
+Bulutta İşlevler’i kullanarak ve herhangi bir altyapı ayarlamadan tercih ettiğiniz dilde küçük kod parçaları geliştirme ve dağıtma hakkında bilgi edinin. Öğreticiler, şablonlar ve diğer belgelerde, bir arka plan iş parçacığında ya da bir zamanlamaya göre çalıştırmak istediğiniz görevlere yönelik işlevler oluşturma ile ilgili bilgiler sunulmuştur.
 
 <ul class="panelContent cardsFTitle">
    <li>
@@ -115,6 +116,6 @@ Azure İşlevleri Belgelerini İndirme </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Azure kaynakları için güvenlik izleme ve ilke yönetimi ayarlamayı öğrenin. Öğreticiler, REST API başvurusu ve diğer belgeler."
 translationtype: Human Translation
-ms.sourcegitcommit: 98fdd8ee3dc1b90aae349652e471a218ef44a44e
-ms.openlocfilehash: ca6b16a891f599135c193198b5b0acc7bbd6425e
+ms.sourcegitcommit: 4488a052681c0c146bf6efaf44f8ecebc400fecc
+ms.openlocfilehash: 92eb080a7234cb25a5560127edadfafeafc0253a
 
 ---
 # <a name="security-center-documentation"></a>Güvenlik Merkezi Belgeleri
 
-Güvenlik Merkezi, artırılmış görünürlük aracılığıyla tehditleri engellemenize, algılamanıza ve yanıtlamanıza, ayrıca Azure kaynaklarınızın güvenliğini denetlemenize yardımcı olur. Aboneliklerinizde, tümleşik güvenlik izleme ve ilke yönetimi sağlar; normal koşullarda gözden kaçabilecek tehditleri algılamaya yardımcı olur ve güvenlik çözümlerinin geniş ekosistemiyle çalışır.
+Güvenlik Merkezi’ni kullanarak Azure kaynaklarınızın güvenliğine ilişkin görünürlük ve denetim elde etme hakkında bilgi edinin.  Öğreticiler, REST API başvurusu ve diğer belgeler, çok sayıda güvenlik çözümü ekosistemiyle birlikte çalışabilen güvenlik izleme ve ilke yönetimi ayarlama ile ilgili bilgiler içerir.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -29,7 +30,7 @@ Güvenlik Merkezi, artırılmış görünürlük aracılığıyla tehditleri eng
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=security-center">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=security-center">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -67,26 +68,23 @@ Güvenlik Merkezi, artırılmış görünürlük aracılığıyla tehditleri eng
 </ul>
 
 ---
-## <a name="reference"></a>Başvuru
 
+<h2>Başvuru</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="https://msdn.microsoft.com/en-US/library/mt704034(Azure.100)">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Güvenlik Merkezi REST API Başvurusu</p>
+                        <p><a href="https://msdn.microsoft.com/library/mt704034(Azure.100).aspx">REST API Başvurusu</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-<ul>    
+</ul>   
 
----
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/security-center.pdf">
         <div class="img"></div>
@@ -96,6 +94,7 @@ Güvenlik Merkezi Belgelerini indirin </div>
 </div>
 
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Dec16_HO3-->
 
 

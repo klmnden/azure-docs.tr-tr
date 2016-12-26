@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Event Hubs’ı kullanarak birçok farklı platformdaki bağlı IoT cihazlarından ve uygulamalarından saniyede milyonlarca olay alma işlemini nasıl yapabileceğinizi öğrenin."
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: f0ec0a2dff2e9bcea133dd1de0a92979d937580a
+ms.sourcegitcommit: bedc8c16671de6071383659697ecd932e14cf3ba
+ms.openlocfilehash: 3d404f115c9a21c7ea62fb485a2129bca9de5c6c
 
 ---
 #<a name="event-hubs-documentation"></a>Event Hubs Belgeleri
 
-Event Hubs, bağlı cihazlarınız ve uygulamalarınız tarafından üretilen oldukça büyük miktardaki verileri işleyip analiz edebilmeniz için saniye başına milyonlarca olayı işleyebilen ileri düzeyde ölçeklenebilir bir veri alım sistemidir. Event Hubs bir olay komut zincirinin "ön kapısı" olarak görev yapar ve veriler bir olay hub’ına toplandıktan sonra herhangi bir gerçek zamanlı analiz sağlayıcısı veya toplu işlem veya depolama bağdaştırıcısı kullanılarak dönüştürülebilir ve depolanabilir.
+Event Hubs’ı kullanarak bağlı IoT cihazlarından ve uygulamalarından saniyede milyonlarca olay toplama ve yönetme işlemlerini nasıl yapabileceğinizi öğrenin. Öğreticiler, API başvuruları ve diğer belgelerde, birçok farklı platformdaki olaylar için ölçeklenebilir alma sistemi ayarlama ile ilgili bilgiler içerir.
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -86,52 +87,32 @@ Event Hubs, bağlı cihazlarınız ve uygulamalarınız tarafından üretilen ol
 
 ---
 
-## <a name="reference"></a>Başvuru
-
+<h2>Başvuru</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/dotnet/api">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>.NET Yönetilen Başvurusu</p>
-                    </div>
+                        <h3>Diller</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.eventhubs">.NET</a></p>
+                        <p><a href="/java/api/com.microsoft.azure.eventhubs">Java</a></p>
+                   </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-
-<li>
-        <a href="/azure/service-bus-messaging/service-bus-amqp-protocol-guide">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>AMQP</h3>
-                        <p>AMQP 1.0 protokol kılavuzu</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-
-<li>
-        <a href="/rest/api/eventhub">
+    <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Event Hubs REST API Başvurusu</p>
+                        <p><a href="/rest/api/eventhub">REST API Başvurusu</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
 
@@ -145,6 +126,6 @@ Event Hubs Belgelerini İndirme </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

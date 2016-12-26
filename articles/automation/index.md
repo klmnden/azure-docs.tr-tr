@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Otomasyon’u kullanarak zaman tasarrufu yapmak ve düzenli yönetim görevlerinin güvenilirliğini artırmak amacıyla işlemleri ve yapılandırma yönetimini nasıl otomatikleştirebileceğinizi öğrenin."
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: a561ca44e25eb1fe229397aca2cdb049e9c0575c
+ms.sourcegitcommit: 9f7b84331bd0575062518834ce1cd3db60fa6289
+ms.openlocfilehash: 98ddde79d422b692a1ded866fb12061bf942fc8a
 
 ---
 # <a name="automation-documentation"></a>Otomasyon Belgeleri
 
-Azure Otomasyonu; kullanıcılara, bir bulut ortamında sık olarak, el ile, uzun süreli, hataya açık ve tekrarlanan biçimde gerçekleştirilen görevleri otomatik hale getirmek için bir yol sunar. Bu zamandan tasarruf sağlar ve normal yönetim görevlerinin güvenilirliğini artırır ve hatta bunları düzenli aralıklarla otomatik olarak gerçekleştirilecek şekilde zamanlar.
+Otomasyon’u kullanarak zaman tasarrufu yapma ve bir bulut ortamında gerçekleştirilen düzenli yönetim görevlerinin güvenilirliğini artırma hakkında bilgi edinin. Öğreticiler, API başvuruları ve diğer belgeler, runbook’ları kullanarak işlemleri otomatikleştirme ya da İstenen Durum Yapılandırmasını kullanarak yapılandırmayı otomatikleştirme ile ilgili bilgiler içerir.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -29,7 +30,7 @@ Azure Otomasyonu; kullanıcılara, bir bulut ortamında sık olarak, el ile, uzu
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=automation">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=automation">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -123,53 +124,47 @@ Azure Otomasyonu; kullanıcılara, bir bulut ortamında sık olarak, el ile, uzu
 
 ---
 
-## <a name="reference"></a>Başvuru
-
+<h2>Başvuru</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Azure PowerShell Başvurusu</p>
+                        <h3>Komut Satırı</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.automation/v2.3.0/azurerm.automation">PowerShell</a></p>
+                        <p><a href="/powershell/servicemanagement/azure.automation/v3.1.0/azure.automation">Klasik PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-     <li>
-        <a href="/dotnet/api">
+    <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Azure Yönetilen Başvuru API'si</p>
-                    </div>
+                        <h3>Diller</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.management.automation">.NET</a></p>
+                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-     <li>
-        <a href="https://msdn.microsoft.com/en-us/library/azure/mt662285">
+    <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Otomasyon REST API Başvurusu</p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/mt662285.aspx">REST API</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/mt163781">Klasik REST API</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-    </ul>
-
+</ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/automation.pdf">
@@ -181,6 +176,6 @@ Otomasyon Belgelerini indirme </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

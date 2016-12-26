@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Basit bir oturum açma işlemi sağlayan çeşitli doğrulama yöntemleriyle çok faktörlü kimlik doğrulaması dağıtmayı öğrenin. Öğreticiler, bir SDK ve daha fazlası."
 translationtype: Human Translation
-ms.sourcegitcommit: defa12cb202ce4861a479ac40782248cd50039d3
-ms.openlocfilehash: 2db76cf5af88cc103b0109eb8ead4d63cbae0a0e
+ms.sourcegitcommit: d3e822f16a48f5c144ce2634325591eb69dc0e33
+ms.openlocfilehash: 087b71266ad1f4b1be0acd1eaa465903c32c1fd2
 
 ---
 # <a name="multi-factor-authentication-documentation"></a>Multi-Factor Authentication Belgeleri
 
-Azure Multi-Factor Authentication (MFA) Microsoft'un iki adımlı doğrulama çözümüdür. Azure MFA, kullanıcıların oturum açmaya yönelik basit işlem taleplerini karşılarken, verilere ve uygulamalara erişimi korumaya da yardımcı olur. Bir dizi doğrulama yöntemi (ör. telefon çağrısı, metin mesajı veya mobil uygulama doğrulaması) aracılığıyla güçlü kimlik doğrulaması sunar.
+İki adımlı bir kimlik doğrulama sistemi olan Azure Multi-Factor Authentication’ı nasıl dağıtacağınızı ve yöneteceğinizi öğrenin. Öğreticiler, SDK ve diğer belgeler, çeşitli doğrulama yöntemleriyle basit bir oturum açma süreci sağlama ve güçlü kimlik doğrulama olanakları sunma ile ilgili bilgiler içerir.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -113,6 +114,7 @@ Multi-Factor Authentication Belgelerini indirin </div>
 </div>
 
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Dec16_HO3-->
 
 
