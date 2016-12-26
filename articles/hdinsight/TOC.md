@@ -10,7 +10,6 @@
 
 # Kullanmaya Başlama
 ## [Hadoop’u kullanmaya başlama](hdinsight-hadoop-linux-tutorial-get-started.md)
-## [Etkileşimli Hive önizlemesini kullanmaya başlama](hdinsight-hadoop-use-interactive-hive.md)
 ## [R Server’ı kullanmaya başlama](hdinsight-hadoop-r-server-get-started.md)
 ## [Spark’ı kullanmaya başlama](hdinsight-apache-spark-jupyter-spark-sql.md)
 ## [HBase ve NoSQL’i kullanmaya başlama](hdinsight-hbase-tutorial-get-started-linux.md)
@@ -225,6 +224,6 @@
 ## [Öğrenme yolu](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

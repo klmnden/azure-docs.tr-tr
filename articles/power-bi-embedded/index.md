@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Uygulamalara Power BI veri görselleştirmeleri ve etkileşimli raporları ekleme hakkında bilgi edinin. Öğreticiler, API başvuruları ve diğer belgeler."
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: b15e8e9676cba8969505728e6b9f7f2db4559e9a
+ms.sourcegitcommit: 531e3606330a55563ae77d18d5fd270d799d6d30
+ms.openlocfilehash: 08270fca90bb74f166c94e0f4acc406bca936eb8
 
 ---
 # <a name="power-bi-embedded-documentation"></a>Power BI Embedded Belgeleri
 
-Power BI Embedded, uygulama geliştiricilerin kendi uygulamalarına etkileşimli Power BI raporları eklemelerini sağlayan bir Azure hizmetidir. Power BI Embedded, kullanıcıların oturum açma yöntemini yeniden tasarlamaya veya değiştirmeye gerek kalmadan var olan uygulamalarla birlikte çalışır.
+Power BI Embedded ile uygulamalara veri görselleştirmeleri ve etkileşimli raporlar ekleme hakkında bilgi edinin. Öğreticiler, API başvuruları ve diğer belgeler, uygulamalara sorunsuz bir şekilde Power BI raporları ve panoları ekleme ile ilgili bilgiler içerir.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -137,6 +138,7 @@ Power BI Embedded Belgelerini indirin </div>
 </div>
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Dec16_HO3-->
 
 

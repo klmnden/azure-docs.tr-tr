@@ -46,6 +46,7 @@
 #### [Ağ Performansı İzleyicisi](log-analytics-network-performance-monitor.md)
 #### [Güvenlik Denetimi](../operations-management-suite/oms-security-getting-started.md?toc=%2fazure%2flog-analytics%2ftoc.json)
 #### [Service Fabric](log-analytics-service-fabric.md)
+#### [Hizmet Eşlemesi](../operations-management-suite/operations-management-suite-service-map.md?toc=%2fazure%2flog-analytics%2ftoc.json)
 #### [SQL Değerlendirmesi](log-analytics-sql-assessment.md)
 #### [Surface Hub](log-analytics-surface-hubs.md)
 #### [VMware](log-analytics-vmware.md)
@@ -61,12 +62,15 @@
 ### [Log Arama API’si](log-analytics-log-search-api.md)
 ### [Uyarı API’si](log-analytics-api-alerts.md)
 
+# Başvuru
+## [PowerShell](/powershell/resourcemanager/azurerm.operationalinsights/v2.3.0/azurerm.operationalinsights)
+
 # Kaynaklar
 ## [Upgrade Analytics](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/log-analytics/)
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=log-analytics)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

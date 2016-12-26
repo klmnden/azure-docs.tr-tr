@@ -44,7 +44,7 @@
 ##### [Media Encoder Standard şeması](media-services-mes-schema.md)
 ##### [Giriş meta verileri](media-services-input-metadata-schema.md)
 ##### [Çıkış meta verileri](media-services-output-metadata-schema.md)
-#### MES Ön ayarları 
+#### [MES Ön Ayarları](media-services-mes-presets-overview.md) 
 ##### [H264 Çoklu Bit Hızı 1080p Ses 5.1](media-services-mes-preset-H264-Multiple-Bitrate-1080p-Audio-5.1.md)
 ##### [H264 Çoklu Bit Hızı 1080p](media-services-mes-preset-H264-Multiple-Bitrate-1080p.md)
 ##### [H264 Çoklu Bit Hızı 16x9 SD Ses 5.1](media-services-mes-preset-H264-Multiple-Bitrate-16x9-SD-Audio-5.1.md)
@@ -102,7 +102,7 @@
 #### [NewTek TriCaster kodlayıcı](media-services-configure-tricaster-live-encoder.md)
 #### [Wirecast kodlayıcı](media-services-configure-wirecast-live-encoder.md)
 ### [Uzun süren işlemleri çözme](media-services-dotnet-long-operations.md)
-### [Bölünmüş MP4 canlı içe alma belirtimi](media-services-fmp4-live-ingest-overview.md)
+### [Bölünmüş MP4 canlı alma belirtimi](media-services-fmp4-live-ingest-overview.md)
 
 ## [Koruma](media-services-content-protection-overview.md)
 ### [Portalda içerik korumayı yapılandırma](media-services-portal-protect-content.md)
@@ -134,8 +134,8 @@
 ### [Hyperlapse ile işleme](media-services-hyperlapse-content.md)
 ### [Face Detector ile işleme](media-services-face-and-emotion-detection.md)
 ### [Motion Detector ile işleme](media-services-motion-detection.md)
-### [Face Redaction ile işleme](media-services-face-redaction.md)
-#### [Face Redaction kılavuzu](media-services-redactor-walkthrough.md)
+### [Face Redactor ile İşleme](media-services-face-redaction.md)
+#### [Face Redactor kılavuzu](media-services-redactor-walkthrough.md)
 ### [Video Thumbnails ile işleme](media-services-video-summarization.md)
 ### [OCR ile işleme](media-services-video-optical-character-recognition.md)
 
@@ -195,16 +195,18 @@
 ### [Yeniden deneme mantığı](media-services-retry-logic-in-dotnet-sdk.md)
 
 # Başvuru
-## [Sürüm notları](media-services-release-notes.md)
-## [.NET](media-services-dotnet-how-to-use.md)
-## [REST](media-services-rest-how-to-use.md)
+## [PowerShell (Resource Manager)](/powershell/resourcemanager/azurerm.media/v0.3.1/azurerm.media)
+## [PowerShell (Hizmet Yönetimi)](/powershell/servicemanagement/azure.compute/v3.1.0/azure.compute)
+## [.NET](/dotnet/api/microsoft.windowsazure.mediaservices.client)
+## [REST](/rest/api/media)
 
 # Kaynaklar
+## [Sürüm notları](media-services-release-notes.md)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/media-services/)
 ## [Azure Media Services Topluluğu](media-services-community.md)
 ## [Videolar](https://azure.microsoft.com/resources/videos/index/?services=media-services)
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO3-->
 
 

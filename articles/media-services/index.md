@@ -1,15 +1,14 @@
 ---
 layout: LandingPage
+description: "Genişletilebilir bir bulut platformu olan Media Services ile güvenli bir biçimde yayın kalitesindeki videoların isteğe bağlı veya canlı akışını yapma hakkında bilgi edinin. Öğreticiler, API başvuruları ve daha fazlası."
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: 78433e8f6d66d55f7917e4abbbbe1c24e662a400
+ms.sourcegitcommit: bc22da83e1683cc8be164e9ff3ed95d2fdc95d27
+ms.openlocfilehash: 7b6ff41479fdfe332148dc2366c7e547af5e98f9
 
 ---
 # <a name="media-services-documentation"></a>Media Services Belgeleri
 
-Azure Media Services, geliştiricilerin ölçeklenebilir medya yönetimi ve teslimi uygulamaları oluşturmalarına olanak tanıyan genişletilebilir bir bulut tabanlı platformdur. Media Services, çeşitli istemcilere (TV, PC ve mobil cihazlar gibi) isteğe bağlı olarak veya canlı akış halinde teslim amacıyla video ve ses içeriklerini güvenli bir şekilde yüklemenizi, depolamanızı, kodlamanızı ve paketlemenizi sağlayan REST API’lerini temel alır.
-
-Yalnızca Media Services’i kullanarak uçtan uca iş akışları oluşturabilirsiniz. Ayrıca, iş akışınızın bazı bölümleri için üçüncü taraf bileşenleri kullanmayı da tercih edebilirsiniz. Örneğin, üçüncü taraf kodlayıcı kullanarak kodlama yapabilir, ardından Media Services'i kullanarak yükleyebilir, koruyabilir, paketleyebilir ve gönderebilirsin.
+Genişletilebilir bir bulut platformu olan Media Services ile yayın kalitesindeki videoların akışını yapma hakkında bilgi edinin. Öğreticiler, API başvuruları ve diğer belgeler, güvenli bir biçimde milyonlarca kullanıcıya ölçeklendirilebilen, isteğe bağlı ve canlı video veya ses akışları sağlama ile ilgili bilgiler içerir.
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -210,6 +209,6 @@ Media Services Belgelerini İndirme </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

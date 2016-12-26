@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Yeniden kullanılabilir yapıtlar kullanarak hızlı bir şekilde uygulama test ortamları oluşturmayı öğrenin. Öğreticiler, videolar ve diğer kaynaklarda laboratuvarları oluşturma, yönetme ve güvenli hale getirme hakkında bilgi sağlanmıştır."
 translationtype: Human Translation
-ms.sourcegitcommit: 381c936b7e615cc35ddd429f2a70c468d511a8cf
-ms.openlocfilehash: 838593f4b7d1d83b182faf88433a5bfbf5620288
+ms.sourcegitcommit: 6ac97ee4e1c20bcca92d2c4b2d4865e286a12ed3
+ms.openlocfilehash: 079976fbc7e482944916364507aeaacb27acbdcb
 
 ---
 #<a name="devtest-labs-documentation"></a>DevTest Labs Belgeleri
 
-Azure Devtest Labs, geliştiricilerin ve test edicilerin bir yandan Azure’da hızla ortam oluşturmasına, diğer yandan atıkları en aza indirmesine ve maliyetleri denetlemesine yardımcı olan bir hizmettir.  Yeniden kullanılabilir şablonları ve yapıtları kullanarak Windows ve Linux ortamlarını hızla sağlayabilir ve bu sayede uygulamanızın en son sürümünü test edebilirsiniz.
+Devtest Labs ile yeniden kullanılabilir yapılar kullanarak hızlı bir şekilde uygulama test ortamları oluşturmayı öğrenin. Öğreticiler, videolar ve diğer belgeler, laboratuvarlarınızı oluşturma, yönetme ve güvenli hale getirme işlemlerini açıklamanın yanı sıra yapıtları yönetme ile ilgili bilgiler içerir.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -113,6 +114,7 @@ DevTest Labs Belgelerini indirin </div>
 </div>
 
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Dec16_HO3-->
 
 

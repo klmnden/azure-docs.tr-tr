@@ -25,6 +25,8 @@
 ### [Hizmet sınırlamaları](search-limits-quotas-capacity.md)
 ### [Hizmet ölçeklenebilirliği](search-capacity-planning.md)
 ### [Çoklu müşteri mimarisi için tasarım desenleri](search-modeling-multitenant-saas-applications.md)
+
+
 ## Geliştirme
 ### [SDK’yı yükseltme](search-dotnet-sdk-migration.md)
 ### [REST API’yi yükseltme](search-api-migration.md)
@@ -58,17 +60,17 @@
 ### [Çok dilli arama](search-language-support.md)
 
 # Başvuru
-## [API sürümleri](search-api-versions.md)
-## [Hizmet .NET](/dotnet/api/microsoft.azure.search)
-## [Yönetim .NET](/dotnet/api/microsoft.azure.management.search)
-## [Hizmet REST](/rest/api/searchservice/)
-## [Hizmet REST (Önizleme)](search-api-2015-02-28-preview.md)
-## [Yönetim REST](/rest/api/searchmanagement/)
-## [Lucene sorgu söz dizimi](https://msdn.microsoft.com/library/azure/mt589323)
-## [Basit sorgu söz dizimi](https://msdn.microsoft.com/library/azure/dn798920)
+## [.NET](/dotnet/api/microsoft.azure.search)
+## [.NET Management](/dotnet/api/microsoft.azure.management.search)
+## [Java](/java/api/com.microsoft.azure.management.search)
+## [REST](/rest/api/searchservice)
+## [REST (Yönetim)](/rest/api/searchmanagement)
 
 # Kaynaklar
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=search)
+## Arama API’lerini kullanma
+## [API sürümleri](search-api-versions.md)
+## [Hizmet REST (Önizleme)](search-api-2015-02-28-preview.md)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/search/)
 ## Tanıtım siteleri
 ### [İş listeleri uygulaması](http://aka.ms/azjobsdemo)
@@ -85,6 +87,6 @@
 ### [Azure Search Github](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

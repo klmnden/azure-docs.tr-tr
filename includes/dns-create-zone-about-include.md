@@ -1,13 +1,18 @@
-DNS bölgesi belirli bir etki alanıyla ilgili DNS kayıtlarını barındırmak için kullanılır. Etki alanınızı barındırmaya başlatmak için bir DNS bölgesi oluşturmanız gerekir. Belirli bir etki alanı için oluşturulan DNS kayıtları etki alanıyla ilgili DNS bölgesinde olacaktır.
+DNS bölgesi belirli bir etki alanıyla ilgili DNS kayıtlarını barındırmak için kullanılır. Etki alanınızı Azure DNS'de barındırmaya başlamak için bir DNS bölgesi oluşturmanız gerekir. Ardından bu DNS bölgesinde etki alanınız için tüm DNS kayıtları oluşturulur.
 
-Örneğin “contoso.com” etki alanı, “mail.contoso.com” (bir posta sunucusu için) ve “www.contoso.com” (bir web sitesi için) gibi bir dizi DNS kaydı içerebilir.
+Örneğin "contoso.com" etki alanı, "mail.contoso.com" (bir posta sunucusu için) ve "www.contoso.com" (bir web sitesi için) gibi birden fazla DNS kaydını içerebilir.
 
-## <a name="a-namenamesaabout-dns-zone-names"></a><a name="names"></a>DNS bölge adları hakkında
+Azure DNS'de bir DNS bölgesi oluştururken:
+
 * Bölge adı kaynak grubunda benzersiz olmalıdır ve bölge daha önceden var olmamalıdır. Aksi takdirde işlem başarısız olur.
 * Aynı bölge adı farklı bir kaynak grubunda veya farklı bir Azure aboneliğinde yeniden kullanılabilir.
-* Birden çok bölgenin aynı adı taşıdığı durumlarda, her örnek farklı ad sunucusu adreslerine atanır; yalnızca tek bir örnek üst etki alanından temsil edilebilir. Daha fazla bilgi için bkz. [Bir etki alanını Azure DNS'ye devretme](../articles/dns/dns-domain-delegation.md).
+* Birden fazla bölgenin aynı adı paylaştığı durumda her örneğe farklı bir ad sunucusu adresi atanır. Etki alanı kayıt şirketinde yalnızca bir adres kümesi yapılandırılabilir.
 
+> [!NOTE]
+> Azure DNS'de aynı etki alanıyla DNS bölgesi oluşturmak için bir etki alanına sahip değilsiniz. Ancak Azure DNS ad sunucularını etki alanı kayıt şirketinde etki alanı adı için doğru ad sunucuları olarak yapılandırmak üzere etki alanının sahibi olmanız gerekmez.
+> 
+> Daha fazla bilgi için bkz. [Bir etki alanını Azure DNS'ye devretme](../articles/dns/dns-domain-delegation.md).
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

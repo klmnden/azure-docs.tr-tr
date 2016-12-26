@@ -19,6 +19,7 @@
 ## [Mantıksal Uygulama’yı uzaktan izleme çözümüne bağlama](iot-suite-logic-apps-tutorial.md)
 ## [Önceden yapılandırılmış bir çözümü özelleştirme](iot-suite-guidance-on-customizing-preconfigured-solutions.md)
 ## [Uzaktan izleme çözümüyle dinamik telemetri kullanma](iot-suite-dynamic-telemetry.md)
+## [Uzaktan izleme çözümünde özel kural oluşturma](iot-suite-custom-rule.md)
 ## [Uzaktan izleme çözümündeki cihaz bilgileri](iot-suite-remote-monitoring-device-info.md)
 
 # Başvuru
@@ -42,6 +43,6 @@
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 
