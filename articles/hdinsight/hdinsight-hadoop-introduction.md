@@ -1,6 +1,6 @@
 ---
-title: "Hadoop’a Giriş - HDInsight’ta Hadoop nedir? | Microsoft Belgeleri"
-description: "Dağıtılmış büyük veri işleme ve analiz çözümü olan Hadoop ile HDInsight bulutundaki Hadoop ekosistemi bileşenleri hakkında bilgi edinin."
+title: "Hadoop nedir? Azure HDInsight&quot;a giriş | Microsoft Belgeleri"
+description: "HDInsight&quot;taki Hadoop ekosistemine ve bileşenleri hakkında bilgi edinin. HDInsight, büyük veri işleme ve analiz için Hadoop, Spark, HBase ve diğer uygulamaları içerir."
 keywords: "büyük veri analizi, hadoop’a giriş, hadoop nedir, hadoop teknoloji yığını, hadoop ekosistemi"
 services: hdinsight
 documentationcenter: 
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/21/2016
+ms.date: 12/14/2016
 ms.author: cgronlun
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 66200ad8688928c368146a177130f6e2fad4849b
+ms.sourcegitcommit: 10d684bd6c9408f2fbd48a0a8804b011f098d71c
+ms.openlocfilehash: 8f38b9eaf8bcb498a7983756cbf57f3e372d7fe0
 
 
 ---
@@ -25,9 +25,9 @@ ms.openlocfilehash: 66200ad8688928c368146a177130f6e2fad4849b
  Bu makalede Azure HDInsight’ta Hadoop, ekosistemi ve büyük veri hakkında giriş düzeyinde bilgiler yer almaktadır. Hadoop bileşenleri, sık kullanılan terimler ve büyük veri analiz senaryoları hakkında bilgi edinin.
 
 ## <a name="what-is-hadoop-on-hdinsight"></a>HDInsight'ta Hadoop nedir?
-Hadoop; bilgisayar kümelerinde büyük veri kümelerinin dağıtılmış işlenmesi, depolanması ve analizi için bir çerçeve oluşturan bir açık kaynak yazılım ekosistemini tanımlamaktadır. Azure HDInsight, **Hortonworks Data Platform (HDP)** dağıtımı kaynaklı Hadoop bileşenlerinin bulutta kullanılmasını sağlar ve yönetilen kümeleri yüksek güvenilirlik ve kullanılabilirlik ile dağıtıp hazırlar.  
+Hadoop; bilgisayar kümelerinde büyük veri kümelerinin dağıtılmış işlenmesi, depolanması ve analizi için bir çerçeve oluşturan bir açık kaynak yazılım ekosistemini tanımlamaktadır. Azure HDInsight, **Hortonworks Data Platform (HDP)** dağıtımı kaynaklı Hadoop bileşenlerinin bulutta kullanılmasını sağlar, yönetilen kümeleri yüksek güvenilirlik ve kullanılabilirlik ile dağıtır ve Active Directory ile kurumsal sınıf güvenlik ve yönetim sağlar.  
 
-Apache Hadoop, büyük veri işleme için kullanılan ilk açık kaynak projedir. Bu projenin ardından geliştirilen Apache Hive, Apache HBase, Apache Spark ve birçok diğer yazılımlar ve yardımcı programlar, Hadoop teknoloji yığınının parçası olarak kabul edilmektedir. Ayrıntılar için bkz. [HDInsight’ta Hadoop ekosistemine genel bakış](#overview).
+Apache Hadoop, büyük veri işleme için kullanılan ilk açık kaynak projedir. Bu projenin ardından geliştirilen Apache Hive, Apache HBase, Apache Spark, Apache Kafka ve birçok diğer yazılımlar ve yardımcı programlar, Hadoop teknoloji yığınının parçası olarak kabul edilmektedir. Ayrıntılar için bkz. [HDInsight’ta Hadoop ekosistemine genel bakış](#overview).
 
 ## <a name="what-is-big-data"></a>Büyük veri nedir?
 Büyük veri, Twitter akışındaki bir metinden endüstriyel ekipmandaki algılayıcı bilgilerine bir web sitesinde gezinen ve satın alma yapan müşteri hakkındaki bilgilere kadar tüm büyük hacimli dijital verileri açıklar. Büyük veri geçmiş tarihli (depolanmış veriler anlamına gelir) veya gerçek zamanlı (doğrudan kaynaktan akışlı anlamına gelir) olabilir. Büyük veri, giderek daha yüksek miktarlarda, yükselen hızlarda ve artan çeşitlilikteki biçimlerde toplanır.
@@ -35,18 +35,23 @@ Büyük veri, Twitter akışındaki bir metinden endüstriyel ekipmandaki algıl
 Büyük verilerin eyleme dönüştürülebilir zekaya veya öngörüye dönüştürülebilmesi için ilgili veriler toplamanız ve doğru soruları sormanız gerekir. Ayrıca verilerin erişilebilir, temizlenmiş, çözümlenmiş ve faydalı bir şekilde sunulmuş olduğundan da emin olmanız gerekir. Bu, HDInsight’ta Hadoop’ta büyük veri çözümlemenin yardımcı olabileceği konudur.
 
 ## <a name="a-nameoverviewaoverview-of-the-hadoop-ecosystem-in-hdinsight"></a><a name="overview"></a>HDInsight’ta Hadoop ekosistemine genel bakış
-HDInsight, büyük veri çözümleme için hızla genişleyen Apache Hadoop teknoloji yığınının Microsoft Azure üzerinde bir bulut dağıtımıdır. Apache Spark, HBase, Storm, Pig, Hive, Sqoop, Oozie, Ambari ve benzeri uygulamaları içerir. HDInsight, ayrıca Power BI, Excel, SQL Server Analysis Services ve SQL Server Reporting Services gibi iş zekası (BI) araçları ile entegre olur.
+HDInsight, büyük veri çözümleme için hızla genişleyen Apache Hadoop teknoloji yığınının Microsoft Azure üzerinde bir bulut dağıtımıdır. Apache Spark, HBase, Kafka, Storm, Pig, Hive, Interactive Hive, Sqoop, Oozie, Ambari ve benzeri uygulamaları içerir. HDInsight, ayrıca Power BI, Excel, SQL Server Analysis Services ve SQL Server Reporting Services gibi iş zekası (BI) araçları ile entegre olur.
 
-### <a name="hadoop-hbase-spark-storm-and-customized-clusters"></a>Hadoop, HBase, Spark, Storm ve özelleştirilmiş kümeler
-HDInsight Apache Hadoop, Spark, HBase veya Storm için küme yapılandırmaları sağlar. Veya [betik eylemleri ile kümeleri özelleştirebilirsiniz](hdinsight-hadoop-customize-cluster-linux.md).
+### <a name="hadoop-hbase-spark-kafka-interactive-hive-storm-customized-and-other-clusters"></a>Hadoop, HBase, Spark, Kafka, Interactive Hive, Storm, özel ve diğer kümeler
+HDInsight şu küme türlerini sunar:
 
-* **Hadoop**: [HDFS](#hdfs) ile güvenilir veri depolama ve paralel verileri işlemek ve çözümlemek için basit bir [MapReduce](#mapreduce) programlama modeli sağlar.
-* **<a target="_blank" href="http://spark.apache.org/">Apache Spark</a>**: Büyük veri analizi uygulamalarının, SQL akış verileri için Spark işlerinin ve Machine Learning’in performansını artırmak üzere bellek içi işlemeyi destekleyen paralel bir işleme altyapısı. Bkz: [Genel Bakış: HDInsight’ta Apache Spark nedir?](hdinsight-apache-spark-overview.md)
-* **<a target="_blank" href="http://hbase.apache.org/">HBase</a>** ("NoSQL" iş yükü): Büyük miktarlarda yapılandırmamış ve yarı yapılandırılmış veriler (potansiyel olarak milyarlarca satır çarpı milyonlarca sütun) için rastgele erişim ve güçlü tutarlılık özellikleri sağlayan Hadoop'u temel alan bir NoSQL veritabanı. Bkz. [HDInsight’ta HBase’e genel bakış](hdinsight-hbase-overview.md).
-* **<a  target="_blank" href="https://storm.incubator.apache.org/">Apache Storm</a>**: Büyük veri akışlarını hızlı şekilde işlemek için dağıtılmış, gerçek zamanlı bir işlem sistemi. Storm HDInsight’ta yönetilen küme olarak sunulur. Bkz. [Storm ve Hadoop kullanarak gerçek zamanlı algılayıcı verilerini çözümleme](hdinsight-storm-sensor-data-analysis.md).
+* **[Apache Hadoop](https://wiki.apache.org/hadoop)**: [HDFS](#hdfs) ile güvenilir veri depolama ve paralel verileri işlemek ve çözümlemek için basit bir [MapReduce](#mapreduce) programlama modeli sağlar.
+* **[Apache Spark](http://spark.apache.org/)**: Büyük veri analizi uygulamalarının, SQL akış verileri için Spark işlerinin ve Machine Learning’in performansını artırmak üzere bellek içi işlemeyi destekleyen paralel bir işleme altyapısı. Bkz: [Genel Bakış: HDInsight’ta Apache Spark nedir?](hdinsight-apache-spark-overview.md)
+* **[Apache HBase](http://hbase.apache.org/)**: Büyük miktarlarda yapılandırmamış ve yarı yapılandırılmış veriler (potansiyel olarak milyarlarca satır çarpı milyonlarca sütun) için rastgele erişim ve güçlü tutarlılık özellikleri sağlayan Hadoop'u temel alan bir NoSQL veritabanı. Bkz. [HDInsight’ta HBase’e genel bakış](hdinsight-hbase-overview.md).
+* **[Microsoft R Server](https://msdn.microsoft.com/en-us/microsoft-r/rserver)**: Paralel ve dağıtılmış R işlemlerini barındırmak ve yönetmek için kurumsal sınıf sunucu. Veri uzmanlarının, istatistikçilerin ve R programcılarının HDInsight üzerindeki ölçeklenebilir ve dağıtılmış analitik yöntemlerine istedikleri an erişmesini sağlar. Bkz. [HDInsight'ta R Server'a genel bakış](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-r-server-overview).
+* **[Apache Storm](https://storm.incubator.apache.org/)**: Büyük veri akışlarını hızlı şekilde işlemek için dağıtılmış, gerçek zamanlı bir işlem sistemi. Storm HDInsight’ta yönetilen küme olarak sunulur. Bkz. [Storm ve Hadoop kullanarak gerçek zamanlı algılayıcı verilerini çözümleme](hdinsight-storm-sensor-data-analysis.md).
+* **[Apache Interactive Hive önizleme (diğer adı: Live Long and Process)](https://cwiki.apache.org/confluence/display/Hive/LLAP)**: Etkileşimli ve daha hızlı Hive sorguları için bellek içi önbelleğe alma. Bkz. [HDInsight'ta Interactive Hive kullanımı](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-use-interactive-hive).
+* **[Apache Kafka önizleme](https://kafka.apache.org/)**: Akış verisi işlem hatları ve uygulamaları oluşturmak için kullanılan açık kaynak platform. Kafka ayrıca veri akışları yayımlamanızı ve abone olmanızı sağlayan ileti-kuyruk işlevi de sunar. Bkz. [HDInsight'ta Apache Kafka'ya giriş](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-kafka-introduction).
+* **[Etki alanına katılmış kümeler önizleme](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-domain-joined-introduction)**: Veri erişimini denetlemek ve yönetim sağlamak için Active Directory etki alanına katılmış bir küme.
+* **[Betik eylemlerine sahip özel kümeler](hdinsight-hadoop-customize-cluster-linux.md)**: Ek bileşenlerin sağlanması ve yüklenmesi sırasında çalıştırılan betiklere sahip kümeler.
 
 ### <a name="example-customization-scripts"></a>Örnek özelleştirme betikleri
-Betik Eylemleri, küme hazırlama sırasında çalışan betikleridir ve bunlar kümede ek bileşenleri yüklemek için kullanılabilir. Linux tabanlı kümeler için, bunlar Bash betikleridir.
+Betik eylemleri, küme hazırlama sırasında çalışan Linux üzerindeki Bash betikleridir ve bunlar kümede ek bileşenleri yüklemek için kullanılabilir.
 
 Aşağıdaki örnek betikler HDInsight ekibi tarafından sağlanmıştır:
 
@@ -75,11 +80,11 @@ Aşağıdaki bileşenler ve yardımcı programları HDInsight kümelerine dahil 
 
 > [!NOTE]
 > Belirli bileşenler ve sürüm bilgileri hakkında bilgi için bkz. [HDInsight'ta Hadoop bileşenleri, sürümleri ve hizmet teklifleri][component-versioning]
-> 
-> 
+>
+>
 
 ### <a name="a-nameambariaambari"></a><a name="ambari"></a>Ambari
-Apache Ambari, Apache Hadoop kümelerini hazırlamak, yönetmek ve izlemek içindir. Bu, kümelerin çalışmasını kolaylaştırarak, işleç araçlarının sezgisel bir koleksiyonunu ve Hadoop’un karmaşıklığı gizleyen sağlam bir API kümesini içerir. Linux tabanlı HDInsight kümeleri hem Ambari web kullanıcı arabirimi hem de Ambari REST API sağlarken, Windows tabanlı kümeler REST API’nin bir alt kümesini sağlar. HDInsight kümelerinde Ambari Görünümleri eklenti kullanıcı arabirimi özelliklerine imkan tanır.
+Apache Ambari, Apache Hadoop kümelerini hazırlamak, yönetmek ve izlemek içindir. Bu, kümelerin çalışmasını kolaylaştırarak, işleç araçlarının sezgisel bir koleksiyonunu ve Hadoop’un karmaşıklığı gizleyen sağlam bir API kümesini içerir. Linux üzerindeki HDInsight kümeleri hem Ambari web kullanıcı arabirimi hem de Ambari REST API sağlarken, Windows üzerindeki kümeler REST API'nin bir alt kümesini sağlar. HDInsight kümelerinde Ambari Görünümleri eklenti kullanıcı arabirimi özelliklerine imkan tanır.
 
 Bkz. [Ambari kullanarak HDInsight kümelerini yönetme](hdinsight-hadoop-manage-ambari.md) (yalnızca Linux) [ Ambari API kullanarak HDInsight’ta Hadoop kümelerini izleme](hdinsight-monitor-use-ambari-api.md) ve <a target="_blank" href="https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md">Apache Ambari API başvurusu</a>.
 
@@ -90,10 +95,10 @@ Avro dosyalarının biçimi, dağıtılmış MapReduce programlama modelini dest
 ### <a name="a-namehdfsahdfs"></a><a name="hdfs"></a>HDFS
 Hadoop Dağıtılmış Dosya Sistemi (HDFS), MapReduce ve YARN ile, Hadoop ekosisteminin çekirdeği olan bir dağıtılmış dosya sistemidir. HDFS, HDInsight’taki Hadoop kümeleri için standart dosya sistemidir.
 
-### <a name="a-namehiveahive-hcatalog"></a><a name="hive"></a>Hive ve HCatalog
+### <a name="a-namehiveahive--hcatalog"></a><a name="hive"></a>Hive ve HCatalog
 <a target="_blank" href="http://hive.apache.org/">Apache Hive</a>, HiveQL adında SQL benzeri bir dil kullanarak dağıtılmış depolamada büyük veri kümelerini sorgulamanızı ve yönetmenizi sağlayan, Hadoop üzerinde kurulu bir veri ambarı yazılımıdır. Hive, Pig gibi, MapReduce üzerinde bir soyutlamadır. Çalıştırdığınızda, Hive sorguları bir dizi MapReduce işine çevirir. Hive, Pig’e göre, bir ilişkisel veritabanı yönetim sistemine kavramsal olarak daha yakındır ve bu nedenle daha fazla yapılandırılmış veriyle kullanıma uygundur. Yapılandırılmamış veriler için, Pig daha iyi bir seçimdir. Bkz: [HDInsight’ta Hadoop ile Hive kullanma](hdinsight-use-hive.md).
 
-<a target="_blank" href="https://cwiki.apache.org/confluence/display/Hive/HCatalog/">Apache HCatalog</a>, Hadoop için kullanıcılara ilişkisel veri görünümü sunan bir tablo ve depolama yönetimi katmanıdır. HCatalog’da, dosyalara bir Hive SerDe’ni (seri hale getirici-seri halden çıkarıcı) yazılabileceği her biçimde okuyabilir ve yazabilirsiniz.
+<a target="_blank" href="https://cwiki.apache.org/confluence/display/Hive/HCatalog/">Apache HCatalog</a>, Hadoop için ilişkisel veri görünümü sunan bir tablo ve depolama yönetimi katmanıdır. HCatalog’da, dosyalara bir Hive SerDe’ni (seri hale getirici-seri halden çıkarıcı) yazılabileceği her biçimde okuyabilir ve yazabilirsiniz.
 
 ### <a name="a-namemahoutamahout"></a><a name="mahout"></a>Mahout
 <a target="_blank" href="https://mahout.apache.org/">Apache Mahout</a>, Hadoop üzerinde çalışan Machine Learning algoritmalarının ölçeklenebilir bir kitaplığıdır. İstatistik ilkelerini kullanarak, Machine Learning uygulamaları sistemlere verilerden öğrenmeyi ve gelecekteki davranışı belirlemek için geçmiş çıktıları kullanmayı öğretir. Bkz. [Hadoop’ta Mahout kullanarak film önerileri oluşturma](hdinsight-mahout.md).
@@ -109,7 +114,7 @@ MapReduce hakkında daha fazla bilgi için bkz. Hadoop Wiki'de <a target="_blank
 <a target="_blank" href="http://oozie.apache.org/">Apache Oozie</a>, Hadoop işlerini yöneten bir iş akışı koordinasyon sistemidir. Bu Hadoop yığını ile tümleştirilir ve MapReduce, Pig, Hive ve Sqoop için Hadoop işlerini destekler. Ayrıca, Java programları veya kabuk betikleri gibi sisteme özel işleri planlamak için de kullanılabilir. Bkz. [Hadoop ile Oozie kullanma](hdinsight-use-oozie.md).
 
 ### <a name="a-namephoenixaphoenix"></a><a name="phoenix"></a>Phoenix
-<a  target="_blank" href="http://phoenix.apache.org/">Apache Phoenix</a>, HBase üzerinde ilişkisel veritabanı katmanıdır. Phoenix, kullanıcıların SQL tablolarını doğrudan sorgulamasına ve yönetmesine olanak tanıyan bir JDBC sürücüsü içerir. Phoenix, MapReduce kullanmak yerine, sorguları ve diğer ifadeleri yerel NoSQL API çağrılarına çevirir, böylece NoSQL depoları üstünde daha hızlı uygulamalar sağlar. Bkz. [HBase kümeleriyle Apache ve SQuirreL kullanma](hdinsight-hbase-phoenix-squirrel.md).
+<a  target="_blank" href="http://phoenix.apache.org/">Apache Phoenix</a>, HBase üzerinde ilişkisel veritabanı katmanıdır. Phoenix, SQL tablolarını doğrudan sorgulamanıza ve yönetmenize olanak tanıyan bir JDBC sürücüsü içerir. Phoenix, MapReduce kullanmak yerine, sorguları ve diğer ifadeleri yerel NoSQL API çağrılarına çevirir, böylece NoSQL depoları üstünde daha hızlı uygulamalar sağlar. Bkz. [HBase kümeleriyle Apache ve SQuirreL kullanma](hdinsight-hbase-phoenix-squirrel.md).
 
 ### <a name="a-namepigapig"></a><a name="pig"></a>Pig
 <a  target="_blank" href="http://pig.apache.org/">Apache Pig</a>, Pig Latin adlı basit bir betik dilini kullanarak çok büyük veri kümelerinde karmaşık MapReduce dönüşümleri gerçekleştirmenize olanak tanıyan yüksek düzeyli bir platformdur. Pig, Hadoop’ta çalışacakları şekilde, Pig Latin betiklerini çevirir. Pig Latin’i genişletmek için Kullanıcı Tanımlı İşlevler (UDF) oluşturabilirsiniz. Bkz. [Hadoop ile Pig kullanma](hdinsight-use-pig.md).
@@ -160,7 +165,7 @@ Azure bulut ekosisteminin bir parçası olarak, HDInsight’ta Hadoop birçok av
 * Otomatik Hadoop kümeleri hazırlama. HDInsight kümelerini oluşturmak Hadoop kümelerinin el ile yapılandırmaktan çok daha kolaydır. Ayrıntılar için bkz. [HDInsight Hadoop kümeleri hazırlama](hdinsight-hadoop-provision-linux-clusters.md).
 * Resim durumu Hadoop bileşenleri. Ayrıntılar için bkz. [HDInsight'ta Hadoop bileşenleri, sürümleri ve hizmet teklifleri][component-versioning].
 * Yüksek küme kullanılabilirliği ve güvenilirliği. Bkz. [HDInsight’ta Hadoop kümelerinin kullanılabilirliği ve güvenilirliğin](hdinsight-high-availability-linux.md).
-* Hadoop uyumlu bir seçenek olan Azure Blob Storage ile verimli ve ekonomik veri depolama. Ayrıntılar için bkz. [HDInsight’ta Hadoop ile Azure Blob Storage kullanma](hdinsight-hadoop-use-blob-storage.md).
+* Hadoop uyumlu depolama seçenekleri olan Azure Blob depolama veya Azure Data Lake Store ile verimli ve ekonomik veri depolama. Ayrıntılar için bkz. [HDInsight'ta Hadoop ile Azure Blob depolama hizmetini kullanma](hdinsight-hadoop-use-blob-storage.md) veya [HDInsight kümesiyle Data Lake Store hizmetini kullanma](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-hdinsight-hadoop-use-portal).
 * [Web apps](https://azure.microsoft.com/documentation/services/app-service/web/) ve [SQL Database](https://azure.microsoft.com/documentation/services/sql-database/) dahil diğer Azure hizmetleriyle tümleştirme.
 * HDInsight kümelerini çalıştırmak için ek sanal makine boyutları ve türleri. Ayrıntılar için bkz. [HDInsight'ta Hadoop bileşenleri, sürümleri ve hizmet teklifleri][component-versioning].
 * Küme ölçeklendirme. Küme ölçeklendirme, silmenize ya da yeniden oluşturmanıza gerek kalmadan, çalışan bir HDInsight kümesine ait düğümlerin sayısını değiştirmenizi sağlar.
@@ -192,8 +197,8 @@ Excel, PowerPivot, SQL Server Analysis Services ve SQL Server Reporting Services
 
 Bu BI araçları, büyük veri çözümlemede size yardımcı olabilir:
 
-* [Excel’i Power Query ile Hadoop’a Bağlama](hdinsight-connect-excel-power-query.md): Excel için Microsoft Power Query kullanarak HDInsight kümenizle ilişkili verileri depolayan Azure Storage hesabına Excel’i bağlamayı öğrenin. Windows iş istasyonu gereklidir. Windows veya Linux tabanlı küme ile çalışır.
-* [Excel’i Microsoft Hive ODBC Sürücüsü ile Hadoop’a Bağlama](hdinsight-connect-excel-hive-odbc-driver.md): Microsoft Hive ODBC Sürücüsü ile verileri HDInsight’tan içeri aktarmayı öğrenin. Windows iş istasyonu gereklidir. Windows veya Linux tabanlı küme ile çalışır.
+* [Excel’i Power Query ile Hadoop’a Bağlama](hdinsight-connect-excel-power-query.md): Excel için Microsoft Power Query kullanarak HDInsight kümenizle ilişkili verileri depolayan Azure Storage hesabına Excel’i bağlamayı öğrenin. Windows iş istasyonu gereklidir. Linux veya Windows kümelerinde çalışır.
+* [Excel’i Microsoft Hive ODBC Sürücüsü ile Hadoop’a Bağlama](hdinsight-connect-excel-hive-odbc-driver.md): Microsoft Hive ODBC Sürücüsü ile verileri HDInsight’tan içeri aktarmayı öğrenin. Windows iş istasyonu gereklidir. Linux veya Windows kümelerinde çalışır.
 * [Microsoft Bulut Platformu](http://www.microsoft.com/server-cloud/solutions/business-intelligence/default.aspx): Office 365 için Power BI hakkında bilgi edinin, SQL Server deneme sürümünü indirin ve SharePoint Server 2013 ve SQL Server BI’ı ayarlayın.
 * [SQL Server Analysis Services](http://msdn.microsoft.com/library/hh231701.aspx).
 * [SQL Server Reporting Services](http://msdn.microsoft.com/library/ms159106.aspx).
@@ -204,6 +209,6 @@ Bu BI araçları, büyük veri çözümlemede size yardımcı olabilir:
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

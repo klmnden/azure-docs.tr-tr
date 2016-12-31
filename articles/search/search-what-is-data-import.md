@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 08/29/2016
+ms.date: 12/09/2016
 ms.author: ashmaka
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2ebe71b3456420f29ffe06bc15471d3fd2121f8c
+ms.sourcegitcommit: 72cc0d9ff35ff656a6134b52812b64c39a295a6f
+ms.openlocfilehash: 53786d60d9971d9f976bf0f3ef4e40346c3101f4
 
 
 ---
@@ -34,23 +34,23 @@ Azure Search dizininizi verilerinizle doldurmanın iki yolu vardır. İlk seçen
 
 Bu kılavuz, yalnızca verileri karşıya yüklemenin gönderme modelinin kullanımı (yalnızca [REST API](search-import-data-rest-api.md) ve [.NET SDK](search-import-data-dotnet.md)'da desteklenir) hakkında yönergeleri kapsar. Ancak aşağıda çekme modeliyle ilgili daha fazla bilgi edinebilirsiniz.
 
-### <a name="push-data-to-an-index"></a>Bir dizine veri gönderme
+## <a name="push-data-to-an-index"></a>Bir dizine veri gönderme
 Bu yaklaşım, aranabilir hale getirmek için verilerinizi Azure Search'e programlı olarak gönderme anlamına gelir. Çok düşük gecikme süresi gereksinimlerine sahip uygulamalar için (ör. arama işlemlerinin dinamik stok veritabanlarıyla eşitlenmiş olması gerekiyorsa), tek seçeneğiniz gönderme modelidir.
 
-Bir dizine veri göndermek için [REST API](https://msdn.microsoft.com/library/azure/dn798930.aspx) veya [.NET SDK](search-import-data-dotnet.md) kullanabilirsiniz. Şu an portal aracılığıyla veri gönderme için hiçbir araç desteği yoktur.
+Bir dizine veri göndermek için [REST API](https://docs.microsoft.com/rest/api/searchservice/AddUpdate-or-Delete-Documents) veya [.NET SDK](search-import-data-dotnet.md) kullanabilirsiniz. Şu an portal aracılığıyla veri gönderme için hiçbir araç desteği yoktur.
 
 Belgeleri tek tek veya toplu işlemle karşıya yükleyebileceğinizden (toplu işlem başına en fazla 1000 veya 16 MB sınırlarından hangisi önce gelirse), bu yaklaşım çekme modelinden daha esnektir. Gönderme modeli, verilerinizin nerede olduğuna bakılmaksızın Azure Search'e dosyalarınızı yüklemenizi de sağlar.
 
-### <a name="pull-data-into-an-index"></a>Bir dizine veri çekme
+## <a name="pull-data-into-an-index"></a>Bir dizine veri çekme
 Çekme modeli, desteklenen veri kaynağında gezinir ve Azure Search dizinine verileri sizin için otomatik olarak yükler. Dizin oluşturucular, var olan belgelerdeki değişiklikleri ve silmeleri takip etmenin yanı sıra yeni belgeleri tanıyarak, dizininizdeki verileri aktif şekilde yönetme ihtiyacını ortadan kaldırır.
 
 Azure Search'te bu işlev, şu anda [Blob depolama alanı (önizleme)](search-howto-indexing-azure-blob-storage.md), [DocumentDB](http://aka.ms/documentdb-search-indexer), [Azure SQL Database ve Azure VM'lerdeki SQL Server](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)'da kullanılabilen *dizin oluşturucular* aracılığıyla uygulanır.
 
-Dizin oluşturucu işlevi, [Azure Portal](search-import-data-portal.md)'ın yanı sıra [REST API](https://msdn.microsoft.com/library/azure/dn946891.aspx)'de de sağlanmaktadır.
+Dizin oluşturucu işlevi, [Azure portalının](search-import-data-portal.md) yanı sıra [REST API](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations)'de de sağlanmaktadır.
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/16/2016
+ms.date: 12/08/2016
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: 28222825d680ed7930dd1f2da46df28728c7c103
-ms.openlocfilehash: 48ff29e7abae511eb75aec8c1569ffdf5a57bc77
+ms.sourcegitcommit: 3c8406efd9d716df56ed3ca10fc596684945c2f2
+ms.openlocfilehash: 3281b001aeab42aace951b5bdd5d4ec901de396f
 
 
 ---
@@ -28,19 +28,19 @@ Visual Studio için Data Lake Araçları'nı nasıl yükleyeceğinizi ve U-SQL b
 U-SQL, veri gölü içindeki tüm verilerin ve daha fazlasının hazırlanması, dönüştürülmesi ve analiz edilmesi için kullanılan oldukça ölçeklenebilir, yüksek düzeyde genişletilebilir bir dildir. Daha fazla bilgi edinmek için bkz. [U-SQL Başvurusu](http://go.microsoft.com/fwlink/p/?LinkId=691348).
 
 ## <a name="prerequisites"></a>Önkoşullar
-* **Visual Studio 2015, Visual Studio 2013 güncelleştirme 4 veya Visual Studio 2012. Enterprise (Ultimate/Premium), Professional, Community sürümleri desteklenir; Express sürümü desteklenmez. Visual Studio "15" şu an için desteklenmiyor ancak bu konudaki çalışmalarımız devam ediyor.**
+* **Visual Studio 2015, Visual Studio 2013 güncelleştirme 4 veya Visual Studio 2012. Enterprise (Ultimate/Premium), Professional, Community sürümleri desteklenir; Express sürümü desteklenmez. Visual Studio 2017 şu anda desteklenmiyor.**
 * **.NET sürüm 2.7.1 veya üzeri için Microsoft Azure SDK**.  [Web platformu yükleyicisini](http://www.microsoft.com/web/downloads/platform.aspx) kullanarak yükleyin.
 * **[Visual Studio için Data Lake Araçları](http://aka.ms/adltoolsvs)**.
 
     Visual Studio için Data Lake Araçları yüklendikten sonra, "Azure" düğümünün altında Sunucu Gezgini içinde "Data Lake Analytics" düğümünü göreceksiniz (Sunucu gezginini Ctrl+Alt+S tuşlarına basarak açabilirsiniz).
-* **[Azure portalını kullanarak Azure Data Lake Analytics ile çalışmaya başlama](data-lake-analytics-get-started-portal.md)** konusunun içerdiği aşağıdaki iki bölümü tamamlayın.
 
-  * [Azure Data Lake Analytics hesabı oluşturma](data-lake-analytics-get-started-portal.md#create-data-lake-analytics-account).
-  * [SearchLog.tsv dosyasını varsayılan Data Lake Storage hesabına yükleme](data-lake-analytics-get-started-portal.md#prepare-source-data).
+* **Data Lake Analytics hesabı ve örnek veriler** Data Lake Araçları Data Lake Analytics hesabı oluşturmayı desteklemez. Azure portalı, Azure PowerShell, .NET SDK veya Azure CLI kullanarak hesap oluşturabilirsiniz.
+Size kolaylık sağlamak amacıyla, bir Data Lake Analytics hizmeti oluşturmaya ve kaynak veri dosyasını yüklemeye yönelik bir PowerShell betiği, [Ek A - Öğreticiyi hazırlamaya yönelik PowerShell örneğinde](data-lake-analytics-data-lake-tools-get-started.md#appx-a-powershell-sample-for-preparing-the-tutorial) bulunabilir.
 
-    Size kolaylık sağlamak amacıyla, bir Data Lake Analytic hizmeti oluşturmaya ve kaynak veri dosyasını yüklemeye yönelik bir PowerShell örnek betiği, [Ek A - Öğreticiyi hazırlamaya yönelik PowerShell örneğinde](data-lake-analytics-data-lake-tools-get-started.md#appx-a-powershell-sample-for-preparing-the-tutorial) bulunabilir.
+    İsteğe bağlı olarak hesabınızı oluşturmak ve verileri el ile yüklemek için [Azure portalını kullanarak Azure Data Lake Analytics ile çalışmaya başlama](data-lake-analytics-get-started-portal.md) konusunun içerdiği aşağıdaki iki bölümü tamamlayın:
 
-    Data Lake Araçları, Data Lake Analytics hesaplarının oluşturulmasını desteklemez. Böylece bunu Azure portalı, Azure PowerShell, .NET SDK veya Azure CLI kullanarak oluşturursunuz. Bir Data Lake Analytics işini çalıştırmak için bazı verilere ihtiyaç duyarsınız. Data Lake araçları, veri yüklemeyi desteklese de bu öğreticinin takibini kolaylaştırmak amacıyla örnek verileri yüklemek için portalı kullanacaksınız.
+    1. [Azure Data Lake Analytics hesabı oluşturma](data-lake-analytics-get-started-portal.md#create-data-lake-analytics-account).
+    2. [SearchLog.tsv dosyasını varsayılan Data Lake Storage hesabına yükleme](data-lake-analytics-get-started-portal.md#prepare-source-data).
 
 ## <a name="connect-to-azure"></a>Azure'a Bağlanma
 **Data Lake Analytics'e bağlanmak için**
@@ -352,6 +352,6 @@ Aşağıdaki PowerShell betiği, sizin için bir Azure Data Lake Analytics hesab
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 
