@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/23/2016
+ms.date: 12/12/2016
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: e223d0613cd48994315451da87e6b7066585bdb6
-ms.openlocfilehash: 42774f83dc4c53dc8f090acb922b5aae6e8b4bed
+ms.sourcegitcommit: f01a5e7ec081b1c989fc8784c845d6e639b1d73b
+ms.openlocfilehash: 92c5e8c50b281fe1dc7e296dcdf8a6822b187ce3
 
 
 ---
@@ -24,6 +24,7 @@ ms.openlocfilehash: 42774f83dc4c53dc8f090acb922b5aae6e8b4bed
 Azure IoT Hub'a hoş geldiniz. Bu makale Azure IoT Hub'a genel bir bakış sağlar ve bir Nesnelerin İnterneti (IoT) çözümü uygularken bu hizmeti neden kullanmanız gerektiğini açıklar. Azure IoT Hub, milyonlarca IoT cihazları ile bir çözüm arka ucu arasında güvenilir ve güvenli çift yönlü iletişimler sağlayan tam olarak yönetilen bir hizmettir. Azure IoT Hub:
 
 * Tek yönlü mesajlaşma, dosya aktarımı ve request-reply metotları gibi cihazdan buluta ve buluttan cihaza iletişimi seçeneği sunar.
+* Diğer Azure hizmetlerine yerleşik bildirim temelli ileti yönlendirme sunar.
 * Cihaz meta verileri ve eşitlenmiş durum bilgileri için sorgulanabilir depolama sağlar.
 * Cihaz başına güvenlik anahtarları veya X.509 sertifikaları kullanarak güvenli iletişim ve erişim denetimi olanağı sağlar.
 * Cihaz bağlantısı ve cihaz kimlik yönetimi etkinlikleri için kapsamlı izleme sağlar.
@@ -58,6 +59,7 @@ Azure IoT Hub, cihaz bağlantısı sorunlarını mesajlaşma, dosya aktarımı v
 
 * **Cihaz çiftleri**. [Cihaz çiftlerini][lnk-twins] kullanarak depolama, eşitleme, cihaz meta verilerini ve durum bilgisini sorgulama işlemlerini yapabiliriniz. Cihaz çiftleri, cihaz durumu bilgilerini (meta veriler, yapılandırmalar ve koşullar) depolayan JSON belgelerdir. IoT Hub’ı, IoT Hub'ına bağladığınız her cihaz için bir cihaz çifti sürdürür. 
 * **Cihaz başına kimlik doğrulaması ve güvenli bağlantı**. IoT Hub'a bağlanmalarını sağlamak için her bir cihaza kendi [güvenlik anahtarını][lnk-devguide-security] sağlayabilirsiniz. [IoT Hub kimlik kayıt defteri][lnk-devguide-identityregistry], cihaz kimliklerini ve anahtarlarını bir çözümün içinde depolar. Bir çözüm arka ucu, cihazları tek tek izin verme veya reddetme listesine ekleyerek cihaz erişiminde tam denetim olanağı sağlar.
+* **Bildirim temelli kurallara göre cihazdan buluta iletileri Azure hizmetlerine yönlendirme**. IoT Hub, hub'ınızın cihazdan buluta iletileri göndereceği yeri denetlemek için ileti kurallarına göre ileti yolları tanımlamanızı sağlar. İleti kuralları için kod yazmanız gerekmez ve bu kurallar, özel alma sonrası ileti dağıtıcılarının yerini alabilir.
 * **Cihaz bağlantısı işlemlerini izleme**. Cihaz kimlik yönetimi işlemleri ve cihaz bağlantısı etkinlikleri hakkında ayrıntılı işlem günlükleri alabilirsiniz. Bu izleme olanağı, IoT çözümünüzün yanlış kimlik bilgileriyle bağlanmaya, çok sık ileti göndermeye veya tüm bulut-cihaz iletilerini reddetmeye çalışan cihazlar gibi bağlantı sorunlarını tanımlaması sağlanır.
 * **Kapsamlı bir cihaz kitaplıkları kümesi**. [Azure IoT cihaz SDK'ları][lnk-device-sdks], Linux dağıtımları, Windows ve gerçek zamanlı işletim sistemlerinin çoğu için C gibi çeşitli diller ve platformlarda kullanılabilir ve desteklenir. Azure IoT cihaz SDK'ları C#, Java ve JavaScript gibi yönetilen dilleri de destekler.
 * **IoT protokolleri ve genişletilebilirlik**. Çözümünüz cihaz kitaplıklarını kullanamazsa IoT Hub, cihazların yerel olarak MQTT v3.1.1, HTTP 1.1 veya AMQP 1.0 protokollerini kullanmasını sağlayan bir genel protokolü kullanıma sunar. Ayrıca, özel protokollere destek sağlamak için şunları yaparak IoT Hub'ı genişletebilirsiniz:
@@ -89,7 +91,9 @@ Mobil sektörü, [Windows Anında Bildirim Servisi][lnk-wns], [Google Cloud Mess
 IoT Hub, ExpressRoute'un ortak eşleme yolundan desteklenmez.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Cihazlarınızı uzaktan yönetmeniz, yapılandırmanız ve güncelleştirmeniz için Azure IoT Hub’ın standartlara dayalı cihaz yönetimini nasıl etkinleştirdiği hakkında bilgi almak üzere bkz. [IoT Hub’ı ile cihaz yönetimine genel bakış][lnk-device-management].
+Bir cihazdan ileti göndermenin ve bu iletileri IoT Hub'dan almanın yanı sıra IoT Hub'ınız için ileti yollarını nasıl yapılandıracağınızı öğrenmek için bkz. [IoT Hub ile ileti gönderme ve alma][lnk-send-messages].
+
+Cihazlarınızı uzaktan yönetmeniz, yapılandırmanız ve güncelleştirmeniz için IoT Hub'ın standartlara dayalı cihaz yönetimini nasıl etkinleştirdiği hakkında bilgi almak üzere bkz. [IoT Hub ile cihaz yönetimine genel bakış][lnk-device-management].
 
 İstemci uygulamalarını çok sayıda cihaz donanımı platformunda ve işletim sisteminde uygulamak için Azure IoT cihaz SDK'larını kullanabilirsiniz. Cihaz SDK'ları, bir IoT hub'ına telemetri gönderme ve buluttan cihaza iletilerini alma işlemlerini gerçekleştiren kitaplıkları içerir. Cihaz SDK'larını kullandığınızda, IoT Hub ile iletişim kurmak için çeşitli ağ protokolleri arasından seçim yapabilirsiniz. Daha fazla bilgi için bkz. [Cihaz SDK'ları hakkında bilgi][lnk-device-sdks].
 
@@ -112,6 +116,7 @@ Bazı kodları yazmaya ve bazı örnekleri çalıştırmaya başlamak için [IoT
 [lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks
 [lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
+[lnk-send-messages]: iot-hub-devguide-messaging.md
 [lnk-device-management]: iot-hub-device-management-overview.md
 
 [lnk-twins]: iot-hub-devguide-device-twins.md
@@ -121,6 +126,7 @@ Bazı kodları yazmaya ve bazı örnekleri çalıştırmaya başlamak için [IoT
 [lnk-security-ground-up]: iot-hub-security-ground-up.md
 
 
-<!--HONumber=Dec16_HO1-->
+
+<!--HONumber=Dec16_HO2-->
 
 

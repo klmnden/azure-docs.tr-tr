@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/14/2016
+ms.date: 12/12/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 4f541e34e7c0696e4074613c4ab0734a096c6d12
-ms.openlocfilehash: 21ebc8083113238ef70f57dae2381ebcf102c39d
+ms.sourcegitcommit: dabe7d9796ab24a257ea904bc5d978cb71d7e149
+ms.openlocfilehash: 1733edf961c2ce1297fc148d3a844ce141f5d7c2
 
 
 ---
@@ -81,6 +81,10 @@ Bir kaynak grubu oluştururken bu kaynak grubu için bir konum belirtmeniz gerek
 Her kaynak sağlayıcısı bir Azure hizmetiyle çalışmaya yönelik bir dizi kaynak ve işlem sunar. Örneğin, anahtarları ve parolaları saklamak isterseniz **Microsoft.KeyVault** kaynak sağlayıcısı ile çalışırsınız. Bu kaynak sağlayıcısı, anahtar kasasını oluşturmak için **kasalar**, anahtar kasasında bir parola oluşturmak için ise **kasalar/parolalar** adı verilen bir kaynak türü sunar. 
 
 Kaynaklarınızı dağıtmaya başlamadan önce kullanılabilir kaynak sağlayıcılarını anlamanız gerekir. Kaynak sağlayıcılarının ve kaynakların adlarını bilmeniz, Azure’a dağıtmak istediğiniz kaynakları tanımlamanıza yardımcı olur.
+
+Portal üzerinden tüm kaynak sağlayıcıları görebilirsiniz. Aboneliğinizin dikey penceresinde **Kaynak sağlayıcıları** öğesini seçin:
+
+![kaynak sağlayıcılarını görüntüleme](./media/resource-group-overview/view-resource-providers.png)
 
 Tüm kaynak sağlayıcılarını aşağıdaki PowerShell cmdlet’i ile alabilirsiniz:
 
@@ -322,6 +326,6 @@ Bu genel bakışın sunulduğu videoya şuradan ulaşabilirsiniz:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

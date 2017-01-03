@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7ae1803a299a5fb569ea0ca8a1ce68c33df1a769
+ms.sourcegitcommit: d0b8e8ec88c39ce18ddfd6405faa7c11ab73f878
+ms.openlocfilehash: 673ce33f0f0836c3df3854b0e6368a6215ee6f5f
 
 
 ---
@@ -29,6 +29,7 @@ Bu iletişim akışının mümkün olmasını sağlayan şey, Azure'ın IP trafi
 * Bir sanal ağ içinde bir alt ağdan başka bir alt ağa.
 * VM'lerden İnternet'e.
 * Bir VPN ağ geçidi yoluyla bir sanal ağdan başka bir sanal ağa.
+* Sanal Ağ Eşleme (Hizmet Zinciri) yoluyla bir sanal ağdan başka bir sanal ağa.
 * Bir VPN ağ geçidi yoluyla bir sanal ağdan şirket içi ağınıza.
 
 Aşağıdaki şekilde bir sanal ağı, iki alt ağı, birkaç VM'yi ve IP trafiğinin akmasını sağlayan sistem yollarını içeren basit bir kurulum gösterilmektedir.
@@ -111,6 +112,6 @@ Bu sanal gereç VM'si, kendisine yönelik olmayan gelen trafiği alabilmelidir. 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

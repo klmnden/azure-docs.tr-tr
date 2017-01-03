@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 09/13/2016
 ms.author: rogardle
 translationtype: Human Translation
-ms.sourcegitcommit: a7d957fd4be4c823077b1220dfb8ed91070a0e97
-ms.openlocfilehash: d056b9489eba1f97e8fb87f231b03d104c4cab66
+ms.sourcegitcommit: 52f158fd50ee8427cf567889d584e342ea42abb3
+ms.openlocfilehash: b52f7b36a28a345e8693ecbafd3771c27c683a37
 
 
 ---
@@ -58,8 +58,7 @@ Devam etmeye hazır olduğunuzda **Tamam**’a tıklayın.
 
 ![Dağıtım oluşturma 4](media/acs-portal4-new.png)  <br />
 
-Açılır menüden **Kubernetes** seçilirse Hizmet sorumlusu istemci kimliği ve hizmet sorumlusu istemci parolasını girmeniz gerekir.
-Hizmet sorumlusu oluşturma hakkında daha fazla bilgi edinmek için [bu](https://github.com/Azure/acs-engine/blob/master/docs/serviceprincipal.md) sayfayı ziyaret edin 
+Açılır menüden **Kubernetes** seçilirse hizmet sorumlusu istemci kimliği ve hizmet sorumlusu istemci parolasını girmeniz gerekir. Daha fazla bilgi için bkz. [Bir Kubernetes kümesi için hizmet sorumlusu hakkında](container-service-kubernetes-service-principal.md). 
 
 ![Dağıtım oluşturma 4,5](media/acs-portal10.PNG)  <br />
 
@@ -197,6 +196,6 @@ Artık çalışan bir kümeniz olduğuna göre, bağlantı ve yönetim ayrıntı
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO3-->
 
 

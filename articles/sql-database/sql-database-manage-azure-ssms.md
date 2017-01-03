@@ -1,116 +1,120 @@
 ---
-title: Manage a SQL Database with SSMS | Microsoft Docs
-description: Learn how to use SQL Server Management Studio to manage SQL Database servers and databases.
+title: "Bir SQL Veritabanını SSMS ile yönetme | Microsoft Belgeleri"
+description: "SQL Server Management Studio&quot;yu kullanarak SQL Veritabanı sunucularını ve veritabanlarını nasıl yöneteceğinizi öğrenin."
 services: sql-database
 documentationcenter: .net
 author: stevestein
 manager: jhubbard
 editor: tysonn
-
+ms.assetid: da6f3608-5993-4134-a497-ff2811e9f31f
 ms.service: sql-database
+ms.custom: overview
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/09/2016
+ms.topic: get-started-article
+ms.date: 09/29/2016
 ms.author: sstein
+translationtype: Human Translation
+ms.sourcegitcommit: d9ff74a49742fa77f5989b8b05e0567e3ca81dc5
+ms.openlocfilehash: 89cb8827745b31b3a77b64d5cafd586957d60d30
+
 
 ---
-# Managing Azure SQL Database using SQL Server Management Studio
+# <a name="managing-azure-sql-database-using-sql-server-management-studio"></a>SQL Server Management Studio kullanarak Azure SQL Database’i yönetme
 > [!div class="op_single_selector"]
 > * [Azure portal](sql-database-manage-portal.md)
 > * [SSMS](sql-database-manage-azure-ssms.md)
-> * [PowerShell](sql-database-command-line-tools.md)
+> * [PowerShell](sql-database-manage-powershell.md)
 > 
 > 
 
-You can use SQL Server Management Studio (SSMS) to administer Azure SQL Database servers and databases. This topic walks you through common tasks with SSMS. You should already have a server and database created in Azure SQL Database before you begin. See [Create your first Azure SQL Database](sql-database-get-started.md) and [Connect and Query using SSMS](sql-database-connect-query-ssms.md) for more information.
+SQL Server Management Studio'yu (SSMS) kullanarak Azure SQL Veritabanı sunucularını ve veritabanlarını yönetebilirsiniz. Bu konu başlığı, sık kullanılan SSMS işlevlerini ayrıntılı bir şekilde açıklamaktadır. Başlamadan önce Azure SQL Veritabanında bir sunucu ve veritabanı oluşturmuş olmanız gerekir. Daha fazla bilgi için bkz. [İlk Azure SQL Veritabanınızı oluşturma](sql-database-get-started.md) ve [SSMS kullanarak bağlanma ve sorgulama](sql-database-connect-query-ssms.md).
 
-It's recommended that you use the latest version of SSMS whenever you work with Azure SQL Database. 
+> [!TIP]
+> Sunucu oluşturma, sunucu tabanlı güvenlik duvarı oluşturma, sunucu özelliklerini görüntüleme, SQL Server Management Studio'yu kullanarak bağlanma, ana veritabanını sorgulama, örnek veritabanı ve boş veritabanı oluşturma, veritabanı özelliklerini sorgulama, SQL Server Management Studio kullanarak bağlanma ve örnek veritabanını sorgulama adımlarını gösteren bir öğreticiye ihtiyacınız varsa bkz. [Başlangıç Öğreticisi](sql-database-get-started.md).
+>
+
+Azure SQL Veritabanı ile çalışırken SSMS'nin en son sürümünü kullanmanız önerilir. 
 
 > [!IMPORTANT]
-> Always use the latest version of SSMS because it is continually improved to work with the latest updates to Azure and SQL Database. To get the latest version, see [Download SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+> Azure ve SQL Veritabanında yapılan son güncelleştirmelerle çalışmak üzere sürekli geliştirildiğinden her zaman SSMS'nin en son sürümünü kullanın. En son sürümü edinmek için bkz. [SQL Server Management Studio'yu indirme](https://msdn.microsoft.com/library/mt238290.aspx).
 > 
 > 
 
-## Create and manage Azure SQL databases
-While connected to the **master** database, you can create databases on the server and modify or drop existing databases. The following steps describe how to accomplish several common database management
-tasks through Management Studio. To perform these tasks, make sure you are connected to the
-**master** database with the server-level principal login that you
-created when you set up your server.
+## <a name="create-and-manage-azure-sql-databases"></a>Azure SQL veritabanlarını oluşturma ve yönetme
+**Ana** veritabanına bağlıyken sunucuda veritabanı oluşturabilir ve var olan veritabanlarını değiştirebilir veya bırakabilirsiniz. Aşağıdaki adımlarda Management Studio ile sık kullanılan veritabanı yönetim görevlerini nasıl tamamlayacağınız açıklanmaktadır. Bu görevleri gerçekleştirmek için **ana** veritabanına sunucunuzu kurarken oluşturduğunuz sunucu düzeyi asıl oturum açma bilgileriyle bağlandığınızdan emin olun.
 
-To open a query window in Management Studio, open the Databases folder, expand the **System Databases** folder, right-click on **master**, and then click **New Query**.
+Management Studio'da sorgu penceresi açmak için Veritabanları klasörünü açın, **Sistem Veritabanları** klasörünü genişletin, **ana** girişine sağ tıklayın ve ardından **Yeni Sorgu**'ya tıklayın.
 
-* Use the **CREATE DATABASE** statement to create a database. For
-  more information, see [CREATE DATABASE (SQL Database)](https://msdn.microsoft.com/library/dn268335.aspx). The following statement creates a database named **myTestDB** and specifies that it is a Standard S0 Edition database with a default maximum size of 250 GB.
+* Veritabanı oluşturmak için **CREATE DATABASE** deyimini kullanın. Daha fazla bilgi için bkz. [CREATE DATABASE (SQL Veritabanı)](https://msdn.microsoft.com/library/dn268335.aspx). Aşağıdaki deyim **myTestDB** adlı bir veritabanı oluşturur ve 250 GB maksimum boyuta sahip bir Standart S0 Sürümü veritabanı olduğunu belirtir.
   
       CREATE DATABASE myTestDB
       (EDITION='Standard',
        SERVICE_OBJECTIVE='S0');
 
-Click **Execute** to run the query.
+Sorguyu çalıştırmak için **Yürüt**'e tıklayın.
 
-* Use the **ALTER DATABASE** statement to modify an existing database, for example if you want to change the name and edition of the database. For more information, see [ALTER DATABASE (SQL Database)](https://msdn.microsoft.com/library/ms174269.aspx). The following statement modifies the database you created in the previous step to change edition to Standard S1.
+* Var olan bir veritabanının adını ve sürümünü değiştirmek gibi değişiklikler yapmak için **ALTER DATABASE** deyimini kullanın. Daha fazla bilgi için bkz. [ALTER DATABASE (SQL Veritabanı)](https://msdn.microsoft.com/library/ms174269.aspx). Aşağıdaki deyim, önceki adımda oluşturduğunuz veritabanının sürümünü Standart S1 olarak değiştirir.
   
       ALTER DATABASE myTestDB
       MODIFY
       (SERVICE_OBJECTIVE='S1');
-* Use **the DROP DATABASE** Statement to delete an existing database. For more information, see [DROP DATABASE (SQL Database)](https://msdn.microsoft.com/library/ms178613.aspx). The following statement deletes the **myTestDB** database, but don't drop it now because you will use it to create logins in the next step.
+* Var olan bir veritabanını silmek için **DROP DATABASE** deyimini kullanın. Daha fazla bilgi için bkz. [DROP DATABASE (SQL Veritabanı)](https://msdn.microsoft.com/library/ms178613.aspx). Aşağıdaki deyim **myTestDB** veritabanını siler ancak sonraki adımlarda oturum açma bilgisi oluşturmak için kullanacağınızdan bu adımda çalıştırmayın.
   
       DROP DATABASE myTestBase;
-* The master database has the **sys.databases** view that you can use to view details about all databases. To view all existing databases, execute the following statement:
+* Ana veritabanındaki **sys.databases** görünümünü kullanarak tüm veritabanlarının ayrıntılarını görüntüleyebilirsiniz. Var olan tüm veritabanlarını görüntülemek için aşağıdaki deyimi çalıştırın:
   
       SELECT * FROM sys.databases;
-* In SQL Database, the **USE** statement is not supported for switching between databases. Instead, you need to establish a connection directly to the target database.
+* SQL Veritabanında **USE** deyimi, veritabanları arasında geçiş yapmak için desteklenmez. Bunun yerine hedef veritabanıyla doğrudan bağlantı kurmanız gerekir.
 
 > [!NOTE]
-> Many of the Transact-SQL statements that create or modify a database must be run within their own batch and cannot be grouped with other Transact-SQL statements. For more information, see the statement-specific information.
+> Veritabanı oluşturan veya değiştiren Transact-SQL deyimlerinin çoğu kendi toplu işi içinde çalıştırılmalıdır ve diğer Transact-SQL deyimleriyle gruplanamaz. Daha fazla bilgi için deyime özgü bilgilere bakın.
 > 
 > 
 
-## Create and manage logins
-The **master** database contains logins and which logins have permission to create databases or other logins. Manage logins by connecting to the **master** database with the server-level principal login that you created when you set up your server. You can use the **CREATE LOGIN**, **ALTER LOGIN**, or **DROP LOGIN** statements to execute queries against the master database that manages logins across the entire server. For more information, see [Managing Databases and Logins in SQL Database](http://msdn.microsoft.com/library/azure/ee336235.aspx). 
+## <a name="create-and-manage-logins"></a>Oturum açma bilgisi oluşturma ve yönetme
+**Ana** veritabanında oturum açma bilgileri ve bu oturum açma bilgilerinin hangilerinin veritabanı veya başka oturum açma bilgisi oluşturma iznine sahip olduğu bilgisi yer alır. Oturum açma bilgilerini yönetmek için **ana** veritabanına sunucunuzu kurarken oluşturduğunuz sunucu düzeyi asıl oturum açma bilgileriyle bağlanın. **CREATE LOGIN**, **ALTER LOGIN** veya **DROP LOGIN** deyimlerini kullanarak tüm sunucu için oturum açma bilgilerini yöneten ana veritabanında sorgu çalıştırabilirsiniz. Daha fazla bilgi için bkz. [SQL Veritabanında Veritabanlarını ve Oturum Açma Bilgilerini Yönetme](http://msdn.microsoft.com/library/azure/ee336235.aspx). 
 
-* Use the **CREATE LOGIN** statement to create a server-level login. For more information, see [CREATE LOGIN (SQL Database)](https://msdn.microsoft.com/library/ms189751.aspx). The following statement creates a login called **login1**. Replace **password1** with the password of your choice.
+* Sunucu düzeyi oturum açma bilgisi oluşturmak için **CREATE LOGIN** deyimini kullanın. Daha fazla bilgi için bkz. [CREATE LOGIN (SQL Veritabanı)](https://msdn.microsoft.com/library/ms189751.aspx). Aşağıdaki deyim **login1** adlı bir oturum açma bilgisi oluşturur. **password1** yerine istediğiniz parolayı yazabilirsiniz.
   
       CREATE LOGIN login1 WITH password='password1';
-* Use the **CREATE USER** statement to grant database-level permissions. All logins must be created in the **master** database. For a login to connect to a different database, you must grant it database-level permissions using the **CREATE USER** statement on that database. For more information, see [CREATE USER (SQL Database)](https://msdn.microsoft.com/library/ms173463.aspx). 
-* To give login1 permissions to a database called **myTestDB**, complete the following steps:
+* Veritabanı düzeyinde izin vermek için **CREATE USER** deyimini kullanın. Tüm oturum açma bilgilerinin **ana** veritabanında oluşturulması gerekir. Bir oturum açma bilgisinin farklı bir veritabanına bağlanabilmesi için ilgili veritabanında **CREATE USER** deyimini kullanarak veritabanı düzeyinde izin vermeniz gerekir. Daha fazla bilgi için bkz. [CREATE USER (SQL Veritabanı)](https://msdn.microsoft.com/library/ms173463.aspx). 
+* login1 adlı kullanıcıya **myTestDB** adlı veritabanında izin vermek için aşağıdaki adımları uygulayın:
   
-  1. To refresh Object Explorer to view the **myTestDB** database that you created, right-click the server name in Object Explorer and then click **Refresh**.  
+  1. Oluşturduğunuz **myTestDB** adlı veritabanını görüntülemek üzere Nesne Gezginini yenilemek için Nesne Gezgininde sunucu adına sağ tıklayın ve **Yenile**'ye tıklayın.  
      
-     If you closed the connection, you can reconnect by selecting **Connect Object Explorer** on the File menu.
-  2. Right-click **myTestDB** database and select **New Query**.
-  3. Execute the following statement against the myTestDB database to create a database user named **login1User** that corresponds to the server-level login **login1**.
+     Bağlantıyı kapattıysanız Dosya menüsünden **Nesne Gezginine Bağlan**'ı seçerek yeniden bağlanabilirsiniz.
+  2. **myTestDB** veritabanına sağ tıklayın ve **Yeni Sorgu**'yu seçin.
+  3. **login1** sunucu düzeyi oturum açma bilgisine karşılık gelen **login1User** adlı veritabanı kullanıcısını oluşturmak için aşağıdaki deyimi myTestDB veritabanında çalıştırın.
      
          CREATE USER login1User FROM LOGIN login1;
-* Use the **sp\_addrolemember** stored procedure to give the user account the appropriate level of permissions on the database. For more information, see [sp_addrolemember (Transact-SQL)](http://msdn.microsoft.com/library/ms187750.aspx). The following statement gives **login1User** read-only permissions to the database by adding **login1User** to the **db\_datareader** role.
+* Kullanıcı hesabına veritabanında uygun izin düzeyini vermek için **sp\_addrolemember** saklı yordamını kullanın. Daha fazla bilgi için bkz. [sp_addrolemember (Transact-SQL)](http://msdn.microsoft.com/library/ms187750.aspx). Aşağıdaki deyim **login1User** kullanıcısını **db\_datareader** rolüne ekleyerek **login1User** kullanıcısına veritabanı için yalnızca okuma izni verir.
   
       exec sp_addrolemember 'db_datareader', 'login1User';    
-* Use the **ALTER LOGIN** statement to modify an existing login, for example if you want to change the password for the login. For more information, see [ALTER LOGIN (SQL Database)](https://msdn.microsoft.com/library/ms189828.aspx). The **ALTER LOGIN** statement should be run against the **master** database. Switch back to the query window that is connected to that database. The following statement modifies the **login1** login to reset the password. Replace **newPassword** with the password of your choice, and **oldPassword** with the current password for the login.
+* Var olan oturum açma bilgilerinden birini değiştirmek için (oturum açma bilgilerinin parolasını değiştirme gibi) **ALTER LOGIN** deyimini kullanın. Daha fazla bilgi için bkz. [ALTER LOGIN (SQL Veritabanı)](https://msdn.microsoft.com/library/ms189828.aspx). **ALTER LOGIN** deyiminin **ana** veritabanında çalıştırılması gerekir. Veritabanına bağlı olan sorgu penceresine dönün. Aşağıdaki deyim **login1** oturum açma bilgisini parolayı değiştirmek için düzenler. **newPassword** yerine istediğiniz parolayı, **oldPassword** yerine de oturum açma bilgisinin geçerli parolasını yazın.
   
       ALTER LOGIN login1
       WITH PASSWORD = 'newPassword'
       OLD_PASSWORD = 'oldPassword';
-* Use **the DROP LOGIN** statement to delete an existing login. Deleting a login at the server level also deletes any associated database user accounts. For more information, see [DROP DATABASE (SQL Database)](https://msdn.microsoft.com/library/ms178613.aspx). The **DROP LOGIN** statement should be run against the **master** database. The statement deletes the **login1** login.
+* Var olan oturum açma bilgisini silmek için **DROP LOGIN** deyimini kullanın. Sunucu düzeyindeki bir oturum açma bilgisini sildiğinizde ilgili veritabanı kullanıcı hesapları da silinir. Daha fazla bilgi için bkz. [DROP DATABASE (SQL Veritabanı)](https://msdn.microsoft.com/library/ms178613.aspx). **DROP LOGIN** deyiminin **ana** veritabanında çalıştırılması gerekir. Bu deyim **login1** oturum açma bilgisini siler.
   
       DROP LOGIN login1;
-* The master database has the **sys.sql\_logins** view that you can use to view logins. To view all existing logins, execute the following statement:
+* Ana veritabanında oturum açma bilgilerini görüntülemek için kullanabileceğiniz **sys.sql\_logins** görünümü vardır. Var olan tüm oturum açma bilgilerini görüntülemek için aşağıdaki deyimi çalıştırın:
   
       SELECT * FROM sys.sql_logins;
 
-## Monitor SQL Database using Dynamic Management Views
-SQL Database supports several dynamic management views that you can use to monitor an individual database. A few examples of the type of monitor data you can retrieve through these views are following. For
-complete details and more usage examples, see [Monitoring SQL Database using Dynamic Management Views](https://msdn.microsoft.com/library/azure/ff394114.aspx).
+## <a name="monitor-sql-database-using-dynamic-management-views"></a>Dinamik Yönetim Görünümlerini kullanarak SQL Veritabanını izleme
+SQL Veritabanı, tek bir veritabanını izlemek için kullanabileceğiniz birden fazla dinamik yönetim görevini destekler. Bu görünümlerle alabileceğiniz izleme verisi türüne birkaç örnek aşağıda verilmiştir. Ayrıntılı bilgiler ve daha fazla kullanım örneği için bkz. [Dinamik Yönetim Görünümlerini Kullanarak SQL Veritabanı İzleme](https://msdn.microsoft.com/library/azure/ff394114.aspx).
 
-* Querying a dynamic management view requires **VIEW DATABASE STATE** permissions. To grant the **VIEW DATABASE STATE** permission to a specific database user, connect to the database and execute the following statement against the database:
+* Dinamik yönetim görünümünde sorgu çalıştırmak için **VIEW DATABASE STATE** izinleri gereklidir. Belirli bir veritabanı kullanıcısına **VIEW DATABASE STATE** iznini vermek için veritabanına bağlanın ve aşağıdaki deyimi veritabanında çalıştırın:
   
       GRANT VIEW DATABASE STATE TO login1User;
-* Calculate database size using the **sys.dm\_db\_partition\_stats** view. The **sys.dm\_db\_partition\_stats** view returns page and row-count information for every partition in the database, which you can use to calculate the database size. The following query returns the size of your database in megabytes:
+* Veritabanı boyutunu **sys.dm\_db\_partition\_stats** görünümünü kullanarak hesaplayabilirsiniz. **sys.dm\_db\_partition\_stats** görünümü, veritabanındaki tüm bölümler için sayfa ve satır sayısı bilgilerini döndürür. Bu bilgileri kullanarak veritabanı boyutunu hesaplayabilirsiniz. Aşağıdaki sorgu veritabanınızın boyutunu megabayt cinsinden döndürür:
   
       SELECT SUM(reserved_page_count)*8.0/1024
       FROM sys.dm_db_partition_stats;   
-* Use the **sys.dm\_exec\_connections** and **sys.dm\_exec\_sessions** views to retrieve information about current user connections and internal tasks associated with the database. The following query returns information about the current connection:
+* Geçerli kullanıcı bağlantıları ve veritabanıyla ilişkilendirilmiş dahili görevlerle ilgili bilgi almak için **sys.dm\_exec\_connections** ve **sys.dm\_exec\_sessions** görünümlerini kullanın. Aşağıdaki sorgu geçerli bağlantıyla ilgili bilgileri döndürür:
   
       SELECT
           e.connection_id,
@@ -122,7 +126,7 @@ complete details and more usage examples, see [Monitoring SQL Database using Dyn
           sys.dm_exec_sessions s
           INNER JOIN sys.dm_exec_connections e
             ON s.session_id = e.session_id;
-* Use the **sys.dm\_exec\_query\_stats** view to retrieve aggregate performance statistics for cached query plans. The following query returns information about the top five queries ranked by average CPU time.
+* Önbelleğe alınmış sorgu planlarıyla ilgili toplu performans istatistiklerini almak için **sys.dm\_exec\_query\_stats** görünümünü kullanın. Aşağıdaki sorgu ortalama CPU süresine göre sıralanmış ilk beş sorgu hakkındaki bilgileri döndürür.
   
       SELECT TOP 5 query_stats.query_hash AS "Query Hash",
           SUM(query_stats.total_worker_time), SUM(query_stats.execution_count) AS "Avg CPU Time",
@@ -138,4 +142,10 @@ complete details and more usage examples, see [Monitoring SQL Database using Dyn
            CROSS APPLY sys.dm_exec_sql_text(QS.sql_handle) as ST) as query_stats
       GROUP BY query_stats.query_hash
       ORDER BY 2 DESC;
+
+
+
+
+<!--HONumber=Jan17_HO1-->
+
 

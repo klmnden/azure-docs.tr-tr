@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/24/2016
+ms.date: 12/09/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 3e587c9422e008a7b3c46e34fed4d0f1b2a8189c
+ms.sourcegitcommit: 0500d903438e0fb062ca848e6f488860e214a705
+ms.openlocfilehash: 55b6f6e03bfd1877d4f204cb5751ae46379d6951
 
 
 ---
@@ -58,10 +58,12 @@ Bu makalelerde Azure Active Directory kullanılarak belirli görevlerin nasıl g
 
 * [Azure AD kiracısı edinin](active-directory-howto-tenant.md)
 * [Çok kiracılı uygulama desenini kullanarak istediğiniz bir Azure AD kullanıcısı ile oturum açın](active-directory-devhowto-multi-tenant-overview.md)
+* [Sertifika kullanarak bir hizmetin/daemon uygulamasının kimliğini doğrulama](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential/)
 * [Android](active-directory-sso-android.md) ve [iOS](active-directory-sso-ios.md) cihazlarında ADAL kullanarak uygulamalar arası SSO'yu etkinleştirin
 * [Uygulamanızı Azure AD için AppSource Sertifikalı yapın](active-directory-devhowto-appsource-certified.md)
 * [Uygulamanızı Azure AD uygulama galerisinde listeleyin](active-directory-app-gallery-listing.md)
 * [Office 365 web uygulamalarını Satıcı Panosu’na gönderme](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard)
+* [Azure portalını kullanarak bir uygulamayı Azure Active Directory'ye kaydetme](active-directory-app-registration.md)
 * [Azure Active Directory uygulama bildirimini anlama](active-directory-application-manifest.md)
 * [İstemci uygulamanızdaki oturum açma ve uygulama edinme düğmeleri için marka yönergelerini öğrenin](active-directory-branding-guidelines.md)
 * [Önizleme: Kullanıcıların hem kişisel hem de iş veya okul hesaplarıyla oturum açabileceği uygulamalar oluşturma](active-directory-appmodel-v2-overview.md)
@@ -124,7 +126,6 @@ Windows Server kullanımı ve Active Directory Federasyon Hizmetleri (AD FS) gel
 
 
 
-
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

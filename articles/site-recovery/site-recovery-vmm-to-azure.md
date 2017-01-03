@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 11/23/2016
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: f5e9d1a7f26ed3cac5767034661739169968a44e
-ms.openlocfilehash: ba0c710a0c28e9d52021ec966905a007b06f125e
+ms.sourcegitcommit: 1268d29b0d9c4368f62918758836a73c757c0c8d
+ms.openlocfilehash: 3727972c544bb8c2724e9f38953882a7f2251a60
 
 
 ---
@@ -46,9 +46,9 @@ Tam bir dağıtım için makaledeki tüm adımları uygulamanızı öneririz. An
 | **Şirket içi sınırlamaları** |HTTPS tabanlı ara sunucu desteklenmez |
 | **Sağlayıcı/aracı** |Çoğaltılan VM’ler için Azure Site Recovery Sağlayıcısı gerekir.<br/><br/> Hyper-V konakları için Kurtarma Hizmetleri aracısı gerekir.<br/><br/> Bunları dağıtım sırasında yüklersiniz. |
 |  **Azure gereksinimleri** |Azure hesabı<br/><br/> Kurtarma hizmetleri kasası<br/><br/> Kasa bölgesindeki LRS veya GRS depolama hesabı<br/><br/> Standart depolama hesabı<br/><br/> Kasa bölgesinde Azure sanal ağı. [Tüm ayrıntılar](#azure-prerequisites). |
-|  **Azure sınırlamaları** |GRS kullanırsanız oturum açmak için başka bir LRS hesabına ihtiyacınız olur<br/><br/> Azure portalında oluşturulan depolama hesapları, aynı veya farklı aboneliklerdeki kaynak grupları arasında taşınamaz. <br/><br/> Premium depolama desteklenmiyor.<br/><br/> Site Recovery için kullanılan Azure ağları, aynı veya farklı aboneliklerdeki kaynak grupları arasında taşınamaz. |
-|  **VM çoğaltması** |[Sanal makineler, Azure önkoşullarıyla uyumlu olmalıdır](site-recovery-best-practices.md#azure-virtual-machine-requirements)<br/><br/> |
-|  **Çoğaltma sınırlamaları** |Statik bir IP adresiyle Linux çalıştıran VM'leri çoğaltamazsınız.<br/><br/> Belirli diskleri çoğaltmanın dışında tutamazsınız. |
+|  **Azure sınırlamaları** |GRS kullanırsanız oturum açmak için başka bir LRS hesabına ihtiyacınız olur<br/><br/> Azure portalında oluşturulan depolama hesapları, aynı veya farklı aboneliklerdeki kaynak grupları arasında taşınamaz. <br/><br/> Premium depolama desteklenmiyor.<br/><br/> Site Recovery için kullanılan Azure ağları, aynı veya farklı aboneliklerdeki kaynak grupları arasında taşınamaz. 
+|  **VM çoğaltması** |[Sanal makineler, Azure önkoşullarıyla uyumlu olmalıdır](site-recovery-best-practices.md#azure-virtual-machine-requirements)<br/><br/>
+|  **Çoğaltma sınırlamaları** |Statik bir IP adresiyle Linux çalıştıran VM'leri çoğaltamazsınız.<br/><br/> İşletim sistemi diski haricindeki belirli diskleri çoğaltmanın dışında tutabilirsiniz.
 | **Dağıtım adımları** |1) Azure’u hazırlama (abonelik, depolama, ağ) -> 2) Şirket içi ile ilgili hazırlıkları yapma (VMM ve ağ eşlemesi) -> 3) Kurtarma Hizmetleri kasası oluşturma -> 4) VMM ve Hyper-V konaklarını ayarlama -> 5) Çoğaltma ayarlarını yapılandırma -> 6) Çoğaltmayı etkinleştirme -> 7) Çoğaltma ve yük devretmeyi test etme. |
 
 ## <a name="site-recovery-in-the-azure-portal"></a>Azure portalında Site Recovery
@@ -372,6 +372,7 @@ Ayrıca, azaltma ayarı için [Set-OBMachineSetting](https://technet.microsoft.c
 2. Varsayılan değer 4'tür. "Fazla sağlanan" bir ağda, bu kayıt defteri anahtarlarının varsayılan değerlerinin değiştirilmesi gerekir. Maksimum değer 32'dir. Değeri iyileştirmek için trafiği izleyin.
 
 ## <a name="step-6-enable-replication"></a>6. Adım: Çoğaltmayı etkinleştirme
+
 Şimdi aşağıda belirtilen şekilde çoğaltmayı etkinleştirin:
 
 1. **2. Adım: Uygulama çoğaltma** > **Kaynak** seçeneklerine tıklayın. Çoğaltmayı ilk kez etkinleştirdikten sonra ek makineler için çoğaltma işlemini etkinleştirmek istiyorsanız kasada **+Çoğalt**'a tıklayın.
@@ -388,9 +389,20 @@ Ayrıca, azaltma ayarı için [Set-OBMachineSetting](https://technet.microsoft.c
 6. **Sanal Makineler** > **Sanal makine seçin** seçeneklerine tıklayın ve çoğaltmak istediğiniz makineleri seçin. Yalnızca çoğaltmanın etkinleştirildiği makineleri seçebilirsiniz. Daha sonra, **Tamam**'a tıklayın.
 
     ![Çoğaltmayı etkinleştirme](./media/site-recovery-vmm-to-azure/enable-replication5.png)
-7. **Özellikler** > **Özellikleri yapılandır** seçeneklerinde, seçili VM'ler için işletme sistemini ve OS diskini seçin. Daha sonra, **Tamam**'a tıklayın. Daha sonra ek özellikleri ayarlayabilirsiniz.
+7. **Özellikler** > **Özellikleri yapılandır** seçeneklerinde, seçili VM'ler için işletim sistemini ve işletim sistemi diskini belirtin. Varsayılan olarak VM'nin tüm diskleri çoğaltma için seçilir. Gereksiz verilerin Azure'da çoğaltılmasını önleyerek bant genişliği tüketimini azaltmak için belirli diskleri çoğaltma dışı bırakmayı tercih edebilirsiniz. Örneğin geçici verilere veya bilgisayar ya da uygulama yeniden başlatıldığında yenilenen verilere (pagefile.sys veya Microsoft SQL Server tempdb gibi) sahip diskleri çoğaltmak istemeyebilirsiniz. Diskin seçimini kaldırarak çoğaltma kapsamı dışında bırakabilirsiniz. Azure VM adının (Hedef Ad) [Azure sanal makine gereksinimlerine](site-recovery-best-practices.md#azure-virtual-machine-requirements) uygun olduğundan emin olun ve gerekirse değiştirin. Daha sonra, **Tamam**'a tıklayın. Ek özellikleri daha sonra ayarlayabilirsiniz.
 
-    ![Çoğaltmayı etkinleştirme](./media/site-recovery-vmm-to-azure/enable-replication6.png)
+    ![Çoğaltmayı etkinleştirme](./media/site-recovery-vmm-to-azure/enable-replication6-with-exclude-disk.png)
+    
+    >[!NOTE]
+    > 
+    > * Yalnızca temel diskler çoğaltma dışı bırakılabilir. İşletim sistemi hariç tutulamaz ve dinamik disklerin hariç tutulması önerilmez. ASR, konuk VM içindeki VHD disklerinin hangisinin temel, hangisinin dinamik olduğunu belirleyemez.  Bağımlı dinamik hacim disklerinin tümü hariç bırakılmazsa, korumalı dinamik disk yük devredilen VM'de hatalı disk olarak gelir ve diskteki verilere erişim sağlanamaz.   
+    > * Çoğaltmayı etkinleştirdikten sonra çoğaltma için disk ekleme veya kaldırma gerçekleştiremezsiniz. Bir diski eklemek veya hariç tutmak istiyorsanız, VM için korumayı devre dışı bırakmanız ve yeniden etkinleştirmeniz gerekir.
+    > * Bir uygulamanın çalışması için gerekli olan bir diski hariç tutarsanız, Azure'a yük devretme gerçekleştirildikten sonra çoğaltılan uygulamanın çalışması için Azure'da el ile oluşturmanız gerekir. Alternatif olarak makinenin yük devri sırasında diskin otomatik olarak oluşturulması için Azure otomasyonunu bir kurtarma planıyla tümleştirebilirsiniz.
+    > * Azure'da el ile oluşturduğunuz diskler yeniden çalışmaz. Örneğin, üç disk için yük devretme gerçekleştirirseniz ve ikisini doğrudan Azure VM'de oluşturursanız, yalnızca yük devretme gerçekleştirilen üç disk Azure'dan Hyper-V'ye çoğaltılarak yeniden çalışır hale getirilir. El ile oluşturulmuş diskleri yeniden çalışma veya Hyper-V'den Azure'a geri çoğaltma işlemine dahil edemezsiniz.
+    >
+    >
+    
+
 8. **Çoğaltma ayarları** > **Çoğaltma ayarlarını yapılandır** seçeneklerinde, korumalı VM'lere uygulamak istediğiniz çoğaltma ilkesini seçin. Daha sonra, **Tamam**'a tıklayın. **Ayarlar** > **Çoğaltma ilkeleri** > ilke adı > **Ayarları Düzenle**'de çoğaltma ilkesini değiştirebilirsiniz. Uyguladığınız değişiklikler, zaten çoğaltılmakta olan makinelere ve yeni makinelere uygulanır.
 
    ![Çoğaltmayı etkinleştirme](./media/site-recovery-vmm-to-azure/enable-replication7.png)
@@ -426,6 +438,7 @@ Dağıtımı test etmek için tek bir sanal makine için yük devretme testi vey
 * Yük devretme testi çalıştırmak için, Azure üretim ağınızdan yalıtılmış olan yeni bir Azure ağı oluşturmanızı öneririz. Bu, Azure'da yeni bir ağ oluşturulurken görülen varsayılan davranıştır. Yük devretme testlerini çalıştırma hakkında [daha fazla bilgi edinin](site-recovery-failover.md#run-a-test-failover).
 * Azure'a yük devrederken en iyi performansı elde etmek için korunan makineye Azure Aracısı'nı yükleyin. Önyüklemeyi hızlandırır ve sorun gidermeye yardım eder. [Linux](https://github.com/Azure/WALinuxAgent) veya [Windows](http://go.microsoft.com/fwlink/?LinkID=394789) aracısını yükleyin.
 * Dağıtımınızı tam olarak test etmek için, çoğaltılan makinelerin istendiği gibi çalışacağı bir altyapıya sahip olmanız gerekir. Active Directory ve DNS'yi test etmek isterseniz DNS içeren bir etki alanı denetleyicisi olarak bir sanal makine oluşturabilir ve Azure Site Recovery'yi kullanarak bunu Azure'a çoğaltabilirsiniz. Daha fazla bilgi edinmek için [Active Directory'ye yönelik yük devretme testi ile ilgili dikkat edilmesi gerekenler](site-recovery-active-directory.md#test-failover-considerations) bölümünü okuyun.
+* Diskleri çoğaltmadan hariç tuttuysanız, uygulamanın beklenen şekilde çalışmasını sağlamak için bu diskleri Azure'da el ile oluşturmanız gerekebilir.
 * Yük devretme testi yerine planlanmamış bir yük devretme çalıştırmak isterseniz şunlara dikkat edin:
 
   * Mümkün olduğu durumlarda, planlanmamış bir yük devretmeyi çalıştırmadan önce birincil makineleri kapatmanız gerekir. Bu işlem, kaynak ve çoğaltılan makinelerin aynı anda çalışmamasını garantiler.
@@ -496,6 +509,6 @@ Dağıtımınız ayarlandıktan ve çalışmaya başladıktan sonra farklı tür
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

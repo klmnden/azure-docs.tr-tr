@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2016
+ms.date: 12/19/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 4f541e34e7c0696e4074613c4ab0734a096c6d12
-ms.openlocfilehash: dd1161f2b5cf717246391900a616e51c457f5280
+ms.sourcegitcommit: e3df10acf4a6c123186c72687a56ccb4856c46fe
+ms.openlocfilehash: 07499f9b1c9668d8cb4037405478210e0738e03d
 
 
 ---
@@ -189,7 +189,7 @@ Bu noktada, uygulamanız için altyapı dağıttınız, ancak proje ile dağıt�
    
     Özellikler şunlardır:
    
-   * **Ek Özellikler**, Azure Depolama’ya gönderilen web dağıtımı paketini hazırlama konumunu içerir. Klasörü (ExampleApp) ve dosyayı (package.zip) not edin. Uygulamayı dağıtırken parametre olarak bu değerleri sağlayacaksınız. 
+   * **Ek Özellikler**, Azure Depolama’ya gönderilen web dağıtımı paketini hazırlama konumunu içerir. Klasörü (ExampleApp) ve dosyayı (package.zip) not edin. Uygulamayı dağıtırken parametre olarak ileteceğiniz için bu değerleri bilmeniz gerekir. 
    * **Dosya Yolu Ekle** paketin oluşturulduğu yerin yolunu içerir. **Hedefleri Ekle** dağıtımın yürüttüğü komutu içerir. 
    * **Build;Package** varsayılan değeri, dağıtımın bir web dağıtımı paketi (package.zip) oluşturmasını sağlar.  
      
@@ -219,6 +219,6 @@ Bu noktada, uygulamanız için altyapı dağıttınız, ancak proje ile dağıt�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 08/30/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 473ca94a4b081aee69fa06718790acd61a8b51b3
+ms.sourcegitcommit: ff663f40507547ba561053b5c9a7a8ce93fbf213
+ms.openlocfilehash: 70071f8d1b70d062aec1ea4fd35b8acb3512bab6
 
 
 ---
@@ -80,9 +80,9 @@ Media Services hesabına program aracılığıyla erişmek için hesap adına ve
     ![Media Services Anahtarları](./media/media-services-portal-vod-get-started/media-services-keys.png)
 
 ## <a name="configure-streaming-endpoints"></a>Akış uç noktalarını yapılandırma
-Azure Media Services ile çalışırken en sık karşılaşılan senaryolardan biri, istemcilerinize bit hızı uyarlamalı akış iletmektir. Media Services şu bit hızı uyarlamalı akış teknolojilerini destekler: HTTP Canlı Akışı (HLS), Kesintisiz Akış, MPEG DASH ve HDS (yalnızca Adobe PrimeTime/Erişim lisans sahipleri için).
+Azure Media Services ile çalışırken en sık karşılaşılan senaryolardan biri, istemcilerinize bit hızı uyarlamalı akış iletmektir. Media Services şu bit hızı uyarlamalı akış teknolojilerini destekler: HTTP Canlı Akışı (HLS), Kesintisiz Akış, MPEG DASH.
 
-Media Services, bu akış biçimlerinin her birinin önceden paketlenmiş sürümlerini depolamanıza gerek kalmadan, uyarlamalı bit hızı MP4 ile kodlanmış içeriğinizi Media Services tarafından desteklenen akış biçimlerinde (MPEG DASH, HLS, Kesintisiz Akış, HDS) tam vaktinde göndermenize olanak tanıyan dinamik paketleme özelliğine sahiptir.
+Media Services, bu akış biçimlerinin her birinin önceden paketlenmiş sürümlerini depolamanıza gerek kalmadan, uyarlamalı bit hızı MP4 ile kodlanmış içeriğinizi Media Services tarafından desteklenen akış biçimlerinde (MPEG DASH, HLS, Kesintisiz Akış) tam vaktinde göndermenize olanak tanıyan dinamik paketleme özelliğine sahiptir.
 
 Dinamik paketlemeden yararlanmak için aşağıdakileri yapmanız gerekir:
 
@@ -128,9 +128,9 @@ Azure Media Services kullanarak video akışı sağlamak için kaynak videoları
 Karşıya yükleme işlemi tamamlandıktan sonra, yeni varlık **Varlıklar** penceresinde listelenir. 
 
 ## <a name="encode-assets"></a>Varlıkları kodlama
-Azure Media Services ile çalışırken en sık karşılaşılan senaryolardan biri, istemcilerinize bit hızı uyarlamalı akış iletmektir. Media Services şu bit hızı uyarlamalı akış teknolojilerini destekler: HTTP Canlı Akışı (HLS), Kesintisiz Akış, MPEG DASH ve HDS (yalnızca Adobe PrimeTime/Erişim lisans sahipleri için). Videolarınızı uyarlamalı bit hızı akışına hazırlamak için, kaynak videonuzu çoklu bit hızı dosyalarına kodlamanız gerekir. Videolarınızı kodlamak için **Medya Kodlayıcısı Standart** kodlayıcıyı kullanmalısınız.  
+Azure Media Services ile çalışırken en sık karşılaşılan senaryolardan biri, istemcilerinize bit hızı uyarlamalı akış iletmektir. Media Services şu bit hızı uyarlamalı akış teknolojilerini destekler: HTTP Canlı Akışı (HLS), Kesintisiz Akış, MPEG DASH. Videolarınızı uyarlamalı bit hızı akışına hazırlamak için, kaynak videonuzu çoklu bit hızı dosyalarına kodlamanız gerekir. Videolarınızı kodlamak için **Medya Kodlayıcısı Standart** kodlayıcıyı kullanmalısınız.  
 
-Media Services, çoklu bit hızlı MP4’leri şu akış biçimlerinde yeniden paketlemenize gerek kalmadan göndermenizi sağlayan dinamik paketleme olanağı da sağlar: MPEG DASH, HLS, Kesintisiz Akış veya HDS. Dinamik paketleme ile dosyaları yalnızca tek bir depolama biçiminde depolamanız ve buna göre ödeme yapmanız gerekir. Media Services, istemciden gelen isteklere göre uygun yanıtı derler ve sunar.
+Media Services, çoklu bit hızlı MP4’leri şu akış biçimlerinde yeniden paketlemenize gerek kalmadan göndermenizi sağlayan dinamik paketleme olanağı da sağlar: MPEG DASH, HLS, Kesintisiz Akış. Dinamik paketleme ile dosyaları yalnızca tek bir depolama biçiminde depolamanız ve buna göre ödeme yapmanız gerekir. Media Services, istemciden gelen isteklere göre uygun yanıtı derler ve sunar.
 
 Dinamik paketlemeden yararlanmak için aşağıdakileri yapmanız gerekir:
 
@@ -221,6 +221,6 @@ Media Services öğrenme yollarını gözden geçirin.
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

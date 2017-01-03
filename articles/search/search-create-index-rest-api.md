@@ -13,33 +13,33 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 08/29/2016
+ms.date: 12/08/2016
 ms.author: ashmaka
 translationtype: Human Translation
-ms.sourcegitcommit: 6ff31940f3a4e7557e0caf3d9d3740590be3bc04
-ms.openlocfilehash: 6d3bbea1a891e1d2f41eedccd9b9a591dfe13855
-
+ms.sourcegitcommit: 455c4847893175c1091ae21fa22215fd1dd10c53
+ms.openlocfilehash: 7e28fdde31c735b5de99aa7031ceb1b2abf72576
 
 ---
 # <a name="create-an-azure-search-index-using-the-rest-api"></a>REST API'yi kullanarak Azure Search dizini oluşturma
 > [!div class="op_single_selector"]
+>
 > * [Genel Bakış](search-what-is-an-index.md)
 > * [Portal](search-create-index-portal.md)
 > * [.NET](search-create-index-dotnet.md)
 > * [REST](search-create-index-rest-api.md)
-> 
-> 
+>
+>
 
-Bu makale, Azure Search REST API'sini kullanarak Azure Search [dizini](https://msdn.microsoft.com/library/azure/dn798941.aspx) oluşturma işlemi konusunda size yol gösterecektir.
+Bu makale, Azure Search REST API'sini kullanarak Azure Search [dizini](https://docs.microsoft.com/rest/api/searchservice/Create-Index) oluşturma işlemi konusunda size yol gösterecektir.
 
 Bu kılavuzu izlemeden ve dizin oluşturmadan önce, [Azure Search hizmeti oluşturmuş](search-create-service-portal.md) olmanız gerekir.
 
 REST API'yi kullanan bir Azure Search dizini oluşturmak için, Azure Search hizmetinizin URL uç noktasına tek bir HTTP POST isteği göndereceksiniz. Dizin tanımınız, doğru biçimlendirilmiş JSON içeriği olarak istek gövdesinde yer alır.
 
-## <a name="i-identify-your-azure-search-services-admin-apikey"></a>I. Azure Search hizmet yöneticinizin api anahtarını tanımlama
-Şimdi bir Azure Search hizmeti sağlamış olduğunuza göre, .REST API'yi kullanarak hizmetinizin URL uç noktasına HTTP istekleri gönderebilirsiniz. Ancak *tüm* API isteklerinin sağladığınız Search hizmeti için oluşturulan API anahtarını içermesi gerekir. İstek başına geçerli bir anahtara sahip olmak, isteği gönderen uygulama ve bunu işleyen hizmet arasında güven oluşturur.
+## <a name="i-identify-your-azure-search-services-admin-api-key"></a>I. Azure Search hizmet yöneticinizin api anahtarını tanımlama
+Şimdi bir Azure Search hizmeti sağlamış olduğunuza göre, .REST API'yi kullanarak hizmetinizin URL uç noktasına HTTP istekleri gönderebilirsiniz. *Tüm* API isteklerinin sağladığınız Search hizmeti için oluşturulan API anahtarını içermesi gerekir. İstek başına geçerli bir anahtara sahip olmak, isteği gönderen uygulama ve bunu işleyen hizmet arasında güven oluşturur.
 
-1. Hizmetinizin api anahtarlarını bulmak için [Azure Portal](https://portal.azure.com/)'da oturum açmanız gerekir
+1. Hizmetinizin api anahtarlarını bulmak için [Azure portalında](https://portal.azure.com/) oturum açmanız gerekir.
 2. Azure Search hizmetinizin dikey penceresine gidin
 3. "Anahtarlar" simgesine tıklayın
 
@@ -50,13 +50,13 @@ Hizmetiniz, *yönetici anahtarlarına* ve *sorgu anahtarlarına* sahiptir.
 
 Dizin oluşturma amacıyla, birincil ya da ikincil yönetici anahtarınızı kullanabilirsiniz.
 
-## <a name="ii-define-your-azure-search-index-using-wellformed-json"></a>II. Doğru biçimlendirilmiş JSON kullanarak Azure Search dizininizi tanımlama
+## <a name="ii-define-your-azure-search-index-using-well-formed-json"></a>II. Doğru biçimlendirilmiş JSON kullanarak Azure Search dizininizi tanımlama
 Hizmetinize yönelik tek bir HTTP POST isteği dizininizi oluşturur. HTTP POST isteğinizin gövdesi, Azure Search dizininizi tanımlayan tek bir JSON nesnesi içerir.
 
 1. Bu JSON nesnesinin ilk özelliği dizininizin adıdır.
 2. Bu JSON nesnesinin ikinci özelliği, dizininizdeki her bir alan için ayrı bir JSON nesnesi içeren `fields` adlı bir JSON dizisidir. Bu JSON nesnelerinin her biri, her bir alan özniteliği için "ad", "tür" vb. de dahil olmak üzere birden çok ad/değer çifti içerir.
 
-Her bir alan için [uygun öznitelikler](https://msdn.microsoft.com/library/azure/dn798941.aspx) atanması gerektiğinden, dizininizi tasarlarken arama kullanıcı deneyiminizi ve iş gereksinimlerinizi göz önünde bulundurmanız önemlidir. Bu öznitelikler, hangi alanlar için hangi arama özelliklerinin (filtreleme, modelleme, tam metin araması sıralama vb.) geçerli olduğunu denetler. Belirtmediğiniz her öznitelik için ilgili arama özelliği, özellikle devre dışı bırakmadığınız sürece varsayılan olarak etkinleştirilir.
+Her bir alan için [uygun öznitelikler](https://docs.microsoft.com/rest/api/searchservice/Create-Index) atanması gerektiğinden, dizininizi tasarlarken arama kullanıcı deneyiminizi ve iş gereksinimlerinizi göz önünde bulundurmanız önemlidir. Bu öznitelikler, hangi alanlar için hangi arama özelliklerinin (filtreleme, modelleme, tam metin araması sıralama vb.) geçerli olduğunu denetler. Belirtmediğiniz her öznitelik için ilgili arama özelliği, özellikle devre dışı bırakmadığınız sürece varsayılan olarak etkinleştirilir.
 
 Bizim örneğimizde, dizinimizi "oteller" olarak adlandırdık ve alanlarımızı aşağıdaki şekilde tanımladık:
 
@@ -84,24 +84,24 @@ Her bir alan için dizin özniteliklerini, bunların bir uygulamada nasıl kulla
 
 Lütfen `Edm.String` türündeki dizininizde yalnızca bir alanın "anahtar" alanı olarak belirlenmesi gerektiğini unutmayın 
 
-Yukarıdaki dizin tanımı Fransızca metin depolamaya yönelik tasarlandığından, `description_fr` alanı için özel bir dil çözümleyicisi kullanır. Dil çözümleyicileri hakkında daha fazla bilgi için ilgili [blog yazısının](https://msdn.microsoft.com/library/azure/dn879793.aspx) yanı sıra [MSDN'de Dil desteği konu başlığına](https://azure.microsoft.com/blog/language-support-in-azure-search/) bakın.
+Yukarıdaki dizin tanımı Fransızca metin depolamaya yönelik tasarlandığından, `description_fr` alanı için bir dil çözümleyicisi kullanır. Dil çözümleyicileri hakkında daha fazla bilgi için ilgili [blog yazısının](https://azure.microsoft.com/blog/language-support-in-azure-search/) yanı sıra [Dil desteği konu başlığına](https://docs.microsoft.com/rest/api/searchservice/Language-support) bakın.
 
 ## <a name="iii-issue-the-http-request"></a>III. HTTP isteği gönderme
-1. Dizin tanımınızı istek gövdesi olarak kullanarak Azure Search hizmeti uç nokta URL'nize HTTP POST isteği gönderin. URL'de hizmet adınızı ana bilgisayar adı olarak kullandığınızdan emin olun ve sorgu dizesi parametresi olarak uygun `api-version` öğesini kullanın (Bu belge yayımlandığı sırada, `2015-02-28` geçerli API sürümüdür).
+1. Dizin tanımınızı istek gövdesi olarak kullanarak Azure Search hizmeti uç nokta URL'nize HTTP POST isteği gönderin. URL'de hizmet adınızı ana bilgisayar adı olarak kullandığınızdan emin olun ve sorgu dizesi parametresi olarak uygun `api-version` öğesini kullanın (Bu belge yayımlandığı sırada, `2016-09-01` geçerli API sürümüdür).
 2. İstek üst bilgilerinde, `Content-Type` öğesini `application/json` olarak belirtin. Ayrıca `api-key` üst bilgisinde, 1. Adımda tanımladığınız hizmet yöneticisi anahtarınızı sağlamanız gerekir.
 
 Aşağıdaki isteği göndermek için kendi hizmet adınızı ve API anahtarınızı sağlamanız gerekir:
 
-    POST https://[service name].search.windows.net/indexes?api-version=2015-02-28
+    POST https://[service name].search.windows.net/indexes?api-version=2016-09-01
     Content-Type: application/json
     api-key: [api-key]
 
 
-Başarılı bir istek için 201 durum kodunu (Oluşturuldu) görmeniz gerekir. REST API aracılığıyla dizin oluşturma hakkında daha fazla bilgi için lütfen [MSDN](https://msdn.microsoft.com/library/azure/dn798941.aspx)'de API başvurusuna bakın. Hata durumunda döndürülebilen diğer HTTP durum kodları hakkında daha fazla bilgi için bkz. [HTTP durum kodları (Azure Search)](https://msdn.microsoft.com/library/azure/dn798925.aspx).
+Başarılı bir istek için 201 durum kodunu (Oluşturuldu) görmeniz gerekir. REST API aracılığıyla dizin oluşturma hakkında daha fazla bilgi için lütfen [buradaki API başvurusuna](https://docs.microsoft.com/rest/api/searchservice/Create-Index) bakın. Hata durumunda döndürülebilen diğer HTTP durum kodları hakkında daha fazla bilgi için bkz. [HTTP durum kodları (Azure Search)](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes).
 
 Dizin ile işiniz bittiğinde ve bunu silmek istediğinizde HTTP DELETE isteği gönderin. Örneğin, "oteller" dizinini aşağıdaki şekilde sileriz:
 
-    DELETE https://[service name].search.windows.net/indexes/hotels?api-version=2015-02-28
+    DELETE https://[service name].search.windows.net/indexes/hotels?api-version=2016-09-01
     api-key: [api-key]
 
 
@@ -110,7 +110,6 @@ Azure Search dizini oluşturduktan sonra, [içeriğinizi dizine yüklemek](searc
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

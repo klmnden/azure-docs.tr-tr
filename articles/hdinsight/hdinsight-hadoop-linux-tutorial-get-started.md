@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/30/2016
+ms.date: 12/16/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: f9b191a68fe19f30aa157fd01f33afb0a4f1e279
-ms.openlocfilehash: 5e32b6fc0c87195fc82eedb00ffc7082b73007a0
+ms.sourcegitcommit: e37e9aa4419929e91664ec1d70c9610de33e3b45
+ms.openlocfilehash: 4ee5a7df3398924f7f40e7cd0467a08c55f299e8
 
 
 ---
@@ -44,11 +44,11 @@ Bu öğreticiye başlamadan önce
 
 Hadoop işlerinin çoğu toplu işlemdir. Bir küme oluşturur, bazı işleri çalıştırır ve kümeyi silersiniz. Bu bölümde, [Azure Resource Manager şablonu](../resource-group-template-deploy.md) kullanarak HDInsight’ta Linux tabanlı bir Hadoop kümesi oluşturacaksınız. Resource Manager şablonu tamamen özelleştirilebilir. HDInsight gibi Azure kaynaklarını oluşturmayı kolaylaştırır. Bu öğreticiyi kullanmak için Resource Manager şablonuyla deneyim sahibi olmak gerekli değildir. Diğer küme oluşturma yöntemleri ve bu öğreticide kullanılan özellikler hakkında bilgi edinmek için bkz. [HDInsight kümeleri oluşturma](hdinsight-hadoop-provision-linux-clusters.md). Küme oluşturma seçeneklerinizi belirlemek için sayfanın üst kısmındaki seçiciyi kullanın.
 
-Bu öğreticide kullanılan Resource Manager şablonu bir ortak blob kapsayıcısında bulunur: [https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-hadoop-cluster-in-hdinsight.json](https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-hadoop-cluster-in-hdinsight.json). 
+Bu öğreticide kullanılan Resource Manager şablonuna [Github](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-password/)'dan ulaşabilirsiniz. 
 
 1. Aşağıdaki resme tıklayarak Azure'da oturum açın ve Azure portalında Resource Manager şablonunu açın. 
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hadoop-cluster-in-hdinsight.json" target="_blank"><img src="./media/hdinsight-hadoop-linux-tutorial-get-started/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-ssh-password%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-hadoop-linux-tutorial-get-started/deploy-to-azure.png" alt="Deploy to Azure"></a>
 2. Aşağıdaki değerleri yazın veya seçin:
    
     ![HDInsight Linux kullanmaya başlama portalda Resource Manager şablonu](./media/hdinsight-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-arm-template-on-portal.png).
@@ -56,7 +56,8 @@ Bu öğreticide kullanılan Resource Manager şablonu bir ortak blob kapsayıcı
     * **Abonelik**: Azure aboneliğinizi seçin.
     * **Kaynak grubu**: Yeni bir kaynak grubu oluşturun veya mevcut bir kaynak grubunu seçin.  Kaynak grubu, Azure bileşenleri için bir kapsayıcıdır.  Bu durumda, kaynak grubu HDInsight kümesini ve bağımlı Azure Depolama hesabını içermektedir. 
     * **Konum**: Kümenizi oluşturmak istediğiniz bir Azure konumu seçin.  Daha iyi performans için kendinize yakın bir konum seçin. 
-    * **ClusterName**: Oluşturacağınız Hadoop kümesi için bir ad girin.
+    * **Küme Türü**: Bu öğretici için **hadoop**'u seçin.
+    * **Küme Adı**: Oluşturacağınız Hadoop kümesi için bir ad girin.
     * **Küme oturum açma adı ve parolası**: Varsayılan oturum açma adı **admin** şeklindedir.
     * **SSH kullanıcı adı ve parolası**: Varsayılan kullanıcı adı **sshuser** şeklindedir.  Bunu yeniden adlandırabilirsiniz. 
      
@@ -65,7 +66,6 @@ Bu öğreticide kullanılan Resource Manager şablonu bir ortak blob kapsayıcı
     * **Konum**: Hem küme konumu hem de bağımlı depolama hesabı kaynak grubu olarak aynı konumu kullanır.
     * **Küme sürümü**: 3.4
     * **İşletim Sistemi Türü**: Linux
-    * **Küme türü**: Hadoop
     * **Çalışan düğümü sayısı**: 2
 
      Her kümenin bir Azure Blob Storage hesabı bağımlılığı vardır. Bu genellikle varsayılan depolama hesabı olarak ifade edilir. HDInsight kümesi ve kümenin varsayılan depolama hesabının aynı Azure bölgesinde bulunması gerekir. Kümeleri silmek depolama hesabını silmez. Şablonda, varsayılan depolama hesabı adı, "depo" ifadesi eklenmiş küme adı olarak tanımlanır. 
@@ -175,6 +175,6 @@ HDInsight kümesi oluşturma ve yönetme hakkında daha fazla bilgi edinmek isti
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

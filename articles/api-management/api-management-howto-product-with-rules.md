@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/25/2016
+ms.date: 12/15/2016
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5050b99039da511ed3e6179b5b4ca2d04de527f7
+ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
+ms.openlocfilehash: 73c9675490f95f68450716cd67e58df9c84daef8
 
 
 ---
@@ -31,7 +31,7 @@ Bu öğreticide, geliştiricilerin [Abonelik başına çağrı hızını sınır
 Bu adımda, abonelik onayı gerektirmeyen bir Ücretsiz Deneme ürünü oluşturacaksınız.
 
 > [!NOTE]
-> Önceden yapılandırılmış bir ürününüz varsa ve ürünü bu öğretici için kullanmak istiyorsanız, [Çağrı hızı sınırı ve kota ilkeleri yapılandırma][Çağrı hızı sınırı ve kota ilkeleri yapılandırma]’ya geçebilir ve Ücretsiz Deneme ürünü yerine ürününüzü kullanarak öğreticiyi izleyebilirsiniz.
+> Önceden yapılandırılmış bir ürününüz varsa ve ürünü bu öğretici için kullanmak istiyorsanız, [Çağrı hızı sınırı ve kota ilkeleri yapılandırma][Configure call rate limit and quota policies]'ya geçebilir ve Ücretsiz Deneme ürünü yerine ürününüzü kullanarak öğreticiyi izleyebilirsiniz.
 > 
 > 
 
@@ -39,7 +39,7 @@ Kullanmaya başlamak için API Management hizmetiniz için Azure Portal'da **Yay
 
 ![Yayımcı portalı][api-management-management-console]
 
-> Henüz bir API Management hizmet örneği oluşturmadıysanız [Azure API Management’te ilk API’nizi yönetme][Azure API Management’te ilk API’nizi yönetme] öğreticisindeki [API Management hizmet örneği oluşturma][API Management hizmet örneği oluşturma] bölümüne bakın.
+> Henüz bir API Management hizmeti örneği oluşturmadıysanız, [Azure API Management'te ilk API'nizi yönetme][Manage your first API in Azure API Management] öğreticisinde [API Management hizmet örneği oluşturma][Create an API Management service instance]'ya bakın.
 > 
 > 
 
@@ -67,7 +67,7 @@ Tüm değerleri girdikten sonra ürünü oluşturmak için **Kaydet**’e tıkla
 
 Varsayılan olarak, yeni ürünleri **Yöneticiler** grubundaki kullanıcılar görür. Biz **Geliştiriciler** grubunu ekleyeceğiz. **Ücretsiz Deneme**’ye ve ardından **Görünürlük** sekmesine tıklayın.
 
-> API Management’te, ürünlerin geliştiricilere görünürlüğünü yönetmek için gruplar kullanılır. Ürünler gruplara görünürlük sağlar ve geliştiriciler ait oldukları gruplar tarafından görünür olan ürünleri görüntüleyip bunlara abone olabilir. Daha fazla bilgi için bkz. [Azure API Management’te grupları oluşturma ve kullanma][Azure API Management’te grupları oluşturma ve kullanma].
+> API Management’te, ürünlerin geliştiricilere görünürlüğünü yönetmek için gruplar kullanılır. Ürünler gruplara görünürlük sağlar ve geliştiriciler ait oldukları gruplar tarafından görünür olan ürünleri görüntüleyip bunlara abone olabilir. Daha fazla bilgi için bkz. [Azure API Management'te grupları oluşturma ve kullanma][How to create and use groups in Azure API Management].
 > 
 > 
 
@@ -78,7 +78,7 @@ Varsayılan olarak, yeni ürünleri **Yöneticiler** grubundaki kullanıcılar g
 ## <a name="add-api"> </a>Ürüne bir API eklemek için
 Öğreticinin bu adımında yeni Ücretsiz Deneme ürününe Echo API’sini ekleyeceğiz.
 
-> Her API Management hizmeti örneği, API Management’i denemek ve hakkında bilgi almak için kullanılabilecek bir Echo API’si ile önceden yapılandırılmış olarak gelir. Daha fazla bilgi için bkz. [Azure API Management’te ilk API’nizi yönetme][Azure API Management’te ilk API’nizi yönetme].
+> Her API Management hizmeti örneği, API Management’i denemek ve hakkında bilgi almak için kullanılabilecek bir Echo API’si ile önceden yapılandırılmış olarak gelir. Daha fazla bilgi için bkz. [Azure API Management'te ilk API'nizi yönetme][Manage your first API in Azure API Management].
 > 
 > 
 
@@ -113,44 +113,58 @@ Bu öğreticide eklediğimiz iki ilke [Abonelik başına çağrı hızını sın
 
 İmleç **gelen** ilke öğesinde konumlandırıldıktan sonra, kendi ilke şablonunu eklemek için **Abonelik başına çağrı hızını sınırla**’nın yanındaki oka tıklayın.
 
-    <rate-limit calls="number" renewal-period="seconds">
-    <api name="name" calls="number">
-    <operation name="name" calls="number" />
-    </api>
-    </rate-limit>
+```xml
+<rate-limit calls="number" renewal-period="seconds">
+<api name="name" calls="number">
+<operation name="name" calls="number" />
+</api>
+</rate-limit>
+```
 
 **Abonelik başına çağrı hızını sınırla**, ürün düzeyinde kullanılabileceği gibi API ve tek işlem adı düzeylerinde de kullanılabilir. Bu öğreticide, yalnızca ürün düzeyinde ilkeler kullanılır, dolayısıyla aşağıdaki örnekte gösterildiği gibi yalnızca dış **rate-limit** öğesi kalacak şekilde **rate-limit** öğesinin **api** ve **operation** öğelerini silin.
 
-    <rate-limit calls="number" renewal-period="seconds">
-    </rate-limit>
+```xml
+<rate-limit calls="number" renewal-period="seconds">
+</rate-limit>
+```
 
 Ücretsiz Deneme ürününde izin verilen maksimum çağrı hızı dakikada 10 çağrıdır, bu nedenle **calls** öznitelik değeri olarak **10**, **renewal-period** öznitelik değeri olarak **60** girin.
 
-    <rate-limit calls="10" renewal-period="60">
-    </rate-limit>
+```xml
+<rate-limit calls="10" renewal-period="60">
+</rate-limit>
+```
 
 **Abonelik başına kullanım kotasını ayarla** ilkesini yapılandırmak için, imlecinizi **gelen** öğesinde yeni eklenen **rate-limit** öğesinin hemen altına getirin ve ardından **Abonelik başına kullanım kotası ayarla**’nın solundaki oka tıklayın.
 
-    <quota calls="number" bandwidth="kilobytes" renewal-period="seconds">
-    <api name="name" calls="number" bandwidth="kilobytes">
-    <operation name="name" calls="number" bandwidth="kilobytes" />
-    </api>
-    </quota>
+```xml
+<quota calls="number" bandwidth="kilobytes" renewal-period="seconds">
+<api name="name" calls="number" bandwidth="kilobytes">
+<operation name="name" calls="number" bandwidth="kilobytes" />
+</api>
+</quota>
+```
 
 Bu ilkenin ürün düzeyinde olması da amaçlandığından, aşağıdaki örnekte gösterildiği şekilde **api** ve **operation** öğelerini silin.
 
-    <quota calls="number" bandwidth="kilobytes" renewal-period="seconds">
-    </quota>
+```xml
+<quota calls="number" bandwidth="kilobytes" renewal-period="seconds">
+</quota>
+```
 
 Kotalar aralık, bant genişliği ya da hem aralık hem de bant genişliği başına çağrı sayısını temel alabilir. Bu öğreticide, bant genişliği temelinde azaltma yapmıyoruz, bu nedenle **bandwidth** özniteliğini silin.
 
-    <quota calls="number" renewal-period="seconds">
-    </quota>
+```xml
+<quota calls="number" renewal-period="seconds">
+</quota>
+```
 
 Ücretsiz Deneme ürününde, kota haftada 200 çağrıdır. **calls** öznitelik değeri olarak **200**, **renewal-period** öznitelik değeri olarak **604800** girin.
 
-    <quota calls="200" renewal-period="604800">
-    </quota>
+```xml
+<quota calls="200" renewal-period="604800">
+</quota>
+```
 
 > İlke aralıkları saniye cinsinden belirtilir. Bir hafta aralığını hesaplamak üzere, gün sayısını (7) bir gündeki saat sayısıyla (24), çıkan sonucu bir saatteki dakika sayısıyla (60) ve son sonucu bir dakikadaki saniye sayısıyla (60) çarpabilirsiniz: 7 * 24 * 60 * 60 = 604800.
 > 
@@ -158,21 +172,23 @@ Kotalar aralık, bant genişliği ya da hem aralık hem de bant genişliği baş
 
 İlke yapılandırmayı tamamladığınızda ilkenin aşağıdaki örnekle eşleşmesi gerekir.
 
-    <policies>
-        <inbound>
-            <rate-limit calls="10" renewal-period="60">
-            </rate-limit>
-            <quota calls="200" renewal-period="604800">
-            </quota>
-            <base />
-
-    </inbound>
-    <outbound>
-
+```xml
+<policies>
+    <inbound>
+        <rate-limit calls="10" renewal-period="60">
+        </rate-limit>
+        <quota calls="200" renewal-period="604800">
+        </quota>
         <base />
 
-        </outbound>
-    </policies>
+</inbound>
+<outbound>
+
+    <base />
+
+    </outbound>
+</policies>
+```
 
 İstenen ilkeleri yapılandırdıktan sonra **Kaydet**’e tıklayın.
 
@@ -286,30 +302,30 @@ Dakikada 10 çağrılık hız sınırı ilkesi etkinken, hız sınırı aşılma
 [api-management-subscription-added]: ./media/api-management-howto-product-with-rules/api-management-subscription-added.png
 [api-management-add-subscription-multiple]: ./media/api-management-howto-product-with-rules/api-management-add-subscription-multiple.png
 
-[API'ye işlem ekleme]: api-management-howto-add-operations.md
-[Ürün ekleme ve yayımlama]: api-management-howto-add-products.md
-[İzleme ve analiz]: ../api-management-monitoring.md
-[Ürüne API ekleme]: api-management-howto-add-products.md#add-apis
-[Ürün yayımlama]: api-management-howto-add-products.md#publish-product
-[Azure API Management’te ilk API’nizi yönetme]: api-management-get-started.md
-[Azure API Management’te grupları oluşturma ve kullanma]: api-management-howto-create-groups.md
-[Bir ürünün abonelerini görüntüleme]: api-management-howto-add-products.md#view-subscribers
-[Azure API Management’i kullanmaya başlama]: api-management-get-started.md
-[API Management hizmet örneği oluşturma]: api-management-get-started.md#create-service-instance
-[Sonraki adımlar]: #next-steps
+[How to add operations to an API]: api-management-howto-add-operations.md
+[How to add and publish a product]: api-management-howto-add-products.md
+[Monitoring and analytics]: ../api-management-monitoring.md
+[Add APIs to a product]: api-management-howto-add-products.md#add-apis
+[Publish a product]: api-management-howto-add-products.md#publish-product
+[Manage your first API in Azure API Management]: api-management-get-started.md
+[How to create and use groups in Azure API Management]: api-management-howto-create-groups.md
+[View subscribers to a product]: api-management-howto-add-products.md#view-subscribers
+[Get started with Azure API Management]: api-management-get-started.md
+[Create an API Management service instance]: api-management-get-started.md#create-service-instance
+[Next steps]: #next-steps
 
-[Ürün oluşturma]: #create-product
-[Çağrı hızı sınırı ve kota ilkeleri yapılandırma]: #policies
-[Ürüne API ekleme]: #add-api
-[Ürünü yayımlama]: #publish-product
-[Geliştirici hesabını ürüne abone yapma]: #subscribe-account
-[İşlem çağırma ve hız sınırını test etme]: #test-rate-limit
+[Create a product]: #create-product
+[Configure call rate limit and quota policies]: #policies
+[Add an API to the product]: #add-api
+[Publish the product]: #publish-product
+[Subscribe a developer account to the product]: #subscribe-account
+[Call an operation and test the rate limit]: #test-rate-limit
 
-[Çağrı hızını sınırlama]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
-[Kullanım kotası ayarlama]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
+[Limit call rate]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
+[Set usage quota]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

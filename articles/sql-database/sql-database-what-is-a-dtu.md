@@ -17,8 +17,8 @@ ms.workload: NA
 ms.date: 09/06/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: f47aa2afad88f6afea4dae38603ec99e938d89ea
+ms.sourcegitcommit: ad6fb631f05b1e88e8cbaaca83f9863cfb643269
+ms.openlocfilehash: e5a6c17117e0c79d86c45a07f69433a96fdb9052
 
 
 ---
@@ -26,9 +26,9 @@ ms.openlocfilehash: f47aa2afad88f6afea4dae38603ec99e938d89ea
 Bu makalede, Veritabanı İşlem Birimleri (DTU'lar) ve esnek Veritabanı İşlem Birimlerinin (eDTU'lar) yanı sıra maksimum DTU veya eDTU sayısına ulaşıldığında ne olacağı açıklanmaktadır.  
 
 ## <a name="what-are-database-transaction-units-dtus"></a>Veritabanı İşlem Birimleri (DTU'lar) nedir?
-DTU, tek başına bir Azure SQL veritabanı için [tek başına bir veritabanı hizmet katmanı](sql-database-service-tiers.md#standalone-database-service-tiers-and-performance-levels) içinde belirli bir performans düzeyinde kullanılabilir olması garantilenen kaynaklara yönelik bir ölçü birimidir. DTU, gerçek OLTP iş yüklerine örnek olmak üzere tasarlanmış bir OLTP kıyaslama iş yükü tarafından belirlenen bir oranda CPU, bellek, veri G/Ç ve işlem günlüğü G/Ç karışımından oluşan bir ölçüdür. Veritabanının performans düzeyini artırarak DTU'ları iki katına çıkarmak, söz konusu veritabanının kullanabileceği kaynakları iki katına çıkarmaya eşittir. Örneğin, 1750 DTU’ya sahip Premium P11 veritabanı 5 DTU’ya sahip Temel veritabanına göre 350 kat daha fazla DTU işlem gücü sağlıyor. DTU karışımını belirlemek için kullanılan OLTP kıyaslama iş yükünün arkasındaki metodolojiyi anlamak için bkz. [SQL Database benchmark overview](sql-database-benchmark-overview.md) (SQL Veritabanı kıyaslamaya genel bakış).
+DTU, tek bir Azure SQL veritabanı için [tek veritabanı hizmet katmanı](sql-database-service-tiers.md#single-database-service-tiers-and-performance-levels) içinde, belirli bir performans düzeyinde kullanılabilir olacağı garanti edilen kaynaklara yönelik bir ölçü birimidir. DTU, gerçek OLTP iş yüklerine örnek olmak üzere tasarlanmış bir OLTP kıyaslama iş yükü tarafından belirlenen bir oranda CPU, bellek, veri G/Ç ve işlem günlüğü G/Ç karışımından oluşan bir ölçüdür. Veritabanının performans düzeyini artırarak DTU'ları iki katına çıkarmak, söz konusu veritabanının kullanabileceği kaynakları iki katına çıkarmaya eşittir. Örneğin, 1750 DTU’ya sahip Premium P11 veritabanı 5 DTU’ya sahip Temel veritabanına göre 350 kat daha fazla DTU işlem gücü sağlıyor. DTU karışımını belirlemek için kullanılan OLTP kıyaslama iş yükünün arkasındaki metodolojiyi anlamak için bkz. [SQL Database benchmark overview](sql-database-benchmark-overview.md) (SQL Veritabanı kıyaslamaya genel bakış).
 
-![SQL Veritabanı'na Giriş: Katmana ve düzeye göre tek başına veritabanı DTU'ları](./media/sql-database-what-is-a-dtu/single_db_dtus.png)
+![SQL Veritabanı'na Giriş: Katmana ve düzeye göre tek veritabanı DTU’ları](./media/sql-database-what-is-a-dtu/single_db_dtus.png)
 
 Uygulamanızda çok az (genellikle ortalama dört saniyenin altında) kesinti ile dilediğiniz zaman [hizmet katmanlarını değiştirebilirsiniz](sql-database-scale-up.md). Veritabanı oluşturabilmek ve veritabanı performansını isteğe göre yükseltip düşürebilmek, özellikle kullanım biçimlerinin nispeten tahmin edilebilir olduğu durumlarda birçok işletme ve uygulama için yeterlidir. Ancak tahmin edilemeyen kullanım biçimlerine sahipseniz bu durum maliyetlerin ve iş modelinizin yönetimini zorlaştırabilir. Bu senaryoda, belirli bir sayıda eDTU bulunduran esnek bir havuz kullanılmaktadır.
 
@@ -51,13 +51,13 @@ Havuzlar, belirli kullanım düzenlerine sahip çok sayıda veritabanı bulunan 
 Performans düzeyleri, veritabanı iş yükünüzü seçilen hizmet katmanı/performans düzeyiniz için izin verilen en üst sınırlara kadar çalıştırmak üzere gereken kaynakları sağlamak için ayarlanıp yönetilir. İş yükünüz, CPU/Veri GÇ/Günlük GÇ sınırlarından birine ulaşıyorsa kaynakları, izin verilen maksimum düzeyde almaya devam ederseniz, ancak sorgularınızda artan gecikme süreleriyle karşılaşmanız olasıdır. Bu sınırlar herhangi bir hataya yol açmaz, yalnızca iş yükünü yavaşlatır. Yavaşlama sorguların zaman aşımına uğramasına sebep olacak kadar şiddetli hale gelirse hatayla karşılaşırsınız. İzin verilen en yüksek eş zamanlı kullanıcı oturumu/isteği (çalışan iş parçacıkları) sayısı sınırına ulaşırsanız açık hatalar görürsünüz. CPU, bellek, veri G/Ç ve işlem günlüğü G/Ç kaynakları dışındaki kaynaklara yönelik sınırlar hakkında bilgi edinmek için bkz. [Azure SQL Database resource limits](sql-database-resource-limits.md) (Azure SQL Veritabanı kaynak sınırları).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Tek başına veritabanları ve esnek havuzlara yönelik olarak kullanılabilecek DTU'lar ve eDTU'lar hakkında daha fazla bilgi edinmek için bkz. [Hizmet katmanı](sql-database-service-tiers.md).
+* Tek veritabanları ve elastik havuzlara yönelik olarak kullanılabilecek DTU'lar ve eDTU'lar hakkında daha fazla bilgi edinmek için bkz. [Hizmet katmanı](sql-database-service-tiers.md).
 * CPU, bellek, veri G/Ç ve işlem günlüğü G/Ç kaynakları dışındaki kaynaklara yönelik sınırlar hakkında bilgi edinmek için bkz. [Azure SQL Database resource limits](sql-database-resource-limits.md) (Azure SQL Veritabanı kaynak sınırları).
 * DTU tüketiminizi anlamak için bkz. [SQL Veritabanı Sorgu Performansı Öngörüleri](sql-database-query-performance.md).
 * DTU karışımını belirlemek için kullanılan OLTP kıyaslama iş yükünün arkasındaki metodolojiyi anlamak için bkz. [SQL Database benchmark overview](sql-database-benchmark-overview.md) (SQL Veritabanı kıyaslamaya genel bakış).
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 
