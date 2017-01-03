@@ -1,71 +1,74 @@
 ---
-title: SQL Server database migration to SQL Database | Microsoft Docs
-description: Learn how about on-premises SQL Server database migration to Azure SQL Database in the cloud. Use database migration tools to test compatibility prior to database migration.
-keywords: database migration,sql server database migration,database migration tools,migrate database,migrate sql database
+title: "SQL Server veritabanını SQL Veritabanına geçirme | Microsoft Belgeleri"
+description: "Şirket içi SQL Server veritabanını buluttaki Azure SQL Veritabanına nasıl geçireceğinizi öğrenin. Veritabanı geçişinden önce uyumluluğu test etmek için veritabanı taşıma araçlarını kullanın."
+keywords: "veritabanı geçişi,sql server veritabanı geçişi,veritabanı taşıma araçları,veritabanı taşıma,sql veritabanı geçişi"
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: CarlRabeler
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 9cf09000-87fc-4589-8543-a89175151bc2
 ms.service: sql-database
+ms.custom: migrate and move
 ms.devlang: NA
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: sqldb-migrate
-ms.date: 08/24/2016
+ms.date: 11/08/2016
 ms.author: carlrab
+translationtype: Human Translation
+ms.sourcegitcommit: d9052bd10693c0b7942c0d90fdf89be37b44842d
+ms.openlocfilehash: b0093e48266aedda2b6c88b862c0056ebe3b3114
+
 
 ---
-# SQL Server database migration to SQL Database in the cloud
-In this article, you learn to how to migrate an on-premises SQL Server 2005 or later database to Azure SQL Database. In this database migration process, you migrate your schema and your data from the SQL Server database in your current environment into SQL Database. To succeed, the existing database must first pass a compatibility test. With [SQL Database V12](sql-database-v12-whats-new.md), there are few remaining compatibility issues, other than issue related to server-level and cross-database operations. Databases and applications that rely on [partially or unsupported functions](sql-database-transact-sql-information.md) need some re-engineering to fix these incompatibilities before the SQL Server database can be migrated.
+# <a name="sql-server-database-migration-to-sql-database-in-the-cloud"></a>SQL Server veritabanını buluttaki SQL Veritabanına taşıma
+Bu makalede şirket içi SQL Server 2005 veya üzeri veritabanını Azure SQL Veritabanına nasıl geçireceğinizi öğreneceksiniz. Bu veritabanı geçiş işlemi sırasında SQL Server veritabanına ait şemanızı ve verilerinizi mevcut ortamınızdan SQL Veritabanına taşıyacaksınız. İşlemin başarılı olması için var olan veritabanının bir uyumluluk testinden geçirilmesi gerekir. SQL Veritabanı V12 ile sunucu düzeyi ve veritabanları arası işlemlerle ilgili sorunlara ek olarak [özellik eşliği](sql-database-features.md) açısından da yaklaşıyoruz. [Kısmen desteklenen veya desteklenmeyen işlevleri](sql-database-transact-sql-information.md) kullanan veritabanları ve uygulamalar için SQL Server veritabanının geçirilebilmesi için bu uyumsuzlukların giderilmesi amacıyla yeniden mühendislik işlemlerinin yapılması gerekir.
 
-To migrate, the following are the steps you to take:
+Geçiş için aşağıdaki adımları uygulamanız gerekir:
 
-* **Test for Compatibility**: Validate database compatibility with [SQL Database V12](sql-database-v12-whats-new.md). 
-* **Fix Compatibility Issues, if any**: If validation fails, you must fix the validation errors.  
-* **Perform the migration** Once your database is compatible, you can use one or several methods to perform the migration. 
+* **Uyumluluk Testi**: Veritabanının SQL Veritabanı ile uyumlu olup olmadığını doğrulayın. 
+* **Varsa Uyumluluk Sorunlarını giderme**: Doğrulama başarısız olursa doğrulama hatalarını gidermeniz gerekir.  
+* **Geçişi gerçekleştirme**: Veritabanınızı uyumlu hale getirdikten sonra geçişi gerçekleştirmek için bir veya daha fazla yöntemden faydalanabilirsiniz. 
 
-SQL Server provides several methods to accomplish each of these tasks. This article provides an overview of the available methods for each task. The following diagram illustrates the steps and the methods.
+SQL Server bu görevlerin her birini tamamlamak için birden fazla yöntem sunmaktadır. Bu makale her bir görevle kullanılabilen yöntemler için genel bir bakış sağlar. Aşağıdaki şemada adımlar ve yöntemler gösterilmektedir.
 
-  ![VSSSDT migration diagram](./media/sql-database-cloud-migrate/03VSSSDTDiagram.png)
+  ![VSSSDT geçiş şeması](./media/sql-database-cloud-migrate/03VSSSDTDiagram.png)
 
 > [!NOTE]
-> To migrate a non-SQL Server database, including Microsoft Access, Sybase, MySQL Oracle, and DB2 to Azure SQL Database, see [SQL Server Migration Assistant](http://blogs.msdn.com/b/ssma/).
+> Microsoft Access, Sybase, MySQL Oracle ve DB2 olmak üzere SQL Server harici veritabanlarını Azure SQL Veritabanına geçirmek için bkz. [SQL Server Geçiş Yardımcısı](http://blogs.msdn.com/b/ssma/).
 > 
 > 
 
-## Database migration tools test SQL Server database compatibility with SQL Database
-To test for SQL Database compatibility issues before you start the database migration process, use one of the following methods:
+## <a name="database-migration-tools-test-sql-server-database-compatibility-with-sql-database"></a>Veritabanı geçiş araçları SQL Server veritabanı ile SQL Veritabanı arasındaki uyumluluğu test eder
+Veritabanı geçiş işlemine başlamadan önce SQL Veritabanı uyumluluk sorunlarıyla ilgili test gerçekleştirmek için aşağıdaki yöntemlerden birini kullanın:
 
 > [!div class="op_single_selector"]
 > * [SSDT](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md)
 > * [SqlPackage](sql-database-cloud-migrate-determine-compatibility-sqlpackage.md)
 > * [SSMS](sql-database-cloud-migrate-determine-compatibility-ssms.md)
-> * [Upgrade Advisor](http://www.microsoft.com/download/details.aspx?id=48119)
 > * [SAMW](sql-database-cloud-migrate-fix-compatibility-issues.md)
 > 
 > 
 
-* [SQL Server Data Tools for Visual Studio ("SSDT")](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md): SSDT uses the most recent compatibility rules to detect SQL Database V12 incompatibilities. If incompatibilities are detected, you can fix detected issues directly in this tool. This method is the recommended method to test and fix SQL Database V12 compatibility issues. 
-* [SqlPackage](sql-database-cloud-migrate-determine-compatibility-sqlpackage.md): SqlPackage is a command-line utility that tests for compatibility issues and generates a report containing detected compatibility issues. If you use this tool, make sure you use the most recent version to use the most recent compatibility rules. If errors are detected, you must use another tool to fix any detected compatibility issues - SSDT is recommended.  
-* [The Export Data Tier application wizard in SQL Server Management Studio](sql-database-cloud-migrate-determine-compatibility-ssms.md): This wizard detects and reports errors to the screen. If not errors are detected, you can continue and complete the migration to SQL Database. If errors are detected, you must use another tool to fix any detected compatibility issues - SSDT is recommended.
-* [The Microsoft SQL Server 2016 Upgrade Advisor Preview](http://www.microsoft.com/download/details.aspx?id=48119): This standalone tool, that is currently in preview, detects and generates a report of SQL Database V12 incompatibilities. This tool does not yet have the most recent compatibility rules. If no errors are detected, you can continue and complete the migration to SQL Database. If errors are detected, you must use another tool to fix any detected compatibility issues - SSDT is recommended. 
-* [SQL Azure Migration Wizard ("SAMW")](sql-database-cloud-migrate-fix-compatibility-issues.md): SAMW is a codeplex tool that uses the Azure SQL Database V11 compatibility rules to detect Azure SQL Database V12 incompatibilities. If incompatibilities are detected, some issues can be fixed directly in this tool. This tool may find incompatibilities that do not need to be fixed. It was the first Azure SQL Database migration assistance tool available and is actively supported by the SQL Server community. Also, this tool can complete the migration from within the tool itself. 
+* [Visual Studio için SQL Server Veri Araçları ("SSDT")](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md): SSDT, SQL Veritabanı V12 uyumsuzluklarını algılamak için en güncel uyumluluk kurallarını kullanın. Algılanan uyumsuzluklarla ilgili sorunları doğrudan bu aracın içinden giderebilirsiniz. Bu yöntem, SQL Veritabanı V12 uyumluluk sorunlarını test etmek ve gidermek için önerilen yöntemdir. 
+* [SqlPackage](sql-database-cloud-migrate-determine-compatibility-sqlpackage.md): SqlPackage, uyumluluk sorunlarını test eden ve algılanan uyumluluk sorunlarını içeren bir rapor oluşturan komut satırı yardımcı programdır. Bu aracı kullanıyorsanız en güncel uyumluluk sorunlarını algılamak için en güncel sürümü kullandığınızdan emin olun. Algılanan uyumluluk sorunlarını gidermek için başka bir araç kullanmanız gerekir. Bunun için SSDT önerilir.  
+* [SQL Server Management Studio'daki Veri Katmanını Dışarı Aktar uygulama sihirbazı](sql-database-cloud-migrate-determine-compatibility-ssms.md): Bu sihirbaz, hataları algılar ve ekranda bildirir. Hata algılanmadıysa işleme devam ederek SQL Veritabanı geçişini tamamlayabilirsiniz. Algılanan uyumluluk sorunlarını gidermek için başka bir araç kullanmanız gerekir. Bunun için SSDT önerilir.
+* [SQL Azure Geçiş Sihirbazı ("SAMW")](sql-database-cloud-migrate-fix-compatibility-issues.md): SAMW, Azure SQL Veritabanı V12 uyumsuzluklarını algılamak için Azure SQL Veritabanı V11 uyumluluk kurallarını kullanan bir codeplex aracıdır. Algılanan uyumsuzluklarla ilgili sorunların bazılarını doğrudan bu aracın içinden giderebilirsiniz. Bu araç, düzeltilmesi gerekmeyen uyumsuzluklar da algılayabilir. Bu araç, kullanıma sunulan ilk Azure SQL Veritabanı geçiş yardım aracıdır ve SQL Server topluluğu tarafından etkin olarak desteklenmektedir. Bu araç ayrıca geçişi kendi içinden de tamamlayabilir. 
 
-## Fix database migration compatibility issues
-If compatibility issues are detected, you must fix them before proceeding with the SQL Server database migration. There are a wide variety of compatibility issues that you might encounter, depending both on the version of SQL Server in the source database and the complexity of the database you are migrating. Older versions of SQL Server have more compatibility issues. Use the following resources, in addition to a targeted Internet search using your search engine of choices:
+## <a name="fix-database-migration-compatibility-issues"></a>Veritabanı geçişi uyumluluk sorunlarını giderme
+SQL Server veritabanı geçiş işlemine başlamadan önce algılanan uyumluluk sorunlarını gidermeniz gerekir. Kaynak veritabanındaki SQL Server sürümüne ve geçirdiğiniz veritabanının karmaşıklığına bağlı olarak karşılaşabileceğiniz çok çeşitli uyumluluk sorunları vardır. Eski SQL Server sürümlerinde daha fazla uyumluluk sorunları algılanabilir. Aşağıdaki kaynakları kullanabilir ve ek olarak istediğiniz arama motorunu kullanarak hedefli bir İnternet araması yapabilirsiniz:
 
-* [SQL Server database features not supported in Azure SQL Database](sql-database-transact-sql-information.md)
-* [Discontinued Database Engine Functionality in SQL Server 2016](https://msdn.microsoft.com/library/ms144262%28v=sql.130%29)
-* [Discontinued Database Engine Functionality in SQL Server 2014](https://msdn.microsoft.com/library/ms144262%28v=sql.120%29)
-* [Discontinued Database Engine Functionality in SQL Server 2012](https://msdn.microsoft.com/library/ms144262%28v=sql.110%29)
-* [Discontinued Database Engine Functionality in SQL Server 2008 R2](https://msdn.microsoft.com/library/ms144262%28v=sql.105%29)
-* [Discontinued Database Engine Functionality in SQL Server 2005](https://msdn.microsoft.com/library/ms144262%28v=sql.90%29)
+* [Azure SQL Veritabanında desteklenmeyen SQL Server veritabanı özellikleri](sql-database-transact-sql-information.md)
+* [SQL Server 2016'da Artık Sağlanmayan Veritabanı Altyapısı İşlevleri](https://msdn.microsoft.com/library/ms144262%28v=sql.130%29)
+* [SQL Server 2014'te Artık Sağlanmayan Veritabanı Altyapısı İşlevleri](https://msdn.microsoft.com/library/ms144262%28v=sql.120%29)
+* [SQL Server 2012'de Artık Sağlanmayan Veritabanı Altyapısı İşlevleri](https://msdn.microsoft.com/library/ms144262%28v=sql.110%29)
+* [SQL Server 2008 R2'de Artık Sağlanmayan Veritabanı Altyapısı İşlevleri](https://msdn.microsoft.com/library/ms144262%28v=sql.105%29)
+* [SQL Server 2005'te Artık Sağlanmayan Veritabanı Altyapısı İşlevleri](https://msdn.microsoft.com/library/ms144262%28v=sql.90%29)
 
-In addition to searching the Internet and using these resources, use the [MSDN SQL Server community forums](https://social.msdn.microsoft.com/Forums/sqlserver/home?category=sqlserver) or [StackOverflow](http://stackoverflow.com/).
+İnternet aramasına ve bu kaynaklara ek olarak [MSDN SQL Server topluluk forumlarını](https://social.msdn.microsoft.com/Forums/sqlserver/home?category=sqlserver) veya [StackOverflow](http://stackoverflow.com/) sitesini de kullanabilirsiniz.
 
-Use one of the following database migration tools to fix the issues detected:
+Algılanan sorunları gidermek için aşağıdaki veritabanı geçiş araçlarından birini kullanın:
 
 > [!div class="op_single_selector"]
 > * [SSDT](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md)
@@ -74,42 +77,47 @@ Use one of the following database migration tools to fix the issues detected:
 > 
 > 
 
-* Use [SQL Server Data Tools for Visual Studio ("SSDT")](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md): To use SSDT, you import your database schema into SQL Server Data Tools for Visual Studio "SSDT") and build the project for a SQL Database V12 deployment. You then fix all detected compatibility issues in SSDT. When complete, you synchronize the changes back to the source database (or a copy of the source database. SSDT is currently the recommended method to test and fix SQL Database V12 compatibility issues. Follow the link for a [walk-through using SSDT](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md).
-* Use [SQL Server Management Studio ("SSMS")](sql-database-cloud-migrate-fix-compatibility-issues-ssms.md): To use SSMS, you execute Transact-SQL commands to fix the errors detected using another tool. This method is primarily for advanced users to modify the database schema directly in the source database. 
-* Use [SQL Azure Migration Wizard ("SAMW")](sql-database-cloud-migrate-fix-compatibility-issues.md): To use SAMW, you generate a Transact-SQL script from the source database. The wizard transforms the script, whenever possible, to make the schema compatible with the SQL Database V12. When complete, SAMW can connect to SQL Database V12 to execute the script. This tool also analyzes trace files to determine compatibility issues. The script can be generated with schema only or can include data in BCP format.
+* [Visual Studio için SQL Server Veri Araçları ("SSDT")](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md) uygulamasını kullanın: SSDT uygulamasını kullanmak için veritabanı şemanızı Visual Studio için SQL Server Veri Araçları ("SSDT") uygulamasına aktarmanız ve projeyi SQL Veritabanı V12 dağıtımı için derlemeniz gerekir. Ardından SSDT uygulamasında algılanan tüm uyumluluk sorunlarını giderin. İşlemi tamamladığınızda değişiklikleri kaynak veritabanıyla (veya kaynak veritabanının bir kopyasıyla) eşitleyin. SSDT şu anda SQL Veritabanı V12 uyumluluk sorunlarını test etmek ve gidermek için önerilen yöntemdir. [SSDT uygulamasını kullanma adımlarına](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md) göz atın.
+* [SQL Server Management Studio ("SSMS")](sql-database-cloud-migrate-fix-compatibility-issues-ssms.md) uygulamasını kullanın: SSMS uygulamasını kullanmak için Transact-SQL komutlarını çalıştırarak başka bir araç tarafından algılanan hataları giderebilirsiniz. Bu yöntem, veritabanı şemasını doğrudan kaynak veritabanında değiştirmek isteyen ileri düzey kullanıcılara yöneliktir. 
+* [SQL Azure Geçiş Sihirbazı ("SAMW")](sql-database-cloud-migrate-fix-compatibility-issues.md) uygulamasını kullanın: SAMW uygulamasını kullanmak için kaynak veritabanından bir Transact-SQL betiği oluşturmanız gerekir. Sihirbaz mümkün olduğunda betiği dönüştürerek şemayı SQL Veritabanı V12 ile uyumlu hale getirir. İşlem tamamlandığında SAMW, SQL Veritabanı V12 ile bağlantı kurarak betiği çalıştırabilir. Bu araç ayrıca uyumluluk sorunlarını belirlemek için izleme dosyalarını da analiz eder. Betik yalnızca şemayla oluşturulabilir veya BCP biçiminde veri içerebilir.
 
-## Migrate a compatible SQL Server database to SQL Database
-To migrate a compatible SQL Server database, Microsoft provides several migration methods for various scenarios. The method you choose depends upon your tolerance for downtime, the size and complexity of your SQL Server database, and your connectivity to the Microsoft Azure cloud.  
+## <a name="migrate-a-compatible-sql-server-database-to-sql-database"></a>Uyumlu bir SQL Server veritabanını SQL Veritabanına geçirme
+Microsoft, uyumlu bir SQL Server veritabanını geçirmek için farklı senaryolarda kullanılabilecek birden fazla geçiş yöntemi sunar. Kabul edilebilir kesinti süresi, SQL Server veritabanınızın boyutu ve karmaşıklığı ile Microsoft Azure bulutuna bağlantınıza göre kendinize uygun yöntemi belirleyebilirsiniz.  
 
 > [!div class="op_single_selector"]
-> * [SSMS Migration Wizard](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md)
-> * [Export to BACPAC File](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md)
-> * [Import from BACPAC File](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
-> * [Transactional Replication](sql-database-cloud-migrate-compatible-using-transactional-replication.md)
+> * [SSMS Geçiş Sihirbazı](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md)
+> * [BACPAC Dosyasına Dışarı Aktarma](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md)
+> * [BACPAC Dosyasından İçeri Aktarma](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
+> * [İşlem Çoğaltması](sql-database-cloud-migrate-compatible-using-transactional-replication.md)
 > 
 > 
 
-To choose your migration method, the first question to ask is if you can afford to take the database out of production during the migration. Migrating a database while active transactions are occurring can result in database inconsistencies and possible database corruption. There are many methods to quiesce a database, from disabling client connectivity to creating a [database snapshot](https://msdn.microsoft.com/library/ms175876.aspx).
+Geçiş yönteminizi belirlemek için sormanız gereken ilk soru, geçiş sırasında veritabanınızın hizmet dışı kalmasının kabul edilip edilemeyeceğidir. Bir veritabanının etkin işlemler gerçekleşirken geçirilmesi, veritabanı tutarsızlıklarına ve veritabanında olası bozulmalara neden olabilir. Bir veritabanını yavaşça çevrimdışına geçirmek için kullanabileceğiniz istemci bağlantısını devre dışı bırakmaktan [veritabanı anlık görüntüsü](https://msdn.microsoft.com/library/ms175876.aspx) oluşturmaya kadar birçok yöntem vardır.
 
-To migrate with minimal downtime, use [SQL Server transaction replication](sql-database-cloud-migrate-compatible-using-transactional-replication.md) if your database meets the requirements for transactional replication. If you can afford some downtime or you are performing a test migration of a production database for later migration, consider one of the following three methods:
+Geçişi en az kapalı kalma süresi ile gerçekleştirmek istiyorsanız, veritabanınızın işlem çoğaltması gereksinimlerini karşılaması şartıyla [SQL Server işlem çoğaltmasını](sql-database-cloud-migrate-compatible-using-transactional-replication.md) kullanabilirsiniz. Veritabanının kapalı kalması kabul edilebilir bir durumsa veya ileride geçiş yapmak üzere bir üretim veritabanının test geçişini gerçekleştiriyorsanız, aşağıdaki üç yöntemden birini kullanmayı düşünebilirsiniz:
 
-* [SSMS Migration Wizard](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md): For small to medium databases, migrating a compatible SQL Server 2005 or later database is as simple as running the [Deploy Database to Microsoft Azure Database Wizard](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md) in SQL Server Management Studio.
-* [Export to BACPAC File](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md) and then [Import from BACPAC File](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md): If you have connectivity challenges (no connectivity, low bandwidth, or timeout issues) and for medium to large databases, use a [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) file. With this method, you export the SQL Server schema and data to a BACPAC file. You then import the BACPAC file into SQL Database using the Export Data Tier Application Wizard in SQL Server Management Studio or the [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx) command-prompt utility.
-* Use BACPAC and BCP together: Use a [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) file and [BCP](https://msdn.microsoft.com/library/ms162802.aspx) for much larger databases to achieve greater parallelization for increases performance, albeit with greater complexity. With this method, migrate the schema and the data separately.
+* [SSMS Geçiş Sihirbazı](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md): Küçük ve orta büyüklükteki veritabanları için uyumlu bir SQL Server 2005 veya üzeri veritabanını geçirmek, SQL Server Management Studio'da [Veritabanını Microsoft Azure Veritabanına Geçirme Sihirbazı](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md)'nı çalıştırmak kadar kolaydır.
+* [BACPAC Dosyasına Dışarı Aktarma](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md) ve ardından [BACPAC Dosyasından İçeri Aktarma](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md): Bağlantı sorunları yaşıyorsanız (bağlantı kesilmesi, düşük bant genişliği veya zaman aşımı sorunları) ve veritabanınız orta ila büyük ölçekteyse bir [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) dosyası kullanabilirsiniz. Bu yöntemle SQL Server şemasını ve verileri bir BACPAC dosyasına dışarı aktarırsınız. Ardından bu BACPAC dosyasını SQL Veritabanına SQL Server Management Studio'daki Veri Katmanını Dışarı Aktar Uygulama Sihirbazını veya [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx) komut satırı yardımcı programını kullanarak içeri aktarırsınız.
+* BACPAC ve BCP dosyalarını birlikte kullanma: Karmaşık veritabanlarında daha yüksek performansa ulaşmak için daha üstün paralelleştirmeye ulaşmak üzere bir [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) dosyasını [BCP](https://msdn.microsoft.com/library/ms162802.aspx) dosyasıyla birlikte kullanın. Bu yöntemle şemayı ve verileri ayrı ayrı geçirebilirsiniz.
   
-  * [Export the schema only to a BACPAC file](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md).
-  * [Import the schema only from the BACPAC File](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md) into SQL Database.
-  * Use [BCP](https://msdn.microsoft.com/library/ms162802.aspx) to extract the data into flat files and then [parallel load](https://technet.microsoft.com/library/dd425070.aspx) these files into Azure SQL Database.
+  * [Yalnızca şemayı bir BACPAC dosyasına dışarı aktarın](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md).
+  * [Yalnızca şemayı BACPAC dosyasından](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md) SQL Veritabanına aktarın.
+  * [BCP](https://msdn.microsoft.com/library/ms162802.aspx) kullanarak verileri düz dosyalara ayıklayın ve ardından bu dosyaları Azure SQL Veritabanına [paralel şekilde yükleyin](https://technet.microsoft.com/library/dd425070.aspx).
     
-     ![SQL Server database migration - migrate SQL database to the cloud.](./media/sql-database-cloud-migrate/01SSMSDiagram_new.png)
+     ![SQL Server veritabanı geçişi - SQL veritabanını buluta geçirin.](./media/sql-database-cloud-migrate/01SSMSDiagram_new.png)
 
-## Next steps
-* [The Microsoft SQL Server 2016 Upgrade Advisor Preview](http://www.microsoft.com/download/details.aspx?id=48119)
-* [Newest version of SSDT](https://msdn.microsoft.com/library/mt204009.aspx)
-* [Newest version of SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)
+## <a name="next-steps"></a>Sonraki adımlar
+* [SSDT'nin en yeni sürümü](https://msdn.microsoft.com/library/mt204009.aspx)
+* [SQL Server Management Studio'nun en yeni sürümü](https://msdn.microsoft.com/library/mt238290.aspx)
 
-## Additional resources
-* [SQL Database V12](sql-database-v12-whats-new.md)
-  [Transact-SQL partially or unsupported functions](sql-database-transact-sql-information.md)
-* [Migrate non-SQL Server databases using SQL Server Migration Assistant](http://blogs.msdn.com/b/ssma/)
+## <a name="additional-resources"></a>Ek kaynaklar
+* [SQL Veritabanı özellikleri](sql-database-features.md)
+  [Transact-SQL kısmen desteklenen veya desteklenmeyen işlevler](sql-database-transact-sql-information.md)
+* [SQL Server Geçiş Yardımcısını kullanarak SQL Server harici veritabanlarını geçirme](http://blogs.msdn.com/b/ssma/)
+
+
+
+
+<!--HONumber=Jan17_HO1-->
+
 

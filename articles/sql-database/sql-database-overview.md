@@ -8,7 +8,7 @@ manager: jhubbard
 editor: 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: overview
+ms.custom: single databases
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
@@ -16,8 +16,8 @@ ms.workload: data-management
 ms.date: 11/28/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: d772dabf84fc3b6c061c0f4607c989aabf9dd272
-ms.openlocfilehash: 50200648bcd2aed4cbc0c720d140f2ecb2c17934
+ms.sourcegitcommit: 3ba16154857f8e7b59a1013b736d6131a4161185
+ms.openlocfilehash: 3d45ec5a6636de4213c6c02dca0e5288ec3aa0e3
 
 
 ---
@@ -28,7 +28,7 @@ Bu konu başlığında, Azure SQL veritabanlarına genel bir bakış sağlanmı�
 Azure SQL Veritabanı’ndaki her bir veritabanı bir mantıksal sunucuyla ilişkilidir. Veritabanları aşağıdaki biçimlerde olabilir:
 
 - [Kendi kaynak kümesine](sql-database-what-is-a-dtu.md#what-are-database-transaction-units-dtus) (DTU) sahip tek veritabanı
-- [Bir kaynak kümesini (eDTU) paylaşan](sql-database-what-is-a-dtu.md#what-are-elastic-database-transaction-units-edtus) bir [veritabanı havuzunun](sql-database-elastic-pool.md) bir parçası
+- [Bir kaynak kümesini (eDTU) paylaşan](sql-database-what-is-a-dtu.md#what-are-elastic-database-transaction-units-edtus) bir [elastik havuzun](sql-database-elastic-pool.md) bir parçası
 - Tek başına veya havuza eklenmiş veritabanlarından oluşan [parçalı veritabanlarından oluşan ölçeği genişletilmiş kümenin](sql-database-elastic-scale-introduction.md#horizontal-and-vertical-scaling) bir parçası
 - [Çok kiracılı SaaS tasarım desenine](sql-database-design-patterns-multi-tenancy-saas-applications.md) katılan ve veritabanları tek başına ya da havuza eklenmiş (veya her ikisi de) olabilecek bir veritabanı kümesinin bir parçası 
 
@@ -71,6 +71,6 @@ Azure SQL Veritabanı mantıksal sunucularını birkaç yöntemle yönetebilirsi
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -3,7 +3,7 @@ title: "Eğitmen - Azure Batch Python istemcisini kullanmaya başlama | Microsof
 description: "Azure Batch’in temel kavramlarını ve basit bir senaryoyla Batch hizmetini geliştirmeyi öğrenin"
 services: batch
 documentationcenter: python
-author: mmacy
+author: tamram
 manager: timlt
 editor: 
 ms.assetid: 42cae157-d43d-47f8-88f5-486ccfd334f4
@@ -13,10 +13,10 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
 ms.date: 11/30/2016
-ms.author: marsma
+ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 64f70aab802ed377de1686fcdb7e641c30299b9c
-ms.openlocfilehash: 6630899081a76d7a8bc54f53a33c76dda9f1b0fa
+ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
+ms.openlocfilehash: 3c1efaa277c6fba7965d6fe10cc5991cb02281d7
 
 
 ---
@@ -145,7 +145,7 @@ if __name__ == '__main__':
 ```
 
 ## <a name="step-1-create-storage-containers"></a>1. Adım: Storage kapsayıcıları oluşturma
-![Azure Depolama’da kapsayıcı oluşturma][1]
+![Azure Depolama'da kapsayıcı oluşturma][1]
 <br/>
 
 Azure Storage ilet etkileşimde bulunmak için Batch’te yerleşik destek bulunur. Storage hesabınızdaki kapsayıcılar, Batch hesabınızda çalışan görevler için gerekli dosyaları sağlar. Kapsayıcılar ayrıca görevlerin oluşturduğu çıktı verilerini depolamak için bir yer sağlar. *python_tutorial_client.py* betiğinin yapacağı ilk şey [Azure Blob Storage](../storage/storage-introduction.md#blob-storage)’da üç kapsayıcı oluşturmaktır:
@@ -525,7 +525,7 @@ def wait_for_tasks_to_complete(batch_service_client, job_id, timeout):
 ```
 
 ## <a name="step-7-download-task-output"></a>7. Adım: Görev çıktısı indirme
-![Storage’dan görev çıktısını indirme][7]<br/>
+![Storage'dan görev çıktısını indirme][7]<br/>
 
 Artık iş tamamlandı, görevlere ait çıktı Azure Storage’dan indirilebilir. *python_tutorial_client.py* içinde `download_blobs_from_container` çağrısıyla yapılır:
 
@@ -708,6 +708,6 @@ Batch çözümünün temel iş akışı hakkında artık bilginiz olduğuna gör
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

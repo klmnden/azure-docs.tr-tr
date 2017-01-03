@@ -14,8 +14,8 @@ ms.topic: get-started-article
 ms.date: 10/13/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: dea21a59b189d1d3d474cbc5e67f64df485a1981
-ms.openlocfilehash: a97e20b208d92e03bd4458605aaa48ef7c389e32
+ms.sourcegitcommit: dc95c922b71d18cf791ea98f4ab1a02d2bac2c3b
+ms.openlocfilehash: 5103c28047e6d5e7be5f4f3b7933196de7045eeb
 
 
 ---
@@ -59,7 +59,9 @@ Visual Studio'da Application Insights penceresini açın: Application Insights d
 
 ![Visual Studio'da, hata ayıklama sırasında Application Insights düğmesi gösterilir.](./media/app-insights-asp-net/55.png)
 
-Bu görünümde, uygulamanızın sunucu tarafında oluşturulan telemetri gösterilmektedir. Filtrelerle denemeler yapın ve daha fazla ayrıntı için herhangi bir etkinliğe tıklayın.
+Bu görünümde ("Hata ayıklama oturumu verileri"), uygulamanızın sunucu tarafında oluşturulan telemetri gösterilmektedir. Filtrelerle denemeler yapın ve daha fazla ayrıntı için herhangi bir etkinliğe tıklayın.
+
+* *Veri yok mu? Zaman aralığının doğru olduğundan emin olun ve Arama simgesine tıklayın.*
 
 [Visual Studio’daki Application Insights araçları hakkında daha fazla bilgi edinin](app-insights-visual-studio.md).
 
@@ -70,15 +72,34 @@ Bu görünümde, uygulamanızın sunucu tarafında oluşturulan telemetri göste
 
 Portalda Visual Studio’ya göre daha fazla grafik, analiz aracı ve pano bulunur. 
 
-Application Insights kaynağınızı [Azure portalında](https://portal.azure.com/) açın.
+Application Insights kaynağınızı açın. [Azure portalında](https://portal.azure.com/) oturum açıp verileri burada arayın veya Visual Studio'da projeye sağ tıklayarak verilere ulaşın.
 
 ![Projenize sağ tıklayıp Azure portalını açın](./media/app-insights-asp-net/appinsights-04-openPortal.png)
 
-Portal, uygulamanızdan telemetrinin bir görünümünü açar: ![](./media/app-insights-asp-net/66.png)
+* *Erişim hatası mı alıyorsunuz? Birden fazla Microsoft kimlik bilgisine sahipseniz yanlış bilgilerle oturum açmış olabilirsiniz. Portalda oturumu kapatın ve yeniden oturum açın.*
 
-* İlk telemetri [Canlı Ölçümler Akışı](app-insights-metrics-explorer.md#live-metrics-stream)’nda görünür.
-* **Ara**’da (1) tek tek etkinlikler görünür. Verilerin görünmesi birkaç dakika sürebilir. Özelliklerini görmek için herhangi bir etkinliğe tıklayın. 
-* Toplanan ölçümler grafiklerde (2) görünür. Verilerin burada görünmesi bir veya iki dakika sürebilir. Daha ayrıntılı bilginin bulunduğu dikey pencereyi açmak için herhangi bir grafiğe tıklayın.
+Portal, uygulamanızdan telemetrinin bir görünümünü açar: ![Application Insights Genel Bakış sayfası](./media/app-insights-asp-net/66.png)
+
+Daha fazla ayrıntı görmek istediğiniz kutucuğa veya grafiğe tıklayın.
+
+### <a name="more-detail-in-the-portal"></a>Portalda daha fazla ayrıntı
+
+* [**Canlı Ölçüm Akışı**](app-insights-metrics-explorer.md#live-metrics-stream) neredeyse anlık telemetriyi görüntüler.
+
+    ![Genel Bakış dikey penceresinden Canlı Akış'a tıklayın](./media/app-insights-asp-net/livestream.png)
+
+    Bağlantı kurulması için Canlı Akış'ı uygulamanız çalışırken açın.
+
+    Canlı Akış'ta gönderilen telemetri yalnızca bir dakika boyunca görüntülenir. Daha eski verileri araştırmak için Search, Ölçüm Gezgini ve Analiz özelliklerini kullanın. Verilerin bu sayfalarda görünmesi birkaç dakika sürebilir.
+
+* [**Search**](app-insights-diagnostic-search.md) istekler, özel durumlar ve sayfa görünümleri gibi bağımsız olayları gösterir. Olay türü, terim eşleşmesi ve özellik değerlerine göre filtreleyebilirsiniz. Olaylara tıklayarak özelliklerini ve ilgili olayları görebilirsiniz. 
+
+    ![Genel Bakış dikey penceresinden Search’e tıklayın](./media/app-insights-asp-net/search.png)
+
+ * Geliştirme modunda, çok sayıda bağımlılık (AJAX) olayı görebilirsiniz. Bunlar tarayıcı ve sunucu öykünücüsü arasındaki eşitleme işlemleridir. Bunları gizlemek için Bağımlılık filtresine tıklayın.
+* Grafiklerde istek ve hata oranları gibi [**toplu ölçümler**](app-insights-metrics-explorer.md) görüntülenir. Daha ayrıntılı bilginin bulunduğu dikey pencereyi açmak için herhangi bir grafiğe tıklayın. Filtreleri, boyutu ve diğer özellikleri ayarlamak için grafiklerin **Düzenle** etiketine tıklayın.
+    
+    ![Genel Bakış dikey penceresinde herhangi bir grafiğe tıklayın](./media/app-insights-asp-net/metrics.png)
 
 [Azure portalında Application Insights kullanma hakkında daha fazla bilgi edinin](app-insights-dashboards.md).
 
@@ -175,6 +196,6 @@ Visual Studio Team Services’ı kullanıyorsanız yeni bir sürüm yayımladı�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

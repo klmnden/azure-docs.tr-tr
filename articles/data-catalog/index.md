@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Kurumunuzun veri kaynaklarını bulabileceği, anlayabileceği ve tüketebileceği bir veri kataloğu oluşturma hakkında bilgi edinin. Öğreticiler, API başvurusu ve diğer belgeler."
 translationtype: Human Translation
-ms.sourcegitcommit: 1420ed40368d21bbf391142782834e781155a72a
-ms.openlocfilehash: 6a413c765bf034dda1917c6a3853bcd2d060b49c
+ms.sourcegitcommit: f41d4b06dfd385761780655971f69090050b967c
+ms.openlocfilehash: fed1fedd352b0bfab1729786eda990e78e14fbd1
 
 ---
 #<a name="data-catalog-documentation"></a>Veri Kataloğu Belgeleri
 
-Azure Veri Kataloğu, kullanıcıların ihtiyaç duyduğu veri kaynaklarını bulmasına ve bulduğu veri kaynaklarını anlamasına olanak tanıyan ve aynı zamanda kuruluşların var olan yatırımlarından daha fazla değer elde etmesine yardımcı olan, tamamen yönetilen bir bulut hizmetidir. Veri Kataloğu, analistlerden veri bilimcilerine ve geliştiricilere kadar herhangi bir kullanıcının veri kaynaklarını bulmasına, anlamasına ve kullanmasına olanak tanıyan özellikler sunar. Veri Kataloğu, meta verilere ve ek açıklamalara yönelik bir kitle kaynak modeli içerir ve tüm kullanıcıların bir veri topluluğu ve kültürü oluşturmak üzere bilgileriyle katkıda bulunmasına olanak tanır.
+Veri Kataloğu’nu kullanarak kurumunuzun ve takımınızın veri kaynaklarınızı bulmasına, anlamasına ve tüketmesine nasıl yardımcı olabileceğinizi öğrenin. Öğreticiler, REST API başvurusu ve diğer belgeler, veri tüketicilerinin kullanılabilir veri kaynaklarını bulabileceği ve konunun uzmanları tarafından sağlanan bilgileri edinebileceği veri deponuzu nasıl planlayıp ayarlayabileceğinize ilişkin bilgiler içerir.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -49,26 +50,22 @@ Azure Veri Kataloğu, kullanıcıların ihtiyaç duyduğu veri kaynaklarını bu
 </ul>
 
 ---
-
-## <a name="reference"></a>Başvuru
-
+ 
+<h2>Başvuru</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/rest/api/datacatalog">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Veri Kataloğu REST API Başvurusu</p>
+                        <p><a href="/rest/api/datacatalog/">REST API</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
-
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/data-catalog.pdf">
@@ -79,6 +76,7 @@ Veri Kataloğu Belgelerini indirin </div>
 </div>
 
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Jan17_HO1-->
 
 

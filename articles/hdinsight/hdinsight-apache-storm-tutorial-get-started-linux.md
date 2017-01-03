@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 11/18/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 09f5ba954dd712d71f41397b2243b6d3f3f0ca42
-ms.openlocfilehash: a70fe33047bc47096f7964d93dce411da9e0da9c
+ms.sourcegitcommit: ec3384dd68a28117cc00de20e4c08ad0ccd67bad
+ms.openlocfilehash: a7516a98cbe25f9ed458131083a18899d3d50004
 
 
 ---
@@ -52,7 +52,7 @@ Bu bölümde, Azure Resource Manager şablonu kullanarak bir HDInsight sürüm 3
 
 1. Azure Portal'da bir şablonu açmak için aşağıdaki görüntüye tıklayın.         
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-storm-cluster-in-hdinsight-35.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-storm-cluster-in-hdinsight-35.json" target="_blank"><img src="./media/hdinsight-apache-storm-tutorial-get-started-linux/deploy-to-azure.png" alt="Deploy to Azure"></a>
    
     Şablon bir ortak blob kapsayıcısında, *https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-storm-cluster-in-hdinsight.json* adresinde bulunur. 
 
@@ -216,6 +216,6 @@ HDInsight üzerinde Storm ile kullanılabilecek örnek topolojiler için şu ör
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 
