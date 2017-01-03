@@ -4,16 +4,16 @@
 
 Önbelleklerinizi görüntülemek için **Daha fazla hizmet > Redis Önbellekleri** seçeneğine tıklayın. Daha önce bir Redis Önbelleğine göz attıysanız **Daha fazla hizmet** seçeneğine tıklamayıp listede doğrudan **Redis Önbellekleri**'ne tıklayabilirsiniz.
 
-İstediğiniz önbelleğin özelliklerini görüntülemek için bu önbelleği seçin.
+Ayarlarını görüntülemek ve yapılandırmak için istediğiniz önbelleği seçin.
 
 ![Azure Redis Önbelleği Gözat Önbellek Listesi](media/redis-cache-browse/redis-caches.png)
 
-Önbelleğinizi görüntülemek ve yapılandırmak için **Ayarlar** veya **Tüm ayarlar**’a tıklayın.
+Önbelleğinizi **Redis Önbelleği** dikey penceresinden görüntüleyebilir ve yapılandırabilirsiniz.
 
 ![Redis Önbelleği Tüm Ayarları](media/redis-cache-browse/redis-cache-blade.png)
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

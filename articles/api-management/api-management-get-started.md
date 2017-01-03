@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 10/25/2016
+ms.date: 12/15/2016
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 587c7346bcb8e6549febd3904c8d0a9e46cbc50a
+ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
+ms.openlocfilehash: 6376faa50613288a797e2c0683a0890fa21879e1
 
 
 ---
@@ -59,11 +59,11 @@ Sistem aşağıdaki bileşenlerden oluşur:
 
 ## <a name="create-service-instance"> </a>API Management örneği oluşturma
 > [!NOTE]
-> Bu öğreticiyi tamamlamak için bir Azure hesabınızın olması gerekir. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılar için bkz. [Azure Ücretsiz Deneme][Azure Ücretsiz Deneme].
+> Bu öğreticiyi tamamlamak için bir Azure hesabınızın olması gerekir. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü][Azure Free Trial].
 > 
 > 
 
-API Management ile çalışmanın ilk adımı bir hizmet örneği oluşturmaktır. [Azure Portal][Azure Portal]’da oturum açın ve **Yeni**, **Web + Mobil**, **API Management**’a tıklayın.
+API Management ile çalışmanın ilk adımı bir hizmet örneği oluşturmaktır. [Azure Portal][Azure Portal]'da oturum açın ve **Yeni**, **Web + Mobil**, **API Management**'a tıklayın.
 
 ![Yeni API Management örneği][api-management-create-instance-menu]
 
@@ -74,7 +74,7 @@ Hizmet örneğiniz için istediğiniz **Abonelik**, **Kaynak grubu** ve **Konum*
 **Contoso Ltd.**’yi **Kuruluş Adı** olarak girin ve e-posta adresinizi **Yönetici E-postası** alanına girin.
 
 > [!NOTE]
-> Bu e-posta adresi API Management sisteminden gelen bildirimler için kullanılır. Daha fazla bilgi için bkz. [Azure API Management’te bildirimleri ve e-posta şablonlarını yapılandırma][Azure API Management’te bildirimleri ve e-posta şablonlarını yapılandırma].
+> Bu e-posta adresi API Management sisteminden gelen bildirimler için kullanılır. Daha fazla bilgi için bkz. [Azure API Management'te bildirimleri ve e-posta şablonlarını yapılandırma][How to configure notifications and email templates in Azure API Management].
 > 
 > 
 
@@ -83,7 +83,7 @@ Hizmet örneğiniz için istediğiniz **Abonelik**, **Kaynak grubu** ve **Konum*
 API Management hizmeti örnekleri üç katmanda kullanılabilir: Geliştirici, Standart ve Premium.
 
 > [!NOTE]
-> Geliştirici Katmanı; geliştirme, test ve yüksek kullanılabilirliğin gerekli görülmediği pilot API programları içindir. Standart ve Premium katmanlarda, daha fazla trafik işlemek için ayrılmış birim sayınızı ölçeklendirebilirsiniz. Standart ve Premium katmanlar, API Management hizmetinize en fazla işlem gücü ve performans sağlar. Bu öğreticiyi herhangi bir katmanı kullanarak tamamlayabilirsiniz. API Management katmanları hakkında daha fazla bilgi için bkz. [API Management fiyatlandırması][API Management fiyatlandırması].
+> Geliştirici Katmanı; geliştirme, test ve yüksek kullanılabilirliğin gerekli görülmediği pilot API programları içindir. Standart ve Premium katmanlarda, daha fazla trafik işlemek için ayrılmış birim sayınızı ölçeklendirebilirsiniz. Standart ve Premium katmanlar, API Management hizmetinize en fazla işlem gücü ve performans sağlar. Bu öğreticiyi herhangi bir katmanı kullanarak tamamlayabilirsiniz. API Management katmanları hakkında daha fazla bilgi için bkz. [API Management fiyatlandırması][API Management pricing].
 > 
 > 
 
@@ -199,24 +199,24 @@ Ayrıntılı ölçümler ve raporlar için soldaki **API Management** menüsünd
 ## <a name="next-steps"> </a>Sonraki adımlar
 * [Oran limitleri ile API’nizi koruma](api-management-howto-product-with-rules.md) hakkında bilgi edinin.
 
-[Azure Ücretsiz Deneme]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=api_management_hero_a
+[Azure Free Trial]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=api_management_hero_a
 
-[API Management örneği oluşturma]: #create-service-instance
-[API oluşturma]: #create-api
-[İşlem ekleme]: #add-operation
-[Yeni API'yi ürüne ekleme]: #add-api-to-product
-[API'yi içeren ürüne abone olma]: #subscribe
-[Geliştirici Portalı'ndan işlem çağırma]: #call-operation
-[Analizi görüntüleme]: #view-analytics
-[Sonraki adımlar]: #next-steps
+[Create an API Management instance]: #create-service-instance
+[Create an API]: #create-api
+[Add an operation]: #add-operation
+[Add the new API to a product]: #add-api-to-product
+[Subscribe to the product that contains the API]: #subscribe
+[Call an operation from the Developer Portal]: #call-operation
+[View analytics]: #view-analytics
+[Next steps]: #next-steps
 
 
-[Azure API Management'ta geliştirici hesaplarını yönetme]: api-management-howto-create-or-invite-developers.md
-[API ayarlarını yapılandırma]: api-management-howto-create-apis.md#configure-api-settings
-[Azure API Management’te bildirimleri ve e-posta şablonlarını yapılandırma]: api-management-howto-configure-notifications.md
-[Yanıtlar]: api-management-howto-add-operations.md#responses
-[Ürün oluşturma ve yayımlama]: api-management-howto-add-products.md
-[API Management fiyatlandırması]: http://azure.microsoft.com/pricing/details/api-management/
+[How to manage developer accounts in Azure API Management]: api-management-howto-create-or-invite-developers.md
+[Configure API settings]: api-management-howto-create-apis.md#configure-api-settings
+[How to configure notifications and email templates in Azure API Management]: api-management-howto-configure-notifications.md
+[Responses]: api-management-howto-add-operations.md#responses
+[How create and publish a product]: api-management-howto-add-products.md
+[API Management pricing]: http://azure.microsoft.com/pricing/details/api-management/
 
 [Azure Portal]: https://portal.azure.com/
 
@@ -257,6 +257,6 @@ Ayrıntılı ölçümler ve raporlar için soldaki **API Management** menüsünd
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

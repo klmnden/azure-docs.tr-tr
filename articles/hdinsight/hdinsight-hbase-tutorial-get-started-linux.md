@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 11/23/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 2c7b46521c5da3290af244652b5ac20d4c309d5d
-ms.openlocfilehash: 5ec4b260ce82ec78b614ae442d3f14063ce590b5
+ms.sourcegitcommit: 8056e7ece1942c9090a7c36447a96829febaf1a4
+ms.openlocfilehash: 81cdadcd7200f20274c2851eda8677078b8b505c
 
 
 ---
@@ -45,7 +45,7 @@ Aşağıdaki yordamda 3.4 sürümü Linux tabanlı HBase kümesi ve bağlı vars
 
 1. Azure Portal'da bir şablonu açmak için aşağıdaki görüntüye tıklayın. Şablon, ortak bir blob kapsayıcısında bulunur. 
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-cluster-in-hdinsight.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-cluster-in-hdinsight.json" target="_blank"><img src="./media/hdinsight-hbase-tutorial-get-started-linux/deploy-to-azure.png" alt="Deploy to Azure"></a>
 2. **Özel dağıtım** dikey penceresine şu değerleri girin:
    
    * **Abonelik**: Kümeyi oluşturmak için kullanılacak Azure aboneliğinizi seçin.
@@ -124,7 +124,7 @@ HBase’de verileri tablolara yüklemek için bazı yöntemler vardır.  Daha fa
     4761    Caleb Alexander  670-555-0141    230-555-0199    4775 Kentucky Dr.
     16443   Terry Chander    998-555-0171    230-555-0200    771 Northridge Drive
 
-Bir metin dosyası oluşturabilir ve isterseniz dosyayı kendi depolama hesabınıza yükleyebilirsiniz. Yönergeler için bkz. [HDInsight’ta Hadoop işleri için verileri karşıya yükleme][hdinsight-upload-data].
+Bir metin dosyası oluşturabilir ve isterseniz dosyayı kendi depolama hesabınıza yükleyebilirsiniz. Yönergeler için bkz. [HDInsight'ta Hadoop işleri için verileri karşıya yükleme][hdinsight-upload-data].
 
 > [!NOTE]
 > Bu yordam son yordamda oluşturduğunuz Kişiler HBase tablosunu kullanır.
@@ -255,7 +255,7 @@ HDInsight’a yönelik bir HBase öğreticisinde bir HBase kümesi oluşturmayı
 
 Daha fazla bilgi için bkz:
 
-* [HDInsight HBase’e genel bakış][hdinsight-hbase-overview]: HBase büyük miktarda yapılandırılmamış ve yarı yapılandırılmış veri için rastgele erişim ve güçlü tutarlılık sağlayan, Hadoop’ta yerleşik bir Apache, açık kaynak, NoSQL veritabanıdır.
+* [HDInsight HBase'e genel bakış][hdinsight-hbase-overview]: HBase büyük miktarda yapılandırılmamış ve yarı yapılandırılmış veri için rastgele erişim ve güçlü tutarlılık sağlayan, Hadoop'ta yerleşik bir Apache, açık kaynak, NoSQL veritabanıdır.
 
 [hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
@@ -286,6 +286,6 @@ Daha fazla bilgi için bkz:
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

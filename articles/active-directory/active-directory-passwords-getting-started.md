@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 10/05/2016
 ms.author: asteen
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 93e02bc36c0502623316d6b896dd802ac8bdc284
+ms.sourcegitcommit: 4e2508883998b1435d7c4f099bd6ef0e00bd885e
+ms.openlocfilehash: 4f9127ca06668884e6b6f5dbc81aad0a2b1ea9df
 
 
 ---
@@ -185,7 +185,7 @@ Parola Geri Yazma özelliğini etkinleştirebilmek ve kullanabilmek için ilk ol
   > Windows Server 2008 veya 2008 R2'nin daha eski bir sürümünü çalıştırıyorsanız bu özelliği kullanmaya devam edebilirsiniz ancak bulutta yerel AD parola ilkenizi zorunlu kılabilmeniz için ilk olarak [KB 2386717'yi indirip yüklemeniz](https://support.microsoft.com/kb/2386717) gerekir.
   > 
   > 
-* Azure AD Connect aracı yüklü olmalı ve AD ortamınızı bulut ile eşitlemeye yönelik olarak hazırlamış olmanız gerekir.  Daha fazla bilgi için bkz. [Şirket içi kimlik altyapınızı bulutta kullanma](active-directory-aadconnect.md).
+* Azure AD Connect aracı yüklü olmalı ve AD ortamınızı bulut ile eşitlemeye yönelik olarak hazırlamış olmanız gerekir.  Daha fazla bilgi için bkz. [Şirket içi kimlik altyapınızı bulutta kullanma](connect/active-directory-aadconnect.md).
   
   > [!NOTE]
   > Parola geri yazma özelliğini test etmeden önce ilk olarak Azure AD Connect'te hem AD'den hem de Azure AD'den tam içeri aktarma işlemini tamamladığınızdan emin olun.
@@ -199,7 +199,7 @@ Parola Geri Yazma özelliğini etkinleştirebilmek ve kullanabilmek için ilk ol
   > 
 
 ### <a name="step-1-download-the-latest-version-of-azure-ad-connect"></a>1. Adım: Azure AD Connect'in en son sürümünü indirme
-Parola Geri Yazma özelliği Azure AD Connect'in sürümlerinde veya sürüm numarası **1.0.0419.0911** veya üzeri olan Azure AD Eşitleme aracında kullanılabilir.  Otomatik hesap kilidi açma özelliğine sahip Parola Geri Yazma, Azure AD Connect'in sürümlerinde veya sürüm numarası **1.0.0485.0222** ya da üzeri olan Azure AD Eşitleme aracında kullanılabilir. Eski bir sürümü çalıştırıyorsanız lütfen devam etmeden önce en azından bu sürüme yükseltme yapın. [Azure AD Connect'in en son sürümünü indirmek için buraya tıklayın](active-directory-aadconnect.md#install-azure-ad-connect).
+Parola Geri Yazma özelliği Azure AD Connect'in sürümlerinde veya sürüm numarası **1.0.0419.0911** veya üzeri olan Azure AD Eşitleme aracında kullanılabilir.  Otomatik hesap kilidi açma özelliğine sahip Parola Geri Yazma, Azure AD Connect'in sürümlerinde veya sürüm numarası **1.0.0485.0222** ya da üzeri olan Azure AD Eşitleme aracında kullanılabilir. Eski bir sürümü çalıştırıyorsanız lütfen devam etmeden önce en azından bu sürüme yükseltme yapın. [Azure AD Connect'in en son sürümünü indirmek için buraya tıklayın](connect/active-directory-aadconnect.md#install-azure-ad-connect).
 
 #### <a name="to-check-the-version-of-azure-ad-sync"></a>Azure AD Eşitleme'nin sürümünü denetleme
 1. **%ProgramFiles%\Azure Active Directory Sync\** konumuna gidin.
@@ -256,12 +256,40 @@ Ayrıca Olay Görüntüleyicisi'ni açarak, uygulama olay günlüğüne giderek 
   ![][023]
 
 ### <a name="step-3-configure-your-firewall"></a>3. Adım: Güvenlik duvarınızı yapılandırma
-Azure AD Connect aracında Parola Geri Yazma'yı etkinleştirdikten sonra, hizmetin buluta bağlanabildiğinden emin olmanız gerekir.
+Parola Geri Yazma işlevini etkinleştirdikten sonra, Azure AD Connect uygulamasını çalıştıran bilgisayarın, parola geri yazma isteklerini almak için Microsoft bulut hizmetlerine erişebildiğinden emin olun. Bu adımda ağ cihazlarınızdaki (proxy sunucuları, güvenlik duvarları vs.) bağlantı kurallarını, belirli ağ bağlantı noktaları üzerinden belirli Microsoft URL'lerine ve IP adreslerine yönelik giden bağlantılara izin verecek şekilde güncelleştirmeniz gerekir. Bu değişiklikler Azure AD Connect aracının sürümüne göre değişiklik gösterebilir. Daha fazla bağlam için [parola geri yazma özelliğinin çalışma şekli](active-directory-passwords-learn-more.md#how-password-writeback-works) ve [parola geri yazma güvenlik modeli](active-directory-passwords-learn-more.md#password-writeback-security-model) hakkında daha fazla bilgi edinebilirsiniz.
 
-1. Yükleme tamamlandığında, ortamınızda bilinmeyen giden bağlantıları engelliyorsanız güvenlik duvarınıza aşağıdaki kuralları da eklemeniz gerekir. Bu değişiklikleri yaptıktan sonra AAD Connect makinenizi yeniden başlattığınızdan emin olun:
-   * Bağlantı noktası 443 TCP üzerinden giden bağlantılara izin verin
-   * https://ssprsbprodncu-sb.accesscontrol.windows.net/ hedefine giden bağlantılara izin verin
-   * Ara sunucu kullanıldığında veya genel bağlantı sorunları söz konusu olduğunda, bağlantı noktası 9350-9354 ve bağlantı noktası 5671 TCP üzerinden giden bağlantılara izin verin
+#### <a name="why-do-i-need-to-do-this"></a>Bunu neden yapmam gerekiyor?
+
+Parola Geri Yazma işlevinin düzgün çalışabilmesi için Azure AD Connect uygulamasını çalıştıran bilgisayarın **.servicebus.windows.net* adresiyle ve [Microsoft Azure Veri Merkezi IP Aralıkları listesinde](https://www.microsoft.com/download/details.aspx?id=41653) belirtilen Azure IP adresleriyle HTTPS bağlantısı kurabilmesi gerekir.
+
+Azure AD Connect aracı sürüm 1.0.8667.0 ve üzeri için:
+
+- **1. Seçenek:** 443 numaralı bağlantı noktasından (URL veya IP adresi kullanan) tüm giden HTTPS bağlantılara izin verin.
+    - Bunu kullanmanız gereken durum:
+        - Azure Veri Merkezi IP aralıkları değiştiğinde güncelleştirilmesi gerekmeyen kolay bir yapılandırma için bu seçeneği kullanın.
+    - Gerekli adımlar:
+        - 443 numaralı bağlantı noktasından URL veya IP adresi kullanan tüm giden HTTPS bağlantılarına izin verin.
+<br><br>
+- **2. Seçenek:** Belirli IP aralıklarına veya URL'lere yönelik giden HTTPS bağlantılarına izin verin.
+    - Bunu kullanmanız gereken durum:
+        - Kısıtlı bir ağ ortamındaysanız veya giden bağlantılara izin vermek istemiyorsanız bu seçeneği kullanın.
+        - Bu yapılandırmada parola geri yazma işlevinin çalışmaya devam etmesi için ağ cihazlarının, Microsoft Azure Veri Merkezi IP Aralıkları listesine göre her hafta güncelleştirilmesini sağlamanız gerekir. Bu IP aralıkları her Çarşamba (Pasifik Saati) güncelleştirilen ve takip eden Pazartesi (Pasifik Saati) devreye alınan bir XML dosyası olarak mevcuttur.
+    - Gerekli adımlar:
+        - *.servicebus.windows.net adresine giden tüm HTTPS bağlantılarına izin verin.
+        - Microsoft Azure Veri Merkezi IP Aralıkları listesindeki tüm IP adreslerine yönelik giden HTTPS bağlantılarına izin verin ve bu yapılandırmayı her hafta güncelleştirin.
+
+> [!NOTE]
+> Parola Geri Yazma işlevini yukarıdaki talimatları uygulayarak yapılandırmanıza ve Azure AD Connect olay günlüğünde hiç hata görmemenize rağmen test sırasında bağlantı hataları alıyorsanız, ortamınızdaki ağ gereçlerinden biri belirli IP adreslerine yönelik HTTPS bağlantıları kurulmasını engelliyor olabilir. Örneğin, *https://*.servicebus.windows.net* adresine yapılan bağlantılara izin verilmiş ancak ilgili aralıktaki belirli bir IP adresi engellenmiş olabilir. Bu sorunu çözmek için ağ ortamınızı, 443 numaralı bağlantı noktası üzerinden tüm URL veya IP adreslerine yönelik giden HTTPS bağlantılarına izin verecek şekilde yapılandırmanız (yukarıdaki 1. Seçenek) veya ağ ekibinizle birlikte çalışarak, belirli IP adreslerine yönelik HTTPS bağlantılarına izin vermeniz (yukarıdaki 2. Seçenek) gerekir.
+
+**Eski sürümler için:**
+
+- 443, 9350-9354 ve 5671 numaralı bağlantı noktaları üzerinden giden TCP bağlantılarına izin verin 
+- *https://ssprsbprodncu-sb.accesscontrol.windows.net/* adresine giden bağlantılara izin verin
+
+> [!NOTE]
+> Azure AD Connect'in 1.0.8667.0 öncesi bir sürümünü kullanıyorsanız Microsoft, yapılandırmayı daha kolay hale getirmek için birkaç geri yazma ağ geliştirmesi de içeren [Azure AD Connect'in son sürümüne](https://www.microsoft.com/download/details.aspx?id=47594) yükseltmenizi önerir.
+
+Ağ cihazları yapılandırıldıktan sonra Azure AD Connect aracını çalıştıran bilgisayarı yeniden başlatın.
 
 ### <a name="step-4-set-up-the-appropriate-active-directory-permissions"></a>4. Adım: İlgili Active Directory izinlerini ayarlama
 Parolaları sıfırlanacak olan kullanıcıları içeren her bir orman için, yapılandırma sihirbazında söz konusu orman için belirtilen hesap X ise X hesabına `lockoutTime` üzerinde **Parola Sıfırlama**, **Parola Değiştirme**, **Yazma İzinleri**, `pwdLastSet` üzerinde **Yazma İzinleri** ve bu ormandaki her bir etki alanının kök nesnesi üzerinde genişletilmiş haklar verilmelidir. Hak, tüm kullanıcı nesneleri tarafından devralınmış olarak işaretlenmelidir.  
@@ -365,6 +393,6 @@ Aşağıda, tüm Azure AD Parola Sıfırlama belge sayfalarının bağlantılar�
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

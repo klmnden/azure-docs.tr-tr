@@ -1,39 +1,81 @@
 ---
-title: .NET SDK'yı kullanarak Azure Data Lake Analytics ile çalışmaya başlama | Microsoft Docs
-description: 'Data Lake Store hesapları oluşturmak, Data Lake Analytics işleri oluşturmak ve U-SQL''de yazılmış işleri göndermek için .NET SDK''nın nasıl kullanılacağını öğrenin. '
+title: ".NET SDK&quot;yı kullanarak Azure Data Lake Analytics ile çalışmaya başlama | Microsoft Belgeleri"
+description: "Data Lake Analytics hesapları oluşturmak, Data Lake Analytics işleri oluşturmak ve U-SQL&quot;de yazılmış işleri göndermek için .NET SDK&quot;nın nasıl kullanılacağını öğrenin. "
 services: data-lake-analytics
-documentationcenter: ''
+documentationcenter: 
 author: edmacauley
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 1dfcbc3d-235d-4074-bc2a-e96def8298b6
 ms.service: data-lake-analytics
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/23/2016
+ms.date: 10/26/2016
 ms.author: edmaca
+translationtype: Human Translation
+ms.sourcegitcommit: 8e092e30c9c4186e4687efeacf9ea1f6b4bf431c
+ms.openlocfilehash: f617d997bc34d39f7635a87c4e5c88b1ebdc0ff8
+
 
 ---
-# Öğretici: .NET SDK'yı kullanarak Azure Data Lake Analytics ile çalışmaya başlama
+# <a name="tutorial-get-started-with-azure-data-lake-analytics-using-net-sdk"></a>Öğretici: .NET SDK'yı kullanarak Azure Data Lake Analytics ile çalışmaya başlama
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
 Azure .NET SDK’sını kullanarak [U-SQL](data-lake-analytics-u-sql-get-started.md)’de yazılan işleri Data Lake Analytics’e gönderme hakkında bilgi edinin. Data Lake Analytics hakkında daha fazla bilgi için bkz. [Azure Data Lake Analytics'e genel bakış](data-lake-analytics-overview.md).
 
 Bu öğreticide, bir sekmeyle ayrılmış değerler (TSV) dosyasını okuyan ve virgülle ayrılmış değerler (CSV) dosyasına dönüştüren bir U-SQL işini göndermek üzere C# konsolu uygulaması geliştireceksiniz. Öğreticiyi desteklenen diğer araçları kullanarak tamamlamak için bu makalenin üst kısmındaki sekmelere tıklayın.
 
-## Ön koşullar
+## <a name="prerequisites"></a>Ön koşullar
 Bu öğreticiye başlamadan önce aşağıdakilere sahip olmanız gerekir:
 
 * **Visual Studio 2015, Visual Studio 2013 Güncelleştirme 4 veya Visual C++ Yüklü Visual Studio 2012**.
 * **.NET sürüm 2.5 veya üzeri için Microsoft Azure SDK**.  [Web platformu yükleyicisini](http://www.microsoft.com/web/downloads/platform.aspx) kullanarak yükleyin.
 * **Azure Data Lake Analytics hesabı**. Bkz. [Azure .NET SDK'yı kullanarak Data Lake Analytics’i yönetme](data-lake-analytics-manage-use-dotnet-sdk.md).
 
-## Konsol uygulaması oluşturma
-Bu öğreticide, bazı arama günlüklerini işleyeceksiniz.  Arama günlüğü, Data Lake Store veya Azure Blob depolama alanında depolanabilir. 
+## <a name="create-console-application"></a>Konsol uygulaması oluşturma
+Bu eğiticide, bazı arama günlüklerini işleyeceksiniz.  Arama günlüğü, Data Lake Store veya Azure Blob depolama alanında depolanabilir. 
 
 Örnek bir arama günlüğü, ortak Azure Blob kapsayıcısında bulunabilir. Uygulamada, dosyayı iş istasyonunuza indirecek ve ardından Data Lake Analytics hesabınızın varsayılan Data Lake Store hesabına yükleyeceksiniz.
+
+**U-SQL betiği oluşturmak için**
+
+Data Lake Analytics işleri, U-SQL dilinde yazılır. U-SQL hakkında daha fazla bilgi için bkz. [U-SQL dili ile çalışmaya başlama](data-lake-analytics-u-sql-get-started.md) ve [U-SQL dili başvurusu](http://go.microsoft.com/fwlink/?LinkId=691348).
+
+Aşağıdaki U-SQL betiğiyle bir **SampleUSQLScript.txt** dosyası oluşturun ve dosyayı **C:\temp\** yoluna yerleştirin.  Yol, sonraki yordamda oluşturduğunuz .NET uygulamasında sabit kodlanmıştır.  
+
+    @searchlog =
+        EXTRACT UserId          int,
+                Start           DateTime,
+                Region          string,
+                Query           string,
+                Duration        int?,
+                Urls            string,
+                ClickedUrls     string
+        FROM "/Samples/Data/SearchLog.tsv"
+        USING Extractors.Tsv();
+
+    OUTPUT @searchlog   
+        TO "/Output/SearchLog-from-Data-Lake.csv"
+    USING Outputters.Csv();
+
+Bu U-SQL betiği, **Extractors.Tsv()** öğesini kullanarak kaynak veri dosyasını okur ve ardından **Outputters.Csv()** öğesini kullanarak bir csv dosyası oluşturur. 
+
+C# programında, **/Samples/Data/SearchLog.tsv** dosyasını ve **/Output/** klasörünü hazırlamanız gerekir.    
+
+Varsayılan Data Lake hesaplarında depolanan dosyalar için göreli yolların kullanılması daha basittir. Mutlak yol da kullanabilirsiniz.  Örneğin: 
+
+    adl://<Data LakeStorageAccountName>.azuredatalakestore.net:443/Samples/Data/SearchLog.tsv
+
+Mutlak yolları, bağlı Depolama hesaplarındaki dosyalara erişmek için kullanmanız gerekir.  Bağlı Azure Depolama hesabında depolanan dosyalar için söz dizimi şu şekildedir:
+
+    wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Data/SearchLog.tsv
+
+> [!NOTE]
+> Şu anda Azure Data Lake Hizmeti ile ilgili bilinen bir sorun yoktur.  Örnek uygulama kesintiye uğrar veya bir hatayla karşılaşırsa betiğin oluşturduğu Data Lake Store ve Data Lake Analytics hesaplarını elle silmeniz gerekebilir.  Azure portal hakkında bilgi sahibi değilseniz [Azure Portal kullanarak Azure Data Lake Analytics’i yönetme](data-lake-analytics-manage-use-portal.md) kılavuzu çalışmaya başlamanıza yardımcı olur.       
+> 
+> 
 
 **Uygulama oluşturmak için**
 
@@ -46,40 +88,7 @@ Bu öğreticide, bazı arama günlüklerini işleyeceksiniz.  Arama günlüğü,
         Install-Package Microsoft.Azure.Management.DataLake.StoreUploader -Pre
         Install-Package Microsoft.Rest.ClientRuntime.Azure.Authentication -Pre
         Install-Package WindowsAzure.Storage
-4. **SampleUSQLScript.txt** adlı projeye yeni bir dosya ekleyin ve ardından aşağıdaki U-SQL betiğini yapıştırın. Data Lake Analytics işleri, U-SQL dilinde yazılır. U-SQL hakkında daha fazla bilgi için bkz. [U-SQL dili ile çalışmaya başlama](data-lake-analytics-u-sql-get-started.md) ve [U-SQL dili başvurusu](http://go.microsoft.com/fwlink/?LinkId=691348).
-   
-        @searchlog =
-            EXTRACT UserId          int,
-                    Start           DateTime,
-                    Region          string,
-                    Query           string,
-                    Duration        int?,
-                    Urls            string,
-                    ClickedUrls     string
-            FROM "/Samples/Data/SearchLog.tsv"
-            USING Extractors.Tsv();
-   
-        OUTPUT @searchlog   
-            TO "/Output/SearchLog-from-Data-Lake.csv"
-        USING Outputters.Csv();
-   
-    Bu U-SQL betiği, **Extractors.Tsv()** öğesini kullanarak kaynak veri dosyasını okur ve ardından **Outputters.Csv()** öğesini kullanarak bir csv dosyası oluşturur. 
-   
-    C# programında, **/Samples/Data/SearchLog.tsv** dosyasını ve **/Output/** klasörünü hazırlamanız gerekir.    
-   
-    Varsayılan Data Lake hesaplarında depolanan dosyalar için göreli yolların kullanılması daha basittir. Mutlak yol da kullanabilirsiniz.  Örneğin: 
-   
-        adl://<Data LakeStorageAccountName>.azuredatalakestore.net:443/Samples/Data/SearchLog.tsv
-   
-    Mutlak yolları, bağlı Storage hesaplarındaki dosyalara erişmek için kullanmanız gerekir.  Bağlı Azure Storage hesabında depolanan dosyalar için söz dizimi şu şekildedir:
-   
-        wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Data/SearchLog.tsv
-   
-   > [!NOTE]
-   > Şu anda Azure Data Lake Hizmeti ile ilgili bilinen bir sorun yoktur.  Örnek uygulama kesintiye uğrar veya bir hatayla karşılaşırsa betiğin oluşturduğu Data Lake Store ve Data Lake Analytics hesaplarını elle silmeniz gerekebilir.  Portal hakkında bilgi sahibi değilseniz [Azure Portal kullanarak Azure Data Lake Analytics’i yönetme](data-lake-analytics-manage-use-portal.md) kılavuzu çalışmaya başlamanıza yardımcı olur.       
-   > 
-   > 
-5. Program.cs içinde, aşağıdaki kodu yapıştırın:
+4. Program.cs içinde, aşağıdaki kodu yapıştırın:
    
         using System;
         using System.IO;
@@ -134,7 +143,7 @@ Bu öğreticide, bazı arama günlüklerini işleyeceksiniz.  Arama günlüğü,
                 // Download job output
                 DownloadFile(@"/Output/SearchLog-from-Data-Lake.csv", localFolderPath + "SearchLog-from-Data-Lake.csv");
 
-                WaitForNewline("Job output downloaded. You can now exit.");
+                  WaitForNewline("Job output downloaded. You can now exit.");
             }
 
             public static ServiceClientCredentials AuthenticateAzure(
@@ -187,7 +196,6 @@ Bu öğreticide, bazı arama günlüklerini işleyeceksiniz.  Arama günlüğü,
                     Console.WriteLine(nextAction);
             }
 
-
             // List all Data Lake Analytics accounts within the subscription
             public static List<DataLakeAnalyticsAccount> ListADLAAccounts()
             {
@@ -208,6 +216,7 @@ Bu öğreticide, bazı arama günlüklerini işleyeceksiniz.  Arama günlüğü,
 
                 return accounts;
             }
+
             public static Guid SubmitJobByPath(string scriptPath, string jobName)
             {
                 var script = File.ReadAllText(scriptPath);
@@ -232,12 +241,12 @@ Bu öğreticide, bazı arama günlüklerini işleyeceksiniz.  Arama günlüğü,
           }
         }
 
-1. Uygulamayı çalıştırmak için **F5**'e basın. Çıktı şu şekildedir:
+5. Uygulamayı çalıştırmak için **F5**'e basın. Çıktı şu şekildedir:
    
     ![Azure Data Lake Analytics işi U-SQL .NET SDK çıktısı](./media/data-lake-analytics-get-started-net-sdk/data-lake-analytics-dotnet-job-output.png)
-2. Çıktı dosyasını denetleyin.  Varsayılan yol ve dosya adı c:\Temp\SearchLog-from-Data-Lake.csv şeklindedir.
+6. Çıktı dosyasını denetleyin.  Varsayılan yol ve dosya adı c:\Temp\SearchLog-from-Data-Lake.csv şeklindedir.
 
-## Ayrıca bkz.
+## <a name="see-also"></a>Ayrıca bkz.
 * Aynı öğreticiyi diğer araçları kullanarak görmek için sayfanın üst kısmındaki sekme seçicilerine tıklayın.
 * Daha karmaşık bir sorgu görmek için [Azure Data Lake Analytics'i kullanarak Web sitesi günlüklerini çözümleme](data-lake-analytics-analyze-weblogs.md) makalesine bakın.
 * U-SQL uygulamalarını geliştirmeye başlamak için bkz. [Visual Studio için Data Lake Araçları'nı kullanarak U-SQL betikleri geliştirme](data-lake-analytics-data-lake-tools-get-started.md).
@@ -245,6 +254,9 @@ Bu öğreticide, bazı arama günlüklerini işleyeceksiniz.  Arama günlüğü,
 * Yönetim görevleri için bkz. [Azure portalı kullanarak Azure Data Lake Analytics'i yönetme](data-lake-analytics-manage-use-portal.md).
 * Data Lake Analytics'e yönelik bir genel bakış için bkz. [Azure Data Lake Analytics'e genel bakış](data-lake-analytics-overview.md).
 
-<!--HONumber=Sep16_HO4-->
+
+
+
+<!--HONumber=Jan17_HO1-->
 
 

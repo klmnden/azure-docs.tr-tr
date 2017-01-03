@@ -9,134 +9,574 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 7d99869b-cec5-4583-8c1c-4c663f4afd4d
 ms.service: sql-database
-ms.custom: overview
+ms.custom: single databases
 ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: powershell
 ms.workload: data-management
-ms.date: 08/19/2016
+ms.date: 12/09/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: daf63815baaf0843f56668b8f310642dbaaf0e54
+ms.sourcegitcommit: 3ba16154857f8e7b59a1013b736d6131a4161185
+ms.openlocfilehash: d00b7b543f105fd944e91f6ed27e6613366c6716
 
 
 ---
-# <a name="create-a-sql-database-and-perform-common-database-setup-tasks-with-powershell-cmdlets"></a>SQL veritabanı oluşturma ve PowerShell cmdlet'leri ile sık kullanılan veritabanı kurulum görevlerini gerçekleştirme
-> [!div class="op_single_selector"]
-> * [Azure portal](sql-database-get-started.md)
-> * [PowerShell](sql-database-get-started-powershell.md)
-> * [C#](sql-database-get-started-csharp.md)
-> 
-> 
 
-PowerShell cmdlet'lerini kullanarak SQL veritabanı oluşturmayı öğrenin. (Esnek veritabanı oluşturmak için bkz. [PowerShell ile yeni bir esnek veritabanı havuzu oluşturma](sql-database-elastic-pool-create-powershell.md).)
+# <a name="get-started-with-azure-sql-database-servers-databases-and-firewall-rules-by-using-azure-powershell"></a>Azure PowerShell aracılığıyla Azure SQL Veritabanı sunucularını, veritabanlarını ve güvenlik duvarı kurallarını kullanmaya başlama
+
+Bu kullanmaya başlama öğreticisinde, PowerShell'i kullanarak şu işlemleri gerçekleştirmeyi öğreneceksiniz:
+
+* Yeni bir Azure kaynak grubu oluşturma
+* Azure SQL mantıksal sunucusu oluşturma
+* Azure SQL sunucusu özelliklerini görüntüleme
+* Sunucu düzeyinde bir güvenlik duvarı kuralı oluşturma
+* AdventureWorksLT örnek veritabanını tek veritabanı olarak oluşturma
+* AdventureWorksLT örnek veritabanı özelliklerini görüntüleme
+* Boş bir tek veritabanı oluşturma
+
+Bu öğreticide ayrıca şunları yapacaksınız:
+
+* Mantıksal sunucuya ve asıl veritabanına bağlanma
+* Asıl veritabanı özelliklerini görüntüleme
+* Örnek veritabanına bağlanma
+* Kullanıcı veritabanı özelliklerini görüntüleme
+
+Bu öğreticiyi tamamladığınızda; Azure kaynak grubu içinde çalışan ve mantıksal sunucuya bağlı bir örnek veritabanınız ve bir de boş veritabanınız olur. Ayrıca, sunucu düzeyindeki sorumlunun, sunucuda belirtilen IP adresinden (veya IP adresi aralığından) oturum açabilmesini sağlamak için yapılandırılmış bir sunucu düzeyinde güvenlik duvarı kuralına da sahip olacaksınız. 
+
+**Tahmini süre**: Bu öğretici yaklaşık 30 dakika sürer (önkoşulları karşıladığınız varsayılarak).
+
+
+> [!TIP]
+> Aynı görevleri, [Azure portalı](sql-database-get-started.md) aracılığıyla kullanmaya başlama öğreticilerinde de gerçekleştirebilirsiniz.
+>
+
+
+## <a name="prerequisites"></a>Ön koşullar
+
+* Bir Azure hesabınız olmalıdır. [Ücretsiz bir Azure hesabı açabilir](/pricing/free-trial/?WT.mc_id=A261C142F) veya [Visual Studio abonelik avantajlarını etkinleştirebilirsiniz](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). 
+
+* Abonelik sahibi veya katkıda bulunan rolü üyesi olan bir hesap kullanarak oturum açmış olmanız gerekir. Rol tabanlı erişim denetimi (RBAC) ile ilgili daha fazla bilgi için bkz. [Azure portalında erişim yönetimini kullanmaya başlama](../active-directory/role-based-access-control-what-is.md).
+
+* Azure blob depolama alanında AdventureWorksLT örnek veritabanı .bacpac dosyasının bulunması gerekir
+
+### <a name="download-the-adventureworkslt-sample-database-bacpac-file-and-save-it-in-azure-blob-storage"></a>AdventureWorksLT örnek veritabanı .bacpac dosyasını indirin ve Azure blob depolama alanına kaydedin
+
+Bu öğreticide, Azure Depolama kaynağından bir .bacpac dosyası içeri aktarılarak yeni bir AdventureWorksLT veritabanı oluşturulmaktadır. Birinci adım, AdventureWorksLT.bacpac dosyasının bir kopyasını edinmek ve blob depolama alanına yüklemektir.
+Aşağıdaki adımlar örnek veritabanını içeri aktarmaya hazır hale getirir:
+
+1. [AdventureWorksLT.bacpac dosyasını indirin](https://sqldbbacpacs.blob.core.windows.net/bacpacs/AdventureWorksLT.bacpac) ve .bacpac dosya uzantısıyla kaydedin.
+2. [Depolama hesabı oluşturun](../storage/storage-create-storage-account.md#create-a-storage-account) Depolama hesabını varsayılan ayarlarla oluşturabilirsiniz.
+3. Yeni bir **Kapsayıcı** oluşturmak için depolama hesabına gidin, **Blob'lar** öğesini seçin ve ardından **+Kapsayıcı**'ya tıklayın.
+4. .bacpac dosyasını depolama hesabınızdaki blob kapsayıcısına yükleyin. Kapsayıcı sayfasının en üstündeki **Yükle** düğmesine tıklayabilir veya [AzCopy kullanabilirsiniz](../storage/storage-use-azcopy.md#blob-upload). 
+5. AdventureWorksLT.bacpac dosyasını kaydettikten sonra, kod parçacığını bu öğreticinin sonraki adımlarında içeri aktarmak üzere URL'yi ve depolama hesabı anahtarını not etmeniz gerekir. 
+   * bacpac dosyanızı seçin ve URL'yi kopyalayın. Şuna benzer olacaktır: https://{depolama-hesabı-adı}.blob.core.windows.net/{kapsayıcı-adı}/AdventureWorksLT.bacpac. Depolama hesabı sayfasında **Erişim anahtarları**'na tıklayın ve **key1** değerini kopyalayın.
+
 
 [!INCLUDE [Start your PowerShell session](../../includes/sql-database-powershell.md)]
 
-## <a name="database-setup-create-a-resource-group-server-and-firewall-rule"></a>Veritabanı kurulumu: Kaynak grubu, sunucu ve güvenlik duvarı kuralı oluşturma
-Seçili Azure aboneliğiniz için cmdlet çalıştırma erişimi elde ettikten sonra bir sonraki adımda veritabanının oluşturulacağı sunucuyu içeren kaynak grubunu oluşturabilirsiniz. Bir sonraki komutu istediğiniz herhangi bir geçerli konumu kullanacak şekilde düzenleyebilirsiniz. Geçerli konumların bir listesini almak için **(Get-AzureRmLocation | Where-Object { $_.Providers -eq "Microsoft.Sql" }).Location** komutunu çalıştırın.
 
-Kaynak grubu oluşturmak için şu komutu çalıştırın:
+## <a name="create-a-new-logical-sql-server-using-azure-powershell"></a>Azure PowerShell kullanarak yeni bir mantıksal SQL sunucusu oluşturma
 
-    New-AzureRmResourceGroup -Name "resourcegroupsqlgsps" -Location "westus"
+Sunucuyu içerecek yeni bir kaynak grubuna ihtiyacınız olduğundan ilk adım yeni bir kaynak grubu veya sunucu oluşturmak ([New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.3.0/new-azurermresourcegroup), [New-AzureRmSqlServer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/new-azurermsqlserver)) veya var olanlara başvurmaktır ([Get-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.3.0/get-azurermresourcegroup), [Get-AzureRmSqlServer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/get-azurermsqlserver)).
+Aşağıdaki kod parçacıkları, mevcut değilse bir kaynak grubu ve Azure SQL sunucusu oluşturur:
 
+Geçerli Azure konumlarının listesi ve dize biçimi için aşağıdaki [Yardımcı kod parçacıkları](#helper-snippets) bölümüne bakın.
+```
+# Create new, or get existing resource group
+############################################
 
-### <a name="create-a-server"></a>Sunucu oluşturma
-SQL veritabanları Azure SQL Database sunucularında oluşturulur. Sunucu oluşturmak için [New-AzureRmSqlServer](https://msdn.microsoft.com/library/azure/mt603715\(v=azure.300\).aspx) komutunu çalıştırın. Sunucu adınız tüm Azure SQL Veritabanı sunucuları için benzersiz olmalıdır. Sunucu adı zaten alınmışsa hata alırsınız. Bu komutun tamamlanmasının birkaç dakika sürebileceğini unutmayın. Komutu, seçtiğiniz herhangi bir geçerli konumu kullanmak üzere düzenleyebilirsiniz ancak bir önceki adımda oluşturduğunuz kaynak grubunda kullandığınız konumun aynısını kullanmanız gerekir.
+$resourceGroupName = "{resource-group-name}"
+$resourceGroupLocation = "{resource-group-location}"
 
-    New-AzureRmSqlServer -ResourceGroupName "resourcegroupsqlgsps" -ServerName "server1" -Location "westus" -ServerVersion "12.0"
+$myResourceGroup = Get-AzureRmResourceGroup -Name $resourceGroupName -ea SilentlyContinue
 
-Bu komutu çalıştırdığınızda sizden kullanıcı adı ve parola istenir. Azure kimlik bilgilerinizi girmeyin. Bunun yerine, sunucu yöneticisi olarak oluşturmak üzere kullanıcı adını ve parolayı girin. Bu makalenin alt kısmındaki betik, kodda sunucu kimlik bilgilerinin nasıl ayarlanacağını gösterir.
-
-Sunucu başarılı bir şekilde oluşturulduktan sonra sunucu bilgileri görüntülenir.
-
-### <a name="configure-a-server-firewall-rule-to-allow-access-to-the-server"></a>Sunucuya erişim izni vermek üzere bir sunucu güvenlik duvarı kuralı yapılandırma
-Sunucuya erişmek için bir güvenlik duvarı kuralı oluşturmanız gerekir. Başlangıç IP adresini ve bitiş IP adresini bilgisayarınız için geçerli değerlerle değiştirerek [New-AzureRmSqlServerFirewallRule](https://msdn.microsoft.com/library/azure/mt603860\(v=azure.300\).aspx) komutunu çalıştırın.
-
-    New-AzureRmSqlServerFirewallRule -ResourceGroupName "resourcegroupsqlgsps" -ServerName "server1" -FirewallRuleName "rule1" -StartIpAddress "192.168.0.0" -EndIpAddress "192.168.0.0"
-
-Kuralı başarılı bir şekilde oluşturulduktan sonra güvenlik duvarı kuralı bilgileri görüntülenir.
-
-Diğer Azure hizmetlerinin sunucuya erişimine izin vermek için bir güvenlik duvarı kuralı ekleyin ve hem StartIpAddress hem de EndIpAddress değerini 0.0.0.0 olarak ayarlayın. Bu kural herhangi bir Azure aboneliğinden gelen Azure trafiğinin sunucuya erişmesini sağlar.
-
-Daha fazla bilgi için bkz. [Azure SQL Database Güvenlik Duvarı](sql-database-firewall-configure.md).
-
-## <a name="create-a-sql-database"></a>SQL veritabanı oluşturma
-Artık yapılandırılmış bir kaynak grubunuz, sunucunuz ve güvenlik duvarı kuralınız olduğunuza göre sunucuya erişebilirsiniz.
-
-Şu [New-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619339\(v=azure.300\).aspx) komutu, S1 performans düzeyine sahip Standart hizmet katmanında (boş) bir SQL veritabanı oluşturur:
-
-    New-AzureRmSqlDatabase -ResourceGroupName "resourcegroupsqlgsps" -ServerName "server1" -DatabaseName "database1" -Edition "Standard" -RequestedServiceObjectiveName "S1"
-
-
-Veritabanı başarılı bir şekilde oluşturulduktan sonra veritabanı bilgileri görüntülenir.
-
-## <a name="create-a-sql-database-powershell-script"></a>SQL veritabanı PowerShell betiği oluşturma
-Aşağıdaki PowerShell betiğiyle bir SQL veritabanı ve onun tüm bağımlı kaynaklarını oluşturabilirsiniz. Tüm `{variables}` değerlerini, aboneliğinize ve kaynaklarınıza özgü değerlerle değiştirin. (Kendi değerlerinizi belirlediğinizde **{}** öğesini kaldırın.)
-
-    # Sign in to Azure and set the subscription to work with
-    $SubscriptionId = "{subscription-id}"
-
-    Add-AzureRmAccount
-    Set-AzureRmContext -SubscriptionId $SubscriptionId
-
-    # CREATE A RESOURCE GROUP
-    $resourceGroupName = "{group-name}"
-    $rglocation = "{Azure-region}"
-
-    New-AzureRmResourceGroup -Name $resourceGroupName -Location $rglocation
-
-    # CREATE A SERVER
-    $serverName = "{server-name}"
-    $serverVersion = "12.0"
-    $serverLocation = "{Azure-region}"
-
-    $serverAdmin = "{server-admin}"
-    $serverPassword = "{server-password}" 
-    $securePassword = ConvertTo-SecureString –String $serverPassword –AsPlainText -Force
-    $serverCreds = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $serverAdmin, $securePassword
-
-    $sqlDbServer = New-AzureRmSqlServer -ResourceGroupName $resourceGroupName -ServerName $serverName -Location $serverLocation -ServerVersion $serverVersion -SqlAdministratorCredentials $serverCreds
-
-    # CREATE A SERVER FIREWALL RULE
-    $ip = (Test-Connection -ComputerName $env:COMPUTERNAME -Count 1 -Verbose).IPV4Address.IPAddressToString
-    $firewallRuleName = '{rule-name}'
-    $firewallStartIp = $ip
-    $firewallEndIp = $ip
-
-    $fireWallRule = New-AzureRmSqlServerFirewallRule -ResourceGroupName $resourceGroupName -ServerName $serverName -FirewallRuleName $firewallRuleName -StartIpAddress $firewallStartIp -EndIpAddress $firewallEndIp
-
-
-    # CREATE A SQL DATABASE
-    $databaseName = "{database-name}"
-    $databaseEdition = "{Standard}"
-    $databaseSlo = "{S0}"
-
-    $sqlDatabase = New-AzureRmSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName -Edition $databaseEdition -RequestedServiceObjectiveName $databaseSlo
-
-
-    # REMOVE ALL RESOURCES THE SCRIPT JUST CREATED
-    #Remove-AzureRmResourceGroup -Name $resourceGroupName
+if(!$myResourceGroup)
+{
+   Write-Output "Creating resource group: $resourceGroupName"
+   $myResourceGroup = New-AzureRmResourceGroup -Name $resourceGroupName -Location $resourceGroupLocation
+}
+else
+{
+   Write-Output "Resource group $resourceGroupName already exists:"
+}
+$myResourceGroup
 
 
 
+# Create a new, or get existing server
+######################################
+
+$serverName = "{server-name}"
+$serverVersion = "12.0"
+$serverLocation = $resourceGroupLocation
+$serverResourceGroupName = $resourceGroupName
+
+$serverAdmin = "{server-admin}"
+$serverAdminPassword = "{server-admin-password}"
+
+$securePassword = ConvertTo-SecureString –String $serverAdminPassword –AsPlainText -Force
+$serverCreds = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $serverAdmin, $securePassword
+
+$myServer = Get-AzureRmSqlServer -ServerName $serverName -ResourceGroupName $serverResourceGroupName -ea SilentlyContinue
+if(!$myServer)
+{
+   Write-Output "Creating SQL server: $serverName"
+   $myServer = New-AzureRmSqlServer -ResourceGroupName $serverResourceGroupName -ServerName $serverName -Location $serverLocation -ServerVersion $serverVersion -SqlAdministratorCredentials $serverCreds
+}
+else
+{
+   Write-Output "SQL server $serverName already exists:"
+}
+$myServer
+
+```
 
 
+## <a name="view-the-logical-sql-server-properties-using-azure-powershell"></a>Azure PowerShell kullanarak mantıksal SQL sunucusunun özelliklerini görüntüleme
+
+```
+#$serverResourceGroupName = "{resource-group-name}"
+#$serverName = "{server-name}"
+
+$myServer = Get-AzureRmSqlServer -ServerName $serverName -ResourceGroupName $serverResourceGroupName 
+
+Write-Host "Server name: " $myServer.ServerName
+Write-Host "Fully qualified server name: $serverName.database.windows.net"
+Write-Host "Server location: " $myServer.Location
+Write-Host "Server version: " $myServer.ServerVersion
+Write-Host "Server administrator login: " $myServer.SqlAdministratorLogin
+```
+
+
+## <a name="create-a-server-level-firewall-rule-using-azure-powershell"></a>Azure PowerShell kullanarak sunucu düzeyi güvenlik duvarı oluşturma
+
+Güvenlik duvarı kuralını ayarlamak için genel IP adresinizi bilmeniz gerekir. IP adresinizi bulmak için istediğiniz tarayıcıyı kullanabilirsiniz ("IP adresim nedir" aratın). Ayrıntılar için bkz. [güvenlik duvarı kuralları](sql-database-firewall-configure.md).
+
+Aşağıdaki komutlarda başvurmak veya yeni bir kural oluşturmak için [Get-AzureRmSqlServerFirewallRule](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/get-azurermsqlserverfirewallrule) ve [New-AzureRmSqlServerFirewallRule](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/new-azurermsqlserverfirewallrule) cmdlet'leri kullanılmaktadır. Bu kod parçacığında kural zaten varsa yalnızca başvuru oluşturur, başlangıç ve bitiş IP adreslerini güncelleştirmez. Dilediğiniz zaman **else** yan tümcesini değiştirerek [Set-AzureRmSqlServerFirewallRule](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/set-azurermsqlserverfirewallrule) cmdlet'ini oluşturma veya güncelleştirme işlevini kullanabilirsiniz.
+
+> [!NOTE] 
+> Sunucudaki SQL Veritabanı güvenlik duvarını, tek bir IP adresi veya bir adresler aralığının tamamı üzerinde açabilirsiniz. Güvenlik duvarını açmak SQL yönetici ve kullanıcılarının; sunucuda, geçerli kimlik bilgilerine sahip oldukları herhangi bir veritabanında oturum açmasını sağlar.
+>
+
+```
+#$serverName = "{server-name}"
+#$serverResourceGroupName = "{resource-group-name}"
+$serverFirewallRuleName = "{server-firewall-rule-name}"
+$serverFirewallStartIp = "{server-firewall-rule-startIp}"
+$serverFirewallEndIp = "{server-firewall-rule-endIp}"
+
+$myFirewallRule = Get-AzureRmSqlServerFirewallRule -FirewallRuleName $serverFirewallRuleName -ServerName $serverName -ResourceGroupName $serverResourceGroupName -ea SilentlyContinue
+
+if(!$myFirewallRule)
+{
+   Write-host "Creating server firewall rule: $serverFirewallRuleName"
+   $myFirewallRule = New-AzureRmSqlServerFirewallRule -ResourceGroupName $serverResourceGroupName -ServerName $serverName -FirewallRuleName $serverFirewallRuleName -StartIpAddress $serverFirewallStartIp -EndIpAddress $serverFirewallEndIp
+}
+else
+{
+   Write-host "Server firewall rule $serverFirewallRuleName already exists:"
+}
+$myFirewallRule
+```
+
+
+## <a name="connect-to-sql-server-using-azure-powershell"></a>Azure PowerShell kullanarak SQL sunucusuna bağlanma
+
+Şimdi sunucuyla bağlantı kurabildiğimizi doğrulamak için ana veritabanında kısa bir sorgu çalıştıralım. Aşağıdaki kod parçacığı sunucunun ana veritabanına bağlanmak ve sorgu göndermek için [.NET Framework Provider for SQL Server (System.Data.SqlClient)](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx) kullanır. Önceki kod parçacıklarında kullandığımız değişkenleri içeren bir bağlantı dizesi oluşturur. Yer tutucuları önceki adımlarda sunucuyu oluşturmak için kullandığınız SQL sunucusu yöneticisi ve parolasıyla değiştirin.
+
+
+```
+#$serverName = "{server-name}"
+#$serverAdmin = "{server-admin}"
+#$serverAdminPassword = "{server-admin-password}"
+$databaseName = "master"
+
+$connectionString = "Server=tcp:" + $serverName + ".database.windows.net" + ",1433;Initial Catalog=" + $databaseName + ";Persist Security Info=False;User ID=$serverAdmin;Password=$serverAdminPassword" + ";MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
+
+
+
+$connection = New-Object System.Data.SqlClient.SqlConnection
+$connection.ConnectionString = $connectionString
+$connection.Open()
+$command = New-Object System.Data.SQLClient.SQLCommand("select * from sys.objects", $connection)
+
+$command.Connection = $connection
+$reader = $command.ExecuteReader()
+
+
+$sysObjects = ""
+while ($reader.Read()) {
+    $sysObjects += $reader["name"] + "`n"
+}
+$sysObjects
+
+$connection.Close()
+```
+
+
+## <a name="create-new-adventureworkslt-sample-database-using-azure-powershell"></a>Azure PowerShell kullanarak yeni AdventureWorksLT örnek veritabanı oluşturma
+
+Aşağıdaki kod parçacığı [New-AzureRmSqlDatabaseImport](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/new-azurermsqldatabaseimport) cmdlet'ini kullanarak AdventureWorksLT örnek veritabanının bir bacpac dosyasını içeri aktarır. bacpac dosyası, Azure blob depolama alanında bulunur. İçeri aktarma cmdlet'ini çalıştırdıktan sonra [Get-AzureRmSqlDatabaseImportExportStatus](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/get-azurermsqldatabaseimportexportstatus) cmdlet'ini kullanarak içeri aktarma işleminin ilerleme durumunu izleyebilirsiniz.
+$storageUri, önceden portala yüklediğiniz bacpac dosyasının URL özelliğidir ve şuna benzer olmalıdır: https://{depolama-hesabı}.blob.core.windows.net/{kapsayıcı}/AdventureWorksLT.bacpac
+
+```
+#$resourceGroupName = "{resource-group-name}"
+#$serverName = "{server-name}"
+
+$databaseName = "AdventureWorksLT"
+$databaseEdition = "Basic"
+$databaseServiceLevel = "Basic"
+
+$storageKeyType = "StorageAccessKey"
+$storageUri = "{storage-uri}" # URL of bacpac file you uploaded to your storage account
+$storageKey = "{storage-key}" # key1 in the Access keys setting of your storage account
+
+$importRequest = New-AzureRmSqlDatabaseImport –ResourceGroupName $resourceGroupName –ServerName $serverName –DatabaseName $databaseName –StorageKeytype $storageKeyType –StorageKey $storageKey -StorageUri $storageUri –AdministratorLogin $serverAdmin –AdministratorLoginPassword $securePassword –Edition $databaseEdition –ServiceObjectiveName $databaseServiceLevel -DatabaseMaxSizeBytes 5000000
+
+
+Do {
+     $importStatus = Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $importRequest.OperationStatusLink
+     Write-host "Importing database..." $importStatus.StatusMessage
+     Start-Sleep -Seconds 30
+     $importStatus.Status
+   }
+   until ($importStatus.Status -eq "Succeeded")
+$importStatus
+```
+
+
+
+## <a name="view-database-properties-using-azure-powershell"></a>Azure PowerShell kullanarak veritabanı özelliklerini görüntüleme
+
+Veritabanını oluşturduktan sonra bazı özelliklerini görüntüleyin.
+
+```
+#$resourceGroupName = "{resource-group-name}"
+#$serverName = "{server-name}"
+#$databaseName = "{database-name}"
+
+$myDatabase = Get-AzureRmSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName
+
+
+Write-Host "Database name: " $myDatabase.DatabaseName
+Write-Host "Server name: " $myDatabase.ServerName
+Write-Host "Creation date: " $myDatabase.CreationDate
+Write-Host "Database edition: " $myDatabase.Edition
+Write-Host "Database performance level: " $myDatabase.CurrentServiceObjectiveName
+Write-Host "Database status: " $myDatabase.Status
+```
+
+## <a name="connect-and-query-the-sample-database-using-azure-powershell"></a>Azure PowerShell kullanarak örnek veritabanına bağlanma ve sorgu gönderme
+
+Şimdi bağlantı kurabildiğimizi doğrulamak için AdventureWorksLT veritabanında kısa bir sorgu çalıştıralım. Aşağıdaki kod parçacığı veritabanına bağlanmak ve sorgu göndermek için [.NET Framework Provider for SQL Server (System.Data.SqlClient)](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx) kullanır. Önceki kod parçacıklarında kullandığımız değişkenleri içeren bir bağlantı dizesi oluşturur. Yer tutucusunu SQL sunucusunun yönetici parolasıyla değiştirin.
+
+```
+#$serverName = {server-name}
+#$serverAdmin = "{server-admin}"
+#$serverAdminPassword = "{server-admin-password}"
+#$databaseName = {database-name}
+
+$connectionString = "Server=tcp:" + $serverName + ".database.windows.net" + ",1433;Initial Catalog=" + $databaseName + ";Persist Security Info=False;User ID=$serverAdmin;Password=$serverAdminPassword" + ";MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
+
+
+$connection = New-Object System.Data.SqlClient.SqlConnection
+$connection.ConnectionString = $connectionString
+$connection.Open()
+$command = New-Object System.Data.SQLClient.SQLCommand("select * from sys.objects", $connection)
+
+$command.Connection = $connection
+$reader = $command.ExecuteReader()
+
+
+$sysObjects = ""
+while ($reader.Read()) {
+    $sysObjects += $reader["name"] + "`n"
+}
+$sysObjects
+
+$connection.Close()
+```
+
+## <a name="create-a-new-blank-database-using-azure-powershell"></a>Azure PowerShell kullanarak yeni boş bir veritabanı oluşturma
+
+```
+#$resourceGroupName = {resource-group-name}
+#$serverName = {server-name}
+
+$blankDatabaseName = "blankdb"
+$blankDatabaseEdition = "Basic"
+$blankDatabaseServiceLevel = "Basic"
+
+
+$myBlankDatabase = New-AzureRmSqlDatabase -DatabaseName $blankDatabaseName -ServerName $serverName -ResourceGroupName $resourceGroupName -Edition $blankDatabaseEdition -RequestedServiceObjectiveName $blankDatabaseServiceLevel
+$myBlankDatabase
+```
+
+
+## <a name="complete-azure-powershell-script-to-create-a-server-firewall-rule-and-database"></a>Sunucu, güvenlik duvarı kuralı ve veritabanı oluşturmak için tam Azure PowerShell betiği
+
+
+
+```
+# Sign in to Azure and set the subscription to work with
+########################################################
+
+$SubscriptionId = "{subscription-id}"
+
+Add-AzureRmAccount
+Set-AzureRmContext -SubscriptionId $SubscriptionId
+
+# User variables
+################
+
+$myResourceGroupName = "{resource-group-name}"
+$myResourceGroupLocation = "{resource-group-location}"
+
+$myServerName = "{server-name}"
+$myServerVersion = "12.0"
+$myServerLocation = $myResourceGroupLocation
+$myServerResourceGroupName = $myResourceGroupName
+$myServerAdmin = "{server-admin}"
+$myServerAdminPassword = "{server-admin-password}" 
+
+$myServerFirewallRuleName = "{server-firewall-rule-name}"
+$myServerFirewallStartIp = "{start-ip}"
+$myServerFirewallEndIp = "{end-ip}"
+
+$myDatabaseName = "AdventureWorksLT"
+$myDatabaseEdition = "Basic"
+$myDatabaseServiceLevel = "Basic"
+
+$myStorageKeyType = "StorageAccessKey"
+# Get these values from your Azure storage account:
+$myStorageUri = "{http://your-storage-account.blob.core.windows.net/your-container/AdventureWorksLT.bacpac}"
+$myStorageKey = "{your-storage-key}"
+
+
+# Create new, or get existing resource group
+############################################
+
+$resourceGroupName = $myResourceGroupName
+$resourceGroupLocation = $myResourceGroupLocation
+
+$myResourceGroup = Get-AzureRmResourceGroup -Name $resourceGroupName -ea SilentlyContinue
+
+if(!$myResourceGroup)
+{
+   Write-host "Creating resource group: $resourceGroupName"
+   $myResourceGroup = New-AzureRmResourceGroup -Name $resourceGroupName -Location $resourceGroupLocation
+}
+else
+{
+   Write-host "Resource group $resourceGroupName already exists:"
+}
+$myResourceGroup
+
+
+# Create a new, or get existing server
+######################################
+
+$serverName = $myServerName
+$serverVersion = $myServerVersion
+$serverLocation = $myServerLocation
+$serverResourceGroupName = $myServerResourceGroupName
+
+$serverAdmin = $myServerAdmin
+$serverAdminPassword = $myServerAdminPassword
+
+$securePassword = ConvertTo-SecureString –String $serverAdminPassword –AsPlainText -Force
+$serverCreds = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $serverAdmin, $securePassword
+
+$myServer = Get-AzureRmSqlServer -ServerName $serverName -ResourceGroupName $serverResourceGroupName -ea SilentlyContinue
+if(!$myServer)
+{
+   Write-host "Creating SQL server: $serverName"
+   $myServer = New-AzureRmSqlServer -ResourceGroupName $serverResourceGroupName -ServerName $serverName -Location $serverLocation -ServerVersion $serverVersion -SqlAdministratorCredentials $serverCreds
+}
+else
+{
+   Write-host "SQL server $serverName already exists:"
+}
+$myServer
+
+
+# View server properties
+##########################
+
+$resourceGroupName = $myResourceGroupName
+$serverName = $myServerName
+
+$myServer = Get-AzureRmSqlServer -ServerName $serverName -ResourceGroupName $serverResourceGroupName 
+
+Write-Host "Server name: " $myServer.ServerName
+Write-Host "Fully qualified server name: $serverName.database.windows.net"
+Write-Host "Server location: " $myServer.Location
+Write-Host "Server version: " $myServer.ServerVersion
+Write-Host "Server administrator login: " $myServer.SqlAdministratorLogin
+
+
+# Create or update server firewall rule
+#######################################
+
+$serverFirewallRuleName = $myServerFirewallRuleName
+$serverFirewallStartIp = $myServerFirewallStartIp
+$serverFirewallEndIp = $myServerFirewallEndIp
+
+$myFirewallRule = Get-AzureRmSqlServerFirewallRule -FirewallRuleName $serverFirewallRuleName -ServerName $serverName -ResourceGroupName $serverResourceGroupName -ea SilentlyContinue
+
+if(!$myFirewallRule)
+{
+   Write-host "Creating server firewall rule: $serverFirewallRuleName"
+   $myFirewallRule = New-AzureRmSqlServerFirewallRule -ResourceGroupName $serverResourceGroupName -ServerName $serverName -FirewallRuleName $serverFirewallRuleName -StartIpAddress $serverFirewallStartIp -EndIpAddress $serverFirewallEndIp
+}
+else
+{
+   Write-host "Server firewall rule $serverFirewallRuleName already exists:"
+}
+$myFirewallRule
+
+
+# Connect to the server and master database
+###########################################
+$databaseName = "master"
+
+$connectionString = "Server=tcp:" + $serverName + ".database.windows.net" + ",1433;Initial Catalog=" + $databaseName + ";Persist Security Info=False;User ID=" + $myServer.SqlAdministratorLogin + ";Password=" + $myServerAdminPassword + ";MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
+
+
+$connection = New-Object System.Data.SqlClient.SqlConnection
+$connection.ConnectionString = $connectionString
+$connection.Open()
+$command = New-Object System.Data.SQLClient.SQLCommand("select * from sys.objects", $connection)
+
+$command.Connection = $connection
+$reader = $command.ExecuteReader()
+
+$sysObjects = ""
+while ($reader.Read()) {
+    $sysObjects += $reader["name"] + "`n"
+}
+$sysObjects
+
+$connection.Close()
+
+
+# Create the AdventureWorksLT database from a bacpac
+####################################################
+
+$resourceGroupName = $myResourceGroupName
+$serverName = $myServerName
+
+$databaseName = $myDatabaseName
+$databaseEdition = $myDatabaseEdition
+$databaseServiceLevel = $myDatabaseServiceLevel
+
+$storageKeyType = $myStorageKeyType
+$storageUri = $myStorageUri
+$storageKey = $myStorageKey
+
+$importRequest = New-AzureRmSqlDatabaseImport –ResourceGroupName $resourceGroupName –ServerName $serverName –DatabaseName $databaseName –StorageKeytype $storageKeyType –StorageKey $storageKey -StorageUri $storageUri –AdministratorLogin $serverAdmin –AdministratorLoginPassword $securePassword –Edition $databaseEdition –ServiceObjectiveName $databaseServiceLevel -DatabaseMaxSizeBytes 5000000
+
+Do {
+     $importStatus = Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $importRequest.OperationStatusLink
+     Write-host "Importing database..." $importStatus.StatusMessage
+     Start-Sleep -Seconds 30
+     $importStatus.Status
+   }
+   until ($importStatus.Status -eq "Succeeded")
+$importStatus
+
+
+# View database properties
+##########################
+
+$resourceGroupName = $myResourceGroupName
+$serverName = $myServerName
+$databaseName = $myDatabaseName
+
+$myDatabase = Get-AzureRmSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName
+
+Write-Host "Database name: " $myDatabase.DatabaseName
+Write-Host "Server name: " $myDatabase.ServerName
+Write-Host "Creation date: " $myDatabase.CreationDate
+Write-Host "Database edition: " $myDatabase.Edition
+Write-Host "Database performance level: " $myDatabase.CurrentServiceObjectiveName
+Write-Host "Database status: " $myDatabase.Status
+
+
+# Query the database
+####################
+
+$connectionString = "Server=tcp:" + $serverName + ".database.windows.net" + ",1433;Initial Catalog=" + $databaseName + ";Persist Security Info=False;User ID=" + $myServer.SqlAdministratorLogin + ";Password=" + $myServerAdminPassword + ";MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
+
+$connection = New-Object System.Data.SqlClient.SqlConnection
+$connection.ConnectionString = $connectionString
+$connection.Open()
+$command = New-Object System.Data.SQLClient.SQLCommand("select * from sys.objects", $connection)
+
+$command.Connection = $connection
+$reader = $command.ExecuteReader()
+
+$sysObjects = ""
+while ($reader.Read()) {
+    $sysObjects += $reader["name"] + "`n"
+}
+$sysObjects
+
+$connection.Close()
+
+
+# Create a blank database
+#########################
+
+$blankDatabaseName = "blankdb"
+$blankDatabaseEdition = "Basic"
+$blankDatabaseServiceLevel = "Basic"
+
+
+$myBlankDatabase = New-AzureRmSqlDatabase -DatabaseName $blankDatabaseName -ServerName $serverName -ResourceGroupName $resourceGroupName -Edition $blankDatabaseEdition -RequestedServiceObjectiveName $blankDatabaseServiceLevel
+$myBlankDatabase
+```
+
+
+
+> [!TIP]
+> Öğrenirken, kullanmadığınız veritabanlarını silerek maliyet tasarrufu yapabilirsiniz. Temel sürüm veritabanlarını 7 gün içinde geri yükleyebilirsiniz. Ancak sunucuyu silmeyin. Bunu yapmanız durumunda, sunucuyu ve silinen veritabanlarının hiçbirini kurtaramazsınız.
+
+## <a name="helper-snippets"></a>Yardımcı kod parçacıkları
+
+```
+# Get a list of Azure regions where you can create SQL resources
+
+$sqlRegions = (Get-AzureRmLocation | Where-Object { $_.Providers -eq "Microsoft.Sql" })
+foreach ($region in $sqlRegions)
+{
+   $region.Location
+}
+
+# Clean up
+# Delete a resource group (and all contained resources)
+Remove-AzureRmResourceGroup -Name {resource-group-name}
+```
+
+> [!TIP]
+> Öğrenirken, kullanmadığınız veritabanlarını silerek maliyet tasarrufu yapabilirsiniz. Temel sürüm veritabanlarını yedi gün içinde geri yükleyebilirsiniz. Ancak sunucuyu silmeyin. Bunu yapmanız durumunda, sunucuyu ve silinen veritabanlarının hiçbirini kurtaramazsınız.
+>
 
 ## <a name="next-steps"></a>Sonraki adımlar
-SQL veritabanı oluşturduktan ve temel veritabanı kurulumu görevlerini gerçekleştirdikten sonra şu işlem için hazır duruma gelirsiniz:
+Bu ilk kullanmaya başlama öğreticisini tamamladığınıza ve örnek veriler içeren bir veritabanı oluşturduğunuza göre, bu öğreticide öğrendiklerinizi geliştirecek ek öğreticilerden birini keşfetmek isteyebilirsiniz. 
 
-* [SQL Veritabanı'nı PowerShell ile yönetme](sql-database-manage-powershell.md)
-* [SQL Server Management Studio ile SQL Veritabanı’na bağlanma ve bir örnek T-SQL sorgusu gerçekleştirme](sql-database-connect-query-ssms.md)
+* Azure SQL Veritabanı güvenliğini keşfetmeye başlamak isterseniz bkz. [Güvenliğe giriş](sql-database-get-started-security.md).
+* Excel kullanmayı biliyorsanız [Excel ile Azure’da SQL veritabanına bağlanma](sql-database-connect-excel.md) işlemini nasıl gerçekleştireceğinizi öğrenin.
+* Kodlamaya başlamak için hazırsanız [SQL Veritabanı ve SQL Server için bağlantı kitaplıkları](sql-database-libraries.md) konu başlığına göz atarak programlama dilinizi belirleyin.
+* Şirket içi SQL Server veritabanlarınızı Azure’a taşımak istiyorsanız, bkz. [Bir veritabanını SQL Veritabanı’na geçirme](sql-database-cloud-migrate.md).
+* BCP komut satırı aracını kullanarak yeni bir tabloya bir CSV dosyasından bazı veriler yüklemek istiyorsanız bkz. [BCP kullanarak bir CSV dosyasından SQL Veritabanına veri yükleme](sql-database-load-from-csv-with-bcp.md).
+* Tabloları ve diğer nesneleri oluşturmaya başlamak istiyorsanız, [Tablo oluşturma](https://msdn.microsoft.com/library/ms365315.aspx) içindeki “Tablo oluşturmak için” konusuna bakın.
 
-## <a name="additional-resources"></a>Ek Kaynaklar
-* [Azure SQL Veritabanı Cmdlet’leri](https://msdn.microsoft.com/library/azure/mt574084\(v=azure.300\).aspx)
-* [Azure SQL Veritabanı](https://azure.microsoft.com/documentation/services/sql-database/)
+## <a name="additional-resources"></a>Ek kaynaklar
+[SQL Database nedir?](sql-database-technical-overview.md)
 
 
-
-
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

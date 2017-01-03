@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Azure sanal makinelerini, etki alanı denetleyicileri kullanmak ve bunları grup ilkeleriyle yönetmek zorunda kalmadan bir etki alanına eklemek için Active Directory Domain Services’ı kullanmayı öğrenin."
 translationtype: Human Translation
-ms.sourcegitcommit: 55dedcab5b8e62b3666cffcfc7d9a0a31c624784
-ms.openlocfilehash: d3a6b967921edad13479c615ebec8edc9e568458
+ms.sourcegitcommit: 5c25e7f81a4f2219c244044ea70416d1e0c63b4e
+ms.openlocfilehash: b05e7bfbc89de74937daa7daf578aa8a9bb39d64
 
 ---
 # <a name="active-directory-domain-services-documentation"></a>Active Directory Domain Services Belgeleri
 
-Azure AD Domain Services (DS) Windows Server Active Directory ile tamamen uyumlu etki alanına katılma, grup ilkesi, LDAP ve Kerberos/NTLM gibi yönetilen etki alanı hizmetleri sunar.  Bu hizmet, kullanıcıların çok çeşitli bilgi işlem çözümlerini çevik bir şekilde dağıtmasına olanak sağlar.
+Azure sanal makinelerini etki alanı denetleyicileri kullanmak zorunda kalmadan bir etki alanına eklemek için Active Directory Domain Services’ı kullanmayı öğrenin. Öğreticiler ve diğer belgeler, grup ilkelerini kullanarak sanal makineleri nasıl yönetebileceğinizle ilgili bilgiler içerir.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -168,6 +169,6 @@ Active Directory Domain Services Belgeleri’ni indirin </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

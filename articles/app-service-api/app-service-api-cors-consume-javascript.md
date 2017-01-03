@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 08/27/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 4edd2696c9a5709ded6e2a3e352090775335f0d2
-ms.openlocfilehash: be48f1f0b9c3c749c13fd89f63d41fbaff6a62ee
+ms.sourcegitcommit: a0580f8d303c7ce33a65f0ce6faecf2492f851b0
+ms.openlocfilehash: b0b701b7ea7a608f114d3a82f0403c2ae506854f
 
 
 ---
@@ -51,7 +51,7 @@ CORS’yi Azure portalında veya [Azure Resource Manager](../azure-resource-mana
    **Kaydet**’e tıkladıktan sonra, API uygulaması belirtilen URL’lerden JavaScript çağrılarını kabul eder.
 
 #### <a name="configure-cors-by-using-azure-resource-manager-tools"></a>Azure Resource Manager araçlarını kullanarak CORS’yi yapılandırın
-CORS’yi [Azure PowerShell](/powershell/azureps-cmdlets-docs) ve [Azure CLI](../xplat-cli-install.md) gibi komut satırı araçlarında [Azure Resource Manager şablonlarını](../resource-group-authoring-templates.md) kullanarak da yapılandırabilirsiniz. 
+CORS’yi [Azure PowerShell](/powershell/azureps-cmdlets-docs) ve [Azure CLI](../xplat-cli-install.md) gibi komut satırı araçlarında [Azure Resource Manager şablonlarını](../azure-resource-manager/resource-group-authoring-templates.md) kullanarak da yapılandırabilirsiniz. 
 
 CORS özelliğini ayarlayan bir Azure Resource Manager şablonu örneği için, [bu öğreticinin örnek uygulamasının deposundaki azuredeploy.json dosyasını](https://github.com/azure-samples/app-service-api-dotnet-todo-list/blob/master/azuredeploy.json) açın. Aşağıdaki gibi görünen şablon bölümünü bulun:
 
@@ -252,6 +252,6 @@ Bu makalede, istemci JavaScript kodunun farklı bir etki alanındaki bir API’y
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

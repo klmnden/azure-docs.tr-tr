@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 10/25/2016
+ms.date: 12/15/2016
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: dcff834c9d4aff82e8319e6c23a74c2e49902a8c
+ms.sourcegitcommit: b0ead7ecbf9327e9df6846d6e046ed69f25832cf
+ms.openlocfilehash: 872fbd44a9bccf0d6e9f7f3f3bd839e384874ae5
 
 
 ---
@@ -50,14 +50,14 @@ Bu konuda API Management temel kavramlarına ilişkin genel bir bakış verilmi�
 ## <a name="apis"> </a>API’ler ve işlemler
 API'ler bir API Management hizmet örneğinin temelini oluşturur. Her API geliştiricilere sunulan bir işlemler kümesini temsil eder. Her API, API’yi uygulayan arka uç hizmetine başvuru içerir ve bunun işlemleri arka uç hizmeti tarafından uygulanan işlemlere eşlenir. API Management işlemleri; URL eşleme, sorgu ve yol parametreleri, istek ve yanıt içeriği ve işlem yanıtını önbelleğe alma üzerinde sahip olunan denetim sayesinde yüksek oranda yapılandırılabilir niteliktedir. Hızı sınırı, kotalar ve IP kısıtlama ilkeleri de API veya tek işlem düzeyinde uygulanabilir.
 
-Daha fazla bilgi için bkz. [API oluşturma][API oluşturma] ve [API’ye işlem ekleme][API’ye işlem ekleme].
+Daha fazla bilgi için bkz. [API oluşturma][How to create APIs] ve [API'ye işlem ekleme][How to add operations to an API].
 
 ## <a name="products"> </a> Ürünler
 Ürünler API'lerin geliştiricilerin kullanımına nasıl sunulduğudur. API Management ürünleri bir ya da daha fazla API’ye sahiptir. Başlık, açıklama ve kullanım koşulları ile yapılandırılırlar. Ürünler **Açık** veya **Korumalı** olabilir. Korumalı ürünleri kullanabilmek için bunlara abone olmak gerekir, açık ürünler abonelik olmadan kullanılabilir. Bir ürün geliştiriciler tarafından kullanılmaya hazır olduğunda yayımlanabilir. Yayımlandıktan sonra, geliştiriciler tarafından görüntülenebilir (ve abone olunan korumalı ürünler söz konusu olduğunda). Abonelik onayı ürün düzeyinde yapılandırılır ve yönetici onayı gerektirebilir ya da otomatik olarak onaylanır.
 
 Gruplar, ürünlerin geliştiricilere görünürlüğünü yönetmek için kullanılır. Ürünler gruplara görünürlük sağlar ve geliştiriciler ait oldukları gruplar tarafından görünür olan ürünleri görüntüleyip bunlara abone olabilir. 
 
-Daha fazla bilgi için [Ürün oluşturma ve yayımlama][Ürün oluşturma ve yayımlama] konusunu ve aşağıdaki videoyu inceleyin.
+Daha fazla bilgi için [Ürün oluşturma ve yayımlama][How to create and publish a product] konusunu ve aşağıdaki videoyu inceleyin.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Using-Products/player]
 > 
@@ -72,14 +72,14 @@ Gruplar, ürünlerin geliştiricilere görünürlüğünü yönetmek için kulla
 
 Bu sistem gruplarına ek olarak, yöneticiler özel gruplar oluşturabilir veya [ilişkili Azure Active Directory kiracılarındaki dış grupları kullanabilir](api-management-howto-aad.md#how-to-add-an-external-azure-active-directory-group). Özel ve dış gruplar, geliştiricilere görünürlük ve API ürünlerine erişim sağlayan sistem gruplarıyla birlikte kullanılabilir. Örneğin, belirli bir iş ortağı kuruluşla ilişkili geliştiriciler için özel bir grup oluşturabilir ve bunlara yalnızca ilgili API'leri içeren bir üründen API'lere erişim izni verebilirsiniz. Bir kullanıcı birden fazla grubun üyesi olabilir.
 
-Daha fazla bilgi için bkz. [Grupları oluşturma ve kullanma][Grupları oluşturma ve kullanma].
+Daha fazla bilgi için bkz. [Grupları oluşturma ve kullanma][How to create and use groups].
 
 ## <a name="developers"> </a> Geliştiriciler
-Geliştiriciler API Management hizmet örneğindeki kullanıcı hesaplarını temsil eder. Geliştiriciler yöneticiler tarafından oluşturulabilir ve davet edilebilir ya da [Geliştirici portalı][Geliştirici portalı] üzerinden kaydolabilir. Her geliştirici bir veya daha fazla grubun üyesidir ve bu gruplara görünürlük sağlayan ürünlere abone olabilir.
+Geliştiriciler API Management hizmet örneğindeki kullanıcı hesaplarını temsil eder. Geliştiriciler yöneticiler tarafından oluşturulabilir ve davet edilebilir ya da [Geliştirici portalı][Developer portal] üzerinden kaydolabilir. Her geliştirici bir veya daha fazla grubun üyesidir ve bu gruplara görünürlük sağlayan ürünlere abone olabilir.
 
 Bir ürüne abone olan geliştiricilere ürün için birincil ve ikincil anahtar verilir. Bu anahtar ürün API’lerine çağrılar yapılırken kullanılır.
 
-Daha fazla bilgi edinmek için bkz. [Geliştirici oluşturma ve davet etme][Geliştirici oluşturma ve davet etme] ve [Grupları geliştiricilerle ilişkilendirme][Grupları geliştiricilerle ilişkilendirme].
+Daha fazla bilgi için bkz. [Geliştirici oluşturma ve davet etme][How to create or invite developers] ve [Grupları geliştiricilerle ilişkilendirme][How to associate groups with developers].
 
 ## <a name="policies"> </a> İlkeler
 İlkeler, yayımcının API’nin davranışını yapılandırma yoluyla değiştirmesini sağlayan güçlü API Management özellikleridir. İlkeler, bir API isteği veya yanıtı üzerinde sırayla yürütülen deyimlerin bir koleksiyonudur. Sık kullanılan deyimler, XML’den JSON’a biçim dönüştürmeyi ve bir geliştiriciden gelen çağrıların sayısını sınırlamak üzere çağrı hızını sınırlamayı ve çeşitli ilkeleri içerir.
@@ -90,7 +90,7 @@ Daha fazla bilgi edinmek için bkz. [Geliştirici oluşturma ve davet etme][Geli
 > 
 > 
 
-API Management ilkelerinin tam listesi için bkz. [İlke başvurusu][İlke başvurusu]. İlkeleri yapılandırma ve kullanma hakkında daha fazla bilgi için bkz. [API Management ilkeleri][API Management ilkeleri]. Hız sınırı ve kota ilkeleri içeren bir ürün oluşturmaya ilişkin öğretici için bkz. [Gelişmiş ürün ayarları oluşturma ve yapılandırma][Gelişmiş ürün ayarları oluşturma ve yapılandırma]. Gösteri için aşağıdaki videoya bakın.
+API Management ilkelerinin tam listesi için bkz. [İlke başvurusu][Policy reference]. İlkeleri yapılandırma ve kullanma hakkında daha fazla bilgi için bkz. [API Management ilkeleri][API Management policies]. Hız sınırı ve kota ilkeleri içeren bir ürün oluşturmaya ilişkin öğretici için bkz. [Gelişmiş ürün ayarları oluşturma ve yapılandırma][How create and configure advanced product settings]. Gösteri için aşağıdaki videoya bakın.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Rate-Limits-and-Quotas/player]
 > 
@@ -108,30 +108,30 @@ API Management hakkında daha fazla bilgi için Microsoft Ignite 2015 konferans�
 > 
 > 
 
-[API’ler ve işlemler]: #apis
-[Ürünler]: #products
-[Gruplar]: #groups
-[Geliştiriciler]: #developers
-[İlkeler]: #policies
-[Geliştirici portalı]: #developer-portal
+[APIs and operations]: #apis
+[Products]: #products
+[Groups]: #groups
+[Developers]: #developers
+[Policies]: #policies
+[Developer portal]: #developer-portal
 
-[API oluşturma]: api-management-howto-create-apis.md
-[API’ye işlem ekleme]: api-management-howto-add-operations.md
-[Ürün oluşturma ve yayımlama]: api-management-howto-add-products.md
-[Grupları oluşturma ve kullanma]: api-management-howto-create-groups.md
-[Grupları geliştiricilerle ilişkilendirme]: api-management-howto-create-groups.md#associate-group-developer
-[Gelişmiş ürün ayarları oluşturma ve yapılandırma]: api-management-howto-product-with-rules.md
-[Geliştirici oluşturma ve davet etme]: api-management-howto-create-or-invite-developers.md
-[İlke başvurusu]: api-management-policy-reference.md
-[API Management ilkeleri]: api-management-howto-policies.md
-[API Management hizmet örneği oluşturma]: api-management-get-started.md#create-service-instance
-
-
+[How to create APIs]: api-management-howto-create-apis.md
+[How to add operations to an API]: api-management-howto-add-operations.md
+[How to create and publish a product]: api-management-howto-add-products.md
+[How to create and use groups]: api-management-howto-create-groups.md
+[How to associate groups with developers]: api-management-howto-create-groups.md#associate-group-developer
+[How create and configure advanced product settings]: api-management-howto-product-with-rules.md
+[How to create or invite developers]: api-management-howto-create-or-invite-developers.md
+[Policy reference]: api-management-policy-reference.md
+[API Management policies]: api-management-howto-policies.md
+[Create an API Management service instance]: api-management-get-started.md#create-service-instance
 
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+
+
+<!--HONumber=Jan17_HO1-->
 
 
