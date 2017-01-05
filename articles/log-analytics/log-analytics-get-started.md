@@ -146,6 +146,6 @@ Operations Management Suite kullanarak, Azure Bulut Hizmetleri için tanılamay�
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

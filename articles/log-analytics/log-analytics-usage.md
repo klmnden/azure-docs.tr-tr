@@ -66,6 +66,6 @@ Günlük kullanım limitini aştıysanız veya aşmak üzereyseniz, OMS hizmetin
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO1-->
 
 

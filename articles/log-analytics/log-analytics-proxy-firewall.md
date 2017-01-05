@@ -177,6 +177,6 @@ OMS'ye çözümler eklediyseniz bu çözümleri Operations Manager konsolunda **
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO1-->
 
 

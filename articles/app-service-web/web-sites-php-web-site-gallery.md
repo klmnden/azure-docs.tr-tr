@@ -117,6 +117,6 @@ App Service Web Apps ile çalışma hakkında daha fazla bilgi için sayfanın s
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -168,6 +168,6 @@ Azure'da WordPress web uygulamaları geliştirme hakkında daha fazla bilgi içi
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO1-->
 
 
