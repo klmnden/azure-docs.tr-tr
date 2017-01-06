@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 11/16/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 5d3bcc3c1434b16279778573ccf3034f9ac28a4d
-ms.openlocfilehash: 40ae0d242968db83c4d4d04452fbfd93559af31e
+ms.sourcegitcommit: ccf25aab4d6454e27a57f9a18305ef752421896f
+ms.openlocfilehash: 6e4af8f21a3ec9613d9dc36ebceb710c0d8c9906
 
 
 ---
@@ -103,7 +103,7 @@ Sanal cihaz sağlamadan önce, Azure ortamınızda aşağıdaki hazırlıkları 
 Sanal cihaz oluşturmadan önce, Azure StorSimple hizmetinize aşağıdaki güncelleştirmeleri uygulayın:
 
 * Sanal cihazınız için barındırma sunucuları olacak sanal makineler için [erişim denetimi kayıtları](storsimple-manage-acrs.md) ekleyin.
-* Sanal cihazla aynı bölgede bir [depolama hesabı](storsimple-manage-storage-accounts.md#add-a-storage-account) kullanın. Farklı bölgelerdeki Depolama hesapları performansın düşmesine neden olabilir. Sanal cihazla Standart veya Premium Storage hesabı kullanabilirsiniz. [Standard Storage hesabı]((../storage/storage-create-storage-account.md) ya da [Premium Storage hesabı](../storage/storage-premium-storage.md#quick-start-create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk) oluşturma hakkında daha fazla bilgi
+* Sanal cihazla aynı bölgede bir [depolama hesabı](storsimple-manage-storage-accounts.md#add-a-storage-account) kullanın. Farklı bölgelerdeki Depolama hesapları performansın düşmesine neden olabilir. Sanal cihazla Standart veya Premium Storage hesabı kullanabilirsiniz. [Standard Storage hesabı](../storage/storage-create-storage-account.md) ya da [Premium Storage hesabı](../storage/storage-premium-storage.md#quick-start-create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk) oluşturma hakkında daha fazla bilgi
 * Verileriniz için oluşturduğunuzdan sanal cihaz oluşturma için farklı bir depolama hesabı kullanın. Aynı depolama hesabı kullanmak performansın düşmesine neden olabilir.
 
 Başlamadan önce aşağıdaki bilgilere sahip olduğunuzdan emin olun:
@@ -259,6 +259,6 @@ Sanal cihaz oluştururken İnternet bağlantısı yoksa oluşturma adımı başa
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

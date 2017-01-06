@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 12/11/2016
+ms.date: 12/26/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 24d324a724792051eb6d86026da7b41ee9ff87b1
-ms.openlocfilehash: 26720340d72c31016e51cc33589388780a2f4a8a
+ms.sourcegitcommit: f01cd8d3a68776dd12d2930def1641411e6a4994
+ms.openlocfilehash: a9f77a58cdb13c357b6c3734bd9e3efa4ff5087b
 
 
 ---
@@ -25,16 +25,27 @@ ms.openlocfilehash: 26720340d72c31016e51cc33589388780a2f4a8a
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
 > [!NOTE]
-> Bu öğreticiyi tamamlamak için bir Azure hesabınızın olması gerekir. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F). 
-> 
-> 
+> Bu öğreticiyi tamamlamak için bir Azure hesabınızın olması gerekir. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
+>
+>
 
 ## <a name="overview"></a>Genel Bakış
 Bu öğreticide, .NET için Azure Media Services (AMS) SDK’sını kullanarak bir İsteğe Bağlı Video (VoD) içerik teslim uygulaması gerçekleştirilmesinin adımları açıklanmaktadır.
 
 Öğretici, temel Media Services iş akışını ve Media Services geliştirmek için gereken en genel programlama nesnelerini ve görevleri tanıtır. Öğreticiyi tamamladığınızda, yükleyip kodlayarak ardından indirdiğiniz örnek bir medya dosyasını akışla aktarabilecek veya aşamalı olarak indirebileceksiniz.
 
+### <a name="ams-model"></a>AMS modeli
+
+Aşağıdaki resimde Media Services OData modeliyle VoD uygulamaları geliştirirken en sık kullanılan nesnelerin bazıları gösterilmektedir.
+
+Resmi tam boyutlu görüntülemek için tıklayın.  
+
+<a href="https://docs.microsoft.com/en-us/azure/media-services/media/media-services-dotnet-get-started/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-dotnet-get-started/media-services-overview-object-model-small.png"></a> 
+
+Modelin tamamını [buradan](https://media.windows.net/API/$metadata?api-version=2.14) görüntüleyebilirsiniz.  
+
 ## <a name="what-youll-learn"></a>Öğrenecekleriniz
+
 Öğretici, aşağıdaki görevlerin nasıl gerçekleştirileceğini gösterir:
 
 1. Media Services hesabı oluşturma (Azure portal kullanılarak).
@@ -49,41 +60,38 @@ Bu öğreticide, .NET için Azure Media Services (AMS) SDK’sını kullanarak b
 ## <a name="prerequisites"></a>Ön koşullar
 Öğreticiyi tamamlamak için aşağıdakiler gereklidir.
 
-* Bu öğreticiyi tamamlamak için bir Azure hesabınızın olması gerekir. 
-  
+* Bu öğreticiyi tamamlamak için bir Azure hesabınızın olması gerekir.
+
     Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F). Ücretli Azure hizmetlerini denemek için kullanabileceğiniz krediler alırsınız. Krediler bitmiş olsa bile hesabı sürdürebilir ve Azure App Service’deki Web Apps özelliği gibi ücretsiz Azure hizmetlerinden faydalanabilirsiniz.
 * İşletim sistemleri: Windows 8 veya sonraki sürümü, Windows 2008 R2, Windows 7.
 * .NET framework 4.0 veya sonraki sürümü
 * Visual Studio 2010 SP1 (Professional, Premium, Ultimate veya Express) veya sonraki sürümleri.
-
-## <a name="download-sample"></a>Örnek indirme
-[Buradan](https://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/) bir örnek alarak çalıştırın.
 
 ## <a name="create-an-azure-media-services-account-using-the-azure-portal"></a>Azure portal ile Azure Media Services hesabı oluşturma
 Bu bölümdeki adımlar bir AMS hesabının nasıl oluşturulacağını gösterir.
 
 1. [Azure portal](https://portal.azure.com/)’da oturum açın.
 2. **+Yeni** > **Medya + CDN** > **Media Services**’e tıklayın.
-   
+
     ![Media Services Oluşturma](./media/media-services-portal-vod-get-started/media-services-new1.png)
 3. **MEDYA HİZMETLERİ HESABI OLUŞTUR**’a gerekli değerleri girin.
-   
+
     ![Media Services Oluşturma](./media/media-services-portal-vod-get-started/media-services-new3.png)
-   
+
    1. **Hesap Adı**’nda, yeni AMS hesabının adını girin. Media Services hesabı adı, boşluk olmadan, tümü küçük harf ve sayılardan oluşmalı ve 3-24 karakter uzunluğunda olmalıdır.
    2. Abonelik’te, erişiminiz bulunan farklı Azure abonelikleri arasından seçim yapın.
    3. **Kaynak Grubu**’nda yeni veya mevcut bir kaynağı seçin.  Kaynak grubu; yaşam döngüsünü, izinleri ve ilkeleri paylaşan kaynakların bir koleksiyonudur. [Burada](../azure-resource-manager/resource-group-overview.md#resource-groups) daha fazla bilgi edinin.
-   4. **Konum**’da, Media Services hesabınız için medya ve meta veri kayıtlarını depolamak için kullanılan coğrafi bölgeyi seçin. Bu bölge medyanızı işlemek ve akışını sağlamak için kullanılır. Yalnızca Media Services kullanılabilen bölgeler açılır listede görüntülenir. 
+   4. **Konum**’da, Media Services hesabınız için medya ve meta veri kayıtlarını depolamak için kullanılan coğrafi bölgeyi seçin. Bu bölge medyanızı işlemek ve akışını sağlamak için kullanılır. Yalnızca Media Services kullanılabilen bölgeler açılır listede görüntülenir.
    5. **Depolama Hesabı** alanında, Media Services hesabınızdan gelen medya içeriğine blob depolama sağlamak üzere bir depolama hesabı seçin. Media Services hesabınızla aynı coğrafi bölgede bulunan mevcut bir depolama hesabını seçebilir ya da bir depolama hesabı oluşturabilirsiniz. Aynı bölgede yeni bir depolama hesabı oluşturulur. Depolama hesabı adları için kurallar Media Services hesapları ile aynıdır.
-      
+
        Depolama hakkında daha fazla bilgi [burada](../storage/storage-introduction.md).
    6. Hesap dağıtımını ilerleme durumunu görmek için **Panoya sabitle**’yi seçin.
 4. Formun alt kısmındaki **Oluştur**’a tıklayın.
-   
-    Hesap başarıyla oluşturulduktan sonra, durum **Çalışıyor** olarak değişir. 
-   
+
+    Hesap başarıyla oluşturulduktan sonra, durum **Çalışıyor** olarak değişir.
+
     ![Media Services ayarları](./media/media-services-portal-vod-get-started/media-services-settings.png)
-   
+
     AMS hesabınızı yönetmek için (örneğin, videoları karşıya yüklemek, varlıkları kodlamak, işin ilerleme durumunu izlemek) **Ayarlar** penceresini kullanın.
 
 ## <a name="configure-streaming-endpoints-using-the-azure-portal"></a>Azure portal ile akış uç noktalarını yapılandırma
@@ -100,19 +108,19 @@ Dinamik paketleme ile dosyaları yalnızca tek bir depolama biçiminde depolaman
 
 Akışa ayrılan birim sayısını oluşturmak ve değiştirmek için, aşağıdakileri yapın:
 
-1. **Ayarlar** penceresinde, **Akış uç noktaları**’na tıklayın. 
-2. Varsayılan akış uç noktasına tıklayın. 
-   
+1. **Ayarlar** penceresinde, **Akış uç noktaları**’na tıklayın.
+2. Varsayılan akış uç noktasına tıklayın.
+
     **VARSAYILAN AKIŞ UÇ NOKTASI AYRINTILAR** penceresi görüntülenir.
 3. Akış birimi sayısını belirtmek için, **Akış birimleri** kaydırıcısını kaydırın.
-   
+
     ![Akış birimleri](./media/media-services-portal-vod-get-started/media-services-streaming-units.png)
 4. Yaptığınız değişiklikleri kaydetmek için **Kaydet** düğmesine tıklayın.
-   
+
    > [!NOTE]
    > Yeni birimleri ayırmanın tamamlanması 20 dakika sürebilir.
-   > 
-   > 
+   >
+   >
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Visual Studio projesi oluşturup yapılandırma
 
@@ -123,20 +131,20 @@ Akışa ayrılan birim sayısını oluşturmak ve değiştirmek için, aşağıd
 
 3. System.Configuration bütünleştirilmiş koduna bir başvuru ekleyin. Bu bütünleştirilmiş kod, App.config gibi yapılandırma dosyalarına erişmek için kullanılan **System.Configuration.ConfigurationManager** sınıfını içerir.
 
-    Başvuru eklemek için şunları yapın:Çözüm Gezgini’nde proje adının üzerine sağ tıklayın ve **Başvuru** > **Ekle...** öğesini seçip arama kutusuna configuration yazın. 
+    Başvuru eklemek için şunları yapın:Çözüm Gezgini’nde proje adının üzerine sağ tıklayın ve **Başvuru** > **Ekle...** öğesini seçip arama kutusuna configuration yazın.
 
 4. App.config dosyasını açın (varsayılan olarak eklenmemişse dosyayı projenize ekleyin) ve dosyaya bir *appSettings* bölümü ekleyin. Aşağıdaki örnekte gösterildiği gibi Azure Media Services hesap adınız ve hesap anahtarınızın değerlerini ayarlayın. Hesap adını ve anahtar bilgilerini almak için [Azure portalına](https://portal.azure.com/) gidin ve AMS hesabınızı seçin. Ardından, **Ayarlar** > **Anahtarlar**'ı seçin. Anahtarları yönet pencerelerinde hesap adı gösterilir ve birincil anahtar ile ikincil anahtar görüntülenir. Hesap adı ve birincil anahtar değerlerini kopyalayın.
-   
+
         <configuration>
         ...
           <appSettings>
             <add key="MediaServicesAccountName" value="Media-Services-Account-Name" />
             <add key="MediaServicesAccountKey" value="Media-Services-Account-Key" />
           </appSettings>
-   
+
         </configuration>
 5. Aşağıdaki kodu, Program.cs dosyasının başındaki mevcut **using** deyimlerinin üzerine yazın.
-   
+
         using System;
         using System.Collections.Generic;
         using System.Linq;
@@ -146,7 +154,7 @@ Akışa ayrılan birim sayısını oluşturmak ve değiştirmek için, aşağıd
         using System.Threading;
         using System.IO;
         using Microsoft.WindowsAzure.MediaServices.Client;
-6. Proje dizini altında yeni bir klasör oluşturun ve kodlayıp akışla aktarmak veya aşamalı indirmek istediğiniz bir .mp4 veya .wmv dosyasını buraya kopyalayın. Bu örnekte "C:\VideoFiles" yolu kullanılmaktadır.
+6. Yeni bir klasör oluşturun (yerel sürücünüzün herhangi bir yerinde) ve kodlayıp akışla aktarmak veya aşamalı indirmek istediğiniz bir .mp4 dosyasını buraya kopyalayın. Bu örnekte "C:\VideoFiles" yolu kullanılmaktadır.
 
 ## <a name="connect-to-the-media-services-account"></a>Media Services hesabına bağlanma
 
@@ -154,6 +162,7 @@ Akışa ayrılan birim sayısını oluşturmak ve değiştirmek için, aşağıd
 
 Varsayılan Program sınıfının üzerine aşağıdaki kodu yazın. Kod, bağlantı değerlerinin App.config dosyasından nasıl okunacağını ve Media Services’e bağlanmak amacıyla **CloudMediaContext** nesnesinin nasıl oluşturulacağını gösterir. Media Services’e bağlanma hakkında daha fazla bilgi için bkz. [.NET için Media Services SDK’sı ile Media Services’e bağlanma](http://msdn.microsoft.com/library/azure/jj129571.aspx).
 
+Dosya adını ve yolunu medya dosyanıza göre güncelleştirmeyi unutmayın.
 
  **Ana** işlev, bu bölümün sonraki kısımlarında açıklanacak olan yöntemleri çağırır.
 
@@ -184,7 +193,7 @@ Varsayılan Program sınıfının üzerine aşağıdaki kodu yazın. Kod, bağla
                 _context = new CloudMediaContext(_cachedCredentials);
 
                 // Add calls to methods defined in this section.
-
+        // Make sure to update the file name and path to where you have your media file.
                 IAsset inputAsset =
                     UploadFile(@"C:\VideoFiles\BigBuckBunny.mp4", AssetCreationOptions.None);
 
@@ -256,8 +265,7 @@ Dinamik paketlemeden yararlanmak için aşağıdakileri yapmanız gerekir:
 
 Aşağıdaki kod, bir kodlama işinin nasıl gönderileceğini gösterir. İş, ara dosyayı **Medya Kodlayıcı Standart**’ını kullanarak bir grup bit hızı uyarlamalı MP4’e kodlamasını dönüştüren bir görev içerir. Kod işi gönderir ve tamamlanana kadar bekler.
 
-İş tamamlandığında varlığınızı akışla aktarabilir veya kodlama dönüştürmenin sonucu olarak oluşturulan MP4 dosyalarını aşamalı indirebilirsiniz.
-MP4 dosyalarını aşamalı indirmek için 0'dan fazla akış birimine ihtiyacınız olmadığını unutmayın.
+Kodlama işi tamamlandıktan sonra varlıklarınızı yayımlayabilir ve MP4 dosyalarının akışını yapabilir veya indirebilirsiniz.
 
 Program sınıfına aşağıdaki yöntemi ekleyin.
 
@@ -299,23 +307,26 @@ Program sınıfına aşağıdaki yöntemi ekleyin.
 
 Bir varlığı akışla aktarmak veya indirmek için söz konusu varlığı önce bir bulucu oluşturarak “yayımlamak” gerekir. Bulucular varlıkta bulunan dosyalara erişim imkanı sağlar. Media Services, iki tür bulucuyu destekler: Medyayı akışla aktarmak (örneğin MPEG DASH, HLS veya Kesintisiz Akış) için kullanılan OnDemandOrigin bulucuları ve medya dosyalarını indirmek için kullanılan Erişim İmzası (SAS) bulucuları (SAS bulucuları hakkında daha fazla bilgi için [bu](http://southworks.com/blog/2015/05/27/reusing-azure-media-services-locators-to-avoid-facing-the-5-shared-access-policy-limitation/) blog sayfasına bakın).
 
-Bulucuları oluşturduktan sonra, dosyalarınızı akışla aktarmak veya indirmek için kullanılan URL'leri oluşturabilirsiniz.
+### <a name="some-details-about-url-formats"></a>URL biçimleri hakkında bazı ayrıntılar
 
-Kesintisiz Akışa ilişkin bir akış URL'si aşağıdaki biçime sahiptir:
+Bulucuları oluşturduktan sonra, dosyalarınızı akışla aktarmak veya indirmek için kullanılacak URL'leri oluşturabilirsiniz. Bu öğreticideki örnek, uygun tarayıcılara yapıştırabileceğiniz URL'ler oluşturacaktır. Bu bölümde yalnızca farklı biçimlerin neye benzediğini gösteren kısa örnekler verilmektedir.
 
-     {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest
+#### <a name="a-streaming-url-for-mpeg-dash-has-the-following-format"></a>MPEG DASH’e ilişkin bir akış URL'si aşağıdaki biçime sahiptir:
 
-HLS’ye ilişkin bir akış URL'si aşağıdaki biçime sahiptir:
+{akış uç noktası adı-media services hesabı adı}.streaming.mediaservices.windows.net/{konum kimliği}/{dosya adı}.ism/Manifest**(format=mpd-time-csf)**
 
-     {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
+#### <a name="a-streaming-url-for-hls-has-the-following-format"></a>HLS’ye ilişkin bir akış URL'si aşağıdaki biçime sahiptir:
 
-MPEG DASH’e ilişkin bir akış URL'si aşağıdaki biçime sahiptir:
+{akış uç noktası adı-media services hesabı adı}.streaming.mediaservices.windows.net/{konum kimliği}/{dosya adı}.ism/Manifest**(format=m3u8-aapl)**
 
-    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
+#### <a name="a-streaming-url-for-smooth-streaming-has-the-following-format"></a>Kesintisiz Akışa ilişkin bir akış URL'si aşağıdaki biçime sahiptir:
 
-Dosya indirmek için kullanılan bir SAS URL'si aşağıdaki biçime sahiptir:
+{akış uç noktası adı-media services hesabı adı}.streaming.mediaservices.windows.net/{konum kimliği}/{dosya adı}.ism/Manifest
 
-    {blob container name}/{asset name}/{file name}/{SAS signature}
+
+#### <a name="a-sas-url-used-to-download-files-has-the-following-format"></a>Dosya indirmek için kullanılan bir SAS URL'si aşağıdaki biçime sahiptir:
+
+{blob kapsayıcısı adı}/{varlık adı}/{dosya adı}/{SAS imzası}
 
 Media Services .NET SDK uzantıları, yayımlanan varlık için biçimlendirilmiş URL'ler döndüren kullanışlı yardımcı yöntemler sağlar.
 
@@ -389,6 +400,7 @@ Program sınıfına aşağıdaki yöntemi ekleyin.
     }
 
 ## <a name="test-by-playing-your-content"></a>İçeriğiniz oynatarak test etme
+
 Önceki bölümde tanımlanan programı çalıştırdığınızda konsol penceresinde aşağıdakine benzer URL'ler görüntülenir.
 
 Uyarlamalı akış URL'leri:
@@ -424,18 +436,27 @@ Aşamalı indirme URL'leri (ses ve video).
     https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_AAC_und_ch2_56kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
 
 
-Videonuzu akışla aktarmak için [Azure Media Services Oynatıcısı](http://amsplayer.azurewebsites.net/azuremediaplayer.html)’nı kullanın.
+Videonuzun akışını yapmak için URL'nizi [Azure Media Services Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html)'daki URL metin kutusuna yapıştırın.
 
 Aşamalı indirmeyi test etmek için bir tarayıcıya (örneğin Internet Explorer, Chrome veya Safari) bir URL yapıştırın.
 
-## <a name="next-steps-media-services-learning-paths"></a>Sonraki Adımlar: Media Services’i öğrenme yolları
+Daha fazla bilgi edinmek için aşağıdaki kaynaklara bakın:
+
+- [İçeriğinizi mevcut oynatıcılarda oynatma](media-services-playback-content-with-existing-players.md)
+- [Video oynatıcı uygulamaları geliştirme](media-services-develop-video-players.md)
+- [DASH.js ile bir MPEG-DASH Uyarlamalı Akış Videosunu bir HTML5 Uygulamasına ekleme](media-services-embed-mpeg-dash-in-html5.md)
+
+## <a name="download-sample"></a>Örnek indirme
+Aşağıdaki kod örneği, bu öğreticide oluşturduğunuz kodu içerir: [örnek](https://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/).
+
+## <a name="next-steps"></a>Sonraki Adımlar 
+
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Geri bildirimde bulunma
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-### <a name="looking-for-something-else"></a>Başka bir şey mi arıyorsunuz?
-Beklediklerinizi bu konu başlığında bulamadıysanız, eksik bir şeyler varsa veya herhangi bir nedenle gereksinimleriniz karşılanmadıysa lütfen aşağıdaki Disqus yazışmasını kullanarak bize geri bildirimde bulunun.
+
 
 <!-- Anchors. -->
 
@@ -446,6 +467,6 @@ Beklediklerinizi bu konu başlığında bulamadıysanız, eksik bir şeyler vars
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

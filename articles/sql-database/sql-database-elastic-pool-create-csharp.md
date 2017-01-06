@@ -1,6 +1,6 @@
 ---
-title: "C# ile esnek veritabanı havuzu oluşturma | Microsoft Belgeleri"
-description: "Kaynakları birçok veritabanı arasında paylaşabilmek üzere Azure SQL Database&quot;de ölçeklendirilebilir bir esnek veritabanı havuzu oluşturmak için C# veritabanı geliştirme tekniklerini kullanın."
+title: "C# ile elastik havuz oluşturma | Microsoft Belgeleri"
+description: "Kaynakları birçok veritabanı arasında paylaşabilmek üzere Azure SQL Veritabanı&quot;nda ölçeklenebilir bir elastik havuz oluşturmak için C# veritabanı geliştirme tekniklerini kullanın."
 services: sql-database
 documentationcenter: 
 author: stevestein
@@ -8,28 +8,28 @@ manager: jhubbard
 editor: 
 ms.assetid: 2dedddbb-618d-462b-80dd-e4a57857c737
 ms.service: sql-database
-ms.custom: sharded databases pool
+ms.custom: multiple databases
 ms.devlang: NA
-ms.topic: hero-article
+ms.topic: get-started-article
 ms.tgt_pltfrm: csharp
 ms.workload: data-management
 ms.date: 10/04/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 0e670c1bbc6266d24e089ce460529661dbb99b8d
+ms.sourcegitcommit: 6fb71859d0ba2e0f2b39d71edd6d518b7a03bfe9
+ms.openlocfilehash: 1d92c9a2dfae4a209ea95a33facd4b8e058fd866
 
 
 ---
-# <a name="create-an-elastic-database-pool-with-cx23"></a>C &#x23; ile bir esnek veritabanı havuzu oluşturma
+# <a name="create-an-elastic-pool-with-cx23"></a>C &#x23; ile bir elastik havuz oluşturma
 > [!div class="op_single_selector"]
-> * [Azure portal](sql-database-elastic-pool-create-portal.md)
+> * [Azure Portal](sql-database-elastic-pool-create-portal.md)
 > * [PowerShell](sql-database-elastic-pool-create-powershell.md)
 > * [C#](sql-database-elastic-pool-create-csharp.md)
 > 
 > 
 
-Bu makalede, C# kullanarak [.NET için Azure SQL Veritabanı Kitaplığı](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql) ile bir Azure SQL esnek veritabanı havuzunun nasıl oluşturulacağı açıklanmaktadır. Tek başına bir SQL veritabanı oluşturmak için bkz. [Use C# to create a SQL database with the SQL Database Library for .NET](sql-database-get-started-csharp.md) (C# kullanarak .NET için SQL Veritabanı Kitaplığı ile bir SQL veritabanı oluşturma).
+Bu makalede, C# kullanarak [.NET için Azure SQL Veritabanı Kitaplığı](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql) ile bir Azure SQL elastik havuzun nasıl oluşturulacağı açıklanmaktadır. Tek başına bir SQL veritabanı oluşturmak için bkz. [Use C# to create a SQL database with the SQL Database Library for .NET](sql-database-get-started-csharp.md) (C# kullanarak .NET için SQL Veritabanı Kitaplığı ile bir SQL veritabanı oluşturma).
 
 .NET için Azure SQL Database Kitaplığı [Resource Manager tabanlı SQL Database REST API'sini](https://msdn.microsoft.com/library/azure/mt163571.aspx) sarmalayan [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) tabanlı bir API sağlar.
 
@@ -60,7 +60,7 @@ C# ile bir SQL veritabanı oluşturmak için gerekli yönetim kitaplıklarını 
 > 
 > 
 
-## <a name="create-a-sql-elastic-database-pool---c-example"></a>SQL esnek veritabanı havuzu oluşturma - C# örneği
+## <a name="create-a-sql-elastic-pool---c-example"></a>SQL elastik havuz oluşturma - C# örneği
 Aşağıdaki örnek bir kaynak grubu, sunucu, güvenlik duvarı kuralı ve esnek havuz oluşturup ardından havuzda bir SQL veritabanı oluşturur. `_subscriptionId, _tenantId, _applicationId, and _applicationSecret` değişkenlerini almak için bkz. [Kaynaklara erişmek için hizmet sorumlusu oluşturma](#create-a-service-principal-to-access-resources).
 
 **Program.cs** dosyasının içeriğini aşağıdakilerle değiştirin ve `{variables}` öğesini uygulama değerlerinizle güncelleştirin (`{}` öğesini dahil etmeyin).
@@ -260,7 +260,7 @@ namespace SqlElasticPoolConsoleApp
 
 
 ## <a name="create-a-service-principal-to-access-resources"></a>Kaynaklara erişmek için hizmet sorumlusu oluşturma
-Aşağıdaki PowerShell betiği Active Directory (AD) uygulamasını ve C# uygulamamızda kimlik doğrulamak için gereken hizmet sorumlusunu oluşturur. Betik önceki C# örneği için gereken değerleri çıkarır. Ayrıntılı bilgi için bkz. [Kaynaklara erişmek üzere hizmet sorumlusu oluşturmak için Azure PowerShell kullanma](../resource-group-authenticate-service-principal.md).
+Aşağıdaki PowerShell betiği Active Directory (AD) uygulamasını ve C# uygulamamızda kimlik doğrulamak için gereken hizmet sorumlusunu oluşturur. Betik önceki C# örneği için gereken değerleri çıkarır. Ayrıntılı bilgi için bkz. [Kaynaklara erişmek üzere hizmet sorumlusu oluşturmak için Azure PowerShell kullanma](../azure-resource-manager/resource-group-authenticate-service-principal.md).
 
     # Sign in to Azure.
     Add-AzureRmAccount
@@ -315,6 +315,6 @@ Aşağıdaki PowerShell betiği Active Directory (AD) uygulamasını ve C# uygul
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO4-->
 
 

@@ -1,67 +1,82 @@
 ---
-title: SQL Database Develop Overview | Microsoft Docs
-description: Learn about available connectivity libraries and best practices for applications connecting to SQL Database.
+title: "SQL Veritabanı Uygulaması Geliştirmeye Genel Bakış | Microsoft Belgeleri"
+description: "SQL Veritabanına bağlanan uygulamalar için kullanılabilen bağlantı kitaplıkları ve en iyi uygulamalar hakkında bilgi edinin."
 services: sql-database
-documentationcenter: ''
-author: annemill
+documentationcenter: 
+author: stevestein
 manager: jhubbard
 editor: genemi
-
+ms.assetid: 67c02204-d1bd-4622-acce-92115a7cde03
 ms.service: sql-database
+ms.custom: development
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.date: 08/17/2016
-ms.author: annemill
+ms.author: sstein
+translationtype: Human Translation
+ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
+ms.openlocfilehash: 18dc3cce7451d90b6b65b990b80c05e7f6decb56
+
 
 ---
-# SQL Database Development Overview
-This article walks through the basic considerations that a developer should be aware of when writing code to connect to Azure SQL Database.
+# <a name="sql-database-application-development-overview"></a>SQL Veritabanı Uygulaması Geliştirmeye Genel Bakış
+Bu makalede, geliştiricilerin Azure SQL Veritabanı ile bağlantı kurmak üzere kod yazarken dikkat etmesi gereken noktalara yer verilmiştir.
 
-## Language and platform
-There are code samples available for various programming languages and platforms. You can find links to the code samples at: 
+> [!TIP]
+> Sunucu oluşturma, sunucu tabanlı güvenlik duvarı oluşturma, sunucu özelliklerini görüntüleme, SQL Server Management Studio'yu kullanarak bağlanma, ana veritabanını sorgulama, örnek veritabanı ve boş veritabanı oluşturma, veritabanı özelliklerini sorgulama, SQL Server Management Studio kullanarak bağlanma ve örnek veritabanını sorgulama adımlarını gösteren bir öğreticiye ihtiyacınız varsa bkz. [Başlangıç Öğreticisi](sql-database-get-started.md).
+>
 
-* More Information: [Connection libraries for SQL Database and SQL Server](sql-database-libraries.md)
+## <a name="language-and-platform"></a>Dil ve platform
+Çeşitli programlama dilleri ve platformları için kod örnekleri mevcuttur. Kod örneklerinin bağlantılarını şu sayfada bulabilirsiniz: 
 
-## Resource limitations
-Azure SQL Database manages the resources available to a database using two different mechanisms: Resources Governance and Enforcement of Limits.
+* Daha Fazla Bilgi: [SQL Veritabanı ve SQL Server için bağlantı kitaplıkları](sql-database-libraries.md)
 
-* More Information: [Azure SQL Database resource limits](sql-database-resource-limits.md)
+## <a name="resource-limitations"></a>Kaynak sınırlamaları
+Azure SQL Veritabanı, bir veritabanı tarafından kullanılabilecek kaynakları iki farklı sistemle yönetir: Kaynak İdaresi ve Sınır Zorlama.
 
-## Security
-Azure SQL Database provides resources for limiting access, protecting data, and monitoring activities on a SQL Database.
+* Daha Fazla Bilgi: [Azure SQL Veritabanı kaynak limitleri](sql-database-resource-limits.md)
 
-* More Information: [Securing your SQL Database](sql-database-security.md)
+## <a name="security"></a>Güvenlik
+Azure SQL Veritabanı, bir SQL Veritabanında erişim sınırlama, veri koruma ve izleme etkinlikleri için kaynaklar sunar.
 
-## Authentication
-* Azure SQL Database supports both SQL Server authentication users and logins, as well as [Azure Active Directory authentication](sql-database-aad-authentication.md) users and logins.
-* You need to specify a particular database, instead of defaulting to the *master* database.
-* You cannot use the Transact-SQL **USE myDatabaseName;** statement on SQL Database to switch to another database.
-* More information: [SQL Database security: Manage database access and login security](sql-database-manage-logins.md)
+* Daha Fazla Bilgi: [SQL Veritabanınızı güvenli hale getirme](sql-database-security-overview.md)
 
-## Resiliency
-When a transient error occurs while connecting to SQL Database, your code should retry the call.  We recommend that retry logic use backoff logic, so that it does not overwhelm the SQL Database with multiple clients retrying simultaneously.
+## <a name="authentication"></a>Kimlik Doğrulaması
+* Azure SQL Veritabanı, SQL Server kimlik doğrulama kullanıcıları ve oturum açma bilgilerinin yanı sıra [Azure Active Directory kimlik doğrulama](sql-database-aad-authentication.md) kullanıcılarını ve oturum açma bilgilerini destekler.
+* Varsayılan *ana* veritabanını kullanma yerine belirli bir veritabanını belirtmeniz gerekir.
+* Başka bir veritabanına geçiş yapmak için SQL Veritabanında Transact-SQL **USE myDatabaseName;** deyimini kullanamazsınız.
+* Daha fazla bilgi: [SQL Veritabanı güvenliği: Veritabanı erişim ve oturum açma güvenliğini yönetme](sql-database-manage-logins.md)
 
-* Code samples:  For code samples that illustrate retry logic, see samples for the language of your choice at: [Connection libraries for SQL Database and SQL Server](sql-database-libraries.md)
-* More information: [Error messages for SQL Database client programs](sql-database-develop-error-messages.md)
+## <a name="resiliency"></a>Dayanıklılık
+SQL Veritabanına bağlanırken geçici bir hata oluşması halinde kodunuzun çağrıyı yeniden denemesi gerekir.  Yeniden deneme mantığının SQL Veritabanını aynı anda yeniden deneme yapan birden fazla istemciyle boğmaması için geri alma mantığını kullanmasını öneririz.
 
-## Managing Connections
-* In your client connection logic, override the default timeout to be 30 seconds.  The default of 15 seconds is too short for connections that depend on the internet.
-* If you are using a [connection pool](http://msdn.microsoft.com/library/8xx3tyca.aspx), be sure to close the connection the instant your program is not actively using it, and is not preparing to reuse it.
+* Kod örnekleri: Yeniden deneme mantığını gösteren kod örnekleri için şu sayfada istediğiniz dile ait örnekleri inceleyebilirsiniz: [SQL Veritabanı ve SQL Server için bağlantı kitapları](sql-database-libraries.md)
+* Daha fazla bilgi: [SQL Veritabanı istemci programları için hata iletileri](sql-database-develop-error-messages.md)
 
-## Network Considerations
-* On the computer that hosts your client program, ensure the firewall allows outgoing TCP communication on port 1433.  More information: [Configure an Azure SQL Database firewall](sql-database-configure-firewall-settings.md)
-* If your client program connects to SQL Database V12 while your client runs on an Azure virtual machine (VM), you must open certain port ranges on the VM. More information: [Ports beyond 1433 for ADO.NET 4.5 and SQL Database V12](sql-database-develop-direct-route-ports-adonet-v12.md)
-* Client connections to Azure SQL Database V12 sometimes bypass the proxy and interact directly with the database. Ports other than 1433 become important. More information:  [Ports beyond 1433 for ADO.NET 4.5 and SQL Database V12](sql-database-develop-direct-route-ports-adonet-v12.md)
+## <a name="managing-connections"></a>Bağlantıları Yönetme
+* İstemci bağlantısı mantığınızda varsayılan zaman aşımını 30 saniye olacak şekilde geçersiz kılın.  15 saniyelik varsayılan değer, internet kullanan bağlantılar için çok kısadır.
+* [Bağlantı havuzu](http://msdn.microsoft.com/library/8xx3tyca.aspx) kullanıyorsanız programınız etkin olarak kullanmadığında ve yeniden kullanma hazırlığı yapmadığında bağlantıyı kapatın.
 
-## Data Sharding with Elastic Scale
-Elastic Scale simplifies the process of scaling out (and in). 
+## <a name="network-considerations"></a>Ağ Konusunda Dikkat Edilmesi Gerekenler
+* İstemci programınızı barındıran bilgisayarda güvenlik duvarının 1433 numaralı bağlantı noktasından giden TCP iletişimine izin verdiğinden emin olun.  Daha fazla bilgi: [Azure SQL Veritabanı güvenlik duvarını yapılandırma](sql-database-configure-firewall-settings.md)
+* İstemciniz bir Azure sanal makine (VM) üzerinde çalışırken istemci programınız SQL Veritabanı V12 bağlantısı kuruyorsa, VM'de belirli bağlantı noktası aralıklarını açmanız gerekir. Daha fazla bilgi: [ADO.NET 4.5 ve SQL Veritabanı V12 için 1433 dışındaki bağlantı noktaları](sql-database-develop-direct-route-ports-adonet-v12.md)
+* Bazen Azure SQL Veritabanı V12 ile yapılan istemci bağlantıları, proxy'yi atlar ve veritabanı ile doğrudan etkileşim kurar. 1433 dışındaki bağlantı noktaları önemli hale gelmiştir. Daha fazla bilgi: [ADO.NET 4.5 ve SQL Veritabanı V12 için 1433 dışındaki bağlantı noktaları](sql-database-develop-direct-route-ports-adonet-v12.md)
 
-* [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md)
-* [Data dependent routing](sql-database-elastic-scale-data-dependent-routing.md)
-* [Get Started with Azure SQL Database Elastic Scale Preview](sql-database-elastic-scale-get-started.md)
+## <a name="data-sharding-with-elastic-scale"></a>Elastik Ölçeklendirmeyle Veri Parçalama
+Elastik Ölçeklendirme, ölçek büyütme (ve küçültme) işlemlerini kolaylaştırır. 
 
-## Next steps
-Explore all the [capabilities of SQL Database](https://azure.microsoft.com/services/sql-database/).
+* [Azure SQL Veritabanı ile Çok Kiracılı SaaS Uygulamaları için Tasarım Desenleri](sql-database-design-patterns-multi-tenancy-saas-applications.md)
+* [Verilere bağımlı yönlendirme](sql-database-elastic-scale-data-dependent-routing.md)
+* [Azure SQL Veritabanı Elastik Ölçeklendirmeyi Kullanmaya Başlama](sql-database-elastic-scale-get-started.md)
+
+## <a name="next-steps"></a>Sonraki adımlar
+Tüm [SQL Veritabanı özelliklerini](https://azure.microsoft.com/services/sql-database/) keşfedin.
+
+
+
+
+<!--HONumber=Dec16_HO4-->
+
 

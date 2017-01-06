@@ -161,7 +161,7 @@
 ## REST
 ### [Bloblar, Kuyruklar, Tablolar ve Dosyalar](/rest/api/storageservices/importexport/storage-import-export-service-rest-api-reference)
 ### [Kaynak sağlayıcısı](/rest/api/storagerp)
-### [İçeri/dışarı aktarma](/rest/api/storageservices/importexport/storage-import-export-service-rest-api-reference)
+### [İçeri/dışarı aktarma](/rest/api/storageimportexport)
 
 # İlgili
 ## Klasik Portal
@@ -201,6 +201,6 @@
 ### [iOS](https://github.com/Azure/azure-storage-ios)
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

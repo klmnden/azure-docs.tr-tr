@@ -17,13 +17,13 @@ ms.workload: na
 ms.date: 05/18/2016
 ms.author: vybavar
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 9bc7cc00e9aa9aab982f0b2f08f8befb7c02f46d
+ms.sourcegitcommit: a9b48f149427e5ceb69bcaa97b1bf08519499b6f
+ms.openlocfilehash: 01657619cbe579c6818a790cc3ab95a33936a565
 
 
 ---
 # <a name="get-started-with-private-templates-on-the-azure-portal"></a>Azure Portal'da özel Şablonları kullanmaya başlama
-[Azure Resource Manager ](../resource-group-authoring-templates.md) şablonu, dağıtımınızı tanımlamak için kullanılan bildirim temelli bir şablondur. Bir çözümü dağıtmak amacıyla kaynaklarınızı tanımlayabilir ve farklı ortamlar için değer girmenizi sağlayan parametreler ve değişkenleri belirtebilirsiniz. Şablonda, JSON ve dağıtımınız için değerleri oluşturmada kullanabileceğiniz ifadeler bulunur.
+[Azure Resource Manager ](../azure-resource-manager/resource-group-authoring-templates.md) şablonu, dağıtımınızı tanımlamak için kullanılan bildirim temelli bir şablondur. Bir çözümü dağıtmak amacıyla kaynaklarınızı tanımlayabilir ve farklı ortamlar için değer girmenizi sağlayan parametreler ve değişkenleri belirtebilirsiniz. Şablonda, JSON ve dağıtımınız için değerleri oluşturmada kullanabileceğiniz ifadeler bulunur.
 
 Kullanıcıların kişisel bir kitaplıktan özel şablonları oluşturmalarını, yönetmelerini ve dağıtmalarını sağlamak için [Azure Portal](https://portal.azure.com)'daki yeni **Şablonlar** işlevinin yanı sıra [Azure Marketi](https://azure.microsoft.com/marketplace/)'nin bir uzantısı olarak **Microsoft.Gallery** kaynak sağlayıcısını kullanabilirsiniz.
 
@@ -35,16 +35,16 @@ Aşağıdaki öneriler çözümleriniz üzerinde çalışırken **Şablonlar**'d
 * Bir **Şablon**, Resource Manager şablonu ve ek meta verileri içeren kapsayıcı bir kaynaktır. Market'te bulunan bir öğeye çok benzer şekilde davranır. En önemli fark, genel Market öğelerinin aksine özel bir öğe olmasıdır.
 * **Şablonlar** kitaplığı, dağıtımlarını özelleştirme ihtiyacı duyan kullanıcılar için iyi çalışır.
 * **Şablonlar**, Azure içinde basit bir depoya ihtiyaç duyan kullanıcılar için iyi çalışır.
-* Var olan bir Resource Manager şablonu ile başlayın. [GitHub](https://github.com/Azure/azure-quickstart-templates)'da şablon bulun veya var olan bir kaynak grubundan [Şablonu dışarı aktarın](../resource-manager-export-template.md).
+* Var olan bir Resource Manager şablonu ile başlayın. [GitHub](https://github.com/Azure/azure-quickstart-templates)'da şablon bulun veya var olan bir kaynak grubundan [Şablonu dışarı aktarın](../azure-resource-manager/resource-manager-export-template.md).
 * **Şablonlar**, kendilerini yayımlayan kullanıcıya bağlıdır. Yayımcı adı, okuma erişimi olan herkes tarafından görülebilir.
 * **Şablonlar**, Resource Manager kaynaklarıdır ve yayımlandıktan sonra yeniden adlandırılamaz.
 
 ## <a name="add-a-template-resource"></a>Şablon kaynağı ekleme
 Azure portalında bir **Şablon** kaynağı oluşturmanın iki yolu vardır.
 
-### <a name="method-1-create-a-new-template-resource-from-a-running-resource-group"></a>1. Yöntem: Çalışan bir kaynak grubundan yeni bir Şablon kaynağı oluşturma
+### <a name="method-1--create-a-new-template-resource-from-a-running-resource-group"></a>1. Yöntem: Çalışan bir kaynak grubundan yeni bir Şablon kaynağı oluşturma
 1. Azure Portal'da var olan bir kaynak grubuna gidin. **Ayarlar**'da **Şablonu dışarı aktarma** öğesini seçin.
-2. Resource Manager şablonu dışarı aktarıldıktan sonra, şablonu **Şablonlar** deposuna kaydetmek için **Şablonu Kaydetme** düğmesini kullanın. Şablonu dışarı aktarmayla ilgili tüm ayrıntıları [burada](../resource-manager-export-template.md) bulabilirsiniz.
+2. Resource Manager şablonu dışarı aktarıldıktan sonra, şablonu **Şablonlar** deposuna kaydetmek için **Şablonu Kaydetme** düğmesini kullanın. Şablonu dışarı aktarmayla ilgili tüm ayrıntıları [burada](../azure-resource-manager/resource-manager-export-template.md) bulabilirsiniz.
    <br /><br />
    ![Kaynak grubunu dışarı aktarma](media/rg-export-portal1.PNG)  <br />
 3. **Şablona Kaydet** komut düğmesini seçin.
@@ -62,7 +62,7 @@ Azure portalında bir **Şablon** kaynağı oluşturmanın iki yolu vardır.
    > 
    > 
 
-### <a name="b-method-2-add-a-new-template-resource-from-browse"></a>B. 2. Yöntem: Gözat bölümünden yeni bir Şablon kaynağı ekleme
+### <a name="method-2--add-a-new-template-resource-from-browse"></a>2. Yöntem: Gözat bölümünden yeni bir Şablon kaynağı ekleme
 **Gözat > Şablonlar**'daki +Ekle komut düğmesini kullanarak da sıfırdan yeni bir **Şablon** ekleyebilirsiniz. Bir Ad, Açıklama ve Resource Manager şablon JSON'ı sağlamanız gerekir.
 
 ![Şablon ekleme](media/add-template-portal1.PNG)  <br />
@@ -129,13 +129,13 @@ Sağ tıklayarak veya belirli bir öğenin görüntüleme dikey penceresindeki g
 > 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Resource Manager şablonları oluşturma hakkında bilgi edinmek için bkz. [Şablon yazma](../resource-group-authoring-templates.md).
-* Bir Resource Manager şablonunda kullanabileceğiniz işlevleri anlamak için bkz. [Şablon işlevleri](../resource-group-template-functions.md).
-* Şablonlarınızı tasarlama konusunda rehberlik için bkz. [Azure Resource Manager şablonları oluşturmaya yönelik en iyi uygulamalar](../best-practices-resource-manager-design-templates.md)
+* Resource Manager şablonları oluşturma hakkında bilgi edinmek için bkz. [Şablon yazma](../azure-resource-manager/resource-group-authoring-templates.md).
+* Bir Resource Manager şablonunda kullanabileceğiniz işlevleri anlamak için bkz. [Şablon işlevleri](../azure-resource-manager/resource-group-template-functions.md).
+* Şablonlarınızı tasarlama konusunda rehberlik için bkz. [Azure Resource Manager şablonları oluşturmaya yönelik en iyi uygulamalar](../azure-resource-manager/best-practices-resource-manager-design-templates.md)
 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 
