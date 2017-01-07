@@ -323,7 +323,7 @@ Bu adım, yeni abonelik bağlamında tamamlanmalıdır. Bu kısım, aboneliğin 
         $GWIPName5 = "VNet5GWIP"
         $GWIPconfName5 = "gwipconf5"
         $Connection51 = "VNet5toVNet1"
-2. 5. Abonelik’e bağlanma
+2. 5 Abonelik’e bağlanma
    
     PowerShell konsolunuzu açın ve hesabınıza bağlanın. Bağlanmanıza yardımcı olması için aşağıdaki örneği kullanın:
    
@@ -362,12 +362,12 @@ Bu adım, yeni abonelik bağlamında tamamlanmalıdır. Bu kısım, aboneliğin 
         New-AzureRmVirtualNetworkGateway -Name $GWName5 -ResourceGroupName $RG5 -Location $Location5 `
         -IpConfigurations $gwipconf5 -GatewayType Vpn -VpnType RouteBased -GatewaySku Standard
 
-### <a name="step-7---connecting-the-gateways"></a>7. Adım - Ağ geçitlerini bağlama
+### <a name="step-7---connecting-the-gateways"></a>7 Adım - Ağ geçitlerini bağlama
 Bu örnekte ağ geçitleri farklı aboneliklerde olduğundan bu adımı [1. Abonelik] ve [5. Abonelik] olarak iki PowerShell oturumuna ayıracağız.
 
-1. **[1. Abonelik ]** 1. Abonelik için sanal ağ geçidini alma
+1. **[1 Abonelik ]** 1 Abonelik için sanal ağ geçidini alma
    
-    1. Abonelikle oturum açıp bağlandığınızdan emin olun.
+    1 Abonelikle oturum açıp bağlandığınızdan emin olun.
    
         $vnet1gw = Get-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1
    
@@ -382,7 +382,7 @@ Bu örnekte ağ geçitleri farklı aboneliklerde olduğundan bu adımı [1. Abon
         VNet1GW
         PS D:\> $vnet1gw.Id
         /subscriptions/b636ca99-6f88-4df4-a7c3-2f8dc4545509/resourceGroupsTestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW
-2. **[5. Abonelik]** 5. Abonelik için sanal ağ geçidini edinme
+2. **[5 Abonelik]** 5 Abonelik için sanal ağ geçidini edinme
    
     5 Abonelikle oturum açıp bağlandığınızdan emin olun.
    
@@ -399,11 +399,11 @@ Bu örnekte ağ geçitleri farklı aboneliklerde olduğundan bu adımı [1. Abon
         VNet5GW
         PS C:\> $vnet5gw.Id
         /subscriptions/66c8e4f1-ecd6-47ed-9de7-7e530de23994/resourceGroups/TestRG5/providers/Microsoft.Network/virtualNetworkGateways/VNet5GW
-3. **[1. Abonelik]** TestVNet1 - TestVNet5 bağlantısını oluşturma
+3. **[1 Abonelik]** TestVNet1 - TestVNet5 bağlantısını oluşturma
    
     Bu adımda TestVNet1 - TestVNet5 arasında bağlantı oluşturursunuz. Burada farklı olan, $vnet5gw’nun farklı bir abonelikte bulunmasından dolayı doğrudan alınamıyor olmasıdır. Yukarıdaki adımlarda belirtilen 1. Abonelik’ten iletişim sağlanan yeni bir PowerShell nesnesi oluşturmanız gerekecektir. Aşağıdaki örneği kullanın. Ad, Kimlik ve paylaşılan anahtar değerlerini kendi değerlerinizle değiştirin. Paylaşılan anahtarın her iki bağlantıyla da eşleşiyor olması önemlidir. Bir bağlantı oluşturmak çok zaman almaz.
    
-    1. Abonelik’e bağlandığınızdan emin olun. 
+    1 Abonelik’e bağlandığınızdan emin olun. 
    
         $vnet5gw = New-Object Microsoft.Azure.Commands.Network.Models.PSVirtualNetworkGateway
         $vnet5gw.Name = "VNet5GW"
@@ -412,9 +412,9 @@ Bu örnekte ağ geçitleri farklı aboneliklerde olduğundan bu adımı [1. Abon
         New-AzureRmVirtualNetworkGatewayConnection -Name $Connection15 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -VirtualNetworkGateway2 $vnet5gw -Location $Location1 -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
 4. **[5. Abonelik]**TestVNet5 - TestVNet1 bağlantısını oluşturma
    
-    Bu adım, bağlantıyı TestVNet5’ten TestVNet1’e doğru kuracak olmanızın dışında yukarıdaki adımla aynıdır. 1. Abonelikten elde edilen değerleri temel alan bir PowerShell nesnesi oluşturma işlemi burada da geçerlidir. Bu adımda, paylaşılan anahtarların eşleştiğinden emin olun.
+    Bu adım, bağlantıyı TestVNet5’ten TestVNet1’e doğru kuracak olmanızın dışında yukarıdaki adımla aynıdır. 1 Abonelikten elde edilen değerleri temel alan bir PowerShell nesnesi oluşturma işlemi burada da geçerlidir. Bu adımda, paylaşılan anahtarların eşleştiğinden emin olun.
    
-    5. Aboneliğe bağlandığınızdan emin olun.
+    5 Aboneliğe bağlandığınızdan emin olun.
    
         $vnet1gw = New-Object Microsoft.Azure.Commands.Network.Models.PSVirtualNetworkGateway
         $vnet1gw.Name = "VNet1GW"
