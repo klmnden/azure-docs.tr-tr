@@ -16,12 +16,12 @@ ms.topic: get-started-article
 ms.date: 09/08/2016
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 32feb93bf6b6b77d0b14206802c776da3a8eac91
+ms.sourcegitcommit: 7db56a4c0efb208591bb15aa03a4c0dbf833d22e
+ms.openlocfilehash: a6bb1c4b3a4972cdab9b99c548ef918a4d1070a0
 
 
 ---
-# <a name="azure-ad-connect-in-microsoft-cloud-germany-public-preview"></a>Microsoft Bulut Almanya’da Azure AD Connect - Genel Önizleme
+# <a name="azure-ad-connect-in-microsoft-cloud-germany---public-preview"></a>Microsoft Bulut Almanya’da Azure AD Connect - Genel Önizleme
 ## <a name="introduction"></a>Giriş
 Azure AD Connect, şirket içi Active Directory’niz ile Azure Active Directory arasında eşitleme sağlar.
 Şu anda [Microsoft Bulut Almanya](https://www.microsoft.com/de-de/cloud/deutschland/default.aspx)’daki senaryoların çoğunun operatör tarafından yürütülmesi gerekmektedir. Microsoft Bulut Almanya’yı kullanırken aşağıdakilerin farkında olmanız gerekir:
@@ -49,7 +49,7 @@ Azure portalda oturum açtıktan sonra şunları yapın:
 
 Şunları görmeniz gerekir:
 
-![Azure AD Connect Dikey Penceresi](media\\active-directory-aadconnect-germany\\germany1.png)
+![Azure AD Connect Dikey Penceresi](media/active-directory-aadconnect-germany/germany1.png)
 
 Aşağıdaki tabloda, dikey pencerede gösterilen özellikler açıklanmaktadır.
 
@@ -68,6 +68,6 @@ Azure AD Connect'i yüklemek için [buradaki](active-directory-aadconnect.md#ins
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

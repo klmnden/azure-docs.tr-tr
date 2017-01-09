@@ -9,7 +9,7 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: cfff2299-a474-4054-8d99-759af1ae5188
 ms.service: sql-database
-ms.custom: overview
+ms.custom: single databases
 ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: csharp
@@ -17,20 +17,14 @@ ms.workload: data-management
 ms.date: 10/04/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 82b042fa17af4bc93989a4f12982530f44755280
+ms.sourcegitcommit: 6fb71859d0ba2e0f2b39d71edd6d518b7a03bfe9
+ms.openlocfilehash: 32c18821ac9cf5516fba9762ca5bb834194dcdc9
 
 
 ---
-# <a name="try-sql-database-use-c-to-create-a-sql-database-with-the-sql-database-library-for-net"></a>SQL Database'i deneme: C# kullanarak .NET için SQL Database Kitaplığı ile bir SQL veritabanı oluşturma
-> [!div class="op_single_selector"]
-> * [Azure portal](sql-database-get-started.md)
-> * [C#](sql-database-get-started-csharp.md)
-> * [PowerShell](sql-database-get-started-powershell.md)
-> 
-> 
+# <a name="use-c-to-create-a-sql-database-with-the-sql-database-library-for-net"></a>C# kullanarak .NET için SQL Veritabanı Kitaplığı ile bir SQL veritabanı oluşturma
 
-[.NET için Microsoft Azure SQL Yönetim Kitaplığı](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql) ile bir Azure SQL veritabanı oluşturmak üzere C# dilini nasıl kullanacağınızı öğrenin. Bu makalede SQL ve C# ile tek bir veritabanını oluşturma işlemi açıklanmaktadır. Esnek veritabanı havuzu oluşturmak için bkz. [Esnek veritabanı havuzu oluşturma](sql-database-elastic-pool-create-csharp.md).
+[.NET için Microsoft Azure SQL Yönetim Kitaplığı](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql) ile bir Azure SQL veritabanı oluşturmak üzere C# dilini nasıl kullanacağınızı öğrenin. Bu makalede SQL ve C# ile tek bir veritabanını oluşturma işlemi açıklanmaktadır. Elastik havuz oluşturmak için bkz. [Elastik havuz oluşturma](sql-database-elastic-pool-create-csharp.md).
 
 .NET için Azure SQL Veritabanı Yönetim Kitaplığı [Resource Manager tabanlı SQL Veritabanı REST API'sini](https://msdn.microsoft.com/library/azure/mt163571.aspx) sarmalayan [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) tabanlı bir API sağlar.
 
@@ -229,7 +223,7 @@ Aşağıdaki örnekte bir kaynak grubu, sunucu güvenlik duvarı kuralı ve bir 
 
 
 ## <a name="create-a-service-principal-to-access-resources"></a>Kaynaklara erişmek için hizmet sorumlusu oluşturma
-Aşağıdaki PowerShell betiği Active Directory (AD) uygulamasını ve C# uygulamamızda kimlik doğrulamak için gereken hizmet sorumlusunu oluşturur. Betik önceki C# örneği için gereken değerleri çıkarır. Ayrıntılı bilgi için bkz. [Kaynaklara erişmek üzere hizmet sorumlusu oluşturmak için Azure PowerShell kullanma](../resource-group-authenticate-service-principal.md).
+Aşağıdaki PowerShell betiği Active Directory (AD) uygulamasını ve C# uygulamamızda kimlik doğrulamak için gereken hizmet sorumlusunu oluşturur. Betik önceki C# örneği için gereken değerleri çıkarır. Ayrıntılı bilgi için bkz. [Kaynaklara erişmek üzere hizmet sorumlusu oluşturmak için Azure PowerShell kullanma](../azure-resource-manager/resource-group-authenticate-service-principal.md).
 
     # Sign in to Azure.
     Add-AzureRmAccount
@@ -293,6 +287,6 @@ SQL Database'i ve C# ile bir veritabanını ayarlamayı denediğinize göre şu 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO4-->
 
 

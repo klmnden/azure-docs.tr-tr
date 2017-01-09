@@ -17,6 +17,6 @@ SKU seçerken şunları göz önünde bulundurun:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

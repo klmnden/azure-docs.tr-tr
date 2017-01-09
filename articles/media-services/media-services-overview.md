@@ -42,12 +42,11 @@ Media Services çözümleri oluşturmak için şunları kullanabilirsiniz:
     * [Azure portal](https://portal.azure.com/)
     * [Azure-Media-Services-Gezgini](https://github.com/Azure/Azure-Media-Services-Explorer) (Azure Media Services Gezgini (AMSE), Windows için bir Winforms/C# uygulamasıdır)
 
-Aşağıdaki resimde Media Services OData modeliyle geliştirirken en sık kullanılan nesnelerin bazıları gösterilmektedir. 
+Aşağıdaki resimde Media Services OData modeliyle geliştirirken en sık kullanılan nesnelerin bazıları gösterilmektedir.
 
 Resmi tam boyutlu görüntülemek için tıklayın.  
 
-<a href="./media/media-services-overview/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-overview/media-services-overview-object-model-small.png"></a> 
-
+<a href="https://docs.microsoft.com/en-us/azure/media-services/media/media-services-overview/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-overview/media-services-overview-object-model-small.png"></a>  
 
 Modelin tamamını [buradan](https://media.windows.net/API/$metadata?api-version=2.14) görüntüleyebilirsiniz.  
 
@@ -76,22 +75,22 @@ Azure Media Services kavramları hakkında bilgi edinmek için bkz. [Kavramlar](
 Azure Media Services ana bileşenlerinin tümünü tanıtan bir dizi nasıl yapılır makalesi için bkz. [Azure Media Services Adım Adım öğreticileri](https://docs.com/fukushima-shigeyuki/3439/english-azure-media-services-step-by-step-series). Bu makale dizisi, kavramlara çok iyi bir genel bakış sunar ve AMSE aracını kullanarak AMS görevlerini gösterir. AMSE aracının bir Windows aracı olduğunu unutmayın. Bu araç, [.NET için AMS SDK](https://github.com/Azure/azure-sdk-for-media-services), [Java için Azure SDK](https://github.com/Azure/azure-sdk-for-java) veya [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php) ile programlama aracılığıyla elde edebileceğiniz görevlerin çoğunu destekler.
 
 ## <a name="a-idvodscenariosadelivering-media-on-demand-with-azure-media-services-common-scenarios-and-tasks"></a><a id="vod_scenarios"></a>Azure Media Services ile İsteğe Bağlı Medya Teslimi: yaygın senaryolar ve görevler
-Bu bölümde, yaygın senaryolar açıklanmakta ve ilgili konulara bağlantılar sağlanmaktadır. Aşağıdaki diyagramda, Media Services platformunun isteğe bağlı içerik tesliminde rol oynayan başlıca parçaları gösterilmektedir. 
+Bu bölümde, yaygın senaryolar açıklanmakta ve ilgili konulara bağlantılar sağlanmaktadır. Aşağıdaki diyagramda, Media Services platformunun isteğe bağlı içerik tesliminde rol oynayan başlıca parçaları gösterilmektedir.
 
 ![VoD iş akışı](./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png)
 
 ### <a name="protect-content-in-storage-and-deliver-streaming-media-in-the-clear-non-encrypted"></a>Depolama alanında içeriği koruma ve akan medyayı temiz olarak (şifrelenmemiş) teslim etme
 1. Yüksek kaliteli bir ara dosyayı bir varlığa yükleyin.
-   
+
     İçeriğinizi yükleme sırasında ve depolama alanında beklerken korumak için depolama şifrelemesi seçeneğini uygulamanız önerilir.
-2. Uyarlamalı bit hızlı bir MP4 dosyaları grubuna kodlayın. 
-   
+2. Uyarlamalı bit hızlı bir MP4 dosyaları grubuna kodlayın.
+
     İçeriğinizi beklerken korumak için çıktı varlığına depolama şifrelemesi seçeneğini uygulamanız önerilir.
-3. Varlık teslim ilkesini (dinamik paketleme tarafından kullanılır) yapılandırın. 
-   
-    Varlığınıza depolama şifrelemesi uygulanmışsa varlık teslim ilkesini yapılandırmanız **gerekir**. 
+3. Varlık teslim ilkesini (dinamik paketleme tarafından kullanılır) yapılandırın.
+
+    Varlığınıza depolama şifrelemesi uygulanmışsa varlık teslim ilkesini yapılandırmanız **gerekir**.
 4. Bir OnDemand bulucu oluşturarak varlığı yayımlayın.
-   
+
     İçerik akışını gerçekleştirmek istediğiniz akış uç noktasında akışa ayrılan en az bir birim olduğundan emin olun.
 5. Yayımlanan içeriği akışla aktarın.
 
@@ -104,28 +103,28 @@ Dinamik şifreleme kullanabilmek için, ilk olarak kendisinden şifrelenmiş iç
 4. İçerik anahtarı yetkilendirme ilkesini yapılandırın.
 5. Varlık teslim ilkesini (dinamik paketleme ve dinamik şifreleme tarafından kullanılır) yapılandırın.
 6. Bir OnDemand bulucu oluşturarak varlığı yayımlayın.
-7. Yayımlanan içeriği akışla aktarın. 
+7. Yayımlanan içeriği akışla aktarın.
 
 ### <a name="use-media-analytics-to-derive-actionable-insights-from-your-videos"></a>Medya Analizi kullanarak videolarınızdan eyleme dönüştürülebilir öngörüler türetme
 Medya Analizi, kuruluş ve işletmelerin video dosyalarından eyleme dönüştürülebilir öngörüler türetmesini kolaylaştıran bir grup konuşma ve görme bileşenidir. Daha fazla bilgi için bkz. [Azure Media Services Analizi’ne Genel Bakış](media-services-analytics-overview.md).
 
 1. Yüksek kaliteli bir ara dosyayı bir varlığa yükleyin.
 2. Aşağıdaki Medya Analizi hizmetlerinden birini kullanarak videolarınızı işleyin:
-   
+
    * **Dizin Oluşturucu** – [Azure Media Indexer 2 ile video işleme](media-services-process-content-with-indexer2.md)
    * **Hyperlapse** – [Azure Medya Hyperlapse ile Medya Dosyalarını Aşırı Zaman Atlamalı Hale Getirme](media-services-hyperlapse-content.md)
    * **Hareket algılama** – [Azure Medya Analizi için Hareket Algılama](media-services-motion-detection.md).
    * **Yüz algılama ve Yüzdeki duygular** – [Azure Medya Analizi için Yüz ve Duygu Algılama](media-services-face-and-emotion-detection.md).
    * **Video özetleme** – [Azure Medya Video Küçük Resimleri’ni Kullanarak Bir Video Özeti Oluşturma](media-services-video-summarization.md)
-3. Medya Analizi medya işlemcileri MP4 veya JSON dosyaları üretir. Medya işlemcisi bir MP4 dosyası oluşturduysa dosyayı aşamalı olarak indirebilirsiniz. Medya işlemcisi bir JSON dosyası oluşturduysa dosyayı Azure blob depolamadan indirebilirsiniz. 
+3. Medya Analizi medya işlemcileri MP4 veya JSON dosyaları üretir. Medya işlemcisi bir MP4 dosyası oluşturduysa dosyayı aşamalı olarak indirebilirsiniz. Medya işlemcisi bir JSON dosyası oluşturduysa dosyayı Azure blob depolamadan indirebilirsiniz.
 
 ### <a name="deliver-progressive-download"></a>Aşamalı indirme teslimi
 1. Yüksek kaliteli bir ara dosyayı bir varlığa yükleyin.
 2. Tek bir MP4 dosyasına kodlayın.
 3. Bir OnDemand veya SAS bulucu oluşturarak varlığı yayımlayın.
-   
+
     OnDemand bulucu kullanıyorsanız, kendisinden aşamalı olarak içerik indirmeyi planladığınız akış uç noktasında akışa ayrılan en az bir birim bulunduğundan emin olun.
-   
+
     SAS Bulucu kullanıyorsanız içerik, Azure blob depolama alanından indirilir. Bu durumda, akışa ayrılan birime gerekli değildir.
 4. Aşamalı olarak içerik indirin.
 
@@ -156,8 +155,8 @@ Azure Media Services’de **Kanallar**, **Programlar** ve **Akış Uç Noktalar�
 
 > [!NOTE]
 > Uzun bir dönem içerisinde birden çok etkinlik gerçekleştirecekseniz ve zaten şirket içi kodlayıcılara yatırım yaptıysanız, doğrudan geçiş yöntemini kullanmak canlı akış yapmanın en ekonomik yoludur. [Fiyatlandırma](https://azure.microsoft.com/pricing/details/media-services/) detaylarına bakın.
-> 
-> 
+>
+>
 
 * Şirket içi gerçek zamanlı bir kodlayıcı, Media Services ile şu biçimlerden birinde gerçek zamanlı kodlama gerçekleştirmek için etkinleştirilmiş Kanala tek bit hızlı bir akış gönderir: RTP (MPEG-TS), RTMP veya Kesintisiz Akış (Parçalanmış MP4). Ardından Kanal, gelen tek bit hızlı akışın çoklu bit hızlı (uyarlamalı) bir video akışına gerçek zamanlı kodlanmasını gerçekleştirir. İstendiğinde, Media Services akışı müşterilere teslim eder.
 
@@ -210,7 +209,6 @@ Daha fazla bilgi için bkz. [Microsoft Azure SLA](https://azure.microsoft.com/su
 [vod-overview]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
 [live-overview1]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-new.png
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
-
 
 
 

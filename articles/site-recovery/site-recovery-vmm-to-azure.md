@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 11/23/2016
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 1268d29b0d9c4368f62918758836a73c757c0c8d
-ms.openlocfilehash: 3727972c544bb8c2724e9f38953882a7f2251a60
+ms.sourcegitcommit: 6fb71859d0ba2e0f2b39d71edd6d518b7a03bfe9
+ms.openlocfilehash: 8de917236d1dcbfdf0c1232380879a33d9425291
 
 
 ---
@@ -115,13 +115,13 @@ Yük devretme işleminden sonra oluşturulan Azure VM'lerinin bağlanacağı bir
 * Ağın, Kurtarma Hizmetleri kasasıyla aynı konumda olması gerekir.
 * Azure ağını, yük devri yapılan Azure VM'lerinde kullanmak istediğiniz kaynak modeline bağlı olarak [Resource Manager modunda](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) veya [klasik modda](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) ayarlarsınız.
 * Başlamadan önce bir ağ ayarlamanızı öneririz. Aksi takdirde, Site Recovery dağıtımı sırasında yapmanız gerekir.
-Site Recovery tarafından kullanılan Azure ağlarının, aynı abonelik içinde veya farklı abonelikler arasında [taşınamadığını](../resource-group-move-resources.md) unutmayın.
+Site Recovery tarafından kullanılan Azure ağlarının, aynı abonelik içinde veya farklı abonelikler arasında [taşınamadığını](../azure-resource-manager/resource-group-move-resources.md) unutmayın.
 
 ### <a name="set-up-an-azure-storage-account"></a>Azure depolama hesabı ayarlama
 * Azure'a çoğaltılan verileri tutmak için standart bir Azure depolama hesabına sahip olmanız gerekir. Hesabın, Kurtarma Hizmetleri kasasıyla aynı bölgede olması gerekir.
 * Yük devri yapılan Azure VM'lerinde kullanmak istediğiniz kaynak modeline bağlı olarak [Resource Manager modunda](../storage/storage-create-storage-account.md) veya [klasik modda](../storage/storage-create-storage-account-classic-portal.md) bir hesap ayarlarsınız.
 * Başlamadan önce bir hesap ayarlamanızı öneririz. Aksi takdirde, Site Recovery dağıtımı sırasında yapmanız gerekir.
-- Site Recovery tarafından kullanılan depolama hesaplarının, aynı abonelik içinde veya farklı abonelikler arasında [taşınamadığını](../resource-group-move-resources.md) unutmayın.
+- Site Recovery tarafından kullanılan depolama hesaplarının, aynı abonelik içinde veya farklı abonelikler arasında [taşınamadığını](../azure-resource-manager/resource-group-move-resources.md) unutmayın.
 
 ### <a name="prepare-the-vmm-server"></a>VMM sunucusunu hazırlama
 * VMM sunucusunun [önkoşullar](#on-premises-prerequisites) ile uyum sağladığından emin olun.
@@ -144,7 +144,7 @@ Site Recovery dağıtımı sırasında ağ eşlemesini ayarlamanız gerekir. Şu
 
     ![Yeni kasa](./media/site-recovery-vmm-to-azure/new-vault3.png)
 3. **Ad** alanında, kasayı tanımlamak için bir kolay ad belirtin. Birden fazla aboneliğiniz varsa bunlardan birini seçin.
-4. [Kaynak grubu oluşturun](../resource-group-template-deploy-portal.md) veya var olan bir grubu seçin. Bir Azure bölgesi belirtin. Makineler bu bölgeye çoğaltılır. Desteklenen bölgeleri kontrol etmek için [Azure Site Recovery Fiyatlandırma Ayrıntıları](https://azure.microsoft.com/pricing/details/site-recovery/) bölümündeki Coğrafi Kullanılabilirlik kısmına bakın.
+4. [Kaynak grubu oluşturun](../azure-resource-manager/resource-group-template-deploy-portal.md) veya var olan bir grubu seçin. Bir Azure bölgesi belirtin. Makineler bu bölgeye çoğaltılır. Desteklenen bölgeleri kontrol etmek için [Azure Site Recovery Fiyatlandırma Ayrıntıları](https://azure.microsoft.com/pricing/details/site-recovery/) bölümündeki Coğrafi Kullanılabilirlik kısmına bakın.
 5. Pano'dan kasaya hızlıca erişmek istiyorsanız **Panoya sabitle** > **Kasa oluştur** seçeneğine tıklayın.
 
     ![Yeni kasa](./media/site-recovery-vmm-to-azure/new-vault-settings.png)
@@ -509,6 +509,6 @@ Dağıtımınız ayarlandıktan ve çalışmaya başladıktan sonra farklı tür
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO4-->
 
 

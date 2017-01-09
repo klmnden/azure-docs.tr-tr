@@ -12,11 +12,11 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
-ms.date: 07/22/2016
+ms.date: 12/16/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 58ba7a82281a21d38d4c785d1d01bbd25e5aa9b3
+ms.sourcegitcommit: 4fbfb24a2e9d55d718902d468bd25e12f64e7d24
+ms.openlocfilehash: 4a0d72f46fada5112563d10d22f61abc439730a7
 
 
 ---
@@ -61,8 +61,8 @@ Bu öğretici, [.NET için Azure SDK](../dotnet-sdk.md) 2.9 veya sonraki bir sü
 
 Visual Studio 2013’ünüz varsa ve bunu kullanmayı tercih ederseniz, [Visual Studio 2013 için en son Azure SDK'sını indirebilirsiniz](http://go.microsoft.com/fwlink/?LinkID=324322). Bazı ekranlar gösterilenlerden farklı görünebilir.
 
-## <a name="configure-a-new-web-project"></a>Yeni bir web projesi yapılandırma
-Sonraki adımınız, Visual Studio’da bir web projesi ve Azure App Service’te bir web uygulaması oluşturmaktır. Öğreticinin bu bölümünde, yeni web projesini yapılandırın. 
+## <a name="create-a-web-application"></a>Web uygulaması oluşturma
+Sonraki adımınız, Visual Studio'da bir web uygulaması projesi ve Azure App Service'te bir web uygulaması oluşturmaktır. Öğreticinin bu bölümünde, yeni web projesini yapılandırın. 
 
 1. Visual Studio 2015’i açın.
 2. **Dosya > Yeni > Proje**’ye tıklayın.
@@ -89,7 +89,7 @@ Sonraki adımınız, Visual Studio’da bir web projesi ve Azure App Service’t
     Bu ayarlar, Visual Studio’yu web projeniz için bir Azure web uygulaması oluşturmak üzere yönlendirir.
 10. **Tamam**’a tıklayın.
 
-## <a name="configure-azure-resources-for-a-new-web-app"></a>Yeni bir web uygulaması için Azure kaynaklarını yapılandırma
+## <a name="create-the-azure-resources"></a>Azure kaynaklarını oluşturma
 Artık oluşturmak istediğiniz Azure kaynakları için Visual Studio’da işlem yapmaya başlayabilirsiniz.
 
 1. **App Service Oluştur** iletişim kutusunda **Hesap ekle**’ye tıklayın ve ardından Azure aboneliğinizi yönetmek üzere kullandığınız hesabın kimliği ve parolası ile Azure’da oturum açın.
@@ -128,14 +128,14 @@ Artık oluşturmak istediğiniz Azure kaynakları için Visual Studio’da işle
 8. **App Service Planı Yapılandır** iletişim kutusunda **Tamam**’a tıklayın.
 9. **App Service Oluştur** iletişim kutusunda **Oluştur**’a tıklayın.
 
-## <a name="visual-studio-creates-the-project-and-web-app"></a>Visual Studio projeyi ve web uygulamasını oluşturur
+## <a name="inspect-the-azure-resources-in-visual-studio"></a>Visual Studio'daki Azure kaynaklarını inceleme
 Kısa bir süre içinde (genellikle bir dakikadan az) Visual Studio web projesini ve web uygulamasını oluşturur.  
 
  **Çözüm Gezgini** penceresi, yeni projedeki dosyaları ve klasörleri gösterir.
 
 ![Çözüm Gezgini](./media/web-sites-dotnet-get-started/solutionexplorer.png)
 
- **Azure App Service Etkinliği** penceresi web uygulamasının oluşturulduğunu gösterir.
+**Azure App Service Etkinliği** penceresi, App Service kaynaklarının Azure'da oluşturulduğunu gösterir. Yeni projenizi hemen yayımlamaya başlamak için buradaki bağlantıya tıklayabilirsiniz. Bu öğreticinin ilerleyen bölümlerinde dosyalarınızı dilediğiniz zaman nasıl yayımlayabileceğiniz gösterilmektedir.
 
 ![Azure App Service Etkinliği penceresindeki oluşturulan web uygulaması](./media/web-sites-dotnet-get-started/GS13sitecreated1.png)
 
@@ -143,8 +143,8 @@ Kısa bir süre içinde (genellikle bir dakikadan az) Visual Studio web projesin
 
 ![Cloud Explorer’da oluşturulan web uygulaması](./media/web-sites-dotnet-get-started/siteinse.png)
 
-## <a name="deploy-the-web-project-to-the-azure-web-app"></a>Web projesini Azure web uygulamasında dağıtma
-Bu bölümde, web projesini web uygulamasına dağıtırsınız.
+## <a name="deploy-the-web-project-to-azure"></a>Web projesini Azure'a dağıtma
+Bu bölümde web projesini Azure App Service'te oluşturduğunuz web uygulaması kaynağına dağıtacaksınız.
 
 1. **Çözüm Gezgini**’nde, projeye sağ tıklayın ve **Yayımla**’yı seçin.
    
@@ -152,7 +152,10 @@ Bu bölümde, web projesini web uygulamasına dağıtırsınız.
    
     Birkaç saniye içinde, **Web'i Yayımla** sihirbazı görüntülenir. Sihirbaz, web projesini yeni web uygulamasına dağıtma ayarlarını içeren *profili yayımlamak* için açılır.
    
-    Yayımlama profili, dağıtım için bir kullanıcı adı ve parolası içerir.  Bu kimlik bilgileri sizin için oluşturulmuştur, bu nedenle bunları girmeniz gerekmez. Parola `Properties\PublishProfiles` klasöründe bulunan gizli bir kullanıcıya özel dosyada şifrelenmiştir.
+    > [!TIP] 
+    > Yayımlama profili, dağıtım için bir kullanıcı adı ve parolası içerir.  Bu kimlik bilgileri sizin için oluşturulmuştur, bu nedenle bunları girmeniz gerekmez. Parola `Properties\PublishProfiles` klasöründe bulunan gizli bir kullanıcıya özel dosyada şifrelenmiştir.
+    >
+    >
 2. **Web’i Yayımla** sihirbazının **Bağlantı** sekmesinde **Sonraki**’ne tıklayın.
    
     ![Web'i Yayımla sihirbazının Bağlantı sekmesinde İleri'ye tıklama](./media/web-sites-dotnet-get-started/GS13ValidateConnection.png)
@@ -213,12 +216,12 @@ Bu öğreticide, basit bir web uygulaması oluşturmayı ve bunu Azure web uygul
   * [Azure web sitesi için HTTPS'yi etkinleştirme](web-sites-configure-ssl-certificate.md)
 * İşiniz bittiğinde, web uygulamanızı ve ilgili Azure kaynaklarını içeren kaynak grubunu silin.
   
-    Azure portalında kaynak gruplarıyla çalışma hakkında bilgi edinmek için bkz. [Resource Manager şablonları ve Azure portalı ile kaynakları dağıtma ve yönetme](../resource-group-template-deploy-portal.md).   
+    Azure portalında kaynak gruplarıyla çalışma hakkında bilgi edinmek için bkz. [Resource Manager şablonları ve Azure portalı ile kaynakları dağıtma ve yönetme](../azure-resource-manager/resource-group-template-deploy-portal.md).   
 * App Service’te ASP.NET Web Uygulaması oluşturmaya yönelik daha fazla örnek için [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) 2015 Connect [tanıtımı](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/) içindeki [Azure Uygulama Hizmeti’nde ASP.NET web uygulaması oluşturma ve dağıtma](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-an-ASP.NET-web-app-in-Azure-App-Service) ile [Azure Uygulama Hizmeti’nde mobil uygulama oluşturma ve dağıtma](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-a-mobile-app-in-Azure-App-Service) bölümlerine bakın. HealthClinic.biz tanıtımından daha fazla hızlı başlangıç ipuçları için bkz. [Azure Geliştirici Araçları Hızlı Başlangıç İpuçları](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts).
 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

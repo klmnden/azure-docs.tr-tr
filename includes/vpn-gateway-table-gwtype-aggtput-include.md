@@ -16,6 +16,6 @@ UltraPerformance ağ geçidi SKU’sunun bu tabloda temsil edilmediğini unutmay
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

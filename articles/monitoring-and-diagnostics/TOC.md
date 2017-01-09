@@ -30,7 +30,7 @@
 ### [Bir Etkinlik Günlüğü uyarısında web kancası yapılandırma](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md)
 ### [Etkinlik Günlüğünü arşivleme](../monitoring-and-diagnostics/monitoring-archive-activity-log.md)
 ### [Etkinlik Günlüğünün Event Hubs'a akışını sağlama](../monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md)
-### [Resource Manager ile işlemleri denetleme](../resource-group-audit.md)
+### [Resource Manager ile işlemleri denetleme](../azure-resource-manager/resource-group-audit.md)
 ## Tanılama günlüklerini yönetme
 ### [Arşiv](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md)
 ### [Event Hubs’a Akış](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md)
@@ -40,12 +40,15 @@
 
 
 # Başvuru
-## [PowerShell](../monitoring-and-diagnostics/insights-powershell-samples.md)
-## [Azure CLI](../monitoring-and-diagnostics/insights-cli-samples.md)
+## [PowerShell](/powershell/resourcemanager/azurerm.insights/v1.0.12/azurerm.insights?redirectedfrom=msdn#40v=azure.200#41)
 ## [.NET](https://msdn.microsoft.com/library/azure/dn802153)
-## [Desteklenen ölçümlerin listesi](../monitoring-and-diagnostics/monitoring-supported-metrics.md)
-## [REST API](https://msdn.microsoft.com/library/azure/dn931943)
+## [REST](/rest/api/monitor/)
 
-<!--HONumber=Nov16_HO4-->
+# Kaynaklar
+## [PowerShell Örnekleri](../monitoring-and-diagnostics/insights-powershell-samples.md)
+## [Azure CLI 2.0 (Önizleme) Örnekleri](../monitoring-and-diagnostics/insights-cli-samples.md)
+## [Desteklenen ölçümlerin listesi](../monitoring-and-diagnostics/monitoring-supported-metrics.md)
+
+<!--HONumber=Jan17_HO1-->
 
 

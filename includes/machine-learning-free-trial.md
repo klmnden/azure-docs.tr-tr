@@ -1,4 +1,6 @@
-> [AZURE.NOTE (Azure Machine Learning’i ücretsiz deneyin)]
+> [!NOTE]
+> 
+> **Azure Machine Learning’i ücretsiz deneyin**
 > 
 > Kredi kartı veya Azure aboneliği gerekmez. <a href="https://studio.azureml.net/?selectAccess=true&o=2" target="_blank">**Hemen kullanmaya başlayın >**</a>
 > 
@@ -6,6 +8,6 @@
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

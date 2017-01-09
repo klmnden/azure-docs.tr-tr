@@ -13,6 +13,6 @@ Azure DNS'de bir DNS bölgesi oluştururken:
 > 
 > Daha fazla bilgi için bkz. [Bir etki alanını Azure DNS'ye devretme](../articles/dns/dns-domain-delegation.md).
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

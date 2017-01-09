@@ -35,6 +35,6 @@ Yeni önbellek seçenekleri yapılandırıldıktan sonra **Oluştur**’a tıkla
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -11,6 +11,6 @@ Geri bildirim sağlamak ve Azure Media Services’ı geliştirme hakkında öner
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

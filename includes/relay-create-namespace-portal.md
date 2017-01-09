@@ -5,7 +5,7 @@
 5. **[Kaynak grubu](../articles/azure-portal/resource-group-portal.md)** alanında, ad alanını barındırmak üzere var olan bir kaynak grubunu seçin veya yeni bir kaynak grubu oluşturun.      
 6. **Konum** alanında, ad alanınızın barındırılması gereken ülkeyi veya bölgeyi seçin.
    
-    ![Ad alanı oluşturma][create-namespace]
+    ![ad alanı oluşturma][create-namespace]
 7. **Oluştur**’a tıklayın. Artık sistem ad alanınızı oluşturur ve kullanıma açar. Sistem, hesabınıza yönelik kaynakları sağlarken birkaç dakika beklemeniz gerekebilir.
 
 ### <a name="obtain-the-management-credentials"></a>Yönetim kimlik bilgilerini alma
