@@ -16,8 +16,8 @@ ms.workload: data-management
 ms.date: 05/27/2016
 ms.author: srinia
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: 8bf8f24db6b543ec1161cf499e6fc116514f85cb
+ms.sourcegitcommit: 6c8420a154d998aa95c0220049ee54b3039a872b
+ms.openlocfilehash: 679cdacc3782f667635a586df4cd77a9af7884d9
 
 
 ---
@@ -41,7 +41,7 @@ Genel hata kodları için bkz. [SQL Database istemci uygulamaları için SQL hat
 Azure PowerShell 1.0 sürümünü veya sonraki bir sürümünü çalıştırmanız gerekir. Ayrıntılı bilgi için bkz. [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azureps-cmdlets-docs).
 
 ## <a name="create-a-new-pool"></a>Yeni bir havuz oluşturma
-[New-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt619378\(v=azure.300\).aspx) cmdlet'i yeni bir havuz oluşturur. Havuz başına eDTU değerlerinin yanı sıra minimum ve maksimum DTU değerleri, hizmet katmanı değerine (temel, standart veya premium) göre kısıtlanır. Bkz. [Esnek havuzlar ve esnek veritabanları için eDTU ve depolama sınırları](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases).
+[New-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt619378\(v=azure.300\).aspx) cmdlet'i yeni bir havuz oluşturur. Havuz başına eDTU değerlerinin yanı sıra minimum ve maksimum DTU değerleri, hizmet katmanı değerine (temel, standart veya premium) göre kısıtlanır. Bkz. [Esnek havuzlar ve esnek veritabanları için eDTU ve depolama sınırları](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools).
 
     New-AzureRmSqlElasticPool -ResourceGroupName "resourcegroup1" -ServerName "server1" -ElasticPoolName "elasticpool1" -Edition "Standard" -Dtu 400 -DatabaseDtuMin 10 -DatabaseDtuMax 100
 
@@ -84,6 +84,6 @@ Bu betik, yeni bir Azure kaynak grubu ve yeni bir sunucu oluşturur. İstendiği
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

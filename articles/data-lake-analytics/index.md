@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Data Lake Analytics ile büyük veri analizi yapmayı öğrenin. Öğreticilerde toplu, gerçek zamanlı ve etkileşimli analiz çalıştırma ve U-SQL sorguları yazma hakkında bilgi sağlanmıştır."
 translationtype: Human Translation
-ms.sourcegitcommit: 98fdd8ee3dc1b90aae349652e471a218ef44a44e
-ms.openlocfilehash: aff52fe8a31d7ef9fe30f271a2885dca1cd9a861
+ms.sourcegitcommit: 003cc86e182c55621db9e41fa35d871f37245a91
+ms.openlocfilehash: dcf7aea439c02e2bdb1563c6573376a3f87765d1
 
 ---
 # <a name="data-lake-analytics-documentation"></a>Data Lake Analytics Belgeleri
 
-Azure Data Lake Analytics, büyük veri analizini kolaylaştırmak için oluşturulmuş yeni bir hizmettir. Bu arabirim, dağıtılan altyapıyı işletmek yerine, iş yazma, çalıştırma ve yönetme işlemlerine odaklanmanıza olanak tanır. Donanım dağıtma, yapılandırma ve ayarlama işlemleri yerine, verilerinizi dönüştürmek ve değerli öngörüleri ayıklamak için sorgular yazarsınız. Analytics hizmeti, ihtiyaç duyduğunuz düzeyde güç sağlayarak her ölçekten işlerle kullanılabilir. Yalnızca işiniz çalıştırıldığında ücret ödersiniz; bu da hizmeti uygun maliyetli kılar. Analytics hizmeti, Azure Active Directory'yi destekler ve bu sayede, şirketi içi kimlik sisteminizle tümleşik şekilde erişimi ve rolleri yönetmenize olanak tanır. Ayrıca, SQL'in avantajlarını kullanıcı kodunun ifade gücüyle birleştiren bir dil olan U-SQL'yi de içerir. U-SQL'nin ölçeklenebilir dağıtılmış çalışma zamanı, depodaki ve Azure içindeki SQL Server'lar, Azure SQL Database ve Azure SQL Data Warehouse genelindeki verileri etkin bir şekilde çözümlemenize olanak tanır.
+Data Lake Analytics’i kullanarak büyük hacimli veri kümeleri için ölçeklendirilen büyük veri analizi işlerini nasıl çalıştırabileceğinizi öğrenin. Öğreticilerde ve diğer belgelerde, toplu, gerçek zamanlı ve etkileşimli analiz işleri oluşturma ve yönetme işlemlerinin yanı sıra U-SQL sorguları yazma ile ilgili bilgiler sunulmuştur.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -29,7 +30,7 @@ Azure Data Lake Analytics, büyük veri analizini kolaylaştırmak için oluştu
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=data-lake-analytics">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=data-lake-analytics">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -161,7 +162,7 @@ Azure Data Lake Analytics, büyük veri analizini kolaylaştırmak için oluştu
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -172,71 +173,68 @@ Azure Data Lake Analytics, büyük veri analizini kolaylaştırmak için oluştu
         </div>
         </a>
     </li>
+    <li>
+        <a href="/azure/data-lake-analytics/data-lake-analytics-get-started-python">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/python.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Python’u kullanarak Azure Data Lake Store ile çalışmaya başlama</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 </ul>
 
 ---
-
-## <a name="reference"></a>Başvuru
-
+ 
+<h2>Başvuru</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/resourcemanager/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Data Lake Analytics Resource Manager PowerShell Cmdlet’leri</p>
+                        <h3>Komut Satırı</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.datalakeanalytics/v2.3.0/azurerm.datalakeanalytics">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-
     <li>
-        <a href="/java/api/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Java</h3>
-                        <p>Data Lake Analytics Java API Başvurusu</p>
+                        <h3>Diller</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.management.datalake.analytics">.NET</a></p>
+                        <p><a href="https://www.npmjs.com/package/azure-arm-datalake-analytics">Node.js</a></p>
+                        <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-analytics.html">Python</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/mt591959">U-SQL</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-
     <li>
-        <a href="/dotnet/api">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Data Lake Analytics Yönetilen Başvurusu</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-
-    <li>
-        <a href="/rest/api/datalakeanalytics/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Data Lake Analytics REST API Başvurusu</p>
+                        <p><a href="/rest/api/datalakeanalytics/">REST API</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
 
@@ -252,6 +250,6 @@ Data Lake Analytics Belgelerini indirin </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

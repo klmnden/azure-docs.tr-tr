@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 08/09/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 867f06c1fae3715ab03ae4a3ff4ec381603e32f7
-ms.openlocfilehash: cd5d47aa012b21a283e3d6482fe0afddcfa14033
+ms.sourcegitcommit: a9b48f149427e5ceb69bcaa97b1bf08519499b6f
+ms.openlocfilehash: cc0faa49daaafe19c71d2c765b8e865be04f81e2
 
 
 ---
@@ -39,7 +39,7 @@ Microsoft Azure SQL Veritabanı, sunucularınıza ve veritabanlarınıza yöneli
 > 
 
 ## <a name="manage-server-level-firewall-rules-through-rest-api"></a>REST API aracılığıyla sunucu düzeyinde güvenlik duvarı kurallarını yönetme
-1. REST API aracılığıyla güvenlik duvarı kurallarını yönetme kimliği doğrulanmalıdır. Bilgi edinmek için bkz. [Azure Resource Manager API ile yetkilendirme için geliştirici kılavuzu](../resource-manager-api-authentication.md).
+1. REST API aracılığıyla güvenlik duvarı kurallarını yönetme kimliği doğrulanmalıdır. Bilgi edinmek için bkz. [Azure Resource Manager API ile yetkilendirme için geliştirici kılavuzu](../azure-resource-manager/resource-manager-api-authentication.md).
 2. REST API kullanılarak sunucu düzeyinde kurallar oluşturulabilir, güncelleştirilebilir ve silinebilir
    
     Sunucu düzeyinde bir kural oluşturmak veya güncelleştirmek için aşağıdakini kullanarak PUT yöntemini uygulayın:
@@ -79,7 +79,7 @@ Açık kaynak veya üçüncü taraf uygulamalardan bir Azure SQL veritabanına b
 Veritabanlarına nasıl gidileceğini anlamak için bkz. [Veritabanı erişimi ve oturum güvenliğini yönetme](https://msdn.microsoft.com/library/azure/ee336235.aspx).
 
 ## <a name="additional-resources"></a>Ek kaynaklar
-* [Veritabanınızı güvenli hale getirme](sql-database-security.md)
+* [Veritabanınızı güvenli hale getirme](sql-database-security-overview.md)
 * [SQL Server Veritabanı Altyapısı ve Azure SQL Veritabanı için Güvenlik Merkezi](https://msdn.microsoft.com/library/bb510589)
 
 <!--Image references-->
@@ -91,6 +91,6 @@ Veritabanlarına nasıl gidileceğini anlamak için bkz. [Veritabanı erişimi v
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

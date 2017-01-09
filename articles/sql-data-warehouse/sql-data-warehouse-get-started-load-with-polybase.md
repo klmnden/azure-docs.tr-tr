@@ -278,6 +278,6 @@ PolyBase kullanan bir çözüm geliştirirken bilmeniz gerekenler hakkında daha
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -26,7 +26,11 @@
 ### [3: Doğru soruyu sorma](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md)
 ### [4: Yanıtı tahmin etme](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md)
 ### [5: Başkalarının işlerini kopyalama](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md)
-# Nasıl yapılır
+
+## [R hızlı başlangıç](machine-learning-r-quickstart.md)
+
+
+# Nasıl yapılır?
 ## Araçları ve yardımcı programları ayarlama
 ### [Ortamları ayarlama](machine-learning-data-science-environment-setup.md)
 ### [Sanal makineleri ayarlama](machine-learning-data-science-virtual-machines.md)
@@ -167,14 +171,14 @@
 #### [Normal Dağıtım Paketi](machine-learning-r-csharp-normal-distribution.md)
 #### [İki Terimli Dağıtım Paketi](machine-learning-r-csharp-binomial-distribution.md)
 #### [Market SSS](machine-learning-marketplace-faq.md)
+
 # Başvuru
-## [PowerShell](/powershell/azureps-cmdlets-docs)
-## [Machine Learning için PowerShell modülü](machine-learning-powershell-module.md)
-## [Algoritma başvurusu](https://msdn.microsoft.com/library/azure/dn905974.aspx)
-## [R hızlı başlangıç](machine-learning-r-quickstart.md)
-## [Net# Sinir Ağları Dili](machine-learning-azure-ml-netsharp-reference-guide.md)
-## [Yönetim REST API’leri](/rest/api/machinelearning/index)
+## [PowerShell](machine-learning-powershell-module.md)
+## [Algoritmalar ve Modül başvurusu](https://msdn.microsoft.com/library/azure/dn905974.aspx)
+## [REST](/rest/api/machinelearning)
+
 # İlgili
+
 ## Cortana Intelligence Galerisi
 ### [Genel Bakış](machine-learning-gallery-how-to-use-contribute-publish.md)
 ### [Sektörler](machine-learning-gallery-industries.md)
@@ -205,7 +209,10 @@
 ##### [Genel Bakış](cortana-analytics-playbook-vehicle-telemetry.md)
 ##### [Playbook](cortana-analytics-playbook-vehicle-telemetry-deep-dive.md)
 ##### [Kurulum](cortana-analytics-playbook-vehicle-telemetry-powerbi.md)
+
 # Kaynaklar
+## [Machine Learning REST Hata Kodları](/machine-learning/machine-learning-web-service-error-codes)
+## [Net# Sinir Ağları Dili](machine-learning-azure-ml-netsharp-reference-guide.md)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/machine-learning/)
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=machine-learning)
 ## [Blog](http://blogs.technet.com/b/machinelearning/)
@@ -214,6 +221,7 @@
 ## [Videolar](https://azure.microsoft.com/resources/videos/index/?services=machine-learning)
 ## [Canlı sohbetten yardım alma](machine-learning-live-chat.md)
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Jan17_HO1-->
 
 

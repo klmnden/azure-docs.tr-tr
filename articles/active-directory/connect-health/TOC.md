@@ -4,7 +4,7 @@
 # Başlarken
 ## [Azure AD Connect Health'i AD FS ile Kullanma](active-directory-aadconnect-health-adfs.md)
 ## [Eşitleme için Azure AD Connect Health'i kullanma](active-directory-aadconnect-health-sync.md)
-## [Azure AD Connect Health'i AD FS ile Kullanma](active-directory-aadconnect-health-adds.md)
+## [Azure AD Connect Health'i AD DS ile Kullanma](active-directory-aadconnect-health-adds.md)
 
 # Nasıl yapılır?
 ## [Azure AD Connect Health Aracısı Yükleme](active-directory-aadconnect-health-agent-install.md)
@@ -20,10 +20,10 @@
 ## [Karma Kimlik Tasarım Kılavuzu](../active-directory-hybrid-identity-design-considerations-overview.md)
 
 # Kaynaklar
-##[Azure AD Connect ile ilgili SSS](active-directory-aadconnect-health-faq.md)
+##[Azure AD Connect Health ile ilgili SSS](active-directory-aadconnect-health-faq.md)
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

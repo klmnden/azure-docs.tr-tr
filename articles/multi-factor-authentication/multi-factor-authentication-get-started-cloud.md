@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/17/2016
+ms.date: 01/04/2017
 ms.author: kgremban
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
@@ -25,8 +25,6 @@ Bu makalede bulutta Azure Multi-Factor Authentication kullanmaya nasıl başlaya
 
 > [!NOTE]
 > Aşağıdaki belgeler kullanıcıların **Klasik Azure Portalı** kullanarak nasıl etkinleştirileceğine ilişkin bilgi sağlar. O365 kullanıcıları için Azure Multi-Factor Authentication kurulumuna ilişkin bilgileri arıyorsanız, bkz. [Office 365 için multi-factor authentication kurulumu.](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6?ui=en-US&rs=en-US&ad=US)
-> 
-> 
 
 ![Bulutta MFA](./media/multi-factor-authentication-get-started-cloud/mfa_in_cloud.png)
 
@@ -38,8 +36,6 @@ Aşağıdaki ön koşullar, kullanıcılarınız için Azure Multi-Factor Authen
 
 > [!NOTE]
 > Lisanlar, Azure MFA, Azure AD Premium ya da Enterprise Mobility Suite (EMS) sahibi kullanıcıların kullanımına sunulmuştur.  MFA, Azure AD Premium ve EMS’de yer almaktadır. Yeterli lisansa sahipseniz, Kimlik Doğrulaması Sağlayıcısı oluşturmanız gerekmez.
-> 
-> 
 
 ## <a name="turn-on-two-step-verification-for-users"></a>Kullanıcılar için iki aşamalı doğrulamayı açma
 Bir kullanıcıdan iki aşamalı doğrulama istemeye başlamak için kullanıcının devre dışı olan durumunu etkin olarak değiştirin.  Kullanıcı durumları hakkında daha fazla bilgi için bkz. [ Azure Multi-Factor Authentication’da kullanıcı durumları](multi-factor-authentication-get-started-user-states.md)
@@ -75,13 +71,11 @@ Kullanıcılarınızı etkinleştirdikten sonra, e-posta ile bildirimde bulunman
 
 > [!IMPORTANT]
 > Kullanıcıların Devre dışı durumunun doğrudan Zorlanmış olarak değiştirilmesini önermiyoruz. Kullanıcı MFA kaydı gerçekleştirmediğinden ve [uygulama parolası](multi-factor-authentication-whats-next.md#app-passwords) edinmediğinden, tarayıcı tabanlı olmayan uygulamalar devre dışı kalacaktır. Tarayıcı tabanlı olmayan uygulamalarını varsa ve uygulama parolaları istiyorlarsa, Devre dışı durumundan Etkin duruma geçmeniz önerilir. Bu, kullanıcıların kaydolmalarına ve uygulama parolalarını almalarına izin verir. Kullanıcıları bu adımdan sonra Zorlanmış duruma geçirebilirsiniz.
-> 
-> 
 
 PowerShell kullanmak toplu etkinleştirme kullanıcıları için bir seçenek olabilir. Şu anda Azure portalda toplu etkinleştirme özelliği yoktur ve her kullanıcıyı ayrı ayrı seçmeniz gerekir. Çok sayıda kullanıcınız varsa bu yorucu bir görev olabilir. Aşağıdakilerle bir PowerShell betiği oluşturarak, bir kullanıcı listesinde sayım yaparak bunları etkinleştirebilirsiniz.
 
         $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
-        $st.RelyingParty = "\*"
+        $st.RelyingParty = "*"
         $st.State = “Enabled”
         $sta = @($st)
         Set-MsolUser -UserPrincipalName bsimon@contoso.com -StrongAuthenticationRequirements $sta
@@ -92,7 +86,7 @@ PowerShell kullanmak toplu etkinleştirme kullanıcıları için bir seçenek ol
     foreach ($user in $users)
     {
         $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
-        $st.RelyingParty = "\*"
+        $st.RelyingParty = "*"
         $st.State = “Enabled”
         $sta = @($st)
         Set-MsolUser -UserPrincipalName $user -StrongAuthenticationRequirements $sta

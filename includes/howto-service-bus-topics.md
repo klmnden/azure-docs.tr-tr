@@ -14,7 +14,7 @@ Azure'da Service Bus konularını ve aboneliklerini kullanmaya başlamak için �
 
 Ad alanı oluşturmak için:
 
-1. [Azure portal][Azure portal] üzerinde oturum açın.
+1. [Azure portalında][Azure portal] oturum açın.
 2. Portalın sol gezinti bölmesinde **Yeni**'ye tıklayın, ardından **Enterprise Integration**'a ve **Service Bus**'a tıklayın.
 3. **Ad alanı oluştur** iletişim kutusunda bir ad alanı adı girin. Adın kullanılabilirliği sistem tarafından hemen denetlenir.
 4. Ad alanı adının kullanılabilir durumda olduğundan emin olduktan sonra fiyatlandırma katmanını (Temel, Standart veya Premium) seçin.
@@ -36,13 +36,13 @@ Ad alanı oluşturmak için:
     ![bağlantı dizesi][connection-string]
 
 [Azure portal]: https://portal.azure.com
-[ad alanı oluşturma]: ./media/howto-service-bus-topics/create-namespace.png
-[bağlantı bilgisi]: ./media/howto-service-bus-topics/connection-info.png
-[bağlantı dizesi]: ./media/howto-service-bus-topics/connection-string.png
+[create-namespace]: ./media/howto-service-bus-topics/create-namespace.png
+[connection-info]: ./media/howto-service-bus-topics/connection-info.png
+[connection-string]: ./media/howto-service-bus-topics/connection-string.png
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

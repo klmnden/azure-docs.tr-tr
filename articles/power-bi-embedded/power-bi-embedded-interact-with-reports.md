@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 10/04/2016
+ms.date: 01/06/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 83d997577d3a5854eafd9906bd38d3e703c09f5e
+ms.sourcegitcommit: 7db56a4c0efb208591bb15aa03a4c0dbf833d22e
+ms.openlocfilehash: 28eddb52c33d9883219f146480b110574f728f89
 
 
 ---
@@ -26,18 +26,18 @@ Power BI JavaScript API’si, Power BI raporlarını uygulamalarınıza kolaylı
 
 Uygulamanızın bir parçası olarak barındırılacak Power BI raporunu uygulamaya iframe kullanarak ekleyin. Aşağıdaki görüntüde görebileceğiniz gibi bu iframe uygulamanızla rapor arasında sınır işlevi görür. 
 
-![Javascript API’si olmadan Power BI embedded iframe](media\\powerbi-embedded-interact-with-reports\\powerbi-embedded-interact-report-1.png)
+![Javascript API’si olmadan Power BI embedded iframe](media/powerbi-embedded-interact-with-reports/powerbi-embedded-interact-report-1.png)
 
 iframe katıştırma işlemini çok daha kolaylaştırır, ancak JavaScript API’si olmadan rapor ve uygulamanız birbiriyle etkileşim kuramaz. Bu etkileşimin kurulamaması raporun uygulamanızın bir parçası değilmiş gibi görünmesine neden olabilir. Rapor ve uygulama aşağıdaki görüntüde olduğu gibi çift yönlü bir iletişim kurmalıdır.
 
-![Javascript API’si ile Power BI embedded iframe](media\\powerbi-embedded-interact-with-reports\\powerbi-embedded-interact-report-2.png)
+![Javascript API’si ile Power BI embedded iframe](media/powerbi-embedded-interact-with-reports/powerbi-embedded-interact-report-2.png)
 
 Power BI JavaScript API’si iframe sınırından güvenli bir şekilde geçebilecek bir kod yazmanızı sağlar. Bunun yapılması uygulamanızın bir raporda program aracılığıyla eylem gerçekleştirmesini ve kullanıcıların rapor içinde gerçekleştirdiği eylemlerdeki olayları dinlemesini sağlar.
 
 ## <a name="what-can-you-do-with-the-power-bi-javascript-api"></a>Power BI JavaScript API’si ile neler yapabilirsiniz?
 JavaScript API’si ile raporları yönetebilir, bir rapordaki sayfalarda gezinebilir, raporu filtreleyebilir ve katıştırma olaylarını gerçekleştirebilirsiniz. Aşağıdaki diyagramda API’nin yapısı gösterilmektedir.
 
-![Power BI JavaScript API’si diyagramı](media\\powerbi-embedded-interact-with-reports\\powerbi-embedded-interact-report-3.png)
+![Power BI JavaScript API’si diyagramı](media/powerbi-embedded-interact-with-reports/powerbi-embedded-interact-report-3.png)
 
 ### <a name="manage-reports"></a>Raporları yönetme
 Javascript API’si rapor ve sayfa düzeyindeki davranışı yönetmenizi sağlar:
@@ -139,6 +139,6 @@ Power BI JavaScript API’si hakkında daha fazla bilgi için aşağıdaki bağl
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -2,18 +2,18 @@
 ## [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
 
 # Başlarken
-## [Resource Manager şablonu ile dağıtma](../resource-group-template-deploy.md)
+## [Resource Manager şablonu ile dağıtma](../azure-resource-manager/resource-group-template-deploy.md)
 
 # Nasıl yapılır?
 ## Dağıtma
-### [Azure Resource Manager şablonu oluşturma](../resource-group-authoring-templates.md)
+### [Azure Resource Manager şablonu oluşturma](../azure-resource-manager/resource-group-authoring-templates.md)
 
 ## Yönetme
-### [Kaynakları yönetmek için önizleme portalını kullanma](resource-group-portal.md)
+### [Kaynakları yönetmek için önizleme portalını kullanma](../azure-resource-manager/resource-group-portal.md)
 ### [RBAC ile erişimi yönetme](../active-directory/role-based-access-control-configure.md)
-### [Kaynakları düzenlemek için etiketleri kullanma](../resource-group-using-tags.md)
+### [Kaynakları düzenlemek için etiketleri kullanma](../azure-resource-manager/resource-group-using-tags.md)
 ### [Kaynaklarınızı ölçeklendirme](../monitoring-and-diagnostics/insights-how-to-scale.md)
-### [Yeni Azure hizmet sorumlusu oluşturma](../resource-group-create-service-principal-portal.md)
+### [Yeni Azure hizmet sorumlusu oluşturma](../azure-resource-manager/resource-group-create-service-principal-portal.md)
 ## İzleme
 ### [Hizmet ölçümlerini izleme](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md)
 ### [İzleme ve tanılamayı etkinleştirme](../monitoring-and-diagnostics/insights-how-to-use-diagnostics.md)
@@ -23,7 +23,7 @@
 ### [Uyarı bildirimleri alma](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
 
 # İlgili
-## [Azure Resource Manager şablonu işlevleri](../resource-group-template-functions.md)
+## [Azure Resource Manager şablonu işlevleri](../azure-resource-manager/resource-group-template-functions.md)
 ## [Otomatik ölçeklendirme için en iyi yöntemler](../monitoring-and-diagnostics/insights-autoscale-best-practices.md)
 ## [Otomatik ölçeklendirme için genel ölçümler](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md)
 ## [Otomatik ölçeklendirme bildirimleri için web kancaları](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md)
@@ -42,6 +42,6 @@
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

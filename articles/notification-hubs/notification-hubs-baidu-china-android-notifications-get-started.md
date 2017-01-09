@@ -43,16 +43,16 @@ Baidu kullanmak için bir Baidu hesabınızın olması gerekir. Zaten varsa [Bai
 
 1. [Baidu portalında] gidin ve **登录** (**Oturum Açma**) bağlantısına tıklayın. Hesap kayıt işlemini başlatmak için **立即注册** seçeneğine tıklayın.
    
-       ![][1]
+   ![][1]
 2. Gerekli ayrıntıları girin (telefon/e-posta adresi, parola ve doğrulama kodu) ve **Kaydol**'a tıklayın.
    
-       ![][2]
+   ![][2]
 3. Girdiğiniz e-posta adresine, Baidu hesabınızı etkinleştirmek için bir bağlantıya sahip bir e-posta gönderilir.
    
-       ![][3]
+   ![][3]
 4. E-posta hesabınızda oturum açın, Baidu etkinleştirme e-postasını açın ve Baidu hesabınızı etkinleştirmek için etkinleştirme bağlantısına tıklayın.
    
-       ![][4]
+   ![][4]
 
 Baidu hesabınızı etkinleştirdikten sonra, [Baidu portalında] oturum açın.
 

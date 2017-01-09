@@ -13,11 +13,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/13/2016
+ms.date: 11/15/2016
 ms.author: guybo
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7d833b7aaab8680d555f6503ec27994134a2519d
+ms.sourcegitcommit: 6fb71859d0ba2e0f2b39d71edd6d518b7a03bfe9
+ms.openlocfilehash: 4a2cd02f6f9b6ac51c32314ce892e572e569eb7c
 
 
 ---
@@ -34,7 +34,7 @@ VM ölçek kümeleri hakkında daha fazla bilgi için şu videolara göz atın:
 ## <a name="creating-and-managing-vm-scale-sets"></a>VM ölçek kümeleri oluşturma ve yönetme
 [Azure portalında](https://portal.azure.com) *yeni* öğesini seçip arama çubuğuna "ölçek" yazarak bir VM Ölçek Kümesi oluşturabilirsiniz. Sonuçlar arasında "Sanal makine ölçek kümesi" seçeneğini görürsünüz. Buradan gerekli alanları doldurarak ölçek kümenizi özelleştirip dağıtabilirsiniz. 
 
-Sanal makine ölçek kümeleri, tıpkı tek Azure Resource Manager VM’lerinde olduğu gibi JSON şablonları ve [REST API’leri](https://msdn.microsoft.com/library/mt589023.aspx) kullanılarak da tanımlanıp dağıtılabilir. Bu nedenle, tüm standart Azure Resource Manager dağıtım yöntemleri kullanılabilir. Şablonlar hakkında daha fazla bilgi için bkz. [Azure Resource Manager şablonları yazma](../resource-group-authoring-templates.md).
+Sanal makine ölçek kümeleri, tıpkı tek Azure Resource Manager VM’lerinde olduğu gibi JSON şablonları ve [REST API’leri](https://msdn.microsoft.com/library/mt589023.aspx) kullanılarak da tanımlanıp dağıtılabilir. Bu nedenle, tüm standart Azure Resource Manager dağıtım yöntemleri kullanılabilir. Şablonlar hakkında daha fazla bilgi için bkz. [Azure Resource Manager şablonları yazma](../azure-resource-manager/resource-group-authoring-templates.md).
 
 VM ölçek kümelerine ilişkin bir dizi örnek, [buradaki](https://github.com/Azure/azure-quickstart-templates) Azure Hızlı Başlangıç şablonları GitHub deposunda bulunabilir. (başlığında *vmss* olan şablonları arayın)
 
@@ -50,9 +50,9 @@ Kapasiteyi değiştirmek için bir şablonu yeniden dağıtıyorsanız, yalnızc
 Otomatik olarak ölçeklendirilen bir ölçek kümesi oluşturan adımları uygulamak için bkz. [Sanal Makine Ölçek Kümesinde Makineleri Otomatik Olarak Ölçeklendirme](virtual-machine-scale-sets-windows-autoscale.md)
 
 ## <a name="monitoring-your-vm-scale-set"></a>VM ölçek kümenizi izleme
-[Azure portalı](https://portal.azure.com), ölçek kümelerini listeleyip temel özellikleri göstermesinin yanında küme içindeki VM’leri listeler. Daha fazla ayrıntı için [Azure Resource Explorer](https://resources.azure.com)’ı kullanarak VM ölçek kümelerini görüntüleyebilirsiniz. VM ölçek kümeleri Microsoft.Compute altındaki bir kaynaktır; bu nedenle, bu siteden aşağıdaki bağlantıları genişleterek bunları görebilirsiniz:
+[Azure portalında](https://portal.azure.com) ölçek kümeleri listelenir ve kümedeki VM’lerin yanı sıra kaynak kullanım grafiğiyle temel özellikler ve işlemler gösterilir. Daha fazla ayrıntı için [Azure Resource Explorer](https://resources.azure.com)’ı kullanarak VM ölçek kümelerini görüntüleyebilirsiniz. VM ölçek kümeleri Microsoft.Compute altındaki bir kaynaktır; bu nedenle, bu siteden aşağıdaki bağlantıları genişleterek bunları görebilirsiniz:
 
-    subscriptions -> your subscription -> resourceGroups -> providers -> Microsoft.Compute -> virtualMachineScaleSets -> your VM scale set -> etc.
+**Abonelikler -> aboneliğiniz -> resourceGroups -> sağlayıcılar -> Microsoft.Compute -> virtualMachineScaleSets -> VM ölçek kümeniz -> vs.**
 
 ## <a name="vm-scale-set-scenarios"></a>VM ölçek kümesi senaryoları
 Bu bölümde tipik VM ölçek kümesi senaryolarından bazıları listelenmektedir. Daha yüksek düzeydeki bazı Azure hizmetleri (Batch, Service Fabric, Azure Container Service gibi) bu senaryoları kullanır.
@@ -71,15 +71,15 @@ Bu bölümde tipik VM ölçek kümesi senaryolarından bazıları listelenmekted
    RDP ve Windows ile aynı işlemi yapmanın örneği ise burada verilmiştir: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-nat](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-nat)
 * **"Sıçrama kutusu" kullanarak VM’lere bağlanma** - Aynı sanal ağ için bir VM ölçeği ve tek başına VM oluşturursanız, tek başına VM ve VM ölçek kümesinin VM’leri, Sanal Ağ/Alt Ağ tarafından tanımlanan iç IP adreslerini kullanarak birbirine bağlanabilir. Genel bir IP adresi oluşturup tek başına VM’ye atarsanız, tek başına VM’ye RDP veya SSH uygulayabilir ve ardından bu makineden VM ölçek kümesi örneklerine bağlanabilirsiniz. Bu noktada, basit VM ölçek kümesinin, varsayılan yapılandırmasında genel IP adresine sahip basit bir tek başına VM’den doğal olarak daha güvenli olduğunu fark edebilirsiniz.
   
-   [Bu yaklaşımın bir örneği olarak, bu şablon bir VM ölçek kümesini temel alan VM kümesini yöneten tek başına bir Ana VM’nin oluşturduğu basit bir Mesos kümesi oluşturur.](https://github.com/gbowerman/azure-myriad/blob/master/mesos-vmss-simple-cluster.json)
+   Örneğin, bu şablon bağımsız bir VM’de basit bir ölçek kümesi dağıtır: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-jumpbox](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-linux-jumpbox)
 * **VM ölçek kümesi örneklerine yük devretme** - "Hepsini bir kez deneyen" bir yaklaşım kullanarak bir VM işlem kümesine çalışma iletmek istiyorsanız, bir Azure Load Balancer’ı uygun yük dengeleme kurallarıyla yapılandırabilirsiniz. Belirtilen bir protokol, aralık ve istek yolu ile bağlantı noktalarına ping göndererek, uygulamanızın çalıştığını doğrulamak için araştırmalar tanımlayabilirsiniz. Azure [Application Gateway](https://azure.microsoft.com/services/application-gateway/) ayrıca daha karmaşık yük dengeleme senaryolarıyla birlikte ölçek kümelerini destekler.
   
-   [IIS web sunucusu çalıştıran bir VM ölçek kümesinin oluşturulduğu ve her VM’nin aldığı yükü dengelemek üzere bir yük dengeleyicinin kullanıldığı örnek aşağıda verilmiştir. Bu örnekte ayrıca her VM’de belirli bir URL’ye ping göndermek için HTTP protokolü kullanılır.](https://github.com/gbowerman/azure-myriad/blob/master/vmss-win-iis-vnet-storage-lb.json) (Microsoft.Network/loadBalancers kaynak türüne ve virtualMachineScaleSet içindeki networkProfile ve extensionProfile öğesine bakın)
-* **Bir VM ölçek kümesini PaaS küme yöneticisi içinde işlem kümesi olarak dağıtma** - VM ölçek kümeleri bazı durumlarda yeni nesil çalışan rolü olarak tanımlanır. Bu geçerli bir açıklamadır, ancak aynı zamanda PaaS v1 Çalışan rolü özellikleriyle ölçek kümesi özelliklerini karıştırma riskini taşır. VM ölçek kümeleri, platformdan/çalışma zamanından bağımsız, özelleştirilebilir ve Azure Resource Manager IaaS hizmeti ile tümleştirilen genelleştirilmiş bir işlem kaynağı sağlamaları bakımından gerçek bir "çalışan rolü" veya çalışan kaynağı sağlar.
+   Bu örnekte Apache web sunucuları çalıştıran bir VM Ölçek Kümesi oluşturulur ve her VM’ye gelen yükü dengelemek için yük dengeleyici kullanılır: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-ubuntu-web-ssl](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-ubuntu-web-ssl) (Microsoft.Network/loadBalancers kaynak türüne ve virtualMachineScaleSet içindeki networkProfile ve extensionProfile öğesine bakın)
+* **Bir VM ölçek kümesini PaaS küme yöneticisi içinde işlem kümesi olarak dağıtma** - VM ölçek kümeleri bazı durumlarda yeni nesil çalışan rolü olarak tanımlanır. Bu geçerli bir açıklamadır, ancak PaaS v1 Çalışan rolü özellikleriyle ölçek kümesi özelliklerini karıştırma riskini taşır. VM ölçek kümeleri, platformdan/çalışma zamanından bağımsız, özelleştirilebilir ve Azure Resource Manager IaaS hizmeti ile tümleştirilen genelleştirilmiş bir işlem kaynağı sağlamaları bakımından gerçek bir "çalışan rolü" veya çalışan kaynağı sağlar.
   
    PaaS v1 çalışan rolü, platform/çalışma zamanı desteği bakımından sınırlı olmasına karşın (yalnızca Windows platform görüntüleri), ayrıca VIP takas gibi hizmetler, yapılandırılabilir yükseltme ayarları, VM ölçek kümelerinde *henüz* kullanılamayan veya Service Fabric gibi diğer yüksek PaaS hizmetleri tarafından sunulacak olan çalışma zamanı/uygulama dağıtımına özgü ayarlar içerir. Bunu aklınızda bulundurarak, VM ölçek kümelerine PaaS destekleyen bir altyapı olarak bakabilirsiniz. Ör. Service Fabric gibi PaaS çözümleri veya Mesos gibi küme yöneticileri, VM ölçek kümelerinin üzerine ölçeklenebilir bir işlem katmanı olarak oluşturulabilir.
   
-   [Bu yaklaşımın bir örneği olarak, bu şablon bir VM ölçek kümesini temel alan VM kümesini yöneten tek başına bir Ana VM’nin oluşturduğu basit bir Mesos kümesi oluşturur.](https://github.com/gbowerman/azure-myriad/blob/master/mesos-vmss-simple-cluster.json) [Azure Container Service](https://azure.microsoft.com/blog/azure-container-service-now-and-the-future/)’in gelecekteki sürümleri, bu senaryonun VM ölçek kümelerini temel alan daha karmaşık/zorlaştırılmış sürümlerini dağıtacaktır.
+   Bu yaklaşıma örnek olarak Azure Container Service, kapsayıcı düzenleyici ile ölçek kümesi tabanlı bir küme dağıtır: [https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos).
 
 ## <a name="vm-scale-set-performance-and-scale-guidance"></a>VM ölçek kümesi performansı ve ölçek Kılavuzu
 * Aynı anda birden fazla VM Ölçek Kümesinde en fazla 500 VM oluşturabilirsiniz.
@@ -100,7 +100,7 @@ Bu bölümde tipik VM ölçek kümesi senaryolarından bazıları listelenmekted
 
 **S.** VM ölçek kümelerinde Veri Diskleri destekleniyor mu?
 
-**C.** İlk sürümde desteklenmez. Veri depolama seçenekleriniz şunlardır:
+**C.** İlk sürümde değil (ancak veri diskleri önizleme sürümünde mevcuttur). Veri depolama seçenekleriniz şunlardır:
 
 * Azure dosyaları (paylaşılan SMB sürücüleri)
 * İşletim sistemi sürücüsü
@@ -148,6 +148,6 @@ Bu bölümde tipik VM ölçek kümesi senaryolarından bazıları listelenmekted
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO4-->
 
 

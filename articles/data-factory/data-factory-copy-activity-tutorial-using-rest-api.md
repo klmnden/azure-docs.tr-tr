@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 09/16/2016
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: c1551b250ace3aa6775932c441fcfe28431f8f57
-ms.openlocfilehash: 6bb9415180f7235b7521d5a4dc9d8a6f0e060756
+ms.sourcegitcommit: ebc5dbf790ca6012cfe9a7ea9ccee9fdacb46ffd
+ms.openlocfilehash: ac1c60e04b42e2804ef17ba35368dd28c1d748a4
 
 
 ---
@@ -43,7 +43,7 @@ Bu öğretici, REST API kullanarak bir Azure veri fabrikası oluşturmayı ve iz
 ## <a name="prerequisites"></a>Önkoşullar
 * [Öğreticiye Genel Bakış](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) bölümünü inceleyin ve **ön koşul** adımlarını tamamlayın.
 * [Curl](https://curl.haxx.se/dlwiz/) aracını makinenize yükleyin. Bir veri fabrikası oluşturmak için Curl aracını REST komutlarıyla kullanırsınız. 
-* Aşağıdakileri yapmak için [bu makaledeki](../resource-group-create-service-principal-portal.md) yönergeleri izleyin: 
+* Aşağıdakileri yapmak için [bu makaledeki](../azure-resource-manager/resource-group-create-service-principal-portal.md) yönergeleri izleyin: 
   1. Azure Active Directory’de **ADFCopyTutorialApp** adlı bir Web uygulaması oluşturun.
   2. **İstemci kimliği** ve **gizli anahtarı** alın. 
   3. **İstemci kimliğini** alın. 
@@ -578,6 +578,6 @@ Bu öğreticide bir Azure blob’undan Azure SQL veritabanına veri kopyalamak i
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO4-->
 
 

@@ -23,12 +23,12 @@ ms.openlocfilehash: 83e277fe261338aed960dea8e2ab15cbff3c895e
 # <a name="encrypt-an-azure-virtual-machine"></a>Azure Sanal Makine'yi şifreleme
 Şifrelenmemiş sanal makineleriniz varsa Azure Güvenlik Merkezi sizi uyarır. Bu uyarılar Yüksek Önem Derecesine Sahip olarak gösterilir ve bu sanal makineleri şifrelemeniz önerilir.
 
-![Disk şifreleme önerisi](./media/security-center-disk-encryption\\security-center-disk-encryption-fig1.png)
+![Disk şifreleme önerisi](./media/security-center-disk-encryption/security-center-disk-encryption-fig1.png)
 
 > [!NOTE]
 > Bu belgedeki bilgiler Azure Güvenlik Merkezi önizleme sürümü için geçerlidir.
-> 
-> 
+>
+>
 
 Azure Güvenlik Merkezi tarafından şifreleme gerektiği belirlenen Azure Virtual Machines'i şifrelemek için aşağıdaki adımları öneririz:
 
@@ -43,8 +43,8 @@ Azure Virtual Machines için önkoşulları ayarlamak ve şifrelemeyi yapıland�
 
 > [!NOTE]
 > Azure Virtual Machines için şifreleme yapılandırmaya yönelik alternatif yaklaşımlar hakkında daha fazla bilgi edinmek için bkz. [Windows ve Linux Azure Virtual Machines için Azure Disk Şifrelemesi](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0).
-> 
-> 
+>
+>
 
 ## <a name="install-and-configure-azure-powershell"></a>Azure PowerShell'i yükleyip yapılandırma
 Bilgisayarınızda Azure PowerShell 1.2.1 sürümü veya üstünün yüklü olması gerekir. [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azureps-cmdlets-docs) makalesi, bilgisayarınızın Azure PowerShell ile çalışmasını sağlamak için ihtiyacınız olan tüm adımları içerir. En kolay yaklaşım, bu makalede değinilen Web PI kurulumu yaklaşımını kullanmaktır. Azure PowerShell önceden yüklü olsa bile, Azure PowerShell'in en son sürümüne sahip olmak için Web PI yaklaşımını kullanarak yeniden yükleyin.
@@ -70,7 +70,7 @@ Artık betik içeriği kaydedildiğine göre, PowerShell ISE'deki betiği açın
 
 Şimdi aşağıdaki gibi bir şekil görüyor olmanız gerekir.
 
-![PowerShell ISE penceresi](./media/security-center-disk-encryption\\security-center-disk-encryption-fig2.png)
+![PowerShell ISE penceresi](./media/security-center-disk-encryption/security-center-disk-encryption-fig2.png)
 
 Üst bölme "betik bölmesi" olarak adlandırılır ve alt bölme de "konsol" olarak adlandırılır. Daha sonra bu makalede bu terimleri kullanacağız.
 
@@ -84,8 +84,8 @@ Azure Disk Şifrelemesi Önkoşulları betiği, başlatıldıktan sonra sizden a
 
 > [!NOTE]
 > Neden bir Azure Active Directory uygulaması oluşturmanız gerektiğini merak ediyorsanız lütfen [Azure Anahtar Kasası ile Çalışmaya Başlama](../key-vault/key-vault-get-started.md) makalesinin *Bir uygulamayı Azure Active Directory'ye kaydetme* bölümüne bakın.
-> 
-> 
+>
+>
 
 Bir Azure Sanal Makinesini şifrelemek için aşağıdaki adımları gerçekleştirin:
 
@@ -94,12 +94,12 @@ Bir Azure Sanal Makinesini şifrelemek için aşağıdaki adımları gerçekleş
 3. Makinenizdeki yürütme ilkesini, betiği çalıştırabilecek şekilde ayarlayın. Konsolda **Set-ExecutionPolicy Unrestricted** yazın ve ardından ENTER'a basın. Yürütme ilkesindeki değişikliğin etkilerini anlatan bir iletişim kutusu görürseniz **Tümüne evet** veya **Evet**'e tıklayın (**Tümüne evet**'i görürseniz bu seçeneği belirleyin; **Tümüne evet**'i görmezseniz **Evet**'e tıklayın).
 4. Azure hesabınızda oturum açın. Konsolda **Login-AzureRmAccount** yazın ve **ENTER**'a basın. Kimlik bilgilerinizi gireceğiniz bir iletişim kutusu görünür (sanal makineleri değiştirme haklarına sahip olduğunuzdan emin olun; bu haklara sahip değilseniz şifreleme yapamazsınız. Emin değilseniz aboneliğinizin sahibine veya yöneticinize sorun). **Environment**, **Account**, **TenantId**, **SubscriptionId** ve **CurrentStorageAccount**'ınız hakkında bilgiler görmeniz gerekir. **SubscriptionId**'yi Not Defteri'ne kopyalayın. Bunu 6. adımda kullanmanız gerekir.
 5. Sanal makinenizin hangi aboneliğe ait olduğunu ve konumunu bulun. [https://portal.azure.com](ttps://portal.azure.com)'a gidin ve oturum açın.  Sayfanın sol tarafında **Virtual Machines**'e tıklayın. Sanal makinelerinizi ve ait oldukları aboneliklerin listesini görürsünüz.
-   
-   ![Virtual Machines](./media/security-center-disk-encryption\\security-center-disk-encryption-fig3.png)
+
+   ![Virtual Machines](./media/security-center-disk-encryption/security-center-disk-encryption-fig3.png)
 6. PowerShell ISE'ye dönün. Betiğin çalıştırılacağı abonelik bağlamını ayarlayın. Konsolda **Select-AzureRmSubscription –SubscriptionId <your_subscription_Id>** yazın (**< your_subscription_Id >** öğesini gerçek Abonelik Kimliğinizle değiştirin) ve **ENTER**'a basın. Environment, **Account**, **TenantId**, **SubscriptionId** ve **CurrentStorageAccount** hakkında bilgiler görürsünüz.
 7. Şimdi betiği çalıştırmaya hazırsınız. **Betiği Çalıştır** düğmesine tıklayın veya klavyede **F5**'e basın.
-   
-   ![PowerShell Betiğini Yürütme](./media/security-center-disk-encryption\\security-center-disk-encryption-fig4.png)
+
+   ![PowerShell Betiğini Yürütme](./media/security-center-disk-encryption/security-center-disk-encryption-fig4.png)
 8. Betik **resourceGroupName:** öğesini ister; kullanmak istediğiniz *Kaynak Grubu*'nun adını girin, ardından **ENTER**'a basın. Ad yoksa yenisi için kullanmak istediğiniz adı girin. Kullanmak istediğiniz bir *Kaynak Grubu* zaten varsa (sanal makinenizin içinde olduğu grup gibi) var olan Kaynak Grubu'nun adını girin.
 9. Betik **keyVaultName:** öğesini ister; kullanmak istediğiniz *Anahtar Kasası*'nın adını girin, ardından ENTER'a basın. Ad yoksa yenisi için kullanmak istediğiniz adı girin. Kullanmak istediğiniz bir Anahtar Kasası zaten varsa var olan *Anahtar Kasası*'nın adını girin.
 10. Betik **konum** ister; şifrelemek istediğiniz VM'nin bulunduğu konumun adını girin, ardından **ENTER**'a basın. Konumu hatırlamıyorsanız 5. adıma geri dönün.
@@ -110,7 +110,7 @@ Bir Azure Sanal Makinesini şifrelemek için aşağıdaki adımları gerçekleş
 
 Betiğin çıkışı aşağıdaki ekrana benzer şekilde görünmelidir:
 
-![PowerShell çıkışı](./media/security-center-disk-encryption\\security-center-disk-encryption-fig5.png)
+![PowerShell çıkışı](./media/security-center-disk-encryption/security-center-disk-encryption-fig5.png)
 
 ## <a name="encrypt-the-azure-virtual-machine"></a>Azure sanal makineyi şifreleme
 Şimdi sanal makinenizi şifrelemeye hazırsınız. Sanal makineniz, Anahtar Kasanız ile aynı Kaynak Grubunda bulunuyorsa şifreleme adımları bölümüne geçebilirsiniz. Ancak sanal makineniz Anahtar Kasanız ile aynı Kaynak Grubu'nda değilse PowerShell ISE konsolunda aşağıdakini girmeniz gerekir:
@@ -124,7 +124,7 @@ Doğru Kaynak Grubu adının girildiğini onaylamak için PowerShell ISE konsolu
 
 **ENTER**'a basın. Sanal makinelerinizin içinde bulunduğu Kaynak Grubunun adını görmeniz gerekir. Örneğin:
 
-![PowerShell çıkışı](./media/security-center-disk-encryption\\security-center-disk-encryption-fig6.png)
+![PowerShell çıkışı](./media/security-center-disk-encryption/security-center-disk-encryption-fig6.png)
 
 ### <a name="encryption-steps"></a>Şifreleme adımları
 Öncelikle, şifrelemek istediğiniz sanal makinenin adını PowerShell'e bildirmeniz gerekir. Konsolda şunu yazın:
@@ -139,7 +139,7 @@ Doğru VM adının girildiğini onaylamak için şunu yazın:
 
 **ENTER**'a basın. Şifrelemek istediğiniz sanal makinenin adını görmeniz gerekir. Örnek:
 
-![PowerShell çıkışı](./media/security-center-disk-encryption\\security-center-disk-encryption-fig7.png)
+![PowerShell çıkışı](./media/security-center-disk-encryption/security-center-disk-encryption-fig7.png)
 
 Sanal makineyi şifrelemek için şifreleme komutunu çalıştırabileceğiniz iki yol vardır. İlk yöntem, PowerShell ISE konsolunda aşağıdaki komutu yazmaktır:
 
@@ -151,25 +151,25 @@ Bu komutu yazdıktan sonra **ENTER**'a basın.
 
 İkinci yöntem, betik bölmesine tıklamak (PowerShell ISE'nin en üst bölmesi) ve sayfayı betiğin en altına doğru aşağı kaydırmaktır. Yukarıda listelenen komutu vurgulayın, ardından buna sağ tıklayın ve sonra **Seçimi Çalıştır**'a tıklayın veya klavyede **F8**'e basın.
 
-![PowerShell ISE](./media/security-center-disk-encryption\\security-center-disk-encryption-fig8.png)
+![PowerShell ISE](./media/security-center-disk-encryption/security-center-disk-encryption-fig8.png)
 
 Kullandığınız yöntemden bağımsız olarak, işlemin tamamlanmasının 10-15 dakika süreceğini bildiren bir iletişim kutusu görünür. **Evet**'e tıklayın.
 
 Şifreleme işlemi gerçekleşirken, Azure Portal'a dönebilir ve sanal makinenin durumunu görebilirsiniz. Sayfanın sol tarafında **Virtual Machines**'e tıklayın, ardından **Virtual Machines** dikey penceresinde şifrelediğiniz sanal makinenin adına tıklayın. Açılan dikey pencerede **Durum**'un **Güncelleştiriliyor** olduğunu fark edeceksiniz. Bu, şifreleme işleminin gerçekleştiğini gösterir.
 
-![VM hakkında daha fazla ayrıntı](./media/security-center-disk-encryption\\security-center-disk-encryption-fig9.png)
+![VM hakkında daha fazla ayrıntı](./media/security-center-disk-encryption/security-center-disk-encryption-fig9.png)
 
 PowerShell ISE'ye dönün. Betik tamamlandığında aşağıdaki şekilde görünenleri görürsünüz.
 
-![PowerShell çıkışı](./media/security-center-disk-encryption\\security-center-disk-encryption-fig10.png)
+![PowerShell çıkışı](./media/security-center-disk-encryption/security-center-disk-encryption-fig10.png)
 
 Sanal makinenin artık şifrelenmiş olduğunu göstermek için Azure Portal'a dönün ve sayfanın sol tarafında **Virtual Machines**'e tıklayın. Şifrelediğiniz sanal makinenin adına tıklayın. **Ayarlar** dikey penceresinde **Diskler**'e tıklayın.
 
-![Ayarlar seçenekleri](./media/security-center-disk-encryption\\security-center-disk-encryption-fig11.png)
+![Ayarlar seçenekleri](./media/security-center-disk-encryption/security-center-disk-encryption-fig11.png)
 
 **Diskler** dikey penceresinde **Şifreleme**'nin **Etkin** olduğunu görürsünüz.
 
-![Diskler özellikleri](./media/security-center-disk-encryption\\security-center-disk-encryption-fig12.png)
+![Diskler özellikleri](./media/security-center-disk-encryption/security-center-disk-encryption-fig12.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu belgede bir Azure Sanal Makine'nin nasıl şifreleneceğini öğrendiniz. Azure Güvenlik Merkezi hakkında daha fazla bilgi edinmek için şunlara bakın:
@@ -178,7 +178,6 @@ Bu belgede bir Azure Sanal Makine'nin nasıl şifreleneceğini öğrendiniz. Azu
 * [Azure Güvenlik Merkezi'nde güvenlik uyarılarını yönetme ve yanıtlama](security-center-managing-and-responding-alerts.md) - Güvenlik uyarılarını yönetme ve yanıtlama hakkında bilgi edinin.
 * [Azure Güvenlik Merkezi ile ilgili SSS](security-center-faq.md) - Hizmeti kullanma hakkında sık sorulan soruları bulun
 * [Azure Güvenlik Blogu](http://blogs.msdn.com/b/azuresecurity/) - Azure güvenliği ve uyumluluğu ile ilgili blog yazılarını bulun
-
 
 
 

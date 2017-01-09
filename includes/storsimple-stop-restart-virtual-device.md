@@ -16,6 +16,6 @@ Sanal cihazı yeniden başlatmak için aşağıdaki cmdlet'i kullanın.
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

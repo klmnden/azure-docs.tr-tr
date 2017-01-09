@@ -1,6 +1,6 @@
 
 ## <a name="start-your-powershell-session"></a>PowerShell oturumunuzu başlatma
-Öncelikle, en son [Azure PowerShell](https://msdn.microsoft.com/library/mt619274\(v=azure.300\).aspx) sürümünün yüklü ve çalışıyor olması gerekir. Ayrıntılı bilgi için bkz. [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azureps-cmdlets-docs).
+Öncelikle, en son Azure PowerShell sürümünün yüklü ve çalışıyor olması gerekir. Ayrıntılı bilgi için bkz. [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azureps-cmdlets-docs).
 
 > [!NOTE]
 > SQL Database’in pek çok yeni özelliği yalnızca [Azure Resource Manager dağıtım modeli](../articles/azure-resource-manager/resource-group-overview.md) kullanıldığında desteklenir; bu nedenle örneklerde Resource Manager’la ilgili [Azure SQL Database PowerShell cmdlet’leri](https://msdn.microsoft.com/library/azure/mt574084\(v=azure.300\).aspx) kullanılır. Hizmet yönetimi (klasik) dağıtım modeli [Azure SQL Veritabanı Hizmet Yönetimi cmdlet'leri](https://msdn.microsoft.com/library/azure/dn546723\(v=azure.300\).aspx) geriye dönük uyumluluk için desteklenir; yine de Resource Manager cmdlet'lerini kullanmanız önerilir.
@@ -16,6 +16,6 @@ Birden fazla aboneliğiniz varsa, PowerShell oturumunuzun hangi aboneliği kulla
     Set-AzureRmContext -SubscriptionId '4cac86b0-1e56-bbbb-aaaa-000000000000'
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

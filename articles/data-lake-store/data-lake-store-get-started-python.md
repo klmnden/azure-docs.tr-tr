@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 11/29/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 8be210664540fc8294ea70271f037d168b328c9d
-ms.openlocfilehash: dc604f98eacec8d52c2849452bc3df34ef7634af
+ms.sourcegitcommit: f29f36effd858f164f7b6fee8e5dab18211528b3
+ms.openlocfilehash: 6f724576badb7cf3625a139c416860b7e43ed036
 
 
 ---
@@ -47,7 +47,7 @@ Klasör oluşturma, veri dosyalarını karşıya yükleme ve indirme gibi temel 
 
 ## <a name="install-the-modules"></a>Modülleri yükleme
 
-Data Lake Store ile Python kullanarak çalışabilmeniz için iki modül yüklemeniz gerekir.
+Data Lake Store ile Python kullanarak çalışabilmeniz için üç modül yüklemeniz gerekir.
 
 * `azure-mgmt-resource` modülü. Bu, Active Directory gibi şeyler için Azure modüllerini içerir
 * `azure-mgmt-datalake-store` modülü. Bu modül, Azure Data Lake Store hesap yönetim işlemlerini içerir. Bu modül hakkında daha fazla bilgi için bkz. [Azure Data Lake Store Yönetimi modül başvurusu](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-store.html).
@@ -207,6 +207,6 @@ Aşağıdaki kod parçacığı ilk olarak Data Lake Store hesabı istemcisini ol
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO1-->
 
 
