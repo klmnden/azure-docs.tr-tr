@@ -3,7 +3,7 @@
 2. **Cihazlar** sayfasına gidin. **Cihazlar** sayfasının altında **Sanal cihaz oluştur**’a tıklayın.
 3. **Sanal Cihaz Oluştur** iletişim kutusunda aşağıdaki ayrıntıları belirtin.
    
-     ![StorSimple sanal cihaz oluşturma](./media/storsimple-create-virtual-device-u2/CreatePremiumsva1.png)
+    ![StorSimple sanal cihaz oluşturma](./media/storsimple-create-virtual-device-u2/CreatePremiumsva1.png)
    
    1. **Ad** – sanal cihazınız için benzersiz bir ad.
    2. **Model** - Sanal cihazın modelini seçin. Bu alan, yalnızca Update 2 veya sonraki bir sürümünü çalıştırıyorsanız kullanılabilir. 8010 cihaz modeli 30 TB Standart Depolama sunarken 8020 modeliyse 64 TB Premium Storage sunar. 8010’u belirtin
@@ -28,6 +28,6 @@
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 
