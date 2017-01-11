@@ -11,11 +11,11 @@ ms.devlang: na
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 10/27/2016
+ms.date: 12/08/2016
 ms.author: ashmaka
 translationtype: Human Translation
-ms.sourcegitcommit: fc2f30569acc49dd383ba230271989eca8a14423
-ms.openlocfilehash: c8e745f7e1385c5ca569a9b8fbc3f5db070f102e
+ms.sourcegitcommit: 455c4847893175c1091ae21fa22215fd1dd10c53
+ms.openlocfilehash: 96e8177f57977f88c5a4a1ec0b9243b5b348f078
 
 ---
 
@@ -29,14 +29,14 @@ ms.openlocfilehash: c8e745f7e1385c5ca569a9b8fbc3f5db070f102e
 >
 >
 
-Bu makale, [Azure Search REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx)'sini kullanarak bir dizinin nasıl sorgulanacağını gösterir.
+Bu makale, [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice/)'sini kullanarak bir dizinin nasıl sorgulanacağını gösterir.
 
 Bu kılavuzda başlamadan önce, [Azure Search dizini oluşturmuş](search-what-is-an-index.md) ve [bunu verilerle doldurmuş](search-what-is-data-import.md) olmanız gerekir.
 
 ## <a name="i-identify-your-azure-search-services-query-api-key"></a>I. Azure Search hizmet sorgunuzun api anahtarını tanımlama
 Azure Search REST API'sine karşı tüm arama işlemlerinin önemli bir bileşeni, sağladığınız hizmet için oluşturulan *api anahtarıdır*. İstek başına geçerli bir anahtara sahip olmak, isteği gönderen uygulama ve bunu işleyen hizmet arasında güven oluşturur.
 
-1. Hizmetinizin api anahtarlarını bulmak için [Azure Portal](https://portal.azure.com/)'da oturum açmanız gerekir
+1. Hizmetinizin api anahtarlarını bulmak için [Azure portalında](https://portal.azure.com/) oturum açmanız gerekir.
 2. Azure Search hizmetinizin dikey penceresine gidin
 3. "Anahtarlar" simgesine tıklayın
 
@@ -48,7 +48,7 @@ Hizmetiniz, *yönetici anahtarlarına* ve *sorgu anahtarlarına* sahiptir.
 Bir dizini sorgulama amacıyla, sorgu anahtarlarınızdan birini kullanabilirsiniz. Yönetici anahtarlarınız da sorgular için kullanılabilir ancak uygulama kodunuzda bir sorgu anahtarı kullanmanız gerekir. Böylece [En az ayrıcalık prensibi](https://en.wikipedia.org/wiki/Principle_of_least_privilege) daha iyi takip edilmiş olur.
 
 ## <a name="ii-formulate-your-query"></a>II. Sorgunuzu düzenleme
-[REST API kullanarak dizininizi aramanın](https://msdn.microsoft.com/library/azure/dn798927.aspx) iki yolu bulunur. Bu yollardan biri, sorgu parametrelerinizin istek gövdesindeki bir JSON nesnesinde tanımlanacağı bir HTTP POST isteği göndermektir. Diğer yol ise sorgu parametrelerinizin istek URL'si içinde tanımlanacağı bir HTTP GET isteği göndermektir. POST'un sorgu parametrelerinin boyutu açısından GET'ten daha [esnek sınırlara](https://msdn.microsoft.com/library/azure/dn798927.aspx) sahip olduğuna dikkat edin. Bu nedenle, GET'i kullanmanın daha kullanışlı olduğu özel durumlar olmadığı sürece POST kullanmanızı öneririz.
+[REST API kullanarak dizininizi aramanın](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) iki yolu bulunur. Bu yollardan biri, sorgu parametrelerinizin istek gövdesindeki bir JSON nesnesinde tanımlanacağı bir HTTP POST isteği göndermektir. Diğer yol ise sorgu parametrelerinizin istek URL'si içinde tanımlanacağı bir HTTP GET isteği göndermektir. POST'un sorgu parametrelerinin boyutu açısından GET'ten daha [esnek sınırlara](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) sahip olduğuna dikkat edin. Bu nedenle, GET'i kullanmanın daha kullanışlı olduğu özel durumlar olmadığı sürece POST kullanmanızı öneririz.
 
 POST ve GET için *hizmet adınızı*, *dizin adını* ve uygun *API sürümünü* (bu belgenin yayımlandığı sırada geçerli API sürümü `2016-09-01`) istek URL'sinde sağlamanız gerekir. GET için sorgu parametrelerini URL'nin sonundaki *sorgu dizesine* sağlarsınız. URL biçimi için aşağıya bakın:
 
@@ -162,10 +162,10 @@ Başarılı bir sorgu isteği, `200 OK` Durum Koduna sonucunu verir ve arama son
 }
 ```
 
-Daha fazla bilgi edinmek için lütfen [Search Belgeleri](https://msdn.microsoft.com/library/azure/dn798927.aspx)'nin "Yanıt" bölümünü ziyaret edin. Hata durumunda döndürülebilen diğer HTTP durum kodları hakkında daha fazla bilgi için bkz. [HTTP durum kodları (Azure Search)](https://msdn.microsoft.com/library/azure/dn798925.aspx).
+Daha fazla bilgi edinmek için lütfen [Search Belgeleri](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)'nin "Yanıt" bölümünü ziyaret edin. Hata durumunda döndürülebilen diğer HTTP durum kodları hakkında daha fazla bilgi için bkz. [HTTP durum kodları (Azure Search)](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes).
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

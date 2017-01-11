@@ -9,16 +9,16 @@ manager: jhubbard
 editor: 
 ms.assetid: b46e7fdc-2238-4b3b-a944-8ab36c5bdb8e
 ms.service: sql-database
-ms.custom: sharded databases pool
+ms.custom: multiple databases
 ms.devlang: NA
-ms.date: 12/06/2016
+ms.date: 12/14/2016
 ms.author: CarlRabeler
 ms.workload: data-management
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 829229542c05477d427b15a9d862f414d9c730d6
+ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
+ms.openlocfilehash: 2c0ee201e719c542cf801372e6a270a7b88598fb
 
 
 ---
@@ -37,24 +37,24 @@ Yaygın bir SaaS uygulama modeli ise tek kiracılı veritabanı modelidir: her m
 >
 >
 
-SQL Veritabanında bir veritabanının kaynak taleplerini ele alma becerisinin göreli ölçümü, tek veritabanları için Veritabanı İşlem Birimleri (DTU), elastik bir havuzdaki elastik veritabanları içinse elastikDTU (eDTU) olarak ifade edilir. DTU ve eDTU’lar hakkında daha fazla bilgi için bkz. [SQL Veritabanına Giriş](sql-database-technical-overview.md).
+SQL Veritabanında bir veritabanının kaynak taleplerini ele alma becerisinin göreli ölçümü, tek başına veritabanları için Veritabanı İşlem Birimleri (DTU), elastik bir havuzdaki elastik veritabanları içinse elastikDTU (eDTU) olarak ifade edilir. DTU ve eDTU’lar hakkında daha fazla bilgi için bkz. [SQL Veritabanına Giriş](sql-database-technical-overview.md).
 
-Havuza belirli bir fiyat karşılığında, belirli bir sayıda eDTU verilir. Havuz içerisinde tek tek veritabanlarına belirli parametreler içinde otomatik olarak ölçeklendirme esnekliği tanınır. Veritabanı, yoğun bir yük altındayken talebi karşılamak üzere daha fazla eDTU kullanabilir. Yükü az olan veritabanları daha az eDTU kullanır ve yükü bulunmayan veritabanları eDTU kullanmaz. Tek tek veritabanları yerine tüm havuz için kaynak sağlamak, yönetim görevlerinizi basitleştirir. Ayrıca, havuza yönelik bütçeniz tahmin edilebilir bir hale gelir.
+Havuza belirli bir fiyat karşılığında, belirli bir sayıda eDTU verilir. Havuz içerisinde tek tek veritabanlarına belirli parametreler içinde otomatik olarak ölçeklendirme esnekliği tanınır. Veritabanı, yoğun bir yük altındayken talebi karşılamak üzere daha fazla eDTU kullanabilir. Yükü az olan veritabanları daha az eDTU kullanır ve yükü bulunmayan veritabanları eDTU kullanmaz. Tek başına veritabanları yerine tüm havuz için kaynak sağlamak, yönetim görevlerinizi basitleştirir. Ayrıca, havuza yönelik bütçeniz tahmin edilebilir bir hale gelir.
 
 Mevcut bir havuza, veritabanı kapalı kalma süresi veya esnek havuzdaki veritabanları üzerinde herhangi bir etkisi olmadan ek eDTU’lar eklenebilir. Benzer şekilde, ek eDTU’lara artık ihtiyaç yoksa bunlar mevcut bir havuzdan ne zaman isterseniz kaldırılabilir.
 
 Ayrıca havuza veritabanları ekleyebilir veya havuzdan veritabanları kaldırabilirsiniz. Bir veritabanı kaynakları tahmin edilebilir bir şekilde normalden az kullanıyorsa bu veritabanını havuzdan çıkarın.
 
 ## <a name="which-databases-go-in-a-pool"></a>Hangi veritabanları havuza eklenir?
-![Bir elastik veritabanı havuzunda eDTU’ları paylaşan SQL veritabanları.][1]
+![Bir elastik havuzda eDTU'ları paylaşan SQL veritabanları.][1]
 
-Elastik havuzlar için mükemmel adaylar olan veritabanlarında, genellikle etkin ve pasif dönemler olur. Yukarıdaki dönemde tek veritabanının, 4 veritabanının ve son olarak 20 veritabanı içeren bir elastik havuzun etkinliği gösterilmektedir. Zaman içinde etkinlik düzeyi değişen veritabanları her zaman etkin olmadığı ve eDTU’ları paylaşabildiği için elastik havuzlara yönelik mükemmel adaylardır. Tüm veritabanları bu modele uymaz. Daha sabit bir kaynak talebine sahip veritabanları, kaynakların tek tek atandığı Temel, Standart ve Premium hizmet katmanlarına daha uygundur.
+Elastik havuzlar için mükemmel adaylar olan veritabanlarında, genellikle etkin ve pasif dönemler olur. Yukarıdaki dönemde tek başına veritabanının, 4 veritabanının ve son olarak 20 veritabanı içeren bir elastik havuzun etkinliği gösterilmektedir. Zaman içinde etkinlik düzeyi değişen veritabanları her zaman etkin olmadığı ve eDTU’ları paylaşabildiği için elastik havuzlara yönelik mükemmel adaylardır. Tüm veritabanları bu modele uymaz. Daha sabit bir kaynak talebine sahip veritabanları, kaynakların tek tek atandığı Temel, Standart ve Premium hizmet katmanlarına daha uygundur.
 
 [Elastik havuzlar için fiyat ve performans ile ilgili dikkat edilmesi gerekenler](sql-database-elastic-pool-guidance.md).
 
 ## <a name="edtu-and-storage-limits-for-elastic-pools-and-elastic-databases"></a>Elastik havuzlar ve elastik veritabanları için eDTU ve depolama limitleri
 
-Aşağıdaki tabloda Temel, Standart ve Premium esnek veritabanı havuzlarının özellikleri açıklanmaktadır.
+Aşağıdaki tabloda Temel, Standart ve Premium elastik havuzların özellikleri açıklanmaktadır.
 
 [!INCLUDE [SQL DB service tiers table for elastic databases](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
 
@@ -88,7 +88,7 @@ Bir havuz kullanılarak **[esnek işlerde](sql-database-elastic-jobs-overview.md
 Diğer elastik veritabanı araçları hakkında daha fazla bilgi için bkz. [Azure SQL Veritabanı ile ölçek genişletme](sql-database-elastic-scale-introduction.md).
 
 ## <a name="business-continuity-features-for-databases-in-a-pool"></a>Bir havuzdaki veritabanları için iş sürekliliği özellikleri
-Elastik veritabanları genellikle V12 sunucularındaki tek veritabanları için kullanılabilen [iş sürekliliği özelliklerinin](sql-database-business-continuity.md) aynılarını destekler.
+Elastik veritabanları genellikle tek başına veritabanları için kullanılabilen [iş sürekliliği özelliklerinin](sql-database-business-continuity.md) aynılarını destekler.
 
 ### <a name="point-in-time-restore"></a>Belirli bir noktaya geri yükleme
 Belirli bir noktaya geri yükleme işlemi, bir havuzdaki veritabanını zamandaki belirli bir noktaya geri yüklemek için otomatik veritabanı yedeklemelerini kullanır. Bkz. [Belirli Bir Noktaya Geri Yükleme](sql-database-recovery-using-backups.md#point-in-time-restore)
@@ -107,6 +107,6 @@ Coğrafi Geri Yüklemenin sunabileceğinden daha agresif kurtarma gereksinimleri
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 
