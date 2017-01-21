@@ -11,11 +11,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/05/2016
+ms.date: 12/21/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: bfbffe7843bc178cdf289c999925c690ab82e922
-ms.openlocfilehash: 5bbd490925e5e25f10044af55af49daa494ee026
+ms.sourcegitcommit: f156e4d4c5ffddb7e93ebf21baa75864e0e260e9
+ms.openlocfilehash: d00792a4bb19e194dbbcee8b9c11e4a744891388
 
 ---
 
@@ -26,69 +26,14 @@ ms.openlocfilehash: 5bbd490925e5e25f10044af55af49daa494ee026
 > * [PowerShell](dns-getstarted-create-dnszone.md)
 > * [Azure CLI](dns-getstarted-create-dnszone-cli.md)
 
-Bu makale Windows, Mac ve Linux platformlarında kullanılabilen çok platformlu Azure CLI'yi kullanarak DNS bölgesi oluşturma adımlarında size rehberlik yapacaktır. PowerShell veya Azure portalını kullanarak da bir DNS bölgesi oluşturabilirsiniz.
+Bu makale Windows, Mac ve Linux platformlarında kullanılabilen çok platformlu Azure CLI'yi kullanarak DNS bölgesi oluşturma adımlarında size rehberlik yapacaktır. [Azure PowerShell](dns-getstarted-create-dnszone.md) veya [Azure portalı](dns-getstarted-create-dnszone-portal.md) kullanarak da bir DNS bölgesi oluşturabilirsiniz.
 
 [!INCLUDE [dns-create-zone-about](../../includes/dns-create-zone-about-include.md)]
 
+[!INCLUDE [dns-cli-setup](../../includes/dns-cli-setup-include.md)]
 
-## <a name="before-you-begin"></a>Başlamadan önce
 
-Yapılandırmanıza başlamadan önce aşağıdaki öğelerin bulunduğunu doğrulayın.
-
-* Azure aboneliği. Henüz Azure aboneliğiniz yoksa [MSDN abonelik avantajlarınızı](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) etkinleştirebilir veya [ücretsiz bir hesap](https://azure.microsoft.com/pricing/free-trial/) için kaydolabilirsiniz.
-* Windows, Linux veya MAC platformlarında kullanılabilen Azure CLI'nin son sürümünü yüklemeniz gerekir. Daha fazla bilgi için bkz. [Azure CLI'yı yükleme](../xplat-cli-install.md).
-
-## <a name="step-1---sign-in-and-create-a-resource-group"></a>1. Adım - Oturum açma ve bir kaynak grubu oluşturma
-
-### <a name="switch-cli-mode"></a>CLI moduna geçme
-
-Azure DNS, Azure Resource Manager'ı kullanır. ARM komutlarını kullanmak için CLI moduna geçtiğinizden emin olun.
-
-```azurecli
-azure config mode arm
-```
-
-### <a name="sign-in-to-your-azure-account"></a>Azure hesabınızda oturum açma
-
-Kimlik bilgilerinizle kimliğinizi doğrulamanız istenir. Yalnızca OrgID hesaplarını kullanabileceğinizi göz önünde bulundurun.
-
-```azurecli
-azure login
-```
-
-### <a name="select-the-subscription"></a>Aboneliği seçme
-
-Hesapla ilişkili abonelikleri kontrol edin.
-
-```azurecli
-azure account list
-```
-
-Hangi Azure aboneliğinizin kullanılacağını seçin.
-
-```azurecli
-azure account set "subscription name"
-```
-
-### <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
-
-Azure Resource Manager, tüm kaynak gruplarının bir konum belirtmesini gerektirir. Bu, kaynak grubunda kaynaklar için varsayılan konum olarak kullanılır. Ancak tüm DNS kaynakları bölgesel değil de global olduğundan, kaynak grubu konumu seçiminin Azure DNS üzerinde hiçbir etkisi yoktur.
-
-Var olan bir kaynak grubunu kullanıyorsanız bu adımı atlayabilirsiniz.
-
-```azurecli
-azure group create -n myresourcegroup --location "West US"
-```
-
-### <a name="register-resource-provider"></a>Kaynak sağlayıcısını kaydetme
-
-Azure DNS hizmeti, Microsoft.Network kaynak sağlayıcısı tarafından yönetilir. Azure DNS'yi kullanmadan önce, Azure aboneliğinizin bu kaynak sağlayıcısını kullanmak için kayıtlı olması gerekir. Bu, her bir abonelik için tek seferlik bir işlemdir.
-
-```azurecli
-azure provider register --namespace Microsoft.Network
-```
-
-## <a name="step-2---create-a-dns-zone"></a>2. Adım - Bir DNS bölgesi oluşturma
+## <a name="create-a-dns-zone"></a>DNS bölgesi oluşturma
 
 DNS bölgesi, `azure network dns zone create` komutu kullanılarak oluşturulur. Bu komutla ilgili yardım içeriğini görmek için `azure network dns zone create -h` yazın.
 
@@ -98,14 +43,14 @@ Aşağıdaki örnek, *MyResourceGroup* adlı kaynak grubunda *contoso.com* adlı
 azure network dns zone create MyResourceGroup contoso.com
 ```
 
-## <a name="step-3---verify"></a>3. Adım - Doğrulama
+## <a name="verify-your-dns-zone"></a>DNS bölgenizi doğrulama
 
 ### <a name="view-records"></a>Kayıtları görüntüleme
 
 Bir DNS bölgesinin oluşturulması aşağıdaki DNS kayıtlarını da oluşturur:
 
-* 'Yetki Başlangıcı' (SOA) kaydı. Bu, her DNS bölgesinin kökünde bulunur.
-* Yetkili ad sunucusu (NS) kayıtları. Bunlar, bölgeyi hangi ad sunucularının barındırdığını gösterir. Azure DNS bir ad sunucuları havuzu kullanır ve böylece farklı ad sunucuları Azure DNS'deki farklı bölgelere atanabilir. Daha fazla bilgi için bkz. [Azure DNS'ye bir etki alanı devretme](dns-domain-delegation.md) 
+* *Yetki Başlangıcı* (SOA) kaydı. Bu kayıt, her DNS bölgesinin kök dizininde bulunur.
+* Yetkili ad sunucusu (NS) kayıtları. Bu kayıtlar, bölgeyi hangi ad sunucularının barındırdığını gösterir. Azure DNS bir ad sunucuları havuzu kullanır ve böylece farklı ad sunucuları Azure DNS’deki farklı bölgelere atanabilir. Daha fazla bilgi için bkz. [Bir etki alanını Azure DNS’ye devretme](dns-domain-delegation.md).
 
 Bu kayıtları görüntülemek için `azure network dns-record-set list` kullanın:
 
@@ -144,10 +89,12 @@ info:    network dns record-set list command OK
 
 nslookup, dig veya `Resolve-DnsName` PowerShell cmdlet'i gibi DNS araçlarını kullanarak DNS bölgenizin Azure DNS ad sunucularında mevcut olup olmadığını kontrol edebilirsiniz.
 
-Azure DNS'de henüz yeni bölgeyi kullanmak için etki alanınızı devretmediyseniz DNS sorgusunu bölgenizin ad sunucularından birine doğrudan yönlendirmeniz gerekir. Bölgenizin ad sunucuları, yukarıda "azure network dns record-set show" olarak listelenip NS kayıtlarında verilir. Aşağıdaki komutta bölgeniz için doğru değerleri değiştirdiğinizden emin olun.
+Azure DNS'de henüz yeni bölgeyi kullanmak için etki alanınızı devretmediyseniz DNS sorgusunu bölgenizin ad sunucularından birine doğrudan yönlendirmeniz gerekir. Bölgenizin ad sunucuları NS kayıtlarında belirtilir ve `azure network dns record-set list` tarafından belirlenir.
 
-Aşağıdaki örnek, DNS bölgesi için atanmış ad sunucularını kullanarak domain.contoso.com sorgulamak için "dig" kullanır. Sorgunun bir ad sunucusuna işaret etmesi gerekiyor ve bunun için "dig" kullanarak *@\<bölge için ad sunucusu\>* ve bölge adlandırmasını kullandık.
+Aşağıdaki örnek, DNS bölgesi için atanmış ad sunucularını kullanarak domain.contoso.com sorgulamak için "dig" kullanır. Bölgeniz için doğru değerleri değiştirdiğinizden emin olun.
 
+     > dig @ns1-01.azure-dns.com contoso.com
+     
      <<>> DiG 9.10.2-P2 <<>> @ns1-01.azure-dns.com contoso.com
     (1 server found)
     global options: +cmd
@@ -171,11 +118,11 @@ Aşağıdaki örnek, DNS bölgesi için atanmış ad sunucularını kullanarak d
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bir DNS bölgesi oluşturduktan sonra, İnternet etki alanınız için DNS kayıtlarını oluşturmak amacıyla [kayıt kümeleri ve kayıtlar](dns-getstarted-create-recordset-cli.md) oluşturun.
+DNS bölgesi oluşturduktan sonra bölgenizde [DNS kayıt kümeleri ve kayıtları oluşturun](dns-getstarted-create-recordset-cli.md).
 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

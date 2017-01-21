@@ -1,5 +1,5 @@
 ---
-title: "Azure Multi-Factor Authentication Sunucusu’nu kullanmaya başlama"
+title: "Azure Multi-Factor Authentication Sunucusu’nu kullanmaya başlama | Microsoft Belgeleri"
 description: "Bu, nasıl Azure MFA Sunucusu kullanmaya başlayacağınızı açıklayan Azure Multi-Factor Authentication sayfasıdır."
 services: multi-factor-authentication
 keywords: "kimlik doğrulama sunucusu, azure multi factor authentication uygulaması etkinleştirme sayfası, kimlik doğrulama sunucusu indirme"
@@ -13,23 +13,28 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/29/2016
+ms.date: 01/03/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 2e2d680a0f54830f6086a4d6ac98f4a550f4ee46
-ms.openlocfilehash: 66726c39c09ed867beb999f9589dfef3f7cf65bb
+ms.sourcegitcommit: 0fec7a18e098891374b3b0d7313a72918b630918
+ms.openlocfilehash: 7fb107922af9d2316fb7490670002f4255572458
 
 ---
 
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication Sunucusu’nu kullanmaya başlama
 <center>![Şirket içi MFA](./media/multi-factor-authentication-get-started-server/server2.png)</center>
 
-Artık şirket içi Multi-Factor Authentication kullanıp kullanmayacağımıza karar verdiğimize göre, devam edebiliriz. Bu sayfa yeni bir sunucu yüklemeyi ve şirket içi Active Directory’de kurulumunu yapmayı ele alır. Zaten yüklü PhoneFactor sunucunuz varsa ve yükseltmek istiyorsanız, bkz. [Azure Multi-Factor Sunucusu’na yükseltme](multi-factor-authentication-get-started-server-upgrade.md) ya da yalnızca web hizmetini yüklemeye ilişkin bilgi arıyorsanız, bkz. [Azure Multi-Factor Authentication Sunucusu Mobil Uygulama Web Hizmeti’ni dağıtma](multi-factor-authentication-get-started-server-webservice.md).
+Artık şirket içi Multi-Factor Authentication Sunucusu’nı kullanıp kullanmayacağımıza karar verdiğimize göre, devam edebiliriz. Bu sayfa yeni bir sunucu yüklemeyi ve şirket içi Active Directory’de kurulumunu yapmayı ele alır. Zaten yüklü PhoneFactor sunucunuz varsa ve yükseltmek istiyorsanız, bkz. [Azure Multi-Factor Sunucusu’na yükseltme](multi-factor-authentication-get-started-server-upgrade.md) ya da yalnızca web hizmetini yüklemeye ilişkin bilgi arıyorsanız, bkz. [Azure Multi-Factor Authentication Sunucusu Mobil Uygulama Web Hizmeti’ni dağıtma](multi-factor-authentication-get-started-server-webservice.md).
 
 ## <a name="download-the-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication Sunucusu’nu indirme
 Azure Multi-Factor Authentication Sunucusu’nu indirmenin iki farklı yolu vardır. Her ikisi de Azure portal aracılığıyla yapılır. Birinci yol Multi-Factor Auth Sağlayıcısı’nı doğrudan yöneterek yapılandır. İkinci yol hizmet ayarları aracılığıyla yapılandır. İkinci seçenek Multi-Factor Auth Sağlayıcısı ya da Azure MFA, Azure AD Premium veya Enterprise Mobility Suite lisansı gerektirir.
 
-### <a name="to-download-the-azure-multi-factor-authentication-server-from-the-azure-classic-portal"></a>Klasik Azure portalından Azure Multi-Factor Authentication Sunucusu’nu indirmek için
+> [!Important]
+> Bu iki seçenek benzer görünebilir ancak hangisini kullanmanız gerektiğine karar vermeniz önemlidir. Kullanıcılarınız MFA ile verilen lisanslara sahipse, sunucu indirme sayfasına ulaşmak için Multi-Factor Auth Sağlayıcısı oluşturmayın. Bunun yerine 2. seçeneği kullanarak sunucuyu hizmet ayarları sayfasından indirin. 
+
+### <a name="option-1-download-azure-multi-factor-authentication-server-from-the-azure-classic-portal"></a>1. Seçenek: Azure Multi-Factor Authentication Sunucusu’nu Klasik Azure portalından indirin
+
+MFA için etkin kullanıcı veya kimlik doğrulama başına ödeme yaptığınız için Multi-Factor Auth Sağlayıcınız varsa bu indirme seçeneğini kullanın. 
 
 1. [Klasik Azure portalında](https://manage.windowsazure.com) yönetici olarak oturum açın.
 2. Sol taraftaki **Active Directory** öğesini seçin.
@@ -41,7 +46,10 @@ Azure Multi-Factor Authentication Sunucusu’nu indirmenin iki farklı yolu vard
    ![İndir](./media/multi-factor-authentication-get-started-server/download4.png)
 7. İndirmeyi kaydedin.
 
-### <a name="to-download-the-azure-multi-factor-authentication-server-from-the-service-settings"></a>Hizmet ayarlarından Azure Multi-Factor Authentication Sunucusu’nu indirmek için
+### <a name="option-2-download-azure-multi-factor-authentication-server-from-the-service-settings"></a>2. Seçenek: Azure Multi-Factor Authentication Sunucusu’nu hizmet ayarlarından indirin
+
+Enterprise Mobility Suite, Azure AD Premium veya Enterprise Cloud Suite lisansına sahipseniz bu indirme seçeneğini kullanın. 
+
 1. [Klasik Azure portalında](https://manage.windowsazure.com) yönetici olarak oturum açın.
 2. Sol taraftaki **Active Directory** öğesini seçin.
 3. Azure AD örneğinize çift tıklayın.
@@ -140,8 +148,8 @@ E-posta İçeriği sekmesinde, seçim yapabileceğiniz e-posta şablonlarını g
 
 Yukarıdaki alanlara ek olarak, doğrulama sonucu (başarılı/reddedildi) ve reddetme nedeni kimlik doğrulama verileriyle birlikte depolanır ve kimlik doğrulama/kullanım raporlarıyla kullanıma sunulur.
 
-## <a name="advanced-azure-multi-factor-authentication-server-configurations"></a>Gelişmiş Azure Multi-Factor Authentication Sunucusu Yapılandırmaları
-Gelişmiş kurulum ve yapılandırma bilgisi hakkında ek bilgiler için aşağıdaki tabloya bakın:
+## <a name="next-steps"></a>Sonraki adımlar
+Gelişmiş kurulum ve yapılandırma bilgisi hakkında ek bilgiler için aşağıdaki tabloda yer alan bağlantıları kullanın:
 
 | Yöntem | Açıklama |
 |:--- |:--- |
@@ -158,6 +166,6 @@ Gelişmiş kurulum ve yapılandırma bilgisi hakkında ek bilgiler için aşağ�
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 06/29/2016
 ms.author: yuaxu
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5137e0f33497dfe7ee815bb4bc30929364f6df72
+ms.sourcegitcommit: cafe4f2d9ae9a79fd2e27b8734bda43bb774eeb2
+ms.openlocfilehash: e0ef1b006a2b202c08a71caaff4ef4d763d50d0a
 
 
 ---
@@ -68,10 +68,11 @@ Bildirim hub'ınız şimdi GCM ile birlikte çalışmak üzere yapılandırıld�
 ### <a name="create-a-new-project"></a>Yeni bir proje oluşturma
 1. Xamarin Studio'da **New Solution**'a (Yeni Çözüm), **Android App **'e (Android Uygulaması) ve **Next**'e (İleri) tıklayın.
    
-       ![](./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-create-xamarin-android-project1.png)
+      ![](./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-create-xamarin-android-project1.png)
+
 2. **App Name**'i (Uygulama Adı) ve **Identifier**'ı (Tanımlayıcı) girin. Desteklemek istediğiniz **Target Plaforms**'a (Hedef Platformlar) tıklayın. Ardından, **Next** (İleri) ve **Create** (Oluştur) seçeneklerine tıklayın.
    
-       ![](./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-create-xamarin-android-project2.png)
+      ![](./media/partner-xamarin-notification-hubs-android-get-started/notification-hub-create-xamarin-android-project2.png)
 
     Bu, yeni bir Android projesi oluşturur.
 
@@ -84,7 +85,7 @@ Bildirim hub'ınız şimdi GCM ile birlikte çalışmak üzere yapılandırıld�
    > 
    > 
    
-       ![](./media/partner-xamarin-notification-hubs-android-get-started/notification-hub--xamarin-android-app-options.png)
+      ![](./media/partner-xamarin-notification-hubs-android-get-started/notification-hub--xamarin-android-app-options.png)
 2. İsteğe bağlı olarak, **Minimum Android version**'ı (Minimum Android sürümü) başka bir API Düzeyine ayarlayın.
 3. İsteğe bağlı olarak, **Target Android version**'ı (Hedef Android sürümü) hedeflemek istediğiniz başka bir API sürümüne ayarlayın (API düzeyi 8 veya üzeri olmalıdır).
 
@@ -343,10 +344,10 @@ Bu uygulamayı öykünücüde çalıştırırsanız Google API'lerini destekleye
 
 1. **Tools**'da (Araçlar), **Open Android Emulator Manager** (Android Öykünücüsü Yöneticisini Aç) seçeneğine tıklayın, cihazınızı açın ve ardından **Edit** (Düzenle) seçeneğine tıklayın.
    
-       ![][18]
+      ![][18]
 2. **Target** (Hedef) içinde **Google APIs** (Google API'leri) seçeneğini belirleyin ve ardından **Tamam**'a tıklayın.
    
-       ![][19]
+      ![][19]
 3. Üst araç çubuğunda **Run**'a (Çalıştır) tıklayın ve ardından uygulamanızı seçin. Bu, öykünücüyü başlatır ve uygulamayı çalıştırır.
    
    Uygulama GCM'den *registrationId* öğesini alır ve bildirim hub'ına kaydeder.
@@ -371,7 +372,7 @@ Bu bölümde, .NET konsol uygulaması kullanarak bildirim göndereceğiz
 
 1. Yeni bir Visual C# konsol uygulaması oluşturun:
    
-       ![][20]
+      ![][20]
 2. Visual Studio'da **Araçlar**'a, **NuGet Paket Yöneticisi**'ne ve ardından **Paket Yöneticisi Konsolu**'na tıklayın.
    
     Bu, Visual Studio'da Paket Yöneticisi Konsolu'nu görüntüler.
@@ -398,17 +399,17 @@ Bu bölümde, .NET konsol uygulaması kullanarak bildirim göndereceğiz
          Console.ReadLine();
 7. Uygulamayı çalıştırmak için F5 tuşuna basın. Uygulamada bir bildirim almanız gerekir.
    
-       ![][21]
+      ![][21]
 
 #### <a name="optional-send-notifications-by-using-a-mobile-service"></a>(İsteğe bağlı) Mobil hizmet kullanarak bildirim gönderme
 1. [Mobile Services'i kullanmaya başlama]'yı izleyin.
 2. [Klasik Azure Portalı]'nda oturum açın ve mobil hizmetinizi seçin.
 3. Üst kısımdaki **Scheduler** sekmesini seçin.
    
-       ![][22]
+      ![][22]
 4. Yeni bir zamanlanan iş oluşturun, ad ekleyin ve **İsteğe bağlı**'yı seçin.
    
-       ![][23]
+      ![][23]
 5. İş oluşturulduğunda iş adına tıklayın. Ardından, üst çubukta **Betik** sekmesine tıklayın.
 6. Zamanlayıcı işlevinizin içine aşağıdaki betiği ekleyin. Yer tutucularını daha önce edindiğiniz bildirim hub'ı adınız ve *DefaultFullSharedAccessSignature* bağlantı dizeniz ile değiştirdiğinizden emin olun. **Kaydet** düğmesine tıklayın.
    
@@ -432,12 +433,12 @@ Bu bölümde, .NET konsol uygulaması kullanarak bildirim göndereceğiz
 Bu basit örnekte, tüm Android cihazlarınıza bildirimler yayımladınız. Belirli kullanıcıları hedeflemek için, [Kullanıcılara anında iletme bildirimleri göndermek için Notification Hubs’ı kullanma] öğreticisine bakın. Kullanıcılarınızı ilgi alanı gruplarına göre segmentlere ayırmak istiyorsanız [Son dakika haberleri göndermek için Notification Hubs kullanma]'yı okuyabilirsiniz. [Notification Hubs Kılavuzu] ve [Android İçin Notification Hubs'ı Kullanma]'da Notification Hubs'ı kullanma hakkında daha fazla bilgi edinin.
 
 <!-- Anchors. -->
-[Google Cloud Messaging'i etkinleştirme]: #register
-[Bildirim Hub'ınızı yapılandırma]: #configure-hub
-[Uygulamanızı Bildirim Hub'ına bağlama]: #connecting-app
-[Uygulamanızı öykünücü ile çalıştırma]: #run-app
-[Arka ucunuzdan bildirim gönderme]: #send
-[Sonraki adımlar]:#next-steps
+[Enable Google Cloud Messaging]: #register
+[Configure your Notification Hub]: #configure-hub
+[Connecting your app to the Notification Hub]: #connecting-app
+[Run your app with the emulator]: #run-app
+[Send notifications from your back-end]: #send
+[Next steps]:#next-steps
 
 <!-- Images. -->
 
@@ -458,27 +459,27 @@ Bu basit örnekte, tüm Android cihazlarınıza bildirimler yayımladınız. Bel
 
 
 <!-- URLs. -->
-[Uygulama gönderme sayfası]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[Uygulamalarım]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Windows için Live SDK]: http://go.microsoft.com/fwlink/p/?LinkId=262253
+[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
+[Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 [Mobile Services'i kullanmaya başlama]: /develop/mobile/tutorials/get-started-xamarin-android/#create-new-service
-[JavaScript ve HTML]: /develop/mobile/tutorials/get-started-with-push-js
+[JavaScript and HTML]: /develop/mobile/tutorials/get-started-with-push-js
 
 [Klasik Azure Portalı]: https://manage.windowsazure.com/
-[wns nesnesi]: http://go.microsoft.com/fwlink/p/?LinkId=260591
+[wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 [Notification Hubs Kılavuzu]: http://msdn.microsoft.com/library/jj927170.aspx
 [Android İçin Notification Hubs'ı Kullanma]: http://msdn.microsoft.com/library/dn282661.aspx
 
 [Kullanıcılara anında iletme bildirimleri göndermek için Notification Hubs’ı kullanma]: /manage/services/notification-hubs/notify-users-aspnet
 [Son dakika haberleri göndermek için Notification Hubs kullanma]: /manage/services/notification-hubs/breaking-news-dotnet
-[GCMClient Bileşen sayfası]: http://components.xamarin.com/view/GCMClient
-[Xamarin.NotificationHub GitHub sayfası]: https://github.com/SaschaDittmann/Xamarin.NotificationHub
+[GCMClient Component page]: http://components.xamarin.com/view/GCMClient
+[Xamarin.NotificationHub GitHub page]: https://github.com/SaschaDittmann/Xamarin.NotificationHub
 [GitHub]: http://go.microsoft.com/fwlink/p/?LinkId=331329
 [Google Cloud Messaging İstemci Bileşeni]: http://components.xamarin.com/view/GCMClient/
 [Azure Mesajlaşma Bileşeni]: http://components.xamarin.com/view/azure-messaging
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

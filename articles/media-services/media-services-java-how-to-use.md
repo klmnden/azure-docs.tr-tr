@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: get-started-article
-ms.date: 10/19/2016
+ms.date: 12/20/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 97af28a2f225fa7f5db2086687c38c64e03ebc8f
+ms.sourcegitcommit: 18054a72c3ead02311465d97dc13b7b5e4d87321
+ms.openlocfilehash: 401b3c931fa046ee2bdf0a12e9e837b820ec5464
 
 
 ---
@@ -24,14 +24,14 @@ ms.openlocfilehash: 97af28a2f225fa7f5db2086687c38c64e03ebc8f
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
 ## <a name="setting-up-an-azure-account-for-media-services"></a>Media Services İçin Bir Azure Hesabı Ayarlama
-Media Services hesabınızı ayarlamak için Klasik Azure Portalı'nı kullanın. [Media Services Hesabı Oluşturma](media-services-portal-create-account.md) konusuna bakın. Klasik Azure Portalı'nda hesabınızı oluşturduktan sonra, bilgisayarınızı Media Services geliştirmeye yönelik olarak ayarlamaya hazır olursunuz.
+Media Services hesabınızı ayarlamak için Azure portal'ı kullanın. [Media Services Hesabı Oluşturma](media-services-portal-create-account.md) konusuna bakın. Azure portal'da hesabınızı oluşturduktan sonra, bilgisayarınızı Media Services geliştirmeye yönelik olarak ayarlamaya hazır olursunuz.
 
 ## <a name="setting-up-for-media-services-development"></a>Media Services geliştirmeye yönelik ayarlama
 Bu bölüm, Java için Media Services SDK'sını kullanarak Media Services geliştirmenin genel önkoşullarını içerir.
 
 ### <a name="prerequisites"></a>Ön koşullar
 * Yeni veya mevcut bir Azure aboneliğinde bir Media Services hesabı. [Media Services Hesabı Oluşturma](media-services-portal-create-account.md) konusuna bakın.
-* [Azure Java Geliştirici Merkezi][Azure Java Geliştirici Merkezi]’nden yüklenebilecek Java için Azure Kitaplıkları.
+* [Azure Java Geliştirici Merkezi][Azure Java Developer Center]’nden yüklenebilecek olan Java için Azure Kitaplıkları.
 
 ## <a name="how-to-use-media-services-with-java"></a>Nasıl yapılır: Java ile Media Services’i kullanma
 Aşağıdaki kod bir varlık oluşturma, varlığa bir medya dosyası yükleme, varlığı dönüştürecek bir göreve sahip olan bir işi çalıştırma ve videonuzu akışla aktarmak için bir bulucu oluşturma işlemlerinin nasıl gerçekleştirileceğini gösterir.
@@ -260,16 +260,16 @@ Bu kodu kullanmadan önce bir Media Services hesabı ayarlamanız gerekir. Hesap
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="additional-resources"></a>Ek Kaynaklar
-Media Services Javadoc belgeleri için bkz. [Java için Azure Kitaplıkları belgeleri][Java için Azure Kitaplıkları belgeleri].
+Media Services Javadoc belgeleri için bkz. [Java için Azure Kitaplıkları belgeleri][Azure Libraries for Java documentation].
 
 <!-- URLs. -->
 
-[Azure Java Geliştirici Merkezi]: http://azure.microsoft.com/develop/java/
-[Java için Azure Kitaplıkları belgeleri]: http://dl.windowsazure.com/javadoc/
-[Media Services İstemci Geliştirme]: http://msdn.microsoft.com/library/windowsazure/dn223283.aspx
+[Azure Java Developer Center]: http://azure.microsoft.com/develop/java/
+[Azure Libraries for Java documentation]: http://dl.windowsazure.com/javadoc/
+[Media Services Client Development]: http://msdn.microsoft.com/library/windowsazure/dn223283.aspx
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,6 +1,6 @@
 ---
 title: "DocumentDB için NoSQL Node.js öğreticisi | Microsoft Belgeleri"
-description: "DocumentDB Node.js SDK&quot;sını kullanarak düğüm veritabanı ve konsol uygulaması oluşturan bir NoSQL Node.js öğreticisi. DocumentDB, JSON için bir NoSQL veritabanıdır."
+description: "DocumentDB Node.js SDK&quot;sını kullanarak NoSQL veritabanı ve konsol uygulaması oluşturan bir NoSQL Node.js öğreticisi. DocumentDB, JSON için bir NoSQL veritabanıdır."
 keywords: "node.js öğreticisi, düğüm veritabanı"
 services: documentdb
 documentationcenter: node.js
@@ -13,22 +13,25 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: node
 ms.topic: hero-article
-ms.date: 08/11/2016
+ms.date: 12/25/2016
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 06707b45944ee6b0810fbd45abbf69dccc1e00e1
+ms.sourcegitcommit: 16bff1b5708652a75ea603f596c864901b12a88d
+ms.openlocfilehash: 08f4cd48ea41d66203e296415181d5da14327854
 
 
 ---
 # <a name="nosql-nodejs-tutorial-documentdb-nodejs-console-application"></a>NoSQL Node.js öğreticisi: DocumentDB Node.js konsol uygulaması
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
+> * [.NET Core](documentdb-dotnetcore-get-started.md)
+> * [Java](documentdb-java-get-started.md)
 > * [Node.js](documentdb-nodejs-get-started.md)
-> 
+> * [C++](documentdb-cpp-get-started.md)
+>  
 > 
 
-Azure DocumentDB Node.js SDK'sı için Node.js öğreticisine hoş geldiniz! Bu öğreticiden yararlandıktan sonra, bir Node veritabanı dahil olmak üzere DocumentDB kaynaklarını oluşturan ve sorgulayan bir konsol uygulamasına sahip olacaksınız.
+Azure DocumentDB Node.js SDK'sı için Node.js öğreticisine hoş geldiniz! Bu öğreticiyi uyguladıktan sonra, DocumentDB kaynaklarını oluşturan ve sorgulayan bir konsol uygulamasına sahip olacaksınız.
 
 Şu konulara değineceğiz:
 
@@ -52,10 +55,11 @@ Node.js öğreticisini tamamladıktan sonra, bize geri bildirim sağlamak için 
 Lütfen aşağıdakilere sahip olduğunuzdan emin olun:
 
 * Etkin bir Azure hesabı. Bir aboneliğiniz yoksa [Ücretsiz Azure Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/) için kaydolabilirsiniz.
+    * Alternatif olarak bu öğretici için [Azure DocumentDB Öykünücüsü](documentdb-nosql-local-emulator.md)’nü kullanabilirsiniz.
 * [Node.js](https://nodejs.org/) v0.10.29 sürümü veya sonraki bir sürüm.
 
 ## <a name="step-1-create-a-documentdb-account"></a>1. Adım: DocumentDB hesabı oluşturma
-Bir DocumentDB hesabı oluşturalım. Kullanmak istediğiniz bir hesap zaten varsa [Node.js uygulamanızı kurma](#SetupNode)'ya atlayabilirsiniz.
+Bir DocumentDB hesabı oluşturalım. Kullanmak istediğiniz bir hesap zaten varsa [Node.js uygulamanızı kurma](#SetupNode)'ya atlayabilirsiniz. DocumentDB Öykünücüsü’nü kullanıyorsanız öykünücünün kurulumunu gerçekleştirmek için lütfen [Azure DocumentDB Öykünücüsü](documentdb-nosql-local-emulator.md) konusundaki adımları izleyin ve [Node.js uygulamanızı kurma](#SetupNode) adımına atlayın.
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
@@ -65,10 +69,10 @@ Bir DocumentDB hesabı oluşturalım. Kullanmak istediğiniz bir hesap zaten var
 3. Aşağıdaki komutlarla iki adet boş JavaScript dosyası oluşturun:
    * Windows:
      * ```fsutil file createnew app.js 0```
-       * ```fsutil file createnew config.js 0```
+     * ```fsutil file createnew config.js 0```
    * Linux/OS X:
      * ```touch app.js```
-       * ```touch config.js```
+     * ```touch config.js```
 4. Npm aracılığıyla documentdb modülünü yükleyin. Aşağıdaki komutu kullanın:
    * ```npm install documentdb --save```
 
@@ -263,7 +267,7 @@ Tebrikler! Başarılı bir şekilde bir DocumentDB veritabanı oluşturdunuz.
 
 Bir [koleksiyon](documentdb-resources.md#collections), **DocumentClient** sınıfının [createCollection](https://azure.github.io/azure-documentdb-node/DocumentClient.html) işlevi kullanılarak oluşturulabilir. Koleksiyon, JSON belgelerinin ve ilişkili JavaScript uygulama mantığının bir kapsayıcısıdır.
 
-```config``` nesnesinde belirtilmiş ```id``` ile yeni koleksiyonunuzu oluşturmak üzere **getCollection** işlevini kopyalayıp **getDatabase** işlevinin altına yapıştırın. Yine aynı ```FamilyCollection``` kimliğine sahip bir koleksiyonun zaten var olup olmadığını denetleyeceğiz. Varsa yeni bir koleksiyon oluşturmak yerine var olan koleksiyonu getireceğiz.
+```config``` nesnesinde belirtilmiş ```id``` ile yeni koleksiyonunuzu oluşturmak üzere **getCollection** işlevini kopyalayıp app.js dosyasındaki **getDatabase** işlevinin altına yapıştırın. Yine aynı ```FamilyCollection``` kimliğine sahip bir koleksiyonun zaten var olup olmadığını denetleyeceğiz. Varsa yeni bir koleksiyon oluşturmak yerine var olan koleksiyonu getireceğiz.
 
                 } else {
                     resolve(result);
@@ -366,7 +370,7 @@ Tebrikler! Başarılı bir şekilde bir DocumentDB belgesi oluşturdunuz.
 ## <a name="a-idqueryastep-8-query-documentdb-resources"></a><a id="Query"></a>8. Adım: DocumentDB kaynaklarını sorgulama
 DocumentDB, her bir koleksiyonda depolanan JSON belgeleri için [zengin sorguların](documentdb-sql-query.md) gerçekleştirilmesini destekler. Aşağıdaki örnek kod, koleksiyonunuzdaki belgeler için çalıştırabileceğiniz bir sorguyu gösterir.
 
-**queryCollection** işlevini kopyalayıp **getFamilyDocument** işlevinin altına yapıştırın. DocumentDB, aşağıda gösterildiği gibi SQL benzeri sorguları destekler. Karmaşık sorgular derleme hakkında daha fazla bilgi için [Query Playground](https://www.documentdb.com/sql/demo) sayfasını ve [sorgu belgelerini](documentdb-sql-query.md) inceleyin.
+**queryCollection** işlevini kopyalayıp app.js dosyasındaki **getFamilyDocument** işlevinin altına yapıştırın. DocumentDB, aşağıda gösterildiği gibi SQL benzeri sorguları destekler. Karmaşık sorgular derleme hakkında daha fazla bilgi için [Query Playground](https://www.documentdb.com/sql/demo) sayfasını ve [sorgu belgelerini](documentdb-sql-query.md) inceleyin.
 
                 } else {
                     resolve(result);
@@ -423,7 +427,7 @@ Tebrikler! DocumentDB belgelerini başarılı bir şekilde sorguladınız.
 ## <a name="a-idreplacedocumentastep-9-replace-a-document"></a><a id="ReplaceDocument"></a>9. Adım: Bir belgeyi değiştirme
 DocumentDB, JSON belgelerini değiştirmeyi destekler.
 
-**replaceDocument** işlevini **queryCollection** işlevinin altına kopyalayıp yapıştırın
+**replaceFamilyDocument** işlevini kopyalayıp app.js dosyasındaki **queryCollection** işlevinin altına yapıştırın.
 
                     }
                     console.log();
@@ -470,7 +474,7 @@ Tebrikler! Bir DocumentDB belgesini başarıyla değiştirdiniz.
 ## <a name="a-iddeletedocumentastep-10-delete-a-document"></a><a id="DeleteDocument"></a>10. Adım: Bir belgeyi silme
 DocumentDB, JSON belgelerini silmeyi destekler.
 
-**deleteDocument** işlevini **replaceDocument** işlevinin altına kopyalayıp yapıştırın.
+**deleteFamilyDocument** işlevini **replaceFamilyDocument** işlevinin altına kopyalayıp yapıştırın.
 
                 else {
                     resolve(result);
@@ -514,7 +518,7 @@ Tebrikler! Bir DocumentDB belgesini başarıyla sildiniz.
 ## <a name="a-iddeletedatabaseastep-11-delete-the-node-database"></a><a id="DeleteDatabase"></a>11. Adım: Node veritabanını silme
 Oluşturulan veritabanı silindiğinde, veritabanı ve tüm alt kaynaklar (koleksiyonlar, belgeler vb.) kaldırılır.
 
-Veritabanını ve tüm alt kaynaklarını kaldırmak için aşağıdaki kod parçacığını (**cleanup** işlevi) kopyalayıp yapıştırın.
+Veritabanını ve tüm alt kaynaklarını kaldırmak için **cleanup** işlevini kopyalayıp **deleteFamilyDocument** işlevinin altına yapıştırın.
 
                 else {
                     resolve(result);
@@ -535,7 +539,7 @@ Veritabanını ve tüm alt kaynaklarını kaldırmak için aşağıdaki kod par�
         });
     }
 
-**cleanup** işlevini yürütmek için **deleteDocument**'a çağrının altına kodu kopyalayıp yapıştırın.
+**cleanup** işlevini yürütmek için **deleteFamilyDocument**'a çağrının altına kodu kopyalayıp yapıştırın.
 
     .then(() => deleteFamilyDocument(config.documents.Andersen))
 
@@ -598,7 +602,9 @@ Başlarken uygulamanızın çıktısını görmeniz gerekir. Çıktı aşağıda
 Tebrikler! Node.js öğreticisini tamamladınız ve ilk DocumentDB konsol uygulamanızı oluşturdunuz.
 
 ## <a name="a-idgetsolutionaget-the-complete-nodejs-tutorial-solution"></a><a id="GetSolution"></a>Eksiksiz Node.js öğreticisi çözümünü edinme
-Bu makaledeki tüm örnekleri içeren GetStarted çözümünü derlemek için aşağıdakilere ihtiyacınız vardır:
+Bu öğreticideki adımları tamamlama fırsatınız olmadıysa veya yalnızca kodu indirmek isterseniz [Github](https://github.com/Azure-Samples/documentdb-node-getting-started)'dan ulaşabilirsiniz.
+
+Bu makaledeki tüm örnekleri içeren GetStarted çözümünü çalıştırmak için aşağıdakilere ihtiyacınız vardır:
 
 * [DocumentDB hesabı][documentdb-create-account].
 * GitHub'da bulunan [GetStarted](https://github.com/Azure-Samples/documentdb-node-getting-started) çözümü.
@@ -607,7 +613,11 @@ Npm aracılığıyla **documentdb** modülünü yükleyin. Aşağıdaki komutu k
 
 * ```npm install documentdb --save```
 
-Ardından, ```config.js``` dosyasında config.endpoint ve config.authKey değerlerini [3. Adım: Uygulamanızın yapılandırmalarını ayarlama](#Config) bölümünde açıklandığı gibi güncelleştirin.
+Ardından, ```config.js``` dosyasında config.endpoint ve config.authKey değerlerini [3. Adım: Uygulamanızın yapılandırmalarını ayarlama](#Config) bölümünde açıklandığı gibi güncelleştirin. 
+
+Ardından terminalinizde ```app.js``` dosyanızı bulun ve şu komutu çalıştırın: ```node app.js```.
+
+Hepsi bu kadar, derleyin ve devam edin! 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Daha karmaşık bir Node.js örneği ister misiniz? Bkz. [DocumentDB kullanarak bir Node.js web uygulaması derleme](documentdb-nodejs-application.md).
@@ -616,12 +626,10 @@ Ardından, ```config.js``` dosyasında config.endpoint ve config.authKey değerl
 * [DocumentDB belge sayfasının](https://azure.microsoft.com/documentation/services/documentdb/) Geliştirme bölümünde programlama modeli hakkında daha fazla bilgi edinin.
 
 [documentdb-create-account]: documentdb-create-account.md
-[documentdb-manage]: documentdb-manage.md
-
 [keys]: media/documentdb-nodejs-get-started/node-js-tutorial-keys.png
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -17,8 +17,8 @@ ms.workload: NA
 ms.date: 09/06/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: ad6fb631f05b1e88e8cbaaca83f9863cfb643269
-ms.openlocfilehash: e5a6c17117e0c79d86c45a07f69433a96fdb9052
+ms.sourcegitcommit: 3d619f5d6959594ee9b139d611d7e45390a40c55
+ms.openlocfilehash: d9b0eaa48d71f3ecf0a23f3bddb3c777c98afea7
 
 
 ---
@@ -37,9 +37,9 @@ eDTU, Azure SQL sunucusundaki bir grup veritabanı arasında paylaşılan bir ka
 
 ![SQL Veritabanı'na Giriş: Katmana ve düzeye göre eDTU’lar](./media/sql-database-what-is-a-dtu/sqldb_elastic_pools.png)
 
-Havuza belirli bir fiyat karşılığında, belirli bir sayıda eDTU verilir. Havuz içerisinde tek tek veritabanlarına belirli parametreler içinde otomatik olarak ölçeklendirme esnekliği tanınır. Veritabanı, yoğun bir yük altındayken talebi karşılamak üzere daha fazla eDTU kullanabilir. Yükü az olan veritabanları daha az eDTU kullanır ve yükü bulunmayan veritabanları eDTU kullanmaz. Tek tek veritabanları yerine tüm havuz için kaynak sağlamak, yönetim görevlerinizi basitleştirir. Ayrıca, havuza yönelik bütçeniz tahmin edilebilir bir hale gelir.
+Havuza belirli bir fiyat karşılığında, belirli bir sayıda eDTU verilir. Elastik havuz içerisinde tek veritabanlarına yapılandırılan sınırlar içinde otomatik olarak ölçeklendirme elastikliği tanınır. Bir veritabanı ağır yük altında talebi karşılamak için daha fazla eDTU kullanırken yükü hafif olan veritabanları daha az kullanabilir ve yük altında olmayan veritabanları eDTU’ya hiç ihtiyaç duymayabilir. Kaynakları tek bir veritabanı yerine havuzun tamamına sağlayarak yönetim görevlerini daha kolay hale getirebilir ve havuz için tahmin edilebilir bir bütçe oluşturabilirsiniz.
 
-Mevcut bir havuza, veritabanı kapalı kalma süresi veya esnek havuzdaki veritabanları üzerinde herhangi bir etkisi olmadan ek eDTU’lar eklenebilir. Benzer şekilde, ek eDTU’lara artık ihtiyaç yoksa bunlar mevcut bir havuzdan ne zaman isterseniz kaldırılabilir. Havuza veritabanları ekleyebilir veya havuzdan veritabanları kaldırabilirsiniz. Bir veritabanı kaynakları tahmin edilebilir bir şekilde normalden az kullanıyorsa bu veritabanını havuzdan çıkarın.
+Mevcut bir havuza, veritabanı kapalı kalma süresi ve havuzdaki veritabanları üzerinde herhangi bir etkisi olmadan ek eDTU’lar eklenebilir. Benzer şekilde, ek eDTU’lara artık ihtiyaç yoksa bunlar mevcut bir havuzdan ne zaman isterseniz kaldırılabilir. Havuza veritabanı ekleyebilir veya var olanları kaldırabilir ya da eDTU’ları diğer veritabanları için ayırmak üzere ağır yük altındaki bir veritabanının kullanabileceği eDTU miktarını sınırlayabilirsiniz. Bir veritabanı kaynakları çok az kullanıyorsa onu havuzdan çıkarabilir ve gereken tahmini kaynaklarla tek veritabanı olarak yapılandırabilirsiniz.
 
 ## <a name="how-can-i-determine-the-number-of-dtus-needed-by-my-workload"></a>İş yükümün ihtiyacı olan DTU sayısını nasıl belirleyebilirim?
 Mevcut bir şirket içi veya SQL Server sanal makine iş yükünü Azure SQL Veritabanı’na geçirmek istiyorsanız, gereken yaklaşık DTU sayısını belirlemek için [DTU Hesaplayıcı](http://dtucalculator.azurewebsites.net/)’yı kullanabilirsiniz. Mevcut bir Azure SQL Veritabanı iş yükünüzü iyileştirecek öngörüleri kazanmak amacıyla veritabanı kaynak tüketiminizi (DTU'lar) daha iyi anlamak için [SQL Veritabanı Sorgu Performansı Öngörüleri](sql-database-query-performance.md)’ni kullanabilirsiniz. [sys.dm_db_ resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) DMV’sini kullanarak son bir saate ait kaynak tüketimi bilgilerini de alabilirsiniz. Alternatif olarak, [sys.resource_stats](http://msdn.microsoft.com/library/dn269979.aspx) katalog görünümü sorgulanarak aynı veriler son 14 gün için de alınabilir. Ancak bu veriler, beş dakikalık ortalamalar şeklinde daha düşük bir aslına uygunluk düzeyindedir.

@@ -17,8 +17,8 @@ ms.topic: hero-article
 ms.date: 12/08/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: bc36f38c0089940e8f4f53a0abb13d9bb756eb1e
+ms.sourcegitcommit: 7f26cd0f6c5f9c7a2fe692bfcdc6ef60d1b2200f
+ms.openlocfilehash: d4ea089ed4b5d29c261b25e95f4d304611f9a857
 
 
 ---
@@ -104,11 +104,10 @@ Bu kullanmaya başlama öğreticisinde, Azure portalını kullanarak şu işleml
 
 * [Azure portalı ve SQL Server Management Studio aracılığıyla Azure SQL Veritabanı sunucularını, veritabanlarını ve güvenlik duvarı kurallarını kullanmaya başlama](sql-database-get-started.md) öğreticisini veya bu öğreticinin [PowerShell sürümünü](sql-database-get-started-powershell.md) tamamladınız. Tamamlamadıysanız, bu öğretici önkoşulunu tamamlayın veya devam etmeden önce bu öğreticinin [PowerShell sürümünün](sql-database-get-started-powershell.md) sonundaki PowerShell betiğini çalıştırın.
 
-<!------------------
+
 > [!TIP]
-> You can perform these same tasks in a getting started tutorial by using either [C#](sql-database-get-started-csharp.md) or [PowerShell](sql-database-get-started-powershell.md).
->
--------------------->
+> Aynı görevleri, [PowerShell](sql-database-get-started-backup-recovery-powershell.md) aracılığıyla kullanmaya başlama öğreticilerinde de gerçekleştirebilirsiniz.
+
 
 ## <a name="sign-in-by-using-your-existing-account"></a>Var olan hesabınızı kullanarak oturum açın
 [Var olan aboneliğinizi](https://account.windowsazure.com/Home/Index) kullanarak Azure portala bağlanmak için aşağıdaki adımları uygulayın.
@@ -179,6 +178,11 @@ Bu kullanmaya başlama öğreticisinde, Azure portalını kullanarak şu işleml
 ## <a name="configure-long-term-retention-of-automated-backups-in-an-azure-recovery-services-vault"></a>Otomatik yedekleri Azure Kurtarma Hizmetleri kasasında uzun süreli saklamak üzere yapılandırma 
 
 Öğreticinin bu bölümünde [Azure Kurtarma Hizmetleri kasasını yapılandırarak otomatik yedekleri](sql-database-long-term-retention.md) hizmet katmanınızın saklama süresinden daha uzun bir süre saklamayı öğreneceksiniz. 
+
+
+> [!TIP]
+> Yedekleri silmek için bkz. [Uzun süreli saklama yedeklerini silme](sql-database-long-term-retention-delete.md).
+
 
 1. Sunucunuzun **SQL Server** dikey penceresini açın, **sqldbtutorialserver**.
 
@@ -299,12 +303,12 @@ Bu kullanmaya başlama öğreticisinde, Azure portalını kullanarak şu işleml
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Hizmet tarafından oluşturulan otomatik yedekler hakkında bilgi edinmek için bkz. [otomatik yedekler](: https://azure.microsoft.com/en-us/documentation/articles/)sql-database-automated-backups.MD)
+- Hizmet tarafından oluşturulan otomatik yedekler hakkında bilgi edinmek için bkz. [otomatik yedekler](sql-database-automated-backups.md)
 - Uzun süreli yedek saklama hakkında bilgi edinmek için bkz. [uzun süreli yedek saklama](sql-database-long-term-retention.md)
 - Yedekleri geri yükleme hakkında bilgi edinmek için bkz. [yedekten geri yükleme](sql-database-recovery-using-backups.md)
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO4-->
 
 

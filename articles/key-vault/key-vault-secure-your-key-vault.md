@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 10/07/2016
+ms.date: 01/07/2017
 ms.author: ambapat
 translationtype: Human Translation
-ms.sourcegitcommit: c40545833da86426d3e71955b8eb8627db3c1e4b
-ms.openlocfilehash: fd93a6634175df47cd3ef871b01d08e9f5fea27b
+ms.sourcegitcommit: 36e0a52013b8d12c7e66c5955756a61a2c72b7dc
+ms.openlocfilehash: c3507aed3cc44d6360b8ba3ddf172e1437c1227a
 
 
 ---
@@ -233,7 +233,7 @@ Bu örnekte basit bir senaryo gösterilmektedir. Gerçek yaşam senaryoları dah
   Anahtar kasası REST API başvuru belgelerinin bağlantısı.
 * [Anahtar erişim denetimi](https://msdn.microsoft.com/library/azure/dn903623.aspx#BKMK_KeyAccessControl)
   
-  Anahtar erişim denetimi başvuru belgelerinin bağlantısı.
+  Gizli anahtar erişim denetimi başvuru belgelerinin bağlantısı.
 * [Gizli anahtar erişim denetimi](https://msdn.microsoft.com/library/azure/dn903623.aspx#BKMK_SecretAccessControl)
   
   Anahtar erişim denetimi başvuru belgelerinin bağlantısı.
@@ -253,6 +253,6 @@ Anahtar kasası ile ilgili sorularınız varsa bkz. [Azure Anahtar Kasası Forum
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

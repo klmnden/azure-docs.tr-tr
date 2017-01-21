@@ -6,18 +6,18 @@ documentationcenter:
 author: mgoedtel
 manager: jwhit
 editor: 
-keywords: "hizmet asıl adı, setspn, azure kimlik doğrulaması"
+keywords: "hizmet sorumlusu, setspn, azure kimlik doğrulaması"
 ms.assetid: 2f783441-15c7-4ea0-ba27-d7daa39b1dd3
 ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/17/2016
+ms.date: 01/05/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 32afda1861c2c558f8bb9ffedf897cd8d1df0b5c
+ms.sourcegitcommit: aec8fd057bd31fc933d19996567437b2a897623b
+ms.openlocfilehash: 889c9a53e3ce454ee9ac9fc0f24b2ff8244e87c6
 
 
 ---
@@ -54,7 +54,7 @@ Bunu yapmadan önce anlamanız ve göz önünde bulundurmanız gereken birkaç n
 Bu bölümde, yeni bir Azure Otomasyonu hesabını Azure portalından oluşturmak için aşağıdaki adımları gerçekleştireceksiniz.  Bu işlem hem Farklı Çalıştır hem de klasik Farklı Çalıştır hesabı oluşturur.  
 
 > [!NOTE]
-> Bu adımları gerçekleştiren kullanıcı, Abonelik Yöneticileri rolünün üyesi ve kullanıcıya abonelik erişimi veren aboneliğin ortak yöneticisi *olmalıdır*.  Kullanıcı ayrıca ilgili aboneliğin varsayılan Active Directory’sine Kullanıcı olarak eklenmelidir; hesabın ayrıcalıklı bir role atanması gerekmez.
+> Bu adımları gerçekleştiren kullanıcı, Hizmet Yöneticileri rolünün üyesi veya kullanıcıya abonelik erişimi veren aboneliğin ortak yöneticisi olmalıdır. Kullanıcı ayrıca ilgili aboneliğin varsayılan Active Directory’sine Kullanıcı olarak eklenmelidir; hesabın ayrıcalıklı bir role atanması gerekmez. Aboneliğin Ortak Yönetici rolüne eklenmeden önce Aboneliğin Active Directory üyesi olmayan kullanıcılar, Active Directory’ye Konuk olarak eklenir ve **Otomasyon Hesabı Ekle** dikey penceresinde "Oluşturma izniniz yok..." uyarısı görüntülenir. İlk olarak ortak yönetici rolüne eklenen kullanıcılar Active Directory aboneliklerinden kaldırılabilir ve tekrar eklenerek Active Directory’ye tam bir Kullanıcı haline getirilebilir. Bu durumu Azure portalındaki **Azure Active Directory** bölmesinde **Kullanıcılar ve gruplar**’ı ardından **Tüm kullanıcılar**’ı seçtikten sonra gerekli kullanıcıyı seçip **Profil**’i seçerek doğrulayabilirsiniz.  Kullanıcı profili altındaki **Kullanıcı türü** özniteliğinin **Konuk** olmaması gerekir.  
 > 
 > 
 
@@ -394,6 +394,6 @@ Runbook’larınızla klasik kaynakları yönetecek Klasik Farklı Çalıştır 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 
