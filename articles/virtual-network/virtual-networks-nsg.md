@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: c3b96b583260bc8975082b952929d524e4040730
-ms.openlocfilehash: ba8bfc32b6662f629fc2203f605f8d9f51b3b559
+ms.sourcegitcommit: 1de0827c01c772a4298b7b568363e89f08910ff7
+ms.openlocfilehash: 46dce57f509872580c57bb1d8d93af51623211ac
 
 
 ---
@@ -120,17 +120,11 @@ Aşağıda listelenen farklı araçları kullanarak klasik veya Resource Manager
 
 | Dağıtım aracı | Klasik | Resource Manager |
 | --- | --- | --- |
-| Klasik portal |![Hayır](./media/virtual-network-nsg-overview/red.png) |![Hayır](./media/virtual-network-nsg-overview/red.png) |
-| Azure portalına |![Evet](./media/virtual-network-nsg-overview/green.png) |[![Yes][green]](virtual-networks-create-nsg-arm-pportal.md) |
-| PowerShell |[![Yes][green]](virtual-networks-create-nsg-classic-ps.md) |[![Yes][green]](virtual-networks-create-nsg-arm-ps.md) |
-| Azure CLI |[![Yes][green]](virtual-networks-create-nsg-classic-cli.md) |[![Yes][green]](virtual-networks-create-nsg-arm-cli.md) |
-| ARM şablonu |![Hayır](./media/virtual-network-nsg-overview/red.png) |[![Yes][green]](virtual-networks-create-nsg-arm-template.md) |
-
-**Anahtar**
-
-![Yes](./media/virtual-network-nsg-overview/green.png) Destekleniyor.
-
-![Hayır](./media/virtual-network-nsg-overview/red.png) Desteklenmiyor.
+| Klasik portal | Hayır  | Hayır |
+| Azure portalına   | Evet | [Evet](virtual-networks-create-nsg-arm-pportal.md) |
+| PowerShell     | [Evet](virtual-networks-create-nsg-classic-ps.md) | [Evet](virtual-networks-create-nsg-arm-ps.md) |
+| Azure CLI      | [Evet](virtual-networks-create-nsg-classic-cli.md) | [Evet](virtual-networks-create-nsg-arm-cli.md) |
+| ARM şablonu   | Hayır  | [Evet](virtual-networks-create-nsg-arm-template.md) |
 
 ## <a name="planning"></a>Planlama
 NSG'leri uygulamadan önce aşağıdaki soruları yanıtlamanız gerekir:
@@ -265,12 +259,8 @@ Yukarıdaki NSG'lerden bazılarının tekil NIC'lerle ilişkilendirilmesi gerekt
 * [Resource Manager'da NSG'leri dağıtın](virtual-networks-create-nsg-arm-pportal.md).
 * [NSG günlüklerini yönetin](virtual-network-nsg-manage-log.md).
 
-[green]: ./media/virtual-network-nsg-overview/green.png
-[sarı]: ./media/virtual-network-nsg-overview/yellow.png
-[kırmızı]: ./media/virtual-network-nsg-overview/red.png
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

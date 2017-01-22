@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 11/18/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: ec3384dd68a28117cc00de20e4c08ad0ccd67bad
-ms.openlocfilehash: a7516a98cbe25f9ed458131083a18899d3d50004
+ms.sourcegitcommit: b9fda8b5f4ffa6679cc8ca9696a4c51084c80645
+ms.openlocfilehash: 7c3d73ca6f4f567247ec9796199e68f764a52808
 
 
 ---
@@ -80,7 +80,7 @@ Bu bölümde, Azure Resource Manager şablonu kullanarak bir HDInsight sürüm 3
      > * [HDInsight’ta Linux tabanlı Hadoop ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md)
      > * [Windows’dan HDInsight’ta Linux tabanlı Hadoop ile SSH (PuTTY) kullanma](hdinsight-hadoop-linux-use-ssh-windows.md)
 
-3. __Yukarıdaki hüküm ve koşulları kabul ediyorum__**Tamam**’ı seçin ve ardından __Panoya sabitle__’yi seçin
+3. __Yukarıdaki hüküm ve koşulları kabul ediyorum__’u seçin, **Tamam**’a tıklayın ve ardından __Panoya sabitle__’yi seçin.
 
 6. **Satın al**’a tıklayın. Şablon dağıtımı için Dağıtım gönderme başlıklı yeni bir kutucuk görürsünüz. Kümeyi oluşturmak yaklaşık 20 dakika sürer.
 
