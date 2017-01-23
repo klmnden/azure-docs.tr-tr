@@ -17,8 +17,8 @@ ms.workload: data-management
 ms.date: 12/09/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 3ba16154857f8e7b59a1013b736d6131a4161185
-ms.openlocfilehash: d00b7b543f105fd944e91f6ed27e6613366c6716
+ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
+ms.openlocfilehash: b557c6d3591b1d56144651e876fa4bb1b0646935
 
 
 ---
@@ -31,9 +31,9 @@ Bu kullanmaya başlama öğreticisinde, PowerShell'i kullanarak şu işlemleri g
 * Azure SQL mantıksal sunucusu oluşturma
 * Azure SQL sunucusu özelliklerini görüntüleme
 * Sunucu düzeyinde bir güvenlik duvarı kuralı oluşturma
-* AdventureWorksLT örnek veritabanını tek veritabanı olarak oluşturma
+* AdventureWorksLT örnek veritabanını tek başına veritabanı olarak oluşturma
 * AdventureWorksLT örnek veritabanı özelliklerini görüntüleme
-* Boş bir tek veritabanı oluşturma
+* Boş bir tek başına veritabanı oluşturma
 
 Bu öğreticide ayrıca şunları yapacaksınız:
 
@@ -577,6 +577,6 @@ Bu ilk kullanmaya başlama öğreticisini tamamladığınıza ve örnek veriler 
 [SQL Database nedir?](sql-database-technical-overview.md)
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 
