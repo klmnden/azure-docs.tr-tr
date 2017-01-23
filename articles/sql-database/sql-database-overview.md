@@ -71,6 +71,6 @@ Azure SQL Veritabanı mantıksal sunucularını birkaç yöntemle yönetebilirsi
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 
