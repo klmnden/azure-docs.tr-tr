@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 10/11/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 0587dfcd6079fc8df91bad5a5f902391d3657a6b
-ms.openlocfilehash: e0353fe07c98060c88f8fefdcc3c1052437f23ab
+ms.sourcegitcommit: bccec1e4078c38e1cc9205a36d3a5df579df35b6
+ms.openlocfilehash: d5ff397e947a7edc8310da59ff9fe8896829e35d
 
 
 ---
@@ -36,8 +36,9 @@ HDInsight üzerinde Apache Storm, Azure ortamına tümleştirilmiş yönetilen b
   * Programlama dillerinin bir karışımını destekler: Java kullanarak verileri okuyun, daha sonra C kullanarak işleyin#
     
     > [!NOTE]
-    > C# topolojileri yalnızca Windows tabanlı HDInsight kümelerinde desteklenir.
+    > Linux tabanlı kümeyle C# topolojisini kullanmak için projenizin kullandığı Microsoft.SCP.Net.SDK NuGet paketini 0.10.0.6 veya üzeri sürüme güncelleştirmeniz gerekir. Paketin sürümünün ayrıca HDInsight üzerinde yüklü olan Storm ana sürümüyle eşleşmesi gerekir. Örneğin, HDInsight sürüm 3.3 ve 3.4 üzerindeki Strom bileşenleri, Storm 0.10.x sürümünü kullanırken HDInsight 3.5 ile Storm 1.0.x kullanılır.
     > 
+    > Linux tabanlı kümelerdeki C# topolojilerinin .NET 4.5 kullanması ve HDInsight kümesi üzerinde çalışması için Mono kullanması gerekir. Çoğu işlev çalışacaktır ancak olası uyumsuzluklar için [Mono Uyumluluğu](http://www.mono-project.com/docs/about-mono/compatibility/) belgesini incelemeniz gerekir.
     > 
   * İletilerin "tam bir kez" işlenmesini, "işlemsel" veri deposu kalıcılığını ve bir dizi ortak akış analizi işlemlerini destekleyen Storm topolojileri oluşturmak için **Trident** Java arabirimini kullanın
 * Yerleşik ölçek artırma ve ölçek azaltma özellikleri içerir: Çalışan Storm topolojilerini etkilemeden bir HDInsight kümesini ölçeklendirin
@@ -206,6 +207,6 @@ HDInsight’ta Apache Storm ile gerçek zamanlı analiz çözümleri hakkında d
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

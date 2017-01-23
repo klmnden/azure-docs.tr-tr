@@ -15,16 +15,20 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ede330870f451bd1e0ed6805fa937e74438fd644
+ms.sourcegitcommit: bd85b9eae0e1cb281116748edcad6643b1ec537f
+ms.openlocfilehash: 6ad20a246fce996e6a11ce6fa4715c0d734c4323
 
 
 ---
 # <a name="how-to-create-a-support-ticket-for-sql-data-warehouse"></a>SQL Data Warehouse için destek bileti oluşturma
-SQL Data Warehouse'unuz ile ilgili herhangi bir sorun yaşıyorsanız lütfen mühendislik ekibimizin size yardımcı olabilmesi için bir destek bileti oluşturun.
+SQL Veri Ambarı’nız ile ilgili herhangi bir sorun yaşıyorsanız lütfen mühendislik ekibimizin size yardımcı olabilmesi için bir destek bileti oluşturun.
+
+> [!NOTE] 
+> 20.12.2016 itibarıyla Azure portalındaki kaynak durumu denetimi doğru değildir. Bu sorunu düzeltmek için etkin bir şekilde çalışıyoruz. 
+
 
 ## <a name="create-a-support-ticket"></a>Destek bileti oluşturma
-1. [Azure portalını][Azure portalını] açın.
+1. [Azure portalını][Azure portal] açın.
 2. Giriş ekranında **Yardım + destek** kutucuğuna tıklayın.
    
     ![Yardım + destek](./media/sql-data-warehouse-get-started-create-support-ticket/help-support.png)
@@ -47,13 +51,13 @@ SQL Data Warehouse'unuz ile ilgili herhangi bir sorun yaşıyorsanız lütfen m�
 6. Kaynak olarak **SQL Data Warehouse**'u seçin.
    
     ![Kaynak](./media/sql-data-warehouse-get-started-create-support-ticket/resource.png)
-7. [Azure destek planınızı][Azure destek planınızı] seçin.
+7. [Azure destek planınızı][Azure support plan] seçin.
    
    * Tüm destek düzeylerinde **faturalama, kota ve abonelik yönetimi** desteği sunulmaktadır.
-   * **Onarım** desteği [Geliştirici][Geliştirici], [Standart][Standart], [Profesyonel Doğrudan][Profesyonel Doğrudan] veya [Premier][Premier] destek aracılığıyla sağlanır. Onarım sorunları, müşterilerin Azure'ı kullandığı sırada karşılaştıkları ve ilgili sorunun Microsoft'tan kaynaklandığına ilişkin makul bir olasılığın bulunduğu sorunlardır.
-   * **Geliştirici rehberliği** ve **danışmanlık hizmetleri**, [Profesyonel Doğrudan][Profesyonel Doğrudan] ve [Premier][Premier] destek düzeylerinde kullanılabilir. 
+   * **Onarım** desteği [Geliştirici][Developer], [Standart][Standard], [Profesyonel Doğrudan][Professional Direct] veya [Premier][Premier] destek aracılığıyla sağlanır. Onarım sorunları, müşterilerin Azure'ı kullandığı sırada karşılaştıkları ve ilgili sorunun Microsoft'tan kaynaklandığına ilişkin makul bir olasılığın bulunduğu sorunlardır.
+   * **Geliştirici rehberliği** ve **danışmanlık hizmetleri**, [Profesyonel Doğrudan][Professional Direct] ve [Premier][Premier] destek düzeylerinde kullanılabilir. 
      
-     Bir Premier destek planınız varsa SQL Veri Ambarı ile ilgili sorunları [Microsoft Premier çevrimiçi portalı][Microsoft Premier çevrimiçi portalı] üzerinden de bildirebilirsiniz.  Kapsam,yanıt süreleri ve fiyatlandırma dahil olmak üzere çeşitli destek planları hakkında daha fazla bilgi edinmek için bkz. [Azure destek planları][Azure destek planınızı].  Azure desteği ile ilgili sık sorulan sorular için bkz. [Azure desteği ile ilgili SSS][Azure desteği ile ilgili SSS].  
+     Bir Premier destek planınız varsa SQL Veri Ambarı ile ilgili sorunları [Microsoft Premier çevrimiçi portalı][Microsoft Premier online portal] üzerinden de bildirebilirsiniz.  Kapsam,yanıt süreleri ve fiyatlandırma dahil olmak üzere çeşitli destek planları hakkında daha fazla bilgi edinmek için bkz. [Azure destek planları][Azure support plan].  Azure desteği ile ilgili sık sorulan sorular için bkz. [Azure desteği ile ilgili SSS][Azure support FAQs].  
      
      ![Destek planı](./media/sql-data-warehouse-get-started-create-support-ticket/support-plan.png)
 8. **Sorun Türü**'nü ve **Kategori**'yi seçin.
@@ -73,7 +77,7 @@ Destek isteğini gönderdikten sonra Azure destek ekibi sizinle iletişime geçe
 ![Durumu kontrol etme](./media/sql-data-warehouse-get-started-create-support-ticket/check-status.png)
 
 ## <a name="other-resources"></a>Diğer Kaynaklar
-Ayrıca, [Stack Overflow][Stack Overflow] veya [Azure SQL Veri Ambarı MSDN forumu][Azure SQL Veri Ambarı MSDN forumu] üzerinden SQL Veri Ambarı topluluğuna bağlanabilirsiniz.
+Ayrıca, [Stack Overflow][Stack Overflow] veya [Azure SQL Veri Ambarı MSDN forumu][Azure SQL Data Warehouse MSDN forum] üzerinden SQL Veri Ambarı topluluğuna bağlanabilirsiniz.
 
 <!--Image references--> 
 
@@ -83,20 +87,20 @@ Ayrıca, [Stack Overflow][Stack Overflow] veya [Azure SQL Veri Ambarı MSDN foru
 <!--MSDN references--> 
 
 <!--Other web references--> 
-[Azure Portal]: https://portal.azure.com/
-[Azure destek planınızı]: https://azure.microsoft.com/support/plans/?WT.mc_id=Support_Plan_510979/  
-[Geliştirici]: https://azure.microsoft.com/support/plans/developer/  
-[Standart]: https://azure.microsoft.com/support/plans/standard/  
+[Azure portal]: https://portal.azure.com/
+[Azure support plan]: https://azure.microsoft.com/support/plans/?WT.mc_id=Support_Plan_510979/  
+[Developer]: https://azure.microsoft.com/support/plans/developer/  
+[Standard]: https://azure.microsoft.com/support/plans/standard/  
 [Professional Direct]: https://azure.microsoft.com/support/plans/prodirect/  
 [Premier]: https://azure.microsoft.com/support/plans/premier/  
-[Azure desteği ile ilgili SSS]: https://azure.microsoft.com/support/faq/
-[Microsoft Premier çevrimiçi portalı]: https://premier.microsoft.com/
+[Azure support FAQs]: https://azure.microsoft.com/support/faq/
+[Microsoft Premier online portal]: https://premier.microsoft.com/
 [Stack Overflow]: https://stackoverflow.com/questions/tagged/azure-sqldw/
-[Azure SQL Data Warehouse MSDN forumu]: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse/
+[Azure SQL Data Warehouse MSDN forum]: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse/
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

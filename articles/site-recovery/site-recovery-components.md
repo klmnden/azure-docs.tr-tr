@@ -12,11 +12,11 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/14/2016
+ms.date: 01/02/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 7455d6f99ed8ceb401224f98105f7b651f55c724
-ms.openlocfilehash: 6c509700e85eed71de3555c04ea290a5611f75bd
+ms.sourcegitcommit: bd8082c46ee36c70e372208d1bd15337acc558a1
+ms.openlocfilehash: eb97f66901efa336942dee56d9a8a62ade1f6842
 
 
 ---
@@ -24,212 +24,200 @@ ms.openlocfilehash: 6c509700e85eed71de3555c04ea290a5611f75bd
 
 Azure Site Recovery hizmetinin temel mimarisini ve bu hizmetin çalışmasını sağlayan bileşenleri anlamak için bu makaleyi okuyun.
 
-Tüm yorumlarınızı ve sorularınızı bu makalenin alt kısmında veya [Azure Kurtarma Hizmetleri Forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)'nda paylaşabilirsiniz.
-
 Kuruluşlar, planlı ve planlanmayan kesinti süreleri boyunca uygulamaların, iş yüklerinin ve verilerin çalışır durumda, kullanılabilir olmasına yönelik izlenecek yolu belirleyen ve mümkün olan en kısa sürede normal çalışma koşullarına dönmeyi sağlayan BCDR stratejisine gereksinim duyar. BCDR stratejinizin işletme verilerini güvende tutması, kurtarılabilir şekilde saklaması ve bir olağanüstü durum sırasında iş yüklerinin sürekli olarak kullanılabilir kalmasını sağlaması gerekir.
 
 Site Recovery, şirket içi fiziksel sunucuların ve sanal makinelerin buluta (Azure) veya ikincil bir veri merkezine çoğaltılmasını düzenleyerek BCDR stratejinize katkı sağlayan bir Azure hizmetidir. Kesinti birincil konumunuzda meydana gelirse uygulamaları ve iş yüklerini kullanılabilir durumda tutmak için ikincil konuma yük devredersiniz. Normal çalışma koşullarına dönüldüğünde de yükü birincil konuma geri alabilirsiniz. [Site Recovery nedir?](site-recovery-overview.md) bölümünden daha fazla bilgi edinebilirsiniz.
 
-## <a name="site-recovery-in-the-azure-portal"></a>Azure portalında Site Recovery
+Bu makale, [Azure portalında](https://portal.azure.com) dağıtımı açıklamaktadır. Var olan Site Recovery kasalarının bakımını yapmak için [klasik Azure portalı](https://manage.windowsazure.com/) kullanılabilir, ancak buradan yeni kasa oluşturamazsınız.
 
-Azure, kaynak oluşturmak ve bu kaynaklarla çalışmak için iki [dağıtım modeli](../azure-resource-manager/resource-manager-deployment-model.md) kullanır: Azure Resource Manager modeli ve klasik hizmet yönetimi modeli. Ayrıca Azure iki portala sahiptir: Klasik dağıtım modelini destekleyen [klasik Azure portalı](https://manage.windowsazure.com/) ve her iki dağıtım modeline de destek sağlayan [Azure portalı](https://portal.azure.com).
+Yorumlarınızı bu makalenin altında paylaşabilirsiniz. Teknik sorular için [Azure Kurtarma Hizmetleri Forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)'nu kullanın.
 
-Site Recovery hem klasik portalda hem de Azure portalında kullanılabilir. Klasik Azure portalında Site Recovery hizmetini klasik hizmet yönetimi modeliyle destekleyebilirsiniz. Azure portalında klasik modeli veya Kaynak Modeli dağıtımlarını destekleyebilirsiniz. Azure portalı ile dağıtma hakkında [daha fazla bilgi edinin](site-recovery-overview.md#site-recovery-in-the-azure-portal).
-
-Bu makaledeki bilgiler hem klasik hem de Azure portalı dağıtımları için geçerlidir. Geçerli olduğu yerlerde farklılıklar belirtilmiştir.
 
 ## <a name="deployment-scenarios"></a>Dağıtım senaryoları
 
 Site Recovery, birçok senaryoda çoğaltmayı düzenlemek için dağıtılabilir:
 
 - **VMware sanal makinelerini çoğaltma**: Şirket içi VMware sanal makinelerini Azure'a veya ikincil veri merkezine çoğaltabilirsiniz.
-- **Fiziksel makineleri çoğaltma**: Windows veya Linux çalıştıran fiziksel makineleri Azure'a veya ikincil veri merkezine çoğaltabilirsiniz. Fiziksel makineleri çoğaltma işlemi VMware VM’lerini çoğaltma işlemiyle neredeyse aynıdır.
-- **Hyper-V sanal makinelerini çoğaltma (VMM olmadan)**: VMM tarafından yönetilmeyen Hyper-V sanal makinelerini Azure'a çoğaltabilirsiniz.
-- **System Center VMM bulutlarında yönetilen Hyper-V sanal makinelerini çoğaltma**: VMM bulutlarındaki Hyper-V konak sunucularında çalışan şirket içi Hyper-V sanal makinelerini Azure'a veya ikincil veri merkezine çoğaltabilirsiniz. Standart Hyper-V Çoğaltmayı veya SAN çoğaltmayı kullanarak çoğaltabilirsiniz.
-- **VM'leri geçirme**: [Azure IaaS VM'leri](site-recovery-migrate-azure-to-azure.md) bölgeler arasında geçirmek veya [AWS Windows örneklerini](site-recovery-migrate-aws-to-azure.md) Azure IaaS VM'lerine geçirmek için Site Recovery'yi kullanabilirsiniz. Şu anda yalnızca geçiş desteklenir. Yani, bu VM’lere yük devredebilir ancak bunları yeniden çalıştıramazsınız.
+- **Fiziksel makineleri çoğaltma**: Fiziksel makineleri (Windows veya Linux) Azure’a veya ikincil veri merkezine çoğaltabilirsiniz. Fiziksel makineleri çoğaltma işlemi VMware VM’lerini çoğaltma işlemiyle neredeyse aynıdır.
+- **Hyper-V VM’lerini çoğaltma**: Hyper-V VM’lerini Azure’a veya ikincil bir VMM sitesine çoğaltabilirsiniz. VM’leri ikincil bir siteye çoğaltmak istiyorsanız VM’lerin System Center Virtual Machine Manager (VMM) bulutlarında yönetilmesi gerekir.
+- **VM’leri geçirme**: Şirket içi VM’leri ve fiziksel sunucuları (çoğaltma, yük devretme, yeniden başlatma) Azure’a çoğaltmaya ek olarak Azure VM’lerine de geçirebilirsiniz (çoğaltma, yük devretme, yeniden başlatma). Geçiş için şunları yapmanız gerekir:
+    - Şirket içi Hyper-V VM’leri, VMware VM’leri ve fiziksel sunucular üzerinde çalışan iş yüklerinin Azure VM’leri üzerinde çalışacak şekilde geçişini yapabilirsiniz.
+    - Bir Azure bölgesinden diğerine [Azure IaaS VM’lerini](site-recovery-migrate-azure-to-azure.md) geçirebilirsiniz. Şu anda bu senaryoda yalnızca geçiş desteklenmektedir ve yeniden çalışma desteği yoktur.
+    - [AWS Windows örneklerini](site-recovery-migrate-aws-to-azure.md) Azure IaaS VM’lerine geçirebilirsiniz. Şu anda bu senaryoda yalnızca geçiş desteklenmektedir ve yeniden çalışma desteği yoktur.
 
-Site Recovery, bu VM'lerde ve fiziksel sunucularda çalışan çoğu uygulamayı çoğaltabilir. [Azure Site Recovery hangi iş yüklerini koruyabilir?](site-recovery-workload.md) bölümünden desteklenen uygulamaların tam özetine ulaşabilirsiniz.
+Site Recovery, desteklenen VM’lerde ve fiziksel sunucularda çalışan uygulamaları çoğaltır. [Azure Site Recovery hangi iş yüklerini koruyabilir?](site-recovery-workload.md) bölümünden desteklenen uygulamaların tam özetine ulaşabilirsiniz.
 
-## <a name="replicate-to-azure-vmware-virtual-machines-or-physical-windowslinux-servers"></a>Azure’a çoğaltma: VMware sanal makineleri veya fiziksel Windows/Linux sunucuları
-VMware sanal makinelerini Site Recovery ile çoğaltmanın birkaç yolu vardır.
+## <a name="replicate-vmware-vmsphysical-servers-to-azure"></a>VMware VM’lerini/fiziksel sunucuları Azure’a çoğaltma
 
-* **Azure portalını kullanarak**-Azure portalında Site Recovery dağıttığınızda, VM’lerin yükünü klasik hizmet yöneticisi depolama alanına veya Resource Manager’a devredebilirsiniz. VMware sanal makinelerinin Azure portalında çoğaltılması, Azure’da klasik veya Resource Manager depolama alanına çoğaltabilme imkanı dahil birkaç avantaj getirir. [Daha fazla bilgi edinin](site-recovery-vmware-to-azure.md).
-* **Klasik portalı kullanarak**-Site Recovery’i klasik portalda dağıtabilirsiniz. Bu dağıtımda yalnızca sanal makineleri Azure’daki klasik depolama alanına devredebilirsiniz ve Resource Manager depolama alanına devredemezsiniz. [Daha fazla bilgi edinin](site-recovery-vmware-to-azure-classic.md).
+### <a name="components"></a>Bileşenler
 
-Site Recovery’nin Azure portalında veya klasik Azure portalında (gelişmiş) VMware sanal makinelerini/fiziksel sunucularını çoğaltmak için dağıtılmasına yönelik mimari gereksinimleri birkaç farklılıkla birlikte benzerdir:
+**Bileşen** | **Ayrıntılar**
+--- | ---
+**Azure** | Azure’da bir Microsoft Azure hesabına, bir Azure depolama hesabına ve bir Azure ağına ihtiyacınız vardır.<br/><br/> Depolama ve ağ, Kaynak Yöneticisi hesapları veya klasik hesaplar olabilir.<br/><br/>  Çoğaltılan veriler depolama hesabında depolanır ve şirket içi sitenizden yük devretme gerçekleştiğinde çoğaltılan verilerle Azure VM’leri oluşturulur. Azure VM’leri oluşturulduğunda Azure sanal ağına bağlanır.
+**Yapılandırma sunucusu** | Şirket içi siteyle Azure arasındaki iletişimleri düzenlemek ve veri çoğaltmayı yönetmek için bir şirket içi yapılandırma sunucusu ayarlarsınız.
+**İşlem sunucusu** | Varsayılan olarak şirket içi yapılandırma sunucusuna yüklenir.<br/><br/> Çoğaltma ağ geçidi olarak davranır. Korumalı kaynak makinelerden çoğaltma verilerini alıp bu verileri önbelleğe alma, sıkıştırma ve şifreleme işlemleriyle iyileştirir ve Azure depolama alanına gönderir.<br/><br/> Mobility hizmetinden korunan makinelere göndererek yükleme işlemini yapar ve VMware VM’lerinin otomatik olarak bulunmasını gerçekleştirir.<br/><br/> Dağıtımınız büyüdükçe artan çoğaltma trafiği hacimlerini idare etmek için ilave olarak ayrı ayrı adanmış işlem sunucuları ekleyebilirsiniz.
+**Ana hedef sunucu** | Varsayılan olarak şirket içi yapılandırma sunucusuna yüklenir.<br/><br/> Azure’dan yeniden çalışma sırasında çoğaltma verilerini işler. Yeniden çalışma trafiğinin hacmi yüksekse, yeniden çalışma için ayrı bir ana hedef sunucu dağıtabilirsiniz.
+**VMware sunucuları** | VMware VM’lerini çoğaltmak için Kurtarma Hizmetleri kasanıza vCenter ve vSphere sunucuları eklersiniz.<br/><br/> Fiziksel sunucuları çoğaltıyorsanız, yeniden çalışma için bir şirket içi VMware altyapısı gerekir. Bir fiziksel sunucuda yeniden çalışma gerçekleştiremezsiniz.
+**Çoğaltılan makineler** | Çoğaltmak istediğiniz her makinede Mobility hizmeti yüklü olmalıdır. Her makineye el ile yüklenebileceği gibi, işlem sunucusundan göndererek yükleme yoluyla da yüklenebilir.
 
-* Azure portalında dağıtım yaparsanız, Resource Manager tabanlı depolama alanına çoğaltabilir ve yük devretme sonrasında Azure VM’lerini bağlamak üzere Resource Manager ağlarını kullanabilirsiniz.
-* Azure portalında dağıtım yaptığınızda hem LRS hem de GRS depolama desteklenir. Klasik portalda GRS zorunludur.
-* Azure portalında dağıtım işlemi basitleştirilmiştir ve kullanımı daha kolaydır.
+**Şekil 1: VMware’den Azure bileşenlerine**
 
-İşte gerekenler:
+![Bileşenler](./media/site-recovery-components/arch-enhanced.png)
 
-- **Azure hesabı**: Bir Microsoft Azure hesabınızın olması gerekir.
-- **Azure depolama**: Çoğaltılan verileri depolamak için bir Azure depolama hesabınızın olması gerekir. Bir klasik hesap ya da Resource Manager depolama hesabı kullanabilirsiniz. Azure portalında dağıtım yaptığınızda hesap LRS veya GRS olabilir. Çoğaltılan veriler Azure depolama alanında saklanır ve Azure sanal makineleri yük devretme gerçekleştiğinde oluşturulur.
-- **Azure ağı**: Yük devretme sırasında oluşturulan Azure sanal makinelerinin bağlanacağı bir Azure sanal ağınızın olması gerekir. Azure portalında, bunlar klasik hizmet yöneticisi modelinde ya da Resource Manager modelinde oluşturulmuş ağlar olabilir.
-- **Şirket içi yapılandırma sunucusu**: Yapılandırma sunucusunu ve diğer Site Recovery bileşenlerini çalıştıran bir şirket içi Windows Server 2012 R2 makinenizin olması gerekir. VMware sanal makinelerini çoğaltıyorsanız, yüksek oranda kullanılabilir bir VMware sanal makinesi olmalıdır. Fiziksel sunucuları çoğaltmak istiyorsanız makine fiziksel olabilir. Makineye aşağıdaki Site Recovery bileşenleri yüklenecektir:
- 
- - **Yapılandırma sunucusu**: Şirket içi ortamınız ile Azure arasındaki iletişimi düzenler ve veri çoğaltma ile kurtarma işlemlerini yönetir.
- - **İşlem sunucusu**: Çoğaltma ağ geçidi olarak davranır. Korumalı kaynak makinelerden çoğaltma verilerini alıp bu verileri önbelleğe alma, sıkıştırma ve şifreleme işlemleriyle iyileştirir ve Azure depolama alanına gönderir. Ayrıca Mobility hizmetinin korunan makinelere göndermeli yüklemesini ele alır ve VMware VM'lerinin otomatik olarak bulunmasını gerçekleştirir. Dağıtımınız büyüdükçe artan çoğaltma trafiği hacimlerini idare etmek için ilave olarak ayrı ayrı adanmış işlem sunucuları ekleyebilirsiniz.
- - **Ana hedef sunucusu**: Azure'dan yeniden çalışma sırasında çoğaltma verilerini işler.
- 
-- **Çoğaltılacak VMware sanal makineleri veya fiziksel sunucular**: Azure'a çoğaltmak istediğiniz her makinede Mobility hizmeti bileşeninin yüklü olması gerekir. Bu hizmet verileri yakalar, makinede yazar ve işlem sunucusuna gönderir. Bu bileşen elle yüklenebilir veya bir makine için çoğaltma işlemini etkinleştirdiğinizde işlem sunucusu tarafından otomatik olarak gönderilip yüklenebilir.
-- **vSPhere ana bilgisayarları/vCenter sunucusu**: VMware sanal makinelerini çalıştıran bir veya daha fazla vSphere ana bilgisayar sunucunuz olmalıdır. Bu ana bilgisayarları yönetmek için bir vCenter sunucusu dağıtmanızı öneririz.
-- **İlk duruma döndürme**:  
- - **Fiziksel-fiziksel yeniden çalışma desteklenmez**: Fiziksel sunucuların yükünü Azure’a devredip sonra yeniden çalışmak isterseniz bir VMware sanal makinesinde yeniden çalışmanız gerekir. Bir fiziksel sunucuda yeniden çalışamazsınız. Yeniden çalışmak için bir Azure sanal makinesi gereklidir ve yapılandırma sunucusunu bir VMware sanal makinesi olarak dağıtmadıysanız VMware sanal makinesi olarak ayrı bir ana hedef sunucu ayarlamanız gerekir. Ana hedef sunucu diskleri bir VMware sanal makinesine geri yüklemek için VMware depolama alanı ile etkileşim kurar ve bağlanır.
- - **Azure'da geçici işlem sunucusu**: Yük devretmeden sonra Azure'da yeniden çalıştırma işlemini gerçekleştirmek isterseniz Azure'dan çoğaltmayı düzenlemek için işlem sunucusu olarak yapılandırılan bir Azure VM ayarlamanız gerekir. Yeniden çalışma sona erdikten sonra bu VM'yi silebilirsiniz.
- - **VPN bağlantısı**: Yeniden çalışma için, Azure ağından şirket içi siteye olacak şekilde ayarlanmış bir VPN bağlantısına (veya Azure ExpressRoute) sahip olmanız gerekir.
- - **Ayrı şirket içi ana hedef sunucusu**: Şirket içi ana hedef sunucusu yeniden çalışma işlemini yürütür. Ana hedef sunucusu varsayılan olarak yönetim sunucusunda yüklüdür. Ancak daha fazla hacimli trafikte yeniden çalıştırma işlemini gerçekleştiriyorsanız bu işlem için ayrı bir şirket içi ana hedef sunucusu ayarlamanız gerekir.
+### <a name="replication-process"></a>Çoğaltma işlemi
 
-**Genel mimari**
+1. Azure bileşenleri ve bir Kurtarma Hizmetleri kasası dahil olmak üzere dağıtım işlemini siz ayarlarsınız. Kasada çoğaltma kaynağını ve hedefini belirtir, yapılandırma sunucusunu ayarlar, VMware sunucuları ekler, bir çoğaltma ilkesi oluşturur, Mobility hizmetini dağıtır, çoğaltmayı etkinleştirir ve bir yük devretme testi çalıştırırsınız.
+2.  Makineler çoğaltma ilkesine uygun olarak çoğaltılmaya başlanır ve verilerin ilk kopyası Azure depolamaya çoğaltılır.
+4. Delta değişikliklerinin Azure’a çoğaltılması ilk çoğaltma işlemi tamamlandıktan sonra başlar. Bir makine için izlenen değişiklikler bir .hrl dosyasında saklanır.
+    - Çoğaltılan makineler çoğaltma yönetimi için HTTPS 443 gelen bağlantı noktasındaki yapılandırma sunucusuyla iletişim kurar.
+    - Çoğaltılan makineler çoğaltma verilerini HTTPS 9443 gelen bağlantı noktasındaki (yapılandırılabilir) işlem sunucusuna gönderir.
+    - Yapılandırma sunucusu, HTTPS 443 giden bağlantı noktası üzerinden Azure ile çoğaltma yönetimini düzenler.
+    - İşlem sunucusu kaynak makinelerden gelen verileri alır, iyileştirip şifreler ve 443 giden bağlantı noktası üzerinden Azure depolamaya gönderir.
+    - Çoklu VM tutarlılığını etkinleştirirseniz çoğaltma grubundaki makineler birbiriyle 20004 bağlantı noktası üzerinden iletişim kurar. Çoklu VM, birden çok makineyi yük devrettikleri zaman kilitlenmeyle tutarlı ve uygulamayla tutarlı kurtarma noktalarını paylaşan çoğaltma grupları halinde gruplandırdığınızda kullanılır. Bu özellik, makinelerin aynı iş yükünü çalıştırdığı ve tutarlı olmasının gerektiği durumlarda kullanışlıdır.
+5. Trafik İnternet üzerinden Azure depolama genel uç noktalarına çoğaltılır. Alternatif olarak, Azure ExpressRoute [genel eşliğini](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-circuit-peerings#public-peering) kullanabilirsiniz. Trafiğin siteden siteye bir VPN aracılığıyla şirket içi bir siteden Azure’a çoğaltılması desteklenmez.
 
-![Gelişmiş](./media/site-recovery-components/arch-enhanced.png)
+**Şekil 2: VMware’den Azure’a çoğaltma**
 
-**Dağıtım bileşenleri**
+![Gelişmiş](./media/site-recovery-components/v2a-architecture-henry.png)
 
-![Gelişmiş](./media/site-recovery-components/arch-enhanced2.png)
+### <a name="failover-and-failback-process"></a>Yük devretme ve yeniden çalışma işlemi
 
-**İlk duruma döndürme**
+1. Şirket içi VMware VM’lerinden ve fiziksel sunuculardan Azure’a planlanmamış yük devretme işlemleri çalıştırırsınız. Planlanan yük devretme desteklenmez.
+2. Tek bir makine üzerinden yük devredebilir veya [kurtarma planları](site-recovery-create-recovery-plans.md) oluşturarak birden çok makinenin devredilmesini düzenleyebilirsiniz.
+3. Yük devretme işlemini çalıştırdığınızda Azure’da kopya VM’ler oluşturulur. Kopya Azure VM’sindeki iş yüküne erişmeye başlamak için bir yük devretme yürütürsünüz.
+4. Birincil şirket içi siteniz yeniden kullanılabilir olduğunda siteyi yeniden çalıştırabilirsiniz. Bir yeniden çalışma altyapısı ayarlarsınız, makineyi ikincil siteden birincil siteye çoğaltmaya başlar ve ikincil siteden planlanmamış bir yük devretme gerçekleştirirsiniz. Bu yük devretme yürütüldükten sonra, veriler şirket içine döner ve Azure’a çoğaltmayı yeniden etkinleştirmeniz gerekir. [Daha fazla bilgi](site-recovery-failback-azure-to-vmware.md)
 
-![Gelişmiş yeniden çalışma](./media/site-recovery-components/enhanced-failback.png)
+Birkaç yeniden çalışma gereksinimi vardır:
 
-* Azure portalı dağıtımının gereksinimleri hakkında [daha fazla bilgi edinin](site-recovery-vmware-to-azure.md#azure-prerequisites).
-* Klasik portaldaki dağıtım gereksinimleri hakkında [daha fazla bilgi edinin](site-recovery-vmware-to-azure-classic.md#before-you-start-deployment).
-* Azure portalında yeniden çalışma hakkında [daha fazla bilgi edinin](site-recovery-failback-azure-to-vmware.md).
-* Klasik portalda yeniden çalışma hakkında [daha fazla bilgi edinin](site-recovery-failback-azure-to-vmware-classic.md).
+- **Fiziksel-fiziksel yeniden çalışma desteklenmez**: Fiziksel sunucuların yükünü Azure’a devredip sonra yeniden çalışmak isterseniz bir VMware sanal makinesinde yeniden çalışmanız gerekir. Bir fiziksel sunucuda yeniden çalışamazsınız. Yeniden çalışmak için bir Azure sanal makinesi gereklidir ve yapılandırma sunucusunu bir VMware sanal makinesi olarak dağıtmadıysanız VMware sanal makinesi olarak ayrı bir ana hedef sunucu ayarlamanız gerekir. Ana hedef sunucu diskleri bir VMware sanal makinesine geri yüklemek için VMware depolama alanı ile etkileşim kurar ve bağlanır.
+- **Azure'da geçici işlem sunucusu**: Yük devretmeden sonra Azure'da yeniden çalıştırma işlemini gerçekleştirmek isterseniz Azure'dan çoğaltmayı düzenlemek için işlem sunucusu olarak yapılandırılan bir Azure VM ayarlamanız gerekir. Yeniden çalışma sona erdikten sonra bu VM'yi silebilirsiniz.
+- **VPN bağlantısı**: Yeniden çalışma için, Azure ağından şirket içi siteye olacak şekilde ayarlanmış bir VPN bağlantısına (veya Azure ExpressRoute) sahip olmanız gerekir.
+- **Ayrı şirket içi ana hedef sunucusu**: Şirket içi ana hedef sunucusu yeniden çalışma işlemini yürütür. Ana hedef sunucusu varsayılan olarak yönetim sunucusunda yüklüdür. Ancak daha fazla hacimli trafikte yeniden çalıştırma işlemini gerçekleştiriyorsanız bu işlem için ayrı bir şirket içi ana hedef sunucusu ayarlamanız gerekir.
+- **Yeniden çalışma ilkesi**: Şirket içi sitenize geri çoğaltmak için bir yeniden çalışma ilkeniz olmalıdır. Bu ilke çoğaltma ilkenizi oluşturduğunuzda otomatik olarak oluşturulur.
 
-## <a name="replicate-to-azure-hyper-v-vms-not-managed-by-vmm"></a>Azure’a çoğaltma: VMM tarafından yönetilmeyen Hyper-V sanal makineleri
+**Şekil 3: VMware/fiziksel yeniden çalışma**
 
-System Center VMM bulutlarında yönetilmeyen Hyper-V sanal makinelerini, Site Recovery ile Azure’a aşağıdaki gibi çoğaltabilirsiniz:
+![Yeniden çalışma](./media/site-recovery-components/enhanced-failback.png)
 
-- **Azure portalını kullanarak**-Azure portalında Site Recovery dağıttığınızda, VM’lerin yükünü klasik depolama alanına veya Resource Manager’a devredebilirsiniz. [Daha fazla bilgi edinin](site-recovery-hyper-v-site-to-azure.md).
-- **Klasik portalı kullanarak**-Site Recovery’i klasik portalda dağıtabilirsiniz. Bu dağıtımda, VM’lerin yükünü yalnızca Azure’daki klasik depolama alanına devredebilirsiniz; Resource Manager depolama alanına devredemezsiniz. [Daha fazla bilgi edinin](site-recovery-hyper-v-site-to-azure-classic.md).
 
-Her iki dağıtım mimarisi de aşağıdakiler dışında benzerdir:
+## <a name="replicate-vmware-vmsphysical-servers-to-a-secondary-site"></a>VMware VM’lerini/Fiziksel sunucuları ikincil bir siteye çoğaltma
 
-* Azure portalında dağıtım yaparsanız, Resource Manager depolama alanına çoğaltabilir ve yük devretme sonrasında Azure VM’lerini bağlamak üzere Resource Manager ağlarını kullanabilirsiniz.
-* Azure portalında dağıtım işlemi basitleştirilmiştir ve kullanımı daha kolaydır.
+### <a name="components"></a>Bileşenler
 
-İşte gerekenler:
+**Bileşen** | **Ayrıntılar**
+--- | ---
+**Azure** | Bu senaryoyu, InMage Scout kullanarak dağıtırsınız. Bunu elde etmek için bir Azure aboneliğine sahip olmanız gerekir.<br/><br/> Bir Kurtarma Hizmetleri kasası oluşturduktan sonra InMage Scout hizmetini indirip dağıtımı ayarlamak üzere en son güncelleştirmeleri yüklersiniz.
+**İşlem sunucusu** | Önbelleğe alma, sıkıştırma ve veri iyileştirme işlemlerini yürütmek için birincil sitenizde işlem sunucusu bileşenini dağıtırsınız.<br/><br/> Ayrıca bu sunucu, Birleşik Aracı'nın korumak istediğiniz makinelere göndermeli yükleme işlemini yürütür.
+**VMware ESX/ESXi ve vCenter sunucusu** |  VMware VM’lerini çoğaltmak için bir VMware altyapınız olmalıdır.
+**VM’ler/fiziksel sunucular** |  Çoğaltmak istediğiniz VMware VM’leri veya Windows/Linux fiziksel sunucularına Birleşik Aracı’yı yüklersiniz.<br/><br/> Aracı,tüm bileşenler arasındaki bir iletişim sağlayıcısı gibi davranır.
+**Yapılandırma sunucusu** | Yapılandırma sunucusu, yönetim Web sitesini veya vContinuum konsolunu kullanarak dağıtımınızı yönetme, yapılandırma ve izleme işlemleri için ikincil siteye yüklenir.
+**vContinuum sunucusu** | Yapılandırma sunucusuyla aynı konuma yüklenir.<br/><br/> Korunan ortamınızı yönetmeye ve izlemeye yönelik bir konsol sağlar.
+**Ana hedef sunucu (ikincil site)** | Ana hedef sunucu çoğaltılan verileri tutar. İşlem sunucusundan verileri alır, ikincil sitede çoğaltılan bir makine oluşturur ve veri bekletme noktalarını tutar.<br/><br/> İhtiyacınız olan ana hedef sunucusu sayısı koruduğunuz makine sayısına bağlıdır.<br/><br/> Birincil sitede yeniden çalıştırmak isterseniz burada da bir ana hedef sunucusuna sahip olmanız gerekir. Birleşik Aracı bu sunucuya yüklenir.
 
-* **Azure hesabı**: Bir Microsoft Azure hesabınızın olması gerekir.
-* **Azure depolama**: Çoğaltılan verileri depolamak için bir Azure depolama hesabınızın olması gerekir. Azure portalında bir klasik hesap ya da Resource Manager depolama hesabı kullanabilirsiniz. Klasik portalda yalnızca klasik bir hesap kullanabilirsiniz. Çoğaltılan veriler Azure depolama alanında saklanır ve Azure VM'leri yük devretme gerçekleştiğinde oluşturulur.
-* **Azure ağı**: Yük devretme sonrasında oluşturulan Azure makinelerinin bağlanacağı bir Azure ağınızın olması gerekir.
-* **Hyper-v ana bilgisayarı**: Bir veya daha fazla Windows Server 2012 R2 Hyper-V ana bilgisayar sunucusu gereklidir. Site Recovery dağıtımı sırasında, konak üzerinde Azure Site Recovery Sağlayıcısı ve Microsoft Azure Kurtarma Hizmetleri aracısını yüklemeniz gerekir.
-* **Hyper-V sanal makineleri**: Hyper-V ana bilgisayar sunucusunda bir veya daha fazla sanal makineniz olması gerekir. Azure Site Recovery Sağlayıcısı ve Azure Kurtarma Hizmetleri aracısı, Site Recovery dağıtımı sırasında Hyper-V ana bilgisayarına yüklenir. Sağlayıcı, internet üzerinden Site Recovery hizmetiyle gerçekleştirilen çoğaltma işlemini düzenler ve yönetir. Aracı, veri çoğaltma işlemine ait verileri HTTPS 443 üzerinden işler. Sağlayıcı ve aracı arasındaki iletişimler şifrelenir ve güvence altına alınır. Azure depolama alanında çoğaltılan veriler de şifrelenir.
+### <a name="replication-process"></a>Çoğaltma işlemi
 
-**Genel mimari**
+1. Her sitede bileşen sunucularını (yapılandırma, işlem, ana hedef) ayarlayıp çoğaltmak istediğiniz makinelere Birleşik Aracı'yı yükleyin.
+2. İlk çoğaltmanın ardından makinelerdeki aracılar çoğaltma değişimleri işlem sunucusuna gönderir.
+3. İşlem sunucusu verileri iyileştirir ve ikincil sitedeki ana hedef sunucusuna aktarır. Yapılandırma sunucusu çoğaltma sürecini yönetir.
 
-![Azure'da Hyper-V sitesi](./media/site-recovery-components/arch-onprem-azure-hypervsite.png)
-
-* Azure portalı dağıtımının gereksinimleri hakkında [daha fazla bilgi edinin](site-recovery-hyper-v-site-to-azure.md#azure-prerequisites).
-* Klasik portal dağıtımının gereksinimleri hakkında [daha fazla bilgi edinin](site-recovery-hyper-v-site-to-azure-classic.md#azure-prerequisites).
-
-## <a name="replicate-to-azure-hyper-v-vms-managed-by-vmm"></a>Azure’a çoğaltma: VMM tarafından yönetilen Hyper-V sanal makineleri
-VMM bulutlarındaki Hyper-V sanal makinelerini Site Recovery ile Azure’a aşağıdaki gibi çoğaltabilirsiniz:
-
-* **Azure portalını kullanarak**-Azure portalında Site Recovery dağıttığınızda, VM’lerin yükünü klasik depolama alanına veya Resource Manager’a devredebilirsiniz. [Daha fazla bilgi edinin](site-recovery-vmm-to-azure.md).
-* **Klasik portalı kullanarak**-Site Recovery’i klasik portalda dağıtabilirsiniz. Bu dağıtımda, VM’lerin yükünü yalnızca Azure’daki klasik depolama alanına devredebilirsiniz; Resource Manager depolama alanına devredemezsiniz. [Daha fazla bilgi edinin](site-recovery-vmm-to-azure-classic.md).
-
-Her iki dağıtım mimarisi de aşağıdakiler dışında benzerdir:
-
-* Azure portalında dağıtım yaparsanız, Resource Manager tabanlı depolama alanına çoğaltabilir ve yük devretme sonrasında Azure VM’lerini bağlamak üzere Resource Manager ağlarını kullanabilirsiniz.
-* Azure portalında dağıtım işlemi basitleştirilmiştir ve kullanımı daha kolaydır.
-
-İşte gerekenler:
-
-* **Azure hesabı**: Bir Microsoft Azure hesabınızın olması gerekir.
-* **Azure depolama**: Çoğaltılan verileri depolamak için bir Azure depolama hesabınızın olması gerekir. Azure portalında bir klasik hesap ya da Resource Manager depolama hesabı kullanabilirsiniz. Klasik portalda yalnızca klasik bir hesap kullanabilirsiniz. Çoğaltılan veriler Azure depolama alanında saklanır ve Azure VM'leri yük devretme gerçekleştiğinde oluşturulur.
-* **Azure ağı**: Yük devretme sonrasında oluşturulan Azure sanal makinelerinin uygun ağlara bağlanması için ağ eşlemesi gereklidir.
-* **VMM sunucusu**: System Center 2012 R2 üzerinde çalışan ve bir veya daha fazla özel bulut ile ayarlanmış bir veya daha fazla şirket içi VMM sunucusu gereklidir. Azure portalında dağıtıyorsanız, ağ eşlemesini yapılandırabilmek için mantıksal ağların ve VM ağlarının ayarlanması gerekir. Klasik portalda bu seçenek isteğe bağlıdır.  VM ağının da bulutla ilişkilendirilen bir mantıksal ağ ile bağlantılı olması gerekir.
-* **Hyper-v ana bilgisayarı**: VMM bulutunda bir veya daha fazla Windows Server 2012 R2 Hyper-V ana bilgisayar sunucusu gereklidir.
-* **Hyper-V sanal makineleri**: Hyper-V ana bilgisayar sunucusunda bir veya daha fazla sanal makineniz olması gerekir.
-
-**Genel mimari**
-
-![VMM'den Azure'a](./media/site-recovery-components/arch-onprem-onprem-azure-vmm.png)
-
-* Azure portalı dağıtımının gereksinimleri hakkında [daha fazla bilgi edinin](site-recovery-vmm-to-azure.md#azure-prerequisites).
-* Klasik portal dağıtımının gereksinimleri hakkında [daha fazla bilgi edinin](site-recovery-vmm-to-azure-classic.md).
-
-## <a name="replicate-to-a-secondary-site-vmware-virtual-machines-or-physical-servers"></a>İkincil siteye çoğaltma: VMware sanal makineleri veya fiziksel sunucular
-
-VMware VM’lerini veya fiziksel sunucuları ikincil bir siteye çoğaltmak için Azure Site Recovery aboneliğine dahil olan InMage Scout hizmetini indirirsiniz. Bu hizmet Azure portalından veya klasik Azure portalından indirilebilir.
-
-Her sitede bileşen sunucularını (yapılandırma, işlem, ana hedef) ayarlayıp çoğaltmak istediğiniz makinelere Birleşik Aracı'yı yükleyin. İlk çoğaltmanın ardından makinelerdeki aracılar çoğaltma değişimleri işlem sunucusuna gönderir. İşlem sunucusu verileri iyileştirir ve ikincil sitedeki ana hedef sunucusuna aktarır. Yapılandırma sunucusu çoğaltma sürecini yönetir.
-
-İşte gerekenler:
-
-**Azure hesabı**: Bu senaryoyu, InMage Scout kullanarak dağıtırsınız. Bunu elde etmek için bir Azure aboneliğine sahip olmanız gerekir. Bir Site Recovery kasası oluşturduktan sonra InMage Scout hizmetini indirip dağıtımı ayarlamak üzere en son güncelleştirmeleri yüklersiniz.
-**İşlem sunucusu (birincil site)**: Önbelleğe alma, sıkıştırma ve veri iyileştirme işlemlerini yürütmek için birincil sitenizde işlem sunucusu bileşenini ayarlayın. Ayrıca bu sunucu, Birleşik Aracı'nın korumak istediğiniz makinelere göndermeli yükleme işlemini yürütür.
-**VMware ESX/ESXi ve vCenter sunucusu (birincil site)**: VMware VM'lerini koruyorsanız hiper yöneticileri yönetmek için bir VMware EXS/ESXi hiper yöneticisine ve isteğe bağlı olarak VMware vCenter sunucusuna sahip olmanız gerekir.
-
-- **VM'ler/fiziksel sunucular (birincil site)**: Korumak istediğiniz VMware VM'leri veya Windows/Linux fiziksel sunucuları, Birleşik Aracı'nın yüklü olmasını gerektirir. Ayrıca, makinelere yüklenen Birleşik Aracı ana hedef sunucusu gibi davranır. Aracı,tüm bileşenler arasındaki bir iletişim sağlayıcısı gibi davranır.
-- **Yapılandırma sunucusu (ikincil site)**: Yapılandırma sunucusu yüklediğiniz ilk bileşendir ve yönetim Web sitesini veya vContinuum konsolunu kullanarak dağıtımınızı yönetme, yapılandırma ve izleme işlemleri için ikincil siteye yüklenir. Bir dağıtım işleminde yalnızca bir yapılandırma sunucusu vardır ve bu sunucunun Windows Server 2012 R2 çalıştıran bir makineye yüklenmesi gerekir.
-- **vContinuum sunucusu (ikincil site)**: Yapılandırma sunucusuyla aynı konuma (ikincil site) yüklenir. Korunan ortamınızı yönetmeye ve izlemeye yönelik bir konsol sağlar. Varsayılan yüklemede, vContinuum ilk ana hedef sunucusudur ve Birleşik Aracı bu sunucuda yüklüdür.
-- **Ana hedef sunucusu (ikincil site)**: Ana hedef sunucusu çoğaltılan verileri tutar. İşlem sunucusundan verileri alır, ikincil sitede çoğaltılan bir makine oluşturur ve veri bekletme noktalarını tutar. İhtiyacınız olan ana hedef sunucusu sayısı koruduğunuz makine sayısına bağlıdır. Birincil sitede yeniden çalıştırmak isterseniz burada da bir ana hedef sunucusuna sahip olmanız gerekir.
-
-**Genel mimari**
+**Şekil 4: VMware’den VMware’e çoğaltma**
 
 ![VMware'den VMware'e](./media/site-recovery-components/vmware-to-vmware.png)
 
-## <a name="replicate-to-a-secondary-site-hyper-v-vms-managed-by-vmm"></a>İkincil siteye çoğaltma: VMM tarafından yönetilen Hyper-V sanal makineleri
-System Center VMM tarafından yönetilen Hyper-V sanal makinelerini Site Recovery ile ikincil veri merkezine aşağıdaki gibi çoğaltabilirsiniz:
 
-* **Azure portalını kullanarak**-Azure portalında Site Recovery’yi dağıtabilirsiniz. [Daha fazla bilgi edinin](site-recovery-hyper-v-site-to-azure.md).
-* **Klasik portalı kullanarak**-Site Recovery’i klasik portalda dağıtabilirsiniz. [Daha fazla bilgi edinin](site-recovery-hyper-v-site-to-azure-classic.md).
 
-Her iki dağıtım mimarisi de aşağıdakiler dışında benzerdir:
+## <a name="replicate-hyper-v-vms-to-azure"></a>Hyper-V VM'lerini Azure'a çoğaltma
 
-- Azure portalında dağıtırsanız ağ eşlemeyi ayarlamanız gerekir. Klasik portalda bu seçenek isteğe bağlıdır.
-- Azure portalında dağıtım işlemi basitleştirilmiştir ve kullanımı daha kolaydır.
-- Klasik Azure portalında dağıtırsanız [depolama eşlemesi](site-recovery-storage-mapping.md) kullanılabilir.
 
-İşte gerekenler:
+### <a name="components"></a>Bileşenler
 
-* **Azure hesabı**: Bir Microsoft Azure hesabınızın olması gerekir.
-* **VMM sunucusu**: Her biri en az bir VMM özel bulutu içeren birer VMM sunucusunun, hem birincil sitede hem de ikincil sitede bulundurulması önerilir. Sunucunun, en son güncelleştirmeleri içeren System Center 2012 SP1 sürümünde veya sonraki bir sürümde çalıştırılması ve internete bağlı olması gerekir. Bulutların Hyper-V işlev profili kümesine sahip olması gerekir. Azure Site Recovery Sağlayıcısını VMM sunucusuna yüklemeniz gerekir. Sağlayıcı, internet üzerinden Site Recovery hizmetiyle gerçekleştirilen çoğaltma işlemini düzenler ve yönetir. Sağlayıcı ile Azure arasındaki iletişimler güvenli ve şifrelidir.
-* **Hyper-V sunucusu**: Hyper-V ana bilgisayar sunucularının birincil ve ikincil VMM bulutlarında yer alması gerekir. Ana bilgisayar sunucularının, en son güncelleştirmeleri içeren Windows Server 2012 sürümünde veya sonraki bir sürümde çalıştırılması ve internete bağlı olması gerekir. Verilerin, Kerberos veya sertifika kimlik doğrulaması kullanılarak, LAN ya da VPN üzerinden birincil ve ikincil Hyper-V ana bilgisayar sunucuları arasında çoğaltılması gerekir.  
-* **Korunan makineler**: Kaynak Hyper-V ana bilgisayar sunucusunun korumak istediğiniz en az bir VM'ye sahip olması gerekir.
+**Bileşen** | **Ayrıntılar**
+--- | ---
+**Azure** | Azure’da bir Microsoft Azure hesabına, bir Azure depolama hesabına ve bir Azure ağına ihtiyacınız vardır.<br/><br/> Depolama ve ağ, Kaynak Yöneticisi tabanlı veya klasik hesaplar olabilir.<br/><br/> Çoğaltılan veriler depolama hesabında depolanır ve şirket içi sitenizden yük devretme gerçekleştiğinde çoğaltılan verilerle Azure VM’leri oluşturulur.<br/><br/> Azure VM’leri oluşturulduğunda Azure sanal ağına bağlanır.
+**VMM sunucusu** | Hyper-V konaklarınız VMM bulutlarında yer alıyorsa [ağ eşlemesi](site-recovery-network-mapping.md) yapılandırmak üzere ayar yapmak için mantıksal ve VM ağlarına ihtiyacınız olur. VM ağının da bulutla ilişkilendirilen bir mantıksal ağ ile bağlantılı olması gerekir.
+**Hyper-V konağı** | Bir veya daha fazla Hyper-V konak sunucunuz olmalıdır.
+**Hyper-V VM’leri** | Hyper-V konak sunucusunda bir veya daha fazla VM’niz olmalıdır. Hyper-V konağında çalışan Sağlayıcı, İnternet üzerinden Site Recovery hizmetiyle gerçekleştirilen çoğaltma işlemini düzenler ve yönetir. Aracı, veri çoğaltma işlemine ait verileri HTTPS 443 üzerinden işler. Sağlayıcı ve aracı arasındaki iletişimler şifrelenir ve güvence altına alınır. Azure depolama alanında çoğaltılan veriler de şifrelenir.
 
-**Genel mimari**
+
+## <a name="replication-process"></a>Çoğaltma işlemi
+
+1. Azure bileşenlerini ayarlarsınız. Site Recovery dağıtımına başlamadan önce depolama ve ağ hesapları ayarlamanızı öneririz.
+2. Site Recovery kurtarma için bir Kurtarma Hizmetleri kasası ayarlarsınız ve aşağıdakileri de içeren kasa ayarlarını yapılandırırsınız:
+    - Hyper-V konaklarını bir VMM bulutunda yönetmiyorsanız, bir Hyper-V site kapsayıcısı oluşturur ve Hyper-V konaklarını buna eklersiniz.
+    - Çoğaltma kaynağı ve hedefi. Hyper-V konaklarınız VMM’de yönetiliyorsa kaynak VMM bulutudur. Aksi takdirde, kaynak Hyper-V sitesidir.
+    - Azure Site Recovery Sağlayıcısı ve Microsoft Azure Kurtarma Hizmetleri aracısının yüklenmesi. VMM’niz varsa Sağlayıcı VMM’ye, aracı ise her bir Hyper-V konağına yüklenir. VMM’niz yoksa her bir konağa hem Sağlayıcı hem de aracı yüklenir.
+    - Hyper-V sitesi veya VMM bulutu için bir çoğaltma ilkesi oluşturursunuz. İlke, site veya buluttaki tüm konaklarda yer alan tüm VM’lere uygulanır.
+    - Hyper-V VM’leri için çoğaltmayı etkinleştirirsiniz. İlk çoğaltma, çoğaltma ilkesi ayarlarına uygun şekilde gerçekleştirilir.
+4. Veri değişiklikleri izlenir ve delta değişikliklerinin Azure’a çoğaltılması ilk çoğaltma işlemi tamamlandıktan sonra başlar. Bir öğe için izlenen değişiklikler bir .hrl dosyasında saklanır.
+5. Her şeyin çalıştığından emin olmak için bir Yük devretme testi çalıştırırsınız.
+
+### <a name="failover-and-failback-process"></a>Yük devretme ve yeniden çalışma işlemi
+
+1. Şirket içi Hyper-V VM’lerinden Azure’a planlanmış veya planlanmamış bir [yük devretme](site-recovery-failover.md) gerçekleştirebilirsiniz. Planlı bir yük devretme çalıştırırsanız, veri kaybı olmaması için kaynak VM’ler kapatılır.
+2. Tek bir makine üzerinden yük devredebilir veya [kurtarma planları](site-recovery-create-recovery-plans.md) oluşturarak birden çok makinenin devredilmesini düzenleyebilirsiniz.
+4. Yük devretmeyi çalıştırdıktan sonra, oluşturulan kopya VM’leri Azure’da görebiliyor olmanız gerekir. Gerekli olursa VM’ye genel bir IP adresi atayabilirsiniz.
+5. Daha sonra, kopya Azure VM’sindeki iş yüküne erişmeye başlamak için yük devretmeyi yürütürsünüz.
+6. Birincil şirket içi siteniz yeniden kullanılabilir olduğunda siteyi yeniden çalıştırabilirsiniz. Azure’dan birincil siteye planlanmış yük devretme işlemi başlatırsınız. Planlanmış bir yük devretme gerçekleştirmek için aynı VM’de ya da alternatif bir konumda yeniden çalışmayı seçebilir ve Azure ile şirket içi arasında değişiklikleri eşitleyerek veri kaybı olmamasını sağlayabilirsiniz. VM’ler şirket içinde oluşturulduğunda yük devretmeyi yürütürsünüz.
+
+**Şekil 5: Hyper-V sitesinden Azure’a çoğaltma**
+
+![Bileşenler](./media/site-recovery-components/arch-onprem-azure-hypervsite.png)
+
+**Şekil 6: VMM bulutlarındaki Hyper-V’den Azure’a çoğaltma**
+
+![Bileşenler](./media/site-recovery-components/arch-onprem-onprem-azure-vmm.png)
+
+
+
+## <a name="replicate-hyper-v-vms-to-a-secondary-site"></a>Hyper-V VM'lerini ikincil bir siteye çoğaltma
+
+### <a name="components"></a>Bileşenler
+
+**Bileşen** | **Ayrıntılar**
+--- | ---
+**Azure hesabı** | Bir Microsoft Azure hesabınızın olması gerekir.
+**VMM sunucusu** | Bir tane birincil sitede, bir tane de İnternet’e bağlı ikincil sitede VMM sunucusu olması önerilir.<br/><br/> Her sunucunun Hyper-V yetenek profili kümesi içeren en az bir VMM özel bulutu olmalıdır.<br/><br/> Azure Site Recovery Sağlayıcısını VMM sunucusuna yüklemeniz gerekir. Sağlayıcı, internet üzerinden Site Recovery hizmetiyle gerçekleştirilen çoğaltma işlemini düzenler ve yönetir. Sağlayıcı ile Azure arasındaki iletişimler güvenli ve şifrelidir.
+**Hyper-V sunucusu** |  Birincil ve ikincil VMM bulutlarında bir veya daha fazla Hyper-V konak sunucusuna sahip olmanız gerekir. Sunucular İnternet’e bağlı olmalıdır.<br/><br/> Verilerin, Kerberos veya sertifika kimlik doğrulaması kullanılarak, LAN ya da VPN üzerinden birincil ve ikincil Hyper-V ana bilgisayar sunucuları arasında çoğaltılması gerekir.  
+**Kaynak makineler** | Kaynak Hyper-V konak sunucusunda en az bir tane çoğaltmak istediğiniz VM olması gerekir.
+
+## <a name="replication-process"></a>Çoğaltma işlemi
+
+1. Azure hesabını ayarlarsınız.
+2. Site Recovery kurtarma için bir Kurtarma Hizmetleri kasası ayarlarsınız ve aşağıdakileri de içeren kasa ayarlarını yapılandırırsınız:
+
+    - Çoğaltma kaynağı ve hedefi (birincil ve ikincil siteler).
+    - Azure Site Recovery Sağlayıcısı ve Microsoft Azure Kurtarma Hizmetleri aracısının yüklenmesi. Sağlayıcı VMM sunucularına, aracı ise her bir Hyper-V konağına yüklenir.
+    - Kaynak VMM bulutu için bir çoğaltma ilkesi oluşturursunuz. İlke, buluttaki tüm konaklarda yer alan tüm VM’lere uygulanır.
+    - Hyper-V VM’leri için çoğaltmayı etkinleştirirsiniz. İlk çoğaltma, çoğaltma ilkesi ayarlarına uygun şekilde gerçekleştirilir.
+4. Veri değişiklikleri izlenir ve delta değişikliklerinin çoğaltılması ilk çoğaltma işlemi tamamlandıktan sonra başlar. Bir öğe için izlenen değişiklikler bir .hrl dosyasında saklanır.
+5. Her şeyin çalıştığından emin olmak için bir Yük devretme testi çalıştırırsınız.
+
+**Şekil 7: VMM’den VMM’ye çoğaltma**
 
 ![Şirket içinden şirket içine](./media/site-recovery-components/arch-onprem-onprem.png)
 
-- Azure portalındaki dağıtım gereksinimleri hakkında [daha fazla bilgi edinin](site-recovery-vmm-to-vmm.md#azure-prerequisites).
-- Klasik Azure portalındaki dağıtım gereksinimleri hakkında [daha fazla bilgi edinin](site-recovery-vmm-to-vmm-classic.md#before-you-start).
+### <a name="failover-and-failback-process"></a>Yük devretme ve yeniden çalışma işlemi
 
-## <a name="replicate-to-a-secondary-site-with-san-replication-hyper-v-vms-managed-by-vmm"></a>SAN çoğaltması ile ikincil siteye çoğaltma: VMM tarafından yönetilen Hyper-V sanal makineleri
-VMM bulutlarında yönetilen Hyper-V sanal makinelerini, klasik Azure portalındaki SAN çoğaltmasını kullanarak ikincil bir siteye çoğaltabilirsiniz. Bu senaryo yeni Azure portalında şu anda desteklenmemektedir.
+1. Şirket içi siteler arasında planlanmış veya planlanmamış bir [yük devretme](site-recovery-failover.md) gerçekleştirebilirsiniz. Planlı bir yük devretme çalıştırırsanız, veri kaybı olmaması için kaynak VM’ler kapatılır.
+2. Tek bir makine üzerinden yük devredebilir veya [kurtarma planları](site-recovery-create-recovery-plans.md) oluşturarak birden çok makinenin devredilmesini düzenleyebilirsiniz.
+4. İkincil bir siteye yönelik planlanmamış bir yük devretme gerçekleştirirseniz, işlem tamamlandıktan sonra ikincil konumdaki makineler koruma veya çoğaltma için etkinleştirilmez. Planlı bir yük devretme gerçekleştirdiyseniz, işlemden sonra ikincil konumdaki makineler korunur.
+5. Daha sonra, kopya VM’deki iş yüküne erişmeye başlamak için yük devretmeyi yürütürsünüz.
+6. Birincil sitenizi yeniden kullanılabilir duruma geldiğinde ters çoğaltma başlatarak ikincil siteden birincil siteye çoğaltma gerçekleştirirsiniz. Ters çoğaltma sanal makineleri korumalı bir duruma getirir, ancak ikincil veri merkezi hala etkin konumdur.
+7. Birincil siteyi yeniden etkin konum durumuna getirmek için ikincil siteden birincil siteye planlı yük devretme başlatır ve arkasından başka bir ters çoğaltma gerçekleştirirsiniz.
 
-Bu senaryoda, Site Recovery dağıtımı sırasında VMM sunucularına Azure Site Recovery Sağlayıcısı yüklersiniz. Sağlayıcı, internet üzerinden Site Recovery hizmetiyle gerçekleştirilen çoğaltma işlemini düzenler ve yönetir. Veriler, zaman uyumlu SAN çoğaltması kullanılarak birincil ve ikincil depolama dizileri arasında çoğaltılır.
 
-İşte gerekenler:
+### <a name="hyper-v-replication-workflow"></a>Hyper-V çoğaltma iş akışı
 
-**Azure hesabı**: Bir Azure aboneliğine sahip olmanız gerekir.
+**İş akışı aşaması** | **Eylem**
+--- | ---
+1. **Korumayı etkinleştir** | Bir Hyper-V VM için korumayı etkinleştirdiğinizde, makinenin önkoşullarla uyumlu olup olmadığının denetlenmesi için **Korumayı Etkinleştir** işi başlatılır. İş tarafından iki yöntem çağırılır:<br/><br/> Yapılandırdığınız ayarlarla çoğaltmanın ayarlanması için [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx).<br/><br/> Tam VM çoğaltması başlatmak için [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx).
+2. **İlk çoğaltma** |  Bir sanal makine anlık görüntüsü alınır ve sanal sabit diskler tamamı ikincil konuma kopyalanana kadar tek tek çoğaltılır.<br/><br/> Bu işlemi tamamlamak için gereken süre VM boyutuna, ağ bant genişliğine ve iş çoğaltma yöntemine bağlıdır.<br/><br/> İlk çoğaltma sırasında disk değişimi meydana gelirse Hyper-V Çoğaltma'nın Çoğaltma İzleyicisi bu değişiklikleri, disklerle aynı klasörde yer alan Hyper-V Çoğaltma Günlükleri (.hrl) olarak izler.<br/><br/> Her diskin ikincil depolamaya gönderilecek bir ilişkili .hrl dosyası vardır.<br/><br/> İlk çoğaltma sırasında anlık görüntü ve günlük dosyaları disk kaynaklarını kullanır. İlk çoğaltma tamamlandığında VM anlık görüntüsü silinir, günlükteki değişim diski değişiklikleri eşitlenir ve birleştirilir.
+3. **Korumayı sonlandırma** | İlk çoğaltma sonlandırıldıktan sonra **Korumayı sonlandır** işi, ağ ayarlarını ve diğer çoğaltma sonrası ayarları yapılandırır ve sanal makine korunur.<br/><br/> Azure'da çoğaltma yapıyorsanız, sanal makinede ince ayarlar yaparak sanal makineyi yük devretme için hazır hale getirmeniz gerekebilir.<br/><br/> Bu noktada, her şeyin istendiği şekilde çalıştığını denetlemek için yük devretme testi çalıştırabilirsiniz.
+4. **Çoğaltma** | İlk çoğaltma sonrasında, çoğaltma ayarlarına uygun olarak değişim eşitlemesi başlar.<br/><br/> **Çoğaltma hatası**: Değişim çoğaltması başarısız olursa ve tam çoğaltma bant genişliği ve zaman konusunda fazla kaynak tüketimine yol açarsa yeniden eşitleme meydana gelir. Örneğin, .hrl dosyası disk boyutunun %50'sine ulaşırsa VM, yeniden eşitleme için işaretlenir. Yeniden eşitleme, kaynak ve hedef sanal makinelerin sağlama toplamlarını hesaplar ve yalnızca değişim verilerini gönderir. Böylece gönderilen veri miktarını azaltır. Yeniden eşitleme bittikten sonra değişim çoğaltması devam eder. Varsayılan olarak, yeniden eşitleme ofis saatleri dışında otomatik olarak çalışacak şekilde planlanmıştır ancak sanal makineyi elle yeniden eşitleyebilirsiniz.<br/><br/> **Çoğaltma hatası**: Bir çoğaltma hatası meydana gelmesi durumunda yerleşik olarak yeniden deneme işlevi bulunur. Kimlik doğrulama veya yetkilendirme ya da çoğaltılan makinenin geçersiz durumda olması gibi kurtarılamaz bir hata olursa yeniden deneme işlevi uygulanmaz. Ağ hatası veya düşük disk alanı/belleği gibi kurtarılabilir bir hata oluşursa artan aralıklarla yeniden denemeler meydana gelir (her 1, 2, 4, 8, 10 ve ardından 30 dakikada bir şeklinde).
+5. **Planlanan/planlanmamış yük devretme** | Gerektiğinde planlanan veya planlanmamış yük devretme işlemleri çalıştırabilirsiniz.<br/><br/> Planlı bir yük devretme çalıştırırsanız, veri kaybı olmaması için kaynak VM’ler kapatılır.<br/><br/> Oluşturulan çoğaltma VM’leri, yürütme bekleniyor durumuna geçirilir. Yük devretmeyi tamamlamak için işlemleri yürütmeniz gerekir.<br/><br/> Birincil site çalışır duruma geldikten sonra, site kullanılabilir hale geldiğinde buraya yeniden çalışma gerçekleştirebilirsiniz.
 
-* **SAN dizisi**: Birincil VMM sunucusu tarafından yönetilen, [desteklenen SAN dizisi](http://social.technet.microsoft.com/wiki/contents/articles/28317.deploying-azure-site-recovery-with-vmm-and-san-supported-storage-arrays.aspx). SAN, ikincil sitede başka bir SAN dizisiyle bir ağ altyapısı paylaşır.
-* **VMM sunucusu**: Her biri en az bir VMM özel bulutu içeren birer VMM sunucusunun, hem birincil sitede hem de ikincil sitede bulundurulması önerilir. Sunucunun, en son güncelleştirmeleri içeren System Center 2012 SP1 sürümünde veya sonraki bir sürümde çalıştırılması ve internete bağlı olması gerekir. Bulutların Hyper-V işlev profili kümesine sahip olması gerekir.
-* **Hyper-V sunucusu**: Birincil ve ikincil VMM bulutlarında yer alan Hyper-V ana bilgisayar sunucuları. Ana bilgisayar sunucularının, en son güncelleştirmeleri içeren Windows Server 2012 sürümünde veya sonraki bir sürümde çalıştırılması ve internete bağlı olması gerekir.
-* **Korunan makineler**: Kaynak Hyper-V ana bilgisayar sunucusunun korumak istediğiniz en az bir VM'ye sahip olması gerekir.
 
-**SAN çoğaltması mimarisi**
-
-![SAN çoğaltması](./media/site-recovery-components/arch-onprem-onprem-san.png)
-
-- Dağıtım gereksinimleri hakkında [daha fazla bilgi edinin](site-recovery-vmm-san.md#before-you-start).
-
-### <a name="on-premises"></a>Şirket içi
-## <a name="hyper-v-protection-lifecycle"></a>Hyper-V koruması yaşam döngüsü
-Bu iş akışı, Hyper-V sanal makineleri üzerinde gerçekleşen koruma, çoğaltma ve yük devretme işlemlerinin süreçlerini gösterir.
-
-1. **Korumayı etkinleştirme**: Site Recovery kasasını oluşturup, VMM bulutu veya Hyper-V sitesi için çoğaltma ayarlarını yapılandırırsınız ve VM'ler için korumayı etkinleştirirsiniz. **Korumayı Etkinleştir** olarak adlandırılan bir iş başlatılır ve **İşler** sekmesinden izlenebilir. İş, makinenin önkoşullarla uyumlu olup olmadığını denetler ve ardından daha önce yapılandırdığınız ayarlarla Azure'a çoğaltma işlemini ayarlayan [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx) metodunu çağırır. **Korumayı Etkinleştir** işi ayrıca, tam VM çoğaltmasını başlatmak için [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx) metodunu da çağırır.
-2. **İlk çoğaltma**: Bir sanal makine anlık görüntüsü alınır ve tamamı Azure'a veya ikincil bir veri merkezine kopyalanana dek sanal sabit diskler çoğaltılır. Bu işlemi tamamlamak için gereken süre VM boyutuna, ağ bant genişliğine ve iş çoğaltma yöntemine bağlıdır. İlk çoğaltma sırasında disk değişimi meydana gelirse Hyper-V Çoğaltma'nın Çoğaltma İzleyicisi bu değişiklikleri, disklerle aynı klasörde yer alan Hyper-V Çoğaltma Günlükleri (.hrl) olarak izler. Her diskin ikincil depolamaya gönderilecek bir ilişkili .hrl dosyası vardır. İlk çoğaltma sırasında anlık görüntü ve günlük dosyaları disk kaynaklarını kullanır. İlk çoğaltma tamamlandığında VM anlık görüntüsü silinir, günlükteki değişim diski değişiklikleri eşitlenir ve birleştirilir.
-3. **Korumayı sonlandırma**: İlk çoğaltma sonlandırıldıktan sonra **Korumayı sonlandır** işi, ağ ve diğer çoğaltma sonrası ayarlarını yapılandırır ve sanal makine korunur. Azure'da çoğaltma yapıyorsanız, sanal makinede ince ayarlar yaparak sanal makineyi yük devretme için hazır hale getirmeniz gerekebilir. Bu noktada, her şeyin istendiği şekilde çalıştığını denetlemek için yük devretme testi çalıştırabilirsiniz.
-4. **Çoğaltma**: İlk çoğaltma sonrasında çoğaltma ayarlarına uygun şekilde değişim eşitlemesi başlar.
-   - **Çoğaltma hatası**: Değişim çoğaltması başarısız olursa ve tam çoğaltma bant genişliği ve zaman konusunda fazla kaynak tüketimine yol açarsa yeniden eşitleme meydana gelir. Örneğin, .hrl dosyası disk boyutunun %50'sine ulaşırsa VM, yeniden eşitleme için işaretlenir. Yeniden eşitleme, kaynak ve hedef sanal makinelerin sağlama toplamlarını hesaplar ve yalnızca değişim verilerini gönderir. Böylece gönderilen veri miktarını azaltır. Yeniden eşitleme bittikten sonra değişim çoğaltması devam eder. Varsayılan olarak, yeniden eşitleme ofis saatleri dışında otomatik olarak çalışacak şekilde planlanmıştır ancak sanal makineyi elle yeniden eşitleyebilirsiniz.
-   - **Çoğaltma hatası**: Bir çoğaltma hatası meydana gelmesi durumunda yerleşik olarak yeniden deneme işlevi bulunur. Kimlik doğrulama veya yetkilendirme ya da çoğaltılan makinenin geçersiz durumda olması gibi kurtarılamaz bir hata olursa yeniden deneme işlevi uygulanmaz. Ağ hatası veya düşük disk alanı/belleği gibi kurtarılabilir bir hata oluşursa artan aralıklarla yeniden denemeler meydana gelir (her 1, 2, 4, 8, 10 ve ardından 30 dakikada bir şeklinde).
-5. **Planlanan/planlanmamış yük devretme işlemleri**: Gerektiğinde planlanan veya planlanmamış yük devretmeler çalıştırabilirsiniz. Planlı bir yük devretme çalıştırırsanız, veri kaybı olmaması için kaynak VM’ler kapatılır. Oluşturulan çoğaltma VM’leri, yürütme bekleniyor durumuna geçirilir. Yürütmenin otomatik olduğu SAN ile çoğaltma işlemini gerçekleştirmiyorsanız yük devretmeyi tamamlamak için VM'leri yürütmeniz gerekir. Birincil site açılıp çalıştığında yeniden çalışma meydana gelir. Çoğaltma Azure'a yapılıyorsa ters çoğaltma otomatiktir. Aksi halde, ters çoğaltmayı elle tetiklersiniz.
+**Şekil 8: Hyper-V iş akışı**
 
 ![iş akışı](./media/site-recovery-components/arch-hyperv-azure-workflow.png)
 
@@ -239,6 +227,6 @@ Bu iş akışı, Hyper-V sanal makineleri üzerinde gerçekleşen koruma, çoğa
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 10/17/2016
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: c0a1cf550c46810624d9eee7722409ff19b75369
+ms.sourcegitcommit: ec32e3937d08d912c8f96987b0c5ebbf73060258
+ms.openlocfilehash: 7a4413c6d2ecf497e72e2909e627761f0a9ff23a
 
 
 ---
@@ -42,20 +42,19 @@ Güvenlik Merkezi, gerçek tehditleri algılamak ve hatalı pozitif sonuçları 
 1. Güvenlik Merkezi panosunda **Güvenlik uyarıları** kutucuğunu görürsünüz.
    
     ![Güvenlik Merkezi'nde güvenlik uyarıları kutucuğu](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig1-ga.png)
+
 2. Aşağıda gösterildiği gibi, uyarılar hakkında daha fazla ayrıntı içeren **Güvenlik uyarıları** dikey penceresini açmak için kutucuğa tıklayın.
    
    ![Güvenlik Merkezi'nde Güvenlik uyarıları dikey penceresi](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig2-ga.png)
 
 Bu dikey pencerenin alt bölümünde her bir uyarı için ayrıntılar bulunur. Sıralamak için hangi sütuna göre sıralamak istediğinizi belirtin. Her sütunun tanımı aşağıda verilmiştir:
 
-* **Uyarı**: Uyarının kısa bir açıklaması.
+* **Açıklama**: Uyarının kısa bir açıklaması.
 * **Sayı**: Belirtilmiş türün belirli bir günde algılanan tüm uyarılarının listesi.
 * **Algılayan**: Uyarıyı tetiklemekten sorumlu hizmet.
 * **Tarih**: Olayın gerçekleştiği tarih
 * **Durum**: Bu uyarı için geçerli durum. İki tür durum mevcuttur:
-  
   * **Etkin**: Güvenlik uyarısı algılandı.
-  * **Kapatıldı**: Güvenlik uyarısı kullanıcı tarafından kapatıldı. Bu durum genellikle, araştırılan ancak azaltılan ya da gerçek bir saldırı olarak düşünülmeyen uyarılar için kullanılır.
 * **Önem derecesi**: Yüksek, orta veya düşük önem düzeyi.
 
 ### <a name="filtering-alerts"></a>Uyarıları filtreleme
@@ -63,10 +62,7 @@ Tarihe, duruma ve önem derecesine göre uyarıları filtreleyebilirsiniz. Filtr
 
 1. **Güvenlik Uyarıları** dikey penceresindeki **Filtreleme**'ye tıklayın. **Filtreleme** dikey penceresi açılır ve görmek istediğiniz tarih, durum ve önem derecesi değerlerini seçersiniz.
    
-    ![Güvenlik Merkezi'nde uyarıları filtreleme](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig3-ga.png)
-2. Bir güvenlik uyarısını araştırdıktan sonra, uyarının ortamınız için hatalı bir pozitif sonuç olduğunu veya belirli bir kaynak için beklenen davranışı belirttiğini fark edebilirsiniz. Her durumda, bir güvenlik uyarısını uygulanamaz olarak belirlerseniz uyarıyı kapatabilir ve ardından görünümünüzden çıkarabilirsiniz. Bir güvenlik uyarısını kapatmanın iki yolu vardır. Uyarıya sağ tıklayın ve **Kapat**'ı seçin veya bir öğenin üzerine gelerek sağ tarafta görüntülenen üç noktaya tıklayın ve **Kapat**'a tıklayın. **Filtreleme**'ye tıklayıp **Kapatıldı**'yı seçerek kapatılan güvenlik uyarılarını görüntüleyebilirsiniz.
-   
-   ![Güvenlik Merkezi'nde uyarıları kapatma](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig4-ga.png)
+    ![Güvenlik Merkezi'nde uyarıları filtreleme](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig3-2017.png)
 
 ### <a name="respond-to-security-alerts"></a>Güvenlik uyarılarını yanıtlama
 Uyarıyı tetikleyen olay(lar) ve saldırıyı düzeltmek için (varsa) hangi adımları atmanız gerektiği hakkında daha fazla bilgi edinmek için bir güvenlik uyarısı seçin. Güvenlik uyarıları, türe ve tarihe göre gruplandırılır. Güvenlik uyarısına tıklandığında gruplanan uyarıların listesini içeren dikey pencere açılır.
@@ -98,6 +94,6 @@ Bu belgede, Güvenlik Merkezi'nde güvenlik ilkelerinin nasıl yapılandırılac
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

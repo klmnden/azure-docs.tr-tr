@@ -63,6 +63,6 @@
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=backup)
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

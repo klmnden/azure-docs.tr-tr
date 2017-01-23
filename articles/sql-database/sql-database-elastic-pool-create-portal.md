@@ -1,6 +1,6 @@
 ---
 title: "Azure portalı ile yeni bir esnek havuz oluşturma | Microsoft Belgeleri"
-description: "Birçok veritabanı arasında daha kolay yönetim ve kaynak paylaşımı sağlamak amacıyla SQL veritabanı yapılandırmanıza ölçeklenebilir bir esnek veritabanı havuzu ekleme."
+description: "Birçok veritabanı arasında daha kolay yönetim ve kaynak paylaşımı sağlamak amacıyla SQL veritabanı yapılandırmanıza ölçeklenebilir bir elastik havuz ekleme."
 keywords: "ölçeklenebilir veritabanı,veritabanı yapılandırması"
 services: sql-database
 documentationcenter: 
@@ -9,20 +9,20 @@ manager: jhubbard
 editor: 
 ms.assetid: bf12594b-d258-40e6-a9fc-d8a8710c2d65
 ms.service: sql-database
-ms.custom: sharded databases pool
+ms.custom: multiple databases
 ms.devlang: NA
 ms.date: 11/17/2016
 ms.author: ninarn
 ms.workload: data-management
-ms.topic: hero-article
+ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: 1a0b8609acd99ec188f92a32ed4cb44a68edc3b2
-ms.openlocfilehash: 54deca0518d82de59a58e02fc38693179c486b64
+ms.sourcegitcommit: 6c8420a154d998aa95c0220049ee54b3039a872b
+ms.openlocfilehash: 4be8e4f81965fa4d872e29fdb9aaa45909d18c37
 
 
 ---
-# <a name="create-a-new-elastic-database-pool-with-the-azure-portal"></a>Azure portalıyla yeni bir esnek veritabanı havuzu oluşturma
+# <a name="create-a-new-elastic-pool-with-the-azure-portal"></a>Azure portalıyla yeni bir elastik havuz oluşturma
 > [!div class="op_single_selector"]
 > * [Azure Portal](sql-database-elastic-pool-create-portal.md)
 > * [PowerShell](sql-database-elastic-pool-create-powershell.md)
@@ -31,7 +31,7 @@ ms.openlocfilehash: 54deca0518d82de59a58e02fc38693179c486b64
 
 Bu makalede [Azure portalı](https://portal.azure.com/) ile nasıl ölçeklenebilir bir [esnek havuz](sql-database-elastic-pool.md) oluşturacağınız gösterilmiştir. Havuz oluşturmanın iki yolu vardır. İstediğiniz havuz kurulumunu biliyorsanız sıfırdan oluşturabilir veya hizmet tarafından sağlanan bir öneriyle başlayabilirsiniz. SQL Database, veritabanlarınızın geçmişe yönelik kullanım telemetrisini göz önünde bulundurarak sizin için maliyet açısından daha verimli bir havuz kurulumu olması halinde onu öneren yerleşik zekaya sahiptir.
 
-Bir sunucuya birden fazla havuz ekleyebilirsiniz ancak aynı havuza farklı sunuculara ait veritabanlarını ekleyemezsiniz. Havuz oluşturmak için V12 sunucusunda en az bir veritabanınızın olması gerekir. Veritabanınız yoksa bkz. [İlk Azure SQL veritabanınızı oluşturma](sql-database-get-started.md). Yalnızca bir veritabanı ile havuz oluşturabilirsiniz ancak havuzlar yalnızca birden çok veritabanıyla kullanıldığında maliyet açısından verimlidir. Bkz. [Esnek veritabanı havuzuna ilişkin fiyat ve performans ile ilgili dikkat edilmesi gerekenler](sql-database-elastic-pool-guidance.md).
+Bir sunucuya birden fazla havuz ekleyebilirsiniz ancak aynı havuza farklı sunuculara ait veritabanlarını ekleyemezsiniz. Havuz oluşturmak için V12 sunucusunda en az bir veritabanınızın olması gerekir. Veritabanınız yoksa bkz. [İlk Azure SQL veritabanınızı oluşturma](sql-database-get-started.md). Yalnızca bir veritabanı ile havuz oluşturabilirsiniz ancak havuzlar yalnızca birden çok veritabanıyla kullanıldığında maliyet açısından verimlidir. Bkz. [Elastik havuzlar için fiyat ve performans ile ilgili dikkat edilmesi gerekenler](sql-database-elastic-pool-guidance.md).
 
 > [!NOTE]
 > Esnek havuzlar şu anda önizleme aşamasında oldukları Batı Hindistan dışında tüm Azure bölgelerinde genel olarak kullanılabilir (GA) durumdadır.  Bu bölgede esnek havuz GA’sı olabildiğince çabuk ortaya çıkar.
@@ -58,7 +58,7 @@ Bu makalede, var olan veritabanlarını bir havuza taşımanın en kolay yolu ol
 
     ![önerilen havuz](./media/sql-database-elastic-pool-create-portal/recommended-pool.png)
 
-3. Havuzunuzun ayarlarını belirleyeceğiniz **Esnek veritabanı havuzu** dikey penceresi görünür. Önceki adımda **Yeni havuz**’a tıkladıysanız, fiyatlandırma katmanı varsayılan olarak **Standart**’tır ve seçilmiş bir veri tabanı bulunmaz. Boş bir havuz oluşturabilir veya havuza taşımak için bu sunucudan var olan bir veritabanları kümesi belirtebilirsiniz. Önerilen bir havuzu oluşturuyorsanız; önerilen fiyatlandırma katmanı, performans ayarları ve veritabanları listesi önceden doldurulur ancak bunları değiştirebilirsiniz.
+3. Havuzunuzun ayarlarını belirleyeceğiniz **elastik havuz** dikey penceresi görünür. Önceki adımda **Yeni havuz**’a tıkladıysanız, fiyatlandırma katmanı varsayılan olarak **Standart**’tır ve seçilmiş bir veri tabanı bulunmaz. Boş bir havuz oluşturabilir veya havuza taşımak için bu sunucudan var olan bir veritabanları kümesi belirtebilirsiniz. Önerilen bir havuzu oluşturuyorsanız; önerilen fiyatlandırma katmanı, performans ayarları ve veritabanları listesi önceden doldurulur ancak bunları değiştirebilirsiniz.
 
     ![Esnek havuzu yapılandırma](./media/sql-database-elastic-pool-create-portal/configure-elastic-pool.png)
 
@@ -89,7 +89,7 @@ Fiyatlandırma katmanını ayarladıktan sonra, Havuzu yapılandır'a tıklayın
 
     Kullandığınız veritabanları, geçmişe yönelik yeterli kullanım telemetrisine sahipse **Tahmini eDTU ve GB kullanımı** grafiği ve **Gerçek eDTU kullanımı** çubuk grafiği, yapılandırma kararları vermenize yardımcı olmak üzere güncelleştirilir. Ayrıca hizmet, havuzu düzgün bir şekilde boyutlandırmanıza yardımcı olmak üzere size bir öneri iletisi sunabilir. Bkz. [Dinamik Öneriler](#dynamic-recommendations).
 
-3. Ayarları incelemek ve havuzunuzu yapılandırmak için **Havuz yapılandırma** sayfasındaki denetimleri kullanın. Her bir hizmet katmanına yönelik sınırlar hakkında daha ayrıntılı bilgi için bkz. [Esnek havuz sınırları](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases); havuzu düzgün bir şekilde boyutlandırmaya ilişkin ayrıntılı bir kılavuz için bkz. [Esnek veritabanı havuzlarına ilişkin fiyat ve performans ile ilgili dikkat edilmesi gerekenler](sql-database-elastic-pool-guidance.md). Havuz ayarları hakkında daha ayrıntılı bilgi için bkz. [Esnek havuz özellikleri](sql-database-elastic-pool.md#elastic-pool-and-elastic-database-properties).
+3. Ayarları incelemek ve havuzunuzu yapılandırmak için **Havuz yapılandırma** sayfasındaki denetimleri kullanın. Her bir hizmet katmanına yönelik sınırlar hakkında daha ayrıntılı bilgi için bkz. [Elastik havuz sınırları](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools); havuzu düzgün bir şekilde boyutlandırmaya ilişkin ayrıntılı bir kılavuz için bkz. [Elastik havuzlar için fiyat ve performans ile ilgili dikkat edilmesi gerekenler](sql-database-elastic-pool-guidance.md). Havuz ayarları hakkında daha ayrıntılı bilgi için bkz. [Esnek havuz özellikleri](sql-database-elastic-pool.md#elastic-pool-properties).
 
     ![Esnek Havuzu Yapılandırma](./media/sql-database-elastic-pool-create-portal/configure-performance.png)
 
@@ -110,7 +110,7 @@ Havuz önerisi şunları kapsar:
 - Veritabanı başına **Maksimum eDTU** ve **Minimum eDTU**
 - Havuz için önerilen veritabanlarının listesi
 
-Hizmet, havuz önerisinde bulunurken telemetrinin son 30 gününü dikkate alır. Bir veritabanının esnek veritabanı havuzu adayı olarak kabul edilebilmesi için en az 7 gündür var olması gerekir. Zaten bir esnek veritabanı havuzunda bulunan veritabanları, esnek veritabanı havuz önerileri için aday olarak kabul edilmez.
+Hizmet, havuz önerisinde bulunurken telemetrinin son 30 gününü dikkate alır. Bir veritabanının elastik havuz adayı olarak kabul edilebilmesi için en az 7 gündür var olması gerekir. Zaten bir elastik havuzda bulunan veritabanları, elastik havuz önerileri için aday olarak kabul edilmez.
 
 Her bir hizmet katmanındaki tek veritabanının aynı katman havuzlarına taşınmasının maliyet açısından verimliliği ve kaynak ihtiyaçları hizmet tarafından değerlendirilir. Örneğin, bir sunucudaki tüm Standart veritabanları Standart Esnek Havuz'a uygunluk açısından değerlendirilir. Bu, hizmetin bir Standart veritabanının bir Premium havuza taşınması gibi çapraz katmanlı önerilerde bulunmadığı anlamına gelir.
 
@@ -129,6 +129,6 @@ Havuza veritabanı eklendikten sonra öneriler, seçtiğiniz veritabanlarının 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

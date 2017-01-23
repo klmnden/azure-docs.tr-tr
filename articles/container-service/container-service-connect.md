@@ -17,13 +17,17 @@ ms.workload: na
 ms.date: 09/13/2016
 ms.author: rogardle
 translationtype: Human Translation
-ms.sourcegitcommit: 319978579ae6ad868030d2ec99bce6e6aaa22299
-ms.openlocfilehash: 24a8b9c4e78971199236553802a71134bd12829c
+ms.sourcegitcommit: bcc2d3468c8a560105aa2c2feb0d969ec3cccdcb
+ms.openlocfilehash: 5296586b9266f432042f847f4dff9e6ff62ebc8b
 
 
 ---
 # <a name="connect-to-an-azure-container-service-cluster"></a>Azure Kapsayıcı Hizmeti kümesine bağlanma
 Azure Container Service tarafından dağıtılan DC/OS, Kubernetes ve Docker Swarm kümeleri, REST uç noktalarını kullanıma sunar.  Kubernetes için, bu uç nokta İnternet’te güvenli bir şekilde kullanıma sunulmuştur ve bu uç noktaya İnternet bağlantısı olan herhangi bir makineden doğrudan erişilebilir. DC/OS ve Docker Swarm için, REST uç noktasını güvenli bir şekilde bağlamak için bir SSH tüneli oluşturmanız gerekir. Bu bağlantıların her biri aşağıda açıklanmıştır.
+
+> [!NOTE]
+> Azure Container Service'teki Kubernetes desteği şu anda önizleme aşamasındadır.
+>
 
 ## <a name="connecting-to-a-kubernetes-cluster"></a>Kubernetes kümesine bağlanma.
 Kubernetes kümesine bağlanmak için, `kubectl` komut satırı aracının yüklü olması gerekir.  Bu aracı yüklemenin en kolay yolu, Azure 2.0 `az` komut satırı aracını kullanmaktır.
@@ -172,6 +176,6 @@ DC/OS ya da Swarm ile kapsayıcıları dağıtın ve yönetin:
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

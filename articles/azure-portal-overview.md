@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 12/16/2015
 ms.author: dwrede
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 7383380ee07f9ee52858038bd4d623be4689a31a
+ms.sourcegitcommit: 6ab02779d65dfc1519b457486678ace5fafc9fb5
+ms.openlocfilehash: 60733f973e7b88389816c1ea7cc15532ba967693
 
 
 ---
@@ -60,16 +60,6 @@ Bu dikey pencereden, uzak masaüstünü kullanarak sanal makineye bağlanabilir,
 
 ![Kaynak Yönetme][ManageResource]
 
-## <a name="how-to-customize-a-resource-blade"></a>Kaynak dikey penceresini özelleştirme
-Azure kaynaklarınız için dikey pencereleri önceden yapılandırır, ancak bu dikey penceredeki kutucukların denetimi size aittir.  Kutucukları eklemek, kaldırmak, yeniden boyutlandırmak veya yeniden düzenlemek için kolaylıkla özelleştirme moduna gidebilirsiniz. Bir dikey pencereyi özelleştirmek için aşağıdaki eylemleri gerçekleştirin:
-
-1. Kaynağınızı bulun.
-2. Özelleştirmek istediğiniz dikey pencerenin üstünde bulunan ‘...’ öğesine tıklayın.
-3. ‘Parça ekle’ye tıklayın.
-4. Parçaları sürükleyip bırakmaya başlayın.  
-
-![Dikey Pencereleri Özelleştirme][CustomizeBlades]
-
 ## <a name="how-to-get-help"></a>Yardım alma
 Bir sorununuz varsa, size yardımcı olmaya hazırız.  Portalda sağ tarafta görebileceğiniz üzere bir yardım ve destek sayfası vardır.  Ayrıca, [destek planınıza](https://azure.microsoft.com/support/plans/) bağlı olarak doğrudan portal üzerinden destek bileti oluşturabilirsiniz.  Bir destek bileti oluşturduktan sonra portal üzerinden bu biletin yaşam döngüsünü yönetebilirsiniz. Gözat -> Yardım + destek bölümüne giderek yardım ve destek sayfasına ulaşabilirsiniz.  
 
@@ -97,6 +87,6 @@ Microsoft Azure portalını uygulamalarınızı bulutta oluşturma ve yönetme s
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 
