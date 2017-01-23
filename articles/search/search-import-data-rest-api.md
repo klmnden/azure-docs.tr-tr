@@ -13,32 +13,33 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 08/29/2016
+ms.date: 12/08/2016
 ms.author: ashmaka
 translationtype: Human Translation
-ms.sourcegitcommit: 6ff31940f3a4e7557e0caf3d9d3740590be3bc04
-ms.openlocfilehash: 340287e4a3331eba441bce7feb957f27aca38b2b
-
+ms.sourcegitcommit: 455c4847893175c1091ae21fa22215fd1dd10c53
+ms.openlocfilehash: 80a1630deb8f7e93a91118d880eb2477ace26eb6
 
 ---
+
 # <a name="upload-data-to-azure-search-using-the-rest-api"></a>REST API kullanarak Azure Search'e veri yükleme
 > [!div class="op_single_selector"]
+>
 > * [Genel Bakış](search-what-is-data-import.md)
 > * [.NET](search-import-data-dotnet.md)
 > * [REST](search-import-data-rest-api.md)
-> 
-> 
+>
+>
 
-Bu makalede, bir Azure Search dizinine veri aktarmak için [Azure Search REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx)'sinin nasıl kullanılacağı gösterilir.
+Bu makalede, bir Azure Search dizinine veri aktarmak için [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice/)'sinin nasıl kullanılacağı gösterilir.
 
 Bu kılavuza başlamadan önce bir [Azure Search dizini oluşturmuş](search-what-is-an-index.md) olmanız gerekir.
 
 REST API kullanarak dizininize belgeleri göndermek için dizininizin URL uç noktasına bir HTTP POST isteği gönderirsiniz. HTTP isteğinin gövdesi eklenecek, değiştirilecek veya silinecek belgeleri içeren bir JSON nesnesidir.
 
-## <a name="i-identify-your-azure-search-services-admin-apikey"></a>I. Azure Search hizmet yöneticinizin api anahtarını tanımlama
+## <a name="i-identify-your-azure-search-services-admin-api-key"></a>I. Azure Search hizmet yöneticinizin api anahtarını tanımlama
 REST API kullanarak hizmetinize karşı HTTP istekleri gönderirken, *her bir* API isteğinin sağladığınız Search hizmeti için oluşturulmuş api anahtarını içermesi gerekir. İstek başına geçerli bir anahtara sahip olmak, isteği gönderen uygulama ve bunu işleyen hizmet arasında güven oluşturur.
 
-1. Hizmetinizin api anahtarlarını bulmak için [Azure Portal](https://portal.azure.com/)'da oturum açmanız gerekir
+1. Hizmetinizin api anahtarlarını bulmak için [Azure portalında](https://portal.azure.com/) oturum açmanız gerekir.
 2. Azure Search hizmetinizin dikey penceresine gidin
 3. "Anahtarlar" simgesine tıklayın
 
@@ -65,9 +66,9 @@ REST API kullanırken, Azure Search dizininizin uç nokta URL'sine JSON istek g�
 Artık dizin eylemleriniz için gerekli alan değerlerini topladığınıza göre, verilerinizi içeri aktarmak için asıl HTTP isteğini ve JSON istek gövdesini oluşturmaya hazırsınız.
 
 #### <a name="request-and-request-headers"></a>İstek ve İstek Üst Bilgileri
-URL'de hizmet adınızın ve dizin adının (bu durumda "hotels") yanı sıra düzgün API sürümünü (bu belgenin yayımlandığı sırada geçerli API sürümü `2015-02-28`) de sağlamanız gerekir. `Content-Type` ve `api-key` istek üst bilgilerini tanımlamanız gerekir. İkincisi için hizmetinizin yönetici anahtarlarından birini kullanın.
+URL'de hizmet adınızın ve dizin adının (bu durumda "hotels") yanı sıra düzgün API sürümünü (bu belgenin yayımlandığı sırada geçerli API sürümü `2016-09-01`) de sağlamanız gerekir. `Content-Type` ve `api-key` istek üst bilgilerini tanımlamanız gerekir. İkincisi için hizmetinizin yönetici anahtarlarından birini kullanın.
 
-    POST https://[search service].search.windows.net/indexes/hotels/docs/index?api-version=2015-02-28
+    POST https://[search service].search.windows.net/indexes/hotels/docs/index?api-version=2016-09-01
     Content-Type: application/json
     api-key: [admin key]
 
@@ -160,8 +161,8 @@ En az bir öğenin dizine alınması başarısız olduğunda `207` durum kodu d�
 
 > [!NOTE]
 > Bu durum genellikle, arama hizmetinizdeki yükün, dizin oluşturma isteklerinin `503` yanıtları döndürmeye başlayacağı bir noktaya eriştiği anlamına gelir. Bu durumda, istemci kodunuzun geri alınmasını ve yeniden denemeden önce beklenmesini kesinlikle öneririz. Böylece kurtulması için sisteme biraz zaman tanınmış ve gelecekteki isteklerin başarılı olma şansı artırılmış olur. İsteklerinizi hızla yeniden denemeniz bu durumu yalnızca uzatır.
-> 
-> 
+>
+>
 
 #### <a name="429"></a>429
 Dizin başına belge sayısı kotanızı aştığınızda `429` durum kodu döndürülür.
@@ -171,17 +172,16 @@ Dizin başına belge sayısı kotanızı aştığınızda `429` durum kodu dönd
 
 > [!NOTE]
 > Bu durumda, istemci kodunuzun geri alınmasını ve yeniden denemeden önce beklenmesini kesinlikle öneririz. Böylece kurtulması için sisteme biraz zaman tanınmış ve gelecekteki isteklerin başarılı olma şansı artırılmış olur. İsteklerinizi hızla yeniden denemeniz bu durumu yalnızca uzatır.
-> 
-> 
+>
+>
 
-Belge eylemleri ve başarı/hata yanıtları hakkında daha fazla bilgi için lütfen bkz. [Belge Ekleme, Güncelleştirme veya Silme](https://msdn.microsoft.com/library/azure/dn798930.aspx). Hata durumunda döndürülebilen diğer HTTP durum kodları hakkında daha fazla bilgi için bkz. [HTTP durum kodları (Azure Search)](https://msdn.microsoft.com/library/azure/dn798925.aspx).
+Belge eylemleri ve başarı/hata yanıtları hakkında daha fazla bilgi için lütfen bkz. [Belge Ekleme, Güncelleştirme veya Silme](https://docs.microsoft.com/rest/api/searchservice/AddUpdate-or-Delete-Documents). Hata durumunda döndürülebilen diğer HTTP durum kodları hakkında daha fazla bilgi için bkz. [HTTP durum kodları (Azure Search)](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes).
 
 ## <a name="next"></a>Sonraki
 Azure Search dizininizi doldurduktan sonra, belgeleri aramak için sorgu göndermeye başlamaya hazır olursunuz. Ayrıntılı bilgi için bkz. [Azure Search Dizininizi Sorgulama](search-query-overview.md).
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

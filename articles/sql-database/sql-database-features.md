@@ -16,8 +16,8 @@ ms.workload: data-management
 ms.date: 11/28/2016
 ms.author: carlrab; jognanay
 translationtype: Human Translation
-ms.sourcegitcommit: 75bf523679c8d8ad6fbe4a8aa8a561d03008e59b
-ms.openlocfilehash: c7cb4b872723e07b720c87ecef9d9d8f136c25eb
+ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
+ms.openlocfilehash: c153f09741b9b063d67459bbb127f9c4e7942a5b
 
 
 ---
@@ -156,11 +156,11 @@ V12'ye özellik eklemeye devam ediyoruz. Bu nedenle Azure için Hizmet Güncelle
 - Azure SQL veritabanlarına genel bakış için bkz. [SQL Veritabanına genel bakış](sql-database-overview.md)
 - Transact-SQL desteği ve farklılıkları hakkında bilgi edinmek için bkz. [Azure SQL Veritabanı Transact-SQL farklılıkları](sql-database-transact-sql-information.md).
 - **Hizmet katmanınızı** temel alan özel kaynak kotaları ve sınırlamalar hakkında bilgi edinmek için. Hizmet katmanlarına genel bir bakış için bkz. [SQL Veritabanı hizmet katmanları](sql-database-service-tiers.md).
-- Güvenlikle ilgili yönergeler için bkz. [Azure SQL Veritabanı Güvenlik Yönergeleri ve Sınırlamaları](sql-database-security-guidelines.md).
+- Güvenlik özelliklerine genel bakış için bkz. [Azure SQL Veritabanı Güvenliğine Genel Bakış](sql-database-security-overview.md).
 - Sürücü kullanılabilirliği ve SQL Veritabanı desteği hakkında bilgi edinmek için bkz. [SQL Veritabanı ve SQL Server için Bağlantı Kitaplıkları](sql-database-libraries.md).
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

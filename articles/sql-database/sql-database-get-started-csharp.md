@@ -1,5 +1,5 @@
 ---
-title: "SQL Veritabanı&quot;nı deneme: C# kullanarak SQL veritabanı oluşturma | Microsoft Belgeleri"
+title: "C#: Azure SQL Veritabanı&quot;nı kullanmaya başlama | Microsoft Docs"
 description: "SQL ve C# uygulamalarını geliştirmek için SQL Database kullanmayı deneyin ve .NET için SQL Database Kitaplığı&quot;nı kullanarak C# ile bir Azure SQL Database oluşturun."
 keywords: sql deneme, sql c#
 services: sql-database
@@ -17,8 +17,8 @@ ms.workload: data-management
 ms.date: 10/04/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 6fb71859d0ba2e0f2b39d71edd6d518b7a03bfe9
-ms.openlocfilehash: 32c18821ac9cf5516fba9762ca5bb834194dcdc9
+ms.sourcegitcommit: 10b40214ad4c7d7bb7999a5abce1c22100b617d8
+ms.openlocfilehash: d55c08dbd1d2372e5396f40e74b4f63f3e2f0022
 
 
 ---
@@ -51,9 +51,9 @@ Bu makaledeki adımları tamamlayabilmeniz için şunlar gereklidir:
 C# ile bir SQL veritabanı oluşturmak için gerekli yönetim kitaplıklarını yükleyin ([paket yöneticisi konsolunu](http://docs.nuget.org/Consume/Package-Manager-Console) kullanarak):
 
 1. **Araçlar** > **NuGet Paket Yöneticisi** > **Paket Yöneticisi Konsolu**’na tıklayın.
-2. En son [Microsoft Azure SQL Yönetim Kitaplığı](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql)’nı yüklemek için `Install-Package Microsoft.Azure.Management.Sql –Pre` yazın.
-3. [Microsoft Azure Resource Manager Kitaplığı](https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceManager)’nı yüklemek için `Install-Package Microsoft.Azure.Management.ResourceManager –Pre` yazın.
-4. [Microsoft Azure Sık Kullanılan Kimlik Doğrulama Kitaplığı](https://www.nuget.org/packages/Microsoft.Azure.Common.Authentication)’nı yüklemek için `Install-Package Microsoft.Azure.Common.Authentication –Pre` yazın. 
+2. En son [Microsoft Azure SQL Yönetim Kitaplığı](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql)’nı yüklemek için `Install-Package Microsoft.Azure.Management.Sql -Pre` yazın.
+3. [Microsoft Azure Resource Manager Kitaplığı](https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceManager)’nı yüklemek için `Install-Package Microsoft.Azure.Management.ResourceManager -Pre` yazın.
+4. [Microsoft Azure Sık Kullanılan Kimlik Doğrulama Kitaplığı](https://www.nuget.org/packages/Microsoft.Azure.Common.Authentication)’nı yüklemek için `Install-Package Microsoft.Azure.Common.Authentication -Pre` yazın. 
 
 > [!NOTE]
 > Bu makaledeki örneklerde, temel alınan hizmet üzerindeki REST çağrısı tamamlanana kadar her bir API isteğinin ve bloğunun zaman uyumlu bir biçimi kullanıldı. Zaman uyumsuz yöntemler de kullanılabilir.
@@ -287,6 +287,6 @@ SQL Database'i ve C# ile bir veritabanını ayarlamayı denediğinize göre şu 
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO2-->
 
 

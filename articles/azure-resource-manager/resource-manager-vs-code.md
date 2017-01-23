@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2016
+ms.date: 01/03/2017
 ms.author: chmatsk;tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f839784aaef511c60ec1c3eea0b64bfdd5f67a4f
+ms.sourcegitcommit: 10c7051c9b1218081d95cb10403006bfd95126ba
+ms.openlocfilehash: 2ac1c2cce7a9e045990894b0bbaa045df3d48954
 
 
 ---
 # <a name="working-with-azure-resource-manager-templates-in-visual-studio-code"></a>Visual Studio Code’da Azure Resource Manager Şablonları ile Çalışma
-Azure Resource Manager şablonları bir kaynağı ve ilgili bağımlılıkları tanımlayan JSON dosyalarıdır. Bu dosyalar bazen büyük ve karmaşık olabilir, bu nedenle araç desteği önemlidir. Visual Studio Code yeni, basit, açık kaynaklı ve çapraz platformlu bir kod düzenleyicisidir. Resource Manager şablonlarını [yeni bir uzantı](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) ile oluşturup düzenlemeyi destekler. VS Code her yerde çalışır ve aynı zamanda Resource Manager şablonlarınızı dağıtmak istemedikçe İnternet erişimi gerektirmez.
+Azure Resource Manager şablonları bir kaynağı ve ilgili bağımlılıkları tanımlayan JSON dosyalarıdır. Bu dosyalar bazen büyük ve karmaşık olabilir, bu nedenle araç desteği önemlidir. Visual Studio Code yeni, basit, açık kaynaklı ve çapraz platformlu bir kod düzenleyicisidir. Resource Manager şablonlarını [yeni bir uzantı](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) ile oluşturup düzenlemeyi destekler. VS Code her yerde çalışır ve yalnızca Resource Manager şablonlarınızı Azure aboneliğinize dağıtmak istediğinizde İnternet erişimi gerektirir.
 
 Henüz VS Code’a sahip değilseniz [https://code.visualstudio.com/](https://code.visualstudio.com/) adresinden yükleyebilirsiniz.
 
@@ -42,7 +42,7 @@ VS Code’da JSON şablonları ile çalışmak için bir uzantı yüklemeniz ger
 
 1. [azure-xplat-arm-tooling](https://raw.githubusercontent.com/Azure/azure-xplat-arm-tooling/master/VSCode/armsnippets.json) deposundaki dosyanın içeriklerini panonuza kopyalayın.
 2. VS Code’u başlatın 
-3. VS Code’da **Dosya** -> **Tercihler** -> **Kullanıcı Parçacıkları** -> **JSON**’a giderek veya **F1**’i seçip **Tercihler: Parçacıklar** seçimi gösterilene kadar **tercihler** yazarak JSON parçacıklarını açabilirsiniz.
+3. VS Code’da JSON kod parçacıkları dosyasını açmak için **Dosya** -> **Tercihler** -> **Kullanıcı Kod Parçacıkları** -> **JSON** yolunu izleyin. İsterseniz **F1**’e basıp **tercihler** yazabilir ve **Tercihler: Kod Parçacıkları**’nı seçebilirsiniz.
    
     ![tercih parçacıkları](./media/resource-manager-vs-code/preferences-snippets.png)
    
@@ -61,19 +61,19 @@ Bir şablonla çalışmaya başlamanın en kolay yolu [Github](https://github.co
 1. Şablonu bir kaynak grubundan dışarı aktardıysanız ayıklanan dosyaları VS Code’da açın.
    
     ![dosyaları göster](./media/resource-manager-vs-code/show-files.png)
-2. Düzenleyebilmek için template.json dosyasını açın ve daha fazla kaynak ekleyin. **"resources": [** ifadesinden sonra enter tuşuna basarak yeni bir satır başlatın. **arm** yazarsanız bir seçenek listesi açılır. Bu seçenekler yüklediğiniz şablon parçacıklarıdır. Şu şekilde görünmelidir: 
+2. Düzenleyebilmek için template.json dosyasını açın ve daha fazla kaynak ekleyin. `"resources": [` ifadesinden sonra enter tuşuna basarak yeni bir satır başlatın. **arm** yazarsanız bir seçenek listesi açılır. Bu seçenekler yüklediğiniz şablon parçacıklarıdır. 
    
     ![parçacıkları göster](./media/resource-manager-vs-code/type-snippets.png)
-3. İstediğiniz parçacığı seçin. Bu makale için **arm-ip** öğesini seçerek yeni bir ortak IP adresi oluşturuyorum. Yeni oluşturulan kaynağın kapanan parantezinden ("}") sonra bir virgül koyarak şablon söz diziminizin geçerli olduğundan emin olun.
+3. İstediğiniz parçacığı seçin. Bu makale için **arm-ip** öğesini seçerek yeni bir ortak IP adresi oluşturuyorum. Yeni oluşturulan kaynağın kapanan parantezinden `}` sonra bir virgül koyarak şablon söz diziminizin geçerli olduğundan emin olun.
    
      ![virgül ekle](./media/resource-manager-vs-code/add-comma.png)
-4. VS Code’da yerleşik IntelliSense bulunur. Şablonlarınızı düzenlerken VS Code kullanılabilir değerler önerir. Örneğin, şablonunuza bir değişkenler bölümü eklemek için **""** (iki çift tırnak) ekleyin ve bu çift tırnakların arasında **Ctrl+Ara çubuğunu** seçin. **Değişkenler** dahil olmak üzere bazı seçenekler sunulur.
+4. VS Code’da yerleşik IntelliSense bulunur. Şablonlarınızı düzenlerken VS Code kullanılabilir değerler önerir. Örneğin, şablonunuza bir değişkenler bölümü eklemek için `""` (iki çift tırnak) ekleyin ve bu çift tırnakların arasında **Ctrl+Boşluk tuşuna** basın. **Değişkenler** dahil olmak üzere bazı seçenekler sunulur.
    
     ![değişken ekleme](./media/resource-manager-vs-code/add-variables.png)
-5. IntelliSense, kullanılabilir değerler veya işlevler de önerebilir. Bir parametre değerine özellik ayarlamak için **"[]"** ve **Ctrl+Ara çubuğu** ile bir ifade oluşturun. Bir işlevin adını yazarak başlayabilirsiniz. İstediğiniz işlevi bulduğunuzda **Tab** tuşunu seçin.
+5. IntelliSense, kullanılabilir değerler veya işlevler de önerebilir. Bir parametre değerine özellik ayarlamak için `"[]"` ve **Ctrl+Boşluk tuşu** ile bir ifade oluşturun. Bir işlevin adını yazarak başlayabilirsiniz. İstediğiniz işlevi bulduğunuzda **Tab** tuşunu seçin.
    
     ![parametre ekleme](./media/resource-manager-vs-code/select-parameters.png)
-6. Şablonunuzdaki kullanılabilir parametrelerin listesini görmek için işlev içinde **Ctrl + Ara çubuğu** birleşimini yeniden seçin.
+6. Şablonunuzdaki kullanılabilir parametrelerin listesini görmek için işlev içinde **Ctrl+Boşluk tuşu** birleşimine yeniden basın.
    
     ![parametre ekleme](./media/resource-manager-vs-code/select-avail-parameters.png)
 7. Şablonunuzda şema doğrulama sorunları varsa düzenleyicide bilindik dalgalı çizgiler görürsünüz. **Ctrl+Shift+M** yazarak veya sol alttaki durum çubuğunda bulunan karakterleri seçerek hata ve uyarı listesini görüntüleyebilirsiniz.
@@ -85,35 +85,51 @@ Bir şablonla çalışmaya başlamanın en kolay yolu [Github](https://github.co
     ![hata iletisi](./media/resource-manager-vs-code/unrecognized-function.png)
 
 ## <a name="deploy-your-new-resources"></a>Yeni kaynaklarınızı dağıtma
-Şablonunuz hazır olduğunda aşağıdaki yönergeleri izleyerek yeni kaynakları dağıtabilirsiniz: 
+Şablonunuz hazır olduğunda aşağıdaki yönergelerle yeni kaynakları dağıtabilirsiniz: 
 
 ### <a name="windows"></a>Windows
 1. Bir PowerShell komut istemi açın 
 2. Oturum açmak için şunu yazın: 
    
-        Login-AzureRmAccount 
+  ```powershell
+  Login-AzureRmAccount
+  ```
+
 3. Birden çok aboneliğiniz varsa şununla aboneliklerin listesini alın:
-   
-        Get-AzureRmSubscription
+
+  ```powershell 
+  Get-AzureRmSubscription
+  ```
    
     Ve kullanılacak aboneliği seçin.
-   
-        Select-AzureRmSubscription -SubscriptionId <Subscription Id>
+
+  ```powershell
+  Select-AzureRmSubscription -SubscriptionId <Subscription Id>
+  ```
+
 4. Parameters.json dosyanızdaki parametreleri güncelleştirin
 5. Şablonunuzu Azure’da dağıtmak için Deploy.ps1 dosyasını çalıştırın
 
 ### <a name="osxlinux"></a>OSX/Linux
 1. Bir terminal penceresi açın 
 2. Oturum açmak için şunu yazın:
-   
-        azure login 
+
+  ```azurecli
+  azure login
+  ```
+
 3. Birden çok aboneliğiniz varsa doğru aboneliği seçmek için şunu yapın:
-   
-        azure account set <subscriptionNameOrId> 
+
+  ```azurecli
+  azure account set <subscriptionNameOrId> 
+  ```
+
 4. Parameters.json dosyasındaki parametreleri güncelleştirin.
 5. Şablonu dağıtmak için şunu çalıştırın:
-   
-        azure group deployment create -f <PathToTemplate> 
+
+  ```azurecli 
+  azure group deployment create -f <PathToTemplate>
+  ``` 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Şablonlar hakkında daha fazla bilgi edinmek için bkz. [Azure Resource Manager şablonları yazma](resource-group-authoring-templates.md).
@@ -123,6 +139,6 @@ Bir şablonla çalışmaya başlamanın en kolay yolu [Github](https://github.co
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

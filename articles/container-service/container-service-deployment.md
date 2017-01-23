@@ -11,122 +11,125 @@ keywords: "Docker, Kapsayıcılar, Mikro hizmetler, Mesos, Azure, dcos, swarm, k
 ms.assetid: 696a736f-9299-4613-88c6-7177089cfc23
 ms.service: container-service
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/13/2016
+ms.date: 12/20/2016
 ms.author: rogardle
 translationtype: Human Translation
-ms.sourcegitcommit: 52f158fd50ee8427cf567889d584e342ea42abb3
-ms.openlocfilehash: b52f7b36a28a345e8693ecbafd3771c27c683a37
+ms.sourcegitcommit: dc7ce9f0524567b861a40940f02cd07e0b7b22bf
+ms.openlocfilehash: 52331c92a4e3e254c044c9cba85a937b6ba95011
 
 
 ---
 # <a name="deploy-an-azure-container-service-cluster"></a>Azure Kapsayıcı Hizmeti kümesini dağıtma
 Azure Kapsayıcı Hizmeti popüler açık kaynak kapsayıcı kümeleme ve düzenleme çözümlerinin hızlı dağıtımını sağlar. Azure Container Service’i kullanarak, Azure Resource Manager şablonları ya da Azure portal ile DC/OS, Kubernetes ve Docker Swarm kümeleri dağıtabilirsiniz. Bu kümeleri, Azure Sanal Makine Ölçekleme Kümeleri kullanarak dağıtabilirsiniz, böylece kümeler Azure ağ ve depolama sunumlarından yararlanabilir. Azure Kapsayıcı Hizmeti’ne erişmek için bir Azure aboneliği gerekir. Bir aboneliğiniz yoksa, [ücretsiz deneme için kaydolabilirsiniz](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935).
 
+> [!NOTE]
+> Azure Container Service'teki Kubernetes desteği şu anda önizleme aşamasındadır.
+>
+
 Bu belge size [Azure portal](#creating-a-service-using-the-azure-portal), [Azure komut satırı arabirimi (CLI)](#creating-a-service-using-the-azure-cli) ve [Azure PowerShell modülü](#creating-a-service-using-powershell) kullanarak Azure Kapsayıcı Hizmeti kümesi dağıtmayı adım adım gösterir.  
 
 ## <a name="create-a-service-by-using-the-azure-portal"></a>Azure portalı kullanarak bir hizmet oluşturma
-Azure portalda oturum açın, **Yeni**’yi seçin ve Azure Market’te **Azure Container Service**’i arayın.
+1. Azure portalda oturum açın, **Yeni**’yi seçin ve Azure Market’te **Azure Container Service**’i arayın.
 
-![Dağıtım oluşturma 1](media/acs-portal1.png)  <br />
+    ![Dağıtım oluşturma 1](media/acs-portal1.png)  <br />
 
-**Azure Container Service**’i seçin ve **Oluştur**’a tıklayın.
+2. **Azure Container Service**’i seçin ve **Oluştur**’a tıklayın.
 
-![Dağıtım oluşturma 2](media/acs-portal2.png)  <br />
+    ![Dağıtım oluşturma 2](media/acs-portal2.png)  <br />
 
-Aşağıdaki bilgileri girin:
+3. Aşağıdaki bilgileri girin:
 
-* **Kullanıcı adı**: Bu, Azure Container Service kümesindeki her sanal makine ve sanal makine ölçek grubunda bir hesap için kullanılacak kullanıcı adıdır.
-* **Abonelik**: Bir Azure aboneliği seçin.
-* **Kaynak grubu**: Yeni bir kaynak grubu seçin ya da yeni bir tane oluşturun.
-* **Konum**: Azure Container Service dağıtımı için Azure bölgesini seçin.
-* **SSH ortak anahtarı** – Azure Container Service sanal makinelerine karşı kimlik doğrulaması için kullanılacak ortak anahtarı ekleyin. Bu anahtarın, hiç satır sonu içermemesi ve 'ssh-rsa' ön ekiyle birlikte 'username@domain' sonekini içermesi çok önemlidir. Anahtar, şunun gibi görünmelidir: **ssh-rsa AAAAB3Nz...<...>...UcyupgH azureuser@linuxvm**. Güvenli Kabuk (SSH) anahtarları oluşturma yönergeleri için bkz. [Linux](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-linux/) ve [Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-windows/) makaleleri.
+    * **Kullanıcı adı**: Bu, Azure Container Service kümesindeki her sanal makine ve sanal makine ölçek grubunda bir hesap için kullanılacak kullanıcı adıdır.
+    * **Abonelik**: Bir Azure aboneliği seçin.
+    * **Kaynak grubu**: Yeni bir kaynak grubu seçin ya da yeni bir tane oluşturun.
+    * **Konum**: Azure Container Service dağıtımı için Azure bölgesini seçin.
+    * **SSH ortak anahtarı** – Azure Container Service sanal makinelerine karşı kimlik doğrulaması için kullanılacak ortak anahtarı ekleyin. Bu anahtarın, hiç satır sonu içermemesi ve 'ssh-rsa' ön ekiyle birlikte 'username@domain' sonekini içermesi çok önemlidir. Anahtar, şunun gibi görünmelidir: **ssh-rsa AAAAB3Nz...<...>...UcyupgH azureuser@linuxvm**. Güvenli Kabuk (SSH) anahtarları oluşturma yönergeleri için bkz. [Linux](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-linux/) ve [Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-ssh-from-windows/) makaleleri.
 
-Devam etmeye hazır olduğunuzda **Tamam**’a tıklayın.
+4. Devam etmeye hazır olduğunuzda **Tamam**’a tıklayın.
 
-![Dağıtım oluşturma 3](media/acs-portal3.png)  <br />
+    ![Dağıtım oluşturma 3](media/acs-portal3.png)  <br />
 
-Orchestration türünü seçin. Seçenekler şunlardır:
+5. Orchestration türünü seçin. Seçenekler şunlardır:
 
-* **DC/OS**: DC/OS kümesi dağıtır.
-* **Swarm** Docker Swarm kümesi dağıtır.
-* **Kubernetes**: Bir Kubernetes kümesi dağıtır.
+    * **DC/OS**: DC/OS kümesi dağıtır.
+    * **Swarm** Docker Swarm kümesi dağıtır.
+    * **Kubernetes**: Bir Kubernetes kümesi dağıtır.
 
-Devam etmeye hazır olduğunuzda **Tamam**’a tıklayın.
+6. Devam etmeye hazır olduğunuzda **Tamam**’a tıklayın.
 
-![Dağıtım oluşturma 4](media/acs-portal4-new.png)  <br />
+    ![Dağıtım oluşturma 4](media/acs-portal4-new.png)  <br />
 
-Açılır menüden **Kubernetes** seçilirse hizmet sorumlusu istemci kimliği ve hizmet sorumlusu istemci parolasını girmeniz gerekir. Daha fazla bilgi için bkz. [Bir Kubernetes kümesi için hizmet sorumlusu hakkında](container-service-kubernetes-service-principal.md). 
+7. Açılır menüden **Kubernetes** seçilirse hizmet sorumlusu istemci kimliği ve hizmet sorumlusu istemci parolasını girmeniz gerekir. Daha fazla bilgi için bkz. [Bir Kubernetes kümesi için hizmet sorumlusu hakkında](container-service-kubernetes-service-principal.md).
 
-![Dağıtım oluşturma 4,5](media/acs-portal10.PNG)  <br />
+    ![Dağıtım oluşturma 4,5](media/acs-portal10.PNG)  <br />
 
-Aşağıdaki bilgileri girin:
+7. **Azure Container Service** ayarları dikey penceresinde aşağıdaki bilgileri girin:
 
-* **Ana sunucu sayısı**: Kümedeki ana sunucu sayısı. 'Kubernetes'i seçtiyseniz, ana sayısı varsayılan değer olan 1 olarak ayarlanır
-* **Aracı sayısı**: Docker Swarm ve Kubernetes için bu, aracı ölçek grubundaki aracıların başlangıçtaki sayısıdır. DC/OS için bu, özel ölçek grubundaki başlangıç aracıları sayısıdır. Ayrıca, önceden belirlenen sayıda aracı içeren bir ortak ölçek kümesi oluşturulur. Bu ortak ölçek kümesindeki aracıların sayısı, kümede kaç tane ana sunucu oluşturulduğuna göre belirlenir; bir ana sunucu için bir ortak aracı ve üç ya da beş ana sunucu için iki ortak sunucu.
-* **Aracı sanal makine boyutu**: Aracı sanal makinelerinin boyutudur.
-* **DNS öneki**: Hizmet için tam uygun etki alanı adlarının temel parçalarına önek olarak eklemek için kullanılacak world benzersiz adıdır.
+    * **Ana sunucu sayısı**: Kümedeki ana sunucu sayısı. Kubernetes’i seçtiyseniz, ana sayısı varsayılan değer olan 1 olarak ayarlanır
+    * **Aracı sayısı**: Docker Swarm ve Kubernetes için bu, aracı ölçek grubundaki aracıların başlangıçtaki sayısıdır. DC/OS için bu, özel ölçek grubundaki başlangıç aracıları sayısıdır. Ayrıca, önceden belirlenen sayıda aracı içeren bir ortak ölçek kümesi oluşturulur. Bu ortak ölçek kümesindeki aracıların sayısı, kümede kaç tane ana sunucu oluşturulduğuna göre belirlenir; bir ana sunucu için bir ortak aracı ve üç ya da beş ana sunucu için iki ortak sunucu.
+    * **Aracı sanal makine boyutu**: Aracı sanal makinelerinin boyutudur.
+    * **DNS öneki**: Hizmet için tam uygun etki alanı adlarının temel parçalarına önek olarak eklemek için kullanılacak world benzersiz adıdır.
 
-Devam etmeye hazır olduğunuzda **Tamam**’a tıklayın.
+8. Devam etmeye hazır olduğunuzda **Tamam**’a tıklayın.
 
-![Dağıtım oluşturma 5](media/acs-portal5.png)  <br />
+    ![Dağıtım oluşturma 5](media/acs-portal5.png)  <br />
 
-Hizmet doğrulama tamamlandıktan sonra **Tamam**’a tıklayın.
+9. Hizmet doğrulama tamamlandıktan sonra **Tamam**’a tıklayın.
 
-![Dağıtım oluşturma 6](media/acs-portal6.png)  <br />
+    ![Dağıtım oluşturma 6](media/acs-portal6.png)  <br />
 
-Dağıtım işlemini başlatmak için **Oluştur**’a tıklayın.
+10. Dağıtım işlemini başlatmak için **Satın Al**’a tıklayın.
 
-![Dağıtım oluşturma 7](media/acs-portal7.png)  <br />
+    ![Dağıtım oluşturma 7](media/acs-portal7.png)  <br />
 
-Azure portalda dağıtımı sabitlemeyi seçtiyseniz dağıtım durumunu görebilirsiniz.
+    Azure portalda dağıtımı sabitlemeyi seçtiyseniz dağıtım durumunu görebilirsiniz.
 
-![Dağıtım oluşturma 8](media/acs-portal8.png)  <br />
+    ![Dağıtım oluşturma 8](media/acs-portal8.png)  <br />
 
 Dağıtım tamamlandığında, Azure Kapsayıcı Hizmeti kümesi kullanım için hazırdır.
 
 ## <a name="create-a-service-by-using-the-azure-cli"></a>Azure CLI kullanarak bir hizmet oluşturma
 Komut satırını kullanarak Azure Kapsayıcı Hizmeti’nin bir örneğini oluşturmak için bir Azure aboneliği gerekir. Bir aboneliğiniz yoksa, [ücretsiz deneme için kaydolabilirsiniz](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935). Ayrıca Azure CLI [yüklemiş](../xplat-cli-install.md) ve [yapılandırmış](../xplat-cli-connect.md) olmanız gerekir.
 
-DC/OS veya Docker Swarm veya Kubernetes kümesi dağıtmak için GitHub’da aşağıdaki şablonlardan birini seçin. 
+1. DC/OS, Docker Swarm veya Kubernetes kümesi dağıtmak için GitHub’da aşağıdaki şablonlardan birini seçin. 
 
-* [DC/OS şablonu](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos)
-* [Swarm şablonu](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
-* [Kubernetes şablonu](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-kubernetes)
+    * [DC/OS şablonu](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos)
+    * [Swarm şablonu](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
+    * [Kubernetes şablonu](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-kubernetes)
 
-Sonra, Azure CLI’nın bir Azure aboneliğine bağlı olduğundan emin olun. Aşağıdaki komutu kullanarak bunu yapabilirsiniz:
+2. Sonra, Azure CLI’nın bir Azure aboneliğine bağlı olduğundan emin olun. Aşağıdaki komutu kullanarak bunu yapabilirsiniz:
 
-```bash
-azure account show
-```
-Bir Azure hesabı döndürülmezse, CLI için Azure’da oturum açmak üzere aşağıdaki komutu kullanın.
+    ```bash
+    azure account show
+    ```
+    Bir Azure hesabı döndürülmezse, CLI için Azure’da oturum açmak üzere aşağıdaki komutu kullanın.
 
-```bash
-azure login -u user@domain.com
-```
+    ```bash
+    azure login -u user@domain.com
+    ```
 
-Ardından, Azure Resource Manager'ı kullanacak şekilde Azure CLI araçlarını yapılandırın.
+3. Azure CLI araçlarını Azure Resource Manager’ı kullanacak şekilde yapılandırın.
 
-```bash
-azure config mode arm
-```
+    ```bash
+    azure config mode arm
+    ```
 
-Aşağıdaki komutla bir Azure kaynak grubu ve Kapsayıcı Hizmeti Kümesi oluşturun, buradaki ifadelerin anlamları şu şekildedir:
+4. Aşağıdaki komutla bir Azure kaynak grubu ve Kapsayıcı Hizmeti Kümesi oluşturun, buradaki ifadelerin anlamları şu şekildedir:
 
-* **RESOURCE_GROUP** bu hizmet için kullanmak istediğiniz kaynak grubunun adıdır.
-* **LOCATION** kaynak grubu ve Azure Container Service dağıtımının oluşturulacağı Azure bölgesidir.
-* **TEMPLATE_URI** dağıtım dosyasının konumudur. Bu, GitHub kullanıcı arabirimi işaretçisi değil Raw dosyası olmalıdır. Bu URL’yi bulmak için GitHub’da azuredeploy.json dosyasını seçin ve **Raw** düğmesine tıklayın.
+    * **RESOURCE_GROUP** bu hizmet için kullanmak istediğiniz kaynak grubunun adıdır.
+    * **LOCATION** kaynak grubu ve Azure Container Service dağıtımının oluşturulacağı Azure bölgesidir.
+    * **TEMPLATE_URI** dağıtım dosyasının konumudur. Bu, GitHub kullanıcı arabirimi işaretçisi değil Raw dosyası olmalıdır. Bu URL’yi bulmak için GitHub’da azuredeploy.json dosyasını seçin ve **Raw** düğmesine tıklayın.
 
-> [!NOTE]
-> Bu komutu çalıştırdığınızda, kabuk sizden dağıtım parametre değerlerini ister.
-> 
-> 
+    > [!NOTE]
+    > Bu komutu çalıştırdığınızda, kabuk sizden dağıtım parametre değerlerini ister.
+    > 
 
-```bash
-azure group create -n RESOURCE_GROUP DEPLOYMENT_NAME -l LOCATION --template-uri TEMPLATE_URI
-```
+    ```bash
+    azure group create -n RESOURCE_GROUP DEPLOYMENT_NAME -l LOCATION --template-uri TEMPLATE_URI
+    ```
 
 ### <a name="provide-template-parameters"></a>Şablon parametrelerini belirtin
 Komutun bu sürümü parametreleri etkileşimli olarak tanımlamanızı gerektirir. JSON biçimli dize gibi, parametreleri sağlamak istiyorsanız bunu `-p` anahtarını kullanarak yapabilirsiniz. Örneğin:
@@ -146,35 +149,35 @@ azure group deployment create RESOURCE_GROUP DEPLOYMENT_NAME --template-uri TEMP
 ## <a name="create-a-service-by-using-powershell"></a>PowerShell kullanarak bir hizmet oluşturma
 PowerShell ile de bir Azure Kapsayıcı Hizmeti kümesi dağıtabilirsiniz. Bu belge [Azure PowerShell modülü](https://azure.microsoft.com/blog/azps-1-0/) sürüm 1.0’ı temel alır.
 
-DC/OS veya Docker Swarm veya Kubernetes kümesi dağıtmak için aşağıdaki şablonlardan birini seçin. Bu şablonların her ikisinin de, varsayılan orchestrator seçimi dışında, aynı olduğunu unutmayın.
+1. DC/OS, Docker Swarm veya Kubernetes kümesi dağıtmak için aşağıdaki şablonlardan birini seçin. Bu şablonların her ikisinin de, varsayılan orchestrator seçimi dışında, aynı olduğunu unutmayın.
 
-* [DC/OS şablonu](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos)
-* [Swarm şablonu](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
-* [Kubernetes şablonu](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-kubernetes)
+    * [DC/OS şablonu](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos)
+    * [Swarm şablonu](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
+    * [Kubernetes şablonu](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-kubernetes)
 
-Azure aboneliğinizde küme oluşturmadan önce, PowerShell oturumunuz için Azure’da oturum açıldığını doğrulayın. Bunu `Get-AzureRMSubscription` komutuyla yapabilirsiniz.
+2. Azure aboneliğinizde küme oluşturmadan önce, PowerShell oturumunuz için Azure’da oturum açıldığını doğrulayın. Bunu `Get-AzureRMSubscription` komutuyla yapabilirsiniz.
 
-```powershell
-Get-AzureRmSubscription
-```
+    ```powershell
+    Get-AzureRmSubscription
+    ```
 
-Azure’da oturum açmanız gerekiyorsa `Login-AzureRMAccount` komutunu kullanın:
+3. Azure’da oturum açmanız gerekiyorsa `Login-AzureRMAccount` komutunu kullanın:
 
-```powershell
-Login-AzureRmAccount
-```
+    ```powershell
+    Login-AzureRmAccount
+    ```
 
-Yeni bir kaynak grubuna dağıtıyorsanız, önce kaynak grubunu oluşturmalısınız. Yeni bir kaynak grubu oluşturmak için `New-AzureRmResourceGroup` komutunu kullanın ve kaynak grubu adı ile hedef bölgesini belirtin:
+4. Yeni bir kaynak grubuna dağıtıyorsanız, önce kaynak grubunu oluşturmalısınız. Yeni bir kaynak grubu oluşturmak için `New-AzureRmResourceGroup` komutunu kullanın ve kaynak grubu adı ile hedef bölgesini belirtin:
 
-```powershell
-New-AzureRmResourceGroup -Name GROUP_NAME -Location REGION
-```
+    ```powershell
+    New-AzureRmResourceGroup -Name GROUP_NAME -Location REGION
+    ```
 
-Bir kaynak grubu oluşturduktan sonra, kümenizi aşağıdaki komutla oluşturabilirsiniz. İstenen şablon URI’si `-TemplateUri` parametresi için belirtilir. Bu komutu çalıştırdığınızda, PowerShell sizden dağıtım parametre değerlerini ister.
+5. Bir kaynak grubu oluşturduktan sonra, kümenizi aşağıdaki komutla oluşturabilirsiniz. İstenen şablon URI’si `-TemplateUri` parametresi için belirtilir. Bu komutu çalıştırdığınızda, PowerShell sizden dağıtım parametre değerlerini ister.
 
-```powershell
-New-AzureRmResourceGroupDeployment -Name DEPLOYMENT_NAME -ResourceGroupName RESOURCE_GROUP_NAME -TemplateUri TEMPLATE_URI
-```
+    ```powershell
+    New-AzureRmResourceGroupDeployment -Name DEPLOYMENT_NAME -ResourceGroupName RESOURCE_GROUP_NAME -TemplateUri TEMPLATE_URI
+    ```
 
 ### <a name="provide-template-parameters"></a>Şablon parametrelerini belirtin
 PowerShell hakkında bilginiz varsa, eksi işareti (-) yazarak ve ardından SEKME tuşuna basarak bir cmdlet için kullanılabilir parametrelerde gezinebileceğinizi bilirsiniz. Bu işlev şablonunuzda tanımladığınız parametreler için de geçerlidir. Şablon adını yazmanızın hemen ardından, cmdlet şablonu getirir, parametreleri ayrıştırır ve şablon parametrelerini dinamik olarak komuta ekler. Bu, şablon parametre değerlerini belirtmeyi kolaylaştırır. Ve gerekli parametre değerini unutursanız, PowerShell sizden değeri ister.

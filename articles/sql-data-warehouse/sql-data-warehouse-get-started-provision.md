@@ -16,8 +16,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 5a101aa78dbac4f1a0edb7f414b44c14db392652
-ms.openlocfilehash: 6a652890260c21deb64826fb73920ba5d17f61da
+ms.sourcegitcommit: 27df1166a23e3ed89fdc86f861353c80a4a467ad
+ms.openlocfilehash: e8be3cd9aeb3ff39c808f5ee39bdf3091d45feec
 
 
 ---
@@ -34,11 +34,11 @@ Bu öğreticide, AdventureWorksDW örnek veritabanı içeren bir SQL Veri Ambar�
 ## <a name="prerequisites"></a>Ön koşullar
 Başlamak için gerekli olanlar:
 
-* **Azure hesabı**: Hesap oluşturmak için [Azure Ücretsiz Deneme][Azure Ücretsiz Deneme] veya [MSDN Azure Kredileri][MSDN Azure Kredileri] sayfasını ziyaret edin.
-* **Azure SQL server**: Daha fazla bilgi için bkz. [Azure portalı ile Azure SQL Veritabanı mantıksal sunucusu oluşturma][Azure portalı ile Azure SQL Veritabanı mantıksal sunucusu oluşturma].
+* **Azure hesabı**: Hesap oluşturmak için [Azure Ücretsiz Deneme][Azure Free Trial] veya [MSDN Azure Kredileri][MSDN Azure Credits] sayfasını ziyaret edin.
+* **Azure SQL sunucusu**: Daha ayrıntılı bilgi için bkz. [Azure portalı ile Azure SQL Veritabanı mantıksal sunucusu oluşturma][Create an Azure SQL Database logical server with the Azure portal].
 
 > [!NOTE]
-> SQL Veri Ambarı'nın oluşturulması ek hizmet ücretlerinin alınmasına neden olabilir.  Ayrıntılı bilgi için bkz. [SQL Veri Ambarı fiyatlandırması][SQL Veri Ambarı fiyatlandırması].
+> SQL Veri Ambarı'nın oluşturulması ek hizmet ücretlerinin alınmasına neden olabilir.  Ayrıntılı bilgi için bkz. [SQL Veri Ambarı fiyatlandırması][SQL Data Warehouse pricing].
 >
 >
 
@@ -53,15 +53,15 @@ Başlamak için gerekli olanlar:
 
    * **Sunucu**: İlk önce sunucunuzu seçmenizi öneririz.  
    * **Veritabanı adı**: SQL Veri Ambarı'na başvurmak için kullanılan ad.  Sunucu için benzersiz olmalıdır.
-   * **Performans**: 400 [DWU][DWU] ile başlamanız önerilir. Veri ambarınızın performansını ayarlamak için kaydırıcıyı sağa veya sola hareket ettirebilir ya da oluşturma işlemi tamamlandıktan sonra ölçeği artırıp azaltabilirsiniz.  DWU'lar hakkında daha fazla bilgi edinmek için [ölçeklendirme](sql-data-warehouse-manage-compute-overview.md) ile ilgili belgelerimizi veya [fiyatlandırma][SQL Veri Ambarı fiyatlandırması] sayfamızı inceleyebilirsiniz.
+   * **Performans**: 400 [DWU][DWU] ile başlamanızı öneririz. Veri ambarınızın performansını ayarlamak için kaydırıcıyı sağa veya sola hareket ettirebilir ya da oluşturma işlemi tamamlandıktan sonra ölçeği artırıp azaltabilirsiniz.  DWU’lar hakkında daha fazla bilgi edinmek için [ölçeklendirme](sql-data-warehouse-manage-compute-overview.md) ile ilgili belgelerimizi veya [fiyatlandırma][SQL Data Warehouse pricing] sayfamızı inceleyebilirsiniz.
    * **Abonelik**: Bu SQL Data Warehouse'un faturalanacağı [aboneliği] seçin.
-   * **Kaynak grubu**: [Kaynak grupları][Kaynak grubu], Azure kaynak koleksiyonunu yönetmenize yardımcı olmak üzere tasarlanmış kapsayıcılardır. [Kaynak grupları](../azure-resource-manager/resource-group-overview.md) hakkında daha fazla bilgi edinin.
+   * **Kaynak grubu**: [Kaynak grupları][Resource group], Azure kaynak koleksiyonunu yönetmenize yardımcı olmak üzere tasarlanmış kapsayıcılardır. [Kaynak grupları](../azure-resource-manager/resource-group-overview.md) hakkında daha fazla bilgi edinin.
    * **Kaynak seçme**: **Kaynak seç** > **Örnek** seçeneğine tıklayın. Azure, **Örnek seçin** alanını AdventureWorksDW olarak otomatik doldurur.
 
-> [!NOTE]
-> SQL Veri Ambarı için varsayılan harmanlama SQL_Latin1_General_CP1_CI_AS şeklindedir. Farklı bir harmanlama gerekiyorsa veritabanını farklı bir harmanlama ile oluşturmak için [T-SQL][T-SQL] kullanılabilir.
->
->
+   > [!NOTE]
+   > SQL Veri Ambarı için varsayılan harmanlama SQL_Latin1_General_CP1_CI_AS şeklindedir. Farklı bir harmanlama gerekiyorsa veritabanını farklı bir harmanlama ile oluşturmak için [T-SQL][T-SQL] kullanılabilir.
+   >
+   >
 
 1. SQL Data Warehouse'unuzu oluşturmak için **Oluştur** düğmesine tıklayın.
 2. Birkaç dakika bekleyin. Veri ambarınız hazır olduğunda [Azure Portal](https://portal.azure.com) yeniden yönlendirileceksiniz. SQL Data Warehouse'unuzu SQL Database'ler altında listelenmiş bir şekilde panonuzda veya SQL Data Warehouse'unuzu oluşturmak için kullandığınız kaynak grubunda bulabilirsiniz.
@@ -79,16 +79,16 @@ Var olan bir veritabanını SQL Data Warehouse'a geçirmeye çalışıyorsanız 
 
 Güvenlik duvarı kuralları, Transact-SQL kullanarak de yapılandırılabilir. Daha fazla bilgi için bkz. [sp_set_firewall_rule][sp_set_firewall_rule] ve [sp_set_database_firewall_rule][sp_set_database_firewall_rule].
 
-[En iyi uygulamalar][En iyi uygulamalar] bölümüne bakmak da iyi bir fikir olabilir.
+[En iyi uygulamalar][Best practices] bölümüne bakmak da iyi bir fikir olabilir.
 
 <!--Article references-->
-[Azure portalı ile Azure SQL Veritabanı mantıksal sunucusu oluşturma]: ../sql-database/sql-database-get-started.md#create-logical-server-bk
-[PowerShell ile Azure SQL Veritabanı mantıksal sunucusu oluşturma]: ../sql-database/sql-database-get-started-powershell.md#database-setup-create-a-resource-group-server-and-firewall-rule
-[kaynak grupları]: ../resource-group-template-deploy-portal.md
-[En iyi uygulamalar]: sql-data-warehouse-best-practices.md
+[Create an Azure SQL Database logical server with the Azure portal]: ../sql-database/sql-database-get-started.md#create-logical-server-bk
+[Create an Azure SQL Database logical server with PowerShell]: ../sql-database/sql-database-get-started-powershell.md#database-setup-create-a-resource-group-server-and-firewall-rule
+[resource groups]: ../azure-resource-manager/resource-group-template-deploy-portal.md
+[Best practices]: sql-data-warehouse-best-practices.md
 [DWU]: sql-data-warehouse-overview-what-is.md#data-warehouse-units
 [aboneliği]: ../azure-glossary-cloud-terminology.md#subscription
-[kaynak grubu]: ../azure-glossary-cloud-terminology.md#resource-group
+[resource group]: ../azure-glossary-cloud-terminology.md#resource-group
 [T-SQL]: ./sql-data-warehouse-get-started-create-database-tsql.md
 
 <!--MSDN references-->
@@ -96,12 +96,12 @@ Güvenlik duvarı kuralları, Transact-SQL kullanarak de yapılandırılabilir. 
 [sp_set_database_firewall_rule]: https://msdn.microsoft.com/library/dn270010.aspx
 
 <!--Other Web references-->
-[SQL Veri Ambarı fiyatlandırması]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
-[Azure Ücretsiz Deneme]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
-[MSDN Azure Kredileri]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
+[SQL Data Warehouse pricing]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
+[Azure Free Trial]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
+[MSDN Azure Credits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO4-->
 
 

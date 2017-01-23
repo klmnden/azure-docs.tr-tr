@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/22/2016
+ms.date: 01/03/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: aac0354a8fbfb73bab3e7b5da7d9aefa69c9eb16
-ms.openlocfilehash: 5251ab851dd2934050747cd3ad7b2c4f0b9e98bb
+ms.sourcegitcommit: 7f074883c2330c5814eef415f193e1775caec432
+ms.openlocfilehash: ddb38f99adef288958fd3828cb685912bf35f218
 
 
 ---
@@ -35,7 +35,7 @@ Bir aboneliğin kaynakları için [güvenlik ilkelerini](security-center-policie
 
 ![Kaynaklar güvenlik durumu kutucuğu](./media/security-center-monitoring/security-center-monitoring-fig1-new4.png)
 
-Güvenlik Merkezi, ilgilenilmesi gereken bir güvenlik açığı (eksik güvenlik güncelleştirmelerine sahip bir sanal makine veya [ağ güvenlik grubu](../virtual-network/virtual-networks-nsg.md) olmayan bir alt ağ gibi) tanımlarsa bu güvenlik açığı burada listelenir.
+Güvenlik Merkezi, ilgilenilmesi gereken bir güvenlik açığı (eksik güvenlik güncelleştirmelerine sahip bir sanal makine veya [ağ güvenlik grubu](/virtual-network/virtual-networks-nsg.md) olmayan bir alt ağ gibi) tanımlarsa bu güvenlik açığı burada listelenir.
 
 ### <a name="monitor-virtual-machines"></a>Sanal makineleri izleme
 **Kaynakların güvenlik durumu** kutucuğunda **Sanal makineler**’e tıkladığınızda, açılan **Sanal makineler** dikey penceresi, aşağıdaki ekran görüntüsünde gösterildiği gibi ekleme ve önleme adımları hakkında daha fazla ayrıntı ve Güvenlik Merkezi’nin izlediği tüm sanal makinelerin bir listesini sağlar.
@@ -162,22 +162,22 @@ Bu tablo, önem derecesine göre sıralanır (sanal makineler ve alt ağlar):
 * Turuncu: Orta önceliklidir ve olabildiğince yakın zamanda ilgilenilmesi gerekir
 * Yeşil (sonuncu): Sorunsuz çalışma durumu
 
-Bu topoloji görünümünde, ilk düzeyde [sanal ağlar](../virtual-network/virtual-networks-overview.md), [sanal ağ geçitleri](../vpn-gateway/vpn-gateway-site-to-site-create.md) ve [sanal ağlar (klasik)](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) bulunur. İkinci düzeyde alt ağlar ve üçüncü düzeyde de bu alt ağlara ait sanal makineler bulunur. Aşağıdaki örnekte gösterildiği gibi sağ sütunda bu kaynaklara yönelik ağ güvenlik grubunun geçerli durumu bulunur:
+Bu topoloji görünümünde, ilk düzeyde [sanal ağlar](../virtual-network/virtual-networks-overview.md), [sanal ağ geçitleri](/vpn-gateway/vpn-gateway-site-to-site-create.md) ve [sanal ağlar (klasik)](/virtual-network/virtual-networks-create-vnet-classic-pportal.md) bulunur. İkinci düzeyde alt ağlar ve üçüncü düzeyde de bu alt ağlara ait sanal makineler bulunur. Aşağıdaki örnekte gösterildiği gibi sağ sütunda bu kaynaklara yönelik ağ güvenlik grubunun geçerli durumu bulunur:
 
 ![Ağ topolojisi bölümünde ağ güvenlik grubunun durumu](./media/security-center-monitoring/security-center-monitoring-fig12-ga.png)
 
 Bu dikey pencerenin en altında, daha önce açıklanana benzer şekilde bu sanal makine için öneriler bulunur. Daha fazla bilgi edinmek ya da gerekli güvenlik denetimini veya yapılandırmasını uygulamak için bir öneriye tıklayabilirsiniz.
 
 ### <a name="monitor-data"></a>Veri izleme
-**Kaynak güvenlik durumu** kutucuğunda **Veriler**'e tıkladığınızda **SQL** dikey penceresi, denetim ve saydam veri şifrelemesinin etkinleştirilmemiş olması gibi sorunlara yönelik önerilerle birlikte açılır. Ayrıca, veritabanının genel sağlık durumu için [öneriler](security-center-sql-service-recommendations.md) içerir.
+**Kaynak güvenliği durumu** kutucuğundaki **Veri**’ye tıkladığınızda açılan **Veri Kaynakları** dikey penceresinde SQL ve Depolama önerileri sunulur. Ayrıca, veritabanının genel sağlık durumu için [öneriler](security-center-sql-service-recommendations.md) içerir. Depolama şifrelemesi hakkında daha fazla bilgi için Azure Güvenlik Merkezi’ndeki Azure depolama hesabı için şifrelemeyi etkinleştirme bölümünü okuyun.
 
-![SQL kaynak durumu](./media/security-center-monitoring/security-center-monitoring-fig13-ga.png)
+![Veri Kaynakları](./media/security-center-monitoring/security-center-monitoring-fig13-ga-new.png)
 
-Herhangi bir öneriye tıklayabilir ve sorunu çözmek için yapılacak diğer eylemlerle ilgili daha fazla ayrıntı görebilirsiniz. Aşağıdaki örnekte, **Veritabanı Denetimi etkinleştirilmemiş** önerisinin genişletilmiş hali gösterilmiştir.
+**SQL Önerileri** altında herhangi bir öneriye tıklayabilir ve sorunu çözmek için yapılacak diğer eylemlerle ilgili daha fazla ayrıntı görebilirsiniz. Aşağıdaki örnekte, **SQL veritabanlarında Veritabanı Denetimi ve Tehdit algılama** önerisinin genişletilmiş hali gösterilmiştir.
 
-![SQL önerisi hakkındaki ayrıntılar](./media/security-center-monitoring/security-center-monitoring-fig14-ga.png)
+![SQL önerisi hakkındaki ayrıntılar](./media/security-center-monitoring/security-center-monitoring-fig14-ga-new.png)
 
-**SQL veritabanlarında Denetimi etkinleştirme** dikey penceresinde aşağıdaki bilgiler bulunur:
+**SQL veritabanlarında Denetimi ve Tehdit algılamayı etkinleştirme** dikey penceresinde aşağıdaki bilgiler bulunur:
 
 * SQL veritabanlarının bir listesi
 * Bulundukları sunucu
@@ -192,6 +192,7 @@ Bu öneriyle ilgilenmek için veritabanına tıkladığınızda, **Denetim ve Te
 Denetimi etkinleştirmek için **Denetim** seçeneğinin altında **AÇIK**'ı seçin.
 
 ### <a name="monitor-applications"></a>Uygulamaları izleme
+
 Azure iş yükünüzün, sunulan web bağlantı noktaları (TCP bağlantı noktaları 80 ve 443) ile [sanal makinelerde](../azure-resource-manager/resource-manager-deployment-model.md) (Azure Resource Manager ile oluşturulmuştur) bulunan uygulamaları varsa Güvenlik Merkezi, olası güvenlik sorunlarını tanımlamak ve düzeltme adımları önermek için bunları izleyebilir. **Uygulamalar** kutucuğuna tıkladığınızda, **Uygulama önerileri** bölümünde bir dizi öneriyle birlikte **Uygulamalar** dikey penceresi açılır. Ayrıca, aşağıdaki ekran görüntüsünde gösterildiği gibi ana bilgisayar/sanal IP başına uygulama dökümünü gösterir.
 
 ![Uygulamaların güvenlik durumu](./media/security-center-monitoring/security-center-monitoring-fig16-ga.png)
@@ -216,6 +217,6 @@ Bu makalede, Azure Güvenlik Merkezi'nde izleme işlevlerini nasıl kullanacağ�
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

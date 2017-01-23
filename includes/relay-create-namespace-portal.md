@@ -20,9 +20,9 @@
 
 <!--Image references-->
 
-[ad alanı oluşturma]: ./media/relay-create-namespace-portal/create-namespace.png
-[bağlantı bilgisi]: ./media/relay-create-namespace-portal/connection-info.png
-[bağlantı dizesi]: ./media/relay-create-namespace-portal/connection-string.png
+[create-namespace]: ./media/relay-create-namespace-portal/create-namespace.png
+[connection-info]: ./media/relay-create-namespace-portal/connection-info.png
+[connection-string]: ./media/relay-create-namespace-portal/connection-string.png
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 [Azure portal]: https://portal.azure.com

@@ -1,3 +1,4 @@
+
 ---
 title: Azure Backup ile ilgili SSS | Microsoft Belgeleri
 description: "Yedekleme hizmeti, yedekleme aracısı, yedekleme ve bekletme, kurtarma, güvenlik ve yedekleme ile olağanüstü durum kurtarma ile ilgili diğer sık sorulan soruların yanıtları."
@@ -16,8 +17,8 @@ ms.topic: get-started-article
 ms.date: 11/16/2016
 ms.author: trinadhk; giridham; arunak; markgal; jimpark;
 translationtype: Human Translation
-ms.sourcegitcommit: be06f1eca1848ff6d00661cfc1166797649a98a4
-ms.openlocfilehash: cb45e7113073d19c1dc3e305d7b69373bd38d84f
+ms.sourcegitcommit: 1b2eeab756309148db5890ccc0d93853f3e69372
+ms.openlocfilehash: 4b7a8a88d21b11deb377c2fef4e2d8f9fbcf9036
 
 
 ---
@@ -33,6 +34,7 @@ Azure Backup, Azure Backup Sunucusu ve SCDPM kullanılarak korunan dosya ve klas
 | Windows 7 ve en son SP'ler |64 bit |Ultimate, Enterprise, Professional, Home Premium, Home Basic, Starter |
 | Windows 8.1 ve en son SP'ler |64 bit |Enterprise, Pro |
 | Windows 10 |64 bit |Enterprise, Pro, Home |
+| Windows Server 2016 |64 bit |Standard, Datacenter, Essentials |
 | Windows Server 2012 R2 ve en son SP'ler |64 bit |Standard, Datacenter, Foundation |
 | Windows Server 2012 ve en son SP'ler |64 bit |Datacenter, Foundation, Standard |
 | Windows Storage Server 2012 R2 ve en son SP'ler |64 bit |Standard, Workgroup |
@@ -172,7 +174,7 @@ Evet. DPM'yi kullanarak, günlük, haftalık, aylık ve yıllık zamanlamalar be
 ## <a name="is-there-a-difference-between-the-retention-policy-for-dpm-and-windows-serverclient-ie-on-windows-server-without-dpmbr"></a>DPM ve Windows Server'a/istemcisine yönelik bekletme ilkesi (DPM olmadan Windows Server'da) arasında bir fark var mıdır?<br/>
 Hayır, hem DPM hem de Windows Server/istemcisi günlük, haftalık, aylık ve yıllık bekletme ilkelerine sahiptir.
 
-## <a name="can-i-configure-my-retention-policies-selectively-ie-configure-weekly-and-daily-but-not-yearly-and-monthlybr"></a>Bekletme ilkelerimi seçerek yapılandırabilir miyim? Başka bir deyişle, haftalık ve günlük yapılandırmaya olanak tanırken yıllık ve aylık yapılandırmayı engelleyebilir miyim?<br/>
+## <a name="can-i-configure-my-retention-policies-selectively--ie-configure-weekly-and-daily-but-not-yearly-and-monthlybr"></a>Bekletme ilkelerimi seçerek yapılandırabilir miyim? Başka bir deyişle, haftalık ve günlük yapılandırmaya olanak tanırken yıllık ve aylık yapılandırmayı engelleyebilir miyim?<br/>
 Evet, Azure Backup bekletme yapısı gereksinimlerinizi karşılayan bekletme ilkesini tanımlama konusunda tam esnekliğe sahip olmanızı sağlar.
 
 ## <a name="can-i-schedule-a-backup-at-6pm-and-specify-retention-policies-at-a-different-timebr"></a>Saat 18:00 için "bir yedekleme zamanlayıp" farklı bir saat için de "bekletme ilkeleri" belirtebilir miyim?<br/>
@@ -275,6 +277,6 @@ Bir VM’yi klasikten Resource Manager moduna taşıdığınızda yedekleme kasa
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

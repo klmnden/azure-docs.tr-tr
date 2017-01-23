@@ -16,8 +16,8 @@ ms.workload: data-management
 ms.date: 11/28/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 3ba16154857f8e7b59a1013b736d6131a4161185
-ms.openlocfilehash: 3d45ec5a6636de4213c6c02dca0e5288ec3aa0e3
+ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
+ms.openlocfilehash: 315fb49ba25c46afaa6571d9249ecd1c8da13e91
 
 
 ---
@@ -65,12 +65,12 @@ Azure SQL Veritabanı mantıksal sunucularını birkaç yöntemle yönetebilirsi
 - Azure SQL mantıksal sunucularına yönelik bir genel bakış için bkz. [SQL Veritabanı mantıksal sunucusuna genel bakış](sql-database-server-overview.md)
 - Transact-SQL desteği ve farklılıkları hakkında bilgi edinmek için bkz. [Azure SQL Veritabanı Transact-SQL farklılıkları](sql-database-transact-sql-information.md).
 - **Hizmet katmanınızı** temel alan özel kaynak kotaları ve sınırlamalar hakkında bilgi edinmek için. Hizmet katmanlarına genel bir bakış için bkz. [SQL Veritabanı hizmet katmanları](sql-database-service-tiers.md).
-- Güvenlikle ilgili yönergeler için bkz. [Azure SQL Veritabanı Güvenlik Yönergeleri ve Sınırlamaları](sql-database-security-guidelines.md).
+- Güvenlik özelliklerine genel bakış için bkz. [Azure SQL Veritabanı Güvenliğine Genel Bakış](sql-database-security-overview.md).
 - Sürücü kullanılabilirliği ve SQL Veritabanı desteği hakkında bilgi edinmek için bkz. [SQL Veritabanı ve SQL Server için Bağlantı Kitaplıkları](sql-database-libraries.md).
 
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

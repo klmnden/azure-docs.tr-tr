@@ -13,24 +13,25 @@ ms.devlang: na
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 10/17/2016
+ms.date: 10/27/2016
 ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: 6ff31940f3a4e7557e0caf3d9d3740590be3bc04
-ms.openlocfilehash: 9a8a4454a0676c403356e9989665242978949011
-
+ms.sourcegitcommit: 4bcd31a200024a182ee3d5a21bcbcb621fed595f
+ms.openlocfilehash: fd46641709d260f8b468556972aae14205fdb515
 
 ---
+
 # <a name="indexers-in-azure-search"></a>Azure Search'te dizin oluşturucular
 > [!div class="op_single_selector"]
+>
 > * [Genel Bakış](search-indexer-overview.md)
 > * [Portal](search-import-data-portal.md)
-> * [Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)
-> * [DocumentDB](../documentdb/documentdb-search-indexer.md)
+> * [Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
+> * [DocumentDB](search-howto-index-documentdb.md)
 > * [Blob Depolama (önizleme)](search-howto-indexing-azure-blob-storage.md)
 > * [Tablo Depolama (önizleme)](search-howto-indexing-azure-tables.md)
-> 
-> 
+>
+>
 
 Azure Search'te **dizin oluşturucu**, dış bir veri kaynağından aranabilir verileri ve meta verileri ayıklayan ve dizin ile veri kaynağınız arasında alandan alana eşlemeleri temel alan bir dizini dolduran gezgindir. Bir dizine veri gönderen herhangi bir kodun yazılması gerekmeden hizmetin verileri çekmesi nedeniyle bu yaklaşıma bazen "çekme modeli" de denir.
 
@@ -45,8 +46,6 @@ Azure SQL veya DocumentDB gibi genel kullanıma açık dizin oluşturucular içi
 * [Hizmet REST API'si](https://msdn.microsoft.com/library/azure/dn946891.aspx)
 * [.NET SDK](https://msdn.microsoft.com/library/azure/microsoft.azure.search.iindexersoperations.aspx)
 
-Azure Blob veya Tablo depolama gibi önizleme dizin oluşturucuları, [Dizin oluşturucular için Azure Search Önizleme REST API’si](search-api-indexers-2015-02-28-preview.md) gibi önizleme API’leri gerektirir. Önizleme özellikleri için genellikle portal araçları kullanılamaz.
-
 ## <a name="basic-configuration-steps"></a>Temel yapılandırma adımları
 Dizin oluşturucular veri kaynağına özgü özellikler sunabilir. Bu bakımdan, dizin oluşturucu veya veri kaynağı yapılandırmasının bazı boyutları dizin oluşturucu türüne göre farklılık gösterir. Bununla birlikte, tüm dizin oluşturucuların temel birleşimi ve gereksinimleri aynıdır. Tüm dizin oluşturucularda ortak olan adımlar aşağıda ele alınmıştır.
 
@@ -56,12 +55,12 @@ Dizin oluşturucu veri alımıyla ilgili bazı görevleri otomatikleştirir, anc
 ### <a name="step-2-create-a-data-source"></a>2. Adım: Veri kaynağı oluşturma
 Dizin oluşturucu, bağlantı dizesi gibi bilgileri içeren bir **veri kaynağından** veri çeker. Şu anda aşağıdaki veri kaynakları desteklenmektedir:
 
-* [Bir Azure sanal makinesinde Azure SQL Veritabanı veya SQL Server](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)
-* [DocumentDB](../documentdb/documentdb-search-indexer.md)
-* [Azure Blob depolama (Önizleme)](search-howto-indexing-azure-blob-storage.md): PDF, Office belgeleri, HTML veya XML’den metin ayıklamak için kullanılır
-* [Azure Tablo Depolama (Önizleme)](search-howto-indexing-azure-tables.md)
+* [Bir Azure sanal makinesinde Azure SQL Veritabanı veya SQL Server](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
+* [DocumentDB](search-howto-index-documentdb.md)
+* [Azure Blob depolama ](search-howto-indexing-azure-blob-storage.md): PDF, Office belgeleri, HTML veya XML’den metin ayıklamak için kullanılır
+* [Azure Table Storage](search-howto-indexing-azure-tables.md)
 
-Veri kaynakları, bunları kullanan dizin oluşturuculardan bağımsız olarak yapılandırılır ve yönetilir. Bu da bir veri kaynağının, bir seferde birden çok dizin yüklemek amacıyla birden çok dizin oluşturucu tarafından kullanılabileceği anlamına gelir. 
+Veri kaynakları, bunları kullanan dizin oluşturuculardan bağımsız olarak yapılandırılır ve yönetilir. Bu da bir veri kaynağının, bir seferde birden çok dizin yüklemek amacıyla birden çok dizin oluşturucu tarafından kullanılabileceği anlamına gelir.
 
 ### <a name="step-3create-and-schedule-the-indexer"></a>3. Adım: Dizin oluşturucuyu oluşturma ve zamanlama
 Dizin oluşturucu tanımı dizini, veri kaynağını ve bir zamanlamayı belirten bir yapıdır. Bir dizin oluşturucu, aynı abonelikten olduğu sürece başka bir hizmetteki bir veri kaynağına başvurabilir. Bir dizin oluşturucuyu yapılandırma konusunda daha fazla bilgi için bkz. [Dizin Oluşturucu Oluşturma (Azure Search REST API’si)](https://msdn.microsoft.com/library/azure/dn946899.aspx).
@@ -69,16 +68,15 @@ Dizin oluşturucu tanımı dizini, veri kaynağını ve bir zamanlamayı belirte
 ## <a name="next-steps"></a>Sonraki adımlar
 Artık temel fikri anladığınıza göre, atmanız gereken bir sonraki adım her bir veri kaynağı türüne özgü gereksinimleri ve görevleri incelemektir.
 
-* [Bir Azure sanal makinesinde Azure SQL Veritabanı veya SQL Server](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)
-* [DocumentDB](../documentdb/documentdb-search-indexer.md)
-* [Azure Blob depolama (Önizleme)](search-howto-indexing-azure-blob-storage.md): PDF, Office belgeleri, HTML veya XML’den metin ayıklamak için kullanılır
-* [Azure Tablo Depolama (Önizleme)](search-howto-indexing-azure-tables.md)
+* [Bir Azure sanal makinesinde Azure SQL Veritabanı veya SQL Server](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
+* [DocumentDB](search-howto-index-documentdb.md)
+* [Azure Blob Depolama ](search-howto-indexing-azure-blob-storage.md): PDF, Office belgeleri, HTML veya XML’den metin ayıklamak için kullanılır
+* [Azure Table Storage](search-howto-indexing-azure-tables.md)
 * [Azure Search Blob dizin oluşturucu (Önizleme) kullanarak CSV bloblarını dizine ekleme](search-howto-index-csv-blobs.md)
 * [Azure Search Blob dizin oluşturucu (Önizleme) ile JSON bloblarını dizine ekleme](search-howto-index-json-blobs.md)
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

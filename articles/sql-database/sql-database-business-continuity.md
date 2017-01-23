@@ -1,145 +1,159 @@
 ---
-title: Cloud business continuity - database recovery - SQL Database | Microsoft Docs
-description: Learn how Azure SQL Database supports cloud business continuity and database recovery and helps keep mission-critical cloud applications running.
-keywords: business continuity,cloud business continuity,database disaster recovery,database recovery
+title: "Bulutta iş sürekliliği - veritabanı kurtarma - SQL Veritabanı | Microsoft Belgeleri"
+description: "Azure SQL Veritabanı&quot;nın bulutta iş sürekliliği ve veritabanı kurtarmanın yanı sıra görev açısından kritik bulut uygulamalarının kesintisiz çalışması için sunduğu destek özelliklerini öğrenin."
+keywords: "iş sürekliliği, bulutta iş sürekliliği, veritabanı olağanüstü durum kurtarma, veritabanı kurtarma"
 services: sql-database
-documentationcenter: ''
-author: CarlRabeler
+documentationcenter: 
+author: anosov1960
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 18e5d3f1-bfe5-4089-b6fd-76988ab29822
 ms.service: sql-database
+ms.custom: business continuity
 ms.devlang: NA
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/20/2016
-ms.author: carlrab
+ms.date: 10/13/2016
+ms.author: carlrab;sashan
+translationtype: Human Translation
+ms.sourcegitcommit: 747f6ca642a33c4ce9bcaacad4976e8eaed8fa44
+ms.openlocfilehash: f642cfade2369f5c758ab45994c7cf3f37b6d4c5
+
 
 ---
-# Overview of business continuity with Azure SQL Database
-This overview describes the capabilities that Azure SQL Database provides for business continuity and disaster recovery. It provides options, recommendations, and tutorials for recovering from disruptive events that could cause data loss or cause your database and application to become unavailable. The discussion includes what to do when a user or application error affects data integrity, an Azure region has an outage, or your application requires maintenance. 
+# <a name="overview-of-business-continuity-with-azure-sql-database"></a>Azure SQL Veritabanı'nda iş sürekliliğine genel bakış
+Bu genel bakış, Azure SQL Veritabanı'nın iş sürekliliği ve olağanüstü durum kurtarma özelliklerini açıklamaktadır. Veri kaybına veya veritabanınızın ve uygulamanızın kullanım dışı kalmasına neden olabilecek olaylardan kurtarmak için seçenekler, öneriler ve öğreticiler sunulmaktadır. Veri bütünlüğünü etkileyen bir kullanıcı veya uygulama hatası ortaya çıktığında, bir Azure bölgesinde kesinti yaşandığında veya uygulamanız için bakım yapılması gerektiğinde uygulanması gereken eylemler anlatılmaktadır. 
 
-## SQL Database features that you can use to provide business continuity
-SQL Database provides several business continuity features, including automated backups and optional database replication. Each has different characteristics for estimated recovery time (ERT) and potential data loss for recent transactions. Once you understand these options, you can choose among them - and, in most scenarios, use them together for different scenarios. As you develop your business continuity plan, you need to understand the maximum acceptable time before the application fully recovers after the disruptive event - this is your recovery time objective (RTO). You also need to understand the maximum amount of recent data updates (time interval) the application can tolerate losing when recovering after the disruptive event - the recovery point objective (RPO). 
+## <a name="sql-database-features-that-you-can-use-to-provide-business-continuity"></a>İş sürekliliği sağlamak için kullanabileceğiniz SQL Veritabanı özellikleri
+SQL Veritabanı; otomatik yedekleme ve isteğe bağlı veritabanı çoğaltma gibi birçok iş sürekliliği özelliği sunar. Her özellik, tahmini kurtarma süresi (ERT) ve son işlemler için olası veri kaybı açısından farklı özelliklere sahiptir. Bu seçenekleri kavradıktan sonra aralarından birini seçebilir ve çoğu senaryoda farklı durumlar için birden fazlasını birlikte kullanabilirsiniz. İş sürekliliği planınızı geliştirirken, uygulamanın kesintiden sonra tamamen kurtarılmasına kadar kabul edilebilen maksimum süre olan kurtarma süresi hedefini (RTO) belirlemeniz gerekir. Ayrıca uygulama kesintiden sonra kurtarılırken kabul edilebilecek son veri güncelleştirmelerinin (zaman aralığı) maksimum miktarı olan kurtarma noktası hedefini (RPO) de kavramanız gerekir. 
 
-The following table compares the ERT and RPO for the three most common scenarios.
+Aşağıdaki tabloda en çok kullanılan üç senaryo için ERT ve RPO değerleri karşılaştırılmaktadır.
 
-| Capability | Basic tier | Standard tier | Premium tier |
+| Özellik | Temel katman | Standart katman | Premium katman |
 | --- | --- | --- | --- |
-| Point in Time Restore from backup |Any restore point within 7 days |Any restore point within 35 days |Any restore point within 35 days |
-| Geo-Restore from geo-replicated backups |ERT < 12h, RPO < 1h |ERT < 12h, RPO < 1h |ERT < 12h, RPO < 1h |
-| Active Geo-Replication |ERT < 30s, RPO < 5s |ERT < 30s, RPO < 5s |ERT < 30s, RPO < 5s |
+| Yedekten belirli bir noktaya geri yükleme |7 gün içinde herhangi bir geri yükleme noktasına |35 gün içinde herhangi bir geri yükleme noktasına |35 gün içinde herhangi bir geri yükleme noktasına |
+| Coğrafi çoğaltmalı yedeklerden coğrafi geri yükleme |ERT < 12 sa., RPO < 1 sa |ERT < 12 sa., RPO < 1 sa |ERT < 12 sa., RPO < 1 sa |
+| Azure Backup Vault'tan geri yükleme |ERT < 12 sa., RPO < 1 hft. |ERT < 12 sa., RPO < 1 hft. |ERT < 12 sa., RPO < 1 hft. |
+| Etkin Coğrafi Çoğaltma |ERT < 30 sn., RPO < 5 sn. |ERT < 30 sn., RPO < 5 sn. |ERT < 30 sn., RPO < 5 sn. |
 
-### Use database backups to recover a database
-SQL Database automatically performs a combination of full database backups weekly, differential database backups hourly, and transaction log backups every five minutes to protect your business from data loss. These backups are stored in locally redundant storage for 35 days for databases in the Standard and Premium service tiers and seven days for databases in the Basic service tier - see [service tiers](sql-database-service-tiers.md) for more details on service tiers. If the retention period for your service tier does not meet your business requirements, you can increase the retention period by [changing the service tier](sql-database-scale-up.md). The full and differential database backups are also replicated to a [paired data center](../best-practices-availability-paired-regions.md) for protection against a data center outage - see [automatic database backups](sql-database-automated-backups.md) for more details.
+### <a name="use-database-backups-to-recover-a-database"></a>Bir veritabanını kurtarmak için veritabanı yedeklerini kullanma
+SQL Veritabanı, işletmenizi veri kaybına karşı korumak için haftalık tam veritabanı yedekleri, saatlik veritabanı değişiklik yedekleri ve beş dakikalık işlem günlüğü yedeklerini otomatik olarak gerçekleştirerek birlikte kullanır. Bu yedekler, yerel olarak yedekli depolamada Standart ve Premium hizmet katmanlarındaki veritabanları için 35 gün boyunca, Temel hizmet katmanındaki veritabanları için ise yedi gün boyunca saklanır. Hizmet katmanları hakkında daha fazla bilgi almak için bkz. [hizmet katmanları](sql-database-service-tiers.md). Hizmet katmanızın saklama süresi işletmenizin ihtiyaçlarını karşılamıyorsa, [hizmet katmanını değiştirerek](sql-database-scale-up.md) saklama süresini uzatabilirsiniz. Tam yedekler ve değişiklik yedekleri, veri merkezi kesintilerine karşı [eşleştirilmiş veri merkezine](../best-practices-availability-paired-regions.md) de çoğaltılır. Daha fazla ayrıntı için bkz. [otomatik veri yedekleme](sql-database-automated-backups.md).
 
-You can use these automatic database backups to recover a database from various disruptive events, both within your data center and to another data center. Using automatic database backups, the estimated time of recovery depends on several factors including the total number of databases recovering in the same region at the same time, the database size, the transaction log size, and network bandwidth. In most cases, the recovery time is less than 12 hours. When recovering to another data region, the potential data loss is limited to 1 hour by the geo-redundant storage of hourly differential database backups. 
+Mevcut saklama süresi uygulamanız için yeterli değilse, veritabanlarınız için uzun süreli saklama ilkesini yapılandırarak uzatabilirsiniz. Daha fazla bilgi için bkz. [Uzun süreli saklama](sql-database-long-term-retention.md). 
 
-> [!IMPORTANT]
-> To recover using automated backups, you must be a member of the SQL Server Contributor role or the subscription owner - see [RBAC: Built-in roles](../active-directory/role-based-access-built-in-roles.md). You can recover using the Azure portal, PowerShell, or the REST API. You cannot use Transact-SQL.
-> 
-> 
-
-Use automated backups as your business continuity and recovery mechanism if your application:
-
-* Is not considered mission critical.
-* Doesn't have a binding SLA therefore the downtime of 24 hours or longer will not result in financial liability.
-* Has a low rate of data change (low transactions per hour) and losing up to an hour of change is an acceptable data loss. 
-* Is cost sensitive. 
-
-If you need faster recovery, use [Active Geo-Replication](sql-database-geo-replication-overview.md) (discussed next). If you need to be able to recover data from a period older than 35 days, consider archiving your database regularly to a BACPAC file (a compressed file containing your database schema and associated data) stored either in Azure blob storage or in another location of your choice. For more information on how to create a transactionally consistent database archive, see [create a database copy](sql-database-copy.md) and [export the database copy](sql-database-export.md). 
-
-### Use Active Geo-Replication to reduce recovery time and limit data loss associated with a recovery
-In addition to using database backups for database recovery in the event of a business disruption, you can use [Active Geo-Replication](sql-database-geo-replication-overview.md) to configure a database to have up to four readable secondary databases in the regions of your choice. These secondary databases are kept synchronized with the primary database using an asynchronous replication mechanism. This feature is used to protect against business disruption in the event of a data center outage or during an application upgrade. Active Geo-Replication can also be used to provide better query performance for read-only queries to geographically dispersed users.
-
-If the primary database goes offline unexpectedly or you need to take it offline for maintenance activities, you can quickly promote a secondary to become the primary (also called a failover) and configure applications to connect to the newly promoted primary. With a planned failover, there is no data loss. With an unplanned failover, there may be some small amount of data loss for very recent transactions due to the nature of asynchronous replication. After a failover, you can later failback - either according to a plan or when the data center comes back online. In all cases, users experience a small amount of downtime and need to reconnect. 
+Bu otomatik veritabanı yedekleme özelliklerini kullanarak hem kendi veri merkezinizdeki hem de başka veri merkezlerindeki veritabanlarını çeşitli kesintilerden kurtarabilirsiniz. Otomatik veritabanı yedekleriyle tahmini kurtarma süresi, aynı anda aynı bölgede kurtarılan veri tabanı sayısı, veritabanı boyutu, işlem günlüğü boyutu ve ağ bant genişliği gibi birden fazla etmene göre değişiklik gösterir. Çoğu durumda, kurtarma süresi 12 saati geçmez. Başka bir veri bölgesine kurtarma gerçekleştirirken, potansiyel veri kaybı saatlik veritabanı değişiklik yedeklerinin coğrafi olarak yedekli olması sayesinde 1 saatle sınırlıdır. 
 
 > [!IMPORTANT]
-> To use Active Geo-Replication, you must either be the subscription owner or have administrative permissions in SQL Server. You can configure and failover using the Azure portal, PowerShell, or the REST API using permissions on the subscription or using Transact-SQL using permissions within SQL Server.
+> Otomatik yedekleri kullanarak kurtarma gerçekleştirmek için SQL Server Katılımcısı rolü üyesi veya abonelik sahibi olmanız gerekir. [RBAC: Yerleşik roller](../active-directory/role-based-access-built-in-roles.md). Verileri Azure portalı, PowerShell veya REST API kullanarak kurtarabilirsiniz. Transact-SQL kullanamazsınız.
 > 
 > 
 
-Use Active Geo-Replication if your application meets any of these criteria:
+Uygulamanız aşağıdaki koşullara uygunsa iş sürekliliği ve kurtarma hizmeti olarak otomatik yedeklemeyi kullanabilirsiniz:
 
-* Is mission critical.
-* Has a service level agreement (SLA) that does not allow for 24 hours or more of downtime.
-* Downtime will result in financial liability.
-* Has a high rate of data change is high and losing an hour of data is not acceptable.
-* The additional cost of active geo-replication is lower than the potential financial liability and associated loss of business.
+* Görev açısından kritik değilse.
+* Bağlayıcı SLA yoksa ve bu nedenle 24 saat veya üzeri kesinti süreleri mali yükümlülük yaratmayacaksa.
+* Veri değişiklik oranı (bir saat içinde gerçekleştirilen işlem sayısı) düşükse ve bir saatlik değişiklik kaybı kabul edilebilirse. 
+* Maliyetler önemliyse. 
 
-## Recover a database after a user or application error
-*No one is perfect! A user might accidentally delete some data, inadvertently drop an important table, or even drop an entire database. Or, an application might accidentally overwrite good data with bad data due to an application defect. 
+Daha hızlı veri kurtarmaya ihtiyacınız varsa [Etkin Coğrafi Çoğaltma](sql-database-geo-replication-overview.md) (aşağıda açıklanmıştır) özelliğini kullanın. 35 günden eski verileri kurtarmanız gerekiyorsa, veritabanınızı düzenli olarak bir BACPAC dosyasına (veritabanı şemanızı ve ilgili verileri içeren sıkıştırılmış dosya) arşivleyin ve Azure blob depolama alanında ya da istediğiniz bir konumda saklayın. İşlemsel açıdan tutarlı veritabanı arşivi oluşturma hakkında daha fazla bilgi almak için bkz. [veritabanı kopyası oluşturma](sql-database-copy.md) ve [veritabanı kopyasını dışarı aktarma](sql-database-export.md). 
 
-In this scenario, these are your recovery options.
+### <a name="use-active-geo-replication-to-reduce-recovery-time-and-limit-data-loss-associated-with-a-recovery"></a>Kurtarma süresini kısaltmak ve bir kurtarma işlemiyle ilişkilendirilmiş veri kaybını sınırlamak için Etkin Coğrafi Çoğaltma özelliğini kullanma
+İş kesintisi durumunda veritabanı kurtarma için veritabanı yedeklerini kullanmaya ek olarak [Etkin Coğrafi Çoğaltma](sql-database-geo-replication-overview.md) özelliğini kullanarak bir veritabanı için seçtiğiniz bölgelerde en fazla dört okunabilir ikincil veritabanı yapılandırabilirsiniz. Bu ikincil veritabanları, birincil veritabanıyla zaman uyumsuz çoğaltma sistemi kullanılarak eşitlenir. Bu özellik, veri merkezi kesintisi veya uygulama yükseltme sırasında iş kesintilerini önlemek için kullanılır. Etkin Coğrafi Çoğaltma ayrıca farklı coğrafi bölgelerde bulunan kullanıcılara daha iyi salt okunur sorgu performansı sunmak için de kullanılabilir.
 
-### Perform a point-in-time restore
-You can use the automated backups to recover a copy of your database to a known good point in time, provided that time is within the database retention period. After the database is restored, you can either replace the original database with the restored database or copy the needed data from the restored data into the original database. If the database uses Active Geo-Replication, we recommend copying the required data from the restored copy into the original database. If you replace the original database with the restored database, you will need to reconfigure and resynchronize Active Geo-Replication (which can take quite some time for a large database). 
-
-For more information and for detailed steps for restoring a database to a point in time using the Azure portal or using PowerShell, see [point-in-time restore](sql-database-recovery-using-backups.md#point-in-time-restore). You cannot recover using Transact-SQL.
-
-### Restore a deleted database
-If the database is deleted but the logical server has not been deleted, you can restore the deleted database to the point at which it was deleted. This restores a database backup to the same logical SQL server from which it was deleted. You can restore it using the original name or provide a new name or the restored database.
-
-For more information and for detailed steps for restoring a deleted database using the Azure portal or using PowerShell, see [restore a deleted database](sql-database-recovery-using-backups.md#deleted-database-restore). You cannot restore using Transact-SQL.
+Birincil veritabanının beklenmedik şekilde çevrimdışı olması veya bakım nedeniyle çevrimdışı duruma getirmeniz gerekmesi halinde hızlı bir şekilde ikincil veritabanlarından birini birincil veritabanı olarak belirleyebilir (yük devretme olarak da bilinir) ve uygulamaları yeni birincil veritabanına bağlanacak şekilde yapılandırabilirsiniz. Planlı yük devretme sayesinde veri kaybı yaşanmaz. Plansız yük devretme durumunda ise zaman uyumsuz çoğaltmanın özelliğinden dolayı en son işlemler için az miktarda veri kaybı yaşanabilir. Yük devretme sonrasında belirli bir plana göre veya veri merkezi çevrimiçi duruma geldiğinde veritabanını yeniden çalıştırabilirsiniz. Tüm durumlarda kullanıcılar kısa süreli bir kesinti yaşar ve yeniden bağlantı kurmaları gerekir. 
 
 > [!IMPORTANT]
-> If the logical server is deleted, you cannot recover a deleted database. 
+> Etkin Coğrafi Çoğaltma özelliğini kullanmak için abonelik sahibi olmanız veya SQL Server'da yönetici izinlerine sahip olmanız gerekir. Yük devretmeyi abonelik izinlerini kullanarak Azure portal, PowerShell veya REST API aracılığıyla, SQL Server izinlerini kullanarak da Transact-SQL aracılığıyla yapılandırabilir ve gerçekleştirebilirsiniz.
 > 
 > 
 
-### Import from a database archive
-If the data loss occurred outside the current retention period for automated backups and you have been archiving the database, you can [Import an archived BACPAC file](sql-database-import.md) to a new database. At this point, you can either replace the original database with the imported database or copy the needed data from the imported data into the original database. 
+Uygulamanız aşağıdaki ölçütleri karşılıyorsa Etkin Coğrafi Çoğaltma özelliğini kullanabilirsiniz:
 
-## Recover a database to another region from an Azure regional data center outage
+* Görev açısından kritikse.
+* 24 saat veya üzeri kesinti süresine izin vermeyen hizmet düzeyi sözleşmesine (SLA) sahipse.
+* Kesinti süresi mali yükümlülük yaratıyorsa.
+* Veri değişiklik oranı yüksekse ve bir saatlik değişiklik kaybı kabul edilebilir değilse.
+* Etkin coğrafi çoğaltma ek maliyeti, olası mali yükümlülükten veya ilgili iş kaybından daha düşükse.
+
+## <a name="recover-a-database-after-a-user-or-application-error"></a>Kullanıcı veya uygulama hatasından sonra bir veritabanını kurtarma
+*Hiç kimse mükemmel değildir! Bir kullanıcı yanlışlıkla veri silebilir, istemeden önemli bir tabloyu ve hatta bir veritabanının tamamını bırakabilir. Ya da bir uygulama, hata nedeniyle yanlışlıkla gereksiz verileri gerekli verilerin üzerine yazabilir. 
+
+Bu senaryoda kullanabileceğiniz kurtarma seçenekleri aşağıda verilmiştir.
+
+### <a name="perform-a-point-in-time-restore"></a>Belirli bir noktaya geri yükleme gerçekleştirme
+Noktanın veritabanı saklama süresi içinde olması şartıyla otomatik yedekleri kullanarak veritabanınızın bir kopyasını belirli bir noktaya geri yükleyebilirsiniz. Veritabanı geri yüklendikten sonra özgün veritabanını geri yüklenen veritabanıyla değiştirebilir veya geri yüklenen veritabanından gerekli verileri özgün veritabanına kopyalayabilirsiniz. Veritabanınız Etkin Coğrafi Çoğaltma özelliğini kullanıyorsa, geri yüklenen veritabanından gerekli verileri özgün veritabanına geri yüklemenizi öneririz. Özgün veritabanını geri yüklenen veritabanıyla değiştirmeniz halinde Etkin Coğrafi Çoğaltma özelliğini yeniden yapılandırmanız ve yeniden eşitlemeniz gerekir (bu işlemler büyük bir veritabanı için uzun sürebilir). 
+
+Azure portal veya PowerShell kullanarak bir veritabanını belirli bir noktaya geri yüklemeyle ilgili ayrıntılı adımlar ve daha fazla bilgi için bkz. [belirli bir noktaya geri yükleme](sql-database-recovery-using-backups.md#point-in-time-restore). Transact-SQL kullanarak kurtarma gerçekleştiremezsiniz.
+
+### <a name="restore-a-deleted-database"></a>Silinen veritabanını geri yükleme
+Veritabanı silinmiş ancak mantıksal sunucu silinmemişse, silinen veritabanını silindiği noktaya geri yükleyebilirsiniz. Bu işlem bir veritabanı yedeğini silindiği mantıksal SQL sunucusuna geri yükler. Özgün adı kullanarak geri yükleyebilir veya geri yüklenen veritabanı için yeni bir ad belirleyebilirsiniz.
+
+Azure portal veya PowerShell kullanarak silinen bir veritabanını geri yüklemeyle ilgili ayrıntılı adımlar ve daha fazla bilgi için bkz. [silinen veritabanını geri yükleme](sql-database-recovery-using-backups.md#deleted-database-restore). Transact-SQL kullanarak geri yükleme gerçekleştiremezsiniz.
+
+> [!IMPORTANT]
+> Mantıksal sunucu silinmişse, silinen bir veritabanını kurtaramazsınız. 
+> 
+> 
+
+### <a name="restore-from-azure-backup-vault"></a>Azure Backup Vault'tan geri yükleme
+Veri kaybı, otomatik yedekler için geçerli saklama süresinin dışında gerçekleştiyse ve veritabanınız uzun süreli saklama için yapılandırıldıysa, Azure Backup Vault'taki haftalık yedeklerden yeni bir veritabanına geri yükleyebilirsiniz. Bu noktada özgün veritabanını geri yüklenen veritabanıyla değiştirebilir veya geri yüklenen veritabanından gerekli verileri özgün veritabanına kopyalayabilirsiniz. Veritabanınızın büyük bir uygulama yükseltmesinden önceki sürümünü almanız ya da denetçilerden veya yasal kurumlardan gelen bir isteği karşılamanız gerekirse, Azure Backup Vault'ta kayıtlı bir tam yedeği kullanarak yeni bir veritabanı oluşturabilirsiniz.  Daha fazla bilgi için bkz. [Uzun süreli saklama](sql-database-long-term-retention.md).
+
+## <a name="recover-a-database-to-another-region-from-an-azure-regional-data-center-outage"></a>Azure bölgesel veri merkezi kesintisinde bir veritabanını başka bir bölgeye kurtarma
 <!-- Explain this scenario -->
 
-Although rare, an Azure data center can have an outage. When an outage occurs, it causes a business disruption that might only last a few minutes or might last for hours. 
+Çok sık olmasa da Azure veri merkezlerinde kesintiler yaşanabilir. Kesinti yaşandığında yalnızca birkaç dakika sürebilecek veya saatler alacak bir hizmet kesintisi söz konusu olabilir. 
 
-* One option is to wait for your database to come back online when the data center outage is over. This works for applications that can afford to have the database offline. For example, a development project or free trial you don't need to work on constantly. When a data center has an outage, you won't know how long the outage will last, so this option only works if you don't need your database for a while.
-* Another option is to either failover to another data region if you are using Active Geo-Replication or the recover using geo-redundant database backups (Geo-Restore). Failover takes only a few seconds, while recovery from backups takes hours.
+* Seçeneklerden biri, veri merkezi kesintisi sona erdiğinde veritabanınızın çevrimdışı olmasını beklemektir. Bu, veritabanının çevrimdışı olmasının kabul edilebildiği uygulamalar için geçerlidir. Örnek olarak üzerinde sürekli çalışma yapmadığınız bir geliştirme projesi veya ücretsiz deneme sürümü verilebilir. Bir veri merkezinde yaşanan kesintinin süresi tam olarak kestirilemeyeceği için bu seçenek yalnızca veritabanınıza sürekli erişmeniz gerekmiyorsa kullanışlı olacaktır.
+* Başka bir seçenek de Etkin Coğrafi Çoğaltma kullanıyorsanız başka bir veri bölgesine yük devretme gerçekleştirmeniz veya verileri coğrafi çoğaltmalı veritabanı yedeklerini kullanarak kurtarmaktır (Coğrafi Geri Yükleme). Yük devretme yalnızca birkaç saniye sürer ancak yedekten kurtarma saatler sürebilir.
 
-When you take action, how long it takes you to recover, and how much data loss you incur in the event of a data center outage depends upon how you decide to use the business continuity features discussed above in your application. Indeed, you may choose to use a combination of database backups and Active Geo-Replication depending upon your application requirements. For a discussion of application design considerations for stand-alone databases and for elastic pools using these business continuity features, see [Design an application for cloud disaster recovery](sql-database-designing-cloud-solutions-for-disaster-recovery.md) and [Elastic Pool disaster recovery strategies](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
+Bir veri merkezi kesintisinde harekete geçtiğinizde kurtarma için gereken süre ve kaybedeceğiniz veri miktarı, uygulamanızda yukarıda anlatılan iş sürekliliği özelliklerini kullanma şeklinize bağlıdır. Uygulamanızın gereksinimlerine göre veritabanı yedekleriyle Etkin Coğrafi Çoğaltma özelliklerini bir arada kullanmayı tercih edebilirsiniz. Bu iş sürekliliği özelliklerini kullanan bağımsız veritabanları ve elastik havuzlarla ilgili dikkate alınacak uygulama tasarımı noktaları hakkında ayrıntılı bilgi için bkz. [Bulutta olağanüstü durum kurtarma için uygulama tasarlama](sql-database-designing-cloud-solutions-for-disaster-recovery.md) ve [Elastik havuz olağanüstü durum kurtarma stratejileri](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
 
-The sections below provide an overview of the steps to recover using either database backups or Active Geo-Replication. For detailed steps including planning requirements, post recovery steps and information about how to simulate an outage to perform a disaster recovery drill, see [Recover a SQL Database from an outage](sql-database-disaster-recovery.md).
+Aşağıdaki bölümlerde veritabanı yedeklerini veya Etkin Coğrafi Çoğaltma özelliğini kullanarak veri kurtarma adımlarının özeti verilmiştir. Planlama gereksinimleri ve kurtarma sonrası adımlar dahil olmak üzere ayrıntılı adımların yanı sıra olağanüstü durum kurtarma tatbikatı yapmak için kesinti simülasyonu yapma hakkında bilgiler için bkz. [Bir SQL veritabanını kesintiden kurtarma](sql-database-disaster-recovery.md).
 
-### Prepare for an outage
-Regardless of the business continuity feature you use, you must:
+### <a name="prepare-for-an-outage"></a>Kesinti için hazırlanma
+Kullandığınız iş sürekliliği özelliğinden bağımsız olarak aşağıdaki adımları uygulamanız gerekir:
 
-* Identify and prepare the target server, including server-level firewall rules, logins, and master database level permissions.
-* Determine how to redirect clients and client applications to the new server
-* Document other dependencies, such as auditing settings and alerts 
+* Sunucu düzeyi güvenlik duvarı kuralları, giriş bilgileri ve ana veritabanı düzeyi izinler dahil olmak üzere hedef sunucuyu belirlemek ve hazırlamak
+* İstemcilerin ve istemci uygulamalarının yeni sunucuya nasıl yönlendirileceğini belirlemek
+* Denetim ayarları ve uyarılar gibi diğer bağımlılık belgelerini oluşturmak 
 
-If you do not plan and prepare properly, bringing your applications online after a failover or a recovery takes additional time and likely also require troubleshooting at a time of stress - a bad combination.
+Planlama ve hazırlık aşamalarını doğru şekilde yapmazsanız, yük devretme veya kurtarma sonrasında uygulamalarınızın çevrimiçi olması daha uzun sürebilir ve ortaya çıkan sorunları sınırlı bir sürede gidermek zorunda kalarak sıkıntıya girebilirsiniz.
 
-### Failover to a geo-replicated secondary database
-If you are using Active Geo-Replication as your recovery mechanism, [force a failover to a geo-replicated secondary](sql-database-disaster-recovery.md#failover-to-geo-replicated-secondary-database). Within seconds, the secondary is promoted to become the new primary and is ready to record new transactions and respond to any queries - with only a few seconds of data loss for the data that had not yet been replicated. For information on automating the failover process, see [Design an application for cloud disaster recovery](sql-database-designing-cloud-solutions-for-disaster-recovery.md).
-
-> [!NOTE]
-> When the data center comes back online, you can failback to the original primary (or not).
-> 
-> 
-
-### Perform a Geo-Restore
-If you are using automated backups with geo-redundant storage replication as your recovery mechanism, [initiate a database recovery using Geo-Restore](sql-database-disaster-recovery.md#recover-using-geo-restore). Recovery usually takes place within 12 hours - with data loss of up to one hour determined by when the last hourly differential backup with taken and replicated. Until the recovery completes, the database is unable to record any transactions or respond to any queries. 
+### <a name="failover-to-a-geo-replicated-secondary-database"></a>Coğrafi çoğaltmalı ikincil veritabanına yük devretme
+Kurtarma sistemi olarak Etkin Coğrafi Çoğaltma hizmetini kullanıyorsanız, [coğrafi çoğaltmalı ikincil veritabanına yük devretmeyi zorlayabilirsiniz](sql-database-disaster-recovery.md#failover-to-geo-replicated-secondary-database). İkincil veritabanı saniyeler içinde yeni birincil veritabanı haline getirilerek yeni işlemleri kaydetmeye ve sorguları yanıtlamaya hazır hale gelir. Yalnızca henüz çoğaltılmamış veriler için birkaç saniyelik veri kaybı yaşanır. Yük devretme işlemini otomatik hale getirme hakkında bilgi için bkz. [Bir uygulamayı bulutta olağanüstü durum kurtarma için tasarlama](sql-database-designing-cloud-solutions-for-disaster-recovery.md).
 
 > [!NOTE]
-> If the data center comes back online before you switch your application over to the recovered database, you can simply cancel the recovery.  
+> Veri merkezi tekrar çevrimiçi olduğunda özgün birincil veritabanını yeniden çalıştırabilirsiniz (isterseniz).
 > 
 > 
 
-### Perform post failover / recovery tasks
-After recovery from either recovery mechanism, you must perform the following additional tasks before your users and applications are back up and running:
+### <a name="perform-a-geo-restore"></a>Coğrafi Geri Yükleme gerçekleştirme
+Kurtarma sisteminizde coğrafi olarak yedekli depolamayı kullanıyorsanız [Coğrafi Geri Yükleme kullanarak bir veritabanı kurtarma işlemi başlatabilirsiniz](sql-database-disaster-recovery.md#recover-using-geo-restore). Kurtarma işlemi genelde 12 saat içinde gerçekleşir. Son saatlik değişiklik yedeğinin alındığı ve çoğaltıldığı zaman göre en fazla bir saatlik veri kaybı yaşanabilir. Kurtarma işlemi tamamlanana kadar veritabanı işlem kaydedemez ve sorgulara yanıt veremez. 
 
-* Redirect clients and client applications to the new server and restored database
-* Ensure appropriate server-level firewall rules are in place for users to connect (or use [database-level firewalls](sql-database-firewall-configure.md#creating-database-level-firewall-rules))
-* Ensure appropriate logins and master database level permissions are in place (or use [contained users](https://msdn.microsoft.com/library/ff929188.aspx))
-* Configure auditing, as appropriate
-* Configure alerts, as appropriate
+> [!NOTE]
+> Veri merkezi uygulamanızı kurtarılan veritabanına geçirmeden çevrimiçi olursa kurtarma işlemini iptal edebilirsiniz.  
+> 
+> 
 
-## Upgrade an application with minimal downtime
-Sometimes an application needs to be taken offline because of planned maintenance such as an application upgrade. [Manage application upgrades](sql-database-manage-application-rolling-upgrade.md) describes how to use Active Geo-Replication to enable rolling upgrades of your cloud application to minimize downtime during upgrades and provide a recovery path in the event something goes wrong. This article looks at two different methods of orchestrating the upgrade process and discusses the benefits and trade-offs of each option.
+### <a name="perform-post-failover--recovery-tasks"></a>Yük devretme/kurtarma sonrası görevleri gerçekleştirme
+Bu iki kurtarma sisteminden herhangi biriyle gerçekleştirilen kurtarma işleminden sonra kullanıcılarınızın ve uygulamalarınızın çalışmaya devam etmesi için aşağıdaki ek görevleri gerçekleştirmeniz gerekir:
 
-## Next steps
-For a discussion of application design considerations for stand-alone databases and for elastic pools, see [Design an application for cloud disaster recovery](sql-database-designing-cloud-solutions-for-disaster-recovery.md) and [Elastic Pool disaster recovery strategies](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
+* İstemcilerin ve istemci uygulamalarının yeni sunucuya ve geri yüklenen veritabanına nasıl yönlendirileceğini belirleme
+* Kullanıcılarınızın bağlantı kurabilmesi için gerekli sunucu düzeyi güvenlik duvarı kurallarının mevcut olduğunu doğrulama ([veritabanı düzeyi güvenlik duvarı](sql-database-firewall-configure.md#creating-database-level-firewall-rules) da kullanabilirsiniz)
+* Uygun giriş bilgilerinin ve ana veritabanı düzeyi izinlerin mevcut olduğunu doğrulama ([kapsanan kullanıcıları](https://msdn.microsoft.com/library/ff929188.aspx) da kullanabilirsiniz)
+* Denetimi uygun şekilde yapılandırma
+* Uyarıları uygun şekilde yapılandırma
+
+## <a name="upgrade-an-application-with-minimal-downtime"></a>Bir uygulamayı en az kesinti süresiyle yükseltme
+Bazen bir uygulamanın yükseltme gibi nedenlerle planlı bakım kapsamında çevrimdışı olması gerekebilir. [Uygulama yükseltmelerini yönetme](sql-database-manage-application-rolling-upgrade.md) sayfasında, yükseltme işlemleri sırasında kesinti süresini en aza indirme ve hata ihtimaline karşı kurtarma yolu sağlama amacıyla bulut uygulamanızın sıralı yükseltmelerini etkinleştirmek üzere Etkin Coğrafi Çoğaltma özelliğini nasıl kullanacağınız açıklanmaktadır. Bu makalede yükseltme işlemini yönetmek için iki farklı yöntem ele alınmakta ve her birinin artıları ve eksileri incelenmektedir.
+
+## <a name="next-steps"></a>Sonraki adımlar
+Bağımsız veritabanları ve elastik havuzlarla ilgili dikkate alınacak uygulama tasarımı noktaları hakkında ayrıntılı bilgi için bkz. [Bulutta olağanüstü durum kurtarma için uygulama tasarlama](sql-database-designing-cloud-solutions-for-disaster-recovery.md) ve [Elastik havuz olağanüstü durum kurtarma stratejileri](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
+
+
+
+
+<!--HONumber=Dec16_HO2-->
+
 

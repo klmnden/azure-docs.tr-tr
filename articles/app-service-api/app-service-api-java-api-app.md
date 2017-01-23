@@ -12,11 +12,11 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: get-started-article
-ms.date: 10/19/2016
+ms.date: 12/22/2016
 ms.author: rachelap;robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b073958fd41fec05b473594b23b586d561e996f3
+ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
+ms.openlocfilehash: 26f2fba953870564292ef3e986a3151373f6babf
 
 
 ---
@@ -168,13 +168,11 @@ Bu bölümde Swagger ile oluşturulan kodun sunucu-tarafı uygulamasını özel 
         package io.swagger.api.impl;
    
         import io.swagger.api.*;
-        import io.swagger.model.*;
+        
         import io.swagger.model.Contact;
         import java.util.*;
         import io.swagger.api.NotFoundException;
-        import java.io.InputStream;
-        import com.sun.jersey.core.header.FormDataContentDisposition;
-        import com.sun.jersey.multipart.FormDataParam;
+               
         import javax.ws.rs.core.Response;
         import javax.ws.rs.core.SecurityContext;
    
@@ -271,7 +269,7 @@ Bu bölümde Azure Portal’ı kullanarak yeni bir API oluşturma, bu API uygula
     ![Azure içinde Java Kişiler REST API'sini canlı kullanma][postman-calling-azure-contacts]
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu makalede, bir Swagger JSON dosyasını ve Swagger.io düzenleyicisinden elde edilen iskelesi kurulmuş bazı Java kodlarını kullanmaya başladınız. Burada, basit değişiklikleriniz ve Git dağıtım işlemi Java’da yazılmış işlevsel bir API uygulaması elde etmeyle sonuçlanmıştır. Sonraki öğreticide [JavaScript istemcilerinden API uygulamalarını CORS][App Service API CORS] ile kullanma işlemi gösterilmektedir. Serinin sonraki öğreticileri, kimlik doğrulama ve yetkilendirmenin nasıl uygulandığını göstermektedir.
+Bu makalede, bir Swagger JSON dosyasını ve Swagger.io düzenleyicisinden elde edilen iskelesi kurulmuş bazı Java kodlarını kullanmaya başladınız. Burada, basit değişiklikleriniz ve Git dağıtım işlemi Java’da yazılmış işlevsel bir API uygulaması elde etmeyle sonuçlanmıştır. Sonraki öğreticide [CORS kullanarak JavaScript istemcilerinden API uygulamalarını kullanma][App Service API CORS] işlemi gösterilmektedir. Serinin sonraki öğreticileri, kimlik doğrulama ve yetkilendirmenin nasıl uygulandığını göstermektedir.
 
 Bu örneği geliştirmek için JSON blob’larını devam ettirmek üzere [Java için Depolama SDK’sı] hakkında daha fazla bilgi alabilirsiniz. Veya kişi verilerinizi Azure Belge DB’sine kaydetmek için [Belge DB Java SDK’sı] kullanabilirsiniz. 
 
@@ -319,6 +317,6 @@ Azure’u Java ile kullanma hakkında daha fazla bilgi edinmek için bkz. [Azure
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

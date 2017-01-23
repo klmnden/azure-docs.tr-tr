@@ -27,12 +27,13 @@
 ### [Ağ](documentation-government-networking.md)
 ### [Güvenlik ve kimlik](documentation-government-services-securityandidentity.md)
 ### [İzleme ve yönetim](documentation-government-services-monitoringandmanagement.md)
+### [Web + mobil](documentation-government-services-webandmobile.md)
 
 # Kaynaklar
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/)
 ## [Deneme](https://azuregov.microsoft.com/trial/azuregovtrial)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

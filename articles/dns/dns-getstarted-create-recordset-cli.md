@@ -1,5 +1,5 @@
 ---
-title: "CLI kullanarak bir DNS Bölgesi için kayıt kümesi ve kayıt oluşturma| Microsoft Belgeleri"
+title: "Azure CLI kullanarak DNS kaydı oluşturma | Microsoft Belgeleri"
 description: "Azure DNS için ana bilgisayar kayıtları nasıl oluşturulur? CLI kullanarak kayıt kümelerini ve kayıtları ayarlama"
 services: dns
 documentationcenter: na
@@ -11,62 +11,63 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/09/2016
+ms.date: 12/21/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: bfbffe7843bc178cdf289c999925c690ab82e922
-ms.openlocfilehash: e377f176fe24a8e7e42d409f86d6b0093ce5e7c4
+ms.sourcegitcommit: 18a21cdc0f9641356dfaf6f6d93edfcac11af210
+ms.openlocfilehash: 790af1544ed86155f5f864f3914b5fd1c4f42f4b
 
 ---
 
-# <a name="create-dns-record-sets-and-records-by-using-cli"></a>CLI kullanarak DNS kayıt kümelerini ve kayıtları oluşturma
+# <a name="create-dns-records-using-the-azure-cli"></a>Azure CLI kullanarak DNS kaydı oluşturma
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](dns-getstarted-create-recordset-portal.md)
 > * [PowerShell](dns-getstarted-create-recordset.md)
 > * [Azure CLI](dns-getstarted-create-recordset-cli.md)
 
-Bu makale, CLI kullanarak kayıtlar ve kayıt kümeleri oluşturma işlemi boyunca size yol gösterir. Bunu yapmak için öncelikle DNS kayıtlarını ve kayıt kümelerini anlamanız gerekir.
+Bu makale, Azure CLI kullanarak kayıtlar ve kayıt kümeleri oluşturma işlemi boyunca size yol gösterir.
+
+## <a name="introduction"></a>Giriş
+
+Azure DNS’de DNS kayıtlarını oluşturmadan önce Azure DNS’nin DNS kayıtlarını DNS kayıt kümeleri şeklinde nasıl düzenlediğini kavramanız gerekir.
 
 [!INCLUDE [dns-about-records-include](../../includes/dns-about-records-include.md)]
+
+Azure DNS’deki DNS kayıtları hakkında daha fazla bilgi için bkz. [DNS bölgeleri ve kayıtları](dns-zones-records.md).
+
+## <a name="create-a-record-set-and-record"></a>Kayıt kümesi ve kayıt oluşturma
 
 Bu bölümde Azure DNS'de DNS kaydı oluşturma adımları açıklanmaktadır. Örnekte [Azure CLI'yi yüklediğiniz, oturum açtığınız ve DNS bölgesi oluşturduğunuz](dns-getstarted-create-dnszone-cli.md) varsayılmaktadır.
 
 Bu sayfadaki tüm örnekler 'A' DNS kaydı türü kullanmaktadır. Diğer kayıt türleri ile DNS kayıtlarını ve kayıt kümelerini yönetme hakkında daha fazla bilgi için bkz. [Azure CLI kullanarak DNS kayıtlarını ve kayıt kümelerini yönetme](dns-operations-recordsets-cli.md).
 
-## <a name="create-a-record-set-and-record"></a>Kayıt kümesi ve kayıt oluşturma
+## <a name="create-a-dns-record"></a>DNS kaydı oluşturma
 
-Bu bölümde bir kayıt kümesinin ve kayıtların nasıl oluşturulduğunu size göstereceğiz. Bu örnekte, "contoso.com" DNS bölgesinde "www" göreli adına sahip olan bir kayıt kümesi oluşturacaksınız. "www.contoso.com" kayıtların tam adıdır. Kayıt türü "A" ve yaşam süresi (TTL) 60 saniyedir. Bu adımı tamamladıktan sonra, boş bir kayıt kümesi oluşturmuş olacaksınız.
+DNS kaydı oluşturmak için `azure network dns record-set add-record` komutunu kullanın. Yardım için bkz. `azure network dns record-set add-record -h`.
 
-Bölgenin tepesinde bir kayıt kümesi oluşturmak için (bu durumda "contoso.com"), tırnak işaretleri dahil olmak üzere "@", kayıt adını kullanın. Bu genel bir DNS kuralıdır.
+Bir kayıt oluştururken kaynak grubu adını, bölge adını, kaynak kümesi adını, kaynak türünü ve oluşturulan kaynağın ayrıntılarını belirtmeniz gerekir.
 
-### <a name="1-create-a-record-set"></a>1. Kayıt kümesi oluşturma
+Kayıt kümesi mevcut değilse bu komutla oluşturulur. Kayıt kümesi mevcutsa bu komut belirttiğiniz kaydı var olan kayıt kümesine ekler. 
 
-Yeni kaydınız var olan kayıtlardan biriyle aynı ada ve türe sahipse var olan kayıt kümesine eklemeniz gerekir. Bu adımı atlayarak aşağıdaki [Kayıt ekleme](#add-records) bölümüne geçebilirsiniz. Aksi halde yeni kaydınızın adı ve türü var olan tüm kayıtlardan farklıysa yeni bir kayıt kümesi oluşturmanız gerekir.
+Yeni bir kayıt kümesi oluşturuluyorsa yaşam süresi (TTL) olarak varsayılan 3600 değeri kullanılır. Farklı TTL’ler kullanma hakkında talimatlar için bkz. [Azure CLI kullanarak Azure DNS’deki DNS kayıtlarını yönetme](dns-operations-recordsets-cli.md).
 
-Kayıt kümesi oluşturmak için `azure network dns record-set create` komutunu kullanabilirsiniz. Yardım için bkz. `azure network dns record-set create -h`.  
-
-Kayıt kümesi oluştururken kayıt kümesi adını, bölgeyi, yaşam süresini (TTL) ve kayıt türünü belirtmeniz gerekir. 
+Aşağıdaki örnek *www* adlı A kaydını *contoso.com* bölgesinde ve *MyResourceGroup* kaynak grubu içinde oluşturur. A kaydının IP adresi *1.2.3.4* olarak belirtilmiştir.
 
 ```azurecli
-azure network dns record-set create myresourcegroup contoso.com www A 60
+azure network dns record-set add-record MyResourceGroup contoso.com www A -a 1.2.3.4
 ```
 
-Bu adımı tamamladıktan sonra, boş bir "www" kayıt kümesine sahip olursunuz. Yeni oluşturulan "www" kayıt kümesini kullanmak için öncelikle buna kayıt eklemeniz gerekir.
-
-### <a name="2-add-records"></a>2. Kayıt ekleme
-
-`azure network dns record-set add-record` kullanarak kayıt kümelerine kayıt ekleyebilirsiniz. Yardım için bkz. `azure network dns record-set add-record -h`.
-
-Bir kayıt kümesine kayıt eklemeye yönelik parametreler, kayıt kümesinin türüne bağlı olarak farklılık gösterir. Örneğin, "A" türünde bir kayıt kümesi kullanırken yalnızca `-a <IPv4 address>` parametreli kayıtları belirtebilirsiniz. Diğer kayıt türlerinin parametrelerini listelemek için bkz. `azure network dns record-set add-record -h`.
-
-Aşağıdaki komutu kullanarak yukarıda oluşturulan "www" kayıt kümesine bir A kaydı ekleyebilirsiniz:
+Bölgenin tepesinde bir kayıt kümesi oluşturmak için (bu durumda "contoso.com"), tırnak işaretleri dahil olmak üzere "@", kayıt adını kullanın:
 
 ```azurecli
-azure network dns record-set add-record myresourcegroup contoso.com  www A  -a 1.2.3.4
+azure network dns record-set add-record MyResourceGroup contoso.com "@" A -a 1.2.3.4
 ```
 
-### <a name="verify-name-resolution"></a>Ad çözümlemesini doğrulama
+Kayıt verilerini belirtmek için kullanılan parametreler, kayıt türüne bağlı olarak değişiklik gösterir. Örneğin "A" türünde bir kayıt için IPv4 adresini `-a <IPv4 address>` parametresiyle belirtirsiniz. Diğer kayıt türlerinin parametrelerini listelemek için bkz. `azure network dns record-set add-record -h`. Tüm kayıt türlerine ait örnekler için bkz. [Azure CLI kullanarak DNS kayıtlarını ve kayıt kümelerini yönetme](dns-operations-recordsets-cli.md).
+
+
+## <a name="verify-name-resolution"></a>Ad çözümlemesini doğrulama
 
 nslookup, dig veya [Resolve-DnsName PowerShell cmdlet'i](https://technet.microsoft.com/library/jj590781.aspx) gibi DNS araçlarını kullanarak DNS kayıtlarınızın Azure DNS ad sunucularında mevcut olup olmadığını kontrol edebilirsiniz.
 
@@ -94,6 +95,6 @@ Azure DNS'de henüz yeni bölgeyi kullanmak için etki alanınızı devretmediys
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

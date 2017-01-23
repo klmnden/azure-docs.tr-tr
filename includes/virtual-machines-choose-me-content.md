@@ -5,7 +5,7 @@ Azure Virtual Machines, bulutta sanal makineler oluşturmanızı ve kullanmanız
 
 * **Geliştirme ve test için sanal makineler (VM).** Bir uygulamayı kodlamak ve test etmek için gereken belirli yapılandırmalarla bir bilgisayarı oluşturmanın hızlı, kolay yolunu sunduklarından, geliştirme grupları yaygın olarak VM’leri kullanır. Azure Virtual Machines, bu VM’leri oluşturmanın, bunları kullanmanın ve artık gerekmediğinde de silmenin basit ve ekonomik bir yolunu sağlıyor.
 * **Uygulamaları bulutta çalıştırma.** Bazı uygulamaları genel bulut ortamında çalıştırmanın ekonomik mantığı vardır. Bir örnek, isteğe bağlı büyük depoları olan bir uygulamadır. Zamanın çoğunda donanım verimli kullanılamadığından en yüksek talebi işlemek için kendi veri merkezinizi yeterli donanımla donatmış olabilirsiniz. Bu uygulamanın Azure’da çalıştırılması, yalnızca gerektiğinde VM’ler için fazladan ödeme yapmanızı, gerekmediğinde de bunları kapatmanızı sağlar. Bunun yerine, hızlı ve hiçbir taahhüdü olmadan isteği bağlı bilgi işlem kaynaklarına ihtiyaç duyan başlangıç düzeyinde biri olduğunuzu varsayalım. Bir kez daha, Azure doğru seçim olabilir.
-* **Kendi veri merkezinizi genel buluta genişletme.** Azure Virtual Network kullandığınızda, kuruluşunuz kendi şirket içi ağınıza uzantısı olan sanal ağ (VNET) oluşturabilir ve VM’leri bu VNET'e ekleyebilir. Böylece, Azure VM’de [SharePoint](../articles/virtual-machines/virtual-machines-windows-sharepoint-farm.md), [SQL Server](../articles/virtual-machines/virtual-machines-windows-sql-server-iaas-overview.md) ve diğerlerinin çalıştırılması sağlanır. Bu yaklaşım dağıtmak için daha kolay veya bunları kendi veri merkezinizdeki VM’lerde çalıştırmasından daha ucuz olabilir.   
+* **Kendi veri merkezinizi genel buluta genişletme.** Azure Virtual Network kullandığınızda, kuruluşunuz kendi şirket içi ağınıza uzantısı olan sanal ağ (VNET) oluşturabilir ve VM’leri bu VNET'e ekleyebilir. Böylece, Azure VM’de [SharePoint](../articles/virtual-machines/virtual-machines-windows-sharepoint-farm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), [SQL Server](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md) ve diğerlerinin çalıştırılması sağlanır. Bu yaklaşım, uygulamaları dağıtmanızı kolaylaştırabilir ve bunları kendi veri merkezinizdeki VM’lerde çalıştırmaya kıyasla daha ekonomik olabilir.   
 * **Olağanüstü durum kurtarma.** Nadiren kullanılan yedek veri merkezi için sürekli ödeme yapmak yerine, IaaS temelli olağanüstü durum kurtarması, gereken bilgi işlem kaynakları için yalnızca gerçekten gerek duyduğunuzda ödeme yapmanızı sağlar.  Örneğin, birincil veri merkezinizde arıza olursa, temel uygulamaları çalıştırmak için Azure üzerinde çalışan VM’leri oluşturabilir, artık gerekmediklerinde de .unları kapatabilirsiniz.
 
 Diğer sanal makineler gibi Azure’daki VM’de de bir işletim sistemi, depolama ve ağ özellikleri vardır, çok çeşitli uygulamaları çalıştırabilir. Azure veya ortaklarından biri tarafından sağlanan bir görüntüyü kullanabilir; isterseniz de kendinize ait olanlardan birini kullanın. Çeşitli sürümlerin, basımların ve yapılandırmaların bulunduğu örnekler:
@@ -27,7 +27,7 @@ VM’ler tarayıcı tabanlı bir portal, betik oluşturma desteğine sahip komut
 
 İşletim sisteminin yanı sıra, VM’lerde bulunan diğer yapılandırma seçenekleri:
 
-* Ekleyebileceğiniz disk sayısı veya işlem gücü gibi etkenleri saptayan boyut. Azure çok sayıda kullanım türünü desteklemek için büyük çeşitlilikteki boyutları sunar. Ayrıntılar için bkz. [Virtual Machines boyutları](../articles/virtual-machines/virtual-machines-linux-sizes.md).  
+* Ekleyebileceğiniz disk sayısı veya işlem gücü gibi etkenleri saptayan boyut. Azure çok sayıda kullanım türünü desteklemek için büyük çeşitlilikteki boyutları sunar. Ayrıntılar için bkz. [Virtual Machines boyutları](../articles/virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
 * Yeni VM’nin barındırıldığı Azure bölgesi; ABD, Avrupa veya Asya gibi. 
 * VM uzantıları, virüsten koruma çalıştırma ya da Windows PowerShell İstenen Durum Yapılandırması özelliğini kullanma gibi sanal makine ek özellikleri sağlar.
 
@@ -39,6 +39,6 @@ VM’ler için dikkate alınması gereken diğer avantajlar şunlardır:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -133,6 +133,6 @@ Bütün tek veritabanları havuzlar için uygun adaylar değildir. Düşük orta
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 
