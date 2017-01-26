@@ -1,13 +1,15 @@
 ---
 layout: LandingPage
+description: "Azure Depolama: Bulutta Blob, Tablo, Kuyruk, Dosya ve Sanal Makine Disk depolama hakkında bilgi edinin. Öğreticiler, API başvuruları ve diğer belgeler."
 translationtype: Human Translation
-ms.sourcegitcommit: 965b96507d66f3880bdf3b38362d1eb026afdb51
-ms.openlocfilehash: e72557a87088ba66a669d37ba0033da951e7fdb8
+ms.sourcegitcommit: c0493bb88e768493c141075a00695b5c030e1b15
+ms.openlocfilehash: 94d2d4a01767fd8aabec9200623e4bdd68edbf35
 
 ---
-#<a name="storage-documentation"></a>Depolama Belgeleri
 
-Azure Storage, müşterilerin ihtiyaçlarını karşılamak üzere sağlamlık, kullanılabilirlik ve ölçeklenebilirliğe dayanan modern uygulamalara yönelik bulut depolama çözümüdür.  Yüksek düzeyde ölçeklenebilir, esnek ve genel olarak erişilebilirdir. Ayrıca trafiğe göre verilerinizde otomatik olarak yük dengeleme yapar.  Azure Depolama, uygulama ihtiyaçlarınızı karşılamak için şu dört hizmeti sunar: Blob depolama, Tablo depolama, Kuyruk depolama, Disk depolama ve Dosya depolama.
+# <a name="storage-documentation"></a>Depolama Belgeleri
+
+Dayanıklı, kullanılabilir ve ölçeklenebilir bir bulut depolama hizmeti olan Azure Depolama’yı nasıl kullanacağınızı öğrenin. Öğreticiler, API başvuruları ve diğer belgeler, Blob Depolama, Tablo Depolama, Kuyruk Depolama, Dosya Depolama ve Sanal Makine Diski Depolama hizmetlerini ayarlama ve yönetme ile ilgili bilgiler içerir.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -85,91 +87,57 @@ Azure Storage, müşterilerin ihtiyaçlarını karşılamak üzere sağlamlık, 
 </ul>
 
 ---
-
-## <a name="reference"></a>Başvuru
-
+ 
+<h2>Başvuru</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Azure PowerShell</p>
+                        <h3>Komut Satırı</h3>
+                        <p><a href="/powershell/storage">PowerShell</a></p>
+                        <p><a href="/cli/azure/storage">Azure CLI</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/cli/azure/storage">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Azure CLI</h3>
-                        <p>Azure CLI Başvurusu kullanarak Depolama</p>
+                        <h3>Diller</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.management.storage">.NET: Resource Manager</a></p>
+                        <p><a href="https://msdn.microsoft.com/en-us/library/azure/mt684990.aspx">.NET: Veri Taşıma</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/mt347887.aspx">.NET: Bloblar, Kuyruklar, Tablolar ve Dosyalar</a></p>
+                        <p><a href="/java/api/">Java</a></p>
+                        <p><a href="http://azure.github.io/azure-storage-node">Node.js</a></p>
+                        <p><a href="http://azure.github.io/azure-storage-ruby">Ruby</a></p>
+                        <p><a href="https://azure-storage.readthedocs.io/en/latest/index.html">Python</a></p>
+                        <p><a href="http://azure.github.io/azure-storage-cpp">C++</a></p>
+                        <p><a href="https://github.com/Azure/azure-storage-ios">iOS</a></p>
+                        <p><a href="http://azure.github.io/azure-storage-android">Android</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/java/api/">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Java</h3>
-                        <p>Java’da Depolama Başvurusu</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="https://msdn.microsoft.com/library/azure/mt347887">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Depolama Yönetilen Başvuru API’si</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/rest/api/storageservices">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Depolama REST API Başvurusu</p>
-                    </div>
+                        <p><a href="/rest/api/storageservices/fileservices/azure-storage-services-rest-api-reference">Bloblar, Kuyruklar, Tablolar ve Dosyalar</a></p>
+                        <p><a href="/rest/api/storagerp">Kaynak sağlayıcısı</a></p>
+                        <p><a href="/rest/api/storageimportexport">İçeri/dışarı aktarma</a></p>
+                   </div>
                 </div>
             </div>
         </div>
-        </a>
-        <a href="/rest/api/storagerp">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <p>Depolama Kaynak Sağlayıcısı REST API Başvurusu</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>   
+    </li>
 </ul>
 
 <div class="downloadHolder">
@@ -182,6 +150,6 @@ Depolama Belgelerini İndirme </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 

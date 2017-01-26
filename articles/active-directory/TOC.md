@@ -139,12 +139,15 @@
 
 ### [Uygulamalarınıza uzaktan erişim verme](active-directory-application-proxy-get-started.md)
 #### [Uygulama Ara Sunucusu](active-directory-application-proxy-enable.md)
-#### [Uygulamaları yayımlama](active-directory-application-proxy-publish.md)
+#### Uygulamaları yayımlama
+##### [Azure portal](application-proxy-publish-azure-portal.md)
+##### [Klasik portal](active-directory-application-proxy-publish.md)
 #### Ayrı ağlarda yayımlama
 ##### [Azure Portal](active-directory-application-proxy-connectors-azure-portal.md)
 ##### [Klasik portal](active-directory-application-proxy-connectors.md)
 #### [Özel etki alanları](active-directory-application-proxy-custom-domains.md)
 #### [Çoklu oturum açma](active-directory-application-proxy-sso-using-kcd.md)
+##### [Azure Portal](application-proxy-sso-azure-portal.md)
 #### [Talep kullanan uygulamalar](active-directory-application-proxy-claims-aware-apps.md)
 #### [Native Client uygulamaları](active-directory-application-proxy-native-client.md)
 #### [Koşullu erişim](active-directory-application-proxy-conditional-access.md)
@@ -212,7 +215,7 @@
 #### [CSV dosya biçimi](active-directory-b2b-references-csv-file-format.md)
 #### [Kullanıcı nesneleri](active-directory-b2b-references-external-user-object-attribute-changes.md)
 #### [Kullanıcı belirteçleri](active-directory-b2b-references-external-user-token-format.md)
-### [Azure AD Connect kullanarak şirket içi kimlikleri tümleştirme](active-directory-aadconnect.md?toc=%2fazure%2factive-directory%2fconnect%2ftoc.json)
+### [Azure AD Connect kullanarak şirket içi kimlikleri tümleştirme](./connect/active-directory-aadconnect.md)
 
 
 ## Kaynaklara temsilci erişimi
@@ -284,7 +287,8 @@
 
 # İlgili
 ## [Multi-Factor Authentication](/azure/multi-factor-authentication/)
-## [Azure AD Connect](active-directory-aadconnect.md?toc=%2fazure%2factive-directory%2fconnect%2ftoc.json)
+## [Azure AD Connect](./connect/active-directory-aadconnect.md)
+## [Azure AD Connect Health](./connect-health/active-directory-aadconnect-health.md)
 ## [Geliştiriciler için Azure AD](./develop/active-directory-how-to-integrate.md)
 ## [Azure AD Privileged Identity Management](./privileged-identity-management/active-directory-securing-privileged-access.md)
 
@@ -297,6 +301,6 @@
 ## [Azure geri bildirim forumu](https://feedback.azure.com/forums/169401-azure-active-directory)
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

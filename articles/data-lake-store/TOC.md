@@ -12,22 +12,15 @@
 ## [REST API’sini kullanma](data-lake-store-get-started-rest-api.md)
 ## [Azure CLI’yi kullanma](data-lake-store-get-started-cli.md)
 ## [Node.js'yi kullanma](data-lake-store-manage-use-nodejs.md)
+## [Python’u kullanma](data-lake-store-get-started-python.md)
 
-# Nasıl yapılır?
+# Nasıl yapılır
 ## Veri Kopyalama
 ### [Azure Data Factory'yi kullanma](../data-factory/data-factory-azure-datalake-connector.md)
 ### [AdlCopy’yi kullanma](data-lake-store-copy-data-azure-storage-blob.md)
 ### [DistCp’yi kullanma](data-lake-store-copy-data-wasb-distcp.md)
 ### [Sqoop’u kullanma](data-lake-store-data-transfer-sql-sqoop.md)
 ### [Çevrimdışı kaynaklardan veri yükleme](data-lake-store-offline-bulk-data-upload.md)
-
-## Geliştirme
-### [PowerShell’i kullanma](data-lake-store-get-started-powershell.md)
-### [.NET SDK’yı kullanma](data-lake-store-get-started-net-sdk.md)
-### [Java SDK’yı kullanma](data-lake-store-get-started-java-sdk.md)
-### [REST API’sini kullanma](data-lake-store-get-started-rest-api.md)
-### [Azure CLI’yi kullanma](data-lake-store-get-started-cli.md)
-### [Node.js'yi kullanma](data-lake-store-manage-use-nodejs.md)
 
 ## Verileri Güvenli Hale Getirme
 ### [Güvenliğe genel bakış](data-lake-store-security-overview.md)
@@ -36,7 +29,15 @@
 ### [Hizmetten hizmete kimlik doğrulaması](data-lake-store-authenticate-using-active-directory.md)
 ### [Son kullanıcı kimlik doğrulaması](data-lake-store-end-user-authenticate-using-active-directory.md)
 
+## Performans
+### [Azure Data Lake Store için performans ayarlama kılavuzu](data-lake-store-performance-tuning-guidance.md)
+### [Azure Data Lake Store ve HDInsight’ta Spark için performans ayarlama kılavuzu](data-lake-store-performance-tuning-spark.md)
+### [Azure Data Lake Store ve HDInsight’ta Hive için performans ayarlama kılavuzu](data-lake-store-performance-tuning-hive.md)
+### [Azure Data Lake Store ve HDInsight’ta MapReduce için performans ayarlama kılavuzu](data-lake-store-performance-tuning-mapreduce.md)
+### [Azure Data Lake Store ve HDInsight’ta Storm için performans ayarlama kılavuzu](data-lake-store-performance-tuning-storm.md)
+
 ## Azure Hizmetleri ile tümleştirme
+### [Azure Sanal Ağı’ndaki VM’lerden erişim](data-lake-store-connectivity-from-vnets.md)
 ### [Data Lake Analytics ile kullanma](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 ### [Portalı kullanarak Data Lake Store ile HDInsight kümesi oluşturma](data-lake-store-hdinsight-hadoop-use-portal.md)
 ### [PowerShell kullanarak Data Lake Store ile HDInsight kümesi oluşturma](data-lake-store-hdinsight-hadoop-use-powershell.md)
@@ -49,13 +50,17 @@
 
 ## Yönet
 ### [Tanılama günlüklerine erişim](data-lake-store-diagnostic-logs.md)
+### [Yüksek kullanılabilirlik planı](data-lake-store-troubleshooting-guidance.md)
+### [Performans ayarlama kılavuzu](data-lake-store-performance-tuning-guidance.md)
 
 # Başvuru
-## [PowerShell](/powershell/azureps-cmdlets-docs)
-## [Java](/java/api/)
-## [.NET](/dotnet/api/)
+## [PowerShell](/powershell/resourcemanager/azurerm.datalakestore/v3.1.0/azurerm.datalakestore)
+## [.NET](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.datalake.store)
+## [Java](/java/api/com.microsoft.azure.datalake.store)
 ## [Node.js](https://www.npmjs.com/package/azure-arm-datalake-store)
-## [REST](/rest/api/datalakestore/)
+## [Python (Hesap Yönetimi)](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-store.html)
+## [Python (Dosya Sistemi Yönetimi)](http://azure-datalake-store.readthedocs.io/en/latest)
+## [REST](/rest/api/datalakestore)
 
 # Kaynaklar
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=data-lake-store)
@@ -67,6 +72,6 @@
 ## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=data-lake-store)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -3,6 +3,8 @@
 ## [Bu sizin için geçerli mi?](active-directory-ds-comparison.md)
 ## [Özellikler](active-directory-ds-features.md)
 ## [Senaryolar](active-directory-ds-scenarios.md)
+## [Eşitleme nasıl çalışır?](active-directory-ds-synchronization.md)
+## [Uyumlu üçüncü taraf yazılımı](active-directory-ds-compatible-software.md)
 
 # Başlarken
 ## [Yönetim grubu oluşturma](active-directory-ds-getting-started.md)
@@ -21,8 +23,8 @@
 ## [Yönetilen etki alanında DNS’yi yönetme](active-directory-ds-admin-guide-administer-dns.md)
 ## [Yönetilen bir etki alanı için güvenli LDAP yapılandırma](active-directory-ds-admin-guide-configure-secure-ldap.md)
 ## [Yönetilen bir etki alanında OU oluşturma](active-directory-ds-admin-guide-create-ou.md)
+## [Yönetilen etki alanında grup ilkesi yönetme](active-directory-ds-admin-guide-administer-group-policy.md)
 ## [Sanal ağ seçme](active-directory-ds-networking.md)
-## [Şirket içi dizininizle eşitleme](active-directory-ds-synchronization.md)
 
 ## Sorun giderme
 ### [SSS’ler](active-directory-ds-faqs.md)
@@ -33,13 +35,13 @@
 ## [Azure Active Directory B2C](../active-directory-b2c/active-directory-b2c-overview.md)
 ## [Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
 
-# Kaynaklar 
+# Kaynaklar
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/active-directory-ds/)
-## [Azure geri bildirim forumu](https://feedback.azure.com/forums/169401-azure-active-directory)
+## [Azure AD geri bildirim forumu](https://feedback.azure.com/forums/169401-azure-active-directory)
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=active-directory-ds)
 ## [Bizimle iletişim kurun](active-directory-ds-contact-us.md)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 
