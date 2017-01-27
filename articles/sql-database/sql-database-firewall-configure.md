@@ -18,8 +18,8 @@ ms.workload: data-management
 ms.date: 11/23/2016
 ms.author: rickbyh;carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
-ms.openlocfilehash: ae1cacf0ff003e69a16d6beac48abc36a7f18896
+ms.sourcegitcommit: 2f24c1c43300a3c5035fbb4e90c3d13f73c1bc74
+ms.openlocfilehash: a0c4cfb127934f86a7ce272c1aec2fd01331e17c
 
 
 ---
@@ -39,6 +39,10 @@ Güvenlik duvarınızı yapılandırmak için kabul edilebilir IP adreslerinin a
 
 * **Sunucu düzeyinde güvenlik duvarı kuralları:** Bu kurallar istemcilerin tüm Azure SQL sunucusuna, yani aynı mantıksal sunucu içindeki tüm veritabanlarına erişmesini sağlar. Bu kurallar **ana** veritabanına depolanır. Sunucu düzeyinde güvenlik duvarı kuralları, portal ya da Transact-SQL deyimleri kullanılarak yapılandırılabilir. Azure portalı veya PowerShell kullanarak sunucu düzeyinde güvenlik duvarı kuralları oluşturmak için abonelik sahibi veya abonelik katkıda bulunanı olmanız gerekir. Transact-SQL kullanarak sunucu düzeyinde güvenlik duvarı kuralı oluşturmak için SQL Veritabanı örneğine sunucu düzeyi asıl oturum açma bilgileriyle veya Azure Active Directory yöneticisi olarak bağlanmanız gerekir (başka bir deyişle, sunucu düzeyi güvenlik duvarı kuralının önce Azure düzeyi izinlere sahip bir kullanıcı tarafından oluşturulması gerekir).
 * **Veritabanı düzeyinde güvenlik kuralı duvarları:** Bu kurallar istemcilerin Azure SQL Veritabanı sunucunuzdaki tek veritabanlarına erişmesini sağlar. Her bir veritabanı için oluşturabileceğiniz bu kurallar, tek veritabanlarına depolanır. (**Ana** veritabanı için veritabanı düzeyinde güvenlik duvarı kuralları oluşturabilirsiniz.) Bu kurallar aynı mantıksal sunucu içindeki bazı (güvenli) veritabanlarına erişimi kısıtlamada yararlı olabilir. Veritabanı düzeyinde güvenlik duvarı kuralları yalnızca Transact-SQL deyimleri kullanılarak yapılandırılabilir.
+
+   > [!NOTE]
+   > Veritabanı düzeyinde güvenlik duvarlarının kullanımını gösteren bir öğretici için bkz. [SQL Veritabanı Öğreticisi: SQL Server kimlik doğrulaması, oturum açma bilgileri ve kullanıcı hesapları, veritabanı kuralları, izinler, sunucu düzeyinde güvenlik duvarı kuralları ve veritabanı düzeyinde güvenlik duvarı kuralları](sql-database-control-access-sql-authentication-get-started.md).
+   >
 
 **Öneri:** Microsoft, güvenliği artırmak ve veritabanınızı daha taşınabilir hale getirmek açısından, mümkün olan durumlarda veritabanı düzeyinde güvenlik duvarı kurallarının kullanılmasını önerir. Aynı erişim gereksinimlerine sahip birçok veritabanınız varsa ve her veritabanını ayrı ayrı yapılandırmaya zaman harcamak istemiyorsanız sunucu düzeyinde güvenlik duvarı kurallarını yöneticiler için kullanabilirsiniz.
 
@@ -150,6 +154,6 @@ Veritabanlarına nasıl gidileceğini anlamak için bkz. [Veritabanı erişimi v
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 

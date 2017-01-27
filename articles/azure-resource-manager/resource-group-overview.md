@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2016
+ms.date: 01/12/2017
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: dabe7d9796ab24a257ea904bc5d978cb71d7e149
-ms.openlocfilehash: 1733edf961c2ce1297fc148d3a844ce141f5d7c2
+ms.sourcegitcommit: 1460a3e6b3d225a507e5da51dcc66810862ee2de
+ms.openlocfilehash: 4001c2d9bf2a635d7189ae46a855e347b93185c8
 
 
 ---
@@ -88,21 +88,29 @@ Portal üzerinden tüm kaynak sağlayıcıları görebilirsiniz. Aboneliğinizin
 
 Tüm kaynak sağlayıcılarını aşağıdaki PowerShell cmdlet’i ile alabilirsiniz:
 
-    Get-AzureRmResourceProvider -ListAvailable
+```powershell
+Get-AzureRmResourceProvider -ListAvailable
+```
 
 Veya Azure CLI kullanarak tüm kaynak sağlayıcılarını aşağıdaki komutla alabilirsiniz:
 
-    azure provider list
+```azurecli
+azure provider list
+```
 
 Kullanmanız gereken kaynak sağlayıcıları için döndürülen listeye bakabilirsiniz.
 
 Bir kaynak sağlayıcısına ilişkin ayrıntıları almak için sağlayıcı ad alanını komutunuza ekleyin. Komut, kaynak sağlayıcısı için desteklenen kaynak türlerini ve her bir kaynak türüne ilişkin desteklenen konumlar ile API sürümlerini döndürür. Aşağıdaki PowerShell cmdlet’i Microsoft.Compute hakkındaki ayrıntıları alır:
 
-    (Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute).ResourceTypes
+```powershell
+(Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute).ResourceTypes
+```
 
 Veya Azure CLI kullanarak aşağıdaki komutla Microsoft.Compute için desteklenen kaynak türlerini, konumları ve API sürümlerini alabilirsiniz:
 
-    azure provider show Microsoft.Compute --json > c:\Azure\compute.json
+```azurecli
+azure provider show Microsoft.Compute --json > c:\Azure\compute.json
+```
 
 Daha fazla bilgi için bkz. [Resource Manager sağlayıcıları, bölgeleri, API sürümleri ve şemaları](resource-manager-supported-services.md).
 
@@ -113,35 +121,39 @@ Resource Manager’ı kullanarak Azure çözümünüzün altyapısını ve yapı
 
 Resource Manager, şablonu diğer istekler gibi işler ([Tutarlı yönetim katmanı](#consistent-management-layer) görüntüsüne bakın). Şablonu ayrıştırarak söz dizimini ilgili kaynak sağlayıcıları için REST API işlemlerine dönüştürür. Örneğin, Resource Manager aşağıdaki kaynak tanımına sahip bir şablonu aldığında:
 
-    "resources": [
-      {
-        "apiVersion": "2016-01-01",
-        "type": "Microsoft.Storage/storageAccounts",
-        "name": "mystorageaccount",
-        "location": "westus",
-        "sku": {
-          "name": "Standard_LRS"
-        },
-        "kind": "Storage",
-        "properties": {
-        }
-      }
-      ]
+```json
+"resources": [
+  {
+    "apiVersion": "2016-01-01",
+    "type": "Microsoft.Storage/storageAccounts",
+    "name": "mystorageaccount",
+    "location": "westus",
+    "sku": {
+      "name": "Standard_LRS"
+    },
+    "kind": "Storage",
+    "properties": {
+    }
+  }
+]
+```
 
 Tanımı aşağıdaki REST API işlemine dönüştürerek Microsoft.Storage kaynak sağlayıcısına gönderir:
 
-    PUT
-    https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/mystorageaccount?api-version=2016-01-01
-    REQUEST BODY
-    {
-      "location": "westus",
-      "properties": {
-      }
-      "sku": {
-        "name": "Standard_LRS"
-      },   
-      "kind": "Storage"
-    }
+```HTTP
+PUT
+https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/mystorageaccount?api-version=2016-01-01
+REQUEST BODY
+{
+  "location": "westus",
+  "properties": {
+  }
+  "sku": {
+    "name": "Standard_LRS"
+  },   
+  "kind": "Storage"
+}
+```
 
 Şablonları ve kaynak gruplarını tanımlama şekli tamamen size ve çözümünüzü yönetme biçiminize bağlıdır. Örneğin, üç katmanlı uygulamanızı tek bir şablondan tek bir kaynak grubuna dağıtabilirsiniz.
 
@@ -181,26 +193,32 @@ Kaynakların bir etiketi paylaşması için aynı kaynak grubunda bulunmaları g
 
 Aşağıdaki örnekte sanal makineye uygulanan bir etiket gösterilmektedir.
 
-    "resources": [    
-      {
-        "type": "Microsoft.Compute/virtualMachines",
-        "apiVersion": "2015-06-15",
-        "name": "SimpleWindowsVM",
-        "location": "[resourceGroup().location]",
-        "tags": {
-            "costCenter": "Finance"
-        },
-        ...
-      }
-    ]
+```json
+"resources": [    
+  {
+    "type": "Microsoft.Compute/virtualMachines",
+    "apiVersion": "2015-06-15",
+    "name": "SimpleWindowsVM",
+    "location": "[resourceGroup().location]",
+    "tags": {
+        "costCenter": "Finance"
+    },
+    ...
+  }
+]
+```
 
 Bir etiket değerine sahip tüm kaynakları almak için aşağıdaki PowerShell cmdlet'ini kullanın:
 
-    Find-AzureRmResource -TagName costCenter -TagValue Finance
+```powershell
+Find-AzureRmResource -TagName costCenter -TagValue Finance
+```
 
 Veya aşağıdaki Azure CLI komutunu kullanın:
 
-    azure resource list -t costCenter=Finance --json
+```azurecli
+azure resource list -t costCenter=Finance --json
+```
 
 Azure portalından etiketli kaynakları da görüntüleyebilirsiniz.
 
@@ -242,7 +260,7 @@ Bazı durumlarda, kaynaklara erişen bir kod ya da komut dosyası çalıştırma
 Kullanıcıların kritik kaynakları silmesini ve değiştirmesini önlemek için bunları açıkça kilitleyebilirsiniz. Daha fazla bilgi için bkz. [Azure Resource Manager ile kaynakları kilitleme](resource-group-lock-resources.md).
 
 ## <a name="activity-logs"></a>Etkinlik günlükleri
-Resource Manager bir kaynağı oluşturan, değiştiren veya silen tüm işlemleri günlüğe kaydeder. Sorun giderme sırasında bir hata bulmak veya kuruluşunuzdaki kullanıcının bir kaynağı nasıl değiştirdiğini izlemek için etkinlik günlüklerini kullanabilirsiniz. Günlükleri görmek için bir kaynak grubunun **Ayarlar** dikey penceresindeki **Etkinlik günlükleri** öğesini seçin. İşlemi hangi kullanıcının başlattığı dahil olmak üzere, filtreleri çok sayıda farklı değere göre filtreleyebilirsiniz. Etkinlik günlükleri ile çalışma hakkında daha fazla bilgi için bkz. [Resource Manager denetim işlemleri](resource-group-audit.md).
+Resource Manager bir kaynağı oluşturan, değiştiren veya silen tüm işlemleri günlüğe kaydeder. Sorun giderme sırasında bir hata bulmak veya kuruluşunuzdaki kullanıcının bir kaynağı nasıl değiştirdiğini izlemek için etkinlik günlüklerini kullanabilirsiniz. Günlükleri görmek için bir kaynak grubunun **Ayarlar** dikey penceresindeki **Etkinlik günlükleri** öğesini seçin. İşlemi hangi kullanıcının başlattığı dahil olmak üzere, filtreleri çok sayıda farklı değere göre filtreleyebilirsiniz. Etkinlik günlükleri ile çalışma hakkında daha fazla bilgi için bkz. [Azure kaynaklarını yönetmek için etkinlik günlüklerini görüntüleme](resource-group-audit.md).
 
 ## <a name="customized-policies"></a>Özelleştirilmiş ilkeler
 Resource Manager kaynaklarınızı yönetmek üzere özelleştirilmiş ilkeler oluşturmanıza olanak tanır Oluşturduğunuz ilke türleri çeşitli senaryolar içerebilir. Kaynaklar üzerinde bir adlandırma kuralı uygulayabilir, hangi kaynak türlerinin ve örneklerinin dağıtılabileceğini sınırlayabilir veya hangi bölgelerin bir kaynak türünü barındırabileceğini sınırlayabilirsiniz. Faturaları bölümlere göre düzenlemek için kaynaklar üzerinde bir etiket değeri olmasını isteyebilirsiniz. Aboneliğinizin maliyetlerini düşürmeye ve tutarlılık sağlanmasına yardımcı olmak üzere ilkeler oluşturabilirsiniz. 
@@ -251,17 +269,19 @@ Resource Manager kaynaklarınızı yönetmek üzere özelleştirilmiş ilkeler o
 
 Aşağıdaki örnekte tüm kaynakların bir costCenter etiketi içerdiğini belirterek etiket tutarlılığını sağlayan ilke gösterilmektedir.
 
-    {
-      "if": {
-        "not" : {
-          "field" : "tags",
-          "containsKey" : "costCenter"
-        }
-      },
-      "then" : {
-        "effect" : "deny"
-      }
+```json
+{
+  "if": {
+    "not" : {
+      "field" : "tags",
+      "containsKey" : "costCenter"
     }
+  },
+  "then" : {
+    "effect" : "deny"
+  }
+}
+```
 
 Oluşturabileceğiniz birçok ilke türü daha vardır. Daha fazla bilgi için bkz. [Kaynakları yönetmek ve erişimi denetlemek için İlke kullanma](resource-manager-policy.md).
 
@@ -326,6 +346,6 @@ Bu genel bakışın sunulduğu videoya şuradan ulaşabilirsiniz:
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

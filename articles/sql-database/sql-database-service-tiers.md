@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 01/04/2017
+ms.date: 01/11/2017
 ms.author: carlrab; janeng
 translationtype: Human Translation
-ms.sourcegitcommit: a40319d3e53c07a94bc34714ca7393c2747fb50c
-ms.openlocfilehash: 340656b896763914c2f6d37c72ce1d5323d1411e
+ms.sourcegitcommit: 0a00aff343bfd31c956f6cbc831e89cc1cc84b23
+ms.openlocfilehash: 95ae4bd67b7d08755035e7b5559ca9648d45bdaa
 
 
 ---
@@ -41,7 +41,7 @@ Aşağıdaki tabloda farklı uygulama iş yükleri için en uygun katman örnekl
 Öncelikle, tek veritabanı çalıştırma ya da kaynakları paylaşan veritabanlarını gruplandırma seçeneklerinden hangisini kullanacağınıza karar verin. [Elastik havuz hakkında dikkat edilmesi gereken konuları](sql-database-elastic-pool-guidance.md) gözden geçirin. Bir hizmet katmanına karar vermek için, ihtiyacınızı olan en düşük veritabanı özelliklerini belirleyerek başlayın:
 
 * Tek başına veritabanları için en büyük veritabanı boyutu (yüksek performans düzeylerinde Temel için maksimum 2 GB, Standart için maksimum 250 GB ve Premium için maksimum 500 GB ila 1 TB)
-* Elastik havuz kullanıldığında toplam depolama alanı için üst sınır (Temel için 117 GB, Standart için 1200 ve Premium için 750)
+* Elastik havuz kullanıldığında toplam depolama alanı için üst sınır (Temel için 117 GB, Standart için 1200 GB ve Premium için 750 GB)
 * Havuz başına en fazla veritabanı sayısı (Temel için 400, Standart için 400 ve Premium için 50)
 * Veritabanı yedeği saklama dönemi (Temel için 7 gün, Standart ve Premium için 35 gün)
 
@@ -49,8 +49,7 @@ Minimum hizmet katmanını belirledikten sonra, veritabanının performans düze
 
 Başlangıçta bir performans düzeyi seçtikten sonra gerçek deneyime bağlı olarak, [elastik havuzunuzun](sql-database-elastic-pool-manage-portal.md#change-performance-settings-of-a-pool) [tek başına veritabanının](sql-database-scale-up.md) ölçeğini artırabilir veya azaltabilirsiniz. Geçiş senaryoları için, gerekli DTU sayısını yaklaşık olarak belirlemenizi sağlayan [DTU Hesaplayıcıyı](http://dtucalculator.azurewebsites.net/) da kullanabilirsiniz. 
 
->
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-SQL-Database-dynamically-scale-up-or-scale-down/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-dynamically-scale-up-or-scale-down/player]
 >
 
 ## <a name="single-database-service-tiers-and-performance-levels"></a>Tek veritabanı hizmet katmanları ve performans düzeyleri
@@ -84,6 +83,6 @@ Bir havuz içindeki her bir veritabanı, aynı zamanda ilgili katmanın tek veri
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

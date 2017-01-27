@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 10/21/2016
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: 45a45b616b4de005da66562c69eef83f2f48cc79
-ms.openlocfilehash: 819b40302f158d1d6224878c164cf7ff71947887
+ms.sourcegitcommit: 94c18aa0c4fe38fb74931d5ed61fece207c8b5ce
+ms.openlocfilehash: 701a5515cd1d52f7ca8d3562dabcdf0e4d31183d
 
 
 ---
@@ -152,13 +152,13 @@ Tüm parçaları yerinde olduğuna göre, şimdi sanal makine oluşturma vakti.
     ```
 
 ## <a name="next-steps"></a>Sonraki Adımlar
-* Dağıtım ile ilgili sorunlar varsa, bir sonraki adım [Azure portalındaki kaynak grubu dağıtımı sorunlarını giderme](../resource-manager-troubleshoot-deployments-portal.md)’ye bakmak için olacaktır
+* Dağıtımla ilgili sorunlar varsa, bir sonraki adım için bkz. [Azure Resource Manager ile genel Azure dağıtım hatalarını giderme](../azure-resource-manager/resource-manager-common-deployment-errors.md)
 * [Azure Resource Manager ve PowerShell kullanarak sanal makineleri yönetme](virtual-machines-windows-ps-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) gözden geçirerek, oluşturduğunuz sanal makineyi yönetmeyi öğrenin.
 * [Bir Resource Manager şablonu ile Windows sanal makine oluşturma](virtual-machines-windows-ps-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)’daki bilgileri kullanarak sanal makine oluşturmak için şablon kullanma avantajından yararlanın
 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

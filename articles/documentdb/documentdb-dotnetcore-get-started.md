@@ -1,12 +1,11 @@
 ---
 title: "NoSQL öğreticisi: DocumentDB .NET Core SDK | Microsoft Belgeleri"
 description: "DocumentDB .NET Core SDK&quot;yı kullanarak çevrimiçi bir veritabanı ve C# konsol uygulaması oluşturan bir NoSQL öğreticisi. DocumentDB, JSON için bir NoSQL veritabanıdır."
-keywords: "nosql öğreticisi, çevrimiçi veritabanı, c# konsol uygulaması"
 services: documentdb
 documentationcenter: .net
 author: arramac
 manager: jhubbard
-editor: monicar
+editor: 
 ms.assetid: 9f93e276-9936-4efb-a534-a9889fa7c7d2
 ms.service: documentdb
 ms.workload: data-services
@@ -16,8 +15,8 @@ ms.topic: hero-article
 ms.date: 12/25/2016
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: 16bff1b5708652a75ea603f596c864901b12a88d
-ms.openlocfilehash: 60d4fec828d620d067b7eb9d0e3cb7e57d1be506
+ms.sourcegitcommit: 3cbfe3c0ad08990d5c41630ebacc47432b2c6307
+ms.openlocfilehash: 31b4635c1350428f589b708543ffb64f2a456b0b
 
 
 ---
@@ -48,6 +47,9 @@ Azure DocumentDB .NET Core SDK için NoSQL öğreticisine hoş geldiniz! Bu öğ
 Zamanınız yok mu? Endişelenmeyin! Eksiksiz çözümü [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-core-getting-started)'da bulabilirsiniz. Hızlı yönergeler için [Tam çözümü edinme bölümüne](#GetSolution) atlayın.
 
 Ardından bize geri bildirim sağlamak için lütfen bu sayfanın üst veya alt kısmındaki oylama düğmelerini kullanın. Doğrudan sizinle iletişim kurmamızı isterseniz yorumlarınıza e-posta adresinizi ekleyin.
+
+> [!NOTE]
+> Bu öğreticide kullanılan DocumentDB .NET Core SDK'sı, henüz Evrensel Windows Platformu (UWP) uygulamalarıyla uyumlu değildir. .NET Core SDK'sının UWP uygulamalarını destekleyen bir önizleme sürümü için [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com) adresine e-posta gönderin.
 
 Şimdi başlayalım!
 
@@ -556,11 +558,10 @@ Başvuruları Visual Studio'daki DocumentDB .NET Core SDK'ya geri yüklemek içi
 * [DocumentDB belge sayfasının](https://azure.microsoft.com/documentation/services/documentdb/) Geliştirme bölümünde programlama modeli hakkında daha fazla bilgi edinin.
 
 [documentdb-create-account]: documentdb-create-account.md
-[documentdb-manage]: documentdb-manage.md
 [keys]: media/documentdb-get-started/nosql-tutorial-keys.png
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

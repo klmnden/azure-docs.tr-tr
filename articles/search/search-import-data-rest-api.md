@@ -16,8 +16,8 @@ ms.tgt_pltfrm: na
 ms.date: 12/08/2016
 ms.author: ashmaka
 translationtype: Human Translation
-ms.sourcegitcommit: 455c4847893175c1091ae21fa22215fd1dd10c53
-ms.openlocfilehash: 80a1630deb8f7e93a91118d880eb2477ace26eb6
+ms.sourcegitcommit: 1f06a7197cc1a6dcf7a39c91183a4317bef126bb
+ms.openlocfilehash: 7c1c14055507d77dfcefe87694167ca5a2fcfb97
 
 ---
 
@@ -36,10 +36,10 @@ Bu kılavuza başlamadan önce bir [Azure Search dizini oluşturmuş](search-wha
 
 REST API kullanarak dizininize belgeleri göndermek için dizininizin URL uç noktasına bir HTTP POST isteği gönderirsiniz. HTTP isteğinin gövdesi eklenecek, değiştirilecek veya silinecek belgeleri içeren bir JSON nesnesidir.
 
-## <a name="i-identify-your-azure-search-services-admin-api-key"></a>I. Azure Search hizmet yöneticinizin api anahtarını tanımlama
+## <a name="identify-your-azure-search-services-admin-api-key"></a>Azure Search hizmet yöneticinizin api anahtarını tanımlama
 REST API kullanarak hizmetinize karşı HTTP istekleri gönderirken, *her bir* API isteğinin sağladığınız Search hizmeti için oluşturulmuş api anahtarını içermesi gerekir. İstek başına geçerli bir anahtara sahip olmak, isteği gönderen uygulama ve bunu işleyen hizmet arasında güven oluşturur.
 
-1. Hizmetinizin api anahtarlarını bulmak için [Azure portalında](https://portal.azure.com/) oturum açmanız gerekir.
+1. Hizmetinizin api anahtarlarını bulmak için [Azure portalında](https://portal.azure.com/) oturum açabilirsiniz
 2. Azure Search hizmetinizin dikey penceresine gidin
 3. "Anahtarlar" simgesine tıklayın
 
@@ -50,7 +50,7 @@ Hizmetiniz, *yönetici anahtarlarına* ve *sorgu anahtarlarına* sahiptir.
 
 Bir dizine veri aktarma amacıyla birincil ya da ikincil yönetici anahtarınızı kullanabilirsiniz.
 
-## <a name="ii-decide-which-indexing-action-to-use"></a>II. Hangi dizin oluşturma eyleminin kullanılacağına karar verme
+## <a name="decide-which-indexing-action-to-use"></a>Hangi dizin oluşturma eyleminin kullanılacağına karar verme
 REST API kullanırken, Azure Search dizininizin uç nokta URL'sine JSON istek gövdelerine sahip HTTP POST istekleri gönderirsiniz. HTTP istek gövdenizdeki JSON nesnesi, dizininize eklemek, güncelleştirmek veya silmek istediğiniz belgeleri temsil eden JSON nesnelerini içeren "value" adlı tek bir JSON dizisi içerir.
 
 "value" dizisindeki her bir JSON nesnesi, dizine alınacak bir belgeyi temsil eder. Bu nesnelerin her biri belgenin anahtarını içerir ve istenen dizin oluşturma eylemini (karşıya yükleme, birleştirme, silme, vb.) belirtir. Yukarıdaki eylemlerden hangisini seçtiğinize bağlı olarak, her bir belgeye yalnızca belirli alanlar dahil edilmelidir:
@@ -62,7 +62,7 @@ REST API kullanırken, Azure Search dizininizin uç nokta URL'sine JSON istek g�
 | `mergeOrUpload` |Belirtilen anahtara sahip bir belge dizinde zaten mevcutsa bu eylem `merge` gibi davranır. Belge mevcut değilse yeni bir belgeyle `upload` gibi davranır. |anahtar ve tanımlamak istediğiniz diğer alanlar |- |
 | `delete` |Belirtilen belgeyi dizinden kaldırır. |yalnızca anahtar |Anahtar alanı dışında belirttiğiniz tüm alanlar yoksayılır. Bir belgeden tek bir alanı kaldırmak istiyorsanız bunun yerine `merge` kullanıp alanı açık bir şekilde null olarak ayarlamanız yeterlidir. |
 
-## <a name="iii-construct-your-http-request-and-request-body"></a>III. HTTP isteğinizi ve istek gövdenizi oluşturma
+## <a name="construct-your-http-request-and-request-body"></a>HTTP isteğinizi ve istek gövdenizi oluşturma
 Artık dizin eylemleriniz için gerekli alan değerlerini topladığınıza göre, verilerinizi içeri aktarmak için asıl HTTP isteğini ve JSON istek gövdesini oluşturmaya hazırsınız.
 
 #### <a name="request-and-request-headers"></a>İstek ve İstek Üst Bilgileri
@@ -126,7 +126,7 @@ Bu "hotels" dizini örneğinin, birçok belgeyle önceden doldurulduğunu varsay
 
 Ayrıca, tek bir dizin oluşturma isteğine yalnızca en fazla 1000 belge (veya 16 MB) dahil edebileceğinizi unutmayın.
 
-## <a name="iv-understand-your-http-response-code"></a>IV. HTTP yanıt kodunuzu anlama
+## <a name="understand-your-http-response-code"></a>HTTP yanıt kodunuzu anlama
 #### <a name="200"></a>200
 Başarılı bir dizin oluşturma isteği gönderdikten sonra `200 OK` durum koduna sahip bir HTTP yanıtı alırsınız. HTTP yanıtının JSON gövdesi aşağıdaki gibidir:
 
@@ -177,11 +177,11 @@ Dizin başına belge sayısı kotanızı aştığınızda `429` durum kodu dönd
 
 Belge eylemleri ve başarı/hata yanıtları hakkında daha fazla bilgi için lütfen bkz. [Belge Ekleme, Güncelleştirme veya Silme](https://docs.microsoft.com/rest/api/searchservice/AddUpdate-or-Delete-Documents). Hata durumunda döndürülebilen diğer HTTP durum kodları hakkında daha fazla bilgi için bkz. [HTTP durum kodları (Azure Search)](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes).
 
-## <a name="next"></a>Sonraki
+## <a name="next-steps"></a>Sonraki adımlar
 Azure Search dizininizi doldurduktan sonra, belgeleri aramak için sorgu göndermeye başlamaya hazır olursunuz. Ayrıntılı bilgi için bkz. [Azure Search Dizininizi Sorgulama](search-query-overview.md).
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 
