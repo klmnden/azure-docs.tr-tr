@@ -15,13 +15,13 @@ ms.topic: get-started-article
 ms.date: 08/23/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: fcbd9e10e4cc336dc6ea37f84201249e14b1af91
-ms.openlocfilehash: b38f1876b3317a44268caf80a953dee638a342d1
+ms.sourcegitcommit: 66fc8f7e1da55dbe6bb1dd8b8d6a535c498c1cf7
+ms.openlocfilehash: 62b1541414543fc947886374424dadee09759323
 
 
 ---
 # <a name="api-apps-overview"></a>API Apps’e genel bakış
-Azure App Service’deki API uygulamaları, API’leri bulutta ve şirket içinde geliştirmeyi, barındırmayı ve kullanmayı kolaylaştıran özellikler sunar. API uygulamaları ile kurumsal düzeyde güvenlik, basit erişim denetimi, karma bağlantı, otomatik SDK oluşturma ve [Logic Apps](../app-service-logic/app-service-logic-what-are-logic-apps.md) ile sorunsuz tümleştirme elde edersiniz.
+Azure App Service’deki API uygulamaları, API’leri bulutta ve şirket içinde geliştirmeyi, barındırmayı ve kullanmayı kolaylaştıran özellikler sunar. API uygulamaları ile kurumsal düzeyde güvenlik, basit erişim denetimi, karma bağlantı, otomatik SDK oluşturma ve [Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md) ile sorunsuz tümleştirme elde edersiniz.
 
 [Azure App Service](../app-service/app-service-value-prop-what-is.md) web, mobil ve tümleştirme senaryoları için tam yönetilen bir platformdur. API Apps, [Azure App Service](../app-service/app-service-value-prop-what-is.md) tarafından sunulan dört uygulama türünden biridir.
 
@@ -34,7 +34,7 @@ API Apps’in önemli özelliklerinden bazıları şunlardır:
 * **Kolay kullanım** - [Swagger API’si meta verileri](http://swagger.io/) ile tümleşik destek, API’lerinizi çeşitli istemciler tarafından kullanılabilir hale getirir.  API’leriniz için C#, Java ve Javascript gibi çeşitli dillerde istemci kodlarını otomatik olarak oluşturun. Kodunuzu değiştirmeden [CORS](app-service-api-cors-consume-javascript.md)’u kolayca yapılandırın. Daha fazla bilgi için bkz. [API bulma ve kod oluşturma için App Service API Apps meta verileri](app-service-api-metadata.md) ve [CORS kullanarak JavaScript’ten bir API uygulaması kullanma](app-service-api-cors-consume-javascript.md). 
 * **Basit erişim denetimi** - Kodunuzda herhangi bir değişiklik olmadan bir API uygulamasını kimliği doğrulanmamış erişimden koruyun. Yerleşik kimlik doğrulama hizmetleri diğer hizmetlerin veya kullanıcıları temsil eden diğer istemcilerin erişimine karşı API'lerin güvenliğini sağlar. Desteklenen kimlik sağlayıcıları Azure Active Directory, Facebook, Twitter, Google ve Microsoft Hesabı’dır. İstemciler Active Directory Authentication Library (ADAL) ve Mobile Apps SDK’sını kullanabilir. Daha fazla bilgi için bkz. [Azure App Service’de API Apps için kimlik doğrulama ve yetkilendirme](app-service-api-authentication.md).
 * **Visual Studio tümleştirmesi** - Visual Studio’daki ayrılmış araçlar API uygulamaları oluşturma, dağıtma, kullanma, hata ayıklama ve yönetme işlemlerini kolaylaştırır. Daha fazla bilgi için bkz. [.NET için Azure SDK 2.8.1 ile tanışın](https://azure.microsoft.com/blog/announcing-azure-sdk-2-8-1-for-net/).
-* **Logic Apps ile tümleştirme** - Oluşturduğunuz API uygulamaları [App Service Logic Apps](../app-service-logic/app-service-logic-what-are-logic-apps.md) tarafından kullanılabilir.  Daha fazla bilgi için bkz. [Logic Apps ile App Service üzerinde barındırılan özel API’nizi kullanma](../app-service-logic/app-service-logic-custom-hosted-api.md) ve [Yeni şema sürüm 2015-08-01-önizlemesi](../app-service-logic/app-service-logic-schema-2015-08-01.md).
+* **Logic Apps ile tümleştirme** - Oluşturduğunuz API uygulamaları [App Service Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md) tarafından kullanılabilir.  Daha fazla bilgi için bkz. [Logic Apps ile App Service üzerinde barındırılan özel API’nizi kullanma](../logic-apps/logic-apps-custom-hosted-api.md) ve [Yeni şema sürüm 2015-08-01-önizlemesi](../logic-apps/logic-apps-schema-2015-08-01.md).
 
 Ayrıca, bir API uygulaması [Web Apps](../app-service-web/app-service-web-overview.md) ve [Mobile Apps](../app-service-mobile/app-service-mobile-value-prop.md) tarafından sunulan özelliklerden yararlanabilir. Bunun tersi de geçerlidir; bir API’yi barındırmak için web uygulaması veya mobil uygulama kullanıyorsanız, istemci kodu oluşturmak için Swagger meta verileri ve etki alanları arası tarayıcı erişimi için CORS gibi API Apps özelliklerinden yararlanabilir. Üç uygulama türü (API, web, mobil) arasındaki tek fark Azure portalında bunlar için kullanılan ad ve simgedir.
 
@@ -62,6 +62,6 @@ API uygulamaları hakkında soru sormak için [API Apps forumunda](https://socia
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 
