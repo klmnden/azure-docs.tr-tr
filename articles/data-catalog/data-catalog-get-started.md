@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 09/20/2016
+ms.date: 01/19/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 115668dae46557f6d6caefc9e7c1178768e7e775
+ms.sourcegitcommit: 2b128e2771ea89d1c0d6b8d52357d1bcc993115a
+ms.openlocfilehash: a9629d0a4bfc44f5d035a29f8e97d76922cc0060
 
 
 ---
@@ -117,7 +117,7 @@ Artık Azure Veri Kataloğu kullanarak Adventure Works örnek veritabanından ve
 Bu alıştırmada, Adventure Works veritabanından veri varlıklarını kataloğa kaydetmek için kayıt aracını kullanacaksınız. Kayıt, veri kaynağı ve içerdiği varlıklara ait adlar, türler ve konumlar gibi önemli yapısal meta verilerin ayıklanması ve meta verilerin kataloğa kopyalanması işlemidir. Veri kaynakları ve veri varlıkları olduğu yerde kalır, ancak katalog tarafından daha kolay bulunabilir ve anlaşılabilir hale getirilmeleri için meta veriler kullanılır.
 
 ### <a name="register-a-data-source"></a>Veri kaynağını kaydetme
-1. [Azure Veri Kataloğu giriş sayfasına](https://azuredatacatalog.com) gidin ve **Verileri Yayımla**’ya tıklayın.
+1. [Azure Veri Kataloğu giriş sayfasına](http://azuredatacatalog.com) gidin ve **Verileri Yayımla**’ya tıklayın.
    
    ![Azure Veri Kataloğu--Verileri Yayımla düğmesi](media/data-catalog-get-started/data-catalog-publish-data.png)
 2. **Uygulamayı Başlat**’a tıklayarak kayıt aracını bilgisayarınıza indirin, yükleyin ve çalıştırın.
@@ -366,6 +366,6 @@ Bu öğreticide, kurumsal veri varlıklarını kaydetme, bulma, yönetme ve bunl
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "İlk Java web uygulamanızı beş dakikada Azure&quot;da dağıtma | Microsoft Belgeleri"
+title: "Beş dakika içinde Azure’a ilk Java web uygulamanızı dağıtın (CLI 2.0 Önizleme) | Microsoft Belgeleri"
 description: "Örnek bir uygulama dağıtarak App Service&quot;te web uygulamaları çalıştırmanın ne kadar kolay olduğunu öğrenin. Hızlı bir şekilde gerçek geliştirmeler yapmaya başlayın ve sonuçlarını anında görün."
 services: app-service\web
 documentationcenter: 
@@ -12,15 +12,26 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 10/13/2016
+ms.date: 01/04/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9c59def4fd3fbc9d94d922bc2e7a7c077a465b21
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: af27369b0ae8de0ece6da38a78b434e595fbfc4e
 
 
 ---
-# <a name="deploy-your-first-java-web-app-to-azure-in-five-minutes"></a>İlk Java web uygulamanızı beş dakikada Azure'da dağıtın
+# <a name="deploy-your-first-java-web-app-to-azure-in-five-minutes-cli-20-preview"></a>Beş dakika içinde Azure’a ilk Java web uygulamanızı dağıtın (CLI 2.0 Önizleme)
+
+> [!div class="op_single_selector"]
+> * [İlk HTML sitesi](app-service-web-get-started-html-cli-nodejs.md)
+> * [İlk .NET uygulaması](app-service-web-get-started-dotnet-cli-nodejs.md)
+> * [İlk PHP uygulaması](app-service-web-get-started-php-cli-nodejs.md)
+> * [İlk Node.js uygulaması](app-service-web-get-started-nodejs-cli-nodejs.md)
+> * [İlk Python uygulaması](app-service-web-get-started-python-cli-nodejs.md)
+> * [İlk Java uygulaması](app-service-web-get-started-java.md)
+> 
+> 
+
 Bu öğretici, [Azure Uygulama Hizmeti](../app-service/app-service-value-prop-what-is.md)’nde basit bir Java web uygulaması dağıtmanıza yardımcı olur.
 Web uygulamaları, [mobil uygulama arka uçları](/documentation/learning-paths/appservice-mobileapps/) ve [API Apps](../app-service-api/app-service-api-apps-why-best-platform.md) oluşturmak için App Service kullanabilirsiniz.
 
@@ -32,10 +43,10 @@ Yapacaklarınız:
 
 ## <a name="prerequisites"></a>Önkoşullar
 * [FileZilla](https://filezilla-project.org/) gibi bir FTP/FTPS istemcisi edinin.
-* Bir Microsoft Azure hesabı edinin. Bir hesabınız yoksa, [ücretsiz deneme için kaydolabilir](/pricing/free-trial/?WT.mc_id=A261C142F) veya [Visual Studio abone avantajlarınızı etkinleştirebilirsiniz.](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)
+* Bir Microsoft Azure hesabı edinin. Bir hesabınız yoksa, [ücretsiz deneme için kaydolabilir](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) veya [Visual Studio abone avantajlarınızı etkinleştirebilirsiniz.](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)
 
 > [!NOTE]
-> Azure hesabınız olmadan [App Service'i Deneyebilirsiniz](http://go.microsoft.com/fwlink/?LinkId=523751). Başlangıç uygulaması oluşturun ve bir saate kadar üzerinde çalışın; kredi kartı veya taahhüt gerekmez.
+> Azure hesabınız olmadan [App Service'i Deneyebilirsiniz](https://azure.microsoft.com/try/app-service/). Başlangıç uygulaması oluşturun ve bir saate kadar üzerinde çalışın; kredi kartı veya taahhüt gerekmez.
 > 
 > 
 
@@ -73,7 +84,7 @@ Yapacaklarınız:
     ![](./media/app-service-web-get-started-languages/set-java-application-settings.png)
 2. **Java sürümü**’nde **Java 8**’i seçin ve **Kaydet**’e tıklayın.
    
-    ![](./media/app-service-web-get-started-languages/set-java-application-settings.png)
+    ![](./media/app-service-web-get-started-languages/set-java.png)
    
     **Web uygulaması ayarları başarıyla güncelleştirildi** bildirimini aldığınızda, http://*&lt;uygulamaadı>*.azurewebsites.net adresine giderek varsayılan JSP servlet’ini çalışırken görün.
 3. Web uygulaması dikey penceresine dönüp, aşağı kaydırarak veya arayarak **Dağıtım kimlik bilgilerini** bulun ve üzerine tıklayın.
@@ -120,6 +131,6 @@ Veya ilk web uygulamanızla daha fazlasını yapın. Örnek:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

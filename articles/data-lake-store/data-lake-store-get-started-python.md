@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/29/2016
+ms.date: 01/10/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: f29f36effd858f164f7b6fee8e5dab18211528b3
-ms.openlocfilehash: 6f724576badb7cf3625a139c416860b7e43ed036
+ms.sourcegitcommit: d8faeafc6d4c73c4c71d0bc1554b04302dffdc55
+ms.openlocfilehash: 72186e03a1dc47f67b8f4cdcac55208a61c8e147
 
 
 ---
@@ -74,12 +74,19 @@ pip install azure-datalake-store
     ## Use this only for Azure AD end-user authentication
     from azure.common.credentials import UserPassCredentials
 
+    ## Use this only for Azure AD multi-factor authentication
+    from msrestazure.azure_active_directory import AADTokenCredentials
+
     ## Required for Azure Data Lake Store account management
-    from azure.mgmt.datalake.store.account import DataLakeStoreAccountManagementClient
-    from azure.mgmt.datalake.store.account.models import DataLakeStoreAccount
+    from azure.mgmt.datalake.store import DataLakeStoreAccountManagementClient
+    from azure.mgmt.datalake.store.models import DataLakeStoreAccount
 
     ## Required for Azure Data Lake Store filesystem management
     from azure.datalake.store import core, lib, multithread
+
+    # Common Azure imports
+    from azure.mgmt.resource.resources import ResourceManagementClient
+    from azure.mgmt.resource.resources.models import ResourceGroup
 
     ## Use these as needed for your application
     import logging, getpass, pprint, uuid, time
@@ -88,6 +95,14 @@ pip install azure-datalake-store
 3. Değişiklikleri örneğim.py uygulamasına kaydedin.
 
 ## <a name="authentication"></a>Kimlik Doğrulaması
+
+Bu bölümde Azure AD ile gerçekleştirilen farklı kimlik doğrulama yöntemlerinden bahsedeceğiz. Şu seçenekleri kullanabilirsiniz:
+
+* Son kullanıcı kimlik doğrulaması
+* Hizmetten hizmete kimlik doğrulaması
+* Multi-factor authentication
+
+Bu kimlik doğrulama seçeneklerini hem hesap yönetimi hem de dosya sistemi yönetim modülleri için kullanmanız gerekir.
 
 ### <a name="end-user-authentication-for-account-management"></a>Hesap yönetimi için son kullanıcı kimlik doğrulaması
 
@@ -121,6 +136,29 @@ Dosya sistemi işlemlerine (klasör oluşturma, karşıya dosya yükleme vb.) y�
 
     token = lib.auth(tenant_id = 'FILL-IN-HERE', client_secret = 'FILL-IN-HERE', client_id = 'FILL-IN-HERE')
 
+### <a name="multi-factor-authentication-for-account-management"></a>Hesap yönetimi için multi-factor authentication
+
+Hesap yönetimi işlemleri (Data Lake Store hesabı oluşturma/silme, vb.) gerçekleştirmek üzere Azure AD kimlik doğrulaması gerçekleştirmek için bunu kullanın. Aşağıdaki kod parçacığını uygulamanızda multi-factor authentication ile kimlik doğrulaması gerçekleştirmek için kullanabilirsiniz. Bunu mevcut Azure AD "Web App" uygulaması ile birlikte kullanın.
+
+    authority_host_url = "https://login.microsoftonline.com"
+    tenant = "FILL-IN-HERE"
+    authority_url = authority_host_url + '/' + tenant
+    client_id = 'FILL-IN-HERE'
+    redirect = 'urn:ietf:wg:oauth:2.0:oob'
+    RESOURCE = 'https://management.core.windows.net/'
+    
+    context = adal.AuthenticationContext(authority_url)
+    code = context.acquire_user_code(RESOURCE, client_id)
+    print(code['message'])
+    mgmt_token = context.acquire_token_with_device_code(RESOURCE, code, client_id)
+    credentials = AADTokenCredentials(mgmt_token, client_id)
+
+### <a name="multi-factor-authentication-for-filesystem-management"></a>Dosya sistemi yönetimi için multi-factor authentication
+
+Dosya sistemi işlemlerine (klasör oluşturma, karşıya dosya yükleme vb.) yönelik Azure AD kimlik doğrulaması gerçekleştirmek için bunu kullanın. Aşağıdaki kod parçacığını uygulamanızda multi-factor authentication ile kimlik doğrulaması gerçekleştirmek için kullanabilirsiniz. Bunu mevcut Azure AD "Web App" uygulaması ile birlikte kullanın.
+
+    token = lib.auth(tenant_id='FILL-IN-HERE')
+
 ## <a name="create-an-azure-resource-group"></a>Azure Kaynak Grubu oluşturma
 
 Aşağıdaki kod parçacığını kullanarak bir Azure Kaynak Grubu oluşturun:
@@ -137,7 +175,7 @@ Aşağıdaki kod parçacığını kullanarak bir Azure Kaynak Grubu oluşturun:
     )
     
     ## Create an Azure Resource Group
-    armGroupResult = resourceClient.resource_groups.create_or_update(
+    resourceClient.resource_groups.create_or_update(
         resourceGroup,
         ResourceGroup(
             location=location
@@ -207,6 +245,6 @@ Aşağıdaki kod parçacığı ilk olarak Data Lake Store hesabı istemcisini ol
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

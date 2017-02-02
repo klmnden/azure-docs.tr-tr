@@ -65,8 +65,8 @@ Service Fabric, OS X üzerinde yerel olarak çalışmaz. Yerel bir Service Fabri
   
    Bu adım önceden yapılandırılmış sanal makine görüntüsünü indirir, yerel olarak önyükler ve ardından içinde yerel bir Service Fabric kümesi ayarlar. Bu işlem birkaç dakika sürebilir. Kurulum başarıyla tamamlanırsa çıktıda kümenin başlatıldığını belirten bir ileti görürsünüz.
    
-
     ![Sanal makine hazırlama sonrasında başlayan küme ayarı][cluster-setup-script]
+    
 5. http://192.168.50.50:19080/Explorer adresinde (varsayılan özel ağ IP’sini tuttuğunuzu varsayarak) Service Fabric Explorer’a giderek kümenin doğru ayarlanıp ayarlanmadığını sınayın.
 
     ![Ana Mac bilgisayarından görüntülenen Service Fabric Explorer][sfx-mac]

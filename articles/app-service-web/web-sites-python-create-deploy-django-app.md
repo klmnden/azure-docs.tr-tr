@@ -16,8 +16,8 @@ ms.topic: hero-article
 ms.date: 02/19/2016
 ms.author: huvalo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7fbe958a20099f829f2c4c38344969372217e634
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: c6679cf7a6b059ee7c28e1754c54afa6414d633a
 
 
 ---
@@ -29,7 +29,7 @@ Django web altyapısını kullanarak bir uygulama oluşturacaksınız (bu öğre
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
 > [!NOTE]
-> Azure hesabı için kaydolmadan önce Azure App Service’i kullanmaya başlamak isterseniz, App Service’te hemen kısa süreli bir başlangıç web uygulaması oluşturabileceğiniz [App Service’i Deneyin](http://go.microsoft.com/fwlink/?LinkId=523751) sayfasına gidin. Kredi kartı ve taahhüt gerekmez.
+> Azure hesabı için kaydolmadan önce Azure App Service’i kullanmaya başlamak isterseniz, App Service’te hemen kısa süreli bir başlangıç web uygulaması oluşturabileceğiniz [App Service’i Deneyin](https://azure.microsoft.com/try/app-service/) sayfasına gidin. Kredi kartı ve taahhüt gerekmez.
 > 
 > 
 
@@ -112,10 +112,10 @@ Bu uygulamaya dış paketler gerekir. Dağıtım betiği pip bu dosyada listelen
 
 IIS yapılandırma dosyaları. Dağıtım betiği, uygun web.x.y.config’i kullanır ve bunu web.config olarak kopyalar.
 
-### <a name="optional-files-customizing-deployment"></a>İsteğe bağlı dosyalar - Dağıtımı özelleştirme
+### <a name="optional-files---customizing-deployment"></a>İsteğe bağlı dosyalar - Dağıtımı özelleştirme
 [!INCLUDE [web-sites-python-django-customizing-deployment](../../includes/web-sites-python-django-customizing-deployment.md)]
 
-### <a name="optional-files-python-runtime"></a>İsteğe bağlı dosyalar - Python çalışma zamanı
+### <a name="optional-files---python-runtime"></a>İsteğe bağlı dosyalar - Python çalışma zamanı
 [!INCLUDE [web-sites-python-customizing-runtime](../../includes/web-sites-python-customizing-runtime.md)]
 
 ### <a name="additional-files-on-server"></a>Sunucu üzerindeki ek dosyalar
@@ -135,7 +135,7 @@ Sonraki 3 bölümde farklı 3 ortamda web uygulaması geliştirmeye devam etme a
 * Windows, komut satırı ile
 * Mac/Linux, komut satırı ile
 
-## <a name="web-app-development-windows-python-tools-for-visual-studio"></a>Web uygulaması geliştirme - Windows - Visual Studio için Python Araçları
+## <a name="web-app-development---windows---python-tools-for-visual-studio"></a>Web uygulaması geliştirme - Windows - Visual Studio için Python Araçları
 ### <a name="clone-the-repository"></a>Depoyu kopyalama
 İlk olarak, Azure Portal'da sağlanan URL'yi kullanarak depoyu kopyalayın. Daha fazla bilgi için bkz. [Azure Uygulama Hizmeti’nde Yerel Git Dağıtımı](app-service-deploy-local-git.md).
 
@@ -201,7 +201,7 @@ Visual Studio dağıtımın ilerleme durumunu göstermez. Çıktıyı gözden ge
 
 Yaptığınız değişiklikleri görmek için Azure URL'sine gidin.
 
-## <a name="web-app-development-windows-command-line"></a>Web uygulaması geliştirme - Windows - komut satırı
+## <a name="web-app-development---windows---command-line"></a>Web uygulaması geliştirme - Windows - komut satırı
 ### <a name="clone-the-repository"></a>Depoyu kopyalama
 İlk olarak, Azure Portal'da sağlanan URL'yi kullanarak depoyu kopyalayın ve uzak olarak Azure deposunu ekleyin. Daha fazla bilgi için bkz. [Azure Uygulama Hizmeti’nde Yerel Git Dağıtımı](app-service-deploy-local-git.md).
 
@@ -281,7 +281,7 @@ Sanal ortam oluşturma, paketleri yükleme, web.config oluşturma dahil dağıt�
 
 Yaptığınız değişiklikleri görmek için Azure URL'sine gidin.
 
-## <a name="web-app-development-maclinux-command-line"></a>Web uygulaması geliştirme - Mac/Linux - komut satırı
+## <a name="web-app-development---maclinux---command-line"></a>Web uygulaması geliştirme - Mac/Linux - komut satırı
 ### <a name="clone-the-repository"></a>Depoyu kopyalama
 İlk olarak, Azure Portal'da sağlanan URL'yi kullanarak depoyu kopyalayın ve uzak olarak Azure deposunu ekleyin. Daha fazla bilgi için bkz. [Azure Uygulama Hizmeti’nde Yerel Git Dağıtımı](app-service-deploy-local-git.md).
 
@@ -365,13 +365,13 @@ Sanal ortam oluşturma, paketleri yükleme, web.config oluşturma dahil dağıt�
 
 Yaptığınız değişiklikleri görmek için Azure URL'sine gidin.
 
-## <a name="troubleshooting-package-installation"></a>Sorun giderme - Paket Yükleme
+## <a name="troubleshooting---package-installation"></a>Sorun giderme - Paket Yükleme
 [!INCLUDE [web-sites-python-troubleshooting-package-installation](../../includes/web-sites-python-troubleshooting-package-installation.md)]
 
-## <a name="troubleshooting-virtual-environment"></a>Sorun giderme - Sanal Ortam
+## <a name="troubleshooting---virtual-environment"></a>Sorun giderme - Sanal Ortam
 [!INCLUDE [web-sites-python-troubleshooting-virtual-environment](../../includes/web-sites-python-troubleshooting-virtual-environment.md)]
 
-## <a name="troubleshooting-static-files"></a>Sorun giderme - Statik Dosyalar
+## <a name="troubleshooting---static-files"></a>Sorun giderme - Statik Dosyalar
 Django statik dosyaları toplama kavramına sahiptir. Bu, tüm statik dosyaları özgün konumlarından alır ve tek bir klasöre kopyalar. Bu uygulama için, bunlar `/static` klasörüne kopyalanır.
 
 Statik dosyalar farklı Django “uygulamalarından” gelebileceğinden bu yapılır. Örneğin, Django yönetim arabirimlerindeki statik dosyalar sanal ortamdaki bir Django kitaplığı alt klasöründe yer alır. Bu uygulama tarafından tanımlanan statik dosyalar `/app/static` içinde bulunur. Daha fazla Django “uygulamaları” kullandıkça, birden fazla yerde bulunan statik dosyalarınız olur.
@@ -392,7 +392,7 @@ Toplamayı yerel makinenizde el ile yapmanız gerekir:
 
 Sonra, `.gitignore` içindeki `\static` klasörünü kaldırmanız ve Git deposuna eklemeniz gerekir.
 
-## <a name="troubleshooting-settings"></a>Sorun giderme - Ayarlar
+## <a name="troubleshooting---settings"></a>Sorun giderme - Ayarlar
 Uygulama için çeşitli ayarlar`DjangoWebProject/settings.py` içinde değiştirilebilir.
 
 Geliştiriciye kolaylık sağlamak için hata ayıklama modu etkindir. Bunun olumlu bir yan etkisi, yerle olarak çalıştırırken, statik dosyaları toplamak zorunda kalmadan, resimleri ve diğer statik içeriği görebilecek olmanızdır.
@@ -467,6 +467,6 @@ Daha fazla bilgi için bkz. [Python Geliştirici Merkezi](/develop/python/).
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

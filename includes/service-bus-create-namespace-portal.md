@@ -1,4 +1,10 @@
-1. [Azure portal][Azure portal] üzerinde oturum açın.
+## <a name="create-a-service-namespace"></a>Hizmet ad alanı oluşturma
+
+Azure'da Service Bus kuyruklarını kullanmaya başlamak için öncelikle bir ad alanı oluşturmanız gerekir. Ad alanı, uygulamanızda bulunan Service Bus kaynaklarını adreslemek için içeriğin kapsamını belirleyen bir kapsayıcı sunar. 
+
+Ad alanı oluşturmak için:
+
+1. [Azure portalında][Azure portal] oturum açın.
 2. Portalın sol gezinti bölmesinde **Yeni**'ye tıklayın, ardından **Enterprise Integration**'a ve **Service Bus**'a tıklayın.
 3. **Ad alanı oluştur** iletişim kutusunda bir ad alanı adı girin. Adın kullanılabilirliği sistem tarafından hemen denetlenir.
 4. Ad alanı adının kullanılabilir durumda olduğundan emin olduktan sonra fiyatlandırma katmanını (Temel, Standart veya Premium) seçin.
@@ -6,7 +12,7 @@
 6. **Kaynak grubu** alanında, ad alanını barındırmak üzere var olan bir kaynak grubunu seçin veya yeni bir kaynak grubu oluşturun.      
 7. **Konum** alanında, ad alanınızın barındırılması gereken ülkeyi veya bölgeyi seçin.
    
-    ![Ad alanı oluşturma][create-namespace]
+    ![ad alanı oluşturma][create-namespace]
 8. **Oluştur**’a tıklayın. Artık sistem ad alanınızı oluşturur ve kullanıma açar. Sistem, hesabınıza yönelik kaynakları sağlarken birkaç dakika beklemeniz gerekebilir.
 
 ### <a name="obtain-the-management-credentials"></a>Yönetim kimlik bilgilerini alma
@@ -21,13 +27,13 @@
 
 <!--Image references-->
 
-[ad alanı oluşturma]: ./media/service-bus-create-namespace-portal/create-namespace.png
-[bağlantı bilgisi]: ./media/service-bus-create-namespace-portal/connection-info.png
-[bağlantı dizesi]: ./media/service-bus-create-namespace-portal/connection-string.png
+[create-namespace]: ./media/service-bus-create-namespace-portal/create-namespace.png
+[connection-info]: ./media/service-bus-create-namespace-portal/connection-info.png
+[connection-string]: ./media/service-bus-create-namespace-portal/connection-string.png
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 [Azure portal]: https://portal.azure.com
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

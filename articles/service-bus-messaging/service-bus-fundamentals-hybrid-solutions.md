@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/31/2016
+ms.date: 01/10/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 9ace119de3676bcda45d524961ebea27ab093415
-ms.openlocfilehash: 57a168e6c595eb76851bf14d19f2949d5693b08d
+ms.sourcegitcommit: 8f82ce3494822b13943ad000c24582668bb55fe8
+ms.openlocfilehash: 74d032b37a856b141350fb6a1f73b7067624f926
 
 
 ---
@@ -53,17 +53,17 @@ Service Bus hizmeti bulutta (Microsoft'un Azure veri merkezlerinde) çalışıyo
 
 İşlem oldukça basittir: Bir gönderici Service Bus kuyruğuna ileti gönderir ve daha sonra alıcı bu iletiyi alır. Kuyruk Şekil 2'de gösterildiği gibi yalnızca tek bir alıcıya sahip olabilir. Ya da aynı kuyruktan birden fazla uygulama okuyabilir. İkinci durumda her ileti yalnızca bir alıcı tarafından okunur. Çok noktaya yayın hizmetinde bunun yerine bir konu kullanmanız gerekir.
 
-Her ileti iki bölümden oluşur: özellikler kümesi (her biri anahtar/değer çifti olmak üzere) ve ikili ileti gövdesi. Bunların nasıl kullanıldığı, uygulama tarafından gerçekleştirilmeye çalışılan işleme bağlıdır. Örneğin, yakın zamandaki bir satış hakkında bir ileti gönderen uygulama *Seller="Ava"* ve *Amount=10000* özelliklerini içerebilir. İleti gövdesi, satışın imzalı sözleşmesinin taranmış bir görüntüsünü içerebilir veya görüntü mevcut değilse bu kısım boş bırakılır.
+Her ileti iki bölümden oluşur: özellikler kümesi (her biri anahtar/değer çifti olmak üzere) ve ileti yükü. Yük ikili değer, metin, hatta XML olabilir. Bunların nasıl kullanıldığı, uygulama tarafından gerçekleştirilmeye çalışılan işleme bağlıdır. Örneğin, yakın zamandaki bir satış hakkında bir ileti gönderen uygulama *Seller="Ava"* ve *Amount=10000* özelliklerini içerebilir. İleti gövdesi, satışın imzalı sözleşmesinin taranmış bir görüntüsünü içerebilir veya görüntü mevcut değilse bu kısım boş bırakılır.
 
-Bir alıcı iki farklı şekilde Service Bus kuyruğundaki iletileri okuyabilir. *ReceiveAndDelete* olarak adlandırılan ilk seçenek, kuyruktan iletiyi kaldırır ve anında siler. Bu yöntem basittir ancak alıcı iletiyi işlemeyi tamamlamadan bir çökme gerçekleşirse ileti kaybolur. Kuyruktan kaldırılmış olduğundan başka bir alıcı bu iletiye erişemez. 
+Bir alıcı iki farklı şekilde Service Bus kuyruğundaki iletileri okuyabilir. *[ReceiveAndDelete](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode)* olarak adlandırılan ilk seçenek, kuyruktan iletiyi kaldırır ve anında siler. Bu yöntem basittir ancak alıcı iletiyi işlemeyi tamamlamadan bir çökme gerçekleşirse ileti kaybolur. Kuyruktan kaldırılmış olduğundan başka bir alıcı bu iletiye erişemez. 
 
-*PeekLock* olan ikinci seçenek ise bu soruna çözüm bulmak için tasarlanmıştır. **ReceiveAndDelete** gibi, **PeekLock** yöntemindeki okuma işlemi de iletiyi kuyruktan kaldırır. Ancak iletiyi silmez. Bunun yerine, iletiyi kilitleyerek diğer alıcılar için görünmez yapar ve aşağıdaki olaylardan birinin gerçekleşmesini bekler:
+*[PeekLock](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode)* olan ikinci seçenek ise bu soruna çözüm bulmak için tasarlanmıştır. **ReceiveAndDelete** gibi, **PeekLock** yöntemindeki okuma işlemi de iletiyi kuyruktan kaldırır. Ancak iletiyi silmez. Bunun yerine, iletiyi kilitleyerek diğer alıcılar için görünmez yapar ve aşağıdaki olaylardan birinin gerçekleşmesini bekler:
 
-* Alıcı iletiyi başarıyla işlediğinde **Complete** çağrısı yapar ve kuyruk iletiyi siler. 
-* Alıcı, iletiyi başarıyla işleyemediğine karar verirse **Abandon** çağrısını yapar. Daha sonra kuyruk iletinin kilidini açar ve iletiyi diğer alıcılar için kullanılabilir hale getirir.
+* Alıcı iletiyi başarıyla işlediğinde **[Complete()](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete)** çağrısı yapar ve kuyruk iletiyi siler. 
+* Alıcı, iletiyi başarıyla işleyemediğine karar verirse **[Abandon()](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Abandon)** çağrısını yapar. Daha sonra kuyruk iletinin kilidini açar ve iletiyi diğer alıcılar için kullanılabilir hale getirir.
 * Ayarlanabilir bir süre içinde alıcı bu yöntemlerin hiçbirini çağırmazsa (varsayılan 60 saniyedir) kuyruk alıcının başarısız olduğunu varsayar. Bu durumda, alıcının **Abandon** çağrısı yaptığını varsayarak hareket eder ve iletiyi diğer alıcılar için kullanılabilir hale getirir.
 
-Burada gerçekleşebilecek şu duruma dikkat edin: Aynı ileti iki kez (belki de iki farklı alıcıya) teslim edilebilir. Service Bus kuyruklarını kullanan uygulamalar bu duruma karşı hazırlıklı olmalıdır. Yinelenen öğe algılamasını daha kolay hale getirmek için her iletinin benzersiz **MessageID** özelliği vardır. Bu özellik, iletinin kuyruktan kaç kez okunduğuna bakılmaksızın varsayılan olarak sürekli aynıdır. 
+Burada gerçekleşebilecek şu duruma dikkat edin: Aynı ileti iki kez (belki de iki farklı alıcıya) teslim edilebilir. Service Bus kuyruklarını kullanan uygulamalar bu duruma karşı hazırlıklı olmalıdır. Yinelenen öğe algılamasını daha kolay hale getirmek için her iletinin benzersiz **[MessageID](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId)** özelliği vardır. Bu özellik, iletinin kuyruktan kaç kez okunduğuna bakılmaksızın varsayılan olarak sürekli aynıdır. 
 
 Kuyruklar birçok durumda oldukça faydalıdır. Kuyruklar sayesinde aynı anda çalışmayan uygulamaların bile iletişim kurmasına olanak sağlanır; özellikle toplu işlem ve mobil uygulamalarda olmak üzere bu özellik oldukça kullanışlıdır. Ayrıca, birden çok alıcısı bulunan bir kuyruk otomatik olarak yük dengelemesi sunar. Bu durum, gönderilen iletilerin tüm alıcılara dağıtılmasından kaynaklanır.
 
@@ -80,7 +80,7 @@ Ne kadar faydalı olsalar da kuyruklar her zaman doğru çözüm değildir. Baz�
 * Abone 2 ise *Seller="Ruby"* ve/veya değeri 100.000'den fazla olan *Amount* özelliklerini içeren iletileri alır. Ruby'nin bir satış müdürü olduğunu varsayarsak Ruby kendi satışları haricindeki tüm büyük satışları kimin yaptığına bakmaksızın görmek isteyebilir.
 * Abone 3, filtresini *True* olarak ayarlar ve tüm iletileri alır. Örneğin, bu uygulama bir denetim kaydı tutmakla görevlendirilmiştir ve tüm iletileri görmesi gerekir.
 
-Kuyruklarda olduğu gibi, bir konu başlığının aboneleri de iletileri **ReceiveAndDelete** veya **PeekLock** kullanarak okuyabilir. Ancak kuyrukların aksine, konu başlığına gönderilen tek bir ileti birden çok abonelik tarafından alınabilir. Yaygın şekilde *yayımla ve abone ol* (veya *pub/sub*) olarak adlandırılan bu yaklaşım, aynı iletilerin birden çok uygulamanın ilgi alanına girmesi durumunda faydalıdır. Her abone, doğru filtreyi tanımlayarak ileti akışının yalnızca görmesi gereken kısmını seçebilir.
+Kuyruklarda olduğu gibi, bir konu başlığının aboneleri de iletileri [**ReceiveAndDelete** veya **PeekLock**](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode) kullanarak okuyabilir. Ancak kuyrukların aksine, konu başlığına gönderilen tek bir ileti birden çok abonelik tarafından alınabilir. Yaygın şekilde *yayımla ve abone ol* (veya *pub/sub*) olarak adlandırılan bu yaklaşım, aynı iletilerin birden çok uygulamanın ilgi alanına girmesi durumunda faydalıdır. Her abone, doğru filtreyi tanımlayarak ileti akışının yalnızca görmesi gereken kısmını seçebilir.
 
 ## <a name="relays"></a>Geçişler
 Hem kuyruklar hem de konu başlıkları, bir aracı yoluyla tek yönlü zaman uyumsuz iletişim sağlar. Trafik akışları sadece tek yöndedir ve göndericiler ile alıcılar arasında doğrudan bağlantı yoktur. Peki bunu istemezseniz çözüm nedir? Uygulamalarınızın iletileri hem göndermesi hem de alması gerektiğini ya da gönderici ile alıcılar arasında doğrudan bağlantı istediğinizi ve iletileri depolamak için aracıya ihtiyacınız olmadığını düşünelim. Bunun gibi bir senaryoya uyum sağlamak için Service Bus, Şekil 4'te gösterildiği gibi *geçişleri* kullanır.
@@ -119,6 +119,6 @@ Artık Azure Service Bus hizmeti ile ilgili temel bilgileri edindiğinize göre,
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

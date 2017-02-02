@@ -12,11 +12,11 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/28/2016
+ms.date: 01/04/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d366fc36e2731be34d70fd4e4fa082370c452d63
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 18959934c53e2e1c719cc627ffa286acbdcaa967
 
 
 ---
@@ -46,7 +46,7 @@ Web Apps’i kullanabileceğiniz tipik uygulama senaryo örnekleri için bkz. [A
 App Service’in Web Apps için geçerli olan temel özelliklerinden bazıları aşağıda sunulmuştur:
 
 * **Birden çok dil ve çerçeve** - App Service ASP.NET, Node.js, Java, PHP ve Python için birinci sınıf destek sunar. Ayrıca, App Service sanal makineleri üzerinde [PowerShell ve diğer betikleri veya yürütülebilirleri](web-sites-create-web-jobs.md) çalıştırabilirsiniz.
-* **DevOps iyileştirmesi** - Visual Studio Team Services, GitHub veya BitBucket ile [sürekli tümleştirme ve dağıtım](app-service-continuous-deployment.md) ayarlayın. [Test ve hazırlık ortamları](web-sites-staged-publishing.md) aracılığıyla güncelleştirmeleri yükseltin. [A/B testi](app-service-web-test-in-production-get-start.md) gerçekleştirin. [Azure PowerShell](../powershell-install-configure.md) veya [platformlar arası komut satırı arabirimi (CLI)](../xplat-cli-install.md) kullanarak uygulamalarınızı App Service’de yönetin.
+* **DevOps iyileştirmesi** - Visual Studio Team Services, GitHub veya BitBucket ile [sürekli tümleştirme ve dağıtım](app-service-continuous-deployment.md) ayarlayın. [Test ve hazırlık ortamları](web-sites-staged-publishing.md) aracılığıyla güncelleştirmeleri yükseltin. [A/B testi](app-service-web-test-in-production-get-start.md) gerçekleştirin. [Azure PowerShell](/powershell/azureps-cmdlets-docs) veya [platformlar arası komut satırı arabirimi (CLI)](../xplat-cli-install.md) kullanarak uygulamalarınızı App Service’de yönetin.
 * **Yüksek kullanılabilirlik ile küresel ölçeklendirme** - El ile veya otomatik olarak ölçek [artırabilir](web-sites-scale.md) veya [genişletebilirsiniz](../monitoring-and-diagnostics/insights-how-to-scale.md). Uygulamalarınızı Microsoft'un küresel veri merkezi altyapılarının herhangi bir yerinde barındırın. App Service [SLA](https://azure.microsoft.com/support/legal/sla/app-service/)’sı yüksek kullanılabilirlik taahhüt eder.
 * **SaaS platformları ve şirket için veri bağlantıları** - Kurumsal sistemler (SAP, Siebel ve Oracle gibi), SaaS hizmetleri (Salesforce ve Office 365 gibi) ve İnternet hizmetleri (Facebook ve Twitter gibi) için 50’den fazla [bağlayıcı](../connectors/apis-list.md) arasından seçim yapın. [Karma Bağlantılar](../biztalk-services/integration-hybrid-connection-overview.md)’ı ve [Azure Sanal Ağlar](web-sites-integrate-with-vnet.md)’ı kullanarak şirket içi verilere erişin.
 * **Güvenlik ve uyumluluk** - App Service [ISO, SOC ve PCI uyumludur](https://www.microsoft.com/TrustCenter/).
@@ -58,13 +58,25 @@ Ayrıca, web uygulamasında [API Apps](../app-service-api/app-service-api-apps-w
 Azure, App Service’te Web Apps’in yanı sıra web siteleri ve web uygulamaları barındırmak için kullanılabilen başka hizmetler de sunar. Çoğu senaryo için Web Apps en iyi seçenektir.  Mikro hizmet mimarisi için [Service Fabric](https://azure.microsoft.com/documentation/services/service-fabric)’i göz önünde bulundurun ve kodlarınızın çalıştığı sanal makineler üzerinde daha fazla denetim elde etmeniz gerekirse [Azure Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/)’i düşünün. Bu Azure hizmetleri arasında seçim yapma hakkında daha fazla bilgi için bkz. [Azure App Service, Virtual Machines, Service Fabric ve Cloud Services karşılaştırması](choose-web-site-cloud-service-vm.md).
 
 ## <a name="getting-started"></a>Başlarken
-App Service’te basit kodları yeni web uygulamasına dağıtmaya başlamak için [Azure’da ilk web uygulamanızı 5 dakika içinde dağıtma](app-service-web-get-started.md) öğreticisini izleyin. Ücretsiz Azure hesabınızın olması gerekir.
+App Service’te basit kodları yeni bir web uygulamasına dağıtmaya başlamak için aşağıdaki açılan kutuda yer alan öğreticilerden birini izleyin. Ücretsiz Azure hesabınızın olması gerekir.
 
-Azure hesabı için kaydolmadan önce Azure App Service’i kullanmaya başlamak isterseniz, App Service’te hemen kısa süreli bir başlangıç web uygulaması oluşturabileceğiniz [App Service’i Deneyin](http://go.microsoft.com/fwlink/?LinkId=523751) sayfasına gidin. Kredi kartı ve taahhüt gerekmez.
+> [!div class="op_single_selector"]
+> * [5 dakikada Azure’a ilk HTML sitenizi dağıtın](app-service-web-get-started-html-cli-nodejs.md)
+> * [5 dakikada Azure’a ilk ASP.NET web uygulamanızı dağıtın](app-service-web-get-started-dotnet-cli-nodejs.md)
+> * [5 dakikada Azure’a ilk PHP web uygulamanızı dağıtın](app-service-web-get-started-php-cli-nodejs.md)
+> * [5 dakikada Azure’a ilk Node.js web uygulamanızı dağıtın](app-service-web-get-started-nodejs-cli-nodejs.md)
+> * [5 dakikada Azure’a ilk Python web uygulamanızı dağıtın](app-service-web-get-started-python-cli-nodejs.md)
+> * [5 dakikada Azure’a ilk Java web uygulamanızı dağıtın](app-service-web-get-started-java.md)
+> 
+> 
+
+> [!NOTE]
+> Azure hesabınız olmadan [App Service'i Deneyebilirsiniz](https://azure.microsoft.com/try/app-service/). Başlangıç uygulaması oluşturun ve bir saate kadar üzerinde çalışın; kredi kartı veya taahhüt gerekmez.
+> 
+> 
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

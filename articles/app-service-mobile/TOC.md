@@ -33,11 +33,11 @@
 ## Planlama ve tasarım
 ### [Azure Mobile Apps’te Kimlik Doğrulama ve Yetkilendirme](app-service-mobile-auth.md)
 ### [Azure Mobile Apps’te Çevrimdışı Veri Eşitleme](app-service-mobile-offline-data-sync.md)
-### [Azure App Service için En İyi Uygulamalar](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [Azure Uygulama Hizmeti için En İyi Uygulamalar](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Azure Uygulama Hizmeti ve mevcut Azure hizmetleri](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [App Service planlarının ayrıntıları](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [Yüksek yoğunluklu barındırma](../app-service/app-service-high-density-hosting.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-### [Azure App Service’ta Web İşleri kullanımı](../app-service/app-service-webjobs-readme.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+### [Azure Uygulama Hizmeti’nde Web İşleri kullanımı](../app-service/app-service-webjobs-readme.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ### [App Service Ortamı](../app-service-web/app-service-app-service-environment-intro.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 #### [App Service Ortamı belgeleri](../app-service/app-service-app-service-environments-readme.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
@@ -207,16 +207,30 @@
 ### [Visual Studio kullanarak sorun giderme](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 # Başvuru
-## [.NET API'si](https://msdn.microsoft.com/library/azure/dn961176.aspx)
-## [Azure portalı](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-## [App Service başvurusu](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-## [Web İşleri SDK'sı](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+## [.NET arka uç SDK’sı](https://msdn.microsoft.com/library/azure/dn961176.aspx)
+## [Node.js arka uç SDK’sı](https://azure.github.io/azure-mobile-apps-node/)
+## [Android istemci SDK’sı](https://azure.github.io/azure-mobile-apps-android-client/)
+## [iOS istemci SDK’sı](https://azure.github.io/azure-mobile-apps-ios-client/)
+## [JavaScript/Cordova istemci SDK’sı](https://azure.github.io/azure-mobile-apps-js-client/)
+## [Windows/Xamarin istemci SDK’sı](https://msdn.microsoft.com/library/azure/mt419521.aspx)
+
+# İlgili
+## [GitHub depoları](https://github.com/Azure/azure-mobile-apps)
+## [Azure Portal](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 # Kaynaklar
 ## [Fiyatlandırma](https://azure.microsoft.com/en-us/pricing/details/app-service/)  
 ## [MSDN forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=azuremobile)  
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-mobile-services)  
 ## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=mobile-services) 
+## Örnekler
+### [Saha mühendisi](https://azure.microsoft.com/resources/samples/app-service-mobile-dotnet-fieldengineer/)
+### [Yapılandırılmış verileri eşitleme](https://azure.microsoft.com/resources/samples/app-service-mobile-dotnet-todo-list-files/)
+### Hızlı Başlangıç tamamlandı
+#### [Windows](https://azure.microsoft.com/resources/samples/app-service-mobile-windows-quickstart/)
+#### [Xamarin.Android](https://azure.microsoft.com/resources/samples/app-service-mobile-xamarin-android-quickstart/)
+#### [.NET arka ucu](https://azure.microsoft.com/resources/samples/app-service-mobile-dotnet-backend-quickstart/)
+#### [Node.js arka ucu](https://azure.microsoft.com/resources/samples/app-service-mobile-nodejs-backend-quickstart/)
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=mobile-services)
 ## [App Service En İyi Yöntemler](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ## [Web İşi kaynaklarının listesi](../app-service-web/websites-webjobs-resources.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
@@ -225,6 +239,6 @@
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 

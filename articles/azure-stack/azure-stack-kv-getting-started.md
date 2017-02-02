@@ -1,5 +1,5 @@
 ---
-title: Getting Started with Azure Stack Key Vault | Microsoft Docs
+title: Getting started with Key Vault in Azure Stack | Microsoft Docs
 description: Get started using Azure Stack Key Vault
 services: azure-stack
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/18/2016
+ms.date: 01/23/2017
 ms.author: ricardom
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c4d3f708ba7cd05343e11bdbac6e63708b0af28e
+ms.sourcegitcommit: a3a8b9ff522369ed0f03817585e1666507c95c6e
+ms.openlocfilehash: f2e97d984e9c889f259cb9b409c22ed8ec077c71
 
 
 ---
@@ -202,6 +202,6 @@ If you want to authorize that same application to read secrets in your vault, ru
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

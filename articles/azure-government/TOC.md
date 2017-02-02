@@ -18,6 +18,9 @@
 ### [Resource Manager](documentation-government-manage-azure-resource-manager.md)
 ### [Operations Management Suite](documentation-government-manage-oms.md)
 ### [Abonelik](documentation-government-manage-subscriptions.md)
+## Dağıtma
+### Web + mobil
+#### [Uygulama Hizmetleri](documentation-government-howto-deploy-webandmobile.md)
 
 # Başvuru
 ## [Hizmetler](documentation-government-services.md)
@@ -32,8 +35,9 @@
 # Kaynaklar
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/)
 ## [Deneme](https://azuregov.microsoft.com/trial/azuregovtrial)
+## [Blog](https://blogs.msdn.microsoft.com/azuregov/)
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

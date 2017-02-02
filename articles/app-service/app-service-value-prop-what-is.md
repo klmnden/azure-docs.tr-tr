@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 12/02/2016
 ms.author: byvinyal
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: f361e9c815ae20874fc2e40e39d2c20a415d58f2
+ms.sourcegitcommit: 7ff7874538f23c8dd8c4aaa789018c77dfe2ab9a
+ms.openlocfilehash: 692a7e0e54dd8ba6b47f79228696b223123dfb9b
 
 
 ---
@@ -49,7 +49,7 @@ App Service, her birinin belirli bir iş yükü barındırması amaçlanan birka
 * [**Web Apps**](../app-service-web/app-service-web-overview.md) - Web sitelerini ve web uygulamalarını barındırmaya yöneliktir.
 * [**Mobile Apps**](../app-service-mobile/app-service-mobile-value-prop.md) Mobil uygulama arka uçlarını barındırmaya yöneliktir.
 * [**API Apps**](../app-service-api/app-service-api-apps-why-best-platform.md) - RESTful API'lerini barındırmaya yöneliktir.
-* [**Logic Apps**](../app-service-logic/app-service-logic-what-are-logic-apps.md) - İş süreçlerini otomatikleştirmeye ve sistemler ile verileri kod yazmadan bulut üzerinde tümleştirmeye yöneliktir.
+* [**Logic Apps**](../logic-apps/logic-apps-what-are-logic-apps.md) - İş süreçlerini otomatikleştirmeye ve sistemler ile verileri kod yazmadan bulut üzerinde tümleştirmeye yöneliktir.
 
 Buradaki *uygulama* sözcüğü bir iş yükünü çalıştırmaya ayrılmış barındırma kaynaklarını ifade eder. “Web uygulaması” örnek olarak alındığında, web uygulamasını tarayıcıya işlev kazandıran işlem kaynaklar ve uygulama kodu bütünü olarak düşünmeye büyük olasılıkla alışkınsınız. Ancak, App Service’deki *web uygulamaları*, uygulama kodunuzun barındırılması için Azure tarafından sağlanan işlem kaynaklarıdır. 
 
@@ -82,18 +82,18 @@ Daha fazla ölçeklenebilirlik ve ağ yalıtımını gerekiyorsa uygulamaların�
 App Service’in maliyeti hakkında bilgi için bkz. [App Service Fiyatlandırması](https://azure.microsoft.com/pricing/details/app-service/).
 
 ## <a name="test-drive-app-service"></a>App Service'i Deneyin
-Herhangi bir kredi kartına gerek olmadan, taahhüt vermeden veya sorun yaşamadan [örnek bir web uygulaması, mobil uygulama veya mantıksal uygulama oluşturun](http://go.microsoft.com/fwlink/?LinkId=523751) ve uygulamanızı 1 saat boyunca deneyin.
+Herhangi bir kredi kartına gerek olmadan, taahhüt vermeden veya sorun yaşamadan [örnek bir web uygulaması, mobil uygulama veya mantıksal uygulama oluşturun](https://azure.microsoft.com/try/app-service/) ve uygulamanızı&1; saat boyunca deneyin.
 
 Ya da bir [ücretsiz Azure hesabı](https://azure.microsoft.com/pricing/free-trial/) açıp, kullanmaya başlama öğreticilerimizden birini deneyin:
 
 * [Öğretici: Web uygulaması oluşturma](../app-service-web/app-service-web-get-started.md)
 * [Öğretici: Mobil uygulama oluşturma](../app-service-mobile/app-service-mobile-android-get-started.md)
 * [Öğretici: API uygulaması oluşturma](../app-service-api/app-service-api-dotnet-get-started.md)
-* [Öğretici: Mantıksal uygulama oluşturma](../app-service-logic/app-service-logic-create-a-logic-app.md)
+* [Öğretici: Mantıksal uygulama oluşturma](../logic-apps/logic-apps-create-a-logic-app.md)
 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -14,8 +14,8 @@ ms.tgt_pltfrm: na
 ms.date: 12/08/2016
 ms.author: brjohnst
 translationtype: Human Translation
-ms.sourcegitcommit: 455c4847893175c1091ae21fa22215fd1dd10c53
-ms.openlocfilehash: e862002a5b1406196516e5ddd786790da7bd5a4d
+ms.sourcegitcommit: 7d45759915f38ba4337b745eb2b28dcbc72dbbe0
+ms.openlocfilehash: 88d5148806e58d61b7b64327e07809eea5126211
 
 
 ---
@@ -34,10 +34,10 @@ Bu kılavuzda başlamadan önce, [Azure Search dizini oluşturmuş](search-what-
 
 Bu makaledeki örnek kodun tamamının C# dilinde yazıldığını unutmayın. Tam kaynak kodunu [GitHub](http://aka.ms/search-dotnet-howto)'da bulabilirsiniz.
 
-## <a name="i-identify-your-azure-search-services-query-api-key"></a>I. Azure Search hizmet sorgunuzun api anahtarını tanımlama
+## <a name="identify-your-azure-search-services-query-api-key"></a>Azure Search hizmet sorgunuzun api anahtarını tanımlama
 Artık bir Azure Search dizini oluşturduğunuza göre, .NET SDK kullanarak sorgu göndermeye neredeyse hazırsınız. Öncelikle, sağladığınız arama hizmeti için oluşturulan sorgu api anahtarlarından birini edinmeniz gerekir. .NET SDK, hizmetinize yönelik her istek için bu api anahtarını gönderir. İstek başına geçerli bir anahtara sahip olmak, isteği gönderen uygulama ve bunu işleyen hizmet arasında güven oluşturur.
 
-1. Hizmetinizin api anahtarlarını bulmak için [Azure portalında](https://portal.azure.com/) oturum açmanız gerekir.
+1. Hizmetinizin api anahtarlarını bulmak için [Azure portalında](https://portal.azure.com/) oturum açabilirsiniz
 2. Azure Search hizmetinizin dikey penceresine gidin
 3. "Anahtarlar" simgesine tıklayın
 
@@ -48,7 +48,7 @@ Hizmetiniz, *yönetici anahtarlarına* ve *sorgu anahtarlarına* sahiptir.
 
 Bir dizini sorgulama amacıyla, sorgu anahtarlarınızdan birini kullanabilirsiniz. Yönetici anahtarlarınız da sorgular için kullanılabilir ancak uygulama kodunuzda bir sorgu anahtarı kullanmanız gerekir. Böylece [En az ayrıcalık prensibi](https://en.wikipedia.org/wiki/Principle_of_least_privilege) daha iyi takip edilmiş olur.
 
-## <a name="ii-create-an-instance-of-the-searchindexclient-class"></a>II. SearchIndexClient sınıfının bir örneğini oluşturma
+## <a name="create-an-instance-of-the-searchindexclient-class"></a>SearchIndexClient sınıfının bir örneğini oluşturma
 Azure Search .NET SDK'sıyla sorgu yürütmek için `SearchIndexClient` sınıfının bir örneğini oluşturmanız gerekir. Bu sınıfın birkaç oluşturucusu vardır. İstediğiniz oluşturucu, arama hizmeti adınızı, dizin adınızı ve `SearchCredentials` nesnesini parametre olarak alır. `SearchCredentials`, api anahtarınızı sarmalar.
 
 Aşağıdaki kod, uygulamanın yapılandırma dosyasında (`app.config` veya `web.config`) depolanan arama hizmeti adı ve api anahtarı için değerleri kullanarak "hotels" dizini ([.NET SDK kullanarak Azure Search dizini oluşturma](search-create-index-dotnet.md)'da oluşturuldu) için yeni bir `SearchIndexClient` oluşturur:
@@ -62,7 +62,7 @@ SearchIndexClient indexClient = new SearchIndexClient(searchServiceName, "hotels
 
 `SearchIndexClient`, `Documents` özelliğine sahiptir. Bu özellik Azure Search dizinlerini sorgulamanız için gereken tüm yöntemleri sağlar.
 
-## <a name="iii-query-your-index"></a>III. Dizininizi sorgulama
+## <a name="query-your-index"></a>Dizininizi sorgulama
 .NET SDK ile arama, `SearchIndexClient` öğenizde `Documents.Search` yöntemini çağırmak kadar kolaydır. Bu yöntem, arama metni dahil olmak üzere sorguyu daha da ayrıntılandırmak için kullanılabilecek bir `SearchParameters` nesnesiyle birlikte birkaç parametre alır.
 
 #### <a name="types-of-queries"></a>Sorgu Türleri
@@ -127,7 +127,7 @@ results = indexClient.Documents.Search<Hotel>("motel", parameters);
 WriteDocuments(results);
 ```
 
-## <a name="iv-handle-search-results"></a>IV. Arama sonuçlarını işleme
+## <a name="handle-search-results"></a>Arama sonuçlarını işleme
 `Documents.Search` yöntemi, sorgunun sonuçlarını içeren bir `DocumentSearchResult` nesnesini döndürür. Önceki bölümdeki örnek, arama sonuçlarını konsola çıkarmak için `WriteDocuments` adlı bir yöntemi kullanır:
 
 ```csharp
@@ -169,6 +169,6 @@ Yukarıdaki örnek kod, arama sonuçlarını çıkarmak için konsolu kullanır.
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

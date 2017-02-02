@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 12/16/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: f595be46983bf07783b529de885d889c18fdb61a
-ms.openlocfilehash: 9667d805fee3277275a71e6907d0abffb35a3c48
+ms.sourcegitcommit: 88405a9e67eb748acc9564022283004b5ebfcf48
+ms.openlocfilehash: 63210a5539d1e5e5b7d1f5a60048d507e53038a5
 
 
 ---
@@ -33,8 +33,8 @@ Bu öğreticide cmd.exe veya bash gibi bir komut satırı ortamında basit bir [
 
 Görevi aşağıdaki CLI sürümlerinden birini kullanarak tamamlayabilirsiniz:
 
-- [Azure CLI 1.0](app-service-web-nodejs-get-started-cli-nodejs.md): Klasik ve kaynak yönetimi dağıtım modellerine yönelik CLI'mız
-- [Azure CLI 2.0 (Önizleme)](app-service-web-nodejs-get-started.md): Kaynak yönetimi dağıtım modeline yönelik yeni nesil CLI'mız
+- [Azure CLI 1.0](app-service-web-nodejs-get-started-cli-nodejs.md): Klasik ve kaynak yönetimi dağıtım modellerine yönelik CLI’mız
+- [Azure CLI 2.0 (Önizleme)](app-service-web-nodejs-get-started.md): Kaynak yönetimi dağıtım modeline yönelik yeni nesil CLI’mız
 
 ## <a name="prerequisites"></a>Ön koşullar
 * [Node.js]
@@ -114,13 +114,13 @@ Görevi aşağıdaki CLI sürümlerinden birini kullanarak tamamlayabilirsiniz:
    
         az appservice web deployment user set --user-name <username> --password <password>
 
-3. Yeni bir [kaynak grubu](../azure-resource-manager/resource-group-overview.md) oluşturun. Bu PHP öğreticisi için bunun ne olduğunu bilmeniz gerekmez.
+3. Yeni bir [kaynak grubu](../azure-resource-manager/resource-group-overview.md) oluşturun. Bu node.js öğreticisi için bunun ne olduğunu bilmeniz gerekmez.
 
         az group create --location "<location>" --name my-nodejs-app-group
 
     `<location>` için hangi olası değerleri kullanabileceğinizi görmek için `az appservice list-locations` CLI komutunu kullanın.
 
-3. Yeni bir "ÜCRETSİZ" [App Service planı](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) oluşturun. Bu PHP öğreticisinde, bu plandaki web uygulamaları için ücret ödemeniz gerekmeyecektir.
+3. Yeni bir "ÜCRETSİZ" [App Service planı](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) oluşturun. Bu node.js öğreticisinde, bu plandaki web uygulamaları için ücret ödemeniz gerekmeyecektir.
 
         az appservice plan create --name my-nodejs-appservice-plan --resource-group my-nodejs-app-group --sku FREE
 
@@ -303,6 +303,6 @@ Node-Inspector’ı etkinleştirmek için aşağıdaki adımları izleyin:
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 
