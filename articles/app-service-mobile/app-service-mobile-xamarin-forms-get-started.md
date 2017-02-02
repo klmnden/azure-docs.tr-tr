@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: adrianha
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6a48181c6c22e6042dd8ef39c12415979e384f8b
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 6b8c5c2ac2e721c4d6f73c7c17f34eadc041e0c9
 
 
 ---
@@ -36,7 +36,7 @@ Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 * Xcode v7.0 veya daha sonraki sürümü ve Xamarin Studio Community yüklü bir Mac. Bkz. [Visual Studio ve Xamarin için kurulum ve yükleme](https://msdn.microsoft.com/library/mt613162.aspx) ve [Mac kullanıcıları için kurulum, yükleme ve doğrulamalar](https://msdn.microsoft.com/library/mt488770.aspx) (MSDN).
 
 > [!NOTE]
-> Azure hesabı için kaydolmadan önce Azure App Service’i kullanmaya başlamak isterseniz, App Service’de hemen kısa süreli bir başlangıç Mobil Uygulama oluşturabileceğiniz [App Service’i Deneyin](https://tryappservice.azure.com/?appServiceName=mobile) sayfasına gidin. Kredi kartı ve taahhüt gerekmez.
+> Azure hesabı için kaydolmadan önce Azure App Service’i kullanmaya başlamak isterseniz, App Service’de hemen kısa süreli bir başlangıç Mobil Uygulama oluşturabileceğiniz [App Service’i Deneyin](https://azure.microsoft.com/try/app-service/mobile/) sayfasına gidin. Kredi kartı ve taahhüt gerekmez.
 > 
 > 
 
@@ -161,9 +161,9 @@ Bu, Azure üzerinde barındırılan yeni mobil uygulama arka ucuna bir POST iste
   Xamarin uygulamanızda yönetilen istemci SDK’sıyla çalışmayı öğrenin. 
 
 <!-- Anchors. -->
-[Mobil uygulama arka uçları kullanmaya başlama]:#getting-started
-[Yeni bir mobil uygulama arka ucu oluşturma]:#create-new-service
-[Sonraki Adımlar]:#next-steps
+[Getting started with mobile app backends]:#getting-started
+[Create a new mobile app backend]:#create-new-service
+[Next Steps]:#next-steps
 
 
 <!-- Images. -->
@@ -177,12 +177,12 @@ Bu, Azure üzerinde barındırılan yeni mobil uygulama arka ucuna bir POST iste
 
 <!-- URLs. -->
 [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=257546
-[Mobil uygulama SDK’sı]: http://go.microsoft.com/fwlink/?LinkId=257545
+[Mobile app SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Azure Portal]: https://portal.azure.com/
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

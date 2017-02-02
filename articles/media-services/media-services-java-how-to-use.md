@@ -1,6 +1,6 @@
 ---
 title: "Java kullanarak isteğe bağlı içerik göndermeye başlama | Microsoft Belgeleri"
-description: "Kodlama, şifreleme ve kaynakları akışla aktarma gibi genel görevleri gerçekleştirmek üzere Azure Media Services’in nasıl kullanılacağını açıklar."
+description: "Bu öğretici, Java kullanarak Azure Media Services (AMS) uygulaması ile temel bir İsteğe Bağlı Video (VoD) içerik teslim hizmeti uygulamanın adımlarını açıklar."
 services: media-services
 documentationcenter: java
 author: juliako
@@ -12,28 +12,32 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: get-started-article
-ms.date: 12/20/2016
+ms.date: 01/10/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 18054a72c3ead02311465d97dc13b7b5e4d87321
-ms.openlocfilehash: 401b3c931fa046ee2bdf0a12e9e837b820ec5464
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: 55ecdb72c85276cbc8bb5c9ce67978e648ebddb1
 
 
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-java"></a>Java kullanarak isteğe bağlı içerik göndermeye başlama
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
-## <a name="setting-up-an-azure-account-for-media-services"></a>Media Services İçin Bir Azure Hesabı Ayarlama
-Media Services hesabınızı ayarlamak için Azure portal'ı kullanın. [Media Services Hesabı Oluşturma](media-services-portal-create-account.md) konusuna bakın. Azure portal'da hesabınızı oluşturduktan sonra, bilgisayarınızı Media Services geliştirmeye yönelik olarak ayarlamaya hazır olursunuz.
+Bu öğretici, Java kullanarak Azure Media Services (AMS) uygulaması ile temel bir İsteğe Bağlı Video (VoD) içerik teslim hizmeti uygulamanın adımlarını açıklar.
 
-## <a name="setting-up-for-media-services-development"></a>Media Services geliştirmeye yönelik ayarlama
-Bu bölüm, Java için Media Services SDK'sını kullanarak Media Services geliştirmenin genel önkoşullarını içerir.
+## <a name="prerequisites"></a>Ön koşullar
 
-### <a name="prerequisites"></a>Ön koşullar
-* Yeni veya mevcut bir Azure aboneliğinde bir Media Services hesabı. [Media Services Hesabı Oluşturma](media-services-portal-create-account.md) konusuna bakın.
+Öğreticiyi tamamlamak için aşağıdakiler gereklidir:
+
+* Bir Azure hesabı. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/). 
+* Bir Media Services hesabı. Bir Media Services hesabı oluşturmak için bkz. [Media Services hesabı oluşturma](media-services-portal-create-account.md).
 * [Azure Java Geliştirici Merkezi][Azure Java Developer Center]’nden yüklenebilecek olan Java için Azure Kitaplıkları.
 
 ## <a name="how-to-use-media-services-with-java"></a>Nasıl yapılır: Java ile Media Services’i kullanma
+
+>[!NOTE]
+>AMS hesabınız oluşturulduğunda hesabınıza **Durdurulmuş** durumda bir **varsayılan** akış uç noktası eklenir. İçerik akışını başlatmak ve dinamik paketleme ile dinamik şifrelemeden yararlanmak için içerik akışı yapmak istediğiniz akış uç noktasının **Çalışıyor** durumda olması gerekir. 
+
 Aşağıdaki kod bir varlık oluşturma, varlığa bir medya dosyası yükleme, varlığı dönüştürecek bir göreve sahip olan bir işi çalıştırma ve videonuzu akışla aktarmak için bir bulucu oluşturma işlemlerinin nasıl gerçekleştirileceğini gösterir.
 
 Bu kodu kullanmadan önce bir Media Services hesabı ayarlamanız gerekir. Hesap ayarlama hakkında daha fazla bilgi için bkz. [Media Services Hesabı Oluşturma](media-services-portal-create-account.md).
@@ -270,6 +274,6 @@ Media Services Javadoc belgeleri için bkz. [Java için Azure Kitaplıkları bel
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -116,12 +116,12 @@ SQL Veritabanı Tehdit Algılama, Denetimin üzerine ek bir güvenlik katmanı s
 ## <a name="compliance"></a>Uyumluluk
 Yukarıda yer verilen ve uygulamanızın çeşitli güvenlik gereksinimlerini karşılamasına yardımcı olabilecek özelliklere ve işlevlere ek olarak Azure SQL Veritabanı düzenli denetimlere de katılmaktadır ve bir dizi uyumluluk standardı için belgelendirilmiştir. Daha fazla bilgi için günceli [SQL Veritabanı uyumluluk sertifikası](https://azure.microsoft.com/support/trust-center/services/) listesine ulaşabileceğiniz [Microsoft Azure Güven Merkezi](https://azure.microsoft.com/support/trust-center/) sayfasına bakın.
 
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - SQL Veritabanı güvenlik özelliklerine genel bakış için bkz. [SQL güvenliğine genel bakış](sql-database-security-overview.md).
 - SQL Veritabanındaki erişim denetimi özelliklerinin kullanımı hakkında ayrıntılı bilgi için bkz. [Erişim denetimi](sql-database-control-access.md).
 - Öngörülebilir izleme hakkında daha fazla bilgi için bkz. [SQL Veritabanı Denetimini kullanmaya başlama](sql-database-auditing-get-started.md) ve [SQL Veritabanı Tehdit Algılamayı kullanmaya başlama](sql-database-threat-detection-get-started.md).
-
 
 
 

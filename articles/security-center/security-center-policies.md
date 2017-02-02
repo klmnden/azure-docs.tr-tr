@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2017
+ms.date: 01/12/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: ec32e3937d08d912c8f96987b0c5ebbf73060258
-ms.openlocfilehash: d9915ecbfca1eab7515b4879ae2b947c59f3ea2b
+ms.sourcegitcommit: fc82aaf3300a8d40fe00a2ae4dc008ccee6e2a66
+ms.openlocfilehash: 66cdc1fbe5afea4790e5c8ef34b4fcf2d7e89d84
 
 
 ---
@@ -50,7 +50,7 @@ Her bir abonelik veya kaynak grubu için güvenlik ilkeleri yapılandırabilirsi
    > Var olan ve yeni VM'lerin hepsinde güvenlik izleme özelliğinin kullanılabilir olduğundan emin olmak için her bir aboneliğinizde veri toplamayı açmanız önerilir. Veri koleksiyonunu etkinleştirme, izleme aracısını yükler. Veri koleksiyonunu şimdi bu konumdan açmak istemiyorsanız bu işlemi daha sonra **Sistem Durumu** ve **Öneriler** görünümlerinden gerçekleştirebilirsiniz. Ayrıca, yalnızca abonelik için veya VM'leri seçmek için de veri koleksiyonunu etkinleştirebilirsiniz. Desteklenen VM'ler hakkında daha fazla bilgi için bkz. [Azure Güvenlik Merkezi ile ilgili SSS](security-center-faq.md) 
    > 
    > 
-5. Depolama hesabınız henüz yapılandırılmamışsa **Güvenlik İlkesi**'ni açtığınızda aşağıdaki ekran görüntüsüne benzeyen bir uyarı görebilirsiniz:
+5. Depolama hesabınız henüz yapılandırılmamışsa **Güvenlik İlkesi**'ni açtığınızda aşağıdaki ekran görüntüsüne benzeyen bir uyarı görebilirsiniz. Her bölge için bir depolama hesabı seçmezseniz sizin için oluşturulur.
    
     ![Storage seçimi](./media/security-center-policies/security-center-policies-fig2.png)
 6. Bu uyarıyı görürseniz bu seçeneğe tıklayıp aşağıdaki ekran görüntüsünde gösterildiği gibi bölgeyi seçin:
@@ -111,6 +111,6 @@ Bu belgede, Azure Güvenlik Merkezi'nde güvenlik ilkelerinin nasıl yapılandı
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

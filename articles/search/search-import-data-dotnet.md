@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 12/08/2016
+ms.date: 01/13/2017
 ms.author: brjohnst
 translationtype: Human Translation
-ms.sourcegitcommit: 455c4847893175c1091ae21fa22215fd1dd10c53
-ms.openlocfilehash: 724edc7894cabfb31f6e43a291f98ab60c0a9981
+ms.sourcegitcommit: 1f06a7197cc1a6dcf7a39c91183a4317bef126bb
+ms.openlocfilehash: 3c8f30583ebcb5b4e4182bd2770079882c088c50
 
 
 ---
@@ -41,7 +41,7 @@ Bu makaledeki örnek kodun tamamının C# dilinde yazıldığını unutmayın. T
 2. Eklenecek, değiştirilecek veya silinecek belgeleri içeren bir `IndexBatch` oluşturun.
 3. Arama dizininize `IndexBatch` göndermek için `SearchIndexClient` öğenizin `Documents.Index` yöntemini çağırın.
 
-## <a name="i-create-an-instance-of-the-searchindexclient-class"></a>I. SearchIndexClient sınıfının bir örneğini oluşturma
+## <a name="create-an-instance-of-the-searchindexclient-class"></a>SearchIndexClient sınıfının bir örneğini oluşturma
 Azure Search .NET SDK'sını kullanarak dizininize veri aktarmak için `SearchIndexClient` sınıfının bir örneğini oluşturmanız gerekir. Bu örneği kendiniz oluşturulabilirsiniz ancak bunun `Indexes.GetClient` yöntemini çağırmak için bir `SearchServiceClient` örneğine zaten sahipseniz daha kolay olur. Örneğin, `serviceClient` adlı bir `SearchServiceClient` öğesinden "hotels" adlı bir dizin için şu şekilde bir `SearchIndexClient` elde edebilirsiniz:
 
 ```csharp
@@ -55,7 +55,7 @@ ISearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
 
 `SearchIndexClient`, `Documents` özelliğine sahiptir. Bu özellik, belgeleri dizininize eklemek, bunları değiştirmek, silmek veya sorgulamak için ihtiyacınız olan tüm yöntemleri sağlar.
 
-## <a name="ii-decide-which-indexing-action-to-use"></a>II. Hangi dizin oluşturma eyleminin kullanılacağına karar verme
+## <a name="decide-which-indexing-action-to-use"></a>Hangi dizin oluşturma eyleminin kullanılacağına karar verme
 .NET SDK kullanarak veri içeri aktarmak için verilerinizi bir `IndexBatch` nesnesine paketlemeniz gerekir. Bir `IndexBatch`, her birinde bir belge ve söz konusu belgede hangi eylemin (karşıya yükleme, birleştirme, silme, vb.) gerçekleştirileceğini Azure Search'e söyleyen bir özellik bulunan `IndexAction` nesneleri koleksiyonunu kapsar. Yukarıdaki eylemlerden hangisini seçtiğinize bağlı olarak, her bir belgeye yalnızca belirli alanlar dahil edilmelidir:
 
 | Eylem | Açıklama | Her bir belge için gerekli alanlar | Notlar |
@@ -67,7 +67,7 @@ ISearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
 
 Bir sonraki bölümde gösterildiği üzere, `IndexBatch` ve `IndexAction` sınıflarının çeşitli statik yöntemleriyle hangi eylemi kullanmak istediğinizi belirtebilirsiniz.
 
-## <a name="iii-construct-your-indexbatch"></a>III. IndexBatch'inizi oluşturma
+## <a name="construct-your-indexbatch"></a>IndexBatch'inizi oluşturma
 Artık belgelerinizde hangi eylemleri gerçekleştireceğinizi bildiğinize göre, `IndexBatch` oluşturmaya hazırsınız. Aşağıdaki örnek, bir toplu işlemin birkaç farklı eylemle nasıl oluşturulacağını gösterir. Örneğimizde "hotels" dizinindeki bir belgeyle eşlenen `Hotel` adlı özel bir sınıf kullandığımıza dikkat edin.
 
 ```csharp
@@ -130,7 +130,7 @@ Ayrıca, tek bir dizin oluşturma isteğine yalnızca en fazla 1000 belge dahil 
 > 
 > 
 
-## <a name="iv-import-data-to-the-index"></a>IV. Dizine veri aktarma
+## <a name="import-data-to-the-index"></a>Dizine veri aktarma
 Artık başlatılan bir `IndexBatch` nesneniz olduğuna göre `SearchIndexClient` nesneniz üzerinden `Documents.Index` çağrısı yaparak bunu dizininize gönderebilirsiniz. Aşağıdaki örnekte, nasıl `Index` çağrılacağının yanı sıra gerçekleştirmeniz gereken bazı ek adımlar gösterilmektedir:
 
 ```csharp
@@ -234,12 +234,12 @@ Bu yalnızca kuramsal bir sorun değildir: Var olan `DataType.Int32` türünde b
 
 Bu nedenle, en iyi uygulama olarak model sınıflarınızda boş değer atanabilir türler kullanmanızı öneririz.
 
-## <a name="next"></a>Sonraki
+## <a name="next-steps"></a>Sonraki adımlar
 Azure Search dizininizi doldurduktan sonra, belgeleri aramak için sorgu göndermeye başlamaya hazır olursunuz. Ayrıntılı bilgi için bkz. [Azure Search Dizininizi Sorgulama](search-query-overview.md).
 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

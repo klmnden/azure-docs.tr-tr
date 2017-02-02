@@ -16,12 +16,12 @@ ms.topic: get-started-article
 ms.date: 08/23/2016
 ms.author: deonhe
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ab22e0369781f9f9afb9b3df9e7fdd54660a959d
+ms.sourcegitcommit: 30abc823a72431dfd12f1051434191ea904533f6
+ms.openlocfilehash: a5a73a9f124e5339b61dbc49021444a208a471f0
 
 
 ---
-# <a name="how-to-migrate-logic-apps-to-schema-version-20150801preview"></a>Mantıksal uygulamaları şema sürümü 2015-08-01-önizlemeye geçirme
+# <a name="how-to-migrate-logic-apps-to-schema-version-2015-08-01-preview"></a>Mantıksal uygulamaları şema sürümü 2015-08-01-önizlemeye geçirme
 Mevcut mantıksal uygulamalarınızı yeni şemaya taşımak için aşağıdakileri yapın:  
 
 1. Azure portalda mantıksal uygulamanızı açın  
@@ -41,7 +41,7 @@ Mevcut mantıksal uygulamalarınızı yeni şemaya taşımak için aşağıdakil
 * Geçiş işlemi tamamlandığında, mümkün olduğunda [yönetilen API’leri](apis-list.md) kullanmak için Mantıksal uygulamalarınızı güncelleştirmeye başlayın. Örneğin, DropBox v1 kullandığınız durumda Dropbox v2 kullanmaya başlayabilirsiniz.
 
 ## <a name="whats-next"></a>Sırada ne var?
-* [Mantıksal uygulamalarınızı el ile geçirmeyi öğrenme](../app-service-logic/app-service-logic-schema-2015-08-01.md)
+* [Mantıksal uygulamalarınızı el ile geçirmeyi öğrenme](../logic-apps/logic-apps-schema-2015-08-01.md)
 
 <!--Icon references-->
 [step1]: ./media/connectors-schema-migration/migrateschema1.png
@@ -55,6 +55,6 @@ Mevcut mantıksal uygulamalarınızı yeni şemaya taşımak için aşağıdakil
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

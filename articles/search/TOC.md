@@ -61,14 +61,13 @@
 
 # Başvuru
 ## [.NET](/dotnet/api/microsoft.azure.search)
-## [.NET Management](/dotnet/api/microsoft.azure.management.search)
-## [Java](/java/api/com.microsoft.azure.management.search)
+## [.NET (Yönetim)](/dotnet/api/microsoft.azure.management.search)
+## [Python (Yönetim)](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.search.html)
 ## [REST](/rest/api/searchservice)
 ## [REST (Yönetim)](/rest/api/searchmanagement)
 
 # Kaynaklar
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=search)
-## Arama API’lerini kullanma
 ## [API sürümleri](search-api-versions.md)
 ## [Hizmet REST (Önizleme)](search-api-2015-02-28-preview.md)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/search/)
@@ -87,6 +86,6 @@
 ### [Azure Search Github](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

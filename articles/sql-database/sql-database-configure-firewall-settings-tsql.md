@@ -1,6 +1,6 @@
 ---
-title: "T-SQL kullanarak Azure SQL Veritabanı’nda sunucu düzeyinde ve veritabanı düzeyinde güvenlik duvarı kuralları oluşturma | Microsoft Belgeleri"
-description: "Güvenlik duvarının Azure SQL veritabanlarına erişen IP adresleri için nasıl yapılandırılacağını öğrenin."
+title: "T-SQL: Azure SQL Veritabanı güvenlik duvarı kuralları | Microsoft Docs"
+description: "Transact-SQL aracılığıyla Azure SQL veritabanlarına erişen IP adresleri için sunucu düzeyinde ve veritabanı düzeyinde güvenlik duvarı kurallarını nasıl yapılandıracağınızı öğrenin."
 services: sql-database
 documentationcenter: 
 author: BYHAM
@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 08/30/2016
 ms.author: rickbyh
 translationtype: Human Translation
-ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
-ms.openlocfilehash: a49bc9cd8fb50dcc753fbb04bf7f2d96cf79f3ab
+ms.sourcegitcommit: 2f24c1c43300a3c5035fbb4e90c3d13f73c1bc74
+ms.openlocfilehash: ef51f63984d342422ee5f2a93acfee6357df57ca
 
 
 ---
@@ -76,6 +76,11 @@ Yalnızca veritabanı üzerinde **CONTROL** iznine sahip olan bir veritabanı ku
 
 Bu saklı yordamlar hakkında daha fazla bilgi için bkz. [sp_set_database_firewall_rule](https://msdn.microsoft.com/library/dn270010.aspx) ve [sp_delete_database_firewall_rule](https://msdn.microsoft.com/library/dn270030.aspx).
 
+> [!NOTE]
+> Veritabanı düzeyinde güvenlik duvarlarının kullanımını gösteren bir öğretici için bkz. [SQL Veritabanı Öğreticisi: SQL Server kimlik doğrulaması, oturum açma bilgileri ve kullanıcı hesapları, veritabanı kuralları, izinler, sunucu düzeyinde güvenlik duvarı kuralları ve veritabanı düzeyinde güvenlik duvarı kuralları](sql-database-control-access-sql-authentication-get-started.md).
+>
+
+
 ## <a name="next-steps"></a>Sonraki adımlar
 Başka yöntemler kullanarak sunucu düzeyinde güvenlik duvarı kuralları oluşturmayla ilgili nasıl yapılır makaleleri için bkz: 
 
@@ -94,6 +99,6 @@ Veritabanlarına nasıl gidileceğini anlamak için bkz. [Veritabanı erişimi v
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 

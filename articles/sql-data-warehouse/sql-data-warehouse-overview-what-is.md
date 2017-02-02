@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: jrj;mausher;kevin;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ff2d30fcf53028754fc5e1a4b6b52323855a48b4
+ms.sourcegitcommit: 6241eb0e7ea091dffcb0ae770f8d89f24a19eb67
+ms.openlocfilehash: ff2f688d42924edb1596cb2db474a58748f2b44c
 
 
 ---
@@ -25,7 +25,7 @@ Azure SQL Veri Ambarı, hem ilişkisel hem de ilişkisel olmayan çok geniş hac
 
 SQL Data Warehouse:
 
-* SQL Server ilişkisel veritabanıyla Azure bulut ölçeğini genişletme işlevlerini birleştirir. İşlemleri saniyeler içinde yükseltebilir, azaltabilir, duraklatabilir veya sürdürebilirsiniz. İhtiyacınız olduğunda CPU'nun ölçeğini genişleterek ve yoğun olmayan zamanlarda kullanımı azaltarak maliyet tasarrufu yapabilirsiniz.
+* SQL Server ilişkisel veritabanıyla Azure bulut ölçeğini genişletme işlevlerini birleştirir. İşlemleri saniyeler veya dakikalar içinde yükseltebilir, azaltabilir, duraklatabilir veya sürdürebilirsiniz. İhtiyacınız olduğunda CPU'nun ölçeğini genişleterek ve yoğun olmayan zamanlarda kullanımı azaltarak maliyet tasarrufu yapabilirsiniz.
 * Azure platformundan yararlanır. Dağıtılması kolaydır, bakımı sorunsuzdur ve otomatik yedeklemeler sayesinde hataya tamamen dayanıklıdır.
 * SQL Server ekosistemini tamamlar. Alışık olduğunuz SQL Server Transact-SQL (T-SQL) ve araçlarla geliştirme yapabilirsiniz.
 
@@ -96,21 +96,21 @@ SQL Veri Ambarı, SQL Server ilişkisel veritabanı altyapısını temel alır v
 
 * SQL Veri Ambarı birçok işlem için T-SQL söz dizimini kullanır. Ayrıca depolanan yordamlar, kullanıcı tanımlı işlevler, tablo bölümleme, dizinler ve harmanlamalar gibi çok sayıda geleneksel SQL yapısını destekler.
 * SQL Veri Ambarı kümelenmiş **columnstore** dizinleri, PolyBase tümleştirme ve veri denetimi (tehdit değerlendirmesi ile tamamlanan) dahil olmak üzere daha yeni SQL Server özelliklerini de içerir.
-* Veri ambarı iş yükleri için daha az yaygın olan ya da SQL Server için yeni olan bazı T-SQL dil öğeleri şu anda kullanılamayabilir. Daha fazla bilgi için bkz. [Geçiş belgeleri][Geçiş belgeleri].
+* Veri ambarı iş yükleri için daha az yaygın olan ya da SQL Server için yeni olan bazı T-SQL dil öğeleri şu anda kullanılamayabilir. Daha fazla bilgi için bkz. [Geçiş belgeleri][Migration documentation].
 
 SQL Server, SQL Data Warehouse, SQL Database ve Analiz Platformu Sistemi arasındaki ortak özellikler ve Transact-SQL sayesinde, veri ihtiyaçlarınıza uygun olan bir çözümü geliştirebilirsiniz. Performans, güvenlik ve ölçeklendirme gereksinimlerine göre verilerinizi saklamayı ve ardından verileri gereken şekilde farklı sistemler arasında aktarmayı seçebilirsiniz.
 
 ## <a name="data-protection"></a>Veri koruma
-SQL Veri Ambarı tüm verileri Azure Premium yerel olarak yedekli depolama alanında depolar. Yerelleştirilmiş hata olasılıklarına karşın saydam veri koruma olanağı sağlamak amacıyla yerel veri merkezinde verilerin birden çok zaman uyumlu kopyası saklanır. Ayrıca, SQL Veri Ambarı Azure Depolama Anlık Görüntüleri kullanarak etkin (duraklatılmamış) veritabanlarınızı otomatik olarak yedekler. Yedekleme ve geri yükleme işleminin nasıl çalıştığı hakkında daha fazla bilgi edinmek için bkz. [Yedekleme ve geri yüklemeye genel bakış][Yedekleme ve geri yüklemeye genel bakış].
+SQL Veri Ambarı tüm verileri Azure Premium yerel olarak yedekli depolama alanında depolar. Yerelleştirilmiş hata olasılıklarına karşın saydam veri koruma olanağı sağlamak amacıyla yerel veri merkezinde verilerin birden çok zaman uyumlu kopyası saklanır. Ayrıca, SQL Veri Ambarı Azure Depolama Anlık Görüntüleri kullanarak etkin (duraklatılmamış) veritabanlarınızı otomatik olarak yedekler. Yedekleme ve geri yükleme işleminin nasıl çalıştığı hakkında daha fazla bilgi edinmek için bkz. [Yedekleme ve geri yüklemeye genel bakış][Backup and restore overview].
 
 ## <a name="integrated-with-microsoft-tools"></a>Microsoft araçları ile tümleşiktir
 SQL Veri Ambarı ayrıca SQL Server kullanıcıların tanıyor olabileceği çok sayıda araçla tümleştirilir. Bunlar:
 
 **Geleneksel SQL Server araçları:** SQL Veri Ambarı SQL Server Analysis Services, Integration Services ve Reporting Services ile tam olarak tümleşiktir.
 
-**Bulut tabanlı araçlar:** SQL Veri Ambarı; Data Factory, Akış Analizi , Machine Learning ve Power BI dahil olmak üzere Azure'daki bir dizi yeni araçla birlikte kullanılabilir. Daha kapsamlı bir liste için bkz. [Tümleşik araçlara genel bakış][Tümleşik araçlara genel bakış].
+**Bulut tabanlı araçlar:** SQL Veri Ambarı; Data Factory, Akış Analizi , Machine Learning ve Power BI dahil olmak üzere Azure'daki bir dizi yeni araçla birlikte kullanılabilir. Daha kapsamlı bir liste için bkz. [Tümleşik araçlara genel bakış][Integrated tools overview].
 
-**Üçüncü taraf araçları:** Çok sayıda üçüncü taraf aracı sağlayıcısına ait araç, SQL Veri Ambarı ile sertifikalı tümleştirmeye sahiptir. Tam bir liste için bkz. [SQL Veri Ambarı çözüm iş ortakları][SQL Veri Ambarı çözüm iş ortakları].
+**Üçüncü taraf araçları:** Çok sayıda üçüncü taraf aracı sağlayıcısına ait araç, SQL Veri Ambarı ile sertifikalı tümleştirmeye sahiptir. Tam bir liste için bkz. [SQL Veri Ambarı çözüm ortakları][SQL Data Warehouse solution partners].
 
 ## <a name="hybrid-data-sources-scenarios"></a>Karma veri kaynakları senaryoları
 Kullanıcılar, SQL Veri Ambarı’nı PolyBase ile birlikte kullanarak verileri ekosistemleri içinde taşıma konusunda benzersiz bir beceriye sahip olur ve ilişkisel olmayan ve şirket içi veri kaynakları ile gelişmiş karma senaryolar kurma becerisini ortaya çıkarırlar.
@@ -122,10 +122,10 @@ Polybase farklı kaynaklardaki verilerinizi alışık olduğunuz T-SQL komutlar�
 * PolyBase aynı zamanda bir HDInsight kümesi için depolama alanı olarak kullanılan blob depolama alanına erişmek için kullanılabilir. Bu özellik, ilişkisel ve ilişkisel olmayan araçlarla aynı verilere erişmenizi sağlar.
 
 ## <a name="sla"></a>SLA
-SQL Veri Ambarı, Microsoft Online Services SLA’nın parçası olarak ürün düzeyinde hizmet düzeyi sözleşmesi (SLA) sağlar. Daha fazla bilgi için [SQL Veri Ambarı için SLA][SQL Veri Ambarı için SLA] bölümünü ziyaret edin. Diğer tüm ürünlerle ilgili SLA bilgileri için [Hizmet Düzeyi Sözleşmeleri] Azure sayfasına gidebilir veya [Toplu Lisanslama][Toplu Lisanslama] sayfasından bunları indirebilirsiniz. 
+SQL Veri Ambarı, Microsoft Online Services SLA’nın parçası olarak ürün düzeyinde hizmet düzeyi sözleşmesi (SLA) sağlar. Daha fazla bilgi için [SQL Veri Ambarı için SLA][SLA for SQL Data Warehouse] bölümünü ziyaret edin. Diğer tüm ürünlerle ilgili SLA bilgileri için [Hizmet Düzeyi Sözleşmeleri] Azure sayfasını ziyaret edebilir veya [Toplu Lisanslama][Volume Licensing] sayfasından bunları indirebilirsiniz. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-SQL Veri Ambarı hakkında biraz bilgi sahibi olduğunuza göre hızlıca [SQL Veri Ambarı oluşturma][SQL Veri Ambarı oluşturma] ve [örnek verileri yükleme][örnek verileri yükleme] hakkında bilgi edinin. Azure’da yeniyseniz, karşılaşabileceğiniz yeni terimler için [Azure sözlüğünü][Azure sözlüğünü] kullanabilirsiniz. Alternatif olarak, aşağıdaki diğer SQL Data Warehouse Kaynakları'na göz atın.  
+SQL Veri Ambarı hakkında biraz bilgi sahibi olduğunuza göre hızlıca [SQL Veri Ambarı oluşturma][create a SQL Data Warehouse] ve [örnek verileri yükleme][load sample data] hakkında bilgi edinin. Azure'da yeniyseniz yeni terimlerle karşılaşabileceğinizi için [Azure sözlüğünü][Azure glossary] yararlı bulabilirsiniz. Alternatif olarak, aşağıdaki diğer SQL Data Warehouse Kaynakları'na göz atın.  
 
 * [Müşteri başarı hikayeleri]
 * [Bloglar]
@@ -142,13 +142,13 @@ SQL Veri Ambarı hakkında biraz bilgi sahibi olduğunuza göre hızlıca [SQL V
 
 <!--Article references-->
 [Destek bileti oluşturma]: ./sql-data-warehouse-get-started-create-support-ticket.md
-[örnek verileri yükleme]: ./sql-data-warehouse-load-sample-databases.md
-[SQL Veri Ambarı oluşturma]: ./sql-data-warehouse-get-started-provision.md
-[Geçiş belgeleri]: ./sql-data-warehouse-overview-migrate.md
-[SQL Veri Ambarı çözüm ortakları]: ./sql-data-warehouse-partner-business-intelligence.md
-[Tümleşik araçlara genel bakış]: ./sql-data-warehouse-overview-integrate.md
-[Yedekleme ve geri yüklemeye genel bakış]: ./sql-data-warehouse-restore-database-overview.md
-[Azure sözlüğü]: ../azure-glossary-cloud-terminology.md
+[load sample data]: ./sql-data-warehouse-load-sample-databases.md
+[create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
+[Migration documentation]: ./sql-data-warehouse-overview-migrate.md
+[SQL Data Warehouse solution partners]: ./sql-data-warehouse-partner-business-intelligence.md
+[Integrated tools overview]: ./sql-data-warehouse-overview-integrate.md
+[Backup and restore overview]: ./sql-data-warehouse-restore-database-overview.md
+[Azure glossary]: ../azure-glossary-cloud-terminology.md
 
 <!--MSDN references-->
 
@@ -161,12 +161,12 @@ SQL Veri Ambarı hakkında biraz bilgi sahibi olduğunuza göre hızlıca [SQL V
 [Stack Overflow forumu]: http://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Videolar]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
-[SQL Veri Ambarı için SLA]: https://azure.microsoft.com/en-us/support/legal/sla/sql-data-warehouse/v1_0/
-[Toplu Lisanslama]: http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=37
+[SLA for SQL Data Warehouse]: https://azure.microsoft.com/en-us/support/legal/sla/sql-data-warehouse/v1_0/
+[Volume Licensing]: http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=37
 [Hizmet Düzeyi Sözleşmeleri]: https://azure.microsoft.com/en-us/support/legal/sla/
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

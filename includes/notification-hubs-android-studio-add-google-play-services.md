@@ -3,7 +3,7 @@
    
     SDK yolunun sonraki bir adım için olduğunu unutmayın. 
    
-       ![](./media/notification-hubs-android-studio-add-google-play-services/notification-hubs-android-studio-sdk-manager.png)
+    ![](./media/notification-hubs-android-studio-add-google-play-services/notification-hubs-android-studio-sdk-manager.png)
 3. Uygulama dizinindeki **build.gradle** dosyasını açın.
    
     ![](./media/notification-hubs-android-studio-add-google-play-services/notification-hubs-android-studio-add-google-play-dependency.png)

@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: e2785d007aa30d3ef70ce2ca6049cdd4e9733099
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 3451e6d13119bacc66e9ccd861862edea5a5b4fe
 
 
 ---
@@ -147,7 +147,7 @@ Azure'da Java uygulamaları geliştirme hakkında daha fazla bilgi için bkz. [J
 [Azure Portal]: https://portal.azure.com/
 [Visual Studio abone avantajlarınızı etkinleştirebilir]: http://go.microsoft.com/fwlink/?LinkId=623901
 [ücretsiz deneme için kaydolabilirsiniz]: http://go.microsoft.com/fwlink/?LinkId=623901
-[App Service’i Deneyin]: http://go.microsoft.com/fwlink/?LinkId=523751
+[App Service’i Deneyin]: https://azure.microsoft.com/try/app-service/
 [Azure App Service’te Java web uygulaması]: http://go.microsoft.com/fwlink/?LinkId=529714
 [Java Geliştirici Merkezi]: /develop/java/
 [Resource Manager'a genel bakış]: ../azure-resource-manager/resource-group-overview.md
@@ -169,6 +169,6 @@ Azure'da Java uygulamaları geliştirme hakkında daha fazla bilgi için bkz. [J
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

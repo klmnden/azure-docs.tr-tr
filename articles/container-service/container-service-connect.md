@@ -1,107 +1,138 @@
 ---
 title: "Azure Container Service kümesine bağlanma | Microsoft Belgeleri"
-description: "SSH tüneli kullanarak Azure Kapsayıcı Hizmeti kümesine bağlanın."
+description: "Uzak bilgisayardan Azure Container Service’teki Kubernetes, DC/OS veya Docker Swarm kümesine bağlanma"
 services: container-service
 documentationcenter: 
-author: rgardler
+author: dlepow
 manager: timlt
 editor: 
 tags: acs, azure-container-service
-keywords: "Docker, Kapsayıcılar, Mikro hizmetler, DC/OS, Azure"
+keywords: "Docker, Container’lar, Mikro hizmetler, Kumernetes, DC/OS, Azure"
 ms.assetid: ff8d9e32-20d2-4658-829f-590dec89603d
 ms.service: container-service
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/13/2016
+ms.date: 01/12/2017
 ms.author: rogardle
 translationtype: Human Translation
-ms.sourcegitcommit: bcc2d3468c8a560105aa2c2feb0d969ec3cccdcb
-ms.openlocfilehash: 5296586b9266f432042f847f4dff9e6ff62ebc8b
+ms.sourcegitcommit: 2549ca9cd05f44f644687bbdf588f7af01bae3f4
+ms.openlocfilehash: 79162e5d31346370e596f39fa4827d49625897b3
 
 
 ---
 # <a name="connect-to-an-azure-container-service-cluster"></a>Azure Kapsayıcı Hizmeti kümesine bağlanma
-Azure Container Service tarafından dağıtılan DC/OS, Kubernetes ve Docker Swarm kümeleri, REST uç noktalarını kullanıma sunar.  Kubernetes için, bu uç nokta İnternet’te güvenli bir şekilde kullanıma sunulmuştur ve bu uç noktaya İnternet bağlantısı olan herhangi bir makineden doğrudan erişilebilir. DC/OS ve Docker Swarm için, REST uç noktasını güvenli bir şekilde bağlamak için bir SSH tüneli oluşturmanız gerekir. Bu bağlantıların her biri aşağıda açıklanmıştır.
+Azure Container Service kümesi oluşturduktan sonra, iş yüklerini dağıtmak ve yönetmek için kümeye bağlanmanız gerekir. Bu makalede uzak bir bilgisayardan kümenin ana VM’ine nasıl bağlanacağınız açıklanır. Kumernetes, DC/OS ve Docker Swarm kümelerinin tamamı REST uç noktalarını kullanıma sunar. Kubernetes için, bu uç nokta İnternet’te güvenli bir şekilde kullanıma sunulmuştur ve bu uç noktaya İnternet bağlantısı olan herhangi bir makineden `kubectl` komutunu çalıştırarak erişebilirsiniz. DC/OS ve Docker Swarm için, REST uç noktasını güvenli bir şekilde bağlamak için bir güvenli teslim (SSH) tüneli oluşturmanız gerekir. 
 
 > [!NOTE]
 > Azure Container Service'teki Kubernetes desteği şu anda önizleme aşamasındadır.
 >
 
-## <a name="connecting-to-a-kubernetes-cluster"></a>Kubernetes kümesine bağlanma.
-Kubernetes kümesine bağlanmak için, `kubectl` komut satırı aracının yüklü olması gerekir.  Bu aracı yüklemenin en kolay yolu, Azure 2.0 `az` komut satırı aracını kullanmaktır.
+## <a name="prerequisites"></a>Ön koşullar
 
-```console
-az acs kubernetes install cli [--install-location=/some/directory]
+* Bir Kubernetes, DC/OS veya Swarm kümesi [Azure Container Service’te dağıtılır](container-service-deployment.md).
+* Dağıtım sırasında kümeye eklenen ortak anahtara denk gelen SSH özel anahtar dosyası. Bu komutlar, özel SSH anahtarının bilgisayarınızda `$HOME/.ssh/id_rsa` içerisinde olduğunu varsayar. Daha fazla bilgi için [OS X ve Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) veya [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md) ile ilgili şu yönergelere bakın. SSH bağlantısı çalışmıyorsa,[SSH anahtarlarınızı sıfırlamanız](../virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md) gerekebilir.
+
+## <a name="connect-to-a-kubernetes-cluster"></a>Kubernetes kümesine bağlanma
+
+Bilgisayarınızda `kubectl` yükleyip yapılandırmak için şu adımları takip edin.
+
+> [!NOTE] 
+> Linux veya OS X’te `sudo` kullanarak bu bölümdeki komutları çalıştırmanız gerekebilir..
+> 
+
+### <a name="install-kubectl"></a>Kubectl yükleyin
+Bu aracı yüklemenin en kolay yolu, Azure 2.0 `az acs kubernetes install-cli` (Önizleme) komut satırı aracını kullanmaktır. Bu komutu çalıştırmak için Azure CLI 2.0’ın (Önizleme) en son sürümünü [yüklediğinizden](/cli/azure/install-az-cli2) ve bir Azure hesabında (`az login`) oturum açtığınızdan emin olun.
+
+```azurecli
+# Linux or OS X
+az acs kubernetes install-cli [--install-location=/some/directory/kubectl]
+
+# Windows
+az acs kubernetes install-cli [--install-location=C:\some\directory\kubectl.exe]
 ```
 
-Alternatif olarak, istemciyi doğrudan [sürümler sayfasından](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG.md#downloads-for-v146) indirebilirsiniz
+Alternatif olarak, istemciyi doğrudan [sürümler sayfasından](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG.md#downloads-for-v146) indirebilirsiniz.
 
-`kubectl` komut satırı aracını yükledikten sonra, küme kimlik bilgilerini makinenize kopyalamanız gerekir.  Bunu yapmanın en kolay yolu, yine `az` komut satırı aracını kullanmaktır:
+### <a name="download-cluster-credentials"></a>Küme kimlik bilgilerini indirme
+`kubectl` komut satırı aracını yükledikten sonra, küme kimlik bilgilerini makinenize kopyalamanız gerekir. Kimlik bilgilerini almak için başka bir yöntem de `az acs kubernetes get-credentials` komutunu çalıştırmaktır. Kaynak grubunun ve kapsayıcı hizmet kaynağının adını geçirin:
 
-```console
-az acs kubernetes get-credentials --dns-prefix=<some-prefix> --location=<some-location>
+
+```azurecli
+az acs kubernetes get-credentials --resource-group=<cluster-resource-group> --name=<cluster-name>
 ```
 
-Bu işlem, küme bilgilerini, `kubectl` komut satırı aracının bulunmasını beklediği `$HOME/.kube/config` dizinine indirir.
+Bu komut, küme bilgilerini, `kubectl` komut satırı aracının bulunmasını beklediği `$HOME/.kube/config` dizinine indirir.
 
-Alternatif olarak, `scp` komutunu kullanarak, ana VM’deki dosyayı `$HOME/.kube/config` dizininden yerel makinenize güvenli bir şekilde kopyalayabilirsiniz.
+Alternatif olarak, `scp` komutunu kullanarak, ana VM’deki dosyayı `$HOME/.kube/config` dizininden yerel makinenize güvenli bir şekilde kopyalayabilirsiniz. Örneğin:
 
 ```console
 mkdir $HOME/.kube/config
 scp azureuser@<master-dns-name>:.kube/config $HOME/.kube/config
 ```
 
-Windows kullanıyorsanız, Windows üzerinde çalışan Ubuntu’da Bash kabuğunu veya Putty 'pscp' aracını kullanmanız gerekir.
+Windows kullanıyorsanız, Windows’ta Bash on Ubuntu veya PuTTy güvenli dosya kopyalama istemcisi veya benzer bir araç kullanmanız gerekir.
 
-`kubectl` yapılandırmasını tamamladıktan sonra test etmek için kümenizdeki düğümleri listeleyebilirsiniz:
+
+
+### <a name="use-kubectl"></a>Kubectl kullanma
+
+`kubectl` yapılandırmasını tamamladıktan sonra bağlantıyı test etmek için kümenizdeki düğümleri listeleyebilirsiniz:
 
 ```console
 kubectl get nodes
 ```
 
-Son olarak Kubernetes Panosu'nu görüntüleyebilirsiniz. Öncelikle şunu yürütün:
+Diğer `kubectl` komutlarını deneyebilirsiniz. Örneğin, Kubernetes Panosunu görüntüleyebilirsiniz. İlk olarak Kubernetes API sunucusuna bir ara sunucu çalıştırın:
 
 ```console
 kubectl proxy
 ```
 
-Kubernetes UI sayfasına şu adresten ulaşabilirsiniz: http://localhost:8001/ui
+Kubernetes UI sayfasına şu adresten ulaşabilirsiniz: `http://localhost:8001/ui`.
 
-Ayrıntılı yönergeler için bkz. [Kubernetes için hızlı başlangıç kılavuzu](http://kubernetes.io/docs/user-guide/quick-start/)
+Daha fazla bilgi için bkz: [Kubernetes hızlı başlangıç](http://kubernetes.io/docs/user-guide/quick-start/).
 
-## <a name="connecting-to-a-dcos-or-swarm-cluster"></a>DC/OS veya Swarm kümesine bağlanma
+## <a name="connect-to-a-dcos-or-swarm-cluster"></a>DC/OS veya Swarm kümesine bağlanma
 
-Azure Container Service tarafından dağıtılan DC/OS ve Docker Swarm kümeleri REST uç noktalarını kullanıma sunar. Ancak, bu uç noktalar dış dünyaya açık değildir. Bu uç noktaları yönetmek için bir Secure Shell (SSH) tüneli oluşturmanız gerekir. SSH tüneli oluşturulduktan sonra küme uç noktalarına karşı komutları çalıştırabilir ve kendi sisteminizdeki bir tarayıcı aracılığıyla küme kullanıcı arabirimini görüntüleyebilirsiniz. Bu belgede size Linux, OS X ve Windows’da bir SSH tüneli oluşturma konusunu adım adım anlatılmaktadır.
+Azure Container Service tarafından dağıtılan DC/OS ve Docker Swarm kümeleri REST uç noktalarını kullanıma sunar. Ancak, bu uç noktalar dış dünyaya açık değildir. Bu uç noktaları yönetmek için bir Secure Shell (SSH) tüneli oluşturmanız gerekir. SSH tüneli oluşturulduktan sonra küme uç noktalarına karşı komutları çalıştırabilir ve kendi sisteminizdeki bir tarayıcı aracılığıyla küme kullanıcı arabirimini görüntüleyebilirsiniz. Aşağıdaki bölümler Linux, OS X ve Windows işletim sistemli bilgisayarlardan bir SSH tüneli oluşturma konusunda size yol gösterecektir.
 
 > [!NOTE]
-> Bir küme yönetimi sistemi ile SSH oturumu oluşturabilirsiniz. Ancak bu önerilmemektedir. Doğrudan bir yönetim sistemi üzerinde çalışmak yanlışlıkla yapılandırma değişiklikleri yapma riski doğurur.   
-> 
-> 
-
-## <a name="create-an-ssh-tunnel-on-linux-or-os-x"></a>Linux veya OS X’de SSH tüneli oluşturma
-Linux veya OS X’de bir SSH tüneli oluşturduğunuzda yapacağınız ilk şey yük dengeli ana sunucuların genel DNS adını bulmaktır. Bunu yapmak için, her kaynak görüntülenecek şekilde kaynak grubunu genişletin. Ana sunucunun ortak IP adresini bulun ve seçin. Bu, DNS adını içeren ortak IP adresi hakkında bilgiler içeren dikey pencereyi açar. Bu adı daha sonra kullanmak için kaydedin. <br />
-
-![Genel DNS adı](media/pubdns.png)
-
-Şimdi bir kabuğu açın ve aşağıdaki komutu çalıştırın, buradaki ifadelerin anlamları şu şekildedir:
-
-**PORT** kullanıma sunmak istediğiniz bağlantı noktasıdır. Swarm için, bu 2375’dir. DC/OS için, 80 numaralı bağlantı noktasını kullanın.  
-**USERNAME** Kümeyi dağıttığınızda sağlanan kullanıcı adıdır.  
-**DNSPREFIX** Kümeyi dağıttığınızda sağladığınız DNS önekidir.  
-**REGION** kaynak grubunuzun bulunduğu bölgedir.  
-**PATH_TO_PRIVATE_KEY** [OPTIONAL] Kapsayıcı Hizmeti kümesini oluştururken sağladığınız ortak anahtara karşılık gelen özel anahtar yoludur. Bu seçeneği i flag ile birlikte kullanın.
-
-```bash
-ssh -L PORT:localhost:PORT -f -N [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com -p 2200
-```
-> SSH bağlantı noktası 2200’dür; standart bağlantı noktası 22 değildir.
-> 
+> Bir küme yönetimi sistemi ile SSH oturumu oluşturabilirsiniz. Ancak bu önerilmemektedir. Doğrudan bir yönetim sistemi üzerinde çalışmak yanlışlıkla yapılandırma değişiklikleri yapma riski doğurur.
 > 
 
-## <a name="dcos-tunnel"></a>DC/OS tüneli
-DC/OS ile ilgili uç noktalara bir tünel açmak için, aşağıdakine benzeyen bir komut yürütün:
+### <a name="create-an-ssh-tunnel-on-linux-or-os-x"></a>Linux veya OS X’de SSH tüneli oluşturma
+Linux veya OS X’de bir SSH tüneli oluşturduğunuzda yapacağınız ilk şey yük dengeli ana sunucuların genel DNS adını bulmaktır. Şu adımları uygulayın:
+
+
+1. [Azure portal](https://portal.azure.com)’da kapsayıcı hizmet kümenizi içeren kaynak grubuna gidin. Her kaynağın görüntülenmesi için kaynak grubu genişletin. 
+
+2. Ana makinenin sanal makinesini bulup seçin. Bir DC/OS kümesinde bu kaynağın adı **dcos-master -** ile başlar. 
+
+    **Sanal makine** dikey penceresi, DNS adını içeren açık IP adresi ile ilgili bilgileri içerir. Bu adı daha sonra kullanmak için kaydedin. 
+
+    ![Genel DNS adı](media/pubdns.png)
+
+3. Şimdi bir kabuk açın ve aşağıdaki değerleri belirleyerek `ssh` komutunu çalıştırın: 
+
+    **PORT** kullanıma sunmak istediğiniz bağlantı noktasıdır. Swarm için 2375 bağlantı noktasını kullanın. DC/OS için, 80 numaralı bağlantı noktasını kullanın.  
+    **USERNAME** Kümeyi dağıttığınızda sağlanan kullanıcı adıdır.  
+    **DNSPREFIX** Kümeyi dağıttığınızda sağladığınız DNS önekidir.  
+    **REGION** kaynak grubunuzun bulunduğu bölgedir.  
+    **PATH_TO_PRIVATE_KEY** [OPTIONAL] kümeyi oluştururken sağladığınız ortak anahtara karşılık gelen özel anahtar yoludur. Bu seçeneği `-i` flag ile birlikte kullanın.
+
+    ```bash
+    ssh -L PORT:localhost:PORT -f -N [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com -p 2200
+    ```
+    > [!NOTE]
+    > SSH bağlantı noktası 2200’dür; standart bağlantı noktası 22 değildir. Birden fazla ana VM bulunan kümede bu, ilk ana VM’e bağlantı noktasıdır.
+    > 
+
+Aşağıdaki bölümlerde DC/OS ve Swarm ile ilgili örneklere bakın.    
+
+### <a name="dcos-tunnel"></a>DC/OS tüneli
+DC/OS ile ilgili uç noktalara bir tünel açmak için, aşağıdakine benzeyen bir komut çalıştırın:
 
 ```bash
 sudo ssh -L 80:localhost:80 -f -N azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com -p 2200
@@ -115,8 +146,8 @@ sudo ssh -L 80:localhost:80 -f -N azureuser@acsexamplemgmt.japaneast.cloudapp.az
 
 Benzer şekilde, bu tünel üzerinden her uygulama için rest API'lerine ulaşabilirsiniz.
 
-## <a name="swarm-tunnel"></a>Swarm tüneli
-Swarm uç noktalarına bir tünel açmak için, aşağıdakine benzeyen bir komut yürütün:
+### <a name="swarm-tunnel"></a>Swarm tüneli
+Swarm uç noktalarına bir tünel açmak için, aşağıdakine benzeyen bir komut çalıştırın:
 
 ```bash
 ssh -L 2375:localhost:2375 -f -N azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com -p 2200
@@ -128,54 +159,58 @@ ssh -L 2375:localhost:2375 -f -N azureuser@acsexamplemgmt.japaneast.cloudapp.azu
 export DOCKER_HOST=:2375
 ```
 
-## <a name="create-an-ssh-tunnel-on-windows"></a>Windows’da SSH tüneli oluşturma
-Windows’da SSH tünelleri oluşturmak için birden çok seçenek vardır. Bu belgede bunu yapmak için PuTTY’nin nasıl kullanılacağı açıklanmıştır.
+### <a name="create-an-ssh-tunnel-on-windows"></a>Windows’da SSH tüneli oluşturma
+Windows’da SSH tünelleri oluşturmak için birden çok seçenek vardır. Bu bölüm, tüneli oluşturmak için PuTTy’nin nasıl kullanılacağını açıklar.
 
-PuTTY’yi Windows sisteminize indirin ve uygulamayı çalıştırın.
+1. [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)’yi Windows sisteminize indirin.
 
-Kümedeki ilk ana sunucunun küme yöneticisi kullanıcı adı ve genel DNS adından oluşan bir ana bilgisayar adı girin. **Ana bilgisayar adı** şuna benzeyecektir: `adminuser@PublicDNS`. **Bağlantı Noktası** için 2200 girin.
+2. Uygulamayı çalıştırın.
 
-![PuTTY yapılandırması 1](media/putty1.png)
+3. Kümedeki ilk ana sunucunun küme yöneticisi kullanıcı adı ve genel DNS adından oluşan bir ana bilgisayar adı girin. **Ana Bilgisayar Adı** `adminuser@PublicDNSName`’e benzer. **Bağlantı Noktası** için 2200 girin.
 
-**SSH** ve **Kimlik Doğrulaması**’nı seçin. Kimlik doğrulaması için özel anahtar dosyanızı ekleyin.
+    ![PuTTY yapılandırması 1](media/putty1.png)
 
-![PuTTY yapılandırması 2](media/putty2.png)
+4. **SSH > Yetkilendirme** öğesini seçin. Özel anahtar dosyanıza (.ppk biçimi) kimlik doğrulaması için bir yol ekleyin. [PuTTYgen](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) gibi bir araç kullanarak bu dosyayı kümenin oluşturulması için kullanılan SSH anahtarından oluşturabilirsiniz.
 
-**Tüneller** öğesini seçin ve aşağıdaki iletilen bağlantı noktalarını yapılandırın:
+    ![PuTTY yapılandırması 2](media/putty2.png)
 
-* **Kaynak Bağlantı Noktası:** Tercihiniz--DC/OS için 80 veya Swarm için 2375 kullanın.
-* **Hedef:** DC/OS için localhost:80 veya Swarm için 2375 kullanın.
+5. **SSH > Tüneller** öğesini seçin ve aşağıdaki iletilen bağlantı noktalarını yapılandırın:
 
-Aşağıdaki örnek DC/OS için yapılandırılmıştır, ancak Docker Swarm için olan benzer olacaktır.
+    * **Kaynak Bağlantı Noktası:** DC/OS için 80 veya Swarm için 2375 kullanın.
+    * **Hedef:** DC/OS için localhost:80 veya Swarm için&2375; kullanın.
 
-> [!NOTE]
-> Bu tüneli oluştururken bağlantı noktası 80 kullanımda olmamalıdır.
-> 
-> 
+    Aşağıdaki örnek DC/OS için yapılandırılmıştır, ancak Docker Swarm için olan benzer olacaktır.
 
-![PuTTY yapılandırması 3](media/putty3.png)
+    > [!NOTE]
+    > Bu tüneli oluştururken bağlantı noktası 80 kullanımda olmamalıdır.
+    > 
 
-İşiniz bittiğinde, bağlantı yapılandırmasını kaydedin ve PuTTY oturumuna bağlanın. Bağlandığınızda, bağlantı noktası yapılandırmasını PuTTY olay günlüğünde görebilirsiniz.
+    ![PuTTY yapılandırması 3](media/putty3.png)
 
-![PuTTY olay günlüğü](media/putty4.png)
+6. İşiniz bittiğinde, bağlantı yapılandırmasını kaydetmek için **Oturum > Kaydet**’e tıklayın.
 
-DC/OS için tüneli yapılandırdığınızda aşağıdakiler üzerinde ilgili uç noktaya erişebilirsiniz:
+7. PuTTY oturumuna bağlanmak için **Aç**’a tıklayın. Bağlandığınızda, bağlantı noktası yapılandırmasını PuTTY olay günlüğünde görebilirsiniz.
+
+    ![PuTTY olay günlüğü](media/putty4.png)
+
+DC/OS için tünelini yapılandırdıktan sonra aşağıdakiler üzerinde ilgili uç noktaya erişebilirsiniz:
 
 * DC/OS: `http://localhost/`
 * Marathon: `http://localhost/marathon`
 * Mesos: `http://localhost/mesos`
 
-Docker Swarm için tüneli yapılandırdığınızda Docker CLI aracılığıyla Swarm kümesine erişebilirsiniz. Önce ` :2375` değeriyle `DOCKER_HOST` adlı bir Windows ortamı değişkeni yapılandırmanız gerekir.
+Docker Swarm için bir tünel yapılandırdıktan sonra `:2375` değeriyle `DOCKER_HOST` adlı bir sistem ortam değişkeni yapılandırmak için Windows ayarlarınızı açın. Ardından Docker CLI üzerinden Swarm kümesine erişebilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-DC/OS ya da Swarm ile kapsayıcıları dağıtın ve yönetin:
+Kümenizde kapsayıcıları dağıtma ve yönetme:
 
+* [Azure Container Service ve Kubernetes ile çalışma](container-service-kubernetes-ui.md)
 * [Azure Container Service ve DC/OS ile çalışma](container-service-mesos-marathon-rest.md)
 * [Azure Container Service ve Docker Swarm ile çalışma](container-service-docker-swarm.md)
 
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -16,8 +16,8 @@ ms.workload: data-management
 ms.date: 06/09/2016
 ms.author: thmullan;jackr
 translationtype: Human Translation
-ms.sourcegitcommit: f4712d70c0323e607ddcc021809f8097a621730d
-ms.openlocfilehash: 9ebf3cd290151449c05c89307500fa5679de3b09
+ms.sourcegitcommit: 69faa86ddbc43793146653fc8d8dc2bf35c40aa1
+ms.openlocfilehash: f3a7bcbc80580232f2704087eb529ee9ec8ead46
 
 
 ---
@@ -71,9 +71,14 @@ SQL Veritabanı, denetim ve tehdit algılama özellikleriyle verilerinizi korur.
 ### <a name="auditing"></a>Denetim
 SQL Veritabanı Denetimi, veritabanı etkinliklerini izler ve veritabanı olaylarını Azure Depolama hesabınızdaki bir denetim günlüğüne kaydederek düzenlemelere uyumluluğu sağlamanıza yardımcı olur. Denetim sayesinde devam eden veritabanı etkinliklerini anlayabilir, ayrıca olası tehditleri veya kötüye kullanım ve güvenlik ihlali şüphelerini soruşturmak için geçmiş etkinlikleri analiz edebilir ve araştırabilirsiniz. Daha fazla bilgi için bkz. [SQL Veritabanı Denetimini kullanmaya başlayın](sql-database-auditing-get-started.md).  
 
-### <a name="threat-detection"></a>Tehdit algılama
+### <a name="auditing--threat-detection"></a>Denetim ve Tehdit Algılama 
+SQL Veritabanı Denetimi, veritabanı etkinliklerini izler ve veritabanı olaylarını Azure Depolama hesabınızdaki bir denetim günlüğüne kaydederek düzenlemelere uyumluluğu sağlamanıza yardımcı olur. Denetim sayesinde devam eden veritabanı etkinliklerini anlayabilir, ayrıca olası tehditleri veya kötüye kullanım ve güvenlik ihlali şüphelerini soruşturmak için geçmiş etkinlikleri analiz edebilir ve araştırabilirsiniz. Daha fazla bilgi için bkz. [SQL Veritabanı Denetimini kullanmaya başlayın](sql-database-auditing-get-started.md).  
+ 
 Tehdit Algılama, Azure SQL Veritabanı hizmetine yerleşik bir güvenlik katmanı ekleyerek denetim özelliklerini tamamlar. Sürekli çalışan bu sistem anormal veritabanı etkinliklerini öğrenir, profilini çıkarır ve bunları tespit eder. Şüpheli etkinlikler, potansiyel açıklar, SQL ekleme saldırıları ve anormal veritabanı erişim modellerinin tespit edilmesi halinde uyarı alırsınız. Verilen bilgilendirici ve eyleme dönüştürülebilen talimatları uygulayarak uyarıları yanıtlayabilirsiniz. Daha fazla bilgi için bkz. [SQL Veritabanı Tehdit Algılamayı kullanmaya başlayın](sql-database-threat-detection-get-started.md).  
-
+ 
+### <a name="data-masking"></a>Veri Maskeleme 
+SQL Veritabanı Dinamik Veri Maskeleme, hassas verilerin görünürlüğünü ayrıcalık sahibi olmayan kullanıcılardan gizleyerek sınırlar. Dinamik Veri Maskeleme, Azure SQL Veritabanı’ndaki potansiyel olarak hassas verileri otomatik olarak keşfeder ve uygulama katmanına en az düzeyde etki ederek bu verileri maskelemek için gerçekleştirilebilecek öneriler sunar. Bu özellik, hassas verileri belirlenen veritabanı alanlarına yapılan sorgunun sonuç kümesinde karartır ancak veritabanındaki veriler değişmez. Daha fazla bilgi için bkz. [SQL Veritabanı Dinamik Veri Maskelemeyi kullanmaya başlama](sql-database-dynamic-data-masking-get-started.md)
+ 
 ## <a name="compliance"></a>Uyumluluk
 Yukarıda yer verilen ve uygulamanızın çeşitli güvenlik gereksinimlerini karşılamasına yardımcı olabilecek özelliklere ve işlevlere ek olarak Azure SQL Veritabanı düzenli denetimlere de katılmaktadır ve bir dizi uyumluluk standardı için belgelendirilmiştir. Daha fazla bilgi için günceli [SQL Veritabanı uyumluluk sertifikası](https://azure.microsoft.com/support/trust-center/services/) listesine ulaşabileceğiniz [Microsoft Azure Güven Merkezi](https://azure.microsoft.com/support/trust-center/) sayfasına bakın.
 
@@ -84,6 +89,7 @@ Yukarıda yer verilen ve uygulamanızın çeşitli güvenlik gereksinimlerini ka
 - Öngörülebilir izleme hakkında daha fazla bilgi için bkz. [SQL Veritabanı Denetimini kullanmaya başlama](sql-database-auditing-get-started.md) ve [SQL Veritabanı Tehdit Algılamayı kullanmaya başlama](sql-database-threat-detection-get-started.md).
 
 
-<!--HONumber=Dec16_HO4-->
+
+<!--HONumber=Jan17_HO2-->
 
 

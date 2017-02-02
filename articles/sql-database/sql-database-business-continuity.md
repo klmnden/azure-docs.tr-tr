@@ -17,8 +17,8 @@ ms.workload: NA
 ms.date: 10/13/2016
 ms.author: carlrab;sashan
 translationtype: Human Translation
-ms.sourcegitcommit: 747f6ca642a33c4ce9bcaacad4976e8eaed8fa44
-ms.openlocfilehash: f642cfade2369f5c758ab45994c7cf3f37b6d4c5
+ms.sourcegitcommit: 187954f3ddafdbc17e341ce41f5b109cb95f8a24
+ms.openlocfilehash: d04eb659bcf4df53c5f44c1a4b01763844476267
 
 
 ---
@@ -38,7 +38,7 @@ Aşağıdaki tabloda en çok kullanılan üç senaryo için ERT ve RPO değerler
 | Etkin Coğrafi Çoğaltma |ERT < 30 sn., RPO < 5 sn. |ERT < 30 sn., RPO < 5 sn. |ERT < 30 sn., RPO < 5 sn. |
 
 ### <a name="use-database-backups-to-recover-a-database"></a>Bir veritabanını kurtarmak için veritabanı yedeklerini kullanma
-SQL Veritabanı, işletmenizi veri kaybına karşı korumak için haftalık tam veritabanı yedekleri, saatlik veritabanı değişiklik yedekleri ve beş dakikalık işlem günlüğü yedeklerini otomatik olarak gerçekleştirerek birlikte kullanır. Bu yedekler, yerel olarak yedekli depolamada Standart ve Premium hizmet katmanlarındaki veritabanları için 35 gün boyunca, Temel hizmet katmanındaki veritabanları için ise yedi gün boyunca saklanır. Hizmet katmanları hakkında daha fazla bilgi almak için bkz. [hizmet katmanları](sql-database-service-tiers.md). Hizmet katmanızın saklama süresi işletmenizin ihtiyaçlarını karşılamıyorsa, [hizmet katmanını değiştirerek](sql-database-scale-up.md) saklama süresini uzatabilirsiniz. Tam yedekler ve değişiklik yedekleri, veri merkezi kesintilerine karşı [eşleştirilmiş veri merkezine](../best-practices-availability-paired-regions.md) de çoğaltılır. Daha fazla ayrıntı için bkz. [otomatik veri yedekleme](sql-database-automated-backups.md).
+SQL Veritabanı, işletmenizi veri kaybına karşı korumak için haftalık tam veritabanı yedekleri, saatlik veritabanı değişiklik yedekleri ve beş dakikalık işlem günlüğü yedeklerini otomatik olarak gerçekleştirerek birlikte kullanır. Bu yedekler, coğrafi olarak yedekli depolamada Standart ve Premium hizmet katmanlarındaki veritabanları için 35 gün boyunca, Temel hizmet katmanındaki veritabanları için ise yedi gün boyunca saklanır. Hizmet katmanları hakkında daha fazla bilgi almak için bkz. [hizmet katmanları](sql-database-service-tiers.md). Hizmet katmanızın saklama süresi işletmenizin ihtiyaçlarını karşılamıyorsa, [hizmet katmanını değiştirerek](sql-database-scale-up.md) saklama süresini uzatabilirsiniz. Tam yedekler ve değişiklik yedekleri, veri merkezi kesintilerine karşı [eşleştirilmiş veri merkezine](../best-practices-availability-paired-regions.md) de çoğaltılır. Daha fazla ayrıntı için bkz. [otomatik veri yedekleme](sql-database-automated-backups.md).
 
 Mevcut saklama süresi uygulamanız için yeterli değilse, veritabanlarınız için uzun süreli saklama ilkesini yapılandırarak uzatabilirsiniz. Daha fazla bilgi için bkz. [Uzun süreli saklama](sql-database-long-term-retention.md). 
 
@@ -75,6 +75,10 @@ Uygulamanız aşağıdaki ölçütleri karşılıyorsa Etkin Coğrafi Çoğaltma
 * Kesinti süresi mali yükümlülük yaratıyorsa.
 * Veri değişiklik oranı yüksekse ve bir saatlik değişiklik kaybı kabul edilebilir değilse.
 * Etkin coğrafi çoğaltma ek maliyeti, olası mali yükümlülükten veya ilgili iş kaybından daha düşükse.
+
+>
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-protecting-important-DBs-from-regional-disasters-is-easy/player]
+>
 
 ## <a name="recover-a-database-after-a-user-or-application-error"></a>Kullanıcı veya uygulama hatasından sonra bir veritabanını kurtarma
 *Hiç kimse mükemmel değildir! Bir kullanıcı yanlışlıkla veri silebilir, istemeden önemli bir tabloyu ve hatta bir veritabanının tamamını bırakabilir. Ya da bir uygulama, hata nedeniyle yanlışlıkla gereksiz verileri gerekli verilerin üzerine yazabilir. 
@@ -154,6 +158,6 @@ Bağımsız veritabanları ve elastik havuzlarla ilgili dikkate alınacak uygula
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

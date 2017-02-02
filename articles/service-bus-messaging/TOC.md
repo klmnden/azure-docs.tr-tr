@@ -1,9 +1,10 @@
 # Genel Bakış
-## [Service Bus Mesajlaşması nedir?](service-bus-queues-topics-subscriptions.md)
-## [Azure Kuyrukları ve Service Bus kuyruklarını karşılaştırması](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
+## [Service Bus Mesajlaşması nedir?](service-bus-messaging-overview.md)
+## [Service Bus ile ilgili temel bilgiler](service-bus-fundamentals-hybrid-solutions.md)
 ## [SSS](service-bus-faq.md)
 
 # Kullanmaya Başlama
+## [Çok katmanlı Service Bus uygulaması derleme](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 ## [Ad alanı oluşturma](service-bus-create-namespace-portal.md)
 ## Kuyrukları kullanma
 ### [.NET](service-bus-dotnet-get-started-with-queues.md)
@@ -24,11 +25,13 @@
 
 # Nasıl yapılır?
 ## Planlama ve tasarım
+### [Azure Kuyrukları ve Service Bus kuyruklarını karşılaştırması](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 ### [Performansı iyileştirme](service-bus-performance-improvements.md)
 ### [Zaman uyumsuz mesajlaşma ve yüksek kullanılabilirlik](service-bus-async-messaging.md)
 ### [Kesintileri ve olağanüstü durumları yönetme](service-bus-outages-disasters.md)
 
 ## Geliştirme
+### [Kuyruklar, konu başlıkları ve abonelikler](service-bus-queues-topics-subscriptions.md)
 ### [Kuyrukları kullanan uygulamalar](service-bus-create-queues.md)
 ### [Konular/abonelikler kullanan uygulamalar](service-bus-create-topics-subscriptions.md)
 ### [Kimlik doğrulama ve yetkilendirme](service-bus-authentication-and-authorization.md)
@@ -46,23 +49,27 @@
 ### [Bölünmüş kuyruklar ve konular ile AMQP kullanma](service-bus-partitioned-queues-and-topics-amqp-overview.md)
 ### [Eşleştirilen ad alanları](service-bus-paired-namespaces.md)
 ### [Otomatik yönlendirme ile varlıklar arasında zincir oluşturma](service-bus-auto-forwarding.md)
+
 ## Yönet
+### [Service Bus yönetim kitaplıkları](service-bus-management-libraries.md)
 ### [Azure Resource Manager şablonlarını kullanma](service-bus-resource-manager-overview.md)
 ### [Varlıkları sağlamak için PowerShell kullanma](service-bus-powershell-how-to-provision.md)
 
 # Başvuru
-## [Fiyatlandırma ayrıntıları](service-bus-pricing-billing.md)
-## [Örnekler](service-bus-samples.md)
-## [Özel Durumlar](service-bus-messaging-exceptions.md)
-## [Kotalar](service-bus-quotas.md)
-## [.NET](/dotnet/api/)
-## [REST](/rest/api/servicebus/)
+## [PowerShell](/powershell/resourcemanager/azurerm.scheduler/v0.11.1/azurerm.scheduler)
+## [.NET](/dotnet/api/microsoft.azure.management.servicebus)
+## [Java](/java/api/com.microsoft.azure.servicebus.amqp)
+## [REST](/rest/api/servicebus)
+
+# Kaynaklar
 ## [SQLFilter söz dizimi](service-bus-messaging-sql-filter.md)
 ## [SQLRuleAction söz dizimi](service-bus-messaging-sql-rule-action.md)
 ## [AMQP1.0 protokol kılavuzu](service-bus-amqp-protocol-guide.md)
 ### [AMQP 1.0 istek-yanıt tabanlı işlemler](service-bus-amqp-request-response.md)
-
-# Kaynaklar
+## [Fiyatlandırma ayrıntıları](service-bus-pricing-billing.md)
+## [Örnekler](service-bus-samples.md)
+## [Özel Durumlar](service-bus-messaging-exceptions.md)
+## [Kotalar](service-bus-quotas.md)
 ## [Blog](https://blogs.msdn.microsoft.com/servicebus/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/servicebus)
 ## [MSDN forumları](https://social.msdn.microsoft.com/forums/home?forum=servbus)
@@ -73,6 +80,6 @@
 ## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO3-->
 
 

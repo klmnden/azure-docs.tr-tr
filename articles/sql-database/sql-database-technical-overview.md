@@ -17,8 +17,8 @@ ms.workload: data-management
 ms.date: 12/20/2016
 ms.author: shkurhek;carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
-ms.openlocfilehash: 262583a2a11c41cf7acb55599041692137165e8f
+ms.sourcegitcommit: 187954f3ddafdbc17e341ce41f5b109cb95f8a24
+ms.openlocfilehash: 399fdbeee479f5598e6ed7f9bd6b6080ec919c98
 
 ---
 # <a name="what-is-sql-database-introduction-to-sql-database"></a>SQL Database nedir? SQL Database'e Giriş
@@ -26,7 +26,7 @@ SQL Veritabanı, piyasa lideri Microsoft SQL Server altyapısını temel alan ve
 
 Bu makale performans, ölçeklenebilirlik ve yönetilebilirlik ile ilgili temel SQL Database kavramlarına ve özelliklerine bir giriş niteliğindedir ve ayrıntıları inceleyebilmeniz için ilgili bağlantılarla desteklenmiştir. Uygulamalı öğreticilere hemen başlamaya hazırsanız [İlk SQL veritabanınızı oluşturabilir](sql-database-get-started.md) veya [Elastik havuz oluşturabilirsiniz](sql-database-elastic-pool-create-portal.md). Kısa bir tanıtım için bu videoyu izleyin.
 
-> [!VİDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-SQL-Database-create-DBs-in-seconds/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-create-DBs-in-seconds/player]
 > 
 > 
 
@@ -62,6 +62,6 @@ SQL Database'e giriş niteliğindeki makaleyi okuduğunuza ve "SQL Database Nedi
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO2-->
 
 

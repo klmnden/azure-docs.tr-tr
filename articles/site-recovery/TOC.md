@@ -17,14 +17,16 @@
 ### [Ağ eşlemesi (VMM)](site-recovery-network-mapping.md)
 ### [Şirket içi siteler arasında Depolama eşlemesi](site-recovery-storage-mapping.md)
 ## Çoğaltma
-### [VMware VM’leri ve sunuculardan Azure’a](site-recovery-vmware-to-azure.md)
-### [VMware VM’leri ve sunuculardan ikincil siteye](site-recovery-vmware-to-vmware.md)
+### [VMWare VM’lerini ve fiziksel sunucuları Azure’a](site-recovery-vmware-to-azure.md)
+### [VMware VM’lerini ve fiziksel sunucuları ikincil siteye](site-recovery-vmware-to-vmware.md)
+### [CSP programını kullanarak çok kiracı desteği bulunan VMware VM'lerini Azure’a](site-recovery-multi-tenant-support-vmware-using-csp.md)
 ### [Hyper-V VM’lerinden Azure’a (VMM ile)](site-recovery-vmm-to-azure.md)
 ### [Hyper-V VM’lerinden Azure’a (VMM olmadan)](site-recovery-hyper-v-site-to-azure.md)
 ### [Hyper-V VM’lerinden ikincil siteye](site-recovery-vmm-to-vmm.md)
 ### [Hyper-V VM’lerinden ikincil siteye (SAN ile)](site-recovery-vmm-san.md)
 ### [Hyper-V VM’leri (tek VMM sunucusu ile)](site-recovery-single-vmm.md)
 ## Geçiş
+### [Azure’a geçiş](site-recovery-migrate-to-azure.md)
 ### [Azure bölgeleri arasında geçiş yapma](site-recovery-migrate-azure-to-azure.md)
 ### [AWS Windows örneklerinden Azure’a](site-recovery-migrate-aws-to-azure.md)
 ## İş yükleri
@@ -49,8 +51,9 @@
 ## [İzleme ve sorun giderme](site-recovery-monitoring-and-troubleshooting.md)
 
 # Başvuru
-## [PowerShell](/powershell/azureps-cmdlets-docs)
-## [PowerShell klasik](/powershell/servicemanagement/)
+## [PowerShell](/powershell/resourcemanager/azurerm.siterecovery/v3.2.0/azurerm.siterecovery)
+## [PowerShell klasik](/powershell/servicemanagement/azure.siterecovery/v3.1.0/azure.siterecovery)
+## [REST](https://msdn.microsoft.com/en-us/library/mt750497)
 
 # İlgili
 ## [Azure Otomasyonu](/azure/automation/)
@@ -63,6 +66,6 @@
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=site-recovery)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 

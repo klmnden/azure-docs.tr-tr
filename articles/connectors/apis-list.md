@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 12/07/2016
 ms.author: deonhe
 translationtype: Human Translation
-ms.sourcegitcommit: 73369c2aed062bb3fe1ec37c4650d1f86b0afb68
-ms.openlocfilehash: b2d4a153f472d350dbcb21c35ef73430e1657844
+ms.sourcegitcommit: d2eefb6b99955f9b9a1bd5b5c94617d538f079ec
+ms.openlocfilehash: 8e1b8cee12406628dae1deff15406beb13778b40
 
 
 ---
@@ -65,7 +65,7 @@ EAI ve EDI içeren B2B senaryolarına yönelik Mantıksal uygulamalar oluşturma
 
 | kurumsal<br/>bağlayıcılar |  |
 | --- | --- |
-|![API Icon][MQicon]<br/>**MQ**|![API Icon][SAPicon]<br/>**SAP**|
+|![API Icon][MQicon]<br/>**MQ**|![API Icon][SAPicon]<br/>**SAP**<br/>[sapconnector]|
 
 
 
@@ -151,6 +151,7 @@ Bağlayıcılar uygulamalarınız içinde eylemler olarak da kullanılabilir. Ey
 [youtubedoc]: ./connectors-create-api-youtube.md "YouTube’a bağlanır ve videolar ve kanallarla etkileşim kurar."
 [sparkpostdoc]: ./connectors-create-api-sparkpost.md "SparkPost’a bağlanır ve iletişim için kullanılabilir."
 [filesystemdoc]: ..//app-service-logic/app-service-logic-use-file-connector.md "Şirket içi dosya sistemiyle iletişim kurmak için dosya sistemi bağlayıcısını kullanın."
+[sapconnector]: ..//app-service-logic/app-service-logic-enterprise-connector-sap-connector.md "SAP Connector hakkında bilgi edinin"
 
 <!--Icon references-->
 [appFiguresicon]: ./media/apis-list/appfigures.png
@@ -248,6 +249,6 @@ Bağlayıcılar uygulamalarınız içinde eylemler olarak da kullanılabilir. Ey
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

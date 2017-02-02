@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 02/29/2016
 ms.author: cfowler
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: d8a177074d6b7671fe04081c5547665ec892f244
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: c478b8ba6817dd110bb7bfe3a33b728e5f85cc11
 
 
 ---
@@ -180,7 +180,7 @@ Anahtarların listelenmesi çağrısı bir değer döndürmelidir. Döndürmezse
 Tebrikler! WordPress uygulamasında artık işlemenin artırılmasına yardımcı olmak üzere merkezi bir bellek içi önbellek bulunur. Web Apps Memcache Dolgusu’nun programlama dili veya uygulama çerçevesinden bağımsız olarak Memcache istemcisi ile kullanılabileceğini unutmayın. Web Apps Memcache dolgusu hakkında geri bildirimlerinizi veya sorularınızı [MSDN Forumları][10]'na veya [Stackoverflow][11]'na gönderin.
 
 > [!NOTE]
-> Azure hesabı için kaydolmadan önce Azure App Service’i kullanmaya başlamak isterseniz, App Service’te hemen kısa süreli bir başlangıç web uygulaması oluşturabileceğiniz [App Service’i Deneyin](http://go.microsoft.com/fwlink/?LinkId=523751) sayfasına gidin. Kredi kartı ve taahhüt gerekmez.
+> Azure hesabı için kaydolmadan önce Azure App Service’i kullanmaya başlamak isterseniz, App Service’te hemen kısa süreli bir başlangıç web uygulaması oluşturabileceğiniz [App Service’i Deneyin](https://azure.microsoft.com/try/app-service/) sayfasına gidin. Kredi kartı ve taahhüt gerekmez.
 > 
 > 
 
@@ -204,6 +204,6 @@ Tebrikler! WordPress uygulamasında artık işlemenin artırılmasına yardımc�
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

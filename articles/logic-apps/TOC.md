@@ -61,6 +61,7 @@
 ### [VS’den yayımlama](../app-service-logic/app-service-logic-deploy-from-vs.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 
 ## Yönet
+### [Use Visual Studio Cloud Explorer’ı kullanma](../app-service-logic/app-service-logic-manage-from-vs.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Mantıksal Uygulamaları izleme](../app-service-logic/app-service-logic-monitor-your-logic-apps.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [B2B iletilerini izleme](../app-service-logic/app-service-logic-monitor-b2b-message.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 #### [AS2 izleme şeması](../app-service-logic/app-service-logic-track-integration-account-as2-tracking-shemas.md?toc=%2fazure%2flogic-apps%2ftoc.json)
@@ -89,6 +90,6 @@
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=logic-apps)
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 
