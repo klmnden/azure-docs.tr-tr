@@ -4,18 +4,18 @@
 
 # Başlarken
 ## Azure izleme
-### [Azure web uygulamaları](app-insights-azure-web-apps.md)
+### [Azure Web Apps](app-insights-azure-web-apps.md)
 ### [Azure Cloud Services](app-insights-cloudservices.md)
 
 ## ASP.NET uygulamalarını izleme
-### [Web uygulamaları](app-insights-asp-net.md)
+### [Web Apps](app-insights-asp-net.md)
 ### [Yayındaki web uygulamaları](app-insights-monitor-performance-live-website-now.md)
 ### [Windows hizmetleri](app-insights-windows-services.md)
 ### [Windows masaüstü](app-insights-windows-desktop.md)
 
 ## Java uygulamalarını izleme
-### [Web uygulamaları](app-insights-java-get-started.md)
-### [Web uygulamaları - çalışma zamanı](app-insights-java-live.md)
+### [Web Apps](app-insights-java-get-started.md)
+### [Web Apps - çalışma zamanı](app-insights-java-live.md)
 ### [Docker uygulamaları](app-insights-docker.md)
 
 ## Web sayfalarını izleme
@@ -30,18 +30,20 @@
 
 # Nasıl yapılır?
 ## Planlama ve tasarım
-
 ### [Web uygulamalarını ve hizmetleri ayrıntılı tanılama](app-insights-devops.md)
 ### [Application Insights ve HockeyApp ile Geliştirici Analizi](app-insights-developer-analytics.md)
 ### [Web uygulamalarının performansını izleme](app-insights-web-monitor-performance.md)
 ### [Application Insights ile kullanım analizi](app-insights-overview-usage.md)
 ### [Application Insights kaynaklarını ayırma](app-insights-separate-resources.md)
 ### [Application Insights’ta nasıl ... yapabilirim?](app-insights-how-do-i.md)
+## Geçiş
+### [Azure Uç Nokta İzleme’den Kullanılabilirlik testlerine geçiş](app-insights-migrate-azure-endpoint-tests.md)
 
 ## Yapılandırma
-
+### [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)
 ### Azure
 #### [Tanılama](app-insights-azure-diagnostics.md)
+## [IP adresleri](app-insights-ip-addresses.md)
 
 ### ASP.NET
 #### [Daha fazla telemetri toplama](app-insights-asp-net-more.md)
@@ -102,42 +104,38 @@
 ### [Sürekli dışarı aktarma](app-insights-export-telemetry.md)
 ### [Power BI’a aktarma](app-insights-export-power-bi.md)
 
-
 ## Geliştirme
 
 ### [Özel olaylar ve ölçümler API'si](app-insights-api-custom-events-metrics.md)
 ### [Filtreleme ve telemetri ön işleme](app-insights-api-filtering-sampling.md)
-### [ASP.NET Çekirdeği](app-insights-asp-net-core.md)
+### [ASP.NET Core](app-insights-asp-net-core.md)
 
 
 ## Yönet
-
 ### [Fiyatlandırma ve kota yönetimi](app-insights-pricing.md)
 ### [SCOM için Application Insights kullanarak uygulama performansı izleme](app-insights-scom.md)
 
+##Dışarı Aktarma
+## [Veri modelini dışarı aktarma](app-insights-export-data-model.md)
 
 ## Güvenlik
-
 ### [Veri koleksiyonu, bekletme ve depolama](app-insights-data-retention-privacy.md)
 ### [Kaynaklar, roller ve erişim denetimi](app-insights-resources-roles-access-control.md)
-
-
 ## Sorun giderme
 ### [.NET için veri yok](app-insights-asp-net-troubleshoot-no-data.md)
 ### [Analizler](app-insights-analytics-troubleshooting.md)
 ### [Java](app-insights-java-troubleshoot.md)
 
 # Başvuru
-## [Java API’si](http://dl.windowsazure.com/applicationinsights/javadoc/)
-## [.NET API’si](https://docs.microsoft.com/dotnet/api)
-## [JavaScript API’si](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
+## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights)
+## [Java](/java/api/com.microsoft.applicationinsights)
+## [REST](https://dev.applicationinsights.io/)
+
+# Kaynaklar
 ## [Analytics başvurusu](app-insights-analytics-reference.md)
-## [Örnekleme](app-insights-sampling.md)
-## [IP adresleri](app-insights-ip-addresses.md)
-## [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)
-## [Veri modelini dışarı aktarma](app-insights-export-data-model.md)
-## [Azure Uç Nokta İzleme’den Kullanılabilirlik testlerine geçiş](app-insights-migrate-azure-endpoint-tests.md)
+## [JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
 ## [Geliştirici analizleri: diller, platformlar ve tümleştirmeler](app-insights-platforms.md)
+### [Örnekleme](app-insights-sampling.md)
 ### [Örnekler ve yönergeler](app-insights-code-samples.md)
 #### [Kılavuz: Microsoft Dynamics CRM Online için Telemetri Etkinleştirme](app-insights-sample-mscrm.md)
 #### [Kılavuz: Akış Analizi kullanarak SQL’e aktarma](app-insights-code-sample-export-sql-stream-analytics.md)
@@ -145,9 +143,6 @@
 ## [Windows Phone ve Mağazası için Application Insights SDK Sürüm Notları](app-insights-release-notes-windows.md)
 ## [Geliştirici Analizi Araçları Sürüm Notları](app-insights-release-notes-vsix.md)
 ## [SDK Sürüm Notları - Application Insights](app-insights-release-notes.md)
-## [Veri erişimi REST API'si](https://dev.applicationinsights.io/)
-
-# Kaynaklar
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/application-insights/)  
 ## [MSDN forumu](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=ApplicationInsights)  
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/az-application-insights)
@@ -157,6 +152,7 @@
 
 
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Dec16_HO2-->
 
 
