@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 10/27/2016
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: d175d3d4d7d7a58f071dab0f32e3fdd3cb3146ce
-ms.openlocfilehash: 8c26d8ef39827cff87b7fc7f17fab78c627a5035
+ms.sourcegitcommit: d2d3f414d0e9fcc392d21327ef630f96c832c99c
+ms.openlocfilehash: 19d1cc75d61a3897c916180afa395bade43d47ec
 
 
 ---
@@ -50,58 +50,41 @@ Bir Azure Active Directory uygulaması oluşturun, uygulama için bir hizmet sor
 1. **PowerShell**’i başlatın.
 2. Aşağıdaki komutu çalıştırın ve Azure portalda oturum açmak için kullandığınız kullanıcı adı ve parolayı girin.
 
-    ```PowerShell
-    Login-AzureRmAccount
-    ```
+        Login-AzureRmAccount
 3. Bu hesapla ilgili tüm abonelikleri görmek için aşağıdaki komutu çalıştırın.
 
-    ```PowerShell
-    Get-AzureRmSubscription
-    ```
+        Get-AzureRmSubscription
 4. Çalışmak isteğiniz aboneliği seçmek için aşağıdaki komutu çalıştırın. **&lt;NameOfAzureSubscription**&gt; değerini Azure aboneliğinizin adıyla değiştirin.
 
-    ```PowerShell
-    Get-AzureRmSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzureRmContext
-    ```
+        Get-AzureRmSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzureRmContext
 
    > [!IMPORTANT]
    > Bu komutun çıktısından **SubscriptionId** ve **TenantId** değerlerin not alın.
 
 5. PowerShell’de aşağıdaki komutu çalıştırarak **ADFTutorialResourceGroup** adlı bir Azure kaynak grubu oluşturun.
 
-    ```PowerShell
-    New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
-    ```
+        New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
 
     Kaynak grubu zaten varsa bunun güncelleştirileceğini mi (Y) yoksa (N) olarak tutulacağını mı belirtirsiniz.
 
     Farklı bir kaynak grubu kullanıyorsanız, bu öğreticide kullanılan ADFTutorialResourceGroup yerine kaynak grubunuzun adını kullanmanız gerekir.
 6. Bir Azure Active Directory uygulaması oluşturun.
 
-    ```PowerShell
-    $azureAdApplication = New-AzureRmADApplication -DisplayName "ADFCopyTutotiralApp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.adfcopytutorialapp.org/example" -Password "Pass@word1"
-    ```
+        $azureAdApplication = New-AzureRmADApplication -DisplayName "ADFCopyTutotiralApp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.adfcopytutorialapp.org/example" -Password "Pass@word1"
 
     Aşağıdaki hatayı alırsanız farklı bir URL belirtip komutu yeniden çalıştırın.
-    
-    ```PowerShell
-    Another object with the same value for property identifierUris already exists.
-    ```
+
+        Another object with the same value for property identifierUris already exists.
 7. AD hizmet sorumlusunu oluşturun.
 
-    ```PowerShell
-    New-AzureRmADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
-    ```
+        New-AzureRmADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
 8. Hizmet sorumlusunu **Data Factory Katılımcısı** rolüne ekleyin.
 
-    ```PowerShell
-    New-AzureRmRoleAssignment -RoleDefinitionName "Data Factory Contributor" -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
-    ```
+        New-AzureRmRoleAssignment -RoleDefinitionName "Data Factory Contributor" -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
 9. Uygulama kimliğini alın.
 
-    ```PowerShell
-    $azureAdApplication 
-    ```
+        $azureAdApplication
+
     Uygulama kimliğini (çıktıdaki **applicationID** değeri) not alın.
 
 Bu adımlardan sonra aşağıdaki dört değere sahip olmanız gerekir:
@@ -491,10 +474,7 @@ Bu adımlardan sonra aşağıdaki dört değere sahip olmanız gerekir:
 16. Konsol uygulamasını derleyin. Menüde **Derle**’ye tıklayın ve **Çözümü Derle**’ye tıklayın.
 17. Azure blob depolamanızdaki **adftutorial** kapsayıcısında en az bir dosya olduğunu onaylayın. Aksi takdirde, Not Defteri’nde aşağıdaki içeriklerle **Emp.txt** dosyası oluşturun ve dosyayı adftutorial kapsayıcısına yükleyin.
 
-    ```
-    John, Doe
-    Jane, Doe
-    ```
+       Ahmet, Öztürk    Pınar, Karaca
 18. Menüden **Hata Ayıkla** -> **Hata Ayıklamayı Başlat**’a tıklayarak örneği çalıştırın. **Getting run details of a data slice** iletisini gördüğünüzde birkaç dakika bekleyin ve **ENTER** tuşuna basın.
 19. Azure portalı kullanarak **APITutorialFactory** veri fabrikasının aşağıdaki yapıtlarla birlikte oluşturulduğunu doğrulayın:
    * Bağlı hizmet: **LinkedService_AzureStorage**
@@ -509,6 +489,6 @@ Bu adımlardan sonra aşağıdaki dört değere sahip olmanız gerekir:
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -1,14 +1,13 @@
 ---
 layout: LandingPage
-description: "Kurumunuzun veri kaynaklarını bulabileceği, anlayabileceği ve tüketebileceği bir veri kataloğu oluşturma hakkında bilgi edinin. Öğreticiler, API başvurusu ve diğer belgeler."
 translationtype: Human Translation
-ms.sourcegitcommit: f41d4b06dfd385761780655971f69090050b967c
-ms.openlocfilehash: fed1fedd352b0bfab1729786eda990e78e14fbd1
+ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
+ms.openlocfilehash: 7c2c989ca2119f7a2c14ca55a56a2bce69d94efa
 
 ---
 #<a name="data-catalog-documentation"></a>Veri Kataloğu Belgeleri
 
-Veri Kataloğu’nu kullanarak kurumunuzun ve takımınızın veri kaynaklarınızı bulmasına, anlamasına ve tüketmesine nasıl yardımcı olabileceğinizi öğrenin. Öğreticiler, REST API başvurusu ve diğer belgeler, veri tüketicilerinin kullanılabilir veri kaynaklarını bulabileceği ve konunun uzmanları tarafından sağlanan bilgileri edinebileceği veri deponuzu nasıl planlayıp ayarlayabileceğinize ilişkin bilgiler içerir.
+Azure Veri Kataloğu, kullanıcıların ihtiyaç duyduğu veri kaynaklarını bulmasına ve bulduğu veri kaynaklarını anlamasına olanak tanıyan ve aynı zamanda kuruluşların var olan yatırımlarından daha fazla değer elde etmesine yardımcı olan, tamamen yönetilen bir bulut hizmetidir. Veri Kataloğu, analistlerden veri bilimcilerine ve geliştiricilere kadar herhangi bir kullanıcının veri kaynaklarını bulmasına, anlamasına ve kullanmasına olanak tanıyan özellikler sunar. Veri Kataloğu, meta verilere ve ek açıklamalara yönelik bir kitle kaynak modeli içerir ve tüm kullanıcıların bir veri topluluğu ve kültürü oluşturmak üzere bilgileriyle katkıda bulunmasına olanak tanır.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -76,7 +75,6 @@ Veri Kataloğu Belgelerini indirin </div>
 </div>
 
 
-
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO1-->
 
 
