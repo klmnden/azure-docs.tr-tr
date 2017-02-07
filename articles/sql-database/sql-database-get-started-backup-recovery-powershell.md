@@ -1,5 +1,5 @@
 ---
-title: "Veri koruma ve kurtarma için Azure SQL veritabanlarında Azure PowerShell aracılığıyla yedekleme ve geri yükleme işlevlerini kullanmaya başlama | Microsoft Belgeleri"
+title: "PowerShell: Azure SQL veritabanını yedekleme ve geri yükleme | Microsoft Docs"
 description: "Bu öğretici PowerShell kullanarak otomatik yedeklerden belirli bir noktaya geri yükleme gerçekleştirme, otomatik yedekleri Azure Kurtarma Hizmetleri kasasında saklama ve Azure Kurtarma Hizmetleri kasasından geri yükleme gerçekleştirme konusunda bilgi vermektedir"
 keywords: "sql veritabanı öğreticisi"
 services: sql-database
@@ -17,16 +17,16 @@ ms.topic: hero-article
 ms.date: 12/19/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 68a4ed7aad946dda644a0f085c48fd33f453e018
-ms.openlocfilehash: 15d5cb803332133c8015a8ba23ca5751b8abc29a
+ms.sourcegitcommit: d026933869d98c469855e02a6906ed74f8ee03a3
+ms.openlocfilehash: fd1412bcc367472990f645ef7f90ad94def562d6
 
 
 ---
 
 
-# <a name="get-started-with-backup-and-restore-for-data-protection-and-recovery-using-powershell"></a>PowerShell Kullanarak Veri Koruma ve Kurtarma için Yedekleme ve Geri Yükleme İşlevlerini Kullanmaya Başlama
+# <a name="tutorial-back-up-and-restore-an-azure-sql-database-using-powershell"></a>Öğretici: PowerShell kullanarak Azure SQL Veritabanını yedekleme ve geri yükleme
 
-Bu kullanmaya başlama öğreticisinde, Azure PowerShell'i kullanarak şu işlemleri gerçekleştirmeyi öğreneceksiniz:
+Bu öğreticide, Azure PowerShell’i kullanarak aşağıdaki işlemleri gerçekleştirmeyi öğreneceksiniz:
 
 - Bir veritabanının var olan yedeklerini görüntüleme
 - Bir veritabanını daha önceki bir noktaya geri yükleme
@@ -55,7 +55,7 @@ Bu kullanmaya başlama öğreticisinde, Azure PowerShell'i kullanarak şu işlem
 
 Öğreticinin bu bölümünde veritabanınızın [hizmet tarafından oluşturulan otomatik yedeklerinde](sql-database-automated-backups.md) en eski geri yükleme noktası hakkında bilgileri görüntüleyeceksiniz. 
 
-Herhangi bir veritabanını en eski geri yükleme noktası ve son kullanılabilir yedek (geçerli saatten 6 dakika öncesi) arasında dilediğiniz bir noktaya geri yükleyebilirsiniz. 
+Herhangi bir veritabanını en eski geri yükleme noktası ve son kullanılabilir yedek (geçerli saatten&6; dakika öncesi) arasında dilediğiniz bir noktaya geri yükleyebilirsiniz. 
 
 Aşağıdaki kod parçacığında, geri yüklemek istediğiniz veritabanının en eski geri yükleme noktasını bulmak için [Get-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/get-azurermsqldatabase) cmdlet'i kullanılmaktadır. Saat UTC biçiminde döndürülür ancak aşağıdaki kod parçacıkları yerel saatle nasıl çalışacağınızı göstermektedir. Canlı bir veritabanının en son kullanılabilir geri yükleme noktası genelde altı dakika öncesidir. Bu nedenle en son geri yükleme noktası geçerli saatten altı dakika öncesi olacaktır. 
 
@@ -380,6 +380,7 @@ $restoredDbFromLtr
 - Yedekleri geri yükleme hakkında bilgi edinmek için bkz. [yedekten geri yükleme](sql-database-recovery-using-backups.md)
 
 
-<!--HONumber=Dec16_HO4-->
+
+<!--HONumber=Feb17_HO1-->
 
 

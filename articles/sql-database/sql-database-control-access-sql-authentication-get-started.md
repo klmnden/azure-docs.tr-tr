@@ -17,12 +17,12 @@ ms.topic: hero-article
 ms.date: 01/17/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 356cc4c6d8e25d36880e4b12bf471326e61990c3
-ms.openlocfilehash: 275a33567fa1472573bc8abc87948ad306e853f0
+ms.sourcegitcommit: 9d92b6401b70bbfce33fec053e3134a8bd7b4805
+ms.openlocfilehash: e86e20dbc38cc575542193002e6b86aa608e80e5
 
 
 ---
-# <a name="sql-database-tutorial-sql-server-authentication-logins-and-user-accounts-database-roles-permissions-server-level-firewall-rules-and-database-level-firewall-rules"></a>SQL Veritabanı Öğreticisi: SQL Server kimlik doğrulaması, oturum açma bilgileri ve kullanıcı hesapları, veritabanı kuralları, izinler, sunucu düzeyinde güvenlik duvarı kuralları ve veritabanı düzeyinde güvenlik duvarı kuralları
+# <a name="sql-database-tutorial-sql-server-authentication-access-and-database-level-firewall-rules"></a>SQL Veritabanı öğreticisi: SQL Server kimlik doğrulaması, erişimi ve veritabanı düzeyinde güvenlik duvarı kuralları
 Bu başlangıç öğreticisinde SQL Server Management Studio kullanarak SQL Server kimlik doğrulaması, oturum açma bilgileri, kullanıcılar ve veritabanı rolleriyle çalışarak Azure SQL Veritabanı sunucuları ve veritabanlarına erişim izni vermeyi öğreneceksiniz. Şunları öğreneceksiniz:
 
 - Asıl veritabanı ve kullanıcı veritabanlarındaki kullanıcı izinlerini görüntüleme
@@ -285,17 +285,17 @@ Bu başlangıç öğreticisinde SQL Server Management Studio kullanarak SQL Serv
 
 8. Yeniden diğer bilgisayara geçin ve **Sunucuya Bağlan** iletişim kutusunda **Bağlan**'a tıklayarak AdventureWorksLT veritabanına user1 olarak bağlanın. 
 
-   ![Güvenlik duvarı kuralıyla user1 olarak bağlanma 1](./media/sql-database-control-access-sql-authentication-get-started/connect-user1_rule1.png)
+   ![Güvenlik duvarı kuralıyla user1 olarak bağlanma&1;](./media/sql-database-control-access-sql-authentication-get-started/connect-user1_rule1.png)
 
 9. Nesne Gezgini'nde sırasıyla **Veritabanları**, **AdventureWorksLT** ve **Tablolar** bölümlerini genişletin. user1 kullanıcısının yalnızca **SalesLT.ProductCategory** tablosunu görüntüleme iznine sahip olduğuna dikkat edin. 
 
-   ![user1 olarak bağlanma ve nesneleri görüntüleme 1](./media/sql-database-control-access-sql-authentication-get-started/connect-user1_view_objects1.png)
+   ![user1 olarak bağlanma ve nesneleri görüntüleme&1;](./media/sql-database-control-access-sql-authentication-get-started/connect-user1_view_objects1.png)
 
 10. Nesne Gezgini'nde **SalesLT.ProductCategory**'ye sağ tıklayın ve **İlk 1000 Satırı Seç**'e tıklayın.   
 
-   ![user1 sorgu 1](./media/sql-database-control-access-sql-authentication-get-started/user1_query1.png)
+   ![user1 sorgu&1;](./media/sql-database-control-access-sql-authentication-get-started/user1_query1.png)
 
-   ![user1 sorgu 1 sonuçları](./media/sql-database-control-access-sql-authentication-get-started/user1_query1_results.png)
+   ![user1 sorgu&1; sonuçları](./media/sql-database-control-access-sql-authentication-get-started/user1_query1_results.png)
 
 ## <a name="create-a-new-user-in-the-blankdb-database-with-dbowner-database-role-permissions-and-a-database-level-firewall-rule"></a>blankdb veritabanında db_owner veritabanı rolü izinleri ve veritabanı düzeyinde güvenlik duvarı kuralıyla yeni bir kullanıcı oluşturma
 
@@ -429,6 +429,6 @@ CREATE USER blankdbuser1
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

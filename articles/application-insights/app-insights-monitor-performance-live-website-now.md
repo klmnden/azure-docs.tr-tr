@@ -14,21 +14,21 @@ ms.topic: get-started-article
 ms.date: 10/24/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: b70c8baab03703bc00b75c2c611f69e3b71d6cd7
-ms.openlocfilehash: 5159e7fc47d320d52eb7b94b5775158a3f09c769
+ms.sourcegitcommit: 15de13cfaec7a5dcd906733727bb1f826893a31b
+ms.openlocfilehash: 61a2aca74f9d422550b90d218c5e060c89e354ad
 
 
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights"></a>Application Insights ile çalışma zamanında web uygulamalarını izleme
-*Application Insights önizlemededir.*
 
-Kodunuzu değiştirmeye veya yeniden dağıtmaya gerek olmadan canlı bir web uygulamasını Visual Studio Application Insights ile izleyebilirsiniz. Uygulamalarınız şirket içi bir IIS sunucusunda barındırılıyorsa Durum İzleyicisi’ni indirin veya Azure web uygulamaları ise ya da bir Azure sanal makinesinde çalışıyorsa Application Insights uzantısını yükleyebilirsiniz. ([Canlı J2EE web uygulamaları](app-insights-java-live.md) ve [Azure Cloud Services](app-insights-cloudservices.md) izleme hakkında ayrı makaleler de vardır.)
+
+Kodunuzu değiştirmeye veya yeniden dağıtmaya gerek olmadan canlı bir web uygulamasını Azure Application Insights ile izleyebilirsiniz. Uygulamalarınız şirket içi bir IIS sunucusunda barındırılıyorsa Durum İzleyicisi’ni indirin. Uygulamalarınız, Azure web uygulamalarıysa veya bir Azure sanal makinesinde çalıştırılıyorsa Application Insights uzantısını yükleyebilirsiniz. ([Canlı J2EE web uygulamaları](app-insights-java-live.md) ve [Azure Cloud Services](app-insights-cloudservices.md) izleme hakkında ayrı makaleler de vardır.)
 
 ![örnek grafikler](./media/app-insights-monitor-performance-live-website-now/10-intro.png)
 
 .NET web uygulamalarınıza Application Insights uygulamak için şu üç yoldan birini tercih edebilirsiniz:
 
-* **Derleme süresi:** Web uygulaması kodunuza [Application Insights SDK'sini ekleyin][greenbrown].
+* **Derleme süresi:** Web uygulaması kodunuza [Application Insights SDK'sını ekleyin][greenbrown].
 * **Çalışma zamanı:** Kodu yeniden derlemeden ve yeniden dağıtmadan web uygulamanızı sunucu üzerinde izleyin.
 * **Her ikisi:** SDK’yı web uygulama kodunuzda derleyin ve ayrıca çalışma zamanı uzantılarını uygulayın. Her iki seçeneğin en iyisini edinin.
 
@@ -38,8 +38,8 @@ Burada, her yöntemle kazanacaklarınızın bir özeti verilmiştir:
 | --- | --- | --- |
 | İstekler ve özel durumlar |Evet |Evet |
 | [Daha ayrıntılı özel durumlar](app-insights-asp-net-exceptions.md) | |Yes |
-| [Bağımlılık tanılaması](app-insights-asp-net-dependencies.md) |.NET 4.6+ üzerinde |Evet |
-| [Sistem performans sayaçları](app-insights-performance-counters.md) | |IIS veya Azure bulut hizmeti, Azure web uygulaması değil |
+| [Bağımlılık tanılaması](app-insights-asp-net-dependencies.md) |.NET 4.6+ üzerinde ancak daha az ayrıntılı |Evet, tam ayrıntılı: sonuç kodları, SQL komut metni, HTTP Fiili|
+| [Sistem performans sayaçları](app-insights-performance-counters.md) |Evet |Evet |
 | [Özel telemetri için API][api] |Evet | |
 | [İzleme günlüğü tümleştirmesi](app-insights-asp-net-trace-logs.md) |Evet | |
 | [Sayfa görünümü ve kullanıcı verileri](app-insights-javascript.md) |Evet | |
@@ -55,29 +55,23 @@ Burada, her yöntemle kazanacaklarınızın bir özeti verilmiştir:
 
 ### <a name="if-your-app-is-hosted-on-your-iis-server"></a>Uygulamanız IIS sunucunuzda barındırılıyorsa
 1. IIS web sunucunuzda yönetici kimlik bilgileriyle oturum açın.
-2. [Durum İzleyicisi yükleyici](http://go.microsoft.com/fwlink/?LinkId=506648)’yi indirip çalıştırın.
-3. Yükleme Sihirbazı'ndaki Microsoft Azure'da oturum açın.
-
-    ![Microsoft hesabı kimlik bilgilerinizle Azure’de oturum açın](./media/app-insights-monitor-performance-live-website-now/appinsights-035-signin.png)
-
-    *Bağlantı hataları mı var? Bkz. [Sorun giderme](#troubleshooting).*
-4. İzlemek istediğiniz yüklü web uygulamasını veya web sitesini seçip sonuçlarını Application Insights portalında görmek istediğiniz kaynağı yapılandırın.
+2. [Durum İzleyicisi yükleyici](http://go.microsoft.com/fwlink/?LinkId=506648)’yi indirip çalıştırın.  
+3. İzlemek istediğiniz yüklü web uygulamasını veya web sitesini seçip sonuçlarını Application Insights portalında görmek istediğiniz kaynağı yapılandırın. Microsoft Azure oturumu açmış olmanız gerekir.
 
     ![Uygulama ve kaynak seçin.](./media/app-insights-monitor-performance-live-website-now/appinsights-036-configAIC.png)
 
     Normalde, yapılandırmak üzere yeni bir kaynak ve [kaynak grubu][roles] seçersiniz.
 
-    bunun yerine, siteniz için [web testleri][availability] veya [web istemcisi izleme][client] ayarladıysanız var olan kaynağı kullanın.
-5. IIS’yi yeniden başlatın.
+    Bunun yerine, siteniz için [web testleri][availability] veya [web istemcisi izleme][client] ayarladıysanız var olan kaynağı kullanın.
+4. IIS’yi yeniden başlatın.
 
     ![iletişim kutusunun üstündeki Yeniden Başlat’ı seçin.](./media/app-insights-monitor-performance-live-website-now/appinsights-036-restart.png)
 
     Web hizmetiniz kısa bir süre kesintiye uğrar.
-6. İzlemek istediğiniz web uygulamalarına ApplicationInsights.config eklendiğinden emin olun.
+5. İzlemek istediğiniz web uygulamalarına ApplicationInsights.config eklendiğinden emin olun.
 
     ![Web uygulamasının kod dosyalarında .config dosyasını bulun.](./media/app-insights-monitor-performance-live-website-now/appinsights-034-aiconfig.png)
-
-   web.config dosyasında da bazı değişiklikler vardır.
+   
 
 #### <a name="want-to-reconfigure-later"></a>Daha sonra (yeniden) yapılandırmak istiyor musunuz?
 Sihirbazı tamamladıktan sonra istediğiniz zaman aracıyı yeniden yapılandırabilirsiniz. Bu aracıyı yüklediyseniz, ancak ilk kurulumda bazı sorunlar oluştuysa da kullanabilirsiniz.
@@ -105,7 +99,7 @@ Grafiği farklı bağımlılıklara çağrıya göre bölümlere ayırmak için:
 ![Bağımlılık](./media/app-insights-monitor-performance-live-website-now/23-dep.png)
 
 ## <a name="performance-counters"></a>Performans sayaçları
-(Azure web uygulamaları için değil.) CPU doluluğu ve bellek kullanımı gibi sunucu performans sayacı grafiklerini görmek için genel bakış dikey penceresinde Sunucular’a tıklayın.
+CPU doluluğu ve bellek kullanımı gibi sunucu performans sayacı grafiklerini görmek için genel bakış dikey penceresinde Sunucular’a tıklayın.
 
 Birden çok sunucu örneğiniz varsa Rol örneğine göre gruplandırmak üzere grafikleri düzenlemek isteyebilirsiniz.
 
@@ -146,10 +140,11 @@ Sunucuda Application Insights Durum İzleyicisi için işletim sistemi desteği:
 * Windows Server 2008 R2
 * Windows Server 2012
 * Windows server 2012 R2
+* Windows Server 2016
 
-en son SP ve .NET Framework 4.0 ve 4.5 ile
+en son SP ve .NET Framework 4.5 ile
 
-İstemci tarafında Windows 7, 8 ve 8.1, .NET Framework 4.0 ve 4.5 ile yeniden
+İstemci tarafında Windows 7, 8, 8.1 ve 10, .NET Framework 4.5 ile
 
 IIS desteği: IIS 7, 7.5, 8, 8.5 (IIS gereklidir)
 
@@ -217,7 +212,7 @@ Hangi uygulamaların izlenmekte olduğunu öğrenin:
 * Sitenizin canlı kalması için [web testleri oluşturun][availability].
 * Sorunların tanımlanması için [Olayları ve günlükleri arayın][diagnostic].
 * Web sayfası koduna ait özel durumları görmek ve izleme çağrıları eklemenize izin vermek için [web istemcisi telemetrisini ekleyin][usage].
-* [Web hizmeti kodunuza Application Insights SDK ekleyin][greenbrown]; böylece, izleme ekleyebilir ve sunucu koduna çağrı kaydedebilirsiniz.
+* [Web hizmeti kodunuza Application Insights SDK’sı ekleyin][greenbrown]; böylece sunucu kodunda izleme ekleyebilir ve çağrı kaydedebilirsiniz.
 
 <!--Link references-->
 
@@ -232,6 +227,6 @@ Hangi uygulamaların izlenmekte olduğunu öğrenin:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

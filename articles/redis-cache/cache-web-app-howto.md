@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 10/11/2016
+ms.date: 01/27/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 4fc33ba185122496661f7bc49d14f7522d6ee522
-ms.openlocfilehash: 11b65d8f82a6440ec02582827696dba34f1e626c
+ms.sourcegitcommit: 8d1b9293a0b3958d0f478b6a0b6816b8d534883d
+ms.openlocfilehash: d7e98ef1205f0d88e12779a4ce9317128ae81e73
 
 
 ---
@@ -65,7 +65,7 @@ Visual Studio 2013’ünüz varsa, [Visual Studio 2013 için en son Azure SDK's�
 
 ## <a name="create-the-visual-studio-project"></a>Visual Studio projesini oluşturma
 1. Visual Studio’yu açın ve **Dosya**, **Yeni**, **Proje**’yi tıklayın.
-2. **Şablonlar** listesindeki **Visual C#** öğesini genişletin, **Bulut**’u seçin ve **ASP.NET Web Uygulaması**’na tıklayın. **.NET Framework 4.5.2** sürümünün seçili olduğundan emin olun.  **Ad** metin kutusunda **ContosoTeamStats** yazın ve **Tamam**’a tıklayın.
+2. **Şablonlar** listesindeki **Visual C#** öğesini genişletin, **Bulut**’u seçin ve **ASP.NET Web Uygulaması**’na tıklayın. **.NET Framework 4.5.2** veya daha yüksek bir sürümün seçili olduğundan emin olun.  **Ad** metin kutusunda **ContosoTeamStats** yazın ve **Tamam**’a tıklayın.
    
     ![Proje oluşturma][cache-create-project]
 3. Proje türü olarak **MVC**’yi seçin. **Buluttaki konak** onay kutusunun işaretini kaldırın. Öğreticinin sonraki adımlarında [Azure kaynaklarını hazırlayacak](#provision-the-azure-resources) ve [uygulamayı Azure’a yayımlayacaksınız](#publish-the-application-to-azure). **Buluttaki konak** öğesini işaretli bırakarak Visual Studio’dan bir App Service web uygulaması hazırlama örneği için, bkz. [ASP.NET ve Visual Studio kullanarak Azure App Service’deki Web Uygulamalarını kullanmaya başlama](../app-service-web/web-sites-dotnet-get-started.md).
@@ -87,99 +87,106 @@ Visual Studio 2013’ünüz varsa, [Visual Studio 2013 için en son Azure SDK's�
 2. Sınıf adı için `Team` girin ve **Ekle**’ye tıklayın.
    
     ![Model sınıfı ekleme][cache-model-add-class-dialog]
-3. `Team.cs` dosyasının üst tarafındaki `using` deyimini aşağıdaki using deyimleri ile değiştirin.
+3. `Team.cs` dosyasının üst tarafındaki `using` deyimini aşağıdaki `using` deyimleriyle değiştirin.
 
-        using System;
-        using System.Collections.Generic;
-        using System.Data.Entity;
-        using System.Data.Entity.SqlServer;
+    ```c#
+    using System;
+    using System.Collections.Generic;
+    using System.Data.Entity;
+    using System.Data.Entity.SqlServer;
+    ```
 
 
 1. `Team` sınıfının tanımını, bazı diğer Entity Framework yardımcı sınıflarının yanı sıra güncelleştirilmiş `Team` sınıf tanımını içeren aşağıdaki kod parçacığı ile değiştirin. Bu öğreticide kullanılan Entity Framework için ilk kod yaklaşımı hakkında daha fazla bilgi için, bkz. [Yeni bir veritabanına ilk kod](https://msdn.microsoft.com/data/jj193542).
 
-        public class Team
+    ```c#
+    public class Team
+    {
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public int Wins { get; set; }
+        public int Losses { get; set; }
+        public int Ties { get; set; }
+    
+        static public void PlayGames(IEnumerable<Team> teams)
         {
-            public int ID { get; set; }
-            public string Name { get; set; }
-            public int Wins { get; set; }
-            public int Losses { get; set; }
-            public int Ties { get; set; }
-
-            static public void PlayGames(IEnumerable<Team> teams)
+            // Simple random generation of statistics.
+            Random r = new Random();
+    
+            foreach (var t in teams)
             {
-                // Simple random generation of statistics.
-                Random r = new Random();
-
-                foreach (var t in teams)
-                {
-                    t.Wins = r.Next(33);
-                    t.Losses = r.Next(33);
-                    t.Ties = r.Next(0, 5);
-                }
+                t.Wins = r.Next(33);
+                t.Losses = r.Next(33);
+                t.Ties = r.Next(0, 5);
             }
         }
-
-        public class TeamContext : DbContext
+    }
+    
+    public class TeamContext : DbContext
+    {
+        public TeamContext()
+            : base("TeamContext")
         {
-            public TeamContext()
-                : base("TeamContext")
-            {
-            }
-
-            public DbSet<Team> Teams { get; set; }
         }
-
-        public class TeamInitializer : CreateDatabaseIfNotExists<TeamContext>
+    
+        public DbSet<Team> Teams { get; set; }
+    }
+    
+    public class TeamInitializer : CreateDatabaseIfNotExists<TeamContext>
+    {
+        protected override void Seed(TeamContext context)
         {
-            protected override void Seed(TeamContext context)
+            var teams = new List<Team>
             {
-                var teams = new List<Team>
-                {
-                    new Team{Name="Adventure Works Cycles"},
-                    new Team{Name="Alpine Ski House"},
-                    new Team{Name="Blue Yonder Airlines"},
-                    new Team{Name="Coho Vineyard"},
-                    new Team{Name="Contoso, Ltd."},
-                    new Team{Name="Fabrikam, Inc."},
-                    new Team{Name="Lucerne Publishing"},
-                    new Team{Name="Northwind Traders"},
-                    new Team{Name="Consolidated Messenger"},
-                    new Team{Name="Fourth Coffee"},
-                    new Team{Name="Graphic Design Institute"},
-                    new Team{Name="Nod Publishers"}
-                };
-
-                Team.PlayGames(teams);
-
-                teams.ForEach(t => context.Teams.Add(t));
-                context.SaveChanges();
-            }
+                new Team{Name="Adventure Works Cycles"},
+                new Team{Name="Alpine Ski House"},
+                new Team{Name="Blue Yonder Airlines"},
+                new Team{Name="Coho Vineyard"},
+                new Team{Name="Contoso, Ltd."},
+                new Team{Name="Fabrikam, Inc."},
+                new Team{Name="Lucerne Publishing"},
+                new Team{Name="Northwind Traders"},
+                new Team{Name="Consolidated Messenger"},
+                new Team{Name="Fourth Coffee"},
+                new Team{Name="Graphic Design Institute"},
+                new Team{Name="Nod Publishers"}
+            };
+    
+            Team.PlayGames(teams);
+    
+            teams.ForEach(t => context.Teams.Add(t));
+            context.SaveChanges();
         }
-
-        public class TeamConfiguration : DbConfiguration
+    }
+    
+    public class TeamConfiguration : DbConfiguration
+    {
+        public TeamConfiguration()
         {
-            public TeamConfiguration()
-            {
-                SetExecutionStrategy("System.Data.SqlClient", () => new SqlAzureExecutionStrategy());
-            }
+            SetExecutionStrategy("System.Data.SqlClient", () => new SqlAzureExecutionStrategy());
         }
+    }
+    ```
 
 
 1. **Çözüm Gezgini**’nde, **web.config**’i açmak için sağ tıklayın.
    
     ![Web.config][cache-web-config]
 2. Aşağıdaki bağlantı dizesini `connectionStrings` bölümüne ekleyin. Bağlantı dizesinin adını Entity Framework veritabanı bağlamı sınıfının adı olan `TeamContext` ile eşleşmelidir.
-   
-       <add name="TeamContext" connectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Teams.mdf;Integrated Security=True" providerName="System.Data.SqlClient" />
+
+    ```xml   
+    <add name="TeamContext" connectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Teams.mdf;Integrated Security=True" providerName="System.Data.SqlClient" />
+    ```
 
     Bunu ekledikten sonra, `connectionStrings` bölümü aşağıdaki örnek gibi görünmelidir.
 
-
-        <connectionStrings>
-            <add name="DefaultConnection" connectionString="Data Source=(LocalDb)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\aspnet-ContosoTeamStats-20160216120918.mdf;Initial Catalog=aspnet-ContosoTeamStats-20160216120918;Integrated Security=True"
-                providerName="System.Data.SqlClient" />
-            <add name="TeamContext" connectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Teams.mdf;Integrated Security=True"     providerName="System.Data.SqlClient" />
-        </connectionStrings>
+    ```xml
+    <connectionStrings>
+        <add name="DefaultConnection" connectionString="Data Source=(LocalDb)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\aspnet-ContosoTeamStats-20160216120918.mdf;Initial Catalog=aspnet-ContosoTeamStats-20160216120918;Integrated Security=True"
+            providerName="System.Data.SqlClient" />
+        <add name="TeamContext" connectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Teams.mdf;Integrated Security=True"     providerName="System.Data.SqlClient" />
+    </connectionStrings>
+    ```
 
 ### <a name="add-the-controller"></a>Denetleyiciyi ekleme
 1. Projeyi derlemek için **F6**’ya basın. 
@@ -195,15 +202,19 @@ Visual Studio 2013’ünüz varsa, [Visual Studio 2013 için en son Azure SDK's�
 5. **Çözüm Gezgini**’nde, **Global.asax** öğesini genişletin ve **Global.asax.cs**’yi açmak için çift tıklayın.
    
     ![Global.asax.cs][cache-global-asax]
-6. Aşağıdaki iki using deyimini dosyanın üst tarafındaki diğer using deyimlerinin altına ekleyin.
+6. Aşağıdaki iki `using` deyimini dosyanın üst tarafındaki diğer `using` deyimlerinin altına ekleyin.
 
-        using System.Data.Entity;
-        using ContosoTeamStats.Models;
+    ```c#
+    using System.Data.Entity;
+    using ContosoTeamStats.Models;
+    ```
 
 
 1. `Application_Start` yönteminin sonuna aşağıdaki kod satırını ekleyin.
 
-        Database.SetInitializer<TeamContext>(new TeamInitializer());
+    ```c#
+    Database.SetInitializer<TeamContext>(new TeamInitializer());
+    ```
 
 
 1. **Çözüm Gezgini**’nde, `App_Start` öğesini genişletin ve `RouteConfig.cs` öğesine çift tıklayın.
@@ -211,11 +222,13 @@ Visual Studio 2013’ünüz varsa, [Visual Studio 2013 için en son Azure SDK's�
     ![RouteConfig.cs][cache-RouteConfig-cs]
 2. Aşağıdaki örnekte gösterildiği gibi `controller = "Home"` öğesini `RegisterRoutes` yöntemindeki kod `controller = "Teams"` ile değiştirin.
 
-        routes.MapRoute(
-            name: "Default",
-            url: "{controller}/{action}/{id}",
-            defaults: new { controller = "Teams", action = "Index", id = UrlParameter.Optional }
-        );
+    ```c#
+    routes.MapRoute(
+        name: "Default",
+        url: "{controller}/{action}/{id}",
+        defaults: new { controller = "Teams", action = "Index", id = UrlParameter.Optional }
+    );
+```
 
 
 ### <a name="configure-the-views"></a>Görünümleri yapılandırma
@@ -224,7 +237,9 @@ Visual Studio 2013’ünüz varsa, [Visual Studio 2013 için en son Azure SDK's�
     ![_Layout.cshtml][cache-layout-cshtml]
 2. `title` öğesinin içeriğini değiştirin ve aşağıdaki örnekte gösterildiği gibi `My ASP.NET Application` öğesini `Contoso Team Stats` ile değiştirin.
 
-        <title>@ViewBag.Title - Contoso Team Stats</title>
+    ```html
+    <title>@ViewBag.Title - Contoso Team Stats</title>
+    ```
 
 
 1. `body` bölümünde, ilk `Html.ActionLink` deyimini güncelleştirin ve `Application name` öğesini `Contoso Team Stats` ile ve `Home` öğesini `Teams` ile değiştirin.
@@ -257,33 +272,41 @@ Visual Studio 2013’ünüz varsa, [Visual Studio 2013 için en son Azure SDK's�
 3. **Çözüm Gezgini**’nde, **Denetleyiciler** klasörünü genişletin ve **TeamsController.cs** öğesini açmak için çift tıklayın.
    
     ![Ekip denetleyicisi][cache-teamscontroller]
-4. **TeamsController.cs** deyimlerini kullanarak aşağıdaki iki öğeyi ekleyin.
-   
-        using System.Configuration;
-        using StackExchange.Redis;
+4. **TeamsController.cs** deyimlerini kullanarak aşağıdaki iki `using` deyimini ekleyin.
+
+    ```c#   
+    using System.Configuration;
+    using StackExchange.Redis;
+    ```
+
 5. Aşağıdaki iki özelliği `TeamsController` sınıfına ekleyin.
-   
-        // Redis Connection string info
-        private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
+
+    ```c#   
+    // Redis Connection string info
+    private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
+    {
+        string cacheConnection = ConfigurationManager.AppSettings["CacheConnection"].ToString();
+        return ConnectionMultiplexer.Connect(cacheConnection);
+    });
+    
+    public static ConnectionMultiplexer Connection
+    {
+        get
         {
-            string cacheConnection = ConfigurationManager.AppSettings["CacheConnection"].ToString();
-            return ConnectionMultiplexer.Connect(cacheConnection);
-        });
-   
-        public static ConnectionMultiplexer Connection
-        {
-            get
-            {
-                return lazyConnection.Value;
-            }
+            return lazyConnection.Value;
         }
+    }
+    ```
+
 6. Bilgisayarınızda `WebAppPlusCacheAppSecrets.config` adlı bir dosya oluşturun ve örnek karar içinde uygulamanızın kaynak kodu ile denetlenmeyecek bir konuma yerleştirin, başka bir yerde denetlemeyi seçmelisiniz. Bu örnekte, `AppSettingsSecrets.config` dosyası `C:\AppSecrets\WebAppPlusCacheAppSecrets.config` konumunda bulunur.
    
     `WebAppPlusCacheAppSecrets.config` dosyasını düzenleyin ve aşağıdaki içerikleri ekleyin. Uygulamayı yerel olarak çalıştırırsanız, Azure Redis Önbelleği örneğinize bağlanmak için bu bilgiler kullanılır. Öğreticide daha sonra bir Azure Redis Önbelleği örneği hazırlayacak ve önbellek adı ve parolasını güncelleştireceksiniz. Örnek uygulamayı yerel olarak çalıştırmayı düşünmüyorsanız, Azure’a dağıtırken uygulama Web Uygulaması için önbellek bağlantı bilgilerini bu dosya yerine uygulama ayarlarından aldığı için bu dosyayı oluşturma ve sonraki adımları atlayabilirsiniz. `WebAppPlusCacheAppSecrets.config` öğesi uygulamanızla birlikte Azure’a dağıtılmadığı için, uygulamayı yerel olarak çalıştırmayacağınız sürece ihtiyacınız olmayacaktır.
 
-        <appSettings>
-          <add key="CacheConnection" value="MyCache.redis.cache.windows.net,abortConnect=false,ssl=true,password=..."/>
-        </appSettings>
+    ```xml
+    <appSettings>
+      <add key="CacheConnection" value="MyCache.redis.cache.windows.net,abortConnect=false,ssl=true,password=..."/>
+    </appSettings>
+    ```
 
 
 1. **Çözüm Gezgini**’nde, **web.config**’i açmak için sağ tıklayın.
@@ -294,7 +317,7 @@ Visual Studio 2013’ünüz varsa, [Visual Studio 2013 için en son Azure SDK's�
    * Önce: `<appSettings>`
    * Sonra: ` <appSettings file="C:\AppSecrets\WebAppPlusCacheAppSecrets.config">`
      
-     ASP.NET çalışma zamanı, `<appSettings>` öğesindeki biçimlendirmeye sahip harici dosyasının içeriğini birleştirir. Belirtilen dosya bulunamazsa, çalışma zamanı dosya özniteliğini yok sayar. Gizli anahtarlarınız (önbelleğinize bağlantı dizisi) uygulamanız için kaynak kodun bir parçası olarak dahil edilmez. Web uygulamanızı Azure’a dağıtırken, `WebAppPlusCacheAppSecrests.config` dosyası dağıtılmaz (istediğiniz gibi). Bu gizli anahtarları Azure’da belirtmenin birkaç yolu vardır ve bir sonraki öğretici adımında [Azure kaynaklarını hazırlarken](#provision-the-azure-resources) sizin için otomatik olarak yapılandırılır. Azure'daki gizli anahtarlarla çalışma hakkında daha fazla bilgi için, bkz. [Parolaları ve diğer hassas verileri ASP.NET ve Azure App Service’e dağıtmak için en iyi yöntemler](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure).
+   ASP.NET çalışma zamanı, `<appSettings>` öğesindeki biçimlendirmeye sahip harici dosyasının içeriğini birleştirir. Belirtilen dosya bulunamazsa, çalışma zamanı dosya özniteliğini yok sayar. Gizli anahtarlarınız (önbelleğinize bağlantı dizisi) uygulamanız için kaynak kodun bir parçası olarak dahil edilmez. Web uygulamanızı Azure’a dağıtırken, `WebAppPlusCacheAppSecrests.config` dosyası dağıtılmaz (istediğiniz gibi). Bu gizli anahtarları Azure’da belirtmenin birkaç yolu vardır ve bir sonraki öğretici adımında [Azure kaynaklarını hazırlarken](#provision-the-azure-resources) sizin için otomatik olarak yapılandırılır. Azure'daki gizli anahtarlarla çalışma hakkında daha fazla bilgi için, bkz. [Parolaları ve diğer hassas verileri ASP.NET ve Azure App Service’e dağıtmak için en iyi yöntemler](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure).
 
 ### <a name="update-the-teamscontroller-class-to-return-results-from-the-cache-or-the-database"></a>Önbellek veya veritabanından sonuçları döndürmek için TeamsController sınıfını güncelleştirme
 Bu örnekte, ekip istatistikleri veritabanı veya önbellekten alınabilir. Ekip istatistikleri seri hale getirilmiş bir `List<Team>` ve ayrıca, Redis veri türleri kullanılarak sıralanmış bir küme olarak veritabanında depolanır. Bir sıralanmış kümeden öğeleri alırken, belirli öğeler için bazı, tümü veya sorgu alabilirsiniz. Bu örnekte, kazanma sayısına göre sıralanan en iyi 5 ekip için sıralanmış kümeyi sorgulayacaksınız.
@@ -304,282 +327,299 @@ Bu örnekte, ekip istatistikleri veritabanı veya önbellekten alınabilir. Ekip
 > 
 > 
 
-1. Aşağıdaki using deyimlerini `TeamsController.cs` dosyasının üst tarafındaki diğer using deyimleri ile değiştirin.
-   
-        using System.Diagnostics;
-        using Newtonsoft.Json;
-2. Geçerli `public ActionResult Index()` yöntemini aşağıdaki uygulama ile değiştirin.
+1. Aşağıdaki `using` deyimlerini `TeamsController.cs` dosyasının üst tarafındaki diğer `using` deyimleri ile değiştirin.
 
-        // GET: Teams
-        public ActionResult Index(string actionType, string resultType)
+    ```c#   
+    using System.Diagnostics;
+    using Newtonsoft.Json;
+    ```
+
+2. Geçerli `public ActionResult Index()` yöntemi uygulamasını aşağıdaki uygulama ile değiştirin.
+
+    ```c#
+    // GET: Teams
+    public ActionResult Index(string actionType, string resultType)
+    {
+        List<Team> teams = null;
+
+        switch(actionType)
         {
-            List<Team> teams = null;
+            case "playGames": // Play a new season of games.
+                PlayGames();
+                break;
 
-            switch(actionType)
-            {
-                case "playGames": // Play a new season of games.
-                    PlayGames();
-                    break;
+            case "clearCache": // Clear the results from the cache.
+                ClearCachedTeams();
+                break;
 
-                case "clearCache": // Clear the results from the cache.
-                    ClearCachedTeams();
-                    break;
-
-                case "rebuildDB": // Rebuild the database with sample data.
-                    RebuildDB();
-                    break;
-            }
-
-            // Measure the time it takes to retrieve the results.
-            Stopwatch sw = Stopwatch.StartNew();
-
-            switch(resultType)
-            {
-                case "teamsSortedSet": // Retrieve teams from sorted set.
-                    teams = GetFromSortedSet();
-                    break;
-
-                case "teamsSortedSetTop5": // Retrieve the top 5 teams from the sorted set.
-                    teams = GetFromSortedSetTop5();
-                    break;
-
-                case "teamsList": // Retrieve teams from the cached List<Team>.
-                    teams = GetFromList();
-                    break;
-
-                case "fromDB": // Retrieve results from the database.
-                default:
-                    teams = GetFromDB();
-                    break;
-            }
-
-            sw.Stop();
-            double ms = sw.ElapsedTicks / (Stopwatch.Frequency / (1000.0));
-
-            // Add the elapsed time of the operation to the ViewBag.msg.
-            ViewBag.msg += " MS: " + ms.ToString();
-
-            return View(teams);
+            case "rebuildDB": // Rebuild the database with sample data.
+                RebuildDB();
+                break;
         }
+
+        // Measure the time it takes to retrieve the results.
+        Stopwatch sw = Stopwatch.StartNew();
+
+        switch(resultType)
+        {
+            case "teamsSortedSet": // Retrieve teams from sorted set.
+                teams = GetFromSortedSet();
+                break;
+
+            case "teamsSortedSetTop5": // Retrieve the top 5 teams from the sorted set.
+                teams = GetFromSortedSetTop5();
+                break;
+
+            case "teamsList": // Retrieve teams from the cached List<Team>.
+                teams = GetFromList();
+                break;
+
+            case "fromDB": // Retrieve results from the database.
+            default:
+                teams = GetFromDB();
+                break;
+        }
+
+        sw.Stop();
+        double ms = sw.ElapsedTicks / (Stopwatch.Frequency / (1000.0));
+
+        // Add the elapsed time of the operation to the ViewBag.msg.
+        ViewBag.msg += " MS: " + ms.ToString();
+
+        return View(teams);
+    }
+    ```
 
 
 1. Önceki kod parçacığında eklenen switch deyiminden `playGames`, `clearCache` ve `rebuildDB` eylem türlerini uygulamak için aşağıdaki üç yöntemi `TeamsController` sınıfına ekleyin.
    
     `PlayGames` yöntemi, oyun sezonunu taklit ederek ekip istatistiklerini güncelleştirir, sonuçları veritabanına kaydeder ve artık güncel olmayan verileri veritabanından temizler.
 
-        void PlayGames()
-        {
-            ViewBag.msg += "Updating team statistics. ";
-            // Play a "season" of games.
-            var teams = from t in db.Teams
-                        select t;
+    ```c#
+    void PlayGames()
+    {
+        ViewBag.msg += "Updating team statistics. ";
+        // Play a "season" of games.
+        var teams = from t in db.Teams
+                    select t;
 
-            Team.PlayGames(teams);
+        Team.PlayGames(teams);
 
-            db.SaveChanges();
+        db.SaveChanges();
 
-            // Clear any cached results
-            ClearCachedTeams();
-        }
-
+        // Clear any cached results
+        ClearCachedTeams();
+    }
+    ```
 
     `RebuildDB` yöntemi, varsayılan ekip kümesine sahip veritabanını yeniden başlatır, bunlar için istatistikler oluşturur ve artık güncel olmayan verileri veritabanından temizler.
 
-        void RebuildDB()
-        {
-            ViewBag.msg += "Rebuilding DB. ";
-            // Delete and re-initialize the database with sample data.
-            db.Database.Delete();
-            db.Database.Initialize(true);
+    ```c#
+    void RebuildDB()
+    {
+        ViewBag.msg += "Rebuilding DB. ";
+        // Delete and re-initialize the database with sample data.
+        db.Database.Delete();
+        db.Database.Initialize(true);
 
-            // Clear any cached results
-            ClearCachedTeams();
-        }
+        // Clear any cached results
+        ClearCachedTeams();
+    }
+    ```
 
+    `ClearCachedTeams` yöntemi önbelleğe alınan tüm ekip istatistiklerini önbellekten kaldırır.
 
-     `ClearCachedTeams` yöntemi önbelleğe alınan tüm ekip istatistiklerini önbellekten kaldırır.
-
-
-        void ClearCachedTeams()
-        {
-            IDatabase cache = Connection.GetDatabase();
-            cache.KeyDelete("teamsList");
-            cache.KeyDelete("teamsSortedSet");
-            ViewBag.msg += "Team data removed from cache. ";
-        } 
+    ```c#
+    void ClearCachedTeams()
+    {
+        IDatabase cache = Connection.GetDatabase();
+        cache.KeyDelete("teamsList");
+        cache.KeyDelete("teamsSortedSet");
+        ViewBag.msg += "Team data removed from cache. ";
+    } 
+    ```
 
 
 1. Önbellek ve veritabanından ekip istatistiklerini almanın çeşitli yollarını uygulamak için aşağıdaki dört yöntemi `TeamsController` sınıfına ekleyin. Bu yöntemlerin her biri daha sonra görünüm tarafından görüntülenen bir `List<Team>` döndürür.
    
     `GetFromDB` yöntemi veritabanından ekip istatistiklerini okur.
    
-        List<Team> GetFromDB()
-        {
-            ViewBag.msg += "Results read from DB. ";
-            var results = from t in db.Teams
-                orderby t.Wins descending
-                select t; 
-   
-            return results.ToList<Team>();
-        }
+    ```c#
+    List<Team> GetFromDB()
+    {
+        ViewBag.msg += "Results read from DB. ";
+        var results = from t in db.Teams
+            orderby t.Wins descending
+            select t; 
+
+        return results.ToList<Team>();
+    }
+    ```
 
     `GetFromList` yöntemi önbellekteki ekip istatistiklerini seri hale getirilmiş bir `List<Team>` olarak okur. Önbellek isabetsizliği varsa, ekip istatistikleri veritabanından okunur ve ardından gelecek sefer için önbellekte depolanır. Bu örnekte, önbelleğe veya önbellekten .NET nesnelerini seri hale getirmek için JSON.NEY serileştirmeyi kullanıyoruz. Daha fazla bilgi için, bkz. [Azure Redis Önbelleği’nde .NET nesneleri ile çalışma](cache-dotnet-how-to-use-azure-redis-cache.md#work-with-net-objects-in-the-cache).
 
-        List<Team> GetFromList()
+    ```c#
+    List<Team> GetFromList()
+    {
+        List<Team> teams = null;
+
+        IDatabase cache = Connection.GetDatabase();
+        string serializedTeams = cache.StringGet("teamsList");
+        if (!String.IsNullOrEmpty(serializedTeams))
         {
-            List<Team> teams = null;
+            teams = JsonConvert.DeserializeObject<List<Team>>(serializedTeams);
 
-            IDatabase cache = Connection.GetDatabase();
-            string serializedTeams = cache.StringGet("teamsList");
-            if (!String.IsNullOrEmpty(serializedTeams))
-            {
-                teams = JsonConvert.DeserializeObject<List<Team>>(serializedTeams);
-
-                ViewBag.msg += "List read from cache. ";
-            }
-            else
-            {
-                ViewBag.msg += "Teams list cache miss. ";
-                // Get from database and store in cache
-                teams = GetFromDB();
-
-                ViewBag.msg += "Storing results to cache. ";
-                cache.StringSet("teamsList", JsonConvert.SerializeObject(teams));
-            }
-            return teams;
+            ViewBag.msg += "List read from cache. ";
         }
+        else
+        {
+            ViewBag.msg += "Teams list cache miss. ";
+            // Get from database and store in cache
+            teams = GetFromDB();
 
+            ViewBag.msg += "Storing results to cache. ";
+            cache.StringSet("teamsList", JsonConvert.SerializeObject(teams));
+        }
+        return teams;
+    }
+    ```
 
     `GetFromSortedSet` yöntemi önbelleğe alınan bir sıralanmış kümeden ekip istatistiklerini okur. Önbellek isabetsizliği varsa, ekip istatistikleri veritabanından okunur ve ardından bir sıralanmış küme olarak önbellekte depolanır.
 
-
-        List<Team> GetFromSortedSet()
+    ```c#
+    List<Team> GetFromSortedSet()
+    {
+        List<Team> teams = null;
+        IDatabase cache = Connection.GetDatabase();
+        // If the key teamsSortedSet is not present, this method returns a 0 length collection.
+        var teamsSortedSet = cache.SortedSetRangeByRankWithScores("teamsSortedSet", order: Order.Descending);
+        if (teamsSortedSet.Count() > 0)
         {
-            List<Team> teams = null;
-            IDatabase cache = Connection.GetDatabase();
-            // If the key teamsSortedSet is not present, this method returns a 0 length collection.
-            var teamsSortedSet = cache.SortedSetRangeByRankWithScores("teamsSortedSet", order: Order.Descending);
-            if (teamsSortedSet.Count() > 0)
+            ViewBag.msg += "Reading sorted set from cache. ";
+            teams = new List<Team>();
+            foreach (var t in teamsSortedSet)
             {
-                ViewBag.msg += "Reading sorted set from cache. ";
-                teams = new List<Team>();
-                foreach (var t in teamsSortedSet)
-                {
-                    Team tt = JsonConvert.DeserializeObject<Team>(t.Element);
-                    teams.Add(tt);
-                }
+                Team tt = JsonConvert.DeserializeObject<Team>(t.Element);
+                teams.Add(tt);
             }
-            else
-            {
-                ViewBag.msg += "Teams sorted set cache miss. ";
-
-                // Read from DB
-                teams = GetFromDB();
-
-                ViewBag.msg += "Storing results to cache. ";
-                foreach (var t in teams)
-                {
-                    Console.WriteLine("Adding to sorted set: {0} - {1}", t.Name, t.Wins);
-                    cache.SortedSetAdd("teamsSortedSet", JsonConvert.SerializeObject(t), t.Wins);
-                }
-            }
-            return teams;
         }
+        else
+        {
+            ViewBag.msg += "Teams sorted set cache miss. ";
 
+            // Read from DB
+            teams = GetFromDB();
+
+            ViewBag.msg += "Storing results to cache. ";
+            foreach (var t in teams)
+            {
+                Console.WriteLine("Adding to sorted set: {0} - {1}", t.Name, t.Wins);
+                cache.SortedSetAdd("teamsSortedSet", JsonConvert.SerializeObject(t), t.Wins);
+            }
+        }
+        return teams;
+    }
+    ```
 
     `GetFromSortedSetTop5` yöntemi önbelleğe alınan sıralanmış kümesinden en iyi 5 ekibi okur. Bu, `teamsSortedSet` anahtarının varlığı için önbelleği denetleyerek başlar. Bu anahtar yoksa, ekip istatistikleri okumak ve bunları önbellekte depolamak için `GetFromSortedSet` yöntemi çağrılır. Daha sonra önbelleğe alınan sıralanmış küme, döndürülen en iyi 5 ekip için sorgulanır.
 
+    ```c#
+    List<Team> GetFromSortedSetTop5()
+    {
+        List<Team> teams = null;
+        IDatabase cache = Connection.GetDatabase();
 
-        List<Team> GetFromSortedSetTop5()
+        // If the key teamsSortedSet is not present, this method returns a 0 length collection.
+        var teamsSortedSet = cache.SortedSetRangeByRankWithScores("teamsSortedSet", stop: 4, order: Order.Descending);
+        if(teamsSortedSet.Count() == 0)
         {
-            List<Team> teams = null;
-            IDatabase cache = Connection.GetDatabase();
+            // Load the entire sorted set into the cache.
+            GetFromSortedSet();
 
-            // If the key teamsSortedSet is not present, this method returns a 0 length collection.
-            var teamsSortedSet = cache.SortedSetRangeByRankWithScores("teamsSortedSet", stop: 4, order: Order.Descending);
-            if(teamsSortedSet.Count() == 0)
-            {
-                // Load the entire sorted set into the cache.
-                GetFromSortedSet();
-
-                // Retrieve the top 5 teams.
-                teamsSortedSet = cache.SortedSetRangeByRankWithScores("teamsSortedSet", stop: 4, order: Order.Descending);
-            }
-
-            ViewBag.msg += "Retrieving top 5 teams from cache. ";
-            // Get the top 5 teams from the sorted set
-            teams = new List<Team>();
-            foreach (var team in teamsSortedSet)
-            {
-                teams.Add(JsonConvert.DeserializeObject<Team>(team.Element));
-            }
-            return teams;
+            // Retrieve the top 5 teams.
+            teamsSortedSet = cache.SortedSetRangeByRankWithScores("teamsSortedSet", stop: 4, order: Order.Descending);
         }
 
+        ViewBag.msg += "Retrieving top 5 teams from cache. ";
+        // Get the top 5 teams from the sorted set
+        teams = new List<Team>();
+        foreach (var team in teamsSortedSet)
+        {
+            teams.Add(JsonConvert.DeserializeObject<Team>(team.Element));
+        }
+        return teams;
+    }
+    ```
 
 ### <a name="update-the-create-edit-and-delete-methods-to-work-with-the-cache"></a>Önbellek ile çalışacak şekilde Oluştur, Düzenle ve Sil yöntemlerini güncelleştirme
 Bu örneğin bir parçası olarak oluşturulan iskele kurma kodu ekip ekleme, düzenleme ve silme yöntemlerini içerir. Bir ekip her eklendiğinde, düzenlendiğinde veya kaldırıldığında önbellekteki veriler güncel olmayan hale gelir. Bu bölümde, önbelleğin veritabanı ile eşitlenmemiş olmaması için önbelleğe alınan ekipleri temizlemek üzere bu üç yöntemi değiştireceksiniz.
 
 1. `TeamsController` sınıfındaki `Create(Team team)` yöntemine göz atın. Aşağıdaki örnekte gösterildiği gibi `ClearCachedTeams` yöntemine bir çağrı ekleyin.
 
-        // POST: Teams/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Name,Wins,Losses,Ties")] Team team)
+    ```c#
+    // POST: Teams/Create
+    // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+    // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public ActionResult Create([Bind(Include = "ID,Name,Wins,Losses,Ties")] Team team)
+    {
+        if (ModelState.IsValid)
         {
-            if (ModelState.IsValid)
-            {
-                db.Teams.Add(team);
-                db.SaveChanges();
-                // When a team is added, the cache is out of date.
-                // Clear the cached teams.
-                ClearCachedTeams();
-                return RedirectToAction("Index");
-            }
-
-            return View(team);
-        }
-
-
-1. `TeamsController` sınıfındaki `Edit(Team team)` yöntemine göz atın. Aşağıdaki örnekte gösterildiği gibi `ClearCachedTeams` yöntemine bir çağrı ekleyin.
-
-        // POST: Teams/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Name,Wins,Losses,Ties")] Team team)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(team).State = EntityState.Modified;
-                db.SaveChanges();
-                // When a team is edited, the cache is out of date.
-                // Clear the cached teams.
-                ClearCachedTeams();
-                return RedirectToAction("Index");
-            }
-            return View(team);
-        }
-
-
-1. `TeamsController` sınıfındaki `DeleteConfirmed(int id)` yöntemine göz atın. Aşağıdaki örnekte gösterildiği gibi `ClearCachedTeams` yöntemine bir çağrı ekleyin.
-
-        // POST: Teams/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            Team team = db.Teams.Find(id);
-            db.Teams.Remove(team);
+            db.Teams.Add(team);
             db.SaveChanges();
-            // When a team is deleted, the cache is out of date.
+            // When a team is added, the cache is out of date.
             // Clear the cached teams.
             ClearCachedTeams();
             return RedirectToAction("Index");
         }
+
+        return View(team);
+    }
+    ```
+
+
+1. `TeamsController` sınıfındaki `Edit(Team team)` yöntemine göz atın. Aşağıdaki örnekte gösterildiği gibi `ClearCachedTeams` yöntemine bir çağrı ekleyin.
+
+    ```c#
+    // POST: Teams/Edit/5
+    // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+    // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public ActionResult Edit([Bind(Include = "ID,Name,Wins,Losses,Ties")] Team team)
+    {
+        if (ModelState.IsValid)
+        {
+            db.Entry(team).State = EntityState.Modified;
+            db.SaveChanges();
+            // When a team is edited, the cache is out of date.
+            // Clear the cached teams.
+            ClearCachedTeams();
+            return RedirectToAction("Index");
+        }
+        return View(team);
+    }
+    ```
+
+
+1. `TeamsController` sınıfındaki `DeleteConfirmed(int id)` yöntemine göz atın. Aşağıdaki örnekte gösterildiği gibi `ClearCachedTeams` yöntemine bir çağrı ekleyin.
+
+    ```c#
+    // POST: Teams/Delete/5
+    [HttpPost, ActionName("Delete")]
+    [ValidateAntiForgeryToken]
+    public ActionResult DeleteConfirmed(int id)
+    {
+        Team team = db.Teams.Find(id);
+        db.Teams.Remove(team);
+        db.SaveChanges();
+        // When a team is deleted, the cache is out of date.
+        // Clear the cached teams.
+        ClearCachedTeams();
+        return RedirectToAction("Index");
+    }
+    ```
 
 
 ### <a name="update-the-teams-index-view-to-work-with-the-cache"></a>Önbellek ile çalışacak şekilde Ekipler Dizini görünümünü güncelleştirme
@@ -592,39 +632,43 @@ Bu örneğin bir parçası olarak oluşturulan iskele kurma kodu ekip ekleme, d�
    
     Bu, yeni bir ekip oluşturma bağlantısıdır. Paragraf öğesini aşağıdaki tablo ile değiştirin. Bu tabloda yeni bir ekip oluşturmak, yeni bir oyun sezonu oynama, önbelleği temizleme, önbellekten ekipleri çeşitli biçimlerde alma, veritabanından ekipleri alma ve yeni örnek veriler ile veritabanını yeniden oluşturma eylemlerinin bağlantılarını içermektedir.
 
-        <table class="table">
-            <tr>
-                <td>
-                    @Html.ActionLink("Create New", "Create")
-                </td>
-                <td>
-                    @Html.ActionLink("Play Season", "Index", new { actionType = "playGames" })
-                </td>
-                <td>
-                    @Html.ActionLink("Clear Cache", "Index", new { actionType = "clearCache" })
-                </td>
-                <td>
-                    @Html.ActionLink("List from Cache", "Index", new { resultType = "teamsList" })
-                </td>
-                <td>
-                    @Html.ActionLink("Sorted Set from Cache", "Index", new { resultType = "teamsSortedSet" })
-                </td>
-                <td>
-                    @Html.ActionLink("Top 5 Teams from Cache", "Index", new { resultType = "teamsSortedSetTop5" })
-                </td>
-                <td>
-                    @Html.ActionLink("Load from DB", "Index", new { resultType = "fromDB" })
-                </td>
-                <td>
-                    @Html.ActionLink("Rebuild DB", "Index", new { actionType = "rebuildDB" })
-                </td>
-            </tr>    
-        </table>
+    ```html
+    <table class="table">
+        <tr>
+            <td>
+                @Html.ActionLink("Create New", "Create")
+            </td>
+            <td>
+                @Html.ActionLink("Play Season", "Index", new { actionType = "playGames" })
+            </td>
+            <td>
+                @Html.ActionLink("Clear Cache", "Index", new { actionType = "clearCache" })
+            </td>
+            <td>
+                @Html.ActionLink("List from Cache", "Index", new { resultType = "teamsList" })
+            </td>
+            <td>
+                @Html.ActionLink("Sorted Set from Cache", "Index", new { resultType = "teamsSortedSet" })
+            </td>
+            <td>
+                @Html.ActionLink("Top 5 Teams from Cache", "Index", new { resultType = "teamsSortedSetTop5" })
+            </td>
+            <td>
+                @Html.ActionLink("Load from DB", "Index", new { resultType = "fromDB" })
+            </td>
+            <td>
+                @Html.ActionLink("Rebuild DB", "Index", new { actionType = "rebuildDB" })
+            </td>
+        </tr>    
+    </table>
+    ```
 
 
 1. **Index.cshtml** dosyasının aşağısına kaydırın ve dosyada bulunan son tablodaki son satır olması için aşağıdaki `tr` öğesini ekleyin.
    
-        <tr><td colspan="5">@ViewBag.Msg</td></tr>
+    ```html
+    <tr><td colspan="5">@ViewBag.Msg</td></tr>
+    ```
    
     Bu satır, önceki adımdaki eylem bağlantılarından birine tıkladığınızda ayarlanan geçerli işlem hakkında bir durum raporu içeren `ViewBag.Msg` öğesinin değerini görüntüler.   
    
@@ -653,15 +697,13 @@ Bu **Azure’a Dağıt** düğmesi, bu hizmetleri hazırlamak ve SQL Database i�
 
 ![Azure’a Dağıt][cache-deploy-to-azure-step-1]
 
-1. **Özel dağıtım** dikey penceresinde, kullanılacak Azure aboneliğini ve mevcut bir kaynak grubu seçin veya yeni bir tane oluşturun ve kaynak grubu konumunu belirtin.
-2. **Parametreler** dikey penceresinde, bir yönetici hesabı adı (**ADMINISTRATORLOGIN** - **admin** kullanmayın), yönetici oturum açma parolası (**ADMINISTRATORLOGINPASSWORD**), ve veritabanı adı (**DATABASENAME**) belirtin. Diğer parametreler, ücretsiz bir App Service barındırma planı ve ücretsiz katman ile birlikte gelmeyen SQL Database ve Azure Redis Önbelleği için daha düşük maliyetli seçenekler sunmak için yapılandırılır.
-3. İsterseniz diğer ayarlardan herhangi birini değiştirin veya varsayılanları tutun ve **Tamam**’a tıklayın.
+1. **Temel Bilgiler** bölümünde, kullanılacak Azure aboneliğini ve mevcut bir kaynak grubu seçin veya yeni bir tane oluşturun ve kaynak grubu konumunu belirtin.
+2. **Ayarlar** bölümünde, bir yönetici hesabı adı (**ADMINISTRATORLOGIN** - **admin** kullanmayın), yönetici oturum açma parolası (**ADMINISTRATORLOGINPASSWORD**), ve veritabanı adı (**DATABASENAME**) belirtin. Diğer parametreler, ücretsiz bir App Service barındırma planı ve ücretsiz katman ile birlikte gelmeyen SQL Database ve Azure Redis Önbelleği için daha düşük maliyetli seçenekler sunmak için yapılandırılır.
 
-![Azure’a Dağıt][cache-deploy-to-azure-step-2]
+    ![Azure’a Dağıt][cache-deploy-to-azure-step-2]
 
-1. **Yasal koşulları gözden geçir**’e tıklayın.
-2. **Satın Al** dikey penceresindeki koşulları okuyun ve **Satın Al**’a tıklayın.
-3. Kaynakları hazırlamaya başlamak için, **Özel dağıtım** dikey penceresinde **Oluştur**’a tıklayın.
+3. Ayarları yapılandırdıktan sonra sayfanın en altına inin, hüküm ve koşulları okuyun ve **Yukarıda belirtilen hüküm ve koşulları kabul ediyorum** onay kutusunu işaretleyin.
+4. Kaynakları sağlamaya başlamak için **Satın al**'a tıklayın.
 
 Dağıtımınızın ilerlemesini görüntülemek için bildirim simgesine ve **Dağıtım başladı** öğesine tıklayın.
 
@@ -746,9 +788,11 @@ Kullanılacak önbelleği seçtikten veya oluşturduktan sonra, Azure portalınd
 1. İstediğiniz düzenleyiciyi kullanarak bu öğreticinin [Redis Önbelleği’ni kullanmak için uygulamayı yapılandırma](#configure-the-application-to-use-redis-cache) adımında oluşturduğunuz `WebAppPlusCacheAppSecrets.config` dosyasını açın.
 2. `value` özniteliğini düzenleyin ve `MyCache.redis.cache.windows.net` öğesini önbelleğinizin [konak adı](cache-configure.md#properties) ile değiştirin ve parola olarak önbelleğinizin [birincil veya ikincil anahtarını](cache-configure.md#access-keys) belirtin.
 
-        <appSettings>
-          <add key="CacheConnection" value="MyCache.redis.cache.windows.net,abortConnect=false,ssl=true,password=..."/>
-        </appSettings>
+    ```xml
+    <appSettings>
+      <add key="CacheConnection" value="MyCache.redis.cache.windows.net,abortConnect=false,ssl=true,password=..."/>
+    </appSettings>
+    ```
 
 
 1. Uygulamayı çalıştırmak için **Ctrl+F5**'e basın.
@@ -808,6 +852,6 @@ Kullanılacak önbelleği seçtikten veya oluşturduktan sonra, Azure portalınd
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

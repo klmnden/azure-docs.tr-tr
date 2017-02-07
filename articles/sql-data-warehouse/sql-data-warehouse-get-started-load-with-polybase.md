@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: cakarst;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 936bfcb7d4e7d2a901304f31a58b31e6cd14498a
+ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
+ms.openlocfilehash: 4ca929b2be7fe17e140a9daca01a25ac903e8c76
 
 
 ---
@@ -35,16 +35,16 @@ Bu öğreticide, AzCopy ve PolyBase kullanarak SQL Data Warehouse'a nasıl veri 
 * Verileri tanımlamak için veritabanı nesneleri oluşturma
 * T-SQL sorgusu çalıştırarak veri yükleme
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Loading-data-with-PolyBase-in-Azure-SQL-Data-Warehouse/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Loading-data-with-PolyBase-in-Azure-SQL-Data-Warehouse/player]
 > 
 > 
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 Bu öğreticide ilerleyebilmeniz için, şunlar gereklidir:
 
 * SQL Data Warehouse veritabanı.
 * Standart Yerel Olarak Yedekli Depolama (Standard-LRS), Standart Coğrafi Olarak Yedekli Depolama (Standard-GRS), veya Standart Okuma Erişimli Coğrafi Olarak Yedekli Depolama (Standard-RAGRS) türünde bir Azure depolama hesabı.
-* AzCopy Komut Satırı Yardımcı Programı Microsoft Azure Depolama Araçları ile birlikte yüklenen [en güncel AzCopy sürümünü][en güncel AzCopy sürümünü] indirip yükleyin.
+* AzCopy Komut Satırı Yardımcı Programı Microsoft Azure Depolama Araçları ile birlikte yüklenen [en güncel AzCopy sürümünü][latest version of AzCopy] indirip yükleyin.
   
     ![Azure Storage Araçları](./media/sql-data-warehouse-get-started-load-with-polybase/install-azcopy.png)
 
@@ -107,7 +107,7 @@ Verilerinizi Azure blob depolama alanına kopyalamak için şunları yapın:
     .\AzCopy.exe /Source:C:\Temp\ /Dest:<blob service endpoint URL> /datacontainer/datedimension/ /DestKey:<azure_storage_account_key> /Pattern:DimDate2.txt
     ```
 
-Ayrıca bkz. [AzCopy Komut Satırı Yardımcı Programını Kullanmaya Başlama][AzCopy Komut Satırı Yardımcı Programını Kullanmaya Başlama].
+Ayrıca bkz. [AzCopy Komut Satırı Yardımcı Programı ile Çalışmaya Başlama][Getting Started with the AzCopy Command-Line Utility].
 
 ### <a name="e-explore-your-blob-storage-container"></a>E. Blob depolama kapsayıcınızı araştırma
 Blob depolama alanına yüklediğiniz dosyayı görmek için şunları yapın:
@@ -127,8 +127,8 @@ PolyBase, Azure blob depolama alanındaki verilere erişmek için dış tablolar
 
 Bu adımdaki örnekte, bir dış tablo oluşturmak için aşağıdaki Transact-SQL deyimleri kullanılmaktadır.
 
-* [Create Master Key (Transact-SQL)][Create Master Key (Transact-SQL)]: Veritabanı kapsamlı kimlik bilgilerinizin gizli anahtarını şifrelemek için kullanılır.
-* [Create Database Scoped Credential (Transact-SQL)][Create Database Scoped Credential (Transact-SQL)]: Azure depolama hesabınız için kimlik doğrulama bilgilerinin belirtilmesinde kullanılır.
+* [Create Master Key (Transact-SQL)][Create Master Key (Transact-SQL)]: Veritabanı kapsamlı kimlik bilgileri anahtarınızı şifrelemek için kullanılır.
+* [Create Database Scoped Credential (Transact-SQL)][Create Database Scoped Credential (Transact-SQL)]: Azure depolama hesabınız için kimlik doğrulama bilgilerinin belirtilmesi için kullanılır.
 * [Create External Data Source (Transact-SQL)][Create External Data Source (Transact-SQL)]: Azure blob depolama alanınızın konumunu belirtmek için kullanılır.
 * [Create External File Format (Transact-SQL)][Create External File Format (Transact-SQL)]: Verilerinizin biçimini belirtmek için kullanılır.
 * [Create External Table (Transact-SQL)][Create External Table (Transact-SQL)]: Tablo tanımını ve verilerin konumunu belirtmek için kullanılır.
@@ -212,7 +212,7 @@ Visual Studio'da bulunan SQL Server Nesne Gezgini'nde dış dosya biçimini, dı
 Dış tablo oluşturulduktan sonra verileri yeni bir tabloya yükleyebilir veya var olan bir tabloya ekleyebilirsiniz.
 
 * Verileri yeni bir tabloya yüklemek için [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)] deyimini çalıştırın. Yeni tablo, sorguda adlandırılan sütunları içerir. Sütunların veri türleri, dış tablo tanımındaki veri türleriyle eşleşir.
-* Verileri mevcut bir tabloya yüklemek için [INSERT...SELECT (Transact-SQL)][INSERT...SELECT (Transact-SQL)] deyimini kullanın.
+* Verileri, var olan bir tabloya yüklemek için [INSERT...SELECT (Transact-SQL)][INSERT...SELECT (Transact-SQL)] deyimini kullanın.
 
 ```sql
 -- Load the data from Azure blob storage to SQL Data Warehouse
@@ -238,26 +238,26 @@ CREATE STATISTICS [CalendarQuarter] on [DimDate2] ([CalendarQuarter]);
 CREATE STATISTICS [FiscalQuarter] on [DimDate2] ([FiscalQuarter]);
 ```
 
-Daha fazla bilgi edinmek için bkz. [İstatistikler][İstatistikler].  
+Daha fazla bilgi edinmek için bkz. [İstatistikler][Statistics].  
 
 ## <a name="next-steps"></a>Sonraki adımlar
-PolyBase kullanan bir çözüm geliştirirken bilmeniz gerekenler hakkında daha fazla bilgi için bkz. [PolyBase kılavuzu][PolyBase kılavuzu].
+PolyBase kullanan bir çözüm geliştirirken bilmeniz gereken daha fazla bilgi için bkz. [PolyBase kılavuzu][PolyBase guide].
 
 <!--Image references-->
 
 
 <!--Article references-->
-[SQL Veri Ambarı'nda PolyBase Öğreticisi]: ./sql-data-warehouse-get-started-load-with-polybase.md
-[Bcp ile veri yükleme]: ./sql-data-warehouse-load-with-bcp.md
-[İstatistikler]: ./sql-data-warehouse-tables-statistics.md
-[PolyBase kılavuzu]: ./sql-data-warehouse-load-polybase-guide.md
-[AzCopy Komut Satırı Yardımcı Programı ile Çalışmaya Başlama]: ../storage/storage-use-azcopy.md
-[en güncel AzCopy sürümü]: ../storage/storage-use-azcopy.md
+[PolyBase in SQL Data Warehouse Tutorial]: ./sql-data-warehouse-get-started-load-with-polybase.md
+[Load data with bcp]: ./sql-data-warehouse-load-with-bcp.md
+[Statistics]: ./sql-data-warehouse-tables-statistics.md
+[PolyBase guide]: ./sql-data-warehouse-load-polybase-guide.md
+[Getting Started with the AzCopy Command-Line Utility]: ../storage/storage-use-azcopy.md
+[latest version of AzCopy]: ../storage/storage-use-azcopy.md
 
 <!--External references-->
-[desteklenen kaynak/havuz]: https://msdn.microsoft.com/library/dn894007.aspx
-[kopyalama etkinliği]: https://msdn.microsoft.com/library/dn835035.aspx
-[SQL Server hedef bağdaştırıcı]: https://msdn.microsoft.com/library/ms141095.aspx
+[supported source/sink]: https://msdn.microsoft.com/library/dn894007.aspx
+[copy activity]: https://msdn.microsoft.com/library/dn835035.aspx
+[SQL Server destination adapter]: https://msdn.microsoft.com/library/ms141095.aspx
 [SSIS]: https://msdn.microsoft.com/library/ms141026.aspx
 
 
@@ -278,6 +278,6 @@ PolyBase kullanan bir çözüm geliştirirken bilmeniz gerekenler hakkında daha
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO5-->
 
 

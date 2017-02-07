@@ -1,5 +1,5 @@
 ---
-title: "Veri koruma ve kurtarma amacıyla Azure SQL veritabanlarını yedeklemeye ve geri yükleme işlevlerini kullanmaya başlama | Microsoft Belgeleri"
+title: "Azure portalı: Azure SQL veritabanını yedekleme ve geri yükleme | Microsoft Docs"
 description: "Bu öğretici otomatik yedeklerden belirli bir noktaya geri yükleme gerçekleştirme, otomatik yedekleri Azure Kurtarma Hizmetleri kasasında saklama ve Azure Kurtarma Hizmetleri kasasından geri yükleme gerçekleştirme konusunda bilgi vermektedir"
 keywords: "sql veritabanı öğreticisi"
 services: sql-database
@@ -17,76 +17,13 @@ ms.topic: hero-article
 ms.date: 12/08/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 7f26cd0f6c5f9c7a2fe692bfcdc6ef60d1b2200f
-ms.openlocfilehash: d4ea089ed4b5d29c261b25e95f4d304611f9a857
+ms.sourcegitcommit: 062860b6bc1343a419cd8d35f6fbe5610396a239
+ms.openlocfilehash: c598268186869c8443007c8537853978555d6428
 
 
 ---
-<!------------------
-This topic is annotated with TEMPLATE guidelines for TUTORIAL TOPICS.
-
-
-Metadata guidelines
-
-title
-    60 characters or less. Tells users clearly what they will do (deploy an ASP.NET web app to App Service). Not the same as H1. It's 60 characters or fewer including all characters between the quotes and the Microsoft Docs site identifier.
-
-description
-    115-145 characters. Duplicate of the first sentence in the introduction. This is the abstract of the article that displays under the title when searching in Bing or Google. 
-
-    Example: "This tutorial shows how to deploy an ASP.NET web application to a web app in Azure App Service by using Visual Studio 2015."
------------------->
-
-<!----------------
-
-TEMPLATE GUIDELINES for tutorial topics
-
-The tutorial topic shows users how to solve a problem using a product or service. It includes the prerequisites and steps users need to be successful.  
-
-It is a "solve a problem" topic, not a "learn concepts" topic.
-
-DO include this:
-    • What users will do
-    • What they will create or accomplish by the end of the tutorial
-    • Time estimate
-    • Optional but useful: Include a diagram or video. Diagrams help users see the big picture of what they are doing. A video of the steps can be used by customers as an alternative to following the steps in the topic.
-    • Prerequisites: Technical expertise and software requirements
-    • End-to-end steps. At the end, include next steps to deeper or related tutorials so users can learn more about the service
-
-DON'T include this:
-    • Conceptual info about the service. This info is in overview topics that you can link to in the prerequisites section if necessary
-
-------------------->
-
-<!------------------
-GUIDELINES for the H1 
-    
-    The H1 should answer the question "What will I do in this topic?" Write the H1 heading in conversational language and use search keywords as much as possible. Since this is a "solve a problem" topic, make sure the title indicates that. Use a strong, specific verb like "Deploy."  
-        
-    Heading must use an industry standard term. If your feature is a proprietary name like "elastic pools", use a synonym. For example: "Learn about elastic pools for multi-tenant databases." In this case multi-tenant database is the industry-standard term that will be an anchor for finding the topic.
-
--------------------->
-
-# <a name="get-started-with-backup-and-restore-for-data-protection-and-recovery"></a>Veri Koruma ve Kurtarma için Yedekleme ve Geri Yükleme İşlevlerini Kullanmaya Başlama
-
-<!------------------
-    GUIDELINES for introduction
-    
-    The introduction is 1-2 sentences.  It is optimized for search and sets proper expectations about what to expect in the article. It should contain the top keywords that you are using throughout the article.The introduction should be brief and to the point of what users will do and what they will accomplish. 
-
-    In this example:
-     
-
-Sentence #1 Explains what the user will do. This is also the metadata description. 
-    This tutorial shows how to deploy an ASP.NET web application to a web app in Azure App Service by using Visual Studio 2015. 
-
-Sentence #2 Explains what users will learn and the benefit.  
-    When you’re finished, you’ll have a simple web application up and running in the cloud.
-
--------------------->
-
-
-Bu kullanmaya başlama öğreticisinde, Azure portalını kullanarak şu işlemleri gerçekleştirmeyi öğreneceksiniz:
+# <a name="tutorial-back-up-and-restore-an-azure-sql-database-using-the-azure-portal"></a>Öğretici: Azure portal kullanarak Azure SQL Veritabanını yedekleme ve geri yükleme
+Bu öğreticide, Azure portalını kullanarak şu işlemleri gerçekleştirmeyi öğreneceksiniz:
 
 - Bir veritabanının var olan yedeklerini görüntüleme
 - Bir veritabanını daha önceki bir noktaya geri yükleme
@@ -95,6 +32,9 @@ Bu kullanmaya başlama öğreticisinde, Azure portalını kullanarak şu işleml
 
 **Tahmini süre**: Bu öğreticinin tamamlanması yaklaşık 30 dakika alacaktır (önkoşulları karşıladığınız varsayılarak).
 
+> [!TIP]
+> Aynı görevleri, [PowerShell](sql-database-get-started-backup-recovery-powershell.md) aracılığıyla kullanmaya başlama öğreticilerinde de gerçekleştirebilirsiniz.
+>
 
 ## <a name="prerequisites"></a>Ön koşullar
 
@@ -105,11 +45,11 @@ Bu kullanmaya başlama öğreticisinde, Azure portalını kullanarak şu işleml
 * [Azure portalı ve SQL Server Management Studio aracılığıyla Azure SQL Veritabanı sunucularını, veritabanlarını ve güvenlik duvarı kurallarını kullanmaya başlama](sql-database-get-started.md) öğreticisini veya bu öğreticinin [PowerShell sürümünü](sql-database-get-started-powershell.md) tamamladınız. Tamamlamadıysanız, bu öğretici önkoşulunu tamamlayın veya devam etmeden önce bu öğreticinin [PowerShell sürümünün](sql-database-get-started-powershell.md) sonundaki PowerShell betiğini çalıştırın.
 
 
-> [!TIP]
-> Aynı görevleri, [PowerShell](sql-database-get-started-backup-recovery-powershell.md) aracılığıyla kullanmaya başlama öğreticilerinde de gerçekleştirebilirsiniz.
+> [!NOTE]
+> Bu öğretici şu konu başlıklarının içeriğini öğrenmenize yardımcı olacaktır: [SQL Veritabanı yedekleri](sql-database-automated-backups.md), [Uzun süreli yedek saklama](sql-database-long-term-retention.md) ve [Otomatik veritabanı yedeklerini kullanarak bir Azure SQL veritabanını kurtarma](sql-database-recovery-using-backups.md).
+>  
 
-
-## <a name="sign-in-by-using-your-existing-account"></a>Var olan hesabınızı kullanarak oturum açın
+## <a name="sign-in-to-the-azure-portal-using-your-azure-account"></a>Azure hesabınızı kullanarak Azure portalında oturum açma
 [Var olan aboneliğinizi](https://account.windowsazure.com/Home/Index) kullanarak Azure portala bağlanmak için aşağıdaki adımları uygulayın.
 
 1. Tercih ettiğiniz tarayıcınızı açın ve [Azure portal](https://portal.azure.com/)’a bağlanın.
@@ -117,7 +57,6 @@ Bu kullanmaya başlama öğreticisinde, Azure portalını kullanarak şu işleml
 3. **Oturum açma** sayfasında aboneliğinize ait kimlik bilgilerini sağlayın.
    
    ![Oturum aç](./media/sql-database-get-started/login.png)
-
 
 <a name="create-logical-server-bk"></a>
 
@@ -127,15 +66,15 @@ Bu kullanmaya başlama öğreticisinde, Azure portalını kullanarak şu işleml
 
 1. Veritabanınızın **SQL veritabanı** dikey penceresini açın, **sqldbtutorialdb**.
 
-    ![yeni örnek veritabanı dikey penceresi](./media/sql-database-get-started/new-sample-db-blade.png)
+   ![yeni örnek veritabanı dikey penceresi](./media/sql-database-get-started/new-sample-db-blade.png)
 
 2. Araç çubuğunda **Geri yükle**'ye tıklayın.
 
-    ![geri yükleme araç çubuğu](./media/sql-database-get-started-backup-recovery/restore-toolbar.png)
+   ![geri yükleme araç çubuğu](./media/sql-database-get-started-backup-recovery/restore-toolbar.png)
 
 3. Geri yükleme dikey penceresinde en eski geri yükleme noktasını inceleyin.
 
-    ![en eski geri yükleme noktası](./media/sql-database-get-started-backup-recovery/oldest-restore-point.png)
+   ![en eski geri yükleme noktası](./media/sql-database-get-started-backup-recovery/oldest-restore-point.png)
 
 ## <a name="restore-a-database-to-a-previous-point-in-time"></a>Bir veritabanını daha önceki bir noktaya geri yükleme
 
@@ -143,37 +82,37 @@ Bu kullanmaya başlama öğreticisinde, Azure portalını kullanarak şu işleml
 
 1. Veritabanının **Geri yükle** dikey penceresinde eski bir noktaya geri yükleyeceğiniz yeni veritabanı için varsayılan adı inceleyin (ad, var olan veritabanının adına zaman damgası eklenerek oluşturulur). Bu ada bir sonraki adımlarda belirttiğiniz zaman eklenir.
 
-    ![geri yüklenen veritabanının adı](./media/sql-database-get-started-backup-recovery/restored-database-name.png)
+   ![geri yüklenen veritabanının adı](./media/sql-database-get-started-backup-recovery/restored-database-name.png)
 
 2. **Geri yükleme noktası (UTC)** giriş kutusundaki **takvim** simgesine tıklayın.
 
-    ![geri yükleme noktası](./media/sql-database-get-started-backup-recovery/restore-point.png)
+   ![geri yükleme noktası](./media/sql-database-get-started-backup-recovery/restore-point.png)
 
 2. Takvimde saklama döneminde olan bir tarih seçin
 
-    ![geri yükleme noktası tarihi](./media/sql-database-get-started-backup-recovery/restore-point-date.png)
+   ![geri yükleme noktası tarihi](./media/sql-database-get-started-backup-recovery/restore-point-date.png)
 
 3. **Geri yükleme noktası (UTC)** giriş kutusunda otomatik veritabanı yedeklerinden veritabanına geri yüklemek istediğiniz tarih için bir saat belirtin.
 
-    ![geri yükleme noktası saati](./media/sql-database-get-started-backup-recovery/restore-point-time.png)
+   ![geri yükleme noktası saati](./media/sql-database-get-started-backup-recovery/restore-point-time.png)
 
-    >[!NOTE]
-    >Veritabanı adı, seçtiğiniz tarihi ve saati gösterecek şekilde değiştirilir. Ayrıca belirli bir noktaya geri yüklediğiniz hedef sunucuyu değiştiremeyeceğinize de dikkat edin. Farklı bir sunucuya geri yüklemek için [Coğrafi Geri Yükleme](sql-database-disaster-recovery.md#recover-using-geo-restore) özelliğini kullanın. Son olarak, [elastik havuza](sql-database-elastic-jobs-overview.md) veya farklı bir fiyatlandırma katmanına istediğiniz zaman geri dönebilirsiniz. 
-    >
+   >[!NOTE]
+   >Veritabanı adı, seçtiğiniz tarihi ve saati gösterecek şekilde değiştirilir. Ayrıca belirli bir noktaya geri yüklediğiniz hedef sunucuyu değiştiremeyeceğinize de dikkat edin. Farklı bir sunucuya geri yüklemek için [Coğrafi Geri Yükleme](sql-database-disaster-recovery.md#recover-using-geo-restore) özelliğini kullanın. Son olarak, [elastik havuza](sql-database-elastic-jobs-overview.md) veya farklı bir fiyatlandırma katmanına istediğiniz zaman geri dönebilirsiniz. 
+   >
 
 4. Veritabanınızı, yeni veritabanında daha önceki bir zamana geri yüklemek için **Tamam**'a tıklayın.
 
 5. Geri yükleme işinin durumunu görüntülemek için araç çubuğundaki bildirim simgesine tıklayın.
 
-    ![geri yükleme işi ilerleme durumu](./media/sql-database-get-started-backup-recovery/restore-job-progress.png)
+   ![geri yükleme işi ilerleme durumu](./media/sql-database-get-started-backup-recovery/restore-job-progress.png)
 
 6. Geri yükleme işi tamamlandığında yeni geri yüklenen veritabanını görüntülemek için **SQL veritabanları** dikey penceresini açın.
 
-    ![geri yüklenen veritabanı](./media/sql-database-get-started-backup-recovery/restored-database.png)
+   ![geri yüklenen veritabanı](./media/sql-database-get-started-backup-recovery/restored-database.png)
 
-   > [!NOTE]
-   > Buradan [var olan veritabanına kopyalamak için geri yüklenen veritabanından veri ayıklama veya var olan veritabanını silerek geri yüklenen veritabanının adını var olan veritabanının adıyla değiştirme](sql-database-recovery-using-backups.md#point-in-time-restore) gibi görevleri gerçekleştirmek için SQL Server Management Studio kullanarak geri yüklenen veritabanına bağlanabilirsiniz.
-   >
+> [!NOTE]
+> Buradan [var olan veritabanına kopyalamak için geri yüklenen veritabanından veri ayıklama veya var olan veritabanını silerek geri yüklenen veritabanının adını var olan veritabanının adıyla değiştirme](sql-database-recovery-using-backups.md#point-in-time-restore) gibi görevleri gerçekleştirmek için SQL Server Management Studio kullanarak geri yüklenen veritabanına bağlanabilirsiniz.
+>
 
 ## <a name="configure-long-term-retention-of-automated-backups-in-an-azure-recovery-services-vault"></a>Otomatik yedekleri Azure Kurtarma Hizmetleri kasasında uzun süreli saklamak üzere yapılandırma 
 
@@ -182,11 +121,11 @@ Bu kullanmaya başlama öğreticisinde, Azure portalını kullanarak şu işleml
 
 > [!TIP]
 > Yedekleri silmek için bkz. [Uzun süreli saklama yedeklerini silme](sql-database-long-term-retention-delete.md).
-
+>
 
 1. Sunucunuzun **SQL Server** dikey penceresini açın, **sqldbtutorialserver**.
 
-    ![sql sunucusu dikey penceresi](./media/sql-database-get-started/sql-server-blade.png)
+   ![sql sunucusu dikey penceresi](./media/sql-database-get-started/sql-server-blade.png)
 
 2. **Uzun süreli yedek saklama**'ya tıklayın.
 
@@ -246,9 +185,9 @@ Bu kullanmaya başlama öğreticisinde, Azure portalını kullanarak şu işleml
 
    ![kurtarma hizmetleri kasasını görüntüleme](./media/sql-database-get-started-backup-recovery/view-recovery-services-vault.png)
 
-   > [!IMPORTANT]
-   > Yapılandırma yapıldıktan sonra yedekler sonraki yedi gün içinde kasada görünür. Bu öğreticiye devam etmek için yedeklerin kasada görünmesini bekleyin.
-   >
+> [!IMPORTANT]
+> Yapılandırma yapıldıktan sonra yedekler sonraki yedi gün içinde kasada görünür. Bu öğreticiye devam etmek için yedeklerin kasada görünmesini bekleyin.
+>
 
 ## <a name="view-backups-in-long-term-retention"></a>Uzun süreli saklama kapsamındaki yedekleri görüntüleme
 
@@ -260,17 +199,17 @@ Bu kullanmaya başlama öğreticisinde, Azure portalını kullanarak şu işleml
 
 2. Veritabanınızın **SQL veritabanı** dikey penceresini açın, **sqldbtutorialdb**.
 
-    ![yeni örnek veritabanı dikey penceresi](./media/sql-database-get-started/new-sample-db-blade.png)
+   ![yeni örnek veritabanı dikey penceresi](./media/sql-database-get-started/new-sample-db-blade.png)
 
 3. Araç çubuğunda **Geri yükle**'ye tıklayın.
 
-    ![geri yükleme araç çubuğu](./media/sql-database-get-started-backup-recovery/restore-toolbar.png)
+   ![geri yükleme araç çubuğu](./media/sql-database-get-started-backup-recovery/restore-toolbar.png)
 
 4. Geri yükleme dikey penceresinde **Uzun süreli**'ye tıklayın.
 
 5. Azure kasası yedeklemelerinin altında **Bir yedekleme seçin**'e tıklayarak uzun süreli saklama kapsamındaki kullanılabilir veritabanı yedeklerini görüntüleyebilirsiniz.
 
-    ![kasadaki yedekler](./media/sql-database-get-started-backup-recovery/view-backups-in-vault.png)
+   ![kasadaki yedekler](./media/sql-database-get-started-backup-recovery/view-backups-in-vault.png)
 
 ## <a name="restore-a-database-from-a-backup-in-long-term-backup-retention"></a>Bir veritabanını uzun süreli yedek saklama kapsamındaki bir yedekten geri yükleme
 
@@ -278,28 +217,25 @@ Bu kullanmaya başlama öğreticisinde, Azure portalını kullanarak şu işleml
 
 1. **Azure kasası yedekleri** dikey penceresinde geri yüklenecek yedeğe ve ardından **Seç**'e tıklayın.
 
-    ![kasadaki bir yedeği seçme](./media/sql-database-get-started-backup-recovery/select-backup-in-vault.png)
+   ![kasadaki bir yedeği seçme](./media/sql-database-get-started-backup-recovery/select-backup-in-vault.png)
 
 2. **Veritabanı adı** metin kutusunda geri yüklenen veritabanı için bir ad girin.
 
-    ![yeni veritabanı adı](./media/sql-database-get-started-backup-recovery/new-database-name.png)
+   ![yeni veritabanı adı](./media/sql-database-get-started-backup-recovery/new-database-name.png)
 
 3. Veritabanınızı kasadaki yedekten yeni veritabanına geri yüklemek için **Tamam**'a tıklayın.
 
 4. Geri yükleme işinin durumunu görüntülemek için araç çubuğundaki bildirim simgesine tıklayın.
 
-    ![kasadan geri yükleme işi ilerleme durumu](./media/sql-database-get-started-backup-recovery/restore-job-progress-long-term.png)
+   ![kasadan geri yükleme işi ilerleme durumu](./media/sql-database-get-started-backup-recovery/restore-job-progress-long-term.png)
 
 5. Geri yükleme işi tamamlandığında yeni geri yüklenen veritabanını görüntülemek için **SQL veritabanları** dikey penceresini açın.
 
-    ![kasadan geri yüklenen veritabanı](./media/sql-database-get-started-backup-recovery/restored-database-from-vault.png)
+   ![kasadan geri yüklenen veritabanı](./media/sql-database-get-started-backup-recovery/restored-database-from-vault.png)
 
-   > [!NOTE]
-   > Buradan [var olan veritabanına kopyalamak için geri yüklenen veritabanından veri ayıklama veya var olan veritabanını silerek geri yüklenen veritabanının adını var olan veritabanının adıyla değiştirme](sql-database-recovery-using-backups.md#point-in-time-restore) gibi görevleri gerçekleştirmek için SQL Server Management Studio kullanarak geri yüklenen veritabanına bağlanabilirsiniz.
-   >
-
-
-<!--**Next steps**: *Reiterate what users have done, and give them interesting and useful next steps so they want to go on.*-->
+> [!NOTE]
+> Buradan [var olan veritabanına kopyalamak için geri yüklenen veritabanından veri ayıklama veya var olan veritabanını silerek geri yüklenen veritabanının adını var olan veritabanının adıyla değiştirme](sql-database-recovery-using-backups.md#point-in-time-restore) gibi görevleri gerçekleştirmek için SQL Server Management Studio kullanarak geri yüklenen veritabanına bağlanabilirsiniz.
+>
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -309,6 +245,6 @@ Bu kullanmaya başlama öğreticisinde, Azure portalını kullanarak şu işleml
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

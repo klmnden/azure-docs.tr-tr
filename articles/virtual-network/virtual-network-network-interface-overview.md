@@ -1,10 +1,10 @@
 ---
-title: "Ağ arabirimleri | Microsoft Belgeleri"
-description: "Azure Resource Manager’daki Azure ağ arabirimleri hakkında bilgi edinin."
+title: "Azure’da ağ arabirimleri | Microsoft Docs"
+description: "Azure Resource Manager dağıtım modelindeki Azure ağ arabirimleri hakkında bilgi edinin."
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: f58b503f-18bf-4377-aa63-22fc8a96e4be
@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 6e96471c4f61e1ebe15c23f87ac646001d8e30ee
-ms.openlocfilehash: 586877781f4b74c49936a8129db49a67018bab65
+ms.sourcegitcommit: 3244d5b52785d820698bf26f9bf189de93ef64e4
+ms.openlocfilehash: 691b79d7739246dad7191195fa049fd58340c8ff
 
 
 ---
-# <a name="network-interfaces"></a>Ağ arabirimleri
+# <a name="network-interfaces-in-azure"></a>Azure’da ağ arabirimleri
 Ağ arabirimi (NIC), bir Sanal Makine (VM) ile onun yazılım altyapısı arasındaki çift yönlü bağlantıdır. Bu makalede bir ağ arabiriminin ne olduğu ve Azure Resource Manager dağıtım modelinde nasıl kullanıldığı açıklanmıştır.
 
 Microsoft yeni kaynakların Resource Manager dağıtım modeli kullanılarak dağıtılmasını önerir, ancak ağ bağlantısı [klasik](virtual-network-ip-addresses-overview-classic.md) dağıtım modelinde olan VM’ler de dağıtabilirsiniz. Klasik model hakkında bilgi sahibiyseniz, Resource Manager dağıtım modelindeki VM ağ bağlantısında önemli farklar vardır. [Sanal makine ağ bağlantısı - Klasik](virtual-network-ip-addresses-overview-classic.md#differences-between-resource-manager-and-classic-deployments) makalesini okuyarak farklar hakkında daha fazla bilgi edinin.
@@ -56,6 +56,6 @@ Bir VM’ye birden çok NIC bağlanabilir, ancak bunu yaparken aşağıdakilere 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

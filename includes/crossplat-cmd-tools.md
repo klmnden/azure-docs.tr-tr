@@ -1,203 +1,203 @@
-# How to use the Azure Command-Line Tools for Mac and Linux
-This guide describes how to use the Azure Command-Line Tools for Mac and Linux to create and manage services in Azure. The scenarios covered include **installing the tools**, **importing your publishing settings**, **creating and managing Azure Websites**, and **creating and managing Azure Virtual Machines**. For comprehensive reference documentation, see [Azure command-line tool for Mac and Linux Documentation][reference-docs]. 
+# <a name="how-to-use-the-azure-command-line-tools-for-mac-and-linux"></a>Mac ve Linux için Azure Komut Satırı Araçlarını kullanma
+Bu kılavuzda Azure’da hizmet oluşturup yönetmek amacıyla Mac ve Linux için Azure Komut Satırı Araçlarını kullanma işlemi açıklanmaktadır. **Araçları yükleme**, **yayımlama ayarlarını içeri aktarma**, **Azure Web Siteleri oluşturma ve yönetme** ile **Azure Sanal Makineleri oluşturma yönetme** senaryoları ele alınmaktadır. Kapsamlı başvuru belgeleri için bkz. [Mac ve Linux için Azure komut satırı aracı belgeleri][reference-docs]. 
 
-## Table of contents
-* [What are the Azure Command-Line Tools for Mac and Linux](#Overview)
-* [How to install the Azure Command-Line Tools for Mac and Linux](#Download)
-* [How to create an Azure account](#CreateAccount)
-* [How to download and import publish settings](#Account)
-* [How to create and manage an Azure Web Site](#WebSites)
-* [How to create and manage an Azure Virtual Machine](#VMs)
+## <a name="table-of-contents"></a>İçindekiler
+* [Mac ve Linux için Azure Komut Satırı Araçları nelerdir](#Overview)
+* [Mac ve Linux için Azure Komut Satırı Araçlarını yükleme](#Download)
+* [Azure hesabı oluşturma](#CreateAccount)
+* [Yayımlama ayarlarını indirme ve içeri aktarma](#Account)
+* [Azure Web Sitesi oluşturma ve yönetme](#WebSites)
+* [Azure Sanal Makinesi oluşturma ve yönetme](#VMs)
 
-<h2><a id="Overview"></a>What are the Azure Command-Line Tools for Mac and Linux</h2>
+<h2><a id="Overview"></a>Mac ve Linux için Azure Komut Satırı Araçları nelerdir</h2>
 
-The Azure Command-Line Tools for Mac and Linux are a set of command-line tools for deploying and managing Azure services.
+Mac ve Linux için Azure Komut Satırı Araçları, Azure hizmetlerinin dağıtımına ve yönetimine yönelik bir dizi komut satırı aracıdır.
 
-The supported tasks include the following:
+Aşağıdaki görevler desteklenir:
 
-* Import publishing settings.
-* Create and manage Azure Websites.
-* Create and manage Azure Virtual Machines.
+* Yayımlama ayarlarını içeri aktarma.
+* Azure Web Siteleri oluşturma ve yönetme.
+* Azure Sanal Makineler oluşturma ve yönetme.
 
-For a complete list of supported commands, type `azure -help` at the command line after installing the tools, or see the [reference documentation][reference-docs].
+Desteklenen komutların tam listesi için araçları yükledikten sonra komut satırına `azure -help` yazın veya [başvuru belgelerine][reference-docs] bakın.
 
-<h2><a id="Download">How to install the Azure Command-Line Tools for Mac and Linux</a></h2>
+<h2><a id="Download">Mac ve Linux için Azure Komut Satırı Araçlarını yükleme</a></h2>
 
-The following list contains information for installing the command-line tools, depending on your operating system:
+Aşağıdaki liste, işletim sisteminize bağlı olarak komut satırı araçlarını yüklemeye yönelik bilgiler içerir:
 
-* **Mac**: Download the [Azure SDK Installer][mac-installer]. Open the downloaded .pkg file and complete the installation steps as you are prompted.
-* **Linux**: Install the latest version of [Node.js][nodejs-org] (see [Install Node.js via Package Manager][install-node-linux]), then run the following command:
+* **Mac**: [Azure SDK Yükleyicisi][mac-installer]’ni indirin. İndirilen .pkg dosyasını açıp, istenen şekilde yükleme adımlarını tamamlayın.
+* **Linux**: En son [Node.js][nodejs-org] sürümünü yükleyin (bkz. [Paket Yöneticisi ile Node.js yükleme][install-node-linux]), ardından aşağıdaki komutu çalıştırın:
   
         npm install azure-cli -g
   
-    **Note**: You may need to run this command with elevated privileges:
+    **Not**: Bu komutu yükseltilmiş ayrıcalıklarla çalıştırmanız gerekebilir:
   
         sudo npm install azure-cli -g
-* **Windows**: Run the Winows installer (.msi file), which is available here: [Azure Command Line Tools][windows-installer].
+* **Windows**: Winows yükleyicisini (.msi dosyası) çalıştırın. Şurada bulabilirsiniz: [Azure Komut Satırı Araçları][windows-installer].
 
-To test the installation, type `azure` at the command prompt. If the installation was successful, you will see a list of all the available `azure` commands.
+Yüklemeyi test etmek için komut istemine `azure` yazın. Yükleme başarılı olduysa, kullanılabilir tüm `azure` komutlarının listesini görürsünüz.
 
-<h2><a id="CreateAccount"></a>How to create an Azure account</h2>
+<h2><a id="CreateAccount"></a>Azure hesabı oluşturma</h2>
 
-To use the Azure Command-Line Tools for Mac and Linux, you will need an Azure account.
+Mac ve Linux için Azure Komut Satırı Araçlarını kullanmak istiyorsanız bir Azure hesabı gereklidir.
 
-Open a web browser and browse to [http://www.windowsazure.com][windowsazuredotcom] and click **free trial** in the upper right corner.
+Bir web tarayıcısı açıp [http://www.windowsazure.com][windowsazuredotcom] adresine gidin ve sağ üst köşedeki **ücretsiz hesap** öğesine tıklayın.
 
-![Azure Web Site][Azure Web Site]
+![Azure Web Sitesi][Azure Web Site]
 
-Follow the instructions for creating an account.
+Bir hesap oluşturmak için yönergeleri izleyin.
 
-<h2><a id="Account"></a>How to download and import publish settings</h2>
+<h2><a id="Account"></a>Yayımlama ayarlarını indirme ve içeri aktarma</h2>
 
-To get started, you need to first download and import your publish settings. This will allow you to use the tools to create and manage Azure Services. To download your publish settings, use the `account download` command:
+Başlamak için ilk olarak yayımlama ayarlarınızı indirip içeri aktarmanız gerekir. Bunun yapılması, Azure Hizmetleri oluşturup yönetmeye yönelik araçlar kullanmanıza olanak tanır. Yayımlama ayarlarınızı indirmek için `account download` komutunu kullanın:
 
     azure account download
 
-This will open your default browser and prompt you to sign in to the Management Portal. After signing in, your `.publishsettings` file will be downloaded. Make note of where this file is saved.
+Bu işlem varsayılan tarayıcınızı açar ve Yönetim Portalı’nda oturum açmanızı ister. Oturum açtıktan sonra `.publishsettings` dosyanız indirilir. Bu dosyanın kaydedildiği yeri not edin.
 
-Next, import the `.publishsettings` file by running the following command, replacing `{path to .publishsettings file}` with the path to your `.publishsettings` file:
+Ardından, aşağıdaki komutta `{path to .publishsettings file}` ifadesini `.publishsettings` dosyanızın yoluyla değiştirip komutu çalıştırarak `.publishsettings` dosyasını içeri aktarın:
 
     azure account import {path to .publishsettings file}
 
-You can remove all of the information stored by the <code>import</code> command by using the <code>account clear</code> command:
+<code>import</code> komutu tarafından depolanan tüm bilgileri <code>account clear</code> komutunu kullanarak kaldırabilirsiniz:
 
     azure account clear
 
-To see a list of options for `account` commands, use the `-help` option:
+`account` komutlarına ilişkin seçeneklerin listesini görmek için `-help` seçeneğini kullanın:
 
     azure account -help
 
-After importing your publish settings, you should delete the `.publishsettings` file for security reasons.
+Yayımlama ayarlarını içeri aktardıktan sonra güvenlik nedeniyle `.publishsettings` dosyasını silmeniz gerekir.
 
 > [!NOTE]
-> When you import publish settings, credentials for accessing your Azure subscription are stored inside your `user` folder. Your `user` folder is protected by your operating system. However, it is recommended that you take additional steps to encrypt your `user` folder. You can do so in the following ways:    
+> Yayımlama ayarlarınızı içeri aktarırken, Azure aboneliğinize erişmeye ilişkin kimlik bilgileri `user` klasörünüzün içine depolanır. `user` klasörünüz işletim sisteminiz tarafından korunur. Ancak, `user` klasörünüzü şifrelemek için ek adımlar uygulamanız önerilir. Bunu aşağıdaki yöntemlerle yapabilirsiniz:    
 > 
-> * On Windows, modify the folder properties or use BitLocker.
-> * On Mac, turn on FileVault for the folder.
-> * On Ubuntu, use the Encrypted Home directory feature. Other Linux distributions offer equivalent features.
+> * Windows üzerinde klasör özelliklerini değiştirin ya da BitLocker'ı kullanın.
+> * Mac üzerinde klasörün FileVault özelliğini açın.
+> * Ubuntu’da Şifreli Giriş dizini özelliğini kullanın. Diğer Linux dağıtımları eşdeğer özellikler sunar.
 > 
 > 
 
-You are now ready to being creating and managing Azure Websites and Azure Virtual Machines.  
+Azure Web Siteleri ve Azure Sanal Makineleri oluşturmak ve yönetmek için artık hazırsınız.  
 
-<h2><a id="WebSites"></a>How to create and manage an Azure Website</h2>
+<h2><a id="WebSites"></a>Azure Web Sitesi oluşturma ve yönetme</h2>
 
-### Create a Website
-To create an Azure website, first create an empty directory called `MySite` and browse into that directory.
+### <a name="create-a-website"></a>Web sitesi oluşturma
+Bir Azure web sitesi oluşturmak için ilk olarak `MySite` adlı boş bir dizin oluşturun ve bu dizine göz atın.
 
-Then, run the following command:
+Ardından şu komutu çalıştırın:
 
     azure site create MySite --git
 
-The output from this command will contain the default URL for the newly created website. The `--git` option allows you to use git to publish to your website by creating git repositories in both your local application directory and in your website's data center. Note that if your local folder is already a git repository, the command will add a new remote to the existing repository, pointing to the repository in your website's data center.
+Bu komutun çıktısı, yeni oluşturulan web sitesi için varsayılan URL'yi içerir. `--git` seçeneği yerel uygulama dizininizde ve web sitenizin veri merkezinde git depoları oluşturarak web sitenizde git ile yayımlama yapmanıza olanak tanır. Yerel klasörünüz zaten bir git deposu ise bu komut var olan depoya web sitenizin veri merkezindeki depoyu işaret eden yeni bir uzak öğe ekler.
 
-Note that you can execute the `azure site create` command with any of the following options:
+`azure site create` komutunu aşağıdaki seçeneklerden herhangi biriyle yürütebilirsiniz:
 
-* `--location [location name]`. This option allows you to specify the location of the data center in which your website is created (e.g. "West US"). If you omit this option, you will be promted to choose a location.
-* `--hostname [custom host name]`. This option allows you to specify a custom hostname for your website.
+* `--location [location name]`. Bu seçenek, web sitenizin oluşturulduğu veri merkezinin konumunu belirtmenize olanak tanır (örn. "Batı ABD"). Bu seçeneği kullanmazsanız bir konum seçmeniz istenir.
+* `--hostname [custom host name]`. Bu seçenek web siteniz için özel bir ana bilgisayar adı belirtmenize olanak tanır.
 
-You can then add content to your website directory. Use the regular git flow (`git add`, `git commit`) to commit your content. Use the following git command to push your website content to Azure: 
+Bundan sonra web sitenizin dizinine içerik ekleyebilirsiniz. İçeriğinizi kaydetmek için normal git akışını (`git add`, `git commit`) kullanın. Web sitenizin içeriğini Azure'a göndermek için aşağıdaki git komutunu kullanın: 
 
     git push azure master
 
-### Set up publishing from GitHub
-To set up continuous publishing from a GitHub repository, use the `--GitHub` option when creating a site:
+### <a name="set-up-publishing-from-github"></a>GitHub'dan yayımlamayı ayarlama
+Bir GitHub deposundan sürekli yayımlamayı ayarlamak için bir site oluştururken `--GitHub` seçeneğini kullanın:
 
     auzre site create MySite --github --githubusername username --githubpassword password --githubrepository githubuser/reponame
 
-If you have a local clone of a GitHub repository or if you have a repository with a single remote reference to a GitHub repository, this command will automatically publish code in the GitHub repository to your site. From then on, any changes pushed to the GitHub repository will automatically be published to your site.
+GitHub deposunun yerel bir kopyasına sahipseniz veya GitHub deposuna tek bir uzak başvurusu olan deponuz varsa, bu komut GitHub deposundaki kodu sitenizde otomatik olarak yayımlar. Bu noktadan sonra, GitHub deposuna gönderilen tüm değişiklikler sitenizde otomatik olarak yayımlanır.
 
-When you set up publishing from GitHub, the default branch used is the master branch. To specify a different branch, execute the following command from your local repository:
+GitHub’dan yayımlamayı ayarladığınızda kullanılan varsayılan dal, ana daldır. Farklı bir dal belirtmek için yerel deponuzdan aşağıdaki komutu yürütün:
 
     azure site repository <branch name>
 
-### Configure app settings
-App settings are key-value pairs that are available to your application at runtime. When set for an Azure Website, app setting values will override settings with the same key that are defined in your site's Web.config file. For Node.js and PHP applications, app settings are available as environment variables. The following example shows you how to set a key-value pair:
+### <a name="configure-app-settings"></a>Uygulama ayarlarını yapılandırma
+Uygulama ayarları, çalışma zamanında uygulamanız için kullanılabilen anahtar-değer çiftleridir. Bir Azure Web Sitesi için belirlediğiniz uygulama ayar değerleri, sitenizin Web.config dosyasında tanımlanmış aynı anahtara sahip ayarları geçersiz kılar. Node.js ve PHP uygulamaları için uygulama ayarları, ortam değişkenleri olarak kullanılabilir. Aşağıdaki örnekte bir anahtar-değer çiftinin nasıl ayarlandığı gösterilmektedir:
 
     azure site config add <key>=<value> 
 
-To see a list of all key/value pairs, use the following:
+Tüm anahtar/değer çiftlerinin listesini görmek için aşağıdakileri kullanın:
 
     azure site config list 
 
-Or if you know the key and want to see the value, you can use:
+Veya anahtarı biliyor ve değeri görmek istiyorsanız şunu kullanabilirsiniz:
 
     azure site config get <key> 
 
-If you want to change the value of an existing key you must first clear the existing key and then re-add it. The clear command is:
+Mevcut bir anahtarın değerini değiştirmek isterseniz öncelikle var olan anahtarı silip yeniden eklemeniz gerekir. Temizleme komutu şu şekildedir:
 
     azure site config clear <key> 
 
-### List and show sites
-To list your websites, use the following command:
+### <a name="list-and-show-sites"></a>Siteleri listeleme ve görüntüleme
+Web sitelerinizi listelemek için aşağıdaki komutu kullanın:
 
     azure site list
 
-To get detailed information about a site, use the `site show` command. The following example shows details for `MySite`:
+Bir siteyle ilgili ayrıntılı bilgi almak için `site show` komutunu kullanın. Aşağıdaki örnekte `MySite` için ayrıntılar gösterilmiştir:
 
     azure site show MySite
 
-### Stop, start, or restart a site
-You can stop, start, or restart a site with the `site stop`, `site start`, or `site restart` commands:
+### <a name="stop-start-or-restart-a-site"></a>Siteyi durdurma, başlatma veya yeniden başlatma
+Bir siteyi `site stop`, `site start` ya da `site restart` komutlarıyla durdurabilir, başlatabilir veya yeniden başlatabilirsiniz:
 
     azure site stop MySite
     azure site start MySite
     azure site restart MySite
 
-### Delete a site
-Finally, you can delete a site with the `site delete` command:
+### <a name="delete-a-site"></a>Bir siteyi silme
+Son olarak, bir siteyi `site delete` komutu ile silebilirsiniz:
 
     azure site delete MySite
 
-Note that if you are running any of above commands from inside the folder where you ran `site create`, you do not need to specify the site name `MySite` as the last parameter.
+Yukarıdaki komutların herhangi birini `site create` öğesini çalıştırdığınız klasörün içinden çalıştırıyorsanız, `MySite` site adını son parametre olarak belirtmeniz gerekmez.
 
-To see a complete list of `site` commands, use the `-help` option:
+`site` komutlarının tam listesini görmek için `-help` seçeneğini kullanın:
 
     azure site -help 
 
-<h2><a id="VMs"></a>How to create and manage an Azure Virtual Machine</h2>
+<h2><a id="VMs"></a>Azure Sanal Makinesi oluşturma ve yönetme</h2>
 
-an Azure Virtual Machine is created from a virtual machine image (a .vhd file) that you provide or that is available in the Image Gallery. To see images that are available, use the `vm image list` command:
+Azure Sanal Makinesi sizin belirttiğiniz veya Görüntü Galerisinde mevcut olan bir sanal makine görüntüsünden (.vhd dosyası) oluşturulur. Kullanılabilir görüntüleri görmek için `vm image list` komutunu kullanın:
 
     azure vm image list
 
-You can provision and start a virtual machine from one of the available images with the `vm create` command. The following example shows how to create a Linux virtual machine (called `myVM`) from an image in the Image Gallery (CentOS 6.2). The root user name and password for the virtual machine are `myusername` and `Mypassw0rd` respectively. (Note that the `--location` parameter specifies the data center in which the virtual machine is created. If you omit the `--location` parameter, you will be prompted to choose a location.)
+Bir sanal makineyi `vm create` komutu ile kullanılabilir görüntülerden birinden sağlayıp başlatabilirsiniz. Aşağıdaki örnekte Görüntü Galerisi (CentOS 6.2) içindeki bir görüntüden Linux sanal makinesi (`myVM` adlı) oluşturma işlemi gösterilmektedir. Sanal makinenin kök kullanıcı adı ve parolası sırasıyla `myusername` ve `Mypassw0rd` şeklindedir. (`--location` parametresi sanal makinenin oluşturulduğu veri merkezini belirtir. `--location` parametresini kullanmazsanız bir konum seçmeniz istenir.)
 
     azure vm create myVM OpenLogic__OpenLogic-CentOS-62-20120509-en-us-30GB.vhd myusername --location "West US"
 
-You may consider passing the `--ssh` flag (Linux) or `--rdp` flag (Windows) to `vm create` to enable remote connections to the newly-created virtual machine.
+Yeni oluşturulan sanal makineye uzaktan bağlantıları etkinleştirmek için `vm create` konumuna `--ssh` bayrağını (Linux) veya `--rdp` bayrağını (Windows) geçirmeyi düşünebilirsiniz.
 
-If you would rather provision a virtual machine from a custom image, you can create an image from a .vhd file with the `vm image create` command, then use the `vm create` command to provision the virtual machine. The following example shows how to create a Linux image (called `myImage`) from a local .vhd file. (The `--location` parameter specifies the data in which the image is stored.)
+Sanal makineyi özel bir görüntüden sağlarsanız, `vm image create` komutuyla bir .vhd dosyasından görüntü oluşturabilir, ardından `vm create` komutunu kullanarak sanal makineyi sağlayabilirsiniz. Aşağıdaki örnekte yerel bir .vhd dosyasından Linux görüntüsü (`myImage` adlı) oluşturma işlemi gösterilmiştir. (`--location` parametresi, görüntünün depolandığı verileri belirtir.)
 
     azure vm image create myImage /path/to/myImage.vhd --os linux --location "West US"
 
-Instead of creating an image from a local .vhd, you can create an image from a .vhd stored in Azure Blob Storage. You can do this with the `blob-url` parameter:
+Yerel bir .vhd dosyasından görüntü oluşturuyorsanız, Azure Blob Depolama’ya kaydedilmiş bir .vhd dosyasından görüntü oluşturabilirsiniz. Bunu `blob-url` parametresiyle yapabilirsiniz:
 
     azure vm image create myImage --blob-url <url to .vhd in Blob Storage> --os linux
 
-After creating an image, you can provision a virtual machine from the image by using `vm create`. The command below creates a virtual machine called `myVM` from the image created above (`myImage`).
+Bir görüntü oluşturduktan sonra `vm create` kullanarak görüntüden sanal makine sağlayabilirsiniz. Aşağıdaki komut yukarıda oluşturduğunuz görüntüden (`myImage`) `myVM` adlı bir sanal makine oluşturur.
 
     azure vm create myVM myImage myusername --location "West US"
 
-After you have provisioned a virtual machine, you may want to create endpoints to allow remote access to your virtual machine (for example). The following example uses the `vm create endpoint` command to open external port 22 and local port 22 on `myVM`:
+Bir sanal makineyi sağladıktan sonra sanal makinenize uzaktan erişime izin vermek için uç noktalar oluşturmak isteyebilirsiniz (örneğin). Aşağıdaki örnekte `myVM` üzerinde dış bağlantı noktası 22 ve yerel bağlantı noktası 22’yi açmak için `vm create endpoint` komutu kullanılmıştır:
 
     azure vm endpoint create myVM 22 22
 
-You can get detailed information about a virtual machine (including IP address, DNS name, and endpoint information) with the `vm show` command:
+Bir sanal makineyle ilgili ayrıntılı bilgileri (IP adresi, DNS adı ve uç nokta bilgileri) `vm show` komutuyla alabilirsiniz:
 
     azure vm show myVM
 
-To shutdown, start, or restart the virtual machine, use one of the following commands:
+Sanal makineyi kapatmak, başlatmak veya yeniden başlatmak için aşağıdaki komutlardan birini kullanın:
 
     azure vm shutdown myVM
     azure vm start myVM
     azure vm restart myVM
 
-And finally, to delete the VM, use the `vm delete` command:
+Son olarak, VM’yi silmek için `vm delete` komutunu kullanın:
 
     azure vm delete myVM
 
-For a complete list of commands for creating and managing virtual machines, use the `-h` option:
+Sanal makine oluşturup yönetmeye yönelik komutların tam listesi için `-h` seçeneğini kullanın:
 
     azure vm -h
 
@@ -211,4 +211,9 @@ For a complete list of commands for creating and managing virtual machines, use 
 [windows-installer]: http://go.microsoft.com/fwlink/?LinkID=275464
 [reference-docs]: http://go.microsoft.com/fwlink/?LinkId=252246
 [windowsazuredotcom]: http://www.windowsazure.com
+
+
+
+<!--HONumber=Jan17_HO5-->
+
 

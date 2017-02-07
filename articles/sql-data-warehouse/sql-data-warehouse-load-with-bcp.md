@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: mausher;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5a0519a0fdbfc428530e5b30a3f8e4e8bcdaa50b
+ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
+ms.openlocfilehash: e368ae8b249fe3c33371794160440e472b0f35e3
 
 
 ---
@@ -43,11 +43,11 @@ Bu öğreticide şunları nasıl yapacağınızı gösterilecek:
 * bcp in komutunu kullanarak bir tabloya veri aktarma
 * bcp out komutunu kullanarak bir tablodaki verileri dışarı aktarma
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Loading-data-into-Azure-SQL-Data-Warehouse-with-BCP/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Loading-data-into-Azure-SQL-Data-Warehouse-with-BCP/player]
 > 
 > 
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 Bu öğreticide ilerleyebilmeniz için şunlar gereklidir:
 
 * SQL Data Warehouse veritabanı
@@ -55,7 +55,7 @@ Bu öğreticide ilerleyebilmeniz için şunlar gereklidir:
 * SQLCMD komut satırı yardımcı programının yüklü olması
 
 > [!NOTE]
-> bcp ve sqlcmd yardımcı programlarını [Microsoft İndirme Merkezi][Microsoft İndirme Merkezi]'nden indirebilirsiniz.
+> bcp ve sqlcmd yardımcı programlarını [Microsoft İndirme Merkezi][Microsoft Download Center]'nden indirebilirsiniz.
 > 
 > 
 
@@ -82,7 +82,7 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 ```
 
 > [!NOTE]
-> SQL Veri Ambarı'nda tablo oluşturma ve WITH yan tümcesiyle kullanılabilen seçenekler hakkında daha fazla bilgi için bkz. [Tabloya Genel Bakış][Tabloya Genel Bakış] veya [CREATE TABLE söz dizimi][CREATE TABLE söz dizimi].
+> SQL Veri Ambarı'nda tablo oluşturma ve WITH yan tümcesinde bulunan seçenekler hakkında daha fazla bilgi için bkz. [Tabloya Genel Bakış][Table Overview] veya [CREATE TABLE söz dizimi][CREATE TABLE syntax].
 > 
 > 
 
@@ -140,7 +140,7 @@ Bu işlem sonrasında şu sonuçların döndürülmesi gerekir:
 | 20151201 |4 |2 |
 
 ### <a name="step-4-create-statistics-on-your-newly-loaded-data"></a>4. Adım: Yeni yüklenmiş verilerinize ilişkin İstatistikler oluşturma
-Azure SQL Data Warehouse henüz istatistiklerin otomatik olarak oluşturulup güncelleştirilmesini desteklemiyor. Sorgularınızdan en iyi performansı elde edebilmeniz için ilk yüklemeden veya verilerdeki önemli değişikliklerden sonra her tablonun her sütununa ilişkin istatistiklerin oluşturulması önemlidir. İstatistikler hakkında ayrıntılı bir açıklama için Geliştirme ile ilgili konu başlığı grubunda yer alan [İstatistikler][İstatistikler] bölümüne göz atın. Aşağıda bu örnekte yüklenen tablolar için nasıl istatistik oluşturacağınıza yönelik kısa bir örnek verilmiştir.
+Azure SQL Data Warehouse henüz istatistiklerin otomatik olarak oluşturulup güncelleştirilmesini desteklemiyor. Sorgularınızdan en iyi performansı elde edebilmeniz için ilk yüklemeden veya verilerdeki önemli değişikliklerden sonra her tablonun her sütununa ilişkin istatistiklerin oluşturulması önemlidir. İstatistikler hakkında ayrıntılı bir açıklama için Geliştirme ile ilgili konu başlığı grubunda yer alan [İstatistikler][Statistics] bölümüne göz atın. Aşağıda bu örnekte yüklenen tablolar için nasıl istatistik oluşturacağınıza yönelik kısa bir örnek verilmiştir.
 
 Bir sqlcmd isteminden şu CREATE STATISTICS deyimlerini yürütün:
 
@@ -184,27 +184,27 @@ Yeni dosyayı açarak verilerin düzgün bir şekilde dışarı aktarıldığın
 > 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Yüklemeye genel bakış için bkz. [SQL Veri Ambarı'na veri yükleme][SQL Veri Ambarı'na veri yükleme].
-Geliştirme ile ilgili daha fazla ipucu için bkz. [SQL Veri Ambarı geliştirmeye genel bakış][SQL Veri Ambarı geliştirmeye genel bakış].
+Yüklemeye genel bakış için bkz. [SQL Veri Ambarı'na veri yükleme][Load data into SQL Data Warehouse].
+Geliştirme ile ilgili daha fazla ipucu için bkz. [SQL Veri Ambarı’nda geliştirmeye genel bakış][SQL Data Warehouse development overview].
 
 <!--Image references-->
 
 <!--Article references-->
 
-[SQL Veri Ambarı'na veri yükleme]: ./sql-data-warehouse-overview-load.md
-[SQL Veri Ambarı geliştirmeye genel bakış]: ./sql-data-warehouse-overview-develop.md
-[Tabloya Genel Bakış]: ./sql-data-warehouse-tables-overview.md
-[İstatistikler]: ./sql-data-warehouse-tables-statistics.md
+[Load data into SQL Data Warehouse]: ./sql-data-warehouse-overview-load.md
+[SQL Data Warehouse development overview]: ./sql-data-warehouse-overview-develop.md
+[Table Overview]: ./sql-data-warehouse-tables-overview.md
+[Statistics]: ./sql-data-warehouse-tables-statistics.md
 
 <!--MSDN references-->
 [bcp]: https://msdn.microsoft.com/library/ms162802.aspx
-[CREATE TABLE söz dizimi]: https://msdn.microsoft.com/library/mt203953.aspx
+[CREATE TABLE syntax]: https://msdn.microsoft.com/library/mt203953.aspx
 
 <!--Other Web references-->
-[Microsoft İndirme Merkezi]: https://www.microsoft.com/download/details.aspx?id=36433
+[Microsoft Download Center]: https://www.microsoft.com/download/details.aspx?id=36433
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

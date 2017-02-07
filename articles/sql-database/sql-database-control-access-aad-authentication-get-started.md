@@ -17,12 +17,12 @@ ms.topic: hero-article
 ms.date: 01/17/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 4ef415b7c0e7079da9930ecc6d8375dfc5a3c0a9
-ms.openlocfilehash: f3c8b487f23b5d1642de90d795eb2b41bfdb674d
+ms.sourcegitcommit: 25de4caa583f128dd049899de288bd214e5918ba
+ms.openlocfilehash: 92a8ce45ba6b9938581778f37a544a323cd90b7c
 
 
 ---
-# <a name="sql-database-tutorial-aad-authentication-logins-and-user-accounts-database-roles-permissions-server-level-firewall-rules-and-database-level-firewall-rules"></a>SQL Veritabanı Öğreticisi: AAD kimlik doğrulaması, oturum açma bilgileri ve kullanıcı hesapları, veritabanı kuralları, izinler, sunucu düzeyinde güvenlik duvarı kuralları ve veritabanı düzeyinde güvenlik duvarı kuralları
+# <a name="sql-database-tutorial-azure-ad-authentication-access-and-database-level-firewall-rules"></a>SQL Veritabanı öğreticisi: Azure AD kimlik doğrulama erişimi ve veritabanı düzeyinde güvenlik duvarı kuralları
 Bu başlangıç öğreticisinde SQL Server Management Studio kullanarak Azure Active Directory kimlik doğrulaması, oturum açma bilgileri, kullanıcılar ve veritabanı rolleriyle çalışarak Azure SQL Veritabanı sunucuları ve veritabanlarına erişim izni vermeyi öğreneceksiniz. Şunları öğreneceksiniz:
 
 - Asıl veritabanı ve kullanıcı veritabanlarındaki kullanıcı izinlerini görüntüleme
@@ -273,7 +273,7 @@ Bu başlangıç öğreticisinde SQL Server Management Studio kullanarak Azure Ac
 
 2. **Sunucuya bağlan** penceresinde SQL Server kimlik doğrulamasını kullanarak aaduser1@microsoft.com hesabıyla bağlantı kurmak için sunucu adını ve kimlik doğrulaması bilgilerini girin. 
     
-   ![Güvenlik duvarı kuralı olmadan aaduser1@microsoft.com olarak bağlanma 1](./media/sql-database-control-access-aad-authentication-get-started/connect_aaduser1_no_rule1.png)
+   ![Güvenlik duvarı kuralı olmadan aaduser1@microsoft.com olarak bağlanma&1;](./media/sql-database-control-access-aad-authentication-get-started/connect_aaduser1_no_rule1.png)
 
 3. **Seçenekler**'e tıklayarak bağlanmak istediğiniz veritabanını belirtin ve ardından **Bağlantı Özellikleri** sekmesindeki **Veritabanına Bağlan** açılır kutusuna **AdventureWorksLT** yazın.
    
@@ -299,7 +299,7 @@ Bu başlangıç öğreticisinde SQL Server Management Studio kullanarak Azure Ac
      @start_ip_address = 'x.x.x.x', @end_ip_address = 'x.x.x.x';
    ```
 
-   ![veritabanı düzeyinde güvenlik duvarı ekleme 4](./media/sql-database-control-access-aad-authentication-get-started/aaduser1_add_rule_aw.png)
+   ![veritabanı düzeyinde güvenlik duvarı ekleme&4;](./media/sql-database-control-access-aad-authentication-get-started/aaduser1_add_rule_aw.png)
 
 8. Yeniden diğer bilgisayara geçin ve **Sunucuya Bağlan** iletişim kutusunda **Bağlan**'a tıklayarak AdventureWorksLT veritabanına aaduser1 olarak bağlanın. 
 
@@ -317,6 +317,6 @@ Bu başlangıç öğreticisinde SQL Server Management Studio kullanarak Azure Ac
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

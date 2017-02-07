@@ -1,10 +1,10 @@
 ---
-title: "Microsoft Azure Logic Apps’te kullanılmak üzere Microsoft tarafından yönetilen bağlayıcıların listesi | Microsoft Belgeleri"
-description: "Azure App Service’de Logic Apps oluşturmak için kullanabileceğiniz Microsoft tarafından yönetilen bağlayıcıların tam listesini alın."
+title: "Azure Logic Apps içinde kullanılacak bağlayıcılar listesi | Microsoft Docs"
+description: "Mantıksal uygulamalar derleyip oluşturmak için kullanabileceğiniz Microsoft tarafından yönetilen bağlayıcıların tam listesini alın"
 services: logic-apps
 documentationcenter: 
-author: MSFTMAN
-manager: erikre
+author: MandiOhlinger
+manager: anneta
 editor: 
 tags: connectors
 ms.assetid: f1f1fd50-b7f9-4d13-824a-39678619aa7a
@@ -13,11 +13,11 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/07/2016
-ms.author: deonhe
+ms.date: 01/27/2017
+ms.author: mandia
 translationtype: Human Translation
-ms.sourcegitcommit: d2eefb6b99955f9b9a1bd5b5c94617d538f079ec
-ms.openlocfilehash: 8e1b8cee12406628dae1deff15406beb13778b40
+ms.sourcegitcommit: 2f407a428aa176cc5c2a3b6bb236b522bda5ab64
+ms.openlocfilehash: 7fd97d97d0623a920671791fe38c52ea72bee074
 
 
 ---
@@ -38,14 +38,15 @@ ms.openlocfilehash: 8e1b8cee12406628dae1deff15406beb13778b40
 |[![API Icon][HTTP-Swaggericon]<br/>**HTTP Swagger**][http-swaggerdoc]|[![API Icon][HTTP-Requesticon]<br/>**HTTP<br/>Request**][HTTP-Requestdoc]|[![API Icon][HTTP-Responseicon]<br/>**HTTP<br/>Response**][HTTP-Responsedoc]|[![API Icon][Informixicon]<br/>**Informix**][Informixdoc]|
 |![API Icon][Insightlyicon]<br/>**Insightly**|![API Icon][Instagramicon]<br/>**Instagram**|![API Icon][Instapapericon]<br/>**Instapaper**|![API Icon][JIRAicon]<br/>**JIRA**|
 |[![API Icon][MailChimpicon]<br/>**MailChimp**][MailChimpdoc]|![API Icon][Mandrillicon]<br/>**Mandrill**|[![API Icon][Microsoft-Translatoricon]<br/>**Microsoft<br/>Translator**][Microsoft-Translatordoc]|[![API Icon][Nested-Logic-Appicon]<br/>**Nested<br/>Logic App**][Nested-Logic-Appdoc]|
-[![API Icon][Office-365-Outlookicon]<br/>**Office 365<br/>Outlook**][office365-outlookdoc]|[![API Icon][Office-365-Usersicon]][office365-usersdoc]<br/>**Office 365<br/>Kullanıcıları**|[![API Icon][Office-365-Videoicon]<br/>**Office 365<br/>Video**][office365-videodoc]|[![API Icon][OneDriveicon]<br/>**OneDrive**][OneDrivedoc]|[![API Icon][OneDrive-for-Businessicon]<br/>**OneDrive for<br/>Business**][OneDrive-for-Businessdoc]|
-[![API Icon][Outlook.comicon]<br/>**Outlook.com**][Outlook.comdoc]|![API Icon][PagerDutyicon]<br/>**PagerDuty**|![API Icon][Pinteresticon]<br/>**Pinterest**|[![API Icon][Project-Onlineicon]<br/>**Project Online**][Project-Onlinedoc]|
-[![API Icon][Queryicon]<br/>**Query**][Querydoc]|[![API Icon][Recurrenceicon]<br/>**Recurrence**][Recurrencedoc]|![API Icon][Redmineicon]<br/>**Redmine**|[![API Icon][RSSicon]<br/>**RSS**][RSSdoc]|
-[![API Icon][Salesforceicon]<br/>**Salesforce**][Salesforcedoc]|[![API Icon][SendGridicon]<br/>**SendGrid**][SendGriddoc]|[![API Icon][Service-Busicon]<br/>**Service Bus**][Service-Busdoc]|[![API Icon][SFTPicon]<br/>**SFTP**][SFTPdoc]|
-[![API Icon][SharePointicon]<br/>**SharePoint**][SharePointdoc]|[![API Icon][Slackicon]<br/>**Slack**][Slackdoc]|![API Icon][Smartsheeticon]<br/>**Smartsheet**|[![API Icon][SMTPicon]<br/>**SMTP**][SMTPdoc]|![API Icon][SparkPosticon]<br/>**SparkPost**|[![API Icon][SQL-Servericon]<br/>**SQL Server**][SQL-Serverdoc]|
-|![API Icon][Todoisticon]<br/>**Todoist**|[![API Icon][Trelloicon]<br/>**Trello**][Trellodoc]|[![API Icon][Twilioicon]<br/>**Twilio**][Twiliodoc]|[![API Icon][Twittericon]<br/>**Twitter**][Twitterdoc]|
-|![API Icon][Vimeoicon]<br/>**Vimeo**|![API Icon][Visual-Studio-Team-Servicesicon]<br/>**Visual Studio<br/>Team Services**|[![API Icon][Webhookicon]<br/>**Webhook**][Webhookdoc]|![API Icon][WordPressicon]<br/>**WordPress**|
-|[![API Icon][Wunderlisticon]<br/>**Wunderlist**][Wunderlistdoc]|[![API Icon][Yammericon]<br/>**Yammer**][Yammerdoc]|![API Icon][YouTubeicon]<br/>**YouTube**|[![API Icon][FileSystemIcon]<br/>**File System**][FileSystemdoc]
+|[![API Icon][Office-365-Outlookicon]<br/>**Office 365<br/>Outlook**][office365-outlookdoc]|[![API Icon][Office-365-Usersicon]][office365-usersdoc]<br/>**Office 365<br/>Kullanıcıları**|[![API Icon][Office-365-Videoicon]<br/>**Office 365<br/>Video**][office365-videodoc]|[![API Icon][OneDriveicon]<br/>**OneDrive**][OneDrivedoc]|[![API Icon][OneDrive-for-Businessicon]<br/>**OneDrive for<br/>Business**][OneDrive-for-Businessdoc]|
+|[![API Icon][Outlook.comicon]<br/>**Outlook.com**][Outlook.comdoc]|![API Icon][PagerDutyicon]<br/>**PagerDuty**|![API Icon][Pinteresticon]<br/>**Pinterest**|[![API Icon][Project-Onlineicon]<br/>**Project Online**][Project-Onlinedoc]|
+|[![API Icon][Queryicon]<br/>**Query**][Querydoc]|[![API Icon][Recurrenceicon]<br/>**Recurrence**][Recurrencedoc]|![API Icon][Redmineicon]<br/>**Redmine**|[![API Icon][RSSicon]<br/>**RSS**][RSSdoc]|
+|[![API Icon][Salesforceicon]<br/>**Salesforce**][Salesforcedoc]|[![API Icon][SendGridicon]<br/>**SendGrid**][SendGriddoc]|[![API Icon][Service-Busicon]<br/>**Service Bus**][Service-Busdoc]|[![API Icon][SFTPicon]<br/>**SFTP**][SFTPdoc]|
+|[![API Icon][SharePointicon]<br/>**SharePoint**][SharePointdoc]|[![API Icon][Slackicon]<br/>**Slack**][Slackdoc]|![API Icon][Smartsheeticon]<br/>**Smartsheet**|[![API Icon][SMTPicon]<br/>**SMTP**][SMTPdoc]
+|![API Icon][SparkPosticon]<br/>**SparkPost**|[![API Icon][SQL-Servericon]<br/>**SQL Server**][SQL-Serverdoc]|![API Icon][Todoisticon]<br/>**Todoist**|[![API Icon][Trelloicon]<br/>**Trello**][Trellodoc]|
+|[![API Icon][Twilioicon]<br/>**Twilio**][Twiliodoc]|[![API Icon][Twittericon]<br/>**Twitter**][Twitterdoc]|![API Icon][Vimeoicon]<br/>**Vimeo**|![API Icon][Visual-Studio-Team-Servicesicon]<br/>**Visual Studio<br/>Team Services**|
+|[![API Icon][Webhookicon]<br/>**Webhook**][Webhookdoc]|![API Icon][WordPressicon]<br/>**WordPress**|[![API Icon][Wunderlisticon]<br/>**Wunderlist**][Wunderlistdoc]|[![API Icon][Yammericon]<br/>**Yammer**][Yammerdoc]|
+|![API Icon][YouTubeicon]<br/>**YouTube**|[![API Icon][FileSystemIcon]<br/>**File System**][FileSystemdoc]|
 
 ### <a name="integration-account-connectors"></a>Tümleştirme hesabı bağlayıcıları 
 
@@ -82,9 +83,9 @@ Bazı bağlayıcılar, belirli olaylar meydana geldiğinde, uygulamanızı bilgi
 Bağlayıcılar uygulamalarınız içinde eylemler olarak da kullanılabilir. Eylemler, daha sonra uygulamanızın yürütülmesinde kullanılabilecek verilere bakılmasında faydalıdır. Örneğin, sipariş işleme sırasında bir SQL veritabanında müşteri verilerini aramanız gerekebilir. Veya, hedef tablodaki verileri yazmanız, güncelleştirmeniz ya da silmeniz gerekebilir. Bağlayıcılar tarafından sağlanan eylemleri kullanarak bunu yapabilirsiniz. Eylemler Swagger meta verilerde tanımlanan eylemlere eşlenir.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
-* [Şimdi mantıksal uygulama oluşturun](../app-service-logic/app-service-logic-create-a-logic-app.md)  
-* [Özel bir bağlayıcı oluşturun](../app-service-logic/app-service-logic-create-api-app.md)
-* [Mantıksal uygulamalarınızı izleyin](../app-service-logic/app-service-logic-monitor-your-logic-apps.md)
+* [Şimdi mantıksal uygulama oluşturun](../logic-apps/logic-apps-create-a-logic-app.md)  
+* [Özel bir bağlayıcı oluşturun](../logic-apps/logic-apps-create-api-app.md)
+* [Mantıksal uygulamalarınızı izleyin](../logic-apps/logic-apps-monitor-your-logic-apps.md)
 
 <!--Connectors Documentation-->
 [azureblobstoragedoc]: ./connectors-create-api-azureblobstorage.md "Blob kapsayıcınızdaki dosyaları yönetmek için Azure blob’a bağlanın."
@@ -120,18 +121,18 @@ Bağlayıcılar uygulamalarınız içinde eylemler olarak da kullanılabilir. Ey
 [twitterdoc]: ./connectors-create-api-twitter.md "Twitter’a bağlanır ve akışları alır, tweetler gönderir ve daha fazlasını yapar."
 [wunderlistdoc]: ./connectors-create-api-wunderlist.md "Hayatınızı eşitleyin."
 [yammerdoc]: ./connectors-create-api-yammer.md "İletiler göndermek ve yeni iletileri almak için Yammer’a bağlanır."
-[as2doc]: ../app-service-logic/app-service-logic-enterprise-integration-as2.md "Enterprise integration AS2 hakkında bilgi edinin."
-[x12doc]: ../app-service-logic/app-service-logic-enterprise-integration-x12.md "Enterprise integration X12 hakkında bilgi edinin."
-[flatfiledoc]: ../app-service-logic/app-service-logic-enterprise-integration-flatfile.md "Enterprise integration düz dosyası hakkında bilgi edinin."
-[flatfiledecodedoc]: ../app-service-logic/app-service-logic-enterprise-integration-flatfile.md "Enterprise integration düz dosyası hakkında bilgi edinin."
-[xmlvalidatedoc]: ../app-service-logic/app-service-logic-enterprise-integration-xml-validation.md "Enterprise integration XML doğrulaması hakkında bilgi edinin."
-[xmltransformdoc]: ../app-service-logic/app-service-logic-enterprise-integration-transform.md "Enterprise integration dönüştürmeleri hakkında bilgi edinin."
-[as2decode]: ..//app-service-logic/app-service-logic-enterprise-integration-as2-decode.md "Enterprise integration AS2 kod çözme hakkında bilgi edinin"
-[as2encode]: ..//app-service-logic/app-service-logic-enterprise-integration-as2-encode.md "Enterprise integration AS2 kodlama hakkında bilgi edinin"
-[X12decode]: ..//app-service-logic/app-service-logic-enterprise-integration-X12-decode.md "Enterprise integration X12 kod çözme hakkında bilgi edinin"
-[X12encode]: ..//app-service-logic/app-service-logic-enterprise-integration-X12-encode.md "Enterprise integration X12 kodlama hakkında bilgi edinin"
-[EDIFACTdecode]: ..//app-service-logic/app-service-logic-enterprise-integration-EDIFACT-decode.md "Enterprise integration EDIFACT kod çözme hakkında bilgi edinin"
-[EDIFACTencode]: ..//app-service-logic/app-service-logic-enterprise-integration-EDIFACT-encode.md "Enterprise integration EDIFACT kodlama hakkında bilgi edinin"
+[as2doc]: ../logic-apps/logic-apps-enterprise-integration-as2.md "Enterprise integration AS2 hakkında bilgi edinin."
+[x12doc]: ../logic-apps/logic-apps-enterprise-integration-x12.md "Enterprise integration X12 hakkında bilgi edinin."
+[flatfiledoc]:../logic-apps/logic-apps-enterprise-integration-flatfile.md "Enterprise integration düz dosyası hakkında bilgi edinin."
+[flatfiledecodedoc]:../logic-apps/logic-apps-enterprise-integration-flatfile.md "Enterprise integration düz dosyası hakkında bilgi edinin."
+[xmlvalidatedoc]: ../logic-apps/logic-apps-enterprise-integration-xml-validation.md "Enterprise integration XML doğrulaması hakkında bilgi edinin."
+[xmltransformdoc]: ../logic-apps/logic-apps-enterprise-integration-transform.md "Enterprise integration dönüştürmeleri hakkında bilgi edinin."
+[as2decode]: ..//logic-apps/logic-apps-enterprise-integration-as2-decode.md "Enterprise integration AS2 kod çözme hakkında bilgi edinin"
+[as2encode]:../logic-apps/logic-apps-enterprise-integration-as2-encode.md "Enterprise integration AS2 kodlama hakkında bilgi edinin"
+[X12decode]: ..//logic-apps/logic-apps-enterprise-integration-X12-decode.md "Enterprise integration X12 kod çözme hakkında bilgi edinin"
+[X12encode]: ..//logic-apps/logic-apps-enterprise-integration-X12-encode.md "Enterprise integration X12 kodlama hakkında bilgi edinin"
+[EDIFACTdecode]: ..//logic-apps/logic-apps-enterprise-integration-EDIFACT-decode.md "Enterprise integration EDIFACT kod çözme hakkında bilgi edinin"
+[EDIFACTencode]: ..//logic-apps/logic-apps-enterprise-integration-EDIFACT-encode.md "Enterprise integration EDIFACT kodlama hakkında bilgi edinin"
 [httpdoc]: ./connectors-native-http.md "HTTP aramaları yapmak için HTTP bağlayıcısı."
 [http-requestdoc]: ./connectors-native-reqres.md "İstek ve Yanıt eylemleri."
 [http-responsedoc]: ./connectors-native-reqres.md "İstek ve Yanıt eylemleri."
@@ -139,9 +140,9 @@ Bağlayıcılar uygulamalarınız içinde eylemler olarak da kullanılabilir. Ey
 [http-swaggerdoc]: ./connectors-native-http-swagger.md "HTTP + HTTP çağrıları yapmak için Swagger bağlayıcısı."
 [querydoc]: ./connectors-native-query.md "Dizileri seçmek ve filtrelemek için sorgu eylemi."
 [webhookdoc]: ./connectors-native-webhook.md "Mantıksal uygulamalar için web kancası eylemi ve tetikleyicisi."
-[azure-functionsdoc]: ../app-service-logic/app-service-logic-azure-functions.md "Mantıksal uygulamaları Azure İşlevleri ile tümleştirin."
-[api/web-appdoc]: ../app-service-logic/app-service-logic-custom-hosted-api.md "Mantıksal uygulamaları App Service API Apps ile tümleştirin."
-[nested-logic-appdoc]: ../app-service-logic/app-service-logic-http-endpoint.md "Mantıksal uygulamaları iç içe geçmiş bir iş akışı ile tümleştirin."
+[azure-functionsdoc]: ../logic-apps/logic-apps-azure-functions.md "Mantıksal uygulamaları Azure İşlevleri ile tümleştirin."
+[api/web-appdoc]: ../logic-apps/logic-apps-custom-hosted-api.md "Mantıksal uygulamaları App Service API Apps ile tümleştirin."
+[nested-logic-appdoc]: ../logic-apps/logic-apps-http-endpoint.md "Mantıksal uygulamaları iç içe geçmiş bir iş akışı ile tümleştirin."
 [recurrencedoc]:  ./connectors-native-recurrence.md "Mantıksal uygulamalar için yineleme tetikleyicisi."
 [google-sheetsdoc]: ./connectors-create-api-googlesheet.md "Google E-Tablolara bağlanır ve tabloları değiştirebilir."
 [google-tasksdoc]: ./connectors-create-api-googletasks.md "Google Görevlere bağlanır ve görevleri yönetebilir."
@@ -150,8 +151,8 @@ Bağlayıcılar uygulamalarınız içinde eylemler olarak da kullanılabilir. Ey
 [mandrilldoc]: ./connectors-create-api-mandrill.md "Mandrill’e bağlanır ve iletişim için kullanılabilir."
 [youtubedoc]: ./connectors-create-api-youtube.md "YouTube’a bağlanır ve videolar ve kanallarla etkileşim kurar."
 [sparkpostdoc]: ./connectors-create-api-sparkpost.md "SparkPost’a bağlanır ve iletişim için kullanılabilir."
-[filesystemdoc]: ..//app-service-logic/app-service-logic-use-file-connector.md "Şirket içi dosya sistemiyle iletişim kurmak için dosya sistemi bağlayıcısını kullanın."
-[sapconnector]: ..//app-service-logic/app-service-logic-enterprise-connector-sap-connector.md "SAP Connector hakkında bilgi edinin"
+[filesystemdoc]: ..//logic-apps/logic-apps-using-file-connector.md "Şirket içi dosya sistemiyle iletişim kurmak için dosya sistemi bağlayıcısını kullanın."
+[sapconnector]: ..//logic-apps/logic-apps-using-sap-connector.md "SAP Connector hakkında bilgi edinin"
 
 <!--Icon references-->
 [appFiguresicon]: ./media/apis-list/appfigures.png
@@ -249,6 +250,6 @@ Bağlayıcılar uygulamalarınız içinde eylemler olarak da kullanılabilir. Ey
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 
