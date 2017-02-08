@@ -1,6 +1,6 @@
 ---
-title: "SQL Veritabanı öğreticisi: Sunucu, sunucu düzeyinde güvenlik duvarı kuralı, örnek veritabanı, veritabanı düzeyinde güvenlik duvarı oluşturma ve SQL Server Management Studio ile bağlanma | Microsoft Docs"
-description: "SQL Veritabanı mantıksal sunucusu, sunucu güvenlik duvarı kuralı, SQL veritabanı ve örnek veriler oluşturma hakkında bilgi edinin. Ayrıca, istemci araçlarına bağlanma, kullanıcıları yapılandırma ve bir veritabanı güvenlik duvarı kuralı oluşturma hakkında bilgi alın."
+title: "Azure portalı: Azure SQL Veritabanı&quot;nı kullanmaya başlama | Microsoft Docs"
+description: "Azure portalını kullanarak SQL Veritabanı mantıksal sunucusu, sunucu düzeyi güvenlik duvarı kuralı ve veritabanı oluşturmayı öğrenin. SQL Server Management Studio kullanarak veritabanı sorgulamayı da öğrenebilirsiniz."
 keywords: "sql veritabanı öğreticisi, sql veritabanı oluşturma"
 services: sql-database
 documentationcenter: 
@@ -14,17 +14,17 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 11/23/2016
+ms.date: 02/01/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: c2252fc81f97019391ca2ba957f8402c4e97a9c2
-ms.openlocfilehash: f9b17c1cc77918fb1989b94b5bb359a697ceea7c
+ms.sourcegitcommit: 6fd3c0ebe6d7b7e23550358ca1d93840ae8acaa1
+ms.openlocfilehash: 3b9a4fbd7121155e34cf9014ca08a4614457fe11
 
 
 ---
-# <a name="get-started-with-azure-sql-database-servers-databases-and-firewall-rules-by-using-the-azure-portal-and-sql-server-management-studio"></a>Azure portalı ve SQL Server Management Studio aracılığıyla Azure SQL Veritabanı sunucularını, veritabanlarını ve güvenlik duvarı kurallarını kullanmaya başlama
+# <a name="tutorial-provision-and-access-an-azure-sql-database-using-the-azure-portal-and-sql-server-management-studio"></a>Öğretici: Azure portal ve SQL Server Management Studio kullanarak Azure SQL veritabanı sağlama ve erişim
 
-Bu kullanmaya başlama öğreticisinde, Azure portalını kullanarak şu işlemleri gerçekleştirmeyi öğreneceksiniz:
+Bu öğreticide, Azure portalını kullanarak şu işlemleri gerçekleştirmeyi öğreneceksiniz:
 
 * Yeni bir Azure kaynak grubu oluşturma
 * Azure SQL mantıksal sunucusu oluşturma
@@ -44,17 +44,22 @@ Bu öğreticiyi tamamladığınızda; Azure kaynak grubu içinde çalışan ve m
 
 **Tahmini süre**: Bu öğretici yaklaşık 30 dakika sürer (önkoşulları karşıladığınız varsayılarak).
 
+> [!TIP]
+> Aynı görevleri, [C#](sql-database-get-started-csharp.md) veya [PowerShell](sql-database-get-started-powershell.md) aracılığıyla kullanmaya başlama öğreticilerinde de gerçekleştirebilirsiniz.
+>
+
 ## <a name="prerequisites"></a>Ön koşullar
 
 * Bir Azure hesabınız olmalıdır. [Ücretsiz bir Azure hesabı açabilir](/pricing/free-trial/?WT.mc_id=A261C142F) veya [Visual Studio abonelik avantajlarını etkinleştirebilirsiniz](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). 
 
 * Azure portalına, abonelik sahibi veya katkıda bulunan rolü üyesi olan bir hesap kullanarak bağlanabiliyor olmanız gerekir. Rol tabanlı erişim denetimi (RBAC) ile ilgili daha fazla bilgi için bkz. [Azure portalında erişim yönetimini kullanmaya başlama](../active-directory/role-based-access-control-what-is.md).
 
-> [!TIP]
-> Aynı görevleri, [C#](sql-database-get-started-csharp.md) veya [PowerShell](sql-database-get-started-powershell.md) aracılığıyla kullanmaya başlama öğreticilerinde de gerçekleştirebilirsiniz.
->
+> [!NOTE]
+> Bu öğretici şu konu başlıklarının içeriğini öğrenmenize yardımcı olacaktır: [SQL Veritabanı sunucusuna genel bakış](sql-database-server-overview.md), [SQL veritabanına genel bakış](sql-database-overview.md) ve [Azure SQL Veritabanı güvenlik duvarı kurallarına genel bakış](sql-database-firewall-configure.md).
+>  
 
-### <a name="sign-in-by-using-your-existing-account"></a>Var olan hesabınızı kullanarak oturum açın
+
+### <a name="sign-in-to-the-azure-portal-using-your-azure-account"></a>Azure hesabınızı kullanarak Azure portalında oturum açma
 [Var olan aboneliğinizi](https://account.windowsazure.com/Home/Index) kullanarak Azure portala bağlanmak için aşağıdaki adımları uygulayın.
 
 1. Tercih ettiğiniz tarayıcınızı açın ve [Azure portal](https://portal.azure.com/)’a bağlanın.
@@ -103,7 +108,7 @@ Bu öğreticiyi tamamladığınızda; Azure kaynak grubu içinde çalışan ve m
     ![sunucu konumu](./media/sql-database-get-started/server-location.png)
     
     > [!TIP]
-    > **Azure hizmetlerinin sunucuya erişmesine izin ver** onay kutusu bu dikey pencerede değiştirilemez. Bu ayarı, sunucu güvenlik duvarı dikey penceresinde değiştirebilirsiniz. Daha fazla bilgi için bkz. [Güvenliğe giriş](sql-database-get-started-security.md).
+    > **Azure hizmetlerinin sunucuya erişmesine izin ver** onay kutusu bu dikey pencerede değiştirilemez. Bu ayarı, sunucu güvenlik duvarı dikey penceresinde değiştirebilirsiniz. Daha fazla bilgi için bkz. [Güvenliğe giriş](sql-database-control-access-sql-authentication-get-started.md).
     >
     
 9. **Oluştur**’a tıklayın.
@@ -183,7 +188,7 @@ Bu öğreticiyi tamamladığınızda; Azure kaynak grubu içinde çalışan ve m
     ![asıl veritabanı sistem nesnelerini sorgula](./media/sql-database-get-started/query-master-database-system-objects.png)
 
     > [!NOTE]
-    > SQL güvenliğini keşfetmek için bkz. [SQL güvenliğine giriş](sql-database-get-started-security.md)
+    > SQL güvenliğini keşfetmek için bkz. [SQL güvenliğine giriş](sql-database-control-access-sql-authentication-get-started.md)
     >
 
 ## <a name="create-new-database-in-the-azure-portal-using-adventure-works-lt-sample"></a>Adventure Works LT örneğini kullanarak Azure portalında yeni veritabanı oluşturma
@@ -291,7 +296,9 @@ Bu öğreticiyi tamamladığınızda; Azure kaynak grubu içinde çalışan ve m
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu öğreticiyi tamamladığınıza göre; bu öğreticide öğrendiklerinizi geliştirecek ek öğreticilerden birini keşfetmek isteyebilirsiniz. 
 
-* Azure SQL Veritabanı güvenliğini keşfetmeye başlamak isterseniz bkz. [Güvenliğe giriş](sql-database-get-started-security.md).
+- SQL Server kimlik doğrulama öğreticisini kullanmaya başlamak için bkz. [SQL kimlik doğrulaması ve yetkilendirme](sql-database-control-access-sql-authentication-get-started.md)
+- Azure Active Directory kimlik doğrulama öğreticisini kullanmaya başlamak için bkz. [AAD kimlik doğrulaması ve yetkilendirme](sql-database-control-access-aad-authentication-get-started.md)
+* Azure portalındaki örnek veritabanını sorgulamak isterseniz bkz. [Genel önizleme: SQL veritabanları için etkileşimli sorgu deneyimi](https://azure.microsoft.com/en-us/updates/azure-sql-database-public-preview-t-sql-editor/)
 * Excel kullanmayı biliyorsanız [Excel ile Azure’da SQL veritabanına bağlanma](sql-database-connect-excel.md) işlemini nasıl gerçekleştireceğinizi öğrenin.
 * Kodlamaya başlamak için hazırsanız [SQL Veritabanı ve SQL Server için bağlantı kitaplıkları](sql-database-libraries.md) konu başlığına göz atarak programlama dilinizi belirleyin.
 * Şirket içi SQL Server veritabanlarınızı Azure’a taşımak istiyorsanız, bkz. [Bir veritabanını SQL Veritabanı’na geçirme](sql-database-cloud-migrate.md).
@@ -306,6 +313,6 @@ Bu öğreticiyi tamamladığınıza göre; bu öğreticide öğrendiklerinizi ge
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

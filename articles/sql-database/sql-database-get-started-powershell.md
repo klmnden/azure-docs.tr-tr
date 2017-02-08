@@ -1,6 +1,6 @@
 ---
-title: "PowerShell ile yeni SQL Veritabanı kurulumu | Microsoft Belgeleri"
-description: "PowerShell ile SQL veritabanı oluşturmayı hemen öğrenin. Genel veritabanı kurulum görevleri PowerShell cmdlet&quot;leri ile yönetilebilir."
+title: "Powershell: Azure SQL Veritabanı&quot;nı kullanmaya başlama | Microsoft Docs"
+description: "PowerShell kullanarak SQL Veritabanı mantıksal sunucusu, sunucu düzeyi güvenlik duvarı kuralı ve veritabanı oluşturmayı öğrenin. PowerShell kullanarak veritabanlarını sorgulamayı da öğrenebilirsiniz."
 keywords: "yeni sql veritabanı oluşturma,veritabanı kurulumu"
 services: sql-database
 documentationcenter: 
@@ -17,13 +17,13 @@ ms.workload: data-management
 ms.date: 12/09/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: b557c6d3591b1d56144651e876fa4bb1b0646935
+ms.sourcegitcommit: 7f1983e871ea425a095e3a4bf6c7a1b89d6f45a9
+ms.openlocfilehash: 51ed691eb206f284cb8bbd682c723f87362caa33
 
 
 ---
 
-# <a name="get-started-with-azure-sql-database-servers-databases-and-firewall-rules-by-using-azure-powershell"></a>Azure PowerShell aracılığıyla Azure SQL Veritabanı sunucularını, veritabanlarını ve güvenlik duvarı kurallarını kullanmaya başlama
+# <a name="tutorial-provision-and-access-an-azure-sql-database-using-powershell"></a>Öğretici: PowerShell’i kullanarak Azure SQL veritabanı sağlama ve erişim
 
 Bu kullanmaya başlama öğreticisinde, PowerShell'i kullanarak şu işlemleri gerçekleştirmeyi öğreneceksiniz:
 
@@ -31,9 +31,9 @@ Bu kullanmaya başlama öğreticisinde, PowerShell'i kullanarak şu işlemleri g
 * Azure SQL mantıksal sunucusu oluşturma
 * Azure SQL sunucusu özelliklerini görüntüleme
 * Sunucu düzeyinde bir güvenlik duvarı kuralı oluşturma
-* AdventureWorksLT örnek veritabanını tek başına veritabanı olarak oluşturma
+* AdventureWorksLT örnek veritabanını tek veritabanı olarak oluşturma
 * AdventureWorksLT örnek veritabanı özelliklerini görüntüleme
-* Boş bir tek başına veritabanı oluşturma
+* Boş bir tek veritabanı oluşturma
 
 Bu öğreticide ayrıca şunları yapacaksınız:
 
@@ -115,8 +115,8 @@ $serverResourceGroupName = $resourceGroupName
 $serverAdmin = "{server-admin}"
 $serverAdminPassword = "{server-admin-password}"
 
-$securePassword = ConvertTo-SecureString –String $serverAdminPassword –AsPlainText -Force
-$serverCreds = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $serverAdmin, $securePassword
+$securePassword = ConvertTo-SecureString -String $serverAdminPassword -AsPlainText -Force
+$serverCreds = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $serverAdmin, $securePassword
 
 $myServer = Get-AzureRmSqlServer -ServerName $serverName -ResourceGroupName $serverResourceGroupName -ea SilentlyContinue
 if(!$myServer)
@@ -232,7 +232,7 @@ $storageKeyType = "StorageAccessKey"
 $storageUri = "{storage-uri}" # URL of bacpac file you uploaded to your storage account
 $storageKey = "{storage-key}" # key1 in the Access keys setting of your storage account
 
-$importRequest = New-AzureRmSqlDatabaseImport –ResourceGroupName $resourceGroupName –ServerName $serverName –DatabaseName $databaseName –StorageKeytype $storageKeyType –StorageKey $storageKey -StorageUri $storageUri –AdministratorLogin $serverAdmin –AdministratorLoginPassword $securePassword –Edition $databaseEdition –ServiceObjectiveName $databaseServiceLevel -DatabaseMaxSizeBytes 5000000
+$importRequest = New-AzureRmSqlDatabaseImport -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName -StorageKeytype $storageKeyType -StorageKey $storageKey -StorageUri $storageUri -AdministratorLogin $serverAdmin -AdministratorLoginPassword $securePassword -Edition $databaseEdition -ServiceObjectiveName $databaseServiceLevel -DatabaseMaxSizeBytes 5000000
 
 
 Do {
@@ -385,8 +385,8 @@ $serverResourceGroupName = $myServerResourceGroupName
 $serverAdmin = $myServerAdmin
 $serverAdminPassword = $myServerAdminPassword
 
-$securePassword = ConvertTo-SecureString –String $serverAdminPassword –AsPlainText -Force
-$serverCreds = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $serverAdmin, $securePassword
+$securePassword = ConvertTo-SecureString -String $serverAdminPassword -AsPlainText -Force
+$serverCreds = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $serverAdmin, $securePassword
 
 $myServer = Get-AzureRmSqlServer -ServerName $serverName -ResourceGroupName $serverResourceGroupName -ea SilentlyContinue
 if(!$myServer)
@@ -475,7 +475,7 @@ $storageKeyType = $myStorageKeyType
 $storageUri = $myStorageUri
 $storageKey = $myStorageKey
 
-$importRequest = New-AzureRmSqlDatabaseImport –ResourceGroupName $resourceGroupName –ServerName $serverName –DatabaseName $databaseName –StorageKeytype $storageKeyType –StorageKey $storageKey -StorageUri $storageUri –AdministratorLogin $serverAdmin –AdministratorLoginPassword $securePassword –Edition $databaseEdition –ServiceObjectiveName $databaseServiceLevel -DatabaseMaxSizeBytes 5000000
+$importRequest = New-AzureRmSqlDatabaseImport -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName -StorageKeytype $storageKeyType -StorageKey $storageKey -StorageUri $storageUri -AdministratorLogin $serverAdmin -AdministratorLoginPassword $securePassword -Edition $databaseEdition -ServiceObjectiveName $databaseServiceLevel -DatabaseMaxSizeBytes 5000000
 
 Do {
      $importStatus = Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $importRequest.OperationStatusLink
@@ -566,7 +566,9 @@ Remove-AzureRmResourceGroup -Name {resource-group-name}
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu ilk kullanmaya başlama öğreticisini tamamladığınıza ve örnek veriler içeren bir veritabanı oluşturduğunuza göre, bu öğreticide öğrendiklerinizi geliştirecek ek öğreticilerden birini keşfetmek isteyebilirsiniz. 
 
-* Azure SQL Veritabanı güvenliğini keşfetmeye başlamak isterseniz bkz. [Güvenliğe giriş](sql-database-get-started-security.md).
+- SQL Server kimlik doğrulama öğreticisini kullanmaya başlamak için bkz. [SQL kimlik doğrulaması ve yetkilendirme](sql-database-control-access-sql-authentication-get-started.md)
+- Azure Active Directory kimlik doğrulama öğreticisini kullanmaya başlamak için bkz. [Azure AD kimlik doğrulaması ve yetkilendirme](sql-database-control-access-aad-authentication-get-started.md)
+* Azure portalındaki örnek veritabanını sorgulamak isterseniz bkz. [Genel önizleme: SQL veritabanları için etkileşimli sorgu deneyimi](https://azure.microsoft.com/en-us/updates/azure-sql-database-public-preview-t-sql-editor/)
 * Excel kullanmayı biliyorsanız [Excel ile Azure’da SQL veritabanına bağlanma](sql-database-connect-excel.md) işlemini nasıl gerçekleştireceğinizi öğrenin.
 * Kodlamaya başlamak için hazırsanız [SQL Veritabanı ve SQL Server için bağlantı kitaplıkları](sql-database-libraries.md) konu başlığına göz atarak programlama dilinizi belirleyin.
 * Şirket içi SQL Server veritabanlarınızı Azure’a taşımak istiyorsanız, bkz. [Bir veritabanını SQL Veritabanı’na geçirme](sql-database-cloud-migrate.md).
@@ -577,6 +579,7 @@ Bu ilk kullanmaya başlama öğreticisini tamamladığınıza ve örnek veriler 
 [SQL Database nedir?](sql-database-technical-overview.md)
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Feb17_HO1-->
 
 

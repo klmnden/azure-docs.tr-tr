@@ -1,6 +1,6 @@
 ---
-title: "Uygulama geliştirmek için Data Lake Store Java SDK&quot;sını kullanma | Microsoft Belgeleri"
-description: "Uygulama geliştirmek için Azure Data Lake Store Java SDK&quot;yı kullanma"
+title: "Azure Data Lake Store’da uygulama geliştirmek için Java SDK&quot;sını kullanma | Microsoft Docs"
+description: "Bir Data Lake Store hesabı oluşturmak ve Data Lake Store&quot;da temel işlemleri gerçekleştirmek için Azure Data Lake Store Java SDK’sını kullanma"
 services: data-lake-store
 documentationcenter: 
 author: nitinme
@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 12/23/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: c157da7bf53e2d0762624e8e71e56e956db04a24
-ms.openlocfilehash: a80da95328a6f3c47edf6e9be9e786437a8c316e
+ms.sourcegitcommit: 091fadce064086d82b833f8e44edfbba125d3e6b
+ms.openlocfilehash: cb5babdd8fea3615d8aa27f05a07c3b489f3faa4
 
 
 ---
@@ -64,7 +64,7 @@ Azure Active Directory, belirteç almak için başka seçenekler de sunar. Taray
           <dependency>
             <groupId>com.microsoft.azure</groupId>
             <artifactId>azure-data-lake-store-sdk</artifactId>
-            <version>2.1.1</version>
+            <version>2.1.4</version>
           </dependency>
           <dependency>
             <groupId>org.slf4j</groupId>
@@ -73,7 +73,7 @@ Azure Active Directory, belirteç almak için başka seçenekler de sunar. Taray
           </dependency>
         </dependencies>
    
-    İlk bağımlılık, maven deposundan Data Lake Store SDK’sını (`azure-datalake-store`) kullanmaktır. İkinci bağımlılık (`slf4j-nop`), bu uygulama için hangi günlük altyapısının kullanılacağını belirtmektir. Data Lake Store SDK’sı; log4j, Java günlük kaydı, logback gibi birçok popüler günlük altyapısından birini seçmenizi veya günlük kaydı seçmemenizi sağlayan [slf4j](http://www.slf4j.org/) günlük cephesini kullanır. Bu örnekte, günlük kaydını devre dışı bırakacak ve dolayısıyla **slf4j-nop** bağlamasını kullanacağız. Uygulamanızda diğer günlük seçeneklerini kullanmak için [buraya](http://www.slf4j.org/manual.html#projectDep) bakın.
+    İlk bağımlılık, maven deposundan Data Lake Store SDK’sını (`azure-data-lake-store-sdk`) kullanmaktır. İkinci bağımlılık (`slf4j-nop`), bu uygulama için hangi günlük altyapısının kullanılacağını belirtmektir. Data Lake Store SDK’sı; log4j, Java günlük kaydı, logback gibi birçok popüler günlük altyapısından birini seçmenizi veya günlük kaydı seçmemenizi sağlayan [slf4j](http://www.slf4j.org/) günlük cephesini kullanır. Bu örnekte, günlük kaydını devre dışı bırakacak ve dolayısıyla **slf4j-nop** bağlamasını kullanacağız. Uygulamanızda diğer günlük seçeneklerini kullanmak için [buraya](http://www.slf4j.org/manual.html#projectDep) bakın.
 
 ### <a name="add-the-application-code"></a>Uygulama kodunu ekleme
 Kodun üç ana bölümü vardır.
@@ -83,27 +83,39 @@ Kodun üç ana bölümü vardır.
 3. İşlemleri gerçekleştirmek için Data Lake Store istemcisini kullanın.
 
 #### <a name="step-1-obtain-an-azure-active-directory-token"></a>1. Adım: Azure Active Directory belirteci edinin.
-Data Lake Store SDK’sı, Data Lake Store hesabıyla iletişim kurmak için gereken güvenlik belirteçlerini edinmenizi sağlayacak kullanışlı yöntemler sunar. Bununla birlikte, SDK yalnızca bu yöntemlerin kullanılmasını zorunlu kılmaz. [Azure Active Directory SDK’sını](https://github.com/AzureAD/azure-activedirectory-library-for-java) veya kendi özel kodunuzu kullanma gibi diğer belirteç edinme yöntemlerinden yararlanabilirsiniz.
+Data Lake Store SDK’sı, Data Lake Store hesabıyla iletişim kurmak için gereken güvenlik belirteçlerini yönetmenizi sağlayacak kullanışlı yöntemler sunar. Bununla birlikte, SDK yalnızca bu yöntemlerin kullanılmasını zorunlu kılmaz. [Azure Active Directory SDK’sını](https://github.com/AzureAD/azure-activedirectory-library-for-java) veya kendi özel kodunuzu kullanma gibi diğer belirteç edinme yöntemlerinden yararlanabilirsiniz.
 
-Daha önce oluşturduğunuz Active Directory Web uygulaması için belirteci edinmek üzere Data Lake Store SDK’sını kullanmak için `AzureADAuthenticator` sınıfındaki statik yöntemleri kullanın. **BURAYI DOLDURUN** alanını, Azure Active Directory Web uygulaması için gerçek değerlerle değiştirin.
+Daha önce oluşturduğunuz Active Directory Web uygulaması için belirteci edinmek üzere Data Lake Store SDK’sını kullanmak için `AccessTokenProvider` alt sınıflarından birini kullanın (aşağıdaki örnekte `ClientCredsTokenProvider` kullanılmaktadır). Belirteç sağlayıcısı, bellekteki belirteci almak için kullanılan kimlik bilgilerini önbelleğe alır ve süre sonu yaklaştığında belirteci otomatik olarak yeniler. Kendi `AccessTokenProvider` alt sınıflarınızı oluşturabilir, böylece belirteçlerin müşteri kodunuza göre alınmasını sağlayabilirsiniz; ancak şimdilik yalnızca SDK’da verileni kullanalım.
+
+**BURAYI DOLDURUN** alanını, Azure Active Directory Web uygulaması için gerçek değerlerle değiştirin.
 
     private static String clientId = "FILL-IN-HERE";
     private static String authTokenEndpoint = "FILL-IN-HERE";
     private static String clientKey = "FILL-IN-HERE";
 
-    AzureADToken token = AzureADAuthenticator.getTokenUsingClientCreds(authTokenEndpoint, clientId, clientKey);
+    AccessTokenProvider provider = new ClientCredsTokenProvider(authTokenEndpoint, clientId, clientKey);
 
 #### <a name="step-2-create-an-azure-data-lake-store-client-adlstoreclient-object"></a>2. Adım: Azure Data Lake Store istemci (ADLStoreClient) nesnesi oluşturma
-[ADLStoreClient](https://azure.github.io/azure-data-lake-store-java/javadoc/) nesnesi oluşturmak için Data Lake Store hesap adını ve son adımda oluşturduğunuz Azure Active Directory belirtecini belirtmeniz gerekir. Data Lake Store hesap adının tam etki alanı adı olması gerektiğini unutmayın. Örneğin, **BURAYI DOLDURUN** alanını **mydatalakestore.azuredatalakestore.net** gibi bir etki alanı adı değiştirin.
+[ADLStoreClient](https://azure.github.io/azure-data-lake-store-java/javadoc/) nesnesi oluşturmak için Data Lake Store hesap adını ve son adımda oluşturduğunuz belirteç sağlayıcısını belirtmeniz gerekir. Data Lake Store hesap adının tam etki alanı adı olması gerektiğini unutmayın. Örneğin, **BURAYI DOLDURUN** alanını **mydatalakestore.azuredatalakestore.net** gibi bir etki alanı adı değiştirin.
 
     private static String accountFQDN = "FILL-IN-HERE";  // full account FQDN, not just the account name
-    ADLStoreClient client = ADLStoreClient.createClient(accountFQDN, token);
+    ADLStoreClient client = ADLStoreClient.createClient(accountFQDN, provider);
 
 ### <a name="step-3-use-the-adlstoreclient-to-perform-file-and-directory-operations"></a>3. Adım: Dosya ve dizin işlemlerini gerçekleştirmek için ADLStoreClient’ı kullanın
 Aşağıdaki kod, bazı yaygın işlemlerin kod parçacıklarını içerir. Diğer işlemleri görmek için **ADLStoreClient** nesnesinin tüm [Data Lake Store Java SDK API belgelerine](https://azure.github.io/azure-data-lake-store-java/javadoc/) bakabilirsiniz.
 
 Dosyalar, standart Java akışları kullanılarak okunur ve yazılır. Bu, standart Java işlevlerinden (ör. biçimlendirilmiş çıkış için Yazdırma akışları ya da en üstteki ek işlevler için herhangi bir sıkıştırma veya şifreleme akışı vb.) yararlanmak için Java akışlarından herhangi birini Data Lake Store akışlarının üzerine katmanlayabilirsiniz.
 
+     // create file and write some content
+     String filename = "/a/b/c.txt";
+     OutputStream stream = client.createFile(filename, IfExists.OVERWRITE  );
+     PrintStream out = new PrintStream(stream);
+     for (int i = 1; i <= 10; i++) {
+         out.println("This is line #" + i);
+         out.format("This is the same line (%d), but using formatted output. %n", i);
+     }
+     out.close();
+    
     // set file permission
     client.setPermission(filename, "744");
 
@@ -142,6 +154,7 @@ Dosyalar, standart Java akışları kullanılarak okunur ve yazılır. Bu, stand
 2. Komut satırından çalıştırabileceğiniz tek başına bir jar oluşturmak için jar’ı [Maven derleme eklentisini](http://maven.apache.org/plugins/maven-assembly-plugin/usage.html) kullanarak dahil edilen tüm bağımlılıklarla birlikte derleyin. [Github’daki örnek kaynak kodda](https://github.com/Azure-Samples/data-lake-store-java-upload-download-get-started/blob/master/pom.xml) bulunan pom.xml, bunun nasıl yapılacağını gösteren bir örnek içerir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
+* [Java SDK için JavaDoc’u keşfedin](https://azure.github.io/azure-data-lake-store-java/javadoc/)
 * [Data Lake Store'da verilerin güvenliğini sağlama](data-lake-store-secure-data.md)
 * [Azure Data Lake Analytics'i Data Lake Store ile kullanma](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Azure HDInsight'ı Data Lake Store ile kullanma](data-lake-store-hdinsight-hadoop-use-portal.md)
@@ -149,6 +162,6 @@ Dosyalar, standart Java akışları kullanılarak okunur ve yazılır. Bu, stand
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO5-->
 
 

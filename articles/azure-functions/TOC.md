@@ -1,7 +1,7 @@
 # Genel Bakış
 ## [Azure İşlevleri nedir?](functions-overview.md)
 # Başlarken
-## [İlk uygulamanızı oluşturma](functions-create-first-azure-function.md)
+## [İlk işlevinizi oluşturma](functions-create-first-azure-function.md)
 ## [Web kancası işlevi oluşturma](functions-create-a-web-hook-or-api-function.md)
 ## [Azure bağlantılı işlev oluşturma](functions-create-an-azure-connected-function.md)
 ## [Olay işleme işlevi oluşturma](functions-create-an-event-processing-function.md)
@@ -16,6 +16,7 @@
 #### [Node.js](functions-reference-node.md)
 #### [F#](functions-reference-fsharp.md)
 ### [Tetikleyiciler ve bağlamalar ile çalışma](functions-triggers-bindings.md)
+#### [DocumentDB bağlamaları](functions-bindings-documentdb.md)
 #### [Olay Hub’ı bağlamaları](functions-bindings-event-hubs.md)
 #### [HTTP ve web kancası bağlamaları](functions-bindings-http-webhook.md)
 #### [Mobile Apps bağlamaları](functions-bindings-mobile-apps.md)
@@ -49,6 +50,6 @@
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform=)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: "SQL Veritabanı sunucu düzeyinde güvenlik duvarı kuralı yapılandırma | Microsoft Belgeleri"
-description: "Güvenlik duvarının Azure SQL Server’a erişen IP adresleri için nasıl yapılandırılacağını öğrenin."
+title: "Azure portalı: Azure SQL Veritabanı sunucu düzeyinde güvenlik duvarı kuralları yapılandırma | Microsoft Docs"
+description: "Azure portalı aracılığıyla Azure SQL veritabanlarına erişen IP adresleri için sunucu düzeyinde güvenlik duvarı kurallarını nasıl yapılandıracağınızı öğrenin."
 services: sql-database
 documentationcenter: 
 author: BYHAM
@@ -14,10 +14,10 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
 ms.date: 11/28/2016
-ms.author: rickbyh;carlrab
+ms.author: rickbyh
 translationtype: Human Translation
-ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
-ms.openlocfilehash: a87bb18aeacbc980fc6859c7c83a102dce0263a8
+ms.sourcegitcommit: e5834558d761784239813afc6bbb3e77cebcf1fa
+ms.openlocfilehash: fcdd0b855d64eb4b04ef1ea6d7752e9c664557a6
 
 
 ---
@@ -50,8 +50,8 @@ Değişiklikleri kaydetmek için **Kaydet**’e tıklayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Bir başlangıç öğreticisi için bkz. [SQL Veritabanı öğreticisi: Sunucu, sunucu düzeyinde güvenlik duvarı kuralı, örnek veritabanı, veritabanı düzeyinde güvenlik duvarı oluşturma ve SQL Server’a bağlanma](sql-database-get-started.md).
-- Güvenliğe giriş konulu bir öğretici için bkz. [Güvenliğe giriş](sql-database-get-started-security.md)
+- Sunucu düzeyinde güvenlik duvarları kullanarak sunucu sağlama ve sunucuya bağlanma öğreticisi için bkz. [Öğretici: Azure portal ve SQL Server Management Studio kullanarak Azure SQL veritabanı sağlama ve erişim](sql-database-get-started.md).
+- SQL Server kimlik doğrulaması ve veritabanı düzeyinde güvenlik duvarları ile ilgili öğretici için bkz. [SQL kimlik doğrulaması ve yetkilendirme](sql-database-control-access-sql-authentication-get-started.md)
 - Açık kaynak veya üçüncü taraf uygulamalardan bir Azure SQL veritabanına bağlanma konusunda yardım için bkz. [SQL Veritabanına yönelik istemci hızlı başlatma kod örnekleri](https://msdn.microsoft.com/library/azure/ee336282.aspx).
 - Veritabanlarına bağlanabilen ek kullanıcıların nasıl oluşturulduğunu öğrenmek için bkz. [SQL Veritabanı Kimlik Doğrulaması ve Yetkilendirme: Erişim Verme](https://msdn.microsoft.com/library/azure/ee336235.aspx).
 
@@ -64,6 +64,6 @@ Değişiklikleri kaydetmek için **Kaydet**’e tıklayın.
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

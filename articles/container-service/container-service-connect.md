@@ -14,16 +14,20 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/12/2017
+ms.date: 01/30/2017
 ms.author: rogardle
 translationtype: Human Translation
-ms.sourcegitcommit: 2549ca9cd05f44f644687bbdf588f7af01bae3f4
-ms.openlocfilehash: 79162e5d31346370e596f39fa4827d49625897b3
+ms.sourcegitcommit: 2464c91b99d985d7e626f57b2d77a334ee595f43
+ms.openlocfilehash: 813517a26ccbbd9df7e7fb7de36811cdebb84284
 
 
 ---
 # <a name="connect-to-an-azure-container-service-cluster"></a>Azure Kapsayıcı Hizmeti kümesine bağlanma
-Azure Container Service kümesi oluşturduktan sonra, iş yüklerini dağıtmak ve yönetmek için kümeye bağlanmanız gerekir. Bu makalede uzak bir bilgisayardan kümenin ana VM’ine nasıl bağlanacağınız açıklanır. Kumernetes, DC/OS ve Docker Swarm kümelerinin tamamı REST uç noktalarını kullanıma sunar. Kubernetes için, bu uç nokta İnternet’te güvenli bir şekilde kullanıma sunulmuştur ve bu uç noktaya İnternet bağlantısı olan herhangi bir makineden `kubectl` komutunu çalıştırarak erişebilirsiniz. DC/OS ve Docker Swarm için, REST uç noktasını güvenli bir şekilde bağlamak için bir güvenli teslim (SSH) tüneli oluşturmanız gerekir. 
+Azure Container Service kümesi oluşturduktan sonra, iş yüklerini dağıtmak ve yönetmek için kümeye bağlanmanız gerekir. Bu makalede uzak bir bilgisayardan kümenin ana VM’ine nasıl bağlanacağınız açıklanır. 
+
+Kubernetes, DC/OS ve Docker Swarm kümeleri yerel olarak HTTP uç noktaları sağlar. Kubernetes için, bu uç nokta İnternet’te güvenli bir şekilde kullanıma sunulmuştur ve bu uç noktaya İnternet bağlantısı olan herhangi bir makineden `kubectl` komutunu çalıştırarak erişebilirsiniz. 
+
+DC/OS ve Docker Swarm için, iç sistemde güvenli bir kabuk (SSH) oluşturmanız gerekir. Tünel oluşturulduktan sonra HTTP uç noktalarını kullanan komutları çalıştırabilir ve kümenin web arabirimini yerel sisteminizden görüntüleyebilirsiniz. 
 
 > [!NOTE]
 > Azure Container Service'teki Kubernetes desteği şu anda önizleme aşamasındadır.
@@ -68,7 +72,7 @@ Bu komut, küme bilgilerini, `kubectl` komut satırı aracının bulunmasını b
 Alternatif olarak, `scp` komutunu kullanarak, ana VM’deki dosyayı `$HOME/.kube/config` dizininden yerel makinenize güvenli bir şekilde kopyalayabilirsiniz. Örneğin:
 
 ```console
-mkdir $HOME/.kube/config
+mkdir $HOME/.kube
 scp azureuser@<master-dns-name>:.kube/config $HOME/.kube/config
 ```
 
@@ -96,10 +100,10 @@ Daha fazla bilgi için bkz: [Kubernetes hızlı başlangıç](http://kubernetes.
 
 ## <a name="connect-to-a-dcos-or-swarm-cluster"></a>DC/OS veya Swarm kümesine bağlanma
 
-Azure Container Service tarafından dağıtılan DC/OS ve Docker Swarm kümeleri REST uç noktalarını kullanıma sunar. Ancak, bu uç noktalar dış dünyaya açık değildir. Bu uç noktaları yönetmek için bir Secure Shell (SSH) tüneli oluşturmanız gerekir. SSH tüneli oluşturulduktan sonra küme uç noktalarına karşı komutları çalıştırabilir ve kendi sisteminizdeki bir tarayıcı aracılığıyla küme kullanıcı arabirimini görüntüleyebilirsiniz. Aşağıdaki bölümler Linux, OS X ve Windows işletim sistemli bilgisayarlardan bir SSH tüneli oluşturma konusunda size yol gösterecektir.
+Azure Container Service tarafından dağıtılan DC/OS ve Docker Swarm kümelerini kullanmak için, yerel Linux, OS X veya Windows sisteminizden güvenli kabuk (SSH) tüneli oluşturmaya yönelik bu yönergeleri izleyin. 
 
 > [!NOTE]
-> Bir küme yönetimi sistemi ile SSH oturumu oluşturabilirsiniz. Ancak bu önerilmemektedir. Doğrudan bir yönetim sistemi üzerinde çalışmak yanlışlıkla yapılandırma değişiklikleri yapma riski doğurur.
+> Bu yönergeler, SSH üzerinden TCP trafiğini tünellemeye odaklanır. İç küme yönetimi sistemlerinin biriyle etkileşimli bir SSH oturumu da başlatabilirsiniz, ancak bunun yapılması önerilmez. Bir iç sistem üzerinde doğrudan çalışma, yanlışlıkla yapılandırma değişikliği yapma riskini içerir.  
 > 
 
 ### <a name="create-an-ssh-tunnel-on-linux-or-os-x"></a>Linux veya OS X’de SSH tüneli oluşturma
@@ -108,49 +112,55 @@ Linux veya OS X’de bir SSH tüneli oluşturduğunuzda yapacağınız ilk şey 
 
 1. [Azure portal](https://portal.azure.com)’da kapsayıcı hizmet kümenizi içeren kaynak grubuna gidin. Her kaynağın görüntülenmesi için kaynak grubu genişletin. 
 
-2. Ana makinenin sanal makinesini bulup seçin. Bir DC/OS kümesinde bu kaynağın adı **dcos-master -** ile başlar. 
-
-    **Sanal makine** dikey penceresi, DNS adını içeren açık IP adresi ile ilgili bilgileri içerir. Bu adı daha sonra kullanmak için kaydedin. 
+2. Kapsayıcı hizmeti kaynağına ve **Genel Bakış**’a tıklayın. Kümenin **Ana FQDN**’si **Temel Bileşenler** altında görünür. Bu adı daha sonra kullanmak için kaydedin. 
 
     ![Genel DNS adı](media/pubdns.png)
 
+    Alternatif olarak, kapsayıcı hizmetinizde `az acs show` komutunu çalıştırın. Komut çıktısında **Master Profile:fqdn** özelliğini arayın.
+
 3. Şimdi bir kabuk açın ve aşağıdaki değerleri belirleyerek `ssh` komutunu çalıştırın: 
 
-    **PORT** kullanıma sunmak istediğiniz bağlantı noktasıdır. Swarm için 2375 bağlantı noktasını kullanın. DC/OS için, 80 numaralı bağlantı noktasını kullanın.  
+    **LOCAL_PORT**, bağlanılacak tünelin hizmet tarafındaki TCP bağlantı noktasıdır. Swarm için bu değeri 2375’e ayarlayın. DC/OS için bu değeri 80'e ayarlayın.  
+    **REMOTE_PORT** kullanıma sunmak istediğiniz uç noktadır. Swarm için 2375 bağlantı noktasını kullanın. DC/OS için, 80 numaralı bağlantı noktasını kullanın.  
     **USERNAME** Kümeyi dağıttığınızda sağlanan kullanıcı adıdır.  
     **DNSPREFIX** Kümeyi dağıttığınızda sağladığınız DNS önekidir.  
     **REGION** kaynak grubunuzun bulunduğu bölgedir.  
     **PATH_TO_PRIVATE_KEY** [OPTIONAL] kümeyi oluştururken sağladığınız ortak anahtara karşılık gelen özel anahtar yoludur. Bu seçeneği `-i` flag ile birlikte kullanın.
 
     ```bash
-    ssh -L PORT:localhost:PORT -f -N [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com -p 2200
+    ssh -fNL PORT:localhost:PORT -p 2200 [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com 
     ```
     > [!NOTE]
-    > SSH bağlantı noktası 2200’dür; standart bağlantı noktası 22 değildir. Birden fazla ana VM bulunan kümede bu, ilk ana VM’e bağlantı noktasıdır.
+    > SSH bağlantı noktası 2200’dür ve standart bağlantı noktası 22 değildir. Birden fazla ana VM bulunan kümede bu, ilk ana VM’e bağlantı noktasıdır.
     > 
+
+
 
 Aşağıdaki bölümlerde DC/OS ve Swarm ile ilgili örneklere bakın.    
 
 ### <a name="dcos-tunnel"></a>DC/OS tüneli
-DC/OS ile ilgili uç noktalara bir tünel açmak için, aşağıdakine benzeyen bir komut çalıştırın:
+DC/OS uç noktalarına yönelik bir tünel açmak için aşağıdakine benzer bir komut çalıştırın:
 
 ```bash
-sudo ssh -L 80:localhost:80 -f -N azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com -p 2200
+sudo ssh -fNL 80:localhost:80 -p 2200 azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com 
 ```
 
-Şimdi aşağıdakiler üzerinde DC/OS ile ilgili uç noktalara erişebilirsiniz:
+> [!NOTE]
+> 8888 bağlantı noktası gibi 80 bağlantı noktasından farklı bir yerel bağlantı noktası belirtebilirsiniz. Ancak, bu bağlantı noktasını kullandığınızda bazı web kullanıcı arabirimi bağlantıları çalışmayabilir.
 
-* DC/OS: `http://localhost/`
-* Marathon: `http://localhost/marathon`
-* Mesos: `http://localhost/mesos`
+DC/OS uç noktalarına artık, aşağıdaki URL’ler aracılığıyla yerel sisteminizden erişebilirsiniz (yerel bağlantı noktasının 80 olduğu varsayılmıştır):
+
+* DC/OS: `http://localhost:80/`
+* Marathon: `http://localhost:80/marathon`
+* Mesos: `http://localhost:80/mesos`
 
 Benzer şekilde, bu tünel üzerinden her uygulama için rest API'lerine ulaşabilirsiniz.
 
 ### <a name="swarm-tunnel"></a>Swarm tüneli
-Swarm uç noktalarına bir tünel açmak için, aşağıdakine benzeyen bir komut çalıştırın:
+Swarm uç noktalarına bir tünel açmak için, aşağıdakine benzer bir komut çalıştırın:
 
 ```bash
-ssh -L 2375:localhost:2375 -f -N azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com -p 2200
+ssh -fNL 2375:localhost:2375 -p 2200 azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com
 ```
 
 Şimdi DOCKER_HOST ortam değişkeninizi aşağıdaki gibi ayarlayabilirsiniz. Docker komut satırı arabiriminizi (CLI) normal şekilde kullanmaya devam edebilirsiniz.
@@ -211,6 +221,6 @@ Kümenizde kapsayıcıları dağıtma ve yönetme:
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Jan17_HO5-->
 
 

@@ -1,0 +1,137 @@
+---
+title: "Aspera kullanarak Azure Media Services hesabına dosya yükleme | Microsoft Docs"
+description: "Bu öğreticide, Azure üzerinde **İsteğe Bağlı Aspera Sunucusu** hizmetini kullanan bir Media Services hesabıyla ilişkili depolama hesabına dosya yükleme adımları gösterilmektedir."
+services: media-services
+documentationcenter: 
+author: johndeu
+manager: erikre
+editor: 
+ms.assetid: 8812623a-b425-4a0f-9e05-0ee6c839b6f9
+ms.service: media-services
+ms.workload: media
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 01/30/2017
+ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: fc04923c6a6b4b870011a82fcd9688ca8e0c8a7e
+ms.openlocfilehash: 67614c4eb0ce49efe0390502a2752ae40cf0336b
+
+
+---
+# <a name="upload-files-into-a-media-services-account-using-the-aspera-server-on-demand-service-on-azure"></a>Azure üzerinde İsteğe Bağlı Aspera Sunucusu hizmetini kullanan bir Media Services hesabına dosya yükleme
+
+## <a name="overview"></a>Genel Bakış
+
+**Aspera** çok yüksek hızlı bir dosya aktarım yazılımıdır. Azure için **İsteğe Bağlı Aspera Sunucusu**, büyük dosyaların doğrudan Azure Blob nesne depolama alanına yüksek hızda yüklenmesini ve indirilmesini sağlar. **İsteğe Bağlı Aspera** hakkında bilgi için [Aspera Bulut](http://cloud.asperasoft.com/) sitesine bakın. 
+  
+Azure için **İsteğe Bağlı Aspera Sunucusu**, [Azure Market](https://azure.microsoft.com/en-us/marketplace/)’ten satın alınabilir. **İsteğe Bağlı Aspera Sunucusu** satın alma işlemini tamamlamak için lütfen Azure Market’te Windows Live ID’nizle oturum açın.
+
+Bu öğreticide, Azure üzerinde **İsteğe Bağlı Aspera Sunucusu** hizmetini kullanan bir Media Services hesabıyla ilişkili depolama hesabına dosya yükleme adımları gösterilmektedir. 
+
+
+>[!NOTE]
+>Azure Media Services medya işlemcileri (MP’ler) ile işleme için desteklenen dosya boyutlarına yönelik üst sınır uygulanır. Dosya boyutu sınırlaması hakkında ayrıntılı bilgi için lütfen [bu konu başlığını](media-services-quotas-and-limitations.md) inceleyin.
+>
+
+## <a name="prerequisites"></a>Ön koşullar 
+
+Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
+
+* Windows Live ID
+* Bir [Azure hesabı](https://azure.microsoft.com). Ayrıntılar için bkz. [Azure Ücretsiz Deneme](https://azure.microsoft.com/pricing/free-trial/). 
+* Bir [Azure Media Services hesabı](media-services-portal-create-account.md).
+
+## <a name="purchase-aspera-on-demand-for-azure"></a>Azure için İsteğe Bağlı Aspera yazılımını satın alın
+
+Azure için İsteğe Bağlı Azure satın alma işlemini tamamlamak için Azure Market’te oturum açtıktan sonra aşağıdaki basit adımları izleyin.
+
+1. Aspera ifadesini arayın ve 'İsteğe Bağlı' sunucu öğesini seçin.
+
+   ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera001.png)
+
+2. Abonelik planlarını gözden geçirin ve 'Kaydol' öğesine tıklayın
+
+   ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera002.png)
+
+3. İsteğe Bağlı Sunucu aboneliğinize ilişkin ayrıntıları doldurun.
+
+   ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera003.png)
+
+4. **Fiyatlandırma Katmanı**’na tıklayın ve alt panelden istediğiniz aylık hacmi seçin. **Plan ayrıntıları** panelinde **Tamam**’ı seçin. Ardından **Fiyatlandırma Katmanınızı seçin** panelinde **Seç**’e tıklayın.
+
+   ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera004.png)
+
+5. Alt panelde yasal koşulları görüntüleyip kabul etmek için **Yasal koşullar** öğesine tıklayın. Yasal koşulları gözden geçirdikten sonra **Satın al**’a tıklayın.
+
+   ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera005.png)
+
+6. **Oluştur**’a tıklayarak satın alma işlemini tamamlayın.
+
+   ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera006.png)
+
+7. Azure panosu bu hizmeti sağladığını duyurur.  Sağlama ile işlem tamamlandıktan sonra kaynaklarınızda hizmetin adını arayarak yeni aboneliği bulabilirsiniz. Hizmeti bulduktan sonra çift tıklayarak hizmet yönetim portalını başlatın.
+
+   ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera007.png)
+
+8. Aspera yönetim portalını başlatın. Yeni Aspera hizmetinizi bulduktan sonra hizmete tıklayarak yönetim portalına erişim elde edebilirsiniz.  Yeni bir panel başlatılır. Bu yeni panelden yeni hizmetinizin **Kaynak Adı** seçeneğine tıklamanız gerekir.  Aşağıdaki ekran görüntüsünde kaynak adı 'AsperaTransferDemo' şeklindedir. Kaynak adına tıkladığınızda başka bir panel başlatılır. Yeni başlatılan bu panelde bir 'Yönet' bağlantısı görürsünüz. Aspera yönetim portalını başlatmak için 'Yönet' bağlantısına tıklayın.
+
+   ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera008.png)
+
+9. Yönet bağlantısına tıkladığınızda, hizmete erişmek için gerekli olan kayıt sayfasına ulaşırsınız.
+
+   ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera009.png)
+
+10. Bu noktada, erişim anahtarları oluşturabileceğiniz, Aspera istemci ve lisanslarını indirebileceğiniz, kullanımı görüntüleyebileceğiniz ve API’ler hakkında bilgi alabileceğiniz Aspera hizmet yönetim portalına erişebilirsiniz.
+
+    Aşağıdaki ekran görüntüsünde erişim oluşturma işlemi gösterilmektedir. 
+
+   ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera010.png)
+
+    Aşağıdaki ekran görüntüsünde, portaldaki kullanım raporlama arabirimleri gösterilmektedir. 
+
+   ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera011.png)
+
+## <a name="upload-files-with-aspera"></a>Aspera ile dosyaları karşıya yükleme
+
+1. Aspera istemci yazılımını indirip yükleyin:
+    
+    * [Tarayıcı eklentisi](http://downloads.asperasoft.com/connect2/)
+    * [Zengin istemci](http://downloads.asperasoft.com/en/downloads/2)
+
+2. İlk aktarımınızı yapın. Aspera istemcisini kullanarak Aspera aktarım hizmetiyle aktarım yapmak için aşağıdaki işlemleri tamamlamanız gerekir: 
+
+    1. Aspera portalını kullanarak bir erişim anahtarı oluşturun.  
+    2. Aspera istemcisini indirin, yükleyin ve lisans ekleyin (yazılım Aspera portalında bulunabilir).  
+
+    >[!NOTE]
+    >Yapılandırma bilgileri için lütfen Aspera istemci kılavuzunu okuyun.
+    
+    3. [Azure portalı](https://portal.azure.com/) kullanarak Azure Medya Hesabınız ile ilişkili depolama hesabınızın bazı bilgilerini alın. Almanız gereken bilgiler şunlardır: ad, anahtar ve içeriğinizi yerleştirmek istediğiniz depolama blobu kapsayıcısının adı. 
+
+        * Portaldan depolama bilgilerini almak için: Depolama hesabınızı bulun, Erişim anahtarları’na tıklayın ve hesabınızın adı ile anahtarını kopyalayın.
+        * Kapsayıcı adını almak için: Depolama hesabınızı bulun, **Bloblar**’ı ve sonra da içerik bilgisini yüklemek istediğiniz kapsayıcının adını seçin. 
+
+    Aşağıdaki ekran görüntüsünde, 'Azure' depolama türünü, kimlik bilgilerini ve blob kapsayıcısını belirtmeniz gereken Aspera istemcisi **Bağlantı Yöneticisi** gösterilmektedir.
+
+    ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera012.png)
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+Karşıya yüklenen varlıklarınızı artık kodlayabilirsiniz. Daha fazla bilgi için bkz. [Varlıkları kodlama](media-services-portal-encode.md).
+
+Yapılandırılmış kapsayıcıya gelen bir dosyaya göre kodlanma işi tetiklemek için Azure İşlevleri’ni de kullanabilirsiniz. Daha fazla bilgi için [bu örneğe](https://azure.microsoft.com/resources/samples/media-services-dotnet-functions-integration/ ) bakın. 
+
+## <a name="media-services-learning-paths"></a>Media Services’i öğrenme yolları
+[!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
+
+## <a name="provide-feedback"></a>Geri bildirimde bulunma
+[!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
+
+
+
+<!--HONumber=Feb17_HO1-->
+
+

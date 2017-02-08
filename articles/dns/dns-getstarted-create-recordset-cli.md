@@ -95,6 +95,6 @@ Azure DNS'de henüz yeni bölgeyi kullanmak için etki alanınızı devretmediys
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 
