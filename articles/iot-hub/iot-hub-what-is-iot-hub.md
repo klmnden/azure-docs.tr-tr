@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2016
+ms.date: 01/31/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: f01a5e7ec081b1c989fc8784c845d6e639b1d73b
-ms.openlocfilehash: 92c5e8c50b281fe1dc7e296dcdf8a6822b187ce3
+ms.sourcegitcommit: 1915044f252984f6d68498837e13c817242542cf
+ms.openlocfilehash: 249f2dcd852c771d0c48aa223a4596992e5ce3d7
 
 
 ---
@@ -59,7 +59,7 @@ Azure IoT Hub, cihaz bağlantısı sorunlarını mesajlaşma, dosya aktarımı v
 
 * **Cihaz çiftleri**. [Cihaz çiftlerini][lnk-twins] kullanarak depolama, eşitleme, cihaz meta verilerini ve durum bilgisini sorgulama işlemlerini yapabiliriniz. Cihaz çiftleri, cihaz durumu bilgilerini (meta veriler, yapılandırmalar ve koşullar) depolayan JSON belgelerdir. IoT Hub’ı, IoT Hub'ına bağladığınız her cihaz için bir cihaz çifti sürdürür. 
 * **Cihaz başına kimlik doğrulaması ve güvenli bağlantı**. IoT Hub'a bağlanmalarını sağlamak için her bir cihaza kendi [güvenlik anahtarını][lnk-devguide-security] sağlayabilirsiniz. [IoT Hub kimlik kayıt defteri][lnk-devguide-identityregistry], cihaz kimliklerini ve anahtarlarını bir çözümün içinde depolar. Bir çözüm arka ucu, cihazları tek tek izin verme veya reddetme listesine ekleyerek cihaz erişiminde tam denetim olanağı sağlar.
-* **Bildirim temelli kurallara göre cihazdan buluta iletileri Azure hizmetlerine yönlendirme**. IoT Hub, hub'ınızın cihazdan buluta iletileri göndereceği yeri denetlemek için ileti kurallarına göre ileti yolları tanımlamanızı sağlar. İleti kuralları için kod yazmanız gerekmez ve bu kurallar, özel alma sonrası ileti dağıtıcılarının yerini alabilir.
+* **Bildirim temelli kurallara göre cihazdan buluta iletileri Azure hizmetlerine yönlendirme**. IoT Hub, hub'ınızın cihazdan buluta iletileri göndereceği yeri denetlemek için yönlendirme kurallarına göre ileti yolları tanımlamanızı sağlar. Yönlendirme kuralları için kod yazmanız gerekmez ve bu kurallar, özel alma sonrası ileti dağıtıcılarının yerini alabilir.
 * **Cihaz bağlantısı işlemlerini izleme**. Cihaz kimlik yönetimi işlemleri ve cihaz bağlantısı etkinlikleri hakkında ayrıntılı işlem günlükleri alabilirsiniz. Bu izleme olanağı, IoT çözümünüzün yanlış kimlik bilgileriyle bağlanmaya, çok sık ileti göndermeye veya tüm bulut-cihaz iletilerini reddetmeye çalışan cihazlar gibi bağlantı sorunlarını tanımlaması sağlanır.
 * **Kapsamlı bir cihaz kitaplıkları kümesi**. [Azure IoT cihaz SDK'ları][lnk-device-sdks], Linux dağıtımları, Windows ve gerçek zamanlı işletim sistemlerinin çoğu için C gibi çeşitli diller ve platformlarda kullanılabilir ve desteklenir. Azure IoT cihaz SDK'ları C#, Java ve JavaScript gibi yönetilen dilleri de destekler.
 * **IoT protokolleri ve genişletilebilirlik**. Çözümünüz cihaz kitaplıklarını kullanamazsa IoT Hub, cihazların yerel olarak MQTT v3.1.1, HTTP 1.1 veya AMQP 1.0 protokollerini kullanmasını sağlayan bir genel protokolü kullanıma sunar. Ayrıca, özel protokollere destek sağlamak için şunları yaparak IoT Hub'ı genişletebilirsiniz:
@@ -91,7 +91,7 @@ Mobil sektörü, [Windows Anında Bildirim Servisi][lnk-wns], [Google Cloud Mess
 IoT Hub, ExpressRoute'un ortak eşleme yolundan desteklenmez.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bir cihazdan ileti göndermenin ve bu iletileri IoT Hub'dan almanın yanı sıra IoT Hub'ınız için ileti yollarını nasıl yapılandıracağınızı öğrenmek için bkz. [IoT Hub ile ileti gönderme ve alma][lnk-send-messages].
+Bir cihazdan ileti göndermenin ve bu iletileri IoT Hub'dan almanın yanı sıra ileti yollarını nasıl yapılandıracağınızı öğrenmek için bkz. [IoT Hub ile ileti gönderme ve alma][lnk-send-messages].
 
 Cihazlarınızı uzaktan yönetmeniz, yapılandırmanız ve güncelleştirmeniz için IoT Hub'ın standartlara dayalı cihaz yönetimini nasıl etkinleştirdiği hakkında bilgi almak üzere bkz. [IoT Hub ile cihaz yönetimine genel bakış][lnk-device-management].
 
@@ -127,6 +127,6 @@ Bazı kodları yazmaya ve bazı örnekleri çalıştırmaya başlamak için [IoT
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

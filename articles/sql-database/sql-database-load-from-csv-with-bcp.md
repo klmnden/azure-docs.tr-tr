@@ -16,12 +16,12 @@ ms.workload: data-services
 ms.date: 01/10/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 09c2332589b1170b411c6f45f4109fb8048887e2
-ms.openlocfilehash: 389c7c75bcc0c1a5a66f66a9692ebe2e4095db5e
+ms.sourcegitcommit: 36748312506a08ed7932a6bb355a5dc7393bb002
+ms.openlocfilehash: 5e15f8a0ebb8cab5dce5b3c1cf6b62dee362a8d0
 
 
 ---
-# <a name="load-data-from-csv-into-azure-sql-data-warehouse-flat-files"></a>CSV dosyasından Azure SQL Data Warehouse'a veri yükleme (düz dosyalar)
+# <a name="load-data-from-csv-into-azure-sql-database-flat-files"></a>CSV dosyasından Azure SQL Veritabanı'na veri yükleme (düz dosyalar)
 Bir CSV dosyasından Azure SQL Database’e veri aktarmak için bcp komut satırı yardımcı programını kullanabilirsiniz.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
@@ -121,6 +121,6 @@ Bir SQL Server veritabanına geçiş yapmak için bkz. [SQL Server veritabanı g
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

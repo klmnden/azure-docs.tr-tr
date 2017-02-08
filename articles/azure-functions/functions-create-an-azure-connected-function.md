@@ -1,6 +1,6 @@
 ---
-title: "Bir Azure hizmetine bağlanan Azure İşlevi oluşturma | Microsoft Belgeleri"
-description: "Sunucusuz bir uygulama olup diğer Azure Hizmetleri ile etkileşim kuran bir Azure İşlevi oluşturun."
+title: "Azure hizmetlerine bağlanan işlev oluşturma | Microsoft Docs"
+description: "Diğer Azure hizmetlerine bağlanan sunucusuz bir uygulama oluşturmak için Azure İşlevleri’ni kullanın."
 services: functions
 documentationcenter: dev-center-name
 author: yochay
@@ -14,17 +14,17 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 12/06/2016
+ms.date: 01/23/2017
 ms.author: rachelap@microsoft.com
 translationtype: Human Translation
-ms.sourcegitcommit: f46a67f2591ef98eeda03f5c3bc556d5b8bcc096
-ms.openlocfilehash: 4e0dd8b922107b232a120c25d1f656c5d667748b
+ms.sourcegitcommit: a4d871686a54465e12f93c1720a44985785b94ae
+ms.openlocfilehash: 76d81b8e57c59147f8fb203435b07f45228fdd52
 
 
 ---
-# <a name="create-an-azure-function-connected-to-an-azure-service"></a>Bir Azure hizmetine bağlanan Azure İşlevi oluşturma
+# <a name="use-azure-functions-to-create-a-function-that-connects-to-other-azure-services"></a>Diğer Azure hizmetlerine bağlanan bir işlev oluşturmak için Azure İşlevleri’ni kullanma
 
-Bu konu başlığında, bir Azure Depolama Kuyruğundaki iletileri dinleyen ve iletileri bir Azure Depolama tablosundaki satırlara kopyalayan Azure İşlevi oluşturma hakkında bilgi edineceksiniz. İletilerin kuyruğa yüklenmesi için zamanlayıcı ile tetiklenen bir işlev kullanılır. İkinci bir işlev ise iletileri kuyruktan okuyarak tabloya yazar. Hem kuyruk hem de tablo, bağlama tanımları temel alınarak Azure İşlevleri tarafından oluşturulur. 
+Bu konu başlığında, bir Azure Depolama Kuyruğundaki iletileri dinleyen ve iletileri bir Azure Depolama tablosundaki satırlara kopyalayan Azure İşlevleri içinde işlev oluşturma hakkında bilgi edineceksiniz. İletilerin kuyruğa yüklenmesi için zamanlayıcı ile tetiklenen bir işlev kullanılır. İkinci bir işlev ise iletileri kuyruktan okuyarak tabloya yazar. Hem kuyruk hem de tablo, bağlama tanımları temel alınarak Azure İşlevleri tarafından oluşturulur. 
 
 İşleri daha ilginç hale getirmek için, bir işlev JavaScript dilinde yazılırken diğer işlev C# kodunda yazılır. Bu durum bir işlev uygulamasının nasıl çeşitli dillerde işlevleri olabileceğini gösterir.
 
@@ -197,6 +197,6 @@ Azure İşlevleri hakkında daha fazla bilgi edinmek için bu konulara göz atı
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO5-->
 
 

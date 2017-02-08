@@ -1,5 +1,5 @@
 ---
-title: "API Management temel kavramları"
+title: "Azure API Management - Genel bakış ve temel kavramlar | Microsoft Docs"
 description: "API&quot;ler, ürünler, roller, gruplar ve diğer API Management temel kavramları hakkında bilgi edinin."
 services: api-management
 documentationcenter: 
@@ -12,12 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 12/15/2016
-ms.author: sdanie
+ms.date: 01/23/2017
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: b0ead7ecbf9327e9df6846d6e046ed69f25832cf
-ms.openlocfilehash: 872fbd44a9bccf0d6e9f7f3f3bd839e384874ae5
-
+ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
+ms.openlocfilehash: 47358c6c209488d7a12e8afbf7a2d9b3f872f0de
 
 ---
 # <a name="what-is-api-management"></a>API Management nedir?
@@ -25,7 +24,7 @@ API Management, kuruluşların kendi veri ve hizmet potansiyellerini ortaya çı
 
 Azure API Management’e genel bakış için aşağıdaki videoyu izleyin ve erişim denetimi, hız sınırlaması, izleme, olay günlüğüne kaydetme ve yanıt önbelleğe alma gibi birçok özelliği minimum çabayla API’nize eklemek için API Management’i kullanmayı öğrenin.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-API-Management-Overview/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-API-Management-Overview/player]
 > 
 > 
 
@@ -132,6 +131,6 @@ API Management hakkında daha fazla bilgi için Microsoft Ignite 2015 konferans�
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO5-->
 
 

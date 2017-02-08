@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 01/04/2016
 ms.author: piyushjo;matt-gibbs
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 957dcdd3cef2939ef913eead7ebf332f9b797860
+ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
+ms.openlocfilehash: 42b50685b854cabe8906f42aac81ab82c63f8a94
 
 
 ---
@@ -24,7 +24,7 @@ ms.openlocfilehash: 957dcdd3cef2939ef913eead7ebf332f9b797860
 Azure Mobile Engagement, uygulama kullanımı hakkında veriye dayalı öngörüler ve kullanıcıların gerçek zamanlı olarak segmentlere ayrılmasını sağlayan, bağlamsal farkındalığa sahip anında iletme bildirimleri ve uygulama içi mesajlaşmaya olanak tanıyan, hizmet olarak yazılım (SaaS) şeklinde bir kullanıcı etkileşimi platformudur.
 
 ### <a name="overview-video"></a>Genel bakış videosu
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Mobile-Engagement-Overview/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Mobile-Engagement-Overview/player]
 > 
 > 
 
@@ -41,7 +41,7 @@ Uygulama geliştiriciler, bu sayede müşterilerine rahatsız edici olmayan ve s
 ## <a name="open-apis-and-ease-of-integration"></a>Açık API'ler ve tümleştirme kolaylığı
 Tümleştirmeyi kolay hale getiren açık API'ler ve SDK'ların sağlanmasıyla, mevcut CRM, CMS veya diğer arka uç sistemlerinizdeki verilerden yararlanabilirsiniz. Böylece kitlenizi daha fazla iyi hedefleyebilir ve yatırımlarınızı korursunuz.
 
-## <a name="data-protection-privacy-across-the-globe"></a>Veri koruma ve dünya çapında gizlilik
+## <a name="data-protection--privacy-across-the-globe"></a>Veri koruma ve dünya çapında gizlilik
 Microsoft, gizliliğin korunması konusunda her zaman kararlı olmuştur ve bu kararlılık ürün ve hizmetler yaşam döngümüzün ayrılmaz bir parçasıdır. Gizlilik uygulamalarımızda saydam olmaya çabalar, müşterilere elle tutulur gizlilik seçenekleri sunar ve depoladığımız verileri sorumlu bir şekilde yönetiriz. Tüm Azure hizmetlerinde olduğu gibi Mobile Engagement da müşterilerin varlıklarından türetilen bilgileri paylaşmaz veya satışını yapmaz. Mobile Engagement dünya çapında kullanıma sunulmuştur, bölgesel veya ülkeye özel veri gizliliği yasalarının uygulanmasına olanak tanır.
 
 ### <a name="next-steps"></a>Sonraki Adımlar:
@@ -54,6 +54,6 @@ Microsoft, gizliliğin korunması konusunda her zaman kararlı olmuştur ve bu k
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO5-->
 
 

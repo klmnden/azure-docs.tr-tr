@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f498f4546e8c23f2141d8d30160a360fa0fc2514
+ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
+ms.openlocfilehash: 8790bacecac0fa824189b5c212c2d803092ff4ed
 
 
 ---
@@ -32,19 +32,19 @@ ms.openlocfilehash: f498f4546e8c23f2141d8d30160a360fa0fc2514
 
 Bu öğreticide SQL Data Warehouse'a bağlanmak ve birkaç temel görselleştirme oluşturmak üzere Power BI'ı nasıl kullanacağınız gösterilmiştir.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-SQL-Data-Warehouse-Sample-Data-and-PowerBI/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Data-Warehouse-Sample-Data-and-PowerBI/player]
 > 
 > 
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 Bu öğreticide ilerleyebilmeniz için şunlar gereklidir:
 
-* AdventureWorksDW veritabanı önceden yüklenmiş bir SQL Data Warehouse. Bunu sağlamak için [SQL Veri Ambarı oluşturma][SQL Veri Ambarı oluşturma] bölümüne bakın ve örnek verileri yüklemeyi seçin. Bir veri ambarınız olmasına karşın örnek verileriniz yoksa [örnek verileri elle yükleyebilirsiniz][örnek verileri elle yükleyebilirsiniz].
+* AdventureWorksDW veritabanı önceden yüklenmiş bir SQL Data Warehouse. Bunu sağlamak için [SQL Veri Ambarı Oluşturma][Create a SQL Data Warehouse] bölümüne bakın ve örnek verileri yüklemeyi seçin. Bir veri ambarınız olmasına karşın örnek verileriniz yoksa [örnek verileri elle yükleyebilirsiniz][load sample data manually].
 
 ## <a name="1-connect-to-your-database"></a>1. Veritabanınıza bağlanın
 Power BI'ı açmak ve AdventureWorksDW veritabanınıza bağlanmak için şunları yapın:
 
-1. [Azure portalında][Azure portalında] oturum açın.
+1. [Azure portal][Azure portal] oturumunu açın.
 2. **SQL veritabanları** seçeneğine tıklayın ve AdventureWorks SQL Data Warehouse veritabanınızı seçin.
    
     ![Veritabanınızı bulma][1]
@@ -89,7 +89,7 @@ Artık AdventureWorksDW örnek verilerinizi Power BI kullanarak çözümlemeye h
 **Dosya**'ya tıklayıp **Kaydet**'i seçerek ilerleme durumunuzu istediğiniz zaman kaydedebilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Size örnek verilerle alıştırma yapmanız için biraz zaman tanıdığımıza göre, [geliştirme][geliştirme], [yükleme][yükleme] veya [aktarma][aktarma] işlemlerini nasıl gerçekleştireceğinize göz atın. Veya [Power BI web sitesini][Power BI web sitesini] ziyaret edin.
+Size örnek verilerle alıştırma yapmanız için biraz zaman tanıdığımıza göre, [geliştirme][develop], [yükleme][load] veya [geçirme][migrate] işlemlerini nasıl gerçekleştireceğinize göz atın. Veya [Power BI web sitesi][Power BI website]'ni ziyaret edin.
 
 <!--Image references-->
 [1]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-find-database.png
@@ -106,19 +106,19 @@ Size örnek verilerle alıştırma yapmanız için biraz zaman tanıdığımıza
 [12]: media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-save.png
 
 <!--Article references-->
-[geçirme]: sql-data-warehouse-overview-migrate.md
-[geliştirme]: sql-data-warehouse-overview-develop.md
-[yükleme]: sql-data-warehouse-overview-load.md
-[örnek verileri elle yükleme]: sql-data-warehouse-load-sample-databases.md
-[SQL Veri Ambarı'na bağlanma]: sql-data-warehouse-integrate-power-bi.md
-[SQL Veri Ambarı oluşturma]: sql-data-warehouse-get-started-provision.md
+[migrate]: sql-data-warehouse-overview-migrate.md
+[develop]: sql-data-warehouse-overview-develop.md
+[load]: sql-data-warehouse-overview-load.md
+[load sample data manually]: sql-data-warehouse-load-sample-databases.md
+[connecting to SQL Data Warehouse]: sql-data-warehouse-integrate-power-bi.md
+[Create a SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
 
 <!--Other-->
-[Azure Portal]: https://portal.azure.com/
-[Power BI web sitesi]: http://www.powerbi.com/
+[Azure portal]: https://portal.azure.com/
+[Power BI website]: http://www.powerbi.com/
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO5-->
 
 

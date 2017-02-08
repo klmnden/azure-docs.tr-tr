@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 09/22/2016
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 92b951ca273534a48648df5d8a7967d9b321c26f
+ms.sourcegitcommit: 7b506668b3025774edec25b6a37b83a47d702cb0
+ms.openlocfilehash: b2eaddc631087d8b7b94e40f508bdd5da5229736
 
 
 ---
@@ -43,8 +43,8 @@ Bu makalede Azure Active Directory'de diğer dizinlerden kullanıcıların eklen
 > [!IMPORTANT]
 > Kuruluşunuz birden fazla etki alanı kullanıyorsa bir kullanıcı hesabını eklerken aşağıdakileri bilmeniz gerekir:
 > 
-> * Etki alanları arasında aynı kullanıcı asıl adına (UPN) sahip kullanıcı hesaplarını eklemek için örnek olarak **önce** geoffgrisso@contoso.onmicrosoft.com,, **ardından** geoffgrisso@contoso.com. ekleyin.
-> * geoffgrisso@contoso.onmicrosoft.com. eklemeden önce geoffgrisso@contoso.com **eklemeyin**. Bu sıra önemlidir, sıralamanın geri alınması ise çok uğraşmayı gerektirebilir.
+> * Etki alanlarında aynı kullanıcı asıl adına (UPN) sahip kullanıcı hesapları eklemek için, örneğin, **önce** geoffgrisso@contoso.onmicrosoft.com, ve **ardından** geoffgrisso@contoso.com ekleyin.
+> * geoffgrisso@contoso.onmicrosoft.com eklemeden önce geoffgrisso@contoso.com **eklemeyin**. Bu sıra önemlidir, sıralamanın geri alınması ise çok uğraşmayı gerektirebilir.
 > 
 > 
 
@@ -79,6 +79,7 @@ Bir kullanıcı kendi giriş dizininde silinirse veya Microsoft hesabını iptal
 * PowerBI şu anda dış kullanıcıların erişimini desteklememektedir
 * Office Portalı dış kullanıcıların lisanslanmasına desteklemez
 * Azure AD PowerShell'de dış kullanıcılar kendi giriş dizinlerinde oturum açar ve dış kullanıcı oldukları dizinleri yönetemezler
+* Dynamics CRM Outlook eklentisini yapılandırırken dış kullanıcıların 'CRM Online' öğesini seçmek yerine Dynamics CRM Online kiracısına ait URL’yi el ile girmeleri gerekebilir
 
 ## <a name="whats-next"></a>Sırada ne var?
 * [Azure Active Directory'ye yeni kullanıcı ekleme](active-directory-create-users.md)
@@ -89,6 +90,6 @@ Bir kullanıcı kendi giriş dizininde silinirse veya Microsoft hesabını iptal
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO5-->
 
 

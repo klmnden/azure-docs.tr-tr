@@ -1,10 +1,10 @@
 ---
-title: "Klasik Azure portalını kullanarak siteden siteye VPN Gateway bağlantısı ile sanal ağ oluşturma | Microsoft Belgeleri"
-description: "Klasik dağıtım modelini kullanarak, şirket içi ve şirket dışı karışık yapılandırmalar ile karma yapılandırmalar için S2S VPN Gateway bağlantısı olan bir VNet oluşturun."
+title: "Şirket içi ağınızı bir Azure sanal ağına bağlama: Siteden Siteye VPN: Klasik portal | Microsoft Docs"
+description: "Şirket içi ağınız ile bir Azure sanal ağı arasında genel İnternet üzerinden bir IPSec bağlantısı oluşturma adımları. Bu adımlar, Klasik portalı ve klasik dağıtım modelini kullanarak Siteden Siteye şirket içi ve dışı karışık VPN Gateway bağlantısı oluşturmanıza yardımcı olur."
 services: vpn-gateway
 documentationcenter: 
 author: cherylmc
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-service-management
 ms.assetid: 024ecb29-64de-4ff1-84f1-1a45a8595f0b
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/14/2016
+ms.date: 01/23/2017
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: d269d9a76ff4ccd973eee70d2d5b54a7262383ef
-ms.openlocfilehash: b45801d4e6deb25ca8c6af5c3b46de741d4993e0
+ms.sourcegitcommit: eea00841708212789e14fa8717d83dd81d472bac
+ms.openlocfilehash: 835968ec5b540890dbe8644038ab7f63b0721847
 
 
 ---
-# <a name="create-a-vnet-with-a-site-to-site-connection-using-the-azure-classic-portal"></a>Klasik Azure portalını kullanarak Siteden Siteye bağlantı ile VNet oluşturma
+# <a name="create-a-vnet-with-a-site-to-site-connection-using-the-classic-portal"></a>Klasik portalı kullanarak Siteden Siteye bağlantı ile sanal ağ oluşturma
 > [!div class="op_single_selector"]
 > * [Resource Manager - Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
@@ -31,9 +31,9 @@ ms.openlocfilehash: b45801d4e6deb25ca8c6af5c3b46de741d4993e0
 
 Bu makale, klasik dağıtım modelini ve klasik portalı kullanarak sanal bir ağ ve şirket içi ağınızda konumdan konuma VPN ağ geçidi bağlantısı oluşturma işleminde size yol gösterir. Siteden Siteye bağlantılar, şirket içi ve dışı karışık yapılandırmalar ve karma yapılandırmalar için kullanılabilir.
 
-![Siteden Siteye diyagram](./media/vpn-gateway-site-to-site-create/site2site.png "site-to-site")
+![Siteden Siteye şirket içi ve dışı karışık VPN Gateway bağlantısı diyagramı](./media/vpn-gateway-site-to-site-create/site-to-site-connection-diagram.png)
 
-### <a name="deployment-models-and-methods-for-site-to-site-connections"></a>Siteden Siteye bağlantılar için dağıtım modelleri ve yöntemleri
+### <a name="deployment-models-and-methods-for-site-to-site-connections"></a>Konumdan Konuma bağlantılar için dağıtım modelleri ve yöntemleri
 [!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
 
 Aşağıdaki tabloda, şu anda Siteden Siteye yapılandırmalar için kullanılabilen dağıtım modelleri ve yöntemleri gösterilmektedir. Yapılandırma adımlarını içeren bir makale olduğunda, bu tablodan makaleye yönelik doğrudan bağlantı oluştururuz.
@@ -102,6 +102,6 @@ Güvenli bir siteden siteye bağlantı oluşturmak için sanal ağ geçidini yap
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

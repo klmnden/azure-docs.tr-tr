@@ -1,5 +1,5 @@
 ---
-title: "Azure Güvenlik Merkezi&quot;nde Güvenlik Olayını İşleme | Microsoft Belgeleri"
+title: "Azure Güvenlik Merkezi&quot;nde güvenlik uyarılarını yönetme | Microsoft Docs"
 description: "Bu belge, güvenlik olaylarını işlemek için Azure Güvenlik Merkezi özelliklerini kullanmanıza yardımcı olur."
 services: security-center
 documentationcenter: na
@@ -12,11 +12,11 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2017
+ms.date: 01/30/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: ec32e3937d08d912c8f96987b0c5ebbf73060258
-ms.openlocfilehash: 25fef9472f023c37538cfc2f5f7c37c0bfca746e
+ms.sourcegitcommit: 3cba38d95535ff5ed3cd62aac5c0aa04a310f48c
+ms.openlocfilehash: e73d1cbd7a6555b61b80c2d0f3f9716627803278
 
 
 ---
@@ -32,25 +32,25 @@ Güvenlik Merkezi'nde bir güvenlik olayı, bir kaynağın [sonlandırma zinciri
 Geçerli güvenlik olaylarınızı güvenlik uyarıları kutucuğuna bakarak gözden geçirebilirsiniz. Azure Portal’a erişin ve aşağıdaki adımları izleyerek her bir güvenlik olayına ilişkin daha fazla ayrıntı görüntüleyin:
 
 1. Güvenlik Merkezi panosunda **Güvenlik uyarıları** kutucuğunu görürsünüz.
-   
+
     ![Güvenlik Merkezi'nde güvenlik uyarıları kutucuğu](./media/security-center-incident/security-center-incident-fig1.png)
 
 2. Bu kutucuğa tıklayarak kutucuğu genişletin; bir güvenlik olayı algılanırsa aşağıda gösterildiği gibi güvenlik uyarıları grafiğinin altında görünür:
-   
+
     ![Güvenlik olayı](./media/security-center-incident/security-center-incident-fig2.png)
 
 3. Güvenlik olayı açıklamasının diğer uyarılardan farklı bir simgeye sahip olduğuna dikkat edin. Bu olay hakkında daha fazla ayrıntı görüntülemek için üzerine tıklayın.
-   
+
     ![Güvenlik olayı](./media/security-center-incident/security-center-incident-fig3.png)
 
 4. **Olay** dikey penceresinde, bu güvenlik olayının tam açıklaması, önem düzeyi (bu durumda yüksektir), olayın geçerli durumu (bu durumda hala *etkindir* ve kullanıcının uyarı için henüz bir eylem gerçekleştirmediğini gösterir; bu işlem, **Güvenlik uyarıları** dikey penceresinde olaya tıklanarak gerçekleştirilebilir), saldırılan kaynak (bu durumda *VM1*), ve düzeltme adımları dahil olmak üzere olayla ilgili daha fazla ayrıntıyı görürsünüz ve alt bölmede bu olaya dahil edilen uyarılar yer alır. Her uyarı hakkında daha fazla bilgi edinmek istiyorsanız, uyarıya tıklayarak aşağıda gösterildiği gibi başka bir dikey pencere açılmasını sağlayın:
-   
+
     ![Güvenlik olayı](./media/security-center-incident/security-center-incident-fig4.png)
 
 Bu dikey penceredeki bilgiler uyarıya göre farklılık gösterir. Bu uyarıların nasıl yönetileceği hakkında daha fazla bilgi için [Azure Güvenlik Merkezi’nde güvenlik uyarılarını yönetme ve yanıtlama](security-center-managing-and-responding-alerts.md) konusunu okuyun. Bu özellik ile ilgili bazı önemli noktalar:
 
-* Yeni bir filtre, görünümünüzü Yalnızca olay, Yalnızca uyarılar veya her ikisi için özelleştirmenizi sağlar. 
-* Aynı uyarı bir Olayın (varsa) parçası olabilir ve aynı zamanda tek başına uyarı olarak görünebilir. 
+* Yeni bir filtre, görünümünüzü Yalnızca olay, Yalnızca uyarılar veya her ikisi için özelleştirmenizi sağlar.
+* Aynı uyarı bir Olayın (varsa) parçası olabilir ve aynı zamanda tek başına uyarı olarak görünebilir.
 
 ## <a name="see-also"></a>Ayrıca bkz.
 Bu belgede, Güvenlik Merkezi'nde güvenlik olayı özelliğini nasıl kullanacağınız hakkında bilgi edindiniz. Güvenlik Merkezi hakkında daha fazla bilgi edinmek için şunlara bakın:
@@ -64,7 +64,6 @@ Bu belgede, Güvenlik Merkezi'nde güvenlik olayı özelliğini nasıl kullanaca
 
 
 
-
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO5-->
 
 

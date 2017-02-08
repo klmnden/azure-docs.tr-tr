@@ -1,5 +1,5 @@
 ---
-title: "Azure portalı kullanarak şirket içi kodlayıcılarda canlı akış gerçekleştirme | Microsoft Belgeleri"
+title: "Azure portalı kullanarak şirket içi kodlayıcılarda canlı akış | Microsoft Docs"
 description: "Bu öğretici, doğrudan teslimat için yapılandırılmış bir Kanal oluşturmaya ilişkin adımları anlatmaktadır."
 services: media-services
 documentationcenter: 
@@ -12,19 +12,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/24/2016
+ms.date: 01/23/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ec6bb243872b3d4794050f735122f587a299e978
+ms.sourcegitcommit: 555e0b6340d09517bfd87efe209f0304f3266788
+ms.openlocfilehash: 0818c3124815b53119a5b2d43f16e3154afbc225
 
 
 ---
-# <a name="how-to-perform-live-streaming-with-onpremise-encoders-using-the-azure-portal"></a>Azure portal kullanarak şirket içi kodlayıcılarda canlı akış gerçekleştirme
+# <a name="how-to-perform-live-streaming-with-on-premise-encoders-using-the-azure-portal"></a>Azure portal kullanarak şirket içi kodlayıcılarda canlı akış gerçekleştirme
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-live-passthrough-get-started.md)
 > * [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
-> * [REST](https://msdn.microsoft.com/library/azure/dn783458.aspx)
+> * [REST](https://docs.microsoft.com/rest/api/media/operations/channel)
 > 
 > 
 
@@ -34,7 +34,7 @@ Bu öğretici, Azure portal kullanarak doğrudan teslimat için yapılandırılm
 Öğreticiyi tamamlamak için aşağıdakiler gereklidir:
 
 * Bir Azure hesabı. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/). 
-* Bir Media Services hesabı.    Bir Media Services hesabı oluşturmak için bkz. [Media Services hesabı oluşturma](media-services-portal-create-account.md).
+* Bir Media Services hesabı. Bir Media Services hesabı oluşturmak için bkz. [Media Services hesabı oluşturma](media-services-portal-create-account.md).
 * Bir Web kamerası. Örneğin, [Telestream Wirecast kodlayıcı](http://www.telestream.net/wirecast/overview.htm).
 
 Aşağıdaki makaleleri gözden geçirmeniz için önerilir:
@@ -46,6 +46,9 @@ Aşağıdaki makaleleri gözden geçirmeniz için önerilir:
 ## <a name="a-idscenarioacommon-live-streaming-scenario"></a><a id="scenario"></a>Ortak canlı akış senaryosu
 Aşağıdaki adımlar, doğrudan teslimat için yapılandırılan kanalları kullanan ortak canlı akış uygulamaları oluşturmaya dahil olan görevleri açıklamaktadır. Bu öğretici, doğrudan geçiş kanalı ve canlı olayları oluşturmayı ve yönetmeyi gösterir.
 
+>[!NOTE]
+>İçerik akışı yapmak istediğiniz akış uç noktasının **Çalışıyor** durumunda olduğundan emin olun. 
+    
 1. Bilgisayara bir video kamera bağlayın. Çoklu bit hızlı RTMP ya da Parçalı MP4 akışı çıktısı veren bir şirket içi gerçek zamanlı kodlayıcı çalıştırın ve yapılandırın. Daha fazla bilgi için bkz. [Azure Media Services RTMP Desteği ve Gerçek Zamanlı Kodlayıcılar](http://go.microsoft.com/fwlink/?LinkId=532824).
    
     Bu adım, Kanalınızı oluşturduktan sonra da gerçekleştirilebilir.
@@ -59,11 +62,7 @@ Aşağıdaki adımlar, doğrudan teslimat için yapılandırılan kanalları kul
 5. Canlı olay/program oluşturun. 
    
     Azure portalı kullanırken, canlı bir olay oluşturma bir varlık da oluşturur. 
-   
-   > [!NOTE]
-   > İçerik akışını gerçekleştirmek istediğiniz akış uç noktasında akışa ayrılan en az bir birim olduğundan emin olun.
-   > 
-   > 
+
 6. Akışı ve arşivlemeyi başlatmaya hazır olduğunuzda, olayı/programı başlatın.
 7. İsteğe bağlı olarak, gerçek zamanlı kodlayıcıya bir reklam başlatması bildirilebilir. Reklam, çıktı akışına eklenir.
 8. Olay akışını ve arşivlemeyi durdurmak istediğinizde, olayı/programı durdurun.
@@ -79,29 +78,7 @@ Azure portal tarafından oluşturulan bildirimleri ve hataları görüntülemek 
 
 ![Bildirimler](./media/media-services-portal-passthrough-get-started/media-services-notifications.png)
 
-## <a name="configure-streaming-endpoints"></a>Akış uç noktalarını yapılandırma
-Media Services, MPEG DASH, HLS veya Kesintisiz Akış HDS akış biçimlerinde yeniden paketlemenize gerek kalmadan çoklu bit hızlı MP4’ler göndermenizi sağlayan dinamik paketleme olanağı verir. Dinamik paketleme ile dosyaları yalnızca tek bir depolama biçiminde depolamanız ve buna göre ödeme yapmanız gerekir; Media Services, istemciden gelen isteklere göre uygun yanıtı derler ve sunar.
-
-Dinamik paketlemeden yararlanmak için, içeriğinizi teslim etmek istediğiniz akış uç noktası için en az bir akış birimi almanız gerekir.  
-
-Akışa ayrılan birim sayısını oluşturmak ve değiştirmek için, aşağıdakileri yapın:
-
-1. [Azure portal](https://portal.azure.com/)’da oturum açın.
-2. **Ayarlar** penceresinde, **Akış uç noktaları**’na tıklayın. 
-3. Varsayılan akış uç noktasına tıklayın. 
-   
-    **VARSAYILAN AKIŞ UÇ NOKTASI AYRINTILAR** penceresi görüntülenir.
-4. Akış birimi sayısını belirtmek için, **Akış birimleri** kaydırıcısını kaydırın.
-   
-    ![Akış birimleri](./media/media-services-portal-passthrough-get-started/media-services-streaming-units.png)
-5. Yaptığınız değişiklikleri kaydetmek için **Kaydet** düğmesine tıklayın.
-   
-   > [!NOTE]
-   > Yeni birimleri ayırmanın tamamlanması 20 dakika sürebilir.
-   > 
-   > 
-
-## <a name="create-and-start-passthrough-channels-and-events"></a>Geçiş kanalları ve olayları oluşturma ve başlatma
+## <a name="create-and-start-pass-through-channels-and-events"></a>Geçiş kanalları ve olayları oluşturma ve başlatma
 Bir kanal, canlı akıştaki kesimleri yayımlamanızı ve depolamanızı denetlemenizi sağlayan olaylar/programlarla ilişkilidir. Kanallar olayları yönetir. 
 
 Program için kaydedilen içeriği kaç saat tutmak istediğinizi **Arşiv Penceresi** uzunluğunu ayarlayarak belirleyebilirsiniz. Bu değer en az 5 dakika, en çok 25 saat olarak ayarlanabilir. Arşiv penceresi uzunluğu, istemcilerin geçerli canlı konumdan zamanda geri gidebilecekleri en uzun süre miktarını da belirler. Olaylar belirtilen süre miktarında yürütülür, ancak pencere uzunluğunu aşan içerik sürekli olarak iptal edilir. Bu özelliğin bu değeri, istemci bildiriminin ne kadar uzayabileceğini de belirler.
@@ -180,6 +157,6 @@ Media Services öğrenme yollarını gözden geçirin.
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

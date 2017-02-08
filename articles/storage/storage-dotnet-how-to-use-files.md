@@ -15,15 +15,15 @@ ms.topic: hero-article
 /ms.date: 1/18/2017
 ms.author: renash
 translationtype: Human Translation
-ms.sourcegitcommit: 550db52c2b77ad651b4edad2922faf0f951df617
-ms.openlocfilehash: b4f13f1b5469ea3d3b2ab69e6435d3e7beb6ace8
+ms.sourcegitcommit: 78daa5a75b3414e2761333ea6ad91945596553c8
+ms.openlocfilehash: 8661d4b3da31e3e3e54590a013b5c784216ecefb
 
 
 ---
 # <a name="get-started-with-azure-file-storage-on-windows"></a>.NET kullanarak Azure File Storage’ı kullanmaya başlayın
 [!INCLUDE [storage-selector-file-include](../../includes/storage-selector-file-include.md)]
 
-[!INCLUDE [storage-try-azure-tools-files](../../includes/storage-try-azure-tools-files.md)]
+[!INCLUDE [storage-check-out-samples-dotnet](../../includes/storage-check-out-samples-dotnet.md)]
 
 [!INCLUDE [storage-file-overview-include](../../includes/storage-file-overview-include.md)]
 
@@ -38,7 +38,7 @@ File Storage’ın ölçeklenebilirlik ve performans hedefleri hakkında ayrınt
 ## <a name="video-using-azure-file-storage-with-windows"></a>Video: Azure File Storage’ı Windows ile kullanma
 Aşağıdaki videoda Windows’da Azure Dosya paylaşımlarının nasıl oluşturulacağı ve kullanılacağı gösterilir.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-File-Storage-with-Windows/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-File-Storage-with-Windows/player]
 > 
 > 
 
@@ -645,6 +645,9 @@ Uçtan uca sorun giderme kılavuzu için [Azure Dosyaları Sorun Giderme Makales
 15. **Azure Dosya Depolama hatalarını nasıl giderebilirim?**
     
     Uçtan uca sorun giderme kılavuzu için [Azure Dosyaları Sorun Giderme Makalesine](storage-troubleshoot-file-connection-problems.md) bakabilirsiniz.               
+16. ** Azure Dosya Hizmet paylaşımımdaki dosya ve dizinleri oluşturma/değiştirme/silme gibi olayları dinlemek için FileSystemWatcher kullanabilir miyim?
+
+Hayır. Azure web işleri SDK’sını kullanabilirsiniz. kendi tetiklenmiş veya tetiklenmemiş bağlamalarınızı yazıp, dosya depolamanızdaki olayları dinleyebilirsiniz. Başlamak için ayrıntıları burada bulabilirsiniz: [Yeni tetikleyiciler ve bağlayıcılar yazma kılavuzu](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Azure File Storage hakkında daha fazla bilgi edinmek için şu bağlantılara göz atın.
@@ -670,6 +673,6 @@ Azure File Storage hakkında daha fazla bilgi edinmek için şu bağlantılara g
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO5-->
 
 

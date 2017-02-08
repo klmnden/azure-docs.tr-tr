@@ -8,6 +8,10 @@
 ### [IoT Hub’ı kullanmaya başlama (.NET)](iot-hub-csharp-csharp-getstarted.md)
 ### [IoT Hub’ı kullanmaya başlama (Java)](iot-hub-java-java-getstarted.md)
 ### [IoT Hub’ı kullanmaya başlama (Node)](iot-hub-node-node-getstarted.md)
+## IoT cihaz SDK’sını kullanmaya başlama
+### [C için Azure IoT cihaz SDK’sına Giriş](iot-hub-device-sdk-c-intro.md)
+### [C için IoT cihaz SDK’sı: IoTHubClient hakkında daha fazla bilgi](iot-hub-device-sdk-c-iothubclient.md)
+### [C için IoT cihaz SDK’sı: Seri hale getirici hakkında daha fazla bilgi](iot-hub-device-sdk-c-serializer.md)
 ## Raspberry Pi’yi kullanmaya başlama
 ### [Raspberry Pi 3’ü kullanmaya başlama](iot-hub-raspberry-pi-kit-node-get-started.md)
 ### Ders 1: Cihazınızı yapılandırma
@@ -32,6 +36,7 @@
 ## [Ağ Geçidi SDK’sını kullanmaya başlama (Linux)](iot-hub-linux-gateway-sdk-get-started.md)
 ## [Ağ Geçidi SDK’sını kullanmaya başlama (Windows)](iot-hub-windows-gateway-sdk-get-started.md)
 
+
 # Nasıl yapılır?
 ## [Cihazdan buluta iletilerini işleme öğreticisi (.NET)](iot-hub-csharp-csharp-process-d2c.md)
 ## [Cihazdan buluta iletilerini işleme öğreticisi (Java)](iot-hub-java-java-process-d2c.md)
@@ -51,7 +56,7 @@
 ## [.NET/Node için cihaz üretici yazılımını güncelleştirmek üzere cihaz işlerini kullanma](iot-hub-csharp-node-firmware-update.md)
 ## [Node.js için işleri zamanlama ve yayınlama](iot-hub-node-node-schedule-jobs.md)
 ## [.NET/Node için işleri zamanlama ve yayınlama](iot-hub-csharp-node-schedule-jobs.md)
-## Dağıtımınızı planlama
+## Planlama
 ### [IoT Hub ile Event Hubs karşılaştırması](iot-hub-compare-event-hubs.md)
 ### [Çözümünüzü ölçeklendirme](iot-hub-scaling.md)
 ### [Yüksek kullanılabilirlik ve olağanüstü durum kurtarma](iot-hub-ha-dr.md)
@@ -74,9 +79,10 @@
 ### [Cihaz ve hizmet SDK’ları](iot-hub-devguide-sdks.md)
 ### [MQTT desteği](iot-hub-mqtt-support.md)
 ### [Sözlük](iot-hub-devguide-glossary.md)
-## Hizmeti yönetme
+## Yönet
 ### [Portalı kullanarak IoT hub'ı oluşturma](iot-hub-create-through-portal.md)
-### [CLI kullanarak IoT hub'ı oluşturma](iot-hub-create-using-cli.md)
+### [CLI 2.0 Önizleme kullanarak IoT hub’ı oluşturma](iot-hub-create-using-cli.md)
+### [CLI kullanarak IoT hub'ı oluşturma](iot-hub-create-using-cli-nodejs.md)
 ### [REST kullanarak IoT hub'ı oluşturma](iot-hub-rm-rest.md)
 ### [Powershell kullanarak IoT hub'ı oluşturma](iot-hub-rm-template-powershell.md)
 ### [Şablon kullanarak IoT hub'ı oluşturma](iot-hub-rm-template.md)
@@ -96,17 +102,16 @@
 ### [IoT dağıtımınızın güvenliğini sağlama](iot-hub-security-deployment.md)
 
 # Başvuru
-## [Azure CLI](https://docs.microsoft.com/cli/azure)
-## [Java](https://docs.microsoft.com/java/api)
-## [.NET API’si](https://docs.microsoft.com/dotnet/api)
+## [Azure CLI 2.0 Önizleme](/cli/azure/iot)
+## [.NET (Hizmet)](/dotnet/api/microsoft.azure.devices)
+## [.NET (Cihazlar)](/dotnet/api/microsoft.azure.devices.client)
+## [Java (Hizmet)](/java/api/com.microsoft.azure.iot.service.auth)
+## [Java (Cihazlar)](/java/api/com.microsoft.azure.iothub)
 ## [Azure IoT SDK’ları](http://azure.github.io/azure-iot-sdks/)
-## [Ağ Geçidi SDK API’si](http://azure.github.io/azure-iot-gateway-sdk)
-## [Kaynak Sağlayıcısı REST API’si](https://docs.microsoft.com/rest/api/iothub/resourceprovider/iot-hub-resource-provider-rest)
-## [Cihaz Kimlikleri REST API’si](https://docs.microsoft.com/rest/api/iothub/device-identities-rest)
-## [Cihaz Mesajlaşma REST API’si](https://docs.microsoft.com/rest/api/iothub/device-messaging-rest-apis)
-## [C için Azure IoT cihaz SDK’sına Giriş](iot-hub-device-sdk-c-intro.md)
-## [C için IoT cihaz SDK’sı: IoTHubClient hakkında daha fazla bilgi](iot-hub-device-sdk-c-iothubclient.md)
-## [C için IoT cihaz SDK’sı: Seri hale getirici hakkında daha fazla bilgi](iot-hub-device-sdk-c-serializer.md)
+## [Ağ Geçidi SDK’sı](http://azure.github.io/azure-iot-gateway-sdk)
+## [REST (Kaynak Sağlayıcısı)](https://docs.microsoft.com/rest/api/iothub/resourceprovider/iot-hub-resource-provider-rest)
+## [REST (Cihaz Kimlikleri)](https://docs.microsoft.com/rest/api/iothub/device-identities-rest)
+## [REST (Device Messaging) REST API](https://docs.microsoft.com/rest/api/iothub/device-messaging-rest-apis)
 
 # İlgili
 ## [Azure IoT Paketi](https://azure.microsoft.com/documentation/suites/iot-suite/)
@@ -125,6 +130,6 @@
 ## [IoT için Azure Sertifikalı cihaz kataloğu](https://catalog.azureiotsuite.com/)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 
