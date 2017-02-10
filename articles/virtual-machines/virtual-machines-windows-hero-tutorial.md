@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 11/16/2016
+ms.date: 01/03/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 22156a9f3c5a57e10cad96661f50531b309c3a04
-ms.openlocfilehash: a25d394e83d7945f0ea50de1fc65a68a96190a34
+ms.sourcegitcommit: 425637599df40ac3be23984785e4f3292d72978d
+ms.openlocfilehash: 7c7a300b620b1e7bd0cd1b816e575f2d57fee80a
 
 
 ---
@@ -28,28 +28,32 @@ Bu öğretici, Azure Portal'ı kullanarak birkaç dakika içinde bir Windows san
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/) oluşturun.
 
 ## <a name="choose-the-vm-image-from-the-marketplace"></a>Marketten VM görüntüsünü seçin
-Örnek olarak Windows Server 2012 R2 Datacenter görüntüsü kullanıyoruz, ancak bu Azure’un sunduğu birçok görüntüden sadece biridir. Görüntü seçenekleriniz aboneliğinize göre değişir. Örneğin, bazı masaüstü görüntüleri [MSDN aboneleri](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) tarafından kullanılabilir.
+Örnek olarak Windows Server 2016 Datacenter görüntüsü kullanıyoruz, ancak bu Azure'un sunduğu birçok görüntüden sadece biridir. Görüntü seçenekleriniz aboneliğinize göre değişir. Örneğin, bazı masaüstü görüntüleri [MSDN aboneleri](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) tarafından kullanılabilir.
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
-2. Hub menüsünde, **Yeni** > **bilgi İşlem** > **Windows Server 2012 R2 Datacenter**’a tıklayın.
+2. Sol üstten başlayarak sırasıyla **Yeni** > **İşlem** > **Windows Server 2016 Datacenter**'a tıklayın.
    
     ![Portalda kullanılabilecek Azure VM görüntülerini gösteren ekran görüntüsü](./media/virtual-machines-windows-hero-tutorial/marketplace-new.png)
-3. **Windows Server 2012 R2 Datacenter** dikey penceresindeki **Dağıtım modeli seçin** menüsünde **Resource Manager**’ın seçili olduğunu doğrulayın. **Oluştur**’a tıklayın.
+3. **Windows Server 2016 Datacenter** dikey penceresindeki **Dağıtım modeli seçin** menüsünde **Resource Manager**'ın seçili olduğunu doğrulayın. **Oluştur**’a tıklayın.
    
     ![VM için seçilecek dağıtım modelini gösteren ekran görüntüsü](./media/virtual-machines-windows-hero-tutorial/deployment-model.png)
 
 ## <a name="create-the-windows-virtual-machine"></a>Windows sanal makine oluşturma
 Görüntüyü seçtikten sonra varsayılan ayarları kullanabilir ve hızlı bir şekilde sanal makine oluşturabilirsiniz.
 
-1. **Temel Bilgiler** dikey penceresinde, sanal makine için **adı** girin. Ad, 1-15 karakter uzunluğunda olmalıdır ve özel karakterler içeremez.
-2. VM’de yerel hesap oluşturmak için kullanılacak bir **Kullanıcı adı** ve güçlü bir **Parola** girin. Yerel hesap VM’de oturum açmak ve VM’yi yönetmek için kullanılır. 
+1. **Temel Bilgiler** dikey penceresinde, sanal makine için **adı** girin. Bu örnekte *HeroVM* sanal makinenin adıdır. Ad, 1-15 karakter uzunluğunda olmalıdır ve özel karakterler içeremez.
+2. VM’de yerel hesap oluşturmak için kullanılacak bir **Kullanıcı adı** ve güçlü bir **Parola** girin. Yerel hesap VM’de oturum açmak ve VM’yi yönetmek için kullanılır. Bu örnekte *azureuser* kullanıcı adıdır.
    
     Parola 8-123 karakter uzunluğunda olmalıdır ve en az şu dört karmaşıklık gereksinimini karşılamalıdır: bir küçük harf karakter, bir büyük harf karakter, bir sayı ve bir özel karakter. [Kullanıcı adı ve parola gereksinimleri](virtual-machines-windows-faq.md#what-are-the-username-requirements-when-creating-a-vm) hakkında daha fazla bilgi edinin.
-3. Varolan [Kaynak grubunu](../azure-resource-manager/resource-group-overview.md#resource-groups) seçin veya yenisi için adı yazın. **Batı ABD** gibi, bir Azure veri merkezi **Konumu** yazın. 
+
+3. Varolan [Kaynak grubunu](../azure-resource-manager/resource-group-overview.md#resource-groups) seçin veya yenisi için adı yazın. Bu örnekte *HeroVMRG* kaynak grubunun adıdır.
+
+4. Azure veri merkezi **Konumu** seçin. Bu örnekte konum *Doğu ABD** seçilmiştir. 
+
 4. İşiniz bittiğinde, sonraki bölüme geçmek için **Tamam**’a tıklayın. 
    
     ![Bir Azure VM’yi yapılandırmak için **Temel Bilgiler** dikey penceresindeki ayarları gösteren ekran görüntüsü](./media/virtual-machines-windows-hero-tutorial/basics-blade.png)
-5. Bir VM [boyutu](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) seçin ve ardından devam etmek için **Seç**’e tıklayın. 
+5. Bir VM [boyutu](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) seçin ve ardından devam etmek için **Seç**’e tıklayın. Bu örnekte VM boyutu *DS1_V2 Standard* olarak seçilmiştir.
    
     ![Seçebileceğiniz Azure VM boyutlarını gösteren Boyut dikey penceresi ekran görüntüsü](./media/virtual-machines-windows-hero-tutorial/size-blade.png)
 6. **Ayarlar** dikey penceresinde depolama ve ağ seçeneklerini değiştirebilirsiniz. Bu öğretici için varsayılan ayarları kabul edin. Bunu destekleyen bir sanal makine boyutu seçtiyseniz, **Disk türü** altında **Premium (SSD)**’yi seçerek Azure Premium Depolama’yı deneyebilirsiniz. Değişiklikleriniz bittiğinde **Tamam**’a tıklayın.
@@ -58,10 +62,10 @@ Görüntüyü seçtikten sonra varsayılan ayarları kullanabilir ve hızlı bir
 7. Seçimlerinizi gözden geçirmek için **Özet**’e tıklayın. **Doğrulama başarılı** iletisini gördüğünüzde **Tamam**’a tıklayın.
    
     ![Azure VM için yapılan yapılandırma seçimlerini gösteren Özet sayfası ekran görüntüsü](./media/virtual-machines-windows-hero-tutorial/summary-blade.png)
-8. Azure sanal makineyi oluştururken, hub menüsündeki **Sanal Makineler** altında ilerleme durumunu izleyebilirsiniz. 
+8. Azure sanal makineyi oluştururken, sol taraftaki **Sanal Makineler**'e tıklayarak ilerleme durumunu izleyebilirsiniz. VM oluşturulduğunda durumu **Çalışıyor** olarak değişir.
 
 ## <a name="connect-to-the-virtual-machine-and-sign-on"></a>Sanal makineye bağlanma ve oturum açma
-1. Hub menüsünde **Sanal Makineler**’e tıklayın.
+1. Sol tarafta **Sanal Makineler**'e tıklayın.
 2. Listeden sanal makineyi seçin.
 3. Sanal makine için dikey pencere üzerinde **Bağlan**’a tıklayın. Bu , makinenize bağlanmak için kısayola benzeyen bir Uzak Masaüstü Protokol dosyası (.rdp dosyası) oluşturur ve indirir. Kolay erişim için dosyayı masaüstünüze kaydetmek isteyebilirsiniz. VM'nize bağlanmak için bu dosyayı **Açın** .
    
@@ -95,6 +99,6 @@ Tekrar kullanmaya hazır olduğunuzda VM’yi yeniden başlatmak için **Başlat
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

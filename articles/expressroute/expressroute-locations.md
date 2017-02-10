@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 12/14/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: b2d7ba14c7cbc5c082a5f962559936e1a60827f2
-ms.openlocfilehash: fd018ed25e5c309a85bb2078d00f2bb0b504e5d2
+ms.sourcegitcommit: 45b3c231f28b810c5fe1361cee1c896c58b52993
+ms.openlocfilehash: ae966cd39f8763e038acb5e992f388b8c0ad28ef
 
 
 ---
@@ -150,8 +150,9 @@ Bağlantı sağlayıcınız önceki bölümlerde listelenmemişse hala bağlant�
 | **Bağlantı sağlayıcı** | **Exchange** | **Konumlar** |
 | --- | --- | --- |
 | **[1CLOUDSTAR](http://www.1cloudstar.com/service/cloudconnect-azure-expressroute/)** |Equinix |Singapur |
-| **[Arteria-Net](https://arteria-net.com/business/service/cloud_access/sca/)** |Equinix |Tokyo |
+| **[Arteria Networks Corporation](https://arteria-net.com/business/service/cloud_access/sca/)** |Equinix |Tokyo |
 | **[Alaska Communications](http://www.alaskacommunications.com/For-Your-Business/Direct-Cloud-Service)** |Equinix |Seattle |
+| **[Eurofiber](https://eurofiber.nl/microsoft-azure/)** | Equinix | Amsterdam |
 | **[Exponential E](http://www.exponential-e.com/services/connectivity-services/cloud-connect-exchange)** | Equinix | Londra |
 | **[HSO](http://www.hso.co.uk/products/cloud-direct)** |Equinix | Londra, Slough |
 | **[Lightower](http://www.lightower.com/network-solutions/cloud-connect/#microsoft-azure)** |Equinix |New York, Washington DC |
@@ -173,6 +174,8 @@ Bağlantı sağlayıcınız önceki bölümlerde listelenmemişse hala bağlant�
 | **[Avanade Inc.](http://www.avanade.com/)** |Asya, Avrupa, ABD |
 | **[Dotnet Solutions](http://www.dotnetsolutions.co.uk/)** |Avrupa |
 | **[Equinix Professional Services](http://www.equinix.com/services/consulting/)** |ABD |
+| **[IT Consultancy](http://itconsult.com.au/microsoft-expressroute)** | Avustralya |
+| **[MSG Services](https://www.msg-services.de/it-services/managed-services/cloud-outsourcing/)** | Avrupa (Almanya) |
 | **[Nelite](http://nelite.com/)** |Avrupa |
 | **[OneAs1a](http://www.oneas1a.com/express-connect-any-cloud-ecac)** |Asya |
 | **[Perficient](http://www.perficient.com/Partners/Microsoft/Cloud/Azure-ExpressRoute)** |ABD |
@@ -188,6 +191,6 @@ Bağlantı sağlayıcınız önceki bölümlerde listelenmemişse hala bağlant�
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

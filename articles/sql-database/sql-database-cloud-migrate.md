@@ -1,5 +1,5 @@
 ---
-title: "SQL Server veritabanını SQL Veritabanına geçirme | Microsoft Belgeleri"
+title: "SQL Server veritabanını Azure SQL Veritabanına geçirme | Microsoft Docs"
 description: "Şirket içi SQL Server veritabanını buluttaki Azure SQL Veritabanına nasıl geçireceğinizi öğrenin. Veritabanı geçişinden önce uyumluluğu test etmek için veritabanı taşıma araçlarını kullanın."
 keywords: "veritabanı geçişi,sql server veritabanı geçişi,veritabanı taşıma araçları,veritabanı taşıma,sql veritabanı geçişi"
 services: sql-database
@@ -17,8 +17,8 @@ ms.workload: sqldb-migrate
 ms.date: 11/08/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: d9052bd10693c0b7942c0d90fdf89be37b44842d
-ms.openlocfilehash: b0093e48266aedda2b6c88b862c0056ebe3b3114
+ms.sourcegitcommit: 86bc7d89bb5725add8ba05b6f0978467147fd3ca
+ms.openlocfilehash: 61fb027dfdd5830d87fe4fcfff57f685db71475e
 
 
 ---

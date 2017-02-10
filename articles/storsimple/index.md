@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Şirket içi cihazlar ile Azure bulut depolama arasındaki depolama görevlerini yöneten tümleşik bir çözüm olan Azure StorSimple’ı nasıl kullanacağınızı öğrenin."
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: 42f5ac0bae68b967378b5e1a090f3b17e4efad20
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: c3523cfef54f6084326b913d548449f4a9b646a9
 
 ---
 #<a name="storsimple-documentation"></a>StorSimple Belgeleri
 
-StorSimple ve Microsoft Azure, benzersiz ve tümleştirilmiş bir birincil depolama arşivi ve şirket içi depolamanın bir uzantısı olarak Azure ile olağanüstü durum kurtarma çözümü sunar. StorSimple çözümünüzü dağıtmayı ve yönetmeyi öğrenin.
+Şirket içi cihazlar ile Azure bulut depolama arasındaki depolama görevlerini yöneten tümleşik bir çözüm olan Azure StorSimple’ı nasıl kullanacağınızı öğrenin. Öğreticilerde ve diğer belgelerde, depolama yönetimi, konumdan bağımsız yedekleme ve olağanüstü durum kurtarma kurulumu hakkında bilgi sağlanmıştır.
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -137,16 +138,10 @@ StorSimple ve Microsoft Azure, benzersiz ve tümleştirilmiş bir birincil depol
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/storsimple.pdf">
-        <div class="img"></div>
-        <div class="text">
-StorSimple Belgelerini İndirme </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Jan17_HO3-->
 
 

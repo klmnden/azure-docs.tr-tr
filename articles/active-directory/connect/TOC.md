@@ -80,6 +80,7 @@
 
 
 # İlgili
+## [Bulutta şirket içi kimlik altyapınızı ve eşitleme hizmetlerinizi izleyin](../connect-health/active-directory-aadconnect-health.md)
 ## [Karma Kimlik Tasarım Kılavuzu](https://azure.microsoft.com/documentation/articles/active-directory-hybrid-identity-design-considerations-overview/)
 
 
@@ -88,6 +89,6 @@
 ##[DirSync’i Kullanımdan Kaldırma](active-directory-aadconnect-dirsync-deprecated.md)
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

@@ -2,8 +2,8 @@
 layout: LandingPage
 description: "Azure Depolama: Bulutta Blob, Tablo, Kuyruk, Dosya ve Sanal Makine Disk depolama hakkında bilgi edinin. Öğreticiler, API başvuruları ve diğer belgeler."
 translationtype: Human Translation
-ms.sourcegitcommit: c0493bb88e768493c141075a00695b5c030e1b15
-ms.openlocfilehash: 94d2d4a01767fd8aabec9200623e4bdd68edbf35
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 1e9cc940d681893abbc351ef440c90f579e6c40a
 
 ---
 
@@ -109,8 +109,8 @@ Dayanıklı, kullanılabilir ve ölçeklenebilir bir bulut depolama hizmeti olan
                 <div class="card">
                     <div class="cardText">
                         <h3>Diller</h3>
-                        <p><a href="/dotnet/api/microsoft.azure.management.storage">.NET: Resource Manager</a></p>
-                        <p><a href="https://msdn.microsoft.com/en-us/library/azure/mt684990.aspx">.NET: Veri Taşıma</a></p>
+                        <p><a href="/dotnet/api/microsoft.azure.management.storage">.NET: Kaynak yöneticisi</a></p>
+                        <p><a href="https://msdn.microsoft.com/en-us/library/azure/mt684990.aspx">.NET: Veri taşıma</a></p>
                         <p><a href="https://msdn.microsoft.com/library/azure/mt347887.aspx">.NET: Bloblar, Kuyruklar, Tablolar ve Dosyalar</a></p>
                         <p><a href="/java/api/">Java</a></p>
                         <p><a href="http://azure.github.io/azure-storage-node">Node.js</a></p>
@@ -140,13 +140,7 @@ Dayanıklı, kullanılabilir ve ölçeklenebilir bir bulut depolama hizmeti olan
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/storage.pdf">
-        <div class="img"></div>
-        <div class="text">
-Depolama Belgelerini İndirme </div>
-    </a>
-</div>
+
 
 
 

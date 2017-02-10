@@ -3,8 +3,8 @@ title: "Depolamaya Giriş | Microsoft Belgeleri"
 description: "Microsoft’un buluttaki çevrimiçi veri depolama alanı Azure Storage’a göz atalım. Uygulamalarınızda en uygun bulut depolama çözümünü nasıl kullanabileceğinizi öğrenin."
 services: storage
 documentationcenter: 
-author: tamram
-manager: carmonm
+author: mmacy
+manager: timlt
 editor: tysonn
 ms.assetid: a4a1bc58-ea14-4bf5-b040-f85114edc1f1
 ms.service: storage
@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/17/2016
-ms.author: tamram
+ms.date: 12/08/2016
+ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: ac0044da9cf804dabd9d71e3380782120728a55a
+ms.sourcegitcommit: 931503f56b32ce9d1b11283dff7224d7e2f015ae
+ms.openlocfilehash: 40ab7632f47de4d4eef277f4c4071ce2d4de1eed
 
 
 ---
@@ -75,7 +75,7 @@ Blob Storage, bulutta depolanacak yüksek miktarda yapılandırılmamış nesne 
 * Bulut uygulamaları için yapılandırma verileri
 * Günlükler ve diğer büyük veri kümeleri gibi büyük veriler
 
-Her blob bir kapsayıcı halinde düzenlenmiştir. Kapsayıcılar ayrıca nesne gruplarına güvenlik ilkeleri atamaya ilişkin kullanışlı bir yöntem sunar. Bir depolama hesabının içerebileceği kapsayıcı sayısına ilişkin bir sınırlama yoktur. Bir kapsayıcı, depolama hesabının 500 TB kapasite sınırını dolduracak kadar blob içerebilir.  
+Her blob bir kapsayıcı halinde düzenlenmiştir. Kapsayıcılar ayrıca nesne gruplarına güvenlik ilkeleri atamaya ilişkin kullanışlı bir yöntem sunar. Bir depolama hesabının içerebileceği kapsayıcı sayısına ilişkin bir sınırlama yoktur. Bir kapsayıcı, depolama hesabının 500 TB kapasite sınırını dolduracak kadar blob içerebilir.
 
 Blob Storage blok blobları, ekleme blobları ve sayfa blobları (diskler) olmak üzere üç türde blob sunar.
 
@@ -104,7 +104,7 @@ Bir depolama hesabı herhangi sayıda kuyruk içerebilir. Bir kuyruk, depolama h
 ## <a name="file-storage"></a>File Storage
 Azure File Storage, dosya paylaşımlarına bağlı olan eski uygulamaları maliyetli yeniden yazdırmaya gerek kalmadan Azure’a taşıyabilmeniz için bulut tabanlı SMB dosya paylaşımları sunar. Azure File Storage sayesinde, Azure Virtual Machines veya Cloud Services’da çalışan uygulamalar, bir masaüstü uygulamasının tipik bir SMB paylaşımına bağlandığı şekilde buluta bir dosya paylaşımı bağlayabilir. Ardından herhangi sayıda uygulama bileşeni eş zamanlı olarak File Storage paylaşımını bağlayıp buna erişim sağlayabilir.
 
-File Storage paylaşımı standart SMB dosya paylaşımı olduğu için Azure’da çalışan uygulamalar dosya sisteminin G/Ç API’leri üzerinden paylaşımdaki veriye erişebilir. Böylece geliştiriciler mevcut uygulamalarını taşımak üzere kullandıkları kodlar ve yeteneklerden yararlanabilir. BT Uzmanları Azure uygulamalarını yönetmenin bir parçası olarak File Storage paylaşımlarını oluşturmak, bunları bağlamak ve yönetmek için PowerShell.cmdlet’leri kullanabilir.
+Dosya depolama paylaşımı, standart SMB dosya paylaşımı olduğundan Azure'da çalışan uygulamalar, dosya sisteminin G/Ç API'leri üzerinden paylaşımdaki verilere erişebilir. Böylece geliştiriciler mevcut uygulamalarını taşımak üzere kullandıkları kodlar ve yeteneklerden yararlanabilir. BT Uzmanları Azure uygulamalarını yönetmenin bir parçası olarak File Storage paylaşımlarını oluşturmak, bunları bağlamak ve yönetmek için PowerShell.cmdlet’leri kullanabilir.
 
 File Storage diğer Azure Storage hizmetlerinde olduğu gibi paylaşımdaki verilere erişmek için bir REST API gösterir. Şirket içi uygulamalar dosya paylaşımındaki verilere erişmek için File Storage REST API’sini arayabilir. Bu şekilde bir kuruluş bazı eski uygulamalarını Azure’a taşımayı, diğerleriniyse kendi kurumlarından çalıştırmayı seçebilir. Dosya paylaşımının yalnızca Azure’da çalıştırılan uygulamalar için geçerli olduğunu unutmayın; şirket içi uygulamalar yalnızca REST API üzerinden dosya paylaşımına erişebilir.
 
@@ -128,32 +128,32 @@ Paylaşılan erişim imzaları ile ilgili daha fazla bilgi edinmek için bkz. [P
 ## <a name="replication-for-durability-and-high-availability"></a>Dayanıklılık ve Yüksek Seviyede Kullanılabilirlik için Çoğaltma
 Microsoft Azure Depolama hesabınızdaki veriler, dayanıklılık ve yüksek kullanılabilirlik sağlamak için her zaman çoğaltılır. Çoğaltma işlemi, belirlediğiniz çoğaltma seçeneğine göre verilerinizi aynı veri merkezine veya ikinci bir veri merkezine kopyalar. Çoğaltma işlemi, geçici donanım hataları söz konusu olduğunda uygulamanızın çalışma süresini ve verilerinizi korur. Verilerinizin ikinci bir veri merkezine çoğaltılması da birincil konumda gerçekleşen yıkıcı bir hataya karşı verilerinizi korur.
 
-Çoğaltma işlemi, hata durumunda bile depolama hesabınızın [Depolama için Hizmet Düzeyi Sözleşmesi'ne (SLA)](https://azure.microsoft.com/support/legal/sla/storage/) uymasını sağlar. Azure Depolama'nın dayanıklılık ve kullanılabilirlikle ilgili sağladığı garantiler hakkında bilgi edinmek için SLA'ya göz atın. 
+Çoğaltma işlemi, hata durumunda bile depolama hesabınızın [Depolama için Hizmet Düzeyi Sözleşmesi'ne (SLA)](https://azure.microsoft.com/support/legal/sla/storage/) uymasını sağlar. Azure Depolama'nın dayanıklılık ve kullanılabilirlikle ilgili sağladığı garantiler hakkında bilgi edinmek için SLA'ya göz atın.
 
-Bir depolama hesabı oluşturduğunuzda şu çoğaltma seçeneklerinden birini seçebilirsiniz:  
+Bir depolama hesabı oluşturduğunuzda şu çoğaltma seçeneklerinden birini seçebilirsiniz:
 
-* **Yerel olarak yedekli depolama (LRS).** Yerel olarak yedekli depolama verilerinizin üç kopyasını tutar. LRS, tek bir bölgedeki tek bir veri merkezinde üç kez çoğaltılır. LRS, normal donanım arızalarına karşı verilerinizi korur ancak tek bir veri merkezinin arızalanmasına karşı korumaz.  
-  
+* **Yerel olarak yedekli depolama (LRS).** Yerel olarak yedekli depolama verilerinizin üç kopyasını tutar. LRS, tek bir bölgedeki tek bir veri merkezinde üç kez çoğaltılır. LRS, normal donanım arızalarına karşı verilerinizi korur ancak tek bir veri merkezinin arızalanmasına karşı korumaz.
+
     LRS indirimli fiyatla sunulur. En üst düzeyde dayanıklılık için aşağıda açıklanan coğrafi olarak yedekli depolamayı kullanmanızı öneririz.
-* **Bölgesel olarak yedekli depolama (ZRS).** Bölgesel olarak yedekli depolama verilerinizin üç kopyasını tutar. ZRS bir veya iki bölgede, iki veya üç tesis üzerinde üç kez çoğaltılır ve böylece LRS’den daha fazla dayanıklılık sunar.. ZRS, verilerinizin tek bir bölge içinde dayanıklı olmasını sağlar.  
-  
-    ZRS, LRS'ye daha yüksek düzeyde dayanıklılık sağlar; Ancak, en üst düzeyde dayanıklılık için aşağıda açıklanan coğrafi olarak yedekli depolamayı kullanmanızı öneririz.  
-  
+* **Bölgesel olarak yedekli depolama (ZRS).** Bölgesel olarak yedekli depolama verilerinizin üç kopyasını tutar. ZRS bir veya iki bölgede, iki veya üç tesis üzerinde üç kez çoğaltılır ve böylece LRS’den daha fazla dayanıklılık sunar.. ZRS, verilerinizin tek bir bölge içinde dayanıklı olmasını sağlar.
+
+    ZRS, LRS'ye daha yüksek düzeyde dayanıklılık sağlar; Ancak, en üst düzeyde dayanıklılık için aşağıda açıklanan coğrafi olarak yedekli depolamayı kullanmanızı öneririz.
+
   > [!NOTE]
   > ZRS şu an yalnızca blok bloblar için kullanılabilir ve yalnızca 2014 02 14 ve daha yeni sürümleri destekler.
-  > 
+  >
   > Depolama hesabınızı oluşturup ZRS’yi seçtiğinizde farklı bir tür çoğaltma seçeneği kullanmak üzere dönüştüremezsiniz; tersi durumda da aynısı söz konusudur.
-  > 
-  > 
+  >
+  >
 * **Coğrafi olarak yedekli depolama (GRS)**. GRS verilerinizin altı kopyasını tutar. GRS ile verileriniz birincil bölge içinde üç kez çoğaltılır ve ayrıca birincil bölgeden yüzlerce kilometre ötedeki ikincil bir bölgede üç kez çoğaltılarak en üst seviyede dayanıklılık sağlanır. Birincil bölgede bir arıza olması durumunda Azure Storage ikincil bölgeye yük devredecektir. GRS, verilerinizin iki ayrı bölge içinde dayanıklı olmasını sağlar.
-  
+
     Bölgeye göre birincil ve ikincil eşleştirmeler hakkında daha fazla bilgi için bkz. [Azure Bölgeleri](https://azure.microsoft.com/regions/).
-* **Okuma erişimli coğrafi olarak yedekli depolama (RA-GRS)**. Okuma erişimli coğrafi olarak yedekli depolama, verilerinizi ikinci bir coğrafi konumda çoğaltır ve ikincil konumdaki verilerinize yönelik okuma erişimi sağlar. Konumlardan birinin kullanılamaz durumda olması halinde Coğrafi olarak yedekli depolama okuma erişimi verilerinize birincil veya ikincil konumdan erişmenizi sağlar. Depolama hesabınızı oluşturduğunuzda hesabınız için varsayılan seçenek, okuma erişimli coğrafi olarak yedekli depolamadır. 
-  
+* **Okuma erişimli coğrafi olarak yedekli depolama (RA-GRS)**. Okuma erişimli coğrafi olarak yedekli depolama, verilerinizi ikinci bir coğrafi konumda çoğaltır ve ikincil konumdaki verilerinize yönelik okuma erişimi sağlar. Konumlardan birinin kullanılamaz durumda olması halinde Coğrafi olarak yedekli depolama okuma erişimi verilerinize birincil veya ikincil konumdan erişmenizi sağlar. Depolama hesabınızı oluşturduğunuzda hesabınız için varsayılan seçenek, okuma erişimli coğrafi olarak yedekli depolamadır.
+
   > [!IMPORTANT]
   > Hesabınızı oluştururken ZRS seçmediyseniz, depolama hesabınız oluşturulduktan sonra verilerinizin çoğaltılma yöntemini değiştirebilirsiniz. Buna karşın LRS’den GRS’ye veya RA-GRS’ye geçiş yaparsanız tek seferlik veri aktarımı ücreti ödemeniz gerekebileceğini unutmayın.
-  > 
-  > 
+  >
+  >
 
 Depolama çoğaltma seçenekleri ile ilgili ayrıntılar için bkz. [Azure Storage çoğaltma](storage-redundancy.md).
 
@@ -252,6 +252,6 @@ Azure Storage hakkında daha fazla bilgi için şu kaynakları araştırın:
 * [Beş dakikada Azure Storage’ı kullanmaya başlayın](storage-getting-started-guide.md)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -2,6 +2,7 @@
 ## [DocumentDB nedir?](documentdb-introduction.md)
 ## [Temel kavramlar](documentdb-resources.md)
 ## [Genel dağıtım](documentdb-distribute-data-globally.md)
+## [NoSQL TCO analizi](https://aka.ms/documentdb-tco-paper)
 ## Senaryolar
 ### [Genel kullanım örnekleri](documentdb-use-cases.md)
 ### [DocumentDB ile iletişim](documentdb-social-media-apps.md)
@@ -10,6 +11,7 @@
 ## İlk uygulamanızı yazma
 ### [.NET konsol uygulaması](documentdb-get-started.md)
 ### [.NET Core konsol uygulaması](documentdb-dotnetcore-get-started.md)
+### [Java konsol uygulaması](documentdb-java-get-started.md)
 ### [Node.js konsol uygulaması](documentdb-nodejs-get-started.md)
 ### [C++ konsol uygulaması](documentdb-cpp-get-started.md)
 ## Web uygulaması oluşturma
@@ -24,7 +26,6 @@
 # Nasıl yapılır
 
 ## Planlama
-### [Depolama ve performans](documentdb-manage.md)
 ### [Bölümleme ve ölçeklendirme](documentdb-partition-data.md)
 ### [Tutarlılık](documentdb-consistency-levels.md)
 ### [NoSQL ile SQL karşılaştırması](documentdb-nosql-vs-sql.md)
@@ -39,8 +40,6 @@
 ### [Veri erişiminin güvenliğini sağlama](documentdb-secure-access-to-data.md)
 ### [Yedekleme ve geri yükleme](documentdb-online-backup-and-restore.md)
 ### [Performans seviyeleri](documentdb-performance-levels.md)
-### [Kaynak kotaları](documentdb-limits.md)
-### [Kotaları artırma](documentdb-increase-limits.md)
 ### [İstek birimleri](documentdb-request-units.md)
 ### Azure CLI
 #### [Hesap oluşturma](documentdb-automation-resource-manager-cli.md)
@@ -120,6 +119,6 @@
 ## [Öğrenme yolu](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

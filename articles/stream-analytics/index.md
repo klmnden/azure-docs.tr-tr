@@ -1,14 +1,15 @@
 ---
 layout: LandingPage
+description: "Tam olarak yönetilen olay işlemeyle bulutta nasıl IoT analizi çalıştıracağınızı öğrenin. Uygulamalardan, algılayıcılardan, cihazlardan ve diğer kaynaklardan gelen verileri gerçek zamanlı olarak analiz edin."
 translationtype: Human Translation
-ms.sourcegitcommit: 511d15cc48b17bd65bedc2c1cd9602d868ffa724
-ms.openlocfilehash: c57faa7c307420bb92bec2f661e6739a7cfca7ee
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 7095a55d9ea79bfd11b429d4fa53e04c482fbbea
 
 ---
 
 # <a name="stream-analytics-documentation"></a>Akış Analizi Belgeleri
 
-Azure Akış Analizi, verilerden ayrıntılı öngörüler elde etmenizi sağlayan, tam olarak yönetilen gerçek zamanlı bir olay işleme altyapısıdır.  Akış Analizi; cihazlardan, algılayıcılardan, web sitelerinden, sosyal medyadan, uygulamalardan, altyapı sistemlerinden ve daha fazlasından veri akışı gerçekleştirirken gerçek zamanlı analitik hesaplamalar oluşturmayı kolaylaştırır.
+Tam olarak yönetilen bir işleme altyapısı olan Stream Analytics ile bulutta Internet of Things (IoT) analizleri çalıştırmayı öğrenin. Öğreticilerde ve diğer belgelerde, uygulamalardan, sensörlerden, cihazlardan, sosyal medyadan ve diğer kaynaklardan alınan verileri gerçek zamanlı olarak nasıl çözümleyebileceğiniz açıklanmıştır. 
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -161,16 +162,10 @@ Azure Akış Analizi, verilerden ayrıntılı öngörüler elde etmenizi sağlay
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/stream-analytics.pdf">
-        <div class="img"></div>
-        <div class="text">
-Akış Analizi Belgelerini İndirme </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO3-->
 
 

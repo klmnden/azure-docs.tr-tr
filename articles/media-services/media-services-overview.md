@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 12/14/2016
+ms.date: 01/05/2017
 ms.author: juliako;anilmur
 translationtype: Human Translation
-ms.sourcegitcommit: 0d83c6e444d74ce7f95f796ec6c53abc43c37766
-ms.openlocfilehash: 7daf4bfa80fae2aee156af5cdb3588725aebd311
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: 946f6e480083a0007a88c85b744ddeafa0385990
 
 
 ---
@@ -48,7 +48,7 @@ Resmi tam boyutlu görüntülemek için tıklayın.
 
 <a href="https://docs.microsoft.com/en-us/azure/media-services/media/media-services-overview/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-overview/media-services-overview-object-model-small.png"></a>  
 
-Modelin tamamını [buradan](https://media.windows.net/API/$metadata?api-version=2.14) görüntüleyebilirsiniz.  
+Modelin tamamını [buradan](https://media.windows.net/API/$metadata?api-version=2.15) görüntüleyebilirsiniz.  
 
 
 ## <a name="media-services-learning-paths"></a>Media Services’i öğrenme yolları
@@ -65,9 +65,8 @@ Azure Media Services’i kullanmaya başlamak için aşağıdakilerin bulunması
 2. Bir Azure Media Services hesabı. Azure Media Services hesabı oluşturmak için Azure portal, .NET veya REST API’yi kullanın. Daha fazla bilgi için bkz. [Hesap Oluşturma](media-services-portal-create-account.md).
 3. (İsteğe bağlı) Geliştirme ortamı ayarlayın. Geliştirme ortamınız için .NET veya REST API’yi seçin. Daha fazla bilgi için bkz. [Ortam Ayarlama](media-services-dotnet-how-to-use.md).
 
-    Ayrıca, [Bağlanma](media-services-dotnet-connect-programmatically.md) ile programlı olarak nasıl bağlanılacağını öğrenin.
-
-4. (Önerilen) Bir veya daha fazla ölçek birimi ayırın. Üretim ortamındaki uygulamalar için bir veya daha fazla ölçek birimi ayırmak önerilir.   Daha fazla bilgi için bkz. [Akış uç noktalarını yönetme](media-services-portal-manage-streaming-endpoints.md).
+    Ayrıca, [programlı olarak nasıl bağlanılacağını](media-services-dotnet-connect-programmatically.md) öğrenin.
+4. Standart veya premium akış uç noktası başlatılmış durumda.  Daha fazla bilgi için bkz. [Akış uç noktalarını yönetme](https://docs.microsoft.com/en-us/azure/media-services/media-services-portal-manage-streaming-endpoints)
 
 ## <a name="concepts-and-overview"></a>Kavramlar ve genel bakış
 Azure Media Services kavramları hakkında bilgi edinmek için bkz. [Kavramlar](media-services-concepts.md).
@@ -79,6 +78,9 @@ Bu bölümde, yaygın senaryolar açıklanmakta ve ilgili konulara bağlantılar
 
 ![VoD iş akışı](./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png)
 
+>[!NOTE]
+>AMS hesabınız oluşturulduğunda hesabınıza **Durdurulmuş** durumda bir **varsayılan** akış uç noktası eklenir. İçerik akışını başlatmak ve dinamik paketleme ile dinamik şifrelemeden yararlanmak için içerik akışı yapmak istediğiniz akış uç noktasının **Çalışıyor** durumda olması gerekir. 
+    
 ### <a name="protect-content-in-storage-and-deliver-streaming-media-in-the-clear-non-encrypted"></a>Depolama alanında içeriği koruma ve akan medyayı temiz olarak (şifrelenmemiş) teslim etme
 1. Yüksek kaliteli bir ara dosyayı bir varlığa yükleyin.
 
@@ -90,12 +92,9 @@ Bu bölümde, yaygın senaryolar açıklanmakta ve ilgili konulara bağlantılar
 
     Varlığınıza depolama şifrelemesi uygulanmışsa varlık teslim ilkesini yapılandırmanız **gerekir**.
 4. Bir OnDemand bulucu oluşturarak varlığı yayımlayın.
-
-    İçerik akışını gerçekleştirmek istediğiniz akış uç noktasında akışa ayrılan en az bir birim olduğundan emin olun.
 5. Yayımlanan içeriği akışla aktarın.
 
 ### <a name="protect-content-in-storage-deliver-dynamically-encrypted-streaming-media"></a>Depolama alanında içeriği koruma, dinamik olarak şifrelenmiş akan medya teslim etme
-Dinamik şifreleme kullanabilmek için, ilk olarak kendisinden şifrelenmiş içerik akışı gerçekleştirmek istediğiniz akış uç noktasında akışa ayrılan en az bir birim almanız gerekir.
 
 1. Yüksek kaliteli bir ara dosyayı bir varlığa yükleyin. Varlığa depolama şifrelemesi seçeneğini uygulayın.
 2. Uyarlamalı bit hızlı bir MP4 dosyaları grubuna kodlayın. Çıktı varlığına depolama şifrelemesi seçeneğini uygulayın.
@@ -123,9 +122,7 @@ Medya Analizi, kuruluş ve işletmelerin video dosyalarından eyleme dönüştü
 2. Tek bir MP4 dosyasına kodlayın.
 3. Bir OnDemand veya SAS bulucu oluşturarak varlığı yayımlayın.
 
-    OnDemand bulucu kullanıyorsanız, kendisinden aşamalı olarak içerik indirmeyi planladığınız akış uç noktasında akışa ayrılan en az bir birim bulunduğundan emin olun.
-
-    SAS Bulucu kullanıyorsanız içerik, Azure blob depolama alanından indirilir. Bu durumda, akışa ayrılan birime gerekli değildir.
+    SAS Bulucu kullanıyorsanız içerik, Azure blob depolama alanından indirilir. Bu durumda, başlatılmış durumda akış uç noktası gerekli değildir.
 4. Aşamalı olarak içerik indirin.
 
 ## <a name="a-idlivescenariosadelivering-live-streaming-events-with-azure-media-services"></a><a id="live_scenarios"></a>Azure Media Services ile Etkinliklerin Canlı Akış Halinde Teslimi
@@ -151,7 +148,7 @@ Azure Media Services’de **Kanallar**, **Programlar** ve **Akış Uç Noktalar�
 
 **Kanal**, canlı akış içeriğinin işleneceği bir işlem hattını temsil eder. Kanal aşağıdaki yollarla bir canlı girdi akışı alabilir:
 
-* Şirket içi bir gerçek zamanlı kodlayıcı, çoklu bit hızına sahip **RTMP** veya **Kesintisiz Akışı** (parçalanmış MP4) **doğrudan geçiş** teslimi için yapılandırılmış Kanala gönderir. **Doğrudan geçiş** teslimi, alınan akışların herhangi başka bir işlemeye uğramadan **Kanallardan** geçmesidir. Çoklu bit hızlı Kesintisiz Akış çıktısı sağlayan şu gerçek zamanlı kodlayıcıları kullanabilirsiniz: Elemental, Envivio, Cisco.  Şu gerçek zamanlı kodlayıcılar RTMP çıktısı sağlar: Adobe Flash Live, Telestream Wirecast ve Tricaster kod dönüştürücüleri.  Gerçek zamanlı bir kodlayıcı, gerçek zamanlı kodlama için etkinleştirilmemiş bir kanala tek bit hızlı bir akış da gönderebilir, ancak bu işlem önerilmez. İstendiğinde, Media Services akışı müşterilere teslim eder.
+* Şirket içi bir gerçek zamanlı kodlayıcı, çoklu bit hızına sahip **RTMP** veya **Kesintisiz Akışı** (parçalanmış MP4) **doğrudan geçiş** teslimi için yapılandırılmış Kanala gönderir. **Doğrudan geçiş** teslimi, alınan akışların herhangi başka bir kodlama dönüştürme veya kodlama işlemine uğramadan **Kanallardan** geçmesidir. Çoklu bit hızı Kesintisiz Akış çıktısı sağlayan şu gerçek zamanlı kodlayıcıları kullanabilirsiniz: MediaExcel, Imagine Communications, Ateme, Envivio, Cisco ve Elemental. Şu gerçek zamanlı kodlayıcılar RTMP çıktısı sağlar: Adobe Flash Live Encoder, Haivision, Telestream Wirecast, Teradek ve Tricaster kodlayıcılar.  Gerçek zamanlı bir kodlayıcı, gerçek zamanlı kodlama için etkinleştirilmemiş bir kanala tek bit hızlı bir akış da gönderebilir, ancak bu işlem önerilmez. İstendiğinde, Media Services akışı müşterilere teslim eder.
 
 > [!NOTE]
 > Uzun bir dönem içerisinde birden çok etkinlik gerçekleştirecekseniz ve zaten şirket içi kodlayıcılara yatırım yaptıysanız, doğrudan geçiş yöntemini kullanmak canlı akış yapmanın en ekonomik yoludur. [Fiyatlandırma](https://azure.microsoft.com/pricing/details/media-services/) detaylarına bakın.
@@ -183,9 +180,11 @@ Azure Media Services, şunlar dahil olmak üzere çoğu platform için zengin ve
 Media Services, Azure CDN ile tümleştirmeyi destekler. Azure CDN'yi etkinleştirme hakkında daha fazla bilgi için bkz. [Media Services Hesabında Akış Uç Noktalarını Yönetme](media-services-portal-manage-streaming-endpoints.md).
 
 ## <a name="scaling-a-media-services-account"></a>Media Services hesabını ölçeklendirme
+
 Hesabınıza sağlanmasını istediğiniz **Akışa Ayrılan Birim** ve **Kodlamaya Ayrılan Birim** sayısını belirterek **Media Services**’i ölçeklendirebilirsiniz.
 
 Media Services hesabınızı, depolama hesapları ekleyerek de ölçeklendirebilirsiniz. Her depolama hesabı 500 TB ile sınırlıdır. Depolama alanınızı varsayılan sınırlamaların ötesine genişletmek için, tek bir Media Services hesabına birden çok depolama hesabı eklemeyi seçebilirsiniz.
+Media Services müşterileri ihtiyaçlarına göre **Standart** bir akış uç noktası veya bir veya daha fazla **Premium** akış uç noktası seçer. Standart Akış Uç Noktası çoğu akış iş yükü için uygundur. Premium Akış Birimleriyle aynı özelliklere sahiptir. Standart Akış Uç Noktası çoğu akış iş yükü için uygundur. Gelişmiş iş yükünüz varsa, akış kapasitesi gereksinimleriniz standart akış uç noktası çıkış hedeflerine uymuyorsa veya ölçek birimlerini (premium akış birimleri olarak da bilinir) ayarlayarak, artan bant genişliği ihtiyaçlarını yönetmek amacıyla StreamingEndpoint hizmetinin kapasitesini yönetmek istiyorsanız, ölçek birimleri atamanız önerilir.
 
 [Bu](media-services-portal-scale-streaming-endpoints.md) konuda, ilgili konulara bağlantılar sağlanmaktadır.
 
@@ -197,7 +196,7 @@ Media Services hesabınızı, depolama hesapları ekleyerek de ölçeklendirebil
 
 ## <a name="service-level-agreement-sla"></a>Hizmet Düzeyi Sözleşmesi (SLA)
 * Media Services Kodlama için, REST API işlemlerinin %99,9 kullanılabilirliğini garanti ediyoruz.
-* Akış için, en az bir Akış Birimi satın alındığında mevcut medya içeriğinin %99,9 kullanılabilirliği garantisi ile isteklere başarıyla hizmet vereceğiz.
+* Akış için, standart veya premium akış uç noktası satın alındığında mevcut medya içeriğinin %99,9 kullanılabilirliği garantisi ile isteklere başarıyla hizmet vereceğiz.
 * Canlı Kanallar için, çalışan Kanalların en az %99,9 oranda dış bağlantıya sahip olacağını garanti ediyoruz.
 * Content Protection için, önemli istekleri en az %99,9 oranda başarıyla karşılayacağımızı garanti ediyoruz.
 * Dizin Oluşturucu için, bir Kodlamaya Ayrılan Birim ile işlenen Dizin Oluşturucu Görevi isteklerine %99,9 oranda başarıyla hizmet vereceğiz.
@@ -212,6 +211,6 @@ Daha fazla bilgi için bkz. [Microsoft Azure SLA](https://azure.microsoft.com/su
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -1,13 +1,25 @@
 ---
 layout: LandingPage
+description: "Tercih ettiğiniz Linux dağıtımını kullanarak sanal makine oluşturmayı öğrenin. Belgelerde VM şablonları oluşturmanın farklı yolları açıklanmıştır."
+title: "Linux için Azure Sanal Makineler Belgeleri, Öğreticileri ve API Başvurusu | Microsoft Docs"
+services: virtual-machines-linux
+author: carolz
+manager: carolz
+ms.assetid: 
+ms.service: virtual-machines-linux
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: c5ed66f3a060dcd1bac9c04c70c493dcebcf9df8
-ms.openlocfilehash: 7b5078165e008819baed1c1e38d1c1a677648955
+ms.sourcegitcommit: 9bb4fb611c4f936317460040c4fbeff1a01f2c5c
+ms.openlocfilehash: 2728b18011e712d9f23f7645f8c83b053b3cf381
 
 ---
-#<a name="linux-virtual-machine-documentation"></a>Linux Sanal Makine Belgeleri
+# <a name="linux-virtual-machine-documentation"></a>Linux Sanal Makine Belgeleri
 
-Azure Sanal Makinelerini kullanarak, Azure’un işlem, ağ ve depolama altyapısında Linux sanal makineleri oluşturun ve çalıştırın.  İnternet çapında dağıtımlar için binlerce makineyi ölçeklendirin veya karmaşık hesaplar yapmak için tek bir makineyi birkaç dakika çalıştırın. Böylece hem hız hem de tutarlılık elde edebilirsiniz.
+Azure’da tercih ettiğiniz Linux dağıtımını kullanarak Sanal Makineler çalıştırmayı öğrenin. Belgeler, API başvuruları ve örneklerde VM şablonları oluşturmak ve dağıtmak için farklı yollar gösterilmiştir.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -85,121 +97,55 @@ Azure Sanal Makinelerini kullanarak, Azure’un işlem, ağ ve depolama altyapı
 </ul>
 
 ---
-
-##<a name="reference"></a>Başvuru
-
+ 
+<h2>Başvuru</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>PowerShell Cmdlet'leri</p>
+                        <h3>Komut Satırı</h3>
+                        <p><a href="/powershell/azureps-cmdlets-docs">PowerShell</a></p>
+                        <p><a href="/cli/azure/vm">Azure CLI</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/cli/azure/install-az-cli2">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Azure CLI</h3>
-                        <p>Azure CLI'yı yükleme</p>
+                        <h3>Diller</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.management.compute">.NET</a></p>
+                        <p><a href="/java/api">Java</a></p>
+                        <p><a href="https://azure.microsoft.com/en-us/develop/nodejs/#azure-sdk">Node.js</a></p>
+                        <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.compute.html">Python</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/dotnet/api">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>.NET Yönetilen Başvuru API'si</p>
+                        <h3>REST</h3>
+                        <p><a href="/rest/api/compute">REST API başvurusu</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
-    </li>
-    <li>
-        <a href="/java/api">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Java SDK</h3>
-                        <p>Java API Başvurusu</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/rest/api/compute">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST (İşlem)</h3>
-                        <p>İşlem REST API Başvurusu</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="https://msdn.microsoft.com/library/mt163658">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST (Ağ)</h3>
-                        <p>Ağ REST API Başvurusu</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/rest/api/storage">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST (Depolama)</h3>
-                        <p>Depolama REST API Başvurusu</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
     </li>
 </ul>
-    
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/virtual-machines/linux.pdf">
-        <div class="img"></div>
-        <div class="text">
-Linux Sanal Makine Belgelerini indirin </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+
+
+<!--HONumber=Jan17_HO4-->
 
 

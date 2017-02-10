@@ -3,6 +3,8 @@
 ## [Mikro hizmetleri anlama](service-fabric-overview-microservices.md)
 ## [Uygulama senaryoları](service-fabric-application-scenarios.md)
 ## [Mimari](service-fabric-architecture.md)
+## [Terminoloji](service-fabric-technical-overview.md)
+## [İçerik yol haritası](service-fabric-content-roadmap.md)
 
 # Kullanmaya Başlama
 ## Geliştirme ortamınızı kurma
@@ -17,17 +19,23 @@
 
 # Nasıl yapılır?
 ## Uygulama oluşturma
+### [Modeller ve senaryolar](service-fabric-patterns-and-scenarios.md)
 ### Temel Bilgiler
 #### [Programlama modeli](service-fabric-choose-framework.md)
 #### [Uygulama modeli](service-fabric-application-model.md)
 #### [Hizmet iletişimleri](service-fabric-connect-and-communicate-with-services.md)
+#### [Hizmet bildirimi kaynakları](service-fabric-service-manifest-resources.md)
 #### [Araçlar](service-fabric-manage-application-in-visual-studio.md)
-#### [Hata ayıklama](service-fabric-debugging-your-application.md)
+#### Hata ayıklama
+##### [VS’de C# hizmeti hata ayıklaması](service-fabric-debugging-your-application.md)
+##### [Eclipse’te Java hizmeti hata ayıklaması](service-fabric-debugging-your-application-java.md)
 #### İzleme ve tanılama
 ##### [Windows](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 ##### [Linux](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
-#### [Uygulamanıza yönelik güvenlik ilkeleri yapılandırma](service-fabric-application-runas-security.md)
-#### [Uygulamanızı birden çok ortam için yapılandırma](service-fabric-manage-multiple-environment-app-configuration.md)
+#### [Uygulama parolalarını yönetme](service-fabric-application-secret-management.md)  
+#### [Uygulamanıza yönelik güvenlik ilkeleri yapılandırma](service-fabric-application-runas-security.md)  
+#### [Uygulamanızı birden çok ortam için yapılandırma](service-fabric-manage-multiple-environment-app-configuration.md)  
+#### [Genel hatalar ve özel durumlar](service-fabric-errors-and-exceptions.md) 
 
 ### Reliable Service uygulaması
 #### [Genel Bakış](service-fabric-reliable-services-introduction.md)
@@ -35,12 +43,14 @@
 ##### [Windows üzerinde C#](service-fabric-reliable-services-quick-start.md)
 ##### [Linux üzerinde Java](service-fabric-reliable-services-quick-start-java.md)
 #### [Mimari](service-fabric-reliable-services-platform-architecture.md)
+#### [Reliable Services yaşam döngüsü](service-fabric-reliable-services-lifecycle.md)
 #### [Güvenilir Koleksiyonlar](service-fabric-reliable-services-reliable-collections.md)
 #### [Reliable Collections kullanımı](service-fabric-work-with-reliable-collections.md)
 #### [Yapılandırma](service-fabric-reliable-services-configuration.md)
 #### [Bildirimler](service-fabric-reliable-services-notifications.md)
 #### [Yedekleme ve geri yükleme](service-fabric-reliable-services-backup-restore.md)
 #### [Reliable Services özelliğiyle iletişim kurma](service-fabric-reliable-services-communication.md)
+#### [Reliable Services ile güvenli iletişim](service-fabric-reliable-services-secure-communication.md)
 ##### [ASP.NET](service-fabric-reliable-services-communication-webapi.md)
 ##### [Uzaktan Hizmet Verme](service-fabric-reliable-services-communication-remoting.md)
 ##### [WCF](service-fabric-reliable-services-communication-wcf.md)
@@ -61,6 +71,7 @@
 #### [Durum yönetimi](service-fabric-reliable-actors-state-management.md)
 #### [Durum sağlayıcısı yapılandırma](service-fabric-reliable-actors-kvsactorstateprovider-configuration.md)
 #### [Türü seri hale getirme](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
+#### [İletişim ayarlarını yapılandırma](service-fabric-reliable-actors-fabrictransportsettings.md) 
 
 ### Konuk tarafından yürütülebilir uygulama
 #### [Konuk tarafından yürütülebilir bir uygulama dağıtma](service-fabric-deploy-existing-app.md)
@@ -83,6 +94,7 @@
 #### [Kapasite planlaması](service-fabric-cluster-capacity.md)
 #### [Küme görselleştirme](service-fabric-visualizing-your-cluster.md)
 #### [Güvenli bir kümeye bağlanma](service-fabric-connect-to-secure-cluster.md)
+#### [Azure CLI kullanarak bir kümeyi yönetme](service-fabric-azure-cli.md) 
 #### [Güvenlik](service-fabric-cluster-security.md)
 #### [Olağanüstü durum kurtarma](service-fabric-disaster-recovery.md)
 
@@ -96,15 +108,19 @@
 #### [Küme silme](service-fabric-cluster-delete.md)
 #### [Erişim denetimi](service-fabric-cluster-security-roles.md)
 #### [Küme yapılandırma](service-fabric-cluster-fabric-settings.md)
+#### [Küme sertifikası ekleme veya geçirme](service-fabric-cluster-security-update-certs-azure.md) 
 #### [Bir Parti Kümesi’ni ücretsiz olarak deneme](http://aka.ms/tryservicefabric)
 
 ### Tek başına kümeler
 #### [Tek başına küme oluşturma](service-fabric-cluster-creation-for-windows-server.md)
+#### [Azure Sanal Makinelerde tek başına küme oluşturma](service-fabric-cluster-creation-with-windows-azure-vms.md)
 #### [Küme ölçeklendirme](service-fabric-cluster-windows-server-add-remove-nodes.md)
 #### [Kümeyi yükseltme](service-fabric-cluster-upgrade-windows-server.md)
 #### [Küme güvenliğini sağlama](service-fabric-windows-cluster-x509-security.md)
 #### [Erişim denetimi](service-fabric-cluster-security-roles.md)
 #### [Küme yapılandırma](service-fabric-cluster-manifest.md)
+#### [Sertifika kullanarak küme güvenliğini sağlama](service-fabric-windows-cluster-x509-security.md)  
+#### [Windows güvenliğini kullanarak küme güvenliğini sağlama](service-fabric-windows-cluster-windows-security.md) 
 
 ## Küme kaynaklarını yönetme ve düzenleme
 ### [Cluster Resource Manager’a genel bakış](service-fabric-cluster-resource-manager-introduction.md)
@@ -136,7 +152,6 @@
 ### [Uygulama yükseltme ile ilgili sorunları giderme](service-fabric-application-upgrade-troubleshooting.md)
 ### [Uygulama yükseltmede verileri serileştirme](service-fabric-application-upgrade-data-serialization.md)
 ### [Uygulama yükseltme ile ilgili gelişmiş konular](service-fabric-application-upgrade-advanced.md)
-### [REST tabanlı uygulama yaşam döngüsü örneği](service-fabric-rest-based-application-lifecycle-sample.md)
 
 ## Uygulama ve küme sistem durumunu denetleme
 ### [Service Fabric sistem durumunu izleme](service-fabric-health-introduction.md)
@@ -152,7 +167,7 @@
 ### Azure Tanılama günlükleri
 #### [Windows](service-fabric-diagnostics-how-to-setup-wad.md)
 #### [Linux](service-fabric-diagnostics-how-to-setup-lad.md)
-### [Service Fabric uygulama izlemesi](service-fabric-diagnostic-how-to-use-elasticsearch.md)
+### [Bir hizmet işleminden günlük toplama](service-fabric-diagnostic-collect-logs-without-an-agent.md)
 ### [Reliable Actors hizmetinde tanılama](service-fabric-reliable-actors-diagnostics.md)
 ### [Durum bilgisi olan Reliable Services özelliğinde tanılama](service-fabric-reliable-services-diagnostics.md)
 ### [Yerel kümenizde sorun giderme](service-fabric-troubleshoot-local-cluster-setup.md)
@@ -173,24 +188,19 @@
 #### [İş yükleri sırasında](service-fabric-testability-workload-tests.md)
 #### [Veri kaybı çağırarak](service-fabric-use-data-loss-api.md)
 #### [Test senaryolarını kullanma](service-fabric-testability-scenarios.md)
+#### [Düğüm geçişi API’lerini kullanma](service-fabric-node-transition-apis.md)
 ### [Uygulamanıza yük testi yapma](service-fabric-vso-load-test.md)
 
 # Başvuru
-## [Terminoloji](service-fabric-technical-overview.md)
-## [Reliable Actors](https://go.microsoft.com/fwlink/p/?linkid=833398)
-## [Reliable Actors WCF](https://go.microsoft.com/fwlink/p/?linkid=833401)
-## [Reliable Services](https://go.microsoft.com/fwlink/p/?linkid=833402)
-## [Reliable Services WCF](https://go.microsoft.com/fwlink/p/?linkid=833403)
-## [Veriler](https://go.microsoft.com/fwlink/p/?linkid=833404)
-## [Veri Arabirimleri](https://go.microsoft.com/fwlink/p/?linkid=833406)
-## [Sistem](https://go.microsoft.com/fwlink/p/?linkid=833407)
-## [Örnek kod](http://aka.ms/servicefabricsamples)
-## [PowerShell](/powershell/servicefabric/vlatest/servicefabric)
-## [Java API’si](https://go.microsoft.com/fwlink/p/?linkid=833410)
-## [.NET](/dotnet/api)
-## [REST](/rest/api/servicefabric/)
+## [PowerShell](//powershell/servicefabric/vlatest/servicefabric)
+## [Java API’si](/java/api/microsoft.servicefabric.services)
+## [.NET](/dotnet/api/microsoft.servicefabric.services)
+## [REST](/rest/api/servicefabric)
 
 # Kaynaklar
+## [Service Fabric hakkında sık sorulan sorular](service-fabric-common-questions.md)
+## [Service Fabric destek seçenekleri](service-fabric-support.md)
+## [Örnek kod](http://aka.ms/servicefabricsamples)
 ## [Öğrenme yolu](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/service-fabric/)
 ## [Hizmet Güncelleştirmeleri](https://azure.microsoft.com/updates/?product=service-fabric)
@@ -198,6 +208,6 @@
 ## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=service-fabric)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 

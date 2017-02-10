@@ -2,8 +2,8 @@
 layout: LandingPage
 description: "Event Hubs’ı kullanarak birçok farklı platformdaki bağlı IoT cihazlarından ve uygulamalarından saniyede milyonlarca olay alma işlemini nasıl yapabileceğinizi öğrenin."
 translationtype: Human Translation
-ms.sourcegitcommit: bedc8c16671de6071383659697ecd932e14cf3ba
-ms.openlocfilehash: 3d404f115c9a21c7ea62fb485a2129bca9de5c6c
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 29d6165596d3e98264285b6471c8f54b66aa2c3a
 
 ---
 #<a name="event-hubs-documentation"></a>Event Hubs Belgeleri
@@ -108,7 +108,7 @@ Event Hubs’ı kullanarak bağlı IoT cihazlarından ve uygulamalarından saniy
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/eventhub">REST API Başvurusu</a></p>
+                        <p><a href="/rest/api/eventhub">REST API başvurusu</a></p>
                     </div>
                 </div>
             </div>
@@ -116,13 +116,7 @@ Event Hubs’ı kullanarak bağlı IoT cihazlarından ve uygulamalarından saniy
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/event-hubs.pdf">
-        <div class="img"></div>
-        <div class="text">
-Event Hubs Belgelerini İndirme </div>
-    </a>
-</div>
+
 
 
 

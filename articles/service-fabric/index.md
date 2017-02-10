@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: c6d2e90a58359c809a2b01a97cb25c12f7600008
-ms.openlocfilehash: 798d728c163df6647fb2607e14decf880f43b053
+ms.sourcegitcommit: 6d6459646a269212364822ef6797b5850c2b0c2a
+ms.openlocfilehash: 0598e5ea3dc95853a21a56326241a82854477cbe
 
 ---
 #<a name="service-fabric-documentation"></a>Service Fabric Belgeleri
@@ -106,64 +106,44 @@ Azure Service Fabric; ölçeklenebilir ve güvenilir mikro hizmetleri paketlemey
 
 ---
 
-## <a name="reference"></a>Başvuru
-
+<h2>Başvuru</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/servicefabric/vlatest/servicefabric">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Service Fabric PowerShell Başvurusu</p>
+                        <h3>Komut Satırı</h3>
+                        <p><a href="/powershell/servicefabric/vlatest/servicefabric">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/java/api">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Java</h3>
-                        <p>Java API Başvurusu</p>
+                        <h3>Diller</h3>
+                        <p><a href="/java/api/microsoft.servicefabric.services">Java API’si</a></p>
+                        <p><a href="/dotnet/api/microsoft.servicefabric.services">.NET</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/dotnet/api/">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>.NET Yönetilen Başvuru API'si</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/rest/api/servicefabric">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Service Fabric REST API Başvurusu</p>
+                        <p><a href="/rest/api/servicefabric">REST API Başvurusu</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>   
 
@@ -178,6 +158,6 @@ Service Fabric Belgelerini İndirme </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

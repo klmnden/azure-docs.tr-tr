@@ -4,7 +4,6 @@
 ## [SSS](service-bus-faq.md)
 
 # Kullanmaya Başlama
-## [Çok katmanlı Service Bus uygulaması derleme](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 ## [Ad alanı oluşturma](service-bus-create-namespace-portal.md)
 ## Kuyrukları kullanma
 ### [.NET](service-bus-dotnet-get-started-with-queues.md)
@@ -21,34 +20,30 @@
 ### [PHP](service-bus-php-how-to-use-topics-subscriptions.md)
 ### [Python](service-bus-python-how-to-use-topics-subscriptions.md)
 ### [Ruby](service-bus-ruby-how-to-use-topics-subscriptions.md)
-## [Paylaşılan Erişim İmzaları oluşturma](service-bus-sas-overview.md)
+## [Çok katmanlı Service Bus uygulaması derleme](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 
 # Nasıl yapılır?
 ## Planlama ve tasarım
+### [Premium mesajlaşma](service-bus-premium-messaging.md)
 ### [Azure Kuyrukları ve Service Bus kuyruklarını karşılaştırması](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 ### [Performansı iyileştirme](service-bus-performance-improvements.md)
 ### [Zaman uyumsuz mesajlaşma ve yüksek kullanılabilirlik](service-bus-async-messaging.md)
 ### [Kesintileri ve olağanüstü durumları yönetme](service-bus-outages-disasters.md)
+### [Otomatik yönlendirme ile varlıklar arasında zincir oluşturma](service-bus-auto-forwarding.md)
 
 ## Geliştirme
 ### [Kuyruklar, konu başlıkları ve abonelikler](service-bus-queues-topics-subscriptions.md)
 ### [Kuyrukları kullanan uygulamalar](service-bus-create-queues.md)
 ### [Konular/abonelikler kullanan uygulamalar](service-bus-create-topics-subscriptions.md)
-### [Kimlik doğrulama ve yetkilendirme](service-bus-authentication-and-authorization.md)
-### [Premium mesajlaşma](service-bus-premium-messaging.md)
+### [Kimlik doğrulama ve yetkilendirme](service-bus-sas.md)
 ### [Bölümlenmiş kuyruklar ve konular](service-bus-partitioning.md)
 ### [Teslim edilemeyen iletiler sırası](service-bus-dead-letter-queues.md)
 ### [İşlem gerçekleştirme](service-bus-transactions.md)
-### [AMQP geliştirici kılavuzu]
+### AMQP
 #### [.NET](service-bus-amqp-dotnet.md)
 #### [Java](service-bus-amqp-java.md)
-#### [PHP](service-bus-amqp-php.md)
-#### [Python](service-bus-amqp-python.md)
-#### [Apache](service-bus-amqp-apache.md)
-### [.NET API ile AMQP kullanma](service-bus-dotnet-advanced-message-queuing.md)
-### [Bölünmüş kuyruklar ve konular ile AMQP kullanma](service-bus-partitioned-queues-and-topics-amqp-overview.md)
-### [Eşleştirilen ad alanları](service-bus-paired-namespaces.md)
-### [Otomatik yönlendirme ile varlıklar arasında zincir oluşturma](service-bus-auto-forwarding.md)
+#### [AMQP protokol kılavuzu](service-bus-amqp-protocol-guide.md)
+#### [AMQP istek-yanıt tabanlı işlemler](service-bus-amqp-request-response.md)
 
 ## Yönet
 ### [Service Bus yönetim kitaplıkları](service-bus-management-libraries.md)
@@ -56,30 +51,30 @@
 ### [Varlıkları sağlamak için PowerShell kullanma](service-bus-powershell-how-to-provision.md)
 
 # Başvuru
-## [PowerShell](/powershell/resourcemanager/azurerm.scheduler/v0.11.1/azurerm.scheduler)
-## [.NET](/dotnet/api/microsoft.azure.management.servicebus)
-## [Java](/java/api/com.microsoft.azure.servicebus.amqp)
+## .NET
+### [Microsoft.ServiceBus.Messaging](/dotnet/api/microsoft.servicebus.messaging)
+### [Microsoft.Azure.Management.ServiceBus](/dotnet/api/microsoft.azure.management.servicebus)
+## [PowerShell](service-bus-powershell-how-to-provision.md)
 ## [REST](/rest/api/servicebus)
-
-# Kaynaklar
-## [SQLFilter söz dizimi](service-bus-messaging-sql-filter.md)
-## [SQLRuleAction söz dizimi](service-bus-messaging-sql-rule-action.md)
-## [AMQP1.0 protokol kılavuzu](service-bus-amqp-protocol-guide.md)
-### [AMQP 1.0 istek-yanıt tabanlı işlemler](service-bus-amqp-request-response.md)
-## [Fiyatlandırma ayrıntıları](service-bus-pricing-billing.md)
-## [Örnekler](service-bus-samples.md)
 ## [Özel Durumlar](service-bus-messaging-exceptions.md)
 ## [Kotalar](service-bus-quotas.md)
+## [SQLFilter söz dizimi](service-bus-messaging-sql-filter.md)
+## [SQLRuleAction söz dizimi](service-bus-messaging-sql-rule-action.md)
+
+# Kaynaklar
+## [Fiyatlandırma ayrıntıları](service-bus-pricing-billing.md)
+## [Örnekler](service-bus-samples.md)
 ## [Blog](https://blogs.msdn.microsoft.com/servicebus/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/servicebus)
 ## [MSDN forumları](https://social.msdn.microsoft.com/forums/home?forum=servbus)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/service-bus/)
-## [Öğrenme yolu](https://azure.microsoft.com/documentation/learning-paths/service-bus/)
 ## [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer)
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=service-bus)
 ## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
 
 
-<!--HONumber=Jan17_HO3-->
+
+
+<!--HONumber=Jan17_HO4-->
 
 

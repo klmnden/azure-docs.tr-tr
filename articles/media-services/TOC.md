@@ -24,7 +24,9 @@
 ### Program aracılığıyla bağlanma
 #### [.NET](media-services-dotnet-connect-programmatically.md)
 #### [REST](media-services-rest-connect-programmatically.md)
-### [Portaldaki akış uç noktalarını yönetme](media-services-portal-manage-streaming-endpoints.md)
+### [Akış uç noktalarını yönetme](media-services-streaming-endpoints-overview.md)
+#### [Portal](media-services-portal-manage-streaming-endpoints.md)
+#### [.NET](media-services-dotnet-manage-streaming-endpoints.md)
 ### [Nasıl Yapılır?: Depolama Erişim Anahtarlarını Değiştirdikten Sonra Media Services’ı Güncelleştirme](media-services-roll-storage-access-keys.md)
 ### [Kotalar ve sınırlamalar](media-services-quotas-and-limitations.md)
 
@@ -92,6 +94,9 @@
 
 ## [Canlı akış](media-services-manage-channels-overview.md)
 ### [Şirket içi kodlayıcılar](media-services-live-streaming-with-onprem-encoders.md)
+#### [Portal](media-services-portal-live-passthrough-get-started.md)
+#### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
+#### [REST](https://docs.microsoft.com/rest/api/media/operations/channel)
 ### [Bulut kodlayıcıyla canlı akış](media-services-manage-live-encoder-enabled-channels.md)
 ### Bulut kodlayıcı öğreticileri
 #### [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
@@ -207,6 +212,6 @@
 ## [Videolar](https://azure.microsoft.com/resources/videos/index/?services=media-services)
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -128,7 +128,6 @@
 #### [Bir Web Hizmetini dağıtma](machine-learning-publish-a-machine-learning-web-service.md)
 #### [Dış veri kullanma](machine-learning-web-services-that-use-import-export-modules.md)
 #### [Birden çok bölgede dağıtma](machine-learning-how-to-deploy-to-multiple-regions.md)
-#### [Market'te yayımlama](machine-learning-publish-web-service-to-azure-marketplace.md)
 #### [Web hizmeti parametrelerini kullanma](machine-learning-web-service-parameters.md)
 #### [Günlüğü etkinleştirme](machine-learning-web-services-logging.md)
 ### Web hizmetlerini yönetme
@@ -157,23 +156,10 @@
 #### [1 TB ile Hadoop kullanma](machine-learning-data-science-process-hive-criteo-walkthrough.md)
 #### [SQL Server kullanma](machine-learning-data-science-process-sql-walkthrough.md)
 #### [Azure SQL Veri Ambarı kullanma](machine-learning-data-science-process-sqldw-walkthrough.md)
-### Web hizmeti örnekleri
-#### [R örnekleri](machine-learning-r-csharp-web-service-examples.md)
-#### [İkili Dosya Sınıflandırıcı](machine-learning-r-csharp-binary-classifier.md)
-#### [Küme Modeli](machine-learning-r-csharp-cluster-model.md)
-#### [Çok Değişkenli Doğrusal Regresyon](machine-learning-r-csharp-multivariate-linear-regression.md)
-#### [Tahmin - Üstel Düzeltme](machine-learning-r-csharp-forecasting-exponential-smoothing.md)
-#### [Tahmin - ETS + STL](machine-learning-r-csharp-retail-demand-forecasting.md)
-#### [Tahmin - ARIMA](machine-learning-r-csharp-arima.md)
-#### [Yaşam Analizi](machine-learning-r-csharp-survival-analysis.md)
-#### [Sözlüğe Dayalı Yaklaşım Analizi](machine-learning-r-csharp-lexicon-based-sentiment-analysis.md)
-#### [Oran Farkı Testi](machine-learning-r-csharp-difference-in-two-proportions.md)
-#### [Normal Dağıtım Paketi](machine-learning-r-csharp-normal-distribution.md)
-#### [İki Terimli Dağıtım Paketi](machine-learning-r-csharp-binomial-distribution.md)
-#### [Market SSS](machine-learning-marketplace-faq.md)
 
 # Başvuru
-## [PowerShell](machine-learning-powershell-module.md)
+## [PowerShell modülü (Yeni)](/powershell/resourcemanager/azurerm.machinelearning/v0.11.1/azurerm.machinelearning)
+## [PowerShell modülü (Klasik)](machine-learning-powershell-module.md)
 ## [Algoritmalar ve Modül başvurusu](https://msdn.microsoft.com/library/azure/dn905974.aspx)
 ## [REST](/rest/api/machinelearning)
 
@@ -192,7 +178,7 @@
 ### [Özel Modüller](machine-learning-gallery-custom-modules.md)
 ## Cortana Analytics
 ### API'ler
-#### [Anormallik algılama](machine-learning-apps-anomaly-detection.md)
+#### [Anormallik algılama](machine-learning-apps-anomaly-detection-api.md)
 #### [Metin analizi](machine-learning-apps-text-analytics.md)
 #### [Bilişsel Hizmetler](https://azure.microsoft.com/services/cognitive-services/)
 #### Öneriler
@@ -222,6 +208,6 @@
 ## [Canlı sohbetten yardım alma](machine-learning-live-chat.md)
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

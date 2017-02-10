@@ -2,8 +2,8 @@
 layout: LandingPage
 description: "Uygulamalara Power BI veri görselleştirmeleri ve etkileşimli raporları ekleme hakkında bilgi edinin. Öğreticiler, API başvuruları ve diğer belgeler."
 translationtype: Human Translation
-ms.sourcegitcommit: 531e3606330a55563ae77d18d5fd270d799d6d30
-ms.openlocfilehash: 08270fca90bb74f166c94e0f4acc406bca936eb8
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: c18bbb0b1e40d03be35c7d6375bb7520f0e0d4e4
 
 ---
 # <a name="power-bi-embedded-documentation"></a>Power BI Embedded Belgeleri
@@ -121,7 +121,7 @@ Power BI Embedded ile uygulamalara veri görselleştirmeleri ve etkileşimli rap
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/powerbiembedded/">REST API Başvurusu</a></p>
+                        <p><a href="/rest/api/powerbiembedded/">REST API başvurusu</a></p>
                     </div>
                 </div>
             </div>
@@ -129,13 +129,6 @@ Power BI Embedded ile uygulamalara veri görselleştirmeleri ve etkileşimli rap
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/power-bi-embedded.pdf">
-        <div class="img"></div>
-        <div class="text">
-Power BI Embedded Belgelerini indirin </div>
-    </a>
-</div>
 
 
 

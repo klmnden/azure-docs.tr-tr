@@ -20,8 +20,9 @@
 ### [Dynatrace (DC/OS) ile izleme](container-service-monitoring-dynatrace.md)
 ## Kubernetes ile yönetme
 ### [Kubernetes’i kullanmaya başlama](container-service-kubernetes-walkthrough.md)
+### [Hizmet sorumlusu yapılandırma](container-service-kubernetes-service-principal.md)
 ### [Kubernetes Web Kullanıcı Arabirimi ile etkileşim kurma](container-service-kubernetes-ui.md)
-## [Docker Swarm ile yönetme](container-service-docker-swarm.md)
+## Docker Swarm ile yönetme
 ### [Docker ve Docker Compose](container-service-docker-swarm.md)
 ### [Docker Swarm sürekli tümleştirme](container-service-docker-swarm-setup-ci-cd.md)
 # Başvuru
@@ -34,6 +35,6 @@
 ## [Hizmet Güncelleştirmeleri](https://azure.microsoft.com/en-us/updates/?product=container-service&updatetype=&platform=)
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

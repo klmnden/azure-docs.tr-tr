@@ -1,6 +1,6 @@
 ---
-title: "PowerShell kullanarak Azure SQL Veritabanı sunucu düzeyinde güvenlik duvarı kuralları yapılandırma| Microsoft Belgeleri"
-description: "Güvenlik duvarının Azure SQL veritabanlarına erişen IP adresleri için nasıl yapılandırılacağını öğrenin."
+title: "PowerShell: Azure SQL Veritabanı güvenlik duvarı kurallarını yapılandırma | Microsoft Docs"
+description: "PowerShell aracılığıyla Azure SQL veritabanlarına erişen IP adresleri için sunucu düzeyinde güvenlik duvarı kurallarını nasıl yapılandıracağınızı öğrenin."
 services: sql-database
 documentationcenter: 
 author: stevestein
@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 08/09/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
-ms.openlocfilehash: 1f7a1f6f4cc970cf12851e48d0f1b3c6ae46279c
+ms.sourcegitcommit: 86bc7d89bb5725add8ba05b6f0978467147fd3ca
+ms.openlocfilehash: d80bd1fbb5cdb0492e521a4d600f657fac0e3325
 
 
 ---
@@ -49,11 +49,11 @@ Sunucu düzeyinde yeni bir güvenlik duvarı kuralı oluşturmak için [New-Azur
 
 Sunucu düzeyindeki mevcut bir güvenlik duvarı kuralını değiştirmek için [Set-AzureRmSqlServerFirewallRule](https://msdn.microsoft.com/library/azure/mt603789\(v=azure.300\).aspx) cmdlet’ini yürütün. Aşağıdaki örnekte, ContosoFirewallRule adlı kural için kabul edilebilir IP adresleri aralığı değiştirilmektedir.
 
-    Set-AzureRmSqlServerFirewallRule -ResourceGroupName 'resourcegroup1' –StartIPAddress 192.168.1.4 –EndIPAddress 192.168.1.10 –FirewallRuleName 'ContosoFirewallRule' –ServerName 'Contoso'
+    Set-AzureRmSqlServerFirewallRule -ResourceGroupName 'resourcegroup1' -StartIPAddress 192.168.1.4 -EndIPAddress 192.168.1.10 -FirewallRuleName 'ContosoFirewallRule' -ServerName 'Contoso'
 
 Sunucu düzeyindeki mevcut bir güvenlik duvarı kuralını silmek için [Remove-AzureRmSqlServerFirewallRule](https://msdn.microsoft.com/library/azure/mt603588\(v=azure.300\).aspx) cmdlet’ini yürütün. Aşağıdaki örnekte, ContosoFirewallRule adlı kural silinmektedir.
 
-    Remove-AzureRmSqlServerFirewallRule –FirewallRuleName 'ContosoFirewallRule' –ServerName 'Contoso'
+    Remove-AzureRmSqlServerFirewallRule -FirewallRuleName 'ContosoFirewallRule' -ServerName 'Contoso'
 
 
 ## <a name="manage-firewall-rules-by-using-powershell"></a>PowerShell kullanarak güvenlik duvarı kurallarını yönetme
@@ -87,6 +87,6 @@ Veritabanlarına nasıl gidileceğini anlamak için bkz. [Veritabanı erişimi v
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

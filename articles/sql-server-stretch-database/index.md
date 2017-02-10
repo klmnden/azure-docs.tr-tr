@@ -1,13 +1,15 @@
 ---
 layout: LandingPage
+description: "Sorguları veya uygulamaları değiştirmeden soğuk verilerinizi güvenli bir şekilde Azure’a geçirmek için SQL Server Esnetme Veritabanı’nı kullanmayı öğrenin. Öğreticiler ve diğer belgeler."
 translationtype: Human Translation
-ms.sourcegitcommit: d237f5116f81d0977a96a325ee66f2e7c3ee5c41
-ms.openlocfilehash: bf45461eafbb010d99b61f2f67a763e25f374b30
+ms.sourcegitcommit: abbb8f04239f633fad5c90cfec8b0037a8e6ae3d
+ms.openlocfilehash: 5febfd07ef0a976b8213e5c71e8e88db2bc108e2
 
 ---
 #<a name="sql-server-stretch-database-documentation"></a>SQL Server Esnetme Veritabanı Belgeleri
 
-SQL Server Esnetme Veritabanı, soğuk verilerinizi şeffaf ve güvenli bir şekilde Microsoft Azure bulutuna geçirir. SQL Server Esnetme Veritabanı düzenli olarak kullandığınız veriler için uygun maliyetli kullanılabilirlik sağlar, sorgularınızda veya uygulamalarınızda değişiklik yapılmasını gerektirmez ve geçiş sırasında bile verilerinizi güvende tutar. Esnetme Veritabanı, genellikle az sayıda tablo içinde saklanan ve çok miktarda nadir kullanılan veri içeren işlem veritabanlarını hedefler.
+Soğuk verilerinizi şeffaf ve güvenli bir şekilde Azure bulutuna geçirmek için SQL Server Esnetme Veritabanı’nı kullanmayı öğrenin. Öğreticiler ve diğer belgeler, seyrek olarak kullanılan veriler içeren veritabanları için uygun maliyetli kullanılabilirlik seçeneklerini, mevcut sorgular veya uygulamalar için ücret ödemek zorunda kalmadan ayarlamanıza yardımcı olur.
+
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -96,6 +98,6 @@ SQL Server Esnetme Veritabanı Belgelerini indirin </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO4-->
 
 

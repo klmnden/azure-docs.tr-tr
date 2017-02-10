@@ -1,10 +1,10 @@
 ---
 title: Azure Backup nedir? | Microsoft Belgeleri
-description: "Azure Backup ve Kurtarma Hizmetleri&quot;ni kullanarak; Windows Sunucuları’ndan, Windows istemci makinelerinden, System Center DPM sunucularından ve Azure sanal makinelerinden verileri ve uygulamaları yedekleyip geri yükleyebilirsiniz."
+description: "Azure Backup’ı ve Kurtarma Hizmetleri&quot;ni kullanarak; Windows Sunucuları’nda, Windows bilgisayarlarında, System Center DPM sunucularında ve Azure sanal makinelerinde bulunan verileri ve uygulamaları yedekleyip geri yükleyebilirsiniz."
 services: backup
 documentationcenter: 
 author: markgalioto
-manager: cfreeman
+manager: carmonm
 editor: 
 keywords: "yedekleme ve geri yükleme; kurtarma hizmetleri; yedekleme çözümleri"
 ms.assetid: 0d2a7f08-8ade-443a-93af-440cbf7c36c4
@@ -13,11 +13,11 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/6/2016
+ms.date: 1/4/2017
 ms.author: jimpark; trinadhk
 translationtype: Human Translation
-ms.sourcegitcommit: b9737c3da308aecf25d5f18088f96c319edeafd5
-ms.openlocfilehash: 76ec51a75240710b24c0e91042d6229e60eeada9
+ms.sourcegitcommit: 0eb7b5c283c95503d076da486ba08df833f1acbd
+ms.openlocfilehash: 5235a09822dc14040ca6d4353d00e938fefd0e43
 
 
 ---
@@ -35,8 +35,9 @@ Geleneksel yedekleme çözümleri, bulutu disk veya bantlara benzer bir uç nokt
 
 **Birden çok depolama seçeneği** - Yüksek kullanılabilirliğin bir özelliği de depolama çoğaltmadır. Azure Backup iki tür çoğaltma sunar: [Yerel olarak yedekli depolama](../storage/storage-redundancy.md#locally-redundant-storage) ve [coğrafi olarak yedekli depolama](../storage/storage-redundancy.md#geo-redundant-storage). İhtiyacınız olan yedek depolama seçeneğini belirleyin:
 
-* Yerel olarak yedekli depolama (LRS), verilerinizi aynı bölgedeki bir eşlenmiş veri merkezine üç kez kopyalar (verilerinizin üç kopyasını oluşturur). LRS, düşük maliyetli bir seçenektir ve verileri yerel donanım hatalarına karşı koruduğu için harcamalarını alt seviyede tutmak isteyen müşteriler için idealdir.
-* Coğrafi çoğaltmalı depolama (GRS), verilerinizi ikincil bir bölgeye (kaynak verilerin birincil konumundan yüzlerce kilometre uzakta) kopyalar. GRS’nin maliyeti LRS’den yüksektir ancak bölgesel kesintiler olsa bile daha yüksek veri dayanıklılık düzeyi sunar.
+* Yerel olarak yedekli depolama (LRS), verilerinizi aynı bölgedeki bir eşlenmiş veri merkezine üç kez kopyalar (verilerinizin üç kopyasını oluşturur). LRS, verilerinizi yerel donanım hatalarına karşı korumak için düşük maliyetli bir seçenektir.
+
+* Coğrafi olarak yedekli depolama (GRS), verilerinizi ikincil bir bölgeye (kaynak verilerin birincil konumundan yüzlerce kilometre uzakta) kopyalar. GRS’nin maliyeti LRS’den yüksektir ancak bölgesel kesintiler olsa bile daha yüksek veri dayanıklılık düzeyi sunar.
 
 **Sınırsız veri aktarımı** - Azure Backup, aktardığınız verilerde aşağı ya da yukarı yönlü bir sınırlama yapmaz. Azure Backup ayrıca aktarılan veriler için ücret talep etmez. Ancak, büyük miktarda veriyi içeri aktarmak için Azure İçeri/Dışarı Aktarma hizmetini kullanırsanız gelen verilerden ücret alınır. Bu maliyet hakkında daha fazla bilgi için bkz. [Azure Backup’ta çevrimdışı yedekleme iş akışı](backup-azure-backup-import-export.md). Giden veriler, geri yükleme işlemi sırasında bir yedek kasasından aktarılan verileri tanımlar.
 
@@ -52,8 +53,8 @@ Geleneksel yedekleme çözümleri, bulutu disk veya bantlara benzer bir uç nokt
 | Bileşen | Avantajlar | Sınırlar | Neler korunuyor? | Yedekler nerede saklanıyor? |
 | --- | --- | --- | --- | --- |
 | Azure Backup (MARS) aracısı |<li>Fiziksel veya sanal Windows işletim sistemi üzerindeki dosya ve klasörleri yedekler (VM’ler şirket içinde veya Azure’da olabilir)<li>Ayrı bir yedekleme sunucusu gerekli değildir. |<li>Günde 3 kez yedekleme <li>Uygulamayı algılamaz; yalnızca dosya, klasör ve birim düzeyinde geri yükleme, <li>  Linux desteği yok. |<li>Dosyalar, <li>Klasörler |Azure Backup kasası |
-| System Center DPM |<li>Uygulama kullanan anlık görüntüler (VSS)<li>Yedeklemelerin alınma zamanı için tam esneklik<li>Kurtarma ayrıntı düzeyi (tümü)<li>Azure Backup kasasını kullanabilir<li>Hyper-V ve VMware VM’lerinde Linux desteği <li>DPM 2012 R2 kullanan VMware VM’lerini koruma |Oracle iş yükü yedeklenemiyor.|<li>Dosyalar, <li>Klasörler,<li> Birimler, <li>VM’ler,<li> Uygulamalar,<li> İş yükleri |<li>Azure Backup kasası,<li> Yerel olarak bağlı disk,<li>  Bant (yalnızca şirket içi) |
-| Azure Backup Sunucusu |<li>Uygulama kullanan anlık görüntüler (VSS)<li>Yedeklemelerin alınma zamanı için tam esneklik<li>Kurtarma ayrıntı düzeyi (tümü)<li>Azure Backup kasasını kullanabilir<li>Linux desteği (Hyper-V üzerinde barındırılıyorsa)<li>DPM 2012 R2 kullanan VMware VM’lerini koruma<li>System Center lisansı gerektirmez |<li>Oracle iş yükü yedeklenemiyor.<li>Her zaman canlı Azure aboneliği gerektirir<li>Bant yedekleme desteği yoktur |<li>Dosyalar, <li>Klasörler,<li> Birimler, <li>VM’ler,<li> Uygulamalar,<li> İş yükleri |<li>Azure Backup kasası,<li> Yerel olarak bağlı disk |
+| System Center DPM |<li>Uygulama kullanan anlık görüntüler (VSS)<li>Yedeklemelerin alınma zamanı için tam esneklik<li>Kurtarma ayrıntı düzeyi (tümü)<li>Azure Backup kasasını kullanabilir<li>Hyper-V ve VMware VM’lerinde Linux desteği <li>DPM 2012 R2 kullanarak VMware WM’lerini yedekleme ve geri yükleme |Oracle iş yükü yedeklenemiyor.|<li>Dosyalar, <li>Klasörler,<li> Birimler, <li>VM’ler,<li> Uygulamalar,<li> İş yükleri |<li>Azure Backup kasası,<li> Yerel olarak bağlı disk,<li>  Bant (yalnızca şirket içi) |
+| Azure Backup Sunucusu |<li>Uygulama kullanan anlık görüntüler (VSS)<li>Yedeklemelerin alınma zamanı için tam esneklik<li>Kurtarma ayrıntı düzeyi (tümü)<li>Azure Backup kasasını kullanabilir<li>Hyper-V ve VMware VM’lerinde Linux desteği<li>VMware VM’lerini yedekleme ve geri yükleme <li>System Center lisansı gerektirmez |<li>Oracle iş yükü yedeklenemiyor.<li>Her zaman canlı Azure aboneliği gerektirir<li>Bant yedekleme desteği yoktur |<li>Dosyalar, <li>Klasörler,<li> Birimler, <li>VM’ler,<li> Uygulamalar,<li> İş yükleri |<li>Azure Backup kasası,<li> Yerel olarak bağlı disk |
 | Azure IaaS VM Backup |<li>Windows/Linux için yerel yedeklemeler<li>Belirli bir aracı yüklemesi gerekmez<li>Yedekleme altyapısı gerekmeden yapı düzeyinde yedekleme |<li>VM’leri günde bir kez yedekleme <li>VM’leri yalnızca disk düzeyinde geri yükleme<li>Şirket içi yedekleme gerçekleştirilemez |<li>VM’ler, <li>Tüm diskler (PowerShell kullanarak) |<p>Azure Backup kasası</p> |
 
 ## <a name="what-are-the-deployment-scenarios-for-each-component"></a>Her bileşen için dağıtım senaryoları nelerdir?
@@ -176,17 +177,26 @@ Azure Backup aracı, veri aktarımı sırasında ağ bant genişliğinin nasıl 
 
 ### <a name="backup-and-retention"></a>Yedekleme ve bekletme
 
-Azure Backup’ta, Backup kasası başına 9999 kurtarma noktası (yedekleme kopyası veya anlık görüntü olarak da bilinir) sınırı vardır. Aşağıdaki tablo, her bileşen için en fazla yedekleme (kasaya) sıklığını gösterir. Kurtarma noktalarını hangi hızla tükettiğiniz, yedekleme ilkesi yapılandırmanız tarafından belirlenir. Örneğin, her gün bir kurtarma noktası oluşturursanız; kurtarma noktalarınızı 27 yıl boyunca bitmeden tutabilirsiniz. Aylık olarak kurtarma noktası alırsanız, kurtarma noktalarınızı 833 yıl boyunca bitmeden tutabilirsiniz. Backup hizmeti, kurtarma noktası üzerinde bir sona erme süresi ayarlamaz.
+Azure Backup’ta, *korumalı örnek* başına 9999 kurtarma noktası (yedekleme kopyası veya anlık görüntü olarak da bilinir) sınırı vardır. Korumalı örnek, verileri Azure’a yedeklemek için yapılandırılmış bir bilgisayar, sunucu (fiziksel veya sanal) veya iş yüküdür. Daha fazla bilgi için [Korumalı örnek nedir?](backup-introduction-to-azure-backup.md#what-is-a-protected-instance) bölümüne bakın. Verilerin yedek kopyası kaydedildiğinde örnek, korumalı hale gelir. Verilerin yedek kopyası, korumayı oluşturur. Kaynak veriler, kaybolmaları veya bozulmaları durumunda yedek kopya kullanılarak geri yüklenebilir. Aşağıdaki tablo, her bileşen için en fazla yedekleme sıklığını gösterir. Kurtarma noktalarını hangi hızla tükettiğiniz, yedekleme ilkesi yapılandırmanız tarafından belirlenir. Örneğin, her gün bir kurtarma noktası oluşturursanız; kurtarma noktalarınızı 27 yıl boyunca bitmeden tutabilirsiniz. Aylık kurtarma noktası alırsanız, kurtarma noktalarınızı 833 yıl süreyle saklayabilirsiniz. Backup hizmeti, kurtarma noktası üzerinde bir sona erme süresi ayarlamaz.
 
 |  | Azure Backup aracısı | System Center DPM | Azure Backup Sunucusu | Azure IaaS VM Backup |
 | --- | --- | --- | --- | --- |
 | Yedekleme sıklığı<br/> (Backup kasasına) |Günde üç yedekleme |Günde iki yedekleme |Günde iki yedekleme |Günde bir yedekleme |
 | Yedekleme sıklığı<br/> (diske) |Uygulanamaz |<li>SQL Server için 15 dakikada bir <li>Diğer iş yükleri için saatte bir |<li>SQL Server için 15 dakikada bir <li>Diğer iş yükleri için saatte bir</p> |Uygulanamaz |
 | Bekletme seçenekleri |Günlük, haftalık, aylık, yıllık |Günlük, haftalık, aylık, yıllık |Günlük, haftalık, aylık, yıllık |Günlük, haftalık, aylık, yıllık |
-| Sunucu başına en fazla kurtarma noktası |9999|9999|9999|9999|
+| Korumalı örnek başına en fazla kurtarma noktası |9999|9999|9999|9999|
 | En uzun bekletme süresi |Yedekleme sıklığına bağlıdır |Yedekleme sıklığına bağlıdır |Yedekleme sıklığına bağlıdır |Yedekleme sıklığına bağlıdır |
 | Yerel diskteki kurtarma noktaları |Uygulanamaz |<li>Dosya Sunucuları için 64<li>Uygulama Sunucuları için 448 |<li>Dosya Sunucuları için 64<li>Uygulama Sunucuları için 448 |Uygulanamaz |
 | Banttaki kurtarma noktaları |Uygulanamaz |Sınırsız |Uygulanamaz |Uygulanamaz |
+
+## <a name="what-is-a-protected-instance"></a>Korumalı örnek nedir?
+Korumalı örnek, Azure’a yedeklemek için yapılandırılmış bir Windows bilgisayar, sunucu (fiziksel veya sanal) veya SQL veritabanı için genel bir başvurudur. Bilgisayar, sunucu veya veritabanı için bir yedekleme ilkesi yapılandırdığınızda ve verilerin yedek kopyasını oluşturduğunuzda örnek, korumalı hale gelir. Bu korumalı örnek için yedek verilerin sonraki kopyaları (kurtarma noktası olarak adlandırılır), kullanılan depolama alanı miktarını artırır. Korumalı bir örnek için en çok 9999 kurtarma noktası oluşturabilirsiniz. Bir kurtarma noktasını depolamadan silerseniz, 9999 kurtarma noktası toplamı içinde sayılmaz.
+Korumalı örneklere sanal makineler, uygulama sunucuları, veritabanları ve Windows işletim sistemi çalıştıran kişisel bilgisayarlar örnek olarak verilebilir. Örneğin:
+
+* Hyper-V veya Azure IaaS hiper yönetici yapısı çalıştıran bir sanal makine. Sanal makine için konuk işletim sistemleri Windows Server veya Linux olabilir.
+* Bir uygulama sunucusu: Uygulama sunucusu Windows Server ve yedeklenmesi gereken verileri içeren iş yüklerini çalıştıran bir fiziksel veya sanal makine olabilir. Ortak iş yükleri; Microsoft SQL Server, Microsoft Exchange sunucusu, Microsoft SharePoint sunucusu, Microsoft Dynamics ve Windows Server üzerindeki Dosya Sunucusu rolüdür. Bu iş yüklerini yedeklemek için System Center Data Protection Manager (DPM) veya Azure Backup Sunucusu gerekir.
+* Windows işletim sistemi çalıştıran kişisel bilgisayar veya dizüstü bilgisayar.
+
 
 ## <a name="what-is-the-vault-credential-file"></a>Kasa kimlik bilgileri dosyası nedir?
 Kasa kimlik bilgileri dosyası, her bir Backup kasası için portal tarafından oluşturulan bir sertifikadır. Portal daha sonra ortak anahtarı Access Control Service'e (ACS) yükler. Özel anahtar, kimlik bilgilerini indirdiğinizde sizinle paylaşılır. Koruma altına alacağınız bilgisayarları kaydetmek için bu anahtarı kullanın. Özel anahtar, sunucuların veya bilgisayarların belirli bir Backup kasasına veri göndermesi için kimlik doğrulamasından geçmesini sağlar.
@@ -224,6 +234,6 @@ Diğer iş yüklerini koruma hakkında ayrıntılı bilgi için şu makaleleri i
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

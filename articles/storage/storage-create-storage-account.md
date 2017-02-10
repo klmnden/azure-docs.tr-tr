@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 12/08/2016
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 7455d6f99ed8ceb401224f98105f7b651f55c724
-ms.openlocfilehash: fd5ca2dfb12b7527f49d32d9642a91df9e590b14
+ms.sourcegitcommit: a762a0e4753b73b11b2c903fa97c67176199b8d9
+ms.openlocfilehash: 5a1845ac32d2e7454a94d6678521b5e74561933a
 
 
 ---
@@ -58,8 +58,8 @@ Bir depolama hesabındaki bir nesneye erişmek için gerekli URL, nesnenin depol
 Ayrıca depolama hesabınız ile birlikte kullanmak üzere özel bir etki alanı adı yapılandırabilirsiniz. Klasik depolama hesapları için ayrıntıları öğrenmek üzere [Blob Depolama Uç Noktanız için özel bir etki alanı Adı yapılandırma](storage-custom-domain-name.md) sayfasına bakın. Bu özellik, Resource Manager depolama hesapları için henüz [Azure portalına](https://portal.azure.com) eklenmemiştir, ancak bu özelliği PowerShell ile yapılandırabilirsiniz. Daha fazla bilgi için [Set-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607146.aspx) cmdlet’ine bakın.  
 
 ## <a name="create-a-storage-account"></a>Depolama hesabı oluşturma
-1. [Azure portalında](https://portal.azure.com) oturum açın.
-2. Hub menüsünde, **Yeni** -> **Veri + Depolama** -> **Depolama hesabı**’nı seçin.
+1. [Azure Portal](https://portal.azure.com) oturum açın.
+2. Hub menüsünde, **Yeni** -> **Depolama** -> **Depolama hesabı**'nı seçin.
 3. Depolama hesabınız için bir ad girin. Depolama hesabınızın adının Azure Storage’da nesnelerinizin ele alınması için nasıl kullanılacağı hakkında ayrıntılar için bkz. [Depolama hesabı uç noktaları](#storage-account-endpoints).
    
    > [!NOTE]
@@ -162,6 +162,6 @@ Daha fazla bilgi edinmek için bkz. [Azure Virtual Machines belgeleri](http://az
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -2,8 +2,8 @@
 layout: LandingPage
 description: "Azure kaynakları için güvenlik izleme ve ilke yönetimi ayarlamayı öğrenin. Öğreticiler, REST API başvurusu ve diğer belgeler."
 translationtype: Human Translation
-ms.sourcegitcommit: 4488a052681c0c146bf6efaf44f8ecebc400fecc
-ms.openlocfilehash: 92eb080a7234cb25a5560127edadfafeafc0253a
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 5600b20d3c04547e2002a779fde70769bb6a5e59
 
 ---
 # <a name="security-center-documentation"></a>Güvenlik Merkezi Belgeleri
@@ -77,7 +77,7 @@ Güvenlik Merkezi’ni kullanarak Azure kaynaklarınızın güvenliğine ilişki
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="https://msdn.microsoft.com/library/mt704034(Azure.100).aspx">REST API Başvurusu</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/mt704034(Azure.100).aspx">REST API başvurusu</a></p>
                     </div>
                 </div>
             </div>
@@ -85,13 +85,7 @@ Güvenlik Merkezi’ni kullanarak Azure kaynaklarınızın güvenliğine ilişki
     </li>
 </ul>   
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/security-center.pdf">
-        <div class="img"></div>
-        <div class="text">
-Güvenlik Merkezi Belgelerini indirin </div>
-    </a>
-</div>
+
 
 
 

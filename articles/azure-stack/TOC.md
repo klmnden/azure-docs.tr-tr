@@ -16,6 +16,7 @@
 ## [Depolama hesabı oluşturma](azure-stack-provision-storage-account.md)
 ## [CLI ile bağlanma](azure-stack-connect-cli.md)
 ## [PowerShell ile bağlanma](azure-stack-connect-powershell.md)
+## [Visual Studio yükleme](azure-stack-install-visual-studio.md)
 ## [Sık sorulan sorular](azure-stack-faq.md)
 
 # Kiracılara hizmet sunma
@@ -28,6 +29,7 @@
 # Şablon kullanma
 ## [Şablona genel bakış](azure-stack-arm-templates.md)
 ## [Şablon geliştirme](azure-stack-develop-templates.md)
+## [Şablonları denetleme](azure-stack-validate-templates.md)
 ## [Şablonları portal ile dağıtma](azure-stack-deploy-template-portal.md)
 ## [Şablonları PowerShell ile dağıtma](azure-stack-deploy-template-powershell.md)
 ## [Şablonları Visual Studio ile dağıtma](azure-stack-deploy-template-visual-studio.md)
@@ -72,10 +74,10 @@
 ### [Azure Stack’te SQL Server Kaynak Sağlayıcısı Bağdaştırıcısını dağıtma](azure-stack-sql-resource-provider-deploy.md)
 
 ## App Service planlama ve dağıtma
-### [Azure Stack Web Apps'e Genel Bakış](azure-stack-app-service-overview.md)
-### [Azure Stack Web Apps ile çalışmaya başlamadan önce](azure-stack-app-service-before-you-get-started.md)
-### [Web Apps: Daha fazla web çalışanı rolü ekleme](azure-stack-webapps-add-worker-roles.md)
-### [Azure Stack’e Web Apps kaynak sağlayıcısı ekleme](azure-stack-app-service-deploy.md)
+### [Azure Stack’te App Service’a genel bakış](azure-stack-app-service-overview.md)
+### [Başlamadan önce](azure-stack-app-service-before-you-get-started.md)
+### [Daha fazla Web çalışanı rolü ekleme](azure-stack-app-service-add-worker-roles.md)
+### [Azure Stack’e App Service kaynak sağlayıcısı ekleme](azure-stack-app-service-deploy.md)
 
 # Sorun giderme
 ## [Azure Stack sorunlarını giderme](azure-stack-troubleshooting.md)
@@ -86,6 +88,6 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-stack)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

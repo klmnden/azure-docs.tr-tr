@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/21/2016
-ms.author: darosa,sethm
+ms.date: 1/06/2016
+ms.author: darosa,sethm,jotaub
 translationtype: Human Translation
-ms.sourcegitcommit: d36b40444af4ba68b016351f9ff016351e9fe58c
-ms.openlocfilehash: a4ccfdbc079a989477a80af7ac701dc77dce5a4f
+ms.sourcegitcommit: ed1469b7d12af84970d0675ac2af29580e319042
+ms.openlocfilehash: 11bac0e1877fa2c1cacc9a0a6e6d7870a17a44a2
 
 
 ---
@@ -31,9 +31,9 @@ Aşağıdaki tabloda bazı üst düzey farklılıklar vurgulanmıştır.
 | --- | --- |
 | Yüksek verimlilik |Değişken işleme |
 | Tahmin edilebilir performans |Değişken gecikme süresi |
-| Tahmin edilebilir fiyatlandırma |Kullandıkça Öde değişken fiyatlandırması |
-| İş yükünü yukarı ve aşağı ölçeklendirebilme |Yok |
-| İleti boyutu > 256 KB |İleti boyutu 256 KB |
+| Sabit fiyatlandırma |Kullandıkça Öde değişken fiyatlandırması |
+| İş yükünün ölçeğini artırma veya azaltma |Yok |
+| İleti boyutu 1 MB’a kadar |İleti boyutu 256 KB’a kadar |
 
 **Service Bus Premium Mesajlaşma Hizmeti**, CPU'da ve bellek katmanında kaynak yalıtımına olanak sağladığından her müşterinin iş yükü yalıtımlı şekilde çalışır. Bu kaynak kapsayıcısı *mesajlaşma birimi* olarak adlandırılır. Her premium ad alanı, en az bir mesajlaşma birimi için ayrılmıştır. Her Service Bus Premium ad alanı için 1, 2 veya 4 mesajlaşma birimi satın alabilirsiniz. Tek bir iş yükü veya varlık, birden çok mesajlaşma birimine yayılabilir ve faturalandırma 24 saatlik veya günlük oran fiyatlarında gerçekleştirilse de mesajlaşma birimlerinin sayısı isteğe bağlı olarak değiştirilebilir. Sonuç olarak, Service Bus tabanlı çözümünüz için tahmin edilebilir ve tekrarlanabilir bir performans elde edersiniz.
 
@@ -43,10 +43,19 @@ Daha tahmin edilebilir ve kullanılabilir olmasının yanı sıra bu performans,
 Premium ve Standart mesajlaşma katmanları arasındaki bazı farklar aşağıda verilmiştir.
 
 ### <a name="partitioned-queues-and-topics"></a>Bölümlenmiş kuyruklar ve konular
-Bölümlenmiş kuyruklar ve konular Premium Mesajlaşmada desteklenir ancak Service Bus Mesajlaşma hizmetinin Standart ve Temel katmanlarında aynı şekilde işlev görmez. Premium Mesajlaşma, SQL’i bir veri deposu olarak kullanmaz ve artık paylaşılan platforma ilişkin olası kaynak rekabetini barındırmaz. Sonuç olarak, bölümleme gerekli değildir. Ayrıca, Standart Mesajlaşmada 16 olan bölüm sayısı Premium’da 2 bölüm olarak değiştirilmiştir. İki bölümlemeye sahip olmak kullanılabilirliği garanti altına alır ve Premium çalışma zamanı ortamı için daha uygun bir sayıdır. Bölümleme hakkında daha fazla bilgi için bkz. [Bölümlenmiş kuyruklar ve konular](service-bus-partitioning.md).
+Bölümlenmiş kuyruklar ve konular Premium Mesajlaşmada desteklenir ancak Service Bus Mesajlaşma hizmetinin Standart ve Temel katmanlarında aynı şekilde işlev görmez. Premium Mesajlaşma, SQL’i bir veri deposu olarak kullanmaz ve artık paylaşılan platforma ilişkin olası kaynak rekabetini barındırmaz. Sonuç olarak, bölümleme performans için gerekli değildir. Ayrıca, Standart Mesajlaşmada 16 olan bölüm sayısı Premium’da 2 bölüm olarak değiştirilmiştir. İki bölümlemeye sahip olmak kullanılabilirliği garanti altına alır ve Premium çalışma zamanı ortamı için daha uygun bir sayıdır. Bölümleme hakkında daha fazla bilgi için bkz. [Bölümlenmiş kuyruklar ve konular](service-bus-partitioning.md).
 
 ### <a name="express-entities"></a>İfade varlıkları
 Premium Mesajlaşma tamamen yalıtılmış bir çalışma zamanı ortamında çalıştığından Premium ad alanlarında ifade varlıkları desteklenmemektedir. İfade özellikleri hakkında daha fazla bilgi için [QueueDescription.EnableExpress](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.queuedescription#Microsoft_ServiceBus_Messaging_QueueDescription_EnableExpress) özelliğine bakın.
+
+## <a name="get-started-with-premium-messaging"></a>Premium Mesajlaşmayı kullanmaya başlama
+
+Premium Mesajlaşma ile çalışmaya başlamak kolaydır ve süreç Standart Mesajlaşma ile benzerlik gösterir. [Ad alanı oluşturarak](service-bus-create-namespace-portal.md) başlayın. "Fiyatlandırma katmanı" için *Premium*'u seçtiğinizden emin olun.
+
+![create-premium-namespace][create-premium-namespace]
+
+İsterseniz [Azure Resource Manager şablonlarını kullanarak premium ad alanı](https://azure.microsoft.com/en-us/resources/templates/101-servicebus-pn-ar/) oluşturabilirsiniz.
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Service Bus Mesajlaşma hizmeti hakkında daha fazla bilgi edinmek için aşağıdaki konu başlıklarına bakın.
@@ -56,9 +65,12 @@ Service Bus Mesajlaşma hizmeti hakkında daha fazla bilgi edinmek için aşağ�
 * [Service Bus Mesajlaşma hizmetine genel bakış](service-bus-messaging-overview.md)
 * [Service Bus kuyruklarını kullanma](service-bus-dotnet-get-started-with-queues.md)
 
+<!--Image references-->
+
+[create-premium-namespace]: ./media/service-bus-premium-messaging/select-premium-tier.png
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO2-->
 
 

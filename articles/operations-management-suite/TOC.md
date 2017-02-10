@@ -34,6 +34,7 @@
 ### [Temel değerlendirme](oms-security-baseline.md)
 ### [Kötü amaçlı yazılım değerlendirmesi](../log-analytics/log-analytics-malware.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [Sistem güncelleştirme değerlendirmesi](../log-analytics/log-analytics-system-update.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
+### [Güvenlik ürünlerini bağlama](oms-security-connect-products.md)
 ## [OMS ile tümleştirme](operations-management-suite-integration.md)
 
 
@@ -64,6 +65,6 @@
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

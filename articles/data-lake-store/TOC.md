@@ -51,7 +51,6 @@
 ## Yönet
 ### [Tanılama günlüklerine erişim](data-lake-store-diagnostic-logs.md)
 ### [Yüksek kullanılabilirlik planı](data-lake-store-troubleshooting-guidance.md)
-### [Performans ayarlama kılavuzu](data-lake-store-performance-tuning-guidance.md)
 
 # Başvuru
 ## [PowerShell](/powershell/resourcemanager/azurerm.datalakestore/v3.1.0/azurerm.datalakestore)
