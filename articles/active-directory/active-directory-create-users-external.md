@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/22/2016
+ms.date: 02/10/2017
 ms.author: curtand
 translationtype: Human Translation
 ms.sourcegitcommit: 7b506668b3025774edec25b6a37b83a47d702cb0
@@ -24,8 +24,8 @@ ms.openlocfilehash: b2eaddc631087d8b7b94e40f508bdd5da5229736
 > [!div class="op_single_selector"]
 > * [Azure Portal](active-directory-users-create-external-azure-portal.md)
 > * [Klasik Azure Portalı](active-directory-create-users-external.md)
-> 
-> 
+>
+>
 
 Bu makalede Azure Active Directory'de diğer dizinlerden kullanıcıların eklenmesi veya iş ortağı şirketlerden kullanıcıların eklenmesi açıklanmaktadır. Kuruluşunuzdaki yeni kullanıcıların ve Microsoft hesabına sahip kullanıcıların eklenmesi hakkında daha fazla bilgi için bkz. [Azure Active Directory'ye yeni kullanıcı ekleme](active-directory-create-users.md). Eklenen kullanıcılar varsayılan olarak yönetici izinlerine sahip olmaz ancak bu kullanıcılara herhangi bir zamanda roller atayabilirsiniz.
 
@@ -34,7 +34,7 @@ Bu makalede Azure Active Directory'de diğer dizinlerden kullanıcıların eklen
 2. **Active Directory**'yi seçin ve ardından dizininizi açın.
 3. **Users (Kullanıcılar)** sekmesini seçin ve ardından komut çubuğunda **Add User (Kullanıcı Ekle)** seçeneğini belirleyin.
 4. **Tell us about this user (Bu kullanıcı hakkındaki görüşlerinizi bize bildirin)** sayfasında, **Type of user (Kullanıcı türü)** kısmında aşağıdaki seçeneklerden birini belirleyin:
-   
+
    * **User in another Azure AD directory (Başka bir Azure AD dizinindeki kullanıcı)** - kaynağı başka bir Azure AD dizini olan bir kullanıcı hesabını dizininize ekler. Başka bir dizindeki bir kullanıcıyı yalnızca bu dizinin de bir kullanıcısı olduğunuzda ekleyebilirsiniz.
    * **Users in partner companies (İş ortağı şirketlerindeki kullanıcılar)** - iş ortağı şirketi kullanıcılarını dizininize davet etmek ve yetkilendirmek için kullanılır (bkz. [Azure Active Directory B2B işbirliği](active-directory-b2b-what-is-azure-ad-b2b.md)). [E-posta adreslerini belirterek bir CSV dosyasını karşıya yüklemeniz](active-directory-b2b-references-csv-file-format.md) gerekir.
 5. **Profile (Profil)** sayfasında bir ad ve soyad, kolay ad ve **Roles (Roller)** listesinden bir kullanıcı rolü sağlayın. Kullanıcı ve yönetici rolleri hakkında daha fazla bilgi için bkz. [Azure AD'de yönetici rolü atama](active-directory-assign-admin-roles.md). Kullanıcı için **Enable Multi-Factor Authentication (Multi-Factor Authentication'ı Etkinleştir)** seçeneğinin belirlenip belirlenmeyeceğini belirtin.
@@ -42,11 +42,11 @@ Bu makalede Azure Active Directory'de diğer dizinlerden kullanıcıların eklen
 
 > [!IMPORTANT]
 > Kuruluşunuz birden fazla etki alanı kullanıyorsa bir kullanıcı hesabını eklerken aşağıdakileri bilmeniz gerekir:
-> 
+>
 > * Etki alanlarında aynı kullanıcı asıl adına (UPN) sahip kullanıcı hesapları eklemek için, örneğin, **önce** geoffgrisso@contoso.onmicrosoft.com, ve **ardından** geoffgrisso@contoso.com ekleyin.
 > * geoffgrisso@contoso.onmicrosoft.com eklemeden önce geoffgrisso@contoso.com **eklemeyin**. Bu sıra önemlidir, sıralamanın geri alınması ise çok uğraşmayı gerektirebilir.
-> 
-> 
+>
+>
 
 Bilgilerini değiştirdiğiniz bir kullanıcının kimliği şirket içi Active Directory hizmetinizle eşitlenmişse kullanıcı bilgilerini klasik Azure portalında değiştiremezsiniz. Kullanıcı bilgilerini değiştirmek için şirket içi Active Directory yönetim araçlarınızı kullanın.
 
@@ -62,8 +62,8 @@ Başka bir dizinden kendi dizininize kullanıcı eklediğinizde bu kullanıcı s
 
 > [!NOTE]
 > Dış kullanıcıyı dizinde yine de devre dışı bırakabilirsiniz, bu durumda dizininize erişim engellenir.
-> 
-> 
+>
+>
 
 Bir kullanıcı kendi giriş dizininde silinirse veya Microsoft hesabını iptal ederse sizin dizininizde dış kullanıcı var olmaya devam eder. Ancak dizininizdeki kullanıcı bir giriş dizininde veya Microsoft hesabında kimlik doğrulaması yapamadığı için kaynaklara erişemez.
 
@@ -86,7 +86,6 @@ Bir kullanıcı kendi giriş dizininde silinirse veya Microsoft hesabını iptal
 * [Azure AD'yi yönetme](active-directory-administer.md)
 * [Azure AD'de parolaları yönetme](active-directory-manage-passwords.md)
 * [Azure AD'de grupları yönetme](active-directory-manage-groups.md)
-
 
 
 

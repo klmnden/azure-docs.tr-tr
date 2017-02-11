@@ -128,6 +128,6 @@ VPN Gateway’e yönelik ağ geçidi SKU’ları hakkında bilgi için bkz. [Ağ
 
 
 
-<!--HONumber=Jan17_HO5-->
+<!--HONumber=Feb17_HO2-->
 
 
