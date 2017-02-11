@@ -1,13 +1,25 @@
 ---
 layout: LandingPage
+description: "Büyük işlem, büyük veri ve kapsayıcı çözümleri için otomatik olarak ölçeklendirilen Windows veya Linux VM’leri oluşturmak amacıyla Sanal Makine Ölçek Kümelerini nasıl kullanabileceğinizi öğrenin."
+title: "Azure Sanal Makineler Ölçek Kümeleri Belgeleri, Öğreticileri ve API Başvurusu | Microsoft Docs"
+services: virtual-machine-scale-sets
+author: carolz
+manager: carolz
+ms.assetid: 
+ms.service: virtual-machine-scale-sets
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 511d15cc48b17bd65bedc2c1cd9602d868ffa724
-ms.openlocfilehash: ace473bea761bd5219a3ca7facdf681dea04a7ff
+ms.sourcegitcommit: 7b2af8e58e050100b1778d977dabe25538b84cfe
+ms.openlocfilehash: 3bb6307cee24c80cbf8d621a49d2304d9b9b5c99
 
 ---
 #<a name="virtual-machine-scale-sets-documentation"></a>Sanal Makine Ölçek Kümeleri Belgeleri
 
-VM Ölçek Kümeleri, özdeş VM’lerden oluşan bir sanal makine kümesini dağıtıp yönetmek için kullanabileceğiniz bir Azure İşlem kaynağıdır.  Tüm sanal makinelerin aynı şekilde yapılandırıldığı VM ölçek kümeleri, gerçek otomatik ölçeklendirmeyi destekleyecek şekilde tasarlanmıştır; sanal makinelerin önceden hazırlanması gerekmez. Bu özellik büyük işlem, büyük veri ve kapsayıcı iş yüklerini hedefleyen büyük ölçekli hizmetler oluşturmayı kolaylaştırır.
+Sanal Makine Ölçek Kümelerini kullanarak birbiriyle aynı ve otomatik olarak ölçeklendirilen Windows veya Linux VM’leri dağıtmayı ve yönetmeyi öğrenin. Belgelerde, Ölçek Kümelerini kullanarak büyük işlem, büyük veri ve kapsayıcı çözümlerini hedefleyen hizmetleri nasıl destekleyebileceğiniz açıklanmıştır.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -90,7 +102,7 @@ VM Ölçek Kümeleri, özdeş VM’lerden oluşan bir sanal makine kümesini da�
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/compute/">REST API Başvurusu</a></p>
+                        <p><a href="/rest/api/compute/">REST API başvurusu</a></p>
                     </div>
                 </div>
             </div>
@@ -98,16 +110,10 @@ VM Ölçek Kümeleri, özdeş VM’lerden oluşan bir sanal makine kümesini da�
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/virtual-machine-scale-sets.pdf">
-        <div class="img"></div>
-        <div class="text">
-Sanal Makine Ölçek Kümeleri Belgelerini indirin </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO4-->
 
 

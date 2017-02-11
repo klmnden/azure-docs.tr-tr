@@ -110,15 +110,17 @@
 #### [PowerShell](virtual-network-manage-nsg-arm-ps.md)
 #### [CLI](virtual-network-manage-nsg-arm-cli.md)
 #### [Günlükler](virtual-network-nsg-manage-log.md)
-#### Sorun giderme
-##### [Portal](virtual-network-nsg-troubleshoot-portal.md)
-##### [PowerShell](virtual-network-nsg-troubleshoot-powershell.md)
-### Yol sorunlarını giderme
-#### [Portal](virtual-network-routes-troubleshoot-portal.md)
-#### [PowerShell](virtual-network-routes-troubleshoot-powershell.md)
 ### Sanal makineler
 #### [Konak adlarını görüntüleme ve değiştirme](virtual-networks-viewing-and-modifying-hostnames.md)
 #### [VM’yi farklı bir alt ağa taşıma](virtual-networks-move-vm-role-to-subnet.md)
+
+## Sorun giderme
+### Ağ güvenlik grupları
+#### [Portal](virtual-network-nsg-troubleshoot-portal.md)
+#### [PowerShell](virtual-network-nsg-troubleshoot-powershell.md)
+### Yollar
+#### [Portal](virtual-network-routes-troubleshoot-portal.md)
+#### [PowerShell](virtual-network-routes-troubleshoot-powershell.md)
 
 # Başvuru
 ## [PowerShell (Resource manager)](https://msdn.microsoft.com/library/mt163510(v=azure.300))
@@ -145,6 +147,6 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-network)
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

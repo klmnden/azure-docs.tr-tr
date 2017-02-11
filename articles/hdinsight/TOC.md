@@ -61,9 +61,10 @@
 ### [HVAC performansını tahmin etme](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 ### [Gıda denetimi sonuçlarını tahmin etme](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 ### [Web sitesi günlüklerini çözümleme](hdinsight-apache-spark-custom-library-website-log-analysis.md)
-### [Zeppelin not defterlerini kullanma](hdinsight-apache-spark-use-zeppelin-notebook.md)
+### [Zeppelin not defterlerini kullanma](hdinsight-apache-spark-zeppelin-notebook.md)
 ### [Jupyter not defteri çekirdekleri](hdinsight-apache-spark-jupyter-notebook-kernels.md)
-### [Jupyter not defterleri için paketler](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
+### [Hücre sihri kullanarak Jupyter ile dış paketleri kullanma](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
+### [Betik eylemi kullanarak Jupyter ile dış paketleri kullanma](hdinsight-apache-spark-python-package-installation.md)
 ### [Yerel Jupyter not defterini kullanma](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 ### [Livy ile uzak işler](hdinsight-apache-spark-livy-rest-interface.md)
 ### [Eclipse kullanarak uygulama geliştirme](hdinsight-apache-spark-eclipse-tool-plugin.md)
@@ -227,6 +228,6 @@
 ## [Öğrenme yolu](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

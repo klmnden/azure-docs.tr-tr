@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Mobil uygulama kullanımı ve gerçek zamanlı kullanıcı segmentasyonuna ilişkin öngörüler edinme ve bağlamsal farkındalığa sahip anında iletme bildirimleri ve uygulama içi mesajlaşmayı etkinleştirme konusunda bilgi edinin."
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: c9f8493eb39f0c519825cdaa1c06bbb24b0f478f
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 37f08d8a03845b86d382d4c0b49b58f633cc1b0c
 
 ---
 # <a name="mobile-engagement-documentation"></a>Mobile Engagement Belgeleri
 
-Azure Mobile Engagement, uygulama kullanımı hakkında veriye dayalı öngörüler ve kullanıcıların segmentlere ayrılmasını sağlayan, anında iletme bildirimleri ve uygulama içi mesajlaşmaya olanak tanıyan, kullanıcı etkileşimi bir hizmet olarak yazılım (SaaS) platformudur.
+Mobile Engagement ile mobil uygulamaların kullanımını, kullanım süresini ve kazancını nasıl artırabileceğinizi öğrenin. Öğreticiler, SDK’lar ve diğer belgeler, uygulama kullanımı ve gerçek zamanlı kullanıcı segmentasyonuna ilişkin bilgileri nasıl edineceğinizi açıklamanın yanı sıra bağlamsal farkındalığa sahip anında iletme bildirimlerini ve uygulama içi mesajlaşmayı etkinleştirme konularıyla ilgili bilgiler içerir.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -194,17 +195,10 @@ Azure Mobile Engagement, uygulama kullanımı hakkında veriye dayalı öngörü
 
 ---
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/mobile-engagement.pdf">
-        <div class="img"></div>
-        <div class="text">
-Azure Mobile Engagement Belgelerini indirin </div>
-    </a>
-</div>
 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 
