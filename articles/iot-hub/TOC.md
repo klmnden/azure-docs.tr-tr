@@ -97,6 +97,28 @@
 #### [İsteğe bağlı: LED davranışını değiştirme](iot-hub-intel-edison-kit-c-lesson4-change-led-behavior.md)
 ### [Sorun giderme](iot-hub-intel-edison-kit-c-troubleshooting.md)
 
+## Arduino (Düğüm) kullanmaya başlama
+### [Arduino panosu kullanmaya başlama: Adafruit Feather M0 WiFi](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
+### Ders 1: Cihazınızı yapılandırma
+#### [Cihazınızı yapılandırma](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-configure-your-device.md)
+#### [Araçları edinme (Windows 7+)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-get-the-tools-win32.md)
+#### [Araçları edinme (Ubuntu 16.04)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-get-the-tools-ubuntu.md)
+#### [Araçları edinme (macOS 10.10)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-get-the-tools-mac.md)
+#### [Blink uygulaması oluşturma ve dağıtma](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-deploy-blink-app.md)
+### Ders 2: IOT hub'ınızı oluşturma
+#### [Azure araçlarını edinme (Windows 7+)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-win32.md)
+#### [Azure araçlarını edinme (Ubuntu 16.04)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-ubuntu.md)
+#### [Azure araçlarını edinme (macOS 10.10)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-mac.md)
+#### [IoT hub'ı oluşturma Raspberry Pi’yi kaydetme](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-prepare-azure-iot-hub.md)
+### Ders 3: Cihazdan buluta ileti gönderme
+#### [Azure işlev uygulaması ve depolama hesabı oluşturma](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-deploy-resource-manager-template.md)
+#### [İleti göndermek için örnek uygulamayı çalıştırma](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-run-azure-blink.md)
+#### [Depolamada kalıcı olan iletileri okuma](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-read-table-storage.md)
+### Ders 4: Buluttan cihaza ileti gönderme
+#### [İleti almak için örnek uygulamayı çalıştırma](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson4-send-cloud-to-device-messages.md)
+#### [İsteğe bağlı: LED davranışını değiştirme](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson4-change-led-behavior.md)
+### [Sorun giderme](iot-hub-adafruit-feather-m0-wifi-kit-arduino-troubleshooting.md)
+
 ## [Ağ Geçidi SDK’sını kullanmaya başlama (Linux)](iot-hub-linux-gateway-sdk-get-started.md)
 ## [Ağ Geçidi SDK’sını kullanmaya başlama (Windows)](iot-hub-windows-gateway-sdk-get-started.md)
 
@@ -219,9 +241,10 @@
 ## [Java (Cihazlar)](/java/api/com.microsoft.azure.iothub)
 ## [Azure IoT SDK’ları](http://azure.github.io/azure-iot-sdks/)
 ## [Ağ Geçidi SDK’sı](http://azure.github.io/azure-iot-gateway-sdk)
-## [REST (Kaynak Sağlayıcısı)](https://docs.microsoft.com/rest/api/iothub/resourceprovider/iot-hub-resource-provider-rest)
-## [REST (Cihaz Kimlikleri)](https://docs.microsoft.com/rest/api/iothub/device-identities-rest)
-## [REST (Device Messaging) REST API](https://docs.microsoft.com/rest/api/iothub/device-messaging-rest-apis)
+## [REST (Kaynak Sağlayıcısı)](https://docs.microsoft.com/rest/api/iothub/iothubresource)
+## [REST (Cihaz Kimlikleri)](https://docs.microsoft.com/rest/api/iothub/deviceapi)
+## [REST (Cihaz Mesajlaşması )](https://docs.microsoft.com/rest/api/iothub/httpruntime)
+## [REST (İşler)](https://docs.microsoft.com/rest/api/iothub/jobapi)
 
 # İlgili
 ## [Azure IoT Paketi](https://azure.microsoft.com/documentation/suites/iot-suite/)
@@ -240,6 +263,6 @@
 ## [IoT için Azure Sertifikalı cihaz kataloğu](https://catalog.azureiotsuite.com/)
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

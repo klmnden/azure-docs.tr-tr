@@ -2,8 +2,8 @@
 layout: LandingPage
 description: "Azure Depolama: Bulutta Blob, Tablo, Kuyruk, Dosya ve Sanal Makine Disk depolama hakkında bilgi edinin. Öğreticiler, API başvuruları ve diğer belgeler."
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: 1e9cc940d681893abbc351ef440c90f579e6c40a
+ms.sourcegitcommit: b34bd277da4b1bdca5831b5267cde79345674dc1
+ms.openlocfilehash: 2ec05a53d7b2dd854e0cd96c70c83b1fefe48a1c
 
 ---
 
@@ -133,6 +133,7 @@ Dayanıklı, kullanılabilir ve ölçeklenebilir bir bulut depolama hizmeti olan
                         <p><a href="/rest/api/storageservices/fileservices/azure-storage-services-rest-api-reference">Bloblar, Kuyruklar, Tablolar ve Dosyalar</a></p>
                         <p><a href="/rest/api/storagerp">Kaynak sağlayıcısı</a></p>
                         <p><a href="/rest/api/storageimportexport">İçeri/dışarı aktarma</a></p>
+                        <p><a href="/rest/api/storageservices/fileservices/azure-storage-services-rest-api-reference">Depolama Verileri REST API</a></p>
                    </div>
                 </div>
             </div>
@@ -144,6 +145,6 @@ Dayanıklı, kullanılabilir ve ölçeklenebilir bir bulut depolama hizmeti olan
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

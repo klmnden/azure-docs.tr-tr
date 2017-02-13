@@ -20,6 +20,7 @@
 ## [SQL Veritabanı öğreticileri](sql-database-explore-tutorials.md)
 ## [Çözüm hızlı başlangıçları](sql-database-solution-quick-starts.md)
 ## Güvenlik
+### [Güvenliğe genel bakış](sql-database-security-overview.md)
 ### [Azure SQL Veritabanı için Azure Güvenlik Merkezi](https://azure.microsoft.com/documentation/articles/security-center-sql-database/)
 ### [SQL Güvenlik Merkezi](https://msdn.microsoft.com/library/azure/bb510589)
 # Kullanmaya Başlama
@@ -69,12 +70,12 @@
 #### [SQL veritabanı kopyalama](sql-database-copy.md)
 ## Güvenlik Duvarı kuralları, kimlik doğrulaması ve yetkilendirme
 ### Öğrenin
-#### [Genel Bakış](sql-database-security.md)
-#### [Güvenlik yönergeleri](sql-database-security-guidelines.md)
+#### [Erişim denetimi](sql-database-control-access.md)
 #### [Güvenlik duvarı](sql-database-firewall-configure.md)
 #### [Oturum açmaları yönetme](sql-database-manage-logins.md)
 ### Yapın
-#### [SQL kimlik doğrulaması ve yetkilendirme](sql-database-get-started-security.md)
+#### [SQL kimlik doğrulaması ve yetkilendirme](sql-database-control-access-sql-authentication-get-started.md)
+#### [Azure AD kimlik doğrulama ve yetkilendirme](sql-database-control-access-aad-authentication-get-started.md)
 ## Verileri güvenli hale getirme ve koruma
 ### Öğrenin
 #### Denetim
@@ -106,7 +107,8 @@
 #### [Olağanüstü durum kurtarma tatbikatı gerçekleştirme](sql-database-disaster-recovery-drills.md)
 #### [Etkin Coğrafi Çoğaltmaya genel bakış](sql-database-geo-replication-overview.md)
 ### Yapın
-#### [SQL Veritabanı yedekleme ve geri yükleme özelliklerini kullanmaya başlama](sql-database-get-started-backup-recovery.md)
+#### [Azure portalı: Yedekleme ve geri yükleme](sql-database-get-started-backup-recovery.md)
+#### [PowerShell: Yedekleme ve geri yükleme](sql-database-get-started-backup-recovery-powershell.md)
 ## Uygulama geliştirme
 ### Öğrenin
 #### [Veritabanı uygulaması geliştirmeye genel bakış](sql-database-develop-overview.md)
@@ -150,7 +152,7 @@
 #### [Tek veritabanları](sql-database-single-database-monitor.md)
 #### [SQL Veritabanı Danışmanına genel bakış](sql-database-advisor.md)
 #### [Tek veritabanı kılavuzu](sql-database-performance-guidance.md)
-#### [Azure portalında iş yükü öngörüleri](sql-database-performance.md)
+#### [Performans öngörüleri: Azure portalı](sql-database-performance.md)
 #### [Toplu işlem kullanma](sql-database-use-batching-to-improve-performance.md)
 #### [Genişletilmiş olaylar](sql-database-xevent-db-diff-from-svr.md)
 ## SQL Veritabanı V11
@@ -253,15 +255,14 @@
 #### [Uzun süreli yedek saklama yapılandırma](sql-database-configure-long-term-retention.md)
 #### [Kurtarma Hizmetleri kasasındaki yedekleri görüntüleme](sql-database-view-backups-in-vault.md)
 #### [Uzun süreli yedek saklamadan geri yükleme](sql-database-restore-from-long-term-retention.md)
+#### [Uzun süreli yedek saklamadan silme](sql-database-long-term-retention-delete.md)
 ### Silinen veritabanını geri yükleme
 #### [Azure portalını kullanarak silinmiş öğeleri geri yükleme](sql-database-restore-deleted-database-portal.md)
 #### [PowerShell’i kullanarak silinmiş öğeleri geri yükleme](sql-database-restore-deleted-database-powershell.md)
 ### Belirli bir noktaya geri yükleme
 #### [Zaman içinde bir noktaya geri yükleme](sql-database-point-in-time-restore.md)
 #### [En eski geri yükleme noktasını görüntüleme](sql-database-view-oldest-restore-point.md)
-### Coğrafi Geri Yükleme
-#### [Azure portalını kullanarak coğrafi geri yükleme](sql-database-geo-restore-portal.md)
-#### [PowerShell’i kullanarak coğrafi geri yükleme](sql-database-geo-restore-powershell.md)
+### [Coğrafi olarak yedekli bir yedekten geri yükleme](sql-database-geo-restore.md)
 ## Etkin Coğrafi Çoğaltma
 ### [Azure portalını kullanarak yapılandırma](sql-database-geo-replication-portal.md)
 ### [PowerShell’i kullanarak yapılandırma](sql-database-geo-replication-powershell.md)
@@ -309,6 +310,6 @@
 ## [SqlPackage](https://msdn.microsoft.com/hh550080.aspx)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

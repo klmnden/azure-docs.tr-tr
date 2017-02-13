@@ -11,7 +11,7 @@
 
 # Başlarken
 ## [Önkoşullar](active-directory-aadconnect-prerequisites.md)
-## [Azure AD Connect'i yükleme](active-directory-aadconnect-accounts-permissions.md)
+## [Azure AD Connect'i yükleme](active-directory-aadconnect-select-installation.md)
 ### [Hızlı ayarlar](active-directory-aadconnect-get-started-express.md)
 ### [Özel ayarlar](active-directory-aadconnect-get-started-custom.md)
 ### [DirSync’ten yükseltme](active-directory-aadconnect-dirsync-upgrade-get-started.md)
@@ -33,7 +33,6 @@
 
 
 ## Azure AD Connect Sync'i yönetme
-### [Adım adım Genel SQL Bağlayıcısı](active-directory-aadconnectsync-connector-genericsql-step-by-step.md)
 ### [Yanlışlıkla silmeleri engelleme](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)
 ### [Parola eşitleme](active-directory-aadconnectsync-implement-password-synchronization.md)
 ### [Azure AD hizmet hesabı](active-directory-aadconnectsync-howto-azureadaccount.md)
@@ -58,14 +57,11 @@
 
 
 # Başvuru
-## [Windows PowerShell Bağlayıcısı](active-directory-aadconnectsync-connector-powershell.md)
-## [Genel SQL Bağlayıcısı](active-directory-aadconnectsync-connector-genericsql.md)
-## [Genel LDAP Bağlayıcısı](active-directory-aadconnectsync-connector-genericldap.md)
-## [Lotus Domino Bağlayıcısı](active-directory-aadconnectsync-connector-domino.md)
 ## [Kimlik eşitleme ve yinelenen öznitelik dayanıklılığı](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md)
 ## [Karma Kimlik için Gereken Bağlantı Noktaları ve Protokoller](active-directory-aadconnect-ports.md)
 ## [Önizlemedeki özellikler](active-directory-aadconnect-feature-preview.md)
 ## [Sürüm Geçmişi](active-directory-aadconnect-version-history.md)
+## [Hesaplar ve izinler](active-directory-aadconnect-accounts-permissions.md)
 
 ## Azure AD Connect Sync
 ### [Azure Active Directory ile eşitlenen öznitelikler](active-directory-aadconnectsync-attributes-synchronized.md)
@@ -89,6 +85,6 @@
 ##[DirSync’i Kullanımdan Kaldırma](active-directory-aadconnect-dirsync-deprecated.md)
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

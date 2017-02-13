@@ -69,15 +69,16 @@
 ## [Linux sanal makineleri dağıtma](azure-stack-linux.md)
 ## [Güncelleştirmeleri yönetme](azure-stack-updates.md)
 ## [Azure Stack için geliştirme](azure-stack-developer.md)
-## SQL veya MySQL kaynak sağlayıcısı dağıtma
-### [Azure Stack’te MySQL veritabanlarını PaaS olarak kullanma](azure-stack-mysql-resource-provider-deploy.md)
-### [Azure Stack’te SQL Server Kaynak Sağlayıcısı Bağdaştırıcısını dağıtma](azure-stack-sql-resource-provider-deploy.md)
+## PaaS olarak SQL veya MySQL teklifi
+### [MySQL kaynak sağlayıcısı dağıtma](azure-stack-mysql-resource-provider-deploy.md)
+### [SQL kaynak sağlayıcısı dağıtma](azure-stack-sql-resource-provider-deploy.md)
 
-## App Service planlama ve dağıtma
+## PaaS olarak App Service teklifi
 ### [Azure Stack’te App Service’a genel bakış](azure-stack-app-service-overview.md)
 ### [Başlamadan önce](azure-stack-app-service-before-you-get-started.md)
+### [App Service kaynak sağlayıcısı dağıtma](azure-stack-app-service-deploy.md)
 ### [Daha fazla Web çalışanı rolü ekleme](azure-stack-app-service-add-worker-roles.md)
-### [Azure Stack’e App Service kaynak sağlayıcısı ekleme](azure-stack-app-service-deploy.md)
+
 
 # Sorun giderme
 ## [Azure Stack sorunlarını giderme](azure-stack-troubleshooting.md)
@@ -88,6 +89,6 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-stack)
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,3 +1,4 @@
+
 # Genel Bakış
 ## [DocumentDB nedir?](documentdb-introduction.md)
 ## [Temel kavramlar](documentdb-resources.md)
@@ -29,6 +30,7 @@
 ### [Bölümleme ve ölçeklendirme](documentdb-partition-data.md)
 ### [Tutarlılık](documentdb-consistency-levels.md)
 ### [NoSQL ile SQL karşılaştırması](documentdb-nosql-vs-sql.md)
+### [Düşük maliyetli okuma ve yazmalar](documentdb-key-value-store-cost.md)
 
 ## Yönet
 ### [Verilerinizi içeri aktarma](documentdb-import-data.md)
@@ -91,6 +93,7 @@
 ### [Logic Apps ile ilgili bildirimleri alma](documentdb-change-notification.md)
 ### [Gerçek zamanlı sensör verisi işleme](../hdinsight/hdinsight-storm-iot-eventhub-documentdb.md)
 ### [Power BI ile verilerinizi görselleştirme](documentdb-powerbi-visualize.md)
+### [Veri görselleştirme için ODBC sürücüsünden yararlanma](documentdb-nosql-odbc-driver.md)
 
 
 # Başvuru
@@ -123,6 +126,6 @@
 ## [Öğrenme yolu](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 
