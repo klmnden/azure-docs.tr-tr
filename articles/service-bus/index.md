@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Şirket içi ortam ve bulut ortamındaki uygulama ve hizmetleri bağlayan bir mesajlaşma hizmeti ayarlama hakkında bilgi edinin.  Öğreticiler, videolar, API başvuruları ve daha fazlası."
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: 0ecc51f19240ecfa49852ed1eafcf78d1227af16
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: fe4c303bb0e944e5abb26f8baa394d0df71240a5
 
 ---
 #<a name="service-bus-documentation"></a>Service Bus Belgeleri
 
-Service Bus, kurumsal mesajlaşma ile bulut özellikli iletişim olanağı sunmanın yanı sıra, şirket içi çözümlere bulut aracılığıyla bağlanmanızı sağlayan geçişli iletişime de olanak tanır. 
+Service Bus’ı kullanarak şirket içi ortamlarda ve bulut ortamlarında bağlantı kurmayı öğrenin. Öğreticiler, videolar, API başvuruları ve diğer belgelerde, uygulamalar ile hizmetler arasında bulut mesajlaşmasını nasıl ayarlayabileceğiniz açıklanmıştır.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -214,7 +215,7 @@ Service Bus, kurumsal mesajlaşma ile bulut özellikli iletişim olanağı sunma
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/servicebus">REST API Başvurusu</a></p>
+                        <p><a href="/rest/api/servicebus">REST API başvurusu</a></p>
                     </div>
                 </div>
             </div>
@@ -234,16 +235,10 @@ Service Bus, kurumsal mesajlaşma ile bulut özellikli iletişim olanağı sunma
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/service-bus.pdf">
-        <div class="img"></div>
-        <div class="text">
-Service Bus Belgelerini İndirme </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO3-->
 
 

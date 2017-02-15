@@ -1,14 +1,14 @@
 ---
 layout: LandingPage
+description: "Şirket içi altyapınızdan veya ortak yerleşim tesisinizden Microsoft bulut hizmetlerine özel bir ExpressRoute bağlantısı yapılandırma ve bu bağlantıyı yönetme hakkında bilgi edinin."
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: 551759d87b6c697aa1f28810fe32815aec66f269
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: ecb42e7a0abc5a0438bff39bddddac25d005eb77
 
 ---
 #<a name="expressroute-documentation"></a>ExpressRoute Belgeleri
 
-Azure ExpressRoute, bağlantı sağlayıcı tarafından kolaylaştırılan adanmış özel bağlantı üzerinden şirket içi ağlarınızı Microsoft bulutuna genişletmenizi sağlar. Ortak yerleşim tesisinde bağlantı sağlayıcısı üzerinden herhangi bir ağdan herhangi bir ağa (IP VPN), noktadan noktaya Ethernet ağı veya sanal çapraz bağlantısından bağlantı olabilir. 
-
+ExpressRoute’u kullanarak şirket içi altyapınızdan veya ortak yerleşim tesisinizden Microsoft bulut hizmetlerine hızlı ve özel bir bağlantı ayarlama hakkında bilgi edinin. Öğreticiler, REST API’ler ve diğer belgeler, ExpressRoute devrelerini yapılandırmanıza ve yönetmenize yardımcı olur.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -89,7 +89,7 @@ Azure ExpressRoute, bağlantı sağlayıcı tarafından kolaylaştırılan adanm
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="https://msdn.microsoft.com/library/azure/mt586720">REST API Başvurusu</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/mt586720">REST API başvurusu</a></p>
                         <p><a href="https://msdn.microsoft.com/library/azure/dn606310">Klasik REST API Başvurusu</a></p>
                     </div>
                 </div>
@@ -98,16 +98,10 @@ Azure ExpressRoute, bağlantı sağlayıcı tarafından kolaylaştırılan adanm
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/expressroute.pdf">
-        <div class="img"></div>
-        <div class="text">
-ExpressRoute Belgelerini indirin </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO3-->
 
 

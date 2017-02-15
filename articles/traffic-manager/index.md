@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "En iyi uygulama performansı için gelen trafiği nasıl yönetebileceğinizi öğrenin. Belgelerde trafiğin Azure’a veya dış hizmet uç noktalarına nasıl dağıtılacağı açıklanmıştır."
 translationtype: Human Translation
-ms.sourcegitcommit: 9e86ae23b3fe3b8134f4725035c03837425cc0c4
-ms.openlocfilehash: 9a05d78edbf2c186d4a4d84f38eb6deff0cdafc5
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: a915eb8aca8a547036a13f3cc2128d205e83fdf2
 
 ---
 #<a name="traffic-manager-documentation"></a>Traffic Manager Belgeleri
 
-Azure Traffic Manager, farklı bölgelerdeki hizmet uç noktaları için kullanıcı trafiğinin dağıtımını denetlemenize olanak tanır. Traffic Manager, istemci isteklerini seçili trafik yönlendirme yöntemine göre en uygun uç noktaya yönelterek uygulamanıza daha yüksek kullanılabilirlik ve duyarlılık sağlamak için Etki Alanı Adı Sistemi’ni (DNS) kullanır.
+En uygun uygulama performansı ve güvenilirliği için Traffic Manager’ı kullanarak gelen trafiği nasıl yönlendirebileceğinizi öğrenin. Öğreticiler, API başvuruları ve diğer belgelerde, Azure’a ya da dış hizmet uç noktalarına yönelik trafiği nasıl yönetebileceğiniz açıklanmıştır.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -110,7 +111,7 @@ Azure Traffic Manager, farklı bölgelerdeki hizmet uç noktaları için kullan�
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Traffic Manager REST API Başvurusu</p>
+                        <p>Traffic Manager REST API</p>
                     </div>
                 </div>
             </div>
@@ -119,16 +120,10 @@ Azure Traffic Manager, farklı bölgelerdeki hizmet uç noktaları için kullan�
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/traffic-manager.pdf">
-        <div class="img"></div>
-        <div class="text">
-Traffic Manager Belgelerini indirin </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Jan17_HO3-->
 
 

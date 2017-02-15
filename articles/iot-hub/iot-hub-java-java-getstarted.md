@@ -12,11 +12,11 @@ ms.devlang: java
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/23/2016
+ms.date: 02/14/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
-ms.openlocfilehash: 4054831b19b91145788a0d1b4dbb09d4795df459
+ms.sourcegitcommit: d4eb942db51af9c8136e9e0f5f8683cc15679d08
+ms.openlocfilehash: 5bfbe4cfac202592ddd745c5f959cb791fe17ba8
 
 
 ---
@@ -27,7 +27,7 @@ Bu öğreticinin sonunda üç Java konsol uygulamanız olur:
 
 * Bir cihaz kimliği ve sanal cihaz uygulamanızı bağlamak için ilişkili güvenlik anahtarı oluşturan **create-device-identity**.
 * Sanal cihaz uygulamanız tarafından gönderilen telemetriyi görüntüleyen **read-d2c-messages**.
-* Daha önce oluşturulan cihaz kimliğiyle IoT hub'ınıza bağlanan ve AMQP protokolünü kullanarak her saniye bir telemetri iletisi gönderen **simulated-device**.
+* Daha önce oluşturulan cihaz kimliğiyle IoT hub'ınıza bağlanan ve MQTT protokolünü kullanarak her saniye bir telemetri iletisi gönderen **simulated-device**.
 
 > [!NOTE]
 > [IoT Hub SDK'ları][lnk-hub-sdks] makalesi, hem cihazlarınızda hem de çözüm arka ucunuzda çalıştırılacak uygulamalar oluşturmak için kullanabileceğiniz Azure IoT SDK’ları hakkında bilgi içerir.
@@ -42,11 +42,11 @@ Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
-Son adım olarak **Birincil anahtar** değerini not edin ve ardından **Mesajlaşma**’ya tıklayın. **Mesajlaşma** dikey penceresinde **Event Hub ile uyumlu adı** ve **Event Hub ile uyumlu uç noktasını** not edin. **read-d2c-messages** uygulamanızı oluştururken bu üç değere sahip olmanız gerekir.
+Son adım olarak **Birincil anahtar** değerini not edin. Ardından **Uç noktaları**'na ve **Olaylar** yerleşik uç noktasına tıklayın. **Özellikler** dikey penceresinde **Event Hub ile uyumlu adı** ve **Event Hub ile uyumlu uç noktası** adresini not edin. **read-d2c-messages** uygulamanızı oluştururken bu üç değere sahip olmanız gerekir.
 
 ![Azure portalı IoT Hub Mesajlaşma dikey penceresi][6]
 
-Artık IoT hub'ınızı oluşturdunuz ve bu öğreticiyi tamamlamak için ihtiyacınız olan IoT Hub konak adına, IoT Hub bağlantı dizesine, IoT Hub Birincil Anahtarına, Olay Hub’ı ile uyumlu ada ve Olay Hub’ı ile uyumlu uç noktasına sahipsiniz.
+IoT Hub’ınızı oluşturdunuz. Bu öğreticiyi tamamlamak için ihtiyacınız olan IoT Hub konak adına, IoT Hub bağlantı dizesine, IoT Hub Birincil Anahtarına, Olay Hub'ı ile uyumlu ada ve Olay Hub'ı ile uyumlu uç noktasına sahipsiniz.
 
 ## <a name="create-a-device-identity"></a>Cihaz kimliği oluşturma
 Bu bölümde, IoT hub'ınızdaki kimlik kayıt defterinde cihaz kimliği oluşturan bir Java konsol uygulaması oluşturursunuz. Kimlik kayıt defterinde girişi olmayan bir cihaz IoT hub'ına bağlanamaz. Daha fazla bilgi için [IoT Hub Geliştirici Kılavuzu][lnk-devguide-identity]'nun **Kimlik Kayıt Defteri** bölümüne bakın. Bu konsol uygulamasını çalıştırdığınızda, cihazınızın IoT Hub'a cihaz-bulut iletileri gönderdiğinde kendisini tanımlamak için kullanabileceği benzersiz bir cihaz kimliği ve anahtarı oluşturulur.
@@ -63,7 +63,7 @@ Bu bölümde, IoT hub'ınızdaki kimlik kayıt defterinde cihaz kimliği oluştu
     <dependency>
       <groupId>com.microsoft.azure.iothub-java-client</groupId>
       <artifactId>iothub-java-service-client</artifactId>
-      <version>1.0.10</version>
+      <version>1.0.11</version>
     </dependency>
     ```
 4. pom.xml dosyasını kaydedin ve kapatın.
@@ -146,7 +146,7 @@ Bu bölümde IoT Hub'dan cihaz-bulut iletilerini okuyan bir Java konsol uygulama
     <dependency> 
         <groupId>com.microsoft.azure</groupId> 
         <artifactId>azure-eventhubs</artifactId> 
-        <version>0.7.8</version> 
+        <version>0.10.0</version> 
     </dependency>
     ```
 4. pom.xml dosyasını kaydedin ve kapatın.
@@ -205,7 +205,7 @@ Bu bölümde IoT Hub'dan cihaz-bulut iletilerini okuyan bir Java konsol uygulama
                       receivedEvent.getSystemProperties().getOffset(), 
                       receivedEvent.getSystemProperties().getSequenceNumber(), 
                       receivedEvent.getSystemProperties().getEnqueuedTime()));
-                    System.out.println(String.format("| Device ID: %s", receivedEvent.getProperties().get("iothub-connection-device-id")));
+                    System.out.println(String.format("| Device ID: %s", receivedEvent.getSystemProperties().get("iothub-connection-device-id")));
                     System.out.println(String.format("| Message Payload: %s", new String(receivedEvent.getBody(),
                       Charset.defaultCharset())));
                     batchSize++;
@@ -283,7 +283,7 @@ Bu bölümde, IoT Hub'a cihazdan buluta iletiler gönderen bir cihaza benzetim y
     <dependency>
       <groupId>com.microsoft.azure.iothub-java-client</groupId>
       <artifactId>iothub-java-device-client</artifactId>
-      <version>1.0.15</version>
+      <version>1.0.16</version>
     </dependency>
     <dependency>
       <groupId>com.google.code.gson</groupId>
@@ -313,12 +313,12 @@ Bu bölümde, IoT Hub'a cihazdan buluta iletiler gönderen bir cihaza benzetim y
    
     ```
     private static String connString = "HostName={youriothubname}.azure-devices.net;DeviceId=myFirstJavaDevice;SharedAccessKey={yourdevicekey}";
-    private static IotHubClientProtocol protocol = IotHubClientProtocol.AMQPS;
+    private static IotHubClientProtocol protocol = IotHubClientProtocol.MQTT;
     private static String deviceId = "myFirstJavaDevice";
     private static DeviceClient client;
     ```
    
-    Bu örnek uygulama, bir **DeviceClient** nesnesi örneğini oluşturduğunda **prokotol** değişkenini kullanır. IoT Hub ile iletişim kurmak için HTTP veya AMQP protokolünü kullanabilirsiniz.
+    Bu örnek uygulama, bir **DeviceClient** nesnesi örneğini oluşturduğunda **prokotol** değişkenini kullanır. IoT Hub ile iletişim kurmak için MQTT, AMQP veya HTTP protokolünü kullanabilirsiniz.
 8. Cihazınızın IoT hub'ınıza gönderdiği telemetri verilerini belirtmek için aşağıdaki iç içe geçmiş **TelemetryDataPoint** sınıfını **App** sınıfının içine ekleyin:
    
     ```
@@ -461,7 +461,7 @@ IoT çözümünüzün nasıl genişletileceğini ve cihazdan buluta iletilerin d
 [lnk-devguide-identity]: iot-hub-devguide-identity-registry.md
 [lnk-event-hubs-overview]: ../event-hubs/event-hubs-overview.md
 
-[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/java-devbox-setup.md
+[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-java
 [lnk-process-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
 
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md
@@ -474,6 +474,6 @@ IoT çözümünüzün nasıl genişletileceğini ve cihazdan buluta iletilerin d
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

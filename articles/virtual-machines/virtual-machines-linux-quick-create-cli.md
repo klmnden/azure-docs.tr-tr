@@ -15,24 +15,24 @@ ms.workload: infrastructure
 ms.date: 09/26/2016
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 2bd363e3c22f4cf4daf2e0fa352fd4a131d1675f
-ms.openlocfilehash: 89db2c9f388b8a5496a306ba0a152ab57481ea50
+ms.sourcegitcommit: 95b924257c64a115728c66956d5ea38eb8764a35
+ms.openlocfilehash: 70592ac773aced0bfcec5c7418a6dc53555fab33
 
 
 ---
 
-# <a name="create-a-linux-vm-using-the-azure-cli-20-preview"></a>Azure CLI 2.0 (Önizleme) kullanarak Linux VM oluşturma
+# <a name="create-a-linux-vm-using-the-azure-cli-20-preview-azpy"></a>Azure CLI 2.0 Önizleme (az.py) kullanarak Linux VM oluşturma
 Bu makalede Azure’da Azure CLI 2.0 (Önizleme) ile [az vm create](/cli/azure/vm#create) komutunu kullanarak bir Linux sanal makinesini (VM) hızlı bir şekilde nasıl dağıtacağınız gösterilmektedir. 
 
 > [!NOTE] 
-> Azure CLI 2.0 Önizleme, yeni nesil çok platformlu CLI uygulamasıdır. Deneyin ve düşüncelerinizi bize [GitHub proje sayfasından](https://github.com/Azure/azure-cli) iletin.
+> Azure CLI 2.0 Önizleme, yeni nesil çok platformlu CLI uygulamasıdır. [Deneyin.](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2)
 >
-> Diğer belgelerimizde var olan Azure CLI sürümü anlatılmaktadır. CLI 2.0 Önizleme sürümünü değil de var olan Azure CLI uygulamasını kullanarak VM oluşturmak için bkz. [Azure CLI ile VM oluşturma](virtual-machines-linux-quick-create-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> Diğer belgelerimizde var olan Azure CLI sürümü anlatılmaktadır. CLI 2.0 Önizleme sürümünü yerine mevcut Azure CLI 1.0 sürümünü kullanarak VM oluşturmak için bkz. [Azure CLI ile VM oluşturma](virtual-machines-linux-quick-create-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 VM oluşturmak için aşağıdakilere ihtiyacını vardır: 
 
 * bir Azure hesabı ([ücretsiz deneme sürümü edinin](https://azure.microsoft.com/pricing/free-trial/))
-* [Azure CLI 2.0 (Önizleme)](https://github.com/Azure/azure-cli#installation) sürümünü yükleyin
+* [Azure CLI 2.0 (Önizleme)](/cli/azure/install-az-cli2) sürümünü yükleyin
 * Azure hesabınızda oturum açın ([az login](/cli/azure/#login) yazın)
 
 ([Azure portalını](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) kullanarak da hızlıca bir Linux VM dağıtabilirsiniz.)
@@ -41,10 +41,10 @@ Aşağıdaki örnekte, bir Debian VM'sinin nasıl dağıtılacağı ve Secure Sh
 
 ## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
-İlk olarak dağıtılan tüm kaynakları içeren kaynak grubunuzu oluşturmak için [az resource group create](/cli/azure/resource/group#create) yazın:
+İlk olarak, dağıtılan tüm kaynakları içeren kaynak grubunuzu oluşturmak için [az group create](/cli/azure/group#create) yazın:
 
 ```azurecli
-az resource group create -n myResourceGroup -l westus
+az group create -n myResourceGroup -l westus
 ```
 
 Çıktı aşağıdakine benzer olacaktır (dilerseniz farklı bir `--output` seçeneği belirleyebilirsiniz):
@@ -127,6 +127,6 @@ Docker ana bilgisayarı olarak hızlı şekilde bir Linux VM'si oluşturmak [iç
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

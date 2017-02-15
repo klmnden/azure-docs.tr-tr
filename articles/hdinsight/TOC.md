@@ -61,10 +61,13 @@
 ### [HVAC performansını tahmin etme](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 ### [Gıda denetimi sonuçlarını tahmin etme](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 ### [Web sitesi günlüklerini çözümleme](hdinsight-apache-spark-custom-library-website-log-analysis.md)
+### [Zeppelin not defterlerini kullanma](hdinsight-apache-spark-zeppelin-notebook.md)
 ### [Jupyter not defteri çekirdekleri](hdinsight-apache-spark-jupyter-notebook-kernels.md)
-### [Jupyter not defterleri için paketler](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
+### [Hücre sihri kullanarak Jupyter ile dış paketleri kullanma](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
+### [Betik eylemi kullanarak Jupyter ile dış paketleri kullanma](hdinsight-apache-spark-python-package-installation.md)
 ### [Yerel Jupyter not defterini kullanma](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 ### [Livy ile uzak işler](hdinsight-apache-spark-livy-rest-interface.md)
+### [Eclipse kullanarak uygulama geliştirme](hdinsight-apache-spark-eclipse-tool-plugin.md)
 ### [IntelliJ kullanarak uygulama geliştirme](hdinsight-apache-spark-intellij-tool-plugin.md)
 ### [IntelliJ ile uzaktan hata ayıklama](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 ### [Kaynakları yönetme](hdinsight-apache-spark-resource-manager.md)
@@ -156,6 +159,7 @@
 #### [Azure CLI kullanma](hdinsight-administer-use-command-line.md)
 ### [Ambari web kullanıcı arabirimi kullanarak kümeleri yönetme](hdinsight-hadoop-manage-ambari.md)
 #### [Ambari REST API’si kullanma](hdinsight-hadoop-manage-ambari-rest-api.md)
+### [Depolama hesapları ekleme](hdinsight-hadoop-add-storage.md)
 ### [Hadoop işleri için veri yükleme](hdinsight-upload-data.md)
 ### [Sqoop ile verileri içeri ve dışarı aktarma](hdinsight-use-sqoop.md)
 #### [SSH ile bağlanma](hdinsight-use-sqoop-mac-linux.md)
@@ -224,6 +228,6 @@
 ## [Öğrenme yolu](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -10,11 +10,11 @@ ms.devlang: na
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 08/29/2016
+ms.date: 12/08/2016
 ms.author: ashmaka
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3f2a2b6c82c6c931261036ae1fba733b46a074dc
+ms.sourcegitcommit: 455c4847893175c1091ae21fa22215fd1dd10c53
+ms.openlocfilehash: 7fc45273c0f71c727b7087949cc63bbb4111f866
 
 
 ---
@@ -47,7 +47,7 @@ Azure Search'te belge eklediğinizde/yüklediğinizde ve arama sorguları gönde
 | *Edm.DateTimeOffset* |OData V4 biçiminde (ör. `yyyy-MM-ddTHH:mm:ss.fffZ` ve `yyyy-MM-ddTHH:mm:ss.fff[+/-]HH:mm`) temsil edilen tarih ve saat değerleri. |
 | *Edm.GeographyPoint* |Dünya üzerindeki bir coğrafi konumu temsil eden bir nokta. |
 
-Azure Search'ün [desteklediği veri türleri hakkında MSDN'de](https://msdn.microsoft.com/library/azure/dn798938.aspx) daha ayrıntılı bilgiler edinebilirsiniz.
+Azure Search'ün [desteklediği veri türleri hakkında burada](https://docs.microsoft.com/rest/api/searchservice/Supported-data-types) daha ayrıntılı bilgiler edinebilirsiniz.
 
 ### <a name="field-attributes"></a>Alan öznitelikleri
 | Öznitelik | Açıklama |
@@ -59,16 +59,16 @@ Azure Search'ün [desteklediği veri türleri hakkında MSDN'de](https://msdn.mi
 | *Modellenebilir* |Kullanıcının bağımsız filtrelemesi için [modellenmiş bir gezinmede](search-faceted-navigation.md) bir alanın kullanılmasını sağlar. Genellikle birden çok belgeyi bir araya gruplamak için kullanabileceğiniz yinelemeli değerler içeren alanlar (örneğin, tek bir marka veya hizmet kategorisine denk gelen birden çok belge) model olarak en iyi şekilde işler. |
 | *Aranabilir* |Alanı tam metin aranabilir şeklinde işaretler. |
 
-Azure Search'ün [dizin öznitelikleri hakkında MSDN'de](https://msdn.microsoft.com/library/azure/dn798941.aspx) daha ayrıntılı bilgiler edinebilirsiniz.
+Azure Search'ün [dizin öznitelikleri hakkında burada](https://docs.microsoft.com/rest/api/searchservice/Create-Index) daha ayrıntılı bilgiler edinebilirsiniz.
 
 ## <a name="guidance-for-defining-an-index-schema"></a>Bir dizin şemasını tanımlama kılavuzu
-Dizininizi tasarlarken, her bir kararı düşünmek için planlama aşamasında zaman ayırın. Her bir alan için [uygun öznitelikler](https://msdn.microsoft.com/library/azure/dn798941.aspx) atanması gerektiğinden, dizininizi tasarlarken arama kullanıcı deneyimini ve iş gereksinimlerinizi göz önünde bulundurmanız önemlidir. Bir dizinin dağıtıldıktan sonra değiştirilmesi, verilerin yeniden oluşturulmasını ve yüklenmesini içerir.
+Dizininizi tasarlarken, her bir kararı düşünmek için planlama aşamasında zaman ayırın. Her bir alan için [uygun öznitelikler](https://docs.microsoft.com/rest/api/searchservice/Create-Index) atanması gerektiğinden, dizininizi tasarlarken arama kullanıcı deneyimini ve iş gereksinimlerinizi göz önünde bulundurmanız önemlidir. Bir dizinin dağıtıldıktan sonra değiştirilmesi, verilerin yeniden oluşturulmasını ve yüklenmesini içerir.
 
 Veri depolama gereksinimleri zamanla değişiyorsa bölüm ekleyerek veya kaldırarak kapasiteyi artırabilir ya da azaltabilirsiniz. Ayrıntılı bilgi için bkz. [Azure'da Search hizmetinizi yönetme](search-manage.md) veya [Hizmet Sınırları](search-limits-quotas-capacity.md).
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

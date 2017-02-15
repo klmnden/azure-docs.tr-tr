@@ -1,5 +1,5 @@
 ---
-title: "Çok katmanlı .NET uygulaması | Microsoft Belgeleri"
+title: "Azure Service Bus kuyruklarını kullanan çok katmanlı .NET uygulaması | Microsoft Docs"
 description: "Azure&quot;da katmanlar arasında iletişim sağlamak için Service Bus kuyruklarını kullanan çok katmanlı uygulama geliştirmenize yardımcı olan bir .NET öğreticisi."
 services: service-bus-messaging
 documentationcenter: .net
@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
-ms.date: 09/01/2016
+ms.date: 01/10/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 9ace119de3676bcda45d524961ebea27ab093415
-ms.openlocfilehash: c90454109c2fcfe69d512b84d411e4fd4e810f65
+ms.sourcegitcommit: cab2edc0d065dc8d5ac20ed41ccd0eed7a664895
+ms.openlocfilehash: 8d0730d50330b9093734adb1c503dd975606b7c3
 
 
 ---
@@ -33,7 +33,7 @@ Visual Studio ve .NET için ücretsiz Azure SDK kullanarak Microsoft Azure'a yö
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-Bu öğreticide, Azure bulut hizmetinde çok katmanlı bir uygulama derleyip çalıştıracaksınız. Ön uç, ASP.NET MVC web rolü olurken, arka uç ise bir Service Bus kuyruğu kullanan çalışan rolü olacaktır. Aynı çok katmanlı uygulamayı, bulut hizmeti yerine bir Azure web sitesine dağıtılan web projesi özelliğine sahip ön uçla da oluşturabilirsiniz. Azure web sitesi ön ucunda gerçekleştirilebilecek farklı işlemler hakkındaki talimatlar için [Sonraki adımlar](#nextsteps) bölümüne bakın. Ayrıca, [.NET bulut/şirket içi karma uygulama](../service-bus-relay/service-bus-dotnet-hybrid-app-using-service-bus-relay.md) öğreticisine de başvurabilirsiniz.
+Bu öğreticide, Azure bulut hizmetinde çok katmanlı bir uygulama derleyip çalıştıracaksınız. Ön uç, bir ASP.NET MVC web rolüdür. Arka uç ise Service Bus kuyruğu kullanan bir çalışan rolüdür. Aynı çok katmanlı uygulamayı, bulut hizmeti yerine bir Azure web sitesine dağıtılan web projesi özelliğine sahip ön uçla da oluşturabilirsiniz. Azure web sitesi ön ucunda gerçekleştirilebilecek farklı işlemler hakkındaki talimatlar için [Sonraki adımlar](#nextsteps) bölümüne bakın. Ayrıca, [.NET bulut/şirket içi karma uygulama](../service-bus-relay/service-bus-dotnet-hybrid-app-using-service-bus-relay.md) öğreticisine de başvurabilirsiniz.
 
 Aşağıdaki ekran görüntüsünde tamamlanan uygulama gösterilir.
 
@@ -57,15 +57,6 @@ Bu iletişim mekanizması, doğrudan mesajlaşma ile karşılaştırıldığınd
   ![][2]
 
 Aşağıdaki bölümlerde, bu mimariyi uygulayan kod ele alınır.
-
-## <a name="set-up-the-development-environment"></a>Geliştirme ortamını ayarlama
-Azure uygulamalarını geliştirmeye başlamadan önce, araçları edinip geliştirme ortamınızı ayarlayın.
-
-1. [Araç ve SDK edinme][Araç ve SDK edinme] bölümünde .NET için Azure SDK'sını yükleyin.
-2. Kullandığınız Visual Studio çözümü için **SDK'yi yükle**'ye tıklayın. Bu öğreticideki adımlarda Visual Studio 2015 kullanılır.
-3. Yükleyiciyi çalıştırmanız veya kaydetmeniz istendiğinde **Çalıştır**'a tıklayın.
-4. **Web Platformu Yükleyicisi**'nde **Yükle**'ye tıklayın ve kuruluma devam edin.
-5. Kurulum tamamlandığında uygulamayı geliştirmeye başlamak için gereken her şeye sahip olacaksınız. SDK, Visual Studio'da Azure uygulamalarını kolayca geliştirmenize olanak sağlayan araçları içerir. Visual Studio yüklü değilse SDK ücretsiz Visual Studio Express de yükler.
 
 ## <a name="create-a-namespace"></a>Ad alanı oluşturma
 İlk adım, bir hizmet ad alanı oluşturmak ve Paylaşılan Erişim İmzası (SAS) anahtarı edinmektir. Ad alanı, Service Bus tarafından kullanıma sunulan her uygulama için bir uygulama sınırı sağlar. Bir ad alanı oluşturulduğunda sistem tarafından bir SAS anahtarı oluşturulur. Ad alanı ve SAS anahtarı birleşimi ile Service Bus hizmetinin bir uygulamaya erişim kimliğini doğrulayan kimlik bilgisi sağlanır.
@@ -109,7 +100,7 @@ Bu bölümde, uygulamanızın görüntülediği çeşitli sayfalar oluşturursun
 
 1. Visual Studio'daki OnlineOrder.cs dosyasında var olan ad alanı tanımını şu kod ile değiştirin:
    
-   ```
+   ```csharp
    namespace FrontendWebRole.Models
    {
        public class OnlineOrder
@@ -121,14 +112,14 @@ Bu bölümde, uygulamanızın görüntülediği çeşitli sayfalar oluşturursun
    ```
 2. **Çözüm Gezgini**'nde **Controllers\HomeController.cs** öğesine çift tıklayın. Service Bus hizmetinin yanı sıra az önce oluşturduğunuz modele yönelik ad alanlarını da içermesi için dosyanın başına aşağıdaki **using** deyimlerini ekleyin.
    
-   ```
+   ```csharp
    using FrontendWebRole.Models;
    using Microsoft.ServiceBus.Messaging;
    using Microsoft.ServiceBus;
    ```
 3. Ayrıca, Visual Studio'daki HomeController.cs dosyasında var olan ad alanı tanımını da aşağıdaki kod ile değiştirin. Bu kod, öğelerin kuyruğa gönderilme işleminin ele alınmasına yönelik yöntemleri içerir.
    
-   ```
+   ```csharp
    namespace FrontendWebRole.Controllers
    {
        public class HomeController : Controller
@@ -193,7 +184,7 @@ Bu bölümde, uygulamanızın görüntülediği çeşitli sayfalar oluşturursun
     ![][28]
 11. Son olarak, gönderim sayfasını kuyruk hakkındaki bazı bilgileri içerecek şekilde değiştirin. **Çözüm Gezgini**'nde, **Views\Home\Submit.cshtml** dosyasına çift tıklayarak dosyayı Visual Studio düzenleyicisinde açın. `<h2>Submit</h2>` öğesinden sonra aşağıdaki satırı ekleyin. `ViewBag.MessageCount`, şimdilik boştur. Bu alanı daha sonra dolduracaksınız.
     
-    ```
+    ```html
     <p>Current number of orders in queue waiting to be processed: @ViewBag.MessageCount</p>
     ```
 12. Şu anda kullanıcı arabiriminizi uyguladınız. Uygulamanızı çalıştırmak ve istediğiniz gibi göründüğünü doğrulamak için **F5**'e basabilirsiniz.
@@ -207,7 +198,7 @@ Bu bölümde, uygulamanızın görüntülediği çeşitli sayfalar oluşturursun
 2. Sınıfı **QueueConnector.cs** olarak adlandırın. Sınıf oluşturmak için **Ekle**'ye tıklayın.
 3. Şimdi, bağlantı bilgilerini yalıtan ve Service Bus kuyruğuna bağlantıyı başlatan kodu ekleyin. QueueConnector.cs öğesinin tüm içeriğini aşağıdaki kodla değiştirin ve `your Service Bus namespace` öğesi (ad alanınızın adı) ile daha önce Azure portalda elde ettiğiniz **birincil anahtarınız** olan `yourKey` öğesi için değerleri girin.
    
-   ```
+   ```csharp
    using System;
    using System.Collections.Generic;
    using System.Linq;
@@ -269,13 +260,13 @@ Bu bölümde, uygulamanızın görüntülediği çeşitli sayfalar oluşturursun
 4. Şimdi **Başlat** yönteminizin çağrıldığından emin olun. **Çözüm Gezgini**'nde **Global.asax\Global.asax.cs** öğesine çift tıklayın.
 5. **Application_Start** yönteminin sonuna aşağıdaki kod satırını ekleyin.
    
-   ```
+   ```csharp
    FrontendWebRole.QueueConnector.Initialize();
    ```
 6. Son olarak, öğeleri kuyruğa göndermek için daha önce oluşturduğunuz web kodunu güncelleştirin. **Çözüm Gezgini**'nde **Controllers\HomeController.cs** öğesine çift tıklayın.
 7. Kuyrukta bulunan ileti sayısını alması için `Submit()` yöntemini (parametre almayan aşırı yük) aşağıdaki şekilde güncelleştirin.
    
-   ```
+   ```csharp
    public ActionResult Submit()
    {
        // Get a NamespaceManager which allows you to perform management and
@@ -291,7 +282,7 @@ Bu bölümde, uygulamanızın görüntülediği çeşitli sayfalar oluşturursun
    ```
 8. Kuyruğa ilişkin sipariş bilgilerini alması için `Submit(OnlineOrder order)` yöntemini (bir parametre alan aşırı yük) aşağıdaki şekilde güncelleştirin.
    
-   ```
+   ```csharp
    public ActionResult Submit(OnlineOrder order)
    {
        if (ModelState.IsValid)
@@ -334,18 +325,18 @@ Bu bölümde, uygulamanızın görüntülediği çeşitli sayfalar oluşturursun
 10. **FrontendWebRole\Models** alt klasörüne gözatın ve ardından bu projeye eklemek için **OnlineOrder.cs** sınıfına çift tıklayın.
 11. **WorkerRole.cs** içindeki `"ProcessingQueue"` olan **QueueName** değişkenin değerini aşağıdaki kodda gösterildiği şekilde `"OrdersQueue"` olarak değiştirin.
     
-    ```
+    ```csharp
     // The name of your queue.
     const string QueueName = "OrdersQueue";
     ```
 12. WorkerRole.cs dosyasının üst kısmına aşağıdaki using deyimini ekleyin.
     
-    ```
+    ```csharp
     using FrontendWebRole.Models;
     ```
 13. `Run()` işlevinde `OnMessage()` çağrısı içinde, `try` yan tümcesinin içeriğini aşağıdaki kodla değiştirin.
     
-    ```
+    ```csharp
     Trace.WriteLine("Processing", receivedMessage.SequenceNumber.ToString());
     // View the message as an OnlineOrder.
     OnlineOrder order = receivedMessage.GetBody<OnlineOrder>();
@@ -362,29 +353,16 @@ Bu bölümde, uygulamanızın görüntülediği çeşitli sayfalar oluşturursun
 Service Bus hakkında daha fazla bilgi edinmek için şu kaynaklara bakın:  
 
 * [Azure Service Bus][sbmsdn]  
-* [Service Bus hizmeti sayfası][sbwacom]  
-* [Service Bus Kuyruklarını Kullanma][sbwacomqhowto]  
+* [Service Bus hizmet sayfası][sbacom]  
+* [Service Bus Kuyruklarını kullanma][sbacomqhowto]  
 
 Çok katmanlı senaryolar hakkında daha fazla bilgi için bkz.  
 
-* [Depolama Tabloları, Kuyrukları ve Blobları Kullanan .NET Çok Kapsamlı Uygulaması][multitierstorage]  
+* [Depolama Tabloları, Kuyruklar ve Blob'ların Kullanıldığı .NET Çok Katmanlı Uygulaması][mutitierstorage]  
 
 [0]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-01.png
 [1]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-100.png
 [2]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-101.png
-[Araç ve SDK edinme]: http://go.microsoft.com/fwlink/?LinkId=271920
-
-
-[GetSetting]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.cloudconfigurationmanager.getsetting.aspx
-[Microsoft.WindowsAzure.Configuration.CloudConfigurationManager]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.cloudconfigurationmanager.aspx
-[NamespaceMananger]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx
-
-[QueueClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx
-
-[TopicClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicclient.aspx
-
-[EventHubClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx
-
 [9]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-10.png
 [10]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-11.png
 [11]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-02.png
@@ -404,12 +382,12 @@ Service Bus hakkında daha fazla bilgi edinmek için şu kaynaklara bakın:
 [28]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-40.png
 
 [sbmsdn]: http://msdn.microsoft.com/library/azure/ee732537.aspx  
-[sbwacom]: /documentation/services/service-bus/  
-[sbwacomqhowto]: service-bus-dotnet-get-started-with-queues.md  
-[multitierstorage]: https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36
+[sbacom]: https://azure.microsoft.com/services/service-bus/  
+[sbacomqhowto]: service-bus-dotnet-get-started-with-queues.md  
+[mutitierstorage]: https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

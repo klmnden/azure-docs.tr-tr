@@ -4,6 +4,12 @@
 # Başlarken
 ## [Hesap oluşturma ve yönetme](media-services-portal-create-account.md)
 ## [Geliştirme ortamınızı kurma](media-services-set-up-computer.md)
+###[.NET](media-services-dotnet-how-to-use.md)
+###[REST](media-services-rest-how-to-use.md)  
+## Program aracılığıyla bağlanma
+### [.NET](media-services-dotnet-connect-programmatically.md)
+### [REST](media-services-rest-connect-programmatically.md)
+
 ## İsteğe bağlı video gönderme
 ### [Portal](media-services-portal-vod-get-started.md)
 ### [.NET SDK](media-services-dotnet-get-started.md)
@@ -21,11 +27,10 @@
 ### Varlıkları yönetme
 #### [.NET](media-services-dotnet-manage-entities.md)
 #### [REST](media-services-rest-manage-entities.md)
-### Program aracılığıyla bağlanma
-#### [.NET](media-services-dotnet-connect-programmatically.md)
-#### [REST](media-services-rest-connect-programmatically.md)
-### [Portaldaki akış uç noktalarını yönetme](media-services-portal-manage-streaming-endpoints.md)
-### [Nasıl Yapılır?: Depolama Erişim Anahtarlarını Değiştirdikten Sonra Media Services’ı Güncelleştirme](media-services-roll-storage-access-keys.md)
+### [Akış uç noktalarını yönetme](media-services-streaming-endpoints-overview.md)
+#### [Portal](media-services-portal-manage-streaming-endpoints.md)
+#### [.NET](media-services-dotnet-manage-streaming-endpoints.md)
+### [Depolama erişim anahtarlarını değiştirdikten Sonra Media Services’ı güncelleştirme](media-services-roll-storage-access-keys.md)
 ### [Kotalar ve sınırlamalar](media-services-quotas-and-limitations.md)
 
 ## İçerik yükleme
@@ -33,6 +38,7 @@
 #### [Portal](media-services-portal-upload-files.md)
 #### [.NET](media-services-dotnet-upload-files.md)
 #### [REST](media-services-rest-upload-files.md)
+### [Aspera ile büyük dosyaları karşıya yükleme](media-services-upload-files-with-aspera.md)
 ### [Mevcut blobları kopyalama](media-services-copying-existing-blob.md)
 
 ## [İçerik kodlama](media-services-encode-asset.md)
@@ -92,8 +98,10 @@
 
 ## [Canlı akış](media-services-manage-channels-overview.md)
 ### [Şirket içi kodlayıcılar](media-services-live-streaming-with-onprem-encoders.md)
+#### [Portal](media-services-portal-live-passthrough-get-started.md)
+#### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
+#### [REST](https://docs.microsoft.com/rest/api/media/operations/channel)
 ### [Bulut kodlayıcıyla canlı akış](media-services-manage-live-encoder-enabled-channels.md)
-### Bulut kodlayıcı öğreticileri
 #### [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 #### [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 ### [Şirket içi kodlayıcıları bulut kodlayıcıyla kullanılmak üzere yapılandırma](media-services-live-encoders-overview.md)
@@ -109,6 +117,7 @@
 ### [Akışınız için AES-128 şifresiz anahtarını yapılandırma](media-services-protect-with-aes128.md)
 ### [AMS REST API kullanarak İçeriğinizi Depolama Şifreleme ile şifreleme](media-services-rest-storage-encryption.md)
 ### [Media Services PlayReady Lisans Şablonuna Genel Bakış](media-services-playready-license-template-overview.md)
+### [Widevine lisans şablonuna genel bakış](media-services-widevine-license-template-overview.md)
 ### [DRM lisansı teslimi](media-services-deliver-keys-and-licenses.md)
 ### [Azure Media Services’ta Widevine lisanslarını teslim etmek için iş ortaklarıyla çalışma](media-services-licenses-partner-integration.md)
 ### [PlayReady ve/ya Widevine dinamik ortak şifreleme işlemini kullanma](media-services-protect-with-drm.md)
@@ -147,16 +156,15 @@
 ### [Medya İşleme](media-services-scale-media-processing-overview.md)
 #### [Portal](media-services-portal-scale-media-processing.md)
 #### [.NET](media-services-dotnet-encoding-units.md)
-#### [REST](https://msdn.microsoft.com/library/azure/dn859236.aspx)
+#### [REST](https://docs.microsoft.com/rest/api/media/operations/encodingreservedunittype)
 ### Akış Uç Noktaları
 #### [Portal](media-services-portal-scale-streaming-endpoints.md)
 
 ## [İçerik teslim etme](media-services-deliver-content-overview.md)
 ### [Dinamik paketleme](media-services-dynamic-packaging-overview.md)
 ### [Filtrelere ve dinamik bildirimlere genel bakış](media-services-dynamic-manifest-overview.md)
-### Filtre oluşturma
-#### [.NET](media-services-dotnet-dynamic-manifest.md)
-#### [REST](media-services-rest-dynamic-manifest.md)
+#### [.NET ile filtre oluşturma](media-services-dotnet-dynamic-manifest.md)
+#### [REST ile filtre oluşturma](media-services-rest-dynamic-manifest.md)
 ### İçerik yayımlama
 #### [Portal](media-services-portal-publish.md)
 #### [.NET](media-services-deliver-streaming-content.md)
@@ -179,7 +187,6 @@
 ### [Birden çok Depolama hesabında yer alan varlıkları yönetme](meda-services-managing-multiple-storage-accounts.md)
 ### [Azure Media Services’ta Widevine lisanslarını teslim etmek için Axinom kullanma  ](media-services-axinom-integration.md)
 ### [Azure Media Services’ta Widevine lisanslarını teslim etmek için castLabs kullanma](media-services-castlabs-integration.md)
-### [Widevine Lisans Şablonuna Genel Bakış](media-services-widevine-license-template-overview.md)
 
 ## İzleme
 ### İşin ilerleme durumunu denetleme
@@ -207,6 +214,6 @@
 ## [Videolar](https://azure.microsoft.com/resources/videos/index/?services=media-services)
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

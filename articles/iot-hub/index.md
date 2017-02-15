@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "IoT Hub’ı kullanarak milyarlarca Nesnelerin İnterneti varlığına bağlanma, bunları izleme ve denetleme hakkında bilgi edinin. Öğreticiler, API başvuruları, videolar ve diğer belgeler."
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: b452e767bb6c2e181f56ab84e92e9225408baf9b
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: da0387255c538afd5490f313c10509a1b40e6dd9
 
 ---
 #<a name="iot-hub-documentation"></a>IoT Hub Belgeleri
 
-Azure IoT Hub, milyonlarca IoT cihazları ile bir çözüm arka ucu arasında güvenilir ve güvenli çift yönlü iletişimler sağlayan tam olarak yönetilen bir hizmettir.  Ayrıca cihaz bağlantıları için kapsamlı izlemenin yanı sıra popüler dil ve platformların çoğu için cihaz kitaplıkları içerir. 
+IoT Hub’ı kullanarak milyarlarca Nesnelerin İnterneti varlığına bağlanma, bunları izleme ve denetleme hakkında bilgi edinin. Öğreticiler, API başvuruları, videolar ve diğer belgeler, IoT cihazlarıyla bir çözümün arka ucu arasında güvenilir ve çift yönlü iletişim dağıtmanıza yardımcı olur. 
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -103,81 +104,59 @@ Azure IoT Hub, milyonlarca IoT cihazları ile bir çözüm arka ucu arasında g�
 </ul>
 
 ---
-
-## <a name="reference"></a>Başvuru
-
+ 
+<h2>Başvuru</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/cli/azure/iot">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Azure CLI</h3>
-                        <p>Azure CLI ile IoT HUB’ı</p>
+                        <h3>Komut Satırı</h3>
+                        <p><a href="/cli/azure/iot">Azure CLI</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-
-<li>
-        <a href="/dotnet/api/">
+    <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>.NET Yönetilen Başvuru API'si</p>
+                        <h3>Diller</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.devices">.NET (Hizmet)</a></p>
+                        <p><a href="/dotnet/api/microsoft.azure.devices.client">.NET (Cihazlar)</a></p>
+                        <p><a href="/java/api/com.microsoft.azure.iot.service.auth">Java (Hizmet)</a></p>
+                        <p><a href="/java/api/com.microsoft.azure.iothub">Java (Cihazlar)</a></p>
+                        <p><a href="http://azure.github.io/azure-iot-sdks/">Azure IoT SDK’ları</a></p>
+                        <p><a href="http://azure.github.io/azure-iot-gateway-sdk">Ağ Geçidi SDK’sı</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-
-<li>
-        <a href="/java/api/">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Java</h3>
-                        <p>Java SDK Başvurusu</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-
-<li>
-        <a href="/rest/api/iothub">
+    <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>IoT HUB REST API Başvurusu</p>
+                        <p><a href="/rest/api/iothub/iothubresource">REST (Kaynak Sağlayıcısı)</a></p>
+                        <p><a href="/rest/api/iothub/deviceapi">REST (Cihaz Kimlikleri)</a></p>
+                        <p><a href="/rest/api/iothub/httpruntime">REST (Cihaz Mesajlaşması )</a></p>
+                        <p><a href="/rest/api/iothub/jobapi">REST (İşler)</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/iot-hub.pdf">
-        <div class="img"></div>
-        <div class="text">
-IoT Hub Belgelerini İndirme </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Jan17_HO3-->
 
 

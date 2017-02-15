@@ -1,5 +1,5 @@
 ---
-title: " Azure portalı ile Azure Media Services hesabı oluşturma | Microsoft Belgeleri"
+title: " Azure portalı ile Azure Media Services hesabı oluşturma | Microsoft Belgeleris"
 description: "Bu öğretici, Azure portalıyla bir Azure Media Services hesabı oluşturma adımlarında size kılavuzluk eder."
 services: media-services
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/24/2016
+ms.date: 01/10/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 312231f395f19fde98431c24b71ce7cec3061eaf
-ms.openlocfilehash: 4a1d5d706cbfb5c42a36fd03033aa361ef3d4d11
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: 01c1297a6b107f91d8e6e73f17d76499d67849de
 
 
 ---
@@ -54,10 +54,10 @@ Bu bölümdeki adımlar bir AMS hesabının nasıl oluşturulacağını gösteri
 1. [Azure portal](https://portal.azure.com/)’da oturum açın.
 2. **+Yeni** > **Web + Mobil** > **Media Services**’e tıklayın.
    
-    ![Media Services Oluşturma](./media/media-services-portal-vod-get-started/media-services-new1.png)
+    ![Media Services Oluşturma](./media/media-services-create-account/media-services-new1.png)
 3. **MEDYA HİZMETLERİ HESABI OLUŞTUR**’a gerekli değerleri girin.
    
-    ![Media Services Oluşturma](./media/media-services-portal-vod-get-started/media-services-new3.png)
+    ![Media Services Oluşturma](./media/media-services-create-account/media-services-new3.png)
    
    1. **Hesap Adı**’nda, yeni AMS hesabının adını girin. Media Services hesabı adı, boşluk olmadan, tümü küçük harf ve sayılardan oluşmalı ve 3-24 karakter uzunluğunda olmalıdır.
    2. Abonelik’te, erişiminiz bulunan farklı Azure abonelikleri arasından seçim yapın.
@@ -69,9 +69,12 @@ Bu bölümdeki adımlar bir AMS hesabının nasıl oluşturulacağını gösteri
    6. Hesap dağıtımını ilerleme durumunu görmek için **Panoya sabitle**’yi seçin.
 4. Formun alt kısmındaki **Oluştur**’a tıklayın.
    
-    Hesap başarıyla oluşturulduktan sonra, durum **Çalışıyor** olarak değişir. 
+    Hesap başarıyla oluşturulduktan sonra genel bakış sayfası yüklenir. Akış uç noktası tablosunda hesapta **Durdurulmuş** durumda bir varsayılan akış uç noktası yer alır. 
+
+    >[!NOTE]
+    >AMS hesabınız oluşturulduğunda hesabınıza **Durdurulmuş** durumda bir **varsayılan** akış uç noktası eklenir. İçerik akışını başlatmak ve dinamik paketleme ile dinamik şifrelemeden yararlanmak için içerik akışı yapmak istediğiniz akış uç noktasının **Çalışıyor** durumda olması gerekir. 
    
-    ![Media Services ayarları](./media/media-services-portal-vod-get-started/media-services-settings.png)
+    ![Media Services ayarları](./media/media-services-create-account/media-services-settings.png)
    
     AMS hesabınızı yönetmek için (örneğin, videoları karşıya yüklemek, varlıkları kodlamak, işin ilerleme durumunu izlemek) **Ayarlar** penceresini kullanın.
 
@@ -86,7 +89,7 @@ Media Services hesabına program aracılığıyla erişmek için hesap adına ve
     **Anahtarları yönet** pencereleri hesap adını gösterir ve birincil ve ikincil anahtarlar görüntülenir. 
 3. Değerleri kopyalamak için kopyala düğmesine basın.
    
-    ![Media Services Anahtarları](./media/media-services-portal-vod-get-started/media-services-keys.png)
+    ![Media Services Anahtarları](./media/media-services-create-account/media-services-keys.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bundan böyle dosyaları AMS hesabınıza yükleyebilirsiniz. Daha fazla bilgi için bkz. [Dosya yükleme](media-services-portal-upload-files.md).
@@ -100,6 +103,6 @@ Bundan böyle dosyaları AMS hesabınıza yükleyebilirsiniz. Daha fazla bilgi i
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -2,10 +2,10 @@
 layout: HubPage
 hide_bc: true
 title: Microsoft Azure Belgeleri | Microsoft Docs
-description: "Microsoft Azure bulut hizmetlerini kullanarak güçlü uygulamalar oluşturmayı ve yönetmeyi öğrenin. Belgelere, örnek kodlara, öğreticilere ve çok daha fazlasına ulaşın."
+description: "Microsoft Azure Cloud Services’ı kullanarak güçlü uygulamalar oluşturmayı ve yönetmeyi öğrenin. Belgelere, örnek kodlara, öğreticilere ve çok daha fazlasına ulaşın."
 translationtype: Human Translation
-ms.sourcegitcommit: 392db4d8261f6e927aa5ea4b2f6b30e244bfec50
-ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
+ms.sourcegitcommit: 87041c127fb3381480b162c3a3648bfd46dbaaf7
+ms.openlocfilehash: e2eacb21be4240e7402ce6ff1e7f44e24063a6e0
 
 ---
 <div id="main" class="v2">
@@ -500,12 +500,6 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/traffic-manager/">
-                                                <img src="media/index/TrafficManager.svg" alt="" />
-                                                <p>Traffic Manager</p>
-                                            </a>
-                                        </li>
-                                        <li>
                                             <a href="/azure/monitoring-and-diagnostics/">
                                                 <img src="media/index/AzureMonitoring.svg" alt="" />
                                                 <p>Azure İzleyici</p>
@@ -637,6 +631,21 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                                             <a href="/azure/data-factory/">
                                                 <img src="media/index/DataFactory.svg" alt="" />
                                                 <p>Data Factory</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <h3>Diğer Bulutlar</h3>
+                                    <ul>
+                                        <li>
+                                            <a href="/azure/azure-government/">
+                                                <img src="media/index/azure-government.svg" alt="" />
+                                                <p>Azure US Government</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/azure-stack/">
+                                                <img src="media/index/azure-stack.svg" alt="" />
+                                                <p>Azure Stack</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -872,7 +881,7 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Yük Dengeleyici</h3>
+                                                    <h3>Load Balancer</h3>
                                                     <p>Uygulamalarınıza yüksek düzeyde kullanılabilirlik ve ağ performansı sağlayın</p>
                                                 </div>
                                             </div>
@@ -1628,7 +1637,7 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                         <a href="#iot">Nesnelerin İnterneti</a>
                         <ul id="iot" class="cardsA">
                             <li>
-                                <a href="https://azure.microsoft.com/en-us/develop/iot/">
+                                <a href="https://azure.microsoft.com/develop/iot/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2042,7 +2051,7 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                         <a href="#devtools">Geliştirici Araçları</a>
                         <ul id="devtools" class="cardsA">
                             <li>
-                                <a href="https://www.visualstudio.com/en-us/docs/overview">
+                                <a href="https://www.visualstudio.com/docs/overview">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2256,25 +2265,6 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/traffic-manager/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/TrafficManager.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Traffic Manager</h3>
-                                                    <p>Yüksek performans ve kullanılabilirlik için gelen trafiği yönlendirin</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
                                 <a href="/azure/monitoring-and-diagnostics/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -2351,15 +2341,58 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                                 </a>
                             </li>
                         </ul>
-                    </li>                    
+                    </li>
+                    <li>
+                        <a href="#other">Diğer Bulutlar</a>
+                        <ul id="other" class="cardsA">
+                            <li>
+                                <a href="/azure/azure-government/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/azure-government.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Microsoft Azure US Government</h3>
+                                                    <p>Adanmış bir Azure örneğinde US Government görevleri için uygulamalar oluşturun ve barındırın</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/azure-stack/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/azure-stack.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Microsoft Azure Stack</h3>
+                                                    <p>Bu yeni karma bulut platformuyla, kendi veri merkezinizden Azure hizmetleri sunun</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
             </li>
             <li>
-                <a href="#sdktools">SDK/Araçlar</a>
-                <ul id="sdktools">
+                <a href="#sdkstools">SDK’lar/Araçlar</a>
+                <ul id="sdkstools">
                     <li>
-                        <a href="#sdktools-all">tümü</a>
-                        <ul id="sdktools-all" class="cardsF">
+                        <a href="#sdkstools-all">tümü</a>
+                        <ul id="sdkstools-all" class="cardsF">
                             <li>
                                 <div class="container">
                                     <h1>Diller &amp; Çerçeveler</h1>
@@ -2376,16 +2409,19 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://www.nuget.org/packages/Microsoft.Azure.Management.Fluent/1.0.0-beta3">.NET SDK'yı edinme</a>
+                                                    <a href="https://www.nuget.org/packages/Microsoft.Azure.Management.Fluent">.NET SDK'yı edinme</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/develop/net/">Başlarken</a>
+                                                    <a href="https://docs.microsoft.com/dotnet/api/">Başlarken</a>
                                                 </p>
                                                 <p>
                                                     <a href="/dotnet/api">API başvurusu</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/documentation/samples/?platform=dotnet">Örnek görüntüleme</a>
+                                                    <a href="https://azure.microsoft.com/documentation/samples/?platform=dotnet">Örnekleri edinin</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://azure.microsoft.com/develop/net/">Daha fazla bilgi edinin</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -2403,16 +2439,19 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://azure.microsoft.com/develop/python">Python SDK'yı edinme</a>
+                                                    <a href="https://pypi.python.org/pypi/azure">Python SDK'yı edinme</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/develop/python">Başlarken</a>
+                                                    <a href="http://azure-sdk-for-python.readthedocs.io/en/latest/">Başlarken</a>
                                                 </p>
                                                 <p>
                                                     <a href="http://azure-sdk-for-python.readthedocs.io/en/latest/">API başvurusu</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/resources/samples/?platform=python">Örnek görüntüleme</a>
+                                                    <a href="https://azure.microsoft.com/resources/samples/?platform=python">Örnekleri edinin</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://azure.microsoft.com/develop/python">Daha fazla bilgi edinin</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -2430,16 +2469,19 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://azure.microsoft.com/develop/nodejs/">Node.js SDK'sını edinme</a>
+                                                    <a href="https://www.npmjs.com/package/azure">Node.js SDK'sını edinme</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/develop/nodejs">Başlarken</a>
+                                                    <a href="http://azure.github.io/azure-sdk-for-node/">Başlarken</a>
                                                 </p>
                                                 <p>
                                                     <a href="http://azure.github.io/azure-storage-node/index.html">API başvurusu</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/documentation/samples/?platform=nodejs">Örnek görüntüleme</a>
+                                                    <a href="https://azure.microsoft.com/documentation/samples/?platform=nodejs">Örnekleri edinin</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://azure.microsoft.com/develop/nodejs">Daha fazla bilgi edinin</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -2457,16 +2499,19 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="http://search.maven.org/remotecontent?filepath=com/microsoft/azure/azure-parent/1.0.0-beta3/azure-parent-1.0.0-beta3.pom">Java SDK'yı edinme</a>
+                                                    <a href="https://github.com/Azure/azure-sdk-for-java#download">Java SDK'yı edinme</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/develop/java/">Başlarken</a>
+                                                    <a href="https://docs.microsoft.com/java/api/">Başlarken</a>
                                                 </p>
                                                 <p>
                                                     <a href="/java/api/">API başvurusu</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/documentation/samples/?platform=java">Örnek görüntüleme</a>
+                                                    <a href="https://azure.microsoft.com/documentation/samples/?platform=java">Örnekleri edinin</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://azure.microsoft.com/develop/java/">Daha fazla bilgi edinin</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -2484,16 +2529,19 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://azure.microsoft.com/downloads/">Ruby SDK'yı edinme</a>
+                                                    <a href="https://rubygems.org/gems/azure">Ruby SDK'yı edinme</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/develop/ruby/">Başlarken</a>
+                                                    <a href="https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md">Başlarken</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md">API başvurusu</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/documentation/samples/?platform=ruby">Örnek görüntüleme</a>
+                                                    <a href="https://azure.microsoft.com/documentation/samples/?platform=ruby">Örnekleri edinin</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://azure.microsoft.com/develop/ruby/">Daha fazla bilgi edinin</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -2511,13 +2559,13 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="">REST ile çalışmaya başlama</a>
+                                                    <a href="https://docs.microsoft.com/rest/api/">REST ile çalışmaya başlama</a>
                                                 </h3>
                                                 <p>
                                                     <a href="/rest/api">Başvuru</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/documentation/samples/?platform=rest">Örnek görüntüleme</a>
+                                                    <a href="https://azure.microsoft.com/documentation/samples/?platform=rest">Örnekleri edinin</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -2701,7 +2749,7 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
                                                     <a href="http://storageexplorer.com/">Depolama Gezgini</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/en-us/documentation/articles/vs-azure-tools-storage-manage-with-storage-explorer/">Başlarken</a>
+                                                    <a href="https://azure.microsoft.com/documentation/articles/vs-azure-tools-storage-manage-with-storage-explorer/">Başlarken</a>
                                                 </p>
                                                 <p>
                                                      <a  href="http://go.microsoft.com/fwlink/?LinkId=722418">Linux için indirme</a>
@@ -2861,6 +2909,6 @@ ms.openlocfilehash: d602295648e523276528d738d54078e2dc07b8a5
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO4-->
 
 

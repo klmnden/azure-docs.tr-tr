@@ -182,6 +182,6 @@ Azure Search dizini oluşturduktan sonra, [içeriğinizi dizine yüklemek](searc
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

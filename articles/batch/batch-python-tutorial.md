@@ -210,7 +210,7 @@ Dosyayı karşıya yükleme işleminde, *python_tutorial_client.py* önce **uygu
      for file_path in input_file_paths]
 ```
 
-Liste anlamayı kullanarak, `upload_file_to_container` işlevi koleksiyondaki her dosya için çağrılır ve iki [ResourceFile][py_resource_file] koleksiyonu doldurulur.  `upload_file_to_container` İşlevi aşağıda görünür:
+Liste anlamayı kullanarak, `upload_file_to_container` işlevi koleksiyondaki her dosya için çağrılır ve iki [ResourceFile][py_resource_file] koleksiyonu doldurulur. `upload_file_to_container` İşlevi aşağıda görünür:
 
 ```
 def upload_file_to_container(block_blob_client, container_name, file_path):

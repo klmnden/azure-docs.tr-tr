@@ -1,14 +1,26 @@
 ---
 layout: LandingPage
 toc_rel: breadcrumb.json
+description: "Windows veya Linux sanal makineleri oluşturma, dağıtma ve yönetme hakkında bilgi edinin. Öğreticiler, API başvuruları ve diğer belgeler."
+title: Azure Sanal Makineler Belgeleri | Microsoft Docs
+services: virtual-machines
+author: carolz
+manager: carolz
+ms.assetid: 
+ms.service: virtual-machines-windows
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: 334336cb8d5da4761d5c1fa53c8c63cfbdb850a6
+ms.sourcegitcommit: 0b803da9d1cfefababd18b48fd39efc9895331bf
+ms.openlocfilehash: 2cbeaebcd79944511bbd2532b533acf1b98bef06
 
 ---
-#<a name="virtual-machines-documentation"></a>Sanal Makineler Belgeleri
+# <a name="virtual-machines-documentation"></a>Sanal Makineler Belgeleri
 
-Bir Azure sanal makinesi, sanal makineyi çalıştıran fiziksel donanımı satın almanıza ve muhafaza etmenize gerek kalmadan size sanallaştırma esnekliği sunar. Ancak, yine de sanal makinenin bakımını yapmanız (sanal makinede çalışan yazılımı yapılandırmanız, düzeltme eki uygulamanız ve bakım yapmanız) gerekir.
+Azure sanal makineleri oluşturma hakkında bilgi edinin. Öğreticiler, API başvuruları ve diğer belgeler, Windows ve Linux sanal makinelerinin yanı sıra karmaşık VM şablonlarını oluşturma ve dağıtma ile ilgili bilgiler içerir.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -49,79 +61,10 @@ Bir Azure sanal makinesi, sanal makineyi çalıştıran fiziksel donanımı sat�
     </li>    
 </ul>
 
----
-
-## <a name="reference"></a>Başvuru
-
-<ul class="panelContent cardsW">
-    <li>
-        <a href="/dotnet/api/">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Sanal Makineler Yönetilen Başvuru API’si</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/rest/api/">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST</h3>
-                        <p>Sanal Makine REST API Başvurusu</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/cli/azure/">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Azure CLI</h3>
-                        <p>Sanal Makineler için Azure CLI</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/java/api/">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Java</h3>
-                        <p>Sanal Makineler PowerShell Cmdlet’i</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-</ul>
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/virtual-machines.pdf">
-        <div class="img"></div>
-        <div class="text">
-Sanal Makine Belgelerini İndirme </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Jan17_HO4-->
 
 

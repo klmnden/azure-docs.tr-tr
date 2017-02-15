@@ -1,13 +1,17 @@
 ---
 layout: LandingPage
+description: "Uygulamalarda tahmine dayalı analiz kullanan veri uzmanlarına ve geliştiricilere yönelik bir bulut hizmeti olan Machine Learning ile ilgili belgeler, videolar ve örnek modeller."
+author: garyericson
+ms.date: 01/18/2017
+ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: d8c4cf777402393667a521dcff780e839d02e734
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 3247e45c44f63c529c84de5dd31eadc5a9552952
 
 ---
 #<a name="azure-machine-learning-documentation"></a>Azure Machine Learning Belgeleri
 
-Azure Machine Learning tahmine dayalı analiz modellemeye yönelik araçlar sağlamanın yanı sıra tahmine dayalı modellerinizi kullanıma hazır web hizmetleri olarak dağıtmada kullanabileceğiniz tam olarak yönetilen bir hizmet sunar.
+Veri uzmanlarının ve geliştiricilerin uygulamalara tahmine dayalı analizler eklemek için Machine Learning’i kullanabileceğini öğrenin. Öğreticiler, videolar ve örnek modellerde makine öğrenimi modelleri oluşturma ve dağıtma konusunda bilgi sağlanmıştır.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -94,8 +98,8 @@ Azure Machine Learning tahmine dayalı analiz modellemeye yönelik araçlar sağ
                 <div class="card">
                     <div class="cardText">
                         <h3>Komut Satırı</h3>
-                        <p><a href="/azure/machine-learning/machine-learning-powershell-module">PowerShell</a></p>
-                        <p><a href="/azure/machine-learning/machine-learning-powershell-module">Machine Learning için PowerShell modülü</a></p>
+                        <p><a href="/powershell/resourcemanager/azurerm.machinelearning/v0.11.1/azurerm.machinelearning">PowerShell (Yeni)</a></p>
+                        <p><a href="/azure/machine-learning/machine-learning-powershell-module">PowerShell (Klasik)</a></p>
                     </div>
                 </div>
             </div>
@@ -107,7 +111,7 @@ Azure Machine Learning tahmine dayalı analiz modellemeye yönelik araçlar sağ
                 <div class="card">
                     <div class="cardText">
                         <h3>Diller</h3>
-                        <p><a href="https://msdn.microsoft.com/library/azure/dn905974.aspx">Algoritmalar ve Modül başvurusu</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/dn905974.aspx">Algoritma &amp; Modülü başvurusu</a></p>
                    </div>
                 </div>
             </div>
@@ -119,7 +123,7 @@ Azure Machine Learning tahmine dayalı analiz modellemeye yönelik araçlar sağ
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/machinelearning">REST API Başvurusu</a></p>
+                        <p><a href="/rest/api/machinelearning">REST API başvurusu</a></p>
                     </div>
                 </div>
             </div>
@@ -127,16 +131,10 @@ Azure Machine Learning tahmine dayalı analiz modellemeye yönelik araçlar sağ
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/machine-learning.pdf">
-        <div class="img"></div>
-        <div class="text">
-Machine Learning Belgelerini indirin </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO3-->
 
 

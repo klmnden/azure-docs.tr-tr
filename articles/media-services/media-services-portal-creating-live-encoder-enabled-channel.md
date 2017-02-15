@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/24/2016
+ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: ff663f40507547ba561053b5c9a7a8ce93fbf213
-ms.openlocfilehash: 99dfabcfcfcef69a43b45994cb4c729bd7faecff
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: 1b0f5d61753df5860c4cc934ea2aad5175a41e16
 
 
 ---
@@ -54,9 +54,7 @@ Yaygın canlı akış uygulamaları oluşturmak için gerekli olan genel adımla
    
     Kanalınızın canlı akışı düzgün şekilde aldığını doğrulamak için bu URL’yi kullanın.
 5. Bir olay/program oluşturun (ayrıca bir varlık oluşturur). 
-6. Olayı yayımlayın (ilişkili varlığa yönelik bir OnDemand bulucu oluşturulur).  
-   
-    İçerik akışını gerçekleştirmek istediğiniz akış uç noktasında akışa ayrılan en az bir birim olduğundan emin olun.
+6. Olayı yayımlayın (ilişkili varlığa yönelik bir OnDemand bulucu oluşturulur).    
 7. Akışa ve arşivlemeye hazır olduğunuzda olayı başlatın.
 8. İsteğe bağlı olarak, gerçek zamanlı kodlayıcıya bir reklam başlatması bildirilebilir. Reklam, çıktı akışına eklenir.
 9. Olay akışını ve arşivlemeyi durdurmak istediğinizde, olayı durdurun.
@@ -65,13 +63,12 @@ Yaygın canlı akış uygulamaları oluşturmak için gerekli olan genel adımla
 ## <a name="in-this-tutorial"></a>Bu öğreticide
 Bu öğreticide, Azure portalı aşağıdaki görevleri gerçekleştirmek için kullanılır: 
 
-1. Akış uç noktalarını yapılandırma.
-2. Gerçek zamanlı kodlama gerçekleştirmek için etkinleştirilmiş bir kanal oluşturma.
-3. Gerçek zamanlı kodlayıcıya sağlamak üzere alım URL'sini alma. Gerçek zamanlı kodlayıcı, bu URL’yi kullanarak akışı Kanala alır. .
-4. Bir olay/program (ve bir varlık) oluşturma
-5. Varlığı yayımlama ve akış URL'lerini alma  
-6. İçeriğinizi oynatma 
-7. Temizleme
+1. Gerçek zamanlı kodlama gerçekleştirmek için etkinleştirilmiş bir kanal oluşturma.
+2. Gerçek zamanlı kodlayıcıya sağlamak üzere alım URL'sini alma. Gerçek zamanlı kodlayıcı, bu URL’yi kullanarak akışı Kanala alır.
+3. Bir olay/program (ve bir varlık) oluşturma.
+4. Varlığı yayımlama ve akış URL'lerini alma.  
+5. İçeriğinizi oynatma.
+6. Temizleme.
 
 ## <a name="prerequisites"></a>Ön koşullar
 Öğreticiyi tamamlamak için aşağıdakiler gereklidir.
@@ -81,29 +78,7 @@ Bu öğreticide, Azure portalı aşağıdaki görevleri gerçekleştirmek için 
 * Bir Media Services hesabı. Media Services hesabı oluşturma konusunda bilgi edinmek için bkz. [Hesap Oluşturma](media-services-portal-create-account.md).
 * Bir web kamerası ve tek bit hızlı bir canlı akış gönderebilen bir kodlayıcı.
 
-## <a name="configure-streaming-endpoints"></a>Akış uç noktalarını yapılandırma
-Media Services, çoklu bit hızlı MP4'leri şu akış biçimlerinde yeniden paketlemenize gerek kalmadan göndermenizi sağlayan dinamik paketleme olanağı sağlar: MPEG DASH, HLS, Kesintisiz Akış. Dinamik paketleme ile dosyaları yalnızca tek bir depolama biçiminde depolamanız ve buna göre ödeme yapmanız gerekir. Media Services, istemciden gelen isteklere göre uygun yanıtı derler ve sunar.
-
-Dinamik paketlemeden yararlanmak için, içeriğinizi teslim etmek istediğiniz akış uç noktası için en az bir akış birimi almanız gerekir.  
-
-Akışa ayrılan birim sayısını oluşturmak ve değiştirmek için, aşağıdakileri yapın:
-
-1. [Azure portalında](https://portal.azure.com/) oturum açın ve AMS hesabınızı seçin.
-2. **Ayarlar** penceresinde, **Akış uç noktaları**’na tıklayın. 
-3. Varsayılan akış uç noktasına tıklayın. 
-   
-    **VARSAYILAN AKIŞ UÇ NOKTASI AYRINTILAR** penceresi görüntülenir.
-4. Akış birimi sayısını belirtmek için, **Akış birimleri** kaydırıcısını kaydırın.
-   
-    ![Akış birimleri](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-streaming-units.png)
-5. Yaptığınız değişiklikleri kaydetmek için **Kaydet** düğmesine tıklayın.
-   
-   > [!NOTE]
-   > Yeni birimleri ayırmanın tamamlanması 20 dakika sürebilir.
-   > 
-   > 
-
-## <a name="create-a-channel"></a>KANAL oluşturma
+## <a name="create-a-channel"></a>Kanal oluşturma
 1. [Azure portalında](https://portal.azure.com/), Media Services'i seçin ve ardından Media Services hesabınızın adına tıklayın.
 2. **Canlı Akış**’ı seçin.
 3. **Özel oluştur**’u seçin. Bu seçenek canlı kodlama için etkinleştirilmiş bir kanal oluşturmanızı sağlar.
@@ -172,6 +147,9 @@ Arşivlenen içeriği tutmak istiyor ancak bu içeriğin akış için kullanılm
 ### <a name="createstartstop-events"></a>Olay oluşturma/başlatma/durdurma
 Akışın Kanala akması sağlandıktan sonra bir Varlık, Program ve Akış Bulucu oluşturarak akış olayını başlatabilirsiniz. Bu olay, akışı arşivler ve akışın Akış Uç Noktası aracılığıyla izleyiciler tarafından kullanılabilmesini sağlar. 
 
+>[!NOTE]
+>AMS hesabınız oluşturulduğunda hesabınıza **Durdurulmuş** durumda bir **varsayılan** akış uç noktası eklenir. İçerik akışını başlatmak ve dinamik paketleme ile dinamik şifrelemeden yararlanmak için içerik akışı yapmak istediğiniz akış uç noktasının **Çalışıyor** durumda olması gerekir. 
+
 Olayı başlatmanın iki yolu vardır: 
 
 1. **Kanal** sayfasında **Canlı Olay**’a basarak yeni bir olay ekleyin.
@@ -216,7 +194,7 @@ Varlıklarınızı yönetmek için, **Ayar**’ı seçin ve **Varlıklar**’a t
 
 ## <a name="considerations"></a>Dikkat edilmesi gerekenler
 * Canlı bir etkinlik için önerilen en uzun süre şu anda 8 saattir. Daha uzun bir süre için bir Kanal çalıştırmanız gerekiyorsa lütfen amslived@microsoft.com adresine başvurun.
-* İçerik akışını gerçekleştirmek istediğiniz akış uç noktasında akışa ayrılan en az bir birim olduğundan emin olun.
+* İçerik akışı yapmak istediğiniz akış uç noktasının **Çalışıyor** durumunda olduğundan emin olun.
 
 ## <a name="next-step"></a>Sonraki adım
 Media Services öğrenme yollarını gözden geçirin.
@@ -229,6 +207,6 @@ Media Services öğrenme yollarını gözden geçirin.
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

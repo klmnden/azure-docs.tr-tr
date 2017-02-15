@@ -1,13 +1,25 @@
 ---
 layout: LandingPage
+description: "Büyük işlem, büyük veri ve kapsayıcı çözümleri için otomatik olarak ölçeklendirilen Windows veya Linux VM’leri oluşturmak amacıyla Sanal Makine Ölçek Kümelerini nasıl kullanabileceğinizi öğrenin."
+title: "Azure Sanal Makineler Ölçek Kümeleri Belgeleri, Öğreticileri ve API Başvurusu | Microsoft Docs"
+services: virtual-machine-scale-sets
+author: carolz
+manager: carolz
+ms.assetid: 
+ms.service: virtual-machine-scale-sets
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: 71d5dc02cea9375d9c07ddd6d4a56d446390d5f1
+ms.sourcegitcommit: 7b2af8e58e050100b1778d977dabe25538b84cfe
+ms.openlocfilehash: 3bb6307cee24c80cbf8d621a49d2304d9b9b5c99
 
 ---
 #<a name="virtual-machine-scale-sets-documentation"></a>Sanal Makine Ölçek Kümeleri Belgeleri
 
-VM Ölçek Kümeleri, özdeş VM’lerden oluşan bir sanal makine kümesini dağıtıp yönetmek için kullanabileceğiniz bir Azure İşlem kaynağıdır.  Tüm sanal makinelerin aynı şekilde yapılandırıldığı VM ölçek kümeleri, gerçek otomatik ölçeklendirmeyi destekleyecek şekilde tasarlanmıştır; sanal makinelerin önceden hazırlanması gerekmez. Bu özellik büyük işlem, büyük veri ve kapsayıcı iş yüklerini hedefleyen büyük ölçekli hizmetler oluşturmayı kolaylaştırır.
+Sanal Makine Ölçek Kümelerini kullanarak birbiriyle aynı ve otomatik olarak ölçeklendirilen Windows veya Linux VM’leri dağıtmayı ve yönetmeyi öğrenin. Belgelerde, Ölçek Kümelerini kullanarak büyük işlem, büyük veri ve kapsayıcı çözümlerini hedefleyen hizmetleri nasıl destekleyebileceğiniz açıklanmıştır.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -47,7 +59,7 @@ VM Ölçek Kümeleri, özdeş VM’lerden oluşan bir sanal makine kümesini da�
         </a>
     </li>
     <li>
-        <a href="/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-windows-create">
+        <a href="/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -57,25 +69,7 @@ VM Ölçek Kümeleri, özdeş VM’lerden oluşan bir sanal makine kümesini da�
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Windows VM Ölçek Kümelerini kullanmaya başlama</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-linux-create-cli">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Linux VM Ölçek Kümelerini kullanmaya başlama</h3>
+                        <h3>Sanal Makine Ölçek Kümeleri’ni Kullanmaya Başlama</h3>
                     </div>
                 </div>
             </div>
@@ -87,64 +81,39 @@ VM Ölçek Kümeleri, özdeş VM’lerden oluşan bir sanal makine kümesini da�
 
 ---
 
-## <a name="reference"></a>Başvuru
-
+<h2>Başvuru</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Sanal Makine Ölçek Kümeleri PowerShell</p>
+                        <h3>Komut Satırı</h3>
+                        <p><a href="/powershell/azureps-cmdlets-docs">PowerShell</a></p>
+                        <p><a href="/azure/virtual-machines/azure-cli-arm-commands">Azure CLI</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/cli/azure/vmss">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Azure CLI</h3>
-                        <p>Azure CLI kullanan Sanal Makine Ölçek Kümeleri</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/rest/api/compute">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Sanal Makine Ölçek Kümeleri REST API Başvurusu</p>
+                        <p><a href="/rest/api/compute/">REST API başvurusu</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
 
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/virtual-machine-scale-sets.pdf">
-        <div class="img"></div>
-        <div class="text">
-Sanal Makine Ölçek Kümeleri Belgelerini indirin </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,17 +1,18 @@
 ---
 layout: LandingPage
+description: "Şirket içinde ve bulutta iş akışlarını otomatikleştiren ve basitleştiren mantıksal uygulamalar geliştirme hakkında bilgi edinin. Öğreticiler, şablonlar ve API başvuruları."
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: 4885c54a2bc592d0e6da8c1f39ec7360fa97d6fd
+ms.sourcegitcommit: abebff15a5385bfc3ef046923927bb74a6ee6ace
+ms.openlocfilehash: c19b7e4ecfa67f54f34fac11dc6d23a843e27232
 
 ---
 # <a name="logic-apps-documentation"></a>Logic Apps Belgeleri
 
-Logic Apps, işlemleri modelleme ve iş akışları halinde otomatikleştirmeye yönelik bir tasarım aracıdır. Bulutta ve şirket içinde hizmet ve protokolleri hızlıca tümleştirmeye yönelik çok sayıda bağlayıcı vardır. Mantıksal uygulama bir tetikleyici ile başlar ('Dynamics CRM’e bir hesabın eklenmesi' gibi) ve başlatma sonrasında çok sayıda birleştirme eylemi, dönüştürme ve koşul mantığı başlayabilir.
+Bulutta ölçeklenebilir iş akışlarını basitleştiren ve tümleştiren mantıksal uygulamalar geliştirme hakkında bilgi edinin. Öğreticiler, şablonlar ve API başvuruları, şirket içinde ve bulutta otomatik iş akışları tasarlamanıza ve dağıtmanıza yardımcı olur.
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/app-service-logic/app-service-logic-what-are-logic-apps">
+        <a href="/azure/logic-apps/logic-apps-what-are-logic-apps">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -29,7 +30,7 @@ Logic Apps, işlemleri modelleme ve iş akışları halinde otomatikleştirmeye 
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=app-service">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=app-service">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -47,7 +48,7 @@ Logic Apps, işlemleri modelleme ve iş akışları halinde otomatikleştirmeye 
         </a>
     </li>
     <li>
-        <a href="/azure/app-service-logic/app-service-logic-create-a-logic-app">
+        <a href="/azure/logic-apps/logic-apps-create-a-logic-app">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -65,7 +66,7 @@ Logic Apps, işlemleri modelleme ve iş akışları halinde otomatikleştirmeye 
         </a>
     </li>
     <li>
-        <a href="/azure/app-service-logic/app-service-logic-arm-provision">
+        <a href="/azure/logic-apps/logic-apps-arm-provision">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -83,7 +84,7 @@ Logic Apps, işlemleri modelleme ve iş akışları halinde otomatikleştirmeye 
         </a>
     </li>
     <li>
-        <a href="/azure/app-service-logic/app-service-logic-create-api-app">
+        <a href="/azure/logic-apps/logic-apps-create-api-app">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -104,64 +105,51 @@ Logic Apps, işlemleri modelleme ve iş akışları halinde otomatikleştirmeye 
 
 ---
 
-## <a name="reference"></a>Başvuru
-
+<h2>Başvuru</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/resourcemanager/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Logic Apps PowerShell Cmdlet’leri</p>
+                        <h3>Komut Satırı</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.logicapp/v2.3.0/azurerm.logicapp">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-
-<li>
-        <a href="https://msdn.microsoft.com/library/azure/mt416943">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Logic Apps Yönetilen Başvurusu</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-
     <li>
-        <a href="/rest/api/logic/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Şema Geçmişi</h3>
+                        <p><a href="/azure/logic-apps/logic-apps-schema-2016-04-01">GA</a></p>
+                        <p><a href="/azure/logic-apps/logic-apps-schema-2015-08-01">Önizleme</a></p>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Logic Apps REST API Başvurusu</p>
+                        <p><a href="/rest/api/logic/">REST API başvurusu</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/logic-apps.pdf">
-        <div class="img"></div>
-        <div class="text">
-Logic Apps Belgelerini indirin </div>
-    </a>
-</div>
 
 
-<!--HONumber=Nov16_HO4-->
+
+
+<!--HONumber=Jan17_HO3-->
 
 

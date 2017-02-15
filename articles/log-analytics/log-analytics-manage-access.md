@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/02/2017
+ms.date: 01/06/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: b78199a672528c475f4f299faaf6406089e95d01
+ms.sourcegitcommit: 6862723b774951fe4cca0303ee2a39a0d5f2089d
+ms.openlocfilehash: eec688e33ff55334ebe0c1bc6d08e4753aadb85c
 
 
 ---
@@ -60,7 +60,7 @@ Azure portalında çalışma alanınızla ilgili bilgileri görüntüleyebilirsi
 
 #### <a name="view-workspace-information-the-azure-portal"></a>Çalışma alanı bilgilerini Azure portalında görüntüleme
 
-1. Önceden yapmadıysanız Azure aboneliğinizi kullanarak [Azure Portal](https://portal.azure.com)'da oturum açın.
+1. Önceden yapmadıysanız Azure aboneliğinizi kullanarak [Azure portalında](https://portal.azure.com) oturum açın.
 2. **Hub** menüsünde **Diğer hizmetler**’e tıklayıp kaynak listesinde **Log Analytics** yazın. Yazmaya başladığınızda liste, girdinize göre filtrelenir. **Log Analytics**’i tıklayın.  
     ![Azure hub'ı](./media/log-analytics-manage-access/hub.png)  
 3. Log Analytics abonelikler dikey penceresinden bir çalışma alanı seçin.
@@ -242,6 +242,24 @@ Azure aboneliklerinizin bağlı olduğu kurumsal kayıt anlaşmasında bir Azure
 6. Azure portalında görünümü yenilediğinizde, **Fiyatlandırma katmanı**'nın seçtiğiniz plan için güncelleştirildiğini görürsünüz.  
     ![güncelleştirilmiş plan](./media/log-analytics-manage-access/manage-access-change-plan04.png)
 
+## <a name="change-how-long-log-analytics-stores-data"></a>Log Analytics'in veri saklama süresini değiştirme
+
+Ücretsiz fiyatlandırma katmanında Log Analytics son yedi günün verilerini kullanımınıza sunar.
+Standart fiyatlandırma katmanında Log Analytics son 30 günün verilerini kullanımınıza sunar.
+Premium fiyatlandırma katmanında Log Analytics son 365 günün verilerini kullanımınıza sunar.
+Tek ve OMS fiyatlandırma katmanlarında Log Analytics varsayılan olarak son 31 günün verilerini kullanımınıza sunar.
+
+Tek başına ve OMS fiyatlandırma katmanlarını kullandığınızda 2 yıla (730 gün) kadar veri tutabilirsiniz. Varsayılan değer olan 31 günden daha fazla tutulan veriler için, veri bekletme ücreti alınır. Fiyatlandırma konusunda daha fazla bilgi için bkz. [fazla kullanım ücretleri](https://azure.microsoft.com/pricing/details/log-analytics/).
+
+Veri bekletme süresini değiştirmek için:
+
+1. [Azure portal](http://portal.azure.com) oturum açın.
+2. **Log Analytics**’e göz atın ve ardından bu seçeneği belirleyin.
+3. Mevcut çalışma alanlarınızın listesini görürsünüz. Bir çalışma alanı seçin.  
+4. **Genel** altındaki çalışma alanı dikey penceresinde **Bekletme**'ye tıklayın.  
+5. Kaydırıcıyı kullanarak bekletme günü sayısını artırın veya azaltın, ardından **Kaydet**
+![bekletmeyi değiştir](./media/log-analytics-manage-access/manage-access-change-retention01.png)’e tıklayın.
+
 ## <a name="change-an-azure-active-directory-organization-for-a-workspace"></a>Çalışma alanı için Azure Active Directory Kuruluşunu değiştirme
 
 Bir çalışma alanının Azure Active Directory kuruluşunu değiştirebilirsiniz. Azure Active Directory Kuruluşunun değiştirilmesi, bu dizinden çalışma alanına kullanıcı ve grup eklemenize olanak sağlar.
@@ -275,6 +293,6 @@ Bir yöneticiyseniz ve çalışma alanıyla ilişkilendirilmiş birden çok kull
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

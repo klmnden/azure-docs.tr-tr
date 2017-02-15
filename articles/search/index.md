@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Özel web uygulamalarına veya mobil uygulamalara, etkinlik izleme gibi güçlü arama özelliklerini nasıl ekleyebileceğinizi öğrenin. API başvuruları ve diğer belgeler."
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: 680083cd9df823bf0ff89a0b4099c411fa0be078
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: c99d4b8d8db7739f615d566afa4617221b1c34a0
 
 ---
 # <a name="azure-search-documentation"></a>Azure Search Belgeleri
 
-Azure Search, özel uygulamalarda güçlü bir arama deneyimi oluşturmanıza ve ardından hizmeti, dizini ve sorgu etkinliğini izlemenize yardımcı olacak bir yönetilen bir bulut arama hizmetidir. Temel işlevleri arasında birden fazla dilde ölçeklenebilir tam metin araması, coğrafi uzamsal arama, filtreleme ve çok yönlü gezinme, yazarken tamamlanan sorgu, isabet vurgulama ve özel çözümleyiciler bulunur.
+Yönetilen bir bulut arama hizmeti olan Azure Search ile özel web uygulamalarınıza veya mobil uygulamalarınıza arama özelliklerini nasıl ekleyebileceğinizi öğrenin. Öğreticiler, API başvuruları ve diğer belgeler; birden fazla dilde ölçeklenebilir tam metin araması, coğrafi uzamsal arama, filtreleme ve çok yönlü gezinme, yazarken tamamlanan sorgu, isabet vurgulama ve özel çözümleyiciler ekleme işlemleriyle ilgili bilgiler içerir.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -131,8 +132,8 @@ Azure Search, özel uygulamalarda güçlü bir arama deneyimi oluşturmanıza ve
                     <div class="cardText">
                         <h3>Diller</h3>
                         <p><a href="/dotnet/api/microsoft.azure.search">.NET</a></p>
-                        <p><a href="/dotnet/api/microsoft.azure.management.search">.NET Management</a></p>
-                        <p><a href="/java/api/com.microsoft.azure.management.search">Java</a></p>
+                        <p><a href="/dotnet/api/microsoft.azure.management.search">.NET (Yönetim)</a></p>
+                        <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.search.html">Python (Yönetim)</a></p>
                    </div>
                 </div>
             </div>
@@ -144,7 +145,7 @@ Azure Search, özel uygulamalarda güçlü bir arama deneyimi oluşturmanıza ve
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/searchservice">REST API Başvurusu</a></p>
+                        <p><a href="/rest/api/searchservice">REST API başvurusu</a></p>
                         <p><a href="/rest/api/searchmanagement">REST (Yönetim) API Başvurusu</a></p>
                     </div>
                 </div>
@@ -153,16 +154,10 @@ Azure Search, özel uygulamalarda güçlü bir arama deneyimi oluşturmanıza ve
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/search.pdf">
-        <div class="img"></div>
-        <div class="text">
-Azure Search Belgelerini İndirme </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO3-->
 
 

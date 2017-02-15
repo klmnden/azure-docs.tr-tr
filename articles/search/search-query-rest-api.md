@@ -71,7 +71,7 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
 }
 ```
 
-Geceliği 150 dolardan ucuz oteller bulmak için dizinde bir filtre uygulayıp `hotelId` ve `description` sonuçlarını döndürün:
+Geceliği&150; dolardan ucuz oteller bulmak için dizinde bir filtre uygulayıp `hotelId` ve `description` sonuçlarını döndürün:
 
 ```
 GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$filter=baseRate lt 150&$select=hotelId,description&api-version=2016-09-01
@@ -104,7 +104,7 @@ Artık HTTP istek URL'nizin (GET için) veya gövdenizin (POST için) parçası 
 #### <a name="request-and-request-headers"></a>İstek ve İstek Üst Bilgileri
 GET için iki, POST için ise üç istek üst bilgisi tanımlamanız gerekir:
 
-1. `api-key` üst bilgisi, yukarıdaki 1. adımda bulduğunuz sorgu anahtarına ayarlanmalıdır. `api-key` üst bilgisi olarak bir yönetici anahtarı da kullanabileceğinizi unutmayın ancak dizinlere ve belgelere açık bir şekilde salt okunur erişimi verdiğinden, bir sorgu anahtarı kullanmanızı öneririz.
+1. `api-key` üst bilgisi, yukarıdaki&1;. adımda bulduğunuz sorgu anahtarına ayarlanmalıdır. `api-key` üst bilgisi olarak bir yönetici anahtarı da kullanabileceğinizi unutmayın ancak dizinlere ve belgelere açık bir şekilde salt okunur erişimi verdiğinden, bir sorgu anahtarı kullanmanızı öneririz.
 2. `Accept` üst bilgisi `application/json` şeklinde ayarlanmalıdır.
 3. Yalnızca POST için `Content-Type` üst bilgisi `application/json` olarak ayarlanmalıdır.
 

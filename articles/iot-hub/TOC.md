@@ -8,11 +8,8 @@
 ### [IoT Hub’ı kullanmaya başlama (.NET)](iot-hub-csharp-csharp-getstarted.md)
 ### [IoT Hub’ı kullanmaya başlama (Java)](iot-hub-java-java-getstarted.md)
 ### [IoT Hub’ı kullanmaya başlama (Node)](iot-hub-node-node-getstarted.md)
-## IoT cihaz SDK’sını kullanmaya başlama
-### [C için Azure IoT cihaz SDK’sına Giriş](iot-hub-device-sdk-c-intro.md)
-### [C için IoT cihaz SDK’sı: IoTHubClient hakkında daha fazla bilgi](iot-hub-device-sdk-c-iothubclient.md)
-### [C için IoT cihaz SDK’sı: Seri hale getirici hakkında daha fazla bilgi](iot-hub-device-sdk-c-serializer.md)
-## Raspberry Pi’yi kullanmaya başlama
+
+## Raspberry Pi'yi kullanmaya başlama (Node)
 ### [Raspberry Pi 3’ü kullanmaya başlama](iot-hub-raspberry-pi-kit-node-get-started.md)
 ### Ders 1: Cihazınızı yapılandırma
 #### [Cihazınızı yapılandırma](iot-hub-raspberry-pi-kit-node-lesson1-configure-your-device.md)
@@ -33,10 +30,145 @@
 #### [İleti almak için örnek uygulamayı çalıştırma](iot-hub-raspberry-pi-kit-node-lesson4-send-cloud-to-device-messages.md)
 #### [İsteğe bağlı: LED davranışını değiştirme](iot-hub-raspberry-pi-kit-node-lesson4-change-led-behavior.md)
 ### [Sorun giderme](iot-hub-raspberry-pi-kit-node-troubleshooting.md)
+
+## Raspberry Pi'yi kullanmaya başlama (C)
+### [Raspberry Pi 3’ü kullanmaya başlama](iot-hub-raspberry-pi-kit-c-get-started.md)
+### Ders 1: Cihazınızı yapılandırma
+#### [Cihazınızı yapılandırma](iot-hub-raspberry-pi-kit-c-lesson1-configure-your-device.md)
+#### [Araçları edinme (Windows 7+)](iot-hub-raspberry-pi-kit-c-lesson1-get-the-tools-win32.md)
+#### [Araçları edinme (Ubuntu 16.04)](iot-hub-raspberry-pi-kit-c-lesson1-get-the-tools-ubuntu.md)
+#### [Araçları edinme (macOS 10.10)](iot-hub-raspberry-pi-kit-c-lesson1-get-the-tools-mac.md)
+#### [Blink uygulaması oluşturma ve dağıtma](iot-hub-raspberry-pi-kit-c-lesson1-deploy-blink-app.md)
+### Ders 2: IOT hub'ınızı oluşturma
+#### [Azure araçlarını edinme (Windows 7+)](iot-hub-raspberry-pi-kit-c-lesson2-get-azure-tools-win32.md)
+#### [Azure araçlarını edinme (Ubuntu 16.04)](iot-hub-raspberry-pi-kit-c-lesson2-get-azure-tools-ubuntu.md)
+#### [Azure araçlarını edinme (macOS 10.10)](iot-hub-raspberry-pi-kit-c-lesson2-get-azure-tools-mac.md)
+#### [IoT hub'ı oluşturma Raspberry Pi’yi kaydetme](iot-hub-raspberry-pi-kit-c-lesson2-prepare-azure-iot-hub.md)
+### Ders 3: Cihazdan buluta ileti gönderme
+#### [Azure işlev uygulaması ve depolama hesabı oluşturma](iot-hub-raspberry-pi-kit-c-lesson3-deploy-resource-manager-template.md)
+#### [İleti göndermek için örnek uygulamayı çalıştırma](iot-hub-raspberry-pi-kit-c-lesson3-run-azure-blink.md)
+#### [Depolamada kalıcı olan iletileri okuma](iot-hub-raspberry-pi-kit-c-lesson3-read-table-storage.md)
+### Ders 4: Buluttan cihaza ileti gönderme
+#### [İleti almak için örnek uygulamayı çalıştırma](iot-hub-raspberry-pi-kit-c-lesson4-send-cloud-to-device-messages.md)
+#### [İsteğe bağlı: LED davranışını değiştirme](iot-hub-raspberry-pi-kit-c-lesson4-change-led-behavior.md)
+### [Sorun giderme](iot-hub-raspberry-pi-kit-c-troubleshooting.md)
+
+## Intel Edison ile çalışmaya başlama (Node)
+### [Intel Edison ile çalışmaya başlama](iot-hub-intel-edison-kit-node-get-started.md)
+### Ders 1: Cihazınızı yapılandırma
+#### [Cihazınızı yapılandırma](iot-hub-intel-edison-kit-node-lesson1-configure-your-device.md)
+#### [Araçları edinme (Windows 7+)](iot-hub-intel-edison-kit-node-lesson1-get-the-tools-win32.md)
+#### [Araçları edinme (Ubuntu 16.04)](iot-hub-intel-edison-kit-node-lesson1-get-the-tools-ubuntu.md)
+#### [Araçları edinme (macOS 10.10)](iot-hub-intel-edison-kit-node-lesson1-get-the-tools-mac.md)
+#### [Blink uygulaması oluşturma ve dağıtma](iot-hub-intel-edison-kit-node-lesson1-deploy-blink-app.md)
+### Ders 2: IOT hub'ınızı oluşturma
+#### [Azure araçlarını edinme (Windows 7+)](iot-hub-intel-edison-kit-node-lesson2-get-azure-tools-win32.md)
+#### [Azure araçlarını edinme (Ubuntu 16.04)](iot-hub-intel-edison-kit-node-lesson2-get-azure-tools-ubuntu.md)
+#### [Azure araçlarını edinme (macOS 10.10)](iot-hub-intel-edison-kit-node-lesson2-get-azure-tools-mac.md)
+#### [IoT hub'ı oluşturma Raspberry Pi’yi kaydetme](iot-hub-intel-edison-kit-node-lesson2-prepare-azure-iot-hub.md)
+### Ders 3: Cihazdan buluta ileti gönderme
+#### [Azure işlev uygulaması ve depolama hesabı oluşturma](iot-hub-intel-edison-kit-node-lesson3-deploy-resource-manager-template.md)
+#### [İleti göndermek için örnek uygulamayı çalıştırma](iot-hub-intel-edison-kit-node-lesson3-run-azure-blink.md)
+#### [Depolamada kalıcı olan iletileri okuma](iot-hub-intel-edison-kit-node-lesson3-read-table-storage.md)
+### Ders 4: Buluttan cihaza ileti gönderme
+#### [İleti almak için örnek uygulamayı çalıştırma](iot-hub-intel-edison-kit-node-lesson4-send-cloud-to-device-messages.md)
+#### [İsteğe bağlı: LED davranışını değiştirme](iot-hub-intel-edison-kit-node-lesson4-change-led-behavior.md)
+### [Sorun giderme](iot-hub-intel-edison-kit-node-troubleshooting.md)
+
+## Intel Edison ile çalışmaya başlama (C)
+### [Intel Edison ile çalışmaya başlama](iot-hub-intel-edison-kit-c-get-started.md)
+### Ders 1: Cihazınızı yapılandırma
+#### [Cihazınızı yapılandırma](iot-hub-intel-edison-kit-c-lesson1-configure-your-device.md)
+#### [Araçları edinme (Windows 7+)](iot-hub-intel-edison-kit-c-lesson1-get-the-tools-win32.md)
+#### [Araçları edinme (Ubuntu 16.04)](iot-hub-intel-edison-kit-c-lesson1-get-the-tools-ubuntu.md)
+#### [Araçları edinme (macOS 10.10)](iot-hub-intel-edison-kit-c-lesson1-get-the-tools-mac.md)
+#### [Blink uygulaması oluşturma ve dağıtma](iot-hub-intel-edison-kit-c-lesson1-deploy-blink-app.md)
+### Ders 2: IOT hub'ınızı oluşturma
+#### [Azure araçlarını edinme (Windows 7+)](iot-hub-intel-edison-kit-c-lesson2-get-azure-tools-win32.md)
+#### [Azure araçlarını edinme (Ubuntu 16.04)](iot-hub-intel-edison-kit-c-lesson2-get-azure-tools-ubuntu.md)
+#### [Azure araçlarını edinme (macOS 10.10)](iot-hub-intel-edison-kit-c-lesson2-get-azure-tools-mac.md)
+#### [IoT hub'ı oluşturma Raspberry Pi’yi kaydetme](iot-hub-intel-edison-kit-c-lesson2-prepare-azure-iot-hub.md)
+### Ders 3: Cihazdan buluta ileti gönderme
+#### [Azure işlev uygulaması ve depolama hesabı oluşturma](iot-hub-intel-edison-kit-c-lesson3-deploy-resource-manager-template.md)
+#### [İleti göndermek için örnek uygulamayı çalıştırma](iot-hub-intel-edison-kit-c-lesson3-run-azure-blink.md)
+#### [Depolamada kalıcı olan iletileri okuma](iot-hub-intel-edison-kit-c-lesson3-read-table-storage.md)
+### Ders 4: Buluttan cihaza ileti gönderme
+#### [İleti almak için örnek uygulamayı çalıştırma](iot-hub-intel-edison-kit-c-lesson4-send-cloud-to-device-messages.md)
+#### [İsteğe bağlı: LED davranışını değiştirme](iot-hub-intel-edison-kit-c-lesson4-change-led-behavior.md)
+### [Sorun giderme](iot-hub-intel-edison-kit-c-troubleshooting.md)
+
+## Arduino (Düğüm) kullanmaya başlama
+### [Arduino panosu kullanmaya başlama: Adafruit Feather M0 WiFi](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
+### Ders 1: Cihazınızı yapılandırma
+#### [Cihazınızı yapılandırma](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-configure-your-device.md)
+#### [Araçları edinme (Windows 7+)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-get-the-tools-win32.md)
+#### [Araçları edinme (Ubuntu 16.04)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-get-the-tools-ubuntu.md)
+#### [Araçları edinme (macOS 10.10)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-get-the-tools-mac.md)
+#### [Blink uygulaması oluşturma ve dağıtma](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-deploy-blink-app.md)
+### Ders 2: IOT hub'ınızı oluşturma
+#### [Azure araçlarını edinme (Windows 7+)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-win32.md)
+#### [Azure araçlarını edinme (Ubuntu 16.04)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-ubuntu.md)
+#### [Azure araçlarını edinme (macOS 10.10)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-get-azure-tools-mac.md)
+#### [IoT hub'ı oluşturma Raspberry Pi’yi kaydetme](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson2-prepare-azure-iot-hub.md)
+### Ders 3: Cihazdan buluta ileti gönderme
+#### [Azure işlev uygulaması ve depolama hesabı oluşturma](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-deploy-resource-manager-template.md)
+#### [İleti göndermek için örnek uygulamayı çalıştırma](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-run-azure-blink.md)
+#### [Depolamada kalıcı olan iletileri okuma](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson3-read-table-storage.md)
+### Ders 4: Buluttan cihaza ileti gönderme
+#### [İleti almak için örnek uygulamayı çalıştırma](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson4-send-cloud-to-device-messages.md)
+#### [İsteğe bağlı: LED davranışını değiştirme](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson4-change-led-behavior.md)
+### [Sorun giderme](iot-hub-adafruit-feather-m0-wifi-kit-arduino-troubleshooting.md)
+
 ## [Ağ Geçidi SDK’sını kullanmaya başlama (Linux)](iot-hub-linux-gateway-sdk-get-started.md)
 ## [Ağ Geçidi SDK’sını kullanmaya başlama (Windows)](iot-hub-windows-gateway-sdk-get-started.md)
 
+## IoT Gateway Başlangıç Paketini kullanmaya başlama
+### Sanal cihaz
 
+#### [Sanal cihazı kullanmaya başlama](iot-hub-gateway-kit-c-sim-get-started.md)
+#### Ders 1: NUC cihazınızı yapılandırma
+##### [Intel NUC cihazını IoT ağ geçidi olarak ayarlama](iot-hub-gateway-kit-c-sim-lesson1-set-up-nuc.md)
+
+#### Ders 2: IoT Hub'ı oluşturma
+##### [Araçları edinme (Windows 7+)](iot-hub-gateway-kit-c-sim-lesson2-get-the-tools-win32.md)
+##### [Araçları edinme (Ubuntu 16.04)](iot-hub-gateway-kit-c-sim-lesson2-get-the-tools-ubuntu.md)
+##### [Araçları edinme (macOS 10.10)](iot-hub-gateway-kit-c-sim-lesson2-get-the-tools-mac.md)
+##### [IoT hub'ı oluşturma ve cihazınızı kaydetme](iot-hub-gateway-kit-c-sim-lesson2-register-device.md)
+
+#### Ders 3: Sanal cihazdan ileti alma
+##### [BLE örnek uygulamasını yapılandırma ve çalıştırma](iot-hub-gateway-kit-c-sim-lesson3-configure-simulated-device-app.md)
+##### [IoT hub'ınızdan ileti okuma](iot-hub-gateway-kit-c-sim-lesson3-read-messages-from-hub.md)
+
+#### Ders 4: İletileri Azure Tablo depolamaya kaydetme
+##### [Azure işlev uygulaması ve Azure Depolama hesabı oluşturma](iot-hub-gateway-kit-c-sim-lesson4-deploy-resource-manager-template.md)
+##### [Azure Tablo depolamada kalıcı olan iletileri okuma](iot-hub-gateway-kit-c-sim-lesson4-read-table-storage.md)
+
+#### [Sorun giderme](iot-hub-gateway-kit-c-sim-troubleshooting.md)
+
+### SensorTag cihazı
+#### [SensorTag cihazını kullanmaya başlama](iot-hub-gateway-kit-c-get-started.md)
+#### Ders 1: NUC cihazınızı yapılandırma
+##### [Intel NUC cihazını IoT ağ geçidi olarak ayarlama](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
+
+#### Ders 2: IoT Hub'ı oluşturma
+##### [Araçları edinme (Windows 7+)](iot-hub-gateway-kit-c-lesson2-get-the-tools-win32.md)
+##### [Araçları edinme (Ubuntu 16.04)](iot-hub-gateway-kit-c-lesson2-get-the-tools-ubuntu.md)
+##### [Araçları edinme (macOS 10.10)](iot-hub-gateway-kit-c-lesson2-get-the-tools-mac.md)
+##### [IoT hub'ı oluşturma ve cihazınızı kaydetme](iot-hub-gateway-kit-c-lesson2-register-device.md)
+
+#### Ders 3: Sanal cihazdan ileti alma
+##### [BLE örnek uygulamasını yapılandırma ve çalıştırma](iot-hub-gateway-kit-c-lesson3-configure-ble-app.md)
+##### [IoT hub'ınızdan ileti okuma](iot-hub-gateway-kit-c-lesson3-read-messages-from-hub.md)
+
+#### Ders 4: İletileri Azure Tablo depolamaya kaydetme
+##### [Azure işlev uygulaması ve Azure Depolama hesabı oluşturma](iot-hub-gateway-kit-c-lesson4-deploy-resource-manager-template.md)
+##### [Azure Tablo depolamada kalıcı olan iletileri okuma](iot-hub-gateway-kit-c-lesson4-read-table-storage.md)
+
+##### [Sorun giderme](iot-hub-gateway-kit-c-troubleshooting.md)
+## IoT cihaz SDK’sını kullanmaya başlama
+### [C için Azure IoT cihaz SDK’sına Giriş](iot-hub-device-sdk-c-intro.md)
+### [C için IoT cihaz SDK’sı: IoTHubClient hakkında daha fazla bilgi](iot-hub-device-sdk-c-iothubclient.md)
+### [C için IoT cihaz SDK’sı: Seri hale getirici hakkında daha fazla bilgi](iot-hub-device-sdk-c-serializer.md)
 # Nasıl yapılır?
 ## [Cihazdan buluta iletilerini işleme öğreticisi (.NET)](iot-hub-csharp-csharp-process-d2c.md)
 ## [Cihazdan buluta iletilerini işleme öğreticisi (Java)](iot-hub-java-java-process-d2c.md)
@@ -109,9 +241,10 @@
 ## [Java (Cihazlar)](/java/api/com.microsoft.azure.iothub)
 ## [Azure IoT SDK’ları](http://azure.github.io/azure-iot-sdks/)
 ## [Ağ Geçidi SDK’sı](http://azure.github.io/azure-iot-gateway-sdk)
-## [REST (Kaynak Sağlayıcısı)](https://docs.microsoft.com/rest/api/iothub/resourceprovider/iot-hub-resource-provider-rest)
-## [REST (Cihaz Kimlikleri)](https://docs.microsoft.com/rest/api/iothub/device-identities-rest)
-## [REST (Device Messaging) REST API](https://docs.microsoft.com/rest/api/iothub/device-messaging-rest-apis)
+## [REST (Kaynak Sağlayıcısı)](https://docs.microsoft.com/rest/api/iothub/iothubresource)
+## [REST (Cihaz Kimlikleri)](https://docs.microsoft.com/rest/api/iothub/deviceapi)
+## [REST (Cihaz Mesajlaşması )](https://docs.microsoft.com/rest/api/iothub/httpruntime)
+## [REST (İşler)](https://docs.microsoft.com/rest/api/iothub/jobapi)
 
 # İlgili
 ## [Azure IoT Paketi](https://azure.microsoft.com/documentation/suites/iot-suite/)
@@ -130,6 +263,6 @@
 ## [IoT için Azure Sertifikalı cihaz kataloğu](https://catalog.azureiotsuite.com/)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Anahtar Kasası hesabınızı kullanarak bulut kaynaklarınıza, uygulamalarınıza ve çözümlerinize erişen ve bunları şifreleyen anahtarlar oluşturma ve bunları koruma hakkında bilgi edinin. Öğreticiler, API başvuruları ve daha fazlası."
 translationtype: Human Translation
-ms.sourcegitcommit: 98fdd8ee3dc1b90aae349652e471a218ef44a44e
-ms.openlocfilehash: ac0840ad98cc34d190d69b4e317a2c446a3d64d1
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 0c53b569e45569fd7a7c56142d66fbab8d8b0a05
 
 ---
 # <a name="key-vault-documentation"></a>Anahtar Kasası Belgeleri
 
-Azure Anahtar Kasası, bulut uygulamaları ve hizmetleri tarafından kullanılan şifreleme anahtarlarının ve gizli anahtarların korunmasına yardımcı olur. Anahtar Kasası'nı kullanarak anahtarları ve gizli anahtarları (kimlik doğrulaması anahtarları, depolama hesabı anahtarları, veri şifreleme anahtarları, .PFX dosyaları ve parolalar gibi), donanım güvenlik modülleri tarafından korunan anahtarları kullanarak şifreleyebilirsiniz. Ek güvenlik için HSM'lerde anahtarları içeri aktarabilir veya oluşturabilirsiniz.
+Anahtar Kasası’nı kullanarak bulut uygulamaları ve hizmetleri tarafından kullanılan şifreleme anahtarlarını ve gizli anahtarları koruma ve yönetme hakkında bilgi edinin. Öğreticiler, API başvuruları ve diğer belgeler, bulut uygulamaları ve hizmetleri tarafından kullanılan şifreleme anahtarlarını ve gizli anahtarları oluşturma ve koruma ile ilgili bilgiler içerir.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -29,7 +30,7 @@ Azure Anahtar Kasası, bulut uygulamaları ve hizmetleri tarafından kullanılan
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=key-vault">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=key-vault">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -103,97 +104,56 @@ Azure Anahtar Kasası, bulut uygulamaları ve hizmetleri tarafından kullanılan
 </ul>
 
 ---
-
-## <a name="reference"></a>Başvuru
-
+ 
+<h2>Başvuru</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/PowerShell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Azure PowerShell Başvurusu</p>
+                        <h3>Komut Satırı</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.keyvault/v2.3.0/azurerm.keyvault">PowerShell</a></p>
+                         <p><a href="/cli/azure/keyvault">Azure 2.0 CLI (Önizleme)</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-
-<li>
-        <a href="/cli/azure/keyvault">
+    <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Azure CLI</h3>
-                        <p>Azure CLI ile Anahtar Kasası</p>
+                        <h3>Diller</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.keyvault">.NET</a></p>
+                        <p><a href="/java/api/com.microsoft.azure.keyvault">Java</a></p>
+                        <p><a href="http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest">Node.js</a></p>
+                        <p><a href="/java/api/com.microsoft.azure.keyvault">Java</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-
-<li>
-        <a href="/java/api/">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Java</h3>
-                        <p>Java’da Anahtar Kasası Başvurusu</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-
-<li>
-        <a href="/dotnet/api/">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Anahtar Kasası Yönetilen Başvuru API’si</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-
-<li>
-        <a href="/rest/api/keyvault">
+    <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Anahtar Kasası REST API’si Başvurusu</p>
+                        <p><a href="/rest/api/keyvault">REST API</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
+
 ---
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/key-vault.pdf">
-        <div class="img"></div>
-        <div class="text">
-Anahtar Kasası Belgelerini indir </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 

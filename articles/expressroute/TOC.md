@@ -45,13 +45,13 @@
 ### [Asimetrik yönlendirme](expressroute-asymmetric-routing.md)
 
 ## Sorun giderme
+### [ExpressRoute bağlantısını doğrulama](expressroute-troubleshooting-expressroute-overview.md)
 ### [ARP tablolarını alma](expressroute-troubleshooting-arp-resource-manager.md)
 ### [ARP tablolarını alma (Klasik)](expressroute-troubleshooting-arp-classic.md)
 
-
 # Başvuru
 ## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
-## [REST (resource manager)](https://msdn.microsoft.com/library/azure/mt586720)
+## [REST](https://msdn.microsoft.com/library/azure/mt586720)
 ## [REST (klasik)](https://msdn.microsoft.com/library/azure/dn606310)
 
 # İlgili
@@ -80,6 +80,6 @@
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=expressroute)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

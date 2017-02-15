@@ -32,7 +32,7 @@ VS Code’da JSON şablonları ile çalışmak için bir uzantı yüklemeniz ger
 2. Quick Open’ı açın (Ctrl+P) 
 3. Şu komutu çalıştırın: 
    
-        ext install azurerm-vscode-tools
+        ext install msazurermtools.azurerm-vscode-tools
 4. Uzantının etkinleştirilmesi istendiğinde VS Code’u yeniden başlatın. 
    
    İşlem tamam!

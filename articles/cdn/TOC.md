@@ -44,12 +44,17 @@
 ### [Dosya sıkıştırma](cdn-troubleshoot-compression.md)
 
 # Başvuru
-## [PowerShell](/powershell/azureps-cmdlets-docs)
-## [.NET](/dotnet/api/)
-## [Azure CDN POP Konumları](cdn-pop-locations.md)
+## [PowerShell](/powershell/resourcemanager/azurerm.cdn/v2.3.0/azurerm.cdn)
+## [.NET](/dotnet/api/microsoft.azure.management.cdn)
+## [Java](/java/api/com.microsoft.azure.management.cdn)
 ## [REST](/rest/api/cdn/)
 
 # Kaynaklar
+##  [Kural Altyapısı başvurusu](cdn-rules-engine-reference.md)
+### [Kural Altyapısı koşullu ifadeleri](cdn-rules-engine-reference-conditional-expressions.md)
+### [Kural Altyapısı eşleşme koşulları](cdn-rules-engine-reference-match-conditions.md)
+### [Kural Altyapısı özellikleri](cdn-rules-engine-reference-features.md)
+## [Azure CDN POP konumları](cdn-pop-locations.md)
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=cdn)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/cdn/)
 ## [MSDN forumu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecdn)
@@ -57,6 +62,6 @@
 ## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=cdn)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO2-->
 
 

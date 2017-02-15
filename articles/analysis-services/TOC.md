@@ -4,16 +4,21 @@
 ##[Sunucu oluşturma](analysis-services-create-server.md)
 
 # Nasıl yapılır? 
-## [Dağıtma](analysis-services-deploy.md)
-## Yönet
-###[Sunucuya bağlanma](analysis-services-connect.md)
-###[Sunucu yönetme](analysis-services-manage.md)
-## Tümleştirme
-###[Şirket içi veri ağ geçidi](analysis-services-gateway.md)
+##[Sunucuya dağıtma](analysis-services-deploy.md)
+##[İstemciden bağlanma](analysis-services-connect.md)
+##[Sunucu yönetme](analysis-services-manage.md)
+##[Kullanıcıları yönetme](analysis-services-manage-users.md)
+##[Şirket içi veri ağ geçidini tümleştirme](analysis-services-gateway.md)
 
-# Başvurular
+# Başvuru
+##[PowerShell](analysis-services-powershell.md)
+##[REST](/rest/api/analysisservices)
+
+# Kaynaklar
 ##[Veri kaynağı bağlantıları](analysis-services-datasource.md)
+##[Veri sağlayıcılar](analysis-services-data-providers.md) 
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Feb17_HO2-->
 
 

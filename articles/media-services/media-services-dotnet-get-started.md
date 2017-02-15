@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 12/26/2016
+ms.date: 01/05/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: f01cd8d3a68776dd12d2930def1641411e6a4994
-ms.openlocfilehash: a9f77a58cdb13c357b6c3734bd9e3efa4ff5087b
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: e7ac4b87370b5a9fa3a063ba02a1171e6830e075
 
 
 ---
@@ -42,20 +42,8 @@ Resmi tam boyutlu görüntülemek için tıklayın.
 
 <a href="https://docs.microsoft.com/en-us/azure/media-services/media/media-services-dotnet-get-started/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-dotnet-get-started/media-services-overview-object-model-small.png"></a> 
 
-Modelin tamamını [buradan](https://media.windows.net/API/$metadata?api-version=2.14) görüntüleyebilirsiniz.  
+Modelin tamamını [buradan](https://media.windows.net/API/$metadata?api-version=2.15) görüntüleyebilirsiniz.  
 
-## <a name="what-youll-learn"></a>Öğrenecekleriniz
-
-Öğretici, aşağıdaki görevlerin nasıl gerçekleştirileceğini gösterir:
-
-1. Media Services hesabı oluşturma (Azure portal kullanılarak).
-2. Akış uç noktasını yapılandırma (Azure portal kullanılarak).
-3. Visual Studio projesi oluşturun ve yapılandırın.
-4. Media Services hesabına bağlanın.
-5. Yeni bir varlık oluşturun ve video dosyası yükleyin.
-6. Kaynak dosyayı uyarlamalı bit hızlı bir MP4 dosyaları grubuna kodlayın.
-7. Varlığı yayımlayın, akış ve aşamalı indirme URL’lerini alın.
-8. İçeriğiniz oynatarak test edin.
 
 ## <a name="prerequisites"></a>Ön koşullar
 Öğreticiyi tamamlamak için aşağıdakiler gereklidir.
@@ -88,39 +76,31 @@ Bu bölümdeki adımlar bir AMS hesabının nasıl oluşturulacağını gösteri
    6. Hesap dağıtımını ilerleme durumunu görmek için **Panoya sabitle**’yi seçin.
 4. Formun alt kısmındaki **Oluştur**’a tıklayın.
 
-    Hesap başarıyla oluşturulduktan sonra, durum **Çalışıyor** olarak değişir.
+    Hesap başarıyla oluşturulduktan sonra genel bakış sayfası yüklenir. Akış uç noktası tablosunda hesapta **Durdurulmuş** durumda bir varsayılan akış uç noktası yer alır.
+
+    >[!NOTE]
+    >AMS hesabınız oluşturulduğunda hesabınıza **Durdurulmuş** durumda bir **varsayılan** akış uç noktası eklenir. İçerik akışını başlatmak ve dinamik paketleme ile dinamik şifrelemeden yararlanmak için içerik akışı yapmak istediğiniz akış uç noktasının **Çalışıyor** durumda olması gerekir. 
 
     ![Media Services ayarları](./media/media-services-portal-vod-get-started/media-services-settings.png)
 
     AMS hesabınızı yönetmek için (örneğin, videoları karşıya yüklemek, varlıkları kodlamak, işin ilerleme durumunu izlemek) **Ayarlar** penceresini kullanın.
 
-## <a name="configure-streaming-endpoints-using-the-azure-portal"></a>Azure portal ile akış uç noktalarını yapılandırma
-Azure Media Services ile çalışırken en sık karşılaşılan senaryolardan biri, istemcilerinize bit hızı uyarlamalı akış iletmektir. Media Services şu bit hızı uyarlamalı akış teknolojilerini destekler: HTTP Canlı Akışı (HLS), Kesintisiz Akış ve MPEG DASH.
+## <a name="start-streaming-endpoints-using-the-azure-portal"></a>Azure portal ile akış uç noktalarını başlatma
 
-Media Services, bu akış biçimlerinin her birinin önceden paketlenmiş sürümlerini depolamanıza gerek kalmadan, uyarlamalı bit hızı MP4 ile kodlanmış içeriğinizi Media Services tarafından desteklenen akış biçimlerinde (MPEG DASH, HLS, Kesintisiz Akış) tam vaktinde göndermenize olanak tanıyan dinamik paketleme özelliğine sahiptir.
+Azure Media Services ile çalışırken en sık karşılaşılan senaryolardan biri bit hızı uyarlamalı akış iletmektir. Media Services, bu akış biçimlerinin her birinin önceden paketlenmiş sürümlerini depolamanıza gerek kalmadan, uyarlamalı bit hızı MP4 ile kodlanmış içeriğinizi Media Services tarafından desteklenen akış biçimlerinde (MPEG DASH, HLS, Kesintisiz Akış) tam vaktinde göndermenize olanak tanıyan dinamik paketleme özelliğine sahiptir.
 
-Dinamik paketlemeden yararlanmak için aşağıdakileri yapmanız gerekir:
+>[!NOTE]
+>AMS hesabınız oluşturulduğunda hesabınıza **Durdurulmuş** durumda bir **varsayılan** akış uç noktası eklenir. İçerik akışını başlatmak ve dinamik paketleme ile dinamik şifrelemeden yararlanmak için içerik akışı yapmak istediğiniz akış uç noktasının **Çalışıyor** durumda olması gerekir. 
 
-* Mezzanine dosyanızı uyarlamalı bit hızlı MP4 dosyaları (kodlama adımları daha sonra bu öğreticide gösterilmiştir) grubu olarak kodlayın.  
-* İçeriğinizi teslim etmek istediğiniz *akış uç noktası* için en az bir akış birimi oluşturun. Aşağıdaki adımlar akış birim sayısının nasıl değiştirileceğini göstermektedir.
+Akış uç noktasını başlatmak için aşağıdakileri yapın:
 
-Dinamik paketleme ile dosyaları yalnızca tek bir depolama biçiminde depolamanız ve buna göre ödeme yapmanız gerekir. Media Services, istemciden gelen isteklere göre uygun yanıtı derler ve sunar.
+1. Ayarlar penceresinde, Akış uç noktaları'na tıklayın. 
+2. Varsayılan akış uç noktasına tıklayın. 
 
-Akışa ayrılan birim sayısını oluşturmak ve değiştirmek için, aşağıdakileri yapın:
+    VARSAYILAN AKIŞ UÇ NOKTASI AYRINTILARI penceresi görüntülenir.
 
-1. **Ayarlar** penceresinde, **Akış uç noktaları**’na tıklayın.
-2. Varsayılan akış uç noktasına tıklayın.
-
-    **VARSAYILAN AKIŞ UÇ NOKTASI AYRINTILAR** penceresi görüntülenir.
-3. Akış birimi sayısını belirtmek için, **Akış birimleri** kaydırıcısını kaydırın.
-
-    ![Akış birimleri](./media/media-services-portal-vod-get-started/media-services-streaming-units.png)
-4. Yaptığınız değişiklikleri kaydetmek için **Kaydet** düğmesine tıklayın.
-
-   > [!NOTE]
-   > Yeni birimleri ayırmanın tamamlanması 20 dakika sürebilir.
-   >
-   >
+3. Başlat simgesine tıklayın.
+4. Yaptığınız değişiklikleri kaydetmek için Kaydet düğmesine tıklayın.
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Visual Studio projesi oluşturup yapılandırma
 
@@ -164,7 +144,7 @@ Varsayılan Program sınıfının üzerine aşağıdaki kodu yazın. Kod, bağla
 
 Dosya adını ve yolunu medya dosyanıza göre güncelleştirmeyi unutmayın.
 
- **Ana** işlev, bu bölümün sonraki kısımlarında açıklanacak olan yöntemleri çağırır.
+**Ana** işlev, bu bölümün sonraki kısımlarında açıklanacak olan yöntemleri çağırır.
 
 > [!NOTE]
 > Tüm işlevler için tanım ekleyene kadar derleme hatası alırsınız.
@@ -258,15 +238,12 @@ Varlıklar Media Services’e alındıktan sonra medyaya, istemcilere teslim edi
 
 Daha önce belirtildiği gibi, Azure Media Services ile çalışırken en sık karşılaşılan senaryolardan biri, istemcilerinize bit hızı uyarlamalı akış iletmektir. Media Services, bit hızı uyarlamalı bir MP4 dosyaları kümesini dinamik olarak şu biçimlerden birine paketleyebilir: HTTP Canlı Akışı (HLS), Kesintisiz Akış ve MPEG DASH.
 
-Dinamik paketlemeden yararlanmak için aşağıdakileri yapmanız gerekir:
-
-* Ara (kaynak) dosyanızı bit hızı uyarlamalı bir MP4 veya Kesintisiz Akış dosyaları kümesine kodlayın veya kodlamasını dönüştürün.  
-* Kendisinden içeriğinizi iletmek istediğiniz akış uç noktası için en az bir akış birimi alın.
+Dinamik paketlemeden yararlanmak için, ara (kaynak) dosyanızı bit hızı uyarlamalı bir MP4 veya Kesintisiz Akış dosyaları kümesine kodlamanız veya dosyanın kodlamasını dönüştürmeniz gerekir.  
 
 Aşağıdaki kod, bir kodlama işinin nasıl gönderileceğini gösterir. İş, ara dosyayı **Medya Kodlayıcı Standart**’ını kullanarak bir grup bit hızı uyarlamalı MP4’e kodlamasını dönüştüren bir görev içerir. Kod işi gönderir ve tamamlanana kadar bekler.
 
-Kodlama işi tamamlandıktan sonra varlıklarınızı yayımlayabilir ve MP4 dosyalarının akışını yapabilir veya indirebilirsiniz.
-
+İş tamamlandığında varlığınızı akışla aktarabilir veya kodlama dönüştürmenin sonucu olarak oluşturulan MP4 dosyalarını aşamalı indirebilirsiniz.
+ 
 Program sınıfına aşağıdaki yöntemi ekleyin.
 
     static public IAsset EncodeToAdaptiveBitrateMP4s(IAsset asset, AssetCreationOptions options)
@@ -467,6 +444,6 @@ Aşağıdaki kod örneği, bu öğreticide oluşturduğunuz kodu içerir: [örne
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -7,12 +7,13 @@
 # Başlarken
 
 ## Web Apps
-### [.NET](web-sites-dotnet-get-started.md)
-### [Node.js](app-service-web-nodejs-get-started.md)
-### [Python](web-sites-python-ptvs-django-mysql.md)
-### [Java](web-sites-java-get-started.md)
+### [HTML](app-service-web-get-started-html.md)
+### [.NET](app-service-web-get-started-dotnet.md)
+### [Node.js](app-service-web-get-started-nodejs.md)
+### [Python](app-service-web-get-started-python.md)
+### [Java](app-service-web-get-started-java.md)
 ### [Market uygulaması](web-sites-php-web-site-gallery.md)
-### [PHP](app-service-web-php-get-started.md)   
+### [PHP](app-service-web-get-started-php.md)   
 
 ## API Apps
 ### [.NET](../app-service-api/app-service-api-dotnet-get-started.md)
@@ -38,7 +39,7 @@
 ### [Yerel önbelleğe genel bakış](../app-service/app-service-local-cache.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 ### [App Service planlarının ayrıntıları](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 ### [Kurumsal Web Apps seçenekleri](web-sites-enterprise-offerings.md)
-### [Karşılaştırma: App Service, Sanal Makineler, Service Fabric ve Bulut Hizmetleri](choose-web-site-cloud-service-vm.md)
+### [Karşılaştırma: App Service, Sanal Makineler, Service Fabric ve Cloud Services](choose-web-site-cloud-service-vm.md)
 ### [App Service üzerinde WordPress siteleri geliştirme](develop-wordpress-on-app-service-web-apps.md)
 ### [Linux’ta App Service](../app-service/app-service-linux-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 ### Azure başvuru mimarileri
@@ -60,11 +61,12 @@
 ### [Web İşleri SDK’sı](websites-dotnet-webjobs-sdk-get-started.md)
 
 ### ASP.NET uygulamaları
-#### [İlk .NET web uygulamanızı Azure'da beş dakikada dağıtma](app-service-web-get-started-dotnet.md)
+#### [Azure’da Visual Studio ile ASP.NET uygulaması oluşturma](web-sites-dotnet-get-started.md)
 #### [ASP.NET Web API kullanarak REST hizmeti oluşturma](web-sites-dotnet-rest-service-aspnet-api-sql-database.md)
 #### [Visual Studio Code’da ASP.NET 5 web uygulaması oluşturma](web-sites-create-web-app-using-vscode.md)
 
 ### Node.js uygulamaları
+#### [App Service için Node.js geliştirme](app-service-web-nodejs-get-started.md)
 #### [Node.js web uygulaması oluşturma](web-sites-nodejs-develop-deploy-mac.md)
 #### [Socket.IO ile Node.js sohbet uygulaması oluşturma](web-sites-nodejs-chat-app-socketio.md)
 #### [Web Apps ile io.js kullanma](web-sites-nodejs-iojs.md)
@@ -72,14 +74,13 @@
 #### [WebMatrix kullanarak oluşturma ve dağıtma](web-sites-nodejs-use-webmatrix.md)
 
 ### PHP uygulamaları
-#### [İlk PHP web uygulamanızı Azure’da beş dakikada dağıtma](app-service-web-get-started-php.md)
+#### [App Service için PHP uygulamaları geliştirme](app-service-web-php-get-started.md) 
 #### [PHP-SQL web uygulaması oluşturma ve Git kullanarak dağıtma](web-sites-php-sql-database-deploy-use-git.md)
 #### [Azure Uygulama Hizmeti’nde bir WordPress web uygulaması oluşturma](web-sites-php-web-site-gallery.md)
 #### [Azure’da MySQL veritabanı oluşturma ve ona bağlanma](../store-php-create-mysql-database.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 #### [Azure Uygulama Hizmeti üzerinde kurumsal sınıf WordPress](web-sites-php-enterprise-wordpress.md)
 
 ### Java uygulamaları
-#### [İlk Java web uygulamanızı beş dakikada Azure'da dağıtın](web-sites-java-get-started.md)
 #### Hello World uygulaması oluşturma
 ##### [Eclipse](app-service-web-eclipse-create-hello-world-web-app.md)
 ##### [IntelliJ](app-service-web-intellij-create-hello-world-web-app.md)
@@ -238,7 +239,7 @@
 
 
 ## Sorun giderme
-### [Web uygulaması için tanılama günlüğünü etkinleştirme](web-sites-enable-diagnostic-log.md)
+### [Web Apps için tanılama günlüğünü etkinleştirme](web-sites-enable-diagnostic-log.md)
 ### [Akış günlükleri ve konsol](web-sites-streaming-logs-and-console.md)
 ### [Node.js uygulamaları için en iyi yöntemler ve sorun giderme kılavuzu](app-service-web-nodejs-best-practices-and-troubleshoot-guide.md)
 ### [Node.js web uygulamasında hata ayıklama](web-sites-nodejs-debug.md)
@@ -247,9 +248,9 @@
 ### [Web uygulaması performans sorunlarını giderme](app-service-web-troubleshoot-performance-degradation.md)
 
 # Başvuru
-## [Azure CLI](/cli/azure/)
-## [Java](/java/api/)
+## [Azure CLI 2.0 Önizleme](/cli/azure/appservice)
 ## [.NET](/dotnet/api)
+## [Java](/java/api/)
 ## [REST](/rest/api/appservice)
 
 # İlgili
@@ -266,6 +267,6 @@
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -182,6 +182,6 @@ Azure Search dizininizi doldurduktan sonra, belgeleri aramak için sorgu gönder
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

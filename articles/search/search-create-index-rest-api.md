@@ -88,7 +88,7 @@ Yukarıdaki dizin tanımı Fransızca metin depolamaya yönelik tasarlandığın
 
 ## <a name="iii-issue-the-http-request"></a>III. HTTP isteği gönderme
 1. Dizin tanımınızı istek gövdesi olarak kullanarak Azure Search hizmeti uç nokta URL'nize HTTP POST isteği gönderin. URL'de hizmet adınızı ana bilgisayar adı olarak kullandığınızdan emin olun ve sorgu dizesi parametresi olarak uygun `api-version` öğesini kullanın (Bu belge yayımlandığı sırada, `2016-09-01` geçerli API sürümüdür).
-2. İstek üst bilgilerinde, `Content-Type` öğesini `application/json` olarak belirtin. Ayrıca `api-key` üst bilgisinde, 1. Adımda tanımladığınız hizmet yöneticisi anahtarınızı sağlamanız gerekir.
+2. İstek üst bilgilerinde, `Content-Type` öğesini `application/json` olarak belirtin. Ayrıca `api-key` üst bilgisinde,&1;. Adımda tanımladığınız hizmet yöneticisi anahtarınızı sağlamanız gerekir.
 
 Aşağıdaki isteği göndermek için kendi hizmet adınızı ve API anahtarınızı sağlamanız gerekir:
 
@@ -110,6 +110,6 @@ Azure Search dizini oluşturduktan sonra, [içeriğinizi dizine yüklemek](searc
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

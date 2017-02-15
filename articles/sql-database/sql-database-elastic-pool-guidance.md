@@ -118,9 +118,9 @@ Araçları kullanamadığınız durumlarda aşağıdaki adım adım yönergeler 
    MAKS(<*Toplam veritabanı sayısı* X *Veritabanı başına ortalama DTU kullanımı*>,<br>
    <*Eşzamanlı olarak en üst seviyeye çıkan veritabanı sayısı* X *Veritabanı başına en yüksek DTU kullanımı*)
 2. Havuzdaki tüm veritabanları için gereken bayt sayısını ekleyerek havuz için gereken depolama alanını tahmin edin. Ardından, bu depolama miktarını sağlayan eDTU havuz boyutunu belirleyin. eDTU havuz boyutunu temel alan havuz depolama limitleri için bkz. [Elastik havuzlar ve elastik veritabanları için eDTU ve depolama limitleri](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools).
-3. 1. ve 2. Adımlardaki eDTU tahminlerinin büyük olanlarını alın.
+3. 1 ve 2  Adımlardaki eDTU tahminlerinin büyük olanlarını alın.
 4. [SQL Veritabanı fiyatlandırma sayfasına](https://azure.microsoft.com/pricing/details/sql-database/) bakın ve 3. Adımdaki tahminden büyük olan en küçük eDTU havuz boyutunu bulun.
-5. 5. Adımdaki havuz fiyatını, tek veritabanları için uygun performans düzeylerini kullanma fiyatıyla karşılaştırın.
+5. 5 Adımdaki havuz fiyatını, tek veritabanları için uygun performans düzeylerini kullanma fiyatıyla karşılaştırın.
 
 ## <a name="summary"></a>Özet
 Bütün tek veritabanları havuzlar için uygun adaylar değildir. Düşük ortalama kullanım ve oldukça nadir kullanım yükseltmeleri ile nitelenen kullanım modellerine sahip veritabanları mükemmel adaylardır. Uygulama kullanım modelleri dinamik olduğu için, bir havuzun bazı veya tüm veritabanlarınıza yönelik iyi bir seçenek olup olmadığını görmek üzere ilk değerlendirmeyi yapmak için bu makalede açıklanan bilgi ve araçları kullanın. Bu makale, elastik bir havuzun uygun olup olmadığıyla ilgili karar vermenize yardımcı olmaya yönelik bir başlangıç noktasıdır. Geçmiş kaynak kullanımını sürekli olarak izlemeniz ve tüm veritabanlarınızın performans düzeylerini sürekli olarak yeniden değerlendirmeniz gerektiğini unutmayın. Veritabanlarını elastik havuzların içine ve dışına kolayca taşıyabilirsiniz ve çok sayıda veritabanınız varsa veritabanlarınızı çeşitli boyutlardaki birden fazla havuza bölebilirsiniz.

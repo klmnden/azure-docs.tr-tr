@@ -59,7 +59,7 @@
 ### [Tablo Tasarımı Kılavuzu](storage-table-design-guide.md)
 ### [Örnekler](https://azure.microsoft.com/documentation/samples/?service=storage&term=table)
 ## Dosyaları kullanma
-### [Genel Bakış](https://msdn.microsoft.com/en-us/library/dn166972.aspx)
+### [Genel Bakış](/rest/api/storageservices/fileservices/File-Service-Concepts)
 ### [Azure Dosyalarının Sorunlarını Giderme](storage-troubleshoot-file-connection-problems.md)
 ### [Örnekler](https://azure.microsoft.com/documentation/samples/?service=storage&term=file)
 ## Sanal Makine Disklerini kullanma
@@ -75,13 +75,17 @@
 ### [Performans ve Ölçeklenebilirlik Denetim Listesi](storage-performance-checklist.md)
 ### [Eşzamanlılık](storage-concurrency.md)
 ## Geliştirme
-### [Örnekler](storage-samples.md)
+### Örnekler
+#### [.NET](storage-samples-dotnet.md)
+#### [Java](storage-samples-java.md)
+### [RA-GRS kullanarak HA Uygulamaları tasarlama](storage-designing-ha-apps-with-ragrs.md)
 ### [Bağlantı Dizelerini yapılandırma](storage-configure-connection-string.md)
 ### [Depolama öykünücüsü kullanma](storage-use-emulator.md)
 ### [Özellikler ile meta verileri ayarlama ve alma](storage-properties-metadata.md)
 ## Yönet
 ### [PowerShell](storage-powershell-guide-full.md)
-### [Azure CLI](storage-azure-cli.md)
+### [Azure CLI 2.0 (Önizleme)](storage-azure-cli.md)
+### [Azure CLI 1.0](storage-azure-cli-nodejs.md)
 ### [Azure Otomasyonu](automation-manage-storage.md)
 ## Güvenlik
 ### [Güvenlik kılavuzu](storage-security-guide.md)
@@ -149,7 +153,7 @@
 ## [Azure CLI](/cli/azure/storage)
 ## .NET
 ### [Resource Manager](/dotnet/api/microsoft.azure.management.storage)
-### [Veri taşıma](https://msdn.microsoft.com/en-us/library/azure/mt684990.aspx)
+### [Veri taşıma](https://msdn.microsoft.com/library/azure/mt684990.aspx)
 ### [Bloblar, Kuyruklar, Tablolar ve Dosyalar](https://msdn.microsoft.com/library/azure/mt347887.aspx)
 ## [Java](/java/api/)
 ## [Node.js](http://azure.github.io/azure-storage-node)
@@ -159,7 +163,7 @@
 ## [iOS](https://github.com/Azure/azure-storage-ios)
 ## [Android](http://azure.github.io/azure-storage-android)
 ## REST
-### [Bloblar, Kuyruklar, Tablolar ve Dosyalar](/rest/api/storageservices/importexport/storage-import-export-service-rest-api-reference)
+### [Bloblar, Kuyruklar, Tablolar ve Dosyalar](/rest/api/storageservices/fileservices/azure-storage-services-rest-api-reference)
 ### [Kaynak sağlayıcısı](/rest/api/storagerp)
 ### [İçeri/dışarı aktarma](/rest/api/storageimportexport)
 
@@ -201,6 +205,6 @@
 ### [iOS](https://github.com/Azure/azure-storage-ios)
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 

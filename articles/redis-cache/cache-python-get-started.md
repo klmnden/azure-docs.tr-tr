@@ -1,6 +1,6 @@
 ---
 title: "Python ile Azure Redis Önbelleği kullanma | Microsoft Belgeleri"
-description: "Python kullanarak Azure Redis Önbelleği kullanmaya başlama"
+description: "Python aracılığıyla Azure Redis Önbelleği kullanmaya başlama"
 services: redis-cache
 documentationcenter: 
 author: steved0x
@@ -12,11 +12,11 @@ ms.devlang: python
 ms.topic: hero-article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 08/16/2016
+ms.date: 01/06/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6d1a948cd9b0b2b8b50ba04579de5455e7a44730
+ms.sourcegitcommit: 65385aa918222837468f88246d0527c22c677ba7
+ms.openlocfilehash: ac73ab86ba17df9b71a4f07776fef0f4c6e687e8
 
 
 ---
@@ -41,7 +41,7 @@ Bu konu Python kullanarak Azure Redis Önbelleği kullanmayı gösterir.
 ## <a name="retrieve-the-host-name-and-access-keys"></a>Ana bilgisayar adını ve erişim anahtarlarını alma
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
 
-## <a name="enable-the-nonssl-endpoint"></a>SSL olmayan uç noktayı etkinleştirme
+## <a name="enable-the-non-ssl-endpoint"></a>SSL olmayan uç noktayı etkinleştirme
 Bazı Redis istemcileri SSL’yi desteklemez ve varsayılan olarak [SSL olmayan bağlantı noktası yeni Azure Redis Önbelleği örnekleri için devre dışıdır](cache-configure.md#access-ports). Bu yazma sırasında, [redis-py](https://github.com/andymccurdy/redis-py) istemcisi SSL’yi desteklemez. 
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-non-ssl-port.md)]
@@ -64,6 +64,6 @@ Bazı Redis istemcileri SSL’yi desteklemez ve varsayılan olarak [SSL olmayan 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

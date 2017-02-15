@@ -240,12 +240,12 @@
 ## Kimliklerinizi güvenli hale getirme
 ### [Azure AD Kimlik Koruması](active-directory-identityprotection.md)
 #### [Etkinleştirme](active-directory-identityprotection-enable.md)
-#### [Oturum açma deneyimi](active-directory-identityprotection-flows.md)
-#### [Kullanıcıların engelini kaldırma](active-directory-identityprotection-unblock-howto.md)
 #### [Güvenlik açıklarını algılama](active-directory-identityprotection-vulnerabilities.md)
-#### [Risk olayı türleri](active-directory-identityprotection-risk-events-types.md)
-#### [Risk olaylarının benzetimini gerçekleştirme](active-directory-identityprotection-playbook.md)
+#### [Risk olayları](active-directory-identity-protection-risk-events.md)
 #### [Bildirimler](active-directory-identityprotection-notifications.md)
+#### [Oturum açma deneyimi](active-directory-identityprotection-flows.md)
+#### [Risk olaylarının benzetimini gerçekleştirme](active-directory-identityprotection-playbook.md)
+#### [Kullanıcıların engelini kaldırma](active-directory-identityprotection-unblock-howto.md)
 #### [Sözlük](active-directory-identityprotection-glossary.md)
 #### [Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
 ### [Privileged Identity Management](./privileged-identity-management/active-directory-securing-privileged-access.md)
@@ -301,6 +301,6 @@
 ## [Azure geri bildirim forumu](https://feedback.azure.com/forums/169401-azure-active-directory)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,11 +1,11 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: 5f0cd9a3f3d4b578312e1b9f9f8b9c5ee7d6aa27
+ms.sourcegitcommit: 511d15cc48b17bd65bedc2c1cd9602d868ffa724
+ms.openlocfilehash: 79a8dc0dc2e81d0b159b07bbb496f04e06e5d28a
 
 ---
-#<a name="cdn-documentation"></a>CDN Belgeleri
+# <a name="cdn-documentation"></a>CDN Belgeleri
 
 Azure İçerik Teslim Ağı (CDN), Azure'da veya herhangi başka bir konumda barındırılan yüksek bant genişliğine sahip içeriklerin teslimine yönelik olarak geliştiricilere genel bir çözüm sunar.  CDN'yi kullanarak; Azure Blob Depolama'dan, bir web uygulamasından, sanal makineden, uygulama klasöründen veya başka bir HTTP/HTTPS konumundan yüklenen genel kullanıma açık nesnelerin önbelleğe alınmasını sağlayabilirsiniz.  CDN genellikle; görüntü, stil sayfası, belge, dosya, istemci tarafı ve HTML sayfası gibi statik içeriklerin tesliminde kullanılır.
 
@@ -67,37 +67,44 @@ Azure İçerik Teslim Ağı (CDN), Azure'da veya herhangi başka bir konumda bar
 
 ---
 
-## <a name="reference"></a>Başvuru
-
+<h2>Başvuru</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Azure PowerShell</p>
+                        <h3>Komut Satırı</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.cdn/v2.3.0/azurerm.cdn">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-
     <li>
-        <a href="/rest/api/CDN">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Diller</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.management.cdn">.NET</a></p>
+                        <p><a href="/java/api/com.microsoft.azure.management.cdn">Java</a></p>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>CDN REST API Başvurusu</p>
+                        <p><a href="/rest/api/cdn/">REST API Başvurusu</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
 
@@ -112,6 +119,6 @@ Azure CDN Belgelerini İndirme </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

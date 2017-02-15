@@ -12,18 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/06/2016
+ms.date: 01/09/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: d0e596aed6ae784e4c48b3ddacbf946c4849614f
-ms.openlocfilehash: 397ed8977c35dc18e92239ae4b62bddba2ade8a7
+ms.sourcegitcommit: b162ad1b776223cdf848ed8d04b1b44f9437f86d
+ms.openlocfilehash: 431e4283efa6ca985d832ead05e455d49ffdac74
 
 
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Azure AD Connect özel yüklemesi
 Yükleme için daha fazla seçenek istediğinizde Azure AD Connect **Özel ayarları** kullanılır. Birden fazla ormanınız varsa veya hızlı yükleme kapsamında yer almayan isteğe bağlı özellikleri yapılandırmak istiyorsanız kullanılır. [**Hızlı yükleme**](active-directory-aadconnect-get-started-express.md) seçeneğinin dağıtımınız veya topolojiniz için uygun olmadığı tüm durumlarda kullanılır.
 
-Azure AD Connect'i yüklemeye başlamadan önce [Azure AD Connect'i indirdiğinizden](http://go.microsoft.com/fwlink/?LinkId=615771) ve [Azure AD Connect: Donanım ve önkoşullar](../active-directory-aadconnect-prerequisites.md) bölümündeki önkoşul adımlarını tamamladığınızdan emin olun. Ayrıca [Azure AD Connect hesapları ve izinleri](active-directory-aadconnect-accounts-permissions.md) bölümünde açıklandığı üzere, gerekli hesaplara sahip olduğunuzdan olduğundan emin olun .
+Azure AD Connect'i yüklemeye başlamadan önce [Azure AD Connect'i indirdiğinizden](http://go.microsoft.com/fwlink/?LinkId=615771) ve [Azure AD Connect: Donanım ve önkoşullar](active-directory-aadconnect-prerequisites.md) bölümündeki önkoşul adımlarını tamamladığınızdan emin olun. Ayrıca [Azure AD Connect hesapları ve izinleri](active-directory-aadconnect-accounts-permissions.md) bölümünde açıklandığı üzere, gerekli hesaplara sahip olduğunuzdan olduğundan emin olun .
 
 Özel ayarlar, topolojinizle eşleşmiyorsa (örneğin, DirSync'i yükseltmek için) diğer senaryolara ilişkin [ilgili belgelere](#related-documentation) göz atın.
 
@@ -43,18 +43,18 @@ Eşitleme hizmetlerini yüklerken isteğe bağlı yapılandırma bölümünü i�
 | Özel eşitleme grubu belirtme |Eşitleme hizmetleri yüklendiğinde Azure AD Connect varsayılan olarak sunucu için dört yerel grup oluşturur. Bunlar Yöneticiler grubu, İşleçler grubu, Gözatma grubu ve Parola Sıfırlama Grubudur. Kendi gruplarınızı burada belirtebilirsiniz. Gruplar sunucuda yerel olmalıdır ve etki alanında bulunamazlar. |
 
 ### <a name="user-sign-in"></a>Kullanıcı oturumu açma
-Gerekli bileşenleri yükledikten sonra kullanıcı çoklu oturumu açma yönteminizi seçmeniz istenir. Aşağıdaki tabloda mevcut seçeneklerle ilgili kısa bir açıklama bulunmaktadır. Oturum açma yöntemleriyle ilgili tam açıklama için bkz. [Kullanıcı oturumu açma](../active-directory-aadconnect-user-signin.md).
+Gerekli bileşenleri yükledikten sonra kullanıcı çoklu oturumu açma yönteminizi seçmeniz istenir. Aşağıdaki tabloda mevcut seçeneklerle ilgili kısa bir açıklama bulunmaktadır. Oturum açma yöntemleriyle ilgili tam açıklama için bkz. [Kullanıcı oturumu açma](active-directory-aadconnect-user-signin.md).
 
 ![Kullanıcı Oturumu açma](./media/active-directory-aadconnect-get-started-custom/usersignin2.png)
 
 | Çoklu Oturum Açma Seçeneği | Açıklama |
 | --- | --- |
-| Parola Eşitleme |Kullanıcılar, Office 365 gibi Microsoft bulut hizmetlerinde kendi şirket içi ağlarında kullandıkları parolayla oturum açabilir. Kullanıcı parolaları, parola karması olarak Azure AD ile eşitlenir ve bulutta bir kimlik doğrulaması gerçekleşir. Daha fazla bilgi için bkz. [Parola eşitleme](../active-directory-aadconnectsync-implement-password-synchronization.md). |
-|Doğrudan kimlik doğrulama (Önizleme)|Kullanıcılar, Office 365 gibi Microsoft bulut hizmetlerinde kendi şirket içi ağlarında kullandıkları parolayla oturum açabilir.  Kullanıcının parolası, doğrulanmak üzere şirket içi Active Directory denetleyicisine geçirilir. 
+| Parola Eşitleme |Kullanıcılar, Office 365 gibi Microsoft bulut hizmetlerinde kendi şirket içi ağlarında kullandıkları parolayla oturum açabilir. Kullanıcı parolaları, parola karması olarak Azure AD ile eşitlenir ve bulutta bir kimlik doğrulaması gerçekleşir. Daha fazla bilgi için bkz. [Parola eşitleme](active-directory-aadconnectsync-implement-password-synchronization.md). |
+|Doğrudan kimlik doğrulama (Önizleme)|Kullanıcılar, Office 365 gibi Microsoft bulut hizmetlerinde kendi şirket içi ağlarında kullandıkları parolayla oturum açabilir.  Kullanıcının parolası, doğrulanmak üzere şirket içi Active Directory denetleyicisine geçirilir.
 | AD FS ile Federasyon |Kullanıcılar, Office 365 gibi Microsoft bulut hizmetlerinde kendi şirket içi ağlarında kullandıkları parolayla oturum açabilir.  Kullanıcılar oturum açmak üzere kendi şirket içi AD FS örneklerine yönlendirilir ve şirket içi kimlik doğrulaması gerçekleşir. |
 | Yapılandırmayın |Özellik yüklenmez ve yapılandırılmaz. Zaten 3. taraf bir federasyon sunucunuz varsa veya başka bir çözümden faydalanıyorsanız bu seçeneği belirleyin. |
-|Çoklu Oturum Açmayı Etkinleştir|Bu seçenek hem parola eşitleme hem de Doğrudan kimlik doğrulaması ile kullanılabilir ve masaüstü kullanıcılarına kurumsal ağda çoklu oturum açma deneyimi sağlar.  Daha fazla bilgi için bkz. [Çoklu oturum açma](../active-directory-aadconnect-sso.md). </br>AD FS zaten aynı düzeyde çoklu oturum açma olanağı sağladığından, AD FS müşterilerinin bu seçeneği kullanamayacağı unutulmamalıdır.</br>(Aynı zamanda PTA yayımlanmazsa)
-|Oturum Açma Seçeneği|Bu seçenek parola eşitleme müşterileri tarafından kullanılabilir ve masaüstü kullanıcılarına kurumsal ağda çoklu oturum açma deneyimi sağlar.  </br>Daha fazla bilgi için bkz. [Çoklu oturum açma](../active-directory-aadconnect-sso.md). </br>AD FS zaten aynı düzeyde çoklu oturum açma olanağı sağladığından, AD FS müşterilerinin bu seçeneği kullanamayacağı unutulmamalıdır.
+|Çoklu Oturum Açmayı Etkinleştir|Bu seçenek hem parola eşitleme hem de Doğrudan kimlik doğrulaması ile kullanılabilir ve masaüstü kullanıcılarına kurumsal ağda çoklu oturum açma deneyimi sağlar.  Daha fazla bilgi için bkz. [Çoklu oturum açma](active-directory-aadconnect-sso.md). </br>AD FS zaten aynı düzeyde çoklu oturum açma olanağı sağladığından, AD FS müşterilerinin bu seçeneği kullanamayacağı unutulmamalıdır.</br>(Aynı zamanda PTA yayımlanmazsa)
+|Oturum Açma Seçeneği|Bu seçenek parola eşitleme müşterileri tarafından kullanılabilir ve masaüstü kullanıcılarına kurumsal ağda çoklu oturum açma deneyimi sağlar.  </br>Daha fazla bilgi için bkz. [Çoklu oturum açma](active-directory-aadconnect-sso.md). </br>AD FS zaten aynı düzeyde çoklu oturum açma olanağı sağladığından, AD FS müşterilerinin bu seçeneği kullanamayacağı unutulmamalıdır.
 
 
 ### <a name="connect-to-azure-ad"></a>Azure AD'ye Bağlanma
@@ -68,7 +68,7 @@ Genel yönetici hesabınızda MFA etkinse açılır oturum açma penceresine par
 
 Genel yönetici hesabında [Privileged Identity Management](../active-directory-privileged-identity-management-getting-started.md) seçeneği de etkin olabilir.
 
-Bir hatayla karşılaştıysanız ve bağlantı sorunlarınız varsa bkz. [Bağlantı sorunlarını giderme](../active-directory-aadconnect-troubleshoot-connectivity.md).
+Bir hatayla karşılaştıysanız ve bağlantı sorunlarınız varsa bkz. [Bağlantı sorunlarını giderme](active-directory-aadconnect-troubleshoot-connectivity.md).
 
 ## <a name="pages-under-the-section-sync"></a>Eşitleme bölümünde yer alan sayfalar
 
@@ -95,7 +95,9 @@ Bu sayfa, Azure AD'de doğrulanmış olup şirket içi AD DS'de var olan UPN etk
 
 ### <a name="domain-and-ou-filtering"></a>Etki alanı ve OU filtreleme
 Varsayılan olarak tüm etki alanları ve OU'lar eşitlenir. Azure AD ile eşitlemek istemediğiniz etki alanları veya OU'lar varsa bu etki alanlarının veya OU'ların işaretini kaldırabilirsiniz.  
-![Etki alanı/OU filtreleme](./media/active-directory-aadconnect-get-started-custom/domainoufiltering.png) Sihirbazdaki bu sayfa, etki alanı tabanlı filtrelemeyi yapılandırır. Daha fazla bilgi için lütfen bkz. [etki alanı tabanlı filtreleme](../active-directory-aadconnectsync-configure-filtering.md#domain-based-filtering).
+![Etki alanı/OU filtreleme](./media/active-directory-aadconnect-get-started-custom/domainoufiltering.png) Sihirbazdaki bu sayfa, etki alanı tabanlı ve OU tabanlı filtrelemeyi yapılandırır. Daha fazla bilgi için bkz. [etki alanı tabanlı filtreleme](active-directory-aadconnectsync-configure-filtering.md#domain-based-filtering) ve [ou tabanlı filtreleme](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering). OU tabanlı filtreleme kullanırsanız, daha sonra eklenen yeni OU'lar varsayılan olarak eşitlenir. Yeni OU'ların eşitlenmesini istemezseniz, sihirbazın [ou tabanlı filtreleme](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering) yapılandırması tamamlandıktan sonra gerekli ayarları yapabilirsiniz.
+
+[Grup tabanlı filtreleme](#sync-filtering-based-on-groups) kullanmayı planlıyorsanız, gruba sahip OU'nun dahil olduğundan ve OU filtreleme ile filtrelenmediğinden emin olun. OU filtreleme, grup tabanlı filtrelemeden önce değerlendirilir.
 
 Güvenlik duvarı kısıtlamaları nedeniyle bazı etki alanlarına erişilemeyebilir. Bu etki alanları varsayılan olarak seçili değildir ve uyarı içerir.  
 ![Erişilemeyen etki alanları](./media/active-directory-aadconnect-get-started-custom/unreachable.png)  
@@ -108,13 +110,13 @@ Ormanlar arasında eşleştirme özelliği sayesinde, AD DS ormanlarındaki kull
 
 | Ayar | Açıklama |
 | --- | --- |
-| [Kullanıcılar tüm ormanlarda yalnızca bir kez temsil edilir](../active-directory-aadconnect-topologies.md#multiple-forests-single-azure-ad-tenant) |Tüm kullanıcılar Azure AD'de bireysel nesne olarak oluşturulur. Nesneler meta veri deposunda birleştirilmez. |
-| [Posta özniteliği](../active-directory-aadconnect-topologies.md#multiple-forests-single-azure-ad-tenant) |Bu seçenek, posta özniteliğinin farklı ormanlarda aynı değere sahip olması halinde kullanıcıları ve kişileri birleştirir. Kişileriniz GALSync kullanılarak oluşturulduysa bu seçeneği kullanın. |
-| [ObjectSID ve msExchangeMasterAccountSID/ msRTCSIP-OriginatorSid](../active-directory-aadconnect-topologies.md#multiple-forests-single-azure-ad-tenant) |Bu seçenek, hesap ormanındaki etkin bir kullanıcıyla kaynak ormandaki devre dışı bırakılmış bir kullanıcıyı birleştirir. Bu yapılandırma, Exchange'de bağlı posta kutusu olarak bilinir. Yalnızca Lync'i kullanıyor olmanız ve kaynak ormanda Exchange olmaması halinde de bu seçeneği kullanabilirsiniz. |
+| [Kullanıcılar tüm ormanlarda yalnızca bir kez temsil edilir](active-directory-aadconnect-topologies.md#multiple-forests-single-azure-ad-tenant) |Tüm kullanıcılar Azure AD'de bireysel nesne olarak oluşturulur. Nesneler meta veri deposunda birleştirilmez. |
+| [Posta özniteliği](active-directory-aadconnect-topologies.md#multiple-forests-single-azure-ad-tenant) |Bu seçenek, posta özniteliğinin farklı ormanlarda aynı değere sahip olması halinde kullanıcıları ve kişileri birleştirir. Kişileriniz GALSync kullanılarak oluşturulduysa bu seçeneği kullanın. |
+| [ObjectSID ve msExchangeMasterAccountSID/ msRTCSIP-OriginatorSid](active-directory-aadconnect-topologies.md#multiple-forests-single-azure-ad-tenant) |Bu seçenek, hesap ormanındaki etkin bir kullanıcıyla kaynak ormandaki devre dışı bırakılmış bir kullanıcıyı birleştirir. Bu yapılandırma, Exchange'de bağlı posta kutusu olarak bilinir. Yalnızca Lync'i kullanıyor olmanız ve kaynak ormanda Exchange olmaması halinde de bu seçeneği kullanabilirsiniz. |
 | sAMAccountName ve MailNickName |Bu seçenek, kullanıcı için oturum açma kimliğinin bulunması beklenen öznitelikleri birleştirir. |
 | Belirli bir öznitelik |Bu seçenek, kendi özniteliğinizi seçmenize olanak tanır. **Sınırlama:** Meta veri deposunda bulabileceğiniz bir özniteliği seçtiğinizden emin olun. Özel bir öznitelik (meta veri deposunda olmayan) seçerseniz sihirbaz tamamlanamaz. |
 
-**Kaynak Bağlantısı** - sourceAnchor özniteliği, kullanıcı nesnesinin yaşam süresi boyunca sabit olan bir özniteliktir. Şirket içi kullanıcıyı Azure AD'deki kullanıcıya bağlayan birincil anahtardır. Öznitelik değiştirilemeyeceği için kullanmak üzere iyi bir öznitelik seçmeniz gerekir. ObjectGUID iyi bir seçenektir. Kullanıcı hesabı ormanlar/etki alanları arasında taşınmadığı sürece bu öznitelik değiştirilemez. Hesapları ormanlar arasında taşıdığınız çoklu orman ortamında başka bir öznitelik (örneğin, employeeID içeren bir öznitelik) kullanmanız gerekir. Bir kişi evlendiğinde değişecek olan veya atamaları değiştirecek olan öznitelikleri kullanmaktan kaçının. @-sign, içeren nitelikleri kullanamazsınız. Bu nedenle e-posta ve userPrincipalName seçeneği kullanılamaz. Ayrıca öznitelikler büyük küçük harfe duyarlıdır. Bu nedenle bir nesneyi ormanlar arasında taşıdığınızda, büyük/küçük harfleri doğru yazdığınızdan emin olun. İkili öznitelikler base64 kodludur ancak diğer öznitelik türleri kodlanmamış durumda kalır. Federasyon senaryolarında ve bazı Azure AD arabirimlerinde, bu öznitelik immutableID özniteliği olarak da bilinir. Kaynak bağlantısı hakkında daha fazla bilgi için bkz. [tasarım kavramları](../active-directory-aadconnect-design-concepts.md#sourceanchor).
+**Kaynak Bağlantısı** - sourceAnchor özniteliği, kullanıcı nesnesinin yaşam süresi boyunca sabit olan bir özniteliktir. Şirket içi kullanıcıyı Azure AD'deki kullanıcıya bağlayan birincil anahtardır. Öznitelik değiştirilemeyeceği için kullanmak üzere iyi bir öznitelik seçmeniz gerekir. ObjectGUID iyi bir seçenektir. Kullanıcı hesabı ormanlar/etki alanları arasında taşınmadığı sürece bu öznitelik değiştirilemez. Hesapları ormanlar arasında taşıdığınız çoklu orman ortamında başka bir öznitelik (örneğin, employeeID içeren bir öznitelik) kullanmanız gerekir. Bir kişi evlendiğinde değişecek olan veya atamaları değiştirecek olan öznitelikleri kullanmaktan kaçının. @-sign, içeren nitelikleri kullanamazsınız. Bu nedenle e-posta ve userPrincipalName seçeneği kullanılamaz. Ayrıca öznitelikler büyük küçük harfe duyarlıdır. Bu nedenle bir nesneyi ormanlar arasında taşıdığınızda, büyük/küçük harfleri doğru yazdığınızdan emin olun. İkili öznitelikler base64 kodludur ancak diğer öznitelik türleri kodlanmamış durumda kalır. Federasyon senaryolarında ve bazı Azure AD arabirimlerinde, bu öznitelik immutableID özniteliği olarak da bilinir. Kaynak bağlantısı hakkında daha fazla bilgi için bkz. [tasarım kavramları](active-directory-aadconnect-design-concepts.md#sourceanchor).
 
 ### <a name="sync-filtering-based-on-groups"></a>Grup tabanlı eşitleme filtrelemesi
 Grup filtreleme özelliği, pilot için yalnızca küçük bir nesne alt kümesini eşitlemenize olanak sağlar. Bu özelliği kullanmak için şirket içi Active Directory'nizde bu amaca uygun bir grup oluşturun. Ardından, doğrudan üye olarak Azure AD ile eşitlenecek kullanıcıları ve grupları ekleyin. Daha sonra, Azure AD'de mevcut olması gereken nesnelerin listesini korumak için bu gruba kullanıcı ekleyebilir ve gruptan kullanıcı çıkarabilirsiniz. Eşitlemek istediğiniz tüm nesneler grubun doğrudan üyesi olmalıdır. Tüm kullanıcılar, gruplar, kişiler ve bilgisayarlar/cihazlar doğrudan üye olmalıdır. İç içe geçmiş grup üyelikleri çözümlenmez. Bir grubu üye olarak eklediğinizde, yalnızca grubun kendisi eklenir; üyeleri eklenmez.
@@ -126,7 +128,7 @@ Grup filtreleme özelliği, pilot için yalnızca küçük bir nesne alt kümesi
 >
 >
 
-Tam gelişmiş üretim dağıtımında, tüm nesneleri eşitlenecek olan tek bir grubu kullanmak zordur. Bunun yerine, [Filtreleme yapılandırma](../active-directory-aadconnectsync-configure-filtering.md) bölümünde belirtilen yöntemlerden birini kullanın.
+Tam gelişmiş üretim dağıtımında, tüm nesneleri eşitlenecek olan tek bir grubu kullanmak zordur. Bunun yerine, [Filtreleme yapılandırma](active-directory-aadconnectsync-configure-filtering.md) bölümünde belirtilen yöntemlerden birini kullanın.
 
 ### <a name="optional-features"></a>İsteğe Bağlı Özellikler
 Bu ekran, belirli senaryolarınız için isteğe bağlı özellikler seçmenizi sağlar.
@@ -140,46 +142,13 @@ Bu ekran, belirli senaryolarınız için isteğe bağlı özellikler seçmenizi 
 
 | İsteğe Bağlı Özellikler | Açıklama |
 | --- | --- |
-| Exchange Karma Dağıtımı |Exchange Karma Dağıtımı özelliği, Exchange posta kutularının hem şirket içinde hem de Office 365'te aynı anda var olmalarına olanak sağlar. Azure AD Connect, Azure AD'den belirli bir [öznitelikler](../active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) kümesini şirket içi dizininize geri eşitler. |
+| Exchange Karma Dağıtımı |Exchange Karma Dağıtımı özelliği, Exchange posta kutularının hem şirket içinde hem de Office 365'te aynı anda var olmalarına olanak sağlar. Azure AD Connect, Azure AD'den belirli bir [öznitelikler](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) kümesini şirket içi dizininize geri eşitler. |
 | Azure AD uygulaması ve öznitelik filtreleme |Azure AD uygulaması ve öznitelik filtreleme etkinleştirilerek, eşitlenen öznitelikler kümesi uyarlanabilir. Bu seçenek sihirbaza iki yapılandırma sayfası daha ekler. Daha fazla bilgi için bkz. [Azure AD uygulaması ve öznitelik filtreleme](#azure-ad-app-and-attribute-filtering). |
-| Parola eşitleme |Oturum açma çözümü olarak federasyonu seçtiyseniz bu seçeneği etkinleştirebilirsiniz. Bu durumda parola eşitleme, bir yedekleme seçeneği olarak kullanılabilir. Ek bilgi için bkz. [Parola eşitleme](../active-directory-aadconnectsync-implement-password-synchronization.md). </br></br>Doğrudan Kimlik Doğrulama’yı seçtiyseniz, eski istemcilere yönelik destek sağlanması ve bir yedek seçenek olarak kullanılması için bu seçenek otomatik olarak etkinleştirilir. Ek bilgi için bkz. [Parola eşitleme](../active-directory-aadconnectsync-implement-password-synchronization.md).|
+| Parola eşitleme |Oturum açma çözümü olarak federasyonu seçtiyseniz bu seçeneği etkinleştirebilirsiniz. Bu durumda parola eşitleme, bir yedekleme seçeneği olarak kullanılabilir. Ek bilgi için bkz. [Parola eşitleme](active-directory-aadconnectsync-implement-password-synchronization.md). </br></br>Doğrudan Kimlik Doğrulama’yı seçtiyseniz, eski istemcilere yönelik destek sağlanması ve bir yedek seçenek olarak kullanılması için bu seçenek otomatik olarak etkinleştirilir. Ek bilgi için bkz. [Parola eşitleme](active-directory-aadconnectsync-implement-password-synchronization.md).|
 | Parola geri yazma |Parola geri yazma etkinleştirildiğinde Azure AD'de gerçekleşen parola değişiklikleri şirket içi dizininize geri yazılır. Daha fazla bilgi için bkz. [Parola yönetimine başlarken](../active-directory-passwords-getting-started.md). |
-| Grup geri yazma |**Office 365 Grupları** özelliğini kullanıyorsanız bu gruplar şirket içi Active Directory'nizde de temsil edilir. Bu seçenek yalnızca şirket içi Active Directory'nizde Exchange varsa kullanılır. Daha fazla bilgi için bkz. [Grup geri yazma](../active-directory-aadconnect-feature-preview.md#group-writeback). |
-| Cihaz geri yazma |Koşullu erişim senaryoları için, Azure AD'deki cihaz nesnelerini şirket içi Active Directory'nize geri yazmanızı sağlar. Daha fazla bilgi için bkz. [Azure AD Connect'te cihaz geri yazma özelliğini etkinleştirme](../active-directory-aadconnect-feature-device-writeback.md). |
-| Dizin genişletme öznitelik eşitlemesi |Dizin genişletme öznitelik eşitlemesi etkinleştirildiğinde, belirtilen öznitelikler Azure AD ile eşitlenir. Daha fazla bilgi için bkz. [Dizin genişletmeleri](../active-directory-aadconnectsync-feature-directory-extensions.md). |
-
-### <a name="enabling-single-sign-on-sso"></a>Çoklu oturum açmayı (SSO) etkinleştirme
-Parola Eşitleme veya Doğrudan kimlik doğrulama ile birlikte kullanılmak üzere çoklu oturum açma özelliğinin yapılandırılması, Azure AD ile eşitlenen her ormanda bir kere tamamlamanız gereken basit bir işlemdir.  Yapılandırma aşağıdaki iki adımdan oluşur:
-
-1.  Şirket içi Active Directory’nizde gerekli bilgisayar hesabını oluşturma.
-2.  İstemci makinelerin intranet bölgesini çoklu oturum açmayı destekleyecek şekilde yapılandırma.
-
-#### <a name="creating-the-computer-account-in-active-directory"></a>Active Directory’de Bilgisayar hesabını oluşturma
-AAD Connect aracına bağlanan tüm ormanlarda bilgisayar hesabının oluşturulabilmesi için, her bir ormanda Etki Alanı Yöneticisi kimlik bilgilerini sağlamanız gerekir.  Kimlik bilgisi yalnızca hesabı oluşturmak için kullanılır ve depolanmaz ya da başka bir işlem için kullanılmaz.  Kimlik bilgisini aşağıda gösterildiği gibi AAD Connect sihirbazının Çoklu oturum açmayı etkinleştirme sayfasına eklemeniz gereklidir:
-
-![Çoklu oturum açmayı etkinleştirme](./media/active-directory-aadconnect-get-started-custom/enablesso.png)
-
->[!NOTE]
->Belirli bir ormanda Çoklu oturum açma kullanmak istemiyorsanız o ormanı atlamayı seçebilirsiniz.
-
-#### <a name="configure-the-intranet-zone-for-client-machines"></a>İstemci makineler için Intranet Bölgesini yapılandırma
-İstemcinin intranet bölgesinde otomatik olarak oturum açabilmesini sağlamak için URL’lerin intranet bölgesinin bir parçası olduğundan emin olmanız gerekir.  Bunun yapılması, etki alanına katılan masaüstü bilgisayarın kurumsal ağa bağlandığında otomatik olarak bir Kerberos anahtarı göndermesini sağlar.
-Grup İlkesi yönetim araçlarına sahip bir bilgisayarda.
-
-1.  Grup İlkesi Yönetimi araçlarını açın
-2.  Tüm kullanıcılara uygulanacak Grup ilkesini düzenleyin.  Örneğin, Varsayılan Etki Alanı İlkesi.
-3.  Current User\Administrative Templates\Windows Components\Internet Explorer\Internet Control Panel\Security Page bölümüne gidin ve aşağıdaki şekilde gösterildiği gibi Siteyi Bölgeye Ataması Listesi’ni seçin.
-4.  İlkeyi etkinleştirin ve iletişim kutusuna aşağıdaki iki öğeyi girin.
-   
-        Value: https://autologon.microsoftazuread-sso.com
-        Data: 1
-        Value: https://aadg.windows.net.nsatc.net 
-        Data: 1
-
-5.  Şunun gibi görünmelidir: ![Intranet Bölgeleri](./media/active-directory-aadconnect-get-started-custom/sitezone.png)
-
-6.  İki kez Tamam’a tıklayın.
-
+| Grup geri yazma |**Office 365 Grupları** özelliğini kullanıyorsanız bu gruplar şirket içi Active Directory'nizde de temsil edilir. Bu seçenek yalnızca şirket içi Active Directory'nizde Exchange varsa kullanılır. Daha fazla bilgi için bkz. [Grup geri yazma](active-directory-aadconnect-feature-preview.md#group-writeback). |
+| Cihaz geri yazma |Koşullu erişim senaryoları için, Azure AD'deki cihaz nesnelerini şirket içi Active Directory'nize geri yazmanızı sağlar. Daha fazla bilgi için bkz. [Azure AD Connect'te cihaz geri yazma özelliğini etkinleştirme](active-directory-aadconnect-feature-device-writeback.md). |
+| Dizin genişletme öznitelik eşitlemesi |Dizin genişletme öznitelik eşitlemesi etkinleştirildiğinde, belirtilen öznitelikler Azure AD ile eşitlenir. Daha fazla bilgi için bkz. [Dizin genişletmeleri](active-directory-aadconnectsync-feature-directory-extensions.md). |
 
 ### <a name="azure-ad-app-and-attribute-filtering"></a>Azure AD uygulaması ve öznitelik filtreleme
 Hangi özniteliklerin Azure AD ile eşitleneceğini sınırlamak istiyorsanız kullanmakta olduğunuz hizmetleri seçerek başlatın. Bu sayfada yapılandırma değişikliği yaparsanız yükleme sihirbazını yeniden çalıştırarak doğrudan yeni bir hizmet seçmeniz gerekir.
@@ -191,7 +160,7 @@ Bu sayfa, önceki adımda seçtiğiniz hizmetlere bağlı olarak eşitlenen tüm
 ![İsteğe bağlı özellikler Öznitelikler](./media/active-directory-aadconnect-get-started-custom/azureadattributes2.png)
 
 > [!WARNING]
-> Özniteliklerin kaldırılması, işlevselliği etkileyebilir. En iyi yöntemler ve öneriler için bkz. [eşitlenen öznitelikler](../active-directory-aadconnectsync-attributes-synchronized.md#attributes-to-synchronize).
+> Özniteliklerin kaldırılması, işlevselliği etkileyebilir. En iyi yöntemler ve öneriler için bkz. [eşitlenen öznitelikler](active-directory-aadconnectsync-attributes-synchronized.md#attributes-to-synchronize).
 >
 >
 
@@ -200,7 +169,40 @@ Kuruluşunuz tarafından eklenen özel öznitelikler veya Active Directory'deki 
 
 ![Dizin genişletmeleri](./media/active-directory-aadconnect-get-started-custom/extension2.png)
 
-Daha fazla bilgi için bkz. [Dizin genişletmeleri](../active-directory-aadconnectsync-feature-directory-extensions.md).
+Daha fazla bilgi için bkz. [Dizin genişletmeleri](active-directory-aadconnectsync-feature-directory-extensions.md).
+
+### <a name="enabling-single-sign-on-sso"></a>Çoklu oturum açmayı (SSO) etkinleştirme
+Parola Eşitleme veya Doğrudan kimlik doğrulama ile birlikte kullanılmak üzere çoklu oturum açma özelliğinin yapılandırılması, Azure AD ile eşitlenen her ormanda bir kere tamamlamanız gereken basit bir işlemdir. Yapılandırma aşağıdaki iki adımdan oluşur:
+
+1.  Şirket içi Active Directory'nizde gerekli bilgisayar hesabını oluşturma.
+2.  İstemci makinelerin intranet bölgesini çoklu oturum açmayı destekleyecek şekilde yapılandırma.
+
+#### <a name="create-the-computer-account-in-active-directory"></a>Active Directory'de bilgisayar hesabını oluşturma
+Azure AD Connect'e bağlanan tüm ormanlarda bilgisayar hesabının oluşturulabilmesi için, her bir ormanda Etki Alanı Yöneticisi kimlik bilgilerini sağlamanız gerekir. Kimlik bilgileri yalnızca hesabı oluşturmak için kullanılır ve depolanmaz ya da başka bir işlem için kullanılmaz. Kimlik bilgisini Azure AD Connect sihirbazının **Çoklu oturum açmayı etkinleştirme** sayfasına eklemeniz gereklidir:
+
+![Çoklu oturum açmayı etkinleştirme](./media/active-directory-aadconnect-get-started-custom/enablesso.png)
+
+>[!NOTE]
+>Belirli bir ormanda Çoklu oturum açma kullanmak istemiyorsanız o ormanı atlayabilirsiniz.
+
+#### <a name="configure-the-intranet-zone-for-client-machines"></a>İstemci makineler için Intranet Bölgesini yapılandırma
+İstemcinin intranet bölgesinde otomatik olarak oturum açabilmesini sağlamak için URL'lerin intranet bölgesinin bir parçası olduğundan emin olmanız gerekir. Bunun yapılması, etki alanına katılan bilgisayarın kurumsal ağa bağlandığında Azure AD'ye otomatik olarak bir Kerberos anahtarı göndermesini sağlar.
+Grup İlkesi yönetim araçlarına sahip bir bilgisayarda.
+
+1.  Grup İlkesi Yönetimi araçlarını açın
+2.  Tüm kullanıcılara uygulanacak Grup ilkesini düzenleyin. Örneğin, Varsayılan Etki Alanı İlkesi.
+3.  **User Configuration\Administrative Templates\Windows Components\Internet Explorer\Internet Control Panel\Security Page** bölümüne gidin ve aşağıdaki şekilde gösterildiği gibi **Siteden Bölgeye Atama Listesi**'ni seçin.
+4.  İlkeyi etkinleştirin ve iletişim kutusuna aşağıdaki iki öğeyi girin.
+
+        Value: `https://autologon.microsoftazuread-sso.com`  
+        Data: 1  
+        Value: `https://aadg.windows.net.nsatc.net`  
+        Data: 1
+
+5.  Şunun gibi görünmelidir:  
+![Intranet Bölgeleri](./media/active-directory-aadconnect-get-started-custom/sitezone.png)
+
+6.  İki kez **Tamam**'a tıklayın.
 
 ## <a name="configuring-federation-with-ad-fs"></a>AD FS ile federasyonu yapılandırma
 Azure AD Connect ile AD FS'yi yalnızca birkaç tıklama ile kolayca yapılandırabilirsiniz. Yapılandırma için aşağıdakiler gereklidir.
@@ -210,7 +212,7 @@ Azure AD Connect ile AD FS'yi yalnızca birkaç tıklama ile kolayca yapılandı
 * Kullanmayı düşündüğünüz federasyon hizmeti adı (örneğin, sts.contoso.com) için bir SSL sertifikası
 
 ### <a name="ad-fs-configuration-pre-requisites"></a>AD FS yapılandırması önkoşulları
-Azure AD Connect'i kullanarak AD FS grubunuzu yapılandırmak için uzak sunucularda WinRM'nin etkinleştirildiğinden emin olun. Ayrıca, [Tablo 3 - Azure AD Connect ve Federasyon Sunucuları/WAP](../active-directory-aadconnect-ports.md#table-3---azure-ad-connect-and-ad-fs-federation-serverswap) bölümünde listelenen bağlantı noktaları gereksinimlerini inceleyin.
+Azure AD Connect'i kullanarak AD FS grubunuzu yapılandırmak için uzak sunucularda WinRM'nin etkinleştirildiğinden emin olun. Ayrıca, [Tablo 3 - Azure AD Connect ve Federasyon Sunucuları/WAP](active-directory-aadconnect-ports.md#table-3---azure-ad-connect-and-ad-fs-federation-serverswap) bölümünde listelenen bağlantı noktaları gereksinimlerini inceleyin.
 
 ### <a name="create-a-new-ad-fs-farm-or-use-an-existing-ad-fs-farm"></a>Yeni bir AD FS grubu oluşturma veya var olan bir AD FS grubunu kullanma
 Var olan bir AD FS grubunu kullanabilir veya yeni bir AD FS grubu oluşturmayı seçebilirsiniz. Yeni bir grup oluşturmayı seçerseniz SSL sertifikası sağlamanız gerekir. SSL sertifikası bir parolayla korunuyorsa parolayı girmeniz istenir.
@@ -273,7 +275,7 @@ Birleştirilecek etki alanını seçtiğinizde Azure AD Connect, size doğrulanm
 Yapılandırma bu sayfada gerçekleşir.
 
 > [!NOTE]
-> Federasyonu yapılandırdıysanız ve yüklemeye devam etmek istiyorsanız [Federasyon sunucuları için ad çözümlemesi](../active-directory-aadconnect-prerequisites.md#name-resolution-for-federation-servers) yapılandırmasını tamamladığınızdan emin olun.
+> Federasyonu yapılandırdıysanız ve yüklemeye devam etmek istiyorsanız [Federasyon sunucuları için ad çözümlemesi](active-directory-aadconnect-prerequisites.md#name-resolution-for-federation-servers) yapılandırmasını tamamladığınızdan emin olun.
 >
 >
 
@@ -286,7 +288,7 @@ Hazırlama modu ile paralel olarak yeni bir eşitleme sunucusu ayarlanabilir. Bi
 
 Hazırlama modundayken, eşitleme altyapısında gerekli değişiklikleri yapabilir ve dışarı aktarılacak öğeleri gözden geçirebilirsiniz. Yapılandırmayla ilgili bir sorun yoksa yükleme sihirbazını tekrar çalıştırın ve hazırlama modunu devre dışı bırakın. Veriler artık Azure AD'ye bu sunucudan aktarılır. Yalnızca bir sunucunun etkin şekilde dışarı aktarma işlemi gerçekleştirmesini sağlamak için, diğer sunucuyu devre dışı bıraktığınızdan emin olun.
 
-Daha fazla bilgi için bkz. [Hazırlama modu](../active-directory-aadconnectsync-operations.md#staging-mode).
+Daha fazla bilgi için bkz. [Hazırlama modu](active-directory-aadconnectsync-operations.md#staging-mode).
 
 ### <a name="verify-your-federation-configuration"></a>Federasyon yapılandırmanızı doğrulama
 Doğrula düğmesine tıkladığınızda Azure AD Connect sizin için DNS ayarlarını doğrular.
@@ -304,24 +306,16 @@ Ayrıca şu doğrulama adımlarını uygulayın:
 ## <a name="next-steps"></a>Sonraki adımlar
 Yükleme tamamlandıktan sonra Synchronization Service Manager'ı veya Synchronization Rule Editor'ı kullanmadan önce Windows oturumunuzu kapatıp tekrar açın.
 
-Azure AD Connect'i yüklediniz, artık [yüklemeyi doğrulayabilir ve lisans atayabilirsiniz](../active-directory-aadconnect-whats-next.md).
+Azure AD Connect'i yüklediniz, artık [yüklemeyi doğrulayabilir ve lisans atayabilirsiniz](active-directory-aadconnect-whats-next.md).
 
-Yüklemeyle etkinleştirilen özellikler hakkında daha fazla bilgi edinin: [Yanlışlıkla silmeleri engelleme](../active-directory-aadconnectsync-feature-prevent-accidental-deletes.md) ve [Azure AD Connect Health](../active-directory-aadconnect-health-sync.md).
+Yüklemeyle etkinleştirilen özellikler hakkında daha fazla bilgi edinin: [Yanlışlıkla silmeleri engelleme](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md) ve [Azure AD Connect Health](../connect-health/active-directory-aadconnect-health-sync.md).
 
-Şu genel konu başlıkları hakkında daha fazla bilgi edinin: [Zamanlayıcı ve eşitleme tetikleme](../active-directory-aadconnectsync-feature-scheduler.md).
+Şu genel konu başlıkları hakkında daha fazla bilgi edinin: [Zamanlayıcı ve eşitleme tetikleme](active-directory-aadconnectsync-feature-scheduler.md).
 
-[Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](../active-directory-aadconnect.md) hakkında daha fazla bilgi edinin.
-
-## <a name="related-documentation"></a>İlgili belgeler
-| Konu başlığı |
-| --- | --- |
-| Azure AD Connect'e genel bakış |
-| Hızlı ayarları kullanarak yükleme |
-| DirSync'ten yükseltme |
-| Yükleme için kullanılan hesaplar |
+[Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](active-directory-aadconnect.md) hakkında daha fazla bilgi edinin.
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

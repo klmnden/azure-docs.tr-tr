@@ -38,10 +38,9 @@
 ### [PowerShell](application-gateway-create-probe-ps.md)
 ### [PowerShell (Klasik)](application-gateway-create-probe-classic-ps.md)
 ## [Yük dengeleme hizmetlerini birleştirme](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fapplication-gateway%2ftoc.json)
-## Yönet
-### [Tanılama](application-gateway-diagnostics.md)
-### [Sorun giderme](application-gateway-troubleshooting-502.md)
-
+## Sorun giderme
+### [Application Gateway’de sorunları giderme](application-gateway-troubleshooting-502.md)
+### [Tanılama günlüğüne kaydetme ve ölçümler](application-gateway-diagnostics.md)
 # Başvuru
 ## [PowerShell](https://docs.microsoft.com/powershell/resourcemanager)
 ## [Azure CLI 2.0 Önizleme](/cli/azure/network/application-gateway)
@@ -67,6 +66,6 @@
 ## [SLA](https://azure.microsoft.com/support/legal/sla/)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 
