@@ -11,20 +11,20 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/07/2016
+ms.date: 11/16/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: b70c8baab03703bc00b75c2c611f69e3b71d6cd7
-ms.openlocfilehash: d3478ef704c0029f69cca141bd3fa0b3ac54de15
+ms.sourcegitcommit: 003db6e1479be1007dd292555ce5997f1c138809
+ms.openlocfilehash: c5c2742065536805cd032f2d814ad668b8ad3b6e
 
 
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Web sitelerinin kullanılabilirlik ve yanıt hızını izleme
-Web uygulamanızı veya web sitenizi herhangi bir ana bilgisayara dağıttıktan sonra kullanılabilirlik ve yanıt hızını izlemek için web testleri ayarlayabilirsiniz. [Visual Studio Application Insights](app-insights-overview.md), dünyanın her yerindeki noktalarından uygulamanıza düzenli aralıklarla web istekleri gönderir. Uygulamanız yanıt vermezse veya yavaş yanıt verirse sizi uyarır.
+Web uygulamanızı veya web sitenizi herhangi bir ana bilgisayara dağıttıktan sonra kullanılabilirlik ve yanıt hızını izlemek için web testleri ayarlayabilirsiniz. [Azure Application Insights](app-insights-overview.md), dünyanın her yerindeki noktalarından uygulamanıza düzenli aralıklarla web istekleri gönderir. Uygulamanız yanıt vermezse veya yavaş yanıt verirse sizi uyarır.
 
 ![Web testi örneği](./media/app-insights-monitor-web-app-availability/appinsights-10webtestresult.png)
 
-Genel İnternet'ten erişilebilen herhangi bir HTTP veya HTTPS uç noktası için web testi ayarlayabilirsiniz.
+Genel İnternet'ten erişilebilen herhangi bir HTTP veya HTTPS uç noktası için web testi ayarlayabilirsiniz. Test ettiğiniz web sitesine eklemeniz gereken bir şey yoktur. Kendi siteniz olması bile gerekmez. Kullandığınız bir REST API hizmetini test edebilirsiniz.
 
 İki tür web testi bulunur:
 
@@ -58,7 +58,7 @@ Application Insights kaynağınızda Kullanılabilirlik kutucuğunu arayın. Uyg
 
     **HTTP yanıtı**: Başarılı sayılan döndürüldü durum kodu. 200, normal web sayfası döndürüldüğünü belirten koddur.
 
-    **İçerik eşleşmesi**: "Hoş geldiniz!" gibi bir dize. Her yanıtta oluşup oluşmadığını test ederiz. Joker karakter bulunmayan düz bir dize olmalıdır. Sayfanızın içeriği değişirse bunu güncelleştirmeniz gerektiğini unutmayın.
+    **İçerik eşleşmesi**: "Hoş geldiniz!" gibi bir dize. Her yanıtta büyük küçük harfe duyarlı bir tam eşleşme oluştuğunu test edebiliriz. Joker karakter bulunmayan düz bir dize olmalıdır. Sayfanızın içeriği değişirse bunu güncelleştirmeniz gerektiğini unutmayın.
 * **Uyarılar**, varsayılan olarak, beş dakikayı geçen bir sürede üç konumda hata varsa size gönderilir. Tek konumdaki hata daha çok bir ağ sorunudur, sitenizle ilgili değildir. Ancak, eşiği daha fazla veya daha az hassas olarak değiştirebilirsiniz; size kimlerin e-posta göndermesi gerektiğini de değiştirebilirsiniz.
 
     Bir uyarı ortaya çıktığında çağrılan bir [web kancası](../monitoring-and-diagnostics/insights-webhooks-alerts.md) ayarlayabilirsiniz. (Ancak şu anda sorgu parametreleri Özellikler aracılığıyla geçirilmez.)
@@ -102,8 +102,20 @@ Alternatif olarak, sonuç dosyasını indirip Visual Studio’da inceleyebilirsi
 
 *Sorunsuz görünüyor ancak hata olarak mı bildiriliyor?* Tüm görüntüleri, betikleri, stil sayfalarını ve sayfa tarafından yüklenen diğer dosyaları denetleyin. Herhangi biri başarısızsa, ana html sayfası Tamam olarak yüklense bile test başarısız olarak raporlanır.
 
-## <a name="multistep-web-tests"></a>Çok adımlı web testleri
+### <a name="open-the-server-request-and-exceptions"></a>Sunucu isteği ve özel durumlar bölümünü açın
+
+Belirli bir testin ayrıntılı özellikler sayfasından isteğin sunucu tarafı raporunu ve özel durumlar gibi diğer olayları açabilirsiniz.
+
+![Web testi çalıştırma sonucu](./media/app-insights-monitor-web-app-availability/web-test-linked-to-server-telemetry.png)
+
+İlgili öğelerin görünmeme nedeni [örnekleme](app-insights-sampling.md) işleminin devam ediyor olması olabilir.
+
+## <a name="multi-step-web-tests"></a>Çok adımlı web testleri
 Bir dizi URL'nin bulunduğu bir senaryoyu izleyebilirsiniz. Örneğin, bir satış web sitesi izliyorsanız, öğelerin alışveriş sepetine doğru eklendiğini test edebilirsiniz.
+
+> [!NOTE] 
+> Çok adımlı web testleri ücrete tabidir. [Fiyatlandırma düzeni](http://azure.microsoft.com/pricing/details/application-insights/).
+> 
 
 Çok adımlı bir test oluşturmak için Visual Studio’yu kullanarak senaryoyu kaydedin ve kaydı Application Insights'a yükleyin. Application Insights, senaryoyu aralıklarla yeniden yürütür ve yanıtları doğrular.
 
@@ -153,7 +165,7 @@ Betikler, stil sayfaları, görüntüler ve diğerleri de dahil olmak üzere, te
 
 Web testinin tamamen .webtest dosyasında olması gerektiğini unutmayın. Testte kodlanmış işlevleri kullanamazsınız.
 
-### <a name="plugging-time-and-random-numbers-into-your-multistep-test"></a>Çok adımlı testinizde bağlı kalma süresi ve rasgele rakamlar
+### <a name="plugging-time-and-random-numbers-into-your-multi-step-test"></a>Çok adımlı testinizde bağlı kalma süresi ve rasgele rakamlar
 Dış bir kaynağa ait stoklar gibi zamana bağımlı veriler alan bir aracı test ettiğinizi varsayalım. Web testinizi kaydettiğinizde, belirli zamanları kullanmanız gerekse de, bunları testin parametreleri (StartTime ve EndTime) olarak ayarlarsınız.
 
 ![Parametrelere sahip web testi.](./media/app-insights-monitor-web-app-availability/appinsights-72webtest-parameters.png)
@@ -167,7 +179,7 @@ Web Testi Eklentileri, zamanları parametreleme yolunu sağlar.
     ![Web Testi Eklentisi Ekle’yi, sonra da bir türü seçin.](./media/app-insights-monitor-web-app-availability/appinsights-72webtest-plugins.png)
 
     Bu örnekte, Tarih Saat Eklentisinin iki örneğini kullanacağız. Bir örnek "15 dakika önce" için, bir örnek de "şimdi" için.
-2. Her eklentinin özelliklerini açın. Buna bir ad verip geçerli saat olarak kullanılmak üzere ayarlayın. Bunlardan birini Dakika Ekle = 15 olarak ayarlayın.
+2. Her eklentinin özelliklerini açın. Buna bir ad verip geçerli saat olarak kullanılmak üzere ayarlayın. Bunlardan birini Dakika Ekle =&15; olarak ayarlayın.
 
     ![Adı, Geçerli Saati Kullan’ı ve Dakika Ekle’yi ayarlayın.](./media/app-insights-monitor-web-app-availability/appinsights-72webtest-plugin-parameters.png)
 3. Web testi parametrelerinde, eklenti adına başvurmak için {{plug-in name}} kullanın.
@@ -176,7 +188,7 @@ Web Testi Eklentileri, zamanları parametreleme yolunu sağlar.
 
 Artık testi portala yükleyin. Testin her çalıştırılışında dinamik değerler kullanılır.
 
-## <a name="dealing-with-signin"></a>Oturum açmayla ilgilenme
+## <a name="dealing-with-sign-in"></a>Oturum açmayla ilgilenme
 Kullanıcılarınız uygulamanızda oturum açarsa, oturum açma benzetimi için bir dizi seçeneğiniz vardır; böylece, oturum açmanın ötesinde sayfaları test edebilirsiniz. Kullandığınız yaklaşım, uygulamanın sağladığı güvenlik türüne bağlıdır.
 
 Her durumda, uygulamanızda yalnızca test amacıyla bir hesap oluşturmalısınız. Mümkünse, web testlerinin gerçek kullanıcıları etkileme olasılığını önlemek için test hesabının izinlerini kısıtlayın.
@@ -267,7 +279,7 @@ Test tamamlandığında yanıt süreleri ve başarı oranları gösterilir.
 >
 
 ## <a name="a-namenextanext-steps"></a><a name="next"></a>Sonraki adımlar
-[Tanılama günlüklerini arama][diagnostic]
+[Tanılama günlüklerinde arama yapma][diagnostic]
 
 [Sorun giderme][qna]
 
@@ -282,6 +294,6 @@ Test tamamlandığında yanıt süreleri ve başarı oranları gösterilir.
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

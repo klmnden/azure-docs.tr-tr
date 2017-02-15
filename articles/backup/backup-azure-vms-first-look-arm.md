@@ -59,7 +59,7 @@ Korumak istediğiniz VM sayısına bağlı olarak farklı başlangıç noktalar�
 
   ![Yedekleme Sihirbazını Etkinleştirme](./media/backup-azure-vms-first-look-arm/vm-blade-enable-backup.png)
 
-5. Kurtarma Hizmetleri kasası için mevcut bir kasayı seçebilir veya yeni bir Kasa oluşturabilirsiniz. Yeni bir kasa oluşturuyorsanız bu kasa sanal makineyle aynı Kaynak Grubu’nda oluşturulur ve kasanın konumu sanal makineyle aynıdır. Farklı değerlerle bir Kurtarma Hizmetleri kasası oluşturmak istiyorsanız 3. Adım’daki Yedekle seçeneğine tıklamadan önce [bir kurtarma hizmetleri kasası oluşturun](backup-azure-vms-first-look-arm.md#create-a-recovery-services-vault-for-a-vm) ve bu dikey pencerede o kasayı seçin.
+5. Kurtarma Hizmetleri kasası için mevcut bir kasayı seçebilir veya yeni bir Kasa oluşturabilirsiniz. Yeni bir kasa oluşturuyorsanız bu kasa sanal makineyle aynı Kaynak Grubu’nda oluşturulur ve kasanın konumu sanal makineyle aynıdır. Farklı değerlerle bir Kurtarma Hizmetleri kasası oluşturmak istiyorsanız&3;. Adım’daki Yedekle seçeneğine tıklamadan önce [bir kurtarma hizmetleri kasası oluşturun](backup-azure-vms-first-look-arm.md#create-a-recovery-services-vault-for-a-vm) ve bu dikey pencerede o kasayı seçin.
 
 6. Yedekleme ilkesi dikey penceresinde, kasaya uygulamak istediğiniz yedekleme ilkesini seçin ve **Tamam**'a tıklayın.
     ![Yedekleme ilkesini seçme](./media/backup-azure-vms-first-look-arm/setting-rs-backup-policy-new.png)

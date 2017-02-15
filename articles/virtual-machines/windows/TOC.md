@@ -138,27 +138,7 @@
 ### [Yüksek Performanslı Bilgi İşlem (HPC)](../virtual-machines-windows-hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [MATLAB](../virtual-machines-windows-matlab-mdcs-cluster.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [MongoDB](../virtual-machines-windows-install-mongodb.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [SQL](../virtual-machines-windows-sql-server-iaas-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [Azure Portal’da bir VM sağlama](../virtual-machines-windows-portal-sql-server-provision.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [Azure PowerShell kullanarak bir VM sağlama](../virtual-machines-windows-ps-sql-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [Bir VM’ye bağlanma](../virtual-machines-windows-sql-connect.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [SQL Server veritabanını geçirme](../virtual-machines-windows-migrate-sql.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [El ile AlwaysOn kullanılabilirlik grubu yapılandırma](../virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [Otomatik olarak AlwaysOn kullanılabilirlik grubu yapılandırma](../virtual-machines-windows-portal-sql-alwayson-availability-groups.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [AlwaysOn kullanılabilirlik grubu için iç yük dengeleyici yapılandırma](../virtual-machines-windows-portal-sql-alwayson-int-listener.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [Bir veya daha fazla AlwaysOn Kullanılabilirlik Grubu Dinleyicisi yapılandırma](../virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [Azure Anahtar Kasası Tümleştirme Yapılandırması](../virtual-machines-windows-ps-sql-keyvault.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [Yüksek kullanılabilirlik ve olağanüstü durum kurtarma](../virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [Otomatik Yedekleme](../virtual-machines-windows-sql-automated-backup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [Yedekleme ve Geri Yükleme](../virtual-machines-windows-sql-backup-recovery.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [Yedekleme ve Geri Yükleme için Azure Depolama’yı Kullanma](../virtual-machines-windows-use-storage-sql-server-backup-restore.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [Otomatik Düzeltme Eki Uygulama](../virtual-machines-windows-sql-automated-patching.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [Performans için en iyi uygulamalar](../virtual-machines-windows-sql-performance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [Güvenlikle İlgili Dikkat Edilmesi Gerekenler](../virtual-machines-windows-sql-security.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [SQL Server Aracı Uzantısı](../virtual-machines-windows-sql-server-agent-extension.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [Uygulama desenleri ve stratejileri](../virtual-machines-windows-sql-server-app-patterns-dev-strategies.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [Azure Sanal Makineler’de SQL Server ile ilgili SSS](../virtual-machines-windows-sql-server-iaas-faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [SQL Server VM’leri için depolama yapılandırması](../virtual-machines-windows-sql-server-storage-configuration.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [SQL Server](./sql/virtual-machines-windows-sql-server-iaas-overview.md)
 ### [Microsoft Azure’da SAP ERP 6.0 için SAP IDES EHP7 SP3’ü dağıtma](../virtual-machines-windows-sap-cal-ides-erp6-ehp7-sp3-sql.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 #### [Planlama ve Uygulama Kılavuzu](../virtual-machines-windows-sap-planning-guide.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 #### [Yüksek Kullanılabilirlik Kılavuzu](../virtual-machines-windows-sap-high-availability-guide.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -202,6 +182,6 @@
 ## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines)
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

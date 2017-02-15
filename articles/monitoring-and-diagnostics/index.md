@@ -1,14 +1,15 @@
 ---
 layout: LandingPage
+description: "İzleme ve tanılama hizmetlerini kullanarak performansı izleme, güvenliği koruma ve eğilimleri belirleme konusunda bilgi edinin. API başvuruları, en iyi yöntemler ve daha fazlası."
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: 23978b98ce1ffab18f4fb843ca8904062bf4253e
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: e59d88dbd538aad3e21a31fd721361cd9ffd4919
 
 ---
 
 # <a name="monitoring-and-diagnostics-documentation"></a>İzleme ve Tanılama Belgeleri
 
-İzleme ve Tanılama; ölçeklenebilir ve güvenilir mikro hizmetleri paketlemeyi, dağıtmayı ve yönetmeyi kolaylaştırmanın yanı sıra, bulut uygulamalarını geliştirme ve yönetme sürecinde karşılaşılan başlıca sorunların giderilmesini de sağlayan bir dağıtılmış sistemler platformudur.  İzleme ve Tanılama, 1. katman bulut ölçeğindeki bu kurumsal sınıf uygulamaları oluşturmak ve yönetmek için tasarlanan yeni nesil bir ara yazılım platformudur.
+Azure izleme ve tanılama hizmetlerini kullanarak performansı izleme, güvenliği koruma ve eğilimleri belirleme konusunda bilgi edinin. Öğreticiler, API başvuruları, en iyi yöntemler ve diğer belgeler, izleme ve tanılama özelliklerinin kullanım alanlarının yanı sıra ölçeklenebilir ve güvenilir çözümleri nasıl planlayıp dağıtacağınızı anlamanıza yardımcı olur.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -137,7 +138,7 @@ ms.openlocfilehash: 23978b98ce1ffab18f4fb843ca8904062bf4253e
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/monitor/">REST API Başvurusu</a></p>
+                        <p><a href="/rest/api/monitor/">REST API başvurusu</a></p>
                     </div>
                 </div>
             </div>
@@ -145,15 +146,10 @@ ms.openlocfilehash: 23978b98ce1ffab18f4fb843ca8904062bf4253e
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/monitoring-and-diagnostics.pdf">
-        <div class="img"></div>
-        <div class="text">
-İzleme ve Tanılama Belgelerini indirin </div>
-    </a>
-</div>
 
 
-<!--HONumber=Dec16_HO2-->
+
+
+<!--HONumber=Jan17_HO3-->
 
 

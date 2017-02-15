@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/12/2016
+ms.date: 01/05/2017
 ms.author: juliako;anilmur
 translationtype: Human Translation
-ms.sourcegitcommit: 4fc33ba185122496661f7bc49d14f7522d6ee522
-ms.openlocfilehash: d532cb3774e7d98d6c52ffdc40d6ba124d8d3ea3
+ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
+ms.openlocfilehash: 1cee92f59f5883b031ccc547a2f67f7dcd4fa3c3
 
 
 ---
@@ -46,31 +46,32 @@ Aşağıdaki adımlar, ortak canlı akış uygulamaları oluşturmak için gerek
 
 1. Bilgisayara bir video kamera bağlayın. Şu protokollerin birinde tek bit hızlı bir akış çıkışı sağlayabilecek şirket içi bir gerçek zamanlı kodlayıcı başlatıp bunu yapılandırın: RTMP, Kesintisiz Akış veya RTP (MPEG-TS). Daha fazla bilgi için bkz. [Azure Media Services RTMP Desteği ve Gerçek Zamanlı Kodlayıcılar](http://go.microsoft.com/fwlink/?LinkId=532824).
 
-Bu adım, Kanalınızı oluşturduktan sonra da gerçekleştirilebilir.
+    Bu adım, Kanalınızı oluşturduktan sonra da gerçekleştirilebilir.
 
-1. Bir Kanal oluşturup başlatın.
-2. Kanal alma URL’sini alın.
+2. Bir Kanal oluşturup başlatın.
+3. Kanal alma URL’sini alın.
 
-Alma URL’si gerçek zamanlı kodlayıcı tarafından akışı Kanala göndermek için kullanılır.
+    Alma URL’si gerçek zamanlı kodlayıcı tarafından akışı Kanala göndermek için kullanılır.
 
-1. Kanal önizleme URL’sini alın.
+4. Kanal önizleme URL’sini alın.
 
-Kanalınızın canlı akışı düzgün şekilde aldığını doğrulamak için bu URL’yi kullanın.
+    Kanalınızın canlı akışı düzgün şekilde aldığını doğrulamak için bu URL’yi kullanın.
 
-1. Bir varlık oluşturun.
-2. Varlığın kayıttan yürütme sırasında dinamik olarak şifrelenmesini istiyorsanız aşağıdakileri yapın:
-3. Bir içerik anahtarı oluşturun.
-4. İçerik anahtarının yetkilendirme ilkesini yapılandırın.
-5. Varlık teslim ilkesini (dinamik paketleme ve dinamik şifreleme tarafından kullanılır) yapılandırın.
-6. Bir program oluşturun ve oluşturduğunuz varlığın kullanılacağını belirtin.
-7. Bir OnDemand bulucu oluşturarak programla ilişkili varlığı yayımlayın.
+5. Bir varlık oluşturun.
+6. Varlığın kayıttan yürütme sırasında dinamik olarak şifrelenmesini istiyorsanız aşağıdakileri yapın:
+7. Bir içerik anahtarı oluşturun.
+8. İçerik anahtarının yetkilendirme ilkesini yapılandırın.
+9. Varlık teslim ilkesini (dinamik paketleme ve dinamik şifreleme tarafından kullanılır) yapılandırın.
+10. Bir program oluşturun ve oluşturduğunuz varlığın kullanılacağını belirtin.
+11. Bir OnDemand bulucu oluşturarak programla ilişkili varlığı yayımlayın.
 
-İçerik akışını gerçekleştirmek istediğiniz akış uç noktasında akışa ayrılan en az bir birim olduğundan emin olun.
+    >[!NOTE]
+    >AMS hesabınız oluşturulduğunda hesabınıza **Durdurulmuş** durumda bir **varsayılan** akış uç noktası eklenir. İçerik akışı yapmak istediğiniz akış uç noktasının **Çalışıyor** durumunda olması gerekir. 
 
-1. Akışı ve arşivlemeyi başlatmaya hazır olduğunuzda programı başlatın.
-2. İsteğe bağlı olarak, gerçek zamanlı kodlayıcıya bir reklam başlatması bildirilebilir. Reklam, çıktı akışına eklenir.
-3. Olay için akışı ve arşivlemeyi durdurmak istediğinizde programı durdurun.
-4. Programı silin (ve isteğe bağlı olarak varlığı da silin).
+12. Akışı ve arşivlemeyi başlatmaya hazır olduğunuzda programı başlatın.
+13. İsteğe bağlı olarak, gerçek zamanlı kodlayıcıya bir reklam başlatması bildirilebilir. Reklam, çıktı akışına eklenir.
+14. Olay için akışı ve arşivlemeyi durdurmak istediğinizde programı durdurun.
+15. Programı silin (ve isteğe bağlı olarak varlığı da silin).
 
 ## <a name="what-youll-learn"></a>Öğrenecekleriniz
 Bu konuda, Media Services .NET SDK'sını kullanarak kanallar ve programlarda farklı işlemlerin nasıl yürütüleceği gösterilmektedir. İşlemlerin çoğu uzun süre çalışacağından, uzun süre çalışan işlemleri yöneten .NET API'leri kullanılmaktadır.
@@ -100,7 +101,6 @@ Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hes
 
 ## <a name="considerations"></a>Dikkat edilmesi gerekenler
 * Canlı bir etkinlik için önerilen en uzun süre şu anda 8 saattir. Daha uzun bir süre için bir Kanal çalıştırmanız gerekiyorsa lütfen amslived@microsoft.com adresine başvurun.
-* İçerik akışını gerçekleştirmek istediğiniz akış uç noktasında akışa ayrılan en az bir birim olduğundan emin olun.
 
 ## <a name="download-sample"></a>Örnek indirme
 [Buradan](https://azure.microsoft.com/documentation/samples/media-services-dotnet-encode-live-stream-with-ams-clear/) bir örnek alarak çalıştırın.
@@ -524,12 +524,10 @@ Media Services öğrenme yollarını gözden geçirin.
 ## <a name="provide-feedback"></a>Geri bildirimde bulunma
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-### <a name="looking-for-something-else"></a>Başka bir şey mi arıyorsunuz?
-Beklediklerinizi bu konuda bulamadıysanız, eksik bir şeyler varsa veya herhangi bir nedenle gereksinimleriniz karşılanmadıysa, lütfen aşağıdaki Disqus yazışmasını kullanarak bize geri bildirimde bulunun.
 
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

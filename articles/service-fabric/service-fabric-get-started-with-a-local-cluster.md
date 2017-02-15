@@ -12,11 +12,11 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/09/2016
+ms.date: 12/14/2016
 ms.author: ryanwi;mikhegn
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 515daddf2c118f26721a557b0caf5d5415cb22c5
+ms.sourcegitcommit: efe9845280de3bcd882a7c879b53576600aae0a7
+ms.openlocfilehash: 1bc418f3cadfc83fbec0f2e2c508c77d97b84285
 
 
 ---
@@ -56,7 +56,7 @@ SDK, yerel küme ayarlamak için iki yöntem sunar: Windows PowerShell betiği v
 ## <a name="deploy-an-application"></a>Uygulama dağıtma
 Service Fabric SDK, uygulama oluşturmaya yönelik geliştirici araçları ve zengin bir altyapı dizisi içerir. Visual Studio'da uygulama oluşturmayı öğrenmek isterseniz [Visual Studio'da ilk Service Fabric uygulamanızı oluşturun](service-fabric-create-your-first-application-in-visual-studio.md) konu başlığına bakın.
 
-Bu öğreticide, var olan örnek bir uygulama kullanacağımızdan (WordCount olarak adlandırılır) platformun dağıtım, izleme ve yükseltme gibi yönetim özelliklerine odaklanabiliriz.
+Bu öğreticide, var olan örnek bir uygulama kullanacağınızdan (WordCount olarak adlandırılır) platformun dağıtım, izleme ve yükseltme gibi yönetim özelliklerine odaklanabilirsiniz.
 
 1. Yönetici olarak yeni bir PowerShell penceresi başlatın.
 2. Service Fabric SDK PowerShell modülünü içeri aktarın.
@@ -82,14 +82,14 @@ Bu öğreticide, var olan örnek bir uygulama kullanacağımızdan (WordCount ol
    Publish-NewServiceFabricApplication -ApplicationPackagePath c:\ServiceFabric\WordCountV1.sfpkg -ApplicationName "fabric:/WordCount"
     ```
    
-    Her şey doğru şekilde yapıldığında şuna benzer bir çıktı göreceksiniz:
+    Her şey doğru şekilde yapıldığında şu çıktıyı göreceksiniz:
    
     ![Uygulamayı yerel kümeye dağıtma][deploy-app-to-local-cluster]
 7. Uygulamayı eylem halinde görmek için tarayıcıyı başlatın ve [http://localhost:8081/wordcount/index.html](http://localhost:8081/wordcount/index.html) adresine gidin. Şunu görmeniz gerekir:
    
     ![Dağıtılan uygulama kullanıcı arabirimi][deployed-app-ui]
    
-    WordCount uygulaması oldukça basit bir şekilde işler. Daha sonra ASP.NET Web API'si aracılığıyla uygulamaya geçirilecek olan beş karakterli rastgele "sözcükler" oluşturmak için istemci tarafı JavaScript kodu içerir. Durum bilgisi olan bir hizmet, sayılan sözcüklerin sayısını izler. Sözcükler, ilk karakterlerine göre bölümlenir. WordCount uygulamasının kaynak kodunu [başlangıç örneklerinde](https://azure.microsoft.com/documentation/samples/service-fabric-dotnet-getting-started/) bulabilirsiniz.
+    WordCount uygulaması oldukça basittir. Daha sonra ASP.NET Web API'si aracılığıyla uygulamaya geçirilecek olan beş karakterli rastgele "sözcükler" oluşturmak için istemci tarafı JavaScript kodu içerir. Durum bilgisi olan bir hizmet, sayılan sözcüklerin sayısını izler. Sözcükler, ilk karakterlerine göre bölümlenir. WordCount uygulamasının kaynak kodunu [başlangıç örneklerinde](https://azure.microsoft.com/documentation/samples/service-fabric-dotnet-getting-started/) bulabilirsiniz.
    
     Dağıttığımız uygulama ise dört bölümden oluşur. İlk karakteri A ile G arasında olan kelimeler ilk bölümdür. İlk karakteri H ile N arasında yer alan kelimeler de ikinci bölümü oluşturur ve bölümleme bu şekilde devam eder.
 
@@ -114,7 +114,7 @@ Artık uygulamayı dağıttığımıza göre PowerShell'deki bazı uygulama bilg
     ![PowerShell'deki uygulamaya ait hizmetleri listeleme][ps-getsfsvc]
    
     Uygulama, web ön ucu ve sözcükleri yöneten durum bilgisi olan hizmet olmak üzere iki hizmetten oluşur.
-3. Son olarak, WordCountService'e ait bölümlerin listesine gözatın:
+3. Son olarak, WordCountService'e ait bölümlerin listesine göz atın:
    
     ```powershell
     Get-ServiceFabricPartition 'fabric:/WordCount/WordCountService'
@@ -134,18 +134,18 @@ Artık uygulamayı dağıttığımıza göre PowerShell'deki bazı uygulama bilg
    > 
 
 ## <a name="upgrade-an-application"></a>Uygulama yükseltme
-Service Fabric, kümeye gönderilirken uygulamanın durumunu izleyerek kesinti süresi olmadan gerçekleştirilen yükseltmeler sunar. WordCount uygulamasının basit bir yükseltmesini gerçekleştirelim.
+Service Fabric, kümeye gönderilirken uygulamanın durumunu izleyerek kesinti süresi olmadan gerçekleştirilen yükseltmeler sunar. WordCount uygulamasının yükseltmesini gerçekleştirin.
 
 Uygulamanın yeni sürümü artık yalnızca sesli bir harfle başlayan sözcükleri sayar. Yükseltme dağıtılırken uygulamanın davranışında iki değişiklik görürüz. İlk olarak, daha az sözcük sayıldığından sayaç büyümesinin hızı azalacaktır. İkinci ise ilk bölüm iki sesli harf (A ve E) ve diğer tüm bölümler bunlardan yalnızca birini içerebileceğinden ilk bölümün sayacı sonunda diğerlerini geride bırakır.
 
-1. v1 paketini indirdiğiniz konuma [WordCount v2 paketini indirin](http://aka.ms/servicefabric-wordcountappv2).
+1. Sürüm 1 paketini indirdiğiniz konuma [WordCount sürüm 2 paketini indirin](http://aka.ms/servicefabric-wordcountappv2).
 2. PowerShell pencerenize geri dönün ve yeni sürümü kümeye kaydetmek için SDK'nın yükseltme komutunu kullanın. Ardından fabric:/WordCount uygulamasını yükseltmeye başlayın.
    
     ```powershell
     Publish-UpgradedServiceFabricApplication -ApplicationPackagePath C:\ServiceFabric\WordCountV2.sfpkg -ApplicationName "fabric:/WordCount" -UpgradeParameters @{"FailureAction"="Rollback"; "UpgradeReplicaSetCheckTimeout"=1; "Monitored"=$true; "Force"=$true}
     ```
    
-    Yükseltme başladıktan sonra PowerShell'de aşağıdaki gibi bir çıktı görmelisiniz.
+    Yükseltme başladıktan sonra PowerShell'de aşağıdaki çıktıyı görmelisiniz.
    
     ![PowerShell'de yükseltme süreci][ps-appupgradeprogress]
 3. Yükseltme devam ederken yükseltme durumunu Service Fabric Explorer'dan daha rahat bir şekilde izleyebilirsiniz. Bir tarayıcı penceresi başlatın ve [http://localhost:19080/Explorer](http://localhost:19080/Explorer) adresine gidin. Sol taraftaki ağaçta bulunan **Uygulamalar** kısmını genişletin, **WordCount** uygulamasını ve son olarak da **fabric:/WordCount** uygulamasını seçin. Temel bilgiler sekmesinde,yükseltme kümenin yükseltme etki alanlarında ilerlerken siz de bu işlemin durumunu görürsünüz.
@@ -161,7 +161,7 @@ Uygulamanın yeni sürümü artık yalnızca sesli bir harfle başlayan sözcük
    
     ![Yükseltme işleminden sonra uygulama hizmetlerini sorgulama][ps-getsfsvc-postupgrade]
    
-    Bu kısımda Service Fabric hizmetinin uygulama yükseltmelerini yönetme şekli vurgulanır. Yalnızca yükseltmeyi sürecini daha hızlı ve güvenilir hale getiren, değiştirilmiş hizmetler dizisi (veya bu hizmetlerin içindeki kod/yapılandırma paketleri) ele alınır.
+    Bu örnekte Service Fabric hizmetinin uygulama yükseltmelerini yönetme şekli vurgulanır. Yalnızca yükseltmeyi sürecini daha hızlı ve güvenilir hale getiren, değiştirilmiş hizmetler dizisi (veya bu hizmetlerin içindeki kod/yapılandırma paketleri) ele alınır.
 5. Son olarak, yeni uygulama sürümünün davranışını izlemek için tarayıcıya dönün. Tahmin edildiği üzere sayaç daha yavaş ilerler ve ilk bölüm kısmen daha fazla miktarla sonlanır.
    
     ![Uygulamanın yeni sürümünü tarayıcıda görüntüleme][deployed-app-ui-v2]
@@ -169,16 +169,16 @@ Uygulamanın yeni sürümü artık yalnızca sesli bir harfle başlayan sözcük
 ## <a name="cleaning-up"></a>Temizleme
 Sonlandırmadan önce yerel kümenin gerçek olduğunu unutmamanız önemlidir. Uygulamalar, sizin tarafınızdan kaldırılıncaya kadar arka planda çalışmaya devam eder.  Uygulamalarınızın niteliğine bağlı olarak, çalışan bir uygulama makinenizde önemli miktarda kaynağı kullanabilir. Uygulamaları ve kümeyi yönetmek için birkaç seçeneğiniz vardır:
 
-1. Tek bir uygulamayı ve onunla ilişkili tüm verileri kaldırmak için aşağıdakini çalıştırın:
+1. Tek bir uygulamayı ve onunla ilişkili tüm verileri kaldırmak için aşağıdaki komutu çalıştırın:
    
     ```powershell
     Unpublish-ServiceFabricApplication -ApplicationName "fabric:/WordCount"
     ```
    
-    Veya Service Fabric Explorer’ın **EYLEMLER** menüsünden ya da sol bölmedeki uygulama listesi görünümündeki bağlam menüsünden uygulamayı silin.
+    Ya da Service Fabric Explorer'ın **EYLEMLER** menüsünden ya da sol bölmedeki uygulama listesi görünümündeki bağlam menüsünden uygulamayı silin.
    
     ![Service Fabric Explorer'da uygulama silme][sfe-delete-application]
-2. Uygulamayı kümeden sildikten sonra WordCount uygulama türünün 1.0.0 ve 2.0.0 sürümlerinin kaydını kaldırabilirsiniz. Silme işlemi, kod ve yapılandırma dahil olmak üzere uygulama paketlerini kümenin görüntü deposundan kaldırır.
+2. Uygulamayı kümeden sildikten sonra WordCount uygulama türünün 1.0.0 ve 2.0.0 sürümlerinin kaydını kaldırın. Silme işlemi, kod ve yapılandırma dahil olmak üzere uygulama paketlerini kümenin görüntü deposundan kaldırır.
    
     ```powershell
     Remove-ServiceFabricApplicationType -ApplicationTypeName WordCount -ApplicationTypeVersion 2.0.0
@@ -189,19 +189,21 @@ Sonlandırmadan önce yerel kümenin gerçek olduğunu unutmamanız önemlidir. 
 3. Kümeyi kapatıp uygulama verilerini ve izlemelerini tutmak için sistem tepsisi uygulamasında **Yerel Kümeyi Durdur**'a tıklayın.
 4. Kümeyi tamamen silmek için sistem tepsisi uygulamasında **Yerel Kümeyi Kaldır**'a tıklayın. Visual Studio'da F5'e bir sonraki basışınızda bu seçenek başka bir yavaş dağıtımla sonuçlanır. Yerel kümeyi yalnızca bir süre kullanmayı planlamıyorsanız veya kaynaklarınızı geri kazanmanız gerekiyorsa kaldırın.
 
-## <a name="1-node-and-5-node-cluster-mode"></a>1 Düğümlü ve 5 Düğümlü küme modu
-Uygulama geliştirmek üzere yerel küme ile birlikte çalışırken çoğunlukla kendinizi kod yazma, hata ayıklama, kod değiştirme, hata ayıklama, vb. işlemleri yinelerken bulursunuz. Bu işlemi en iyi duruma getirmek için yerel küme iki modda çalışabilir: 1 Düğümlü veya 5 Düğümlü. Her iki küme modunun da faydaları vardır.
-5 Düğümlü küme modu gerçek bir küme ile çalışmanıza olanak tanır. Yük devretme senaryolarını test edebilir, hizmetlerinizin daha fazla örneği ve yinelemeleri ile çalışabilirsiniz.
-1 Düğümlü küme modu Service Fabric çalışma zamanı kullanılarak kodu hızlıca doğrulamanıza yardımcı olmak amacıyla hizmetlerin hızlı dağıtımını ve kaydını yapmak üzere en iyi hale getirilmiştir.
+## <a name="one-node-and-five-node-cluster-mode"></a>Tek düğümlü ve beş düğümlü küme modu
+Uygulama geliştirirken çoğunlukla kendinizi kod yazma, hata ayıklama, kod değiştirme ve hata ayıklama işlemlerini yinelerken bulursunuz. Bu işlemi en iyi duruma getirmek için yerel küme iki modda çalışabilir: tek düğümlü veya beş düğümlü. Her iki küme modunun da faydaları vardır. Beş düğümlü küme modu gerçek bir küme ile çalışmanıza olanak tanır. Yük devretme senaryolarını test edebilir, hizmetlerinizin daha fazla örneği ve yinelemeleri ile çalışabilirsiniz. Tek düğümlü küme modu Service Fabric çalışma zamanı kullanılarak kodu hızlıca doğrulamanıza yardımcı olmak amacıyla hizmetlerin hızlı dağıtımını ve kaydını yapmak üzere en iyi hale getirilmiştir.
 
-Hem 1 Düğümlü küme modu hem de 5 Düğümlü küme modu bir öykünücü ya da benzetici değildir. Çok makineli kümelerde bulunan aynı platform kodunu çalıştırır.
+Tek düğümlü küme de beş düğümlü küme de öykünücü veya benzetici değildir. Yerel geliştirme kümesi çok makineli kümelerde bulunan aynı platform kodunu çalıştırır.
 
-> [!NOTE]
-> Bu özellik SDK sürüm 5.2 ve üzerinde kullanılabilir.
+> [!WARNING]
+> Küme modunu değiştirdiğinizde geçerli küme sisteminizden kaldırılır ve yeni bir küme oluşturulur. Küme modunu değiştirdiğinizde kümede depolanan veriler silinir.
 > 
 > 
 
-Küme modunu 1 Düğümlü kümeye geçirmek için Service Fabric Yerel Küme Yöneticisi’ni veya aşağıdaki şekilde PowerShell’i kullanın:
+Modu tek düğümlü küme olarak değiştirmek için Service Fabric Local Cluster Manager'da **Küme Modunu Değiştir**'i seçin.
+
+![Küme moduna geçme][switch-cluster-mode]
+
+Ya da PowerShell kullanarak küme modunu değiştirin:
 
 1. Yönetici olarak yeni bir PowerShell penceresi başlatın.
 2. SDK klasöründeki küme kurulumu betiğini çalıştırın:
@@ -213,15 +215,6 @@ Küme modunu 1 Düğümlü kümeye geçirmek için Service Fabric Yerel Küme Y�
     Küme kurulumu biraz zaman alır. Kurulum tamamlandıktan sonra şunun gibi görünen bir çıktı görmelisiniz:
    
     ![Küme kurulumu çıktısı][cluster-setup-success-1-node]
-
-Service Fabric Yerel Küme Yöneticisini kullanıyorsanız:
-
-![Küme moduna geçme][switch-cluster-mode]
-
-> [!WARNING]
-> Küme komunu değiştirirken geçerli küme sisteminizden kaldırılır ve yeni bir küme oluşturulur. Küme modunu değiştirdiğinizde kümede depolamanız gereken veriler silinir.
-> 
-> 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Önceden derlenen bazı uygulamaları dağıtıp geliştirdiğinize göre [Visual Studio'da kendi uygulamanızı derlemeyi deneyebilirsiniz](service-fabric-create-your-first-application-in-visual-studio.md).
@@ -250,6 +243,6 @@ Service Fabric Yerel Küme Yöneticisini kullanıyorsanız:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -25,6 +25,8 @@
 ## [Yönetilen bir etki alanında OU oluşturma](active-directory-ds-admin-guide-create-ou.md)
 ## [Yönetilen etki alanında grup ilkesi yönetme](active-directory-ds-admin-guide-administer-group-policy.md)
 ## [Sanal ağ seçme](active-directory-ds-networking.md)
+## [SharePoint Server için profil eşitleme desteğini yapılandırma](active-directory-ds-enable-sharepoint-profile-sync.md)
+
 
 ## Sorun giderme
 ### [SSS’ler](active-directory-ds-faqs.md)
@@ -42,6 +44,6 @@
 ## [Bizimle iletişim kurun](active-directory-ds-contact-us.md)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

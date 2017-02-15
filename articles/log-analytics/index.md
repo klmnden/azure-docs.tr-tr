@@ -1,13 +1,15 @@
 ---
 layout: LandingPage
+description: "Log Analytics’i kullanarak bulut ve şirket içi ortamlarınızdaki kaynaklar tarafından oluşturulan verileri fiziksel konumdan bağımsız olarak toplama ve çözümleme hakkında bilgi edinin."
 translationtype: Human Translation
-ms.sourcegitcommit: 98fdd8ee3dc1b90aae349652e471a218ef44a44e
-ms.openlocfilehash: a70f352a076f0d018856c1bdf5c326515405d154
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: ffb5ebc79807a81e53c2bca3fa5672a11e777663
 
 ---
+
 # <a name="log-analytics-documentation"></a>Log Analytics Belgeleri
 
-Log Analytics, bulut ve şirket içi ortamlarınızdaki kaynaklar tarafından oluşturulan verileri toplayıp analiz etmenize yardımcı olan bir Operations Management Suite (OMS) hizmetidir. Fiziksel konumlarından bağımsız olarak, tüm sunucularınızda ve iş yüklerinizde yer alan milyonlarca kaydı, tümleşik arama ve özel panolar aracılığıyla analiz ederek, gerçek zamanlı öngörüler sağlar.
+Operations Management Suite paketindeki Log Analytics’i kullanarak bulut ve şirket içi ortamlarınızdaki kaynaklar tarafından oluşturulan verileri toplama ve çözümleme hakkında bilgi edinin. Öğreticilerde ve diğer belgelerde, fiziksel konumdan bağımsız olarak iş yüklerinizde ve sunucularınızda gerçek zamanlı öngörüler edinmenizi sağlamaya yönelik bilgiler sunulmuştur.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -68,35 +70,26 @@ Log Analytics, bulut ve şirket içi ortamlarınızdaki kaynaklar tarafından ol
 
 ---
 
-## <a name="automation"></a>Otomasyon
-
+<h2>Başvuru</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Azure PowerShell Başvurusu</p>
+                        <h3>Komut Satırı</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.operationalinsights/v2.3.0/azurerm.operationalinsights">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/log-analytics.pdf">
-        <div class="img"></div>
-        <div class="text">
-Log Analytics Belgelerini İndirme </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Jan17_HO3-->
 
 

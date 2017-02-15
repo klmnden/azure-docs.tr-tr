@@ -34,9 +34,18 @@
 ## [DNS bölgeleri ve kayıtlarını koruma](dns-protect-zones-recordsets.md)
 ## [.NET SDK ile DNS işlemlerini otomatikleştirme](dns-sdk.md)
 
+## Sorun giderme
+### [Sorun giderme kılavuzu](dns-troubleshoot.md)
+
 # Başvuru
-## [PowerShell](/powershell/azureps-cmdlets-docs)
-## [REST API'ler](/rest/api/dns/)
+## [PowerShell](/powershell/resourcemanager/azurerm.dns/v2.3.0/azurerm.dns)
+## [Azure CLI 2.0 (Önizleme)](/cli/azure/network/dns)
+## [.NET](/dotnet/api/microsoft.azure.management.dns.models)
+## [Java](/java/api/com.microsoft.azure.management.dns)
+## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-dns/latest/)
+## [Ruby](http://www.rubydoc.info/gems/azure_mgmt_dns/0.8.0)
+## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-dns.html)
+## [REST](/rest/api/dns/)
 
 # İlgili
 ## [Application Gateway](/azure/application-gateway/)
@@ -44,7 +53,7 @@
 ## [Sanal Makine](/azure/virtual-machines/)
 ## [Yük Dengeleyici](/azure/load-balancer/)
 ## [Traffic Manager](/azure/traffic-manager/)
-## [Web uygulamaları](/azure/app-service-web/)
+## [Web Apps](/azure/app-service-web/)
 
 # Kaynaklar
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=dns)
@@ -53,6 +62,6 @@
 ## [Ağ blogu](http://azure.microsoft.com/blog/topics/networking)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 

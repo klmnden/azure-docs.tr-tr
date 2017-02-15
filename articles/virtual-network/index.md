@@ -1,14 +1,15 @@
 ---
 layout: LandingPage
 +toc_rel: breadcrumb.json
+description: "Bulutta sanal ağ kullanmayı öğrenin. Belgelerde, sanal ağ dağıtma, kaynakları başlatmak için sanal ağ kullanma ve şirket içi ağ ile tümleştirme işlemlerinin nasıl yapılacağı gösterilmiştir."
 translationtype: Human Translation
-ms.sourcegitcommit: 511d15cc48b17bd65bedc2c1cd9602d868ffa724
-ms.openlocfilehash: c285a2be335bed0adada1877f94c7999d7c8b7e5
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 2c3ce9081d456dcedd61ba85f2d023526aa5fa49
 
 ---
 # <a name="virtual-network-documentation"></a>Sanal Ağ Belgeleri
 
-Azure Sanal Ağı (VNet), buluttaki ağınızın mantıksal bir gösterimidir.  Sanal Ağ sayesinde, ağın öğelerini tam olarak denetleyebilir ve Sanal Ağınızı alt ağlara ayırarak, Azure Sanal Makineler’i veya Cloud Services’ı başlatmak için kullanabilirsiniz.  Ayrıca, Azure’da sunulan bağlantı seçeneklerinden birini kullanarak Sanal Ağı şirket içi ağınıza bağlayabilir ve kaynakların denetimini elinizde bulundururken ağınızı buluta genişletebilirsiniz.
+Buluttaki ağınızın mantıksal bir gösterimi olan Sanal Ağ’ı nasıl kullanabileceğinizi öğrenin. Belgelerde, bir sanal ağı ayarlama ve yönetme, Sanal Makineleri veya Cloud Services’ı başlatmak için sanal ağ kullanma, sanal ağı şirket içi ağınıza bağlama ve kaynaklar üzerindeki denetiminizi sürdürürken ağınızı buluta genişletme işlemlerinin nasıl yapılacağı gösterilmiştir.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -113,7 +114,7 @@ Azure Sanal Ağı (VNet), buluttaki ağınızın mantıksal bir gösterimidir.  
                 <div class="card">
                     <div class="cardText">
                         <h3>Komut Satırı</h3>
-                        <p><a href="/powershell/resourcemanager/azurerm.automation/v2.3.0/azurerm.automation">PowerShell (Resource Manager)</a></p>
+                        <p><a href="/powershell/resourcemanager/azurerm.automation/v2.3.0/azurerm.automation">PowerShell (Resource manager)</a></p>
                         <p><a href="/powershell/servicemanagement/azure.automation/v3.1.0/azure.automation">PowerShell (Klasik)</a></p>
                         <p><a href="/cli/azure">Azure CLI</a></p>
                     </div>
@@ -148,16 +149,10 @@ Azure Sanal Ağı (VNet), buluttaki ağınızın mantıksal bir gösterimidir.  
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/virtual-network.pdf">
-        <div class="img"></div>
-        <div class="text">
-Sanal Ağ Belgelerini İndirme </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO3-->
 
 

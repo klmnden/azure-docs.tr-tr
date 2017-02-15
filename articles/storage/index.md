@@ -2,8 +2,8 @@
 layout: LandingPage
 description: "Azure Depolama: Bulutta Blob, Tablo, Kuyruk, Dosya ve Sanal Makine Disk depolama hakkında bilgi edinin. Öğreticiler, API başvuruları ve diğer belgeler."
 translationtype: Human Translation
-ms.sourcegitcommit: c0493bb88e768493c141075a00695b5c030e1b15
-ms.openlocfilehash: 94d2d4a01767fd8aabec9200623e4bdd68edbf35
+ms.sourcegitcommit: b34bd277da4b1bdca5831b5267cde79345674dc1
+ms.openlocfilehash: 2ec05a53d7b2dd854e0cd96c70c83b1fefe48a1c
 
 ---
 
@@ -109,8 +109,8 @@ Dayanıklı, kullanılabilir ve ölçeklenebilir bir bulut depolama hizmeti olan
                 <div class="card">
                     <div class="cardText">
                         <h3>Diller</h3>
-                        <p><a href="/dotnet/api/microsoft.azure.management.storage">.NET: Resource Manager</a></p>
-                        <p><a href="https://msdn.microsoft.com/en-us/library/azure/mt684990.aspx">.NET: Veri Taşıma</a></p>
+                        <p><a href="/dotnet/api/microsoft.azure.management.storage">.NET: Kaynak yöneticisi</a></p>
+                        <p><a href="https://msdn.microsoft.com/en-us/library/azure/mt684990.aspx">.NET: Veri taşıma</a></p>
                         <p><a href="https://msdn.microsoft.com/library/azure/mt347887.aspx">.NET: Bloblar, Kuyruklar, Tablolar ve Dosyalar</a></p>
                         <p><a href="/java/api/">Java</a></p>
                         <p><a href="http://azure.github.io/azure-storage-node">Node.js</a></p>
@@ -133,6 +133,7 @@ Dayanıklı, kullanılabilir ve ölçeklenebilir bir bulut depolama hizmeti olan
                         <p><a href="/rest/api/storageservices/fileservices/azure-storage-services-rest-api-reference">Bloblar, Kuyruklar, Tablolar ve Dosyalar</a></p>
                         <p><a href="/rest/api/storagerp">Kaynak sağlayıcısı</a></p>
                         <p><a href="/rest/api/storageimportexport">İçeri/dışarı aktarma</a></p>
+                        <p><a href="/rest/api/storageservices/fileservices/azure-storage-services-rest-api-reference">Depolama Verileri REST API</a></p>
                    </div>
                 </div>
             </div>
@@ -140,16 +141,10 @@ Dayanıklı, kullanılabilir ve ölçeklenebilir bir bulut depolama hizmeti olan
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/storage.pdf">
-        <div class="img"></div>
-        <div class="text">
-Depolama Belgelerini İndirme </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Jan17_HO3-->
+
+<!--HONumber=Jan17_HO5-->
 
 

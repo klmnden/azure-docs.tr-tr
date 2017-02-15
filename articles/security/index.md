@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Buluttaki hizmet ve veri dağıtımlarınıza ilişkin gereksinimleri karşılamak için Azure hizmetlerindeki güvenlik özelliklerini nasıl özelleştirebileceğinizi öğrenin."
 translationtype: Human Translation
-ms.sourcegitcommit: d06c292b36ef6dd6bd4f858603debfe93d498cb6
-ms.openlocfilehash: 622e8ccb62538110991c4f882ada9014ea03ffb4
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 349a83224dd154cf81f641cac33baa020adc0b77
 
 ---
 # <a name="security-documentation"></a>Güvenlik Belgeleri
 
-Azure altyapısı tesisten uygulamalara kadar milyonlarca müşteriye aynı anda hizmet verecek şekilde tasarlanmıştır ve işletmelerin güvenlik ihtiyaçlarını karşılayabilecek güvenilir bir temel sunar. Buna ek olarak, Azure’da çok çeşitli ve yapılandırılabilir güvenlik seçenekleri ile bunlar üzerinde denetim imkanı sunulmaktadır. Böylece, dağıtımlarınıza özel gereksinimleri karşılamak için güvenlik özelliklerini uyarlayabilirsiniz.
+Azure Güvenlik’i kullanarak buluttaki hizmetleri ve verileri nasıl koruyacağınızı öğrenin. Belgeler ve diğer belgeler, dağıtımlarınıza ilişkin gereksinimleri karşılamak için Azure hizmetlerindeki güvenlik özelliklerini özelleştirmenize yardımcı olur.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -104,16 +105,10 @@ Azure altyapısı tesisten uygulamalara kadar milyonlarca müşteriye aynı anda
 
 ---
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/security.pdf">
-        <div class="img"></div>
-        <div class="text">
-Güvenlik Belgelerini indirin </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Jan17_HO3-->
 
 

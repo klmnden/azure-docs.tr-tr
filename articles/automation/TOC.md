@@ -1,14 +1,11 @@
 # Genel Bakış
 ## [Azure Otomasyonu Nedir?](automation-intro.md)
 ## [Azure Otomasyonu’nda güvenlik](automation-security-overview.md)
-
 # Başlarken
 ## [Runbook oluşturma](automation-first-runbook-graphical.md)
 ## [PowerShell runbook’u oluşturma](automation-first-runbook-textual-powershell.md)
 ## [PowerShell İş Akışı runbook’u oluşturma](automation-first-runbook-textual.md)
 ## [Rol tabanlı erişim denetimini yönetme](automation-role-based-access-control.md)
-
-
 # Nasıl yapılır?
 ## Runbook oluşturma
 ### [Runbook türleri](automation-runbook-types.md)
@@ -22,10 +19,10 @@
 ### [Kaynak denetimi tümleştirmesi](automation-source-control-integration.md)
 ## Runbook'ları otomatik hale getirme
 ### [Runbook başlatma](automation-starting-a-runbook.md)
-### [Web aramasından runbook başlatma](automation-webhooks.md)
-### [Runbook zamanlama](automation-scheduling-a-runbook.md)
+### [Web kancasından runbook başlatma](automation-webhooks.md)
 ### [Runbook zamanlama](automation-hybrid-runbook-worker.md)
 ### [Runbook giriş parametrelerini yapılandırma](automation-runbook-input-parameters.md)
+### [Grafik runbook'larında hata işleme](automation-runbook-graphical-error-handling.md)
 ### [Runbook işini izleme](automation-runbook-execution.md)
 ### [Runbook ayarlarını değiştirme](automation-runbook-settings.md)
 ### [Azure Otomasyonu verilerini yönetme](automation-managing-data.md)
@@ -55,26 +52,22 @@
 ### [JSON Etiketleriyle VM Başlatma/Durdurma](automation-scenario-start-stop-vm-wjson-tags.md)
 ### [Kaynak Grubunu Kaldırma](automation-scenario-remove-resourcegroup.md)
 ### [Hizmetin kapalı olduğu saatlerde Sanal Makineleri Başlatma/Durdurma](automation-solution-vm-management.md)
-
+### [GitHub Enterprise ile Kaynak Denetimi Tümleştirmesi](automation-scenario-source-control-integration-with-github-ent.md)
 ## [İzleme](automation-manage-send-joblogs-log-analytics.md)
-
 ## Geçiş
 ### [Orchestrator'dan geçiş](automation-orchestrator-migration.md)
 ### [Otomasyonu Hesabını Taşıma](automation-migrate-account-subscription.md)
-
 ## Sorun giderme
 ### [Sık karşılaşılan hataları giderme.](automation-troubleshooting-automation-errors.md)
-### [Runbook işi askıya alındı](automation-troubleshooting-hrw-runbook-terminates-suspended.md)
-
+### [Karma Runbook Çalışanı için Sorun Giderme](automation-troubleshooting-hybrid-runbook-worker.md)
 # Başvuru
-## [PowerShell](/powershell/azureps-cmdlets-docs)
-## [Klasik PowerShell](/powershell/servicemanagement)
-## [.NET](/dotnet/api)
+## [PowerShell](/powershell/resourcemanager/azurerm.automation/v2.3.0/azurerm.automation)
+## [PowerShell (Klasik)](/powershell/servicemanagement/azure.automation/v3.1.0/azure.automation)
+## [.NET](/dotnet/api/microsoft.azure.management.automation)
 ## [REST](https://msdn.microsoft.com/library/azure/mt662285.aspx)
-## [Klasik REST](https://msdn.microsoft.com/library/azure/mt163781)
-## [Sürüm notları](https://azure.microsoft.com/updates/?product=automation)
-
+## [REST (Klasik)](https://msdn.microsoft.com/library/azure/mt163781)
 # Kaynaklar
+## [Sürüm notları](https://azure.microsoft.com/updates/?product=automation)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/automation/)  
 ## [MSDN forumu](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureautomation)  
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-automation)
@@ -85,6 +78,6 @@
 ## [Otomasyon tanıtım videosu](https://azure.microsoft.com/documentation/videos/azure-automation-101-with-powershell-and-eamon-o-reilly/)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

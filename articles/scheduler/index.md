@@ -2,8 +2,8 @@
 layout: LandingPage
 description: "Scheduler hizmetini kullanarak yinelenen uygulama eylemleri ve düzenli bakım gibi işler zamanlama ve bunları çağırma hakkında bilgi edinin. Öğreticiler, API başvuruları ve daha fazlası."
 translationtype: Human Translation
-ms.sourcegitcommit: ac4d47ff2e86906252ab93407eb6a4112d102523
-ms.openlocfilehash: 0afe27b9b7ec834ab8a2b944a164d31b7708eafe
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 008c96351a252737178c9e45e92de3f0106a2a2b
 
 ---
 # <a name="scheduler-documentation"></a>Scheduler Belgeleri
@@ -89,7 +89,7 @@ Scheduler hizmetini kullanarak bulutta yinelenen işler zamanlama ve bunları ot
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/scheduler">REST API Başvurusu</a></p>
+                        <p><a href="/rest/api/scheduler">REST API başvurusu</a></p>
                     </div>
                 </div>
             </div>
@@ -97,13 +97,7 @@ Scheduler hizmetini kullanarak bulutta yinelenen işler zamanlama ve bunları ot
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/scheduler.pdf">
-        <div class="img"></div>
-        <div class="text">
-Scheduler Belgelerini indirin </div>
-    </a>
-</div>
+
 
 
 

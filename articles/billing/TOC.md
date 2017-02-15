@@ -1,7 +1,5 @@
-# Başlarken
-## [Ücretsiz hesap oluşturma](https://azure.microsoft.com/free/)
+# [Kullanmaya başlama](billing-getting-started.md)
 ## [Office 365 hesabıyla kaydolma](../billing-use-existing-office-365-account-azure-subscription.md)
-## [Abonelik fiyatlandırması](https://azure.microsoft.com/pricing/)
 ## [Desteklenen ülkeler ve para birimleri](../billing-countries-and-currencies.md)
 ## [Limitler ve kotalar](../azure-subscription-service-limits.md)
 ## [Sık sorulan sorular](../billing-subscription-faq.md)
@@ -17,7 +15,7 @@
 ### [Aboneliğin sahipliğini devretme](../billing-subscription-transfer.md)
 ### [Devre dışı bırakılmış aboneliği yeniden etkinleştirme](../billing-subscription-become-disable.md)
 ### [Ücretsiz aboneliği yükseltme](../billing-upgrade-azure-subscription.md)
-### [Farklı aboneliğe geçme](../billing-how-to-switch-azure-offer.md)
+### [Abonelik teklifi değiştirme](../billing-how-to-switch-azure-offer.md)
 ### [Aboneliği iptal etme](../billing-how-to-cancel-azure-subscription.md)
 ## Hesabı yönetme
 ### [Profili düzenleme](../billing-how-to-change-azure-account-profile.md)
@@ -37,6 +35,6 @@
 # Kaynaklar
 ## [Desteğe başvurun](../billing-how-to-create-billing-support-ticket.md)
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

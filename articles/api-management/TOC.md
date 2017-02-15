@@ -39,16 +39,32 @@
 ### [Kullanıcı hesaplarını yönetme](api-management-howto-create-or-invite-developers.md)
 ### [Otomasyonu kullanarak yönetme](automation-manage-api-management.md)
 ### [Git kullanarak yapılandırma](api-management-configuration-repository-git.md)
-
 # Başvuru
 ## [PowerShell](/powershell/azureps-cmdlets-docs)
 ## [REST](/rest/api/apimanagement/)
-## [REST (özgün)](/rest/api/apimanagement/ApiManagementREST/API-Management-REST)
-
-
+## [REST (özgün)](/rest/api/apimanagement/ApiManagementREST/api-management-REST)
+## [İlkeler](api-management-policies.md)
+### İlke başvurusu
+#### [Erişimi kısıtlama ilkeleri](api-management-access-restriction-policies.md)
+#### [Gelişmiş ilkeler](api-management-advanced-policies.md)
+#### [Kimlik doğrulama ilkeleri](api-management-authentication-policies.md)
+#### [Önbelleğe alma ilkeleri](api-management-caching-policies.md)
+#### [Çapraz etki alanı ilkeleri](api-management-cross-domain-policies.md)
+#### [Dönüştürme ilkeleri](api-management-transformation-policies.md)
+### [Hata işleme](api-management-error-handling-policies.md)
+### [İlke ifadeleri](api-management-policy-expressions.md)
+## [Şablonlar](api-management-developer-portal-templates-reference.md)
+### Şablon başvurusu
+#### [API'ler](api-management-api-templates.md)
+#### [Ürünler](api-management-product-templates.md)
+#### [Uygulamalar](api-management-application-templates.md)
+#### [Sorunlar](api-management-issue-templates.md)
+#### [Kullanıcı profili](api-management-user-profile-templates.md)
+#### [Sayfalar](api-management-page-templates.md)
+### [Veri modeli başvurusu](api-management-template-data-model-reference.md)
+### [Sayfa denetimleri](api-management-page-controls.md)
+### [Şablon kaynakları](api-management-template-resources.md)
 # Kaynaklar
-## [İlkeler](https://msdn.microsoft.com/library/azure/dn894081)
-## [Şablonlar](https://msdn.microsoft.com/library/azure/mt697540)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/api-management/)
 ## [MSDN forumu](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureapimgmt)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-api-management)

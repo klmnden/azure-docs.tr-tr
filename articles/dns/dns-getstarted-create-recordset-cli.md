@@ -73,16 +73,18 @@ nslookup, dig veya [Resolve-DnsName PowerShell cmdlet'i](https://technet.microso
 
 Azure DNS'de henüz yeni bölgeyi kullanmak için etki alanınızı devretmediyseniz [DNS sorgusunu bölgenizin ad sunucularından birine doğrudan yönlendirmeniz](dns-getstarted-create-dnszone.md#test-name-servers) gerekir. Aşağıdaki komutta kayıt bölgeniz için doğru değerleri değiştirdiğinizden emin olun.
 
-    nslookup
-    > set type=A
-    > server ns1-01.azure-dns.com
-    > www.contoso.com
+```
+nslookup
+> set type=A
+> server ns1-01.azure-dns.com
+> www.contoso.com
 
-    Server:  ns1-01.azure-dns.com
-    Address:  40.90.4.1
+Server:  ns1-01.azure-dns.com
+Address:  40.90.4.1
 
-    Name:    www.contoso.com
-    Address:  1.2.3.4
+Name:    www.contoso.com
+Address:  1.2.3.4
+```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -1,5 +1,5 @@
 ---
-title: "Azure Uygulama Hizmeti’ndeki Node.js API uygulaması | Microsoft Belgeleri"
+title: "Azure App Service’te Node.js API uygulaması | Microsoft Docs"
 description: "Node.js RESTful API’si oluşturma ve Azure App Service’deki bir API uygulamasına dağıtma hakkında bilgi edinin."
 services: app-service\api
 documentationcenter: node
@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 05/26/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e8a1ac3df5225fdcfe2717c2cf50bfc5b7cfda36
+ms.sourcegitcommit: c700bfbd4f50a892e182124eb596159d2eb63feb
+ms.openlocfilehash: b6f97d299b1c100e4bae111d7f95c9619c6c9399
 
 
 ---
@@ -41,7 +41,7 @@ App Service kodunuzun bir API uygulamasına dağıtılması için birçok yolu d
    
     Örnek API iki uç nokta sağlar: `/contacts` hedefine yapılan Get isteği bir JSON biçiminde bir ad ve e-posta adresi listesi döndürürken, `/contacts/{id}` yalnızca seçilen kişiyi döndürür.
 
-## <a name="scaffold-autogenerate-nodejs-code-based-on-swagger-metadata"></a>Swagger meta verilerine göre Node.js kodu iskelesini kurma (otomatik oluşturma)
+## <a name="scaffold-auto-generate-nodejs-code-based-on-swagger-metadata"></a>Swagger meta verilerine göre Node.js kodu iskelesini kurma (otomatik oluşturma)
 [Swagger](http://swagger.io/) bir RESTful API’sini açıklayan meta verilere yönelik dosya biçimidir. Azure App Service, [Swagger meta verileri için yerleşik desteğe](app-service-api-metadata.md) sahiptir. Öğreticinin bu bölümü, içinde ilk olarak Swagger meta verilerini oluşturduğunuz ve bunları API sunucu kodunun iskelesini kurmak (otomatik oluşturmak) için kullandığınız bir API geliştirme iş akışını modeller. 
 
 > [!NOTE]
@@ -131,7 +131,7 @@ App Service kodunuzun bir API uygulamasına dağıtılması için birçok yolu d
         app.use(bodyParser.json());
    
         app.use(swaggerize({
-            api: path.resolve('./config/api.json'), // third change
+            api: path.resolve('./config/swagger.json'), // third change
             handlers: path.resolve('./handlers'),
             docspath: '/swagger' // fourth change
         }));
@@ -275,6 +275,6 @@ Bu noktada bir API uygulamasını başarıyla oluşturdunuz ve Node.js API kodun
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

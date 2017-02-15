@@ -12,11 +12,11 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/26/2016
+ms.date: 12/13/2016
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 7e33e00a676f4aa7143cede3380adb58ba1d11e4
-ms.openlocfilehash: 2c4a92fadaa845fc0d14e5101a87aabe8f8d2891
+ms.sourcegitcommit: 04092b735fa77c72ffe6c492a3fc975eac2e99fd
+ms.openlocfilehash: a71b77a320e9321eaa857acfcfae8822de0ac9e5
 
 
 ---
@@ -45,10 +45,30 @@ Geliştirme için şu işletim sistemi sürümleri desteklenir:
 > 
 
 ## <a name="install-the-runtime-sdk-and-tools"></a>Çalışma zamanını, SDK'yı ve araçları yükleme
-Web Platformu Yükleyicisi, Service Fabric geliştirmesi için iki yapılandırma seçeneği sunar:
+Web Platformu Yükleyicisi, Service Fabric geliştirmesi için iki yapılandırma seçeneği sunar.
 
-* [Visual Studio 2015 için Service Fabric çalışma zamanı, SDK ve araçları yükleme (Visual Studio 2015 Güncelleştirme 2 veya üzeri bir sürümü gerektirir)][full-bundle-vs2015]
-* [Yalnızca Service Fabric çalışma zamanını ve SDK'yı yükleyin (Visual Studio araçları olmadan) ][core-sdk]
+Visual Studio 2017 (Azure Geliştirme ve Yönetim iş yükünün kurulması gerekir):
+
+* [Service Fabric çalışma zamanını ve SDK'yı yükleyin (Visual Studio araçları olmadan)][core-sdk]
+
+Visual Studio 2015 (Visual Studio 2015 Güncelleştirme 2 veya üzeri gerekir):
+
+* [Service Fabric çalışma zamanını, SDK'yı ve araçları yükleyin)][full-bundle-vs2015]
+* [Yalnızca Service Fabric çalışma zamanını ve SDK'yı yükleyin (Visual Studio araçları olmadan)][core-sdk]
+
+> [!WARNING]
+> Müşteriler bu çalıştırma bağlantılarını kullandıklarında veya bu bağlantıları Chrome tarayıcıda kullandıklarında yükleme sırasında hatalarla karşılaştıklarını bildirmiştir. Bunlar Web Platform Yükleyicisi'nin bilinen sorunlarıdır ve üzerinde çalışılmaktadır.  Geçici bir çözüm olarak lütfen aşağıdakileri deneyin:
+>- Aşağıdaki bağlantıları Internet Explorer veya Edge tarayıcılarda çalıştırın veya
+>- Web Platform Yükleyicisi'ni Başlat menüsünden çalıştırın, "Service Fabric" aratın ve SDK'yı yükleyin
+> 
+> Verdiğimiz rahatsızlıktan dolayı özür dileriz. 
+
+Geçerli sürümler şunlardır:
+* Service Fabric SDK 2.4.145
+* Service Fabric çalışma zamanı 5.4.145
+* Visual Studio 2015 araçları 1.4.41209
+
+Desteklenen sürümlerin listesi için bkz. [Service Fabric desteği](service-fabric-support.md)
 
 ## <a name="enable-powershell-script-execution"></a>PowerShell betik yürütmesini etkinleştirme
 Service Fabric, yerel geliştirme merkezi oluşturmak ve Visual Studio'dan uygulamaları dağıtmak için Windows PowerShell betiklerini kullanır. Varsayılan olarak, Windows bu betiklerin çalışmasını engeller. Betikleri etkinleştirmek için PowerShell yürütme ilkenizi değiştirmeniz gerekir. PowerShell'i yönetici olarak açın ve şu komutu girin:
@@ -66,6 +86,7 @@ Artık geliştirme ortamınızı ayarlamayı tamamladığınıza göre, uygulama
 * [GitHub'da Service Fabric kod örneklerine bakın](https://aka.ms/servicefabricsamples)
 * [Service Fabric Explorer kullanarak kümenizi görselleştirme](service-fabric-visualizing-your-cluster.md)
 * [Platforma yönelik daha geniş kapsamlı bilgi edinmek için Service Fabric öğrenme yolunu uygulayın](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)
+* [Service Fabric destek seçenekleri](service-fabric-support.md) hakkında bilgi edinin
 
 [1]: http://azure.microsoft.com/en-us/campaigns/service-fabric/ "Service Fabric kampanya sayfası"
 [2]: http://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"
@@ -76,6 +97,6 @@ Artık geliştirme ortamınızı ayarlamayı tamamladığınıza göre, uygulama
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

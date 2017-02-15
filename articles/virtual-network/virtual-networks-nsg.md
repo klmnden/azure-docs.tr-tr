@@ -261,6 +261,6 @@ Yukarıdaki NSG'lerden bazılarının tekil NIC'lerle ilişkilendirilmesi gerekt
 
 
 
-<!--HONumber=Jan17_HO5-->
+<!--HONumber=Feb17_HO2-->
 
 

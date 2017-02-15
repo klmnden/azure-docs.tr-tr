@@ -6,10 +6,7 @@
 
 # Kullanmaya Başlama
 
-## SQL Data Warehouse oluşturma
-### [Azure Portal](sql-data-warehouse-get-started-provision.md)
-### [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
-### [T-SQL](sql-data-warehouse-get-started-create-database-tsql.md)
+## [Başlangıç öğreticisi](sql-data-warehouse-get-started-tutorial.md)
 ## [En iyi uygulamalar](sql-data-warehouse-best-practices.md)
 ## [Yönetme](sql-data-warehouse-overview-manage.md)
 ## [Destek alın](sql-data-warehouse-get-started-create-support-ticket.md)
@@ -32,6 +29,11 @@
 ### [SSMS](sql-data-warehouse-query-ssms.md)
 ### [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 ### [Visual Studio yükleme](sql-data-warehouse-install-visual-studio.md)
+
+## Oluştur
+### [Azure portal](sql-data-warehouse-get-started-provision.md)
+### [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
+### [T-SQL](sql-data-warehouse-get-started-create-database-tsql.md)
 
 ## Geliştirme
 
@@ -145,6 +147,6 @@
 ### [Veri yönetimi](sql-data-warehouse-partner-data-management.md)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

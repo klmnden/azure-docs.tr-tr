@@ -287,6 +287,6 @@ SQL Database'i ve C# ile bir veritabanını ayarlamayı denediğinize göre şu 
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

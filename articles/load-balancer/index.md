@@ -2,8 +2,8 @@
 layout: LandingPage
 description: "Uygulamaların ağ performansı için Load Balancer’ı nasıl kullanacağınızı öğrenin. Sanal makineler ve bulut kaynaklarına yönelik trafiğin yanı sıra şirket içi ve şirket dışı sanal ağlardaki trafiği yönetin."
 translationtype: Human Translation
-ms.sourcegitcommit: e62704476642d8a519b7bd8b9b101b47ab42e08c
-ms.openlocfilehash: 476eb9f4934d35a808fdd70b6443822eb0a7cfa7
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 53a3e534f9c93c73ef6d28696c5a9d6430a7a258
 
 ---
 #<a name="load-balancer-documentation"></a>Yük Dengeleyici Belgeleri
@@ -124,7 +124,7 @@ Load Balancer’ı uygulamalarınıza yüksek düzeyde kullanılabilirlik ve ağ
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="https://msdn.microsoft.com/library/azure/mt163651.aspx">REST API Başvurusu</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/mt163651.aspx">REST API başvurusu</a></p>
                     </div>
                 </div>
             </div>
@@ -132,13 +132,7 @@ Load Balancer’ı uygulamalarınıza yüksek düzeyde kullanılabilirlik ve ağ
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/load-balancer.pdf">
-        <div class="img"></div>
-        <div class="text">
-Yük Dengeleyici Belgelerini İndirme </div>
-    </a>
-</div>
+
 
 
 

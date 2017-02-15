@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Uygulamaların verilere hızla erişmesini sağlayan güvenli bir veri arabelleği ve mesajlaşma aracısı olan Azure Redis Önbelleği’ni nasıl kullanacağınızı öğrenin. Öğreticiler, API başvuruları ve daha fazlası."
 translationtype: Human Translation
-ms.sourcegitcommit: 4cd50960b30990f3220788e6613a2815d8e28612
-ms.openlocfilehash: 026c452cd784da14a901cab8e5aecaafda448418
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 328084918199e162ad0cfa9ac67737a66fa4d021
 
 ---
 #<a name="redis-cache-documentation"></a>Redis Önbelleği Belgeleri
 
-Azure Redis Önbelleği, popüler açık kaynak Redis Önbelleği'ni temel alır. Microsoft tarafından yönetilen ve Azure'daki tüm uygulamalardan erişilebilen güvenli ve adanmış Redis önbelleğine erişmenizi sağlar. Azure Redis Önbelleği, hızlı ve ölçeklenebilir Azure uygulamaları için yüksek performansın yanı sıra tutarlı düşük gecikme süreli erişim sağlar.
+Uygulamaların verilere yüksek hacimli ve düşük gecikmeli bir şekilde erişmesini sağlayan güvenli bir veri arabelleği ve mesajlaşma aracısı olan Azure Redis Önbelleği’ni nasıl kullanacağınızı öğrenin. Öğreticiler, API başvuruları ve diğer belgeler, Azure’daki herhangi bir uygulamadan Redis Önbelleği’ni nasıl kullanabileceğiniz ile ilgili bilgiler içerir.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -175,7 +176,7 @@ Azure Redis Önbelleği, popüler açık kaynak Redis Önbelleği'ni temel alır
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="https://docs.microsoft.com/rest/api/redis/">REST API Başvurusu</a></p>
+                        <p><a href="https://docs.microsoft.com/rest/api/redis/">REST API başvurusu</a></p>
                     </div>
                 </div>
             </div>
@@ -183,16 +184,10 @@ Azure Redis Önbelleği, popüler açık kaynak Redis Önbelleği'ni temel alır
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/redis-cache.pdf">
-        <div class="img"></div>
-        <div class="text">
-Redis Önbelleği Belgelerini İndirme </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO3-->
 
 

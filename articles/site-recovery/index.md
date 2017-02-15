@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Çoğaltma özelliğini dağıtıp yöneterek fiziksel sunucular ve sanal makineler için bulut olağanüstü durum kurtarma ve iş sürekliliği ayarlama hakkında bilgi edinin."
 translationtype: Human Translation
-ms.sourcegitcommit: 511d15cc48b17bd65bedc2c1cd9602d868ffa724
-ms.openlocfilehash: e13f18042677dd1cea5913d7f6658f0c5d3e1d98
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: b8fe2704e7c68c1fe815d204d424f28fcbdfe75c
 
 ---
 # <a name="site-recovery-documentation"></a>Site Recovery Belgeleri
 
-Azure Site Recovery hizmeti; şirket içi sanal makineler ile fiziksel sunucuları çoğaltma işlemlerini düzenleyerek iş sürekliliği ve olağanüstü durum kurtarma (BCDR) stratejinize katkı sağlar. Sunucuları ve sanal makineleri, birincil şirket içi veri merkezinizden Azure’a veya ikincil veri merkezine çoğaltabilirsiniz. Birincil konumda kesinti olması durumunda, iş yüklerini erişilebilir ve kullanılabilir durumda tutmak için ikincil konuma yük devredebilirsiniz.
+İş sürekliliği ve özel bulutlara yönelik olağanüstü durum kurtarma stratejisi olarak Site Recovery hizmetini nasıl kullanacağınızı öğrenin. Öğreticilerde ve diğer belgelerde, şirket içi fiziksel sunucuları ve sanal makineleri buluta ya da ikincil bir veri merkezine çoğaltma sürecinin yönetimini planlama, dağıtma ve yönetme ile ilgili bilgiler sunulmuştur.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -71,7 +72,7 @@ Azure Site Recovery hizmeti; şirket içi sanal makineler ile fiziksel sunucular
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="https://msdn.microsoft.com/en-us/library/mt750497">REST API Başvurusu</a></p>
+                        <p><a href="https://msdn.microsoft.com/en-us/library/mt750497">REST API başvurusu</a></p>
                     </div>
                 </div>
             </div>
@@ -79,16 +80,10 @@ Azure Site Recovery hizmeti; şirket içi sanal makineler ile fiziksel sunucular
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/site-recovery.pdf">
-        <div class="img"></div>
-        <div class="text">
-Site Recovery Belgelerini indirin </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO3-->
 
 

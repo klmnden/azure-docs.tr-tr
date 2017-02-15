@@ -66,6 +66,6 @@
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=site-recovery)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

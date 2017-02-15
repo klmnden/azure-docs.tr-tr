@@ -1,14 +1,15 @@
 ---
 layout: LandingPage
+description: "Buluta yönelik bir hizmet olarak veritabanı olan SQL Veritabanı hakkında bilgi edinin. Öğreticiler, videolar ve diğer belgeler, ilişkisel veritabanlarının nasıl ayarlanacağı, bağlanacağı ve yönetileceği ile ilgili bilgiler içerir."
 translationtype: Human Translation
-ms.sourcegitcommit: 511d15cc48b17bd65bedc2c1cd9602d868ffa724
-ms.openlocfilehash: 07cbe71fc9330724dd8b92c5321d4fca9ecde512
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 2dfb79cc8f2aa2e2ca63b905666f519e083aa69d
 
 ---
 
 # <a name="sql-database-documentation"></a>SQL Veritabanı Belgeleri
 
-Azure SQL Veritabanı, Microsoft SQL Server altyapısını temel alan, görev açısından kritik işlevler içeren, bulut üzerindeki bir ilişkisel veritabanı hizmetidir. Yönetime neredeyse hiç gerek olmaksızın; tahmin edilebilir performans, kesintisiz ölçeklenebilirlik, iş sürekliliği ve veri koruması sunar. SQL Server altyapısını kullanması, SQL Veritabanı'nın, mevcut SQL Server araçlarını, kitaplıklarını ve API'lerini desteklemesini sağlar; böylece buluta taşıma ve genişletme işlemlerini gerçekleştirmeniz daha kolay hale gelir.
+Buluta yönelik bir hizmet olarak ilişkisel veritabanı olan ve Microsoft SQL Server altyapısını temel alan SQL Veritabanı’nı nasıl kullanacağınızı öğrenin. Öğreticiler, videolar ve diğer belgeler, SQL veritabanlarının nasıl ayarlanacağı, bağlanacağı ve yönetileceği ile ilgili bilgiler içerir.
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -114,7 +115,7 @@ Azure SQL Veritabanı, Microsoft SQL Server altyapısını temel alan, görev a�
                     <div class="cardText">
                         <h3>Komut Satırı</h3>
                         <p><a href="/powershell/resourcemanager/azurerm.sql/v2.3.0/azurerm.sql">PowerShell</a></p>
-                        <p><a href="/powershell/elasticdatabasejobs/v0.8.33/elasticdatabasejobs">PowerShell (Elastik Veritabanı)</a></p>
+                        <p><a href="/powershell/elasticdatabasejobs/v0.8.33/elasticdatabasejobs">PowerShell (Esnek DB)</a></p>
                     </div>
                 </div>
             </div>
@@ -144,7 +145,7 @@ Azure SQL Veritabanı, Microsoft SQL Server altyapısını temel alan, görev a�
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/sql/">REST API Başvurusu</a></p>
+                        <p><a href="/rest/api/sql/">REST API başvurusu</a></p>
                     </div>
                 </div>
             </div>
@@ -152,16 +153,10 @@ Azure SQL Veritabanı, Microsoft SQL Server altyapısını temel alan, görev a�
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/sql-database.pdf">
-        <div class="img"></div>
-        <div class="text">
-SQL Veritabanı Belgelerini İndirme </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO3-->
 
 

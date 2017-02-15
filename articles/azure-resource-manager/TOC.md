@@ -28,6 +28,7 @@
 ### [Portal](resource-group-template-deploy-portal.md)
 ### [REST API](resource-group-template-deploy-rest.md)
 ### [Geliştirme ve test ortamları](solution-dev-test-environments.md)
+### [Visual Studio Team Services ile sürekli tümleştirme](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ## Yönet
 ### [PowerShell](powershell-azure-resource-manager.md)
 ### [Azure CLI](xplat-cli-azure-resource-manager.md)
@@ -36,12 +37,12 @@
 ### [Kaynakları düzenlemek için etiketleri kullanma](resource-group-using-tags.md)
 ### [Kaynakları yeni gruba veya aboneliğe taşıma](resource-group-move-resources.md)
 ### [İlgili kaynakları bağlama](resource-group-link-resources.md)
-### [Azure Resource Manager](resource-manager-resource-explorer.md)
+### [Azure Kaynak Gezgini](resource-manager-resource-explorer.md)
 ## Erişim Denetleme
 ### [PowerShell ile hizmet sorumlusu oluşturma](resource-group-authenticate-service-principal.md)
 ### [Azure CLI ile hizmet sorumlusu oluşturma](resource-group-authenticate-service-principal-cli.md)
 ### [Portal aracılığıyla hizmet sorumlusu oluşturma](resource-group-create-service-principal-portal.md)
-### [Aboneliklere uygulama erişimi](resource-manager-api-authentication.md)
+### [Aboneliklere erişmek için kimlik doğrulama API’si](resource-manager-api-authentication.md)
 ### [Yönetim ilkelerini ayarlama](resource-manager-policy.md)
 ### [Kaynakları kilitleme](resource-group-lock-resources.md)
 ### [Güvenlikle ilgili dikkat edilmesi gerekenler](best-practices-resource-manager-security.md)
@@ -55,19 +56,20 @@
 
 # Başvuru
 ## [PowerShell](/powershell/resourcemanager/azurerm.resources/v3.2.0/azurerm.resources)
-## [Azure CLI](/cli/azure)
-## [Java](/java/api)
+## [Azure 2.0 CLI (Önizleme)](/cli/azure/resource)
 ## [.NET](/dotnet/api/microsoft.azure.management.resourcemanager)
+## [Java](/java/api/com.microsoft.azure.management.resources)
+## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagement.html)
 ## [Şablon şemaları](https://github.com/Azure/azure-resource-manager-schemas)
-## [İstekleri azaltma](resource-manager-request-limits.md)
 ## [REST](/rest/api/resources/)
 
 # Kaynaklar
+## [İstekleri azaltma](resource-manager-request-limits.md)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-resource-manager)
 ## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager)
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=azure-resource-manager)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

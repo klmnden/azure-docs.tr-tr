@@ -13,7 +13,7 @@
 ### [Klasik portaldaki DPM](backup-dpm-automation-classic.md)
 ### [Azure portalındaki Windows Server](backup-client-automation.md)
 ### [Klasik portaldaki Windows Server](backup-client-automation-classic.md)
-## Uygulama iş yüklerini yedeklemeye
+## Uygulama iş yüklerini yedekleme ve geri yükleme
 ### [Azure portalında DPM iş yükleri hazırlama](backup-azure-dpm-introduction.md)
 ### [Klasik portalda DPM iş yükleri hazırlama](backup-azure-dpm-introduction-classic.md)
 ### [Azure portalında Azure Backup Sunucusu iş yükleri hazırlama](backup-azure-microsoft-azure-backup.md)
@@ -22,8 +22,7 @@
 ### [Backup kasasındaki verileri alternatif bir DPM sunucusuna kurtarma](backup-azure-alternate-dpm-server.md)
 ### [SQL Server iş yüklerini yedeklemek için DPM'yi kullanma](backup-azure-backup-sql.md)
 ### [SharePoint grubunu yedeklemek için DPM'yi kullanma](backup-azure-backup-sharepoint.md)
-### [Kurtarma Hizmetleri kasası ile ilgili SSS](backup-azure-backup-ibiza-faq.md)
-## Azure VM'lerini yedekleme
+## Azure VM’lerini yedekleme ve geri yükleme
 ### [Azure sanal makineleri hazırlama](backup-azure-vms-prepare.md)
 ### [Resource Manager ile dağıtılan sanal makineleri hazırlama](backup-azure-arm-vms-prepare.md)
 ### [VM yedekleme altyapısını planlama](backup-azure-vms-introduction.md)
@@ -35,7 +34,14 @@
 ### [Azure portal’da Azure VM yedeklemeleri için uyarıları yönetme](backup-azure-monitor-vms.md)
 ### [Azure’da sanal makineleri geri yükleme](backup-azure-restore-vms.md)
 ### [Azure portalında Resource Manager tarafından dağıtılan VM'leri geri yükleme](backup-azure-arm-restore-vms.md)
-## Windows makinelerini yedekleme
+### [Azure Backup kullanarak şifreli VM’ler için Key Vault anahtarını ve parolasını geri yükleme](backup-azure-restore-key-secret.md)
+## Azure SQL Veritabanı’nı yedekleme ve geri yükleme
+### [Uzun süreli yedek saklama yapılandırma](../sql-database/sql-database-configure-long-term-retention.md?toc=%2fazure%2fbackup%2ftoc.json)
+### [Kurtarma Hizmetleri kasasındaki yedekleri görüntüleme](../sql-database/sql-database-view-backups-in-vault.md?toc=%2fazure%2fbackup%2ftoc.json)
+### [Uzun süreli yedek saklamadan geri yükleme](../sql-database/sql-database-restore-from-long-term-retention.md?toc=%2fazure%2fbackup%2ftoc.json)
+### [Uzun süreli Azure SQL yedeklerini silme](../sql-database/sql-database-long-term-retention-delete.md?toc=%2fazure%2fbackup%2ftoc.json)
+
+## Windows makineleri yedekleme ve geri yükleme
 ### [Klasik dağıtım modelini kullanan Windows Server](backup-configure-vault-classic.md)
 ### [Resource Manager dağıtım modelini kullanan Windows Server](backup-configure-vault.md)
 ### [Klasik dağıtım modelini kullanarak Backup kasalarını yönetme](backup-azure-manage-windows-server-classic.md)
@@ -43,6 +49,7 @@
 ### [Dosyaları Resource Manager dağıtım modelini kullanarak Windows Server’a kurtarma](backup-azure-restore-windows-server.md)
 ### [Klasik dağıtım modelini kullanarak dosyaları Windows Server'a kurtarma](backup-azure-restore-windows-server-classic.md)
 
+## [Karma yedeklemeler için güvenlik özelliklerini etkinleştirme](backup-azure-security-feature.md)
 ## [Azure Backup kasasını silme](backup-azure-delete-vault.md)
 ## [Çevrimdışı yedekleme yapılandırma](backup-azure-backup-import-export.md)
 ## [Azure Backup'ı kullanarak bant altyapınızı değiştirme](backup-azure-backup-cloud-as-tape.md)
@@ -58,11 +65,11 @@
 
 # Kaynaklar
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/backup/)
-## [MSDN forumu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazureonlinebackup) 
-## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=backup) 
+## [MSDN forumu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazureonlinebackup)
+## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=backup)
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=backup)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO5-->
 
 

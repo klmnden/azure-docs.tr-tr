@@ -127,6 +127,6 @@ Bazı kodları yazmaya ve bazı örnekleri çalıştırmaya başlamak için [IoT
 
 
 
-<!--HONumber=Jan17_HO5-->
+<!--HONumber=Feb17_HO2-->
 
 

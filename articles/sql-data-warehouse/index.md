@@ -2,8 +2,8 @@
 layout: LandingPage
 description: "SQL Server’ı yüksek düzeyde paralel işleme ile birleştiren SQL Veri Ambarı’nı nasıl kullanacağınızı öğrenin. Belgelerde verileri nasıl yükleyeceğiniz, çözümleyeceğiniz, yöneteceğiniz ve dışarı aktaracağınız açıklanmıştır."
 translationtype: Human Translation
-ms.sourcegitcommit: 2570909cb1cbd88a03ffb3cee82825e9e277f634
-ms.openlocfilehash: c445bb63fec439f9330b0c74346eabcfad3971da
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: 66f83d1e36ecafdfb3337ae03b22ba48d3ccb1b4
 
 ---
 
@@ -102,13 +102,7 @@ SQL Server ilişkisel veritabanını yüksek düzeyde paralel işleme ile birle�
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/sql-data-warehouse.pdf">
-        <div class="img"></div>
-        <div class="text">
-SQL Veri Ambarı Belgelerini İndirme </div>
-    </a>
-</div>
+
 
 
 

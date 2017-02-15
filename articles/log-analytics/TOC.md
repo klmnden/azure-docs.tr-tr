@@ -10,7 +10,7 @@
 ## [Log Analytics SSS](log-analytics-faq.md)
 
 # Nasıl yapılır?
-## Tümleştirme
+## Veri toplama
 ### Bağlı kaynaklar
 #### [Windows aracıları](log-analytics-windows-agents.md)
 #### [Linux aracıları](log-analytics-linux-agents.md)
@@ -19,7 +19,7 @@
 #### [Operations Manager](log-analytics-om-agents.md)
 #### [Configuration Manager](log-analytics-sccm.md)
 #### [OMS Ağ Geçidi](log-analytics-oms-gateway.md)
-### Veri Kaynakları
+### Veri kaynakları
 #### [Veri kaynaklarına genel bakış](log-analytics-data-sources.md)
 #### [Windows olayları](log-analytics-data-sources-windows-events.md)
 #### [Syslog](log-analytics-data-sources-syslog.md)
@@ -27,11 +27,15 @@
 #### [IIS günlükleri](log-analytics-data-sources-iis-logs.md)
 #### [Özel günlükler](log-analytics-data-sources-custom-logs.md)
 #### [Özel alanlar](log-analytics-custom-fields.md)
-## Geliştirme
+## Verileri sorgulama
 ### [Günlük aramalarına genel bakış](log-analytics-log-searches.md)
 ### [Arama başvurusu](log-analytics-search-reference.md)
 ### [Bilgisayar grupları](log-analytics-computer-groups.md)
 ### [Uyarılar](log-analytics-alerts.md)
+## Verileri çözümleme
+### [Panolar](log-analytics-dashboards.md)
+### [Görünüm Tasarımcısı](log-analytics-view-designer.md)
+### [Power BI](log-analytics-powerbi.md)
 ### Çözümler
 #### [Çözümlere genel bakış](log-analytics-add-solutions.md)
 #### [AD Değerlendirmesi](log-analytics-ad-assessment.md)
@@ -41,6 +45,9 @@
 #### [Değişiklik İzleme](log-analytics-change-tracking.md)
 #### [Kapsayıcılar](log-analytics-containers.md)
 #### [Anahtar Kasası](log-analytics-azure-key-vault.md)
+#### Logic Apps B2B İletileri
+##### [Logic Apps B2B İletileri çözümü](../logic-apps/logic-apps-track-b2b-messages-omsportal.md?toc=%2fazure%2flog-analytics%2ftoc.json)
+##### [Logic Apps B2B özel izleme şeması](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md?toc=%2fazure%2flog-analytics%2ftoc.json)
 #### [Kötü Amaçlı Yazılım Değerlendirmesi](log-analytics-malware.md)
 #### [Ağ Analizi](log-analytics-azure-networking-analytics.md)
 #### [Ağ Performansı İzleyicisi](log-analytics-network-performance-monitor.md)
@@ -52,11 +59,7 @@
 #### [VMware](log-analytics-vmware.md)
 #### [Kablo Verileri](log-analytics-wire-data.md)
 #### [SCOM Değerlendirmesi](log-analytics-scom-assessment.md)
-## Çözümleme
-### [Panolar](log-analytics-dashboards.md)
-### [Görünüm Tasarımcısı](log-analytics-view-designer.md)
-### [Power BI](log-analytics-powerbi.md)
-## Otomatikleştirme
+## Geliştirme
 ### [Veri Toplayıcı API’si](log-analytics-data-collector-api.md)
 ### [PowerShell cmdlet'leri](log-analytics-powershell-workspace-configuration.md)
 ### [Log Arama API’si](log-analytics-log-search-api.md)
@@ -71,6 +74,6 @@
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=log-analytics)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

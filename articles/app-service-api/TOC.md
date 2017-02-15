@@ -38,7 +38,7 @@
 ### [Azure Uygulama Hizmeti ve mevcut Azure hizmetleri](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ### [App Service planlarının ayrıntıları](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ### [Yüksek yoğunluklu barındırma](../app-service/app-service-high-density-hosting.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
-### [Azure App Service’ta Web İşleri kullanımı](../app-service/app-service-webjobs-readme.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
+### [Azure Uygulama Hizmeti’nde Web İşleri kullanımı](../app-service/app-service-webjobs-readme.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ### [App Service Ortamı](../app-service-web/app-service-app-service-environment-intro.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 #### [App Service Ortamı belgeleri](../app-service/app-service-app-service-environments-readme.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 
@@ -152,21 +152,17 @@
 ### [Akış günlükleri ve konsol](../app-service-web/web-sites-streaming-logs-and-console.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ### [Visual Studio kullanarak sorun giderme](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 
-# Başvuru
+# Kaynaklar
 ## [Azure Portal](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ## [App Service başvurusu](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ## [Web İşleri SDK’sı](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
-
-# İlgili
-
-# Kaynaklar
-## [App Service En İyi Uygulamaları](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
+## [App Service En İyi Yöntemler](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ## [Web İşi kaynaklarının listesi](../app-service-web/websites-webjobs-resources.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 
 
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

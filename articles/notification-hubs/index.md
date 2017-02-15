@@ -1,15 +1,14 @@
 ---
 layout: LandingPage
+description: "Notification Hubs ile herhangi bir arka uçtan herhangi bir mobil cihaza nasıl anında iletme bildirimleri gönderebileceğinizi öğrenin. Öğreticiler, API başvuruları ve diğer belgeler."
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: b40dd058986a3dbe47709776a27ac949d3c4c491
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: c99636cdb412f1144f2dbe078379b89b6841bd9b
 
 ---
 #<a name="notification-hubs-documentation"></a>Notification Hubs Belgeleri
 
-Azure Notification Hubs, herhangi bir arka uçtan (bulutta veya şirket içinde bulunan) tüm mobil platformlara mobil anında iletme bildirimleri göndermenize olanak tanıyan, kullanımı kolay, çok platformlu, ölçeği genişletilmiş bir gönderim altyapısı sağlar.
-
-Notification Hubs ile kolayca, farklı platform bildirim sistemlerinin (PNS) ayrıntılarını özetleyen, platformlar arası, kişiselleştirilmiş anında iletme bildirimleri gönderebilirsiniz. Tek bir API çağrısı ile bireysel kullanıcıları veya tüm cihazlarıyla birlikte milyonlarca kullanıcıyı içeren hedef kitle segmentlerini tümüyle hedefleyebilirsiniz.
+Milyonlarca mesajı hızla göndermeye yönelik çok platformlu, ölçeklenebilir bir anında iletme bildirimi altyapısı olan Notification Hubs’ı nasıl kullanacağınızı öğrenin. Öğreticiler, API başvuruları ve diğer belgelerde, arka uçlardan mobil cihazlara yönelik anında iletme bildirimleri ayarlama ve gönderme hakkında bilgi sağlanmıştır. 
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -192,7 +191,7 @@ Notification Hubs ile kolayca, farklı platform bildirim sistemlerinin (PNS) ayr
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/notificationhubs">REST API Başvurusu</a></p>
+                        <p><a href="/rest/api/notificationhubs">REST API başvurusu</a></p>
                     </div>
                 </div>
             </div>
@@ -202,16 +201,10 @@ Notification Hubs ile kolayca, farklı platform bildirim sistemlerinin (PNS) ayr
 
 ---
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/notification-hubs.pdf">
-        <div class="img"></div>
-        <div class="text">
-Notification Hubs Belgelerini indirin </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Jan17_HO3-->
 
 

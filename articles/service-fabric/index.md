@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Service Fabric ara yazılım platformunu kullanarak bulut ölçeğinde uygulamalara yönelik mikro hizmetler paketleme ve dağıtma hakkında bilgi edinin. Öğreticiler, API başvuruları ve kod örnekleri."
 translationtype: Human Translation
-ms.sourcegitcommit: c6d2e90a58359c809a2b01a97cb25c12f7600008
-ms.openlocfilehash: 798d728c163df6647fb2607e14decf880f43b053
+ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
+ms.openlocfilehash: d9b4e3b3df6760b15e151c5eab37c9f534784de8
 
 ---
 #<a name="service-fabric-documentation"></a>Service Fabric Belgeleri
 
-Azure Service Fabric; ölçeklenebilir ve güvenilir mikro hizmetleri paketlemeyi, dağıtmayı ve yönetmeyi kolaylaştırmayı sağlayan bir dağıtılmış sistemler platformudur. Service Fabric ayrıca bulut uygulamalarını geliştirme ve yönetme sürecinde karşılaşılan başlıca sorunların giderilmesini de sağlar. Geliştiriciler ve yöneticiler, karmaşık altyapı sorunlarını çözmeye çalışmak yerine görev açısından kritik, zorlu iş yüklerini uygulamaya odaklanabilir. Service Fabric, bu iş yüklerinin ölçeklenebilir, güvenilir ve yönetilebilir olmasını sağlar. 
+Service Fabric’i kullanarak ölçeklenebilir ve güvenilir mikro hizmetler paketleme, dağıtma ve yönetme. Öğreticiler, API başvuruları ve kod örneklerinde, bu ara yazılım platformunu kullanarak bulut ölçeğinde uygulamalar oluşturma ve dağıtma hakkında bilgi sağlanmıştır.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -106,78 +107,52 @@ Azure Service Fabric; ölçeklenebilir ve güvenilir mikro hizmetleri paketlemey
 
 ---
 
-## <a name="reference"></a>Başvuru
-
+<h2>Başvuru</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/servicefabric/vlatest/servicefabric">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Service Fabric PowerShell Başvurusu</p>
+                        <h3>Komut Satırı</h3>
+                        <p><a href="/powershell/servicefabric/vlatest/servicefabric">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/java/api">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Java</h3>
-                        <p>Java API Başvurusu</p>
+                        <h3>Diller</h3>
+                        <p><a href="/java/api/microsoft.servicefabric.services">Java API’si</a></p>
+                        <p><a href="/dotnet/api/microsoft.servicefabric.services">.NET</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/dotnet/api/">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>.NET Yönetilen Başvuru API'si</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/rest/api/servicefabric">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Service Fabric REST API Başvurusu</p>
+                        <p><a href="/rest/api/servicefabric">REST API başvurusu</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>   
 
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/service-fabric.pdf">
-        <div class="img"></div>
-        <div class="text">
-Service Fabric Belgelerini İndirme </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Jan17_HO3-->
 
 

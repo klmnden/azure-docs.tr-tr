@@ -10,12 +10,15 @@
 ## [Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 ## [Azure CLI](data-lake-analytics-get-started-cli.md)
 ## [REST API](data-lake-analytics-get-started-rest-api.md)
+## [Python](data-lake-analytics-get-started-python.md)
 
-# Nasıl yapılır
+# Nasıl yapılır?
 ## Geliştirme
 ### [U-SQL](data-lake-analytics-u-sql-get-started.md)
 ### [U-SQL pencere işlevleri](data-lake-analytics-use-window-functions.md)
 ### [U-SQL kullanıcı tanımlı işleçler](data-lake-analytics-u-sql-develop-user-defined-operators.md)
+### [U-SQL Python uzantıları](data-lake-analytics-u-sql-python-extensions.md)
+### [U-SQL Bilişsel özellikler](data-lake-analytics-u-sql-cognitive.md)
 
 ## Çözüm oluşturma
 ### [Web sitesi günlüklerini çözümleme](data-lake-analytics-analyze-weblogs.md)
@@ -36,11 +39,11 @@
 ### [Köşe Yürütme Görünümünü Kullanma](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
 
 # Başvuru
-
-## [PowerShell](/powershell/azureps-cmdlets-docs)
-## [.NET](/dotnet/api/)
-## [U-SQL](https://msdn.microsoft.com/library/azure/mt591959)
+## [PowerShell](/powershell/resourcemanager/azurerm.datalakeanalytics/v2.3.0/azurerm.datalakeanalytics)
+## [.NET](/dotnet/api/microsoft.azure.management.datalake.analytics)
 ## [Node.js](https://www.npmjs.com/package/azure-arm-datalake-analytics)
+## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-analytics.html)
+## [U-SQL](https://msdn.microsoft.com/library/azure/mt591959)
 ## [REST](/rest/api/datalakeanalytics/)
 
 # Kaynaklar
@@ -52,6 +55,6 @@
 ## [Azure Data Lake Blogu](https://blogs.msdn.microsoft.com/azuredatalake/)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

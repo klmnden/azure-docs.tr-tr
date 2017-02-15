@@ -1,7 +1,9 @@
+
 # Genel Bakış
 ## [DocumentDB nedir?](documentdb-introduction.md)
 ## [Temel kavramlar](documentdb-resources.md)
 ## [Genel dağıtım](documentdb-distribute-data-globally.md)
+## [NoSQL TCO analizi](https://aka.ms/documentdb-tco-paper)
 ## Senaryolar
 ### [Genel kullanım örnekleri](documentdb-use-cases.md)
 ### [DocumentDB ile iletişim](documentdb-social-media-apps.md)
@@ -10,6 +12,7 @@
 ## İlk uygulamanızı yazma
 ### [.NET konsol uygulaması](documentdb-get-started.md)
 ### [.NET Core konsol uygulaması](documentdb-dotnetcore-get-started.md)
+### [Java konsol uygulaması](documentdb-java-get-started.md)
 ### [Node.js konsol uygulaması](documentdb-nodejs-get-started.md)
 ### [C++ konsol uygulaması](documentdb-cpp-get-started.md)
 ## Web uygulaması oluşturma
@@ -24,23 +27,22 @@
 # Nasıl yapılır
 
 ## Planlama
-### [Depolama ve performans](documentdb-manage.md)
 ### [Bölümleme ve ölçeklendirme](documentdb-partition-data.md)
 ### [Tutarlılık](documentdb-consistency-levels.md)
 ### [NoSQL ile SQL karşılaştırması](documentdb-nosql-vs-sql.md)
+### [Düşük maliyetli okuma ve yazmalar](documentdb-key-value-store-cost.md)
 
 ## Yönet
 ### [Verilerinizi içeri aktarma](documentdb-import-data.md)
 ### [Veri modeli oluşturma](documentdb-modeling-data.md)
 ### [Jeo-uzamsal veriler kullanma](documentdb-geospatial.md)
 ### [Birden çok bölgeye yönelik geliştirme](documentdb-developing-with-multiple-regions.md)
+### [Bölgesel yük devretme](documentdb-regional-failovers.md)
 ### [Verilerin süresini otomatik olarak sonlandırma](documentdb-time-to-live.md)
 ### [Dizinlerinizi özelleştirme](documentdb-indexing-policies.md)
 ### [Veri erişiminin güvenliğini sağlama](documentdb-secure-access-to-data.md)
 ### [Yedekleme ve geri yükleme](documentdb-online-backup-and-restore.md)
 ### [Performans seviyeleri](documentdb-performance-levels.md)
-### [Kaynak kotaları](documentdb-limits.md)
-### [Kotaları artırma](documentdb-increase-limits.md)
 ### [İstek birimleri](documentdb-request-units.md)
 ### Azure CLI
 #### [Hesap oluşturma](documentdb-automation-resource-manager-cli.md)
@@ -55,6 +57,9 @@
 ### [Değişiklik akışı ile değişiklikleri izleme](documentdb-change-feed.md)
 ### [Performansı test etme](documentdb-performance-testing.md)
 ### [Performans ipuçları](documentdb-performance-tips.md)
+### En iyi uygulamalar
+#### [Çok yöneticili kurulum](documentdb-multi-region-writers.md)
+#### [DateTimes](documentdb-working-with-dates.md)
 
 ## MongoDB için DocumentDB Desteğini Kullanma
 ### [MongoDB için protokol desteği](documentdb-protocol-mongodb.md)
@@ -79,15 +84,16 @@
 
 ## Tümleştirme
 ### [Azure Uygulama Hizmeti ile web sitesi dağıtma](documentdb-create-documentdb-website.md)
-### [Logic Apps ile uygulama günlüğü kaydı](../app-service-logic/app-service-logic-scenario-error-and-exception-handling.md)
+### [Logic Apps ile uygulama günlüğü kaydı](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
 ### [Azure İşlevlerine Bağlama](../azure-functions/functions-bindings-documentdb.md)
 ### [Hadoop ile verileri çözümleme](documentdb-run-hadoop-with-hdinsight.md)
-### [Azure Search ile Tümleştirme](documentdb-search-indexer.md)
+### [Azure Search ile Tümleştirme](../search/search-howto-index-documentdb.md)
 ### [Azure Data Factory ile veri taşıma](../data-factory/data-factory-azure-documentdb-connector.md)
 ### [Azure Akış Analizi ile verileri gerçek zamanlı olarak çözümleme](../stream-analytics/stream-analytics-define-outputs.md#documentdb)
 ### [Logic Apps ile ilgili bildirimleri alma](documentdb-change-notification.md)
 ### [Gerçek zamanlı sensör verisi işleme](../hdinsight/hdinsight-storm-iot-eventhub-documentdb.md)
 ### [Power BI ile verilerinizi görselleştirme](documentdb-powerbi-visualize.md)
+### [Veri görselleştirme için ODBC sürücüsünden yararlanma](documentdb-nosql-odbc-driver.md)
 
 
 # Başvuru
@@ -120,6 +126,6 @@
 ## [Öğrenme yolu](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 
