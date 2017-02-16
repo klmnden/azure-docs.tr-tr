@@ -20,7 +20,7 @@ ms.openlocfilehash: 0f035b58ccd140a5481703df7e184206da2ed651
 
 
 ---
-# <a name="scheduler-concepts-terminology-entity-hierarchy"></a>Scheduler kavramları ve terminolojisi + varlık hiyerarşisi
+# <a name="scheduler-concepts-terminology--entity-hierarchy"></a>Scheduler kavramları ve terminolojisi + varlık hiyerarşisi
 ## <a name="scheduler-entity-hierarchy"></a>Scheduler varlık hiyerarşisi
 Aşağıdaki tabloda Scheduler API’si tarafından gösterilen ya da kullanılan ana kaynaklar açıklanır:
 

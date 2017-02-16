@@ -11,14 +11,14 @@ ms.assetid: b46e7fdc-2238-4b3b-a944-8ab36c5bdb8e
 ms.service: sql-database
 ms.custom: multiple databases
 ms.devlang: NA
-ms.date: 01/04/2017
+ms.date: 01/11/2017
 ms.author: CarlRabeler
 ms.workload: data-management
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: ce30d47075636d3b64215d50b81acc09e7ed72f1
-ms.openlocfilehash: d74be42963206c82218bc82ea1bf12e5c0cdb0f3
+ms.sourcegitcommit: 2681dd3792a351fecc0c72eb7fe546113a451d24
+ms.openlocfilehash: 412c3f9c34e399ecdffd939b5b72e687a847b8e1
 
 
 ---
@@ -33,7 +33,7 @@ SQL Veritabanı Elastik havuzları, son derece farklı ve öngörülemeyen kulla
 ## <a name="how-it-works"></a>Nasıl çalışır?
 Yaygın bir SaaS uygulama modeli ise tek kiracılı veritabanı modelidir: her müşteriye kendi veritabanı verilir. Her müşteri (veritabanı) bellek, G/Ç ve CPU için öngörülemeyen kaynak gereksinimlerine sahiptir. Talepteki bu iniş çıkışlarla birlikte kaynakları verimli ve uygun maliyetli bir şekilde nasıl ayırabilirsiniz? Geleneksel olarak iki seçeneğiniz vardır: (1) en yüksek kullanımı temel alarak kaynakları fazladan sağlama ve fazla ödeme yapma ya da (2) en yüksek kullanım dönemlerinde performans ve müşteri memnuniyetini riske atarak maliyetten tasarruf etmek için eksik sağlama. Elastik havuzlar, veritabanlarının gerektiğinde gerekli olan performans kaynaklarını almasını sağlayarak bu sorunu çözmektedir. Bunlar, tahmin edilebilir bir bütçe içinde basit bir kaynak ayırma mekanizması sağlar. Esnek havuzları kullanan SaaS uygulamalarının tasarım desenleri hakkında daha fazla bilgi edinmek için bkz. [Azure SQL Database kullanan Çok Kiracılı SaaS Uygulamaları için Tasarım Desenleri](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
-> [!VİDEO https://channel9.msdn.com/Blogs/Windows-Azure/Elastic-databases-helps-SaaS-developers-tame-explosive-growth/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Elastic-databases-helps-SaaS-developers-tame-explosive-growth/player]
 >
 
 SQL Veritabanında bir veritabanının kaynak taleplerini ele alma becerisinin göreli ölçümü, tek veritabanları için Veritabanı İşlem Birimleri (DTU), elastik havuzdaki veritabanları içinse elastik DTU (eDTU) olarak ifade edilir. DTU ve eDTU’lar hakkında daha fazla bilgi için bkz. [SQL Veritabanına Giriş](sql-database-technical-overview.md).
@@ -106,6 +106,6 @@ Coğrafi Geri Yüklemenin sunabileceğinden daha agresif kurtarma gereksinimleri
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

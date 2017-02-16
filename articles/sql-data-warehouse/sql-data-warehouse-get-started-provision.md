@@ -16,8 +16,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 27df1166a23e3ed89fdc86f861353c80a4a467ad
-ms.openlocfilehash: e8be3cd9aeb3ff39c808f5ee39bdf3091d45feec
+ms.sourcegitcommit: cea81f16ecc6203f487fdf15310638b123312dde
+ms.openlocfilehash: caee6a14bd988f2355c9683519b5f5480428a709
 
 
 ---
@@ -43,8 +43,8 @@ Başlamak için gerekli olanlar:
 >
 
 ## <a name="create-a-sql-data-warehouse"></a>SQL Data Warehouse oluşturma
-1. [Azure Portal](https://portal.azure.com) oturum açın.
-2. **+ Yeni** > **Veri + Depolama** > **SQL Data Warehouse** seçeneğine tıklayın.
+1. [Azure portalında](https://portal.azure.com) oturum açın.
+2. **+ Yeni** > **Veritabanları** > **SQL Veri Ambarı**'na tıklayın.
 
     ![Oluşturma](./media/sql-data-warehouse-get-started-provision/create-sample.gif)
 3. **SQL Data Warehouse** dikey penceresinde gerekli bilgileri girin ve "Oluştur" düğmesine basın.
@@ -102,6 +102,6 @@ Güvenlik duvarı kuralları, Transact-SQL kullanarak de yapılandırılabilir. 
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO2-->
 
 

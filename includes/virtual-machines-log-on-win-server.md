@@ -1,21 +1,10 @@
----
-services: virtual-machines
-title: How to Log on to a Virtual Machine Running Windows Server
-author: cynthn
-solutions: ''
-manager: timlt
-editor: tysonn
-
-{}
-
----
 1. **Bağlan**’a tıklanması Uzak Masaüstü Protokolü dosyasını (.rdp dosyası) oluşturur ve indirir. Bu dosyayı kullanmak için **Aç**’a tıklayın.
 2. .rdp dosyasının bilinmeyen bir yayımcıdan geldiğine ilişkin bir uyarı alırsınız. Bu normaldir. Uzak Masaüstü penceresinde, devam etmek için **Bağlan**’a tıklayın.
    
     ![Bilinmeyen yayımcıya ilişkin uyarı ekran görüntüsü](./media/virtual-machines-log-on-win-server/rdp-warn.png)
 3. **Windows Güvenliği** penceresinde, sanal makinedeki bir hesabın kimlik bilgilerini yazın ve ardından **Tamam**’a tıklayın.
    
-    **Yerel hesap** - bu genellikle, sanal makineyi oluşturduğunuzda belirttiğiniz yerel hesap kullanıcı adı ve parolasıdır. Bu durumda, etki alanı sanal makinenin adıdır ve *vmadı*&#92;*kullanıcıadı* olarak girilir.  
+     **Yerel hesap** - bu genellikle, sanal makineyi oluşturduğunuzda belirttiğiniz yerel hesap kullanıcı adı ve parolasıdır. Bu durumda, etki alanı sanal makinenin adıdır ve *vmadı*&#92;*kullanıcıadı* olarak girilir.  
    
     **Etki alanına katılmış VM** - VM bir etki alanına aitse, kullanıcı adını *Etkialanı*&#92;*Kullanıcıadı* biçiminde girin. Hesabın ayrıca, Yöneticiler grubunda olması ya da VM’ye uzaktan erişim ayrıcalıkları verilmiş olması gerekir.
    
@@ -24,6 +13,8 @@ editor: tysonn
    
    ![VM kimliğini doğrulamaya ilişkin iletiyi gösteren ekran görüntüsü](./media/virtual-machines-log-on-win-server/cert-warning.png)
 
-<!--HONumber=Sep16_HO3-->
+
+
+<!--HONumber=Jan17_HO3-->
 
 

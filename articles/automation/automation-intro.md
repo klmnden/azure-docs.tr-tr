@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 05/10/2016
 ms.author: magoedte;bwren
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 16f6285577294ff49f11a27f48daea090655a2b1
+ms.sourcegitcommit: 15456a887aab29ac6c4ee74d15b8b8ef8d3047d3
+ms.openlocfilehash: 4e7488f954ce50298aba0da83ae07f7a0de6a73d
 
 
 ---
@@ -36,7 +36,7 @@ Azure Automation’daki runbook’lar Windows PowerShell ya da Windows PowerShel
 [Runbook Galerisi](automation-runbook-gallery.md#runbooks-in-runbook-gallery) Microsoft’tan ve topluluktan ortamınızda değiştirmeden kullanabileceğiniz ya da kendi amaçlarınız doğrultusunda özelleştirebileceğiniz runbook’ları içerir. Bunlar, ayrıca kendi runbook’larınızı oluşturmada başvurular olarak da faydalıdır. Hatta diğer kullanıcıların faydalı bulabileceğini düşündüğünüz kendi runbook’arınızla galeriye katkıda bulanabilirsiniz. 
 
 ## <a name="creating-runbooks-with-azure-automation"></a>Azure Automation ile Runbook’ları oluşturma
-En baştan [kendi runbook'larınızı oluşturabilir](automation-creating-importing-runbook.md) ya da kendi gereksinimleriniz doğrultusunda [Runbook Galerisi](http://msdn.microsoft.com/library/azure/dn781422.aspx)’nden aldığınız runbook’ları değiştirebilirsiniz. Gereksinimlerinize ve PowerShell deneyiminize göre seçebileceğiniz üç farklı [runbook türü](automation-runbook-types.md) vardır. Doğrudan PowerShell kodu ile çalışmayı tercih ediyorsanız, çevrimdışı veya Azure portaldaki [metin düzenleyicisi](http://msdn.microsoft.com/library/azure/dn879137.aspx)nde düzenleyebileceğiniz bir [PowerShell runbook’u](automation-runbook-types.md#powershell-runbooks) ya da [PowerShell İş Akışı runbook’u](automation-runbook-types.md#powershell-workflow-runbooks) kullanabilirsiniz. Temeldeki kodu görmeden bir runbook'u düzenlemek isterseniz, Azure portaldaki [grafik düzenleyicisi](automation-graphical-authoring-intro.md)ni kullanarak [Grafik runbook’u](automation-runbook-types.md#graphical-runbooks) oluşturabilirsiniz. 
+En baştan [kendi runbook'larınızı oluşturabilir](automation-creating-importing-runbook.md) ya da kendi gereksinimleriniz doğrultusunda [Runbook Galerisi](http://msdn.microsoft.com/library/azure/dn781422.aspx)’nden aldığınız runbook’ları değiştirebilirsiniz. Gereksinimlerinize ve PowerShell deneyiminize göre seçebileceğiniz dört farklı [runbook türü](automation-runbook-types.md) vardır. Doğrudan PowerShell kodu ile çalışmayı tercih ediyorsanız, çevrimdışı veya Azure portaldaki [metin düzenleyicisi](http://msdn.microsoft.com/library/azure/dn879137.aspx)nde düzenleyebileceğiniz bir [PowerShell runbook’u](automation-runbook-types.md#powershell-runbooks) ya da [PowerShell İş Akışı runbook’u](automation-runbook-types.md#powershell-workflow-runbooks) kullanabilirsiniz. Temeldeki kodu görmeden bir runbook'u düzenlemek isterseniz, Azure portaldaki [grafik düzenleyicisi](automation-graphical-authoring-intro.md)ni kullanarak [Grafik runbook’u](automation-runbook-types.md#graphical-runbooks) oluşturabilirsiniz. 
 
 Okumak yerine izlemeyi mi tercih ediyorsunuz? Mayıs 2015 tarihli Microsoft Ignite oturumuna ait aşağıdaki videoya gözatın. Not: Bu videoda ele alınan kavramlar ve özellikler doğru olsa da, Azure Automation bu videonun kaydedilmesinden sonra değişmiştir; Azure Portal’da daha geniş bir kullanıcı arabirimine sahiptir ve ek özellikleri desteklemektedir.
 
@@ -87,6 +87,6 @@ Azure Automation ve kendi runbook'larınızı oluşturma hakkında daha fazla bi
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "API Management’ı kullanarak API’lerinizi güvenli bir biçimde ve yüksek ölçekte yayımlama hakkında bilgi edinin. Belgelerde, mevcut arka uç hizmetleri için modern API ağ geçitleri oluşturmaya ilişkin bilgiler sunulmuştur."
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: 43f480acb3e49a1b6a081a8338bb66daa571be55
+ms.sourcegitcommit: bc1895fc3b10c9fab96a120359e25324a1132a51
+ms.openlocfilehash: cd5342474c551bfb9eb1496ffd67f3b36933f1d8
 
 ---
-# <a name="api-management-documentation"></a>API Yönetimi Belgeleri
+# <a name="api-management-documentation"></a>API Management Belgeleri
 
-API Management, kuruluşların kendi veri ve hizmet potansiyellerini ortaya çıkarmak üzere API’leri dış, iş ortağı ve iç geliştiricilere yayımlamalarına yardımcı olur.  API Management; geliştirici katılımı, iş öngörüleri, analizler, güvenlik ve koruma aracılığıyla başarılı bir API programı yürütmeye ilişkin temel yetkinlikler sağlar.
+API Management’ı kullanarak dış geliştiricilere, geliştirici iş ortaklarına ve şirket çalışanı olan geliştiricilere güvenli bir şekilde ve doğru ölçekte API yayımlama hakkında bilgi edinin. Öğreticiler, API başvuruları ve diğer belgeler, herhangi bir yerde barındırılan mevcut arka uç hizmetlerine yönelik modern API ağ geçitleri oluşturma ve bunları yönetme ile ilgili bilgiler içerir.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -29,7 +30,7 @@ API Management, kuruluşların kendi veri ve hizmet potansiyellerini ortaya çı
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=api-management">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=api-management">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -86,36 +87,46 @@ API Management, kuruluşların kendi veri ve hizmet potansiyellerini ortaya çı
 
 ---
 
-## <a name="reference"></a>Başvuru
-
+<h2>Başvuru</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/resourcemanager">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>API Management Resource Manager PowerShell cmdlet’i</p>
+                        <h3>Komut Satırı</h3>
+                        <p><a href="/powershell/azureps-cmdlets-docs">PowerShell</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/mt613507">Klasik PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/rest/api/apimanagement/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>API Management REST API Başvurusu</p>
+                        <p><a href="/rest/api/apimanagement/">REST API</a></p>
+                        <p><a href="/rest/api/apimanagement/ApiManagementREST/API-Management-REST">REST API (özgün)</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Diğer</h3>
+                        <p><a href="https://msdn.microsoft.com/library/azure/dn894081">İlkeler</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/mt697540">Şablonlar</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </li>
 </ul>
 
@@ -131,6 +142,6 @@ API Management Belgelerini indirin </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

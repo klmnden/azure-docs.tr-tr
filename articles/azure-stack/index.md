@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Azure Stack önizleme sürümünü kullanarak veri merkezinizden Azure hizmetleri sunmayı öğrenin. Bir kavram kanıtı ortamından özellikleri öğrenin ve tanıtın."
 translationtype: Human Translation
-ms.sourcegitcommit: cc7cf80b26a0bdc79448fc87d2d8b6fff1931d49
-ms.openlocfilehash: eb675cc7a401583cf0f2dc0605a16d5dda8b306f
+ms.sourcegitcommit: c93027a575b2f9d6507448f9f68011723b165bf3
+ms.openlocfilehash: c964ed3b3fe8b3af31c50f0aacb2ef1c0a8aad74
 
 ---
 #<a name="azure-stack-documentation"></a>Azure Stack Belgeleri
 
-Microsoft Azure Stack, kuruluşunuzun veri merkezinden Azure hizmetleri sağlama olanağı sunan yeni bir karma bulut platformu ürünüdür. Microsoft Azure Stack Technical Preview 2, Kavram Kanıtı (POC) aracılığıyla sağlanmaktadır. POC, Azure Stack özelliklerini öğrenmeye ve göstermeye yönelik bir ortamdır. Tek bir fiziksel makineye tüm gereken bileşenleri dağıtarak, temel kavramları ve özellikleri değerlendirmek, ayrıca API’lerin genişletilebilirlik modelini doğrulamak amacıyla bir ortam oluşturmanıza olanak tanır.
+Azure Stack teknik önizleme sürümünü kullanarak kurumunuzun veri merkezinden Azure hizmetleri sunmayı öğrenin. Öğreticilerde ve diğer belgelerde, kavram kanıtı ortamını kullanarak Azure Stack özelliklerini öğrenme ve tanıtma konusunda bilgiler sağlanmıştır.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -96,6 +97,6 @@ Azure Stack Belgelerini indirin </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

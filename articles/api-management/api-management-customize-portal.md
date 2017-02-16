@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/25/2016
-ms.author: sdanie
+ms.date: 12/15/2016
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 398b845a6549341d6afba101acec9eefd146d810
+ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
+ms.openlocfilehash: cbd2c3e915b93340c1a1478c09b23480c4565a98
 
 
 ---
@@ -55,7 +55,7 @@ Bu bölümde, yalnızca üst bilgilerin stilini değiştirmek istiyoruz. Stil d�
 
 Her kural seçilen öğenin bir stil özelliğini temsil eder. Örneğin, yukarıda seçilen üst bilgi metni için metin boyutu @font-size-h1 biçimindeyken, alternatiflerle birlikte yazı tipinin adı @headings-font-family. biçimindedir
 
-> [Önyükleme][Önyükleme] yapmayı biliyorsanız, bu kurallar aslında geliştirici portalı tarafından kullanılan önyükleme temasının [LESS değişkenleridir][LESS değişkenleridir].
+> [Önyükleme][bootstrap] yapmayı biliyorsanız, bu kurallar aslında geliştirici portalı tarafından kullanılan önyükleme temasının [LESS değişkenleridir][LESS variables].
 > 
 > 
 
@@ -87,12 +87,12 @@ Geliştirici portalının giriş sayfasında ne göründüğünü düzenlemek i�
 ## <a name="next-steps"> </a>Sonraki adımlar
 * [Geliştirici portal şablonları](api-management-developer-portal-templates.md)’nı kullanarak geliştirici portal sayfalarının içeriğini özelleştirme hakkında bilgi edinin.
 
-[Sayfa üst bilgisindeki metni/logoyu değiştirme]: #change-page-headers
-[Üst bilgilerin stilini değiştirme]: #change-headers-styling
-[Sayfanın içeriğini düzenleme]: #edit-page-contents
-[Sonraki adımlar]: #next-steps
+[Change the text/logo in the page headers]: #change-page-headers
+[Change the styling of the headers]: #change-headers-styling
+[Edit the contents of a page]: #edit-page-contents
+[Next steps]: #next-steps
 
-[Klasik Azure Portalı]: https://manage.windowsazure.com/
+[Azure Classic Portal]: https://manage.windowsazure.com/
 
 [api-management-management-console]: ./media/api-management-customize-portal/api-management-management-console.png
 [api-management-widgets-header]: ./media/api-management-customize-portal/api-management-widgets-header.png
@@ -102,11 +102,11 @@ Geliştirici portalının giriş sayfasında ne göründüğünü düzenlemek i�
 [api-management-customization-manage-content]: ./media/api-management-customize-portal/api-management-customization-manage-content.png
 
 
-[Önyükleme]: http://getbootstrap.com/
-[LESS değişkenleridir]: http://getbootstrap.com/css/
+[bootstrap]: http://getbootstrap.com/
+[LESS variables]: http://getbootstrap.com/css/
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/27/2016
+ms.date: 01/20/2017
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b1e422d9d1ae36b8e8a84194020d2eef65b545d0
+ms.sourcegitcommit: 232e1d1640352be38720e19f713959e84243af72
+ms.openlocfilehash: 1cd2b9d819acd7d422698d3c14a9009a846973f7
 
 
 ---
@@ -26,7 +26,7 @@ ms.openlocfilehash: b1e422d9d1ae36b8e8a84194020d2eef65b545d0
 
 Azure Virtual Machines Azure’un sunduğu isteğe bağlı, ölçeklenebilir çeşitli bilgi işlem kaynağı türlerinden biridir. Genellikle, sunulan diğer seçimlere göre bilgi işlem ortamınız üzerinde daha fazla denetime ihtiyacınız varsa, bir sanal makineyi seçersiniz.
 
-Bir Azure sanal makinesi, sanal makineyi çalıştıran fiziksel donanımı satın almanıza ve muhafaza etmenize gerek kalmadan size sanallaştırma esnekliği sunar. Ancak, yine de sanal makineyi muhafaza etmeniz (sanal makinede çalışan yazılımı yapılandırmanız, düzeltme eki uygulamanız ve muhafaza etmeniz) gerekir. [Azure’daki Linux sanal makineler hakkında](virtual-machines-linux-about.md) da bilgi edinebilirsiniz.
+Bir Azure sanal makinesi, sanal makineyi çalıştıran fiziksel donanımı satın almanıza ve muhafaza etmenize gerek kalmadan size sanallaştırma esnekliği sunar. Ancak, yine de sanal makineyi muhafaza etmeniz (sanal makinede çalışan yazılımı yapılandırmanız, düzeltme eki uygulamanız ve muhafaza etmeniz) gerekir. [Azure’daki Linux sanal makineler hakkında](virtual-machines-linux-about.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) da bilgi edinebilirsiniz.
 
 Bu tablo, Azure tarafından sunulan seçimleri karşılaştırmanıza yardımcı olur.
 
@@ -35,13 +35,13 @@ Bu tablo, Azure tarafından sunulan seçimleri karşılaştırmanıza yardımcı
 [!INCLUDE [virtual-machines-choose-me-content](../../includes/virtual-machines-choose-me-content.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Hızlı bir şekilde basit bir sanal makine oluşturarak sanal makineyi deneyin. Yönergeler için bkz. [Azure portalda Windows çalıştıran bir sanal makine oluşturma](virtual-machines-windows-hero-tutorial.md).
+Hızlı bir şekilde basit bir sanal makine oluşturarak sanal makineyi deneyin. Yönergeler için bkz. [Azure portalda Windows çalıştıran bir sanal makine oluşturma](virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-Öğretici bir sanal makineyi hızlı bir şekilde oluşturmanıza yardımcı olduğundan, sanal makineler oluşturmak için kullanabileceğiniz çeşitli araçları açıklamak yerine bunu yapmanın tek bir yolunu gösterir. Bu araçların bir özeti ve yönergelere bağlantılar için bkz. [Windows sanal makine oluşturmanın farklı yolları](virtual-machines-windows-creation-choices.md).
-
-
+Öğretici bir sanal makineyi hızlı bir şekilde oluşturmanıza yardımcı olduğundan, sanal makineler oluşturmak için kullanabileceğiniz çeşitli araçları açıklamak yerine bunu yapmanın tek bir yolunu gösterir. Bu araçların bir özeti ve yönergelere bağlantılar için bkz. [Windows sanal makine oluşturmanın farklı yolları](virtual-machines-windows-creation-choices.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 
-<!--HONumber=Nov16_HO2-->
+
+
+<!--HONumber=Jan17_HO3-->
 
 

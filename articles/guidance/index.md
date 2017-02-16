@@ -1,14 +1,12 @@
-
 ---
-title: Azure Guidance | Microsoft Docs
-description: Best practices and guidance for Azure
-services: ''
+title: "Azure Kılavuzu | Microsoft Docs"
+description: "Azure için en iyi uygulamalar ve kılavuz"
+services: 
 documentationcenter: na
 author: bennage
 manager: marksou
-editor: ''
-tags: ''
-
+editor: 
+tags: 
 ms.assetid: de94c74a-fea7-4815-8484-553e421a7490
 ms.service: guidance
 ms.devlang: na
@@ -17,100 +15,104 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/17/2016
 ms.author: christb
+translationtype: Human Translation
+ms.sourcegitcommit: 5f3ced657cf3d6587a63789b3dd3ca41cd2856f0
+ms.openlocfilehash: 0061e1ff2ae2d6b8ed7b7c3bb60405e76d4cc91b
+
 
 ---
-# Azure Guidance
+# <a name="azure-guidance"></a>Azure Kılavuzu
 [!INCLUDE [pnp-header](../../includes/guidance-pnp-header-include.md)]
 
-The Microsoft patterns & practices team is part of the Azure Customer Advisory Team. Our purpose is to help developers, architects, and IT professionals be successful on the Microsoft Azure platform. We develop guidance that shows best practices for building cloud solutions on Azure.
+Microsoft desenleri ve uygulamaları ekibi, Azure Müşteri Danışmanlık Ekibinin bir parçasıdır. Buradaki amacımız; geliştiricilerin, mimarların ve BT uzmanlarının Microsoft Azure platformunda başarılı olmalarına yardımcı olmaktır. Azure’da bulut uygulamaları oluşturmaya yönelik en iyi uygulamaları gösteren bir kılavuz geliştirdik.
 
-## Checklists
-These lists are a quick reference for reviewing the fundamental aspects of availability and scalability. 
+## <a name="checklists"></a>Denetim listeleri
+Bu listeler, kullanılabilirlik ve ölçeklenebilirliğin temel noktalarını gözden geçirmenizi sağlayan hızlı başvuru kaynaklarıdır. 
 
-* [Availability Checklist][AvailabilityChecklist] 
+* [Kullanılabilirlik Denetim Listesi][AvailabilityChecklist] 
   
-    A summary of recommended practices for ensuring availability.
-* [Scalability Checklist][ScalabilityChecklist]
+    Kullanılabilirlik sağlamak için önerilen uygulamaların bir özeti.
+* [Ölçeklenebilirlik Denetim Listesi][ScalabilityChecklist]
   
-    A summary of recommended practices for designing and implementing scalable services and handling data management.
+    Ölçeklenebilir hizmetler tasarlama ve uygulama ile veri yönetimi işlemleri için önerilen uygulamaların bir özeti.
 
-## Best practices articles
-These articles provide an in-depth discussion of important concepts commonly associated with cloud computing. 
+## <a name="best-practices-articles"></a>En iyi uygulamalar makaleleri
+Bu makaleler, genelde bulut bilgi işlem ile birlikte ilişkilendirilen önemli kavramların kapsamlı bir incelemesini sunar. 
 
-* [API Design][APIDesign] 
+* [API Tasarımı][APIDesign] 
   
-    A discussion of design issues to consider when designing a web API.
-* [API Implementation][APIImplementation] 
+    Web API’si tasarlarken karşılaşılabilecek tasarım sorunlarıyla ilgili bir görüşme.
+* [API Uygulaması][APIImplementation] 
   
-    A set of recommended practices for implementing and publishing a web API.
-* [API security guidance](https://github.com/mspnp/azure-guidance/blob/master/API-security.md) 
+    Bir web API’si uygulama ve yayımlamaya yönelik bir dizi önerilen uygulama.
+* [API güvenlik kılavuzu](https://github.com/mspnp/azure-guidance/blob/master/API-security.md) 
   
-    A discussion of authentication and authorization concerns (for example, token types, authorization protocols, authorization flows, and threat mitigation).
-* [Autoscaling guidance][AutoscalingGuidance] 
+    Kimlik doğrulama ve yetkilendirme ile ilgili konulardaki tartışmalar (ör. belirteç türleri, yetkilendirme protokolleri, yetkilendirme akışları ve tehdit risklerini azaltma).
+* [Otomatik ölçeklendirme kılavuzu][AutoscalingGuidance] 
   
-    A summary of considerations for scaling solutions without the need for manual intervention.
-* [Background Jobs guidance][BackgroundJobsGuidance] 
+    El ile müdahaleye gerek kalmadan ölçeklendirme çözümleri ile ilgili dikkat edilecek konuların bir özeti.
+* [Arka Plan İşleri kılavuzu][BackgroundJobsGuidance] 
   
-    A description of available options and recommended practices for implementing tasks that should be performed in the background, independently from any foreground or interactive operations.
-* [Content Delivery Network (CDN) guidance][CDNGuidance] 
+    Ön planda çalışan ve etkileşimli işlerden bağımsız olarak arka planda çalışması gereken görevleri uygulanmasına yönelik kullanılabilir seçenekler ve önerilen uygulamaların bir açıklaması.
+* [İçerik Teslim Ağı (CDN) kılavuzu][CDNGuidance] 
   
-    General guidance and recommended practice for using the CDN to minimize the load on your applications, and maximize availability and performance.
-* [Caching guidance][CachingGuidance] 
+    Uygulamalarınızın yükünü en aza indirmek ve kullanılabilirlik ile performansı en üst düzeye çıkarmak için CDN’i kullanmaya yönelik genel kılavuz ve önerilen uygulama.
+* [Önbelleğe alma kılavuzu][CachingGuidance] 
   
-    A summary of how to use caching to improve the performance and scalability of a system.
-* [Data Partitioning guidance][DataPartitioningGuidance]
+    Sistemin performansını ve ölçeklenebilirliğini artırmak için önbelleğe alma özelliğinin nasıl kullanılacağı ile ilgili özet.
+* [Veri Bölümleme kılavuzu][DataPartitioningGuidance]
   
-    Strategies that you can use to partition data to improve scalability, reduce contention, and optimize performance.
-* [Monitoring and Diagnostics guidance][MonitoringandDiagnosticsGuidance] 
+    Ölçeklenebilirliği geliştirmek, çekişmeyi azaltmak ve performansı iyileştirmek üzere veri bölümlemek için kullanabileceğiniz stratejiler.
+* [İzleme ve Tanılama kılavuzu][MonitoringandDiagnosticsGuidance] 
   
-    Guidance on tracking how your users utilize your system, trace resource utilization, and generally monitor the health and performance of your system.
-* [Recommended naming conventions][naming-conventions] 
+    Kullanıcıların sisteminizi nasıl kullandığını izleme, kaynak kullanımını takip etme ve sisteminizin genel durumunu ve performansını izleme kılavuzu.
+* [Önerilen adlandırma kuralları][naming-conventions] 
   
-    Recommended naming conventions for Azure resources.
-* [Retry General guidance][RetryGeneralGuidance] 
+    Azure kaynakları için önerilen adlandırma kuralları.
+* [Genel Yeniden Deneme kılavuzu][RetryGeneralGuidance] 
   
-    Discussion of the general concepts for handling transient faults.
-* [Retry Service-specific guidance][RetryServiceSpecificGuidance]
+    Geçici hataları ele almaya yönelik genel kavramlarla ilgili tartışma.
+* [Hizmete Özgü Yeniden Deneme kılavuzu][RetryServiceSpecificGuidance]
   
-    A summary of retry features for many of Azure services, including information to help you use, adapt, or extend the retry mechanism for that service.
+    Azure hizmetleri için yeniden deneme mekanizmasını kullanma, uyarlama ve genişletmeyle ilgili bilgiler dahil bu hizmetlere yönelik yeniden deneme özelliklerinin özeti.
 
-## Scenario guides
-* [Running Elasticsearch on Azure][elasticsearch] 
+## <a name="scenario-guides"></a>Senaryo kılavuzları
+* [Azure’da Elasticsearch’ü çalıştırma][elasticsearch] 
   
-    Elasticsearch is a highly scalable open-source search engine and database. It is suitable for situations that require fast analysis and discovery of information held in large datasets. This guidance looks at some key aspects to consider when designing an Elasticsearch cluster.
-* [Identity management for multitenant applications][identity-multitenant] 
+    Elasticsearch yüksek oradan ölçeklenebilir açık kaynaklı bir arama motoru ve veritabanıdır. Hızlı çözümleme yapılmasını ve büyük veri kümelerinde bilgi bulunmasını gerektiren durumlar için kullanışlıdır. Bu kılavuzda, bir Elasticsearch kümesi tasarlanırken dikkat edilmesi gereken bazı önemli konular ele alınmaktadır.
+* [Çok müşterili uygulamalar için kimlik yönetimi][identity-multitenant] 
   
-    Multitenancy is an architecture where multiple tenants share an application but are isolated from one another. This guidance shows you how to manage user identities in a multitenant application, using [Azure Active Directory][AzureAD] to handle sign-in and authentication.
-* [Developing big data solutions](https://msdn.microsoft.com/library/dn749874.aspx)
+    Çoklu müşteri mimarisi birden çok müşterinin bir uygulamayı paylaştığı, ancak birbirlerinden yalıtıldığı ortamlardır. Bu kılavuzda, kaydolma ve kimlik doğrulama ile ilgili işlemler için [Azure Active Directory][AzureAD]’yi kullanarak çok müşterili uygulamalarda kullanıcı kimliklerini nasıl yöneteceğiniz açıklanmaktadır.
+* [Büyük veri çözümleri geliştirme](https://msdn.microsoft.com/library/dn749874.aspx)
   
-    This guide explores the use of HDInsight for scenarios such as iterative exploration, as a data warehouse, for ETL processes, and integration into existing BI systems. It also includes guidance on understanding the concepts of big data, planning and designing big data solutions, and implementing these solutions.
+    Bu kılavuzda HDInsight’ın yinelemeli araştırma senaryolarında, veri ambarı olarak, ETL işlemleri için ve mevcut BI sistemleriyle tümleştirilmek üzere nasıl kullanılacağı ele alınmaktadır. Ayrıca büyük veri kavramlarını anlama, büyük veri çözümleri planlama ve tasarlama ve bu çözümleri uygulama konusunda rehberlik sunulmaktadır.
 
-## Patterns
-* [Cloud Design Patterns: Prescriptive Architecture Guidance for Cloud Applications](https://msdn.microsoft.com/library/dn568099.aspx)
+## <a name="patterns"></a>Desenler
+* [Bulut Tasarım Desenleri: Bulut Uygulamaları için Öngörücü Mimarlık Kılavuzu](https://msdn.microsoft.com/library/dn568099.aspx)
   
-    Cloud Design Patterns is a library of design patterns and related guidance topics. It articulates the benefit of applying patterns by showing how each piece can fit into cloud application architectures.
-* [Optimizing Performance for Cloud Applications](https://github.com/mspnp/performance-optimization)
+    Bulut Tasarım Desenleri, tasarım desenleri ile ilgili kılavuz konularından oluşan bir kitaplıktır. Her bir parçanın bulut uygulaması mimarileri ile nasıl uyum sağladığını göstererek desen uygulamanın avantajları belirtilmektedir.
+* [Bulut Uygulamaları için Performansı İyileştirme](https://github.com/mspnp/performance-optimization)
   
-    This guidance is an exploration of common anti-patterns that impede apps from scaling under load. It includes samples demonstrating eight anti-patterns and a [performance analysis primer](https://github.com/mspnp/performance-optimization/blob/master/Performance-Analysis-Primer.md) and a guide for [assessing performance against key metrics](https://github.com/mspnp/performance-optimization/blob/master/Assessing-System-Performance-Against-KPI.md).
+    Bu kılavuzda, uygulamaların yük altında ölçeklendirilmesini engelleyen yaygın ters desenler açıklanmaktadır. Sekiz farklı ters deseni, [performans çözümleme ile ilgili temel bilgileri](https://github.com/mspnp/performance-optimization/blob/master/Performance-Analysis-Primer.md) ve temel [ölçümlere göre performansı değerlendirme](https://github.com/mspnp/performance-optimization/blob/master/Assessing-System-Performance-Against-KPI.md) konularını açıklayan örnekler içermektedir.
 
-## Reference architectures
-Our reference architectures are arranged by scenario.
-Each individual architecture offers recommended practices and prescriptive steps, and an executable component that embodies the recommendations.
+## <a name="reference-architectures"></a>Başvuru mimarileri
+Başvuru mimarilerimizin düzenleme ölçütü senaryolardır.
+Her bağımsız mimaride önerilen uygulamalar ve öngörücü adımların yanı sıra öneriler içeren bir yürütülebilir bileşen sunulmaktadır.
 
-The current library of reference architectures is available at [http://aka.ms/architecture](http://aka.ms/architecture).
+Başvuru mimarilerini içeren güncel kitaplığa [http://aka.ms/architecture](http://aka.ms/architecture) adresinden ulaşabilirsiniz.
 
-## Resiliency guidance
-These topics describe how to design applications that are resilient to failure in a distributed cloud environment.   
+## <a name="resiliency-guidance"></a>Dayanıklılık kılavuzu
+Bu konu başlıklarında, dağıtılmış bir bulut ortamında hatalara karşı dayanıklı uygulamaların nasıl tasarlanacağı açıklanmaktadır.   
 
-* [Resiliency overview][ResiliencyOvervew]
+* [Dayanıklılığa genel bakış][ResiliencyOvervew]
   
-     How to build applications on the Azure platform that can recover from failures and continue to function. Describes a structured approach to achieve resiliency,from design to implementation, deployment, and operations.
-* [Resiliency checklist][resiliency-checklist]
+     Azure platformunda hatalardan kurtarılarak çalışmaya devam edebilecek uygulamaların nasıl oluşturulacağı açıklanmaktadır. Tasarım aşamasından başlayıp uygulama, dağıtım ve işleme geçme aşamasına kadar dayanıklılık sağlayacak güçlü bir yaklaşım ele alınmaktadır.
+* [Dayanıklılık denetim listesi][resiliency-checklist]
   
-    A checklist of recommendations that will help you plan for a variety of failure modes that could occur.
-* [Failure mode analysis][resiliency-fma] 
+    Oluşabilecek birçok farklı hata moduna karşı hazırlıklı olmanıza yardımcı olacak öneriler içeren bir denetim listesi.
+* [Hata modu analizi][resiliency-fma] 
   
-    Failure mode analysis (FMA) is a process for building resiliency into a system, by identifying possible failure points. As a starting point for your FMA process,this article contains a catalog of potential failure modes and their mitigations. 
+    Hata modu çözümlemesi (FMA) muhtemelen hata noktalarını tanımlayarak sisteminizi dayanıklı hale getirme işlemidir. Bu makalede, FMA işlemine başlamanıza yardımcı olması için muhtemel hata modlarını ve bunların riskini nasıl azaltma yollarını içeren bir katalog bulunmaktadır. 
 
 <!-- links -->
 
@@ -151,4 +153,10 @@ These topics describe how to design applications that are resilient to failure i
 [resiliency-fma]: guidance-resiliency-failure-mode-analysis.md
 [resiliency-checklist]: guidance-resiliency-checklist.md
 [ResiliencyOvervew]: guidance-resiliency-overview.md
+
+
+
+
+<!--HONumber=Dec16_HO1-->
+
 

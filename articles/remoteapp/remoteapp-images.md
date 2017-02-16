@@ -40,7 +40,7 @@ Azure RemoteApp aboneliğiniz üç şablon görüntüsü içerir:
 
 Her görüntünün içerdikleri ile ilgili ayrıntılar için okumaya devam edin.
 
-## <a name="windows-server-2012-r2-the-vanilla-image"></a>Windows Server 2012 R2 ("temel alınan görüntü")
+## <a name="windows-server-2012-r2--the-vanilla-image"></a>Windows Server 2012 R2 ("temel alınan görüntü")
 Bu görüntü Microsoft Windows Server 2012 R2 Datacenter işletim sistemini temel alır ve Azure RemoteApp şablon görüntüleri için gereksinimleri karşılamak üzere aşağıdaki roller ve özellikleri içerir:
 
 * .NET Framework 4.5, 3.5.1, 3.5

@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Öğreticiler, API başvuruları ve diğer belgeler, yüksek oranda kullanılabilir ve ölçeklenebilir bulut uygulamaları ve API&quot;ler barındırmak ve çalıştırmak için Cloud Services’ı kullanmaya ilişkin bilgiler içerir."
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: af0eb3ce49e509992ab582558a342933f950afdb
+ms.sourcegitcommit: 2b32d1a06f7db06ad3f443548b33d3c8e2032a9e
+ms.openlocfilehash: 69bcbae09192ecbb6b375bac522b433f8cd5391f
 
 ---
-#<a name="cloud-services-documentation"></a>Cloud Services Belgeleri
+# <a name="cloud-services-documentation"></a>Cloud Services Belgeleri
 
-Cloud Services, Hizmet Olarak Platform (PaaS) uygulamasının bir örneğidir. Ölçeklenebilir, güvenilir ve çalıştırılması ucuz uygulamaları destekleyecek şekilde tasarlanmıştır. Cloud Services ile sanallaştırma avantajının yanı sıra yazılım yapılandırma, düzeltme eki uygulama ve yükleme işlemlerinde sanal makine üzerinde denetime sahip olursunuz.  
+Cloud Services’ı kullanarak yüksek oranda kullanılabilir ve ölçeklenebilir bulut uygulamaları ve API'ler barındırma ve çalıştırma hakkında bilgi edinin.  Öğreticiler, API başvuruları ve diğer belgeler, sanal makine konaklarını yönetme ve yazılımları yapılandırma, yükleme ve yazılımlara düzeltme eki uygulama ile ilgili bilgiler içerir.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -86,48 +87,32 @@ Cloud Services, Hizmet Olarak Platform (PaaS) uygulamasının bir örneğidir. �
 
 ---
 
-## <a name="reference"></a>Başvuru
-
+<h2>Başvuru</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="https://msdn.microsoft.com/library/azure/ee460812">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Diller</h3>
+                        <p><a href="https://msdn.microsoft.com/library/azure/ee758711">.csdef XMLSchema</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/ee758710">.cscfg XMLSchema</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Cloud Services REST API Başvurusu</p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/ee460812">REST API</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
-    </li>
-
-    <li>
-        <a href="https://msdn.microsoft.com/en-us/library/azure/ee758711">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.Şemalar</h3>
-                        <p>Cloud Services Tanım Şeması</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-        <a href="https://msdn.microsoft.com/en-us/library/azure/ee758710">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <p>Cloud Services Yapılandırma Şeması</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
     </li>
 </ul>
 
@@ -141,6 +126,6 @@ Cloud Services Belgelerini indirin </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

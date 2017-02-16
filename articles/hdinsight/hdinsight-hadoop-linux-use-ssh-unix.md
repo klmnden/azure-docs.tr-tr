@@ -1,6 +1,6 @@
 ---
-title: "Linux, Unix ya da OS X’te Linux tabanlı Hadoop ile SSH anahtarlarını kullanma | Microsoft Belgeleri"
-description: " Secure Shell (SSH) kullanarak Linux tabanlı HDInsight’a erişebilirsiniz. Bu belge Linux, Unix ya da OS X istemcilerinde HDInsight ile SSH kullanma hakkında bilgi sağlar."
+title: Windows, Linux, Unix ya da OS X&quot;te HDInsight (Hadoop) ile SSH kullanma | Microsoft Belgeleri
+description: " Secure Shell (SSH) kullanarak HDInsight&quot;a erişebilirsiniz. Bu belge Windows, Linux, Unix ya da OS X istemcilerinde HDInsight ile SSH kullanma hakkında bilgi sağlar."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -13,21 +13,19 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/13/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 72ca562c53f813599f19069cfac7ef3ac1957968
-ms.openlocfilehash: f64cca8823a74c1c0f52e5d9112836661dc51d8e
+ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
+ms.openlocfilehash: 37409ad3f50cdd4a7a384c96a57a35ef8c83fb8f
 
 
 ---
-# <a name="use-ssh-with-linux-based-hadoop-on-hdinsight-from-linux-unix-or-os-x"></a>Linux, Unix ya da OS X’te HDInsight’ta Linux tabanlı Hadoop ile SSH’yi kullanma
+# <a name="use-ssh-with-hdinsight-hadoop-from-windows-linux-unix-or-os-x"></a>Windows, Linux, Unix ya da OS X'te HDInsight (Hadoop) ile SSH kullanma
 
 > [!div class="op_single_selector"]
-> * [Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
-> * [Linux, Unix, OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
->
->
+> * [PuTTY (Windows)](hdinsight-hadoop-linux-use-ssh-windows.md)
+> * [SSH (Windows, Linux, Unix, OS X)](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 [Secure Shell (SSH)](https://en.wikipedia.org/wiki/Secure_Shell), bir komut satırı arabirimi kullanarak Linux tabanlı HDInsight kümesinde oturum açmanızı ve komut çalıştırmanızı sağlar. Bu belge, SSH ile ilgili temel bilgilerin yanı sıra HDInsight ile SSH kullanımı hakkında ayrıntılı bilgi sağlar.
 
@@ -233,6 +231,6 @@ Artık bir SSH anahtarı kullanarak kimlik doğrulaması yapacağınızı anlad�
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

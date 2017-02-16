@@ -27,16 +27,12 @@
 ### [CLI aracılığıyla Oluşturma ve Yönetme](key-vault-manage-with-cli.md)
 
 # Başvuru
-## [Anahtarlar ve Gizlilikler Hakkında](https://msdn.microsoft.com/en-us/library/azure/dn903623)
-## [Kod örnekleri](https://www.microsoft.com/download/details.aspx?id=45343)
-
-## [Anahtar Kasası Resource Manager PowerShell Cmdlet'leri](/powershell/resourcemanager/)
-## [Anahtar Kasası Klasik PowerShell Cmdlet’leri](/powershell/servicemanagement/)
-## [Azure CLI ile Anahtar Kasası](/cli/azure/)
-## [Java’da Anahtar Kasası Başvurusu](/java/api/)
-## [Anahtar Kasası Yönetilen Başvuru API’si](/dotnet/api/) 
-## [Anahtar Kasası REST API’si Başvurusu](/rest/api/keyvault) 
-## [Anahtar Kasası için Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest/)
+## [PowerShell](/powershell/resourcemanager/azurerm.keyvault/v2.3.0/azurerm.keyvault)
+## [Azure 2.0 CLI (Önizleme)](/cli/azure/keyvault)
+## [.NET](/dotnet/api/microsoft.azure.keyvault)
+## [Java](/java/api/com.microsoft.azure.keyvault)
+## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
+## [REST](/rest/api/keyvault)
 
 # İlgili
 ## [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/)
@@ -45,11 +41,13 @@
 ## [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
 
 # Kaynaklar
+## [Anahtarlar ve Gizlilikler Hakkında](https://msdn.microsoft.com/en-us/library/azure/dn903623)
+## [Kod örnekleri](https://www.microsoft.com/download/details.aspx?id=45343)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/key-vault/)
 ## [Blog](http://blogs.technet.com/b/kv/)
 ## [Forumlar](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureKeyVault)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

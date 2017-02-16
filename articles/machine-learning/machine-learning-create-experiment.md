@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 11/21/2016
+ms.date: 12/14/2016
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: dd3e982ba908e542ce0b536699e37e2bc95e6706
+ms.sourcegitcommit: de2c52f8db5445e3e2eee62f673109f6d38cffa0
+ms.openlocfilehash: c58ee1c07e454a711ab0d6365a5cd432b0d939c8
 
 
 ---
@@ -95,7 +95,9 @@ Veri kümesini denemenize aşağıdaki gibi aktarabilirsiniz.
 
 1. Machine Learning Studio penceresinin alt kısmındaki **+NEW (+YENİ)** seçeneğine tıklayarak yeni bir deneme oluşturun, **EXPERIMENT (DENEME)** seçeneğini belirletin ve ardından **Blank Experiment (Boş Deneme)** öğesini seçin.
 
-2. Denemenize tuvalin üzerinde görebileceğiniz bir varsayılan ad verilir. Bu adı seçerek anlamlı bir adla değiştirin, örneğin, **Otomobil fiyat tahmini**.
+2. Denemenize tuvalin üzerinde görebileceğiniz bir varsayılan ad verilir. Bu adı seçerek anlamlı bir adla değiştirin, örneğin, **Otomobil fiyat tahmini**. Adın benzersiz olması gerekmez.
+
+    ![Denemeyi yeniden adlandırma][rename-experiment]
 
 2. Deneme tuvalinin sol tarafında bir veri kümesi ve modül paleti bulunur. **Otomobil fiyat verileri (Ham)** etiketli veri kümesini bulmak için bu paletin en üst kısmındaki Arama kutusuna **otomobil** yazın. Bu veri kümesini deneme tuvaline sürükleyin.
 
@@ -111,7 +113,7 @@ Bu verinin nasıl göründüğünü görmek için, otomobil veri kümesinin alt 
 
 > [!TIP]
 > Veri kümeleri ve modülleri küçük dairelerle gösterilen giriş ve çıkış bağlantı noktalarına sahiptir. Giriş bağlantı noktaları yukarıda, çıkış bağlantı noktaları aşağıdadır.
-Denemenizle bir veri akışı oluşturmak için, bu bağlantı noktalarını bağlamanız gerekir.
+Denemeniz üzerinden veri akışı oluşturmak için bir modülün çıkış bağlantı noktasını bir diğerinin giriş bağlantı noktasına bağlayacaksınız.
 Herhangi bir zamanda bir veri kümesi veya modülün çıkış bağlantı noktasına tıklayarak, veri akışında bu noktadaki verileri görebilirsiniz.
 
 Örnek veri kümesinde, bir otomobilin her örneği bir satır olarak görünür ve her otomobille ilişkili değişkenler sütun olarak görünür. Belirli bir otomobil için değişkenleri kullanarak en sağdaki sütundaki (“fiyat” başlıklı sütun 26) fiyatı tahmin etmeye çalışacağız.
@@ -169,7 +171,7 @@ Genellikle bir veri kümesi analiz edilmeden önce biraz ön işleme gerekir. Ö
     <br/>
     ***"Eksik Verileri Temizleme" için temizleme modunu "Tüm satırı kaldır" olarak ayarlayın***
 
-4. Deneme tuvalinin altında bulunan **RUN (ÇALIŞTIR)** düğmesine tıklayarak denemeyi çalıştırın.
+4. Sayfanın en altında yer alan **ÇALIŞTIR**'a tıklayarak denemeyi çalıştırın.
 
     Deneme çalıştırma bittiğinde, tüm modüllerin başarıyla tamamlandığını göstermek için yeşil bir onay işareti bulunur. Sağ üst köşede **Çalıştırma tamamlandı** durumunun olduğuna da dikkat edin.
 
@@ -326,7 +328,7 @@ Artık ilk makine öğrenimi öğreticinizi tamamladığınıza ve denemenizi ku
 Tek bir denemede birden çok modeli karşılaştırma örneği için [Cortana Intelligence Galerisi](https://gallery.cortanaintelligence.com)’nde [Regresörleri Karşılaştırma](https://gallery.cortanaintelligence.com/Experiment/Compare-Regressors-5)’ya bakın.
 
     > [!TIP]
-    > Denemenizin herhangi bir yinelemesini kopyalamak için deneme tuvalinin altındaki **SAVE AS (FARKLI KAYDET)** düğmesini kullanın. Tuvalin altındaki **VIEW RUN HISTORY (ÇALIŞTIRMA GEÇMİŞİNİ GÖRÜNTÜLE)** seçeneğine tıklayarak denemenizin tüm yinelemelerini görebilirsiniz. Daha fazla ayrıntı için bkz. [Azure Machine Learning Studio'da deneme yinelemelerini yönetme][runhistory].
+    > Denemenizin herhangi bir yinelemesini kopyalamak için sayfanın en altındaki **FARKLI KAYDET** düğmesini kullanın. Sayfanın en altındaki **ÇALIŞTIRMA GEÇMİŞİNİ GÖRÜNTÜLE** seçeneğine tıklayarak denemenizin tüm yinelemelerini görebilirsiniz. Daha fazla ayrıntı için bkz. [Azure Machine Learning Studio'da deneme yinelemelerini yönetme][runhistory].
 
 [runhistory]: machine-learning-manage-experiment-iterations.md
 
@@ -340,6 +342,7 @@ Daha fazla bilgi almak ister misiniz? Modeli oluşturma, eğitme, puanlama ve da
 
 <!-- Images -->
 [sign-in-to-studio]: ./media/machine-learning-create-experiment/sign-in-to-studio.png
+[rename-experiment]: ./media/machine-learning-create-experiment/rename-experiment.png
 [visualize-auto-data]:./media/machine-learning-create-experiment/visualize-auto-data.png
 [select-visualize]: ./media/machine-learning-create-experiment/select-visualize.png
 [showing-excluded-column]:./media/machine-learning-create-experiment/showing-excluded-column.png
@@ -377,6 +380,6 @@ Daha fazla bilgi almak ister misiniz? Modeli oluşturma, eğitme, puanlama ve da
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

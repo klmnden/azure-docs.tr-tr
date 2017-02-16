@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 01/05/2017
 ms.author: juliako;anilmur
 translationtype: Human Translation
-ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
-ms.openlocfilehash: 946f6e480083a0007a88c85b744ddeafa0385990
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: f22b87fc5bdfe2db5de39adaafe9c71d8c32b26a
 
 
 ---
@@ -32,7 +32,7 @@ Yalnızca Media Services’i kullanarak uçtan uca iş akışları oluşturabili
 
 Media Services çözümleri oluşturmak için şunları kullanabilirsiniz:
 
-* [Media Services REST API'si](https://msdn.microsoft.com/library/azure/hh973617.aspx)
+* [Media Services REST API'si](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference)
 * Kullanılabilir istemci SDK'larından biri:
     * [.NET için Azure Media Services SDK](https://github.com/Azure/azure-sdk-for-media-services),
     * [Java için Azure SDK](https://github.com/Azure/azure-sdk-for-java),
@@ -46,7 +46,7 @@ Aşağıdaki resimde Media Services OData modeliyle geliştirirken en sık kulla
 
 Resmi tam boyutlu görüntülemek için tıklayın.  
 
-<a href="https://docs.microsoft.com/en-us/azure/media-services/media/media-services-overview/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-overview/media-services-overview-object-model-small.png"></a>  
+<a href="./media/media-services-overview/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-overview/media-services-overview-object-model-small.png"></a> 
 
 Modelin tamamını [buradan](https://media.windows.net/API/$metadata?api-version=2.15) görüntüleyebilirsiniz.  
 
@@ -79,8 +79,8 @@ Bu bölümde, yaygın senaryolar açıklanmakta ve ilgili konulara bağlantılar
 ![VoD iş akışı](./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png)
 
 >[!NOTE]
->AMS hesabınız oluşturulduğunda hesabınıza **Durdurulmuş** durumda bir **varsayılan** akış uç noktası eklenir. İçerik akışını başlatmak ve dinamik paketleme ile dinamik şifrelemeden yararlanmak için içerik akışı yapmak istediğiniz akış uç noktasının **Çalışıyor** durumda olması gerekir. 
-    
+>AMS hesabınız oluşturulduğunda hesabınıza **Durdurulmuş** durumda bir **varsayılan** akış uç noktası eklenir. İçerik akışını başlatmak ve dinamik paketleme ile dinamik şifrelemeden yararlanmak için içerik akışı yapmak istediğiniz akış uç noktasının **Çalışıyor** durumda olması gerekir.
+
 ### <a name="protect-content-in-storage-and-deliver-streaming-media-in-the-clear-non-encrypted"></a>Depolama alanında içeriği koruma ve akan medyayı temiz olarak (şifrelenmemiş) teslim etme
 1. Yüksek kaliteli bir ara dosyayı bir varlığa yükleyin.
 
@@ -184,7 +184,8 @@ Media Services, Azure CDN ile tümleştirmeyi destekler. Azure CDN'yi etkinleşt
 Hesabınıza sağlanmasını istediğiniz **Akışa Ayrılan Birim** ve **Kodlamaya Ayrılan Birim** sayısını belirterek **Media Services**’i ölçeklendirebilirsiniz.
 
 Media Services hesabınızı, depolama hesapları ekleyerek de ölçeklendirebilirsiniz. Her depolama hesabı 500 TB ile sınırlıdır. Depolama alanınızı varsayılan sınırlamaların ötesine genişletmek için, tek bir Media Services hesabına birden çok depolama hesabı eklemeyi seçebilirsiniz.
-Media Services müşterileri ihtiyaçlarına göre **Standart** bir akış uç noktası veya bir veya daha fazla **Premium** akış uç noktası seçer. Standart Akış Uç Noktası çoğu akış iş yükü için uygundur. Premium Akış Birimleriyle aynı özelliklere sahiptir. Standart Akış Uç Noktası çoğu akış iş yükü için uygundur. Gelişmiş iş yükünüz varsa, akış kapasitesi gereksinimleriniz standart akış uç noktası çıkış hedeflerine uymuyorsa veya ölçek birimlerini (premium akış birimleri olarak da bilinir) ayarlayarak, artan bant genişliği ihtiyaçlarını yönetmek amacıyla StreamingEndpoint hizmetinin kapasitesini yönetmek istiyorsanız, ölçek birimleri atamanız önerilir.
+Media Services müşterileri ihtiyaçlarına göre **Standart** bir akış uç noktası veya bir veya daha fazla **Premium** akış uç noktası seçer. Standart Akış Uç Noktası çoğu akış iş yükü için uygundur. Premium Akış Birimleriyle aynı özelliklere sahiptir.
+Standart Akış Uç Noktası çoğu akış iş yükü için uygundur. Gelişmiş iş yükünüz varsa, akış kapasitesi gereksinimleriniz standart akış uç noktası çıkış hedeflerine uymuyorsa veya ölçek birimlerini (premium akış birimleri olarak da bilinir) ayarlayarak, artan bant genişliği ihtiyaçlarını yönetmek amacıyla StreamingEndpoint hizmetinin kapasitesini yönetmek istiyorsanız, ölçek birimleri atamanız önerilir.
 
 [Bu](media-services-portal-scale-streaming-endpoints.md) konuda, ilgili konulara bağlantılar sağlanmaktadır.
 

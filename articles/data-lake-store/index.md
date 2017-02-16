@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Her boyutta, türde ve alma hızındaki veriler üzerinde analiz gerçekleştirmek üzere hiper ölçekli, Hadoop ile uyumlu bir veri gölü deposu ayarlama, yönetme ve depoya erişme hakkında bilgi edinin."
 translationtype: Human Translation
-ms.sourcegitcommit: 5ddeaf6f2049983f80618d9e2294f82c60fe9af5
-ms.openlocfilehash: 2948011d1d321d0371928bbdf7a9a9414036589c
+ms.sourcegitcommit: a33b0509d1280a33a1e5134217b56071256fec24
+ms.openlocfilehash: d5ff73f8c9303bff281b2a2bbf314c76072f7569
 
 ---
 # <a name="data-lake-store-documentation"></a>Data Lake Store Belgeleri
 
-Azure Data Lake Store, büyük veri analizi iş yükleri için tasarlanan çok büyük ölçekte bir depodur. Azure Data Lake, işletimsel ve keşifsel analiz için herhangi bir boyuta, türe ve alım hızına sahip olan verileri tek bir konumda yakalamanıza olanak sağlar.  Azure Data Lake Store'a WebHDFS ile uyumlu senaryolar kullanılarak Hadoop'tan (HDInsight kümesiyle kullanılabilir) erişilebilir. Güvenlik, yönetilebilirlik, ölçeklenebilirlik, güvenilirlik ve kullanılabilirlik gibi tüm kurumsal düzeydeki özellikleri içerir.
+Data Lake Store’u kullanarak her boyutta, türde ve alma hızındaki veriler üzerinde analiz gerçekleştirmek üzere hiper ölçekli, Hadoop ile uyumlu bir depo oluşturma hakkında bilgi edinin. Öğreticiler, API başvuruları ve diğer belgeler, işlem ve keşif analizi için bir veri gölü deposu ayarlama, yönetme ve depoya erişme ile ilgili bilgiler içerir.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -157,68 +158,48 @@ Azure Data Lake Store, büyük veri analizi iş yükleri için tasarlanan çok b
 </ul>
 
 ---
-
-## <a name="reference"></a>Başvuru
-
+ 
+<h2>Başvuru</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>PowerShell Başvurusu</p>
+                        <h3>Komut Satırı</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.datalakestore/v3.1.0/azurerm.datalakestore">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-
- <li>
-        <a href="/dotnet/api">
+    <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>.NET Yönetilen Başvuru</p>
+                        <h3>Diller</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.management.datalake.store">.NET</a></p>
+                        <p><a href="/java/api/com.microsoft.azure.datalake.store">Java</a></p>
+                        <p><a href="https://www.npmjs.com/package/azure-arm-datalake-store">Node.js</a></p>
+                        <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-store.html">Python (Hesap Yönetimi)</a></p>
+                        <p><a href="http://azure-datalake-store.readthedocs.io/en/latest">Python (Dosya Sistemi Yönetimi)</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-
- <li>
-        <a href="/java/api">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Java</h3>
-                        <p>Java SDK Başvurusu</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-
-<li>
-        <a href="/rest/api/datalakestore">
+    <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Data Lake Store REST API Başvurusu</p>
+                        <p><a href="/rest/api/datalakestore">REST API</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
 
@@ -231,6 +212,6 @@ Azure Data Lake Store Belgelerini indirin </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,33 +1,42 @@
 ---
-title: Manage Azure SQL Database with PowerShell | Microsoft Docs
-description: Azure SQL Database management with PowerShell.
+title: "PowerShell ile Azure SQL Veritabanı yönetimi | Microsoft Belgeleri"
+description: "PowerShell ile Azure SQL Veritabanı yönetimi."
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: stevestein
 manager: jhubbard
 editor: monicar
-
+ms.assetid: 3f21ad5e-ba99-4010-b244-5e5815074d31
 ms.service: sql-database
+ms.custom: overview
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/13/2016
+ms.topic: get-started-article
+ms.date: 11/15/2016
 ms.author: sstein
+translationtype: Human Translation
+ms.sourcegitcommit: adad6b8e27e0996559d5e6dacb8dd60fbf52a631
+ms.openlocfilehash: 0c1ce1c29e447d9db4ef0df7873ef89cb835abee
+
 
 ---
-# Manage Azure SQL Database with PowerShell
+# <a name="managing-azure-sql-database-using-powershell"></a>PowerShell kullanarak Azure SQL Veritabanını yönetme
 > [!div class="op_single_selector"]
-> * [Azure portal](sql-database-manage-portal.md)
+> * [Azure Portal](sql-database-manage-portal.md)
 > * [Transact-SQL (SSMS)](sql-database-manage-azure-ssms.md)
-> * [PowerShell](sql-database-command-line-tools.md)
+> * [PowerShell](sql-database-manage-powershell.md)
 > 
 > 
 
-This topic shows the PowerShell cmdlets that are used to perform many Azure SQL Database tasks. For a complete list, see [Azure SQL Database Cmdlets](https://msdn.microsoft.com/library/mt574084.aspx).
+Bu konu başlığında, birçok Azure SQL veritabanı görevini gerçekleştirmek için kullanabileceğiniz PowerShell cmdlet'leri gösterilmektedir. Tam liste için bkz. [Azure SQL Veritabanı Cmdlet'leri](https://msdn.microsoft.com/library/mt574084\(v=azure.300\).aspx).
 
-## Create a resource group
-Create a resource group for our SQL Database and related Azure resources with the [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/azure/mt759837.aspx) cmdlet.
+> [!TIP]
+> Sunucu oluşturma, sunucu tabanlı güvenlik duvarı oluşturma, sunucu özelliklerini görüntüleme, bağlanma ve ana veritabanını sorgulama, örnek veritabanı ve boş veritabanı oluşturma, veritabanı özelliklerini sorgulama, bağlanma ve örnek veritabanını sorgulama adımlarını gösteren bir öğreticiye ihtiyacınız varsa bkz. [Başlangıç Öğreticisi](sql-database-get-started-powershell.md).
+>
+
+## <a name="how-do-i-create-a-resource-group"></a>Nasıl kaynak grubu oluşturabilirim?
+SQL veritabanınız ve ilgili Azure kaynakları için kaynak grubu oluşturmak istiyorsanız [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/azure/mt759837\(v=azure.300\).aspx) cmdlet'ini kullanabilirsiniz.
 
 ```
 $resourceGroupName = "resourcegroup1"
@@ -35,11 +44,11 @@ $resourceGroupLocation = "northcentralus"
 New-AzureRmResourceGroup -Name $resourceGroupName -Location $resourceGroupLocation
 ```
 
-For more information, see [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md).
-For a sample script, see [Create a SQL database PowerShell script](sql-database-get-started-powershell.md#create-a-sql-database-powershell-script).
+Daha fazla bilgi için bkz. [Azure PowerShell'i Azure Resource Manager ile kullanma](../powershell-azure-resource-manager.md).
+Tam öğretici için bkz. [Azure PowerShell aracılığıyla Azure SQL Veritabanı sunucularını, veritabanlarını ve güvenlik duvarı kurallarını kullanmaya başlama](sql-database-get-started-powershell.md).
 
-## Create a SQL Database server
-Create a SQL Database server with the [New-AzureRmSqlServer](https://msdn.microsoft.com/library/azure/mt603715.aspx) cmdlet. Replace *server1* with the name for your server. Server names must be unique across all Azure SQL Database servers. If the server name is already taken, you get an error. This command may take several minutes to complete. The resource group must already exist in your subscription.
+## <a name="how-do-i-create-a-sql-database-server"></a>Bir SQL veritabanı sunucusunu nasıl oluşturabilirim?
+Bir SQL veritabanı sunucusu oluşturmak için [New-AzureRmSqlServer](https://msdn.microsoft.com/library/azure/mt603715\(v=azure.300\).aspx) cmdlet'ini kullanın. *server1* yerine sunucunuzun adını yazın. Sunucu adlarının tüm Azure SQL veritabanı sunucuları arasında benzersiz olması gerekir. Sunucu adı zaten alınmışsa hata alırsınız. Bu komutun tamamlanması birkaç dakika sürebilir. Kaynak grubunun aboneliğinizde mevcut olması gerekir.
 
 ```
 $resourceGroupName = "resourcegroup1"
@@ -49,8 +58,8 @@ $sqlServerVersion = "12.0"
 $sqlServerLocation = "northcentralus"
 $serverAdmin = "loginname"
 $serverPassword = "password" 
-$securePassword = ConvertTo-SecureString –String $serverPassword –AsPlainText -Force
-$creds = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $serverAdmin, $securePassword
+$securePassword = ConvertTo-SecureString -String $serverPassword -AsPlainText -Force
+$creds = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $serverAdmin, $securePassword
 
 
 $sqlServer = New-AzureRmSqlServer -ServerName $sqlServerName `
@@ -58,10 +67,10 @@ $sqlServer = New-AzureRmSqlServer -ServerName $sqlServerName `
  -ResourceGroupName $resourceGroupName -ServerVersion $sqlServerVersion
 ```
 
-For more information, see [What is SQL Database](sql-database-technical-overview.md). For a sample script, see [Create a SQL database PowerShell script](sql-database-get-started-powershell.md#create-a-sql-database-powershell-script).
+Sunucular hakkında daha fazla bilgi için bkz. [SQL Veritabanı özellikleri](sql-database-features.md). Tam öğretici için bkz. [Azure PowerShell aracılığıyla Azure SQL Veritabanı sunucularını, veritabanlarını ve güvenlik duvarı kurallarını kullanmaya başlama](sql-database-get-started-powershell.md).
 
-## Create a SQL Database server firewall rule
-Create a firewall rule to access the server with the [New-AzureRmSqlServerFirewallRule](https://msdn.microsoft.com/library/azure/mt603860.aspx) cmdlet. Run the following command, replacing the start and end IP addresses with valid values for your client. The resource group, and server must already exist in your subscription.
+## <a name="how-do-i-create-a-sql-database-server-firewall-rule"></a>Bir SQL veritabanı sunucusu güvenlik duvarı kuralını nasıl oluşturabilirim?
+Sunucuya erişmek için bir güvenlik duvarı kuralı oluşturmak istiyorsanız [New-AzureRmSqlServerFirewallRule](https://msdn.microsoft.com/library/azure/mt603860\(v=azure.300\).aspx) cmdlet'ini kullanmanız gerekir. Başlangıç IP adresini ve bitiş IP adresini istemciniz için geçerli değerlerle değiştirerek aşağıdaki komutu çalıştırın. Kaynak grubunun ve sunucunun aboneliğinizde mevcut olması gerekir.
 
 ```
 $resourceGroupName = "resourcegroup1"
@@ -76,12 +85,12 @@ New-AzureRmSqlServerFirewallRule -ResourceGroupName $resourceGroupName `
  -StartIpAddress $firewallStartIp -EndIpAddress $firewallEndIp
 ```
 
-To allow other Azure services access to your server, create a firewall rule and set both the `-StartIpAddress` and `-EndIpAddress` to **0.0.0.0**. This special firewall rule allows all Azure traffic to access the server.
+Diğer Azure hizmetlerinin sunucunuza erişmesine izin vermek için bir güvenlik duvarı kuralı oluşturun ve hem `-StartIpAddress` hem de `-EndIpAddress` değerini **0.0.0.0** olarak ayarlayın. Bu özel güvenlik duvarı kuralı, sunucuya tüm Azure trafiğinin ulaşmasını sağlar.
 
-For more information, see [Azure SQL Database Firewall](https://msdn.microsoft.com/library/azure/ee621782.aspx). For a sample script, see [Create a SQL database PowerShell script](sql-database-get-started-powershell.md#create-a-sql-database-powershell-script).
+Daha fazla bilgi için bkz. [Azure SQL Database Güvenlik Duvarı](https://msdn.microsoft.com/library/azure/ee621782.aspx). Tam öğretici için bkz. [Azure PowerShell aracılığıyla Azure SQL Veritabanı sunucularını, veritabanlarını ve güvenlik duvarı kurallarını kullanmaya başlama](sql-database-get-started-powershell.md).
 
-## Create a SQL database (blank)
-Create a database with the [New-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619339.aspx) cmdlet. The resource group, and server must already exist in your subscription. 
+## <a name="how-do-i-create-a-sql-database"></a>Bir SQL veritabanını nasıl oluşturabilirim?
+Bir SQL veritabanı oluşturmak için [New-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619339\(v=azure.300\).aspx) cmdlet'ini kullanın. Kaynak grubunun ve sunucunun aboneliğinizde mevcut olması gerekir. 
 
 ```
 $resourceGroupName = "resourcegroup1"
@@ -96,10 +105,10 @@ $currentDatabase = New-AzureRmSqlDatabase -ResourceGroupName $resourceGroupName 
  -Edition $databaseEdition -RequestedServiceObjectiveName $databaseServiceLevel
 ```
 
-For more information, see [What is SQL Database](sql-database-technical-overview.md). For a sample script, see [Create a SQL database PowerShell script](sql-database-get-started-powershell.md#create-a-sql-database-powershell-script).
+Daha fazla bilgi için bkz. [SQL Veritabanı nedir?](sql-database-technical-overview.md). Tam öğretici için bkz. [Azure PowerShell aracılığıyla Azure SQL Veritabanı sunucularını, veritabanlarını ve güvenlik duvarı kurallarını kullanmaya başlama](sql-database-get-started-powershell.md).
 
-## Change the performance level of a SQL database
-Scale your database up or down with the [Set-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619433.aspx) cmdlet. The resource group, server, and database must already exist in your subscription. Set the `-RequestedServiceObjectiveName` to a single space (like the following snippet) for Basic tier. Set it to *S0*, *S1*, *P1*, *P6*, etc., like the preceding example for other tiers.
+## <a name="how-do-i-change-the-performance-level-of-a-sql-database"></a>Bir SQL veritabanının performans düzeyini nasıl değiştirebilirim?
+Performans düzeyini değiştirmek için [Set-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619433\(v=azure.300\).aspx) cmdlet'ini kullanarak veritabanınızı yukarı veya aşağı ölçeklendirin. Kaynak grubunun, sunucunun ve veritabanının aboneliğinizde mevcut olması gerekir. Temel katman için `-RequestedServiceObjectiveName` değerini tek boşluğa (aşağıdaki kod parçacığı gibi) ayarlayın. Diğer katmanlar için önceki örnekte olduğu gibi *S0*, *S1*, *P1*, *P6* gibi değerlere ayarlayın.
 
 ```
 $resourceGroupName = "resourcegroup1"
@@ -114,10 +123,10 @@ Set-AzureRmSqlDatabase -ResourceGroupName $resourceGroupName `
  -Edition $databaseEdition -RequestedServiceObjectiveName $databaseServiceLevel
 ```
 
-For more information, see [SQL Database options and performance: Understand what's available in each service tier](sql-database-service-tiers.md). For a sample script, see [Sample PowerShell script to change the service tier and performance level of your SQL database](sql-database-scale-up-powershell.md#sample-powershell-script-to-change-the-service-tier-and-performance-level-of-your-sql-database).
+Daha fazla bilgi için bkz. [SQL Veritabanı seçenekleri ve performansı: Her hizmet katmanında nelerin kullanılabildiğini anlama](sql-database-service-tiers.md). Örnek betik için bkz. [SQL veritabanınızın hizmet katmanını ve performans düzeyini değiştirmek için örnek PowerShell betiği](sql-database-scale-up-powershell.md#sample-powershell-script-to-change-the-service-tier-and-performance-level-of-your-sql-database).
 
-## Copy a SQL database to the same server
-Copy a SQL database to the same server with the [New-AzureRmSqlDatabaseCopy](https://msdn.microsoft.com/library/azure/mt603644.aspx) cmdlet. Set the `-CopyServerName` and `-CopyResourceGroupName` to the same values as your source database server and resource group.
+## <a name="how-do-i-copy-a-sql-database-to-the-same-server"></a>Bir SQL veritabanını aynı sunucuya nasıl kopyalayabilirim?
+Bir SQL veritabanını aynı sunucuya kopyalamak için [New-AzureRmSqlDatabaseCopy](https://msdn.microsoft.com/library/azure/mt603644\(v=azure.300\).aspx) cmdlet'ini kullanın. `-CopyServerName` ve `-CopyResourceGroupName` değerlerini kaynak veritabanı sunucunuz ve kaynak grubuyla aynı değerlere ayarlayın.
 
 ```
 $resourceGroupName = "resourcegroup1"
@@ -134,10 +143,10 @@ New-AzureRmSqlDatabaseCopy -DatabaseName $databaseName `
  -CopyResourceGroupName $copyResourceGroupName
 ```
 
-For more information, see [Copy an Azure SQL Database](sql-database-copy.md). For a sample script, see [Copy a SQL database PowerShell script](sql-database-copy-powershell.md#example-powershell-script).
+Daha fazla bilgi için bkz. [Azure SQL Veritabanını kopyalama](sql-database-copy.md). Örnek betik için bkz. [SQL veritabanını kopyalama PowerShell betiği](sql-database-copy-powershell.md#example-powershell-script).
 
-## Delete a SQL database
-Delete a SQL database with the [Remove-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619368.aspx) cmdlet. The resource group, server, and database must already exist in your subscription.
+## <a name="how-do-i-delete-a-sql-database"></a>Bir SQL veritabanını nasıl silebilirim?
+Bir SQL veritabanını silmek için. [Remove-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619368\(v=azure.300\).aspx) cmdlet'ini kullanın. Kaynak grubunun, sunucunun ve veritabanının aboneliğinizde mevcut olması gerekir.
 
 ```
 $resourceGroupName = "resourcegroup1"
@@ -148,8 +157,8 @@ Remove-AzureRmSqlDatabase -DatabaseName $databaseName `
  -ServerName $sqlServerName -ResourceGroupName $resourceGroupName
 ```
 
-## Delete a SQL Database server
-Delete a server with the [Remove-AzureRmSqlServer](https://msdn.microsoft.com/library/azure/mt603488.aspx) cmdlet.
+## <a name="how-do-i-delete-a-sql-database-server"></a>Bir SQL veritabanını sunucusunu nasıl silebilirim?
+Bir SQL veritabanı sunucusunu silmek için [Remove-AzureRmSqlServer](https://msdn.microsoft.com/library/azure/mt603488\(v=azure.300\).aspx) cmdlet'ini kullanın.
 
 ```
 $resourceGroupName = "resourcegroup1"
@@ -158,12 +167,18 @@ $sqlServerName = "server1"
 Remove-AzureRmSqlServer -ServerName $sqlServerName -ResourceGroupName $resourceGroupName
 ```
 
-## Create and manage elastic database pools using PowerShell
-For details about creating elastic database pools using PowerShell, see [Create a new elastic database pool with PowerShell](sql-database-elastic-pool-create-powershell.md).
+## <a name="how-do-i-create-and-manage-elastic-pools-using-powershell"></a>PowerShell'i kullanarak elastik havuzları nasıl oluşturabilir ve yönetebilirim?
+PowerShell kullanarak elastik havuz oluşturma hakkında ayrıntılar için bkz. [PowerShell ile yeni bir elastik havuz oluşturma](sql-database-elastic-pool-create-powershell.md).
 
-For details about managing elastic database pools using PowerShell, see [Monitor and manage an elastic database pool with PowerShell](sql-database-elastic-pool-manage-powershell.md).
+PowerShell kullanarak elastik havuzları yönetme hakkında ayrıntılar için bkz. [PowerShell ile bir elastik havuzu izleme ve yönetme](sql-database-elastic-pool-manage-powershell.md).
 
-## Related information
-* [Azure SQL Database Cmdlets](https://msdn.microsoft.com/library/azure/mt574084.aspx)
-* [Azure Cmdlet Reference](https://msdn.microsoft.com/library/azure/dn708514.aspx)
+## <a name="related-information"></a>İlgili bilgiler
+* [Azure SQL Veritabanı Cmdlet’leri](https://msdn.microsoft.com/library/azure/mt574084\(v=azure.300\).aspx)
+* [Azure Cmdlet Başvurusu](https://msdn.microsoft.com/library/azure/dn708514\(v=azure.300\).aspx)
+
+
+
+
+<!--HONumber=Dec16_HO3-->
+
 

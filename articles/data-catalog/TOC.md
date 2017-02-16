@@ -26,19 +26,20 @@
 ### [Geliştirici örnekleri](data-catalog-samples.md)
 
 # Başvuru
-## [Azure Veri Kataloğu için klavye kısayolları](data-catalog-keyboard-shortcuts.md)
-## [Terminoloji](data-catalog-terminology.md)
-## [Sürüm notları](data-catalog-release-notes.md)
 ## [REST](/rest/api/datacatalog/)
 
 # Kaynaklar
-## [Sürüm notları](data-catalog-whats-new.md)
+## [Azure Veri Kataloğu için klavye kısayolları](data-catalog-keyboard-shortcuts.md)
+## [Terminoloji](data-catalog-terminology.md)
+## Sürüm notları
+### [Sürüm notları - Yeni](data-catalog-whats-new.md)
+### [Sürüm notları](data-catalog-release-notes.md)
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=data-catalog)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/data-catalog/)
 ## [MSDN forumu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azuredatacatalog)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-catalog)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

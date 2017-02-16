@@ -1,14 +1,15 @@
 ---
 layout: LandingPage
+description: "Bulutta kapsamlı tüketici kimlik yönetimi dağıtmayı öğrenin. Belgelerde tüketicilere dönük web uygulamalarını ve mobil uygulamaları nasıl koruyabileceğiniz açıklanmıştır."
 translationtype: Human Translation
-ms.sourcegitcommit: 3cee8c74ed77a27c8a2006dcd28729f9c077aea9
-ms.openlocfilehash: 330f2c0efed16ae587c6f069d3feae1bb80f3097
+ms.sourcegitcommit: e3ffd8f83b4ad25d28f6d0afd82efc6150d98fa2
+ms.openlocfilehash: c5f925446b5e2cc7ea8739e22e9d093428700483
 
 ---
 
 #<a name="active-directory-b2c-documentation"></a>Active Directory B2C Belgeleri
 
-Azure Active Directory B2C, tüketiciye yönelik web ve mobil uygulamalarınız için kapsamlı bulut kimlik yönetimi çözümüdür. Yüz milyonlarca tüketici kimliği ölçeğinde yüksek oranda kullanılabilir bir küresel hizmettir. Kurumsal düzeyde güvenli bir platform üzerinde oluşturulan Azure Active Directory B2C uygulamalarınızın, işinizin ve tüketicilerinizin korunmasını sağlar.
+Active Directory B2C ile bulutta kapsamlı tüketici kimlik yönetimi ayarlamayı ve yönetmeyi öğrenin. Öğreticiler, başvurular ve diğer belgeler, tüketiciye yönelik web uygulamalarını ve mobil uygulamaları güvenli oturum açma özelliğiyle nasıl koruyabileceğinize ilişkin bilgiler içerir.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -187,6 +188,6 @@ Active Directory B2C Belgelerini İndirme </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

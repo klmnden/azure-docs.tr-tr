@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 11/16/2016
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: 2d833a559b72569983340972ba3b905b9e42e61d
-ms.openlocfilehash: 32211d26314f1f967433dc689586f611e3c8c319
+ms.sourcegitcommit: ed44ca2076860128b175888748cdaa8794c2310d
+ms.openlocfilehash: b922127076a8cb29ffb89c7fd184d4b8fa2d7e13
 
 
 ---
@@ -64,9 +64,8 @@ DocumentDB'yi ilk kez mi kullanıyorsunuz? Çevrimiçi portalda en yaygın göre
 
    ![Tutarlılık Düzeyi dikey penceresinin ekran görüntüsü - Oturum Tutarlılığı](./media/documentdb-create-account/create-nosql-db-databases-json-tutorial-7.png)  
 
-[Nasıl yapılır: DocumentDB hesabı oluşturma]: #Howto
-[Sonraki adımlar]: #NextSteps
-[documentdb-manage]:../articles/documentdb/documentdb-manage.md
+[How to: Create a DocumentDB account]: #Howto
+[Next steps]: #NextSteps
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
@@ -91,6 +90,6 @@ DocumentDB hakkında daha fazla bilgi edinmek için şu kaynakları keşfedin:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

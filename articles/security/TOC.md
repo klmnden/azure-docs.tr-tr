@@ -33,12 +33,10 @@
 ### [Güvenlikle ilgili en iyi uygulamalar ve modeller](security-best-practices-and-patterns.md)
 ### [Dayanıklı uygulama mimarileri oluşturma](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md?toc=%2fazure%2fsecurity%2ftoc.json)
 
-# Başvuru
+# İlgili
 ## [Güven Merkezi](security-microsoft-trust-center.md)
 ## [Microsoft Güvenlik Yanıt Merkezi](azure-security-response-center.md)
 ## [Sızma testi](azure-security-pen-testing.md)
-
-# İlgili
 ## [Güvenlik Merkezi](../security-center/security-center-intro.md?toc=%2fazure%2fsecurity-center%2ftoc.json)
 ## [Anahtar Kasası](../key-vault/key-vault-whatis.md)
 ## [Log Analytics](../log-analytics/log-analytics-overview.md)
@@ -52,6 +50,7 @@
 ## [Sanal Akademi’den güvenlik kursları](security-microsoft-virtual-academy.md)
 ## [Channel 9’da güvenlik videoları](security-channel-nine.md)
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Dec16_HO1-->
 
 

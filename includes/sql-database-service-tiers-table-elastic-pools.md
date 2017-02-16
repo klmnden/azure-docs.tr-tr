@@ -66,7 +66,7 @@ sql-database-service-tiers.md
 | Havuz boyutu (eDTU)  |  **2000** | **2500** | **3000** | **3500** | **4000** |
 |:---|---:|---:|---:| ---: | ---: | 
 | Havuz başına en fazla depolama* | 750 GB | 750 GB | 750 GB | 750 GB | 750 GB |
-| Havuz başına en fazla depolama* | 16 GB | 20 GB | 24 GB | 28 GB | 32 GB |
+| Havuz başına maks. Bellek İçi OLTP depolama alanı* | 16 GB | 20 GB | 24 GB | 28 GB | 32 GB |
 | Havuz başına en fazla veritabanı | 100 | 100 | 100 | 100 | 100 | 
 | Havuz başına maks. eş zamanlı çalışan |  3200 | 4000 | 4800 | 5600 | 6400 |
 | Havuz başına maks. eş zamanlı oturum |  3200 | 4000 | 4800 | 5600 | 6400 |
@@ -79,6 +79,6 @@ sql-database-service-tiers.md
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

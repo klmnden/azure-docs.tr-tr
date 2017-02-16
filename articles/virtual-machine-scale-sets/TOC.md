@@ -2,15 +2,17 @@
 ## [Sanal makine ölçek kümeleri nedir?](virtual-machine-scale-sets-overview.md)
 
 # Kullanmaya Başlama
-## [Windows ölçek kümesi oluşturma](virtual-machine-scale-sets-windows-create.md)
-## [Linux ölçek kümesi oluşturma](virtual-machine-scale-sets-linux-create-cli.md)
+## [Portalda ölçek kümesi oluşturma](virtual-machine-scale-sets-portal-create.md)
 
-# Nasıl yapılır
+# Nasıl yapılır?
 ## Planlama ve tasarım
 ### [Tasarım konusunda dikkat edilmesi gerekenler](virtual-machine-scale-sets-design-overview.md)
+
 ## Dağıtma
 ### [Portalı kullanan ölçek kümesi](virtual-machine-scale-sets-portal-create.md)
 ### [Visual Studio kullanan ölçek kümesi](virtual-machine-scale-sets-vs-create.md)
+### [PowerShell kullanan ölçek kümesi](virtual-machine-scale-sets-windows-create.md)
+### [Azure CLI kullanan ölçek kümesi](virtual-machine-scale-sets-linux-create-cli.md)
 ### [Otomatik ölçeklendirme içeren Linux ölçek kümesi](virtual-machine-scale-sets-linux-autoscale.md)
 ### [Otomatik ölçeklendirme içeren Windows ölçek kümesi](virtual-machine-scale-sets-windows-autoscale.md)
 ### [Ölçek kümelerindeki uygulamalar](virtual-machine-scale-sets-deploy-app.md)
@@ -38,6 +40,6 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-vm-scale-set)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

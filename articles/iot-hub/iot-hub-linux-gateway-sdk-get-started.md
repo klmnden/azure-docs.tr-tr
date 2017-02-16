@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 11/23/2016
 ms.author: andbuc
 translationtype: Human Translation
-ms.sourcegitcommit: 6b41567f7b43fd6a56da1f571e007d31cef97b92
-ms.openlocfilehash: 68965a1157b31d75595e546b2b227844ddff2eb9
+ms.sourcegitcommit: e1cf5ed3f2434a9e98027afd0225207ad5d2f1b1
+ms.openlocfilehash: 28984e14f5afc27b608ab37daf19d454eb7c3201
 
 
 ---
@@ -28,7 +28,7 @@ Başlamadan önce Linux üzerindeki SDK ile çalışacak [geliştirme ortamını
 
 1. Bir kabuk açın.
 2. **azure-iot-gateway-sdk** deposunun yerel kopyasındaki kök klasöre gidin.
-3. **tools/build.sh --skip-unittests** betiğini çalıştırın. Bu betik **cmake** yardımcı programını kullanarak **azure-iot-gateway-sdk** deposu yerel kopyasının kök klasöründe **build** adlı bir klasör ve bir derleme görevleri dosyası oluşturur. Betik daha sonra çözümü derler ve birim testlerini atlar. Derleme yapmak ve birim testlerini çalıştırmak istiyorsanız **--skip-unittests** parametresini kaldırın.
+3. **tools/build.sh** betiğini çalıştırın. Bu betik **cmake** yardımcı programını kullanarak **azure-iot-gateway-sdk** deposu yerel kopyasının kök klasöründe **build** adlı bir klasör ve bir derleme görevleri dosyası oluşturur. Betik daha sonra çözümü derler ve birim testleri ile uçtan uca testleri atlar. Derleme yapmak ve birim testlerini çalıştırmak istiyorsanız **--run-unittests** parametresini ekleyin. Derleme yapmak ve uçtan uca testleri çalıştırmak istiyorsanız **--run-e2e-tests** parametresini ekleyin.
 
 > [!NOTE]
 > **build.sh** betiğini her çalıştırdığınızda betik **azure-iot-gateway-sdk** deposu yerel kopyasının kök klasöründe bulunan **build** klasörünü siler ve yeniden oluşturur.
@@ -92,6 +92,6 @@ Başlamadan önce Linux üzerindeki SDK ile çalışacak [geliştirme ortamını
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/08/2016
+ms.date: 02/14/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 2fb248f3e71b248ce0b5ae02ebeff291bbd28dce
+ms.sourcegitcommit: facdbff229eaf5ee20d98214c62c8b2b46acc0fd
+ms.openlocfilehash: 80617b203bf5efa4cd6bed590ea937b2e68db9e1
 
 
 ---
@@ -57,7 +57,7 @@ GÖ = Genel Önizleme
 |:--- |:---:|:---:|:---:|:---:|:---:|
 | Cihazlar için geri yazma |● | |● | | |
 | Öznitelik geri yazma (Exchange karma dağıtımı için) |● |● |● |● |● |
-| Kullanıcılar ve gruplar nesneleri için geri yazma |● | | | | |
+| Gruplar nesneleri için geri yazma |● | | | | |
 | Parola geri yazma (self servis parola sıfırlama (SSPR) ve parola değiştirme işleminden) |● |● | | | |
 
 ## <a name="authentication-feature-support"></a>Kimlik Doğrulama Özelliği Desteği
@@ -95,6 +95,6 @@ GÖ = Genel Önizleme
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/13/2016
+ms.date: 11/16/2016
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 23a6be60d7bf8fa47589fffb5132a09994d33d4c
+ms.sourcegitcommit: 7f5e33b7f80e3c1e1e3e66b3cab879a5bc30e823
+ms.openlocfilehash: 18f2c1876fab914073c8aea67f67724f281a65aa
 
 
 ---
@@ -44,9 +44,9 @@ Azure DocumentDB aşağıdaki temel işlevleri ve avantajları sunar:
 * **İnce ayarlanabilir tutarlılık düzeyleri:** Tutarlılık ve performans arasında en iyi dengeyi elde etmek için iyi tanımlanmış dört tutarlılık düzeyi arasından seçim yapın. DocumentDB sorgular ve okuma işlemleri için dört farklı tutarlılık düzeyi sunar: güçlü, sınırlanmış eskime durumu, oturum ve son. Bu ayrıntılı ve iyi tanımlanmış tutarlılık düzeyleri tutarlılık, kullanılabilirlik ve gecikme süresi arasında sağlam bir denge kurmanıza olanak sağlar. Daha fazla bilgi için bkz. [DocumentDB'de kullanılabilirlik ve performansı en üst düzeye çıkarmak için tutarlılık düzeylerini kullanma](documentdb-consistency-levels.md).
 * **Tam olarak yönetilme:** Veritabanı ve makine kaynaklarını yönetme ihtiyacını ortadan kaldırın. Bu tam olarak yönetilen bir Microsoft Azure hizmeti olduğundan sanal makineleri yönetmeniz, yazılımları dağıtıp yapılandırmanız, ölçeklendirmeyi yönetmeniz veya karmaşık veri katmanı yükseltmeleriyle uğraşmanız gerekmez. Tüm veritabanları otomatik olarak yedeklenir ve bölgesel arızalara karşı korunur. İhtiyacınız oldukça kolaylıkla bir DocumentDB hesabı ve sağlama kapasitesi ekleyebilirsiniz, böylece veritabanınızı çalıştırmak ve yönetmek yerine uygulamanıza odaklanmanız sağlanır. 
 * **Tasarımı gereği açık:** Var olan becerileri ve araçları kullanarak hızlı bir şekilde çalışmaya başlayın. DocumentDB'de programlama basittir, ulaşılabilirdir ve yeni araçları benimsemenizi veya JSON ya da JavaScript'e yönelik özel uzantılara bağlı kalmanızı gerektirmez. CRUD, sorgu ve JavaScript işleme dahil olmak üzere tüm veritabanı işlevlerine basit bir RESTful HTTP arabirimi üzerinden erişebilirsiniz. DocumentDB var olan biçimleri, dilleri ve standartları benimserken bunlara ek olarak yüksek değerde veritabanı işlevleri sunar.
-* **Otomatik dizin oluşturma:** DocumentDB, varsayılan olarak veritabanındaki tüm belgelerin [otomatik olarak dizinini oluşturur](documentdb-indexing.md) ve herhangi bir şemayı ya da ikincil dizinlerin oluşturulmasını beklemez veya gerektirmez. Her şeyi dizine eklemek istemiyor musunuz? Merak etmeyin, [JSON dosyalarınızda yolları iptal de edebilirsiniz](documentdb-indexing-policies.md).
+* **Otomatik dizin oluşturma:** DocumentDB, varsayılan olarak veritabanındaki tüm belgelerin otomatik olarak dizinini oluşturur ve herhangi bir şemayı ya da ikincil dizinlerin oluşturulmasını beklemez veya gerektirmez. Her şeyi dizine eklemek istemiyor musunuz? Merak etmeyin, [JSON dosyalarınızda yolları iptal de edebilirsiniz](documentdb-indexing-policies.md).
 
-## <a name="a-namedatamanagementahow-does-documentdb-manage-data"></a><a name="data-management"></a>DocumentDB verileri nasıl yönetir?
+## <a name="a-namedata-managementahow-does-documentdb-manage-data"></a><a name="data-management"></a>DocumentDB verileri nasıl yönetir?
 Azure DocumentDB, JSON verilerini iyi tanımlanmış veritabanı kaynakları aracılığıyla yönetir. Bu kaynaklar yüksek kullanılabilirlik için çoğaltılır ve mantıksal URI'leri ile benzersiz olarak adreslenebilir. DocumentDB tüm kaynaklar için basit bir HTTP tabanlı RESTful programlama modeli sunar. 
 
 DocumentDB veritabanı hesabı, size Azure DocumentDB erişimi sağlayan benzersiz bir ad alanıdır. Bir veritabanı hesabı oluşturabilmeniz için, öncelikle çeşitli Azure hizmetlerine erişim sağlayan bir Azure aboneliğinizin olması gerekir. 
@@ -71,6 +71,8 @@ Azure DocumentDB, HTTP/HTTPS istekleri yapabilen herhangi bir dilin çağırabil
 | yok |[Sunucu tarafı JavaScript SDK'sı](http://azure.github.io/azure-documentdb-js-server/) |
 | [Python SDK'sı](https://pypi.python.org/pypi/pydocumentdb) |[Python kitaplığı](http://azure.github.io/azure-documentdb-python/) |
 
+[Azure DocumentDB Öykünücüsü](documentdb-nosql-local-emulator.md)’nü kullanarak Azure aboneliği oluşturmadan veya masraf yapmadan uygulamanızı yerel ortamda geliştirip test edebilirsiniz. Uygulamanızın DocumentDB Öykünücüsü’ndeki performansından memnun olduğunuzda bulut üzerinde Azure DocumentDB hesabı kullanmaya başlayabilirsiniz.
+
 DocumentDB temel oluşturma, okuma, güncelleştirme ve silme işlemlerinin ötesinde JSON belgelerini almak için zengin bir SQL sorgusu arabirimi ve JavaScript uygulama mantığının işlem tabanlı olarak yürütülmesi için sunucu tarafı desteği sağlar. Sorgu ve betik yürütme arabirimleri, REST API'lerinin yanı sıra tüm platform kitaplıkları aracılığıyla kullanılabilir. 
 
 ### <a name="sql-query"></a>SQL sorgusu
@@ -92,6 +94,7 @@ Azure hesabınız yok mu? Şunları yapabilirsiniz:
 
 * Tüm Azure hizmetlerini denemek için size 30 gün ve 200 ABD doları sağlayan bir [Azure ücretsiz deneme sürümüne](https://azure.microsoft.com/free/) kaydolun. 
 * Bir MSDN aboneliğiniz varsa herhangi bir Azure hizmetinde kullanmak üzere [aylık 150 ABD dolarını içeren ücretsiz Azure kredisi](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) hakkınız bulunur. 
+* Uygulamanızı yerel ortamda geliştirmek için [Azure DocumentDB Öykünücüsü](documentdb-nosql-local-emulator.md)’nü indirin.
 
 Daha fazla bilgi edinmeye hazır olduğunuzda sizin için kullanılabilir olan tüm öğrenme kaynaklarına gitmek için [öğrenme yolumuzu](https://azure.microsoft.com/documentation/learning-paths/documentdb/) ziyaret edin. 
 
@@ -100,6 +103,6 @@ Daha fazla bilgi edinmeye hazır olduğunuzda sizin için kullanılabilir olan t
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

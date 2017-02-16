@@ -1,5 +1,5 @@
 ---
-title: "Azure App Service’te Node.js API uygulaması | Microsoft Docs"
+title: "Azure Uygulama Hizmeti’ndeki Node.js API uygulaması | Microsoft Belgeleri"
 description: "Node.js RESTful API’si oluşturma ve Azure App Service’deki bir API uygulamasına dağıtma hakkında bilgi edinin."
 services: app-service\api
 documentationcenter: node
@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 05/26/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: c700bfbd4f50a892e182124eb596159d2eb63feb
-ms.openlocfilehash: b6f97d299b1c100e4bae111d7f95c9619c6c9399
+ms.sourcegitcommit: 633caca05835aa204d4fec5fe216043a50520000
+ms.openlocfilehash: 87d2792d4f7610c62ed96cb522958844d4dc982b
 
 
 ---
@@ -230,23 +230,29 @@ Bu bölümde API için sunucu kodunuzu içeren yerel bir Git deposu oluşturursu
         git init
    
      ![Yeni Yerel Git Deposu](media/app-service-api-nodejs-api-app/new-local-git-repo.png)
-3. API uygulamanızın deposu için uzak Git eklemek üzere aşağıdaki komutu yürütün. 
+3. Bu öğreticinin ilk bölümünü tamamladıysanız ve `ContactList` klasörünü kopyaladıysanız, kopya `node_modules` klasörünü içeriyor olabilir. `node_modules` klasörü dağıtım işlemi sırasında sizin için `package.json` dosyası ve `npm install` oluşturulduğu için bu klasörü kaynak denetimine eklememelisiniz. Bu nedenle, proje dizininizin kökünde aşağıdaki komutu çalıştırarak bir `.gitignore` dosyası ekleyin.
+
+         touch .gitignore
+      
+   .gitignore dosyasını açın ve `node_modules` öğesini dosyanın ilk satırına ekleyin. `node_modules` klasörünün kaynak denetimi tarafından yoksayıldığını doğrulamak için, `git status` çalıştırarak dizinin listede olmadığından emin olun. Daha fazla kural eklemek istiyorsanız, bir NodeJS projesinde yoksayılması önerilen dosyaları içeren bir (GitHub projesine)[https://github.com/github/gitignore/blob/master/Node.gitignore] bakabilirsiniz.
+ 
+4. API uygulamanızın deposu için uzak Git eklemek üzere aşağıdaki komutu yürütün. 
    
         git remote add azure YOUR_GIT_CLONE_URL_HERE
    
     **Not**: "YOUR_GIT_CLONE_URL_HERE" dizesini daha önce kopyaladığınız kendi Git kopyalama URL’niz ile değiştirin. 
-4. Kodunuzun tamamını içeren bir işleme oluşturmak üzere aşağıdaki komutları yürütün. 
+5. Kodunuzun tamamını içeren bir işleme oluşturmak üzere aşağıdaki komutları yürütün. 
    
         git add .
         git commit -m "initial revision"
    
     ![Git İşleme Çıktısı](media/app-service-api-nodejs-api-app/git-commit-output.png)
-5. Kodunuzu Azure'a iletmek için komutu yürütün. Bir parola istendiğinde Azure portalında daha önce oluşturduğunuz parolayı girin.
+6. Kodunuzu Azure'a iletmek için komutu yürütün. Bir parola istendiğinde Azure portalında daha önce oluşturduğunuz parolayı girin.
    
         git push azure master
    
     Bunun yapılması API uygulamanıza dağıtımı başlatır.  
-6. Tarayıcınızda API uygulamanızın **Dağıtımlar** dikey penceresine geri gittiğinizde dağıtımın gerçekleşmekte olduğunu görürsünüz. 
+7. Tarayıcınızda API uygulamanızın **Dağıtımlar** dikey penceresine geri gittiğinizde dağıtımın gerçekleşmekte olduğunu görürsünüz. 
    
     ![Dağıtım Gerçekleşiyor](media/app-service-api-nodejs-api-app/deployment-happening.png)
    
@@ -275,6 +281,6 @@ Bu noktada bir API uygulamasını başarıyla oluşturdunuz ve Node.js API kodun
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -1,5 +1,5 @@
 # Genel Bakış
-## [Bulut Hizmetleri nedir?](cloud-services-choose-me.md)
+## [Cloud Services nedir?](cloud-services-choose-me.md)
 ## [Bulut hizmeti yapılandırma dosyaları ve paketleme](cloud-services-model-and-package.md)
 
 # Kullanmaya Başlama
@@ -64,6 +64,13 @@
 #### [Klasik portal](cloud-services-how-to-scale.md)
 ### [Python ile Azure Kaynaklarını yönetme](cloud-services-python-how-to-use-service-management.md)
 
+### [Konuk işletim sistemi düzeltme ekleri](cloud-services-guestos-msrc-releases.md)
+### Konuk işletim sistemini kullanımdan kaldırma
+#### [Kullanımdan kaldırma ilkesi](cloud-services-guestos-retirement-policy.md)
+#### [Aile 1 kullanımdan kaldırma bildirimi](cloud-services-guestos-family1-retirement.md)
+### [Konuk işletim sistemi sürüm haberleri](cloud-services-guestos-update-matrix.md)
+### [Cloud Services Rolü yapılandırması XPath hızlı başvuru sayfası](cloud-services-role-config-xpath.md)
+
 ## Sertifikaları yönetme
 ### [Cloud Services ve yönetim sertifikaları](cloud-services-certs-create.md)
 ### SSL yapılandırma 
@@ -101,12 +108,6 @@
 ## [.csdef XMLSchema](https://msdn.microsoft.com/library/azure/ee758711)
 ## [.cscfg XMLSchema](https://msdn.microsoft.com/library/azure/ee758710)
 ## [REST](https://msdn.microsoft.com/library/azure/ee460812)
-## [Konuk işletim sistemi düzeltme ekleri](cloud-services-guestos-msrc-releases.md)
-## Konuk işletim sistemini kullanımdan kaldırma
-### [Kullanımdan kaldırma ilkesi](cloud-services-guestos-retirement-policy.md)
-### [Aile 1 kullanımdan kaldırma bildirimi](cloud-services-guestos-family1-retirement.md)
-## [Konuk işletim sistemi sürüm haberleri](cloud-services-guestos-update-matrix.md)
-## [Cloud Services Rolü yapılandırması XPath hızlı başvuru sayfası](cloud-services-role-config-xpath.md)
 
 # Kaynaklar
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/cloud-services/)
@@ -116,6 +117,6 @@
 ## [Öğrenme yolu](https://azure.microsoft.com/documentation/learning-paths/cloud-services/)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

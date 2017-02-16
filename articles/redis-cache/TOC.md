@@ -45,21 +45,21 @@
 ###[Özel durumlar için uyarılar ayarlama](cache-how-to-scale.md)
 ###[Ölçek daraltma veya genişletme için Redis kümesini kullanma](cache-how-to-premium-clustering.md)
 
-#Başvuru
-## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
-## [Azure CLI](https://docs.microsoft.com/cli/azure/)
-## [Java](https://docs.microsoft.com/java/api/)
-## [.NET](https://docs.microsoft.com/dotnet/api/)
+# Başvuru
+## [PowerShell](/powershell/resourcemanager/azurerm.rediscache/v2.3.0/azurerm.rediscache)
+## [Azure CLI 2.0 Önizleme](/cli/azure/redis)
+## [.NET](/dotnet/api/microsoft.azure.management.redis)
+## [Java](/java/api/com.microsoft.azure.management.redis._redis_cache)
 ## [Redis istemcileri](http://redis.io/clients)
 ## [Redis komutları](http://redis.io/commands#)
 ## [REST](https://docs.microsoft.com/rest/api/redis/)
+
+# Kaynaklar
 ## [Redis önbelleği örnekleri](cache-redis-samples.md)
-
-#Kaynaklar
-##[Fiyatlandırma](https://azure.microsoft.com/pricing/details/cache/)
+## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/cache/)
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

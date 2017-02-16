@@ -1,10 +1,10 @@
 ---
 title: "Sanal Ağ VPN Gateway ile ilgili SSS | Microsoft Belgeleri"
-description: "VPN Ağ Geçidi SSS. Microsoft Azure Virtual Network şirket içi ve dışı bağlantılar, karma yapılandırma bağlantıları ve VPN Ağ Geçitleri hakkında SSS"
+description: "VPN Ağ Geçidi SSS. Microsoft Azure Sanal Ağ şirket içi ve dışı bağlantılar, karma yapılandırma bağlantıları ve VPN Ağ Geçitleri hakkında SSS."
 services: vpn-gateway
 documentationcenter: na
-author: yushwang
-manager: rossort
+author: cherylmc
+manager: timlt
 editor: 
 ms.assetid: 6ce36765-250e-444b-bfc7-5f9ec7ce0742
 ms.service: vpn-gateway
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/10/2016
-ms.author: yushwang
+ms.date: 01/10/2017
+ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: e7d0fa43001268fc4747bbf40d3dc209aa037a67
+ms.sourcegitcommit: 2dda1cd384cf365504811a260872703f2c5c484e
+ms.openlocfilehash: ccb0dc6172b234412558b9175f3872d690d4ea3a
 
 
 ---
@@ -102,7 +102,7 @@ Varsayılan olarak, istemci bilgisayar VPN bağlantısını otomatik olarak yeni
 Otomatik olarak yeniden ve DDNS şu anda Noktadan Siteye VPN'lerde desteklenmiyor.
 
 ### <a name="can-i-have-site-to-site-and-point-to-site-configurations-coexist-for-the-same-virtual-network"></a>Siteden Siteye ve Noktadan Siteye yapılandırmalarına aynı sanal ağda birlikte sahip olabilir miyim?
-Evet. Bu her iki çözüm de, ağ geçidiniz için Yol Tabanlı VPN türünüz varsa çalışacaktır. Klasik dağıtım modeli için dinamik bir ağ geçidiniz olması gerekir. Statik yönlendirme VPN ağ geçitleri veya -VpnType PolicyBased kullanan ağ geçitleri için Noktadan Siteye çözümünü desteklemiyoruz.
+Evet. Bu her iki çözüm de, ağ geçidiniz için Yol Tabanlı VPN türünüz varsa çalışacaktır. Klasik dağıtım modeli için dinamik bir ağ geçidiniz olması gerekir. Statik yönlendirme VPN ağ geçitleri veya `-VpnType PolicyBased` cmdlet'i kullanan ağ geçitleri için Noktadan Siteye çözümünü desteklemiyoruz.
 
 ### <a name="can-i-configure-a-point-to-site-client-to-connect-to-multiple-virtual-networks-at-the-same-time"></a>Aynı anda birden çok sanal ağa bağlanmak için Noktadan Siteye istemcisi yapılandırabilir miyim?
 Evet, olabilir. Ancak sanal ağlarda, sanal ağlar arasında çakışmaması gereken IP öneklerinin ve Noktadan Siteye adres alanlarının çakışmaması gerekir.
@@ -129,7 +129,7 @@ Evet, Önceden Paylaşılan Anahtar API’sini ve PowerShell cmdlet’ini Ayarla
 ### <a name="can-i-use-other-authentication-options"></a>Diğer kimlik doğrulama seçeneklerini kullanabilir miyim?
 Önceden paylaşılan anahtarı (PSK) kimlik doğrulaması için sınırladık.
 
-### <a name="what-is-the-gateway-subnet-and-why-is-it-needed"></a>"Ağ geçidi alt ağı" nedir ve neden gerekir?
+### <a name="what-is-the-gatewaysubnet-and-why-is-it-needed"></a>"GatewaySubnet" nedir ve neden gerekir?
 Şirket içi ve dışı bağlantısını etkinleştirmek üzere çalıştırdığımız bir ağ geçidi hizmetimiz bulunmaktadır.
 
 Bir VPN ağ geçidi yapılandırmak için VNet’inizi için bir ağ geçidi alt ağı oluşturmanız gerekir. Tüm ağ geçidi alt ağlarının düzgün çalışması için GatewaySubnet şeklinde adlandırılması gerekir. Ağ geçidi alt ağını başka şekilde adlandırmayın. VM’leri veya herhangi başka bir şeyi de ağ geçidi alt ağına dağıtmayın.
@@ -140,7 +140,14 @@ Ağ geçidi alt ağı minimum boyutu tümüyle oluşturmak istediğiniz yapılan
 Hayır.
 
 ### <a name="how-do-i-specify-which-traffic-goes-through-the-vpn-gateway"></a>VPN ağ geçidime hangi trafiğin gideceğini nasıl belirtirim?
-Azure Klasik Portalı kullanıyorsanız, Ağlar sayfasında Yerel Ağlar altında sanal ağınız için ağ geçidinden göndermek istediğiniz aralığı ekleyin.
+
+####<a name="resource-manager-deployment-model"></a>Resource Manager dağıtım modeli
+* PowerShell: yerel ağ geçidinize ait trafiği belirtmek için "AddressPrefix" kullanın.
+* Azure portalı: Yerel ağ geçidi > Yapılandırma > Adres alanı'na gidin.
+
+####<a name="classic-deployment-model"></a>Klasik dağıtım modeli
+* Azure portalı: Klasik sanal ağ > VPN bağlantıları > Siteden siteye VPN bağlantıları > Yerel site adı > Yerel site > İstemci adres alanı yolunu izleyin. 
+* Klasik portal: Ağlar sayfasında Yerel Ağlar altında sanal ağınız için ağ geçidinden göndermek istediğiniz aralıkları ekleyin. 
 
 ### <a name="can-i-configure-forced-tunneling"></a>Zorlamalı Tüneli yapılandırabilir miyim?
 Evet. Bkz. [Zorlamalı tüneli yapılandırma](vpn-gateway-about-forced-tunneling.md).
@@ -167,7 +174,7 @@ Hayır, her iki sanal ağın da rota tabanlı (dinamik yönlendirme) VPN kullan�
 Evet, IPsec/IKE şifrelemesiyle korunur.
 
 ### <a name="does-vnet-to-vnet-traffic-travel-over-the-azure-backbone"></a>VNet - VNet trafiği Azure omurga üzerinden yolculuk ediyor mu?
-Evet.
+Evet, bu seçenek trafiği Azure omurgası üzerinden geçirir. İnternet üzerinden geçmez.
 
 ### <a name="how-many-on-premises-sites-and-virtual-networks-can-one-virtual-network-connect-to"></a>Bir sanal ağ kaç şirket içi siteye ve sanal ağa bağlanabilir?
 En çok, Temel ve Standart Dinamik Yönlendirme ağ geçitleri için 10 birleştirilmiş; Yüksek performans VPN ağ geçitleri için 30.
@@ -176,7 +183,7 @@ En çok, Temel ve Standart Dinamik Yönlendirme ağ geçitleri için 10 birleşt
 Evet, Noktadan Siteye (P2S) VPN’ler şirket içi sitelere ve başka sanal ağlara VPN ağ geçitleriyle kullanılabilir.
 
 ### <a name="can-i-configure-multiple-tunnels-between-my-virtual-network-and-my-on-premises-site-using-multi-site-vpn"></a>Çok siteli VPN kullanarak sanal ağlarım ve şirket içi sitem arasında birden fazla tünel yapılandırabilir miyim?
-Hayır, Azure sanal ağı ve şirket içi bir site arasında yedek tüneller desteklenmez.
+Evet, ancak iki tünelde de aynı konum için BGP yapılandırması gerçekleştirmeniz gerekir.
 
 ### <a name="can-there-be-overlapping-address-spaces-among-the-connected-virtual-networks-and-on-premises-local-sites"></a>Bağlı sanal ağlar ve şirket içi yerel siteleri arasında çakışan adres alanları olabilir mi?
 Hayır. Adres alanlarının çakışması ağ yapılandırma dosyasının yüklenmesine veya “Sanal Ağ Oluşturma” işleminin başarısız olmasına neden olur.
@@ -185,10 +192,12 @@ Hayır. Adres alanlarının çakışması ağ yapılandırma dosyasının yükle
 Hayır, Noktadan Siteye VPN’lerde dahil tüm VPN tünelleri aynı Azure VPN ağ geçidini ve kullanılabilir bant genişliğini paylaşır.
 
 ### <a name="can-i-use-azure-vpn-gateway-to-transit-traffic-between-my-on-premises-sites-or-to-another-virtual-network"></a>Şirket içi sitelerim arasında veya başka bir sanal ağa trafiği geçirmek için Azure VPN ağ geçidini kullanabilir miyim?
-**Klasik dağıtım modeli**<br>
-Klasik dağıtım modeli kullanılarak Azure VPN ağ geçidi üzerinden trafik geçirilebilse de, bu geçiş, ağ yapılandırma dosyasında statik olarak tanımlanan adres alanlarına bağlıdır. Klasik dağıtım modeli kullanan Azure Sanal Ağlar ve VPN ağ geçitleri ile BGP henüz desteklenmemektedir. BGP olmadan, geçiş adres alanlarının el ile tanımlanması çok hata eğilimindedir ve önerilmez.<br>
-**Resource Manager dağıtım modeli**<br>
-Resource Manager dağıtım modeli kullanıyorsanız daha fazla bilgi için [BGP](#bgp) bölümüne bakın.
+
+####<a name="resource-manager-deployment-model"></a>Resource Manager dağıtım modeli
+Evet. Daha fazla bilgi için [BGP](#bgp) bölümüne bakın.
+
+####<a name="classic-deployment-model"></a>Klasik dağıtım modeli
+Klasik dağıtım modeli kullanılarak Azure VPN ağ geçidi üzerinden trafik geçirilebilse de, ağ yapılandırma dosyasında istatistiksel olarak tanımlanan adres alanlarına bağlıdır. Klasik dağıtım modeli kullanan Azure Sanal Ağlar ve VPN ağ geçitleri ile BGP henüz desteklenmemektedir. BGP olmadan, geçiş adres alanlarının el ile tanımlanması çok hata eğilimindedir ve önerilmez.<br>
 
 ### <a name="does-azure-generate-the-same-ipsecike-pre-shared-key-for-all-my-vpn-connections-for-the-same-virtual-network"></a>Azure, IPsec/IKE önceden paylaşılan anahtarı tüm VPN bağlantılarımla aynı sanal ağ için mi üretiyor?
 Hayır, varsayılan olarak Azure farklı VPN bağlantıları için farklı önceden paylaşılan anahtarlar oluşturur. Ancak, isterseniz anahtar değeri ayarlamak için VPN Ağ Geçidi Anahtarı REST API veya PowerShell cmdlet'ini kullanabilirsiniz. Anahtar uzunluğu 1 ila 128 karakter arasında alfasayısal bir dize OLMALIDIR.
@@ -216,6 +225,6 @@ Ek sanal ağ ek bilgilerini [Virtual Network SSS](../virtual-network/virtual-net
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

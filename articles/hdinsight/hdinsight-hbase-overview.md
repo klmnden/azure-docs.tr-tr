@@ -17,8 +17,8 @@ ms.topic: get-started-article
 ms.date: 09/14/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: ec9e3c6c6919bb5ce50553a29536f821fe79f577
-ms.openlocfilehash: 3d8ee1d23fab0b410bce711afc27f8bbbad4c7e4
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 0ca7a73d0d7db3651bec26deb4557fae5fc3451f
 
 
 ---
@@ -30,7 +30,7 @@ Veriler bir tablonun satırlarında depolanır ve satır içindeki veriler sütu
 ## <a name="how-is-hbase-implemented-in-azure-hdinsight"></a>Azure HDInsight’ta HBase nasıl uygulanır?
 HDInsight HBase, Azure ortamına tümleştirilmiş yönetilen bir küme olarak sunulur. Kümeler, düşük gecikme süresi ve performans ve maliyet seçeneklerinde artan esneklik sağlayan, Azure Blob Storage’da verileri doğrudan depolamak için yapılandırılmıştır. Bu, müşterilerin milyonlarca uç noktadan gelen algılayıcı ve telemetri verilerini depolayan hizmetleri oluşturmak ve bu verileri Hadoop işleriyle çözümlemek üzere etkileşimli web siteleri oluşturmalarını sağlar. HBase ve Hadoop Azure’da büyük veri projeleri için yi başlangıç noktalarıdır; bunlar özellikle büyük veri kümeleriyle çalışmak üzere gerçek zamanlı uygulamaları etkinleştirebilir.
 
-HDInsight uygulaması, tabloların otomatik parçalanmasını, okumalar ve yazmalar için yüksek tutarlılık ve otomatik yük devretme sağlamak için HBase’in ölçek genişletmeli mimarisinden yararlanır. Performans, okumalar için bellek içi önbelleğe alma ve yazmalar için yüksek verimlilikli akış tarafından geliştirilmiştir. HBase kümesi sanal ağda oluşturulabilir. Ayrıntılar için bkz. [Azure Sanal Ağ'da HDInsight kümeleri oluşturma][hbase-provision-vnet].
+HDInsight uygulaması, tabloların otomatik parçalanmasını, okumalar ve yazmalar için yüksek tutarlılık ve otomatik yük devretme sağlamak için HBase’in ölçek genişletmeli mimarisinden yararlanır. Performans, okumalar için bellek içi önbelleğe alma ve yazmalar için yüksek verimlilikli akış tarafından geliştirilmiştir. Sanal ağ hazırlama HDInsight HBase için de kullanılabilir. Ayrıntılar için bkz. [ Azure Sanal Ağ’da HDInsight kümeleri hazırlama][hbase-provision-vnet].
 
 ## <a name="how-is-data-managed-in-hdinsight-hbase"></a>Veriler HDInsight HBase’de nasıl yönetilir?
 Veriler HBase kabuğunda `create`, `get`, `put` ve `scan` komutları kullanılarak HBase tarafından yönetilebilir. Veriler `put` kullanılarak veritabanına yazılır ve `get` kullanarak okunur. `scan` komutu, bir tablodaki birden çok satırdaki verileri almak için kullanılır. Veriler, HBase REST API’sinin üstünde bir istemci kitaplığı sağlayan HBase C# API’si kullanılarak da yönetilebilir. Bir HBase veritabanı, Hive kullanarak da sorgulanabilir. Bu programlama modellerine giriş için bkz. [HDInsight'ta Hadoop ile HBase kullanmaya başlama][hbase-get-started]. Veritabanı barındıran düğümlerde veri işlemeye olanak sağlayan ortak işlemciler de kullanılabilir.
@@ -53,8 +53,8 @@ BigTable’ın (ve uzantılarının, HBase) oluşturulma nedeni olan kurallı ku
 
 ## <a name="a-namenext-stepsanext-steps"></a><a name="next-steps"></a>Sonraki adımlar
 * [HDInsight'ta Hadoop ile HBase kullanmaya başlama][hbase-get-started]
-* [Azure Sanal Ağ'da HDInsight kümeleri oluşturma][hbase-provision-vnet]
-* [HDInsight’ta HBase çoğaltmayı yapılandırma](hdinsight-hbase-replication.md)
+* [Azure Sanal Ağ’da HDInsight kümeleri hazırlama][hbase-provision-vnet]
+* [HDInsight’ta HBase çoğaltmayı yapılandırma](hdinsight-hbase-geo-replication.md)
 * [HDInsight'ta HBase ile Twitter düşüncelerini çözümleme][hbase-twitter-sentiment]
 * [HDInsight ile HBase kullanan Java uygulamaları oluşturmak için Maven kullanma (Hadoop)][hbase-build-java-maven]
 
@@ -84,6 +84,6 @@ BigTable’ın (ve uzantılarının, HBase) oluşturulma nedeni olan kurallı ku
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO1-->
 
 
