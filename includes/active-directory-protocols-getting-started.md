@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 01/21/2016
 ms.author: priyamo
 translationtype: Human Translation
-ms.sourcegitcommit: 8db20ca36190197abcb73200eeed79e004435af9
-ms.openlocfilehash: d851dec517c162073ade6ffb4ebcf972c5054698
+ms.sourcegitcommit: f1e4b86a04a76513a2f0d9a9f89e49611c0447d5
+ms.openlocfilehash: b31fa50a62d5b26a7346f212076ec3a2b0386f5e
 
 
 ---
@@ -28,7 +28,7 @@ ms.openlocfilehash: d851dec517c162073ade6ffb4ebcf972c5054698
 * Sayfanın sağ üst köşesinde hesabınıza tıklayarak Azure AD kiracınızı seçin.
 * Sol taraftaki gezinti bölmesinde, **Azure Active Directory**’ye tıklayın.
 * **Uygulama Kayıtları**’na ve **Ekle**’ye tıklayın.
-* Komut istemlerini izleyin ve yeni bir uygulama oluşturun. Bu öğretici için oluşturduğunuz uygulamanın web uygulaması veya yerel uygulama olması önemli değildir, ancak web uygulamaları veya yerel uygulamalar için belirli örnekler görmek istiyorsanız [hızlı başlangıç](../articles/active-directory/active-directory-developers-guide.md) bölümümüze bakabilirsiniz.
+* Komut istemlerini izleyin ve yeni bir uygulama oluşturun. Bu öğretici için oluşturduğunuz uygulamanın web uygulaması veya yerel uygulama olması önemli değildir, ancak web uygulamaları veya yerel uygulamalar için belirli örnekler görmek istiyorsanız [hızlı başlangıç](../articles/active-directory/develop/active-directory-developers-guide.md) bölümümüze bakabilirsiniz.
   * Web Uygulamaları için, kullanıcıların oturum açabileceği temel uygulama URL’si olan **Oturum Açma URL’sini** sağlayın (örn. `http://localhost:12345`).
 <!--TODO: add once App ID URI is configurable: The **App ID URI** is a unique identifier for your application. The convention is to use `https://<tenant-domain>/<app-name>`, e.g. `https://contoso.onmicrosoft.com/my-first-aad-app`-->
   * Yerel Uygulamalar için, Azure AD’nin belirteç yanıtlarını döndürmek için kullanacağı bir **Yeniden Yönlendirme URI’si** sağlayın. Uygulamanıza özgü bir değer girin, örn. `http://MyFirstAADApp`
@@ -36,6 +36,6 @@ ms.openlocfilehash: d851dec517c162073ade6ffb4ebcf972c5054698
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 
