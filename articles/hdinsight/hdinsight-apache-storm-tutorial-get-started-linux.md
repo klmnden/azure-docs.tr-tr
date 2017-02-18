@@ -1,5 +1,5 @@
 ---
-title: "Apache Storm öğreticisi: HDInsight’ta Linux tabanlı Storm kullanmaya başlama | Microsoft Belgeleri"
+title: "Azure HDInsight’ta Apache Storm ile çalışmaya başlama | Microsoft Docs"
 description: "Linux tabanlı HDInsight’ta Apache Storm ve Storm Starter örneklerini kullanarak büyük veri analizini kullanmaya başlayın. Verileri gerçek zamanlı olarak işlemek için Storm’u nasıl kullanacağınızı öğrenin."
 keywords: "apache storm,apache storm öğreticisi,büyük veri analizi,storm başlatıcısı"
 services: hdinsight
@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
-ms.openlocfilehash: 856043148b3fc28594850ae27bedd57d48292582
+ms.sourcegitcommit: bb700c7de96712666bc4be1f8e430a2e94761f69
+ms.openlocfilehash: 9b38cd0aa542c0fd73b73edefce230e5a463e608
 
 
 ---
@@ -80,7 +80,7 @@ Bu bölümde, Azure Resource Manager şablonu kullanarak bir HDInsight sürüm 3
      > * [HDInsight’ta Linux tabanlı Hadoop ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md)
      > * [Windows’dan HDInsight’ta Linux tabanlı Hadoop ile SSH (PuTTY) kullanma](hdinsight-hadoop-linux-use-ssh-windows.md)
 
-3. __Yukarıdaki hüküm ve koşulları kabul ediyorum__’u seçin, **Tamam**’a tıklayın ve ardından __Panoya sabitle__’yi seçin.
+3. __Yukarıdaki hüküm ve koşulları kabul ediyorum__’u seçin, **Tamam**’a tıklayın ve ardından __Panoya sabitle__’yi seçin
 
 6. **Satın al**’a tıklayın. Şablon dağıtımı için Dağıtım gönderme başlıklı yeni bir kutucuk görürsünüz. Kümeyi oluşturmak yaklaşık 20 dakika sürer.
 
@@ -216,6 +216,6 @@ HDInsight üzerinde Storm ile kullanılabilecek örnek topolojiler için şu ör
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

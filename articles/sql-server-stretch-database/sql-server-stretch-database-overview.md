@@ -1,5 +1,5 @@
 ---
-title: "Esnetme Veritabanı&quot;na genel bakış | Microsoft Belgeleri"
+title: "Soğuk verileri Azure’a arşivleme - Esnetme Veritabanı | Microsoft Docs"
 description: "Esnetme Veritabanı&quot;nın soğuk verilerinizi şeffaf ve güvenli bir şekilde Microsoft Azure bulutuna nasıl geçirdiğini öğrenin."
 services: sql-server-stretch-database
 documentationcenter: 
@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 06/27/2016
 ms.author: douglasl
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: f63900b0a4f32e1bc5a88c068091916bd96aafb8
+ms.sourcegitcommit: cfa45dbb2d6e7579ed151c0213d394581cb73c4d
+ms.openlocfilehash: 0c4355eb424f169238f274241747acff4532d589
 
 
 ---
-# <a name="stretch-database-overview"></a>Esnetme Veritabanı'na genel bakış
+# <a name="introduction-to-stretch-database"></a>Esnetme Veritabanı’na Giriş
 Esnetme Veritabanı soğuk verilerinizi şeffaf ve güvenli bir şekilde Microsoft Azure bulutuna geçirir.
 
 Yalnızca Esnetme Veritabanını hemen kullanmaya başlamak istiyorsanız bkz. [Esnetme İçin Veritabanını Etkinleştirme Sihirbazını çalıştırarak kullanmaya başlama](sql-server-stretch-database-wizard.md).
@@ -84,6 +84,6 @@ Esnetme Veritabanı için veritabanlarını ve tabloları tanımlamak üzere SQL
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,4 +1,4 @@
-Geri bildirim sağlamak ve Azure Media Services’ı geliştirme hakkında önerilerde bulunmak için [User Voice](http://go.microsoft.com/fwlink/?linkid=698785&clcid=0x409) forumunu kullanın. Aşağıdaki kategorilerden birine de doğrudan gidebilirsiniz: 
+Geri bildirim sağlamak ve Azure Media Services’ı geliştirme hakkında önerilerde bulunmak için [User Voice](http://go.microsoft.com/fwlink/?linkid=698785&clcid=0x409) forumunu kullanın. Aşağıdaki kategorilerden birine de doğrudan gidebilirsiniz:
 
 * [Azure Media Player](https://feedback.azure.com/forums/169396-media-services/category/109320-azure-media-player/)
 * [İstemci SDK kitaplıkları](https://feedback.azure.com/forums/169396-media-services/category/144435-client-sdks/)
@@ -10,7 +10,6 @@ Geri bildirim sağlamak ve Azure Media Services’ı geliştirme hakkında öner
 * [VoD akışı](https://feedback.azure.com/forums/169396-media-services/category/144429-vod-streaming/)
 
 
-
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

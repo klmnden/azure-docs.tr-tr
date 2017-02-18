@@ -12,20 +12,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/31/2016
+ms.date: 01/19/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: e082470c8ad3ee02c528a4ca6e3326e5be4752a3
+ms.sourcegitcommit: be986fd7bb1745dcf43a1066dfabc1e1c699ab4c
+ms.openlocfilehash: b9cd11954a52600c1cd50155cb7ce9b7d2355cd3
 
 
 ---
 # <a name="azure-active-directory-reporting---preview"></a>Azure Active Directory raporlama - önizleme
-> [!div class="op_single_selector"]
-> * [Azure Portal](active-directory-reporting-azure-portal.md)
-> * [Klasik Azure Portalı](active-directory-reporting-guide.md)
-> 
-> 
+
 
 *Bu belge, [Azure Active Directory Raporlama Kılavuzu](active-directory-reporting-guide.md)’nun bir parçasıdır.*
 
@@ -203,6 +199,6 @@ Bkz. [Azure Active Directory Raporlama Kılavuzu](active-directory-reporting-gui
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

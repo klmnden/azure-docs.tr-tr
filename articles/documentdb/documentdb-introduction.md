@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 11/16/2016
 ms.author: mimig
 translationtype: Human Translation
-ms.sourcegitcommit: 7f5e33b7f80e3c1e1e3e66b3cab879a5bc30e823
-ms.openlocfilehash: 18f2c1876fab914073c8aea67f67724f281a65aa
+ms.sourcegitcommit: 988c887d2d26ab3ab5b287f803c7d598bd6620e3
+ms.openlocfilehash: 23b1780df8ec01c0692e3afd408ea44fc9773b28
 
 
 ---
@@ -87,13 +87,21 @@ DocumentDB, uygulama mantığını tamamen JavaScript'te yazılmış adlandırı
 
 DocumentDB içinde JavaScript yürütme, ilişkisel veritabanı sistemleri tarafından desteklenen kavramlara göre modellenmiştir ve JavaScript Transact-SQL'in modern bir ardılı olarak kullanılır. Tüm JavaScript mantığı, anlık görüntü yalıtımıyla çevresel ACID işlemi içinde yürütülür. Yürütme sürecinde JavaScript bir özel durum oluşturursa tüm işlem iptal edilir.
 
+## <a name="are-there-any-online-courses-on-documentdb"></a>DocumentDB üzerinde çevrimiçi kurslar var mı?
+
+Evet, Azure DocumentDB’de [Microsoft Sanal Akademi](https://mva.microsoft.com/en-US/training-courses/azure-documentdb-planetscale-nosql-16847) kursu mevcuttur. 
+
+>[!VIDEO https://mva.microsoft.com/en-US/training-courses-embed/azure-documentdb-planetscale-nosql-16847]
+>
+>
+
 ## <a name="next-steps"></a>Sonraki adımlar
 Zaten bir Azure hesabınız var mı? O halde, [bir DocumentDB veritabanı hesabı oluşturarak](documentdb-create-account.md) [Azure Portal](https://portal.azure.com/#gallery/Microsoft.DocumentDB)'da DocumentDB ile çalışmaya başlayabilirsiniz.
 
 Azure hesabınız yok mu? Şunları yapabilirsiniz:
 
 * Tüm Azure hizmetlerini denemek için size 30 gün ve 200 ABD doları sağlayan bir [Azure ücretsiz deneme sürümüne](https://azure.microsoft.com/free/) kaydolun. 
-* Bir MSDN aboneliğiniz varsa herhangi bir Azure hizmetinde kullanmak üzere [aylık 150 ABD dolarını içeren ücretsiz Azure kredisi](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) hakkınız bulunur. 
+* Bir MSDN aboneliğiniz varsa herhangi bir Azure hizmetinde kullanmak üzere [aylık&150; ABD dolarını içeren ücretsiz Azure kredisi](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) hakkınız bulunur. 
 * Uygulamanızı yerel ortamda geliştirmek için [Azure DocumentDB Öykünücüsü](documentdb-nosql-local-emulator.md)’nü indirin.
 
 Daha fazla bilgi edinmeye hazır olduğunuzda sizin için kullanılabilir olan tüm öğrenme kaynaklarına gitmek için [öğrenme yolumuzu](https://azure.microsoft.com/documentation/learning-paths/documentdb/) ziyaret edin. 
@@ -103,6 +111,6 @@ Daha fazla bilgi edinmeye hazır olduğunuzda sizin için kullanılabilir olan t
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

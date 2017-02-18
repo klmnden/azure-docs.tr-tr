@@ -1,5 +1,5 @@
 ---
-title: "Olay yanıtı için Azure Güvenlik Merkezi’ni kullanma | Microsoft Belgeleri"
+title: "Azure Güvenlik Merkezi&quot;nde güvenlik olaylarını yanıtlama | Microsoft Docs"
 description: "Bu belgede bir olay yanıtı senaryosu için Azure Güvenlik Merkezi’ni kullanma işlemi açıklanmaktadır."
 services: security-center
 documentationcenter: na
@@ -12,11 +12,11 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2016
+ms.date: 01/23/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 31311194c051a1fd7c889a956e06e88ca83a74db
+ms.sourcegitcommit: f40f64906bf87d8505fa1a209222163256326d14
+ms.openlocfilehash: a2cc4729ca5cb1dcc10630158ec3d94315fb01a5
 
 
 ---
@@ -78,13 +78,13 @@ Zehra Azure portalında oturum açmıştır ve Güvenlik Merkezi konsolunda çal
 
 1. **Güvenlik uyarıları** kutucuğuna tıklamış ve **Güvenlik uyarıları** dikey penceresine erişmiştir.
     ![Güvenlik uyarısı dikey penceresi](./media/security-center-incident-response/security-center-incident-response-fig4.png)
-   
+
    > [!NOTE]
    > Bu senaryoda Zehra, önceki şekilde görünen Kötü Amaçlı SQL etkinliği uyarısı üzerinde bir değerlendirme yapacaktır.
-   > 
-   > 
+   >
+   >
 2. **Kötü Amaçlı SQL etkinliği** uyarısına tıklayın ve **Kötü Amaçlı SQL etkinliği** dikey penceresi:  ![Olay ayrıntıları](./media/security-center-incident-response/security-center-incident-response-fig5.png) için saldırılan kaynakları gözden geçirin
-   
+
     Bu dikey pencerede Zehra, saldırıya uğrayan kaynaklar, bu saldırının kaç kez gerçekleştiği ve ne zaman algılandığı ile ilgili notlar alabilir.
 3. Bu saldırı hakkında daha fazla bilgi almak için **saldırıya uğrayan kaynak** öğesine tıklayın.
 
@@ -103,7 +103,6 @@ Olay gerçekleşmeden önce bir ekibin toplanması kuruluşunuz için çok önem
 
 
 
-
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: "Azure Sanal Ağlarına yönelik Konumdan Konuma VPN Gateway bağlantıları için VPN Cihazları hakkında | Microsoft Belgeleri"
-description: "Bu makalede, S2S VPN Gateway bağlantılarına yönelik VPN cihazları ve IPsec parametreleri ele alınmaktadır ve yapılandırma yönergeleri ile örneklere bağlantılar vardır."
+title: "Şirket içi Azure bağlantıları için VPN cihazları hakkında | Microsoft Docs"
+description: "Bu makalede VPN cihazları ve S2S VPN Gateway şirketler arası bağlantılar için IPsec parametreleri ele alınmaktadır. Yapılandırma yönergeleri ve örnekler için bağlantılar verilmektedir."
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
@@ -16,13 +16,13 @@ ms.workload: infrastructure-services
 ms.date: 12/12/2016
 ms.author: yushwang;cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: bbaf89bca07fd2d4c4a12403d2daa8323f4d7be5
-ms.openlocfilehash: 12e7768665b8d360fe7241c9879bd1f7bfc63664
+ms.sourcegitcommit: bf262073b46daa8b7dcf50fabf5f455d7d5850e7
+ms.openlocfilehash: b8e65f6c314457b76bd062ea09bda53099fb79d9
 
 
 ---
 # <a name="about-vpn-devices-for-site-to-site-vpn-gateway-connections"></a>Siteden siteye VPN Gateway bağlantıları için VPN cihazları hakkında
-Siteden Siteye (S2S) VPN bağlantısı yapılandırmak için bir VPN cihazı gereklidir. Siteden siteye bağlantılar karma çözüm oluşturmak amacıyla ya da şirket içi ağınız ile sanal ağınız arasında güvenli bir bağlantı istediğinizde kullanılabilir. Bu makalede uyumlu VPN cihazları ve yapılandırma parametreleri açıklanır.
+Bir VPN ağ geçidi kullanılarak Siteden Siteye (S2S) şirketler arası VPN bağlantısı yapılandırmak için bir VPN cihazı gereklidir. Siteden siteye bağlantılar karma çözüm oluşturmak amacıyla ya da şirket içi ağınız ile sanal ağınız arasında güvenli bir bağlantı istediğinizde kullanılabilir. Bu makalede uyumlu VPN cihazları ve yapılandırma parametreleri açıklanır.
 
 > [!NOTE]
 > Siteden Siteye bağlantı yapılandırırken, VPN cihazınız için genel kullanıma yönelik bir IPv4 IP adresi gereklidir.                                                                                                                                                                               
@@ -115,7 +115,7 @@ Sağlanan VPN cihazı yapılandırma örneğini indirdikten sonra, ortamınıza 
 | **Özellik** | **PolicyBased** | **RouteBased ve Standart ya da Yüksek Performanslı VPN ağ geçidi** |
 | --- | --- | --- |
 | IKE Sürümü |IKEv1 |IKEv2 |
-| Karma Algoritma |SHA1(SHA128) |SHA1(SHA128) |
+| Karma Algoritma |SHA1(SHA128), SHA2(SHA256) |SHA1(SHA128), SHA2(SHA256) |
 | Aşama 2 Güvenlik İlişkisi (SA) Yaşam süresi (Saat) |3.600 saniye |3.600 saniye |
 | Aşama 2 Güvenlik İlişkisi (SA) Yaşam süresi (Verim) |102.400.000 KB |- |
 | IPsec SA Şifreleme ve kimlik Doğrulama Teklifleri (öncelik sırasına göre) |1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. Yok |Bkz. *RouteBased Ağ Geçidi IPsec Güvenlik İlişkisi (SA) Teklifleri* (aşağıda) |
@@ -153,6 +153,6 @@ Aşağıdaki tabloda IPsec SA Şifreleme ve Kimlik Doğrulama Teklifleri listele
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

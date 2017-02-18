@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/06/2016
+ms.date: 02/02/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: b16e7e221853f5d44248430cef2296301a09d497
-ms.openlocfilehash: 9ff8fec2daf9fc69377891b85b0a81e9e2a54536
+ms.sourcegitcommit: fbf77e9848ce371fd8d02b83275eb553d950b0ff
+ms.openlocfilehash: a95e65db804f1c6cc2927901216ee7a287a911ee
 
 
 ---
@@ -37,15 +37,14 @@ Bu öğreticide, Azure PowerShell cmdlet’leri kullanarak bir Azure Data Factor
 
 Kopyalama Etkinliği özelliği, Data Factory’de veri hareketini gerçekleştirir. Etkinlik, çeşitli veri depolama alanları arasında güvenli, güvenilir ve ölçeklenebilir bir yolla veri kopyalayabilen genel olarak kullanılabilir bir hizmet tarafından desteklenir. Kopyalama Etkinliği hakkında ayrıntılı bilgi için bkz. [Veri Taşıma Etkinlikleri](data-factory-data-movement-activities.md).   
 
-> [!IMPORTANT]
-> Bu öğreticiyi uygulamadan önce [Öğreticiye Genel Bakış](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) makalesini inceleyin ve ön koşul adımlarını tamamlayın.
+> [!NOTE]
+> Bu makalede, tüm Data Factory cmdlet'lerini kapsamaz. Bu cmdlet’leri hakkında kapsamlı bilgi için bkz. [Data Factory Cmdlet Başvurusu](/powershell/resourcemanager/azurerm.datafactories/v2.5.0/azurerm.datafactories).
 >
-> Bu makalede, tüm Data Factory cmdlet'lerini kapsamaz. Bu cmdlet’leri hakkında kapsamlı bilgi için bkz. [Data Factory Cmdlet Başvurusu](https://msdn.microsoft.com/library/dn820234.aspx).
->
->
+> Bu öğreticideki veri işlem hattı, bir kaynak veri deposundaki verileri hedef veri deposuna kopyalar. Çıkış verileri üretmek için giriş verilerini dönüştürmez. Azure Data Factory kullanarak verileri dönüştürme hakkında bir öğretici için bkz. [Öğretici: Hadoop kümesi kullanarak verileri dönüştürmek için işlem hattı oluşturma](data-factory-build-your-first-pipeline.md).
 
 ## <a name="prerequisites"></a>Ön koşullar
-Öğreticiye Genel Bakış konu başlığında listelenen önkoşullar dışında Azure PowerShell yüklemeniz gerekir. [Azure PowerShell’i yükleme ve yapılandırma](../powershell-install-configure.md) bölümündeki yönergeleri izleyin.
+- Öğreticiye genel bir bakış atmak ve **ön koşul** adımlarını tamamlamak için [Öğreticiye Genel Bakış ve Ön Koşullar](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) bölümündeki adımları tamamlayın.
+- Azure PowerShell'i yükleyin. [Azure PowerShell’i yükleme ve yapılandırma](../powershell-install-configure.md) bölümündeki yönergeleri izleyin.
 
 ## <a name="in-this-tutorial"></a>Bu öğreticide
 Aşağıdaki tabloda, öğreticinin bir parçası olarak gerçekleştireceğiniz adımlar listelenmektedir.
@@ -460,11 +459,10 @@ Bu öğreticide Azure blob’undan Azure SQL veritabanına veri kopyalamak üzer
 ## <a name="see-also"></a>Ayrıca bkz.
 | Konu başlığı | Açıklama |
 |:--- |:--- |
-| [Veri Taşıma Etkinlikleri](data-factory-data-movement-activities.md) |Bu makalede, öğreticide kullandığınız Kopyalama Etkinliği özelliği hakkında ayrıntılı bilgi sağlanmaktadır. |
-| [Zamanlama ve yürütme](data-factory-scheduling-and-execution.md) |Bu makalede Azure Data Factory uygulama modelinin zamanlama ve yürütme yönleri açıklanmaktadır. |
+| [Data Factory Cmdlet Başvurusu](/powershell/resourcemanager/azurerm.datafactories/v2.5.0/azurerm.datafactories) | Bu bölümde tüm Data Factory cmdlet’leri hakkında bilgi verilmektedir |
 | [İşlem hatları](data-factory-create-pipelines.md) |Bu makale, Azure Data Factory’deki işlem hatlarını ve veri kümelerini anlamanıza yardımcı olur. |
 | [veri kümeleri](data-factory-create-datasets.md) |Bu makale, Azure Data Factory’deki veri kümelerini anlamanıza yardımcı olur. |
-| [İzleme Uygulaması kullanılarak işlem hatlarını izleme ve yönetme](data-factory-monitor-manage-app.md) |Bu makalede İzleme ve Yönetim Uygulaması kullanılarak işlem hatlarını izleme, yönetme ve hatalarını ayıklama işlemleri açıklanmaktadır. |
+| [Zamanlama ve yürütme](data-factory-scheduling-and-execution.md) |Bu makalede Azure Data Factory uygulama modelinin zamanlama ve yürütme yönleri açıklanmaktadır. |
 
 [use-custom-activities]: data-factory-use-custom-activities.md
 [troubleshoot]: data-factory-troubleshoot.md
@@ -484,6 +482,6 @@ Bu öğreticide Azure blob’undan Azure SQL veritabanına veri kopyalamak üzer
 
 
 
-<!--HONumber=Jan17_HO5-->
+<!--HONumber=Feb17_HO1-->
 
 

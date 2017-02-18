@@ -274,7 +274,7 @@ Hyper-V ana bilgisayarlarında çalışan Kurtarma Hizmetleri aracısının VM �
     ![Depolama](./media/site-recovery-vmm-to-azure/enablerep3.png)
 
 2. Site Recovery, bir veya birden çok uyumlu Azure depolama hesabınızın ve ağınızın olup olmadığını denetler.
-    ![Depolama](./media/site-recovery-vmm-to-azure/compatible-storage.png)
+      ![Depolama](./media/site-recovery-vmm-to-azure/compatible-storage.png)
 
 4. Depolama hesabı oluşturmadıysanız ve Resource Manager’ı kullanarak bir hesap oluşturmak istiyorsanız bu işlemi satır içinde yapmak için **+Depolama hesabı** seçeneğine tıklayın.  **Depolama hesabı oluştur** dikey penceresinde hesap adını, türünü, aboneliği ve konumu belirtin. Hesabın, Kurtarma Hizmetleri kasasıyla aynı konumda olması gerekir.
 
@@ -491,6 +491,6 @@ Dağıtımınız ayarlandıktan ve çalışmaya başladıktan sonra farklı tür
 
 
 
-<!--HONumber=Jan17_HO5-->
+<!--HONumber=Feb17_HO2-->
 
 

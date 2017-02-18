@@ -7,16 +7,16 @@ author: mumian
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 5e133d92-baaa-44c9-890c-ab2d85c91122
-ms.service: data-lake-store
+ms.service: data-lake-analytics
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/19/2016
+ms.date: 02/03/2017
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: cae1eeb70e5358b8c30527a45379d2a0da315974
+ms.sourcegitcommit: 2fea3686b1484406d31c5447c7d3d7e2451b827e
+ms.openlocfilehash: 1898b3d6aa1a9ccbc9f4427cf994c02f9fa35abd
 
 
 ---
@@ -33,7 +33,7 @@ Data Lake Analytics hesaplarını, işlerini ve kataloğunu yönetmek için WebH
 ## <a name="authenticate-with-azure-active-directory"></a>Azure Active Directory ile kimlik doğrulama
 Azure Active Directory ile kimlik doğrulama gerçekleştirmek için kullanılabilecek iki yöntem vardır.
 
-### <a name="enduser-authentication-interactive"></a>Son kullanıcı kimlik doğrulaması (etkileşimli)
+### <a name="end-user-authentication-interactive"></a>Son kullanıcı kimlik doğrulaması (etkileşimli)
 Bu yöntemi kullanarak, uygulama kullanıcıdan oturum açmasını ister ve tüm işlemler, kullanıcı bağlamında gerçekleştirilir. 
 
 Etkileşimli kimlik doğrulaması için aşağıdaki adımları izleyin:
@@ -76,7 +76,7 @@ Etkileşimli kimlik doğrulaması için aşağıdaki adımları izleyin:
 
 Etkileşimli kullanıcı kimlik doğrulaması hakkında daha fazla bilgi için bkz. [Yetki kodu izin akışı](https://msdn.microsoft.com/library/azure/dn645542.aspx).
 
-### <a name="servicetoservice-authentication-noninteractive"></a>Hizmetten hizmete kimlik doğrulaması (etkileşimli olmayan)
+### <a name="service-to-service-authentication-non-interactive"></a>Hizmetten hizmete kimlik doğrulaması (etkileşimli olmayan)
 Bu yöntemi kullanarak uygulama, işlemleri gerçekleştirmek için kendi kimlik bilgilerini sağlar. Bunun için aşağıda gösterilene benzer bir POST isteği yayımlamanız gerekir: 
 
     curl -X POST https://login.microsoftonline.com/<TENANT-ID>/oauth2/token  \
@@ -209,7 +209,7 @@ Aşağıdaki Curl komutu bir hesaptaki Data Lake Store bilgilerinin nasıl liste
         ]
     }
 
-## <a name="submit-usql-jobs"></a>U-SQL işlerini gönderme
+## <a name="submit-u-sql-jobs"></a>U-SQL işlerini gönderme
 Aşağıdaki Curl komutu bir U-SQL işinin nasıl gönderileceğini göstermektedir:
 
     curl -i -X PUT -H "Authorization: Bearer <REDACTED>" https://<DataLakeAnalyticsAccountName>.azuredatalakeanalytics.net/Jobs/<NewGUID>?api-version=2016-03-20-preview -d@"C:\tutorials\adla\SubmitADLAJob.json"
@@ -266,7 +266,7 @@ Aşağıdaki Curl komutu bir U-SQL işinin nasıl gönderileceğini göstermekte
     }
 
 
-## <a name="list-usql-jobs"></a>U-SQL işlerini listeleme
+## <a name="list-u-sql-jobs"></a>U-SQL işlerini listeleme
 Aşağıdaki Curl komutu bir U-SQL işinin nasıl listeleneceğini göstermektedir:
 
     curl -i -X GET -H "Authorization: Bearer <REDACTED>" https://<DataLakeAnalyticsAccountName>.azuredatalakeanalytics.net/Jobs?api-version=2016-11-01 
@@ -350,6 +350,6 @@ Aşağıdaki Curl komutu katalogdan veritabanlarının nasıl alınacağını g�
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

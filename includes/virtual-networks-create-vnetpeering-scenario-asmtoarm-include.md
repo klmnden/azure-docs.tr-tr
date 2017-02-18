@@ -1,15 +1,11 @@
-## <a name="peering-virtual-networks-from-rm-to-classic"></a>RM ile klasik dağıtım modelinde sanal ağları eşleme
-Bu senaryoda, sırasıyla Azure Resource Manager dağıtım modeline ve klasik dağıtım modeline ait olan **VNET1** ve **VNET2** adındaki iki sanal ağ arasında eşleme oluşturacaksınız.
+## <a name="a-namex-modelapeering-virtual-networks-created-through-different-deployment-models"></a><a name="x-model"></a>Farklı dağıtım modelleriyle oluşturulan sanal ağları eşleme
+Bu senaryoda **SanalAğ1** ve **SanalAğ2** adlı iki sanal ağ arasında bir eşleme oluşturacaksınız. SanalAğ1 Resource Manager dağıtım modeliyle, SanalAğ2 ise klasik dağıtım modeliyle oluşturulacaktır.
 
-> [!NOTE]
-> Sanal ağların aynı abonelikte olması gerekir.
 > 
-> 
-
 ![ASM'den ARM'ye dağıtım senaryosu](./media/virtual-networks-create-vnetpeering-scenario-asmtoarm-include/figure01.PNG)
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

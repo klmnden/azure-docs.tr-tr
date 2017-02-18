@@ -1,5 +1,5 @@
 ---
-title: "Klasik dağıtım modelinde PowerShell kullanarak iç yük dengeleyici oluşturma | Microsoft Belgeleri"
+title: "Azure İç yük dengeleyicisi oluşturma - PowerShell klasik | Microsoft Docs"
 description: "Klasik dağıtım modelinde PowerShell kullanarak iç yük dengeleyici oluşturmayı öğrenin"
 services: load-balancer
 documentationcenter: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/09/2016
+ms.date: 01/23/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 8827793d771a2982a3dccb5d5d1674af0cd472ce
-ms.openlocfilehash: 829ed8ac5f4770c7745923edf3c09b29f4ad3ed4
+ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
+ms.openlocfilehash: f701fb3564c62cf8088cc4362a10c5e2c2301ae6
 
 ---
 
@@ -193,6 +193,6 @@ Get-Help Remove-AzureInternalLoadBalancer -full
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO4-->
 
 

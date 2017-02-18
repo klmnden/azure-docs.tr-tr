@@ -1,0 +1,66 @@
+---
+title: "İlk Azure Mantıksal Uygulamanız ile iş akışları oluşturma | Microsoft Docs"
+description: "İlk Mantıksal Uygulamanız ile uygulamaları ve SaaS hizmetlerini bağlamaya başlama"
+author: jeffhollan
+manager: anneta
+editor: 
+services: logic-apps
+documentationcenter: 
+ms.assetid: ce3582b5-9c58-4637-9379-75ff99878dcd
+ms.service: logic-apps
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 01/25/2017
+ms.author: jehollan
+translationtype: Human Translation
+ms.sourcegitcommit: ce1e0cfe7c7f52d521ef3318376af75331323083
+ms.openlocfilehash: 178a57624345a4b3e5d73e64ce4ccf81b8b90a88
+
+
+---
+# <a name="create-a-new-logic-app-connecting-saas-services"></a>SaaS hizmetlerine bağlanan yeni bir mantıksal uygulama oluşturma
+Bu konuda [Azure Logic Apps](logic-apps-what-are-logic-apps.md)’i kullanmaya birkaç dakika içinde nasıl başlayabileceğiniz gösterilmektedir. E-postanıza ilgi çekici tweet’ler göndermenize imkan tanıyan basit bir iş akışı gösterilecektir.
+
+Bu senaryoyu kullanmak için aşağıdakiler gereklidir:
+
+* Bir Azure aboneliği
+* Bir Twitter hesabı
+* Outlook.com veya barındırılan Office 365 posta kutusu
+
+## <a name="create-a-new-logic-app-to-email-you-tweets"></a>Tweet’leri e-posta ile göndermek için yeni bir mantıksal uygulama oluşturma
+1. [Azure portal panosunda](https://portal.azure.com) **Yeni**’yi seçin. 
+2. Arama çubuğunda 'logic' araması yapın ve ardından **Logic App** öğesini seçin. Ayrıca **Yeni**, **Web + Mobil** ve **Mantıksal Uygulama**’yi seçebilirsiniz. 
+3. Mantıksal uygulamanız için bir ad girin, bir konum, kaynak grubu ve **Oluştur**’u seçin.  **Panoya Sabitle**’yi seçerseniz mantıksal uygulama dağıtıldıktan sonra otomatik olarak açılır.  
+4. Mantıksal uygulamanızı ilk kez açtıktan sonra başlamak için bir şablondan seçim yapabilirsiniz.  Bunu sıfırdan oluşturmak için şimdilik **Boş Mantıksal Uygulama**’ya tıklayın. 
+5. Tetikleyici oluşturmanız için gereken ilk öğedir.  Mantıksal uygulamanızı başlatacak olay budur.  Tetikleyici arama kutusunda **twitter** araması yapın ve seçin.
+6. Şimdi tetiklenecek bir arama terimi yazın.  **Sıklık** ve **Aralık**, mantıksal uygulamanızın tweet’leri ne sıklıkla denetleyeceğini (ve bu süre boyunca tüm tweet’leri döndüreceğini) belirler.
+    ![Twitter araması](media/logic-apps-create-a-logic-app/twittersearch.png)
+7. **Yeni adım** düğmesini ve ardından **Eylem ekle** veya **Koşul ekle** öğesini seçin
+8. **Eylem Ekle** öğesini seçtiğinizde bir eylem seçmek üzere [kullanılabilir bağlayıcılar](../connectors/apis-list.md) içinden arama yapabilirsiniz. Örneğin, outlook.com adresinden posta göndermek için **Outlook.com - E-posta Gönder**’i seçebilirsiniz:  
+    ![Eylemler](media/logic-apps-create-a-logic-app/actions.png)
+9. Bundan sonra istediğiniz e-posta için parametreleri doldurmanız gerekir:  ![Parametreler](media/logic-apps-create-a-logic-app/parameters.png)
+10. Son olarak, mantıksal uygulamanızı canlı hale getirmek için **Kaydet**’i seçebilirsiniz.
+
+## <a name="manage-your-logic-app-after-creation"></a>Oluşturduktan sonra mantıksal uygulamanızı yönetme
+Mantıksal uygulamanız artık çalışır durumdadır. Girilen arama terimini içeren tweet’ler düzenli olarak denetlenir. Eşleşen bir tweet bulunduğunda size bir e-posta gönderilir. Son olarak, uygulamayı devre dışı bırakmayı veya nasıl çalıştığını görürsünüz.
+
+1. [Azure Portal](https://portal.azure.com)’a gidin
+2. Ekranın sol tarafındaki **Gözat**’a tıklayın ve **Logic Apps**’ı seçin.
+3. Geçerli durumunu ve genel bilgileri görmek için oluşturduğunuz yeni mantıksal uygulamaya tıklayın.
+4. Yeni mantıksal uygulamanızı düzenlemek için **Düzenle** öğesine tıklayın.
+5. Uygulamayı kapatmak için komut çubuğunda **Devre Dışı Bırak**’a tıklayın.
+6. Mantık uygulamanızın ne zaman çalışacağını izlemek için çalışma ve tetikleme geçmişlerini görüntüleyin.  En son verileri görmek için **Yenile**’ye tıklayabilirsiniz.
+
+5 dakikadan daha kısa bir süre içinde bulutta çalışan basit bir mantıksal uygulama ayarlayabildiniz. Logic Apps özelliklerini kullanma hakkında daha fazla bilgi için bkz. [Logic Apps özelliklerini kullanma]. Mantıksal Uygulama tanımları hakkında bilgi edinmek için bkz. [Mantıksal Uygulama tanımları yazma](../logic-apps/logic-apps-author-definitions.md).
+
+<!-- Shared links -->
+[Azure portal]: https://portal.azure.com
+[Logic Apps özelliklerini kullanma]: logic-apps-create-a-logic-app.md
+
+
+
+<!--HONumber=Jan17_HO4-->
+
+

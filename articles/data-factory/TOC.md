@@ -25,7 +25,7 @@
 
 # Nasıl yapılır
 ## Veri Taşıma
-### [Data Factory Kopyalama Sihirbazı](data-factory-copy-wizard.md)
+### [Data Factory Kopyalama Sihirbazı](data-factory-azure-copy-wizard.md)
 #### [15 dakika içinde 1 TB yükleyin](data-factory-load-sql-data-warehouse.md)
 ### [Kopyalama Etkinliği](data-factory-data-movement-activities.md)
 #### [Performans ve Ayar Kılavuzu](data-factory-copy-activity-performance.md)
@@ -84,7 +84,6 @@
 # Başvuru
 ## [PowerShell](/powershell/resourcemanager/azurerm.datafactories/v2.3.0/azurerm.datafactories)
 ## [.NET](/dotnet/api/microsoft.azure.management.datafactories.models)
-## [Azure Data Factory Geliştirici Başvurusu](data-factory-sdks.md)
 ## [REST](/rest/api/datafactory/)
 
 # Kaynaklar
@@ -102,6 +101,6 @@
 ## [Özellik isteme](https://feedback.azure.com/forums/270578-azure-data-factory)
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -6,18 +6,17 @@ keywords: "cihaz temelli koşullu erişim, cihaz kaydı, cihaz kaydını etkinle
 documentationcenter: 
 author: MarkusVi
 manager: femila
-editor: 
 ms.assetid: 8ad0156c-0812-4855-8563-6fbff6194174
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/11/2016
+ms.date: 01/24/2017
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: fd2076f22c6048fda83d6da3b069e2805afb453f
+ms.sourcegitcommit: fbabf6f2e1e588ba509c4da84ab1700b1b5d4f87
+ms.openlocfilehash: ad9f9a8c5b370ffa916b9089ef3ce523fe0266c7
 
 
 ---
@@ -48,7 +47,7 @@ Cihazınız aşağıdaki platformlardan birini çalıştırıyorsa bir uygulamay
 ### <a name="device-is-not-registered"></a>Cihaz kayıtlı değil
 Cihazınız Azure AD'ye kayıtlı değilse ve uygulama, cihaz temelli bir ilkeyle korunuyorsa şu hata iletilerinden birinin görüntülendiği bir sayfa görebilirsiniz:
 
-![Kaydedilmemiş cihazlar için "Buradan oraya ulaşamazsınız" iletileri](./media/active-directory-conditional-access-device-remediation/01.png "Scenario")
+![Kaydedilmemiş cihazlar için "Buradan oraya ulaşamazsınız" iletileri](./media/active-directory-conditional-access-device-remediation/01.png "Senaryo")
 
 Cihazınız, kuruluşunuzda Active Directory etki alanına katılmışsa şunu deneyin:
 
@@ -122,7 +121,7 @@ Cihazınız etki alanına katılmamışsa ve Windows 8.1 çalıştırıyorsa Wor
 
 Şuna benzer bir hata sayfası görürsünüz:
 
-![Desteklenmeyen tarayıcılar için "Buradan oraya ulaşamazsınız" iletisi](./media/active-directory-conditional-access-device-remediation/02.png "Scenario")
+![Desteklenmeyen tarayıcılar için "Buradan oraya ulaşamazsınız" iletisi](./media/active-directory-conditional-access-device-remediation/02.png "Senaryo")
 
 Tek düzeltme seçeneği, cihaz platformunuz için uygulamanın desteklediği bir tarayıcı kullanılmasıdır.
 
@@ -132,6 +131,6 @@ Tek düzeltme seçeneği, cihaz platformunuz için uygulamanın desteklediği bi
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

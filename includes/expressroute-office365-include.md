@@ -9,6 +9,6 @@ Office 365 ve Dynamics 365 gibi Hizmet Olarak Yazılım teklifleri, İnternet ü
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

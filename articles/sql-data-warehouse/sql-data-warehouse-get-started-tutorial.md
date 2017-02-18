@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 01/26/2017
 ms.author: elbutter;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 73b5f05bf8b127a2fa5cc2aa26a7bd655569368c
-ms.openlocfilehash: 8e17866ef1e6802edf88534ad34e09bf04fb8ec5
+ms.sourcegitcommit: 2c88c1abd2af7a1ca041cd5003fd1f848e1b311c
+ms.openlocfilehash: 12f72e76ee991dfb701637847f2e406cd0f8c449
 
 
 ---
@@ -132,23 +132,23 @@ Bu adımda, veri ambarınıza erişmek için bir kullanıcı hesabı oluştururs
 
 Şu anda sunucu yöneticisi olarak oturum açtığınız için oturum ve kullanıcı oluşturma izinleriniz vardır.
 
-2. SSMS veya başka bir sorgu istemcisini kullanarak **ana** için yeni bir sorgu açın.
+1. SSMS veya başka bir sorgu istemcisini kullanarak **ana** için yeni bir sorgu açın.
 
     ![Asıl’da Yeni Sorgu](./media/sql-data-warehouse-get-started-tutorial/query-on-server.png)
 
     ![Asıl1’de Yeni Sorgu](./media/sql-data-warehouse-get-started-tutorial/query-on-master.png)
 
-2. Sorgu penceresinde bu T-SQL komutunu çalıştırarak XLRCLOGIN adlı bir oturum ve Yükleme Kullanıcısı adlı bir kullanıcı oluşturun. Bu oturum bilgileri mantıksal SQL sunucusuna bağlanabilir.
+2. Sorgu penceresinde bu T-SQL komutunu çalıştırarak MedRCLogin adlı bir oturum ve LoadingUser adlı bir kullanıcı oluşturun. Bu oturum bilgileri mantıksal SQL sunucusuna bağlanabilir.
 
     ```sql
-    CREATE LOGIN XLRCLOGIN WITH PASSWORD = 'a123reallySTRONGpassword!';
-    CREATE USER LoadingUser FOR LOGIN XLRCLOGIN;
+    CREATE LOGIN MedRCLogin WITH PASSWORD = 'a123reallySTRONGpassword!';
+    CREATE USER LoadingUser FOR LOGIN MedRCLogin;
     ```
 
 3. *SQL Veri Ambarı veritabanını* sorgularken, veritabanına erişmek ve üzerinde işlem gerçekleştirmek üzere oluşturduğunuz oturum bilgilerine göre bir veritabanı kullanıcısı oluşturun.
 
     ```sql
-    CREATE USER LoadingUser FOR LOGIN XLRCLOGIN;
+    CREATE USER LoadingUser FOR LOGIN MedRCLogin;
     ```
 
 4. Veritabanı kullanıcısına NYT adlı veritabanı üzerinde denetim izinleri verin. 
@@ -160,13 +160,16 @@ Bu adımda, veri ambarınıza erişmek için bir kullanıcı hesabı oluştururs
     > Veritabanı adınızda kısa çizgi varsa, köşeli ayraç içine aldığınızdan emin olun! 
     >
 
-### <a name="give-the-user-extra-large-resource-allocations"></a>Kullanıcıya çok büyük kaynak ayırmalar sağlayın
+### <a name="give-the-user-medium-resource-allocations"></a>Kullanıcıya orta büyüklükte kaynak ayırmalar sağlayın
 
-1. Bu T-SQL komutunu çalıştırarak xlargerc adlı çok büyük kaynak sınıfının üyesi yapın. 
+1. Bu T-SQL komutunu çalıştırarak mediumrc adlı orta büyüklükte kaynak sınıfının üyesi yapın. 
 
     ```sql
-    EXEC sp_addrolemember 'xlargerc', 'LoadingUser';
+    EXEC sp_addrolemember 'mediumrc', 'LoadingUser';
     ```
+    > [!NOTE]
+    > Eşzamanlılık ve kaynak sınıfları hakkında daha fazla bilgi için [buraya](sql-data-warehouse-develop-concurrency.md#resource-classes) tıklayın! 
+    >
 
 2. Yeni kimlik bilgileri ile mantıksal sunucuya bağlanma
 
@@ -223,7 +226,8 @@ Bu adımda, veri ambarınıza erişmek için bir kullanıcı hesabı oluştururs
     WITH ( 
         FORMAT_TYPE = DELIMITEDTEXT,
         FORMAT_OPTIONS ( FIELD_TERMINATOR = '|',
-            STRING_DELIMITER = ''DATE_FORMAT = '',
+            STRING_DELIMITER = '',
+        DATE_FORMAT = '',
             USE_TYPE_DEFAULT = False
         ),
         DATA_COMPRESSION = 'org.apache.hadoop.io.compress.GzipCodec'
@@ -352,7 +356,7 @@ Bu adımda, veri ambarınıza erişmek için bir kullanıcı hesabı oluştururs
         LOCATION = 'Time',
         DATA_SOURCE = NYTPublic,
         FILE_FORMAT = uncompressedcsv,
-        REJECT_TYPE = value
+        REJECT_TYPE = value,
         REJECT_VALUE = 0
     )
     ;
@@ -403,7 +407,7 @@ Bu adımda, veri ambarınıza erişmek için bir kullanıcı hesabı oluştururs
     )
     WITH
     (
-        LOCATION = 'Weather2013'
+        LOCATION = 'Weather2013',
         DATA_SOURCE = NYTPublic,
         FILE_FORMAT = uncompressedcsv,
         REJECT_TYPE = value,
@@ -670,6 +674,6 @@ savings by pausing and scaling to meet your business needs.
 
 
 
-<!--HONumber=Jan17_HO5-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 01/06/2017
+ms.date: 02/06/2017
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: 7db56a4c0efb208591bb15aa03a4c0dbf833d22e
-ms.openlocfilehash: cedf69c6e50470e9d16d8e1e361bb51eb8abed72
+ms.sourcegitcommit: fd0ddf8275ab58eb3c411123b776654fb46cae5d
+ms.openlocfilehash: 5770bbfcf700b1cefea6d22e0d5f025c1660e744
 
 
 ---
@@ -41,7 +41,7 @@ ms.openlocfilehash: cedf69c6e50470e9d16d8e1e361bb51eb8abed72
    
    ![](media/power-bi-embedded-get-started/create-workspace-1.png)
 3. **Veri + Analiz** altında **Power BI Embedded**’a tıklayın.
-4. **Oluşturma Dikey Penceresi**’ne gerekli bilgileri girin. **Fiyatlandırma** için bkz. [Power BI Embedded fiyatlandırması](http://go.microsoft.com/fwlink/?LinkID=760527).
+4. **Çalışma Alanı Koleksiyonu Dikey Penceresi**’ne gerekli bilgileri girin. **Fiyatlandırma** için bkz. [Power BI Embedded fiyatlandırması](http://go.microsoft.com/fwlink/?LinkID=760527).
    
    ![](media/power-bi-embedded-get-started/create-workspace-2.png)
 5. **Oluştur**’a tıklayın.
@@ -68,6 +68,10 @@ Bu anahtarları kopyalayın ve uygulamanızda güvenli bir şekilde depolayın. 
 İki anahtar listelenmekle birlikte, belirli bir seferde yalnızca bir anahtar gerekir. İkinci anahtar, hizmete erişimi kesintiye uğratmadan anahtarları dönemsel olarak yeniden oluşturabilmeniz için verilir.
 
 Artık uygulamanız için bir Power BI örneğine ve **Erişim Anahtarları**’na sahip olduğunuza göre, kendi uygulamanıza bir rapor aktarabilirsiniz. Bir raporu içeri aktarmayı öğrenmeden önce, sonraki bölümde bir uygulamaya eklemek için Power BI veri kümeleri ve raporları oluşturma açıklanır.
+
+## <a name="working-with-workspaces"></a>Çalışma alanları ile çalışma
+
+Çalışma alanı koleksiyonunuzu oluşturduktan sonra, raporlarınızı ve veri kümelerinizi barındıracak bir çalışma alanı oluşturmanız gerekir. Bir çalışma alanı oluşturmak için [Post Worksapce REST API’sini](https://msdn.microsoft.com/library/azure/mt711503.aspx) kullanmanız gerekir.
 
 ## <a name="create-power-bi-datasets-and-reports-to-embed-into-an-app"></a>Bir uygulamaya eklemek için Power BI veri kümeleri ve raporları oluşturma
 Artık, uygulamanız için Power BI örneğini oluşturduğunuza ve**Erişim Anahtarları**’na sahip olduğunuza göre, eklemek istediğiniz Power BI veri kümelerini ve raporlarını oluşturmanız gerekir. Veri kümeleri ve raporlar **Power BI Desktop** kullanarak oluşturulabilir. [Power BI Desktop’u ücretsiz olarak](https://go.microsoft.com/fwlink/?LinkId=521662) indirebilirsiniz. Hızlı bir şekilde kullanmaya başlamak için [Retail Analysis Sample PBIX](http://go.microsoft.com/fwlink/?LinkID=780547)’i de indirebilirsiniz.
@@ -109,6 +113,6 @@ Başka sorunuz mu var? [Power BI Topluluğu'nu deneyin](http://community.powerbi
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 
