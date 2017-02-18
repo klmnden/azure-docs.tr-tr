@@ -12,11 +12,11 @@ ms.devlang: javascript
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/12/2016
+ms.date: 12/15/2016
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
-ms.openlocfilehash: 6a4275b7fb7501fec4e98f87b09e20b2114b556b
+ms.sourcegitcommit: 2e4220bedcb0091342fd9386669d523d4da04d1c
+ms.openlocfilehash: 5d005e3259333f79b9b9852e325864745ee54b84
 
 
 ---
@@ -27,7 +27,7 @@ Bu öğreticinin sonunda üç Node.js konsol uygulamanız olacak:
 
 * Bir cihaz kimliği ve sanal cihaz uygulamanızı bağlamak için ilişkili güvenlik anahtarı oluşturan **CreateDeviceIdentity.js**.
 * Sanal cihaz uygulamanız tarafından gönderilen telemetriyi gösteren **ReadDeviceToCloudMessages.js**.
-* Daha önce oluşturulan cihaz kimliğiyle IoT hub'ınıza bağlanan ve AMQP protokolünü kullanarak her saniye bir telemetri iletisi gönderen **SimulatedDevice.js**.
+* Daha önce oluşturulan cihaz kimliğiyle IoT hub'ınıza bağlanan ve MQTT protokolünü kullanarak her saniye bir telemetri iletisi gönderen **SimulatedDevice.js**.
 
 > [!NOTE]
 > [IoT Hub SDK'ları][lnk-hub-sdks] makalesi, hem cihazlarınızda hem de çözüm arka ucunuzda çalıştırılacak uygulamalar oluşturmak için kullanabileceğiniz Azure IoT SDK’ları hakkında bilgi içerir.
@@ -44,7 +44,7 @@ Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 IoT Hub’ınızı oluşturdunuz. Bu öğreticinin geri kalanını tamamlamak için gereken IoT Hub ana bilgisayar adına ve IoT Hub bağlantı dizesine sahipsiniz.
 
 ## <a name="create-a-device-identity"></a>Cihaz kimliği oluşturma
-Bu bölümde, IoT hub'ınızdaki kimlik kayıt defterinde bir cihaz kimliği oluşturan bir Node.js konsol uygulaması oluşturacaksınız. Kimlik kayıt defterinde girişi olmayan bir cihaz IoT hub'ına bağlanamaz. Daha fazla bilgi için [IoT Hub geliştirici kılavuzunun][lnk-devguide-identity] **Kimlik Kayıt Defteri** bölümüne bakın. Bu konsol uygulamasını çalıştırdığınızda, cihazınızın IoT Hub'a cihaz-bulut iletileri gönderdiğinde kendisini tanımlamak için kullanabileceği benzersiz bir cihaz kimliği ve anahtarı oluşturulur.
+Bu bölümde, IoT hub'ınızdaki kimlik kayıt defterinde bir cihaz kimliği oluşturan bir Node.js konsol uygulaması oluşturacaksınız. Kimlik kayıt defterinde girişi olmayan bir cihaz IoT hub'ına bağlanamaz. Daha fazla bilgi için [IoT Hub Geliştirici Kılavuzu][lnk-devguide-identity]'nun **Kimlik Kayıt Defteri** bölümüne bakın. Bu konsol uygulamasını çalıştırdığınızda, cihazınızın IoT Hub'a cihaz-bulut iletileri gönderdiğinde kendisini tanımlamak için kullanabileceği benzersiz bir cihaz kimliği ve anahtarı oluşturulur.
 
 1. **createdeviceidentity** adlı yeni bir boş klasör oluşturun. Komut isteminizde aşağıdaki komutu kullanarak **createdeviceidentity** klasöründe bir package.json dosyası oluşturun. Tüm varsayılanları kabul edin:
    
@@ -113,7 +113,7 @@ Bu bölümde, IoT Hub'dan cihazdan buluta iletiler okuyan bir Node.js konsol uyg
 > 
 > 
 
-1. **readdevicetocloudmessages** adlı yeni bir boş klasör oluşturun. Komut isteminizde aşağıdaki komutu kullanarak **readdevicetocloudmessages** klasöründe bir package.json dosyası oluşturun. Tüm varsayılanları kabul edin:
+1. **readdevicetocloudmessages** adlı boş bir klasör oluşturun. Komut isteminizde aşağıdaki komutu kullanarak **readdevicetocloudmessages** klasöründe bir package.json dosyası oluşturun. Tüm varsayılanları kabul edin:
    
     ```
     npm init
@@ -149,7 +149,7 @@ Bu bölümde, IoT Hub'dan cihazdan buluta iletiler okuyan bir Node.js konsol uyg
       console.log('');
     };
     ```
-7. **EventHubClient** oluşturmak, IoT Hub bağlantısını açmak ve her bölüme yönelik bir alıcı oluşturmak için aşağıdaki kodu ekleyin. Bu uygulama alıcı oluştururken bir filtre kullanır, böylece bir alıcı çalışmaya başladıktan sonra IoT Hub'a gönderilen iletileri yalnızca okur. Bu filtre, yalnızca geçerli ileti kümesini görmeniz açısından bir test ortamında kullanışlıdır. Bir üretim ortamında kodunuzun tüm iletileri işlediğinden emin olmanız gerekir. Daha fazla bilgi için [IoT Hub cihazdan buluta iletileri işleme][lnk-process-d2c-tutorial] öğreticisine bakın:
+7. **EventHubClient** oluşturmak, IoT Hub bağlantısını açmak ve her bölüme yönelik bir alıcı oluşturmak için aşağıdaki kodu ekleyin. Bu uygulama alıcı oluştururken bir filtre kullanır, böylece bir alıcı çalışmaya başladıktan sonra IoT Hub'a gönderilen iletileri yalnızca okur. Bu filtre, yalnızca geçerli ileti kümesini görmeniz açısından bir test ortamında kullanışlıdır. Bir üretim ortamında, kodunuzun tüm iletileri işlediğinden emin olmanız gerekir. Daha fazla bilgi için [IoT Hub cihazdan buluta iletiler nasıl işlenir?][lnk-process-d2c-tutorial] öğreticisine bakın:
    
     ```
     var client = EventHubClient.fromConnectionString(connectionString);
@@ -171,23 +171,23 @@ Bu bölümde, IoT Hub'dan cihazdan buluta iletiler okuyan bir Node.js konsol uyg
 ## <a name="create-a-simulated-device-app"></a>Sanal cihaz uygulaması oluşturma
 Bu bölümde, bir IoT hub'a cihazdan buluta iletiler gönderen bir cihaza benzetim yapan bir Node.js konsol uygulaması oluşturacaksınız.
 
-1. **simulateddevice** adlı yeni bir boş klasör oluşturun. Komut isteminizde aşağıdaki komutu kullanarak **simulateddevice** klasöründe bir package.json dosyası oluşturun. Tüm varsayılanları kabul edin:
+1. **simulateddevice** adlı boş bir klasör oluşturun. Komut isteminizde aşağıdaki komutu kullanarak **simulateddevice** klasöründe bir package.json dosyası oluşturun. Tüm varsayılanları kabul edin:
    
     ```
     npm init
     ```
-2. Komut isteminizde **simulateddevice** klasöründe **azure-iot-device** Cihaz SDK paketini ve **azure-iot-device-amqp** paketini yüklemek için aşağıdaki komutu çalıştırın:
+2. Komut isteminizde **simulateddevice** klasöründe **azure-iot-device** Cihaz SDK paketini ve **azure-iot-device-mqtt** paketini yüklemek için aşağıdaki komutu çalıştırın:
    
     ```
-    npm install azure-iot-device azure-iot-device-amqp --save
+    npm install azure-iot-device azure-iot-device-mqtt --save
     ```
-3. Bir metin düzenleyicisi kullanarak **simulateddevice** klasöründe yeni bir **SimulatedDevice.js** dosyası oluşturun.
+3. Bir metin düzenleyicisi kullanarak **simulateddevice** klasöründe bir **SimulatedDevice.js** dosyası oluşturun.
 4. Aşağıdaki `require` deyimlerini **SimulatedDevice.js** dosyasının başlangıcına ekleyin:
    
     ```
     'use strict';
    
-    var clientFromConnectionString = require('azure-iot-device-amqp').clientFromConnectionString;
+    var clientFromConnectionString = require('azure-iot-device-mqtt').clientFromConnectionString;
     var Message = require('azure-iot-device').Message;
     ```
 5. Bir **connectionString** değişkeni ekleyin ve bir **İstemci** örneği oluşturmak için bunu kullanın. **{youriothostname}** yerine, *IoT Hub oluşturma* bölümünde oluşturduğunuz IoT hub'ın adını girin. **{yourdevicekey}** yerine, *Cihaz kimliği oluşturma* bölümünde oluşturduğunuz cihaz anahtarı değerini girin:
@@ -207,7 +207,7 @@ Bu bölümde, bir IoT hub'a cihazdan buluta iletiler gönderen bir cihaza benzet
       };
     }
     ```
-7. Bir geri çağırma oluşturun ve IoT hub'ınıza her saniye yeni bir ileti göndermek için **setInterval** işlevini kullanın.
+7. Bir geri çağırma oluşturun ve IoT hub'ınıza her saniye bir ileti göndermek için **setInterval** işlevini kullanın:
    
     ```
     var connectCallback = function (err) {
@@ -283,7 +283,7 @@ IoT çözümünüzün nasıl genişletileceğini ve cihazdan buluta iletilerin d
 [lnk-devguide-identity]: iot-hub-devguide-identity-registry.md
 [lnk-event-hubs-overview]: ../event-hubs/event-hubs-overview.md
 
-[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
+[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
 [lnk-process-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
 
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md
@@ -296,6 +296,6 @@ IoT çözümünüzün nasıl genişletileceğini ve cihazdan buluta iletilerin d
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 
