@@ -1,11 +1,23 @@
 ---
-layout: LandingPage
+title: "Azure DocumentDB Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
 description: "Şemasız bir NoSQL belge veritabanı olan DocumentDB’yi nasıl kullanacağınızı öğrenin. Öğreticilerde SQL sorgularını uygulamalarla tümleştirme ve JSON belgelerinde kullanma konusunda bilgi sağlanmıştır."
+services: documentdb
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: documentdb
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 14e5e2f2bdf3708ab339eff7eb58bbf87cb1a10c
-ms.openlocfilehash: 261d2d5410603fe3352c0bcfabcc15058f3f7c94
+ms.sourcegitcommit: be32b9d24db59618b42d0923b0ff4248f3329904
+ms.openlocfilehash: 347b2933a33d7a11505842ea437790d5fabf5b58
 
 ---
+
 #<a name="documentdb-documentation"></a>DocumentDB Belgeleri
 
 Web, mobil, oyun ve IoT için yüksek performanslı uygulamalarda DocumentDB’yi nasıl kullanabileceğinizi öğrenin. Öğreticilerde ve diğer belgelerde, JSON verilerini depolama ve bu NoSQL veritabanı hizmetindeki elastik bir şema üzerinde SQL sorguları gerçekleştirme konusunda bilgi sağlanmıştır.
@@ -210,18 +222,10 @@ Web, mobil, oyun ve IoT için yüksek performanslı uygulamalarda DocumentDB’y
     </li>
 </ul>
 
----
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/documentdb.pdf">
-        <div class="img"></div>
-        <div class="text">
-DocumentDB Belgelerini İndirme </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO3-->
+
+<!--HONumber=Feb17_HO2-->
 
 

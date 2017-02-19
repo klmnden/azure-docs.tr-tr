@@ -42,14 +42,13 @@
 ### [Dizinlerinizi özelleştirme](documentdb-indexing-policies.md)
 ### [Veri erişiminin güvenliğini sağlama](documentdb-secure-access-to-data.md)
 ### [Yedekleme ve geri yükleme](documentdb-online-backup-and-restore.md)
-### [Performans seviyeleri](documentdb-performance-levels.md)
+### [S1, S2, S3’ü devre dışı bırakma](documentdb-performance-levels.md)
 ### [İstek birimleri](documentdb-request-units.md)
 ### Azure CLI
 #### [Hesap oluşturma](documentdb-automation-resource-manager-cli.md)
 #### [Bölge ekleme veya kaldırma](documentdb-automation-region-management.md)
 ### [Azure PowerShell](documentdb-manage-account-with-powershell.md)
 ### [Güvenlik duvarı desteği](documentdb-firewall-support.md)
-### [Hesaba fazla yükleme](documentdb-supercharge-your-account.md)
 
 ## Geliştirme
 ### [SQL sorgusu](documentdb-sql-query.md)
@@ -73,6 +72,7 @@
 ## Portalı kullanma
 ### [Veritabanı hesabı oluşturma](documentdb-create-account.md)
 ### [Koleksiyon oluşturma](documentdb-create-collection.md)
+### [Aktarım hızı ayarlama](documentdb-set-throughput.md)
 ### [Genel çoğaltma ekleme](documentdb-portal-global-replication.md)
 ### [Belge ekleme ve düzenleme](documentdb-view-json-document-explorer.md)
 ### [Belgeleri sorgulama](documentdb-query-collections-query-explorer.md)
@@ -90,7 +90,7 @@
 ### [Azure Search ile Tümleştirme](../search/search-howto-index-documentdb.md)
 ### [Azure Data Factory ile veri taşıma](../data-factory/data-factory-azure-documentdb-connector.md)
 ### [Azure Akış Analizi ile verileri gerçek zamanlı olarak çözümleme](../stream-analytics/stream-analytics-define-outputs.md#documentdb)
-### [Logic Apps ile ilgili bildirimleri alma](documentdb-change-notification.md)
+### [Logic Apps kullanarak HL7 FHIR kaydını değiştirme](documentdb-change-feed-hl7-fhir-logic-apps.md)
 ### [Gerçek zamanlı sensör verisi işleme](../hdinsight/hdinsight-storm-iot-eventhub-documentdb.md)
 ### [Power BI ile verilerinizi görselleştirme](documentdb-powerbi-visualize.md)
 ### [Veri görselleştirme için ODBC sürücüsünden yararlanma](documentdb-nosql-odbc-driver.md)
@@ -126,6 +126,6 @@
 ## [Öğrenme yolu](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

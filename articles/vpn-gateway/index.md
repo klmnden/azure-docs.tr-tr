@@ -1,5 +1,5 @@
 ---
-title: "VPN Gateway Belgeleri - Öğreticiler ve API Başvurusu | Microsoft Docs"
+title: "Azure VPN Gateway Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
 description: "Bulut sanal ağları ile şirket içi ağlar arasındaki ya da farklı bulut sanal ağları arasındaki trafiği yönetmek üzere sanal özel ağ (VPN) geçitleri yapılandırmayı öğrenin."
 services: vpn-gateway
 author: carolz
@@ -13,9 +13,8 @@ ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 2e7486833ae23cdfed037aa1afb930997586a158
-ms.openlocfilehash: e3179c060380c07dde9058597b0d77861d14d848
-
+ms.sourcegitcommit: b481f480d44696476497e0eaeeee7150ed8d365b
+ms.openlocfilehash: 6c0f96adff93080f88a6a23edbdf5a622279049f
 
 ---
 # <a name="vpn-gateway-documentation"></a>VPN Gateway Belgeleri
@@ -169,6 +168,6 @@ Sanal bir özel ağ geçidi olan VPN Gateway’i nasıl yapılandıracağınız�
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

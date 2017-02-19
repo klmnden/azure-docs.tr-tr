@@ -1,13 +1,25 @@
 ---
+title: "Azure Application Gateway Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
+description: "Bulut uygulaması sunma denetleyicisini nasıl dağıtacağınızı öğrenin. Belgelerde bir web ön ucu için uygulama düzeyinde yönlendirme ve yük dengeleme ayarlama konusunda bilgi sağlanmıştır."
+services: application-gateway
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: application-gateway
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: e81571dc2d0d52f8b04c7ff99a76d92c784c259e
+ms.sourcegitcommit: 50b30a64fab9a7c996040c5a0380975b11b5966f
+ms.openlocfilehash: 9d62ea6d75b48bbc84194635da792764871617e7
 
 ---
 #<a name="application-gateway-documentation"></a>Application Gateway Belgeleri
 
-Azure Application Gateway, hizmet olarak Uygulama Teslim Denetleyicisi (ADC) sunar.  Müşterilere, yoğun CPU kullanan SSL sonlandırması yükünü uygulama ağ geçidine boşaltarak web grubu üretkenliğini iyileştirme olanağı tanır.  Uygulamanız için ölçeklenebilirlik ve yüksek kullanılabilirliğin yanı sıra daha iyi yönetilebilirlik için zengin çeşitlilikte tanılama ve günlüğe kaydetme seçeneği sunan özel bir sanal gereçtir.
+Bir hizmet olarak uygulama teslim denetleyicisi (ADC) olan Application Gateway’i nasıl dağıtabileceğinizi öğrenin. Öğreticiler, API başvuruları ve diğer belgelerde, kullanılabilirlik düzeyi yüksek ve ölçeklenebilir web ön ucu oluşturmanızı sağlayan uygulama düzeyinde yönlendirme ve yük dengeleme hizmetlerini nasıl ayarlayacağınız açıklanmıştır.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -113,7 +125,7 @@ Azure Application Gateway, hizmet olarak Uygulama Teslim Denetleyicisi (ADC) sun
                     <div class="cardText">
                         <h3>Komut Satırı</h3>
                         <p><a href="/powershell/resourcemanager">PowerShell</a></p>
-                        <p><a href="/cli/azure/network/application-gateway">Azure CLI 2.0 önizleme</a></p>
+                        <p><a href="/cli/azure/network/application-gateway">Azure CLI 2.0 Önizleme</a></p>
                     </div>
                 </div>
             </div>
@@ -141,25 +153,19 @@ Azure Application Gateway, hizmet olarak Uygulama Teslim Denetleyicisi (ADC) sun
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="https://msdn.microsoft.com/library/mt684941">REST API Başvurusu</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/mt684941">REST API başvurusu</a></p>
                         <p><a href="https://msdn.microsoft.com/library/azure/mt299393">Klasik REST API Başvurusu</a></p>
                     </div>
                 </div>
             </div>
         </div>
     </li>
-</ul>   
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/application-gateway.pdf">
-        <div class="img"></div>
-        <div class="text">
-Application Gateway Belgelerini indirin </div>
-    </a>
-</div>
+</ul>    
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+
+<!--HONumber=Feb17_HO2-->
 
 

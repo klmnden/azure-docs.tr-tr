@@ -26,6 +26,7 @@
 ### [Runbook işini izleme](automation-runbook-execution.md)
 ### [Runbook ayarlarını değiştirme](automation-runbook-settings.md)
 ### [Azure Otomasyonu verilerini yönetme](automation-managing-data.md)
+### [Log Analytics uyarısından Azure Otomasyonu Runbook’u çağırma](automation-invoke-runbook-from-omsla-alert.md)
 ## Yapılandırma yönetimi (DSC) dağıtma
 ### [İstenen Durum Yapılandırması (DSC)](automation-dsc-overview.md)
 ### [Başlarken](automation-dsc-getting-started.md)
@@ -43,6 +44,7 @@
 ### [Tümleştirme Modülleri](automation-integration-modules.md)
 ### [Zamanlamalar](automation-schedules.md)
 ### [Değişkenler](automation-variables.md)
+### [Azure PowerShell modüllerini güncelleştirme](automation-update-azure-modules.md)
 ## Senaryoları otomatik hale getirme
 ### [Runbook galerisi](automation-runbook-gallery.md)
 ### [Sanal makineleri Başlatma/Durdurma](automation-solution-startstopvm-graphical.md)
@@ -53,7 +55,9 @@
 ### [Kaynak Grubunu Kaldırma](automation-scenario-remove-resourcegroup.md)
 ### [Hizmetin kapalı olduğu saatlerde Sanal Makineleri Başlatma/Durdurma](automation-solution-vm-management.md)
 ### [GitHub Enterprise ile Kaynak Denetimi Tümleştirmesi](automation-scenario-source-control-integration-with-github-ent.md)
-## [İzleme](automation-manage-send-joblogs-log-analytics.md)
+## İzleme
+### [Azure Otomasyonu iş verilerini Log Analytics’e iletme](automation-manage-send-joblogs-log-analytics.md)
+### [Azure Otomasyonu hesabı ile Log Analytics arasındaki bağlantıyı kaldırma](automation-unlink-from-log-analytics.md)
 ## Geçiş
 ### [Orchestrator'dan geçiş](automation-orchestrator-migration.md)
 ### [Otomasyonu Hesabını Taşıma](automation-migrate-account-subscription.md)
@@ -78,6 +82,6 @@
 ## [Otomasyon tanıtım videosu](https://azure.microsoft.com/documentation/videos/azure-automation-101-with-powershell-and-eamon-o-reilly/)
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

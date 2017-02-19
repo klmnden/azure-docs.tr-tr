@@ -1,9 +1,20 @@
 ---
-layout: LandingPage
+title: "Azure Stack Belgeleri - Öğreticileri | Microsoft Docs"
 description: "Azure Stack önizleme sürümünü kullanarak veri merkezinizden Azure hizmetleri sunmayı öğrenin. Bir kavram kanıtı ortamından özellikleri öğrenin ve tanıtın."
+services: azure-stack
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: azure-stack
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: c93027a575b2f9d6507448f9f68011723b165bf3
-ms.openlocfilehash: c964ed3b3fe8b3af31c50f0aacb2ef1c0a8aad74
+ms.sourcegitcommit: 888d813814862faf23121f0b7ec2645bdcf589c6
+ms.openlocfilehash: 07f3c5dc580a0d8e7e7e2a7aee5f2b9e907c3e80
 
 ---
 #<a name="azure-stack-documentation"></a>Azure Stack Belgeleri
@@ -85,18 +96,12 @@ Azure Stack teknik önizleme sürümünü kullanarak kurumunuzun veri merkezinde
     </li>
 </ul>
 
----
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/azure-stack.pdf">
-        <div class="img"></div>
-        <div class="text">
-Azure Stack Belgelerini indirin </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO3-->
+
+
+
+<!--HONumber=Feb17_HO2-->
 
 

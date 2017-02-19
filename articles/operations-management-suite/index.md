@@ -1,23 +1,20 @@
 ---
-title: "Operations Management Suite&quot;e (OMS) genel bakış | Microsoft Belgeleri"
-description: "Microsoft Operations Management Suite (OMS), şirket içi ve bulut altyapınızı yönetmenize ve korumanıza yardımcı olan, Microsoft&quot;un bulut tabanlı BT yönetim çözümüdür.  Bu makalede, OMS&quot;de yer alan farklı hizmetler tanımlanmakta ve bunların ayrıntılı içeriklerinin bağlantıları sağlanmaktadır."
+title: "Azure Operations Management Suite (OMS) Belgeleri - Öğreticileri | Microsoft Docs"
+description: "Microsoft Operations Management Suite (OMS), şirket içi ve bulut altyapınızı yönetmenize ve korumanıza yardımcı olan, Microsoft&quot;un bulut tabanlı BT yönetim çözümüdür. Bu makalede, OMS&quot;de yer alan farklı hizmetler tanımlanmakta ve bunların ayrıntılı içeriklerinin bağlantıları sağlanmaktadır."
 services: operations-management-suite
-documentationcenter: 
-author: bwren
-manager: jwhit
-editor: tysonn
-ms.assetid: 9dc437b9-e83c-45da-917c-cb4f4d8d6333
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
 ms.service: operations-management-suite
-ms.devlang: na
-ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 10/24/2016
-ms.author: bwren
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 4f14a461b842649de977d2c4c80edfc197e15657
-ms.openlocfilehash: 14274c7d94213681b3779b97a44296e6eaf90be9
-
+ms.sourcegitcommit: ccfbd45def1ecf036a2464f560aa89817c37b419
+ms.openlocfilehash: 54b3ce2c8c3966ee36350fed71bdc48aa5bffa63
 
 ---
 # <a name="what-is-operations-management-suite-oms"></a>Operations Management Suite (OMS) nedir?
@@ -32,7 +29,7 @@ Aşağıdaki bölümlerde OMS'nin fayda sağladığı farklı alanların ve bunl
 
 Log Analytics'e, toplanacak verileri ve verilerin çözümlemesine yönelik mantığı tanımlayan çözümleri kolayca ekleyebilirsiniz.  Çözümler en az yapılandırmayla veya hiç yapılandırma olmadan aracılara otomatik olarak sunulan ek işlevler içerebilir.  Ayrı çözümler tarafından sağlanan çözümleme araçlarını kullanabilmenin yanı sıra, sistemler ile uygulamalar arasında veri bağıntısı kurmak için veri kümesi genelinde özel aramalar gerçekleştirebilirsiniz.  
 
-## <a name="automation-controlmediaoperations-management-suite-overviewicon-automation-controlpng-automation-control"></a>![Otomasyon ve Denetim](media/operations-management-suite-overview/icon-automation-control.png) Otomasyon ve Denetim
+## <a name="automation--controlmediaoperations-management-suite-overviewicon-automation-controlpng-automation--control"></a>![Otomasyon ve Denetim](media/operations-management-suite-overview/icon-automation-control.png) Otomasyon ve Denetim
 Azure Otomasyonu, Azure bulutunda çalışan PowerShell tabanlı [runbook'lar](../automation/automation-runbook-types.md) ile yönetim işlemlerini otomatikleştirir.  Runbook'lar, Amazon Web Services (AWS) gibi diğer bulutlardaki kaynaklar da dahil olmak üzere PowerShell ile yönetilebilen ürünlere veya hizmetlere erişebilir.  Runbook'lar yerel kaynakların yönetilmesi için yerel veri merkezinizdeki bir sunucuda da yürütülebilir.
 
 Azure Otomasyonu, [PowerShell DSC](../automation/automation-dsc-overview.md) ile yapılandırma yönetimi sağlar.  DSC kaynakları oluşturabilir, Azure'da barındırılan DSC kaynaklarını yönetebilir ve bunların yapılandırmasını tanımlamak ve otomatik olarak zorunlu kılmak için bu kaynakları bulut sistemlerine ve şirket içi sistemlere uygulayabilirsiniz.
@@ -58,6 +55,6 @@ Güvenlik ve Uyumluluk, altyapınıza ilişkin güvenlik risklerini belirlemeniz
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

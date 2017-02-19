@@ -16,9 +16,10 @@
 # Nasıl yapılır?
 ## [Yönlendirme yöntemi yapılandırma](traffic-manager-configure-routing-method.md)
 ## [Ayarlarınızı test etme](traffic-manager-testing-settings.md)
-## [Düzeyi düşürülmüş bir uç nokta sorununu giderme](traffic-manager-troubleshooting-degraded.md)
 ## [Yük dengeleme hizmetlerini birleştirme](traffic-manager-load-balancing-azure.md)
 ## [Ağ kaynaklarını kullanma](../virtual-network/resource-groups-networking.md?toc=%2fazure%2ftraffic-manager%2ftoc.json)
+## Sorun giderme
+### [Düzeyi düşürülmüş bir uç nokta sorununu giderme](traffic-manager-troubleshooting-degraded.md)
 
 # Başvuru
 ## [PowerShell](/powershell/resourcemanager/azurerm.trafficmanager/v2.3.0/azurerm.trafficmanager)
@@ -45,6 +46,6 @@
 ## [Videolar](https://azure.microsoft.com/resources/videos/index/?services=traffic-manager)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO5-->
 
 

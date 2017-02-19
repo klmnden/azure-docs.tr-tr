@@ -23,8 +23,11 @@
 ## [Kimlik yönetimi](security-identity-management-overview.md)
 ### [Kimlik yönetimi güvenliği için en iyi uygulamalar](azure-security-identity-management-best-practices.md)
 ## PaaS hizmetleri
-### [IoT güvenliği için en iyi uygulamalar](azure-security-iot-best-practices.md)
+### [PaaS dağıtımlarının güvenliğini sağlama](security-paas-deployments.md)
+#### [SQL kullanarak PaaS uygulamalarının güvenliğini sağlama](security-paas-applications-using-sql.md)
+#### [Uygulama Hizmetleri kullanarak PaaS uygulamalarının güvenliğini sağlama](security-paas-applications-using-app-services.md)
 ### [IoT güvenliğine genel bakış](security-internet-of-things-overview.md)
+### [IoT güvenliği için en iyi uygulamalar](azure-security-iot-best-practices.md)
 ## Dikey sektörler
 ### [Güvenli sistem durumu çözümleri tasarlama](security-health-care-solution.md)
 ## [Güvenlik mimarisi](azure-security-architecture-overview.md)
@@ -51,6 +54,6 @@
 ## [Channel 9’da güvenlik videoları](security-channel-nine.md)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

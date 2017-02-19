@@ -1,13 +1,25 @@
 ---
+title: "Azure Data Factory Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
+description: "Data Factory hizmetini kullanarak analiz için şirket içinden ve buluttan ya da ters yönde veri aktarmaya yönelik otomatik veri işlem hatları ayarlama hakkında bilgi edinin."
+services: data-factory
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: data-factory
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: 5742326de5bbe91340df69402bc551f87dafca78
+ms.sourcegitcommit: 7e5e1b41828d0c3d81f5594609910ecdba02a249
+ms.openlocfilehash: 9e9a23f8ddcff428b45f08ab001489d00b3ed7a9
 
 ---
 # <a name="azure-data-factory-documentation"></a>Azure Data Factory Belgeleri
 
-Azure Data Factory, veri taşımayı ve dönüştürmeyi otomatikleştiren bulut tabanlı bir veri tümleştirme hizmetidir. Data Factory hizmeti çeşitli depolardan veri alabilen, verileri dönüştürebilen/işleyebilen ve sonuç verilerini veri depolarında yayımlayabilen veri tümleştirme çözümleri oluşturabilir.
+Bir bulut verileri tümleştirme hizmeti olan Data Factory’yi kullanarak veri depolama, taşıma ve işleme hizmetlerini otomatik veri komut zincirlerinde birleştirme hakkında bilgi edinin. Öğreticilerde ve diğer belgelerde, veri işlem hatlarını ayarlama ve yönetmenin yanı sıra verileri analiz için taşıma ve dönüştürme konularında bilgi sağlanmıştır.
 
 <ul class="panelContent cardsFTitle">
    <li>
@@ -107,7 +119,6 @@ Azure Data Factory, veri taşımayı ve dönüştürmeyi otomatikleştiren bulut
                     <div class="cardText">
                         <h3>Diller</h3>
                         <p><a href="/dotnet/api/microsoft.azure.management.datafactories.models">.NET</a></p>
-                        <p><a href="/azure/data-factory/data-factory-sdks">Azure Data Factory Geliştirici Başvurusu</a></p>
                    </div>
                 </div>
             </div>
@@ -119,7 +130,7 @@ Azure Data Factory, veri taşımayı ve dönüştürmeyi otomatikleştiren bulut
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/datafactory/">REST API Başvurusu</a></p>
+                        <p><a href="/rest/api/datafactory/">REST API başvurusu</a></p>
                     </div>
                 </div>
             </div>
@@ -127,18 +138,9 @@ Azure Data Factory, veri taşımayı ve dönüştürmeyi otomatikleştiren bulut
     </li>
 </ul>
 
----
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/data-factory.pdf">
-        <div class="img"></div>
-        <div class="text">
-Data Factory Belgelerini indirin </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

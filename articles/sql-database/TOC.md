@@ -6,12 +6,6 @@
 ### [Kaynak sınırları](sql-database-resource-limits.md)
 ### [Özellikler](sql-database-features.md)
 ### [SQL Veritabanı SSS](sql-database-faq.md)
-## Avantajlar
-### [Öğrenir ve uyum sağlar](sql-database-learn-and-adapt.md)
-### [Uygulama çalışırken ölçeklendirir](sql-database-scale-on-the-fly.md)
-### [Çok kiracılı uygulamalar oluşturur](sql-database-build-multi-tenant-apps.md)
-### [Güvenliği sağlar ve korur](sql-database-helps-secures-and-protects.md)
-### [Ortamınızda çalışır](sql-database-works-in-your-environment.md)
 ## Karşılaştırmalar
 ### [Sanal makine üzerinde SQL Veritabanı ile SQL karşılaştırması](sql-database-paas-vs-sql-server-iaas.md)
 ### [T-SQL farklılıkları](sql-database-transact-sql-information.md)

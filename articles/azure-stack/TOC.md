@@ -78,6 +78,8 @@
 ### [Başlamadan önce](azure-stack-app-service-before-you-get-started.md)
 ### [App Service kaynak sağlayıcısı dağıtma](azure-stack-app-service-deploy.md)
 ### [Daha fazla Web çalışanı rolü ekleme](azure-stack-app-service-add-worker-roles.md)
+### [FTP yayımlamayı etkinleştirme](azure-stack-app-service-enable-ftp.md)
+### [Dağıtım kaynaklarını yapılandırma](azure-stack-app-service-configure-deployment-sources.md)
 
 
 # Sorun giderme
@@ -89,6 +91,6 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-stack)
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

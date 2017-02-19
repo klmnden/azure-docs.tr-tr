@@ -19,10 +19,6 @@
 ### [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [İzleme ürünleri karşılaştırma](operations-management-suite-monitoring-product-comparison.md)
 ### [Uyarıları yönetme](operations-management-suite-monitoring-alerts.md)
-## Yönet
-### [Planlama ve dağıtım](operations-management-suite-solutions-creating.md)
-### [Otomasyon kaynakları](operations-management-suite-solutions-resources-automation.md)
-### [Görünümler](operations-management-suite-solutions-resources-views.md)
 ## Otomatikleştirme
 ### [Azure Otomasyonu’na genel bakış](../automation/automation-intro.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ## Backup
@@ -35,6 +31,11 @@
 ### [Kötü amaçlı yazılım değerlendirmesi](../log-analytics/log-analytics-malware.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [Sistem güncelleştirme değerlendirmesi](../log-analytics/log-analytics-system-update.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [Güvenlik ürünlerini bağlama](oms-security-connect-products.md)
+## Çözüm oluşturma
+### [Yönetim çözümleri](operations-management-suite-solutions-creating.md)
+### [Otomasyon kaynakları](operations-management-suite-solutions-resources-automation.md)
+### [Günlük aramaları ve uyarıları](operations-management-suite-solutions-resources-searches-alerts.md)
+### [Görünümler](operations-management-suite-solutions-resources-views.md)
 ## [OMS ile tümleştirme](operations-management-suite-integration.md)
 
 
@@ -65,6 +66,6 @@
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

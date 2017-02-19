@@ -1,13 +1,25 @@
 ---
+title: "Azure Veri Kataloğu Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
+description: "Kurumunuzun veri kaynaklarını bulabileceği, anlayabileceği ve tüketebileceği bir veri kataloğu oluşturma hakkında bilgi edinin. Öğreticiler, API başvurusu ve diğer belgeler."
+services: data-catalog
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: data-catalog
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 3752a677351518195773a86c3824078a5aff6d03
-ms.openlocfilehash: 7c2c989ca2119f7a2c14ca55a56a2bce69d94efa
+ms.sourcegitcommit: c5ada5ff9a0ba37cecff9e2d507736457cc11eb5
+ms.openlocfilehash: b04ec1a07bd1d74aa061409823c78ea814d127fc
 
 ---
 #<a name="data-catalog-documentation"></a>Veri Kataloğu Belgeleri
 
-Azure Veri Kataloğu, kullanıcıların ihtiyaç duyduğu veri kaynaklarını bulmasına ve bulduğu veri kaynaklarını anlamasına olanak tanıyan ve aynı zamanda kuruluşların var olan yatırımlarından daha fazla değer elde etmesine yardımcı olan, tamamen yönetilen bir bulut hizmetidir. Veri Kataloğu, analistlerden veri bilimcilerine ve geliştiricilere kadar herhangi bir kullanıcının veri kaynaklarını bulmasına, anlamasına ve kullanmasına olanak tanıyan özellikler sunar. Veri Kataloğu, meta verilere ve ek açıklamalara yönelik bir kitle kaynak modeli içerir ve tüm kullanıcıların bir veri topluluğu ve kültürü oluşturmak üzere bilgileriyle katkıda bulunmasına olanak tanır.
+Veri Kataloğu’nu kullanarak kurumunuzun ve takımınızın veri kaynaklarınızı bulmasına, anlamasına ve tüketmesine nasıl yardımcı olabileceğinizi öğrenin. Öğreticiler, REST API başvurusu ve diğer belgeler, veri tüketicilerinin kullanılabilir veri kaynaklarını bulabileceği ve konunun uzmanları tarafından sağlanan bilgileri edinebileceği veri deponuzu nasıl planlayıp ayarlayabileceğinize ilişkin bilgiler içerir.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -66,15 +78,10 @@ Azure Veri Kataloğu, kullanıcıların ihtiyaç duyduğu veri kaynaklarını bu
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/data-catalog.pdf">
-        <div class="img"></div>
-        <div class="text">
-Veri Kataloğu Belgelerini indirin </div>
-    </a>
-</div>
 
 
-<!--HONumber=Dec16_HO1-->
+
+
+<!--HONumber=Feb17_HO2-->
 
 

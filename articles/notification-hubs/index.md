@@ -1,11 +1,23 @@
 ---
-layout: LandingPage
+title: "Azure Notification Hubs Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
 description: "Notification Hubs ile herhangi bir arka uçtan herhangi bir mobil cihaza nasıl anında iletme bildirimleri gönderebileceğinizi öğrenin. Öğreticiler, API başvuruları ve diğer belgeler."
+services: notification-hubs
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: notification-hubs
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: c99636cdb412f1144f2dbe078379b89b6841bd9b
+ms.sourcegitcommit: a5d4401d74c8aebbe618cd1fac9bc8247b8da90b
+ms.openlocfilehash: 418e985335b582957637430cdde71024302f3fc2
 
 ---
+
 #<a name="notification-hubs-documentation"></a>Notification Hubs Belgeleri
 
 Milyonlarca mesajı hızla göndermeye yönelik çok platformlu, ölçeklenebilir bir anında iletme bildirimi altyapısı olan Notification Hubs’ı nasıl kullanacağınızı öğrenin. Öğreticiler, API başvuruları ve diğer belgelerde, arka uçlardan mobil cihazlara yönelik anında iletme bildirimleri ayarlama ve gönderme hakkında bilgi sağlanmıştır. 
@@ -205,6 +217,6 @@ Milyonlarca mesajı hızla göndermeye yönelik çok platformlu, ölçeklenebili
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -1,9 +1,20 @@
 ---
-layout: LandingPage
+title: "Azure İşlevleri Belgeleri - Öğreticileri | Microsoft Docs"
 description: "Özel bir altyapı gerekmeksizin görevleri arka planda veya bir zamanlamaya göre çalıştırmak için tercih ettiğiniz dilde işlev geliştirme ve dağıtma hakkında bilgi edinin."
+services: functions
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: functions
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 76fed1f753b910007be4d9bb16630483aa225760
-ms.openlocfilehash: 91deffe385997c3e658a7fbfe194c9c2b762df58
+ms.sourcegitcommit: b490d47b03cd3c7c57c3630fafb95777fffaa3aa
+ms.openlocfilehash: b2f2e067fd6c6c2c34bee167356756721c8fd0cd
 
 ---
 #<a name="azure-functions-documentation"></a>Azure İşlevleri Belgeleri
@@ -104,18 +115,9 @@ Bulutta İşlevler’i kullanarak ve herhangi bir altyapı ayarlamadan tercih et
     </li>
 </ul>
 
----
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/azure-functions.pdf">
-        <div class="img"></div>
-        <div class="text">
-Azure İşlevleri Belgelerini İndirme </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 
