@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/06/2017
-ms.author: billmath
+ms.date: 02/10/2017
+ms.author: vakarand
 translationtype: Human Translation
-ms.sourcegitcommit: c9ebe21acbe06aa25bcadb3b500c34cf89154388
-ms.openlocfilehash: 9abdfa7349bee74b89a23663969904110c730395
+ms.sourcegitcommit: 21e599fc2adf3d7dce84cc1c4130504b71928db7
+ms.openlocfilehash: c8c5f30e4cb0467f6ccdc65d96b57b766593ba31
 
 
 ---
@@ -89,13 +89,16 @@ Azure AD Connect Health ile çalışmaya başlamak çok kolaydır. Aşağıdaki 
 >
 
 ## <a name="download-and-install-azure-ad-connect-health-agent"></a>Azure AD Connect Health Aracılarını İndirme ve Yükleme
-* Azure AD Connect Health gereksinimlerini yerine getirdiğinizden emin olun
-* AD FS için Azure AD Connect Health ile çalışmaya başlamak için aracının en son sürümünü buradan indirebilirsiniz: [AD FS için Azure AD Connect Health Aracısı İndirme.](http://go.microsoft.com/fwlink/?LinkID=518973)
-  [](active-directory-aadconnect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs)
-* Eşitleme için Azure AD Connect Health ile çalışmaya başlamak için [Azure AD Connect'in en son sürümünü](http://go.microsoft.com/fwlink/?linkid=615771) indirin ve yükleyin.  Durum aracısı, Azure AD Connect yüklemesinin bir parçası olarak yüklenir (sürüm 1.0.9125.0 veya daha yeni bir sürüm).  Azure AD Connect, önceki sürümlerinden yerinde yükseltmeyi destekler.
-* AD DS için Azure AD Connect Health ile çalışmaya başlamak için aracının en son sürümünü buradan indirebilirsiniz: [AD DS için Azure AD Connect Health Aracısı İndirme.](http://go.microsoft.com/fwlink/?LinkID=820540)
-  [](active-directory-aadconnect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs)
-
+* Azure AD Connect Health [gereksinimlerini karşıladığınızdan] (active-directory-aadconnect-health-agent-install.md#requirements) emin olun
+* AD FS için Azure AD Connect Health kullanmaya başlama
+    * [AD FS için Azure AD Connect Health Aracısını indirin.](http://go.microsoft.com/fwlink/?LinkID=518973)
+    * [Yükleme Yönergelerine bakın](active-directory-aadconnect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs)
+* Eşitleme için Azure AD Connect Health kullanmaya başlama
+    * [Azure AD Connect'in en son sürümünü indirip yükleyin](http://go.microsoft.com/fwlink/?linkid=615771). Eşitleme için durum aracısı, Azure AD Connect yüklemesinin bir parçası olarak yüklenir (sürüm 1.0.9125.0 veya daha yeni bir sürüm).
+* AD DS için Azure AD Connect Health kullanmaya başlama
+    * [AD DS için Azure AD Connect Health Aracısını indirin.](http://go.microsoft.com/fwlink/?LinkID=820540)
+    * [Yükleme Yönergelerine bakın](active-directory-aadconnect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs)
+    
 ## <a name="azure-ad-connect-health-portal"></a>Azure AD Connect Health Portalı
 Azure AD Connect Health portalı; uyarıları, performans izlemeyi ve kullanım analizini görüntülemenizi sağlar. https://aka.ms/aadconnecthealth adresi sizi Azure AD Connect Health'in ana dikey penceresine götürür.  Dikey pencereyi bir pencere olarak düşünebilirsiniz. Ana dikey penceresinde Hızlı Başlangıç'ı, Azure AD Connect Health'teki Hizmetleri ve ek yapılandırma seçeneklerini görebilirsiniz. Ekran görüntüsünün altında bunların kısa açıklamaları vardır.  Aracıları dağıttıktan sonra sistem durumu hizmeti Azure AD Connect Health tarafından hizmetleri otomatik olarak tanımlar.
 
@@ -120,7 +123,6 @@ Azure AD Connect Health portalı; uyarıları, performans izlemeyi ve kullanım 
 * [Azure AD Connect Health Sürüm Geçmişi](active-directory-aadconnect-health-version-history.md)
 
 
-
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

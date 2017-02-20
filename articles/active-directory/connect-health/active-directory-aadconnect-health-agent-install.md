@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/06/2017
-ms.author: billmath
+ms.date: 02/12/2017
+ms.author: vakarand
 translationtype: Human Translation
-ms.sourcegitcommit: 28b5da6098316f8fbe84966e0dac88f5b7d2cb1d
-ms.openlocfilehash: 99cd66d0fc4fc96c0b49e1ce3e3e2095fbe62395
+ms.sourcegitcommit: 7c320a043322fefea1f58301492d4c5a0567320c
+ms.openlocfilehash: 9569a850c6fadd86c408f9e9d4ec6d7d519744e8
 
 
 ---
@@ -30,8 +30,10 @@ Aşağıdaki tabloda Azure AD Connect Health kullanımına ilişkin gereksinimle
 | --- | --- |
 | Azure AD Premium |Azure AD Connect Health, bir Azure AD Premium özelliği olup Azure AD Premium gerektirir. </br></br>Daha fazla bilgi için bkz. [Azure AD Premium ile Çalışmaya Başlama](../active-directory-get-started-premium.md) </br>30 günlük ücretsiz denemeyi başlatmak için bkz. [Denemeyi başlatma.](https://azure.microsoft.com/trial/get-started-active-directory/) |
 | Azure AD Connect Health ile çalışmaya başlamak için Azure AD'nizin genel yöneticisi olmanız gerekir. |Varsayılan olarak yalnızca genel yöneticiler; çalışmaya başlamak üzere durum aracılarını yükleyip yapılandırabilir, portala erişebilir ve Azure AD Connect Health'te işlem gerçekleştirebilir. Daha fazla bilgi için bkz. [Azure AD dizininizi yönetme](../active-directory-administer.md). <br><br> Rol Tabanlı Erişim Denetimini kullanarak kuruluşunuzdaki diğer kullanıcılara Azure AD Connect Health erişim izni verebilirsiniz. Daha fazla bilgi için bkz. [Azure AD Connect Health için Rol Tabanlı Erişim Denetimi.](active-directory-aadconnect-health-operations.md#manage-access-with-role-based-access-control) </br></br>**Önemli:** Aracıları yüklerken kullanılan hesap bir iş veya okul hesabı olmalıdır. Bir Microsoft hesabı olamaz. Daha fazla bilgi için bkz. [Azure'a kuruluş olarak kaydolma](../sign-up-organization.md) |
-| Azure AD Connect Health Aracısının hedeflenen tüm sunucularda yüklü olması |Azure AD Connect Health'in portalda görüntülenen verileri sağlayabilmesi için hedeflenen sunucularda bir aracının yüklü olması gerekir. </br></br>Örneğin, AD FS şirket içi altyapınızdan veri alabilmek için AD FS sunucularında, AD FS Proxy ve Web Uygulaması Proxy sunucularında aracının yüklü olması gerekir. Benzer şekilde, şirket içi AD DS altyapınızdaki verileri almak için aracının etki alanı denetleyicilerine yüklenmesi gerekir. </br></br>**Önemli:** Aracıları yüklerken kullanılan hesap bir iş veya okul hesabı olmalıdır. Bir Microsoft hesabı olamaz. Daha fazla bilgi için bkz. [Azure'a kuruluş olarak kaydolma](../sign-up-organization.md) |
-| Azure hizmet uç noktalarına giden bağlantı |Yükleme ve çalışma zamanı sırasında, aracı ile Azure AD Connect Health hizmet uç noktaları arasında bağlantı kurulması gerekir. Giden bağlantı engellenirse aşağıdaki uç noktaların izin verilenler listesine eklendiğinden emin olun: </br></br><li>&#42;.blob.core.windows.net </li><li>&#42;.queue.core.windows.net</li><li>adhsprodwus.servicebus.windows.net - Bağlantı Noktası: 5671 </li><li>https://management.azure.com </li><li>https://s1.adhybridhealth.azure.com/</li><li>https://policykeyservice.dc.ad.msft.net/</li><li>https://login.windows.net</li><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com</li> |
+| Azure AD Connect Health Aracısı, hedeflenen tüm sunucularda yüklüdür | Azure AD Connect Health, veri almak ve İzleme ve Analiz özelliklerini sağlamak için hedeflenen sunucularda Sistem Durumu Aracılarının yüklü ve yapılandırılmış olmasını gerektirir </br></br>Örneğin, AD FS altyapınızdan veri alabilmek için AD FS sunucularında ve Web Uygulaması Proxy sunucularında aracının yüklü olması gerekir. Benzer şekilde, şirket içi AD DS altyapınızdaki verileri almak için aracının etki alanı denetleyicilerine yüklenmesi gerekir. </br></br> |
+| Azure hizmet uç noktalarına giden bağlantı | Yükleme ve çalışma zamanı sırasında, aracı ile Azure AD Connect Health hizmet uç noktaları arasında bağlantı kurulması gerekir. Giden bağlantı Güvenlik Duvarları kullanılarak engellenirse aşağıdaki uç noktaların izin verilenler listesine eklendiğinden emin olun: </br></br><li>&#42;.blob.core.windows.net </li><li>&#42;.servicebus.windows.net - Bağlantı Noktası: 5671 </li><li>&#42;.adhybridhealth.azure.com/</li><li>https://management.azure.com </li><li>https://policykeyservice.dc.ad.msft.net/</li><li>https://login.windows.net</li><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com</li> |
+|IP Adreslerini temel alan giden bağlantı | Güvenlik duvarlarında IP adresine göre filtreleme için bkz. [Azure IP Aralıkları](https://www.microsoft.com/en-us/download/details.aspx?id=41653).|
+| Giden trafik için SSL İncelemesi filtrelenmiş ya da devre dışı | Ağ katmanında giden trafik için SSL incelemesi veya sonlandırması mevcutsa aracı kaydı adımı veya veri yükleme işlemleri başarısız olabilir. |
 | Aracıyı çalıştıran sunucudaki güvenlik duvarı bağlantı noktaları. |Aracının Azure AD Health hizmet uç noktaları ile iletişim kurabilmesi için aşağıdaki güvenlik duvarı bağlantı noktalarının açık olması gerekir.</br></br><li>TCP/UDP bağlantı noktası 443</li><li>TCP/UDP bağlantı noktası 5671</li> |
 | IE Artırılmış Güvenlik etkinse aşağıdaki web sitelerine izin verin |IE Artırılmış Güvenlik etkinse aracının yükleneceği sunucuda aşağıdaki web sitelerine izin verilmesi gerekir.</br></br><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com</li><li>https://login.windows.net</li><li>Kuruluşunuz için Azure Active Directory tarafından güvenilen federasyon sunucusu. Örnek: https://sts.contoso.com</li> |
 
@@ -44,13 +46,15 @@ Yükleme tamamlandıktan sonra Şimdi Yapılandır'a tıklayın.
 
 ![Azure AD Connect Health'i doğrulama](./media/active-directory-aadconnect-health-requirements/install2.png)
 
-Bir komut istemi başlatılır ve ardından bazı PowerShell uygulamaları tarafından Register-AzureADConnectHealthADFSAgent komutu yürütülür. Azure’da oturum açmanız istendiğinde devam edin ve oturum açın.
+Bu durum, aracı kaydı işlemini başlatmak üzere bir PowerShell penceresi açar. İstendiğinde, aracı kaydını gerçekleştirme erişimi olan bir Azure AD hesabıyla oturum açın. Varsayılan olarak, Genel Yönetici hesabı erişime sahiptir.
 
 ![Azure AD Connect Health'i doğrulama](./media/active-directory-aadconnect-health-requirements/install3.png)
 
 Oturum açtıktan sonra PowerShell işleme devam eder. İşlem tamamlandıktan sonra PowerShell'i kapatabilirsiniz ve yapılandırma tamamlanmış olur.
 
-Bu noktada, hizmetler otomatik olarak başlatılarak verilerin aracı tarafından izlenip toplanmasına izin verilir. Önceki bölümlerde belirtilen önkoşulların tümünü yerine getirmediyseniz PowerShell penceresinde uyarılar görüntülenir. Aracıyı yüklemeden önce [buradaki](active-directory-aadconnect-health-agent-install.md#requirements) gereksinimleri karşıladığınızdan emin olun. Bu hataların bir örneğini aşağıdaki ekran görüntüsünde görebilirsiniz.
+Bu noktada, aracı hizmetleri, aracının gerekli verileri bulut hizmetine güvenli bir şekilde yüklemesine izin vermek üzere otomatik olarak başlatılmalıdır.
+
+Önceki bölümlerde belirtilen önkoşulların tümünü yerine getirmediyseniz PowerShell penceresinde uyarılar görüntülenir. Aracıyı yüklemeden önce [buradaki](active-directory-aadconnect-health-agent-install.md#requirements) gereksinimleri karşıladığınızdan emin olun. Bu hataların bir örneğini aşağıdaki ekran görüntüsünde görebilirsiniz.
 
 ![Azure AD Connect Health'i doğrulama](./media/active-directory-aadconnect-health-requirements/install4.png)
 
@@ -76,13 +80,12 @@ Windows Server 2008 R2 sunucuları için adımlar:
 
 ### <a name="enable-auditing-for-ad-fs"></a>AD FS için Denetimi Etkinleştirme
 > [!NOTE]
-> Bu bölüm yalnızca AD FS federasyon sunucuları için geçerlidir.
-> 
-> 
+> Bu bölüm yalnızca AD FS sunucuları için geçerlidir. Web Uygulaması Ara Sunucularında bu adımları izlemeniz gerekmez.
+>
 
 Kullanım Analizi özelliğinin verileri toplaması ve analiz edebilmesi için, Azure AD Connect Health aracılarının AD FS Denetim Günlüklerindeki bilgilere ihtiyacı vardır. Bu günlükler varsayılan olarak etkin değildir. AD FS denetimini etkinleştirmek ve AD FS denetim günlüklerini bulmak için AD FS sunucularınızda aşağıdaki yordamları kullanın.
 
-#### <a name="to-enable-auditing-for-ad-fs-20"></a>AD FS 2.0 için denetimi etkinleştirme
+#### <a name="to-enable-auditing-for-ad-fs-on-windows-server-2008-r2"></a>Windows Server 2008 R2'de AD FS için denetimi etkinleştirme
 1. **Başlat** menüsüne tıklayın, **Programlar** ve daha sonra **Yönetim Araçları**'nın üzerine gidin ve ardından **Yerel Güvenlik İlkesi**'ne tıklayın.
 2. **Güvenlik Ayarları\Yerel İlkeler\Kullanıcı Hakları Yönetimi** klasörüne gidin ve Güvenlik denetimleri oluştur'a çift tıklayın.
 3. **Yerel Güvenlik Ayarları** sekmesinde AD FS 2.0 hizmet hesabının listelenmiş olduğunu doğrulayın. Listelenmediyse **Kullanıcı veya Grup Ekle**'ye tıklayın, hizmet hesabını listeye ekleyin ve ardından **Tamam**'a tıklayın.
@@ -97,11 +100,25 @@ Kullanım Analizi özelliğinin verileri toplaması ve analiz edebilmesi için, 
 1. Başlat ekranından **Sunucu Yöneticisi**'ni açarak **Yerel Güvenlik İlkesi**'ni veya masaüstünde bulunan görev çubuğundan Sunucu Yöneticisi'ni açıp **Araçlar/Yerel Güvenlik İlkesi**'ne tıklayın.
 2. **Güvenlik Ayarları\Yerel İlkeler\Kullanıcı Hakları Ataması** klasörüne gidin ve **Güvenlik denetimleri oluştur**'a çift tıklayın.
 3. **Yerel Güvenlik Ayarları** sekmesinde AD FS hizmet hesabının listelenmiş olduğunu doğrulayın. Listelenmediyse **Kullanıcı veya Grup Ekle**'ye tıklayın, hizmet hesabını listeye ekleyin ve ardından **Tamam**'a tıklayın.
-4. Denetimi etkinleştirmek için yükseltilmiş ayrıcalıklara sahip bir komut istemi açın ve şu komutu çalıştırın: <code>auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable.</code>
+4. Denetimi etkinleştirmek için yükseltilmiş ayrıcalıklara sahip bir komut istemi açın ve şu komutu çalıştırın: ```auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable```.
 5. **Yerel Güvenlik İlkesi**'ni kapatın ve ardından **AD FS Yönetimi** ek bileşenini açın. (Sunucu Yöneticisi'nde Araçlar'a tıklayın ve AD FS Yönetimi'ni seçin).
 6. Eylemler bölmesinde **Edit Federation Service Properties (Federasyon Hizmeti Özelliklerini Düzenle)** seçeneğine tıklayın.
 7. Federation Service Properties (Federasyon Hizmeti Özellikleri) iletişim kutusunda **Events (Olaylar)** sekmesine tıklayın.
 8. **(Success audits and Failure audits) Başarı denetimleri ve Hata denetimleri** onay kutularını seçin ve **OK (Tamam)** düğmesine tıklayın.
+
+#### <a name="to-enable-auditing-for-ad-fs-on-windows-server-2016"></a>Windows Server 2016'da AD FS için denetimi etkinleştirme
+1. Başlat ekranından **Sunucu Yöneticisi**'ni açarak **Yerel Güvenlik İlkesi**'ni veya masaüstünde bulunan görev çubuğundan Sunucu Yöneticisi'ni açıp **Araçlar/Yerel Güvenlik İlkesi**'ne tıklayın.
+2. **Güvenlik Ayarları\Yerel İlkeler\Kullanıcı Hakları Ataması** klasörüne gidin ve **Güvenlik denetimleri oluştur**'a çift tıklayın.
+3. **Yerel Güvenlik Ayarları** sekmesinde AD FS hizmet hesabının listelenmiş olduğunu doğrulayın. Mevcut değilse, **Kullanıcı veya Grup Ekle**'ye tıklayın, AD FS hizmet hesabını listeye ekleyin ve ardından **Tamam**'a tıklayın.
+4. Denetimi etkinleştirmek için yükseltilmiş ayrıcalıklara sahip bir komut istemi açın ve şu komutu çalıştırın: <code>auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable.</code>
+5. **Yerel Güvenlik İlkesi**'ni kapatın ve ardından **AD FS Yönetimi** ek bileşenini açın. (Sunucu Yöneticisi'nde Araçlar'a tıklayın ve AD FS Yönetimi'ni seçin).
+6. Eylemler bölmesinde **Edit Federation Service Properties (Federasyon Hizmeti Özelliklerini Düzenle)** seçeneğine tıklayın.
+7. Federation Service Properties (Federasyon Hizmeti Özellikleri) iletişim kutusunda **Events (Olaylar)** sekmesine tıklayın.
+8. **(Success audits and Failure audits) Başarı denetimleri ve Hata denetimleri** onay kutularını seçin ve **OK (Tamam)** düğmesine tıklayın. Bu seçenek varsayılan olarak etkindir.
+9. Bir PowerShell penceresi açın ve şu komutu çalıştırın: ```Set-AdfsProperties -AuditLevel Verbose```.
+
+"Temel" denetim düzeyi varsayılan olarak etkindir. [Windows Server 2016’da AD FS Denetimini geliştirme](https://technet.microsoft.com/en-us/windows-server-docs/identity/ad-fs/operations/auditing-enhancements-to-ad-fs-in-windows-server-2016) hakkında daha fazla bilgi edinin
+
 
 #### <a name="to-locate-the-ad-fs-audit-logs"></a>AD FS denetim günlüklerini bulma
 1. **Olay Görüntüleyicisi**'ni açın.
@@ -112,11 +129,9 @@ Kullanım Analizi özelliğinin verileri toplaması ve analiz edebilmesi için, 
 ![AD FS denetim günlükleri](./media/active-directory-aadconnect-health-requirements/adfsaudit.png)
 
 > [!WARNING]
-> AD FS denetimini devre dışı bırakan bir grup ilkeniz varsa Azure AD Connect Health Aracısı bilgi toplayamaz. Denetimi engelleyebilecek bir grup ilkenizin olmadığından emin olun.
-> 
-> 
+> AD FS denetimi bir grup ilkesiyle devre dışı bırakılabilir. AD FS denetimi devre dışı bırakılırsa, oturum açma etkinlikleriyle ilgili kullanım analizi mevcut olmaz. AD FS denetimini devre dışı bırakan bir grup ilkesine sahip olmadığınızdan emin olun.>
+>
 
-[//]: # (Start of Agent Proxy Configuration Section)
 
 ## <a name="installing-the-azure-ad-connect-health-agent-for-sync"></a>Eşitleme için Azure AD Connect Health aracısını yükleme
 Eşitleme için Azure AD Connect Health aracısı, Azure AD Connect'in en son derlemesinde otomatik olarak yüklenir. Azure AD Connect'i eşitleme için kullanmak üzere, Azure AD Connect'in en son sürümünü indirip yüklemeniz gerekir. En son sürümü [buradan](http://www.microsoft.com/download/details.aspx?id=47594) indirebilirsiniz.
@@ -130,16 +145,16 @@ Aracının yüklü olduğunu doğrulamak için sunucuda aşağıdaki hizmetleri 
 
 > [!NOTE]
 > Azure AD Connect Health'in kullanılabilmesi için Azure AD Premium'un gerekli olduğunu unutmayın. Azure AD Premium'unuz yoksa Azure portalında yapılandırmayı tamamlayamazsınız. Daha fazla bilgi için [gereksinim sayfasına](active-directory-aadconnect-health-agent-install.md#requirements) bakın.
-> 
-> 
+>
+>
 
 ## <a name="manual-azure-ad-connect-health-for-sync-registration"></a>El ile Eşitleme için Azure AD Connect Health kaydı
 Azure AD Connect'i başarıyla yükledikten sonra Eşitleme aracısı kaydı için Azure AD Connect Health başarısız olursa aracıyı el ile kaydetmek için aşağıdaki PowerShell komutunu kullanabilirsiniz.
 
 > [!IMPORTANT]
 > Bu PowerShell komutunun, yalnızca Azure AD Connect yüklendikten sonra aracı kaydının başarısız olması halinde kullanılması gerekir.
-> 
-> 
+>
+>
 
 Aşağıdaki PowerShell komutu, YALNIZCA Azure AD Connect'in başarılı bir şekilde yüklenip yapılandırılmasına rağmen durum aracısı kaydının başarısız olması halinde gereklidir. Aracı başarılı bir şekilde kaydolduktan sonra Azure AD Connect Health hizmetleri başlatılır.
 
@@ -182,10 +197,27 @@ Yapılandırmayı tamamladıysanız bu hizmetlerin çalışır durumda olması g
 
 ![Azure AD Connect Health'i doğrulama](./media/active-directory-aadconnect-health/aadconnect-health-adds-agent-install5.png)
 
-## <a name="installing-the-azure-ad-connect-health-agent-for-ad-ds-on-server-core"></a>Sunucu Çekirdeğinde AD DS için Azure AD Connect Health Aracısı’nı yükleme.
-Kayıt işlemini, .exe dosyasını yükledikten sonra aşağıdaki PowerShell komutlarını kullanarak tamamlayabilirsiniz:
 
-`Register-AzureADConnectHealthADDSAgent -Credential $cred`
+### <a name="agent-registration-using-powershell"></a>PowerShell kullanarak Aracı Kaydı
+Uygun aracı setup.exe dosyasını yükledikten sonra role bağlı olarak aşağıdaki PowerShell komutlarını kullanarak aracı kaydı adımını gerçekleştirebilirsiniz. Bir PowerShell penceresi açın ve uygun komutu yürütün:
+
+```
+    Register-AzureADConnectHealthADFSAgent
+    Register-AzureADConnectHealthADDSAgent
+    Register-AzureADConnectHealthSyncAgent
+
+```
+
+Bu komutlar "Credential"’ı, kayıt işlemini etkileşimli olmayan bir şekilde veya bir Sunucu Çekirdeği makinesinde tamamlamaya yönelik bir parametre olarak kabul eder.
+* Credential, parametre olarak geçirilen bir PowerShell değişkeninde yakalanabilir.
+* Aracıları kaydetme erişimi olan ve MFA özelliği etkin olmayan herhangi bir Azure AD Kimliği sağlayabilirsiniz.
+* Varsayılan olarak, Genel Yöneticiler aracı kaydını gerçekleştirme erişimine sahiptir. Ayrıca, daha az ayrıcalıklı diğer kimliklerin bu adımı uygulamasına izin verebilirsiniz. [Rol Tabanlı Access Control](active-directory-aadconnect-health-operations.md#manage-access-with-role-based-access-control) hakkında daha fazla bilgi edinin.
+
+```
+    $cred = Get-Credential
+    Register-AzureADConnectHealthADFSAgent -Credential $cred
+
+```
 
 ## <a name="configure-azure-ad-connect-health-agents-to-use-http-proxy"></a>Azure AD Connect Health Aracılarını HTTP Ara Sunucusunu kullanacak şekilde yapılandırma
 Azure AD Connect Health Aracılarını bir HTTP Ara Sunucusunu kullanacak şekilde yapılandırabilirsiniz.
@@ -194,8 +226,8 @@ Azure AD Connect Health Aracılarını bir HTTP Ara Sunucusunu kullanacak şekil
 > * Aracı, web isteklerinde bulunmak için Microsoft Windows HTTP Hizmetlerinin yerine System.Net hizmetini kullandığından "Netsh WinHttp set ProxyServerAddress" seçeneğini kullanmanız desteklenmez.
 > * Şifrelenmiş Https iletilerinin geçilmesi için, yapılandırılan Http Ara Sunucu adresi kullanılır.
 > * HTTPBasic kullanılarak kimliği doğrulanmış ara sunucular desteklenmez.
-> 
-> 
+>
+>
 
 ### <a name="change-health-agent-proxy-configuration"></a>Durum Aracısı Ara Sunucu Yapılandırmasını Değiştirme
 Azure AD Connect Health Aracısını bir HTTP Ara Sunucusunu kullanacak şekilde yapılandırmak üzere aşağıdaki seçeneklere sahipsiniz.
@@ -203,8 +235,8 @@ Azure AD Connect Health Aracısını bir HTTP Ara Sunucusunu kullanacak şekilde
 > [!NOTE]
 > Proxy ayarlarının güncelleştirilmesi için tüm Azure AD Connect Health Aracısı hizmetlerinin yeniden başlatılması gerekir. Şu komutu çalıştırın:<br>
 > Restart-Service AdHealth*
-> 
-> 
+>
+>
 
 #### <a name="import-existing-proxy-settings"></a>Var olan ara sunucu Ayarlarını içeri aktarma
 ##### <a name="import-from-internet-explorer"></a>Internet Explorer'dan içeri aktarma
@@ -258,8 +290,8 @@ Ayrıntılı günlükleri görüntülemek için komut içinde -ShowResults bayra
 
 > [!NOTE]
 > Bağlantı aracını kullanabilmek için öncelikle aracı kaydını tamamlamanız gerekir. Aracı kaydını tamamlayamıyorsanız Azure AD Connect Health için tüm [gereksinimleri](active-directory-aadconnect-health-agent-install.md#requirements) karşıladığınızdan emin olun. Bu bağlantı testi, aracı kaydı sırasında varsayılan olarak gerçekleştirilir.
-> 
-> 
+>
+>
 
 ## <a name="related-links"></a>İlgili bağlantılar
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)
@@ -271,8 +303,6 @@ Ayrıntılı günlükleri görüntülemek için komut içinde -ShowResults bayra
 * [Azure AD Connect Health Sürüm Geçmişi](active-directory-aadconnect-health-version-history.md)
 
 
-
-
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

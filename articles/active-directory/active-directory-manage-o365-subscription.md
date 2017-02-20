@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/09/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: b2985119b60bf11bf1ce1b951c40f8b87351e749
+ms.sourcegitcommit: a4a78b92c8bb9e8aff25fd724ed78283de8f2fd8
+ms.openlocfilehash: 2fda7dc07d01bcd0629d1fa80ec9262e80af4c5f
 
 
 ---
@@ -25,7 +25,7 @@ Bu makalede klasik Azure portalı kullanılarak bir Office 365 aboneliği için 
 
 Azure aboneliğini tamamladığınızda, klasik Azure portalında oturum açabilir ve Azure hizmetlerine erişebilirsiniz. Office 365 kullanıcılarınızın kimliğini doğrulayan dizini yönetmek için Active Directory uzantısına tıklayın.
 
-Zaten bir Azure aboneliğiniz varsa ek dizin yönetme işlemi de son derece basittir. Örneğin, Michael Smith, Contoso.com için bir Office 365 aboneliğine sahip olabilir. Ayrıca, msmith@hotmail.com. şeklindeki Microsoft hesabını kullanarak kaydolduğu bir Azure aboneliği de mevcuttur. Bu örnekte iki dizin yönetiyor.
+Zaten bir Azure aboneliğiniz varsa ek dizin yönetme işlemi de son derece basittir. Örneğin, Michael Smith, Contoso.com için bir Office 365 aboneliğine sahip olabilir. Ayrıca msmith@hotmail.com şeklindeki Microsoft hesabını kullanarak kaydolduğu bir Azure aboneliği de mevcuttur. Bu durumda, iki dizini yönetir.
 
 | Abonelik | Office 365 | Azure |
 | --- | --- | --- |
@@ -46,20 +46,20 @@ Michael Smith'in Azure'da msmith@hotmail.com, olarak oturum açmış durumdayken
 >
 >
 
-1. [Klasik Azure portalında](https://manage.windowsazure.com) msmith@hotmail.com. olarak oturum açın
+1. [Klasik Azure portalında](https://manage.windowsazure.com) msmith@hotmail.com olarak oturum açın.
 2. **New (Yeni)** > **App services (Uygulama hizmetleri)** > **Active Directory** > **Directory (Dizin)** > **Custom Create (Özel Oluştur)** düğmesine tıklayın.
 3. Use existing directory (Var olan dizini kullan) seçeneğine tıklayın ve **I am ready to be signed out now (Şimdi oturumumun kapatılması için hazırım)** seçeneğini işaretleyin.
-4. Klasik Azure portalında Contoso.onmicrosoft.com adresinin genel yöneticisi (örneğin, msmith@contoso.com) olarak oturum açın.
+4. Klasik Azure portalında Contoso.onmicrosoft.com adresinin genel yöneticisi (örneğin, msmith@contoso.com)) olarak oturum açın.
 5. **Use the Contoso directory with Azure? (Contoso dizini Azure ile kullanılsın mı?)** sorusu sorulduğunda, **Continue (Devam)** seçeneğine tıklayın.
 6. **Sign out now (Şimdi oturumu kapat)** seçeneğine tıklayın.
-7. Klasik Azure portalında msmith@hotmail.com. olarak oturum açın. Contoso dizini ve Varsayılan dizin Active Directory uzantısında görünür.
+7. Klasik Azure portalında msmith@hotmail.com olarak oturum açın. Contoso dizini ve Varsayılan dizin Active Directory uzantısında görünür.
 
 Bu adımları tamamladıktan sonra msmith@hotmail.com Contoso dizininde genel yönetici olacaktır.
 
 ## <a name="to-administer-resources-as-the-global-admin"></a>Kaynakları genel yönetici olarak yönetmek için
-Şimdi Jane Doe'nun msmith@hotmail.com. için Azure aboneliği ile ilişkili olan web sitelerini ve veritabanı kaynaklarını yönetmesi gerektiğini varsayalım. Bunu yapabilmesi için ilk olarak Michael Smith'in şu ek adımları tamamlaması gerekir:
+Şimdi Jane Doe'nun msmith@hotmail.com için Azure aboneliği ile ilişkili olan web sitelerini ve veritabanı kaynaklarını yönetmesi gerektiğini varsayalım. Bunu yapabilmesi için ilk olarak Michael Smith'in şu ek adımları tamamlaması gerekir:
 
-1. [Klasik Azure portalı](https://manage.windowsazure.com) üzerinde Azure aboneliğine yönelik Hizmet Yöneticisi hesabını (bu örnekte msmith@hotmail.com).) kullanarak oturum açın
+1. [Klasik Azure portalı](https://manage.windowsazure.com) üzerinde Azure aboneliğine yönelik Hizmet Yöneticisi hesabını (bu örnekte msmith@hotmail.com)) kullanarak oturum açın.
 2. Aboneliği Contoso dizinine aktarma: **Settings (Ayarlar)** > **Subscriptions (Abonelikler)** düğmesine tıklayın > aboneliği seçin > **Edit Directory (Dizini Düzenle)** seçeneğini belirleyin > **Contoso'yu (Contoso.com) seçin**. Aktarma işleminin bir parçası olarak, aboneliğin ortak yöneticisi olan tüm iş veya okul hesapları kaldırılır.
 3. Jane Doe'yu aboneliğin ortak yöneticisi olarak ekleyin: **Settings (Ayarlar)** > **Administrators (Yöneticiler)** seçeneğine tıklayın > aboneliği seçin > **Add (Ekle)** seçeneğini belirleyin > **JohnDoe@Contoso.com** yazın.
 
@@ -68,6 +68,6 @@ Abonelikler ve dizinler arasındaki ilişki hakkında daha fazla bilgi için bkz
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: brandwe
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: cea04afd22270c77d91148d3c4a95e87f37406db
+ms.sourcegitcommit: 3b5d9162e2d39e2b0f011383a478545644c57861
+ms.openlocfilehash: c9742c7f505417577857889ef307083afb9bab18
 
 
 ---
@@ -279,7 +279,7 @@ passReqToCallback: false // This is a node.js construct that lets you pass the r
 `policyName`: Sunucunuza gelen belirteçleri doğrulamak istediğiniz ilke. Bu ilke, oturum açma için istemci uygulamasında kullandığınız aynı ilke olmalıdır.
 
 > [!NOTE]
-> B2C önizlememiz için istemci ve sunucu kurulumunda aynı ilkeleri kullanın. Bir kılavuzu zaten tamamlayıp bu ilkeleri oluşturduysanız tekrar yapmanıza gerek yoktur. Kılavuzu tamamladığınız için sitede istemci kılavuzlarına yönelik yeni ilkeler ayarlamanıza gerek yoktur.
+> Şimdilik, istemci ve sunucu kurulumunda aynı ilkeleri kullanın. Bir kılavuzu zaten tamamlayıp bu ilkeleri oluşturduysanız tekrar yapmanıza gerek yoktur. Kılavuzu tamamladığınız için sitede istemci kılavuzlarına yönelik yeni ilkeler ayarlamanıza gerek yoktur.
 >
 >
 
@@ -763,6 +763,6 @@ Artık şunlar gibi daha ileri seviyeli konulara geçebilirsiniz:
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

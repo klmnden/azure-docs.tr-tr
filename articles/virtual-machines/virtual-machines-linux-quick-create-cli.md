@@ -12,22 +12,22 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/26/2016
+ms.date: 01/13/2016
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 95b924257c64a115728c66956d5ea38eb8764a35
-ms.openlocfilehash: 70592ac773aced0bfcec5c7418a6dc53555fab33
+ms.sourcegitcommit: 42ee74ac250e6594616652157fe85a9088f4021a
+ms.openlocfilehash: 0fd7aa8f941adaeb9961fd0e4724161b9fe2eeee
 
 
 ---
 
 # <a name="create-a-linux-vm-using-the-azure-cli-20-preview-azpy"></a>Azure CLI 2.0 Önizleme (az.py) kullanarak Linux VM oluşturma
-Bu makalede Azure’da Azure CLI 2.0 (Önizleme) ile [az vm create](/cli/azure/vm#create) komutunu kullanarak bir Linux sanal makinesini (VM) hızlı bir şekilde nasıl dağıtacağınız gösterilmektedir. 
+Bu makalede, Azure’da hem yönetilen diskleri hem de yerel depolama hesabındaki diskleri kullanarak Azure CLI 2.0 (Önizleme) ve [az vm create](/cli/azure/vm#create) komutları ile bir Linux sanal makinesini (VM) hızlı bir şekilde nasıl dağıtacağınız gösterilmektedir.
 
 > [!NOTE] 
-> Azure CLI 2.0 Önizleme, yeni nesil çok platformlu CLI uygulamasıdır. [Deneyin.](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2)
+> Azure CLI 2.0 Önizleme, yeni nesil çok platformlu CLI uygulamasıdır. [Deneyin.](https://docs.microsoft.com/cli/azure/install-az-cli2)
 >
-> Diğer belgelerimizde var olan Azure CLI sürümü anlatılmaktadır. CLI 2.0 Önizleme sürümünü yerine mevcut Azure CLI 1.0 sürümünü kullanarak VM oluşturmak için bkz. [Azure CLI ile VM oluşturma](virtual-machines-linux-quick-create-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> Azure CLI 2.0 Önizleme sürümünü yerine mevcut Azure CLI 1.0 sürümünü kullanarak VM oluşturmak için bkz. [Azure CLI ile VM oluşturma](virtual-machines-linux-quick-create-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 VM oluşturmak için aşağıdakilere ihtiyacını vardır: 
 
@@ -35,24 +35,25 @@ VM oluşturmak için aşağıdakilere ihtiyacını vardır:
 * [Azure CLI 2.0 (Önizleme)](/cli/azure/install-az-cli2) sürümünü yükleyin
 * Azure hesabınızda oturum açın ([az login](/cli/azure/#login) yazın)
 
-([Azure portalını](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) kullanarak da hızlıca bir Linux VM dağıtabilirsiniz.)
+([Azure portalını](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) kullanarak da Linux VM dağıtabilirsiniz.)
 
-Aşağıdaki örnekte, bir Debian VM'sinin nasıl dağıtılacağı ve Secure Shell (SSH) anahtarının nasıl ekleneceği gösterilmektedir (bağımsız değişkenleriniz farklı olabilir; farklı bir görüntü kullanmak istiyorsanız [arama yapabilirsiniz](virtual-machines-linux-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)).
+Aşağıdaki örnekte bir Debian VM'nin dağıtımı ve Güvenli Kabuk (SSH) anahtarı kullanılarak bu VM’ye bağlanma işlemi gösterilmektedir. Bağımsız değişkenleriniz farklı olabilir; farklı bir görüntü istiyorsanız [bir tane arayabilirsiniz](virtual-machines-linux-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
+## <a name="using-managed-disks"></a>Yönetilen diskleri kullanma
 
-İlk olarak, dağıtılan tüm kaynakları içeren kaynak grubunuzu oluşturmak için [az group create](/cli/azure/group#create) yazın:
+Azure yönetilen diskleri kullanmak için onu destekleyen bir bölge kullanmanız gerekir. İlk olarak, dağıtılan tüm kaynakları içeren kaynak grubunuzu oluşturmak için [az group create](/cli/azure/group#create) yazın:
 
 ```azurecli
-az group create -n myResourceGroup -l westus
+ az group create -n myResourceGroup -l westus
 ```
 
-Çıktı aşağıdakine benzer olacaktır (dilerseniz farklı bir `--output` seçeneği belirleyebilirsiniz):
+Çıktı aşağıdaki gibi görünür (farklı bir biçim görmek isterseniz farklı bir `--output` seçeneği belirtebilirsiniz):
 
 ```json
 {
   "id": "/subscriptions/<guid>/resourceGroups/myResourceGroup",
   "location": "westus",
+  "managedBy": null,
   "name": "myResourceGroup",
   "properties": {
     "provisioningState": "Succeeded"
@@ -60,17 +61,15 @@ az group create -n myResourceGroup -l westus
   "tags": null
 }
 ```
-
-## <a name="create-your-vm-using-the-latest-debian-image"></a>En son Debian görüntüsünü kullanarak VM oluşturma
-
-Artık VM’nizi ve ortamını oluşturabilirsiniz. `----public-ip-address-dns-name` değerinin yerine benzersiz bir değer yazmayı unutmayın. Aşağıda gösterilen değer başkası tarafından alınmış olabilir.
+### <a name="create-your-vm"></a>VM oluşturma 
+Artık VM’nizi ve ortamını oluşturabilirsiniz. `--public-ip-address-dns-name` değerinin yerine benzersiz bir değer yazmayı unutmayın. Aşağıda gösterilen değer başkası tarafından alınmış olabilir.
 
 ```azurecli
 az vm create \
 --image credativ:Debian:8:latest \
---admin-username ops \
+--admin-username azureuser \
 --ssh-key-value ~/.ssh/id_rsa.pub \
---public-ip-address-dns-name mydns \
+--public-ip-address-dns-name manageddisks \
 --resource-group myResourceGroup \
 --location westus \
 --name myVM
@@ -82,28 +81,29 @@ az vm create \
 
 ```json
 {
-  "fqdn": "mydns.westus.cloudapp.azure.com",
+  "fqdn": "manageddisks.westus.cloudapp.azure.com",
   "id": "/subscriptions/<guid>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
-  "macAddress": "00-0D-3A-32-05-07",
+  "macAddress": "00-0D-3A-32-E9-41",
   "privateIpAddress": "10.0.0.4",
-  "publicIpAddress": "40.112.217.29",
+  "publicIpAddress": "104.42.127.53",
   "resourceGroup": "myResourceGroup"
 }
 ```
 
-Çıktıda listelenen genel IP adresini kullanarak VM'inizde oturum açın. Listelenen tam etki alanı adını (FQDN) da kullanabilirsiniz.
+Genel IP adresini veya çıktıda listelenen tam etki alanı adını (FQDN) kullanarak sanal makinenizde oturum açın.
 
 ```bash
-ssh ops@mydns.westus.cloudapp.azure.com
+ssh ops@manageddisks.westus.cloudapp.azure.com
 ```
 
 Seçtiğiniz dağıtıma bağlı olarak aşağıdakine benzer bir çıktıyla karşılaşırsınız:
 
-```
-The authenticity of host 'mydns.westus.cloudapp.azure.com (40.112.217.29)' can't be established.
-RSA key fingerprint is SHA256:xbVC//lciRvKild64lvup2qIRimr/GB8C43j0tSHWnY.
+```bash
+The authenticity of host 'manageddisks.westus.cloudapp.azure.com (134.42.127.53)' can't be established.
+RSA key fingerprint is c9:93:f5:21:9e:33:78:d0:15:5c:b2:1a:23:fa:85:ba.
 Are you sure you want to continue connecting (yes/no)? yes
-Warning: Permanently added 'mydns.westus.cloudapp.azure.com,40.112.217.29' (RSA) to the list of known hosts.
+Warning: Permanently added 'manageddisks.westus.cloudapp.azure.com' (RSA) to the list of known hosts.
+Enter passphrase for key '/home/ops/.ssh/id_rsa':
 
 The programs included with the Debian GNU/Linux system are free software;
 the exact distribution terms for each program are described in the
@@ -111,7 +111,86 @@ individual files in /usr/share/doc/*/copyright.
 
 Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
 permitted by applicable law.
-ops@mynewvm:~$ ls /
+Last login: Fri Jan 13 14:44:21 2017 from net-37-117-240-123.cust.vodafonedsl.it
+ops@myVM:~$ 
+```
+
+Yönetilen diskleri kullanarak yeni sanal makinenizle yapabileceğiniz diğer işlemler için bkz. [Sonraki Adımlar](#next-steps).
+
+## <a name="using-unmanaged-disks"></a>Yönetilmeyen diskleri kullanma 
+
+Yönetilmeyen depolama disklerini kullanan sanal makineler, yönetilmeyen depolama hesaplarına sahiptir. İlk olarak, [az group create](/cli/azure/group#create) yazarak dağıtılmış tüm kaynakları içeren kaynak grubunuzu oluşturun:
+
+```azurecli
+az group create --name nativedisks --location westus
+```
+
+Çıktı aşağıdakine benzer olacaktır (dilerseniz farklı bir `--output` seçeneği belirleyebilirsiniz):
+
+```json
+{
+  "id": "/subscriptions/<guid>/resourceGroups/nativedisks",
+  "location": "westus",
+  "managedBy": null,
+  "name": "nativedisks",
+  "properties": {
+    "provisioningState": "Succeeded"
+  },
+  "tags": null
+}
+```
+
+### <a name="create-your-vm"></a>VM oluşturma 
+
+Artık VM’nizi ve ortamını oluşturabilirsiniz. `--public-ip-address-dns-name` değerinin yerine benzersiz bir değer yazmayı unutmayın. Aşağıda gösterilen değer başkası tarafından alınmış olabilir.
+
+```azurecli
+az vm create \
+--image credativ:Debian:8:latest \
+--admin-username azureuser \
+--ssh-key-value ~/.ssh/id_rsa.pub \
+--public-ip-address-dns-name nativedisks \
+--resource-group nativedisks \
+--location westus \
+--name myVM \
+--use-native-disk
+```
+
+Çıktı aşağıdakine benzer olacaktır. `publicIpAddress` veya `fqdn` değerini, VM’nize **ssh** bağlantısı kurarken kullanmak için not edin.
+
+```json
+{
+  "fqdn": "nativedisks.westus.cloudapp.azure.com",
+  "id": "/subscriptions/<guid>/resourceGroups/nativedisks/providers/Microsoft.Compute/virtualMachines/myVM",
+  "macAddress": "00-0D-3A-33-24-3C",
+  "privateIpAddress": "10.0.0.4",
+  "publicIpAddress": "13.91.91.195",
+  "resourceGroup": "nativedisks"
+}
+```
+
+Çıktıda listelenen genel IP adresini veya tam etki alanı adını (FQDN) kullanarak sanal makinenizde oturum açın.
+
+```bash
+ssh ops@nativedisks.westus.cloudapp.azure.com
+```
+
+Seçtiğiniz dağıtıma bağlı olarak aşağıdakine benzer bir çıktıyla karşılaşırsınız:
+
+```
+The authenticity of host 'nativedisks.westus.cloudapp.azure.com (13.91.93.195)' can't be established.
+RSA key fingerprint is 3f:65:22:b9:07:c9:ef:7f:8c:1b:be:65:1e:86:94:a2.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added 'nativedisks.westus.cloudapp.azure.com,13.91.93.195' (RSA) to the list of known hosts.
+Enter passphrase for key '/home/ops/.ssh/id_rsa':
+
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+ops@myVM:~$ ls /
 bin  boot  dev  etc  home  initrd.img  lib  lib64  lost+found  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var  vmlinuz
 ```
 
@@ -127,6 +206,6 @@ Docker ana bilgisayarı olarak hızlı şekilde bir Linux VM'si oluşturmak [iç
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 
