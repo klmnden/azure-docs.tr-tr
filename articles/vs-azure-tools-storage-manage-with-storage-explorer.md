@@ -15,14 +15,14 @@ ms.workload: na
 ms.date: 11/18/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: a538ceef7d9aeaca0e6f54443f3a5dabd06c22a1
-ms.openlocfilehash: 9914051f5f509a657e91aa66c1efb99ceb9f4817
+ms.sourcegitcommit: 0550f5fecd83ae9dc0acb2770006156425baddf3
+ms.openlocfilehash: 0617d2e668fe719d6002254b6d13ca729887c0e3
 
 
 ---
 # <a name="getting-started-with-storage-explorer-preview"></a>Depolama Gezgini ile çalışmaya başlama (Önizleme)
 ## <a name="overview"></a>Genel Bakış
-Microsoft Azure Depolama Gezgini (Önizleme) Windows, OS X ve Linux’ta Azure Depolama ile kolayca çalışmanızı sağlayan bir tek başına uygulamadır. Bu makalede Azure Storage hesaplarınızı bağlama ve yönetme ile ilgili çeşitli yöntemler öğreneceksiniz.
+Microsoft Azure Depolama Gezgini (Önizleme) Windows, macOS ve Linux’ta Azure Depolama ile kolayca çalışmanızı sağlayan bir tek başına uygulamadır. Bu makalede Azure Depolama hesaplarınızı bağlama ve yönetme ile ilgili çeşitli yöntemler öğrenirsiniz.
 
 ![Microsoft Azure Depolama Gezgini (Önizleme)][15]
 
@@ -30,7 +30,7 @@ Microsoft Azure Depolama Gezgini (Önizleme) Windows, OS X ve Linux’ta Azure D
 * [Depolama Gezgini (önizleme) indirip yükleme](http://www.storageexplorer.com)
 
 ## <a name="connect-to-a-storage-account-or-service"></a>Bir depolama hesabı veya hizmetine bağlanmak
-Depolama Gezgini (Önizleme) depolama hesaplarına bağlamak için çok bir yol sağlar. Buna, Azure aboneliklerinizle ilişkilendirilen depolama hesaplarınızı bağlama, diğer Azure aboneliklerinden paylaşılan depolama hesapları ve hizmetlerine bağlanma ve hatta Azure Storage Öykünücüsü kullanarak yerel depolamaya bağlanma ve yönetme dahildir. Ayrıca global ve ulusal Azure'daki depolama hesaplarıyla çalışabilirsiniz:
+Depolama Gezgini (Önizleme) depolama hesaplarına bağlanmak için birkaç yol sağlar. Buna, Azure aboneliklerinizle ilişkilendirilen depolama hesaplarınızı bağlama, diğer Azure aboneliklerinden paylaşılan depolama hesapları ve hizmetlerine bağlanma ve hatta Azure Storage Öykünücüsü kullanarak yerel depolamaya bağlanma ve yönetme dahildir. Ayrıca global ve ulusal Azure'daki depolama hesaplarıyla çalışabilirsiniz:
 
 * [Bir Azure aboneliğine bağlanma](#connect-to-an-azure-subscription) - Azure aboneliğinize ait depolama kaynaklarını yönetin.
 * [Yerel geliştirme deposu ile çalışma](#work-with-local-development-storage) -Azure Storage Öykünücüsü kullanarak yerel depolamayı yönetin.
@@ -69,10 +69,10 @@ Depolama Gezgini (Önizleme) Azure Storage Öykünücüsü kullanarak yerel depo
 1. Storage Explorer (Önizleme) sol bölmesinde **Yerel ve Bağlı** > **Depolama Hesapları** > **(Geliştirme)** düğümünü genişletin.
 
     ![Yerel geliştirme düğümü][21]
-2. Azure Storage Öykünücüsünü henüz yüklemediyseniz, bir bilgi çubuğu ile yüklemeniz istenecektir. Bilgi çubuğu görüntülendiyse**En yeni sürümü indir**’i seçin ve öykünücüyü yükleyin.
+2. Azure Depolama Öykünücüsünü henüz yüklemediyseniz, bir bilgi çubuğu ile yüklemeniz istenir. Bilgi çubuğu görüntülendiyse**En yeni sürümü indir**’i seçin ve öykünücüyü yükleyin.
 
     ![Azure Storage Öykünücüsünü İndirme istemi][22]
-3. Öykünücü yüklendikten sonra yerel bloblar, kuyruklar ve tablolar oluşturup bunlarla çalışabileceksiniz. Her depolama hesabı türü ile çalışmayı öğrenmek için aşağıdaki ilgili bağlantıyı seçin:
+3. Öykünücü yüklendikten sonra yerel bloblar, kuyruklar ve tablolar oluşturup bunlarla çalışabilirsiniz. Her depolama hesabı türü ile çalışma hakkında bilgi almak için aşağıdaki bağlantılardan birini seçin:
 
    * [Azure blob depolama kaynaklarını yönetme](vs-azure-tools-storage-explorer-blobs.md)
    * Azure dosya paylaşımı depolama kaynaklarını yönetme - *Çok yakında*
@@ -112,7 +112,7 @@ Bir dış depolama hesabına bağlanmak için hesabın adı ve anahtarı gerekli
 
    ![Harici depolama ekle iletişim kutusu][8]
 4. **Bağlantı Özeti** iletişim kutusundaki bilgileri doğrulayın. Herhangi bir ayarı değiştirmek isterseniz **Geri**’yi seçin ve istenilen ayarları yeniden girin. Tamamlandıktan sonra **Bağlan**’ı seçin.
-5. Bağlandıktan sonra harici depolama hesabı depolama hesabı adına **(Harici)** metni eklenmiş olarak görüntülenecektir.
+5. Bağlandıktan sonra harici depolama hesabı depolama hesabı adına **(Harici)** metni eklenmiş olarak görüntülenir.
 
    ![Harici depolama hesabına bağlanma sonucu][9]
 
@@ -138,7 +138,7 @@ Bunu açıklamak üzere; KullanıcıA’nın bir Azure aboneliği yöneticisi ol
 2. **Paylaşılan Erişim İmzası** iletişim kutusunda hesap ile ilgili istediğiniz zaman dilimi ve izinleri seçin, ardından **Oluştur**’u seçin.
 
     ![SAS alma iletişim kutusu][14]
-3. SAS’ı görüntüleyen ikinci bir **Paylaşılan Erişim İmzası** iletişim kutusu görünecektir. Panoya kopyalamak için **Bağlantı Dizesi**’nin yanındaki **Kopyala**’yı seçin. İletişim kutusunu kapatmak için **Kapat**’ı seçin.
+3. İkinci bir **Paylaşılan Erişim İmzası** iletişim kutusunda SAS gösterilir. Panoya kopyalamak için **Bağlantı Dizesi**’nin yanındaki **Kopyala**’yı seçin. İletişim kutusunu kapatmak için **Kapat**’ı seçin.
 
 ### <a name="attach-to-the-shared-account-using-the-sas"></a>SAS kullanarak paylaşılan hesaba ekleme
 1. Storage Explorer’da (Önizleme) **Azure Storage’a bağlan**’ı seçin.
@@ -148,7 +148,7 @@ Bunu açıklamak üzere; KullanıcıA’nın bir Azure aboneliği yöneticisi ol
 
    ![Azure Storage’a bağlan iletişim kutusu][24]
 3. **Bağlantı Özeti** iletişim kutusundaki bilgileri doğrulayın. Herhangi bir ayarı değiştirmek isterseniz **Geri**’yi seçin ve istenilen ayarları yeniden girin. Tamamlandıktan sonra **Bağlan**’ı seçin.
-4. Ekledikten sonra, depolama hesabı sağladığınız hesap adının sonuna (SAS) metni eklenmiş olarak görüntülenecektir.
+4. Ekledikten sonra, depolama hesabı sağladığınız hesap adının sonuna (SAS) metni eklenmiş olarak görüntülenir.
 
    ![SAS kullanarak hesaba ekleme sonucu][17]
 
@@ -171,14 +171,14 @@ Bu bağlamda bir hizmet, bir blob kapsayıcısı, sıra veya tablo olabilir. Aş
 
    ![Azure Storage’a bağlan iletişim kutusu][24]
 3. **Bağlantı Özeti** iletişim kutusundaki bilgileri doğrulayın. Herhangi bir ayarı değiştirmek isterseniz **Geri**’yi seçin ve istenilen ayarları yeniden girin. Tamamlandıktan sonra **Bağlan**’ı seçin.
-4. Eklendikten sonra yeni eklenen hizmet **(Hizmet SAS’ı)** düğümü altında görüntülenecektir.
+4. Eklendikten sonra yeni eklenen hizmet **(Hizmet SAS’ı)** düğümü altında görüntülenir.
 
    ![SAS kullanarak paylaşılan hizmete ekleme sonucu][20]
 
 ## <a name="search-for-storage-accounts"></a>Depolama hesapları arama
 Depolama hesaplarından oluşan uzun bir listeniz varsa, sol bölmenin üzerindeki arama kutusunu kullanmak belirli bir depolama hesabını bulmak için hızlı bir yöntemdir.
 
-Arama kutusuna yazarken sol bölmede yalnızca o noktaya kadar girdiğiniz arama değeriyle eşleşen depolama hesapları görüntülenecektir. Aşağıdaki ekran görüntüsünde, aranan tüm depolama hesapları arasından “tarcher” metnini içeren depolama hesabı adlarının görüntülendiği bir örnek yer almaktadır.
+Arama kutusuna yazarken sol bölmede yalnızca o noktaya kadar girdiğiniz arama değeriyle eşleşen depolama hesapları görüntülenir. Aşağıdaki ekran görüntüsünde, aranan tüm depolama hesapları arasından “tarcher” metnini içeren depolama hesabı adlarının görüntülendiği bir örnek yer almaktadır.
 
 ![Depolama hesabı araması][11]
 
@@ -210,6 +210,6 @@ Aramayı temizlemek için arama kutusundaki **x** düğmesini seçin.
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -21,11 +21,19 @@
 ### [Yapıt deposu ekleme](devtest-lab-add-artifact-repo.md)
 ### [Özel yapıtlar oluşturma](devtest-lab-artifact-author.md)
 
-## VM tabanlarını yönetme
-### [Özel görüntü oluşturma](devtest-lab-create-template.md)
+## VM tabanlarını ve şablonlarını yönetme
+### [Azure Resource Manager şablonları ile çoklu VM ortamları oluşturma](devtest-lab-create-environment-from-arm.md)
 ### [Market görüntülerini yapılandırma](devtest-lab-configure-marketplace-images.md)
-### [Formülleri yönetme](devtest-lab-manage-formulas.md)
 ### [Görüntülerle formülleri karşılaştırma](devtest-lab-comparing-vm-base-image-types.md)
+### [Formülleri yönetme](devtest-lab-manage-formulas.md)
+### [VM’den özel görüntü oluşturma](devtest-lab-create-custom-image-from-vm-using-portal.md)
+### [Azure portalını kullanarak VHD'den özel görüntü oluşturma](devtest-lab-create-template.md)
+### [PowerShell kullanarak VHD'den özel görüntü oluşturma](devtest-lab-create-custom-image-from-vhd-using-powershell.md)
+### [AzCopy kullanarak karşıya VHD dosyası yükleme](devtest-lab-upload-vhd-using-azcopy.md)
+### [PowerShell kullanarak karşıya VHD dosyası yükleme](devtest-lab-upload-vhd-using-powershell.md)
+### [Depolama Gezgini'ni kullanarak karşıya VHD dosyası yükleme](devtest-lab-upload-vhd-using-storage-explorer.md)
+
+
 
 # Kaynaklar
 ## [Hizmet Güncelleştirmeleri](https://azure.microsoft.com/updates/?product=devtest-lab)
@@ -35,6 +43,6 @@
 ## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=devtest-lab)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

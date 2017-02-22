@@ -77,6 +77,6 @@ App Service’te basit kodları yeni bir web uygulamasına dağıtmaya başlamak
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

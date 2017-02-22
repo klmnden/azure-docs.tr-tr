@@ -16,8 +16,8 @@ ms.topic: hero-article
 ms.date: 07/05/2016
 ms.author: yuaxu
 translationtype: Human Translation
-ms.sourcegitcommit: 84d3aa963f8538c0721f6c0a02cee5b8e7269770
-ms.openlocfilehash: 33433fb4e71ea6a88522c0bd50695d271fee1884
+ms.sourcegitcommit: 5ef9e96ae78b02da9dff1456608d73b9e78516a1
+ms.openlocfilehash: 808fc10ef1ebb3288facbdf2e9e817b27d4fc6bc
 
 
 ---
@@ -63,10 +63,10 @@ Bildirim hub'ınız şimdi GCM ile birlikte çalışmak üzere yapılandırıld�
 ### <a name="create-a-new-android-project"></a>Yeni bir Android projesi oluşturma
 1. Android Studio'da yeni bir Android Studio projesi başlatın.
    
-     ![Android Studio - yeni proje][13]
+   ![Android Studio - yeni proje][13]
 2. **Telefon ve Tablet** form faktörünü ve desteklemek istediğiniz **Minimum SDK**'yı seçin. Ardından **İleri**'ye tıklayın.
    
-     ![Android Studio - proje oluşturma iş akışı][14]
+   ![Android Studio - proje oluşturma iş akışı][14]
 3. Ana etkinlik için **Boş Etkinlik**'i seçin, **İleri**'ye tıklayın ve ardından **Son**'a tıklayın.
 
 ### <a name="add-google-play-services-to-the-project"></a>Projeye Google Play hizmetlerini ekleme
@@ -619,13 +619,14 @@ Yukarıdakine ek olarak, **Ayarlar** > **Hesaplar**'ın altında çalışan öyk
 #### <a name="running-the-application"></a>Uygulamayı çalıştırma
 1. Uygulamayı çalıştırın ve kayıt kimliğinin başarılı bir kaydı bildirdiğine dikkat edin.
    
-       ![Testing on Android - Channel registration][18]
+      ![Android'de test etme - Kanal kaydı][18]
 2. Hub'da kayıtlı tüm Android cihazlara gönderilecek bir bildirim iletisi girin.
    
-       ![Testing on Android - sending a message][19]
+      ![Andorid'de test etme - bir ileti gönderme][19]
+
 3. **Bildirim Gönder**'e basın. Uygulamayı çalıştıran tüm cihazlarda, anında iletme bildirimi iletisiyle birlikte bir `AlertDialog` örneği görünür. Uygulamayı çalıştırmayan ancak anında iletme bildirimleri için daha önce kaydolan cihazlar, Android Bildirim Yöneticisi'nde bir bildirim alır. Bunlar, sol üst köşeden aşağı çekilerek görüntülenebilir.
    
-       ![Testing on Android - notifications][21]
+      ![Android'de test etme - bildirimler][21]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Sonraki adım olarak [Kullanıcılara anında iletme bildirimleri göndermek için Notification Hubs’ı kullanma] öğreticisini öneririz. Bu, belirli kullanıcıları hedeflemek için etiketler kullanarak ASP.NET arka ucundan nasıl bildirim göndereceğinizi gösterir.
@@ -671,6 +672,6 @@ Notification Hubs hakkında daha fazla genel bilgi edinmek için bkz. [Notificat
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

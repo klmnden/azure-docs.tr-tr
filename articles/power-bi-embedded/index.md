@@ -1,9 +1,20 @@
 ---
-layout: LandingPage
+title: "Azure Power BI Embedded Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
 description: "Uygulamalara Power BI veri görselleştirmeleri ve etkileşimli raporları ekleme hakkında bilgi edinin. Öğreticiler, API başvuruları ve diğer belgeler."
+services: power-bi-embedded
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: power-bi-embedded
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: c18bbb0b1e40d03be35c7d6375bb7520f0e0d4e4
+ms.sourcegitcommit: 48f9fe41b94016e54a2ec622df9684b7dcd4dfed
+ms.openlocfilehash: c1e12dc71ce823425971beeb9db1cc5abd2aa12b
 
 ---
 # <a name="power-bi-embedded-documentation"></a>Power BI Embedded Belgeleri
@@ -132,6 +143,6 @@ Power BI Embedded ile uygulamalara veri görselleştirmeleri ve etkileşimli rap
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

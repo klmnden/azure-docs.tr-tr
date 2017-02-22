@@ -78,6 +78,6 @@ Bu belgede Azure Güvenlik Merkezi Tehdit Zekası Raporlarının güvenlik uyar�
 
 
 
-<!--HONumber=Jan17_HO5-->
+<!--HONumber=Feb17_HO3-->
 
 

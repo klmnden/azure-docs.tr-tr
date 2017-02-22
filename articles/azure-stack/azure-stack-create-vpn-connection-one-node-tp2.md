@@ -1,6 +1,6 @@
 ---
-title: Create a Site-to-Site VPN connection between two Virtual Networks in different Azure Stack PoC Environments | Microsoft Docs
-description: Step-by-step procedure that will allow a cloud administrator to create a Site-to-Site VPN connection between two one-node POC environments in TP2.
+title: "Farklı Azure Stack PoC Ortamlarındaki iki Sanal Ağ arasında Siteden Siteye VPN bağlantısı oluşturma | Microsoft Docs"
+description: "Bir bulut yöneticisinin TP2’de tek düğümlü iki POC ortamı arasında Siteden Siteye VPN bağlantısı oluşturmasına olanak tanıyan adım adım yordam."
 services: azure-stack
 documentationcenter: 
 author: ScottNapolitan
@@ -12,339 +12,345 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/12/2016
+ms.date: 02/08/2017
 ms.author: scottnap
 translationtype: Human Translation
-ms.sourcegitcommit: cb2aa446f95fc399209810c4b8d26ce2256e835e
-ms.openlocfilehash: 30ee41f4c8fc9f64514dee5dfdb9298dc66e8480
+ms.sourcegitcommit: 5104c7996de9dc0597e65be31c28a9aaa1243a90
+ms.openlocfilehash: d324290caf5b5a085a2daf67e541c295dffda732
 
 
 ---
-# <a name="create-a-site-to-site-vpn-connection-between-two-virtual-networks-in-different-azure-stack-poc-environments"></a>Create a Site-to-Site VPN connection between two Virtual Networks in different Azure Stack PoC Environments
-## <a name="overview"></a>Overview
-This article shows you how to create a Site-to-Site VPN Connection between two virtual networks in two separate Azure Stack Proof-of-Concept (POC) environments. While you configure the connections, you will learn how VPN gateways in Azure Stack work.
+# <a name="create-a-site-to-site-vpn-connection-between-two-virtual-networks-in-different-azure-stack-poc-environments"></a>Farklı Azure Stack PoC Ortamlarındaki iki Sanal Ağ arasında Siteden Siteye VPN bağlantısı oluşturma
+## <a name="overview"></a>Genel Bakış
+Bu makalede iki ayrı Azure Stack Kavram Kanıtı (POC) ortamındaki iki ayrı sanal ağ arasında Siteden Siteye VPN bağlantısı oluşturma işlemi gösterilir. Bağlantıları yapılandırırken Azure Stack hizmetinde VPN ağ geçitlerinin nasıl çalıştığını öğreneceksiniz.
 
 > [!NOTE]
-> This document applies specifically to the Azure Stack TP2 POC.
+> Bu belge özellikle Azure Stack TP2 POC için geçerlidir.
 > 
 > 
 
-### <a name="connection-diagram"></a>Connection diagram
-The following diagram shows what the configuration should look like when you’re done:
+### <a name="connection-diagram"></a>Bağlantı diyagramı
+Aşağıdaki diyagram, işiniz bittiğinde yapılandırmanın nasıl görünmesi gerektiğini göstermektedir:
 
 ![](media/azure-stack-create-vpn-connection-one-node-tp2/image1.png)
 
-### <a name="before-you-begin"></a>Before you begin
-To complete this configuration, ensure you have the following items before you get started:
+### <a name="before-you-begin"></a>Başlamadan önce
+Bu yapılandırmayı tamamlamak için çalışmaya başlamadan önce aşağıdaki öğelerin bulunduğundan emin olun:
 
-* Two Servers that meet the Azure Stack POC hardware requirements defined by the [Azure Stack Deployment Prerequisites](azure-stack-deploy.md), and the other prerequisites defined by that document.
-* The Azure Stack Technical Preview 2 Deployment Package.
+* [Azure Stack Dağıtım Önkoşulları](azure-stack-deploy.md) ile tanımlanan Azure Stack POC donanım gereksinimlerini ve aynı belgede tanımlanan diğer önkoşulları karşılayan iki sunucu.
+* Azure Stack Technical Preview 2 Dağıtım Paketi.
 
-## <a name="deploy-the-poc-environments"></a>Deploy the POC environments
-You will deploy two Azure Stack POC environments to complete this configuration.
+## <a name="deploy-the-poc-environments"></a>POC ortamlarını dağıtma
+Bu yapılandırmayı tamamlamak için iki Azure Stack POC ortamı dağıtacaksınız.
 
-* For each POC that you deploy, you can follow the deployment instructions detailed in the article [Deploy Azure Stack POC](azure-stack-run-powershell-script.md).
-  Each POC environment in this document is generically referred to as *POC1* and *POC2*.
+* Dağıttığınız her POC için [Azure Stack POC Dağıtma](azure-stack-run-powershell-script.md) makalesinde ayrıntılı olarak verilen dağıtım yönergelerini izleyebilirsiniz.
+  Bu belgedeki her POC ortamı genellikle *POC1* ve *POC2* olarak adlandırılır.
 
-## <a name="configure-quotas-for-compute-network-and-storage"></a>Configure Quotas for Compute, Network and Storage
-First, you need to configure *Quotas* for compute, network, and storage. These services can be associated with a *Plan*, and then an *Offer* that tenants can subscribe to.
-
-> [!NOTE]
-> You need to do these steps for each Azure Stack POC environment.
-> 
-> 
-
-Creating Quotas for Services has changed from TP1. The steps to create quotas in TP2 can be found at <http://aka.ms/mas-create-quotas>. You can accept the defaults for all quota settings for this exercise.
-
-## <a name="create-a-plan-and-offer"></a>Create a Plan and Offer
-[Plans](azure-stack-key-features.md) are groupings of one or more services. As a provider, you can create plans to offer to your tenants. In turn, your tenants subscribe to your offers to use the plans and services they include.
+## <a name="configure-quotas-for-compute-network-and-storage"></a>İşlem, Ağ ve Depolama Kotalarını Yapılandırma
+İlk olarak işlem, ağ ve depolama *Kotalarını* yapılandırmanız gerekir. Bu hizmetler bir *Plan* ve sonra kiracıların abone olabileceği bir *Teklif* ile ilişkilendirilebilir.
 
 > [!NOTE]
-> You need to perform these steps for each Azure Stack POC environment.
+> Bu adımları her Azure Stack POC ortamı için uygulamanız gerekir.
 > 
 > 
 
-1. First create a Plan. To do this, you can follow the steps in the [Create a Plan](azure-stack-create-plan.md) online article.
-2. Create an Offer following the steps described in [Create an Offer in Azure Stack](azure-stack-create-offer.md).
-3. Log in to the portal as a tenant administrator and [subscribe to the Offer you created](azure-stack-subscribe-plan-provision-vm.md).
+Hizmetler Kotalar oluşturma işlemi TP1’den itibaren değişmiştir. TP2’de kota oluşturma adımları <http://aka.ms/mas-create-quotas> sayfasında bulunabilir. Bu uygulama için tüm kota ayarlarının varsayılan değerlerini kabul edebilirsiniz.
 
-## <a name="create-the-network-resources-in-poc-1"></a>Create the Network Resources in POC 1
-Now you are going to actually create the resources you need to set up your configuration. The following steps illustrate what you'll be doing. These instructions show how to create resources using the portal, but the same thing can be accomplished using PowerShell.
+## <a name="create-a-plan-and-offer"></a>Planı ve Teklif oluşturma
+[Planlar](azure-stack-key-features.md), bir veya birden fazla hizmetten oluşan gruplardır. Bir sağlayıcı olarak, kiracılarınıza sunabileceğiniz planlar oluşturabilirsiniz. Böylece kiracılarınız tekliflerinize abone olarak, bu tekliflerin içerdiği planları ve hizmetleri kullanabilir.
+
+> [!NOTE]
+> Bu adımları her Azure Stack POC ortamı için uygulamanız gerekir.
+> 
+> 
+
+1. İlk olarak bir Plan oluşturun. Bunu yapmak için [Plan oluşturma](azure-stack-create-plan.md) çevrimiçi makalesindeki adımları izleyebilirsiniz.
+2. [Azure Stack’te Teklif oluşturma](azure-stack-create-offer.md) makalesinde açıklanan adımları izleyerek bir Teklif oluşturun.
+3. Portalda kiracı yönetici olarak oturum açın ve [oluşturduğunuz Teklife abone olun](azure-stack-subscribe-plan-provision-vm.md).
+
+## <a name="create-the-network-resources-in-poc-1"></a>POC 1’de Ağ Kaynakları oluşturma
+Bu noktada yapılandırmanızı ayarlamak için gerekli olan kaynakları gerçekten oluşturacaksınız. Aşağıdaki adımlar yapacağınız işlemleri göstermektedir. Bu yönergeler, portalı kullanarak kaynak oluşturma işlemini gösterir, ancak aynı işlem PowerShell kullanılarak da gerçekleştirilebilir.
 
 ![](media/azure-stack-create-vpn-connection-one-node-tp2/image2.png)
 
-### <a name="log-in-as-a-tenant"></a>Log in as a tenant
-A service administrator can log in as a tenant to test the plans, offers, and subscriptions that their tenants might use. If you don’t already have one, [Create a tenant account](azure-stack-add-new-user-aad.md) before you log in.
+### <a name="log-in-as-a-tenant"></a>Kiracı olarak oturum açma
+Bir hizmet yöneticisi; kiracılarının kullanabileceği planları, teklifleri ve abonelikleri test etmek için kiracı olarak oturum açabilir. Kiracı hesabınız yoksa oturum açmadan önce [Kiracı hesabı oluşturun](azure-stack-add-new-user-aad.md).
 
-### <a name="create-the-virtual-network--vm-subnet"></a>Create the virtual network & VM subnet
-1. Log in using a tenant account.
-2. In the Azure portal, click **New**.
+### <a name="create-the-virtual-network--vm-subnet"></a>Sanal ağ ve VM alt ağı oluşturma
+1. Kiracı hesabı kullanarak oturum açın.
+2. Azure portalda **Yeni**’ye tıklayın.
    
     ![](media/azure-stack-create-vpn-connection-one-node-tp2/image3.png)
-3. Select **Networking** from the Marketplace menu.
-4. Click the **Virtual network** item on the menu.
-5. Click **Create** near the bottom of the resource description blade. Enter the following values into the appropriate fields according to this table.
+3. Market menüsünden **Ağ** seçeneğini belirleyin.
+4. Menüdeki **Sanal ağ** öğesine tıklayın.
+5. Kaynak açıklaması dikey penceresinin altındaki **Oluştur** öğesine tıklayın. Bu tabloya göre uygun alanlara aşağıdaki değerleri girin.
    
-   | **Field** | **Value** |
+   | **Alan** | **Değer** |
    | --- | --- |
-   | Name |vnet-01 |
-   | Address space |10.0.10.0/23 |
-   | Subnet name |subnet-01 |
-   | Subnet address range |10.0.10.0/24 |
-6. You should see the Subscription you created earlier populated in the **Subscription** field.
-7. For Resource Group, you can either create a new Resource Group or if you already have one, select **Use existing**.
-8. Verify the default location.
-9. Click **Create**.
+   | Adı |vnet-01 |
+   | Adres alanı |10.0.10.0/23 |
+   | Alt ağ adı |subnet-01 |
+   | Alt ağ adres aralığı |10.0.10.0/24 |
+6. Daha önce oluşturduğunuz Aboneliği, **Abonelik** alanında görmeniz gerekir.
+7. Kaynak Grubu için yeni bir Kaynak Grubu oluşturabilir veya zaten bir tane varsa **Var olanı kullan**’ı seçebilirsiniz.
+8. Varsayılan konumu doğrulayın.
+9. **Oluştur**’a tıklayın.
 
-### <a name="create-the-gateway-subnet"></a>Create the Gateway Subnet
-1. Open the Virtual Network resource you just created (Vnet-01) from the dashboard.
-2. On the Settings blade, select **Subnets**.
-3. Click **Gateway Subnet** to add a gateway subnet to the virtual network.
+### <a name="create-the-gateway-subnet"></a>Ağ Geçidi Alt Ağı oluşturma
+1. Panodan yeni oluşturduğunuz Sanal Ağ kaynağını (Vnet-01) açın.
+2. Ayarlar dikey penceresinde **Alt ağlar**’ı seçin.
+3. Sanal ağa bir ağ geçidi alt ağı eklemek için **Ağ Geçidi Alt Ağı**’na tıklayın.
    
     ![](media/azure-stack-create-vpn-connection-one-node-tp2/image4.png)
-4. The name of the subnet is set to **GatewaySubnet** by default.
-   Gateway subnets are special and must have this specific name to function properly.
-5. In the **Address range** field, type **10.0.11.0/24**.
-6. Click **Create** to create the gateway subnet.
+4. Alt ağın adı varsayılan olarak **GatewaySubnet** şeklinde ayarlanır.
+   Ağ geçidi alt ağları özeldir ve düzgün şekilde çalışabilmesi için bu ada sahip olmalıdır.
+5. **Adres aralığı** alanına **10.0.11.0/24** yazın.
+6. Ağ geçidi alt ağını oluşturmak için **Oluştur**’a tıklayın.
 
-### <a name="create-the-virtual-network-gateway"></a>Create the Virtual Network Gateway
-1. In the Azure portal, click **New**.
+### <a name="create-the-virtual-network-gateway"></a>Sanal Ağ Geçidi oluşturma
+1. Azure portalda **Yeni**’ye tıklayın.
    
-2. Select **Networking** from the Marketplace menu.
-3. Select **Virtual network gateway** from the list of network resources.
-4. Review the description and click **Create**.
-5. In the **Name** field type **GW1**.
-6. Click the **Virtual network** item to choose a virtual network.
-   Select **Vnet-01** from the list.
-7. Click the **Public IP address** menu item. When the **Choose public IP address** blade opens click **Create new**.
-8. In the **Name** field, type **GW1-PiP** and click **OK**.
-9. The **Gateway type** should have **VPN** selected by default. Keep this setting.
-10. The **VPN type** should have **Route-based** selected by default.
-    Keep this setting.
-11. Verify that **Subscription** and **Location** are correct. You can pin the resource to the Dashboard if you like. Click **Create**.
+2. Market menüsünden **Ağ** seçeneğini belirleyin.
+3. Ağ kaynakları listesinden **Sanal ağ geçidi**’ni seçin.
+4. Açıklamayı gözden geçirin ve **Oluştur**’a tıklayın.
+5. **Ad** alanına **GW1** yazın.
+6. Bir sanal ağ seçmek için **Sanal ağ** öğesine tıklayın.
+   Listeden **Vnet-01** öğesini seçin.
+7. **Genel IP adresi** menü öğesine tıklayın. **Genel IP adresi seçin** dikey penceresi açıldığında **Yeni oluştur**’a tıklayın.
+8. **Ad** alanına **GW1-PiP** yazıp **Tamam**’a tıklayın.
+9. **Ağ geçidi türü** için varsayılan olarak **VPN** seçili olmalıdır. Bu ayarı tutun.
+10. **VPN türü** için varsayılan olarak **yol tabanlı** seçili olmalıdır.
+    Bu ayarı tutun.
+11. **Abonelik** ve **Konum** seçeneklerinin doğruluğunu onaylayın. İsterseniz kaynağı Panoya sabitleyebilirsiniz. **Oluştur**’a tıklayın.
 
-### <a name="create-the-local-network-gateway"></a>Create the Local Network Gateway
-The implementation of a *local network gateway* in this Azure Stack evaluation deployment is a bit different than in an actual Azure deployment.
+### <a name="create-the-local-network-gateway"></a>Yerel Ağ Geçidi oluşturma
+Bu Azure Stack değerlendirme dağıtımındaki *yerel ağ geçidi* uygulaması, gerçek bir Azure dağıtımındaki uygulamadan biraz farklıdır.
 
-Just like in Azure, you have the concept of a local network gateway. However, in an Azure deployment a local network gateway represents an on-premise (at the tenant)  physical device you use to connect to a virtual network gateway in Azure. But in this Azure Stack evaluation deployment, both ends of the connection are virtual network gateways!
+Azure’da olduğu gibi, bir yerel ağ geçidi kavramı vardır. Ancak, bir Azure dağıtımında yerel ağ geçidi, Azure’daki bir sanal ağ geçidine bağlanmak için kullandığınız şirket içi (kiracı üzerinde) fiziksel cihazı temsil eder. Ancak bu Azure Stack değerlendirme dağıtımında, bağlantının her iki ucu da sanal ağ geçididir!
 
-A way to think about this more generically is that the Local Network Gateway resource is always meant to indicate the remote gateway at the other end of the connection. Because of the way the POC was designed, you need to provide the IP address of the external network adapter on the NAT VM of the other POC as the Public IP Address of the Local Network Gateway. You will then create NAT mappings on the NAT VM to make sure that both ends are connected properly.
+Daha genel düşünmek gerekirse, Yerel Ağ Geçidi kaynağı her zaman bağlantının diğer ucundaki uzak ağ geçidini belirtmeye yöneliktir. POC’nin tasarlanma şekli nedeniyle, diğer POC’nin NAT VM’si üzerindeki dış ağ bağdaştırıcısının IP adresini, Yerel Ağ Geçidinin Genel IP Adresi olarak belirtmeniz gerekir. Bundan sonra, her iki ucun da düzgün bağlandığından emin olmak için NAT VM üzerinde NAT eşlemeleri oluşturursunuz.
 
 
-### <a name="get-the-ip-address-of-the-external-adapter-of-the-nat-vm"></a>Get the IP address of the external adapter of the NAT VM
-1. Log in to the Azure Stack physical machine for POC2.
-2. Press the [Windows Key] + R to open the **Run** menu and type **mstsc** and press Enter.
-3. In the **Computer** field type the name **MAS-BGPNAT01** and click  **Connect**.
-4. Click the Start Menu and right-click **Windows PowerShell** and select **Run As Administrator**.
-5. Type **ipconfig /all**.
-6. Find the Ethernet Adapter that is connected to your on-premise network, and take note of the IPv4 address bound to that adapter. In our example environment, it’s **10.16.167.195** but yours will be something different.
-7. Record this address. This is what you will use as the Public IP Address of the Local Network Gateway resource you create in POC1.
+### <a name="get-the-ip-address-of-the-external-adapter-of-the-nat-vm"></a>NAT VM dış bağdaştırıcısının IP adresini alma
+1. POC2 için Azure Stack fiziksel makinesinde oturum açın.
+2. [Windows Tuşu] + R tuşuna basarak **Çalıştır** menüsünü açın ve **mstsc** yazıp Enter tuşuna basın.
+3. **Bilgisayar** alanına **MAS-BGPNAT01** adını yazıp  **Bağlan**’a tıklayın.
+4. Başlat Menüsüne tıklayıp **Windows PowerShell**’e sağ tıklayın ve **Yönetici Olarak Çalıştır**’ı seçin.
+5. **ipconfig /all** yazın.
+6. Şirket içi ağınıza bağlı Ethernet Bağdaştırıcısını bulun ve bu bağdaştırıcıya bağlı IPv4 adresini not alın. Örnek ortamımızda bu değer **10.16.167.195**’tir, ancak sizinki farklı bir şey olacaktır.
+7. Bu adresini kaydedin. Bu, POC1’de oluşturduğunuz Yerel Ağ Geçidi kaynağının Genel IP Adresi olarak kullanacağınız değerdir.
 
-### <a name="create-the-local-network-gateway-resource"></a>Create the Local Network Gateway Resource
-1. Log in to the Azure Stack physical machine for POC1.
-2. In the **Computer** field, type the name **MAS-CON01** and click **Connect**.
-3. In the Azure portal, click **New**.
+### <a name="create-the-local-network-gateway-resource"></a>Yerel Ağ Geçidi Kaynağı oluşturma
+1. POC1 için Azure Stack fiziksel makinesinde oturum açın.
+2. **Bilgisayar** alanına **MAS-CON01** adını yazıp **Bağlan**’a tıklayın.
+3. Azure portalda **Yeni**’ye tıklayın.
    
-4. Select **Networking** from the Marketplace menu.
-5. Select **local network gateway** from the list of resources.
-6. In the **Name** field type **POC2-GW**.
-7. You don’t know the IP address of the other gateway yet, but that’s ok because you can come back and change it later. For now, type **10.16.167.195** in the **IP address** field.
-8. In the **Address Space** field type the address space of the Vnet that you will create in POC2. This is going to be **10.0.20.0/23** so type that value.
-9. Verify that your **Subscription**, **Resource Group** and **location** are all correct and click **Create**.
+4. Market menüsünden **Ağ** seçeneğini belirleyin.
+5. Kaynak listesinden **yerel ağ geçidi**’ni seçin.
+6. **Ad** alanına **POC2-GW** yazın.
+7. Diğer ağ geçidinin IP adresini henüz bilmiyorsanız önemli değildir, daha sonra geri dönüp değiştirebilirsiniz. Şimdilik **IP adresi** alanına **10.16.167.195** yazın.
+8. **Adres Alanı** alanına POC2’de oluşturacağınız sanal ağın adres alanını yazın. Bu değer **10.0.20.0/23** olacağı için bunu yazın.
+9. **Abonelik**, **Kaynak Grubu** ve **konum** seçeneklerinin doğruluğunu onaylayıp **Oluştur**’a tıklayın.
 
-### <a name="create-the-connection"></a>Create the Connection
-1. In the Azure portal, click **New**.
+### <a name="create-the-connection"></a>Bağlantı oluşturma
+1. Azure portalda **Yeni**’ye tıklayın.
    
-2. Select **Networking** from the Marketplace menu.
-3. Select **Connection** from the list of resources.
-4. In the **Basic** settings blade, choose **Site-to-site (IPSec)** as the **Connection type**.
-5. Select the **Subscription**, **Resource Group** and **Location** and click **Ok**.
-6. In the **Settings** blade, choose the **Virtual Network Gateway** (**GW1**) you created previously.
-7. Choose the **local Network Gateway** (**POC2-GW**) you created previously.
-8. In the **Connection Name** field, type **POC1-POC2**.
-9. In the **Shared Key (PSK)** field type **12345** and click **OK**.
+2. Market menüsünden **Ağ** seçeneğini belirleyin.
+3. Kaynak listesinden **Bağlantı**’yı seçin.
+4. **Temel** ayarlar dikey penceresinde **Bağlantı türü** olarak **Siteden siteye (IPSec)** seçeneğini belirleyin.
+5. **Abonelik**, **Kaynak Grubu** ve **Konum**’u seçip **Tamam**’a tıklayın.
+6. **Ayarlar** dikey penceresinde daha önce oluşturduğunuz **Sanal Ağ Geçidi**’ni (**GW1**) seçin.
+7. Daha önce oluşturduğunuz **yerel Ağ Geçidi**’ni (**POC2-GW**) seçin.
+8. **Bağlantı Adı** alanına **POC1-POC2** yazın.
+9. **Paylaşılan Anahtar (PSK)** alanına **12345** yazıp **Tamam**’a tıklayın.
 
-### <a name="create-a-vm"></a>Create a VM
-To validate data traveling through the VPN Connection, you need VMs to send and receive data in each POC. Create a VM in POC1 now and put it on your VM subnet in your virtual network.
+### <a name="create-a-vm"></a>VM oluşturma
+VPN Bağlantısından geçen verileri doğrulamak için VM’lerin her POC’de veri gönderip alması gerekir. Şimdi POC1’de bir VM oluşturun ve sanal ağınızdaki VM alt ağına yerleştirin.
 
-1. In the Azure portal, click **New**.
+1. Azure portalda **Yeni**’ye tıklayın.
    
-2. Select **Virtual Machines** from the Marketplace menu.
-3. In the list of virtual machine images, select the **Windows Server 2012 R2 Datacenter** image.
-4. On the **Basics** blade, in the **Name** field type **VM01**.
-5. Type a valid user name and password. You’ll use this account to log in to the VM after it has been created.
-6. Provide a **Subscription**, **Resource Group** and **Location** and then click **OK**.
-7. On the **Size** blade, choose a VM size for this instance and then click **Select**.
-8. On the **Settings** blade, you can accept the defaults; just ensure that the Virtual network selected is **VNET-01** and the Subnet is set to **10.0.10.0/24**. Click **OK**.
-9. Review the settings on the **Summary** blade and click **OK**.
+2. Market menüsünden **Sanal Makineler**’i seçin.
+3. Sanal makine görüntüleri listesinde **Windows Server 2012 R2 Datacenter** görüntüsünü seçin.
+4. **Temel Bilgiler** dikey penceresinde **Ad** alanına **VM01** yazın.
+5. Geçerli bir kullanıcı adı ve parola yazın. Bu hesabı oluşturduktan sonra VM’de oturum açmak için kullanacaksınız.
+6. **Abonelik**, **Kaynak Grubu** ve **Konum** bilgilerini sağlayıp **Tamam**’a tıklayın.
+7. **Boyut** dikey penceresinde bu örnek için bir VM boyutu seçin ve ardından **Seç**’e tıklayın.
+8. **Ayarlar** dikey penceresinde varsayılan değerleri kabul edebilirsiniz; yalnızca seçili Sanal ağın **VNET-01** olduğundan ve Alt ağın **10.0.10.0/24** olarak ayarlandığından emin olun. **Tamam** düğmesine tıklayın.
+9. **Özet** dikey penceresindeki ayarları gözden geçirin ve **Tamam**’a tıklayın.
 
-## <a name="create-the-network-resources-in-poc-2"></a>Create the Network Resources in POC 2
-### <a name="log-in-as-a-tenant"></a>Log in as a tenant
-A service administrator can log in as a tenant to test the plans, offers, and subscriptions that their tenants might use. If you don’t already have one, [Create a tenant account](azure-stack-add-new-user-aad.md) before you log in.
+## <a name="create-the-network-resources-in-poc-2"></a>POC 2’de Ağ Kaynakları oluşturma
+### <a name="log-in-as-a-tenant"></a>Kiracı olarak oturum açma
+Bir hizmet yöneticisi; kiracılarının kullanabileceği planları, teklifleri ve abonelikleri test etmek için kiracı olarak oturum açabilir. Kiracı hesabınız yoksa oturum açmadan önce [Kiracı hesabı oluşturun](azure-stack-add-new-user-aad.md).
 
-### <a name="create-the-virtual-network-and-vm-subnet"></a>Create the virtual network and VM subnet
-1. Log in using a tenant account.
-2. In the Azure portal, click **New**.
+### <a name="create-the-virtual-network-and-vm-subnet"></a>Sanal ağ ve VM alt ağı oluşturma
+1. Kiracı hesabı kullanarak oturum açın.
+2. Azure portalda **Yeni**’ye tıklayın.
    
-3. Select **Networking** from the Marketplace menu.
-4. Click **Virtual network** on the menu.
-5. Click **Create** near the bottom of the resource description blade. Type the following values for the appropriate fields listed in the table below.
+3. Market menüsünden **Ağ** seçeneğini belirleyin.
+4. Menüde **Sanal ağ** öğesine tıklayın.
+5. Kaynak açıklaması dikey penceresinin altındaki **Oluştur** öğesine tıklayın. Aşağıdaki tabloda listelenen uygun alanlar için aşağıdaki değerleri yazın.
    
-   | **Field** | **Value** |
+   | **Alan** | **Değer** |
    | --- | --- |
-   | Name |vnet-02 |
-   | Address space |10.0.20.0/23 |
-   | Subnet name |subnet-02 |
-   | Subnet address range |10.0.20.0/24 |
-6. You should see the Subscription you created previously populated in the **Subscription** field.
-7. For Resource Group, you can either create a new Resource Group or if you already have one select **Use existing**.
-8. Verify the default **location**. If you want, you can pin the virtual network to the Dashboard for easy access.
-9. Click **Create**.
+   | Adı |vnet-02 |
+   | Adres alanı |10.0.20.0/23 |
+   | Alt ağ adı |subnet-02 |
+   | Alt ağ adres aralığı |10.0.20.0/24 |
+6. Daha önce oluşturduğunuz Aboneliği, **Abonelik** alanında görmeniz gerekir.
+7. Kaynak Grubu için yeni bir Kaynak Grubu oluşturabilir veya zaten bir tane varsa **Var olanı kullan**’ı seçebilirsiniz.
+8. Varsayılan **konumu** doğrulayın. İsterseniz, sanal ağı kolay erişim için Panoya sabitleyebilirsiniz.
+9. **Oluştur**’a tıklayın.
 
-### <a name="create-the-gateway-subnet"></a>Create the Gateway Subnet
-1. Open the Virtual network resource you created (**Vnet-02**) from the Dashboard.
-2. On the **Settings** blade, select **Subnets**.
-3. Click  **Gateway subnet** to add a gateway subnet to the virtual network.
+### <a name="create-the-gateway-subnet"></a>Ağ Geçidi Alt Ağı oluşturma
+1. Panodan oluşturduğunuz Sanal ağ kaynağını (**Vnet-02**) açın.
+2. **Ayarlar** dikey penceresinde **Alt ağlar**’ı seçin.
+3. Sanal ağa bir ağ geçidi alt ağı eklemek için **Ağ geçidi alt ağı**’na tıklayın.
    
-4. The name of the subnet is set to **GatewaySubnet** by default.
-   Gateway subnets are special and must have this specific name to function properly.
-5. In the **Address range** field, type **10.0.20.0/24**.
-6. Click **Create** to create the gateway subnet.
+4. Alt ağın adı varsayılan olarak **GatewaySubnet** şeklinde ayarlanır.
+   Ağ geçidi alt ağları özeldir ve düzgün şekilde çalışabilmesi için bu ada sahip olmalıdır.
+5. **Adres aralığı** alanına **10.0.20.0/24** yazın.
+6. Ağ geçidi alt ağını oluşturmak için **Oluştur**’a tıklayın.
 
-### <a name="create-the-virtual-network-gateway"></a>Create the Virtual Network Gateway
-1. In the Azure portal, click **New**.
+### <a name="create-the-virtual-network-gateway"></a>Sanal Ağ Geçidi oluşturma
+1. Azure portalda **Yeni**’ye tıklayın.
    
-2. Select **Networking** from the Marketplace menu.
-3. Select **Virtual network gateway** from the list of network resources.
-4. Review the description and click **Create**.
-5. In the **Name** field type **GW2**.
-6. Click  **Virtual network** to choose a virtual network.
-   Select **Vnet-02** from the list.
-7. Click **Public IP address**. When the **Choose public IP address** blade opens click **Create new**.
-8. In the **Name** field, type **GW2-PiP** and click **OK**.
-9. The **Gateway type** should have **VPN** selected by default. Keep this setting.
-10. The **VPN type** should have **Route-based** selected by default.
-    Keep this setting.
-11. Verify **Subscription** and **Location** are correct. You can pin the resource to the Dashboard if you like. Click **Create**.
+2. Market menüsünden **Ağ** seçeneğini belirleyin.
+3. Ağ kaynakları listesinden **Sanal ağ geçidi**’ni seçin.
+4. Açıklamayı gözden geçirin ve **Oluştur**’a tıklayın.
+5. **Ad** alanına **GW2** yazın.
+6. **Sanal ağ**'a tıklayarak bir sanal ağ seçin.
+   Listeden **Vnet-02** öğesini seçin.
+7. **Genel IP adresi**’ne tıklayın. **Genel IP adresi seçin** dikey penceresi açıldığında **Yeni oluştur**’a tıklayın.
+8. **Ad** alanına **GW2-PiP** yazıp **Tamam**’a tıklayın.
+9. **Ağ geçidi türü** için varsayılan olarak **VPN** seçili olmalıdır. Bu ayarı tutun.
+10. **VPN türü** için varsayılan olarak **yol tabanlı** seçili olmalıdır.
+    Bu ayarı tutun.
+11. **Abonelik** ve **Konum** seçeneklerinin doğruluğunu onaylayın. İsterseniz kaynağı Panoya sabitleyebilirsiniz. **Oluştur**’a tıklayın.
 
-### <a name="create-the-local-network-gateway"></a>Create the Local Network Gateway
-#### <a name="get-the-ip-address-of-the-external-adapter-of-the-nat-vm"></a>Get the IP address of the external Adapter of the NAT VM
-1. Log in to the Azure Stack physical machine for POC1.
-2. Press and hold [Windows Key] + R to open the **Run** menu and type **mstsc** and press enter.
-3. In the **Computer** field type the name **MAS-BGPNAT01** and click  **Connect**.
-4. Click the Start menu, right-click  **Windows PowerShell** and select **Run As Administrator**.
-5. Type **ipconfig /all**.
-6. Find the Ethernet adapter that is connected to your on-premise network, and note the IPv4 address bound to that adapter. In the example environment it’s **10.16.169.131** but yours will be different.
-7. Record this address. This is what you will use later as the Public IP Address of the Local Network Gateway resource you create in POC1.
+### <a name="create-the-local-network-gateway"></a>Yerel Ağ Geçidi oluşturma
+#### <a name="get-the-ip-address-of-the-external-adapter-of-the-nat-vm"></a>NAT VM dış bağdaştırıcısının IP adresini alma
+1. POC1 için Azure Stack fiziksel makinesinde oturum açın.
+2. [Windows Tuşu] + R tuşunu basılı tutarak **Çalıştır** menüsünü açın ve **mstsc** yazıp Enter tuşuna basın.
+3. **Bilgisayar** alanına **MAS-BGPNAT01** adını yazıp  **Bağlan**’a tıklayın.
+4. Başlat menüsüne tıklayıp **Windows PowerShell**’e sağ tıklayın ve **Yönetici Olarak Çalıştır**’ı seçin.
+5. **ipconfig /all** yazın.
+6. Şirket içi ağınıza bağlı Ethernet bağdaştırıcısını bulun ve bu bağdaştırıcıya bağlı IPv4 adresini not alın. Örnek ortamda bu değer **10.16.169.131**’dir, ancak sizinki farklı bir şey olacaktır.
+7. Bu adresini kaydedin. Bu, daha sonra POC1’de oluşturduğunuz Yerel Ağ Geçidi kaynağının Genel IP Adresi olarak kullanacağınız değerdir.
 
-#### <a name="create-the-local-network-gateway-resource"></a>Create the Local Network Gateway Resource
-1. Log in to the Azure Stack physical machine for POC2.
-2. In the **Computer** field type the name **MAS-CON01** and click **Connect**.
-3. In the Azure portal, click **New**.
+#### <a name="create-the-local-network-gateway-resource"></a>Yerel Ağ Geçidi Kaynağı oluşturma
+1. POC2 için Azure Stack fiziksel makinesinde oturum açın.
+2. **Bilgisayar** alanına **MAS-CON01** adını yazıp **Bağlan**’a tıklayın.
+3. Azure portalda **Yeni**’ye tıklayın.
    
-4. Select **Networking** from the Marketplace menu.
-5. Select **local network gateway** from the list of resources.
-6. In the **Name** field type **POC1-GW**.
-7. Now you need the Public IP Address you recorded for the Virtual network gateway in POC1. Type **10.16.169.131** in the **IP address** field.
-8. In the **Address Space** field type the address space of **Vnet-01** from POC1 - **10.0.0.0/16**.
-9. Verify that your **Subscription**, **Resource Group** and **location** are all correct and click **Create**.
+4. Market menüsünden **Ağ** seçeneğini belirleyin.
+5. Kaynak listesinden **yerel ağ geçidi**’ni seçin.
+6. **Ad** alanına **POC1-GW** yazın.
+7. Bu noktada, POC1’de Sanal ağ geçidi için kaydettiğiniz Genel IP Adresi gereklidir. **IP adresi** alanına **10.16.169.131** yazın.
+8. **Adres Alanı** alanına POC1 - **10.0.0.0/16**’daki **Vnet-01** adres alanını yazın.
+9. **Abonelik**, **Kaynak Grubu** ve **konum** seçeneklerinin doğruluğunu onaylayıp **Oluştur**’a tıklayın.
 
-## <a name="create-the-connection"></a>Create the Connection
-1. In the Azure portal, click **New**.
+## <a name="create-the-connection"></a>Bağlantı oluşturma
+1. Azure portalda **Yeni**’ye tıklayın.
    
-2. Select **Networking** from the Marketplace menu.
-3. Select **Connection** from the list of resources.
-4. In the **Basic** settings blade, choose **Site-to-site (IPSec)** as the **Connection type**.
-5. Select the **Subscription**, **Resource Group** and **Location** and click **OK**.
-6. In the **Settings** blade, choose the **Virtual Network Gateway** (**GW1**) you created previously.
-7. Choose the **Local Network Gateway** (**POC1-GW**) you created previously.
-8. In the **Connection Name** field, type **POC2-POC1**.
-9. In the **Shared Key (PSK)** field type **12345**. If you choose a different value, remember that it MUST match the value for Shared Key you created on POC1. Click **OK**.
+2. Market menüsünden **Ağ** seçeneğini belirleyin.
+3. Kaynak listesinden **Bağlantı**’yı seçin.
+4. **Temel** ayarlar dikey penceresinde **Bağlantı türü** olarak **Siteden siteye (IPSec)** seçeneğini belirleyin.
+5. **Abonelik**, **Kaynak Grubu** ve **Konum**’u seçip **Tamam**’a tıklayın.
+6. **Ayarlar** dikey penceresinde daha önce oluşturduğunuz **Sanal Ağ Geçidi**’ni (**GW1**) seçin.
+7. Daha önce oluşturduğunuz **Yerel Ağ Geçidi**’ni (**POC1-GW**) seçin.
+8. **Bağlantı Adı** alanına **POC2-POC1** yazın.
+9. **Paylaşılan Anahtar (PSK)** alanına **12345** yazın. Farklı bir değer seçerseniz, POC1 üzerinde oluşturduğunuz Paylaşılan Anahtar değeriyle eşleşmesi ZORUNLUDUR. **Tamam** düğmesine tıklayın.
 
-## <a name="create-a-vm"></a>Create a VM
-Create a VM in POC1 now and put it on your VM subnet in your virtual network.
+## <a name="create-a-vm"></a>VM oluşturma
+Şimdi POC1’de bir VM oluşturun ve sanal ağınızdaki VM alt ağına yerleştirin.
 
-1. In the Azure portal, click **New**.
+1. Azure portalda **Yeni**’ye tıklayın.
    
-2. Select **Virtual Machines** from the Marketplace menu.
-3. In the list of virtual machine images, select the **Windows Server 2012 R2 Datacenter** image.
-4. On the **Basics** blade, in the **Name** field type **VM02**.
-5. Type a valid user name and password. You’ll use this account to log in to the VM after it has been created.
-6. Provide a **Subscription**, **Resource Group** and **Location** and then click **OK**.
-7. On the **Size** blade, choose a VM size for this instance and then click **Select**.
-8. On the Settings blade, you can accept the defaults; just ensure that the virtual network selected is **VNET-02** and the subnet is set to **20.0.0.0/24**. Click **OK**.
-9. Review the settings on the **Summary** blade and click **OK**.
+2. Market menüsünden **Sanal Makineler**’i seçin.
+3. Sanal makine görüntüleri listesinde **Windows Server 2012 R2 Datacenter** görüntüsünü seçin.
+4. **Temel Bilgiler** dikey penceresinde **Ad** alanına **VM02** yazın.
+5. Geçerli bir kullanıcı adı ve parola yazın. Bu hesabı oluşturduktan sonra VM’de oturum açmak için kullanacaksınız.
+6. **Abonelik**, **Kaynak Grubu** ve **Konum** bilgilerini sağlayıp **Tamam**’a tıklayın.
+7. **Boyut** dikey penceresinde bu örnek için bir VM boyutu seçin ve ardından **Seç**’e tıklayın.
+8. Ayarlar dikey penceresinde varsayılan değerleri kabul edebilirsiniz; yalnızca seçili sanal ağın **VNET-02** olduğundan ve alt ağın **20.0.0.0/24** olarak ayarlandığından emin olun. **Tamam** düğmesine tıklayın.
+9. **Özet** dikey penceresindeki ayarları gözden geçirin ve **Tamam**’a tıklayın.
 
-## <a name="configure-the-nat-vm-in-each-poc-for-gateway-traversal"></a>Configure the NAT VM in each POC for gateway traversal
-Because the POC was designed to be self-contained and isolated from the network on which the physical host is deployed, the “External” VIP network that the gateways are connected to is not actually external, but instead is hidden behind a router doing Network Address Translation (NAT). The router is actually a Windows Server VM (**MAS-BGPNAT01**) running the Routing and Remote Access Services (RRAS) role in the POC infrastructure. You must configure NAT on the MAS-BGPNAT01 VM to allow the Site-to-Site VPN Connection to connect on both ends.
+## <a name="configure-the-nat-vm-in-each-poc-for-gateway-traversal"></a>Ağ geçidi geçişi için her POC’de NAT VM yapılandırma
+POC bağımsız ve fiziksel konağın dağıtıldığı ağdan yalıtılmış olarak tasarlandığı için, ağ geçitlerinin bağlı olduğu “Dış” VIP ağı gerçekten dış değildir, aslında Ağ Adresi Çevirisi (NAT) yapan bir yönlendiricinin arkasında gizlenmiştir. Yönlendirici gerçekte POC altyapısındaki Uzak Erişim Hizmetleri (RRAS) rolünü çalıştıran bir Windows Server sanal makinesidir (**MAS-BGPNAT01**). Siteden Siteye VPN Bağlantısının her iki uca bağlanması için MAS-BGPNAT01 VM üzerinde NAT’yi yapılandırmanız gerekir. Bunu yapmak için, bir VPN bağlantısında gerekli olan bağlantı noktaları için BGPNAT VM üzerindeki dış arabirimi Edge Ağ Geçidi Havuzunun VIP’sine eşleyen bir Statik NAT eşlemesi oluşturmanız gerekir.
 
 > [!NOTE]
-> This configuration is required for POC environments only.
+> Bu yapılandırma yalnızca POC ortamları için gereklidir.
 > 
 > 
 
-### <a name="configure-nat"></a>Configure NAT
-You need to follow these steps in BOTH POC environments.
+### <a name="configure-nat"></a>NAT yapılandırma
+HER İKİ POC ortamında aşağıdaki adımları izlemeniz gerekir.
 
-1. Log in to the Azure Stack physical machine for POC1.
-2. Press and hold [Windows Key] + R to open the **Run** menu and type **mstsc** and press **Enter**.
-3. In the **Computer** field type the name **MAS-BGPNAT01** and click **Connect**.
-4. Click on the Start menu and right-click **Windows PowerShell** and select **Run As Administrator**.
-5. Type **ipconfig /all**.
-6. Find the Ethernet Adapter that is connected to your on-premise network, and note the IPv4 address bound to that adapter. In the example environment, it’s **10.16.169.131** (circled in red below), but yours will be different.
+1. POC1 için Azure Stack fiziksel makinesinde oturum açın.
+2. [Windows Tuşu] + R tuşunu basılı tutarak **Çalıştır** menüsünü açın ve **mstsc** yazıp **Enter** tuşuna basın.
+3. **Bilgisayar** alanına **MAS-BGPNAT01** adını yazıp **Bağlan**’a tıklayın.
+4. Başlat menüsüne tıklayıp **Windows PowerShell**’e sağ tıklayın ve **Yönetici Olarak Çalıştır**’ı seçin.
+5. **ipconfig /all** yazın.
+6. Şirket içi ağınıza bağlı Ethernet Bağdaştırıcısını bulun ve bu bağdaştırıcıya bağlı IPv4 adresini not alın. Örnek ortamda bu değer **10.16.169.131**’dir (aşağıda kırmızı daire içine alınmış), ancak sizinki farklı bir şey olacaktır.
    
     ![](media/azure-stack-create-vpn-connection-one-node-tp2/image16.png)
-7. Type the following PowerShell command to designate the external NAT address for the ports that the IKE authentication. Remember to change the IP address to the one that matches your environment.
+7. IKE kimlik doğrulamasına yönelik bağlantı noktaları için dış NAT adresini belirtmek üzere aşağıdaki PowerShell komutunu yazın. IP adresini ortamınızla eşleşecek şekilde değiştirmeyi unutmayın.
    
-       Add-NetNatExternalAddress -NatName BGPNAT -IPAddress 10.16.169.131 PortStart 499 -PortEnd 501
-8. Next, you create a static NAT mapping to map the external  address to the Gateway Public IP Address to map the ISAKMP port 500  for PHASE 1 of the IPSEC tunnel.
+       Add-NetNatExternalAddress -NatName BGPNAT -IPAddress 10.16.169.131 -PortStart 499 -PortEnd 501
+8. Ardından, Ağ Geçidi Genel IP Adresini IPSEC tünelinin 1. AŞAMASI için ISAKMP 500 bağlantı noktasına eşlemek üzere statik bir NAT eşlemesi oluşturun.
    
         Add-NetNatStaticMapping -NatName BGPNAT -Protocol UDP -ExternalIPAddress 10.16.169.131 -InternalIPAddress 192.168.102.1 -ExternalPort 500 -InternalPort 500
-9. Finally, you must configure NAT traversal which uses port 4500 to successfully establish the complete IPEC tunnel over NAT devices.
+> [!NOTE] 
+> Buradaki `-InternalAddress` parametresi daha önce oluşturduğunuz Sanal Ağ Geçidinin Genel IP Adresidir.  Bu IP adresini bulmak için Sanal Ağ Geçidi dikey penceresinin özelliklerine bakın ve Genel IP Adresinin değerini bulun.       
+
+9. Son olarak, NAT cihazları üzerinde tam IPEC tünelini başarıyla oluşturmak için 4500 bağlantı noktasını kullanan bir NAT geçişi yapılandırmanız gerekir.
    
         Add-NetNatStaticMapping -NatName BGPNAT -Protocol UDP -ExternalIPAddress 10.16.169.131 -InternalIPAddress 192.168.102.1 -ExternalPort 4500 -InternalPort 4500
-10. Repeat steps 1-9 in POC2.
+> [!NOTE] 
+> Buradaki `-InternalAddress` parametresi daha önce oluşturduğunuz Sanal Ağ Geçidinin Genel IP Adresidir.  Bu IP adresini bulmak için Sanal Ağ Geçidi dikey penceresinin özelliklerine bakın ve Genel IP Adresinin değerini bulun.       
 
-## <a name="test-the-connection"></a>Test the connection
-Now that the Site-to-Site connection has been established you should validate that you can get traffic flowing through it. This task is simple as it just involves logging in to one of the VMs you created in either POC environment and pinging the VM you created in the other environment. To ensure that you are putting the traffic through the Site-to-Site connection, you want to make sure that you ping the Direct IP (DIP) address of the VM on the remote subnet, not the VIP. To do this, you need to find and note the address on the other end of the connection.
+10. POC2’de 1-9 arasındaki adımları yineleyin.
 
-### <a name="log-in-to-the-tenant-vm-in-poc1"></a>Log in to the tenant VM in POC1
-1. Log in to the Azure Stack physical machine for POC1, and log in to the Portal using a tenant account.
-2. Click **Virtual Machines** in the left navigation bar.
-3. Find **VM01** that you created previously in the list of VMs and click it.
-4. On the blade for the virtual machine click **Connect**.
+## <a name="test-the-connection"></a>Bağlantıyı sınama
+Siteden Siteye bağlantı kurulduğuna göre içinden geçen trafiği alabildiğinizi doğrulamanız gerekir. Bu basit görev yalnızca POC ortamlarından birinde daha önce oluşturduğunuz bir sanal makinede oturum açıp, diğer ortamda oluşturduğunuz sanal makineye ping göndermeyi içerir. Trafiği Siteden Siteye bağlantı üzerinden geçirdiğinizden emin olmak için VIP üzerindeki değil, uzak ağdaki VM’nin Doğrudan IP (DIP) adresine ping gönderdiğinizden emin olmanız gerekir. Bunu yapmak için bağlantının diğer ucundaki adresi bulup not etmeniz gerekir.
+
+### <a name="log-in-to-the-tenant-vm-in-poc1"></a>POC1’deki kiracı VM’de oturum açma
+1. POC1 için Azure Stack fiziksel makinesinde oturum açın ve bir kiracı hesabı kullanarak Portal’da oturum açın.
+2. Sol gezinti çubuğunda **Sanal Makineler**’e tıklayın.
+3. VM listesinde daha önce oluşturduğunuz **VM01**’i bulup tıklayın.
+4. Sanal makine için dikey pencere üzerinde **Bağlan**’a tıklayın.
    
      ![](media/azure-stack-create-vpn-connection-one-node-tp2/image17.png)
-5. Open a Command prompt from inside the VM and type **ipconfig /all**.
-6. Find the **IPv4 Address** in the output and note it. This is the address you will ping from POC2. In the example environment, the address is **10.0.10.4**, but in your environment it might be different. It should however fall within the **10.0.10.0/24** subnet that was created previously.
+5. VM içinden bir Komut istemi açın ve **ipconfig/all** yazın.
+6. Çıktıda **IPv4 Adresini** bulup not edin. POC2’den ping gönderilecek adres budur. Örnek ortamda adres **10.0.10.4** şeklindedir, ancak sizin ortamınızda farklı olabilir. Bununla birlikte, adres daha önce oluşturulan **10.0.10.0/24** alt ağı dahilinde olmalıdır.
 
-### <a name="log-in-to-the-tenant-vm-in-poc2"></a>Log in to the tenant VM in POC2
-1. Log in to the Azure Stack physical machine for POC2 and log in to the portal using a tenant account.
-2. Click **Virtual Machines** in the left navigation bar.
-3. Find **VM02** that you created previously in the list of VMs and click it.
-4. On the blade for the virtual machine click **Connect**.
+### <a name="log-in-to-the-tenant-vm-in-poc2"></a>POC2’deki kiracı VM’de oturum açma
+1. POC2 için Azure Stack fiziksel makinesinde oturum açın ve bir kiracı hesabı kullanarak portalda oturum açın.
+2. Sol gezinti çubuğunda **Sanal Makineler**’e tıklayın.
+3. VM listesinde daha önce oluşturduğunuz **VM02**’yi bulup tıklayın.
+4. Sanal makine için dikey pencere üzerinde **Bağlan**’a tıklayın.
    
-5. Open a Command prompt from inside the VM and type **ipconfig /all**.
-6. You should see an IPv4 address that falls within 10.0.20.0/24. In the example environment, the address is 10.0.20.4, but yours might be different.
-7. Now from the VM in POC2 you want to ping the VM in POC1, through the tunnel. To do this you ping the DIP that you recorded from VM01.
-   In the example environment this is 10.0.10.4, but be sure to ping the address you noted in your lab. You should see a result that looks like this:
+5. VM içinden bir Komut istemi açın ve **ipconfig/all** yazın.
+6. 10.0.20.0/24 aralığına denk gelen bir IPv4 adresi görmeniz gerekir. Örnek ortamda adres 10.0.20.4 şeklindedir, ancak sizinki farklı olabilir.
+7. Şimdi POC2’deki VM’den POC1’deki VM’ye tünel aracılığıyla ping göndermeniz gerekir. Bunu yapmak için VM01’den kaydettiğiniz DIP’ye ping gönderin.
+   Örnek ortamda bu adres 10.0.10.4 şeklindedir, ancak laboratuvarınızda not aldığınız adrese ping gönderdiğinizden emin olun. Şuna benzer bir sonuç görmeniz gerekir:
    
     ![](media/azure-stack-create-vpn-connection-one-node-tp2/image19b.png)
-8. A reply from the remote VM indicates a successful test! You can close the VM Connect window. Or you can try doing some other data transfers like a file copy to test your connection.
+8. Uzak VM’den alınan yanıt, testin başarılı olduğunu gösteriyor! VM Bağlantısı penceresini kapatabilirsiniz. Ya da bağlantınızı sınamak için dosya kopyası gibi diğer veri aktarımlarını deneyebilirsiniz.
 
-### <a name="viewing-data-transfer-statistics-through-the-gateway-connection"></a>Viewing data transfer statistics through the gateway connection
-If you want to know how much data is passing through your Site-to-Site connection, this information is available in the Connection blade. This test is also another good way to verify that the ping you just sent actually went through the VPN connection.
+### <a name="viewing-data-transfer-statistics-through-the-gateway-connection"></a>Ağ geçidi bağlantısı üzerinden veri aktarımı istatistiklerini görüntüleme
+Siteden Siteye bağlantınızdan ne kadar veri geçtiğini bilmek istiyorsanız, bu bilgiye Bağlantı dikey penceresinden ulaşabilirsiniz. Bu test ayrıca yeni gönderdiğiniz ping’in VPN bağlantısından gerçekte geçip geçmediğini doğrulamanın iyi bir yoludur.
 
-1. While still logged in to tenant VM in POC2, log in to the **Microsoft Azure Stack POC Portal** using your tenant account.
-2. Click the **Browse** menu item and select **Connections**.
-3. Click the **POC2-POC1** connection in the list.
-4. On the Connection blade, you can see statistics for **Data in** and **Data out**. In the following screen shot you see some larger numbers than just a ping will create. That’s because of some additional file transfers as well. You should see some non-zero values there.
+1. POC2’deki kiracı VM’de oturumunuz hala açıkken, kiracı hesabınızı kullanarak **Microsoft Azure Stack POC Portalı**’nda oturum açın.
+2. **Gözat** menü öğesine tıklayıp **Bağlantılar**’ı seçin.
+3. Listedeki **POC2 POC1** bağlantısına tıklayın.
+4. Bağlantı dikey penceresinde **Veri girişi** ve **Veri çıkışı** istatistiklerini görebilirsiniz. Aşağıdaki ekran görüntüsünde yalnızca bir ping’in oluşturacağından daha büyük sayılar görünmektedir. Bunun nedeni bazı ak dosya aktarımlarının da yapılmasıdır. Burada sıfır olmayan bazı değerler görürsünüz.
    
     ![](media/azure-stack-create-vpn-connection-one-node-tp2/image20.png)
 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

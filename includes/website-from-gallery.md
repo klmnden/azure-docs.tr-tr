@@ -1,60 +1,60 @@
-The Azure Marketplace makes available a wide range of popular web apps developed by Microsoft, third party companies, and open source software initiatives. Web apps created from the Azure Marketplace do not require installation of any software other than the browser used to connect to the [Azure Preview Portal](http://go.microsoft.com/fwlink/?LinkId=529715). 
+Azure Marketi, Microsoft, üçüncü taraf şirketler ve açık kaynak yazılım girişimleri tarafından geliştirilen çok çeşitli popüler web uygulamalarını kullanıma sunar. Azure Marketinden oluşturulan web uygulamaları, [Azure Preview Portal](http://go.microsoft.com/fwlink/?LinkId=529715)’a bağlanmak için kullanılan tarayıcı dışında bir yazılımın yüklenmesini gerektirmez. 
 
-In this tutorial, you'll learn:
+Bu öğreticide şunları öğreneceksiniz:
 
-* How to create a new web app through the Azure Marketplace.
-* How to deploy the web app through the Azure Preview Portal.
+* Azure Market üzerinden yeni bir web uygulaması oluşturma.
+* Azure Preview Portal üzerinden web uygulamasını dağıtma.
 
-You'll build a WordPress blog that uses a default template. The following illustration shows the completed application:
+Varsayılan bir şablon kullanan WordPress blogu oluşturacaksınız. Aşağıdaki şekilde, tamamlanmış uygulama gösterilmiştir:
 
-![Wordpress blog][13]
+![Wordpress blogu][13]
 
 > [!NOTE]
-> If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
+> Azure hesabı için kaydolmadan önce Azure App Service’i kullanmaya başlamak isterseniz, App Service’te hemen kısa süreli bir başlangıç web uygulaması oluşturabileceğiniz [App Service’i Deneyin](https://azure.microsoft.com/try/app-service/) sayfasına gidin. Kredi kartı ve taahhüt gerekmez.
 > 
 > 
 
-## Create a web app in the portal
-1. Log in to the Azure Preview Portal.
-2. Open the Azure Marketplace either by clicking the **Marketplace** icon:
+## <a name="create-a-web-app-in-the-portal"></a>Portalda web uygulaması oluşturma
+1. Azure Preview Portal’da oturum açın.
+2. Azure Market’i açmak için **Market** simgesine:
    
-    ![Marketplace icon][marketplace]
+    ![Market simgesi][marketplace]
    
-    Or by clicking the **New** icon on the upper right of the dashboard, and selecting **Marketplace** at the bottow of the list.
+    Veya panonun sağ üst köşesindeki **Yeni** simgesine tıklayın ve listenin altındaki **Market** öğesini seçin.
    
-    ![Create New][5]
-3. Select **Web + Mobile**. Search for **WordPress** and click the **WordPress** icon.
+    ![Yeni Oluştur][5]
+3. **Web + Mobil**’i seçin. **WordPress**’i arayın ve ardından **WordPress** simgesine tıklayın.
    
-    ![WordPress from list][7]
-4. After reading the description of the WordPress app, select **Create**.
-5. Click on **Web app**, and provide the required values for configuring your web app.
+    ![Listede WordPress][7]
+4. WordPress uygulamasının açıklamasını okuduktan sonra **Oluştur**’u seçin.
+5. **Web uygulaması**’na tıklayın ve web uygulamanızı yapılandırmak için gerekli değerleri belirtin.
    
-    ![configure your app][8]
-6. Click on **Database**, and provide the required values for configuring your MySQL database. 
+    ![uygulamanızı yapılandırma][8]
+6. **Veritabanı**’na tıklayın ve MySQL veritabanınızı yapılandırmak için gerekli değerleri belirtin. 
    
-    ![configure database][database]
-7. Provide a name for a new resource group.
+    ![veritabanı yapılandırma][database]
+7. Yeni kaynak grubu için bir ad belirtin.
    
-    ![Set resource group][groupname]
-8. If necessary, click **SUBSCRIPTION**, and specify the subscription to use. 
-9. When you have finished defining the web app, click **Create**, and wait while the new web app is created.
+    ![Kaynak grubu ayarlama][groupname]
+8. Gerekirse, **ABONELİK** öğesine tıklayın ve kullanılacak aboneliği belirtin. 
+9. Web uygulamasını tanımlamayı bitirdiğinizde **Oluştur**’a tıklayın ve yeni web uygulamasının oluşturulmasını bekleyin.
    
-   When the app has been created, you will see the resource group containing web app and database.
+   Uygulama oluşturulduğunda, web uygulamasını ve veritabanını içeren kaynak grubunu görürsünüz.
    
-   ![show group][resourcegroup]
+   ![grup görüntüleme][resourcegroup]
 
-## Launch and manage your WordPress web app
-1. Click on your new web app to see details about your app.
+## <a name="launch-and-manage-your-wordpress-web-app"></a>WordPress web uygulamanızı başlatma ve yönetme
+1. Uygulamanızın ayrıntılarını görmek için yeni web uygulamanıza tıklayın.
    
-    ![launch dashboard][10]
-2. On the **Essentials** page, click either **Browse** or the link under **Url** to open the web app's welcome page.
+    ![panoyu başlatma][10]
+2. **Temel Parçalar** sayfasında **Gözat**’a veya **Url** altındaki bağlantıya tıklayarak web uygulamasının karşılama sayfasını açın.
    
     ![site URL][browse]
-3. If you have not installed WordPress, enter the appropriate configuration information required by WordPress and click **Install WordPress** to finalize configuration and open the web app's login page.
-4. Click **Login** and enter your credentials.  
-5. You'll have a new WordPress web app that looks similar to the web app below.    
+3. WordPress’i yüklemediyseniz WordPress için gereken uygun yapılandırma bilgilerini girin ve **WordPress Yükle**’ye tıklayarak yapılandırmayı tamamlayıp web uygulamasının oturum açma sayfasını açın.
+4. **Oturum Aç**’a tıklayıp kimlik bilgilerinizi girin.  
+5. Aşağıdaki web uygulamasına benzeyen yeni bir WordPress web uygulamasına sahip olursunuz.    
    
-    ![your WordPress site][13]
+    ![WordPress siteniz][13]
 
 [5]: ./media/website-from-gallery/start-marketplace.png
 [6]: ./media/website-from-gallery/wordpressgallery-02.png
@@ -69,3 +69,8 @@ You'll build a WordPress blog that uses a default template. The following illust
 [browse]: ./media/website-from-gallery/browse-web.png
 [marketplace]: ./media/website-from-gallery/marketplace-icon.png
 [groupname]: ./media/website-from-gallery/set-rg.png
+
+
+<!--HONumber=Jan17_HO3-->
+
+

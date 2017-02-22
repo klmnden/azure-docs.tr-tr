@@ -1,17 +1,24 @@
 # Genel Bakış
+
 ## [Machine Learning nedir?](machine-learning-what-is-machine-learning.md)
-## Machine Learning Studio
-### [Studio nedir?](machine-learning-what-is-ml-studio.md)
-### [Studio özellikleri](machine-learning-studio-overview-diagram.md)
-### [Bilgi Grafiği: ML ile ilgili temel bilgiler](machine-learning-basics-infographic-with-algorithm-examples.md)
+
 ## Team Data Science Process
 ### [Genel Bakış](http://aka.ms/datascienceprocess)
 ### [Yaşam döngüsü](data-science-process-overview.md)
 ### [Kılavuz](data-science-process-walkthroughs.md)
+
+## Machine Learning Studio
+### [Studio nedir?](machine-learning-what-is-ml-studio.md)
+### [Studio özellikleri](machine-learning-studio-overview-diagram.md)
+### [Bilgi Grafiği: ML ile ilgili temel bilgiler](machine-learning-basics-infographic-with-algorithm-examples.md)
+
 ## [Sık sorulan sorular](machine-learning-faq.md)
 ## [Yenilikler](machine-learning-whats-new.md)
+
 # Kullanmaya Başlama
+
 ## [İlk denemenizi oluşturun](machine-learning-create-experiment.md)
+
 ## Örnek kılavuz
 ### [Tahmine dayalı çözüm oluşturma](machine-learning-walkthrough-develop-predictive-solution.md)
 ### [1: Çalışma Alanı oluşturma](machine-learning-walkthrough-1-create-ml-workspace.md)
@@ -20,6 +27,7 @@
 ### [4: Eğitme ve değerlendirme](machine-learning-walkthrough-4-train-and-evaluate-models.md)
 ### [5: Web hizmetini dağıtma](machine-learning-walkthrough-5-publish-web-service.md)
 ### [6: Web hizmetine erişme](machine-learning-walkthrough-6-access-web-service.md)
+
 ## Yeni Başlayanlar için Veri Bilimleri
 ### [1: Beş soru](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md)
 ### [2: Verilerinizi hazır mı?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md)
@@ -29,8 +37,8 @@
 
 ## [R hızlı başlangıç](machine-learning-r-quickstart.md)
 
-
 # Nasıl yapılır?
+
 ## Araçları ve yardımcı programları ayarlama
 ### [Ortamları ayarlama](machine-learning-data-science-environment-setup.md)
 ### [Sanal makineleri ayarlama](machine-learning-data-science-virtual-machines.md)
@@ -49,9 +57,11 @@
 #### [Sorun giderme](machine-learning-troubleshooting-creating-ml-workspace.md)
 #### [ARM kullanarak dağıtma](machine-learning-deploy-with-resource-manager-template.md)
 #### [Başka bir bölgede oluşturma](machine-learning-multi-geo.md)
+
 ## İşletme ihtiyaçlarını çözümleme
 ### [Teknik gereksinimler](machine-learning-data-science-plan-your-environment.md)
 ### [Senaryonuzu tanımlama](machine-learning-data-science-plan-sample-scenarios.md)
+
 ## Veri edinme ve bu verileri anlama
 ### Depolama alanına veri yükleme
 #### [Genel Bakış](machine-learning-data-science-ingest-data.md)
@@ -95,6 +105,7 @@
 ##### [Puan modelleri](machine-learning-data-science-spark-model-consumption.md)
 ##### [Gelişmiş veri araştırması](machine-learning-data-science-spark-advanced-data-exploration-modeling.md)
 ##### [Scala ve Spark kullanma](machine-learning-data-science-process-scala-walkthrough.md)
+
 ## Model geliştirme
 ### Mühendislik ve belirli özellikler
 #### [Genel Bakış](machine-learning-data-science-create-features.md)
@@ -104,6 +115,7 @@
 #### [TDSP özellik seçimi](machine-learning-data-science-select-features.md)
 ### Oluşturma ve eğitme modelleri
 #### [Puanlamaya dönüştürme](machine-learning-convert-training-experiment-to-scoring-experiment.md)
+#### [Deneme yaşam döngüsü yönetimi](machine-learning-version-control.md)
 #### [Yinelemelerini yönetme](machine-learning-manage-experiment-iterations.md)
 #### [PowerShell kullanarak model oluşturma](machine-learning-create-models-and-endpoints-with-powershell.md)
 #### Algoritma seçme
@@ -120,11 +132,11 @@
 ##### [R betiklerini yürütme](machine-learning-extend-your-experiment-with-r.md)
 ##### [Özel R modülleri yazma](machine-learning-custom-r-modules.md)
 ##### [Python betiklerini yürütme](machine-learning-execute-python-scripts.md)
+
 ## Modelleri dağıtma ve kullanma
 ### [Genel Bakış](machine-learning-deploy-consume-web-service-guide.md)
 ### Modelleri dağıtma
 #### [Nasıl çalışır?](machine-learning-model-progression-experiment-to-web-service.md)
-#### [Yeni bir web hizmeti dağıtma](machine-learning-webservice-deploy-a-web-service.md)
 #### [Bir Web Hizmetini dağıtma](machine-learning-publish-a-machine-learning-web-service.md)
 #### [Dış veri kullanma](machine-learning-web-services-that-use-import-export-modules.md)
 #### [Birden çok bölgede dağıtma](machine-learning-how-to-deploy-to-multiple-regions.md)
@@ -147,6 +159,7 @@
 #### [Excel kullanma](machine-learning-consuming-from-excel.md)
 #### [Excel eklentisini kullanma](machine-learning-excel-add-in-for-web-services.md)
 #### [Web uygulaması şablonunu kullanma](machine-learning-consume-web-service-with-web-app-template.md)
+
 ## Örnekler
 ### [Örnek deneyler](machine-learning-sample-experiments.md)
 ### [Örnek veri kümeleri](machine-learning-use-sample-datasets.md)
@@ -158,10 +171,12 @@
 #### [Azure SQL Veri Ambarı kullanma](machine-learning-data-science-process-sqldw-walkthrough.md)
 
 # Başvuru
+
 ## [PowerShell modülü (Yeni)](/powershell/resourcemanager/azurerm.machinelearning/v0.11.1/azurerm.machinelearning)
 ## [PowerShell modülü (Klasik)](machine-learning-powershell-module.md)
 ## [Algoritmalar ve Modül başvurusu](https://msdn.microsoft.com/library/azure/dn905974.aspx)
-## [REST](/rest/api/machinelearning)
+## [REST API başvurusu](/rest/api/machinelearning)
+## [Web hizmeti hata kodları](machine-learning-web-service-error-codes.md)
 
 # İlgili
 
@@ -176,6 +191,7 @@
 ### [Öğreticiler](machine-learning-gallery-tutorials.md)
 ### [Koleksiyonlar](machine-learning-gallery-collections.md)
 ### [Özel Modüller](machine-learning-gallery-custom-modules.md)
+
 ## Cortana Analytics
 ### API'ler
 #### [Anormallik algılama](machine-learning-apps-anomaly-detection-api.md)
@@ -197,7 +213,7 @@
 ##### [Kurulum](cortana-analytics-playbook-vehicle-telemetry-powerbi.md)
 
 # Kaynaklar
-## [Machine Learning REST Hata Kodları](/machine-learning/machine-learning-web-service-error-codes)
+
 ## [Net# Sinir Ağları Dili](machine-learning-azure-ml-netsharp-reference-guide.md)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/machine-learning/)
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=machine-learning)
@@ -208,6 +224,6 @@
 ## [Canlı sohbetten yardım alma](machine-learning-live-chat.md)
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -3,7 +3,7 @@ title: "Azure AD Privileged Identity Management ile çalışmaya başlama | Micr
 description: "Azure portalında Azure Active Directory Privileged Identity Management uygulaması ile ayrıcalıklı kimlikleri nasıl yöneteceğinizi öğrenin."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: billmath
 manager: femila
 editor: 
 ms.assetid: 2299db7d-bee7-40d0-b3c6-8d628ac61071
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/16/2016
-ms.author: kgremban
+ms.date: 02/14/2017
+ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e84b361ec2acb062142d15ff9a6e02aca07d0958
+ms.sourcegitcommit: 081e45e0256134d692a2da7333ddbaafc7366eaa
+ms.openlocfilehash: 7b1510ccfed939e27bad4fc0e5fafd4383db4a35
 
 
 ---
@@ -44,7 +44,6 @@ Azure AD Privileged Identity Management ayarlandığında, uygulamayı her açt�
 * **Ayrıcalıklı rolleri yönet** panosu; ayrıcalıklı rol yöneticileri tarafından rol atamalarını yönetmek, rol etkinleştirme ayarlarını değiştirmek, erişim incelemeleri başlatmak ve daha birçok işlevi gerçekleştirmek üzere kullanılır. Bu panodaki seçenekler, ayrıcalıklı rol yöneticisi olmayan kullanıcılar için devre dışıdır.
 * **Ayrıcalıklı erişimi incele** seçeneği (erişimi kendiniz için veya başka bir kullanıcı için inceliyor olmanızdan bağımsız olarak) sizi tamamlamanız gereken beklemedeki erişim incelemelerine götürür. 
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Sonraki adımlar
 [Azure AD Privileged Identity Management'a genel bakış](active-directory-privileged-identity-management-configure.md), kuruluşunuzdaki yönetim erişimini nasıl yönetebileceğinize ilişkin daha fazla ayrıntı içerir.
 
@@ -56,6 +55,6 @@ Azure AD Privileged Identity Management ayarlandığında, uygulamayı her açt�
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

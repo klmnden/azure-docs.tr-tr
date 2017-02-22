@@ -40,14 +40,18 @@
 ## [Bulut hizmeti için birden çok VIP yapılandırma](load-balancer-multivip.md)
 ## [Yük dengeleme hizmetlerini birleştirme](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fload-balancer%2ftoc.json)
 ## [Birden fazla IP yapılandırması kullanma](load-balancer-multiple-ip.md)
-## [Azure Load Balancer için günlük analizi](load-balancer-monitor-log.md)
+### [Birden fazla IP yapılandırması kullanma (CLI)](load-balancer-multiple-ip-cli.md)
+## [Azure Load Balancer için Log Analytics](load-balancer-monitor-log.md)
 ## [Linux VM’leri için DHCPv6’yı yapılandırma](load-balancer-ipv6-for-linux.md)
 
 # Başvuru
-## [PowerShell](/powershell/azureps-cmdlets-docs)
-## [Azure CLI](/cli/azure/network/lb)
-## [Java](/java/api)
-## [.NET](/dotnet/api)
+## [PowerShell](/powershell/resourcemanager/azurerm.network/v3.1.0/azurerm.network)
+## [Azure CLI 2.0 (Önizleme)](/cli/azure/network/lb)
+## [.NET](/dotnet/api/microsoft.azure.management.network.models)
+## [Java](/java/api/com.microsoft.azure.management.network)
+## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/LoadBalancers.html)
+## [Ruby](http://www.rubydoc.info/gems/azure_mgmt_network/Azure/ARM/Network/LoadBalancers)
+## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.operations.html#azure.mgmt.network.operations.LoadBalancersOperations)
 ## [REST](https://msdn.microsoft.com/library/azure/mt163651.aspx)
 
 # İlgili
@@ -64,6 +68,6 @@
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=load-balancer)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 

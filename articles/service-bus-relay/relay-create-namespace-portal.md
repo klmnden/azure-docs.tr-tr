@@ -1,6 +1,6 @@
 ---
 title: "Azure portalını kullanarak Geçiş ad alanı oluşturma | Microsoft Belgeleri"
-description: "Azure Geçiş’i kullanmaya başlamak için bir ad alanı gereklidir. Azure portalını kullanarak bir ad alanı oluşturma işlemi aşağıda gösterilmiştir."
+description: "Azure portalı kullanılarak Geçiş ad alanı oluşturma."
 services: service-bus-relay
 documentationcenter: .net
 author: jtaubensee
@@ -12,14 +12,14 @@ ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/28/2016
-ms.author: jotaub
+ms.date: 02/13/2017
+ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 8ba8baa1b6500b3300e0bfc1c6b9f00f214f0179
-ms.openlocfilehash: e51dc77e0a0fc3c0a2cc4050d7b896e177a86cc0
-
+ms.sourcegitcommit: 97c793abc9935707115c166a97f6f7bdfee1a8c5
+ms.openlocfilehash: d6ef2e0c75a27b294ee653bf9a0219c2233d272c
 
 ---
+
 # <a name="create-a-relay-namespace-using-the-azure-portal"></a>Azure portalı kullanılarak Geçiş ad alanı oluşturma
 Ad alanı, tüm Geçiş bileşenleriniz için ortak bir kapsayıcıdır. Tek bir ad alanında birden fazla Geçiş bulunabilir ve ad alanları genellikle uygulama kapsayıcıları olarak görev yapar. Şu anda bir Geçiş ad alanı oluşturmak için iki farklı yol vardır.
 
@@ -39,6 +39,6 @@ Tebrikler! Bir Geçiş ad alanı oluşturdunuz.
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

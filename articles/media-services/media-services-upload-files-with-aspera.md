@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 01/30/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: fc04923c6a6b4b870011a82fcd9688ca8e0c8a7e
-ms.openlocfilehash: 67614c4eb0ce49efe0390502a2752ae40cf0336b
+ms.sourcegitcommit: ff87afae1b468bef77947edd9806d330047f2ba6
+ms.openlocfilehash: 3b167db06ee30f7c3483eca30782437c61f8dcc8
 
 
 ---
@@ -119,9 +119,7 @@ Azure için İsteğe Bağlı Azure satın alma işlemini tamamlamak için Azure 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Karşıya yüklenen varlıklarınızı artık kodlayabilirsiniz. Daha fazla bilgi için bkz. [Varlıkları kodlama](media-services-portal-encode.md).
-
-Yapılandırılmış kapsayıcıya gelen bir dosyaya göre kodlanma işi tetiklemek için Azure İşlevleri’ni de kullanabilirsiniz. Daha fazla bilgi için [bu örneğe](https://azure.microsoft.com/resources/samples/media-services-dotnet-functions-integration/ ) bakın. 
+Artık, [bir depolama hesabından AMS hesabına blob kopyalayabilirsiniz](media-services-copying-existing-blob.md#copy-blobs-from-a-storage-account-into-an-ams-account).
 
 ## <a name="media-services-learning-paths"></a>Media Services’i öğrenme yolları
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
@@ -132,6 +130,6 @@ Yapılandırılmış kapsayıcıya gelen bir dosyaya göre kodlanma işi tetikle
 
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

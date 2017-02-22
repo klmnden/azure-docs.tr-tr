@@ -43,6 +43,14 @@
 ### [C++](storage-c-plus-plus-how-to-use-files.md)
 ### [Python](storage-python-how-to-use-file-storage.md)
 
+## Disk Depolama 
+### [Resource Manager ve PowerShell kullanarak VM oluşturma](../virtual-machines/virtual-machines-windows-ps-create.md)
+### [Azure CLI 2.0 (Önizleme) kullanarak Linux VM oluşturma](../virtual-machines/virtual-machines-linux-quick-create-cli.md)
+### [PowerShell kullanarak bir Windows VM’ye yönetilen disk ekleme](../virtual-machines/virtual-machines-windows-attach-disk-ps.md)
+### [Linux VM’ye yönetilen disk ekleme](../virtual-machines/virtual-machines-linux-add-disk.md)
+### [Windows’da Anlık Görüntüler kullanılarak Yönetilen Disk olarak depolanmış VHD kopyası oluşturma](../virtual-machines/virtual-machines-windows-snapshot-copy-managed-disk.md)
+### [Linux’ta Anlık Görüntüler kullanılarak Yönetilen Disk olarak depolanmış VHD kopyası oluşturma](../virtual-machines/linux/virtual-machines-linux-snapshot-copy-managed-disk.md)
+
 # Nasıl yapılır?
 ## [Depolama hesabı oluşturma](storage-create-storage-account.md)
 ## Blob'ları kullanma
@@ -62,13 +70,21 @@
 ### [Genel Bakış](/rest/api/storageservices/fileservices/File-Service-Concepts)
 ### [Azure Dosyalarının Sorunlarını Giderme](storage-troubleshoot-file-connection-problems.md)
 ### [Örnekler](https://azure.microsoft.com/documentation/samples/?service=storage&term=file)
-## Sanal Makine Disklerini kullanma
+## Disk kullanma
+### [Windows VM’ler için diskler ve VHD’ler](storage-about-disks-and-vhds-windows.md)
+### [Linux VM’ler için diskler ve VHD’ler](storage-about-disks-and-vhds-linux.md)
+### [Azure Yönetilen Disklere Genel Bakış](storage-managed-disks-overview.md)
+### [Azure VM’lerini Azure Yönetilen Disklere geçirme](../virtual-machines/virtual-machines-windows-migrate-to-managed-disks.md)
+### [AWS ve diğer platformlardan Yönetilen Disklere geçirme](../virtual-machines/virtual-machines-windows-on-prem-to-azure.md)
+### [Azure IaaS VM Diskleri hakkında Sık Sorulan Sorular](storage-faq-for-disks.md)
 ### Premium Depolama
-#### [VM İş Yükleri için Yüksek Performanslı Depolama](storage-premium-storage.md)
-#### [Premium Depolama’ya geçiş](storage-migration-to-premium-storage.md)
+#### [VM Diskleri için yüksek performanslı Premium Depolama](storage-premium-storage.md)
 #### [Yüksek Performans Tasarımı](storage-premium-storage-performance.md)
 ### Standart Depolama
-#### [Artımlı anlık görüntülerle VM disklerini yedekleme](storage-incremental-snapshots.md)
+#### [Uygun maliyetli Standart Depolama ile yönetilmeyen ve yönetilen VM Diskleri](storage-standard-storage.md)
+### Yönetilmeyen diskleri kullanma
+#### [Premium Depolama’ya geçiş](storage-migration-to-premium-storage.md)
+#### [Artımlı anlık görüntülerle yönetilmeyen VM disklerini yedekleme](storage-incremental-snapshots.md)
 ## Planlama ve tasarım
 ### [Çoğaltma](storage-redundancy.md)
 ### [Ölçeklenebilirlik ve Performans Hedefleri](storage-scalability-targets.md)
@@ -155,12 +171,12 @@
 ### [Resource Manager](/dotnet/api/microsoft.azure.management.storage)
 ### [Veri taşıma](https://msdn.microsoft.com/library/azure/mt684990.aspx)
 ### [Bloblar, Kuyruklar, Tablolar ve Dosyalar](https://msdn.microsoft.com/library/azure/mt347887.aspx)
-## [Java](/java/api/)
+## [Java](http://azure.github.io/azure-storage-java/)
 ## [Node.js](http://azure.github.io/azure-storage-node)
 ## [Ruby](http://azure.github.io/azure-storage-ruby)
 ## [Python](https://azure-storage.readthedocs.io/en/latest/index.html)
 ## [C++](http://azure.github.io/azure-storage-cpp)
-## [iOS](https://github.com/Azure/azure-storage-ios)
+## [iOS](http://azure.github.io/azure-storage-ios/)
 ## [Android](http://azure.github.io/azure-storage-android)
 ## REST
 ### [Bloblar, Kuyruklar, Tablolar ve Dosyalar](/rest/api/storageservices/fileservices/azure-storage-services-rest-api-reference)
@@ -205,6 +221,6 @@
 ### [iOS](https://github.com/Azure/azure-storage-ios)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

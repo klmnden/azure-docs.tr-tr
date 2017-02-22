@@ -23,6 +23,7 @@
 ### [Çağrılabilir uç noktalar olarak Logic Apps](logic-apps-http-endpoint.md)
 ### [Döngüler, kapsamlar ve ayırma](logic-apps-loops-and-scopes.md)
 ### [Özel API'nizi kullanma](logic-apps-custom-hosted-api.md)
+### [Switch deyimi kullanma](logic-apps-switch-case.md)
 ### [Özel durum işleme](logic-apps-exception-handling.md)
 ### [Özel durum işleme senaryosu](logic-apps-scenario-error-and-exception-handling.md)
 ### [İçerik türlerini işleme](logic-apps-content-type.md)
@@ -91,6 +92,6 @@
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=logic-apps)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "ASP.NET uygulamasını Visual Studio’yu kullanarak Azure Uygulama Hizmeti’ne dağıtma | Microsoft Belgeleri"
+title: "ASP.NET uygulamasını Visual Studio’yu kullanarak Azure’a dağıtma | Microsoft Docs"
 description: "Azure App Service’te bir ASP.NET web projesini Visual Studio’yu kullanarak yeni bir web uygulamasına dağıtmayı öğrenin."
 services: app-service\web
 documentationcenter: .net
@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 12/16/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 4fbfb24a2e9d55d718902d468bd25e12f64e7d24
-ms.openlocfilehash: 4a0d72f46fada5112563d10d22f61abc439730a7
+ms.sourcegitcommit: 9b7e0b429575d080819f25e04d492a2b09d4d63a
+ms.openlocfilehash: 946552d1b268c6e70a9e8fcd4c40bd6e2ab76178
 
 
 ---
@@ -47,7 +47,7 @@ Bu bir başlangıç öğreticisi olduğundan, veritabanı kullanmayan ve kimlik 
 * Bu öğretici, ASP.NET ve Visual Studio hakkında deneyimli olduğunuzu varsayar. Genel bir bilgi gerekirse, bkz. [ASP.NET MVC 5’i Kullanmaya Başlama](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started)
 * Bir Azure hesabınız olmalıdır. [Ücretsiz bir Azure hesabı açabilir](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) veya [Visual Studio abonelik avantajlarını etkinleştirebilirsiniz](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). 
   
-    Bir Azure hesabı için kaydolmadan önce Azure App Service’i kullanmaya başlamak istiyorsanız [App Service’i Deneyin](http://go.microsoft.com/fwlink/?LinkId=523751)’e gidin. Burada, App Service’te kısa süreli bir başlangıç web uygulaması oluşturabilirsiniz; kredi kartı gerekmez ve hiçbir taahhüt yoktur.
+    Bir Azure hesabı için kaydolmadan önce Azure App Service’i kullanmaya başlamak istiyorsanız [App Service’i Deneyin](https://azure.microsoft.com/try/app-service/)’e gidin. Burada, App Service’te kısa süreli bir başlangıç web uygulaması oluşturabilirsiniz; kredi kartı gerekmez ve hiçbir taahhüt yoktur.
 
 ## <a name="a-namesetupdevenvaset-up-the-development-environment"></a><a name="setupdevenv"></a>Geliştirme ortamını ayarlama
 Bu öğretici, [.NET için Azure SDK](../dotnet-sdk.md) 2.9 veya sonraki bir sürümünü içeren Visual Studio 2015 için hazırlanmıştır. 
@@ -131,7 +131,7 @@ Artık oluşturmak istediğiniz Azure kaynakları için Visual Studio’da işle
 ## <a name="inspect-the-azure-resources-in-visual-studio"></a>Visual Studio'daki Azure kaynaklarını inceleme
 Kısa bir süre içinde (genellikle bir dakikadan az) Visual Studio web projesini ve web uygulamasını oluşturur.  
 
- **Çözüm Gezgini** penceresi, yeni projedeki dosyaları ve klasörleri gösterir.
+**Çözüm Gezgini** penceresi, yeni projedeki dosyaları ve klasörleri gösterir.
 
 ![Çözüm Gezgini](./media/web-sites-dotnet-get-started/solutionexplorer.png)
 
@@ -139,7 +139,7 @@ Kısa bir süre içinde (genellikle bir dakikadan az) Visual Studio web projesin
 
 ![Azure App Service Etkinliği penceresindeki oluşturulan web uygulaması](./media/web-sites-dotnet-get-started/GS13sitecreated1.png)
 
- **Cloud Explorer** penceresi, henüz oluşturduğunuz yeni web uygulaması da dahil olmak üzere Azure kaynaklarınızı görüntülemenize ve yönetmenize olanak tanır.
+**Cloud Explorer** penceresi, henüz oluşturduğunuz yeni web uygulaması da dahil olmak üzere Azure kaynaklarınızı görüntülemenize ve yönetmenize olanak tanır.
 
 ![Cloud Explorer’da oluşturulan web uygulaması](./media/web-sites-dotnet-get-started/siteinse.png)
 
@@ -222,6 +222,6 @@ Bu öğreticide, basit bir web uygulaması oluşturmayı ve bunu Azure web uygul
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

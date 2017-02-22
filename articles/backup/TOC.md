@@ -1,3 +1,4 @@
+
 # Genel Bakış
 ## [Azure Backup nedir?](backup-introduction-to-azure-backup.md)
 # Başlarken
@@ -32,6 +33,7 @@
 ### [Klasik portalda Azure VM yedeklemelerini yönetme ve izleme](backup-azure-manage-vms-classic.md)
 ### [Azure portal’da Azure VM yedeklemelerini yönetme](backup-azure-manage-vms.md)
 ### [Azure portal’da Azure VM yedeklemeleri için uyarıları yönetme](backup-azure-monitor-vms.md)
+### [Azure VM yedeklerinden dosya kurtarma](backup-azure-restore-files-from-vm.md)
 ### [Azure’da sanal makineleri geri yükleme](backup-azure-restore-vms.md)
 ### [Azure portalında Resource Manager tarafından dağıtılan VM'leri geri yükleme](backup-azure-arm-restore-vms.md)
 ### [Azure Backup kullanarak şifreli VM’ler için Key Vault anahtarını ve parolasını geri yükleme](backup-azure-restore-key-secret.md)
@@ -49,6 +51,7 @@
 ### [Dosyaları Resource Manager dağıtım modelini kullanarak Windows Server’a kurtarma](backup-azure-restore-windows-server.md)
 ### [Klasik dağıtım modelini kullanarak dosyaları Windows Server'a kurtarma](backup-azure-restore-windows-server-classic.md)
 
+## [Yedekleme yönetimi için Rol Tabanlı Access Control kullanma](backup-rbac-rs-vault.md)
 ## [Karma yedeklemeler için güvenlik özelliklerini etkinleştirme](backup-azure-security-feature.md)
 ## [Azure Backup kasasını silme](backup-azure-delete-vault.md)
 ## [Çevrimdışı yedekleme yapılandırma](backup-azure-backup-import-export.md)
@@ -70,6 +73,6 @@
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=backup)
 
 
-<!--HONumber=Jan17_HO5-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/25/2016
-ms.author: sdanie
+ms.date: 12/15/2016
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 398b845a6549341d6afba101acec9eefd146d810
+ms.sourcegitcommit: 13431648e87d085161ad278dc991d49f7872be34
+ms.openlocfilehash: 60213f885020a5ba36d6ada0812f755e06b3c48b
 
 
 ---
@@ -43,19 +43,19 @@ Geliştirici portalı bir içerik yönetimi sistemini veya CMS’yi temel alır.
 > 
 
 ## <a name="change-headers-styling"> </a>Üst bilgilerin stilini değiştirme
-Bir sayfadaki renk, yazı tipi, boyut, boşluklar ve stille ilgili diğer öğeler stil kuralları tarafından tanımlanır. Stilleri düzenlemek için, yayımcı portalında **Geliştirici portalı** menüsünde **Görünüm**’e tıklayın ve ardından stil düzenleyicisini etkinleştirmek için **Özelleştirmeye başla**’ya tıklayın.
+Bir sayfadaki renk, yazı tipi, boyut, boşluklar ve stille ilgili diğer öğeler stil kuralları tarafından tanımlanır. Stilleri düzenlemek için, **Geliştirici portalında** özelleştirme simgesinin üzerine gelip soldaki özelleştirme araç çubuğunu açın ve araç çubuğundan "stilleri" seçin.
 
-Tarayıcınız, geliştirici portalında, sitenin herhangi bir yerinde kullanılan tüm stil kurallarının örnekleriyle içerik örneklerini içeren gizli bir sayfaya geçiş yapar. Stil düzenleyicisini açmak için, imleci sayfanın en solundaki ince gri dikey çizginin üzerine getirin. Düzenleyici araç çubuğu görüntülenmelidir.
+![Özelleştirme araç çubuğu düğmesi][api-management-customization-toolbar-button]
+
+Stil kurallarını iki şekilde düzenleyebilirsiniz: varsayılan olarak gösterilen ve her yerde kullanılan tüm stil kurallarının listesine bakabilir veya **Sayfadaki bir öğeyi seçin** öğesini seçip sayfadaki herhangi bir yere tıklayarak yalnızca ilgili öğenin stillerini görebilirsiniz.
+
+Bu bölümde, yalnızca üst bilgilerin stilini değiştirmek istiyoruz. Stil düzenleyici araç çubuğundan **Sayfadaki bir öğeyi seçin** seçeneğine tıklayın. 
 
 ![Özelleştirme araç çubuğu][api-management-customization-toolbar]
 
-Stil kurallarını düzenlemenin iki ana modu vardır: **Tüm kuralları düzenle** herhangi bir yerde kullanılan tüm stil kurallarının bir listesini gösterirken, **Öğe seç** bulunduğunuz sayfadan bir öğeyi seçmenize olanak sağlar ve yalnızca o öğeye ilişkin stilleri gösterir.
+Fareyle üzerine geldiğiniz öğeler vurgulanır ve tıkladığınızda hangi öğe stillerini düzenlemeye başlayacağınızı gösterir. Fareyi üst bilgide şirket adını gösteren metnin üzerine getirin (önceki bölümde yer alan yönergeleri izlediyseniz "Fabrikam Geliştirici Portalı") ve metni tıklayın. Stil düzenleyicisinde, adlandırılmış ve kategorilere ayrılmış bir grup stil kuralı görüntülenir. Her kural seçilen öğenin bir stil özelliğini temsil eder. Örneğin, yukarıda seçilen üst bilgi metni için metin boyutu @font-size-h1 biçimindeyken, alternatiflerle birlikte yazı tipinin adı @headings-font-family biçimindedir.
 
-Bu bölümde, yalnızca üst bilgilerin stilini değiştirmek istiyoruz. Stil düzenleyicisi araç çubuğunda **Öğe seç**’e ve ardından **Özelleştirilecek öğeyi seçin**’e tıklayın. Fareyle üzerine geldiğiniz öğeler vurgulanır ve tıkladığınızda hangi öğe stillerini düzenlemeye başlayacağınızı gösterir. Fareyi üst bilgide şirket adını gösteren metnin üzerine getirin (önceki bölümde yer alan yönergeleri izlediyseniz "Fabrikam Geliştirici Portalı") ve metni tıklayın. Stil düzenleyicisinde, adlandırılmış ve kategorilere ayrılmış bir grup stil kuralı görüntülenir.
-
-Her kural seçilen öğenin bir stil özelliğini temsil eder. Örneğin, yukarıda seçilen üst bilgi metni için metin boyutu @font-size-h1 biçimindeyken, alternatiflerle birlikte yazı tipinin adı @headings-font-family. biçimindedir
-
-> [Önyükleme][Önyükleme] yapmayı biliyorsanız, bu kurallar aslında geliştirici portalı tarafından kullanılan önyükleme temasının [LESS değişkenleridir][LESS değişkenleridir].
+> [Önyükleme][bootstrap] yapmayı biliyorsanız, bu kurallar aslında geliştirici portalı tarafından kullanılan önyükleme temasının [LESS değişkenleridir][LESS variables].
 > 
 > 
 
@@ -63,7 +63,7 @@ Her kural seçilen öğenin bir stil özelliğini temsil eder. Örneğin, yukar�
 
 ![Renk seçici][api-management-customization-toolbar-color-picker]
 
-Seçili öğenin stillerindeki değişiklikleri tamamladığınızda **Değişiklikleri Önizle**’ye tıklayarak sonuçları ekranda görün. Şu anda bunlar yalnızca yöneticiler tarafından görülebilir. Bu değişikliği herkese görünür yapmak için stil düzenleyicisinde **Yayımla** düğmesine tıklayın ve değişiklikleri onaylayın.
+Değişiklikler yapıldıkça gerçek zamanlı olarak önizlemesi gösterilir, ancak yalnızca yöneticilere görünür. Bu değişikliği herkese görünür yapmak için stil düzenleyicisinde **Yayımla** düğmesine tıklayın ve değişiklikleri onaylayın.
 
 ![Yayımlama menüsü][api-management-customization-toolbar-publish-form]
 
@@ -87,26 +87,27 @@ Geliştirici portalının giriş sayfasında ne göründüğünü düzenlemek i�
 ## <a name="next-steps"> </a>Sonraki adımlar
 * [Geliştirici portal şablonları](api-management-developer-portal-templates.md)’nı kullanarak geliştirici portal sayfalarının içeriğini özelleştirme hakkında bilgi edinin.
 
-[Sayfa üst bilgisindeki metni/logoyu değiştirme]: #change-page-headers
-[Üst bilgilerin stilini değiştirme]: #change-headers-styling
-[Sayfanın içeriğini düzenleme]: #edit-page-contents
-[Sonraki adımlar]: #next-steps
+[Change the text/logo in the page headers]: #change-page-headers
+[Change the styling of the headers]: #change-headers-styling
+[Edit the contents of a page]: #edit-page-contents
+[Next steps]: #next-steps
 
-[Klasik Azure Portalı]: https://manage.windowsazure.com/
+[Azure Classic Portal]: https://manage.windowsazure.com/
 
 [api-management-management-console]: ./media/api-management-customize-portal/api-management-management-console.png
 [api-management-widgets-header]: ./media/api-management-customize-portal/api-management-widgets-header.png
+[api-management-customization-toolbar-button]: ./media/api-management-customize-portal/api-management-customization-toolbar-button.png
 [api-management-customization-toolbar]: ./media/api-management-customize-portal/api-management-customization-toolbar.png
 [api-management-customization-toolbar-color-picker]: ./media/api-management-customize-portal/api-management-customization-toolbar-color-picker.png
 [api-management-customization-toolbar-publish-form]: ./media/api-management-customize-portal/api-management-customization-toolbar-publish-form.png
 [api-management-customization-manage-content]: ./media/api-management-customize-portal/api-management-customization-manage-content.png
 
 
-[Önyükleme]: http://getbootstrap.com/
-[LESS değişkenleridir]: http://getbootstrap.com/css/
+[bootstrap]: http://getbootstrap.com/
+[LESS variables]: http://getbootstrap.com/css/
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

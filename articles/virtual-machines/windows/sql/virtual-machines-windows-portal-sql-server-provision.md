@@ -12,12 +12,12 @@ ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows-sql-server
-ms.workload: iaas-sql-server
-ms.date: 09/21/2016
+ms.workload: infrastructure-services
+ms.date: 02/02/2017
 ms.author: jroth
 translationtype: Human Translation
-ms.sourcegitcommit: 7402249aa87ffe985ae13f28a701e22af3afd450
-ms.openlocfilehash: 171566e8b1eccfafc78bd8b422189c977421592d
+ms.sourcegitcommit: 55a4b22c3bb097c688446a5ec22f60baecf44ffe
+ms.openlocfilehash: 0dea81ef42d9225ee3780ffd2ad67a37c8a4a2ed
 
 
 ---
@@ -46,14 +46,13 @@ Bu öğreticide şunları yapacaksınız:
    > Bir Azure hesabınız yoksa, [Azure ücretsiz deneme](https://azure.microsoft.com/pricing/free-trial/)yi ziyaret edin.
    > 
    > 
-2. Azure portalda **Yeni**’ye tıklayın. Portal **Yeni** dikey pencere açar. SQL Server VM kaynakları Marketin **Virtual Machines** grubundadır.
-3. **Yeni** dikey penceresinde, **Virtual Machines**’e tıklayın.
-4. Kullanılabilir tüm görüntüleri görmek için, **Virtual Machines** dikey penceresinde **Tümünü gör**’e tıklayın.
-   
-    ![Azure Virtual Machines Dikey Penceresi](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-blade.png)
-5. **Veritabanı sunucuları** altında, **SQL Server**’a tıklayın. **Veritabanı sunucuları**nı bulmak için aşağı kaydırmanız gerekebilir. Kullanılabilir SQL Server şablonlarını gözden geçirin.
-   
-    ![Sanal Makine Galerisi SQL Görüntüleri](./media/virtual-machines-windows-portal-sql-server-provision/virtual-machine-gallery-sql-server.png)
+2. Azure portalda **Yeni**’ye tıklayın. Portal **Yeni** dikey pencere açar. SQL Server VM kaynakları, Market’in **İşlem** grubundadır.
+3. **Yeni** dikey penceresinde **İşlem**’e ve ardından **Tümünü gör**’e tıklayın.
+4. **Filtre** metin kutusuna SQL Server yazıp ENTER tuşuna basın.
+
+   ![Azure Virtual Machines Dikey Penceresi](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-blade2.png)
+
+5. Kullanılabilir SQL Server şablonlarını gözden geçirin.
 6. Her şablon bir SQL Server sürümü ve işletim sistemi tanımlar. Listede bu görüntülerden birini seçin. Ardından sanal makine görüntüsünün bir açıklaması veren ayrıntılar dikey penceresini gözden geçirin.
    
    > [!NOTE]
@@ -82,7 +81,7 @@ Bir SQL Server sanal makineyi yapılandırmak için beş dikey pencere vardır.
 * VM’deki yerel yönetici hesabı için **Kullanıcı adı** belirtin. Bu hesap aynı zamanda SQL Server **sysadmin** sabit sunucu rolüne de eklenir.
 * Güçlü bir **parola** girin.
 * Birden fazla aboneliğiniz varsa, aboneliğin yeni VM için doğru olduğunu doğrulayın
-* **Kaynak grubu** kutusuna, yeni kaynak grubu için bir ad yazın. Alternatif olarak, varolan bir kaynak grubunu kullanmak için tıklayın **Varolanı seç**’e tıklayın. Bir kaynak grubu, Azure’daki ilgili kaynakların bir koleksiyonudur (sanal makineler, depolama hesapları, sanal ağlar, vb.).
+* **Kaynak grubu** kutusuna, yeni kaynak grubu için bir ad yazın. Alternatif olarak, varolan bir kaynak grubunu kullanmak için **Varolanı kullan**’a tıklayın. Bir kaynak grubu, Azure’daki ilgili kaynakların bir koleksiyonudur (sanal makineler, depolama hesapları, sanal ağlar, vb.).
   
   > [!NOTE]
   > Yalnızca Azure’daki SQL Server dağıtımlarını test ediyor veya öğreniyorsanız, yeni bir kaynak grubu kullanmak faydalıdır. Test işleminizi tamamladıktan sonra, sanal makineyi ve bu kaynak grubu ile ilişkili tüm kaynakları otomatik olarak silmek için kaynak grubunu silin. Kaynak grupları hakkında daha fazla bilgi için bkz. [Azure Resource Manager’a Genel Bakış](../../../azure-resource-manager/resource-group-overview.md).
@@ -216,10 +215,12 @@ SQL otomatik yedeklemeyi etkinleştirdiğinizde, aşağıdakileri yapılandırab
 * Yedeklemeler için elde tutma süresi (gün)
 * Yedeklemeler için kullanılacak depolama hesabı
 * Yedeklemeler için şifreleme seçeneği ve parola
+* Backup sistem veritabanları
+* Yedekleme zamanlamasını yapılandırma
 
 Yedeklemeyi şifrelemek için **Etkinleştir**’e tıklayın. Ardından **Parola**’yı belirtin. Azure yedeklemeleri şifrelemek için bir sertifika oluşturur ve bu sertifikayı korumak için belirtilen parolayı kullanır.
 
-![SQL Otomatik Yedekleme](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-autobackup.png)
+![SQL Otomatik Yedekleme](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-autobackup2.png)
 
  Daha fazla bilgi için bkz. [Azure Virtual Machines’de SQL Server için Otomatik Yedekleme](virtual-machines-windows-sql-automated-backup.md).
 
@@ -302,6 +303,6 @@ Azure Virtual Machines’de SQL Server için.[Öğrenme Yolunu keşfedin](https:
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

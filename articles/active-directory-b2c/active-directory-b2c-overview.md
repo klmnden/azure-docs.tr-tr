@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 12/06/2016
 ms.author: swkrish
 translationtype: Human Translation
-ms.sourcegitcommit: 4b13c040a15bef2f04d2cd2126e2270d061898bd
-ms.openlocfilehash: 37c9d6808b3282d86583f6305672405775a7f306
+ms.sourcegitcommit: f37fa3a212a0dca46c76b3928cf78756722f0340
+ms.openlocfilehash: 2c6765e28f40210730823a9af0b6fb80a5ddc4d1
 
 
 ---
@@ -33,7 +33,7 @@ Tüketicinin kaydolma ve oturum açma işlemlerini kabul eden bir uygulama oluş
 [!INCLUDE [active-directory-b2c-quickstart-table](../../includes/active-directory-b2c-quickstart-table.md)]
 
 ## <a name="whats-new"></a>Yenilikler
-Gelecekteki Azure Active Directory B2C değişiklikleri için burayı sıkça tekrar kontrol edin. @AzureAD ile tüm değişiklikler hakkında tweet de göndereceğiz.
+Gelecekteki Azure Active Directory B2C değişiklikleri için burayı sıkça tekrar kontrol edin. @AzureAD kullanarak tüm değişiklikler hakkında tweet de göndereceğiz.
 
 * [Genişletilebilir ilke çerçevemiz](active-directory-b2c-reference-policies.md) ve uygulamalarınızda oluşturup kullanabileceğiniz ilke türleri hakkında bilgi edinin.
 * Küçük hizmet sorunları, güncelleştirmeler, durum ve düzeltmeler hakkında bildirimler için [hizmet blogumuzu](https://blogs.msdn.microsoft.com/azureadb2c/) yer işaretlerine ekleyin. [Azure durum panosunu](https://azure.microsoft.com/status/) da izlemeye devam edin.
@@ -54,6 +54,7 @@ Belirli Azure Active Directory B2C özelliklerinin nasıl kullanılacağını ö
 Bu bağlantılar hizmeti derinlemesine keşfetmek için kullanışlıdır:
 
 * Bkz. [Azure Active Directory B2C fiyatlandırma bilgileri](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
+* Azure Active Directory B2C için [kod örneklerimizi](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory&term=b2c) gözden geçirin. 
 * Stack Overflow konusunda yardım almak için [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) veya [adal](http://stackoverflow.com/questions/tagged/adal) etiketlerini kullanın.
 * Fikirlerinizi duymak istiyoruz! [User Voice](https://feedback.azure.com/forums/169401-azure-active-directory/) kullanarak fikirlerinizi bize ulaştırabilirsiniz. Gönderinizi bulabilmemiz için başlıkta "AzureADB2C:" tümceciğini kullanın.
 * [Azure AD B2C Protokolü Başvurusu](active-directory-b2c-reference-protocols.md)’nu gözden geçirin.
@@ -67,6 +68,6 @@ Bu bağlantılar hizmeti derinlemesine keşfetmek için kullanışlıdır:
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/30/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 98c8352152b6cd1817d32c6418597c566d94d44f
+ms.sourcegitcommit: e4896c1a3adf76477899336f1ff1ee215cc7c9aa
+ms.openlocfilehash: 6a20f75dbb2c914b1239adb5ba10189a7193584c
 
 
 ---
@@ -31,8 +31,8 @@ Bu konu başlığında, oturum açma sayfasını ve erişim paneli sayfasını n
 > [!NOTE]
 > * Şirket markası özelliğini, yalnızca Azure Active Directory Basic veya Premium sürümüne yükseltme yaptıysanız veya bir Office 365 kullanıcısıysanız kullanabilirsiniz. Daha fazla bilgi için bkz. [Azure Active Directory sürümleri](active-directory-editions.md).
 > * Azure Active Directory Premium ve Basic sürümleri, Azure Active Directory'nin dünya çapındaki örneğini kullanan Çin'deki müşterilerin kullanımına sunulmuştur. Azure Active Directory Premium ve Basic sürümleri, şu anda Çin'de 21Vianet tarafından işletilen Microsoft Azure hizmeti kapsamında desteklenmemektedir. Daha fazla bilgi için [Azure Active Directory Forumu](https://feedback.azure.com/forums/169401-azure-active-directory/)'nda bizimle iletişime geçin.
-> 
-> 
+>
+>
 
 ## <a name="customizing-the-sign-in-page"></a>Oturum açma sayfasını özelleştirme
 Genel olarak, bulut uygulamalarınıza ve kuruluşunuzun abonesi olduğu hizmetlere tarayıcı tabanlı olarak erişmeniz gerekiyorsa oturum açma sayfasını kullanırsınız.
@@ -46,8 +46,8 @@ Hizmeti https://mail.office365.com gibi kiracıya özgü olmayan bir URL ile ziy
 > [!NOTE]
 > * Etki alanı adınız, markayı yapılandırdığınız klasik Azure portalının **Active Directory** > **Directory (Dizin)** > **Domains (Etki Alanları)** bölümünde "Enabled" ("Etkin") olarak görünmelidir.
 > * Oturum açma sayfasında bulunan marka, Microsoft'un tüketici oturum açma sayfasına aktarılmaz. Kişisel bir Microsoft hesabıyla oturum açarsanız Azure AD tarafından işlenen kullanıcı kutucuklarının markalı bir listesini görebilirsiniz ancak kuruluşunuzun markası, Microsoft hesabı oturum açma sayfasına uygulanmaz.
-> 
-> 
+>
+>
 
 Bu sayfada şirketinizin markasını, renklerini ve diğer özelleştirilebilir öğelerini göstermek istiyorsanız bu iki deneyim arasındaki farkı anlamak için aşağıdaki görüntülere bakın.
 
@@ -91,8 +91,8 @@ Oturum açma sayfasında şu öğeleri özelleştirebilirsiniz:
 
 > [!NOTE]
 > Tüm öğeler isteğe bağlıdır. Örneğin, Büyük Çizim yerine Başlık Logosu belirtirseniz oturum açma sayfasında hedef siteye ilişkin çizim (bu örnekte Office 365'in California otoyol görüntüsü) ve logonuz gösterilir.
-> 
-> 
+>
+>
 
 Oturum açma sayfanızdaki **Oturumum açık kalsın** onay kutusu, kullanıcının tarayıcıyı kapatıp yeniden açması durumunda oturumunun açık kalmasına olanak tanır. Bu durum oturum ömrünü etkilemez. Azure Active Directory oturum açma sayfasındaki onay kutusunu gizleyebilirsiniz.
 
@@ -100,12 +100,12 @@ Onay kutusunun görüntülenip görüntülenmeyeceği **KMSI Gizle** ayarına ba
 
 ![][9]
 
-Onay kutusunu gizlemek için bu ayarı **Gizli** olarak yapılandırın. 
+Onay kutusunu gizlemek için bu ayarı **Gizli** olarak yapılandırın.
 
 > [!NOTE]
 > SharePoint Online ve Office 2010’un bazı özellikleri kullanıcıların bu kutuyu işaretleyebilmesine bağlıdır. Bu ayarı gizli olarak yapılandırırsanız kullanıcılarınız oturum açmaya yönelik ek ve beklenmeyen istemler görebilir.
-> 
-> 
+>
+>
 
 Ayrıca bu sayfadaki tüm öğeleri yerelleştirebilirsiniz. Özelleştirme öğelerine ilişkin "varsayılan" bir küme yapılandırdıktan sonra farklı yerel ayarlar için daha fazla sürüm yapılandırabilirsiniz. Ayrıca, çeşitli öğeleri karıştırabilir ve eşleştirebilirsiniz. Örneğin, şunları yapabilirsiniz:
 
@@ -163,15 +163,15 @@ Oturum açma sayfası markasında yaptığınız yeni değişikliğin görünmes
 4. **Customize Branding (Markayı Özelleştir)**düğmesine tıklayın.
 5. Marka Özelleştirme sayfasında **Edit Existing Branding Settings (Var Olan Marka Ayarlarını Düzenle)** seçeneğini belirleyip sonraki sayfaya gidin.
 6. Kaldırmak istediğiniz öğelere bağlı olarak, şunlardan birini veya birkaçını yapın:
-   
+
     a. **Banner Logo (Başlık Logosu)** altında **Remove uploaded logo (Karşıya yüklenen logoyu kaldır)** seçeneğini belirleyin.
-   
+
     b. **Tile Logo (Kutucuk Logosu)** altında **Remove uploaded logo (Karşıya yüklenen logoyu kaldır)** seçeneğini belirleyin.
-   
+
     c. Tüm metin kutularındaki metinleri kaldırın.
-   
+
     d. **İleri**’ye tıklayın.
-   
+
     e. Tüm metin kutularındaki metinleri kaldırın.
 7. Öğeleri kaldırmak için **Save (Kaydet)** düğmesine tıklayın.
 8. Gerekirse **Customize Branding (Markayı Özelleştir)** seçeneğine yeniden tıklayın ve kaldırılması gereken tüm dile özgü markalar için bu adımları tekrar edin.
@@ -199,15 +199,15 @@ Azure AD'deki bazı özelleştirilebilir öğelerin birden çok kullanım durumu
 
 | Ad | Açıklama | Kısıtlamalar | Öneriler |
 | --- | --- | --- | --- |
-| Başlık Logosu |Başlık Logosu, oturum açma sayfasında ve Erişim panelinde görüntülenir. |<p>JPG veya PNG</p><p>60 x 280 piksel</p><p>10 KB</p> |<p>Kuruluşunuzun tam logosunu (piktogram ve logo türü dahil) kullanın</p><p>Mobil cihazlarda kaydırma çubuklarının görünmemesi için logoyu 30 pikselden düşük tutun.</p><p>4 KB altında tutun</p><p>Saydam bir PNG kullanın (oturum açma sayfasının her zaman beyaz bir arka plana sahip olacağını varsaymayın)</p> |
-| Kutucuk Logosu |(şu anda oturum açma sayfasında kullanılmıyor) Gelecekte bu metin, farklı deneyim alanlarındaki genel "iş veya okul hesabı" piktogramını değiştirmek için kullanılabilir. |<p>JPG veya PNG</p><p>120 x 120 piksel</p><p>10 KB</p> |<p>Bu görüntü % 50 olarak yeniden boyutlandırılabileceği için (küçük metin olmaksızın) basit olmasını sağlayın |
+| Başlık Logosu |Başlık Logosu, oturum açma sayfasında ve Erişim panelinde görüntülenir. |<p>JPG veya PNG</p><p>60 x&280; piksel</p><p>10 KB</p> |<p>Kuruluşunuzun tam logosunu (piktogram ve logo türü dahil) kullanın</p><p>Mobil cihazlarda kaydırma çubuklarının görünmemesi için logoyu 30 pikselden düşük tutun.</p><p>4 KB altında tutun</p><p>Saydam bir PNG kullanın (oturum açma sayfasının her zaman beyaz bir arka plana sahip olacağını varsaymayın)</p> |
+| Kutucuk Logosu |(şu anda oturum açma sayfasında kullanılmıyor) Gelecekte bu metin, farklı deneyim alanlarındaki genel "iş veya okul hesabı" piktogramını değiştirmek için kullanılabilir. |<p>JPG veya PNG</p><p>120 x&120; piksel</p><p>10 KB</p> |<p>Bu görüntü % 50 olarak yeniden boyutlandırılabileceği için (küçük metin olmaksızın) basit olmasını sağlayın |
 | </p> | | | |
 | Oturum Açma Sayfası Kullanıcı Adı Etiketi |(şu anda oturum açma sayfasında kullanılmıyor) Gelecekte bu metin, farklı deneyim alanlarındaki genel "iş veya okul hesabı" dizesini değiştirmek için kullanılabilir. Bunu "Contoso hesabı" veya "Contoso kimliği" olarak ayarlayabilirsiniz. |<p>Maksimum 50 karakterlik Unicode metni</p><p>Yalnızca düz metin (bağlantılar veya HTML etiketleri olmadan)</p> |<p>Kısa ve basit tutun</p><p>Kullanıcılarınıza, sağlamış olduğunuz iş veya okul hesaplarını genel olarak nasıl adlandırdıklarını sorun.</p> |
 | Oturum Açma Sayfası Metni |Bu "ortak" metin, oturum açma sayfası formunun altında görünür; ek yönergeler için veya yardım ya da desteğin nereden alınabileceğiyle ilgili bilgi vermek için kullanılabilir. |<p>Maksimum 256 karakterlik Unicode metni</p><p>Yalnızca düz metin (bağlantılar veya HTML etiketleri olmadan)</p> |250 karakterin altında tutun (yaklaşık 3 metin satırı)  |
-| Oturum Açma Sayfası Çizimi |Çizim, oturum açma sayfasında oturum açma sayfası formunun solunda görüntülenen büyük görüntüdür. |<p>JPG veya PNG</p><p>1420 x 1200</p><p>500 KB</p> |<p>1420 x 1200 piksel</p><p>Önemli: Olabildiğince küçük tutun; 200 KB'ın altında olması idealdir. Bu görüntü, çok büyük olduğu için önbelleğe alınmadığında Oturum Açma sayfasının performansı etkilenir</p><p>Bu görüntü genellikle, farklı ekran oranları uyum sağlayacak şekilde kırpılır. Tarayıcı küçüldükçe yeniden boyutlandırma işlemi yukarı doğru sağ/alt köşeden sol/üst köşeye doğru gerçekleştiği için, birincil görsel öğeleri sol üst köşede (RTL dilleri için sağ üstte) tutun.</p> |
+| Oturum Açma Sayfası Çizimi |Çizim, oturum açma sayfasında oturum açma sayfası formunun solunda görüntülenen büyük görüntüdür. |<p>JPG veya PNG</p><p>1420 x&1200;</p><p>500 KB</p> |<p>1420 x&1200; piksel</p><p>Önemli: Olabildiğince küçük tutun; 200 KB'ın altında olması idealdir. Bu görüntü, çok büyük olduğu için önbelleğe alınmadığında Oturum Açma sayfasının performansı etkilenir</p><p>Bu görüntü genellikle, farklı ekran oranları uyum sağlayacak şekilde kırpılır. Tarayıcı küçüldükçe yeniden boyutlandırma işlemi yukarı doğru sağ/alt köşeden sol/üst köşeye doğru gerçekleştiği için, birincil görsel öğeleri sol üst köşede (RTL dilleri için sağ üstte) tutun.</p> |
 | Oturum Açma Sayfası Arka Plan Rengi |Oturum açma sayfası arka plan rengi, oturum açma sayfası formunun solundaki alanda kullanılır. |Arka plan rengi, onaltılık biçimde bir RGB rengi olmalıdır (örnek: #FFFFFF) |<p>Düşük bant genişliğine sahip bağlantılarda büyük Çizim yerine arka plan rengi gösterilebilir.</p><p>Başlık logosunun birincil rengini seçmenizi öneririz</p> |
 
-## <a name="next-steps"></a>Sonraki Adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 * [Azure Active Directory Premium ile çalışmaya başlama](active-directory-get-started-premium.md)
 * [Erişim ve kullanım raporlarınızı görüntüleme](active-directory-view-access-usage-reports.md)
 
@@ -224,6 +224,6 @@ Azure AD'deki bazı özelleştirilebilir öğelerin birden çok kullanım durumu
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/28/2017
+ms.date: 02/13/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: d1174ca4fcf8188fbeb6b676bdbf5ca8c191fffd
-ms.openlocfilehash: 3c174dbe743c18cd013e50a1c10e6e97b3e28a38
+ms.sourcegitcommit: ed8ea30b87c8086d41cab879acce82062f08b31c
+ms.openlocfilehash: f27ab42ab3c7c704804b9a5493c8b3acd954decb
 
 
 ---
@@ -61,6 +61,8 @@ Karşıya yükleme işlemi tamamlandıktan sonra, yeni varlık **Varlıklar** pe
 ## <a name="next-steps"></a>Sonraki adımlar
 Karşıya yüklenen varlıklarınızı artık kodlayabilirsiniz. Daha fazla bilgi için bkz. [Varlıkları kodlama](media-services-portal-encode.md).
 
+Yapılandırılmış kapsayıcıya gelen bir dosyaya göre kodlanma işi tetiklemek için Azure İşlevleri’ni de kullanabilirsiniz. Daha fazla bilgi için [bu örneğe](https://azure.microsoft.com/resources/samples/media-services-dotnet-functions-integration/ ) bakın.
+
 ## <a name="media-services-learning-paths"></a>Media Services’i öğrenme yolları
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -70,6 +72,6 @@ Karşıya yüklenen varlıklarınızı artık kodlayabilirsiniz. Daha fazla bilg
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

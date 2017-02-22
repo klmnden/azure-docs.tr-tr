@@ -12,20 +12,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/14/2016
+ms.date: 02/09/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 86a4bc7ea89416f2c67626439f08fa615a2e6511
+ms.sourcegitcommit: 337a88105d1d19fd69805caeaaef5040dad42316
+ms.openlocfilehash: 663b8a0d27e3746aec5097364643eac981810368
 
 
 ---
-# <a name="secure-your-cloud-and-onpremises-resources-using-azure-multifactor-authentication-server-with-ad-fs-in-windows-server-2012-r2"></a>Windows Server 2012 R2’de AD FS ile Azure Multi-Factor Authentication Sunucusu kullanarak bulut ve şirket içi kaynaklarınızı güvenli hale getirme
+# <a name="secure-your-cloud-and-on-premises-resources-using-azure-multi-factor-authentication-server-with-ad-fs-in-windows-server-2012-r2"></a>Windows Server 2012 R2’de AD FS ile Azure Multi-Factor Authentication Sunucusu kullanarak bulut ve şirket içi kaynaklarınızı güvenli hale getirme
 Active Directory Federasyon Hizmetleri (AD FS) kullanıyorsanız ve bulut ya da şirket içi kaynaklarınızı güvenli hale getirmek istiyorsanız Azure Multi-Factor Authentication Sunucusunu AD FS ile çalışmak üzere yapılandırabilirsiniz. Bu yapılandırma yüksek değerli uç noktalar için iki aşamalı doğrulamayı tetikler.
 
 Bu makale Windows Server 2012 R2’de AD FS ile Multi-Factor Authentication Sunucusu kullanmayı ele alır. Daha fazla bilgi için [AD FS 2.0 ile Azure Multi-Factor Authentication Sunucusu kullanarak bulut ve şirket içi kaynakları güvenli hale getirme](multi-factor-authentication-get-started-adfs-adfs2.md) konusunu okuyun.
 
-## <a name="secure-windows-server-2012-r2-ad-fs-with-azure-multifactor-authentication-server"></a>Azure Multi-Factor Authentication Sunucusu ile Windows Server 2012 R2 AD FS’yi güvenli hale getirme
+## <a name="secure-windows-server-2012-r2-ad-fs-with-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication Sunucusu ile Windows Server 2012 R2 AD FS’yi güvenli hale getirme
 Azure Multi-Factor Authentication Sunucusu’nu yüklerken aşağıdaki seçeneklere sahip olursunuz:
 
 * Azure Multi-Factor Authentication Sunucusu’nu yerel olarak AD FS ile aynı sunucuya yükleme
@@ -39,7 +39,7 @@ Başlamadan önce, aşağıdaki bilgileri unutmayın:
 * Multi-Factor Authentication AD FS bağdaştırıcısı yükleme sihirbazı, Active Directory örneğinizde PhoneFactor Admins adlı bir güvenlik grubu oluşturur. Ardından federasyon hizmetinizin AD FS hizmet hesabını bu gruba ekler. PhoneFactor Admins grubunun gerçekten oluşturulduğunu ve AD FS hizmet hesabının bu gruba üye olduğunu doğrulamanız önerilir. Gerekirse, AD FS hizmeti hesabınızı etki alanı denetleyicinizde PhoneFactor Admins grubuna el ile ekleyin.
 * Kullanıcı portalıyla Hizmet SDK’sını yükleme hakkında bilgi edinmek için bkz. [Azure Multi-Factor Authentication Sunucusu için kullanıcı portalını dağıtma.](multi-factor-authentication-get-started-portal.md)
 
-### <a name="install-azure-multifactor-authentication-server-locally-on-the-ad-fs-server"></a>Azure Multi-Factor Authentication Sunucusu’nu yerel olarak AD FS sunucusuna yükleme
+### <a name="install-azure-multi-factor-authentication-server-locally-on-the-ad-fs-server"></a>Azure Multi-Factor Authentication Sunucusu’nu yerel olarak AD FS sunucusuna yükleme
 1. Azure Multi-Factor Authentication Sunucusu’nu AD FS sunucunuza indirin ve yükleyin. Yükleme bilgileri için bkz. [Azure Multi-Factor Authentication Sunucusunu kullanmaya başlama](multi-factor-authentication-get-started-server.md).
 2. Azure Multi-Factor Authentication Sunucusu yönetim konsolunda **AD FS** simgesine tıklayın ve ardından **Kullanıcı kaydına izin ver** ve **Kullanıcıların yöntemi seçmesine izin ver** seçeneklerini belirleyin.
 3. Kuruluşunuz için belirtmek istediğiniz ek seçenekleri belirleyin.
@@ -93,7 +93,7 @@ Bir kullanıcı adı ve parola kullanmak istemiyorsanız Web Hizmeti SDK’sın�
 3. İstemci sertifikasının ortak ve özel anahtarlarını bir .pfx dosyasına aktarın.  
 4. Base64 biçimindeki ortak anahtarı bir .cer dosyasına aktarın.  
 5. Sunucu Yöneticisi'nde, Web Server (IIS)\Web Server\Security\IIS İstemci Sertifikası Eşleme Kimlik doğrulaması özelliğinin yüklü olduğunu doğrulayın. Yüklü değilse, bu özelliğe eklemek üzere **Rol ve Özellik Ekle**’yi seçin.  
-6. IIS Yöneticisi'nde, Web Hizmeti SDK’sı sanal dizinini içeren web sitesinde **Yapılandırma Düzenleyicisi**'ne çift tıklayın. Bunu sanal dizin düzeyinde değil web sitesi düzeyinde yapmanız önemlidir.  
+6. IIS Yöneticisi'nde, Web Hizmeti SDK’sı sanal dizinini içeren web sitesinde **Yapılandırma Düzenleyicisi**'ne çift tıklayın. Sanal dizinin değil, web sitesinin seçilmesi gerekir.  
 7. **System.webServer/security/authentication/iisClientCertificateMappingAuthentication** bölümüne gidin.  
 8. enabled değerini **true** olarak ayarlayın.  
 9. oneToOneCertificateMappingsEnabled değerini **true** olarak ayarlayın.  
@@ -116,12 +116,34 @@ Bir kullanıcı adı ve parola kullanmak istemiyorsanız Web Hizmeti SDK’sın�
 
 Son olarak, bağdaştırıcıyı kaydetmek için PowerShell’de \Program Files\Multi-Factor Authentication Server\Register-MultiFactorAuthenticationAdfsAdapter.ps1 betiğini çalıştırın. Bağdaştırıcı WindowsAzureMultiFactorAuthentication olarak kaydedilir. Kaydın etkili olması için AD FS hizmetini yeniden başlatın.
 
+## <a name="secure-azure-ad-resources-using-ad-fs"></a>AD FS kullanarak Azure AD kaynaklarını güvenli hale getirme
+Bulut kaynağınızın güvenliğini sağlamak için, kullanıcı iki adımlı doğrulamayı başarıyla gerçekleştirdiğinde Active Directory Federation Services tarafından multipleauthn talebinin yayılması için bir talep kuralı oluşturun. Bu talep Azure AD'ye aktarılır. İlerlemek için bu yordamı izleyin:
+
+1. AD FS Yönetimi'ni açın.
+2. Solda, **Bağlı Olan Taraf Güvenleri**’ni seçin.
+3. **Microsoft Office 365 Kimlik Platformu**’na sağ tıklayın ve **Talep Kurallarını Düzenle…** seçeneğini belirleyin
+
+   ![Bulut](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip1.png)
+
+4. Verme Dönüştürme Kuralları’nda **Kural Ekle**’ye tıklayın.
+
+   ![Bulut](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip2.png)
+
+5. Dönüştürme Kuralı Ekleme Sihirbazı’nda, açılır menüde **Gelen Talep için Geçiş ya da Filtre**’yi seçin ve **İleri**’ye tıklayın.
+
+   ![Bulut](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip3.png)
+
+6. Kuralınıza bir ad verin. 
+7. Gelen talep türü olarak **Kimlik Doğrulama Yöntemleri Başvuruları**’nı seçin.
+8. **Tüm talep değerlerini geçir**’i seçin.
+    ![Dönüşüm Talep Kuralı Ekleme Sihirbazı](./media/multi-factor-authentication-get-started-adfs-cloud/configurewizard.png)
+9. **Son**'a tıklayın. AD FS Yönetim Konsolu'nu kapatın.
+
 ## <a name="related-topics"></a>İlgili konular
 Sorun giderme yardımı için bkz. [Azure Multi-Factor Authentication SSS](multi-factor-authentication-faq.md)
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

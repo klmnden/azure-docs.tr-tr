@@ -1,10 +1,23 @@
 ---
+title: "Azure IoT Paketi Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
+description: 
+services: iot-suite
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: iot-suite
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: ceade1ccba2d1328faf548f43f51b4fa3a5343b0
+ms.sourcegitcommit: 29fb247771d662d3abcbf35e95ff0f7a8cf95af1
+ms.openlocfilehash: 461542095d9ef357460e93d65bb9f4dd8fe17c86
 
 ---
+
 # <a name="iot-suite-documentation"></a>IoT Paketi Belgeleri
 
 Microsoft Azure IoT Paketi’ni hemen kullanmaya başlayın. Önceden yapılandırılmış çözümleri kullanın ve Nesnelerin İnterneti (IoT) çözümünüzün geliştirilmesini hızlandırın. Linux, Windows ve gerçek zamanlı işletim sistemleri gibi birden çok platforma yönelik cihaz SDK’larını kullanarak yeni cihazlar ekleyin ve mevcut cihazlarınızı bağlayın. Yalnızca birkaç sensörden, eşzamanlı olarak bağlanan milyonlarca cihaza kolayca ölçeklendirin ve projeniz ne kadar büyük ya da küçük olursa olsun Azure’un küresel kullanılabilirliğine güvenin.&mdash;
@@ -91,6 +104,6 @@ Microsoft Azure IoT Paketi’ni hemen kullanmaya başlayın. Önceden yapıland�
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 01/31/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 76706d1ab9b1c675167af8119b58dd7cb0cda4a3
-ms.openlocfilehash: 15270983b3c3299f85c7e2020c9e11e9b3c168f4
+ms.sourcegitcommit: 4ce5ad30d79e92a11231313fe13dd42b94fc2aa4
+ms.openlocfilehash: 50969591267ca74e5c4d4aa5c1efe5b673498309
 
 ---
 
@@ -76,7 +76,7 @@ Runbook, **Object** türünde **WebhookData** adlı bir girdi parametresini ve *
 
 Bu örnek için, hizmet görünen adını ve hizmetin durumunu (çalışıyor veya durduruldu) Sistem olay günlüğüne yazılmış olaydan ayıklamak amacıyla Log Analytics’te *SvcDisplayName_CF* ve *SvcState_CF* adlı iki özel alan oluşturulmuştur.  Ardından şu arama sorgusuyla bir uyarı kuralı oluşturulur: `Type=Event SvcDisplayName_CF="Print Spooler" SvcState_CF="stopped"`; böylece, Windows sisteminde Yazdırma Biriktiricisi hizmetinin ne zaman durdurulduğu saptanabilir.  Bu herhangi bir ilgili hizmet olabilir; ancak bu örnekte Windows OS ile birlikte sunulan önceden var olan hizmetlerden birine başvurulmaktadır.  Uyarı eylemi, bu örnekte kullanılan runbook’u yürütecek ve hedef sistemlerde etkinleştirilmiş Karma Runbook Çalışanı üzerinde çalışacak şekilde yapılandırılmıştır.   
 
-**LA’dan Hizmet Adını Al** adlı runbook kod etkinliği, JSON ile biçimlendirilmiş dizeyi bir nesne türüne dönüştürür ve Windows hizmetinin görünen adını ayıklayıp hizmeti yeniden başlatmayı denemeden önce hizmetin durdurulduğunu doğrulayan sonraki etkinliğe geçirmek amacıyla *SvcDisplayName_CF öğesini filtreler.  *SvcDisplayName_CF*, Log Analytics’te bu örneği göstermek üzere oluşturulmuş bir [özel alandır](../log-analytics/log-analytics-custom-fields.md).
+**LA’dan Hizmet Adını Al** adlı runbook kod etkinliği, JSON ile biçimlendirilmiş dizeyi bir nesne türüne dönüştürür ve Windows hizmetinin görünen adını ayıklayıp hizmeti yeniden başlatmayı denemeden önce hizmetin durdurulduğunu doğrulayan sonraki etkinliğe geçirmek amacıyla *SvcDisplayName_CF* öğesini filtreler.  *SvcDisplayName_CF*, Log Analytics’te bu örneği göstermek üzere oluşturulmuş bir [özel alandır](../log-analytics/log-analytics-custom-fields.md).
 
     $SearchResults = (ConvertFrom-Json $WebhookData.RequestBody).SearchResults.value
     $SearchResults.SvcDisplayName_CF  
@@ -92,6 +92,7 @@ Otomasyon hesabınız OMS çalışma alanınıza bağlı değilse alternatif ola
 * Web kancası kullanarak runbook’ları tetikleme hakkında bilgi almak için bkz. [Azure Otomasyonu web kancaları](automation-webhooks.md).
 
 
-<!--HONumber=Jan17_HO5-->
+
+<!--HONumber=Feb17_HO2-->
 
 

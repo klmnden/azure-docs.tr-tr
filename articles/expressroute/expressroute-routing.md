@@ -1,5 +1,5 @@
 ---
-title: "ExpressRoute için yönlendirme gereksinimleri | Microsoft Belgeleri"
+title: "Azure ExpressRoute için yönlendirme gereksinimleri | Microsoft Belgeleri"
 description: "Bu sayfada, ExpressRoute devreleri için yönlendirmeyi yapılandırma ve yönetmeye yönelik ayrıntılı gereksinimler verilmektedir."
 documentationcenter: na
 services: expressroute
@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 01/27/2017
 ms.author: osamam
 translationtype: Human Translation
-ms.sourcegitcommit: 7a342d5e3ce255346a15ef7622ecec1a5950e654
-ms.openlocfilehash: fc821bd27c99e669d08d9610e16c98fc5597f064
+ms.sourcegitcommit: 409f22dcc352aae1af9100bb7a30120ea861009b
+ms.openlocfilehash: 4acca777cb5e34719c9b8ccef09bd04b82f74ce6
 
 
 ---
@@ -216,6 +216,6 @@ Yukarıdakilerin yanı sıra Microsoft, ön ekleri ait oldukları hizmet göre e
 
 
 
-<!--HONumber=Jan17_HO5-->
+<!--HONumber=Feb17_HO1-->
 
 

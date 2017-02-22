@@ -16,18 +16,21 @@
 ### [Eşitlenen kiracı](active-directory-ds-getting-started-password-sync-synced-tenant.md)
 
 # Nasıl yapılır?
-## [Windows Server VM’sine katılma](active-directory-ds-admin-guide-join-windows-vm.md)
-## [PowerShell kullanarak Windows Server VM’sine katılma](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
-## [Linux VM’sine katılma](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
-## [Yönetilen etki alanını yönetme](active-directory-ds-admin-guide-administer-domain.md)
-## [Yönetilen etki alanında DNS’yi yönetme](active-directory-ds-admin-guide-administer-dns.md)
-## [Yönetilen bir etki alanı için güvenli LDAP yapılandırma](active-directory-ds-admin-guide-configure-secure-ldap.md)
-## [Yönetilen bir etki alanında OU oluşturma](active-directory-ds-admin-guide-create-ou.md)
-## [Yönetilen etki alanında grup ilkesi yönetme](active-directory-ds-admin-guide-administer-group-policy.md)
+## Yönetilen bir etki alanına katılma
+### [Windows Server VM’sine katılma](active-directory-ds-admin-guide-join-windows-vm.md)
+### [PowerShell kullanarak Windows Server VM’sine katılma](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
+### [Linux VM’sine katılma](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
+## Yönetilen etki alanını yönetme
+### [Yönetilen etki alanını yönetme](active-directory-ds-admin-guide-administer-domain.md)
+### [Yönetilen etki alanında DNS’yi yönetme](active-directory-ds-admin-guide-administer-dns.md)
+### [Yönetilen bir etki alanı için güvenli LDAP yapılandırma](active-directory-ds-admin-guide-configure-secure-ldap.md)
+### [Yönetilen bir etki alanında OU oluşturma](active-directory-ds-admin-guide-create-ou.md)
+### [Yönetilen etki alanında grup ilkesi yönetme](active-directory-ds-admin-guide-administer-group-policy.md)
 ## [Sanal ağ seçme](active-directory-ds-networking.md)
-## [SharePoint Server için profil eşitleme desteğini yapılandırma](active-directory-ds-enable-sharepoint-profile-sync.md)
-
-
+## Uygulamaları dağıtma
+### [SharePoint Server için profil eşitleme desteğini yapılandırma](active-directory-ds-enable-sharepoint-profile-sync.md)
+### [Kerberos Kısıtlanmış Temsilini Yapılandırma](active-directory-ds-enable-kcd.md)
+### [Azure AD Uygulama Proxy’si Dağıtma](active-directory-ds-deploy-azure-app-proxy.md)
 ## Sorun giderme
 ### [SSS’ler](active-directory-ds-faqs.md)
 ### [Sorun giderme kılavuzu](active-directory-ds-troubleshooting.md)
@@ -44,6 +47,6 @@
 ## [Bizimle iletişim kurun](active-directory-ds-contact-us.md)
 
 
-<!--HONumber=Jan17_HO5-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "HDInsight’ta Apache Spark’a genel bakış | Microsoft Belgeleri"
+title: "Azure HDInsight’ta Apache Spark’a genel bakış | Microsoft Docs"
 description: "HDInsight’ta Apache Spark’a giriş ve uygulamalarınızda HDInsight’ta Spark kullanım senaryoları."
 services: hdinsight
 documentationcenter: 
@@ -16,22 +16,23 @@ ms.topic: get-started-article
 ms.date: 01/03/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: ab9c4bc6e2e68a3522bbc3fe23ea33760f03b620
-ms.openlocfilehash: fe40bc372a63735b0130bcbb115c312fa2e45fa6
+ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
+ms.openlocfilehash: 2cb69f253e1a6d01b412775bbfc37de3423bde0b
 
 
 ---
-# <a name="overview-apache-spark-on-hdinsight-linux"></a>Genel Bakış: HDInsight’ta Apache Spark Linux
+# <a name="overview-apache-spark-on-hdinsight"></a>Genel Bakış: HDInsight’ta Apache Spark
+
 <a href="http://spark.apache.org/" target="_blank">Apache Spark</a>, Büyük veri analizi uygulamalarının performansını artırmak üzere bellek içi işlemeyi destekleyen açık kaynaklı bir paralel işleme altyapısıdır. Spark işleme altyapısı hız, kullanım kolaylığı, gelişmiş analizler için oluşturulmuştur. Spark'ın bellek içi hesaplama özellikleri onu, machine learning ve grafik hesaplamalarında yinelemeli algoritmalar için iyi bir seçim haline getirir. Azure'da depolanan mevcut verilerinizi Spark aracılığıyla kolayca işleyebileceğiniz şekilde Spark Azure Blob Storage (WASB) ile de uyumludur.
 
 HDInsight’ta Spark kümesi oluşturduğunuzda, Spark yüklenmiş ve yapılandırılmış olarak Azure işlem kaynakları oluşturursunuz. HDInsight’ta Spark kümesi oluşturmak yalnızca yaklaşık on dakika sürer. İşlenecek veriler Azure Blob Storage’da depolanır. Bkz. [HDInsight ile Azure Blob Depolama'yı kullanma][hdinsight-storage].
 
 ![Azure HDInsight’ta Apache Spark](./media/hdinsight-apache-spark-overview/hdispark.architecture.png "Azure HDInsight’ta Apache Spark")
 
-**Azure HDInsight’ta Apache Spark kullanmaya başlamak mı istiyorsunuz?** Bkz. [Hızlı Başlangıç: HDInsight’ta Spark kümesi oluşturma Linux ve Jupyter kullanarak örnek uygulamaları çalıştırma](hdinsight-apache-spark-jupyter-spark-sql.md).
+**Azure HDInsight’ta Apache Spark kullanmaya başlamak mı istiyorsunuz?** Bkz. [Hızlı Başlangıç: HDInsight’ta Spark kümesi oluşturma ve Jupyter kullanarak örnek uygulamaları çalıştırma](hdinsight-apache-spark-jupyter-spark-sql.md).
 
 > [!NOTE]
-> Geçerli sürümle ilgili bilinen sorunlar ve sınırlamaların listesi için bkz: [Azure HDInsight’ta Apache Spark’a ilişkin bilinen sorunlar (Linux)](hdinsight-apache-spark-jupyter-spark-sql.md).
+> Geçerli sürümle ilgili bilinen sorunlar ve sınırlamaların listesi için bkz: [Azure HDInsight’ta Apache Spark’a ilişkin bilinen sorunlar](hdinsight-apache-spark-jupyter-spark-sql.md).
 > 
 > 
 
@@ -115,6 +116,6 @@ HDInsight Linux’ta Spark kümesi oluşturma ile başlayın. Bkz. [Hızlı Baş
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

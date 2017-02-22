@@ -13,11 +13,11 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 1/4/2017
-ms.author: jimpark; trinadhk
+ms.date: 2/6/2017
+ms.author: markgal;trinadhk
 translationtype: Human Translation
-ms.sourcegitcommit: 0eb7b5c283c95503d076da486ba08df833f1acbd
-ms.openlocfilehash: 5235a09822dc14040ca6d4353d00e938fefd0e43
+ms.sourcegitcommit: bda71281617fa37f7f2a08e238c706dd2a4f5576
+ms.openlocfilehash: 99246e97f096b872e225e8818def059bdc2211c6
 
 
 ---
@@ -45,7 +45,7 @@ Geleneksel yedekleme çözümleri, bulutu disk veya bantlara benzer bir uç nokt
 
 **Uygulamayla tutarlı yedekleme** - Yedeklediğiniz ister bir dosya sunucusu, isterse sanal makine veya SQL veritabanı olsun, kurtarma noktası yedek kopyayı geri yüklemek için gerekli tüm verilere sahiptir. Azure Backup, verilerin geri yüklenmesi için ek düzeltmelere gerek kalmaması için uygulamayla tutarlı yedeklemeler yapılmasını sağlar. Uygulamayla tutarlı verilerin geri yüklenmesi, geri yükleme süresini azaltarak hizmetlerinizin kısa süre içinde çalışır hale gelmesini sağlar.
 
-**Uzun vadeli elde tutma** - Azure yedeklerinizi 99 yıl boyunca tutun. Yedek kopyaları diskten banda alıp bandı da uzun vadeli depolama için uzak bir konuma taşımak yerine Azure’u kullanarak hem kısa vadeli hem de uzun vadeli bekletme seçeneklerinden faydalanabilirsiniz.
+**Uzun süreli bekletme** - Yedek kopyaları diskten banda alıp bandı da uzun vadeli depolama için uzak bir konuma taşımak yerine Azure’u kullanarak hem kısa vadeli hem de uzun vadeli bekletme seçeneklerinden faydalanabilirsiniz. Azure bir Backup veya Kurtarma Hizmetleri kasasında verileri bekletme sürenizi kısıtlamaz. Verileri bir kasada dilediğiniz süre boyunca bekletebilirsiniz. Azure Backup, korunan her örnek için 9999 kurtarma noktası sınırına sahiptir. Bu sınırın yedekleme gereksinimlerinizi nasıl etkileyebileceği hakkında bir açıklama için bu makaledeki [Yedekleme ve bekletme](backup-introduction-to-azure-backup.md#backup-and-retention) bölümüne bakın.  
 
 ## <a name="which-azure-backup-components-should-i-use"></a>Hangi Azure Backup bileşenlerini kullanmalıyım?
 İhtiyaçlarınıza uygun Azure Backup bileşenlerinin hangileri olduğundan emin değilseniz, aşağıdaki tabloyu inceleyerek her bir bileşenin koruduğu veriler hakkında bilgi edinebilirsiniz. Azure portalındaki yerleşik sihirbaz, indirmeniz ve dağıtmanız gereken bileşeni seçme konusunda size yardımcı olacaktır. Kurtarma Hizmetleri kasası oluşturma işlemlerinin bir parçası olan sihirbaz, yedekleme hedefinin yanı sıra koruma altına alınacak verileri veya uygulamayı seçmenize yardımcı olur.
@@ -107,6 +107,15 @@ Yedekleme işi tamamlandıktan sonra, hazırlama konumu silinir. Hazırlama konu
 
 ### <a name="restore-premium-storage-vms"></a>Premium Storage VM'lerini geri yükleme
 Premium Depolama VM’leri Premium Depolama veya normal depolama birimine geri yüklenebilir. Premium Storage VM'si kurtarma noktasının Premium Storage'a geri yüklenmesi genel bir geri yükleme işlemidir. Ancak Premium Storage VM'si kurtarma noktasının standart depolamaya geri yüklenmesi uygun maliyetli olabilir. Bu tür bir geri yükleme işlemi, VM'den bir dosya alt kümesine ihtiyaç duymanız halinde kullanılabilir.
+
+## <a name="using-managed-disk-vms-with-azure-backup"></a>Yönetilen disk sanal makinelerini Azure Backup ile kullanma
+Azure Backup, yönetilen disk sanal makinelerini korur. Yönetilen diskler, sanal makinelerin depolama hesaplarını yönetme sorumluluğunuzu ortadan kaldırır ve VM sağlama işlemini önemli ölçüde kolaylaştırır.
+
+### <a name="back-up-managed-disk-vms"></a>Yönetilen disk sanal makinelerini yedekleme
+Yönetilen diskler üzerindeki sanal makinelerin yedeklenmesi, Resource Manager sanal makinelerinin yedeklenmesinden farklı değildir. Doğrudan VM görünümünden veya Kurtarma Hizmetleri kasası görünümünden yedekleme yapabilirsiniz. Yönetilen diskler üzerindeki sanal makinelerin yedeklenmesi, yönetilen diskler üzerine oluşturulmuş RestorePoint koleksiyonları ile desteklenir. Azure Backup şu anda Azure Disk şifrelemesi (ADE) kullanılarak şifrelenmiş yönetilen disk sanal makinelerinin yedeklenmesini desteklememektedir.
+
+### <a name="restore-managed-disk-vms"></a>Yönetilen disk sanal makinelerini geri yükleme
+Azure Backup, yönetilen disklerle tüm sanal makineyi geri yüklemenize veya yönetilen diskleri bir Resource Manager depolama hesabına geri yüklemenize olanak tanır. Geri yükleme işlemi sırasında oluşturulan diskler Azure tarafından yönetilse de, geri yükleme işleminin bir parçası olarak oluşturulan depolama hesabı diğer tüm Resource Manager depolama hesaplarına benzer ve müşteri tarafından yönetilmesi beklenir.
 
 ## <a name="what-are-the-features-of-each-backup-component"></a>Her bir Azure Backup bileşeninin özellikleri nelerdir?
 Aşağıdaki bölümlerde her bir Azure Backup bileşeninin kullanılabilirliğini veya desteklediği özellikleri özetleyen tablolar yer almaktadır. Ek destek bilgileri veya ayrıntılar için her tablonun altındaki bilgileri inceleyin.
@@ -175,7 +184,7 @@ Verilerinizi System Center DPM veya Azure Backup Sunucusu’na yedekliyorsanız,
 #### <a name="network-throttling"></a>Ağ Kapasitesi Azaltma
 Azure Backup aracı, veri aktarımı sırasında ağ bant genişliğinin nasıl kullanıldığını denetlemenizi sağlayan ağ kapasitesi azaltma özelliğine sahiptir. Azaltma özelliği, çalışma saatlerinde veri yedeklemesi yapmanız gerektiğinde ancak yedekleme işleminin diğer İnternet trafiğine engel olmasını istemediğinizde faydalı olabilir. Veri aktarımına yönelik azaltma, yedekleme ve geri yükleme etkinlikleri için geçerlidir.
 
-### <a name="backup-and-retention"></a>Yedekleme ve bekletme
+## <a name="backup-and-retention"></a>Yedekleme ve bekletme
 
 Azure Backup’ta, *korumalı örnek* başına 9999 kurtarma noktası (yedekleme kopyası veya anlık görüntü olarak da bilinir) sınırı vardır. Korumalı örnek, verileri Azure’a yedeklemek için yapılandırılmış bir bilgisayar, sunucu (fiziksel veya sanal) veya iş yüküdür. Daha fazla bilgi için [Korumalı örnek nedir?](backup-introduction-to-azure-backup.md#what-is-a-protected-instance) bölümüne bakın. Verilerin yedek kopyası kaydedildiğinde örnek, korumalı hale gelir. Verilerin yedek kopyası, korumayı oluşturur. Kaynak veriler, kaybolmaları veya bozulmaları durumunda yedek kopya kullanılarak geri yüklenebilir. Aşağıdaki tablo, her bileşen için en fazla yedekleme sıklığını gösterir. Kurtarma noktalarını hangi hızla tükettiğiniz, yedekleme ilkesi yapılandırmanız tarafından belirlenir. Örneğin, her gün bir kurtarma noktası oluşturursanız; kurtarma noktalarınızı 27 yıl boyunca bitmeden tutabilirsiniz. Aylık kurtarma noktası alırsanız, kurtarma noktalarınızı 833 yıl süreyle saklayabilirsiniz. Backup hizmeti, kurtarma noktası üzerinde bir sona erme süresi ayarlamaz.
 
@@ -186,7 +195,7 @@ Azure Backup’ta, *korumalı örnek* başına 9999 kurtarma noktası (yedekleme
 | Bekletme seçenekleri |Günlük, haftalık, aylık, yıllık |Günlük, haftalık, aylık, yıllık |Günlük, haftalık, aylık, yıllık |Günlük, haftalık, aylık, yıllık |
 | Korumalı örnek başına en fazla kurtarma noktası |9999|9999|9999|9999|
 | En uzun bekletme süresi |Yedekleme sıklığına bağlıdır |Yedekleme sıklığına bağlıdır |Yedekleme sıklığına bağlıdır |Yedekleme sıklığına bağlıdır |
-| Yerel diskteki kurtarma noktaları |Uygulanamaz |<li>Dosya Sunucuları için 64<li>Uygulama Sunucuları için 448 |<li>Dosya Sunucuları için 64<li>Uygulama Sunucuları için 448 |Uygulanamaz |
+| Yerel diskteki kurtarma noktaları |Uygulanamaz |<li>Dosya Sunucuları için&64;<li>Uygulama Sunucuları için&448; |<li>Dosya Sunucuları için&64;<li>Uygulama Sunucuları için&448; |Uygulanamaz |
 | Banttaki kurtarma noktaları |Uygulanamaz |Sınırsız |Uygulanamaz |Uygulanamaz |
 
 ## <a name="what-is-a-protected-instance"></a>Korumalı örnek nedir?
@@ -234,6 +243,6 @@ Diğer iş yüklerini koruma hakkında ayrıntılı bilgi için şu makaleleri i
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

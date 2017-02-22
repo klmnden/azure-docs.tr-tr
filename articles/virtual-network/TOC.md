@@ -97,9 +97,10 @@
 ##### [Örnek uygulama](virtual-networks-sample-app.md)
 
 ## Yapılandırma
-### Hızlandırılmış ağ iletişimi
-#### [Azure Portal](virtual-network-accelerated-networking-portal.md)
+### VM’ler için hızlandırılmış ağ
+#### [Azure portal](virtual-network-accelerated-networking-portal.md)
 #### [PowerShell](virtual-network-accelerated-networking-powershell.md)
+### [VM’de ağ aktarım hızını iyileştirme](virtual-network-optimize-network-bandwidth.md)
 ### Erişim denetimi listeleri
 #### [Klasik portal](virtual-networks-acl.md)
 #### [PowerShell](virtual-networks-acl-powershell.md)
@@ -147,6 +148,6 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-network)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

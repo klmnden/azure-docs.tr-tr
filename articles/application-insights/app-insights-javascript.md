@@ -14,8 +14,8 @@ ms.topic: get-started-article
 ms.date: 11/01/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 57daba3f23b2a35afc2d704e4913584f21259ec7
+ms.sourcegitcommit: 601045a6048266cbd317f3a8ff328caa7edf877f
+ms.openlocfilehash: a7b17961ea23c109dc840192fa3f7cea1d88326e
 
 
 ---
@@ -170,7 +170,7 @@ Belirli ayrıntılar için herhangi bir satıra tıklayın.
 Ajax çağrısıyla ilgili tam telemetri için `...` seçeneğine tıklayın.
 
 ### <a name="no-ajax-calls-reported"></a>Hiç Ajax çağrısı bildirilmedi mi?
-AJAX çağrılarında web sayfanızın betiğinden oluşturulan HTTP çağrıları vardır. Bunların bildirildiğini görmüyorsanız, kod parçacığının `disableAjaxTracking` öğesini veya `maxAjaxCallsPerView` [parametrelerini](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config) ayarlayıp ayarlamadığını denetleyin.
+Ajax çağrılarında web sayfanızın betiğinden oluşturulan HTTP/HTTPS çağrıları vardır. Bunların bildirildiğini görmüyorsanız, kod parçacığının `disableAjaxTracking` öğesini veya `maxAjaxCallsPerView` [parametrelerini](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config) ayarlayıp ayarlamadığını denetleyin.
 
 ## <a name="browser-exceptions"></a>Tarayıcı özel durumları
 Tarayıcılar dikey penceresinde bir özel durum özet grafiği, dikey pencerenin daha aşağısındaysa özel durum türleri kılavuzu bulunur.
@@ -193,7 +193,7 @@ Daha fazla ayrıntı için herhangi bir olayı seçin. Daha da fazla ayrıntı g
 > 
 > 
 
-Ayrıca sayfa görünümlerini aramak için güçlü [Analiz sorgu dilinden](app-insights-analytics-tour.md) de yararlanabilirsiniz.
+Ayrıca sayfa görünümlerini aramak için güçlü [Analiz sorgu dilinden](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-tour#browser-timings-table) de yararlanabilirsiniz.
 
 ### <a name="page-view-properties"></a>Sayfa görünümü özellikleri
 * **Sayfa görünümü süresi** 
@@ -230,6 +230,6 @@ Uygulamanızla kullanıcılarınızın neler yaptığını bilmek ister misiniz?
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

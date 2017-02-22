@@ -21,17 +21,14 @@
 ## [Aramaları kaydetme ve veri varlıklarını sabitleme](data-catalog-how-to-save-pin.md)
 ## [İş sözlüğünü ayarlama](data-catalog-how-to-business-glossary.md)
 
-## Geliştirme
-### [Geliştirici kavramları](data-catalog-developer-concepts.md)
-### [Geliştirici örnekleri](data-catalog-samples.md)
-
 # Başvuru
-## [Azure Veri Kataloğu için klavye kısayolları](data-catalog-keyboard-shortcuts.md)
-## [Terminoloji](data-catalog-terminology.md)
-## [Sürüm notları](data-catalog-release-notes.md)
 ## [REST](/rest/api/datacatalog/)
+## [Geliştirici kavramları](data-catalog-developer-concepts.md)
+## [Geliştirici örnekleri](data-catalog-samples.md)
 
 # Kaynaklar
+## [Azure Veri Kataloğu için klavye kısayolları](data-catalog-keyboard-shortcuts.md)
+## [Terminoloji](data-catalog-terminology.md)
 ## [Sürüm notları](data-catalog-whats-new.md)
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=data-catalog)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/data-catalog/)
@@ -39,6 +36,6 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-catalog)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

@@ -13,8 +13,8 @@
 ## Geliştirme
 ### [İşlev uygulamaları geliştirme](functions-reference.md)
 #### [C#](functions-reference-csharp.md)
-#### [Node.js](functions-reference-node.md)
 #### [F#](functions-reference-fsharp.md)
+#### [JavaScript](functions-reference-node.md)
 ### [Tetikleyiciler ve bağlamalar ile çalışma](functions-triggers-bindings.md)
 #### [DocumentDB bağlamaları](functions-bindings-documentdb.md)
 #### [Olay Hub’ı bağlamaları](functions-bindings-event-hubs.md)
@@ -28,7 +28,7 @@
 ##### [Tablo bağlamaları](functions-bindings-storage-table.md)
 #### [Zamanlayıcı tetikleyicisi](functions-bindings-timer.md)
 #### [Twilio çıktı bağlaması](functions-bindings-twilio.md)
-### [Azure Portalında işlev oluşturma](functions-create-first-azure-function-azure-portal.md)
+### [Azure Portalında işlev oluşturma](functions-create-first-azure-function-azure-portal.md) 
 ### [Azure İşlevlerini test etme](functions-test-a-function.md)
 ### [Yerel olarak geliştirme ve hata ayıklama](functions-run-local.md)
 ### [Azure İşlevleri için en iyi uygulamalar](functions-best-practices.md)
@@ -39,6 +39,7 @@
 
 ## Dağıtma
 ### [Azure İşlevleri için sürekli dağıtım](functions-continuous-deployment.md)
+### [Kod Olarak Altyapı için İşlev Dağıtma](functions-infrastructure-as-code.md)
 
 ## İzleme
 ### [Azure İşlevlerini izleme](functions-monitoring.md)
@@ -47,9 +48,10 @@
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/functions/)  
 ## [MSDN forumu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureFunctions)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-functions)
+## [Azure İşlevleri GitHub deposu](https://github.com/Azure/Azure-Functions/) 
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform=)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

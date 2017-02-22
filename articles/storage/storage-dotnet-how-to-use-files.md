@@ -15,8 +15,8 @@ ms.topic: hero-article
 /ms.date: 1/18/2017
 ms.author: renash
 translationtype: Human Translation
-ms.sourcegitcommit: 78daa5a75b3414e2761333ea6ad91945596553c8
-ms.openlocfilehash: 8661d4b3da31e3e3e54590a013b5c784216ecefb
+ms.sourcegitcommit: 6c93e5363767cb6860d4a365eba178dd940bd41d
+ms.openlocfilehash: e0800b7c7aba64fa7429fc3ced8c194cd9fbf0d1
 
 
 ---
@@ -602,52 +602,61 @@ Uçtan uca sorun giderme kılavuzu için [Azure Dosyaları Sorun Giderme Makales
    
     Şu anda AD tabanlı kimlik doğrulamasını veya ACL’leri desteklemiyoruz. Ancak, bunu özellik istekleri listemize ekledik. Şimdilik, dosya paylaşımı için kimlik doğrulaması sağlamak üzere Azure Storage hesabı anahtarları kullanılıyor. REST API veya istemci kitaplıkları aracılığıyla kullanılan paylaşılan erişim imzaları (SAS) ile geçici bir çözüm sunuyoruz. SAS’yi kullanarak belirli bir süre aralığında geçerli olan özel izinlere sahip belirteçler oluşturabilirsiniz. Örneğin, yalnızca verilen dosyaya salt okunur erişime sahip bir belirteç oluşturabilirsiniz. Geçerli olduğu sürece bu belirtece sahip olan herkes bu dosyaya salt okunur erişim elde eder.
    
-    SAS yalnızca REST API veya istemci kitaplıkları aracılığıyla desteklenir. Dosya paylaşımını SMB protokolü aracılığıyla bağladığınızda, bu paylaşımdaki içeriklere erişimi devretmek için SAS kullanamazsınız.
-2. **Azure Dosya paylaşımları İnternet üzerinde herkese açık mı yoksa yalnızca Azure üzerinden mi erişilebilir?**
-   
-    445 bağlantı noktası (TCP Giden) olduğu ve istemcinizi SMB 3.0 protokolünü (*örn.*, Windows 8 veya Windows Server 2012) desteklediği sürece dosya paylaşımınıza İnternet üzerinden erişilebilir.  
-3. **Azure sanal makinesi ve dosya paylaşımı arasındaki ağ trafiği ücreti aboneliğe yansıtılan harici bir bant genişliği olarak mı sayılıyor?**
+    SAS yalnızca REST API veya istemci kitaplıkları aracılığıyla desteklenir. Dosya paylaşımını SMB protokolü aracılığıyla bağladığınızda, bu paylaşımdaki içeriklere erişimi devretmek için SAS kullanamazsınız. 
+
+2. **Bir web tarayıcısı üzerinden belirli bir dosyaya nasıl erişim sağlayabilirim?**
+   SAS’yi kullanarak belirli bir süre aralığında geçerli olan özel izinlere sahip belirteçler oluşturabilirsiniz. Örneğin, belirli bir süre için belirli bir dosyaya salt okunur erişim sunan bir belirteç oluşturabilirsiniz. Bu url’ye sahip olan herkes, geçerli olduğu süre boyunca herhangi bir web tarayıcısından indirme işlemini doğrudan gerçekleştirebilir. SAS anahtarları, Depolama Gezgini gibi bir kullanıcı arabiriminden kolayca oluşturulabilir.
+
+3.   **Azure Dosya depolamadaki dosyalara erişmenin farklı yolları nelerdir?**
+    SMB 3.0 protokolünü kullanarak dosya paylaşımını yerel makinenize bağlayabilir veya [Depolama Gezgini](http://storageexplorer.com/) ya da Cloudberry gibi araçları kullanarak dosya paylaşımınızdaki dosyalara erişebilirsiniz. Uygulamanızda İstemci Kitaplıkları, REST API veya Powershell kullanarak Azure Dosya paylaşımındaki dosyalarınıza erişebilirsiniz.
+    
+4.   **Azure dosya paylaşımımı yerel makineme nasıl bağlayabilirim?** 445 bağlantı noktası (TCP Giden) açık olduğu ve istemciniz SMB 3.0 protokolünü (*örn.*, Windows 8 veya Windows Server 2012) desteklediği sürece dosya paylaşımını SMB protokolü üzerinden bağlayabilirsiniz. Bağlantı noktasının engelini kaldırmak için yerel ISS sağlayıcınız ile görüşün. Bu arada, Depolama Gezgini’ni veya Cloudberry gibi başka bir üçüncü taraf çözümünü kullanarak dosyalarınızı görüntüleyebilirsiniz.
+
+5. **Azure sanal makinesi ve dosya paylaşımı arasındaki ağ trafiği ücreti aboneliğe yansıtılan harici bir bant genişliği olarak mı sayılıyor?**
    
     Dosya paylaşımı ve sanal makine farklı bölgelerde bulunuyorsa, aralarındaki trafik harici bant genişliği olarak ücretlendirilir.
-4. **Sanal makine ve dosya paylaşımı arasındaki ağ trafiği aynı bölgede bulunursa ücretsiz mi oluyor?**
+6. **Sanal makine ve dosya paylaşımı arasındaki ağ trafiği aynı bölgede bulunursa ücretsiz mi oluyor?**
    
     Evet. Trafiğin aynı bölgede olması koşuluyla ücretsizdir.
-5. **Şirket içi sanal makinelerden Azure Dosya Depolama’ya bağlanmak için Azure ExpressRoute mu gerekir?**
+7. **Şirket içi sanal makinelerden Azure Dosya Depolama’ya bağlanmak için Azure ExpressRoute mu gerekir?**
    
     Hayır. ExpressRoute’a sahip olmasanız da, 445 bağlantı noktası (TCP Giden) için İnternet erişimi açık olduğu sürece şirket içi sanal makinelerden dosya paylaşımına erişebilirsiniz. Bununla birlikte, isterseniz File Storage ile ExpressRoute’u kullanabilirsiniz.
-6. **Yük devretme kümesi için "Dosya Paylaşım Tanığı" Azure Dosya Depolama için kullanım durumlarından biri mi?**
+8. **Yük devretme kümesi için "Dosya Paylaşım Tanığı" Azure Dosya Depolama için kullanım durumlarından biri mi?**
    
     Bu, şu anda desteklenmiyor.
-7. **Dosya Depolama şu anda yalnızca LRS veya GRS aracılığıyla mı çoğaltılabiliyor?**  
+9. **Dosya Depolama şu anda yalnızca LRS veya GRS aracılığıyla mı çoğaltılabiliyor?**  
    
     RA-GRS’yi de desteklemeyi planlıyoruz, ancak bunun için kesin bir tarih veremiyoruz.
-8. **Mevcut depolama hesaplarını Azure Dosya Depolama için ne zaman kullanabilirim?**
+10. **Mevcut depolama hesaplarını Azure Dosya Depolama için ne zaman kullanabilirim?**
    
     Azure File Storage şimdi tüm depolama hesapları için etkinleştirildi.
-9. **REST API’ye Yeniden adlandırma işlemi de eklenecek mi?**
+11. **REST API’ye Yeniden adlandırma işlemi de eklenecek mi?**
    
     Yeniden adlandırma, REST API'mizde henüz desteklenmiyor.
-10. **İç içe geçmiş paylaşımlarınız, diğer bir deyişle başka bir paylaşım kapsamında bulunan paylaşımlarınız var mı?**
+12. **İç içe geçmiş paylaşımlarınız, diğer bir deyişle başka bir paylaşım kapsamında bulunan paylaşımlarınız var mı?**
     
     Hayır. Dosya paylaşımı bağlayabileceğiniz sanal bir sunucudur. Bu nedenle, iç içe paylaşımlar desteklenmez.
-11. **Paylaşımdaki klasörlere yalnızca salt okunur veya sadece yazılabilir izinleri tanıyabilir miyim?**
+13. **Paylaşımdaki klasörlere yalnızca salt okunur veya sadece yazılabilir izinleri tanıyabilir miyim?**
     
     Dosya paylaşımını SMB aracılığıyla bağlamanız halinde izinler üzerinde bu düzeyde bir denetiminiz bulunmaz. Ancak, REST API veya istemci kitaplıkları aracılığıyla paylaşılan erişim imzası (SAS) oluşturarak bunu gerçekleştirebilirsiniz.  
-12. **Dosyaların sıkıştırmasını Dosya Depolama’da açarken performansta yavaşlama oluyor. Ne yapmalıyım?**
+14. **Dosyaların sıkıştırmasını Dosya Depolama’da açarken performansta yavaşlama oluyor. Ne yapmalıyım?**
     
     File Storage’a çok sayıda dosya aktarmak istiyorsanız; AzCopy’i, Azure Powershell’i (Windows) veya Azure CLI’yi (Linux/Unix) kullanmanızı öneririz. Bu araçlar, ağ aktarımı için en uygun hale getirilmiştir.
-13. **Azure Dosyaları ile yaşanan yavaş performans sorununu çözecek bir düzeltme eki yayımlandı**
+15. **Azure Dosyaları ile yaşanan yavaş performans sorununu çözecek bir düzeltme eki yayımlandı**
     
     Windows ekibi yakın zamanda Windows 8.1 veya Windows Server 2012 R2 üzerinden Azure File Storage’a erişen müşteriler için yavaş performans sorunu çözecek bir düzeltme eki yayımlandı. Daha fazla bilgi için lütfen ilgili KB makalesine göz atın: [Azure File Storage’a Windows 8.1 veya Windows Server 2012 R2 üzerinden erişildiğinde performansın yavaşlaması](https://support.microsoft.com/en-us/kb/3114025).
-14. **Azure Dosya Depolama’yı IBM MQ ile kullanma**
+16. **Azure Dosya Depolama’yı IBM MQ ile kullanma**
     
     IBM, IBM MQ müşterileri için hizmetlerini Azure File Storage ile yapılandırmalarına yardımcı olacak bir belge yayımladı. Daha fazla bilgi için bkz. [Microsoft Azure Dosya Hizmeti ile IBM MQ Çok örnekli kuyruk yöneticisini kurma](https://github.com/ibm-messaging/mq-azure/wiki/How-to-setup-IBM-MQ-Multi-instance-queue-manager-with-Microsoft-Azure-File-Service).
-15. **Azure Dosya Depolama hatalarını nasıl giderebilirim?**
+17. **Azure Dosya Depolama hatalarını nasıl giderebilirim?**
     
     Uçtan uca sorun giderme kılavuzu için [Azure Dosyaları Sorun Giderme Makalesine](storage-troubleshoot-file-connection-problems.md) bakabilirsiniz.               
-16. ** Azure Dosya Hizmet paylaşımımdaki dosya ve dizinleri oluşturma/değiştirme/silme gibi olayları dinlemek için FileSystemWatcher kullanabilir miyim?
 
-Hayır. Azure web işleri SDK’sını kullanabilirsiniz. kendi tetiklenmiş veya tetiklenmemiş bağlamalarınızı yazıp, dosya depolamanızdaki olayları dinleyebilirsiniz. Başlamak için ayrıntıları burada bulabilirsiniz: [Yeni tetikleyiciler ve bağlayıcılar yazma kılavuzu](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview).
+18. **Azure Dosyaları için Sunucu Tarafı şifrelemesini nasıl etkinleştirebilirim?**
+
+    [Sunucu Tarafı Şifrelemesi](https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption) şu anda Önizleme aşamasındadır. Önizleme sırasında özellik yalnızca yeni oluşturulan Azure Resource Manager (ARM) Depolama hesapları için etkinleştirilebilir.
+    Bu özelliği, Azure portalını kullanarak Azure Resource Manager depolama hesabında etkinleştirebilirsiniz. [Azure Powershell](https://msdn.microsoft.com/en-us/library/azure/mt607151.aspx), [Azure CLI](https://docs.microsoft.com/en-us/azure/storage/storage-azure-cli-nodejs) veya [Microsoft Azure Depolama Kaynak Sağlayıcısı API’sinde](https://docs.microsoft.com/en-us/rest/api/storagerp/storageaccounts) dosya depolama için şifreleme özelliğini Şubat sonuna kadar etkinleştirmeyi planlıyoruz. Bu özelliği etkinleştirmek için ek bir ücret uygulanmamaktadır. Azure Dosya Depolama için Depolama Hizmeti Şifrelemesini etkinleştirdiğinizde verilerini otomatik olarak şifrelenir. 
+    Depolama Hizmeti Şifrelemesi hakkında daha fazla bilgi edinin. Ayrıca önizleme hakkında diğer sorularınız için ssediscussions@microsoft.com ile iletişim kurabilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Azure File Storage hakkında daha fazla bilgi edinmek için şu bağlantılara göz atın.
@@ -660,6 +669,7 @@ Azure File Storage hakkında daha fazla bilgi edinmek için şu bağlantılara g
 * [Azure Depolama ile Azure PowerShell’i kullanma](storage-powershell-guide-full.md)
 * [Microsoft Azure Depolama ile AzCopy kullanma](storage-use-azcopy.md)
 * [Azure Depolama ile Azure CLI kullanma](storage-azure-cli.md#create-and-manage-file-shares)
+* [Azure Dosya depolama sorunlarını giderme](https://docs.microsoft.com/en-us/azure/storage/storage-troubleshoot-file-connection-problems)
 
 ### <a name="reference"></a>Başvuru
 * [.NET başvurusu için Depolama İstemci Kitaplığı](https://msdn.microsoft.com/library/azure/dn261237.aspx)
@@ -673,6 +683,6 @@ Azure File Storage hakkında daha fazla bilgi edinmek için şu bağlantılara g
 
 
 
-<!--HONumber=Jan17_HO5-->
+<!--HONumber=Feb17_HO2-->
 
 

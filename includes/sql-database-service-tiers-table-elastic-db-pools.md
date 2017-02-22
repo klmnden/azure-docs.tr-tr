@@ -70,10 +70,10 @@ sql-database-service-tiers.md
 | Veritabanı başına Maks. eDTU | {25,50,75,<br>125,250,500,<br>1000,1750} | {25,50,75,<br>125,250,500,<br>1000,1750} | {25,50,75,<br>125,250,500,<br>1000,1750} | {25,50,75,<br>125,250,500,<br>1000,1750} | {25,50,75,<br>125,250,500,<br>1000,1750,4000} | 
 ||||||||
 
-\* Esnek veritabanı, havuz depolama alanını paylaşır; bu nedenle veritabanı depolama alanı, kalan havuz depolama alanı ve veritabanı başına maks. depolama alanı değerlerinin hangisi daha küçükse bu değerle sınırlıdır
+\* Havuz veritabanları, havuz depolama alanını ortak kullandıkları için veritabanı depolama alanı, kalan havuz depolama alanı veya veritabanı başına düşen en fazla depolama alanı değerlerinden hangisi daha küçükse onunla sınırlıdır. Havuz başına düşen en fazla depolama alanı, havuzdaki veri dosyalarına ayrılan en fazla depolama alanını ifade eder ve günlük dosyalarının kullandığı alanı içermez.
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

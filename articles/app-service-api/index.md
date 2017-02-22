@@ -1,14 +1,25 @@
 ---
+title: "Azure App Service - API Apps Belgeleri - Öğreticileri | Microsoft Docs"
+description: "Bulutta ve şirket içinde API geliştirme, barındırma ve kullanma işlemleri için Azure App Service’te sunulan API Apps özelliğini nasıl kullanacağınızı öğrenin. Öğreticiler, videolar ve diğer belgeler."
+services: app-service\api
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: app-service\api
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: ac7a22bd592cbb1e8cdee2e6d2896c0b8ad6ea26
-
+ms.sourcegitcommit: 741a6f2be3c8c689884cdeb180ff10dac046032b
+ms.openlocfilehash: b1a568d7a8f856c7d17aa7ebd14148452c1d29db
 
 ---
 # <a name="app-service---api-apps-documentation"></a>App Service - API Apps Belgeleri
 
-API Apps, Azure App Service tarafından sunulan dört uygulama türünden biridir. Azure App Service’teki API uygulamaları, API’leri bulutta ve şirket içinde geliştirmeye, barındırmaya ve kullanmaya yönelik zengin özellikler sunar. Azure App Service; web, mobil ve tümleştirme senaryoları için tam yönetilen bir platformdur.
+Bulutta ve şirket içinde API geliştirme, barındırma ve kullanma işlemleri için Azure App Service’te sunulan API Apps özelliğini nasıl kullanacağınızı öğrenin. Öğreticiler, videolar ve diğer belgeler, API uygulamaları oluşturma ve dağıtma ile ilgili bilgiler içerir.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -121,38 +132,10 @@ API Apps, Azure App Service tarafından sunulan dört uygulama türünden biridi
     </li>     
 </ul>
 
----
-
-<h2>Başvuru</h2>
-<ul class="panelContent cardsW">
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Kaynaklar</h3>
-                        <p><a href="/azure/app-service-web/app-service-web-app-azure-portal?toc=%2fazure%2fapp-service-api%2ftoc.json">Azure portalına</a></p>
-                        <p><a href="/azure/app-service-web/app-service-changes-existing-services?toc=%2fazure%2fapp-service-api%2ftoc.json">App Service başvurusu</a></p>
-                        <p><a href="/azure/app-service-web/websites-dotnet-webjobs-sdk-get-started?toc=%2fazure%2fapp-service-api%2ftoc.json">WebJobs SDK</a></p>
-                   </div>
-                </div>
-            </div>
-        </div>
-    </li>
-</ul>
-
----
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/app-service-api.pdf">
-        <div class="img"></div>
-        <div class="text">
-Mobile Apps Belgelerini indirin </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Feb17_HO2-->
 
 

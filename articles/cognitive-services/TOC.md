@@ -41,11 +41,11 @@
 ### [Bing Yazım Denetimi API’si](https://www.microsoft.com/cognitive-services/en-us/bing-spell-check-api/documentation)
 ### [Bing Konuşma API'si](https://www.microsoft.com/cognitive-services/en-us/speech-api/documentation/overview)
 
-## [Web Dil Modeli API’si ile geliştirme](https://www.microsoft.com/cognitive-services/en-us/web-language-model-api/documentation)
+## [Web Language Model API’si ile geliştirme](https://www.microsoft.com/cognitive-services/en-us/web-language-model-api/documentation)
 ## [Language Understanding Intelligent Service ile geliştirme](https://www.luis.ai/Help/)
 
 # Başvuru
-## [PowerShell cmdlet'leri](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
+## [PowerShell](/powershell/resourcemanager/azurerm.cognitiveservices/v0.4.1/azurerm.cognitiveservices)
 ## [REST](https://docs.microsoft.com/rest/api/cognitiveservices/)
 
 # Kaynaklar 
@@ -54,6 +54,6 @@
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=cognitive-services)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

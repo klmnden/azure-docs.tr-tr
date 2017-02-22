@@ -4,7 +4,7 @@ description: "SSS&quot;nin bu sürümü, Azure Backup hizmetinin Genel Önizleme
 services: backup
 documentationcenter: 
 author: markgalioto
-manager: jwhit
+manager: carmonm
 editor: 
 keywords: "yedekleme çözümü; backup hizmeti"
 ms.assetid: 5f55b500-1ee9-4f64-9306-02d6f7a8eded
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/21/2016
-ms.author: trinadhk; markgal; jimpark;
+ms.author: markgal;trinadhk;
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: fdc596def57968381ea48dfc5df2269a682c9de7
+ms.sourcegitcommit: e12d533ac5befe020c0aad4aa64ca9ed50349c3d
+ms.openlocfilehash: 271f447a36f42330ed7b8dea78b32c06eebdeda6
 
 
 ---
-# <a name="recovery-services-vault-faq"></a>Kurtarma Hizmetleri kasası - SSS
+# <a name="recovery-services-vault---faq"></a>Kurtarma Hizmetleri kasası - SSS
 Bu makalede, Kurtarma Hizmetleri kasasına özgü bilgiler sağlanmaktadır ve makale, [Azure Backup hakkında SSS](backup-azure-backup-faq.md) makalesi için tamamlayıcı niteliktedir. Azure Backup ile ilgili SSS, Azure Backup hizmeti hakkında tam kapsamlı sorular ve yanıtlar sağlamaktadır.  
 
 Azure Backup ile ilgili sorularınızı, bu makalenin veya ilgili bir makalenin Disqus bölümünde sorabilirsiniz. Ayrıca Azure Backup hizmeti ile ilgili sorularınızı [tartışma forumunda](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) paylaşabilirsiniz.
@@ -35,7 +35,7 @@ Ne yazık ki hayır, şu an için bir Backup kasasının içeriğinin Kurtarma H
 ## <a name="do-recovery-services-vaults-support-classic-vms-or-resource-manager-based-vms-br"></a>Kurtarma Hizmetleri kasaları, klasik VM’leri mi Resource Manager tabanlı VM’leri mi destekler? <br/>
 Kurtarma Hizmetleri kasaları iki modeli de destekler.  Klasik portalda oluşturulan bir VM’yi (klasik mod VM’leri) veya Azure portalında oluşturulan bir VM’yi (Resource Manager tabanlı), Kurtarma Hizmetleri kasasına yedekleyebilirsiniz.
 
-## <a name="i-have-backed-up-my-classic-vms-in-backup-vault-now-i-want-to-migrate-my-vms-from-classic-mode-to-resource-manager-mode-how-can-i-backup-them-in-recovery-services-vault"></a>Klasik VM’lerimi yedekleme kasasında yedekledim. Şimdi, VM’lerimi klasik moddan Resource Manager moduna geçirmek istiyorum.  Bunları nasıl kurtarma hizmetleri kasasında yedekleyebilirim?
+## <a name="i-have-backed-up-my-classic-vms-in-backup-vault-now-i-want-to-migrate-my-vms-from-classic-mode-to-resource-manager-mode--how-can-i-backup-them-in-recovery-services-vault"></a>Klasik VM’lerimi yedekleme kasasında yedekledim. Şimdi, VM’lerimi klasik moddan Resource Manager moduna geçirmek istiyorum.  Bunları nasıl kurtarma hizmetleri kasasında yedekleyebilirim?
 Yedekleme kasasındaki klasik VM yedekleri, VM’leri klasik moddan Resource Manager moduna geçirdiğinizde kurtarma hizmetleri kasasında otomatik olarak yedeklenmez. VM yedeklerinin geçirilmesi için lütfen bu adımları izleyin:
 
 1. Yedekleme kasasıda, **Korunan Öğeler** sekmesine gidin ve VM’yi seçin. [Korumayı Durdur](backup-azure-manage-vms-classic.md#stop-protecting-virtual-machines)’a tıklayın. *İlişkili yedekleme verilerini sil* seçeneğini **işaretlenmemiş** olarak bırakın.
@@ -44,7 +44,6 @@ Yedekleme kasasındaki klasik VM yedekleri, VM’leri klasik moddan Resource Man
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

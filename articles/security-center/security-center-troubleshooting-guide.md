@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2016
+ms.date: 02/14/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 9ed6eebd8a0c11158f9812edfc15b29a70ccc905
+ms.sourcegitcommit: d8956072460ba8629bb852e7b5d3e5155c3711e3
+ms.openlocfilehash: fe2d32e3c20c3e91954a6d00294ec018e8da0f2b
 
 
 ---
@@ -51,8 +51,16 @@ Yükleme başarıyla gerçekleştirilirse hedef sanal makinenin Denetim Günlük
 
 > [!NOTE]
 > Azure Güvenlik Merkezi Aracısı hatalı davranıyorsa aracıyı durdurup başlatmaya yönelik bir komut olmadığından hedef sanal makineyi yeniden başlatmanız gerekir.
-> 
-> 
+
+
+Veri toplamayla ilgili sorun yaşamaya devam ediyorsanız, aşağıdaki adımları izleyerek aracıyı kaldırabilirsiniz:
+
+1. **Azure Portal**’dan veri toplama sorunları yaşayan sanal makineyi seçin ve **Uzantılar**’a tıklayın.
+2. **Microsoft.Azure.Security.Monitoring** öğesine sağ tıklayıp **Kaldır**’a tıklayın.
+
+![Aracıyı kaldırma](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig4.png)
+
+Azure Güvenlik İzleme uzantısı birkaç dakika içinde otomatik olarak yeniden yüklenir.
 
 ## <a name="troubleshooting-monitoring-agent-installation-in-linux"></a>Linux’ta izleme aracısı yükleme sorunlarını giderme
 Bir Linux sisteminde Sanal Makine Aracısı yükleme sorunlarını giderirken uzantının /var/lib/waagent/ dizinine indirildiğinden emin olmanız gerekir. Yüklendiğini doğrulamak için aşağıdaki komutu çalıştırabilirsiniz:
@@ -68,8 +76,12 @@ Sorun giderme amacıyla gözden geçirebileceğiniz diğer günlük dosyaları �
 
 `netstat -plantu | grep 29130`
 
+## <a name="troubleshooting-problems-loading-the-dashboard"></a>Pano yükleme sorunlarını giderme
+
+Güvenlik Merkezi panosunu yüklemeyle ilgili sorun yaşıyorsanız, aboneliği Güvenlik Merkezi’ne kaydeden kullanıcı (Güvenlik Merkezi’ni bu abonelikle ilk kez açan kullanıcı) ile veri toplamayı etkinleştirmek isteyen kullanıcının abonelikte *Sahip* veya *Katkıda Bulunan* rolüne sahip olduğundan emin olun. O andan itibaren, abonelikte *Okuyucu* rolüne sahip kullanıcılar da pano/uyarılar/öneri/ilke sayfasını görebilir.
+
 ## <a name="contacting-microsoft-support"></a>Microsoft Destek ile iletişim kurma
-Bazı sorunlar bu makalede verilen yönergeler kullanılarak tanımlanabilirken, bazılarını Güvenlik Merkezi genel [Forumu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSecurityCenter)’nda da bulabilirsiniz. Ancak daha fazla sorun giderme adımı gerekirse aşağıda gösterildiği gibi Azure Portal’ı kullanarak yeni bir destek isteği açabilirsiniz: 
+Bazı sorunlar bu makalede verilen yönergeler kullanılarak tanımlanabilirken, bazılarını Güvenlik Merkezi genel [Forumu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSecurityCenter)’nda da bulabilirsiniz. Ancak daha fazla sorun giderme adımı gerekirse aşağıda gösterildiği gibi **Azure Portal**’ı kullanarak yeni bir destek isteği açabilirsiniz: 
 
 ![Microsoft Destek](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig2.png)
 
@@ -86,6 +98,6 @@ Bu belgede, Azure Güvenlik Merkezi'nde güvenlik ilkelerinin nasıl yapılandı
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

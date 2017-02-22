@@ -8,6 +8,7 @@
 ## [Proxy ve güvenlik duvarı](log-analytics-proxy-firewall.md)
 ## [Kullanım verileri](log-analytics-usage.md)
 ## [Log Analytics SSS](log-analytics-faq.md)
+## [Hizmet sağlayıcıları](log-analytics-service-providers.md)
 
 # Nasıl yapılır?
 ## Veri toplama
@@ -15,7 +16,7 @@
 #### [Windows aracıları](log-analytics-windows-agents.md)
 #### [Linux aracıları](log-analytics-linux-agents.md)
 #### [Azure sanal makineleri](log-analytics-azure-vm-extension.md)
-#### [Azure depolama alanı](log-analytics-azure-storage.md)
+#### [Azure kaynakları](log-analytics-azure-storage.md)
 #### [Operations Manager](log-analytics-om-agents.md)
 #### [Configuration Manager](log-analytics-sccm.md)
 #### [OMS Ağ Geçidi](log-analytics-oms-gateway.md)
@@ -62,11 +63,13 @@
 ## Geliştirme
 ### [Veri Toplayıcı API’si](log-analytics-data-collector-api.md)
 ### [PowerShell cmdlet'leri](log-analytics-powershell-workspace-configuration.md)
+### [Resource Manager şablonları](log-analytics-template-workspace-configuration.md)
 ### [Log Arama API’si](log-analytics-log-search-api.md)
 ### [Uyarı API’si](log-analytics-api-alerts.md)
 
 # Başvuru
 ## [PowerShell](/powershell/resourcemanager/azurerm.operationalinsights/v2.3.0/azurerm.operationalinsights)
+## [REST](/rest/api/loganalytics)
 
 # Kaynaklar
 ## [Upgrade Analytics](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics)
@@ -74,6 +77,6 @@
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=log-analytics)
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

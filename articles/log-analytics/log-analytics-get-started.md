@@ -1,6 +1,6 @@
 ---
-title: "Log Analytics’i kullanmaya başlama | Microsoft Belgeleri"
-description: "Log Analytics&quot;i birkaç dakika yapılandırarak kullanmaya başlayabilirsiniz."
+title: "Azure Log Analytics çalışma alanını kullanmaya başlama | Microsoft Docs"
+description: "Log Analytics içindeki bir çalışma alanını birkaç dakika içinde kullanmaya başlayabilirsiniz."
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -12,140 +12,147 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/02/2017
+ms.date: 02/08/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 49e624dd9bfc534fdbae25fd0c8646be36851635
-ms.openlocfilehash: 4ab71b6ee09883abd4d095f2b1788cf69d44a219
+ms.sourcegitcommit: f75386f970aeb5694d226cfcd569b8c04a253191
+ms.openlocfilehash: 0f418af5728b6a156ebc72fb99a3d16d559654ed
 
 
 ---
-# <a name="get-started-with-log-analytics"></a>Log Analytics'i Kullanmaya Başlama
-Microsoft Operations Management Suite'te (OMS) Log Analytics'i birkaç dakikada kullanmaya başlayabilirsiniz. Hesap oluştururken olduğu gibi, OMS çalışma alanı oluştururken de iki seçeneğiniz vardır:
+# <a name="get-started-with-a-log-analytics-workspace"></a>Log Analytics çalışma alanını kullanmaya başlama
+IT altyapınızdan toplanan çalışma bilgilerini değerlendirmenize yardımcı olan Azure Log Analytics’i birkaç dakika içinde kullanmaya başlayabilirsiniz. Bu makaleyi kullanarak, *ücretsiz olarak* topladığınız verileri keşfetmeye, analiz etmeye ve üzerinde işlem yapmaya kolayca başlayabilirsiniz.
 
-* Microsoft Operations Management Suite web sitesi
-* Microsoft Azure aboneliği
+Bu makale, hizmeti kullanmaya başlayabilmeniz için Azure’da küçük bir dağıtım yapmayı gösteren kısa bir öğretici kullanarak Log Analytics’e giriş bilgileri sağlar. Azure’daki yönetim verilerinizin depolandığı mantıksal kapsayıcı, çalışma alanı olarak adlandırılır. Bu bilgileri gözden geçirip kendi değerlendirmenizi tamamladıktan sonra, değerlendirme çalışma alanını kaldırabilirsiniz. Bu makale bir öğretici olduğu için, iş gereksinimlerini, planlamayı veya mimari yönergelerini ele almaz.
 
-OMS web sitesini kullanarak ücretsiz bir OMS çalışma alanı oluşturabilirsiniz. Ya da ücretsiz bir Log Analytics çalışma alanı oluşturmak için Microsoft Azure aboneliğini kullanabilirsiniz. Her iki şekilde oluşturulan çalışma alanlarının işlevleri aynıdır. Ücretsiz çalışma alanları OMS hizmetine günde yalnızca 500 MB veri gönderebilir. Tüm çalışma alanları için bir Azure aboneliği gerekir. Bu aboneliği diğer Azure hizmetlerine erişmek için de kullanabilirsiniz. Çalışma alanını oluşturmak için kullandığınız yöntemden bağımsız olarak, çalışma alanını bir Microsoft hesabıyla veya bir kuruluş hesabıyla oluşturursunuz.
+>[!NOTE]
+>Microsoft Azure Kamu Bulutu kullanıyorsanız, bunun yerine [Azure Kamu İzleme + Yönetim belgelerine](https://review.docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#log-analytics) bakın.
 
-Bu işlemle ilgili adımlar:
+Başlamak için kullanılan işleme hızlı bir bakış aşağıda verilmiştir:
 
-![Diyagram ekleme](./media/log-analytics-get-started/oms-onboard-diagram.png)
+![işlem diyagramı](./media/log-analytics-get-started/onboard-oms.png)
 
-## <a name="log-analytics-prerequisites-and-deployment-considerations"></a>Log Analytics önkoşulları ve dağıtım ile ilgili dikkat edilmesi gerekenler
-* Log Analytics'i tam olarak kullanmak için ücretli bir Microsoft Azure aboneliğinizin olması gerekir. Azure aboneliğiniz yoksa istediğiniz Azure hizmetine 30 gün boyunca erişmenizi sağlayan [ücretsiz bir hesap](https://azure.microsoft.com/free/) oluşturun. Ayrıca [Operations Management Suite](http://microsoft.com/oms) web sitesinde ücretsiz bir OMS hesabı da oluşturabilirsiniz.
-* Bir çalışma alanı oluşturmanız gerekir
-* Veri toplamak istediğiniz her Windows bilgisayarının Windows Server 2008 SP1 veya sonraki bir sürümünü çalıştırması gerekir
-* OMS web hizmeti adreslerine yönelik [Güvenlik Duvarı](log-analytics-proxy-firewall.md) erişimi
-* Bilgisayarlarınızın doğrudan İnternet erişiminin olup olmadığını belirleyin. Doğrudan İnternet erişimi yoksa OMS web hizmeti sitelerine erişim için bir ağ geçidi sunucusu gerekir. Tüm erişim HTTPS üzerinden gerçekleşir. Bilgisayarlarda İnternet erişiminin olmaması durumunda, trafiği sunuculardan OMS'ye iletmek için bir [OMS Ağ Geçidi](log-analytics-oms-gateway.md) sunucusu kurabilirsiniz.
-* Operations Manager kullanıyorsanız Log Analytics, Operations Manager 2012 SP1 UR6 ile sonraki bir sürümünü ve Operations Manager 2012 R2 UR2 ile sonraki bir sürümünü destekler. Operations Manager 2012 SP1 UR7 ve Operations Manager 2012 R2 UR3'e ara sunucu desteği eklenmiştir. OMS ile nasıl tümleştirileceğini belirleyin.
-* Hangi teknolojilerin ve sunucuların OMS'ye veri göndereceğini belirleyin. Örneğin, etki alanı denetleyicileri, SQL Server vb.
-* OMS ve Azure'daki kullanıcılara izin verin.
-* Veri kullanımı ile ilgili endişeleriniz varsa her bir çözümü ayrı olarak dağıtın ve ek çözümler eklemeden önce performans etkisini test edin.
-* Log Analytics'e çözüm ve özellik eklerken veri kullanımınızı ve performansınızı gözden geçirin. Buna olay koleksiyonu, günlük koleksiyonu, performans verileri koleksiyonu vb. dahildir. Veri kullanımı ve performans etkisi tanımlanana kadar minimal bir koleksiyonla başlamak daha uygundur.
-* Windows aracılarının da Operations Manager kullanılarak yönetilmediğini doğrulayın, aksi halde yinelenen veriler ortaya çıkar. Bu, Azure Tanılama'nın etkin olduğu Azure tabanlı aracılar için de geçerlidir.
-* Aracıları yükledikten sonra, aracının düzgün çalıştığını doğrulayın. Düzgün çalışmıyorsa, Şifreleme API'si: Yeni Nesil (CNG) Anahtar Yalıtımı'nın Grup İlkesi yoluyla devre dışı bırakılmadığından emin olun.
-* Bazı Log Analytics çözümlerinin ek gereksinimleri vardır
+## <a name="1-create-an-azure-account-and-sign-in"></a>1 Bir Azure hesabı oluşturup oturum açın
 
-## <a name="sign-up-in-3-steps-using-oms"></a>OMS kullanarak 3 adımda oturum açma
-1. [Operations Management Suite](http://microsoft.com/oms) web sitesine gidin. Şirketiniz veya eğitim kurumunuz tarafından Office 365 veya diğer Microsoft hizmetleriyle kullanmanız için sağlanmış olan Outlook.com veya kuruluş hesabı gibi bir Microsoft hesabıyla oturum açın.
-2. Benzersiz bir çalışma alanı adı sağlayın. Çalışma alanı, yönetim verilerinizin depolandığı mantıksal bir kapsayıcıdır. Veriler kendi çalışma alanına özel olduğundan, çalışma alanı; verileri, kuruluşunuzdaki farklı ekipler arasında bölümlendirmenizi sağlar. Verilerinizin depolanmasını istediğiniz bir e-posta adresi ve bölge belirtin.  
-    ![çalışma alanı oluşturma ve aboneliği bağlama](./media/log-analytics-get-started/oms-onboard-create-workspace-link01.png)
-3. Ardından, yeni bir ücretsiz Azure aboneliği oluşturun veya mevcut bir Azure aboneliğine bağlanın.  
-   ![çalışma alanı oluşturma ve aboneliği bağlama](./media/log-analytics-get-started/oms-onboard-create-workspace-link02.png)
+Henüz bir Azure hesabınız yoksa, Log Analytics kullanmak için bir tane oluşturmanız gerekir. Herhangi bir Azure hizmetine 30 gün boyunca erişmenizi sağlayan [ücretsiz bir hesap](https://azure.microsoft.com/free/) oluşturabilirsiniz.
 
-Operations Management Suite portalı ile çalışmaya hazırsınız.
+### <a name="to-create-a-free-account-and-sign-in"></a>Ücretsiz hesap oluşturup oturum açmak için
+1. [Ücretsiz Azure hesabınızı oluşturun](https://azure.microsoft.com/free/) bölümündeki yönergeleri izleyin.
+2. [Azure portalına](https://portal.azure.com) gidin ve oturum açın.
 
-[Çalışma alanlarını yönetme](log-analytics-manage-access.md) bölümünde çalışma alanınızı ayarlama ve mevcut Azure hesaplarını Operations Management Suite ile oluşturulan çalışma alanlarına bağlama konusunda daha fazla bilgi edinebilirsiniz.
+## <a name="2-create-a-workspace"></a>2 Çalışma alanı oluşturun
 
-## <a name="sign-up-quickly-using-microsoft-azure"></a>Microsoft Azure'ı kullanarak hızlı kaydolma
-1. [Azure portalına](https://portal.azure.com) gidin ve oturum açın, hizmetler listesine göz atın ve ardından **Log Analytics** seçeneğini belirleyin.  
-    ![Azure portal](./media/log-analytics-get-started/oms-onboard-azure-portal.png)
-2. **Ekle**'ye tıklayın, ardından şu öğeler için seçim yapın:
-   * **OMS Çalışma Alanı** adı
+Sonraki adım bir çalışma alanı oluşturmayı içerir.
+
+1. Azure portalında, Market hizmet listesinde *Log Analytics* araması yapın ve ardından **Log Analytics**’i seçin.  
+    ![Azure portal](./media/log-analytics-get-started/log-analytics-portal.png)
+2. **Oluştur**'a tıklayın, ardından şu öğeler için seçim yapın:
+   * **OMS Çalışma Alanı** - Çalışma alanınız için bir ad yazın.
    * **Abonelik** - Birden çok aboneliğiniz varsa yeni çalışma alanıyla ilişkilendirmek istediğiniz aboneliği seçin.
    * **Kaynak grubu**
    * **Konum**
    * **Fiyatlandırma katmanı**  
        ![hızlı oluşturma](./media/log-analytics-get-started/oms-onboard-quick-create.png)
-3. **Tamam**'a tıkladığınızda çalışma alanlarınızın listesini göreceksiniz.
+3. Çalışma alanlarınızın listesini görmek için **Tamam**'a tıklayın.
 4. Azure portalında ayrıntılarını görmek için bir çalışma alanı seçin.       
     ![çalışma alanı ayrıntıları](./media/log-analytics-get-started/oms-onboard-workspace-details.png)         
-5. Yeni çalışma alanınızla Operations Management Suite web sitesini açmak için **OMS Portalı** bağlantısına tıklayın.
 
-Operations Management Suite portalını kullanmaya hazırsınız.
+## <a name="3-add-solutions-and-solution-offerings"></a>3 Çözüm ve çözüm teklifleri ekleme
 
-[Log Analytics'e erişimi yönetme](log-analytics-manage-access.md) bölümünde çalışma alanınızı ayarlama ve Operations Management Suite ile oluşturduğunuz mevcut çalışma alanlarını Azure aboneliklerine bağlama konusunda daha fazla bilgi edinebilirsiniz.
+Ardından, yönetim çözümleri ve çözüm teklifleri ekleyin. Yönetim çözümleri belirli bir sorun alanına odaklanan ölçümler sağlayan mantık, görselleştirme ve veri alımı kural koleksiyonudur. Çözüm teklifi ise bir yönetim çözümleri paketidir.
 
-## <a name="get-started-with-the-operations-management-suite-portal"></a>Operations Management Suite portalı ile çalışmaya başlama
-Çözümleri seçmek ve yönetmek istediğiniz sunucuları bağlamak için **Ayarlar**'a tıklayın ve bu bölümdeki adımları izleyin.  
+Çalışma alanınıza çözüm eklenmesi, Log Analytics’in aracıları kullanarak çalışma alanınıza bağlı bilgisayarlardan çeşitli türlerde verileri toplamasına olanak tanır. Aracı ekleme işlemi daha sonra ele alınacaktır.
 
-![başlarken](./media/log-analytics-get-started/oms-onboard-get-started.png)  
+### <a name="to-add-solutions-and-solution-offerings"></a>Çözüm ve çözüm teklifleri eklemek için
 
-1. **Çözüm Ekleme** - Yüklü çözümlerinizi görüntüleyin.  
-    ![çözümler](./media/log-analytics-get-started/oms-onboard-solutions.png)  
-    Daha fazla çözüm eklemek için **Galeriyi Ziyaret Edin**’e tıklayın.  
-    ![çözümler](./media/log-analytics-get-started/oms-onboard-solutions02.png)  
-    Bir çözümü seçin ve **Ekle**’ye tıklayın.
-2. **Bir kaynağı bağlama** - Veri toplamak için sunucu ortamınıza nasıl bağlanmak istediğinizi seçin:
+1. Azure portalında **Yeni**’ye tıklayın ve ardından **Market içinde ara** kutusuna **Activity Log Analytics** yazıp ENTER tuşuna basın.
+2. “Her Şey” dikey penceresinde **Activity Log Analytics**’i seçip **Oluştur**’a tıklayın.  
+    ![Activity Log Analytics](./media/log-analytics-get-started/activity-log-analytics.png)  
+3. *Yönetim çözümü adı* dikey penceresinde, yönetim çözümüyle ilişkilendirmek istediğiniz bir çalışma alanı seçin.
+4. **Oluştur**’a tıklayın.  
+    ![çözüm çalışma alanı](./media/log-analytics-get-started/solution-workspace.png)  
+5. Eklemek için 1-4 arası adımları yineleyin:
+    - Kötü Amaçlı Yazılımdan Koruma Değerlendirmesi ile Güvenlik ve Denetim çözümlerini içeren **Güvenlik ve Uyumluluk** hizmet teklifi.
+    - Otomasyon Karma Çalışanı, Değişiklik İzleme ve Sistem Güncelleştirme Değerlendirmesi (aynı zamanda Update Management olarak adlandırılır) çözümlerini içeren **Otomasyon ve Denetim** hizmet teklifi. Çözüm teklifini eklediğinizde bir Otomasyon hesabı oluşturmanız gerekir.  
+        ![Otomasyon hesabı](./media/log-analytics-get-started/automation-account.png)  
+6. **Log Analytics** > **Abonelikler** > ***çalışma alanı adı*** > **Genel Bakış** seçeneğine giderek, çalışma alanınıza eklediğiniz yönetim çözümlerini görüntüleyebilirsiniz. Eklediğiniz yönetim çözümlerinin kutucukları gösterilir.  
+    >[!NOTE]
+    >Çalışma alanına herhangi bir aracı bağlanmadığı için, eklediğiniz çözümlere ilişkin herhangi bir veri görmezsiniz.  
 
-   * Aracı yükleyerek herhangi bir Windows Sunucusunu veya istemciyi doğrudan bağlayın.
-   * Linux için OMS Aracısı ile Linux sunucularını bağlayın.
-   * Windows veya Linux Azure Tanılama VM uzantısıyla yapılandırılmış bir Azure depolama hesabı kullanın.
-   * Yönetim gruplarınızı veya tüm Operations Manager dağıtımınızı eklemek için System Center Operations Manager'ı kullanın.
-   * Upgrade Analytics’i kullanmak için Windows Telemetri’yi etkinleştirin.
-       ![bağlı kaynaklar](./media/log-analytics-get-started/oms-onboard-data-sources.png)    
-3. **Veri toplama** Verileri çalışma alanınıza doldurmak için en az bir veri kaynağı yapılandırın. İşiniz bittiğinde **Kaydet**’e tıklayın.    
+    ![veri olmadan çözüm kutucukları](./media/log-analytics-get-started/solutions-no-data.png)
 
-    ![veri toplama](./media/log-analytics-get-started/oms-onboard-logs.png)    
+## <a name="4-create-a-vm-and-onboard-an-agent"></a>4 VM oluşturma ve aracı ekleme
 
-## <a name="optionally-connect-windows-computers-by-installing-an-agent"></a>İsteğe bağlı olarak, bir aracı yükleyerek Windows bilgisayarları bağlama
-Aşağıdaki örnekte, bir Windows aracısını nasıl yükleyeceğiniz gösterilmiştir.
+Ardından, Azure’da basit bir sanal makine oluşturun. Bir VM oluşturduktan sonra etkinleştirmek için OMS aracısını ekleyin. Aracının etkinleştirilmesi VM’den veri toplamayı başlatır ve Log Analytics’e veri gönderir.
 
-1. **Ayarlar** kutucuğuna tıklayın, **Bağlı Kaynaklar** sekmesine tıklayın, eklemek istediğiniz kaynak türü için bir sekmeye tıklayın ve bir aracıyı indirin veya bir aracıyı nasıl etkinleştireceğinizi öğrenin. Örneğin, **Windows Aracısını İndir (64 bit)** seçeneğine tıklayın. Windows aracılarını yalnızca Windows Server 2008 SP 1 veya sonraki sürümlerine ya da Windows 7 SP1 veya sonraki sürümlerine yükleyebilirsiniz.
-2. Aracıyı bir veya daha fazla sunucuya yükleyin. Aracıları teker teker veya [özel komut dosyası](log-analytics-windows-agents.md) ile daha otomatikleştirilmiş bir yöntem kullanarak yükleyebilir veya sahip olduğunuz mevcut bir yazılım dağıtımı çözümünü kullanabilirsiniz.
-3. Lisans sözleşmesini kabul ettikten ve yükleme klasörünüzü seçtikten sonra, **Aracıyı Azure Log Analytics’e (OMS) bağla**’yı seçin.   
-    ![aracı kurulumu](./media/log-analytics-get-started/oms-onboard-agent.png)
-4. Sonraki sayfada, sizden Çalışma Alanı Kimliğiniz ve Çalışma Alanı Anahtarınız istenir. Çalışma Alanı kimliğiniz ve anahtarınız, aracı dosyasını indirdiğiniz ekranda görüntülenir.  
-    ![aracı anahtarları](./media/log-analytics-get-started/oms-onboard-mma-keys.png)  
+### <a name="to-create-a-virtual-machine"></a>Sanal makine oluşturmak için
 
-    ![sunucuları ekleme](./media/log-analytics-get-started/oms-onboard-key.png)
-5. Yükleme sırasında, isteğe bağlı olarak ara sunucunuzu ayarlamak ve kimlik doğrulama bilgilerini sağlamak için **Gelişmiş**'e tıklayabilirsiniz. Çalışma alanı bilgi ekranına geri dönmek için **İleri** düğmesine tıklayın.
-6. Çalışma Alanı Kimliğinizi ve Anahtarınızı doğrulamak için **İleri**'ye tıklayın. Herhangi bir hata bulunması durumunda, düzeltme yapmak için **Geri**'ye tıklayabilirsiniz. Çalışma Alanı Kimliğiniz ve Anahtarınız doğrulandığında, aracı yüklemesini tamamlamak için **Yükle**'ye tıklayın.
-7. Kontrol Paneli’nde Microsoft Monitoring Agent > Azure Log Analytics (OMS) sekmesine tıklayın. Aracılar Operations Management Suite hizmetiyle iletişim kurduğunda yeşil bir onay işareti simgesi görünür. Başlangıçta, bu yaklaşık 5-10 dakika sürer.
+- [Azure portalında ilk Windows sanal makinenizi oluşturma](../virtual-machines/virtual-machines-windows-hero-tutorial.md) bölümündeki yönergeleri izleyin ve yeni sanal makineyi başlatın.
 
-> [!NOTE]
-> Kapasite yönetimi ve yapılandırma değerlendirmesi çözümleri şu anda doğrudan Operations Management Suite'e bağlı sunucular tarafından desteklenmemektedir.
+### <a name="connect-the-virtual-machine-to-log-analytics"></a>Sanal makineyi Log Analytics’e bağlama
 
+- Azure portalını kullanarak VM’yi Log Analytics’e bağlamak için [Azure sanal makinelerini Log Analytics’e bağlama](log-analytics-azure-vm-extension.md) bölümündeki yönergeleri izleyin.
 
-Aracıyı aynı zamanda System Center Operations Manager 2012 SP1 ve sonraki bir sürümüne de bağlayabilirsiniz. Bunu yapmak için, **Connect the agent to System Center Operations Manager (Aracıyı System Center Operations Manager'a bağla)** seçeneğini belirleyin. Bu seçeneği belirlediğinizde, yönetim gruplarınızda herhangi bir ek donanım veya yük gerekmeksizin verileri hizmete göndermiş olursunuz.
+## <a name="5-view-and-act-on-data"></a>5 Verileri görüntüleme ve üzerinde işlem yapma
 
-Aracıları Operations Management Suite'e bağlama konusunda daha fazla bilgi için bkz. [Windows bilgisayarlarını Log Analytics'e bağlama](log-analytics-windows-agents.md).
+Daha önce Activity Log Analytics çözümünü ve Güvenlik ve Uyumluluk ile Otomasyon ve Denetim tekliflerini etkinleştirdiniz. Bundan sonra, çözümler tarafından toplanan verilere ve günlük aramalarındaki sonuçlara bakmaya başlayacağız.
 
-## <a name="optionally-connect-servers-using-system-center-operations-manager"></a>İsteğe bağlı olarak, System Center Operations Manager kullanarak sunucuları bağlama
-1. Operations Manager konsolunda **Yönetim**'i seçin.
-2. **Operasyonel Öngörüler** düğümünü genişletin ve **Operasyonel Öngörüler Bağlantısı**'nı seçin.
+Başlamak için çözümlerin içinde gösterilen verilere bakın. Ardından, günlük aramalarından erişilen bazı günlük aramalarına bakın. Günlük aramaları, ortamınızdaki birden fazla kaynaktan makine verilerini birleştirmenize ve ilişkilendirmenize olanak tanır. Daha fazla bilgi için bkz. [Log Analytics’te günlük aramaları](log-analytics-log-searches.md). Son olarak, Azure portalının dışında yer alan OMS portalını kullanarak bulduğumuz veriler üzerinde işlem yapın.
 
-   > [!NOTE]
-   > Hangi SCOM Güncelleştirme Paketini kullandığınıza bağlı olarak, *System Center Advisor*, *Operasyonel Öngörüler* veya *Operations Management Suite* için bir düğüm görebilirsiniz.
-   >
-   >
-3. Sağ üst kısımda yer alan **Operasyonel Öngörülere Kaydol** bağlantısına tıklayın ve yönergeleri uygulayın.
-4. Kayıt sihirbazını tamamladıktan sonra, **Bilgisayar/Grup Ekle** bağlantısına tıklayın.
-5. **Bilgisayar Araması** iletişim kutusunda Operations Manager tarafından izlenen bilgisayarları veya grupları arayabilirsiniz. Log Analytics'e eklemek için bilgisayarları veya grupları seçin, **Ekle**'ye tıklayın ve ardından **Tamam**'a tıklayın. OMS hizmetinin veri aldığını, Operations Management Suite portalındaki **Kullanım** kutucuğuna giderek doğrulayabilirsiniz. Veriler yaklaşık 5-10 dakika içerisinde görünmelidir.
+### <a name="to-view-antimalware-data"></a>Kötü Amaçlı Yazılımdan Koruma verilerini görüntülemek için
 
-Operations Manager'ı Operations Management Suite'e bağlama hakkında daha fazla bilgi için bkz. [Operations Manager'ı Log Analytics'e Bağlama](log-analytics-om-agents.md).
+1. Azure portalında **Log Analytics** > ***çalışma alanınız*** seçeneğine gidin.
+2. Çalışma alanınızın dikey penceresindeki **Genel** altında **Genel bakış**’a tıklayın.  
+    ![Genel Bakış](./media/log-analytics-get-started/overview.png)
+3. **Kötü Amaçlı Yazılımdan Koruma Değerlendirmesi** kutucuğuna tıklayın. Bu örnekte bir bilgisayara Windows Defender’ın yüklü olduğunu, ancak imzasının eski olduğunu görebilirsiniz.  
+    ![Kötü Amaçlı Yazılımdan Koruma](./media/log-analytics-get-started/solution-antimalware.png)
+4. Bu örnek için **Koruma durumu** altında **İmza eski**’ye tıklayarak Günlük Araması’nı açın ve imzaları eski olan bilgisayara ilişkin ayrıntıları görüntüleyin. Bu örnekte bilgisayar adı *getstarted* şeklindedir. İmzası eski olan birden fazla bilgisayar varsa, bunların tümü Günlük Araması sonuçlarında görünür.  
+    ![Kötü amaçlı yazılımdan koruma eski](./media/log-analytics-get-started/antimalware-search.png)
 
-## <a name="optionally-analyze-data-from-cloud-services-in-microsoft-azure"></a>İsteğe bağlı olarak, Microsoft Azure'da bulut hizmetlerinden veri çözümleme
-Operations Management Suite kullanarak, Azure Bulut Hizmetleri için tanılamayı etkinleştirip bulut hizmetleri ve sanal makinelere ilişkin olay ve IIS günlüklerini hızlıca arayabilirsiniz. Ayrıca Microsoft İzleme Aracısı'nı yükleyerek Azure sanal makineleriniz için ek öngörüler elde edebilirsiniz. Operations Management Suite'i kullanmak için Azure ortamınızı nasıl yapılandırabileceğiniz hakkında daha fazla bilgi için bkz. [Azure depolama alanını Log Analytics'e bağlama](log-analytics-azure-storage.md).
+### <a name="to-view-security-and-audit-data"></a>Güvenlik ve Denetim verilerini görüntülemek için
+
+1. Çalışma alanınızın dikey penceresindeki **Genel** altında **Genel bakış**’a tıklayın.  
+2. **Güvenlik ve Denetim** kutucuğuna tıklayın. Bu örnekte, öne çıkan iki sorun olduğunu görebilirsiniz: kritik güncelleştirmeleri eksik olan bir bilgisayar ve koruması yetersiz olan bir bilgisayar vardır.  
+    ![Güvenlik ve Denetim](./media/log-analytics-get-started/security-audit.png)
+3. Bu örnek için **Önemli Sorunlar** altında **Kiritik güncelleştirmeleri eksik olan bilgisayarlar**’a tıklayarak Günlük Araması’nı açın ve kritik güncelleştirmeleri eksik olan bilgisayarlara ilişkin ayrıntıları görüntüleyin. Bu örnekte, bir kritik güncelleştirme ve 63 diğer güncelleştirme eksiktir.  
+    ![Güvenlik ve Denetim Günlük Araması](./media/log-analytics-get-started/security-audit-log-search.png)
+
+### <a name="to-view-and-act-on-system-update-data"></a>Sistem Güncelleştirme verilerini görüntülemek ve üzerinde işlem yapmak için
+
+1. Çalışma alanınızın dikey penceresindeki **Genel** altında **Genel bakış**’a tıklayın.  
+2. **Sistem Güncelleştirme Değerlendirmesi** kutucuğuna tıklayın. Bu örnekte, kritik güncelleştirme gerektiren *getstarted* adlı bir Windows bilgisayarın ve tanım güncelleştirmeleri gerektiren bir bilgisayarın olduğunu görebilirsiniz.  
+    ![Sistem Güncelleştirmeleri](./media/log-analytics-get-started/system-updates.png)
+3. Bu örnek için **Eksik Güncelleştirmeler** altında **Kiritik Güncelleştirmeler**’e tıklayarak Günlük Araması’nı açın ve kritik güncelleştirmeleri eksik olan bilgisayarlara ilişkin ayrıntıları görüntüleyin. Bu örnekte, bir eksik güncelleştirme ve bir gerekli güncelleştirme vardır.  
+    ![Sistem Güncelleştirmeleri Günlük Araması](./media/log-analytics-get-started/system-updates-log-search.png)
+4. [Operations Management Suite](http://microsoft.com/oms) web sitesine gidin ve Azure hesabınızla oturum açın. Oturum açtığınızda, çözüm bilgilerinin Azure portalında gördüğünüz bilgilere benzer olduğuna dikkat edin.  
+    ![OMS portalı](./media/log-analytics-get-started/oms-portal.png)
+5. **Update Management** kutucuğuna tıklayın.
+6. Update Management panosunda sistem güncelleştirme bilgilerinin, Azure portalında gördüğünüz Sistem Güncelleştirme bilgilerine benzer olduğuna dikkat edin. Ancak, **Güncelleştirme Dağıtımlarını Yönet** kutusu yenidir. **Güncelleştirme Dağıtımlarını Yönet** kutusuna tıklayın.  
+    ![Güncelleştirme Yönetimi kutucuğu](./media/log-analytics-get-started/update-management.png)
+7. **Güncelleştirme Dağıtımları** sayfasında **Ekle**’ye tıklayarak bir *güncelleştirme çalışması* oluşturun.  
+    ![Güncelleştirme Dağıtımları](./media/log-analytics-get-started/update-management-update-deployments.png)
+8.  **Yeni Güncelleştirme Dağıtımı** sayfasında güncelleştirme dağıtımı için bir ad yazın, güncelleştirilecek bilgisayarları seçin (bu örnekte, *getstarted*), bir zamanlama seçin ve ardından **Kaydet**’e tıklayın.  
+    ![Yeni Dağıtım](./media/log-analytics-get-started/new-deployment.png)  
+    Güncelleştirme dağıtımını kaydettikten sonra zamanlanan güncelleştirmeyi görürsünüz.  
+    ![zamanlanmış güncelleştirme](./media/log-analytics-get-started/scheduled-update.png)  
+    Güncelleştirme çalışması tamamlandıktan sonra durum **Tamamlandı** olarak değişir.
+    ![biten güncelleştirme](./media/log-analytics-get-started/completed-update.png)
+9. Güncelleştirme çalışması bittikten sonra çalışmanın başarılı olup olmadığını ve hangi güncelleştirmelerin uygulandığını görüntüleyebilirsiniz.
+
+## <a name="after-evaluation"></a>Değerlendirme sonrasında
+
+Bu öğreticide bir sanal makineye aracı yükleyip hızlıca çalışmaya başladınız. İzlediğiniz adımlar hızlı ve kolaydı. Ancak, çoğu büyük kuruluş ve işletme, karmaşık şirket içi BT altyapılarına sahiptir. Bu nedenle, bu karmaşık ortamlardan veri toplanması, öğreticide gösterilenden daha fazla planlama ve çaba gerektirir. Yararlı makalelerin bağlantıları için aşağıdaki Sonraki adımlar bölümünde verilen bilgileri gözden geçirin.
+
+İsteğe bağlı olarak, bu öğreticiyle oluşturduğunuz çalışma alanını kaldırabilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
+* Log Analytics’e [Windows aracıları](log-analytics-windows-agents.md) bağlama hakkında bilgi edinin.
+* Log Analytics’e [Operations Manager aracıları](log-analytics-om-agents.md) bağlama hakkında bilgi edinin.
 * İşlev eklemek ve veri toplamak için bkz. [Çözüm Galerisinden Log Analytics çözümleri ekleme](log-analytics-add-solutions.md).
 * Çözümler tarafından toplanan ayrıntılı bilgileri görüntülemek için [günlük aramaları](log-analytics-log-searches.md) hakkında bilgi edinin.
-* Özel aramalarınızı kaydetmek ve görüntülemek için [panolar](log-analytics-dashboards.md)ı kullanın.
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -99,6 +99,6 @@ Tekrar kullanmaya hazır olduğunuzda VM’yi yeniden başlatmak için **Başlat
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

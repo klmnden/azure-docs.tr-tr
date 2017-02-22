@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/20/2016
+ms.date: 01/21/2017
 ms.author: rogardle
 translationtype: Human Translation
-ms.sourcegitcommit: 0bf622c24b9865832fe9aeb1ece7a7b94e283f46
-ms.openlocfilehash: e4623d6e1fd0944b9d95a4f0c5bdc8a5d6593614
+ms.sourcegitcommit: cc3cc2dce324942f184b6a520dc4db28518a3091
+ms.openlocfilehash: 0521fbd689233c0f2359a10006e24c75c8997732
 
 
 ---
@@ -39,7 +39,7 @@ Azure Container Service’i kullanarak Azure’un kuruluş düzeyindeki özellik
 Azure Container Service’i ile amacımız, günümüzde müşterilerimiz arasında popüler olan açık kaynak araçları ve teknolojileri kullanan bir kapsayıcı barındırma ortamı sunmaktır. Şu an için kullandığınız düzenleyici (DC/OS, Docker Swarm veya Kubernetes) için standart API uç noktalarını kullanıma sunuyoruz. Bu uç noktaları kullanarak, ilgili uç noktalarla iletişim kurma özelliğine sahip olan tüm yazılımlardan faydalanabilirsiniz. Örneğin, Docker Swarm uç noktasıyla Docker komut satırı arabirimini (CLI) kullanabilirsiniz. DC/OS için ise DCOS CLI bileşenini seçebilirsiniz. Kubernetes için kubectl kullanmayı seçebilirsiniz.
 
 ## <a name="creating-a-docker-cluster-by-using-azure-container-service"></a>Azure Container Service’i kullanarak Docker kümesi oluşturma
-Azure Container Service’i kullanmaya başlamak için portal aracılığıyla (“Azure Container Service” aratın), Azure Resource Manager şablonu kullanarak ([Docker Swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm), [DC/OS](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos) veya [Kubernetes](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-kubernetes)) ya da [CLI](/documentation/articles/xplat-cli-install/) ile bir Azure Container Service kümesi dağıtmanız gerekir. Sunulan hızlı başlangıç şablonu, ek veya gelişmiş Azure yapılandırmalarını dahil edecek şekilde değiştirilebilir. Azure Container Service kümesi dağıtma hakkında daha fazla bilgi için bkz. [Azure Container Service kümesi dağıtma](container-service-deployment.md).
+Azure Container Service’i kullanmaya başlamak için portal aracılığıyla (“Azure Container Service” aratın), Azure Resource Manager şablonu kullanarak ([Docker Swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm), [DC/OS](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos) veya [Kubernetes](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-kubernetes)) ya da [CLI](/articles/xplat-cli-install.md) ile bir Azure Container Service kümesi dağıtmanız gerekir. Sunulan hızlı başlangıç şablonu, ek veya gelişmiş Azure yapılandırmalarını dahil edecek şekilde değiştirilebilir. Azure Container Service kümesi dağıtma hakkında daha fazla bilgi için bkz. [Azure Container Service kümesi dağıtma](container-service-deployment.md).
 
 ## <a name="deploying-an-application"></a>Uygulama dağıtma
 Azure Container Service’te düzenleme için Docker Swarm, DC/OS veya Kubernetes kullanabilirsiniz. Uygulamanızı nasıl dağıtacağınız, düzenleme seçiminize göre değişiklik gösterir.
@@ -92,7 +92,7 @@ Aşağıdaki zengin özelliklere sahiptir:
 * Hizmet bulma ve yük dengeleme
 * Gizli bilgiler ve yapılandırma yönetimi
 * API tabanlı otomatik dağıtma ve geri alma işlemleri
-* Kendi kendini iyileştirme 
+* Kendi kendini iyileştirme
 * ve daha fazlası.
 
 
@@ -101,18 +101,17 @@ Aşağıdaki zengin özelliklere sahiptir:
 Azure Container Service’i kullanmaya başlama (101):  
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Azure-Container-Service-101/player]
-> 
-> 
+>
+>
 
 Azure Container Service ile Uygulama Oluşturma (Derleme 2016)
 
 > [!VIDEO https://channel9.msdn.com/Events/Build/2016/B822/player]
-> 
-> 
+>
+>
 
 
 
-
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

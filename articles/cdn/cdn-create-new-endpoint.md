@@ -1,9 +1,9 @@
 ---
-title: Azure CDN kullanma | Microsoft Belgeleri
-description: "Bu konu başlığında, Azure için İçerik Teslim Ağı&quot;nın (CDN) nasıl etkinleştirileceği gösterilmektedir. Öğretici, yeni bir CDN profili ve uç noktası oluşturma işlemi boyunca size yol gösterecektir."
+title: "Azure CDN kullanmaya başlama | Microsoft Docs"
+description: "Bu konu başlığında, Azure İçerik Teslim Ağı&quot;nın (CDN) nasıl etkinleştirileceği gösterilmektedir. Öğretici, yeni bir CDN profili ve uç noktası oluşturma işlemi boyunca size yol gösterecektir."
 services: cdn
 documentationcenter: 
-author: camsoper
+author: zhangmanling
 manager: erikre
 editor: 
 ms.assetid: 4ca51224-5423-419b-98cf-89860ef516d2
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/28/2016
-ms.author: casoper
+ms.date: 01/23/2017
+ms.author: mazha
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e5568503541e773fa11bcde530da09befc51b2ad
+ms.sourcegitcommit: bdf6e27463fcc6186a3b15a55653fa468da91bdc
+ms.openlocfilehash: d263e911d0d0b3cdc1e48e300a3c8a0994b38c39
 
 
 ---
-# <a name="using-azure-cdn"></a>Azure CDN'yi kullanma
+# <a name="getting-started-with-azure-cdn"></a>Azure CDN kullanmaya başlama
 Bu konu başlığında, yeni bir CDN profili ve uç noktası oluşturarak Azure CDN'yi etkinleştirme işlemi boyunca size yol gösterilecektir.
 
 > [!IMPORTANT]
@@ -52,7 +52,7 @@ CDN profili, CDN uç noktaları koleksiyonudur.  Her bir profil, bir veya daha f
    
     ![Uç nokta ekle düğmesi][cdn-new-endpoint-button]
    
-     **Uç nokta ekleme** dikey penceresi görünür.
+    **Uç nokta ekleme** dikey penceresi görünür.
    
     ![Uç nokta ekleme dikey penceresi][cdn-add-endpoint]
 3. Bu CDN uç noktası için bir **Ad** girin.  Bu ad, `<endpointname>.azureedge.net` etki alanındaki önbelleğe alınmış kaynaklarınıza erişmek için kullanılır.
@@ -106,6 +106,6 @@ CDN profili, CDN uç noktaları koleksiyonudur.  Her bir profil, bir veya daha f
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO4-->
 
 

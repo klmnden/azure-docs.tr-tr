@@ -2,7 +2,7 @@ Lütfen daha önce [burada][namespace-how-to] gösterildiği gibi bir Geçiş ad
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 2. Portalın sol gezinti bölmesinde **Geçiş** öğesine tıklayın.
-3. Karma Bağlantıyı oluşturmak istediğiniz ad alanını seçin. Bu durumda **mynewns1** seçeneğidir.
+3. Karma Bağlantıyı oluşturmak istediğiniz ad alanını seçin. Bu durumda **mynewns** seçeneğidir.
    
     ![Hc oluşturma](./media/relay-create-hybrid-connection-portal/create-hc-1.png)
 4. **Geçiş ad alanı** dikey penceresinde **Karma Bağlantılar**’ı seçin, ardından **+ Karma Bağlantı**’ya tıklayın.
@@ -15,6 +15,6 @@ Lütfen daha önce [burada][namespace-how-to] gösterildiği gibi bir Geçiş ad
 
 [namespace-how-to]: ../articles/service-bus-relay/relay-create-namespace-portal.md 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

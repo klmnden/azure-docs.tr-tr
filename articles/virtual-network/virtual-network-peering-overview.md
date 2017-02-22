@@ -1,6 +1,6 @@
 ---
-title: "Azure sanal ağ eşlemesi | Microsoft Belgeleri"
-description: "Azure&quot;da VNet eşlemesi hakkında bilgi edinin."
+title: "Azure Sanal Ağ eşlemesi | Microsoft Belgeleri"
+description: "Azure&quot;daki sanal ağ eşlemesi hakkında bilgi edinin."
 services: virtual-network
 documentationcenter: na
 author: NarayanAnnamalai
@@ -15,81 +15,81 @@ ms.workload: infrastructure-services
 ms.date: 10/17/2016
 ms.author: narayan
 translationtype: Human Translation
-ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
-ms.openlocfilehash: 0d4d13d44581f98ead7d65f3bb819e54b93a76b6
+ms.sourcegitcommit: 15afcad97941fc595478e36e826a73831f40475e
+ms.openlocfilehash: eb05b504c5cf13cd852a5e01cc3bec79fd20d547
 
 
 ---
-# <a name="vnet-peering"></a>VNet eşlemesi
-VNet eşlemesi, aynı bölgedeki iki sanal ağı (VNet’ler) Azure omurga ağı aracılığıyla birbirine bağlayan bir mekanizmadır. Eşleme yapıldıktan sonra, iki sanal ağ tüm bağlantılarda tek bir sanal ağ gibi görünür. Bunlar ayrı kaynaklar olarak yönetilmeye devam eder, ancak bu sanal ağlardaki sanal makineler özel IP adresleri kullanarak birbirleriyle doğrudan iletişim kurabilir.
+# <a name="virtual-network-peering"></a>Sanal ağ eşleme
+Sanal ağ eşlemesi, Azure omurga ağı aracılığıyla aynı bölgedeki iki sanal ağı birbirine bağlamanızı sağlar. Eşleme yapıldıktan sonra iki sanal ağ, bağlantı amacıyla tek bir sanal ağ gibi görünür. İki sanal ağ ayrı kaynaklar olarak yönetilmeye devam eder, ancak eşlenmiş sanal ağlardaki sanal makineler (VM) özel IP adresleri kullanarak birbirleriyle doğrudan iletişim kurabilir.
 
-Eşlenen sanal ağlardaki sanal makineler arasındaki trafik, Azure altyapısı aracılığıyla aynı sanal ağ üzerindeki VM'ler arasında olduğu gibi yönlendirilir. VNet eşlemesini kullanmanın bazı avantajları şunlardır:
+Eşlenen sanal ağlardaki sanal makineler arasındaki trafik, Azure altyapısı aracılığıyla, aynı sanal ağdaki sanal makineler arasında olduğu gibi yönlendirilir. VNet eşlemesini kullanmanın bazı avantajları şunlardır:
 
-* Farklı sanal ağlardaki kaynaklar arasında düşük gecikme süresi ve yüksek bant genişlikli bağlantı.
+* Farklı sanal ağlardaki kaynaklar arasında düşük gecikme süreli, yüksek bant genişliği bağlantısı.
 * VPN ağ geçitleri ve ağ sanal gereçleri gibi kaynakları, eşlenmiş VNet içinde geçiş noktaları olarak kullanabilme.
-* Azure Resource Manager modelini kullanan bir sanal ağı, klasik modeli kullanan bir sanal ağa bağlayabilme ve bu iki sanal ağ arasında tam bağlantıya olanak tanıma.
+* Azure Resource Manager dağıtım modeliyle oluşturulan iki sanal ağı eşleyebilme veya Resource Manager ile oluşturulan bir sanal ağı klasik dağıtım modeliyle oluşturulan sanal ağ ile eşleyebilme özelliği. İki Azure dağıtım modeli arasındaki fark hakkında daha fazla bilgi almak için [Azure dağıtım modellerini anlama](../azure-resource-manager/resource-manager-deployment-model.md) makalesini okuyun.
 
 VNet eşlemesi ile ilgili gereksinimler ve önemli noktalar:
 
-* Eşlenen iki sanal ağ, aynı Azure bölgesinde olmalıdır.
-* Eşlenen sanal ağların IP Adresi alanları çakışmamalıdır.
-* VNet eşlemesi iki sanal ağ arasında gerçekleşir ve türetilmiş geçişli bir ilişki yoktur. Örneğin, A sanal ağı B sanal ağıyla, B sanal ağı da C sanal ağıyla eşlenirse bu, A sanal ağının C sanal ağıyla eşlendiği anlamına gelmez.
-* İki farklı abonelikteki sanal ağlar arasında eşleme yapılabilmesi için, eşlemenin her iki aboneliğin de ayrıcalıklı bir kullanıcısı tarafından yetkilendirilmiş olması ve aboneliklerin aynı Active Directory kiracısı ile ilişkilendirilmesi gerekir. 
-* Kaynak yöneticisi modelindeki sanal ağ ile klasik dağıtım modelindeki sanal ağ arasında eşleme yapmak için VNet’lerin aynı abonelikte olması gerekir.
-* Resource Manager dağıtım modelini kullanan bir sanal ağ, bu modeli kullanan başka bir sanal ağ ile veya klasik dağıtım modelini kullanan bir sanal ağ ile eşlenebilir. Ancak, klasik dağıtım modelini kullanan sanal ağlar birbiriyle eşlenemez.
-* Eşlenmiş sanal ağlarda bulunan sanal makineler arasındaki iletişim başka bir bant genişliği kısıtlaması içermese de VM boyutunu temel alan bant genişliği sınırı geçerli olmaya devam eder.
+* Eşlenmiş sanal ağlar aynı Azure bölgesinde bulunmalıdır.
+* Eşlenmiş sanal ağların IP adresi alanları çakışmamalıdır.
+* Sanal ağ eşlemesi iki sanal ağ arasında gerçekleşir ve eşlemeler arasında türetilmiş geçişli bir ilişki yoktur. Örneğin, SanalAğA ile SanalAğB eşlenir ve SanalAğB ile SanalAğC eşlenirse, SanalAğA ile SanalAğC *eşlenmez*.
+* Eşlemenin her iki aboneliğin de ayrıcalıklı bir kullanıcısı tarafından yetkilendirilmiş olması ve aboneliklerin aynı Active Directory kiracısı ile ilişkilendirilmesi şartıyla iki farklı abonelikte mevcut olan sanal ağları eşleyebilirsiniz.
+* Her iki sanal ağ da Resource Manager dağıtım modeliyle oluşturulursa veya biri Resource Manager dağıtım modeliyle, diğeri klasik dağıtım modeliyle oluşturulursa sanal ağlar eşlenebilir. Ancak, klasik dağıtım modeliyle oluşturulan iki sanal ağ birbiriyle eşlenemez. Farklı dağıtım modelleriyle oluşturulan sanal ağlar eşlenirken, sanal ağların her ikisi de *aynı* abonelikte olmalıdır. *Farklı* aboneliklerde mevcut olan farklı dağıtım modelleriyle oluşturulmuş sanal ağları eşleyebilme özelliği **önizleme** sürümündedir. Daha fazla bilgi için [Powershell kullanarak sanal ağ eşlemesi oluşturma](virtual-networks-create-vnetpeering-arm-ps.md) makalesini okuyun.
+* Eşlenmiş sanal ağlardaki sanal makineler arasında kurulan iletişim için ek bant genişliği kısıtlamaları olmasa da, sanal makine boyutuna bağlı olarak hala geçerli olan bir ağ bant genişliği üst sınırı vardır. Farklı sanal makine boyutlarına yönelik ağ bant genişliği üst sınırları hakkında daha fazla bilgi almak için [Windows](../virtual-machines/virtual-machines-windows-sizes.md) veya [Linux](../virtual-machines/virtual-machines-linux-sizes.md) VM boyutları makalelerini okuyun.
 
 ![Temel VNet eşlemesi](./media/virtual-networks-peering-overview/figure01.png)
 
 ## <a name="connectivity"></a>Bağlantı
-İki sanal ağ eşlendikten sonra sanal ağ üzerindeki bir sanal makine (web/çalışan rolü), eşlenen sanal ağ üzerindeki diğer sanal makinelerle doğrudan bağlantı kurabilir. Bu iki ağ da tam IP düzeyinde bağlantıya sahip olur.
+İki sanal ağ eşlendikten sonra, sanal ağ içindeki sanal makineler veya Cloud Services rolleri eşlenmiş sanal ağa bağlı diğer kaynaklara doğrudan bağlanabilir. İki sanal ağ tam IP düzeyinde bağlantıya sahip olur.
 
-Eşlenen ağlardaki iki sanal makine arasındaki bir gidiş dönüşe ilişkin ağ gecikmesi, yerel bir sanal ağ üzerindeki bir gidiş dönüş için olan ağ gecikmesiyle aynıdır. Ağ verimi, büyüklüğüne orantılı olarak sanal makine için izin verilen bant genişliğine bağlıdır. Bant genişliği ile ilgili herhangi bir ek kısıtlama yoktur.
+Eşlenmiş sanal ağlardaki iki sanal makine arasında gidiş dönüş ağ gecikmesi, tek bir sanal ağdaki gidiş dönüş ağ gecikme süresi ile aynıdır. Ağ aktarım hızı, büyüklüğüyle orantılı olarak VM için izin verilen bant genişliğine bağlıdır. Eşleme içindeki bant genişliği ile ilgili herhangi bir ek kısıtlama yoktur.
 
 Eşlenmiş sanal ağlarda bulunan sanal makineler arasındaki trafik bir ağ geçidi üzerinden değil, doğrudan Azure arka uç altyapısı aracılığıyla yönlendirilir.
 
-Bir sanal ağ üzerindeki sanal makineler, eşlenen sanal ağ üzerindeki iç yükü dengelenmiş (ILB) uç noktalara erişebilir. İstendiğinde, diğer sanal ağlara veya alt ağlara erişimi engellemek için her bir sanal ağ üzerinde ağ güvenlik grupları (NSG'ler) kullanılabilir.
+Bir sanal ağa bağlı sanal makineler, eşlenmiş sanal ağdaki iç yük dengeli (ILB) uç noktalara erişebilir. İstenirse diğer sanal ağ veya alt ağlara erişimi engellemek için herhangi bir sanal ağa Ağ güvenlik grupları (NSG) uygulanabilir.
 
-Kullanıcılar eşlemeyi yapılandırırken sanal ağlar arasındaki NSG kurallarını açıp kapatabilirler. Kullanıcı, eşlenen sanal ağlar arasında tam bağlantı açmayı seçerse (varsayılan seçenek) belirli alt ağlarda veya sanal makinelerde belirli erişimleri engellemek ya da reddetmek için NSG'leri kullanabilir.
+Eşlemeyi yapılandırırken, sanal ağlar arasındaki NSG kurallarını açıp kapatabilirsiniz. Eşlenmiş sanal ağlar arasında tam bağlantıyı açarsanız (varsayılan seçenek), belirli bir erişimi engellemek ya da reddetmek için NSG’leri belirli alt ağlara veya sanal makinelere uygulayabilirsiniz. NSG’ler hakkında daha fazla bilgi almak için [Ağ güvenlik grupları](virtual-networks-nsg.md) makalesini okuyun.
 
-Sanal makinelere yönelik Azure tarafından sağlanan iç DNS adı çözümlemesi, eşlenen sanal ağlarda kullanılamaz. Sanal makinelerin yalnızca yerel sanal ağ üzerinde çözümlenebilen iç DNS adları vardır. Ancak kullanıcılar, eşlenen sanal ağlarda çalışan sanal makineleri bir sanal ağ için DNS sunucuları olarak yapılandırabilir.
+Azure tarafından sanal makineler için sağlanan iç DNS ad çözünürlüğü, eşlenmiş sanal ağlarda çalışmaz. Sanal makinelerin yalnızca yerel sanal ağ üzerinde çözümlenebilen iç DNS adları vardır. Ancak, eşlenmiş sanal ağlara bağlı sanal makineleri bir sanal ağın DNS sunucuları olarak yapılandırabilirsiniz. Daha fazla bilgi için [Kendi DNS sunucunuzu kullanarak ad çözümlemesi](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) makalesini okuyun.
 
 ## <a name="service-chaining"></a>Hizmet zinciri
-Kullanıcılar, bu makalenin ilerleyen kısımlarındaki diyagramda gösterildiği şekilde; "sonraki atlama" IP adresi olarak, eşlenen sanal ağlardaki sanal makineleri işaret eden kullanıcı tanımlı yol tabloları yapılandırabilir. Bu sayede kullanıcılar, kullanıcı tanımlı yol tabloları aracılığıyla bir sanal ağ üzerindeki trafiği, eşlenen ağ üzerinde çalışan bir sanal gerece yönlendirebilecekleri bir hizmet zinciri oluşturabilir.
+Eşlenmiş sanal ağlardaki sanal makineleri işaret eden kullanıcı tanımlı yolları (UDR), bu makalenin sonraki bölümlerinde yer alan diyagramda gösterildiği gibi "sonraki atlama" IP adresi olarak yapılandırabilirsiniz. Bunun yapılması, bir sanal ağdan eşlenmiş sanal ağda çalışan sanal bir cihaza UDR’ler aracılığıyla trafik yönlendirmenize olanak tanıyan hizmet zincirlemesini sağlar.
 
-Ayrıca kullanıcılar, hub ve bağlı bileşen türündeki ortamları da verimli bir şekilde oluşturabilir. Bu ortamlarda hub, ağ sanal gereci gibi altyapı bileşenlerini barındırabilir. Böylece tüm bağlı sanal ağlar, bunun gibi altyapı bileşenlerinin yanı sıra hub sanal ağında çalışan gereçlere giden trafiğin bir alt ağıyla da eşlenebilir. Kısacası, VNet eşlemesi sayesinde "Kullanıcı tanımlı yol tablosundaki" sonraki atlama IP adresi, eşlenen sanal ağ üzerindeki bir sanal makinenin IP adresi olabilir.
+Ayrıca, hub ve bağlı bileşen türündeki ortamları da verimli bir şekilde oluşturabilirsiniz. Bu ortamlarda hub, ağ sanal gereci gibi altyapı bileşenlerini barındırabilir. Böylece tüm bağlı sanal ağlar, bunun gibi altyapı bileşenlerinin yanı sıra hub sanal ağında çalışan gereçlere giden trafiğin bir alt ağıyla da eşlenebilir. Kısacası, sanal ağ eşlemesi sayesinde UDR’deki sonraki atlama IP adresi, eşlenen sanal ağ üzerindeki bir sanal makinenin IP adresi olabilir. UDR’ler hakkında ek bilgi için [kullanıcı tanımlı yollar](virtual-networks-udr-overview.md) makalesini okuyun.
 
 ## <a name="gateways-and-on-premises-connectivity"></a>Ağ geçitleri ve şirket içi bağlantı
-Başka bir sanal ağ ile eşlenip eşlenmediğine bakılmaksızın her sanal ağ kendi ağ geçidine sahip olabilir ve bu sanal ağ geçidini şirket içine bağlanmak için kullanılabilir. Ayrıca kullanıcılar, sanal ağlar eşlenmiş olsa bile ağ geçitlerini kullanarak [VNet'ler arası bağlantıları](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md) yapılandırabilir.
+Başka bir sanal ağ ile eşlenip eşlenmediğine bakılmaksızın her sanal ağ kendi ağ geçidine sahip olabilir ve bu sanal ağ geçidini bir şirket içi ağına bağlanmak için kullanılabilir. Ayrıca kullanıcılar, sanal ağlar eşlenmiş olsa bile ağ geçitlerini kullanarak [sanal ağlar arası bağlantıları](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md) yapılandırabilir.
 
-Sanal ağlar arası bağlantı için her iki seçenek de yapılandırıldığında, sanal ağlar arasındaki trafik, eşleme yapılandırması (Azure omurgası) üzerinden akış gerçekleştirir.
+Sanallar arası bağlantı için her iki seçenek de yapılandırıldığında sanal ağlar arasındaki trafik, eşleme yapılandırması (Azure omurgası) aracılığıyla akar.
 
-Sanal ağlar eşlendiğinde kullanıcılar, eşlenmiş sanal ağ üzerindeki ağ geçidini şirket içine geçiş noktası olarak kullanılacak şekilde de yapılandırabilir. Bu durumda, uzak ağ geçidi kullanan sanal ağın kendi ağ geçidi olamaz. Bir sanal ağın yalnızca bir ağ geçidi olabilir. Aşağıdaki resimde gösterildiği şekilde bu, yerel bir ağ geçidi veya uzak bir ağ geçidi (eşlenen sanal ağ üzerinde) olabilir.
-
-Resource Manager modelini ve klasik dağıtım modelini kullanan sanal ağlar arasındaki eşleme ilişkisinde ağ geçidi geçişi desteklenmez. Ağ geçidi geçişinin gerçekleşebilmesi için, eşleme ilişkisindeki her iki sanal ağ da Resource Manager dağıtım modelini kullanmalıdır.
-
-Tek bir Azure ExpressRoute bağlantısını kullanan sanal ağlar eşlendiğinde, bu iki sanal ağ arasındaki trafik, eşleme ilişkisi (Azure omurga ağı) üzerinden akış gerçekleştirir. Kullanıcılar, şirket içi devreye bağlanmak için her bir sanal ağ üzerindeki yerel ağ geçitlerini kullanmaya devam edebilir. Alternatif olarak, paylaşılan bir ağ geçidini kullanıp şirket içi bağlantı için bir geçiş yapılandırabilirler.
+Sanal ağlar eşlendiğinde kullanıcılar eşlenmiş sanal ağdaki ağ geçidini şirket içi ağına bir geçiş noktası olarak kullanılacak şekilde de yapılandırabilir. Bu durumda, uzak ağ geçidi kullanan sanal ağın kendi ağ geçidi olamaz. Bir sanal ağda yalnızca bir ağ geçidi olabilir. Ağ geçidi aşağıdaki resimde gösterildiği gibi yerel veya uzak bir ağ geçidi (eşlenen sanal ağ üzerinde) olabilir:
 
 ![VNet eşleme geçişi](./media/virtual-networks-peering-overview/figure02.png)
+
+Farklı dağıtım modelleriyle oluşturulmuş sanal ağlar arasındaki eşleme ilişkisinde ağ geçidi geçişi desteklenmez. Bir ağ geçidi geçişinin çalışması için eşleme ilişkisindeki her iki sanal ağ da Resource Manager ile oluşturulmuş olmalıdır.
+
+Tek bir Azure ExpressRoute bağlantısını kullanan sanal ağlar eşlendiğinde, bu iki sanal ağ arasındaki trafik, eşleme ilişkisi (Azure omurga ağı) üzerinden akış gerçekleştirir. Şirket içi devreye bağlanmak için her bir sanal ağ üzerindeki yerel ağ geçitlerini kullanmaya devam edebilirsiniz. Alternatif olarak, paylaşılan bir ağ geçidini kullanıp şirket içi bağlantı için bir geçiş yapılandırabilirsiniz.
 
 ## <a name="provisioning"></a>Sağlama
 VNet eşlemesi ayrıcalıklı bir işlemdir. VirtualNetworks ad alanı altında yer alan ayrı bir işlevdir. Bir kullanıcıya eşlemeyi yetkilendirmesi için belirli haklar verilebilir. Sanal ağa yönelik okuma/yazma erişimi olan bir kullanıcı bu haklara otomatik olarak sahip olur.
 
 Eşleme özelliğinin yönetici ya da ayrıcalıklı kullanıcısı olan bir kullanıcı, başka bir VNet üzerinde eşleme işlemi başlatabilir. Diğer tarafta eşleme için eşleşen bir istek varsa ve diğer gereksinimler karşılanırsa eşleme gerçekleştirilir.
 
-İki sanal ağ arasında VNet eşlemesinin nasıl gerçekleştirileceğiyle ilgili daha fazla bilgi edinmek için "Sonraki adımlar" bölümünde yer alan makalelere göz atın.
+İki sanal ağ arasında sanal ağ eşlemesi oluşturma hakkında bilgi almak için bu makalenin [Sonraki adımlar](#next-steps) bölümüne bakın.
 
 ## <a name="limits"></a>Sınırlar
 Tek bir sanal ağ için izin verilen eşleme sayısı sınırlıdır. Daha fazla bilgi edinmek için bkz. [Azure ağ sınırları](../azure-subscription-service-limits.md#networking-limits).
 
 ## <a name="pricing"></a>Fiyatlandırma
-VNet eşlemesi, gözden geçirme süresi boyunca ücretsiz olacaktır. Piyasaya sürüldükten sonra, eşlemeyi kullanan giriş ve çıkış trafiği için düşük miktarda bir ücret alınacaktır. Daha fazla bilgi edinmek için bkz. [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/virtual-network).
+Sanal ağ eşlemesi kullanan giriş ve çıkış trafiği için nominal bir ücret uygulanır. Daha fazla bilgi edinmek için bkz. [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/virtual-network).
 
-## <a name="next-steps"></a>Sonraki adımlar
-* [Sanal ağlar arasında eşlemeyi ayarlama](virtual-networks-create-vnetpeering-arm-portal.md).
-* [NSG'ler](virtual-networks-nsg.md) hakkında bilgi edinin.
-* [Kullanıcı tanımlı yollar ve IP iletimi](virtual-networks-udr-overview.md) hakkında bilgi edinin.
+## <a name="a-namenext-stepsanext-steps"></a><a name="next-steps"></a>Sonraki adımlar
+Aşağıdakileri kullanarak sanal ağ eşlemesi oluşturma hakkında bilgi alın:
 
+* [Azure portalı](virtual-networks-create-vnetpeering-arm-portal.md)
+* [Azure PowerShell](virtual-networks-create-vnetpeering-arm-ps.md)
+* [Azure Resource Manager şablonu](virtual-networks-create-vnetpeering-arm-template-click.md)
 
 
 

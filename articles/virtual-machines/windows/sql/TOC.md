@@ -12,13 +12,15 @@
 # Nasıl yapılır?
 ## Yüksek Kullanılabilirliği Yapılandırma
 ### [Yüksek kullanılabilirlik seçenekleri](virtual-machines-windows-sql-high-availability-dr.md) 
-### [Always On kullanılabilirlik grubu yapılandırma](virtual-machines-windows-portal-sql-availability-group-overview.md)
+### [AlwaysOn kullanılabilirlik grubu](virtual-machines-windows-portal-sql-availability-group-overview.md)
 #### [Otomatik - şablon ile](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
 #### [El ile - önkoşullar](virtual-machines-windows-portal-sql-availability-group-prereq.md)
 #### [El ile - öğretici](virtual-machines-windows-portal-sql-availability-group-tutorial.md)
 #### [Yük dengeleyici - portal](virtual-machines-windows-portal-sql-alwayson-int-listener.md)
 #### [Yük dengeleyici - PowerShell](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md)
 #### [Birden çok bölge](virtual-machines-windows-portal-sql-availability-group-dr.md)
+### Yük Devretme Kümesi Örneği
+#### [Yapılandırma](virtual-machines-windows-portal-sql-create-failover-cluster.md)
 
 ## Yönet
 ### [SQL Server IaaS Aracısı Uzantısını kullanma](virtual-machines-windows-sql-server-agent-extension.md)
@@ -49,6 +51,6 @@
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

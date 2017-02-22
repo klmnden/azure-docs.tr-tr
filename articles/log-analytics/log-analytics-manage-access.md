@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/06/2017
+ms.date: 02/03/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 6862723b774951fe4cca0303ee2a39a0d5f2089d
-ms.openlocfilehash: eec688e33ff55334ebe0c1bc6d08e4753aadb85c
+ms.sourcegitcommit: 96a971c31f9088b3aa409a85f0679fd3bd5945d1
+ms.openlocfilehash: 4dc1bfa1e385e945c47bbfc5faa776e577ee84b2
 
 
 ---
 # <a name="manage-workspaces"></a>Çalışma alanlarını yönetme
 
-Log Analytics'e erişimi yönetmek için çalışma alanları ile ilgili çeşitli yönetim görevleri gerçekleştirirsiniz. Bu makalede çeşitli hesap türlerini kullanarak çalışma alanlarını yönetmek için kullanacağını en iyi uygulama önerileri ve yordamları verilmektedir. Çalışma alanı, temelde hesap bilgilerini ve hesaba ilişkin basit yapılandırma bilgilerini içeren bir kapsayıcıdır. Siz veya kuruluşunuzun diğer üyeleri, IT altyapınızın tümünden veya bir bölümünden toplanan farklı veri kümelerini yönetmek için birden çok çalışma alanı kullanabilirsiniz.
+Log Analytics'e erişimi yönetmek için çalışma alanları ile ilgili çeşitli yönetim görevleri gerçekleştirirsiniz. Bu makalede çalışma alanlarını yönetmeye yönelik en iyi uygulama önerileri ve yordamları verilmektedir. Çalışma alanı, temelde hesap bilgilerini ve hesaba ilişkin basit yapılandırma bilgilerini içeren bir kapsayıcıdır. Siz veya kuruluşunuzun diğer üyeleri, IT altyapınızın tümünden veya bir bölümünden toplanan farklı veri kümelerini yönetmek için birden çok çalışma alanı kullanabilirsiniz.
 
 Bir çalışma alanı oluşturmak için şunlar gereklidir:
 
@@ -41,8 +41,9 @@ Günümüzde bir çalışma alanı aşağıdakileri sağlar:
 * Veri depolama için coğrafi bir konum
 * Fatura için ayrıntı düzeyi
 * Veri yalıtımı
+* Yapılandırma kapsamı
 
-Yukarıdaki özelliklere bağlı olarak, şu durumlarda birden çok çalışma alanı oluşturmak isteyebilirsiniz:
+Önceki özelliklere bağlı olarak, şu durumlarda birden çok çalışma alanı oluşturmak isteyebilirsiniz:
 
 * Global bir şirketseniz ve veri bağımsızlığı veya uyumluluk nedenleriyle verilerin belirli bölgelerde depolanmasına gerek duyuyorsanız.
 * Azure kullanıyorsanız ve çalışma alanını, yönettiği Azure kaynaklarıyla aynı bölgede bulundurarak giden veri aktarımı ücretlerini ortadan kaldırmak istiyorsanız.
@@ -61,7 +62,7 @@ Azure portalında çalışma alanınızla ilgili bilgileri görüntüleyebilirsi
 #### <a name="view-workspace-information-the-azure-portal"></a>Çalışma alanı bilgilerini Azure portalında görüntüleme
 
 1. Önceden yapmadıysanız Azure aboneliğinizi kullanarak [Azure portalında](https://portal.azure.com) oturum açın.
-2. **Hub** menüsünde **Diğer hizmetler**’e tıklayıp kaynak listesinde **Log Analytics** yazın. Yazmaya başladığınızda liste, girdinize göre filtrelenir. **Log Analytics**’i tıklayın.  
+2. **Hub** menüsünde **Diğer hizmetler**’e tıklayıp kaynak listesinde **Log Analytics** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. **Log Analytics**’i tıklayın.  
     ![Azure hub'ı](./media/log-analytics-manage-access/hub.png)  
 3. Log Analytics abonelikler dikey penceresinden bir çalışma alanı seçin.
 4. Çalışma alanı dikey penceresinde çalışma alanıyla ilgili bilgiler ve ek bilgi bağlantıları gösterilir.  
@@ -78,8 +79,7 @@ Kullanıcılara çalışma alanı erişimi verme işlemi şu iki yerde denetleni
 * Azure'da, Azure aboneliğine ve ilişkili olduğu Azure kaynaklarına erişim sağlamak için rol tabanlı erişim denetimini kullanabilirsiniz. Bu izinler, aynı zamanda PowerShell ve REST API erişimi için de kullanılır.
 * OMS portalında, ilişkili Azure aboneliğine değil, yalnızca OMS portalına erişim vardır.
 
-Kullanıcılar, onlara yalnızca OMS portalına erişim izni verdiğinizde ve bağlantılı Azure aboneliğine erişim izni vermediğinizde Backup ve Site Recovery çözümü kutucuklarındaki verileri görmez.
-Tüm kullanıcıların bu çözümlerdeki verileri görebilmeleri için, çalışma alanına bağlı olan Backup Kasası ve Site Recovery kasası için en az bir **okuyucu** erişimine sahip olduklarından emin olun.   
+Backup ve Site Recovery çözüm kutucuklarındaki verileri görmek için, çalışma alanının bağlı olduğu Azure aboneliğine yönelik yönetici veya ortak yönetici izinlerine sahip olunması gerekir.   
 
 ### <a name="managing-access-to-log-analytics-using-the-azure-portal"></a>Azure portalını kullanarak Log Analytics'e erişimi yönetme
 Örneğin, Azure portalında Azure izinlerini kullanarak kullanıcılara Log Analytics erişimi verirseniz aynı kullanıcılar Log Analytics portalına da erişebilir. Kullanıcılar Azure portalında olduklarında, Log Analytics çalışma alanı kaynağını görüntülerken **OMS Portalı** görevine tıklayarak OMS portalına gidebilir.
@@ -199,7 +199,7 @@ Yeni veri planınız, web sayfanızın üst kısmındaki OMS portalı şeridinde
 8. **Tamam**’a tıklayın. Çalışma alanı artık Azure hesabınıza bağlı.
 
 > [!NOTE]
-> Bağlamak istediğiniz çalışma alanını görmüyorsanız Azure aboneliğinizin, OMS web sitesini kullanarak oluşturduğunuz çalışma alanına erişimi yoktur.  OMS portalından bu hesaba erişim izni vermeniz gerekir. Bunu yapmak için bkz. [Mevcut bir çalışma alanına kullanıcı ekleme](#add-a-user-to-an-existing-workspace).
+> Bağlamak istediğiniz çalışma alanını görmüyorsanız Azure aboneliğinizin, OMS web sitesini kullanarak oluşturduğunuz çalışma alanına erişimi yoktur.  OMS portalından bu hesaba erişim vermek için bkz. [Mevcut bir çalışma alanına kullanıcı ekleme](#add-a-user-to-an-existing-workspace).
 >
 >
 
@@ -232,15 +232,20 @@ Azure aboneliklerinizin bağlı olduğu kurumsal kayıt anlaşmasında bir Azure
 
 Çalışma alanının bağlı olduğu Azure aboneliğini değiştirmeniz gerekiyorsa Azure PowerShell [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx) cmdlet'ini kullanabilirsiniz.  
 
-### <a name="change-a-workspace-to-a-paid-data-plan"></a>Çalışma alanını ücretli veri planı olarak değiştirme
+### <a name="change-a-workspace-to-a-paid-pricing-tier"></a>Çalışma alanını ücretli fiyatlandırma katmanı olarak değiştirme
 1. [Azure portal](http://portal.azure.com) oturum açın.
 2. **Log Analytics**’e göz atın ve ardından bu seçeneği belirleyin.
 3. Mevcut çalışma alanlarınızın listesini görürsünüz. Bir çalışma alanı seçin.  
 4. **Genel** altındaki çalışma alanı dikey penceresinde **Fiyatlandırma katmanı**’na tıklayın.  
-5. **Fiyatlandırma katmanı** altında bir veri planı seçin ve ardından **Seç**'e tıklayın.  
+5. **Fiyatlandırma katmanı** altında bir fiyatlandırma katmanı seçin ve ardından **Seç**'e tıklayın.  
     ![plan seçme](./media/log-analytics-manage-access/manage-access-change-plan03.png)
-6. Azure portalında görünümü yenilediğinizde, **Fiyatlandırma katmanı**'nın seçtiğiniz plan için güncelleştirildiğini görürsünüz.  
+6. Azure portalında görünümü yenilediğinizde, **Fiyatlandırma katmanı**'nın seçtiğiniz katman için güncelleştirildiğini görürsünüz.  
     ![güncelleştirilmiş plan](./media/log-analytics-manage-access/manage-access-change-plan04.png)
+
+> [!NOTE]
+> Çalışma alanınız bir Otomasyon hesabıyla bağlantılıysa, *Tek Başına (GB başına)* fiyatlandırma katmanını seçebilmeniz için tüm **Otomasyon ve Denetim** çözümlerini silmeniz ve Otomasyon hesabının bağlantısını kaldırmanız gerekir. Çalışma alanı dikey penceresindeki **Genel** altında **Çözümler**’e tıklayıp çözümleri silin. Bir Otomasyon hesabının bağlantısını kaldırmak için **Fiyatlandırma katmanı** dikey penceresinde Otomasyon hesabının adına tıklayın.
+>
+>
 
 ## <a name="change-how-long-log-analytics-stores-data"></a>Log Analytics'in veri saklama süresini değiştirme
 
@@ -293,6 +298,6 @@ Bir yöneticiyseniz ve çalışma alanıyla ilişkilendirilmiş birden çok kull
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 
