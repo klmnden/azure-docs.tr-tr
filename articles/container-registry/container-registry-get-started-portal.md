@@ -1,5 +1,5 @@
 ---
-title: "Portalda kapsayıcı kayıt defteri oluşturma | Microsoft Belgeleri"
+title: "Azure kapsayıcı kayıt defteri oluşturma - portal | Microsoft Docs"
 description: "Azure portalı ile Azure kapsayıcısı kayıt defterleri oluşturmaya ve yönetmeye başlayın"
 services: container-registry
 documentationcenter: 
@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 11/14/2016
 ms.author: stevelas
 translationtype: Human Translation
-ms.sourcegitcommit: aa4b960ed75b5a4702317bf557b4588e7a54fa0e
-ms.openlocfilehash: c22fee1a9172eba28d8f841d973704934cdb3ebb
+ms.sourcegitcommit: d3047cd4cddb23c4daeb9265afc4d7b3fe30d46c
+ms.openlocfilehash: bec138da39696cd93bdc9bf0307108b8ca6eb149
 
 ---
 # <a name="create-a-container-registry-using-the-azure-portal"></a>Azure portalını kullanarak kapsayıcı kayıt defteri oluşturma
@@ -52,7 +52,7 @@ Arka plan bilgisi ve kavramlar için bkz. [Azure Container Kayıt Defteri nedir?
    > [!IMPORTANT]
    > Kapsayıcı kayıt defterleri, bir yönetici kullanıcı hesabı aracılığıyla erişim sağlamaya ek olarak Azure Active Directory hizmet sorumluları tarafından desteklenen kimlik doğrulamasını destekler. Daha fazla bilgi ve göz önünde bulundurulması gereken diğer noktalar için bkz. [Kapsayıcı kayıt defteri ile kimlik doğrulama](container-registry-authentication.md).
    
-    e. **Depolama hesabı** - Varsayılan ayarı kullanarak bir [depolama hesabı](../storage/storage-introduction.md) oluşturun veya aynı konumdaki mevcut bir depolama hesabını seçin.
+    e. **Depolama hesabı** - Varsayılan ayarı kullanarak bir [depolama hesabı](../storage/storage-introduction.md) oluşturun veya aynı konumdaki mevcut bir depolama hesabını seçin. Premium ve Klasik depolama hesapları desteklenmez.
 
 ## <a name="manage-registry-settings"></a>Kayıt defteri ayarlarını yönetme
 Kayıt defterini oluşturduktan sonra portaldaki **Container Kayıt Defterleri** dikey penceresinden başlayarak kayıt defteri ayarlarını bulun. Örneğin, kayıt defterinizde oturum açmak için ayarlara ihtiyacınız olabilir ya da yönetici kullanıcıyı etkinleştirmek veya devre dışı bırakmak isteyebilirsiniz.
@@ -77,6 +77,6 @@ Kayıt defterini oluşturduktan sonra portaldaki **Container Kayıt Defterleri**
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -23,8 +23,11 @@
 ## [Kimlik yönetimi](security-identity-management-overview.md)
 ### [Kimlik yönetimi güvenliği için en iyi uygulamalar](azure-security-identity-management-best-practices.md)
 ## PaaS hizmetleri
-### [IoT güvenliği için en iyi uygulamalar](azure-security-iot-best-practices.md)
+### [PaaS dağıtımlarının güvenliğini sağlama](security-paas-deployments.md)
+#### [SQL kullanarak PaaS uygulamalarının güvenliğini sağlama](security-paas-applications-using-sql.md)
+#### [Uygulama Hizmetleri kullanarak PaaS uygulamalarının güvenliğini sağlama](security-paas-applications-using-app-services.md)
 ### [IoT güvenliğine genel bakış](security-internet-of-things-overview.md)
+### [IoT güvenliği için en iyi uygulamalar](azure-security-iot-best-practices.md)
 ## Dikey sektörler
 ### [Güvenli sistem durumu çözümleri tasarlama](security-health-care-solution.md)
 ## [Güvenlik mimarisi](azure-security-architecture-overview.md)
@@ -33,12 +36,10 @@
 ### [Güvenlikle ilgili en iyi uygulamalar ve modeller](security-best-practices-and-patterns.md)
 ### [Dayanıklı uygulama mimarileri oluşturma](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md?toc=%2fazure%2fsecurity%2ftoc.json)
 
-# Başvuru
+# İlgili
 ## [Güven Merkezi](security-microsoft-trust-center.md)
 ## [Microsoft Güvenlik Yanıt Merkezi](azure-security-response-center.md)
 ## [Sızma testi](azure-security-pen-testing.md)
-
-# İlgili
 ## [Güvenlik Merkezi](../security-center/security-center-intro.md?toc=%2fazure%2fsecurity-center%2ftoc.json)
 ## [Anahtar Kasası](../key-vault/key-vault-whatis.md)
 ## [Log Analytics](../log-analytics/log-analytics-overview.md)
@@ -52,6 +53,7 @@
 ## [Sanal Akademi’den güvenlik kursları](security-microsoft-virtual-academy.md)
 ## [Channel 9’da güvenlik videoları](security-channel-nine.md)
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Feb17_HO1-->
 
 

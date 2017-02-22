@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 09/26/2016
 ms.author: mattmcg
 translationtype: Human Translation
-ms.sourcegitcommit: a849e2e866a5b30aac70ab0eb1ed8fcf472a5886
-ms.openlocfilehash: 5ceed7110ed6fe3a6e4c3902aff71fb4a2e35ba3
+ms.sourcegitcommit: e5df91cbf5df8345b2638b5c417595a727033e16
+ms.openlocfilehash: e96b78d534ecb6107b08eb6dc73b2060a9003ab9
 
 
 ---
@@ -31,9 +31,9 @@ A tenant that subscribes to an offer that contains multiple plans can use all re
 1. In a browser, go to [https://portal.azurestack.local](https://portal.azurestack.local/).
    
    Sign in to the Azure Stack portal as an administrator (by using the credentials that you provided during deployment).
-2. Select **New**, and then select **Quota**.
+2. Select **New**, then **Tenant Offers + Plans**, and select **Quota**.
 3. Select the first service for which you want to create a quota. For an IaaS quota, follow these steps for the Compute, Network, and Storage services.
-   In this example, we first create a quota for the Compute service. In the **Namespace** list, select the **Microsoft.Compute.Admin** namespace.
+   In this example, we first create a quota for the Compute service. In the **Namespace** list, select the **Microsoft.Compute** namespace.
    
    > ![Creating a new Compute quota](./media/azure-stack-setting-quota/NewComputeQuota.PNG)
    > 
@@ -84,7 +84,7 @@ A tenant that subscribes to an offer that contains multiple plans can use all re
 | Max network security groups |50 |The maximum number of network security groups that a subscription can create in this location. |
 
 ##<a name="view-an-existing-quota"></a>View an existing quota
-To view an existing quota, click on **More services**>**Resource Providers** and select the service with which the quota you want to view is assocatied. Next, click on **Quotas**, and select the Quota you want to view.
+To view an existing quota, click **More services**>**Resource Providers** and select the service with which the quota you want to view is associated. Next, click **Quotas**, and select the Quota you want to view.
    > ![Viewing an existing quota](./media/azure-stack-setting-quota/ExistingQuota.PNG)
 
 

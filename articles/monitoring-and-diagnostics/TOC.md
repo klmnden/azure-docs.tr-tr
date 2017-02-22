@@ -23,7 +23,7 @@
 ### [Otomatik ölçeklendirme için En İyi Yöntemler](../monitoring-and-diagnostics/insights-autoscale-best-practices.md)
 ### [Otomatik ölçeklendirme için genel ölçümler](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md)
 ### [Resource Manager şablonlarını kullanarak VM Ölçek Kümelerini otomatik](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
-### [Sanal Makine Ölçek Kümesi’nde makineleri otomatik olarak ölçeklendirin](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md)
+### [Sanal Makine Ölçek Kümesi’nde makineleri otomatik olarak ölçeklendirin](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
 ### [Otomatik ölçeklendirmede web kancalarını ve e-posta bildirimlerini yapılandırma](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md)
 ## Ekinlik günlüğünü kullanma
 ### [Olayları ve Etkinlik Günlüğünü görüntüleme](../monitoring-and-diagnostics/insights-debugging-with-events.md)
@@ -38,17 +38,22 @@
 ## REST API kullanma
 ### [REST API kullanımı ile ilgili kılavuz](../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md)
 
-
 # Başvuru
 ## [PowerShell](/powershell/resourcemanager/azurerm.insights/v1.0.12/azurerm.insights?redirectedfrom=msdn#40v=azure.200#41)
 ## [.NET](https://msdn.microsoft.com/library/azure/dn802153)
 ## [REST](/rest/api/monitor/)
+## [Azure Tanılama Şeması](../monitoring-and-diagnostics/azure-diagnostics-schema.md)
+### [Tanılama Şeması 1.0](../monitoring-and-diagnostics/azure-diagnostics-schema-1dot0.md)
+### [Tanılama Şeması 1.2](../monitoring-and-diagnostics/azure-diagnostics-schema-1dot2.md)
+### [Tanılama Şeması 1.3 - 1.5](../monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-to-1dot5.md)
+
 
 # Kaynaklar
 ## [PowerShell Örnekleri](../monitoring-and-diagnostics/insights-powershell-samples.md)
-## [Azure CLI 2.0 (Önizleme) Örnekleri](../monitoring-and-diagnostics/insights-cli-samples.md)
+## [Azure CLI 1.0 Örnekleri](../monitoring-and-diagnostics/insights-cli-samples.md)
 ## [Desteklenen ölçümlerin listesi](../monitoring-and-diagnostics/monitoring-supported-metrics.md)
 
-<!--HONumber=Jan17_HO3-->
+
+<!--HONumber=Feb17_HO2-->
 
 

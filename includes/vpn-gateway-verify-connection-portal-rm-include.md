@@ -8,6 +8,6 @@ Azure portalında, bağlantıya giderek bir Resource Manager VPN Gateway bağlan
 
 
 
-<!--HONumber=Jan17_HO5-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -14,8 +14,8 @@ ms.topic: get-started-article
 ms.date: 10/13/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: dc95c922b71d18cf791ea98f4ab1a02d2bac2c3b
-ms.openlocfilehash: 5103c28047e6d5e7be5f4f3b7933196de7045eeb
+ms.sourcegitcommit: 919f67a422faad2ba4c19e1f11f8e873098e8bd1
+ms.openlocfilehash: 9c27cfb674a7743c7cfe47b35b263da48c9c564e
 
 
 ---
@@ -55,7 +55,7 @@ Visual Studio'da, günlüğe kaydedilmiş etkinliklerin sayısını görürsün�
 
 ## <a name="3-see-your-telemetry"></a>3. Telemetrinize bakın…
 ### <a name="-in-visual-studio"></a>...Visual Studio’da
-Visual Studio'da Application Insights penceresini açın: Application Insights düğmesine tıklayın ya da Çözüm Gezgini'nde projenize sağ tıklayın:
+Visual Studio'da Application Insights penceresini açın: Application Insights düğmesine tıklayın ya da Çözüm Gezgini'nde projenize sağ tıklayın, `Application Insights` öğesini seçin ve ardından `Search Live Telemetry` seçeneğine tıklayın:
 
 ![Visual Studio'da, hata ayıklama sırasında Application Insights düğmesi gösterilir.](./media/app-insights-asp-net/55.png)
 
@@ -84,7 +84,7 @@ Daha fazla ayrıntı görmek istediğiniz kutucuğa veya grafiğe tıklayın.
 
 ### <a name="more-detail-in-the-portal"></a>Portalda daha fazla ayrıntı
 
-* [**Canlı Ölçüm Akışı**](app-insights-metrics-explorer.md#live-metrics-stream) neredeyse anlık telemetriyi görüntüler.
+* [**Canlı Ölçüm Akışı**](app-insights-live-stream.md) neredeyse anlık telemetriyi görüntüler.
 
     ![Genel Bakış dikey penceresinden Canlı Akış'a tıklayın](./media/app-insights-asp-net/livestream.png)
 
@@ -134,17 +134,25 @@ Sonuçta komut şu üçünü yapar:
 ApplicationInsights.config dosyasında herhangi bir özelleştirme yaptıysanız yükseltmeden önce bir kopyasını kaydedin ve daha sonra değişikliklerinizi yeni sürümle birleştirin.
 
 ## <a name="add-more-telemetry"></a>Daha fazla telemetri ekleme
-### <a name="web-pages-and-single-page-apps"></a>Web sayfaları ve tek sayfalık uygulamalar
-1. Sayfa görüntülemeleri, yükleme süreleri, tarayıcı özel durumları, AJAX çağrı performansı, kullanıcı ve oturum sayıları hakkında veri içeren Tarayıcı ve Kullanım dikey pencerelerini açmak için web sayfalarına [JavaScript kod parçacığını ekleyin](app-insights-javascript.md).
-2. Kullanıcı eylemlerini saymak, zamanlamak veya ölçmek için [özel olaylar kodlayın](app-insights-api-custom-events-metrics.md).
-
 ### <a name="dependencies-exceptions-and-performance-counters"></a>Bağımlılıklar, özel durumlar ve performans sayaçları
-Uygulamanız hakkında ek telemetri almak için sunucu makinelerinizin her birine [Durum İzleyicisi’ni yükleyin](app-insights-monitor-performance-live-website-now.md). Şunları elde edersiniz:
+
+Web uygulamalarınız hakkında ek telemetri almak için IIS sunucu makinelerinin her birine [Durum İzleyicisi’ni yükleyin](http://go.microsoft.com/fwlink/?LinkId=506648).
+
+Zaten yüklüyse, herhangi bir şey yapmanız gerekmez. 
+
+Daha önce bir uygulamayı çalışma zamanında izlemeye başlamak için durum izleyicisini kullanmış olabilirsiniz. 
+
+Derleme zamanı SDK'sının yanı sıra durum izleyicisini kullanarak, aşağıdakileri içeren daha kapsamlı bir telemetri elde edersiniz:
 
 * [Performans sayaçları](app-insights-performance-counters.md) - 
   Uygulamanıza ilişkin CPU, bellek, disk ve diğer performans sayaçları. 
 * [Özel durumlar](app-insights-asp-net-exceptions.md) - bazı özel durumlar için daha ayrıntılı telemetri.
-* [Bağımlılıklar](app-insights-asp-net-dependencies.md) - REST API veya SQL hizmetleri için çağrılar. Dış bileşenlerin yavaş yanıt vermesinin, uygulamanızda performans sorunlarına yol açıp açmadığını öğrenin. (Uygulamanız .NET 4.6 üzerinde çalışıyorsa bu telemetriyi almak için Durum İzleyicisi’ne ihtiyacınız yoktur.)
+* [Bağımlılıklar](app-insights-asp-net-dependencies.md) - dönüş değerleri dahil.
+
+### <a name="web-pages-and-single-page-apps"></a>Web sayfaları ve tek sayfalık uygulamalar
+1. Sayfa görüntülemeleri, yükleme süreleri, tarayıcı özel durumları, AJAX çağrı performansı, kullanıcı ve oturum sayıları hakkında veri içeren Tarayıcı ve Kullanım dikey pencerelerini açmak için web sayfalarına [JavaScript kod parçacığını ekleyin](app-insights-javascript.md).
+2. Kullanıcı eylemlerini saymak, zamanlamak veya ölçmek için [özel olaylar kodlayın](app-insights-api-custom-events-metrics.md).
+
 
 ### <a name="diagnostic-code"></a>Tanılama kodu
 Sorun mu yaşıyorsunuz? Tanılamasına yardımcı olmak için uygulamanıza kod eklemek isterseniz birkaç farklı seçenekten yararlanabilirsiniz:
@@ -191,11 +199,10 @@ Visual Studio Team Services’ı kullanıyorsanız yeni bir sürüm yayımladı�
 | --- | --- |
 | **[Visual Studio’da Application Insights ile çalışma](app-insights-visual-studio.md)**<br/>Telemetriyle hata ayıklama, tanılama arama, kodun ayrıntısına gitme. |
 | **[Application Insights portalıyla çalışma](app-insights-dashboards.md)**<br/>Panolar, güçlü tanılama ve analiz araçları, uyarılar, uygulamanızın canlı bağımlılık haritası ve telemetriyi dışarı aktarma. |
-| **[Daha fazla veri ekleme](app-insights-asp-net-more.md)**<br/>Kullanımı, kullanılabilirliği, bağımlılıkları, özel durumları izleyin. Günlük altyapılarından izlemeleri tümleştirin. Özel telemetri yazın. |
 
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

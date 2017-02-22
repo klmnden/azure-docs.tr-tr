@@ -1,7 +1,7 @@
 ---
-title: Azure&quot;da Machine Learning nedir?| Microsoft Belgeleri
+title: Azure&quot;da Machine Learning nedir? | Microsoft Belgeleri
 description: "Bulutta makine öğrenimine ilişkin temel kavramları açıklar, bunu ne için kullanabileceğinizi anlatır ve makine öğrenimi terimlerini tanımlar."
-keywords: "makine öğrenimi nedir, makine öğrenimi terimleri,tahmine dayalı,tahmine dayalı analiz nedir,operasyonelleştirme"
+keywords: "makine öğrenimi nedir, makine öğrenimi terimleri,tahmine dayalı,tahmine dayalı analiz nedir,makine öğrenimi terimleri"
 services: machine-learning
 documentationcenter: 
 author: cjgronlund
@@ -13,15 +13,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/17/2016
+ms.date: 02/13/2017
 ms.author: cgronlun;tedway;olgali
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a0415a3a07a1334f1947ff89e79bc710332de113
+ms.sourcegitcommit: 25e1def880dbb8431e1a0cae9d8b84c6f5906315
+ms.openlocfilehash: 50963d47d030d43d1c98dfb9a5878af7b9e99d47
 
 
 ---
-# <a name="introduction-to-machine-learning-in-the-cloud"></a>Bulutta makine öğrenimine giriş
+# <a name="introduction-to-azure-machine-learning-in-the-cloud"></a>Bulutta Azure Machine Learning’e giriş
 ## <a name="what-is-machine-learning"></a>Machine learning nedir?
 Makine öğrenimi; bilgisayarların gelecekteki davranışları, sonuçları ve eğilimleri öngörmek amacıyla var olan verilerden ders çıkarmasına yardımcı olan bir veri bilimi tekniğidir.  
 
@@ -30,47 +30,47 @@ Machine learning'in bu öngörüleri veya tahminleri, uygulama ve cihazları dah
 Kısa bir genel bakış için [Yeni Başlayanlar için Veri Bilimi](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md) video serisini deneyin. Yeni Başlayanlar için Veri Bilimi, jargon veya matematik kullanmadan makine öğrenimini tanır ve basit bir tahmin modelini adım adım gösterir.
 
 ## <a name="what-is-machine-learning-in-the-microsoft-azure-cloud"></a>Microsoft Azure bulutta Machine Learning nedir?
-Azure Machine Learning, tahmine dayalı modelleri analiz çözümleri olarak hızlı bir şekilde oluşturmayı ve dağıtmayı mümkün kılan bulut tabanlı ve güçlü bir tahmine dayalı analiz hizmetidir. Makine öğrenimi denemeleri yapmak veya çözüm oluşturmak için Azure bulutu kullanırsanız pahalı donanımlar veya altyapı satın almanız gerekmez.
+Azure Machine Learning, tahmine dayalı modelleri analiz çözümleri olarak hızlı bir şekilde oluşturmayı ve dağıtmayı mümkün kılan bulut tabanlı ve tahmine dayalı analiz hizmetidir.
+
+Kullanıma hazır algoritma kitaplığıyla çalışabilir, bunları kullanarak internete bağlı bir bilgisayarda model oluşturabilir ve tahmine dayalı çözümünüzü hızlıca dağıtabilirsiniz. [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/)’deki kullanıma hazır örnekler ve çözümlerle çalışmaya başlayın.
 
 ![Machine learning nedir? Azure Machine Learning'de tahmine dayalı analizleri faaliyete geçirmenin temel iş akışı.](./media/machine-learning-what-is-machine-learning/machine-learning-service-parts-and-workflow.png)
 
-Azure Machine Learning tahmine dayalı analiz modellemeye yönelik araçlar sağlamanın yanı sıra, tahmine dayalı modellerinizi kullanıma hazır web hizmetleri olarak dağıtmada kullanabileceğiniz tam olarak yönetilen bir hizmet de sunar. Azure Machine Learning, tamamlanmış tahmine dayalı analiz çözümlerini bulutta oluşturmak için araçlar sağlar: Tahmine dayalı modelleri hızla oluşturun, test edin, faaliyete geçirin ve yönetin.
-
-[!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+Azure Machine Learning tahmine dayalı analiz modellemeye yönelik araçlar sağlamanın yanı sıra, tahmine dayalı modellerinizi kullanıma hazır web hizmetleri olarak dağıtmada kullanabileceğiniz tam olarak yönetilen bir hizmet de sunar.
 
 ## <a name="what-is-predictive-analytics"></a>Tahmine dayalı analiz nedir?
-Tahmine dayalı analiz, gelecekte gerçekleşecek olayları öngörmek için geçmişe dönük veya güncel verilerdeki desenleri ya da eğilimleri çözümleyen ve algoritma adı verilen çeşitli matematik formülleri kullanır.
+Tahmine dayalı analiz, gelecekte gerçekleşecek olayları öngörmek için geçmişe dönük veya güncel verilerdeki desenleri ya da eğilimleri çözümleyen ve algoritma adı verilen matematik formülleri kullanır.
 
-Azure Machine Learning, tahmine dayalı analiz gerçekleştirmede özellikle güçlü bir yöntemdir: Kullanıma hazır algoritma kitaplığıyla çalışabilir, İnternet'e bağlı bir bilgisayarda algoritmalar kullanarak modeller oluşturabilir ve tahmine dayalı çözümünüzü hızla dağıtabilirsiniz. Hızla sonuç almak için [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/)’deki kullanıma hazır örnekler ve çözümlerle çalışmaya başlayın.
-
-## <a name="build-complete-machine-learning-solutions-in-the-cloud"></a>Bulutta eksiksiz makine öğrenimi çözümleri oluşturma
-Azure Machine Learning, büyük bir algoritma kitaplığından model oluşturmaya yönelik bir stüdyoya ve modelinizi bir web hizmeti olarak dağıtmanın kolay bir yoluna kadar, bulutta tahmine dayalı analiz çözümleri oluşturmada ihtiyacınız olan her şeyi içerir.
+## <a name="tools-to-build-complete-machine-learning-solutions-in-the-cloud"></a>Bulutta eksiksiz makine öğrenimi çözümleri oluşturma araçları
+Azure Machine Learning, büyük bir algoritma kitaplığından model oluşturmaya yönelik bir stüdyoya ve modelinizi bir web hizmeti olarak dağıtmanın kolay bir yoluna kadar, bulutta kapsamlı tahmine dayalı analiz çözümleri oluşturmada ihtiyacınız olan her şeyi içerir. Tahmine dayalı modelleri hızlıca oluşturun, test edin, faaliyete geçirin ve yönetin.
 
 ### <a name="machine-learning-studio-create-predictive-models"></a>Machine Learning Studio: Tahmine dayalı modeller oluşturma
-[Machine Learning Studio](machine-learning-what-is-ml-studio.md)'da modülleri sürükleyerek, bırakarak ve bağlayarak hızla tahmine dayalı modeller oluşturabilirsiniz. Farklı birleşimlerle denemeler yapmak kolaydır ve [ücretsiz denersiniz](https://studio.azureml.net/?selectAccess=true&o=2).
+[Machine Learning Studio](machine-learning-what-is-ml-studio.md)'da modülleri sürükleyerek, bırakarak ve bağlayarak hızla tahmine dayalı modeller oluşturabilirsiniz. Farklı birleşimlerle denemeler yapabilir ve [ücretsiz deneyebilirsiniz](https://studio.azureml.net/?selectAccess=true&o=2).
 
 * [Cortana Intelligence Gallery](machine-learning-gallery-how-to-use-contribute-publish.md)’de başkaları tarafından yazılan analiz çözümlerini deneyebilir veya kendi çözümlerinizle katkı sağlayabilirsiniz. Denemeler hakkında topluluğa soru veya yorum gönderin ya da LinkedIn ve Twitter gibi sosyal ağlar aracılığıyla deneme bağlantılarını paylaşın.
-  
+
   ![Azure Cortana Intelligence Galerisi'nde tahmine dayalı denemeleri deneyin veya kendinizinkini paylaşın.](./media/machine-learning-what-is-machine-learning/machine-learning-cortana-intelligence-gallery.png)
 * Tahmine dayalı modellerinizi hızla başlatmak için Machine Learning Studio'daki büyük [Machine Learning algoritmaları ve modülleri](https://msdn.microsoft.com/library/azure/f5c746fd-dcea-4929-ba50-2a79c4c067d7) kitaplığını kullanın. Örnek denemeler, R ve Python paketleri, Xbox ve Bing gibi Microsoft işletmelerinden en iyi sınıf algoritmalar arasından seçim yapın. Özel [R](machine-learning-r-quickstart.md) ve [Python](machine-learning-execute-python-scripts.md) betiklerinizle Studio modüllerini genişletin.
-  
+
   ![Tahmine dayalı analiz nedir? Azure Machine Learning Studio'da tahmine dayalı bir analiz denemesi örneği](./media/machine-learning-what-is-machine-learning/azure-machine-learning-studio-predictive-score-experiment.png)
 
-### <a name="operationalize-predictive-analytics-solutions-purchase-web-services-or-publish-your-own"></a>Tahmine dayalı analiz çözümlerini faaliyete geçirme: Web hizmetleri satın alma veya kendinizinkini yayımlama
-* [Microsoft Azure Market](https://datamarket.azure.com/browse?query=machine+learning)'ten Öneriler, Metin Analizleri ve Anomali Algılama gibi kullanıma hazır web hizmetlerini satın alın.
-* Tahmine dayalı analiz modellerinizi faaliyete geçirme:
-  
-  * [Web hizmetlerini dağıtma](machine-learning-publish-a-machine-learning-web-service.md)
-  * [API'ler aracılığıyla modelleri eğitme ve yeniden eğitme](machine-learning-retrain-models-programmatically.md)
-  * [Web hizmeti uç noktalarını yönetme](machine-learning-create-endpoint.md)
-  * [Bir web hizmetini ölçeklendirme](machine-learning-scaling-webservice.md)
-  * [Web hizmetlerini kullanma](machine-learning-consume-web-services.md)
+### <a name="operationalize-predictive-analytics-solutions-by-publishing-your-own"></a>Tahmine dayalı analiz çözümlerini faaliyete geçirmek için kendi çözümünüzü yayımlayın
+Aşağıdaki öğreticiler, tahmine dayalı analiz modellerinizi nasıl faaliyete geçireceğinizi göstermektedir:
+
+ * [Web hizmetlerini dağıtma](machine-learning-publish-a-machine-learning-web-service.md)
+ * [API'ler aracılığıyla modelleri yeniden eğitme](machine-learning-retrain-models-programmatically.md)
+ * [Web hizmeti uç noktalarını yönetme](machine-learning-create-endpoint.md)
+ * [Bir web hizmetini ölçeklendirme](machine-learning-scaling-webservice.md)
+ * [Web hizmetlerini kullanma](machine-learning-consume-web-services.md)
 
 ## <a name="key-machine-learning-terms-and-concepts"></a>Önemli makine öğrenimi terimleri ve kavramları
 Makine öğrenimi terimleri kafanızı karıştırabilir. Size yardımcı olmak açısından önemli terimlerin tanımları aşağıda verilmiştir. Tanımlanmasını istediğiniz başka terim varsa aşağıdaki yorumları kullanarak bize bildirebilirsiniz.
 
 ### <a name="data-exploration-descriptive-analytics-and-predictive-analytics"></a>Veri keşfi, açıklayıcı analiz ve tahmine dayalı analiz
-**Veri keşfi**, odaklı analiz için özellikler bulmak amacıyla büyük ve genellikle yapılandırılmamış veri kümeleri hakkında bilgi toplama işlemidir. **Veri madenciliği**, otomatik veri keşfine başvurur.
+
+**Veri keşfi**, odaklı analiz için özellikler bulmak amacıyla büyük ve genellikle yapılandırılmamış veri kümeleri hakkında bilgi toplama işlemidir.
+
+**Veri madenciliği**, otomatik veri keşfine başvurur.
 
 **Açıklayıcı analiz**, ne olduğunu özetlemek için bir veri kümesini analiz etme işlemidir. Satış raporları, web ölçümleri ve sosyal ağ analizleri gibi iş analizlerinin büyük bir çoğunluğu açıklayıcıdır.
 
@@ -115,6 +115,6 @@ Tahmine dayalı analizin ve makine öğreniminin temellerini, [adım adım öğr
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/25/2016
-ms.author: sdanie
+ms.date: 12/15/2016
+ms.author: apimpm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: c8cdb37fceb7b598c92b7b3cd41655c87c74e639
+ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
+ms.openlocfilehash: d4ba7c276b0ad8539cfbad9b9a6afe193af3a0b8
 
 
 ---
@@ -31,13 +31,13 @@ Bu kılavuz size API’nize yanıt önbelleğe alma eklemeyi ve örnek Echo API 
 > 
 
 ## <a name="prerequisites"></a>Ön koşullar
-Bu kılavuzdaki adımları izlemeden önce, API ve ürün yapılandırılmış bir API Management hizmeti örneğine sahip olmalısınız. Henüz bir API Management hizmet örneği oluşturmadıysanız [Azure API Management’i kullanmaya başlama][Azure API Management’i kullanmaya başlama] öğreticisindeki [API Management hizmet örneği oluşturma][API Management hizmet örneği oluşturma] bölümüne bakın.
+Bu kılavuzdaki adımları izlemeden önce, API ve ürün yapılandırılmış bir API Management hizmeti örneğine sahip olmalısınız. Henüz bir API Management hizmeti örneği oluşturmadıysanız, [Azure API Management'i kullanmaya başlama][Get started with Azure API Management] öğreticisinde [API Management hizmet örneği oluşturma][Create an API Management service instance]'ya bakın.
 
 ## <a name="configure-caching"> </a>Önbelleğe almak için bir işlemi yapılandırma
 Bu adımda, örnek Echo API’sinin **GET Kaynağı (önbelleğe alınmış)** işleminin önbelleğe alma ayarlarını inceleyeceksiniz.
 
 > [!NOTE]
-> Her API Management hizmeti örneği, API Management’i denemek ve hakkında bilgi almak için kullanılabilecek bir Echo API’si ile önceden yapılandırılmış olarak gelir. Daha fazla bilgi için bkz. [Azure API Management’i kullanmaya başlama][Azure API Management’i kullanmaya başlama].
+> Her API Management hizmeti örneği, API Management’i denemek ve hakkında bilgi almak için kullanılabilecek bir Echo API’si ile önceden yapılandırılmış olarak gelir. Daha fazla bilgi için bkz. [Azure API Management'i kullanmaya başlama][Get started with Azure API Management].
 > 
 > 
 
@@ -80,20 +80,22 @@ Bu, bu işlemin ilkelerini ilke düzenleyicisinde görüntüler.
 
 Bu işlem için ilke tanımı, önceki adımda **Önbelleğe alma** sekmesi kullanılarak gözden geçirilen önbelleğe alma yapılandırmasını tanımlayan ilkeleri içerir.
 
-    <policies>
-        <inbound>
-            <base />
-            <cache-lookup vary-by-developer="false" vary-by-developer-groups="false">
-                <vary-by-header>Accept</vary-by-header>
-                <vary-by-header>Accept-Charset</vary-by-header>
-            </cache-lookup>
-            <rewrite-uri template="/resource" />
-        </inbound>
-        <outbound>
-            <base />
-            <cache-store caching-mode="cache-on" duration="3600" />
-        </outbound>
-    </policies>
+```xml
+<policies>
+    <inbound>
+        <base />
+        <cache-lookup vary-by-developer="false" vary-by-developer-groups="false">
+            <vary-by-header>Accept</vary-by-header>
+            <vary-by-header>Accept-Charset</vary-by-header>
+        </cache-lookup>
+        <rewrite-uri template="/resource" />
+    </inbound>
+    <outbound>
+        <base />
+        <cache-store caching-mode="cache-on" duration="3600" />
+    </outbound>
+</policies>
+```
 
 > [!NOTE]
 > İlk düzenleyicisinde önbelleğe alma ilkelerinde yapılan değişiklikler işlemin **Önbelleğe alma** sekmesinde yansıtılır ve bu durumun tersi de geçerlidir.
@@ -138,7 +140,7 @@ Konsol, işlemleri doğrudan geliştirici portalından çağırmanızı sağlar.
 Yanıttaki **sampleheader** değerinin artık **value2** olduğuna dikkat edin. İşlem sonuçları sorgu dizesi tarafından anahtarlandığından, önceki önbelleğe alınan yanıt döndürülmedi.
 
 ## <a name="next-steps"> </a>Sonraki adımlar
-* Önbelleğe alma ilkeleri hakkında daha fazla bilgi için [API Management ilke başvurusu][API Management ilke başvurusu] içindeki [Önbelleğe alma ilkeleri][Önbelleğe alma ilkeleri] bölümüne bakın .
+* Önbelleğe alma ilkeleri hakkında daha fazla bilgi için bkz. [API Management ilke başvurusunda][API Management policy reference] [Önbelleğe alma ilkeleri][Caching policies].
 * Anahtar kullanım ilkesi ifadeleri hakkında daha fazla bilgi için bkz. [Azure API Management’te özel önbelleğe alma](api-management-sample-cache-by-key.md).
 
 [api-management-management-console]: ./media/api-management-howto-cache/api-management-management-console.png
@@ -153,25 +155,25 @@ Yanıttaki **sampleheader** değerinin artık **value2** olduğuna dikkat edin. 
 [api-management-console]: ./media/api-management-howto-cache/api-management-console.png
 
 
-[API'ye işlem ekleme]: api-management-howto-add-operations.md
-[Ürün ekleme ve yayımlama]: api-management-howto-add-products.md
-[İzleme ve analiz]: api-management-monitoring.md
-[Ürüne API ekleme]: api-management-howto-add-products.md#add-apis
-[Ürün yayımlama]: api-management-howto-add-products.md#publish-product
-[Azure API Management’i kullanmaya başlama]: api-management-get-started.md
+[How to add operations to an API]: api-management-howto-add-operations.md
+[How to add and publish a product]: api-management-howto-add-products.md
+[Monitoring and analytics]: api-management-monitoring.md
+[Add APIs to a product]: api-management-howto-add-products.md#add-apis
+[Publish a product]: api-management-howto-add-products.md#publish-product
+[Get started with Azure API Management]: api-management-get-started.md
 
-[API Management ilke başvurusu]: https://msdn.microsoft.com/library/azure/dn894081.aspx
-[Önbelleğe alma ilkeleri]: https://msdn.microsoft.com/library/azure/dn894086.aspx
+[API Management policy reference]: https://msdn.microsoft.com/library/azure/dn894081.aspx
+[Caching policies]: https://msdn.microsoft.com/library/azure/dn894086.aspx
 
-[API Management hizmet örneği oluşturma]: api-management-get-started.md#create-service-instance
+[Create an API Management service instance]: api-management-get-started.md#create-service-instance
 
-[Önbelleğe almak üzere bir işlemi yapılandırma]: #configure-caching
-[Önbelleğe alma ilkelerini gözden geçirme]: #caching-policies
-[İşlem çağırma ve önbelleğe almayı test etme]: #test-operation
-[Sonraki adımlar]: #next-steps
+[Configure an operation for caching]: #configure-caching
+[Review the caching policies]: #caching-policies
+[Call an operation and test the caching]: #test-operation
+[Next steps]: #next-steps
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

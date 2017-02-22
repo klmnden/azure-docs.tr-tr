@@ -1,47 +1,64 @@
 # Genel Bakış
-
 ## [Event Hubs nedir?](event-hubs-what-is-event-hubs.md)
-## [Event Hubs’a genel bakış](event-hubs-overview.md)
-## [Event Hubs API’sine genel bakış](event-hubs-api-overview.md)
-## [Kimlik doğrulama ve güvenlik modeline genel bakış](event-hubs-authentication-and-security-model-overview.md)
-
+## [SSS](event-hubs-faq.md)
 
 # Kullanmaya Başlama
-## [Event Hubs kullanmaya başlayın](event-hubs-csharp-ephcs-getstarted.md)
-## [Event Hubs programlama kılavuzu](event-hubs-programming-guide.md)
-## [Event Hubs ile ilgili SSS](event-hubs-faq.md)
+## [Olay Hub’ı oluşturma](event-hubs-create.md)
+## Olayları gönderme
+### [.NET Standard](event-hubs-dotnet-standard-getstarted-send.md)
+### [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md)
+### [Java](event-hubs-java-get-started-send.md)
+### [C](event-hubs-c-getstarted-send.md)
+## Olayları alma
+### [.NET Standard](event-hubs-dotnet-standard-getstarted-receive-eph.md)
+### [.NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md)
+### [Java](event-hubs-java-get-started-receive-eph.md)
+### [Apache Storm](event-hubs-storm-getstarted-receive.md)
+## [Programlama kılavuzu](event-hubs-programming-guide.md)
 
 # Nasıl yapılır?
-## Örnekleri çalıştırma
-### [Algılayıcılardan gelen verileri kullanıcılara bildirme](event-hubs-sensors-notify-users.md)
-### [Event Hubs örnek uygulaması](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097)
-### [Event Hubs örnek uygulaması ile Olay İşleme ölçeğini genişletme](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3)
-
+## Planlama ve tasarım
+### [Event Hubs Dedicated](event-hubs-dedicated-overview.md)
+### [Kimlik doğrulama ve güvenlik modeline genel bakış](event-hubs-authentication-and-security-model-overview.md)
+## Geliştirme
+### [Kullanılabilir API’ler](event-hubs-api-overview.md)
+#### [.NET Standard](event-hubs-dotnet-standard-api-overview.md)
+#### [.NET Framework](event-hubs-dotnet-framework-api-overview.md)
+#### [Tanılama günlükleri](event-hubs-diagnostic-logs.md)
+### [Kimlik doğrulama ve yetkilendirme](../service-bus-messaging/service-bus-sas.md)
+### [AMQP 1.0 protokol kılavuzu](../service-bus-messaging/service-bus-amqp-protocol-guide.md)
 ## Yönet
 ### [Event Hubs yönetim kitaplıkları](event-hubs-management-libraries.md)
-### [Event Hubs Arşivi](event-hubs-archive-overview.md)
-### [Şablon kullanarak Event Hubs Arşivini etkinleştirme](event-hubs-resource-manager-namespace-event-hub-enable-archive.md)
+### Arşiv
+#### [Event Hubs Arşivi](event-hubs-archive-overview.md)
+#### [Şablon kullanarak Event Hubs Arşivini etkinleştirme](event-hubs-resource-manager-namespace-event-hub-enable-archive.md)
+#### [Python kullanarak Event Hubs Arşivini etkinleştirme](event-hubs-archive-python.md)
 ### [Event Hubs’ı kullanarak Azure Tanılama verilerinin akışını yapma](event-hubs-streaming-azure-diags-data.md)
 ### [Resource Manager şablonu kullanarak bir Event Hub’ı oluşturup dağıtma](event-hubs-resource-manager-namespace-event-hub.md)
-### [Python kullanarak Event Hubs Arşivini etkinleştirme](event-hubs-archive-python.md)
 
 # Başvuru
-## [.NET](/dotnet/api/microsoft.azure.eventhubs)
-## [Java](/java/api/com.microsoft.azure.eventhubs)
+## .NET
+### [Microsoft.Azure.EventHubs](/dotnet/api/microsoft.azure.eventhubs)
+### [Microsoft.Azure.EventHubs.Processor](/dotnet/api/microsoft.azure.eventhubs.processor)
+### [Microsoft.ServiceBus.Messaging](/dotnet/api/microsoft.servicebus.messaging)
+### [Microsoft.Azure.ServiceBus.EventProcessorHost](/dotnet/api/microsoft.azure.servicebus.eventprocessorhost)
+### [Microsoft.Azure.Management.EventHub](/dotnet/api/microsoft.azure.management.eventhub)
+## Java
+### [com.microsoft.azure.eventhubs](/java/api/com.microsoft.azure.eventhubs)
+### [com.microsoft.azure.eventprocessorhost](/java/api/com.microsoft.azure.eventprocessorhost)
 ## [REST](/rest/api/eventhub)
+## [Özel Durumlar](event-hubs-messaging-exceptions.md)
+## [Kotalar](event-hubs-quotas.md)
 
 # Kaynaklar
-## [Kotalar ve sınırlar](event-hubs-quotas.md)
-## [Mesajlaşma özel durumları](event-hubs-messaging-exceptions.md)
-## [AMQP1.0 protokol kılavuzu](../service-bus-messaging/service-bus-amqp-protocol-guide.md)
-## [Fiyatlandırma](https://azure.microsoft.com/en-us/pricing/details/event-hubs/)
+## [Kod örnekleri](event-hubs-samples.md)
+## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/event-hubs/)
 ## [Öğrenme yolu](https://azure.microsoft.com/documentation/learning-paths/event-hubs/)
-## [Service Bus Explorer](https://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a)
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=event-hubs)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-eventhub)
 ## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=event-hubs)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

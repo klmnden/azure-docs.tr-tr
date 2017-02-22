@@ -1,7 +1,7 @@
 ## <a name="deploy-the-arm-template-by-using-powershell"></a>PowerShell kullanarak ARM şablonu dağıtma
 PowerShell kullanarak yüklediğiniz ARM şablonunu dağıtmak için aşağıdaki adımları izleyin.
 
-1. Daha önce Azure PowerShell kullanmadıysanız, [Azure PowerShell’i Yükleme ve Yapılandırma](../articles/powershell-install-configure.md) sayfasına gidin ve Azure’da oturum açıp aboneliğinizi seçmek için talimatları sonuna kadar uygulayın.
+1. Daha önce Azure PowerShell kullanmadıysanız, [Azure PowerShell’i Yükleme ve Yapılandırma](/powershell/azureps-cmdlets-docs) sayfasına gidin ve Azure’da oturum açıp aboneliğinizi seçmek için talimatları sonuna kadar uygulayın.
 2. Gerekirse, yeni bir kaynak grubu oluşturmak için **`New-AzureRmResourceGroup`** cmdlet’ini çalıştırın. Aşağıdaki komut, *TestRG* adıyla, *Orta ABD* Azure bölgesinde bir kaynak grubu oluşturur. Kaynak grupları hakkında daha fazla bilgi için [Azure Resource Manager’a Genel Bakış](../articles/azure-resource-manager/resource-group-overview.md)’ı ziyaret edin.
    
         New-AzureRmResourceGroup -Name TestRG -Location centralus
@@ -87,6 +87,6 @@ PowerShell kullanarak yüklediğiniz ARM şablonunu dağıtmak için aşağıdak
                               }
                             ]
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -1,13 +1,25 @@
 ---
+title: "Azure Analysis Services Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
+description: "Bulutta Analysis Services ile veri modellemesi ayarlamayı öğrenin. Belgelerde, tablosal verileri kullanarak kurumsal BI çözümü oluşturmaya ilişkin bilgiler sunulmuştur."
+services: analysis-services
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: analysis-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: a10f328258bfe7d34d0807d4e15aa4a8ce5bbafb
+ms.sourcegitcommit: 565dfcc4ca69badecff981057681bb7bd61d048d
+ms.openlocfilehash: 931102cca5799d0117fdaf056ac479edac8de776
 
 ---
 # <a name="analysis-services-documentation"></a>Analysis Services Belgeleri
 
-Microsoft SQL Server Analysis Services hizmetindeki kendini kanıtlamış analitik altyapıyı temel alan Azure Analysis Services, bulutta kurumsal düzeyde veri modelleme olanağı sağlar.
+Analysis Services ile veri modelleme ayarlama ve yönetme hakkında bilgi edinin. Öğreticilerde ve diğer belgelerde, buluttaki veya şirket içindeki tablosal verileri kullanarak kurumsal sınıf bir BI çözümünü nasıl oluşturabileceğiniz açıklanmıştır.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -76,7 +88,7 @@ Microsoft SQL Server Analysis Services hizmetindeki kendini kanıtlamış analit
                 <div class="card">
                     <div class="cardText">
                         <h3>Komut Satırı</h3>
-                        <p><a href="/powershell/resourcemanager">PowerShell</a></p>
+                        <p><a href="/azure/analysis-services/analysis-services-powershell">PowerShell</a></p>
                     </div>
                 </div>
             </div>
@@ -88,7 +100,7 @@ Microsoft SQL Server Analysis Services hizmetindeki kendini kanıtlamış analit
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/analysisservices/">REST API Başvurusu</a></p>
+                        <p><a href="/rest/api/analysisservices/">REST API başvurusu</a></p>
                     </div>
                 </div>
             </div>
@@ -96,18 +108,10 @@ Microsoft SQL Server Analysis Services hizmetindeki kendini kanıtlamış analit
     </li>
 </ul>
 
----
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/analysis-services.pdf">
-        <div class="img"></div>
-        <div class="text">
-Analysis Services Belgelerini indirin </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Feb17_HO2-->
 
 

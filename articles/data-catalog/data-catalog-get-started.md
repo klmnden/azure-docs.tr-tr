@@ -366,6 +366,6 @@ Bu öğreticide, kurumsal veri varlıklarını kaydetme, bulma, yönetme ve bunl
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

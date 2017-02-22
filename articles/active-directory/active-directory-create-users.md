@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/22/2016
+ms.date: 02/10/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: f3787f72dbd8ee865899b71538816d2e8d30af32
+ms.sourcegitcommit: 8f171456f74925eba16ebd6f56ced558a11f9d99
+ms.openlocfilehash: 6c366a2b7e5017bbe67cf1dbefc0baec6cf1aed3
 
 
 ---
@@ -28,7 +28,7 @@ Dizininizi doldurmak için kullanıcılar ekleyin. Bu makalede kuruluşunuzdaki 
 2. **Active Directory**'yi seçin ve ardından kuruluş dizininizin adını seçin.
 3. **Users (Kullanıcılar)** sekmesini seçin ve ardından komut çubuğunda **Add User (Kullanıcı Ekle)** seçeneğini belirleyin.
 4. **Tell us about this user (Bu kullanıcı hakkındaki görüşlerinizi bize bildirin)** sayfasında, **Type of user (Kullanıcı türü)** kısmında aşağıdaki seçeneklerden birini belirleyin:
-   
+
    * **New user in your organization (Kuruluşunuzdaki yeni kullanıcı)** - dizininize yeni bir kullanıcı hesabı ekler.
    * **User with an existing Microsoft account (Var olan bir Microsoft hesabı olan kullanıcı)** - Var olan bir Microsoft tüketici hesabını dizininize ekler (örneğin, bir Outlook hesabı)
 5. **Type of User (Kullanıcı Türü)** seçeneğine bağlı olarak, bir kullanıcı adı (yeni kullanıcı için) veya bir e-posta adresi (Microsoft hesabı olan bir kullanıcı için) girin.
@@ -37,11 +37,11 @@ Dizininizi doldurmak için kullanıcılar ekleyin. Bu makalede kuruluşunuzdaki 
 
 > [!IMPORTANT]
 > Kuruluşunuz birden fazla etki alanı kullanıyorsa bir kullanıcı hesabını eklerken aşağıdakileri bilmeniz gerekir:
-> 
-> * Etki alanları arasında aynı kullanıcı asıl adına (UPN) sahip kullanıcı hesaplarını eklemek için örnek olarak **önce** geoffgrisso@contoso.onmicrosoft.com,, **ardından** geoffgrisso@contoso.com. ekleyin.
-> * geoffgrisso@contoso.onmicrosoft.com. eklemeden önce geoffgrisso@contoso.com **eklemeyin**. Bu sıra önemlidir, sıralamanın geri alınması ise çok uğraşmayı gerektirebilir.
-> 
-> 
+>
+> * Etki alanlarında aynı kullanıcı asıl adına (UPN) sahip kullanıcı hesapları eklemek için, örneğin, **önce** geoffgrisso@contoso.onmicrosoft.com, ve **ardından** geoffgrisso@contoso.com ekleyin.
+> * geoffgrisso@contoso.onmicrosoft.com eklemeden önce geoffgrisso@contoso.com **eklemeyin**. Bu sıra önemlidir, sıralamanın geri alınması ise çok uğraşmayı gerektirebilir.
+>
+>
 
 ## <a name="change-user-information"></a>Kullanıcı bilgilerini değiştirme
 Nesne kimliği dışındaki tüm kullanıcı özniteliklerini değiştirebilirsiniz.
@@ -87,6 +87,6 @@ Ardından konuk kullanıcıların erişimini denetleme seçeneklerini düzenleye
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

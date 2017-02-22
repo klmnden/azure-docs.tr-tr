@@ -21,11 +21,14 @@
 ## Uygulama oluşturma
 ### [Modeller ve senaryolar](service-fabric-patterns-and-scenarios.md)
 ### Temel Bilgiler
-#### [Programlama modeli](service-fabric-choose-framework.md)
 #### [Uygulama modeli](service-fabric-application-model.md)
+#### [Desteklenen programlama modeli](service-fabric-choose-framework.md)
+#### [Hizmet durumu](service-fabric-concepts-state.md)
 #### [Hizmet iletişimleri](service-fabric-connect-and-communicate-with-services.md)
+#### [Web ön ucu ekleme](service-fabric-add-a-web-frontend.md)
 #### [Hizmet bildirimi kaynakları](service-fabric-service-manifest-resources.md)
-#### [Araçlar](service-fabric-manage-application-in-visual-studio.md)
+#### [Visual Studio’da uygulama yönetme](service-fabric-manage-application-in-visual-studio.md)
+#### [Visual Studio'da güvenli bağlantı yapılandırma](service-fabric-visualstudio-configure-secure-connections.md)
 #### Hata ayıklama
 ##### [VS’de C# hizmeti hata ayıklaması](service-fabric-debugging-your-application.md)
 ##### [Eclipse’te Java hizmeti hata ayıklaması](service-fabric-debugging-your-application-java.md)
@@ -36,6 +39,15 @@
 #### [Uygulamanıza yönelik güvenlik ilkeleri yapılandırma](service-fabric-application-runas-security.md)  
 #### [Uygulamanızı birden çok ortam için yapılandırma](service-fabric-manage-multiple-environment-app-configuration.md)  
 #### [Genel hatalar ve özel durumlar](service-fabric-errors-and-exceptions.md) 
+
+### Konuk tarafından yürütülebilir uygulama
+#### [Konuk tarafından yürütülebilir bir uygulama dağıtma](service-fabric-deploy-existing-app.md)
+#### [Konuk tarafından yürütülebilir birden çok uygulama dağıtma](service-fabric-deploy-multiple-apps.md)
+
+### Kapsayıcı uygulaması
+#### [Genel Bakış](service-fabric-containers-overview.md)
+#### [Windows kapsayıcısı dağıtma](service-fabric-deploy-container.md)
+#### [Docker kapsayıcısı dağıtma](service-fabric-deploy-container-linux.md)
 
 ### Reliable Service uygulaması
 #### [Genel Bakış](service-fabric-reliable-services-introduction.md)
@@ -73,15 +85,6 @@
 #### [Türü seri hale getirme](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
 #### [İletişim ayarlarını yapılandırma](service-fabric-reliable-actors-fabrictransportsettings.md) 
 
-### Konuk tarafından yürütülebilir uygulama
-#### [Konuk tarafından yürütülebilir bir uygulama dağıtma](service-fabric-deploy-existing-app.md)
-#### [Konuk tarafından yürütülebilir birden çok uygulama dağıtma](service-fabric-deploy-multiple-apps.md)
-
-### Kapsayıcı uygulaması
-#### [Genel Bakış](service-fabric-containers-overview.md)
-#### [Windows kapsayıcısı dağıtma](service-fabric-deploy-container.md)
-#### [Docker kapsayıcısı dağıtma](service-fabric-deploy-container-linux.md)
-
 ## Cloud Services’tan geçiş
 ### [Cloud Services ile Service Fabric karşılaştırması](service-fabric-cloud-services-migration-differences.md)
 ### [Service Fabric’e geçme](service-fabric-cloud-services-migration-worker-role-stateless-service.md)
@@ -95,7 +98,7 @@
 #### [Küme görselleştirme](service-fabric-visualizing-your-cluster.md)
 #### [Güvenli bir kümeye bağlanma](service-fabric-connect-to-secure-cluster.md)
 #### [Azure CLI kullanarak bir kümeyi yönetme](service-fabric-azure-cli.md) 
-#### [Güvenlik](service-fabric-cluster-security.md)
+#### [Küme güvenliğini sağlama](service-fabric-cluster-security.md)
 #### [Olağanüstü durum kurtarma](service-fabric-disaster-recovery.md)
 
 ### Azure’da kümeler
@@ -108,6 +111,7 @@
 #### [Küme silme](service-fabric-cluster-delete.md)
 #### [Erişim denetimi](service-fabric-cluster-security-roles.md)
 #### [Küme yapılandırma](service-fabric-cluster-fabric-settings.md)
+#### [Sertifika kullanarak küme güvenliğini sağlama](service-fabric-windows-cluster-x509-security.md)
 #### [Küme sertifikası ekleme veya geçirme](service-fabric-cluster-security-update-certs-azure.md) 
 #### [Bir Parti Kümesi’ni ücretsiz olarak deneme](http://aka.ms/tryservicefabric)
 
@@ -116,30 +120,15 @@
 #### [Azure Sanal Makinelerde tek başına küme oluşturma](service-fabric-cluster-creation-with-windows-azure-vms.md)
 #### [Küme ölçeklendirme](service-fabric-cluster-windows-server-add-remove-nodes.md)
 #### [Kümeyi yükseltme](service-fabric-cluster-upgrade-windows-server.md)
-#### [Küme güvenliğini sağlama](service-fabric-windows-cluster-x509-security.md)
 #### [Erişim denetimi](service-fabric-cluster-security-roles.md)
 #### [Küme yapılandırma](service-fabric-cluster-manifest.md)
 #### [Sertifika kullanarak küme güvenliğini sağlama](service-fabric-windows-cluster-x509-security.md)  
 #### [Windows güvenliğini kullanarak küme güvenliğini sağlama](service-fabric-windows-cluster-windows-security.md) 
 
-## Küme kaynaklarını yönetme ve düzenleme
-### [Cluster Resource Manager’a genel bakış](service-fabric-cluster-resource-manager-introduction.md)
-### [Cluster Resource Manager mimarisi](service-fabric-cluster-resource-manager-architecture.md)
-### [Bir kümeyi tanımlama](service-fabric-cluster-resource-manager-cluster-description.md)
-### [Uygulama gruplarına genel bakış](service-fabric-cluster-resource-manager-application-groups.md)
-### [Cluster Resource Manager ayarlarını yapılandırma](service-fabric-cluster-resource-manager-configure-services.md)
-### [Kaynak tüketimi ölçümleri](service-fabric-cluster-resource-manager-metrics.md)
-### [Hizmet benzeşimi kullanımı](service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md)
-### [Hizmet yerleştirme ilkeleri](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md)
-### [Küme yönetme](service-fabric-cluster-resource-manager-management-integration.md)
-### [Küme birleştirme](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
-### [Küme Dengeleme](service-fabric-cluster-resource-manager-balancing.md)
-### [Azaltma](service-fabric-cluster-resource-manager-advanced-throttling.md)
-### [Hizmet taşıma](service-fabric-cluster-resource-manager-movement-cost.md)
-
 ## Uygulama yaşam döngüsünü yönetme
 ### [Genel Bakış](service-fabric-application-lifecycle.md)
 ### [Sürekli tümleştirme kurulumu](service-fabric-set-up-continuous-integration.md)
+### [ImageStoreConnectionString ayarını anlama](service-fabric-image-store-connection-string.md)
 ### Uygulama dağıtma veya kaldırma
 #### [PowerShell](service-fabric-deploy-remove-applications.md)
 #### [Visual Studio](service-fabric-publish-app-remote-cluster.md)
@@ -161,6 +150,7 @@
 ### [Sistem durumu raporlarını görüntüleme](service-fabric-view-entities-aggregated-health.md)
 
 ## İzleme ve tanılama
+### [İzleme ve tanılama uygulamaları](service-fabric-diagnostics-overview.md)
 ### Hizmetleri yerel olarak izleme ve tanılama
 #### [Windows](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 #### [Linux](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
@@ -168,8 +158,8 @@
 #### [Windows](service-fabric-diagnostics-how-to-setup-wad.md)
 #### [Linux](service-fabric-diagnostics-how-to-setup-lad.md)
 ### [Bir hizmet işleminden günlük toplama](service-fabric-diagnostic-collect-logs-without-an-agent.md)
-### [Reliable Actors hizmetinde tanılama](service-fabric-reliable-actors-diagnostics.md)
 ### [Durum bilgisi olan Reliable Services özelliğinde tanılama](service-fabric-reliable-services-diagnostics.md)
+### [Reliable Actors hizmetinde tanılama](service-fabric-reliable-actors-diagnostics.md)
 ### [Yerel kümenizde sorun giderme](service-fabric-troubleshoot-local-cluster-setup.md)
 ### [Yerel kümenizde sorun giderme](service-fabric-diagnostics-troubleshoot-common-scenarios.md)
 
@@ -191,6 +181,21 @@
 #### [Düğüm geçişi API’lerini kullanma](service-fabric-node-transition-apis.md)
 ### [Uygulamanıza yük testi yapma](service-fabric-vso-load-test.md)
 
+## Küme kaynaklarını yönetme ve düzenleme
+### [Cluster Resource Manager’a genel bakış](service-fabric-cluster-resource-manager-introduction.md)
+### [Cluster Resource Manager mimarisi](service-fabric-cluster-resource-manager-architecture.md)
+### [Bir kümeyi tanımlama](service-fabric-cluster-resource-manager-cluster-description.md)
+### [Uygulama gruplarına genel bakış](service-fabric-cluster-resource-manager-application-groups.md)
+### [Cluster Resource Manager ayarlarını yapılandırma](service-fabric-cluster-resource-manager-configure-services.md)
+### [Kaynak tüketimi ölçümleri](service-fabric-cluster-resource-manager-metrics.md)
+### [Hizmet benzeşimi kullanımı](service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md)
+### [Hizmet yerleştirme ilkeleri](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md)
+### [Küme yönetme](service-fabric-cluster-resource-manager-management-integration.md)
+### [Küme birleştirme](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
+### [Küme Dengeleme](service-fabric-cluster-resource-manager-balancing.md)
+### [Azaltma](service-fabric-cluster-resource-manager-advanced-throttling.md)
+### [Hizmet taşıma](service-fabric-cluster-resource-manager-movement-cost.md)
+
 # Başvuru
 ## [PowerShell](//powershell/servicefabric/vlatest/servicefabric)
 ## [Java API’si](/java/api/microsoft.servicefabric.services)
@@ -208,6 +213,6 @@
 ## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=service-fabric)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

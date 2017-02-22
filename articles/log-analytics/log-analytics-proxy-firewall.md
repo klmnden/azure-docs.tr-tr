@@ -1,5 +1,5 @@
 ---
-title: "Log Analytics&quot;te ara sunucu ve güvenlik duvarı ayarlarını yapılandırma | Microsoft Belgeleri"
+title: "Azure Log Analytics&quot;te ara sunucu ve güvenlik duvarı ayarlarını yapılandırma | Microsoft Docs"
 description: "Aracılarınız veya OMS hizmetlerinizin belirli bağlantı noktalarını kullanmaları gerektiğinde ara sunucu ve güvenlik duvarı ayarlarını yapılandırın."
 services: log-analytics
 documentationcenter: 
@@ -12,18 +12,26 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/06/2017
+ms.date: 02/10/2017
 ms.author: banders;magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: d5d86a0f7177b9a1e96e50a3e3e7d1f5800974bf
-ms.openlocfilehash: 427d5d7ed43f19611e99705dab33a0c80a8bf9f9
+ms.sourcegitcommit: 6a527fa303f1e2bd06ac662e545d6b6a1d299fb4
+ms.openlocfilehash: cd06dfd498540970dc8ed29650f4d9e3ca57939b
 
 
 ---
 # <a name="configure-proxy-and-firewall-settings-in-log-analytics"></a>Log Analytics'te ara sunucu ve güvenlik duvarı ayarlarını yapılandırma
-OMS'de Log Analytics için ara sunucu ve güvenlik duvarı ayarlarını yapılandırmak için gerekli olan işlemler, Operations Manager ve aracılarını kullanmanız durumunda sunuculara doğrudan bağlanan Microsoft İzleme Aracılarına göre farklılık gösterir. Kullandığınız aracı türüne göre aşağıdaki bölümleri gözden geçirin.
+Log Analytics için ara sunucu ve güvenlik duvarı ayarlarını yapılandırmaya yönelik eylemler, kullanmakta olduğunuz aracı türüne göre farklılık gösterir. Kullandığınız aracı türüne göre aşağıdaki bölümleri gözden geçirin.
 
-## <a name="configure-proxy-and-firewall-settings-with-the-microsoft-monitoring-agent"></a>Ara sunucu ve güvenlik duvarı ayarlarını Microsoft İzleme Aracısı ile yapılandırma
+## <a name="settings-for-the-oms-gateway"></a>OMS Ağ Geçidi ayarları
+
+Aracılarınız İnternet erişimine sahip değilse, kendi ağ kaynaklarını kullanarak verilerini OMS Ağ Geçidine gönderebilir. Ağ Geçidi bu verileri toplar ve aracılarınız adına OMS hizmetine gönderir.
+
+OMS Ağ Geçidi ile iletişim kuran aracıları, tam etki alanı adı ve özel noktası numarasını kullanarak yapılandırın.
+
+OMS Ağ Geçidi, İnternet erişimi gerektirir. OMS Ağ Geçidi için, sahip olduğunuz aracı türlerinde kullandığınız ara sunucu veya güvenlik duvarı ayarlarının aynısını kullanın. OMS Ağ Geçidi hakkında daha fazla bilgi için bkz. [OMS Ağ Geçidini kullanarak bilgisayar ve cihazları OMS’ye bağlama](log-analytics-oms-gateway.md).
+
+## <a name="configure-settings-with-the-microsoft-monitoring-agent"></a>Ayarları Microsoft İzleme Aracısı ile yapılandırma
 Microsoft İzleme Aracısının OMS hizmetine bağlanması ve kaydolması için etki alanlarınızın bağlantı noktası numarasına ve URL'lere erişimi olmalıdır. Aracı ile OMS hizmeti arasındaki iletişim için bir ara sunucu kullanıyorsanız uygun kaynakların erişilebilir olduğundan emin olmanız gerekir. İnternet'e erişimi kısıtlamak için güvenlik duvarı kullanıyorsanız OMS'ye erişime izin vermek için güvenlik duvarınızı yapılandırmanız gerekir. Aşağıdaki tablolar OMS'nin ihtiyaç duyduğu bağlantı noktalarını listeler.
 
 | **Aracı Kaynağı** | **Bağlantı Noktaları** | **HTTPS denetlemesini atlama** |
@@ -71,7 +79,7 @@ Aşağıdaki örneği kopyalayın, ortamınıza özgü bilgilerle güncelleştir
     $healthServiceSettings.SetProxyInfo($ProxyDomainName, $ProxyUserName, $cred.GetNetworkCredential().password)
 
 
-## <a name="configure-proxy-and-firewall-settings-with-operations-manager"></a>Ara sunucu ve güvenlik duvarı ayarlarını Operations Manager ile yapılandırma
+## <a name="configure-settings-with-operations-manager"></a>Ayarları Operations Manager ile yapılandırma
 Bir Operations Manager yönetim grubunun OMS hizmetine bağlanması ve kaydolması için etki alanlarınızın bağlantı noktası numarasına ve URL'lere erişimi olmalıdır. Operations Manager yönetim sunucusu ile OMS hizmeti arasındaki iletişim için bir ara sunucu kullanıyorsanız uygun kaynakların erişilebilir olduğundan emin olmanız gerekir. İnternet'e erişimi kısıtlamak için güvenlik duvarı kullanıyorsanız OMS'ye erişime izin vermek için güvenlik duvarınızı yapılandırmanız gerekir. Operations Manager yönetim sunucusu bir ara sunucunun arkasında olmasa bile, aracıları öyle olabilir. Bu durumda, Güvenlik ve Günlük Yönetimi çözümü verilerinin OMS web hizmetine gönderilebilmesi için ara sunucunun aracılarla aynı şekilde yapılandırılmış olması gerekir.
 
 Operations Manager aracılarının OMS hizmetiyle iletişim kurabilmesi için, Operations Manager altyapınızın (aracılar dahil) doğru ara sunucu ayarları ve sürümüne sahip olması gerekir. Aracılara ilişkin ara sunucu ayarları Operations Manager konsolunda belirtilmiştir. Sürümünüz şunlardan biri olmalıdır:
@@ -180,6 +188,6 @@ Operations Manager yönetim sunucusunda şu Windows PowerShell komutunu kullanar
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

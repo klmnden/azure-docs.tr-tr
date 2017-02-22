@@ -16,8 +16,8 @@ ms.workload: data-management
 ms.date: 02/01/2017
 ms.author: carlrab; jognanay
 translationtype: Human Translation
-ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
-ms.openlocfilehash: c153f09741b9b063d67459bbb127f9c4e7942a5b
+ms.sourcegitcommit: 5d51a5ef3387b4c00079547b0f44ffe1f96bd77c
+ms.openlocfilehash: 5d8fa8328bb2257b77a27fc2fa33565e20000e10
 
 
 ---
@@ -47,7 +47,7 @@ V12'ye özellik eklemeye devam ediyoruz. Bu nedenle Azure için Hizmet Güncelle
 * SQL Veritabanı özellikleri için Genel Kullanılabilirlik [(GA) duyuruları](http://azure.microsoft.com/updates/?service=sql-database&update-type=general-availability).
 
 > [!TIP]
-> Var olan bir veritabanının Azure SQL Veritabanı ile uyumlu olup olmadığını test etmek için bkz. [Azure SQL Veritabanı uyumluluğunu doğrulama](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md).
+> Var olan bir veritabanının Azure SQL Veritabanı ile uyumlu olup olmadığını test etmek için bkz. [SQL Veritabanını Azure’a geçirme](sql-database-cloud-migrate.md).
 >
 
 | **Özellik** | **SQL Server** | **Azure SQL Veritabanı** | 
@@ -57,12 +57,12 @@ V12'ye özellik eklemeye devam ediyoruz. Bu nedenle Azure için Hizmet Güncelle
 | AlwaysOn Kullanılabilirlik Grupları | [Destekleniyor](https://msdn.microsoft.com/library/hh510230.aspx) | Desteklenmiyor - Bkz. [Etkin Coğrafi Çoğaltma](sql-database-geo-replication-overview.md) |
 | Veritabanı ekleme | [Destekleniyor](https://msdn.microsoft.com/library/ms190209.aspx) | Desteklenmiyor |
 | Uygulama rolleri | [Destekleniyor](https://msdn.microsoft.com/library/ms190998.aspx) | [Destekleniyor](https://msdn.microsoft.com/library/ms190998.aspx) |
-| Otomatik ölçeklendirme | Desteklenmiyor | [Destekleniyor](sql-database-scale-up.md) |
+| Otomatik ölçeklendirme | Desteklenmiyor | [Destekleniyor](sql-database-service-tiers.md) |
 | Azure Active Directory | Desteklenmiyor | [Destekleniyor](sql-database-aad-authentication.md) |
 | Azure Data Factory | Desteklenmiyor - Bkz. [SQL Server Integration Services (SSIS)](https://msdn.microsoft.com/library/ms141026.aspx) | [Destekleniyor](https://azure.microsoft.com/services/data-factory/) |
-| Denetim | [Destekleniyor](https://msdn.microsoft.com/library/cc280386.aspx) | [Destekleniyor](sql-database-auditing-get-started.md) |
+| Denetim | [Destekleniyor](https://msdn.microsoft.com/library/cc280386.aspx) | [Destekleniyor](sql-database-auditing.md) |
 | BACPAC dosyası (dışarı aktarma) | [Destekleniyor](https://msdn.microsoft.com/library/hh213241.aspx) | [Destekleniyor](sql-database-export.md) |
-| BACPAC dosyası (içeri aktarma) | [Destekleniyor](https://msdn.microsoft.com/library/hh710052.aspx) | [Destekleniyor](sql-database-import.md) |
+| BACPAC dosyası (içeri aktarma) | [Destekleniyor](https://msdn.microsoft.com/library/hh710052.aspx) | [Destekleniyor](sql-database-import-portal.md) |
 | BACKUP ve RESTORE deyimleri | [Destekleniyor](https://msdn.microsoft.com/library/ff848768.aspx) | Desteklenmiyor |
 | Yerleşik işlevler | [Destekleniyor](https://msdn.microsoft.com/library/ms174318.aspx) | [Çoğu](https://msdn.microsoft.com/library/ms174318.aspx) |
 | Değişiklik verilerini yakalama | [Destekleniyor](https://msdn.microsoft.com/library/cc645937.aspx) | Desteklenmiyor |
@@ -132,7 +132,7 @@ V12'ye özellik eklemeye devam ediyoruz. Bu nedenle Azure için Hizmet Güncelle
 | SQL Server Integration Services (SSIS) | [Destekleniyor](https://msdn.microsoft.com/library/ms141026.aspx) | Desteklenmiyor - Bkz. [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) |
 | SQL Server PowerShell | [Destekleniyor](https://msdn.microsoft.com/library/hh245198.aspx) | [Destekleniyor](https://msdn.microsoft.com/library/hh245198.aspx) |
 | SQL Server Profiler | [Destekleniyor](https://msdn.microsoft.com/library/ms181091.aspx) | Desteklenmiyor - Bkz. [Genişletilmiş olaylar](https://msdn.microsoft.com/library/ms181091.aspx) |
-| SQL Server Çoğaltma | [Destekleniyor](https://msdn.microsoft.com/library/ms151198.aspx) | [Yalnızca işlem ve anlık görüntü çoğaltma abonesi](sql-database-cloud-migrate-compatible-using-transactional-replication.md) |
+| SQL Server Çoğaltma | [Destekleniyor](https://msdn.microsoft.com/library/ms151198.aspx) | [Yalnızca işlem ve anlık görüntü çoğaltma abonesi](sql-database-cloud-migrate.md) |
 | SQL Server Reporting Services (SSRS) | [Destekleniyor](https://msdn.microsoft.com/library/ms159106.aspx) | Desteklenmiyor |
 | Saklı yordamlar | [Destekleniyor](https://msdn.microsoft.com/library/ms190782.aspx) | [Destekleniyor](https://msdn.microsoft.com/library/ms190782.aspx) |
 | Sistem saklı işlevleri | [Destekleniyor](https://msdn.microsoft.com/library/ff848780.aspx) | [Bazıları](https://msdn.microsoft.com/library/ff848780.aspx) |
@@ -161,6 +161,6 @@ V12'ye özellik eklemeye devam ediyoruz. Bu nedenle Azure için Hizmet Güncelle
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

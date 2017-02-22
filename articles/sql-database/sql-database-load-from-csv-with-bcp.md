@@ -121,6 +121,6 @@ Bir SQL Server veritabanına geçiş yapmak için bkz. [SQL Server veritabanı g
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

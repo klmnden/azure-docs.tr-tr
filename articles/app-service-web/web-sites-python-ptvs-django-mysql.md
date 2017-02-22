@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 07/07/2016
 ms.author: huvalo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 759441c5d64ee59f13d50eb415fbaa884dd4821a
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 1c29cfc0a5b6361a7f526c37d5421ee4be3fe2c1
 
 
 ---
@@ -28,7 +28,7 @@ Bu eğitmende, PTVS örnek şablonlarından birini kullanarak basit yoklamalar w
 > [!NOTE]
 > Bu öğreticide yer alan bilgiler aşağıdaki videoda da kullanılabilir:
 > 
-> [PTVS 2.1: MySQL ile Django][video]
+> [PTVS 2.1: MySQL ile Django uygulaması][video]
 > 
 > 
 
@@ -38,7 +38,7 @@ Azure Table Storage, MySQL ve SQL Database hizmetleriyle Bottle, Flask ve Django
 * Visual Studio 2015
 * [Python 2.7 32 bit] veya [Python 3.4 32 bit]
 * [Visual Studio için Python Araçları 2.2]
-* [Visual Studio Örnekleri VSIX için Python Araçları 2.2]
+* [Visual Studio Örnekleri VSIX için Python Tools 2.2]
 * [VS 2015 için Azure SDK Araçları]
 * Django 1.9 veya üzeri
 
@@ -47,7 +47,7 @@ Azure Table Storage, MySQL ve SQL Database hizmetleriyle Bottle, Flask ve Django
 <!-- This note should not render as part of the the previous include. -->
 
 > [!NOTE]
-> Azure hesabı için kaydolmadan önce Azure App Service’i kullanmaya başlamak isterseniz, App Service’te hemen kısa süreli bir başlangıç web uygulaması oluşturabileceğiniz [App Service’i Deneyin](http://go.microsoft.com/fwlink/?LinkId=523751) sayfasına gidin. Kredi kartı ve taahhüt gerekli değildir.
+> Azure hesabı için kaydolmadan önce Azure App Service’i kullanmaya başlamak isterseniz, App Service’te hemen kısa süreli bir başlangıç web uygulaması oluşturabileceğiniz [App Service’i Deneyin](https://azure.microsoft.com/try/app-service/) sayfasına gidin. Kredi kartı ve taahhüt gerekli değildir.
 > 
 > 
 
@@ -163,9 +163,9 @@ Daha fazla bilgi için bkz. [Python Geliştirici Merkezi](/develop/python/).
 <!--External Link references-->
 
 [Azure Portal]: https://portal.azure.com
-[Visual Studio için Python Araçları]: https://www.visualstudio.com/vs/python/
+[Python Tools for Visual Studio]: https://www.visualstudio.com/vs/python/
 [Visual Studio için Python Araçları 2.2]: http://go.microsoft.com/fwlink/?LinkID=624025
-[Visual Studio Örnekleri VSIX için Python Araçları 2.2]: http://go.microsoft.com/fwlink/?LinkID=624025
+[Visual Studio Örnekleri VSIX için Python Tools 2.2]: http://go.microsoft.com/fwlink/?LinkID=624025
 [VS 2015 için Azure SDK Araçları]: http://go.microsoft.com/fwlink/?LinkId=518003
 [Python 2.7 32 bit]: http://go.microsoft.com/fwlink/?LinkId=517190
 [Python 3.4 32 bit]: http://go.microsoft.com/fwlink/?LinkId=517191
@@ -179,6 +179,6 @@ Daha fazla bilgi için bkz. [Python Geliştirici Merkezi](/develop/python/).
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

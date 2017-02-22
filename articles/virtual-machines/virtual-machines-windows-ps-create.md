@@ -1,6 +1,6 @@
 ---
 title: "PowerShell kullanarak bir VM oluşturma | Microsoft Belgeleri"
-description: "Kolayca Windows Server çalıştıran yeni bir VM oluşturmak için Azure PowerShell ve Azure Resource Manager kullanın."
+description: "Kolayca Windows Server çalıştıran bir VM oluşturmak için Azure PowerShell ve Azure Resource Manager kullanın."
 services: virtual-machines-windows
 documentationcenter: 
 author: davidmu1
@@ -9,27 +9,25 @@ editor:
 tags: azure-resource-manager
 ms.assetid: 14fe9ca9-e228-4d3b-a5d8-3101e9478f6e
 ms.service: virtual-machines-windows
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/21/2016
+ms.date: 02/14/2017
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: 94c18aa0c4fe38fb74931d5ed61fece207c8b5ce
-ms.openlocfilehash: 701a5515cd1d52f7ca8d3562dabcdf0e4d31183d
-
+ms.sourcegitcommit: c1262b7708918cbdc8ce35f3e65a47a04797f195
+ms.openlocfilehash: 8a67352a65e755f2177fb4870f34c41440bf90a2
 
 ---
-# <a name="create-a-windows-vm-using-resource-manager-and-powershell"></a>Resource Manager ve PowerShell kullanarak Windows VM oluşturma
-Bu makalede, [Resource Manager](../azure-resource-manager/resource-group-overview.md) ve PowerShell kullanarak Windows Server çalıştıran bir Azure Virtual Machine’i ve ihtiyacı olan kaynakları nasıl hızlı bir şekilde oluşturacağınız gösterilir. 
 
-Bu makaledeki tüm adımlar bir sanal makine oluşturmak için gereklidir ve bu adımların tamamlanması yaklaşık 30 dakika sürer. Komutlardaki örnek parametre değerlerini, ortamınız için anlamlı olan adlarla değiştirin.
+# <a name="create-a-windows-vm-using-resource-manager-and-powershell"></a>Resource Manager ve PowerShell kullanarak Windows VM oluşturma
+
+Bu makalede, [Resource Manager](../azure-resource-manager/resource-group-overview.md) ve PowerShell kullanarak Windows Server çalıştıran bir Azure Virtual Machine’i ve ihtiyacı olan kaynakları nasıl hızlı bir şekilde oluşturacağınız gösterilir. Bu makaledeki tüm adımlar bir sanal makine oluşturmak için gereklidir ve bu adımların tamamlanması yaklaşık 30 dakika sürer. Komutlardaki örnek parametre değerlerini, ortamınız için anlamlı olan adlarla değiştirin.
 
 ## <a name="step-1-install-azure-powershell"></a>1. adım: Azure PowerShell'i yükleme
+
 Azure PowerShell’in en son sürümünü yükleme, aboneliğinizi seçme ve hesabınızda oturum açma hakkında bilgi almak için bkz. [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azureps-cmdlets-docs).
 
 ## <a name="step-2-create-a-resource-group"></a>2. adım: bir kaynak grubu oluşturma
+
 Kaynak grubu tüm kaynakları içermelidir, bu nedenle önce bu grubu oluşturalım.  
 
 1. Kaynakların oluşturulabileceği kullanılabilir konumların bir listesini alın.
@@ -37,11 +35,13 @@ Kaynak grubu tüm kaynakları içermelidir, bu nedenle önce bu grubu oluştural
     ```powershell
     Get-AzureRmLocation | sort Location | Select Location
     ```
+
 2. Kaynakların konumunu belirleyin. Bu komut, konumu **centralus** olarak belirler.
    
     ```powershell
     $location = "centralus"
     ```
+
 3. Bir kaynak grubu oluşturun. Bu komut, belirlediğiniz konumda **myResourceGroup** adlı kaynak grubunu oluşturur.
    
     ```powershell
@@ -49,8 +49,9 @@ Kaynak grubu tüm kaynakları içermelidir, bu nedenle önce bu grubu oluştural
     New-AzureRmResourceGroup -Name $myResourceGroup -Location $location
     ```
 
-## <a name="step-3-create-a-storage-account"></a>3. adım: Depolama hesabı oluşturma
-[Depolama hesabı](../storage/storage-introduction.md) oluşturduğunuz sanal makine tarafından kullanılan sanal sabit diski depolamak için gereklidir. Depolama hesabı adları 3 ile 24 karakter arasında olmalı ve yalnızca sayıyla küçük harf içermelidir.
+## <a name="step-3-optional-create-a-storage-account"></a>Adım 3: (İsteğe bağlı) Depolama hesabı oluşturma
+
+Şu anda bir sanal makine oluştururken [Azure Yönetilen Diskler](../storage/storage-managed-disks-overview.md) veya yönetilmeyen diskler kullanma seçeneğine sahipsiniz. Yönetilmeyen disk kullanmayı seçerseniz, oluşturduğunuz sanal makine tarafından kullanılan sanal sabit diski depolamak için bir [depolama hesabı](../storage/storage-introduction.md) oluşturmanız gerekir. Yönetilen disk kullanmayı seçerseniz, depolama hesabı gerekli değildir. Depolama hesabı adları 3 ile 24 karakter arasında olmalı ve yalnızca sayıyla küçük harf içermelidir.
 
 1. Depolama hesap adının benzersiz olup olmadığını test edin. Bu komut, **myStorageAccount** adını test eder.
    
@@ -60,6 +61,7 @@ Kaynak grubu tüm kaynakları içermelidir, bu nedenle önce bu grubu oluştural
     ```
    
     Bu komut **True** döndürürse, önerilen adınız Azure içinde benzersizdir. 
+
 2. Şimdi depolama hesabını oluşturun.
    
     ```powershell    
@@ -68,6 +70,7 @@ Kaynak grubu tüm kaynakları içermelidir, bu nedenle önce bu grubu oluştural
     ```
 
 ## <a name="step-4-create-a-virtual-network"></a>4. adım: Sanal ağ oluşturma
+
 Tüm sanal makineler bir [sanal ağın](../virtual-network/virtual-networks-overview.md) parçasıdır.
 
 1. Sanal ağ için bir alt ağ oluşturun. Bu komut, 10.0.0.0/24 adres ön ekini içerecek şekilde **mySubnet** adlı bir alt ağ oluşturur.
@@ -75,6 +78,7 @@ Tüm sanal makineler bir [sanal ağın](../virtual-network/virtual-networks-over
     ```powershell
     $mySubnet = New-AzureRmVirtualNetworkSubnetConfig -Name "mySubnet" -AddressPrefix 10.0.0.0/24
     ```
+
 2. Şimdi sanal ağı oluşturalım. Bu komut, oluşturduğunuz alt ağı ve **10.0.0.0/16** adres ön ekini kullanan, **myVnet** adlı bir sanal ağ oluşturur.
    
     ```powershell
@@ -83,6 +87,7 @@ Tüm sanal makineler bir [sanal ağın](../virtual-network/virtual-networks-over
     ```
 
 ## <a name="step-5-create-a-public-ip-address-and-network-interface"></a>5. adım: Genel IP adresi ve ağ arabirimi oluşturma
+
 Sanal makinenin sanal ağda iletişimini etkinleştirmeniz için, [genel IP adresi](../virtual-network/virtual-network-ip-addresses-overview-arm.md) ve ağ arabirimi gereklidir.
 
 1. Genel IP adresini oluşturun. Bu komut, **Dinamik** ayırma yöntemiyle **myPublicIp** adlı bir genel IP adresi oluşturur.
@@ -99,7 +104,8 @@ Sanal makinenin sanal ağda iletişimini etkinleştirmeniz için, [genel IP adre
     ```
 
 ## <a name="step-6-create-a-virtual-machine"></a>6. adım: Sanal makine oluşturma
-Tüm parçaları yerinde olduğuna göre, şimdi sanal makine oluşturma vakti.
+
+Tüm parçaları yerinde olduğuna göre, şimdi sanal makine oluşturma vakti. Bir [Market görüntüsü](virtual-machines-windows-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), [özel genelleştirilmiş (sysprep kullanılarak hazırlanmış) görüntü](virtual-machines-windows-create-vm-generalized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) veya [özel özelleştirilmiş (sysprep kullanılmamış) görüntü](virtual-machines-windows-create-vm-specialized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) kullanarak sanal makine oluşturabilirsiniz. Bu örnekte Market’teki bir Windows Server görüntüsü kullanılmaktadır. 
 
 1. Sanal makine için yönetici hesap adı ve parolasını ayarlamak için bu komutu çalıştırın.
 
@@ -107,44 +113,57 @@ Tüm parçaları yerinde olduğuna göre, şimdi sanal makine oluşturma vakti.
     $cred = Get-Credential -Message "Type the name and password of the local administrator account."
     ```
    
-    Parola 12-123 karakter uzunluğunda olmalıdır ve en az şunları içermelidir: bir küçük harf karakter, bir büyük harf karakter, bir sayı ve bir özel karakter. 
+    Parola 12-123 karakter uzunluğunda olmalıdır ve en az şunları içermelidir: bir küçük harf karakter, bir büyük harf karakter, bir sayı ve bir özel karakter.
+
 2. Sanal makine için yapılandırma nesnesini oluşturun. Bu komut, VM’nin adını ve boyutunu belirleyen **myVmConfig** adlı bir yapılandırma nesnesi oluşturur.
    
     ```powershell
-    $myVm = New-AzureRmVMConfig -VMName "myVM" -VMSize "Standard_DS1_v2"
+    $myVM = New-AzureRmVMConfig -VMName "myVM" -VMSize "Standard_DS1_v2"
     ```
    
     Sanal makine için kullanılabilir boyutların listesi için bkz. [Azure’da sanal makineler için boyutlar](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+
 3. VM için işletim sistemi ayarlarını yapılandırın. Bu komut; bilgisayar adını, işletim sistemi türünü ve VM için hesap kimlik bilgilerini ayarlar.
    
     ```powershell
     $myVM = Set-AzureRmVMOperatingSystem -VM $myVM -Windows -ComputerName "myVM" -Credential $cred `
         -ProvisionVMAgent -EnableAutoUpdate
     ```
+
 4. VM’yi sağlamak için kullanılacak görüntüyü tanımlayın. Bu komut, VM için kullanılacak Windows Server görüntüsünü tanımlar. 
-   
+
     ```powershell
     $myVM = Set-AzureRmVMSourceImage -VM $myVM -PublisherName "MicrosoftWindowsServer" `
         -Offer "WindowsServer" -Skus "2012-R2-Datacenter" -Version "latest"
     ```
-   
-    Kullanılacak görüntüleri seçme hakkında daha fazla bilgi için bkz. [PowerShell veya CLI ile Azure’da Windows sanal makine görüntülerine erişme ve bu görüntüleri seçme](virtual-machines-windows-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+
 5. Oluşturduğunuz ağ arabirimini yapılandırmaya ekleyin.
    
     ```powershell
     $myVM = Add-AzureRmVMNetworkInterface -VM $myVM -Id $myNIC.Id
     ```
-6. VM sabit diskinin konumunu ve adını tanımlayın. Sanal sabit disk dosyası, bir kapsayıcıda depolanır. Bu komut, oluşturduğunuz depolama hesabındaki **vhds/myOsDisk1.vhd** adlı kapsayıcıda diski oluşturur.
+
+6. Yönetilmeyen disk kullanıyorsanız, VM sabit diskinin adını ve konumunu tanımlamak için bu komutunu çalıştırın; aksi takdirde bu adımı atlayın. Yönetilmeyen bir diskin sanal sabit disk dosyası, bir kapsayıcıda depolanır. Bu komut, oluşturduğunuz depolama hesabındaki **vhds/myOsDisk1.vhd** adlı kapsayıcıda diski oluşturur.
    
     ```powershell
     $blobPath = "vhds/myOsDisk1.vhd"
     $osDiskUri = $myStorageAccount.PrimaryEndpoints.Blob.ToString() + $blobPath
     ```
-7. İşletim sistemi disk bilgilerini VM yapılandırmasına ekleyin. **$diskName** değerini işletim sistemi diski adıyla değiştirin. Değişkeni oluşturun ve yapılandırmaya disk bilgilerini ekleyin.
+
+7. İşletim sistemi disk bilgilerini VM yapılandırmasına ekleyin. Bu komut **myOsDisk1** adlı bir disk oluşturur.
    
+    Yönetilen disk kullanıyorsanız, işletim sistemi diskini yapılandırmada ayarlamak için şu komutu çalıştırın:
+
+    ```powershell
+    $myVM = Set-AzureRmVMOSDisk -VM $myVM -Name "myOsDisk1" -StorageAccountType PremiumLRS -DiskSizeInGB 128 -CreateOption FromImage -Caching ReadWrite
+    ```
+
+    Yönetilmeyen disk kullanıyorsanız, işletim sistemi diskini yapılandırmada ayarlamak için şu komutu çalıştırın:
+
     ```powershell
     $myVM = Set-AzureRmVMOSDisk -VM $myVM -Name "myOsDisk1" -VhdUri $osDiskUri -CreateOption fromImage
     ```
+
 8. Son olarak, sanal makineyi oluşturun.
    
     ```powershell
@@ -152,6 +171,7 @@ Tüm parçaları yerinde olduğuna göre, şimdi sanal makine oluşturma vakti.
     ```
 
 ## <a name="next-steps"></a>Sonraki Adımlar
+
 * Dağıtımla ilgili sorunlar varsa, bir sonraki adım için bkz. [Azure Resource Manager ile genel Azure dağıtım hatalarını giderme](../azure-resource-manager/resource-manager-common-deployment-errors.md)
 * [Azure Resource Manager ve PowerShell kullanarak sanal makineleri yönetme](virtual-machines-windows-ps-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) gözden geçirerek, oluşturduğunuz sanal makineyi yönetmeyi öğrenin.
 * [Bir Resource Manager şablonu ile Windows sanal makine oluşturma](virtual-machines-windows-ps-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)’daki bilgileri kullanarak sanal makine oluşturmak için şablon kullanma avantajından yararlanın
@@ -159,6 +179,6 @@ Tüm parçaları yerinde olduğuna göre, şimdi sanal makine oluşturma vakti.
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

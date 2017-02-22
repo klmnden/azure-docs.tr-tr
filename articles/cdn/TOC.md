@@ -12,6 +12,7 @@
 ### [Çıkış noktaları arası kaynak paylaşımı](cdn-cors.md)
 
 ## Yönet
+### [Özel bir etki alanı üzerinde HTTPS'yi etkinleştirme](cdn-custom-ssl.md)
 ### [PowerShell ile Yönetme](cdn-manage-powershell.md)
 ### Yaşam süresi yapılandırma
 #### [Web Apps/Cloud Services, ASP.NET veya IIS içeriği](cdn-manage-expiration-of-cloud-service-content.md)
@@ -62,6 +63,6 @@
 ## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=cdn)
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

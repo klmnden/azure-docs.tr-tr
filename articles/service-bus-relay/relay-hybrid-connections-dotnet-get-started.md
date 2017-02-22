@@ -1,37 +1,39 @@
 ---
-title: "Geçiş Karma Bağlantıları ile çalışmaya başlama | Microsoft Belgeleri"
+title: ".NET’te Azure Geçiş Karma Bağlantıları ile çalışmaya başlama | Microsoft Docs"
 description: "Karma Bağlantılar için bir C# konsol uygulaması yazma"
-services: service-bus
+services: service-bus-relay
 documentationcenter: .net
 author: jtaubensee
 manager: timlt
 editor: 
 ms.assetid: d1386900-b942-4abf-acfc-38d2ef826253
-ms.service: service-bus
+ms.service: service-bus-relay
 ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 10/28/2016
-ms.author: jotaub
+ms.date: 02/03/2017
+ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 92d7935596ab1dede6dc1d613cb635c32d52e3ab
+ms.sourcegitcommit: 1ee1e7d0c6f239abfda474d51c8d02d5338dabc7
+ms.openlocfilehash: ec8d7cf64786a3347998f243fc7e4f9550fd9f08
 
 
 ---
 # <a name="get-started-with-relay-hybrid-connections"></a>Geçiş Karma Bağlantıları ile çalışmaya başlama
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
 
+Bu öğretici [Azure Geçiş Karma Bağlantıları](relay-what-is-it.md#hybrid-connections)’nı tanıtır ve karşılık gelen dinleyici uygulamasına ileti gönderen bir istemci uygulaması oluşturma işlemini gösterir. 
+
 ## <a name="what-will-be-accomplished"></a>Ne elde edilecek
-Karma Bağlantılar hem istemci hem de sunucu bileşenini gerektirdiğinden bu öğreticide iki konsol uygulaması oluşturulacaktır. Adımlar aşağıdaki gibidir:
+Karma Bağlantılar hem istemci hem de sunucu bileşenini gerektirdiğinden bu öğreticide iki konsol uygulaması oluşturulur. Şu adımlar uygulanır:
 
 1. Azure portalı kullanılarak Geçiş ad alanı oluşturma.
 2. Azure portalı kullanılarak Karma Bağlantı oluşturma.
-3. İleti almak için bir sunucu konsol uygulaması yazma.
-4. İleti göndermek için bir istemci konsol uygulaması yazma.
+3. İleti almak için bir sunucu (dinleyici) konsol uygulaması yazma.
+4. İleti göndermek için bir istemci (gönderen) konsol uygulaması yazma.
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 1. [Visual Studio 2013 veya Visual Studio 2015](http://www.visualstudio.com). Bu öğreticideki örneklerde Visual Studio 2015 kullanılır.
 2. Azure aboneliği.
 
@@ -74,6 +76,6 @@ Tebrikler, uçtan uca Karma Bağlantılar uygulaması oluşturdunuz.
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

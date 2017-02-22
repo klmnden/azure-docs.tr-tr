@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 12/06/2016
 ms.author: swkrish
 translationtype: Human Translation
-ms.sourcegitcommit: 0b87ec728891d4f64bb7b2e4b7b4f0f2276b1ffc
-ms.openlocfilehash: ca75ddf8d099f411c4ae1af00e922f26e145f939
+ms.sourcegitcommit: fd22e9596feecbc12e577a4abfb47552e1b6e520
+ms.openlocfilehash: da8f083cb7bca59501df080036e789a0fb75731e
 
 
 ---
@@ -29,7 +29,7 @@ Tüketicinin kaydolmasını ve oturum açmasını kabul eden bir uygulama oluşt
 ## <a name="navigate-to-the-b2c-features-blade"></a>B2C özellikleri dikey penceresine gitme
 B2C özellikleri dikey penceresini Başlangıç panonuza sabitlediyseniz dikey pencereyi, B2C kiracısının Genel Yöneticisi olarak [Azure portalında](https://portal.azure.com/) oturum açar açmaz görürsünüz.
 
-Ayrıca dikey pencereye, [Azure portalındaki](https://portal.azure.com/) sol gezinti bölmesinde bulunan **Gözat** ve ardından **Azure AD B2C** seçeneklerine tıklayarak da erişebilirsiniz.
+Ayrıca dikey pencereye, [Azure portalındaki](https://portal.azure.com/) **Diğer hizmetler**’e tıklayarak ve ardından sol gezinti bölmesinde **Azure AD B2C** araması yaparak erişebilirsiniz.
 
 > [!IMPORTANT]
 > B2C özellikleri dikey penceresine erişebilmek için B2C kiracısının Genel Yöneticisi olmanız gerekir. Başka bir kiracının Genel Yöneticisi veya başka bir kiracıdan gelen bir kullanıcı, dikey pencereye erişemez.  Azure portalının sağ üst köşesindeki kiracı değiştiriciyi kullanarak B2C kiracınıza geçiş yapabilirsiniz.
@@ -40,7 +40,7 @@ Ayrıca dikey pencereye, [Azure portalındaki](https://portal.azure.com/) sol ge
 1. Azure portalındaki B2C özellikleri dikey penceresinde **Applications (Uygulamalar)** seçeneğine tıklayın.
 2. Dikey pencerenin en üstündeki **+Add (+Ekle)** seçeneğine tıklayın.
 3. Uygulamanızı tüketicilere tanımlayacak bir **Ad** girin. Örneğin, "Contoso B2C uygulaması"na girebilirsiniz.
-4. Web tabanlı bir uygulama yazıyorsanız **Include web app / web API (Web uygulamasını/web API'sini dahil et)** düğmesini **Yes (Evet)** olarak değiştirin. **Yanıt URL'leri**, Azure AD B2C'nin, uygulamanız tarafından istenen belirteçleri getirdiği uç noktalardır. Örneğin, `https://localhost:44321/` girin. Web uygulamanız aynı zamanda Azure AD B2C ile güvenliği sağlanan bazı web API’lerini çağıracaksa **Anahtarı Oluştur** düğmesine tıklayarak bir **Uygulama Gizli Anahtarı** da oluşturmak istersiniz.
+4. Web tabanlı bir uygulama yazıyorsanız **Include web app / web API (Web uygulamasını/web API'sini dahil et)** düğmesini **Yes (Evet)** olarak değiştirin. **Yanıt URL'leri**, Azure AD B2C'nin, uygulamanız tarafından istenen belirteçleri getirdiği uç noktalardır. Örneğin, `https://localhost:44316/` girin. Web uygulamanız aynı zamanda Azure AD B2C ile güvenliği sağlanan bazı web API’lerini çağıracaksa **Anahtarı Oluştur** düğmesine tıklayarak bir **Uygulama Gizli Anahtarı** da oluşturmak istersiniz.
    
    > [!NOTE]
    > **Uygulama Gizli Anahtarı** önemli bir güvenlik kimlik bilgisidir ve güvenliği uygun şekilde sağlanmalıdır.
@@ -63,6 +63,6 @@ Azure AD B2C'ye kayıtlı bir uygulamaya sahip olduğunuza göre başlamak ve ç
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

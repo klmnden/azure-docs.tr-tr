@@ -95,6 +95,6 @@ URL tabanlı içerik yönlendirmeyi kullanarak bir uygulama ağ geçidi oluştur
 
 
 
-<!--HONumber=Jan17_HO5-->
+<!--HONumber=Feb17_HO3-->
 
 

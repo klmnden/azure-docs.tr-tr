@@ -38,8 +38,8 @@ sql-database-service-tiers.md
 | Maks. eş zamanlı oturum | 30000| 30000| 30000| 30000| 30000| 30000 |
 |||||||
 
-\* En fazla veritabanı boyutu, veri dosyaları için boyut üst sınırını ifade eder ve günlük dosyalarının kullandığı alanı içermez
+\* En fazla veritabanı boyutu, veri dosyaları için boyut üst sınırını ifade eder ve günlük dosyalarının kullandığı alanı içermez.
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

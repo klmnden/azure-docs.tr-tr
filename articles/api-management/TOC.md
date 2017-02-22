@@ -14,6 +14,7 @@
 ## Arka uç güvenliğini sağlama
 ### [AAD ile Web API arka ucunu koruma](api-management-howto-protect-backend-with-aad.md)
 ### [Sanal ağa bağlanma](api-management-using-with-vnet.md)
+### [İç sanal ağa bağlanma](api-management-using-with-internal-vnet.md)
 ### [Karşılıklı Sertifika kimlik doğrulaması](api-management-howto-mutual-certificates.md)
 ## İlkeleri yapılandırma
 ### [Özel önbelleğe alma](api-management-sample-cache-by-key.md)
@@ -82,6 +83,6 @@
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

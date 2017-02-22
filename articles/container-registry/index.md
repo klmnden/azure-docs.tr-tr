@@ -1,14 +1,26 @@
 ---
+title: "Azure Container Registry Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
+description: "Dağıtım görüntülerinizi yönetilen bir Docker kayıt defteri hizmeti ile depolamak için kapsayıcı kayıt defterleri oluşturma ve koruma konusunda bilgi edinin. Öğreticiler, API başvurusu ve daha fazlası."
+services: container-registry
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: container-registry
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 42be91bb4ddf87671ed9c3c5b2e5e640b0c5b059
-ms.openlocfilehash: fe9ee140084f0ab659e9db519098bbeb03305470
+ms.sourcegitcommit: 97a09226c0f784c4834e96e47ac9052844ff7a36
+ms.openlocfilehash: 3962f34170cf3a19fe51b2f90b49fa21e01fc6cc
 
 ---
 
 # <a name="azure-container-registry-documentation"></a>Azure Container Registry Belgeleri
 
-Azure Container Registry (önizleme), kapsayıcı görüntülerini barındırmaya yönelik özel bir kayıt defteridir. Azure Container Registry’yi kullanarak, tüm kapsayıcı dağıtımı türleri için Docker ile biçimlendirilmiş görüntüleri depolayabilirsiniz. Azure Container Registry, Azure Container Service’te barındırılan Docker Swarm, DC/OS ve Kubernetes gibi düzenleyicilerle sorunsuzca tümleştirilir. 
+Container Registry hizmetini kullanarak tüm kapsayıcı dağıtımı türlerinin görüntülerini nasıl depolayıp yönetebileceğinizi öğrenin. Öğreticiler, REST API Başvurusu ve diğer belgelerde, bu yönetilen Docker kayıt defteri hizmeti içinde kapsayıcı kayıt defterleri oluşturma ve bunları koruma işlemlerinin nasıl yapılacağıyla ilgili bilgiler sunulmuştur.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -67,41 +79,38 @@ Azure Container Registry (önizleme), kapsayıcı görüntülerini barındırmay
     </li>
 </ul>
 
-## <a name="reference"></a>Başvuru
-
+---
+ 
+<h2>Başvuru</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/cli/azure/acr">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>CLI</h3>
-                        <p>CLI Başvurusu</p>
+                        <h3>Komut Satırı</h3>
+                        <p><a href="/cli/azure/acr">Azure CLI</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/rest/api/containerregistry">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>REST API Başvurusu</p>
-                    </div>
+                        <p><a href="/rest/api/containerregistry">REST API</a></p>
+                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

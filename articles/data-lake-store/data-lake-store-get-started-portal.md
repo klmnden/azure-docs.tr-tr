@@ -1,6 +1,6 @@
 ---
-title: "Data Lake Store ile çalışmaya başlama | Microsoft Belgeleri"
-description: "Bir Data Lake Store hesabı oluşturmak ve Data Lake Store&quot;da temel işlemleri gerçekleştirmek için portalı kullanma"
+title: "Azure portalı kullanarak Data Lake Store ile çalışmaya başlama| Microsoft Docs"
+description: "Bir Data Lake Store hesabı oluşturmak ve Data Lake Store&quot;da temel işlemleri gerçekleştirmek için Azure portalı kullanma"
 services: data-lake-store
 documentationcenter: 
 author: nitinme
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/21/2016
+ms.date: 02/06/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 7d02b9fd741310a39aaadee0358af6c7b5990cf2
-ms.openlocfilehash: dfa7a41c7acd71eca39ac1360b1699bed9309e09
+ms.sourcegitcommit: a939a0845d7577185ff32edd542bcb2082543a26
+ms.openlocfilehash: db53f991aab10bace2d253fa96f739f99640bd77
 
 
 ---
@@ -106,7 +106,7 @@ Verilerinizi Azure Data Lake Store hesabınıza doğrudan kök düzeyinde veya h
 
 Karşıya yüklenecek örnek veri arıyorsanız [Azure Data Lake Git Deposu](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData)'ndan **Ambulance Data** klasörünü alabilirsiniz.
 
-![Karşıya veri yükleme](./media/data-lake-store-get-started-portal/ADL.New.Upload.File.png "Upload data")
+![Veri yükleme](./media/data-lake-store-get-started-portal/ADL.New.Upload.File.png "Upload data")
 
 ## <a name="a-namepropertiesaproperties-and-actions-available-on-the-stored-data"></a><a name="properties"></a>Depolanan verilerde kullanılabilen özellikler ve eylemler
 **Özellikler** dikey penceresini açmak için yeni eklenen dosyaya tıklayın. Dosyayla ilişkili özellikler ve dosya üzerinde gerçekleştirebileceğiniz eylemler bu dikey pencerede sunulur. Ayrıca tam yolu, aşağıdaki ekran görüntüsünde vurgulanmış olan Azure Data Lake Store hesabınızdaki dosyaya kopyalayabilirsiniz.
@@ -137,6 +137,6 @@ Bir Azure Data Lake Store hesabını silmek için, Data Lake Store dikey pencere
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

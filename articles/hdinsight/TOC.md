@@ -77,9 +77,7 @@
 ### [Phoenix ve SQLLine kullanma](hdinsight-hbase-phoenix-squirrel-linux.md)
 ### [Gerçek zamanlı tweet’leri çözümleme](hdinsight-hbase-analyze-twitter-sentiment.md)
 ### [Sanal ağda küme oluşturma](hdinsight-hbase-provision-vnet.md)
-### [VPN bağlantısı yapılandırma](hdinsight-hbase-geo-replication-configure-vnets.md)
-### [DNS sunucuları yapılandırma](hdinsight-hbase-geo-replication-configure-dns.md)
-### [HBase coğrafi çoğaltmayı yapılandırma](hdinsight-hbase-geo-replication.md)
+### [HBase çoğaltmasını yapılandırma](hdinsight-hbase-replication.md)
 ### [Java ile uygulama geliştirme](hdinsight-hbase-build-java-maven-linux.md)
 ## Storm’u kullanma
 ### [Topolojileri dağıtma ve yönetme](hdinsight-storm-deploy-monitor-topology-linux.md)
@@ -198,7 +196,6 @@
 ### [Hadoop’u kullanmaya başlama](hdinsight-hadoop-tutorial-get-started-windows.md)
 ### [Storm’u kullanmaya başlama](hdinsight-apache-storm-tutorial-get-started.md)
 ### [HBase’i kullanmaya başlama](hdinsight-hbase-tutorial-get-started.md)
-### [HDInsight Örnek Galerisi](hdinsight-learn-hadoop-use-sample-gallery.md)
 ### [Hadoop MapReduce örneklerini çalıştırma](hdinsight-run-samples.md)
 ### [Hadoop kümeleri oluşturma](hdinsight-provision-clusters.md)
 #### [Azure portal’ı kullanma](hdinsight-hadoop-create-windows-clusters-portal.md)
@@ -228,6 +225,6 @@
 ## [Öğrenme yolu](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO2-->
 
 

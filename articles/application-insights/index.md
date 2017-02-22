@@ -1,13 +1,25 @@
 ---
+title: "Azure Application Insights Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
+description: "Web uygulamaları ve hizmetlerindeki sorunları belirleme, önceliklendirme ve tanılamaya yönelik genişletilebilir bir uygulama performansı yönetim hizmeti olan Application Insights’ı nasıl kullanacağınızı öğrenin."
+services: application-insights
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: application-insights
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 7f01669fe78aebfb17ebc6a33ae29d098b62868a
-ms.openlocfilehash: 8100f42cc97155431e4d3ba47f7946b546296700
+ms.sourcegitcommit: d22dec77ea0fde59a86799cf5f2d13c2c4d6dacd
+ms.openlocfilehash: 1f3fc2431bacd6852c6babc7ebbb07c6a3b74145
 
 ---
 # <a name="application-insights-documentation"></a>Application Insights Belgeleri
 
-Application Insights, web geliştiricilerine yönelik kapsamlı bir Uygulama Performans Yönetimi (APM) hizmetidir. Canlı web uygulamanızı izlemek için kullanabilirsiniz. Performans anormalliklerini otomatik olarak algılar. Sorunları tanılamanıza ve kullanıcıların uygulamanızla aslında neler yaptığını anlamanıza yardımcı olan güçlü analiz araçları içerir. Performansı ve kullanılabilirliği sürekli geliştirmenize yardımcı olmak amacıyla tasarlanmıştır. .NET, Node.js ve J2EE gibi çok çeşitli platformlarda, şirket içi veya bulutta barındırılan uygulamalar için yararlıdır. Ayrıca devOps işleminizle tümleştirilir ve çok çeşitli diğer araçlarla bağlantı noktaları vardır.
+Web geliştiricilerine yönelik genişletilebilir bir uygulama performansı yönetim hizmeti olan Application Insights’ı nasıl kullanacağınızı öğrenin. Öğreticiler, API başvuruları ve diğer belgeler, web uygulama ve hizmetlerindeki sorunları algılama, önceliklendirme ve tanılama ile ilgili bilgiler içerir.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -151,16 +163,10 @@ Application Insights, web geliştiricilerine yönelik kapsamlı bir Uygulama Per
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/application-insights.pdf">
-        <div class="img"></div>
-        <div class="text">
-Application Insights Belgelerini indirin </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Feb17_HO2-->
 
 

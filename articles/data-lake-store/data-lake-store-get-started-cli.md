@@ -1,5 +1,5 @@
 ---
-title: "Platformlar arası komut satırı arabirimini kullanarak Data Lake Store ile çalışmaya başlama | Microsoft Belgeleri"
+title: "Komut satırı arabirimi kullanarak Azure Data Lake Store ile çalışmaya başlama | Microsoft Docs"
 description: "Bir Data Lake Store hesabı oluşturmak ve temel işlemleri gerçekleştirmek için Azure platformlar arası komut satırını kullanma"
 services: data-lake-store
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/21/2016
+ms.date: 01/31/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: c157da7bf53e2d0762624e8e71e56e956db04a24
-ms.openlocfilehash: 236563a8814640391130ba53886c5cebfea67a8f
+ms.sourcegitcommit: f33ccee7dd520adf074856616005c929040116dd
+ms.openlocfilehash: 89d1811f3f336f2526ccba3b6be26e90ab7120ad
 
 
 ---
@@ -32,6 +32,11 @@ ms.openlocfilehash: 236563a8814640391130ba53886c5cebfea67a8f
 > * [Python](data-lake-store-get-started-python.md)
 >
 >
+
+> [!NOTE]
+> Büyük miktarda veriyi (büyük dosyalar, çok sayıda dosya veya her ikisi) karşıya yüklemek ve indirmek için [Python SDK](data-lake-store-get-started-python.md), [.NET SDK](data-lake-store-get-started-net-sdk.md) veya [Azure PowerShell](data-lake-store-get-started-powershell.md)’i kullanmanız önerilir. Bu seçenekler veri taşımayı paralel hale getirmek için birden çok iş parçacığı kullandığı için daha iyi performans sunar.
+> 
+>  
 
 Azure Data Lake Store hesabı oluşturmak ve klasör oluşturma, veri dosyalarını karşıya yükleme ve indirme, hesabınızı silme gibi temel işlemleri gerçekleştirmek için Azure komut satırı arabiriminin nasıl kullanılacağını öğrenin. Data Lake Store hakkında daha fazla bilgi için bkz. [Data Lake Store'a Genel Bakış](data-lake-store-overview.md).
 
@@ -177,6 +182,6 @@ Bir Data Lake Store hesabını silmek için aşağıdaki komutu kullanın.
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

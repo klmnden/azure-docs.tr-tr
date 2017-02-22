@@ -1,9 +1,20 @@
 ---
-layout: LandingPage
+title: "Azure Web Apps Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
 description: "App Service Web Apps’i kullanarak web siteleri ve web uygulamaları oluşturma ve barındırma hakkında bilgi edinin. Öğreticiler, videolar, API başvuruları ve daha fazlası."
+services: app-service
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: app-service
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 74579a5e96c26f130c0c1cc59e8cf4d6975ea89d
-ms.openlocfilehash: e5bb9e8ea35411f159ddf342fe0fda0ba1759fb5
+ms.sourcegitcommit: dc240443ab6163eb296eaa4d93a17bbe1723ba2c
+ms.openlocfilehash: 7123c27b8e21e7db77245a5119b20840214d9ac2
 
 ---
 # <a name="azure-web-apps-documentation"></a>Azure Web Apps Belgeleri
@@ -224,6 +235,6 @@ App Service Web Apps’i kullanarak web siteleri ve web uygulamaları oluşturma
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Depolamaya Giriş | Microsoft Belgeleri"
+title: "Azure Depolamaya Giriş | Microsoft Docs"
 description: "Microsoft’un buluttaki çevrimiçi veri depolama alanı Azure Storage’a göz atalım. Uygulamalarınızda en uygun bulut depolama çözümünü nasıl kullanabileceğinizi öğrenin."
 services: storage
 documentationcenter: 
@@ -12,15 +12,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/08/2016
+ms.date: 02/02/2017
 ms.author: marsma
 translationtype: Human Translation
-ms.sourcegitcommit: 931503f56b32ce9d1b11283dff7224d7e2f015ae
-ms.openlocfilehash: 40ab7632f47de4d4eef277f4c4071ce2d4de1eed
+ms.sourcegitcommit: 8e11b36ee927724d4736f8a235aa97848ee2d271
+ms.openlocfilehash: d0647706ad18b3106de44496e43ea822896215ba
 
 
 ---
 # <a name="introduction-to-microsoft-azure-storage"></a>Microsoft Azure Storage’a Giriş
+
 ## <a name="overview"></a>Genel Bakış
 Azure Storage, müşterilerin ihtiyaçlarını karşılamak üzere sağlamlık, kullanılabilirlik ve ölçeklenebilirliğe dayanan modern uygulamalara yönelik bulut depolama çözümüdür. Bu makaleyi okuyan geliştiriciler, BT Uzmanları ve kurumsal karar alıcılar şu konularda bilgi edinebilir:
 
@@ -49,7 +50,7 @@ Azure Storage, geliştirme sürecini kolaylaştırmak için farklı işletim sis
 
 Azure Premium Storage, Azure Virtual Machines’de çalışan G/Ç açısından yoğun iş yükleri için yüksek performanslı ve düşük gecikmeli disk desteği sağlar. Azure Premium Storage ile birden çok kalıcı veri diskini sanal bir makineye bağlayabilir ve performans gereksinimlerinizi karşılayacak şekilde yapılandırabilirsiniz. Azure Premium Storage’da her veri diski maksimum G/Ç performansı için bir SSD disk ile desteklenir. Ayrıntılar için bkz. [Premium Storage: Azure Virtual Machines İş Yükleri İçin Yüksek Performanslı Depolama](storage-premium-storage.md).
 
-## <a name="introducing-the-azure-storage-services"></a>Azure Storage Hizmetlerine Giriş
+## <a name="introducing-the-azure-storage-services"></a>Azure Depolama hizmetlerine giriş
 Azure Storage şu dört hizmeti sunar: Blob Storage, Table Storage, Kuyruk depolama ve File Storage.
 
 * Blob Storage yapılandırılmamış nesne verilerini depolar. Blob; bir belge, ortam dosyası veya uygulama yükleyici gibi herhangi bir türde metin veya ikili veri olabilir. Blob Storage ayrıca Nesne depolama olarak adlandırılır.
@@ -65,7 +66,7 @@ Azure Storage hesabı, Azure Storage’da hizmetlerine erişmenizi sağlayan gü
 
 [!INCLUDE [storage-versions-include](../../includes/storage-versions-include.md)]
 
-## <a name="blob-storage"></a>Blob Storage
+## <a name="blob-storage"></a>Blob depolama
 Blob Storage, bulutta depolanacak yüksek miktarda yapılandırılmamış nesne verisine sahip kullanıcılara uygun maliyetli ve ölçeklenebilir bir çözüm sunar. Blob Storage’ı kullanarak şu içerikleri depolayabilirsiniz:
 
 * Belgeler
@@ -96,12 +97,12 @@ Geliştiriciler Bloblar ve Kuyruklarda olduğu gibi standart REST protokollerini
 
 Bugünün İnternet tabanlı uygulamaları için Table Storage gibi NoSQL veri tabanları geleneksel veri tabanlarına göre popüler bir alternatif oluşturur.
 
-## <a name="queue-storage"></a>Kuyruk Depolama
+## <a name="queue-storage"></a>Kuyruk depolama
 Ölçeklendirmek üzere uygulama tasarlarken, uygulama bileşenleri birbirinden bağımsız şekilde ölçeklenebilmek için genellikle birbirinden ayrılır. Kuyruk depolama bulutta, masaüstünde, şirket içi sunucuda veya mobil bir cihazda çalışan uygulama bileşenleri arasındaki zaman uyumsuz iletişim için güvenilir bir mesajlaşma çözümü sunar. Kuyruk depolama zaman uyumsuz görevlerin yönetilmesini ve süreç iş akışlarının oluşturulmasını da destekler.
 
 Bir depolama hesabı herhangi sayıda kuyruk içerebilir. Bir kuyruk, depolama hesabının kapasite sınırını dolduracak kadar ileti içerebilir. Tek bir ileti boyut olarak en fazla 64 KB olabilir.
 
-## <a name="file-storage"></a>File Storage
+## <a name="file-storage"></a>Dosya depolama
 Azure File Storage, dosya paylaşımlarına bağlı olan eski uygulamaları maliyetli yeniden yazdırmaya gerek kalmadan Azure’a taşıyabilmeniz için bulut tabanlı SMB dosya paylaşımları sunar. Azure File Storage sayesinde, Azure Virtual Machines veya Cloud Services’da çalışan uygulamalar, bir masaüstü uygulamasının tipik bir SMB paylaşımına bağlandığı şekilde buluta bir dosya paylaşımı bağlayabilir. Ardından herhangi sayıda uygulama bileşeni eş zamanlı olarak File Storage paylaşımını bağlayıp buna erişim sağlayabilir.
 
 Dosya depolama paylaşımı, standart SMB dosya paylaşımı olduğundan Azure'da çalışan uygulamalar, dosya sisteminin G/Ç API'leri üzerinden paylaşımdaki verilere erişebilir. Böylece geliştiriciler mevcut uygulamalarını taşımak üzere kullandıkları kodlar ve yeteneklerden yararlanabilir. BT Uzmanları Azure uygulamalarını yönetmenin bir parçası olarak File Storage paylaşımlarını oluşturmak, bunları bağlamak ve yönetmek için PowerShell.cmdlet’leri kullanabilir.
@@ -110,7 +111,7 @@ File Storage diğer Azure Storage hizmetlerinde olduğu gibi paylaşımdaki veri
 
 Dağıtılan uygulamalar ayrıca kullanışlı uygulama verilerini depolamak ve paylaşmak, araç geliştirmek ve test etmek için File Storage kullanabilir. Örneğin bir uygulama File Storage paylaşımındaki günlükler, ölçümler ve kilitlenme bilgi dökümleri gibi yapılandırma dosyaları ve tanılama verilerini depolayabilir. Böylece söz konusu veriler birden çok sanal makine veya rol tarafından erişilebilir. Geliştiriciler ve yöneticiler, her sanal makine veya rol örneğine yükleme yapmak yerine tüm bileşenler tarafından kullanılabilen ve bir uygulamanın oluşturulması veya yönetilmesi için gerekli yardımcı programları File Storage’a depolayabilir.
 
-## <a name="access-to-blob-table-queue-and-file-resources"></a>Blob, Tablo, Kuyruk ve Dosya Kaynaklarına Erişim
+## <a name="access-to-blob-table-queue-and-file-resources"></a>Blob, Tablo, Kuyruk ve Dosya kaynaklarına erişim
 Varsayılan olarak, yalnızca depolama hesabı sahibi depolama hesabındaki kaynaklara erişebilir. Verilerinizin güvenliği için hesabınızdaki kaynaklara yönelik her isteğin kimliğinin doğrulanması gerekir. Kimlik doğrulama bir Paylaşılan Anahtar modelini kullanır. Bloblar anonim kimlik doğrulamayı destekleyecek şekilde de yapılandırılabilir.
 
 Depolama hesabınız oluşturulduğunda, kimlik doğrulama için kullanılmak üzere hesabınıza iki özel erişim tuşu atanır. İki anahtarın kullanılması, genel güvenlik anahtar yönetimi uygulaması olarak anahtarları düzenli şekilde yenilediğinizde uygulamanızın kullanılabilir durumda kalmasını sağlar.
@@ -125,7 +126,7 @@ Son olarak bir kapsayıcı ve bloblarını veya belirli bir blobu genel erişime
 
 Paylaşılan erişim imzaları ile ilgili daha fazla bilgi edinmek için bkz. [Paylaşılan Erişim İmzaları (SAS) kullanma](storage-dotnet-shared-access-signature-part-1.md). Depolama hesabınıza güvenli erişim ile ilgili daha fazla bilgi için bkz. [Kapsayıcılar ve bloblara anonim okuma erişimini yönetme](storage-manage-access-to-resources.md) ve [Azure Storage Hizmetleri için Kimlik Doğrulama](https://msdn.microsoft.com/library/azure/dd179428.aspx) 
 
-## <a name="replication-for-durability-and-high-availability"></a>Dayanıklılık ve Yüksek Seviyede Kullanılabilirlik için Çoğaltma
+## <a name="replication-for-durability-and-high-availability"></a>Dayanıklılık ve yüksek kullanılabilirlik için çoğaltma
 Microsoft Azure Depolama hesabınızdaki veriler, dayanıklılık ve yüksek kullanılabilirlik sağlamak için her zaman çoğaltılır. Çoğaltma işlemi, belirlediğiniz çoğaltma seçeneğine göre verilerinizi aynı veri merkezine veya ikinci bir veri merkezine kopyalar. Çoğaltma işlemi, geçici donanım hataları söz konusu olduğunda uygulamanızın çalışma süresini ve verilerinizi korur. Verilerinizin ikinci bir veri merkezine çoğaltılması da birincil konumda gerçekleşen yıkıcı bir hataya karşı verilerinizi korur.
 
 Çoğaltma işlemi, hata durumunda bile depolama hesabınızın [Depolama için Hizmet Düzeyi Sözleşmesi'ne (SLA)](https://azure.microsoft.com/support/legal/sla/storage/) uymasını sağlar. Azure Depolama'nın dayanıklılık ve kullanılabilirlikle ilgili sağladığı garantiler hakkında bilgi edinmek için SLA'ya göz atın.
@@ -161,7 +162,7 @@ Depolama hesabı çoğaltma ile ilgili fiyat bilgileri için bkz. [Azure Storage
 
 Azure Storage ile dayanıklılık konusunda mimari ayrıntılar için bkz. [SOSP Belgesi - Azure Storage: Güçlü Tutarlılıkla Yüksek Seviyede Kullanılabilen Bulut Depolama Hizmeti](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).
 
-## <a name="transferring-data-to-and-from-azure-storage"></a>Azure Storage’da Veri Alışverişi
+## <a name="transferring-data-to-and-from-azure-storage"></a>Azure Depolama’da veri alışverişi
 Depolama hesabınızda veya depolama hesaplarınız arasında blob, dosya ve tablo verilerinizi kopyalamak için AzCopy komut satırı yardımcı programını kullanabilirsiniz. Daha fazla bilgi için bkz. [AzCopy Komut Satırı Yardımcı Programı ile Veri Aktarma](storage-use-azcopy.md).
 
 AzCopy şu anda önizlemede yer alan [Azure Veri Taşıma Kitaplığı](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/) üzerine kurulmuştur.
@@ -171,10 +172,10 @@ Azure İçeri/Dışarı Aktarma hizmeti, Azure veri merkezine posta ile gönderi
 ## <a name="pricing"></a>Fiyatlandırma
 [!INCLUDE [storage-account-billing-include](../../includes/storage-account-billing-include.md)]
 
-## <a name="storage-apis-libraries-and-tools"></a>Depolama API'leri, Kitaplıklar ve Araçlar
+## <a name="storage-apis-libraries-and-tools"></a>Depolama API'leri, kitaplıklar ve araçlar
 Azure Storage kaynakları HTTP/HTTPS isteği yapabilen her dil ile erişilebilir. Ayrıca, Azure Storage birkaç popüler dilde programlama kitaplıkları sunar. Bu kitaplıklar zaman uyumlu ve zaman uyumsuz çağrılar, işlemleri gruplama, özel durum yönetimi, otomatik yeniden denemeler, işlemsel davranışlar vb. ayrıntıları ele alarak Azure Storage ile çalışmanın çoğu yönünü basitleştirir. Kitaplıklar şu anda aşağıdaki diller için mevcuttur ve yeni kitaplıklar geliştirme aşamasındadır:
 
-### <a name="azure-storage-data-services"></a>Azure Storage Veri Hizmetleri
+### <a name="azure-storage-data-services"></a>Azure Depolama veri hizmetleri
 * [Depolama Hizmetleri REST API'si](http://msdn.microsoft.com/library/azure/dd179355.aspx)
 * [.NET, Windows Phone, ve Windows Çalışma Zamanı için Depolama İstemcisi Kitaplığı](https://www.nuget.org/packages/WindowsAzure.Storage/)
 * [C++ için Depolama İstemcisi Kitaplığı](https://github.com/Azure/azure-storage-cpp)
@@ -185,13 +186,13 @@ Azure Storage kaynakları HTTP/HTTPS isteği yapabilen her dil ile erişilebilir
 * [Python için Depolama İstemcisi Kitaplığı](/develop/python/)
 * [PowerShell 1.0 için Depolama Cmdlet'leri](https://msdn.microsoft.com/library/azure/mt269418.aspx)
 
-### <a name="azure-storage-management-services"></a>Azure Storage Yönetimi Hizmetleri
+### <a name="azure-storage-management-services"></a>Azure Depolama yönetim hizmetleri
 * [Depolama Kaynak Sağlayıcısı REST API Başvurusu](https://msdn.microsoft.com/library/azure/mt163683.aspx)
 * [.NET için Depolama Kaynak Sağlayıcısı İstemci Kitaplığı](https://msdn.microsoft.com/library/azure/mt131037.aspx)
 * [PowerShell 1.0 için Depolama Kaynak Sağlayıcısı Cmdlet'leri](https://msdn.microsoft.com/library/azure/mt607151.aspx)
 * [Depolama Hizmet Yönetimi REST API'si (Klasik)](https://msdn.microsoft.com/library/azure/ee460790.aspx)
 
-### <a name="azure-storage-data-movement-services"></a>Azure Storage Veri Taşıma Hizmetleri
+### <a name="azure-storage-data-movement-services"></a>Azure Depolama veri taşıma hizmetleri
 * [Depolama İçeri/Dışarı Aktarma Hizmeti REST API'si](https://msdn.microsoft.com/library/azure/dn529096.aspx)
 * [.NET için Depolama Veri Taşıma İstemcisi Kitaplığı](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/)
 
@@ -203,55 +204,53 @@ Azure Storage kaynakları HTTP/HTTPS isteği yapabilen her dil ile erişilebilir
 * [Azure PowerShell](/powershell/azureps-cmdlets-docs)
 * [AzCopy Komut Satırı Yardımcı Programı](http://aka.ms/downloadazcopy)
 
-## <a name="next-steps"></a>Sonraki Adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 Azure Storage hakkında daha fazla bilgi için şu kaynakları araştırın:
 
 ### <a name="documentation"></a>Belgeler
 * [Azure Depolama Belgeleri](https://azure.microsoft.com/documentation/services/storage/)
+* [Depolama hesabı oluşturma](storage-create-storage-account.md)
+* [Beş dakikada Azure Storage’ı kullanmaya başlayın](storage-getting-started-guide.md)
 
 ### <a name="for-administrators"></a>Yöneticiler için
 * [Azure Depolama ile Azure PowerShell’i kullanma](storage-powershell-guide-full.md)
 * [Azure Depolama ile Azure CLI'sini kullanma](storage-azure-cli.md)
 
-### <a name="for-net-developers"></a>.NET Geliştiricileri için
+### <a name="for-net-developers"></a>.NET geliştiricileri için
 * [.NET kullanarak Azure Blob Depolama ile çalışmaya başlama](storage-dotnet-how-to-use-blobs.md)
 * [.NET kullanarak Azure Tablo Depolama ile çalışmaya başlama](storage-dotnet-how-to-use-tables.md)
 * [.NET kullanarak Azure Kuyruk Depolama ile çalışmaya başlama](storage-dotnet-how-to-use-queues.md)
 * [Windows'da Azure Dosya Depolama ile çalışmaya başlama](storage-dotnet-how-to-use-files.md)
 
-### <a name="for-javaandroid-developers"></a>Java/Android Geliştiricileri için
+### <a name="for-javaandroid-developers"></a>Java/Android geliştiricileri için
 * [Java'da Blob Depolama'yı kullanma](storage-java-how-to-use-blob-storage.md)
 * [Java'da Tablo Depolama'yı kullanma](storage-java-how-to-use-table-storage.md)
 * [Java'da Kuyruk Depolama'yı kullanma](storage-java-how-to-use-queue-storage.md)
 * [Java'da Dosya Depolama'yı kullanma](storage-java-how-to-use-file-storage.md)
 
-### <a name="for-nodejs-developers"></a>Node.js Geliştiricileri için
+### <a name="for-nodejs-developers"></a>Node.js geliştiricileri için
 * [Node.js'de Blob Depolama'yı kullanma](storage-nodejs-how-to-use-blob-storage.md)
 * [Node.js'de Tablo Depolama'yı kullanma](storage-nodejs-how-to-use-table-storage.md)
 * [Node.js'de Kuyruk Depolama'yı kullanma](storage-nodejs-how-to-use-queues.md)
 
-### <a name="for-php-developers"></a>PHP Geliştiricileri için
+### <a name="for-php-developers"></a>PHP geliştiricileri için
 * [PHP'de Blob Depolama'yı kullanma](storage-php-how-to-use-blobs.md)
 * [PHP'de Tablo Depolama'yı kullanma](storage-php-how-to-use-table-storage.md)
 * [PHP'de Kuyruk Depolama'yı kullanma](storage-php-how-to-use-queues.md)
 
-### <a name="for-ruby-developers"></a>Ruby Geliştiricileri için
+### <a name="for-ruby-developers"></a>Ruby geliştiricileri için
 * [Ruby'de Blob Depolama'yı kullanma](storage-ruby-how-to-use-blob-storage.md)
 * [Ruby'de Tablo Depolama'yı kullanma](storage-ruby-how-to-use-table-storage.md)
 * [Ruby'de Kuyruk Depolama'yı kullanma](storage-ruby-how-to-use-queue-storage.md)
 
-### <a name="for-python-developers"></a>Python Geliştiricileri için
+### <a name="for-python-developers"></a>Python geliştiricileri için
 * [Python'da Blob Depolama'yı kullanma](storage-python-how-to-use-blob-storage.md)
 * [Python'da Tablo Depolama'yı kullanma](storage-python-how-to-use-table-storage.md)
 * [Python'da Kuyruk Depolama'yı kullanma](storage-python-how-to-use-queue-storage.md)
 * [Python'da Dosya Depolama'yı kullanma](storage-python-how-to-use-file-storage.md)
 
-## <a name="next-steps"></a>Sonraki adımlar
-
-* [Depolama hesabı oluşturma](storage-create-storage-account.md)
-* [Beş dakikada Azure Storage’ı kullanmaya başlayın](storage-getting-started-guide.md)
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

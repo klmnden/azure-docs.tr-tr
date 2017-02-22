@@ -1,14 +1,26 @@
 ---
 layout: LandingPage
+description: Learn how to synchronize directories and enable single sign-on. Documentation shows you how to integrate a full suite of identity management capabilities.
+title: "Azure Active Directory Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
+services: active-directory
+author: carolz
+manager: carolz
+ms.assetid: 
+ms.service: active-directory
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: 72d219c4150ddbfd59231f9131bf3502897f0ab4
+ms.sourcegitcommit: 2dc340dcb864325554700f58057d157dd46f7f7a
+ms.openlocfilehash: ba13ea0d6c17e50e7b1887373d67ca691bdfad01
 
 ---
 
 # <a name="azure-active-directory-documentation"></a>Azure Active Directory Belgeleri
 
-Azure Active Directory Premium, binlerce bulut (SaaS) uygulamasında çoklu oturum açma olanağının yanı sıra şirket içinde çalıştırdığınız web uygulamalarına erişim de sağlayan bir Kimlik ve Erişim Yönetimi bulut çözümüdür. Azure Active Directory, kurumsal mobilite ve işbirliği sağlamanın yanı sıra, Multi-Factor authentication (MFA), güvenlik raporları, denetimler, uyarılar ve cihaz durumuna, kullanıcı konumuna ve risk düzeyine dayalı uyarlanabilir koşullu erişim ilkeleri aracılığıyla gelişmiş kimlik koruma seçenekleri sunar.
+Azure Active Directory (Azure AD) ile dizinleri eşitleme ve çoklu oturum açmayı etkinleştirme hakkında bilgi edinin. Öğreticiler, API başvuruları ve diğer belgeler, çok faktörlü kimlik doğrulaması, cihaz kaydı, rol tabanlı erişim denetimi, güvenlik izleme ve uyarılar gibi kimlik yönetimi özelliklerini nasıl tümleştirebileceğinizle ilgili bilgiler içerir.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -128,16 +140,8 @@ Azure Active Directory Premium, binlerce bulut (SaaS) uygulamasında çoklu otur
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/active-directory.pdf">
-        <div class="img"></div>
-        <div class="text">
-Active Directory Belgelerini İndirme </div>
-    </a>
-</div>
 
 
-
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Feb17_HO2-->
 
 

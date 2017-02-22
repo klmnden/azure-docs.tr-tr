@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/01/2016
+ms.date: 02/13/2017
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: e41300ac8f6829ba93ebe7cba6063d82db1119f7
+ms.sourcegitcommit: 2d428e0e3aaf8fd4a2138648411da644ccd308f6
+ms.openlocfilehash: 4eee1b3f30c9e47983af5c1dfa60fe0deb8c2cc8
 
 
 ---
@@ -39,8 +39,8 @@ Azure başlangıçta yalnızca Microsoft hesabı kullanıcıları tarafından er
 
 > [!NOTE]
 > msmith@hotmail.com, klasik Azure portalında oturum açmak için Azure aboneliğine sahip olmalıdır. Hesap bir Hizmet yöneticisi veya aboneliğin ortak yöneticisi olmalıdır.
-> 
-> 
+>
+>
 
 ![][1]
 
@@ -104,8 +104,8 @@ Her iki dizini de klasik Azure portalında yönetmek için bu adımları tamamla
 
 > [!NOTE]
 > Bu adımlar, yalnızca bir kullanıcı bir Microsoft hesabıyla oturum açmış durumdayken tamamlanabilir. Kullanıcı bir iş veya okul hesabıyla oturum açmışsa bir iş veya okul hesabının kimlik doğrulaması yalnızca kendi ana dizini (iş veya okul hesabının depolandığı ve işin veya okulun sahibi olduğu dizin) tarafından gerçekleştirilebildiği için **Mevcut dizini kullan** seçeneği kullanılamaz.
-> 
-> 
+>
+>
 
 1. Microsoft hesabınızı kullanarak klasik Azure portalında oturum açın.
 2. **New (Yeni)** > **App services (Uygulama hizmetleri)** > **Active Directory** > **Directory (Dizin)** > **Custom Create (Özel Oluştur)** düğmesine tıklayın.
@@ -116,7 +116,7 @@ Her iki dizini de klasik Azure portalında yönetmek için bu adımları tamamla
 7. Microsoft hesabınızı kullanarak klasik Azure portalında tekrar oturum açın. Her iki dizin de Active Directory uzantısında görünür.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
-* Bir Azure aboneliğine yönelik olarak yöneticileri değiştirme hakkında daha fazla bilgi için bkz. [Azure yönetici rollerini ekleme veya değiştirme](../billing-add-change-azure-subscription-administrator.md)
+* Bir Azure aboneliğine yönelik olarak yöneticileri değiştirme hakkında daha fazla bilgi için bkz. [Azure yönetici rollerini ekleme veya değiştirme](../billing/billing-add-change-azure-subscription-administrator.md)
 * Microsoft Azure'da kaynak erişiminin nasıl denetlendiği konusunda daha fazla bilgi için bkz. [Azure'da kaynak erişimini anlama](active-directory-understanding-resource-access.md)
 * Azure AD'de rol atama hakkında daha fazla bilgi için bkz. [Azure Active Directory'de yönetici rolü atama](active-directory-assign-admin-roles.md)
 * [Azure’a kuruluş olarak kaydolma](sign-up-organization.md)
@@ -128,6 +128,6 @@ Her iki dizini de klasik Azure portalında yönetmek için bu adımları tamamla
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

@@ -252,6 +252,6 @@ Bu makalede, istemci JavaScript kodunun farklı bir etki alanındaki bir API’y
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

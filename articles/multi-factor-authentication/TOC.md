@@ -14,6 +14,7 @@
 ### [Kimlik Doğrulama Sağlayıcısı oluşturma](multi-factor-authentication-get-started-auth-provider.md)
 ### [Ayarları yapılandırma](multi-factor-authentication-whats-next.md)
 ### [MFA’da raporlar](multi-factor-authentication-manage-reports.md)
+### [Mevcut ağ ilkesi sunucularını kullanma](multi-factor-authentication-nps-extension.md)
 ### Şirket içi Azure MFA
 #### [Kullanıcı portalını yükleme](multi-factor-authentication-get-started-portal.md)
 #### [Gelişmiş VPN Yapılandırmaları](multi-factor-authentication-advanced-vpn-configurations.md)
@@ -38,7 +39,7 @@
 ### [IIS web uygulamaları](multi-factor-authentication-get-started-server-iis.md)
 ### [Uzak Masaüstü Ağ Geçidi](multi-factor-authentication-get-started-server-rdg.md)
 
-## Geliştirme 
+## Geliştirme
 ### [Özel Uygulamalarda (SDK) oluşturma](multi-factor-authentication-sdk.md)
 
 ## Sorun giderme
@@ -46,6 +47,6 @@
 ### [Özel Uygulamalarda (SDK) oluşturma](https://social.msdn.microsoft.com/Forums/newthread?category=windowsazureplatform&forum=windowsazureactiveauthentication&prof=required)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO1-->
 
 

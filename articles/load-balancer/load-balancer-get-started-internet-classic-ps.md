@@ -1,5 +1,5 @@
 ---
-title: "Klasik modda PowerShell kullanarak İnternet’e yönelik yük dengeleyici oluşturmaya başlama | Microsoft Belgeleri"
+title: "İnternet’e yönelik yük dengeleyicisi oluşturma - Azure PowerShell klasik | Microsoft Docs"
 description: "Klasik modda PowerShell kullanarak İnternet’e yönelik yük dengeleyici oluşturmayı öğrenin"
 services: load-balancer
 documentationcenter: na
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/05/2016
+ms.date: 01/23/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: c40545833da86426d3e71955b8eb8627db3c1e4b
-ms.openlocfilehash: 3855b32c8ff13f73cf91ea8973ed40a34a062224
+ms.sourcegitcommit: 4c29a3d17161a38f9aee9337e27feb36306cf329
+ms.openlocfilehash: b889208da300f301ee5c418bfa461a21cd8c07ee
 
 ---
 
@@ -76,6 +76,6 @@ Uygulamanızın yük dengeleyici arkasındaki sunucular için bağlantıları ca
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

@@ -3,25 +3,29 @@
 
 ### <a name="add-the-relay-nuget-package"></a>Geçiş NuGet paketini ekleme
 1. Yeni oluşturulan projeye sağ tıklayın ve **NuGet Paketlerini Yönet**’i seçin.
-2. **Gözat** sekmesine tıklayın, ardından “Microsoft Azure Geçiş” ifadesini aratın ve **Microsoft Azure Geçiş** öğesini seçin. Yüklemeyi tamamlamak için **Yükle**'ye tıklayın, ardından bu iletişim kutusunu kapatın.
+2. **Gözat** sekmesine tıklayın, ardından "Microsoft.Azure.Relay" ifadesini aratın ve **Microsoft Azure Geçiş** öğesini seçin. Yüklemeyi tamamlamak için **Yükle**'ye tıklayın, ardından bu iletişim kutusunu kapatın.
 
 ### <a name="write-some-code-to-receive-messages"></a>İleti almak için bazı kodlar yazma
-1. Aşağıdaki `using` deyimini Program.cs dosyasının üst kısmına ekleyin.
+1. Program.cs dosyasının üst tarafındaki `using` deyimini aşağıdaki deyimlerle değiştirin:
    
-    ```cs
+    ```csharp
+    using System;
+    using System.IO;
+    using System.Threading;
+    using System.Threading.Tasks;
     using Microsoft.Azure.Relay;
     ```
 2. Karma Bağlantı bağlantı ayrıntıları için sabitleri `Program` sınıfına ekleyin. Köşeli ayraçlar içindeki yer tutucuları Karma Bağlantı oluşturulurken edinilen uygun değerlerle değiştirin.
    
-    ```cs
+    ```csharp
     private const string RelayNamespace = "{RelayNamespace}";
     private const string ConnectionName = "{HybridConnectionName}";
     private const string KeyName = "{SASKeyName}";
     private const string Key = "{SASKey}";
     ```
-3. `Program` sınıfına aşağıdaki gibi `ProcessMessagesOnConnection` adlı yeni bir yöntem ekleyin:
+3. `Program` sınıfına aşağıdaki `ProcessMessagesOnConnection` adlı yeni yöntemi ekleyin:
    
-    ```cs
+    ```csharp
     // Method is used to initiate connection
     private static async void ProcessMessagesOnConnection(HybridConnectionStream relayConnection, CancellationTokenSource cts)
     {
@@ -72,7 +76,7 @@
     ```
 4. `Program` sınıfına aşağıdaki gibi `RunAsync` adlı başka bir yeni yöntem ekleyin:
    
-    ```cs
+    ```csharp
     private static async Task RunAsync()
     {
         var cts = new CancellationTokenSource();
@@ -117,13 +121,13 @@
     ```
 5. Aşağıdaki kod satırını `Program` sınıfındaki `Main` yöntemine ekleyin.
    
-    ```cs
+    ```csharp
     RunAsync().GetAwaiter().GetResult();
     ```
    
     Program.cs dosyanız aşağıdaki gibi görünmelidir:
    
-    ```cs
+    ```csharp
     namespace Server
     {
         using System;
@@ -238,6 +242,6 @@
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO1-->
 
 

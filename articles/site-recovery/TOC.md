@@ -7,28 +7,30 @@
 ## [Tanıtımı izleyin](https://www.youtube.com/watch?v=eOOwMQPBKfM)
 
 # Kullanmaya Başlama
-## [Dağıtım için hazırlanma](site-recovery-best-practices.md)
+## [VMWare VM'lerini Azure'a çoğaltma](site-recovery-vmware-to-azure.md)
+## [VMware VM’lerini çok kiracılı bir dağıtımda (CSP) Azure’a dağıtma](site-recovery-multi-tenant-support-vmware-using-csp.md)
+## [Hyper-V VM’lerini Azure’a çoğaltma (VMM ile)](site-recovery-vmm-to-azure.md)
+## [Hyper-V VM'lerini Azure'a çoğaltma](site-recovery-hyper-v-site-to-azure.md)
+## [VMware VM’lerini ve fiziksel sunucuları ikincil bir siteye çoğaltma](site-recovery-vmware-to-vmware.md)
+## [Hyper-V VM'lerini ikincil bir siteye çoğaltma (VMM ile)](site-recovery-vmm-to-vmm.md)
 
 # Nasıl yapılır?
 ## Planlama
-### [Kapasite planlaması](site-recovery-capacity-planner.md)
-### [Performans ve ölçeklendirme testi sonuçları](site-recovery-performance-and-scaling-testing-on-premises-to-on-premises.md)
+### [Dağıtım önkoşulları](site-recovery-prereq.md)
 ### [Ağ altyapısı ile ilgili önemli noktalar](site-recovery-network-design.md)
-### [Ağ eşlemesi (VMM)](site-recovery-network-mapping.md)
-### [Şirket içi siteler arasında Depolama eşlemesi](site-recovery-storage-mapping.md)
-## Çoğaltma
-### [VMWare VM’lerini ve fiziksel sunucuları Azure’a](site-recovery-vmware-to-azure.md)
-### [VMware VM’lerini ve fiziksel sunucuları ikincil siteye](site-recovery-vmware-to-vmware.md)
-### [CSP programını kullanarak çok kiracı desteği bulunan VMware VM'lerini Azure’a](site-recovery-multi-tenant-support-vmware-using-csp.md)
-### [Hyper-V VM’lerinden Azure’a (VMM ile)](site-recovery-vmm-to-azure.md)
-### [Hyper-V VM’lerinden Azure’a (VMM olmadan)](site-recovery-hyper-v-site-to-azure.md)
-### [Hyper-V VM’lerinden ikincil siteye](site-recovery-vmm-to-vmm.md)
-### [Hyper-V VM’lerinden ikincil siteye (SAN ile)](site-recovery-vmm-san.md)
-### [Hyper-V VM’leri (tek VMM sunucusu ile)](site-recovery-single-vmm.md)
+### [Site Recovery Capacity Planner’ı kullanma](site-recovery-capacity-planner.md)
+### [Kapasite planlama ve Azure'aa VMware çoğaltma işlemini ölçeklendirme](site-recovery-plan-capacity-vmware.md)
+## Yapılandırma
+### [Kaynak çoğaltma ortamını ayarlama](site-recovery-set-up-vmware-to-azure.md)
+### [Çoğaltma ayarlarını yapılandırma](site-recovery-setup-replication-settings-vmware.md)
+### [VMware çoğaltma için Mobility hizmetini dağıtma](site-recovery-vmware-to-azure-install-mob-svc.md)
+#### [System Center Configuration Manager kullanarak Mobility hizmetini dağıtma](site-recovery-install-mobility-service-using-sccm.md)
+#### [Azure Automation DSC kullanarak Mobility hizmetini dağıtma](site-recovery-automate-mobility-service-install.md)
+### [Sunucuları kaldırma ve korumayı devre dışı bırakma](site-recovery-manage-registration-and-protection.md)
 ## Geçiş
 ### [Azure’a geçiş](site-recovery-migrate-to-azure.md)
 ### [Azure bölgeleri arasında geçiş yapma](site-recovery-migrate-azure-to-azure.md)
-### [AWS Windows örneklerinden Azure’a](site-recovery-migrate-aws-to-azure.md)
+### [AWS Windows örneklerini Azure’a geçirme](site-recovery-migrate-aws-to-azure.md)
 ## İş yükleri
 ### [Active Directory ve DNS](site-recovery-active-directory.md)
 ### [SQL Server](site-recovery-sql.md)
@@ -39,14 +41,15 @@
 ### [SAP](site-recovery-workload.md#protect-sap)
 ### [Diğer iş yükleri](site-recovery-workload.md#workload-summary)
 ## Çoğaltmayı otomatik hale getirme
-### [Hyper-V VM’leri (VMM ile)](site-recovery-deploy-with-powershell.md)
-### [Hyper-V VM’leri (VMM olmadan)](site-recovery-deploy-with-powershell-resource-manager.md)
-### [Kurtarma planlarına otomasyon ekleme](site-recovery-runbook-automation.md)
-### [Mobility hizmetinin dağıtımını otomatikleştirme](site-recovery-automate-mobility-service-install.md)
-## Yönet
-### [Sunucuları kaldırma ve korumayı devre dışı bırakma](site-recovery-manage-registration-and-protection.md)
-### [Kurtarma planları oluşturma](site-recovery-create-recovery-plans.md)
+### [Azure’a Hyper-V çoğaltma işlemini (VMM olmadan) otomatikleştirme](site-recovery-deploy-with-powershell-resource-manager.md)
+### [Azure’a Hyper-V çoğaltma işlemini (VMM ile) otomatikleştirme](site-recovery-vmm-to-azure-powershell-resource-manager.md)
+### [İkincil siteye Hyper-V çoğaltma işlemini (VMM ile) otomatikleştirme](site-recovery-vmm-to-vmm-powershell-resource-manager.md)
+## Yük devretme ve yeniden çalışma
 ### [Site Recovery'de yük devretme](site-recovery-failover.md)
+### [Kurtarma planları oluşturma](site-recovery-create-recovery-plans.md)
+#### [Kurtarma planlarına Azure runbook ekleme](site-recovery-runbook-automation.md)
+### [VMware’den Azure'a yük devretme testi çalıştırma](site-recovery-test-failover-to-azure.md)
+### [İki VMM sitesi arasında yük devretme testi çalıştırma](site-recovery-test-failover-vmm-to-vmm.md)
 ### [VMware VM’lerini ve fiziksel sunucuları ilk durumuna geri döndürme](site-recovery-failback-azure-to-vmware.md)
 ## [İzleme ve sorun giderme](site-recovery-monitoring-and-troubleshooting.md)
 

@@ -17,19 +17,22 @@
 
 ## Geliştirme
 ### [Sık sorulan soru yapıları](stream-analytics-stream-analytics-query-patterns.md)
+### [Visual Studio Araçları](stream-analytics-tools-for-visual-studio.md)
 ### [Girdileri oluştur](stream-analytics-define-inputs.md)
 ### [Çıktıları oluştur](stream-analytics-define-outputs.md)
 ### [Başvuru verilerini kullanma](stream-analytics-use-reference-data.md)
-### [Azure Redis Önbelleği’ne çıktı sağlama](stream-analytics-functions-redis.md)
+### [Azure İşlevleri’ne çıktı sağlama](stream-analytics-functions-redis.md)
 ### [Data Lake Store’a çıktı sağlama](stream-analytics-data-lake-output.md)
 ### [DocumentDB’ye çıktı sağlama](stream-analytics-documentdb-output.md)
 ### [Power BI ile veri analizi](stream-analytics-power-bi-dashboard.md)
+### [JavaScript UDF tümleştirmesi](stream-analytics-javascript-user-defined-functions.md)
 ### [REST API ve Machine Learning tümleştirmesi](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md)
 ### [Yönetim .NET SDK’sini kullanma](stream-analytics-dotnet-management-sdk.md)
 ### [Pencere işlevleri](stream-analytics-window-functions.md)
 
 ## Yönet
 ### [İşleri izleme](stream-analytics-monitoring.md)
+### [Tanılama günlükleri](stream-analytics-job-diagnostic-logs.md)
 ### [Programlama yoluyla işleri izleme](stream-analytics-monitor-jobs.md)
 ### [PowerShell ile işleri izleme](stream-analytics-monitor-and-manage-jobs-use-powershell.md)
 ### [İşlemeyi artırmak için ölçeklendirme](stream-analytics-scale-jobs.md)
@@ -58,6 +61,6 @@
 ## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=stream-analytics)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO1-->
 
 

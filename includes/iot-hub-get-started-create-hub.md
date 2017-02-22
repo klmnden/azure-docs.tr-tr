@@ -37,6 +37,6 @@ Bağlanılacak sanal cihaz uygulamanız için bir IoT Hub oluşturun. Aşağıda
 [lnk-access-control]: ../articles/iot-hub/iot-hub-devguide-security.md
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO3-->
 
 

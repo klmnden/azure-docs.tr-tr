@@ -1,5 +1,5 @@
 ---
-title: "Azure MFA bulutuyla sunucusunun karşılaştırılması | Microsoft Belgeleri"
+title: "Azure MFA bulutu vea sunucusu arasında seçim yapma | Microsoft Docs"
 description: "Neyi güvenli hale getirmeye çalışıyorum ve kullanıcılarım nerede yer alıyor sorularını kendinize sorarak multi-factor authentication güvenlik çözümünüzü seçin.  Sonra bulut, MFA Sunucusu ya da AD FS arasından seçim yapın."
 services: multi-factor-authentication
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/06/2017
+ms.date: 01/23/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 07e2a62ee63a8f9ef3d660fff8c6269654e2b448
-ms.openlocfilehash: 3e10becd802dfe8934063727f2f7fb0e9e8b420b
+ms.sourcegitcommit: 92c552f42f2645281f5039242825cfdaf6b683c9
+ms.openlocfilehash: 1a42c137204c2d2f6fff9a005b2b0e885c2002b2
 
 
 ---
@@ -36,7 +36,7 @@ Doğru iki aşamalı doğrulama çözümünü belirlemek için, önce ikinci bir
 | --- |:---:|:---:|
 | Birinci taraf Microsoft uygulamaları |● |● |
 | Uygulama galerisinde SaaS uygulamaları |● |● |
-| Azure AD Uygulaması Proxy üzerinden yayımlanan IIS uygulamaları |● |● |
+| Azure AD Uygulaması Proxy üzerinden yayımlanan web uygulamaları |● |● |
 | Azure AD Uygulaması Proxy üzerinden yayımlanmayan IIS uygulamaları | |● |
 | VPN, RDG gibi uzaktan erişim | |● |
 
@@ -62,8 +62,8 @@ Aşağıdaki tabloda, bulutta Multi-Factor Authentication ile kullanılabilen ö
 | İkinci öğe olarak tek yönlü SMS | ● | ● |
 | İkinci öğe olarak iki yönlü SMS | | ● |
 | İkinci öğe olarak Donanım Belirteçleri | | ● |
-| MFA'yı desteklemeyen istemciler için uygulama parolaları | ● | |
-| Kimlik doğrulama yöntemleri üzerinde yönetici denetimi | | ● |
+| MFA'yı desteklemeyen Office 365 istemcileri için uygulama parolaları | ● | |
+| Kimlik doğrulama yöntemleri üzerinde yönetici denetimi | ● | ● |
 | PIN modu | | ● |
 | Sahtekarlık uyarısı |● | ● |
 | MFA Raporları |● | ● |
@@ -73,7 +73,7 @@ Aşağıdaki tabloda, bulutta Multi-Factor Authentication ile kullanılabilen ö
 | Güvenilen IP'ler | ● | ● |
 | Güvenilen cihazlar için MFA hatırlama | ● | |
 | Koşullu erişim | ● | ● |
-| Önbellek | ● | ● |
+| Önbellek |  | ● |
 
 Artık bulutta multi-factor authentication mı yoksa şirket içi MFA Sunucusu mu kullanacağımızı belirlediğimize göre, Azure Multi-Factor Authentication’ı ayarlamaya ve kullanmaya başlayabiliriz. **Senaryonuzu temsil eden simgeyi seçin!**
 
@@ -87,6 +87,6 @@ Artık bulutta multi-factor authentication mı yoksa şirket içi MFA Sunucusu m
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO4-->
 
 

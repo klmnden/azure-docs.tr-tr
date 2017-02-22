@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 01/23/2017
 ms.author: rachelap@microsoft.com
 translationtype: Human Translation
-ms.sourcegitcommit: a4d871686a54465e12f93c1720a44985785b94ae
-ms.openlocfilehash: 76d81b8e57c59147f8fb203435b07f45228fdd52
+ms.sourcegitcommit: a8f6d111a010666bf4aaaf05e061381cc8fffed0
+ms.openlocfilehash: 634781189459f26e2ffa42b25a2ffb229d3371d4
 
 
 ---
@@ -26,12 +26,9 @@ ms.openlocfilehash: 76d81b8e57c59147f8fb203435b07f45228fdd52
 
 Bu konu başlığında, bir Azure Depolama Kuyruğundaki iletileri dinleyen ve iletileri bir Azure Depolama tablosundaki satırlara kopyalayan Azure İşlevleri içinde işlev oluşturma hakkında bilgi edineceksiniz. İletilerin kuyruğa yüklenmesi için zamanlayıcı ile tetiklenen bir işlev kullanılır. İkinci bir işlev ise iletileri kuyruktan okuyarak tabloya yazar. Hem kuyruk hem de tablo, bağlama tanımları temel alınarak Azure İşlevleri tarafından oluşturulur. 
 
-İşleri daha ilginç hale getirmek için, bir işlev JavaScript dilinde yazılırken diğer işlev C# kodunda yazılır. Bu durum bir işlev uygulamasının nasıl çeşitli dillerde işlevleri olabileceğini gösterir.
+İşleri daha ilginç hale getirmek için, bir işlev JavaScript dilinde yazılırken diğer işlev C# kodunda yazılır. Bu durum bir işlev uygulamasının nasıl çeşitli dillerde işlevleri olabileceğini gösterir. 
 
-## <a name="watch-the-video"></a>Videoyu izleme
->[!VIDEO https://channel9.msdn.com/Series/Windows-Azure-Web-Sites-Tutorials/Create-an-Azure-Function-which-binds-to-an-Azure-service/player]
->
->
+Bu senaryoyu [Kanal 9’daki bir videoda](https://channel9.msdn.com/Series/Windows-Azure-Web-Sites-Tutorials/Create-an-Azure-Function-which-binds-to-an-Azure-service/player) görebilirsiniz.
 
 ## <a name="create-a-function-that-writes-to-the-queue"></a>Kuyruğa yazan bir işlev oluşturma
 
@@ -197,6 +194,6 @@ Azure İşlevleri hakkında daha fazla bilgi edinmek için bu konulara göz atı
 
 
 
-<!--HONumber=Jan17_HO5-->
+<!--HONumber=Feb17_HO1-->
 
 

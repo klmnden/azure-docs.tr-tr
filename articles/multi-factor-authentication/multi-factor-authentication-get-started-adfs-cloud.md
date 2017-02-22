@@ -1,5 +1,5 @@
 ---
-title: "Azure MFA ve AD FS ile bulut kaynaklarını güvenli hale getirme"
+title: "Azure MFA ve AD FS ile bulut kaynaklarını güvenli hale getirme | Microsoft Docs"
 description: "Bu, bulutta nasıl Azure MFA ve AD FS kullanmaya başlayacağınızı açıklayan Azure Multi-Factor Authentication sayfasıdır."
 services: multi-factor-authentication
 documentationcenter: 
@@ -12,43 +12,40 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/14/2016
+ms.date: 02/09/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 0a9ab0aca1a77245f360d0d8976aa9b8f59f15a0
-
+ms.sourcegitcommit: 60e8bf883a09668100df8fb51572f9ce0856ccb3
+ms.openlocfilehash: 9eb32ac7936ad54d487dc15d3ef320ec279ce0bc
 
 ---
+
 # <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Azure Multi-Factor Authentication ve AD FS ile bulut kaynaklarını güvenli hale getirme
-Kuruluşunuz Azure Active Directory ile birleştiriliyorsa, Azure AD’nin erişebildiği kaynakları güvenli hale getirmek için Azure Multi-Factor Authentication ya da Active Directory Federasyon Hizmetleri’ni kullanın. Azure Active Directory kaynaklarını Azure Multi-Factor Authentication ya da Active Directory Federasyon Hizmetleri ile güvenli hale getirmek için aşağıdaki yordamları kullanın.
+Kuruluşunuz Azure Active Directory ile birleştiriliyorsa, Azure AD’nin erişebildiği kaynakları güvenli hale getirmek için Azure Multi-Factor Authentication ya da Active Directory Federation Services (AD FS) kullanın. Azure Active Directory kaynaklarını Azure Multi-Factor Authentication ya da Active Directory Federasyon Hizmetleri ile güvenli hale getirmek için aşağıdaki yordamları kullanın.
 
 ## <a name="secure-azure-ad-resources-using-ad-fs"></a>AD FS kullanarak Azure AD kaynaklarını güvenli hale getirme
-Bulut kaynağınızı güvenli hale getirmek için önce kullanıcılar için bir hesabı etkinleştirmeniz, ardından talep kuralı ayarlamanız gerekir. İlerlemek için bu yordamı izleyin:
+Bulut kaynağınızın güvenliğini sağlamak için, kullanıcı iki adımlı doğrulamayı başarıyla gerçekleştirdiğinde Active Directory Federation Services tarafından multipleauthn talebinin yayılması için bir talep kuralı oluşturun. Bu talep Azure AD'ye aktarılır. İlerlemek için bu yordamı izleyin:
 
-1. Bir hesabı etkinleştirmek üzere [Kullanıcılar için çok faktörlü kimlik doğrulamasını etkinleştirme](multi-factor-authentication-get-started-cloud.md#turn-on-two-step-verification-for-users) bölümünde açıklanan adımları kullanın.
-2. AD FS Yönetim Konsolu'nu başlatın.
-   ![Bulut](./media/multi-factor-authentication-get-started-adfs-cloud/adfs1.png)
-3. **Bağlı Olan Taraf Güvenleri**’ne gidin ve Bağlı Olan Taraf Güveni’ne sağ tıklayın. **Talep Kurallarını Düzenle...** seçeneğini belirleyin.
-4. **Kural Ekle...** seçeneğine tıklayın.
-5. Açılır menüde **Talepleri Özel Bir Kural Kullanarak Gönder**’i seçip **İleri**’ye tıklayın.
-6. Talep kuralı için bir ad girin.
-7. Özel kural: altında aşağıdaki metni ekleyin:
 
-    ```
-    => issue(Type = "http://schemas.microsoft.com/claims/authnmethodsreferences", Value = "http://schemas.microsoft.com/claims/multipleauthn");
-    ```
+1. AD FS Yönetimi'ni açın.
+2. Solda, **Bağlı Olan Taraf Güvenleri**’ni seçin.
+3. **Microsoft Office 365 Kimlik Platformu**’na sağ tıklayın ve **Talep Kurallarını Düzenle…** seçeneğini belirleyin
 
-    Karşılık gelen talep:
+   ![Bulut](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip1.png)
 
-    ```
-    <saml:Attribute AttributeName="authnmethodsreferences" AttributeNamespace="http://schemas.microsoft.com/claims">
-    <saml:AttributeValue>http://schemas.microsoft.com/claims/multipleauthn</saml:AttributeValue>
-    </saml:Attribute>
-    ```
-8. **Tamam**’a ve ardından **Son**’a tıklayın. AD FS Yönetim Konsolu'nu kapatın.
+4. Verme Dönüştürme Kuralları’nda **Kural Ekle**’ye tıklayın.
 
-Kullanıcılar şirket içi yöntemi (örneğin, akıllı kart) kullanarak oturum açmayı tamamlayabilir.
+   ![Bulut](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip2.png)
+
+5. Dönüştürme Kuralı Ekleme Sihirbazı’nda, açılır menüde **Gelen Talep için Geçiş ya da Filtre**’yi seçin ve **İleri**’ye tıklayın.
+
+   ![Bulut](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip3.png)
+
+6. Kuralınıza bir ad verin. 
+7. Gelen talep türü olarak **Kimlik Doğrulama Yöntemleri Başvuruları**’nı seçin.
+8. **Tüm talep değerlerini geçir**’i seçin.
+    ![Dönüşüm Talep Kuralı Ekleme Sihirbazı](./media/multi-factor-authentication-get-started-adfs-cloud/configurewizard.png)
+9. **Son**'a tıklayın. AD FS Yönetim Konsolu'nu kapatın.
 
 ## <a name="trusted-ips-for-federated-users"></a>Federasyon kullanıcıları için Güvenilen IP'ler
 Güvenilen IP'ler yöneticilerin, belirli IP adresleri ya da kendi intranetlerinden kaynaklanan taleplere sahip federasyon kullanıcıları için iki aşamalı doğrulamayı atlamasına izin verir. Aşağıdaki bölümlerde, federasyon kullanıcıları intranetinden gelen talepler için Azure Multi-Factor Authentication Güvenilen IP’lerinin federasyon kullanıcılarıyla yapılandırılması ve iki aşamalı doğrulamanın atlanması açıklanmıştır. Bu, AD FS’nin bir geçiş kullanacak ya da Kurumsal Ağ İçinde talep türü ile gelen bir talep şablonunu filtreleyecek şekilde yapılandırılmasıyla gerçekleştirilir.
@@ -56,7 +53,7 @@ Güvenilen IP'ler yöneticilerin, belirli IP adresleri ya da kendi intranetlerin
 Bu örnekte Güvenilen Taraf Güvenlerimiz için Office 365 kullanılmıştır.
 
 ### <a name="configure-the-ad-fs-claims-rules"></a>AD FS talep kurallarını yapılandırma
-Yapmamız gereken ilk şey, AD FS taleplerini yapılandırmaktır. Biri Kurumsal Ağ İçinde talep türü için, diğeriyse kullanıcıların oturumunu açık şekilde tutmak için olmak üzere iki talep kuralı oluşturacağız.
+Yapmamız gereken ilk şey, AD FS taleplerini yapılandırmaktır. Biri Kurumsal Ağ İçinde talep türü için, diğeriyse kullanıcıların oturumunu açık şekilde tutmak için olmak üzere iki talep kuralı oluşturun.
 
 1. AD FS Yönetimi'ni açın.
 2. Solda, **Bağlı Olan Taraf Güvenleri**’ni seçin.
@@ -100,6 +97,6 @@ Bu kadar! Bu noktada, birleştirilmiş Office 365 kullanıcıları yalnızca tal
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

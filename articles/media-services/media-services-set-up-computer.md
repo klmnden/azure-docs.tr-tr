@@ -54,6 +54,6 @@ REST kullanarak Azure Media Services'e bağlanmak için [bu konu başlığını]
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

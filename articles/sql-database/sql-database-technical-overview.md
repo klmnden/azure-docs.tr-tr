@@ -1,5 +1,5 @@
 ---
-title: "SQL Database nedir? SQL Veritabanı&quot;na Giriş | Microsoft Belgeleri"
+title: "Azure SQL Veritabanı hizmeti nedir? | Microsoft Belgeleri"
 description: 'Get an introduction to SQL Database: technical details and capabilities of Microsoft''s relational database management system (RDBMS) in the cloud.'
 keywords: "sql&quot;e giriş,sql veritabanı nedir"
 services: sql-database
@@ -11,27 +11,27 @@ ms.assetid: c561f600-a292-4e3b-b1d4-8ab89b81db48
 ms.service: sql-database
 ms.custom: overview
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 12/20/2016
-ms.author: shkurhek;carlrab
+ms.author: shkurhek
 translationtype: Human Translation
-ms.sourcegitcommit: 187954f3ddafdbc17e341ce41f5b109cb95f8a24
-ms.openlocfilehash: 399fdbeee479f5598e6ed7f9bd6b6080ec919c98
+ms.sourcegitcommit: ae230c012a17eb73c8993a32197c844c6abaa2a4
+ms.openlocfilehash: c99f16e7aa6ea6fe82f7a115b4642025a05bb241
 
 ---
 # <a name="what-is-sql-database-introduction-to-sql-database"></a>SQL Database nedir? SQL Database'e Giriş
 SQL Veritabanı, piyasa lideri Microsoft SQL Server altyapısını temel alan ve görev açısından kritik iş yüklerini üstlenebilen, Microsoft bulutu tabanlı bir ilişkisel veritabanı hizmetidir. SQL Veritabanı, yönetime neredeyse hiç gerek olmaksızın birden fazla hizmet seviyesinde tahmin edilebilir performans, kesintisiz dinamik ölçeklenebilirlik, yerleşik iş sürekliliği ve veri koruma özellikleri sunar. Bu özellikler sayesinde değerli zamanınızı ve kaynaklarınızı sanal makine ve altyapı yönetimi yerine hızlı uygulama geliştirmeye ve piyasaya sunma sürenizi kısaltmaya ayırabilirsiniz. SQL Veritabanı, [SQL Server](https://msdn.microsoft.com/library/bb545450.aspx) altyapısını kullandığından var olan SQL Server araçlarını, kitaplıklarını ve API’lerini destekler. Sonuç olarak, yeni beceriler edinmenize gerek kalmadan yeni çözümler geliştirebilir, var olan SQL Server çözümlerinizi taşıyabilir ve Microsoft bulutunu kullanarak kapsamlarını genişletebilirsiniz.
 
-Bu makale performans, ölçeklenebilirlik ve yönetilebilirlik ile ilgili temel SQL Database kavramlarına ve özelliklerine bir giriş niteliğindedir ve ayrıntıları inceleyebilmeniz için ilgili bağlantılarla desteklenmiştir. Uygulamalı öğreticilere hemen başlamaya hazırsanız [İlk SQL veritabanınızı oluşturabilir](sql-database-get-started.md) veya [Elastik havuz oluşturabilirsiniz](sql-database-elastic-pool-create-portal.md). Kısa bir tanıtım için bu videoyu izleyin.
+Bu makale performans, ölçeklenebilirlik ve yönetilebilirlik ile ilgili temel SQL Database kavramlarına ve özelliklerine bir giriş niteliğindedir ve ayrıntıları inceleyebilmeniz için ilgili bağlantılarla desteklenmiştir. Uygulamalı öğreticilere hemen başlamaya hazırsanız [İlk SQL veritabanınızı oluşturabilir](sql-database-get-started.md) veya [Elastik havuz oluşturabilirsiniz](sql-database-elastic-pool-manage-portal.md). Kısa bir tanıtım için bu videoyu izleyin.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-create-DBs-in-seconds/player]
 > 
 > 
 
 ## <a name="adjust-performance-and-scale-without-downtime"></a>Kesinti olmadan performansı ayarlama ve ölçeklendirme
-SQL Veritabanı hizmeti, üç hizmet katmanı sunmaktadır: Temel, Standart ve Premium. Her bir hizmet katmanı, hafiften ağıra tüm iş yüklerini desteklemek üzere [farklı performans ve işlev düzeyleri](sql-database-service-tiers.md) sunar. Ayda birkaç liraya küçük bir veritabanı üzerinde ilk uygulamanızı oluşturabilir, ardından istediğiniz zaman el ile veya programlama yoluyla [hizmet katmanını değiştirebilirsiniz](sql-database-scale-up.md). Bunu uygulamanız veya müşterileriniz kesinti yaşamadan gerçekleştirebilirsiniz. Dinamik ölçeklenebilirlik, veritabanınızın hızla değişen kaynak gereksinimlerine hızlı şekilde yanıt vermesini ve yalnızca ihtiyaç duyduğunuz kaynaklara ve ihtiyaç duyduğunuz süre boyunca ödeme yapmanızı sağlar.
+SQL Veritabanı hizmeti, üç hizmet katmanı sunmaktadır: Temel, Standart ve Premium. Her bir hizmet katmanı, hafiften ağıra tüm iş yüklerini desteklemek üzere [farklı performans ve işlev düzeyleri](sql-database-service-tiers.md) sunar. Ayda birkaç liraya küçük bir veritabanı üzerinde ilk uygulamanızı oluşturabilir, ardından istediğiniz zaman el ile veya programlama yoluyla [hizmet katmanını değiştirebilirsiniz](sql-database-service-tiers.md). Bunu uygulamanız veya müşterileriniz kesinti yaşamadan gerçekleştirebilirsiniz. Dinamik ölçeklenebilirlik, veritabanınızın hızla değişen kaynak gereksinimlerine hızlı şekilde yanıt vermesini ve yalnızca ihtiyaç duyduğunuz kaynaklara ve ihtiyaç duyduğunuz süre boyunca ödeme yapmanızı sağlar.
 
 ## <a name="elastic-pools-to-maximize-resource-utilization"></a>Kaynak kullanımını en verimli hale getirmek için elastik havuzlar
 Tek veritabanı oluşturabilmek ve veritabanı performansını isteğe göre yükseltip düşürebilmek, özellikle kullanım biçimlerinin nispeten tahmin edilebilir olduğu durumlarda birçok işletme ve uygulama için yeterlidir. Ancak tahmin edilemeyen kullanım biçimlerine sahipseniz bu durum maliyetlerin ve iş modelinizin yönetimini zorlaştırabilir. [Elastik havuzlar](sql-database-elastic-pool.md) bu sorunu çözmek için tasarlanmıştır. Esnek havuzların işleyiş mantığı gayet basittir. Performans kaynaklarını tek bir veritabanı yerine bir havuza ayırarak tek bir veritabanının performansı için değil havuzun ortak performans kaynakları için ödeme yaparsınız. Elastik havuzlar sayesinde kaynak talebindeki dalgalanmalara ayak uydurmak için veritabanı performansında sürekli ayarlama yapmanız gerekmez. Havuza alınmış veritabanları, gerektiğinde elastik havuzun performans kaynaklarını tüketir. Havuza alınan veritabanları havuzu kullanır ancak havuz sınırlarını aşmaz, böylece veritabanı kullanımınız tahmin edilebilir olmasa bile maliyetleriniz için durum tam tersidir. Ayrıca kontrolü sizin elinizde olan bir bütçe dahilinde [havuza veritabanı ekleme ve havuzdan veritabanı kaldırma](sql-database-elastic-pool-manage-portal.md) işlemlerini gerçekleştirebilir ve uygulamanızı birkaç veritabanından tutun binlerce veritabanına ölçeklendirebilirsiniz. Son olarak havuzdaki veritabanlarına sunulan kaynakların alt ve üst sınırlarını denetleyerek havuzdaki veritabanlarının havuzdaki tüm kaynakları kullanmasını önleyebilir ve havuzdaki tüm veritabanlarının kaynaklardan pay almasını garanti edebilirsiniz. Esnek havuzları kullanan SaaS uygulamalarının tasarım desenleri hakkında daha fazla bilgi edinmek için bkz. [Azure SQL Database kullanan Çok Kiracılı SaaS Uygulamaları için Tasarım Desenleri](sql-database-design-patterns-multi-tenancy-saas-applications.md).
@@ -62,6 +62,6 @@ SQL Database'e giriş niteliğindeki makaleyi okuduğunuza ve "SQL Database Nedi
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

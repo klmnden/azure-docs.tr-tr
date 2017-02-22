@@ -1,13 +1,25 @@
 ---
+title: "Azure CDN Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
+description: "İçerik Teslim Ağı’nı (CDN) kullanarak küresel veri merkezlerinden herhangi bir cihaza nasıl içerik sağlayabileceğinizi öğrenin. Öğreticiler, API başvuruları ve diğer belgeler."
+services: cdn
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: cdn
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 511d15cc48b17bd65bedc2c1cd9602d868ffa724
-ms.openlocfilehash: 79a8dc0dc2e81d0b159b07bbb496f04e06e5d28a
+ms.sourcegitcommit: 642f9469722dfe701db8e353f4aa2b17edc00081
+ms.openlocfilehash: 67fdc8b9b4db5d311a8247995d7f8f626b90e5c5
 
 ---
 # <a name="cdn-documentation"></a>CDN Belgeleri
 
-Azure İçerik Teslim Ağı (CDN), Azure'da veya herhangi başka bir konumda barındırılan yüksek bant genişliğine sahip içeriklerin teslimine yönelik olarak geliştiricilere genel bir çözüm sunar.  CDN'yi kullanarak; Azure Blob Depolama'dan, bir web uygulamasından, sanal makineden, uygulama klasöründen veya başka bir HTTP/HTTPS konumundan yüklenen genel kullanıma açık nesnelerin önbelleğe alınmasını sağlayabilirsiniz.  CDN genellikle; görüntü, stil sayfası, belge, dosya, istemci tarafı ve HTML sayfası gibi statik içeriklerin tesliminde kullanılır.
+İçerik Teslim Ağı’nı (CDN) kullanarak Azure’da veya başka bir yerde barındırılan yüksek bant genişlikli içerikleri nasıl sunabileceğinizi öğrenin. Öğreticiler, API başvuruları ve diğer belgelerde, CDN’i kullanarak küresel veri merkezlerinden herhangi bir cihaza içerik sunma işleminin nasıl yapılacağı açıklanmıştır.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -100,7 +112,7 @@ Azure İçerik Teslim Ağı (CDN), Azure'da veya herhangi başka bir konumda bar
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/cdn/">REST API Başvurusu</a></p>
+                        <p><a href="/rest/api/cdn/">REST API başvurusu</a></p>
                     </div>
                 </div>
             </div>
@@ -109,16 +121,10 @@ Azure İçerik Teslim Ağı (CDN), Azure'da veya herhangi başka bir konumda bar
 </ul>
 
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/cdn.pdf">
-        <div class="img"></div>
-        <div class="text">
-Azure CDN Belgelerini İndirme </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Feb17_HO2-->
 
 

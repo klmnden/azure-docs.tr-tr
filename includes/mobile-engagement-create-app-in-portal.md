@@ -1,10 +1,10 @@
 1. [Klasik Azure Portalı](https://manage.windowsazure.com)’nda oturum açın, sonra da ekranın altındaki **+YENİ**’ye tıklayın.
 2. **Uygulama Hizmetleri**’ne, ardından **Mobile Engagement**’a ve **Oluştur**’a tıklayın.
    
-    ![](./media/mobile-engagement-create-app-in-portal/create-mobile-engagement-app.png)
+       ![](./media/mobile-engagement-create-app-in-portal/create-mobile-engagement-app.png)
 3. Görüntülenen açılan kutuya aşağıdaki bilgileri girin:
    
-    ![](./media/mobile-engagement-create-app-in-portal/create-azme-popup.png)
+       ![](./media/mobile-engagement-create-app-in-portal/create-azme-popup.png)
    
    * **Uygulama Adı**: Uygulamanızın adı. 
    * **Platform**: Uygulamanın hedef platformu. Mobil uygulamanız için hedeflediğiniz her platform için bir Mobile Engagement uygulaması oluşturmalısınız. 
@@ -16,8 +16,10 @@
 5. Mobil cihazınızda SDK tümleştirmenize katmak amacıyla bağlantı ayarlarını görüntülemek için **BAĞLANTI BİLGİSİ**’ne tıklayın.
 6. **BAĞLANTI DİZESİ**’ni kopyalayın; Uygulama kodunuzda bu uygulamayı tanımlamak için gereken budur; Uygulamanızdan Mobile Engagement ile bağlanır.
    
-    ![](./media/mobile-engagement-create-app-in-portal/app-connection-info-page.png)
+       ![](./media/mobile-engagement-create-app-in-portal/app-connection-info-page.png)
 
-<!--HONumber=Jun16_HO2-->
+
+
+<!--HONumber=Jan17_HO3-->
 
 

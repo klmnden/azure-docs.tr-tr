@@ -8,7 +8,7 @@ As of circa 2016-04-11, the following topics might include this include:
 articles/sql-database/sql-database-get-started-tutorial.md
 
 -->
-## Yeni bir Azure SQL Database oluşturma
+## <a name="create-a-new-azure-sql-database"></a>Yeni bir Azure SQL Database oluşturma
 Yeni Azure SQL Database’i yeni veya var olan Azure SQL Database mantıksal sunucusunda oluşturmak için Azure Portal'da aşağıdaki adımları kullanın.
 
 1. O anda bağlı değilseniz [Azure portal](http://portal.azure.com)’a bağlanın.
@@ -33,7 +33,7 @@ Yeni Azure SQL Database’i yeni veya var olan Azure SQL Database mantıksal sun
    * Fiyatlandırma katmanı: Yeni başlıyorsanız varsayılan S0 değerini kullanın.
    * Harmanlama: Yalnızca boş bir veritabanı seçilmişse geçerlidir.
      
-        ![New database](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-4.png)
+        ![Yeni veritabanı](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-4.png)
 6. **Oluştur**’a tıklayın. Bildirim alanında dağıtımın başlatıldığını görebilirsiniz.
    
     ![Yeni veritabanı](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-5.png)
@@ -41,6 +41,8 @@ Yeni Azure SQL Database’i yeni veya var olan Azure SQL Database mantıksal sun
    
      ![Yeni veritabanı](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-6.png)
 
-<!--HONumber=sep16_HO1-->
+
+
+<!--HONumber=Jan17_HO3-->
 
 

@@ -22,10 +22,8 @@
 ### [Erişim denetimi](biztalk-issuer-name-issuer-key.md)
 ## [Sorun giderme](biztalk-troubleshoot-using-ops-logs.md)
 
-# Başvuru
-## [Sürüm notları](biztalk-release-notes.md)
-
 # Kaynaklar
+## [Sürüm notları](biztalk-release-notes.md)
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=biztalk-services)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/biztalk-services/)
 ## [MSDN Forumu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurebiztalksvcs)
@@ -33,6 +31,6 @@
 ## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=biztalk-services)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Azure CLI kullanarak klasik dağıtımda İnternet’e yönelik yük dengeleyici oluşturmaya başlama | Microsoft Belgeleri"
+title: "İnternet’e yönelik yük dengeleyicisi oluşturma - Azure CLI klasik | Microsoft Docs"
 description: "Azure CLI kullanarak klasik dağıtımda İnternet’e yönelik yük dengeleyici oluşturmayı öğrenin"
 services: load-balancer
 documentationcenter: na
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/09/2016
+ms.date: 01/23/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: cf1eafc7bca5bddeb32f1e1e05e660d6877ed805
-ms.openlocfilehash: 337399d1f832830665be92a97a8458b7a959845b
+ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
+ms.openlocfilehash: cf5ecd7652bf1b10d24731a5b6829995fea81e41
 
 ---
 
@@ -154,6 +154,6 @@ azure vm endpoint delete web1 tcp-80-80
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO4-->
 
 

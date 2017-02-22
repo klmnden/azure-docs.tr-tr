@@ -1,13 +1,26 @@
 ---
+title: "Azure DocumentDB Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
+description: "Şemasız bir NoSQL belge veritabanı olan DocumentDB’yi nasıl kullanacağınızı öğrenin. Öğreticilerde SQL sorgularını uygulamalarla tümleştirme ve JSON belgelerinde kullanma konusunda bilgi sağlanmıştır."
+services: documentdb
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: documentdb
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: a7f5894e445cad808f38195838376c620a6b5944
-ms.openlocfilehash: 87fab3c99228f127326609a3e614020a982192f0
+ms.sourcegitcommit: be32b9d24db59618b42d0923b0ff4248f3329904
+ms.openlocfilehash: 347b2933a33d7a11505842ea437790d5fabf5b58
 
 ---
+
 #<a name="documentdb-documentation"></a>DocumentDB Belgeleri
 
-Azure DocumentDB; hızlı ve tahmin edilebilir performans, yüksek kullanılabilirlik, esnek ölçeklendirme, genel dağıtım ve geliştirme kolaylığı için oluşturulmuş, tam olarak yönetilen bir NoSQL veritabanı hizmetidir. Şemasız bir NoSQL veritabanı olarak DocumentDB, JSON verilerinde düşük gecikme sağlayarak zengin ve kullanımı kolay SQL sorgu işlevleri sağlar.
+Web, mobil, oyun ve IoT için yüksek performanslı uygulamalarda DocumentDB’yi nasıl kullanabileceğinizi öğrenin. Öğreticilerde ve diğer belgelerde, JSON verilerini depolama ve bu NoSQL veritabanı hizmetindeki elastik bir şema üzerinde SQL sorguları gerçekleştirme konusunda bilgi sağlanmıştır.
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -176,40 +189,43 @@ Azure DocumentDB; hızlı ve tahmin edilebilir performans, yüksek kullanılabil
 
 ---
 
-## <a name="reference"></a>Başvuru
+<h2>Başvuru</h2>
+<ul class="panelContent cardsW">
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Diller</h3>
+                        <p><a href="/azure/documentdb/documentdb-sdk-dotnet">.NET</a></p>
+                        <p><a href="/azure/documentdb/documentdb-sdk-dotnet-core">.NET Core</a></p>
+                        <p><a href="/azure/documentdb/documentdb-sdk-java">Java</a></p>
+                        <p><a href="/azure/documentdb/documentdb-sdk-node">Node.js</a></p>
+                        <p><a href="/azure/documentdb/documentdb-sdk-java">Python</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p><a href="/rest/api/documentdb/">REST API</a></p>
+                        <p><a href="/rest/api/documentdbresourceprovider/">Kaynak Sağlayıcısı REST API’si</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>
 
-### <a name="java"></a>Java
-[Java SDK Başvurusu](http://azure.github.io/azure-documentdb-java)
-
-### <a name="net"></a>.NET
-[.NET Tarafından Yönetilen Başvuru](https://msdn.microsoft.com/library/azure/dn948556)
-
-### <a name="node"></a>Node
-[Node SDK Başvurusu](http://azure.github.io/azure-documentdb-node/DocumentClient)
-
-### <a name="python"></a>Python
-[Python Başvurusu](http://azure.github.io/azure-documentdb-python/api/pydocumentdb)
-
-### <a name="sql"></a>SQL
-[SQL Başvurusu](https://msdn.microsoft.com/library/azure/dn782250)
-
-### <a name="rest"></a>REST
-[REST API başvurusu](/rest/api/documentdb)
-
-[Kaynak sağlayıcısı API Başvurusu](/rest/api/documentdbresourceprovider)
-
----
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/documentdb.pdf">
-        <div class="img"></div>
-        <div class="text">
-DocumentDB Belgelerini İndirme </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Feb17_HO2-->
 
 

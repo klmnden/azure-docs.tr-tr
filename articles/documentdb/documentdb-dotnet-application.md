@@ -577,6 +577,6 @@ Uygulamanıza işlev eklemek için [DocumentDB .NET Kitaplığı](https://msdn.m
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

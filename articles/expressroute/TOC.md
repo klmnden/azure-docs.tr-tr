@@ -1,14 +1,15 @@
 # Genel Bakış
 ## [ExpressRoute nedir?](expressroute-introduction.md)
 ## [ExpressRoute ile ilgili SSS](expressroute-faqs.md)
+## [Bağlantı modelleri](expressroute-connectivity-models.md)
 ## [Konumlar ve iş ortakları](expressroute-locations.md)
 ### [Konuma göre sağlayıcılar](expressroute-locations-providers.md)
 ### [Sağlayıcıya göre konumlar](expressroute-locations.md)
 
 # Kullanmaya Başlama
-## [Bağlantı hatları ve etki alanlarının yönlendirilmesi](expressroute-circuit-peerings.md)
 ## [İş akışları](expressroute-workflows.md)
 ## [Önkoşullar](expressroute-prerequisites.md)
+## [Bağlantı hatları ve etki alanlarının yönlendirilmesi](expressroute-circuit-peerings.md)
 ## [Yönlendirme gereksinimleri](expressroute-routing.md)
 ## [Yönlendirmeyi iyileştirme](expressroute-optimize-routing.md)
 ## [NAT gereksinimleri](expressroute-nat.md)
@@ -80,6 +81,6 @@
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=expressroute)
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

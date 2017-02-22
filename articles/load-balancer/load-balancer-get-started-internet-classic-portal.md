@@ -1,5 +1,5 @@
 ---
-title: "Klasik Azure portalını kullanarak klasik dağıtımda İnternet’e yönelik yük dengeleyici oluşturmaya başlayın | Microsoft Belgeleri"
+title: "İnternet’e yönelik yük dengeleyicisi oluşturma - Klasik Azure portalı | Microsoft Docs"
 description: "Klasik Azure portalını kullanarak klasik dağıtımda İnternet’e yönelik yük dengeleyici oluşturmayı öğrenin"
 services: load-balancer
 documentationcenter: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/31/2016
+ms.date: 01/23/2017
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: 8827793d771a2982a3dccb5d5d1674af0cd472ce
-ms.openlocfilehash: 7153d0321a95a19cf7de17aa1c77d1369330a79b
+ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
+ms.openlocfilehash: a022154f5eca6de2d2dbfc1b9aa30d2ea0a7d650
 
 ---
 
@@ -70,6 +70,6 @@ Yük dengeli kümedeki diğer sanal makineler için 8-10 arası adımları tekra
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO4-->
 
 

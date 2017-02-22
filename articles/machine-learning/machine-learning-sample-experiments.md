@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/11/2016
+ms.date: 02/13/2017
 ms.author: cgronlun;olgali
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 9c710e6f959afd8a4f4b965931ed4868d94c6d25
+ms.sourcegitcommit: 25e1def880dbb8431e1a0cae9d8b84c6f5906315
+ms.openlocfilehash: 7b2bca108770a79a693a408a628ccc6370c36b7c
 
 
 ---
@@ -39,37 +39,37 @@ Bu sayfada **Son eklenen** denemeleri görüntüleyebilir, aşağı kaydırarak 
 Tüm denemelere gözatmak için:
 
 1. Sayfanın üstündeki **Tümüne gözat**'a tıklayın.
-2. Galeri'deki tüm denemeleri görmek için **Daraltma ölçütü** seçeneğinin altından **Denemeler**'i seçin.
+2. Galeri'deki tüm denemeleri görmek için **Kategoriler** bölümündeki **Daraltma ölçütü** seçeneğinin altından **Denemeler**'i seçin.
 3. Gereksinimlerinize uyan denemeleri birkaç farklı yolla bulabilirsiniz:
    * **Soldaki filtreleri seçin.** Örneğin, PCA tabanlı bir anomali algılama algoritması kullanan denemelere göz atmak için, **Kategoriler**'in altında **Denemler**'i ve **Kullanılan Algoritmalar**'ın altında **PCA Tabanlı Anomali Algılama**'yı seçin. (Bu algoritmayı görmüyorsanız listenin en altında **Tümünü göster**'e tıklayın.)<br></br>
      ![Filtreleri seçin](./media/machine-learning-sample-experiments/refine-the-view.png)
-   * **Arama kutusunu kullanın.** Örneğin, Microsoft tarafından paylaşılan iki sınıflı destekli vektör makinesi algoritması kullanan rakam tanıma ile ilgili denemeleri bulmak için arama kutusuna "rakam tanıma" yazın. Daha sonra, **Deneme**, **Yalnızca Microsoft içeriği** ve **İki Sınıflı Destekli Vektör Makinesi**'ni seçin: ![Arama kutusunu kullanın](./media/machine-learning-sample-experiments/search-for-experiments.png)
+   * **Arama kutusunu kullanın.** Örneğin, Microsoft tarafından paylaşılan iki sınıflı destekli vektör makinesi algoritması kullanan rakam tanıma ile ilgili denemeleri bulmak için arama kutusuna "rakam tanıma" yazın. Daha sonra, **Deneme**, **Yalnızca Microsoft içeriği** ve **İki Sınıflı Destekli Vektör Makinesi**'ni seçin:<br></br>
+     ![Arama kutusunu kullanma](./media/machine-learning-sample-experiments/search-for-experiments.png)
 4. Hakkında daha fazla bilgi almak için bir denemeye tıklayın.
-5. Denemeyi çalıştırmak ve/veya değiştirmek için, deneme sayfasında **Studio'da aç** seçeneğine tıklayın.
-
-   > [!NOTE]
-   > Bir denemeyi Machine Learning Studio'da açmak için Microsoft hesabı kimlik bilgilerinizle oturum açmanız gerekir. Machine Learning çalışma alanınız henüz yoksa ücretsiz bir deneme sürümü çalışma alanı oluşturulur. [Machine Learning ücretsiz deneme sürümüne nelerin dahil olduğunu öğrenin](https://azure.microsoft.com/pricing/details/machine-learning/)
-   >
-   >
+5. Denemeyi çalıştırmak ve/veya değiştirmek için, deneme sayfasında **Studio'da aç** seçeneğine tıklayın. <br></br>
 
     ![Örnek deneme](./media/machine-learning-sample-experiments/example-experiment.png)
+
+    > [!NOTE]
+    > Machine Learning Studio’da bir denemeyi ilk kez açtığınızda ücretsiz olarak deneyebilir veya bir Azure aboneliği satın alabilirsiniz. [Machine Learning Studio ücretsiz denemesi ile ücretli hizmetin karşılaştırması hakkında bilgi edinin](https://azure.microsoft.com/pricing/details/machine-learning/)
+    >
+    >
 
 ## <a name="use-a-template-in-machine-learning-studio"></a>Machine Learning Studio'da bir şablon kullanma
 Ayrıca, bir Galeri örneğini bir şablon olarak kullanıp Machine Learning Studio'da yeni bir deneme oluşturabilirsiniz.
 
-1. Microsoft hesabı kimlik bilgilerinizle [Studio](https://studio.azureml.net)'da oturum açın ve ardından yeni bir deneme oluşturmak için **Yeni** seçeneğine tıklayın.
+1. Microsoft hesabı kimlik bilgilerinizle [Studio](https://studio.azureml.net)'da oturum açın ve ardından bir deneme oluşturmak için **Yeni** seçeneğine tıklayın.
 2. Örnek içeriğine gözatın ve birine tıklayın.
 
 Örnek deneme bir şablon olarak kullanılarak çalışma alanınızda yeni bir deneme oluşturulur.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Verilerinizi hazırlama](machine-learning-data-science-import-data.md)
-* [Denemenizde R kullanmayı deneme](machine-learning-r-quickstart.md)
-* [Örnek R denemelerini gözden geçirme](machine-learning-r-csharp-web-service-examples.md)
-* [Web hizmeti API’si oluşturma](machine-learning-publish-a-machine-learning-web-service.md)
+* [Çeşitli kaynaklardan veri alma](machine-learning-data-science-import-data.md)
+* [Machine Learning için R programlama diline yönelik hızlı başlangıç öğreticisi](machine-learning-r-quickstart.md)
+* [Machine Learning web hizmeti dağıtma](machine-learning-publish-a-machine-learning-web-service.md)
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO2-->
 
 

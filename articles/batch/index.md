@@ -1,13 +1,25 @@
 ---
+title: "Azure Batch Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
+description: "Batch’i kullanarak büyük ölçekli paralel ve yüksek performanslı bilgi işlem uygulamalarını verimli bir şekilde nasıl çalıştırabileceğinizi öğrenin. Öğreticiler, API başvuruları ve diğer belgeler."
+services: batch
+author: carolz
+manager: carolz
 layout: LandingPage
+ms.assetid: 
+ms.service: batch
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: acf8bdbd4938583f8259c30cb253ee33b4c971ad
+ms.sourcegitcommit: a180f89814c3186e98018eee4d97a6b6904742cf
+ms.openlocfilehash: 11ec370ee2736d66d19a33eab938fe9639cafed7
 
 ---
 #<a name="batch-documentation"></a>Batch Belgeleri
 
-Azure Batch, büyük ölçekli paralel ve yüksek performanslı bilgi işlem (HPC) uygulamalarını bulutta verimli bir şekilde çalıştırmanızı sağlar. Batch hizmetiyle, uygulamalarınızı paralel olarak ve uygun ölçekte yürütmek için Azure işlem kaynaklarını tanımlayın. Altyapı oluşturmakla veya yönetmekle uğraşmadan isteğe bağlı veya zamanlanmış işleri çalıştırabilirsiniz.
+Batch’i kullanarak bulutta büyük ölçekli paralel ve yüksek performanslı bilgi işlem uygulamalarını verimli bir şekilde nasıl çalıştırabileceğinizi öğrenin. Öğreticiler, API başvuruları ve diğer belgelerde, altyapıyı el ile yapılandırmanıza veya yönetmenize gerek kalmadan uygulamalarınızın paralel veya yüksek ölçekli olarak yürütülmesine yönelik Azure işlem kaynakları tanımlama hakkında bilgi sağlanmıştır.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -127,7 +139,7 @@ Azure Batch, büyük ölçekli paralel ve yüksek performanslı bilgi işlem (HP
                         <p><a href="/dotnet/api/microsoft.azure.batch">.NET</a></p>
                         <p><a href="/java/api/com.microsoft.azure.batch">Java</a></p>
                         <p><a href="http://azure.github.io/azure-sdk-for-node/azure-batch/latest.azure.batch">Node.js</a></p>
-                        <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch">Python</a></p>
+                        <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch.html">Python</a></p>
                     </div>
                 </div>
             </div>
@@ -139,7 +151,7 @@ Azure Batch, büyük ölçekli paralel ve yüksek performanslı bilgi işlem (HP
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/batchservice">REST API Başvurusu</a></p>
+                        <p><a href="/rest/api/batchservice">REST API başvurusu</a></p>
                     </div>
                 </div>
             </div>
@@ -147,16 +159,10 @@ Azure Batch, büyük ölçekli paralel ve yüksek performanslı bilgi işlem (HP
     </li>
 </ul>
 
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/batch.pdf">
-        <div class="img"></div>
-        <div class="text">
-Azure Batch Belgelerini İndirme </div>
-    </a>
-</div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+
+<!--HONumber=Feb17_HO2-->
 
 
