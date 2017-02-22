@@ -14,13 +14,13 @@ ms.topic: get-started-article
 ms.date: 11/14/2016
 ms.author: daviste
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a42d55df223c25a26111bbcc05628ff7f4ff7204
+ms.sourcegitcommit: ebfed89674dc132bd5d93f34a8b5ed5ab12bd73e
+ms.openlocfilehash: 3e7cb9dfbc3a0985794294c94d331f12829c2bdc
 
 
 ---
 # <a name="application-insights-telemetry-in-visual-studio-codelens"></a>Visual Studio CodeLens’te Application Insights telemetrisi
-Web uygulamanızın kodundaki yöntemlere, çalışma zamanı özel durumları ve istek yanıt süreleri hakkında telemetri ile açıklama eklenebilir. [Visual Studio Application Insights](app-insights-overview.md)’ı uygulamanıza yüklerseniz telemetri Visual Studio [CodeLens](https://msdn.microsoft.com/library/dn269218.aspx) içinde (işlevin başvurulduğu yer sayısı veya düzenleyen kişi gibi yararlı bilgileri görmeye alışkın olduğunuz her bir işlevin üst kısmında) görünür.
+Web uygulamanızın kodundaki yöntemlere, çalışma zamanı özel durumları ve istek yanıt süreleri hakkında telemetri ile açıklama eklenebilir. [Azure Application Insights](app-insights-overview.md)’ı uygulamanıza yüklerseniz telemetri Visual Studio [CodeLens](https://msdn.microsoft.com/library/dn269218.aspx) içinde (işlevin başvurulduğu yer sayısı veya düzenleyen kişi gibi yararlı bilgileri görmeye alışkın olduğunuz her bir işlevin üst kısmında) görünür.
 
 ![CodeLens](./media/app-insights-visual-studio-codelens/codelens-overview.png)
 
@@ -82,6 +82,6 @@ Daha fazla ayrıntı için CodeLens istek göstergesine tıklayın:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

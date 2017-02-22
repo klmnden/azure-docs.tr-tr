@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 07/28/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: db417fb72442ea8a5cd4ef882eb657b08bebaa0a
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: 9077746d8ffe968504f1dde90ed5f76dd1facc19
 
 
 ---
@@ -41,7 +41,7 @@ Uzak Masaüstü (RDP) oturumu başlatmak için Azure portalda **Bağlan**düğme
 [!INCLUDE [virtual-machines-log-on-win-server](../../includes/virtual-machines-log-on-win-server.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bağlanmayı denediğinizde sorun yaşıyorsanız, bkz. [Uzak Masaüstü bağlantı sorunlarını giderme](virtual-machines-windows-troubleshoot-rdp-connection.md). Bu makale ortak sorunları tanılama ve çözme boyunca size yol gösterecektir.
+Bağlanmayı denediğinizde sorun yaşıyorsanız, bkz. [Uzak Masaüstü bağlantı sorunlarını giderme](virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Bu makale ortak sorunları tanılama ve çözme boyunca size yol gösterecektir.
 
 
 

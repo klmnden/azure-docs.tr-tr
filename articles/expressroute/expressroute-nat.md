@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d16326340f668285e185a6e8adb1a8316d8bd0eb
+ms.sourcegitcommit: 371c76ed36cd9d21026a5a49c6ef86a0cd3cc816
+ms.openlocfilehash: 8fd8b4b9611adb15df7e436a00f8ec35ea1e9614
 
 
 ---
@@ -45,7 +45,7 @@ Microsoft eşleme yolu, Azure ortak eşleme yolu üzerinden desteklenmeyen Micro
 
 ![](./media/expressroute-nat/expressroute-nat-microsoft.png) 
 
-#### <a name="traffic-originating-from-your-network-destined-to-microsoft"></a>Ağınızdan kaynaklanan ve Microsoft’u hedefleyen trafik
+### <a name="traffic-originating-from-your-network-destined-to-microsoft"></a>Ağınızdan kaynaklanan ve Microsoft’u hedefleyen trafik
 * Trafiğin geçerli bir ortak IPv4 adresiyle Microsoft eşleme yoluna girdiğinden emin olmalısınız. Microsoft’un IPv4 NAT adres havuzu sahibini bölgesel yönlendirme İnternet kaydı (RIR) veya bir İnternet yönlendirme kaydıyla (IRR) karşılaştırarak doğrulayabilmesi gerekir. Eşlenen AS numarası ve NAT için kullanılan IP adreslerine göre bir denetim gerçekleştirilir. Kayıt defterlerini yönlendirme hakkında bilgi için [ExpressRoute yönlendirme gereksinimleri](expressroute-routing.md) sayfasına bakın.
 * Azure ortak eşleme kurulumu ve diğer ExpressRoute bağlantı hatları için kullanılan IP adresleri BGP oturumu aracılığıyla Microsoft’a tanıtılmamalıdır. Bu eşleme aracılığıyla tanıtılan NAT IP öneki için bir uzunluk sınırlaması yoktur.
   
@@ -54,7 +54,7 @@ Microsoft eşleme yolu, Azure ortak eşleme yolu üzerinden desteklenmeyen Micro
   > 
   > 
 
-#### <a name="traffic-originating-from-microsoft-destined-to-your-network"></a>Microsoft’tan kaynaklanan ve ağınızı hedefleyen trafik
+### <a name="traffic-originating-from-microsoft-destined-to-your-network"></a>Microsoft’tan kaynaklanan ve ağınızı hedefleyen trafik
 * Belirli senaryolar Microsoft’un ağınız içinde barındırılan hizmet uç noktalarına bağlantı başlatmasını gerektirir. Tipik bir senaryo örneği, Office 365’ten ağınızda barındırılan ADFS sunucularına bağlanmaktır. Bu gibi durumlarda, ağınızdan uygun önekleri Microsoft eşlemesine sızdırmanız gerekir. 
 * Microsoft’tan ağınızdaki IP adreslerine giden trafiğe SNAT uygulamanız gerekir. 
 
@@ -70,6 +70,6 @@ Microsoft eşleme yolu, Azure ortak eşleme yolu üzerinden desteklenmeyen Micro
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 
