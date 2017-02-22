@@ -6,7 +6,7 @@ documentationcenter:
 author: mgoedtel
 manager: jwhit
 editor: 
-keywords: "hizmet sorumlusu, setspn, azure kimlik doğrulaması"
+keywords: "hizmet asıl adı, setspn, azure kimlik doğrulaması"
 ms.assetid: 2f783441-15c7-4ea0-ba27-d7daa39b1dd3
 ms.service: automation
 ms.workload: tbd
@@ -394,6 +394,6 @@ Runbook’larınızla klasik kaynakları yönetecek Klasik Farklı Çalıştır 
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -1,5 +1,5 @@
 
-Diskler hakkında daha fazla bilgi için bkz. [Sanal Makineler için Diskler ve VHD’ler hakkında](../articles/virtual-machines/virtual-machines-linux-about-disks-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Diskler hakkında daha fazla bilgi için bkz. [Sanal Makineler için Diskler ve VHD’ler hakkında](../articles/storage/storage-about-disks-and-vhds-linux.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 <a id="attachempty"></a>
 
@@ -117,6 +117,6 @@ Var olan bir diskin eklenmesi için depolama hesabında bir .vhd olmalıdır.
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

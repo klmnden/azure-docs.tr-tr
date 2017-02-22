@@ -38,7 +38,7 @@
     ![sunucu konumu](./media/sql-data-warehouse-create-logical-server/server-location.png)
     
     > [!TIP]
-    > **Azure hizmetlerinin sunucuya erişmesine izin ver** onay kutusu bu dikey pencerede değiştirilemez. Bu ayarı, sunucu güvenlik duvarı dikey penceresinde değiştirebilirsiniz. Daha fazla bilgi için bkz. [Güvenliğe giriş](../articles/sql-database/sql-database-get-started-security.md).
+    > **Azure hizmetlerinin sunucuya erişmesine izin ver** onay kutusu bu dikey pencerede değiştirilemez. Bu ayarı, sunucu güvenlik duvarı dikey penceresinde değiştirebilirsiniz. Daha fazla bilgi için bkz. [Güvenliğe giriş](../articles/sql-database/sql-database-manage-servers-portal.md).
     >
     
 9. **Oluştur**’a tıklayın.
@@ -47,6 +47,6 @@
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

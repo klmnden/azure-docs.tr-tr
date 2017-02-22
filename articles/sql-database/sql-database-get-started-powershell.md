@@ -17,8 +17,8 @@ ms.workload: data-management
 ms.date: 12/09/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 7f1983e871ea425a095e3a4bf6c7a1b89d6f45a9
-ms.openlocfilehash: 51ed691eb206f284cb8bbd682c723f87362caa33
+ms.sourcegitcommit: 93efe1a08149e7c027830b03a9e426ac5a05b27b
+ms.openlocfilehash: cf626be4914168d3ed3caae7f959a79324487b4e
 
 
 ---
@@ -54,7 +54,7 @@ Bu öğreticiyi tamamladığınızda; Azure kaynak grubu içinde çalışan ve m
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-* Bir Azure hesabınız olmalıdır. [Ücretsiz bir Azure hesabı açabilir](/pricing/free-trial/?WT.mc_id=A261C142F) veya [Visual Studio abonelik avantajlarını etkinleştirebilirsiniz](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). 
+* Bir Azure hesabınız olmalıdır. [Ücretsiz bir Azure hesabı açabilir](https://azure.microsoft.com/free/) veya [Visual Studio abonelik avantajlarını etkinleştirebilirsiniz](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/). 
 
 * Abonelik sahibi veya katkıda bulunan rolü üyesi olan bir hesap kullanarak oturum açmış olmanız gerekir. Rol tabanlı erişim denetimi (RBAC) ile ilgili daha fazla bilgi için bkz. [Azure portalında erişim yönetimini kullanmaya başlama](../active-directory/role-based-access-control-what-is.md).
 
