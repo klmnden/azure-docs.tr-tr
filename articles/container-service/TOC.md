@@ -3,7 +3,7 @@
 ## [SSS](container-service-faq.md)
 # Kullanmaya Başlama
 ## [ACS kümesi dağıtma](container-service-deployment.md)
-## [Azure CLI 2.0 (Önizleme) kullanarak ACS’ye dağıtma](container-service-create-acs-cluster-cli.md)
+## [Azure CLI 2.0 kullanarak ACS’ye dağıtma](container-service-create-acs-cluster-cli.md)
 ## [ACS kümesine bağlanma](container-service-connect.md)
 ## [ACS kümesini ölçeklendirme](container-service-scale.md)
 # Nasıl yapılır?
@@ -23,6 +23,7 @@
 #### [Dynatrace ile izleme](container-service-monitoring-dynatrace.md)
 ## Kubernetes ile yönetme
 ### [Kubernetes’i kullanmaya başlama](container-service-kubernetes-walkthrough.md)
+### [Kubernetes ve Windows’u kullanmaya başlama](container-service-kubernetes-windows-walkthrough.md)
 ### [Hizmet sorumlusu yapılandırma](container-service-kubernetes-service-principal.md)
 ### [Kapsayıcı yönetimi - Kubernetes UI](container-service-kubernetes-ui.md)
 ### [Kubernetes kapsayıcılarında yük dengeleme](container-service-kubernetes-load-balancing.md)
@@ -34,7 +35,7 @@
 ### [Docker ve Docker Compose](container-service-docker-swarm.md)
 ### [Docker Swarm sürekli tümleştirme](container-service-docker-swarm-setup-ci-cd.md)
 # Başvuru
-## [Azure CLI 2.0 (Önizleme)](/cli/azure/acs)
+## [Azure CLI 2.0](/cli/azure/acs)
 ## [PowerShell](/powershell/resourcemanager/azurerm.compute/v2.3.0/azurerm.compute)
 ## [.NET](/dotnet/api/microsoft.azure.management.compute.models)
 ## [REST](/rest/api/compute/containerservices)
@@ -44,6 +45,6 @@
 ## [Hizmet Güncelleştirmeleri](https://azure.microsoft.com/en-us/updates/?product=container-service&updatetype=&platform=)
 
 
-<!--HONumber=Feb17_HO3-->
+<!--HONumber=Feb17_HO4-->
 
 

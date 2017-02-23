@@ -54,7 +54,8 @@
 ### [JSON Etiketleriyle VM Başlatma/Durdurma](automation-scenario-start-stop-vm-wjson-tags.md)
 ### [Kaynak Grubunu Kaldırma](automation-scenario-remove-resourcegroup.md)
 ### [Hizmetin kapalı olduğu saatlerde Sanal Makineleri Başlatma/Durdurma](automation-solution-vm-management.md)
-### [GitHub Enterprise ile Kaynak Denetimi Tümleştirmesi](automation-scenario-source-control-integration-with-github-ent.md)
+### [GitHub Enterprise ile kaynak denetimi tümleştirmesi](automation-scenario-source-control-integration-with-github-ent.md)
+### [VSTS ile kaynak denetimi tümleştirmesi](automation-scenario-source-control-integration-with-VSTS.md)
 ## İzleme
 ### [Azure Otomasyonu iş verilerini Log Analytics’e iletme](automation-manage-send-joblogs-log-analytics.md)
 ### [Azure Otomasyonu hesabı ile Log Analytics arasındaki bağlantıyı kaldırma](automation-unlink-from-log-analytics.md)
@@ -82,6 +83,6 @@
 ## [Otomasyon tanıtım videosu](https://azure.microsoft.com/documentation/videos/azure-automation-101-with-powershell-and-eamon-o-reilly/)
 
 
-<!--HONumber=Feb17_HO3-->
+<!--HONumber=Feb17_HO4-->
 
 

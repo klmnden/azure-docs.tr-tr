@@ -39,9 +39,10 @@
 ## Azure Hizmetleri ile tümleştirme
 ### [Azure Sanal Ağı’ndaki VM’lerden erişim](data-lake-store-connectivity-from-vnets.md)
 ### [Data Lake Analytics ile kullanma](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-### [Portalı kullanarak Data Lake Store ile HDInsight kümesi oluşturma](data-lake-store-hdinsight-hadoop-use-portal.md)
-### [PowerShell kullanarak Data Lake Store ile HDInsight kümesi oluşturma](data-lake-store-hdinsight-hadoop-use-powershell.md)
-### [Resource Manager şablonu kullanarak Data Lake Store ile HDInsight kümesi oluşturma](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
+### [Data Lake Store ile HDInsight - Portal](data-lake-store-hdinsight-hadoop-use-portal.md)
+### [Varsayılan depolama olarak Data Lake Store ile HDInsight - PowerShell](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
+### [Ek depolama olarak Data Lake Store ile HDInsight - PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
+### [Data Lake Store ile HDInsight - Azure şablonu](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
 ### [Data Factory ile kullanma](../data-factory/data-factory-azure-datalake-connector.md)
 ### [Akış Analizi ile kullanma](data-lake-store-stream-analytics.md)
 ### [Power BI ile kullanma](data-lake-store-power-bi.md)
@@ -71,6 +72,6 @@
 ## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=data-lake-store)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

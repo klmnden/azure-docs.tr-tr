@@ -20,6 +20,7 @@
 ## Planlama ve tasarım
 ### [Event Hubs Dedicated](event-hubs-dedicated-overview.md)
 ### [Kimlik doğrulama ve güvenlik modeline genel bakış](event-hubs-authentication-and-security-model-overview.md)
+### [Kullanılabilirlik ve tutarlılık](event-hubs-availability-and-consistency.md)
 ## Geliştirme
 ### [Kullanılabilir API’ler](event-hubs-api-overview.md)
 #### [.NET Standard](event-hubs-dotnet-standard-api-overview.md)
@@ -59,6 +60,6 @@
 ## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=event-hubs)
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

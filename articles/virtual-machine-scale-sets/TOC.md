@@ -3,6 +3,7 @@
 
 # Kullanmaya Başlama
 ## [Portalda ölçek kümesi oluşturma](virtual-machine-scale-sets-portal-create.md)
+## [Azure CLI kullanarak ölçek kümesi oluşturma](virtual-machine-scale-sets-linux-create-cli.md)
 
 # Nasıl yapılır?
 ## Planlama ve tasarım
@@ -10,12 +11,18 @@
 
 ## Dağıtma
 ### [Portalı kullanan ölçek kümesi](virtual-machine-scale-sets-portal-create.md)
+### [Yönetilen diskler ile ölçek kümesi](virtual-machine-scale-sets-managed-disks.md)
 ### [Visual Studio kullanan ölçek kümesi](virtual-machine-scale-sets-vs-create.md)
 ### [PowerShell kullanan ölçek kümesi](virtual-machine-scale-sets-windows-create.md)
 ### [Azure CLI kullanan ölçek kümesi](virtual-machine-scale-sets-linux-create-cli.md)
 ### [Otomatik ölçeklendirme içeren Linux ölçek kümesi](virtual-machine-scale-sets-linux-autoscale.md)
 ### [Otomatik ölçeklendirme içeren Windows ölçek kümesi](virtual-machine-scale-sets-windows-autoscale.md)
 ### [Ölçek kümelerindeki uygulamalar](virtual-machine-scale-sets-deploy-app.md)
+### [Veri disklerini ölçek kümeleri ile kullanma](virtual-machine-scale-sets-attached-disks.md)
+### [Büyük ölçek kümeleriyle çalışma](virtual-machine-scale-sets-placement-groups.md)
+### [Yönetilen disk kullanmak üzere bir ölçek kümesi şablonu dönüştürme](virtual-machine-scale-sets-convert-template-to-md.md)
+
+
 
 ## Yönet
 ### [PowerShell kullanan Windows ölçek kümesi](virtual-machine-scale-sets-windows-manage.md)
@@ -24,6 +31,7 @@
 ### [Ölçek kümeleri için yükseltmeler](virtual-machine-scale-sets-upgrade-scale-set.md)
 ### [Gelişmiş otomatik ölçeklendirme](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [DSC ve ölçek kümelerini kullanma](virtual-machine-scale-sets-dsc.md)
+### [Bir şablonu yönetilen disklere dönüştürme](virtual-machine-scale-sets-convert-template-to-md.md)
 
 ## Sorun giderme
 ### [Otomatik Ölçeklendirme](virtual-machine-scale-sets-troubleshoot.md)
@@ -31,7 +39,7 @@
 # Başvuru
 ## [PowerShell](/powershell/azureps-cmdlets-docs)
 ## [Azure CLI](../virtual-machines/azure-cli-arm-commands.md)
-## [REST](/rest/api/compute/)
+## [REST](/rest/api/virtualmachinescalesets/)
 
 # Kaynaklar
 ## Fiyatlandırma 
@@ -40,6 +48,6 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-vm-scale-set)
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

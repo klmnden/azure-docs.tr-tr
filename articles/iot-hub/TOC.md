@@ -7,11 +7,10 @@
 ## Sanal cihaz kullanma
 ### [.NET](iot-hub-csharp-csharp-getstarted.md)
 ### [Java](iot-hub-java-java-getstarted.md)
-### [Node](iot-hub-node-node-getstarted.md)
+### [Node.js](iot-hub-node-node-getstarted.md)
 
 ## Raspberry Pi kullanma
-### Node.js
-#### [Start](iot-hub-raspberry-pi-kit-node-get-started.md)
+### [Node.js](iot-hub-raspberry-pi-kit-node-get-started.md)
 #### Ders 1: Cihazınızı yapılandırma
 ##### [Cihazınızı yapılandırma](iot-hub-raspberry-pi-kit-node-lesson1-configure-your-device.md)
 ##### [Araçları edinme (Windows 7+)](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-win32.md)
@@ -32,8 +31,7 @@
 ##### [İsteğe bağlı: LED davranışını değiştirme](iot-hub-raspberry-pi-kit-node-lesson4-change-led-behavior.md)
 #### [Sorun giderme](iot-hub-raspberry-pi-kit-node-troubleshooting.md)
 
-### C
-#### [Start](iot-hub-raspberry-pi-kit-c-get-started.md)
+### [C](iot-hub-raspberry-pi-kit-c-get-started.md)
 #### Ders 1: Cihazınızı yapılandırma
 ##### [Cihazınızı yapılandırma](iot-hub-raspberry-pi-kit-c-lesson1-configure-your-device.md)
 ##### [Araçları edinme (Windows 7+)](iot-hub-raspberry-pi-kit-c-lesson1-get-the-tools-win32.md)
@@ -55,8 +53,7 @@
 #### [Sorun giderme](iot-hub-raspberry-pi-kit-c-troubleshooting.md)
 
 ## Intel Edison kullanma
-### Node.js
-#### [Start](iot-hub-intel-edison-kit-node-get-started.md)
+### [Node.js](iot-hub-intel-edison-kit-node-get-started.md)
 #### Ders 1: Cihazınızı yapılandırma
 ##### [Cihazınızı yapılandırma](iot-hub-intel-edison-kit-node-lesson1-configure-your-device.md)
 ##### [Araçları edinme (Windows 7+)](iot-hub-intel-edison-kit-node-lesson1-get-the-tools-win32.md)
@@ -77,8 +74,7 @@
 ##### [İsteğe bağlı: LED davranışını değiştirme](iot-hub-intel-edison-kit-node-lesson4-change-led-behavior.md)
 #### [Sorun giderme](iot-hub-intel-edison-kit-node-troubleshooting.md)
 
-### C
-#### [Start](iot-hub-intel-edison-kit-c-get-started.md)
+### [C](iot-hub-intel-edison-kit-c-get-started.md)
 #### Ders 1: Cihazınızı yapılandırma
 ##### [Cihazınızı yapılandırma](iot-hub-intel-edison-kit-c-lesson1-configure-your-device.md)
 ##### [Araçları edinme (Windows 7+)](iot-hub-intel-edison-kit-c-lesson1-get-the-tools-win32.md)
@@ -100,8 +96,7 @@
 #### [Sorun giderme](iot-hub-intel-edison-kit-c-troubleshooting.md)
 
 ## Arduino kullanma
-### Node.js
-#### [Start](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
+### [Node.js](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
 #### Ders 1: Cihazınızı yapılandırma
 ##### [Cihazınızı yapılandırma](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-configure-your-device.md)
 ##### [Araçları edinme (Windows 7+)](iot-hub-adafruit-feather-m0-wifi-kit-arduino-lesson1-get-the-tools-win32.md)
@@ -127,9 +122,7 @@
 ### [Windows üzerinde benzetim](iot-hub-windows-gateway-sdk-get-started.md)
 
 ## IoT Gateway Başlangıç Paketini kullanma
-### Sanal cihaz
-
-#### [Start](iot-hub-gateway-kit-c-sim-get-started.md)
+### [Sanal cihaz](iot-hub-gateway-kit-c-sim-get-started.md)
 #### Ders 1: NUC cihazınızı yapılandırma
 ##### [Intel NUC cihazını IoT ağ geçidi olarak ayarlama](iot-hub-gateway-kit-c-sim-lesson1-set-up-nuc.md)
 
@@ -149,8 +142,7 @@
 
 #### [Sorun giderme](iot-hub-gateway-kit-c-sim-troubleshooting.md)
 
-### SensorTag cihazı
-#### [Start](iot-hub-gateway-kit-c-get-started.md)
+### [SensorTag cihazı](iot-hub-gateway-kit-c-get-started.md)
 #### Ders 1: NUC cihazınızı yapılandırma
 ##### [Intel NUC cihazını IoT ağ geçidi olarak ayarlama](iot-hub-gateway-kit-c-lesson1-set-up-nuc.md)
 
@@ -170,8 +162,7 @@
 
 ##### [Sorun giderme](iot-hub-gateway-kit-c-troubleshooting.md)
 
-## C için IoT cihaz SDK'sını kullanma
-### [Giriş](iot-hub-device-sdk-c-intro.md)
+## [C için IoT cihaz SDK'sını kullanma](iot-hub-device-sdk-c-intro.md)
 ### [IoTHubClient kullanma](iot-hub-device-sdk-c-iothubclient.md)
 ### [Seri hale getirici kullanma](iot-hub-device-sdk-c-serializer.md)
 
@@ -280,6 +271,6 @@
 ## [IoT için Azure Sertifikalı cihaz kataloğu](https://catalog.azureiotsuite.com/)
 
 
-<!--HONumber=Feb17_HO3-->
+<!--HONumber=Feb17_HO4-->
 
 

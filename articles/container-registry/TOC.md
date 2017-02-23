@@ -4,7 +4,7 @@
 
 # Kullanmaya Başlama
 ## [Portalda kayıt defteri oluşturma](container-registry-get-started-portal.md)
-## [CLI ile kayıt defteri oluşturma](container-registry-get-started-azure-cli.md)
+## [Azure CLI 2.0 ile kayıt defteri oluşturma](container-registry-get-started-azure-cli.md)
 ## [Görüntü gönderme ve çekme](container-registry-get-started-docker-cli.md)
 
 # Nasıl yapılır
@@ -14,7 +14,7 @@
 
 # Başvuru
 
-## [Azure CLI 2.0 Önizleme](/cli/azure/acr)
+## [Azure CLI 2.0](/cli/azure/acr)
 ## [REST](/rest/api/containerregistry)
 
 # İlgili
@@ -27,6 +27,6 @@
 ## [Hizmet Güncelleştirmeleri](https://azure.microsoft.com/en-us/updates/?product=container-registry&updatetype=&platform=)
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO4-->
 
 

@@ -27,7 +27,6 @@
 ### [Azure CLI](resource-group-template-deploy-cli.md)
 ### [Portal](resource-group-template-deploy-portal.md)
 ### [REST API](resource-group-template-deploy-rest.md)
-### [Geliştirme ve test ortamları](solution-dev-test-environments.md)
 ### [Visual Studio Team Services ile sürekli tümleştirme](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ## Yönet
 ### [PowerShell](powershell-azure-resource-manager.md)
@@ -43,20 +42,23 @@
 ### [Azure CLI ile hizmet sorumlusu oluşturma](resource-group-authenticate-service-principal-cli.md)
 ### [Portal aracılığıyla hizmet sorumlusu oluşturma](resource-group-create-service-principal-portal.md)
 ### [Aboneliklere erişmek için kimlik doğrulama API’si](resource-manager-api-authentication.md)
-### [Yönetim ilkelerini ayarlama](resource-manager-policy.md)
 ### [Kaynakları kilitleme](resource-group-lock-resources.md)
 ### [Güvenlikle ilgili dikkat edilmesi gerekenler](best-practices-resource-manager-security.md)
+## Kaynak ilkeleri ayarlama
+### [Kaynak ilkeleri nelerdir?](resource-manager-policy.md)
+### [İlke atama ve yönetme](resource-manager-policy-create-assign.md)
+### [Kaynak etiketi ilkeleri](resource-manager-policy-tags.md)
+### [Depolama ilkeleri](resource-manager-policy-storage.md)
+### [Linux VM ilkeleri](../virtual-machines/virtual-machines-linux-policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+### [Windows VM ilkeleri](../virtual-machines/virtual-machines-windows-policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ## Denetim ve Sorun Giderme
 ### [Sık karşılaşılan dağıtım hatalarını giderme](resource-manager-common-deployment-errors.md)
 ### [Etkinlik günlüklerini görüntüleme](resource-group-audit.md)
-### [Portal aracılığıyla dağıtım işlemlerini görüntüleme](resource-manager-troubleshoot-deployments-portal.md)
-### [PowerShell ile dağıtım işlemlerini görüntüleme](resource-manager-troubleshoot-deployments-powershell.md)
-### [Azure CLI ile dağıtım işlemlerini görüntüleme](resource-manager-troubleshoot-deployments-cli.md)
-### [REST API ile dağıtım işlemlerini görüntüleme](resource-manager-troubleshoot-deployments-rest.md)
+### [Dağıtım işlemlerini görüntüleme](resource-manager-deployment-operations.md)
 
 # Başvuru
-## [PowerShell](/powershell/resourcemanager/azurerm.resources/v3.2.0/azurerm.resources)
-## [Azure 2.0 CLI (Önizleme)](/cli/azure/resource)
+## [PowerShell](/powershell/resourcemanager/azurerm.resources/v3.5.0/azurerm.resources)
+## [Azure 2.0 CLI](/cli/azure/resource)
 ## [.NET](/dotnet/api/microsoft.azure.management.resourcemanager)
 ## [Java](/java/api/com.microsoft.azure.management.resources)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagement.html)
@@ -65,11 +67,12 @@
 
 # Kaynaklar
 ## [İstekleri azaltma](resource-manager-request-limits.md)
+## [Zaman uyumsuz işlemleri izleme](resource-manager-async-operations.md)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-resource-manager)
 ## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager)
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=azure-resource-manager)
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

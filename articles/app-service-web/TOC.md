@@ -3,6 +3,7 @@
 ## [App Service nedir?](../app-service/app-service-value-prop-what-is.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 ## [App Service planları](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
 ## [Linux’ta App Service](app-service-linux-intro.md)
+## [Linux’ta App Service hakkında SSS](app-service-linux-faq.md)
 
 # Başlarken
 
@@ -13,7 +14,7 @@
 ### [Python](app-service-web-get-started-python.md)
 ### [Java](app-service-web-get-started-java.md)
 ### [Market uygulaması](web-sites-php-web-site-gallery.md)
-### [PHP](app-service-web-get-started-php.md)   
+### [PHP](app-service-web-get-started-php.md)    
 
 ## API Apps
 ### [.NET](../app-service-api/app-service-api-dotnet-get-started.md)
@@ -60,10 +61,13 @@
 ### [Azure Portal](app-service-web-app-azure-portal.md)
 ### [Web İşleri SDK’sı](websites-dotnet-webjobs-sdk-get-started.md)
 
+
 ### ASP.NET uygulamaları
 #### [Azure’da Visual Studio ile ASP.NET uygulaması oluşturma](web-sites-dotnet-get-started.md)
 #### [ASP.NET Web API kullanarak REST hizmeti oluşturma](web-sites-dotnet-rest-service-aspnet-api-sql-database.md)
 #### [Visual Studio Code’da ASP.NET 5 web uygulaması oluşturma](web-sites-create-web-app-using-vscode.md)
+#### [Linux’ta Web Apps ile .NET Core kullanma](app-service-linux-using-dotnetcore.md)
+
 
 ### Node.js uygulamaları
 #### [App Service için Node.js geliştirme](app-service-web-nodejs-get-started.md)
@@ -74,7 +78,7 @@
 #### [WebMatrix kullanarak oluşturma ve dağıtma](web-sites-nodejs-use-webmatrix.md)
 
 ### PHP uygulamaları
-#### [App Service için PHP uygulamaları geliştirme](app-service-web-php-get-started.md) 
+#### [App Service için PHP uygulamaları geliştirme](app-service-web-php-get-started.md)    
 #### [PHP-SQL web uygulaması oluşturma ve Git kullanarak dağıtma](web-sites-php-sql-database-deploy-use-git.md)
 #### [Azure Uygulama Hizmeti’nde bir WordPress web uygulaması oluşturma](web-sites-php-web-site-gallery.md)
 #### [Azure’da MySQL veritabanı oluşturma ve ona bağlanma](../store-php-create-mysql-database.md?toc=%2fazure%2fapp-service-web%2ftoc.json)
@@ -98,6 +102,9 @@
 #### [Visual Studio için Python Araçları 2.2 ile Flask ve Tablo Depolama](web-sites-python-ptvs-flask-table-storage.md)
 #### [Visual Studio için Python Araçları 2.2 ile Azure’da Django ve MySQL](web-sites-python-ptvs-django-mysql.md)
 #### [Visual Studio için Python Araçları 2.2 ile Azure’da Django ve SQL Veritabanı](web-sites-python-ptvs-django-sql.md)
+
+### Ruby uygulamaları
+#### [Linux’ta Web Apps ile Ruby kullanma](app-service-linux-using-ruby.md)
 
 ### [Beş dakika içinde ilk temel web uygulamanızı Azure'da dağıtın](app-service-web-get-started-html.md)
 ### [Web Apps ile üretim testine başlayın](app-service-web-test-in-production-get-start.md)
@@ -144,9 +151,11 @@
 #### [Python'u yapılandırma](web-sites-python-configure.md)
 #### [Linux’ta Node.js başlangıcı yapılandırma](app-service-linux-using-nodejs-pm2.md)
 
+
 ### Özel etki alanları
 #### [Özel etki alanı satın alma ve yapılandırma](custom-dns-web-site-buydomains-web-app.md)
 #### [Kendi özel etki alanınızı eşleme](web-sites-custom-domain-name.md)
+#### [Etkin bir özel etki alanını geçirme](app-service-custom-domain-name-migrate.md)
 #### [GoDaddy etki alanlarını yapılandırma](web-sites-godaddy-custom-domain-name.md)
 #### [Traffic Manager ile özel etki alanları](web-sites-traffic-manager-custom-domain-name.md)
 
@@ -267,6 +276,6 @@
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 
