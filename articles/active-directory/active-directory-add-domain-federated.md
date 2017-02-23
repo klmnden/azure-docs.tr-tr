@@ -3,7 +3,7 @@ title: "Azure Active Directory’de özel etki alanı adınızı ekleme ve feder
 description: "Şirketinizin etki alanı adlarının Azure Active Directory’ye eklenmesi ve Azure Active Directory ile şirket içi federasyon çözümünüz arasında federasyon oturumu açmanın ayarlanması."
 services: active-directory
 documentationcenter: 
-author: jeffsta
+author: curtand
 manager: femila
 editor: 
 ms.assetid: 27126c7e-e6d6-4ef3-a4fb-f5f0706e749d
