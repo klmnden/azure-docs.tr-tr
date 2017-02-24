@@ -23,7 +23,7 @@ ms.openlocfilehash: d1ab1ab2132d12bf06dbe2504b7d7111ef2ae851
 ---
 # <a name="how-app-service-works"></a>App Service nasıl çalışır?
 Azure Uygulama Hizmeti, günümüzde mühendislerin karşılaştığı pratik sorunları çözmek için tasarlanmış bir bulut hizmetidir.
-App Service, bulut ölçeğinde uygulama sağlama ihtiyacından ödün vermeden üstün geliştirici verimliliği sağlamaya odaklanır.
+App Service, bulut ölçeğinde uygulama sağlama ihtiyacından ödün vermeden üstün geliştirici verimliliği sağlamaya odaklanır. 
 
 App Service ayrıca, geliştiricileri en popüler geliştirme dilleri (Microsoft .NET, Java, PHP, Node.js ve Python gibi) desteği ile buluştururken, kurumsal iş kolu uygulamaları oluşturmak için gereken özellik ve çerçeveleri sağlar.
 App Service ile geliştiriciler şunları yapabilir:
