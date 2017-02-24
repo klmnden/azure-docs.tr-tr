@@ -52,8 +52,19 @@
 ## [Siber güvenlik danışmanlığı](azure-security-cyber-services.md)
 ## [Sanal Akademi’den güvenlik kursları](security-microsoft-virtual-academy.md)
 ## [Channel 9’da güvenlik videoları](security-channel-nine.md)
+## [Tehdit modelleme aracı](azure-security-threat-modeling-tool.md)
+###[Denetme ve günlüğe kaydetme](azure-security-threat-modeling-tool-auditing-and-logging.md)
+###[Kimlik doğrulaması](azure-security-threat-modeling-tool-authentication.md)
+###[Yetkilendirme](azure-security-threat-modeling-tool-authorization.md)
+###[İletişim güvenliği](azure-security-threat-modeling-tool-communication-security.md)
+###[Yapılandırma yönetimi](azure-security-threat-modeling-tool-configuration-management.md)
+###[Şifreleme](azure-security-threat-modeling-tool-cryptography.md)
+###[Özel durum yönetimi](azure-security-threat-modeling-tool-exception-management.md)
+###[Giriş doğrulaması](azure-security-threat-modeling-tool-input-validation.md)
+###[Hassas veriler](azure-security-threat-modeling-tool-sensitive-data.md)
+###[Oturum yönetimi](azure-security-threat-modeling-tool-session-management.md)
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO4-->
 
 

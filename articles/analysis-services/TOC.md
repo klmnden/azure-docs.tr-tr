@@ -16,7 +16,8 @@
 
 # Kaynaklar
 ##[Veri kaynağı bağlantıları](analysis-services-datasource.md)
-##[Veri sağlayıcılar](analysis-services-data-providers.md) 
+##[Veri sağlayıcılar](analysis-services-data-providers.md)
+##[.odc dosyası oluşturma](analysis-services-odc.md)
 
 
 <!--HONumber=Feb17_HO3-->

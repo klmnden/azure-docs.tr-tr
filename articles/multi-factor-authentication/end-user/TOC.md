@@ -10,10 +10,12 @@
 ## [Sorun giderme](multi-factor-authentication-end-user-troubleshoot.md)
 ## [Uygulama parolalarını ayarlama](multi-factor-authentication-end-user-app-passwords.md)
 ## Microsoft Kimlik Doğrulayıcı uygulamasını kullanma
-### [Başlarken](microsoft-authenticator-app-how-to.md)
-### [SSS’ler](microsoft-authenticator-app-faq.md)
+### [Uygulamayı kullanmaya başlama](microsoft-authenticator-app-how-to.md)
+### [Telefonunuzla oturum açma](microsoft-authenticator-app-phone-signin-faq.md)
+### [SSS](microsoft-authenticator-app-faq.md)
 
 
-<!--HONumber=Jan17_HO3-->
+
+<!--HONumber=Feb17_HO3-->
 
 

@@ -2,10 +2,10 @@
 ## [Azure Active Directory nedir?](active-directory-whatis.md)
 ## [Sürüm seçin](active-directory-editions.md)
 ## [Azure kimlik yönetimi hakkında](fundamentals-identity.md)
-## [Azure Portalı deneyiminin önizlemesini gerçekleştirme](active-directory-preview-explainer.md)
+## [Azure AD portalı deneyiminin önizlemesini görüntüleme](active-directory-preview-explainer.md)
 
 
-# Başlarken
+# başlarken
 ## [Azure AD kiracısı edinin](active-directory-howto-tenant.md)
 ## [Azure AD Premium’a kaydolun](active-directory-get-started-premium.md)
 ## [Azure aboneliklerini ilişkilendirme](active-directory-how-subscriptions-associated-directory.md)
@@ -50,8 +50,11 @@
 ### [Self servis gruplarını kurma](active-directory-accessmanagement-self-service-group-management.md)
 ### [Sorun giderme](active-directory-accessmanagement-troubleshooting.md)
 
-## [Erişim ve kullanım raporlarını görüntüleme](active-directory-view-access-usage-reports.md)
+## [Etkinlik ve güvenlik raporlarını görüntüleme](active-directory-view-access-usage-reports.md)
 ### [Azure AD raporlama](active-directory-reporting-getting-started.md)
+### [SSS](active-directory-reporting-faq.md)
+### [Rapor geçişi](active-directory-reporting-migration.md)
+
 ### [Bilinen ağlar](active-directory-known-networks.md)
 
 ### [Raporlama kılavuzu](active-directory-reporting-guide.md)
@@ -85,7 +88,7 @@
 #### [Azure Portal](active-directory-users-reset-password-azure-portal.md)
 #### [Klasik portal](active-directory-create-users-reset-password.md)
 ### [Süre sonu ilkeleri ayarlama](active-directory-passwords-set-expiration-policy.md)
-### Parola Yönetimini Etkinleştirme
+### Parola yönetimini etkinleştirme
 #### [Kullanmaya Başlama](active-directory-passwords-getting-started.md)
 #### [Dağıtma](active-directory-passwords-best-practices.md)
 #### [Self servis parola sıfırlamayı ayarlama](active-directory-passwords.md)
@@ -99,22 +102,6 @@
 ### [Cihazınızı kaydetme](active-directory-azureadjoin-personal-device.md)
 ### [Bir Windows 10 cihazını kaydetme](active-directory-azureadjoin-user-upgrade.md)
 
-### [Koşullu erişim](active-directory-conditional-access.md)
-#### [Kullanmaya başlama](active-directory-conditional-access-azuread-connected-apps.md)
-#### [Desteklenen uygulamalar](active-directory-conditional-access-supported-apps.md)
-#### [Cihaz kaydetme](active-directory-conditional-access-device-registration-overview.md)
-#### [Otomatik kaydı yönetme](active-directory-conditional-access-automatic-device-registration.md)
-##### [Kurulum](active-directory-conditional-access-automatic-device-registration-setup.md)
-##### [Windows 7](active-directory-conditional-access-automatic-device-registration-windows7.md)
-##### [Windows 8.1](active-directory-conditional-access-automatic-device-registration-windows-8-1.md)
-#### [Doğrulayıcı uygulamasını yönetme](active-directory-conditional-access-azure-authenticator-app.md)
-#### [Cihaz ilkelerini anlama](active-directory-conditional-access-device-policies.md)
-#### [Bağlı uygulamalara erişimi ayarlama](active-directory-conditional-access-policy-connected-applications.md)
-#### [Şirket içi dağıtma](active-directory-conditional-access-on-premises-setup.md)
-#### [SSS](active-directory-conditional-faqs.md)
-#### [Sorun giderme](active-directory-conditional-access-device-remediation.md)
-#### [Başvuru](active-directory-conditional-access-technical-reference.md)
-
 ### [Azure AD Join](active-directory-azureadjoin-overview.md)
 #### [Planlama](active-directory-azureadjoin-deployment-aadjoindirect.md)
 #### [Cihaz kaydı oluşturma](active-directory-azureadjoin-setup.md)
@@ -122,12 +109,13 @@
 #### [Dağıtma](active-directory-azureadjoin-devices-group-policy.md)
 #### [Parolasız kimlik doğrulama](active-directory-azureadjoin-passport.md)
 #### [İş İçin Windows Hello’yu etkinleştirme](active-directory-azureadjoin-passport-deployment.md)
+
 #### [Windows 10 ile tümleştirmeyi anlama](active-directory-azureadjoin-windows10-devices-overview.md)
 #### [Windows 10 cihazları kullanma](active-directory-azureadjoin-windows10-devices.md)
-
-### Sertifika Tabanlı Kimlik Doğrulaması
-#### [Android](active-directory-certificate-based-authentication-android.md)
-#### [iOS](active-directory-certificate-based-authentication-ios.md)
+#### [SSS](active-directory-conditional-access-automatic-device-registration-faq.md)
+#### Sorun giderme
+##### [Windows 10 ve Windows Server 2016 için sorun giderme](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows.md)
+##### [Windows alt düzey istemciler için sorun giderme](active-directory-conditional-access-automatic-device-registration-troubleshoot-windows-legacy.md)
 
 ## Uygulamaları yönetme
 ### [Genel Bakış](active-directory-enable-sso-scenario.md)
@@ -139,25 +127,31 @@
 
 ### [Uygulamalarınıza uzaktan erişim verme](active-directory-application-proxy-get-started.md)
 #### [Uygulama Ara Sunucusu](active-directory-application-proxy-enable.md)
+#### [Bağlayıcıları anlama](application-proxy-understand-connectors.md)
+
 #### Uygulamaları yayımlama
 ##### [Azure portal](application-proxy-publish-azure-portal.md)
 ##### [Klasik portal](active-directory-application-proxy-publish.md)
+#### [Güvenlik](application-proxy-security-considerations.md)
+#### [Ağlar](application-proxy-network-topology-considerations.md)
+#### [Uzak Masaüstü](application-proxy-publish-remote-desktop.md)
+#### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
+
 #### Ayrı ağlarda yayımlama
 ##### [Azure Portal](active-directory-application-proxy-connectors-azure-portal.md)
 ##### [Klasik portal](active-directory-application-proxy-connectors.md)
+#### [Ara sunucular](application-proxy-working-with-proxy-servers.md)
 #### [Özel etki alanları](active-directory-application-proxy-custom-domains.md)
-#### [Çoklu oturum açma](active-directory-application-proxy-sso-using-kcd.md)
+#### [Uygulamalara erişim](active-directory-appssoaccess-whatis.md)
 ##### [Azure Portal](application-proxy-sso-azure-portal.md)
+#### [Çoklu oturum açma](active-directory-application-proxy-sso-using-kcd.md)
 #### [Talep kullanan uygulamalar](active-directory-application-proxy-claims-aware-apps.md)
 #### [Native Client uygulamaları](active-directory-application-proxy-native-client.md)
+#### [Özel giriş sayfası](application-proxy-office365-app-launcher.md)
 #### [Koşullu erişim](active-directory-application-proxy-conditional-access.md)
 #### [Sessiz yükleme](active-directory-application-proxy-silent-installation.md)
+#### [Microsoft Forefront](application-proxy-transition-from-uag-tmg.md)
 #### [Sorun giderme](active-directory-application-proxy-troubleshoot.md)
-### [Uygulamalar için SSO’yu anlama](active-directory-appssoaccess-whatis.md)
-
-### SaaS uygulamalarını tümleştirme
-#### [Azure Portal](active-directory-enterprise-apps-manage-sso.md)
-#### [Klasik portal](active-directory-sso-integrate-saas-apps.md)
 
 ### Kurumsal uygulamaları yönetme
 #### [Kullanıcıları atama](active-directory-coreapps-assign-user-azure-portal.md)
@@ -176,10 +170,10 @@
 ### [Uygulamalara erişimi yönetme](active-directory-managing-access-to-apps.md)
 #### [Self servis erişimi](active-directory-self-service-application-access.md)
 #### [SSO için sertifikalar](active-directory-sso-certs.md)
+#### [Kiracı kısıtlamaları](active-directory-tenant-restrictions.md)
 
 ### [SCIM kullanıcı sağlama hizmetinden yararlanma](active-directory-scim-provisioning.md)
 ### [Belge kitaplığı](active-directory-apps-index.md)
-
 
 ## Dizininizi yönetme
 ### Özel etki alanı adları
@@ -206,15 +200,29 @@
 #### [Windows 10 ayarları](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
 #### [SSS](active-directory-windows-enterprise-state-roaming-faqs.md)
 #### [Sorun giderme](active-directory-windows-enterprise-state-roaming-troubleshooting.md)
+
 ### [Azure AD B2B ile iş ortaklarını tümleştirme](active-directory-b2b-what-is-azure-ad-b2b.md)
-#### [Genel Bakış](active-directory-b2b-collaboration-overview.md)
-#### [Nasıl çalışır?](active-directory-b2b-how-it-works.md)
-#### [Özellikleri karşılaştırma](active-directory-b2b-compare-external-identities.md)
-#### [İzlenecek yol](active-directory-b2b-detailed-walkthrough.md)
-#### [Sınırlamalar](active-directory-b2b-current-preview-limitations.md)
-#### [CSV dosya biçimi](active-directory-b2b-references-csv-file-format.md)
-#### [Kullanıcı nesneleri](active-directory-b2b-references-external-user-object-attribute-changes.md)
-#### [Kullanıcı belirteçleri](active-directory-b2b-references-external-user-token-format.md)
+#### [B2B kullanıcıları ekleyen yöneticiler](active-directory-b2b-admin-add-users.md)
+#### [B2B kullanıcıları ekleyen bilgi çalışanları](active-directory-b2b-iw-add-users.md)
+#### [Davet e-postası](active-directory-b2b-invitation-email.md)
+#### [Davet kullanma](active-directory-b2b-redemption-experience.md)
+#### [B2B kullanıcı özellikleri](active-directory-b2b-user-properties.md)
+#### [Bir role konuk kullanıcı ekleme](active-directory-b2b-add-guest-to-role.md)
+#### [API ve özelleştirme](active-directory-b2b-api.md)
+#### [Temsilci davetleri](active-directory-b2b-delegate-invitations.md)
+#### [Dinamik gruplar ve B2B](active-directory-b2b-dynamic-groups.md)
+#### [B2B için çok faktörlü kimlik doğrulaması](active-directory-b2b-mfa-instructions.md)
+#### [B2B kullanıcı belirteçleri](active-directory-b2b-user-token.md)
+#### [B2B kullanıcı taleplerini eşleme](active-directory-b2b-claims-mapping.md)
+#### [Office 365 dış paylaşım](active-directory-b2b-o365-external-user.md)
+#### [SaaS uygulamalarını B2B için yapılandırma](active-directory-b2b-configure-saas-apps.md)
+#### [Kod ve PowerShell Örnekleri](active-directory-b2b-code-samples.md)
+#### [Geçerli sınırlamalar](active-directory-b2b-current-limitations.md)
+#### [Lisanslama](active-directory-b2b-licensing.md)
+#### [B2B sorunlarını giderme](active-directory-b2b-troubleshooting.md)
+#### [B2B işbirliğini B2C ile karşılaştırma](active-directory-b2b-compare-b2c.md)
+#### [B2B desteği alma](active-directory-b2b-support.md)
+#### [SSS](active-directory-b2b-faq.md)
 ### [Azure AD Connect kullanarak şirket içi kimlikleri tümleştirme](./connect/active-directory-aadconnect.md)
 
 
@@ -224,9 +232,9 @@
 ### [Yönetim birimleri](active-directory-administrative-units-management.md)
 ### [Azure’da kaynak erişimi](active-directory-understanding-resource-access.md)
 ### [Rol Tabanlı Access Control](role-based-access-control-what-is.md)
-#### Erişimi yönetme
-##### [Azure Portal](role-based-access-control-manage-assignments.md)
-##### [Klasik portal](role-based-access-control-configure.md)
+#### Erişim atamalarını yönetme
+##### [Kullanıcıya göre](role-based-access-control-manage-assignments.md)
+##### [Kaynağa göre](role-based-access-control-configure.md)
 #### [Yerleşik roller](role-based-access-built-in-roles.md)
 #### [Özel roller](role-based-access-control-custom-roles.md)
 #### [Raporlama](role-based-access-control-access-change-history-report.md)
@@ -238,6 +246,22 @@
 ### [Belirteç ömrünü yapılandırma](active-directory-configurable-token-lifetimes.md)
 
 ## Kimliklerinizi güvenli hale getirme
+### [Koşullu erişim](active-directory-conditional-access.md)
+#### [Kullanmaya başlama](active-directory-conditional-access-azuread-connected-apps.md)
+#### [Desteklenen uygulamalar](active-directory-conditional-access-supported-apps.md)
+#### [Cihaz kaydetme](active-directory-conditional-access-device-registration-overview.md)
+#### [Otomatik kaydı yönetme](active-directory-conditional-access-automatic-device-registration.md)
+##### [Kurulum](active-directory-conditional-access-automatic-device-registration-setup.md)
+#### [Doğrulayıcı uygulamasını yönetme](active-directory-conditional-access-azure-authenticator-app.md)
+#### [Cihaz ilkelerini anlama](active-directory-conditional-access-device-policies.md)
+#### [Bağlı uygulamalara erişimi ayarlama](active-directory-conditional-access-policy-connected-applications.md)
+#### [Şirket içi dağıtma](active-directory-conditional-access-on-premises-setup.md)
+#### [SSS](active-directory-conditional-faqs.md)
+#### [Sorun giderme](active-directory-conditional-access-device-remediation.md)
+#### [Başvuru](active-directory-conditional-access-technical-reference.md)
+### Sertifika Tabanlı Kimlik Doğrulaması
+#### [Android](active-directory-certificate-based-authentication-android.md)
+#### [iOS](active-directory-certificate-based-authentication-ios.md)
 ### [Azure AD Kimlik Koruması](active-directory-identityprotection.md)
 #### [Etkinleştirme](active-directory-identityprotection-enable.md)
 #### [Güvenlik açıklarını algılama](active-directory-identityprotection-vulnerabilities.md)
@@ -301,6 +325,6 @@
 ## [Azure geri bildirim forumu](https://feedback.azure.com/forums/169401-azure-active-directory)
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO4-->
 
 

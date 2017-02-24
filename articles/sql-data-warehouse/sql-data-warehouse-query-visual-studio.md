@@ -1,5 +1,5 @@
 ---
-title: "Azure SQL Veri Ambarı’nı sorgulama (Visual Studio) | Microsoft Belgeleri"
+title: "Azure SQL Veri Ambarı&quot;na Bağlanma - VSTS | Microsoft Belgeleri"
 description: "Visual Studio ile SQL Data Warehouse&quot;u sorgulayın."
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,12 +15,12 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5e97fefdf3cc13f2fd3e060da901e90ef5ef9a29
+ms.sourcegitcommit: 77474214c6fafe7f591030d30f6a46c66fbc5c09
+ms.openlocfilehash: 71a56d0e99308d3f7f514283792a2155a05a7172
 
 
 ---
-# <a name="query-azure-sql-data-warehouse-visual-studio"></a>Azure SQL Veri Ambarı’nı (Visual Studio) Sorgulama
+# <a name="connect-to-sql-data-warehouse-with-visual-studio-and-ssdt"></a>Visual Studio ve SSDT ile SQL Veri Ambarı'na bağlanma
 > [!div class="op_single_selector"]
 > * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 > * [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
@@ -84,11 +84,11 @@ Artık bağlanıp sorgulama yapabildiğinize göre [PowerBI ile verileri görsel
 Ortamınızı Azure Active Directory kimlik doğrulaması için yapılandırmak üzere bkz. [SQL Veri Ambarı’nda kimlik doğrulama][SQL Veri Ambarı’nda kimlik doğrulama].
 
 <!--Arcticles-->
-[SQL Veri Ambarı'na bağlanma]: sql-data-warehouse-connect-overview.md
+[SQL Veri Ambarı’na bağlanma]: sql-data-warehouse-connect-overview.md
 [SQL Veri Ambarı oluşturma]: sql-data-warehouse-get-started-provision.md
-[Visual Studio ve SSDT Yükleme]: sql-data-warehouse-install-visual-studio.md
+[Visual Studio ve SSDT’yi yükleme]: sql-data-warehouse-install-visual-studio.md
 [SQL Veri Ambarı’nda kimlik doğrulama]: sql-data-warehouse-authentication.md
-[PowerBI ile verileri görselleştirme]: sql-data-warehouse-get-started-visualize-with-power-bi.md  
+[PowerBI ile verileri görselleştirmeyi]: sql-data-warehouse-get-started-visualize-with-power-bi.md  
 
 <!--Other-->
 [Azure Portal]: https://portal.azure.com
@@ -105,6 +105,6 @@ Ortamınızı Azure Active Directory kimlik doğrulaması için yapılandırmak 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

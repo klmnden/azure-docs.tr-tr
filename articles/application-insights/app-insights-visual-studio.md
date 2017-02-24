@@ -14,13 +14,13 @@ ms.topic: get-started-article
 ms.date: 06/21/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 8886107f96f31f668ce55ebb4c76e58ad1f21268
+ms.sourcegitcommit: 41ce9b0e323c0938b6db98b99d8d687d1ed0f0ef
+ms.openlocfilehash: 2334a85402049eb8654039e98cf2c3131a43de62
 
 
 ---
 # <a name="working-with-application-insights-in-visual-studio"></a>Visual Studio’da Application Insights ile çalışma
-Visual Studio’da (2015 ve sonraki sürümler) hem hata ayıklama hem de üretim sırasında [Visual Studio Application Insights](app-insights-overview.md)’tan alınan telemetri verilerini kullanarak performansı çözümleyebilir ve sorunları tanılayabilirsiniz.
+Visual Studio’da (2015 ve sonraki sürümler) hem hata ayıklama hem de üretim sırasında [Azure Application Insights](app-insights-overview.md)’tan alınan telemetri verilerini kullanarak performansı çözümleyebilir ve sorunları tanılayabilirsiniz.
 
 [Application Insights’ı uygulamanıza yükleme](app-insights-asp-net.md) işlemini henüz gerçekleştirmediyseniz bunu şimdi yapın.
 
@@ -94,6 +94,6 @@ Verilerinizdeki anormallikleri bulmak için "Görünüm Türü" açılır listes
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,11 +1,23 @@
 ---
-layout: LandingPage
+title: "Azure IoT Hub Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
 description: "IoT Hub’ı kullanarak milyarlarca Nesnelerin İnterneti varlığına bağlanma, bunları izleme ve denetleme hakkında bilgi edinin. Öğreticiler, API başvuruları, videolar ve diğer belgeler."
+services: iot-hub
+author: carolz
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: iot-hub
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 01/23/2017
+ms.author: carolz
 translationtype: Human Translation
-ms.sourcegitcommit: b4080529e9ff4500cef20e1dd735765051f6ce1f
-ms.openlocfilehash: da0387255c538afd5490f313c10509a1b40e6dd9
+ms.sourcegitcommit: eb364084e5f5155399c8a052b036ec0316616366
+ms.openlocfilehash: 36b9070260b334f1713cf575eb94007ce1b556f5
 
 ---
+
 #<a name="iot-hub-documentation"></a>IoT Hub Belgeleri
 
 IoT Hub’ı kullanarak milyarlarca Nesnelerin İnterneti varlığına bağlanma, bunları izleme ve denetleme hakkında bilgi edinin. Öğreticiler, API başvuruları, videolar ve diğer belgeler, IoT cihazlarıyla bir çözümün arka ucu arasında güvenilir ve çift yönlü iletişim dağıtmanıza yardımcı olur. 
@@ -127,8 +139,10 @@ IoT Hub’ı kullanarak milyarlarca Nesnelerin İnterneti varlığına bağlanma
                         <h3>Diller</h3>
                         <p><a href="/dotnet/api/microsoft.azure.devices">.NET (Hizmet)</a></p>
                         <p><a href="/dotnet/api/microsoft.azure.devices.client">.NET (Cihazlar)</a></p>
-                        <p><a href="/java/api/com.microsoft.azure.iot.service.auth">Java (Hizmet)</a></p>
-                        <p><a href="/java/api/com.microsoft.azure.iothub">Java (Cihazlar)</a></p>
+                        <p><a href="/java/api/com.microsoft.azure.sdk.iot.service.auth">Java (Hizmet)</a></p>
+                        <p><a href="/java/api/com.microsoft.azure.sdk.iot.device">Java (Cihazlar)</a></p>
+                        <p><a href="http://azure.github.io/azure-iot-sdks/node/api_reference/azure-iothub/1.0.17/index.html">Düğüm (Hizmet)</a></p>
+                        <p><a href="http://azure.github.io/azure-iot-sdks/node/api_reference/azure-iot-device/1.0.15/index.html">Düğüm (Cihazlar)</a></p>
                         <p><a href="http://azure.github.io/azure-iot-sdks/">Azure IoT SDK’ları</a></p>
                         <p><a href="http://azure.github.io/azure-iot-gateway-sdk">Ağ Geçidi SDK’sı</a></p>
                     </div>
@@ -157,6 +171,6 @@ IoT Hub’ı kullanarak milyarlarca Nesnelerin İnterneti varlığına bağlanma
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 
