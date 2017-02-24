@@ -14,15 +14,15 @@ ms.topic: get-started-article
 ms.date: 08/30/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: fb80168b38be88ab18952569e6b6f9bcb53d473a
+ms.sourcegitcommit: d84ab993b1d9489ca9d2edaa1cb9672d9bced899
+ms.openlocfilehash: fd089f0cc5c23dcddb392df55c65907519f59248
 
 
 ---
 # <a name="add-application-insights-sdk-to-monitor-your-nodejs-app"></a>Node.js uygulamanızı izlemek için Application Insights SDK’sı ekleme
-*Application Insights önizlemededir.*
 
-[Visual Studio Application Insights](app-insights-overview.md), [performans sorunlarını ve özel durumlarını saptayıp tanılamanıza](app-insights-detect-triage-diagnose.md) ve [uygulamanızın nasıl kullanıldığını keşfetmenize](app-insights-overview-usage.md) yardımcı olmak amacıyla canlı uygulamanızı izler. Azure web uygulamalarının yanı sıra şirket içi kendi IIS sunucularınızda veya Azure sanal makinelerinde barındırılan uygulamalar için çalışır.
+
+[Azure Application Insights](app-insights-overview.md), [performans sorunlarını ve özel durumlarını saptayıp tanılamanıza](app-insights-detect-triage-diagnose.md) ve [uygulamanızın nasıl kullanıldığını keşfetmenize](app-insights-overview-usage.md) yardımcı olmak amacıyla canlı uygulamanızı izler. Azure web uygulamalarının yanı sıra şirket içi kendi IIS sunucularınızda veya Azure sanal makinelerinde barındırılan uygulamalar için çalışır.
 
 SDK, gelen HTTP isteği oranlarının ve yanıtlarının, performans sayaçlarının (CPU, bellek, RPS) ve işlenmeyen özel durumların otomatik olarak toplanmasını sağlar. Ayrıca, bağımlılıkları, ölçümleri veya diğer olayları izlemek için özel çağrılar ekleyebilirsiniz.
 
@@ -95,7 +95,7 @@ Sunucunuzun güvenlik duvarında giden trafik için şu bağlantı noktalarını
 Lütfen [bu Sorun Giderme maddesine](app-insights-asp-net-troubleshoot-no-data.md#NuGetBuild) bakın.
 
 ## <a name="customized-usage"></a>Özelleştirilmiş Kullanım
-### <a name="disabling-autocollection"></a>Otomatik toplamayı devre dışı bırakma
+### <a name="disabling-auto-collection"></a>Otomatik toplamayı devre dışı bırakma
 ```javascript
 import appInsights = require("applicationinsights");
 appInsights.setup("<instrumentation_key>")
@@ -200,6 +200,6 @@ server.on("listening", () => {
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

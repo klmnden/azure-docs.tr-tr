@@ -1,29 +1,33 @@
 ---
-title: Azure Komut Satırı Arabirimi'ni kullanarak Azure Data Lake Analytics ile çalışmaya başlama | Microsoft Docs
-description: 'Bir Data Lake Store hesabı oluşturmak, U-SQL''yi kullanarak Data Lake Analytics işi oluşturmak ve işi göndermek için Azure Komut Satırı Arabirimi''nin nasıl kullanılacağını öğrenin. '
+title: "Azure Komut Satırı Arabirimi&quot;ni kullanarak Azure Data Lake Analytics ile çalışmaya başlama | Microsoft Belgeleri"
+description: "Bir Data Lake Analytics hesabı oluşturmak, U-SQL&quot;yi kullanarak Data Lake Analytics işi oluşturmak ve işi göndermek için Azure Komut Satırı Arabirimi&quot;nin nasıl kullanılacağını öğrenin. "
 services: data-lake-analytics
-documentationcenter: ''
+documentationcenter: 
 author: edmacauley
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 651021d4-4591-4c48-b1ef-3ebc4606d66d
 ms.service: data-lake-analytics
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/16/2016
+ms.date: 12/05/2016
 ms.author: edmaca
+translationtype: Human Translation
+ms.sourcegitcommit: c9440e26a563ed9315225b34709b009d01e065d7
+ms.openlocfilehash: ff9b0d9e098fd8c6cde7c63c005c8f1906c6e0f2
+
 
 ---
-# Öğretici: Azure Komut Satırı Arabirimi'ni (CLI) kullanarak Azure Data Lake Analytics ile çalışmaya başlama
+# <a name="tutorial-get-started-with-azure-data-lake-analytics-using-azure-command-line-interface-cli"></a>Öğretici: Azure Komut Satırı Arabirimi'ni (CLI) kullanarak Azure Data Lake Analytics ile çalışmaya başlama
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
 Azure Data Lake Analytics hesapları oluşturmak, Data Lake Analytics işlerini [U-SQL](data-lake-analytics-u-sql-get-started.md) içinde tanımlamak ve Data Lake Analytics hesaplarına iş göndermek için Azure CLI olanağının nasıl kullanılacağını öğrenin. Data Lake Analytics hakkında daha fazla bilgi için bkz. [Azure Data Lake Analytics'e genel bakış](data-lake-analytics-overview.md).
 
 Bu öğreticide, bir sekmeyle ayrılmış değerler (TSV) dosyasını okuyan ve bunu virgülle ayrılmış değerler (CSV) dosyasına dönüştüren bir iş geliştireceksiniz. Öğreticiyi desteklenen diğer araçları kullanarak tamamlamak için bu bölümün üst kısmındaki sekmelere tıklayın.
 
-## Önkoşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bu öğreticiye başlamadan önce aşağıdakilere sahip olmanız gerekir:
 
 * **Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü edinme](https://azure.microsoft.com/pricing/free-trial/).
@@ -37,10 +41,10 @@ Bu öğreticiye başlamadan önce aşağıdakilere sahip olmanız gerekir:
   
         azure config mode arm
 
-## Data Lake Analytics hesabı oluşturma
+## <a name="create-data-lake-analytics-account"></a>Data Lake Analytics hesabı oluşturma
 Herhangi bir işi çalıştırmadan önce bir Data Lake Analytics hesabına sahip olmanız gerekir. Bir Data Lake Analytics hesabı oluşturmak için aşağıdakileri belirtmeniz gerekir:
 
-* **Azure Kaynak Grubu**: Data Lake Analytics hesabı bir Azure Kaynak grubu içinde oluşturulmalıdır. [Azure Resource Manager](../resource-group-overview.md), uygulamanızdaki kaynaklarla bir grup olarak çalışmanıza olanak sağlar. Uygulamanıza yönelik tüm kaynakları tek ve eş güdümlü bir işlemle dağıtabilir, güncelleştirebilir veya silebilirsiniz.  
+* **Azure Kaynak Grubu**: Data Lake Analytics hesabı bir Azure Kaynak grubu içinde oluşturulmalıdır. [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md), uygulamanızdaki kaynaklarla bir grup olarak çalışmanıza olanak sağlar. Uygulamanıza yönelik tüm kaynakları tek ve eş güdümlü bir işlemle dağıtabilir, güncelleştirebilir veya silebilirsiniz.  
   
     Aboneliğinizdeki kaynak gruplarını numaralandırmak için:
   
@@ -71,7 +75,7 @@ Herhangi bir işi çalıştırmadan önce bir Data Lake Analytics hesabına sahi
         azure datalake analytics account create "<Data Lake Analytics Account Name>" "<Azure Location>" "<Resource Group Name>" "<Default Data Lake Account Name>"
 
         azure datalake analytics account list
-        azure datalake analytics account show "<Data Lake Analytics Account Name>"          
+        azure datalake analytics account show "<Data Lake Analytics Account Name>"            
 
 ![Data Lake Analytics hesabı gösterme](./media/data-lake-analytics-get-started-cli/data-lake-analytics-show-account-cli.png)
 
@@ -80,22 +84,22 @@ Herhangi bir işi çalıştırmadan önce bir Data Lake Analytics hesabına sahi
 > 
 > 
 
-## Data Lake Store'a veri yükleme
+## <a name="upload-data-to-data-lake-store"></a>Data Lake Store'a veri yükleme
 Bu öğreticide, bazı arama günlüklerini işleyeceksiniz.  Arama günlüğü, Data Lake Store veya Azure Blob depolama alanında depolanabilir. 
 
 Azure Portal, bir arama günlüğü dosyası içeren bazı örnek veri dosyalarını varsayılan Data Lake hesabına kopyalamak için bir kullanıcı arabirimi sağlar. Verileri varsayılan Data Lake Store hesabına yüklemek için bkz. [Kaynak verileri hazırlama](data-lake-analytics-get-started-portal.md#prepare-source-data).
 
 Dosyaları cli özelliğini kullanarak yüklemek için şu komutu kullanın:
 
-    azure datalake store filesystem import "<Data Lake Store Account Name>" "<Path>" "<Destination>"
-    azure datalake store filesystem list "<Data Lake Store Account Name>" "<Path>"
+      azure datalake store filesystem import "<Data Lake Store Account Name>" "<Path>" "<Destination>"
+      azure datalake store filesystem list "<Data Lake Store Account Name>" "<Path>"
 
 Data Lake Analytics ayrıca Azure Blob depolama alanına da erişebilir.  Verileri Azure Blob depolama alanına yüklemek için bkz. [Azure CLI'yı Azure Storage ile kullanma](../storage/storage-azure-cli.md).
 
-## Data Lake Analytics işlerini gönderme
+## <a name="submit-data-lake-analytics-jobs"></a>Data Lake Analytics işlerini gönderme
 Data Lake Analytics işleri, U-SQL dilinde yazılır. U-SQL hakkında daha fazla bilgi için bkz. [U-SQL dili ile çalışmaya başlama](data-lake-analytics-u-sql-get-started.md) ve [U-SQL dili başvurusu](http://go.microsoft.com/fwlink/?LinkId=691348).
 
-**Bir Data Lake Analytics işi betiği oluşturmak için**
+**Data Lake Analytics iş betiği oluşturmak için**
 
 * Aşağıdaki U-SQL betiği ile bir metin dosyası oluşturun ve metin dosyasını iş istasyonunuza kaydedin:
   
@@ -138,9 +142,11 @@ Data Lake Analytics işleri, U-SQL dilinde yazılır. U-SQL hakkında daha fazla
 
 Aşağıdaki komutlar, işleri listelemek, iş ayrıntılarını almak ve işleri iptal etmek için kullanılabilir:
 
-    azure datalake analytics job cancel "<Data Lake Analytics Account Name>" "<Job Id>"
-    azure datalake analytics job list "<Data Lake Analytics Account Name>"
-    azure datalake analytics job show "<Data Lake Analytics Account Name>" "<Job Id>"
+```
+azure datalake analytics job cancel "<Data Lake Analytics Account Name>" "<Job Id>"
+azure datalake analytics job list "<Data Lake Analytics Account Name>"
+azure datalake analytics job show "<Data Lake Analytics Account Name>" "<Job Id>"
+```
 
 İş tamamlandıktan sonra, dosyayı listelemek için aşağıdaki cmdlet'leri kullanabilir ve dosyayı indirebilirsiniz:
 
@@ -148,7 +154,7 @@ Aşağıdaki komutlar, işleri listelemek, iş ayrıntılarını almak ve işler
     azure datalake store filesystem export "<Data Lake Store Account Name>" "/Output/SearchLog-from-Data-Lake.csv" "<Destination>"
     azure datalake store filesystem read "<Data Lake Store Account Name>" "/Output/SearchLog-from-Data-Lake.csv" <Length> <Offset>
 
-## Ayrıca bkz.
+## <a name="see-also"></a>Ayrıca bkz.
 * Aynı öğreticiyi diğer araçları kullanarak görmek için sayfanın üst kısmındaki sekme seçicilerine tıklayın.
 * Daha karmaşık bir sorgu görmek için [Azure Data Lake Analytics'i kullanarak Web sitesi günlüklerini çözümleme](data-lake-analytics-analyze-weblogs.md) makalesine bakın.
 * U-SQL uygulamalarını geliştirmeye başlamak için bkz. [Visual Studio için Data Lake Araçları'nı kullanarak U-SQL betikleri geliştirme](data-lake-analytics-data-lake-tools-get-started.md).
@@ -156,6 +162,9 @@ Aşağıdaki komutlar, işleri listelemek, iş ayrıntılarını almak ve işler
 * Yönetim görevleri için bkz. [Azure Portal'ı kullanarak Azure Data Lake Analytics'i yönetme](data-lake-analytics-manage-use-portal.md).
 * Data Lake Analytics'e yönelik bir genel bakış için bkz. [Azure Data Lake Analytics'e genel bakış](data-lake-analytics-overview.md).
 
-<!--HONumber=Sep16_HO3-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -41,16 +41,21 @@
 #### [Azure CLI 1.0](../virtual-machines-linux-create-cli-complete-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 #### [Azure CLI 2.0 (Önizleme)](../virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Ölçek Kümeleri ile birden çok VM oluşturma](../virtual-machines-linux-cli-vmss-create.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-### [CLI kullanarak veri diski ekleme](../virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-### [Portalı kullanarak veri diski ekleme](../virtual-machines-linux-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-### [Bağlantı noktalarını ve uç noktaları açma](../virtual-machines-linux-nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-### [Linux VM’ini yeniden boyutlandırma](../virtual-machines-linux-change-vm-size.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### Bağlantı noktalarını ve uç noktaları açma
+#### [Azure CLI 1.0](../virtual-machines-linux-nsg-quickstart-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+#### [Azure CLI 2.0 (Önizleme)](../virtual-machines-linux-nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### VM’yi yeniden boyutlandırma
+#### [Azure CLI 1.0](../virtual-machines-linux-change-vm-size-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+#### [Azure CLI 2.0 (Önizleme)](../virtual-machines-linux-change-vm-size.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### Bir VM’yi mevcut bir sanal ağa dağıtma
-#### [Azure CLI](../virtual-machines-linux-deploy-linux-vm-into-existing-vnet-using-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-#### [Azure Portal](../virtual-machines-linux-deploy-linux-vm-into-existing-vnet-using-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+#### [Azure CLI 1.0](../virtual-machines-linux-deploy-linux-vm-into-existing-vnet-using-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+#### [Azure CLI 2.0 (Önizleme)](../virtual-machines-linux-deploy-linux-vm-into-existing-vnet-using-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+#### [Azure portal](../virtual-machines-linux-deploy-linux-vm-into-existing-vnet-using-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [VM görüntüsü bulma](../virtual-machines-linux-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Cloud-init kullanma](../virtual-machines-linux-using-cloud-init.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-### [SSH erişimini sıfırlama, kullanıcıları yönetme ve diskleri denetleme](../virtual-machines-linux-using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### SSH erişimini sıfırlama, kullanıcıları yönetme ve diskleri denetleme
+#### [Azure CLI 1.0](../virtual-machines-linux-using-vmaccess-extension-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+#### [Azure CLI 2.0 (Önizleme)](../virtual-machines-linux-using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [SSHD’yi yapılandırarak SSH parolalarını devre dışı bırakma](../virtual-machines-linux-mac-disable-ssh-password-usage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Bir RedHat VM’sini Azure Active Directory Etki Alanı Hizmetine ekleme](../virtual-machines-linux-join-redhat-linux-vm-to-azure-active-directory-domain-service.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Azure ile Docker Makinesi kullanma](../virtual-machines-linux-docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -59,22 +64,34 @@
 ### [Azure Container Kayıt Defteri’ni kullanma](/azure/container-registry/?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Linux VM’ye bağlanmak için Uzak Masaüstü yükleme ve yapılandırma](../virtual-machines-linux-use-remote-desktop.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-## Depolama'yı kullanma
-### [Diskler ve VHD’ler](../virtual-machines-linux-about-disks-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+## Depolama
+### [Azure VM diskleri hakkında sık sorulan sorular](../../storage/storage-faq-for-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### [Azure Yönetilen Disklere genel bakış](../../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### Veri diski ekleme
+#### [Azure CLI](../virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+#### [Azure Portal](../virtual-machines-linux-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### [Yönetilen Diskin anlık görüntüsünü alma](virtual-machines-linux-snapshot-copy-managed-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### [Var olan VM’yi Yönetilen Disklere dönüştürme](../virtual-machines-linux-convert-unmanaged-to-managed-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [İşletim sistemi sürücüsünü genişletme](../virtual-machines-linux-expand-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Disk şifrelemesi](../virtual-machines-linux-encrypt-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Yazılım RAID yapılandırma](../virtual-machines-linux-configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [LVM'yi yapılandırma](../virtual-machines-linux-configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Azure Dosyalarını kullanma](../../storage/storage-how-to-use-files-linux.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-### [SMB kullanarak Azure Dosya Depolama bağlama](../virtual-machines-linux-mount-azure-file-storage-on-linux-using-smb.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### SMB kullanarak Azure Dosya Depolama bağlama
+#### [Azure CLI 1.0](../virtual-machines-linux-mount-azure-file-storage-on-linux-using-smb-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+#### [Azure CLI 2.0 (Önizleme)](../virtual-machines-linux-mount-azure-file-storage-on-linux-using-smb.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## [Ağ](../virtual-machines-linux-azure-vm-network-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### CLI ile VM’ye erişime izin verme
 #### [Azure CLI 1.0](../virtual-machines-linux-nsg-quickstart-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 #### [Azure CLI 2.0 (Önizleme)](../virtual-machines-linux-nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-### [VM ad çözümlemesi için dahili DNS kullanma](../virtual-machines-linux-static-dns-name-resolution-for-linux-on-azure.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### VM ad çözümlemesi için dahili DNS kullanma
+#### [Azure CLI 1.0](../virtual-machines-linux-static-dns-name-resolution-for-linux-on-azure-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+#### [Azure CLI 2.0 (Önizleme)](../virtual-machines-linux-static-dns-name-resolution-for-linux-on-azure.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Portalı kullanarak FQDN oluşturma](../virtual-machines-linux-portal-create-fqdn.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-### [Birden çok NIC ile VM oluşturma](../virtual-machines-linux-multiple-nics.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### Birden çok NIC ile VM oluşturma
+#### [Azure CLI 1.0](../virtual-machines-linux-multiple-nics-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+#### [Azure CLI 2.0 (Önizleme)](../virtual-machines-linux-multiple-nics.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [CLI kullanarak VNET oluşturma](../../virtual-network/virtual-networks-create-vnet-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [CLI kullanarak NSG oluşturma](../../virtual-network/virtual-networks-create-nsg-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Yük dengeleyici oluşturma](../../load-balancer/load-balancer-get-started-internet-arm-ps.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -86,13 +103,19 @@
 ### [VM’ler ile Azure Traffic Manager’ı kullanma](../../traffic-manager/traffic-manager-endpoint-types.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## Dağıtma
-### [VM kopyalama](../virtual-machines-linux-copy-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-### [VM yakalama](../virtual-machines-linux-capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### VM kopyalama
+#### [Azure CLI 1.0](../virtual-machines-linux-copy-vm-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+#### [Azure CLI 2.0 (Önizleme)](../virtual-machines-linux-copy-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### VM yakalama
+#### [Azure CLI 1.0](../virtual-machines-linux-capture-image-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+#### [Azure CLI 2.0 (Önizleme)](../virtual-machines-linux-capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Şablon kullanarak VM oluşturma](../virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### Görüntüler
 #### [Azure onaylı görüntüler](../virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 #### [Özel görüntüler](../virtual-machines-linux-create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-#### [CLI kullanarak VM görüntüsünü karşıya yükleme](../virtual-machines-linux-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+#### VM görüntüsünü karşıya yükleme
+##### [Azure CLI 1.0](../virtual-machines-linux-upload-vhd-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+##### [Azure CLI 2.0 (Önizleme)](../virtual-machines-linux-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 #### [Azure Linux aracısı](../virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 #### [CentOS](../virtual-machines-linux-create-upload-centos.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 #### [Ubuntu](../virtual-machines-linux-create-upload-ubuntu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -159,7 +182,9 @@
 ### [SAP DBMS kılavuzu](../virtual-machines-linux-sap-dbms-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [SAP SUSE hızlı başlangıç](../virtual-machines-linux-sap-on-suse-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Veri Bilimi VM’sine genel bakış](../../machine-learning/machine-learning-data-science-virtual-machine-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-### [MongoDB](../virtual-machines-linux-install-mongodb.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### MongoDB
+#### [Azure CLI 1.0](../virtual-machines-linux-install-mongodb-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+#### [Azure CLI 2.0 (Önizleme)](../virtual-machines-linux-install-mongodb.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [MySQL](../virtual-machines-linux-mysql-install.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [PostgreSQL](../virtual-machines-linux-postgresql-install.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [LAMP yığını dağıtma](../virtual-machines-linux-create-lamp-stack.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -180,7 +205,8 @@
 ### [Dağıtım sorunlarını giderme](../virtual-machines-linux-troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [VM’i yeni bir Azure düğümüne yeniden dağıtın](../virtual-machines-linux-redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### VM sorunlarını gidermek için sanal sabit disk takma
-#### [Azure CLI](../virtual-machines-linux-troubleshoot-recovery-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 
+#### [Azure CLI 1.0](../virtual-machines-linux-troubleshoot-recovery-disks-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 
+#### [Azure CLI 2.0 (Önizleme)](../virtual-machines-linux-troubleshoot-recovery-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 
 #### [Azure portal](../virtual-machines-linux-troubleshoot-recovery-disks-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 # Başvuru
@@ -190,7 +216,8 @@
 ## [Java](/java/api)
 ## [Node.js](https://azure.microsoft.com/en-us/develop/nodejs/#azure-sdk)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.compute.html)
-## [REST](/rest/api/compute)
+## [İşlem REST](/rest/api/compute)
+## [Yönetilen Diskler](/rest/api/manageddisks)
 
 # Kaynaklar
 ## [Resource Manager şablonları yazma](../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -201,6 +228,6 @@
 ## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

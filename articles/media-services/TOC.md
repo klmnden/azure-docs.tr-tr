@@ -21,16 +21,18 @@
 
 # Nasıl yapılır?
 ## Yönet
-### Hesapları yönetme
+### Hesaplar
 #### [PowerShell](media-services-manage-with-powershell.md)
 #### [REST](/rest/api/media/mediaservice)
-### Varlıkları yönetme
+### Varlıklar
 #### [.NET](media-services-dotnet-manage-entities.md)
 #### [REST](media-services-rest-manage-entities.md)
-### [Akış uç noktalarını yönetme](media-services-streaming-endpoints-overview.md)
+### [Akış uç noktaları](media-services-streaming-endpoints-overview.md)
 #### [Portal](media-services-portal-manage-streaming-endpoints.md)
 #### [.NET](media-services-dotnet-manage-streaming-endpoints.md)
-### [Depolama erişim anahtarlarını değiştirdikten Sonra Media Services’ı güncelleştirme](media-services-roll-storage-access-keys.md)
+### Depolama
+#### [Depolama erişim anahtarlarını değiştirdikten Sonra Media Services’ı güncelleştirme](media-services-roll-storage-access-keys.md)
+#### [Birden çok depolama hesabında yer alan varlıkları yönetme](meda-services-managing-multiple-storage-accounts.md)
 ### [Kotalar ve sınırlamalar](media-services-quotas-and-limitations.md)
 
 ## İçerik yükleme
@@ -123,6 +125,8 @@
 ### [PlayReady ve/ya Widevine dinamik ortak şifreleme işlemini kullanma](media-services-protect-with-drm.md)
 ### [Apple FairPlay ile korunan HLS içeriğinizin akışını yapmak için Azure Media Services kullanma](media-services-protect-hls-with-fairplay.md)
 ### [Çoklu DRM ve Access Control ile CENC: Azure ve Azure Media Services Tasarım ve Uygulama Başvurusu](media-services-cenc-with-multidrm-access-control.md)
+### [Azure Media Services’ta Widevine lisanslarını teslim etmek için Axinom kullanma  ](media-services-axinom-integration.md)
+### [Azure Media Services’ta Widevine lisanslarını teslim etmek için castLabs kullanma](media-services-castlabs-integration.md)
 
 ### Varlık teslimi
 #### Varlık teslim ilkelerini yapılandırma
@@ -165,6 +169,7 @@
 ### [Filtrelere ve dinamik bildirimlere genel bakış](media-services-dynamic-manifest-overview.md)
 #### [.NET ile filtre oluşturma](media-services-dotnet-dynamic-manifest.md)
 #### [REST ile filtre oluşturma](media-services-rest-dynamic-manifest.md)
+### [Media Services Uzantısında CDN Önbelleğe Alma İlkesi](../cdn/cdn-caching-policy.md?toc=%2fazure%2fmedia-services%2ftoc.json)
 ### İçerik yayımlama
 #### [Portal](media-services-portal-publish.md)
 #### [.NET](media-services-deliver-streaming-content.md)
@@ -180,20 +185,18 @@
 #### [DASH.js ile HTML5 Uygulaması](media-services-embed-mpeg-dash-in-html5.md)
 #### [Adobe Open Source Media Framework yürütücüleri](media-services-use-osmf-smooth-streaming-client-plugin.md)
 ### [İstemci tarafına reklam ekleme](media-services-inserting-ads-on-client-side.md)
+### [Microsoft† Kesintisiz Akış İstemci Taşıma Kitini Lisanslama](media-services-sspk.md)
 
 ## Tümleştirme
-### [Media Services Uzantısında CDN Önbelleğe Alma İlkesi](../cdn/cdn-caching-policy.md?toc=%2fazure%2fmedia-services%2ftoc.json)
-### [Microsoft†" Kesintisiz Akış İstemci Taşıma Kiti Lisanslama](media-services-sspk.md)
-### [Birden çok Depolama hesabında yer alan varlıkları yönetme](meda-services-managing-multiple-storage-accounts.md)
-### [Azure Media Services’ta Widevine lisanslarını teslim etmek için Axinom kullanma  ](media-services-axinom-integration.md)
-### [Azure Media Services’ta Widevine lisanslarını teslim etmek için castLabs kullanma](media-services-castlabs-integration.md)
+### [Azure İşlevleri](https://github.com/azure-samples/media-services-dotnet-functions-integration)
 
 ## İzleme
 ### İşin ilerleme durumunu denetleme
 #### [REST](media-services-rest-check-job-progress.md)
 #### [Portal](media-services-portal-check-job-progress.md)
 #### [.NET](media-services-check-job-progress.md)
-### [İş bildirimlerini izlemek için Kuyruk Depolama](media-services-dotnet-check-job-progress-with-queues.md)
+### [Kuyruk depolama ile iş bildirimlerini izleme](media-services-dotnet-check-job-progress-with-queues.md)
+### [Web kancaları ile iş bildirimlerini izleme](media-services-dotnet-check-job-progress-with-webhooks.md)
 
 ## Sorun giderme
 ### [Sık sorulan sorular](media-services-frequently-asked-questions.md)
@@ -214,6 +217,6 @@
 ## [Videolar](https://azure.microsoft.com/resources/videos/index/?services=media-services)
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

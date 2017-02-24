@@ -15,7 +15,7 @@ File Storage’ın yaygın kullanımları şunlardır:
 ## <a name="file-storage-concepts"></a>File Storage kavramları
 File Storage’da şu bileşenler bulunur:
 
-![files-concepts][files-concepts]
+![files-concepts](./media/storage-file-concepts-include/files-concepts.png)
 
 * **Depolama Hesabı:** Tüm Azure Storage erişimi bir depolama hesabıyla yapılır. Depolama hesabı kapasitesi hakkında ayrıntılı bilgi için bkz. [Azure Storage Ölçeklenebilirlik ve Performans Hedefleri](../articles/storage/storage-scalability-targets.md).
 * **Paylaşım:** File Storage paylaşımı Azure’da SMB dosyası paylaşımıdır. 
@@ -31,8 +31,7 @@ File Storage’da şu bileşenler bulunur:
 
 Dosya paylaşımlarının, dizinlerin ve dosyaların adlandırılması hakkında ayrıntılara ulaşmak için bkz. [Paylaşımları, Dizinleri, Dosyaları ve Meta Verileri Adlandırma ve Bunlara Başvuruda Bulunma](http://msdn.microsoft.com/library/azure/dn167011.aspx).
 
-[files-concepts]: ./media/storage-file-concepts-include/files-concepts.png
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

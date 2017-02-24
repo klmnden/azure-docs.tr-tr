@@ -2,7 +2,7 @@
 ## [Site Recovery nedir?](site-recovery-overview.md)
 ## [Site Recovery nasıl çalışır?](site-recovery-components.md)
 ## [Hangi iş yüklerini korur?](site-recovery-workload.md)
-## [Site Recovery destek matrisi](site-recovery-support-matrix.md)
+## [Site Recovery destek matrisi](site-recovery-support-matrix-to-azure.md)
 ## [SSS](site-recovery-faq.md)
 ## [Tanıtımı izleyin](https://www.youtube.com/watch?v=eOOwMQPBKfM)
 
@@ -26,7 +26,14 @@
 ### [VMware çoğaltma için Mobility hizmetini dağıtma](site-recovery-vmware-to-azure-install-mob-svc.md)
 #### [System Center Configuration Manager kullanarak Mobility hizmetini dağıtma](site-recovery-install-mobility-service-using-sccm.md)
 #### [Azure Automation DSC kullanarak Mobility hizmetini dağıtma](site-recovery-automate-mobility-service-install.md)
-### [Sunucuları kaldırma ve korumayı devre dışı bırakma](site-recovery-manage-registration-and-protection.md)
+## Yük devretme ve yeniden çalışma
+### [Site Recovery'de yük devretme](site-recovery-failover.md)
+### [Kurtarma planları oluşturma](site-recovery-create-recovery-plans.md)
+#### [Kurtarma planlarına Azure runbook ekleme](site-recovery-runbook-automation.md)
+### [Azure’a yük devretme testi çalıştırma](site-recovery-test-failover-to-azure.md)
+### [İki VMM sitesi arasında yük devretme testi çalıştırma](site-recovery-test-failover-vmm-to-vmm.md)
+### [VMware VM’lerini ve fiziksel sunucuları ilk durumuna geri döndürme](site-recovery-failback-azure-to-vmware.md)
+
 ## Geçiş
 ### [Azure’a geçiş](site-recovery-migrate-to-azure.md)
 ### [Azure bölgeleri arasında geçiş yapma](site-recovery-migrate-azure-to-azure.md)
@@ -44,13 +51,9 @@
 ### [Azure’a Hyper-V çoğaltma işlemini (VMM olmadan) otomatikleştirme](site-recovery-deploy-with-powershell-resource-manager.md)
 ### [Azure’a Hyper-V çoğaltma işlemini (VMM ile) otomatikleştirme](site-recovery-vmm-to-azure-powershell-resource-manager.md)
 ### [İkincil siteye Hyper-V çoğaltma işlemini (VMM ile) otomatikleştirme](site-recovery-vmm-to-vmm-powershell-resource-manager.md)
-## Yük devretme ve yeniden çalışma
-### [Site Recovery'de yük devretme](site-recovery-failover.md)
-### [Kurtarma planları oluşturma](site-recovery-create-recovery-plans.md)
-#### [Kurtarma planlarına Azure runbook ekleme](site-recovery-runbook-automation.md)
-### [VMware’den Azure'a yük devretme testi çalıştırma](site-recovery-test-failover-to-azure.md)
-### [İki VMM sitesi arasında yük devretme testi çalıştırma](site-recovery-test-failover-vmm-to-vmm.md)
-### [VMware VM’lerini ve fiziksel sunucuları ilk durumuna geri döndürme](site-recovery-failback-azure-to-vmware.md)
+## Yönet
+### [Sunucuları kaldırma ve korumayı devre dışı bırakma](site-recovery-manage-registration-and-protection.md)
+### [Çoğaltma ayarlarını düzenleme](site-recovery-setup-replication-settings-vmware.md#edit-replication-policy)
 ## [İzleme ve sorun giderme](site-recovery-monitoring-and-troubleshooting.md)
 
 # Başvuru
@@ -69,6 +72,6 @@
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=site-recovery)
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO4-->
 
 

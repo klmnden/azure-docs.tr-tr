@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 08/10/2016
 ms.author: piyushjo;ricksal
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a4b9ab47969c95aa9940e044b426cf2811e23f61
+ms.sourcegitcommit: 830eb6627cae71f358b9790791b1d86f7c82c566
+ms.openlocfilehash: dc255a930bf71e6ef6d964bc5e3472a38ce4e467
 
 
 ---
@@ -33,8 +33,8 @@ Ayrıca [Mobile Engagement Android SDK](https://aka.ms/vq9mfn) gereklidir.
 
 > [!IMPORTANT]
 > Bu öğreticiyi tamamlamak için etkin bir Azure hesabınızın olması gerekir. Hesabınız yoksa yalnızca birkaç dakika içinde ücretsiz bir deneme sürümü hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-android-get-started).
-> 
-> 
+>
+>
 
 ## <a name="set-up-mobile-engagement-for-your-android-app"></a>Android uygulamanız için Mobile Engagement kurma
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
@@ -46,24 +46,24 @@ Tümleştirme belgelerinin tamamı [Mobile Engagement Android SDK tümleştirmes
 
 ### <a name="create-an-android-project"></a>Android projesi oluşturma
 1. **Android Studio**’yu başlatın ve açılır menüde **Yeni bir Android Studio projesi başlat**’ı seçin.
-   
+
     ![][1]
 2. Uygulama adı ve şirket etki alanı belirtin. Girdiğiniz bilgileri daha sonra kullanmanız gerekeceğinden bunları not edin. **Next (İleri)** düğmesine tıklayın.
-   
+
     ![][2]
 3. Hedef form faktörünü ve API düzeyini seçip **İleri**'ye tıklayın.
-   
+
    > [!NOTE]
    > Mobile Engagement, en az API düzey 10 (Android 2.3.3) gerektirir.
-   > 
-   > 
-   
+   >
+   >
+
     ![][3]
 4. Burada, bu uygulama için tek ekran olan **Boş Etkinlik**’i seçip **İleri**'ye tıklayın.
-   
+
     ![][4]
 5. Son olarak, varsayılan değerleri olduğu gibi bırakıp **Son**'a tıklayın.
-   
+
     ![][5]
 
 Şimdi Android Studio, Mobile Engagement’ı tümleştirdiğimiz tanıtım uygulamasını oluşturur.
@@ -72,35 +72,35 @@ Tümleştirme belgelerinin tamamı [Mobile Engagement Android SDK tümleştirmes
 1. [Mobile Engagement Android SDK](https://aka.ms/vq9mfn)’yı indirin.
 2. Arşiv dosyasını bilgisayarınızdaki bir klasöre ayıklayın.
 3. Bu SDK'nın geçerli sürümüne ait .jar kitaplığını belirleyin ve Pano’ya kopyalayın.
-   
+
       ![][6]
 4. **Proje** bölümüne gidin (1) ve .jar kitaplığını libs klasörüne yapıştırın (2).
-   
+
       ![][7]
 5. Kitaplığı yüklemek için projeyi eşitleyin.
-   
+
       ![][8]
 
 ### <a name="connect-your-app-to-mobile-engagement-backend-with-the-connection-string"></a>Uygulamanızı Bağlantı Dizesi ile Mobile Engagement arka ucuna bağlama
 1. Aşağıdaki kod satırlarını etkinlik oluşturmaya kopyalayın (uygulamanızın tek bir noktasında yapılmalıdır, bu nokta genellikle ana etkinliktir). Bu örnek uygulama için, src -> main -> java klasörü altında MainActivity dosyasını açın ve aşağıdakileri ekleyin:
-   
+
         EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
         engagementConfiguration.setConnectionString("Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}");
         EngagementAgent.getInstance(this).init(engagementConfiguration);
 2. Alt + Enter tuşlarına basarak veya aşağıdaki içeri aktarma deyimlerini ekleyerek başvuruları çözümleyin:
-   
+
         import com.microsoft.azure.engagement.EngagementAgent;
         import com.microsoft.azure.engagement.EngagementConfiguration;
 3. Uygulamanızın**Bağlantı Bilgileri** sayfasında Klasik Azure Portalı’na geri gidin ve **Bağlantı Dizesi**’ni kopyalayın.
-   
+
       ![][9]
 4. `setConnectionString` parametresine yapıştırarak aşağıdaki kodda gösterilen dizenin tamamını değiştirin:
-   
+
         engagementConfiguration.setConnectionString("Endpoint=my-company-name.device.mobileengagement.windows.net;SdkKey=********************;AppId=*********");
 
 ### <a name="add-permissions-and-a-service-declaration"></a>İzinler ve bir hizmet bildirimi ekleme
 1. Bu izinleri, projenizin Manifest.xml dosyasında `<application>` etiketinin hemen önüne ya da arkasına ekleyin:
-   
+
         <uses-permission android:name="android.permission.INTERNET"/>
         <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
         <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
@@ -108,7 +108,7 @@ Tümleştirme belgelerinin tamamı [Mobile Engagement Android SDK tümleştirmes
         <uses-permission android:name="android.permission.VIBRATE" />
         <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION"/>
 2. Aracı hizmetini bildirmek için `<application>` ve `</application>` etiketleri arasına şu kodu ekleyin:
-   
+
         <service
              android:name="com.microsoft.azure.engagement.service.EngagementService"
              android:exported="false"
@@ -124,29 +124,29 @@ Veri göndermeye başlamak ve kullanıcıların etkin olduğundan emin olmak iç
     public class MainActivity extends EngagementActivity {
 
 > [!NOTE]
-> Temel sınıfınız *Etkinlik* değilse farklı sınıflardan nasıl devralınacağı konusunda [Gelişmiş Android Raporlama](mobile-engagement-android-advanced-reporting.md#modifying-your-codeactivitycode-classes)’ya başvurun.
-> 
-> 
+> Temel sınıfınız *Etkinlik* değilse farklı sınıflardan nasıl devralınacağı konusunda [Gelişmiş Android Raporlama](mobile-engagement-android-advanced-reporting.md)’ya başvurun.
+>
+>
 
 Bu basit örnek senaryo için aşağıdaki satırı açıklama satırı yapın:
 
     // setSupportActionBar(toolbar);
 
-Uygulamanızda `ActionBar` öğesini tutmak istiyorsanız [Gelişmiş Android Raporlama](mobile-engagement-android-advanced-reporting.md#modifying-your-codeactivitycode-classes) konusuna bakın.
+Uygulamanızda `ActionBar` öğesini tutmak istiyorsanız [Gelişmiş Android Raporlama](mobile-engagement-android-advanced-reporting.md) konusuna bakın.
 
-## <a name="connect-app-with-realtime-monitoring"></a>Uygulamayı gerçek zamanlı izlemeyle bağlama
+## <a name="connect-app-with-real-time-monitoring"></a>Uygulamayı gerçek zamanlı izlemeyle bağlama
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-## <a name="enable-push-notifications-and-inapp-messaging"></a>Anında iletme bildirimlerini ve uygulama içi mesajlaşmayı etkinleştirme
+## <a name="enable-push-notifications-and-in-app-messaging"></a>Anında iletme bildirimlerini ve uygulama içi mesajlaşmayı etkinleştirme
 Mobile Engagement, bir kampanya sırasında anında iletme bildirimleri ve uygulama içi mesajlaşma ile kullanıcılarınızla etkileşim kurmanızı ve REACH ile kullanıcılarınıza ulaşmanızı sağlar. Mobile Engagement portalında bu modüle REACH adı verilir.
 Aşağıdaki bölüm, uygulamanızı bu bildirim ve mesajları alacak şekilde ayarlar.
 
 ### <a name="copy-sdk-resources-in-your-project"></a>SDK kaynaklarını projenize kopyalama
 1. İndirilen SDK içeriğinize geri gidip **res** klasörünü kopyalayın.
-   
+
     ![][10]
 2. Android Studio’ya geri gidip proje dosyalarınıza ait **ana** dizini seçin ve kopyaladığınız klasörü buraya yapıştırarak kaynakları projenize ekleyin.
-   
+
     ![][11]
 
 [!INCLUDE [Enable Google Cloud Messaging](../../includes/mobile-engagement-enable-google-cloud-messaging.md)]

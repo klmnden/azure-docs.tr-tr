@@ -26,7 +26,8 @@
 
 ## Nasıl yapılır?
 ### [Azure portalı aracılığıyla yönetme](storsimple-virtual-array-manager-service-administration.md)
-#### [En son güncelleştirmeyi yükleme](storsimple-virtual-array-install-update.md)
+#### [En son güncelleştirmeyi yükleme](storsimple-virtual-array-install-update-04.md)
+##### [Güncelleştirme 0.3’ü yükleme](storsimple-virtual-array-install-update.md)
 #### [Yedek oluşturma ve yedekleri yönetme](storsimple-virtual-array-backup.md)
 #### [Yedeklerden kopyalama](storsimple-virtual-array-clone.md)
 #### [Yük Devretme ve DR](storsimple-virtual-array-failover-dr.md)
@@ -40,6 +41,8 @@
 #### [İşleri yönetme](storsimple-virtual-array-manage-jobs.md)
 #### [Cihaz parolasını değiştirme](storsimple-virtual-array-change-device-admin-password.md)
 #### [Windows Server ana bilgisayarında MPIO yapılandırma](storsimple-virtual-array-configure-mpio-windows-server.md)
+#### [Tanılama ve sorun giderme](storsimple-virtual-array-diagnose-problems.md)
+#### [Günlük Desteği isteği](storsimple-virtual-array-log-support-ticket.md)
 
 ### [Klasik Azure portalı ile yönetme](storsimple-ova-manager-service-administration.md)
 #### [En son güncelleştirmeyi yükleme](storsimple-ova-install-update-01.md)
@@ -56,7 +59,8 @@
 ### [Yerel web arabirimi aracılığıyla yapılandırma](storsimple-ova-web-ui-admin.md)
 
 ## Sürüm notları
-### [Güncelleştirme 0.3 - geçerli](storsimple-ova-update-03-release-notes.md)
+### [Güncelleştirme 0.4 - geçerli](storsimple-virtual-array-update-04-release-notes.md)
+### [Güncelleştirme 0.3](storsimple-ova-update-03-release-notes.md)
 ### [Güncelleştirme 0.2 ve 0.1](storsimple-ova-update-01-release-notes.md)
 
 # StorSimple 8000 Series
@@ -150,6 +154,7 @@
 ### İzleme
 #### [Hizmet panosunu kullanma](storsimple-service-dashboard.md)
 #### [Cihaz panosunu kullanma](storsimple-device-dashboard.md)
+#### [İzleme grafiklerini kullanma](storsimple-monitor-device.md)
 #### [Hizmet uyarılarını kullanma](storsimple-manage-alerts.md)
 #### [Donanım durumunu kullanma](storsimple-monitor-hardware-status.md)
 #### [İzleme LED'lerini kullanma](storsimple-monitoring-indicators.md)
@@ -172,6 +177,7 @@
 #### [Diğer depolama cihazlarından](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf)
 
 ### Güncelleştirme
+#### [Güncelleştirme 4'ü yükleme](storsimple-install-update-4.md)
 #### [Güncelleştirme 3'ü yükleme](storsimple-install-update-3.md)
 #### [Güncelleştirme 2.2'yi yükleme](storsimple-install-update-21.md)
 #### [Güncelleştirme 2'yi yükleme](storsimple-install-update-2.md)
@@ -179,14 +185,15 @@
 #### [Cihazınızı güncelleştirme](storsimple-update-device.md)
 
 ## Sürüm notları
-### [Güncelleştirme 3 - geçerli](storsimple-update3-release-notes.md)
+### [Güncelleştirme 4 - geçerli](storsimple-update4-release-notes.md)
+### [Güncelleştirme 3](storsimple-update3-release-notes.md)
 ### [Güncelleştirme 2.2](storsimple-update21-release-notes.md)
 ### [Güncelleştirme 2](storsimple-update2-release-notes.md)
 ### [Güncelleştirme 1](storsimple-update1-release-notes.md)
 ### [Güncelleştirme 0.3](storsimple-february-2015-release-notes.md)
 ### [Güncelleştirme 0.2](storsimple-january-2015-release-notes.md)
 ### [Güncelleştirme 0.1](storsimple-october-2014-release-notes.md)
-### [Güncelleştirme 0.1](storsimple-july-2014-release-notes.md)
+### [Güncelleştirme&0;.1](storsimple-july-2014-release-notes.md)
 
 ## Başvuru
 ### [Azure PowerShell](/powershell/servicemanagement)
@@ -202,6 +209,18 @@
 
 ## Nasıl yapılır
 ### [Verileri dönüştürmek için .NET kullanma](storsimple-data-manager-dotnet-jobs.md)
+
+# İş ortakları için StorSimple
+## Genel Bakış
+### [Çözüm nedir?](storsimple-partner-csp-overview.md)
+
+## başlarken
+### [CSP için sanal dizin dağıtma](storsimple-partner-csp-deploy.md)
+
+## Sürüm notları
+### [StorSimple sürüm notları](https://aka.ms/storsimple-virtual-array-latest-relnote)
+### [CSP sürüm notları](https://partner.microsoft.com/Support/whats-new)
+### [CSP için StorSimple: Sık Sorulan Sorular](storsimple-partner-csp-faq.md)
 
 # İlgili
 ## [StorSimple 5000-7000 Series](http://onlinehelp.storsimple.com)
@@ -220,6 +239,6 @@
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

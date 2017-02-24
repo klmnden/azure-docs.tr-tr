@@ -8,6 +8,7 @@
 ### [.NET](search-create-index-dotnet.md)
 ### [REST](search-create-index-rest-api.md)
 ## [Veri ekleme](search-what-is-data-import.md)
+### [Azure portal](search-import-data-portal.md)
 ### [.NET](search-import-data-dotnet.md)
 ### [REST](search-import-data-rest-api.md)
 ## [Dizin arama](search-query-overview.md)
@@ -25,7 +26,6 @@
 ### [Hizmet sınırlamaları](search-limits-quotas-capacity.md)
 ### [Hizmet ölçeklenebilirliği](search-capacity-planning.md)
 ### [Çoklu müşteri mimarisi için tasarım desenleri](search-modeling-multitenant-saas-applications.md)
-
 
 ## Geliştirme
 ### [SDK’yı yükseltme](search-dotnet-sdk-migration.md)
@@ -49,15 +49,16 @@
 ### [JSON bloblarını dizine ekleme](search-howto-index-json-blobs.md)
 ### [Azure sanal makinesinde dizin oluşturucu SQL Server bağlantılarını yapılandırma](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
 ### [Dizin oluşturucularda alan eşlemeleri](search-indexer-field-mappings.md)
-##  Tasarım arama deneyimi
+##  Arama deneyimi
+### [Basit sorgu söz dizimi](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
+### [Lucene sorgu söz dizimi](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
 ### [Lucene sözdizimi sorgu örnekleri](search-query-lucene-examples.md)
-### [Puanlama modelleri](search-get-started-scoring-profiles.md)
-### [Öneri araçları](https://azure.microsoft.com/blog/2015/01/20/azure-search-how-to-add-suggestions-auto-complete-to-your-search-applications/)
-### [Etiket geliştirme](https://azure.microsoft.com/blog/2015/02/05/personalizing-search-results-announcing-tag-boosting-in-azure-search/)
+### [Filtre ifadesi söz dizimi](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)
+### [Puanlama](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)
+### [Öneriler](https://docs.microsoft.com/rest/api/searchservice/suggesters)
 ### [Çok yönlü gezinme](search-faceted-navigation.md)
-### [Dil çözümleyicileri](https://msdn.microsoft.com/library/azure/dn879793)
-### [Özel çözümleyiciler](https://msdn.microsoft.com/library/azure/mt605304)
-### [Çok dilli arama](search-language-support.md)
+### [Dil çözümleyicileri](https://docs.microsoft.com/rest/api/searchservice/language-support)
+### [Özel çözümleyiciler](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)
 
 # Başvuru
 ## [.NET](/dotnet/api/microsoft.azure.search)
@@ -86,6 +87,6 @@
 ### [Azure Search Github](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

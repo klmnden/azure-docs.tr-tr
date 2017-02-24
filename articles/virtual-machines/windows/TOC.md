@@ -1,7 +1,7 @@
 # Genel Bakış
 ## [VM’ler hakkında](../virtual-machines-windows-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-## [Depolama](../virtual-machines-windows-about-disks-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-## [Sanal ağlar](../../virtual-network/virtual-networks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+## [Depolama](../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+## [Sanal ağlar](../virtual-machines-windows-network-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Bağlantı noktaları, uç noktalar ve güvenlik](../virtual-machines-windows-endpoints-in-resource-manager.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Yük dengeleyiciler](../virtual-machines-windows-load-balance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [VM boyutları](../virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -23,7 +23,7 @@
 ## [VM oluşturmak için farklı yöntemler](../virtual-machines-windows-creation-choices.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [Azure PowerShell’i yükleme](/powershell/azureps-cmdlets-docs)
 ## [PowerShell ile VM oluşturma](../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-## [Şablon kılavuzu](../../azure-resource-manager/resource-manager-template-walkthrough.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+## [Şablon kılavuzu](../virtual-machines-windows-template-description.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [Karmaşık VM şablonları oluşturma ve dağıtma](../virtual-machines-windows-dotnet-core-1-landing.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Uygulama mimarisi](../virtual-machines-windows-dotnet-core-2-architecture.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Erişim ve güvenlik](../virtual-machines-windows-dotnet-core-3-access-security.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -32,8 +32,16 @@
 
 # Nasıl yapılır?
 ## Depolama'yı kullanma
-### [Veri diski ekleme](../virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Azure VM diskleri hakkında sık sorulan sorular](../../storage/storage-faq-for-disks.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Azure Yönetilen Disklere genel bakış](../../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Yönetilen Disk oluşturma](../virtual-machines-windows-create-managed-disk-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### Veri diski ekleme
+#### [Azure portal](../virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Azure PowerShell](../virtual-machines-windows-attach-disk-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Veri diski çıkarma](../virtual-machines-windows-detach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Yönetilen Diskin anlık görüntüsünü alma](../virtual-machines-windows-snapshot-copy-managed-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [VM’yi Yönetilen Disklere Dönüştürmeye genel bakış](../virtual-machines-windows-migrate-to-managed-disks.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Azure PowerShell’i kullanma](../virtual-machines-windows-convert-unmanaged-to-managed-disks.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [İşletim sistemi sürücüsünü genişletme](../virtual-machines-windows-expand-os-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [D: sürücüsünü veri diski olarak kullanma](../virtual-machines-windows-classic-change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Disk şifrelemesi](../../security/azure-security-disk-encryption.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -63,14 +71,22 @@
 ### [C# kullanarak dağıtma](../virtual-machines-windows-csharp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [C# ve şablon kullanarak dağıtma](../virtual-machines-windows-csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Bir şablondan uygulama çerçeveleri dağıtma](../virtual-machines-windows-app-frameworks.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [AWS ve şirket içi sanal makineleri Yönetilen Disklere geçirme](../virtual-machines-windows-on-prem-to-azure.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Amazon Web Services’den (AWS) Azure Yönetilen Disklere geçirme](../virtual-machines-windows-aws-to-azure.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Genelleştirilmiş VHD yükleme ve Yönetilen Diskleri kullanma](../virtual-machines-windows-upload-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Özelleştirilmiş bir VHD’yi karşıya yükleme ve VM oluşturma](../virtual-machines-windows-upload-specialized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### Görüntüler
 #### [VHD’yi karşıya yüklemek için hazırlama](../virtual-machines-windows-prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 #### [Sysprep kullanarak VM’yi genelleştirme](../virtual-machines-windows-generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [VM görüntüsünü karşıya yükleme](../virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Bir VHD’yi karşıya yükleme](../virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 #### [Azure Windows Aracısı](../virtual-machines-windows-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [Genelleştirilmiş Azure VM’yi yakalama](../virtual-machines-windows-capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### Azure’da VM görüntüsü oluşturma
+##### [Blob depolamaya yönetilmeyen VM yakalama](../virtual-machines-windows-capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+##### [Yönetilen Disk görüntüsü oluşturma](../virtual-machines-windows-capture-image-resource.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 #### [Özelleştirilmiş Azure VM’yi kopyalama](../virtual-machines-windows-vhd-copy.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [Genelleştirilmiş bir VHD’den VM oluşturma](../virtual-machines-windows-create-vm-generalized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### Genelleştirilmiş bir görüntüden VM oluşturma
+##### [Genelleştirilmiş bir VHD’den yönetilmeyen VM oluşturma](../virtual-machines-windows-create-vm-generalized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+##### [Genelleştirilmiş bir Yönetilen Disk görüntüsünden VM oluşturma](../virtual-machines-windows-create-vm-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 #### [Özelleştirilmiş bir VHD’den VM oluşturma](../virtual-machines-windows-create-vm-specialized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## Yapılandırma
@@ -117,7 +133,8 @@
 ## Geçiş
 ### [Geçişe genel bakış](../virtual-machines-windows-migration-classic-resource-manager.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Geçiş planlaması](../virtual-machines-windows-migration-classic-resource-manager-deep-dive.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [PowerShell kullanarak geçirme](../virtual-machines-windows-ps-migration-classic-resource-manager.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [PowerShell kullanarak VNet içindeki tüm sanal makineleri geçirme](../virtual-machines-windows-ps-migration-classic-resource-manager.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [PowerShell kullanarak tek bir sanal makine geçirme](../virtual-machines-windows-migrate-single-classic-to-resource-manager.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Sık görülen geçirme hataları](../virtual-machines-migration-errors.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Geçiş için topluluk araçları](../virtual-machines-windows-migration-scripts.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
@@ -133,6 +150,7 @@
 ### [Altyapı örneği](../virtual-machines-windows-infrastructure-example.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Azure planlı bakımı](../virtual-machines-windows-planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 #### [Zamanlama](../virtual-machines-windows-planned-maintenance-schedule.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Zamanlanmış olaylar](../virtual-machines-scheduled-events.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## İş yüklerini yönetme
 ### [Yüksek Performanslı Bilgi İşlem (HPC)](../virtual-machines-windows-hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -155,7 +173,7 @@
 ### [Uzak Masaüstü bağlantılarıyla ilgili sorunları giderme](../virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [RDP parolasını sıfırlama](../virtual-machines-windows-reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Belirli RDP hata iletileri sorunları giderme](../virtual-machines-windows-troubleshoot-specific-rdp-errors.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Yeni VM oluşturma ile ilgili sorunları giderme](../virtual-machines-windows-troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [VM oluşturma ile ilgili sorunları giderme](../virtual-machines-windows-troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [VM’leri yeniden başlatma veya yeniden boyutlandırma ile ilgili sorunları giderme](../virtual-machines-windows-restart-resize-error-troubleshooting.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Uygulama erişimi ile ilgili sorunları giderme](../virtual-machines-windows-troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Ayırma hataları ile ilgili sorunları giderme](../virtual-machines-windows-allocation-failure.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -172,6 +190,7 @@
 ## [Node.js](https://azure.microsoft.com/en-us/develop/nodejs/#azure-sdk)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.compute.html)
 ## [İşlem REST](/rest/api/compute)
+## [Yönetilen Diskler REST](/rest/api/manageddisks)
 
 # Kaynaklar
 ## [Resource Manager şablonları yazma](../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -182,6 +201,6 @@
 ## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines)
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 
