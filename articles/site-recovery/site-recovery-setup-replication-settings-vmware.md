@@ -15,79 +15,80 @@ ms.topic: hero-article
 ms.date: 01/19/2017
 ms.author: sutalasi
 translationtype: Human Translation
-ms.sourcegitcommit: 74d51269cdd55e39eaa2963fec2b409decb47d0a
-ms.openlocfilehash: a279fdc35c62c76e6f0858d52c64240032669f15
+ms.sourcegitcommit: 28e905a20d878eab1428a4b88113544aa742124a
+ms.openlocfilehash: 9c34ea792aa561b8155a915845ffb857dfef7a90
 
 
 ---
 # <a name="manage-replication-policy-for-vmware-to-azure"></a>VMware’den Azure’a çoğaltma ilkesini yönetme
 
 
-## <a name="create-a-new-replication-policy"></a>Yeni bir çoğaltma ilkesi oluşturma
+## <a name="create-a-replication-policy"></a>Çoğaltma ilkesi oluşturma
 
-1. Sol taraftaki menüde 'Yönet-> Site Recovery Altyapısı'na tıklayın. 
-2. 'VMware ve Fiziksel makineler' bölümü altındaki 'Çoğaltma ilkeleri' öğesini seçin.
-3. Üst kısımdaki '+Çoğaltma ilkesi' öğesine tıklayın.
+1. **Yönet** > **Site Recovery Altyapısı**’nı seçin.
+2. **VMware ve Fiziksel makineler için** altındaki **Çoğaltma ilkeleri**’ni seçin.
+3. **+Çoğaltma ilkesi**’ni seçin.
 
-    ![Çoğaltma ilkesi oluşturma](./media/site-recovery-setup-replication-settings-vmware/createpolicy.png)
+      ![Çoğaltma ilkesi oluşturma](./media/site-recovery-setup-replication-settings-vmware/createpolicy.png)
 
 4. İlke adını girin.
 
-5. RPO eşiğinde RPO limitini belirtin. Sürekli çoğaltma bu limiti aşarsa uyarılar oluşturulur.
-6. Kurtarma noktası bekletme bölümünde, her kurtarma noktası için bekletme süresinin ne kadar olacağını saat cinsinden belirtin. Korumalı makineler, bu süre içindeki herhangi bir noktaya kurtarılabilir. 
+5. **RPO eşiği** bölümünde RPO limitini belirtin. Sürekli çoğaltma bu limiti aşarsa uyarılar oluşturulur.
+6. **Kurtarma noktası bekletme** kısmında, her kurtarma noktası için bekletme süresini saat cinsinden belirtin. Korumalı makineler, bekletme penceresi içindeki herhangi bir noktaya kurtarılabilir.
 
-    > [!NOTE] 
-    > Premium depolamaya çoğaltılan makineler için en fazla 24, standart depolamaya çoğaltılan makineler için en fazla 72 saat bekletme desteklenir.
-    
-    > [!NOTE] 
-    > Yeniden çalışma için çoğaltma ilkesi otomatik olarak oluşturulur.
+    > [!NOTE]
+    > Premium depolama alanına çoğaltılan makineler için 24 saate kadar bekletme desteklenir. Standart depolama alanına çoğaltılan makineler için 72 saate kadar bekletme desteklenir.
 
-7. Uygulamayla tutarlı anlık görüntü sıklığı kısmında, uygulamayla tutarlı anlık görüntüleri içeren kurtarma noktasının hangi sıklıkta oluşturulacağını (dakika cinsinden) belirtin.
+    > [!NOTE]
+    > Yeniden çalışmaya yönelik bir çoğaltma ilkesi otomatik olarak oluşturulur.
 
-8. ‘Tamam’’a tıklayın. İlke yaklaşık 30 saniye ila 1 dakika içinde oluşturulmalıdır.
+7. **Uygulamayla tutarlı anlık görüntü sıklığı** kısmında, uygulamayla tutarlı anlık görüntüleri içeren kurtarma noktalarının hangi sıklıkta oluşturulacağını (dakika cinsinden) belirtin.
 
-![Çoğaltma ilkesi oluşturma](./media/site-recovery-setup-replication-settings-vmware/Creating-Policy.png)
+8. **Tamam** düğmesine tıklayın. İlke, 30 ila 60 saniye içinde oluşturulur.
 
-## <a name="associate-configuration-server-with-replication-policy"></a>Yapılandırma sunucusunu çoğaltma ilkesi ile ilişkilendirme
-1. Yapılandırma sunucusunu ilişkilendirmek istediğiniz çoğaltma ilkesine tıklayın.
-2. Üst kısımdaki 'İlişkilendir' öğesine tıklayın.
-![Çoğaltma ilkesi oluşturma](./media/site-recovery-setup-replication-settings-vmware/Associate-CS-1.PNG)
+![Çoğaltma ilkesi üretme](./media/site-recovery-setup-replication-settings-vmware/Creating-Policy.png)
 
-3. Sunucu listesinden 'Yapılandırma sunucusu' seçin.
-4. Tamam'a tıklayın. Yapılandırma sunucusu yaklaşık 1-2 dakika içinde ilişkilendirilir.
+## <a name="associate-a-configuration-server-with-a-replication-policy"></a>Yapılandırma sunucusunu çoğaltma ilkesi ile ilişkilendirme
+1. Yapılandırma sunucusunu ilişkilendirmek istediğiniz çoğaltma ilkesini seçin.
+2. **İlişkilendir**’e tıklayın.
+![Yapılandırma sunucusunu ilişkilendirme](./media/site-recovery-setup-replication-settings-vmware/Associate-CS-1.PNG)
 
-![Çoğaltma ilkesi oluşturma](./media/site-recovery-setup-replication-settings-vmware/Associate-CS-2.png)
+3. Sunucu listesinden yapılandırma sunucusunu seçin.
+4. **Tamam** düğmesine tıklayın. Yapılandırma sunucusu, bir ila iki dakika içinde ilişkilendirilir.
 
-## <a name="edit-replication-policy"></a>Çoğaltma ilkesini düzenleme
-1. Çoğaltma ayarlarını düzenlemek istediğiniz çoğaltma ilkesine tıklayın.
-![Çoğaltma ilkesi oluşturma](./media/site-recovery-setup-replication-settings-vmware/Select-Policy.png)
+![Yapılandırma sunucusu ilişkilendirme](./media/site-recovery-setup-replication-settings-vmware/Associate-CS-2.png)
 
-2. Üst kısımdaki 'Ayarları Düzenle' öğesine tıklayın.
-![Çoğaltma ilkesi oluşturma](./media/site-recovery-setup-replication-settings-vmware/Edit-Policy.png)
+## <a name="edit-a-replication-policy"></a>Çoğaltma ilkesini düzenleme
+1. Çoğaltma ayarlarını düzenlemek istediğiniz çoğaltma ilkesini seçin.
+![Çoğaltma ilkesini düzenleme](./media/site-recovery-setup-replication-settings-vmware/Select-Policy.png)
+
+2. **Ayarları Düzenle**’ye tıklayın.
+![Çoğaltma ilkesi ayarlarını düzenleme](./media/site-recovery-setup-replication-settings-vmware/Edit-Policy.png)
 
 3. Gereksinimlerinize göre ayarları değiştirin.
-4. Üst kısımdaki 'Kaydet' öğesine tıklayın. İlke bu çoğaltma ilkesini kullanan VM sayısına bağlı olarak 2 ila 5 dakika içinde kaydedilir.
+4. **Kaydet**’e tıklayın. İlke, bu çoğaltma ilkesini kullanan VM sayısına bağlı olarak iki ila beş dakika içinde kaydedilir.
 
-![Çoğaltma ilkesi oluşturma](./media/site-recovery-setup-replication-settings-vmware/Save-Policy.png)
+![Çoğaltma ilkesini kaydetme](./media/site-recovery-setup-replication-settings-vmware/Save-Policy.png)
 
-## <a name="dissociate-configuration-server-from-replication-policy"></a>Yapılandırma sunucusunun çoğaltma ilkesi ile ilişkisini kaldırma
-1. Yapılandırma sunucusunu ilişkilendirmek istediğiniz çoğaltma ilkesine tıklayın.
-2. Üst kısımdaki 'İlişkiyi Kaldır' öğesine tıklayın.
-3. Sunucu listesinden 'Yapılandırma sunucusu' seçin.
-4. Tamam'a tıklayın. Yapılandırma sunucusunun ilişkisi yaklaşık 1-2 dakika içinde kaldırılır.
-    
-    > [!NOTE] 
-    > İlkeyi kullanan en az bir çoğaltılmış öğe varsa Yapılandırma sunucusunun ilişkisini kaldıramazsınız. Yapılandırma sunucusunun ilişkisini kaldırmadan önce çoğaltılmış bir öğe bulunmadığından emin olun.
+## <a name="dissociate-a-configuration-server-from-a-replication-policy"></a>Yapılandırma sunucusunun çoğaltma ilkesi ile ilişkisini kaldırma
+1. Yapılandırma sunucusunu ilişkilendirmek istediğiniz çoğaltma ilkesini seçin.
+2. **İlişkilendirmeyi Kaldır**’a tıklayın.
+3. Sunucu listesinden yapılandırma sunucusunu seçin.
+4. **Tamam** düğmesine tıklayın. Yapılandırma sunucusunun ilişkisi, bir ila iki dakika içinde kaldırılır.
 
-## <a name="delete-replication-policy"></a>Çoğaltma ilkesini silme 
+    > [!NOTE]
+    > İlkeyi kullanan en az bir çoğaltılmış öğe varsa yapılandırma sunucusunun ilişkisini kaldıramazsınız. Yapılandırma sunucusunun ilişkisini kaldırmadan önce ilkeyi kullanan çoğaltılmış bir öğe bulunmadığından emin olun.
 
-1. Silmek istediğiniz çoğaltma ilkesine tıklayın.
-2. Sil'e tıklayın. İlke yaklaşık 30 saniye ila 1 dakika içinde silinir.
+## <a name="delete-a-replication-policy"></a>Çoğaltma ilkesini silme
 
-    > [!NOTE] 
-    > Kendisine ilişkili en az 1 yapılandırma sunucusu olan bir çoğaltma ilkesini silemezsiniz. İlkeyi silmeden önce ilkeyi kullanan çoğaltılmış öğelerin bulunmadığından emin olun ve tüm ilişkili yapılandırma sunucularını silin.
+1. Silmek istediğiniz çoğaltma ilkesini seçin.
+2. **Sil**'e tıklayın. İlke, 30 ila 60 saniye içinde silinir.
+
+    > [!NOTE]
+    > Kendisiyle ilişkili en az bir yapılandırma sunucusu varsa çoğaltma ilkesini silemezsiniz. İlkeyi silmeden önce, ilkeyi kullanan çoğaltılmış öğe bulunmadığından emin olun ve tüm ilişkili yapılandırma sunucularını silin.
 
 
-<!--HONumber=Jan17_HO4-->
+
+<!--HONumber=Feb17_HO3-->
 
 

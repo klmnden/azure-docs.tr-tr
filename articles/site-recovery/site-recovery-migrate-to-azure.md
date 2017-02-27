@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 01/04/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: f82634af931a1e9a9646c5631ebd0e5923a0adcc
-ms.openlocfilehash: cbb6de4587871c40c9d4e97c9fb2a88eab4945a6
+ms.sourcegitcommit: 3396818cd177330b7123f3a346b1591a4bcb1e4e
+ms.openlocfilehash: f0edea9c1509b0eb4b2590019610ccc9eb9d5f55
 
 
 ---
@@ -24,9 +24,7 @@ ms.openlocfilehash: cbb6de4587871c40c9d4e97c9fb2a88eab4945a6
 
 Sanal makineleri ve fiziksel sunucuları Azure Site Recovery hizmetini kullanarak geçirme hakkında genel bakış için bu makaleyi okuyun.
 
-Kuruluşlar, planlı ve planlanmayan kesinti süreleri boyunca uygulamaların, iş yüklerinin ve verilerin çalışır durumda, kullanılabilir olmasına yönelik izlenecek yolu belirleyen ve mümkün olan en kısa sürede normal çalışma koşullarına dönmeyi sağlayan BCDR stratejisine gereksinim duyar. BCDR stratejinizin işletme verilerini güvende tutması, kurtarılabilir şekilde saklaması ve bir olağanüstü durum sırasında iş yüklerinin sürekli olarak kullanılabilir kalmasını sağlaması gerekir.
-
-Site Recovery, şirket içi fiziksel sunucuların ve sanal makinelerin buluta (Azure) veya ikincil bir veri merkezine çoğaltılmasını düzenleyerek BCDR stratejinize katkı sağlayan bir Azure hizmetidir. Kesinti birincil konumunuzda meydana gelirse uygulamaları ve iş yüklerini kullanılabilir durumda tutmak için ikincil konuma yük devredersiniz. Normal çalışma koşullarına dönüldüğünde de yükü birincil konuma geri alabilirsiniz. [Site Recovery nedir?](site-recovery-overview.md) bölümünden daha fazla bilgi edinebilirsiniz.
+Site Recovery, şirket içi fiziksel sunucuların ve sanal makinelerin buluta (Azure) veya ikincil bir veri merkezine çoğaltılmasını düzenleyerek BCDR stratejinize katkı sağlayan bir Azure hizmetidir. Kesinti birincil konumunuzda meydana gelirse uygulamaları ve iş yüklerini kullanılabilir durumda tutmak için ikincil konuma yük devredersiniz. Normal çalışma koşullarına dönüldüğünde de yükü birincil konuma geri alabilirsiniz. [Site Recovery nedir?](site-recovery-overview.md) bölümünden daha fazla bilgi edinebilirsiniz. Bulut yolculuğunuzu hızlandırmak ve Azure tarafından sunulan çeşitli özelliklerden yararlanmak amacıyla Site Recovery’yi kullanarak da mevcut şirket içi iş yüklerinizi Azure’a geçirebilirsiniz.
 
 Bu makale, [Azure portalında](https://portal.azure.com) dağıtımı açıklamaktadır. Var olan Site Recovery kasalarının bakımını yapmak için [klasik Azure portalı](https://manage.windowsazure.com/) kullanılabilir, ancak buradan yeni kasa oluşturamazsınız.
 
@@ -35,7 +33,7 @@ Yorumlarınızı bu makalenin altında paylaşabilirsiniz. Teknik sorular için 
 
 ## <a name="what-do-we-mean-by-migration"></a>Geçiş ile kast edilen nedir?
 
-Şirket içi VM’leri ve fiziksel sunucuları Azure’da veya ikincil bir konumda tam olarak çoğaltmak için Site Recovery dağıtımı yapabilirsiniz. Bu sayede makineleri çoğaltır, kesinti oluşması halinde birincil konum için yük devretme gerçekleştirilebilir ve kurtarma sonrasında birincil sitede yeniden çalıştırabilirsiniz. Site Recovery ile tam çoğaltmaya ek olarak VM’leri ve fiziksel sunucuları Azure’a geçirerek kullanıcıların makine iş yüküne Azure VM’lerinden erişmesini sağlayabilirsiniz. Geçiş çoğaltmayı ve birincil konumdan Azure’a yük devrini içerir. Ancak tam çoğaltmadan farklı olarak yeniden çalışma sistemine sahip değildir.
+Şirket içi sanal makinelerin ve fiziksel sunucuların Azure’a veya ikincil bir konuma çoğaltılması için Site Recovery dağıtabilirsiniz. Makineleri çoğaltabilir, kesinti gerçekleştiğinde birincil konumdan devredebilir ve kurtarıldığında yeniden birincil siteye devredebilirsiniz. Buna ek olarak, VM’leri ve fiziksel sunucuları Azure’a geçirip kullanıcıların bunlara Azure VM’leri olarak erişmesini sağlamak üzere Site Recovery’yi kullanabilirsiniz. Geçiş, çoğaltma ve birincil konumdan Azure’a yük devrinin yanı sıra tam bir geçiş hareketi içerir.
 
 ## <a name="what-can-site-recovery-migrate"></a>Site Recovery nelerin geçişini yapabilir?
 
@@ -49,11 +47,13 @@ Yorumlarınızı bu makalenin altında paylaşabilirsiniz. Teknik sorular için 
 
 Şirket içi Hyper-V VM’leri, VMware VM’leri ve fiziksel sunucuları geçirmek için normal çoğaltma için kullanılan adımlara yakın bir süreç izlersiniz. Kurtarma Hizmetleri kasası kurar, gerekli yönetim sunucularını yapılandırır (geçirmek istediğiniz nesneye göre), bunları kasaya ekler ve çoğaltma ayarlarını belirlersiniz. Geçirmek istediğiniz makinelerde çoğaltmayı etkinleştirir ve her şeyin düzgün çalıştığından emin olmak için hızlı bir yük devretme testi yaparsınız.
 
-Çoğaltma ortamınızın çalıştığını doğruladıktan sonra senaryonuz için [desteklenen özelliklere](site-recovery-failover.md#failover-and-failback) göre planlanmış veya planlanmamış yük devretme seçeneğini kullanırsınız. Geçiş için yük devretme yapmanız veya herhangi bir öğeyi silmeniz gerekmez. Bunun yerine geçirmek istediğiniz her makine için **Geçişi Tamamla** seçeneğini belirlemeniz gerekir. **Geçişi Tamamla** işlemi, geçiş işlemini tamamlar, makine için çoğaltmayı kaldırır ve makinede Site Recovery faturalandırmasını durdurur.
+Çoğaltma ortamınızın çalıştığını doğruladıktan sonra senaryonuz için [desteklenen özelliklere](site-recovery-failover.md#failover-and-failback) göre planlanmış veya planlanmamış yük devretme seçeneğini kullanırsınız. Geçiş için yük devretme yapmanız gerekmez. Bunun yerine geçirmek istediğiniz her makine için **Geçişi Tamamla** seçeneğini belirlemeniz gerekir. **Geçişi Tamamla** işlemi, geçiş işlemini tamamlar, makine için çoğaltmayı kaldırır ve makinede Site Recovery faturalandırmasını durdurur.
+
+![tamgeçiş](./media/site-recovery-hyper-v-site-to-azure/migrate.png)
 
 ## <a name="migrate-between-azure-regions"></a>Azure bölgeleri arasında geçiş yapma
 
-Site Recovery kullanarak farklı bölgelerdeki Azure VM’leri arasında geçiş yapabilirsiniz. Bu senaryoda yalnızca geçiş desteklenir. Başka bir deyişle, Azure VM’lerini çoğaltıp başka bir bölgede yük devretme gerçekleştirebilirsiniz ancak yeniden çalışma özelliğini kullanamazsınız. Bu senaryoda bir Kurtarma Hizmetleri kasası kurar, çoğaltmayı yönetmek için şirket içi yapılandırma sunucusu dağıtır, kasaya ekler ve çoğaltma ayarlarını belirtirsiniz. Geçirmek istediğiniz makinelerde çoğaltmayı etkinleştirir ve hızlı bir yük devretme testi yaparsınız. Ardından, planlanmamış yük devretme çalıştırmak için **Geçişi Tamamla** seçeneğini belirlersiniz.
+Site Recovery kullanarak farklı bölgelerdeki Azure VM’leri arasında geçiş yapabilirsiniz. Bu senaryoda yalnızca geçiş desteklenir. Başka bir deyişle, Azure sanal makinelerini çoğaltıp başka bir bölgede yük devretme gerçekleştirebilirsiniz ancak yeniden çalışma özelliğini kullanamazsınız. Bu senaryoda bir Kurtarma Hizmetleri kasası kurar, çoğaltmayı yönetmek için şirket içi yapılandırma sunucusu dağıtır, kasaya ekler ve çoğaltma ayarlarını belirtirsiniz. Geçirmek istediğiniz makinelerde çoğaltmayı etkinleştirir ve hızlı bir yük devretme testi yaparsınız. Ardından, planlanmamış yük devretme çalıştırmak için **Geçişi Tamamla** seçeneğini belirlersiniz.
 
 ## <a name="migrate-aws-to-azure"></a>AWS örneklerini Azure’a geçirme
 
@@ -65,7 +65,6 @@ AWS örneklerini Azure VM’lerine geçirebilirsiniz. Bu senaryoda yalnızca ge�
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - [VMware VM’lerini Azure’a geçirme](site-recovery-vmware-to-azure.md)
-- [Fiziksel sunucuları Azure’a geçirme](site-recovery-vmware-to-azure.md)
 - [VMM bulutlarındaki Hyper-V VM’lerini Azure’a geçirme](site-recovery-vmm-to-azure.md)
 - [Hyper-V sanal makinelerini (VMM olmadan) Azure’a geçirme](site-recovery-hyper-v-site-to-azure.md)
 - [Azure VM’lerini bir Azure bölgesinden diğerine geçirme](site-recovery-migrate-azure-to-azure.md)
@@ -73,6 +72,6 @@ AWS örneklerini Azure VM’lerine geçirebilirsiniz. Bu senaryoda yalnızca ge�
 
 
 
-<!--HONumber=Jan17_HO4-->
+<!--HONumber=Feb17_HO4-->
 
 

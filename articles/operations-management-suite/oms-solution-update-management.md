@@ -4,7 +4,7 @@ description: "Bu makale, Windows ve Linux bilgisayarlarınızın güncelleştirm
 services: operations-management-suite
 documentationcenter: 
 author: MGoedtel
-manager: jwhit
+manager: carmonm
 editor: 
 ms.assetid: e33ce6f9-d9b0-4a03-b94e-8ddedcc595d2
 ms.service: operations-management-suite
@@ -12,18 +12,20 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/06/2016
+ms.date: 02/21/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: 705bbd78970c6e3c20ef7214704194f722da09a6
-ms.openlocfilehash: 0f00d5a3b8116864d9e66c18d535f319b31b9f9c
+ms.sourcegitcommit: ca1e8b9ef8c7543c2b21441c761b0c309d22f202
+ms.openlocfilehash: e148fbe6e27eef747ad757fea4be038d3b662f87
 
 
 ---
 # <a name="update-management-solution-in-oms"></a>OMS’de Güncelleştirme Yönetimi çözümü
 OMS’de Güncelleştirme Yönetimi çözümü, Windows ve Linux bilgisayarlarınıza yönelik güncelleştirmeleri yönetmenize olanak tanır.  Tüm aracı bilgisayarlardaki kullanılabilir güncelleştirmelerin durumunu hızlıca değerlendirebilir ve sunucular için gerekli güncelleştirmeleri yükleme işlemini başlatabilirsiniz. 
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
+* Çözüm yalnızca Windows Server 2008 ve üzeri sürümlere göre güncelleştirme değerlendirmeleri; Windows Server 2012 ve üzeri sürümlere göre güncelleştirme dağıtımları gerçekleştirmeyi destekler.  Sunucu Çekirdeği ve Nano Sunucu yükleme seçenekleri desteklenmez.
+* Windows istemci işletim sistemleri desteklenmez.  
 * Windows aracıları Windows Server Update Services (WSUS) sunucusuyla iletişim kuracak veya Microsoft Update’e erişecek şekilde yapılandırılmış olmalıdır.  
   
   > [!NOTE]
@@ -104,7 +106,9 @@ Güncelleştirme Yönetimi çözümünü OMS çalışma alanınıza eklediğiniz
 ## <a name="installing-updates"></a>Güncelleştirmeleri yükleme
 Güncelleştirmeler ortamınızdaki tüm Windows bilgisayarlar için değerlendirildikten sonra bir *Güncelleştirme Dağıtımı* oluşturarak gerekli güncelleştirmeleri yükleyebilirsiniz.  Güncelleştirme Dağıtımı, bir veya daha fazla Windows bilgisayar için gerekli güncelleştirmelerin zamanlanmış yüklemesidir.  Dağıtımın tarih ve saatine ek olarak, dahil edilmesi gereken bilgisayarı veya bilgisayar grubunu belirtmeniz gerekir.  
 
-Güncelleştirmeler Azure Automation’daki runbook'lar tarafından yüklenir.  Şu anda bu runbook’ları görüntüleyemezsiniz ve runbook’lar için herhangi bir yapılandırma gerekmez.  Bir Güncelleştirme Dağıtımı oluşturulduğunda, dahil edilen bilgisayarlar için belirtilen zamanda ana güncelleştirme runbook’u başlatan bir zamanlama oluşturur.  Bu ana runbook, gerekli güncelleştirmelerin yüklemesini gerçekleştiren her Windows aracısında bir alt runbook başlatır.  
+Güncelleştirmeler Azure Automation’daki runbook'lar tarafından yüklenir.  Bu runbook’ları görüntüleyemezsiniz ve bunlar için herhangi bir yapılandırma gerekmez.  Bir Güncelleştirme Dağıtımı oluşturulduğunda, dahil edilen bilgisayarlar için belirtilen zamanda ana güncelleştirme runbook’u başlatan bir zamanlama oluşturur.  Bu ana runbook, gerekli güncelleştirmelerin yüklemesini gerçekleştiren her Windows aracısında bir alt runbook başlatır.  
+
+Azure Market’ten edinilebilen isteğe bağlı Red Hat Enterprise Linux (RHEL) görüntülerinden oluşturulan sanal makineler için Azure’da dağıtılmış [Red Hat Update Infrastructure (RHUI)](../virtual-machines/virtual-machines-linux-update-infrastructure-redhat.md) erişimi için kaydedilir.  Diğer tüm Linux dağıtımları, ilgili dağıtımın desteklediği yöntemler izlenerek çevrimiçi dosya deposundan güncelleştirilmelidir.  
 
 ### <a name="viewing-update-deployments"></a>Güncelleştirme dağıtımlarını görüntüleme
 Var olan Güncelleştirme Dağıtımlarının listesini görüntülemek için **Güncelleştirme Dağıtımı** kutucuğuna tıklayın.  Bunlar duruma göre gruplandırılır: **Zamanlanmış**, **Çalışıyor** ve **Tamamlandı**.<br><br> ![Güncelleştirme Dağıtımları Zamanlama Sayfası](./media/oms-solution-update-management/update-updatedeployment-schedule-page.png)<br>  
@@ -247,6 +251,6 @@ Aşağıdaki tabloda, bu çözüm tarafından toplanan güncelleştirme kayıtla
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 12/14/2016
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 78daa5a75b3414e2761333ea6ad91945596553c8
-ms.openlocfilehash: 2510a950f29664879d193c3bc1bdf8cd47279dfe
+ms.sourcegitcommit: 45411dcfd2dc221de9566b382a1b1c62da914208
+ms.openlocfilehash: 21f2e6e9b422d497882a2414fd24974d60ea685e
 
 
 ---
@@ -122,6 +122,19 @@ Varsayılan olarak, yerel geliştirme kümesi beş düğümlü bir küme olarak 
 
 Küme modunu değiştirdiğinizde, geliştirme kümesi sıfırlanır ve kümede sağlanan ya da çalıştırılan tüm uygulamalar kaldırılır.
 
+Küme modunu PowerShell kullanarak da değiştirebilirsiniz:
+
+1. Yönetici olarak yeni bir PowerShell penceresi başlatın.
+2. SDK klasöründeki küme kurulumu betiğini çalıştırın:
+   
+    ```powershell
+    & "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1" -CreateOneNodeCluster
+    ```
+   
+    Küme kurulumu biraz zaman alır. Kurulum tamamlandıktan sonra şunun gibi görünen bir çıktı görmelisiniz:
+   
+    ![Küme kurulumu çıktısı][cluster-setup-success-1-node]
+
 ## <a name="cleaning-up"></a>Temizleme
 Sonlandırmadan önce yerel kümenin gerçek olduğunu unutmamanız önemlidir. Hata ayıklayıcının durdurulması uygulama örneğinizi ve uygulama türünün kaydını kaldırır. Ancak, küme arka planda çalışmaya devam eder. Kümeyi yönetmek için birkaç seçeneğiniz vardır:
 
@@ -150,9 +163,10 @@ Sonlandırmadan önce yerel kümenin gerçek olduğunu unutmamanız önemlidir. 
 [diagnostic-events-viewer-detail-post-failover]: ./media/service-fabric-create-your-first-application-in-visual-studio/diagnostic-events-viewer-detail-post-failover.png
 [sfe-delete-application]: ./media/service-fabric-create-your-first-application-in-visual-studio/sfe-delete-application.png
 [switch-cluster-mode]: ./media/service-fabric-create-your-first-application-in-visual-studio/switch-cluster-mode.png
+[cluster-setup-success-1-node]: ./media/service-fabric-get-started-with-a-local-cluster/cluster-setup-success-1-node.png
 
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

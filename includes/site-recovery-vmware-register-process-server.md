@@ -1,18 +1,18 @@
-1. Uzak Masaüstü Bağlantısı kullanarak işlem sunucusu sanal makinesine bağlanın.
-2. Oturum açma tamamlandıktan sonra işlem sunucusu Yapılandırma aracının otomatik olarak başlatıldığını ve aşağıdakileri girmenizi istediğini görürsünüz
+1. Uzak Masaüstü Bağlantısı’nı kullanarak İşlem Sunucusu sanal makinesine bağlanın.
+2. Masaüstündeki kısayola tıklayarak cspsconfigtool.exe aracını başlatabilirsiniz. (İşlem sunucusunda ilk kez oturum açıyorsanız araç otomatik olarak başlatılır.)
   * Yapılandırma Sunucusunun tam adı (FQDN) veya IP Adresi
   * Yapılandırma sunucusunun dinleme yaptığı bağlantı noktası. Değer 443 olmalıdır
   * Yapılandırma sunucusuna bağlanmak için bağlantı parolası.
-  * Bu işlem sunucusu için yapılandırılacak Veri Aktarımı bağlantı noktası. Varsayılan değeri ortamınızdaki farklı bir bağlantı noktası numarasıyla değiştirmediyseniz olduğu gibi bırakın.
+  * Bu İşlem Sunucusu için yapılandırılacak Veri Aktarımı bağlantı noktası. Varsayılan değeri ortamınızdaki farklı bir bağlantı noktası numarasıyla değiştirmediyseniz olduğu gibi bırakın.
 
-    ![İşlem sunucusunu kaydetme](./media/site-recovery-vmware-register-process-server/register-ps.png)
+    ![İşlem Sunucusunu Kaydetme](./media/site-recovery-vmware-register-process-server/register-ps.png)
 3. Yapılandırmayı kaydetmek için kaydet düğmesine tıklayın.
-4. Kayıt tamamlandıktan sonra işlem sunucusu Yapılandırma sunucunuzun altında görünmeye başlar ve bundan sonra yeniden çalışma için kullanılabilir.
+4. Kayıt tamamlandıktan sonra İşlem Sunucusu, Yapılandırma sunucunuzun altında görünmeye başlar ve bundan sonra yeniden çalışma için kullanılabilir.
 
 > [!TIP]
-> İşlemci sunucusu yapılandırma yardımcı programı, sanal makinenin masaüstündeki **cspsconfigtool** kısayoluna tıklanarak başlatılabilir.
+> İşlem Sunucusu yapılandırma yardımcı programı, sanal makinenin masaüstündeki **cspsconfigtool** kısayoluna çift tıklanarak başlatılabilir.
 
 
-<!--HONumber=Feb17_HO1-->
+<!--HONumber=Feb17_HO4-->
 
 

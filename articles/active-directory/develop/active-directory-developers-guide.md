@@ -15,8 +15,8 @@ ms.workload: identity
 ms.date: 12/09/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 9d50559d2b8228dca7265f6a28bb5274abdd3164
-ms.openlocfilehash: 9d0d072c8b52cd2a5a2fb585365e6cdee8ed5190
+ms.sourcegitcommit: 8da480acc04922a3636821c5303f6380236c5ea3
+ms.openlocfilehash: 1bff76371ea1ca3ee68c9f04ea24a42f95bb7da7
 
 
 ---
@@ -34,14 +34,22 @@ Bir hizmet olarak kimlik yönetimi (IDMaaS) platformu olan Azure Active Director
 Bu öğreticiler birden çok platform için uyarlanabilir ve Azure Active Directory'yi geliştirmeye hızla başlamanıza yardımcı olabilir. Önkoşul olarak, [bir Azure Active Directory kiracısı edinmeniz](active-directory-howto-tenant.md) gerekir.
 
 ### <a name="mobile-and-pc-application-quick-start-guides"></a>Mobil ve PC uygulaması hızlı başlangıç kılavuzları
-| [![iOS](./media/active-directory-developers-guide/ios.png)](active-directory-devquickstarts-ios.md) | [![Android](./media/active-directory-developers-guide/android.png)](active-directory-devquickstarts-android.md) | [![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-dotnet.md) | [![Windows Evrensel](./media/active-directory-developers-guide/windows.png)](active-directory-devquickstarts-windowsstore.md) | [![Xamarin](./media/active-directory-developers-guide/xamarin.png)](active-directory-devquickstarts-xamarin.md) | [![Cordova](./media/active-directory-developers-guide/cordova.png)](active-directory-devquickstarts-cordova.md) | [![OAuth 2.0](./media/active-directory-developers-guide/oauth-2.png)](active-directory-protocols-oauth-code.md) |
-|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| [iOS](active-directory-devquickstarts-ios.md) |[Android](active-directory-devquickstarts-android.md) |[.NET](active-directory-devquickstarts-dotnet.md) |[Windows Evrensel](active-directory-devquickstarts-windowsstore.md) |[Xamarin](active-directory-devquickstarts-xamarin.md) |[Cordova](active-directory-devquickstarts-cordova.md) |[Doğrudan OAuth 2.0 ile tümleştirme](active-directory-protocols-oauth-code.md) |
+| [![iOS](./media/active-directory-developers-guide/ios.png)](active-directory-devquickstarts-ios.md) | [![Android](./media/active-directory-developers-guide/android.png)](active-directory-devquickstarts-android.md) | [![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-dotnet.md) | [![Windows Evrensel](./media/active-directory-developers-guide/windows.png)](active-directory-devquickstarts-windowsstore.md) | 
+|:---:|:---:|:---:|:---:|:---:|
+| [iOS](active-directory-devquickstarts-ios.md) |[Android](active-directory-devquickstarts-android.md) |[.NET](active-directory-devquickstarts-dotnet.md) |[Windows</br>Evrensel](active-directory-devquickstarts-windowsstore.md) |
+
+|[![Xamarin](./media/active-directory-developers-guide/xamarin.png)](active-directory-devquickstarts-xamarin.md) | [![Cordova](./media/active-directory-developers-guide/cordova.png)](active-directory-devquickstarts-cordova.md) | [![OAuth 2.0](./media/active-directory-developers-guide/oauth-2.png)](active-directory-protocols-oauth-code.md) |
+|:---:|:---:|:---:|
+|[Xamarin](active-directory-devquickstarts-xamarin.md) |[Cordova](active-directory-devquickstarts-cordova.md) |[Doğrudan</br>OAuth 2.0](active-directory-protocols-oauth-code.md) ile tümleştirme |
 
 ### <a name="web-application-quick-start-guides"></a>Web uygulaması hızlı başlangıç kılavuzları
-| [![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-webapp-dotnet.md) | [![Java](./media/active-directory-developers-guide/java.png)](active-directory-devquickstarts-webapp-java.md) | [![AngularJS](./media/active-directory-developers-guide/angularjs.png)](active-directory-devquickstarts-angular.md) | [![JavaScript](./media/active-directory-developers-guide/javascript.png)](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) | [![Node.js](./media/active-directory-developers-guide/nodejs.png)](active-directory-devquickstarts-openidconnect-nodejs.md) | [![OpenID Connect](./media/active-directory-developers-guide/openid-connect.png)](active-directory-protocols-openid-connect-code.md) |
-|:---:|:---:|:---:|:---:|:---:|:---:|
-| [.NET](active-directory-devquickstarts-webapp-dotnet.md) |[Java](active-directory-devquickstarts-webapp-java.md) |[AngularJS](active-directory-devquickstarts-angular.md) |[JavaScript](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) |[Node.js](active-directory-devquickstarts-openidconnect-nodejs.md) |[Doğrudan OpenID Connect ile tümleştirme](active-directory-protocols-openid-connect-code.md) |
+| [![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-webapp-dotnet.md) | [![Java](./media/active-directory-developers-guide/java.png)](active-directory-devquickstarts-webapp-java.md) | [![AngularJS](./media/active-directory-developers-guide/angularjs.png)](active-directory-devquickstarts-angular.md) |
+|:---:|:---:|:---:|
+| [.NET](active-directory-devquickstarts-webapp-dotnet.md) |[Java](active-directory-devquickstarts-webapp-java.md) |[AngularJS](active-directory-devquickstarts-angular.md) |[JavaScript](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) |[Node.js](active-directory-devquickstarts-openidconnect-nodejs.md) |[Doğrudan</br> OpenID Connect](active-directory-protocols-openid-connect-code.md) ile tümleştirme |
+
+| [![JavaScript](./media/active-directory-developers-guide/javascript.png)](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) | [![Node.js](./media/active-directory-developers-guide/nodejs.png)](active-directory-devquickstarts-openidconnect-nodejs.md) | [![OpenID Connect](./media/active-directory-developers-guide/openid-connect.png)](active-directory-protocols-openid-connect-code.md) |
+|:---:|:---:|:---:|
+|[JavaScript](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) |[Node.js](active-directory-devquickstarts-openidconnect-nodejs.md) |[Doğrudan</br> OpenID Connect](active-directory-protocols-openid-connect-code.md) ile tümleştirme |
 
 ### <a name="web-api-quick-start-guides"></a>Web API'si hızlı başlangıç kılavuzları
 | [![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-webapi-dotnet.md) | [![Node.js](./media/active-directory-developers-guide/nodejs.png)](active-directory-devquickstarts-webapi-nodejs.md) |
@@ -126,6 +134,6 @@ Windows Server kullanımı ve Active Directory Federasyon Hizmetleri (AD FS) gel
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO3-->
 
 

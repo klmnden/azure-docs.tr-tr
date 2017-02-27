@@ -17,8 +17,8 @@ ms.topic: get-started-article
 ms.date: 02/01/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 7402249aa87ffe985ae13f28a701e22af3afd450
-ms.openlocfilehash: a2e65de2ec77da9005cea18876fd86fd2928b9da
+ms.sourcegitcommit: 8d988aa55d053d28adcf29aeca749a7b18d56ed4
+ms.openlocfilehash: bdcf28703f007d32144278c7f0956fe4c27c3b27
 
 
 ---
@@ -142,14 +142,13 @@ Bu makalede, SQL Database ve Azure Virtual Machines'de (VM'ler) SQL Server işle
 * BT kaynaklarınız var ve sonuçta kendi düzeltme eki uygulama, yedekleme ve veritabanı yüksek kullanılabilirlik özelliklerinize sahip olabilirsiniz. Otomatik özelliklerin bazıları bu işlemleri önemli ölçüde basitleştirebilir. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* SQL Database'i kullanmaya başlamak için bkz. [SQL Database öğreticisi: Azure portalını kullanarak birkaç dakika içinde bir SQL veritabanı oluşturma](sql-database-get-started.md).
+* SQL Veritabanı’nı kullanmaya başlamak için bkz. [İlk Azure SQL Veritabanınız](sql-database-get-started.md).
 * Bkz. [SQL Veritabanı Fiyatlandırması](https://azure.microsoft.com/pricing/details/sql-database/).
 * Azure VM'lerinde SQL Server'ı kullanmaya başlamak için bkz. [Azure'da SQL Server sanal makinesi sağlama](../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md).
-* Bkz. [Azure Sanal Makinesinde SQL Server: Öğrenme Yolu](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/).
 
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

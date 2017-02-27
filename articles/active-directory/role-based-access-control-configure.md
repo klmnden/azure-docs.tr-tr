@@ -1,5 +1,5 @@
 ---
-title: "Azure portalında Rol Tabanlı Erişim Denetimini kullanma | Microsoft Belgeleri"
+title: "Klasik Azure portalında Rol Tabanlı Erişim Denetimi | Microsoft Belgeleri"
 description: "Azure Portal&quot;da Rol Tabanlı Erişim Denetimi ile erişim yönetimine başlayın. Kaynaklarınıza izinler atamak için rol atamalarını kullanın."
 services: active-directory
 documentationcenter: 
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/10/2016
+ms.date: 02/17/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b930fe0a4a47cffebb579be43a77e87548549cfd
+ms.sourcegitcommit: bb894c38de63d0eac4066eeabaed7ba791021cc4
+ms.openlocfilehash: 05da6cd034a387b54eff0790996662223e4b8bab
 
 
 ---
@@ -24,8 +24,6 @@ ms.openlocfilehash: b930fe0a4a47cffebb579be43a77e87548549cfd
 > [!div class="op_single_selector"]
 > * [Kullanıcı veya gruba göre erişimi yönetme](role-based-access-control-manage-assignments.md)
 > * [Kaynağa göre erişimi yönetme](role-based-access-control-configure.md)
-> 
-> 
 
 Azure Rol Tabanlı Erişim Denetimi (RBAC), Azure için ayrıntılı erişim yönetimi sağlar. RBAC kullanarak, yalnızca kullanıcıların işlerini yapmak için gereksinim duyduğu erişim miktarını verebilirsiniz. Bu makale, Azure portalında RBAC ile çalışmaya başlamanıza yardımcı olur. RBAC'nin erişimi yönetmenize nasıl yardımcı olduğu konusunda daha fazla bilgi isterseniz bkz. [Rol Tabanlı Erişim Denetimi Nedir?](role-based-access-control-what-is.md).
 
@@ -44,8 +42,6 @@ Bazı kullanıcıların **Atanmış**, diğerlerinin **Devralınmış** erişime
 
 > [!NOTE]
 > Yeni RBAC modelinde, klasik abonelik yöneticileri ve ortak yöneticileri aboneliğin sahipleri olarak kabul edilir.
-> 
-> 
 
 ## <a name="add-access"></a>Erişim Ekleme
 Rol atamasının kapsamı olan kaynak, kaynak grubu veya abonelik içinden erişim verebilirsiniz.
@@ -61,12 +57,11 @@ Rol atamasının kapsamı olan kaynak, kaynak grubu veya abonelik içinden eriş
 Bir rol ataması başarıyla eklendikten sonra **Kullanıcılar** dikey penceresinde görüntülenir.
 
 ## <a name="remove-access"></a>Erişimi Kaldırma
-1. Erişim denetimi dikey penceresinde rol atamasını seçin.
-2. Atama ayrıntıları dikey penceresinde **Kaldır**'ı seçin.  
-3. Kaldırmayı onaylamak için **Evet**'i seçin.  
-    ![Kullanıcılar dikey penceresi - rolden kaldır ekran görüntüsü](./media/role-based-access-control-configure/remove-access1.png)
+1. Erişim dikey penceresindeki onay kutularını kullanarak bir veya daha fazla rol ataması seçin.
+2. **Kaldır**’ı seçin.  
+3. Eylemi onaylamanızı isteyen bir açılır pencere görürsünüz. Rol atamalarını kaldırmak için **Evet**’i seçin.
 
-Devralınmış atamalar kaldırılamaz. Aşağıdaki görüntüde kaldır düğmesinin gri olduğuna dikkat edin. Bunun yerine, **Atama Konumu** ayrıntısına bakın. Rol atamasını kaldırmak için orada listelenen kaynağa gidin.
+Devralınmış atamalar kaldırılamaz. Devralınmış bir atamayı kaldırmanız gerekiyorsa bu işlemi rol atamasının oluşturulduğu kapsamda gerçekleştirmeniz gerekir. **Kapsam** sütunundaki **Devralınmış** seçeneğinin yanında, sizi rolün oluşturulduğu kaynaklara götüren bir bağlantı yer alır. Rol atamasını kaldırmak için orada listelenen kaynağa gidin.
 
 ![Kullanıcılar dikey penceresi - devralınmış erişim kaldır düğmesini devre dışı bırakır ekran görüntüsü](./media/role-based-access-control-configure/remove-access2.png)
 
@@ -85,6 +80,6 @@ Azure portal dışındaki araçlarda Azure RBAC komutları ile roller atayabilir
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

@@ -12,11 +12,11 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/02/2017
+ms.date: 02/21/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: bd8082c46ee36c70e372208d1bd15337acc558a1
-ms.openlocfilehash: eb97f66901efa336942dee56d9a8a62ade1f6842
+ms.sourcegitcommit: 080dce21c2c803fc05c945cdadb1edd55bd7fe1c
+ms.openlocfilehash: 4993a873742db5ca2bd8c31eaab098beb0a0a030
 
 
 ---
@@ -24,13 +24,11 @@ ms.openlocfilehash: eb97f66901efa336942dee56d9a8a62ade1f6842
 
 Azure Site Recovery hizmetinin temel mimarisini ve bu hizmetin çalışmasını sağlayan bileşenleri anlamak için bu makaleyi okuyun.
 
-Kuruluşlar, planlı ve planlanmayan kesinti süreleri boyunca uygulamaların, iş yüklerinin ve verilerin çalışır durumda, kullanılabilir olmasına yönelik izlenecek yolu belirleyen ve mümkün olan en kısa sürede normal çalışma koşullarına dönmeyi sağlayan BCDR stratejisine gereksinim duyar. BCDR stratejinizin işletme verilerini güvende tutması, kurtarılabilir şekilde saklaması ve bir olağanüstü durum sırasında iş yüklerinin sürekli olarak kullanılabilir kalmasını sağlaması gerekir.
-
 Site Recovery, şirket içi fiziksel sunucuların ve sanal makinelerin buluta (Azure) veya ikincil bir veri merkezine çoğaltılmasını düzenleyerek BCDR stratejinize katkı sağlayan bir Azure hizmetidir. Kesinti birincil konumunuzda meydana gelirse uygulamaları ve iş yüklerini kullanılabilir durumda tutmak için ikincil konuma yük devredersiniz. Normal çalışma koşullarına dönüldüğünde de yükü birincil konuma geri alabilirsiniz. [Site Recovery nedir?](site-recovery-overview.md) bölümünden daha fazla bilgi edinebilirsiniz.
 
 Bu makale, [Azure portalında](https://portal.azure.com) dağıtımı açıklamaktadır. Var olan Site Recovery kasalarının bakımını yapmak için [klasik Azure portalı](https://manage.windowsazure.com/) kullanılabilir, ancak buradan yeni kasa oluşturamazsınız.
 
-Yorumlarınızı bu makalenin altında paylaşabilirsiniz. Teknik sorular için [Azure Kurtarma Hizmetleri Forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)'nu kullanın.
+Tüm yorumlarınızı bu makalenin alt kısmında veya [Azure Kurtarma Hizmetleri Forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)'nda paylaşabilirsiniz.
 
 
 ## <a name="deployment-scenarios"></a>Dağıtım senaryoları
@@ -83,8 +81,8 @@ Site Recovery, desteklenen VM’lerde ve fiziksel sunucularda çalışan uygulam
 ### <a name="failover-and-failback-process"></a>Yük devretme ve yeniden çalışma işlemi
 
 1. Şirket içi VMware VM’lerinden ve fiziksel sunuculardan Azure’a planlanmamış yük devretme işlemleri çalıştırırsınız. Planlanan yük devretme desteklenmez.
-2. Tek bir makine üzerinden yük devredebilir veya [kurtarma planları](site-recovery-create-recovery-plans.md) oluşturarak birden çok makinenin devredilmesini düzenleyebilirsiniz.
-3. Yük devretme işlemini çalıştırdığınızda Azure’da kopya VM’ler oluşturulur. Kopya Azure VM’sindeki iş yüküne erişmeye başlamak için bir yük devretme yürütürsünüz.
+2. Birden çok makinenin yük devretmesini düzenlemek için tek bir makine üzerinden yük devredebilir veya [kurtarma planları](site-recovery-create-recovery-plans.md) oluşturabilirsiniz.
+3. Yük devretme işlemini çalıştırdığınızda Azure’da çoğaltma sanal makineleri oluşturulur. Kopya Azure VM’sindeki iş yüküne erişmeye başlamak için bir yük devretme yürütürsünüz.
 4. Birincil şirket içi siteniz yeniden kullanılabilir olduğunda siteyi yeniden çalıştırabilirsiniz. Bir yeniden çalışma altyapısı ayarlarsınız, makineyi ikincil siteden birincil siteye çoğaltmaya başlar ve ikincil siteden planlanmamış bir yük devretme gerçekleştirirsiniz. Bu yük devretme yürütüldükten sonra, veriler şirket içine döner ve Azure’a çoğaltmayı yeniden etkinleştirmeniz gerekir. [Daha fazla bilgi](site-recovery-failback-azure-to-vmware.md)
 
 Birkaç yeniden çalışma gereksinimi vardır:
@@ -133,10 +131,11 @@ Birkaç yeniden çalışma gereksinimi vardır:
 
 **Bileşen** | **Ayrıntılar**
 --- | ---
+
 **Azure** | Azure’da bir Microsoft Azure hesabına, bir Azure depolama hesabına ve bir Azure ağına ihtiyacınız vardır.<br/><br/> Depolama ve ağ, Kaynak Yöneticisi tabanlı veya klasik hesaplar olabilir.<br/><br/> Çoğaltılan veriler depolama hesabında depolanır ve şirket içi sitenizden yük devretme gerçekleştiğinde çoğaltılan verilerle Azure VM’leri oluşturulur.<br/><br/> Azure VM’leri oluşturulduğunda Azure sanal ağına bağlanır.
-**VMM sunucusu** | Hyper-V konaklarınız VMM bulutlarında yer alıyorsa [ağ eşlemesi](site-recovery-network-mapping.md) yapılandırmak üzere ayar yapmak için mantıksal ve VM ağlarına ihtiyacınız olur. VM ağının da bulutla ilişkilendirilen bir mantıksal ağ ile bağlantılı olması gerekir.
+**VMM sunucusu** | Hyper-V konaklarınız VMM bulutlarında yer alıyorsa ağ eşlemesi yapılandırmak üzere ayar yapmak için mantıksal ağlara ve sanal makine ağlarına ihtiyacınız olur. VM ağının da bulutla ilişkilendirilen bir mantıksal ağ ile bağlantılı olması gerekir.
 **Hyper-V konağı** | Bir veya daha fazla Hyper-V konak sunucunuz olmalıdır.
-**Hyper-V VM’leri** | Hyper-V konak sunucusunda bir veya daha fazla VM’niz olmalıdır. Hyper-V konağında çalışan Sağlayıcı, İnternet üzerinden Site Recovery hizmetiyle gerçekleştirilen çoğaltma işlemini düzenler ve yönetir. Aracı, veri çoğaltma işlemine ait verileri HTTPS 443 üzerinden işler. Sağlayıcı ve aracı arasındaki iletişimler şifrelenir ve güvence altına alınır. Azure depolama alanında çoğaltılan veriler de şifrelenir.
+**Hyper-V sanal makineleri** | Hyper-V konak sunucusunda bir veya daha fazla sanal makineniz olmalıdır. Hyper-V konağında çalışan Sağlayıcı, İnternet üzerinden Site Recovery hizmetiyle gerçekleştirilen çoğaltma işlemini düzenler ve yönetir. Aracı, veri çoğaltma işlemine ait verileri HTTPS 443 üzerinden işler. Sağlayıcı ve aracı arasındaki iletişimler şifrelenir ve güvence altına alınır. Azure depolama alanında çoğaltılan veriler de şifrelenir.
 
 
 ## <a name="replication-process"></a>Çoğaltma işlemi
@@ -212,7 +211,7 @@ Birkaç yeniden çalışma gereksinimi vardır:
 --- | ---
 1. **Korumayı etkinleştir** | Bir Hyper-V VM için korumayı etkinleştirdiğinizde, makinenin önkoşullarla uyumlu olup olmadığının denetlenmesi için **Korumayı Etkinleştir** işi başlatılır. İş tarafından iki yöntem çağırılır:<br/><br/> Yapılandırdığınız ayarlarla çoğaltmanın ayarlanması için [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx).<br/><br/> Tam VM çoğaltması başlatmak için [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx).
 2. **İlk çoğaltma** |  Bir sanal makine anlık görüntüsü alınır ve sanal sabit diskler tamamı ikincil konuma kopyalanana kadar tek tek çoğaltılır.<br/><br/> Bu işlemi tamamlamak için gereken süre VM boyutuna, ağ bant genişliğine ve iş çoğaltma yöntemine bağlıdır.<br/><br/> İlk çoğaltma sırasında disk değişimi meydana gelirse Hyper-V Çoğaltma'nın Çoğaltma İzleyicisi bu değişiklikleri, disklerle aynı klasörde yer alan Hyper-V Çoğaltma Günlükleri (.hrl) olarak izler.<br/><br/> Her diskin ikincil depolamaya gönderilecek bir ilişkili .hrl dosyası vardır.<br/><br/> İlk çoğaltma sırasında anlık görüntü ve günlük dosyaları disk kaynaklarını kullanır. İlk çoğaltma tamamlandığında VM anlık görüntüsü silinir, günlükteki değişim diski değişiklikleri eşitlenir ve birleştirilir.
-3. **Korumayı sonlandırma** | İlk çoğaltma sonlandırıldıktan sonra **Korumayı sonlandır** işi, ağ ayarlarını ve diğer çoğaltma sonrası ayarları yapılandırır ve sanal makine korunur.<br/><br/> Azure'da çoğaltma yapıyorsanız, sanal makinede ince ayarlar yaparak sanal makineyi yük devretme için hazır hale getirmeniz gerekebilir.<br/><br/> Bu noktada, her şeyin istendiği şekilde çalıştığını denetlemek için yük devretme testi çalıştırabilirsiniz.
+3. **Korumayı sonlandırma** | İlk çoğaltma sonlandırıldıktan sonra **Korumayı sonlandır** işi, ağ ayarlarını ve diğer çoğaltma sonrası ayarları yapılandırır ve sanal makine korunur.<br/><br/> Azure'da çoğaltma yapıyorsanız sanal makinede ince ayar yapmanız gerekebilir. Böylece sanal makine yük devretme için hazır hale gelir.<br/><br/> Bu noktada, her şeyin istendiği şekilde çalıştığını denetlemek için yük devretme testi çalıştırabilirsiniz.
 4. **Çoğaltma** | İlk çoğaltma sonrasında, çoğaltma ayarlarına uygun olarak değişim eşitlemesi başlar.<br/><br/> **Çoğaltma hatası**: Değişim çoğaltması başarısız olursa ve tam çoğaltma bant genişliği ve zaman konusunda fazla kaynak tüketimine yol açarsa yeniden eşitleme meydana gelir. Örneğin, .hrl dosyası disk boyutunun %50'sine ulaşırsa VM, yeniden eşitleme için işaretlenir. Yeniden eşitleme, kaynak ve hedef sanal makinelerin sağlama toplamlarını hesaplar ve yalnızca değişim verilerini gönderir. Böylece gönderilen veri miktarını azaltır. Yeniden eşitleme bittikten sonra değişim çoğaltması devam eder. Varsayılan olarak, yeniden eşitleme ofis saatleri dışında otomatik olarak çalışacak şekilde planlanmıştır ancak sanal makineyi elle yeniden eşitleyebilirsiniz.<br/><br/> **Çoğaltma hatası**: Bir çoğaltma hatası meydana gelmesi durumunda yerleşik olarak yeniden deneme işlevi bulunur. Kimlik doğrulama veya yetkilendirme ya da çoğaltılan makinenin geçersiz durumda olması gibi kurtarılamaz bir hata olursa yeniden deneme işlevi uygulanmaz. Ağ hatası veya düşük disk alanı/belleği gibi kurtarılabilir bir hata oluşursa artan aralıklarla yeniden denemeler meydana gelir (her 1, 2, 4, 8, 10 ve ardından 30 dakikada bir şeklinde).
 5. **Planlanan/planlanmamış yük devretme** | Gerektiğinde planlanan veya planlanmamış yük devretme işlemleri çalıştırabilirsiniz.<br/><br/> Planlı bir yük devretme çalıştırırsanız, veri kaybı olmaması için kaynak VM’ler kapatılır.<br/><br/> Oluşturulan çoğaltma VM’leri, yürütme bekleniyor durumuna geçirilir. Yük devretmeyi tamamlamak için işlemleri yürütmeniz gerekir.<br/><br/> Birincil site çalışır duruma geldikten sonra, site kullanılabilir hale geldiğinde buraya yeniden çalışma gerçekleştirebilirsiniz.
 
@@ -223,10 +222,10 @@ Birkaç yeniden çalışma gereksinimi vardır:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Dağıtım için hazırlanma](site-recovery-best-practices.md)
+[Önkoşulları denetleme](site-recovery-prereq.md)
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Feb17_HO4-->
 
 

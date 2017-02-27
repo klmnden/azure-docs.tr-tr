@@ -3,7 +3,7 @@
     ![Başlamadan önce](./media/site-recovery-add-configuration-server/combined-wiz1.png)
 3. MySQL indirip yüklemek için **Üçüncü Taraf Yazılım Lisansı** bölümünde **Kabul Ediyorum**’a tıklayın.
 
-    ![Üçüncü taraf yazılım](./media/site-recovery-add-configuration-server/combined-wiz105.PNG)
+    ![Üçüncü taraf yazılım](./media/site-recovery-add-configuration-server/combined-wiz2.png)
 4. **Kayıt** menüsünde kasadan indirdiğiniz kayıt defteri anahtarını seçin.
 
     ![Kayıt](./media/site-recovery-add-configuration-server/combined-wiz3.png)
@@ -14,7 +14,7 @@
    * Var olan ara sunucu kimlik doğrulaması gerektiriyorsa veya Sağlayıcı bağlantısı için özel bir ara sunucu kullanmak istiyorsanız **Özel ara sunucu ayarlarıyla bağlan** seçeneğini belirleyin.
 
      * Özel bir ara sunucu kullanırsanız adresi, bağlantı noktasını ve kimlik bilgilerini belirtmeniz gerekir.
-     * Ara sunucu kullanıyorsanız [önkoşullar](#configuration-server-prerequisites) bölümünde açıklanan URL'lere izin vermiş olmanız gerekir.
+     * Ara sunucu kullanıyorsanız [önkoşullar](#prerequisites) bölümünde açıklanan URL'lere izin vermiş olmanız gerekir.
 
      ![Güvenlik duvarı](./media/site-recovery-add-configuration-server/combined-wiz4.png)
 6. **Önkoşul Denetimi** menüsünde Kurulum, yüklemenin çalışabildiğinden emin olmak üzere bir denetim gerçekleştirir. **Genel saat eşitleme denetimi** hakkında bir uyarı görünürse, sistem saatindeki zamanın (**Tarih ve Saat** ayarları) saat dilimiyle aynı olduğunu doğrulayın.
@@ -42,6 +42,6 @@
 Kayıt tamamlandıktan sonra, sunucu kasadaki **Ayarlar** > **Sunucular** dikey penceresinde görüntülenir.
 
 
-<!--HONumber=Feb17_HO2-->
+<!--HONumber=Feb17_HO4-->
 
 
