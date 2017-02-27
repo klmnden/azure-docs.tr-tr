@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 02/07/2017
 ms.author: billmath
 translationtype: Human Translation
-ms.sourcegitcommit: c0c33506d134db9fc49bd873e9c95063dd2ab845
-ms.openlocfilehash: d5dcdc94490ff46e39ff5894f6d70d5dcb5dd527
+ms.sourcegitcommit: 6c26fdd11031ab482d12611ca338df5c90a14193
+ms.openlocfilehash: a482e20bdbf60889f93f4532ed042b41ec51b81e
 
 
 ---
@@ -95,7 +95,10 @@ Bu sayfa, Azure AD'de doğrulanmış olup şirket içi AD DS'de var olan UPN etk
 
 ### <a name="domain-and-ou-filtering"></a>Etki alanı ve OU filtreleme
 Varsayılan olarak tüm etki alanları ve OU'lar eşitlenir. Azure AD ile eşitlemek istemediğiniz etki alanları veya OU'lar varsa bu etki alanlarının veya OU'ların işaretini kaldırabilirsiniz.  
-![Etki alanı/OU filtreleme](./media/active-directory-aadconnect-get-started-custom/domainoufiltering.png) Sihirbazdaki bu sayfa, etki alanı tabanlı ve OU tabanlı filtrelemeyi yapılandırır. Daha fazla bilgi için bkz. [etki alanı tabanlı filtreleme](active-directory-aadconnectsync-configure-filtering.md#domain-based-filtering) ve [ou tabanlı filtreleme](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering). OU tabanlı filtreleme kullanırsanız, daha sonra eklenen yeni OU'lar varsayılan olarak eşitlenir. Yeni OU'ların eşitlenmesini istemezseniz, sihirbazın [ou tabanlı filtreleme](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering) yapılandırması tamamlandıktan sonra gerekli ayarları yapabilirsiniz.
+![DomainOU filtreleme](./media/active-directory-aadconnect-get-started-custom/domainoufiltering.png)  
+Sihirbazın bu sayfası, etki alanı tabanlı ve OU tabanlı filtrelemeyi yapılandırmaya yöneliktir. Değişiklik yapmayı planlıyorsanız, yapmadan önce [etki alanı tabanlı filtreleme](active-directory-aadconnectsync-configure-filtering.md#domain-based-filtering) ve [OU tabanlı filtreleme](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering) konularını inceleyin. Bazı OU’lar işlevsellik açısından gereklidir ve bunların seçimi kaldırılmamalıdır.
+
+OU tabanlı filtreleme kullanırsanız, daha sonra eklenen yeni OU'lar varsayılan olarak eşitlenir. Yeni OU'ların eşitlenmesini istemezseniz, sihirbazın [ou tabanlı filtreleme](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering) yapılandırması tamamlandıktan sonra gerekli ayarları yapabilirsiniz.
 
 [Grup tabanlı filtreleme](#sync-filtering-based-on-groups) kullanmayı planlıyorsanız, gruba sahip OU'nun dahil olduğundan ve OU filtreleme ile filtrelenmediğinden emin olun. OU filtreleme, grup tabanlı filtrelemeden önce değerlendirilir.
 
@@ -174,8 +177,8 @@ Daha fazla bilgi için bkz. [Dizin genişletmeleri](active-directory-aadconnects
 ### <a name="enabling-single-sign-on-sso"></a>Çoklu oturum açmayı (SSO) etkinleştirme
 Parola Eşitleme veya Doğrudan kimlik doğrulama ile birlikte kullanılmak üzere çoklu oturum açma özelliğinin yapılandırılması, Azure AD ile eşitlenen her ormanda bir kere tamamlamanız gereken basit bir işlemdir. Yapılandırma aşağıdaki iki adımdan oluşur:
 
-1.  Şirket içi Active Directory'nizde gerekli bilgisayar hesabını oluşturma.
-2.  İstemci makinelerin intranet bölgesini çoklu oturum açmayı destekleyecek şekilde yapılandırma.
+1.    Şirket içi Active Directory'nizde gerekli bilgisayar hesabını oluşturma.
+2.    İstemci makinelerin intranet bölgesini çoklu oturum açmayı destekleyecek şekilde yapılandırma.
 
 #### <a name="create-the-computer-account-in-active-directory"></a>Active Directory'de bilgisayar hesabını oluşturma
 Azure AD Connect'e bağlanan tüm ormanlarda bilgisayar hesabının oluşturulabilmesi için, her bir ormanda Etki Alanı Yöneticisi kimlik bilgilerini sağlamanız gerekir. Kimlik bilgileri yalnızca hesabı oluşturmak için kullanılır ve depolanmaz ya da başka bir işlem için kullanılmaz. Kimlik bilgisini Azure AD Connect sihirbazının **Çoklu oturum açmayı etkinleştirme** sayfasına eklemeniz gereklidir:
@@ -189,20 +192,20 @@ Azure AD Connect'e bağlanan tüm ormanlarda bilgisayar hesabının oluşturulab
 İstemcinin intranet bölgesinde otomatik olarak oturum açabilmesini sağlamak için URL'lerin intranet bölgesinin bir parçası olduğundan emin olmanız gerekir. Bunun yapılması, etki alanına katılan bilgisayarın kurumsal ağa bağlandığında Azure AD'ye otomatik olarak bir Kerberos anahtarı göndermesini sağlar.
 Grup İlkesi yönetim araçlarına sahip bir bilgisayarda.
 
-1.  Grup İlkesi Yönetimi araçlarını açın
-2.  Tüm kullanıcılara uygulanacak Grup ilkesini düzenleyin. Örneğin, Varsayılan Etki Alanı İlkesi.
-3.  **User Configuration\Administrative Templates\Windows Components\Internet Explorer\Internet Control Panel\Security Page** bölümüne gidin ve aşağıdaki şekilde gösterildiği gibi **Siteden Bölgeye Atama Listesi**'ni seçin.
-4.  İlkeyi etkinleştirin ve iletişim kutusuna aşağıdaki iki öğeyi girin.
+1.    Grup İlkesi Yönetimi araçlarını açın
+2.    Tüm kullanıcılara uygulanacak Grup ilkesini düzenleyin. Örneğin, Varsayılan Etki Alanı İlkesi.
+3.    **User Configuration\Administrative Templates\Windows Components\Internet Explorer\Internet Control Panel\Security Page** bölümüne gidin ve aşağıdaki şekilde gösterildiği gibi **Siteden Bölgeye Atama Listesi**'ni seçin.
+4.    İlkeyi etkinleştirin ve iletişim kutusuna aşağıdaki iki öğeyi girin.
 
-        Value: `https://autologon.microsoftazuread-sso.com`  
-        Data: 1  
-        Value: `https://aadg.windows.net.nsatc.net`  
-        Data: 1
+        Değer:`https://autologon.microsoftazuread-sso.com`  
+        Veriler: 1  
+        Değer:`https://aadg.windows.net.nsatc.net`  
+        Veriler: 1
 
-5.  Şunun gibi görünmelidir:  
+5.    Şunun gibi görünmelidir:  
 ![Intranet Bölgeleri](./media/active-directory-aadconnect-get-started-custom/sitezone.png)
 
-6.  İki kez **Tamam**'a tıklayın.
+6.    İki kez **Tamam**'a tıklayın.
 
 ## <a name="configuring-federation-with-ad-fs"></a>AD FS ile federasyonu yapılandırma
 Azure AD Connect ile AD FS'yi yalnızca birkaç tıklama ile kolayca yapılandırabilirsiniz. Yapılandırma için aşağıdakiler gereklidir.
@@ -316,6 +319,6 @@ Yüklemeyle etkinleştirilen özellikler hakkında daha fazla bilgi edinin: [Yan
 
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Feb17_HO3-->
 
 

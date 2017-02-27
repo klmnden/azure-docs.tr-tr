@@ -1,5 +1,5 @@
 ---
-title: "Application Insights ile ASP.NET Web uygulaması analizini ayarlama | Microsoft Belgeleri"
+title: "Azure Application Insights ile ASP.NET Web uygulaması analizi ayarlama | Microsoft Belgeleri"
 description: "Şirket içi veya Azure’de barındırılan ASP.NET web siteniz için performans, kullanılabilirlik ve kullanım analizi yapılandırın."
 services: application-insights
 documentationcenter: .net
@@ -14,192 +14,186 @@ ms.topic: get-started-article
 ms.date: 10/13/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 919f67a422faad2ba4c19e1f11f8e873098e8bd1
-ms.openlocfilehash: 9c27cfb674a7743c7cfe47b35b263da48c9c564e
+ms.sourcegitcommit: 13ff55ff06d0afd5e29ce85e7cc8e1c7e0a12a6c
+ms.openlocfilehash: b2e82cffa9c258d99dc26346851ebfc016d09839
 
 
 ---
-# <a name="set-up-application-insights-for-aspnet"></a>ASP.NET için Application Insights’ı ayarlama
-[Azure Application Insights](app-insights-overview.md), [performans sorunlarını ve özel durumlarını saptayıp tanılamanıza](app-insights-detect-triage-diagnose.md) ve [uygulamanızın nasıl kullanıldığını keşfetmenize](app-insights-overview-usage.md) yardımcı olmak amacıyla canlı uygulamanızı izler.  Azure web uygulamalarının yanı sıra şirket içi kendi IIS sunucularınızda veya bulut VM’lerinde ler barındırılan uygulamalar için çalışır.
+# <a name="set-up-application-insights-for-your-aspnet-website"></a>ASP.NET web siteniz için Application Insights'ı ayarlama
+[Azure Application Insights](app-insights-overview.md), [performans sorunlarını ve özel durumlarını algılamanıza ve tanılamanıza](app-insights-detect-triage-diagnose.md) yardımcı olmak için canlı uygulamanızı izler. Ayrca, [uygulamanızın nasıl kullanıldığını keşfetmenize](app-insights-overview-usage.md) de yardımcı olur. Azure App Service’in Web Apps özelliğinin yanı sıra, kendi şirket içi IIS sunucularınızda ya da bulut sanal makinelerinizde barındırılan uygulamalar için kullanılabilir.
 
 ## <a name="before-you-start"></a>Başlamadan önce
 Gerekenler:
 
 * Visual Studio 2013 güncelleştirme 3 veya sonraki bir sürümü. Ne kadar yeniyse o kadar iyidir.
-* Bir [Microsoft Azure](http://azure.com) aboneliği. Ekibinizin ve kuruluşunuzun Azure aboneliği varsa, sahibi [Microsoft hesabınızı](http://live.com) kullanarak sizi buna ekleyebilir. 
+* Bir [Microsoft Azure](http://azure.com) aboneliği. Takımınızın veya kuruluşunuzun Azure aboneliği varsa, abonelik sahibi [Microsoft hesabınızı](http://live.com) kullanarak sizi aboneliğe ekleyebilir.
 
-İlgileniyorsanız bakmak için alternatif makaleler de vardır:
+İlginizi çekiyorsa inceleyebileceğiniz alternatif konu başlıkları da mevcuttur:
 
-* [Çalışma zamanında web uygulamasını düzenleme](app-insights-monitor-performance-live-website-now.md)
-* [Azure Cloud services](app-insights-cloudservices.md)
+* [Çalışma zamanında bir web uygulamasını izleme](app-insights-monitor-performance-live-website-now.md)
+* [Azure Cloud Services](app-insights-cloudservices.md)
 
-## <a name="a-nameidea-1-add-application-insights-sdk"></a><a name="ide"></a> 1. Application Insights SDK’si ekleme
-### <a name="if-its-a-new-project"></a>Yeni bir projeyse...
-Visual Studio'da yeni bir proje oluşturduğunuzda, Application Insights’ın seçili olduğundan emin olun. 
+## <a name="a-nameidea-step-1-add-the-application-insights-sdk"></a><a name="ide"></a> 1. Adım: Application Insights SDK’yı ekleme
+Yeni bir proje üzerinde çalışıyorsanız, Visual Studio’da yeni proje oluştururken Application Insights’ın seçili olduğundan emin olun.
 
-![ASP.NET projesi oluşturma](./media/app-insights-asp-net/appinsights-01-vsnewp1.png)
+![Yeni ASP.NET projesinin ekran görüntüsü](./media/app-insights-asp-net/appinsights-01-vsnewp1.png)
 
-### <a name="-or-if-its-an-existing-project"></a>... veya mevcut bir projeyse
-Çözüm Gezgini'nde projeye sağ tıklayın ve **Application Insights Telemetrisi Ekle**’yi veya **Application Insights'ı Yapılandır**’ı seçin.
+Mevcut bir proje üzerinde çalışıyorsanız Çözüm Gezgini’nde projeye sağ tıklayıp **Application Insights Telemetrisi Ekle...** veya **Application Insights’ı Yapılandır**’ı seçin.
 
-![Application Insights Ekle’yi seçme](./media/app-insights-asp-net/appinsights-03-addExisting.png)
+![Application Insights Telemetrisi Ekle seçeneğinin vurgulandığı Çözüm Gezgini’nin ekran görüntüsü](./media/app-insights-asp-net/appinsights-03-addExisting.png)
 
-* ASP.NET Core projesi? - [Birkaç kod satırını düzeltmek için bu yönergeleri izleyin](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Getting-Started#add-application-insights-instrumentation-code-to-startupcs). 
+> [!NOTE]
+> Bir ASP.NET Core projesi üzerinde çalışıyorsanız [bu yönergeleri izleyerek birkaç satır kodu düzeltin](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Getting-Started#add-application-insights-instrumentation-code-to-startupcs).
 
-## <a name="a-nameruna-2-run-your-app"></a><a name="run"></a> 2. Uygulamanızı çalıştırma
-F5 ile uygulamanızı çalıştırın ve deneyin: Birkaç telemetri oluşturmak için farklı sayfalar açın.
+## <a name="a-nameruna-step-2-run-your-app"></a><a name="run"></a> 2. Adım: Uygulamanızı çalıştırma
+F5 tuşuna basarak uygulamanızı çalıştırın. Farklı sayfalar açarak telemetri verileri oluşturun.
 
-Visual Studio'da, günlüğe kaydedilmiş etkinliklerin sayısını görürsünüz. 
+Visual Studio'da, günlüğe kaydedilmiş etkinliklerin sayısını görürsünüz.
 
-![Visual Studio'da, hata ayıklama sırasında Application Insights düğmesi gösterilir.](./media/app-insights-asp-net/54.png)
+![Visual Studio’nun ekran görüntüsü. Hata ayıklama sırasında Application Insights düğmesi görünür.](./media/app-insights-asp-net/54.png)
 
-## <a name="3-see-your-telemetry"></a>3. Telemetrinize bakın…
-### <a name="-in-visual-studio"></a>...Visual Studio’da
-Visual Studio'da Application Insights penceresini açın: Application Insights düğmesine tıklayın ya da Çözüm Gezgini'nde projenize sağ tıklayın, `Application Insights` öğesini seçin ve ardından `Search Live Telemetry` seçeneğine tıklayın:
+## <a name="step-3-see-your-telemetry-in-visual-studio-or-application-insights"></a>3. Adım: Visual Studio’da veya Application Insights’ta telemetrinizi görme
+Visual Studio’da veya Application Insights web portalında telemetrinizi görebilirsiniz.
 
-![Visual Studio'da, hata ayıklama sırasında Application Insights düğmesi gösterilir.](./media/app-insights-asp-net/55.png)
+**Visual Studio’da** Application Insights penceresini açın. **Application Insights** düğmesine tıklayın veya Çözüm Gezgini’nden projenize sağ tıklayıp **Application Insights**’ı seçin ve ardından **Canlı Telemetride Ara**’ya tıklayın.
 
-Bu görünümde ("Hata ayıklama oturumu verileri"), uygulamanızın sunucu tarafında oluşturulan telemetri gösterilmektedir. Filtrelerle denemeler yapın ve daha fazla ayrıntı için herhangi bir etkinliğe tıklayın.
+Visual Studio Application Insights Arama penceresinde, uygulamanızın sunucu tarafında oluşturulan telemetri için **Hata Ayıklama oturumundan alınan veriler** görünümüne bakın. Filtrelerle denemeler yapın ve daha fazla ayrıntı için herhangi bir etkinliğe tıklayın.
 
-* *Veri yok mu? Zaman aralığının doğru olduğundan emin olun ve Arama simgesine tıklayın.*
+![Application Insights penceresindeki Hata ayıklama oturumundan alınan veriler görünümünün ekran görüntüsü.](./media/app-insights-asp-net/55.png)
+
+> [!NOTE]
+> Herhangi bir veri gösterilmiyorsa zaman aralığının doğru olduğundan emin olup Ara simgesine tıklayın.
 
 [Visual Studio’daki Application Insights araçları hakkında daha fazla bilgi edinin](app-insights-visual-studio.md).
 
-<a name="monitor"></a> 
+<a name="monitor"></a>
+### <a name="the-application-insights-web-portal"></a>Application Insights web portalı
+Yalnızca SDK’yı yüklemeyi seçmediyseniz telemetriyi **Application Insights web portalında** da görüntüleyebilirsiniz. Portalda Visual Studio’dakinden daha çok grafik, analiz aracı ve pano bulunur.
 
-### <a name="-in-the-portal"></a>... portalda
-*Yalnızca SDK Yükle* ’yu seçtiğiniz sürece Application Insights web portalındaki telemetriyi de görebilirsiniz. 
+Application Insights kaynağınızı açın. [Azure portalında](https://portal.azure.com/) oturum açıp portalda bulun ya da Visual Studio’da projeye sağ tıklayıp sizi yönlendirmesini sağlayın.
 
-Portalda Visual Studio’ya göre daha fazla grafik, analiz aracı ve pano bulunur. 
+![Visual Studio’da Application Insights portalının nasıl açılacağını gösteren ekran görüntüsü](./media/app-insights-asp-net/appinsights-04-openPortal.png)
 
-Application Insights kaynağınızı açın. [Azure portalında](https://portal.azure.com/) oturum açıp verileri burada arayın veya Visual Studio'da projeye sağ tıklayarak verilere ulaşın.
+> [!NOTE]
+> Erişim hatası alırsanız birden çok Microsoft kimlik bilgileri kümeniz olabilir ve yanlış kümeyle oturum açmış olabilirsiniz. Portalda oturumunuzu kapatıp yeniden oturum açın.
 
-![Projenize sağ tıklayıp Azure portalını açın](./media/app-insights-asp-net/appinsights-04-openPortal.png)
-
-* *Erişim hatası mı alıyorsunuz? Birden fazla Microsoft kimlik bilgisine sahipseniz yanlış bilgilerle oturum açmış olabilirsiniz. Portalda oturumu kapatın ve yeniden oturum açın.*
-
-Portal, uygulamanızdan telemetrinin bir görünümünü açar: ![Application Insights Genel Bakış sayfası](./media/app-insights-asp-net/66.png)
+Portal, uygulamanızdan alınan telemetri görünümünde açılır.
+![Application Insights’a genel bakış sayfasının ekran görüntüsü](./media/app-insights-asp-net/66.png)
 
 Daha fazla ayrıntı görmek istediğiniz kutucuğa veya grafiğe tıklayın.
 
-### <a name="more-detail-in-the-portal"></a>Portalda daha fazla ayrıntı
+### <a name="more-details-in-the-application-insights-web-portal"></a>Application Insights web portalında daha fazla ayrıntı sunulur
+İşte portalın sizin için nasıl daha fazla ayrıntı sağladığıyla ilgili birkaç örnek.
 
 * [**Canlı Ölçüm Akışı**](app-insights-live-stream.md) neredeyse anlık telemetriyi görüntüler.
 
-    ![Genel Bakış dikey penceresinden Canlı Akış'a tıklayın](./media/app-insights-asp-net/livestream.png)
+    ![Portalın ekran görüntüsü. Genel Bakış dikey penceresinden Canlı Akış’a tıklayın.](./media/app-insights-asp-net/livestream.png)
 
-    Bağlantı kurulması için Canlı Akış'ı uygulamanız çalışırken açın.
+    Uygulamanız çalıştığı sırada Canlı Ölçüm Akışı’nı açın ve bunların bağlanmasına izin verin.
 
-    Canlı Akış'ta gönderilen telemetri yalnızca bir dakika boyunca görüntülenir. Daha eski verileri araştırmak için Search, Ölçüm Gezgini ve Analiz özelliklerini kullanın. Verilerin bu sayfalarda görünmesi birkaç dakika sürebilir.
+    Canlı Ölçüm Akışı, yalnızca gönderildiği andan sonraki bir dakikaya ait telemetriyi gösterir. Daha eski verileri araştırmak için Search, Ölçüm Gezgini ve Analiz özelliklerini kullanın. Verilerin bu sayfalarda görünmesi birkaç dakika sürebilir.
 
-* [**Search**](app-insights-diagnostic-search.md) istekler, özel durumlar ve sayfa görünümleri gibi bağımsız olayları gösterir. Olay türü, terim eşleşmesi ve özellik değerlerine göre filtreleyebilirsiniz. Olaylara tıklayarak özelliklerini ve ilgili olayları görebilirsiniz. 
+* [**Search**](app-insights-diagnostic-search.md), istekler, özel durumlar ve sayfa görüntüleme sayısı gibi tek tek olayları gösterir. Olay türü, terim eşleşmesi ve özellik değerlerine göre filtreleyebilirsiniz. Olaylara tıklayarak özelliklerini ve ilgili olayları görebilirsiniz.
 
-    ![Genel Bakış dikey penceresinden Search’e tıklayın](./media/app-insights-asp-net/search.png)
+    ![Portalın ekran görüntüsü. Genel Bakış dikey penceresinden Ara’ya tıklayın.](./media/app-insights-asp-net/search.png)
 
- * Geliştirme modunda, çok sayıda bağımlılık (AJAX) olayı görebilirsiniz. Bunlar tarayıcı ve sunucu öykünücüsü arasındaki eşitleme işlemleridir. Bunları gizlemek için Bağımlılık filtresine tıklayın.
-* Grafiklerde istek ve hata oranları gibi [**toplu ölçümler**](app-insights-metrics-explorer.md) görüntülenir. Daha ayrıntılı bilginin bulunduğu dikey pencereyi açmak için herhangi bir grafiğe tıklayın. Filtreleri, boyutu ve diğer özellikleri ayarlamak için grafiklerin **Düzenle** etiketine tıklayın.
-    
-    ![Genel Bakış dikey penceresinde herhangi bir grafiğe tıklayın](./media/app-insights-asp-net/metrics.png)
+ * Geliştirme modunda, çok sayıda bağımlılık (AJAX) olayı görebilirsiniz. Bunlar tarayıcı ve sunucu öykünücüsü arasındaki eşitleme işlemleridir. Bunları gizlemek için **Bağımlılık** filtresine tıklayın.
+* Grafiklerde istek ve hata oranları gibi [**toplu ölçümler**](app-insights-metrics-explorer.md) görüntülenir. Daha ayrıntılı bilginin bulunduğu dikey pencereyi açmak için herhangi bir grafiğe tıklayın. Herhangi bir grafiğin filtrelerini ve boyutunu ayarlamak için **Düzenle** etiketine tıklayın.
+
+    ![Portalda sağlanan toplu ölçümler dikey penceresinin ekran görüntüsü](./media/app-insights-asp-net/metrics.png)
 
 [Azure portalında Application Insights kullanma hakkında daha fazla bilgi edinin](app-insights-dashboards.md).
 
-## <a name="4-publish-your-app"></a>4. Uygulamanızı yayımlama
+## <a name="step-4-publish-your-app"></a>4. Adım: Uygulamanızı yayımlama
 Uygulamanızı IIS sunucunuza veya Azure’a yayımlayın. Her şeyin sorunsuz çalıştığından emin olmak için [Canlı Ölçümler Akışı](app-insights-metrics-explorer.md#live-metrics-stream)’nı izleyin.
 
-Telemetrinizin Application Insights portalında oluşturulduğunu görebilir ve burada ölçümleri izleyebilir, telemetrinizde arama yapabilir ve [panolar](app-insights-dashboards.md) ayarlayabilirsiniz. Ayrıca, kullanım ve performansı analiz etmek veya belirli olayları bulmak için güçlü [Analytics sorgu dilini](app-insights-analytics.md) kullanabilirsiniz. 
+Telemetriniz Application Insights portalında biriktirilir ve burada ölçümlerinizi izleyebilir, telemetrinizde arama yapabilir ve [panolar](app-insights-dashboards.md) ayarlayabilirsiniz. Ayrıca, güçlü [Analiz sorgu dili](app-insights-analytics.md)’ni kullanarak kullanımı ve performansı analiz edebilir ya da belirli olayları bulabilirsiniz.
 
-Tanılama araması ve [Eğilimler](app-insights-visual-studio-trends.md) gibi araçları kullanarak, [Visual Studio](app-insights-visual-studio.md)’da telemetrinizi analiz etmeye devam edebilirsiniz.
+Telemetrinizi tanılama araması ve [eğilimler](app-insights-visual-studio-trends.md) gibi araçlarla [Visual Studio](app-insights-visual-studio.md)’da analiz etmeye de devam edebilirsiniz.
 
 > [!NOTE]
 > Uygulamanız [azaltma sınırlarına](app-insights-pricing.md#limits-summary) yaklaşmak için yeterli telemetri gönderiyorsa, otomatik [örnekleme](app-insights-sampling.md) etkinleştirilir. Örnekleme, tanılama amaçlı bağlantı verilerini korurken uygulamanızdan gönderilen telemetri miktarını azaltır.
-> 
-> 
+>
+>
 
-## <a name="a-namelanda-what-did-add-application-insights-do"></a><a name="land"></a> ‘Application Insights Ekle’ seçeneği ne yapar?
-Application Insights telemetriyi uygulamanızdan Application Insights portalına (Microsoft Azure’de barındırılır) gönderir:
+## <a name="a-namelanda-what-does-the-add-application-insights-command-do"></a><a name="land"></a> Application Insights Ekle komutu ne işe yarar?
+Application Insights, uygulamanızdan alınan telemetriyi Azure’da barındırılan Application Insights portalına gönderir.
 
-![](./media/app-insights-asp-net/01-scheme.png)
+![Telemetri hareketlerinin diyagramı](./media/app-insights-asp-net/01-scheme.png)
 
-Sonuçta komut şu üçünü yapar:
+Yani bu komut üç işe yarar:
 
-1. Application Insights Web SDK NuGet paketini projenize ekleyin. Visual Studio’da görmek için, projenize sağ tıklayın ve NuGet Paketlerini Yönet’i seçin.
-2. Application Insights kaynağını [Azure portalında](https://portal.azure.com/) oluşturun. Verilerinizi göreceğiniz yer burasıdır. Kaynağı belirten *izleme anahtarını* alır.
+1. Projenize Application Insights Web SDK’sı NuGet paketini ekler. Paketi Visual Studio’da görmek için projenize sağ tıklayıp **NuGet Paketlerini Yönet**’i seçin.
+2. [Azure portalında](https://portal.azure.com/) bir Application Insights kaynağı oluşturur. Verilerinizi burada görürsünüz. Kaynağı tanımlayan *izleme anahtarını* alır.
 3. İzleme anahtarını `ApplicationInsights.config` öğesine ekler, böylece SDK portala telemetri gönderebilir.
 
 İsterseniz bu adımları [ASP.NET 4](app-insights-windows-services.md) veya [ASP.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Getting-Started) için el ile uygulayabilirsiniz.
 
-### <a name="to-upgrade-to-future-sdk-versions"></a>Gelecekteki SDK sürümlerine yükseltmek için
-[SDK'nın yeni sürümüne](https://github.com/Microsoft/ApplicationInsights-dotnet-server/releases) yükseltme yapmak için NuGet paket yöneticisini yeniden açın ve yüklü paketleri filtreleyin. Microsoft.ApplicationInsights.Web’i ve Yükselt’i seçin.
+### <a name="upgrade-to-future-sdk-versions"></a>Gelecek SDK sürümlerine yükseltme
+[SDK’nın yeni bir sürümüne](https://github.com/Microsoft/ApplicationInsights-dotnet-server/releases) yükseltmek için **NuGet paket yöneticisini** yeniden açıp yüklü paketleri filtreleyin. **Microsoft.ApplicationInsights.Web**’i seçip **Yükselt**’i seçin.
 
-ApplicationInsights.config dosyasında herhangi bir özelleştirme yaptıysanız yükseltmeden önce bir kopyasını kaydedin ve daha sonra değişikliklerinizi yeni sürümle birleştirin.
+ApplicationInsights.config’de herhangi bir özelleştirme gerçekleştirdiyseniz yükseltmeden önce dosyanın bir kopyasını kaydedin. Daha sonra, yaptığınız değişiklikleri yeni sürümle birleştirin.
 
 ## <a name="add-more-telemetry"></a>Daha fazla telemetri ekleme
+Ekleyebileceğiniz diğer telemetri türleri aşağıda verilmiştir.
 ### <a name="dependencies-exceptions-and-performance-counters"></a>Bağımlılıklar, özel durumlar ve performans sayaçları
 
-Web uygulamalarınız hakkında ek telemetri almak için IIS sunucu makinelerinin her birine [Durum İzleyicisi’ni yükleyin](http://go.microsoft.com/fwlink/?LinkId=506648).
-
-Zaten yüklüyse, herhangi bir şey yapmanız gerekmez. 
-
-Daha önce bir uygulamayı çalışma zamanında izlemeye başlamak için durum izleyicisini kullanmış olabilirsiniz. 
+Web uygulamalarınız hakkında ek telemetri edinmek için her IIS sunucusu makinesine [durum izleyicisini yükleyin](http://go.microsoft.com/fwlink/?LinkId=506648). Zaten yüklüyse, herhangi bir şey yapmanız gerekmez. (Uygulamayı çalışma zamanında izlemeye başlamak için durum izleyicisini zaten kullanmış olabilirsiniz.)
 
 Derleme zamanı SDK'sının yanı sıra durum izleyicisini kullanarak, aşağıdakileri içeren daha kapsamlı bir telemetri elde edersiniz:
 
-* [Performans sayaçları](app-insights-performance-counters.md) - 
-  Uygulamanıza ilişkin CPU, bellek, disk ve diğer performans sayaçları. 
-* [Özel durumlar](app-insights-asp-net-exceptions.md) - bazı özel durumlar için daha ayrıntılı telemetri.
-* [Bağımlılıklar](app-insights-asp-net-dependencies.md) - dönüş değerleri dahil.
+* [Performans sayaçları](app-insights-performance-counters.md): CPU, bellek, disk ve uygulamanızla ilgili diğer performans sayaçları.
+* [Özel durumlar](app-insights-asp-net-exceptions.md): Bazı özel durumlar için daha ayrıntılı telemetri.
+* [Bağımlılıklar](app-insights-asp-net-dependencies.md): Dönüş değerlerini içerir.
 
-### <a name="web-pages-and-single-page-apps"></a>Web sayfaları ve tek sayfalık uygulamalar
-1. Sayfa görüntülemeleri, yükleme süreleri, tarayıcı özel durumları, AJAX çağrı performansı, kullanıcı ve oturum sayıları hakkında veri içeren Tarayıcı ve Kullanım dikey pencerelerini açmak için web sayfalarına [JavaScript kod parçacığını ekleyin](app-insights-javascript.md).
+### <a name="webpages-and-single-page-apps"></a>Web sayfaları ve tek sayfalı uygulamalar
+1. Sayfa görüntüleme sayısı, yükleme süreleri, tarayıcı özel durumları, AJAX çağrı performansı, kullanıcı ve oturum sayıları ile ilgili verileri görmek için web sayfalarınıza [JavaScript kod parçacığını](app-insights-javascript.md) ekleyin. Bunlar Tarayıcı ve Kullanım dikey pencerelerinde görünür.
 2. Kullanıcı eylemlerini saymak, zamanlamak veya ölçmek için [özel olaylar kodlayın](app-insights-api-custom-events-metrics.md).
 
 
 ### <a name="diagnostic-code"></a>Tanılama kodu
 Sorun mu yaşıyorsunuz? Tanılamasına yardımcı olmak için uygulamanıza kod eklemek isterseniz birkaç farklı seçenekten yararlanabilirsiniz:
 
-* [Günlük izlemelerini alma](app-insights-asp-net-trace-logs.md): İzleme olaylarını günlüğe kaydetmek için zaten Log4N, NLog veya System.Diagnostics.Trace’i kullanıyorsanız çıkış, isteklerle ilişkilendirmeniz, arama yapabilmeniz ve çözümleyebilmeniz için Application Insights’a gönderilebilir. 
-* [Özel olaylar ve ölçümler](app-insights-api-custom-events-metrics.md): Sunucu veya web sayfası kodunda TrackEvent() ve TrackMetric() öğesini kullanın.
-* [Ek özelliklere sahip etiket telemetrisi](app-insights-api-filtering-sampling.md#add-properties)
+* [Günlük izlemelerini yakalama](app-insights-asp-net-trace-logs.md): Olayları günlükle izlemek için zaten Log4N, NLog veya System.Diagnostics.Trace kullanıyorsanız çıktı Application Insights’a gönderilebilir. Bu çıktıyı isteklerle ilişkilendirebilir, analiz edebilir ve çıktıda arama yapabilirsiniz.
+* [Özel olaylar ve ölçümler](app-insights-api-custom-events-metrics.md): Sunucu veya web sayfası kodunda TrackEvent() ve TrackMetric() kullanın.
+* [Telemetriyi ek özelliklerle etiketleyin](app-insights-api-filtering-sampling.md#add-properties).
 
 Belirli olayları bulmak ve ilişkilendirmek için [Arama](app-insights-diagnostic-search.md)’yı ve daha güçlü sorgular gerçekleştirmek için [Analiz](app-insights-analytics.md)’i kullanın.
 
 ## <a name="alerts"></a>Uyarılar
-Uygulamanızda sorun olup olmadığını ilk siz öğrenin. (Kullanıcılarınızın size söylemesini beklemeyin!) 
+Uygulamanızda sorun olup olmadığını ilk siz öğrenin.
 
-* Sitenizin web’de göründüğünden emin olmak için [web testleri oluşturun](app-insights-monitor-web-app-availability.md).
-* [Proaktif tanılama](app-insights-proactive-diagnostics.md) otomatik olarak çalışır (uygulamanızda belirlenen en düşük miktarda bir trafik varsa). Bunları ayarlamak için bir şey yapmanıza gerek yoktur. Uygulamanızda olağan dışı oranda başarısız istek olup olmadığını bildirirler.
-* Bir ölçüm eşiği aştığında sizi uyaracak [ölçüm uyarıları ayarlayın](app-insights-alerts.md). Bunları, uygulamanıza kodladığınız özel ölçümlerde ayarlayabilirsiniz.
+* [Kullanılabilirlik testleri](app-insights-monitor-web-app-availability.md): Sitenizin web’de görünür olduğundan emin olmaya yönelik testler oluşturun.
+* [Akıllı tanılama](app-insights-proactive-diagnostics.md): Bu testler otomatik olarak çalıştığından, bunları ayarlamak için herhangi bir şey yapmanız gerekmez. Uygulamanızda olağan dışı oranda başarısız istek olup olmadığını bildirirler.
+* [Ölçüm uyarıları](app-insights-alerts.md): Bir metrik tarafından herhangi bir eşiğin aşılması durumunda uyarı almak için bunları ayarlayın. Bunları, uygulamanıza kodladığınız özel ölçümlerde ayarlayabilirsiniz.
 
-Varsayılan olarak, uyarı bildirimleri Azure aboneliğinin sahibine gönderilir. 
+Varsayılan olarak, uyarı bildirimleri Azure aboneliğinin sahibine gönderilir.
 
-![uyarı e-posta örneği](./media/app-insights-asp-net/alert-email.png)
+![Örnek uyarı e-postasının ekran görüntüsü](./media/app-insights-asp-net/alert-email.png)
 
 ## <a name="version-and-release-tracking"></a>Sürüm ve sürüm izleme
-### <a name="track-application-version"></a>Uygulama sürümünü izleme
-`buildinfo.config` öğesinin MSBuild işleminiz tarafından oluşturulduğundan emin olun. .csproj dosyanızda şunları ekleyin:  
+Uygulama sürümünü izlemek için `buildinfo.config` dosyasının Microsoft Build Engine işleminiz tarafından oluşturulduğundan emin olun. .csproj dosyanızda şunları ekleyin:  
 
 ```XML
 
     <PropertyGroup>
       <GenerateBuildInfoConfigFile>true</GenerateBuildInfoConfigFile>    <IncludeServerNameInBuildInfo>true</IncludeServerNameInBuildInfo>
-    </PropertyGroup> 
+    </PropertyGroup>
 ```
 
-Yapı bilgisi mevcut olduğunda Application Insights web modülü **Uygulama sürümünü** telemetrinin her bir öğesine bir özellik olarak ekler. Bunu yaptığınızda, [tanılama aramaları](app-insights-diagnostic-search.md) gerçekleştirirken veya [ölçümleri keşfederken](app-insights-metrics-explorer.md) sürüme göre filtreleyebilirsiniz. 
+Yapı bilgisi mevcut olduğunda Application Insights web modülü **Uygulama sürümünü** telemetrinin her bir öğesine bir özellik olarak ekler. Bu sayede, [tanılama aramaları](app-insights-diagnostic-search.md) gerçekleştirirken veya [ölçümleri keşfederken](app-insights-metrics-explorer.md) sürüme göre filtreleyebilirsiniz.
 
-Ancak, derleme sürüm numarasının Visual Studio’daki geliştirici derlemesi tarafından değil, yalnızca MS Build tarafından oluşturulduğuna dikkat edin.
+Bununla birlikte, derleme sürüm numarasının Visual Studio’daki geliştirici derlemesi tarafından değil de yalnızca Microsoft Build Engine tarafından oluşturulduğunu fark edersiniz.
 
 ### <a name="release-annotations"></a>Sürüm ek açıklamaları
-Visual Studio Team Services’ı kullanıyorsanız yeni bir sürüm yayımladığınızda grafiklerinize [ek açıklama işaretçisi](app-insights-annotations.md) eklenmesini sağlayabilirsiniz.
+Visual Studio Team Services’ı kullanıyorsanız yeni bir sürüm yayımladığınızda grafiklerinize [ek açıklama işaretçisi](app-insights-annotations.md) eklenmesini sağlayabilirsiniz. Aşağıdaki görüntüde bu işaretin nasıl göründüğü gösterilmiştir.
 
-![sürüm ek açıklama örneği](./media/app-insights-asp-net/release-annotation.png)
+![Bir grafikteki örnek sürüm ek açıklamasının ekran görüntüsü](./media/app-insights-asp-net/release-annotation.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-|  |
-| --- | --- |
-| **[Visual Studio’da Application Insights ile çalışma](app-insights-visual-studio.md)**<br/>Telemetriyle hata ayıklama, tanılama arama, kodun ayrıntısına gitme. |
-| **[Application Insights portalıyla çalışma](app-insights-dashboards.md)**<br/>Panolar, güçlü tanılama ve analiz araçları, uyarılar, uygulamanızın canlı bağımlılık haritası ve telemetriyi dışarı aktarma. |
+**[Visual Studio’da Application Insights ile çalışma](app-insights-visual-studio.md)**<br/>Telemetri, tanılama araması ve kodun detayına gitme ile hata ayıklama hakkında bilgi içerir.
 
+**[Application Insights portalıyla çalışma](app-insights-dashboards.md)**<br/> Panolar, güçlü tanılama ve analiz araçları, uyarılar, uygulamanızın canlı bağımlılık haritası ve telemetriyi dışarı aktarma hakkında bilgi içerir.
 
 
 
