@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 2/14/2017
+ms.date: 2/21/2017
 ms.author: negat
 translationtype: Human Translation
 ms.sourcegitcommit: db84d2b03ad1542a898c2c452e62a3f7ef7e6af8
@@ -35,7 +35,7 @@ Azure [sanal makine ölçek kümeleri](/azure/virtual-machine-scale-sets/), art�
 
 Yönetilen disk ölçek kümelerini kullanmaya başlamanın basit bir yolu bunların birini Azure portalından dağıtmaktır. Daha fazla bilgi için [bu makaleye](./virtual-machine-scale-sets-portal-create.md) bakın. Başlamak için başka bir basit yol da [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) ile bir ölçek kümesi dağıtmaktır. Aşağıdaki örnekte, her biri 50 GB ve 100 GB’lık veri disklerine sahip 10 VM içeren Ubuntu tabanlı bir ölçek kümesinin nasıl oluşturulacağı gösterilmektedir:
 
-```bash
+```azurecli
 az group create -l southcentralus -n dsktest
 az vmss create -g dsktest -n dskvmss --image ubuntults --instance-count 10 --data-disk-sizes-gb 50 100
 ```
