@@ -1,6 +1,6 @@
 ---
 title: "Çalışma alanlarını yönetme | Microsoft Belgeleri"
-description: "Kullanıcılar, hesaplar, çalışma alanları ve Azure hesapları ile ilgili çeşitli yönetim görevlerini kullanarak Log Analytics&quot;teki çalışma alanlarını yönetin."
+description: "Kullanıcılar, hesaplar, çalışma alanları ve Azure hesapları ile ilgili çeşitli yönetim görevlerini kullanarak Azure Log Analytics&quot;teki çalışma alanlarını yönetin."
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -12,11 +12,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/03/2017
+ms.date: 02/17/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 96a971c31f9088b3aa409a85f0679fd3bd5945d1
-ms.openlocfilehash: 4dc1bfa1e385e945c47bbfc5faa776e577ee84b2
+ms.sourcegitcommit: 9ee8f4aafcc35e43c4fcba5a3a72b043dd9fc32c
+ms.openlocfilehash: 1d330362389ee690dc2942c9bb1bc32e1f10e08a
+ms.lasthandoff: 02/21/2017
 
 
 ---
@@ -97,10 +98,13 @@ Azure portalı hakkında dikkate alınması gereken bazı noktalar:
 
   URL şuna benzer: `https://eus.mms.microsoft.com/?tenant=contoso.com&resource=%2fsubscriptions%2faaa5159e-dcf6-890a-a702-2d2fee51c102%2fresourcegroups%2fdb-resgroup%2fproviders%2fmicrosoft.operationalinsights%2fworkspaces%2fmydemo12`
 
+Örneğin, bir kullanıcının yönetim çözümleri ekleyip kaldırabilmesi için Azure portalını kullandığı sırada Azure aboneliğinin yöneticisi veya katılımcısı olması gerekir. Buna ek olarak, kullanıcının OMS portalındaki OMS çalışma alanı katılımcısı veya yöneticisi rolünün üyesi olması gerekir.
+
 ### <a name="managing-users-in-the-oms-portal"></a>OMS portalında kullanıcıları yönetme
 Ayarlar sayfasının **Hesaplar** sekmesinin altında yer alan **Kullanıcıları Yönet** sekmesinde kullanıcıları ve grupları yönetebilirsiniz.   
 
 ![Kullanıcıları yönetme](./media/log-analytics-manage-access/setup-workspace-manage-users.png)
+
 
 #### <a name="add-a-user-to-an-existing-workspace"></a>Mevcut bir çalışma alanına kullanıcı ekleme
 Bir çalışma alanına kullanıcı veya grup eklemek için aşağıdaki adımları kullanın.
@@ -295,9 +299,4 @@ Bir yöneticiyseniz ve çalışma alanıyla ilişkilendirilmiş birden çok kull
 * Aracı eklemek ve veri toplamak için bkz. [Windows bilgisayarlarını Log Analytics'e bağlama](log-analytics-windows-agents.md).
 * İşlev eklemek ve veri toplamak için bkz. [Çözüm Galerisinden Log Analytics çözümleri ekleme](log-analytics-add-solutions.md).
 * Kuruluşunuz, aracıların Log Analytics hizmetiyle iletişim kurabilmeleri için bir ara sunucu veya güvenlik duvarı kullanıyorsa bkz. [Log Analytics'te ara sunucu ve güvenlik duvarı ayarlarını yapılandırma](log-analytics-proxy-firewall.md).
-
-
-
-<!--HONumber=Feb17_HO1-->
-
 

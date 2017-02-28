@@ -15,8 +15,9 @@ ms.topic: get-started-article
 ms.date: 01/02/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 668cde23cb717fcad52fd7823561d10735e6df1b
+ms.sourcegitcommit: 7e3d4b83fefdc70f292cf85b682cf8ed756bf4c5
+ms.openlocfilehash: e7f04df679604f274c8ad9bf4daddc63c8b5418a
+ms.lasthandoff: 02/22/2017
 
 
 ---
@@ -47,6 +48,12 @@ Günlük kullanım limitini aştıysanız veya aşmak üzereyseniz, OMS hizmetin
     - Verileri toplamak ve dizinlemek için harcanan süre
 - Sorgu listesi
 
+## <a name="understanding-nodes-for-oms-offers"></a>OMS teklifleri için düğümleri anlama
+
+*Düğüm başına (OMS)* fiyatlandırma katmanındaysanız etkinleştirdiğiniz düğüm ve çözüm sayısına göre ücretlendirilirsiniz. Kullanım panosunun *teklifler* bölümünde her tekliften kaç düğümün kullanıldığını görebilirsiniz.
+
+![kullanım panosu](./media/log-analytics-usage/log-analytics-usage-offerings.png)
+
 ## <a name="to-work-with-usage-data"></a>Kullanım verileriyle çalışma
 1. Önceden yapmadıysanız Azure aboneliğinizi kullanarak [Azure portalında](https://portal.azure.com) oturum açın.
 2. **Hub** menüsünde **Diğer hizmetler**’e tıklayıp kaynak listesinde **Log Analytics** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. **Log Analytics**’i tıklayın.  
@@ -63,9 +70,4 @@ Günlük kullanım limitini aştıysanız veya aşmak üzereyseniz, OMS hizmetin
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Toplanan ve OMS’ye gönderilen ayrıntılı bilgileri özelliklere ve çözümlere göre görüntülemek için [Log Analytics’te günlük aramaları](log-analytics-log-searches.md) sayfasına bakın.
-
-
-
-<!--HONumber=Dec16_HO1-->
-
 

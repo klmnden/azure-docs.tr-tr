@@ -1,5 +1,5 @@
 ---
-title: "Karma şirket içi uygulama/bulut uygulaması (.NET) | Microsoft Belgeleri"
+title: "Azure WCF Geçişi karma şirket içi uygulama/bulut uygulaması (.NET) | Microsoft Belgeleri"
 description: "Azure WCF Geçişini kullanarak karma .NET şirket içi uygulama/bulut uygulaması oluşturmayı öğrenin."
 services: service-bus-relay
 documentationcenter: .net
@@ -12,17 +12,18 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 09/16/2016
+ms.date: 02/16/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 385eb87ec32f5f605b28cc8c76b1c89c7e90bfec
-ms.openlocfilehash: 0288b0dda9139c28da28fedfe39c4e9156c6c938
+ms.sourcegitcommit: 94f4d852aeaed1eec20f178e2721650660ebec49
+ms.openlocfilehash: ae5e08e7a5c483fd89390580647722b2c9da0ecb
+ms.lasthandoff: 02/16/2017
 
 
 ---
 # <a name="net-on-premisescloud-hybrid-application-using-azure-wcf-relay"></a>Azure WCF Geçişini kullanan karma .NET şirket içi uygulama/bulut uygulaması
 ## <a name="introduction"></a>Giriş
-Bu makale, Microsoft Azure ve Visual Studio ile nasıl karma bulut uygulaması derleyeceğinizi açıklar. Öğretici Azure kullanımına ilişkin deneyim sahibi olmadığınızı varsayar. 30 dakikadan kısa sürede, birden çok Azure kaynağını kullanan ve bulutta çalışan bir uygulamaya sahip olacaksınız.
+Bu makale, Microsoft Azure ve Visual Studio ile nasıl karma bulut uygulaması derleyeceğinizi gösterir. Öğretici Azure kullanımına ilişkin deneyim sahibi olmadığınızı varsayar. 30 dakikadan kısa sürede, birden çok Azure kaynağını kullanan ve bulutta çalışan bir uygulamaya sahip olacaksınız.
 
 Şunları öğreneceksiniz:
 
@@ -36,7 +37,7 @@ Bu makale, Microsoft Azure ve Visual Studio ile nasıl karma bulut uygulaması d
 
 Çözüm mimarları, ölçek gereksinimlerini daha kolay bir şekilde karşılamak ve işlem maliyetlerini düşürmek için bulutu kullanmaya başlıyor. Bunu yaparken de çözümleri için yapı taşı olarak kullanmak istedikleri var olan hizmet varlıklarının kurumsal güvenlik duvarının içinde ve bulut çözümüyle kolayca erişilemeyecek konumda olduklarını fark ettiler. Birçok dahili hizmet, kurumsal ağ ucunda kolayca kullanıma sunulabilecek şekilde derlenmez veya barındırılmaz.
 
-Azure Geçişi ise var olan Windows Communication Foundation (WCF) web hizmetlerinin alınmasına yönelik kullanım durumu için tasarlanmıştır. Aynı zamanda, kurumsal ağ altyapısına müdahale eden değişikliklere gerek olmadan bu web hizmetlerinin kurumsal çevre dışında bulunan çözümlere güvenli bir şekilde erişmesini sağlama işlevini de üstlenir. Bu tür geçişi hizmetleri, var olan ortamlarında barındırılmaya devam eder ancak bu hizmetler gelen oturumları ve istekleri bulutta barındırılan geçiş hizmetine devreder. Ayrıca, Azure Geçişi bu hizmetleri [Paylaşılan Erişim İmzası](../service-bus-messaging/service-bus-sas-overview.md) (SAS) kimlik doğrulaması kullanarak yetkilendirilmemiş erişime karşı korur.
+[Azure Geçişi](https://azure.microsoft.com/services/service-bus/) ise mevcut Windows Communication Foundation (WCF) web hizmetlerinin alınarak kurumsal ağ altyapısını bozan değişikliklere gerek kalmadan kurumsal çevre dışında bulunan çözümlere güvenli bir şekilde erişmesini sağlamaya yönelik kullanım senaryosu için tasarlanmıştır. Bu tür geçişi hizmetleri, var olan ortamlarında barındırılmaya devam eder ancak bu hizmetler gelen oturumları ve istekleri bulutta barındırılan geçiş hizmetine devreder. Ayrıca, Azure Geçişi [Paylaşılan Erişim İmzası (SAS)](../service-bus-messaging/service-bus-sas.md) kimlik doğrulaması kullanarak bu hizmetleri yetkilendirilmemiş erişime karşı korur.
 
 ## <a name="solution-scenario"></a>Çözüm senaryosu
 Bu öğreticide, ürün stoğu sayfasındaki ürünlerin listesini görmenize olanak sağlayan bir ASP.NET web sitesi oluşturacaksınız.
@@ -50,18 +51,16 @@ Aşağıdaki görüntü, tamamlanan web uygulamasının başlangıç sayfasında
 ![][1]
 
 ## <a name="set-up-the-development-environment"></a>Geliştirme ortamını ayarlama
-Azure uygulamalarını geliştirmeye başlamadan önce, araçları edinip geliştirme ortamınızı ayarlayın.
+Azure uygulamalarını geliştirmeye başlamadan önce, araçları indirip geliştirme ortamınızı ayarlayın:
 
-1. [Araç ve SDK edinme][Get Tools and SDK] sayfasında .NET için Azure SDK'sını yükleyin.
-2. Kullandığınız Visual Studio çözümü için **SDK'yi yükle**'ye tıklayın. Bu öğreticideki adımlarda Visual Studio 2015 kullanılır.
+1. SDK [indirme sayfasından](https://azure.microsoft.com/downloads/) .NET için Azure SDK'sını yükleyin.
+2. **.NET** sütununda, kullandığınız Visual Studio sürümüne tıklayın. Bu öğreticideki adımlarda Visual Studio 2015 kullanılır.
 3. Yükleyiciyi çalıştırmanız veya kaydetmeniz istendiğinde **Çalıştır**'a tıklayın.
 4. **Web Platformu Yükleyicisi**'nde **Yükle**'ye tıklayın ve kuruluma devam edin.
 5. Kurulum tamamlandığında uygulamayı geliştirmeye başlamak için gereken her şeye sahip olacaksınız. SDK, Visual Studio'da Azure uygulamalarını kolayca geliştirmenize olanak sağlayan araçları içerir. Visual Studio yüklü değilse SDK ücretsiz Visual Studio Express de yükler.
 
 ## <a name="create-a-namespace"></a>Ad alanı oluşturma
-Azure'da geçiş özelliklerini kullanmaya başlamak için öncelikle bir hizmet ad alanı oluşturmanız gerekir. Ad alanı, uygulamanızda bulunan Azure kaynaklarını adreslemek için içeriğin kapsamını belirleyen bir kapsayıcı sunar.
-
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
+Azure'da geçiş özelliklerini kullanmaya başlamak için öncelikle bir hizmet ad alanı oluşturmanız gerekir. Ad alanı, uygulamanızda bulunan Azure kaynaklarını adreslemek için içeriğin kapsamını belirleyen bir kapsayıcı sunar. [Buradaki yönergeleri](relay-create-namespace-portal.md) izleyerek bir Geçiş ad alanı oluşturun.
 
 ## <a name="create-an-on-premises-server"></a>Şirket içi sunucu oluşturma
 Öncelikle, bir (sahte) şirket içi ürün kataloğu sistemi derleyeceksiniz. Bu oldukça kolay bir işlemdir. Bu çalışmanın, entegre etmeye çalıştığımız tüm hizmet yüzeyini içeren gerçek bir şirket içi ürün kataloğu sistemini temsil ettiğini düşünebilirsiniz.
@@ -69,7 +68,7 @@ Azure'da geçiş özelliklerini kullanmaya başlamak için öncelikle bir hizmet
 Bu proje bir Visual Studio konsol uygulamasıdır ve Service Bus kitaplıkları ile yapılandırma ayarlarını dahil etmek için [Azure Service Bus NuGet paketini](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) kullanır.
 
 ### <a name="create-the-project"></a>Proje oluşturma
-1. Yönetici ayrıcalıklarını kullanarak Microsoft Visual Studio'yu başlatın. Yönetici ayrıcalıklarıyla Visual Studio'yu başlatmak için **Visual Studio** programının simgesine sağ tıklayın ve ardından **Yönetici olarak çalıştır**'a tıklayın.
+1. Yönetici ayrıcalıklarını kullanarak Microsoft Visual Studio'yu başlatın. Bunu yapmak için Visual Studio program simgesine sağ tıklayıp **Yönetici olarak çalıştır**’a tıklayın.
 2. Visual Studio'da, **Dosya** menüsündeki **Yeni** seçeneğine ve ardından **Proje**'ye tıklayın.
 3. **Yüklü Şablonlar**'dan **Visual C#** bölümünde **Konsol Uygulaması**'na tıklayın. **Ad** kutusuna **ProductsServer** adını yazın:
 
@@ -86,7 +85,7 @@ Bu proje bir Visual Studio konsol uygulamasıdır ve Service Bus kitaplıkları 
 9. **Ad** kutusuna **ProductsContract.cs** adını yazın: Daha sonra **Ekle**'ye tıklayın.
 10. **ProductsContract.cs** sınıfında, ad alanı tanımını hizmet sözleşmesini tanımlayan şu kod ile değiştirin:
 
-    ```
+    ```csharp
     namespace ProductsServer
     {
         using System.Collections.Generic;
@@ -122,7 +121,7 @@ Bu proje bir Visual Studio konsol uygulamasıdır ve Service Bus kitaplıkları 
     ```
 11. Program.cs sınıfında içinde, ad alanı tanımını profil hizmetini ve bu hizmete yönelik ana bilgisayarı ekleyen şu kod ile değiştirin:
 
-    ```
+    ```csharp
     namespace ProductsServer
     {
         using System;
@@ -174,9 +173,9 @@ Bu proje bir Visual Studio konsol uygulamasıdır ve Service Bus kitaplıkları 
         }
     }
     ```
-12. Çözüm Gezgini'nde, **App.config** dosyasına çift tıklayarak dosyayı Visual Studio düzenleyicisinde açın. **&lt;system.ServiceModel&gt;** öğesinin alt kısmına (yine de &lt;system.ServiceModel&gt; içinde olacak şekilde) aşağıdaki XML kodunu ekleyin. *yourKey* alanını daha önce portaldan aldığınız SAS anahtarıyla ve *yourServiceNamespace* alanını da ad alanı adınızla değiştirdiğinizden emin olun:
+12. Çözüm Gezgini'nde, **App.config** dosyasına çift tıklayarak dosyayı Visual Studio düzenleyicisinde açın. `<system.ServiceModel>` öğesinin en altına (yine `<system.ServiceModel>` içinde kalacak şekilde) aşağıdaki XML kodunu ekleyin. *yourKey* alanını daha önce portaldan aldığınız SAS anahtarıyla ve *yourServiceNamespace* alanını da ad alanı adınızla değiştirdiğinizden emin olun:
 
-    ```
+    ```xml
     <system.serviceModel>
     ...
       <services>
@@ -197,9 +196,9 @@ Bu proje bir Visual Studio konsol uygulamasıdır ve Service Bus kitaplıkları 
       </behaviors>
     </system.serviceModel>
     ```
-13. Yine App.config dosyasının içinde **&lt;appSettings&gt;** öğesinde, bağlantı dizesi değerini daha önce portaldan aldığınız bağlantı dizesiyle değiştirin.
+13. App.config dosyasından çıkmadan, `<appSettings>` öğesinde bağlantı dizesi değerini portaldan daha önce edindiğiniz bağlantı dizesiyle değiştirin.
 
-    ```
+    ```xml
     <appSettings>
        <!-- Service Bus specific app settings for messaging connections -->
        <add key="Microsoft.ServiceBus.ConnectionString"
@@ -236,22 +235,22 @@ Bu bölümde, ürün hizmetinizden alınan verileri görüntüleyen basit bir AS
 ### <a name="modify-the-web-application"></a>Web uygulamasını değiştirme
 1. Visual Studio'da Product.cs dosyasındaki var olan ad alanı tanımını şu kod ile değiştirin:
 
-   ```
-   // Declare properties for the products inventory.
+   ```csharp
+    // Declare properties for the products inventory.
     namespace ProductsWeb.Models
-   {
+    {
        public class Product
        {
            public string Id { get; set; }
            public string Name { get; set; }
            public string Quantity { get; set; }
        }
-   }
-   ```
+    }
+    ```
 2. Çözüm Gezgini'nde **Denetleyiciler** klasörünü genişletin ve Visual Studio'da açmak için **HomeController.cs** dosyasına çift tıklayın.
 3. **HomeController.cs** dosyasındaki var olan ad alanı tanımını aşağıdaki kod ile değiştirin.
 
-    ```
+    ```csharp
     namespace ProductsWeb.Controllers
     {
         using System.Collections.Generic;
@@ -278,7 +277,7 @@ Bu bölümde, ürün hizmetinizden alınan verileri görüntüleyen basit bir AS
 7. Çözüm Gezgini'nde, Görünümler/Giriş klasörünü genişletin ve ardından **Index.cshtml** öğesine tıklayarak Visual Studio düzenleyicisinde açın.
    Dosyanın tüm içeriğini aşağıdaki kodla değiştirin.
 
-   ```
+   ```html
    @model IEnumerable<ProductsWeb.Models.Product>
 
    @{
@@ -334,7 +333,7 @@ Sonraki adım, şirket içi ürünlerin sunucusu ile ASP.NET uygulamasını birl
    ![][24]
 6. Şimdi, Visual Studio düzenleyicisinde **HomeController.cs** dosyasını açın ve ad alanı tanımını aşağıdaki kodla değiştirin. *yourServiceNamespace* alanını hizmet ad alanınızla ve *yourKey* alanını da SAS anahtarınızla değiştirdiğinizden emin olun. Bu işlem, çağrı sonucunu döndürerek istemcinin şirket içi hizmete çağrı yapmasına olanak sağlar.
 
-   ```
+   ```csharp
    namespace ProductsWeb.Controllers
    {
        using System.Linq;
@@ -441,7 +440,6 @@ Azure Geçiş hakkında daha fazla bilgi edinmek için şu kaynaklara bakın:
 
 [0]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hybrid.png
 [1]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/App2.png
-[Get Tools and SDK]: http://go.microsoft.com/fwlink/?LinkId=271920
 [NuGet]: http://nuget.org
 
 [11]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-con-1.png
@@ -465,9 +463,4 @@ Azure Geçiş hakkında daha fazla bilgi edinmek için şu kaynaklara bakın:
 [38]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-service2.png
 [41]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-multi-tier-40.png
 [43]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-43.png
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

@@ -1,6 +1,6 @@
 ---
 title: "Azure kapsayıcı kayıt defteri oluşturma - CLI | Microsoft Docs"
-description: "Azure CLI 2.0 Önizleme ile Azure kapsayıcısı kayıt defterleri oluşturmaya ve yönetmeye başlayın"
+description: "Azure CLI 2.0 ile Azure kapsayıcısı kayıt defterleri oluşturmaya ve yönetmeye başlayın"
 services: container-registry
 documentationcenter: 
 author: stevelas
@@ -17,12 +17,13 @@ ms.workload: na
 ms.date: 11/14/2016
 ms.author: stevelas
 translationtype: Human Translation
-ms.sourcegitcommit: f299cff22d00a1c765a32838647818d18f3df85d
-ms.openlocfilehash: bd2f3f5331eb83f09f5d187699a39c74be6282d5
+ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
+ms.openlocfilehash: 1d5e16952cbc56a381ead23843515cf6ed1d74a9
+ms.lasthandoff: 02/22/2017
 
 ---
 # <a name="create-a-container-registry-using-the-azure-cli"></a>Azure CLI’yı kullanarak kapsayıcı kayıt defteri oluşturma
-Linux, Mac veya Windows bilgisayarınızdan bir kapsayıcı kayıt defteri oluşturmak ve ayarlarını yönetmek için [Azure CLI 2.0 Önizleme](https://github.com/Azure/azure-cli)’deki komutları kullanın. Ayrıca, [Azure portalını](container-registry-get-started-portal.md) kullanarak veya Kapsayıcı Kayıt Defteri [REST API](https://go.microsoft.com/fwlink/p/?linkid=834376) ile programlı olarak da kapsayıcı kayıt defterleri oluşturup yönetebilirsiniz.
+Linux, Mac veya Windows bilgisayarınızdan bir kapsayıcı kayıt defteri oluşturmak ve ayarlarını yönetmek için [Azure CLI 2.0](https://github.com/Azure/azure-cli)’daki komutları kullanın. Ayrıca, [Azure portalını](container-registry-get-started-portal.md) kullanarak veya Kapsayıcı Kayıt Defteri [REST API](https://go.microsoft.com/fwlink/p/?linkid=834376) ile programlı olarak da kapsayıcı kayıt defterleri oluşturup yönetebilirsiniz.
 
 
 * Arka plan bilgisi ve kavramlar için bkz. [Azure Container Kayıt Defteri nedir?](container-registry-intro.md)
@@ -34,9 +35,9 @@ Linux, Mac veya Windows bilgisayarınızdan bir kapsayıcı kayıt defteri oluş
 > 
 
 ## <a name="prerequisites"></a>Ön koşullar
-* **Azure CLI 2.0 Önizleme** - CLI 2.0 Önizleme’yi yüklemek ve kullanmaya başlamak için bkz. [yükleme yönergeleri](https://github.com/Azure/azure-cli/blob/master/README.rst). `az login` komutunu çalıştırarak Azure aboneliğinizde oturum açın.
-* **Kaynak grubu** - Kapsayıcı kayıt defteri oluşturmadan önce bir [kaynak grubu](../azure-resource-manager/resource-group-overview.md#resource-groups) oluşturun veya mevcut bir kaynak grubunu kullanın. Kaynak grubunun Container Kayıt Defteri hizmetinin [kullanılabilir](https://azure.microsoft.com/regions/services/) olduğu bir konumda olduğundan emin olun. CLI 2.0 Önizleme’yi kullanarak bir kaynak grubu oluşturmak için bkz. [CLI 2.0 Önizleme örnekleri](https://github.com/Azure/azure-cli-samples/tree/master/arm). 
-* **Depolama hesabı** (isteğe bağlı) - Kapsayıcı kayıt defterini aynı konumda yedeklemek için standart bir Azure [depolama hesabı](../storage/storage-introduction.md) oluşturun. `az acr create` ile kayıt defteri oluştururken bir depolama hesabı belirtmezseniz komut sizin için bir depolama hesabı oluşturur. CLI 2.0 Önizleme’yi kullanarak bir depolama hesabı oluşturmak için bkz. [CLI 2.0 Önizleme örnekleri](https://github.com/Azure/azure-cli-samples/tree/master/storage).
+* **Azure CLI 2.0** - CLI 2.0’ı yüklemek ve kullanmaya başlamak için bkz. [yükleme yönergeleri](https://github.com/Azure/azure-cli/blob/master/README.rst). `az login` komutunu çalıştırarak Azure aboneliğinizde oturum açın.
+* **Kaynak grubu** - Kapsayıcı kayıt defteri oluşturmadan önce bir [kaynak grubu](../azure-resource-manager/resource-group-overview.md#resource-groups) oluşturun veya mevcut bir kaynak grubunu kullanın. Kaynak grubunun Container Kayıt Defteri hizmetinin [kullanılabilir](https://azure.microsoft.com/regions/services/) olduğu bir konumda olduğundan emin olun. CLI 2.0’ı kullanarak bir kaynak grubu oluşturmak için bkz. [CLI 2.0 örnekleri](https://github.com/Azure/azure-cli-samples/tree/master/arm). 
+* **Depolama hesabı** (isteğe bağlı) - Kapsayıcı kayıt defterini aynı konumda yedeklemek için standart bir Azure [depolama hesabı](../storage/storage-introduction.md) oluşturun. `az acr create` ile kayıt defteri oluştururken bir depolama hesabı belirtmezseniz komut sizin için bir depolama hesabı oluşturur. CLI 2.0’ı kullanarak bir depolama hesabı oluşturmak için bkz. [CLI 2.0 örnekleri](https://github.com/Azure/azure-cli-samples/tree/master/storage).
 * **Hizmet sorumlusu** (isteğe bağlı): CLI ile bir kayıt defteri oluşturduğunuzda, kayıt defteri varsayılan olarak erişim için ayarlanmaz. Gereksinimlerinize bağlı olarak mevcut bir Azure Active Directory hizmet sorumlusunu bir kayıt defterine atayabilir (veya bir hizmet sorumlusu oluşturup atayabilir) ya da kayıt defterinin yönetici kullanıcı hesabını etkinleştirebilirsiniz. Bu makalenin sonraki bölümlerine bakın. Kayıt defteri erişimi hakkında daha fazla bilgi için bkz. [Kapsayıcı kayıt defteri ile kimlik doğrulama](container-registry-authentication.md). 
 
 ## <a name="create-a-container-registry"></a>Kapsayıcı kayıt defteri oluşturma
@@ -66,7 +67,7 @@ az acr create -n myRegistry -g myResourceGroup -l southcentralus
 * `loginServer` - [Kayıt defterinde oturum açmak için](container-registry-authentication.md) belirttiğiniz tam ad. Bu örnekte ad `myregistry-contoso.exp.azurecr.io`’dur (tamamı küçük harflerle).
 
 ## <a name="assign-a-service-principal"></a>Hizmet sorumlusu atama
-Bir kayıt defterine Azure Active Directory hizmet sorumlusu atamak için CLI 2.0 Önizleme komutlarını kullanın. Bu örneklerdeki hizmet sorumlusuna Sahip rolü atanmış olsa da isterseniz [başka roller](../active-directory/role-based-access-control-configure.md) atayabilirsiniz.
+Bir kayıt defterine Azure Active Directory hizmet sorumlusu atamak için CLI 2.0 komutlarını kullanın. Bu örneklerdeki hizmet sorumlusuna Sahip rolü atanmış olsa da isterseniz [başka roller](../active-directory/role-based-access-control-configure.md) atayabilirsiniz.
 
 ### <a name="create-a-service-principal-and-assign-access-to-the-registry"></a>Hizmet sorumlusu oluşturma ve kayıt defterine erişim atama
 Aşağıdaki komutta, yeni bir hizmet sorumlusuna `--scopes` parametresiyle geçirilen kayıt defteri tanımlayıcısı için Sahip rolü erişimi atanır. `--password` parametresi ile güçlü bir parola belirtin.
@@ -127,10 +128,5 @@ az acr repository show-tags -n myRegistry --repository samples/nginx -o json
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Docker CLI’yı kullanarak ilk görüntünüzü itme](container-registry-get-started-docker-cli.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

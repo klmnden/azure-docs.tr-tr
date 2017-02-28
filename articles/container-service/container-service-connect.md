@@ -7,47 +7,45 @@ author: dlepow
 manager: timlt
 editor: 
 tags: acs, azure-container-service
-keywords: "Docker, Container’lar, Mikro hizmetler, Kumernetes, DC/OS, Azure"
+keywords: "Docker, Container’lar, Mikro hizmetler, Kubernetes, DC/OS, Azure"
 ms.assetid: ff8d9e32-20d2-4658-829f-590dec89603d
 ms.service: container-service
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2017
+ms.date: 02/21/2017
 ms.author: rogardle
 translationtype: Human Translation
-ms.sourcegitcommit: 2464c91b99d985d7e626f57b2d77a334ee595f43
-ms.openlocfilehash: 813517a26ccbbd9df7e7fb7de36811cdebb84284
+ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
+ms.openlocfilehash: 45d399b72f8d037fb828d9ad22bbd3543847feb3
+ms.lasthandoff: 02/22/2017
 
 
 ---
-# <a name="connect-to-an-azure-container-service-cluster"></a>Azure Kapsayıcı Hizmeti kümesine bağlanma
+# <a name="connect-to-an-azure-container-service-cluster"></a>Azure Container Service kümesine bağlanma
 Azure Container Service kümesi oluşturduktan sonra, iş yüklerini dağıtmak ve yönetmek için kümeye bağlanmanız gerekir. Bu makalede uzak bir bilgisayardan kümenin ana VM’ine nasıl bağlanacağınız açıklanır. 
 
 Kubernetes, DC/OS ve Docker Swarm kümeleri yerel olarak HTTP uç noktaları sağlar. Kubernetes için, bu uç nokta İnternet’te güvenli bir şekilde kullanıma sunulmuştur ve bu uç noktaya İnternet bağlantısı olan herhangi bir makineden `kubectl` komutunu çalıştırarak erişebilirsiniz. 
 
 DC/OS ve Docker Swarm için, iç sistemde güvenli bir kabuk (SSH) oluşturmanız gerekir. Tünel oluşturulduktan sonra HTTP uç noktalarını kullanan komutları çalıştırabilir ve kümenin web arabirimini yerel sisteminizden görüntüleyebilirsiniz. 
 
-> [!NOTE]
-> Azure Container Service'teki Kubernetes desteği şu anda önizleme aşamasındadır.
->
 
 ## <a name="prerequisites"></a>Ön koşullar
 
 * Bir Kubernetes, DC/OS veya Swarm kümesi [Azure Container Service’te dağıtılır](container-service-deployment.md).
-* Dağıtım sırasında kümeye eklenen ortak anahtara denk gelen SSH özel anahtar dosyası. Bu komutlar, özel SSH anahtarının bilgisayarınızda `$HOME/.ssh/id_rsa` içerisinde olduğunu varsayar. Daha fazla bilgi için [OS X ve Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) veya [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md) ile ilgili şu yönergelere bakın. SSH bağlantısı çalışmıyorsa,[SSH anahtarlarınızı sıfırlamanız](../virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md) gerekebilir.
+* Dağıtım sırasında kümeye eklenen ortak anahtara karşılık gelen SSH RSA özel anahtar dosyası. Bu komutlar, özel SSH anahtarının bilgisayarınızda `$HOME/.ssh/id_rsa` içerisinde olduğunu varsayar. Daha fazla bilgi için [OS X ve Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) veya [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md) ile ilgili şu yönergelere bakın. SSH bağlantısı çalışmıyorsa, [SSH anahtarlarınızı sıfırlamanız](../virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md) gerekebilir.
 
 ## <a name="connect-to-a-kubernetes-cluster"></a>Kubernetes kümesine bağlanma
 
 Bilgisayarınızda `kubectl` yükleyip yapılandırmak için şu adımları takip edin.
 
 > [!NOTE] 
-> Linux veya OS X’te `sudo` kullanarak bu bölümdeki komutları çalıştırmanız gerekebilir..
+> Linux veya OS X’te `sudo` kullanarak bu bölümdeki komutları çalıştırmanız gerekebilir.
 > 
 
 ### <a name="install-kubectl"></a>Kubectl yükleyin
-Bu aracı yüklemenin en kolay yolu, Azure 2.0 `az acs kubernetes install-cli` (Önizleme) komut satırı aracını kullanmaktır. Bu komutu çalıştırmak için Azure CLI 2.0’ın (Önizleme) en son sürümünü [yüklediğinizden](/cli/azure/install-az-cli2) ve bir Azure hesabında (`az login`) oturum açtığınızdan emin olun.
+Bu aracı yüklemenin kolay yollarından biri, Azure CLI 2.0 `az acs kubernetes install-cli` komutunu kullanmaktır. Bu komutu çalıştırmak için Azure CLI 2.0’ın en son sürümünü [yüklediğinizden](/cli/azure/install-az-cli2) ve bir Azure hesabında (`az login`) oturum açtığınızdan emin olun.
 
 ```azurecli
 # Linux or OS X
@@ -57,7 +55,7 @@ az acs kubernetes install-cli [--install-location=/some/directory/kubectl]
 az acs kubernetes install-cli [--install-location=C:\some\directory\kubectl.exe]
 ```
 
-Alternatif olarak, istemciyi doğrudan [sürümler sayfasından](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG.md#downloads-for-v146) indirebilirsiniz.
+Alternatif olarak, en son istemciyi doğrudan [Kubernetes sürümleri sayfasından](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG.md) indirebilirsiniz. Daha fazla bilgi için bkz. [kubectl yükleme ve ayarlama](https://kubernetes.io/docs/user-guide/prereqs/).
 
 ### <a name="download-cluster-credentials"></a>Küme kimlik bilgilerini indirme
 `kubectl` komut satırı aracını yükledikten sonra, küme kimlik bilgilerini makinenize kopyalamanız gerekir. Kimlik bilgilerini almak için başka bir yöntem de `az acs kubernetes get-credentials` komutunu çalıştırmaktır. Kaynak grubunun ve kapsayıcı hizmet kaynağının adını geçirin:
@@ -170,7 +168,7 @@ export DOCKER_HOST=:2375
 ```
 
 ### <a name="create-an-ssh-tunnel-on-windows"></a>Windows’da SSH tüneli oluşturma
-Windows’da SSH tünelleri oluşturmak için birden çok seçenek vardır. Bu bölüm, tüneli oluşturmak için PuTTy’nin nasıl kullanılacağını açıklar.
+Windows’da SSH tünelleri oluşturmak için birden çok seçenek vardır. Bu bölüm, tüneli oluşturmak için PuTTY’nin nasıl kullanılacağını açıklar.
 
 1. [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)’yi Windows sisteminize indirin.
 
@@ -203,7 +201,7 @@ Windows’da SSH tünelleri oluşturmak için birden çok seçenek vardır. Bu b
 
     ![PuTTY olay günlüğü](media/putty4.png)
 
-DC/OS için tünelini yapılandırdıktan sonra aşağıdakiler üzerinde ilgili uç noktaya erişebilirsiniz:
+DC/OS için tünelini yapılandırdıktan sonra aşağıdakiler üzerinden ilgili uç noktalara erişebilirsiniz:
 
 * DC/OS: `http://localhost/`
 * Marathon: `http://localhost/marathon`
@@ -217,10 +215,5 @@ Kümenizde kapsayıcıları dağıtma ve yönetme:
 * [Azure Container Service ve Kubernetes ile çalışma](container-service-kubernetes-ui.md)
 * [Azure Container Service ve DC/OS ile çalışma](container-service-mesos-marathon-rest.md)
 * [Azure Container Service ve Docker Swarm ile çalışma](container-service-docker-swarm.md)
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

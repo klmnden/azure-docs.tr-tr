@@ -14,37 +14,40 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2016
+ms.date: 02/21/2017
 ms.author: anhowe
 translationtype: Human Translation
-ms.sourcegitcommit: 7ed8fb75f057d5a7cfde5436e72e8fec52d07156
-ms.openlocfilehash: f3b2fc301bf7083f192c0ec872c4e032472eef97
+ms.sourcegitcommit: 2a381431acb6436ddd8e13c69b05423a33cd4fa6
+ms.openlocfilehash: 1742a6d4d99b81509564696e6faaf9e6fbf8f604
+ms.lasthandoff: 02/22/2017
 
 
 ---
 
-# <a name="microsoft-azure-container-service-engine---kubernetes-walkthrough"></a>Microsoft Azure Container Service Altyapısı - Kubernetes Kılavuzu
+# <a name="azure-container-service---kubernetes-walkthrough"></a>Azure Container Service - Kubernetes kılavuzu
 
-## <a name="prerequisites"></a>Ön koşullar
-Bu kılavuz bilgisayarınızda ['azure-cli' komut satırı aracının](https://github.com/azure/azure-cli#installation) yüklü olduğunu ve `~/.ssh/id_rsa.pub` konumunda [SSH ortak anahtarını](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) oluşturduğunuzu varsayar.
 
-## <a name="overview"></a>Genel Bakış
+Bu makaledeki yönergeler, Azure CLI 2.0 komutlarını kullanarak Kubernetes kümesi oluşturmayı gösterir. Daha sonra `kubectl` komut satırı aracını kullanarak kümedeki kapsayıcılarla çalışmaya başlayabilirsiniz.
 
-Aşağıdaki yönergeler bir ana ve iki çalışan düğümü ile Kubernetes kümesi oluşturur.
-Ana düğüm Kubernetes REST API işlevi görür.  Çalışan düğümü ise Azure kullanılabilirlik kümesinde gruplandırılıp kapsayıcılarınızı çalıştırır. Tüm sanal makineler aynı sanal ağ içindedir ve birbirine tam olarak erişilebilir.
-
-> [!NOTE]
-> Azure Container Service'teki Kubernetes desteği şu anda önizleme aşamasındadır.
->
-
-Aşağıdaki görüntüde bir ana ve iki aracı düğüme sahip kapsayıcı hizmeti kümesinin mimarisi gösterilmektedir:
+Aşağıdaki görüntüde bir ana ve iki aracı düğüme sahip kapsayıcı hizmeti kümesinin mimarisi gösterilmektedir. Ana düğüm Kubernetes REST API işlevi görür. Aracı düğümleri Azure kullanılabilirlik kümesinde gruplandırılır ve kapsayıcılarınızı çalıştırır. Tüm sanal makineler aynı gizli sanal ağ üzerindedir ve birbirlerine tam olarak erişilebilir.
 
 ![Azure’da Kubernetes kümesinin görüntüsü](media/container-service-kubernetes-walkthrough/kubernetes.png)
 
-## <a name="creating-your-kubernetes-cluster"></a>Kubernetes kümesi oluşturma
+## <a name="prerequisites"></a>Ön koşullar
+Bu kılavuzda [Azure CLI v. 2.0](/cli/azure/install-az-cli2) bileşenini yüklediğiniz ve ayarladığınız varsayılır. Ayrıca, `~/.ssh/id_rsa.pub` konumunda bir SSH RSA ortak anahtarınız da olmalıdır. Bu anahtara sahip değilseniz [OS X ve Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) veya [Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md)’a yönelik adımlara bakın.
+
+
+
+
+
+
+## <a name="create-your-kubernetes-cluster"></a>Kubernetes kümenizi oluşturma
+
+Aşağıda Azure CLI 2.0 ile kümenizi oluşturmak için kullanabileceğiniz kısa bir kabuk komutları listesi sağlanmıştır. Daha fazla bilgi edinmek için bkz. [Azure CLI 2.0 ile bir Azure Container Service kümesi oluşturma](container-service-create-acs-cluster-cli.md).
 
 ### <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
-Kümenizi oluşturmak için ilk olarak belirli bir konumda bir kaynak grubu oluşturmanız gerekir. Bunu şununla yapabilirsiniz:
+Kümenizi oluşturmak için ilk olarak belirli bir konumda bir kaynak grubu oluşturmanız gerekir. Aşağıdaki gibi komutlar çalıştırın:
+
 ```console
 RESOURCE_GROUP=my-resource-group
 LOCATION=westus
@@ -52,27 +55,32 @@ az group create --name=$RESOURCE_GROUP --location=$LOCATION
 ```
 
 ### <a name="create-a-cluster"></a>Küme oluşturma
-Bir kaynak grubu oluşturduktan sonra bu grupta aşağıdaki bir küme oluşturabilirsiniz:
+Bir kaynak grubu oluşturduktan sonra bu grupta bir küme oluşturabilirsiniz:
+
 ```console
 DNS_PREFIX=some-unique-value
-SERVICE_NAME=any-acs-service-name
-az acs create --orchestrator-type=kubernetes --resource-group $RESOURCE_GROUP --name=$SERVICE_NAME --dns-prefix=$DNS_PREFIX
+CLUSTER_NAME=any-acs-cluster-name
+az acs create --orchestrator-type=kubernetes --resource-group $RESOURCE_GROUP --name=$CLUSTER_NAME --dns-prefix=$DNS_PREFIX
 ```
 
 > [!NOTE]
-> azure-cli, `~/.ssh/id_rsa.pub` öğesini Linux VM’lerine yükler.
+> Dağıtım sırasında, `~/.ssh/id_rsa.pub` dosyası CLI tarafından Linux sanal makinelerine yüklenir.
 >
 
 Bu komut tamamlandıktan sonra çalışan bir Kubernetes kümesine sahip olursunuz.
 
-### <a name="configure-kubectl"></a>Kubectl yapılandırma
-`kubectl`, Kubernetes komut satırı istemcisidir.  Henüz yüklemediyseniz şununla yükleyebilirsiniz:
+### <a name="connect-to-the-cluster"></a>Kümeye bağlanma
+
+İstemci bilgisayarınızdan Kubernetes’in komut satırı istemcisi olan `kubectl` ile Kubernetes kümesine bağlanmak için kullanabileceğiniz Azure CLI komutları aşağıda verilmiştir. Daha fazla bilgi için bkz. [Azure Container Service kümesine bağlanma](container-service-connect.md).
+
+`kubectl` henüz yüklenmediyse şununla yükleyebilirsiniz:
 
 ```console
 az acs kubernetes install-cli
 ```
 
-`kubectl` yüklendikten sonra aşağıdaki komutun çalıştırılması ana kubernetes küme yapılandırmasını ~/.kube/config dosyasına indirir
+`kubectl` yüklendikten sonra aşağıdaki komutu çalıştırarak ana Kubernetes kümesinin yapılandırmasını ~/.kube/config dosyasına indirin:
+
 ```console
 az acs kubernetes get-credentials --resource-group=$RESOURCE_GROUP --name=$SERVICE_NAME
 ```
@@ -82,50 +90,50 @@ Bu noktada makinenizden kümenize erişmeye hazır olmanız gerekir. Şunu çal�
 kubectl get nodes
 ```
 
-Bu durumda kümenizdeki makineleri görebildiğinizi doğrulayın.
+Kümenizdeki bir makine listesi görebildiğinizi doğrulayın.
 
-## <a name="create-your-first-kubernetes-service"></a>İlk Kubernetes Hizmetinizi oluşturma
+## <a name="create-your-first-kubernetes-service"></a>İlk Kubernetes hizmetinizi oluşturma
 
 Bu kılavuzu tamamladıktan sonra şunları öğrenmiş olacaksınız:
- * Docker uygulaması dağıtma ve genel kullanıma sunma,
- * `kubectl exec` kullanarak bir kapsayıcıdaki komutları çalıştırma, 
- * Kubernetes panosuna erişme.
+ * Docker uygulaması dağıtma ve genel kullanıma sunma
+ * `kubectl exec` kullanarak bir kapsayıcıdaki komutları çalıştırma 
+ * Kubernetes panosuna erişme
 
 ### <a name="start-a-simple-container"></a>Basit bir kapsayıcı başlatma
-Aşağıdaki komutu çalıştırarak basit bir kapsayıcı (bu örnekte `nginx` web sunucusu) çalıştırabilirsiniz:
+Aşağıdaki komutu çalıştırarak basit bir kapsayıcı (bu örnekte Nginx web sunucusu) çalıştırabilirsiniz:
 
 ```console
 kubectl run nginx --image nginx
 ```
 
-Bu komut nginx Docker kapsayıcısını düğümlerin birindeki bir pod içinde başlatır.
+Bu komut, düğümlerin birindeki bir pod içinde Nginx Docker kapsayıcısını başlatır.
 
-Çalışan kapsayıcıyı görmek için
+Çalıştırma kapsayıcısını görmek için şu komutu çalıştırın:
+
 ```console
 kubectl get pods
 ```
 
-komutunu çalıştırabilirsiniz.
-
 ### <a name="expose-the-service-to-the-world"></a>Hizmeti genel kullanıma sunma
-Hizmeti genel kullanıma sunmak için.  `LoadBalancer` türünde bir Kubernetes `Service` oluşturun:
+Hizmeti genel kullanıma sunmak için `LoadBalancer` türünde bir Kubernetes `Service` oluşturun:
 
 ```console
 kubectl expose deployments nginx --port=80 --type=LoadBalancer
 ```
 
-Bunun yapılması Kubernetes’in ortak bir IP ile Azure Load Balancer oluşturmasına neden olur. Değişikliğin yük dengeleyiciye yayılması yaklaşık 2-3 dakika sürer.
+Bu işlem, Kubernetes’in genel bir IP adresi ile Azure Load Balancer kuralı oluşturmasına neden olur. Değişikliğin yük dengeleyiciye yayılması yaklaşık birkaç dakika sürer. Daha fazla bilgi edinmek için bkz. [Azure Container Service’teki bir Kubernetes kümesinde yük dengeleme kapsayıcıları](container-service-kubernetes-load-balancing.md).
 
-Hizmetin "bekliyor" durumundan bir dış ip türüne geçtiğini izlemek için:
+Hizmetin `pending` durumundan çıkarak harici bir IP adresi görüntülemesini sağlamak için aşağıdaki komutu çalıştırın:
+
 ```console
 watch 'kubectl get svc'
 ```
 
-  ![Bekliyor durumundan dış ip’ye geçişi izleme görüntüsü](media/container-service-kubernetes-walkthrough/kubernetes-nginx3.png)
+  ![Bekliyor durumundan harici IP adresine geçişi izleme görüntüsü](media/container-service-kubernetes-walkthrough/kubernetes-nginx3.png)
 
-Dış IP’yi görmenizden sonra tarayıcınızda bu IP’ye göz atabilirsiniz:
+Harici IP adresini gördükten sonra tarayıcınızdan bu adrese gidebilirsiniz:
 
-  ![nginx’e göz atma görüntüsü](media/container-service-kubernetes-walkthrough/kubernetes-nginx4.png)  
+  ![Nginx’e göz atma görüntüsü](media/container-service-kubernetes-walkthrough/kubernetes-nginx4.png)  
 
 
 ### <a name="browse-the-kubernetes-ui"></a>Kubernetes Kullanıcı Arabirimini Göz Atma
@@ -134,7 +142,7 @@ Kubernetes web arabirimini görmek için şunu kullanabilirsiniz:
 ```console
 kubectl proxy
 ```
-Bu komut localhost üzerinde [kubernetes kullanıcı arabirimini](http://localhost:8001/ui) görüntülemek için kullanabileceğiniz basit bir kimliği doğrulanmış ara sunucu çalıştırır
+Bu komut localhost üzerinde [Kubernetes web kullanıcı arabirimini](http://localhost:8001/ui) görüntülemek için kullanabileceğiniz basit bir kimliği doğrulanmış proxy çalıştırır. Daha fazla bilgi edinmek için bkz: [Kubernetes web kullanıcı arabirimini Azure Container Service ile kullanma](container-service-kubernetes-ui.md).
 
 ![Kubernetes panosunun görüntüsü](media/container-service-kubernetes-walkthrough/kubernetes-dashboard.png)
 
@@ -142,11 +150,12 @@ Bu komut localhost üzerinde [kubernetes kullanıcı arabirimini](http://localho
 Kubernetes, komutları kümenizde çalışan uzak bir Docker kapsayıcısında çalıştırmanıza olanak tanır.
 
 ```console
-# Get the name of your nginx pod
+# Get the name of your nginx pods
 kubectl get pods
 ```
 
 Pod adınızı kullanarak, pod üzerinde bir uzak komutu çalıştırabilirsiniz.  Örneğin:
+
 ```console
 kubectl exec nginx-701339712-retbj date
 ```
@@ -157,46 +166,15 @@ Ayrıca `-it` bayraklarını kullanarak tam etkileşimli bir oturum elde edebili
 kubectl exec nginx-701339712-retbj -it bash
 ```
 
-![podIP eğrisinin görüntüsü](media/container-service-kubernetes-walkthrough/kubernetes-remote.png)
-
-
-## <a name="details"></a>Ayrıntılar
-### <a name="installing-the-kubectl-configuration-file"></a>Kubectl yapılandırma dosyasını yükleme
-`az acs kubernetes get-credentials` komutunu çalıştırdığınızda, uzaktan erişim için kube yapılandırma dosyası ~/.kube/config giriş dizininin altına depolanmıştı.
-
-Doğrudan indirmeniz gerekirse Linux veya OS X’te `ssh`, windows’ta `Putty` kullanabilirsiniz:
-
-#### <a name="windows"></a>Windows
-Pscp’yi [putty](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)’den kullanmak için.  Sertifikanızın [pageant](https://github.com/Azure/acs-engine/blob/master/docs/ssh.md#key-management-and-agent-forwarding-with-windows-pageant) aracılığıyla kullanıma sunulduğundan emin olun:
-  ```
-  # MASTERFQDN is obtained in step1
-  pscp azureuser@MASTERFQDN:.kube/config .
-  SET KUBECONFIG=%CD%\config
-  kubectl get nodes
-  ```
-
-#### <a name="os-x-or-linux"></a>OS X veya Linux:
-  ```
-  # MASTERFQDN is obtained in step1
-  scp azureuser@MASTERFQDN:.kube/config .
-  export KUBECONFIG=`pwd`/config
-  kubectl get nodes
-  ```
-## <a name="learning-more"></a>Daha Fazla Bilgi
-
-### <a name="azure-container-service"></a>Azure Container Service
-
-1. [Azure Container Service belgeleri](https://azure.microsoft.com/en-us/documentation/services/container-service/)
-2. [Azure Container Service Açık Kaynak Altyapısı](https://github.com/azure/acs-engine)
-
-### <a name="kubernetes-community-documentation"></a>Kubernetes Topluluk Belgeleri
-
-1. [Kubernetes Bootcamp](https://katacoda.com/embed/kubernetes-bootcamp/1/) - kapsayıcılı uygulamalar için dağıtma, ölçeklendirme, güncelleştirme ve hata ayıklama işlemlerini gösterir.
-2. [Kubernetes Kullanıcı Kılavuzu](http://kubernetes.io/docs/user-guide/) - var olan bir Kubernetes kümesindeki çalışan programlar hakkında bilgi sağlar.
-3. [Kubernetes Örnekleri](https://github.com/kubernetes/kubernetes/tree/master/examples) - Kubernetes ile gerçek uygulamaları çalıştırmaya ilişkin birkaç örnek verir.
+![Bir kapsayıcı içinde uzak oturum](media/container-service-kubernetes-walkthrough/kubernetes-remote.png)
 
 
 
-<!--HONumber=Jan17_HO4-->
+## <a name="next-steps"></a>Sonraki adımlar
 
+Kubernetes kümenizle daha fazlasını yapmak için aşağıdaki kaynaklara bakın:
+
+* [Kubernetes Bootcamp](https://katacoda.com/embed/kubernetes-bootcamp/1/) - kapsayıcılı uygulamalar için dağıtma, ölçeklendirme, güncelleştirme ve hata ayıklama işlemlerini gösterir.
+* [Kubernetes Kullanıcı Kılavuzu](http://kubernetes.io/docs/user-guide/) - var olan bir Kubernetes kümesindeki çalışan programlar hakkında bilgi sağlar.
+* [Kubernetes Örnekleri](https://github.com/kubernetes/kubernetes/tree/master/examples) - Kubernetes ile gerçek uygulama çalıştırmaya ilişkin örnekler sunar.
 

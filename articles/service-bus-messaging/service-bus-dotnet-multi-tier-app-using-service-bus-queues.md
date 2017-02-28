@@ -1,5 +1,5 @@
 ---
-title: "Azure Service Bus kuyruklarını kullanan çok katmanlı .NET uygulaması | Microsoft Docs"
+title: "Azure Service Bus kullanan çok katmanlı .NET uygulaması | Microsoft Docs"
 description: "Azure&quot;da katmanlar arasında iletişim sağlamak için Service Bus kuyruklarını kullanan çok katmanlı uygulama geliştirmenize yardımcı olan bir .NET öğreticisi."
 services: service-bus-messaging
 documentationcenter: .net
@@ -15,8 +15,9 @@ ms.topic: get-started-article
 ms.date: 01/10/2017
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 9849b15115de5b17a50e0f46781c8aa16a53d297
-ms.openlocfilehash: c68125afe8979c595ae0f6e78fa90f6a365c435f
+ms.sourcegitcommit: 94f4d852aeaed1eec20f178e2721650660ebec49
+ms.openlocfilehash: 0f2caeed40b59a65ec08e7d94701c93b862199fc
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -61,7 +62,7 @@ Aşağıdaki bölümlerde, bu mimariyi uygulayan kod ele alınır.
 ## <a name="set-up-the-development-environment"></a>Geliştirme ortamını ayarlama
 Azure uygulamalarını geliştirmeye başlamadan önce, araçları edinip geliştirme ortamınızı ayarlayın.
 
-1. [Araç ve SDK edinme](https://azure.microsoft.com/downloads/) bölümünde .NET için Azure SDK'sını yükleyin.
+1. SDK [indirme sayfasından](https://azure.microsoft.com/downloads/) .NET için Azure SDK'sını yükleyin.
 2. **.NET** sütununda, kullandığınız Visual Studio sürümüne tıklayın. Bu öğreticideki adımlarda Visual Studio 2015 kullanılır.
 3. Yükleyiciyi çalıştırmanız veya kaydetmeniz istendiğinde **Çalıştır**'a tıklayın.
 4. **Web Platformu Yükleyicisi**'nde **Yükle**'ye tıklayın ve kuruluma devam edin.
@@ -394,9 +395,4 @@ Service Bus hakkında daha fazla bilgi edinmek için şu kaynaklara bakın:
 [sbacom]: https://azure.microsoft.com/services/service-bus/  
 [sbacomqhowto]: service-bus-dotnet-get-started-with-queues.md  
 [mutitierstorage]: https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36
-
-
-
-<!--HONumber=Jan17_HO2-->
-
 
