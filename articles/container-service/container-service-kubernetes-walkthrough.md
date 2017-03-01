@@ -82,7 +82,7 @@ az acs kubernetes install-cli
 `kubectl` yüklendikten sonra aşağıdaki komutu çalıştırarak ana Kubernetes kümesinin yapılandırmasını ~/.kube/config dosyasına indirin:
 
 ```console
-az acs kubernetes get-credentials --resource-group=$RESOURCE_GROUP --name=$SERVICE_NAME
+az acs kubernetes get-credentials --resource-group=$RESOURCE_GROUP --name=$CLUSTER_NAME
 ```
 
 Bu noktada makinenizden kümenize erişmeye hazır olmanız gerekir. Şunu çalıştırmayı deneyin:

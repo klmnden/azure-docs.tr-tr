@@ -126,7 +126,7 @@ Linux veya OS X’de bir SSH tüneli oluşturduğunuzda yapacağınız ilk şey 
     **PATH_TO_PRIVATE_KEY** [OPTIONAL] kümeyi oluştururken sağladığınız ortak anahtara karşılık gelen özel anahtar yoludur. Bu seçeneği `-i` flag ile birlikte kullanın.
 
     ```bash
-    ssh -fNL PORT:localhost:PORT -p 2200 [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com 
+    ssh -fNL LOCAL_PORT:localhost:REMOTE_PORT -p 2200 [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com 
     ```
     > [!NOTE]
     > SSH bağlantı noktası 2200’dür ve standart bağlantı noktası 22 değildir. Birden fazla ana VM bulunan kümede bu, ilk ana VM’e bağlantı noktasıdır.

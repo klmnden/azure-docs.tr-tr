@@ -4,7 +4,7 @@ description: "Azure App service’te Memcache protokolünü kullanarak bir web u
 services: app-service\web
 documentationcenter: php
 author: SyntaxC4
-manager: wpickett
+manager: erikre
 editor: riande
 ms.assetid: 0fcdf9fa-2995-4839-ba4d-cfa389c4ba06
 ms.service: app-service-web
@@ -17,6 +17,7 @@ ms.author: cfowler
 translationtype: Human Translation
 ms.sourcegitcommit: 550b4154f0fe510cb37ec4f8bdef251b06f0b495
 ms.openlocfilehash: 4d867f80cfbe5360962550fbda0091f88784b4af
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -201,9 +202,4 @@ Tebrikler! WordPress uygulamasında artık işlemenin artırılmasına yardımc�
 [11]: http://stackoverflow.com/questions/tagged/azure-web-sites
 [12]: /services/cache/
 [13]: http://memcached.org
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

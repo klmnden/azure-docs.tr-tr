@@ -4,7 +4,7 @@ description: "Azure App Service’in RESTful API’lerini geliştirmenize, barı
 services: app-service\api
 documentationcenter: .net
 author: tdykstra
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 60049a16-8159-47aa-a34b-110be0d8dab6
 ms.service: app-service-api
@@ -17,6 +17,7 @@ ms.author: rachelap
 translationtype: Human Translation
 ms.sourcegitcommit: 66fc8f7e1da55dbe6bb1dd8b8d6a535c498c1cf7
 ms.openlocfilehash: 62b1541414543fc947886374424dadee09759323
+ms.lasthandoff: 02/16/2017
 
 
 ---
@@ -58,10 +59,5 @@ Birine örnek kod dağıtarak API Apps hizmetini kullanmaya başlamak için terc
 * [Java](app-service-api-java-api-app.md) 
 
 API uygulamaları hakkında soru sormak için [API Apps forumunda](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureAPIApps) bir ileti dizisi başlatın. 
-
-
-
-
-<!--HONumber=Feb17_HO3-->
 
 

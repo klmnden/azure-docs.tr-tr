@@ -4,7 +4,7 @@ description: "Birkaç dakika içinde ilk web uygulamanıza harika özellikler ek
 services: app-service\web
 documentationcenter: 
 author: cephalin
-manager: wpickett
+manager: erikre
 editor: 
 ms.assetid: 542671c2-22f0-4f20-8b4b-fa477264c492
 ms.service: app-service-web
@@ -17,6 +17,7 @@ ms.author: cephalin
 translationtype: Human Translation
 ms.sourcegitcommit: 9916000ddf38fdda1dcbdcf8818c5833a445efc8
 ms.openlocfilehash: 3f099db9f75466b5571aa732bb60343af7bd86da
+ms.lasthandoff: 01/24/2017
 
 
 ---
@@ -153,10 +154,5 @@ Dağıttığınız uygulama ile daha fazlasını nasıl başarabileceğinizi ö�
    [Tinfoil Security](https://www.tinfoilsecurity.com/) tarafından sağlanan hizmetle modern tehditlere karşı web uygulamanızı tarayın.
 * [Arka plan işleri çalıştırma](../azure-functions/functions-overview.md) - Veri işleme, raporlama vb. için iş çalıştırın.
 * [App Service’ın nasıl çalıştığını öğrenin](../app-service/app-service-how-works-readme.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 
